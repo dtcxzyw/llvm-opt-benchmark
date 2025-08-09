@@ -5008,7 +5008,7 @@ _ZSt19__relocate_object_aIN4Luau7CodeGen23ProtoCompilationFailureES2_SaIS2_EEvPT
   store i64 %54, ptr %56, align 8, !tbaa !299, !alias.scope !421, !noalias !424
   store ptr %46, ptr %43, align 8, !tbaa !298, !alias.scope !424, !noalias !421
   store i64 0, ptr %55, align 8, !tbaa !299, !alias.scope !424, !noalias !421
-  store i8 0, ptr %46, align 1, !tbaa !85, !alias.scope !424, !noalias !421
+  store i8 0, ptr %46, align 8, !tbaa !85, !alias.scope !424, !noalias !421
   %57 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
   %58 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
   %59 = load i32, ptr %58, align 8, !tbaa !300, !alias.scope !424, !noalias !421
@@ -5064,7 +5064,7 @@ _ZSt19__relocate_object_aIN4Luau7CodeGen23ProtoCompilationFailureES2_SaIS2_EEvPT
   store i64 %76, ptr %78, align 8, !tbaa !299, !alias.scope !428, !noalias !431
   store ptr %68, ptr %65, align 8, !tbaa !298, !alias.scope !431, !noalias !428
   store i64 0, ptr %77, align 8, !tbaa !299, !alias.scope !431, !noalias !428
-  store i8 0, ptr %68, align 1, !tbaa !85, !alias.scope !431, !noalias !428
+  store i8 0, ptr %68, align 8, !tbaa !85, !alias.scope !431, !noalias !428
   %79 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 40
   %80 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 40
   %81 = load i32, ptr %80, align 8, !tbaa !300, !alias.scope !431, !noalias !428

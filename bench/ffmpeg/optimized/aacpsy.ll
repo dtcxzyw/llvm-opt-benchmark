@@ -198,7 +198,7 @@ define internal range(i32 -22, 1) i32 @psy_3gpp_init(ptr noundef %0) #0 {
   %108 = fmul nsz float %67, 1.228800e+04
   %109 = fdiv nsz float %108, %105
   %110 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  store float %109, ptr %110, align 4, !tbaa !48
+  store float %109, ptr %110, align 8, !tbaa !48
   %111 = sub nsw i32 6144, %spec.select
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %113 = and i32 %111, -8
@@ -1348,7 +1348,7 @@ calc_pe_3gpp.exit.i:                              ; preds = %232, %214
   %306 = getelementptr inbounds nuw i8, ptr %23, i64 12
   %307 = load float, ptr %306, align 4, !tbaa !47
   %308 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %309 = load float, ptr %308, align 4, !tbaa !48
+  %309 = load float, ptr %308, align 8, !tbaa !48
   %310 = fcmp nsz ogt float %.0565.lcssa.i, %307
   %311 = select nsz i1 %310, float %.0565.lcssa.i, float %307
   %312 = fcmp nsz ogt float %311, %309
@@ -1365,7 +1365,7 @@ calc_pe_3gpp.exit.i:                              ; preds = %232, %214
   %322 = tail call nsz float @llvm.fmuladd.f32(float %320, float %321, float %317)
   %323 = fcmp nsz ogt float %.0565.lcssa.i, %309
   %..i680.i = select nsz i1 %323, float %.0565.lcssa.i, float %309
-  store float %..i680.i, ptr %308, align 4, !tbaa !48
+  store float %..i680.i, ptr %308, align 8, !tbaa !48
   %324 = fdiv nsz float %.0565.lcssa.i, %..i680.i
   %325 = fmul nsz float %.0565.lcssa.i, %324
   %326 = fcmp nsz ogt float %307, %325

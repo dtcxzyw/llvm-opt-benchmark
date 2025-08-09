@@ -661,7 +661,7 @@ define internal noundef i32 @temperature_slice16p(ptr noundef readonly captures(
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %44 = load float, ptr %17, align 4, !tbaa !32
-  %45 = load float, ptr %43, align 4, !tbaa !32
+  %45 = load float, ptr %43, align 8, !tbaa !32
   %46 = load float, ptr %42, align 4, !tbaa !32
   %47 = sext i32 %8 to i64
   %48 = zext i8 %41 to i64

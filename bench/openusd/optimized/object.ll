@@ -4387,7 +4387,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSIbEENSt9enable_ifIXaasr12_TypeInf
   %17 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIbEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %18 = inttoptr i64 %17 to ptr
   store ptr %18, ptr %6, align 8
-  store i8 %16, ptr %1, align 1
+  store i8 %16, ptr %1, align 8
   ret i1 true
 }
 

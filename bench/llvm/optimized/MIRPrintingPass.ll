@@ -354,7 +354,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm18createPrintMIRPassERNS_11raw_ost
   store ptr %9, ptr %8, align 8, !tbaa !209
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store i64 0, ptr %10, align 8, !tbaa !211
-  store i8 0, ptr %9, align 1, !tbaa !213
+  store i8 0, ptr %9, align 8, !tbaa !213
   ret ptr %2
 }
 
@@ -384,7 +384,7 @@ define internal noundef nonnull ptr @_ZN4llvm15callDefaultCtorIN12_GLOBAL__N_115
   store ptr %9, ptr %8, align 8, !tbaa !209
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i64 0, ptr %10, align 8, !tbaa !211
-  store i8 0, ptr %9, align 1, !tbaa !213
+  store i8 0, ptr %9, align 8, !tbaa !213
   ret ptr %1
 }
 

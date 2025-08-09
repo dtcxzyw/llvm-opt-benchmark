@@ -275,7 +275,7 @@ define dso_local void @nbcon_init(ptr noundef %0) local_unnamed_addr #1 align 16
   store volatile i64 %11, ptr %12, align 8
   store i64 0, ptr %7, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store volatile i32 0, ptr %13, align 4
+  store volatile i32 0, ptr %13, align 8
   ret void
 }
 

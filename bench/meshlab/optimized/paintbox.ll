@@ -494,11 +494,11 @@ _ZN7QStringD2Ev.exit22:                           ; preds = %44, %_ZN9QtPrivate8
   %109 = getelementptr inbounds nuw i8, ptr %104, i64 20
   store i32 7405568, ptr %109, align 4
   %110 = getelementptr inbounds nuw i8, ptr %104, i64 24
-  store i32 0, ptr %110, align 4
+  store i32 0, ptr %110, align 8
   %111 = getelementptr inbounds nuw i8, ptr %104, i64 28
   store i32 0, ptr %111, align 4
   %112 = getelementptr inbounds nuw i8, ptr %104, i64 32
-  store i32 -1, ptr %112, align 4
+  store i32 -1, ptr %112, align 8
   %113 = getelementptr inbounds nuw i8, ptr %104, i64 36
   store i32 -1, ptr %113, align 4
   invoke void @_ZN11QGridLayout7addItemEP11QLayoutItemiiii6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(28) %102, ptr noundef nonnull %104, i32 noundef 11, i32 noundef 0, i32 noundef 1, i32 noundef 2, i32 0)
@@ -2201,11 +2201,11 @@ _ZN7QStringD2Ev.exit233:                          ; preds = %599, %_ZN9QtPrivate
   %621 = getelementptr inbounds nuw i8, ptr %616, i64 20
   store i32 65536, ptr %621, align 4
   %622 = getelementptr inbounds nuw i8, ptr %616, i64 24
-  store i32 0, ptr %622, align 4
+  store i32 0, ptr %622, align 8
   %623 = getelementptr inbounds nuw i8, ptr %616, i64 28
   store i32 0, ptr %623, align 4
   %624 = getelementptr inbounds nuw i8, ptr %616, i64 32
-  store i32 -1, ptr %624, align 4
+  store i32 -1, ptr %624, align 8
   %625 = getelementptr inbounds nuw i8, ptr %616, i64 36
   store i32 -1, ptr %625, align 4
   %626 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -2530,11 +2530,11 @@ _ZN7QStringD2Ev.exit268:                          ; preds = %701, %_ZN9QtPrivate
   %723 = getelementptr inbounds nuw i8, ptr %718, i64 20
   store i32 7405568, ptr %723, align 4
   %724 = getelementptr inbounds nuw i8, ptr %718, i64 24
-  store i32 0, ptr %724, align 4
+  store i32 0, ptr %724, align 8
   %725 = getelementptr inbounds nuw i8, ptr %718, i64 28
   store i32 0, ptr %725, align 4
   %726 = getelementptr inbounds nuw i8, ptr %718, i64 32
-  store i32 -1, ptr %726, align 4
+  store i32 -1, ptr %726, align 8
   %727 = getelementptr inbounds nuw i8, ptr %718, i64 36
   store i32 -1, ptr %727, align 4
   %728 = getelementptr inbounds nuw i8, ptr %0, i64 152

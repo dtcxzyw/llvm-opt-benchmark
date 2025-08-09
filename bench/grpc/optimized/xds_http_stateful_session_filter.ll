@@ -3750,7 +3750,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %23, ptr %26, align 8, !tbaa !47
   store ptr %14, ptr %11, align 8, !tbaa !45
   store i64 0, ptr %25, align 8, !tbaa !47
-  store i8 0, ptr %14, align 1, !tbaa !48
+  store i8 0, ptr %14, align 8, !tbaa !48
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %27, i8 0, i64 56, i1 false)
   store ptr %8, ptr %24, align 8, !tbaa !217
@@ -5584,7 +5584,7 @@ define linkonce_odr void @_ZZN9grpc_core14filters_detail9AddOpImplINS_21Stateful
   %12 = load ptr, ptr %11, align 8, !tbaa !239
   tail call void @_ZN9grpc_core21StatefulSessionFilter4Call23OnClientInitialMetadataER19grpc_metadata_batchPS0_(ptr noundef nonnull align 8 dereferenceable(50) %3, ptr noundef nonnull align 8 dereferenceable(600) %12, ptr noundef %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %13 = load i8, ptr %5, align 1, !tbaa !38
+  %13 = load i8, ptr %5, align 8, !tbaa !38
   store i8 %13, ptr %9, align 8, !tbaa !38
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %15 = load i64, ptr %11, align 8, !tbaa !239
@@ -6349,7 +6349,7 @@ define linkonce_odr void @_ZZN9grpc_core14filters_detail9AddOpImplINS_21Stateful
   %12 = load ptr, ptr %11, align 8, !tbaa !239
   tail call void @_ZN9grpc_core21StatefulSessionFilter4Call23OnServerInitialMetadataER19grpc_metadata_batch(ptr noundef nonnull align 8 dereferenceable(50) %3, ptr noundef nonnull align 8 dereferenceable(600) %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %13 = load i8, ptr %5, align 1, !tbaa !38
+  %13 = load i8, ptr %5, align 8, !tbaa !38
   store i8 %13, ptr %9, align 8, !tbaa !38
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %15 = load i64, ptr %11, align 8, !tbaa !239
@@ -6412,7 +6412,7 @@ define linkonce_odr void @_ZZN9grpc_core14filters_detail25AddServerTrailingMetad
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !239, !noalias !258
   tail call void @_ZN9grpc_core21StatefulSessionFilter4Call24OnServerTrailingMetadataER19grpc_metadata_batch(ptr noundef nonnull align 8 dereferenceable(50) %1, ptr noundef nonnull align 8 dereferenceable(600) %6), !noalias !258
-  %7 = load i8, ptr %3, align 1, !tbaa !38, !noalias !258
+  %7 = load i8, ptr %3, align 8, !tbaa !38, !noalias !258
   store i8 %7, ptr %0, align 8, !tbaa !38, !alias.scope !258
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %5, align 8, !tbaa !239, !noalias !258

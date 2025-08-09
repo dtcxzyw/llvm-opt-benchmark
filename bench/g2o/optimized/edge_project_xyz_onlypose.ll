@@ -315,7 +315,7 @@ define void @_ZN3g2o25EdgeSE3ProjectXYZOnlyPose14linearizeOplusEv(ptr noundef no
   %45 = fadd double %10, %44
   %46 = fadd double %45, %38
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 224
-  %48 = load <2 x double>, ptr %47, align 1, !tbaa !46, !noalias !48
+  %48 = load <2 x double>, ptr %47, align 8, !tbaa !46, !noalias !48
   %49 = fadd <2 x double> %48, %43
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 240
   %51 = load double, ptr %50, align 8, !tbaa !22, !noalias !48
@@ -476,7 +476,7 @@ define void @_ZN3g2o25EdgeSE3ProjectXYZOnlyPose12computeErrorEv(ptr noundef nonn
   %46 = fadd double %11, %45
   %47 = fadd double %46, %39
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 224
-  %49 = load <2 x double>, ptr %48, align 1, !tbaa !46, !noalias !129
+  %49 = load <2 x double>, ptr %48, align 8, !tbaa !46, !noalias !129
   %50 = fadd <2 x double> %49, %44
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 240
   %52 = load double, ptr %51, align 8, !tbaa !22, !noalias !129

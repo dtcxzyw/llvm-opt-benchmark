@@ -3316,17 +3316,17 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %27, %_ZN6googl
   %120 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %121 = load ptr, ptr %120, align 8, !tbaa !147, !noalias !148
   %122 = load i32, ptr %119, align 4, !tbaa !15, !noalias !148
-  %123 = load i32, ptr %118, align 4, !tbaa !15, !noalias !148
+  %123 = load i32, ptr %118, align 8, !tbaa !15, !noalias !148
   %124 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %125 = getelementptr inbounds nuw i8, ptr %110, i64 12
   %126 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %127 = load ptr, ptr %126, align 8, !tbaa !147, !noalias !151
   %128 = load i32, ptr %125, align 4, !tbaa !15, !noalias !151
-  %129 = load i32, ptr %124, align 4, !tbaa !15, !noalias !151
-  store i32 %129, ptr %118, align 4, !tbaa !15
+  %129 = load i32, ptr %124, align 8, !tbaa !15, !noalias !151
+  store i32 %129, ptr %118, align 8, !tbaa !15
   store i32 %128, ptr %119, align 4, !tbaa !15
   store ptr %127, ptr %120, align 8, !tbaa !147
-  store i32 %123, ptr %124, align 4, !tbaa !15
+  store i32 %123, ptr %124, align 8, !tbaa !15
   store i32 %122, ptr %125, align 4, !tbaa !15
   store ptr %121, ptr %126, align 8, !tbaa !147
   br label %_ZN6google8protobuf8internal15SwapFieldHelper23SwapRepeatedStringFieldILb0EEEvPKNS0_10ReflectionEPNS0_7MessageES8_PKNS0_15FieldDescriptorE.exit
@@ -3855,17 +3855,17 @@ _ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit
   %47 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !147, !noalias !154
   %49 = load i32, ptr %46, align 4, !tbaa !15, !noalias !154
-  %50 = load i32, ptr %45, align 4, !tbaa !15, !noalias !154
+  %50 = load i32, ptr %45, align 8, !tbaa !15, !noalias !154
   %51 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %37, i64 12
   %53 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %54 = load ptr, ptr %53, align 8, !tbaa !147, !noalias !157
   %55 = load i32, ptr %52, align 4, !tbaa !15, !noalias !157
-  %56 = load i32, ptr %51, align 4, !tbaa !15, !noalias !157
-  store i32 %56, ptr %45, align 4, !tbaa !15
+  %56 = load i32, ptr %51, align 8, !tbaa !15, !noalias !157
+  store i32 %56, ptr %45, align 8, !tbaa !15
   store i32 %55, ptr %46, align 4, !tbaa !15
   store ptr %54, ptr %47, align 8, !tbaa !147
-  store i32 %50, ptr %51, align 4, !tbaa !15
+  store i32 %50, ptr %51, align 8, !tbaa !15
   store i32 %49, ptr %52, align 4, !tbaa !15
   store ptr %48, ptr %53, align 8, !tbaa !147
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase4SwapINS1_18GenericTypeHandlerINS0_7MessageEEEEEvPS2_.exit
@@ -4257,21 +4257,21 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit65: ; preds = %82, %_ZN6goo
   %171 = getelementptr inbounds nuw i8, ptr %168, i64 16
   %172 = load ptr, ptr %171, align 8, !tbaa !147, !noalias !160
   %173 = load i32, ptr %170, align 4, !tbaa !15, !noalias !160
-  %174 = load i32, ptr %169, align 4, !tbaa !15, !noalias !160
+  %174 = load i32, ptr %169, align 8, !tbaa !15, !noalias !160
   %175 = load ptr, ptr %168, align 8, !tbaa !163, !noalias !160
   %176 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %177 = getelementptr inbounds nuw i8, ptr %165, i64 12
   %178 = getelementptr inbounds nuw i8, ptr %165, i64 16
   %179 = load ptr, ptr %178, align 8, !tbaa !147, !noalias !164
   %180 = load i32, ptr %177, align 4, !tbaa !15, !noalias !164
-  %181 = load i32, ptr %176, align 4, !tbaa !15, !noalias !164
+  %181 = load i32, ptr %176, align 8, !tbaa !15, !noalias !164
   %182 = load ptr, ptr %165, align 8, !tbaa !163, !noalias !164
   store ptr %182, ptr %168, align 8, !tbaa !163
-  store i32 %181, ptr %169, align 4, !tbaa !15
+  store i32 %181, ptr %169, align 8, !tbaa !15
   store i32 %180, ptr %170, align 4, !tbaa !15
   store ptr %179, ptr %171, align 8, !tbaa !147
   store ptr %175, ptr %165, align 8, !tbaa !163
-  store i32 %174, ptr %176, align 4, !tbaa !15
+  store i32 %174, ptr %176, align 8, !tbaa !15
   store i32 %173, ptr %177, align 4, !tbaa !15
   store ptr %172, ptr %178, align 8, !tbaa !147
   br label %_ZN6google8protobuf8internal15SwapFieldHelper15SwapStringFieldILb1EEEvPKNS0_10ReflectionEPNS0_7MessageES8_PKNS0_15FieldDescriptorE.exit
@@ -4464,21 +4464,21 @@ _ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %44 = load ptr, ptr %43, align 8, !tbaa !147, !noalias !167
   %45 = load i32, ptr %42, align 4, !tbaa !15, !noalias !167
-  %46 = load i32, ptr %41, align 4, !tbaa !15, !noalias !167
+  %46 = load i32, ptr %41, align 8, !tbaa !15, !noalias !167
   %47 = load ptr, ptr %40, align 8, !tbaa !163, !noalias !167
   %48 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %37, i64 12
   %50 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %51 = load ptr, ptr %50, align 8, !tbaa !147, !noalias !170
   %52 = load i32, ptr %49, align 4, !tbaa !15, !noalias !170
-  %53 = load i32, ptr %48, align 4, !tbaa !15, !noalias !170
+  %53 = load i32, ptr %48, align 8, !tbaa !15, !noalias !170
   %54 = load ptr, ptr %37, align 8, !tbaa !163, !noalias !170
   store ptr %54, ptr %40, align 8, !tbaa !163
-  store i32 %53, ptr %41, align 4, !tbaa !15
+  store i32 %53, ptr %41, align 8, !tbaa !15
   store i32 %52, ptr %42, align 4, !tbaa !15
   store ptr %51, ptr %43, align 8, !tbaa !147
   store ptr %47, ptr %37, align 8, !tbaa !163
-  store i32 %46, ptr %48, align 4, !tbaa !15
+  store i32 %46, ptr %48, align 8, !tbaa !15
   store i32 %45, ptr %49, align 4, !tbaa !15
   store ptr %44, ptr %50, align 8, !tbaa !147
   br label %55
@@ -16588,7 +16588,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %70
   store i64 %76, ptr %78, align 8, !tbaa !124
   store ptr %68, ptr %3, align 8, !tbaa !122
   store i64 0, ptr %77, align 8, !tbaa !124
-  store i8 0, ptr %68, align 1, !tbaa !118
+  store i8 0, ptr %68, align 8, !tbaa !118
   %79 = invoke noundef ptr @_ZN6google8protobuf8internal12ExtensionSet13MutableStringB5cxx11EihPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %52, i32 noundef %54, i8 noundef zeroext %65, ptr noundef nonnull %2)
           to label %.noexc unwind label %116
 
@@ -18007,7 +18007,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %55
   store i64 %61, ptr %63, align 8, !tbaa !124
   store ptr %53, ptr %4, align 8, !tbaa !122
   store i64 0, ptr %62, align 8, !tbaa !124
-  store i8 0, ptr %53, align 1, !tbaa !118
+  store i8 0, ptr %53, align 8, !tbaa !118
   %64 = invoke noundef ptr @_ZN6google8protobuf8internal12ExtensionSet21MutableRepeatedStringB5cxx11Eii(ptr noundef nonnull align 8 dereferenceable(24) %48, i32 noundef %50, i32 noundef %3)
           to label %.noexc unwind label %101
 
@@ -18426,7 +18426,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %68
   store i64 %74, ptr %76, align 8, !tbaa !124
   store ptr %66, ptr %3, align 8, !tbaa !122
   store i64 0, ptr %75, align 8, !tbaa !124
-  store i8 0, ptr %66, align 1, !tbaa !118
+  store i8 0, ptr %66, align 8, !tbaa !118
   %77 = invoke noundef ptr @_ZN6google8protobuf8internal12ExtensionSet9AddStringB5cxx11EihPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %50, i32 noundef %52, i8 noundef zeroext %63, ptr noundef nonnull %2)
           to label %.noexc unwind label %114
 
@@ -18596,7 +18596,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %148, ptr %.sink5.i.i.i.i.i, align 8, !tbaa !119
   %149 = getelementptr inbounds nuw i8, ptr %.sink5.i.i.i.i.i, i64 8
   store i64 0, ptr %149, align 8, !tbaa !124
-  store i8 0, ptr %148, align 1, !tbaa !118
+  store i8 0, ptr %148, align 8, !tbaa !118
   %150 = call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %124, ptr noundef nonnull %.sink5.i.i.i.i.i)
   br label %_ZNK6google8protobuf10Reflection8AddFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_PNS0_7MessageEPKNS0_15FieldDescriptorE.exit
 
@@ -27466,14 +27466,14 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS1_18GenericTypeHandle
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %61 = load ptr, ptr %60, align 8, !tbaa !147, !noalias !339
   %62 = load i32, ptr %59, align 4, !tbaa !15, !noalias !339
-  %63 = load i32, ptr %34, align 4, !tbaa !15, !noalias !339
+  %63 = load i32, ptr %34, align 8, !tbaa !15, !noalias !339
   %64 = load ptr, ptr %1, align 8, !tbaa !163, !noalias !339
   store ptr %64, ptr %3, align 8, !tbaa !163
   store i32 %63, ptr %5, align 8, !tbaa !15
   store i32 %62, ptr %53, align 4, !tbaa !15
   store ptr %61, ptr %54, align 8, !tbaa !147
   store ptr %58, ptr %1, align 8, !tbaa !163
-  store i32 %57, ptr %34, align 4, !tbaa !15
+  store i32 %57, ptr %34, align 8, !tbaa !15
   store i32 %56, ptr %59, align 4, !tbaa !15
   store ptr %55, ptr %60, align 8, !tbaa !147
   %.not.i = icmp ne ptr %61, null
@@ -27557,7 +27557,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerINSt7__cxx1112basic_stringIcSt11
   store ptr %12, ptr %11, align 8, !tbaa !119
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %13, align 8, !tbaa !124
-  store i8 0, ptr %12, align 1, !tbaa !118
+  store i8 0, ptr %12, align 8, !tbaa !118
   %14 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv28
   store ptr %11, ptr %14, align 8, !tbaa !71
   %indvars.iv.next29 = add nsw i64 %indvars.iv28, 1
@@ -27576,7 +27576,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerINSt7__cxx1112basic_stringIcSt11
   store ptr %19, ptr %16, align 8, !tbaa !119
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 0, ptr %20, align 8, !tbaa !124
-  store i8 0, ptr %19, align 1, !tbaa !118
+  store i8 0, ptr %19, align 8, !tbaa !118
   %21 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   store ptr %16, ptr %21, align 8, !tbaa !71
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -27735,14 +27735,14 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS1_18GenericTypeHandle
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %61 = load ptr, ptr %60, align 8, !tbaa !147, !noalias !350
   %62 = load i32, ptr %59, align 4, !tbaa !15, !noalias !350
-  %63 = load i32, ptr %34, align 4, !tbaa !15, !noalias !350
+  %63 = load i32, ptr %34, align 8, !tbaa !15, !noalias !350
   %64 = load ptr, ptr %1, align 8, !tbaa !163, !noalias !350
   store ptr %64, ptr %3, align 8, !tbaa !163
   store i32 %63, ptr %5, align 8, !tbaa !15
   store i32 %62, ptr %53, align 4, !tbaa !15
   store ptr %61, ptr %54, align 8, !tbaa !147
   store ptr %58, ptr %1, align 8, !tbaa !163
-  store i32 %57, ptr %34, align 4, !tbaa !15
+  store i32 %57, ptr %34, align 8, !tbaa !15
   store i32 %56, ptr %59, align 4, !tbaa !15
   store ptr %55, ptr %60, align 8, !tbaa !147
   %.not.i = icmp ne ptr %61, null

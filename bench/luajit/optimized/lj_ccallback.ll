@@ -108,7 +108,7 @@ define hidden ptr @lj_ccallback_enter(ptr noundef %0, ptr noundef %1) local_unna
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 -1, ptr %30, align 4, !tbaa !55
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 0, ptr %31, align 4, !tbaa !55
+  store i32 0, ptr %31, align 8, !tbaa !55
   store ptr %1, ptr %25, align 8, !tbaa !52
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %33 = load ptr, ptr %32, align 8, !tbaa !33

@@ -44,7 +44,7 @@ define dso_local void @_ZN4absl24synchronization_internal12PerThreadSem4TickEPNS
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 332
   %5 = load atomic i32, ptr %4 monotonic, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %7 = load atomic i8, ptr %6 monotonic, align 1
+  %7 = load atomic i8, ptr %6 monotonic, align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %14, label %8
 
@@ -107,7 +107,7 @@ _ZN4absl24synchronization_internal32GetOrCreateCurrentThreadIdentityEv.exit: ; p
   %9 = tail call i32 @llvm.umax.i32(i32 %7, i32 1)
   store atomic i32 %9, ptr %8 monotonic, align 4
   %10 = getelementptr inbounds nuw i8, ptr %.0.i, i64 336
-  store atomic i8 0, ptr %10 monotonic, align 1
+  store atomic i8 0, ptr %10 monotonic, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.0.i, i64 320
   %12 = load ptr, ptr %11, align 8, !tbaa !5
   %.not = icmp eq ptr %12, null

@@ -51658,7 +51658,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !tbaa !14, !alias.scope !2413, !noalias !2416
   store ptr %43, ptr %.0911.i.i.i, align 8, !tbaa !11, !alias.scope !2416, !noalias !2413
   store i64 0, ptr %52, align 8, !tbaa !14, !alias.scope !2416, !noalias !2413
-  store i8 0, ptr %43, align 1, !tbaa !13, !alias.scope !2416, !noalias !2413
+  store i8 0, ptr %43, align 8, !tbaa !13, !alias.scope !2416, !noalias !2413
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %54, %1
@@ -51706,7 +51706,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !tbaa !14, !alias.scope !2420, !noalias !2423
   store ptr %59, ptr %.0911.i.i.i19, align 8, !tbaa !11, !alias.scope !2423, !noalias !2420
   store i64 0, ptr %68, align 8, !tbaa !14, !alias.scope !2423, !noalias !2420
-  store i8 0, ptr %59, align 1, !tbaa !13, !alias.scope !2423, !noalias !2420
+  store i8 0, ptr %59, align 8, !tbaa !13, !alias.scope !2423, !noalias !2420
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %70, %6
@@ -51963,7 +51963,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
   store i64 %52, ptr %53, align 8, !tbaa !14
   store ptr %43, ptr %40, align 8, !tbaa !11
   store i64 0, ptr %51, align 8, !tbaa !14
-  store i8 0, ptr %43, align 1, !tbaa !13
+  store i8 0, ptr %43, align 8, !tbaa !13
   %54 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 64
   %55 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 80
   store ptr %55, ptr %54, align 8, !tbaa !32
@@ -55186,7 +55186,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_19I
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.014, i64 32
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %21 = load i32, ptr %19, align 4, !tbaa !87
+  %21 = load i32, ptr %19, align 8, !tbaa !87
   store ptr %.sroa.01.0.copyload, ptr %3, align 8, !tbaa !61
   store i64 %.sroa.22.0.copyload, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !tbaa !9
   store ptr %.sroa.0.0.copyload, ptr %9, align 8, !tbaa !61
@@ -55465,7 +55465,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_19A
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.014, i64 32
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %21 = load i32, ptr %19, align 4, !tbaa !87
+  %21 = load i32, ptr %19, align 8, !tbaa !87
   store ptr %.sroa.01.0.copyload, ptr %3, align 8, !tbaa !61
   store i64 %.sroa.22.0.copyload, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !tbaa !9
   store ptr %.sroa.0.0.copyload, ptr %9, align 8, !tbaa !61
@@ -64457,7 +64457,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_11InstructionEjEE12assignRemoteEOS5_.exit:
   %30 = load ptr, ptr %.0910.i.i.i.i.i, align 8, !tbaa !2653
   store ptr %30, ptr %.0811.i.i.i.i.i, align 8, !tbaa !2655
   %31 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 8
-  %32 = load i32, ptr %31, align 4, !tbaa !87
+  %32 = load i32, ptr %31, align 8, !tbaa !87
   %33 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 8
   store i32 %32, ptr %33, align 8, !tbaa !2657
   %34 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 16
@@ -64500,7 +64500,7 @@ _ZSt4moveIPSt4pairIPN4llvm11InstructionEjES5_ET0_T_S7_S6_.exit: ; preds = %.lr.p
   %47 = load ptr, ptr %.0910.i.i.i.i.i38, align 8, !tbaa !2653
   store ptr %47, ptr %.0811.i.i.i.i.i37, align 8, !tbaa !2655
   %48 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i38, i64 8
-  %49 = load i32, ptr %48, align 4, !tbaa !87
+  %49 = load i32, ptr %48, align 8, !tbaa !87
   %50 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i37, i64 8
   store i32 %49, ptr %50, align 8, !tbaa !2657
   %51 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i38, i64 16
@@ -74986,9 +74986,9 @@ define linkonce_odr hidden void @_ZN4llvm6detail9PassModelINS_8FunctionENS_17SLP
   store ptr null, ptr %5, align 8, !tbaa !1496
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %9 = load i32, ptr %8, align 4, !tbaa !87
+  %9 = load i32, ptr %8, align 8, !tbaa !87
   store i32 %9, ptr %7, align 8, !tbaa !87
-  store i32 0, ptr %8, align 4, !tbaa !87
+  store i32 0, ptr %8, align 8, !tbaa !87
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %12 = load i32, ptr %10, align 4, !tbaa !87
@@ -74998,9 +74998,9 @@ define linkonce_odr hidden void @_ZN4llvm6detail9PassModelINS_8FunctionENS_17SLP
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %16 = load i32, ptr %14, align 8, !tbaa !87
-  %17 = load i32, ptr %15, align 4, !tbaa !87
+  %17 = load i32, ptr %15, align 8, !tbaa !87
   store i32 %17, ptr %14, align 8, !tbaa !87
-  store i32 %16, ptr %15, align 4, !tbaa !87
+  store i32 %16, ptr %15, align 8, !tbaa !87
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %19, ptr %18, align 8, !tbaa !32
@@ -75026,9 +75026,9 @@ _ZN4llvm9MapVectorIPNS_5ValueENS_11SmallVectorIPNS_9StoreInstELj8EEENS_8DenseMap
   store ptr null, ptr %27, align 8, !tbaa !1496
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %31 = load i32, ptr %30, align 4, !tbaa !87
+  %31 = load i32, ptr %30, align 8, !tbaa !87
   store i32 %31, ptr %29, align 8, !tbaa !87
-  store i32 0, ptr %30, align 4, !tbaa !87
+  store i32 0, ptr %30, align 8, !tbaa !87
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 124
   %34 = load i32, ptr %32, align 4, !tbaa !87
@@ -75038,9 +75038,9 @@ _ZN4llvm9MapVectorIPNS_5ValueENS_11SmallVectorIPNS_9StoreInstELj8EEENS_8DenseMap
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %38 = load i32, ptr %36, align 8, !tbaa !87
-  %39 = load i32, ptr %37, align 4, !tbaa !87
+  %39 = load i32, ptr %37, align 8, !tbaa !87
   store i32 %39, ptr %36, align 8, !tbaa !87
-  store i32 %38, ptr %37, align 4, !tbaa !87
+  store i32 %38, ptr %37, align 8, !tbaa !87
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %41, ptr %40, align 8, !tbaa !32

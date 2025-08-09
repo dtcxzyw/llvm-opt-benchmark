@@ -557,7 +557,7 @@ define void @_ZN3g2o15EdgeProjectP2MC14linearizeOplusEv(ptr noundef nonnull read
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 240
   %54 = load double, ptr %53, align 8, !tbaa !51
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 224
-  %56 = load <2 x double>, ptr %55, align 1, !tbaa !69
+  %56 = load <2 x double>, ptr %55, align 8, !tbaa !69
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 248
   %58 = load double, ptr %57, align 8, !tbaa !51
   %59 = fmul double %28, %58
@@ -571,18 +571,18 @@ define void @_ZN3g2o15EdgeProjectP2MC14linearizeOplusEv(ptr noundef nonnull read
   %.sroa.0.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 16
   store double %64, ptr %.sroa.0.16..sroa_idx, align 16, !tbaa !51
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 528
-  %66 = load <2 x double>, ptr %65, align 1, !tbaa !69
+  %66 = load <2 x double>, ptr %65, align 8, !tbaa !69
   %67 = shufflevector <2 x double> %63, <2 x double> poison, <2 x i32> zeroinitializer
   %68 = fmul <2 x double> %67, %66
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 552
-  %70 = load <2 x double>, ptr %69, align 1, !tbaa !69
+  %70 = load <2 x double>, ptr %69, align 8, !tbaa !69
   %.sroa.0.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
   %.sroa.0.8..sroa.0.8..sroa.0.8. = load <2 x double>, ptr %.sroa.0.8..sroa_idx, align 8
   %71 = shufflevector <2 x double> %.sroa.0.8..sroa.0.8..sroa.0.8., <2 x double> poison, <2 x i32> zeroinitializer
   %72 = fmul <2 x double> %70, %71
   %73 = fadd <2 x double> %68, %72
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 576
-  %75 = load <2 x double>, ptr %74, align 1, !tbaa !69
+  %75 = load <2 x double>, ptr %74, align 8, !tbaa !69
   %76 = shufflevector <2 x double> %.sroa.0.8..sroa.0.8..sroa.0.8., <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %77 = fmul <2 x double> %75, %76
   %78 = fadd <2 x double> %77, %73
@@ -616,14 +616,14 @@ define void @_ZN3g2o15EdgeProjectP2MC14linearizeOplusEv(ptr noundef nonnull read
   %103 = getelementptr i8, ptr %98, i64 56
   store double %102, ptr %103, align 8, !tbaa !51
   %104 = getelementptr inbounds nuw i8, ptr %5, i64 600
-  %105 = load <2 x double>, ptr %104, align 1, !tbaa !69
+  %105 = load <2 x double>, ptr %104, align 8, !tbaa !69
   %106 = fmul <2 x double> %105, %67
   %107 = getelementptr inbounds nuw i8, ptr %5, i64 624
-  %108 = load <2 x double>, ptr %107, align 1, !tbaa !69
+  %108 = load <2 x double>, ptr %107, align 8, !tbaa !69
   %109 = fmul <2 x double> %108, %71
   %110 = fadd <2 x double> %106, %109
   %111 = getelementptr inbounds nuw i8, ptr %5, i64 648
-  %112 = load <2 x double>, ptr %111, align 1, !tbaa !69
+  %112 = load <2 x double>, ptr %111, align 8, !tbaa !69
   %113 = fmul <2 x double> %112, %76
   %114 = fadd <2 x double> %113, %110
   %115 = getelementptr inbounds nuw i8, ptr %5, i64 616
@@ -654,14 +654,14 @@ define void @_ZN3g2o15EdgeProjectP2MC14linearizeOplusEv(ptr noundef nonnull read
   %137 = getelementptr i8, ptr %98, i64 72
   store double %136, ptr %137, align 8, !tbaa !51
   %138 = getelementptr inbounds nuw i8, ptr %5, i64 672
-  %139 = load <2 x double>, ptr %138, align 1, !tbaa !69
+  %139 = load <2 x double>, ptr %138, align 8, !tbaa !69
   %140 = fmul <2 x double> %139, %67
   %141 = getelementptr inbounds nuw i8, ptr %5, i64 696
-  %142 = load <2 x double>, ptr %141, align 1, !tbaa !69
+  %142 = load <2 x double>, ptr %141, align 8, !tbaa !69
   %143 = fmul <2 x double> %142, %71
   %144 = fadd <2 x double> %140, %143
   %145 = getelementptr inbounds nuw i8, ptr %5, i64 720
-  %146 = load <2 x double>, ptr %145, align 1, !tbaa !69
+  %146 = load <2 x double>, ptr %145, align 8, !tbaa !69
   %147 = fmul <2 x double> %146, %76
   %148 = fadd <2 x double> %147, %144
   %149 = getelementptr inbounds nuw i8, ptr %5, i64 688
@@ -688,7 +688,7 @@ define void @_ZN3g2o15EdgeProjectP2MC14linearizeOplusEv(ptr noundef nonnull read
   %167 = fmul double %62, %166
   %168 = getelementptr i8, ptr %98, i64 88
   store double %167, ptr %168, align 8, !tbaa !51
-  %169 = load <2 x double>, ptr %38, align 1, !tbaa !69
+  %169 = load <2 x double>, ptr %38, align 8, !tbaa !69
   %170 = fneg <2 x double> %169
   %171 = load double, ptr %11, align 8, !tbaa !51
   %.sroa.0137.0.vec.extract143 = extractelement <2 x double> %170, i64 0
@@ -702,7 +702,7 @@ define void @_ZN3g2o15EdgeProjectP2MC14linearizeOplusEv(ptr noundef nonnull read
   %177 = fmul double %62, %176
   %178 = getelementptr i8, ptr %98, i64 8
   store double %177, ptr %178, align 8, !tbaa !51
-  %179 = load <2 x double>, ptr %42, align 1, !tbaa !69
+  %179 = load <2 x double>, ptr %42, align 8, !tbaa !69
   %180 = fneg <2 x double> %179
   %181 = load double, ptr %15, align 8, !tbaa !51
   %.sroa.0137.0.vec.extract145 = extractelement <2 x double> %180, i64 0
@@ -717,7 +717,7 @@ define void @_ZN3g2o15EdgeProjectP2MC14linearizeOplusEv(ptr noundef nonnull read
   %188 = fmul double %62, %187
   %189 = getelementptr i8, ptr %98, i64 24
   store double %188, ptr %189, align 8, !tbaa !51
-  %190 = load <2 x double>, ptr %47, align 1, !tbaa !69
+  %190 = load <2 x double>, ptr %47, align 8, !tbaa !69
   %191 = fneg <2 x double> %190
   %192 = load double, ptr %20, align 8, !tbaa !51
   %.sroa.0137.0.vec.extract147 = extractelement <2 x double> %191, i64 0
@@ -732,7 +732,7 @@ define void @_ZN3g2o15EdgeProjectP2MC14linearizeOplusEv(ptr noundef nonnull read
   %199 = fmul double %62, %198
   %200 = getelementptr i8, ptr %98, i64 40
   store double %199, ptr %200, align 8, !tbaa !51
-  %201 = load <2 x double>, ptr %38, align 1, !tbaa !69
+  %201 = load <2 x double>, ptr %38, align 8, !tbaa !69
   %202 = load double, ptr %11, align 8, !tbaa !51
   %.sroa.0137.0.vec.extract149 = extractelement <2 x double> %201, i64 0
   %203 = fneg double %202
@@ -749,7 +749,7 @@ define void @_ZN3g2o15EdgeProjectP2MC14linearizeOplusEv(ptr noundef nonnull read
   %212 = fmul double %62, %211
   %213 = getelementptr i8, ptr %209, i64 8
   store double %212, ptr %213, align 8, !tbaa !51
-  %214 = load <2 x double>, ptr %42, align 1, !tbaa !69
+  %214 = load <2 x double>, ptr %42, align 8, !tbaa !69
   %215 = load double, ptr %15, align 8, !tbaa !51
   %.sroa.0137.0.vec.extract151 = extractelement <2 x double> %214, i64 0
   %216 = fneg double %215
@@ -764,7 +764,7 @@ define void @_ZN3g2o15EdgeProjectP2MC14linearizeOplusEv(ptr noundef nonnull read
   %223 = fmul double %62, %222
   %224 = getelementptr i8, ptr %209, i64 24
   store double %223, ptr %224, align 8, !tbaa !51
-  %225 = load <2 x double>, ptr %47, align 1, !tbaa !69
+  %225 = load <2 x double>, ptr %47, align 8, !tbaa !69
   %226 = load double, ptr %20, align 8, !tbaa !51
   %.sroa.0137.0.vec.extract153 = extractelement <2 x double> %225, i64 0
   %227 = fneg double %226

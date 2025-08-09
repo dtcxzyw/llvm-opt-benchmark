@@ -287,7 +287,7 @@ define hidden void @_ZN35ResourceLoader_Functionalities_Test8TestBodyEv(ptr nonn
   store i32 1, ptr %9, align 4, !tbaa !29, !noalias !26
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8, !tbaa !4, !noalias !26
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 4, ptr %10, align 4, !tbaa !30, !noalias !26
+  store i32 4, ptr %10, align 8, !tbaa !30, !noalias !26
   store ptr %7, ptr %6, align 8, !tbaa !31, !alias.scope !26
   store ptr %10, ptr %2, align 8, !tbaa !34, !alias.scope !26
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

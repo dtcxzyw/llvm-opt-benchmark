@@ -136,7 +136,7 @@ define hidden void @_ZN4lean25throw_heartbeat_exceptionEv() local_unnamed_addr #
   store ptr %3, ptr %2, align 8, !tbaa !12
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 0, ptr %4, align 8, !tbaa !15
-  store i8 0, ptr %3, align 1, !tbaa !17
+  store i8 0, ptr %3, align 8, !tbaa !17
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19heartbeat_exceptionE, i64 16), ptr %1, align 8, !tbaa !18
   tail call void @__cxa_throw(ptr nonnull %1, ptr nonnull @_ZTIN4lean19heartbeat_exceptionE, ptr nonnull @_ZN4lean9throwableD2Ev) #23
   unreachable

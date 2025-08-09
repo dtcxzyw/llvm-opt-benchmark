@@ -2297,7 +2297,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_31R
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.014, i64 32
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !55
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %21 = load i32, ptr %19, align 4, !tbaa !81
+  %21 = load i32, ptr %19, align 8, !tbaa !81
   store ptr %.sroa.01.0.copyload, ptr %3, align 8, !tbaa !54
   store i64 %.sroa.22.0.copyload, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !tbaa !55
   store ptr %.sroa.0.0.copyload, ptr %9, align 8, !tbaa !54

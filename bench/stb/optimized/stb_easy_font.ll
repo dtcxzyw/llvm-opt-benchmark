@@ -63,7 +63,7 @@ define i32 @stb_easy_font_draw_segs(float noundef %0, float noundef %1, ptr noun
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store float 0.000000e+00, ptr %35, align 4, !tbaa !6
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 12
-  store i32 %5, ptr %36, align 1, !tbaa !3
+  store i32 %5, ptr %36, align 4, !tbaa !3
   %indvars.iv.next55 = add nsw i64 %indvars.iv54, 16
   %37 = add nuw nsw i32 %.03642.us, 1
   %exitcond57.not = icmp eq i32 %37, 4
@@ -122,7 +122,7 @@ define i32 @stb_easy_font_draw_segs(float noundef %0, float noundef %1, ptr noun
   %63 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store float 0.000000e+00, ptr %63, align 4, !tbaa !6
   %64 = getelementptr inbounds nuw i8, ptr %57, i64 12
-  store i32 %5, ptr %64, align 1, !tbaa !3
+  store i32 %5, ptr %64, align 4, !tbaa !3
   %indvars.iv.next = add nsw i64 %indvars.iv, 16
   %65 = add nuw nsw i32 %.03642, 1
   %exitcond.not = icmp eq i32 %65, 4
@@ -281,7 +281,7 @@ define range(i32 0, 67108864) i32 @stb_easy_font_print(float noundef %0, float n
   %86 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store float 0.000000e+00, ptr %86, align 4, !tbaa !6
   %87 = getelementptr inbounds nuw i8, ptr %81, i64 12
-  store i32 %.sroa.0.0.insert.insert.reass, ptr %87, align 1, !tbaa !3
+  store i32 %.sroa.0.0.insert.insert.reass, ptr %87, align 4, !tbaa !3
   %indvars.iv.next55.i = add nsw i64 %indvars.iv54.i, 16
   %88 = add nuw nsw i32 %.03642.us.i, 1
   %exitcond57.not.i = icmp eq i32 %88, 4
@@ -351,7 +351,7 @@ stb_easy_font_draw_segs.exit:                     ; preds = %.loopexit.us.i, %32
   %117 = getelementptr inbounds nuw i8, ptr %111, i64 8
   store float 0.000000e+00, ptr %117, align 4, !tbaa !6
   %118 = getelementptr inbounds nuw i8, ptr %111, i64 12
-  store i32 %.sroa.0.0.insert.insert.reass, ptr %118, align 1, !tbaa !3
+  store i32 %.sroa.0.0.insert.insert.reass, ptr %118, align 4, !tbaa !3
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 16
   %119 = add nuw nsw i32 %.03642.i, 1
   %exitcond.not.i = icmp eq i32 %119, 4

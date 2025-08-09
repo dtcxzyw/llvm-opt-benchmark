@@ -247,7 +247,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %13
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %11, ptr %1, align 8, !tbaa !4
   store i64 0, ptr %21, align 8, !tbaa !12
-  store i8 0, ptr %11, align 1, !tbaa !13
+  store i8 0, ptr %11, align 8, !tbaa !13
   %23 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %2, i64 %3
   %24 = load ptr, ptr %4, align 8, !tbaa !14
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -431,7 +431,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %13
   store i64 %19, ptr %21, align 8, !tbaa !12
   store ptr %11, ptr %1, align 8, !tbaa !4
   store i64 0, ptr %20, align 8, !tbaa !12
-  store i8 0, ptr %11, align 1, !tbaa !13
+  store i8 0, ptr %11, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %22 = load ptr, ptr %2, align 8, !tbaa !55
   store ptr %22, ptr %7, align 8, !tbaa !55
@@ -4869,7 +4869,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %10
   store i64 %17, ptr %18, align 8, !tbaa !12
   store ptr %8, ptr %1, align 8, !tbaa !4
   store i64 0, ptr %16, align 8, !tbaa !12
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   %20 = ptrtoint ptr %3 to i64

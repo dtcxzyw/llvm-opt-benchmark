@@ -1459,13 +1459,13 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 752
   store i32 0, ptr %130, align 16
   %131 = getelementptr inbounds nuw i8, ptr %129, i64 928
-  %132 = load i32, ptr %131, align 8
+  %132 = load i32, ptr %131, align 16
   %133 = or i32 %132, 3
-  store i32 %133, ptr %131, align 8
+  store i32 %133, ptr %131, align 16
   %134 = getelementptr inbounds nuw i8, ptr %129, i64 912
-  %135 = load i32, ptr %134, align 8
+  %135 = load i32, ptr %134, align 16
   %136 = or i32 %135, 6
-  store i32 %136, ptr %134, align 8
+  store i32 %136, ptr %134, align 16
   %137 = add nuw nsw i64 %128, 1
   %138 = icmp eq i64 %137, %126
   br i1 %138, label %.loopexit36, label %127, !llvm.loop !23
@@ -1519,7 +1519,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
   %165 = load ptr, ptr %155, align 16
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %165, i64 noundef %157) #9
   %166 = getelementptr inbounds nuw i8, ptr %4, i64 10304
-  %167 = load i32, ptr %166, align 4
+  %167 = load i32, ptr %166, align 16
   %168 = freeze i32 %167
   %169 = lshr i32 %168, 16
   %trunc = trunc i32 %168 to i16
@@ -1731,10 +1731,10 @@ define internal fastcc range(i32 -22, 1) i32 @sata_pmp_configure(ptr noundef cap
   %6 = load ptr, ptr %0, align 64
   %7 = load ptr, ptr %6, align 64
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  %9 = load i32, ptr %8, align 4
+  %9 = load i32, ptr %8, align 64
   %10 = lshr i32 %9, 16
   %11 = getelementptr i8, ptr %0, i64 904
-  %12 = load i32, ptr %11, align 4
+  %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 15
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %146, label %15

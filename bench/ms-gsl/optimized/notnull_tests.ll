@@ -720,7 +720,7 @@ _ZNSt12__shared_ptrIiLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit:
   store i32 1, ptr %26, align 4, !noalias !4
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24, align 8, !noalias !4
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store i32 10, ptr %27, align 4, !noalias !4
+  store i32 10, ptr %27, align 8, !noalias !4
   store ptr %27, ptr %1, align 8
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %24, ptr %28, align 8
@@ -10061,7 +10061,7 @@ define dso_local void @_ZN49notnull_tests_TestNotNullSharedPtrComparison_Test8Te
   store i32 1, ptr %71, align 4, !noalias !212
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %69, align 8, !noalias !212
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  store i32 42, ptr %72, align 4, !noalias !212
+  store i32 42, ptr %72, align 8, !noalias !212
   store ptr %69, ptr %68, align 8, !alias.scope !212
   store ptr %72, ptr %2, align 8, !alias.scope !212
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -10077,7 +10077,7 @@ define dso_local void @_ZN49notnull_tests_TestNotNullSharedPtrComparison_Test8Te
   store i32 1, ptr %77, align 4, !noalias !215
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIKiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %74, align 8, !noalias !215
   %78 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  store i32 43, ptr %78, align 4, !noalias !215
+  store i32 43, ptr %78, align 8, !noalias !215
   store ptr %74, ptr %73, align 8, !alias.scope !215
   store ptr %78, ptr %3, align 8, !alias.scope !215
   call void @llvm.lifetime.start.p0(ptr nonnull %4)

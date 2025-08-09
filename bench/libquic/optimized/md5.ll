@@ -226,11 +226,11 @@ define hidden noundef i32 @MD5_Final(ptr noundef writeonly captures(none) initia
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load i32, ptr %17, align 4, !tbaa !12
-  store i32 %18, ptr %16, align 1
+  store i32 %18, ptr %16, align 4
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %21 = load i32, ptr %20, align 4, !tbaa !10
-  store i32 %21, ptr %19, align 1
+  store i32 %21, ptr %19, align 4
   tail call void @md5_block_asm_data_order(ptr noundef nonnull %1, ptr noundef nonnull %6, i64 noundef 1) #6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %6, i8 0, i64 68, i1 false)
   %22 = load i32, ptr %1, align 4, !tbaa !6

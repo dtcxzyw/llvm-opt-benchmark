@@ -1811,7 +1811,7 @@ _ZNKSt8functionIFviiPiiEEclEiiS0_i.exit.us:       ; preds = %.split.us
 
 45:                                               ; preds = %42
   %46 = load ptr, ptr %34, align 8, !tbaa !147
-  %47 = load float, ptr %35, align 4, !tbaa !16
+  %47 = load float, ptr %35, align 8, !tbaa !16
   %48 = load ptr, ptr %46, align 8, !tbaa !137, !noalias !150
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %50 = load i64, ptr %49, align 8, !tbaa !136, !noalias !150
@@ -1972,7 +1972,7 @@ _ZNK5Eigen15DenseCoeffsBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_o
 
 124:                                              ; preds = %42
   %125 = load ptr, ptr %37, align 8, !tbaa !162
-  %126 = load float, ptr %38, align 4, !tbaa !16
+  %126 = load float, ptr %38, align 8, !tbaa !16
   %127 = load ptr, ptr %125, align 8, !tbaa !137, !noalias !165
   %128 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %129 = load i64, ptr %128, align 8, !tbaa !136, !noalias !165

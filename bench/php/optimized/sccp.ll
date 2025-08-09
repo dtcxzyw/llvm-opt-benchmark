@@ -6983,7 +6983,7 @@ zend_dval_to_lval.exit:                           ; preds = %20, %27, %29
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %42 = load i64, ptr %41, align 8, !tbaa !155
-  %43 = load i8, ptr %40, align 1, !tbaa !41
+  %43 = load i8, ptr %40, align 8, !tbaa !41
   %44 = icmp sgt i8 %43, 57
   br i1 %44, label %_zend_handle_numeric_str.exit.thread, label %45, !prof !157
 
@@ -7064,7 +7064,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_del_obj_prop(ptr %.0.val, p
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = load i64, ptr %8, align 8, !tbaa !155
-  %10 = load i8, ptr %7, align 1, !tbaa !41
+  %10 = load i8, ptr %7, align 8, !tbaa !41
   %11 = icmp sgt i8 %10, 57
   br i1 %11, label %_zend_handle_numeric_str.exit.thread, label %12, !prof !157
 
@@ -7135,7 +7135,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_assign_obj(ptr noundef nonn
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %17 = load i64, ptr %16, align 8, !tbaa !155
-  %18 = load i8, ptr %15, align 1, !tbaa !41
+  %18 = load i8, ptr %15, align 8, !tbaa !41
   %19 = icmp sgt i8 %18, 57
   br i1 %19, label %_zend_handle_numeric_str.exit.i.thread.i, label %20, !prof !157
 
@@ -7449,7 +7449,7 @@ zend_gc_try_delref.exit112:                       ; preds = %128, %122, %118
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 24
   %134 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %135 = load i64, ptr %134, align 8, !tbaa !155
-  %136 = load i8, ptr %133, align 1, !tbaa !41
+  %136 = load i8, ptr %133, align 8, !tbaa !41
   %137 = icmp sgt i8 %136, 57
   br i1 %137, label %_zend_handle_numeric_str.exit.i.thread, label %138, !prof !157
 
@@ -7774,7 +7774,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_fetch_obj(ptr noundef nonnu
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %16 = load i64, ptr %15, align 8, !tbaa !155
-  %17 = load i8, ptr %14, align 1, !tbaa !41
+  %17 = load i8, ptr %14, align 8, !tbaa !41
   %18 = icmp sgt i8 %17, 57
   br i1 %18, label %_zend_handle_numeric_str.exit.i.thread.i, label %19, !prof !157
 
@@ -8190,7 +8190,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_isset_obj(ptr noundef nonnu
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %17 = load i64, ptr %16, align 8, !tbaa !155
-  %18 = load i8, ptr %15, align 1, !tbaa !41
+  %18 = load i8, ptr %15, align 8, !tbaa !41
   %19 = icmp sgt i8 %18, 57
   br i1 %19, label %_zend_handle_numeric_str.exit.i.thread.i, label %20, !prof !157
 
@@ -8669,7 +8669,7 @@ zend_dval_to_lval.exit:                           ; preds = %21, %28, %30
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %43 = load i64, ptr %42, align 8, !tbaa !155
-  %44 = load i8, ptr %41, align 1, !tbaa !41
+  %44 = load i8, ptr %41, align 8, !tbaa !41
   %45 = icmp sgt i8 %44, 57
   br i1 %45, label %_zend_handle_numeric_str.exit.i.thread, label %46, !prof !157
 

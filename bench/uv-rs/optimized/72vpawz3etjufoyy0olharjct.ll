@@ -3370,7 +3370,7 @@ define void @"_ZN16uv_platform_tags12platform_tag1_95_$LT$impl$u20$rkyv..traits.
   %14 = load i16, ptr %13, align 4, !noundef !3
   store i16 %14, ptr %12, align 2
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 6
-  store i8 %.sroa.4.0.extract.trunc, ptr %15, align 1
+  store i8 %.sroa.4.0.extract.trunc, ptr %15, align 2
   br label %_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.exit
 
 "_ZN16uv_platform_tags8platform1_84_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_platform_tags..platform..Arch$GT$7resolve17hebf05f3dee8abc32E.exit24": ; preds = %4
@@ -3423,7 +3423,7 @@ define void @"_ZN16uv_platform_tags12platform_tag1_95_$LT$impl$u20$rkyv..traits.
   %35 = load i16, ptr %34, align 4, !noundef !3
   store i16 %35, ptr %33, align 2
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 6
-  store i8 %.sroa.4.0.extract.trunc, ptr %36, align 1
+  store i8 %.sroa.4.0.extract.trunc, ptr %36, align 2
   br label %_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.exit
 
 "_ZN16uv_platform_tags4tags1_88_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_platform_tags..tags..BinaryFormat$GT$7resolve17he200b06b45c7c295E.exit": ; preds = %4
@@ -3440,7 +3440,7 @@ define void @"_ZN16uv_platform_tags12platform_tag1_95_$LT$impl$u20$rkyv..traits.
   %44 = load i16, ptr %43, align 4, !noundef !3
   store i16 %44, ptr %42, align 2
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 6
-  store i8 %.sroa.4.0.extract.trunc, ptr %45, align 1
+  store i8 %.sroa.4.0.extract.trunc, ptr %45, align 2
   br label %_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.exit
 
 46:                                               ; preds = %4
@@ -3469,7 +3469,7 @@ define void @"_ZN16uv_platform_tags12platform_tag1_95_$LT$impl$u20$rkyv..traits.
   %54 = load i16, ptr %53, align 2, !noundef !3
   store i16 %54, ptr %52, align 2
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i8 %.sroa.4.0.extract.trunc, ptr %55, align 1
+  store i8 %.sroa.4.0.extract.trunc, ptr %55, align 2
   br label %_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.exit
 
 56:                                               ; preds = %4

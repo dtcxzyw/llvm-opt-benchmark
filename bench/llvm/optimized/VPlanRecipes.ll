@@ -15892,7 +15892,7 @@ _ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit:  ; preds = %15, %42
   %50 = load ptr, ptr %49, align 8, !tbaa !526
   %51 = load i32, ptr %50, align 4, !tbaa !193
   %52 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %53 = load i32, ptr %52, align 4, !tbaa !199
+  %53 = load i32, ptr %52, align 8, !tbaa !199
   call void @_ZN4llvm20createReplicatedMaskEjj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::SmallVector.269") align 8 %5, i32 noundef %51, i32 noundef %53) #25
   %54 = load ptr, ptr %5, align 8, !tbaa !59
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 8

@@ -6679,7 +6679,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %.loopexit
   store ptr null, ptr %32, align 8, !tbaa !107
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %34, ptr %33, align 4, !tbaa !191
+  store i32 %34, ptr %33, align 8, !tbaa !191
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 12
   store i8 0, ptr %35, align 4, !tbaa !193
   %36 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKicESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS4_10_Hash_nodeIS2_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %13, i64 noundef %indvars.iv, ptr noundef nonnull %32, i64 noundef 1)
@@ -6889,7 +6889,7 @@ _ZNSt10_HashtableIiSt4pairIKicESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKicESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !107
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !19
+  %16 = load i32, ptr %15, align 8, !tbaa !19
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -7477,7 +7477,7 @@ _ZNSt10_HashtableIiSt4pairIKicESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   store ptr null, ptr %22, align 8, !tbaa !107
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %26 = load i64, ptr %24, align 4
-  store i64 %26, ptr %25, align 4
+  store i64 %26, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %27, align 8, !tbaa !119
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7502,7 +7502,7 @@ _ZNSt10_HashtableIiSt4pairIKicESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   store ptr null, ptr %33, align 8, !tbaa !107
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %37 = load i64, ptr %35, align 4
-  store i64 %37, ptr %36, align 4
+  store i64 %37, ptr %36, align 8
   store ptr %33, ptr %.02636, align 8, !tbaa !107
   %sext38 = shl i64 %37, 32
   %38 = ashr exact i64 %sext38, 32

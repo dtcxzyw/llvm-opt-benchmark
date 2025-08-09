@@ -968,7 +968,7 @@ _ZN4llvm12GenericCycleINS_17GenericSSAContextINS_15MachineFunctionEEEE11appendEn
   %127 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %128 = load ptr, ptr %7, align 8, !tbaa !44
   %129 = ptrtoint ptr %128 to i64
-  store i64 %129, ptr %118, align 1
+  store i64 %129, ptr %118, align 8
   store i32 1, ptr %127, align 8, !tbaa !37
   %130 = getelementptr inbounds nuw i8, ptr %116, i64 176
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -7115,7 +7115,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockENS_23GenericCycleInf
   store ptr %60, ptr %50, align 8, !tbaa !44
   %61 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %62 = load i32, ptr %3, align 4, !tbaa !435
-  store i32 %62, ptr %61, align 4, !tbaa !459
+  store i32 %62, ptr %61, align 8, !tbaa !459
   %63 = getelementptr inbounds nuw i8, ptr %50, i64 12
   store i32 0, ptr %63, align 4, !tbaa !460
   %64 = load ptr, ptr %1, align 8, !tbaa !61
@@ -7549,7 +7549,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockENS_23GenericCycleInf
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i64, ptr %67, align 4
-  store i64 %68, ptr %66, align 4
+  store i64 %68, ptr %66, align 8
   %69 = load i32, ptr %32, align 8, !tbaa !457
   %70 = add i32 %69, 1
   store i32 %70, ptr %32, align 8, !tbaa !457

@@ -1935,7 +1935,7 @@ define internal fastcc void @complete_change_console(ptr noundef %0) unnamed_add
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %23 = load i16, ptr %22, align 4
+  %23 = load i16, ptr %22, align 8
   %24 = sext i16 %23 to i32
   %25 = tail call i32 @kill_pid(ptr noundef %21, i32 noundef %24, i32 noundef 1) #7
   %26 = icmp eq i32 %25, 0

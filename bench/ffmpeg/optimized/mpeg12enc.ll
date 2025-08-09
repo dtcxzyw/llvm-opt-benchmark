@@ -5532,7 +5532,7 @@ define internal void @mpeg12_encode_mb(ptr noundef %0, ptr noundef readonly capt
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1292
   store i32 %10, ptr %12, align 4, !tbaa !120
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1288
-  store i32 %10, ptr %13, align 4, !tbaa !120
+  store i32 %10, ptr %13, align 8, !tbaa !120
   store i32 %10, ptr %11, align 4, !tbaa !120
   br label %14
 

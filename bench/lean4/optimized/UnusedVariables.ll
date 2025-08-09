@@ -106766,7 +106766,7 @@ _init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_8____closed_
   %.val151 = load ptr, ptr %62, align 8, !tbaa !4
   store ptr %.val151, ptr @l_Lean_Linter_linter_unusedVariables, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val151) #7
-  %63 = load i32, ptr %58, align 4, !tbaa !8
+  %63 = load i32, ptr %58, align 8, !tbaa !8
   %64 = icmp sgt i32 %63, 1
   br i1 %64, label %65, label %67, !prof !11
 
@@ -106845,7 +106845,7 @@ _init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_47____closed
   %.val152 = load ptr, ptr %98, align 8, !tbaa !4
   store ptr %.val152, ptr @l_Lean_Linter_linter_unusedVariables_funArgs, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val152) #7
-  %99 = load i32, ptr %94, align 4, !tbaa !8
+  %99 = load i32, ptr %94, align 8, !tbaa !8
   %100 = icmp sgt i32 %99, 1
   br i1 %100, label %101, label %103, !prof !11
 
@@ -106924,7 +106924,7 @@ _init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_86____closed
   %.val153 = load ptr, ptr %134, align 8, !tbaa !4
   store ptr %.val153, ptr @l_Lean_Linter_linter_unusedVariables_patternVars, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val153) #7
-  %135 = load i32, ptr %130, align 4, !tbaa !8
+  %135 = load i32, ptr %130, align 8, !tbaa !8
   %136 = icmp sgt i32 %135, 1
   br i1 %136, label %137, label %139, !prof !11
 
@@ -107003,7 +107003,7 @@ _init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_125____close
   %.val154 = load ptr, ptr %170, align 8, !tbaa !4
   store ptr %.val154, ptr @l_Lean_Linter_linter_unusedVariables_analyzeTactics, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val154) #7
-  %171 = load i32, ptr %166, align 4, !tbaa !8
+  %171 = load i32, ptr %166, align 8, !tbaa !8
   %172 = icmp sgt i32 %171, 1
   br i1 %172, label %173, label %175, !prof !11
 
@@ -107084,7 +107084,7 @@ _init_l_Lean_Linter_mkIgnoreFnImpl___closed__1.exit: ; preds = %lean_dec_ref.exi
   %.val155 = load ptr, ptr %200, align 8, !tbaa !4
   store ptr %.val155, ptr @l_Lean_Linter_builtinUnusedVariablesIgnoreFnsRef, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val155) #7
-  %201 = load i32, ptr %196, align 4, !tbaa !8
+  %201 = load i32, ptr %196, align 8, !tbaa !8
   %202 = icmp sgt i32 %201, 1
   br i1 %202, label %203, label %205, !prof !11
 
@@ -107160,7 +107160,7 @@ lean_dec_ref.exit118:                             ; preds = %206, %205, %203, %_
   %.val156 = load ptr, ptr %229, align 8, !tbaa !4
   store ptr %.val156, ptr @l_Lean_Linter_unusedVariablesIgnoreFnsExt, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val156) #7
-  %230 = load i32, ptr %225, align 4, !tbaa !8
+  %230 = load i32, ptr %225, align 8, !tbaa !8
   %231 = icmp sgt i32 %230, 1
   br i1 %231, label %232, label %234, !prof !11
 
@@ -108734,7 +108734,7 @@ lean_alloc_ctor.exit:                             ; preds = %0
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store i64 2, ptr %11, align 8, !tbaa !12
-  store i32 1, ptr %7, align 4, !tbaa !8
+  store i32 1, ptr %7, align 8, !tbaa !8
   store i32 524368, ptr %10, align 4
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %1, ptr %12, align 8, !tbaa !4
@@ -108779,7 +108779,7 @@ lean_alloc_ctor.exit:                             ; preds = %0
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 1, ptr %8, align 8, !tbaa !12
-  store i32 1, ptr %4, align 4, !tbaa !8
+  store i32 1, ptr %4, align 8, !tbaa !8
   store i32 196648, ptr %7, align 4
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %9, align 8, !tbaa !4
@@ -108832,7 +108832,7 @@ lean_alloc_ctor.exit:                             ; preds = %0
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 1, ptr %8, align 8, !tbaa !12
-  store i32 1, ptr %4, align 4, !tbaa !8
+  store i32 1, ptr %4, align 8, !tbaa !8
   store i32 196648, ptr %7, align 4
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %9, align 8, !tbaa !4

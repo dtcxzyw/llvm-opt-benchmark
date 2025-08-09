@@ -11176,9 +11176,9 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__23UsdGeomConstrain
   store ptr null, ptr %58, align 8, !alias.scope !20, !noalias !17
   %60 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %61 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
-  %62 = load i32, ptr %61, align 4, !alias.scope !20, !noalias !17
-  store i32 %62, ptr %60, align 4, !alias.scope !17, !noalias !20
-  store i32 0, ptr %61, align 4, !alias.scope !20, !noalias !17
+  %62 = load i32, ptr %61, align 8, !alias.scope !20, !noalias !17
+  store i32 %62, ptr %60, align 8, !alias.scope !17, !noalias !20
+  store i32 0, ptr %61, align 8, !alias.scope !20, !noalias !17
   %63 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 20
   %64 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 20
   %65 = load i32, ptr %64, align 4, !alias.scope !20, !noalias !17
@@ -11214,9 +11214,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__23UsdGeomConstraintTargetESaIS1_
   store ptr null, ptr %74, align 8, !alias.scope !26, !noalias !23
   %76 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 16
   %77 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 16
-  %78 = load i32, ptr %77, align 4, !alias.scope !26, !noalias !23
-  store i32 %78, ptr %76, align 4, !alias.scope !23, !noalias !26
-  store i32 0, ptr %77, align 4, !alias.scope !26, !noalias !23
+  %78 = load i32, ptr %77, align 8, !alias.scope !26, !noalias !23
+  store i32 %78, ptr %76, align 8, !alias.scope !23, !noalias !26
+  store i32 0, ptr %77, align 8, !alias.scope !26, !noalias !23
   %79 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 20
   %80 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 20
   %81 = load i32, ptr %80, align 4, !alias.scope !26, !noalias !23

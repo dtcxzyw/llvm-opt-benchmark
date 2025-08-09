@@ -2092,7 +2092,7 @@ read_connect.exit:                                ; preds = %799
   store i32 0, ptr %180, align 8, !tbaa !78
   store i32 0, ptr %173, align 4, !tbaa !64
   %821 = load ptr, ptr %181, align 8, !tbaa !79
-  %822 = load i32, ptr %182, align 4, !tbaa !25
+  %822 = load i32, ptr %182, align 8, !tbaa !25
   %823 = sext i32 %822 to i64
   %824 = mul nsw i64 %823, 48
   call void @llvm.memset.p0.i64(ptr align 8 %821, i8 0, i64 %824, i1 false)

@@ -4827,7 +4827,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %23, ptr %26, align 8, !tbaa !18
   store ptr %14, ptr %11, align 8, !tbaa !12
   store i64 0, ptr %25, align 8, !tbaa !18
-  store i8 0, ptr %14, align 1, !tbaa !19
+  store i8 0, ptr %14, align 8, !tbaa !19
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %27, i8 0, i64 56, i1 false)
   store ptr %8, ptr %24, align 8, !tbaa !204
@@ -7717,7 +7717,7 @@ define linkonce_odr void @_ZN9grpc_core15metadata_detail12AppendHelperI19grpc_me
   %storemerge.i.i.i.i = or i16 %7, 2
   store i16 %storemerge.i.i.i.i, ptr %6, align 2, !tbaa !173
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 10
-  store i8 %5, ptr %8, align 1, !tbaa !244
+  store i8 %5, ptr %8, align 2, !tbaa !244
   ret void
 }
 
@@ -7932,7 +7932,7 @@ define linkonce_odr void @_ZN9grpc_core15metadata_detail12AppendHelperI19grpc_me
   %storemerge.i.i.i.i = or i16 %7, 16384
   store i16 %storemerge.i.i.i.i, ptr %6, align 2, !tbaa !173
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i8 %5, ptr %8, align 1, !tbaa !261
+  store i8 %5, ptr %8, align 2, !tbaa !261
   ret void
 }
 
@@ -8133,7 +8133,7 @@ define linkonce_odr void @_ZN9grpc_core15metadata_detail12AppendHelperI19grpc_me
   %storemerge.i.i.i.i = or i16 %7, 1024
   store i16 %storemerge.i.i.i.i, ptr %6, align 2, !tbaa !173
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i8 %5, ptr %8, align 1, !tbaa !19
+  store i8 %5, ptr %8, align 2, !tbaa !19
   ret void
 }
 
@@ -9496,7 +9496,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %49, ptr %51, align 8, !tbaa !18
   store ptr %40, ptr %37, align 8, !tbaa !12
   store i64 0, ptr %50, align 8, !tbaa !18
-  store i8 0, ptr %40, align 1, !tbaa !19
+  store i8 0, ptr %40, align 8, !tbaa !19
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.023.0, i64 40
   %53 = add nuw nsw i64 %.012.i, 1
   %exitcond.not.i = icmp eq i64 %53, %.sink1.i
@@ -9908,7 +9908,7 @@ define linkonce_odr void @_ZN9grpc_core20arena_promise_detail7InlinedIN4absl12lt
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !53
   %.not.i.i = icmp ne ptr %3, null
-  %4 = load i8, ptr %0, align 1, !range !10
+  %4 = load i8, ptr %0, align 8, !range !10
   %5 = trunc nuw i8 %4 to i1
   %or.cond.i.i = select i1 %.not.i.i, i1 %5, i1 false
   br i1 %or.cond.i.i, label %6, label %_ZN9grpc_core14promise_detail9ImmediateISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit

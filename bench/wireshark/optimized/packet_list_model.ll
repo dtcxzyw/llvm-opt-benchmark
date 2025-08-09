@@ -7278,7 +7278,7 @@ _ZNK12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4NodeEE8findNodeERKj.exit: ; 
   store i64 %63, ptr %61, align 8
   %64 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %65 = load i64, ptr %7, align 8
-  %66 = load i32, ptr %64, align 4
+  %66 = load i32, ptr %64, align 8
   %67 = zext i32 %66 to i64
   %68 = lshr i64 %65, 32
   %69 = xor i64 %68, %67

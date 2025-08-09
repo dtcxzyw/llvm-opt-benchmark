@@ -535,7 +535,7 @@ _ZNR4absl12lts_202407228StatusOrIP14tsi_handshakerEdeEv.exit25: ; preds = %_ZNR4
   %74 = atomicrmw add ptr %73, i64 1 monotonic, align 8, !noalias !73
   store ptr %2, ptr %72, align 8, !tbaa !74, !alias.scope !70, !noalias !45
   %75 = getelementptr inbounds nuw i8, ptr %69, i64 32
-  store i64 0, ptr %75, align 8, !tbaa !32, !noalias !45
+  store i64 0, ptr %75, align 16, !tbaa !32, !noalias !45
   %76 = getelementptr inbounds nuw i8, ptr %69, i64 40
   store i8 0, ptr %76, align 8, !tbaa !75, !noalias !45
   %77 = getelementptr inbounds nuw i8, ptr %69, i64 48
@@ -625,7 +625,7 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit: ;
   store ptr %111, ptr %110, align 8, !tbaa !83, !noalias !45
   %112 = getelementptr inbounds nuw i8, ptr %69, i64 376
   store i64 0, ptr %112, align 8, !tbaa !26, !noalias !45
-  store i8 0, ptr %111, align 1, !tbaa !39, !noalias !45
+  store i8 0, ptr %111, align 8, !tbaa !39, !noalias !45
   %113 = getelementptr inbounds nuw i8, ptr %69, i64 400
   store ptr null, ptr %113, align 16, !tbaa !84, !noalias !45
   store ptr %69, ptr %0, align 8, !tbaa !36

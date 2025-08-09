@@ -1573,7 +1573,7 @@ define internal fastcc i32 @find_tree_entry(ptr noundef %0, ptr noundef nonnull 
   %20 = trunc i32 %19 to i16
   store i16 %20, ptr %4, align 2, !tbaa !93
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %6, ptr noundef nonnull readonly align 4 dereferenceable(32) %11, i64 32, i1 false)
-  %21 = load i32, ptr %14, align 4, !tbaa !4
+  %21 = load i32, ptr %14, align 8, !tbaa !4
   store i32 %21, ptr %15, align 4, !tbaa !4
   %.val = load i32, ptr %16, align 8, !tbaa !76
   tail call void @update_tree_entry(ptr noundef nonnull %1)
@@ -1740,7 +1740,7 @@ st_mult.exit:                                     ; preds = %39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %50, ptr noundef nonnull readonly align 4 dereferenceable(32) %14, i64 32, i1 false)
   %51 = load i32, ptr %28, align 4, !tbaa !4
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 48
-  store i32 %51, ptr %52, align 4, !tbaa !4
+  store i32 %51, ptr %52, align 8, !tbaa !4
   %53 = load ptr, ptr %29, align 8, !tbaa !38
   %54 = load i8, ptr %53, align 1, !tbaa !41
   %55 = icmp eq i8 %54, 0

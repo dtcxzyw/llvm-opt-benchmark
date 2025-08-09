@@ -5243,7 +5243,7 @@ _ZSt10_ConstructISt8functionIFvRN4llvm19MachineInstrBuilderEEEJRKS5_EEvPT_DpOT0_
   store i64 0, ptr %199, align 8
   %200 = getelementptr inbounds nuw i8, ptr %198, i64 24
   %201 = getelementptr inbounds nuw i8, ptr %198, i64 16
-  store i64 %.sroa.01.0.insert.insert, ptr %198, align 4
+  store i64 %.sroa.01.0.insert.insert, ptr %198, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRN4llvm19MachineInstrBuilderEEZNK12_GLOBAL__N_124RISCVInstructionSelector15selectShiftMaskERNS0_14MachineOperandEjE3$_1E9_M_invokeERKSt9_Any_dataS2_", ptr %200, align 8, !tbaa !506
   store ptr @"_ZNSt17_Function_handlerIFvRN4llvm19MachineInstrBuilderEEZNK12_GLOBAL__N_124RISCVInstructionSelector15selectShiftMaskERNS0_14MachineOperandEjE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %201, align 8, !tbaa !509
   %.pre.i.i.i53 = load i32, ptr %193, align 8, !tbaa !480
@@ -10305,7 +10305,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS2_vEE
   %66 = load i64, ptr %1, align 8, !tbaa !376
   store i64 %66, ptr %56, align 8, !tbaa !376
   %67 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  store i32 0, ptr %67, align 4, !tbaa !379
+  store i32 0, ptr %67, align 8, !tbaa !379
   br label %.loopexit
 
 .loopexit:                                        ; preds = %35, %13, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E16InsertIntoBucketIRKS2_JEEEPS7_SD_OT_DpOT0_.exit
@@ -10441,7 +10441,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapINS_3LLTEjLj64ENS_12Dens
   %30 = getelementptr inbounds nuw i8, ptr %.02538, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %.026.ptr39, i64 8
   %32 = load i32, ptr %31, align 8, !tbaa !379
-  store i32 %32, ptr %30, align 4, !tbaa !379
+  store i32 %32, ptr %30, align 8, !tbaa !379
   %33 = getelementptr inbounds nuw i8, ptr %.02538, i64 16
   br label %34
 
@@ -10606,7 +10606,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS2_vEE
   %53 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
   %54 = getelementptr inbounds nuw i8, ptr %.023, i64 8
   %55 = load i32, ptr %54, align 4, !tbaa !379
-  store i32 %55, ptr %53, align 4, !tbaa !379
+  store i32 %55, ptr %53, align 8, !tbaa !379
   %56 = load i32, ptr %0, align 8
   %57 = and i32 %56, -2
   %58 = add i32 %57, 2

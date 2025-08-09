@@ -11846,7 +11846,7 @@ _.exit44:                                         ; preds = %64, %66
   %98 = getelementptr inbounds nuw i8, ptr %93, i64 36
   %99 = load i32, ptr %98, align 4, !tbaa !167
   %100 = getelementptr inbounds nuw i8, ptr %95, i64 48
-  store i32 %99, ptr %100, align 4, !tbaa !167
+  store i32 %99, ptr %100, align 8, !tbaa !167
   %101 = call ptr @oidmap_put(ptr noundef nonnull %15, ptr noundef %95) #20
   %102 = call ptr @xcalloc(i64 noundef 1, i64 noundef 21) #20
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 16

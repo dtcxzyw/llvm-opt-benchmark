@@ -2484,7 +2484,7 @@ define hidden noundef ptr @_ZN13InstanceKlass23allocate_instance_klassERK15Class
   %42 = getelementptr inbounds nuw i8, ptr %30, i64 306
   store i8 0, ptr %42, align 2
   %43 = getelementptr inbounds nuw i8, ptr %30, i64 308
-  store i16 0, ptr %43, align 2
+  store i16 0, ptr %43, align 4
   %44 = getelementptr inbounds nuw i8, ptr %30, i64 310
   store i8 0, ptr %44, align 2
   %45 = getelementptr inbounds nuw i8, ptr %30, i64 312
@@ -2592,7 +2592,7 @@ _ZNK5Klass13is_subtype_ofEPS_.exit.i:             ; preds = %85
   %101 = getelementptr inbounds nuw i8, ptr %89, i64 306
   store i8 0, ptr %101, align 2
   %102 = getelementptr inbounds nuw i8, ptr %89, i64 308
-  store i16 0, ptr %102, align 2
+  store i16 0, ptr %102, align 4
   %103 = getelementptr inbounds nuw i8, ptr %89, i64 310
   store i8 0, ptr %103, align 2
   %104 = getelementptr inbounds nuw i8, ptr %89, i64 312
@@ -2648,7 +2648,7 @@ _ZL15is_class_loaderPK6SymbolRK15ClassFileParser.exit: ; preds = %_ZNK5Klass13is
   %129 = getelementptr inbounds nuw i8, ptr %117, i64 306
   store i8 0, ptr %129, align 2
   %130 = getelementptr inbounds nuw i8, ptr %117, i64 308
-  store i16 0, ptr %130, align 2
+  store i16 0, ptr %130, align 4
   %131 = getelementptr inbounds nuw i8, ptr %117, i64 310
   store i8 0, ptr %131, align 2
   %132 = getelementptr inbounds nuw i8, ptr %117, i64 312
@@ -2746,7 +2746,7 @@ _ZN15MetadataFactory9new_arrayIiEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.ex
   %29 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv
   store i32 %27, ptr %29, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = load i32, ptr %1, align 4
+  %30 = load i32, ptr %1, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
   br i1 %32, label %23, label %.loopexit, !llvm.loop !10

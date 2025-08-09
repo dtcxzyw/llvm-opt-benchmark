@@ -656,7 +656,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %if
   store i64 %32, ptr %_M_string_length.i13.i, align 8, !tbaa !43
   store ptr %29, ptr %name, align 8, !tbaa !41
   store i64 0, ptr %_M_string_length.i12.i, align 8, !tbaa !43
-  store i8 0, ptr %29, align 1, !tbaa !44
+  store i8 0, ptr %29, align 8, !tbaa !44
   %commodityType_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   %33 = load ptr, ptr %commodityType, align 8, !tbaa !45
   store ptr %33, ptr %commodityType_, align 8, !tbaa !45
@@ -2554,7 +2554,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %if
   store i64 %30, ptr %_M_string_length.i13.i, align 8, !tbaa !43
   store ptr %27, ptr %name, align 8, !tbaa !41
   store i64 0, ptr %_M_string_length.i12.i, align 8, !tbaa !43
-  store i8 0, ptr %27, align 1, !tbaa !44
+  store i8 0, ptr %27, align 8, !tbaa !44
   %commodityType_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   %31 = load ptr, ptr %commodityType, align 8, !tbaa !45
   store ptr %31, ptr %commodityType_, align 8, !tbaa !45
@@ -3744,7 +3744,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %if
   store i64 %31, ptr %_M_string_length.i13.i, align 8, !tbaa !43
   store ptr %28, ptr %name, align 8, !tbaa !41
   store i64 0, ptr %_M_string_length.i12.i, align 8, !tbaa !43
-  store i8 0, ptr %28, align 1, !tbaa !44
+  store i8 0, ptr %28, align 8, !tbaa !44
   %commodityType_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   %32 = load ptr, ptr %commodityType, align 8, !tbaa !45
   store ptr %32, ptr %commodityType_, align 8, !tbaa !45
@@ -3965,7 +3965,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %if
   store i64 %29, ptr %_M_string_length.i13.i, align 8, !tbaa !43
   store ptr %26, ptr %name, align 8, !tbaa !41
   store i64 0, ptr %_M_string_length.i12.i, align 8, !tbaa !43
-  store i8 0, ptr %26, align 1, !tbaa !44
+  store i8 0, ptr %26, align 8, !tbaa !44
   %commodityType_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   %30 = load ptr, ptr %commodityType, align 8, !tbaa !45
   store ptr %30, ptr %commodityType_, align 8, !tbaa !45

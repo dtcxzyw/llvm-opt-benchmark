@@ -3667,7 +3667,7 @@ _ZN5clang21CXXFunctionalCastExprC2ENS_4Stmt10EmptyShellEjb.exit: ; preds = %27, 
   %39 = or disjoint i32 %38, %37
   store i32 %39, ptr %.0.i.i.i6, align 8
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i6, i64 32
-  store i32 0, ptr %40, align 4, !tbaa !164
+  store i32 0, ptr %40, align 8, !tbaa !164
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i6, i64 36
   store i32 0, ptr %41, align 4, !tbaa !164
   br label %42

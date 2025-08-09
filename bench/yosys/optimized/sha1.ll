@@ -1606,7 +1606,7 @@ _ZN4SHA115buffer_to_blockERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %85 = load i32, ptr %84, align 8, !tbaa !38
   %86 = and i32 %85, -75
   %87 = or disjoint i32 %86, 8
-  store i32 %87, ptr %84, align 4, !tbaa !39
+  store i32 %87, ptr %84, align 8, !tbaa !39
   %88 = load i64, ptr %81, align 8
   %89 = getelementptr inbounds i8, ptr %4, i64 %88
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 225

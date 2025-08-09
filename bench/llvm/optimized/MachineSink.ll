@@ -16061,7 +16061,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_17MachineBasicBlockES4_EbNS_12De
   %93 = load ptr, ptr %92, align 8, !tbaa !122
   store ptr %93, ptr %83, align 8, !tbaa !367
   %94 = getelementptr inbounds nuw i8, ptr %78, i64 16
-  store i8 0, ptr %94, align 1, !tbaa !49
+  store i8 0, ptr %94, align 8, !tbaa !49
   br label %.loopexit
 
 .loopexit:                                        ; preds = %48, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_17MachineBasicBlockES4_EbNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_bEEEES5_bS7_SA_E16InsertIntoBucketIS5_JEEEPSA_SE_OT_DpOT0_.exit
@@ -16212,7 +16212,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_17MachineBasicBlockES4_EbNS_12De
   %93 = load ptr, ptr %92, align 8, !tbaa !367
   store ptr %93, ptr %83, align 8, !tbaa !367
   %94 = getelementptr inbounds nuw i8, ptr %78, i64 16
-  store i8 0, ptr %94, align 1, !tbaa !49
+  store i8 0, ptr %94, align 8, !tbaa !49
   br label %.loopexit
 
 .loopexit:                                        ; preds = %48, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_17MachineBasicBlockES4_EbNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_bEEEES5_bS7_SA_E16InsertIntoBucketIRKS5_JEEEPSA_SG_OT_DpOT0_.exit
@@ -17096,8 +17096,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_17MachineBasicBlockES4_EbNS_12De
   store ptr %78, ptr %79, align 8, !tbaa !367
   %80 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 16
   %81 = getelementptr inbounds nuw i8, ptr %.022, i64 16
-  %82 = load i8, ptr %81, align 1, !tbaa !49, !range !50, !noundef !51
-  store i8 %82, ptr %80, align 1, !tbaa !49
+  %82 = load i8, ptr %81, align 8, !tbaa !49, !range !50, !noundef !51
+  store i8 %82, ptr %80, align 8, !tbaa !49
   %83 = load i32, ptr %4, align 8, !tbaa !712
   %84 = add i32 %83, 1
   store i32 %84, ptr %4, align 8, !tbaa !712
@@ -22975,7 +22975,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEjNS_12DenseMapInfoIS3_vEE
 _ZSt9make_pairIRKPN4llvm12MachineInstrENS0_11SmallVectorIjLj2EEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS8_INS9_IT0_E4typeEE6__typeEEOSA_OSF_.exit.i.i: ; preds = %783, %777
   store ptr %710, ptr %778, align 8, !tbaa !511, !noalias !1066
   %788 = getelementptr inbounds nuw i8, ptr %778, i64 8
-  store i32 0, ptr %788, align 4, !tbaa !66, !noalias !1066
+  store i32 0, ptr %788, align 8, !tbaa !66, !noalias !1066
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %73, ptr %4, align 8, !tbaa !25
@@ -25871,7 +25871,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEjNS_12DenseMapInfoIS3_vEE
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !66
-  store i32 %68, ptr %66, align 4, !tbaa !66
+  store i32 %68, ptr %66, align 8, !tbaa !66
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !1047
   br label %70

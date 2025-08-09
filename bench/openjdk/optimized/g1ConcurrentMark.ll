@@ -1109,7 +1109,7 @@ _ZN8G1CMTask29get_entries_from_global_stackEv.exit.thread.i: ; preds = %30
   %50 = add i32 %40, 1
   %51 = and i32 %50, 131071
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !6
-  store volatile i32 %51, ptr %39, align 4
+  store volatile i32 %51, ptr %39, align 8
   br label %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i
 
 _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i: ; preds = %45, %37
@@ -1188,7 +1188,7 @@ define hidden void @_ZN8G1CMTask17drain_local_queueEb(ptr noundef nonnull align 
   %29 = zext nneg i32 %26 to i64
   %30 = getelementptr inbounds nuw %class.G1TaskQueueEntry, ptr %28, i64 %29
   %31 = load i64, ptr %30, align 8
-  %32 = load volatile i32, ptr %12, align 4
+  %32 = load volatile i32, ptr %12, align 8
   %33 = sub i32 %25, %32
   %34 = and i32 %33, 131071
   switch i32 %34, label %.lr.ph [
@@ -1213,7 +1213,7 @@ define hidden void @_ZN8G1CMTask17drain_local_queueEb(ptr noundef nonnull align 
 
 ._crit_edge.i.i:                                  ; preds = %39, %35
   store volatile i64 %.sroa.08.0.insert.insert11.i.i, ptr %12, align 8
-  %42 = load volatile i32, ptr %12, align 4
+  %42 = load volatile i32, ptr %12, align 8
   br label %.loopexit
 
 _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.sink.split.i: ; preds = %39
@@ -1303,7 +1303,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE14pop_local_slowEj
 
 ._crit_edge.i.i10:                                ; preds = %86, %82
   store volatile i64 %.sroa.08.0.insert.insert11.i.i9, ptr %54, align 8
-  %89 = load volatile i32, ptr %54, align 4
+  %89 = load volatile i32, ptr %54, align 8
   br label %.loopexit
 
 _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.sink.split.i11: ; preds = %86
@@ -1394,7 +1394,7 @@ _ZN8G1CMTask29get_entries_from_global_stackEv.exit.thread: ; preds = %30
   %50 = add i32 %40, 1
   %51 = and i32 %50, 131071
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !6
-  store volatile i32 %51, ptr %39, align 4
+  store volatile i32 %51, ptr %39, align 8
   br label %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i
 
 _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i: ; preds = %45, %37
@@ -1458,7 +1458,7 @@ _ZN8G1CMTask29get_entries_from_global_stackEv.exit11.thread: ; preds = %60
   %81 = add i32 %71, 1
   %82 = and i32 %81, 131071
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !6
-  store volatile i32 %82, ptr %70, align 4
+  store volatile i32 %82, ptr %70, align 8
   br label %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i9
 
 _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i9: ; preds = %76, %68
@@ -7724,7 +7724,7 @@ define hidden void @_ZN8G1CMTask28move_entries_to_global_stackEv(ptr noundef non
   %16 = zext nneg i32 %13 to i64
   %17 = getelementptr inbounds nuw %class.G1TaskQueueEntry, ptr %15, i64 %16
   %18 = load i64, ptr %17, align 8
-  %19 = load volatile i32, ptr %7, align 4
+  %19 = load volatile i32, ptr %7, align 8
   %20 = sub i32 %12, %19
   %21 = and i32 %20, 131071
   switch i32 %21, label %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread [
@@ -7753,7 +7753,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE9pop_localERS0_j.e
 
 _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit: ; preds = %22, %26
   store volatile i64 %.sroa.08.0.insert.insert11.i.i, ptr %7, align 8
-  %30 = load volatile i32, ptr %7, align 4
+  %30 = load volatile i32, ptr %7, align 8
   br label %.critedge7
 
 _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread: ; preds = %11, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread15
@@ -7839,7 +7839,7 @@ define hidden noundef zeroext i1 @_ZN8G1CMTask29get_entries_from_global_stackEv(
   %26 = add i32 %16, 1
   %27 = and i32 %26, 131071
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !6
-  store volatile i32 %27, ptr %15, align 4
+  store volatile i32 %27, ptr %15, align 8
   br label %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit
 
 _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit: ; preds = %13, %21
@@ -8182,7 +8182,7 @@ _ZN8G1CMTask29get_entries_from_global_stackEv.exit.thread.i: ; preds = %.lr.ph14
   %105 = add i32 %95, 1
   %106 = and i32 %105, 131071
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !6
-  store volatile i32 %106, ptr %94, align 4
+  store volatile i32 %106, ptr %94, align 8
   br label %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i
 
 _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i: ; preds = %100, %92
@@ -8723,7 +8723,7 @@ _ZN8G1CMTask29get_entries_from_global_stackEv.exit.thread.i44: ; preds = %_ZN13G
   %407 = add i32 %397, 1
   %408 = and i32 %407, 131071
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !6
-  store volatile i32 %408, ptr %396, align 4
+  store volatile i32 %408, ptr %396, align 8
   br label %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i48
 
 _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i48: ; preds = %402, %394
@@ -9030,7 +9030,7 @@ _ZN8G1CMTask29get_entries_from_global_stackEv.exit11.thread.i: ; preds = %.prehe
   %567 = add i32 %557, 1
   %568 = and i32 %567, 131071
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !6
-  store volatile i32 %568, ptr %556, align 4
+  store volatile i32 %568, ptr %556, align 8
   br label %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i9.i
 
 _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i9.i: ; preds = %562, %554
@@ -9144,7 +9144,7 @@ _ZN16G1ConcurrentMark12try_stealingEjR16G1TaskQueueEntry.exit: ; preds = %.lr.ph
   %622 = add i32 %612, 1
   %623 = and i32 %622, 131071
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !6
-  store volatile i32 %623, ptr %611, align 4
+  store volatile i32 %623, ptr %611, align 8
   br label %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i9.i63
 
 _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i9.i63: ; preds = %617, %609
@@ -12478,7 +12478,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.thr
   %109 = add i32 %100, 1
   %110 = and i32 %109, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !6
-  store volatile i32 %110, ptr %99, align 4
+  store volatile i32 %110, ptr %99, align 8
   br label %_ZN8G1CMTask23process_grey_task_entryILb0EEEv16G1TaskQueueEntry.exit
 
 _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i: ; preds = %96
@@ -12502,7 +12502,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i: 
   %123 = add i32 %113, 1
   %124 = and i32 %123, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !6
-  store volatile i32 %124, ptr %112, align 4
+  store volatile i32 %124, ptr %112, align 8
   br label %_ZN8G1CMTask23process_grey_task_entryILb0EEEv16G1TaskQueueEntry.exit
 
 _ZN8G1CMTask23process_grey_task_entryILb0EEEv16G1TaskQueueEntry.exit: ; preds = %16, %118, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i, %95, %90, %86, %64, %44, %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit, %2
@@ -22030,7 +22030,7 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI16GenericTaskQu
   %66 = load volatile i64, ptr %58, align 8
   %.sroa.010.0.extract.trunc.i = trunc i64 %66 to i32
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !6
-  %67 = load volatile i32, ptr %56, align 4
+  %67 = load volatile i32, ptr %56, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !6
   %68 = sub i32 %67, %.sroa.010.0.extract.trunc.i
   %69 = and i32 %68, 131071
@@ -22066,7 +22066,7 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI16GenericTaskQu
   %84 = load volatile i64, ptr %47, align 8
   %.sroa.010.0.extract.trunc.i42 = trunc i64 %84 to i32
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !6
-  %85 = load volatile i32, ptr %45, align 4
+  %85 = load volatile i32, ptr %45, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !6
   %86 = sub i32 %85, %.sroa.010.0.extract.trunc.i42
   %87 = and i32 %86, 131071
@@ -22119,7 +22119,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE10pop_globalERS0_.
   %.sroa.010.0.extract.trunc.i49 = trunc i64 %110 to i32
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !6
   %111 = getelementptr inbounds nuw i8, ptr %108, i64 128
-  %112 = load volatile i32, ptr %111, align 4
+  %112 = load volatile i32, ptr %111, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !6
   %113 = sub i32 %112, %.sroa.010.0.extract.trunc.i49
   %114 = and i32 %113, 131071

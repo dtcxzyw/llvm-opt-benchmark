@@ -409,11 +409,11 @@ define internal i32 @tg3_init_one(ptr noundef %0, ptr noundef readonly captures(
   %34 = getelementptr i8, ptr %15, i64 7448
   store i64 68719476704, ptr %34, align 8
   %35 = getelementptr i8, ptr %15, i64 7456
-  store volatile ptr %35, ptr %35, align 8
+  store volatile ptr %35, ptr %35, align 32
   %36 = getelementptr i8, ptr %15, i64 7464
   store volatile ptr %35, ptr %36, align 8
   %37 = getelementptr i8, ptr %15, i64 7472
-  store ptr @tg3_reset_task, ptr %37, align 8
+  store ptr @tg3_reset_task, ptr %37, align 16
   %38 = tail call ptr @pci_ioremap_bar(ptr noundef %0, i32 noundef 0) #27
   %39 = getelementptr i8, ptr %15, i64 2352
   store ptr %38, ptr %39, align 16
@@ -2889,7 +2889,7 @@ thread-pre-split59:                               ; preds = %._crit_edge, %.spli
   %819 = icmp eq i32 %818, 16384
   %820 = select i1 %819, i32 16384, i32 22528
   store i32 %820, ptr %720, align 16
-  %821 = load volatile i64, ptr %80, align 8
+  %821 = load volatile i64, ptr %80, align 16
   %822 = and i64 %821, 16384
   %823 = icmp ne i64 %822, 0
   %824 = and i32 %817, -4096
@@ -7806,7 +7806,7 @@ define internal fastcc void @tg3_switch_clocks(ptr noundef %0) unnamed_addr #2 a
   %15 = and i32 %14, 6291487
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 5112
   store i32 %15, ptr %16, align 8
-  %17 = load volatile i64, ptr %7, align 8
+  %17 = load volatile i64, ptr %7, align 16
   %18 = and i64 %17, 128
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %41, label %20
@@ -8796,7 +8796,7 @@ define internal fastcc i32 @tg3_reset_hw(ptr noundef %0, i1 noundef zeroext %1) 
   %526 = icmp eq i32 %525, 1467502592
   %527 = select i1 %526, i32 -898, i32 -2
   %528 = and i32 %527, %524
-  %529 = load volatile i64, ptr %241, align 8
+  %529 = load volatile i64, ptr %241, align 16
   %530 = and i64 %529, 8192
   %531 = icmp eq i64 %530, 0
   br i1 %531, label %532, label %536
@@ -8894,7 +8894,7 @@ define internal fastcc i32 @tg3_reset_hw(ptr noundef %0, i1 noundef zeroext %1) 
   %589 = or disjoint i32 %588, 130
   %590 = load ptr, ptr %11, align 8
   tail call void %590(ptr noundef %0, i32 noundef 26628, i32 noundef %589) #27
-  %591 = load volatile i64, ptr %241, align 8
+  %591 = load volatile i64, ptr %241, align 16
   %592 = and i64 %591, 512
   %593 = icmp eq i64 %592, 0
   br i1 %593, label %594, label %620
@@ -9093,7 +9093,7 @@ define internal fastcc i32 @tg3_reset_hw(ptr noundef %0, i1 noundef zeroext %1) 
   %713 = tail call i32 @llvm.umin.i32(i32 %708, i32 %712)
   %714 = load ptr, ptr %11, align 8
   tail call void %714(ptr noundef %0, i32 noundef 11288, i32 noundef %713) #27
-  %715 = load volatile i64, ptr %241, align 8
+  %715 = load volatile i64, ptr %241, align 16
   %716 = and i64 %715, 4096
   %717 = icmp eq i64 %716, 0
   br i1 %717, label %720, label %718
@@ -9269,7 +9269,7 @@ define internal fastcc i32 @tg3_reset_hw(ptr noundef %0, i1 noundef zeroext %1) 
   %826 = load ptr, ptr %815, align 64
   tail call void %826(ptr noundef %0, i32 noundef 628, i32 noundef %824) #27
   %827 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %828 = load volatile i64, ptr %241, align 8
+  %828 = load volatile i64, ptr %241, align 16
   %829 = and i64 %828, 128
   %830 = icmp eq i64 %829, 0
   br i1 %830, label %select.unfold, label %831
@@ -9421,7 +9421,7 @@ select.unfold:                                    ; preds = %839, %835, %831, %8
   %919 = load i32, ptr %918, align 4
   %920 = load ptr, ptr %872, align 8
   tail call void %920(ptr noundef %0, i32 noundef %919, i32 noundef 1) #27
-  %921 = load volatile i64, ptr %241, align 8
+  %921 = load volatile i64, ptr %241, align 16
   %922 = and i64 %921, 65536
   %923 = icmp eq i64 %922, 0
   br i1 %923, label %924, label %932
@@ -9963,7 +9963,7 @@ select.unfold:                                    ; preds = %839, %835, %831, %8
   tail call void %1255(ptr noundef %0, i32 noundef 12288, i32 noundef 6) #27
   %1256 = load ptr, ptr %11, align 8
   tail call void %1256(ptr noundef %0, i32 noundef 8192, i32 noundef 2) #27
-  %1257 = load volatile i64, ptr %241, align 8
+  %1257 = load volatile i64, ptr %241, align 16
   %1258 = and i64 %1257, 128
   %1259 = icmp eq i64 %1258, 0
   br i1 %1259, label %1260, label %1262
@@ -10832,7 +10832,7 @@ select.unfold:                                    ; preds = %839, %835, %831, %8
 1792:                                             ; preds = %1791, %1749
   %1793 = getelementptr inbounds nuw i8, ptr %0, i64 4816
   store i32 2, ptr %1793, align 16
-  %1794 = load volatile i64, ptr %241, align 8
+  %1794 = load volatile i64, ptr %241, align 16
   %1795 = and i64 %1794, 2048
   %1796 = icmp eq i64 %1795, 0
   br i1 %1796, label %1798, label %1797
@@ -11134,7 +11134,7 @@ select.unfold:                                    ; preds = %839, %835, %831, %8
   call void %1975(ptr noundef %0, i32 noundef 1160, i32 noundef 100663300) #27
   %1976 = load ptr, ptr %11, align 8
   call void %1976(ptr noundef %0, i32 noundef 1164, i32 noundef 2147483647) #27
-  %1977 = load volatile i64, ptr %241, align 8
+  %1977 = load volatile i64, ptr %241, align 16
   %1978 = and i64 %1977, 128
   %1979 = icmp eq i64 %1978, 0
   br i1 %1979, label %1984, label %1980
@@ -12057,7 +12057,7 @@ define internal fastcc void @tg3_setup_eee(ptr noundef %0) unnamed_addr #2 align
   %55 = and i32 %54, 4
   %56 = or disjoint i32 %55, %51
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 5328
-  %58 = load i32, ptr %57, align 4
+  %58 = load i32, ptr %57, align 8
   %59 = icmp eq i32 %58, 0
   %60 = select i1 %59, i32 0, i32 %56
   %61 = load volatile i64, ptr %6, align 8
@@ -23369,7 +23369,7 @@ define internal i32 @tg3_set_eeprom(ptr noundef %0, ptr noundef readonly capture
   %435 = load ptr, ptr %189, align 8
   %436 = and i32 %434, -2097153
   tail call void %435(ptr noundef %7, i32 noundef 26624, i32 noundef %436) #27
-  %437 = load volatile i64, ptr %159, align 8
+  %437 = load volatile i64, ptr %159, align 16
   %438 = and i64 %437, 512
   %439 = icmp eq i64 %438, 0
   br i1 %439, label %449, label %440
@@ -23598,7 +23598,7 @@ define internal noundef range(i32 -22, 1) i32 @tg3_set_coalesce(ptr noundef %0, 
   %69 = getelementptr i8, ptr %0, i64 7556
   store i32 %68, ptr %69, align 4
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %71 = load volatile i64, ptr %70, align 8
+  %71 = load volatile i64, ptr %70, align 32
   %72 = and i64 %71, 1
   %73 = icmp eq i64 %72, 0
   br i1 %73, label %77, label %74
@@ -26985,7 +26985,7 @@ define internal fastcc void @tg3_dump_legacy_regs(ptr noundef %0, ptr noundef wr
   %249 = tail call i32 %248(ptr noundef %0, i32 noundef 20532) #27
   store i32 %249, ptr %247, align 4
   %250 = getelementptr i8, ptr %0, i64 4688
-  %251 = load volatile i64, ptr %250, align 8
+  %251 = load volatile i64, ptr %250, align 16
   %252 = and i64 %251, 128
   %253 = icmp eq i64 %252, 0
   br i1 %253, label %254, label %264
@@ -35216,7 +35216,7 @@ define internal fastcc i32 @tg3_poll_work(ptr noundef %0, i32 noundef %1, i32 no
   %235 = load i32, ptr %234, align 8
   store i32 %235, ptr %4, align 4
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %237 = load i32, ptr %236, align 8
+  %237 = load i32, ptr %236, align 16
   store i32 %237, ptr %5, align 4
   %238 = icmp sgt i32 %232, 0
   br i1 %238, label %239, label %.loopexit56
@@ -35321,7 +35321,7 @@ define internal fastcc i32 @tg3_poll_work(ptr noundef %0, i32 noundef %1, i32 no
   %316 = load ptr, ptr %245, align 8
   %317 = getelementptr %struct.ring_info, ptr %316, i64 %314
   %318 = getelementptr inbounds nuw i8, ptr %295, i64 816
-  %319 = load ptr, ptr %318, align 8
+  %319 = load ptr, ptr %318, align 16
   %320 = zext nneg i32 %270 to i64
   %321 = getelementptr %struct.tg3_ext_rx_buffer_desc, ptr %319, i64 %320, i32 3
   br label %322
@@ -35479,7 +35479,7 @@ define internal fastcc i32 @tg3_poll_work(ptr noundef %0, i32 noundef %1, i32 no
   %410 = load ptr, ptr %245, align 8
   %411 = getelementptr %struct.ring_info, ptr %410, i64 %408
   %412 = getelementptr inbounds nuw i8, ptr %389, i64 816
-  %413 = load ptr, ptr %412, align 8
+  %413 = load ptr, ptr %412, align 16
   %414 = zext nneg i32 %270 to i64
   %415 = getelementptr %struct.tg3_ext_rx_buffer_desc, ptr %413, i64 %414, i32 3
   br label %416
@@ -35933,7 +35933,7 @@ define internal fastcc i32 @tg3_poll_work(ptr noundef %0, i32 noundef %1, i32 no
   %.pre99 = add i32 %.pre97, 1
   %..pre99 = select i1 %703, i32 %701, i32 %.pre99
   %704 = sub i32 %..pre99, %700
-  %705 = load i32, ptr %600, align 8
+  %705 = load i32, ptr %600, align 16
   %706 = sub i32 %.pre99, %705
   %707 = call i32 @llvm.umin.i32(i32 %704, i32 %706)
   %708 = add i32 %707, %705
@@ -36008,10 +36008,10 @@ define internal fastcc i32 @tg3_poll_work(ptr noundef %0, i32 noundef %1, i32 no
   %756 = load i32, ptr %610, align 16
   %757 = and i32 %755, %756
   store i32 %757, ptr %693, align 4
-  %758 = load i32, ptr %600, align 8
+  %758 = load i32, ptr %600, align 16
   %759 = add i32 %758, %724
   %760 = and i32 %759, %756
-  store i32 %760, ptr %600, align 8
+  store i32 %760, ptr %600, align 16
   %761 = load i32, ptr %691, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !233
   %762 = load i32, ptr %693, align 4
@@ -36259,7 +36259,7 @@ define internal fastcc void @tg3_dump_state(ptr noundef %0) unnamed_addr #2 alig
   %103 = getelementptr inbounds nuw i8, ptr %66, i64 476
   %104 = load i32, ptr %103, align 4
   %105 = getelementptr inbounds nuw i8, ptr %66, i64 480
-  %106 = load i32, ptr %105, align 8
+  %106 = load i32, ptr %105, align 32
   %107 = getelementptr inbounds nuw i8, ptr %66, i64 484
   %108 = load i32, ptr %107, align 4
   tail call void (ptr, ptr, ...) @netdev_err(ptr noundef %88, ptr noundef nonnull @.str.64, i32 noundef %64, i32 noundef %90, i32 noundef %92, i32 noundef %94, i32 noundef %96, i32 noundef %98, i32 noundef %100, i32 noundef %102, i32 noundef %104, i32 noundef %106, i32 noundef %108) #28
@@ -38115,14 +38115,14 @@ define internal fastcc range(i32 0, 17) i32 @__tg3_start_xmit(ptr noundef %0, pt
   %283 = load ptr, ptr %282, align 16
   %284 = tail call i32 %283(ptr noundef %5, i32 noundef 1472) #27
   %285 = zext i32 %284 to i64
-  store i64 %285, ptr %270, align 8
+  store i64 %285, ptr %270, align 16
   %286 = load ptr, ptr %282, align 16
   %287 = tail call i32 %286(ptr noundef %5, i32 noundef 1476) #27
   %288 = zext i32 %287 to i64
   %289 = shl nuw i64 %288, 32
-  %290 = load i64, ptr %270, align 8
+  %290 = load i64, ptr %270, align 16
   %291 = or i64 %289, %290
-  store i64 %291, ptr %270, align 8
+  store i64 %291, ptr %270, align 16
   br label %292
 
 292:                                              ; preds = %273, %268

@@ -3018,7 +3018,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %34, 
   %50 = load i32, ptr %49, align 8, !tbaa !96
   %51 = and i32 %50, -75
   %52 = or disjoint i32 %51, 2
-  store i32 %52, ptr %49, align 4, !tbaa !97
+  store i32 %52, ptr %49, align 8, !tbaa !97
   %53 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, i64 noundef %.025)
   %54 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull @.str.17, i64 noundef 4)
   %55 = load ptr, ptr %2, align 8, !tbaa !18
@@ -3073,7 +3073,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %34, 
   %74 = load i32, ptr %73, align 8, !tbaa !96
   %75 = and i32 %74, -75
   %76 = or disjoint i32 %75, 8
-  store i32 %76, ptr %73, align 4, !tbaa !97
+  store i32 %76, ptr %73, align 8, !tbaa !97
   %77 = load ptr, ptr %2, align 8, !tbaa !18
   %78 = getelementptr inbounds nuw %"struct.mu::SToken", ptr %77, i64 %.025, i32 1
   %79 = load ptr, ptr %78, align 8, !tbaa !28
@@ -3092,7 +3092,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %34, 
   %90 = load i32, ptr %89, align 8, !tbaa !96
   %91 = and i32 %90, -75
   %92 = or disjoint i32 %91, 8
-  store i32 %92, ptr %89, align 4, !tbaa !97
+  store i32 %92, ptr %89, align 8, !tbaa !97
   %93 = load ptr, ptr %2, align 8, !tbaa !18
   %94 = getelementptr inbounds nuw %"struct.mu::SToken", ptr %93, i64 %.025, i32 1
   %95 = load ptr, ptr %94, align 8, !tbaa !28
@@ -3111,7 +3111,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %34, 
   %106 = load i32, ptr %105, align 8, !tbaa !96
   %107 = and i32 %106, -75
   %108 = or disjoint i32 %107, 8
-  store i32 %108, ptr %105, align 4, !tbaa !97
+  store i32 %108, ptr %105, align 8, !tbaa !97
   %109 = load ptr, ptr %2, align 8, !tbaa !18
   %110 = getelementptr inbounds nuw %"struct.mu::SToken", ptr %109, i64 %.025, i32 1
   %111 = load ptr, ptr %110, align 8, !tbaa !28
@@ -3130,7 +3130,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %34, 
   %122 = load i32, ptr %121, align 8, !tbaa !96
   %123 = and i32 %122, -75
   %124 = or disjoint i32 %123, 8
-  store i32 %124, ptr %121, align 4, !tbaa !97
+  store i32 %124, ptr %121, align 8, !tbaa !97
   %125 = load ptr, ptr %2, align 8, !tbaa !18
   %126 = getelementptr inbounds nuw %"struct.mu::SToken", ptr %125, i64 %.025, i32 1
   %127 = load ptr, ptr %126, align 8, !tbaa !28
@@ -3149,7 +3149,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %34, 
   %138 = load i32, ptr %137, align 8, !tbaa !96
   %139 = and i32 %138, -75
   %140 = or disjoint i32 %139, 8
-  store i32 %140, ptr %137, align 4, !tbaa !97
+  store i32 %140, ptr %137, align 8, !tbaa !97
   %141 = load ptr, ptr %2, align 8, !tbaa !18
   %142 = getelementptr inbounds nuw %"struct.mu::SToken", ptr %141, i64 %.025, i32 1
   %143 = load ptr, ptr %142, align 8, !tbaa !28
@@ -3180,7 +3180,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %34, 
   %166 = load i32, ptr %165, align 8, !tbaa !96
   %167 = and i32 %166, -75
   %168 = or disjoint i32 %167, 2
-  store i32 %168, ptr %165, align 4, !tbaa !97
+  store i32 %168, ptr %165, align 8, !tbaa !97
   %169 = load ptr, ptr %2, align 8, !tbaa !18
   %170 = getelementptr inbounds nuw %"struct.mu::SToken", ptr %169, i64 %.025, i32 1, i32 0, i32 2
   %171 = load i32, ptr %170, align 8, !tbaa !28
@@ -3195,7 +3195,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %34, 
   %180 = load i32, ptr %179, align 8, !tbaa !96
   %181 = and i32 %180, -75
   %182 = or disjoint i32 %181, 8
-  store i32 %182, ptr %179, align 4, !tbaa !97
+  store i32 %182, ptr %179, align 8, !tbaa !97
   %183 = load ptr, ptr %2, align 8, !tbaa !18
   %184 = getelementptr inbounds nuw %"struct.mu::SToken", ptr %183, i64 %.025, i32 1
   %185 = load ptr, ptr %184, align 8, !tbaa !28
@@ -3210,7 +3210,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %34, 
   %194 = load i32, ptr %193, align 8, !tbaa !96
   %195 = and i32 %194, -75
   %196 = or disjoint i32 %195, 8
-  store i32 %196, ptr %193, align 4, !tbaa !97
+  store i32 %196, ptr %193, align 8, !tbaa !97
   %197 = load ptr, ptr %2, align 8, !tbaa !18
   %198 = getelementptr inbounds nuw %"struct.mu::SToken", ptr %197, i64 %.025, i32 1, i32 0, i32 1
   %199 = load ptr, ptr %198, align 8, !tbaa !28
@@ -3230,7 +3230,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %34, 
   %211 = load i32, ptr %210, align 8, !tbaa !96
   %212 = and i32 %211, -75
   %213 = or disjoint i32 %212, 2
-  store i32 %213, ptr %210, align 4, !tbaa !97
+  store i32 %213, ptr %210, align 8, !tbaa !97
   %214 = load ptr, ptr %2, align 8, !tbaa !18
   %215 = getelementptr inbounds nuw %"struct.mu::SToken", ptr %214, i64 %.025, i32 1, i32 0, i32 2
   %216 = load i32, ptr %215, align 8, !tbaa !28
@@ -3245,7 +3245,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %34, 
   %225 = load i32, ptr %224, align 8, !tbaa !96
   %226 = and i32 %225, -75
   %227 = or disjoint i32 %226, 2
-  store i32 %227, ptr %224, align 4, !tbaa !97
+  store i32 %227, ptr %224, align 8, !tbaa !97
   %228 = load ptr, ptr %2, align 8, !tbaa !18
   %229 = getelementptr inbounds nuw %"struct.mu::SToken", ptr %228, i64 %.025
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 28
@@ -3261,7 +3261,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %34, 
   %240 = load i32, ptr %239, align 8, !tbaa !96
   %241 = and i32 %240, -75
   %242 = or disjoint i32 %241, 8
-  store i32 %242, ptr %239, align 4, !tbaa !97
+  store i32 %242, ptr %239, align 8, !tbaa !97
   %243 = load ptr, ptr %2, align 8, !tbaa !18
   %244 = getelementptr inbounds nuw %"struct.mu::SToken", ptr %243, i64 %.025, i32 1
   %245 = load ptr, ptr %244, align 8, !tbaa !28
@@ -3276,7 +3276,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %34, 
   %254 = load i32, ptr %253, align 8, !tbaa !96
   %255 = and i32 %254, -75
   %256 = or disjoint i32 %255, 8
-  store i32 %256, ptr %253, align 4, !tbaa !97
+  store i32 %256, ptr %253, align 8, !tbaa !97
   %257 = load ptr, ptr %2, align 8, !tbaa !18
   %258 = getelementptr inbounds nuw %"struct.mu::SToken", ptr %257, i64 %.025, i32 1, i32 0, i32 1
   %259 = load ptr, ptr %258, align 8, !tbaa !28
@@ -3348,7 +3348,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %34, 
   %297 = load i32, ptr %296, align 8, !tbaa !96
   %298 = and i32 %297, -75
   %299 = or disjoint i32 %298, 2
-  store i32 %299, ptr %296, align 4, !tbaa !97
+  store i32 %299, ptr %296, align 8, !tbaa !97
   %300 = load ptr, ptr %2, align 8, !tbaa !18
   %301 = getelementptr inbounds nuw %"struct.mu::SToken", ptr %300, i64 %.025, i32 1, i32 0, i32 1
   %302 = load i32, ptr %301, align 8, !tbaa !28
@@ -3367,7 +3367,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %34, 
   %313 = load i32, ptr %312, align 8, !tbaa !96
   %314 = and i32 %313, -75
   %315 = or disjoint i32 %314, 2
-  store i32 %315, ptr %312, align 4, !tbaa !97
+  store i32 %315, ptr %312, align 8, !tbaa !97
   %316 = load ptr, ptr %2, align 8, !tbaa !18
   %317 = getelementptr inbounds nuw %"struct.mu::SToken", ptr %316, i64 %.025, i32 1, i32 0, i32 1
   %318 = load i32, ptr %317, align 8, !tbaa !28

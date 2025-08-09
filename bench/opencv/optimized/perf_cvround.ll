@@ -15662,7 +15662,7 @@ _ZSt19__relocate_object_aIN7testing8internal25ParameterizedTestCaseInfoIN11openc
   store i64 %49, ptr %51, align 8, !tbaa !15, !alias.scope !429, !noalias !432
   store ptr %41, ptr %.0911.i.i.i.i, align 8, !tbaa !12, !alias.scope !432, !noalias !429
   store i64 0, ptr %50, align 8, !tbaa !15, !alias.scope !432, !noalias !429
-  store i8 0, ptr %41, align 1, !tbaa !14, !alias.scope !432, !noalias !429
+  store i8 0, ptr %41, align 8, !tbaa !14, !alias.scope !432, !noalias !429
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %52, ptr noundef nonnull align 8 dereferenceable(28) %53, i64 28, i1 false), !alias.scope !434
@@ -15713,7 +15713,7 @@ _ZSt19__relocate_object_aIN7testing8internal25ParameterizedTestCaseInfoIN11openc
   store i64 %67, ptr %69, align 8, !tbaa !15, !alias.scope !436, !noalias !439
   store ptr %59, ptr %.0911.i.i.i.i19, align 8, !tbaa !12, !alias.scope !439, !noalias !436
   store i64 0, ptr %68, align 8, !tbaa !15, !alias.scope !439, !noalias !436
-  store i8 0, ptr %59, align 1, !tbaa !14, !alias.scope !439, !noalias !436
+  store i8 0, ptr %59, align 8, !tbaa !14, !alias.scope !439, !noalias !436
   %70 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %70, ptr noundef nonnull align 8 dereferenceable(28) %71, i64 28, i1 false), !alias.scope !441
@@ -17862,7 +17862,7 @@ _ZSt19__relocate_object_aIN7testing8internal25ParameterizedTestCaseInfoIN11openc
   store i64 %49, ptr %51, align 8, !tbaa !15, !alias.scope !459, !noalias !462
   store ptr %41, ptr %.0911.i.i.i.i, align 8, !tbaa !12, !alias.scope !462, !noalias !459
   store i64 0, ptr %50, align 8, !tbaa !15, !alias.scope !462, !noalias !459
-  store i8 0, ptr %41, align 1, !tbaa !14, !alias.scope !462, !noalias !459
+  store i8 0, ptr %41, align 8, !tbaa !14, !alias.scope !462, !noalias !459
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %52, ptr noundef nonnull align 8 dereferenceable(28) %53, i64 28, i1 false), !alias.scope !464
@@ -17913,7 +17913,7 @@ _ZSt19__relocate_object_aIN7testing8internal25ParameterizedTestCaseInfoIN11openc
   store i64 %67, ptr %69, align 8, !tbaa !15, !alias.scope !466, !noalias !469
   store ptr %59, ptr %.0911.i.i.i.i19, align 8, !tbaa !12, !alias.scope !469, !noalias !466
   store i64 0, ptr %68, align 8, !tbaa !15, !alias.scope !469, !noalias !466
-  store i8 0, ptr %59, align 1, !tbaa !14, !alias.scope !469, !noalias !466
+  store i8 0, ptr %59, align 8, !tbaa !14, !alias.scope !469, !noalias !466
   %70 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %70, ptr noundef nonnull align 8 dereferenceable(28) %71, i64 28, i1 false), !alias.scope !471
@@ -20062,7 +20062,7 @@ _ZSt19__relocate_object_aIN7testing8internal25ParameterizedTestCaseInfoIN11openc
   store i64 %49, ptr %51, align 8, !tbaa !15, !alias.scope !489, !noalias !492
   store ptr %41, ptr %.0911.i.i.i.i, align 8, !tbaa !12, !alias.scope !492, !noalias !489
   store i64 0, ptr %50, align 8, !tbaa !15, !alias.scope !492, !noalias !489
-  store i8 0, ptr %41, align 1, !tbaa !14, !alias.scope !492, !noalias !489
+  store i8 0, ptr %41, align 8, !tbaa !14, !alias.scope !492, !noalias !489
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %52, ptr noundef nonnull align 8 dereferenceable(28) %53, i64 28, i1 false), !alias.scope !494
@@ -20113,7 +20113,7 @@ _ZSt19__relocate_object_aIN7testing8internal25ParameterizedTestCaseInfoIN11openc
   store i64 %67, ptr %69, align 8, !tbaa !15, !alias.scope !496, !noalias !499
   store ptr %59, ptr %.0911.i.i.i.i19, align 8, !tbaa !12, !alias.scope !499, !noalias !496
   store i64 0, ptr %68, align 8, !tbaa !15, !alias.scope !499, !noalias !496
-  store i8 0, ptr %59, align 1, !tbaa !14, !alias.scope !499, !noalias !496
+  store i8 0, ptr %59, align 8, !tbaa !14, !alias.scope !499, !noalias !496
   %70 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %70, ptr noundef nonnull align 8 dereferenceable(28) %71, i64 28, i1 false), !alias.scope !501
@@ -22262,7 +22262,7 @@ _ZSt19__relocate_object_aIN7testing8internal25ParameterizedTestCaseInfoIN11openc
   store i64 %49, ptr %51, align 8, !tbaa !15, !alias.scope !519, !noalias !522
   store ptr %41, ptr %.0911.i.i.i.i, align 8, !tbaa !12, !alias.scope !522, !noalias !519
   store i64 0, ptr %50, align 8, !tbaa !15, !alias.scope !522, !noalias !519
-  store i8 0, ptr %41, align 1, !tbaa !14, !alias.scope !522, !noalias !519
+  store i8 0, ptr %41, align 8, !tbaa !14, !alias.scope !522, !noalias !519
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %52, ptr noundef nonnull align 8 dereferenceable(28) %53, i64 28, i1 false), !alias.scope !524
@@ -22313,7 +22313,7 @@ _ZSt19__relocate_object_aIN7testing8internal25ParameterizedTestCaseInfoIN11openc
   store i64 %67, ptr %69, align 8, !tbaa !15, !alias.scope !526, !noalias !529
   store ptr %59, ptr %.0911.i.i.i.i19, align 8, !tbaa !12, !alias.scope !529, !noalias !526
   store i64 0, ptr %68, align 8, !tbaa !15, !alias.scope !529, !noalias !526
-  store i8 0, ptr %59, align 1, !tbaa !14, !alias.scope !529, !noalias !526
+  store i8 0, ptr %59, align 8, !tbaa !14, !alias.scope !529, !noalias !526
   %70 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %70, ptr noundef nonnull align 8 dereferenceable(28) %71, i64 28, i1 false), !alias.scope !531
@@ -24456,7 +24456,7 @@ _ZSt19__relocate_object_aIN7testing8internal25ParameterizedTestCaseInfoIN11openc
   store i64 %49, ptr %51, align 8, !tbaa !15, !alias.scope !549, !noalias !552
   store ptr %41, ptr %.0911.i.i.i.i, align 8, !tbaa !12, !alias.scope !552, !noalias !549
   store i64 0, ptr %50, align 8, !tbaa !15, !alias.scope !552, !noalias !549
-  store i8 0, ptr %41, align 1, !tbaa !14, !alias.scope !552, !noalias !549
+  store i8 0, ptr %41, align 8, !tbaa !14, !alias.scope !552, !noalias !549
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %52, ptr noundef nonnull align 8 dereferenceable(28) %53, i64 28, i1 false), !alias.scope !554
@@ -24507,7 +24507,7 @@ _ZSt19__relocate_object_aIN7testing8internal25ParameterizedTestCaseInfoIN11openc
   store i64 %67, ptr %69, align 8, !tbaa !15, !alias.scope !556, !noalias !559
   store ptr %59, ptr %.0911.i.i.i.i19, align 8, !tbaa !12, !alias.scope !559, !noalias !556
   store i64 0, ptr %68, align 8, !tbaa !15, !alias.scope !559, !noalias !556
-  store i8 0, ptr %59, align 1, !tbaa !14, !alias.scope !559, !noalias !556
+  store i8 0, ptr %59, align 8, !tbaa !14, !alias.scope !559, !noalias !556
   %70 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %70, ptr noundef nonnull align 8 dereferenceable(28) %71, i64 28, i1 false), !alias.scope !561

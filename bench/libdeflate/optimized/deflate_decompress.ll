@@ -233,7 +233,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_default(ptr noalias noun
   %72 = lshr i64 %.3617, 17
   %73 = trunc i64 %72 to i8
   %74 = and i8 %73, 7
-  store i8 %74, ptr %19, align 1, !tbaa !21
+  store i8 %74, ptr %19, align 8, !tbaa !21
   %75 = lshr i64 %.3617, 20
   %76 = add i32 %.2651, -20
   %77 = ptrtoint ptr %.3602 to i64
@@ -609,7 +609,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_default(ptr noalias noun
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(144) %0, i8 8, i64 144, i1 false), !tbaa !21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(112) %scevgep, i8 9, i64 112, i1 false), !tbaa !21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %scevgep1043, i8 7, i64 24, i1 false), !tbaa !21
-  store i64 578721382704613384, ptr %scevgep1045, align 1
+  store i64 578721382704613384, ptr %scevgep1045, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %scevgep1047, i8 5, i64 32, i1 false), !tbaa !21
   br label %.thread843
 
@@ -1434,7 +1434,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_bmi2(ptr noalias noundef
   %72 = lshr i64 %.3617, 17
   %73 = trunc i64 %72 to i8
   %74 = and i8 %73, 7
-  store i8 %74, ptr %19, align 1, !tbaa !21
+  store i8 %74, ptr %19, align 8, !tbaa !21
   %75 = lshr i64 %.3617, 20
   %76 = add i32 %.2651, -20
   %77 = ptrtoint ptr %.3602 to i64
@@ -1810,7 +1810,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_bmi2(ptr noalias noundef
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(144) %0, i8 8, i64 144, i1 false), !tbaa !21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(112) %scevgep, i8 9, i64 112, i1 false), !tbaa !21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %scevgep1043, i8 7, i64 24, i1 false), !tbaa !21
-  store i64 578721382704613384, ptr %scevgep1045, align 1
+  store i64 578721382704613384, ptr %scevgep1045, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %scevgep1047, i8 5, i64 32, i1 false), !tbaa !21
   br label %.thread843
 

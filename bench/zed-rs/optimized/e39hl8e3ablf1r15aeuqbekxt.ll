@@ -51744,7 +51744,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %.val6 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
   %28 = getelementptr i8, ptr %21, i64 -16
   %.val7 = load i64, ptr %28, align 8
-  %.val8 = load i8, ptr %26, align 1
+  %.val8 = load i8, ptr %26, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !14606
   store i64 0, ptr %3, align 8, !noalias !14606
   call void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write17h5b780d2263fcefdeE.llvm.10723454985916948783"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 1 %.val6, i64 noundef %.val7), !noalias !14611

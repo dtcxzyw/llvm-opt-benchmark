@@ -2121,7 +2121,7 @@ define internal fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_5dev12_GLOBAL__
   store ptr %10, ptr %9, align 8, !tbaa !79
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i64 0, ptr %11, align 8, !tbaa !68
-  store i8 0, ptr %10, align 1, !tbaa !21
+  store i8 0, ptr %10, align 8, !tbaa !21
   %12 = invoke noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #27
           to label %13 unwind label %35
 

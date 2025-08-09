@@ -4802,11 +4802,11 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i137: ; preds = %_ZN9QtPrivate8RefCo
   %237 = getelementptr inbounds nuw i8, ptr %233, i64 20
   store i32 1507328, ptr %237, align 4
   %238 = getelementptr inbounds nuw i8, ptr %233, i64 24
-  store i32 0, ptr %238, align 4
+  store i32 0, ptr %238, align 8
   %239 = getelementptr inbounds nuw i8, ptr %233, i64 28
   store i32 0, ptr %239, align 4
   %240 = getelementptr inbounds nuw i8, ptr %233, i64 32
-  store i32 -1, ptr %240, align 4
+  store i32 -1, ptr %240, align 8
   %241 = getelementptr inbounds nuw i8, ptr %233, i64 36
   store i32 -1, ptr %241, align 4
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -7698,7 +7698,7 @@ define void @_ZN12ShaderDialog13valuesChangedERK7QString(ptr noundef nonnull ali
   %32 = zext i16 %31 to i32
   %33 = tail call noundef i32 @_ZN5QChar10digitValueEj(i32 noundef %32) #29
   store ptr %22, ptr %19, align 8
-  %34 = load atomic i32, ptr %22 monotonic, align 4
+  %34 = load atomic i32, ptr %22 monotonic, align 8
   %35 = add i32 %34, -1
   %or.cond.not.i.i = icmp ult i32 %35, -2
   br i1 %or.cond.not.i.i, label %36, label %_ZN7QStringC2ERKS_.exit

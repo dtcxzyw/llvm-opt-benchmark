@@ -155,7 +155,7 @@ define hidden void @_ZN9SuperWordC2ERK13VLoopAnalyzer(ptr noundef nonnull align 
   store ptr %16, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 168
-  %19 = load i32, ptr %18, align 4
+  %19 = load i32, ptr %18, align 8
   %20 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %19, i32 noundef 4, ptr noundef nonnull %5) #12
   store i32 %19, ptr %17, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 92
@@ -11510,7 +11510,7 @@ _ZN13GrowableArrayIP4NodeEC2EiiRKS1_.exit55:      ; preds = %.lr.ph.preheader.i.
   %52 = getelementptr inbounds ptr, ptr %26, i64 %46
   store ptr %51, ptr %52, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %53 = load i32, ptr %28, align 4
+  %53 = load i32, ptr %28, align 8
   %54 = sext i32 %53 to i64
   %55 = icmp slt i64 %indvars.iv.next, %54
   br i1 %55, label %32, label %._crit_edge, !llvm.loop !111

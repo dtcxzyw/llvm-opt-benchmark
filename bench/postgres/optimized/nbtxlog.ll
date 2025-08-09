@@ -1904,7 +1904,7 @@ BufferGetPage.exit:                               ; preds = %9, %15
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 64
   store i8 %41, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
-  %44 = load i16, ptr %43, align 4
+  %44 = load i16, ptr %43, align 8
   %45 = zext i16 %44 to i64
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 12
@@ -1913,7 +1913,7 @@ BufferGetPage.exit:                               ; preds = %9, %15
   store i16 72, ptr %48, align 4
   %49 = lshr i64 %5, 32
   %50 = trunc nuw i64 %49 to i32
-  store i32 %50, ptr %.0.i.i, align 4
+  store i32 %50, ptr %.0.i.i, align 8
   %51 = trunc i64 %5 to i32
   %52 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   store i32 %51, ptr %52, align 4

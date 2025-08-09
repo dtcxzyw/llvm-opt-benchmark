@@ -245,7 +245,7 @@ define dso_local void @_ZN3ozz3log14FloatPrecisionC2ERKNS0_6LoggerEi(ptr noundef
   %16 = load i32, ptr %15, align 8, !tbaa !32
   %17 = and i32 %16, -261
   %18 = or disjoint i32 %17, 4
-  store i32 %18, ptr %15, align 4, !tbaa !33
+  store i32 %18, ptr %15, align 8, !tbaa !33
   store i32 %16, ptr %12, align 8, !tbaa !34
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %19, align 8, !tbaa !10
@@ -272,7 +272,7 @@ define dso_local void @_ZN3ozz3log14FloatPrecisionD2Ev(ptr noundef nonnull reado
   %16 = and i32 %15, -261
   %17 = and i32 %13, 260
   %18 = or disjoint i32 %16, %17
-  store i32 %18, ptr %14, align 4, !tbaa !33
+  store i32 %18, ptr %14, align 8, !tbaa !33
   ret void
 }
 

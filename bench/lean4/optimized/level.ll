@@ -524,7 +524,7 @@ tailrecurse:                                      ; preds = %_ZN4lean4kindERKNS_
   store ptr %15, ptr %14, align 8, !tbaa !12
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !15
-  store i8 0, ptr %15, align 1, !tbaa !18
+  store i8 0, ptr %15, align 8, !tbaa !18
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %13, align 8, !tbaa !19
   tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #20
   unreachable
@@ -882,7 +882,7 @@ tailrecurse.i:                                    ; preds = %_ZN4lean4kindERKNS_
   store ptr %21, ptr %20, align 8, !tbaa !12
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i64 0, ptr %22, align 8, !tbaa !15
-  store i8 0, ptr %21, align 1, !tbaa !18
+  store i8 0, ptr %21, align 8, !tbaa !18
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %19, align 8, !tbaa !19
   tail call void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #20
   unreachable
@@ -924,7 +924,7 @@ tailrecurse.i41:                                  ; preds = %_ZN4lean4kindERKNS_
   store ptr %36, ptr %35, align 8, !tbaa !12
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i64 0, ptr %37, align 8, !tbaa !15
-  store i8 0, ptr %36, align 1, !tbaa !18
+  store i8 0, ptr %36, align 8, !tbaa !18
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %34, align 8, !tbaa !19
   tail call void @__cxa_throw(ptr nonnull %34, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #20
   unreachable
@@ -1680,7 +1680,7 @@ _ZN4lean4kindERKNS_5levelE.exit44.thread:         ; preds = %71, %_ZN4lean4kindE
   store ptr %78, ptr %77, align 8, !tbaa !12
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 16
   store i64 0, ptr %79, align 8, !tbaa !15
-  store i8 0, ptr %78, align 1, !tbaa !18
+  store i8 0, ptr %78, align 8, !tbaa !18
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %76, align 8, !tbaa !19
   tail call void @__cxa_throw(ptr nonnull %76, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #20
   unreachable
@@ -1715,7 +1715,7 @@ tailrecurse.backedge:                             ; preds = %85, %90
   store ptr %95, ptr %94, align 8, !tbaa !12
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 16
   store i64 0, ptr %96, align 8, !tbaa !15
-  store i8 0, ptr %95, align 1, !tbaa !18
+  store i8 0, ptr %95, align 8, !tbaa !18
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %93, align 8, !tbaa !19
   tail call void @__cxa_throw(ptr nonnull %93, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #20
   unreachable
@@ -1945,7 +1945,7 @@ tailrecurse.backedge:                             ; preds = %_ZN4lean4kindERKNS_
   store ptr %19, ptr %18, align 8, !tbaa !12
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 0, ptr %20, align 8, !tbaa !15
-  store i8 0, ptr %19, align 1, !tbaa !18
+  store i8 0, ptr %19, align 8, !tbaa !18
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %17, align 8, !tbaa !19
   tail call void @__cxa_throw(ptr nonnull %17, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #20
   unreachable
@@ -2365,7 +2365,7 @@ _ZN4lean4kindERKNS_5levelE.exit62.thread:         ; preds = %84, %_ZN4lean4kindE
   store ptr %92, ptr %91, align 8, !tbaa !12
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 16
   store i64 0, ptr %93, align 8, !tbaa !15
-  store i8 0, ptr %92, align 1, !tbaa !18
+  store i8 0, ptr %92, align 8, !tbaa !18
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %90, align 8, !tbaa !19
   tail call void @__cxa_throw(ptr nonnull %90, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #20
   unreachable
@@ -2420,7 +2420,7 @@ tailrecurse.backedge:                             ; preds = %109, %115, %118
   store ptr %125, ptr %124, align 8, !tbaa !12
   %126 = getelementptr inbounds nuw i8, ptr %123, i64 16
   store i64 0, ptr %126, align 8, !tbaa !15
-  store i8 0, ptr %125, align 1, !tbaa !18
+  store i8 0, ptr %125, align 8, !tbaa !18
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %123, align 8, !tbaa !19
   tail call void @__cxa_throw(ptr nonnull %123, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #20
   unreachable
@@ -3063,7 +3063,7 @@ _ZN4lean10object_refD2Ev.exit38:                  ; preds = %_ZN4lean10object_re
   store ptr %154, ptr %153, align 8, !tbaa !12
   %155 = getelementptr inbounds nuw i8, ptr %152, i64 16
   store i64 0, ptr %155, align 8, !tbaa !15
-  store i8 0, ptr %154, align 1, !tbaa !18
+  store i8 0, ptr %154, align 8, !tbaa !18
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %152, align 8, !tbaa !19
   invoke void @__cxa_throw(ptr nonnull %152, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #20
           to label %174 unwind label %25
@@ -3851,7 +3851,7 @@ tailrecurse.i:                                    ; preds = %_ZN4lean4kindERKNS_
   store ptr %16, ptr %15, align 8, !tbaa !12
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 0, ptr %17, align 8, !tbaa !15
-  store i8 0, ptr %16, align 1, !tbaa !18
+  store i8 0, ptr %16, align 8, !tbaa !18
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %14, align 8, !tbaa !19
   tail call void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #20
   unreachable
@@ -3903,7 +3903,7 @@ _ZN4lean4kindERKNS_5levelE.exit.thread:           ; preds = %_ZN4lean4kindERKNS_
   store ptr %32, ptr %31, align 8, !tbaa !12
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i64 0, ptr %33, align 8, !tbaa !15
-  store i8 0, ptr %32, align 1, !tbaa !18
+  store i8 0, ptr %32, align 8, !tbaa !18
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %30, align 8, !tbaa !19
   tail call void @__cxa_throw(ptr nonnull %30, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #20
   unreachable
@@ -4939,7 +4939,7 @@ tailrecurse.i136:                                 ; preds = %_ZN4lean4kindERKNS_
   store ptr %223, ptr %222, align 8, !tbaa !12
   %224 = getelementptr inbounds nuw i8, ptr %221, i64 16
   store i64 0, ptr %224, align 8, !tbaa !15
-  store i8 0, ptr %223, align 1, !tbaa !18
+  store i8 0, ptr %223, align 8, !tbaa !18
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %221, align 8, !tbaa !19
   invoke void @__cxa_throw(ptr nonnull %221, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #20
           to label %.cont348 unwind label %228
@@ -6135,7 +6135,7 @@ _ZN4lean6bufferINS_5levelELm16EED2Ev.exit280:     ; preds = %_ZN4lean6bufferINS_
   store ptr %661, ptr %660, align 8, !tbaa !12
   %662 = getelementptr inbounds nuw i8, ptr %659, i64 16
   store i64 0, ptr %662, align 8, !tbaa !15
-  store i8 0, ptr %661, align 1, !tbaa !18
+  store i8 0, ptr %661, align 8, !tbaa !18
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %659, align 8, !tbaa !19
   invoke void @__cxa_throw(ptr nonnull %659, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #20
           to label %.cont unwind label %53
@@ -6456,7 +6456,7 @@ _ZN4leanltERKNS_4nameES2_.exit:                   ; preds = %93
   store ptr %111, ptr %110, align 8, !tbaa !12
   %112 = getelementptr inbounds nuw i8, ptr %109, i64 16
   store i64 0, ptr %112, align 8, !tbaa !15
-  store i8 0, ptr %111, align 1, !tbaa !18
+  store i8 0, ptr %111, align 8, !tbaa !18
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %109, align 8, !tbaa !19
   invoke void @__cxa_throw(ptr nonnull %109, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #20
           to label %.cont unwind label %88
@@ -8041,7 +8041,7 @@ tailrecurse.i:                                    ; preds = %_ZN4lean4kindERKNS_
   store ptr %18, ptr %17, align 8, !tbaa !12
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 0, ptr %19, align 8, !tbaa !15
-  store i8 0, ptr %18, align 1, !tbaa !18
+  store i8 0, ptr %18, align 8, !tbaa !18
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %16, align 8, !tbaa !19
   tail call void @__cxa_throw(ptr nonnull %16, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #20
   unreachable

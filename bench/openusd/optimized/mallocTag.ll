@@ -16112,7 +16112,7 @@ define linkonce_odr { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %40 = load ptr, ptr %2, align 8
   store ptr %40, ptr %39, align 8
-  store i32 %37, ptr %33, align 4
+  store i32 %37, ptr %33, align 8
   store i16 %.130, ptr %34, align 4
   br label %80
 
@@ -16121,9 +16121,9 @@ define linkonce_odr { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17
   %43 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %44 = load ptr, ptr %43, align 8
   store ptr %42, ptr %43, align 8
-  store i16 %.130, ptr %34, align 2
-  %45 = load i32, ptr %33, align 4
-  store i32 %37, ptr %33, align 4
+  store i16 %.130, ptr %34, align 4
+  %45 = load i32, ptr %33, align 8
+  store i32 %37, ptr %33, align 8
   %46 = add i64 %.1, 1
   %47 = load i64, ptr %0, align 8
   %48 = and i64 %47, %46
@@ -16166,8 +16166,8 @@ define linkonce_odr { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17
   store ptr %.0.i, ptr %66, align 8
   %68 = load i16, ptr %59, align 2
   store i16 %storemerge25.i.i, ptr %59, align 2
-  %69 = load i32, ptr %60, align 4
-  store i32 %.01823.i.i, ptr %60, align 4
+  %69 = load i32, ptr %60, align 8
+  store i32 %.01823.i.i, ptr %60, align 8
   %.pre.i.i = load i64, ptr %0, align 8
   %.pre32.i.i = load ptr, ptr %9, align 8
   br label %70
@@ -16195,7 +16195,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashIPNS
   %.lcssa.i.i = phi ptr [ %51, %41 ], [ %76, %70 ]
   %79 = getelementptr inbounds nuw i8, ptr %.lcssa21.i.i, i64 8
   store ptr %.2.i, ptr %79, align 8
-  store i32 %.018.lcssa.i.i, ptr %.lcssa21.i.i, align 4
+  store i32 %.018.lcssa.i.i, ptr %.lcssa21.i.i, align 8
   store i16 %storemerge.lcssa.i.i, ptr %.lcssa.i.i, align 4
   br label %80
 
@@ -16365,10 +16365,10 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_
   %39 = load ptr, ptr %36, align 8
   store ptr %39, ptr %26, align 8
   store ptr %37, ptr %36, align 8
-  %40 = load i16, ptr %31, align 2
-  store i16 %.013.i.us, ptr %31, align 2
-  %41 = load i32, ptr %30, align 4
-  store i32 %.012.i.us, ptr %30, align 4
+  %40 = load i16, ptr %31, align 4
+  store i16 %.013.i.us, ptr %31, align 4
+  %41 = load i32, ptr %30, align 8
+  store i32 %.012.i.us, ptr %30, align 8
   %.pre25 = load i64, ptr %3, align 8
   br label %42
 
@@ -16383,7 +16383,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_
 
 _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashIPNS_17Tf_MallocCallSiteENS0_9robin_setIS4_NS_6TfHashESt8equal_toIS4_ESaIS4_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectEvS6_S8_S9_Lb0ESC_E22insert_value_on_rehashEmsjOS4_.exit.us: ; preds = %34
   store ptr %37, ptr %36, align 8
-  store i32 %.012.i.us, ptr %30, align 4
+  store i32 %.012.i.us, ptr %30, align 8
   store i16 %.013.i.us, ptr %31, align 4
   br label %47
 
@@ -16432,10 +16432,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashIPNS
   %73 = load ptr, ptr %70, align 8
   store ptr %73, ptr %53, align 8
   store ptr %71, ptr %70, align 8
-  %74 = load i16, ptr %65, align 2
-  store i16 %.013.i, ptr %65, align 2
-  %75 = load i32, ptr %64, align 4
-  store i32 %.012.i, ptr %64, align 4
+  %74 = load i16, ptr %65, align 4
+  store i16 %.013.i, ptr %65, align 4
+  %75 = load i32, ptr %64, align 8
+  store i32 %.012.i, ptr %64, align 8
   %.pre = load i64, ptr %3, align 8
   br label %76
 
@@ -16450,7 +16450,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashIPNS
 
 _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashIPNS_17Tf_MallocCallSiteENS0_9robin_setIS4_NS_6TfHashESt8equal_toIS4_ESaIS4_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectEvS6_S8_S9_Lb0ESC_E22insert_value_on_rehashEmsjOS4_.exit: ; preds = %68
   store ptr %71, ptr %70, align 8
-  store i32 %.012.i, ptr %64, align 4
+  store i32 %.012.i, ptr %64, align 8
   store i16 %.013.i, ptr %65, align 4
   br label %81
 
@@ -16667,7 +16667,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryIP
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %55 = load ptr, ptr %53, align 8
   store ptr %55, ptr %54, align 8
-  store i32 %52, ptr %51, align 4
+  store i32 %52, ptr %51, align 8
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 4
   store i16 %50, ptr %56, align 4
   %57 = load ptr, ptr %5, align 8
@@ -20547,7 +20547,7 @@ define linkonce_odr { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17
   store ptr %42, ptr %39, align 8
   %43 = getelementptr inbounds nuw i8, ptr %33, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, i8 0, i64 24, i1 false)
-  store i32 %37, ptr %33, align 4
+  store i32 %37, ptr %33, align 8
   store i16 %.134, ptr %34, align 4
   br label %100
 
@@ -20565,9 +20565,9 @@ define linkonce_odr { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17
   %54 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %55 = load ptr, ptr %54, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false)
-  store i16 %.134, ptr %34, align 2
-  %56 = load i32, ptr %33, align 4
-  store i32 %37, ptr %33, align 4
+  store i16 %.134, ptr %34, align 4
+  %56 = load i32, ptr %33, align 8
+  store i32 %37, ptr %33, align 8
   %57 = add i64 %.1, 1
   %58 = load i64, ptr %0, align 8
   %59 = and i64 %58, %57
@@ -20622,8 +20622,8 @@ define linkonce_odr { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17
   store ptr %.sroa.19.0.i, ptr %83, align 8
   %85 = load i16, ptr %70, align 2
   store i16 %storemerge25.i.i, ptr %70, align 2
-  %86 = load i32, ptr %71, align 4
-  store i32 %.01823.i.i, ptr %71, align 4
+  %86 = load i32, ptr %71, align 8
+  store i32 %.01823.i.i, ptr %71, align 8
   %.pre.i.i = load i64, ptr %0, align 8
   %.pre32.i.i = load ptr, ptr %9, align 8
   br label %87
@@ -20663,7 +20663,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   store ptr %.sroa.14.2.i, ptr %98, align 8
   %99 = getelementptr inbounds nuw i8, ptr %.lcssa21.i.i, i64 32
   store ptr %.sroa.19.2.i, ptr %99, align 8
-  store i32 %.018.lcssa.i.i, ptr %.lcssa21.i.i, align 4
+  store i32 %.018.lcssa.i.i, ptr %.lcssa21.i.i, align 8
   store i16 %storemerge.lcssa.i.i, ptr %.lcssa.i.i, align 4
   br label %100
 
@@ -20864,10 +20864,10 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_
   store ptr %53, ptr %52, align 8
   store ptr %54, ptr %57, align 8
   store ptr %55, ptr %59, align 8
-  %61 = load i16, ptr %43, align 2
-  store i16 %.013.i, ptr %43, align 2
-  %62 = load i32, ptr %42, align 4
-  store i32 %.012.i, ptr %42, align 4
+  %61 = load i16, ptr %43, align 4
+  store i16 %.013.i, ptr %43, align 4
+  %62 = load i32, ptr %42, align 8
+  store i32 %.012.i, ptr %42, align 8
   %.pre = load i64, ptr %3, align 8
   br label %63
 
@@ -20892,7 +20892,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   %73 = load ptr, ptr %38, align 8
   store ptr %73, ptr %72, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
-  store i32 %.012.i, ptr %42, align 4
+  store i32 %.012.i, ptr %42, align 8
   store i16 %.013.i, ptr %43, align 4
   br label %74
 

@@ -476,7 +476,7 @@ zend_string_alloc.exit:
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %12, ptr noundef nonnull align 1 dereferenceable(12) @.str.67, i64 12, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 36
-  store i8 0, ptr %13, align 1, !tbaa !22
+  store i8 0, ptr %13, align 4, !tbaa !22
   store ptr %8, ptr %3, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 262, ptr %14, align 8, !tbaa !22
@@ -672,7 +672,7 @@ try_convert_to_string.exit.thread:                ; preds = %29, %try_convert_to
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %55, ptr noundef nonnull align 1 dereferenceable(10) @.str.73, i64 10, i1 false)
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 34
-  store i8 0, ptr %56, align 1, !tbaa !22
+  store i8 0, ptr %56, align 2, !tbaa !22
   store ptr %51, ptr %4, align 8, !tbaa !22
   store i32 262, ptr %15, align 8, !tbaa !22
   %.val40 = load ptr, ptr %17, align 8, !tbaa !22
@@ -752,7 +752,7 @@ define internal noundef i32 @php_userstreamop_close(ptr noundef readonly capture
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 1 dereferenceable(12) @.str.75, i64 12, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  store i8 0, ptr %12, align 1, !tbaa !22
+  store i8 0, ptr %12, align 4, !tbaa !22
   store ptr %7, ptr %3, align 8, !tbaa !22
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 262, ptr %13, align 8, !tbaa !22
@@ -789,7 +789,7 @@ define internal range(i32 -1, 1) i32 @php_userstreamop_flush(ptr noundef readonl
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 1 dereferenceable(12) @.str.76, i64 12, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 36
-  store i8 0, ptr %11, align 1, !tbaa !22
+  store i8 0, ptr %11, align 4, !tbaa !22
   store ptr %6, ptr %2, align 8, !tbaa !22
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 262, ptr %12, align 8, !tbaa !22
@@ -1137,7 +1137,7 @@ define internal range(i32 -2, 2) i32 @php_userstreamop_set_option(ptr noundef re
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %15, ptr noundef nonnull align 1 dereferenceable(10) @.str.73, i64 10, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 34
-  store i8 0, ptr %16, align 1, !tbaa !22
+  store i8 0, ptr %16, align 2, !tbaa !22
   store ptr %11, ptr %5, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 262, ptr %17, align 8, !tbaa !22
@@ -1564,7 +1564,7 @@ define internal noundef i32 @php_userstreamop_closedir(ptr noundef readonly capt
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 1 dereferenceable(12) @.str.96, i64 12, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  store i8 0, ptr %12, align 1, !tbaa !22
+  store i8 0, ptr %12, align 4, !tbaa !22
   store ptr %7, ptr %3, align 8, !tbaa !22
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 262, ptr %13, align 8, !tbaa !22
@@ -1938,7 +1938,7 @@ zend_string_alloc.exit:                           ; preds = %5
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store i64 8386112020011577973, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  store i8 0, ptr %33, align 1, !tbaa !22
+  store i8 0, ptr %33, align 8, !tbaa !22
   store ptr %28, ptr %6, align 8, !tbaa !22
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 262, ptr %34, align 8, !tbaa !22
@@ -2182,7 +2182,7 @@ zend_string_alloc.exit:                           ; preds = %4
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %28, ptr noundef nonnull align 1 dereferenceable(6) @.str.56, i64 6, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 30
-  store i8 0, ptr %29, align 1, !tbaa !22
+  store i8 0, ptr %29, align 2, !tbaa !22
   store ptr %24, ptr %5, align 8, !tbaa !22
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 262, ptr %30, align 8, !tbaa !22
@@ -2298,7 +2298,7 @@ zend_string_alloc.exit26:                         ; preds = %5
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %40, ptr noundef nonnull align 1 dereferenceable(6) @.str.58, i64 6, i1 false)
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 30
-  store i8 0, ptr %41, align 1, !tbaa !22
+  store i8 0, ptr %41, align 2, !tbaa !22
   store ptr %36, ptr %6, align 8, !tbaa !22
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 262, ptr %42, align 8, !tbaa !22

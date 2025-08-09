@@ -2431,24 +2431,24 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %91 = tail call ptr @dtgtk_togglebutton_new(ptr noundef nonnull @dtgtk_cairo_paint_overexposed, i32 noundef 0, ptr noundef null) #19
   %92 = getelementptr inbounds nuw i8, ptr %4, i64 2488
   %93 = getelementptr inbounds nuw i8, ptr %4, i64 2496
-  store ptr %91, ptr %93, align 8, !tbaa !256
+  store ptr %91, ptr %93, align 16, !tbaa !256
   %94 = tail call ptr @dt_action_define(ptr noundef %0, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.57, ptr noundef %91, ptr noundef nonnull @dt_action_def_toggle) #19
   tail call void @dt_shortcut_register(ptr noundef %94, i32 noundef 0, i32 noundef 0, i32 noundef 111, i32 noundef 0) #19
-  %95 = load ptr, ptr %93, align 8, !tbaa !256
+  %95 = load ptr, ptr %93, align 16, !tbaa !256
   %96 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.76, i32 noundef 5) #19
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %95, ptr noundef %96) #19
-  %97 = load ptr, ptr %93, align 8, !tbaa !256
+  %97 = load ptr, ptr %93, align 16, !tbaa !256
   %98 = tail call ptr @g_type_check_instance_cast(ptr noundef %97, i64 noundef 80) #19
   %99 = tail call i64 @g_signal_connect_data(ptr noundef %98, ptr noundef nonnull @.str.44, ptr noundef nonnull @_overexposed_quickbutton_clicked, ptr noundef %4, ptr noundef null, i32 noundef 0) #19
   %100 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !54
-  %101 = load ptr, ptr %93, align 8, !tbaa !256
+  %101 = load ptr, ptr %93, align 16, !tbaa !256
   tail call void @dt_view_manager_module_toolbox_add(ptr noundef %100, ptr noundef %101, i32 noundef 2) #19
-  %102 = load ptr, ptr %93, align 8, !tbaa !256
+  %102 = load ptr, ptr %93, align 16, !tbaa !256
   tail call void @dt_gui_add_help_link(ptr noundef %102, ptr noundef nonnull @.str.75) #19
-  %103 = load ptr, ptr %93, align 8, !tbaa !256
+  %103 = load ptr, ptr %93, align 16, !tbaa !256
   %104 = tail call ptr @gtk_popover_new(ptr noundef %103) #19
   store ptr %104, ptr %92, align 8, !tbaa !257
-  %105 = load ptr, ptr %93, align 8, !tbaa !256
+  %105 = load ptr, ptr %93, align 16, !tbaa !256
   %106 = tail call i64 @g_signal_connect_data(ptr noundef %105, ptr noundef nonnull @.str.41, ptr noundef nonnull @_quickbutton_press_release, ptr noundef %104, ptr noundef null, i32 noundef 0) #19
   %107 = tail call i64 @g_signal_connect_data(ptr noundef %105, ptr noundef nonnull @.str.42, ptr noundef nonnull @_quickbutton_press_release, ptr noundef %104, ptr noundef null, i32 noundef 0) #19
   %108 = tail call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #19
@@ -2471,7 +2471,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   tail call void @gtk_box_pack_start(ptr noundef %121, ptr noundef %122, i32 noundef 1, i32 noundef 1, i32 noundef 0) #19
   %123 = tail call ptr @dt_bauhaus_slider_new_action(ptr noundef %0, float noundef -3.200000e+01, float noundef -4.000000e+00, float noundef 1.000000e+00, float noundef 0xC0296147A0000000, i32 noundef 2) #19
   %124 = getelementptr inbounds nuw i8, ptr %4, i64 2512
-  %125 = load float, ptr %124, align 8, !tbaa !260
+  %125 = load float, ptr %124, align 16, !tbaa !260
   tail call void @dt_bauhaus_slider_set(ptr noundef %123, float noundef %125) #19
   %126 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.89, i32 noundef 5) #19
   tail call void @dt_bauhaus_slider_set_format(ptr noundef %123, ptr noundef %126) #19
@@ -2500,19 +2500,19 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %142 = tail call ptr @dtgtk_togglebutton_new(ptr noundef nonnull @dtgtk_cairo_paint_softproof, i32 noundef 0, ptr noundef null) #19
   %143 = getelementptr inbounds nuw i8, ptr %4, i64 2584
   %144 = getelementptr inbounds nuw i8, ptr %4, i64 2592
-  store ptr %142, ptr %144, align 8, !tbaa !262
+  store ptr %142, ptr %144, align 16, !tbaa !262
   %145 = tail call ptr @dt_action_define(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.95, ptr noundef %142, ptr noundef nonnull @dt_action_def_toggle) #19
   tail call void @dt_shortcut_register(ptr noundef %145, i32 noundef 0, i32 noundef 0, i32 noundef 115, i32 noundef 4) #19
-  %146 = load ptr, ptr %144, align 8, !tbaa !262
+  %146 = load ptr, ptr %144, align 16, !tbaa !262
   %147 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.96, i32 noundef 5) #19
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %146, ptr noundef %147) #19
-  %148 = load ptr, ptr %144, align 8, !tbaa !262
+  %148 = load ptr, ptr %144, align 16, !tbaa !262
   %149 = tail call ptr @g_type_check_instance_cast(ptr noundef %148, i64 noundef 80) #19
   %150 = tail call i64 @g_signal_connect_data(ptr noundef %149, ptr noundef nonnull @.str.44, ptr noundef nonnull @_softproof_quickbutton_clicked, ptr noundef %4, ptr noundef null, i32 noundef 0) #19
   %151 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !54
-  %152 = load ptr, ptr %144, align 8, !tbaa !262
+  %152 = load ptr, ptr %144, align 16, !tbaa !262
   tail call void @dt_view_manager_module_toolbox_add(ptr noundef %151, ptr noundef %152, i32 noundef 2) #19
-  %153 = load ptr, ptr %144, align 8, !tbaa !262
+  %153 = load ptr, ptr %144, align 16, !tbaa !262
   tail call void @dt_gui_add_help_link(ptr noundef %153, ptr noundef nonnull @.str.95) #19
   %154 = tail call ptr @dtgtk_togglebutton_new(ptr noundef nonnull @dtgtk_cairo_paint_gamut_check, i32 noundef 0, ptr noundef null) #19
   %155 = getelementptr inbounds nuw i8, ptr %4, i64 2600
@@ -2535,7 +2535,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %166 = load ptr, ptr %18, align 8, !tbaa !248
   %167 = tail call i64 @g_signal_connect_data(ptr noundef %166, ptr noundef nonnull @.str.41, ptr noundef nonnull @_quickbutton_press_release, ptr noundef %165, ptr noundef null, i32 noundef 0) #19
   %168 = tail call i64 @g_signal_connect_data(ptr noundef %166, ptr noundef nonnull @.str.42, ptr noundef nonnull @_quickbutton_press_release, ptr noundef %165, ptr noundef null, i32 noundef 0) #19
-  %169 = load ptr, ptr %144, align 8, !tbaa !262
+  %169 = load ptr, ptr %144, align 16, !tbaa !262
   %170 = load ptr, ptr %143, align 8, !tbaa !264
   %171 = tail call i64 @g_signal_connect_data(ptr noundef %169, ptr noundef nonnull @.str.41, ptr noundef nonnull @_quickbutton_press_release, ptr noundef %170, ptr noundef null, i32 noundef 0) #19
   %172 = tail call i64 @g_signal_connect_data(ptr noundef %169, ptr noundef nonnull @.str.42, ptr noundef nonnull @_quickbutton_press_release, ptr noundef %170, ptr noundef null, i32 noundef 0) #19
@@ -5049,7 +5049,7 @@ define internal fastcc void @_darkroom_display_second_window(ptr noundef %0) unn
   store double %13, ptr %14, align 8, !tbaa !323
   %15 = fmul reassoc nsz arcp contract afn double %13, 0x3F85555555555555
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 2752
-  store double %15, ptr %16, align 8, !tbaa !324
+  store double %15, ptr %16, align 16, !tbaa !324
   %17 = load ptr, ptr %2, align 16, !tbaa !77
   %18 = tail call i64 @gtk_window_get_type() #21
   %19 = tail call ptr @g_type_check_instance_cast(ptr noundef %17, i64 noundef %18) #19
@@ -5066,7 +5066,7 @@ define internal fastcc void @_darkroom_display_second_window(ptr noundef %0) unn
   %27 = load ptr, ptr %6, align 8, !tbaa !103
   tail call void @gtk_container_add(ptr noundef %26, ptr noundef %27) #19
   %28 = load ptr, ptr %6, align 8, !tbaa !103
-  %29 = load double, ptr %16, align 8, !tbaa !324
+  %29 = load double, ptr %16, align 16, !tbaa !324
   %30 = fmul reassoc nsz arcp contract afn double %29, 5.000000e+01
   %31 = fptosi double %30 to i32
   %32 = fmul reassoc nsz arcp contract afn double %29, 2.000000e+02
@@ -5300,7 +5300,7 @@ define void @leave(ptr noundef %0) local_unnamed_addr #1 {
   %35 = getelementptr inbounds nuw i8, ptr %26, i64 2644
   store i32 %34, ptr %35, align 4, !tbaa !237
   %36 = getelementptr inbounds nuw i8, ptr %26, i64 2720
-  %37 = load i32, ptr %36, align 8, !tbaa !334
+  %37 = load i32, ptr %36, align 16, !tbaa !334
   %38 = getelementptr inbounds nuw i8, ptr %26, i64 2728
   store i32 %37, ptr %38, align 8, !tbaa !320
   %39 = getelementptr inbounds nuw i8, ptr %26, i64 2724
@@ -8307,7 +8307,7 @@ define internal noundef i32 @_second_window_configure_callback(ptr readnone capt
   store double %31, ptr %32, align 8, !tbaa !323
   %33 = fmul reassoc nsz arcp contract afn double %31, 0x3F85555555555555
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 2752
-  store double %33, ptr %34, align 8, !tbaa !324
+  store double %33, ptr %34, align 16, !tbaa !324
   tail call void @dt_dev_configure(ptr noundef nonnull %26) #19
   ret i32 1
 }

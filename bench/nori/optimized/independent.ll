@@ -701,7 +701,7 @@ _ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit: ; preds = %28, %23
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %65 = load i32, ptr %64, align 8
   %66 = or i32 %65, 2048
-  store i32 %66, ptr %64, align 4
+  store i32 %66, ptr %64, align 8
   %67 = load i32, ptr %7, align 4
   %68 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %69 = load ptr, ptr %68, align 8
@@ -909,7 +909,7 @@ define linkonce_odr hidden noundef ptr @_ZN10tinyformat6detail21streamStateFromF
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load i32, ptr %39, align 8
   %41 = or i32 %40, 1536
-  store i32 %41, ptr %39, align 4
+  store i32 %41, ptr %39, align 8
   br label %.backedge
 
 42:                                               ; preds = %32
@@ -933,7 +933,7 @@ define linkonce_odr hidden noundef ptr @_ZN10tinyformat6detail21streamStateFromF
   %57 = load i32, ptr %56, align 8
   %58 = and i32 %57, -177
   %59 = or disjoint i32 %58, 16
-  store i32 %59, ptr %56, align 4
+  store i32 %59, ptr %56, align 8
   br label %.backedge
 
 60:                                               ; preds = %32
@@ -950,7 +950,7 @@ define linkonce_odr hidden noundef ptr @_ZN10tinyformat6detail21streamStateFromF
   %71 = load i32, ptr %70, align 8
   %72 = and i32 %71, -177
   %73 = or disjoint i32 %72, 32
-  store i32 %73, ptr %70, align 4
+  store i32 %73, ptr %70, align 8
   br label %.backedge
 
 74:                                               ; preds = %32
@@ -979,7 +979,7 @@ define linkonce_odr hidden noundef ptr @_ZN10tinyformat6detail21streamStateFromF
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
   %89 = load i32, ptr %88, align 8
   %90 = or i32 %89, 2048
-  store i32 %90, ptr %88, align 4
+  store i32 %90, ptr %88, align 8
   store i8 0, ptr %1, align 1
   br label %.outer, !llvm.loop !15
 
@@ -1053,7 +1053,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit: ; preds = %.lr.ph.i
   %134 = load i32, ptr %133, align 8
   %135 = and i32 %134, -177
   %136 = or disjoint i32 %135, 32
-  store i32 %136, ptr %133, align 4
+  store i32 %136, ptr %133, align 8
   %137 = sub nsw i32 0, %121
   br label %.thread
 
@@ -1193,7 +1193,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit87: ; preds = %.lr.ph.i91, %
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 24
   %199 = load i32, ptr %198, align 8
   %200 = or i32 %199, 16384
-  store i32 %200, ptr %198, align 4
+  store i32 %200, ptr %198, align 8
   br label %.loopexit
 
 201:                                              ; preds = %190
@@ -1204,7 +1204,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit87: ; preds = %.lr.ph.i91, %
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 24
   %207 = load i32, ptr %206, align 8
   %208 = or i32 %207, 16384
-  store i32 %208, ptr %206, align 4
+  store i32 %208, ptr %206, align 8
   br label %.loopexit108
 
 .loopexit108:                                     ; preds = %190, %201
@@ -1216,7 +1216,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit87: ; preds = %.lr.ph.i91, %
   %214 = load i32, ptr %213, align 8
   %215 = and i32 %214, -261
   %216 = or disjoint i32 %215, 256
-  store i32 %216, ptr %213, align 4
+  store i32 %216, ptr %213, align 8
   %217 = load ptr, ptr %0, align 8
   %218 = getelementptr i8, ptr %217, i64 -24
   %219 = load i64, ptr %218, align 8
@@ -1225,7 +1225,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit87: ; preds = %.lr.ph.i91, %
   %222 = load i32, ptr %221, align 8
   %223 = and i32 %222, -75
   %224 = or disjoint i32 %223, 2
-  store i32 %224, ptr %221, align 4
+  store i32 %224, ptr %221, align 8
   br label %.thread105
 
 225:                                              ; preds = %190
@@ -1236,7 +1236,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit87: ; preds = %.lr.ph.i91, %
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 24
   %231 = load i32, ptr %230, align 8
   %232 = or i32 %231, 16384
-  store i32 %232, ptr %230, align 4
+  store i32 %232, ptr %230, align 8
   br label %.loopexit109
 
 .loopexit109:                                     ; preds = %190, %225
@@ -1248,7 +1248,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit87: ; preds = %.lr.ph.i91, %
   %238 = load i32, ptr %237, align 8
   %239 = and i32 %238, -261
   %240 = or disjoint i32 %239, 4
-  store i32 %240, ptr %237, align 4
+  store i32 %240, ptr %237, align 8
   br label %.thread105
 
 241:                                              ; preds = %190
@@ -1259,7 +1259,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit87: ; preds = %.lr.ph.i91, %
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 24
   %247 = load i32, ptr %246, align 8
   %248 = or i32 %247, 16384
-  store i32 %248, ptr %246, align 4
+  store i32 %248, ptr %246, align 8
   br label %.loopexit110
 
 .loopexit110:                                     ; preds = %190, %241
@@ -1271,7 +1271,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit87: ; preds = %.lr.ph.i91, %
   %254 = load i32, ptr %253, align 8
   %255 = and i32 %254, -75
   %256 = or disjoint i32 %255, 2
-  store i32 %256, ptr %253, align 4
+  store i32 %256, ptr %253, align 8
   %257 = load ptr, ptr %0, align 8
   %258 = getelementptr i8, ptr %257, i64 -24
   %259 = load i64, ptr %258, align 8
@@ -1305,7 +1305,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit87: ; preds = %.lr.ph.i91, %
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 24
   %278 = load i32, ptr %277, align 8
   %279 = or i32 %278, 1
-  store i32 %279, ptr %277, align 4
+  store i32 %279, ptr %277, align 8
   br label %.thread105
 
 .loopexit192:                                     ; preds = %190, %190, %190
@@ -1324,7 +1324,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit87: ; preds = %.lr.ph.i91, %
   %285 = load i32, ptr %284, align 8
   %286 = and i32 %285, -75
   %287 = or disjoint i32 %286, %.sink188
-  store i32 %287, ptr %284, align 4
+  store i32 %287, ptr %284, align 8
   %or.cond3 = or i1 %.167, %147
   br i1 %or.cond3, label %.thread105, label %288
 
@@ -1346,7 +1346,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit87: ; preds = %.lr.ph.i91, %
   %302 = load i32, ptr %301, align 8
   %303 = and i32 %302, -177
   %304 = or disjoint i32 %303, 16
-  store i32 %304, ptr %301, align 4
+  store i32 %304, ptr %301, align 8
   %305 = load ptr, ptr %0, align 8
   %306 = getelementptr i8, ptr %305, i64 -24
   %307 = load i64, ptr %306, align 8

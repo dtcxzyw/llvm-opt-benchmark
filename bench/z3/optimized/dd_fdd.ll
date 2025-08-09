@@ -6841,9 +6841,9 @@ _ZNK6vectorIN2dd3bddELb1EjE4sizeEv.exit:          ; preds = %46
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i.i.i, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !33
   store ptr %61, ptr %59, align 8, !tbaa !33
-  %62 = load i32, ptr %.sroa.04.07.i.i.i.i.i.i, align 4, !tbaa !17
-  store i32 %62, ptr %.08.i.i.i.i.i.i, align 4, !tbaa !17
-  store i32 0, ptr %.sroa.04.07.i.i.i.i.i.i, align 4, !tbaa !17
+  %62 = load i32, ptr %.sroa.04.07.i.i.i.i.i.i, align 8, !tbaa !17
+  store i32 %62, ptr %.08.i.i.i.i.i.i, align 8, !tbaa !17
+  store i32 0, ptr %.sroa.04.07.i.i.i.i.i.i, align 8, !tbaa !17
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i.i.i, i64 16
   %64 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 16
   %65 = icmp eq ptr %63, %57

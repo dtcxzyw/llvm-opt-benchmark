@@ -3967,11 +3967,11 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   store i8 0, ptr %31, align 1, !tbaa !92
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i32 1, ptr %32, align 4, !tbaa !110
+  store i32 1, ptr %32, align 8, !tbaa !110
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 1, ptr %33, align 4, !tbaa !111
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i32 1, ptr %34, align 4, !tbaa !112
+  store i32 1, ptr %34, align 8, !tbaa !112
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 76
   store i8 0, ptr %35, align 4, !tbaa !113
   ret void

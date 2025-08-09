@@ -58,41 +58,41 @@ define noundef float @_Z8sum_ekinPK9t_grpoptsP14gmx_ekindata_tPfbb(ptr noundef r
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 120
   %36 = load double, ptr %35, align 8, !tbaa !23
   %37 = fptrunc double %36 to float
-  %38 = load float, ptr %34, align 4, !tbaa !15
+  %38 = load float, ptr %34, align 8, !tbaa !15
   %39 = fmul float %38, %37
-  store float %39, ptr %34, align 4, !tbaa !15
+  store float %39, ptr %34, align 8, !tbaa !15
   %40 = getelementptr inbounds nuw i8, ptr %24, i64 84
   %41 = load float, ptr %40, align 4, !tbaa !15
   %42 = fmul float %41, %37
   store float %42, ptr %40, align 4, !tbaa !15
   %43 = getelementptr inbounds nuw i8, ptr %24, i64 88
-  %44 = load float, ptr %43, align 4, !tbaa !15
+  %44 = load float, ptr %43, align 8, !tbaa !15
   %45 = fmul float %44, %37
-  store float %45, ptr %43, align 4, !tbaa !15
+  store float %45, ptr %43, align 8, !tbaa !15
   %46 = getelementptr inbounds nuw i8, ptr %24, i64 92
   %47 = load float, ptr %46, align 4, !tbaa !15
   %48 = fmul float %47, %37
   store float %48, ptr %46, align 4, !tbaa !15
   %49 = getelementptr inbounds nuw i8, ptr %24, i64 96
-  %50 = load float, ptr %49, align 4, !tbaa !15
+  %50 = load float, ptr %49, align 8, !tbaa !15
   %51 = fmul float %50, %37
-  store float %51, ptr %49, align 4, !tbaa !15
+  store float %51, ptr %49, align 8, !tbaa !15
   %52 = getelementptr inbounds nuw i8, ptr %24, i64 100
   %53 = load float, ptr %52, align 4, !tbaa !15
   %54 = fmul float %53, %37
   store float %54, ptr %52, align 4, !tbaa !15
   %55 = getelementptr inbounds nuw i8, ptr %24, i64 104
-  %56 = load float, ptr %55, align 4, !tbaa !15
+  %56 = load float, ptr %55, align 8, !tbaa !15
   %57 = fmul float %56, %37
-  store float %57, ptr %55, align 4, !tbaa !15
+  store float %57, ptr %55, align 8, !tbaa !15
   %58 = getelementptr inbounds nuw i8, ptr %24, i64 108
   %59 = load float, ptr %58, align 4, !tbaa !15
   %60 = fmul float %59, %37
   store float %60, ptr %58, align 4, !tbaa !15
   %61 = getelementptr inbounds nuw i8, ptr %24, i64 112
-  %62 = load float, ptr %61, align 4, !tbaa !15
+  %62 = load float, ptr %61, align 8, !tbaa !15
   %63 = fmul float %62, %37
-  store float %63, ptr %61, align 4, !tbaa !15
+  store float %63, ptr %61, align 8, !tbaa !15
   br label %.loopexit
 
 .preheader:                                       ; preds = %.preheader65, %78
@@ -180,10 +180,10 @@ define noundef float @_Z8sum_ekinPK9t_grpoptsP14gmx_ekindata_tPfbb(ptr noundef r
   %122 = fadd float %119, %121
   %123 = tail call noundef float @_Z9calc_tempff(float noundef %122, float noundef %22)
   store float %123, ptr %24, align 8, !tbaa !27
-  %124 = load float, ptr %79, align 4, !tbaa !15
-  %125 = load float, ptr %95, align 4, !tbaa !15
+  %124 = load float, ptr %79, align 8, !tbaa !15
+  %125 = load float, ptr %95, align 8, !tbaa !15
   %126 = fadd float %124, %125
-  %127 = load float, ptr %111, align 4, !tbaa !15
+  %127 = load float, ptr %111, align 8, !tbaa !15
   %128 = fadd float %126, %127
   %129 = tail call noundef float @_Z9calc_tempff(float noundef %128, float noundef %22)
   %130 = getelementptr inbounds nuw i8, ptr %24, i64 4

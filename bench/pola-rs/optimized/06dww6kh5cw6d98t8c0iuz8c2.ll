@@ -1677,7 +1677,7 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 24
   store ptr %33, ptr %6, align 8, !noalias !212
   store ptr %27, ptr %13, align 8, !noalias !212
-  %34 = load i32, ptr %33, align 4, !noalias !212, !noundef !4
+  %34 = load i32, ptr %33, align 8, !noalias !212, !noundef !4
   %35 = icmp eq i32 %34, 1
   br i1 %35, label %37, label %38
 
@@ -32216,9 +32216,9 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hacf9389ee4557603E.exit.i.i:
   %836 = getelementptr inbounds nuw i8, ptr %830, i64 24
   store ptr %836, ptr %50, align 8
   store ptr %831, ptr %101, align 8
-  %837 = load i32, ptr %836, align 4, !noundef !4
+  %837 = load i32, ptr %836, align 8, !noundef !4
   %838 = add i32 %837, 1
-  store i32 %838, ptr %836, align 4
+  store i32 %838, ptr %836, align 8
   invoke void @"_ZN4core3ptr50drop_in_place$LT$core..cell..RefMut$LT$u32$GT$$GT$17h9f99f34f44758a65E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %50)
           to label %839 unwind label %.loopexit371
 

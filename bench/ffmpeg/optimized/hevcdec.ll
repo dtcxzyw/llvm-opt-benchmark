@@ -1129,7 +1129,7 @@ define internal fastcc range(i32 -12, 1) i32 @set_sps(ptr noundef %0, ptr nounde
 
 .split.us:                                        ; preds = %116
   %124 = load i32, ptr %9, align 8, !tbaa !197
-  %125 = load i32, ptr %119, align 4, !tbaa !137
+  %125 = load i32, ptr %119, align 8, !tbaa !137
   %126 = ashr i32 %124, %125
   %127 = load i32, ptr %11, align 4, !tbaa !198
   %128 = load i32, ptr %120, align 4, !tbaa !137
@@ -1424,7 +1424,7 @@ define internal fastcc void @export_stream_params(ptr initializes((112, 128), (1
   %12 = load i32, ptr %11, align 4, !tbaa !198
   %13 = getelementptr inbounds nuw i8, ptr %.8.val, i64 124
   store i32 %12, ptr %13, align 4, !tbaa !251
-  %14 = load i32, ptr %4, align 4, !tbaa !252
+  %14 = load i32, ptr %4, align 8, !tbaa !252
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %16 = load i32, ptr %15, align 4, !tbaa !253
   %17 = add i32 %14, %16
@@ -1432,7 +1432,7 @@ define internal fastcc void @export_stream_params(ptr initializes((112, 128), (1
   %19 = getelementptr inbounds nuw i8, ptr %.8.val, i64 112
   store i32 %18, ptr %19, align 8, !tbaa !254
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load i32, ptr %20, align 4, !tbaa !255
+  %21 = load i32, ptr %20, align 8, !tbaa !255
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %23 = load i32, ptr %22, align 4, !tbaa !256
   %24 = add i32 %21, %23
@@ -5619,7 +5619,7 @@ verify_md5.exit.thread.i:                         ; preds = %2100
   %2155 = load i64, ptr %2147, align 8, !tbaa !74
   %2156 = call noundef i64 @llvm.bswap.i64(i64 %2155)
   %2157 = getelementptr inbounds nuw i8, ptr %2147, i64 8
-  %2158 = load i64, ptr %2157, align 1, !tbaa !74
+  %2158 = load i64, ptr %2157, align 8, !tbaa !74
   %2159 = call noundef i64 @llvm.bswap.i64(i64 %2158)
   %2160 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %4, i64 noundef 456, ptr noundef nonnull @.str.85, i32 noundef %2121, i64 noundef %2149, i64 noundef %2151, i64 noundef %2156, i64 noundef %2159) #15
   br label %2161
@@ -9413,7 +9413,7 @@ define internal fastcc range(i32 -1094995529, 2) i32 @hls_coding_quadtree(ptr no
   %140 = getelementptr inbounds i8, ptr %136, i64 %139
   store i8 0, ptr %140, align 1, !tbaa !74
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 31264
-  store i32 16843009, ptr %141, align 1
+  store i32 16843009, ptr %141, align 4
   %142 = ashr i32 %13, %121
   %143 = sub i32 %127, %129
   %notmask.i = shl nsw i32 -1, %143
@@ -10555,7 +10555,7 @@ define internal fastcc void @hls_prediction_unit(ptr noundef %0, ptr readonly ca
   %21 = load ptr, ptr %16, align 8, !tbaa !74
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %23 = load ptr, ptr %21, align 8, !tbaa !226
-  %24 = load i32, ptr %22, align 4, !tbaa !137
+  %24 = load i32, ptr %22, align 8, !tbaa !137
   %25 = mul nsw i32 %24, %4
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds i8, ptr %23, i64 %26
@@ -10567,7 +10567,7 @@ define internal fastcc void @hls_prediction_unit(ptr noundef %0, ptr readonly ca
   %33 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !226
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 20280
-  %36 = load i32, ptr %35, align 4, !tbaa !137
+  %36 = load i32, ptr %35, align 8, !tbaa !137
   %37 = ashr i32 %4, %36
   %38 = getelementptr inbounds nuw i8, ptr %21, i64 68
   %39 = load i32, ptr %38, align 4, !tbaa !137
@@ -10585,7 +10585,7 @@ define internal fastcc void @hls_prediction_unit(ptr noundef %0, ptr readonly ca
   %51 = load i32, ptr %50, align 4, !tbaa !137
   %52 = ashr i32 %4, %51
   %53 = getelementptr inbounds nuw i8, ptr %21, i64 72
-  %54 = load i32, ptr %53, align 4, !tbaa !137
+  %54 = load i32, ptr %53, align 8, !tbaa !137
   %55 = mul nsw i32 %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 20272
   %57 = load i32, ptr %56, align 8, !tbaa !137
@@ -11392,7 +11392,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @hls_pcm_sample(ptr noundef
   %34 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !226
   %36 = getelementptr inbounds nuw i8, ptr %11, i64 20280
-  %37 = load i32, ptr %36, align 4, !tbaa !137
+  %37 = load i32, ptr %36, align 8, !tbaa !137
   %38 = ashr i32 %4, %37
   %39 = sext i32 %38 to i64
   %40 = mul nsw i64 %39, %21
@@ -12773,7 +12773,7 @@ define internal fastcc void @chroma_mc_uni(ptr noundef %0, ptr noundef readonly 
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 20220
   %24 = load i32, ptr %23, align 4, !tbaa !198
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 20280
-  %26 = load i32, ptr %25, align 4, !tbaa !137
+  %26 = load i32, ptr %25, align 8, !tbaa !137
   %27 = ashr i32 %24, %26
   %28 = zext nneg i32 %7 to i64
   %29 = getelementptr inbounds nuw [2 x %struct.Mv], ptr %12, i64 0, i64 %28
@@ -12972,7 +12972,7 @@ define internal fastcc void @chroma_mc_bi(ptr noundef %0, ptr noundef readonly c
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 20220
   %45 = load i32, ptr %44, align 4, !tbaa !198
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 20280
-  %47 = load i32, ptr %46, align 4, !tbaa !137
+  %47 = load i32, ptr %46, align 8, !tbaa !137
   %48 = ashr i32 %45, %47
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %50 = load i16, ptr %10, align 2, !tbaa !572

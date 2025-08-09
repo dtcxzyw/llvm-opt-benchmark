@@ -2919,7 +2919,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %19, ptr %20, align 8, !tbaa !121
   store ptr %10, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !119
   store i64 0, ptr %18, align 8, !tbaa !121
-  store i8 0, ptr %10, align 1, !tbaa !122
+  store i8 0, ptr %10, align 8, !tbaa !122
   %21 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 48
@@ -2951,7 +2951,7 @@ _ZSt10_ConstructIN4llvm30DiagnosticInfoOptimizationBase8ArgumentEJS2_EEvPT_DpOT0
   store i64 %34, ptr %35, align 8, !tbaa !121
   store ptr %25, ptr %22, align 8, !tbaa !119
   store i64 0, ptr %33, align 8, !tbaa !121
-  store i8 0, ptr %25, align 1, !tbaa !122
+  store i8 0, ptr %25, align 8, !tbaa !122
   %36 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 64
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 16, i1 false), !tbaa.struct !267
@@ -3246,7 +3246,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_4LoopEjNS_12DenseMapInfoIS4_vEENS_6deta
   %57 = load ptr, ptr %1, align 8, !tbaa !65
   store ptr %57, ptr %48, align 8, !tbaa !65
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !47
+  store i32 0, ptr %58, align 8, !tbaa !47
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_4LoopEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E16InsertIntoBucketIRKS4_JEEEPS9_SF_OT_DpOT0_.exit
@@ -9398,7 +9398,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_4LoopEjNS_12DenseMapInfoIS4_vEENS_6deta
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !47
-  store i32 %68, ptr %66, align 4, !tbaa !47
+  store i32 %68, ptr %66, align 8, !tbaa !47
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !276
   br label %70
@@ -14606,8 +14606,8 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_10BasicBlockES4_EiLj4ENS_1
   store ptr %86, ptr %87, align 8, !tbaa !551
   %88 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 16
   %89 = getelementptr inbounds nuw i8, ptr %.023, i64 16
-  %90 = load i32, ptr %89, align 4, !tbaa !47
-  store i32 %90, ptr %88, align 4, !tbaa !47
+  %90 = load i32, ptr %89, align 8, !tbaa !47
+  store i32 %90, ptr %88, align 8, !tbaa !47
   %91 = load i32, ptr %0, align 8
   %92 = and i32 %91, -2
   %93 = add i32 %92, 2
@@ -14786,7 +14786,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_10BasicBlockES4_EiLj4ENS_1
   %40 = load ptr, ptr %39, align 8, !tbaa !70
   store ptr %40, ptr %30, align 8, !tbaa !551
   %41 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store i32 0, ptr %41, align 4, !tbaa !47
+  store i32 0, ptr %41, align 8, !tbaa !47
   ret ptr %23
 }
 
@@ -15463,7 +15463,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_10BasicBlockES4_EiLj4ENS_1
   store ptr %13, ptr %145, align 8, !tbaa !549
   store ptr %16, ptr %152, align 8, !tbaa !551
   %159 = getelementptr inbounds nuw i8, ptr %145, i64 16
-  store i32 0, ptr %159, align 4, !tbaa !47
+  store i32 0, ptr %159, align 8, !tbaa !47
   %.pre = load i32, ptr %3, align 8
   %.pre224 = load ptr, ptr %7, align 8
   %.pre225 = load i32, ptr %8, align 8
@@ -15682,7 +15682,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_10BasicBlockES4_EiLj4ENS_1
   store ptr %163, ptr %290, align 8, !tbaa !549
   store ptr %165, ptr %297, align 8, !tbaa !551
   %304 = getelementptr inbounds nuw i8, ptr %290, i64 16
-  store i32 0, ptr %304, align 4, !tbaa !47
+  store i32 0, ptr %304, align 8, !tbaa !47
   br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_10BasicBlockES4_EiLj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_iEEEES5_iS7_SA_EixEOS5_.exit
 
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_10BasicBlockES4_EiLj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_iEEEES5_iS7_SA_EixEOS5_.exit: ; preds = %205, %169, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_10BasicBlockES4_EiLj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_iEEEES5_iS7_SA_E16InsertIntoBucketIS5_JEEEPSA_SE_OT_DpOT0_.exit
@@ -15910,7 +15910,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_10BasicBlockES4_EiLj4ENS_1
   store ptr %313, ptr %444, align 8, !tbaa !549
   store ptr %315, ptr %451, align 8, !tbaa !551
   %458 = getelementptr inbounds nuw i8, ptr %444, i64 16
-  store i32 0, ptr %458, align 4, !tbaa !47
+  store i32 0, ptr %458, align 8, !tbaa !47
   %.pre226 = load i32, ptr %3, align 8
   %.pre227 = load ptr, ptr %7, align 8
   %.pre228 = load i32, ptr %8, align 8
@@ -16130,7 +16130,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_10BasicBlockES4_EiLj4ENS_1
   store ptr %462, ptr %590, align 8, !tbaa !549
   store ptr %465, ptr %597, align 8, !tbaa !551
   %604 = getelementptr inbounds nuw i8, ptr %590, i64 16
-  store i32 0, ptr %604, align 4, !tbaa !47
+  store i32 0, ptr %604, align 8, !tbaa !47
   br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_10BasicBlockES4_EiLj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_iEEEES5_iS7_SA_EixEOS5_.exit42
 
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_10BasicBlockES4_EiLj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_iEEEES5_iS7_SA_EixEOS5_.exit42: ; preds = %505, %469, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_10BasicBlockES4_EiLj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_iEEEES5_iS7_SA_E16InsertIntoBucketIS5_JEEEPSA_SE_OT_DpOT0_.exit81
@@ -16430,7 +16430,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_10BasicBlockES4_EiLj4ENS_1
   store ptr %.sroa.0.0.copyload.i, ptr %155, align 8, !tbaa !549
   store ptr %42, ptr %162, align 8, !tbaa !551
   %169 = getelementptr inbounds nuw i8, ptr %155, i64 16
-  store i32 0, ptr %169, align 4, !tbaa !47
+  store i32 0, ptr %169, align 8, !tbaa !47
   %.pre = load i32, ptr %2, align 8
   %.pre106 = load ptr, ptr %12, align 8
   %.pre107 = load i32, ptr %13, align 8
@@ -16650,7 +16650,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_10BasicBlockES4_EiLj4ENS_1
   store ptr %173, ptr %301, align 8, !tbaa !549
   store ptr %176, ptr %308, align 8, !tbaa !551
   %315 = getelementptr inbounds nuw i8, ptr %301, i64 16
-  store i32 0, ptr %315, align 4, !tbaa !47
+  store i32 0, ptr %315, align 8, !tbaa !47
   br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_10BasicBlockES4_EiLj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_iEEEES5_iS7_SA_EixEOS5_.exit
 
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_10BasicBlockES4_EiLj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_iEEEES5_iS7_SA_EixEOS5_.exit: ; preds = %216, %180, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_10BasicBlockES4_EiLj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_iEEEES5_iS7_SA_E16InsertIntoBucketIS5_JEEEPSA_SE_OT_DpOT0_.exit
@@ -16898,7 +16898,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_10BasicBlockES4_EiLj4ENS_1
   store ptr %.sroa.0.0.copyload.i, ptr %123, align 8, !tbaa !549
   store ptr %10, ptr %130, align 8, !tbaa !551
   %137 = getelementptr inbounds nuw i8, ptr %123, i64 16
-  store i32 0, ptr %137, align 4, !tbaa !47
+  store i32 0, ptr %137, align 8, !tbaa !47
   %.pre = load i32, ptr %2, align 8
   %.pre93 = load ptr, ptr %5, align 8
   %.pre94 = load i32, ptr %6, align 8
@@ -17118,7 +17118,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_10BasicBlockES4_EiLj4ENS_1
   store ptr %141, ptr %269, align 8, !tbaa !549
   store ptr %144, ptr %276, align 8, !tbaa !551
   %283 = getelementptr inbounds nuw i8, ptr %269, i64 16
-  store i32 0, ptr %283, align 4, !tbaa !47
+  store i32 0, ptr %283, align 8, !tbaa !47
   br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_10BasicBlockES4_EiLj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_iEEEES5_iS7_SA_EixEOS5_.exit
 
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_10BasicBlockES4_EiLj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_iEEEES5_iS7_SA_EixEOS5_.exit: ; preds = %184, %148, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_10BasicBlockES4_EiLj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_iEEEES5_iS7_SA_E16InsertIntoBucketIS5_JEEEPSA_SE_OT_DpOT0_.exit

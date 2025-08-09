@@ -4438,7 +4438,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit32.i.i.i:         ; preds = %110, %108
 
 _ZN4llvm11raw_ostreamlsEc.exit35.i.i.i:           ; preds = %126, %124
   %128 = load ptr, ptr %89, align 8, !tbaa !383
-  %129 = load i32, ptr %.val, align 4, !tbaa !327
+  %129 = load i32, ptr %.val, align 8, !tbaa !327
   %130 = getelementptr inbounds nuw i8, ptr %128, i64 72
   %131 = load ptr, ptr %130, align 8, !tbaa !371
   %132 = getelementptr inbounds nuw i8, ptr %128, i64 8

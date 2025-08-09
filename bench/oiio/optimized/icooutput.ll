@@ -611,7 +611,7 @@ define noundef ptr @_ZN11OpenImageIO6v3_1_025ico_output_imageio_createEv() local
   store ptr %4, ptr %3, align 8, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 192
   store i64 0, ptr %5, align 8, !tbaa !11
-  store i8 0, ptr %4, align 1, !tbaa !14
+  store i8 0, ptr %4, align 8, !tbaa !14
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 280

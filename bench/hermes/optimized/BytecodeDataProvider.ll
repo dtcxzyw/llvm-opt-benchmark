@@ -1715,7 +1715,7 @@ if.then10:                                        ; preds = %if.end
   %_M_func.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr %warmupAbortFlag_, ptr %_M_func.i.i, align 8
   %4 = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  store i32 %storemerge, ptr %4, align 4
+  store i32 %storemerge, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr %3, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %call.i, i64 32

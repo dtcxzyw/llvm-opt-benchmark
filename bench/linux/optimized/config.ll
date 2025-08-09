@@ -1209,7 +1209,7 @@ split:                                            ; preds = %82, %._crit_edge322
   %564 = getelementptr inbounds nuw i8, ptr %495, i64 6
   store i8 1, ptr %564, align 2
   %565 = getelementptr inbounds nuw i8, ptr %495, i64 4
-  %566 = load i16, ptr %565, align 1
+  %566 = load i16, ptr %565, align 2
   %567 = and i16 %566, 2047
   %568 = icmp samesign ugt i16 %567, 8
   br i1 %568, label %569, label %570
@@ -1335,7 +1335,7 @@ thread-pre-split:                                 ; preds = %620, %610
   %635 = getelementptr inbounds nuw i8, ptr %495, i64 9
   store i8 6, ptr %635, align 1
   %636 = getelementptr inbounds nuw i8, ptr %495, i64 10
-  store i8 48, ptr %636, align 1
+  store i8 48, ptr %636, align 2
   %637 = load i8, ptr %598, align 1
   %638 = and i8 %637, 3
   switch i8 %638, label %thread-pre-split.thread [

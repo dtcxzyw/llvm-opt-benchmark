@@ -155,7 +155,7 @@ define internal i32 @jpegxl_parse(ptr noundef captures(none) %0, ptr noundef %1,
 86:                                               ; preds = %82
   %87 = zext nneg i32 %84 to i64
   store i64 %87, ptr %80, align 8, !tbaa !25
-  %88 = load i32, ptr %83, align 4, !tbaa !31
+  %88 = load i32, ptr %83, align 8, !tbaa !31
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store i32 %88, ptr %89, align 8, !tbaa !32
   %90 = getelementptr inbounds nuw i8, ptr %37, i64 52
@@ -170,7 +170,7 @@ define internal i32 @jpegxl_parse(ptr noundef captures(none) %0, ptr noundef %1,
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 152
   store i32 %95, ptr %96, align 8, !tbaa !36
   %97 = getelementptr inbounds nuw i8, ptr %37, i64 88
-  %98 = load i32, ptr %97, align 4, !tbaa !52
+  %98 = load i32, ptr %97, align 8, !tbaa !52
   switch i32 %98, label %113 [
     i32 1, label %99
     i32 11, label %107

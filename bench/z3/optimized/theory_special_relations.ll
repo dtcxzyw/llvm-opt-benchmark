@@ -1734,7 +1734,7 @@ _ZNK8dl_graphIN3smt24theory_special_relations7int_extEE11is_feasibleERK7dl_edgeI
   %54 = load i32, ptr %52, align 4, !tbaa !114
   %55 = sub nsw i32 %53, %54
   %56 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %57 = load i32, ptr %56, align 4, !tbaa !114
+  %57 = load i32, ptr %56, align 8, !tbaa !114
   %.not.i.i = icmp slt i32 %57, %55
   br i1 %.not.i.i, label %58, label %.noexc13
 
@@ -1817,7 +1817,7 @@ _ZNK8dl_graphIN3smt24theory_special_relations7int_extEE11is_feasibleERK7dl_edgeI
   %100 = load i32, ptr %98, align 4, !tbaa !114
   %101 = sub nsw i32 %99, %100
   %102 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  %103 = load i32, ptr %102, align 4, !tbaa !114
+  %103 = load i32, ptr %102, align 8, !tbaa !114
   %.not.i.i16 = icmp slt i32 %103, %101
   br i1 %.not.i.i16, label %104, label %.noexc24
 
@@ -5056,7 +5056,7 @@ _ZNK8dl_graphIN3smt24theory_special_relations7int_extEE11is_feasibleERK7dl_edgeI
   %32 = load i32, ptr %30, align 4, !tbaa !114
   %33 = sub nsw i32 %31, %32
   %34 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %35 = load i32, ptr %34, align 4, !tbaa !114
+  %35 = load i32, ptr %34, align 8, !tbaa !114
   %.not.i.i = icmp slt i32 %35, %33
   br i1 %.not.i.i, label %36, label %38
 
@@ -5665,7 +5665,7 @@ _ZNK8dl_graphIN3smt24theory_special_relations7int_extEE11is_feasibleERK7dl_edgeI
   %272 = load i32, ptr %270, align 4, !tbaa !114
   %273 = sub nsw i32 %271, %272
   %274 = getelementptr inbounds nuw i8, ptr %256, i64 8
-  %275 = load i32, ptr %274, align 4, !tbaa !114
+  %275 = load i32, ptr %274, align 8, !tbaa !114
   %.not.i193 = icmp slt i32 %275, %273
   br i1 %.not.i193, label %276, label %.noexc198
 
@@ -8145,7 +8145,7 @@ _ZNK8dl_graphIN3smt24theory_special_relations7int_extEE11is_feasibleERK7dl_edgeI
   %191 = load i32, ptr %189, align 4, !tbaa !114
   %192 = sub nsw i32 %190, %191
   %193 = getelementptr inbounds nuw i8, ptr %175, i64 8
-  %194 = load i32, ptr %193, align 4, !tbaa !114
+  %194 = load i32, ptr %193, align 8, !tbaa !114
   %.not.i.i90 = icmp slt i32 %194, %192
   br i1 %.not.i.i90, label %195, label %.noexc93
 
@@ -9248,7 +9248,7 @@ define linkonce_odr hidden void @_ZN8dl_graphIN3smt24theory_special_relations7in
   %46 = getelementptr inbounds nuw %class.dl_edge, ptr %44, i64 %45
   %47 = load i32, ptr %46, align 8, !tbaa !101
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %49 = load i32, ptr %48, align 4, !tbaa !114
+  %49 = load i32, ptr %48, align 8, !tbaa !114
   %50 = add nsw i32 %49, %.sroa.0107.0
   %51 = load ptr, ptr %25, align 8, !tbaa !103
   %52 = zext i32 %47 to i64
@@ -10786,7 +10786,7 @@ _ZNK8dl_graphIN3smt24theory_special_relations7int_extEE11is_feasibleERK7dl_edgeI
   %33 = load i32, ptr %31, align 4, !tbaa !114
   %34 = sub nsw i32 %32, %33
   %35 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %36 = load i32, ptr %35, align 4, !tbaa !114
+  %36 = load i32, ptr %35, align 8, !tbaa !114
   %.not.i.i = icmp slt i32 %36, %34
   br i1 %.not.i.i, label %37, label %39
 
@@ -11783,7 +11783,7 @@ _ZNK8dl_graphIN3smt24theory_special_relations7int_extEE11is_feasibleERK7dl_edgeI
   %60 = load i32, ptr %58, align 4, !tbaa !114
   %61 = sub nsw i32 %59, %60
   %62 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %63 = load i32, ptr %62, align 4, !tbaa !114
+  %63 = load i32, ptr %62, align 8, !tbaa !114
   %.not.i.i = icmp slt i32 %63, %61
   br i1 %.not.i.i, label %64, label %.noexc20
 
@@ -12334,7 +12334,7 @@ _ZNK8dl_graphIN3smt24theory_special_relations7int_extEE11is_feasibleERK7dl_edgeI
   %225 = load i32, ptr %223, align 4, !tbaa !114
   %226 = sub nsw i32 %224, %225
   %227 = getelementptr inbounds nuw i8, ptr %209, i64 8
-  %228 = load i32, ptr %227, align 4, !tbaa !114
+  %228 = load i32, ptr %227, align 8, !tbaa !114
   %.not.i.i = icmp slt i32 %228, %226
   br i1 %.not.i.i, label %229, label %.noexc41
 
@@ -23554,7 +23554,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8dl_graphIN3smt24theory_specia
   %20 = load i32, ptr %19, align 4, !tbaa !114
   %21 = sub nsw i32 %17, %20
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %23 = load i32, ptr %22, align 4, !tbaa !114
+  %23 = load i32, ptr %22, align 8, !tbaa !114
   %24 = add nsw i32 %23, %21
   %25 = getelementptr inbounds nuw %class.s_integer, ptr %9, i64 %18
   store i32 %24, ptr %25, align 4, !tbaa !73
@@ -23838,7 +23838,7 @@ _ZNK4heapI9dl_var_ltIN3smt24theory_special_relations7int_extEEE5emptyEv.exit: ; 
   %170 = load i32, ptr %169, align 4, !tbaa !114
   %171 = sub nsw i32 %165, %170
   %172 = getelementptr inbounds nuw i8, ptr %156, i64 8
-  %173 = load i32, ptr %172, align 4, !tbaa !114
+  %173 = load i32, ptr %172, align 8, !tbaa !114
   %174 = add nsw i32 %173, %171
   %175 = icmp slt i32 %174, 0
   br i1 %175, label %176, label %282
@@ -26617,7 +26617,7 @@ _ZN6vectorIiLb0EjE3endEv.exit:                    ; preds = %56
   %91 = load i32, ptr %90, align 4, !tbaa !114
   %92 = sub nsw i32 %86, %91
   %93 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %94 = load i32, ptr %93, align 4, !tbaa !114
+  %94 = load i32, ptr %93, align 8, !tbaa !114
   %95 = add nsw i32 %94, %92
   %96 = icmp ne i32 %95, 0
   %97 = icmp sgt i32 %95, -1
@@ -27557,7 +27557,7 @@ _ZN6vectorIiLb0EjE3endEv.exit:                    ; preds = %_ZN6vectorIiLb0EjE9
   %85 = load i32, ptr %84, align 4, !tbaa !114
   %.neg = sub i32 %85, %80
   %86 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %87 = load i32, ptr %86, align 4, !tbaa !114
+  %87 = load i32, ptr %86, align 8, !tbaa !114
   %88 = icmp eq i32 %87, %.neg
   br i1 %88, label %89, label %.loopexit
 

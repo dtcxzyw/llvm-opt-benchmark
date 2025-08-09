@@ -571,14 +571,14 @@ define internal range(i32 0, 17) i32 @chacha_poly1305_tls_init(ptr noundef captu
   store i32 %30, ptr %31, align 4, !tbaa !18
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 756
   %33 = load i32, ptr %32, align 4, !tbaa !18
-  %34 = load i32, ptr %5, align 1
+  %34 = load i32, ptr %5, align 4
   %35 = xor i32 %34, %33
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 424
   store i32 %35, ptr %36, align 8, !tbaa !18
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %38 = load i32, ptr %37, align 8, !tbaa !18
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 784
-  %40 = load i32, ptr %39, align 1
+  %40 = load i32, ptr %39, align 8
   %41 = xor i32 %40, %38
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 428
   store i32 %41, ptr %42, align 4, !tbaa !18

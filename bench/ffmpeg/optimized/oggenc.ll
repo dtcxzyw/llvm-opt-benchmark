@@ -1111,7 +1111,7 @@ ogg_write_vorbiscomment.exit.thread.i176:         ; preds = %174, %161
   %234 = getelementptr inbounds nuw i8, ptr %24, i64 36
   %235 = load i32, ptr %234, align 4, !tbaa !108
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.34, i32 noundef %233, i32 noundef %235, i32 noundef %229, i32 noundef %225) #9
-  %236 = load i32, ptr %228, align 4, !tbaa !106
+  %236 = load i32, ptr %228, align 8, !tbaa !106
   %237 = load i32, ptr %224, align 4, !tbaa !105
   call void @avpriv_set_pts_info(ptr noundef nonnull %24, i32 noundef 64, i32 noundef %236, i32 noundef %237) #9
   br label %238

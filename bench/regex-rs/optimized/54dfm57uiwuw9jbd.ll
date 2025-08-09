@@ -2021,7 +2021,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.013.032, i64 25
   %30 = load i8, ptr %29, align 1, !alias.scope !369, !noalias !383
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.013.032, i64 26
-  %32 = load i8, ptr %31, align 1, !alias.scope !369, !noalias !383
+  %32 = load i8, ptr %31, align 2, !alias.scope !369, !noalias !383
   %.sroa.6.0.i = select i1 %trunc.i, i8 %32, i8 undef
   %.sroa.5.0.i = select i1 %trunc.i, i8 %30, i8 undef
   %33 = getelementptr inbounds nuw [0 x { [4 x i64] }], ptr %7, i64 0, i64 %.sroa.7.031
@@ -4951,7 +4951,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.013.032.i, i64 25
   %33 = load i8, ptr %32, align 1, !alias.scope !864, !noalias !865
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.013.032.i, i64 26
-  %35 = load i8, ptr %34, align 1, !alias.scope !864, !noalias !865
+  %35 = load i8, ptr %34, align 2, !alias.scope !864, !noalias !865
   %.sroa.6.0.i.i = select i1 %trunc.i.i, i8 %35, i8 undef
   %.sroa.5.0.i.i = select i1 %trunc.i.i, i8 %33, i8 undef
   %36 = getelementptr inbounds nuw [0 x { [4 x i64] }], ptr %10, i64 0, i64 %.sroa.7.031.i

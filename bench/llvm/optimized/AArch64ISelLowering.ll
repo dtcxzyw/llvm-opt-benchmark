@@ -184324,7 +184324,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %19, ptr %20, align 8, !tbaa !1356
   store ptr %10, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !1355
   store i64 0, ptr %18, align 8, !tbaa !1356
-  store i8 0, ptr %10, align 1, !tbaa !254
+  store i8 0, ptr %10, align 8, !tbaa !254
   %21 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 48
@@ -184356,7 +184356,7 @@ _ZSt10_ConstructIN4llvm30DiagnosticInfoOptimizationBase8ArgumentEJS2_EEvPT_DpOT0
   store i64 %34, ptr %35, align 8, !tbaa !1356
   store ptr %25, ptr %22, align 8, !tbaa !1355
   store i64 0, ptr %33, align 8, !tbaa !1356
-  store i8 0, ptr %25, align 1, !tbaa !254
+  store i8 0, ptr %25, align 8, !tbaa !254
   %36 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 64
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 16, i1 false), !tbaa.struct !1261

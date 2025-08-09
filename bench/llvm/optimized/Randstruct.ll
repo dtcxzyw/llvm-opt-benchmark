@@ -749,7 +749,7 @@ _ZN12_GLOBAL__N_16Bucket8addFieldEPN5clang9FieldDeclEi.exit82.i: ; preds = %311
   %.pre184.i = load i32, ptr %23, align 8, !tbaa !9
   %.pre183.i = load ptr, ptr %15, align 8, !tbaa !3
   %327 = ptrtoint ptr %241 to i64
-  store i64 %327, ptr %323, align 1
+  store i64 %327, ptr %323, align 8
   store i32 1, ptr %320, align 8, !tbaa !9
   %328 = getelementptr inbounds nuw i8, ptr %240, i64 8
   %329 = zext i32 %.pre184.i to i64

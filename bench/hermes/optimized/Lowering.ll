@@ -4445,10 +4445,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes15AllocObjectInstENS1_IPNS2_10Basic
   store ptr null, ptr %second.i13, align 8
   %NumEntries.i.i = getelementptr inbounds nuw i8, ptr %cond.sink.i.i, i64 16
   %NumEntries3.i.i = getelementptr inbounds nuw i8, ptr %B.023, i64 16
-  %9 = load i32, ptr %NumEntries.i.i, align 4
-  %10 = load i32, ptr %NumEntries3.i.i, align 4
-  store i32 %10, ptr %NumEntries.i.i, align 4
-  store i32 %9, ptr %NumEntries3.i.i, align 4
+  %9 = load i32, ptr %NumEntries.i.i, align 8
+  %10 = load i32, ptr %NumEntries3.i.i, align 8
+  store i32 %10, ptr %NumEntries.i.i, align 8
+  store i32 %9, ptr %NumEntries3.i.i, align 8
   %NumTombstones.i.i = getelementptr inbounds nuw i8, ptr %cond.sink.i.i, i64 20
   %NumTombstones4.i.i = getelementptr inbounds nuw i8, ptr %B.023, i64 20
   %11 = load i32, ptr %NumTombstones.i.i, align 4
@@ -4457,10 +4457,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes15AllocObjectInstENS1_IPNS2_10Basic
   store i32 %11, ptr %NumTombstones4.i.i, align 4
   %NumBuckets.i.i = getelementptr inbounds nuw i8, ptr %cond.sink.i.i, i64 24
   %NumBuckets5.i.i = getelementptr inbounds nuw i8, ptr %B.023, i64 24
-  %13 = load i32, ptr %NumBuckets.i.i, align 4
-  %14 = load i32, ptr %NumBuckets5.i.i, align 4
-  store i32 %14, ptr %NumBuckets.i.i, align 4
-  store i32 %13, ptr %NumBuckets5.i.i, align 4
+  %13 = load i32, ptr %NumBuckets.i.i, align 8
+  %14 = load i32, ptr %NumBuckets5.i.i, align 8
+  store i32 %14, ptr %NumBuckets.i.i, align 8
+  store i32 %13, ptr %NumBuckets5.i.i, align 8
   %15 = load i32, ptr %NumEntries.i.i.i, align 8
   %add.i = add i32 %15, 1
   store i32 %add.i, ptr %NumEntries.i.i.i, align 8

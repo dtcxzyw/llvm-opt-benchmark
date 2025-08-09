@@ -1861,7 +1861,7 @@ define internal fastcc range(i32 -12, 1) i32 @dnxhd_init_qmat(ptr noundef initia
   %8 = load ptr, ptr %7, align 8, !tbaa !168
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %11 = load ptr, ptr %10, align 8, !tbaa !71
+  %11 = load ptr, ptr %10, align 16, !tbaa !71
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 440
   %13 = load i32, ptr %12, align 8, !tbaa !97
   %14 = add nsw i32 %13, 1
@@ -1935,7 +1935,7 @@ define internal fastcc range(i32 -12, 1) i32 @dnxhd_init_qmat(ptr noundef initia
   %55 = load ptr, ptr %33, align 16, !tbaa !171
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 7336
   %57 = load i32, ptr %56, align 8, !tbaa !173
-  %58 = load ptr, ptr %10, align 8, !tbaa !71
+  %58 = load ptr, ptr %10, align 16, !tbaa !71
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 440
   %60 = load i32, ptr %59, align 8, !tbaa !97
   call void @ff_convert_matrix(ptr noundef nonnull %9, ptr noundef %54, ptr noundef %55, ptr noundef nonnull %2, i32 noundef %57, i32 noundef 1, i32 noundef %60, i32 noundef 1) #11
@@ -1965,11 +1965,11 @@ define internal fastcc range(i32 -12, 1) i32 @dnxhd_init_qmat(ptr noundef initia
   %76 = load ptr, ptr %25, align 16, !tbaa !170
   %77 = load ptr, ptr %41, align 8, !tbaa !172
   %78 = load i32, ptr %56, align 8, !tbaa !173
-  %79 = load ptr, ptr %10, align 8, !tbaa !71
+  %79 = load ptr, ptr %10, align 16, !tbaa !71
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 440
   %81 = load i32, ptr %80, align 8, !tbaa !97
   call void @ff_convert_matrix(ptr noundef nonnull %9, ptr noundef %76, ptr noundef %77, ptr noundef nonnull %2, i32 noundef %78, i32 noundef 1, i32 noundef %81, i32 noundef 1) #11
-  %82 = load ptr, ptr %10, align 8, !tbaa !71
+  %82 = load ptr, ptr %10, align 16, !tbaa !71
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 440
   %84 = load i32, ptr %83, align 8, !tbaa !97
   %.not94105 = icmp slt i32 %84, 1
@@ -2093,7 +2093,7 @@ define internal fastcc range(i32 -12, 1) i32 @dnxhd_init_qmat(ptr noundef initia
   store ptr %148, ptr %151, align 8, !tbaa !181
   %152 = load ptr, ptr %33, align 16, !tbaa !171
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 6688
-  store ptr %152, ptr %153, align 8, !tbaa !182
+  store ptr %152, ptr %153, align 16, !tbaa !182
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 6664
   store ptr %147, ptr %154, align 8, !tbaa !183
   br label %155
@@ -2462,7 +2462,7 @@ define internal noundef i32 @dnxhd_encode_thread(ptr noundef readonly captures(n
   %36 = getelementptr inbounds nuw i8, ptr %11, i64 1300
   store i32 %33, ptr %36, align 4, !tbaa !104
   %37 = getelementptr inbounds nuw i8, ptr %11, i64 1296
-  store i32 %33, ptr %37, align 4, !tbaa !104
+  store i32 %33, ptr %37, align 16, !tbaa !104
   store i32 %33, ptr %35, align 4, !tbaa !104
   %38 = getelementptr inbounds nuw i8, ptr %11, i64 548
   %39 = load i32, ptr %38, align 4, !tbaa !79
@@ -2641,7 +2641,7 @@ put_bits.exit61:                                  ; preds = %136, %143, %129
   %146 = shl nuw i32 1, %145
   %147 = load i32, ptr %45, align 16, !tbaa !107
   %148 = load i32, ptr %46, align 4, !tbaa !108
-  %149 = load i64, ptr %47, align 8, !tbaa !105
+  %149 = load i64, ptr %47, align 16, !tbaa !105
   %150 = load i64, ptr %48, align 8, !tbaa !106
   %151 = trunc i64 %150 to i32
   %152 = load ptr, ptr %49, align 16, !tbaa !98
@@ -3232,7 +3232,7 @@ define internal noundef i32 @dnxhd_calc_bits_thread(ptr noundef readonly capture
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 1300
   store i32 %18, ptr %21, align 4, !tbaa !104
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 1296
-  store i32 %18, ptr %22, align 4, !tbaa !104
+  store i32 %18, ptr %22, align 8, !tbaa !104
   store i32 %18, ptr %20, align 4, !tbaa !104
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 548
   %24 = load i32, ptr %23, align 4, !tbaa !79
@@ -3299,7 +3299,7 @@ define internal noundef i32 @dnxhd_calc_bits_thread(ptr noundef readonly capture
   %74 = shl nuw i32 1, %73
   %75 = load i32, ptr %27, align 16, !tbaa !107
   %76 = load i32, ptr %28, align 4, !tbaa !108
-  %77 = load i64, ptr %29, align 8, !tbaa !105
+  %77 = load i64, ptr %29, align 16, !tbaa !105
   %78 = load i64, ptr %30, align 8, !tbaa !106
   %79 = trunc i64 %78 to i32
   %80 = load ptr, ptr %31, align 16, !tbaa !98
@@ -3872,7 +3872,7 @@ define internal noundef i32 @dnxhd_mb_var_thread(ptr noundef readonly captures(n
   %35 = load ptr, ptr %34, align 16, !tbaa !98
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 10456
   %37 = load ptr, ptr %36, align 8, !tbaa !116
-  %38 = load i64, ptr %30, align 8, !tbaa !105
+  %38 = load i64, ptr %30, align 16, !tbaa !105
   %39 = sext i32 %29 to i64
   %40 = mul nsw i64 %38, %39
   %41 = getelementptr inbounds i8, ptr %37, i64 %40

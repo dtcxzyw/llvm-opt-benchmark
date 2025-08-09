@@ -5909,7 +5909,7 @@ _ZSt19__relocate_object_aI12MoleculeTypeS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i.i: ; 
   store i64 %210, ptr %212, align 8, !tbaa !45, !alias.scope !225, !noalias !228
   store ptr %202, ptr %.0911.i.i.i.i, align 8, !tbaa !42, !alias.scope !228, !noalias !225
   store i64 0, ptr %211, align 8, !tbaa !45, !alias.scope !228, !noalias !225
-  store i8 0, ptr %202, align 1, !tbaa !29, !alias.scope !228, !noalias !225
+  store i8 0, ptr %202, align 8, !tbaa !29, !alias.scope !228, !noalias !225
   %213 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %214 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %215 = load i64, ptr %214, align 8, !alias.scope !228, !noalias !225

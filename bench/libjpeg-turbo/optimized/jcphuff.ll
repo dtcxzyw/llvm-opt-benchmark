@@ -577,7 +577,7 @@ define internal noundef i32 @encode_mcu_AC_first(ptr noundef %0, ptr noundef rea
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 960
   %89 = load i32, ptr %88, align 4, !tbaa !44
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 1264
-  %91 = load i8, ptr %90, align 1, !tbaa !56
+  %91 = load i8, ptr %90, align 4, !tbaa !56
   %92 = sext i8 %91 to i32
   %93 = zext i32 %89 to i64
   %94 = load i32, ptr %50, align 8, !tbaa !65
@@ -1544,7 +1544,7 @@ emit_eobrun.exit:                                 ; preds = %.lr.ph, %emit_buffe
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 960
   %318 = load i32, ptr %317, align 4, !tbaa !44
   %319 = getelementptr inbounds nuw i8, ptr %316, i64 1264
-  %320 = load i8, ptr %319, align 1, !tbaa !56
+  %320 = load i8, ptr %319, align 4, !tbaa !56
   %321 = sext i8 %320 to i32
   %322 = zext i32 %318 to i64
   %323 = load i32, ptr %56, align 8, !tbaa !65

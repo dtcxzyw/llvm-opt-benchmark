@@ -1852,7 +1852,7 @@ define hidden void @_ZN6Assimp12StepExporter9WriteFileEv(ptr noundef nonnull ali
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i32, ptr %12, align 8
   %14 = or i32 %13, 4
-  store i32 %14, ptr %12, align 4
+  store i32 %14, ptr %12, align 8
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr i8, ptr %15, i64 -24
   %17 = load i64, ptr %16, align 8
@@ -4428,7 +4428,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIPK6aiNodeSt4pairIKS2_12aiMatrix4x
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %7, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store float 1.000000e+00, ptr %11, align 4
+  store float 1.000000e+00, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 60
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, i8 0, i64 16, i1 false)
@@ -4436,7 +4436,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIPK6aiNodeSt4pairIKS2_12aiMatrix4x
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %15, align 4
+  store float 1.000000e+00, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 84
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 100
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, i8 0, i64 16, i1 false)
@@ -5246,7 +5246,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIPK6aiNodeSt4pairIKS2_12aiMatrix4x
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %7, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store float 1.000000e+00, ptr %11, align 4
+  store float 1.000000e+00, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 60
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, i8 0, i64 16, i1 false)
@@ -5254,7 +5254,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIPK6aiNodeSt4pairIKS2_12aiMatrix4x
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %15, align 4
+  store float 1.000000e+00, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 84
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 100
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, i8 0, i64 16, i1 false)

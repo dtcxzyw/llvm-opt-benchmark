@@ -319,7 +319,7 @@ define internal range(i32 -2147483648, 1) i32 @mpeg2_metadata_update_fragment(pt
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 83
   store i8 0, ptr %.sroa.2.0..sroa_idx, align 1, !tbaa !55
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 84
-  store i8 2, ptr %.sroa.3.0..sroa_idx, align 2, !tbaa !55
+  store i8 2, ptr %.sroa.3.0..sroa_idx, align 4, !tbaa !55
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 85
   store i8 2, ptr %.sroa.4.0..sroa_idx, align 1, !tbaa !55
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 86
@@ -327,7 +327,7 @@ define internal range(i32 -2147483648, 1) i32 @mpeg2_metadata_update_fragment(pt
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 87
   store i8 0, ptr %.sroa.6.0..sroa_idx, align 1
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 88
-  store i16 %113, ptr %.sroa.7.0..sroa_idx, align 2, !tbaa !56
+  store i16 %113, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !56
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 90
   store i16 %120, ptr %.sroa.8.0..sroa_idx, align 2, !tbaa !56
   %121 = call i32 @ff_cbs_insert_unit_content(ptr noundef nonnull %2, i32 noundef %33, i32 noundef 181, ptr noundef nonnull %104, ptr noundef null) #3

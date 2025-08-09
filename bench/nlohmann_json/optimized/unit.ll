@@ -14064,7 +14064,7 @@ _ZNSt6vectorIN7doctest16SubcaseSignatureESaIS1_EE5clearEv.exit: ; preds = %570, 
   %586 = getelementptr inbounds nuw i8, ptr %585, i64 4480
   store i64 0, ptr %586, align 8, !tbaa !184
   %587 = getelementptr inbounds nuw i8, ptr %585, i64 4488
-  store atomic i8 1, ptr %587 seq_cst, align 1
+  store atomic i8 1, ptr %587 seq_cst, align 8
   %588 = load ptr, ptr %0, align 8, !tbaa !329
   %589 = getelementptr inbounds nuw i8, ptr %588, i64 4344
   %590 = load ptr, ptr %589, align 8, !tbaa !290
@@ -18400,7 +18400,7 @@ define internal noundef nonnull ptr @_ZN7doctest6detail15reporterCreatorINS_12_G
   store ptr %8, ptr %7, align 8, !tbaa !245
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i64 0, ptr %9, align 8, !tbaa !37
-  store i8 0, ptr %8, align 1, !tbaa !38
+  store i8 0, ptr %8, align 8, !tbaa !38
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store ptr %4, ptr %10, align 8, !tbaa !476
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 80
@@ -25213,7 +25213,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !tbaa !37, !alias.scope !547, !noalias !550
   store ptr %43, ptr %.0911.i.i.i, align 8, !tbaa !33, !alias.scope !550, !noalias !547
   store i64 0, ptr %52, align 8, !tbaa !37, !alias.scope !550, !noalias !547
-  store i8 0, ptr %43, align 1, !tbaa !38, !alias.scope !550, !noalias !547
+  store i8 0, ptr %43, align 8, !tbaa !38, !alias.scope !550, !noalias !547
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %54, %1
@@ -25261,7 +25261,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !tbaa !37, !alias.scope !554, !noalias !557
   store ptr %59, ptr %.0911.i.i.i29, align 8, !tbaa !33, !alias.scope !557, !noalias !554
   store i64 0, ptr %68, align 8, !tbaa !37, !alias.scope !557, !noalias !554
-  store i8 0, ptr %59, align 1, !tbaa !38, !alias.scope !557, !noalias !554
+  store i8 0, ptr %59, align 8, !tbaa !38, !alias.scope !557, !noalias !554
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %.not.i.i.i34 = icmp eq ptr %70, %6
@@ -25954,14 +25954,14 @@ define internal fastcc void @_ZN7doctest12_GLOBAL__N_112_GLOBAL__N_113hexEscapeC
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load i32, ptr %14, align 8, !tbaa !572
   %16 = or i32 %15, 16384
-  store i32 %16, ptr %14, align 4, !tbaa !573
+  store i32 %16, ptr %14, align 8, !tbaa !573
   %17 = load i64, ptr %11, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i32, ptr %19, align 8, !tbaa !572
   %21 = and i32 %20, -75
   %22 = or disjoint i32 %21, 8
-  store i32 %22, ptr %19, align 4, !tbaa !573
+  store i32 %22, ptr %19, align 8, !tbaa !573
   %23 = load i64, ptr %11, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 225
@@ -28176,7 +28176,7 @@ define internal noundef nonnull ptr @_ZN7doctest6detail15reporterCreatorINS_12_G
   store ptr %8, ptr %7, align 8, !tbaa !245
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i64 0, ptr %9, align 8, !tbaa !37
-  store i8 0, ptr %8, align 1, !tbaa !38
+  store i8 0, ptr %8, align 8, !tbaa !38
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store ptr %4, ptr %10, align 8, !tbaa !476
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 80
@@ -30631,7 +30631,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.
   store i64 %70, ptr %72, align 8, !tbaa !37, !alias.scope !641, !noalias !644
   store ptr %62, ptr %.092.i.i.i.i.i.i, align 8, !tbaa !33, !alias.scope !644, !noalias !641
   store i64 0, ptr %71, align 8, !tbaa !37, !alias.scope !644, !noalias !641
-  store i8 0, ptr %62, align 1, !tbaa !38, !alias.scope !644, !noalias !641
+  store i8 0, ptr %62, align 8, !tbaa !38, !alias.scope !644, !noalias !641
   %73 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i, i64 32
   %74 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i, i64 32
   %75 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i, i64 48
@@ -30665,7 +30665,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit5.i.i.i.i.i.i.i
   store i64 %85, ptr %87, align 8, !tbaa !37, !alias.scope !641, !noalias !644
   store ptr %77, ptr %74, align 8, !tbaa !33, !alias.scope !644, !noalias !641
   store i64 0, ptr %86, align 8, !tbaa !37, !alias.scope !644, !noalias !641
-  store i8 0, ptr %77, align 1, !tbaa !38, !alias.scope !644, !noalias !641
+  store i8 0, ptr %77, align 8, !tbaa !38, !alias.scope !644, !noalias !641
   %88 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i, i64 64
   %89 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i, i64 64
   %90 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i, i64 80
@@ -30699,7 +30699,7 @@ _ZSt19__relocate_object_aIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseD
   store i64 %100, ptr %102, align 8, !tbaa !37, !alias.scope !641, !noalias !644
   store ptr %92, ptr %89, align 8, !tbaa !33, !alias.scope !644, !noalias !641
   store i64 0, ptr %101, align 8, !tbaa !37, !alias.scope !644, !noalias !641
-  store i8 0, ptr %92, align 1, !tbaa !38, !alias.scope !644, !noalias !641
+  store i8 0, ptr %92, align 8, !tbaa !38, !alias.scope !644, !noalias !641
   %103 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i, i64 96
   %104 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i, i64 96
   %.not.i.i.i.i.i.i = icmp eq ptr %103, %36
@@ -32195,7 +32195,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %39, ptr %41, align 8, !tbaa !37, !alias.scope !667, !noalias !670
   store ptr %31, ptr %.092.i.i.i, align 8, !tbaa !33, !alias.scope !670, !noalias !667
   store i64 0, ptr %40, align 8, !tbaa !37, !alias.scope !670, !noalias !667
-  store i8 0, ptr %31, align 1, !tbaa !38, !alias.scope !670, !noalias !667
+  store i8 0, ptr %31, align 8, !tbaa !38, !alias.scope !670, !noalias !667
   %42 = getelementptr inbounds nuw i8, ptr %.03.i.i.i, i64 32
   %43 = getelementptr inbounds nuw i8, ptr %.092.i.i.i, i64 32
   %44 = getelementptr inbounds nuw i8, ptr %.03.i.i.i, i64 48
@@ -32229,7 +32229,7 @@ _ZNSt16allocator_traitsISaIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCase
   store i64 %54, ptr %56, align 8, !tbaa !37, !alias.scope !667, !noalias !670
   store ptr %46, ptr %43, align 8, !tbaa !33, !alias.scope !670, !noalias !667
   store i64 0, ptr %55, align 8, !tbaa !37, !alias.scope !670, !noalias !667
-  store i8 0, ptr %46, align 1, !tbaa !38, !alias.scope !670, !noalias !667
+  store i8 0, ptr %46, align 8, !tbaa !38, !alias.scope !670, !noalias !667
   %57 = getelementptr inbounds nuw i8, ptr %.03.i.i.i, i64 64
   %58 = getelementptr inbounds nuw i8, ptr %.092.i.i.i, i64 64
   %59 = load double, ptr %58, align 8, !tbaa !631, !alias.scope !670, !noalias !667
@@ -32993,7 +32993,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i.i: ; preds 
   store ptr %22, ptr %21, align 8, !tbaa !245
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %23, align 8, !tbaa !37
-  store i8 0, ptr %22, align 1, !tbaa !38
+  store i8 0, ptr %22, align 8, !tbaa !38
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %25, ptr %24, align 8, !tbaa !245
@@ -34184,7 +34184,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.
   store i64 %42, ptr %44, align 8, !tbaa !37, !alias.scope !692, !noalias !695
   store ptr %34, ptr %.092.i.i.i.i.i, align 8, !tbaa !33, !alias.scope !695, !noalias !692
   store i64 0, ptr %43, align 8, !tbaa !37, !alias.scope !695, !noalias !692
-  store i8 0, ptr %34, align 1, !tbaa !38, !alias.scope !695, !noalias !692
+  store i8 0, ptr %34, align 8, !tbaa !38, !alias.scope !695, !noalias !692
   %45 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i, i64 32
   %46 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i, i64 32
   %47 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i, i64 48
@@ -34218,7 +34218,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit5.i.i.i.i.i.i.i
   store i64 %57, ptr %59, align 8, !tbaa !37, !alias.scope !692, !noalias !695
   store ptr %49, ptr %46, align 8, !tbaa !33, !alias.scope !695, !noalias !692
   store i64 0, ptr %58, align 8, !tbaa !37, !alias.scope !695, !noalias !692
-  store i8 0, ptr %49, align 1, !tbaa !38, !alias.scope !695, !noalias !692
+  store i8 0, ptr %49, align 8, !tbaa !38, !alias.scope !695, !noalias !692
   %60 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i, i64 64
   %61 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i, i64 64
   %62 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i, i64 80
@@ -34252,7 +34252,7 @@ _ZSt19__relocate_object_aIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseD
   store i64 %72, ptr %74, align 8, !tbaa !37, !alias.scope !692, !noalias !695
   store ptr %64, ptr %61, align 8, !tbaa !33, !alias.scope !695, !noalias !692
   store i64 0, ptr %73, align 8, !tbaa !37, !alias.scope !695, !noalias !692
-  store i8 0, ptr %64, align 1, !tbaa !38, !alias.scope !695, !noalias !692
+  store i8 0, ptr %64, align 8, !tbaa !38, !alias.scope !695, !noalias !692
   %75 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i, i64 96
   %76 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i, i64 96
   %.not.i.i.i.i.i = icmp eq ptr %75, %8
@@ -35828,7 +35828,7 @@ _ZN7doctest12_GLOBAL__N_115ConsoleReporter19separator_to_streamEv.exit: ; preds 
   %33 = load i32, ptr %32, align 8, !tbaa !572
   %34 = and i32 %33, -75
   %35 = or disjoint i32 %34, 2
-  store i32 %35, ptr %32, align 4, !tbaa !573
+  store i32 %35, ptr %32, align 8, !tbaa !573
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %38 = load i32, ptr %37, align 4, !tbaa !411
@@ -36440,7 +36440,7 @@ _ZN7doctest5ColorlsERSoNS0_4EnumE.exit:           ; preds = %18, %26, %31
   %42 = load i32, ptr %41, align 8, !tbaa !572
   %43 = and i32 %42, -261
   %44 = or disjoint i32 %43, 4
-  store i32 %44, ptr %41, align 4, !tbaa !573
+  store i32 %44, ptr %41, align 8, !tbaa !573
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %46 = load double, ptr %45, align 8, !tbaa !391
   %47 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %20, double noundef %46)
@@ -36515,7 +36515,7 @@ _ZN7doctest5ColorlsERSoNS0_4EnumE.exit21:         ; preds = %66, %74, %79
   %91 = load i32, ptr %90, align 8, !tbaa !572
   %92 = and i32 %91, -261
   %93 = or disjoint i32 %92, 4
-  store i32 %93, ptr %90, align 4, !tbaa !573
+  store i32 %93, ptr %90, align 8, !tbaa !573
   %94 = load ptr, ptr %3, align 8, !tbaa !705
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 72
   %96 = load double, ptr %95, align 8, !tbaa !229

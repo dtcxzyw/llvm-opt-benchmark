@@ -66,7 +66,7 @@ __rust_try.llvm.566319680442861985.exit:
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !4, !noundef !7
   store i64 0, ptr %.val.i, align 8, !noalias !8
   %1 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
-  store i8 2, ptr %1, align 1, !noalias !8
+  store i8 2, ptr %1, align 8, !noalias !8
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
@@ -76,7 +76,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h7dfd3c9890229e1bE.llvm.56631
   %.val = load ptr, ptr %2, align 8, !alias.scope !12, !noundef !7
   store i64 0, ptr %.val, align 8, !noalias !15
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  store i8 2, ptr %3, align 1, !noalias !15
+  store i8 2, ptr %3, align 8, !noalias !15
   ret void
 }
 
@@ -13203,7 +13203,7 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17hbe930a151ed39b40E
   %234 = mul i64 %233, 5871781006564002453
   %235 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %236 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.val1.i.i.i.i.i = load i32, ptr %236, align 4, !alias.scope !3431, !noalias !3434, !noundef !7
+  %.val1.i.i.i.i.i = load i32, ptr %236, align 8, !alias.scope !3431, !noalias !3434, !noundef !7
   %237 = zext i32 %.val1.i.i.i.i.i to i64
   %238 = tail call i64 @llvm.fshl.i64(i64 %234, i64 %234, i64 5)
   %239 = xor i64 %238, %237
@@ -13224,7 +13224,7 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17hbe930a151ed39b40E
   %251 = xor i64 %249, %250
   %252 = mul i64 %251, 5871781006564002453
   %253 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.val.i.i.i.i.i = load i8, ptr %253, align 1, !range !1281, !alias.scope !3436, !noalias !3439, !noundef !7
+  %.val.i.i.i.i.i = load i8, ptr %253, align 8, !range !1281, !alias.scope !3436, !noalias !3439, !noundef !7
   %254 = getelementptr inbounds nuw i8, ptr %4, i64 33
   %.val1.i15.i.i.i.i = load i8, ptr %254, align 1, !range !1281, !alias.scope !3436, !noalias !3439, !noundef !7
   %255 = tail call i64 @llvm.fshl.i64(i64 %252, i64 %252, i64 5)

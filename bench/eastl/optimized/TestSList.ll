@@ -2415,7 +2415,7 @@ invoke.cont534:                                   ; preds = %invoke.cont532
   %mCopyCtor.i.i.i1194 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i1198, i64 16
   store i32 0, ptr %mCopyCtor.i.i.i1194, align 4
   store ptr %call.i.i.i.i.i1179, ptr %call.i.i.i.i.i1198, align 8
-  store i32 1492, ptr %mValue.i.i1192, align 4
+  store i32 1492, ptr %mValue.i.i1192, align 8
   %call542 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 326, ptr noundef nonnull @.str.48)
           to label %for.cond.i1201thread-pre-split unwind label %_ZN5eastl9SListBaseI7TestObjNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIS1_EE.exit.i.i.i5707.preheader
 

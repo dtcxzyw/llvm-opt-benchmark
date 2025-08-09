@@ -118,7 +118,7 @@ define dso_local zeroext i1 @g4x_dp_port_enabled(ptr noundef %0, i32 %1, i32 nou
   %9 = lshr i32 %8, 31
   %10 = trunc nuw nsw i32 %9 to i8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 7184
-  %12 = load i32, ptr %11, align 4
+  %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
   %14 = and i64 %13, 1048576
   %15 = icmp ne i64 %14, 0
@@ -1070,7 +1070,7 @@ define internal void @g4x_pre_enable_dp(ptr readnone captures(none) %0, ptr noun
   %42 = tail call i32 %41(ptr noundef nonnull %37, i32 409600, i1 noundef zeroext false) #10
   tail call void @__const_udelay(i64 noundef 2147500) #10
   %43 = getelementptr inbounds nuw i8, ptr %19, i64 7184
-  %44 = load i32, ptr %43, align 4
+  %44 = load i32, ptr %43, align 8
   %45 = and i32 %44, 262144
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %52, label %47
@@ -2051,7 +2051,7 @@ define internal void @intel_dp_encoder_reset(ptr noundef %0) #3 align 16 {
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 407
   store i8 1, ptr %19, align 1
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 7184
-  %21 = load i32, ptr %20, align 4
+  %21 = load i32, ptr %20, align 8
   %22 = and i32 %21, 18874368
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %.loopexit, label %24
@@ -2235,7 +2235,7 @@ define internal fastcc void @intel_dp_prepare(ptr noundef %0, ptr noundef readon
   %32 = or disjoint i32 %31, %26
   store i32 %32, ptr %27, align 4
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 7184
-  %34 = load i32, ptr %33, align 4
+  %34 = load i32, ptr %33, align 8
   %35 = zext i32 %34 to i64
   %36 = and i64 %35, 1048576
   %37 = icmp ne i64 %36, 0

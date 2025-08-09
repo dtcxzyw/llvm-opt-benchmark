@@ -8423,7 +8423,7 @@ define linkonce_odr dso_local void @_ZN15VNUserInUseBase8allocateEiRjRb(i32 noun
   %19 = load i32, ptr %18, align 8, !tbaa !229
   %20 = and i32 %19, -75
   %21 = or disjoint i32 %20, 2
-  store i32 %21, ptr %18, align 4, !tbaa !238
+  store i32 %21, ptr %18, align 8, !tbaa !238
   %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i32 noundef 1776)
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.26, i64 noundef 1)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -8772,7 +8772,7 @@ define linkonce_odr dso_local void @_ZN15VNUserInUseBase8clearcntEiRjRKb(i32 nou
   %19 = load i32, ptr %18, align 8, !tbaa !229
   %20 = and i32 %19, -75
   %21 = or disjoint i32 %20, 2
-  store i32 %21, ptr %18, align 4, !tbaa !238
+  store i32 %21, ptr %18, align 8, !tbaa !238
   %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i32 noundef 1786)
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.26, i64 noundef 1)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -8955,7 +8955,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %_ZN
   %95 = load i32, ptr %94, align 8, !tbaa !229
   %96 = and i32 %95, -75
   %97 = or disjoint i32 %96, 2
-  store i32 %97, ptr %94, align 4, !tbaa !238
+  store i32 %97, ptr %94, align 8, !tbaa !238
   %98 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i32 noundef 1790)
   %99 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %98, ptr noundef nonnull @.str.26, i64 noundef 1)
   %100 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %98, ptr noundef nonnull @.str.31, i64 noundef 19)
@@ -9202,7 +9202,7 @@ define linkonce_odr dso_local void @_ZN15VNUserInUseBase4freeEiRjRb(i32 noundef 
   %19 = load i32, ptr %18, align 8, !tbaa !229
   %20 = and i32 %19, -75
   %21 = or disjoint i32 %20, 2
-  store i32 %21, ptr %18, align 4, !tbaa !238
+  store i32 %21, ptr %18, align 8, !tbaa !238
   %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i32 noundef 1781)
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.26, i64 noundef 1)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -20534,7 +20534,7 @@ define linkonce_odr dso_local void @_ZN9VNDeleter11pushDeletepEP7AstNode(ptr nou
   %12 = load i32, ptr %11, align 8, !tbaa !229
   %13 = and i32 %12, -75
   %14 = or disjoint i32 %13, 2
-  store i32 %14, ptr %11, align 4, !tbaa !238
+  store i32 %14, ptr %11, align 8, !tbaa !238
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i32 noundef 1863)
   %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull @.str.26, i64 noundef 1)
   %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull @.str.518, i64 noundef 26)
@@ -28614,7 +28614,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit371: ; preds = %_Z
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %569, i8 0, i64 10, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 408) (i8, ptr @_ZTV13AstBasicDType, i64 16), ptr %561, align 8, !tbaa !20
   %570 = getelementptr inbounds nuw i8, ptr %561, i64 164
-  store i8 0, ptr %570, align 1, !tbaa !613
+  store i8 0, ptr %570, align 4, !tbaa !613
   %571 = getelementptr inbounds nuw i8, ptr %561, i64 168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %571, i8 0, i64 9, i1 false)
   invoke void @_ZN13AstBasicDType4initE14VBasicDTypeKwd8VSigningiiP8AstRange(ptr noundef nonnull align 8 dereferenceable(184) %561, i8 1, i8 2, i32 noundef %568, i32 noundef -1, ptr noundef null)
@@ -28656,7 +28656,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit371: ; preds = %_Z
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %583, i8 0, i64 10, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 408) (i8, ptr @_ZTV13AstBasicDType, i64 16), ptr %575, align 8, !tbaa !20
   %584 = getelementptr inbounds nuw i8, ptr %575, i64 164
-  store i8 0, ptr %584, align 1, !tbaa !613
+  store i8 0, ptr %584, align 4, !tbaa !613
   %585 = getelementptr inbounds nuw i8, ptr %575, i64 168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %585, i8 0, i64 9, i1 false)
   invoke void @_ZN13AstBasicDType4initE14VBasicDTypeKwd8VSigningiiP8AstRange(ptr noundef nonnull align 8 dereferenceable(184) %575, i8 7, i8 2, i32 noundef %582, i32 noundef -1, ptr noundef null)
@@ -31012,7 +31012,7 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal
   %42 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -4
   store i32 %33, ptr %.sroa.011.1.i.i, align 4, !tbaa !52
   store i32 %25, ptr %.sroa.0.1.i.i, align 4, !tbaa !52
-  store i8 %36, ptr %32, align 1, !tbaa !228
+  store i8 %36, ptr %32, align 4, !tbaa !228
   store i8 %28, ptr %42, align 1, !tbaa !228
   br label %21, !llvm.loop !644
 
@@ -31074,7 +31074,7 @@ define linkonce_odr dso_local void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__
   %22 = load i32, ptr %20, align 4, !tbaa !52
   store i32 %22, ptr %21, align 4, !tbaa !540
   %23 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -4
-  %24 = load i8, ptr %23, align 1, !tbaa !228, !range !85, !noundef !86
+  %24 = load i8, ptr %23, align 4, !tbaa !228, !range !85, !noundef !86
   %25 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -4
   store i8 %24, ptr %25, align 4, !tbaa !542
   %26 = add nsw i64 %.010.i.i.i.i.i.i, -1
@@ -31225,7 +31225,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIibESt6ve
   %86 = load i32, ptr %84, align 4, !tbaa !52
   store i32 %86, ptr %85, align 4, !tbaa !540
   %87 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i47, i64 -4
-  %88 = load i8, ptr %87, align 1, !tbaa !228, !range !85, !noundef !86
+  %88 = load i8, ptr %87, align 4, !tbaa !228, !range !85, !noundef !86
   %89 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i46, i64 -4
   store i8 %88, ptr %89, align 4, !tbaa !542
   %90 = add nsw i64 %.010.i.i.i.i.i.i45, -1
@@ -31299,7 +31299,7 @@ define linkonce_odr dso_local void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iter
   %.sroa.03.0.copyload.i = load i64, ptr %10, align 4
   %11 = load i32, ptr %0, align 4, !tbaa !52
   store i32 %11, ptr %10, align 4, !tbaa !540
-  %12 = load i8, ptr %8, align 1, !tbaa !228, !range !85, !noundef !86
+  %12 = load i8, ptr %8, align 4, !tbaa !228, !range !85, !noundef !86
   %13 = getelementptr inbounds i8, ptr %.sroa.0.05, i64 -4
   store i8 %12, ptr %13, align 4, !tbaa !542
   %14 = ptrtoint ptr %10 to i64
@@ -31333,7 +31333,7 @@ define linkonce_odr dso_local void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iter
   %36 = load i32, ptr %34, align 4, !tbaa !52
   store i32 %36, ptr %35, align 4, !tbaa !540
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  %38 = load i8, ptr %37, align 1, !tbaa !228, !range !85, !noundef !86
+  %38 = load i8, ptr %37, align 4, !tbaa !228, !range !85, !noundef !86
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i8 %38, ptr %39, align 4, !tbaa !542
   %40 = icmp slt i64 %spec.select.i.i, %18
@@ -31359,7 +31359,7 @@ define linkonce_odr dso_local void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iter
   %51 = load i32, ptr %49, align 4, !tbaa !52
   store i32 %51, ptr %50, align 4, !tbaa !540
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 4
-  %53 = load i8, ptr %52, align 1, !tbaa !228, !range !85, !noundef !86
+  %53 = load i8, ptr %52, align 4, !tbaa !228, !range !85, !noundef !86
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i8 %53, ptr %54, align 4, !tbaa !542
   %.sroa.012.0.extract.trunc.i.i12.i = trunc i64 %.sroa.03.0.copyload.i to i32
@@ -31471,7 +31471,7 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iter
   %41 = load i32, ptr %39, align 4, !tbaa !52
   store i32 %41, ptr %40, align 4, !tbaa !540
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 4
-  %43 = load i8, ptr %42, align 1, !tbaa !228, !range !85, !noundef !86
+  %43 = load i8, ptr %42, align 4, !tbaa !228, !range !85, !noundef !86
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 4
   store i8 %43, ptr %44, align 4, !tbaa !542
   %45 = icmp slt i64 %spec.select.i, %13
@@ -31486,7 +31486,7 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iter
 47:                                               ; preds = %._crit_edge.i
   %48 = load i32, ptr %18, align 4, !tbaa !52
   store i32 %48, ptr %19, align 4, !tbaa !540
-  %49 = load i8, ptr %20, align 1, !tbaa !228, !range !85, !noundef !86
+  %49 = load i8, ptr %20, align 4, !tbaa !228, !range !85, !noundef !86
   store i8 %49, ptr %21, align 4, !tbaa !542
   br label %50
 
@@ -31563,9 +31563,9 @@ define linkonce_odr dso_local void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__
   store i32 %6, ptr %0, align 4, !tbaa !52
   store i32 %22, ptr %2, align 4, !tbaa !52
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %24 = load i8, ptr %23, align 1, !tbaa !228, !range !85, !noundef !86
-  store i8 %11, ptr %23, align 1, !tbaa !228
-  store i8 %24, ptr %10, align 1, !tbaa !228
+  %24 = load i8, ptr %23, align 4, !tbaa !228, !range !85, !noundef !86
+  store i8 %11, ptr %23, align 4, !tbaa !228
+  store i8 %24, ptr %10, align 4, !tbaa !228
   br label %53
 
 25:                                               ; preds = %17
@@ -31580,17 +31580,17 @@ define linkonce_odr dso_local void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__
 31:                                               ; preds = %25
   store i32 %14, ptr %0, align 4, !tbaa !52
   store i32 %29, ptr %3, align 4, !tbaa !52
-  %32 = load i8, ptr %30, align 1, !tbaa !228, !range !85, !noundef !86
-  store i8 %16, ptr %30, align 1, !tbaa !228
-  store i8 %32, ptr %15, align 1, !tbaa !228
+  %32 = load i8, ptr %30, align 4, !tbaa !228, !range !85, !noundef !86
+  store i8 %16, ptr %30, align 4, !tbaa !228
+  store i8 %32, ptr %15, align 4, !tbaa !228
   br label %53
 
 33:                                               ; preds = %25
   store i32 %5, ptr %0, align 4, !tbaa !52
   store i32 %29, ptr %1, align 4, !tbaa !52
-  %34 = load i8, ptr %30, align 1, !tbaa !228, !range !85, !noundef !86
-  store i8 %9, ptr %30, align 1, !tbaa !228
-  store i8 %34, ptr %8, align 1, !tbaa !228
+  %34 = load i8, ptr %30, align 4, !tbaa !228, !range !85, !noundef !86
+  store i8 %9, ptr %30, align 4, !tbaa !228
+  store i8 %34, ptr %8, align 4, !tbaa !228
   br label %53
 
 35:                                               ; preds = %4
@@ -31605,9 +31605,9 @@ define linkonce_odr dso_local void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__
   store i32 %5, ptr %0, align 4, !tbaa !52
   store i32 %40, ptr %1, align 4, !tbaa !52
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %42 = load i8, ptr %41, align 1, !tbaa !228, !range !85, !noundef !86
-  store i8 %9, ptr %41, align 1, !tbaa !228
-  store i8 %42, ptr %8, align 1, !tbaa !228
+  %42 = load i8, ptr %41, align 4, !tbaa !228, !range !85, !noundef !86
+  store i8 %9, ptr %41, align 4, !tbaa !228
+  store i8 %42, ptr %8, align 4, !tbaa !228
   br label %53
 
 43:                                               ; preds = %35
@@ -31622,17 +31622,17 @@ define linkonce_odr dso_local void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__
 49:                                               ; preds = %43
   store i32 %14, ptr %0, align 4, !tbaa !52
   store i32 %47, ptr %3, align 4, !tbaa !52
-  %50 = load i8, ptr %48, align 1, !tbaa !228, !range !85, !noundef !86
-  store i8 %16, ptr %48, align 1, !tbaa !228
-  store i8 %50, ptr %15, align 1, !tbaa !228
+  %50 = load i8, ptr %48, align 4, !tbaa !228, !range !85, !noundef !86
+  store i8 %16, ptr %48, align 4, !tbaa !228
+  store i8 %50, ptr %15, align 4, !tbaa !228
   br label %53
 
 51:                                               ; preds = %43
   store i32 %6, ptr %0, align 4, !tbaa !52
   store i32 %47, ptr %2, align 4, !tbaa !52
-  %52 = load i8, ptr %48, align 1, !tbaa !228, !range !85, !noundef !86
-  store i8 %11, ptr %48, align 1, !tbaa !228
-  store i8 %52, ptr %10, align 1, !tbaa !228
+  %52 = load i8, ptr %48, align 4, !tbaa !228, !range !85, !noundef !86
+  store i8 %11, ptr %48, align 4, !tbaa !228
+  store i8 %52, ptr %10, align 4, !tbaa !228
   br label %53
 
 53:                                               ; preds = %39, %51, %49, %21, %33, %31

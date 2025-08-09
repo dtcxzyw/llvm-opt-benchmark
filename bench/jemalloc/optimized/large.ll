@@ -388,7 +388,7 @@ edata_list_active_append.exit:                    ; preds = %malloc_mutex_lock.e
   %175 = phi ptr [ %.pre.i, %161 ], [ %134, %malloc_mutex_lock.exit ]
   store ptr %175, ptr %156, align 8, !tbaa !87
   %176 = getelementptr inbounds nuw i8, ptr %.02444, i64 10616
-  store atomic i8 0, ptr %176 monotonic, align 1
+  store atomic i8 0, ptr %176 monotonic, align 8
   %177 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %141) #11
   br label %178
 
@@ -429,7 +429,7 @@ ticker_geom_ticks.exit:                           ; preds = %187
   %200 = mul nsw i64 %199, %196
   %201 = udiv i64 %200, 61
   %202 = trunc i64 %201 to i32
-  store i32 %202, ptr %180, align 4, !tbaa !88
+  store i32 %202, ptr %180, align 8, !tbaa !88
   tail call void @je_arena_decay(ptr noundef nonnull %0, ptr noundef nonnull %.02444, i1 noundef zeroext false, i1 noundef zeroext false) #11
   br label %arena_decay_ticks.exit
 
@@ -503,7 +503,7 @@ ticker_geom_ticks.exit:                           ; preds = %27
   %40 = mul nsw i64 %39, %36
   %41 = udiv i64 %40, 61
   %42 = trunc i64 %41 to i32
-  store i32 %42, ptr %20, align 4, !tbaa !88
+  store i32 %42, ptr %20, align 8, !tbaa !88
   tail call void @je_arena_decay(ptr noundef nonnull %0, ptr noundef %.0.i.i, i1 noundef zeroext false, i1 noundef zeroext false) #11
   br label %arena_decay_ticks.exit
 
@@ -560,7 +560,7 @@ ticker_geom_ticks.exit51:                         ; preds = %61
   %74 = mul nsw i64 %73, %70
   %75 = udiv i64 %74, 61
   %76 = trunc i64 %75 to i32
-  store i32 %76, ptr %54, align 4, !tbaa !88
+  store i32 %76, ptr %54, align 8, !tbaa !88
   tail call void @je_arena_decay(ptr noundef nonnull %0, ptr noundef %.0.i.i46, i1 noundef zeroext false, i1 noundef zeroext false) #11
   br label %arena_decay_ticks.exit
 
@@ -613,7 +613,7 @@ ticker_geom_ticks.exit57:                         ; preds = %91
   %104 = mul nsw i64 %103, %100
   %105 = udiv i64 %104, 61
   %106 = trunc i64 %105 to i32
-  store i32 %106, ptr %84, align 4, !tbaa !88
+  store i32 %106, ptr %84, align 8, !tbaa !88
   tail call void @je_arena_decay(ptr noundef nonnull %0, ptr noundef %.0.i.i52, i1 noundef zeroext false, i1 noundef zeroext false) #11
   br label %arena_decay_ticks.exit
 
@@ -745,7 +745,7 @@ ticker_geom_ticks.exit65:                         ; preds = %171
   %184 = mul nsw i64 %183, %180
   %185 = udiv i64 %184, 61
   %186 = trunc i64 %185 to i32
-  store i32 %186, ptr %164, align 4, !tbaa !88
+  store i32 %186, ptr %164, align 8, !tbaa !88
   call void @je_arena_decay(ptr noundef nonnull %0, ptr noundef %.0.i.i60, i1 noundef zeroext false, i1 noundef zeroext false) #11
   br label %arena_decay_ticks.exit
 
@@ -1459,7 +1459,7 @@ ticker_geom_ticks.exit:                           ; preds = %20
   %33 = mul nsw i64 %32, %29
   %34 = udiv i64 %33, 61
   %35 = trunc i64 %34 to i32
-  store i32 %35, ptr %13, align 4, !tbaa !88
+  store i32 %35, ptr %13, align 8, !tbaa !88
   call void @je_arena_decay(ptr noundef nonnull %0, ptr noundef nonnull %.0.i.i, i1 noundef zeroext false, i1 noundef zeroext false) #11
   br label %arena_decay_ticks.exit
 

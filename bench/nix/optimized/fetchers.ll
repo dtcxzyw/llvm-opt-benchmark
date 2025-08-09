@@ -25961,7 +25961,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8
   store ptr %13, ptr %10, align 8
   store i64 0, ptr %24, align 8
-  store i8 0, ptr %13, align 1
+  store i8 0, ptr %13, align 8
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i8 0, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 72
@@ -30309,7 +30309,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %23, ptr %25, align 8
   store ptr %15, ptr %10, align 8
   store i64 0, ptr %24, align 8
-  store i8 0, ptr %15, align 1
+  store i8 0, ptr %15, align 8
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 80
   tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(33) %26, ptr noundef nonnull align 8 dereferenceable(32) %12) #29
@@ -30344,7 +30344,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %38, ptr %41, align 8
   store ptr %29, ptr %12, align 8
   store i64 0, ptr %40, align 8
-  store i8 0, ptr %29, align 1
+  store i8 0, ptr %29, align 8
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store i8 0, ptr %42, align 8
   store ptr %7, ptr %39, align 8

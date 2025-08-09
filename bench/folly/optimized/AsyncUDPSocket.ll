@@ -7088,7 +7088,7 @@ _ZNSt10_HashtableIjSt4pairIKjSt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIjSt4pairIKjSt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !218
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !34
+  %16 = load i32, ptr %15, align 8, !tbaa !34
   %17 = zext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -11302,7 +11302,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NSt
   store ptr %13, ptr %12, align 8, !tbaa !29
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store i64 0, ptr %14, align 8, !tbaa !31
-  store i8 0, ptr %13, align 1, !tbaa !33
+  store i8 0, ptr %13, align 8, !tbaa !33
   store ptr %8, ptr %7, align 8, !tbaa !319
   %15 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(12) %9)
           to label %16 unwind label %37

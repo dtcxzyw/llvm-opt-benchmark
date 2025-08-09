@@ -445,11 +445,11 @@ _ZN5folly19makePromiseContractINS_4UnitEEENS_19SemiPromiseContractIT_EEv.exit:
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store ptr null, ptr %8, align 8, !tbaa !32, !noalias !26
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store i8 1, ptr %9, align 1, !tbaa !33, !noalias !26
+  store i8 1, ptr %9, align 16, !tbaa !33, !noalias !26
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 81
   store i8 2, ptr %10, align 1, !tbaa !36, !noalias !26
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 82
-  store i8 0, ptr %11, align 1, !tbaa !36, !noalias !26
+  store i8 0, ptr %11, align 2, !tbaa !36, !noalias !26
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store i32 0, ptr %12, align 8, !tbaa !38, !noalias !26
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 96

@@ -211,7 +211,7 @@ define void @modify_roi_in(ptr noundef readonly captures(none) %0, ptr noundef r
   store i32 0, ptr %12, align 4, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %15 = load i32, ptr %14, align 8, !tbaa !34
+  %15 = load i32, ptr %14, align 16, !tbaa !34
   %16 = sitofp i32 %15 to float
   %17 = load float, ptr %8, align 4, !tbaa !13
   %18 = fmul reassoc nsz arcp contract afn float %17, %16

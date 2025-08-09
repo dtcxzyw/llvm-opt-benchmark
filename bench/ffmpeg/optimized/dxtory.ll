@@ -207,7 +207,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %106 = getelementptr inbounds nuw i8, ptr %.097109.us.i, i64 %indvars.iv.i
   store i16 %105, ptr %106, align 2, !tbaa !16
   %107 = getelementptr inbounds nuw i8, ptr %.1106.us.i, i64 4
-  %108 = load i8, ptr %107, align 1, !tbaa !16
+  %108 = load i8, ptr %107, align 2, !tbaa !16
   %109 = xor i8 %108, -128
   %110 = lshr exact i64 %indvars.iv.i, 1
   %111 = getelementptr inbounds nuw i8, ptr %.099107.us.i, i64 %110

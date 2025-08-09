@@ -1252,7 +1252,7 @@ select.unfold.i.i:                                ; preds = %197, %._crit_edge.t
   store ptr %266, ptr %265, align 8, !tbaa !47, !noalias !80
   %267 = getelementptr inbounds nuw i8, ptr %259, i64 24
   store i64 0, ptr %267, align 8, !tbaa !48, !noalias !80
-  store i16 0, ptr %266, align 2, !tbaa !49, !noalias !80
+  store i16 0, ptr %266, align 8, !tbaa !49, !noalias !80
   %268 = getelementptr inbounds nuw i8, ptr %259, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %268, i8 0, i64 24, i1 false), !noalias !80
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4LIEF2PE12ResourceDataE, i64 16), ptr %259, align 8, !tbaa !30, !noalias !80

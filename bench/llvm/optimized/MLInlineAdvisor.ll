@@ -7747,7 +7747,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optI20Skip
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.014, i64 32
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !49
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %21 = load i32, ptr %19, align 4, !tbaa !396
+  %21 = load i32, ptr %19, align 8, !tbaa !396
   store ptr %.sroa.01.0.copyload, ptr %3, align 8, !tbaa !48
   store i64 %.sroa.22.0.copyload, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !tbaa !49
   store ptr %.sroa.0.0.copyload, ptr %9, align 8, !tbaa !48
@@ -8149,7 +8149,7 @@ _ZSt19__relocate_object_aIN4llvm10TensorSpecES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i:
   store i64 %34, ptr %36, align 8, !tbaa !36, !alias.scope !693, !noalias !696
   store ptr %26, ptr %.0911.i.i.i, align 8, !tbaa !50, !alias.scope !696, !noalias !693
   store i64 0, ptr %35, align 8, !tbaa !36, !alias.scope !696, !noalias !693
-  store i8 0, ptr %26, align 1, !tbaa !38, !alias.scope !696, !noalias !693
+  store i8 0, ptr %26, align 8, !tbaa !38, !alias.scope !696, !noalias !693
   %37 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %38 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %39 = load i64, ptr %38, align 8, !alias.scope !696, !noalias !693
@@ -8217,7 +8217,7 @@ _ZSt19__relocate_object_aIN4llvm10TensorSpecES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i2
   store i64 %64, ptr %66, align 8, !tbaa !36, !alias.scope !700, !noalias !703
   store ptr %56, ptr %.0911.i.i.i19, align 8, !tbaa !50, !alias.scope !703, !noalias !700
   store i64 0, ptr %65, align 8, !tbaa !36, !alias.scope !703, !noalias !700
-  store i8 0, ptr %56, align 1, !tbaa !38, !alias.scope !703, !noalias !700
+  store i8 0, ptr %56, align 8, !tbaa !38, !alias.scope !703, !noalias !700
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %68 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %69 = load i64, ptr %68, align 8, !alias.scope !703, !noalias !700
@@ -8953,7 +8953,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13CallGraphNodeEjNS_12DenseMapInfoIS3_vE
   %145 = load ptr, ptr %67, align 8, !tbaa !361
   store ptr %145, ptr %137, align 8, !tbaa !361
   %146 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  store i32 0, ptr %146, align 4, !tbaa !396
+  store i32 0, ptr %146, align 8, !tbaa !396
   %.pre28 = load ptr, ptr %5, align 8, !tbaa !354
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre28, i64 -8
   %.pre29 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !361
@@ -9091,7 +9091,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13CallGraphNodeEjNS_12DenseMapInfoIS3_vE
   %57 = load ptr, ptr %1, align 8, !tbaa !361
   store ptr %57, ptr %48, align 8, !tbaa !361
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !396
+  store i32 0, ptr %58, align 8, !tbaa !396
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13CallGraphNodeEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E16InsertIntoBucketIRKS3_JEEEPS8_SE_OT_DpOT0_.exit
@@ -9292,7 +9292,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13CallGraphNodeEjNS_12DenseMapInfoIS3_vE
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !396
-  store i32 %68, ptr %66, align 4, !tbaa !396
+  store i32 %68, ptr %66, align 8, !tbaa !396
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !725
   br label %70
@@ -10887,7 +10887,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %19, ptr %20, align 8, !tbaa !36
   store ptr %10, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !50
   store i64 0, ptr %18, align 8, !tbaa !36
-  store i8 0, ptr %10, align 1, !tbaa !38
+  store i8 0, ptr %10, align 8, !tbaa !38
   %21 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 48
@@ -10919,7 +10919,7 @@ _ZSt10_ConstructIN4llvm30DiagnosticInfoOptimizationBase8ArgumentEJS2_EEvPT_DpOT0
   store i64 %34, ptr %35, align 8, !tbaa !36
   store ptr %25, ptr %22, align 8, !tbaa !50
   store i64 0, ptr %33, align 8, !tbaa !36
-  store i8 0, ptr %25, align 1, !tbaa !38
+  store i8 0, ptr %25, align 8, !tbaa !38
   %36 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 64
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 16, i1 false), !tbaa.struct !640

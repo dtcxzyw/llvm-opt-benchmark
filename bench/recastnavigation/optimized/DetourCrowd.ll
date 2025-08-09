@@ -563,13 +563,13 @@ _ZN7dtCrowd21updateAgentParametersEiPK18dtCrowdAgentParams.exit._crit_edge: ; pr
   %49 = getelementptr inbounds nuw i8, ptr %17, i64 416
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %48, i8 0, i64 36, i1 false)
   %50 = load float, ptr %4, align 4
-  store float %50, ptr %49, align 4
+  store float %50, ptr %49, align 8
   %51 = load float, ptr %22, align 4
   %52 = getelementptr inbounds nuw i8, ptr %17, i64 420
   store float %51, ptr %52, align 4
   %53 = load float, ptr %25, align 4
   %54 = getelementptr inbounds nuw i8, ptr %17, i64 424
-  store float %53, ptr %54, align 4
+  store float %53, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %17, i64 412
   store float 0.000000e+00, ptr %55, align 4
   %56 = load i32, ptr %5, align 4
@@ -1971,10 +1971,10 @@ _ZN7dtCrowd26updateTopologyOptimizationEPP12dtCrowdAgentif.exit: ; preds = %86, 
   %102 = load float, ptr %101, align 8
   %103 = load ptr, ptr %93, align 8
   %104 = trunc i64 %indvars.iv to i16
-  %105 = load float, ptr %100, align 4
+  %105 = load float, ptr %100, align 8
   %106 = fsub float %105, %102
   %107 = getelementptr inbounds nuw i8, ptr %99, i64 424
-  %108 = load float, ptr %107, align 4
+  %108 = load float, ptr %107, align 8
   %109 = fsub float %108, %102
   %110 = fadd float %102, %105
   %111 = fadd float %102, %108
@@ -2010,13 +2010,13 @@ _ZN7dtCrowd26updateTopologyOptimizationEPP12dtCrowdAgentif.exit: ; preds = %86, 
   %128 = fmul float %127, 2.500000e-01
   %129 = getelementptr inbounds nuw i8, ptr %122, i64 416
   %130 = getelementptr inbounds nuw i8, ptr %122, i64 48
-  %131 = load float, ptr %130, align 4
-  %132 = load float, ptr %129, align 4
+  %131 = load float, ptr %130, align 8
+  %132 = load float, ptr %129, align 8
   %133 = fsub float %131, %132
   %134 = getelementptr inbounds nuw i8, ptr %122, i64 56
-  %135 = load float, ptr %134, align 4
+  %135 = load float, ptr %134, align 8
   %136 = getelementptr inbounds nuw i8, ptr %122, i64 424
-  %137 = load float, ptr %136, align 4
+  %137 = load float, ptr %136, align 8
   %138 = fsub float %135, %137
   %139 = fmul float %138, %138
   %140 = call noundef float @llvm.fmuladd.f32(float %133, float %133, float %139)
@@ -2063,9 +2063,9 @@ _ZNK14dtPathCorridor12getFirstPolyEv.exit:        ; preds = %150, %153
   %168 = getelementptr inbounds nuw i8, ptr %122, i64 360
   %169 = load ptr, ptr %93, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %170 = load float, ptr %129, align 4
+  %170 = load float, ptr %129, align 8
   %171 = fsub float %170, %167
-  %172 = load float, ptr %136, align 4
+  %172 = load float, ptr %136, align 8
   %173 = fsub float %172, %167
   %174 = fadd float %167, %170
   %175 = fadd float %167, %172
@@ -2928,17 +2928,17 @@ _ZL17getDistanceToGoalPK12dtCrowdAgentf.exit:     ; preds = %_ZL24calcSmoothStee
   %691 = getelementptr inbounds nuw i8, ptr %684, i64 452
   %692 = getelementptr inbounds nuw i8, ptr %684, i64 464
   %693 = load float, ptr %691, align 4
-  %694 = load float, ptr %692, align 4
+  %694 = load float, ptr %692, align 8
   %695 = fsub float %693, %694
   %696 = getelementptr inbounds nuw i8, ptr %684, i64 456
-  %697 = load float, ptr %696, align 4
+  %697 = load float, ptr %696, align 8
   %698 = getelementptr inbounds nuw i8, ptr %684, i64 468
   %699 = load float, ptr %698, align 4
   %700 = fsub float %697, %699
   %701 = getelementptr inbounds nuw i8, ptr %684, i64 460
   %702 = load float, ptr %701, align 4
   %703 = getelementptr inbounds nuw i8, ptr %684, i64 472
-  %704 = load float, ptr %703, align 4
+  %704 = load float, ptr %703, align 8
   %705 = fsub float %702, %704
   %706 = fmul float %700, %700
   %707 = call float @llvm.fmuladd.f32(float %695, float %695, float %706)
@@ -2953,11 +2953,11 @@ _ZL17getDistanceToGoalPK12dtCrowdAgentf.exit:     ; preds = %_ZL24calcSmoothStee
   %.sroa.5.0.i = select i1 %709, float %712, float %700
   %.sroa.0.0.i407 = select i1 %709, float %711, float %695
   %714 = fadd float %694, %.sroa.0.0.i407
-  store float %714, ptr %692, align 4
+  store float %714, ptr %692, align 8
   %715 = fadd float %699, %.sroa.5.0.i
   store float %715, ptr %698, align 4
   %716 = fadd float %704, %.sroa.10.0.i406
-  store float %716, ptr %703, align 4
+  store float %716, ptr %703, align 8
   %717 = fmul float %715, %715
   %718 = call float @llvm.fmuladd.f32(float %714, float %714, float %717)
   %719 = call float @llvm.fmuladd.f32(float %716, float %716, float %718)

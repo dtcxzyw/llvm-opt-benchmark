@@ -9528,7 +9528,7 @@ thread-pre-split:                                 ; preds = %47, %43, %45
   %316 = select i1 %314, i32 %315, i32 0
   %317 = select i1 %313, i32 %316, i32 %311
   %318 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  %319 = load i16, ptr %318, align 1
+  %319 = load i16, ptr %318, align 4
   %320 = and i16 %319, 2047
   %321 = zext nneg i16 %320 to i32
   %322 = icmp eq i32 %317, %321
@@ -9943,7 +9943,7 @@ define internal fastcc void @usb_set_lpm_parameters(ptr noundef captures(none) %
   %48 = zext i16 %47 to i32
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %50 = getelementptr inbounds nuw i8, ptr %16, i64 1312
-  %51 = load i32, ptr %50, align 4
+  %51 = load i32, ptr %50, align 8
   %52 = tail call i8 @llvm.umax.i8(i8 %36, i8 %44)
   %53 = zext i8 %52 to i32
   %54 = mul nuw nsw i32 %53, 1000
@@ -9971,7 +9971,7 @@ define internal fastcc void @usb_set_lpm_parameters(ptr noundef captures(none) %
   store i32 %75, ptr %49, align 4
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %77 = getelementptr inbounds nuw i8, ptr %16, i64 1328
-  %78 = load i32, ptr %77, align 4
+  %78 = load i32, ptr %77, align 8
   %79 = tail call i16 @llvm.umax.i16(i16 %38, i16 %47)
   %80 = zext i16 %79 to i32
   %81 = mul nuw nsw i32 %80, 1000

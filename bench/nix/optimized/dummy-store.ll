@@ -15750,11 +15750,11 @@ define linkonce_odr void @_ZN3nix8CallbackISt10shared_ptrIKNS_13ValidPathInfoEEE
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr null, ptr %13, align 8, !noalias !74
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i32 0, ptr %14, align 4, !noalias !74
+  store i32 0, ptr %14, align 8, !noalias !74
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 36
-  store i8 0, ptr %15, align 1, !noalias !74
+  store i8 0, ptr %15, align 4, !noalias !74
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store i32 0, ptr %16, align 4, !noalias !74
+  store i32 0, ptr %16, align 8, !noalias !74
   store ptr %9, ptr %8, align 8, !alias.scope !74
   store ptr %12, ptr %4, align 8, !alias.scope !74
   %17 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
@@ -16997,11 +16997,11 @@ define linkonce_odr void @_ZN3nix8CallbackISt10shared_ptrIKNS_11RealisationEEEcl
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr null, ptr %13, align 8, !noalias !101
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i32 0, ptr %14, align 4, !noalias !101
+  store i32 0, ptr %14, align 8, !noalias !101
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 36
-  store i8 0, ptr %15, align 1, !noalias !101
+  store i8 0, ptr %15, align 4, !noalias !101
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store i32 0, ptr %16, align 4, !noalias !101
+  store i32 0, ptr %16, align 8, !noalias !101
   store ptr %9, ptr %8, align 8, !alias.scope !101
   store ptr %12, ptr %4, align 8, !alias.scope !101
   %17 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27

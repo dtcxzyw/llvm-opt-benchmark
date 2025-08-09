@@ -442,7 +442,7 @@ define hidden void @_ZN3ue217RoseDedupeAuxImplC2ERKNS_13RoseBuildImplE(ptr nound
 .noexc279:                                        ; preds = %.critedge.i278
   store ptr null, ptr %118, align 8
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
-  store i32 %88, ptr %119, align 4
+  store i32 %88, ptr %119, align 8
   %120 = invoke ptr @_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIjLb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %53, i64 noundef %116, i64 noundef %117, ptr noundef nonnull %118, i64 noundef 1)
           to label %.noexc unwind label %_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit20.i
 
@@ -1450,7 +1450,7 @@ _ZNSt8_Rb_treeIN3ue29suffix_idES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_inse
 .noexc378:                                        ; preds = %.critedge.i369
   store ptr null, ptr %522, align 8
   %523 = getelementptr inbounds nuw i8, ptr %522, i64 8
-  store i32 %492, ptr %523, align 4
+  store i32 %492, ptr %523, align 8
   %524 = invoke ptr @_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIjLb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %53, i64 noundef %520, i64 noundef %521, ptr noundef nonnull %522, i64 noundef 1)
           to label %.loopexit515 unwind label %_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit20.i370
 
@@ -1773,7 +1773,7 @@ _ZNSt8_Rb_treeIPKN3ue210OutfixInfoES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_
 .noexc407:                                        ; preds = %.critedge.i398
   store ptr null, ptr %641, align 8
   %642 = getelementptr inbounds nuw i8, ptr %641, i64 8
-  store i32 %611, ptr %642, align 4
+  store i32 %611, ptr %642, align 8
   %643 = invoke ptr @_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIjLb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %53, i64 noundef %639, i64 noundef %640, ptr noundef nonnull %641, i64 noundef 1)
           to label %.loopexit513 unwind label %_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit20.i399
 
@@ -5922,7 +5922,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIjjSaIjENSt8__detail
   %44 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
   store ptr null, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store i32 %43, ptr %45, align 4
+  store i32 %43, ptr %45, align 8
   %46 = invoke ptr @_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIjLb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %41, i64 noundef %42, ptr noundef nonnull %44, i64 noundef 1)
           to label %_ZNKSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIjEEPNS1_10_Hash_nodeIjLb0EEEmRKT_m.exit unwind label %_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit20
 
@@ -6089,7 +6089,7 @@ _ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_M
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4
+  %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18

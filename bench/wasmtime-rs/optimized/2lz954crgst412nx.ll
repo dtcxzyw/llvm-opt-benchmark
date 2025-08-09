@@ -4834,11 +4834,11 @@ _ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator9SlotState13unw
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %108, i64 -24
   store i32 %.sroa.432.sroa.0.0.copyload, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !668
   %.sroa.5.i.sroa.3.0..sroa.5.0..sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %108, i64 -16
-  store i32 1, ptr %.sroa.5.i.sroa.3.0..sroa.5.0..sroa_idx.i.sroa_idx, align 4, !noalias !668
+  store i32 1, ptr %.sroa.5.i.sroa.3.0..sroa.5.0..sroa_idx.i.sroa_idx, align 8, !noalias !668
   %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %108, i64 -12
   store i32 %1, ptr %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx, align 4, !noalias !668
   %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %108, i64 -8
-  store i32 1, ptr %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx.i.sroa_idx, align 4, !noalias !668
+  store i32 1, ptr %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx.i.sroa_idx, align 8, !noalias !668
   %.sroa.5.i.sroa.6.0..sroa.5.0..sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %108, i64 -4
   store i32 %1, ptr %.sroa.5.i.sroa.6.0..sroa.5.0..sroa_idx.i.sroa_idx, align 4, !noalias !668
   %115 = getelementptr inbounds nuw i8, ptr %.sroa.432.sroa.5.0.copyload, i64 24

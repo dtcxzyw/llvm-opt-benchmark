@@ -158,7 +158,7 @@ define dso_local void @InitProcGlobal() local_unnamed_addr #0 {
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 116
   store i32 -1, ptr %18, align 4
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 104
-  store volatile i32 -1, ptr %19, align 4
+  store volatile i32 -1, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 108
   store volatile i32 -1, ptr %20, align 4
   %21 = zext i32 %5 to i64
@@ -514,9 +514,9 @@ dlist_push_tail.exit160:                          ; preds = %170, %176
   %190 = getelementptr inbounds nuw i8, ptr %112, i64 808
   store ptr %189, ptr %190, align 8
   %191 = getelementptr inbounds nuw i8, ptr %112, i64 704
-  store volatile i32 -1, ptr %191, align 4
+  store volatile i32 -1, ptr %191, align 8
   %192 = getelementptr inbounds nuw i8, ptr %112, i64 720
-  store volatile i32 -1, ptr %192, align 4
+  store volatile i32 -1, ptr %192, align 8
   %193 = getelementptr inbounds nuw i8, ptr %112, i64 136
   store volatile i64 0, ptr %193, align 8
   %194 = add nuw i32 %.0176, 1

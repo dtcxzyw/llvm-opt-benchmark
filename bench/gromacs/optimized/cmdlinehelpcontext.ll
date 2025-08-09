@@ -194,7 +194,7 @@ define void @_ZN3gmx22CommandLineHelpContextC2ERKNS_17HelpWriterContextE(ptr nou
   store ptr %6, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %7, align 8, !tbaa !10
-  store i8 0, ptr %6, align 1, !tbaa !13
+  store i8 0, ptr %6, align 8, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr null, ptr %8, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 48

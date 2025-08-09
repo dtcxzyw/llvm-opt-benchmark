@@ -3897,7 +3897,7 @@ define hidden void @_ZN10JavaThread17oops_do_no_framesEP10OopClosureP14NMethodCl
   %18 = load ptr, ptr %17, align 8
   tail call void @_ZN29jvmtiDeferredLocalVariableSet7oops_doEP10OopClosure(ptr noundef nonnull align 8 dereferenceable(41) %18, ptr noundef %1) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = load i32, ptr %11, align 4
+  %19 = load i32, ptr %11, align 8
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next, %20
   br i1 %21, label %15, label %.loopexit, !llvm.loop !37

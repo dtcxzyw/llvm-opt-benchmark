@@ -1492,11 +1492,11 @@ define internal noundef nonnull ptr @_ZN4llvm19RegisterMCAsmParserIN12_GLOBAL__N
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %7, i8 0, i64 36, i1 false)
   store i32 16, ptr %8, align 4, !tbaa !13
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 392
-  store i8 0, ptr %9, align 4, !tbaa !17
+  store i8 0, ptr %9, align 8, !tbaa !17
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 393
   store i8 0, ptr %10, align 1, !tbaa !20
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 400
-  store i32 0, ptr %11, align 4, !tbaa !21
+  store i32 0, ptr %11, align 8, !tbaa !21
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 404
   store i32 0, ptr %12, align 4, !tbaa !21
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -4734,7 +4734,7 @@ _ZNK4llvm9StringRef8containsEc.exit.thread.i:     ; preds = %_ZNK4llvm9StringRef
   store ptr %303, ptr %302, align 8, !tbaa !120, !noalias !113
   %304 = getelementptr inbounds nuw i8, ptr %300, i64 24
   store i64 0, ptr %304, align 8, !tbaa !99, !noalias !113
-  store i8 0, ptr %303, align 1, !tbaa !64, !noalias !113
+  store i8 0, ptr %303, align 8, !tbaa !64, !noalias !113
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %300, align 8, !tbaa !11, !noalias !113
   %305 = getelementptr inbounds nuw i8, ptr %300, i64 48
   store i32 10, ptr %305, align 8, !tbaa !121, !noalias !113
@@ -5999,7 +5999,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit342.thread898:   ; preds = %_ZN4llvmeqENS_9Stri
   store ptr %757, ptr %756, align 8, !tbaa !120, !noalias !178
   %758 = getelementptr inbounds nuw i8, ptr %754, i64 24
   store i64 0, ptr %758, align 8, !tbaa !99, !noalias !178
-  store i8 0, ptr %757, align 1, !tbaa !64, !noalias !178
+  store i8 0, ptr %757, align 8, !tbaa !64, !noalias !178
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %754, align 8, !tbaa !11, !noalias !178
   %759 = getelementptr inbounds nuw i8, ptr %754, i64 48
   store i32 10, ptr %759, align 8, !tbaa !121, !noalias !178
@@ -6197,7 +6197,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit369: ; preds = %_Z
   store ptr %835, ptr %834, align 8, !tbaa !120, !noalias !184
   %836 = getelementptr inbounds nuw i8, ptr %832, i64 24
   store i64 0, ptr %836, align 8, !tbaa !99, !noalias !184
-  store i8 0, ptr %835, align 1, !tbaa !64, !noalias !184
+  store i8 0, ptr %835, align 8, !tbaa !64, !noalias !184
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %832, align 8, !tbaa !11, !noalias !184
   %837 = getelementptr inbounds nuw i8, ptr %832, i64 48
   store i32 10, ptr %837, align 8, !tbaa !121, !noalias !184
@@ -6242,7 +6242,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %856, ptr %855, align 8, !tbaa !120, !noalias !190
   %857 = getelementptr inbounds nuw i8, ptr %853, i64 24
   store i64 0, ptr %857, align 8, !tbaa !99, !noalias !190
-  store i8 0, ptr %856, align 1, !tbaa !64, !noalias !190
+  store i8 0, ptr %856, align 8, !tbaa !64, !noalias !190
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %853, align 8, !tbaa !11, !noalias !190
   %858 = getelementptr inbounds nuw i8, ptr %853, i64 48
   store i32 3, ptr %858, align 8, !tbaa !121, !noalias !190
@@ -6349,7 +6349,7 @@ _ZNK4llvm9StringRef4findEcm.exit389:              ; preds = %877, %_ZNSt11char_t
   store ptr %900, ptr %899, align 8, !tbaa !120, !noalias !196
   %901 = getelementptr inbounds nuw i8, ptr %897, i64 24
   store i64 0, ptr %901, align 8, !tbaa !99, !noalias !196
-  store i8 0, ptr %900, align 1, !tbaa !64, !noalias !196
+  store i8 0, ptr %900, align 8, !tbaa !64, !noalias !196
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %897, align 8, !tbaa !11, !noalias !196
   %902 = getelementptr inbounds nuw i8, ptr %897, i64 48
   store i32 10, ptr %902, align 8, !tbaa !121, !noalias !196
@@ -6565,7 +6565,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit456:             ; preds = %_ZN4llvmeqENS_9Stri
   store ptr %985, ptr %984, align 8, !tbaa !120, !noalias !203
   %986 = getelementptr inbounds nuw i8, ptr %982, i64 24
   store i64 0, ptr %986, align 8, !tbaa !99, !noalias !203
-  store i8 0, ptr %985, align 1, !tbaa !64, !noalias !203
+  store i8 0, ptr %985, align 8, !tbaa !64, !noalias !203
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %982, align 8, !tbaa !11, !noalias !203
   %987 = getelementptr inbounds nuw i8, ptr %982, i64 48
   store i32 10, ptr %987, align 8, !tbaa !121, !noalias !203
@@ -6621,7 +6621,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %1012, ptr %1011, align 8, !tbaa !120, !noalias !209
   %1013 = getelementptr inbounds nuw i8, ptr %1009, i64 24
   store i64 0, ptr %1013, align 8, !tbaa !99, !noalias !209
-  store i8 0, ptr %1012, align 1, !tbaa !64, !noalias !209
+  store i8 0, ptr %1012, align 8, !tbaa !64, !noalias !209
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1009, align 8, !tbaa !11, !noalias !209
   %1014 = getelementptr inbounds nuw i8, ptr %1009, i64 48
   store i32 10, ptr %1014, align 8, !tbaa !121, !noalias !209
@@ -6677,7 +6677,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %1039, ptr %1038, align 8, !tbaa !120, !noalias !215
   %1040 = getelementptr inbounds nuw i8, ptr %1036, i64 24
   store i64 0, ptr %1040, align 8, !tbaa !99, !noalias !215
-  store i8 0, ptr %1039, align 1, !tbaa !64, !noalias !215
+  store i8 0, ptr %1039, align 8, !tbaa !64, !noalias !215
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1036, align 8, !tbaa !11, !noalias !215
   %1041 = getelementptr inbounds nuw i8, ptr %1036, i64 48
   store i32 10, ptr %1041, align 8, !tbaa !121, !noalias !215
@@ -8474,7 +8474,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %59
   store ptr %108, ptr %107, align 8, !tbaa !120, !noalias !412
   %109 = getelementptr inbounds nuw i8, ptr %105, i64 24
   store i64 0, ptr %109, align 8, !tbaa !99, !noalias !412
-  store i8 0, ptr %108, align 1, !tbaa !64, !noalias !412
+  store i8 0, ptr %108, align 8, !tbaa !64, !noalias !412
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %105, align 8, !tbaa !11, !noalias !412
   %110 = getelementptr inbounds nuw i8, ptr %105, i64 48
   store i32 10, ptr %110, align 8, !tbaa !121, !noalias !412
@@ -8526,7 +8526,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %138, ptr %137, align 8, !tbaa !120, !noalias !418
   %139 = getelementptr inbounds nuw i8, ptr %135, i64 24
   store i64 0, ptr %139, align 8, !tbaa !99, !noalias !418
-  store i8 0, ptr %138, align 1, !tbaa !64, !noalias !418
+  store i8 0, ptr %138, align 8, !tbaa !64, !noalias !418
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %135, align 8, !tbaa !11, !noalias !418
   %140 = getelementptr inbounds nuw i8, ptr %135, i64 48
   store i32 0, ptr %140, align 8, !tbaa !121, !noalias !418
@@ -8614,7 +8614,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %186, ptr %185, align 8, !tbaa !120, !noalias !424
   %187 = getelementptr inbounds nuw i8, ptr %183, i64 24
   store i64 0, ptr %187, align 8, !tbaa !99, !noalias !424
-  store i8 0, ptr %186, align 1, !tbaa !64, !noalias !424
+  store i8 0, ptr %186, align 8, !tbaa !64, !noalias !424
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %183, align 8, !tbaa !11, !noalias !424
   %188 = getelementptr inbounds nuw i8, ptr %183, i64 48
   store i32 0, ptr %188, align 8, !tbaa !121, !noalias !424
@@ -9147,7 +9147,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit527.thread: ; preds = %
   store ptr %452, ptr %451, align 8, !tbaa !120, !noalias !446
   %453 = getelementptr inbounds nuw i8, ptr %449, i64 24
   store i64 0, ptr %453, align 8, !tbaa !99, !noalias !446
-  store i8 0, ptr %452, align 1, !tbaa !64, !noalias !446
+  store i8 0, ptr %452, align 8, !tbaa !64, !noalias !446
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %449, align 8, !tbaa !11, !noalias !446
   %454 = getelementptr inbounds nuw i8, ptr %449, i64 48
   store i32 10, ptr %454, align 8, !tbaa !121, !noalias !446
@@ -9191,7 +9191,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %475, ptr %474, align 8, !tbaa !120, !noalias !452
   %476 = getelementptr inbounds nuw i8, ptr %472, i64 24
   store i64 0, ptr %476, align 8, !tbaa !99, !noalias !452
-  store i8 0, ptr %475, align 1, !tbaa !64, !noalias !452
+  store i8 0, ptr %475, align 8, !tbaa !64, !noalias !452
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %472, align 8, !tbaa !11, !noalias !452
   %477 = getelementptr inbounds nuw i8, ptr %472, i64 48
   store i32 4, ptr %477, align 8, !tbaa !121, !noalias !452
@@ -9233,7 +9233,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %496, ptr %495, align 8, !tbaa !120, !noalias !458
   %497 = getelementptr inbounds nuw i8, ptr %493, i64 24
   store i64 0, ptr %497, align 8, !tbaa !99, !noalias !458
-  store i8 0, ptr %496, align 1, !tbaa !64, !noalias !458
+  store i8 0, ptr %496, align 8, !tbaa !64, !noalias !458
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %493, align 8, !tbaa !11, !noalias !458
   %498 = getelementptr inbounds nuw i8, ptr %493, i64 48
   store i32 0, ptr %498, align 8, !tbaa !121, !noalias !458
@@ -9278,7 +9278,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %517, ptr %516, align 8, !tbaa !120, !noalias !470
   %518 = getelementptr inbounds nuw i8, ptr %514, i64 24
   store i64 0, ptr %518, align 8, !tbaa !99, !noalias !470
-  store i8 0, ptr %517, align 1, !tbaa !64, !noalias !470
+  store i8 0, ptr %517, align 8, !tbaa !64, !noalias !470
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %514, align 8, !tbaa !11, !noalias !470
   %519 = getelementptr inbounds nuw i8, ptr %514, i64 48
   store i32 0, ptr %519, align 8, !tbaa !121, !noalias !470
@@ -9558,7 +9558,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit574.thread: ; preds = %
   store ptr %663, ptr %662, align 8, !tbaa !120, !noalias !473
   %664 = getelementptr inbounds nuw i8, ptr %660, i64 24
   store i64 0, ptr %664, align 8, !tbaa !99, !noalias !473
-  store i8 0, ptr %663, align 1, !tbaa !64, !noalias !473
+  store i8 0, ptr %663, align 8, !tbaa !64, !noalias !473
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %660, align 8, !tbaa !11, !noalias !473
   %665 = getelementptr inbounds nuw i8, ptr %660, i64 48
   store i32 0, ptr %665, align 8, !tbaa !121, !noalias !473
@@ -9606,7 +9606,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %692, ptr %691, align 8, !tbaa !120, !noalias !479
   %693 = getelementptr inbounds nuw i8, ptr %689, i64 24
   store i64 0, ptr %693, align 8, !tbaa !99, !noalias !479
-  store i8 0, ptr %692, align 1, !tbaa !64, !noalias !479
+  store i8 0, ptr %692, align 8, !tbaa !64, !noalias !479
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %689, align 8, !tbaa !11, !noalias !479
   %694 = getelementptr inbounds nuw i8, ptr %689, i64 48
   store i32 0, ptr %694, align 8, !tbaa !121, !noalias !479
@@ -9656,7 +9656,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit590:             ; preds = %_ZNSt10unique_ptrIN
   store ptr %718, ptr %717, align 8, !tbaa !120, !noalias !485
   %719 = getelementptr inbounds nuw i8, ptr %715, i64 24
   store i64 0, ptr %719, align 8, !tbaa !99, !noalias !485
-  store i8 0, ptr %718, align 1, !tbaa !64, !noalias !485
+  store i8 0, ptr %718, align 8, !tbaa !64, !noalias !485
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %715, align 8, !tbaa !11, !noalias !485
   %720 = getelementptr inbounds nuw i8, ptr %715, i64 48
   store i32 10, ptr %720, align 8, !tbaa !121, !noalias !485
@@ -9710,7 +9710,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit600.thread:      ; preds = %_ZN4llvmeqENS_9Stri
   store ptr %745, ptr %744, align 8, !tbaa !120, !noalias !491
   %746 = getelementptr inbounds nuw i8, ptr %742, i64 24
   store i64 0, ptr %746, align 8, !tbaa !99, !noalias !491
-  store i8 0, ptr %745, align 1, !tbaa !64, !noalias !491
+  store i8 0, ptr %745, align 8, !tbaa !64, !noalias !491
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %742, align 8, !tbaa !11, !noalias !491
   %747 = getelementptr inbounds nuw i8, ptr %742, i64 48
   store i32 10, ptr %747, align 8, !tbaa !121, !noalias !491
@@ -9760,7 +9760,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit600.thread927:   ; preds = %_ZN4llvmeqENS_9Stri
   store ptr %772, ptr %771, align 8, !tbaa !120, !noalias !497
   %773 = getelementptr inbounds nuw i8, ptr %769, i64 24
   store i64 0, ptr %773, align 8, !tbaa !99, !noalias !497
-  store i8 0, ptr %772, align 1, !tbaa !64, !noalias !497
+  store i8 0, ptr %772, align 8, !tbaa !64, !noalias !497
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %769, align 8, !tbaa !11, !noalias !497
   %774 = getelementptr inbounds nuw i8, ptr %769, i64 48
   store i32 10, ptr %774, align 8, !tbaa !121, !noalias !497
@@ -9971,7 +9971,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit633.thread: ; preds = %
   store ptr %896, ptr %895, align 8, !tbaa !120, !noalias !503
   %897 = getelementptr inbounds nuw i8, ptr %893, i64 24
   store i64 0, ptr %897, align 8, !tbaa !99, !noalias !503
-  store i8 0, ptr %896, align 1, !tbaa !64, !noalias !503
+  store i8 0, ptr %896, align 8, !tbaa !64, !noalias !503
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %893, align 8, !tbaa !11, !noalias !503
   %898 = getelementptr inbounds nuw i8, ptr %893, i64 48
   store i32 0, ptr %898, align 8, !tbaa !121, !noalias !503
@@ -10023,7 +10023,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit643.thread:      ; preds = %_ZN4llvmeqENS_9Stri
   store ptr %922, ptr %921, align 8, !tbaa !120, !noalias !509
   %923 = getelementptr inbounds nuw i8, ptr %919, i64 24
   store i64 0, ptr %923, align 8, !tbaa !99, !noalias !509
-  store i8 0, ptr %922, align 1, !tbaa !64, !noalias !509
+  store i8 0, ptr %922, align 8, !tbaa !64, !noalias !509
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %919, align 8, !tbaa !11, !noalias !509
   %924 = getelementptr inbounds nuw i8, ptr %919, i64 48
   store i32 10, ptr %924, align 8, !tbaa !121, !noalias !509
@@ -10079,7 +10079,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit653.thread:      ; preds = %_ZN4llvmeqENS_9Stri
   store ptr %949, ptr %948, align 8, !tbaa !120, !noalias !515
   %950 = getelementptr inbounds nuw i8, ptr %946, i64 24
   store i64 0, ptr %950, align 8, !tbaa !99, !noalias !515
-  store i8 0, ptr %949, align 1, !tbaa !64, !noalias !515
+  store i8 0, ptr %949, align 8, !tbaa !64, !noalias !515
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %946, align 8, !tbaa !11, !noalias !515
   %951 = getelementptr inbounds nuw i8, ptr %946, i64 48
   store i32 10, ptr %951, align 8, !tbaa !121, !noalias !515
@@ -10130,7 +10130,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit653.thread947:   ; preds = %_ZN4llvmeqENS_9Stri
   store ptr %976, ptr %975, align 8, !tbaa !120, !noalias !521
   %977 = getelementptr inbounds nuw i8, ptr %973, i64 24
   store i64 0, ptr %977, align 8, !tbaa !99, !noalias !521
-  store i8 0, ptr %976, align 1, !tbaa !64, !noalias !521
+  store i8 0, ptr %976, align 8, !tbaa !64, !noalias !521
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %973, align 8, !tbaa !11, !noalias !521
   %978 = getelementptr inbounds nuw i8, ptr %973, i64 48
   store i32 10, ptr %978, align 8, !tbaa !121, !noalias !521
@@ -10312,7 +10312,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store ptr %1077, ptr %1076, align 8, !tbaa !120, !noalias !527
   %1078 = getelementptr inbounds nuw i8, ptr %1074, i64 24
   store i64 0, ptr %1078, align 8, !tbaa !99, !noalias !527
-  store i8 0, ptr %1077, align 1, !tbaa !64, !noalias !527
+  store i8 0, ptr %1077, align 8, !tbaa !64, !noalias !527
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1074, align 8, !tbaa !11, !noalias !527
   %1079 = getelementptr inbounds nuw i8, ptr %1074, i64 48
   store i32 10, ptr %1079, align 8, !tbaa !121, !noalias !527
@@ -10427,7 +10427,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit690.thread:      ; preds = %_ZN4llvmeqENS_9Stri
   store ptr %1136, ptr %1135, align 8, !tbaa !120, !noalias !533
   %1137 = getelementptr inbounds nuw i8, ptr %1133, i64 24
   store i64 0, ptr %1137, align 8, !tbaa !99, !noalias !533
-  store i8 0, ptr %1136, align 1, !tbaa !64, !noalias !533
+  store i8 0, ptr %1136, align 8, !tbaa !64, !noalias !533
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1133, align 8, !tbaa !11, !noalias !533
   %1138 = getelementptr inbounds nuw i8, ptr %1133, i64 48
   store i32 4, ptr %1138, align 8, !tbaa !121, !noalias !533
@@ -10542,7 +10542,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit711: ; preds = %1160
   store ptr %1208, ptr %1207, align 8, !tbaa !120, !noalias !539
   %1209 = getelementptr inbounds nuw i8, ptr %1205, i64 24
   store i64 0, ptr %1209, align 8, !tbaa !99, !noalias !539
-  store i8 0, ptr %1208, align 1, !tbaa !64, !noalias !539
+  store i8 0, ptr %1208, align 8, !tbaa !64, !noalias !539
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1205, align 8, !tbaa !11, !noalias !539
   %1210 = getelementptr inbounds nuw i8, ptr %1205, i64 48
   store i32 4, ptr %1210, align 8, !tbaa !121, !noalias !539
@@ -10657,7 +10657,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit728: ; preds = %1232
   store ptr %1280, ptr %1279, align 8, !tbaa !120, !noalias !545
   %1281 = getelementptr inbounds nuw i8, ptr %1277, i64 24
   store i64 0, ptr %1281, align 8, !tbaa !99, !noalias !545
-  store i8 0, ptr %1280, align 1, !tbaa !64, !noalias !545
+  store i8 0, ptr %1280, align 8, !tbaa !64, !noalias !545
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1277, align 8, !tbaa !11, !noalias !545
   %1282 = getelementptr inbounds nuw i8, ptr %1277, i64 48
   store i32 4, ptr %1282, align 8, !tbaa !121, !noalias !545
@@ -18234,7 +18234,7 @@ _ZNK4llvm9StringRef8containsEc.exit.thread:       ; preds = %5, %_ZNK4llvm9Strin
   store ptr %48, ptr %47, align 8, !tbaa !120, !noalias !563
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 24
   store i64 0, ptr %49, align 8, !tbaa !99, !noalias !563
-  store i8 0, ptr %48, align 1, !tbaa !64, !noalias !563
+  store i8 0, ptr %48, align 8, !tbaa !64, !noalias !563
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %45, align 8, !tbaa !11, !noalias !563
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 48
   store i32 10, ptr %50, align 8, !tbaa !121, !noalias !563
@@ -19357,7 +19357,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116AArch64AsmParser12
   store ptr %84, ptr %83, align 8, !tbaa !120, !noalias !590
   %85 = getelementptr inbounds nuw i8, ptr %81, i64 24
   store i64 0, ptr %85, align 8, !tbaa !99, !noalias !590
-  store i8 0, ptr %84, align 1, !tbaa !64, !noalias !590
+  store i8 0, ptr %84, align 8, !tbaa !64, !noalias !590
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %81, align 8, !tbaa !11, !noalias !590
   %86 = getelementptr inbounds nuw i8, ptr %81, i64 48
   store i32 0, ptr %86, align 8, !tbaa !121, !noalias !590
@@ -19513,7 +19513,7 @@ _ZN4llvm8AsmTokenD2Ev.exit:                       ; preds = %150, %147, %"_ZZN12
   store ptr %162, ptr %161, align 8, !tbaa !120, !noalias !604
   %163 = getelementptr inbounds nuw i8, ptr %159, i64 24
   store i64 0, ptr %163, align 8, !tbaa !99, !noalias !604
-  store i8 0, ptr %162, align 1, !tbaa !64, !noalias !604
+  store i8 0, ptr %162, align 8, !tbaa !64, !noalias !604
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %159, align 8, !tbaa !11, !noalias !604
   %164 = getelementptr inbounds nuw i8, ptr %159, i64 48
   store i32 10, ptr %164, align 8, !tbaa !121, !noalias !604
@@ -19941,7 +19941,7 @@ _ZN4llvmneENS_9StringRefES0_.exit91.thread138.i.i: ; preds = %_ZN4llvmneENS_9Str
   store ptr %362, ptr %361, align 8, !tbaa !120, !noalias !626
   %363 = getelementptr inbounds nuw i8, ptr %359, i64 24
   store i64 0, ptr %363, align 8, !tbaa !99, !noalias !626
-  store i8 0, ptr %362, align 1, !tbaa !64, !noalias !626
+  store i8 0, ptr %362, align 8, !tbaa !64, !noalias !626
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %359, align 8, !tbaa !11, !noalias !626
   %364 = getelementptr inbounds nuw i8, ptr %359, i64 48
   store i32 8, ptr %364, align 8, !tbaa !121, !noalias !626
@@ -20031,7 +20031,7 @@ _ZN12_GLOBAL__N_116AArch64AsmParser19parseNeonVectorListERN4llvm15SmallVectorImp
   store ptr %398, ptr %397, align 8, !tbaa !120, !noalias !632
   %399 = getelementptr inbounds nuw i8, ptr %395, i64 24
   store i64 0, ptr %399, align 8, !tbaa !99, !noalias !632
-  store i8 0, ptr %398, align 1, !tbaa !64, !noalias !632
+  store i8 0, ptr %398, align 8, !tbaa !64, !noalias !632
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %395, align 8, !tbaa !11, !noalias !632
   %400 = getelementptr inbounds nuw i8, ptr %395, i64 48
   store i32 10, ptr %400, align 8, !tbaa !121, !noalias !632
@@ -20141,7 +20141,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %453, ptr %452, align 8, !tbaa !120, !noalias !638
   %454 = getelementptr inbounds nuw i8, ptr %450, i64 24
   store i64 0, ptr %454, align 8, !tbaa !99, !noalias !638
-  store i8 0, ptr %453, align 1, !tbaa !64, !noalias !638
+  store i8 0, ptr %453, align 8, !tbaa !64, !noalias !638
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %450, align 8, !tbaa !11, !noalias !638
   %455 = getelementptr inbounds nuw i8, ptr %450, i64 48
   store i32 10, ptr %455, align 8, !tbaa !121, !noalias !638
@@ -20376,7 +20376,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit185.thread394:   ; preds = %_ZN4llvmeqENS_9Stri
   store ptr %560, ptr %559, align 8, !tbaa !120, !noalias !644
   %561 = getelementptr inbounds nuw i8, ptr %557, i64 24
   store i64 0, ptr %561, align 8, !tbaa !99, !noalias !644
-  store i8 0, ptr %560, align 1, !tbaa !64, !noalias !644
+  store i8 0, ptr %560, align 8, !tbaa !64, !noalias !644
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %557, align 8, !tbaa !11, !noalias !644
   %562 = getelementptr inbounds nuw i8, ptr %557, i64 48
   store i32 0, ptr %562, align 8, !tbaa !121, !noalias !644
@@ -20648,7 +20648,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread397:      ; preds = %_ZN4llvmneENS_9Stri
   store ptr %667, ptr %666, align 8, !tbaa !120, !noalias !656
   %668 = getelementptr inbounds nuw i8, ptr %664, i64 24
   store i64 0, ptr %668, align 8, !tbaa !99, !noalias !656
-  store i8 0, ptr %667, align 1, !tbaa !64, !noalias !656
+  store i8 0, ptr %667, align 8, !tbaa !64, !noalias !656
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %664, align 8, !tbaa !11, !noalias !656
   %669 = getelementptr inbounds nuw i8, ptr %664, i64 48
   store i32 10, ptr %669, align 8, !tbaa !121, !noalias !656
@@ -20736,7 +20736,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %711, ptr %710, align 8, !tbaa !120, !noalias !662
   %712 = getelementptr inbounds nuw i8, ptr %708, i64 24
   store i64 0, ptr %712, align 8, !tbaa !99, !noalias !662
-  store i8 0, ptr %711, align 1, !tbaa !64, !noalias !662
+  store i8 0, ptr %711, align 8, !tbaa !64, !noalias !662
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %708, align 8, !tbaa !11, !noalias !662
   %713 = getelementptr inbounds nuw i8, ptr %708, i64 48
   store i32 10, ptr %713, align 8, !tbaa !121, !noalias !662
@@ -20853,7 +20853,7 @@ _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %747, %748
   store ptr %764, ptr %763, align 8, !tbaa !120, !noalias !668
   %765 = getelementptr inbounds nuw i8, ptr %761, i64 24
   store i64 0, ptr %765, align 8, !tbaa !99, !noalias !668
-  store i8 0, ptr %764, align 1, !tbaa !64, !noalias !668
+  store i8 0, ptr %764, align 8, !tbaa !64, !noalias !668
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %761, align 8, !tbaa !11, !noalias !668
   %766 = getelementptr inbounds nuw i8, ptr %761, i64 48
   store i32 0, ptr %766, align 8, !tbaa !121, !noalias !668
@@ -21128,7 +21128,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %861, %869
   store ptr %902, ptr %901, align 8, !tbaa !120, !noalias !675
   %903 = getelementptr inbounds nuw i8, ptr %899, i64 24
   store i64 0, ptr %903, align 8, !tbaa !99, !noalias !675
-  store i8 0, ptr %902, align 1, !tbaa !64, !noalias !675
+  store i8 0, ptr %902, align 8, !tbaa !64, !noalias !675
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %899, align 8, !tbaa !11, !noalias !675
   %904 = getelementptr inbounds nuw i8, ptr %899, i64 48
   store i32 10, ptr %904, align 8, !tbaa !121, !noalias !675
@@ -21168,7 +21168,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %920, ptr %919, align 8, !tbaa !120, !noalias !681
   %921 = getelementptr inbounds nuw i8, ptr %917, i64 24
   store i64 0, ptr %921, align 8, !tbaa !99, !noalias !681
-  store i8 0, ptr %920, align 1, !tbaa !64, !noalias !681
+  store i8 0, ptr %920, align 8, !tbaa !64, !noalias !681
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %917, align 8, !tbaa !11, !noalias !681
   %922 = getelementptr inbounds nuw i8, ptr %917, i64 48
   store i32 0, ptr %922, align 8, !tbaa !121, !noalias !681
@@ -21208,7 +21208,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %935, ptr %934, align 8, !tbaa !120, !noalias !687
   %936 = getelementptr inbounds nuw i8, ptr %932, i64 24
   store i64 0, ptr %936, align 8, !tbaa !99, !noalias !687
-  store i8 0, ptr %935, align 1, !tbaa !64, !noalias !687
+  store i8 0, ptr %935, align 8, !tbaa !64, !noalias !687
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %932, align 8, !tbaa !11, !noalias !687
   %937 = getelementptr inbounds nuw i8, ptr %932, i64 48
   store i32 14, ptr %937, align 8, !tbaa !121, !noalias !687
@@ -21314,7 +21314,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %979, ptr %978, align 8, !tbaa !120, !noalias !693
   %980 = getelementptr inbounds nuw i8, ptr %976, i64 24
   store i64 0, ptr %980, align 8, !tbaa !99, !noalias !693
-  store i8 0, ptr %979, align 1, !tbaa !64, !noalias !693
+  store i8 0, ptr %979, align 8, !tbaa !64, !noalias !693
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %976, align 8, !tbaa !11, !noalias !693
   %981 = getelementptr inbounds nuw i8, ptr %976, i64 48
   store i32 0, ptr %981, align 8, !tbaa !121, !noalias !693
@@ -22089,7 +22089,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116AArch64AsmParser14createSysAlias
   store ptr %34, ptr %33, align 8, !tbaa !120, !noalias !705
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store i64 0, ptr %35, align 8, !tbaa !99, !noalias !705
-  store i8 0, ptr %34, align 1, !tbaa !64, !noalias !705
+  store i8 0, ptr %34, align 8, !tbaa !64, !noalias !705
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %31, align 8, !tbaa !11, !noalias !705
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 48
   store i32 0, ptr %36, align 8, !tbaa !121, !noalias !705
@@ -22177,7 +22177,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %79, ptr %78, align 8, !tbaa !120, !noalias !711
   %80 = getelementptr inbounds nuw i8, ptr %76, i64 24
   store i64 0, ptr %80, align 8, !tbaa !99, !noalias !711
-  store i8 0, ptr %79, align 1, !tbaa !64, !noalias !711
+  store i8 0, ptr %79, align 8, !tbaa !64, !noalias !711
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %76, align 8, !tbaa !11, !noalias !711
   %81 = getelementptr inbounds nuw i8, ptr %76, i64 48
   store i32 12, ptr %81, align 8, !tbaa !121, !noalias !711
@@ -22263,7 +22263,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %122, ptr %121, align 8, !tbaa !120, !noalias !717
   %123 = getelementptr inbounds nuw i8, ptr %119, i64 24
   store i64 0, ptr %123, align 8, !tbaa !99, !noalias !717
-  store i8 0, ptr %122, align 1, !tbaa !64, !noalias !717
+  store i8 0, ptr %122, align 8, !tbaa !64, !noalias !717
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %119, align 8, !tbaa !11, !noalias !717
   %124 = getelementptr inbounds nuw i8, ptr %119, i64 48
   store i32 12, ptr %124, align 8, !tbaa !121, !noalias !717
@@ -22355,7 +22355,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %171, ptr %170, align 8, !tbaa !120, !noalias !723
   %172 = getelementptr inbounds nuw i8, ptr %168, i64 24
   store i64 0, ptr %172, align 8, !tbaa !99, !noalias !723
-  store i8 0, ptr %171, align 1, !tbaa !64, !noalias !723
+  store i8 0, ptr %171, align 8, !tbaa !64, !noalias !723
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %168, align 8, !tbaa !11, !noalias !723
   %173 = getelementptr inbounds nuw i8, ptr %168, i64 48
   store i32 0, ptr %173, align 8, !tbaa !121, !noalias !723
@@ -22502,7 +22502,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116AArch64AsmParser13
   store ptr %43, ptr %42, align 8, !tbaa !120, !noalias !729
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 24
   store i64 0, ptr %44, align 8, !tbaa !99, !noalias !729
-  store i8 0, ptr %43, align 1, !tbaa !64, !noalias !729
+  store i8 0, ptr %43, align 8, !tbaa !64, !noalias !729
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %40, align 8, !tbaa !11, !noalias !729
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 48
   store i32 4, ptr %45, align 8, !tbaa !121, !noalias !729
@@ -22596,7 +22596,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %90, ptr %89, align 8, !tbaa !120, !noalias !738
   %91 = getelementptr inbounds nuw i8, ptr %87, i64 24
   store i64 0, ptr %91, align 8, !tbaa !99, !noalias !738
-  store i8 0, ptr %90, align 1, !tbaa !64, !noalias !738
+  store i8 0, ptr %90, align 8, !tbaa !64, !noalias !738
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %87, align 8, !tbaa !11, !noalias !738
   %92 = getelementptr inbounds nuw i8, ptr %87, i64 48
   store i32 10, ptr %92, align 8, !tbaa !121, !noalias !738
@@ -22725,7 +22725,7 @@ _ZN12_GLOBAL__N_116AArch64AsmParser26tryParseNeonVectorRegisterERN4llvm15SmallVe
   store ptr %149, ptr %148, align 8, !tbaa !120, !noalias !744
   %150 = getelementptr inbounds nuw i8, ptr %146, i64 24
   store i64 0, ptr %150, align 8, !tbaa !99, !noalias !744
-  store i8 0, ptr %149, align 1, !tbaa !64, !noalias !744
+  store i8 0, ptr %149, align 8, !tbaa !64, !noalias !744
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %146, align 8, !tbaa !11, !noalias !744
   %151 = getelementptr inbounds nuw i8, ptr %146, i64 48
   store i32 4, ptr %151, align 8, !tbaa !121, !noalias !744
@@ -22824,7 +22824,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %202, ptr %201, align 8, !tbaa !120, !noalias !750
   %203 = getelementptr inbounds nuw i8, ptr %199, i64 24
   store i64 0, ptr %203, align 8, !tbaa !99, !noalias !750
-  store i8 0, ptr %202, align 1, !tbaa !64, !noalias !750
+  store i8 0, ptr %202, align 8, !tbaa !64, !noalias !750
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %199, align 8, !tbaa !11, !noalias !750
   %204 = getelementptr inbounds nuw i8, ptr %199, i64 48
   store i32 10, ptr %204, align 8, !tbaa !121, !noalias !750
@@ -22946,7 +22946,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %266, ptr %265, align 8, !tbaa !120, !noalias !756
   %267 = getelementptr inbounds nuw i8, ptr %263, i64 24
   store i64 0, ptr %267, align 8, !tbaa !99, !noalias !756
-  store i8 0, ptr %266, align 1, !tbaa !64, !noalias !756
+  store i8 0, ptr %266, align 8, !tbaa !64, !noalias !756
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %263, align 8, !tbaa !11, !noalias !756
   %268 = getelementptr inbounds nuw i8, ptr %263, i64 48
   store i32 0, ptr %268, align 8, !tbaa !121, !noalias !756
@@ -23052,7 +23052,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %318, ptr %317, align 8, !tbaa !120, !noalias !762
   %319 = getelementptr inbounds nuw i8, ptr %315, i64 24
   store i64 0, ptr %319, align 8, !tbaa !99, !noalias !762
-  store i8 0, ptr %318, align 1, !tbaa !64, !noalias !762
+  store i8 0, ptr %318, align 8, !tbaa !64, !noalias !762
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %315, align 8, !tbaa !11, !noalias !762
   %320 = getelementptr inbounds nuw i8, ptr %315, i64 48
   store i32 10, ptr %320, align 8, !tbaa !121, !noalias !762
@@ -23231,7 +23231,7 @@ _ZN12_GLOBAL__N_116AArch64AsmParser22tryParseScalarRegisterERN4llvm10MCRegisterE
   store ptr %398, ptr %397, align 8, !tbaa !120, !noalias !768
   %399 = getelementptr inbounds nuw i8, ptr %395, i64 24
   store i64 0, ptr %399, align 8, !tbaa !99, !noalias !768
-  store i8 0, ptr %398, align 1, !tbaa !64, !noalias !768
+  store i8 0, ptr %398, align 8, !tbaa !64, !noalias !768
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %395, align 8, !tbaa !11, !noalias !768
   %400 = getelementptr inbounds nuw i8, ptr %395, i64 48
   store i32 4, ptr %400, align 8, !tbaa !121, !noalias !768
@@ -23383,7 +23383,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %27
   store i64 %34, ptr %35, align 8, !tbaa !99
   store ptr %25, ptr %.016.i.i, align 8, !tbaa !98
   store i64 0, ptr %33, align 8, !tbaa !99
-  store i8 0, ptr %25, align 1, !tbaa !64
+  store i8 0, ptr %25, align 8, !tbaa !64
   %36 = load i32, ptr %3, align 8, !tbaa !89
   %37 = add i32 %36, 1
   store i32 %37, ptr %3, align 8, !tbaa !89
@@ -23499,7 +23499,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %22, ptr %23, align 8, !tbaa !99
   store ptr %13, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !98
   store i64 0, ptr %21, align 8, !tbaa !99
-  store i8 0, ptr %13, align 1, !tbaa !64
+  store i8 0, ptr %13, align 8, !tbaa !64
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq ptr %24, %10
@@ -25288,7 +25288,7 @@ define internal fastcc range(i32 0, 3) i32 @_ZN12_GLOBAL__N_116AArch64AsmParser1
   store ptr %43, ptr %42, align 8, !tbaa !120, !noalias !793
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 24
   store i64 0, ptr %44, align 8, !tbaa !99, !noalias !793
-  store i8 0, ptr %43, align 1, !tbaa !64, !noalias !793
+  store i8 0, ptr %43, align 8, !tbaa !64, !noalias !793
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %40, align 8, !tbaa !11, !noalias !793
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 48
   store i32 9, ptr %45, align 8, !tbaa !121, !noalias !793
@@ -25514,7 +25514,7 @@ _ZNK4llvm9StringRef18equals_insensitiveES0_.exit38: ; preds = %_ZN4llvm8AsmToken
   store ptr %76, ptr %75, align 8, !tbaa !120, !noalias !805
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 24
   store i64 0, ptr %77, align 8, !tbaa !99, !noalias !805
-  store i8 0, ptr %76, align 1, !tbaa !64, !noalias !805
+  store i8 0, ptr %76, align 8, !tbaa !64, !noalias !805
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %73, align 8, !tbaa !11, !noalias !805
   %78 = getelementptr inbounds nuw i8, ptr %73, i64 48
   store i32 10, ptr %78, align 8, !tbaa !121, !noalias !805
@@ -25613,7 +25613,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %128, ptr %127, align 8, !tbaa !120, !noalias !811
   %129 = getelementptr inbounds nuw i8, ptr %125, i64 24
   store i64 0, ptr %129, align 8, !tbaa !99, !noalias !811
-  store i8 0, ptr %128, align 1, !tbaa !64, !noalias !811
+  store i8 0, ptr %128, align 8, !tbaa !64, !noalias !811
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %125, align 8, !tbaa !11, !noalias !811
   %130 = getelementptr inbounds nuw i8, ptr %125, i64 48
   store i32 10, ptr %130, align 8, !tbaa !121, !noalias !811
@@ -25740,7 +25740,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %199, ptr %198, align 8, !tbaa !120, !noalias !817
   %200 = getelementptr inbounds nuw i8, ptr %196, i64 24
   store i64 0, ptr %200, align 8, !tbaa !99, !noalias !817
-  store i8 0, ptr %199, align 1, !tbaa !64, !noalias !817
+  store i8 0, ptr %199, align 8, !tbaa !64, !noalias !817
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %196, align 8, !tbaa !11, !noalias !817
   %201 = getelementptr inbounds nuw i8, ptr %196, i64 48
   store i32 0, ptr %201, align 8, !tbaa !121, !noalias !817
@@ -26034,7 +26034,7 @@ _ZN12_GLOBAL__N_116AArch64AsmParser22tryParseScalarRegisterERN4llvm10MCRegisterE
   store ptr %125, ptr %124, align 8, !tbaa !120, !noalias !823
   %126 = getelementptr inbounds nuw i8, ptr %122, i64 24
   store i64 0, ptr %126, align 8, !tbaa !99, !noalias !823
-  store i8 0, ptr %125, align 1, !tbaa !64, !noalias !823
+  store i8 0, ptr %125, align 8, !tbaa !64, !noalias !823
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %122, align 8, !tbaa !11, !noalias !823
   %127 = getelementptr inbounds nuw i8, ptr %122, i64 48
   store i32 4, ptr %127, align 8, !tbaa !121, !noalias !823
@@ -26510,7 +26510,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit58.thread: ; preds = %1
   store ptr %206, ptr %205, align 8, !tbaa !120, !noalias !829
   %207 = getelementptr inbounds nuw i8, ptr %203, i64 24
   store i64 0, ptr %207, align 8, !tbaa !99, !noalias !829
-  store i8 0, ptr %206, align 1, !tbaa !64, !noalias !829
+  store i8 0, ptr %206, align 8, !tbaa !64, !noalias !829
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %203, align 8, !tbaa !11, !noalias !829
   %208 = getelementptr inbounds nuw i8, ptr %203, i64 48
   store i32 4, ptr %208, align 8, !tbaa !121, !noalias !829
@@ -27608,7 +27608,7 @@ _ZN12_GLOBAL__N_116AArch64AsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_13AA
   store ptr %372, ptr %371, align 8, !tbaa !120, !noalias !853
   %373 = getelementptr inbounds nuw i8, ptr %369, i64 24
   store i64 0, ptr %373, align 8, !tbaa !99, !noalias !853
-  store i8 0, ptr %372, align 1, !tbaa !64, !noalias !853
+  store i8 0, ptr %372, align 8, !tbaa !64, !noalias !853
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %369, align 8, !tbaa !11, !noalias !853
   %374 = getelementptr inbounds nuw i8, ptr %369, i64 48
   store i32 0, ptr %374, align 8, !tbaa !121, !noalias !853
@@ -27868,7 +27868,7 @@ _ZN12_GLOBAL__N_116AArch64AsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_13AA
   store ptr %503, ptr %502, align 8, !tbaa !120, !noalias !860
   %504 = getelementptr inbounds nuw i8, ptr %500, i64 24
   store i64 0, ptr %504, align 8, !tbaa !99, !noalias !860
-  store i8 0, ptr %503, align 1, !tbaa !64, !noalias !860
+  store i8 0, ptr %503, align 8, !tbaa !64, !noalias !860
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %500, align 8, !tbaa !11, !noalias !860
   %505 = getelementptr inbounds nuw i8, ptr %500, i64 48
   store i32 0, ptr %505, align 8, !tbaa !121, !noalias !860
@@ -28006,7 +28006,7 @@ _ZN12_GLOBAL__N_116AArch64AsmParser17tryParseAdrpLabelERN4llvm15SmallVectorImplI
   store ptr %565, ptr %564, align 8, !tbaa !120, !noalias !866
   %566 = getelementptr inbounds nuw i8, ptr %562, i64 24
   store i64 0, ptr %566, align 8, !tbaa !99, !noalias !866
-  store i8 0, ptr %565, align 1, !tbaa !64, !noalias !866
+  store i8 0, ptr %565, align 8, !tbaa !64, !noalias !866
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %562, align 8, !tbaa !11, !noalias !866
   %567 = getelementptr inbounds nuw i8, ptr %562, i64 48
   store i32 19, ptr %567, align 8, !tbaa !121, !noalias !866
@@ -28258,7 +28258,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i398:               ; preds = %.thread.i397, %663
   store ptr %678, ptr %677, align 8, !tbaa !120, !noalias !872
   %679 = getelementptr inbounds nuw i8, ptr %675, i64 24
   store i64 0, ptr %679, align 8, !tbaa !99, !noalias !872
-  store i8 0, ptr %678, align 1, !tbaa !64, !noalias !872
+  store i8 0, ptr %678, align 8, !tbaa !64, !noalias !872
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %675, align 8, !tbaa !11, !noalias !872
   %680 = getelementptr inbounds nuw i8, ptr %675, i64 48
   store i32 16, ptr %680, align 8, !tbaa !121, !noalias !872
@@ -28495,7 +28495,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit81.thread130.i:  ; preds = %754, %_ZN4llvmeqENS
   store ptr %775, ptr %774, align 8, !tbaa !120, !noalias !878
   %776 = getelementptr inbounds nuw i8, ptr %772, i64 24
   store i64 0, ptr %776, align 8, !tbaa !99, !noalias !878
-  store i8 0, ptr %775, align 1, !tbaa !64, !noalias !878
+  store i8 0, ptr %775, align 8, !tbaa !64, !noalias !878
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %772, align 8, !tbaa !11, !noalias !878
   %777 = getelementptr inbounds nuw i8, ptr %772, i64 48
   store i32 16, ptr %777, align 8, !tbaa !121, !noalias !878
@@ -28639,7 +28639,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i379:               ; preds = %832, %825
   store ptr %844, ptr %843, align 8, !tbaa !120, !noalias !884
   %845 = getelementptr inbounds nuw i8, ptr %841, i64 24
   store i64 0, ptr %845, align 8, !tbaa !99, !noalias !884
-  store i8 0, ptr %844, align 1, !tbaa !64, !noalias !884
+  store i8 0, ptr %844, align 8, !tbaa !64, !noalias !884
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %841, align 8, !tbaa !11, !noalias !884
   %846 = getelementptr inbounds nuw i8, ptr %841, i64 48
   store i32 16, ptr %846, align 8, !tbaa !121, !noalias !884
@@ -28776,7 +28776,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %907, ptr %906, align 8, !tbaa !120, !noalias !890
   %908 = getelementptr inbounds nuw i8, ptr %904, i64 24
   store i64 0, ptr %908, align 8, !tbaa !99, !noalias !890
-  store i8 0, ptr %907, align 1, !tbaa !64, !noalias !890
+  store i8 0, ptr %907, align 8, !tbaa !64, !noalias !890
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %904, align 8, !tbaa !11, !noalias !890
   %909 = getelementptr inbounds nuw i8, ptr %904, i64 48
   store i32 16, ptr %909, align 8, !tbaa !121, !noalias !890
@@ -29170,7 +29170,7 @@ _ZN4llvm7APFloat10changeSignEv.exit.i:            ; preds = %1053, %1052, %_ZN4l
   store ptr %1068, ptr %1067, align 8, !tbaa !120, !noalias !903
   %1069 = getelementptr inbounds nuw i8, ptr %1065, i64 24
   store i64 0, ptr %1069, align 8, !tbaa !99, !noalias !903
-  store i8 0, ptr %1068, align 1, !tbaa !64, !noalias !903
+  store i8 0, ptr %1068, align 8, !tbaa !64, !noalias !903
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1065, align 8, !tbaa !11, !noalias !903
   %1070 = getelementptr inbounds nuw i8, ptr %1065, i64 48
   store i32 10, ptr %1070, align 8, !tbaa !121, !noalias !903
@@ -29255,7 +29255,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %1109, ptr %1108, align 8, !tbaa !120, !noalias !909
   %1110 = getelementptr inbounds nuw i8, ptr %1106, i64 24
   store i64 0, ptr %1110, align 8, !tbaa !99, !noalias !909
-  store i8 0, ptr %1109, align 1, !tbaa !64, !noalias !909
+  store i8 0, ptr %1109, align 8, !tbaa !64, !noalias !909
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1106, align 8, !tbaa !11, !noalias !909
   %1111 = getelementptr inbounds nuw i8, ptr %1106, i64 48
   store i32 10, ptr %1111, align 8, !tbaa !121, !noalias !909
@@ -29549,7 +29549,7 @@ _ZN12_GLOBAL__N_116AArch64AsmParser22tryParseScalarRegisterERN4llvm10MCRegisterE
   store ptr %1233, ptr %1232, align 8, !tbaa !120, !noalias !917
   %1234 = getelementptr inbounds nuw i8, ptr %1230, i64 24
   store i64 0, ptr %1234, align 8, !tbaa !99, !noalias !917
-  store i8 0, ptr %1233, align 1, !tbaa !64, !noalias !917
+  store i8 0, ptr %1233, align 8, !tbaa !64, !noalias !917
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1230, align 8, !tbaa !11, !noalias !917
   %1235 = getelementptr inbounds nuw i8, ptr %1230, i64 48
   store i32 4, ptr %1235, align 8, !tbaa !121, !noalias !917
@@ -29722,7 +29722,7 @@ _ZN12_GLOBAL__N_116AArch64AsmParser22tryParseScalarRegisterERN4llvm10MCRegisterE
   store ptr %1314, ptr %1313, align 8, !tbaa !120, !noalias !923
   %1315 = getelementptr inbounds nuw i8, ptr %1311, i64 24
   store i64 0, ptr %1315, align 8, !tbaa !99, !noalias !923
-  store i8 0, ptr %1314, align 1, !tbaa !64, !noalias !923
+  store i8 0, ptr %1314, align 8, !tbaa !64, !noalias !923
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1311, align 8, !tbaa !11, !noalias !923
   %1316 = getelementptr inbounds nuw i8, ptr %1311, i64 48
   store i32 4, ptr %1316, align 8, !tbaa !121, !noalias !923
@@ -29900,7 +29900,7 @@ _ZN12_GLOBAL__N_116AArch64AsmParser22tryParseScalarRegisterERN4llvm10MCRegisterE
   store ptr %1398, ptr %1397, align 8, !tbaa !120, !noalias !929
   %1399 = getelementptr inbounds nuw i8, ptr %1395, i64 24
   store i64 0, ptr %1399, align 8, !tbaa !99, !noalias !929
-  store i8 0, ptr %1398, align 1, !tbaa !64, !noalias !929
+  store i8 0, ptr %1398, align 8, !tbaa !64, !noalias !929
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1395, align 8, !tbaa !11, !noalias !929
   %1400 = getelementptr inbounds nuw i8, ptr %1395, i64 48
   store i32 4, ptr %1400, align 8, !tbaa !121, !noalias !929
@@ -30049,7 +30049,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %1474, ptr %1473, align 8, !tbaa !120, !noalias !935
   %1475 = getelementptr inbounds nuw i8, ptr %1471, i64 24
   store i64 0, ptr %1475, align 8, !tbaa !99, !noalias !935
-  store i8 0, ptr %1474, align 1, !tbaa !64, !noalias !935
+  store i8 0, ptr %1474, align 8, !tbaa !64, !noalias !935
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1471, align 8, !tbaa !11, !noalias !935
   %1476 = getelementptr inbounds nuw i8, ptr %1471, i64 48
   store i32 4, ptr %1476, align 8, !tbaa !121, !noalias !935
@@ -30179,7 +30179,7 @@ _ZN12_GLOBAL__N_116AArch64AsmParser22tryParseScalarRegisterERN4llvm10MCRegisterE
   store ptr %1532, ptr %1531, align 8, !tbaa !120, !noalias !941
   %1533 = getelementptr inbounds nuw i8, ptr %1529, i64 24
   store i64 0, ptr %1533, align 8, !tbaa !99, !noalias !941
-  store i8 0, ptr %1532, align 1, !tbaa !64, !noalias !941
+  store i8 0, ptr %1532, align 8, !tbaa !64, !noalias !941
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1529, align 8, !tbaa !11, !noalias !941
   %1534 = getelementptr inbounds nuw i8, ptr %1529, i64 48
   store i32 4, ptr %1534, align 8, !tbaa !121, !noalias !941
@@ -30321,7 +30321,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %1599, ptr %1598, align 8, !tbaa !120, !noalias !949
   %1600 = getelementptr inbounds nuw i8, ptr %1596, i64 24
   store i64 0, ptr %1600, align 8, !tbaa !99, !noalias !949
-  store i8 0, ptr %1599, align 1, !tbaa !64, !noalias !949
+  store i8 0, ptr %1599, align 8, !tbaa !64, !noalias !949
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1596, align 8, !tbaa !11, !noalias !949
   %1601 = getelementptr inbounds nuw i8, ptr %1596, i64 48
   store i32 18, ptr %1601, align 8, !tbaa !121, !noalias !949
@@ -30551,7 +30551,7 @@ _ZN12_GLOBAL__N_116AArch64AsmParser24tryParsePHintInstOperandERN4llvm15SmallVect
   store ptr %1712, ptr %1711, align 8, !tbaa !120, !noalias !955
   %1713 = getelementptr inbounds nuw i8, ptr %1709, i64 24
   store i64 0, ptr %1713, align 8, !tbaa !99, !noalias !955
-  store i8 0, ptr %1712, align 1, !tbaa !64, !noalias !955
+  store i8 0, ptr %1712, align 8, !tbaa !64, !noalias !955
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1709, align 8, !tbaa !11, !noalias !955
   %1714 = getelementptr inbounds nuw i8, ptr %1709, i64 48
   store i32 17, ptr %1714, align 8, !tbaa !121, !noalias !955
@@ -30924,7 +30924,7 @@ _ZNKRSt8optionalIN4llvm9StringRefEE8value_orIRA1_KcEES1_OT_.exit.i191: ; preds =
   store ptr %1869, ptr %1868, align 8, !tbaa !120, !noalias !974
   %1870 = getelementptr inbounds nuw i8, ptr %1866, i64 24
   store i64 0, ptr %1870, align 8, !tbaa !99, !noalias !974
-  store i8 0, ptr %1869, align 1, !tbaa !64, !noalias !974
+  store i8 0, ptr %1869, align 8, !tbaa !64, !noalias !974
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1866, align 8, !tbaa !11, !noalias !974
   %1871 = getelementptr inbounds nuw i8, ptr %1866, i64 48
   store i32 13, ptr %1871, align 8, !tbaa !121, !noalias !974
@@ -31044,7 +31044,7 @@ _ZZN12_GLOBAL__N_116AArch64AsmParser16tryParsePrefetchILb0EEEN4llvm11ParseStatus
   store ptr %1923, ptr %1922, align 8, !tbaa !120, !noalias !980
   %1924 = getelementptr inbounds nuw i8, ptr %1920, i64 24
   store i64 0, ptr %1924, align 8, !tbaa !99, !noalias !980
-  store i8 0, ptr %1923, align 1, !tbaa !64, !noalias !980
+  store i8 0, ptr %1923, align 8, !tbaa !64, !noalias !980
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1920, align 8, !tbaa !11, !noalias !980
   %1925 = getelementptr inbounds nuw i8, ptr %1920, i64 48
   store i32 13, ptr %1925, align 8, !tbaa !121, !noalias !980
@@ -31430,7 +31430,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %.thread.i142, %2071
   store ptr %2086, ptr %2085, align 8, !tbaa !120, !noalias !995
   %2087 = getelementptr inbounds nuw i8, ptr %2083, i64 24
   store i64 0, ptr %2087, align 8, !tbaa !99, !noalias !995
-  store i8 0, ptr %2086, align 1, !tbaa !64, !noalias !995
+  store i8 0, ptr %2086, align 8, !tbaa !64, !noalias !995
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %2083, align 8, !tbaa !11, !noalias !995
   %2088 = getelementptr inbounds nuw i8, ptr %2083, i64 48
   store i32 13, ptr %2088, align 8, !tbaa !121, !noalias !995
@@ -31562,7 +31562,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %2146, ptr %2145, align 8, !tbaa !120, !noalias !1001
   %2147 = getelementptr inbounds nuw i8, ptr %2143, i64 24
   store i64 0, ptr %2147, align 8, !tbaa !99, !noalias !1001
-  store i8 0, ptr %2146, align 1, !tbaa !64, !noalias !1001
+  store i8 0, ptr %2146, align 8, !tbaa !64, !noalias !1001
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %2143, align 8, !tbaa !11, !noalias !1001
   %2148 = getelementptr inbounds nuw i8, ptr %2143, i64 48
   store i32 13, ptr %2148, align 8, !tbaa !121, !noalias !1001
@@ -31746,7 +31746,7 @@ _ZNK4llvm8SysAlias12haveFeaturesENS_13FeatureBitsetE.exit.i: ; preds = %2209
   store ptr %2228, ptr %2227, align 8, !tbaa !120, !noalias !1010
   %2229 = getelementptr inbounds nuw i8, ptr %2225, i64 24
   store i64 0, ptr %2229, align 8, !tbaa !99, !noalias !1010
-  store i8 0, ptr %2228, align 1, !tbaa !64, !noalias !1010
+  store i8 0, ptr %2228, align 8, !tbaa !64, !noalias !1010
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %2225, align 8, !tbaa !11, !noalias !1010
   %2230 = getelementptr inbounds nuw i8, ptr %2225, i64 48
   store i32 7, ptr %2230, align 8, !tbaa !121, !noalias !1010
@@ -31959,7 +31959,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %2340, ptr %2339, align 8, !tbaa !120, !noalias !1018
   %2341 = getelementptr inbounds nuw i8, ptr %2337, i64 24
   store i64 0, ptr %2341, align 8, !tbaa !99, !noalias !1018
-  store i8 0, ptr %2340, align 1, !tbaa !64, !noalias !1018
+  store i8 0, ptr %2340, align 8, !tbaa !64, !noalias !1018
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %2337, align 8, !tbaa !11, !noalias !1018
   %2342 = getelementptr inbounds nuw i8, ptr %2337, i64 48
   store i32 0, ptr %2342, align 8, !tbaa !121, !noalias !1018
@@ -32317,7 +32317,7 @@ _ZNKRSt8optionalIN4llvm9StringRefEE8value_orIRA1_KcEES1_OT_.exit.i: ; preds = %2
   store ptr %2489, ptr %2488, align 8, !tbaa !120, !noalias !1036
   %2490 = getelementptr inbounds nuw i8, ptr %2486, i64 24
   store i64 0, ptr %2490, align 8, !tbaa !99, !noalias !1036
-  store i8 0, ptr %2489, align 1, !tbaa !64, !noalias !1036
+  store i8 0, ptr %2489, align 8, !tbaa !64, !noalias !1036
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %2486, align 8, !tbaa !11, !noalias !1036
   %2491 = getelementptr inbounds nuw i8, ptr %2486, i64 48
   store i32 13, ptr %2491, align 8, !tbaa !121, !noalias !1036
@@ -32437,7 +32437,7 @@ _ZZN12_GLOBAL__N_116AArch64AsmParser16tryParsePrefetchILb1EEEN4llvm11ParseStatus
   store ptr %2543, ptr %2542, align 8, !tbaa !120, !noalias !1042
   %2544 = getelementptr inbounds nuw i8, ptr %2540, i64 24
   store i64 0, ptr %2544, align 8, !tbaa !99, !noalias !1042
-  store i8 0, ptr %2543, align 1, !tbaa !64, !noalias !1042
+  store i8 0, ptr %2543, align 8, !tbaa !64, !noalias !1042
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %2540, align 8, !tbaa !11, !noalias !1042
   %2545 = getelementptr inbounds nuw i8, ptr %2540, i64 48
   store i32 13, ptr %2545, align 8, !tbaa !121, !noalias !1042
@@ -32580,7 +32580,7 @@ _ZN12_GLOBAL__N_116AArch64AsmParser16tryParsePrefetchILb1EEEN4llvm11ParseStatusE
   store ptr %2619, ptr %2618, align 8, !tbaa !120, !noalias !1050
   %2620 = getelementptr inbounds nuw i8, ptr %2616, i64 24
   store i64 0, ptr %2620, align 8, !tbaa !99, !noalias !1050
-  store i8 0, ptr %2619, align 1, !tbaa !64, !noalias !1050
+  store i8 0, ptr %2619, align 8, !tbaa !64, !noalias !1050
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %2616, align 8, !tbaa !11, !noalias !1050
   %2621 = getelementptr inbounds nuw i8, ptr %2616, i64 48
   store i32 0, ptr %2621, align 8, !tbaa !121, !noalias !1050
@@ -32780,7 +32780,7 @@ _ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit.i: ; preds = %2689
   store ptr %2714, ptr %2713, align 8, !tbaa !120, !noalias !1058
   %2715 = getelementptr inbounds nuw i8, ptr %2711, i64 24
   store i64 0, ptr %2715, align 8, !tbaa !99, !noalias !1058
-  store i8 0, ptr %2714, align 1, !tbaa !64, !noalias !1058
+  store i8 0, ptr %2714, align 8, !tbaa !64, !noalias !1058
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %2711, align 8, !tbaa !11, !noalias !1058
   %2716 = getelementptr inbounds nuw i8, ptr %2711, i64 48
   store i32 12, ptr %2716, align 8, !tbaa !121, !noalias !1058
@@ -32949,7 +32949,7 @@ _ZN12_GLOBAL__N_116AArch64AsmParser20tryParseSysCROperandERN4llvm15SmallVectorIm
   store ptr %2804, ptr %2803, align 8, !tbaa !120, !noalias !1064
   %2805 = getelementptr inbounds nuw i8, ptr %2801, i64 24
   store i64 0, ptr %2805, align 8, !tbaa !99, !noalias !1064
-  store i8 0, ptr %2804, align 1, !tbaa !64, !noalias !1064
+  store i8 0, ptr %2804, align 8, !tbaa !64, !noalias !1064
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %2801, align 8, !tbaa !11, !noalias !1064
   %2806 = getelementptr inbounds nuw i8, ptr %2801, i64 48
   store i32 0, ptr %2806, align 8, !tbaa !121, !noalias !1064
@@ -33077,7 +33077,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %2874, ptr %2873, align 8, !tbaa !120, !noalias !1070
   %2875 = getelementptr inbounds nuw i8, ptr %2871, i64 24
   store i64 0, ptr %2875, align 8, !tbaa !99, !noalias !1070
-  store i8 0, ptr %2874, align 1, !tbaa !64, !noalias !1070
+  store i8 0, ptr %2874, align 8, !tbaa !64, !noalias !1070
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %2871, align 8, !tbaa !11, !noalias !1070
   %2876 = getelementptr inbounds nuw i8, ptr %2871, i64 48
   store i32 0, ptr %2876, align 8, !tbaa !121, !noalias !1070
@@ -33712,7 +33712,7 @@ _ZN4llvm8AsmTokenC2ERKS0_.exit.i:                 ; preds = %3171, %3169
   store ptr %3190, ptr %3189, align 8, !tbaa !120, !noalias !1076
   %3191 = getelementptr inbounds nuw i8, ptr %3187, i64 24
   store i64 0, ptr %3191, align 8, !tbaa !99, !noalias !1076
-  store i8 0, ptr %3190, align 1, !tbaa !64, !noalias !1076
+  store i8 0, ptr %3190, align 8, !tbaa !64, !noalias !1076
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %3187, align 8, !tbaa !11, !noalias !1076
   %3192 = getelementptr inbounds nuw i8, ptr %3187, i64 48
   store i32 6, ptr %3192, align 8, !tbaa !121, !noalias !1076
@@ -33837,7 +33837,7 @@ _ZNK4llvm9StringRef18equals_insensitiveES0_.exit.i: ; preds = %3221
   store ptr %3247, ptr %3246, align 8, !tbaa !120, !noalias !1082
   %3248 = getelementptr inbounds nuw i8, ptr %3244, i64 24
   store i64 0, ptr %3248, align 8, !tbaa !99, !noalias !1082
-  store i8 0, ptr %3247, align 1, !tbaa !64, !noalias !1082
+  store i8 0, ptr %3247, align 8, !tbaa !64, !noalias !1082
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %3244, align 8, !tbaa !11, !noalias !1082
   %3249 = getelementptr inbounds nuw i8, ptr %3244, i64 48
   store i32 6, ptr %3249, align 8, !tbaa !121, !noalias !1082
@@ -34177,7 +34177,7 @@ _ZN4llvm16SmallSetIteratorIjLj8ESt4lessIjEEppEv.exit.us.i: ; preds = %.lr.ph102.
   store ptr %3397, ptr %3396, align 8, !tbaa !120, !noalias !1105
   %3398 = getelementptr inbounds nuw i8, ptr %3394, i64 24
   store i64 0, ptr %3398, align 8, !tbaa !99, !noalias !1105
-  store i8 0, ptr %3397, align 1, !tbaa !64, !noalias !1105
+  store i8 0, ptr %3397, align 8, !tbaa !64, !noalias !1105
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %3394, align 8, !tbaa !11, !noalias !1105
   %3399 = getelementptr inbounds nuw i8, ptr %3394, i64 48
   store i32 6, ptr %3399, align 8, !tbaa !121, !noalias !1105
@@ -35229,7 +35229,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23: ; preds = %_ZN
   store ptr %105, ptr %104, align 8, !tbaa !120, !noalias !1115
   %106 = getelementptr inbounds nuw i8, ptr %102, i64 24
   store i64 0, ptr %106, align 8, !tbaa !99, !noalias !1115
-  store i8 0, ptr %105, align 1, !tbaa !64, !noalias !1115
+  store i8 0, ptr %105, align 8, !tbaa !64, !noalias !1115
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %102, align 8, !tbaa !11, !noalias !1115
   %107 = getelementptr inbounds nuw i8, ptr %102, i64 48
   store i32 3, ptr %107, align 8, !tbaa !121, !noalias !1115
@@ -35481,7 +35481,7 @@ _ZN4llvm12StringSwitchINS_10AArch64_AM15ShiftExtendTypeES2_E4CaseENS_13StringLit
   store ptr %68, ptr %67, align 8, !tbaa !120, !noalias !1121
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 24
   store i64 0, ptr %69, align 8, !tbaa !99, !noalias !1121
-  store i8 0, ptr %68, align 1, !tbaa !64, !noalias !1121
+  store i8 0, ptr %68, align 8, !tbaa !64, !noalias !1121
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %65, align 8, !tbaa !11, !noalias !1121
   %70 = getelementptr inbounds nuw i8, ptr %65, i64 48
   store i32 14, ptr %70, align 8, !tbaa !121, !noalias !1121
@@ -35641,7 +35641,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %154, ptr %153, align 8, !tbaa !120, !noalias !1127
   %155 = getelementptr inbounds nuw i8, ptr %151, i64 24
   store i64 0, ptr %155, align 8, !tbaa !99, !noalias !1127
-  store i8 0, ptr %154, align 1, !tbaa !64, !noalias !1127
+  store i8 0, ptr %154, align 8, !tbaa !64, !noalias !1127
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %151, align 8, !tbaa !11, !noalias !1127
   %156 = getelementptr inbounds nuw i8, ptr %151, i64 48
   store i32 14, ptr %156, align 8, !tbaa !121, !noalias !1127
@@ -35860,7 +35860,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store ptr %46, ptr %45, align 8, !tbaa !120, !noalias !1133
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 24
   store i64 0, ptr %47, align 8, !tbaa !99, !noalias !1133
-  store i8 0, ptr %46, align 1, !tbaa !64, !noalias !1133
+  store i8 0, ptr %46, align 8, !tbaa !64, !noalias !1133
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %43, align 8, !tbaa !11, !noalias !1133
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 48
   store i32 10, ptr %48, align 8, !tbaa !121, !noalias !1133
@@ -36147,7 +36147,7 @@ define internal fastcc range(i32 0, 3) i32 @_ZN12_GLOBAL__N_116AArch64AsmParser2
   store ptr %76, ptr %75, align 8, !tbaa !120, !noalias !1142
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 24
   store i64 0, ptr %77, align 8, !tbaa !99, !noalias !1142
-  store i8 0, ptr %76, align 1, !tbaa !64, !noalias !1142
+  store i8 0, ptr %76, align 8, !tbaa !64, !noalias !1142
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %73, align 8, !tbaa !11, !noalias !1142
   %78 = getelementptr inbounds nuw i8, ptr %73, i64 48
   store i32 0, ptr %78, align 8, !tbaa !121, !noalias !1142
@@ -36250,7 +36250,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %129, ptr %128, align 8, !tbaa !120, !noalias !1148
   %130 = getelementptr inbounds nuw i8, ptr %126, i64 24
   store i64 0, ptr %130, align 8, !tbaa !99, !noalias !1148
-  store i8 0, ptr %129, align 1, !tbaa !64, !noalias !1148
+  store i8 0, ptr %129, align 8, !tbaa !64, !noalias !1148
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %126, align 8, !tbaa !11, !noalias !1148
   %131 = getelementptr inbounds nuw i8, ptr %126, i64 48
   store i32 0, ptr %131, align 8, !tbaa !121, !noalias !1148
@@ -36340,7 +36340,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %173, ptr %172, align 8, !tbaa !120, !noalias !1154
   %174 = getelementptr inbounds nuw i8, ptr %170, i64 24
   store i64 0, ptr %174, align 8, !tbaa !99, !noalias !1154
-  store i8 0, ptr %173, align 1, !tbaa !64, !noalias !1154
+  store i8 0, ptr %173, align 8, !tbaa !64, !noalias !1154
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %170, align 8, !tbaa !11, !noalias !1154
   %175 = getelementptr inbounds nuw i8, ptr %170, i64 48
   store i32 10, ptr %175, align 8, !tbaa !121, !noalias !1154
@@ -36569,7 +36569,7 @@ _ZNK4llvm9StringRef18equals_insensitiveES0_.exit: ; preds = %_ZNK4llvm8AsmToken1
   store ptr %292, ptr %291, align 8, !tbaa !120, !noalias !1160
   %293 = getelementptr inbounds nuw i8, ptr %289, i64 24
   store i64 0, ptr %293, align 8, !tbaa !99, !noalias !1160
-  store i8 0, ptr %292, align 1, !tbaa !64, !noalias !1160
+  store i8 0, ptr %292, align 8, !tbaa !64, !noalias !1160
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %289, align 8, !tbaa !11, !noalias !1160
   %294 = getelementptr inbounds nuw i8, ptr %289, i64 48
   store i32 0, ptr %294, align 8, !tbaa !121, !noalias !1160
@@ -36617,7 +36617,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %315, ptr %314, align 8, !tbaa !120, !noalias !1166
   %316 = getelementptr inbounds nuw i8, ptr %312, i64 24
   store i64 0, ptr %316, align 8, !tbaa !99, !noalias !1166
-  store i8 0, ptr %315, align 1, !tbaa !64, !noalias !1166
+  store i8 0, ptr %315, align 8, !tbaa !64, !noalias !1166
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %312, align 8, !tbaa !11, !noalias !1166
   %317 = getelementptr inbounds nuw i8, ptr %312, i64 48
   store i32 1, ptr %317, align 8, !tbaa !121, !noalias !1166
@@ -36756,7 +36756,7 @@ _ZN12_GLOBAL__N_116AArch64AsmParser22tryParseScalarRegisterERN4llvm10MCRegisterE
   store ptr %50, ptr %49, align 8, !tbaa !120, !noalias !1172
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store i64 0, ptr %51, align 8, !tbaa !99, !noalias !1172
-  store i8 0, ptr %50, align 1, !tbaa !64, !noalias !1172
+  store i8 0, ptr %50, align 8, !tbaa !64, !noalias !1172
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %47, align 8, !tbaa !11, !noalias !1172
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 48
   store i32 4, ptr %52, align 8, !tbaa !121, !noalias !1172
@@ -36884,7 +36884,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %121, ptr %120, align 8, !tbaa !120, !noalias !1178
   %122 = getelementptr inbounds nuw i8, ptr %118, i64 24
   store i64 0, ptr %122, align 8, !tbaa !99, !noalias !1178
-  store i8 0, ptr %121, align 1, !tbaa !64, !noalias !1178
+  store i8 0, ptr %121, align 8, !tbaa !64, !noalias !1178
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %118, align 8, !tbaa !11, !noalias !1178
   %123 = getelementptr inbounds nuw i8, ptr %118, i64 48
   store i32 4, ptr %123, align 8, !tbaa !121, !noalias !1178
@@ -37249,7 +37249,7 @@ _ZNK4llvm8SysAlias12haveFeaturesENS_13FeatureBitsetE.exit77: ; preds = %73
   store ptr %92, ptr %91, align 8, !tbaa !120, !noalias !1197
   %93 = getelementptr inbounds nuw i8, ptr %89, i64 24
   store i64 0, ptr %93, align 8, !tbaa !99, !noalias !1197
-  store i8 0, ptr %92, align 1, !tbaa !64, !noalias !1197
+  store i8 0, ptr %92, align 8, !tbaa !64, !noalias !1197
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %89, align 8, !tbaa !11, !noalias !1197
   %94 = getelementptr inbounds nuw i8, ptr %89, i64 48
   store i32 11, ptr %94, align 8, !tbaa !121, !noalias !1197
@@ -37394,7 +37394,7 @@ define internal fastcc range(i32 0, 3) i32 @_ZN12_GLOBAL__N_116AArch64AsmParser2
   store ptr %32, ptr %31, align 8, !tbaa !120, !noalias !1203
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store i64 0, ptr %33, align 8, !tbaa !99, !noalias !1203
-  store i8 0, ptr %32, align 1, !tbaa !64, !noalias !1203
+  store i8 0, ptr %32, align 8, !tbaa !64, !noalias !1203
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %29, align 8, !tbaa !11, !noalias !1203
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 48
   store i32 4, ptr %34, align 8, !tbaa !121, !noalias !1203
@@ -37528,7 +37528,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %103, ptr %102, align 8, !tbaa !120, !noalias !1212
   %104 = getelementptr inbounds nuw i8, ptr %100, i64 24
   store i64 0, ptr %104, align 8, !tbaa !99, !noalias !1212
-  store i8 0, ptr %103, align 1, !tbaa !64, !noalias !1212
+  store i8 0, ptr %103, align 8, !tbaa !64, !noalias !1212
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %100, align 8, !tbaa !11, !noalias !1212
   %105 = getelementptr inbounds nuw i8, ptr %100, i64 48
   store i32 10, ptr %105, align 8, !tbaa !121, !noalias !1212
@@ -37659,7 +37659,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %168, ptr %167, align 8, !tbaa !120, !noalias !1218
   %169 = getelementptr inbounds nuw i8, ptr %165, i64 24
   store i64 0, ptr %169, align 8, !tbaa !99, !noalias !1218
-  store i8 0, ptr %168, align 1, !tbaa !64, !noalias !1218
+  store i8 0, ptr %168, align 8, !tbaa !64, !noalias !1218
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %165, align 8, !tbaa !11, !noalias !1218
   %170 = getelementptr inbounds nuw i8, ptr %165, i64 48
   store i32 10, ptr %170, align 8, !tbaa !121, !noalias !1218
@@ -37823,7 +37823,7 @@ define internal fastcc range(i32 0, 3) i32 @_ZN12_GLOBAL__N_116AArch64AsmParser2
   store ptr %32, ptr %31, align 8, !tbaa !120, !noalias !1224
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store i64 0, ptr %33, align 8, !tbaa !99, !noalias !1224
-  store i8 0, ptr %32, align 1, !tbaa !64, !noalias !1224
+  store i8 0, ptr %32, align 8, !tbaa !64, !noalias !1224
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %29, align 8, !tbaa !11, !noalias !1224
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 48
   store i32 4, ptr %34, align 8, !tbaa !121, !noalias !1224
@@ -37956,7 +37956,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %103, ptr %102, align 8, !tbaa !120, !noalias !1233
   %104 = getelementptr inbounds nuw i8, ptr %100, i64 24
   store i64 0, ptr %104, align 8, !tbaa !99, !noalias !1233
-  store i8 0, ptr %103, align 1, !tbaa !64, !noalias !1233
+  store i8 0, ptr %103, align 8, !tbaa !64, !noalias !1233
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %100, align 8, !tbaa !11, !noalias !1233
   %105 = getelementptr inbounds nuw i8, ptr %100, i64 48
   store i32 10, ptr %105, align 8, !tbaa !121, !noalias !1233
@@ -38092,7 +38092,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %170, ptr %169, align 8, !tbaa !120, !noalias !1239
   %171 = getelementptr inbounds nuw i8, ptr %167, i64 24
   store i64 0, ptr %171, align 8, !tbaa !99, !noalias !1239
-  store i8 0, ptr %170, align 1, !tbaa !64, !noalias !1239
+  store i8 0, ptr %170, align 8, !tbaa !64, !noalias !1239
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %167, align 8, !tbaa !11, !noalias !1239
   %172 = getelementptr inbounds nuw i8, ptr %167, i64 48
   store i32 10, ptr %172, align 8, !tbaa !121, !noalias !1239
@@ -38313,7 +38313,7 @@ _ZN4llvm8AsmTokenD2Ev.exit:                       ; preds = %13, %29, %32
   store ptr %72, ptr %71, align 8, !tbaa !120, !noalias !1248
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 24
   store i64 0, ptr %73, align 8, !tbaa !99, !noalias !1248
-  store i8 0, ptr %72, align 1, !tbaa !64, !noalias !1248
+  store i8 0, ptr %72, align 8, !tbaa !64, !noalias !1248
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %69, align 8, !tbaa !11, !noalias !1248
   %74 = getelementptr inbounds nuw i8, ptr %69, i64 48
   store i32 2, ptr %74, align 8, !tbaa !121, !noalias !1248
@@ -38417,7 +38417,7 @@ define internal fastcc range(i32 0, 3) i32 @_ZN12_GLOBAL__N_116AArch64AsmParser2
   store ptr %34, ptr %33, align 8, !tbaa !120, !noalias !1254
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store i64 0, ptr %35, align 8, !tbaa !99, !noalias !1254
-  store i8 0, ptr %34, align 1, !tbaa !64, !noalias !1254
+  store i8 0, ptr %34, align 8, !tbaa !64, !noalias !1254
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %31, align 8, !tbaa !11, !noalias !1254
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 48
   store i32 4, ptr %36, align 8, !tbaa !121, !noalias !1254
@@ -38553,7 +38553,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   store ptr %110, ptr %109, align 8, !tbaa !120, !noalias !1263
   %111 = getelementptr inbounds nuw i8, ptr %107, i64 24
   store i64 0, ptr %111, align 8, !tbaa !99, !noalias !1263
-  store i8 0, ptr %110, align 1, !tbaa !64, !noalias !1263
+  store i8 0, ptr %110, align 8, !tbaa !64, !noalias !1263
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %107, align 8, !tbaa !11, !noalias !1263
   %112 = getelementptr inbounds nuw i8, ptr %107, i64 48
   store i32 4, ptr %112, align 8, !tbaa !121, !noalias !1263
@@ -38741,7 +38741,7 @@ define internal fastcc range(i32 0, 3) i32 @_ZN12_GLOBAL__N_116AArch64AsmParser2
   store ptr %28, ptr %27, align 8, !tbaa !120, !noalias !1272
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i64 0, ptr %29, align 8, !tbaa !99, !noalias !1272
-  store i8 0, ptr %28, align 1, !tbaa !64, !noalias !1272
+  store i8 0, ptr %28, align 8, !tbaa !64, !noalias !1272
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %25, align 8, !tbaa !11, !noalias !1272
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 48
   store i32 4, ptr %30, align 8, !tbaa !121, !noalias !1272
@@ -38874,7 +38874,7 @@ define internal fastcc range(i32 0, 3) i32 @_ZN12_GLOBAL__N_116AArch64AsmParser2
   store ptr %24, ptr %23, align 8, !tbaa !120, !noalias !1281
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store i64 0, ptr %25, align 8, !tbaa !99, !noalias !1281
-  store i8 0, ptr %24, align 1, !tbaa !64, !noalias !1281
+  store i8 0, ptr %24, align 8, !tbaa !64, !noalias !1281
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %21, align 8, !tbaa !11, !noalias !1281
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 48
   store i32 4, ptr %26, align 8, !tbaa !121, !noalias !1281
@@ -39324,7 +39324,7 @@ _ZN4llvmneENS_9StringRefES0_.exit91.thread138:    ; preds = %94, %_ZN4llvmneENS_
   store ptr %175, ptr %174, align 8, !tbaa !120, !noalias !1291
   %176 = getelementptr inbounds nuw i8, ptr %172, i64 24
   store i64 0, ptr %176, align 8, !tbaa !99, !noalias !1291
-  store i8 0, ptr %175, align 1, !tbaa !64, !noalias !1291
+  store i8 0, ptr %175, align 8, !tbaa !64, !noalias !1291
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %172, align 8, !tbaa !11, !noalias !1291
   %177 = getelementptr inbounds nuw i8, ptr %172, i64 48
   store i32 8, ptr %177, align 8, !tbaa !121, !noalias !1291
@@ -39757,7 +39757,7 @@ _ZN4llvmneENS_9StringRefES0_.exit91.thread138:    ; preds = %94, %_ZN4llvmneENS_
   store ptr %175, ptr %174, align 8, !tbaa !120, !noalias !1298
   %176 = getelementptr inbounds nuw i8, ptr %172, i64 24
   store i64 0, ptr %176, align 8, !tbaa !99, !noalias !1298
-  store i8 0, ptr %175, align 1, !tbaa !64, !noalias !1298
+  store i8 0, ptr %175, align 8, !tbaa !64, !noalias !1298
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %172, align 8, !tbaa !11, !noalias !1298
   %177 = getelementptr inbounds nuw i8, ptr %172, i64 48
   store i32 8, ptr %177, align 8, !tbaa !121, !noalias !1298
@@ -39931,7 +39931,7 @@ _ZNK4llvm9StringRef4findEcm.exit.thread:          ; preds = %_ZNSt11char_traitsI
   store ptr %54, ptr %53, align 8, !tbaa !120, !noalias !1304
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 24
   store i64 0, ptr %55, align 8, !tbaa !99, !noalias !1304
-  store i8 0, ptr %54, align 1, !tbaa !64, !noalias !1304
+  store i8 0, ptr %54, align 8, !tbaa !64, !noalias !1304
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %51, align 8, !tbaa !11, !noalias !1304
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 48
   store i32 5, ptr %56, align 8, !tbaa !121, !noalias !1304
@@ -40137,7 +40137,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store ptr %151, ptr %150, align 8, !tbaa !120, !noalias !1310
   %152 = getelementptr inbounds nuw i8, ptr %148, i64 24
   store i64 0, ptr %152, align 8, !tbaa !99, !noalias !1310
-  store i8 0, ptr %151, align 1, !tbaa !64, !noalias !1310
+  store i8 0, ptr %151, align 8, !tbaa !64, !noalias !1310
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %148, align 8, !tbaa !11, !noalias !1310
   %153 = getelementptr inbounds nuw i8, ptr %148, i64 48
   store i32 5, ptr %153, align 8, !tbaa !121, !noalias !1310
@@ -40725,7 +40725,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateFPImmEN4ll
   store ptr %10, ptr %9, align 8, !tbaa !120, !noalias !1319
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 0, ptr %11, align 8, !tbaa !99, !noalias !1319
-  store i8 0, ptr %10, align 1, !tbaa !64, !noalias !1319
+  store i8 0, ptr %10, align 8, !tbaa !64, !noalias !1319
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %7, align 8, !tbaa !11, !noalias !1319
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i32 15, ptr %12, align 8, !tbaa !121, !noalias !1319

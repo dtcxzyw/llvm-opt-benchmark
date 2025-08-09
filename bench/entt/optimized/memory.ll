@@ -1009,7 +1009,7 @@ define hidden void @_ZN30ToAddress_Functionalities_Test8TestBodyEv(ptr nonnull r
   store i32 1, ptr %12, align 4, !tbaa !25, !noalias !20
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10, align 8, !tbaa !4, !noalias !20
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i32 0, ptr %13, align 4, !tbaa !26, !noalias !20
+  store i32 0, ptr %13, align 8, !tbaa !26, !noalias !20
   store ptr %10, ptr %9, align 8, !tbaa !27, !alias.scope !20
   store ptr %13, ptr %2, align 8, !tbaa !30, !alias.scope !20
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -13741,7 +13741,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %8, ptr %7, align 8, !tbaa !54
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %9, align 8, !tbaa !51
-  store i8 0, ptr %8, align 1, !tbaa !52
+  store i8 0, ptr %8, align 8, !tbaa !52
   store ptr %7, ptr %4, align 8, !tbaa !44
   br label %10
 

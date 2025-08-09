@@ -31990,7 +31990,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %35
   store i64 %41, ptr %43, align 8, !tbaa !39
   store ptr %33, ptr %1, align 8, !tbaa !33
   store i64 0, ptr %42, align 8, !tbaa !39
-  store i8 0, ptr %33, align 1, !tbaa !40
+  store i8 0, ptr %33, align 8, !tbaa !40
   ret void
 }
 
@@ -69600,7 +69600,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %7, ptr %6, align 8, !tbaa !41, !noalias !569
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %8, align 8, !tbaa !39, !noalias !569
-  store i8 0, ptr %7, align 1, !tbaa !40, !noalias !569
+  store i8 0, ptr %7, align 8, !tbaa !40, !noalias !569
   store ptr %6, ptr %4, align 8, !tbaa !32
   br label %9
 
@@ -83798,7 +83798,7 @@ _ZNSolsEPFRSt8ios_baseS0_E.exit:                  ; preds = %27
   %34 = load i32, ptr %33, align 8, !tbaa !703
   %35 = and i32 %34, -177
   %36 = or disjoint i32 %35, 128
-  store i32 %36, ptr %33, align 4, !tbaa !704
+  store i32 %36, ptr %33, align 8, !tbaa !704
   br label %37
 
 37:                                               ; preds = %27, %_ZNSolsEPFRSt8ios_baseS0_E.exit
@@ -83994,7 +83994,7 @@ _ZNSolsEPFRSt8ios_baseS0_E.exit:                  ; preds = %26
   %33 = load i32, ptr %32, align 8, !tbaa !703
   %34 = and i32 %33, -177
   %35 = or disjoint i32 %34, 128
-  store i32 %35, ptr %32, align 4, !tbaa !704
+  store i32 %35, ptr %32, align 8, !tbaa !704
   br label %36
 
 36:                                               ; preds = %26, %_ZNSolsEPFRSt8ios_baseS0_E.exit

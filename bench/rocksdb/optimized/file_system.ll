@@ -7334,7 +7334,7 @@ _ZSt19__relocate_object_aIN7rocksdb3Env14FileAttributesES2_SaIS2_EEvPT_PT0_RT1_.
   store i64 %45, ptr %47, align 8, !tbaa !16, !alias.scope !301, !noalias !304
   store ptr %37, ptr %.0911.i.i.i, align 8, !tbaa !11, !alias.scope !304, !noalias !301
   store i64 0, ptr %46, align 8, !tbaa !16, !alias.scope !304, !noalias !301
-  store i8 0, ptr %37, align 1, !tbaa !17, !alias.scope !304, !noalias !301
+  store i8 0, ptr %37, align 8, !tbaa !17, !alias.scope !304, !noalias !301
   %48 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %49 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %48, ptr noundef nonnull align 8 dereferenceable(9) %49, i64 9, i1 false), !alias.scope !306

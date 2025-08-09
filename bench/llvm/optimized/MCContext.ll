@@ -2290,7 +2290,7 @@ _ZN4llvm9StringMapIPNS_20MCSectionDXContainerENS_15MallocAllocatorEE5clearEv.exi
   store i64 0, ptr %.sroa.6.8..sroa_idx.i, align 8, !tbaa !9
   %275 = getelementptr inbounds nuw i8, ptr %.06.i53, i64 4
   store i32 -1, ptr %275, align 4, !tbaa !268
-  store i32 -1, ptr %.06.i53, align 4, !tbaa !268
+  store i32 -1, ptr %.06.i53, align 8, !tbaa !268
   %276 = getelementptr inbounds nuw i8, ptr %.06.i53, i64 32
   %.not.i54 = icmp eq ptr %276, %273
   br i1 %.not.i54, label %._crit_edge.i55, label %.lr.ph.i52, !llvm.loop !282
@@ -4747,7 +4747,7 @@ _ZN4llvm12MCSymbolWasmC2EPKNS_14StringMapEntryINS_18MCSymbolTableValueEEEb.exit:
   %82 = getelementptr inbounds nuw i8, ptr %64, i64 120
   store ptr null, ptr %82, align 8, !tbaa !360
   %83 = getelementptr inbounds nuw i8, ptr %64, i64 130
-  store i8 0, ptr %83, align 1, !tbaa !377
+  store i8 0, ptr %83, align 2, !tbaa !377
   %84 = getelementptr inbounds nuw i8, ptr %64, i64 168
   store i8 0, ptr %84, align 8, !tbaa !378
   %85 = getelementptr inbounds nuw i8, ptr %64, i64 176
@@ -10613,7 +10613,7 @@ _ZNK4llvm13MCSymbolXCOFF18getUnqualifiedNameEv.exit: ; preds = %_ZN4llvm24Specif
   call void @_ZN4llvm9MCSectionC2ENS0_14SectionVariantENS_9StringRefEbbPNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(192) %.0.i.i.i.i.i, i32 noundef 5, ptr %.sroa.0.0.i3.i, i64 %.sroa.4.0.i4.i, i1 noundef zeroext %spec.select.i.i, i1 noundef zeroext false, ptr noundef nonnull %169) #22
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14MCSectionXCOFFE, i64 16), ptr %.0.i.i.i.i.i, align 8, !tbaa !214
   %205 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 150
-  store i8 0, ptr %205, align 1, !tbaa !738
+  store i8 0, ptr %205, align 2, !tbaa !738
   %206 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 152
   store ptr %169, ptr %206, align 8, !tbaa !739
   %207 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 160
@@ -10621,7 +10621,7 @@ _ZNK4llvm13MCSymbolXCOFF18getUnqualifiedNameEv.exit: ; preds = %_ZN4llvm24Specif
   %.sroa.4120.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 168
   store i64 %165, ptr %.sroa.4120.0..sroa_idx, align 8, !tbaa !9
   %208 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 176
-  store i32 %.sroa.0107.0.extract.trunc, ptr %208, align 4, !tbaa !16
+  store i32 %.sroa.0107.0.extract.trunc, ptr %208, align 8, !tbaa !16
   %209 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 180
   store i8 1, ptr %209, align 4, !tbaa !740
   %210 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 184
@@ -10752,9 +10752,9 @@ _ZNK4llvm13MCSymbolXCOFF18getUnqualifiedNameEv.exit88: ; preds = %_ZN4llvm24Spec
   %272 = trunc i24 %4 to i16
   %.sroa.015.0.insert.ext.i = and i16 %272, 255
   %.sroa.015.0.insert.insert.i = or disjoint i16 %.sroa.4.0.insert.ext.i, %.sroa.015.0.insert.ext.i
-  store i16 %.sroa.015.0.insert.insert.i, ptr %270, align 1
+  store i16 %.sroa.015.0.insert.insert.i, ptr %270, align 4
   %273 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i73, i64 150
-  store i8 1, ptr %273, align 1, !tbaa !738
+  store i8 1, ptr %273, align 2, !tbaa !738
   %274 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i73, i64 152
   store ptr %231, ptr %274, align 8, !tbaa !739
   %275 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i73, i64 160
@@ -19335,7 +19335,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %19, ptr %20, align 8, !tbaa !15
   store ptr %10, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !13
   store i64 0, ptr %18, align 8, !tbaa !15
-  store i8 0, ptr %10, align 1, !tbaa !16
+  store i8 0, ptr %10, align 8, !tbaa !16
   %21 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 48
@@ -19367,7 +19367,7 @@ _ZSt10_ConstructISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_
   store i64 %34, ptr %35, align 8, !tbaa !15
   store ptr %25, ptr %22, align 8, !tbaa !13
   store i64 0, ptr %33, align 8, !tbaa !15
-  store i8 0, ptr %25, align 1, !tbaa !16
+  store i8 0, ptr %25, align 8, !tbaa !16
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 64
   %37 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 64
   %.not.i.i.i.i.i = icmp eq ptr %36, %7
@@ -20424,7 +20424,7 @@ _ZSt10_ConstructIN4llvm7SMFixItEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %_ZNK
   store i64 %196, ptr %197, align 8, !tbaa !15
   store ptr %187, ptr %184, align 8, !tbaa !13
   store i64 0, ptr %195, align 8, !tbaa !15
-  store i8 0, ptr %187, align 1, !tbaa !16
+  store i8 0, ptr %187, align 8, !tbaa !16
   %198 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 48
   %199 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 48
   %.not.i.i.i.i.i = icmp eq ptr %198, %179
@@ -20531,7 +20531,7 @@ _ZSt10_ConstructIN4llvm7SMFixItEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %_Z
   store i64 %24, ptr %25, align 8, !tbaa !15
   store ptr %15, ptr %12, align 8, !tbaa !13
   store i64 0, ptr %23, align 8, !tbaa !15
-  store i8 0, ptr %15, align 1, !tbaa !16
+  store i8 0, ptr %15, align 8, !tbaa !16
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 48
   %27 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 48
   %.not.i.i.i.i.i.i = icmp eq ptr %26, %10

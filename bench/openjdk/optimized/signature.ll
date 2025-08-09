@@ -221,7 +221,7 @@ _ZN15SignatureStream19skip_to_return_typeEv.exit: ; preds = %.lr.ph.i, %6
   %35 = load ptr, ptr %34, align 8
   tail call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %35) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %36 = load i32, ptr %29, align 4
+  %36 = load i32, ptr %29, align 8
   %37 = sext i32 %36 to i64
   %38 = icmp slt i64 %indvars.iv.next.i, %37
   br i1 %38, label %.lr.ph.i1, label %_ZN15SignatureStreamD2Ev.exit, !llvm.loop !8
@@ -364,7 +364,7 @@ define linkonce_odr hidden void @_ZN17SignatureIterator16do_parameters_onI20Argu
   %46 = load ptr, ptr %45, align 8
   tail call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %46) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %47 = load i32, ptr %40, align 4
+  %47 = load i32, ptr %40, align 8
   %48 = sext i32 %47 to i64
   %49 = icmp slt i64 %indvars.iv.next.i, %48
   br i1 %49, label %.lr.ph.i, label %_ZN15SignatureStreamD2Ev.exit, !llvm.loop !8
@@ -498,7 +498,7 @@ define linkonce_odr hidden void @_ZN17SignatureIterator16do_parameters_onI13Argu
   %41 = load ptr, ptr %40, align 8
   tail call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %41) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %42 = load i32, ptr %35, align 4
+  %42 = load i32, ptr %35, align 8
   %43 = sext i32 %42 to i64
   %44 = icmp slt i64 %indvars.iv.next.i, %43
   br i1 %44, label %.lr.ph.i, label %_ZN15SignatureStreamD2Ev.exit, !llvm.loop !8
@@ -634,7 +634,7 @@ _ZN22ReferenceArgumentCount7do_typeE9BasicType.exit: ; preds = %24, %27
   %45 = load ptr, ptr %44, align 8
   tail call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %45) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %46 = load i32, ptr %39, align 4
+  %46 = load i32, ptr %39, align 8
   %47 = sext i32 %46 to i64
   %48 = icmp slt i64 %indvars.iv.next.i, %47
   br i1 %48, label %.lr.ph.i, label %_ZN15SignatureStreamD2Ev.exit, !llvm.loop !8
@@ -936,7 +936,7 @@ define linkonce_odr hidden void @_ZN17SignatureIterator16do_parameters_onI13Fing
   %56 = load ptr, ptr %55, align 8
   tail call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %56) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %57 = load i32, ptr %50, align 4
+  %57 = load i32, ptr %50, align 8
   %58 = sext i32 %57 to i64
   %59 = icmp slt i64 %indvars.iv.next.i, %58
   br i1 %59, label %.lr.ph.i, label %_ZN15SignatureStreamD2Ev.exit, !llvm.loop !8

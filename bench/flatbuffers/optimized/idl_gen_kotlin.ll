@@ -1309,7 +1309,7 @@ _ZNSt10unique_ptrIN11flatbuffers12_GLOBAL__N_119KotlinCodeGeneratorESt14default_
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %4, ptr %3, align 8, !tbaa !16
-  store i8 0, ptr %4, align 1, !tbaa !15
+  store i8 0, ptr %4, align 8, !tbaa !15
   store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN11flatbuffers12_GLOBAL__N_119KotlinCodeGeneratorE, i64 16), ptr %1, align 8, !tbaa !4
   store ptr %1, ptr %0, align 8, !tbaa !17
   ret void
@@ -15627,7 +15627,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
   store ptr %33, ptr %32, align 8, !tbaa !16
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i64 0, ptr %34, align 8, !tbaa !14
-  store i8 0, ptr %33, align 1, !tbaa !15
+  store i8 0, ptr %33, align 8, !tbaa !15
   ret void
 
 35:                                               ; preds = %25

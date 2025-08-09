@@ -1533,7 +1533,7 @@ thread-pre-split:                                 ; preds = %348, %388, %399, %.
   store i32 %758, ptr %299, align 8
   call void @__brelse(ptr noundef %739) #11
   %759 = getelementptr i8, ptr %738, i64 24
-  %760 = load volatile i32, ptr %759, align 4
+  %760 = load volatile i32, ptr %759, align 8
   %761 = icmp eq i32 %760, 0
   br i1 %761, label %763, label %762, !prof !13
 

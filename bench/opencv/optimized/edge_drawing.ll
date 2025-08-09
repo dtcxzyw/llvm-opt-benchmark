@@ -4614,7 +4614,7 @@ _ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE8pop_backEv.exit: ; preds = %._cr
   store i32 0, ptr %33, align 4, !tbaa !224
   store i32 -1, ptr %34, align 8, !tbaa !226
   store i32 0, ptr %27, align 8, !tbaa !227
-  store i32 -1, ptr %36, align 4, !tbaa !15
+  store i32 -1, ptr %36, align 8, !tbaa !15
   store i32 -1, ptr %35, align 4, !tbaa !15
   store ptr null, ptr %37, align 8, !tbaa !228
   %72 = load ptr, ptr %38, align 8, !tbaa !195
@@ -4679,7 +4679,7 @@ _ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE8pop_backEv.exit: ; preds = %._cr
   store i32 %94, ptr %102, align 8, !tbaa !226
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 12
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 16
-  store i32 -1, ptr %104, align 4, !tbaa !15
+  store i32 -1, ptr %104, align 8, !tbaa !15
   store i32 -1, ptr %103, align 4, !tbaa !15
   %105 = sext i32 %.16841269 to i64
   %106 = getelementptr inbounds %"class.cv::Point_", ptr %20, i64 %105
@@ -14725,7 +14725,7 @@ _ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit:
   %420 = fptosi double %327 to i32
   %421 = fptosi double %331 to i32
   %422 = fptosi double %333 to i32
-  %423 = load i32, ptr %416, align 4, !tbaa !15
+  %423 = load i32, ptr %416, align 8, !tbaa !15
   %424 = sext i32 %423 to i64
   %425 = getelementptr inbounds %struct.MyArc, ptr %415, i64 %424
   store double %.4557, ptr %425, align 8, !tbaa !450
@@ -14749,29 +14749,29 @@ _ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit:
   store double %434, ptr %435, align 8, !tbaa !457
   %436 = getelementptr inbounds %struct.MyArc, ptr %415, i64 %424, i32 7
   store i32 %418, ptr %436, align 8, !tbaa !458
-  %437 = load i32, ptr %416, align 4, !tbaa !15
+  %437 = load i32, ptr %416, align 8, !tbaa !15
   %438 = sext i32 %437 to i64
   %439 = getelementptr inbounds %struct.MyArc, ptr %415, i64 %438, i32 8
   store i32 %45, ptr %439, align 4, !tbaa !459
-  %440 = load i32, ptr %416, align 4, !tbaa !15
+  %440 = load i32, ptr %416, align 8, !tbaa !15
   %441 = sext i32 %440 to i64
   %442 = getelementptr inbounds %struct.MyArc, ptr %415, i64 %441, i32 16
   store i8 0, ptr %442, align 4, !tbaa !460
   %443 = getelementptr inbounds %struct.MyArc, ptr %415, i64 %441, i32 9
   store i32 %419, ptr %443, align 8, !tbaa !461
-  %444 = load i32, ptr %416, align 4, !tbaa !15
+  %444 = load i32, ptr %416, align 8, !tbaa !15
   %445 = sext i32 %444 to i64
   %446 = getelementptr inbounds %struct.MyArc, ptr %415, i64 %445, i32 10
   store i32 %420, ptr %446, align 4, !tbaa !462
-  %447 = load i32, ptr %416, align 4, !tbaa !15
+  %447 = load i32, ptr %416, align 8, !tbaa !15
   %448 = sext i32 %447 to i64
   %449 = getelementptr inbounds %struct.MyArc, ptr %415, i64 %448, i32 11
   store i32 %421, ptr %449, align 8, !tbaa !463
-  %450 = load i32, ptr %416, align 4, !tbaa !15
+  %450 = load i32, ptr %416, align 8, !tbaa !15
   %451 = sext i32 %450 to i64
   %452 = getelementptr inbounds %struct.MyArc, ptr %415, i64 %451, i32 12
   store i32 %422, ptr %452, align 4, !tbaa !464
-  %453 = load i32, ptr %416, align 4, !tbaa !15
+  %453 = load i32, ptr %416, align 8, !tbaa !15
   %454 = sext i32 %453 to i64
   %455 = getelementptr inbounds %struct.MyArc, ptr %415, i64 %454, i32 13
   store ptr %.0339, ptr %455, align 8, !tbaa !465
@@ -14779,9 +14779,9 @@ _ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit:
   store ptr %.0332, ptr %456, align 8, !tbaa !466
   %457 = getelementptr inbounds %struct.MyArc, ptr %415, i64 %454, i32 15
   store i32 %.6352, ptr %457, align 8, !tbaa !467
-  %458 = load i32, ptr %416, align 4, !tbaa !15
+  %458 = load i32, ptr %416, align 8, !tbaa !15
   %459 = add nsw i32 %458, 1
-  store i32 %459, ptr %416, align 4, !tbaa !15
+  store i32 %459, ptr %416, align 8, !tbaa !15
   tail call void @_ZN2cv8ximgproc15EdgeDrawingImpl15joinLastTwoArcsEP5MyArcRi(ptr noundef %415, ptr noundef nonnull align 4 dereferenceable(4) %416)
   br label %460
 
@@ -15167,7 +15167,7 @@ _ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit4
   %699 = fptosi double %605 to i32
   %700 = fptosi double %609 to i32
   %701 = fptosi double %611 to i32
-  %702 = load i32, ptr %694, align 4, !tbaa !15
+  %702 = load i32, ptr %694, align 8, !tbaa !15
   %703 = sext i32 %702 to i64
   %704 = getelementptr inbounds %struct.MyArc, ptr %693, i64 %703
   store double %.4557, ptr %704, align 8, !tbaa !450
@@ -15910,7 +15910,7 @@ _ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit4
   %1103 = fptosi double %1008 to i32
   %1104 = fptosi double %1012 to i32
   %1105 = fptosi double %1014 to i32
-  %1106 = load i32, ptr %1097, align 4, !tbaa !15
+  %1106 = load i32, ptr %1097, align 8, !tbaa !15
   %1107 = sext i32 %1106 to i64
   %1108 = getelementptr inbounds %struct.MyArc, ptr %1096, i64 %1107
   store double %.1590.lcssa, ptr %1108, align 8, !tbaa !450
@@ -15934,29 +15934,29 @@ _ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit4
   store double %1117, ptr %1118, align 8, !tbaa !457
   %1119 = getelementptr inbounds %struct.MyArc, ptr %1096, i64 %1107, i32 7
   store i32 %1101, ptr %1119, align 8, !tbaa !458
-  %1120 = load i32, ptr %1097, align 4, !tbaa !15
+  %1120 = load i32, ptr %1097, align 8, !tbaa !15
   %1121 = sext i32 %1120 to i64
   %1122 = getelementptr inbounds %struct.MyArc, ptr %1096, i64 %1121, i32 8
   store i32 %47, ptr %1122, align 4, !tbaa !459
-  %1123 = load i32, ptr %1097, align 4, !tbaa !15
+  %1123 = load i32, ptr %1097, align 8, !tbaa !15
   %1124 = sext i32 %1123 to i64
   %1125 = getelementptr inbounds %struct.MyArc, ptr %1096, i64 %1124, i32 16
   store i8 0, ptr %1125, align 4, !tbaa !460
   %1126 = getelementptr inbounds %struct.MyArc, ptr %1096, i64 %1124, i32 9
   store i32 %1102, ptr %1126, align 8, !tbaa !461
-  %1127 = load i32, ptr %1097, align 4, !tbaa !15
+  %1127 = load i32, ptr %1097, align 8, !tbaa !15
   %1128 = sext i32 %1127 to i64
   %1129 = getelementptr inbounds %struct.MyArc, ptr %1096, i64 %1128, i32 10
   store i32 %1103, ptr %1129, align 4, !tbaa !462
-  %1130 = load i32, ptr %1097, align 4, !tbaa !15
+  %1130 = load i32, ptr %1097, align 8, !tbaa !15
   %1131 = sext i32 %1130 to i64
   %1132 = getelementptr inbounds %struct.MyArc, ptr %1096, i64 %1131, i32 11
   store i32 %1104, ptr %1132, align 8, !tbaa !463
-  %1133 = load i32, ptr %1097, align 4, !tbaa !15
+  %1133 = load i32, ptr %1097, align 8, !tbaa !15
   %1134 = sext i32 %1133 to i64
   %1135 = getelementptr inbounds %struct.MyArc, ptr %1096, i64 %1134, i32 12
   store i32 %1105, ptr %1135, align 4, !tbaa !464
-  %1136 = load i32, ptr %1097, align 4, !tbaa !15
+  %1136 = load i32, ptr %1097, align 8, !tbaa !15
   %1137 = sext i32 %1136 to i64
   %1138 = getelementptr inbounds %struct.MyArc, ptr %1096, i64 %1137, i32 13
   store ptr %.5344761, ptr %1138, align 8, !tbaa !465
@@ -15964,9 +15964,9 @@ _ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit4
   store ptr %.5337762, ptr %1139, align 8, !tbaa !466
   %1140 = getelementptr inbounds %struct.MyArc, ptr %1096, i64 %1137, i32 15
   store i32 %.11357.lcssa, ptr %1140, align 8, !tbaa !467
-  %1141 = load i32, ptr %1097, align 4, !tbaa !15
+  %1141 = load i32, ptr %1097, align 8, !tbaa !15
   %1142 = add nsw i32 %1141, 1
-  store i32 %1142, ptr %1097, align 4, !tbaa !15
+  store i32 %1142, ptr %1097, align 8, !tbaa !15
   tail call void @_ZN2cv8ximgproc15EdgeDrawingImpl15joinLastTwoArcsEP5MyArcRi(ptr noundef %1096, ptr noundef nonnull align 4 dereferenceable(4) %1097)
   br label %.critedge
 
@@ -17243,7 +17243,7 @@ _ZN8AngleSet20computeStartEndThetaERdS0_.exit:    ; preds = %557, %._crit_edge.i
   %618 = getelementptr inbounds nuw i8, ptr %616, i64 8
   %619 = getelementptr inbounds nuw i8, ptr %54, i64 60
   %620 = load i32, ptr %619, align 4, !tbaa !459
-  %621 = load i32, ptr %618, align 4, !tbaa !15
+  %621 = load i32, ptr %618, align 8, !tbaa !15
   %622 = sext i32 %621 to i64
   %623 = getelementptr inbounds %struct.MyArc, ptr %617, i64 %622
   store double %.0268856, ptr %623, align 8, !tbaa !450
@@ -17261,29 +17261,29 @@ _ZN8AngleSet20computeStartEndThetaERdS0_.exit:    ; preds = %557, %._crit_edge.i
   store double %593, ptr %629, align 8, !tbaa !457
   %630 = getelementptr inbounds %struct.MyArc, ptr %617, i64 %622, i32 7
   store i32 %.0293852.ph, ptr %630, align 8, !tbaa !458
-  %631 = load i32, ptr %618, align 4, !tbaa !15
+  %631 = load i32, ptr %618, align 8, !tbaa !15
   %632 = sext i32 %631 to i64
   %633 = getelementptr inbounds %struct.MyArc, ptr %617, i64 %632, i32 8
   store i32 %620, ptr %633, align 4, !tbaa !459
-  %634 = load i32, ptr %618, align 4, !tbaa !15
+  %634 = load i32, ptr %618, align 8, !tbaa !15
   %635 = sext i32 %634 to i64
   %636 = getelementptr inbounds %struct.MyArc, ptr %617, i64 %635, i32 16
   store i8 0, ptr %636, align 4, !tbaa !460
   %637 = getelementptr inbounds %struct.MyArc, ptr %617, i64 %635, i32 9
   store i32 %.0321848.ph, ptr %637, align 8, !tbaa !461
-  %638 = load i32, ptr %618, align 4, !tbaa !15
+  %638 = load i32, ptr %618, align 8, !tbaa !15
   %639 = sext i32 %638 to i64
   %640 = getelementptr inbounds %struct.MyArc, ptr %617, i64 %639, i32 10
   store i32 %.0315849.ph, ptr %640, align 4, !tbaa !462
-  %641 = load i32, ptr %618, align 4, !tbaa !15
+  %641 = load i32, ptr %618, align 8, !tbaa !15
   %642 = sext i32 %641 to i64
   %643 = getelementptr inbounds %struct.MyArc, ptr %617, i64 %642, i32 11
   store i32 %.0309850.ph890, ptr %643, align 8, !tbaa !463
-  %644 = load i32, ptr %618, align 4, !tbaa !15
+  %644 = load i32, ptr %618, align 8, !tbaa !15
   %645 = sext i32 %644 to i64
   %646 = getelementptr inbounds %struct.MyArc, ptr %617, i64 %645, i32 12
   store i32 %.0303851.ph889, ptr %646, align 4, !tbaa !464
-  %647 = load i32, ptr %618, align 4, !tbaa !15
+  %647 = load i32, ptr %618, align 8, !tbaa !15
   %648 = sext i32 %647 to i64
   %649 = getelementptr inbounds %struct.MyArc, ptr %617, i64 %648, i32 13
   store ptr %91, ptr %649, align 8, !tbaa !465
@@ -17291,9 +17291,9 @@ _ZN8AngleSet20computeStartEndThetaERdS0_.exit:    ; preds = %557, %._crit_edge.i
   store ptr %94, ptr %650, align 8, !tbaa !466
   %651 = getelementptr inbounds %struct.MyArc, ptr %617, i64 %648, i32 15
   store i32 %.0327847, ptr %651, align 8, !tbaa !467
-  %652 = load i32, ptr %618, align 4, !tbaa !15
+  %652 = load i32, ptr %618, align 8, !tbaa !15
   %653 = add nsw i32 %652, 1
-  store i32 %653, ptr %618, align 4, !tbaa !15
+  store i32 %653, ptr %618, align 8, !tbaa !15
   tail call void @_ZN2cv8ximgproc15EdgeDrawingImpl15joinLastTwoArcsEP5MyArcRi(ptr noundef %617, ptr noundef nonnull align 4 dereferenceable(4) %618)
   br label %654
 
@@ -18451,7 +18451,7 @@ _ZN8AngleSet20computeStartEndThetaERdS0_.exit:    ; preds = %495, %._crit_edge.i
   %565 = load i32, ptr %98, align 4, !tbaa !459
   %566 = load double, ptr %16, align 8, !tbaa !34
   %567 = fdiv double %566, 0x401921FB54442D18
-  %568 = load i32, ptr %561, align 4, !tbaa !15
+  %568 = load i32, ptr %561, align 8, !tbaa !15
   %569 = sext i32 %568 to i64
   %570 = getelementptr inbounds %struct.MyArc, ptr %560, i64 %569
   store double %562, ptr %570, align 8, !tbaa !450
@@ -18470,41 +18470,41 @@ _ZN8AngleSet20computeStartEndThetaERdS0_.exit:    ; preds = %495, %._crit_edge.i
   %578 = fmul double %576, %577
   %579 = call noundef double @_ZN2cv8ximgproc15EdgeDrawingImpl23computeEllipsePerimeterEP15EllipseEquation(ptr noundef nonnull readonly %8)
   %580 = fdiv double %578, %579
-  %581 = load i32, ptr %561, align 4, !tbaa !15
+  %581 = load i32, ptr %561, align 8, !tbaa !15
   %582 = sext i32 %581 to i64
   %583 = getelementptr inbounds %struct.MyArc, ptr %560, i64 %582, i32 6
   store double %580, ptr %583, align 8, !tbaa !457
   %584 = getelementptr inbounds %struct.MyArc, ptr %560, i64 %582, i32 7
   store i32 %.0255694, ptr %584, align 8, !tbaa !458
-  %585 = load i32, ptr %561, align 4, !tbaa !15
+  %585 = load i32, ptr %561, align 8, !tbaa !15
   %586 = sext i32 %585 to i64
   %587 = getelementptr inbounds %struct.MyArc, ptr %560, i64 %586, i32 8
   store i32 %565, ptr %587, align 4, !tbaa !459
-  %588 = load i32, ptr %561, align 4, !tbaa !15
+  %588 = load i32, ptr %561, align 8, !tbaa !15
   %589 = sext i32 %588 to i64
   %590 = getelementptr inbounds %struct.MyArc, ptr %560, i64 %589, i32 16
   store i8 1, ptr %590, align 4, !tbaa !460
   %591 = getelementptr inbounds %struct.MyArc, ptr %560, i64 %589, i32 17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %591, ptr noundef nonnull readonly align 8 dereferenceable(56) %8, i64 56, i1 false), !tbaa.struct !378
-  %592 = load i32, ptr %561, align 4, !tbaa !15
+  %592 = load i32, ptr %561, align 8, !tbaa !15
   %593 = sext i32 %592 to i64
   %594 = getelementptr inbounds %struct.MyArc, ptr %560, i64 %593, i32 18
   store double %.0250695, ptr %594, align 8, !tbaa !470
   %595 = getelementptr inbounds %struct.MyArc, ptr %560, i64 %593, i32 9
   store i32 %.0270693, ptr %595, align 8, !tbaa !461
-  %596 = load i32, ptr %561, align 4, !tbaa !15
+  %596 = load i32, ptr %561, align 8, !tbaa !15
   %597 = sext i32 %596 to i64
   %598 = getelementptr inbounds %struct.MyArc, ptr %560, i64 %597, i32 10
   store i32 %.0276692, ptr %598, align 4, !tbaa !462
-  %599 = load i32, ptr %561, align 4, !tbaa !15
+  %599 = load i32, ptr %561, align 8, !tbaa !15
   %600 = sext i32 %599 to i64
   %601 = getelementptr inbounds %struct.MyArc, ptr %560, i64 %600, i32 11
   store i32 %.0293689, ptr %601, align 8, !tbaa !463
-  %602 = load i32, ptr %561, align 4, !tbaa !15
+  %602 = load i32, ptr %561, align 8, !tbaa !15
   %603 = sext i32 %602 to i64
   %604 = getelementptr inbounds %struct.MyArc, ptr %560, i64 %603, i32 12
   store i32 %.0287690, ptr %604, align 4, !tbaa !464
-  %605 = load i32, ptr %561, align 4, !tbaa !15
+  %605 = load i32, ptr %561, align 8, !tbaa !15
   %606 = sext i32 %605 to i64
   %607 = getelementptr inbounds %struct.MyArc, ptr %560, i64 %606, i32 13
   store ptr %80, ptr %607, align 8, !tbaa !465
@@ -18512,9 +18512,9 @@ _ZN8AngleSet20computeStartEndThetaERdS0_.exit:    ; preds = %495, %._crit_edge.i
   store ptr %83, ptr %608, align 8, !tbaa !466
   %609 = getelementptr inbounds %struct.MyArc, ptr %560, i64 %606, i32 15
   store i32 %.0282691, ptr %609, align 8, !tbaa !467
-  %610 = load i32, ptr %561, align 4, !tbaa !15
+  %610 = load i32, ptr %561, align 8, !tbaa !15
   %611 = add nsw i32 %610, 1
-  store i32 %611, ptr %561, align 4, !tbaa !15
+  store i32 %611, ptr %561, align 8, !tbaa !15
   br label %612
 
 612:                                              ; preds = %558, %536
@@ -19701,7 +19701,7 @@ _ZN8AngleSet20computeStartEndThetaERdS0_.exit:    ; preds = %506, %._crit_edge.i
   %577 = load i32, ptr %576, align 4, !tbaa !459
   %578 = load double, ptr %16, align 8, !tbaa !34
   %579 = fdiv double %578, 0x401921FB54442D18
-  %580 = load i32, ptr %572, align 4, !tbaa !15
+  %580 = load i32, ptr %572, align 8, !tbaa !15
   %581 = sext i32 %580 to i64
   %582 = getelementptr inbounds %struct.MyArc, ptr %571, i64 %581
   store double %573, ptr %582, align 8, !tbaa !450
@@ -19720,41 +19720,41 @@ _ZN8AngleSet20computeStartEndThetaERdS0_.exit:    ; preds = %506, %._crit_edge.i
   %590 = fmul double %588, %589
   %591 = call noundef double @_ZN2cv8ximgproc15EdgeDrawingImpl23computeEllipsePerimeterEP15EllipseEquation(ptr noundef nonnull readonly %8)
   %592 = fdiv double %590, %591
-  %593 = load i32, ptr %572, align 4, !tbaa !15
+  %593 = load i32, ptr %572, align 8, !tbaa !15
   %594 = sext i32 %593 to i64
   %595 = getelementptr inbounds %struct.MyArc, ptr %571, i64 %594, i32 6
   store double %592, ptr %595, align 8, !tbaa !457
   %596 = getelementptr inbounds %struct.MyArc, ptr %571, i64 %594, i32 7
   store i32 %.0274712, ptr %596, align 8, !tbaa !458
-  %597 = load i32, ptr %572, align 4, !tbaa !15
+  %597 = load i32, ptr %572, align 8, !tbaa !15
   %598 = sext i32 %597 to i64
   %599 = getelementptr inbounds %struct.MyArc, ptr %571, i64 %598, i32 8
   store i32 %577, ptr %599, align 4, !tbaa !459
-  %600 = load i32, ptr %572, align 4, !tbaa !15
+  %600 = load i32, ptr %572, align 8, !tbaa !15
   %601 = sext i32 %600 to i64
   %602 = getelementptr inbounds %struct.MyArc, ptr %571, i64 %601, i32 16
   store i8 1, ptr %602, align 4, !tbaa !460
   %603 = getelementptr inbounds %struct.MyArc, ptr %571, i64 %601, i32 17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %603, ptr noundef nonnull readonly align 8 dereferenceable(56) %8, i64 56, i1 false), !tbaa.struct !378
-  %604 = load i32, ptr %572, align 4, !tbaa !15
+  %604 = load i32, ptr %572, align 8, !tbaa !15
   %605 = sext i32 %604 to i64
   %606 = getelementptr inbounds %struct.MyArc, ptr %571, i64 %605, i32 18
   store double %.0264713, ptr %606, align 8, !tbaa !470
   %607 = getelementptr inbounds %struct.MyArc, ptr %571, i64 %605, i32 9
   store i32 %.0307707, ptr %607, align 8, !tbaa !461
-  %608 = load i32, ptr %572, align 4, !tbaa !15
+  %608 = load i32, ptr %572, align 8, !tbaa !15
   %609 = sext i32 %608 to i64
   %610 = getelementptr inbounds %struct.MyArc, ptr %571, i64 %609, i32 10
   store i32 %.0301708, ptr %610, align 4, !tbaa !462
-  %611 = load i32, ptr %572, align 4, !tbaa !15
+  %611 = load i32, ptr %572, align 8, !tbaa !15
   %612 = sext i32 %611 to i64
   %613 = getelementptr inbounds %struct.MyArc, ptr %571, i64 %612, i32 11
   store i32 %.0295709, ptr %613, align 8, !tbaa !463
-  %614 = load i32, ptr %572, align 4, !tbaa !15
+  %614 = load i32, ptr %572, align 8, !tbaa !15
   %615 = sext i32 %614 to i64
   %616 = getelementptr inbounds %struct.MyArc, ptr %571, i64 %615, i32 12
   store i32 %.0289710, ptr %616, align 4, !tbaa !464
-  %617 = load i32, ptr %572, align 4, !tbaa !15
+  %617 = load i32, ptr %572, align 8, !tbaa !15
   %618 = sext i32 %617 to i64
   %619 = getelementptr inbounds %struct.MyArc, ptr %571, i64 %618, i32 13
   store ptr %80, ptr %619, align 8, !tbaa !465
@@ -19762,9 +19762,9 @@ _ZN8AngleSet20computeStartEndThetaERdS0_.exit:    ; preds = %506, %._crit_edge.i
   store ptr %83, ptr %620, align 8, !tbaa !466
   %621 = getelementptr inbounds %struct.MyArc, ptr %571, i64 %618, i32 15
   store i32 %.0284711, ptr %621, align 8, !tbaa !467
-  %622 = load i32, ptr %572, align 4, !tbaa !15
+  %622 = load i32, ptr %572, align 8, !tbaa !15
   %623 = add nsw i32 %622, 1
-  store i32 %623, ptr %572, align 4, !tbaa !15
+  store i32 %623, ptr %572, align 8, !tbaa !15
   br label %624
 
 624:                                              ; preds = %569, %547

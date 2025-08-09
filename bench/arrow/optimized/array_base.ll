@@ -75175,7 +75175,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %27
   store i64 %33, ptr %35, align 8, !tbaa !86
   store ptr %25, ptr %2, align 8, !tbaa !82
   store i64 0, ptr %34, align 8, !tbaa !86
-  store i8 0, ptr %25, align 1, !tbaa !51
+  store i8 0, ptr %25, align 8, !tbaa !51
   invoke void @_ZN5arrow6Buffer10FromStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.40") align 8 %6, ptr noundef nonnull %7)
           to label %36 unwind label %154
 

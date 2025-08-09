@@ -787,7 +787,7 @@ _ZNK3g2o16OptimizableGraph4Edge9parameterEi.exit: ; preds = %1
   %.sroa.0.0.vec.insert.i.i.i.i = insertelement <2 x double> poison, double %44, i64 0
   %.sroa.0.8.vec.insert.i.i.i.i = insertelement <2 x double> %.sroa.0.0.vec.insert.i.i.i.i, double %47, i64 1
   %.sroa.615.32.vec.insert.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %41, i64 0
-  %51 = load <2 x double>, ptr %18, align 1, !tbaa !104, !noalias !152
+  %51 = load <2 x double>, ptr %18, align 8, !tbaa !104, !noalias !152
   %52 = shufflevector <2 x double> %.sroa.615.32.vec.insert.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %53 = fmul <2 x double> %52, %38
   %54 = fadd <2 x double> %51, %53
@@ -796,7 +796,7 @@ _ZNK3g2o16OptimizableGraph4Edge9parameterEi.exit: ; preds = %1
   %57 = fadd double %22, %56
   %58 = fadd double %57, %50
   %59 = getelementptr inbounds nuw i8, ptr %13, i64 224
-  %60 = load <2 x double>, ptr %59, align 1, !tbaa !104, !noalias !137
+  %60 = load <2 x double>, ptr %59, align 8, !tbaa !104, !noalias !137
   %61 = fadd <2 x double> %60, %55
   store <2 x double> %61, ptr %3, align 16, !tbaa !104, !alias.scope !137
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1897,7 +1897,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %52, ptr %53, align 8, !tbaa !106
   store ptr %43, ptr %.sroa.08.012.i.i.i.i.i, align 8, !tbaa !113
   store i64 0, ptr %51, align 8, !tbaa !106
-  store i8 0, ptr %43, align 1, !tbaa !104
+  store i8 0, ptr %43, align 8, !tbaa !104
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq ptr %54, %33
@@ -2117,7 +2117,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %127, ptr %128, align 8, !tbaa !106
   store ptr %118, ptr %.sroa.08.012.i.i.i.i.i73, align 8, !tbaa !113
   store i64 0, ptr %126, align 8, !tbaa !106
-  store i8 0, ptr %118, align 1, !tbaa !104
+  store i8 0, ptr %118, align 8, !tbaa !104
   %129 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i73, i64 32
   %130 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i72, i64 32
   %.not.i.i.i.i.i76 = icmp eq ptr %129, %33
@@ -2231,7 +2231,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %171, ptr %172, align 8, !tbaa !106
   store ptr %162, ptr %.sroa.08.012.i.i.i.i.i93, align 8, !tbaa !113
   store i64 0, ptr %170, align 8, !tbaa !106
-  store i8 0, ptr %162, align 1, !tbaa !104
+  store i8 0, ptr %162, align 8, !tbaa !104
   %173 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i93, i64 32
   %174 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i92, i64 32
   %.not.i.i.i.i.i96 = icmp eq ptr %173, %1
@@ -2275,7 +2275,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %187, ptr %188, align 8, !tbaa !106
   store ptr %178, ptr %.sroa.08.012.i.i.i.i.i101, align 8, !tbaa !113
   store i64 0, ptr %186, align 8, !tbaa !106
-  store i8 0, ptr %178, align 1, !tbaa !104
+  store i8 0, ptr %178, align 8, !tbaa !104
   %189 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i101, i64 32
   %190 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i100, i64 32
   %.not.i.i.i.i.i104 = icmp eq ptr %189, %11

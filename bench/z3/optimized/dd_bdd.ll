@@ -14892,7 +14892,7 @@ _ZNK2dd3bddeoERKS0_.exit:                         ; preds = %70, %_ZNK6vectorIjL
   %88 = getelementptr inbounds nuw %"class.dd::bdd", ptr %85, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   store ptr %45, ptr %89, align 8, !tbaa !91
-  store i32 %48, ptr %88, align 4, !tbaa !49
+  store i32 %48, ptr %88, align 8, !tbaa !49
   %90 = add i32 %84, 1
   store i32 %90, ptr %86, align 4, !tbaa !49
   %91 = load ptr, ptr %50, align 8, !tbaa !31
@@ -15754,7 +15754,7 @@ _ZNK2dd3bddeoERKS0_.exit168:                      ; preds = %443, %_ZNK6vectorIj
   %461 = getelementptr inbounds nuw %"class.dd::bdd", ptr %458, i64 %460
   %462 = getelementptr inbounds nuw i8, ptr %461, i64 8
   store ptr %393, ptr %462, align 8, !tbaa !91
-  store i32 %424, ptr %461, align 4, !tbaa !49
+  store i32 %424, ptr %461, align 8, !tbaa !49
   %463 = add i32 %457, 1
   store i32 %463, ptr %459, align 4, !tbaa !49
   %464 = load ptr, ptr %397, align 8, !tbaa !31
@@ -16264,7 +16264,7 @@ _ZNK2dd3bddeoERKS0_.exit:                         ; preds = %82, %_ZNK6vectorIjL
   %100 = getelementptr inbounds nuw %"class.dd::bdd", ptr %97, i64 %99
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
   store ptr %57, ptr %101, align 8, !tbaa !91
-  store i32 %60, ptr %100, align 4, !tbaa !49
+  store i32 %60, ptr %100, align 8, !tbaa !49
   %102 = add i32 %96, 1
   store i32 %102, ptr %98, align 4, !tbaa !49
   %103 = load ptr, ptr %62, align 8, !tbaa !31
@@ -17243,7 +17243,7 @@ _ZNK2dd3bddeoERKS0_.exit196:                      ; preds = %499, %_ZNK6vectorIj
   %517 = getelementptr inbounds nuw %"class.dd::bdd", ptr %514, i64 %516
   %518 = getelementptr inbounds nuw i8, ptr %517, i64 8
   store ptr %445, ptr %518, align 8, !tbaa !91
-  store i32 %480, ptr %517, align 4, !tbaa !49
+  store i32 %480, ptr %517, align 8, !tbaa !49
   store i32 0, ptr %17, align 8, !tbaa !49
   %519 = add i32 %513, 1
   store i32 %519, ptr %515, align 4, !tbaa !49
@@ -17857,7 +17857,7 @@ _ZNK2dd3bddeoERKS0_.exit:                         ; preds = %68, %_ZNK6vectorIjL
   %86 = getelementptr inbounds nuw %"class.dd::bdd", ptr %83, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store ptr %43, ptr %87, align 8, !tbaa !91
-  store i32 %46, ptr %86, align 4, !tbaa !49
+  store i32 %46, ptr %86, align 8, !tbaa !49
   %88 = add i32 %82, 1
   store i32 %88, ptr %84, align 4, !tbaa !49
   %89 = load ptr, ptr %48, align 8, !tbaa !31
@@ -18437,7 +18437,7 @@ _ZNK2dd3bddeoERKS0_.exit113:                      ; preds = %327, %_ZNK6vectorIj
   %345 = getelementptr inbounds nuw %"class.dd::bdd", ptr %342, i64 %344
   %346 = getelementptr inbounds nuw i8, ptr %345, i64 8
   store ptr %277, ptr %346, align 8, !tbaa !91
-  store i32 %308, ptr %345, align 4, !tbaa !49
+  store i32 %308, ptr %345, align 8, !tbaa !49
   %347 = add i32 %341, 1
   store i32 %347, ptr %343, align 4, !tbaa !49
   %348 = load ptr, ptr %281, align 8, !tbaa !31
@@ -19091,7 +19091,7 @@ _ZNK2dd3bddeoERKS0_.exit:                         ; preds = %161, %_ZNK6vectorIj
   %179 = getelementptr inbounds nuw %"class.dd::bdd", ptr %176, i64 %178
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
   store ptr %137, ptr %180, align 8, !tbaa !91
-  store i32 %140, ptr %179, align 4, !tbaa !49
+  store i32 %140, ptr %179, align 8, !tbaa !49
   %181 = add i32 %175, 1
   store i32 %181, ptr %177, align 4, !tbaa !49
   %182 = load ptr, ptr %141, align 8, !tbaa !31
@@ -19653,7 +19653,7 @@ _ZN2dd11bdd_manager8mk_falseEv.exit:              ; preds = %26, %_ZNK6vectorIjL
   %44 = getelementptr inbounds nuw %"class.dd::bdd", ptr %41, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %1, ptr %45, align 8, !tbaa !91
-  store i32 0, ptr %44, align 4, !tbaa !49
+  store i32 0, ptr %44, align 8, !tbaa !49
   %46 = add i32 %40, 1
   store i32 %46, ptr %42, align 4, !tbaa !49
   %47 = load ptr, ptr %7, align 8, !tbaa !31
@@ -21565,7 +21565,7 @@ _ZN2dd11bdd_manager7mk_trueEv.exit:               ; preds = %52, %31, %_ZNK6vect
   %71 = getelementptr inbounds nuw %"class.dd::bdd", ptr %68, i64 %70
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store ptr %1, ptr %72, align 8, !tbaa !91
-  store i32 %56, ptr %71, align 4, !tbaa !49
+  store i32 %56, ptr %71, align 8, !tbaa !49
   %73 = add i32 %67, 1
   store i32 %73, ptr %69, align 4, !tbaa !49
   %74 = load ptr, ptr %8, align 8, !tbaa !31
@@ -21749,7 +21749,7 @@ _ZN2dd11bdd_manager7mk_trueEv.exit:               ; preds = %27, %_ZNK6vectorIjL
   %45 = getelementptr inbounds nuw %"class.dd::bdd", ptr %42, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %1, ptr %46, align 8, !tbaa !91
-  store i32 1, ptr %45, align 4, !tbaa !49
+  store i32 1, ptr %45, align 8, !tbaa !49
   %47 = add i32 %41, 1
   store i32 %47, ptr %43, align 4, !tbaa !49
   %48 = load ptr, ptr %7, align 8, !tbaa !31
@@ -21947,7 +21947,7 @@ _ZN2dd11bdd_manager6mk_varEj.exit:                ; preds = %37, %_ZNK6vectorIjL
   %55 = getelementptr inbounds nuw %"class.dd::bdd", ptr %52, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %1, ptr %56, align 8, !tbaa !91
-  store i32 %18, ptr %55, align 4, !tbaa !49
+  store i32 %18, ptr %55, align 8, !tbaa !49
   %57 = add i32 %51, 1
   store i32 %57, ptr %53, align 4, !tbaa !49
   %58 = load ptr, ptr %9, align 8, !tbaa !31
@@ -23293,9 +23293,9 @@ _ZNK6vectorIN2dd3bddELb1EjE4sizeEv.exit:          ; preds = %46
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i.i.i, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !91
   store ptr %61, ptr %59, align 8, !tbaa !91
-  %62 = load i32, ptr %.sroa.04.07.i.i.i.i.i.i, align 4, !tbaa !49
-  store i32 %62, ptr %.08.i.i.i.i.i.i, align 4, !tbaa !49
-  store i32 0, ptr %.sroa.04.07.i.i.i.i.i.i, align 4, !tbaa !49
+  %62 = load i32, ptr %.sroa.04.07.i.i.i.i.i.i, align 8, !tbaa !49
+  store i32 %62, ptr %.08.i.i.i.i.i.i, align 8, !tbaa !49
+  store i32 0, ptr %.sroa.04.07.i.i.i.i.i.i, align 8, !tbaa !49
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i.i.i, i64 16
   %64 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 16
   %65 = icmp eq ptr %63, %57

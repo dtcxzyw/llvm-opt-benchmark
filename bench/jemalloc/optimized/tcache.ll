@@ -972,7 +972,7 @@ arena_bin_flush_batch_impl.exit:                  ; preds = %._crit_edge121, %21
   %291 = sub i64 %290, %.sroa.7.3
   store i64 %291, ptr %289, align 8, !tbaa !97
   %292 = getelementptr inbounds nuw i8, ptr %.0.i32, i64 64
-  store atomic i8 0, ptr %292 monotonic, align 1
+  store atomic i8 0, ptr %292 monotonic, align 8
   %293 = getelementptr inbounds nuw i8, ptr %.0.i32, i64 72
   %294 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %293) #16
   br label %295
@@ -1013,7 +1013,7 @@ ticker_geom_ticks.exit:                           ; preds = %301
   %313 = mul nsw i64 %312, %309
   %314 = udiv i64 %313, 61
   %315 = trunc i64 %314 to i32
-  store i32 %315, ptr %35, align 4, !tbaa !98
+  store i32 %315, ptr %35, align 8, !tbaa !98
   tail call void @je_arena_decay(ptr noundef nonnull %0, ptr noundef %.0.i31, i1 noundef zeroext false, i1 noundef zeroext false) #16
   br label %arena_decay_ticks.exit
 
@@ -1130,7 +1130,7 @@ malloc_mutex_lock.exit45:                         ; preds = %351, %357
   store i64 %367, ptr %365, align 8, !tbaa !82
   store i64 0, ptr %31, align 8, !tbaa !81
   %368 = getelementptr inbounds nuw i8, ptr %346, i64 64
-  store atomic i8 0, ptr %368 monotonic, align 1
+  store atomic i8 0, ptr %368 monotonic, align 8
   %369 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %347) #16
   br label %tcache_bin_flush_impl_small.exit
 
@@ -1380,7 +1380,7 @@ ticker_geom_ticks.exit:                           ; preds = %102
   %114 = mul nsw i64 %113, %110
   %115 = udiv i64 %114, 61
   %116 = trunc i64 %115 to i32
-  store i32 %116, ptr %27, align 4, !tbaa !98
+  store i32 %116, ptr %27, align 8, !tbaa !98
   tail call void @je_arena_decay(ptr noundef nonnull %0, ptr noundef %.0.i17, i1 noundef zeroext false, i1 noundef zeroext false) #16
   br label %arena_decay_ticks.exit
 
@@ -1635,7 +1635,7 @@ malloc_mutex_lock.exit64.us:                      ; preds = %88, %82
   store i64 %98, ptr %96, align 8, !tbaa !82
   store i64 0, ptr %29, align 8, !tbaa !81
   %99 = getelementptr inbounds nuw i8, ptr %77, i64 64
-  store atomic i8 0, ptr %99 monotonic, align 1
+  store atomic i8 0, ptr %99 monotonic, align 8
   %100 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %78) #16
   br label %tcache_bin_flush_impl_small.exit.us
 
@@ -1997,7 +1997,7 @@ arena_bin_flush_batch_impl.exit.us:               ; preds = %._crit_edge172.us, 
   %269 = sub i64 %268, %.sroa.7.4.us
   store i64 %269, ptr %267, align 8, !tbaa !97
   %270 = getelementptr inbounds nuw i8, ptr %.0.i51.us, i64 64
-  store atomic i8 0, ptr %270 monotonic, align 1
+  store atomic i8 0, ptr %270 monotonic, align 8
   %271 = getelementptr inbounds nuw i8, ptr %.0.i51.us, i64 72
   %272 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %271) #16
   br label %273
@@ -2034,7 +2034,7 @@ arena_bin_flush_batch_impl.exit.us:               ; preds = %._crit_edge172.us, 
   %291 = mul nsw i64 %290, %287
   %292 = udiv i64 %291, 61
   %293 = trunc i64 %292 to i32
-  store i32 %293, ptr %32, align 4, !tbaa !98
+  store i32 %293, ptr %32, align 8, !tbaa !98
   tail call void @je_arena_decay(ptr noundef nonnull %0, ptr noundef %.0.i50.us, i1 noundef zeroext false, i1 noundef zeroext false) #16
   br label %arena_decay_ticks.exit24.us
 
@@ -2387,7 +2387,7 @@ ticker_geom_ticks.exit76:                         ; preds = %443
   %455 = mul nsw i64 %454, %451
   %456 = udiv i64 %455, 61
   %457 = trunc i64 %456 to i32
-  store i32 %457, ptr %32, align 4, !tbaa !98
+  store i32 %457, ptr %32, align 8, !tbaa !98
   tail call void @je_arena_decay(ptr noundef nonnull %0, ptr noundef %.0.i66, i1 noundef zeroext false, i1 noundef zeroext false) #16
   br label %arena_decay_ticks.exit
 
@@ -2613,7 +2613,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %17
   %47 = phi ptr [ %.pre39, %40 ], [ %33, %31 ]
   store ptr %47, ptr %37, align 16, !tbaa !158
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 10488
-  store atomic i8 0, ptr %48 monotonic, align 1
+  store atomic i8 0, ptr %48 monotonic, align 8
   %49 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #16
   ret void
 }
@@ -3763,7 +3763,7 @@ define hidden void @je_thread_tcache_max_set(ptr noundef %0, i64 noundef %1) loc
   %5 = load ptr, ptr %4, align 8, !tbaa !42
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(146) %3, i8 0, i64 146, i1 false)
-  %6 = load i8, ptr %0, align 1, !tbaa !20, !range !22, !noundef !23
+  %6 = load i8, ptr %0, align 8, !tbaa !20, !range !22, !noundef !23
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %.critedge
 
@@ -4029,7 +4029,7 @@ tcache_bin_settings_backup.exit:                  ; preds = %6
   %12 = load ptr, ptr %9, align 8, !tbaa !42
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %14 = load ptr, ptr %13, align 8, !tbaa !55
-  %15 = load i8, ptr %0, align 1, !tbaa !20, !range !22, !noundef !23
+  %15 = load i8, ptr %0, align 8, !tbaa !20, !range !22, !noundef !23
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %je_tcache_cleanup.exit
 
@@ -4548,7 +4548,7 @@ malloc_mutex_lock.exit:                           ; preds = %21, %27
   %35 = add i64 %34, %32
   store i64 %35, ptr %33, align 8, !tbaa !82
   %36 = getelementptr inbounds nuw i8, ptr %16, i64 64
-  store atomic i8 0, ptr %36 monotonic, align 1
+  store atomic i8 0, ptr %36 monotonic, align 8
   %37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %17) #16
   br label %47
 

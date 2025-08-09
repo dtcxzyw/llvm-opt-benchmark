@@ -7339,7 +7339,7 @@ entry:
   %current_size_.i.i = getelementptr inbounds nuw i8, ptr %data, i64 8
   %0 = load i32, ptr %current_size_.i.i, align 8
   %sub.i.i = add nsw i32 %0, -1
-  store i32 %sub.i.i, ptr %current_size_.i.i, align 4
+  store i32 %sub.i.i, ptr %current_size_.i.i, align 8
   %1 = load ptr, ptr %data, align 8
   %2 = ptrtoint ptr %1 to i64
   %and.i.i.i.i = and i64 %2, 1
@@ -8178,7 +8178,7 @@ entry:
   %current_size_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %0 = load i32, ptr %current_size_.i.i, align 8
   %sub.i.i = add nsw i32 %0, -1
-  store i32 %sub.i.i, ptr %current_size_.i.i, align 4
+  store i32 %sub.i.i, ptr %current_size_.i.i, align 8
   %1 = load ptr, ptr %call.i, align 8
   %2 = ptrtoint ptr %1 to i64
   %and.i.i.i.i = and i64 %2, 1
@@ -8814,7 +8814,7 @@ entry:
   %current_size_.i.i = getelementptr inbounds nuw i8, ptr %data, i64 8
   %0 = load i32, ptr %current_size_.i.i, align 8
   %sub.i.i = add nsw i32 %0, -1
-  store i32 %sub.i.i, ptr %current_size_.i.i, align 4
+  store i32 %sub.i.i, ptr %current_size_.i.i, align 8
   %1 = load ptr, ptr %data, align 8
   %2 = ptrtoint ptr %1 to i64
   %and.i.i.i.i = and i64 %2, 1

@@ -5718,7 +5718,7 @@ put_rac.exit:                                     ; preds = %12, %renorm_encoder
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 6404
   %72 = load i32, ptr %71, align 4, !tbaa !306
   %73 = load i32, ptr %5, align 4, !tbaa !252
-  %74 = load i8, ptr %68, align 1, !tbaa !84
+  %74 = load i8, ptr %68, align 8, !tbaa !84
   %75 = zext i8 %74 to i32
   %76 = mul nsw i32 %73, %75
   %77 = ashr i32 %76, 8
@@ -5740,7 +5740,7 @@ put_rac.exit:                                     ; preds = %12, %renorm_encoder
   %84 = zext i8 %74 to i64
   %85 = getelementptr inbounds nuw [256 x i8], ptr %83, i64 0, i64 %84
   %storemerge.i138 = load i8, ptr %85, align 1, !tbaa !84
-  store i8 %storemerge.i138, ptr %68, align 1, !tbaa !84
+  store i8 %storemerge.i138, ptr %68, align 4, !tbaa !84
   %86 = icmp slt i32 %.sink.i136, 256
   br i1 %86, label %87, label %put_rac.exit145
 
@@ -5841,7 +5841,7 @@ put_rac.exit145:                                  ; preds = %82, %renorm_encoder
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 6628
   %142 = load i32, ptr %141, align 4, !tbaa !309
   %143 = load i32, ptr %5, align 4, !tbaa !252
-  %144 = load i8, ptr %68, align 1, !tbaa !84
+  %144 = load i8, ptr %68, align 4, !tbaa !84
   %145 = zext i8 %144 to i32
   %146 = mul nsw i32 %143, %145
   %147 = ashr i32 %146, 8
@@ -5863,7 +5863,7 @@ put_rac.exit145:                                  ; preds = %82, %renorm_encoder
   %154 = zext i8 %144 to i64
   %155 = getelementptr inbounds nuw [256 x i8], ptr %153, i64 0, i64 %154
   %storemerge.i149 = load i8, ptr %155, align 1, !tbaa !84
-  store i8 %storemerge.i149, ptr %68, align 1, !tbaa !84
+  store i8 %storemerge.i149, ptr %68, align 4, !tbaa !84
   %156 = icmp slt i32 %.sink.i147, 256
   br i1 %156, label %157, label %put_rac.exit156
 
@@ -6018,7 +6018,7 @@ encode_qlogs.exitthread-pre-split:                ; preds = %._crit_edge.i, %put
 .critedge._crit_edge.thread:                      ; preds = %.critedge.preheader
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 2144
   %229 = load i32, ptr %5, align 4, !tbaa !252
-  %230 = load i8, ptr %228, align 1, !tbaa !84
+  %230 = load i8, ptr %228, align 4, !tbaa !84
   %231 = zext i8 %230 to i32
   %232 = mul nsw i32 %229, %231
   %233 = ashr i32 %232, 8
@@ -6061,7 +6061,7 @@ encode_qlogs.exitthread-pre-split:                ; preds = %._crit_edge.i, %put
   %255 = icmp eq i32 %254, 0
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 2144
   %257 = load i32, ptr %5, align 4, !tbaa !252
-  %258 = load i8, ptr %256, align 1, !tbaa !84
+  %258 = load i8, ptr %256, align 4, !tbaa !84
   %259 = zext i8 %258 to i32
   %260 = mul nsw i32 %257, %259
   %261 = ashr i32 %260, 8
@@ -7269,7 +7269,7 @@ check_block_inter.exit516.us.us.i:                ; preds = %372, %366, %334
   %384 = zext i8 %383 to i32
   %385 = shl nuw nsw i32 %384, 12
   %386 = add i32 %385, %381
-  %387 = load i32, ptr %62, align 4, !tbaa !119
+  %387 = load i32, ptr %62, align 8, !tbaa !119
   %388 = icmp eq i32 %387, %386
   br i1 %388, label %check_block_inter.exit518.us.us.i, label %389
 

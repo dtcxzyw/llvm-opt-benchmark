@@ -11613,7 +11613,7 @@ _ZN5alloc11collections5btree4node12slice_insert17h197ae23c83587899E.exit.i64.i: 
   %223 = getelementptr inbounds nuw i8, ptr %208, i64 8
   store i64 %.sroa.35.1, ptr %223, align 8, !alias.scope !1806, !noalias !1803
   %224 = getelementptr inbounds nuw i8, ptr %208, i64 188
-  store i8 %148, ptr %224, align 1, !alias.scope !1809, !noalias !1803
+  store i8 %148, ptr %224, align 4, !alias.scope !1809, !noalias !1803
   %225 = getelementptr inbounds nuw i8, ptr %208, i64 200
   %226 = getelementptr inbounds nuw i8, ptr %208, i64 208
   store ptr %.sroa.747.1139149, ptr %226, align 8, !alias.scope !1812, !noalias !1803

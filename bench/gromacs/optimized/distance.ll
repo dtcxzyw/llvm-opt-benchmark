@@ -316,31 +316,31 @@ define void @_ZN3gmx15analysismodules12DistanceInfo6createEv(ptr dead_on_unwind 
   store ptr %13, ptr %12, align 8, !tbaa !7
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store i64 0, ptr %14, align 8, !tbaa !12
-  store i8 0, ptr %13, align 1, !tbaa !15
+  store i8 0, ptr %13, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 88
   store ptr %16, ptr %15, align 8, !tbaa !7
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 80
   store i64 0, ptr %17, align 8, !tbaa !12
-  store i8 0, ptr %16, align 1, !tbaa !15
+  store i8 0, ptr %16, align 8, !tbaa !15
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 104
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 120
   store ptr %19, ptr %18, align 8, !tbaa !7
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 112
   store i64 0, ptr %20, align 8, !tbaa !12
-  store i8 0, ptr %19, align 1, !tbaa !15
+  store i8 0, ptr %19, align 8, !tbaa !15
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 152
   store ptr %22, ptr %21, align 8, !tbaa !7
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 144
   store i64 0, ptr %23, align 8, !tbaa !12
-  store i8 0, ptr %22, align 1, !tbaa !15
+  store i8 0, ptr %22, align 8, !tbaa !15
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 184
   store ptr %25, ptr %24, align 8, !tbaa !7
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 176
   store i64 0, ptr %26, align 8, !tbaa !12
-  store i8 0, ptr %25, align 1, !tbaa !15
+  store i8 0, ptr %25, align 8, !tbaa !15
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 200
   store double 1.000000e-01, ptr %27, align 8, !tbaa !16
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 208

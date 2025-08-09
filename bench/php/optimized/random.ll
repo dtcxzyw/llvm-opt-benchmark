@@ -2084,7 +2084,7 @@ define hidden noundef i32 @zm_startup_random(i32 %0, i32 noundef %1) #0 {
   %90 = getelementptr inbounds nuw i8, ptr %86, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %90, ptr noundef nonnull align 1 dereferenceable(6) @.str.38, i64 6, i1 false)
   %91 = getelementptr inbounds nuw i8, ptr %86, i64 30
-  store i8 0, ptr %91, align 1, !tbaa !71
+  store i8 0, ptr %91, align 2, !tbaa !71
   %92 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #19
   store i32 1, ptr %92, align 4, !tbaa !80
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 4
@@ -2196,7 +2196,7 @@ register_class_Random_Randomizer.exit:            ; preds = %2, %103, %110, %111
   %141 = getelementptr inbounds nuw i8, ptr %137, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(42) %141, ptr noundef nonnull align 1 dereferenceable(42) @.str.75, i64 42, i1 false)
   %142 = getelementptr inbounds nuw i8, ptr %137, i64 66
-  store i8 0, ptr %142, align 1, !tbaa !71
+  store i8 0, ptr %142, align 2, !tbaa !71
   %143 = getelementptr inbounds nuw i8, ptr %124, i64 56
   %144 = getelementptr inbounds nuw i8, ptr %124, i64 64
   store ptr %137, ptr %144, align 8, !tbaa !71

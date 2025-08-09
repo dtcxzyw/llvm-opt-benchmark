@@ -105,7 +105,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   store i64 %20, ptr %21, align 8, !tbaa !13
   store ptr %10, ptr %1, align 8, !tbaa !10
   store i64 0, ptr %19, align 8, !tbaa !13
-  store i8 0, ptr %10, align 1, !tbaa !14
+  store i8 0, ptr %10, align 8, !tbaa !14
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %23, ptr %22, align 8, !tbaa !4

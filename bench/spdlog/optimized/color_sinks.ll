@@ -9348,7 +9348,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %11
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %9, ptr %1, align 8, !tbaa !41
   store i64 0, ptr %19, align 8, !tbaa !39
-  store i8 0, ptr %9, align 1, !tbaa !38
+  store i8 0, ptr %9, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %21 = load ptr, ptr %2, align 8, !tbaa !230
   store ptr %21, ptr %6, align 8, !tbaa !230
@@ -9598,7 +9598,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %10
   store i64 %17, ptr %18, align 8, !tbaa !39
   store ptr %8, ptr %1, align 8, !tbaa !41
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %8, align 1, !tbaa !38
+  store i8 0, ptr %8, align 8, !tbaa !38
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   %20 = ptrtoint ptr %3 to i64

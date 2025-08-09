@@ -2615,7 +2615,7 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit: ; preds = %54, %59
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %114 = load i64, ptr %113, align 8, !tbaa !38
   %115 = icmp eq i64 %114, %104
-  %116 = load i32, ptr %112, align 4
+  %116 = load i32, ptr %112, align 8
   %117 = icmp eq i32 %97, %116
   %118 = select i1 %115, i1 %117, i1 false
   br i1 %118, label %_ZNKSt13unordered_setIN4cvc58internal4kind6Kind_tENS2_16KindHashFunctionESt8equal_toIS3_ESaIS3_EE4findERKS3_.exitthread-pre-split, label %.lr.ph.i.i.i.i26

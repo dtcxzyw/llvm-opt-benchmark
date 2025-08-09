@@ -4684,7 +4684,7 @@ define void @tvb_get_ntohguid(ptr noundef %0, i32 noundef %1, ptr noundef initia
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %37 = getelementptr i8, ptr %4, i64 8
   %38 = load i64, ptr %37, align 1
-  store i64 %38, ptr %36, align 1
+  store i64 %38, ptr %36, align 4
   ret void
 }
 
@@ -4704,7 +4704,7 @@ define void @tvb_get_letohguid(ptr noundef %0, i32 noundef %1, ptr noundef initi
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = getelementptr i8, ptr %4, i64 8
   %12 = load i64, ptr %11, align 1
-  store i64 %12, ptr %10, align 1
+  store i64 %12, ptr %10, align 4
   ret void
 }
 
@@ -4771,7 +4771,7 @@ define void @tvb_get_guid(ptr noundef %0, i32 noundef %1, ptr noundef initialize
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %45 = getelementptr i8, ptr %5, i64 8
   %46 = load i64, ptr %45, align 1
-  store i64 %46, ptr %44, align 1
+  store i64 %46, ptr %44, align 2
   ret void
 }
 

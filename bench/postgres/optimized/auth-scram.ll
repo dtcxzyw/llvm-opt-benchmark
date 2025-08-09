@@ -147,7 +147,7 @@ define internal noundef ptr @scram_init(ptr noundef %0, ptr noundef readonly cap
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store i32 3, ptr %41, align 4
-  store i32 32, ptr %43, align 4
+  store i32 32, ptr %43, align 8
   %46 = tail call ptr @GetMockAuthenticationNonce() #13
   %47 = tail call ptr @pg_cryptohash_create(i32 noundef 3) #13
   %48 = tail call i32 @pg_cryptohash_init(ptr noundef %47) #13

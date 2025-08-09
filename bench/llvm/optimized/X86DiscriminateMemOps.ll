@@ -1877,7 +1877,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS
   %36 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i32 %35, ptr %36, align 8, !tbaa !207
   %37 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  store i32 0, ptr %37, align 4, !tbaa !212
+  store i32 0, ptr %37, align 8, !tbaa !212
   br label %38
 
 38:                                               ; preds = %2, %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E16InsertIntoBucketIS4_JEEEPS9_SD_OT_DpOT0_.exit
@@ -1961,7 +1961,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS
   %36 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i32 %35, ptr %36, align 8, !tbaa !207
   %37 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  store i32 0, ptr %37, align 4, !tbaa !212
+  store i32 0, ptr %37, align 8, !tbaa !212
   br label %38
 
 38:                                               ; preds = %2, %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E16InsertIntoBucketIRKS4_JEEEPS9_SF_OT_DpOT0_.exit
@@ -2627,7 +2627,7 @@ _ZN4llvm12DenseMapInfoISt4pairINS_9StringRefEjEvE7isEqualERKS3_S6_.exit25.thread
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %51 = getelementptr inbounds nuw i8, ptr %.031.i, i64 24
   %52 = load i32, ptr %51, align 4, !tbaa !212
-  store i32 %52, ptr %50, align 4, !tbaa !212
+  store i32 %52, ptr %50, align 8, !tbaa !212
   %53 = load i32, ptr %33, align 8, !tbaa !293
   %54 = add i32 %53, 1
   store i32 %54, ptr %33, align 8, !tbaa !293
@@ -2915,9 +2915,9 @@ _ZN4llvm12DenseMapInfoISt4pairINS_9StringRefEjEvE7isEqualERKS3_S6_.exit25.thread
   store ptr null, ptr %25, align 8, !tbaa !332
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %28 = getelementptr inbounds nuw i8, ptr %.031, i64 32
-  %29 = load i32, ptr %28, align 4, !tbaa !212
-  store i32 %29, ptr %27, align 4, !tbaa !212
-  store i32 0, ptr %28, align 4, !tbaa !212
+  %29 = load i32, ptr %28, align 8, !tbaa !212
+  store i32 %29, ptr %27, align 8, !tbaa !212
+  store i32 0, ptr %28, align 8, !tbaa !212
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 36
   %31 = getelementptr inbounds nuw i8, ptr %.031, i64 36
   %32 = load i32, ptr %30, align 4, !tbaa !212
@@ -2926,10 +2926,10 @@ _ZN4llvm12DenseMapInfoISt4pairINS_9StringRefEjEvE7isEqualERKS3_S6_.exit25.thread
   store i32 %32, ptr %31, align 4, !tbaa !212
   %34 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %35 = getelementptr inbounds nuw i8, ptr %.031, i64 40
-  %36 = load i32, ptr %34, align 4, !tbaa !212
-  %37 = load i32, ptr %35, align 4, !tbaa !212
-  store i32 %37, ptr %34, align 4, !tbaa !212
-  store i32 %36, ptr %35, align 4, !tbaa !212
+  %36 = load i32, ptr %34, align 8, !tbaa !212
+  %37 = load i32, ptr %35, align 8, !tbaa !212
+  store i32 %37, ptr %34, align 8, !tbaa !212
+  store i32 %36, ptr %35, align 8, !tbaa !212
   %38 = load i32, ptr %5, align 8, !tbaa !276
   %39 = add i32 %38, 1
   store i32 %39, ptr %5, align 8, !tbaa !276

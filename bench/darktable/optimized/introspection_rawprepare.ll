@@ -1530,11 +1530,11 @@ define void @reload_defaults(ptr noundef captures(none) initializes((484, 488), 
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 1830
   %17 = load i16, ptr %16, align 2, !tbaa !107
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 1832
-  %19 = load i16, ptr %18, align 2, !tbaa !107
+  %19 = load i16, ptr %18, align 8, !tbaa !107
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 1834
   %21 = load i16, ptr %20, align 2, !tbaa !107
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 1836
-  %23 = load i16, ptr %22, align 2, !tbaa !107
+  %23 = load i16, ptr %22, align 4, !tbaa !107
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 1840
   %25 = load i32, ptr %24, align 16, !tbaa !165
   %26 = trunc i32 %25 to i16

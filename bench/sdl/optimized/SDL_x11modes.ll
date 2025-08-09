@@ -1404,7 +1404,7 @@ define internal fastcc noundef zeroext i1 @SetXRandRModeInfo(ptr noundef %0, ptr
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %32 = load i32, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 80
-  %34 = load i32, ptr %33, align 4
+  %34 = load i32, ptr %33, align 8
   %35 = load ptr, ptr @X11_XFree, align 8
   %36 = call i32 %35(ptr noundef nonnull %28) #8
   br label %37

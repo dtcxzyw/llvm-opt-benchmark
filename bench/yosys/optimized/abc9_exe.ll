@@ -15750,7 +15750,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !tbaa !12, !alias.scope !205, !noalias !208
   store ptr %43, ptr %.0911.i.i.i, align 8, !tbaa !16, !alias.scope !208, !noalias !205
   store i64 0, ptr %52, align 8, !tbaa !12, !alias.scope !208, !noalias !205
-  store i8 0, ptr %43, align 1, !tbaa !15, !alias.scope !208, !noalias !205
+  store i8 0, ptr %43, align 8, !tbaa !15, !alias.scope !208, !noalias !205
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %54, %1
@@ -15798,7 +15798,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !tbaa !12, !alias.scope !212, !noalias !215
   store ptr %59, ptr %.0911.i.i.i29, align 8, !tbaa !16, !alias.scope !215, !noalias !212
   store i64 0, ptr %68, align 8, !tbaa !12, !alias.scope !215, !noalias !212
-  store i8 0, ptr %59, align 1, !tbaa !15, !alias.scope !215, !noalias !212
+  store i8 0, ptr %59, align 8, !tbaa !15, !alias.scope !215, !noalias !212
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %.not.i.i.i34 = icmp eq ptr %70, %6
@@ -16225,7 +16225,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %38
   store i64 %44, ptr %46, align 8, !tbaa !12
   store ptr %36, ptr %1, align 8, !tbaa !16
   store i64 0, ptr %45, align 8, !tbaa !12
-  store i8 0, ptr %36, align 1, !tbaa !15
+  store i8 0, ptr %36, align 8, !tbaa !15
   br label %438
 
 47:                                               ; preds = %.lr.ph, %195
@@ -17357,7 +17357,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit130: ; preds = 
   store i64 %427, ptr %429, align 8, !tbaa !12
   store ptr %419, ptr %1, align 8, !tbaa !16
   store i64 0, ptr %428, align 8, !tbaa !12
-  store i8 0, ptr %419, align 1, !tbaa !15
+  store i8 0, ptr %419, align 8, !tbaa !15
   %430 = load ptr, ptr %13, align 8, !tbaa !16
   %431 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %432 = icmp eq ptr %430, %431

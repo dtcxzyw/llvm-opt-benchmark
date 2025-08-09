@@ -1424,11 +1424,11 @@ invoke.cont217:                                   ; preds = %for.end211
   %crack_level.i = getelementptr inbounds nuw i8, ptr %call215, i64 32
   store i32 -1, ptr %crack_level.i, align 8, !tbaa !102
   %crack_pos.i = getelementptr inbounds nuw i8, ptr %call215, i64 36
-  store i16 0, ptr %crack_pos.i, align 2, !tbaa !91
+  store i16 0, ptr %crack_pos.i, align 4, !tbaa !91
   %Y.i3.i = getelementptr inbounds nuw i8, ptr %call215, i64 38
   store i16 0, ptr %Y.i3.i, align 2, !tbaa !92
   %Z.i4.i = getelementptr inbounds nuw i8, ptr %call215, i64 40
-  store i16 0, ptr %Z.i4.i, align 2, !tbaa !93
+  store i16 0, ptr %Z.i4.i, align 8, !tbaa !93
   %data.i = getelementptr inbounds nuw i8, ptr %call215, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %data.i, i8 0, i64 33, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %call215, ptr noundef nonnull align 8 dereferenceable(6) %mesh_position, i64 6, i1 false), !tbaa.struct !95

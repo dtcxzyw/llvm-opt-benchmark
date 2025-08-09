@@ -4548,7 +4548,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !15, !alias.scope !283, !noalias !286
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !10, !alias.scope !286, !noalias !283
   store i64 0, ptr %48, align 8, !tbaa !15, !alias.scope !286, !noalias !283
-  store i8 0, ptr %39, align 1, !tbaa !18, !alias.scope !286, !noalias !283
+  store i8 0, ptr %39, align 8, !tbaa !18, !alias.scope !286, !noalias !283
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -4596,7 +4596,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !15, !alias.scope !290, !noalias !293
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !10, !alias.scope !293, !noalias !290
   store i64 0, ptr %64, align 8, !tbaa !15, !alias.scope !293, !noalias !290
-  store i8 0, ptr %55, align 1, !tbaa !18, !alias.scope !293, !noalias !290
+  store i8 0, ptr %55, align 8, !tbaa !18, !alias.scope !293, !noalias !290
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5
@@ -5190,7 +5190,7 @@ define linkonce_odr void @_ZN9grpc_core15metadata_detail12AppendHelperI19grpc_me
   %storemerge.i.i.i.i = or i16 %7, 2
   store i16 %storemerge.i.i.i.i, ptr %6, align 2, !tbaa !45
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 10
-  store i8 %5, ptr %8, align 1, !tbaa !311
+  store i8 %5, ptr %8, align 2, !tbaa !311
   ret void
 }
 
@@ -5405,7 +5405,7 @@ define linkonce_odr void @_ZN9grpc_core15metadata_detail12AppendHelperI19grpc_me
   %storemerge.i.i.i.i = or i16 %7, 16384
   store i16 %storemerge.i.i.i.i, ptr %6, align 2, !tbaa !45
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i8 %5, ptr %8, align 1, !tbaa !328
+  store i8 %5, ptr %8, align 2, !tbaa !328
   ret void
 }
 
@@ -5606,7 +5606,7 @@ define linkonce_odr void @_ZN9grpc_core15metadata_detail12AppendHelperI19grpc_me
   %storemerge.i.i.i.i = or i16 %7, 1024
   store i16 %storemerge.i.i.i.i, ptr %6, align 2, !tbaa !45
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i8 %5, ptr %8, align 1, !tbaa !18
+  store i8 %5, ptr %8, align 2, !tbaa !18
   ret void
 }
 
@@ -6969,7 +6969,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %49, ptr %51, align 8, !tbaa !15
   store ptr %40, ptr %37, align 8, !tbaa !10
   store i64 0, ptr %50, align 8, !tbaa !15
-  store i8 0, ptr %40, align 1, !tbaa !18
+  store i8 0, ptr %40, align 8, !tbaa !18
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.023.0, i64 40
   %53 = add nuw nsw i64 %.012.i, 1
   %exitcond.not.i = icmp eq i64 %53, %.sink1.i
@@ -8375,7 +8375,7 @@ _ZN9grpc_core14promise_detail7CurriedIZNS_21promise_filter_detail30InterceptServ
   store ptr null, ptr %6, align 8, !tbaa !234, !noalias !496
   store i64 %4, ptr %2, align 8, !tbaa !229
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i8 %5, ptr %8, align 1, !tbaa !233
+  store i8 %5, ptr %8, align 8, !tbaa !233
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %7, ptr %9, align 8, !tbaa !234
   ret void
@@ -8387,7 +8387,7 @@ define linkonce_odr void @_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_m
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !234
   %.not.i.i.i = icmp ne ptr %5, null
-  %6 = load i8, ptr %3, align 1, !range !73
+  %6 = load i8, ptr %3, align 8, !range !73
   %7 = trunc nuw i8 %6 to i1
   %or.cond.i.i.i = select i1 %.not.i.i.i, i1 %7, i1 false
   br i1 %or.cond.i.i.i, label %8, label %_ZN9grpc_core14promise_detail11PromiseLikeINS0_7CurriedIZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_21StatefulSessionFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS3_14FilterCallDataIS6_EERKNS_8CallArgsEEUlSt10unique_ptrIS8_NS_5Arena13PooledDeleterEEE_SL_EEvED2Ev.exit
@@ -9178,7 +9178,7 @@ define linkonce_odr void @_ZN9grpc_core21promise_filter_detail11RunCallImplIMNS_
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %9 = load ptr, ptr %8, align 8, !tbaa !201
   tail call void @_ZN9grpc_core21StatefulSessionFilter4Call23OnClientInitialMetadataER19grpc_metadata_batchPS0_(ptr noundef nonnull align 8 dereferenceable(50) %3, ptr noundef nonnull align 8 dereferenceable(600) %7, ptr noundef %9)
-  %10 = load i8, ptr %1, align 1, !tbaa !233
+  %10 = load i8, ptr %1, align 8, !tbaa !233
   store i8 %10, ptr %5, align 8, !tbaa !233
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load i64, ptr %6, align 8, !tbaa !234

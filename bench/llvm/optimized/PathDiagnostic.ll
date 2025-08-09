@@ -4956,7 +4956,7 @@ define dso_local void @_ZN5clang4ento23PathDiagnosticCallPiece9constructERKNS_11
   store ptr %19, ptr %18, align 8, !tbaa !15
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i64 0, ptr %20, align 8, !tbaa !21
-  store i8 0, ptr %19, align 1, !tbaa !20
+  store i8 0, ptr %19, align 8, !tbaa !20
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 48
   store i32 3, ptr %21, align 8, !tbaa !22
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 52
@@ -4979,7 +4979,7 @@ define dso_local void @_ZN5clang4ento23PathDiagnosticCallPiece9constructERKNS_11
   store ptr %30, ptr %29, align 8, !tbaa !15
   %31 = getelementptr inbounds nuw i8, ptr %16, i64 160
   store i64 0, ptr %31, align 8, !tbaa !21
-  store i8 0, ptr %30, align 1, !tbaa !20
+  store i8 0, ptr %30, align 8, !tbaa !20
   %32 = getelementptr inbounds nuw i8, ptr %16, i64 184
   store i32 1, ptr %32, align 8, !tbaa !166
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 192

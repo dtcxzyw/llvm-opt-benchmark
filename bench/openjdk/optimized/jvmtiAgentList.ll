@@ -319,7 +319,7 @@ define hidden void @_ZN14JvmtiAgentList19convert_xrun_agentsEv() local_unnamed_a
   %10 = getelementptr inbounds ptr, ptr %7, i64 %9
   %11 = load ptr, ptr %10, align 8
   tail call void @_ZN10JvmtiAgent18convert_xrun_agentEv(ptr noundef nonnull align 8 dereferenceable(86) %11) #10
-  %12 = load i32, ptr %2, align 4
+  %12 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %._crit_edge, label %5, !llvm.loop !13
 
@@ -376,7 +376,7 @@ define hidden void @_ZN14JvmtiAgentList11load_agentsEv() local_unnamed_addr #0 a
   %11 = getelementptr inbounds ptr, ptr %8, i64 %10
   %12 = load ptr, ptr %11, align 8
   tail call void @_ZN10JvmtiAgent18convert_xrun_agentEv(ptr noundef nonnull align 8 dereferenceable(86) %12) #10
-  %13 = load i32, ptr %3, align 4
+  %13 = load i32, ptr %3, align 8
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %._crit_edge.i, label %6, !llvm.loop !13
 
@@ -425,7 +425,7 @@ _ZN14JvmtiAgentList19convert_xrun_agentsEv.exit:  ; preds = %._crit_edge.i, %19
   %27 = getelementptr inbounds ptr, ptr %24, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef zeroext i1 @_ZN10JvmtiAgent4loadEP12outputStream(ptr noundef nonnull align 8 dereferenceable(86) %28, ptr noundef null) #10
-  %30 = load i32, ptr %20, align 4
+  %30 = load i32, ptr %20, align 8
   %.not.i2 = icmp eq i32 %30, 0
   br i1 %.not.i2, label %_ZL11load_agentsRN14JvmtiAgentList8IteratorE.exit, label %.lr.ph.i1, !llvm.loop !14
 
@@ -479,7 +479,7 @@ define hidden void @_ZN14JvmtiAgentList16load_xrun_agentsEv() local_unnamed_addr
   %9 = getelementptr inbounds ptr, ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef zeroext i1 @_ZN10JvmtiAgent4loadEP12outputStream(ptr noundef nonnull align 8 dereferenceable(86) %10, ptr noundef null) #10
-  %12 = load i32, ptr %2, align 4
+  %12 = load i32, ptr %2, align 8
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %_ZL11load_agentsRN14JvmtiAgentList8IteratorE.exit, label %.lr.ph.i, !llvm.loop !14
 
@@ -557,7 +557,7 @@ define hidden void @_ZN14JvmtiAgentList13unload_agentsEv() local_unnamed_addr #0
   %10 = getelementptr inbounds ptr, ptr %7, i64 %9
   %11 = load ptr, ptr %10, align 8
   tail call void @_ZN10JvmtiAgent6unloadEv(ptr noundef nonnull align 8 dereferenceable(86) %11) #10
-  %12 = load i32, ptr %2, align 4
+  %12 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %._crit_edge, label %5, !llvm.loop !15
 

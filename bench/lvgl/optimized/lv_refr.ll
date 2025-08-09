@@ -1978,7 +1978,7 @@ wait_for_flushing.exit:                           ; preds = %.preheader.i, %18
   store i32 %46, ptr %2, align 4, !tbaa !56
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 920
-  %49 = load i32, ptr %48, align 4, !tbaa !57
+  %49 = load i32, ptr %48, align 8, !tbaa !57
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %51 = load i32, ptr %50, align 4, !tbaa !139
   %52 = add nsw i32 %51, %49
@@ -1990,7 +1990,7 @@ wait_for_flushing.exit:                           ; preds = %.preheader.i, %18
   store i32 %56, ptr %53, align 4, !tbaa !58
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 928
-  %59 = load i32, ptr %58, align 4, !tbaa !59
+  %59 = load i32, ptr %58, align 8, !tbaa !59
   %60 = add nsw i32 %59, %51
   store i32 %60, ptr %57, align 4, !tbaa !59
   %61 = call i32 @lv_display_send_event(ptr noundef nonnull %0, i32 noundef 61, ptr noundef nonnull %2) #9

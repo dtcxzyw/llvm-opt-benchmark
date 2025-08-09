@@ -5883,7 +5883,7 @@ define internal void @bxt_ddi_pll_enable(ptr noundef %0, ptr noundef readonly ca
   %17 = load ptr, ptr %16, align 8
   call void %17(ptr noundef nonnull %11, i32 %10, i32 noundef %15, i1 noundef zeroext true) #13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 7184
-  %19 = load i32, ptr %18, align 4
+  %19 = load i32, ptr %18, align 8
   %20 = and i32 %19, 268435456
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %51, label %22
@@ -6294,7 +6294,7 @@ define internal void @bxt_ddi_pll_disable(ptr noundef %0, ptr noundef readonly c
   %16 = load ptr, ptr %10, align 8
   %17 = tail call i32 %16(ptr noundef nonnull %9, i32 %8, i1 noundef zeroext false) #13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 7184
-  %19 = load i32, ptr %18, align 4
+  %19 = load i32, ptr %18, align 8
   %20 = and i32 %19, 268435456
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %51, label %22
@@ -7548,7 +7548,7 @@ define internal void @skl_ddi_pll_enable(ptr noundef %0, ptr noundef readonly ca
   %30 = getelementptr %struct.skl_dpll_regs, ptr @skl_dpll_regs, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %33 = load i32, ptr %32, align 4
+  %33 = load i32, ptr %32, align 8
   %34 = load i32, ptr %31, align 4
   %35 = load ptr, ptr %25, align 8
   tail call void %35(ptr noundef nonnull %18, i32 %34, i32 noundef %33, i1 noundef zeroext true) #13

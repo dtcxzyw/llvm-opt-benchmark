@@ -7370,7 +7370,7 @@ _ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread: ; preds = %7, %5
   store atomic i32 1, ptr %11 monotonic, align 4
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store atomic i64 0, ptr %12 monotonic, align 8
-  %13 = load atomic i32, ptr %8 monotonic, align 4
+  %13 = load atomic i32, ptr %8 monotonic, align 8
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %0, ptr %14, align 8, !tbaa !69
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -7613,8 +7613,8 @@ define dso_local nonnull ptr @hb_blob_create_sub_blob(ptr noundef %0, i32 nounde
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = sub i32 %8, %1
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %2, i32 %18)
-  %19 = load atomic i32, ptr %0 monotonic, align 4
-  %20 = load atomic i32, ptr %0 monotonic, align 4
+  %19 = load atomic i32, ptr %0 monotonic, align 8
+  %20 = load atomic i32, ptr %0 monotonic, align 8
   %.not.i7.i.i = icmp eq i32 %20, 0
   br i1 %.not.i7.i.i, label %hb_blob_reference.exit, label %21, !prof !64
 
@@ -7727,7 +7727,7 @@ hb_blob_create_or_fail.exit:                      ; preds = %42
   store atomic i32 1, ptr %60 monotonic, align 4
   %61 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store atomic i64 0, ptr %61 monotonic, align 8
-  %62 = load atomic i32, ptr %43 monotonic, align 4
+  %62 = load atomic i32, ptr %43 monotonic, align 8
   %63 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store ptr %17, ptr %63, align 8, !tbaa !69
   %64 = getelementptr inbounds nuw i8, ptr %43, i64 24
@@ -8235,7 +8235,7 @@ _ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread.i: ; preds = %20, %16
   store atomic i32 1, ptr %24 monotonic, align 4
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store atomic i64 0, ptr %25 monotonic, align 8
-  %26 = load atomic i32, ptr %21 monotonic, align 4
+  %26 = load atomic i32, ptr %21 monotonic, align 8
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %14, ptr %27, align 8, !tbaa !69
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 24
@@ -8340,7 +8340,7 @@ _ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread.i66: ; preds = %58, %._c
   store atomic i32 1, ptr %61 monotonic, align 4
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store atomic i64 0, ptr %62 monotonic, align 8
-  %63 = load atomic i32, ptr %59 monotonic, align 4
+  %63 = load atomic i32, ptr %59 monotonic, align 8
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 16
   store ptr %.153.lcssa80, ptr %64, align 8, !tbaa !69
   %65 = getelementptr inbounds nuw i8, ptr %59, i64 24
@@ -16215,7 +16215,7 @@ define dso_local nonnull ptr @hb_buffer_create() local_unnamed_addr #0 {
   store atomic i32 1, ptr %3 monotonic, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store atomic i64 0, ptr %4 monotonic, align 8
-  %5 = load atomic i32, ptr %1 monotonic, align 4
+  %5 = load atomic i32, ptr %1 monotonic, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 196
   store i32 1073741823, ptr %6, align 4, !tbaa !349
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 200
@@ -17157,7 +17157,7 @@ _ZL9hb_memsetPvij.exit26:                         ; preds = %_ZN11hb_buffer_t6en
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %40, align 8, !tbaa !304
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i32 0, ptr %41, align 4, !tbaa !127
+  store i32 0, ptr %41, align 8, !tbaa !127
   br label %42
 
 42:                                               ; preds = %_ZL9hb_memsetPvij.exit26.thread, %39, %_ZL9hb_memsetPvij.exit26
@@ -18687,7 +18687,7 @@ _ZL9hb_memsetPvij.exit26.i:                       ; preds = %_ZN11hb_buffer_t6en
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %50, align 8, !tbaa !304
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i32 0, ptr %51, align 4, !tbaa !127
+  store i32 0, ptr %51, align 8, !tbaa !127
   br label %52
 
 52:                                               ; preds = %49, %_ZL9hb_memsetPvij.exit26.i, %_ZL9hb_memsetPvij.exit26.thread.i
@@ -22020,7 +22020,7 @@ define dso_local noundef ptr @hb_draw_funcs_create() local_unnamed_addr #29 {
   store atomic i32 1, ptr %3 monotonic, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store atomic i64 0, ptr %4 monotonic, align 8
-  %5 = load atomic i32, ptr %1 monotonic, align 4
+  %5 = load atomic i32, ptr %1 monotonic, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_hb_Null_hb_draw_funcs_t, i64 16), i64 40, i1 false), !tbaa.struct !514
   br label %7
@@ -22614,7 +22614,7 @@ _ZL16hb_object_createI9hb_face_tJEEPT_DpT0_.exit.thread.i: ; preds = %2
   store atomic i32 1, ptr %9 monotonic, align 4
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store atomic i64 0, ptr %10 monotonic, align 8
-  %11 = load atomic i32, ptr %7 monotonic, align 4
+  %11 = load atomic i32, ptr %7 monotonic, align 8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr @_ZL32_hb_face_builder_reference_tableP9hb_face_tjPv, ptr %12, align 8, !tbaa !522
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -22622,7 +22622,7 @@ _ZL16hb_object_createI9hb_face_tJEEPT_DpT0_.exit.thread.i: ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr @_ZL29_hb_face_builder_data_destroyPv, ptr %14, align 8, !tbaa !658
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store atomic i32 -1, ptr %15 monotonic, align 4
+  store atomic i32 -1, ptr %15 monotonic, align 8
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store ptr %7, ptr %16, align 8, !tbaa !659
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 104
@@ -22690,7 +22690,7 @@ _ZL16hb_object_createI9hb_face_tJEEPT_DpT0_.exit.thread: ; preds = %4, %3
   store atomic i32 1, ptr %8 monotonic, align 4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store atomic i64 0, ptr %9 monotonic, align 8
-  %10 = load atomic i32, ptr %5 monotonic, align 4
+  %10 = load atomic i32, ptr %5 monotonic, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %0, ptr %11, align 8, !tbaa !522
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -22698,7 +22698,7 @@ _ZL16hb_object_createI9hb_face_tJEEPT_DpT0_.exit.thread: ; preds = %4, %3
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %2, ptr %13, align 8, !tbaa !658
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store atomic i32 -1, ptr %14 monotonic, align 4
+  store atomic i32 -1, ptr %14 monotonic, align 8
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store ptr %5, ptr %15, align 8, !tbaa !659
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 104
@@ -23550,7 +23550,7 @@ hb_blob_create_or_fail.exit.i:                    ; preds = %345
   store atomic i32 1, ptr %347 monotonic, align 4
   %348 = getelementptr inbounds nuw i8, ptr %346, i64 8
   store atomic i64 0, ptr %348 monotonic, align 8
-  %349 = load atomic i32, ptr %346 monotonic, align 4
+  %349 = load atomic i32, ptr %346 monotonic, align 8
   %350 = getelementptr inbounds nuw i8, ptr %346, i64 16
   store ptr %22, ptr %350, align 8, !tbaa !69
   %351 = getelementptr inbounds nuw i8, ptr %346, i64 24
@@ -25081,7 +25081,7 @@ _ZL16hb_object_createI9hb_face_tJEEPT_DpT0_.exit.thread.i: ; preds = %37
   store atomic i32 1, ptr %42 monotonic, align 4
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store atomic i64 0, ptr %43 monotonic, align 8
-  %44 = load atomic i32, ptr %40 monotonic, align 4
+  %44 = load atomic i32, ptr %40 monotonic, align 8
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 32
   store ptr @_ZL33_hb_face_for_data_reference_tableP9hb_face_tjPv, ptr %45, align 8, !tbaa !522
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 40
@@ -25089,7 +25089,7 @@ _ZL16hb_object_createI9hb_face_tJEEPT_DpT0_.exit.thread.i: ; preds = %37
   %47 = getelementptr inbounds nuw i8, ptr %40, i64 48
   store ptr @_ZL33_hb_face_for_data_closure_destroyPv, ptr %47, align 8, !tbaa !658
   %48 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  store atomic i32 -1, ptr %48 monotonic, align 4
+  store atomic i32 -1, ptr %48 monotonic, align 8
   %49 = getelementptr inbounds nuw i8, ptr %40, i64 80
   store ptr %40, ptr %49, align 8, !tbaa !659
   %50 = getelementptr inbounds nuw i8, ptr %40, i64 104
@@ -27235,7 +27235,7 @@ _ZL16hb_object_createI9hb_face_tJEEPT_DpT0_.exit.thread.i.i: ; preds = %18
   store atomic i32 1, ptr %25 monotonic, align 4
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store atomic i64 0, ptr %26 monotonic, align 8
-  %27 = load atomic i32, ptr %23 monotonic, align 4
+  %27 = load atomic i32, ptr %23 monotonic, align 8
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store ptr @_ZL32_hb_face_builder_reference_tableP9hb_face_tjPv, ptr %28, align 8, !tbaa !522
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 40
@@ -27243,7 +27243,7 @@ _ZL16hb_object_createI9hb_face_tJEEPT_DpT0_.exit.thread.i.i: ; preds = %18
   %30 = getelementptr inbounds nuw i8, ptr %23, i64 48
   store ptr @_ZL29_hb_face_builder_data_destroyPv, ptr %30, align 8, !tbaa !658
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store atomic i32 -1, ptr %31 monotonic, align 4
+  store atomic i32 -1, ptr %31 monotonic, align 8
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 80
   store ptr %23, ptr %32, align 8, !tbaa !659
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 104
@@ -28789,7 +28789,7 @@ define dso_local noundef ptr @hb_font_funcs_create() local_unnamed_addr #29 {
   store atomic i32 1, ptr %3 monotonic, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store atomic i64 0, ptr %4 monotonic, align 8
-  %5 = load atomic i32, ptr %1 monotonic, align 4
+  %5 = load atomic i32, ptr %1 monotonic, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %6, ptr noundef nonnull align 8 dereferenceable(152) getelementptr inbounds nuw (i8, ptr @_ZL22_hb_font_funcs_default, i64 32), i64 152, i1 false), !tbaa.struct !828
   br label %7
@@ -34330,7 +34330,7 @@ define dso_local nonnull ptr @hb_font_create(ptr noundef %0) local_unnamed_addr 
   store atomic i32 1, ptr %6 monotonic, align 4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store atomic i64 0, ptr %7 monotonic, align 8
-  %8 = load atomic i32, ptr %4 monotonic, align 4
+  %8 = load atomic i32, ptr %4 monotonic, align 8
   %9 = getelementptr inbounds nuw i8, ptr %.019.i, i64 4
   %10 = load atomic i32, ptr %9 monotonic, align 4
   %.not.i.i.i = icmp eq i32 %10, 0
@@ -34771,7 +34771,7 @@ define dso_local nonnull ptr @hb_font_create_sub_font(ptr noundef %0) local_unna
   store atomic i32 1, ptr %10 monotonic, align 4
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store atomic i64 0, ptr %11 monotonic, align 8
-  %12 = load atomic i32, ptr %8 monotonic, align 4
+  %12 = load atomic i32, ptr %8 monotonic, align 8
   %13 = getelementptr inbounds nuw i8, ptr %.019.i, i64 4
   %14 = load atomic i32, ptr %13 monotonic, align 4
   %.not.i.i.i = icmp eq i32 %14, 0
@@ -37128,10 +37128,10 @@ _ZL16hb_object_createI8hb_map_tJEEPT_DpT0_.exit:  ; preds = %0
   store i8 1, ptr %4, align 8, !tbaa !951
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr null, ptr %5, align 8, !tbaa !954
-  store atomic i32 1, ptr %1 monotonic, align 4
+  store atomic i32 1, ptr %1 monotonic, align 8
   store atomic i32 1, ptr %2 monotonic, align 4
   store atomic i64 0, ptr %3 monotonic, align 8
-  %6 = load atomic i32, ptr %1 monotonic, align 4
+  %6 = load atomic i32, ptr %1 monotonic, align 8
   br label %7
 
 7:                                                ; preds = %0, %_ZL16hb_object_createI8hb_map_tJEEPT_DpT0_.exit
@@ -37361,10 +37361,10 @@ define dso_local nonnull ptr @hb_map_copy(ptr noundef %0) local_unnamed_addr #0 
   store i8 1, ptr %6, align 8, !tbaa !951
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr null, ptr %7, align 8, !tbaa !954
-  store atomic i32 1, ptr %2 monotonic, align 4
+  store atomic i32 1, ptr %2 monotonic, align 8
   store atomic i32 1, ptr %4 monotonic, align 4
   store atomic i64 0, ptr %5 monotonic, align 8
-  %8 = load atomic i32, ptr %2 monotonic, align 4
+  %8 = load atomic i32, ptr %2 monotonic, align 8
   %9 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN12hb_hashmap_tIjjLb1EEaSERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %0)
   br label %hb_map_create.exit.thread
 
@@ -39980,7 +39980,7 @@ _ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE8in_erro
   %159 = getelementptr inbounds nuw i8, ptr %156, i64 16
   %160 = load ptr, ptr %159, align 8, !tbaa !1135
   %161 = getelementptr inbounds nuw i8, ptr %156, i64 24
-  %162 = load i32, ptr %161, align 4, !tbaa !515
+  %162 = load i32, ptr %161, align 8, !tbaa !515
   %.not.i.i.i = icmp eq i32 %162, 0
   br i1 %.not.i.i.i, label %_ZN17cff1_path_param_t8end_pathEv.exit, label %163, !prof !64
 
@@ -47918,11 +47918,11 @@ _ZL16hb_object_createI8hb_set_tJEEPT_DpT0_.exit.i.i: ; preds = %7
   store atomic i64 0, ptr %23 monotonic, align 8
   store i8 1, ptr %19, align 8, !tbaa !76
   store i32 0, ptr %20, align 4, !tbaa !77
-  store atomic i32 0, ptr %21 monotonic, align 4
-  store atomic i32 1, ptr %18 monotonic, align 4
+  store atomic i32 0, ptr %21 monotonic, align 8
+  store atomic i32 1, ptr %18 monotonic, align 8
   store atomic i32 1, ptr %22 monotonic, align 4
   store atomic i64 0, ptr %23 monotonic, align 8
-  %24 = load atomic i32, ptr %18 monotonic, align 4
+  %24 = load atomic i32, ptr %18 monotonic, align 8
   br label %_ZN2OT27hb_collect_glyphs_context_tC2EP9hb_face_tP8hb_set_tS4_S4_S4_j.exit
 
 _ZN2OT27hb_collect_glyphs_context_tC2EP9hb_face_tP8hb_set_tS4_S4_S4_j.exit: ; preds = %7, %_ZL16hb_object_createI8hb_set_tJEEPT_DpT0_.exit.i.i
@@ -49866,7 +49866,7 @@ _ZNK12hb_bit_set_t7get_minEv.exit:                ; preds = %.thread.i97, %158, 
 189:                                              ; preds = %156
   %190 = load ptr, ptr %106, align 8, !tbaa !1340
   %191 = lshr i32 %.sroa.5.8.extract.trunc170, 9
-  %192 = load atomic i32, ptr %107 monotonic, align 4
+  %192 = load atomic i32, ptr %107 monotonic, align 8
   %193 = load i32, ptr %108, align 4, !tbaa !1348
   %.not.i93 = icmp ult i32 %192, %193
   br i1 %.not.i93, label %194, label %.critedge.i, !prof !65
@@ -77627,11 +77627,11 @@ _ZL16hb_object_createI8hb_set_tJEEPT_DpT0_.exit.i: ; preds = %._crit_edge
   store atomic i64 0, ptr %30 monotonic, align 8
   store i8 1, ptr %26, align 8, !tbaa !76
   store i32 0, ptr %27, align 4, !tbaa !77
-  store atomic i32 0, ptr %28 monotonic, align 4
-  store atomic i32 1, ptr %25 monotonic, align 4
+  store atomic i32 0, ptr %28 monotonic, align 8
+  store atomic i32 1, ptr %25 monotonic, align 8
   store atomic i32 1, ptr %29 monotonic, align 4
   store atomic i64 0, ptr %30 monotonic, align 8
-  %31 = load atomic i32, ptr %25 monotonic, align 4
+  %31 = load atomic i32, ptr %25 monotonic, align 8
   br label %hb_set_create.exit
 
 hb_set_create.exit:                               ; preds = %._crit_edge, %_ZL16hb_object_createI8hb_set_tJEEPT_DpT0_.exit.i
@@ -77901,11 +77901,11 @@ _ZL16hb_object_createI8hb_set_tJEEPT_DpT0_.exit:  ; preds = %0
   store atomic i64 0, ptr %6 monotonic, align 8
   store i8 1, ptr %2, align 8, !tbaa !76
   store i32 0, ptr %3, align 4, !tbaa !77
-  store atomic i32 0, ptr %4 monotonic, align 4
-  store atomic i32 1, ptr %1 monotonic, align 4
+  store atomic i32 0, ptr %4 monotonic, align 8
+  store atomic i32 1, ptr %1 monotonic, align 8
   store atomic i32 1, ptr %5 monotonic, align 4
   store atomic i64 0, ptr %6 monotonic, align 8
-  %7 = load atomic i32, ptr %1 monotonic, align 4
+  %7 = load atomic i32, ptr %1 monotonic, align 8
   br label %8
 
 8:                                                ; preds = %0, %_ZL16hb_object_createI8hb_set_tJEEPT_DpT0_.exit
@@ -98056,7 +98056,7 @@ define dso_local noundef ptr @hb_paint_funcs_create() local_unnamed_addr #29 {
   store atomic i32 1, ptr %3 monotonic, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store atomic i64 0, ptr %4 monotonic, align 8
-  %5 = load atomic i32, ptr %1 monotonic, align 4
+  %5 = load atomic i32, ptr %1 monotonic, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %6, ptr noundef nonnull align 8 dereferenceable(112) getelementptr inbounds nuw (i8, ptr @_hb_Null_hb_paint_funcs_t, i64 16), i64 112, i1 false), !tbaa.struct !2149
   br label %7
@@ -99070,11 +99070,11 @@ define dso_local nonnull ptr @hb_set_copy(ptr noundef %0) local_unnamed_addr #0 
   store atomic i64 0, ptr %8 monotonic, align 8
   store i8 1, ptr %4, align 8, !tbaa !76
   store i32 0, ptr %5, align 4, !tbaa !77
-  store atomic i32 0, ptr %6 monotonic, align 4
-  store atomic i32 1, ptr %2 monotonic, align 4
+  store atomic i32 0, ptr %6 monotonic, align 8
+  store atomic i32 1, ptr %2 monotonic, align 8
   store atomic i32 1, ptr %7 monotonic, align 4
   store atomic i64 0, ptr %8 monotonic, align 8
-  %9 = load atomic i32, ptr %2 monotonic, align 4
+  %9 = load atomic i32, ptr %2 monotonic, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN12hb_bit_set_t3setERKS_b(ptr noundef nonnull align 8 dereferenceable(49) %10, ptr noundef nonnull align 8 dereferenceable(49) %11, i1 noundef zeroext false)
@@ -100867,7 +100867,7 @@ define dso_local nonnull ptr @hb_shape_plan_create2(ptr noundef %0, ptr noundef 
   store atomic i32 1, ptr %13 monotonic, align 4
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store atomic i64 0, ptr %14 monotonic, align 8
-  %15 = load atomic i32, ptr %11 monotonic, align 4
+  %15 = load atomic i32, ptr %11 monotonic, align 8
   %.not27 = icmp eq ptr %0, null
   br i1 %.not27, label %16, label %17, !prof !64
 
@@ -101142,7 +101142,7 @@ define dso_local ptr @hb_shape_plan_create_cached2(ptr noundef %0, ptr noundef r
   %8 = alloca %struct.hb_shape_plan_key_t, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %10 = load atomic i64, ptr %9 acquire, align 8
-  %11 = load atomic i32, ptr %0 monotonic, align 4
+  %11 = load atomic i32, ptr %0 monotonic, align 8
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %.lr.ph69, label %.thread, !prof !2186
 
@@ -101357,7 +101357,7 @@ hb_shape_plan_reference.exit54:                   ; preds = %112
   tail call void @hb_shape_plan_destroy(ptr noundef nonnull %110)
   tail call void @free(ptr noundef nonnull %111) #61
   %122 = load atomic i64, ptr %9 acquire, align 8
-  %123 = load atomic i32, ptr %0 monotonic, align 4
+  %123 = load atomic i32, ptr %0 monotonic, align 8
   %124 = icmp sgt i32 %123, 0
   br i1 %124, label %23, label %.thread, !prof !2188
 
@@ -103163,7 +103163,7 @@ define dso_local nonnull ptr @hb_unicode_funcs_create(ptr noundef %0) local_unna
   store atomic i32 1, ptr %4 monotonic, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store atomic i64 0, ptr %5 monotonic, align 8
-  %6 = load atomic i32, ptr %2 monotonic, align 4
+  %6 = load atomic i32, ptr %2 monotonic, align 8
   %.not13 = icmp eq ptr %0, null
   %spec.select = select i1 %.not13, ptr @_hb_Null_hb_unicode_funcs_t, ptr %0
   %7 = getelementptr inbounds nuw i8, ptr %spec.select, i64 4
@@ -117467,7 +117467,7 @@ define linkonce_odr dso_local void @_ZN20cff1_cs_opset_path_t12process_seacERN3C
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !1135
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %11 = load i32, ptr %10, align 4, !tbaa !515
+  %11 = load i32, ptr %10, align 8, !tbaa !515
   %.not.i.i.i = icmp eq i32 %11, 0
   br i1 %.not.i.i.i, label %_ZN17cff1_path_param_t8end_pathEv.exit, label %12, !prof !64
 
@@ -121345,7 +121345,7 @@ _ZN15hb_draw_funcs_t10close_pathEPvR15hb_draw_state_t.exit.i: ; preds = %56, %51
 60:                                               ; preds = %11
   %61 = load float, ptr %13, align 8, !tbaa !2447
   %62 = tail call float @llvm.fmuladd.f32(float %22, float %61, float %18)
-  %63 = load i32, ptr %30, align 4, !tbaa !515
+  %63 = load i32, ptr %30, align 8, !tbaa !515
   %.not.i.i = icmp eq i32 %63, 0
   br i1 %.not.i.i, label %_ZN17hb_draw_session_t7move_toEff.exit, label %64, !prof !65
 
@@ -121487,7 +121487,7 @@ _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit: ; preds = %_ZN15
 42:                                               ; preds = %11
   %43 = load float, ptr %13, align 8, !tbaa !2447
   %44 = tail call float @llvm.fmuladd.f32(float %22, float %43, float %18)
-  %45 = load i32, ptr %30, align 4, !tbaa !515
+  %45 = load i32, ptr %30, align 8, !tbaa !515
   %.not.i.i = icmp eq i32 %45, 0
   br i1 %.not.i.i, label %46, label %_ZN15hb_draw_funcs_t7line_toEPvR15hb_draw_state_tff.exit.i, !prof !64
 
@@ -121618,7 +121618,7 @@ _ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit: ; preds = %
   %58 = tail call float @llvm.fmuladd.f32(float %28, float %57, float %24)
   %59 = tail call float @llvm.fmuladd.f32(float %32, float %57, float %30)
   %60 = tail call float @llvm.fmuladd.f32(float %36, float %57, float %34)
-  %61 = load i32, ptr %44, align 4, !tbaa !515
+  %61 = load i32, ptr %44, align 8, !tbaa !515
   %.not.i.i = icmp eq i32 %61, 0
   br i1 %.not.i.i, label %62, label %_ZN15hb_draw_funcs_t8cubic_toEPvR15hb_draw_state_tffffff.exit.i, !prof !64
 
@@ -121806,7 +121806,7 @@ define linkonce_odr dso_local noundef ptr @_ZN30hb_ot_font_funcs_lazy_loader_t6c
   store atomic i32 1, ptr %3 monotonic, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store atomic i64 0, ptr %4 monotonic, align 8
-  %5 = load atomic i32, ptr %1 monotonic, align 4
+  %5 = load atomic i32, ptr %1 monotonic, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %6, ptr noundef nonnull align 8 dereferenceable(152) getelementptr inbounds nuw (i8, ptr @_ZL22_hb_font_funcs_default, i64 32), i64 152, i1 false), !tbaa.struct !828
   br label %hb_font_funcs_create.exit
@@ -136250,7 +136250,7 @@ _ZN15hb_draw_funcs_t7move_toEPvR15hb_draw_state_tff.exit7.i38.i: ; preds = %_ZN1
 149:                                              ; preds = %108
   %150 = load float, ptr %109, align 8, !tbaa !2447
   %151 = call float @llvm.fmuladd.f32(float %104, float %150, float %99)
-  %152 = load i32, ptr %117, align 4, !tbaa !515
+  %152 = load i32, ptr %117, align 8, !tbaa !515
   %.not.i.i31.i = icmp eq i32 %152, 0
   br i1 %.not.i.i31.i, label %_ZN15hb_draw_funcs_t7move_toEPvR15hb_draw_state_tff.exit.i34.i, label %153, !prof !65
 
@@ -136411,7 +136411,7 @@ _ZN15hb_draw_funcs_t7move_toEPvR15hb_draw_state_tff.exit7.i.i: ; preds = %_ZN15h
 232:                                              ; preds = %185
   %233 = load float, ptr %192, align 8, !tbaa !2447
   %234 = call float @llvm.fmuladd.f32(float %191, float %233, float %188)
-  %235 = load i32, ptr %200, align 4, !tbaa !515
+  %235 = load i32, ptr %200, align 8, !tbaa !515
   %.not.i.i.i = icmp eq i32 %235, 0
   br i1 %.not.i.i.i, label %_ZN15hb_draw_funcs_t7move_toEPvR15hb_draw_state_tff.exit.i.i, label %236, !prof !65
 
@@ -136542,7 +136542,7 @@ _ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit: ; preds = %
   %300 = call float @llvm.fmuladd.f32(float %276, float %299, float %275)
   %301 = call float @llvm.fmuladd.f32(float %278, float %299, float %277)
   %302 = call float @llvm.fmuladd.f32(float %104, float %299, float %99)
-  %303 = load i32, ptr %286, align 4, !tbaa !515
+  %303 = load i32, ptr %286, align 8, !tbaa !515
   %.not.i.i42.i = icmp eq i32 %303, 0
   br i1 %.not.i.i42.i, label %304, label %_ZN15hb_draw_funcs_t8cubic_toEPvR15hb_draw_state_tffffff.exit.i.i, !prof !64
 
@@ -136625,7 +136625,7 @@ _ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit: ; preds =
   %340 = load float, ptr %273, align 8, !tbaa !2447
   %341 = call float @llvm.fmuladd.f32(float %317, float %340, float %316)
   %342 = call float @llvm.fmuladd.f32(float %104, float %340, float %99)
-  %343 = load i32, ptr %325, align 4, !tbaa !515
+  %343 = load i32, ptr %325, align 8, !tbaa !515
   %.not.i.i166 = icmp eq i32 %343, 0
   br i1 %.not.i.i166, label %344, label %_ZN15hb_draw_funcs_t12quadratic_toEPvR15hb_draw_state_tffff.exit.i167, !prof !64
 
@@ -136708,7 +136708,7 @@ _ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit204: ; pred
   %383 = load float, ptr %362, align 8, !tbaa !2447
   %384 = call float @llvm.fmuladd.f32(float %359, float %383, float %356)
   %385 = call float @llvm.fmuladd.f32(float %361, float %383, float %358)
-  %386 = load i32, ptr %370, align 4, !tbaa !515
+  %386 = load i32, ptr %370, align 8, !tbaa !515
   %.not.i.i161 = icmp eq i32 %386, 0
   br i1 %.not.i.i161, label %387, label %_ZN15hb_draw_funcs_t12quadratic_toEPvR15hb_draw_state_tffff.exit.i162, !prof !64
 
@@ -136794,7 +136794,7 @@ _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit208: ; preds = %_Z
 422:                                              ; preds = %399
   %423 = load float, ptr %400, align 8, !tbaa !2447
   %424 = call float @llvm.fmuladd.f32(float %104, float %423, float %99)
-  %425 = load i32, ptr %408, align 4, !tbaa !515
+  %425 = load i32, ptr %408, align 8, !tbaa !515
   %.not.i.i40.i = icmp eq i32 %425, 0
   br i1 %.not.i.i40.i, label %426, label %_ZN15hb_draw_funcs_t7line_toEPvR15hb_draw_state_tff.exit.i.i, !prof !64
 
@@ -136965,7 +136965,7 @@ _ZN15hb_draw_funcs_t7move_toEPvR15hb_draw_state_tff.exit7.i38.i61: ; preds = %_Z
 508:                                              ; preds = %467
   %509 = load float, ptr %468, align 8, !tbaa !2447
   %510 = call float @llvm.fmuladd.f32(float %463, float %509, float %458)
-  %511 = load i32, ptr %476, align 4, !tbaa !515
+  %511 = load i32, ptr %476, align 8, !tbaa !515
   %.not.i.i31.i53 = icmp eq i32 %511, 0
   br i1 %.not.i.i31.i53, label %_ZN15hb_draw_funcs_t7move_toEPvR15hb_draw_state_tff.exit.i34.i56, label %512, !prof !65
 
@@ -137126,7 +137126,7 @@ _ZN15hb_draw_funcs_t7move_toEPvR15hb_draw_state_tff.exit7.i.i80: ; preds = %_ZN1
 591:                                              ; preds = %544
   %592 = load float, ptr %551, align 8, !tbaa !2447
   %593 = call float @llvm.fmuladd.f32(float %550, float %592, float %547)
-  %594 = load i32, ptr %559, align 4, !tbaa !515
+  %594 = load i32, ptr %559, align 8, !tbaa !515
   %.not.i.i.i72 = icmp eq i32 %594, 0
   br i1 %.not.i.i.i72, label %_ZN15hb_draw_funcs_t7move_toEPvR15hb_draw_state_tff.exit.i.i75, label %595, !prof !65
 
@@ -137257,7 +137257,7 @@ _ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit235: ; preds 
   %659 = call float @llvm.fmuladd.f32(float %635, float %658, float %634)
   %660 = call float @llvm.fmuladd.f32(float %637, float %658, float %636)
   %661 = call float @llvm.fmuladd.f32(float %463, float %658, float %458)
-  %662 = load i32, ptr %645, align 4, !tbaa !515
+  %662 = load i32, ptr %645, align 8, !tbaa !515
   %.not.i.i42.i86 = icmp eq i32 %662, 0
   br i1 %.not.i.i42.i86, label %663, label %_ZN15hb_draw_funcs_t8cubic_toEPvR15hb_draw_state_tffffff.exit.i.i87, !prof !64
 
@@ -137340,7 +137340,7 @@ _ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit239: ; pred
   %699 = load float, ptr %632, align 8, !tbaa !2447
   %700 = call float @llvm.fmuladd.f32(float %676, float %699, float %675)
   %701 = call float @llvm.fmuladd.f32(float %463, float %699, float %458)
-  %702 = load i32, ptr %684, align 4, !tbaa !515
+  %702 = load i32, ptr %684, align 8, !tbaa !515
   %.not.i.i156 = icmp eq i32 %702, 0
   br i1 %.not.i.i156, label %703, label %_ZN15hb_draw_funcs_t12quadratic_toEPvR15hb_draw_state_tffff.exit.i157, !prof !64
 
@@ -137423,7 +137423,7 @@ _ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit250: ; pred
   %742 = load float, ptr %721, align 8, !tbaa !2447
   %743 = call float @llvm.fmuladd.f32(float %718, float %742, float %715)
   %744 = call float @llvm.fmuladd.f32(float %720, float %742, float %717)
-  %745 = load i32, ptr %729, align 4, !tbaa !515
+  %745 = load i32, ptr %729, align 8, !tbaa !515
   %.not.i.i151 = icmp eq i32 %745, 0
   br i1 %.not.i.i151, label %746, label %_ZN15hb_draw_funcs_t12quadratic_toEPvR15hb_draw_state_tffff.exit.i152, !prof !64
 
@@ -137509,7 +137509,7 @@ _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit254: ; preds = %_Z
 781:                                              ; preds = %758
   %782 = load float, ptr %759, align 8, !tbaa !2447
   %783 = call float @llvm.fmuladd.f32(float %463, float %782, float %458)
-  %784 = load i32, ptr %767, align 4, !tbaa !515
+  %784 = load i32, ptr %767, align 8, !tbaa !515
   %.not.i.i40.i81 = icmp eq i32 %784, 0
   br i1 %.not.i.i40.i81, label %785, label %_ZN15hb_draw_funcs_t7line_toEPvR15hb_draw_state_tff.exit.i.i82, !prof !64
 
@@ -137657,7 +137657,7 @@ _ZN15hb_draw_funcs_t7move_toEPvR15hb_draw_state_tff.exit7.i38.i108: ; preds = %_
 856:                                              ; preds = %815
   %857 = load float, ptr %816, align 8, !tbaa !2447
   %858 = call float @llvm.fmuladd.f32(float %811, float %857, float %806)
-  %859 = load i32, ptr %824, align 4, !tbaa !515
+  %859 = load i32, ptr %824, align 8, !tbaa !515
   %.not.i.i31.i100 = icmp eq i32 %859, 0
   br i1 %.not.i.i31.i100, label %_ZN15hb_draw_funcs_t7move_toEPvR15hb_draw_state_tff.exit.i34.i103, label %860, !prof !65
 
@@ -137818,7 +137818,7 @@ _ZN15hb_draw_funcs_t7move_toEPvR15hb_draw_state_tff.exit7.i.i127: ; preds = %_ZN
 939:                                              ; preds = %892
   %940 = load float, ptr %899, align 8, !tbaa !2447
   %941 = call float @llvm.fmuladd.f32(float %898, float %940, float %895)
-  %942 = load i32, ptr %907, align 4, !tbaa !515
+  %942 = load i32, ptr %907, align 8, !tbaa !515
   %.not.i.i.i119 = icmp eq i32 %942, 0
   br i1 %.not.i.i.i119, label %_ZN15hb_draw_funcs_t7move_toEPvR15hb_draw_state_tff.exit.i.i122, label %943, !prof !65
 
@@ -137949,7 +137949,7 @@ _ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit281: ; preds 
   %1007 = call float @llvm.fmuladd.f32(float %983, float %1006, float %982)
   %1008 = call float @llvm.fmuladd.f32(float %985, float %1006, float %984)
   %1009 = call float @llvm.fmuladd.f32(float %811, float %1006, float %806)
-  %1010 = load i32, ptr %993, align 4, !tbaa !515
+  %1010 = load i32, ptr %993, align 8, !tbaa !515
   %.not.i.i42.i133 = icmp eq i32 %1010, 0
   br i1 %.not.i.i42.i133, label %1011, label %_ZN15hb_draw_funcs_t8cubic_toEPvR15hb_draw_state_tffffff.exit.i.i134, !prof !64
 
@@ -138032,7 +138032,7 @@ _ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit285: ; pred
   %1047 = load float, ptr %980, align 8, !tbaa !2447
   %1048 = call float @llvm.fmuladd.f32(float %1024, float %1047, float %1023)
   %1049 = call float @llvm.fmuladd.f32(float %811, float %1047, float %806)
-  %1050 = load i32, ptr %1032, align 4, !tbaa !515
+  %1050 = load i32, ptr %1032, align 8, !tbaa !515
   %.not.i.i146 = icmp eq i32 %1050, 0
   br i1 %.not.i.i146, label %1051, label %_ZN15hb_draw_funcs_t12quadratic_toEPvR15hb_draw_state_tffff.exit.i147, !prof !64
 
@@ -138115,7 +138115,7 @@ _ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit296: ; pred
   %1090 = load float, ptr %1069, align 8, !tbaa !2447
   %1091 = call float @llvm.fmuladd.f32(float %1066, float %1090, float %1063)
   %1092 = call float @llvm.fmuladd.f32(float %1068, float %1090, float %1065)
-  %1093 = load i32, ptr %1077, align 4, !tbaa !515
+  %1093 = load i32, ptr %1077, align 8, !tbaa !515
   %.not.i.i = icmp eq i32 %1093, 0
   br i1 %.not.i.i, label %1094, label %_ZN15hb_draw_funcs_t12quadratic_toEPvR15hb_draw_state_tffff.exit.i, !prof !64
 
@@ -138201,7 +138201,7 @@ _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit300: ; preds = %_Z
 1129:                                             ; preds = %1106
   %1130 = load float, ptr %1107, align 8, !tbaa !2447
   %1131 = call float @llvm.fmuladd.f32(float %811, float %1130, float %806)
-  %1132 = load i32, ptr %1115, align 4, !tbaa !515
+  %1132 = load i32, ptr %1115, align 8, !tbaa !515
   %.not.i.i40.i128 = icmp eq i32 %1132, 0
   br i1 %.not.i.i40.i128, label %1133, label %_ZN15hb_draw_funcs_t7line_toEPvR15hb_draw_state_tff.exit.i.i129, !prof !64
 
@@ -138368,7 +138368,7 @@ _ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit: ; preds = %
   %57 = tail call float @llvm.fmuladd.f32(float %35, float %56, float %33)
   %58 = tail call float @llvm.fmuladd.f32(float %23, float %56, float %19)
   %59 = tail call float @llvm.fmuladd.f32(float %25, float %56, float %21)
-  %60 = load i32, ptr %43, align 4, !tbaa !515
+  %60 = load i32, ptr %43, align 8, !tbaa !515
   %.not.i.i24 = icmp eq i32 %60, 0
   br i1 %.not.i.i24, label %61, label %_ZN15hb_draw_funcs_t8cubic_toEPvR15hb_draw_state_tffffff.exit.i25, !prof !64
 
@@ -138436,7 +138436,7 @@ _ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit: ; preds =
   %91 = load float, ptr %30, align 8, !tbaa !2447
   %92 = tail call float @llvm.fmuladd.f32(float %23, float %91, float %19)
   %93 = tail call float @llvm.fmuladd.f32(float %25, float %91, float %21)
-  %94 = load i32, ptr %78, align 4, !tbaa !515
+  %94 = load i32, ptr %78, align 8, !tbaa !515
   %.not.i.i31 = icmp eq i32 %94, 0
   br i1 %.not.i.i31, label %95, label %_ZN15hb_draw_funcs_t12quadratic_toEPvR15hb_draw_state_tffff.exit.i, !prof !64
 
@@ -138544,7 +138544,7 @@ _ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit53: ; preds =
   %152 = tail call float @llvm.fmuladd.f32(float %122, float %151, float %120)
   %153 = tail call float @llvm.fmuladd.f32(float %126, float %151, float %124)
   %154 = tail call float @llvm.fmuladd.f32(float %130, float %151, float %128)
-  %155 = load i32, ptr %138, align 4, !tbaa !515
+  %155 = load i32, ptr %138, align 8, !tbaa !515
   %.not.i.i19 = icmp eq i32 %155, 0
   br i1 %.not.i.i19, label %156, label %_ZN15hb_draw_funcs_t8cubic_toEPvR15hb_draw_state_tffffff.exit.i20, !prof !64
 
@@ -138620,7 +138620,7 @@ _ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit57: ; preds
   %194 = load float, ptr %117, align 8, !tbaa !2447
   %195 = tail call float @llvm.fmuladd.f32(float %169, float %194, float %167)
   %196 = tail call float @llvm.fmuladd.f32(float %173, float %194, float %171)
-  %197 = load i32, ptr %181, align 4, !tbaa !515
+  %197 = load i32, ptr %181, align 8, !tbaa !515
   %.not.i.i32 = icmp eq i32 %197, 0
   br i1 %.not.i.i32, label %198, label %_ZN15hb_draw_funcs_t12quadratic_toEPvR15hb_draw_state_tffff.exit.i33, !prof !64
 
@@ -138719,7 +138719,7 @@ _ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit61: ; preds =
   %254 = tail call float @llvm.fmuladd.f32(float %224, float %253, float %222)
   %255 = tail call float @llvm.fmuladd.f32(float %228, float %253, float %226)
   %256 = tail call float @llvm.fmuladd.f32(float %232, float %253, float %230)
-  %257 = load i32, ptr %240, align 4, !tbaa !515
+  %257 = load i32, ptr %240, align 8, !tbaa !515
   %.not.i.i18 = icmp eq i32 %257, 0
   br i1 %.not.i.i18, label %258, label %_ZN15hb_draw_funcs_t8cubic_toEPvR15hb_draw_state_tffffff.exit.i, !prof !64
 
@@ -138795,7 +138795,7 @@ _ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit65: ; preds
   %296 = load float, ptr %219, align 8, !tbaa !2447
   %297 = tail call float @llvm.fmuladd.f32(float %271, float %296, float %269)
   %298 = tail call float @llvm.fmuladd.f32(float %275, float %296, float %273)
-  %299 = load i32, ptr %283, align 4, !tbaa !515
+  %299 = load i32, ptr %283, align 8, !tbaa !515
   %.not.i.i37 = icmp eq i32 %299, 0
   br i1 %.not.i.i37, label %300, label %_ZN15hb_draw_funcs_t12quadratic_toEPvR15hb_draw_state_tffff.exit.i38, !prof !64
 
@@ -138871,7 +138871,7 @@ _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit: ; preds = %_ZN15
 336:                                              ; preds = %310
   %337 = load float, ptr %312, align 8, !tbaa !2447
   %338 = tail call float @llvm.fmuladd.f32(float %316, float %337, float %314)
-  %339 = load i32, ptr %324, align 4, !tbaa !515
+  %339 = load i32, ptr %324, align 8, !tbaa !515
   %.not.i.i16 = icmp eq i32 %339, 0
   br i1 %.not.i.i16, label %340, label %_ZN15hb_draw_funcs_t7line_toEPvR15hb_draw_state_tff.exit.i, !prof !64
 
@@ -138977,7 +138977,7 @@ _ZN15hb_draw_funcs_t10close_pathEPvR15hb_draw_state_t.exit.i: ; preds = %390, %3
 394:                                              ; preds = %350
   %395 = load float, ptr %356, align 8, !tbaa !2447
   %396 = tail call float @llvm.fmuladd.f32(float %354, float %395, float %352)
-  %397 = load i32, ptr %364, align 4, !tbaa !515
+  %397 = load i32, ptr %364, align 8, !tbaa !515
   %.not.i.i = icmp eq i32 %397, 0
   br i1 %.not.i.i, label %_ZN17hb_draw_session_t7move_toEff.exit, label %398, !prof !65
 
@@ -139085,7 +139085,7 @@ _ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit79: ; preds
 447:                                              ; preds = %_ZN17hb_draw_session_t7move_toEff.exit
   %448 = load float, ptr %427, align 8, !tbaa !2447
   %449 = tail call float @llvm.fmuladd.f32(float %354, float %448, float %352)
-  %450 = load i32, ptr %435, align 4, !tbaa !515
+  %450 = load i32, ptr %435, align 8, !tbaa !515
   %.not.i.i42 = icmp eq i32 %450, 0
   br i1 %.not.i.i42, label %451, label %_ZN15hb_draw_funcs_t12quadratic_toEPvR15hb_draw_state_tffff.exit.i43, !prof !64
 
@@ -139137,7 +139137,7 @@ _ZN17hb_draw_session_t8cubic_toEffffff.exit23:    ; preds = %_ZN17hb_draw_sessio
   %469 = getelementptr inbounds nuw i8, ptr %466, i64 16
   %470 = load ptr, ptr %469, align 8, !tbaa !1135
   %471 = getelementptr inbounds nuw i8, ptr %466, i64 24
-  %472 = load i32, ptr %471, align 4, !tbaa !515
+  %472 = load i32, ptr %471, align 8, !tbaa !515
   %.not.i.i29 = icmp eq i32 %472, 0
   br i1 %.not.i.i29, label %_ZN17hb_draw_session_t10close_pathEv.exit, label %473, !prof !64
 
@@ -142006,9 +142006,9 @@ _ZN3CFF15parsed_values_tINS_10dict_val_tEED2Ev.exit.i: ; preds = %_ZN3CFF15parse
   %30 = load i32, ptr %29, align 8, !tbaa !2669
   store i32 %30, ptr %26, align 8, !tbaa !2669
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %32 = load i32, ptr %31, align 4, !tbaa !127
-  store i32 %32, ptr %27, align 4, !tbaa !127
-  store i32 0, ptr %31, align 4, !tbaa !127
+  %32 = load i32, ptr %31, align 8, !tbaa !127
+  store i32 %32, ptr %27, align 8, !tbaa !127
+  store i32 0, ptr %31, align 8, !tbaa !127
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 12
   %35 = load i32, ptr %34, align 4, !tbaa !127
@@ -142138,9 +142138,9 @@ _ZN3CFF15parsed_values_tINS_8op_str_tEED2Ev.exit.i: ; preds = %_ZN3CFF15parsed_v
   %30 = load i32, ptr %29, align 8, !tbaa !2640
   store i32 %30, ptr %26, align 8, !tbaa !2640
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %32 = load i32, ptr %31, align 4, !tbaa !127
-  store i32 %32, ptr %27, align 4, !tbaa !127
-  store i32 0, ptr %31, align 4, !tbaa !127
+  %32 = load i32, ptr %31, align 8, !tbaa !127
+  store i32 %32, ptr %27, align 8, !tbaa !127
+  store i32 0, ptr %31, align 8, !tbaa !127
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 12
   %35 = load i32, ptr %34, align 4, !tbaa !127
@@ -146016,9 +146016,9 @@ _ZN3CFF15parsed_values_tINS_10dict_val_tEED2Ev.exit.i: ; preds = %_ZN3CFF15parse
   %30 = load i32, ptr %29, align 8, !tbaa !2669
   store i32 %30, ptr %26, align 8, !tbaa !2669
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %32 = load i32, ptr %31, align 4, !tbaa !127
-  store i32 %32, ptr %27, align 4, !tbaa !127
-  store i32 0, ptr %31, align 4, !tbaa !127
+  %32 = load i32, ptr %31, align 8, !tbaa !127
+  store i32 %32, ptr %27, align 8, !tbaa !127
+  store i32 0, ptr %31, align 8, !tbaa !127
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 12
   %35 = load i32, ptr %34, align 4, !tbaa !127
@@ -146148,9 +146148,9 @@ _ZN3CFF15parsed_values_tINS_8op_str_tEED2Ev.exit.i: ; preds = %_ZN3CFF15parsed_v
   %30 = load i32, ptr %29, align 8, !tbaa !2640
   store i32 %30, ptr %26, align 8, !tbaa !2640
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %32 = load i32, ptr %31, align 4, !tbaa !127
-  store i32 %32, ptr %27, align 4, !tbaa !127
-  store i32 0, ptr %31, align 4, !tbaa !127
+  %32 = load i32, ptr %31, align 8, !tbaa !127
+  store i32 %32, ptr %27, align 8, !tbaa !127
+  store i32 0, ptr %31, align 8, !tbaa !127
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 12
   %35 = load i32, ptr %34, align 4, !tbaa !127
@@ -183494,11 +183494,11 @@ _ZL16hb_object_createI8hb_set_tJEEPT_DpT0_.exit.i: ; preds = %_ZNK12hb_hashmap_t
   store atomic i64 0, ptr %177 monotonic, align 8
   store i8 1, ptr %173, align 8, !tbaa !76
   store i32 0, ptr %174, align 4, !tbaa !77
-  store atomic i32 0, ptr %175 monotonic, align 4
-  store atomic i32 1, ptr %172 monotonic, align 4
+  store atomic i32 0, ptr %175 monotonic, align 8
+  store atomic i32 1, ptr %172 monotonic, align 8
   store atomic i32 1, ptr %176 monotonic, align 4
   store atomic i64 0, ptr %177 monotonic, align 8
-  %178 = load atomic i32, ptr %172 monotonic, align 4
+  %178 = load atomic i32, ptr %172 monotonic, align 8
   br label %hb_set_create.exit
 
 hb_set_create.exit:                               ; preds = %_ZNK12hb_hashmap_tIjN2hb10unique_ptrI8hb_set_tEELb0EE3hasIS3_EEbRKjPPT_.exit.thread, %_ZL16hb_object_createI8hb_set_tJEEPT_DpT0_.exit.i
@@ -190613,7 +190613,7 @@ _ZN11hb_vector_tI8hb_set_tLb0EE5allocEjb.exit.thread: ; preds = %25, %13, %9, %_
   store atomic i64 0, ptr %42 monotonic, align 8
   store i8 1, ptr %37, align 8, !tbaa !76
   store i32 0, ptr %38, align 4, !tbaa !77
-  store atomic i32 0, ptr %39 monotonic, align 4
+  store atomic i32 0, ptr %39 monotonic, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %40, i8 0, i64 33, i1 false)
   %43 = load i32, ptr %27, align 4, !tbaa !1334
   %44 = add i32 %43, 1
@@ -194610,7 +194610,7 @@ _ZNK12hb_bit_set_t7get_minEv.exit:                ; preds = %.thread.i115, %363,
 394:                                              ; preds = %361
   %395 = load ptr, ptr %331, align 8, !tbaa !1340
   %396 = lshr i32 %.0131, 9
-  %397 = load atomic i32, ptr %332 monotonic, align 4
+  %397 = load atomic i32, ptr %332 monotonic, align 8
   %398 = load i32, ptr %333, align 4, !tbaa !1348
   %.not.i77 = icmp ult i32 %397, %398
   br i1 %.not.i77, label %399, label %.critedge.i, !prof !65
@@ -195330,14 +195330,14 @@ _ZN12hb_hashmap_tIj8hb_set_tLb0EE9prime_forEj.exit: ; preds = %._crit_edge, %32
   %41 = getelementptr inbounds nuw i8, ptr %.03650, i64 28
   %42 = getelementptr inbounds nuw i8, ptr %.03650, i64 32
   %43 = getelementptr inbounds nuw i8, ptr %.03650, i64 40
-  store atomic i32 1, ptr %39 monotonic, align 4
+  store atomic i32 1, ptr %39 monotonic, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.03650, i64 12
   store atomic i32 1, ptr %44 monotonic, align 4
   %45 = getelementptr inbounds nuw i8, ptr %.03650, i64 16
   store atomic i64 0, ptr %45 monotonic, align 8
   store i8 1, ptr %40, align 8, !tbaa !76
   store i32 0, ptr %41, align 4, !tbaa !77
-  store atomic i32 0, ptr %42 monotonic, align 4
+  store atomic i32 0, ptr %42 monotonic, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %43, i8 0, i64 33, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %.03650, i64 80
   %.not40 = icmp eq ptr %46, %23
@@ -249697,7 +249697,7 @@ define linkonce_odr dso_local void @_ZNK3AAT13ChainSubtableINS_13ExtendedTypesEE
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 0, ptr %28, align 4, !tbaa !77
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store atomic i32 0, ptr %29 monotonic, align 4
+  store atomic i32 0, ptr %29 monotonic, align 8
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, i8 0, i64 32, i1 false)
   tail call void @_ZNK3AAT10StateTableINS_13ExtendedTypesENS_18ContextualSubtableIS1_E9EntryDataEE22collect_initial_glyphsI12hb_bit_set_tS3_EEvRT_jRKT0_(ptr noundef nonnull align 1 dereferenceable(20) %18, ptr noundef nonnull align 8 dereferenceable(304) %25, i32 noundef %27, ptr noundef nonnull align 1 dereferenceable(20) %18)
@@ -249743,7 +249743,7 @@ define linkonce_odr dso_local void @_ZNK3AAT13ChainSubtableINS_13ExtendedTypesEE
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 4
   store i32 0, ptr %55, align 4, !tbaa !77
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store atomic i32 0, ptr %56 monotonic, align 4
+  store atomic i32 0, ptr %56 monotonic, align 8
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %57, i8 0, i64 32, i1 false)
   tail call void @_ZNK3AAT6LookupIN2OT11HBGlyphID16EE14collect_glyphsI12hb_bit_set_tEEvRT_j(ptr noundef nonnull align 1 dereferenceable(13) %45, ptr noundef nonnull align 8 dereferenceable(304) %52, i32 noundef %54)
@@ -249774,7 +249774,7 @@ define linkonce_odr dso_local void @_ZNK3AAT13ChainSubtableINS_13ExtendedTypesEE
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 4
   store i32 0, ptr %71, align 4, !tbaa !77
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  store atomic i32 0, ptr %72 monotonic, align 4
+  store atomic i32 0, ptr %72 monotonic, align 8
   %73 = getelementptr inbounds nuw i8, ptr %68, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %73, i8 0, i64 32, i1 false)
   tail call void @_ZNK3AAT10StateTableINS_13ExtendedTypesENS_17InsertionSubtableIS1_E9EntryDataEE22collect_initial_glyphsI12hb_bit_set_tS3_EEvRT_jRKT0_(ptr noundef nonnull align 1 dereferenceable(20) %61, ptr noundef nonnull align 8 dereferenceable(304) %68, i32 noundef %70, ptr noundef nonnull align 1 dereferenceable(20) %61)
@@ -257279,7 +257279,7 @@ define linkonce_odr dso_local void @_ZNK3AAT13ChainSubtableINS_13ObsoleteTypesEE
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 0, ptr %17, align 4, !tbaa !77
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store atomic i32 0, ptr %18 monotonic, align 4
+  store atomic i32 0, ptr %18 monotonic, align 8
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 32, i1 false)
   tail call void @_ZNK3AAT10StateTableINS_13ObsoleteTypesEvE22collect_initial_glyphsI12hb_bit_set_tNS_21RearrangementSubtableIS1_EEEEvRT_jRKT0_(ptr noundef nonnull align 1 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(304) %14, i32 noundef %16, ptr noundef nonnull align 1 dereferenceable(8) %7)
@@ -257310,7 +257310,7 @@ define linkonce_odr dso_local void @_ZNK3AAT13ChainSubtableINS_13ObsoleteTypesEE
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 0, ptr %33, align 4, !tbaa !77
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store atomic i32 0, ptr %34 monotonic, align 4
+  store atomic i32 0, ptr %34 monotonic, align 8
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, i8 0, i64 32, i1 false)
   tail call void @_ZNK3AAT10StateTableINS_13ObsoleteTypesENS_18ContextualSubtableIS1_E9EntryDataEE22collect_initial_glyphsI12hb_bit_set_tS3_EEvRT_jRKT0_(ptr noundef nonnull align 1 dereferenceable(10) %23, ptr noundef nonnull align 8 dereferenceable(304) %30, i32 noundef %32, ptr noundef nonnull align 1 dereferenceable(10) %23)
@@ -257341,7 +257341,7 @@ define linkonce_odr dso_local void @_ZNK3AAT13ChainSubtableINS_13ObsoleteTypesEE
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 4
   store i32 0, ptr %49, align 4, !tbaa !77
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  store atomic i32 0, ptr %50 monotonic, align 4
+  store atomic i32 0, ptr %50 monotonic, align 8
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %51, i8 0, i64 32, i1 false)
   tail call void @_ZNK3AAT10StateTableINS_13ObsoleteTypesEvE22collect_initial_glyphsI12hb_bit_set_tNS_16LigatureSubtableIS1_EEEEvRT_jRKT0_(ptr noundef nonnull align 1 dereferenceable(14) %39, ptr noundef nonnull align 8 dereferenceable(304) %46, i32 noundef %48, ptr noundef nonnull align 1 dereferenceable(14) %39)
@@ -257372,7 +257372,7 @@ define linkonce_odr dso_local void @_ZNK3AAT13ChainSubtableINS_13ObsoleteTypesEE
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 4
   store i32 0, ptr %65, align 4, !tbaa !77
   %66 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  store atomic i32 0, ptr %66 monotonic, align 4
+  store atomic i32 0, ptr %66 monotonic, align 8
   %67 = getelementptr inbounds nuw i8, ptr %62, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %67, i8 0, i64 32, i1 false)
   tail call void @_ZNK3AAT6LookupIN2OT11HBGlyphID16EE14collect_glyphsI12hb_bit_set_tEEvRT_j(ptr noundef nonnull align 1 dereferenceable(13) %55, ptr noundef nonnull align 8 dereferenceable(304) %62, i32 noundef %64)
@@ -257403,7 +257403,7 @@ define linkonce_odr dso_local void @_ZNK3AAT13ChainSubtableINS_13ObsoleteTypesEE
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 4
   store i32 0, ptr %81, align 4, !tbaa !77
   %82 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  store atomic i32 0, ptr %82 monotonic, align 4
+  store atomic i32 0, ptr %82 monotonic, align 8
   %83 = getelementptr inbounds nuw i8, ptr %78, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %83, i8 0, i64 32, i1 false)
   tail call void @_ZNK3AAT10StateTableINS_13ObsoleteTypesENS_17InsertionSubtableIS1_E9EntryDataEE22collect_initial_glyphsI12hb_bit_set_tS3_EEvRT_jRKT0_(ptr noundef nonnull align 1 dereferenceable(10) %71, ptr noundef nonnull align 8 dereferenceable(304) %78, i32 noundef %80, ptr noundef nonnull align 1 dereferenceable(10) %71)
@@ -265357,9 +265357,9 @@ define linkonce_odr dso_local noundef ptr @_ZN11hb_vector_tI9hb_pair_tI12hb_bit_
   store ptr null, ptr %33, align 8, !tbaa !3283
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %36 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %37 = load i32, ptr %36, align 4, !tbaa !127
-  store i32 %37, ptr %35, align 4, !tbaa !127
-  store i32 0, ptr %36, align 4, !tbaa !127
+  %37 = load i32, ptr %36, align 8, !tbaa !127
+  store i32 %37, ptr %35, align 8, !tbaa !127
+  store i32 0, ptr %36, align 8, !tbaa !127
   %38 = getelementptr inbounds nuw i8, ptr %11, i64 36
   %39 = getelementptr inbounds nuw i8, ptr %17, i64 36
   %40 = load i32, ptr %39, align 4, !tbaa !127
@@ -265403,9 +265403,9 @@ _ZN9hb_pair_tI12hb_bit_set_tS0_EaSEOS1_.exit.thread: ; preds = %_ZN12hb_bit_set_
   store ptr null, ptr %58, align 8, !tbaa !3283
   %60 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %61 = getelementptr inbounds nuw i8, ptr %17, i64 80
-  %62 = load i32, ptr %61, align 4, !tbaa !127
-  store i32 %62, ptr %60, align 4, !tbaa !127
-  store i32 0, ptr %61, align 4, !tbaa !127
+  %62 = load i32, ptr %61, align 8, !tbaa !127
+  store i32 %62, ptr %60, align 8, !tbaa !127
+  store i32 0, ptr %61, align 8, !tbaa !127
   %63 = getelementptr inbounds nuw i8, ptr %11, i64 84
   %64 = getelementptr inbounds nuw i8, ptr %17, i64 84
   %65 = load i32, ptr %64, align 4, !tbaa !127
@@ -290054,7 +290054,7 @@ _ZN15hb_draw_funcs_t10close_pathEPvR15hb_draw_state_t.exit.i: ; preds = %50, %45
 54:                                               ; preds = %2
   %55 = load float, ptr %3, align 8, !tbaa !2447
   %56 = tail call float @llvm.fmuladd.f32(float %16, float %55, float %10)
-  %57 = load i32, ptr %24, align 4, !tbaa !515
+  %57 = load i32, ptr %24, align 8, !tbaa !515
   %.not.i.i = icmp eq i32 %57, 0
   br i1 %.not.i.i, label %_ZN17hb_draw_session_t7move_toEff.exit, label %58, !prof !65
 
@@ -290180,7 +290180,7 @@ _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit: ; preds = %_ZN15
 36:                                               ; preds = %2
   %37 = load float, ptr %3, align 8, !tbaa !2447
   %38 = tail call float @llvm.fmuladd.f32(float %16, float %37, float %10)
-  %39 = load i32, ptr %24, align 4, !tbaa !515
+  %39 = load i32, ptr %24, align 8, !tbaa !515
   %.not.i.i = icmp eq i32 %39, 0
   br i1 %.not.i.i, label %40, label %_ZN15hb_draw_funcs_t7line_toEPvR15hb_draw_state_tff.exit.i, !prof !64
 
@@ -290287,7 +290287,7 @@ _ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit: ; preds = %
   %54 = tail call float @llvm.fmuladd.f32(float %18, float %53, float %12)
   %55 = tail call float @llvm.fmuladd.f32(float %25, float %53, float %21)
   %56 = tail call float @llvm.fmuladd.f32(float %32, float %53, float %28)
-  %57 = load i32, ptr %40, align 4, !tbaa !515
+  %57 = load i32, ptr %40, align 8, !tbaa !515
   %.not.i.i = icmp eq i32 %57, 0
   br i1 %.not.i.i, label %58, label %_ZN15hb_draw_funcs_t8cubic_toEPvR15hb_draw_state_tffffff.exit.i, !prof !64
 
@@ -309889,9 +309889,9 @@ _ZNK2OT6Layout9GPOS_impl6Anchor10get_anchorEPNS_21hb_ot_apply_context_tEjPfS5_.e
   %123 = trunc i32 %122 to i16
   store i16 %123, ptr %119, align 4, !tbaa !219
   %124 = getelementptr inbounds nuw i8, ptr %14, i64 192
-  %125 = load i32, ptr %124, align 4, !tbaa !196
+  %125 = load i32, ptr %124, align 8, !tbaa !196
   %126 = or i32 %125, 8
-  store i32 %126, ptr %124, align 4, !tbaa !196
+  store i32 %126, ptr %124, align 8, !tbaa !196
   %127 = load ptr, ptr %13, align 8, !tbaa !1395
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 208
   %129 = load ptr, ptr %128, align 8, !tbaa !184
@@ -320180,7 +320180,7 @@ define linkonce_odr dso_local noundef ptr @_ZN44hb_outline_recording_pen_funcs_l
   store atomic i32 1, ptr %3 monotonic, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store atomic i64 0, ptr %4 monotonic, align 8
-  %5 = load atomic i32, ptr %1 monotonic, align 4
+  %5 = load atomic i32, ptr %1 monotonic, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_hb_Null_hb_draw_funcs_t, i64 16), i64 40, i1 false), !tbaa.struct !514
   br label %hb_draw_funcs_create.exit
@@ -321122,7 +321122,7 @@ define linkonce_odr dso_local noundef ptr @_ZN36hb_paint_extents_funcs_lazy_load
   store atomic i32 1, ptr %3 monotonic, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store atomic i64 0, ptr %4 monotonic, align 8
-  %5 = load atomic i32, ptr %1 monotonic, align 4
+  %5 = load atomic i32, ptr %1 monotonic, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %6, ptr noundef nonnull align 8 dereferenceable(112) getelementptr inbounds nuw (i8, ptr @_hb_Null_hb_paint_funcs_t, i64 16), i64 112, i1 false), !tbaa.struct !2149
   br label %hb_paint_funcs_create.exit
@@ -322972,7 +322972,7 @@ define linkonce_odr dso_local noundef ptr @_ZN35hb_draw_extents_funcs_lazy_loade
   store atomic i32 1, ptr %3 monotonic, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store atomic i64 0, ptr %4 monotonic, align 8
-  %5 = load atomic i32, ptr %1 monotonic, align 4
+  %5 = load atomic i32, ptr %1 monotonic, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_hb_Null_hb_draw_funcs_t, i64 16), i64 40, i1 false), !tbaa.struct !514
   br label %hb_draw_funcs_create.exit
@@ -325617,7 +325617,7 @@ define linkonce_odr dso_local noundef ptr @_ZN34hb_ucd_unicode_funcs_lazy_loader
   store atomic i32 1, ptr %3 monotonic, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store atomic i64 0, ptr %4 monotonic, align 8
-  %5 = load atomic i32, ptr %1 monotonic, align 4
+  %5 = load atomic i32, ptr %1 monotonic, align 8
   %6 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_hb_Null_hb_unicode_funcs_t, i64 4) monotonic, align 4
   %.not.i.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i.i, label %hb_unicode_funcs_make_immutable.exit.i, label %7

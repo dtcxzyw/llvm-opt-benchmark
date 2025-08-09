@@ -41427,23 +41427,23 @@ _ZN4pbrt13ScratchBuffer5AllocEmm.exit:            ; preds = %._crit_edge.i, %_ZN
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 272
   store i64 0, ptr %47, align 8, !tbaa !529
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 280
-  store float 1.000000e+00, ptr %48, align 4, !tbaa !350
+  store float 1.000000e+00, ptr %48, align 8, !tbaa !350
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 284
   store float 0.000000e+00, ptr %49, align 4, !tbaa !352
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 288
-  store float 0.000000e+00, ptr %50, align 4, !tbaa !353
+  store float 0.000000e+00, ptr %50, align 8, !tbaa !353
   %51 = getelementptr inbounds nuw i8, ptr %44, i64 292
   store float 0.000000e+00, ptr %51, align 4, !tbaa !350
   %52 = getelementptr inbounds nuw i8, ptr %44, i64 296
-  store float 1.000000e+00, ptr %52, align 4, !tbaa !352
+  store float 1.000000e+00, ptr %52, align 8, !tbaa !352
   %53 = getelementptr inbounds nuw i8, ptr %44, i64 300
   store float 0.000000e+00, ptr %53, align 4, !tbaa !353
   %54 = getelementptr inbounds nuw i8, ptr %44, i64 304
-  store float 0.000000e+00, ptr %54, align 4, !tbaa !350
+  store float 0.000000e+00, ptr %54, align 8, !tbaa !350
   %55 = getelementptr inbounds nuw i8, ptr %44, i64 308
   store float 0.000000e+00, ptr %55, align 4, !tbaa !352
   %56 = getelementptr inbounds nuw i8, ptr %44, i64 312
-  store float 1.000000e+00, ptr %56, align 4, !tbaa !353
+  store float 1.000000e+00, ptr %56, align 8, !tbaa !353
   %57 = getelementptr inbounds nuw i8, ptr %44, i64 320
   store i8 0, ptr %57, align 8, !tbaa !947
   %58 = getelementptr inbounds nuw i8, ptr %44, i64 324
@@ -48161,7 +48161,7 @@ _ZNK4pbrt15SampledSpectrumcvbEv.exit:             ; preds = %623
   store float %.sroa.speculated.i.i, ptr %302, align 8
   store <2 x float> %.sroa.015.4.vec.insert.i33.i, ptr %303, align 4
   store float %.sroa.speculated.i31.i, ptr %305, align 4
-  %646 = load float, ptr %.0140921, align 4, !tbaa !198
+  %646 = load float, ptr %.0140921, align 8, !tbaa !198
   %647 = fcmp olt float %.0920, %646
   %.sroa.speculated606 = select i1 %647, float %646, float %.0920
   br label %648
@@ -58215,7 +58215,7 @@ _ZN4pstd3pmr21polymorphic_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIc
   store i64 %60, ptr %61, align 8, !tbaa !10
   store ptr %51, ptr %48, align 8, !tbaa !14
   store i64 0, ptr %59, align 8, !tbaa !10
-  store i8 0, ptr %51, align 1, !tbaa !13
+  store i8 0, ptr %51, align 8, !tbaa !13
   %62 = add nuw i64 %.017, 1
   %63 = load i64, ptr %39, align 8, !tbaa !217
   %64 = icmp ult i64 %62, %63
@@ -58693,7 +58693,7 @@ _ZN4pstd3pmr21polymorphic_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIc
   store i64 %41, ptr %42, align 8, !tbaa !10
   store ptr %32, ptr %29, align 8, !tbaa !14
   store i64 0, ptr %40, align 8, !tbaa !10
-  store i8 0, ptr %32, align 1, !tbaa !13
+  store i8 0, ptr %32, align 8, !tbaa !13
   %43 = load ptr, ptr %16, align 8, !tbaa !286
   %44 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %43, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8, !tbaa !14
@@ -96896,8 +96896,8 @@ _ZN4pstd8optionalIN4pbrt11ThreadLocalINS1_13ScratchBufferEE5EntryEE5resetEv.exit
   store i32 %102, ptr %106, align 8, !tbaa !50
   store i32 %101, ptr %107, align 4, !tbaa !51
   store ptr %108, ptr %109, align 8, !tbaa !52
-  store ptr %108, ptr %108, align 8, !tbaa !53
-  store i64 0, ptr %110, align 8, !tbaa !54
+  store ptr %108, ptr %108, align 16, !tbaa !53
+  store i64 0, ptr %110, align 32, !tbaa !54
   %111 = icmp eq ptr %100, %75
   br i1 %111, label %117, label %112
 
@@ -101045,7 +101045,7 @@ define linkonce_odr dso_local <2 x float> @_ZN4pbrt6detail8DispatchIRZNS_7Sample
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %59 = load i64, ptr %58, align 8, !tbaa !1462
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %61 = load i32, ptr %60, align 4, !tbaa !15
+  %61 = load i32, ptr %60, align 8, !tbaa !15
   %62 = zext nneg i32 %61 to i64
   %63 = ashr i64 %59, %62
   %64 = load i32, ptr @_ZN4pbrt6PrimesE, align 16, !tbaa !15
@@ -101654,7 +101654,7 @@ define linkonce_odr dso_local void @_ZNK4pbrt10GridMedium9SampleRayENS_3RayEfRKN
   %16 = load <4 x float>, ptr %15, align 4, !noalias !2615
   %.sroa.05.4.vec.insert.i.i = shufflevector <4 x float> %16, <4 x float> poison, <2 x i32> zeroinitializer
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %18 = load <4 x float>, ptr %17, align 4, !noalias !2615
+  %18 = load <4 x float>, ptr %17, align 8, !noalias !2615
   %.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %18, <4 x float> poison, <2 x i32> zeroinitializer
   store <2 x float> %.sroa.07.4.vec.insert.i.i, ptr %10, align 8, !noalias !2615
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -102582,7 +102582,7 @@ define linkonce_odr dso_local void @_ZN4pbrt19DDAMajorantIteratorC2ENS_3RayEffPK
   %30 = load float, ptr %29, align 4, !tbaa !350
   %31 = fdiv float %30, %13
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %33 = load float, ptr %32, align 4, !tbaa !352
+  %33 = load float, ptr %32, align 8, !tbaa !352
   %34 = fdiv float %33, %16
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %36 = load float, ptr %35, align 4, !tbaa !353
@@ -105834,7 +105834,7 @@ define linkonce_odr dso_local void @_ZNK4pbrt13RGBGridMedium9SampleRayENS_3RayEf
   %13 = load <4 x float>, ptr %12, align 4, !noalias !2708
   %.sroa.05.4.vec.insert.i.i = shufflevector <4 x float> %13, <4 x float> poison, <2 x i32> zeroinitializer
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %15 = load <4 x float>, ptr %14, align 4, !noalias !2708
+  %15 = load <4 x float>, ptr %14, align 8, !noalias !2708
   %.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %15, <4 x float> poison, <2 x i32> zeroinitializer
   store <2 x float> %.sroa.07.4.vec.insert.i.i, ptr %7, align 8, !noalias !2708
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -108499,7 +108499,7 @@ define linkonce_odr dso_local void @_ZNK4pbrt11CloudMedium9SampleRayENS_3RayEfRK
   %15 = load <4 x float>, ptr %14, align 4, !noalias !2727
   %.sroa.05.4.vec.insert.i.i = shufflevector <4 x float> %15, <4 x float> poison, <2 x i32> zeroinitializer
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %17 = load <4 x float>, ptr %16, align 4, !noalias !2727
+  %17 = load <4 x float>, ptr %16, align 8, !noalias !2727
   %.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %17, <4 x float> poison, <2 x i32> zeroinitializer
   store <2 x float> %.sroa.07.4.vec.insert.i.i, ptr %10, align 8, !noalias !2727
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -109157,7 +109157,7 @@ define linkonce_odr dso_local void @_ZNK4pbrt13NanoVDBMedium9SampleRayENS_3RayEf
   %16 = load <4 x float>, ptr %15, align 4, !noalias !2736
   %.sroa.05.4.vec.insert.i.i = shufflevector <4 x float> %16, <4 x float> poison, <2 x i32> zeroinitializer
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %18 = load <4 x float>, ptr %17, align 4, !noalias !2736
+  %18 = load <4 x float>, ptr %17, align 8, !noalias !2736
   %.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %18, <4 x float> poison, <2 x i32> zeroinitializer
   store <2 x float> %.sroa.07.4.vec.insert.i.i, ptr %10, align 8, !noalias !2736
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -109658,25 +109658,25 @@ _ZNK4pbrt9Transform12ApplyInverseIfEENS_6Point3IT_EES4_.exit: ; preds = %_ZNK4pb
   %126 = fsub float %.sroa.493.0.i, %125
   %127 = load float, ptr %117, align 4, !tbaa !198
   %128 = getelementptr inbounds nuw i8, ptr %116, i64 336
-  %129 = load float, ptr %128, align 4, !tbaa !198
+  %129 = load float, ptr %128, align 8, !tbaa !198
   %130 = getelementptr inbounds nuw i8, ptr %116, i64 340
   %131 = load float, ptr %130, align 4, !tbaa !198
   %132 = fmul float %126, %131
   %133 = tail call float @llvm.fma.f32(float %123, float %129, float %132)
   %134 = tail call float @llvm.fma.f32(float %120, float %127, float %133)
   %135 = getelementptr inbounds nuw i8, ptr %116, i64 344
-  %136 = load float, ptr %135, align 4, !tbaa !198
+  %136 = load float, ptr %135, align 8, !tbaa !198
   %137 = getelementptr inbounds nuw i8, ptr %116, i64 348
   %138 = load float, ptr %137, align 4, !tbaa !198
   %139 = getelementptr inbounds nuw i8, ptr %116, i64 352
-  %140 = load float, ptr %139, align 4, !tbaa !198
+  %140 = load float, ptr %139, align 8, !tbaa !198
   %141 = fmul float %126, %140
   %142 = tail call float @llvm.fma.f32(float %123, float %138, float %141)
   %143 = tail call float @llvm.fma.f32(float %120, float %136, float %142)
   %144 = getelementptr inbounds nuw i8, ptr %116, i64 356
   %145 = load float, ptr %144, align 4, !tbaa !198
   %146 = getelementptr inbounds nuw i8, ptr %116, i64 360
-  %147 = load float, ptr %146, align 4, !tbaa !198
+  %147 = load float, ptr %146, align 8, !tbaa !198
   %148 = getelementptr inbounds nuw i8, ptr %116, i64 364
   %149 = load float, ptr %148, align 4, !tbaa !198
   %150 = fmul float %126, %149
@@ -109887,25 +109887,25 @@ define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt13NanoVDBMe
   %20 = fsub float %2, %19
   %21 = load float, ptr %11, align 4, !tbaa !198
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 336
-  %23 = load float, ptr %22, align 4, !tbaa !198
+  %23 = load float, ptr %22, align 8, !tbaa !198
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 340
   %25 = load float, ptr %24, align 4, !tbaa !198
   %26 = fmul float %20, %25
   %27 = tail call float @llvm.fma.f32(float %17, float %23, float %26)
   %28 = tail call float @llvm.fma.f32(float %14, float %21, float %27)
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 344
-  %30 = load float, ptr %29, align 4, !tbaa !198
+  %30 = load float, ptr %29, align 8, !tbaa !198
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 348
   %32 = load float, ptr %31, align 4, !tbaa !198
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 352
-  %34 = load float, ptr %33, align 4, !tbaa !198
+  %34 = load float, ptr %33, align 8, !tbaa !198
   %35 = fmul float %20, %34
   %36 = tail call float @llvm.fma.f32(float %17, float %32, float %35)
   %37 = tail call float @llvm.fma.f32(float %14, float %30, float %36)
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 356
   %39 = load float, ptr %38, align 4, !tbaa !198
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 360
-  %41 = load float, ptr %40, align 4, !tbaa !198
+  %41 = load float, ptr %40, align 8, !tbaa !198
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 364
   %43 = load float, ptr %42, align 4, !tbaa !198
   %44 = fmul float %20, %43
@@ -136116,9 +136116,9 @@ define internal void @"_ZNSt17_Function_handlerIFvN4pbrt7Bounds2IiEEN4pstd4spanI
   %41 = load float, ptr %35, align 8, !tbaa !1231
   %42 = fmul float %41, %41
   %43 = fmul float %28, %42
-  %.sroa.0.0.copyload.i35.i.i.i = load <2 x float>, ptr %40, align 4
+  %.sroa.0.0.copyload.i35.i.i.i = load <2 x float>, ptr %40, align 8
   %.sroa.8.0..sroa_idx.i36.i.i.i = getelementptr inbounds nuw i8, ptr %35, i64 136
-  %.sroa.8.0.copyload.i37.i.i.i = load float, ptr %.sroa.8.0..sroa_idx.i36.i.i.i, align 4, !tbaa !198
+  %.sroa.8.0.copyload.i37.i.i.i = load float, ptr %.sroa.8.0..sroa_idx.i36.i.i.i, align 8, !tbaa !198
   %.sroa.0.0.vec.extract.i38.i.i.i = extractelement <2 x float> %.sroa.0.0.copyload.i35.i.i.i, i64 0
   %44 = fdiv float %.sroa.0.0.vec.extract.i38.i.i.i, %43
   %.sroa.0.4.vec.extract.i40.i.i.i = extractelement <2 x float> %.sroa.0.0.copyload.i35.i.i.i, i64 1
@@ -138747,13 +138747,13 @@ _ZNK4pbrt15SampledSpectrumcvbEv.exit.i.i.i:       ; preds = %39
   store i32 0, ptr %.sroa.0114.i.i.i, align 4, !tbaa !2626
   store i32 0, ptr %.sroa.8.i.i.i, align 4, !tbaa !2627
   store i32 0, ptr %.sroa.14.i.i.i, align 4, !tbaa !3476
-  %46 = load float, ptr %44, align 4, !tbaa !346
+  %46 = load float, ptr %44, align 8, !tbaa !346
   %47 = fsub float %46, %45
   %48 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %49 = load float, ptr %48, align 4, !tbaa !348
   %50 = fsub float %49, %45
   %51 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %52 = load float, ptr %51, align 4, !tbaa !349
+  %52 = load float, ptr %51, align 8, !tbaa !349
   %53 = fsub float %52, %45
   %54 = load ptr, ptr %10, align 8, !tbaa !3477
   %55 = load ptr, ptr %11, align 8, !tbaa !3478
@@ -143156,18 +143156,18 @@ define internal void @"_ZNSt17_Function_handlerIFvN4pbrt6Point2IiEEEZNS0_14SPPMI
   %30 = tail call noundef float @sqrtf(float noundef %29) #42, !tbaa !15
   %31 = fmul float %27, %30
   %32 = getelementptr inbounds nuw i8, ptr %17, i64 112
-  %33 = load atomic i32, ptr %32 seq_cst, align 4
+  %33 = load atomic i32, ptr %32 seq_cst, align 8
   %34 = bitcast i32 %33 to float
   %35 = getelementptr inbounds nuw i8, ptr %17, i64 116
   %36 = load atomic i32, ptr %35 seq_cst, align 4
   %37 = bitcast i32 %36 to float
   %38 = getelementptr inbounds nuw i8, ptr %17, i64 120
-  %39 = load atomic i32, ptr %38 seq_cst, align 4
+  %39 = load atomic i32, ptr %38 seq_cst, align 8
   %40 = bitcast i32 %39 to float
   %41 = getelementptr inbounds nuw i8, ptr %17, i64 128
-  %.sroa.0.0.copyload.i.i.i.i = load <2 x float>, ptr %41, align 4
+  %.sroa.0.0.copyload.i.i.i.i = load <2 x float>, ptr %41, align 8
   %.sroa.8.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 136
-  %.sroa.8.0.copyload.i.i.i.i = load float, ptr %.sroa.8.0..sroa_idx.i.i.i.i, align 4, !tbaa !198
+  %.sroa.8.0.copyload.i.i.i.i = load float, ptr %.sroa.8.0..sroa_idx.i.i.i.i, align 8, !tbaa !198
   %.sroa.0.0.vec.extract.i.i.i.i = extractelement <2 x float> %.sroa.0.0.copyload.i.i.i.i, i64 0
   %42 = fadd float %.sroa.0.0.vec.extract.i.i.i.i, %34
   %.sroa.0.4.vec.extract.i.i.i.i = extractelement <2 x float> %.sroa.0.0.copyload.i.i.i.i, i64 1
@@ -143296,9 +143296,9 @@ define internal void @"_ZNSt17_Function_handlerIFvN4pbrt6Point2IiEEEZNS0_14SPPMI
   %34 = load float, ptr %18, align 8, !tbaa !1231
   %35 = fmul float %34, %34
   %36 = fmul float %33, %35
-  %.sroa.0.0.copyload.i23.i.i.i = load <2 x float>, ptr %28, align 4
+  %.sroa.0.0.copyload.i23.i.i.i = load <2 x float>, ptr %28, align 8
   %.sroa.8.0..sroa_idx.i24.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 136
-  %.sroa.8.0.copyload.i25.i.i.i = load float, ptr %.sroa.8.0..sroa_idx.i24.i.i.i, align 4, !tbaa !198
+  %.sroa.8.0.copyload.i25.i.i.i = load float, ptr %.sroa.8.0..sroa_idx.i24.i.i.i, align 8, !tbaa !198
   %.sroa.0.0.vec.extract.i26.i.i.i = extractelement <2 x float> %.sroa.0.0.copyload.i23.i.i.i, i64 0
   %37 = fdiv float %.sroa.0.0.vec.extract.i26.i.i.i, %36
   %.sroa.0.4.vec.extract.i28.i.i.i = extractelement <2 x float> %.sroa.0.0.copyload.i23.i.i.i, i64 1

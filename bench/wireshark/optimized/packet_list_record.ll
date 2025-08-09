@@ -2722,7 +2722,7 @@ _ZNK12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4NodeEE8findNodeERKj.exit: ; 
   store i64 %63, ptr %61, align 8
   %64 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %65 = load i64, ptr %7, align 8
-  %66 = load i32, ptr %64, align 4
+  %66 = load i32, ptr %64, align 8
   %67 = zext i32 %66 to i64
   %68 = lshr i64 %65, 32
   %69 = xor i64 %68, %67
@@ -2814,7 +2814,7 @@ define linkonce_odr void @_ZN6QCacheIj5QListI7QStringEE4trimEx(ptr noundef align
   store i64 %22, ptr %3, align 8
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %24 = load i64, ptr %5, align 8
-  %25 = load i32, ptr %23, align 4
+  %25 = load i32, ptr %23, align 8
   %26 = zext i32 %25 to i64
   %27 = lshr i64 %24, 32
   %28 = xor i64 %27, %26
@@ -3950,7 +3950,7 @@ __cxx_global_var_init.exit:                       ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 136
   store ptr null, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  store i8 0, ptr %6, align 8
+  store i8 0, ptr %6, align 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 145
   store i8 0, ptr %7, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(138) %.ptr.i.i, i8 noundef -1, i64 noundef 128, i1 noundef false) #25

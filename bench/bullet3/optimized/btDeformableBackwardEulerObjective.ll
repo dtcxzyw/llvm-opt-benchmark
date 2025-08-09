@@ -4080,17 +4080,17 @@ _ZNK17btCollisionObject8isActiveEv.exit:          ; preds = %.lr.ph53.split, %.l
   %113 = load float, ptr %112, align 4, !tbaa !45
   %114 = fmul float %103, %113
   %115 = getelementptr inbounds nuw i8, ptr %99, i64 48
-  %116 = load float, ptr %115, align 4, !tbaa !45
+  %116 = load float, ptr %115, align 8, !tbaa !45
   %117 = fadd float %108, %116
-  store float %117, ptr %115, align 4, !tbaa !45
+  store float %117, ptr %115, align 8, !tbaa !45
   %118 = getelementptr inbounds nuw i8, ptr %99, i64 52
   %119 = load float, ptr %118, align 4, !tbaa !45
   %120 = fadd float %111, %119
   store float %120, ptr %118, align 4, !tbaa !45
   %121 = getelementptr inbounds nuw i8, ptr %99, i64 56
-  %122 = load float, ptr %121, align 4, !tbaa !45
+  %122 = load float, ptr %121, align 8, !tbaa !45
   %123 = fadd float %114, %122
-  store float %123, ptr %121, align 4, !tbaa !45
+  store float %123, ptr %121, align 8, !tbaa !45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit44, label %98, !llvm.loop !239

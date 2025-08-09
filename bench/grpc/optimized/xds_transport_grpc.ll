@@ -1291,7 +1291,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %11
   store i64 %17, ptr %19, align 8, !tbaa !80
   store ptr %9, ptr %1, align 8, !tbaa !76
   store i64 0, ptr %18, align 8, !tbaa !80
-  store i8 0, ptr %9, align 1, !tbaa !83
+  store i8 0, ptr %9, align 8, !tbaa !83
   invoke void @_Z26grpc_slice_from_cpp_stringNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%struct.grpc_slice) align 8 %3, ptr noundef nonnull %4)
           to label %20 unwind label %47
 
@@ -5928,7 +5928,7 @@ _ZN4absl12lts_2024072218container_internal20common_policy_traitsINS1_17FlatHashM
   store i64 %41, ptr %42, align 8, !tbaa !80
   store ptr %32, ptr %29, align 8, !tbaa !76
   store i64 0, ptr %40, align 8, !tbaa !80
-  store i8 0, ptr %32, align 1, !tbaa !83
+  store i8 0, ptr %32, align 8, !tbaa !83
   %43 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %44 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %45 = load ptr, ptr %44, align 8, !tbaa !226
@@ -6044,7 +6044,7 @@ _ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolic
   store i64 %109, ptr %110, align 8, !tbaa !80
   store ptr %102, ptr %56, align 8, !tbaa !76
   store i64 0, ptr %58, align 8, !tbaa !80
-  store i8 0, ptr %102, align 1, !tbaa !83
+  store i8 0, ptr %102, align 8, !tbaa !83
   %111 = getelementptr inbounds nuw i8, ptr %99, i64 32
   %112 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %113 = load ptr, ptr %112, align 8, !tbaa !226
@@ -6182,7 +6182,7 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   store i64 %15, ptr %16, align 8, !tbaa !80
   store ptr %6, ptr %2, align 8, !tbaa !76
   store i64 0, ptr %14, align 8, !tbaa !80
-  store i8 0, ptr %6, align 1, !tbaa !83
+  store i8 0, ptr %6, align 8, !tbaa !83
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %19 = load ptr, ptr %18, align 8, !tbaa !226

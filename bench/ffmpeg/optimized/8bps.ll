@@ -40,7 +40,7 @@ define internal range(i32 -1094995529, 1) i32 @decode_init(ptr noundef %0) #0 {
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 9
   store i8 2, ptr %13, align 1, !tbaa !33
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 10
-  store i8 0, ptr %14, align 1, !tbaa !33
+  store i8 0, ptr %14, align 2, !tbaa !33
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 11
   store i8 1, ptr %15, align 1, !tbaa !33
   br label %20

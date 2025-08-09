@@ -11581,7 +11581,7 @@ define internal void @nv_set_multicast(ptr noundef %0) #2 align 16 {
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %32 = load i32, ptr %31, align 4
   %33 = getelementptr i8, ptr %26, i64 44
-  %34 = load i16, ptr %33, align 2
+  %34 = load i16, ptr %33, align 4
   %35 = zext i16 %34 to i32
   %36 = and i32 %32, %28
   %37 = xor i32 %32, -1

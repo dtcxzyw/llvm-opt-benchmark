@@ -176,7 +176,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %11
   store i64 %17, ptr %19, align 8, !tbaa !16
   store ptr %9, ptr %1, align 8, !tbaa !14
   store i64 0, ptr %18, align 8, !tbaa !16
-  store i8 0, ptr %9, align 1, !tbaa !17
+  store i8 0, ptr %9, align 8, !tbaa !17
   call void @llvm.experimental.noalias.scope.decl(metadata !18)
   call void @llvm.experimental.noalias.scope.decl(metadata !21)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !24
@@ -533,7 +533,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
   store i64 %15, ptr %17, align 8, !tbaa !16, !noalias !51
   store ptr %7, ptr %1, align 8, !tbaa !14, !noalias !51
   store i64 0, ptr %16, align 8, !tbaa !16, !noalias !51
-  store i8 0, ptr %7, align 1, !tbaa !17, !noalias !51
+  store i8 0, ptr %7, align 8, !tbaa !17, !noalias !51
   invoke void @_ZN9grpc_core13ResourceQuotaC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull %3)
           to label %18 unwind label %25, !noalias !51
 

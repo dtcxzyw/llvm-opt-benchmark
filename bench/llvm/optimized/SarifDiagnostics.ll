@@ -854,7 +854,7 @@ _ZN5clang4ento29PathDiagnosticConsumerOptionsC2EOS1_.exit: ; preds = %80, %_ZNKS
   store i64 %86, ptr %88, align 8, !tbaa !3
   store ptr %78, ptr %0, align 8, !tbaa !252
   store i64 0, ptr %87, align 8, !tbaa !3
-  store i8 0, ptr %78, align 1, !tbaa !254
+  store i8 0, ptr %78, align 8, !tbaa !254
   %89 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %89, ptr noundef nonnull align 8 dereferenceable(6) %90, i64 6, i1 false)
@@ -7388,7 +7388,7 @@ _ZSt10_ConstructIN5clang10ThreadFlowEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds 
   store i64 %24, ptr %25, align 8, !tbaa !3
   store ptr %15, ptr %12, align 8, !tbaa !252
   store i64 0, ptr %23, align 8, !tbaa !3
-  store i8 0, ptr %15, align 1, !tbaa !254
+  store i8 0, ptr %15, align 8, !tbaa !254
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 48
   %27 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 48
   %.not.i.i.i.i.i.i = icmp eq ptr %26, %10
@@ -8168,7 +8168,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %9,
   store i64 %16, ptr %18, align 8, !tbaa !3
   store ptr %7, ptr %1, align 8, !tbaa !252
   store i64 0, ptr %17, align 8, !tbaa !3
-  store i8 0, ptr %7, align 1, !tbaa !254
+  store i8 0, ptr %7, align 8, !tbaa !254
   store ptr %4, ptr %0, align 8, !tbaa !511
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)

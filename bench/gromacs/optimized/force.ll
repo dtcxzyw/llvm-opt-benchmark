@@ -1290,7 +1290,7 @@ _ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit89: ; preds = %482, %
   %505 = load float, ptr %64, align 4, !tbaa !223
   %506 = fadd float %504, %505
   %507 = getelementptr inbounds nuw i8, ptr %6, i64 184
-  store float %506, ptr %507, align 4, !tbaa !148
+  store float %506, ptr %507, align 8, !tbaa !148
   %508 = load ptr, ptr @debug, align 8, !tbaa !265
   %.not51 = icmp eq ptr %508, null
   br i1 %.not51, label %525, label %509

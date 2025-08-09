@@ -2461,7 +2461,7 @@ define hidden void @_ZN4cvc58internal6theory5arith6linear20LinearEqualityModule1
   %16 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ColumnVector", ptr %15, i64 %14
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !110
-  %.sroa.094.0117 = load i32, ptr %16, align 4, !tbaa !28
+  %.sroa.094.0117 = load i32, ptr %16, align 8, !tbaa !28
   %19 = icmp eq i32 %.sroa.094.0117, -1
   br i1 %19, label %._crit_edge, label %.lr.ph
 
@@ -3776,7 +3776,7 @@ _ZNK4cvc58internal6theory5arith6linear14ArithVariables13atBoundCountsEj.exit: ; 
   %35 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ColumnVector", ptr %34, i64 %17
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !110
-  %.sroa.0282.0316 = load i32, ptr %35, align 4, !tbaa !28
+  %.sroa.0282.0316 = load i32, ptr %35, align 8, !tbaa !28
   %38 = icmp eq i32 %.sroa.0282.0316, -1
   br i1 %38, label %.critedge79, label %.lr.ph
 
@@ -8831,7 +8831,7 @@ _ZN4cvc58internal6theory5arith6linear6BorderD2Ev.exit179: ; preds = %_ZN4cvc58in
   %157 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ColumnVector", ptr %156, i64 %17
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %159 = load ptr, ptr %158, align 8, !tbaa !110
-  %.sroa.0.0277 = load i32, ptr %157, align 4, !tbaa !28
+  %.sroa.0.0277 = load i32, ptr %157, align 8, !tbaa !28
   %160 = icmp eq i32 %.sroa.0.0277, -1
   br i1 %160, label %._crit_edge, label %.lr.ph.preheader
 

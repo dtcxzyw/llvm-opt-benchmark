@@ -2298,7 +2298,7 @@ pmix_bfrops_base_print_persist.exit:              ; preds = %272, %274
   %313 = icmp eq ptr %312, null
   %spec.select.i = select i1 %313, ptr @.str.47, ptr %312
   %314 = getelementptr inbounds nuw i8, ptr %311, i64 8
-  %char0.i = load i8, ptr %314, align 1
+  %char0.i = load i8, ptr %314, align 8
   %315 = icmp eq i8 %char0.i, 0
   %316 = select i1 %315, ptr @.str.47, ptr %314
   %317 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.88, ptr noundef nonnull %11, ptr noundef nonnull %spec.select.i, ptr noundef nonnull %316) #8
@@ -2643,7 +2643,7 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_regattr(ptr noundef %0, ptr
   %8 = icmp eq ptr %7, null
   %spec.select = select i1 %8, ptr @.str.47, ptr %7
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %char0 = load i8, ptr %9, align 1
+  %char0 = load i8, ptr %9, align 8
   %10 = icmp eq i8 %char0, 0
   %11 = select i1 %10, ptr @.str.47, ptr %9
   %12 = tail call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.88, ptr noundef nonnull %6, ptr noundef nonnull %spec.select, ptr noundef nonnull %11) #8

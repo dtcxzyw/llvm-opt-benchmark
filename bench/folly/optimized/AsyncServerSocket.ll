@@ -8176,7 +8176,7 @@ _ZN5folly15observer_detail4Core14CreatorContextC2EOS2_.exit: ; preds = %43, %_ZN
   store i64 %49, ptr %51, align 8, !tbaa !77
   store ptr %41, ptr %38, align 8, !tbaa !80
   store i64 0, ptr %50, align 8, !tbaa !77
-  store i8 0, ptr %41, align 1, !tbaa !79
+  store i8 0, ptr %41, align 8, !tbaa !79
   invoke void @_ZN5folly15observer_detail4Core6createENS_8FunctionIFSt10shared_ptrIKvEvEEENS1_14CreatorContextE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %6, ptr noundef nonnull %7, ptr noundef nonnull %9)
           to label %52 unwind label %131
 
@@ -14936,7 +14936,7 @@ _ZNSt10_HashtableIjSt4pairIKjN5folly17AsyncServerSocket12CallbackInfoEESaIS5_ENS
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIjSt4pairIKjN5folly17AsyncServerSocket12CallbackInfoEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !226
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !23
+  %16 = load i32, ptr %15, align 8, !tbaa !23
   %17 = zext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18

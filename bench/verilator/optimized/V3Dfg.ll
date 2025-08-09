@@ -6941,7 +6941,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit178.i: ; preds = %
   %319 = load i32, ptr %318, align 8, !tbaa !204
   %320 = and i32 %319, -75
   %321 = or disjoint i32 %320, 8
-  store i32 %321, ptr %318, align 4, !tbaa !205
+  store i32 %321, ptr %318, align 8, !tbaa !205
   %322 = call noundef i32 @_ZNK8V3Number6toUIntEv(ptr noundef nonnull align 8 dereferenceable(56) %276)
   %323 = zext i32 %322 to i64
   %324 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %312, i64 noundef %323)
@@ -6953,7 +6953,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit178.i: ; preds = %
   %330 = load i32, ptr %329, align 8, !tbaa !204
   %331 = and i32 %330, -75
   %332 = or disjoint i32 %331, 2
-  store i32 %332, ptr %329, align 4, !tbaa !205
+  store i32 %332, ptr %329, align 8, !tbaa !205
   br label %363
 
 333:                                              ; preds = %275

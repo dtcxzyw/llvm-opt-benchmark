@@ -479,7 +479,7 @@ define internal fastcc ptr @set_plan_refs(ptr noundef %0, ptr noundef %1, i32 no
   store i32 %23, ptr %21, align 8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i32 %22, ptr %24, align 8
-  %25 = load i32, ptr %1, align 4
+  %25 = load i32, ptr %1, align 8
   switch i32 %25, label %934 [
     i32 338, label %26
     i32 339, label %40
@@ -1050,7 +1050,7 @@ build_tlist_index.exit82.i:                       ; preds = %343, %.lr.ph.i73.i,
   %364 = call ptr @fix_join_expr_mutator(ptr noundef %354, ptr noundef nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   store ptr %364, ptr %353, align 8
-  %365 = load i32, ptr %1, align 4
+  %365 = load i32, ptr %1, align 8
   switch i32 %365, label %set_join_references.exit [
     i32 355, label %366
     i32 357, label %398

@@ -28370,7 +28370,7 @@ define linkonce_odr void @_ZN6QCacheIj5QListI7QStringEE4trimEx(ptr noundef align
   store i64 %22, ptr %3, align 8
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %24 = load i64, ptr %5, align 8
-  %25 = load i32, ptr %23, align 4
+  %25 = load i32, ptr %23, align 8
   %26 = zext i32 %25 to i64
   %27 = lshr i64 %24, 32
   %28 = xor i64 %27, %26

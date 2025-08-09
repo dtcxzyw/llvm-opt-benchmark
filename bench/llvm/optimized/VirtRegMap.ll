@@ -624,7 +624,7 @@ _ZNK4llvm19MachineRegisterInfo20getRegAllocationHintENS_8RegisterE.exit.i: ; pre
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !173
   %17 = load i32, ptr %16, align 4, !tbaa !174
-  %18 = load i32, ptr %12, align 4, !tbaa !174
+  %18 = load i32, ptr %12, align 8, !tbaa !174
   %.not.i = icmp eq i32 %18, 0
   %19 = icmp ne i32 %17, 0
   %or.cond = select i1 %.not.i, i1 %19, i1 false
@@ -1539,7 +1539,7 @@ define linkonce_odr noundef ptr @_ZN4llvm15callDefaultCtorINS_23VirtRegMapWrappe
   store i32 0, ptr %9, align 8, !tbaa !167
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 100
   store i32 0, ptr %10, align 4, !tbaa !177
-  store i32 0, ptr %8, align 4, !tbaa !222
+  store i32 0, ptr %8, align 8, !tbaa !222
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr %12, ptr %11, align 8, !tbaa !173
@@ -1555,7 +1555,7 @@ define linkonce_odr noundef ptr @_ZN4llvm15callDefaultCtorINS_23VirtRegMapWrappe
   store i32 0, ptr %17, align 8, !tbaa !167
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 148
   store i32 0, ptr %18, align 4, !tbaa !177
-  store i32 0, ptr %16, align 4, !tbaa !172
+  store i32 0, ptr %16, align 8, !tbaa !172
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %19, i8 0, i64 20, i1 false)
   ret ptr %1

@@ -37,7 +37,7 @@ define hidden noundef ptr @_ZN8FrameMap24signature_type_array_forEPK8ciMethod(pt
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load i32, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load i32, ptr %8, align 4
+  %9 = load i32, ptr %8, align 8
   %10 = lshr i32 %9, 3
   %.lobit.i = and i32 %10, 1
   %11 = xor i32 %.lobit.i, 1
@@ -541,7 +541,7 @@ define hidden void @_ZN8FrameMapC2EP8ciMethodii(ptr noundef nonnull align 8 capt
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %14 = load i32, ptr %13, align 4
+  %14 = load i32, ptr %13, align 8
   %15 = lshr i32 %14, 3
   %.lobit.i = and i32 %15, 1
   %16 = xor i32 %.lobit.i, 1

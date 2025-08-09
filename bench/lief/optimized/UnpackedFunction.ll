@@ -2481,9 +2481,9 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   call void @llvm.experimental.noalias.scope.decl(metadata !203)
   %464 = load i32, ptr %460, align 4, !tbaa !3, !noalias !206
   %.sroa.011.0.insert.ext.i = zext i32 %464 to i64
-  %465 = load i16, ptr %462, align 2, !tbaa !56, !noalias !206
+  %465 = load i16, ptr %462, align 4, !tbaa !56, !noalias !206
   %.sroa.017.0.insert.ext.i115 = zext i16 %465 to i64
-  %466 = load i8, ptr %463, align 1, !tbaa !53, !noalias !206
+  %466 = load i8, ptr %463, align 2, !tbaa !53, !noalias !206
   %.sroa.014.0.insert.ext.i116 = zext i8 %466 to i64
   store i64 %461, ptr %18, align 16, !alias.scope !203, !noalias !200
   store i64 %.sroa.011.0.insert.ext.i, ptr %413, align 16, !alias.scope !203, !noalias !200

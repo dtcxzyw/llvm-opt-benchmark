@@ -2524,7 +2524,7 @@ define dso_local range(i32 0, 2) i32 @RM_CreateCommand(ptr noundef readonly capt
   %52 = getelementptr inbounds nuw i8, ptr %41, i64 44
   store i32 %51, ptr %52, align 4, !tbaa !60
   %53 = getelementptr inbounds nuw i8, ptr %41, i64 48
-  store i32 %6, ptr %53, align 4, !tbaa !60
+  store i32 %6, ptr %53, align 8, !tbaa !60
   %54 = getelementptr inbounds nuw i8, ptr %41, i64 52
   store i32 0, ptr %54, align 4, !tbaa !60
   br label %moduleCreateCommandProxy.exit
@@ -2637,7 +2637,7 @@ define dso_local noundef ptr @moduleCreateCommandProxy(ptr noundef %0, ptr nound
   %32 = getelementptr inbounds nuw i8, ptr %21, i64 44
   store i32 %31, ptr %32, align 4, !tbaa !60
   %33 = getelementptr inbounds nuw i8, ptr %21, i64 48
-  store i32 %7, ptr %33, align 4, !tbaa !60
+  store i32 %7, ptr %33, align 8, !tbaa !60
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 52
   store i32 0, ptr %34, align 4, !tbaa !60
   br label %37

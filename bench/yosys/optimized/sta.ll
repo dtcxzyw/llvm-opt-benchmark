@@ -5903,7 +5903,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i834:       ; preds = %_ZSt22__uninitializ
   %.sroa.03161.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1041, i64 8
   %.sroa.03161.sroa.4.0.copyload = load i32, ptr %.sroa.03161.sroa.4.0..sroa_idx, align 8, !tbaa !21
   %1046 = getelementptr inbounds nuw i8, ptr %1041, i64 16
-  %1047 = load i32, ptr %1046, align 4, !tbaa !105
+  %1047 = load i32, ptr %1046, align 8, !tbaa !105
   %.not.i.i.i.i.i1235 = icmp eq i32 %1047, 0
   br i1 %.not.i.i.i.i.i1235, label %_ZNSt4pairIN5Yosys5RTLIL6SigBitENS0_10TimingInfo7NameBitEEC2ERKS5_.exit.thread.i1243, label %1050
 
@@ -6856,7 +6856,7 @@ _ZN5Yosys7hashlib8hash_opsINS_10TimingInfo7NameBitEE4hashERKS3_.exit.i879: ; pre
   %1546 = getelementptr inbounds nuw i8, ptr %1545, i64 16
   store ptr %147, ptr %1546, align 8, !tbaa !156
   %1547 = getelementptr inbounds nuw i8, ptr %1545, i64 24
-  %1548 = load i32, ptr %1547, align 4, !tbaa !105
+  %1548 = load i32, ptr %1547, align 8, !tbaa !105
   %1549 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !106, !range !107, !noundef !108
   %1550 = trunc nuw i8 %1549 to i1
   %1551 = icmp ne i32 %1548, 0
@@ -7532,7 +7532,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i935:       ; preds = %_ZSt22__uninitializ
   %.sroa.03173.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1885, i64 8
   %.sroa.03173.sroa.4.0.copyload = load i32, ptr %.sroa.03173.sroa.4.0..sroa_idx, align 8, !tbaa !21
   %1890 = getelementptr inbounds nuw i8, ptr %1885, i64 16
-  %1891 = load i32, ptr %1890, align 4, !tbaa !105
+  %1891 = load i32, ptr %1890, align 8, !tbaa !105
   %.not.i.i.i.i.i1299 = icmp eq i32 %1891, 0
   br i1 %.not.i.i.i.i.i1299, label %_ZNSt4pairIN5Yosys5RTLIL6SigBitENS0_10TimingInfo7NameBitEEC2ERKS5_.exit.thread.i1307, label %1894
 
@@ -17640,7 +17640,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL6SigBit
   %107 = load ptr, ptr %106, align 8, !tbaa !445
   store ptr %107, ptr %105, align 8, !tbaa !445
   %108 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i.i.i.i, i64 24
-  %109 = load i32, ptr %108, align 4, !tbaa !105
+  %109 = load i32, ptr %108, align 8, !tbaa !105
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %109, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %115, label %110
 
@@ -17812,7 +17812,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL6SigBit
   %181 = load ptr, ptr %180, align 8, !tbaa !445
   store ptr %181, ptr %179, align 8, !tbaa !445
   %182 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i.i.i41.i, i64 24
-  %183 = load i32, ptr %182, align 4, !tbaa !105
+  %183 = load i32, ptr %182, align 8, !tbaa !105
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i42.i = icmp eq i32 %183, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i42.i, label %189, label %184
 
@@ -18105,7 +18105,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEN12_GLOBAL__N_19StaWorker6t_dataENS0_8h
   %94 = getelementptr inbounds nuw i8, ptr %90, i64 16
   store ptr null, ptr %94, align 8, !tbaa !353
   %95 = getelementptr inbounds nuw i8, ptr %90, i64 24
-  store i32 0, ptr %95, align 4, !tbaa !105
+  store i32 0, ptr %95, align 8, !tbaa !105
   store i32 0, ptr %81, align 8, !tbaa !105
   %96 = getelementptr inbounds nuw i8, ptr %90, i64 28
   store i32 0, ptr %96, align 4, !tbaa !105
@@ -18150,7 +18150,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEN12_GLOBAL__N_19StaWorker6t
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
   store ptr null, ptr %116, align 8, !tbaa !353
   %117 = getelementptr inbounds nuw i8, ptr %115, i64 24
-  store i32 0, ptr %117, align 4, !tbaa !105
+  store i32 0, ptr %117, align 8, !tbaa !105
   store i32 0, ptr %81, align 8, !tbaa !105
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 28
   store i32 0, ptr %118, align 4, !tbaa !105
@@ -18252,7 +18252,7 @@ _ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEN12_GLOBAL__N_19StaWorker6t_
   %149 = getelementptr inbounds nuw i8, ptr %145, i64 16
   store ptr null, ptr %149, align 8, !tbaa !353
   %150 = getelementptr inbounds nuw i8, ptr %145, i64 24
-  store i32 0, ptr %150, align 4, !tbaa !105
+  store i32 0, ptr %150, align 8, !tbaa !105
   store i32 0, ptr %81, align 8, !tbaa !105
   %151 = getelementptr inbounds nuw i8, ptr %145, i64 28
   store i32 0, ptr %151, align 4, !tbaa !105
@@ -18305,7 +18305,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEN12_GLOBAL__N_19StaWorker6t
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 16
   store ptr null, ptr %171, align 8, !tbaa !353
   %172 = getelementptr inbounds nuw i8, ptr %170, i64 24
-  store i32 0, ptr %172, align 4, !tbaa !105
+  store i32 0, ptr %172, align 8, !tbaa !105
   store i32 0, ptr %81, align 8, !tbaa !105
   %173 = getelementptr inbounds nuw i8, ptr %170, i64 28
   store i32 0, ptr %173, align 4, !tbaa !105
@@ -28384,7 +28384,7 @@ define linkonce_odr noundef i32 @_ZNK5Yosys7hashlib4poolISt4pairINS_5RTLIL6SigBi
   %.sroa.2.0.copyload74 = load i32, ptr %.sroa.2.0..sroa_idx73, align 8, !tbaa !21
   %.sroa.2.sroa.083.0.extract.trunc = trunc i32 %.sroa.2.0.copyload74 to i8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %38 = load i32, ptr %37, align 4, !tbaa !105
+  %38 = load i32, ptr %37, align 8, !tbaa !105
   %.not.i.i.i.i = icmp eq i32 %38, 0
   br i1 %.not.i.i.i.i, label %_ZNSt4pairIN5Yosys5RTLIL6SigBitENS0_10TimingInfo7NameBitEEC2ERKS5_.exit, label %39
 
@@ -29173,7 +29173,7 @@ define internal fastcc noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN5
   store ptr %6, ptr %4, align 8, !tbaa !353
   %7 = getelementptr inbounds nuw i8, ptr %.022.i.i.i.i, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %.01221.i.i.i.i, i64 24
-  %9 = load i32, ptr %8, align 4, !tbaa !105
+  %9 = load i32, ptr %8, align 8, !tbaa !105
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %9, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i.i.i.i.i.i.i.i, label %10
 

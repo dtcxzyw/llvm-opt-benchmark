@@ -8575,7 +8575,7 @@ define void @_ZN7rocksdb32FSRandomAccessFileTracingWrapper9ReadAsyncERNS_13FSRea
   store ptr %15, ptr %14, align 8, !tbaa !34
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 56
   store i64 0, ptr %16, align 8, !tbaa !40
-  store i8 0, ptr %15, align 1, !tbaa !39
+  store i8 0, ptr %15, align 8, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 24

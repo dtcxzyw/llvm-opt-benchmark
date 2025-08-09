@@ -11993,7 +11993,7 @@ _ZNK8seq_util9is_stringEP4sort.exit:              ; preds = %24
   %69 = load i32, ptr %68, align 8, !tbaa !485
   %70 = and i32 %69, -75
   %71 = or disjoint i32 %70, 8
-  store i32 %71, ptr %68, align 4, !tbaa !494
+  store i32 %71, ptr %68, align 8, !tbaa !494
   %72 = load i32, ptr %40, align 8, !tbaa !178
   %73 = add i32 %72, 1
   store i32 %73, ptr %40, align 8, !tbaa !178
@@ -12010,7 +12010,7 @@ _ZNK8seq_util9is_stringEP4sort.exit:              ; preds = %24
   %82 = load i32, ptr %81, align 8, !tbaa !485
   %83 = and i32 %82, -75
   %84 = or disjoint i32 %83, 2
-  store i32 %84, ptr %81, align 4, !tbaa !494
+  store i32 %84, ptr %81, align 8, !tbaa !494
   %85 = load ptr, ptr %38, align 8, !tbaa !194
   %86 = load i64, ptr %39, align 8, !tbaa !189
   %87 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef %85, i64 noundef %86)

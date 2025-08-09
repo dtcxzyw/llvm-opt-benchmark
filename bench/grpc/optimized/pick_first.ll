@@ -1012,7 +1012,7 @@ define internal noundef ptr @_ZNK9grpc_core11json_detail10AutoLoaderINS_13RefCou
   store i64 0, ptr %4, align 16, !noalias !27
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %5, align 8, !tbaa !30, !noalias !27
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_115PickFirstConfigE, i64 16), ptr %3, align 8, !tbaa !6, !noalias !27
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_115PickFirstConfigE, i64 16), ptr %3, align 16, !tbaa !6, !noalias !27
   %6 = load ptr, ptr %1, align 8, !tbaa !33
   store ptr %3, ptr %1, align 8, !tbaa !33
   %.not.i.i = icmp eq ptr %6, null
@@ -1255,7 +1255,7 @@ _ZN9grpc_core19LoadBalancingPolicy4ArgsD2Ev.exit.i.i: ; preds = %58, %_ZN9__gnu_
   store ptr %81, ptr %80, align 8, !tbaa !99, !noalias !38
   %82 = getelementptr inbounds nuw i8, ptr %16, i64 112
   store i64 0, ptr %82, align 8, !tbaa !100, !noalias !38
-  store i8 0, ptr %81, align 1, !tbaa !24, !noalias !38
+  store i8 0, ptr %81, align 8, !tbaa !24, !noalias !38
   %83 = getelementptr inbounds nuw i8, ptr %16, i64 136
   invoke void @_ZN9grpc_core11ChannelArgsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %83)
           to label %_ZN9grpc_core19LoadBalancingPolicy10UpdateArgsC2Ev.exit.i.i unwind label %84, !noalias !38
@@ -1645,7 +1645,7 @@ _ZN9grpc_core19LoadBalancingPolicy4ArgsD2Ev.exit.i.i12: ; preds = %209, %_ZN9__g
   store ptr %232, ptr %231, align 8, !tbaa !99, !noalias !109
   %233 = getelementptr inbounds nuw i8, ptr %167, i64 112
   store i64 0, ptr %233, align 8, !tbaa !100, !noalias !109
-  store i8 0, ptr %232, align 1, !tbaa !24, !noalias !109
+  store i8 0, ptr %232, align 8, !tbaa !24, !noalias !109
   %234 = getelementptr inbounds nuw i8, ptr %167, i64 136
   invoke void @_ZN9grpc_core11ChannelArgsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %234)
           to label %_ZN9grpc_core19LoadBalancingPolicy10UpdateArgsC2Ev.exit.i.i25 unwind label %235, !noalias !109

@@ -1920,7 +1920,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__det
   %45 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #39
   store ptr null, ptr %45, align 8, !tbaa !16
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store i32 %43, ptr %46, align 4, !tbaa !33
+  store i32 %43, ptr %46, align 8, !tbaa !33
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %48 = load i32, ptr %44, align 4, !tbaa !28
   store i32 %48, ptr %47, align 4, !tbaa !35
@@ -2104,7 +2104,7 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !16
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !28
+  %16 = load i32, ptr %15, align 8, !tbaa !28
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -47688,7 +47688,7 @@ define linkonce_odr void @_ZN6open3d13visualization9rendering8MaterialD2Ev(ptr n
   %.06.i.i.i.i = phi ptr [ %5, %_ZNSt8__detail16_Hashtable_allocIN5Eigen17aligned_allocatorINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_6MatrixIfLi4ELi1ELi0ELi4ELi1EEEELb1EEEEEE18_M_deallocate_nodeEPSF_.exit.i.i.i.i ], [ %4, %1 ]
   %5 = load ptr, ptr %.06.i.i.i.i, align 16, !tbaa !16
   %6 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !68
+  %7 = load ptr, ptr %6, align 16, !tbaa !68
   %8 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 32
   %9 = icmp eq ptr %7, %8
   br i1 %9, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i
@@ -55560,7 +55560,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %.06.i.i = phi ptr [ %43, %_ZNSt8__detail16_Hashtable_allocIN5Eigen17aligned_allocatorINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_6MatrixIfLi4ELi1ELi0ELi4ELi1EEEELb1EEEEEE18_M_deallocate_nodeEPSF_.exit.i.i ], [ %42, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5Eigen6MatrixIfLi4ELi1ELi0ELi4ELi1EEEENS8_17aligned_allocatorISB_EENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEPPNSE_15_Hash_node_baseEm.exit ]
   %43 = load ptr, ptr %.06.i.i, align 16, !tbaa !16
   %44 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !68
+  %45 = load ptr, ptr %44, align 16, !tbaa !68
   %46 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 32
   %47 = icmp eq ptr %45, %46
   br i1 %47, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i
@@ -55804,7 +55804,7 @@ define linkonce_odr void @_ZNSt8__detail17_ReuseOrAllocNodeIN5Eigen17aligned_all
   %.06.i = phi ptr [ %3, %_ZNSt8__detail16_Hashtable_allocIN5Eigen17aligned_allocatorINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_6MatrixIfLi4ELi1ELi0ELi4ELi1EEEELb1EEEEEE18_M_deallocate_nodeEPSF_.exit.i ], [ %2, %1 ]
   %3 = load ptr, ptr %.06.i, align 16, !tbaa !16
   %4 = getelementptr inbounds nuw i8, ptr %.06.i, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !68
+  %5 = load ptr, ptr %4, align 16, !tbaa !68
   %6 = getelementptr inbounds nuw i8, ptr %.06.i, i64 32
   %7 = icmp eq ptr %5, %6
   br i1 %7, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
@@ -55843,7 +55843,7 @@ define linkonce_odr noundef ptr @_ZNKSt8__detail17_ReuseOrAllocNodeIN5Eigen17ali
   store ptr %6, ptr %0, align 8, !tbaa !1147
   store ptr null, ptr %4, align 16, !tbaa !16
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !68
+  %8 = load ptr, ptr %7, align 16, !tbaa !68
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = icmp eq ptr %8, %9
   br i1 %10, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
@@ -55960,7 +55960,7 @@ define linkonce_odr void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_
   %.06.i = phi ptr [ %4, %_ZNSt8__detail16_Hashtable_allocIN5Eigen17aligned_allocatorINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_6MatrixIfLi4ELi1ELi0ELi4ELi1EEEELb1EEEEEE18_M_deallocate_nodeEPSF_.exit.i ], [ %3, %1 ]
   %4 = load ptr, ptr %.06.i, align 16, !tbaa !16
   %5 = getelementptr inbounds nuw i8, ptr %.06.i, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !68
+  %6 = load ptr, ptr %5, align 16, !tbaa !68
   %7 = getelementptr inbounds nuw i8, ptr %.06.i, i64 32
   %8 = icmp eq ptr %6, %7
   br i1 %8, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
@@ -65920,7 +65920,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %13
   store i64 %20, ptr %21, align 8, !tbaa !44
   store ptr %11, ptr %8, align 8, !tbaa !68
   store i64 0, ptr %19, align 8, !tbaa !44
-  store i8 0, ptr %11, align 1, !tbaa !46
+  store i8 0, ptr %11, align 8, !tbaa !46
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %23, i8 0, i64 224, i1 false)
@@ -74619,7 +74619,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8, !tbaa !44
   store ptr %13, ptr %10, align 8, !tbaa !68
   store i64 0, ptr %24, align 8, !tbaa !44
-  store i8 0, ptr %13, align 1, !tbaa !46
+  store i8 0, ptr %13, align 8, !tbaa !46
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store float 0.000000e+00, ptr %26, align 8, !tbaa !972
   store ptr %7, ptr %23, align 8, !tbaa !1493
@@ -75164,7 +75164,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8, !tbaa !44
   store ptr %13, ptr %10, align 8, !tbaa !68
   store i64 0, ptr %24, align 8, !tbaa !44
-  store i8 0, ptr %13, align 1, !tbaa !46
+  store i8 0, ptr %13, align 8, !tbaa !46
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   store ptr %7, ptr %23, align 8, !tbaa !1340

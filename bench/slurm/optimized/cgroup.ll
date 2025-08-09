@@ -644,7 +644,7 @@ define dso_local void @cgroup_init_limits(ptr noundef writeonly captures(address
   store i32 0, ptr %5, align 4
   store i32 -2, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 -2, ptr %6, align 4
+  store i32 -2, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 -2, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72

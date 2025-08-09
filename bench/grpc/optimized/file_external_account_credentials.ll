@@ -1455,7 +1455,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %29, ptr %31, align 8, !tbaa !45
   store ptr %20, ptr %16, align 8, !tbaa !41
   store i64 0, ptr %30, align 8, !tbaa !45
-  store i8 0, ptr %20, align 1, !tbaa !46
+  store i8 0, ptr %20, align 8, !tbaa !46
   store i64 1, ptr %4, align 8, !tbaa !38
   br label %_ZN4absl12lts_202407228StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit
 

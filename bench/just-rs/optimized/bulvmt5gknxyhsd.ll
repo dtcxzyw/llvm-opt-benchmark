@@ -5229,13 +5229,13 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h1e20391328a70e
   store ptr %11, ptr %5, align 8, !alias.scope !1589, !noalias !1592
   %.sroa.0.0.copyload1 = load i8, ptr %7, align 8, !noalias !1589
   %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx2.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.7.sroa.5.0.copyload = load ptr, ptr %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx2.sroa_idx, align 1, !noalias !1589
+  %.sroa.7.sroa.5.0.copyload = load ptr, ptr %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx2.sroa_idx, align 8, !noalias !1589
   %.sroa.7.sroa.6.0..sroa.7.0..sroa_idx2.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sroa.7.sroa.6.0.copyload = load i64, ptr %.sroa.7.sroa.6.0..sroa.7.0..sroa_idx2.sroa_idx, align 1, !noalias !1589
+  %.sroa.7.sroa.6.0.copyload = load i64, ptr %.sroa.7.sroa.6.0..sroa.7.0..sroa_idx2.sroa_idx, align 8, !noalias !1589
   %.sroa.7.sroa.8.0..sroa.7.0..sroa_idx2.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %.sroa.7.sroa.8.0.copyload = load ptr, ptr %.sroa.7.sroa.8.0..sroa.7.0..sroa_idx2.sroa_idx, align 1, !noalias !1589
+  %.sroa.7.sroa.8.0.copyload = load ptr, ptr %.sroa.7.sroa.8.0..sroa.7.0..sroa_idx2.sroa_idx, align 8, !noalias !1589
   %.sroa.7.sroa.9.0..sroa.7.0..sroa_idx2.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %.sroa.7.sroa.9.0.copyload = load i64, ptr %.sroa.7.sroa.9.0..sroa.7.0..sroa_idx2.sroa_idx, align 1, !noalias !1589
+  %.sroa.7.sroa.9.0.copyload = load i64, ptr %.sroa.7.sroa.9.0..sroa.7.0..sroa_idx2.sroa_idx, align 8, !noalias !1589
   %.not = icmp eq i8 %.sroa.0.0.copyload1, 10
   br i1 %.not, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb8dca151e396049E.exit.thread", label %12
 

@@ -483,19 +483,19 @@ define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN19arith_rewri
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store ptr null, ptr %27, align 8, !tbaa !53
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 104
-  store i32 0, ptr %28, align 4, !tbaa !54
+  store i32 0, ptr %28, align 8, !tbaa !54
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 108
   store i8 0, ptr %29, align 4, !tbaa !55
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  store i32 0, ptr %30, align 4, !tbaa !56
+  store i32 0, ptr %30, align 8, !tbaa !56
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 116
   store i32 0, ptr %31, align 4, !tbaa !57
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 120
-  store i32 -1, ptr %32, align 4, !tbaa !54
+  store i32 -1, ptr %32, align 8, !tbaa !54
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 124
   store i8 0, ptr %33, align 4, !tbaa !55
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  store i32 0, ptr %34, align 4, !tbaa !56
+  store i32 0, ptr %34, align 8, !tbaa !56
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 132
   store i32 0, ptr %35, align 4, !tbaa !57
   %36 = load ptr, ptr %3, align 8, !tbaa !3
@@ -32559,7 +32559,7 @@ _ZNK11ast_manager6is_iteEPK4expr.exit.i256:       ; preds = %627
   %643 = getelementptr inbounds nuw i8, ptr %.2436, i64 48
   %644 = load ptr, ptr %643, align 8, !tbaa !100
   %645 = getelementptr inbounds nuw i8, ptr %.2436, i64 8
-  %646 = load i32, ptr %645, align 4, !tbaa !103
+  %646 = load i32, ptr %645, align 8, !tbaa !103
   %647 = icmp eq i32 %646, 1
   br i1 %647, label %648, label %_ZNK11ast_manager6is_iteEPK4exprRPS0_S4_S4_.exit257.thread
 
@@ -59124,9 +59124,9 @@ _Z3absRK8rational.exit:                           ; preds = %_ZN8rationalC2ERKS_
   %140 = or disjoint i8 %139, %134
   store i8 %140, ptr %107, align 4
   %141 = getelementptr inbounds nuw i8, ptr %117, i64 16
-  %142 = load i32, ptr %141, align 4, !tbaa !115
+  %142 = load i32, ptr %141, align 8, !tbaa !115
   %143 = load i32, ptr %109, align 8, !tbaa !115
-  store i32 %143, ptr %141, align 4, !tbaa !115
+  store i32 %143, ptr %141, align 8, !tbaa !115
   store i32 %142, ptr %109, align 8, !tbaa !115
   %144 = getelementptr inbounds nuw i8, ptr %117, i64 24
   %145 = load ptr, ptr %144, align 8, !tbaa !273

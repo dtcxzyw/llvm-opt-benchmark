@@ -1672,7 +1672,7 @@ define noundef zeroext i1 @_ZNK5Yosys18DriveChunkMultiple10can_appendERKNS_16Dri
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %61 = load ptr, ptr %60, align 8, !tbaa !61
   %62 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %63 = load i32, ptr %62, align 4, !tbaa !39
+  %63 = load i32, ptr %62, align 8, !tbaa !39
   %.not.i.i = icmp ne i32 %63, 0
   br i1 %.not.i.i, label %70, label %.thread190
 
@@ -2135,7 +2135,7 @@ define noundef zeroext i1 @_ZNK5Yosys18DriveChunkMultiple10can_appendERKS0_(ptr 
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %62 = load ptr, ptr %61, align 8, !tbaa !61
   %63 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %64 = load i32, ptr %63, align 4, !tbaa !39
+  %64 = load i32, ptr %63, align 8, !tbaa !39
   %.not.i.i = icmp eq i32 %64, 0
   br i1 %.not.i.i, label %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.thread, label %71
 
@@ -29060,7 +29060,7 @@ define linkonce_odr noundef i32 @_ZNK5Yosys7hashlib4dictISt4pairIPNS_5RTLIL4Cell
   %35 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<std::pair<Yosys::RTLIL::Cell *, Yosys::RTLIL::IdString>, Yosys::DriverMap::DriveBitId>::entry_t", ptr %33, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !270
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %38 = load i32, ptr %37, align 4, !tbaa !39
+  %38 = load i32, ptr %37, align 8, !tbaa !39
   %.not.i.i.i = icmp eq i32 %38, 0
   br i1 %.not.i.i.i, label %_ZNSt4pairIPN5Yosys5RTLIL4CellENS1_8IdStringEEC2ERKS5_.exit, label %39
 
@@ -29213,7 +29213,7 @@ _ZNSt4pairIPN5Yosys5RTLIL4CellENS1_8IdStringEEC2ERKS5_.exit: ; preds = %10, %14
   store ptr %11, ptr %22, align 8, !tbaa !270
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %27 = load i32, ptr %12, align 8, !tbaa !39
-  store i32 %27, ptr %26, align 4, !tbaa !39
+  store i32 %27, ptr %26, align 8, !tbaa !39
   store i32 0, ptr %12, align 8, !tbaa !39
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -29318,7 +29318,7 @@ _ZNSt4pairIPN5Yosys5RTLIL4CellENS1_8IdStringEED2Ev.exit: ; preds = %37, %42, %49
   %70 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %72 = load i32, ptr %71, align 8, !tbaa !39
-  store i32 %72, ptr %70, align 4, !tbaa !39
+  store i32 %72, ptr %70, align 8, !tbaa !39
   store i32 0, ptr %71, align 8, !tbaa !39
   %73 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -29396,7 +29396,7 @@ _ZNSt4pairIPN5Yosys5RTLIL4CellENS1_8IdStringEED2Ev.exit: ; preds = %1, %7, %14
 define linkonce_odr i32 @_ZN5Yosys7hashlib8hash_opsISt4pairIPNS_5RTLIL4CellENS3_8IdStringEEE4hashES7_(ptr noundef %0) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !270
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 4, !tbaa !39
+  %4 = load i32, ptr %3, align 8, !tbaa !39
   %.not.i.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i.i, label %_ZNSt4pairIPN5Yosys5RTLIL4CellENS1_8IdStringEEC2ERKS5_.exit, label %5
 
@@ -29636,7 +29636,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictISt4pairIPNS0_5RTLIL4CellENS4_8IdStringEENS0_9
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %27 = load i32, ptr %26, align 8, !tbaa !39
-  store i32 %27, ptr %25, align 4, !tbaa !39
+  store i32 %27, ptr %25, align 8, !tbaa !39
   store i32 0, ptr %26, align 8, !tbaa !39
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -29657,7 +29657,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictISt4pairIPNS0_5RTLIL4CellENS4_8IdStringEENS0_9
   %34 = load ptr, ptr %.01214.i.i.i.i.i, align 8, !tbaa !270
   store ptr %34, ptr %.015.i.i.i.i.i, align 8, !tbaa !270
   %35 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 8
-  %36 = load i32, ptr %35, align 4, !tbaa !39
+  %36 = load i32, ptr %35, align 8, !tbaa !39
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %36, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %42, label %37
 
@@ -29701,7 +29701,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictISt4pairIPNS0_5RTL
   %55 = load ptr, ptr %.01214.i.i.i.i.i32, align 8, !tbaa !270
   store ptr %55, ptr %.015.i.i.i.i.i31, align 8, !tbaa !270
   %56 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i32, i64 8
-  %57 = load i32, ptr %56, align 4, !tbaa !39
+  %57 = load i32, ptr %56, align 8, !tbaa !39
   %.not.i.i.i.i.i.i.i.i.i.i.i33 = icmp eq i32 %57, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i33, label %63, label %58
 
@@ -29825,7 +29825,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictISt4pairIPNS0_5RTLIL4CellENS4_8IdStringEENS0_9
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %27 = load i32, ptr %26, align 8, !tbaa !39
-  store i32 %27, ptr %25, align 4, !tbaa !39
+  store i32 %27, ptr %25, align 8, !tbaa !39
   store i32 0, ptr %26, align 8, !tbaa !39
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -29846,7 +29846,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictISt4pairIPNS0_5RTLIL4CellENS4_8IdStringEENS0_9
   %34 = load ptr, ptr %.01214.i.i.i.i.i, align 8, !tbaa !270
   store ptr %34, ptr %.015.i.i.i.i.i, align 8, !tbaa !270
   %35 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 8
-  %36 = load i32, ptr %35, align 4, !tbaa !39
+  %36 = load i32, ptr %35, align 8, !tbaa !39
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %36, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %42, label %37
 
@@ -29890,7 +29890,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictISt4pairIPNS0_5RTL
   %55 = load ptr, ptr %.01214.i.i.i.i.i32, align 8, !tbaa !270
   store ptr %55, ptr %.015.i.i.i.i.i31, align 8, !tbaa !270
   %56 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i32, i64 8
-  %57 = load i32, ptr %56, align 4, !tbaa !39
+  %57 = load i32, ptr %56, align 8, !tbaa !39
   %.not.i.i.i.i.i.i.i.i.i.i.i33 = icmp eq i32 %57, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i33, label %63, label %58
 

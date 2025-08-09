@@ -1664,7 +1664,7 @@ call6.i.noexc:                                    ; preds = %call3.i.noexc
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i28, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !25
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i28, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !25
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !25
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i28, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !25
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i28, i64 48
@@ -3767,7 +3767,7 @@ call6.i.noexc:                                    ; preds = %call3.i.noexc
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i539, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !43
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i539, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !43
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !43
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i539, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !43
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i539, i64 48
@@ -8096,7 +8096,7 @@ call5.i.i.i.i.i.noexc:                            ; preds = %if.end
   store ptr null, ptr %call5.i.i.i.i.i15, align 8
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i15, i64 8
   %21 = trunc nsw i64 %9 to i32
-  store i32 %21, ptr %add.ptr.i.i.i, align 4
+  store i32 %21, ptr %add.ptr.i.i.i, align 8
   %second.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i15, i64 12
   store i32 %8, ptr %second.i.i.i.i.i.i, align 4
   br i1 %cmp.not.not.i.i, label %for.cond.i, label %invoke.cont23.thread.i
@@ -8233,7 +8233,7 @@ while.body.i:                                     ; preds = %_ZNSt10_HashtableIi
   %__bbegin_bkt.021.i = phi i64 [ %__bbegin_bkt.1.i, %if.end22.i ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i ]
   %37 = load ptr, ptr %__p.022.i, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %__p.022.i, i64 8
-  %38 = load i32, ptr %add.ptr.i, align 4
+  %38 = load i32, ptr %add.ptr.i, align 8
   %conv.i.i.i.i27 = sext i32 %38 to i64
   %rem.i.i.i = urem i64 %conv.i.i.i.i27, %35
   %arrayidx.i28 = getelementptr inbounds ptr, ptr %retval.0.i.i, i64 %rem.i.i.i
@@ -9075,7 +9075,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !81
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !81
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !81
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !81
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -9248,7 +9248,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i24: ; preds = %
   %capacity_.i.i.i36 = getelementptr inbounds nuw i8, ptr %call6.i30, i64 32
   store i64 %sub.i31, ptr %capacity_.i.i.i36, align 8, !noalias !84
   %referenceCount_.i.i.i37 = getelementptr inbounds nuw i8, ptr %call6.i30, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i37, align 4, !noalias !84
+  store i32 0, ptr %referenceCount_.i.i.i37, align 8, !noalias !84
   %podType_.i.i.i38 = getelementptr inbounds nuw i8, ptr %call6.i30, i64 44
   store i8 1, ptr %podType_.i.i.i38, align 4, !noalias !84
   %padding_.i.i.i39 = getelementptr inbounds nuw i8, ptr %call6.i30, i64 48
@@ -11761,7 +11761,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %en
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !99
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !99
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !99
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !99
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -11995,7 +11995,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !102
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !102
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !102
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !102
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -12168,7 +12168,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i24: ; preds = %
   %capacity_.i.i.i36 = getelementptr inbounds nuw i8, ptr %call6.i30, i64 32
   store i64 %sub.i31, ptr %capacity_.i.i.i36, align 8, !noalias !105
   %referenceCount_.i.i.i37 = getelementptr inbounds nuw i8, ptr %call6.i30, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i37, align 4, !noalias !105
+  store i32 0, ptr %referenceCount_.i.i.i37, align 8, !noalias !105
   %podType_.i.i.i38 = getelementptr inbounds nuw i8, ptr %call6.i30, i64 44
   store i8 1, ptr %podType_.i.i.i38, align 4, !noalias !105
   %padding_.i.i.i39 = getelementptr inbounds nuw i8, ptr %call6.i30, i64 48
@@ -17784,7 +17784,7 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIi
   %__bbegin_bkt.021 = phi i64 [ %__bbegin_bkt.1, %if.end22 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %1 = load ptr, ptr %__p.022, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %__p.022, i64 8
-  %2 = load i32, ptr %add.ptr, align 4
+  %2 = load i32, ptr %add.ptr, align 8
   %conv.i.i.i = sext i32 %2 to i64
   %rem.i.i = urem i64 %conv.i.i.i, %__bkt_count
   %arrayidx = getelementptr inbounds ptr, ptr %retval.0.i, i64 %rem.i.i

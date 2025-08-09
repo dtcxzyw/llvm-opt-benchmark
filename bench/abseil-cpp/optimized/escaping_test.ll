@@ -7914,7 +7914,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
   store ptr %5, ptr %4, align 8, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !23
-  store i8 0, ptr %5, align 1, !tbaa !25
+  store i8 0, ptr %5, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_142CUnescapeTest_Unescapes1CharOctalNull_TestE, i64 16), ptr %2, align 8, !tbaa !4
   ret ptr %2
 
@@ -8398,7 +8398,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
   store ptr %5, ptr %4, align 8, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !23
-  store i8 0, ptr %5, align 1, !tbaa !25
+  store i8 0, ptr %5, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_142CUnescapeTest_Unescapes2CharOctalNull_TestE, i64 16), ptr %2, align 8, !tbaa !4
   ret ptr %2
 
@@ -8876,7 +8876,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
   store ptr %5, ptr %4, align 8, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !23
-  store i8 0, ptr %5, align 1, !tbaa !25
+  store i8 0, ptr %5, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_142CUnescapeTest_Unescapes3CharOctalNull_TestE, i64 16), ptr %2, align 8, !tbaa !4
   ret ptr %2
 
@@ -9354,7 +9354,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
   store ptr %5, ptr %4, align 8, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !23
-  store i8 0, ptr %5, align 1, !tbaa !25
+  store i8 0, ptr %5, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_140CUnescapeTest_Unescapes1CharHexNull_TestE, i64 16), ptr %2, align 8, !tbaa !4
   ret ptr %2
 
@@ -9832,7 +9832,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
   store ptr %5, ptr %4, align 8, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !23
-  store i8 0, ptr %5, align 1, !tbaa !25
+  store i8 0, ptr %5, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_140CUnescapeTest_Unescapes2CharHexNull_TestE, i64 16), ptr %2, align 8, !tbaa !4
   ret ptr %2
 
@@ -10310,7 +10310,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
   store ptr %5, ptr %4, align 8, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !23
-  store i8 0, ptr %5, align 1, !tbaa !25
+  store i8 0, ptr %5, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_140CUnescapeTest_Unescapes3CharHexNull_TestE, i64 16), ptr %2, align 8, !tbaa !4
   ret ptr %2
 
@@ -10788,7 +10788,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
   store ptr %5, ptr %4, align 8, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !23
-  store i8 0, ptr %5, align 1, !tbaa !25
+  store i8 0, ptr %5, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_144CUnescapeTest_Unescapes4CharUnicodeNull_TestE, i64 16), ptr %2, align 8, !tbaa !4
   ret ptr %2
 
@@ -11266,7 +11266,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
   store ptr %5, ptr %4, align 8, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !23
-  store i8 0, ptr %5, align 1, !tbaa !25
+  store i8 0, ptr %5, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_144CUnescapeTest_Unescapes8CharUnicodeNull_TestE, i64 16), ptr %2, align 8, !tbaa !4
   ret ptr %2
 
@@ -11744,7 +11744,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
   store ptr %5, ptr %4, align 8, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !23
-  store i8 0, ptr %5, align 1, !tbaa !25
+  store i8 0, ptr %5, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_146CUnescapeTest_UnescapesMultipleOctalNulls_TestE, i64 16), ptr %2, align 8, !tbaa !4
   ret ptr %2
 
@@ -12233,7 +12233,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
   store ptr %5, ptr %4, align 8, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !23
-  store i8 0, ptr %5, align 1, !tbaa !25
+  store i8 0, ptr %5, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_144CUnescapeTest_UnescapesMultipleHexNulls_TestE, i64 16), ptr %2, align 8, !tbaa !4
   ret ptr %2
 
@@ -12722,7 +12722,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
   store ptr %5, ptr %4, align 8, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !23
-  store i8 0, ptr %5, align 1, !tbaa !25
+  store i8 0, ptr %5, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_148CUnescapeTest_UnescapesMultipleUnicodeNulls_TestE, i64 16), ptr %2, align 8, !tbaa !4
   ret ptr %2
 

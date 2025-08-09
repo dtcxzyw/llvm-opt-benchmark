@@ -9166,23 +9166,23 @@ define internal fastcc void @_ZL13StoreCommandsPN13duckdb_brotli18BrotliTwoPassA
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %41, ptr noundef nonnull align 1 dereferenceable(24) %43, i64 24, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 6816
   %45 = load i64, ptr %8, align 4
-  store i64 %45, ptr %44, align 1
+  store i64 %45, ptr %44, align 4
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 6824
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 2352
-  %48 = load i64, ptr %47, align 1
-  store i64 %48, ptr %46, align 1
+  %48 = load i64, ptr %47, align 4
+  store i64 %48, ptr %46, align 4
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 6832
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 2312
-  %51 = load i64, ptr %50, align 1
-  store i64 %51, ptr %49, align 1
+  %51 = load i64, ptr %50, align 4
+  store i64 %51, ptr %49, align 4
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 6840
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 2360
-  %54 = load i64, ptr %53, align 1
-  store i64 %54, ptr %52, align 1
+  %54 = load i64, ptr %53, align 4
+  store i64 %54, ptr %52, align 4
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 6848
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 2320
-  %57 = load i64, ptr %56, align 1
-  store i64 %57, ptr %55, align 1
+  %57 = load i64, ptr %56, align 4
+  store i64 %57, ptr %55, align 4
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 7496
   tail call void @_ZN13duckdb_brotli31BrotliConvertBitDepthsToSymbolsEPKhmPt(ptr noundef nonnull %41, i64 noundef 64, ptr noundef nonnull %58)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 7544
@@ -9205,22 +9205,22 @@ define internal fastcc void @_ZL13StoreCommandsPN13duckdb_brotli18BrotliTwoPassA
   tail call void @_ZN13duckdb_brotli31BrotliConvertBitDepthsToSymbolsEPKhmPt(ptr noundef nonnull %42, i64 noundef 64, ptr noundef nonnull %69)
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 6800
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %70, i8 0, i64 56, i1 false)
-  %71 = load i64, ptr %43, align 1
+  %71 = load i64, ptr %43, align 4
   store i64 %71, ptr %41, align 4
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 6856
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 2336
-  %74 = load i64, ptr %73, align 1
-  store i64 %74, ptr %72, align 1
+  %74 = load i64, ptr %73, align 4
+  store i64 %74, ptr %72, align 4
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 6920
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 2344
-  %77 = load i64, ptr %76, align 1
-  store i64 %77, ptr %75, align 1
+  %77 = load i64, ptr %76, align 4
+  store i64 %77, ptr %75, align 4
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 6984
-  %79 = load i64, ptr %47, align 1
-  store i64 %79, ptr %78, align 1
+  %79 = load i64, ptr %47, align 4
+  store i64 %79, ptr %78, align 4
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 7176
-  %81 = load i64, ptr %53, align 1
-  store i64 %81, ptr %80, align 1
+  %81 = load i64, ptr %53, align 4
+  store i64 %81, ptr %80, align 4
   br label %82
 
 82:                                               ; preds = %82, %._crit_edge71

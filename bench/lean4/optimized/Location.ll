@@ -345,11 +345,11 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit78
   %78 = getelementptr inbounds nuw i8, ptr %74, i64 4
   %79 = getelementptr inbounds nuw i8, ptr %74, i64 16
   store i64 0, ptr %79, align 8, !tbaa !13
-  store i32 1, ptr %74, align 4, !tbaa !8
+  store i32 1, ptr %74, align 8, !tbaa !8
   store i32 16842776, ptr %78, align 4
   %80 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store ptr %73, ptr %80, align 8, !tbaa !4
-  store i8 %77, ptr %79, align 1, !tbaa !16
+  store i8 %77, ptr %79, align 8, !tbaa !16
   br label %lean_dec.exit
 
 81:                                               ; preds = %lean_nat_lt.exit
@@ -398,11 +398,11 @@ lean_alloc_ctor.exit128:                          ; preds = %lean_dec.exit72
   %101 = getelementptr inbounds nuw i8, ptr %95, i64 4
   %102 = getelementptr inbounds nuw i8, ptr %95, i64 16
   store i64 0, ptr %102, align 8, !tbaa !13
-  store i32 1, ptr %95, align 4, !tbaa !8
+  store i32 1, ptr %95, align 8, !tbaa !8
   store i32 16842776, ptr %101, align 4
   %103 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store ptr %84, ptr %103, align 8, !tbaa !4
-  store i8 %100, ptr %102, align 1, !tbaa !16
+  store i8 %100, ptr %102, align 8, !tbaa !16
   br label %lean_dec.exit
 
 104:                                              ; preds = %lean_dec.exit83
@@ -8345,7 +8345,7 @@ lean_nat_lt.exit:                                 ; preds = %864, %870, %872, %8
   %874 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %875 = load ptr, ptr %874, align 8, !tbaa !4
   %876 = getelementptr i8, ptr %0, i64 16
-  %.val791 = load i8, ptr %876, align 1, !tbaa !16
+  %.val791 = load i8, ptr %876, align 8, !tbaa !16
   %877 = getelementptr i8, ptr %875, i64 8
   %.val = load i64, ptr %877, align 8, !tbaa !13
   %.mask = and i64 %.val, 9223372036854775807
@@ -10016,7 +10016,7 @@ _init_l_Lean_Elab_Tactic_expandOptLocation___closed__1.exit: ; preds = %lean_dec
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store i64 1, ptr %54, align 8, !tbaa !13
-  store i32 1, ptr %50, align 4, !tbaa !8
+  store i32 1, ptr %50, align 8, !tbaa !8
   store i32 16842776, ptr %53, align 4
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr %49, ptr %55, align 8, !tbaa !4

@@ -1858,7 +1858,7 @@ _ZN4enki31LocklessMultiWriteIntrusiveListINS_11IPinnedTaskEE14ReaderReadBackEv.e
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i14, i64 12
   %34 = atomicrmw sub ptr %33, i32 1 acq_rel, align 4
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i14, i64 24
-  %36 = load atomic i32, ptr %35 acquire, align 4
+  %36 = load atomic i32, ptr %35 acquire, align 8
   %.not15.i = icmp eq i32 %36, 0
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i14, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !30

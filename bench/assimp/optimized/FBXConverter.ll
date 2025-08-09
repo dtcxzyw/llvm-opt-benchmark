@@ -19552,7 +19552,7 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE12emplace_backIJRS1_EEES5_DpOT_.exit: ; preds = %25
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %64, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %66, align 4
+  store float 1.000000e+00, ptr %66, align 8
   %67 = getelementptr inbounds nuw i8, ptr %63, i64 52
   %68 = getelementptr inbounds nuw i8, ptr %63, i64 68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %67, i8 0, i64 16, i1 false)
@@ -19560,13 +19560,13 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE12emplace_backIJRS1_EEES5_DpOT_.exit: ; preds = %25
   %69 = getelementptr inbounds nuw i8, ptr %63, i64 72
   %70 = getelementptr inbounds nuw i8, ptr %63, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %70, align 4
+  store float 1.000000e+00, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %63, i64 92
   %72 = getelementptr inbounds nuw i8, ptr %63, i64 108
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %71, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %72, align 4
   %73 = getelementptr inbounds nuw i8, ptr %63, i64 112
-  store float 1.000000e+00, ptr %73, align 4
+  store float 1.000000e+00, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 116
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 132
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %74, i8 0, i64 16, i1 false)
@@ -19574,7 +19574,7 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE12emplace_backIJRS1_EEES5_DpOT_.exit: ; preds = %25
   %76 = getelementptr inbounds nuw i8, ptr %63, i64 136
   %77 = getelementptr inbounds nuw i8, ptr %63, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %77, align 4
+  store float 1.000000e+00, ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %63, i64 156
   %79 = getelementptr inbounds nuw i8, ptr %63, i64 172
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %78, i8 0, i64 16, i1 false)
@@ -41136,11 +41136,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit258: ; preds = %_Z
   %314 = phi ptr [ %309, %311 ], [ %320, %313 ]
   store double 0.000000e+00, ptr %314, align 8
   %315 = getelementptr inbounds nuw i8, ptr %314, i64 8
-  store float 1.000000e+00, ptr %315, align 4
+  store float 1.000000e+00, ptr %315, align 8
   %316 = getelementptr inbounds nuw i8, ptr %314, i64 12
   store float 0.000000e+00, ptr %316, align 4
   %317 = getelementptr inbounds nuw i8, ptr %314, i64 16
-  store float 0.000000e+00, ptr %317, align 4
+  store float 0.000000e+00, ptr %317, align 8
   %318 = getelementptr inbounds nuw i8, ptr %314, i64 20
   store float 0.000000e+00, ptr %318, align 4
   %319 = getelementptr inbounds nuw i8, ptr %314, i64 24
@@ -42883,11 +42883,11 @@ define hidden void @_ZN6Assimp3FBX12FBXConverter19ConvertRotationKeysEP10aiNodeA
   %33 = phi ptr [ %26, %30 ], [ %39, %32 ]
   store double 0.000000e+00, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store float 1.000000e+00, ptr %34, align 4
+  store float 1.000000e+00, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 12
   store float 0.000000e+00, ptr %35, align 4
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store float 0.000000e+00, ptr %36, align 4
+  store float 0.000000e+00, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 20
   store float 0.000000e+00, ptr %37, align 4
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 24

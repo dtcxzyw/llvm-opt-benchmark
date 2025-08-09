@@ -3198,7 +3198,7 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
   %1154 = add i32 %1153, 1
   store i32 %1154, ptr %1127, align 8, !tbaa !3
   %1155 = getelementptr inbounds nuw i8, ptr %1083, i64 32
-  %1156 = load i32, ptr %1155, align 4, !tbaa !132
+  %1156 = load i32, ptr %1155, align 8, !tbaa !132
   %1157 = lshr i32 %1156, 8
   %1158 = trunc i32 %1157 to i8
   %1159 = and i8 %1158, 15
@@ -3508,7 +3508,7 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
   %1374 = fmul contract float %1373, 0x3F847AE140000000
   %1375 = fadd contract float %1366, %1374
   %1376 = getelementptr inbounds nuw i8, ptr %1284, i64 104
-  store float %1375, ptr %1376, align 4, !tbaa !260
+  store float %1375, ptr %1376, align 8, !tbaa !260
   %1377 = add nuw nsw i64 %1282, 1
   %1378 = icmp eq i64 %1377, %916
   br i1 %1378, label %1379, label %1281, !llvm.loop !261
@@ -5758,7 +5758,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass14_dumpLiveSpansERNS0
   %42 = load i32, ptr %41, align 4, !tbaa !311
   store i32 %42, ptr %3, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %43 = load i32, ptr %40, align 4, !tbaa !257
+  %43 = load i32, ptr %40, align 8, !tbaa !257
   store i32 %43, ptr %4, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %44 = getelementptr inbounds nuw i8, ptr %21, i64 100
@@ -5766,7 +5766,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass14_dumpLiveSpansERNS0
   store float %45, ptr %5, align 4, !tbaa !317
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %46 = getelementptr inbounds nuw i8, ptr %21, i64 104
-  %47 = load float, ptr %46, align 4, !tbaa !260
+  %47 = load float, ptr %46, align 8, !tbaa !260
   store float %47, ptr %6, align 4, !tbaa !317
   %48 = call noundef i32 @_ZN6asmjit9_abi_1_106String12appendFormatIJjjffEEEjPKcDpOT_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.29, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -6636,8 +6636,8 @@ split:                                            ; preds = %126, %._crit_edge
   store i32 %440, ptr %196, align 8, !tbaa !3
   store ptr %258, ptr %239, align 8, !tbaa !10
   store ptr %259, ptr %7, align 8, !tbaa !10
-  %441 = load i32, ptr %243, align 4, !tbaa !24
-  store i32 %440, ptr %243, align 4, !tbaa !24
+  %441 = load i32, ptr %243, align 8, !tbaa !24
+  store i32 %440, ptr %243, align 8, !tbaa !24
   store i32 %441, ptr %196, align 8, !tbaa !24
   %442 = getelementptr inbounds nuw i8, ptr %239, i64 12
   %443 = load i32, ptr %442, align 4, !tbaa !24
@@ -8168,8 +8168,8 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass19setSharedAssignment
   %74 = load ptr, ptr %31, align 8, !tbaa !135
   %75 = load ptr, ptr %73, align 8, !tbaa !135
   %76 = getelementptr inbounds nuw i8, ptr %49, i64 128
-  %77 = load i32, ptr %76, align 4, !tbaa !24
-  %78 = load i32, ptr %45, align 4, !tbaa !24
+  %77 = load i32, ptr %76, align 8, !tbaa !24
+  %78 = load i32, ptr %45, align 8, !tbaa !24
   %79 = tail call noundef i32 @llvm.umin.i32(i32 %77, i32 %78)
   %80 = add i32 %79, 63
   %81 = icmp ult i32 %80, 64

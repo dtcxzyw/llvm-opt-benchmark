@@ -731,7 +731,7 @@ _ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i: ; preds = %cond.fals
   %cond.i.i.i.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i.i.i ], [ %10, %cond.false.i.i.i.i.i.i.i.i ]
   %value_.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i.i.i, i64 8
   store i64 %retval.sroa.0.0.copyload.i.i.i, ptr %value_.i.i.i.i.i.i.i.i.i, align 8
-  store i32 402653200, ptr %cond.i.i.i.i.i.i.i.i, align 4
+  store i32 402653200, ptr %cond.i.i.i.i.i.i.i.i, align 8
   %12 = ptrtoint ptr %cond.i.i.i.i.i.i.i.i to i64
   %13 = ptrtoint ptr %runtime to i64
   %sub.i.i.i.i.i13.i = sub i64 %12, %13
@@ -927,7 +927,7 @@ _ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i136: ; preds = %cond.f
   %cond.i.i.i.i.i.i.i.i137 = phi ptr [ %call3.i.i.i.i.i.i.i.i144, %cond.true.i.i.i.i.i.i.i.i142 ], [ %28, %cond.false.i.i.i.i.i.i.i.i135 ]
   %value_.i.i.i.i.i.i.i.i.i138 = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i.i.i137, i64 8
   store i64 %retval.sroa.0.0.copyload.i.i.i100, ptr %value_.i.i.i.i.i.i.i.i.i138, align 8
-  store i32 402653200, ptr %cond.i.i.i.i.i.i.i.i137, align 4
+  store i32 402653200, ptr %cond.i.i.i.i.i.i.i.i137, align 8
   %30 = ptrtoint ptr %cond.i.i.i.i.i.i.i.i137 to i64
   %sub.i.i.i.i.i13.i139 = sub i64 %30, %21
   %conv.i.i.i.i.i14.i140 = trunc i64 %sub.i.i.i.i.i13.i139 to i32
@@ -1074,7 +1074,7 @@ _ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i205: ; preds = %cond.f
   %cond.i.i.i.i.i.i.i.i206 = phi ptr [ %call3.i.i.i.i.i.i.i.i213, %cond.true.i.i.i.i.i.i.i.i211 ], [ %42, %cond.false.i.i.i.i.i.i.i.i204 ]
   %value_.i.i.i.i.i.i.i.i.i207 = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i.i.i206, i64 8
   store i64 %retval.sroa.0.0.copyload.i.i.i169, ptr %value_.i.i.i.i.i.i.i.i.i207, align 8
-  store i32 402653200, ptr %cond.i.i.i.i.i.i.i.i206, align 4
+  store i32 402653200, ptr %cond.i.i.i.i.i.i.i.i206, align 8
   %44 = ptrtoint ptr %cond.i.i.i.i.i.i.i.i206 to i64
   %sub.i.i.i.i.i13.i208 = sub i64 %44, %21
   %conv.i.i.i.i.i14.i209 = trunc i64 %sub.i.i.i.i.i13.i208 to i32
@@ -1285,7 +1285,7 @@ _ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i299: ; preds = %cond.f
   %cond.i.i.i.i.i.i.i.i300 = phi ptr [ %call3.i.i.i.i.i.i.i.i307, %cond.true.i.i.i.i.i.i.i.i305 ], [ %57, %cond.false.i.i.i.i.i.i.i.i298 ]
   %value_.i.i.i.i.i.i.i.i.i301 = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i.i.i300, i64 8
   store i64 %retval.sroa.0.0.copyload.i.i.i263, ptr %value_.i.i.i.i.i.i.i.i.i301, align 8
-  store i32 402653200, ptr %cond.i.i.i.i.i.i.i.i300, align 4
+  store i32 402653200, ptr %cond.i.i.i.i.i.i.i.i300, align 8
   %59 = ptrtoint ptr %cond.i.i.i.i.i.i.i.i300 to i64
   %sub.i.i.i.i.i13.i302 = sub i64 %59, %21
   %conv.i.i.i.i.i14.i303 = trunc i64 %sub.i.i.i.i.i13.i302 to i32
@@ -1584,7 +1584,7 @@ _ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i: ; preds = %cond.false.
   %cond.i.i.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i.i ], [ %5, %cond.false.i.i.i.i.i.i.i ]
   %value_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i.i, i64 8
   store i64 %hv.coerce, ptr %value_.i.i.i.i.i.i.i.i, align 8
-  store i32 402653200, ptr %cond.i.i.i.i.i.i.i, align 4
+  store i32 402653200, ptr %cond.i.i.i.i.i.i.i, align 8
   %7 = ptrtoint ptr %cond.i.i.i.i.i.i.i to i64
   %8 = ptrtoint ptr %runtime to i64
   %sub.i.i.i.i.i13 = sub i64 %7, %8
@@ -2277,7 +2277,7 @@ _ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i: ; preds = %cond.false.
   %cond.i.i.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i.i ], [ %15, %cond.false.i.i.i.i.i.i.i ]
   %value_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i.i, i64 8
   store double %conv, ptr %value_.i.i.i.i.i.i.i.i, align 8
-  store i32 402653200, ptr %cond.i.i.i.i.i.i.i, align 4
+  store i32 402653200, ptr %cond.i.i.i.i.i.i.i, align 8
   %17 = ptrtoint ptr %cond.i.i.i.i.i.i.i to i64
   %sub.i.i.i.i.i = sub i64 %17, %2
   %conv.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i to i32
@@ -2569,7 +2569,7 @@ _ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i: ; preds = %cond.false.
   %cond.i.i.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i.i ], [ %6, %cond.false.i.i.i.i.i.i.i ]
   %value_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i.i, i64 8
   store double %conv, ptr %value_.i.i.i.i.i.i.i.i, align 8
-  store i32 402653200, ptr %cond.i.i.i.i.i.i.i, align 4
+  store i32 402653200, ptr %cond.i.i.i.i.i.i.i, align 8
   %8 = ptrtoint ptr %cond.i.i.i.i.i.i.i to i64
   %9 = ptrtoint ptr %runtime to i64
   %sub.i.i.i.i.i = sub i64 %8, %9
@@ -3003,7 +3003,7 @@ _ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i85: ; preds = %cond.fals
   %cond.i.i.i.i.i.i.i86 = phi ptr [ %call3.i.i.i.i.i.i.i94, %cond.true.i.i.i.i.i.i.i92 ], [ %73, %cond.false.i.i.i.i.i.i.i84 ]
   %value_.i.i.i.i.i.i.i.i87 = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i.i86, i64 8
   store double %conv72, ptr %value_.i.i.i.i.i.i.i.i87, align 8
-  store i32 402653200, ptr %cond.i.i.i.i.i.i.i86, align 4
+  store i32 402653200, ptr %cond.i.i.i.i.i.i.i86, align 8
   %75 = ptrtoint ptr %cond.i.i.i.i.i.i.i86 to i64
   %sub.i.i.i.i.i88 = sub i64 %75, %.pre-phi208
   %conv.i.i.i.i.i89 = trunc i64 %sub.i.i.i.i.i88 to i32
@@ -3195,7 +3195,7 @@ _ZN6hermes2vm7Runtime10makeAFixedINS0_15JSArrayIteratorELNS0_12HasFinalizerE0ELN
   store i64 0, ptr %nextIndex_.i.i.i.i.i.i, align 8
   %iterationKind_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i, i64 32
   store i32 %iterationKind, ptr %iterationKind_.i.i.i.i.i.i, align 8
-  store i32 771751976, ptr %cond.i.i.i.i.i, align 4
+  store i32 771751976, ptr %cond.i.i.i.i.i, align 8
   ret ptr %cond.i.i.i.i.i
 }
 

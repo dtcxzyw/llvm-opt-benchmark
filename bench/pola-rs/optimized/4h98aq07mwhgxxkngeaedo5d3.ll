@@ -29589,7 +29589,7 @@ define hidden void @"_ZN5tokio7runtime9scheduler12multi_thread5queue14Local$LT$T
   %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %21
   store ptr %storemerge, ptr %24, align 8, !noalias !2773
   %25 = add i32 %13, 1
-  store atomic i32 %25, ptr %19 release, align 4, !noalias !2773
+  store atomic i32 %25, ptr %19 release, align 8, !noalias !2773
   br label %.loopexit
 
 26:                                               ; preds = %16
@@ -29619,7 +29619,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime9scheduler12multi_thread5queue14Loc
   %11 = trunc i64 %7 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %10, ptr %4, align 4
-  %12 = load i32, ptr %8, align 4, !noundef !55
+  %12 = load i32, ptr %8, align 8, !noundef !55
   %13 = icmp eq i32 %12, %11
   br i1 %13, label %._crit_edge, label %.lr.ph
 

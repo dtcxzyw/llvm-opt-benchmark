@@ -4810,7 +4810,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim6HasAPIINS_22UsdPhysicsCollisionAP
   store ptr null, ptr %136, align 8
   %296 = getelementptr inbounds nuw i8, ptr %290, i64 16
   %297 = load i32, ptr %139, align 8
-  store i32 %297, ptr %296, align 4
+  store i32 %297, ptr %296, align 8
   store i32 0, ptr %139, align 8
   %298 = getelementptr inbounds nuw i8, ptr %290, i64 20
   %299 = load i32, ptr %140, align 4
@@ -9503,7 +9503,7 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__7UsdPrimESaIS1_EE12_M_check_len
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %28 = load i32, ptr %27, align 8
-  store i32 %28, ptr %26, align 4
+  store i32 %28, ptr %26, align 8
   store i32 0, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 20
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -9532,9 +9532,9 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__7UsdPrimESaIS1_EE12_M_check_len
   store ptr null, ptr %37, align 8, !alias.scope !79, !noalias !76
   %39 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
-  %41 = load i32, ptr %40, align 4, !alias.scope !79, !noalias !76
-  store i32 %41, ptr %39, align 4, !alias.scope !76, !noalias !79
-  store i32 0, ptr %40, align 4, !alias.scope !79, !noalias !76
+  %41 = load i32, ptr %40, align 8, !alias.scope !79, !noalias !76
+  store i32 %41, ptr %39, align 8, !alias.scope !76, !noalias !79
+  store i32 0, ptr %40, align 8, !alias.scope !79, !noalias !76
   %42 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 20
   %43 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 20
   %44 = load i32, ptr %43, align 4, !alias.scope !79, !noalias !76
@@ -9570,9 +9570,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7UsdPrimESaIS1_EE11_S_relocateEP
   store ptr null, ptr %53, align 8, !alias.scope !85, !noalias !82
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 16
   %56 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 16
-  %57 = load i32, ptr %56, align 4, !alias.scope !85, !noalias !82
-  store i32 %57, ptr %55, align 4, !alias.scope !82, !noalias !85
-  store i32 0, ptr %56, align 4, !alias.scope !85, !noalias !82
+  %57 = load i32, ptr %56, align 8, !alias.scope !85, !noalias !82
+  store i32 %57, ptr %55, align 8, !alias.scope !82, !noalias !85
+  store i32 0, ptr %56, align 8, !alias.scope !85, !noalias !82
   %58 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 20
   %59 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 20
   %60 = load i32, ptr %59, align 4, !alias.scope !85, !noalias !82

@@ -359,7 +359,7 @@ land.rhs.i4.i10.i20.i.i:                          ; preds = %if.end8.i.i, %while
   %retval.sroa.0.3.i21.i.i = phi ptr [ %incdec.ptr.i.i16.i29.i.i, %while.body.i8.i15.i28.i.i ], [ %cond.i.i.i9.i.i, %if.end8.i.i ]
   %6 = load i32, ptr %retval.sroa.0.3.i21.i.i, align 4
   %propertyFlags.i.i.i5.i12.i22.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.3.i21.i.i, i64 4
-  %7 = load i16, ptr %propertyFlags.i.i.i5.i12.i22.i.i, align 2
+  %7 = load i16, ptr %propertyFlags.i.i.i5.i12.i22.i.i, align 4
   %cmp.i2.i.i.i6.i13.i23.i.i = icmp eq i16 %7, 0
   %8 = and i32 %6, -2
   %9 = icmp eq i32 %8, 536870910
@@ -395,7 +395,7 @@ land.rhs.i4.i.i:                                  ; preds = %for.body.i, %while.
   %it.sroa.0.1.i = phi ptr [ %incdec.ptr.i.i.i, %while.body.i8.i.i ], [ %incdec.ptr3.i.i, %for.body.i ]
   %11 = load i32, ptr %it.sroa.0.1.i, align 4
   %propertyFlags.i.i.i5.i.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.1.i, i64 4
-  %12 = load i16, ptr %propertyFlags.i.i.i5.i.i, align 2
+  %12 = load i16, ptr %propertyFlags.i.i.i5.i.i, align 4
   %cmp.i2.i.i.i6.i.i = icmp eq i16 %12, 0
   %13 = and i32 %11, -2
   %14 = icmp eq i32 %13, 536870910
@@ -441,11 +441,11 @@ entry:
   %numProperties_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 12
   store i32 0, ptr %numProperties_.i.i.i.i.i.i.i, align 4
   %propertyMap_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 16
-  store i32 0, ptr %propertyMap_.i.i.i.i.i.i.i, align 4
+  store i32 0, ptr %propertyMap_.i.i.i.i.i.i.i, align 8
   %transitionMap_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 24
-  store i32 536870911, ptr %transitionMap_.i.i.i.i.i.i.i, align 4
+  store i32 536870911, ptr %transitionMap_.i.i.i.i.i.i.i, align 8
   %propertyFlags.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 28
-  store i16 0, ptr %propertyFlags.i.i.i.i.i.i.i.i.i, align 2
+  store i16 0, ptr %propertyFlags.i.i.i.i.i.i.i.i.i, align 4
   %u.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 32
   store ptr null, ptr %u.i.i.i.i.i.i.i.i, align 8
   %parent_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 40
@@ -456,7 +456,7 @@ entry:
   %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, %0
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i32
   %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  store i32 %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %parent_.i.i.i.i.i.i.i, align 4
+  store i32 %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %parent_.i.i.i.i.i.i.i, align 8
   %youngGen_.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
   %1 = load ptr, ptr %youngGen_.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %2 = ptrtoint ptr %parent_.i.i.i.i.i.i.i to i64
@@ -500,11 +500,11 @@ entry:
   %numProperties_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 %numProperties, ptr %numProperties_.i.i.i.i.i.i, align 4
   %propertyMap_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
-  store i32 0, ptr %propertyMap_.i.i.i.i.i.i, align 4
+  store i32 0, ptr %propertyMap_.i.i.i.i.i.i, align 8
   %transitionMap_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 24
-  store i32 536870911, ptr %transitionMap_.i.i.i.i.i.i, align 4
+  store i32 536870911, ptr %transitionMap_.i.i.i.i.i.i, align 8
   %propertyFlags.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 28
-  store i16 0, ptr %propertyFlags.i.i.i.i.i.i.i.i, align 2
+  store i16 0, ptr %propertyFlags.i.i.i.i.i.i.i.i, align 4
   %u.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
   store ptr null, ptr %u.i.i.i.i.i.i.i, align 8
   %parent_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 40
@@ -515,7 +515,7 @@ entry:
   %sub.i.i.i.i.i.i.i.i.i.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, %0
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i.i to i32
   %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i
-  store i32 %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i, ptr %parent_.i.i.i.i.i.i, align 4
+  store i32 %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i, ptr %parent_.i.i.i.i.i.i, align 8
   %youngGen_.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
   %1 = load ptr, ptr %youngGen_.i.i.i.i.i.i.i.i.i.i.i, align 8
   %2 = ptrtoint ptr %parent_.i.i.i.i.i.i to i64
@@ -568,11 +568,11 @@ entry:
   %numProperties_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 12
   store i32 %1, ptr %numProperties_.i.i.i.i.i.i.i, align 4
   %propertyMap_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 16
-  store i32 0, ptr %propertyMap_.i.i.i.i.i.i.i, align 4
+  store i32 0, ptr %propertyMap_.i.i.i.i.i.i.i, align 8
   %transitionMap_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 24
-  store i32 536870911, ptr %transitionMap_.i.i.i.i.i.i.i, align 4
+  store i32 536870911, ptr %transitionMap_.i.i.i.i.i.i.i, align 8
   %propertyFlags.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 28
-  store i16 0, ptr %propertyFlags.i.i.i.i.i.i.i.i.i, align 2
+  store i16 0, ptr %propertyFlags.i.i.i.i.i.i.i.i.i, align 4
   %u.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 32
   store ptr null, ptr %u.i.i.i.i.i.i.i.i, align 8
   %parent_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 40
@@ -583,7 +583,7 @@ entry:
   %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, %2
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i32
   %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  store i32 %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %parent_.i.i.i.i.i.i.i, align 4
+  store i32 %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %parent_.i.i.i.i.i.i.i, align 8
   %youngGen_.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
   %3 = load ptr, ptr %youngGen_.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %4 = ptrtoint ptr %parent_.i.i.i.i.i.i.i to i64
@@ -1149,7 +1149,7 @@ if.then7:                                         ; preds = %if.then
   %1 = load i32, ptr %transitionMap_, align 4
   %cmp.i.i.i = icmp eq i32 %1, %name.coerce
   %propertyFlags.i.i = getelementptr inbounds nuw i8, ptr %self.coerce, i64 28
-  %2 = load i16, ptr %propertyFlags.i.i, align 2
+  %2 = load i16, ptr %propertyFlags.i.i, align 4
   %cmp.i2.i.i = icmp eq i16 %2, %expectedFlags.coerce
   %3 = select i1 %cmp.i.i.i, i1 %cmp.i2.i.i, i1 false
   br i1 %3, label %land.lhs.true.i, label %lor.rhs.i
@@ -1601,7 +1601,7 @@ if.end44:                                         ; preds = %entry
   %12 = load i32, ptr %transitionMap_, align 4
   %cmp.i.i.i = icmp eq i32 %12, %name.coerce
   %propertyFlags.i.i = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %13 = load i16, ptr %propertyFlags.i.i, align 2
+  %13 = load i16, ptr %propertyFlags.i.i, align 4
   %cmp.i2.i.i = icmp eq i16 %13, %propertyFlags.coerce
   %14 = select i1 %cmp.i.i.i, i1 %cmp.i2.i.i, i1 false
   br i1 %14, label %if.then.i, label %if.else.i
@@ -1878,11 +1878,11 @@ if.end157:                                        ; preds = %if.end98
   %numProperties_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 12
   store i32 %add, ptr %numProperties_.i.i.i.i.i.i.i, align 4
   %propertyMap_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 16
-  store i32 0, ptr %propertyMap_.i.i.i.i.i.i.i, align 4
+  store i32 0, ptr %propertyMap_.i.i.i.i.i.i.i, align 8
   %transitionMap_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 24
-  store i32 536870911, ptr %transitionMap_.i.i.i.i.i.i.i, align 4
+  store i32 536870911, ptr %transitionMap_.i.i.i.i.i.i.i, align 8
   %propertyFlags.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 28
-  store i16 0, ptr %propertyFlags.i.i.i.i.i.i.i.i.i, align 2
+  store i16 0, ptr %propertyFlags.i.i.i.i.i.i.i.i.i, align 4
   %u.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 32
   store ptr null, ptr %u.i.i.i.i.i.i.i.i, align 8
   %parent_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 40
@@ -1893,7 +1893,7 @@ if.end157:                                        ; preds = %if.end98
   %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, %62
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i32
   %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  store i32 %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %parent_.i.i.i.i.i.i.i, align 4
+  store i32 %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %parent_.i.i.i.i.i.i.i, align 8
   %youngGen_.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
   %63 = load ptr, ptr %youngGen_.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %64 = ptrtoint ptr %parent_.i.i.i.i.i.i.i to i64
@@ -2348,7 +2348,7 @@ if.end51:                                         ; preds = %if.end37
   %15 = load i32, ptr %transitionMap_, align 4
   %cmp.i.i.i = icmp eq i32 %15, %name.sroa.0.0.copyload
   %propertyFlags.i.i = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %16 = load i16, ptr %propertyFlags.i.i, align 2
+  %16 = load i16, ptr %propertyFlags.i.i, align 4
   %cmp.i2.i.i = icmp eq i16 %16, %bf.set
   %17 = select i1 %cmp.i.i.i, i1 %cmp.i2.i.i, i1 false
   br i1 %17, label %if.then.i, label %if.else.i
@@ -2496,11 +2496,11 @@ if.end84:                                         ; preds = %if.then.i, %if.else
   %numProperties_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 12
   store i32 %42, ptr %numProperties_.i.i.i.i.i.i.i, align 4
   %propertyMap_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 16
-  store i32 0, ptr %propertyMap_.i.i.i.i.i.i.i, align 4
+  store i32 0, ptr %propertyMap_.i.i.i.i.i.i.i, align 8
   %transitionMap_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 24
-  store i32 536870911, ptr %transitionMap_.i.i.i.i.i.i.i, align 4
+  store i32 536870911, ptr %transitionMap_.i.i.i.i.i.i.i, align 8
   %propertyFlags.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 28
-  store i16 0, ptr %propertyFlags.i.i.i.i.i.i.i.i.i, align 2
+  store i16 0, ptr %propertyFlags.i.i.i.i.i.i.i.i.i, align 4
   %u.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 32
   store ptr null, ptr %u.i.i.i.i.i.i.i.i, align 8
   %parent_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 40
@@ -2510,7 +2510,7 @@ if.end84:                                         ; preds = %if.then.i, %if.else
   %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, %11
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i32
   %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  store i32 %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %parent_.i.i.i.i.i.i.i, align 4
+  store i32 %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %parent_.i.i.i.i.i.i.i, align 8
   %youngGen_.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
   %43 = load ptr, ptr %youngGen_.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %44 = ptrtoint ptr %parent_.i.i.i.i.i.i.i to i64
@@ -3558,7 +3558,7 @@ _ZN6hermes2vm15DictPropertyMap4findEPKS1_NS0_8SymbolIDE.exit: ; preds = %if.end,
   %retval.sroa.0.0.i = phi i64 [ %19, %if.end.i ], [ 0, %if.end ]
   %tmpFlags.sroa.0.0.copyload = load i16, ptr %propertyFlags_, align 8
   %bf.clear30 = and i16 %tmpFlags.sroa.0.0.copyload, -129
-  %agg.tmp.sroa.0.0.copyload.i.i28 = load i32, ptr %propertyMap_, align 4
+  %agg.tmp.sroa.0.0.copyload.i.i28 = load i32, ptr %propertyMap_, align 8
   %cmp.i.not.i.i.i.i29 = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i28, 0
   %conv.i.i.i.i.i30 = zext i32 %agg.tmp.sroa.0.0.copyload.i.i28 to i64
   %add.i.i.i.i.i31 = add i64 %conv.i.i.i.i.i30, %1
@@ -3868,7 +3868,7 @@ land.rhs.i4.i10.i20.i:                            ; preds = %if.end8.i, %while.b
   %retval.sroa.0.3.i21.i = phi ptr [ %incdec.ptr.i.i16.i29.i, %while.body.i8.i15.i28.i ], [ %cond.i.i.i9.i, %if.end8.i ]
   %5 = load i32, ptr %retval.sroa.0.3.i21.i, align 4
   %propertyFlags.i.i.i5.i12.i22.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.3.i21.i, i64 4
-  %6 = load i16, ptr %propertyFlags.i.i.i5.i12.i22.i, align 2
+  %6 = load i16, ptr %propertyFlags.i.i.i5.i12.i22.i, align 4
   %cmp.i2.i.i.i6.i13.i23.i = icmp eq i16 %6, 0
   %7 = and i32 %5, -2
   %8 = icmp eq i32 %7, 536870910
@@ -3931,7 +3931,7 @@ land.rhs.i4.i:                                    ; preds = %for.inc, %while.bod
   %it.sroa.0.1 = phi ptr [ %incdec.ptr.i.i, %while.body.i8.i ], [ %incdec.ptr3.i, %for.inc ]
   %14 = load i32, ptr %it.sroa.0.1, align 4
   %propertyFlags.i.i.i5.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.1, i64 4
-  %15 = load i16, ptr %propertyFlags.i.i.i5.i, align 2
+  %15 = load i16, ptr %propertyFlags.i.i.i5.i, align 4
   %cmp.i2.i.i.i6.i = icmp eq i16 %15, 0
   %16 = and i32 %14, -2
   %17 = icmp eq i32 %16, 536870910
@@ -4135,7 +4135,7 @@ if.end12:                                         ; preds = %if.end13.i.i, %if.e
   %16 = load i32, ptr %TheBucket.addr.0, align 4
   %cmp.i.i.i = icmp eq i32 %16, 536870911
   %propertyFlags.i.i = getelementptr inbounds nuw i8, ptr %TheBucket.addr.0, i64 4
-  %17 = load i16, ptr %propertyFlags.i.i, align 2
+  %17 = load i16, ptr %propertyFlags.i.i, align 4
   %cmp.i2.i.i = icmp eq i16 %17, 0
   %18 = select i1 %cmp.i.i.i, i1 %cmp.i2.i.i, i1 false
   br i1 %18, label %if.end17, label %if.then16
@@ -4301,7 +4301,7 @@ for.body:                                         ; preds = %_ZN4llvh12DenseMapB
   %B.029 = phi ptr [ %incdec.ptr, %if.end ], [ %OldBucketsBegin, %_ZN4llvh12DenseMapBaseINS_13SmallDenseMapIN6hermes2vm6detail10TransitionENS3_7WeakRefINS3_11HiddenClassEEELj8ENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E9initEmptyEv.exit ]
   %2 = load i32, ptr %B.029, align 4
   %propertyFlags.i.i = getelementptr inbounds nuw i8, ptr %B.029, i64 4
-  %3 = load i16, ptr %propertyFlags.i.i, align 2
+  %3 = load i16, ptr %propertyFlags.i.i, align 4
   %cmp.i2.i.i = icmp eq i16 %3, 0
   %4 = and i32 %2, -2
   %5 = icmp eq i32 %4, 536870910

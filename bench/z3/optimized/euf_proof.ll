@@ -3211,8 +3211,8 @@ _ZN11ast_manager7inc_refEP3ast.exit.i57:          ; preds = %_ZN11ast_manager12m
   %115 = load i64, ptr %114, align 8, !tbaa !470
   %116 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i.i.i.i, i64 -24
   store i64 %115, ptr %116, align 8, !tbaa !470
-  %117 = load i8, ptr %106, align 1, !tbaa !469, !range !384, !noundef !385
-  store i8 %117, ptr %107, align 1, !tbaa !469
+  %117 = load i8, ptr %106, align 8, !tbaa !469, !range !384, !noundef !385
+  store i8 %117, ptr %107, align 8, !tbaa !469
   %118 = add nsw i64 %.010.i.i.i.i.i.i.i.i.i, -1
   %119 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i.i.i, 1
   br i1 %119, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZSt13move_backwardIPSt5tupleIJP3appS2_mbEES4_ET0_T_S6_S5_.exit.i.i.i.i, !llvm.loop !531
@@ -3245,8 +3245,8 @@ _ZSt13move_backwardIPSt5tupleIJP3appS2_mbEES4_ET0_T_S6_S5_.exit.i.i.i.i: ; preds
   store ptr %129, ptr %130, align 8, !tbaa !471
   %131 = getelementptr inbounds nuw i8, ptr %.0913.i.i.i.i.i, i64 8
   store i64 %.0.val14.i.i.i.i.i, ptr %131, align 8, !tbaa !470
-  %132 = load i8, ptr %.0.i.i.i.i.i, align 1, !tbaa !469, !range !384, !noundef !385
-  store i8 %132, ptr %.0913.i.i.i.i.i, align 1, !tbaa !469
+  %132 = load i8, ptr %.0.i.i.i.i.i, align 8, !tbaa !469, !range !384, !noundef !385
+  store i8 %132, ptr %.0913.i.i.i.i.i, align 8, !tbaa !469
   %133 = getelementptr i8, ptr %.0913.i.i.i.i.i, i64 -56
   %.0.val.i.i.i.i.i = load i64, ptr %133, align 8, !tbaa !470
   %134 = icmp ult i64 %.0.val.i.i.i.i, %.0.val.i.i.i.i.i
@@ -3308,8 +3308,8 @@ _ZSt13move_backwardIPSt5tupleIJP3appS2_mbEES4_ET0_T_S6_S5_.exit.i.i.i.i: ; preds
   store ptr %156, ptr %157, align 8, !tbaa !471
   %158 = getelementptr inbounds nuw i8, ptr %.0913.i.i19.i.i.i, i64 8
   store i64 %.0.val14.i.i18.i.i.i, ptr %158, align 8, !tbaa !470
-  %159 = load i8, ptr %.0.i.i20.i.i.i, align 1, !tbaa !469, !range !384, !noundef !385
-  store i8 %159, ptr %.0913.i.i19.i.i.i, align 1, !tbaa !469
+  %159 = load i8, ptr %.0.i.i20.i.i.i, align 8, !tbaa !469, !range !384, !noundef !385
+  store i8 %159, ptr %.0913.i.i19.i.i.i, align 8, !tbaa !469
   %160 = getelementptr i8, ptr %.0913.i.i19.i.i.i, i64 -56
   %.0.val.i.i21.i.i.i = load i64, ptr %160, align 8, !tbaa !470
   %161 = icmp ult i64 %145, %.0.val.i.i21.i.i.i
@@ -3325,7 +3325,7 @@ _ZSt13move_backwardIPSt5tupleIJP3appS2_mbEES4_ET0_T_S6_S5_.exit.i.i.i.i: ; preds
   store ptr %163, ptr %165, align 8, !tbaa !471
   %166 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i.i15.i.i.i, i64 8
   store i64 %145, ptr %166, align 8, !tbaa !470
-  store i8 %143, ptr %.09.lcssa.i.i15.i.i.i, align 1, !tbaa !469
+  store i8 %143, ptr %.09.lcssa.i.i15.i.i.i, align 8, !tbaa !469
   %167 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i, i64 32
   %.not.i16.i.i.i = icmp eq ptr %167, %84
   br i1 %.not.i16.i.i.i, label %"_ZSt4sortIPSt5tupleIJP3appS2_mbEEZNK3euf13eq_proof_hint8get_hintERNS5_6solverEE3$_0EvT_SA_T0_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !534
@@ -3387,8 +3387,8 @@ _ZSt13move_backwardIPSt5tupleIJP3appS2_mbEES4_ET0_T_S6_S5_.exit.i.i.i.i: ; preds
   %197 = load i64, ptr %196, align 8, !tbaa !470
   %198 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i43.i.i.i, i64 -24
   store i64 %197, ptr %198, align 8, !tbaa !470
-  %199 = load i8, ptr %188, align 1, !tbaa !469, !range !384, !noundef !385
-  store i8 %199, ptr %189, align 1, !tbaa !469
+  %199 = load i8, ptr %188, align 8, !tbaa !469, !range !384, !noundef !385
+  store i8 %199, ptr %189, align 8, !tbaa !469
   %200 = add nsw i64 %.010.i.i.i.i.i.i42.i.i.i, -1
   %201 = icmp samesign ugt i64 %.010.i.i.i.i.i.i42.i.i.i, 1
   br i1 %201, label %.lr.ph.i.i.i.i.i.i41.i.i.i, label %_ZSt13move_backwardIPSt5tupleIJP3appS2_mbEES4_ET0_T_S6_S5_.exit.i39.i.i.i, !llvm.loop !531
@@ -3421,8 +3421,8 @@ _ZSt13move_backwardIPSt5tupleIJP3appS2_mbEES4_ET0_T_S6_S5_.exit.i39.i.i.i: ; pre
   store ptr %211, ptr %212, align 8, !tbaa !471
   %213 = getelementptr inbounds nuw i8, ptr %.0913.i.i36.i.i.i, i64 8
   store i64 %.0.val14.i.i35.i.i.i, ptr %213, align 8, !tbaa !470
-  %214 = load i8, ptr %.0.i.i37.i.i.i, align 1, !tbaa !469, !range !384, !noundef !385
-  store i8 %214, ptr %.0913.i.i36.i.i.i, align 1, !tbaa !469
+  %214 = load i8, ptr %.0.i.i37.i.i.i, align 8, !tbaa !469, !range !384, !noundef !385
+  store i8 %214, ptr %.0913.i.i36.i.i.i, align 8, !tbaa !469
   %215 = getelementptr i8, ptr %.0913.i.i36.i.i.i, i64 -56
   %.0.val.i.i38.i.i.i = load i64, ptr %215, align 8, !tbaa !470
   %216 = icmp ult i64 %.0.val.i26.i.i.i, %.0.val.i.i38.i.i.i
@@ -8350,8 +8350,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt5tupleIJP3appS2_mbEElN9_
   store ptr %50, ptr %45, align 8, !tbaa !471
   %51 = load i64, ptr %14, align 8, !tbaa !470
   store i64 %51, ptr %43, align 8, !tbaa !470
-  %52 = load i8, ptr %0, align 1, !tbaa !469, !range !384, !noundef !385
-  store i8 %52, ptr %41, align 1, !tbaa !469
+  %52 = load i8, ptr %0, align 8, !tbaa !469, !range !384, !noundef !385
+  store i8 %52, ptr %41, align 8, !tbaa !469
   %53 = ptrtoint ptr %41 to i64
   %54 = sub i64 %53, %6
   %55 = ashr exact i64 %54, 5
@@ -8584,8 +8584,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt5tupleIJP3appS2_mbEElS3_N9_
   %24 = load i64, ptr %23, align 8, !tbaa !470
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %24, ptr %25, align 8, !tbaa !470
-  %26 = load i8, ptr %15, align 1, !tbaa !469, !range !384, !noundef !385
-  store i8 %26, ptr %16, align 1, !tbaa !469
+  %26 = load i8, ptr %15, align 8, !tbaa !469, !range !384, !noundef !385
+  store i8 %26, ptr %16, align 8, !tbaa !469
   %27 = icmp slt i64 %spec.select, %6
   br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !657
 
@@ -8618,8 +8618,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt5tupleIJP3appS2_mbEElS3_N9_
   %46 = load i64, ptr %45, align 8, !tbaa !470
   %47 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i64 %46, ptr %47, align 8, !tbaa !470
-  %48 = load i8, ptr %37, align 1, !tbaa !469, !range !384, !noundef !385
-  store i8 %48, ptr %38, align 1, !tbaa !469
+  %48 = load i8, ptr %37, align 8, !tbaa !469, !range !384, !noundef !385
+  store i8 %48, ptr %38, align 8, !tbaa !469
   br label %49
 
 49:                                               ; preds = %34, %30, %._crit_edge
@@ -8656,8 +8656,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt5tupleIJP3appS2_mbEElS3_N9_
   store ptr %67, ptr %68, align 8, !tbaa !471
   %69 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store i64 %.val.i, ptr %69, align 8, !tbaa !470
-  %70 = load i8, ptr %58, align 1, !tbaa !469, !range !384, !noundef !385
-  store i8 %70, ptr %62, align 1, !tbaa !469
+  %70 = load i8, ptr %58, align 8, !tbaa !469, !range !384, !noundef !385
+  store i8 %70, ptr %62, align 8, !tbaa !469
   %71 = icmp sgt i64 %.04.i, %1
   br i1 %71, label %.lr.ph.i, label %"_ZSt11__push_heapIPSt5tupleIJP3appS2_mbEElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNK3euf13eq_proof_hint8get_hintERNS8_6solverEE3$_0EEEvT_T0_SF_T1_RT2_.exit", !llvm.loop !658
 
@@ -8672,7 +8672,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt5tupleIJP3appS2_mbEElS3_N9_
   store ptr %73, ptr %76, align 8, !tbaa !471
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store i64 %52, ptr %77, align 8, !tbaa !470
-  store i8 %50, ptr %74, align 1, !tbaa !469
+  store i8 %50, ptr %74, align 8, !tbaa !469
   ret void
 }
 

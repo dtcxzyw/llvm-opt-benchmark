@@ -1900,7 +1900,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit189: ; preds = %203,
   %221 = load i32, ptr %220, align 8, !tbaa !127
   %222 = and i32 %221, -75
   %223 = or disjoint i32 %222, 2
-  store i32 %223, ptr %220, align 4, !tbaa !128
+  store i32 %223, ptr %220, align 8, !tbaa !128
   %224 = zext nneg i8 %107 to i64
   %225 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %38, i64 noundef %224) #24
   %226 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %225, ptr noundef nonnull @.str.9, i64 noundef 2) #24
@@ -1922,13 +1922,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit189: ; preds = %203,
   %242 = load i32, ptr %241, align 8, !tbaa !127
   %243 = and i32 %242, -75
   %244 = or disjoint i32 %243, 8
-  store i32 %244, ptr %241, align 4, !tbaa !128
+  store i32 %244, ptr %241, align 8, !tbaa !128
   %245 = load i64, ptr %238, align 8
   %246 = getelementptr inbounds i8, ptr %38, i64 %245
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 24
   %248 = load i32, ptr %247, align 8, !tbaa !127
   %249 = or i32 %248, 512
-  store i32 %249, ptr %247, align 4, !tbaa !128
+  store i32 %249, ptr %247, align 8, !tbaa !128
   %250 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %38, i64 noundef %.fca.0.extract27) #24
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store i8 10, ptr %31, align 1, !tbaa !76
@@ -2036,13 +2036,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit213: ; preds = %276,
   %294 = load i32, ptr %293, align 8, !tbaa !127
   %295 = and i32 %294, -75
   %296 = or disjoint i32 %295, 8
-  store i32 %296, ptr %293, align 4, !tbaa !128
+  store i32 %296, ptr %293, align 8, !tbaa !128
   %297 = load i64, ptr %290, align 8
   %298 = getelementptr inbounds i8, ptr %38, i64 %297
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 24
   %300 = load i32, ptr %299, align 8, !tbaa !127
   %301 = or i32 %300, 512
-  store i32 %301, ptr %299, align 4, !tbaa !128
+  store i32 %301, ptr %299, align 8, !tbaa !128
   %302 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %38, i64 noundef %.fca.0.extract21) #24
   %303 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %302, ptr noundef nonnull @.str.9, i64 noundef 2) #24
   %304 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %302, i64 noundef %268) #24
@@ -2139,13 +2139,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit237: ; preds = %327,
   %345 = load i32, ptr %344, align 8, !tbaa !127
   %346 = and i32 %345, -75
   %347 = or disjoint i32 %346, 8
-  store i32 %347, ptr %344, align 4, !tbaa !128
+  store i32 %347, ptr %344, align 8, !tbaa !128
   %348 = load i64, ptr %341, align 8
   %349 = getelementptr inbounds i8, ptr %38, i64 %348
   %350 = getelementptr inbounds nuw i8, ptr %349, i64 24
   %351 = load i32, ptr %350, align 8, !tbaa !127
   %352 = or i32 %351, 512
-  store i32 %352, ptr %350, align 4, !tbaa !128
+  store i32 %352, ptr %350, align 8, !tbaa !128
   %353 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %38, i64 noundef %318) #24
   %354 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %353, ptr noundef nonnull @.str.9, i64 noundef 2) #24
   %355 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %353, i64 noundef %319) #24
@@ -2261,7 +2261,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit264: ; preds = %393, %
   %404 = load i32, ptr %403, align 8, !tbaa !127
   %405 = and i32 %404, -75
   %406 = or disjoint i32 %405, 2
-  store i32 %406, ptr %403, align 4, !tbaa !128
+  store i32 %406, ptr %403, align 8, !tbaa !128
   %407 = zext nneg i8 %107 to i64
   %408 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %38, i64 noundef %407) #24
   %409 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %408, ptr noundef nonnull @.str.16, i64 noundef 2) #24
@@ -2381,13 +2381,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit285: ; preds = %439,
   %465 = load i32, ptr %464, align 8, !tbaa !127
   %466 = and i32 %465, -75
   %467 = or disjoint i32 %466, 8
-  store i32 %467, ptr %464, align 4, !tbaa !128
+  store i32 %467, ptr %464, align 8, !tbaa !128
   %468 = load i64, ptr %461, align 8
   %469 = getelementptr inbounds i8, ptr %38, i64 %468
   %470 = getelementptr inbounds nuw i8, ptr %469, i64 24
   %471 = load i32, ptr %470, align 8, !tbaa !127
   %472 = or i32 %471, 512
-  store i32 %472, ptr %470, align 4, !tbaa !128
+  store i32 %472, ptr %470, align 8, !tbaa !128
   %473 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %38, i64 noundef %.5556) #24
   %474 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull @.str.14, i64 noundef 1) #24
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
@@ -2423,13 +2423,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit292: ; preds = %481, %
   %494 = load i32, ptr %493, align 8, !tbaa !127
   %495 = and i32 %494, -75
   %496 = or disjoint i32 %495, 8
-  store i32 %496, ptr %493, align 4, !tbaa !128
+  store i32 %496, ptr %493, align 8, !tbaa !128
   %497 = load i64, ptr %490, align 8
   %498 = getelementptr inbounds i8, ptr %38, i64 %497
   %499 = getelementptr inbounds nuw i8, ptr %498, i64 24
   %500 = load i32, ptr %499, align 8, !tbaa !127
   %501 = or i32 %500, 512
-  store i32 %501, ptr %499, align 4, !tbaa !128
+  store i32 %501, ptr %499, align 8, !tbaa !128
   %502 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %38, i64 noundef %54) #24
   %503 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %502, ptr noundef nonnull @.str.9, i64 noundef 2) #24
   %504 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %502, i64 noundef %485) #24
@@ -2585,7 +2585,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit322: ; preds = %559, %
   %570 = load i32, ptr %569, align 8, !tbaa !127
   %571 = and i32 %570, -75
   %572 = or disjoint i32 %571, 2
-  store i32 %572, ptr %569, align 4, !tbaa !128
+  store i32 %572, ptr %569, align 8, !tbaa !128
   %573 = and i64 %.fca.0.extract15, 4294967295
   %574 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %38, i64 noundef %573) #24
   %575 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %574, ptr noundef nonnull @.str.16, i64 noundef 2) #24
@@ -2705,13 +2705,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit343: ; preds = %605,
   %631 = load i32, ptr %630, align 8, !tbaa !127
   %632 = and i32 %631, -75
   %633 = or disjoint i32 %632, 8
-  store i32 %633, ptr %630, align 4, !tbaa !128
+  store i32 %633, ptr %630, align 8, !tbaa !128
   %634 = load i64, ptr %627, align 8
   %635 = getelementptr inbounds i8, ptr %38, i64 %634
   %636 = getelementptr inbounds nuw i8, ptr %635, i64 24
   %637 = load i32, ptr %636, align 8, !tbaa !127
   %638 = or i32 %637, 512
-  store i32 %638, ptr %636, align 4, !tbaa !128
+  store i32 %638, ptr %636, align 8, !tbaa !128
   %639 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %38, i64 noundef %.6550) #24
   %640 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull @.str.14, i64 noundef 1) #24
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -2747,13 +2747,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit350: ; preds = %647, %
   %660 = load i32, ptr %659, align 8, !tbaa !127
   %661 = and i32 %660, -75
   %662 = or disjoint i32 %661, 8
-  store i32 %662, ptr %659, align 4, !tbaa !128
+  store i32 %662, ptr %659, align 8, !tbaa !128
   %663 = load i64, ptr %656, align 8
   %664 = getelementptr inbounds i8, ptr %38, i64 %663
   %665 = getelementptr inbounds nuw i8, ptr %664, i64 24
   %666 = load i32, ptr %665, align 8, !tbaa !127
   %667 = or i32 %666, 512
-  store i32 %667, ptr %665, align 4, !tbaa !128
+  store i32 %667, ptr %665, align 8, !tbaa !128
   %668 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %38, i64 noundef %54) #24
   %669 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %668, ptr noundef nonnull @.str.9, i64 noundef 2) #24
   %670 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %668, i64 noundef %651) #24
@@ -2950,13 +2950,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit395: ; preds = %731,
   %758 = load i32, ptr %757, align 8, !tbaa !127
   %759 = and i32 %758, -75
   %760 = or disjoint i32 %759, 8
-  store i32 %760, ptr %757, align 4, !tbaa !128
+  store i32 %760, ptr %757, align 8, !tbaa !128
   %761 = load i64, ptr %754, align 8
   %762 = getelementptr inbounds i8, ptr %38, i64 %761
   %763 = getelementptr inbounds nuw i8, ptr %762, i64 24
   %764 = load i32, ptr %763, align 8, !tbaa !127
   %765 = or i32 %764, 512
-  store i32 %765, ptr %763, align 4, !tbaa !128
+  store i32 %765, ptr %763, align 8, !tbaa !128
   %766 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %38, i64 noundef %.0109562587) #24
   %767 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull @.str.14, i64 noundef 1) #24
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -3008,13 +3008,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit402: ; preds = %774, %
   %793 = load i32, ptr %792, align 8, !tbaa !127
   %794 = and i32 %793, -75
   %795 = or disjoint i32 %794, 8
-  store i32 %795, ptr %792, align 4, !tbaa !128
+  store i32 %795, ptr %792, align 8, !tbaa !128
   %796 = load i64, ptr %789, align 8
   %797 = getelementptr inbounds i8, ptr %38, i64 %796
   %798 = getelementptr inbounds nuw i8, ptr %797, i64 24
   %799 = load i32, ptr %798, align 8, !tbaa !127
   %800 = or i32 %799, 512
-  store i32 %800, ptr %798, align 4, !tbaa !128
+  store i32 %800, ptr %798, align 8, !tbaa !128
   %801 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %38, i64 noundef %784) #24
   %802 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %801, ptr noundef nonnull @.str.9, i64 noundef 2) #24
   %803 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %801, i64 noundef %785) #24
@@ -3162,7 +3162,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit429: ; preds = %841, %
   %864 = load i32, ptr %863, align 8, !tbaa !127
   %865 = and i32 %864, -75
   %866 = or disjoint i32 %865, 2
-  store i32 %866, ptr %863, align 4, !tbaa !128
+  store i32 %866, ptr %863, align 8, !tbaa !128
   %867 = and i64 %.fca.0.extract3, 4294967295
   %868 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %38, i64 noundef %867) #24
   %869 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %868, ptr noundef nonnull @.str.16, i64 noundef 2) #24
@@ -3259,13 +3259,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit447: ; preds = %891,
   %917 = load i32, ptr %916, align 8, !tbaa !127
   %918 = and i32 %917, -75
   %919 = or disjoint i32 %918, 8
-  store i32 %919, ptr %916, align 4, !tbaa !128
+  store i32 %919, ptr %916, align 8, !tbaa !128
   %920 = load i64, ptr %913, align 8
   %921 = getelementptr inbounds i8, ptr %38, i64 %920
   %922 = getelementptr inbounds nuw i8, ptr %921, i64 24
   %923 = load i32, ptr %922, align 8, !tbaa !127
   %924 = or i32 %923, 512
-  store i32 %924, ptr %922, align 4, !tbaa !128
+  store i32 %924, ptr %922, align 8, !tbaa !128
   %925 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %38, i64 noundef %.8545) #24
   %926 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull @.str.14, i64 noundef 1) #24
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -3301,13 +3301,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit454: ; preds = %933, %
   %946 = load i32, ptr %945, align 8, !tbaa !127
   %947 = and i32 %946, -75
   %948 = or disjoint i32 %947, 8
-  store i32 %948, ptr %945, align 4, !tbaa !128
+  store i32 %948, ptr %945, align 8, !tbaa !128
   %949 = load i64, ptr %942, align 8
   %950 = getelementptr inbounds i8, ptr %38, i64 %949
   %951 = getelementptr inbounds nuw i8, ptr %950, i64 24
   %952 = load i32, ptr %951, align 8, !tbaa !127
   %953 = or i32 %952, 512
-  store i32 %953, ptr %951, align 4, !tbaa !128
+  store i32 %953, ptr %951, align 8, !tbaa !128
   %954 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %38, i64 noundef %882) #24
   %955 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %954, ptr noundef nonnull @.str.23, i64 noundef 3) #24
   %956 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %954, i64 noundef %54) #24
@@ -3370,14 +3370,14 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit460: ; preds = %976, %
   %987 = getelementptr inbounds nuw i8, ptr %986, i64 24
   %988 = load i32, ptr %987, align 8, !tbaa !127
   %989 = or i32 %988, 512
-  store i32 %989, ptr %987, align 4, !tbaa !128
+  store i32 %989, ptr %987, align 8, !tbaa !128
   %990 = load i64, ptr %984, align 8
   %991 = getelementptr inbounds i8, ptr %38, i64 %990
   %992 = getelementptr inbounds nuw i8, ptr %991, i64 24
   %993 = load i32, ptr %992, align 8, !tbaa !127
   %994 = and i32 %993, -75
   %995 = or disjoint i32 %994, 8
-  store i32 %995, ptr %992, align 4, !tbaa !128
+  store i32 %995, ptr %992, align 8, !tbaa !128
   %996 = zext i8 %108 to i64
   %997 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %38, i64 noundef %996) #24
   %998 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %997, ptr noundef nonnull @.str.4, i64 noundef 1) #24
@@ -4253,7 +4253,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit388: ; preds = %287, %
   %301 = load i32, ptr %300, align 8, !tbaa !127
   %302 = and i32 %301, -75
   %303 = or disjoint i32 %302, 2
-  store i32 %303, ptr %300, align 4, !tbaa !128
+  store i32 %303, ptr %300, align 8, !tbaa !128
   %304 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %294, i64 noundef %291) #24
   call void @llvm.lifetime.start.p0(ptr nonnull %62)
   store i8 10, ptr %62, align 1, !tbaa !76
@@ -4395,7 +4395,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit431: ; preds = %340, %
   %359 = load i32, ptr %358, align 8, !tbaa !127
   %360 = and i32 %359, -75
   %361 = or disjoint i32 %360, 2
-  store i32 %361, ptr %358, align 4, !tbaa !128
+  store i32 %361, ptr %358, align 8, !tbaa !128
   %362 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %352, i64 noundef %.fca.0.extract57) #24
   call void @llvm.lifetime.start.p0(ptr nonnull %59)
   store i8 10, ptr %59, align 1, !tbaa !76
@@ -4525,7 +4525,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit474: ; preds = %398, %
   %413 = load i32, ptr %412, align 8, !tbaa !127
   %414 = and i32 %413, -75
   %415 = or disjoint i32 %414, 2
-  store i32 %415, ptr %412, align 4, !tbaa !128
+  store i32 %415, ptr %412, align 8, !tbaa !128
   %416 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %406, i64 noundef %.4) #24
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   store i8 10, ptr %57, align 1, !tbaa !76
@@ -4801,7 +4801,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit522: ; preds = %514, %
   %526 = getelementptr inbounds nuw i8, ptr %525, i64 24
   %527 = load i32, ptr %526, align 8, !tbaa !127
   %528 = or i32 %527, 1
-  store i32 %528, ptr %526, align 4, !tbaa !128
+  store i32 %528, ptr %526, align 8, !tbaa !128
   %529 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIbEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %520, i1 noundef zeroext %500) #24
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
   store i8 10, ptr %53, align 1, !tbaa !76
@@ -5081,7 +5081,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit610: ; preds = %621, %
   %640 = load i32, ptr %639, align 8, !tbaa !127
   %641 = and i32 %640, -75
   %642 = or disjoint i32 %641, 2
-  store i32 %642, ptr %639, align 4, !tbaa !128
+  store i32 %642, ptr %639, align 8, !tbaa !128
   %643 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %633, i64 noundef %.fca.0.extract52) #24
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
   store i8 10, ptr %48, align 1, !tbaa !76
@@ -5258,13 +5258,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit656: ; preds = %707, %
   %720 = load i32, ptr %719, align 8, !tbaa !127
   %721 = and i32 %720, -75
   %722 = or disjoint i32 %721, 8
-  store i32 %722, ptr %719, align 4, !tbaa !128
+  store i32 %722, ptr %719, align 8, !tbaa !128
   %723 = load i64, ptr %716, align 8
   %724 = getelementptr inbounds i8, ptr %713, i64 %723
   %725 = getelementptr inbounds nuw i8, ptr %724, i64 24
   %726 = load i32, ptr %725, align 8, !tbaa !127
   %727 = or i32 %726, 512
-  store i32 %727, ptr %725, align 4, !tbaa !128
+  store i32 %727, ptr %725, align 8, !tbaa !128
   %728 = load i64, ptr %73, align 8, !tbaa !54
   %729 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %713, i64 noundef %728) #24
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
@@ -5410,13 +5410,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit699: ; preds = %765, %
   %786 = load i32, ptr %785, align 8, !tbaa !127
   %787 = and i32 %786, -75
   %788 = or disjoint i32 %787, 8
-  store i32 %788, ptr %785, align 4, !tbaa !128
+  store i32 %788, ptr %785, align 8, !tbaa !128
   %789 = load i64, ptr %782, align 8
   %790 = getelementptr inbounds i8, ptr %779, i64 %789
   %791 = getelementptr inbounds nuw i8, ptr %790, i64 24
   %792 = load i32, ptr %791, align 8, !tbaa !127
   %793 = or i32 %792, 512
-  store i32 %793, ptr %791, align 4, !tbaa !128
+  store i32 %793, ptr %791, align 8, !tbaa !128
   %794 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %779, i64 noundef %.fca.0.extract42) #24
   %795 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %794, ptr noundef nonnull @.str.9, i64 noundef 2) #24
   %796 = load i64, ptr %73, align 8, !tbaa !54
@@ -5582,13 +5582,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit744: ; preds = %845,
   %872 = load i32, ptr %871, align 8, !tbaa !127
   %873 = and i32 %872, -75
   %874 = or disjoint i32 %873, 8
-  store i32 %874, ptr %871, align 4, !tbaa !128
+  store i32 %874, ptr %871, align 8, !tbaa !128
   %875 = load i64, ptr %868, align 8
   %876 = getelementptr inbounds i8, ptr %1, i64 %875
   %877 = getelementptr inbounds nuw i8, ptr %876, i64 24
   %878 = load i32, ptr %877, align 8, !tbaa !127
   %879 = or i32 %878, 512
-  store i32 %879, ptr %877, align 4, !tbaa !128
+  store i32 %879, ptr %877, align 8, !tbaa !128
   %880 = load i64, ptr %73, align 8, !tbaa !54
   %881 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %880) #24
   %882 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.18, i64 noundef 2) #24
@@ -5781,7 +5781,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %975 = load i32, ptr %974, align 8, !tbaa !127
   %976 = and i32 %975, -75
   %977 = or disjoint i32 %976, 2
-  store i32 %977, ptr %974, align 4, !tbaa !128
+  store i32 %977, ptr %974, align 8, !tbaa !128
   %978 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.026713711468) #24
   %979 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.42, i64 noundef 17) #24
   %980 = load ptr, ptr %1, align 8, !tbaa !17
@@ -5791,7 +5791,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %984 = getelementptr inbounds nuw i8, ptr %983, i64 24
   %985 = load i32, ptr %984, align 8, !tbaa !127
   %986 = or i32 %985, 1
-  store i32 %986, ptr %984, align 4, !tbaa !128
+  store i32 %986, ptr %984, align 8, !tbaa !128
   %987 = trunc nuw i8 %.027513691470 to i1
   %988 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIbEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext %987) #24
   %989 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.14, i64 noundef 1) #24
@@ -5831,13 +5831,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit756: ; preds = %996, %
   %1011 = load i32, ptr %1010, align 8, !tbaa !127
   %1012 = and i32 %1011, -75
   %1013 = or disjoint i32 %1012, 8
-  store i32 %1013, ptr %1010, align 4, !tbaa !128
+  store i32 %1013, ptr %1010, align 8, !tbaa !128
   %1014 = load i64, ptr %1007, align 8
   %1015 = getelementptr inbounds i8, ptr %1004, i64 %1014
   %1016 = getelementptr inbounds nuw i8, ptr %1015, i64 24
   %1017 = load i32, ptr %1016, align 8, !tbaa !127
   %1018 = or i32 %1017, 512
-  store i32 %1018, ptr %1016, align 4, !tbaa !128
+  store i32 %1018, ptr %1016, align 8, !tbaa !128
   %1019 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1004, i64 noundef %115) #24
   %1020 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1019, ptr noundef nonnull @.str.9, i64 noundef 2) #24
   %1021 = load i64, ptr %73, align 8, !tbaa !54
@@ -6106,13 +6106,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit806: ; preds = %1103
   %1130 = load i32, ptr %1129, align 8, !tbaa !127
   %1131 = and i32 %1130, -75
   %1132 = or disjoint i32 %1131, 8
-  store i32 %1132, ptr %1129, align 4, !tbaa !128
+  store i32 %1132, ptr %1129, align 8, !tbaa !128
   %1133 = load i64, ptr %1126, align 8
   %1134 = getelementptr inbounds i8, ptr %1, i64 %1133
   %1135 = getelementptr inbounds nuw i8, ptr %1134, i64 24
   %1136 = load i32, ptr %1135, align 8, !tbaa !127
   %1137 = or i32 %1136, 512
-  store i32 %1137, ptr %1135, align 4, !tbaa !128
+  store i32 %1137, ptr %1135, align 8, !tbaa !128
   %1138 = load i64, ptr %73, align 8, !tbaa !54
   %1139 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %1138) #24
   %1140 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.18, i64 noundef 2) #24
@@ -6305,7 +6305,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit835: ; preds = %_Z
   %1233 = load i32, ptr %1232, align 8, !tbaa !127
   %1234 = and i32 %1233, -75
   %1235 = or disjoint i32 %1234, 2
-  store i32 %1235, ptr %1232, align 4, !tbaa !128
+  store i32 %1235, ptr %1232, align 8, !tbaa !128
   %1236 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.026713711468) #24
   %1237 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.42, i64 noundef 17) #24
   %1238 = load ptr, ptr %1, align 8, !tbaa !17
@@ -6315,7 +6315,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit835: ; preds = %_Z
   %1242 = getelementptr inbounds nuw i8, ptr %1241, i64 24
   %1243 = load i32, ptr %1242, align 8, !tbaa !127
   %1244 = or i32 %1243, 1
-  store i32 %1244, ptr %1242, align 4, !tbaa !128
+  store i32 %1244, ptr %1242, align 8, !tbaa !128
   %1245 = trunc nuw i8 %.027513691470 to i1
   %1246 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIbEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext %1245) #24
   %1247 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.14, i64 noundef 1) #24
@@ -6372,13 +6372,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit838: ; preds = %1254, 
   %1276 = load i32, ptr %1275, align 8, !tbaa !127
   %1277 = and i32 %1276, -75
   %1278 = or disjoint i32 %1277, 8
-  store i32 %1278, ptr %1275, align 4, !tbaa !128
+  store i32 %1278, ptr %1275, align 8, !tbaa !128
   %1279 = load i64, ptr %1272, align 8
   %1280 = getelementptr inbounds i8, ptr %1269, i64 %1279
   %1281 = getelementptr inbounds nuw i8, ptr %1280, i64 24
   %1282 = load i32, ptr %1281, align 8, !tbaa !127
   %1283 = or i32 %1282, 512
-  store i32 %1283, ptr %1281, align 4, !tbaa !128
+  store i32 %1283, ptr %1281, align 8, !tbaa !128
   %1284 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1269, i64 noundef %1264) #24
   %1285 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1284, ptr noundef nonnull @.str.9, i64 noundef 2) #24
   %1286 = load i64, ptr %73, align 8, !tbaa !54
@@ -6541,13 +6541,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit883: ; preds = %1334
   %1361 = load i32, ptr %1360, align 8, !tbaa !127
   %1362 = and i32 %1361, -75
   %1363 = or disjoint i32 %1362, 8
-  store i32 %1363, ptr %1360, align 4, !tbaa !128
+  store i32 %1363, ptr %1360, align 8, !tbaa !128
   %1364 = load i64, ptr %1357, align 8
   %1365 = getelementptr inbounds i8, ptr %1, i64 %1364
   %1366 = getelementptr inbounds nuw i8, ptr %1365, i64 24
   %1367 = load i32, ptr %1366, align 8, !tbaa !127
   %1368 = or i32 %1367, 512
-  store i32 %1368, ptr %1366, align 4, !tbaa !128
+  store i32 %1368, ptr %1366, align 8, !tbaa !128
   %1369 = load i64, ptr %73, align 8, !tbaa !54
   %1370 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %1369) #24
   %1371 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.18, i64 noundef 2) #24
@@ -6740,7 +6740,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit912: ; preds = %_Z
   %1464 = load i32, ptr %1463, align 8, !tbaa !127
   %1465 = and i32 %1464, -75
   %1466 = or disjoint i32 %1465, 2
-  store i32 %1466, ptr %1463, align 4, !tbaa !128
+  store i32 %1466, ptr %1463, align 8, !tbaa !128
   %1467 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.026713711468) #24
   %1468 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.42, i64 noundef 17) #24
   %1469 = load ptr, ptr %1, align 8, !tbaa !17
@@ -6750,7 +6750,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit912: ; preds = %_Z
   %1473 = getelementptr inbounds nuw i8, ptr %1472, i64 24
   %1474 = load i32, ptr %1473, align 8, !tbaa !127
   %1475 = or i32 %1474, 1
-  store i32 %1475, ptr %1473, align 4, !tbaa !128
+  store i32 %1475, ptr %1473, align 8, !tbaa !128
   %1476 = trunc nuw i8 %.027513691470 to i1
   %1477 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIbEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext %1476) #24
   %1478 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.14, i64 noundef 1) #24
@@ -6793,13 +6793,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit915: ; preds = %1485, 
   %1503 = load i32, ptr %1502, align 8, !tbaa !127
   %1504 = and i32 %1503, -75
   %1505 = or disjoint i32 %1504, 8
-  store i32 %1505, ptr %1502, align 4, !tbaa !128
+  store i32 %1505, ptr %1502, align 8, !tbaa !128
   %1506 = load i64, ptr %1499, align 8
   %1507 = getelementptr inbounds i8, ptr %1496, i64 %1506
   %1508 = getelementptr inbounds nuw i8, ptr %1507, i64 24
   %1509 = load i32, ptr %1508, align 8, !tbaa !127
   %1510 = or i32 %1509, 512
-  store i32 %1510, ptr %1508, align 4, !tbaa !128
+  store i32 %1510, ptr %1508, align 8, !tbaa !128
   %1511 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1496, i64 noundef %1491) #24
   %1512 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1511, ptr noundef nonnull @.str.9, i64 noundef 2) #24
   %1513 = load i64, ptr %73, align 8, !tbaa !54
@@ -6961,7 +6961,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit958: ; preds = %1551, 
   %1576 = load i32, ptr %1575, align 8, !tbaa !127
   %1577 = and i32 %1576, -75
   %1578 = or disjoint i32 %1577, 2
-  store i32 %1578, ptr %1575, align 4, !tbaa !128
+  store i32 %1578, ptr %1575, align 8, !tbaa !128
   %1579 = and i64 %.fca.0.extract32, 4294967295
   %1580 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1569, i64 noundef %1579) #24
   %1581 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1580, ptr noundef nonnull @.str.16, i64 noundef 2) #24
@@ -7051,13 +7051,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit963: ; preds = %1611
   %1637 = load i32, ptr %1636, align 8, !tbaa !127
   %1638 = and i32 %1637, -75
   %1639 = or disjoint i32 %1638, 8
-  store i32 %1639, ptr %1636, align 4, !tbaa !128
+  store i32 %1639, ptr %1636, align 8, !tbaa !128
   %1640 = load i64, ptr %1633, align 8
   %1641 = getelementptr inbounds i8, ptr %1, i64 %1640
   %1642 = getelementptr inbounds nuw i8, ptr %1641, i64 24
   %1643 = load i32, ptr %1642, align 8, !tbaa !127
   %1644 = or i32 %1643, 512
-  store i32 %1644, ptr %1642, align 4, !tbaa !128
+  store i32 %1644, ptr %1642, align 8, !tbaa !128
   %1645 = load i64, ptr %73, align 8, !tbaa !54
   %1646 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %1645) #24
   %1647 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.18, i64 noundef 2) #24
@@ -7244,7 +7244,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit992: ; preds = %_Z
   %1735 = load i32, ptr %1734, align 8, !tbaa !127
   %1736 = and i32 %1735, -75
   %1737 = or disjoint i32 %1736, 2
-  store i32 %1737, ptr %1734, align 4, !tbaa !128
+  store i32 %1737, ptr %1734, align 8, !tbaa !128
   %1738 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.026713711468) #24
   %1739 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.42, i64 noundef 17) #24
   %1740 = load ptr, ptr %1, align 8, !tbaa !17
@@ -7254,7 +7254,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit992: ; preds = %_Z
   %1744 = getelementptr inbounds nuw i8, ptr %1743, i64 24
   %1745 = load i32, ptr %1744, align 8, !tbaa !127
   %1746 = or i32 %1745, 1
-  store i32 %1746, ptr %1744, align 4, !tbaa !128
+  store i32 %1746, ptr %1744, align 8, !tbaa !128
   %1747 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIbEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext %1599) #24
   %1748 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.14, i64 noundef 1) #24
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
@@ -7290,13 +7290,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit995: ; preds = %1755, 
   %1767 = load i32, ptr %1766, align 8, !tbaa !127
   %1768 = and i32 %1767, -75
   %1769 = or disjoint i32 %1768, 8
-  store i32 %1769, ptr %1766, align 4, !tbaa !128
+  store i32 %1769, ptr %1766, align 8, !tbaa !128
   %1770 = load i64, ptr %1763, align 8
   %1771 = getelementptr inbounds i8, ptr %1, i64 %1770
   %1772 = getelementptr inbounds nuw i8, ptr %1771, i64 24
   %1773 = load i32, ptr %1772, align 8, !tbaa !127
   %1774 = or i32 %1773, 512
-  store i32 %1774, ptr %1772, align 4, !tbaa !128
+  store i32 %1774, ptr %1772, align 8, !tbaa !128
   %1775 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %1600) #24
   %1776 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1775, ptr noundef nonnull @.str.23, i64 noundef 3) #24
   %1777 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1775, i64 noundef %115) #24
@@ -7890,7 +7890,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorIPNS_5MachO12DylibCommandESaIS4_EES4_N9__gnu_cx
   %2028 = load i64, ptr %155, align 8, !tbaa !74, !noalias !245
   %2029 = ptrtoint ptr %2027 to i64
   %2030 = load i64, ptr %2016, align 8, !tbaa !54, !noalias !245
-  %2031 = load i8, ptr %2017, align 1, !tbaa !76, !noalias !245
+  %2031 = load i8, ptr %2017, align 8, !tbaa !76, !noalias !245
   %.sroa.071.0.insert.ext.i = zext i8 %2031 to i64
   store i64 ptrtoint (ptr @.str.53 to i64), ptr %70, align 16, !alias.scope !242, !noalias !239
   store i64 %2018, ptr %156, align 16, !alias.scope !242, !noalias !239
@@ -8284,7 +8284,7 @@ _ZSt19__relocate_object_aIN4LIEF5MachO16ThreadedBindDataES2_SaIS2_EEvPT_PT0_RT1_
   store i64 %2176, ptr %2178, align 8, !tbaa !74, !alias.scope !267, !noalias !270
   store ptr %2168, ptr %.0911.i.i.i.i, align 8, !tbaa !134, !alias.scope !270, !noalias !267
   store i64 0, ptr %2177, align 8, !tbaa !74, !alias.scope !270, !noalias !267
-  store i8 0, ptr %2168, align 1, !tbaa !76, !alias.scope !270, !noalias !267
+  store i8 0, ptr %2168, align 8, !tbaa !76, !alias.scope !270, !noalias !267
   %2179 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %2180 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %2179, ptr noundef nonnull align 8 dereferenceable(18) %2180, i64 18, i1 false), !alias.scope !272
@@ -9396,7 +9396,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %13
   store i64 %19, ptr %21, align 8, !tbaa !74
   store ptr %11, ptr %2, align 8, !tbaa !134
   store i64 0, ptr %20, align 8, !tbaa !74
-  store i8 0, ptr %11, align 1, !tbaa !76
+  store i8 0, ptr %11, align 8, !tbaa !76
   call void @_ZN4LIEF5MachO9show_trieERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_12BinaryStreamEmmRKS7_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %4, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(32) %6) #24
   %22 = load ptr, ptr %8, align 8, !tbaa !134
   %23 = icmp eq ptr %22, %9
@@ -11612,7 +11612,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   store ptr %108, ptr %107, align 8, !tbaa !72
   %109 = getelementptr inbounds nuw i8, ptr %101, i64 32
   store i64 0, ptr %109, align 8, !tbaa !74
-  store i8 0, ptr %108, align 1, !tbaa !76
+  store i8 0, ptr %108, align 8, !tbaa !76
   %110 = getelementptr inbounds nuw i8, ptr %101, i64 56
   store ptr %110, ptr %54, align 8, !tbaa !489
   br label %_ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJhRhEEERS3_DpOT_.exit
@@ -11693,7 +11693,7 @@ _ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJh
   store ptr %154, ptr %153, align 8, !tbaa !72
   %155 = getelementptr inbounds nuw i8, ptr %145, i64 32
   store i64 0, ptr %155, align 8, !tbaa !74
-  store i8 0, ptr %154, align 1, !tbaa !76
+  store i8 0, ptr %154, align 8, !tbaa !76
   %156 = getelementptr inbounds nuw i8, ptr %145, i64 56
   store ptr %156, ptr %54, align 8, !tbaa !489
   br label %158
@@ -11734,7 +11734,7 @@ _ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJh
   store ptr %172, ptr %171, align 8, !tbaa !72
   %173 = getelementptr inbounds nuw i8, ptr %165, i64 32
   store i64 0, ptr %173, align 8, !tbaa !74
-  store i8 0, ptr %172, align 1, !tbaa !76
+  store i8 0, ptr %172, align 8, !tbaa !76
   %174 = getelementptr inbounds nuw i8, ptr %165, i64 56
   store ptr %174, ptr %54, align 8, !tbaa !489
   br label %_ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJhmEEERS3_DpOT_.exit
@@ -11787,7 +11787,7 @@ _ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJh
   store ptr %189, ptr %188, align 8, !tbaa !72
   %190 = getelementptr inbounds nuw i8, ptr %.pre265, i64 32
   store i64 0, ptr %190, align 8, !tbaa !74
-  store i8 0, ptr %189, align 1, !tbaa !76
+  store i8 0, ptr %189, align 8, !tbaa !76
   %191 = getelementptr inbounds nuw i8, ptr %.pre265, i64 56
   store ptr %191, ptr %54, align 8, !tbaa !489
   br label %_ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJhlEEERS3_DpOT_.exit
@@ -11826,7 +11826,7 @@ _ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJh
   store ptr %200, ptr %199, align 8, !tbaa !72
   %201 = getelementptr inbounds nuw i8, ptr %196, i64 32
   store i64 0, ptr %201, align 8, !tbaa !74
-  store i8 0, ptr %200, align 1, !tbaa !76
+  store i8 0, ptr %200, align 8, !tbaa !76
   %202 = getelementptr inbounds nuw i8, ptr %196, i64 56
   store ptr %202, ptr %54, align 8, !tbaa !489
   br label %206
@@ -11877,7 +11877,7 @@ _ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJh
   store ptr %219, ptr %218, align 8, !tbaa !72
   %220 = getelementptr inbounds nuw i8, ptr %.pre268, i64 32
   store i64 0, ptr %220, align 8, !tbaa !74
-  store i8 0, ptr %219, align 1, !tbaa !76
+  store i8 0, ptr %219, align 8, !tbaa !76
   %221 = getelementptr inbounds nuw i8, ptr %.pre268, i64 56
   store ptr %221, ptr %215, align 8, !tbaa !489
   br label %_ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJhiEEERS3_DpOT_.exit111
@@ -13714,7 +13714,7 @@ define hidden noundef nonnull align 8 dereferenceable(240) ptr @_ZN4LIEF5MachO8D
   store ptr %75, ptr %74, align 8, !tbaa !72
   %76 = getelementptr inbounds nuw i8, ptr %68, i64 32
   store i64 0, ptr %76, align 8, !tbaa !74
-  store i8 0, ptr %75, align 1, !tbaa !76
+  store i8 0, ptr %75, align 8, !tbaa !76
   %77 = getelementptr inbounds nuw i8, ptr %68, i64 56
   store ptr %77, ptr %58, align 8, !tbaa !489
   br label %_ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJhiEEERS3_DpOT_.exit
@@ -13750,7 +13750,7 @@ _ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJh
   store ptr %87, ptr %86, align 8, !tbaa !72
   %88 = getelementptr inbounds nuw i8, ptr %80, i64 32
   store i64 0, ptr %88, align 8, !tbaa !74
-  store i8 0, ptr %87, align 1, !tbaa !76
+  store i8 0, ptr %87, align 8, !tbaa !76
   %89 = getelementptr inbounds nuw i8, ptr %80, i64 56
   store ptr %89, ptr %58, align 8, !tbaa !489
   br label %_ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJhiEEERS3_DpOT_.exit104
@@ -13874,7 +13874,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   store ptr %139, ptr %138, align 8, !tbaa !72
   %140 = getelementptr inbounds nuw i8, ptr %132, i64 32
   store i64 0, ptr %140, align 8, !tbaa !74
-  store i8 0, ptr %139, align 1, !tbaa !76
+  store i8 0, ptr %139, align 8, !tbaa !76
   %141 = getelementptr inbounds nuw i8, ptr %132, i64 56
   store ptr %141, ptr %58, align 8, !tbaa !489
   br label %_ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJhRhEEERS3_DpOT_.exit
@@ -13964,7 +13964,7 @@ _ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJh
   store ptr %187, ptr %186, align 8, !tbaa !72
   %188 = getelementptr inbounds nuw i8, ptr %178, i64 32
   store i64 0, ptr %188, align 8, !tbaa !74
-  store i8 0, ptr %187, align 1, !tbaa !76
+  store i8 0, ptr %187, align 8, !tbaa !76
   %189 = getelementptr inbounds nuw i8, ptr %178, i64 56
   store ptr %189, ptr %58, align 8, !tbaa !489
   br label %191
@@ -14005,7 +14005,7 @@ _ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJh
   store ptr %205, ptr %204, align 8, !tbaa !72
   %206 = getelementptr inbounds nuw i8, ptr %198, i64 32
   store i64 0, ptr %206, align 8, !tbaa !74
-  store i8 0, ptr %205, align 1, !tbaa !76
+  store i8 0, ptr %205, align 8, !tbaa !76
   %207 = getelementptr inbounds nuw i8, ptr %198, i64 56
   store ptr %207, ptr %58, align 8, !tbaa !489
   br label %_ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJhmEEERS3_DpOT_.exit
@@ -14058,7 +14058,7 @@ _ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJh
   store ptr %222, ptr %221, align 8, !tbaa !72
   %223 = getelementptr inbounds nuw i8, ptr %.pre272, i64 32
   store i64 0, ptr %223, align 8, !tbaa !74
-  store i8 0, ptr %222, align 1, !tbaa !76
+  store i8 0, ptr %222, align 8, !tbaa !76
   %224 = getelementptr inbounds nuw i8, ptr %.pre272, i64 56
   store ptr %224, ptr %58, align 8, !tbaa !489
   br label %_ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJhlEEERS3_DpOT_.exit
@@ -14097,7 +14097,7 @@ _ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJh
   store ptr %233, ptr %232, align 8, !tbaa !72
   %234 = getelementptr inbounds nuw i8, ptr %229, i64 32
   store i64 0, ptr %234, align 8, !tbaa !74
-  store i8 0, ptr %233, align 1, !tbaa !76
+  store i8 0, ptr %233, align 8, !tbaa !76
   %235 = getelementptr inbounds nuw i8, ptr %229, i64 56
   store ptr %235, ptr %58, align 8, !tbaa !489
   br label %237
@@ -14139,7 +14139,7 @@ _ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJh
   store ptr %250, ptr %249, align 8, !tbaa !72
   %251 = getelementptr inbounds nuw i8, ptr %.pre275, i64 32
   store i64 0, ptr %251, align 8, !tbaa !74
-  store i8 0, ptr %250, align 1, !tbaa !76
+  store i8 0, ptr %250, align 8, !tbaa !76
   %252 = getelementptr inbounds nuw i8, ptr %.pre275, i64 56
   store ptr %252, ptr %246, align 8, !tbaa !489
   br label %_ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJhiEEERS3_DpOT_.exit120
@@ -15413,7 +15413,7 @@ _ZNSt6vectorIPN4LIEF5MachO15DyldBindingInfoESaIS3_EEC2ISt23_Rb_tree_const_iterat
   store ptr %97, ptr %96, align 8, !tbaa !72
   %98 = getelementptr inbounds nuw i8, ptr %90, i64 32
   store i64 0, ptr %98, align 8, !tbaa !74
-  store i8 0, ptr %97, align 1, !tbaa !76
+  store i8 0, ptr %97, align 8, !tbaa !76
   %99 = getelementptr inbounds nuw i8, ptr %90, i64 56
   store ptr %99, ptr %81, align 8, !tbaa !489
   br label %_ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJhRKiEEERS3_DpOT_.exit
@@ -15450,7 +15450,7 @@ _ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJh
   store ptr %111, ptr %110, align 8, !tbaa !72
   %112 = getelementptr inbounds nuw i8, ptr %104, i64 32
   store i64 0, ptr %112, align 8, !tbaa !74
-  store i8 0, ptr %111, align 1, !tbaa !76
+  store i8 0, ptr %111, align 8, !tbaa !76
   %113 = getelementptr inbounds nuw i8, ptr %104, i64 56
   store ptr %113, ptr %81, align 8, !tbaa !489
   br label %_ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJhRKiEEERS3_DpOT_.exit158
@@ -15483,7 +15483,7 @@ _ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJh
   store ptr %123, ptr %122, align 8, !tbaa !72
   %124 = getelementptr inbounds nuw i8, ptr %116, i64 32
   store i64 0, ptr %124, align 8, !tbaa !74
-  store i8 0, ptr %123, align 1, !tbaa !76
+  store i8 0, ptr %123, align 8, !tbaa !76
   %125 = getelementptr inbounds nuw i8, ptr %116, i64 56
   store ptr %125, ptr %81, align 8, !tbaa !489
   br label %_ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJhRKiEEERS3_DpOT_.exit161
@@ -15618,7 +15618,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   store ptr %177, ptr %176, align 8, !tbaa !72
   %178 = getelementptr inbounds nuw i8, ptr %171, i64 32
   store i64 0, ptr %178, align 8, !tbaa !74
-  store i8 0, ptr %177, align 1, !tbaa !76
+  store i8 0, ptr %177, align 8, !tbaa !76
   %179 = getelementptr inbounds nuw i8, ptr %171, i64 56
   store ptr %179, ptr %81, align 8, !tbaa !489
   br label %_ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJhRhEEERS3_DpOT_.exit
@@ -15699,7 +15699,7 @@ _ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJh
   store ptr %213, ptr %212, align 8, !tbaa !72
   %214 = getelementptr inbounds nuw i8, ptr %207, i64 32
   store i64 0, ptr %214, align 8, !tbaa !74
-  store i8 0, ptr %213, align 1, !tbaa !76
+  store i8 0, ptr %213, align 8, !tbaa !76
   %215 = getelementptr inbounds nuw i8, ptr %207, i64 56
   store ptr %215, ptr %81, align 8, !tbaa !489
   br label %.thread293
@@ -15736,7 +15736,7 @@ _ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJh
   store ptr %224, ptr %223, align 8, !tbaa !72
   %225 = getelementptr inbounds nuw i8, ptr %219, i64 32
   store i64 0, ptr %225, align 8, !tbaa !74
-  store i8 0, ptr %224, align 1, !tbaa !76
+  store i8 0, ptr %224, align 8, !tbaa !76
   %226 = getelementptr inbounds nuw i8, ptr %219, i64 56
   store ptr %226, ptr %81, align 8, !tbaa !489
   br label %_ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJhiEEERS3_DpOT_.exit
@@ -16223,7 +16223,7 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit181:        ; preds = %347, %_ZNSt6vectorI
   store ptr %419, ptr %418, align 8, !tbaa !72
   %420 = getelementptr inbounds nuw i8, ptr %412, i64 32
   store i64 0, ptr %420, align 8, !tbaa !74
-  store i8 0, ptr %419, align 1, !tbaa !76
+  store i8 0, ptr %419, align 8, !tbaa !76
   %421 = getelementptr inbounds nuw i8, ptr %412, i64 56
   store ptr %421, ptr %344, align 8, !tbaa !489
   br label %_ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJhRmmEEERS3_DpOT_.exit
@@ -16255,7 +16255,7 @@ _ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJh
   store ptr %428, ptr %427, align 8, !tbaa !72
   %429 = getelementptr inbounds nuw i8, ptr %424, i64 32
   store i64 0, ptr %429, align 8, !tbaa !74
-  store i8 0, ptr %428, align 1, !tbaa !76
+  store i8 0, ptr %428, align 8, !tbaa !76
   %430 = getelementptr inbounds nuw i8, ptr %424, i64 56
   store ptr %430, ptr %344, align 8, !tbaa !489
   br label %_ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJiiEEERS3_DpOT_.exit
@@ -16307,7 +16307,7 @@ _ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJi
   store ptr %443, ptr %442, align 8, !tbaa !72
   %444 = getelementptr inbounds nuw i8, ptr %437, i64 32
   store i64 0, ptr %444, align 8, !tbaa !74
-  store i8 0, ptr %443, align 1, !tbaa !76
+  store i8 0, ptr %443, align 8, !tbaa !76
   %445 = getelementptr inbounds nuw i8, ptr %437, i64 56
   store ptr %445, ptr %436, align 8, !tbaa !489
   br label %_ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJhiEEERS3_DpOT_.exit188
@@ -47869,7 +47869,7 @@ _ZSt19__relocate_object_aIN4LIEF5MachO16ThreadedBindDataES2_SaIS2_EEvPT_PT0_RT1_
   store i64 %49, ptr %51, align 8, !tbaa !74, !alias.scope !1236, !noalias !1239
   store ptr %41, ptr %.0911.i.i.i, align 8, !tbaa !134, !alias.scope !1239, !noalias !1236
   store i64 0, ptr %50, align 8, !tbaa !74, !alias.scope !1239, !noalias !1236
-  store i8 0, ptr %41, align 1, !tbaa !76, !alias.scope !1239, !noalias !1236
+  store i8 0, ptr %41, align 8, !tbaa !76, !alias.scope !1239, !noalias !1236
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %52, ptr noundef nonnull align 8 dereferenceable(18) %53, i64 18, i1 false), !alias.scope !1241
@@ -47920,7 +47920,7 @@ _ZSt19__relocate_object_aIN4LIEF5MachO16ThreadedBindDataES2_SaIS2_EEvPT_PT0_RT1_
   store i64 %67, ptr %69, align 8, !tbaa !74, !alias.scope !1242, !noalias !1245
   store ptr %59, ptr %.0911.i.i.i19, align 8, !tbaa !134, !alias.scope !1245, !noalias !1242
   store i64 0, ptr %68, align 8, !tbaa !74, !alias.scope !1245, !noalias !1242
-  store i8 0, ptr %59, align 1, !tbaa !76, !alias.scope !1245, !noalias !1242
+  store i8 0, ptr %59, align 8, !tbaa !76, !alias.scope !1245, !noalias !1242
   %70 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %70, ptr noundef nonnull align 8 dereferenceable(18) %71, i64 18, i1 false), !alias.scope !1247
@@ -49348,7 +49348,7 @@ _ZNKSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12_M_check_lenEm
   store ptr %31, ptr %30, align 8, !tbaa !72
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i64 0, ptr %32, align 8, !tbaa !74
-  store i8 0, ptr %31, align 1, !tbaa !76
+  store i8 0, ptr %31, align 8, !tbaa !76
   %.not9.i.i.i.i.i = icmp eq ptr %9, %1
   br i1 %.not9.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit, label %.lr.ph.i.i.i.i.i
 
@@ -49558,7 +49558,7 @@ _ZNKSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12_M_check_lenEm
   store ptr %33, ptr %32, align 8, !tbaa !72
   %34 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store i64 0, ptr %34, align 8, !tbaa !74
-  store i8 0, ptr %33, align 1, !tbaa !76
+  store i8 0, ptr %33, align 8, !tbaa !76
   %.not9.i.i.i.i.i = icmp eq ptr %10, %1
   br i1 %.not9.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit, label %.lr.ph.i.i.i.i.i
 
@@ -49766,7 +49766,7 @@ _ZNKSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12_M_check_lenEm
   store ptr %30, ptr %29, align 8, !tbaa !72
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i64 0, ptr %31, align 8, !tbaa !74
-  store i8 0, ptr %30, align 1, !tbaa !76
+  store i8 0, ptr %30, align 8, !tbaa !76
   %.not9.i.i.i.i.i = icmp eq ptr %9, %1
   br i1 %.not9.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit, label %.lr.ph.i.i.i.i.i
 
@@ -49974,7 +49974,7 @@ _ZNKSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12_M_check_lenEm
   store ptr %30, ptr %29, align 8, !tbaa !72
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i64 0, ptr %31, align 8, !tbaa !74
-  store i8 0, ptr %30, align 1, !tbaa !76
+  store i8 0, ptr %30, align 8, !tbaa !76
   %.not9.i.i.i.i.i = icmp eq ptr %9, %1
   br i1 %.not9.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit, label %.lr.ph.i.i.i.i.i
 
@@ -50183,7 +50183,7 @@ _ZNKSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12_M_check_lenEm
   store ptr %31, ptr %30, align 8, !tbaa !72
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i64 0, ptr %32, align 8, !tbaa !74
-  store i8 0, ptr %31, align 1, !tbaa !76
+  store i8 0, ptr %31, align 8, !tbaa !76
   %.not9.i.i.i.i.i = icmp eq ptr %9, %1
   br i1 %.not9.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit, label %.lr.ph.i.i.i.i.i
 
@@ -50507,7 +50507,7 @@ _ZNKSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12_M_check_lenEm
   store ptr %31, ptr %30, align 8, !tbaa !72
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i64 0, ptr %32, align 8, !tbaa !74
-  store i8 0, ptr %31, align 1, !tbaa !76
+  store i8 0, ptr %31, align 8, !tbaa !76
   %.not9.i.i.i.i.i = icmp eq ptr %9, %1
   br i1 %.not9.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit, label %.lr.ph.i.i.i.i.i
 
@@ -50715,7 +50715,7 @@ _ZNKSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12_M_check_lenEm
   store ptr %30, ptr %29, align 8, !tbaa !72
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i64 0, ptr %31, align 8, !tbaa !74
-  store i8 0, ptr %30, align 1, !tbaa !76
+  store i8 0, ptr %30, align 8, !tbaa !76
   %.not9.i.i.i.i.i = icmp eq ptr %9, %1
   br i1 %.not9.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit, label %.lr.ph.i.i.i.i.i
 
@@ -51875,7 +51875,7 @@ _ZNKSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12_M_check_lenEm
   store ptr %32, ptr %31, align 8, !tbaa !72
   %33 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store i64 0, ptr %33, align 8, !tbaa !74
-  store i8 0, ptr %32, align 1, !tbaa !76
+  store i8 0, ptr %32, align 8, !tbaa !76
   %.not9.i.i.i.i.i = icmp eq ptr %10, %1
   br i1 %.not9.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit, label %.lr.ph.i.i.i.i.i
 
@@ -52085,7 +52085,7 @@ _ZNKSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12_M_check_lenEm
   store ptr %32, ptr %31, align 8, !tbaa !72
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i64 0, ptr %33, align 8, !tbaa !74
-  store i8 0, ptr %32, align 1, !tbaa !76
+  store i8 0, ptr %32, align 8, !tbaa !76
   %.not9.i.i.i.i.i = icmp eq ptr %9, %1
   br i1 %.not9.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit, label %.lr.ph.i.i.i.i.i
 

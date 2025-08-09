@@ -44,7 +44,7 @@ mpeg2_get_is_frame_start.exit:
   %25 = load i32, ptr %24, align 4, !tbaa !60
   %26 = shl i32 %25, 12
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 4200
-  %28 = load i32, ptr %27, align 4, !tbaa !60
+  %28 = load i32, ptr %27, align 8, !tbaa !60
   %29 = shl i32 %28, 8
   %30 = or i32 %29, %26
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 4204
@@ -52,7 +52,7 @@ mpeg2_get_is_frame_start.exit:
   %33 = shl i32 %32, 4
   %34 = or i32 %30, %33
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 4208
-  %36 = load i32, ptr %35, align 4, !tbaa !60
+  %36 = load i32, ptr %35, align 8, !tbaa !60
   %37 = or i32 %34, %36
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 4216
   %39 = load i32, ptr %38, align 8, !tbaa !61

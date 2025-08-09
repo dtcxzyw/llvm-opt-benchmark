@@ -21665,7 +21665,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %32, ptr %34, align 8, !alias.scope !185, !noalias !188
   store ptr %24, ptr %.0911.i.i.i, align 8, !alias.scope !188, !noalias !185
   store i64 0, ptr %33, align 8, !alias.scope !188, !noalias !185
-  store i8 0, ptr %24, align 1, !alias.scope !188, !noalias !185
+  store i8 0, ptr %24, align 8, !alias.scope !188, !noalias !185
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i) #31
   %35 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %36 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
@@ -21715,7 +21715,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %48, ptr %50, align 8, !alias.scope !192, !noalias !195
   store ptr %40, ptr %.0911.i.i.i29, align 8, !alias.scope !195, !noalias !192
   store i64 0, ptr %49, align 8, !alias.scope !195, !noalias !192
-  store i8 0, ptr %40, align 1, !alias.scope !195, !noalias !192
+  store i8 0, ptr %40, align 8, !alias.scope !195, !noalias !192
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i29) #31
   %51 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
@@ -23436,7 +23436,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i: ; preds
   store i64 %14, ptr %16, align 8
   store ptr %6, ptr %1, align 8
   store i64 0, ptr %15, align 8
-  store i8 0, ptr %6, align 1
+  store i8 0, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -23471,7 +23471,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = 
   store i64 %29, ptr %31, align 8
   store ptr %21, ptr %18, align 8
   store i64 0, ptr %30, align 8
-  store i8 0, ptr %21, align 1
+  store i8 0, ptr %21, align 8
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #31
   %32 = load ptr, ptr %1, align 8
   %33 = icmp eq ptr %32, %6
@@ -46122,7 +46122,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %23, ptr %25, align 8
   store ptr %15, ptr %10, align 8
   store i64 0, ptr %24, align 8
-  store i8 0, ptr %15, align 1
+  store i8 0, ptr %15, align 8
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 80
   tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(33) %26, ptr noundef nonnull align 8 dereferenceable(32) %12) #31
@@ -46157,7 +46157,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %38, ptr %41, align 8
   store ptr %29, ptr %12, align 8
   store i64 0, ptr %40, align 8
-  store i8 0, ptr %29, align 1
+  store i8 0, ptr %29, align 8
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store i8 0, ptr %42, align 8
   store ptr %7, ptr %39, align 8
@@ -47046,7 +47046,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i: ; pre
   store i64 %22, ptr %23, align 8
   store ptr %13, ptr %8, align 8
   store i64 0, ptr %21, align 8
-  store i8 0, ptr %13, align 1
+  store i8 0, ptr %13, align 8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(33) %24, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %30 unwind label %.body
@@ -51032,7 +51032,7 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   store i64 %486, ptr %488, align 8
   store ptr %478, ptr %470, align 8
   store i64 0, ptr %487, align 8
-  store i8 0, ptr %478, align 1
+  store i8 0, ptr %478, align 8
   store i8 1, ptr %472, align 8
   br label %_ZNSt4pairIN3nix8fetchers5InputENS1_21GitArchiveInputScheme11TarballInfoEEC2IS2_S4_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit
 
@@ -51958,7 +51958,7 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   store i64 %838, ptr %840, align 8
   store ptr %830, ptr %822, align 8
   store i64 0, ptr %839, align 8
-  store i8 0, ptr %830, align 1
+  store i8 0, ptr %830, align 8
   store i8 1, ptr %824, align 8
   br label %_ZNSt4pairIN3nix8fetchers5InputENS1_21GitArchiveInputScheme11TarballInfoEEC2IS2_RS4_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit
 
@@ -53444,7 +53444,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %10
   store i64 %17, ptr %18, align 8
   store ptr %8, ptr %5, align 8
   store i64 0, ptr %16, align 8
-  store i8 0, ptr %8, align 1
+  store i8 0, ptr %8, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %2, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -54748,7 +54748,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %23, ptr %27, align 8
   store ptr %14, ptr %10, align 8
   store i64 0, ptr %26, align 8
-  store i8 0, ptr %14, align 1
+  store i8 0, ptr %14, align 8
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %29 = load i64, ptr %25, align 8
   store i64 %29, ptr %28, align 8
@@ -73735,7 +73735,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8
   store ptr %13, ptr %10, align 8
   store i64 0, ptr %24, align 8
-  store i8 0, ptr %13, align 1
+  store i8 0, ptr %13, align 8
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i8 0, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 72

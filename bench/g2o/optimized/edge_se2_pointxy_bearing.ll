@@ -957,7 +957,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi1EdJNS_9VertexSE2ENS_13V
   store ptr %55, ptr %54, align 8, !tbaa !217
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 1, ptr %56, align 8, !tbaa !219
-  %57 = load ptr, ptr %47, align 8, !tbaa !228
+  %57 = load ptr, ptr %47, align 16, !tbaa !228
   %58 = load double, ptr %55, align 8, !tbaa !61
   %59 = insertelement <2 x double> poison, double %58, i64 0
   %60 = shufflevector <2 x double> %59, <2 x double> poison, <2 x i32> zeroinitializer
@@ -1033,7 +1033,7 @@ _ZN3g2o18BaseFixedSizedEdgeILi1EdJNS_9VertexSE2ENS_13VertexPointXYEEE24construct
   store ptr %107, ptr %106, align 8, !tbaa !217
   %108 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 1, ptr %108, align 8, !tbaa !219
-  %109 = load ptr, ptr %100, align 8, !tbaa !228
+  %109 = load ptr, ptr %100, align 16, !tbaa !228
   %110 = load double, ptr %107, align 8, !tbaa !61
   %111 = insertelement <2 x double> poison, double %110, i64 0
   %112 = shufflevector <2 x double> %111, <2 x double> poison, <2 x i32> zeroinitializer
@@ -1868,7 +1868,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi1EdJNS_9VertexSE2ENS_13V
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %31, ptr noundef nonnull align 8 dereferenceable(10) %15, i64 10, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 128
-  %33 = load <2 x double>, ptr %.sroa.029.sroa.0.0.copyload, align 1, !tbaa !60
+  %33 = load <2 x double>, ptr %.sroa.029.sroa.0.0.copyload, align 8, !tbaa !60
   %34 = load double, ptr %1, align 8, !tbaa !61
   %35 = insertelement <2 x double> poison, double %34, i64 0
   %36 = shufflevector <2 x double> %35, <2 x double> poison, <2 x i32> zeroinitializer

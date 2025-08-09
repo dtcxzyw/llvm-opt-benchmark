@@ -1094,7 +1094,7 @@ _ZN6hermes2vm7Runtime13makeAVariableINS0_23ExternalStringPrimitiveIDsEELNS0_12Ha
   store ptr %3, ptr %str, align 8
   store i64 0, ptr %_M_string_length.i, align 8
   store i16 0, ptr %3, align 8
-  store i32 150994992, ptr %call.i.i.i.i, align 4
+  store i32 150994992, ptr %call.i.i.i.i, align 8
   %14 = load ptr, ptr %lk.i.i.i.i, align 8
   %call1.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %14) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %lk.i.i.i.i)
@@ -1271,7 +1271,7 @@ _ZN6hermes2vm7Runtime13makeAVariableINS0_23ExternalStringPrimitiveIDsEELNS0_12Ha
   store ptr %2, ptr %ref.tmp9, align 8
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8
   store i16 0, ptr %2, align 8
-  store i32 150994992, ptr %call.i.i.i.i.i, align 4
+  store i32 150994992, ptr %call.i.i.i.i.i, align 8
   %12 = load ptr, ptr %contents_.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %12, %7
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNK6hermes2vm23ExternalStringPrimitiveIDsE22calcExternalMemorySizeEv.exit.i
@@ -1378,7 +1378,7 @@ _ZN6hermes2vm7Runtime13makeAVariableINS0_23ExternalStringPrimitiveIDsEELNS0_12Ha
   store ptr %5, ptr %str, align 8
   store i64 0, ptr %_M_string_length.i, align 8
   store i16 0, ptr %5, align 8
-  store i32 150994992, ptr %call.i.i.i.i, align 4
+  store i32 150994992, ptr %call.i.i.i.i, align 8
   %9 = load ptr, ptr %contents_.i.i.i.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %9, %3
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNK6hermes2vm23ExternalStringPrimitiveIDsE22calcExternalMemorySizeEv.exit
@@ -1972,7 +1972,7 @@ _ZN6hermes2vm7Runtime13makeAVariableINS0_23ExternalStringPrimitiveIDsEELNS0_12Ha
   store ptr %0, ptr %contents, align 8
   store i64 0, ptr %_M_string_length.i.i.i, align 8
   store i16 0, ptr %0, align 8
-  store i32 150994992, ptr %call.i.i.i.i.i, align 4
+  store i32 150994992, ptr %call.i.i.i.i.i, align 8
   %13 = load ptr, ptr %contents_.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %13, %8
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN6hermes2vm23ExternalStringPrimitiveIDsE6createINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeEOT_.exit.thread
@@ -6799,7 +6799,7 @@ _ZN6hermes2vm7Runtime13makeAVariableINS0_23ExternalStringPrimitiveIDsEELNS0_12Ha
   store ptr %2, ptr %ref.tmp, align 8
   store i64 0, ptr %_M_string_length.i.i, align 8
   store i16 0, ptr %2, align 8
-  store i32 150994992, ptr %call.i.i.i.i.i, align 4
+  store i32 150994992, ptr %call.i.i.i.i.i, align 8
   %10 = load ptr, ptr %contents_.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i7 = icmp eq ptr %10, %5
   br i1 %cmp.i.i.i.i7, label %if.then.i.i.i.i8, label %_ZNK6hermes2vm23ExternalStringPrimitiveIDsE22calcExternalMemorySizeEv.exit.i

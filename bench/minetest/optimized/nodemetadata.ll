@@ -4145,7 +4145,7 @@ invoke.cont10:                                    ; preds = %if.end.i.i.i.i.i.i.
   store ptr %10, ptr %second.i.i.i.i, align 8, !tbaa !90
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i, i64 48
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !32
-  store i8 0, ptr %10, align 1, !tbaa !38
+  store i8 0, ptr %10, align 8, !tbaa !38
   ret ptr %call5.i.i
 
 invoke.cont14:                                    ; preds = %if.then.i.i.i.i.i.i

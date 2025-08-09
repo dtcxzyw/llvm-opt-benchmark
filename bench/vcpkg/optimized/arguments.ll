@@ -15123,7 +15123,7 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeIN5vcpkg13StringLiteralESt4pair
   store ptr %13, ptr %12, align 8, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store i64 0, ptr %14, align 8, !tbaa !10
-  store i8 0, ptr %13, align 1, !tbaa !13
+  store i8 0, ptr %13, align 8, !tbaa !13
   store ptr %8, ptr %7, align 8, !tbaa !349
   %15 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN5vcpkg13StringLiteralESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIvESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(16) %9)
           to label %16 unwind label %29

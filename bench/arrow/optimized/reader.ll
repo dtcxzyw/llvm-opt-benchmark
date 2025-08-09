@@ -46032,7 +46032,7 @@ _ZN5arrow10WeakFutureINS_8internal5EmptyEEC2ERKNS_6FutureIS2_EE.exit.i.i.i.i: ; 
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvvEE6FnImplISt5_BindIFNS_6detail14ContinueFutureENS_6FutureINS0_5EmptyEEEZNS_3ipc12_GLOBAL__N_117DecompressBuffersENS_11Compression4typeERKNSB_14IpcReadOptionsEPSt6vectorISt10shared_ptrINS_9ArrayDataEESaISL_EEE3$_0iEEEE", i64 16), ptr %121, align 8, !tbaa !85, !noalias !1335
   %124 = getelementptr inbounds nuw i8, ptr %121, i64 16
   %125 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  store i32 %125, ptr %124, align 4, !tbaa !81, !noalias !1335
+  store i32 %125, ptr %124, align 8, !tbaa !81, !noalias !1335
   %126 = getelementptr inbounds nuw i8, ptr %121, i64 48
   store ptr %.val.i.i.i.i, ptr %126, align 8, !tbaa !447, !noalias !1335
   %127 = getelementptr inbounds nuw i8, ptr %121, i64 56
@@ -103637,7 +103637,7 @@ _ZNSt10_HashtableIiSt4pairIKiN5arrow6FutureISt10shared_ptrINS2_3ipc7MessageEEEEE
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiN5arrow6FutureISt10shared_ptrINS2_3ipc7MessageEEEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !508
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !81
+  %16 = load i32, ptr %15, align 8, !tbaa !81
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18

@@ -2703,7 +2703,7 @@ define internal fastcc noundef zeroext i1 @gen8_ggtt_bind_ptes(ptr noundef reado
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 184
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 3296
-  %24 = load volatile i32, ptr %23, align 4
+  %24 = load volatile i32, ptr %23, align 8
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %gen8_ggtt_bind_put_ce.exit, label %.lr.ph, !prof !76
 

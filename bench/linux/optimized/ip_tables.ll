@@ -1187,7 +1187,7 @@ define internal fastcc i32 @translate_table(ptr noundef %0, ptr noundef nonnull 
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %166, i64 32
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   %.phi.trans.insert114 = getelementptr inbounds nuw i8, ptr %166, i64 2
-  %.pre115 = load i8, ptr %.phi.trans.insert114, align 1
+  %.pre115 = load i8, ptr %.phi.trans.insert114, align 2
   %187 = icmp eq i8 %.pre115, 0
   br label %212
 

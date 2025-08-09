@@ -4892,7 +4892,7 @@ define internal i32 @dcerpc_dg_call_hash(ptr noundef readonly captures(none) %0)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load i16, ptr %9, align 4
+  %10 = load i16, ptr %9, align 8
   %11 = zext i16 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %13 = load i16, ptr %12, align 2
@@ -4910,7 +4910,7 @@ define internal i32 @dcerpc_dg_call_hash(ptr noundef readonly captures(none) %0)
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   %27 = getelementptr i8, ptr %0, i64 24
-  %28 = load i8, ptr %27, align 4
+  %28 = load i8, ptr %27, align 8
   %29 = zext i8 %28 to i32
   %30 = getelementptr i8, ptr %0, i64 25
   %31 = load i8, ptr %30, align 1
@@ -7073,7 +7073,7 @@ define internal i32 @dcerpc_fragment_hash(ptr noundef readonly captures(none) %0
   %5 = load i32, ptr %4, align 4
   %6 = add i32 %5, %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %8 = load i16, ptr %7, align 4
+  %8 = load i16, ptr %7, align 8
   %9 = zext i16 %8 to i32
   %10 = shl nuw i32 %9, 16
   %11 = add i32 %6, %10

@@ -1148,7 +1148,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %35, ptr %36, align 8, !tbaa !33
   store ptr %26, ptr %.sroa.08.012.i.i.i.i.i, align 8, !tbaa !28
   store i64 0, ptr %34, align 8, !tbaa !33
-  store i8 0, ptr %26, align 1, !tbaa !34
+  store i8 0, ptr %26, align 8, !tbaa !34
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 32
   %38 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq ptr %37, %13
@@ -1322,7 +1322,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %108, ptr %109, align 8, !tbaa !33
   store ptr %99, ptr %.sroa.08.012.i.i.i.i.i56, align 8, !tbaa !28
   store i64 0, ptr %107, align 8, !tbaa !33
-  store i8 0, ptr %99, align 1, !tbaa !34
+  store i8 0, ptr %99, align 8, !tbaa !34
   %110 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i56, i64 32
   %111 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i55, i64 32
   %.not.i.i.i.i.i59 = icmp eq ptr %110, %13
@@ -1415,7 +1415,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %147, ptr %148, align 8, !tbaa !33
   store ptr %138, ptr %.sroa.08.012.i.i.i.i.i71, align 8, !tbaa !28
   store i64 0, ptr %146, align 8, !tbaa !33
-  store i8 0, ptr %138, align 1, !tbaa !34
+  store i8 0, ptr %138, align 8, !tbaa !34
   %149 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i71, i64 32
   %150 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i70, i64 32
   %.not.i.i.i.i.i74 = icmp eq ptr %149, %1
@@ -1462,7 +1462,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %163, ptr %164, align 8, !tbaa !33
   store ptr %154, ptr %.sroa.08.012.i.i.i.i.i79, align 8, !tbaa !28
   store i64 0, ptr %162, align 8, !tbaa !33
-  store i8 0, ptr %154, align 1, !tbaa !34
+  store i8 0, ptr %154, align 8, !tbaa !34
   %165 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i79, i64 32
   %166 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i78, i64 32
   %.not.i.i.i.i.i82 = icmp eq ptr %165, %13
@@ -3795,7 +3795,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !tbaa !33, !alias.scope !135, !noalias !138
   store ptr %43, ptr %.0911.i.i.i, align 8, !tbaa !28, !alias.scope !138, !noalias !135
   store i64 0, ptr %52, align 8, !tbaa !33, !alias.scope !138, !noalias !135
-  store i8 0, ptr %43, align 1, !tbaa !34, !alias.scope !138, !noalias !135
+  store i8 0, ptr %43, align 8, !tbaa !34, !alias.scope !138, !noalias !135
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %54, %1
@@ -3843,7 +3843,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !tbaa !33, !alias.scope !142, !noalias !145
   store ptr %59, ptr %.0911.i.i.i29, align 8, !tbaa !28, !alias.scope !145, !noalias !142
   store i64 0, ptr %68, align 8, !tbaa !33, !alias.scope !145, !noalias !142
-  store i8 0, ptr %59, align 1, !tbaa !34, !alias.scope !145, !noalias !142
+  store i8 0, ptr %59, align 8, !tbaa !34, !alias.scope !145, !noalias !142
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %.not.i.i.i34 = icmp eq ptr %70, %6
@@ -8839,7 +8839,7 @@ _ZN3gmx8internal27KeyValueTreeTransformerImpl14createRootRuleENS_17StringCompare
   store ptr %18, ptr %17, align 8, !tbaa !37, !noalias !251
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store i64 0, ptr %19, align 8, !tbaa !33, !noalias !251
-  store i8 0, ptr %18, align 1, !tbaa !34, !noalias !251
+  store i8 0, ptr %18, align 8, !tbaa !34, !noalias !251
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 56
   store ptr @_ZTIv, ptr %20, align 8, !tbaa !51, !noalias !251
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 64
@@ -9040,7 +9040,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
   store i64 %97, ptr %99, align 8, !tbaa !33, !alias.scope !255
   store ptr %89, ptr %86, align 8, !tbaa !28
   store i64 0, ptr %98, align 8, !tbaa !33
-  store i8 0, ptr %89, align 1, !tbaa !34
+  store i8 0, ptr %89, align 8, !tbaa !34
   %100 = load ptr, ptr %84, align 8, !tbaa !19, !noalias !255
   %101 = getelementptr inbounds i8, ptr %100, i64 -32
   store ptr %101, ptr %84, align 8, !tbaa !19, !noalias !255
@@ -9326,13 +9326,13 @@ _ZN3gmx8internal27KeyValueTreeTransformerImpl14createRootRuleENS_17StringCompare
   store ptr %16, ptr %15, align 8, !tbaa !37, !noalias !262
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i64 0, ptr %17, align 8, !tbaa !33, !noalias !262
-  store i8 0, ptr %16, align 1, !tbaa !34, !noalias !262
+  store i8 0, ptr %16, align 8, !tbaa !34, !noalias !262
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 56
   store ptr @_ZTIv, ptr %18, align 8, !tbaa !51, !noalias !262
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 32, i1 false), !noalias !262
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 96
-  store i32 %13, ptr %20, align 4, !tbaa !265, !noalias !262
+  store i32 %13, ptr %20, align 8, !tbaa !265, !noalias !262
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 104
   store i32 0, ptr %21, align 8, !tbaa !117, !noalias !262
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 112
@@ -9381,7 +9381,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
   store i64 %38, ptr %40, align 8, !tbaa !33, !alias.scope !266
   store ptr %30, ptr %27, align 8, !tbaa !28
   store i64 0, ptr %39, align 8, !tbaa !33
-  store i8 0, ptr %30, align 1, !tbaa !34
+  store i8 0, ptr %30, align 8, !tbaa !34
   %41 = load ptr, ptr %6, align 8, !tbaa !19, !noalias !266
   %42 = getelementptr inbounds i8, ptr %41, i64 -32
   store ptr %42, ptr %6, align 8, !tbaa !19, !noalias !266
@@ -9419,7 +9419,7 @@ _ZN3gmx8internal27KeyValueTreeTransformerImpl14createRootRuleENS_17StringCompare
   store ptr %54, ptr %53, align 8, !tbaa !37, !noalias !269
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 32
   store i64 0, ptr %55, align 8, !tbaa !33, !noalias !269
-  store i8 0, ptr %54, align 1, !tbaa !34, !noalias !269
+  store i8 0, ptr %54, align 8, !tbaa !34, !noalias !269
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 56
   store ptr @_ZTIv, ptr %56, align 8, !tbaa !51, !noalias !269
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 64

@@ -29724,15 +29724,15 @@ define hidden { i64, ptr } @"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$G
           cleanup
   store ptr %15, ptr %17, align 8, !noalias !4604
   store ptr %16, ptr %25, align 8, !noalias !4604
-  store atomic i8 0, ptr %18 seq_cst, align 1, !noalias !4607
+  store atomic i8 0, ptr %18 seq_cst, align 8, !noalias !4607
   resume { ptr, i32 } %32
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h475a908de2d23fe9E.exit.i": ; preds = %24, %22
   store ptr %15, ptr %17, align 8, !noalias !4604
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %16, ptr %33, align 8, !noalias !4604
-  store atomic i8 0, ptr %18 seq_cst, align 1, !noalias !4612
-  %34 = load atomic i8, ptr %5 seq_cst, align 1, !noalias !4604
+  store atomic i8 0, ptr %18 seq_cst, align 8, !noalias !4612
+  %34 = load atomic i8, ptr %5 seq_cst, align 8, !noalias !4604
   %35 = icmp eq i8 %34, 0
   br i1 %35, label %"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17h103b5383bb9b92e4E.llvm.16784457558442311254.exit", label %36
 
@@ -29748,7 +29748,7 @@ define hidden { i64, ptr } @"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$G
   %42 = load ptr, ptr %41, align 8, !noalias !4604
   store i64 0, ptr %4, align 8, !noalias !4604
   %trunc.i = trunc nuw i64 %40 to i1
-  store atomic i8 0, ptr %37 seq_cst, align 1, !noalias !4604
+  store atomic i8 0, ptr %37 seq_cst, align 8, !noalias !4604
   %..i = select i1 %trunc.i, ptr %42, ptr undef
   %not.trunc.i = xor i64 %40, 1
   br label %"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17h103b5383bb9b92e4E.llvm.16784457558442311254.exit"
@@ -29809,8 +29809,8 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN92_$LT$futures_channel..oneshot..Re
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h475a908de2d23fe9E.exit.i": ; preds = %24, %21
   store ptr %15, ptr %4, align 8, !noalias !4617
   store ptr %16, ptr %22, align 8, !noalias !4617
-  store atomic i8 0, ptr %17 seq_cst, align 1, !noalias !4620
-  %30 = load atomic i8, ptr %5 seq_cst, align 1, !noalias !4617
+  store atomic i8 0, ptr %17 seq_cst, align 8, !noalias !4620
+  %30 = load atomic i8, ptr %5 seq_cst, align 2, !noalias !4617
   %31 = icmp eq i8 %30, 0
   br i1 %31, label %"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17h41d44fdd773bf4beE.llvm.16784457558442311254.exit", label %34
 
@@ -29819,7 +29819,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN92_$LT$futures_channel..oneshot..Re
           cleanup
   store ptr %15, ptr %4, align 8, !noalias !4617
   store ptr %16, ptr %22, align 8, !noalias !4617
-  store atomic i8 0, ptr %17 seq_cst, align 1, !noalias !4625
+  store atomic i8 0, ptr %17 seq_cst, align 8, !noalias !4625
   resume { ptr, i32 } %33
 
 34:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h475a908de2d23fe9E.exit.i", %27, %2

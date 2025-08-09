@@ -2146,9 +2146,9 @@ tcg_register_jit_int.exit:                        ; preds = %.lr.ph.i84.i, %find
   %90 = getelementptr inbounds nuw i8, ptr %4, i64 784
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(58) %90, ptr noundef nonnull align 1 dereferenceable(58) @debug_frame, i64 noundef 58, i1 noundef false) #30
   %91 = getelementptr inbounds nuw i8, ptr %4, i64 808
-  store i64 %3, ptr %91, align 1
+  store i64 %3, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %4, i64 816
-  store i64 %1, ptr %92, align 1
+  store i64 %1, ptr %92, align 8
   store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @tcg_register_jit_int.one_entry, i64 16), align 8
   store i64 842, ptr getelementptr inbounds nuw (i8, ptr @tcg_register_jit_int.one_entry, i64 24), align 8
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @__jit_debug_descriptor, i64 4), align 4

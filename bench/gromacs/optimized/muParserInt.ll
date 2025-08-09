@@ -2670,7 +2670,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   %40 = load i32, ptr %39, align 8, !tbaa !50
   %41 = and i32 %40, -75
   %42 = or disjoint i32 %41, 8
-  store i32 %42, ptr %39, align 4, !tbaa !51
+  store i32 %42, ptr %39, align 8, !tbaa !51
   %43 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIjEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %_ZNSirsERj.exit unwind label %56
 

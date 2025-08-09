@@ -1926,7 +1926,7 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE9push_backERKi.exit.i: ; 
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 1048928
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 1048932
   store i32 8, ptr %49, align 4, !tbaa !26
-  store i32 %6, ptr %46, align 4, !tbaa !31
+  store i32 %6, ptr %46, align 8, !tbaa !31
   store i32 1, ptr %48, align 8, !tbaa !25
   br label %51
 
@@ -2285,7 +2285,7 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE5clearEv.exit.i72: ; pred
 _ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE9push_backERKi.exit.i73: ; preds = %193, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE5clearEv.exit.i72
   store ptr %46, ptr %44, align 8, !tbaa !22
   store i32 8, ptr %49, align 4, !tbaa !26
-  store i32 %5, ptr %46, align 4, !tbaa !31
+  store i32 %5, ptr %46, align 8, !tbaa !31
   store i32 1, ptr %48, align 8, !tbaa !25
   br label %194
 
@@ -2908,7 +2908,7 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE9push_backERKi.exit: ; pr
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 1048928
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 1048932
   store i32 8, ptr %45, align 4, !tbaa !26
-  store i32 %37, ptr %42, align 4, !tbaa !31
+  store i32 %37, ptr %42, align 8, !tbaa !31
   store i32 1, ptr %44, align 8, !tbaa !25
   br label %47
 

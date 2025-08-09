@@ -11130,7 +11130,7 @@ _ZN14core_hashtableI17default_map_entryISt4pairIP3astjEPN3smt2mf4nodeEEN9table2m
   %32 = load ptr, ptr %31, align 8, !tbaa !915
   store ptr %32, ptr %30, align 8, !tbaa !671
   %33 = getelementptr inbounds nuw i8, ptr %.02839.i, i64 16
-  %34 = load i32, ptr %33, align 4, !tbaa !13
+  %34 = load i32, ptr %33, align 8, !tbaa !13
   %35 = getelementptr inbounds nuw i8, ptr %.034.i, i64 16
   store i32 %34, ptr %35, align 8, !tbaa !912
   %36 = getelementptr inbounds nuw i8, ptr %.02839.i, i64 24
@@ -11159,7 +11159,7 @@ _ZN14core_hashtableI17default_map_entryISt4pairIP3astjEPN3smt2mf4nodeEEN9table2m
   %48 = load ptr, ptr %47, align 8, !tbaa !915
   store ptr %48, ptr %46, align 8, !tbaa !671
   %49 = getelementptr inbounds nuw i8, ptr %.02839.i, i64 16
-  %50 = load i32, ptr %49, align 4, !tbaa !13
+  %50 = load i32, ptr %49, align 8, !tbaa !13
   %51 = getelementptr inbounds nuw i8, ptr %.136.i, i64 16
   store i32 %50, ptr %51, align 8, !tbaa !912
   %52 = getelementptr inbounds nuw i8, ptr %.02839.i, i64 24
@@ -26531,9 +26531,9 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   call void @_ZN14core_hashtableIN7obj_mapI4sortP3appE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE6insertEOS7_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(16) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %44 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %45 = load i32, ptr %44, align 4, !tbaa !180
+  %45 = load i32, ptr %44, align 8, !tbaa !180
   %46 = add i32 %45, 1
-  store i32 %46, ptr %44, align 4, !tbaa !180
+  store i32 %46, ptr %44, align 8, !tbaa !180
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %48 = load ptr, ptr %47, align 8, !tbaa !88
   %49 = icmp eq ptr %48, null

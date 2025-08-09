@@ -1952,7 +1952,7 @@ _ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store i64 %175, ptr %176, align 8, !tbaa !114
   store ptr %166, ptr %.016.i.i.i, align 8, !tbaa !118
   store i64 0, ptr %174, align 8, !tbaa !114
-  store i8 0, ptr %166, align 1, !tbaa !121
+  store i8 0, ptr %166, align 8, !tbaa !121
   %177 = load i32, ptr %57, align 8, !tbaa !37
   %178 = add i32 %177, 1
   store i32 %178, ptr %57, align 8, !tbaa !37
@@ -5148,7 +5148,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %22, ptr %23, align 8, !tbaa !114
   store ptr %13, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !118
   store i64 0, ptr %21, align 8, !tbaa !114
-  store i8 0, ptr %13, align 1, !tbaa !121
+  store i8 0, ptr %13, align 8, !tbaa !121
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq ptr %24, %10
@@ -6632,7 +6632,7 @@ _ZN4llvm15EmitNodeMatcherC2ERKNS_18CodeGenInstructionENS_8ArrayRefINS_3MVT15Simp
   %389 = getelementptr inbounds nuw i8, ptr %383, i64 48
   %390 = getelementptr inbounds nuw i8, ptr %383, i64 56
   store i64 3, ptr %390, align 8, !tbaa !447
-  store i16 %.2.i.i100.i, ptr %388, align 1
+  store i16 %.2.i.i100.i, ptr %388, align 8
   store i64 1, ptr %389, align 8, !tbaa !448
   %391 = getelementptr inbounds nuw i8, ptr %383, i64 72
   %392 = getelementptr inbounds nuw i8, ptr %383, i64 88

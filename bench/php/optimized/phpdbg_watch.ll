@@ -2528,7 +2528,7 @@ phpdbg_add_ht_watch_element.exit:                 ; preds = %phpdbg_print_watch_
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 24
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %80 = load i64, ptr %79, align 8, !tbaa !51
-  %81 = load i8, ptr %78, align 1, !tbaa !20
+  %81 = load i8, ptr %78, align 8, !tbaa !20
   %82 = icmp sgt i8 %81, 57
   br i1 %82, label %_zend_handle_numeric_str.exit.thread, label %83, !prof !112
 
@@ -4719,7 +4719,7 @@ thread-pre-split:                                 ; preds = %131, %129, %9, %35,
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 24
   %191 = getelementptr inbounds nuw i8, ptr %189, i64 16
   %192 = load i64, ptr %191, align 8, !tbaa !51
-  %193 = load i8, ptr %190, align 1, !tbaa !20
+  %193 = load i8, ptr %190, align 8, !tbaa !20
   %194 = icmp sgt i8 %193, 57
   br i1 %194, label %_zend_handle_numeric_str.exit.thread, label %195, !prof !112
 

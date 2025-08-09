@@ -223,7 +223,7 @@ define dso_local noalias noundef nonnull ptr @_ZN4llvm37createRISCVIndirectBranc
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_131RISCVIndirectBranchTrackingPassE, i64 16), ptr %1, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store i8 2, ptr %6, align 1, !tbaa !56
+  store i8 2, ptr %6, align 8, !tbaa !56
   ret ptr %1
 }
 

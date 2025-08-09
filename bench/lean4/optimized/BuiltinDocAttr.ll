@@ -6178,7 +6178,7 @@ _init_l_Lean_initFn____x40_Lean_BuiltinDocAttr___hyg_207____closed__15.exit: ; p
   %108 = getelementptr inbounds nuw i8, ptr %105, i64 4
   %109 = getelementptr inbounds nuw i8, ptr %105, i64 32
   store i64 0, ptr %109, align 8, !tbaa !12
-  store i32 1, ptr %105, align 4, !tbaa !4
+  store i32 1, ptr %105, align 8, !tbaa !4
   store i32 196648, ptr %108, align 4
   %110 = getelementptr inbounds nuw i8, ptr %105, i64 8
   store ptr %102, ptr %110, align 8, !tbaa !9

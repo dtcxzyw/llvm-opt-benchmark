@@ -702,7 +702,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6format12_GLOBAL__N_116UsingDeclaration
   store i64 %237, ptr %238, align 8, !tbaa !190
   store ptr %228, ptr %225, align 8, !tbaa !189
   store i64 0, ptr %236, align 8, !tbaa !190
-  store i8 0, ptr %228, align 1, !tbaa !191
+  store i8 0, ptr %228, align 8, !tbaa !191
   %239 = load i32, ptr %27, align 8, !tbaa !170
   %240 = add i32 %239, 1
   store i32 %240, ptr %27, align 8, !tbaa !170
@@ -969,7 +969,7 @@ _ZSt10_ConstructIN5clang6format12_GLOBAL__N_116UsingDeclarationEJS3_EEvPT_DpOT0_
   store i64 %89, ptr %91, align 8, !tbaa !190
   store ptr %81, ptr %78, align 8, !tbaa !189
   store i64 0, ptr %90, align 8, !tbaa !190
-  store i8 0, ptr %81, align 1, !tbaa !191
+  store i8 0, ptr %81, align 8, !tbaa !191
   %.not21.i.i.i.i.i.i = icmp eq i64 %.012.i.i.i.i.i, 1
   br i1 %.not21.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.preheader.i.i.i.i
 
@@ -1016,7 +1016,7 @@ _ZSt10_ConstructIN5clang6format12_GLOBAL__N_116UsingDeclarationEJS3_EEvPT_DpOT0_
   store i64 %106, ptr %108, align 8, !tbaa !190
   store ptr %97, ptr %94, align 8, !tbaa !189
   store i64 0, ptr %107, align 8, !tbaa !190
-  store i8 0, ptr %97, align 1, !tbaa !191
+  store i8 0, ptr %97, align 8, !tbaa !191
   %109 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 40
   %.015.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.01524.i.i.i.i.i.i, i64 40
   %.not.i.i.i.i.i.i87 = icmp eq ptr %.015.i.i.i.i.i.i, %73
@@ -2781,7 +2781,7 @@ _ZSt10_ConstructIN5clang6format12_GLOBAL__N_116UsingDeclarationEJS3_EEvPT_DpOT0_
   store i64 %23, ptr %24, align 8, !tbaa !190
   store ptr %14, ptr %11, align 8, !tbaa !189
   store i64 0, ptr %22, align 8, !tbaa !190
-  store i8 0, ptr %14, align 1, !tbaa !191
+  store i8 0, ptr %14, align 8, !tbaa !191
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i, i64 40
   %26 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 40
   %.not.i.i.i.i.i.i = icmp eq ptr %25, %8
@@ -2986,7 +2986,7 @@ _ZN5clang6format12_GLOBAL__N_116UsingDeclarationC2EOS2_.exit: ; preds = %26, %_Z
   store i64 %31, ptr %14, align 8, !tbaa !190
   store ptr %21, ptr %18, align 8, !tbaa !189
   store i64 0, ptr %19, align 8, !tbaa !190
-  store i8 0, ptr %21, align 1, !tbaa !191
+  store i8 0, ptr %21, align 8, !tbaa !191
   %32 = ptrtoint ptr %.026 to i64
   %33 = sub i64 %32, %15
   %34 = icmp sgt i64 %33, 0
@@ -3234,7 +3234,7 @@ _ZN5clang6format12_GLOBAL__N_116UsingDeclarationC2EOS2_.exit.i: ; preds = %_ZNKS
   store i64 %124, ptr %11, align 8, !tbaa !190
   store ptr %21, ptr %18, align 8, !tbaa !189
   store i64 0, ptr %19, align 8, !tbaa !190
-  store i8 0, ptr %21, align 1, !tbaa !191
+  store i8 0, ptr %21, align 8, !tbaa !191
   %125 = getelementptr i8, ptr %.pn25, i64 8
   %.0.val25.i = load ptr, ptr %125, align 8, !tbaa !189
   %126 = getelementptr i8, ptr %.pn25, i64 16
@@ -3854,7 +3854,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4.
   store i64 %17, ptr %19, align 8, !tbaa !190
   store ptr %9, ptr %6, align 8, !tbaa !189
   store i64 0, ptr %18, align 8, !tbaa !190
-  store i8 0, ptr %9, align 1, !tbaa !191
+  store i8 0, ptr %9, align 8, !tbaa !191
   %20 = load ptr, ptr %1, align 8, !tbaa !246
   store ptr %20, ptr %0, align 8, !tbaa !246
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4114,7 +4114,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4.
   store i64 %48, ptr %29, align 8, !tbaa !190
   store ptr %40, ptr %38, align 8, !tbaa !189
   store i64 0, ptr %49, align 8, !tbaa !190
-  store i8 0, ptr %40, align 1, !tbaa !191
+  store i8 0, ptr %40, align 8, !tbaa !191
   %50 = load ptr, ptr %.040106.i, align 8, !tbaa !246
   store ptr %50, ptr %.143105.i, align 8, !tbaa !246
   %51 = getelementptr inbounds nuw i8, ptr %.040106.i, i64 8
@@ -4337,7 +4337,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4.
   store i64 %129, ptr %26, align 8, !tbaa !190
   store ptr %121, ptr %119, align 8, !tbaa !189
   store i64 0, ptr %130, align 8, !tbaa !190
-  store i8 0, ptr %121, align 1, !tbaa !191
+  store i8 0, ptr %121, align 8, !tbaa !191
   %131 = load ptr, ptr %117, align 8, !tbaa !246
   store ptr %131, ptr %116, align 8, !tbaa !246
   %132 = getelementptr inbounds i8, ptr %.038103.i, i64 -32

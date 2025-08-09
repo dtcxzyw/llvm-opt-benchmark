@@ -4147,7 +4147,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.
   store i64 %129, ptr %131, align 8, !tbaa !28, !alias.scope !80, !noalias !83
   store ptr %121, ptr %.092.i.i.i.i.i, align 8, !tbaa !25, !alias.scope !83, !noalias !80
   store i64 0, ptr %130, align 8, !tbaa !28, !alias.scope !83, !noalias !80
-  store i8 0, ptr %121, align 1, !tbaa !29, !alias.scope !83, !noalias !80
+  store i8 0, ptr %121, align 8, !tbaa !29, !alias.scope !83, !noalias !80
   %132 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i, i64 32
   %133 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i, i64 32
   %134 = load i64, ptr %133, align 8, !tbaa !38, !alias.scope !83, !noalias !80
@@ -4186,7 +4186,7 @@ _ZN5vcpkg4PathC2EOS0_.exit.i.i.i.i.i.i.i.i.i:     ; preds = %_ZNKSt7__cxx1112bas
   store i64 %147, ptr %149, align 8, !tbaa !28, !alias.scope !80, !noalias !83
   store ptr %139, ptr %136, align 8, !tbaa !25, !alias.scope !83, !noalias !80
   store i64 0, ptr %148, align 8, !tbaa !28, !alias.scope !83, !noalias !80
-  store i8 0, ptr %139, align 1, !tbaa !29, !alias.scope !83, !noalias !80
+  store i8 0, ptr %139, align 8, !tbaa !29, !alias.scope !83, !noalias !80
   %150 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i, i64 72
   %151 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i, i64 72
   %152 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i, i64 88
@@ -4220,7 +4220,7 @@ _ZSt19__relocate_object_aIN12_GLOBAL__N_17ToWriteES1_SaIS1_EEvPT_PT0_RT1_.exit.i
   store i64 %162, ptr %164, align 8, !tbaa !28, !alias.scope !80, !noalias !83
   store ptr %154, ptr %151, align 8, !tbaa !25, !alias.scope !83, !noalias !80
   store i64 0, ptr %163, align 8, !tbaa !28, !alias.scope !83, !noalias !80
-  store i8 0, ptr %154, align 1, !tbaa !29, !alias.scope !83, !noalias !80
+  store i8 0, ptr %154, align 8, !tbaa !29, !alias.scope !83, !noalias !80
   store ptr null, ptr %133, align 8, !tbaa !38, !alias.scope !83, !noalias !80
   %165 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i, i64 104
   %166 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i, i64 104

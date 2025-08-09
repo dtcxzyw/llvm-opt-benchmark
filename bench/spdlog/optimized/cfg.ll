@@ -1869,7 +1869,7 @@ define linkonce_odr dso_local noundef ptr @_ZNSt8__detail16_Hashtable_allocISaIN
   store ptr %27, ptr %26, align 8, !tbaa !27
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i64 0, ptr %28, align 8, !tbaa !4
-  store i8 0, ptr %27, align 1, !tbaa !29
+  store i8 0, ptr %27, align 8, !tbaa !29
   ret ptr %6
 
 29:                                               ; preds = %.noexc.i.i.i.i.i

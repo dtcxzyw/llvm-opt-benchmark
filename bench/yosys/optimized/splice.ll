@@ -77683,7 +77683,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringES2_St9_IdentityI
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !814
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
-  %8 = load i32, ptr %7, align 4, !tbaa !34
+  %8 = load i32, ptr %7, align 8, !tbaa !34
   %9 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !40, !range !42, !noundef !43
   %10 = trunc nuw i8 %9 to i1
   %11 = icmp ne i32 %8, 0

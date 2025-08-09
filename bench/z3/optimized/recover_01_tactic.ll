@@ -2195,7 +2195,7 @@ _ZN15ref_buffer_coreI4goal21ref_unmanaged_wrapperIS0_ELj16EE9push_backEPS0_.exit
   %152 = getelementptr inbounds nuw i8, ptr %144, i64 48
   store i64 10, ptr %152, align 8, !tbaa !52
   %153 = getelementptr inbounds nuw i8, ptr %144, i64 66
-  store i8 0, ptr %153, align 1, !tbaa !46
+  store i8 0, ptr %153, align 2, !tbaa !46
   %154 = getelementptr inbounds nuw i8, ptr %144, i64 72
   store ptr null, ptr %154, align 8, !tbaa !108
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 72

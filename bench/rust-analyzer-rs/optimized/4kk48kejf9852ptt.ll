@@ -2380,10 +2380,10 @@ define internal fastcc noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17h209ba9c2f
   %24 = load i64, ptr %23, align 8, !noalias !318, !noundef !13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !319)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !322)
-  %.val.i.i1 = load i32, ptr %18, align 4, !alias.scope !319, !noalias !324
+  %.val.i.i1 = load i32, ptr %18, align 8, !alias.scope !319, !noalias !324
   %25 = getelementptr i8, ptr %17, i64 12
   %.val1.i.i2 = load i16, ptr %25, align 4, !alias.scope !319, !noalias !324, !noundef !13
-  %.val2.i.i = load i32, ptr %22, align 4, !alias.scope !322, !noalias !325
+  %.val2.i.i = load i32, ptr %22, align 8, !alias.scope !322, !noalias !325
   %26 = getelementptr i8, ptr %21, i64 12
   %.val3.i.i = load i16, ptr %26, align 4, !alias.scope !322, !noalias !325, !noundef !13
   %27 = icmp eq i16 %.val1.i.i2, %.val3.i.i
@@ -2423,8 +2423,8 @@ define internal fastcc noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17h209ba9c2f
   %45 = load i64, ptr %44, align 8, !noalias !326, !noundef !13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !327), !noalias !326
   tail call void @llvm.experimental.noalias.scope.decl(metadata !330), !noalias !326
-  %.val.i.i = load i16, ptr %40, align 2, !alias.scope !327, !noalias !332, !noundef !13
-  %.val1.i.i = load i16, ptr %43, align 2, !alias.scope !330, !noalias !333, !noundef !13
+  %.val.i.i = load i16, ptr %40, align 8, !alias.scope !327, !noalias !332, !noundef !13
+  %.val1.i.i = load i16, ptr %43, align 8, !alias.scope !330, !noalias !333, !noundef !13
   %46 = icmp eq i16 %.val.i.i, %.val1.i.i
   %47 = icmp eq i64 %42, %45
   %or.cond.i = and i1 %47, %46
@@ -5208,10 +5208,10 @@ define hidden noundef zeroext i1 @"_ZN63_$LT$syntax..Parse$LT$T$GT$$u20$as$u20$c
   %10 = load i64, ptr %9, align 8, !noalias !1133, !noundef !13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1134)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1137)
-  %.val.i.i = load i32, ptr %4, align 4, !alias.scope !1134, !noalias !1139
+  %.val.i.i = load i32, ptr %4, align 8, !alias.scope !1134, !noalias !1139
   %11 = getelementptr i8, ptr %3, i64 12
   %.val1.i.i = load i16, ptr %11, align 4, !alias.scope !1134, !noalias !1139, !noundef !13
-  %.val2.i.i = load i32, ptr %8, align 4, !alias.scope !1137, !noalias !1140
+  %.val2.i.i = load i32, ptr %8, align 8, !alias.scope !1137, !noalias !1140
   %12 = getelementptr i8, ptr %7, i64 12
   %.val3.i.i = load i16, ptr %12, align 4, !alias.scope !1137, !noalias !1140, !noundef !13
   %13 = icmp eq i16 %.val1.i.i, %.val3.i.i
@@ -5367,10 +5367,10 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$rowan..arc..ThinArc$LT$H$C$T$GT$$u2
   %10 = load i64, ptr %9, align 8, !noundef !13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1151)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1154)
-  %.val.i = load i32, ptr %4, align 4, !alias.scope !1151, !noalias !1154
+  %.val.i = load i32, ptr %4, align 8, !alias.scope !1151, !noalias !1154
   %11 = getelementptr i8, ptr %3, i64 12
   %.val1.i = load i16, ptr %11, align 4, !alias.scope !1151, !noalias !1154, !noundef !13
-  %.val2.i = load i32, ptr %8, align 4, !alias.scope !1154, !noalias !1151
+  %.val2.i = load i32, ptr %8, align 8, !alias.scope !1154, !noalias !1151
   %12 = getelementptr i8, ptr %7, i64 12
   %.val3.i = load i16, ptr %12, align 4, !alias.scope !1154, !noalias !1151, !noundef !13
   %13 = icmp eq i16 %.val1.i, %.val3.i
@@ -6031,10 +6031,10 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$salsa..derived..AlwaysMemoizeValue$
   %10 = load i64, ptr %9, align 8, !noalias !1199, !noundef !13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1200)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1203)
-  %.val.i.i.i = load i32, ptr %4, align 4, !alias.scope !1200, !noalias !1205
+  %.val.i.i.i = load i32, ptr %4, align 8, !alias.scope !1200, !noalias !1205
   %11 = getelementptr i8, ptr %3, i64 12
   %.val1.i.i.i = load i16, ptr %11, align 4, !alias.scope !1200, !noalias !1205, !noundef !13
-  %.val2.i.i.i = load i32, ptr %8, align 4, !alias.scope !1203, !noalias !1206
+  %.val2.i.i.i = load i32, ptr %8, align 8, !alias.scope !1203, !noalias !1206
   %12 = getelementptr i8, ptr %7, i64 12
   %.val3.i.i.i = load i16, ptr %12, align 4, !alias.scope !1203, !noalias !1206, !noundef !13
   %13 = icmp eq i16 %.val1.i.i.i, %.val3.i.i.i

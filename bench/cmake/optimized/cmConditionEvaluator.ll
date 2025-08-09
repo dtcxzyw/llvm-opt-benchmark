@@ -4274,7 +4274,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %10
   store i64 %16, ptr %18, align 8, !tbaa !30
   store ptr %8, ptr %1, align 8, !tbaa !35
   store i64 0, ptr %17, align 8, !tbaa !30
-  store i8 0, ptr %8, align 1, !tbaa !27
+  store i8 0, ptr %8, align 8, !tbaa !27
   invoke void @_ZN11cmCMakePath10FormatPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6formatE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull %5, i8 noundef zeroext %2)
           to label %19 unwind label %60
 

@@ -2734,7 +2734,7 @@ define dso_local noalias ptr @_emalloc_8() local_unnamed_addr #0 {
   store i64 %10, ptr %8, align 16, !tbaa !61
   store i64 %..i.i, ptr %11, align 8, !tbaa !76
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %14 = load ptr, ptr %13, align 8, !tbaa !18
+  %14 = load ptr, ptr %13, align 16, !tbaa !18
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %27, label %15, !prof !29
 
@@ -2795,7 +2795,7 @@ define dso_local noalias ptr @_emalloc_16() local_unnamed_addr #0 {
   store i64 %10, ptr %8, align 16, !tbaa !61
   store i64 %..i, ptr %11, align 8, !tbaa !76
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %14 = load ptr, ptr %13, align 8, !tbaa !18
+  %14 = load ptr, ptr %13, align 16, !tbaa !18
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %27, label %15, !prof !29
 
@@ -2917,7 +2917,7 @@ define dso_local noalias ptr @_emalloc_32() local_unnamed_addr #0 {
   store i64 %10, ptr %8, align 16, !tbaa !61
   store i64 %..i, ptr %11, align 8, !tbaa !76
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %14 = load ptr, ptr %13, align 8, !tbaa !18
+  %14 = load ptr, ptr %13, align 16, !tbaa !18
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %27, label %15, !prof !29
 
@@ -3039,7 +3039,7 @@ define dso_local noalias ptr @_emalloc_48() local_unnamed_addr #0 {
   store i64 %10, ptr %8, align 16, !tbaa !61
   store i64 %..i, ptr %11, align 8, !tbaa !76
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %14 = load ptr, ptr %13, align 8, !tbaa !18
+  %14 = load ptr, ptr %13, align 16, !tbaa !18
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %27, label %15, !prof !29
 
@@ -3161,7 +3161,7 @@ define dso_local noalias ptr @_emalloc_64() local_unnamed_addr #0 {
   store i64 %10, ptr %8, align 16, !tbaa !61
   store i64 %..i, ptr %11, align 8, !tbaa !76
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %14 = load ptr, ptr %13, align 8, !tbaa !18
+  %14 = load ptr, ptr %13, align 16, !tbaa !18
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %27, label %15, !prof !29
 
@@ -3283,7 +3283,7 @@ define dso_local noalias ptr @_emalloc_96() local_unnamed_addr #0 {
   store i64 %10, ptr %8, align 16, !tbaa !61
   store i64 %..i, ptr %11, align 8, !tbaa !76
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %14 = load ptr, ptr %13, align 8, !tbaa !18
+  %14 = load ptr, ptr %13, align 16, !tbaa !18
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %27, label %15, !prof !29
 
@@ -3405,7 +3405,7 @@ define dso_local noalias ptr @_emalloc_128() local_unnamed_addr #0 {
   store i64 %10, ptr %8, align 16, !tbaa !61
   store i64 %..i, ptr %11, align 8, !tbaa !76
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %14 = load ptr, ptr %13, align 8, !tbaa !18
+  %14 = load ptr, ptr %13, align 16, !tbaa !18
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %27, label %15, !prof !29
 
@@ -3527,7 +3527,7 @@ define dso_local noalias ptr @_emalloc_192() local_unnamed_addr #0 {
   store i64 %10, ptr %8, align 16, !tbaa !61
   store i64 %..i, ptr %11, align 8, !tbaa !76
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %14 = load ptr, ptr %13, align 8, !tbaa !18
+  %14 = load ptr, ptr %13, align 16, !tbaa !18
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %27, label %15, !prof !29
 
@@ -3649,7 +3649,7 @@ define dso_local noalias ptr @_emalloc_256() local_unnamed_addr #0 {
   store i64 %10, ptr %8, align 16, !tbaa !61
   store i64 %..i, ptr %11, align 8, !tbaa !76
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %14 = load ptr, ptr %13, align 8, !tbaa !18
+  %14 = load ptr, ptr %13, align 16, !tbaa !18
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %27, label %15, !prof !29
 
@@ -3771,7 +3771,7 @@ define dso_local noalias ptr @_emalloc_384() local_unnamed_addr #0 {
   store i64 %10, ptr %8, align 16, !tbaa !61
   store i64 %..i, ptr %11, align 8, !tbaa !76
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %14 = load ptr, ptr %13, align 8, !tbaa !18
+  %14 = load ptr, ptr %13, align 16, !tbaa !18
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %27, label %15, !prof !29
 
@@ -3893,7 +3893,7 @@ define dso_local noalias ptr @_emalloc_512() local_unnamed_addr #0 {
   store i64 %10, ptr %8, align 16, !tbaa !61
   store i64 %..i, ptr %11, align 8, !tbaa !76
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %14 = load ptr, ptr %13, align 8, !tbaa !18
+  %14 = load ptr, ptr %13, align 16, !tbaa !18
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %27, label %15, !prof !29
 
@@ -4015,7 +4015,7 @@ define dso_local noalias ptr @_emalloc_768() local_unnamed_addr #0 {
   store i64 %10, ptr %8, align 16, !tbaa !61
   store i64 %..i, ptr %11, align 8, !tbaa !76
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %14 = load ptr, ptr %13, align 8, !tbaa !18
+  %14 = load ptr, ptr %13, align 16, !tbaa !18
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %27, label %15, !prof !29
 
@@ -4137,7 +4137,7 @@ define dso_local noalias ptr @_emalloc_1024() local_unnamed_addr #0 {
   store i64 %10, ptr %8, align 16, !tbaa !61
   store i64 %..i, ptr %11, align 8, !tbaa !76
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 224
-  %14 = load ptr, ptr %13, align 8, !tbaa !18
+  %14 = load ptr, ptr %13, align 16, !tbaa !18
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %27, label %15, !prof !29
 
@@ -4259,7 +4259,7 @@ define dso_local noalias ptr @_emalloc_1536() local_unnamed_addr #0 {
   store i64 %10, ptr %8, align 16, !tbaa !61
   store i64 %..i, ptr %11, align 8, !tbaa !76
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  %14 = load ptr, ptr %13, align 8, !tbaa !18
+  %14 = load ptr, ptr %13, align 16, !tbaa !18
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %27, label %15, !prof !29
 
@@ -4381,7 +4381,7 @@ define dso_local noalias ptr @_emalloc_2048() local_unnamed_addr #0 {
   store i64 %10, ptr %8, align 16, !tbaa !61
   store i64 %..i, ptr %11, align 8, !tbaa !76
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %14 = load ptr, ptr %13, align 8, !tbaa !18
+  %14 = load ptr, ptr %13, align 16, !tbaa !18
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %27, label %15, !prof !29
 
@@ -4503,7 +4503,7 @@ define dso_local noalias ptr @_emalloc_3072() local_unnamed_addr #0 {
   store i64 %10, ptr %8, align 16, !tbaa !61
   store i64 %..i, ptr %11, align 8, !tbaa !76
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %14 = load ptr, ptr %13, align 8, !tbaa !18
+  %14 = load ptr, ptr %13, align 16, !tbaa !18
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %27, label %15, !prof !29
 
@@ -4808,7 +4808,7 @@ _efree_16.exit:                                   ; preds = %7
   %15 = add i64 %14, -16
   store i64 %15, ptr %13, align 16, !tbaa !61
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %17 = load ptr, ptr %16, align 8, !tbaa !18
+  %17 = load ptr, ptr %16, align 16, !tbaa !18
   store ptr %17, ptr %0, align 8, !tbaa !25
   %18 = ptrtoint ptr %17 to i64
   %19 = tail call i64 @llvm.bswap.i64(i64 %18)
@@ -4818,7 +4818,7 @@ _efree_16.exit:                                   ; preds = %7
   %23 = inttoptr i64 %22 to ptr
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %23, ptr %24, align 8, !tbaa !18
-  store ptr %0, ptr %16, align 8, !tbaa !18
+  store ptr %0, ptr %16, align 16, !tbaa !18
   br label %25
 
 25:                                               ; preds = %_efree_16.exit, %4
@@ -4856,7 +4856,7 @@ define dso_local void @_efree_16(ptr noundef %0) local_unnamed_addr #0 {
   %16 = add i64 %15, -16
   store i64 %16, ptr %14, align 16, !tbaa !61
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %18 = load ptr, ptr %17, align 8, !tbaa !18
+  %18 = load ptr, ptr %17, align 16, !tbaa !18
   store ptr %18, ptr %0, align 8, !tbaa !25
   %19 = ptrtoint ptr %18 to i64
   %20 = tail call i64 @llvm.bswap.i64(i64 %19)
@@ -4866,7 +4866,7 @@ define dso_local void @_efree_16(ptr noundef %0) local_unnamed_addr #0 {
   %24 = inttoptr i64 %23 to ptr
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %24, ptr %25, align 8, !tbaa !18
-  store ptr %0, ptr %17, align 8, !tbaa !18
+  store ptr %0, ptr %17, align 16, !tbaa !18
   br label %26
 
 26:                                               ; preds = %13, %4
@@ -4952,7 +4952,7 @@ define dso_local void @_efree_32(ptr noundef %0) local_unnamed_addr #0 {
   %16 = add i64 %15, -32
   store i64 %16, ptr %14, align 16, !tbaa !61
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %18 = load ptr, ptr %17, align 8, !tbaa !18
+  %18 = load ptr, ptr %17, align 16, !tbaa !18
   store ptr %18, ptr %0, align 8, !tbaa !25
   %19 = ptrtoint ptr %18 to i64
   %20 = tail call i64 @llvm.bswap.i64(i64 %19)
@@ -4962,7 +4962,7 @@ define dso_local void @_efree_32(ptr noundef %0) local_unnamed_addr #0 {
   %24 = inttoptr i64 %23 to ptr
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %24, ptr %25, align 8, !tbaa !18
-  store ptr %0, ptr %17, align 8, !tbaa !18
+  store ptr %0, ptr %17, align 16, !tbaa !18
   br label %26
 
 26:                                               ; preds = %13, %4
@@ -5048,7 +5048,7 @@ define dso_local void @_efree_48(ptr noundef %0) local_unnamed_addr #0 {
   %16 = add i64 %15, -48
   store i64 %16, ptr %14, align 16, !tbaa !61
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %18 = load ptr, ptr %17, align 8, !tbaa !18
+  %18 = load ptr, ptr %17, align 16, !tbaa !18
   store ptr %18, ptr %0, align 8, !tbaa !25
   %19 = ptrtoint ptr %18 to i64
   %20 = tail call i64 @llvm.bswap.i64(i64 %19)
@@ -5058,7 +5058,7 @@ define dso_local void @_efree_48(ptr noundef %0) local_unnamed_addr #0 {
   %24 = inttoptr i64 %23 to ptr
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %24, ptr %25, align 8, !tbaa !18
-  store ptr %0, ptr %17, align 8, !tbaa !18
+  store ptr %0, ptr %17, align 16, !tbaa !18
   br label %26
 
 26:                                               ; preds = %13, %4
@@ -5144,7 +5144,7 @@ define dso_local void @_efree_64(ptr noundef %0) local_unnamed_addr #0 {
   %16 = add i64 %15, -64
   store i64 %16, ptr %14, align 16, !tbaa !61
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %18 = load ptr, ptr %17, align 8, !tbaa !18
+  %18 = load ptr, ptr %17, align 16, !tbaa !18
   store ptr %18, ptr %0, align 8, !tbaa !25
   %19 = ptrtoint ptr %18 to i64
   %20 = tail call i64 @llvm.bswap.i64(i64 %19)
@@ -5154,7 +5154,7 @@ define dso_local void @_efree_64(ptr noundef %0) local_unnamed_addr #0 {
   %24 = inttoptr i64 %23 to ptr
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %24, ptr %25, align 8, !tbaa !18
-  store ptr %0, ptr %17, align 8, !tbaa !18
+  store ptr %0, ptr %17, align 16, !tbaa !18
   br label %26
 
 26:                                               ; preds = %13, %4
@@ -5240,7 +5240,7 @@ define dso_local void @_efree_96(ptr noundef %0) local_unnamed_addr #0 {
   %16 = add i64 %15, -96
   store i64 %16, ptr %14, align 16, !tbaa !61
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %18 = load ptr, ptr %17, align 8, !tbaa !18
+  %18 = load ptr, ptr %17, align 16, !tbaa !18
   store ptr %18, ptr %0, align 8, !tbaa !25
   %19 = ptrtoint ptr %18 to i64
   %20 = tail call i64 @llvm.bswap.i64(i64 %19)
@@ -5250,7 +5250,7 @@ define dso_local void @_efree_96(ptr noundef %0) local_unnamed_addr #0 {
   %24 = inttoptr i64 %23 to ptr
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %24, ptr %25, align 8, !tbaa !18
-  store ptr %0, ptr %17, align 8, !tbaa !18
+  store ptr %0, ptr %17, align 16, !tbaa !18
   br label %26
 
 26:                                               ; preds = %13, %4
@@ -5336,7 +5336,7 @@ define dso_local void @_efree_128(ptr noundef %0) local_unnamed_addr #0 {
   %16 = add i64 %15, -128
   store i64 %16, ptr %14, align 16, !tbaa !61
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  %18 = load ptr, ptr %17, align 8, !tbaa !18
+  %18 = load ptr, ptr %17, align 16, !tbaa !18
   store ptr %18, ptr %0, align 8, !tbaa !25
   %19 = ptrtoint ptr %18 to i64
   %20 = tail call i64 @llvm.bswap.i64(i64 %19)
@@ -5346,7 +5346,7 @@ define dso_local void @_efree_128(ptr noundef %0) local_unnamed_addr #0 {
   %24 = inttoptr i64 %23 to ptr
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %24, ptr %25, align 8, !tbaa !18
-  store ptr %0, ptr %17, align 8, !tbaa !18
+  store ptr %0, ptr %17, align 16, !tbaa !18
   br label %26
 
 26:                                               ; preds = %13, %4
@@ -5432,7 +5432,7 @@ define dso_local void @_efree_192(ptr noundef %0) local_unnamed_addr #0 {
   %16 = add i64 %15, -192
   store i64 %16, ptr %14, align 16, !tbaa !61
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 144
-  %18 = load ptr, ptr %17, align 8, !tbaa !18
+  %18 = load ptr, ptr %17, align 16, !tbaa !18
   store ptr %18, ptr %0, align 8, !tbaa !25
   %19 = ptrtoint ptr %18 to i64
   %20 = tail call i64 @llvm.bswap.i64(i64 %19)
@@ -5442,7 +5442,7 @@ define dso_local void @_efree_192(ptr noundef %0) local_unnamed_addr #0 {
   %24 = inttoptr i64 %23 to ptr
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %24, ptr %25, align 8, !tbaa !18
-  store ptr %0, ptr %17, align 8, !tbaa !18
+  store ptr %0, ptr %17, align 16, !tbaa !18
   br label %26
 
 26:                                               ; preds = %13, %4
@@ -5528,7 +5528,7 @@ define dso_local void @_efree_256(ptr noundef %0) local_unnamed_addr #0 {
   %16 = add i64 %15, -256
   store i64 %16, ptr %14, align 16, !tbaa !61
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 160
-  %18 = load ptr, ptr %17, align 8, !tbaa !18
+  %18 = load ptr, ptr %17, align 16, !tbaa !18
   store ptr %18, ptr %0, align 8, !tbaa !25
   %19 = ptrtoint ptr %18 to i64
   %20 = tail call i64 @llvm.bswap.i64(i64 %19)
@@ -5538,7 +5538,7 @@ define dso_local void @_efree_256(ptr noundef %0) local_unnamed_addr #0 {
   %24 = inttoptr i64 %23 to ptr
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr %24, ptr %25, align 8, !tbaa !18
-  store ptr %0, ptr %17, align 8, !tbaa !18
+  store ptr %0, ptr %17, align 16, !tbaa !18
   br label %26
 
 26:                                               ; preds = %13, %4
@@ -5624,7 +5624,7 @@ define dso_local void @_efree_384(ptr noundef %0) local_unnamed_addr #0 {
   %16 = add i64 %15, -384
   store i64 %16, ptr %14, align 16, !tbaa !61
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 176
-  %18 = load ptr, ptr %17, align 8, !tbaa !18
+  %18 = load ptr, ptr %17, align 16, !tbaa !18
   store ptr %18, ptr %0, align 8, !tbaa !25
   %19 = ptrtoint ptr %18 to i64
   %20 = tail call i64 @llvm.bswap.i64(i64 %19)
@@ -5634,7 +5634,7 @@ define dso_local void @_efree_384(ptr noundef %0) local_unnamed_addr #0 {
   %24 = inttoptr i64 %23 to ptr
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store ptr %24, ptr %25, align 8, !tbaa !18
-  store ptr %0, ptr %17, align 8, !tbaa !18
+  store ptr %0, ptr %17, align 16, !tbaa !18
   br label %26
 
 26:                                               ; preds = %13, %4
@@ -5720,7 +5720,7 @@ define dso_local void @_efree_512(ptr noundef %0) local_unnamed_addr #0 {
   %16 = add i64 %15, -512
   store i64 %16, ptr %14, align 16, !tbaa !61
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  %18 = load ptr, ptr %17, align 8, !tbaa !18
+  %18 = load ptr, ptr %17, align 16, !tbaa !18
   store ptr %18, ptr %0, align 8, !tbaa !25
   %19 = ptrtoint ptr %18 to i64
   %20 = tail call i64 @llvm.bswap.i64(i64 %19)
@@ -5730,7 +5730,7 @@ define dso_local void @_efree_512(ptr noundef %0) local_unnamed_addr #0 {
   %24 = inttoptr i64 %23 to ptr
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 504
   store ptr %24, ptr %25, align 8, !tbaa !18
-  store ptr %0, ptr %17, align 8, !tbaa !18
+  store ptr %0, ptr %17, align 16, !tbaa !18
   br label %26
 
 26:                                               ; preds = %13, %4
@@ -5816,7 +5816,7 @@ define dso_local void @_efree_768(ptr noundef %0) local_unnamed_addr #0 {
   %16 = add i64 %15, -768
   store i64 %16, ptr %14, align 16, !tbaa !61
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 208
-  %18 = load ptr, ptr %17, align 8, !tbaa !18
+  %18 = load ptr, ptr %17, align 16, !tbaa !18
   store ptr %18, ptr %0, align 8, !tbaa !25
   %19 = ptrtoint ptr %18 to i64
   %20 = tail call i64 @llvm.bswap.i64(i64 %19)
@@ -5826,7 +5826,7 @@ define dso_local void @_efree_768(ptr noundef %0) local_unnamed_addr #0 {
   %24 = inttoptr i64 %23 to ptr
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 760
   store ptr %24, ptr %25, align 8, !tbaa !18
-  store ptr %0, ptr %17, align 8, !tbaa !18
+  store ptr %0, ptr %17, align 16, !tbaa !18
   br label %26
 
 26:                                               ; preds = %13, %4
@@ -5912,7 +5912,7 @@ define dso_local void @_efree_1024(ptr noundef %0) local_unnamed_addr #0 {
   %16 = add i64 %15, -1024
   store i64 %16, ptr %14, align 16, !tbaa !61
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 224
-  %18 = load ptr, ptr %17, align 8, !tbaa !18
+  %18 = load ptr, ptr %17, align 16, !tbaa !18
   store ptr %18, ptr %0, align 8, !tbaa !25
   %19 = ptrtoint ptr %18 to i64
   %20 = tail call i64 @llvm.bswap.i64(i64 %19)
@@ -5922,7 +5922,7 @@ define dso_local void @_efree_1024(ptr noundef %0) local_unnamed_addr #0 {
   %24 = inttoptr i64 %23 to ptr
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   store ptr %24, ptr %25, align 8, !tbaa !18
-  store ptr %0, ptr %17, align 8, !tbaa !18
+  store ptr %0, ptr %17, align 16, !tbaa !18
   br label %26
 
 26:                                               ; preds = %13, %4
@@ -6008,7 +6008,7 @@ define dso_local void @_efree_1536(ptr noundef %0) local_unnamed_addr #0 {
   %16 = add i64 %15, -1536
   store i64 %16, ptr %14, align 16, !tbaa !61
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 240
-  %18 = load ptr, ptr %17, align 8, !tbaa !18
+  %18 = load ptr, ptr %17, align 16, !tbaa !18
   store ptr %18, ptr %0, align 8, !tbaa !25
   %19 = ptrtoint ptr %18 to i64
   %20 = tail call i64 @llvm.bswap.i64(i64 %19)
@@ -6018,7 +6018,7 @@ define dso_local void @_efree_1536(ptr noundef %0) local_unnamed_addr #0 {
   %24 = inttoptr i64 %23 to ptr
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1528
   store ptr %24, ptr %25, align 8, !tbaa !18
-  store ptr %0, ptr %17, align 8, !tbaa !18
+  store ptr %0, ptr %17, align 16, !tbaa !18
   br label %26
 
 26:                                               ; preds = %13, %4
@@ -6104,7 +6104,7 @@ define dso_local void @_efree_2048(ptr noundef %0) local_unnamed_addr #0 {
   %16 = add i64 %15, -2048
   store i64 %16, ptr %14, align 16, !tbaa !61
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 256
-  %18 = load ptr, ptr %17, align 8, !tbaa !18
+  %18 = load ptr, ptr %17, align 16, !tbaa !18
   store ptr %18, ptr %0, align 8, !tbaa !25
   %19 = ptrtoint ptr %18 to i64
   %20 = tail call i64 @llvm.bswap.i64(i64 %19)
@@ -6114,7 +6114,7 @@ define dso_local void @_efree_2048(ptr noundef %0) local_unnamed_addr #0 {
   %24 = inttoptr i64 %23 to ptr
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 2040
   store ptr %24, ptr %25, align 8, !tbaa !18
-  store ptr %0, ptr %17, align 8, !tbaa !18
+  store ptr %0, ptr %17, align 16, !tbaa !18
   br label %26
 
 26:                                               ; preds = %13, %4
@@ -6200,7 +6200,7 @@ define dso_local void @_efree_3072(ptr noundef %0) local_unnamed_addr #0 {
   %16 = add i64 %15, -3072
   store i64 %16, ptr %14, align 16, !tbaa !61
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 272
-  %18 = load ptr, ptr %17, align 8, !tbaa !18
+  %18 = load ptr, ptr %17, align 16, !tbaa !18
   store ptr %18, ptr %0, align 8, !tbaa !25
   %19 = ptrtoint ptr %18 to i64
   %20 = tail call i64 @llvm.bswap.i64(i64 %19)
@@ -6210,7 +6210,7 @@ define dso_local void @_efree_3072(ptr noundef %0) local_unnamed_addr #0 {
   %24 = inttoptr i64 %23 to ptr
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 3064
   store ptr %24, ptr %25, align 8, !tbaa !18
-  store ptr %0, ptr %17, align 8, !tbaa !18
+  store ptr %0, ptr %17, align 16, !tbaa !18
   br label %26
 
 26:                                               ; preds = %13, %4

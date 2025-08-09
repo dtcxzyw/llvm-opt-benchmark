@@ -288,7 +288,7 @@ define hidden void @_ZN6Events4initEv() local_unnamed_addr #0 align 2 {
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store ptr %37, ptr %36, align 8
-  store i8 0, ptr %37, align 1
+  store i8 0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 280
   %39 = icmp eq ptr %38, %33
   br i1 %39, label %_ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit, label %34
@@ -340,7 +340,7 @@ _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit: ; preds = %34, %14
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 24
   store ptr %63, ptr %62, align 8
-  store i8 0, ptr %63, align 1
+  store i8 0, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 280
   %65 = icmp eq ptr %64, %59
   br i1 %65, label %_ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit33, label %60
@@ -392,7 +392,7 @@ _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit33: ; preds = %60, %_ZN20FormatS
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 24
   store ptr %89, ptr %88, align 8
-  store i8 0, ptr %89, align 1
+  store i8 0, ptr %89, align 8
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 280
   %91 = icmp eq ptr %90, %85
   br i1 %91, label %_ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit34, label %86
@@ -444,7 +444,7 @@ _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit34: ; preds = %86, %_ZN20FormatS
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %115 = getelementptr inbounds nuw i8, ptr %113, i64 24
   store ptr %115, ptr %114, align 8
-  store i8 0, ptr %115, align 1
+  store i8 0, ptr %115, align 8
   %116 = getelementptr inbounds nuw i8, ptr %113, i64 280
   %117 = icmp eq ptr %116, %111
   br i1 %117, label %_ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit35, label %112
@@ -501,7 +501,7 @@ _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit35: ; preds = %112, %_ZN20Format
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 16
   %144 = getelementptr inbounds nuw i8, ptr %142, i64 24
   store ptr %144, ptr %143, align 8
-  store i8 0, ptr %144, align 1
+  store i8 0, ptr %144, align 8
   %145 = getelementptr inbounds nuw i8, ptr %142, i64 280
   %146 = icmp eq ptr %145, %140
   br i1 %146, label %_ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit36, label %141
@@ -556,7 +556,7 @@ _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit36: ; preds = %141, %121
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %171 = getelementptr inbounds nuw i8, ptr %169, i64 24
   store ptr %171, ptr %170, align 8
-  store i8 0, ptr %171, align 1
+  store i8 0, ptr %171, align 8
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 536
   %173 = icmp eq ptr %172, %167
   br i1 %173, label %_ZN18ExceptionsEventLogC2EPKcS1_i.exit, label %168
@@ -608,7 +608,7 @@ _ZN18ExceptionsEventLogC2EPKcS1_i.exit:           ; preds = %168, %148
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 16
   %197 = getelementptr inbounds nuw i8, ptr %195, i64 24
   store ptr %197, ptr %196, align 8
-  store i8 0, ptr %197, align 1
+  store i8 0, ptr %197, align 8
   %198 = getelementptr inbounds nuw i8, ptr %195, i64 280
   %199 = icmp eq ptr %198, %193
   br i1 %199, label %_ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit37, label %194
@@ -660,7 +660,7 @@ _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit37: ; preds = %194, %_ZN18Except
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 16
   %223 = getelementptr inbounds nuw i8, ptr %221, i64 24
   store ptr %223, ptr %222, align 8
-  store i8 0, ptr %223, align 1
+  store i8 0, ptr %223, align 8
   %224 = getelementptr inbounds nuw i8, ptr %221, i64 280
   %225 = icmp eq ptr %224, %219
   br i1 %225, label %_ZN17UnloadingEventLogC2EPKcS1_i.exit, label %220
@@ -712,7 +712,7 @@ _ZN17UnloadingEventLogC2EPKcS1_i.exit:            ; preds = %220, %_ZN20FormatSt
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 16
   %249 = getelementptr inbounds nuw i8, ptr %247, i64 24
   store ptr %249, ptr %248, align 8
-  store i8 0, ptr %249, align 1
+  store i8 0, ptr %249, align 8
   %250 = getelementptr inbounds nuw i8, ptr %247, i64 280
   %251 = icmp eq ptr %250, %245
   br i1 %251, label %_ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit38, label %246
@@ -764,7 +764,7 @@ _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit38: ; preds = %246, %_ZN17Unload
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 16
   %275 = getelementptr inbounds nuw i8, ptr %273, i64 24
   store ptr %275, ptr %274, align 8
-  store i8 0, ptr %275, align 1
+  store i8 0, ptr %275, align 8
   %276 = getelementptr inbounds nuw i8, ptr %273, i64 280
   %277 = icmp eq ptr %276, %271
   br i1 %277, label %_ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit39, label %272
@@ -816,7 +816,7 @@ _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit39: ; preds = %272, %_ZN20Format
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 16
   %301 = getelementptr inbounds nuw i8, ptr %299, i64 24
   store ptr %301, ptr %300, align 8
-  store i8 0, ptr %301, align 1
+  store i8 0, ptr %301, align 8
   %302 = getelementptr inbounds nuw i8, ptr %299, i64 280
   %303 = icmp eq ptr %302, %297
   br i1 %303, label %_ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit40, label %298

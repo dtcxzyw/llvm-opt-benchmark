@@ -234,7 +234,7 @@ _ZN11ast_manager7dec_refEP3ast.exit:              ; preds = %67, %62, %61
   store i8 0, ptr %72, align 8, !tbaa !36
   %73 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %74 = load ptr, ptr %73, align 8, !tbaa !16
-  %75 = load i32, ptr %68, align 4, !tbaa !45
+  %75 = load i32, ptr %68, align 8, !tbaa !45
   %76 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %74, i32 noundef %75, i32 noundef 40, i32 noundef 2, ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull %5, ptr noundef null)
           to label %77 unwind label %79
 

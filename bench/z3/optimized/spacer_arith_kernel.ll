@@ -891,9 +891,9 @@ _ZN8rationalC2ERK3mpq.exit:                       ; preds = %254, %258
   %286 = or disjoint i8 %285, %280
   store i8 %286, ptr %154, align 4
   %287 = getelementptr inbounds nuw i8, ptr %263, i64 16
-  %288 = load i32, ptr %287, align 4, !tbaa !32
+  %288 = load i32, ptr %287, align 8, !tbaa !32
   %289 = load i32, ptr %156, align 8, !tbaa !32
-  store i32 %289, ptr %287, align 4, !tbaa !32
+  store i32 %289, ptr %287, align 8, !tbaa !32
   store i32 %288, ptr %156, align 8, !tbaa !32
   %290 = getelementptr inbounds nuw i8, ptr %263, i64 24
   %291 = load ptr, ptr %290, align 8, !tbaa !59
@@ -6779,10 +6779,10 @@ _ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE10_row_entryELb1EjE4sizeEv.ex
   store i8 %41, ptr %26, align 4
   %42 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %44 = load i32, ptr %42, align 4, !tbaa !32
-  %45 = load i32, ptr %43, align 4, !tbaa !32
-  store i32 %45, ptr %42, align 4, !tbaa !32
-  store i32 %44, ptr %43, align 4, !tbaa !32
+  %44 = load i32, ptr %42, align 8, !tbaa !32
+  %45 = load i32, ptr %43, align 8, !tbaa !32
+  store i32 %45, ptr %42, align 8, !tbaa !32
+  store i32 %44, ptr %43, align 8, !tbaa !32
   %46 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %48 = load ptr, ptr %46, align 8, !tbaa !59

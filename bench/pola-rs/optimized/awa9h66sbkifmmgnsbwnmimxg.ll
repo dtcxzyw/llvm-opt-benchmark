@@ -52932,7 +52932,7 @@ define void @_ZN11polars_pipe8pipeline10dispatcher12ThreadedSink3new17h534a84b6c
   store ptr %26, ptr %7, align 8
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %20, ptr %27, align 8
-  %28 = load i32, ptr %26, align 4, !noundef !6
+  %28 = load i32, ptr %26, align 8, !noundef !6
   invoke void @"_ZN4core3ptr47drop_in_place$LT$core..cell..Ref$LT$u32$GT$$GT$17hece4100204a4617aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
           to label %32 unwind label %29
 
@@ -53679,7 +53679,7 @@ define internal fastcc void @_ZN11polars_pipe8pipeline10dispatcher8PipeLine24run
   %105 = getelementptr inbounds nuw i8, ptr %.val268, i64 24
   store ptr %105, ptr %28, align 8
   store ptr %99, ptr %68, align 8
-  %106 = load i32, ptr %105, align 4, !noundef !6
+  %106 = load i32, ptr %105, align 8, !noundef !6
   %107 = icmp ne i32 %.val269, %106
   invoke void @"_ZN4core3ptr47drop_in_place$LT$core..cell..Ref$LT$u32$GT$$GT$17hece4100204a4617aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %28)
           to label %108 unwind label %.thread371.loopexit
@@ -53742,9 +53742,9 @@ _ZN3std4sync6poison4once4Once9call_once17hd24d25dcb31a59afE.exit: ; preds = %.no
   %128 = getelementptr inbounds nuw i8, ptr %121, i64 24
   store ptr %128, ptr %36, align 8
   store ptr %122, ptr %69, align 8
-  %129 = load i32, ptr %128, align 4, !noundef !6
+  %129 = load i32, ptr %128, align 8, !noundef !6
   %130 = add i32 %129, -1
-  store i32 %130, ptr %128, align 4
+  store i32 %130, ptr %128, align 8
   invoke void @"_ZN4core3ptr50drop_in_place$LT$core..cell..RefMut$LT$u32$GT$$GT$17h94691b2a88ba6100E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %36)
           to label %132 unwind label %.loopexit.split-lp451.loopexit
 

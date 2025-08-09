@@ -75119,7 +75119,7 @@ _ZN4entt7type_idIiEERKNS_9type_infoEv.exit:       ; preds = %3, %8, %10
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15, align 8, !tbaa !11, !noalias !1550
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = load i32, ptr %2, align 4, !tbaa !71, !noalias !1550
-  store i32 %19, ptr %18, align 4, !tbaa !71, !noalias !1550
+  store i32 %19, ptr %18, align 8, !tbaa !71, !noalias !1550
   store ptr %18, ptr %13, align 8, !tbaa !83
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %14, align 8, !tbaa !67
@@ -91729,7 +91729,7 @@ _ZN4entt7type_idIcEERKNS_9type_infoEv.exit:       ; preds = %3, %8, %10
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIcSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15, align 8, !tbaa !11, !noalias !1813
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = load i8, ptr %2, align 1, !tbaa !58, !noalias !1813
-  store i8 %19, ptr %18, align 1, !tbaa !58, !noalias !1813
+  store i8 %19, ptr %18, align 8, !tbaa !58, !noalias !1813
   store ptr %18, ptr %13, align 8, !tbaa !83
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %14, align 8, !tbaa !67
@@ -118550,7 +118550,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %8, ptr %7, align 8, !tbaa !1764
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %9, align 8, !tbaa !57
-  store i8 0, ptr %8, align 1, !tbaa !58
+  store i8 0, ptr %8, align 8, !tbaa !58
   store ptr %7, ptr %4, align 8, !tbaa !61
   br label %10
 
@@ -121461,7 +121461,7 @@ _ZNK4entt9meta_type4baseEv.exit:                  ; preds = %13, %_ZN4entt8inter
   %57 = load ptr, ptr %42, align 8, !tbaa !84, !noalias !2457
   %58 = load ptr, ptr %43, align 8, !tbaa !67, !noalias !2457
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !2457
-  %59 = load i32, ptr %.sroa.051.072, align 4, !tbaa !71, !noalias !2457
+  %59 = load i32, ptr %.sroa.051.072, align 8, !tbaa !71, !noalias !2457
   store i32 %59, ptr %9, align 8, !tbaa !2458, !alias.scope !2457
   store i32 %54, ptr %44, align 8, !tbaa !82, !alias.scope !2457
   store ptr %55, ptr %45, align 8, !tbaa !83, !alias.scope !2457

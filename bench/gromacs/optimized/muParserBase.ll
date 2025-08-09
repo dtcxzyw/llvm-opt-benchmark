@@ -4668,7 +4668,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %10
   %21 = load i32, ptr %20, align 8, !tbaa !178
   %22 = and i32 %21, -75
   %23 = or disjoint i32 %22, 2
-  store i32 %23, ptr %20, align 4, !tbaa !185
+  store i32 %23, ptr %20, align 8, !tbaa !185
   %24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str.26, i64 noundef 2)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit3 unwind label %31
 
@@ -7954,7 +7954,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !tbaa !80, !alias.scope !208, !noalias !211
   store ptr %43, ptr %.0911.i.i.i.i, align 8, !tbaa !83, !alias.scope !211, !noalias !208
   store i64 0, ptr %52, align 8, !tbaa !80, !alias.scope !211, !noalias !208
-  store i8 0, ptr %43, align 1, !tbaa !27, !alias.scope !211, !noalias !208
+  store i8 0, ptr %43, align 8, !tbaa !27, !alias.scope !211, !noalias !208
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %54, %1
@@ -8002,7 +8002,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !tbaa !80, !alias.scope !215, !noalias !218
   store ptr %59, ptr %.0911.i.i.i.i29, align 8, !tbaa !83, !alias.scope !218, !noalias !215
   store i64 0, ptr %68, align 8, !tbaa !80, !alias.scope !218, !noalias !215
-  store i8 0, ptr %59, align 1, !tbaa !27, !alias.scope !218, !noalias !215
+  store i8 0, ptr %59, align 8, !tbaa !27, !alias.scope !218, !noalias !215
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 32
   %.not.i.i.i.i34 = icmp eq ptr %70, %6
@@ -22218,7 +22218,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit22._crit_edge: ; pre
   %224 = load i32, ptr %223, align 8, !tbaa !178
   %225 = and i32 %224, -75
   %226 = or disjoint i32 %225, 2
-  store i32 %226, ptr %223, align 4, !tbaa !185
+  store i32 %226, ptr %223, align 8, !tbaa !185
   %227 = load i64, ptr %220, align 8
   %228 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %227
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 240

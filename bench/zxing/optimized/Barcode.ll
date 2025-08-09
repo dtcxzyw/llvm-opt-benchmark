@@ -4093,7 +4093,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
   store i64 %19, ptr %21, align 8, !tbaa !11
   store ptr %11, ptr %8, align 8, !tbaa !3
   store i64 0, ptr %20, align 8, !tbaa !11
-  store i8 0, ptr %11, align 1, !tbaa !35
+  store i8 0, ptr %11, align 8, !tbaa !35
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   ret ptr %5

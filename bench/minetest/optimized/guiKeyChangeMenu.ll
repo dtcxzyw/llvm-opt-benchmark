@@ -6763,7 +6763,7 @@ if.end.i:
   store ptr %0, ptr %button_name.i, align 8, !tbaa !126
   %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !52
-  store i32 0, ptr %0, align 4, !tbaa !127
+  store i32 0, ptr %0, align 8, !tbaa !127
   %key.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   store i32 256, ptr %key.i, align 8, !tbaa !114
   %Char.i.i = getelementptr inbounds nuw i8, ptr %call, i64 44
@@ -6773,13 +6773,13 @@ if.end.i:
   store ptr %1, ptr %m_name.i.i, align 8, !tbaa !47
   %_M_string_length.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 56
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !48
-  store i8 0, ptr %1, align 1, !tbaa !49
+  store i8 0, ptr %1, align 8, !tbaa !49
   %setting_name.i = getelementptr inbounds nuw i8, ptr %call, i64 80
   %2 = getelementptr inbounds nuw i8, ptr %call, i64 96
   store ptr %2, ptr %setting_name.i, align 8, !tbaa !47
   %_M_string_length.i.i.i3.i = getelementptr inbounds nuw i8, ptr %call, i64 88
   store i64 0, ptr %_M_string_length.i.i.i3.i, align 8, !tbaa !48
-  store i8 0, ptr %2, align 1, !tbaa !49
+  store i8 0, ptr %2, align 8, !tbaa !49
   store i32 %id, ptr %call, align 8, !tbaa !73
   %3 = load ptr, ptr %button_name, align 8, !tbaa !51
   %4 = getelementptr inbounds nuw i8, ptr %button_name, i64 16

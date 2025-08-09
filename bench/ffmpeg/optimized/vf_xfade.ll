@@ -678,7 +678,7 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef capture
   %.sink238 = select i1 %.not226, i16 %84, i16 0
   %.sink236 = select i1 %.not226, i16 %85, i16 %86
   %87 = getelementptr inbounds nuw i8, ptr %10, i64 128
-  store i16 %.sink238, ptr %87, align 4, !tbaa !79
+  store i16 %.sink238, ptr %87, align 8, !tbaa !79
   %88 = getelementptr inbounds nuw i8, ptr %10, i64 126
   store i16 %.sink238, ptr %88, align 2, !tbaa !79
   %89 = getelementptr inbounds nuw i8, ptr %10, i64 130
@@ -688,7 +688,7 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef capture
   %91 = getelementptr inbounds nuw i8, ptr %10, i64 132
   store i16 %.sink236, ptr %91, align 4, !tbaa !79
   %92 = getelementptr inbounds nuw i8, ptr %10, i64 136
-  store i16 %.pre-phi, ptr %92, align 4, !tbaa !79
+  store i16 %.pre-phi, ptr %92, align 8, !tbaa !79
   %93 = getelementptr inbounds nuw i8, ptr %10, i64 134
   store i16 %.pre-phi, ptr %93, align 2, !tbaa !79
   %94 = getelementptr inbounds nuw i8, ptr %10, i64 64

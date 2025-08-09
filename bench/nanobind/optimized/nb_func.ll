@@ -6078,7 +6078,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   store ptr %52, ptr %49, align 8
   %53 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store ptr null, ptr %53, align 8
-  store i32 %47, ptr %43, align 4
+  store i32 %47, ptr %43, align 8
   store i16 %.135.lcssa, ptr %44, align 4
   br label %99
 
@@ -6092,9 +6092,9 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   %60 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %61 = load ptr, ptr %60, align 8
   store ptr null, ptr %60, align 8
-  store i16 %.135.lcssa, ptr %44, align 2
-  %62 = load i32, ptr %43, align 4
-  store i32 %47, ptr %43, align 4
+  store i16 %.135.lcssa, ptr %44, align 4
+  %62 = load i32, ptr %43, align 8
+  store i32 %47, ptr %43, align 8
   %63 = add i64 %.1.lcssa, 1
   %64 = load i64, ptr %0, align 8
   %65 = and i64 %64, %63
@@ -6141,8 +6141,8 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   store ptr %.sroa.8.0.i, ptr %85, align 8
   %87 = load i16, ptr %76, align 2
   store i16 %storemerge25.i.i, ptr %76, align 2
-  %88 = load i32, ptr %77, align 4
-  store i32 %.01823.i.i, ptr %77, align 4
+  %88 = load i32, ptr %77, align 8
+  store i32 %.01823.i.i, ptr %77, align 8
   %.pre.i.i = load i64, ptr %0, align 8
   %.pre32.i.i = load ptr, ptr %17, align 8
   br label %89
@@ -6174,7 +6174,7 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanob
   store ptr %.sroa.06.2.i, ptr %98, align 8
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.lcssa21.i.i, i64 16
   store ptr %.sroa.8.2.i, ptr %.sroa.8.0..sroa_idx.i, align 8
-  store i32 %.018.lcssa.i.i, ptr %.lcssa21.i.i, align 4
+  store i32 %.018.lcssa.i.i, ptr %.lcssa21.i.i, align 8
   store i16 %storemerge.lcssa.i.i, ptr %.lcssa.i.i, align 4
   br label %99
 
@@ -6354,10 +6354,10 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairI
   %42 = load ptr, ptr %40, align 8
   store ptr %42, ptr %26, align 8
   store ptr %41, ptr %40, align 8
-  %43 = load i16, ptr %31, align 2
-  store i16 %.013.i.us, ptr %31, align 2
-  %44 = load i32, ptr %30, align 4
-  store i32 %.012.i.us, ptr %30, align 4
+  %43 = load i16, ptr %31, align 4
+  store i16 %.013.i.us, ptr %31, align 4
+  %44 = load i32, ptr %30, align 8
+  store i32 %.012.i.us, ptr %30, align 8
   %.pre28 = load i64, ptr %3, align 8
   br label %45
 
@@ -6537,10 +6537,10 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanob
   %136 = load ptr, ptr %134, align 8
   store ptr %136, ptr %120, align 8
   store ptr %135, ptr %134, align 8
-  %137 = load i16, ptr %125, align 2
-  store i16 %.013.i, ptr %125, align 2
-  %138 = load i32, ptr %124, align 4
-  store i32 %.012.i, ptr %124, align 4
+  %137 = load i16, ptr %125, align 4
+  store i16 %.013.i, ptr %125, align 4
+  %138 = load i32, ptr %124, align 8
+  store i32 %.012.i, ptr %124, align 8
   %.pre = load i64, ptr %3, align 8
   br label %139
 

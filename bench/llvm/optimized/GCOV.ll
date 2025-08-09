@@ -2403,7 +2403,7 @@ _ZNSt3mapIjPN4llvm12GCOVFunctionESt4lessIjESaISt4pairIKjS2_EEE4findERS6_.exit: ;
   store ptr @.str.7, ptr %160, align 8, !tbaa !171, !alias.scope !168
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjjjjEEE, i64 16), ptr %12, align 8, !tbaa !173, !alias.scope !168
   %161 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %162 = load i32, ptr %159, align 4, !tbaa !85, !noalias !168
+  %162 = load i32, ptr %159, align 8, !tbaa !85, !noalias !168
   store i32 %162, ptr %161, align 8, !tbaa !175, !alias.scope !168
   %163 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %164 = load i32, ptr %155, align 4, !tbaa !85, !noalias !168
@@ -11105,7 +11105,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %55, ptr %57, align 8, !tbaa !140, !alias.scope !439, !noalias !442
   store ptr %47, ptr %.0911.i.i.i, align 8, !tbaa !138, !alias.scope !442, !noalias !439
   store i64 0, ptr %56, align 8, !tbaa !140, !alias.scope !442, !noalias !439
-  store i8 0, ptr %47, align 1, !tbaa !135, !alias.scope !442, !noalias !439
+  store i8 0, ptr %47, align 8, !tbaa !135, !alias.scope !442, !noalias !439
   %58 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %59 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %58, %1
@@ -11153,7 +11153,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %71, ptr %73, align 8, !tbaa !140, !alias.scope !446, !noalias !449
   store ptr %63, ptr %.0911.i.i.i19, align 8, !tbaa !138, !alias.scope !449, !noalias !446
   store i64 0, ptr %72, align 8, !tbaa !140, !alias.scope !449, !noalias !446
-  store i8 0, ptr %63, align 1, !tbaa !135, !alias.scope !449, !noalias !446
+  store i8 0, ptr %63, align 8, !tbaa !135, !alias.scope !449, !noalias !446
   %74 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %75 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %74, %6

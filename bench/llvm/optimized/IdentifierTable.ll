@@ -19658,7 +19658,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZNK5clang14IdentifierInfo25isRese
   store ptr %5, ptr %2, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %7, ptr %8, align 8
-  %9 = load i8, ptr %5, align 1, !tbaa !47
+  %9 = load i8, ptr %5, align 8, !tbaa !47
   %.not = icmp eq i8 %9, 95
   br i1 %.not, label %10, label %12
 
@@ -21223,7 +21223,7 @@ _ZNK5clang8Selector24getIdentifierInfoForSlotEj.exit: ; preds = %1, %5
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i64, ptr %10, align 8, !tbaa !114
   %13 = and i64 %12, 4294967295
-  %14 = load i8, ptr %11, align 1, !tbaa !47
+  %14 = load i8, ptr %11, align 8, !tbaa !47
   switch i8 %14, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread43 [
     i8 97, label %15
     i8 105, label %17

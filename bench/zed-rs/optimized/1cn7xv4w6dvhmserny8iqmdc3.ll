@@ -926,7 +926,7 @@ define hidden noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$6insert17h
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %48 = load i64, ptr %47, align 8, !noundef !4
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %50 = load float, ptr %49, align 4, !alias.scope !128, !noalias !139, !noundef !4
+  %50 = load float, ptr %49, align 8, !alias.scope !128, !noalias !139, !noundef !4
   %51 = fcmp ugt float %50, %12
   %52 = fcmp ult float %50, %12
   %..i.i.i.i.i = select i1 %52, i8 2, i8 1
@@ -946,7 +946,7 @@ define hidden noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$6insert17h
   %switch.i6.i.i = icmp samesign ult i8 %58, -2
   %.sroa.01.0.i.i = select i1 %switch.i6.i.i, float %55, float %14
   %59 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  %60 = load float, ptr %59, align 4, !alias.scope !157, !noalias !162, !noundef !4
+  %60 = load float, ptr %59, align 8, !alias.scope !157, !noalias !162, !noundef !4
   %61 = fadd float %50, %60
   %62 = getelementptr inbounds nuw i8, ptr %44, i64 36
   %63 = load float, ptr %62, align 4, !alias.scope !163, !noalias !162, !noundef !4

@@ -14491,7 +14491,7 @@ lean_dec.exit:                                    ; preds = %72, %71, %69, %lean
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %78 = getelementptr inbounds nuw i8, ptr %73, i64 40
   store i64 0, ptr %78, align 8, !tbaa !11
-  store i32 1, ptr %73, align 4, !tbaa !8
+  store i32 1, ptr %73, align 8, !tbaa !8
   store i32 262192, ptr %77, align 4
   %79 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %79, align 8, !tbaa !4
@@ -14737,7 +14737,7 @@ lean_dec.exit:                                    ; preds = %82, %81, %79, %lean
   %88 = getelementptr inbounds nuw i8, ptr %84, i64 4
   %89 = getelementptr inbounds nuw i8, ptr %84, i64 48
   store i64 1, ptr %89, align 8, !tbaa !11
-  store i32 1, ptr %84, align 4, !tbaa !8
+  store i32 1, ptr %84, align 8, !tbaa !8
   store i32 17104952, ptr %88, align 4
   %90 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %90, align 8, !tbaa !4
@@ -14958,7 +14958,7 @@ lean_dec.exit:                                    ; preds = %72, %71, %69, %lean
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %78 = getelementptr inbounds nuw i8, ptr %73, i64 40
   store i64 0, ptr %78, align 8, !tbaa !11
-  store i32 1, ptr %73, align 4, !tbaa !8
+  store i32 1, ptr %73, align 8, !tbaa !8
   store i32 262192, ptr %77, align 4
   %79 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %79, align 8, !tbaa !4
@@ -15175,7 +15175,7 @@ lean_dec.exit:                                    ; preds = %72, %71, %69, %lean
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %78 = getelementptr inbounds nuw i8, ptr %73, i64 40
   store i64 0, ptr %78, align 8, !tbaa !11
-  store i32 1, ptr %73, align 4, !tbaa !8
+  store i32 1, ptr %73, align 8, !tbaa !8
   store i32 262192, ptr %77, align 4
   %79 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %79, align 8, !tbaa !4
@@ -15463,7 +15463,7 @@ lean_dec.exit:                                    ; preds = %72, %71, %69, %lean
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %78 = getelementptr inbounds nuw i8, ptr %73, i64 40
   store i64 0, ptr %78, align 8, !tbaa !11
-  store i32 1, ptr %73, align 4, !tbaa !8
+  store i32 1, ptr %73, align 8, !tbaa !8
   store i32 262192, ptr %77, align 4
   %79 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %79, align 8, !tbaa !4

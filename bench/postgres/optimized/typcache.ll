@@ -3579,7 +3579,7 @@ define dso_local void @SharedRecordTypmodRegistryInit(ptr noundef initializes((0
   store i64 %11, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i32, ptr @NextRecordTypmod, align 4
-  store volatile i32 %14, ptr %13, align 4
+  store volatile i32 %14, ptr %13, align 8
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.lr.ph, label %._crit_edge
 

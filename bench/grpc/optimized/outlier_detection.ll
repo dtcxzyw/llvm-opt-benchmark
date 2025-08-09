@@ -9492,7 +9492,7 @@ _ZNSt8optionalIN9grpc_core9TimestampEE5resetEv.exit: ; preds = %1, %6
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !373
-  %27 = load i32, ptr %24, align 4, !tbaa !382
+  %27 = load i32, ptr %24, align 8, !tbaa !382
   %28 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %29 = load i64, ptr %28, align 8, !tbaa !153
   store i64 %29, ptr %2, align 8, !tbaa !153
@@ -14317,7 +14317,7 @@ define internal void @_ZN9grpc_core12_GLOBAL__N_118OutlierDetectionLb17Subchanne
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 12, ptr %19, align 8, !tbaa !34
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 28
-  store i8 0, ptr %20, align 1, !tbaa !7
+  store i8 0, ptr %20, align 4, !tbaa !7
   store ptr %16, ptr @_ZZN9grpc_core14HealthProducer4TypeEvE8kFactory, align 8, !tbaa !457
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core14HealthProducer4TypeEvE8kFactory) #36
   br label %_ZN9grpc_core14HealthProducer4TypeEv.exit
@@ -14473,7 +14473,7 @@ define internal void @_ZN9grpc_core12_GLOBAL__N_118OutlierDetectionLb17Subchanne
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 12, ptr %16, align 8, !tbaa !34
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 28
-  store i8 0, ptr %17, align 1, !tbaa !7
+  store i8 0, ptr %17, align 4, !tbaa !7
   store ptr %13, ptr @_ZZN9grpc_core14HealthProducer4TypeEvE8kFactory, align 8, !tbaa !457
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core14HealthProducer4TypeEvE8kFactory) #36
   br label %_ZN9grpc_core14HealthProducer4TypeEv.exit

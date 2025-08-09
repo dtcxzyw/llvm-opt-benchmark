@@ -15,7 +15,7 @@ define void @_Z17gather_f_bsplinesPK9gmx_pme_tN3gmx8ArrayRefIKfEEbPK11PmeAtomCom
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 476
   %13 = load float, ptr %12, align 4, !tbaa !91
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %15 = load float, ptr %14, align 4, !tbaa !91
+  %15 = load float, ptr %14, align 8, !tbaa !91
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %17 = load float, ptr %16, align 8, !tbaa !91
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 492

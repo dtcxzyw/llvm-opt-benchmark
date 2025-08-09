@@ -393,7 +393,7 @@ define void @_ZN9grpc_core16LameClientFilter15MakeCallPromiseENS_8CallArgsESt8fu
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %28 = load ptr, ptr %27, align 8, !tbaa !62
   %.not.i.i.i.i.i = icmp ne ptr %28, null
-  %29 = load i8, ptr %26, align 1, !range !63
+  %29 = load i8, ptr %26, align 8, !range !63
   %30 = trunc nuw i8 %29 to i1
   %or.cond.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %30, i1 false
   br i1 %or.cond.i.i.i.i.i, label %31, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i.i.i
@@ -493,7 +493,7 @@ define linkonce_odr void @_ZN9grpc_core10PipeSenderISt10unique_ptrINS_7MessageEN
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !101
   %.not.i.i.i.i = icmp ne ptr %13, null
-  %14 = load i8, ptr %11, align 1, !range !63
+  %14 = load i8, ptr %11, align 8, !range !63
   %15 = trunc nuw i8 %14 to i1
   %or.cond.i.i.i.i = select i1 %.not.i.i.i.i, i1 %15, i1 false
   br i1 %or.cond.i.i.i.i, label %16, label %_ZNSt10unique_ptrIN9grpc_core7MessageENS0_5Arena13PooledDeleterEED2Ev.exit.i.i.i
@@ -560,7 +560,7 @@ define linkonce_odr void @_ZN9grpc_core12PipeReceiverISt10unique_ptrINS_7Message
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !101
   %.not.i.i.i.i = icmp ne ptr %13, null
-  %14 = load i8, ptr %11, align 1, !range !63
+  %14 = load i8, ptr %11, align 8, !range !63
   %15 = trunc nuw i8 %14 to i1
   %or.cond.i.i.i.i = select i1 %.not.i.i.i.i, i1 %15, i1 false
   br i1 %or.cond.i.i.i.i, label %16, label %_ZNSt10unique_ptrIN9grpc_core7MessageENS0_5Arena13PooledDeleterEED2Ev.exit.i.i.i
@@ -2642,7 +2642,7 @@ define linkonce_odr void @_ZN9grpc_core20arena_promise_detail7InlinedISt10unique
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !62
   %.not.i.i = icmp ne ptr %3, null
-  %4 = load i8, ptr %0, align 1, !range !63
+  %4 = load i8, ptr %0, align 8, !range !63
   %5 = trunc nuw i8 %4 to i1
   %or.cond.i.i = select i1 %.not.i.i, i1 %5, i1 false
   br i1 %or.cond.i.i, label %6, label %_ZN9grpc_core14promise_detail9ImmediateISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit

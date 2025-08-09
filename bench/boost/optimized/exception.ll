@@ -151,15 +151,15 @@ define void @_ZN5boost10filesystem16filesystem_errorC2EPKcNS_6system10error_code
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(104) %5, i8 0, i64 104, i1 false)
   store ptr %8, ptr %7, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !12
+  store i8 0, ptr %8, align 8, !tbaa !12
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %10, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %10, align 1, !tbaa !12
+  store i8 0, ptr %10, align 8, !tbaa !12
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store ptr %12, ptr %11, align 8, !tbaa !10
-  store i8 0, ptr %12, align 1, !tbaa !12
+  store i8 0, ptr %12, align 8, !tbaa !12
   %13 = atomicrmw add ptr %5, i32 1 acq_rel, align 4
   %14 = load ptr, ptr %4, align 8, !tbaa !6
   store ptr %5, ptr %4, align 8, !tbaa !6
@@ -856,15 +856,15 @@ define void @_ZN5boost10filesystem16filesystem_errorC2ERKNSt7__cxx1112basic_stri
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(104) %5, i8 0, i64 104, i1 false)
   store ptr %8, ptr %7, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !12
+  store i8 0, ptr %8, align 8, !tbaa !12
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %10, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %10, align 1, !tbaa !12
+  store i8 0, ptr %10, align 8, !tbaa !12
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store ptr %12, ptr %11, align 8, !tbaa !10
-  store i8 0, ptr %12, align 1, !tbaa !12
+  store i8 0, ptr %12, align 8, !tbaa !12
   %13 = atomicrmw add ptr %5, i32 1 acq_rel, align 4
   %14 = load ptr, ptr %4, align 8, !tbaa !6
   store ptr %5, ptr %4, align 8, !tbaa !6
@@ -1383,13 +1383,13 @@ define void @_ZN5boost10filesystem16filesystem_errorC2EPKcRKNS0_4pathENS_6system
   store ptr %27, ptr %26, align 8, !tbaa !10
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i64 0, ptr %28, align 8, !tbaa !16
-  store i8 0, ptr %27, align 1, !tbaa !12
+  store i8 0, ptr %27, align 8, !tbaa !12
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 88
   store ptr %30, ptr %29, align 8, !tbaa !10
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store i64 0, ptr %31, align 8, !tbaa !16
-  store i8 0, ptr %30, align 1, !tbaa !12
+  store i8 0, ptr %30, align 8, !tbaa !12
   %32 = atomicrmw add ptr %7, i32 1 acq_rel, align 4
   %33 = load ptr, ptr %6, align 8, !tbaa !6
   store ptr %7, ptr %6, align 8, !tbaa !6
@@ -1560,13 +1560,13 @@ define void @_ZN5boost10filesystem16filesystem_errorC2ERKNSt7__cxx1112basic_stri
   store ptr %27, ptr %26, align 8, !tbaa !10
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i64 0, ptr %28, align 8, !tbaa !16
-  store i8 0, ptr %27, align 1, !tbaa !12
+  store i8 0, ptr %27, align 8, !tbaa !12
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 88
   store ptr %30, ptr %29, align 8, !tbaa !10
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store i64 0, ptr %31, align 8, !tbaa !16
-  store i8 0, ptr %30, align 1, !tbaa !12
+  store i8 0, ptr %30, align 8, !tbaa !12
   %32 = atomicrmw add ptr %7, i32 1 acq_rel, align 4
   %33 = load ptr, ptr %6, align 8, !tbaa !6
   store ptr %7, ptr %6, align 8, !tbaa !6

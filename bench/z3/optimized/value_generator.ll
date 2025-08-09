@@ -620,19 +620,19 @@ _ZN15value_generator10add_pluginEP20value_generator_core.exit45: ; preds = %_ZN1
   %194 = getelementptr inbounds nuw i8, ptr %170, i64 120
   store ptr null, ptr %194, align 8, !tbaa !63
   %195 = getelementptr inbounds nuw i8, ptr %170, i64 128
-  store i32 0, ptr %195, align 4, !tbaa !64
+  store i32 0, ptr %195, align 8, !tbaa !64
   %196 = getelementptr inbounds nuw i8, ptr %170, i64 132
   store i8 0, ptr %196, align 4, !tbaa !65
   %197 = getelementptr inbounds nuw i8, ptr %170, i64 136
-  store i32 0, ptr %197, align 4, !tbaa !66
+  store i32 0, ptr %197, align 8, !tbaa !66
   %198 = getelementptr inbounds nuw i8, ptr %170, i64 140
   store i32 0, ptr %198, align 4, !tbaa !67
   %199 = getelementptr inbounds nuw i8, ptr %170, i64 144
-  store i32 -1, ptr %199, align 4, !tbaa !64
+  store i32 -1, ptr %199, align 8, !tbaa !64
   %200 = getelementptr inbounds nuw i8, ptr %170, i64 148
   store i8 0, ptr %200, align 4, !tbaa !65
   %201 = getelementptr inbounds nuw i8, ptr %170, i64 152
-  store i32 0, ptr %201, align 4, !tbaa !66
+  store i32 0, ptr %201, align 8, !tbaa !66
   %202 = getelementptr inbounds nuw i8, ptr %170, i64 156
   store i32 0, ptr %202, align 4, !tbaa !67
   %203 = add nsw i32 %184, 1

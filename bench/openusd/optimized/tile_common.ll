@@ -118,7 +118,7 @@ define hidden void @av1_get_tile_limits(ptr noundef captures(none) initializes((
   %12 = add nsw i32 %5, 2
   %13 = lshr i32 4096, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 27144
-  store i32 %13, ptr %14, align 4
+  store i32 %13, ptr %14, align 8
   br label %15
 
 15:                                               ; preds = %15, %1
@@ -577,7 +577,7 @@ define hidden void @av1_get_uniform_tile_size(ptr noundef readonly captures(none
   %27 = load i32, ptr %10, align 16
   %28 = mul nsw i32 %26, %27
   store i32 %28, ptr %1, align 4
-  %29 = load i32, ptr %4, align 4
+  %29 = load i32, ptr %4, align 16
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next, %30
   br i1 %31, label %21, label %.preheader, !llvm.loop !9

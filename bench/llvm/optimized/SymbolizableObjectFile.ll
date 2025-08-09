@@ -3009,7 +3009,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %19, ptr %20, align 8, !tbaa !196
   store ptr %10, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !199
   store i64 0, ptr %18, align 8, !tbaa !196
-  store i8 0, ptr %10, align 1, !tbaa !76
+  store i8 0, ptr %10, align 8, !tbaa !76
   %21 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 48
@@ -3041,7 +3041,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit6.i.i.i.i.i.i.i
   store i64 %34, ptr %35, align 8, !tbaa !196
   store ptr %25, ptr %22, align 8, !tbaa !199
   store i64 0, ptr %33, align 8, !tbaa !196
-  store i8 0, ptr %25, align 1, !tbaa !76
+  store i8 0, ptr %25, align 8, !tbaa !76
   %36 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 64
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 64
   %38 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 80
@@ -3073,7 +3073,7 @@ _ZSt10_ConstructIN4llvm10DILineInfoEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %
   store i64 %49, ptr %50, align 8, !tbaa !196
   store ptr %40, ptr %37, align 8, !tbaa !199
   store i64 0, ptr %48, align 8, !tbaa !196
-  store i8 0, ptr %40, align 1, !tbaa !76
+  store i8 0, ptr %40, align 8, !tbaa !76
   %51 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 96
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(85) %51, ptr noundef nonnull align 8 dereferenceable(85) %52, i64 85, i1 false)

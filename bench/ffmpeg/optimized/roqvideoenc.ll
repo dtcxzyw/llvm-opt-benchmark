@@ -1329,7 +1329,7 @@ gather_data_for_cel.exit.i:                       ; preds = %.loopexit.i.i, %566
   %603 = fmul nsz double %602, 1.500000e+00
   %604 = fptoui double %603 to i64
   store i64 %604, ptr %15, align 8, !tbaa !58
-  store i32 0, ptr %322, align 4, !tbaa !95
+  store i32 0, ptr %322, align 8, !tbaa !95
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %321, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(2048) %324, i8 0, i64 2048, i1 false)
   br label %326
@@ -1426,7 +1426,7 @@ remap_codebooks.exit.i:                           ; preds = %643
   %647 = load ptr, ptr %32, align 8, !tbaa !63
   %648 = getelementptr inbounds nuw i8, ptr %647, i64 2
   store ptr %648, ptr %32, align 8, !tbaa !63
-  %649 = load i32, ptr %644, align 4, !tbaa !122
+  %649 = load i32, ptr %644, align 8, !tbaa !122
   %650 = mul nsw i32 %649, 6
   %651 = load i32, ptr %631, align 4, !tbaa !120
   %652 = shl nsw i32 %651, 2
@@ -1441,13 +1441,13 @@ remap_codebooks.exit.i:                           ; preds = %643
   %658 = load ptr, ptr %32, align 8, !tbaa !63
   %659 = getelementptr inbounds nuw i8, ptr %658, i64 1
   store ptr %659, ptr %32, align 8, !tbaa !63
-  %660 = load i32, ptr %644, align 4, !tbaa !122
+  %660 = load i32, ptr %644, align 8, !tbaa !122
   %661 = trunc i32 %660 to i8
   store i8 %661, ptr %659, align 1, !tbaa !64
   %662 = load ptr, ptr %32, align 8, !tbaa !63
   %663 = getelementptr inbounds nuw i8, ptr %662, i64 1
   store ptr %663, ptr %32, align 8, !tbaa !63
-  %664 = load i32, ptr %644, align 4, !tbaa !122
+  %664 = load i32, ptr %644, align 8, !tbaa !122
   %665 = icmp sgt i32 %664, 0
   br i1 %665, label %.lr.ph.i.i, label %.preheader39.i.i
 
@@ -1490,7 +1490,7 @@ remap_codebooks.exit.i:                           ; preds = %643
   %690 = getelementptr inbounds nuw i8, ptr %689, i64 1
   store ptr %690, ptr %32, align 8, !tbaa !63
   %indvars.iv.next.i95.i = add nuw nsw i64 %indvars.iv.i94.i, 1
-  %691 = load i32, ptr %644, align 4, !tbaa !122
+  %691 = load i32, ptr %644, align 8, !tbaa !122
   %692 = sext i32 %691 to i64
   %693 = icmp slt i64 %indvars.iv.next.i95.i, %692
   br i1 %693, label %.lr.ph.i.i, label %.preheader39.i.i, !llvm.loop !123
@@ -1543,7 +1543,7 @@ write_codebooks.exit.i:                           ; preds = %709, %.preheader39.
   %720 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store ptr %32, ptr %720, align 8, !tbaa !130
   %721 = getelementptr inbounds nuw i8, ptr %10, i64 76696
-  %722 = load i32, ptr %721, align 4, !tbaa !70
+  %722 = load i32, ptr %721, align 8, !tbaa !70
   %723 = and i32 %722, 1
   %.not.i96.i = icmp eq i32 %723, 0
   br i1 %.not.i96.i, label %727, label %724
@@ -1560,7 +1560,7 @@ write_codebooks.exit.i:                           ; preds = %709, %.preheader39.
   %729 = load ptr, ptr %32, align 8, !tbaa !63
   %730 = getelementptr inbounds nuw i8, ptr %729, i64 2
   store ptr %730, ptr %32, align 8, !tbaa !63
-  %731 = load i32, ptr %322, align 4, !tbaa !95
+  %731 = load i32, ptr %322, align 8, !tbaa !95
   %732 = sdiv i32 %731, 8
   store i32 %732, ptr %730, align 1, !tbaa !64
   %733 = load ptr, ptr %32, align 8, !tbaa !63

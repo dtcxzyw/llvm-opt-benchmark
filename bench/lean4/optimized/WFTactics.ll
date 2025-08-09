@@ -11695,7 +11695,7 @@ _init_l_tacticSimp__wf___closed__4.exit:          ; preds = %lean_dec_ref.exit16
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store i64 0, ptr %47, align 8, !tbaa !12
-  store i32 1, ptr %43, align 4, !tbaa !8
+  store i32 1, ptr %43, align 8, !tbaa !8
   store i32 100728856, ptr %46, align 4
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr %42, ptr %48, align 8, !tbaa !4
@@ -12390,7 +12390,7 @@ _init_l_tacticClean__wf___closed__4.exit:         ; preds = %_init_l___aux__Init
   %326 = getelementptr inbounds nuw i8, ptr %323, i64 4
   %327 = getelementptr inbounds nuw i8, ptr %323, i64 16
   store i64 0, ptr %327, align 8, !tbaa !12
-  store i32 1, ptr %323, align 4, !tbaa !8
+  store i32 1, ptr %323, align 8, !tbaa !8
   store i32 100728856, ptr %326, align 4
   %328 = getelementptr inbounds nuw i8, ptr %323, i64 8
   store ptr %322, ptr %328, align 8, !tbaa !4
@@ -12535,7 +12535,7 @@ _init_l_tacticDecreasing__trivial___closed__4.exit: ; preds = %_init_l___aux__In
   %384 = getelementptr inbounds nuw i8, ptr %381, i64 4
   %385 = getelementptr inbounds nuw i8, ptr %381, i64 16
   store i64 0, ptr %385, align 8, !tbaa !12
-  store i32 1, ptr %381, align 4, !tbaa !8
+  store i32 1, ptr %381, align 8, !tbaa !8
   store i32 100728856, ptr %384, align 4
   %386 = getelementptr inbounds nuw i8, ptr %381, i64 8
   store ptr %380, ptr %386, align 8, !tbaa !4
@@ -12661,7 +12661,7 @@ _init_l_tacticDecreasing__trivial__pre__omega___closed__4.exit: ; preds = %_init
   %443 = getelementptr inbounds nuw i8, ptr %440, i64 4
   %444 = getelementptr inbounds nuw i8, ptr %440, i64 16
   store i64 0, ptr %444, align 8, !tbaa !12
-  store i32 1, ptr %440, align 4, !tbaa !8
+  store i32 1, ptr %440, align 8, !tbaa !8
   store i32 100728856, ptr %443, align 4
   %445 = getelementptr inbounds nuw i8, ptr %440, i64 8
   store ptr %439, ptr %445, align 8, !tbaa !4
@@ -12912,7 +12912,7 @@ _init_l_tacticDecreasing__with_____closed__6.exit: ; preds = %_init_l___aux__Ini
   %543 = getelementptr inbounds nuw i8, ptr %540, i64 4
   %544 = getelementptr inbounds nuw i8, ptr %540, i64 16
   store i64 0, ptr %544, align 8, !tbaa !12
-  store i32 1, ptr %540, align 4, !tbaa !8
+  store i32 1, ptr %540, align 8, !tbaa !8
   store i32 100728856, ptr %543, align 4
   %545 = getelementptr inbounds nuw i8, ptr %540, i64 8
   store ptr %539, ptr %545, align 8, !tbaa !4
@@ -13291,7 +13291,7 @@ _init_l_tacticDecreasing__tactic___closed__4.exit: ; preds = %_init_l___aux__Ini
   %697 = getelementptr inbounds nuw i8, ptr %694, i64 4
   %698 = getelementptr inbounds nuw i8, ptr %694, i64 16
   store i64 0, ptr %698, align 8, !tbaa !12
-  store i32 1, ptr %694, align 4, !tbaa !8
+  store i32 1, ptr %694, align 8, !tbaa !8
   store i32 100728856, ptr %697, align 4
   %699 = getelementptr inbounds nuw i8, ptr %694, i64 8
   store ptr %693, ptr %699, align 8, !tbaa !4

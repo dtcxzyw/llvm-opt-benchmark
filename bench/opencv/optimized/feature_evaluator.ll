@@ -796,7 +796,7 @@ define hidden void @_ZN2cv10xobjdetect18CvFeatureEvaluator6createEv(ptr dead_on_
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 0, ptr %3, align 4, !tbaa !82
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i32 0, ptr %4, align 4, !tbaa !83
+  store i32 0, ptr %4, align 8, !tbaa !83
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #21
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN2cv10xobjdetect14CvLBPEvaluatorE, i64 16), ptr %2, align 8, !tbaa !21

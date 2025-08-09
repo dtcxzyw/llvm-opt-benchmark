@@ -914,7 +914,7 @@ ff_acelp_decode_4bit_to_2nd_delay3.exit:          ; preds = %357, %361, %332, %3
   %476 = trunc nuw nsw i32 %.0.i284 to i16
   store i16 %476, ptr %243, align 2, !tbaa !56
   %477 = load i16, ptr %244, align 4, !tbaa !57
-  %478 = load i16, ptr %235, align 2, !tbaa !37
+  %478 = load i16, ptr %235, align 4, !tbaa !37
   br label %479
 
 479:                                              ; preds = %479, %469

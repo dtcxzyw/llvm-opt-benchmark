@@ -4245,7 +4245,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   %32 = getelementptr inbounds nuw i8, ptr %.tr505.lcssa, i64 20
   %33 = load i32, ptr %32, align 4, !tbaa !160
   %34 = getelementptr inbounds nuw i8, ptr %.tr505.lcssa, i64 24
-  %35 = load i32, ptr %34, align 4, !tbaa !161
+  %35 = load i32, ptr %34, align 8, !tbaa !161
   %36 = add i32 %35, -1
   store i32 %33, ptr %9, align 4, !tbaa !75
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -12458,7 +12458,7 @@ tailrecurse:                                      ; preds = %54, %2
   %5 = load ptr, ptr %4, align 8, !tbaa !405
   tail call void @_ZN4Luau7Printer9visualizeERNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(28) %5)
   %6 = getelementptr inbounds nuw i8, ptr %.tr32, i64 72
-  %7 = load i8, ptr %6, align 4, !tbaa !90, !range !30, !noundef !31
+  %7 = load i8, ptr %6, align 8, !tbaa !90, !range !30, !noundef !31
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %15
 

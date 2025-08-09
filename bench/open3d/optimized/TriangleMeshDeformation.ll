@@ -911,7 +911,7 @@ define void @_ZNK6open3d8geometry12TriangleMesh23DeformAsRigidAsPossibleERKSt6ve
   store ptr %34, ptr %33, align 8, !tbaa !28, !noalias !10
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 40
   store i64 0, ptr %35, align 8, !tbaa !29, !noalias !10
-  store i8 0, ptr %34, align 1, !tbaa !30, !noalias !10
+  store i8 0, ptr %34, align 8, !tbaa !30, !noalias !10
   %36 = getelementptr inbounds nuw i8, ptr %27, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %36, i8 0, i64 72, i1 false), !noalias !10
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry12TriangleMeshE, i64 16), ptr %30, align 8, !tbaa !17, !noalias !10
@@ -1556,7 +1556,7 @@ _ZNKSt8__detail15_Hashtable_baseIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESt4pairIK
 .noexc240:                                        ; preds = %.loopexit.i
   store ptr null, ptr %306, align 8, !tbaa !58
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 8
-  store i32 %.sroa.speculated5.i, ptr %307, align 4, !tbaa !30
+  store i32 %.sroa.speculated5.i, ptr %307, align 8, !tbaa !30
   %.sroa_idx316 = getelementptr inbounds nuw i8, ptr %306, i64 12
   store i32 %.sroa.speculated.i, ptr %.sroa_idx316, align 4, !tbaa !30
   %308 = getelementptr inbounds nuw i8, ptr %306, i64 16
@@ -2503,7 +2503,7 @@ _ZNKSt8__detail15_Hashtable_baseIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESt4pairIK
 .noexc265:                                        ; preds = %.loopexit.i260
   store ptr null, ptr %658, align 8, !tbaa !58
   %659 = getelementptr inbounds nuw i8, ptr %658, i64 8
-  store i32 %.sroa.speculated5.i195, ptr %659, align 4, !tbaa !30
+  store i32 %.sroa.speculated5.i195, ptr %659, align 8, !tbaa !30
   %.sroa_idx282 = getelementptr inbounds nuw i8, ptr %658, i64 12
   store i32 %.sroa.speculated.i196, ptr %.sroa_idx282, align 4, !tbaa !30
   %660 = getelementptr inbounds nuw i8, ptr %658, i64 16
@@ -6247,7 +6247,7 @@ _ZNKSt8__detail15_Hashtable_baseIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESt4pairIK
 .noexc:                                           ; preds = %.loopexit.i
   store ptr null, ptr %195, align 8, !tbaa !58
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 8
-  store i32 %.sroa.speculated5.i, ptr %196, align 4, !tbaa !30
+  store i32 %.sroa.speculated5.i, ptr %196, align 8, !tbaa !30
   %.sroa_idx77 = getelementptr inbounds nuw i8, ptr %195, i64 12
   store i32 %.sroa.speculated.i, ptr %.sroa_idx77, align 4, !tbaa !30
   %197 = getelementptr inbounds nuw i8, ptr %195, i64 16
@@ -6945,7 +6945,7 @@ _ZNKSt8__detail15_Hashtable_baseIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESt4pairIK
 .noexc24:                                         ; preds = %.loopexit.i
   store ptr null, ptr %126, align 8, !tbaa !58
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  store i32 %.sroa.speculated5.i, ptr %127, align 4, !tbaa !30
+  store i32 %.sroa.speculated5.i, ptr %127, align 8, !tbaa !30
   %.sroa_idx39 = getelementptr inbounds nuw i8, ptr %126, i64 12
   store i32 %.sroa.speculated.i, ptr %.sroa_idx39, align 4, !tbaa !30
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 16
@@ -7665,7 +7665,7 @@ _ZNSt10_HashtableIiSt4pairIKiN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEESaIS5_ENSt8_
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !58
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !56
+  %16 = load i32, ptr %15, align 8, !tbaa !56
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -8181,7 +8181,7 @@ _ZN5Eigen12SparseMatrixIdLi1EiE7reserveINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvR
   %.sroa.0.030 = phi ptr [ %49, %.lr.ph31 ], [ %75, %59 ]
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.030, i64 8
   %61 = load double, ptr %60, align 8, !tbaa !8
-  %62 = load i32, ptr %.sroa.0.030, align 4, !tbaa !56
+  %62 = load i32, ptr %.sroa.0.030, align 8, !tbaa !56
   %63 = sext i32 %62 to i64
   %64 = getelementptr inbounds nuw i8, ptr %.sroa.0.030, i64 4
   %65 = load i32, ptr %64, align 4, !tbaa !56

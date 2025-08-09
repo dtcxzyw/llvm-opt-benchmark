@@ -337,7 +337,7 @@ overlaps.exit:                                    ; preds = %137
   %154 = getelementptr inbounds nuw i8, ptr %.190, i64 20
   %.sroa.0.0.copyload = load i32, ptr %154, align 4, !tbaa !42
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.190, i64 24
-  %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !42
+  %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !42
   %155 = sitofp i32 %.sroa.0.0.copyload to double
   %156 = fdiv double %155, 7.200000e+01
   %157 = fdiv double %156, 1.000000e+01
@@ -536,7 +536,7 @@ define internal fastcc void @constrainY(ptr noundef %0, ptr noundef %1, i32 noun
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 360
   %29 = load i32, ptr %28, align 8, !tbaa !63
   %30 = sub nsw i32 %29, %23
-  store i32 %29, ptr %22, align 4, !tbaa !40
+  store i32 %29, ptr %22, align 8, !tbaa !40
   %31 = getelementptr inbounds nuw i8, ptr %.140, i64 60
   %32 = load i32, ptr %31, align 4, !tbaa !51
   %33 = add nsw i32 %32, %30

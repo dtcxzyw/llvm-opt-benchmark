@@ -12814,7 +12814,7 @@ arrayctor.loop.i.i:                               ; preds = %arrayctor.loop.i.i,
   %arrayctor.cur.ptr.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 %arrayctor.cur.idx.i.i
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes17HermesRuntimeImpl12ManagedValueIN6hermes2vm17PinnedHermesValueEEE, i64 16), ptr %arrayctor.cur.ptr.i.i, align 8
   %refCount_.i.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.i.i, i64 8
-  store i32 0, ptr %refCount_.i.i.i, align 4
+  store i32 0, ptr %refCount_.i.i.i, align 8
   %arrayctor.cur.add.i.i = add nuw nsw i64 %arrayctor.cur.idx.i.i, 24
   %arrayctor.done.i.i = icmp eq i64 %arrayctor.cur.add.i.i, 392
   br i1 %arrayctor.done.i.i, label %for.body.i, label %arrayctor.loop.i.i
@@ -12948,7 +12948,7 @@ arrayctor.loop.i.i10:                             ; preds = %arrayctor.loop.i.i1
   %arrayctor.cur.ptr.i.i12 = getelementptr inbounds nuw i8, ptr %call.i9, i64 %arrayctor.cur.idx.i.i11
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes17HermesRuntimeImpl12ManagedValueIN6hermes2vm17PinnedHermesValueEEE, i64 16), ptr %arrayctor.cur.ptr.i.i12, align 8
   %refCount_.i.i.i13 = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.i.i12, i64 8
-  store i32 0, ptr %refCount_.i.i.i13, align 4
+  store i32 0, ptr %refCount_.i.i.i13, align 8
   %arrayctor.cur.add.i.i14 = add nuw nsw i64 %arrayctor.cur.idx.i.i11, 24
   %arrayctor.done.i.i15 = icmp eq i64 %arrayctor.cur.add.i.i14, 392
   br i1 %arrayctor.done.i.i15, label %for.body.i16, label %arrayctor.loop.i.i10
@@ -12984,7 +12984,7 @@ if.end7:                                          ; preds = %if.end7.sink.split,
   %24 = load ptr, ptr %23, align 8
   store ptr %24, ptr %freeList_, align 8
   %refCount_.i = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store atomic i32 1, ptr %refCount_.i monotonic, align 4
+  store atomic i32 1, ptr %refCount_.i monotonic, align 8
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %args, align 8
   store i64 %agg.tmp.sroa.0.0.copyload.i, ptr %23, align 8
   ret ptr %22
@@ -13329,7 +13329,7 @@ arrayctor.loop.i.i:                               ; preds = %arrayctor.loop.i.i,
   %arrayctor.cur.ptr.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 %arrayctor.cur.idx.i.i
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes17HermesRuntimeImpl12ManagedValueIN6hermes2vm8WeakRootINS4_8JSObjectEEEEE, i64 16), ptr %arrayctor.cur.ptr.i.i, align 8
   %refCount_.i.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.i.i, i64 8
-  store i32 0, ptr %refCount_.i.i.i, align 4
+  store i32 0, ptr %refCount_.i.i.i, align 8
   %arrayctor.cur.add.i.i = add nuw nsw i64 %arrayctor.cur.idx.i.i, 24
   %arrayctor.done.i.i = icmp eq i64 %arrayctor.cur.add.i.i, 392
   br i1 %arrayctor.done.i.i, label %for.body.i, label %arrayctor.loop.i.i
@@ -13463,7 +13463,7 @@ arrayctor.loop.i.i10:                             ; preds = %arrayctor.loop.i.i1
   %arrayctor.cur.ptr.i.i12 = getelementptr inbounds nuw i8, ptr %call.i9, i64 %arrayctor.cur.idx.i.i11
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes17HermesRuntimeImpl12ManagedValueIN6hermes2vm8WeakRootINS4_8JSObjectEEEEE, i64 16), ptr %arrayctor.cur.ptr.i.i12, align 8
   %refCount_.i.i.i13 = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.i.i12, i64 8
-  store i32 0, ptr %refCount_.i.i.i13, align 4
+  store i32 0, ptr %refCount_.i.i.i13, align 8
   %arrayctor.cur.add.i.i14 = add nuw nsw i64 %arrayctor.cur.idx.i.i11, 24
   %arrayctor.done.i.i15 = icmp eq i64 %arrayctor.cur.add.i.i14, 392
   br i1 %arrayctor.done.i.i15, label %for.body.i16, label %arrayctor.loop.i.i10
@@ -13499,7 +13499,7 @@ if.end7:                                          ; preds = %if.end7.sink.split,
   %24 = load ptr, ptr %23, align 8
   store ptr %24, ptr %freeList_, align 8
   %refCount_.i = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store atomic i32 1, ptr %refCount_.i monotonic, align 4
+  store atomic i32 1, ptr %refCount_.i monotonic, align 8
   %25 = load i32, ptr %args, align 4
   store i32 %25, ptr %23, align 8
   ret ptr %22

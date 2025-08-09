@@ -434,7 +434,7 @@ _ZN21CompressedWriteStream9write_intEj.exit:      ; preds = %_ZN9UNSIGNED513fits
   %53 = load ptr, ptr %9, align 8
   tail call void @_ZN12MonitorValue8write_onEP20DebugInfoWriteStream(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr noundef %53) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %54 = load i32, ptr %1, align 4
+  %54 = load i32, ptr %1, align 8
   %55 = sext i32 %54 to i64
   %56 = icmp slt i64 %indvars.iv.next, %55
   br i1 %56, label %49, label %._crit_edge, !llvm.loop !10
@@ -737,7 +737,7 @@ _ZN21CompressedWriteStream9write_intEj.exit:      ; preds = %_ZN9UNSIGNED513fits
   %56 = load ptr, ptr %55, align 8
   tail call void %56(ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef %53) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %57 = load i32, ptr %1, align 4
+  %57 = load i32, ptr %1, align 8
   %58 = sext i32 %57 to i64
   %59 = icmp slt i64 %indvars.iv.next, %58
   br i1 %59, label %49, label %._crit_edge, !llvm.loop !12

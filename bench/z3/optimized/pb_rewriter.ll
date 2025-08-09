@@ -6795,9 +6795,9 @@ _ZngRK8rational.exit:                             ; preds = %_ZN8rationalC2ERKS_
   %117 = or disjoint i8 %116, %111
   store i8 %117, ptr %10, align 4
   %118 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  %119 = load i32, ptr %118, align 4, !tbaa !62
+  %119 = load i32, ptr %118, align 8, !tbaa !62
   %120 = load i32, ptr %12, align 8, !tbaa !62
-  store i32 %120, ptr %118, align 4, !tbaa !62
+  store i32 %120, ptr %118, align 8, !tbaa !62
   store i32 %119, ptr %12, align 8, !tbaa !62
   %121 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %122 = load ptr, ptr %121, align 8, !tbaa !202
@@ -7452,9 +7452,9 @@ _ZngRK8rational.exit:                             ; preds = %_ZN8rationalC2ERKS_
   %131 = or disjoint i8 %130, %125
   store i8 %131, ptr %45, align 4
   %132 = getelementptr inbounds nuw i8, ptr %108, i64 16
-  %133 = load i32, ptr %132, align 4, !tbaa !62
+  %133 = load i32, ptr %132, align 8, !tbaa !62
   %134 = load i32, ptr %47, align 8, !tbaa !62
-  store i32 %134, ptr %132, align 4, !tbaa !62
+  store i32 %134, ptr %132, align 8, !tbaa !62
   store i32 %133, ptr %47, align 8, !tbaa !62
   %135 = getelementptr inbounds nuw i8, ptr %108, i64 24
   %136 = load ptr, ptr %135, align 8, !tbaa !202
@@ -13560,9 +13560,9 @@ define linkonce_odr hidden void @_ZSt10__pop_heapIPSt4pairIP4expr8rationalEN9__g
   %28 = load ptr, ptr %0, align 8, !tbaa !36
   store ptr %28, ptr %2, align 8, !tbaa !200
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = load i32, ptr %29, align 4, !tbaa !62
-  store i32 %30, ptr %9, align 4, !tbaa !62
-  store i32 %10, ptr %29, align 4, !tbaa !62
+  %30 = load i32, ptr %29, align 8, !tbaa !62
+  store i32 %30, ptr %9, align 8, !tbaa !62
+  store i32 %10, ptr %29, align 8, !tbaa !62
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !202
   store ptr %32, ptr %16, align 8, !tbaa !202
@@ -13590,10 +13590,10 @@ define linkonce_odr hidden void @_ZSt10__pop_heapIPSt4pairIP4expr8rationalEN9__g
   %50 = or disjoint i8 %49, %44
   store i8 %50, ptr %35, align 4
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %52 = load i32, ptr %19, align 4, !tbaa !62
-  %53 = load i32, ptr %51, align 4, !tbaa !62
-  store i32 %53, ptr %19, align 4, !tbaa !62
-  store i32 %52, ptr %51, align 4, !tbaa !62
+  %52 = load i32, ptr %19, align 8, !tbaa !62
+  %53 = load i32, ptr %51, align 8, !tbaa !62
+  store i32 %53, ptr %19, align 8, !tbaa !62
+  store i32 %52, ptr %51, align 8, !tbaa !62
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %55 = load ptr, ptr %26, align 8, !tbaa !202
   %56 = load ptr, ptr %54, align 8, !tbaa !202
@@ -13712,7 +13712,7 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPSt4pairIP4expr8rationalElS
   %.phi.trans.insert34 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 12
   %.pre35 = load i8, ptr %.phi.trans.insert34, align 4
   %.phi.trans.insert36 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 24
-  %.pre37 = load i32, ptr %.phi.trans.insert36, align 4, !tbaa !62
+  %.pre37 = load i32, ptr %.phi.trans.insert36, align 8, !tbaa !62
   %.phi.trans.insert38 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 32
   %.pre39 = load ptr, ptr %.phi.trans.insert38, align 8, !tbaa !202
   %.phi.trans.insert40 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 28
@@ -13741,9 +13741,9 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPSt4pairIP4expr8rationalElS
   store ptr %25, ptr %24, align 8, !tbaa !200
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %28 = load i32, ptr %26, align 4, !tbaa !62
-  store i32 %28, ptr %27, align 4, !tbaa !62
-  store i32 %.pre, ptr %26, align 4, !tbaa !62
+  %28 = load i32, ptr %26, align 8, !tbaa !62
+  store i32 %28, ptr %27, align 8, !tbaa !62
+  store i32 %.pre, ptr %26, align 8, !tbaa !62
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !202
@@ -13773,9 +13773,9 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPSt4pairIP4expr8rationalElS
   store i8 %49, ptr %34, align 4
   %50 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %51 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %52 = load i32, ptr %51, align 4, !tbaa !62
-  store i32 %52, ptr %50, align 4, !tbaa !62
-  store i32 %.pre37, ptr %51, align 4, !tbaa !62
+  %52 = load i32, ptr %51, align 8, !tbaa !62
+  store i32 %52, ptr %50, align 8, !tbaa !62
+  store i32 %.pre37, ptr %51, align 8, !tbaa !62
   %53 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %54 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %55 = load ptr, ptr %54, align 8, !tbaa !202
@@ -13827,10 +13827,10 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPSt4pairIP4expr8rationalElS
   store ptr %86, ptr %85, align 8, !tbaa !200
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  %89 = load i32, ptr %88, align 4, !tbaa !62
-  %90 = load i32, ptr %87, align 4, !tbaa !62
-  store i32 %90, ptr %88, align 4, !tbaa !62
-  store i32 %89, ptr %87, align 4, !tbaa !62
+  %89 = load i32, ptr %88, align 8, !tbaa !62
+  %90 = load i32, ptr %87, align 8, !tbaa !62
+  store i32 %90, ptr %88, align 8, !tbaa !62
+  store i32 %89, ptr %87, align 8, !tbaa !62
   %91 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %92 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %93 = load ptr, ptr %91, align 8, !tbaa !202
@@ -13862,10 +13862,10 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPSt4pairIP4expr8rationalElS
   store i8 %113, ptr %98, align 4
   %114 = getelementptr inbounds nuw i8, ptr %85, i64 24
   %115 = getelementptr inbounds nuw i8, ptr %84, i64 24
-  %116 = load i32, ptr %114, align 4, !tbaa !62
-  %117 = load i32, ptr %115, align 4, !tbaa !62
-  store i32 %117, ptr %114, align 4, !tbaa !62
-  store i32 %116, ptr %115, align 4, !tbaa !62
+  %116 = load i32, ptr %114, align 8, !tbaa !62
+  %117 = load i32, ptr %115, align 8, !tbaa !62
+  store i32 %117, ptr %114, align 8, !tbaa !62
+  store i32 %116, ptr %115, align 8, !tbaa !62
   %118 = getelementptr inbounds nuw i8, ptr %85, i64 32
   %119 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %120 = load ptr, ptr %118, align 8, !tbaa !202
@@ -13983,9 +13983,9 @@ define linkonce_odr hidden void @_ZSt11__push_heapIPSt4pairIP4expr8rationalElS4_
   store ptr %8, ptr %14, align 8, !tbaa !200
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = load i32, ptr %16, align 4, !tbaa !62
+  %17 = load i32, ptr %16, align 8, !tbaa !62
   %18 = load i32, ptr %15, align 4, !tbaa !62
-  store i32 %18, ptr %16, align 4, !tbaa !62
+  store i32 %18, ptr %16, align 8, !tbaa !62
   store i32 %17, ptr %15, align 4, !tbaa !62
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -14018,10 +14018,10 @@ define linkonce_odr hidden void @_ZSt11__push_heapIPSt4pairIP4expr8rationalElS4_
   store i8 %41, ptr %26, align 4
   %42 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %44 = load i32, ptr %42, align 4, !tbaa !62
-  %45 = load i32, ptr %43, align 4, !tbaa !62
-  store i32 %45, ptr %42, align 4, !tbaa !62
-  store i32 %44, ptr %43, align 4, !tbaa !62
+  %44 = load i32, ptr %42, align 8, !tbaa !62
+  %45 = load i32, ptr %43, align 8, !tbaa !62
+  store i32 %45, ptr %42, align 8, !tbaa !62
+  store i32 %44, ptr %43, align 8, !tbaa !62
   %46 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %48 = load ptr, ptr %46, align 8, !tbaa !202
@@ -14061,10 +14061,10 @@ define linkonce_odr hidden void @_ZSt11__push_heapIPSt4pairIP4expr8rationalElS4_
   store ptr %71, ptr %70, align 8, !tbaa !200
   %72 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %74 = load i32, ptr %73, align 4, !tbaa !62
-  %75 = load i32, ptr %72, align 4, !tbaa !62
-  store i32 %75, ptr %73, align 4, !tbaa !62
-  store i32 %74, ptr %72, align 4, !tbaa !62
+  %74 = load i32, ptr %73, align 8, !tbaa !62
+  %75 = load i32, ptr %72, align 8, !tbaa !62
+  store i32 %75, ptr %73, align 8, !tbaa !62
+  store i32 %74, ptr %72, align 8, !tbaa !62
   %76 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %77 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %78 = load ptr, ptr %76, align 8, !tbaa !202
@@ -14096,10 +14096,10 @@ define linkonce_odr hidden void @_ZSt11__push_heapIPSt4pairIP4expr8rationalElS4_
   store i8 %98, ptr %83, align 4
   %99 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %100 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %101 = load i32, ptr %99, align 4, !tbaa !62
-  %102 = load i32, ptr %100, align 4, !tbaa !62
-  store i32 %102, ptr %99, align 4, !tbaa !62
-  store i32 %101, ptr %100, align 4, !tbaa !62
+  %101 = load i32, ptr %99, align 8, !tbaa !62
+  %102 = load i32, ptr %100, align 8, !tbaa !62
+  store i32 %102, ptr %99, align 8, !tbaa !62
+  store i32 %101, ptr %100, align 8, !tbaa !62
   %103 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %105 = load ptr, ptr %103, align 8, !tbaa !202
@@ -14153,10 +14153,10 @@ define linkonce_odr hidden void @_ZSt22__move_median_to_firstIPSt4pairIP4expr8ra
   store ptr %15, ptr %2, align 8, !tbaa !36
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %18 = load i32, ptr %16, align 4, !tbaa !62
-  %19 = load i32, ptr %17, align 4, !tbaa !62
-  store i32 %19, ptr %16, align 4, !tbaa !62
-  store i32 %18, ptr %17, align 4, !tbaa !62
+  %18 = load i32, ptr %16, align 8, !tbaa !62
+  %19 = load i32, ptr %17, align 8, !tbaa !62
+  store i32 %19, ptr %16, align 8, !tbaa !62
+  store i32 %18, ptr %17, align 8, !tbaa !62
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %22 = load ptr, ptr %20, align 8, !tbaa !202
@@ -14200,10 +14200,10 @@ define linkonce_odr hidden void @_ZSt22__move_median_to_firstIPSt4pairIP4expr8ra
   store ptr %10, ptr %0, align 8, !tbaa !36
   store ptr %45, ptr %3, align 8, !tbaa !36
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %51 = load i32, ptr %46, align 4, !tbaa !62
-  %52 = load i32, ptr %50, align 4, !tbaa !62
-  store i32 %52, ptr %46, align 4, !tbaa !62
-  store i32 %51, ptr %50, align 4, !tbaa !62
+  %51 = load i32, ptr %46, align 8, !tbaa !62
+  %52 = load i32, ptr %50, align 8, !tbaa !62
+  store i32 %52, ptr %46, align 8, !tbaa !62
+  store i32 %51, ptr %50, align 8, !tbaa !62
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %54 = load ptr, ptr %47, align 8, !tbaa !202
   %55 = load ptr, ptr %53, align 8, !tbaa !202
@@ -14237,10 +14237,10 @@ define linkonce_odr hidden void @_ZSt22__move_median_to_firstIPSt4pairIP4expr8ra
   store ptr %5, ptr %0, align 8, !tbaa !36
   store ptr %45, ptr %1, align 8, !tbaa !36
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %76 = load i32, ptr %46, align 4, !tbaa !62
-  %77 = load i32, ptr %75, align 4, !tbaa !62
-  store i32 %77, ptr %46, align 4, !tbaa !62
-  store i32 %76, ptr %75, align 4, !tbaa !62
+  %76 = load i32, ptr %46, align 8, !tbaa !62
+  %77 = load i32, ptr %75, align 8, !tbaa !62
+  store i32 %77, ptr %46, align 8, !tbaa !62
+  store i32 %76, ptr %75, align 8, !tbaa !62
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %79 = load ptr, ptr %47, align 8, !tbaa !202
   %80 = load ptr, ptr %78, align 8, !tbaa !202
@@ -14280,10 +14280,10 @@ define linkonce_odr hidden void @_ZSt22__move_median_to_firstIPSt4pairIP4expr8ra
   store ptr %102, ptr %1, align 8, !tbaa !36
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %105 = load i32, ptr %103, align 4, !tbaa !62
-  %106 = load i32, ptr %104, align 4, !tbaa !62
-  store i32 %106, ptr %103, align 4, !tbaa !62
-  store i32 %105, ptr %104, align 4, !tbaa !62
+  %105 = load i32, ptr %103, align 8, !tbaa !62
+  %106 = load i32, ptr %104, align 8, !tbaa !62
+  store i32 %106, ptr %103, align 8, !tbaa !62
+  store i32 %105, ptr %104, align 8, !tbaa !62
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %109 = load ptr, ptr %107, align 8, !tbaa !202
@@ -14327,10 +14327,10 @@ define linkonce_odr hidden void @_ZSt22__move_median_to_firstIPSt4pairIP4expr8ra
   store ptr %10, ptr %0, align 8, !tbaa !36
   store ptr %132, ptr %3, align 8, !tbaa !36
   %137 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %138 = load i32, ptr %133, align 4, !tbaa !62
-  %139 = load i32, ptr %137, align 4, !tbaa !62
-  store i32 %139, ptr %133, align 4, !tbaa !62
-  store i32 %138, ptr %137, align 4, !tbaa !62
+  %138 = load i32, ptr %133, align 8, !tbaa !62
+  %139 = load i32, ptr %137, align 8, !tbaa !62
+  store i32 %139, ptr %133, align 8, !tbaa !62
+  store i32 %138, ptr %137, align 8, !tbaa !62
   %140 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %141 = load ptr, ptr %134, align 8, !tbaa !202
   %142 = load ptr, ptr %140, align 8, !tbaa !202
@@ -14364,10 +14364,10 @@ define linkonce_odr hidden void @_ZSt22__move_median_to_firstIPSt4pairIP4expr8ra
   store ptr %7, ptr %0, align 8, !tbaa !36
   store ptr %132, ptr %2, align 8, !tbaa !36
   %162 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %163 = load i32, ptr %133, align 4, !tbaa !62
-  %164 = load i32, ptr %162, align 4, !tbaa !62
-  store i32 %164, ptr %133, align 4, !tbaa !62
-  store i32 %163, ptr %162, align 4, !tbaa !62
+  %163 = load i32, ptr %133, align 8, !tbaa !62
+  %164 = load i32, ptr %162, align 8, !tbaa !62
+  store i32 %164, ptr %133, align 8, !tbaa !62
+  store i32 %163, ptr %162, align 8, !tbaa !62
   %165 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %166 = load ptr, ptr %134, align 8, !tbaa !202
   %167 = load ptr, ptr %165, align 8, !tbaa !202
@@ -14476,9 +14476,9 @@ define linkonce_odr hidden noundef ptr @_ZSt21__unguarded_partitionIPSt4pairIP4e
   store ptr %8, ptr %.114, align 8, !tbaa !36
   %19 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %20 = getelementptr inbounds i8, ptr %.013.pn, i64 -32
-  %21 = load i32, ptr %19, align 4, !tbaa !62
+  %21 = load i32, ptr %19, align 8, !tbaa !62
   %22 = load i32, ptr %20, align 4, !tbaa !62
-  store i32 %22, ptr %19, align 4, !tbaa !62
+  store i32 %22, ptr %19, align 8, !tbaa !62
   store i32 %21, ptr %20, align 4, !tbaa !62
   %23 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %24 = getelementptr inbounds i8, ptr %.013.pn, i64 -24
@@ -14511,10 +14511,10 @@ define linkonce_odr hidden noundef ptr @_ZSt21__unguarded_partitionIPSt4pairIP4e
   store i8 %45, ptr %30, align 4
   %46 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %47 = getelementptr inbounds i8, ptr %.013.pn, i64 -16
-  %48 = load i32, ptr %46, align 4, !tbaa !62
-  %49 = load i32, ptr %47, align 4, !tbaa !62
-  store i32 %49, ptr %46, align 4, !tbaa !62
-  store i32 %48, ptr %47, align 4, !tbaa !62
+  %48 = load i32, ptr %46, align 8, !tbaa !62
+  %49 = load i32, ptr %47, align 8, !tbaa !62
+  store i32 %49, ptr %46, align 8, !tbaa !62
+  store i32 %48, ptr %47, align 8, !tbaa !62
   %50 = getelementptr inbounds nuw i8, ptr %.1, i64 32
   %51 = getelementptr inbounds i8, ptr %.013.pn, i64 -8
   %52 = load ptr, ptr %50, align 8, !tbaa !202
@@ -14621,9 +14621,9 @@ define linkonce_odr hidden void @_ZSt16__insertion_sortIPSt4pairIP4expr8rational
   %45 = call noundef ptr @_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIPSt4pairIP4expr8rationalES8_EET0_T_SA_S9_(ptr noundef nonnull %0, ptr noundef nonnull %.020, ptr noundef nonnull %44)
   %46 = load ptr, ptr %3, align 8, !tbaa !36
   store ptr %46, ptr %0, align 8, !tbaa !200
-  %47 = load i32, ptr %11, align 4, !tbaa !62
+  %47 = load i32, ptr %11, align 8, !tbaa !62
   %48 = load i32, ptr %5, align 8, !tbaa !62
-  store i32 %48, ptr %11, align 4, !tbaa !62
+  store i32 %48, ptr %11, align 8, !tbaa !62
   store i32 %47, ptr %5, align 8, !tbaa !62
   %49 = load ptr, ptr %12, align 8, !tbaa !202
   %50 = load ptr, ptr %7, align 8, !tbaa !202
@@ -14639,9 +14639,9 @@ define linkonce_odr hidden void @_ZSt16__insertion_sortIPSt4pairIP4expr8rational
   %57 = and i8 %51, 3
   %58 = or disjoint i8 %54, %57
   store i8 %58, ptr %6, align 4
-  %59 = load i32, ptr %14, align 4, !tbaa !62
+  %59 = load i32, ptr %14, align 8, !tbaa !62
   %60 = load i32, ptr %8, align 8, !tbaa !62
-  store i32 %60, ptr %14, align 4, !tbaa !62
+  store i32 %60, ptr %14, align 8, !tbaa !62
   store i32 %59, ptr %8, align 8, !tbaa !62
   %61 = load ptr, ptr %15, align 8, !tbaa !202
   %62 = load ptr, ptr %10, align 8, !tbaa !202
@@ -14737,10 +14737,10 @@ define linkonce_odr hidden void @_ZSt25__unguarded_linear_insertIPSt4pairIP4expr
   store ptr %28, ptr %.012, align 8, !tbaa !200
   %29 = getelementptr inbounds i8, ptr %.012, i64 -32
   %30 = getelementptr inbounds nuw i8, ptr %.012, i64 8
-  %31 = load i32, ptr %30, align 4, !tbaa !62
-  %32 = load i32, ptr %29, align 4, !tbaa !62
-  store i32 %32, ptr %30, align 4, !tbaa !62
-  store i32 %31, ptr %29, align 4, !tbaa !62
+  %31 = load i32, ptr %30, align 8, !tbaa !62
+  %32 = load i32, ptr %29, align 8, !tbaa !62
+  store i32 %32, ptr %30, align 8, !tbaa !62
+  store i32 %31, ptr %29, align 8, !tbaa !62
   %33 = getelementptr inbounds nuw i8, ptr %.012, i64 16
   %34 = getelementptr inbounds i8, ptr %.012, i64 -24
   %35 = load ptr, ptr %33, align 8, !tbaa !202
@@ -14761,10 +14761,10 @@ define linkonce_odr hidden void @_ZSt25__unguarded_linear_insertIPSt4pairIP4expr
   store i8 %46, ptr %39, align 4
   %47 = getelementptr inbounds nuw i8, ptr %.012, i64 24
   %48 = getelementptr inbounds i8, ptr %.012, i64 -16
-  %49 = load i32, ptr %47, align 4, !tbaa !62
-  %50 = load i32, ptr %48, align 4, !tbaa !62
-  store i32 %50, ptr %47, align 4, !tbaa !62
-  store i32 %49, ptr %48, align 4, !tbaa !62
+  %49 = load i32, ptr %47, align 8, !tbaa !62
+  %50 = load i32, ptr %48, align 8, !tbaa !62
+  store i32 %50, ptr %47, align 8, !tbaa !62
+  store i32 %49, ptr %48, align 8, !tbaa !62
   %51 = getelementptr inbounds nuw i8, ptr %.012, i64 32
   %52 = getelementptr inbounds i8, ptr %.012, i64 -8
   %53 = load ptr, ptr %51, align 8, !tbaa !202
@@ -14796,7 +14796,7 @@ define linkonce_odr hidden void @_ZSt25__unguarded_linear_insertIPSt4pairIP4expr
   %.phi.trans.insert14 = getelementptr inbounds nuw i8, ptr %.01013, i64 16
   %.pre15 = load ptr, ptr %.phi.trans.insert14, align 8, !tbaa !202
   %.phi.trans.insert16 = getelementptr inbounds nuw i8, ptr %.01013, i64 24
-  %.pre17 = load i32, ptr %.phi.trans.insert16, align 4, !tbaa !62
+  %.pre17 = load i32, ptr %.phi.trans.insert16, align 8, !tbaa !62
   %.phi.trans.insert18 = getelementptr inbounds nuw i8, ptr %.01013, i64 32
   %.pre19 = load ptr, ptr %.phi.trans.insert18, align 8, !tbaa !202
   br label %._crit_edge
@@ -14809,7 +14809,7 @@ define linkonce_odr hidden void @_ZSt25__unguarded_linear_insertIPSt4pairIP4expr
   %.0.lcssa = phi ptr [ %0, %1 ], [ %.01013, %._crit_edge.loopexit ]
   store ptr %3, ptr %.0.lcssa, align 8, !tbaa !200
   %73 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 8
-  store i32 %6, ptr %73, align 4, !tbaa !62
+  store i32 %6, ptr %73, align 8, !tbaa !62
   store i32 %72, ptr %4, align 8, !tbaa !62
   %74 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 16
   store ptr %13, ptr %74, align 8, !tbaa !202
@@ -14823,7 +14823,7 @@ define linkonce_odr hidden void @_ZSt25__unguarded_linear_insertIPSt4pairIP4expr
   %80 = and i8 %76, 3
   store i8 %80, ptr %7, align 4
   %81 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 24
-  store i32 %16, ptr %81, align 4, !tbaa !62
+  store i32 %16, ptr %81, align 8, !tbaa !62
   store i32 %70, ptr %14, align 8, !tbaa !62
   %82 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 32
   store ptr %23, ptr %82, align 8, !tbaa !202
@@ -14878,10 +14878,10 @@ define linkonce_odr hidden noundef ptr @_ZNSt20__copy_move_backwardILb1ELb0ESt26
   store ptr %11, ptr %10, align 8, !tbaa !200
   %12 = getelementptr inbounds i8, ptr %.078, i64 -32
   %13 = getelementptr inbounds i8, ptr %.069, i64 -32
-  %14 = load i32, ptr %13, align 4, !tbaa !62
-  %15 = load i32, ptr %12, align 4, !tbaa !62
-  store i32 %15, ptr %13, align 4, !tbaa !62
-  store i32 %14, ptr %12, align 4, !tbaa !62
+  %14 = load i32, ptr %13, align 8, !tbaa !62
+  %15 = load i32, ptr %12, align 8, !tbaa !62
+  store i32 %15, ptr %13, align 8, !tbaa !62
+  store i32 %14, ptr %12, align 8, !tbaa !62
   %16 = getelementptr inbounds i8, ptr %.069, i64 -24
   %17 = getelementptr inbounds i8, ptr %.078, i64 -24
   %18 = load ptr, ptr %16, align 8, !tbaa !202
@@ -14913,10 +14913,10 @@ define linkonce_odr hidden noundef ptr @_ZNSt20__copy_move_backwardILb1ELb0ESt26
   store i8 %38, ptr %23, align 4
   %39 = getelementptr inbounds i8, ptr %.069, i64 -16
   %40 = getelementptr inbounds i8, ptr %.078, i64 -16
-  %41 = load i32, ptr %39, align 4, !tbaa !62
-  %42 = load i32, ptr %40, align 4, !tbaa !62
-  store i32 %42, ptr %39, align 4, !tbaa !62
-  store i32 %41, ptr %40, align 4, !tbaa !62
+  %41 = load i32, ptr %39, align 8, !tbaa !62
+  %42 = load i32, ptr %40, align 8, !tbaa !62
+  store i32 %42, ptr %39, align 8, !tbaa !62
+  store i32 %41, ptr %40, align 8, !tbaa !62
   %43 = getelementptr inbounds i8, ptr %.069, i64 -8
   %44 = getelementptr inbounds i8, ptr %.078, i64 -8
   %45 = load ptr, ptr %43, align 8, !tbaa !202

@@ -849,7 +849,7 @@ delete.notnull.i.i:                               ; preds = %if.end.i.i.i.i.i.i.
   %sourceLocation_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i49, i64 68
   %envReg.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i49, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %sourceLocation_.i.i.i, i8 0, i64 28, i1 false), !noalias !5
-  store i32 -1, ptr %envReg.i.i.i.i, align 4, !noalias !5
+  store i32 -1, ptr %envReg.i.i.i.i, align 8, !noalias !5
   %debugLocations_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i49, i64 104
   %lazyFunctions_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i49, i64 160
   store i8 0, ptr %lazyFunctions_.i.i.i, align 8, !noalias !5
@@ -1064,7 +1064,7 @@ _ZNSt10unique_ptrIN6hermes3hbc25BytecodeFunctionGeneratorESt14default_deleteIS2_
   %sourceLocation_.i.i99.i = getelementptr inbounds nuw i8, ptr %call.i95.i, i64 68
   %envReg.i.i.i100.i = getelementptr inbounds nuw i8, ptr %call.i95.i, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %sourceLocation_.i.i99.i, i8 0, i64 28, i1 false), !noalias !8
-  store i32 -1, ptr %envReg.i.i.i100.i, align 4, !noalias !8
+  store i32 -1, ptr %envReg.i.i.i100.i, align 8, !noalias !8
   %debugLocations_.i.i101.i = getelementptr inbounds nuw i8, ptr %call.i95.i, i64 104
   %lazyFunctions_.i.i102.i = getelementptr inbounds nuw i8, ptr %call.i95.i, i64 160
   store i8 0, ptr %lazyFunctions_.i.i102.i, align 8, !noalias !8

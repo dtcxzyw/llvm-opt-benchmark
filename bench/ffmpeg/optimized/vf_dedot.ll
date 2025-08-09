@@ -227,7 +227,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   %87 = load ptr, ptr %86, align 8, !tbaa !41
   %88 = call i32 @ff_filter_get_nb_threads(ptr noundef nonnull %0) #8
   %89 = getelementptr inbounds nuw i8, ptr %14, i64 96
-  %90 = load i32, ptr %89, align 4, !tbaa !37
+  %90 = load i32, ptr %89, align 8, !tbaa !37
   %.119 = call i32 @llvm.smin.i32(i32 %88, i32 %90)
   %91 = call i32 @ff_filter_execute(ptr noundef nonnull %0, ptr noundef %87, ptr noundef nonnull %6, ptr noundef null, i32 noundef %.119) #7
   store i32 2, ptr %85, align 8, !tbaa !40
@@ -421,11 +421,11 @@ define internal range(i32 -558323010, 1) i32 @config_output(ptr noundef readonly
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 84
   store i32 %49, ptr %51, align 4, !tbaa !37
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i32 %49, ptr %52, align 4, !tbaa !37
+  store i32 %49, ptr %52, align 8, !tbaa !37
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %54 = load i32, ptr %53, align 8, !tbaa !73
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  store i32 %54, ptr %55, align 4, !tbaa !37
+  store i32 %54, ptr %55, align 8, !tbaa !37
   store i32 %54, ptr %50, align 4, !tbaa !37
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 44
   %57 = load i32, ptr %56, align 4, !tbaa !76
@@ -439,11 +439,11 @@ define internal range(i32 -558323010, 1) i32 @config_output(ptr noundef readonly
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 100
   store i32 %63, ptr %65, align 4, !tbaa !37
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  store i32 %63, ptr %66, align 4, !tbaa !37
+  store i32 %63, ptr %66, align 8, !tbaa !37
   %67 = getelementptr inbounds nuw i8, ptr %7, i64 44
   %68 = load i32, ptr %67, align 4, !tbaa !76
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  store i32 %68, ptr %69, align 4, !tbaa !37
+  store i32 %68, ptr %69, align 8, !tbaa !37
   store i32 %68, ptr %64, align 4, !tbaa !37
   %70 = icmp slt i32 %17, 9
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 152

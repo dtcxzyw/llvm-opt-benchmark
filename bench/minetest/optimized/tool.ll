@@ -433,7 +433,7 @@ cleanup.cont.i.i:                                 ; preds = %lor.lhs.false.i.i.i
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
   store ptr null, ptr %call5.i.i.i.i.i.i, align 8, !tbaa !17
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 8
-  store i32 %i.040, ptr %add.ptr.i.i.i.i, align 4, !tbaa !23
+  store i32 %i.040, ptr %add.ptr.i.i.i.i, align 8, !tbaa !23
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 12
   store float 0.000000e+00, ptr %second.i.i.i.i.i.i.i.i, align 4, !tbaa !25
   %call7.i.i = invoke ptr @_ZNSt10_HashtableIiSt4pairIKifESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS4_10_Hash_nodeIS2_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %rem.i.i.i.i.i, i64 noundef %conv.i.i.i.i, ptr noundef nonnull %call5.i.i.i.i.i.i, i64 noundef 1)
@@ -1231,7 +1231,7 @@ cleanup.cont.i.i:                                 ; preds = %lor.lhs.false.i.i.i
 call5.i.i.i.i.i.i.noexc:                          ; preds = %cleanup.cont.i.i
   store ptr null, ptr %call5.i.i.i.i.i.i148, align 8, !tbaa !17
   %add.ptr.i.i.i.i147 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i148, i64 8
-  store i32 %conv31, ptr %add.ptr.i.i.i.i147, align 4, !tbaa !23
+  store i32 %conv31, ptr %add.ptr.i.i.i.i147, align 8, !tbaa !23
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i148, i64 12
   store float 0.000000e+00, ptr %second.i.i.i.i.i.i.i.i, align 4, !tbaa !25
   %36 = load i64, ptr %_M_next_resize.i.i.i.i, align 8, !tbaa !57
@@ -1301,7 +1301,7 @@ while.body.i:                                     ; preds = %_ZNSt10_HashtableIi
   %__bbegin_bkt.043.i = phi i64 [ %__bbegin_bkt.1.i, %if.end22.i ], [ 0, %_ZNSt10_HashtableIiSt4pairIKifESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i ]
   %42 = load ptr, ptr %__p.044.i, align 8, !tbaa !17
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %__p.044.i, i64 8
-  %43 = load i32, ptr %add.ptr.i, align 4, !tbaa !20
+  %43 = load i32, ptr %add.ptr.i, align 8, !tbaa !20
   %conv.i.i.i.i25 = sext i32 %43 to i64
   %rem.i.i.i = urem i64 %conv.i.i.i.i25, %40
   %arrayidx.i = getelementptr inbounds ptr, ptr %retval.0.i.i, i64 %rem.i.i.i
@@ -5939,7 +5939,7 @@ invoke.cont13:                                    ; preds = %if.end.i63, %if.the
   store ptr null, ptr %call5.i.i.i.sink16.i, align 8, !tbaa !17
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.sink16.i, i64 8
   %5 = load i64, ptr %add.ptr, align 4
-  store i64 %5, ptr %add.ptr.i.i, align 4
+  store i64 %5, ptr %add.ptr.i.i, align 8
   %_M_before_begin.i65 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i.sink16.i, ptr %_M_before_begin.i65, align 8, !tbaa !50
   %6 = load ptr, ptr %this, align 8, !tbaa !18
@@ -5976,7 +5976,7 @@ invoke.cont20:                                    ; preds = %if.end.i71, %if.the
   store ptr null, ptr %call5.i.i.i.sink16.i69, align 8, !tbaa !17
   %add.ptr.i.i70 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.sink16.i69, i64 8
   %10 = load i64, ptr %add.ptr16, align 4
-  store i64 %10, ptr %add.ptr.i.i70, align 4
+  store i64 %10, ptr %add.ptr.i.i70, align 8
   store ptr %call5.i.i.i.sink16.i69, ptr %__prev_n.077, align 8, !tbaa !17
   %11 = load i64, ptr %_M_bucket_count.i.i.i, align 8, !tbaa !52
   %sext79 = shl i64 %10, 32
@@ -6575,7 +6575,7 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIi
   %__bbegin_bkt.043 = phi i64 [ %__bbegin_bkt.1, %if.end22 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKifESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %1 = load ptr, ptr %__p.044, align 8, !tbaa !17
   %add.ptr = getelementptr inbounds nuw i8, ptr %__p.044, i64 8
-  %2 = load i32, ptr %add.ptr, align 4, !tbaa !20
+  %2 = load i32, ptr %add.ptr, align 8, !tbaa !20
   %conv.i.i.i = sext i32 %2 to i64
   %rem.i.i = urem i64 %conv.i.i.i, %__bkt_count
   %arrayidx = getelementptr inbounds ptr, ptr %retval.0.i, i64 %rem.i.i

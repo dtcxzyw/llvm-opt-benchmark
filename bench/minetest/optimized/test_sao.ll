@@ -3228,7 +3228,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %if
   store i64 %5, ptr %_M_string_length.i24.i, align 8, !tbaa !14
   store ptr %2, ptr %in_message, align 8, !tbaa !11
   store i64 0, ptr %_M_string_length.i23.i, align 8, !tbaa !14
-  store i8 0, ptr %2, align 1, !tbaa !13
+  store i8 0, ptr %2, align 8, !tbaa !13
   %call = invoke noundef ptr @_ZN2fs19GetFilenameFromPathEPKc(ptr noundef %in_file)
           to label %invoke.cont unwind label %lpad
 
@@ -10193,7 +10193,7 @@ _ZSt19__relocate_object_aI12StaticObjectS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i: ; pr
   store i64 %16, ptr %_M_string_length.i24.i.i.i.i.i.i.i.i, align 8, !tbaa !14, !alias.scope !319, !noalias !322
   store ptr %13, ptr %data3.i.i.i.i.i.i.i, align 8, !tbaa !11, !alias.scope !322, !noalias !319
   store i64 0, ptr %_M_string_length.i23.i.i.i.i.i.i.i.i, align 8, !tbaa !14, !alias.scope !322, !noalias !319
-  store i8 0, ptr %13, align 1, !tbaa !13, !alias.scope !322, !noalias !319
+  store i8 0, ptr %13, align 8, !tbaa !13, !alias.scope !322, !noalias !319
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 48
   %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 48
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
@@ -10244,7 +10244,7 @@ _ZSt19__relocate_object_aI12StaticObjectS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i59: ; 
   store i64 %22, ptr %_M_string_length.i24.i.i.i.i.i.i.i.i61, align 8, !tbaa !14, !alias.scope !326, !noalias !329
   store ptr %19, ptr %data3.i.i.i.i.i.i.i54, align 8, !tbaa !11, !alias.scope !329, !noalias !326
   store i64 0, ptr %_M_string_length.i23.i.i.i.i.i.i.i.i60, align 8, !tbaa !14, !alias.scope !329, !noalias !326
-  store i8 0, ptr %19, align 1, !tbaa !13, !alias.scope !329, !noalias !326
+  store i8 0, ptr %19, align 8, !tbaa !13, !alias.scope !329, !noalias !326
   %incdec.ptr.i.i.i62 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i52, i64 48
   %incdec.ptr1.i.i.i63 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i51, i64 48
   %cmp.not.i.i.i64 = icmp eq ptr %incdec.ptr.i.i.i62, %0

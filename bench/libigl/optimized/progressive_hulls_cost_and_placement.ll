@@ -761,7 +761,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %349 = load double, ptr %348, align 8, !tbaa !22
   %350 = fmul double %349, 1.000000e-01
   %351 = fsub double %347, %350
-  store double %351, ptr %344, align 8, !tbaa !22
+  store double %351, ptr %344, align 16, !tbaa !22
   %352 = load i64, ptr %51, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i64 0, ptr %23, align 8

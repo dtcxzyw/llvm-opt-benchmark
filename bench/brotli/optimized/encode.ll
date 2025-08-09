@@ -738,7 +738,7 @@ EncodeWindowBits.exit.i:                          ; preds = %103, %100, %97, %96
   %.sink18.i.i = phi i16 [ %102, %100 ], [ %105, %103 ], [ 1, %97 ], [ %95, %92 ], [ 0, %96 ]
   %.sink.i.i = phi i8 [ 4, %100 ], [ 7, %103 ], [ 7, %97 ], [ 14, %92 ], [ 1, %96 ]
   store i16 %.sink18.i.i, ptr %14, align 2, !tbaa !80
-  store i8 %.sink.i.i, ptr %13, align 1, !tbaa !70
+  store i8 %.sink.i.i, ptr %13, align 2, !tbaa !70
   br label %111
 
 106:                                              ; preds = %75
@@ -973,7 +973,7 @@ InjectBytePaddingBlock.exit.i.i:                  ; preds = %179, %174, %171
   %217 = load i8, ptr %147, align 2, !tbaa !75
   %218 = zext i8 %217 to i64
   %219 = load i16, ptr %148, align 8, !tbaa !76
-  store i16 %219, ptr %151, align 1
+  store i16 %219, ptr %151, align 8
   store i16 0, ptr %148, align 8, !tbaa !76
   store i8 0, ptr %147, align 2, !tbaa !75
   %220 = lshr i64 %218, 3
@@ -3406,9 +3406,9 @@ HasherSetup.exit:                                 ; preds = %427, %PrepareH2.exi
   %737 = mul i32 %.0.copyload.i.i.i279, 506832829
   %738 = lshr i32 %737, 17
   %739 = zext nneg i32 %738 to i64
-  %740 = load i16, ptr %727, align 2, !tbaa !80, !alias.scope !318, !noalias !321
+  %740 = load i16, ptr %727, align 8, !tbaa !80, !alias.scope !318, !noalias !321
   %741 = add i16 %740, 1
-  store i16 %741, ptr %727, align 2, !tbaa !80, !alias.scope !318, !noalias !321
+  store i16 %741, ptr %727, align 8, !tbaa !80, !alias.scope !318, !noalias !321
   %742 = zext i16 %740 to i64
   %743 = getelementptr inbounds nuw i32, ptr %730, i64 %739
   %744 = load i32, ptr %743, align 4, !tbaa !59, !noalias !326
@@ -3442,9 +3442,9 @@ HasherSetup.exit:                                 ; preds = %427, %PrepareH2.exi
   %763 = mul i32 %.0.copyload.i.i.i277, 506832829
   %764 = lshr i32 %763, 17
   %765 = zext nneg i32 %764 to i64
-  %766 = load i16, ptr %727, align 2, !tbaa !80, !alias.scope !330, !noalias !333
+  %766 = load i16, ptr %727, align 8, !tbaa !80, !alias.scope !330, !noalias !333
   %767 = add i16 %766, 1
-  store i16 %767, ptr %727, align 2, !tbaa !80, !alias.scope !330, !noalias !333
+  store i16 %767, ptr %727, align 8, !tbaa !80, !alias.scope !330, !noalias !333
   %768 = zext i16 %766 to i64
   %769 = getelementptr inbounds nuw i32, ptr %757, i64 %765
   %770 = load i32, ptr %769, align 4, !tbaa !59, !noalias !338
@@ -3478,9 +3478,9 @@ HasherSetup.exit:                                 ; preds = %427, %PrepareH2.exi
   %789 = mul i32 %.0.copyload.i.i.i276, 506832829
   %790 = lshr i32 %789, 17
   %791 = zext nneg i32 %790 to i64
-  %792 = load i16, ptr %727, align 2, !tbaa !80, !alias.scope !339, !noalias !342
+  %792 = load i16, ptr %727, align 8, !tbaa !80, !alias.scope !339, !noalias !342
   %793 = add i16 %792, 1
-  store i16 %793, ptr %727, align 2, !tbaa !80, !alias.scope !339, !noalias !342
+  store i16 %793, ptr %727, align 8, !tbaa !80, !alias.scope !339, !noalias !342
   %794 = zext i16 %792 to i64
   %795 = getelementptr inbounds nuw i32, ptr %783, i64 %791
   %796 = load i32, ptr %795, align 4, !tbaa !59, !noalias !347
@@ -3526,9 +3526,9 @@ HasherSetup.exit:                                 ; preds = %427, %PrepareH2.exi
   %822 = mul i32 %.0.copyload.i.i.i285, 506832829
   %823 = lshr i32 %822, 17
   %824 = zext nneg i32 %823 to i64
-  %825 = load i16, ptr %812, align 2, !tbaa !80, !alias.scope !348, !noalias !351
+  %825 = load i16, ptr %812, align 8, !tbaa !80, !alias.scope !348, !noalias !351
   %826 = add i16 %825, 1
-  store i16 %826, ptr %812, align 2, !tbaa !80, !alias.scope !348, !noalias !351
+  store i16 %826, ptr %812, align 8, !tbaa !80, !alias.scope !348, !noalias !351
   %827 = zext i16 %825 to i64
   %828 = getelementptr inbounds nuw i32, ptr %815, i64 %824
   %829 = load i32, ptr %828, align 4, !tbaa !59, !noalias !356
@@ -3562,9 +3562,9 @@ HasherSetup.exit:                                 ; preds = %427, %PrepareH2.exi
   %848 = mul i32 %.0.copyload.i.i.i283, 506832829
   %849 = lshr i32 %848, 17
   %850 = zext nneg i32 %849 to i64
-  %851 = load i16, ptr %812, align 2, !tbaa !80, !alias.scope !360, !noalias !363
+  %851 = load i16, ptr %812, align 8, !tbaa !80, !alias.scope !360, !noalias !363
   %852 = add i16 %851, 1
-  store i16 %852, ptr %812, align 2, !tbaa !80, !alias.scope !360, !noalias !363
+  store i16 %852, ptr %812, align 8, !tbaa !80, !alias.scope !360, !noalias !363
   %853 = zext i16 %851 to i64
   %854 = getelementptr inbounds nuw i32, ptr %842, i64 %850
   %855 = load i32, ptr %854, align 4, !tbaa !59, !noalias !368
@@ -3598,9 +3598,9 @@ HasherSetup.exit:                                 ; preds = %427, %PrepareH2.exi
   %874 = mul i32 %.0.copyload.i.i.i281, 506832829
   %875 = lshr i32 %874, 17
   %876 = zext nneg i32 %875 to i64
-  %877 = load i16, ptr %812, align 2, !tbaa !80, !alias.scope !369, !noalias !372
+  %877 = load i16, ptr %812, align 8, !tbaa !80, !alias.scope !369, !noalias !372
   %878 = add i16 %877, 1
-  store i16 %878, ptr %812, align 2, !tbaa !80, !alias.scope !369, !noalias !372
+  store i16 %878, ptr %812, align 8, !tbaa !80, !alias.scope !369, !noalias !372
   %879 = zext i16 %877 to i64
   %880 = getelementptr inbounds nuw i32, ptr %868, i64 %876
   %881 = load i32, ptr %880, align 4, !tbaa !59, !noalias !377

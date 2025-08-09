@@ -12199,7 +12199,7 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit.i:          ; preds = %190
   %193 = load i64, ptr %192, align 8
   store i64 %193, ptr %9, align 16
   %194 = getelementptr inbounds nuw i8, ptr %.044, i64 88
-  %195 = load i32, ptr %194, align 4
+  %195 = load i32, ptr %194, align 8
   %196 = lshr i64 %193, 32
   %197 = trunc nuw i64 %196 to i32
   store i32 %195, ptr %67, align 8

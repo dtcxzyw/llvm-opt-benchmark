@@ -1473,7 +1473,7 @@ lean_alloc_ctor.exit:                             ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i64 1, ptr %12, align 8, !tbaa !8
-  store i32 1, ptr %8, align 4, !tbaa !10
+  store i32 1, ptr %8, align 8, !tbaa !10
   store i32 327736, ptr %11, align 4
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %7, ptr %13, align 8, !tbaa !4
@@ -5975,7 +5975,7 @@ _init_l_main___lambda__1___closed__1.exit:        ; preds = %_init_l_List_forIn_
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i64 65793, ptr %48, align 8, !tbaa !8
-  store i32 1, ptr %44, align 4, !tbaa !10
+  store i32 1, ptr %44, align 8, !tbaa !10
   store i32 16, ptr %47, align 4
   store ptr %44, ptr @l_main___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %44) #3
@@ -6236,7 +6236,7 @@ lean_alloc_ctor.exit:                             ; preds = %.lr.ph
   %31 = ptrtoint ptr %.020.val25 to i64
   %32 = lshr i64 %31, 1
   %33 = trunc i64 %32 to i32
-  %34 = load i32, ptr %.020, align 4, !tbaa !10
+  %34 = load i32, ptr %.020, align 8, !tbaa !10
   %35 = icmp sgt i32 %34, 1
   br i1 %35, label %36, label %38, !prof !13
 

@@ -32807,7 +32807,7 @@ define linkonce_odr hidden noundef i64 @_ZN4entt9dense_mapIiiSt4hashIiESt8equal_
   %40 = getelementptr inbounds nuw i64, ptr %7, i64 %39
   %41 = load i64, ptr %35, align 8, !tbaa !70
   store i64 %41, ptr %20, align 8, !tbaa !70
-  store i32 %37, ptr %34, align 4, !tbaa !284
+  store i32 %37, ptr %34, align 8, !tbaa !284
   %42 = getelementptr inbounds i8, ptr %27, i64 -4
   %43 = load i32, ptr %42, align 4, !tbaa !69
   %44 = getelementptr inbounds nuw i8, ptr %20, i64 12
@@ -39300,7 +39300,7 @@ _ZN4entt9dense_mapIiiSt4hashIiESt8equal_toIvESaISt4pairIKiiEEE16constrained_find
   %439 = load i64, ptr %427, align 8, !tbaa !68
   store i64 %439, ptr %435, align 8, !tbaa !70
   %440 = getelementptr inbounds nuw i8, ptr %435, i64 8
-  store i32 1, ptr %440, align 4, !tbaa !284
+  store i32 1, ptr %440, align 8, !tbaa !284
   %441 = getelementptr inbounds nuw i8, ptr %435, i64 12
   store i32 2, ptr %441, align 4, !tbaa !285
   %442 = getelementptr inbounds nuw i8, ptr %435, i64 16
@@ -39339,7 +39339,7 @@ _ZNKSt6vectorIN4entt8internal14dense_map_nodeIiiEESaIS3_EE12_M_check_lenEmPKc.ex
   %457 = load i64, ptr %427, align 8, !tbaa !68
   store i64 %457, ptr %456, align 8, !tbaa !70
   %458 = getelementptr inbounds nuw i8, ptr %456, i64 8
-  store i32 1, ptr %458, align 4, !tbaa !284
+  store i32 1, ptr %458, align 8, !tbaa !284
   %459 = getelementptr inbounds nuw i8, ptr %456, i64 12
   store i32 2, ptr %459, align 4, !tbaa !285
   %.not10.i.i.i.i.i = icmp eq ptr %358, %435
@@ -40709,7 +40709,7 @@ _ZN4entt9dense_mapIiiSt4hashIiESt8equal_toIvESaISt4pairIKiiEEE16constrained_find
   %918 = load i64, ptr %907, align 8, !tbaa !68
   store i64 %918, ptr %915, align 8, !tbaa !70
   %919 = getelementptr inbounds nuw i8, ptr %915, i64 8
-  store i32 1, ptr %919, align 4, !tbaa !284
+  store i32 1, ptr %919, align 8, !tbaa !284
   %920 = getelementptr inbounds nuw i8, ptr %915, i64 12
   store i32 64, ptr %920, align 4, !tbaa !285
   %921 = getelementptr inbounds nuw i8, ptr %915, i64 16
@@ -40748,7 +40748,7 @@ _ZNKSt6vectorIN4entt8internal14dense_map_nodeIiiEESaIS3_EE12_M_check_lenEmPKc.ex
   %936 = load i64, ptr %907, align 8, !tbaa !68
   store i64 %936, ptr %935, align 8, !tbaa !70
   %937 = getelementptr inbounds nuw i8, ptr %935, i64 8
-  store i32 1, ptr %937, align 4, !tbaa !284
+  store i32 1, ptr %937, align 8, !tbaa !284
   %938 = getelementptr inbounds nuw i8, ptr %935, i64 12
   store i32 64, ptr %938, align 4, !tbaa !285
   %.not10.i.i.i.i.i1043 = icmp eq ptr %906, %915
@@ -51889,7 +51889,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4entt9dense_mapIiiSt4hashIiESt8equal_
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %17 = load i32, ptr %2, align 4, !tbaa !69
   %18 = load i32, ptr %3, align 4, !tbaa !69
-  store i32 %17, ptr %16, align 4, !tbaa !284
+  store i32 %17, ptr %16, align 8, !tbaa !284
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 %18, ptr %19, align 4, !tbaa !285
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -51919,7 +51919,7 @@ _ZNKSt6vectorIN4entt8internal14dense_map_nodeIiiEESaIS3_EE12_M_check_lenEmPKc.ex
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i32, ptr %2, align 4, !tbaa !69
   %33 = load i32, ptr %3, align 4, !tbaa !69
-  store i32 %32, ptr %31, align 4, !tbaa !284
+  store i32 %32, ptr %31, align 8, !tbaa !284
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 12
   store i32 %33, ptr %34, align 4, !tbaa !285
   %.not10.i.i.i.i.i = icmp eq ptr %8, %7
@@ -103296,7 +103296,7 @@ _ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIiiEENSt3pmr21polymorphic_all
   store i64 %42, ptr %.015.i.i.i, align 8, !tbaa !70
   %43 = getelementptr inbounds nuw i8, ptr %.015.i.i.i, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i.i.i, i64 8
-  %45 = load i64, ptr %44, align 4
+  %45 = load i64, ptr %44, align 8
   store i64 %45, ptr %43, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i.i.i, i64 16
   %47 = getelementptr inbounds nuw i8, ptr %.015.i.i.i, i64 16
@@ -111866,7 +111866,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %8, ptr %7, align 8, !tbaa !41
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %9, align 8, !tbaa !44
-  store i8 0, ptr %8, align 1, !tbaa !47
+  store i8 0, ptr %8, align 8, !tbaa !47
   store ptr %7, ptr %4, align 8, !tbaa !62
   br label %10
 
@@ -112746,7 +112746,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNS
   %15 = load i64, ptr %4, align 8, !tbaa !484
   %16 = inttoptr i64 %15 to ptr
   %17 = load i32, ptr %14, align 4, !tbaa !69
-  store i32 %17, ptr %12, align 4, !tbaa !284
+  store i32 %17, ptr %12, align 8, !tbaa !284
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %19 = load i32, ptr %16, align 4, !tbaa !69
   store i32 %19, ptr %18, align 4, !tbaa !285
@@ -112786,7 +112786,7 @@ _ZNKSt6vectorIN4entt8internal14dense_map_nodeIiiEESaIS3_EE12_M_check_lenEmPKc.ex
   %40 = load i64, ptr %4, align 8, !tbaa !484
   %41 = inttoptr i64 %40 to ptr
   %42 = load i32, ptr %39, align 4, !tbaa !69
-  store i32 %42, ptr %37, align 4, !tbaa !284
+  store i32 %42, ptr %37, align 8, !tbaa !284
   %43 = getelementptr inbounds nuw i8, ptr %35, i64 12
   %44 = load i32, ptr %41, align 4, !tbaa !69
   store i32 %44, ptr %43, align 4, !tbaa !285
@@ -114410,7 +114410,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNS
   %16 = inttoptr i64 %15 to ptr
   %17 = load i8, ptr %14, align 1, !tbaa !47
   %18 = sext i8 %17 to i32
-  store i32 %18, ptr %12, align 4, !tbaa !284
+  store i32 %18, ptr %12, align 8, !tbaa !284
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %20 = load i8, ptr %16, align 1, !tbaa !47
   %21 = sext i8 %20 to i32
@@ -114452,7 +114452,7 @@ _ZNKSt6vectorIN4entt8internal14dense_map_nodeIiiEESaIS3_EE12_M_check_lenEmPKc.ex
   %43 = inttoptr i64 %42 to ptr
   %44 = load i8, ptr %41, align 1, !tbaa !47
   %45 = sext i8 %44 to i32
-  store i32 %45, ptr %39, align 4, !tbaa !284
+  store i32 %45, ptr %39, align 8, !tbaa !284
   %46 = getelementptr inbounds nuw i8, ptr %37, i64 12
   %47 = load i8, ptr %43, align 1, !tbaa !47
   %48 = sext i8 %47 to i32
@@ -117045,7 +117045,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNS
   %15 = load i64, ptr %4, align 8, !tbaa !484
   %16 = inttoptr i64 %15 to ptr
   %17 = load i32, ptr %14, align 4, !tbaa !69
-  store i32 %17, ptr %12, align 4, !tbaa !284
+  store i32 %17, ptr %12, align 8, !tbaa !284
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %19 = load i32, ptr %16, align 4, !tbaa !69
   store i32 %19, ptr %18, align 4, !tbaa !285
@@ -117085,7 +117085,7 @@ _ZNKSt6vectorIN4entt8internal14dense_map_nodeIiiEESaIS3_EE12_M_check_lenEmPKc.ex
   %40 = load i64, ptr %4, align 8, !tbaa !484
   %41 = inttoptr i64 %40 to ptr
   %42 = load i32, ptr %39, align 4, !tbaa !69
-  store i32 %42, ptr %37, align 4, !tbaa !284
+  store i32 %42, ptr %37, align 8, !tbaa !284
   %43 = getelementptr inbounds nuw i8, ptr %35, i64 12
   %44 = load i32, ptr %41, align 4, !tbaa !69
   store i32 %44, ptr %43, align 4, !tbaa !285
@@ -117231,7 +117231,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNS
   %15 = load i64, ptr %4, align 8, !tbaa !484
   %16 = inttoptr i64 %15 to ptr
   %17 = load i32, ptr %14, align 4, !tbaa !69
-  store i32 %17, ptr %12, align 4, !tbaa !284
+  store i32 %17, ptr %12, align 8, !tbaa !284
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %19 = load i32, ptr %16, align 4, !tbaa !69
   store i32 %19, ptr %18, align 4, !tbaa !285
@@ -117271,7 +117271,7 @@ _ZNKSt6vectorIN4entt8internal14dense_map_nodeIiiEESaIS3_EE12_M_check_lenEmPKc.ex
   %40 = load i64, ptr %4, align 8, !tbaa !484
   %41 = inttoptr i64 %40 to ptr
   %42 = load i32, ptr %39, align 4, !tbaa !69
-  store i32 %42, ptr %37, align 4, !tbaa !284
+  store i32 %42, ptr %37, align 8, !tbaa !284
   %43 = getelementptr inbounds nuw i8, ptr %35, i64 12
   %44 = load i32, ptr %41, align 4, !tbaa !69
   store i32 %44, ptr %43, align 4, !tbaa !285
@@ -117417,7 +117417,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNS
   %15 = load i64, ptr %4, align 8, !tbaa !484
   %16 = inttoptr i64 %15 to ptr
   %17 = load i32, ptr %14, align 4, !tbaa !69
-  store i32 %17, ptr %12, align 4, !tbaa !284
+  store i32 %17, ptr %12, align 8, !tbaa !284
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %19 = load i32, ptr %16, align 4, !tbaa !69
   store i32 %19, ptr %18, align 4, !tbaa !285
@@ -117457,7 +117457,7 @@ _ZNKSt6vectorIN4entt8internal14dense_map_nodeIiiEESaIS3_EE12_M_check_lenEmPKc.ex
   %40 = load i64, ptr %4, align 8, !tbaa !484
   %41 = inttoptr i64 %40 to ptr
   %42 = load i32, ptr %39, align 4, !tbaa !69
-  store i32 %42, ptr %37, align 4, !tbaa !284
+  store i32 %42, ptr %37, align 8, !tbaa !284
   %43 = getelementptr inbounds nuw i8, ptr %35, i64 12
   %44 = load i32, ptr %41, align 4, !tbaa !69
   store i32 %44, ptr %43, align 4, !tbaa !285
@@ -117603,7 +117603,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNS
   %15 = load i64, ptr %4, align 8, !tbaa !484
   %16 = inttoptr i64 %15 to ptr
   %17 = load i32, ptr %14, align 4, !tbaa !69
-  store i32 %17, ptr %12, align 4, !tbaa !284
+  store i32 %17, ptr %12, align 8, !tbaa !284
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %19 = load i32, ptr %16, align 4, !tbaa !69
   store i32 %19, ptr %18, align 4, !tbaa !285
@@ -117643,7 +117643,7 @@ _ZNKSt6vectorIN4entt8internal14dense_map_nodeIiiEESaIS3_EE12_M_check_lenEmPKc.ex
   %40 = load i64, ptr %4, align 8, !tbaa !484
   %41 = inttoptr i64 %40 to ptr
   %42 = load i32, ptr %39, align 4, !tbaa !69
-  store i32 %42, ptr %37, align 4, !tbaa !284
+  store i32 %42, ptr %37, align 8, !tbaa !284
   %43 = getelementptr inbounds nuw i8, ptr %35, i64 12
   %44 = load i32, ptr %41, align 4, !tbaa !69
   store i32 %44, ptr %43, align 4, !tbaa !285
@@ -119758,7 +119758,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNS
   store i64 %10, ptr %6, align 8, !tbaa !70
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load i32, ptr %2, align 4, !tbaa !69
-  store i32 %12, ptr %11, align 4, !tbaa !284
+  store i32 %12, ptr %11, align 8, !tbaa !284
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %14 = load i32, ptr %3, align 4, !tbaa !69
   store i32 %14, ptr %13, align 4, !tbaa !285
@@ -119794,7 +119794,7 @@ _ZNKSt6vectorIN4entt8internal14dense_map_nodeIiiEESaIS3_EE12_M_check_lenEmPKc.ex
   store i64 %31, ptr %30, align 8, !tbaa !70
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load i32, ptr %2, align 4, !tbaa !69
-  store i32 %33, ptr %32, align 4, !tbaa !284
+  store i32 %33, ptr %32, align 8, !tbaa !284
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 12
   %35 = load i32, ptr %3, align 4, !tbaa !69
   store i32 %35, ptr %34, align 4, !tbaa !285
@@ -119846,7 +119846,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNS
   store i64 %10, ptr %6, align 8, !tbaa !70
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load i32, ptr %2, align 4, !tbaa !69
-  store i32 %12, ptr %11, align 4, !tbaa !284
+  store i32 %12, ptr %11, align 8, !tbaa !284
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %14 = load i8, ptr %3, align 1, !tbaa !47
   %15 = sext i8 %14 to i32
@@ -119883,7 +119883,7 @@ _ZNKSt6vectorIN4entt8internal14dense_map_nodeIiiEESaIS3_EE12_M_check_lenEmPKc.ex
   store i64 %32, ptr %31, align 8, !tbaa !70
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %34 = load i32, ptr %2, align 4, !tbaa !69
-  store i32 %34, ptr %33, align 4, !tbaa !284
+  store i32 %34, ptr %33, align 8, !tbaa !284
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 12
   %36 = load i8, ptr %3, align 1, !tbaa !47
   %37 = sext i8 %36 to i32
@@ -119976,7 +119976,7 @@ _ZN4entt9dense_mapIiiSt4hashIiESt8equal_toIvESaISt4pairIKiiEEE16constrained_find
   %31 = load i64, ptr %16, align 8, !tbaa !68
   store i64 %31, ptr %26, align 8, !tbaa !70
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store i32 %3, ptr %32, align 4, !tbaa !284
+  store i32 %3, ptr %32, align 8, !tbaa !284
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 12
   store i32 0, ptr %33, align 4, !tbaa !285
   %34 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -120009,7 +120009,7 @@ _ZNKSt6vectorIN4entt8internal14dense_map_nodeIiiEESaIS3_EE12_M_check_lenEmPKc.ex
   %49 = load i64, ptr %16, align 8, !tbaa !68
   store i64 %49, ptr %48, align 8, !tbaa !70
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 %3, ptr %50, align 4, !tbaa !284
+  store i32 %3, ptr %50, align 8, !tbaa !284
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 12
   store i32 0, ptr %51, align 4, !tbaa !285
   %.not10.i.i.i.i.i = icmp eq ptr %15, %26
@@ -122519,7 +122519,7 @@ _ZSt19__relocate_object_aIN4entt8internal14dense_map_nodeINSt7__cxx1112basic_str
   store i64 %64, ptr %66, align 8, !tbaa !44, !alias.scope !1210, !noalias !1213
   store ptr %56, ptr %53, align 8, !tbaa !46, !alias.scope !1213, !noalias !1210
   store i64 0, ptr %65, align 8, !tbaa !44, !alias.scope !1213, !noalias !1210
-  store i8 0, ptr %56, align 1, !tbaa !47, !alias.scope !1213, !noalias !1210
+  store i8 0, ptr %56, align 8, !tbaa !47, !alias.scope !1213, !noalias !1210
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
   %68 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
   %69 = load i64, ptr %68, align 8, !tbaa !1209, !alias.scope !1213, !noalias !1210
@@ -122575,7 +122575,7 @@ _ZSt19__relocate_object_aIN4entt8internal14dense_map_nodeINSt7__cxx1112basic_str
   store i64 %86, ptr %88, align 8, !tbaa !44, !alias.scope !1217, !noalias !1220
   store ptr %78, ptr %75, align 8, !tbaa !46, !alias.scope !1220, !noalias !1217
   store i64 0, ptr %87, align 8, !tbaa !44, !alias.scope !1220, !noalias !1217
-  store i8 0, ptr %78, align 1, !tbaa !47, !alias.scope !1220, !noalias !1217
+  store i8 0, ptr %78, align 8, !tbaa !47, !alias.scope !1220, !noalias !1217
   %89 = getelementptr inbounds nuw i8, ptr %.012.i.i.i32, i64 40
   %90 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i33, i64 40
   %91 = load i64, ptr %90, align 8, !tbaa !1209, !alias.scope !1220, !noalias !1217
@@ -123413,7 +123413,7 @@ _ZN4entt9dense_mapIiiSt4hashIiESt8equal_toIvESaISt4pairIKiiEEE16constrained_find
   %31 = load i64, ptr %16, align 8, !tbaa !68
   store i64 %31, ptr %26, align 8, !tbaa !70
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store i32 %3, ptr %32, align 4, !tbaa !284
+  store i32 %3, ptr %32, align 8, !tbaa !284
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 12
   store i32 0, ptr %33, align 4, !tbaa !285
   %34 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -123446,7 +123446,7 @@ _ZNKSt6vectorIN4entt8internal14dense_map_nodeIiiEESaIS3_EE12_M_check_lenEmPKc.ex
   %49 = load i64, ptr %16, align 8, !tbaa !68
   store i64 %49, ptr %48, align 8, !tbaa !70
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 %3, ptr %50, align 4, !tbaa !284
+  store i32 %3, ptr %50, align 8, !tbaa !284
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 12
   store i32 0, ptr %51, align 4, !tbaa !285
   %.not10.i.i.i.i.i = icmp eq ptr %15, %26
@@ -128108,7 +128108,7 @@ _ZNKSt6vectorIN4entt8internal14dense_map_nodeIiiEENSt3pmr21polymorphic_allocator
   store i64 %36, ptr %.015.i.i, align 8, !tbaa !70
   %37 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i.i, i64 8
-  %39 = load i64, ptr %38, align 4
+  %39 = load i64, ptr %38, align 8
   store i64 %39, ptr %37, align 8
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i.i, i64 16
   %41 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 16
@@ -128128,7 +128128,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN4entt8internal14dense_map_nodeIiiEES4
   store i64 %43, ptr %.015.i.i33, align 8, !tbaa !70
   %44 = getelementptr inbounds nuw i8, ptr %.015.i.i33, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i.i34, i64 8
-  %46 = load i64, ptr %45, align 4
+  %46 = load i64, ptr %45, align 8
   store i64 %46, ptr %44, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i.i34, i64 16
   %48 = getelementptr inbounds nuw i8, ptr %.015.i.i33, i64 16
@@ -129722,7 +129722,7 @@ _ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIiNSt7__cxx1112basic_stringIc
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.010.015.i, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !1439)
   call void @llvm.experimental.noalias.scope.decl(metadata !1442)
-  %20 = load i32, ptr %18, align 4, !tbaa !69, !noalias !1445
+  %20 = load i32, ptr %18, align 8, !tbaa !69, !noalias !1445
   store i32 %20, ptr %17, align 8, !tbaa !1446, !alias.scope !1445
   %21 = getelementptr inbounds nuw i8, ptr %.016.i, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1445
@@ -130119,7 +130119,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcENSt3pmr21polymorphic_allocatorIcE
   %69 = getelementptr inbounds nuw i8, ptr %.sroa.010.015.i.i, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !1503)
   call void @llvm.experimental.noalias.scope.decl(metadata !1506)
-  %70 = load i32, ptr %68, align 4, !tbaa !69, !noalias !1509
+  %70 = load i32, ptr %68, align 8, !tbaa !69, !noalias !1509
   store i32 %70, ptr %67, align 8, !tbaa !1446, !alias.scope !1509
   %71 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1509
@@ -130177,7 +130177,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN4entt8internal14dense_map_nodeIiNSt7_
   %90 = getelementptr inbounds nuw i8, ptr %.sroa.010.015.i.i36, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !1513)
   call void @llvm.experimental.noalias.scope.decl(metadata !1516)
-  %91 = load i32, ptr %89, align 4, !tbaa !69, !noalias !1519
+  %91 = load i32, ptr %89, align 8, !tbaa !69, !noalias !1519
   store i32 %91, ptr %88, align 8, !tbaa !1446, !alias.scope !1519
   %92 = getelementptr inbounds nuw i8, ptr %.016.i.i35, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1519
@@ -130439,7 +130439,7 @@ _ZNSt16allocator_traitsINSt3pmr21polymorphic_allocatorIN4entt8internal14dense_ma
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i.i, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !1523)
   call void @llvm.experimental.noalias.scope.decl(metadata !1526)
-  %52 = load i32, ptr %50, align 4, !tbaa !69, !noalias !1529
+  %52 = load i32, ptr %50, align 8, !tbaa !69, !noalias !1529
   store i32 %52, ptr %49, align 8, !tbaa !1446, !alias.scope !1529
   %53 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1529

@@ -2912,7 +2912,7 @@ _init_l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store i64 0, ptr %54, align 8, !tbaa !18
-  store i32 1, ptr %50, align 4, !tbaa !4
+  store i32 1, ptr %50, align 8, !tbaa !4
   store i32 100728856, ptr %53, align 4
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr %49, ptr %55, align 8, !tbaa !10
@@ -2954,7 +2954,7 @@ _init_l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 4
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 16
   store i64 0, ptr %68, align 8, !tbaa !18
-  store i32 1, ptr %64, align 4, !tbaa !4
+  store i32 1, ptr %64, align 8, !tbaa !4
   store i32 100728856, ptr %67, align 4
   %69 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store ptr %63, ptr %69, align 8, !tbaa !10
@@ -3015,7 +3015,7 @@ _init_l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 4
   %89 = getelementptr inbounds nuw i8, ptr %85, i64 16
   store i64 0, ptr %89, align 8, !tbaa !18
-  store i32 1, ptr %85, align 4, !tbaa !4
+  store i32 1, ptr %85, align 8, !tbaa !4
   store i32 100728856, ptr %88, align 4
   %90 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store ptr %84, ptr %90, align 8, !tbaa !10
@@ -3055,7 +3055,7 @@ _init_l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_
   %102 = getelementptr inbounds nuw i8, ptr %99, i64 4
   %103 = getelementptr inbounds nuw i8, ptr %99, i64 16
   store i64 0, ptr %103, align 8, !tbaa !18
-  store i32 1, ptr %99, align 4, !tbaa !4
+  store i32 1, ptr %99, align 8, !tbaa !4
   store i32 100728856, ptr %102, align 4
   %104 = getelementptr inbounds nuw i8, ptr %99, i64 8
   store ptr %98, ptr %104, align 8, !tbaa !10
@@ -3116,7 +3116,7 @@ _init_l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_
   %123 = getelementptr inbounds nuw i8, ptr %120, i64 4
   %124 = getelementptr inbounds nuw i8, ptr %120, i64 16
   store i64 0, ptr %124, align 8, !tbaa !18
-  store i32 1, ptr %120, align 4, !tbaa !4
+  store i32 1, ptr %120, align 8, !tbaa !4
   store i32 100728856, ptr %123, align 4
   %125 = getelementptr inbounds nuw i8, ptr %120, i64 8
   store ptr %119, ptr %125, align 8, !tbaa !10
@@ -3156,7 +3156,7 @@ _init_l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_
   %137 = getelementptr inbounds nuw i8, ptr %134, i64 4
   %138 = getelementptr inbounds nuw i8, ptr %134, i64 16
   store i64 0, ptr %138, align 8, !tbaa !18
-  store i32 1, ptr %134, align 4, !tbaa !4
+  store i32 1, ptr %134, align 8, !tbaa !4
   store i32 100728856, ptr %137, align 4
   %139 = getelementptr inbounds nuw i8, ptr %134, i64 8
   store ptr %133, ptr %139, align 8, !tbaa !10
@@ -3217,7 +3217,7 @@ _init_l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_
   %158 = getelementptr inbounds nuw i8, ptr %155, i64 4
   %159 = getelementptr inbounds nuw i8, ptr %155, i64 16
   store i64 0, ptr %159, align 8, !tbaa !18
-  store i32 1, ptr %155, align 4, !tbaa !4
+  store i32 1, ptr %155, align 8, !tbaa !4
   store i32 100728856, ptr %158, align 4
   %160 = getelementptr inbounds nuw i8, ptr %155, i64 8
   store ptr %154, ptr %160, align 8, !tbaa !10
@@ -3257,7 +3257,7 @@ _init_l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 4
   %173 = getelementptr inbounds nuw i8, ptr %169, i64 16
   store i64 0, ptr %173, align 8, !tbaa !18
-  store i32 1, ptr %169, align 4, !tbaa !4
+  store i32 1, ptr %169, align 8, !tbaa !4
   store i32 100728856, ptr %172, align 4
   %174 = getelementptr inbounds nuw i8, ptr %169, i64 8
   store ptr %168, ptr %174, align 8, !tbaa !10
@@ -3318,7 +3318,7 @@ _init_l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_
   %193 = getelementptr inbounds nuw i8, ptr %190, i64 4
   %194 = getelementptr inbounds nuw i8, ptr %190, i64 16
   store i64 0, ptr %194, align 8, !tbaa !18
-  store i32 1, ptr %190, align 4, !tbaa !4
+  store i32 1, ptr %190, align 8, !tbaa !4
   store i32 100728856, ptr %193, align 4
   %195 = getelementptr inbounds nuw i8, ptr %190, i64 8
   store ptr %189, ptr %195, align 8, !tbaa !10
@@ -3358,7 +3358,7 @@ _init_l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_
   %207 = getelementptr inbounds nuw i8, ptr %204, i64 4
   %208 = getelementptr inbounds nuw i8, ptr %204, i64 16
   store i64 0, ptr %208, align 8, !tbaa !18
-  store i32 1, ptr %204, align 4, !tbaa !4
+  store i32 1, ptr %204, align 8, !tbaa !4
   store i32 100728856, ptr %207, align 4
   %209 = getelementptr inbounds nuw i8, ptr %204, i64 8
   store ptr %203, ptr %209, align 8, !tbaa !10
@@ -3419,7 +3419,7 @@ _init_l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_
   %228 = getelementptr inbounds nuw i8, ptr %225, i64 4
   %229 = getelementptr inbounds nuw i8, ptr %225, i64 16
   store i64 0, ptr %229, align 8, !tbaa !18
-  store i32 1, ptr %225, align 4, !tbaa !4
+  store i32 1, ptr %225, align 8, !tbaa !4
   store i32 100728856, ptr %228, align 4
   %230 = getelementptr inbounds nuw i8, ptr %225, i64 8
   store ptr %224, ptr %230, align 8, !tbaa !10
@@ -3459,7 +3459,7 @@ _init_l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_
   %242 = getelementptr inbounds nuw i8, ptr %239, i64 4
   %243 = getelementptr inbounds nuw i8, ptr %239, i64 16
   store i64 0, ptr %243, align 8, !tbaa !18
-  store i32 1, ptr %239, align 4, !tbaa !4
+  store i32 1, ptr %239, align 8, !tbaa !4
   store i32 100728856, ptr %242, align 4
   %244 = getelementptr inbounds nuw i8, ptr %239, i64 8
   store ptr %238, ptr %244, align 8, !tbaa !10
@@ -3520,7 +3520,7 @@ _init_l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_
   %263 = getelementptr inbounds nuw i8, ptr %260, i64 4
   %264 = getelementptr inbounds nuw i8, ptr %260, i64 16
   store i64 0, ptr %264, align 8, !tbaa !18
-  store i32 1, ptr %260, align 4, !tbaa !4
+  store i32 1, ptr %260, align 8, !tbaa !4
   store i32 100728856, ptr %263, align 4
   %265 = getelementptr inbounds nuw i8, ptr %260, i64 8
   store ptr %259, ptr %265, align 8, !tbaa !10
@@ -3560,7 +3560,7 @@ _init_l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_
   %277 = getelementptr inbounds nuw i8, ptr %274, i64 4
   %278 = getelementptr inbounds nuw i8, ptr %274, i64 16
   store i64 0, ptr %278, align 8, !tbaa !18
-  store i32 1, ptr %274, align 4, !tbaa !4
+  store i32 1, ptr %274, align 8, !tbaa !4
   store i32 100728856, ptr %277, align 4
   %279 = getelementptr inbounds nuw i8, ptr %274, i64 8
   store ptr %273, ptr %279, align 8, !tbaa !10

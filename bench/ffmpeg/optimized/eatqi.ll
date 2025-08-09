@@ -24,7 +24,7 @@ define internal noundef i32 @tqi_decode_init(ptr noundef captures(none) initiali
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 15, ptr %6, align 4, !tbaa !27
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i32 1, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !27
+  store i32 1, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !27
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 0, ptr %7, align 8, !tbaa !28
   tail call void @ff_mpeg12_init_vlcs() #4
@@ -136,7 +136,7 @@ tqi_calculate_qtable.exit:                        ; preds = %30
   %72 = getelementptr inbounds nuw i8, ptr %8, i64 244
   store i32 0, ptr %72, align 4, !tbaa !27
   %73 = getelementptr inbounds nuw i8, ptr %8, i64 240
-  store i32 0, ptr %73, align 4, !tbaa !27
+  store i32 0, ptr %73, align 8, !tbaa !27
   store i32 0, ptr %71, align 4, !tbaa !27
   %74 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %75 = add nuw nsw i32 %44, 15

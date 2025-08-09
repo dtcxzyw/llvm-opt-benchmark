@@ -7450,7 +7450,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %10, ptr %.08.i.i.i.i, align 8, !tbaa !37
   %11 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i, i64 8
   store i64 0, ptr %11, align 8, !tbaa !21
-  store i8 0, ptr %10, align 1, !tbaa !31
+  store i8 0, ptr %10, align 8, !tbaa !31
   %12 = add i64 %.057.i.i.i.i, -1
   %13 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq i64 %12, 0
@@ -10771,7 +10771,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8, !tbaa !21
   store ptr %13, ptr %10, align 8, !tbaa !24
   store i64 0, ptr %24, align 8, !tbaa !21
-  store i8 0, ptr %13, align 1, !tbaa !31
+  store i8 0, ptr %13, align 8, !tbaa !31
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %26, i8 0, i64 28, i1 false)
@@ -11621,7 +11621,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i: ; pre
   store i64 %20, ptr %21, align 8, !tbaa !21
   store ptr %11, ptr %8, align 8, !tbaa !24
   store i64 0, ptr %19, align 8, !tbaa !21
-  store i8 0, ptr %11, align 1, !tbaa !31
+  store i8 0, ptr %11, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 64
   invoke void @_ZN6casadi11GenericTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %22)
           to label %_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericTypeEEEEE9constructISB_JRKSt21piecewise_construct_tSt5tupleIJOS7_EESJ_IJEEEEEvRSD_PT_DpOT0_.exit unwind label %23

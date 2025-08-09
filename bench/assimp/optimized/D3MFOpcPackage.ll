@@ -3100,11 +3100,11 @@ _ZNK4pugi8xml_node4nameEv.exit:                   ; preds = %_ZNK4pugi8xml_node4
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 48
   store ptr %37, ptr %36, align 8
-  store i8 0, ptr %37, align 1
+  store i8 0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %31, i64 64
   %39 = getelementptr inbounds nuw i8, ptr %31, i64 80
   store ptr %39, ptr %38, align 8
-  store i8 0, ptr %39, align 1
+  store i8 0, ptr %39, align 8
   store ptr %31, ptr %5, align 8
   store ptr null, ptr %10, align 8
   %40 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30

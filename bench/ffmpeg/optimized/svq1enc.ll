@@ -469,7 +469,7 @@ svq1_write_header.exit:                           ; preds = %79, %85, %put_bits.
   %186 = mul i32 %185, 139
   %187 = add i32 %186, 8192
   %188 = lshr i32 %187, 14
-  store i32 %188, ptr %110, align 8, !tbaa !115
+  store i32 %188, ptr %110, align 16, !tbaa !115
   %189 = mul i32 %185, %185
   %190 = add i32 %189, 64
   %191 = lshr i32 %190, 7
@@ -655,13 +655,13 @@ svq1_write_header.exit:                           ; preds = %79, %85, %put_bits.
   store i32 %275, ptr %127, align 4, !tbaa !65
   %276 = or disjoint i32 %274, 1
   %277 = add i32 %276, %273
-  store i32 %277, ptr %128, align 4, !tbaa !65
+  store i32 %277, ptr %128, align 8, !tbaa !65
   %278 = or disjoint i32 %272, 1
   %279 = mul nsw i32 %278, %270
   %280 = add i32 %279, %274
   store i32 %280, ptr %129, align 4, !tbaa !65
   %281 = add i32 %280, 1
-  store i32 %281, ptr %130, align 4, !tbaa !65
+  store i32 %281, ptr %130, align 8, !tbaa !65
   %282 = load i32, ptr %104, align 4, !tbaa !109
   %283 = add nsw i32 %271, 1
   %284 = mul nsw i32 %282, %283
@@ -675,7 +675,7 @@ svq1_write_header.exit:                           ; preds = %79, %85, %put_bits.
   %291 = add i32 %290, %285
   %292 = mul nsw i32 %291, %282
   %293 = add i32 %288, %292
-  store i32 %293, ptr %132, align 4, !tbaa !65
+  store i32 %293, ptr %132, align 8, !tbaa !65
   call void @ff_estimate_p_frame_motion(ptr noundef nonnull %11, i32 noundef %.1326385.i, i32 noundef %243) #9
   %294 = add nuw nsw i32 %.1326385.i, 1
   %exitcond440.not.i = icmp eq i32 %294, %171
@@ -844,13 +844,13 @@ svq1_write_header.exit:                           ; preds = %79, %85, %put_bits.
   store i32 %363, ptr %127, align 4, !tbaa !65
   %364 = or disjoint i32 %362, 1
   %365 = add i32 %364, %361
-  store i32 %365, ptr %128, align 4, !tbaa !65
+  store i32 %365, ptr %128, align 8, !tbaa !65
   %366 = or disjoint i32 %360, 1
   %367 = mul nsw i32 %366, %358
   %368 = add i32 %367, %362
   store i32 %368, ptr %129, align 4, !tbaa !65
   %369 = add i32 %368, 1
-  store i32 %369, ptr %130, align 4, !tbaa !65
+  store i32 %369, ptr %130, align 8, !tbaa !65
   %370 = load i32, ptr %104, align 4, !tbaa !109
   %371 = add nsw i32 %359, 1
   %372 = mul nsw i32 %370, %371
@@ -864,7 +864,7 @@ svq1_write_header.exit:                           ; preds = %79, %85, %put_bits.
   %379 = add i32 %378, %373
   %380 = mul nsw i32 %379, %370
   %381 = add i32 %376, %380
-  store i32 %381, ptr %132, align 4, !tbaa !65
+  store i32 %381, ptr %132, align 8, !tbaa !65
   %382 = load i32, ptr %40, align 8, !tbaa !85
   %383 = icmp eq i32 %382, 1
   br i1 %383, label %.preheader, label %384

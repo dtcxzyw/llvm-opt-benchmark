@@ -4702,7 +4702,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
   store i64 %26, ptr %28, align 8
   store ptr %18, ptr %1, align 8
   store i64 0, ptr %27, align 8
-  store i8 0, ptr %18, align 1
+  store i8 0, ptr %18, align 8
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 48
@@ -4737,7 +4737,7 @@ _ZN3nix24LevenshteinDistanceParamC2EOS0_.exit:    ; preds = %35, %_ZNKSt7__cxx11
   store i64 %41, ptr %43, align 8
   store ptr %33, ptr %30, align 8
   store i64 0, ptr %42, align 8
-  store i8 0, ptr %33, align 1
+  store i8 0, ptr %33, align 8
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %46 = load i32, ptr %45, align 8
@@ -4774,7 +4774,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i2: ; preds = 
   store i64 %57, ptr %59, align 8
   store ptr %49, ptr %2, align 8
   store i64 0, ptr %58, align 8
-  store i8 0, ptr %49, align 1
+  store i8 0, ptr %49, align 8
   %60 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 48
@@ -4809,7 +4809,7 @@ _ZN3nix24LevenshteinDistanceParamC2EOS0_.exit4:   ; preds = %66, %_ZNKSt7__cxx11
   store i64 %72, ptr %74, align 8
   store ptr %64, ptr %61, align 8
   store i64 0, ptr %73, align 8
-  store i8 0, ptr %64, align 1
+  store i8 0, ptr %64, align 8
   %75 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %77 = load i32, ptr %76, align 8
@@ -4846,7 +4846,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i6: ; preds = 
   store i64 %88, ptr %90, align 8
   store ptr %80, ptr %3, align 8
   store i64 0, ptr %89, align 8
-  store i8 0, ptr %80, align 1
+  store i8 0, ptr %80, align 8
   %91 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %92 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %93 = getelementptr inbounds nuw i8, ptr %11, i64 48
@@ -4881,7 +4881,7 @@ _ZN3nix24LevenshteinDistanceParamC2EOS0_.exit8:   ; preds = %97, %_ZNKSt7__cxx11
   store i64 %103, ptr %105, align 8
   store ptr %95, ptr %92, align 8
   store i64 0, ptr %104, align 8
-  store i8 0, ptr %95, align 1
+  store i8 0, ptr %95, align 8
   %106 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %107 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %108 = load i32, ptr %107, align 8
@@ -4918,7 +4918,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i10: ; preds =
   store i64 %119, ptr %121, align 8
   store ptr %111, ptr %4, align 8
   store i64 0, ptr %120, align 8
-  store i8 0, ptr %111, align 1
+  store i8 0, ptr %111, align 8
   %122 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %123 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %124 = getelementptr inbounds nuw i8, ptr %12, i64 48
@@ -4953,7 +4953,7 @@ _ZN3nix24LevenshteinDistanceParamC2EOS0_.exit12:  ; preds = %128, %_ZNKSt7__cxx1
   store i64 %134, ptr %136, align 8
   store ptr %126, ptr %123, align 8
   store i64 0, ptr %135, align 8
-  store i8 0, ptr %126, align 1
+  store i8 0, ptr %126, align 8
   %137 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %138 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %139 = load i32, ptr %138, align 8
@@ -4990,7 +4990,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i14: ; preds =
   store i64 %150, ptr %152, align 8
   store ptr %142, ptr %5, align 8
   store i64 0, ptr %151, align 8
-  store i8 0, ptr %142, align 1
+  store i8 0, ptr %142, align 8
   %153 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %154 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %155 = getelementptr inbounds nuw i8, ptr %13, i64 48
@@ -5025,7 +5025,7 @@ _ZN3nix24LevenshteinDistanceParamC2EOS0_.exit16:  ; preds = %159, %_ZNKSt7__cxx1
   store i64 %165, ptr %167, align 8
   store ptr %157, ptr %154, align 8
   store i64 0, ptr %166, align 8
-  store i8 0, ptr %157, align 1
+  store i8 0, ptr %157, align 8
   %168 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %169 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %170 = load i32, ptr %169, align 8
@@ -5062,7 +5062,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i18: ; preds =
   store i64 %181, ptr %183, align 8
   store ptr %173, ptr %6, align 8
   store i64 0, ptr %182, align 8
-  store i8 0, ptr %173, align 1
+  store i8 0, ptr %173, align 8
   %184 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %185 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %186 = getelementptr inbounds nuw i8, ptr %14, i64 48
@@ -5097,7 +5097,7 @@ _ZN3nix24LevenshteinDistanceParamC2EOS0_.exit20:  ; preds = %190, %_ZNKSt7__cxx1
   store i64 %196, ptr %198, align 8
   store ptr %188, ptr %185, align 8
   store i64 0, ptr %197, align 8
-  store i8 0, ptr %188, align 1
+  store i8 0, ptr %188, align 8
   %199 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %200 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %201 = load i32, ptr %200, align 8
@@ -5134,7 +5134,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i22: ; preds =
   store i64 %212, ptr %214, align 8
   store ptr %204, ptr %7, align 8
   store i64 0, ptr %213, align 8
-  store i8 0, ptr %204, align 1
+  store i8 0, ptr %204, align 8
   %215 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %216 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %217 = getelementptr inbounds nuw i8, ptr %15, i64 48
@@ -5169,7 +5169,7 @@ _ZN3nix24LevenshteinDistanceParamC2EOS0_.exit24:  ; preds = %221, %_ZNKSt7__cxx1
   store i64 %227, ptr %229, align 8
   store ptr %219, ptr %216, align 8
   store i64 0, ptr %228, align 8
-  store i8 0, ptr %219, align 1
+  store i8 0, ptr %219, align 8
   %230 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %231 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %232 = load i32, ptr %231, align 8
@@ -11134,7 +11134,7 @@ _ZSt19__relocate_object_aIN7testing8internal26ParameterizedTestSuiteInfoIN3nix23
   store i64 %49, ptr %51, align 8, !alias.scope !74, !noalias !77
   store ptr %41, ptr %.0911.i.i.i, align 8, !alias.scope !77, !noalias !74
   store i64 0, ptr %50, align 8, !alias.scope !77, !noalias !74
-  store i8 0, ptr %41, align 1, !alias.scope !77, !noalias !74
+  store i8 0, ptr %41, align 8, !alias.scope !77, !noalias !74
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %52, ptr noundef nonnull align 8 dereferenceable(28) %53, i64 28, i1 false), !alias.scope !79
@@ -11187,7 +11187,7 @@ _ZSt19__relocate_object_aIN7testing8internal26ParameterizedTestSuiteInfoIN3nix23
   store i64 %67, ptr %69, align 8, !alias.scope !81, !noalias !84
   store ptr %59, ptr %.0911.i.i.i19, align 8, !alias.scope !84, !noalias !81
   store i64 0, ptr %68, align 8, !alias.scope !84, !noalias !81
-  store i8 0, ptr %59, align 1, !alias.scope !84, !noalias !81
+  store i8 0, ptr %59, align 8, !alias.scope !84, !noalias !81
   %70 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %70, ptr noundef nonnull align 8 dereferenceable(28) %71, i64 28, i1 false), !alias.scope !86

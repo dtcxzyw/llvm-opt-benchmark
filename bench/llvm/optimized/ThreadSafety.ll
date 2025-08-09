@@ -15828,8 +15828,8 @@ _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang9NamedDeclE
   %57 = icmp eq ptr %55, %56
   %58 = getelementptr inbounds nuw i8, ptr %47, i64 56
   %59 = getelementptr inbounds nuw i8, ptr %52, i64 56
-  %60 = load i32, ptr %58, align 4
-  %61 = load i32, ptr %59, align 4
+  %60 = load i32, ptr %58, align 8
+  %61 = load i32, ptr %59, align 8
   %62 = icmp eq i32 %60, %61
   %.0.i.i = select i1 %57, i1 %62, i1 false
   br i1 %.0.i.i, label %.preheader, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang9NamedDeclEjEEEneERKS7_.exit.thread36
@@ -22196,7 +22196,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEbNS_12DenseMapInfoIS5_vE
   store ptr %60, ptr %50, align 8, !tbaa !591
   %61 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %62 = load i8, ptr %3, align 1, !tbaa !502, !range !304, !noundef !305
-  store i8 %62, ptr %61, align 1, !tbaa !502
+  store i8 %62, ptr %61, align 8, !tbaa !502
   %63 = load ptr, ptr %1, align 8, !tbaa !583
   %64 = load i32, ptr %7, align 8, !tbaa !586
   br label %.loopexit
@@ -23085,7 +23085,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEbNS_12DenseMapInfoIS5_vE
   %65 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %66 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %67 = load i8, ptr %66, align 1, !tbaa !502, !range !304, !noundef !305
-  store i8 %67, ptr %65, align 1, !tbaa !502
+  store i8 %67, ptr %65, align 8, !tbaa !502
   %68 = add i32 %40, 1
   store i32 %68, ptr %32, align 8, !tbaa !974
   br label %69

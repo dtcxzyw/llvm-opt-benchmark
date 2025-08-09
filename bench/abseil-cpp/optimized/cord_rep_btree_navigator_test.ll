@@ -947,7 +947,7 @@ _ZN7testing8internal12CodeLocationC2EOS1_.exit:   ; preds = %52, %_ZNKSt7__cxx11
   store i64 %59, ptr %61, align 8, !tbaa !22
   store ptr %50, ptr %2, align 8, !tbaa !20
   store i64 0, ptr %60, align 8, !tbaa !22
-  store i8 0, ptr %50, align 1, !tbaa !24
+  store i8 0, ptr %50, align 8, !tbaa !24
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %64 = load i32, ptr %63, align 8, !tbaa !25
@@ -3714,7 +3714,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %35
   store i64 %41, ptr %43, align 8, !tbaa !22
   store ptr %33, ptr %1, align 8, !tbaa !20
   store i64 0, ptr %42, align 8, !tbaa !22
-  store i8 0, ptr %33, align 1, !tbaa !24
+  store i8 0, ptr %33, align 8, !tbaa !24
   ret void
 }
 
@@ -3749,7 +3749,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %7, ptr %6, align 8, !tbaa !21, !noalias !172
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %8, align 8, !tbaa !22, !noalias !172
-  store i8 0, ptr %7, align 1, !tbaa !24, !noalias !172
+  store i8 0, ptr %7, align 8, !tbaa !24, !noalias !172
   store ptr %6, ptr %4, align 8, !tbaa !109
   br label %9
 
@@ -3869,7 +3869,7 @@ _ZN7testing8internal12CodeLocationC2EOS1_.exit:   ; preds = %12, %_ZNKSt7__cxx11
   store i64 %18, ptr %20, align 8, !tbaa !22
   store ptr %10, ptr %3, align 8, !tbaa !20
   store i64 0, ptr %19, align 8, !tbaa !22
-  store i8 0, ptr %10, align 1, !tbaa !24
+  store i8 0, ptr %10, align 8, !tbaa !24
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %23 = load i32, ptr %22, align 8, !tbaa !25
@@ -4915,7 +4915,7 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i.i: ; preds = %_Z
   %184 = getelementptr inbounds nuw i8, ptr %180, i64 13
   store i8 0, ptr %184, align 1, !tbaa !24
   %185 = getelementptr inbounds nuw i8, ptr %180, i64 14
-  store i8 0, ptr %185, align 1, !tbaa !24
+  store i8 0, ptr %185, align 2, !tbaa !24
   %186 = getelementptr inbounds nuw i8, ptr %180, i64 15
   store i8 1, ptr %186, align 1, !tbaa !24
   %187 = getelementptr inbounds nuw i8, ptr %180, i64 16
@@ -13963,7 +13963,7 @@ _ZNK4absl13cord_internal21CordRepBtreeNavigator5btreeEv.exit:
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 13
   store i8 0, ptr %12, align 1, !tbaa !24
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 14
-  store i8 0, ptr %13, align 1, !tbaa !24
+  store i8 0, ptr %13, align 2, !tbaa !24
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 15
   store i8 1, ptr %14, align 1, !tbaa !24
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -18530,7 +18530,7 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i:
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 13
   store i8 0, ptr %30, align 1, !tbaa !24
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 14
-  store i8 0, ptr %31, align 1, !tbaa !24
+  store i8 0, ptr %31, align 2, !tbaa !24
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 15
   store i8 1, ptr %32, align 1, !tbaa !24
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 16
@@ -20123,7 +20123,7 @@ _ZN4absl13cord_internal21CordRepBtreeNavigator4SeekEm.exit:
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 13
   store i8 0, ptr %48, align 1, !tbaa !24
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 14
-  store i8 0, ptr %49, align 1, !tbaa !24
+  store i8 0, ptr %49, align 2, !tbaa !24
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 15
   store i8 1, ptr %50, align 1, !tbaa !24
   %51 = getelementptr inbounds nuw i8, ptr %45, i64 16
@@ -20143,7 +20143,7 @@ _ZN4absl13cord_internal21CordRepBtreeNavigator4SeekEm.exit:
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 13
   store i8 0, ptr %58, align 1, !tbaa !24
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 14
-  store i8 0, ptr %59, align 1, !tbaa !24
+  store i8 0, ptr %59, align 2, !tbaa !24
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 15
   store i8 1, ptr %60, align 1, !tbaa !24
   %61 = getelementptr inbounds nuw i8, ptr %55, i64 16
@@ -25750,7 +25750,7 @@ _ZN4absl13cord_internal12CordRepBtree6AppendEPS1_PNS0_7CordRepE.exit:
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 13
   store i8 0, ptr %36, align 1, !tbaa !24
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 14
-  store i8 0, ptr %37, align 1, !tbaa !24
+  store i8 0, ptr %37, align 2, !tbaa !24
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 15
   store i8 1, ptr %38, align 1, !tbaa !24
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 16
@@ -25795,7 +25795,7 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit: ; preds = %.lr.ph
   %55 = getelementptr inbounds nuw i8, ptr %44, i64 13
   store i8 %52, ptr %55, align 1, !tbaa !24
   %56 = getelementptr inbounds nuw i8, ptr %44, i64 14
-  store i8 0, ptr %56, align 1, !tbaa !24
+  store i8 0, ptr %56, align 2, !tbaa !24
   %57 = getelementptr inbounds nuw i8, ptr %44, i64 15
   store i8 1, ptr %57, align 1, !tbaa !24
   %58 = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -30560,7 +30560,7 @@ _ZSt19__relocate_object_aIN7testing8internal26ParameterizedTestSuiteInfoIN4absl1
   store i64 %171, ptr %173, align 8, !tbaa !22, !alias.scope !720, !noalias !723
   store ptr %163, ptr %.092.i.i.i.i.i.i.i, align 8, !tbaa !20, !alias.scope !723, !noalias !720
   store i64 0, ptr %172, align 8, !tbaa !22, !alias.scope !723, !noalias !720
-  store i8 0, ptr %163, align 1, !tbaa !24, !alias.scope !723, !noalias !720
+  store i8 0, ptr %163, align 8, !tbaa !24, !alias.scope !723, !noalias !720
   %174 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i.i, i64 32
   %175 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %174, ptr noundef nonnull align 8 dereferenceable(28) %175, i64 28, i1 false), !alias.scope !725

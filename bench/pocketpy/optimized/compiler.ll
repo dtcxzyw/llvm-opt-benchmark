@@ -1662,7 +1662,7 @@ define void @_ZN4pkpy8Compiler14push_f_contextENS_3StrE(ptr dead_on_unwind noali
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 204
   store i32 -1, ptr %20, align 4, !noalias !9
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 232
-  store i8 1, ptr %21, align 4, !noalias !9
+  store i8 1, ptr %21, align 8, !noalias !9
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 234
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %22, i8 0, i64 18, i1 false), !noalias !9
   store ptr %7, ptr %6, align 8, !alias.scope !9

@@ -3949,11 +3949,11 @@ _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit274:
   %694 = phi ptr [ %688, %691 ], [ %700, %693 ]
   store double 0.000000e+00, ptr %694, align 8
   %695 = getelementptr inbounds nuw i8, ptr %694, i64 8
-  store float 1.000000e+00, ptr %695, align 4
+  store float 1.000000e+00, ptr %695, align 8
   %696 = getelementptr inbounds nuw i8, ptr %694, i64 12
   store float 0.000000e+00, ptr %696, align 4
   %697 = getelementptr inbounds nuw i8, ptr %694, i64 16
-  store float 0.000000e+00, ptr %697, align 4
+  store float 0.000000e+00, ptr %697, align 8
   %698 = getelementptr inbounds nuw i8, ptr %694, i64 20
   store float 0.000000e+00, ptr %698, align 4
   %699 = getelementptr inbounds nuw i8, ptr %694, i64 24
@@ -4638,7 +4638,7 @@ define hidden void @_ZN6Assimp19Discreet3DSImporter17GenerateNodeGraphEP7aiScene
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %49, ptr noundef nonnull align 1 dereferenceable(14) @.str.29, i64 14, i1 false)
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 18
-  store i8 0, ptr %50, align 1
+  store i8 0, ptr %50, align 2
   %51 = load i32, ptr %16, align 8
   %.not98 = icmp eq i32 %51, 0
   br i1 %.not98, label %.preheader82, label %.lr.ph
@@ -4860,7 +4860,7 @@ _ZN8aiStringaSERKS_.exit73:                       ; preds = %123, %137
   %170 = getelementptr inbounds nuw i8, ptr %161, i64 1088
   store ptr null, ptr %170, align 8
   store ptr %161, ptr %159, align 8
-  store i32 13, ptr %161, align 4
+  store i32 13, ptr %161, align 8
   %171 = getelementptr inbounds nuw i8, ptr %161, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %171, ptr noundef nonnull align 1 dereferenceable(13) @.str.31, i64 13, i1 false)
   %172 = zext i32 %156 to i64
@@ -6461,11 +6461,11 @@ define linkonce_odr hidden void @_ZNSt6vectorI9aiQuatKeySaIS0_EE17_M_default_app
   %.057.i.i.i = phi i64 [ %24, %.lr.ph.i.i.i ], [ %1, %3 ]
   store double 0.000000e+00, ptr %.08.i.i.i, align 8
   %19 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 8
-  store float 1.000000e+00, ptr %19, align 4
+  store float 1.000000e+00, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 12
   store float 0.000000e+00, ptr %20, align 4
   %21 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 16
-  store float 0.000000e+00, ptr %21, align 4
+  store float 0.000000e+00, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 20
   store float 0.000000e+00, ptr %22, align 4
   %23 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 24
@@ -6501,11 +6501,11 @@ _ZNKSt6vectorI9aiQuatKeySaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %26
   %.057.i.i.i32 = phi i64 [ %39, %.lr.ph.i.i.i30 ], [ %1, %_ZNKSt6vectorI9aiQuatKeySaIS0_EE12_M_check_lenEmPKc.exit ]
   store double 0.000000e+00, ptr %.08.i.i.i31, align 8
   %34 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 8
-  store float 1.000000e+00, ptr %34, align 4
+  store float 1.000000e+00, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 12
   store float 0.000000e+00, ptr %35, align 4
   %36 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 16
-  store float 0.000000e+00, ptr %36, align 4
+  store float 0.000000e+00, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 20
   store float 0.000000e+00, ptr %37, align 4
   %38 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 24

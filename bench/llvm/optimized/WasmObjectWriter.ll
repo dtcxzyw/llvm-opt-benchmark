@@ -281,7 +281,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_116WasmObjectWriterESt14default_deleteIS1_EED2Ev
   store ptr %9, ptr %6, align 8, !tbaa !16, !noalias !3
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 0, ptr %10, align 8, !tbaa !19, !noalias !3
-  store i8 0, ptr %9, align 1, !tbaa !22, !noalias !3
+  store i8 0, ptr %9, align 8, !tbaa !22, !noalias !3
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 104
@@ -352,7 +352,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_116WasmObjectWriterESt14default_deleteIS1_EED2Ev
   store ptr %10, ptr %7, align 8, !tbaa !16, !noalias !91
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 0, ptr %11, align 8, !tbaa !19, !noalias !91
-  store i8 0, ptr %10, align 1, !tbaa !22, !noalias !91
+  store i8 0, ptr %10, align 8, !tbaa !22, !noalias !91
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 104
@@ -5017,7 +5017,7 @@ _ZNK4llvm12MCSymbolWasm13getImportNameEv.exit97.i: ; preds = %427, %424, %422
   store ptr %.sroa.0.0.i102.i, ptr %52, align 8, !tbaa !196
   store i64 %.sroa.3.0.i101.i, ptr %.sroa.418.0..sroa_idx.i, align 8, !tbaa !197
   %436 = getelementptr inbounds nuw i8, ptr %213, i64 128
-  %437 = load i16, ptr %436, align 1
+  %437 = load i16, ptr %436, align 8
   store i16 %437, ptr %197, align 8
   %438 = load i32, ptr %118, align 8, !tbaa !14
   %439 = zext i32 %438 to i64
@@ -13391,7 +13391,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MCSymbolWasmEjNS_12DenseMapInfoIS4_vE
   %57 = load ptr, ptr %1, align 8, !tbaa !121
   store ptr %57, ptr %48, align 8, !tbaa !121
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !292
+  store i32 0, ptr %58, align 8, !tbaa !292
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MCSymbolWasmEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E16InsertIntoBucketIS4_JEEEPS9_SD_OT_DpOT0_.exit
@@ -15379,7 +15379,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_4wasm13WasmSignatureEjNS_12DenseMapInfoIS
   store i64 %43, ptr %41, align 8
   %44 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %45 = load i32, ptr %3, align 4, !tbaa !292
-  store i32 %45, ptr %44, align 4, !tbaa !292
+  store i32 %45, ptr %44, align 8, !tbaa !292
   ret ptr %22
 }
 
@@ -15783,7 +15783,7 @@ _ZN4llvm4wasm13WasmSignatureD2Ev.exit14:          ; preds = %_ZN4llvm11SmallVect
   %113 = load ptr, ptr %6, align 8, !tbaa !391
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 64
   %115 = getelementptr inbounds nuw i8, ptr %.040, i64 64
-  %116 = load i32, ptr %115, align 4, !tbaa !292
+  %116 = load i32, ptr %115, align 8, !tbaa !292
   store i32 %116, ptr %114, align 4, !tbaa !292
   %117 = load i32, ptr %25, align 8, !tbaa !314
   %118 = add i32 %117, 1
@@ -16771,7 +16771,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MCSymbolWasmEjNS_12DenseMapInfoIS4_vE
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !292
-  store i32 %68, ptr %66, align 4, !tbaa !292
+  store i32 %68, ptr %66, align 8, !tbaa !292
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !119
   br label %70
@@ -17164,7 +17164,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MCSymbolWasmEjNS_12DenseMapInfoIS4_vE
   store ptr %60, ptr %50, align 8, !tbaa !121
   %61 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %62 = load i32, ptr %3, align 4, !tbaa !292
-  store i32 %62, ptr %61, align 4, !tbaa !292
+  store i32 %62, ptr %61, align 8, !tbaa !292
   %63 = load ptr, ptr %1, align 8, !tbaa !116
   %64 = load i32, ptr %7, align 8, !tbaa !117
   br label %.loopexit
@@ -18105,7 +18105,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MCSymbolWasmEjNS_12DenseMapInfoIS4_vE
   %57 = load ptr, ptr %1, align 8, !tbaa !121
   store ptr %57, ptr %48, align 8, !tbaa !121
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !292
+  store i32 0, ptr %58, align 8, !tbaa !292
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MCSymbolWasmEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E16InsertIntoBucketIRKS4_JEEEPS9_SF_OT_DpOT0_.exit

@@ -3549,7 +3549,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE9push_backEOS2_.exit: ;
   store i64 %41, ptr %42, align 8, !tbaa !86
   store ptr %32, ptr %29, align 8, !tbaa !98
   store i64 0, ptr %40, align 8, !tbaa !86
-  store i8 0, ptr %32, align 1, !tbaa !109
+  store i8 0, ptr %32, align 8, !tbaa !109
   %43 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %44 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 56
   %45 = load i8, ptr %44, align 8, !tbaa !91, !range !95, !noundef !96
@@ -3657,7 +3657,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE9push_backEOS2_.exit: ;
   store i64 %42, ptr %43, align 8, !tbaa !86
   store ptr %33, ptr %30, align 8, !tbaa !98
   store i64 0, ptr %41, align 8, !tbaa !86
-  store i8 0, ptr %33, align 1, !tbaa !109
+  store i8 0, ptr %33, align 8, !tbaa !109
   %44 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %45 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 56
   %46 = load i8, ptr %45, align 8, !tbaa !91, !range !95, !noundef !96
@@ -3915,7 +3915,7 @@ _ZSt10_ConstructIN5clang9FixItHintEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = 
   store i64 %24, ptr %25, align 8, !tbaa !86
   store ptr %15, ptr %12, align 8, !tbaa !98
   store i64 0, ptr %23, align 8, !tbaa !86
-  store i8 0, ptr %15, align 1, !tbaa !109
+  store i8 0, ptr %15, align 8, !tbaa !109
   %26 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 56
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 56
   %28 = load i8, ptr %27, align 8, !tbaa !91, !range !95, !noundef !96

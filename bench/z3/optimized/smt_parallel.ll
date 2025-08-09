@@ -233,7 +233,7 @@ define hidden noundef i32 @_ZN3smt8parallelclERK10ref_vectorI4expr11ast_managerE
   %43 = load i32, ptr %42, align 8, !tbaa !539
   store i32 %43, ptr %7, align 4, !tbaa !507
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %41, i32 40)
-  store i32 %.sroa.speculated, ptr %42, align 4, !tbaa !507
+  store i32 %.sroa.speculated, ptr %42, align 8, !tbaa !507
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !540
   %46 = icmp eq ptr %45, null
@@ -3303,7 +3303,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.
   store i64 %77, ptr %79, align 8, !tbaa !559
   store ptr %69, ptr %66, align 8, !tbaa !605
   store i64 0, ptr %78, align 8, !tbaa !559
-  store i8 0, ptr %69, align 1, !tbaa !560
+  store i8 0, ptr %69, align 8, !tbaa !560
   %80 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 136
   %81 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i.i.i, i64 136
   %82 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 152
@@ -3337,7 +3337,7 @@ _ZSt10_ConstructI10smt_paramsJS0_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %_ZNKS
   store i64 %92, ptr %94, align 8, !tbaa !559
   store ptr %84, ptr %81, align 8, !tbaa !605
   store i64 0, ptr %93, align 8, !tbaa !559
-  store i8 0, ptr %84, align 1, !tbaa !560
+  store i8 0, ptr %84, align 8, !tbaa !560
   %95 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 168
   %96 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i.i.i, i64 168
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %95, ptr noundef nonnull align 8 dereferenceable(80) %96, i64 80, i1 false)

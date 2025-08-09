@@ -6080,7 +6080,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIcSt4pairIKc19common_sampler_t
   %45 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
   store ptr null, ptr %45, align 8, !tbaa !170
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store i8 %43, ptr %46, align 4, !tbaa !174
+  store i8 %43, ptr %46, align 8, !tbaa !174
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %48 = load i32, ptr %44, align 4, !tbaa !97
   store i32 %48, ptr %47, align 4, !tbaa !176
@@ -6243,7 +6243,7 @@ _ZNSt10_HashtableIcSt4pairIKc19common_sampler_typeESaIS3_ENSt8__detail10_Select1
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIcSt4pairIKc19common_sampler_typeESaIS3_ENSt8__detail10_Select1stESt8equal_toIcESt4hashIcENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !170
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i8, ptr %15, align 1, !tbaa !69
+  %16 = load i8, ptr %15, align 8, !tbaa !69
   %17 = sext i8 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18

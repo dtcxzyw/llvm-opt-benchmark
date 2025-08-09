@@ -1323,7 +1323,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %if
   store i64 %5, ptr %_M_string_length.i29.i, align 8, !tbaa !13
   store ptr %2, ptr %in_message, align 8, !tbaa !7
   store i64 0, ptr %_M_string_length.i28.i, align 8, !tbaa !13
-  store i8 0, ptr %2, align 1, !tbaa !52
+  store i8 0, ptr %2, align 8, !tbaa !52
   %call = invoke noundef ptr @_ZN2fs19GetFilenameFromPathEPKc(ptr noundef %in_file)
           to label %invoke.cont unwind label %lpad
 
@@ -2981,11 +2981,11 @@ invoke.cont7:                                     ; preds = %call.i.noexc
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV32TestSelectableClientActiveObject, i64 16), ptr %call.i199, align 8, !tbaa !4, !noalias !74
   %position.i.i = getelementptr inbounds nuw i8, ptr %call.i199, i64 32
   %Z.i.i.i = getelementptr inbounds nuw i8, ptr %call.i199, i64 40
-  store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float -1.000000e+00>, ptr %position.i.i, align 4, !tbaa !77, !noalias !74
+  store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float -1.000000e+00>, ptr %position.i.i, align 8, !tbaa !77, !noalias !74
   %agg.tmp2.i.sroa.4.0.selection_box.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i199, i64 48
-  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %agg.tmp2.i.sroa.4.0.selection_box.i.i.sroa_idx, align 4, !tbaa !77, !noalias !74
+  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %agg.tmp2.i.sroa.4.0.selection_box.i.i.sroa_idx, align 8, !tbaa !77, !noalias !74
   %agg.tmp2.i.sroa.8.0.selection_box.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i199, i64 64
-  store float 1.000000e+00, ptr %agg.tmp2.i.sroa.8.0.selection_box.i.i.sroa_idx, align 4, !tbaa !77, !noalias !74
+  store float 1.000000e+00, ptr %agg.tmp2.i.sroa.8.0.selection_box.i.i.sroa_idx, align 8, !tbaa !77, !noalias !74
   call void @llvm.lifetime.start.p0(ptr nonnull %obj)
   store ptr %call.i199, ptr %obj, align 8, !tbaa !14
   store ptr %call.i199, ptr %agg.tmp, align 8, !tbaa !41

@@ -36242,11 +36242,11 @@ _ZN4llvm19AArch64FunctionInfo17setOutliningStyleERKNSt7__cxx1112basic_stringIcSt
   %395 = getelementptr inbounds nuw i8, ptr %37, i64 168
   store ptr %395, ptr %391, align 8, !tbaa !1223
   %396 = load i64, ptr %388, align 8
-  store i64 %396, ptr %395, align 1
+  store i64 %396, ptr %395, align 8
   %397 = getelementptr inbounds nuw i8, ptr %37, i64 160
   store i64 8, ptr %397, align 8, !tbaa !1224
   %398 = getelementptr inbounds nuw i8, ptr %37, i64 176
-  store i8 0, ptr %398, align 1, !tbaa !252
+  store i8 0, ptr %398, align 8, !tbaa !252
   store i8 1, ptr %392, align 8, !tbaa !1587
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i195
 

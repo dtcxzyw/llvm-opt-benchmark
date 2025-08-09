@@ -24404,7 +24404,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPKNS_25OffloadEntriesInfoManager16OffloadEntry
   store ptr %50, ptr %49, align 8, !tbaa !595
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   store i64 0, ptr %51, align 8, !tbaa !596
-  store i8 0, ptr %50, align 1, !tbaa !111
+  store i8 0, ptr %50, align 8, !tbaa !111
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, i8 0, i64 16, i1 false)
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 56
@@ -85121,13 +85121,13 @@ _ZN4llvm6detail19AnalysisResultModelINS_8FunctionENS_18AssumptionAnalysisENS_15A
   store ptr %41, ptr %42, align 8, !tbaa !2558
   store ptr null, ptr %15, align 8, !tbaa !2558
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 176
-  store i32 %40, ptr %43, align 4, !tbaa !233
+  store i32 %40, ptr %43, align 8, !tbaa !233
   store i32 0, ptr %18, align 8, !tbaa !233
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 180
   store i32 %39, ptr %44, align 4, !tbaa !233
   store i32 0, ptr %21, align 4, !tbaa !233
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 184
-  store i32 %38, ptr %45, align 4, !tbaa !233
+  store i32 %38, ptr %45, align 8, !tbaa !233
   store i32 0, ptr %24, align 8, !tbaa !233
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 192
   store i8 %37, ptr %46, align 8, !tbaa !2559
@@ -98945,7 +98945,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_5ValueEjLj4ENS_12DenseMapInfoIS4_
   store ptr %66, ptr %54, align 8, !tbaa !232
   %67 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %68 = load i32, ptr %3, align 4, !tbaa !233
-  store i32 %68, ptr %67, align 4, !tbaa !233
+  store i32 %68, ptr %67, align 8, !tbaa !233
   %69 = load i32, ptr %1, align 8
   %70 = and i32 %69, 1
   %.not.i.i.i.i7 = icmp eq i32 %70, 0
@@ -99090,7 +99090,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIPKNS_5ValueEjLj4ENS_12D
   %30 = getelementptr inbounds nuw i8, ptr %.02738, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %.028.ptr39, i64 8
   %32 = load i32, ptr %31, align 8, !tbaa !233
-  store i32 %32, ptr %30, align 4, !tbaa !233
+  store i32 %32, ptr %30, align 8, !tbaa !233
   %33 = getelementptr inbounds nuw i8, ptr %.02738, i64 16
   br label %34
 
@@ -99249,7 +99249,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_5ValueEjLj4ENS_12DenseMapInfoIS4_
   %48 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %.023, i64 8
   %50 = load i32, ptr %49, align 4, !tbaa !233
-  store i32 %50, ptr %48, align 4, !tbaa !233
+  store i32 %50, ptr %48, align 8, !tbaa !233
   %51 = load i32, ptr %0, align 8
   %52 = and i32 %51, -2
   %53 = add i32 %52, 2
@@ -99659,7 +99659,7 @@ _ZSt10_ConstructISt4pairIPKN4llvm25OffloadEntriesInfoManager16OffloadEntryInfoEN
   store i64 %25, ptr %26, align 8, !tbaa !596
   store ptr %16, ptr %13, align 8, !tbaa !597
   store i64 0, ptr %24, align 8, !tbaa !596
-  store i8 0, ptr %16, align 1, !tbaa !111
+  store i8 0, ptr %16, align 8, !tbaa !111
   %27 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 40
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false)
@@ -100031,7 +100031,7 @@ _ZNSt8_Rb_treeIN4llvm21TargetRegionEntryInfoESt4pairIKS1_jESt10_Select1stIS4_ESt
   store i64 %20, ptr %22, align 8, !tbaa !596
   store ptr %12, ptr %9, align 8, !tbaa !597
   store i64 0, ptr %21, align 8, !tbaa !596
-  store i8 0, ptr %12, align 1, !tbaa !111
+  store i8 0, ptr %12, align 8, !tbaa !111
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
@@ -100685,7 +100685,7 @@ _ZN4llvm14StringMapEntryINS_25OffloadEntriesInfoManager31OffloadEntryInfoDeviceG
   store ptr %32, ptr %31, align 8, !tbaa !595
   %33 = getelementptr inbounds nuw i8, ptr %20, i64 72
   store i64 0, ptr %33, align 8, !tbaa !596
-  store i8 0, ptr %32, align 1, !tbaa !111
+  store i8 0, ptr %32, align 8, !tbaa !111
   store ptr %20, ptr %10, align 8, !tbaa !676
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %35 = load i32, ptr %34, align 4, !tbaa !707
@@ -100780,7 +100780,7 @@ _ZN4llvm14StringMapEntryINS_25OffloadEntriesInfoManager31OffloadEntryInfoDeviceG
   store ptr %27, ptr %26, align 8, !tbaa !595
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 72
   store i64 0, ptr %28, align 8, !tbaa !596
-  store i8 0, ptr %27, align 1, !tbaa !111
+  store i8 0, ptr %27, align 8, !tbaa !111
   store ptr %18, ptr %8, align 8, !tbaa !676
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %30 = load i32, ptr %29, align 4, !tbaa !707

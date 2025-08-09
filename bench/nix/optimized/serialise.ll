@@ -17852,7 +17852,7 @@ _ZN5boost11coroutines26detail14pull_coroutineINSt7__cxx1112basic_stringIcSt11cha
   store i64 %196, ptr %198, align 8, !alias.scope !87
   store ptr %187, ptr %184, align 8
   store i64 0, ptr %197, align 8
-  store i8 0, ptr %187, align 1
+  store i8 0, ptr %187, align 8
   %199 = load ptr, ptr %136, align 8
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %201 = icmp eq ptr %199, %200

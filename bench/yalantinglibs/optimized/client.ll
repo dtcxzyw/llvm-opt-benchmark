@@ -8093,11 +8093,11 @@ call5.i.i.i.i.i.i.i.i.noexc:                      ; preds = %entry
   %_M_result.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i1, i64 24
   store ptr null, ptr %_M_result.i.i.i.i.i.i.i.i.i, align 8, !noalias !90
   %_M_status.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i1, i64 32
-  store i32 0, ptr %_M_status.i.i.i.i.i.i.i.i.i, align 4, !noalias !90
+  store i32 0, ptr %_M_status.i.i.i.i.i.i.i.i.i, align 8, !noalias !90
   %_M_retrieved.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i1, i64 36
-  store i8 0, ptr %_M_retrieved.i.i.i.i.i.i.i.i.i, align 1, !noalias !90
+  store i8 0, ptr %_M_retrieved.i.i.i.i.i.i.i.i.i, align 4, !noalias !90
   %_M_once.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i1, i64 40
-  store i32 0, ptr %_M_once.i.i.i.i.i.i.i.i.i, align 4, !noalias !90
+  store i32 0, ptr %_M_once.i.i.i.i.i.i.i.i.i, align 8, !noalias !90
   store ptr %call5.i.i.i.i.i.i.i.i1, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !90
   store ptr %_M_impl.i.i.i.i.i.i.i, ptr %call, align 8, !alias.scope !90
   %call.i = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #36
@@ -11770,7 +11770,7 @@ entry:
   store ptr %interrupter_.i, ptr %data.i, align 4
   %epoll_fd_.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load i32, ptr %epoll_fd_.i, align 8
-  %1 = load i32, ptr %interrupter_.i, align 4
+  %1 = load i32, ptr %interrupter_.i, align 8
   %call3.i = call i32 @epoll_ctl(i32 noundef %0, i32 noundef 3, i32 noundef %1, ptr noundef nonnull %ev.i) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %ev.i)
   ret void
@@ -21858,7 +21858,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i: ; preds
   store i64 %5, ptr %_M_string_length.i13.i.i.i.i, align 8
   store ptr %2, ptr %host_name_3.i.i.i, align 8
   store i64 0, ptr %_M_string_length.i12.i.i.i.i, align 8
-  store i8 0, ptr %2, align 1
+  store i8 0, ptr %2, align 8
   %service_name_.i.i.i = getelementptr inbounds nuw i8, ptr %__dest, i64 64
   %service_name_4.i.i.i = getelementptr inbounds nuw i8, ptr %__orig, i64 64
   %6 = getelementptr inbounds nuw i8, ptr %__dest, i64 80
@@ -21893,7 +21893,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = 
   store i64 %11, ptr %_M_string_length.i13.i6.i.i.i, align 8
   store ptr %8, ptr %service_name_4.i.i.i, align 8
   store i64 0, ptr %_M_string_length.i12.i5.i.i.i, align 8
-  store i8 0, ptr %8, align 1
+  store i8 0, ptr %8, align 8
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %service_name_4.i.i.i) #32
   %12 = load ptr, ptr %host_name_3.i.i.i, align 8
   %cmp.i.i.i1.i.i.i = icmp eq ptr %12, %2

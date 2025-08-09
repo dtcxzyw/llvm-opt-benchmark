@@ -652,7 +652,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %17, %19
   store ptr %25, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   %27 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 12, i32 noundef 4) #22
-  store i32 0, ptr %26, align 4
+  store i32 0, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
   store i32 12, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
@@ -5747,7 +5747,7 @@ _ZN22CompilationResourceObjnwEm.exit.i187:        ; preds = %326, %324
   store ptr %332, ptr %331, align 8
   %333 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i188, i64 16
   %334 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 12, i32 noundef 4) #22
-  store i32 0, ptr %333, align 4
+  store i32 0, ptr %333, align 8
   %335 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i188, i64 20
   store i32 12, ptr %335, align 4
   %336 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i188, i64 24
@@ -6009,7 +6009,7 @@ _ZN22CompilationResourceObjnwEm.exit.i190:        ; preds = %462, %460
   store ptr %468, ptr %467, align 8
   %469 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i191, i64 16
   %470 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 12, i32 noundef 4) #22
-  store i32 0, ptr %469, align 4
+  store i32 0, ptr %469, align 8
   %471 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i191, i64 20
   store i32 12, ptr %471, align 4
   %472 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i191, i64 24
@@ -7521,7 +7521,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %61, %63
   store ptr %69, ptr %68, align 8
   %70 = getelementptr inbounds nuw i8, ptr %.0.i.i.i12, i64 16
   %71 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 12, i32 noundef 4) #22
-  store i32 0, ptr %70, align 4
+  store i32 0, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %.0.i.i.i12, i64 20
   store i32 12, ptr %72, align 4
   %73 = getelementptr inbounds nuw i8, ptr %.0.i.i.i12, i64 24
@@ -7841,7 +7841,7 @@ _ZNK10BlockBegin13number_of_suxEv.exit.thread:    ; preds = %4, %_ZNK10BlockBegi
   %23 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(48) %19) #22
   %.not = icmp eq ptr %23, null
   %24 = load ptr, ptr %11, align 8
-  %25 = load i32, ptr %12, align 4
+  %25 = load i32, ptr %12, align 8
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %24, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -8339,7 +8339,7 @@ _ZN22CompilationResourceObjnwEm.exit.i51:         ; preds = %239, %237
   store ptr %245, ptr %244, align 8
   %246 = getelementptr inbounds nuw i8, ptr %.0.i.i.i12.i52, i64 16
   %247 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 12, i32 noundef 4) #22
-  store i32 0, ptr %246, align 4
+  store i32 0, ptr %246, align 8
   %248 = getelementptr inbounds nuw i8, ptr %.0.i.i.i12.i52, i64 20
   store i32 12, ptr %248, align 4
   %249 = getelementptr inbounds nuw i8, ptr %.0.i.i.i12.i52, i64 24
@@ -8513,7 +8513,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %330, %328
   store ptr %336, ptr %335, align 8
   %337 = getelementptr inbounds nuw i8, ptr %.0.i.i.i12.i, i64 16
   %338 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 12, i32 noundef 4) #22
-  store i32 0, ptr %337, align 4
+  store i32 0, ptr %337, align 8
   %339 = getelementptr inbounds nuw i8, ptr %.0.i.i.i12.i, i64 20
   store i32 12, ptr %339, align 4
   %340 = getelementptr inbounds nuw i8, ptr %.0.i.i.i12.i, i64 24
@@ -8970,7 +8970,7 @@ _ZNK10BlockBegin13number_of_suxEv.exit.thread.i:  ; preds = %_ZNK10BlockBegin13n
   %549 = call noundef ptr %548(ptr noundef nonnull align 8 dereferenceable(48) %545) #22
   %.not.i = icmp eq ptr %549, null
   %550 = load ptr, ptr %129, align 8
-  %551 = load i32, ptr %538, align 4
+  %551 = load i32, ptr %538, align 8
   store ptr %550, ptr %9, align 8
   store i32 0, ptr %10, align 8
   store i32 0, ptr %15, align 8
@@ -11304,7 +11304,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %40, %42
   store ptr %47, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   %49 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 12, i32 noundef 4) #22
-  store i32 0, ptr %48, align 4
+  store i32 0, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
   store i32 12, ptr %50, align 4
   %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
@@ -13253,7 +13253,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %97, %95
   store ptr %103, ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %.0.i.i.i12.i, i64 16
   %105 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 12, i32 noundef 4) #22
-  store i32 0, ptr %104, align 4
+  store i32 0, ptr %104, align 8
   %106 = getelementptr inbounds nuw i8, ptr %.0.i.i.i12.i, i64 20
   store i32 12, ptr %106, align 4
   %107 = getelementptr inbounds nuw i8, ptr %.0.i.i.i12.i, i64 24
@@ -15212,7 +15212,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %289, %291
   store ptr %297, ptr %296, align 8
   %298 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   %299 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 12, i32 noundef 4) #22
-  store i32 0, ptr %298, align 4
+  store i32 0, ptr %298, align 8
   %300 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
   store i32 12, ptr %300, align 4
   %301 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
@@ -16063,7 +16063,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %16, %18
   store ptr %24, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   %26 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 12, i32 noundef 4) #22
-  store i32 0, ptr %25, align 4
+  store i32 0, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
   store i32 12, ptr %27, align 4
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
@@ -22607,9 +22607,9 @@ _ZN8Interval2toEv.exit45:                         ; preds = %76, %_ZN8Interval7c
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 112
   store i32 %103, ptr %105, align 8
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %107 = load i32, ptr %106, align 4
+  %107 = load i32, ptr %106, align 8
   %108 = add nsw i32 %107, -2
-  store i32 %108, ptr %106, align 4
+  store i32 %108, ptr %106, align 8
   %109 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %110 = load i32, ptr %109, align 4
   %111 = add nsw i32 %110, -2
@@ -22784,7 +22784,7 @@ _ZN10LinearScan17assign_spill_slotEP8Interval.exit: ; preds = %47, %_ZN10LinearS
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %92 = load i32, ptr %91, align 8
   %93 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %94 = load i32, ptr %93, align 4
+  %94 = load i32, ptr %93, align 8
   %95 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %96 = load ptr, ptr %95, align 8
   br label %97
@@ -23467,7 +23467,7 @@ _ZNK10BlockBegin13number_of_suxEv.exit:           ; preds = %2, %8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 304
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 160
-  %52 = load i32, ptr %51, align 4
+  %52 = load i32, ptr %51, align 8
   %.not35 = icmp eq i32 %52, 1
   br i1 %.not35, label %53, label %_ZN17EdgeMoveOptimizer20operations_differentEP6LIR_OpS1_.exit.thread
 

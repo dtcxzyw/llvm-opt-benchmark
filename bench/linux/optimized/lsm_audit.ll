@@ -722,7 +722,7 @@ define dso_local void @common_lsm_audit(ptr noundef %0, ptr noundef readonly cap
   %158 = load i32, ptr %157, align 4
   %159 = getelementptr inbounds nuw i8, ptr %148, i64 10
   call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %15, ptr noundef nonnull @.str.3) #8
-  %160 = load i8, ptr %159, align 1
+  %160 = load i8, ptr %159, align 2
   %161 = icmp eq i8 %160, 0
   br i1 %161, label %163, label %162
 

@@ -2539,7 +2539,7 @@ _ZN8AstScope10addBlockspEP7AstNode.exit:          ; preds = %_ZN8AstCFunc9addStm
   store ptr %161, ptr %160, align 8, !tbaa !22
   %162 = getelementptr inbounds nuw i8, ptr %157, i64 160
   store i64 0, ptr %162, align 8, !tbaa !13
-  store i8 0, ptr %161, align 1, !tbaa !14
+  store i8 0, ptr %161, align 8, !tbaa !14
   %163 = getelementptr inbounds nuw i8, ptr %157, i64 184
   store i8 0, ptr %163, align 8, !tbaa !106
   %164 = getelementptr inbounds nuw i8, ptr %157, i64 192

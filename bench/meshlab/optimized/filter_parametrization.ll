@@ -13367,7 +13367,7 @@ define linkonce_odr void @_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJRKZN3igl
   store i64 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4
-  store i32 %16, ptr %15, align 4
+  store i32 %16, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4
   store i32 %18, ptr %17, align 4
@@ -13442,7 +13442,7 @@ define linkonce_odr void @_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJRKZN3igl
   store i64 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4
-  store i32 %16, ptr %15, align 4
+  store i32 %16, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4
   store i32 %18, ptr %17, align 4
@@ -13674,7 +13674,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4
-  store i32 %30, ptr %29, align 4
+  store i32 %30, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4
   store i32 %32, ptr %31, align 4
@@ -13876,7 +13876,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4
-  store i32 %30, ptr %29, align 4
+  store i32 %30, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4
   store i32 %32, ptr %31, align 4
@@ -14595,7 +14595,7 @@ define linkonce_odr void @_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJRKZN3igl
   store i64 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4
-  store i32 %16, ptr %15, align 4
+  store i32 %16, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4
   store i32 %18, ptr %17, align 4
@@ -14670,7 +14670,7 @@ define linkonce_odr void @_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJRKZN3igl
   store i64 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4
-  store i32 %16, ptr %15, align 4
+  store i32 %16, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4
   store i32 %18, ptr %17, align 4
@@ -14912,7 +14912,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4
-  store i32 %30, ptr %29, align 4
+  store i32 %30, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4
   store i32 %32, ptr %31, align 4
@@ -15118,7 +15118,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4
-  store i32 %30, ptr %29, align 4
+  store i32 %30, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4
   store i32 %32, ptr %31, align 4
@@ -18604,7 +18604,7 @@ _ZN5Eigen12SparseMatrixIdLi1EiE7reserveINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvR
   %.sroa.0.027 = phi ptr [ %52, %.lr.ph28 ], [ %76, %56 ]
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.0.027, i64 8
   %58 = load double, ptr %57, align 8
-  %59 = load i32, ptr %.sroa.0.027, align 4
+  %59 = load i32, ptr %.sroa.0.027, align 8
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.0.027, i64 4
   %62 = load i32, ptr %61, align 4
@@ -75582,7 +75582,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %85, %82
   %92 = getelementptr inbounds %"struct.Eigen::internal::GemmParallelInfo", ptr %90, i64 %.06.i.i
   store i64 -1, ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  store i32 0, ptr %93, align 4
+  store i32 0, ptr %93, align 8
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %94, i8 0, i64 16, i1 false)
   %95 = add nuw i64 %.06.i.i, 1
@@ -85292,7 +85292,7 @@ define linkonce_odr void @_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJRKZN3igl
   store i64 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4
-  store i32 %16, ptr %15, align 4
+  store i32 %16, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4
   store i32 %18, ptr %17, align 4
@@ -85367,7 +85367,7 @@ define linkonce_odr void @_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJRKZN3igl
   store i64 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4
-  store i32 %16, ptr %15, align 4
+  store i32 %16, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4
   store i32 %18, ptr %17, align 4
@@ -85609,7 +85609,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4
-  store i32 %30, ptr %29, align 4
+  store i32 %30, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4
   store i32 %32, ptr %31, align 4
@@ -85815,7 +85815,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4
-  store i32 %30, ptr %29, align 4
+  store i32 %30, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4
   store i32 %32, ptr %31, align 4
@@ -89533,7 +89533,7 @@ define linkonce_odr void @_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJRKZN3igl
   store i64 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4
-  store i32 %16, ptr %15, align 4
+  store i32 %16, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4
   store i32 %18, ptr %17, align 4
@@ -89608,7 +89608,7 @@ define linkonce_odr void @_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJRKZN3igl
   store i64 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4
-  store i32 %16, ptr %15, align 4
+  store i32 %16, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4
   store i32 %18, ptr %17, align 4
@@ -89873,7 +89873,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4
-  store i32 %30, ptr %29, align 4
+  store i32 %30, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4
   store i32 %32, ptr %31, align 4
@@ -90075,7 +90075,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4
-  store i32 %30, ptr %29, align 4
+  store i32 %30, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4
   store i32 %32, ptr %31, align 4
@@ -90411,7 +90411,7 @@ define linkonce_odr void @_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJRKZN3igl
   store i64 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4
-  store i32 %16, ptr %15, align 4
+  store i32 %16, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4
   store i32 %18, ptr %17, align 4
@@ -90486,7 +90486,7 @@ define linkonce_odr void @_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJRKZN3igl
   store i64 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4
-  store i32 %16, ptr %15, align 4
+  store i32 %16, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4
   store i32 %18, ptr %17, align 4
@@ -90919,7 +90919,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4
-  store i32 %30, ptr %29, align 4
+  store i32 %30, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4
   store i32 %32, ptr %31, align 4
@@ -91121,7 +91121,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4
-  store i32 %30, ptr %29, align 4
+  store i32 %30, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4
   store i32 %32, ptr %31, align 4
@@ -91586,7 +91586,7 @@ define linkonce_odr void @_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJRKZN3igl
   store i64 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4
-  store i32 %16, ptr %15, align 4
+  store i32 %16, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4
   store i32 %18, ptr %17, align 4
@@ -91661,7 +91661,7 @@ define linkonce_odr void @_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJRKZN3igl
   store i64 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4
-  store i32 %16, ptr %15, align 4
+  store i32 %16, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4
   store i32 %18, ptr %17, align 4
@@ -91926,7 +91926,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4
-  store i32 %30, ptr %29, align 4
+  store i32 %30, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4
   store i32 %32, ptr %31, align 4
@@ -92128,7 +92128,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4
-  store i32 %30, ptr %29, align 4
+  store i32 %30, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4
   store i32 %32, ptr %31, align 4
@@ -92464,7 +92464,7 @@ define linkonce_odr void @_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJRKZN3igl
   store i64 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4
-  store i32 %16, ptr %15, align 4
+  store i32 %16, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4
   store i32 %18, ptr %17, align 4
@@ -92539,7 +92539,7 @@ define linkonce_odr void @_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJRKZN3igl
   store i64 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4
-  store i32 %16, ptr %15, align 4
+  store i32 %16, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4
   store i32 %18, ptr %17, align 4
@@ -92972,7 +92972,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4
-  store i32 %30, ptr %29, align 4
+  store i32 %30, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4
   store i32 %32, ptr %31, align 4
@@ -93174,7 +93174,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4
-  store i32 %30, ptr %29, align 4
+  store i32 %30, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4
   store i32 %32, ptr %31, align 4

@@ -1387,7 +1387,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsI
   store ptr %55, ptr %54, align 8, !tbaa !190
   %56 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store i64 0, ptr %56, align 8, !tbaa !34
-  store i8 0, ptr %55, align 1, !tbaa !35
+  store i8 0, ptr %55, align 8, !tbaa !35
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E16InsertIntoBucketIRKjJEEEPSC_SI_OT_DpOT0_.exit
@@ -1545,7 +1545,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3pdb14PDBFileBuilder24InjectedSourceDescrip
   store i64 %75, ptr %76, align 8, !tbaa !34
   store ptr %66, ptr %.016.i.i.i, align 8, !tbaa !30
   store i64 0, ptr %74, align 8, !tbaa !34
-  store i8 0, ptr %66, align 1, !tbaa !35
+  store i8 0, ptr %66, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %63, i64 32
   %78 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 32
   %79 = load i64, ptr %78, align 8
@@ -4962,7 +4962,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %43, %
   store i64 %50, ptr %51, align 8, !tbaa !34
   store ptr %41, ptr %38, align 8, !tbaa !30
   store i64 0, ptr %49, align 8, !tbaa !34
-  store i8 0, ptr %41, align 1, !tbaa !35
+  store i8 0, ptr %41, align 8, !tbaa !35
   %52 = load i32, ptr %4, align 8, !tbaa !198
   %53 = add i32 %52, 1
   store i32 %53, ptr %4, align 8, !tbaa !198
@@ -5023,7 +5023,7 @@ _ZSt10_ConstructIN4llvm3pdb14PDBFileBuilder24InjectedSourceDescriptorEJS3_EEvPT_
   store i64 %22, ptr %23, align 8, !tbaa !34
   store ptr %13, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !30
   store i64 0, ptr %21, align 8, !tbaa !34
-  store i8 0, ptr %13, align 1, !tbaa !35
+  store i8 0, ptr %13, align 8, !tbaa !35
   %24 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 32
   %26 = load i64, ptr %25, align 8

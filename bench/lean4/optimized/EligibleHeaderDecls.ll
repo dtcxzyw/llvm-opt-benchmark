@@ -5485,7 +5485,7 @@ lean_dec_ref.exit11:                              ; preds = %14, %16, %17
   %.val13 = load ptr, ptr %23, align 8, !tbaa !9
   store ptr %.val13, ptr @l_Lean_Server_Completion_eligibleHeaderDeclsRef, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %.val13) #3
-  %24 = load i32, ptr %19, align 4, !tbaa !4
+  %24 = load i32, ptr %19, align 8, !tbaa !4
   %25 = icmp sgt i32 %24, 1
   br i1 %25, label %26, label %28, !prof !11
 

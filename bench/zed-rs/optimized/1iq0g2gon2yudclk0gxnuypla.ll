@@ -4466,7 +4466,7 @@ define hidden { i8, i8 } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$G
   %.sroa.610.0..8.val.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.val, i64 3
   store i8 0, ptr %.sroa.610.0..8.val.sroa_idx.i.i, align 1
   %.sroa.5.sroa.5.0..sroa.610.0..8.val.sroa_idx.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.val, i64 4
-  store i16 %17, ptr %.sroa.5.sroa.5.0..sroa.610.0..8.val.sroa_idx.i.sroa_idx.i, align 1
+  store i16 %17, ptr %.sroa.5.sroa.5.0..sroa.610.0..8.val.sroa_idx.i.sroa_idx.i, align 4
   resume { ptr, i32 } %20
 
 21:                                               ; preds = %13
@@ -4476,7 +4476,7 @@ define hidden { i8, i8 } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$G
   %.sroa.610.0..8.val.sroa_idx11.i.i = getelementptr inbounds nuw i8, ptr %.val, i64 3
   store i8 0, ptr %.sroa.610.0..8.val.sroa_idx11.i.i, align 1
   %.sroa.5.sroa.5.0..sroa.610.0..8.val.sroa_idx11.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.val, i64 4
-  store i16 %17, ptr %.sroa.5.sroa.5.0..sroa.610.0..8.val.sroa_idx11.i.sroa_idx.i, align 1
+  store i16 %17, ptr %.sroa.5.sroa.5.0..sroa.610.0..8.val.sroa_idx11.i.sroa_idx.i, align 4
   br label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7aecadfb6bbd0bc1E.exit"
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7aecadfb6bbd0bc1E.exit": ; preds = %"_ZN4tiff7decoder10tag_reader18TagReader$LT$R$GT$17find_tag_uint_vec28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc96151238a2ae504E.exit.thread.i", %21

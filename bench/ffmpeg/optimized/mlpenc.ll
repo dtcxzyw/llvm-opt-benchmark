@@ -171,7 +171,7 @@ define internal range(i32 -2147483648, 1) i32 @mlp_encode_init(ptr noundef %0) #
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 652
   store i32 %.sink152, ptr %44, align 4, !tbaa !44
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store i32 15, ptr %45, align 4, !tbaa !38
+  store i32 15, ptr %45, align 16, !tbaa !38
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %47 = load i32, ptr %46, align 8, !tbaa !37
   %48 = trunc i32 %47 to i16
@@ -1007,9 +1007,9 @@ set_major_params.exit:                            ; preds = %compare_decoding_pa
   %302 = getelementptr inbounds nuw i8, ptr %18, i64 7137208
   store i32 %301, ptr %302, align 8, !tbaa !94
   %303 = getelementptr inbounds nuw i8, ptr %18, i64 176
-  store ptr %299, ptr %303, align 8, !tbaa !89
+  store ptr %299, ptr %303, align 16, !tbaa !89
   %304 = getelementptr inbounds nuw i8, ptr %18, i64 160
-  %305 = load i32, ptr %304, align 4, !tbaa !68
+  %305 = load i32, ptr %304, align 16, !tbaa !68
   %306 = getelementptr inbounds nuw i8, ptr %18, i64 1500
   %307 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %308 = getelementptr inbounds nuw i8, ptr %18, i64 156

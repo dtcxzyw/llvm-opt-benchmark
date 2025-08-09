@@ -159,7 +159,7 @@ define range(i32 -1, 1) i32 @ws_socket_ptoa(ptr noundef %0, ptr noundef %1, i16 
   store i16 %.044, ptr %64, align 2
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %66 = load i32, ptr %4, align 4
-  store i32 %66, ptr %65, align 1
+  store i32 %66, ptr %65, align 4
   br label %68
 
 67:                                               ; preds = %62

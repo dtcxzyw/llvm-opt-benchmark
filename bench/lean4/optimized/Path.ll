@@ -15104,7 +15104,7 @@ lean_alloc_ctor.exit:                             ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i64 1, ptr %11, align 8, !tbaa !8
-  store i32 1, ptr %7, align 4, !tbaa !10
+  store i32 1, ptr %7, align 8, !tbaa !10
   store i32 327736, ptr %10, align 4
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %4, ptr %12, align 8, !tbaa !4
@@ -16041,7 +16041,7 @@ _init_l_List_forIn_x27_loop___at_Lean_SearchPath_findAllWithExt___spec__2___clos
   %.val13 = load ptr, ptr %65, align 8, !tbaa !4
   store ptr %.val13, ptr @l_Lean_searchPathRef, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val13) #4
-  %66 = load i32, ptr %61, align 4, !tbaa !10
+  %66 = load i32, ptr %61, align 8, !tbaa !10
   %67 = icmp sgt i32 %66, 1
   br i1 %67, label %68, label %70, !prof !13
 
@@ -16225,7 +16225,7 @@ _init_l_Lean_findSysroot___lambda__1___closed__1.exit: ; preds = %_init_l_Lean_s
   %135 = getelementptr inbounds nuw i8, ptr %132, i64 4
   %136 = getelementptr inbounds nuw i8, ptr %132, i64 8
   store i64 65793, ptr %136, align 8, !tbaa !8
-  store i32 1, ptr %132, align 4, !tbaa !10
+  store i32 1, ptr %132, align 8, !tbaa !10
   store i32 16, ptr %135, align 4
   store ptr %132, ptr @l_Lean_findSysroot___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %132) #4

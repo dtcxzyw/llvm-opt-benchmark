@@ -28884,7 +28884,7 @@ define internal void @_ZN3std3sys12thread_local10fast_local13destroy_value17h04a
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 48, i1 false), !noalias !5445
   store i64 0, ptr %0, align 8, !noalias !5450
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i8 2, ptr %5, align 1, !noalias !5445
+  store i8 2, ptr %5, align 8, !noalias !5445
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5453)
   %6 = load i64, ptr %3, align 8, !range !1598, !alias.scope !5453, !noalias !5445, !noundef !4
   %7 = icmp eq i64 %6, 0
@@ -28987,7 +28987,7 @@ define internal void @_ZN3std3sys12thread_local10fast_local13destroy_value17h3f7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false), !noalias !5484
   store i64 0, ptr %0, align 8, !noalias !5489
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 2, ptr %6, align 1, !noalias !5484
+  store i8 2, ptr %6, align 8, !noalias !5484
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5492)
   %7 = load i64, ptr %4, align 8, !range !1598, !alias.scope !5492, !noalias !5484, !noundef !4
   %8 = icmp eq i64 %7, 0
@@ -29085,7 +29085,7 @@ define internal void @_ZN3std3sys12thread_local10fast_local13destroy_value17h4d9
   %5 = load ptr, ptr %0, align 8, !noalias !5509, !noundef !4
   store ptr null, ptr %0, align 8, !noalias !5509
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 2, ptr %6, align 1, !noalias !5509
+  store i8 2, ptr %6, align 8, !noalias !5509
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !5509
   store ptr %5, ptr %3, align 8, !noalias !5509
   %7 = icmp eq ptr %5, null
@@ -29167,7 +29167,7 @@ define internal void @_ZN3std3sys12thread_local10fast_local13destroy_value17h5b6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false), !noalias !5522
   store i64 0, ptr %0, align 8, !noalias !5527
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 2, ptr %5, align 1, !noalias !5522
+  store i8 2, ptr %5, align 8, !noalias !5522
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5530)
   %6 = load i64, ptr %3, align 8, !range !1598, !alias.scope !5530, !noalias !5522, !noundef !4
   %7 = icmp eq i64 %6, 0
@@ -29274,7 +29274,7 @@ define internal void @_ZN3std3sys12thread_local10fast_local13destroy_value17haa8
   %7 = load ptr, ptr %6, align 8, !noalias !5550
   store i64 0, ptr %0, align 8, !noalias !5550
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 2, ptr %8, align 1, !noalias !5550
+  store i8 2, ptr %8, align 8, !noalias !5550
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !5550
   store i64 %5, ptr %3, align 8, !noalias !5550
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -29360,7 +29360,7 @@ define internal void @_ZN3std3sys12thread_local10fast_local13destroy_value17hd0f
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false), !noalias !5571
   store i64 0, ptr %0, align 8, !noalias !5576
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 2, ptr %5, align 1, !noalias !5571
+  store i8 2, ptr %5, align 8, !noalias !5571
   %6 = load i64, ptr %3, align 8, !range !1598, !alias.scope !5579, !noalias !5571, !noundef !4
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %30, label %8
@@ -29436,7 +29436,7 @@ define internal void @_ZN3std3sys12thread_local10fast_local13destroy_value17hfc6
   %6 = load ptr, ptr %5, align 8, !noalias !5583
   store i64 0, ptr %0, align 8, !noalias !5583
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 2, ptr %7, align 1, !noalias !5583
+  store i8 2, ptr %7, align 8, !noalias !5583
   %8 = icmp eq i64 %4, 0
   br i1 %8, label %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb18ca1a26a9e675aE.exit", label %9
 

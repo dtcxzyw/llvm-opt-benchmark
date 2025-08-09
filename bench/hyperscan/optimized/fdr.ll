@@ -483,7 +483,7 @@ createShortZone.exit:                             ; preds = %48, %51, %54, %60, 
   %150 = sub nsw i64 0, %143
   %151 = getelementptr inbounds i8, ptr %141, i64 %150
   %152 = load i64, ptr %151, align 1
-  store i64 %152, ptr %.036.i.sroa.phi, align 1
+  store i64 %152, ptr %.036.i.sroa.phi, align 64
   %153 = getelementptr inbounds i8, ptr %149, i64 -16
   %154 = getelementptr inbounds i8, ptr %141, i64 -16
   %155 = load <2 x i64>, ptr %154, align 1

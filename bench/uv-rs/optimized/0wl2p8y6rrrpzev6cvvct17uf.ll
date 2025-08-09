@@ -3689,7 +3689,7 @@ _ZN14allocator_api26stable5alloc6global6Global10alloc_impl17h9f23a2e8aeefec28E.e
   %55 = getelementptr inbounds i8, ptr %54, i64 -16
   %.val10.i = load ptr, ptr %55, align 8, !noalias !886, !nonnull !7, !noundef !7
   %56 = getelementptr i8, ptr %54, i64 -8
-  %.val11.i = load i32, ptr %56, align 4, !noalias !886
+  %.val11.i = load i32, ptr %56, align 8, !noalias !886
   %57 = atomicrmw add ptr %.val10.i, i64 1 monotonic, align 8, !noalias !886
   %58 = icmp slt i64 %57, 0
   br i1 %58, label %59, label %60
@@ -42742,7 +42742,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   %37 = getelementptr inbounds i8, ptr %36, i64 -16
   %.val10 = load ptr, ptr %37, align 8, !nonnull !7, !noundef !7
   %38 = getelementptr i8, ptr %36, i64 -8
-  %.val11 = load i32, ptr %38, align 4
+  %.val11 = load i32, ptr %38, align 8
   %39 = atomicrmw add ptr %.val10, i64 1 monotonic, align 8
   %40 = icmp slt i64 %39, 0
   br i1 %40, label %41, label %42

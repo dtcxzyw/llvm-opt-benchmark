@@ -46665,13 +46665,13 @@ define void @_ZN6ide_db7helpers15visit_file_defs17h95f2132ef32d2caaE(ptr noundef
   %.sroa.7.0..sroa_idx44 = getelementptr inbounds nuw i8, ptr %56, i64 1
   %.sroa.7.sroa.0.0.copyload = load i8, ptr %.sroa.7.0..sroa_idx44, align 1, !noalias !8320
   %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx44.sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 2
-  %.sroa.7.sroa.5.0.copyload = load i8, ptr %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx44.sroa_idx, align 1, !noalias !8320
+  %.sroa.7.sroa.5.0.copyload = load i8, ptr %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx44.sroa_idx, align 2, !noalias !8320
   %.sroa.7.sroa.7.0..sroa.7.0..sroa_idx44.sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 4
-  %.sroa.7.sroa.7.0.copyload = load i32, ptr %.sroa.7.sroa.7.0..sroa.7.0..sroa_idx44.sroa_idx, align 1, !noalias !8320
+  %.sroa.7.sroa.7.0.copyload = load i32, ptr %.sroa.7.sroa.7.0..sroa.7.0..sroa_idx44.sroa_idx, align 4, !noalias !8320
   %.sroa.7.sroa.8.0..sroa.7.0..sroa_idx44.sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %.sroa.7.sroa.8.0.copyload = load i32, ptr %.sroa.7.sroa.8.0..sroa.7.0..sroa_idx44.sroa_idx, align 1, !noalias !8320
+  %.sroa.7.sroa.8.0.copyload = load i32, ptr %.sroa.7.sroa.8.0..sroa.7.0..sroa_idx44.sroa_idx, align 4, !noalias !8320
   %.sroa.7.sroa.9.0..sroa.7.0..sroa_idx44.sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 12
-  %.sroa.7.sroa.9.0.copyload = load i32, ptr %.sroa.7.sroa.9.0..sroa.7.0..sroa_idx44.sroa_idx, align 1, !noalias !8320
+  %.sroa.7.sroa.9.0.copyload = load i32, ptr %.sroa.7.sroa.9.0..sroa.7.0..sroa_idx44.sroa_idx, align 4, !noalias !8320
   switch i8 %.sroa.0.0.copyload43, label %59 [
     i8 11, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17h1c6dd9006bac2b3dE.exit.thread"
     i8 0, label %57

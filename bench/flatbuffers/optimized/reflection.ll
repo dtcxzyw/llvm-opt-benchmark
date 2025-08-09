@@ -7282,7 +7282,7 @@ define linkonce_odr dso_local void @_ZN11flatbuffers13FloatToStringIdEENSt7__cxx
   %11 = load i32, ptr %10, align 8, !tbaa !154
   %12 = and i32 %11, -261
   %13 = or disjoint i32 %12, 4
-  store i32 %13, ptr %10, align 4, !tbaa !161
+  store i32 %13, ptr %10, align 8, !tbaa !161
   %14 = load i64, ptr %7, align 8
   %15 = getelementptr inbounds i8, ptr %5, i64 %14
   %16 = sext i32 %2 to i64
@@ -7534,13 +7534,13 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i: ; preds = %.noexc4._ZN
   %35 = load i32, ptr %34, align 8, !tbaa !154
   %36 = and i32 %35, -75
   %37 = or disjoint i32 %36, 8
-  store i32 %37, ptr %34, align 4, !tbaa !161
+  store i32 %37, ptr %34, align 8, !tbaa !161
   %38 = load i64, ptr %31, align 8
   %39 = getelementptr inbounds i8, ptr %5, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %41 = load i32, ptr %40, align 8, !tbaa !154
   %42 = or i32 %41, 16384
-  store i32 %42, ptr %40, align 4, !tbaa !161
+  store i32 %42, ptr %40, align 8, !tbaa !161
   %43 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %1)
           to label %44 unwind label %93
 

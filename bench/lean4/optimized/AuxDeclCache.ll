@@ -7733,7 +7733,7 @@ lean_alloc_ctor.exit419:                          ; preds = %lean_dec.exit250
   %359 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %360 = load ptr, ptr %359, align 8, !tbaa !9
   %361 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %362 = load i8, ptr %361, align 1, !tbaa !18
+  %362 = load i8, ptr %361, align 8, !tbaa !18
   %363 = getelementptr inbounds nuw i8, ptr %0, i64 57
   %364 = load i8, ptr %363, align 1, !tbaa !18
   %365 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -7919,7 +7919,7 @@ lean_alloc_ctor.exit438:                          ; preds = %lean_dec.exit249
   %427 = getelementptr inbounds nuw i8, ptr %424, i64 4
   %428 = getelementptr inbounds nuw i8, ptr %424, i64 56
   store i64 0, ptr %428, align 8, !tbaa !12
-  store i32 1, ptr %424, align 4, !tbaa !4
+  store i32 1, ptr %424, align 8, !tbaa !4
   store i32 393280, ptr %427, align 4
   %429 = getelementptr inbounds nuw i8, ptr %424, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %429, align 8, !tbaa !9
@@ -7933,7 +7933,7 @@ lean_alloc_ctor.exit438:                          ; preds = %lean_dec.exit249
   store ptr %360, ptr %433, align 8, !tbaa !9
   %434 = getelementptr inbounds nuw i8, ptr %424, i64 48
   store ptr %366, ptr %434, align 8, !tbaa !9
-  store i8 %362, ptr %428, align 1, !tbaa !18
+  store i8 %362, ptr %428, align 8, !tbaa !18
   %435 = getelementptr inbounds nuw i8, ptr %424, i64 57
   store i8 %364, ptr %435, align 1, !tbaa !18
   %436 = ptrtoint ptr %4 to i64
@@ -9269,7 +9269,7 @@ _init_l_Lean_Compiler_LCNF_CacheExtension_register___at_Lean_Compiler_LCNF_initF
   %.val27 = load ptr, ptr %75, align 8, !tbaa !9
   store ptr %.val27, ptr @l_Lean_Compiler_LCNF_auxDeclCacheExt, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %.val27) #4
-  %76 = load i32, ptr %71, align 4, !tbaa !4
+  %76 = load i32, ptr %71, align 8, !tbaa !4
   %77 = icmp sgt i32 %76, 1
   br i1 %77, label %78, label %80, !prof !11
 

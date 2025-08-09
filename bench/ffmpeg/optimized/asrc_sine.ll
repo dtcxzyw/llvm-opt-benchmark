@@ -339,7 +339,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %59 = getelementptr inbounds nuw i8, ptr %7, i64 108
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %.promoted = load i32, ptr %48, align 8, !tbaa !60
-  %.promoted68 = load i32, ptr %51, align 4, !tbaa !61
+  %.promoted68 = load i32, ptr %51, align 8, !tbaa !61
   %wide.trip.count = zext nneg i32 %.1 to i64
   %.pre = load ptr, ptr %47, align 8, !tbaa !20
   %.pre72 = load i32, ptr %49, align 4, !tbaa !62
@@ -415,7 +415,7 @@ sampling_advance.exit63:                          ; preds = %94, %80, %sampling_
 
 ._crit_edge:                                      ; preds = %sampling_advance.exit63
   store i32 %76, ptr %48, align 8, !tbaa !60
-  store i32 %75, ptr %51, align 4, !tbaa !61
+  store i32 %75, ptr %51, align 8, !tbaa !61
   br label %101
 
 101:                                              ; preds = %._crit_edge, %44

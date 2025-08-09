@@ -317,7 +317,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vect
   %25 = load i32, ptr %24, align 8, !tbaa !61
   %26 = and i32 %25, -177
   %27 = or disjoint i32 %26, 128
-  store i32 %27, ptr %24, align 4, !tbaa !62
+  store i32 %27, ptr %24, align 8, !tbaa !62
   %.sroa.0.0.copyload = load i64, ptr %16, align 8, !tbaa !42
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !63

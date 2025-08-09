@@ -2235,7 +2235,7 @@ define range(i32 0, 2) i32 @Lpk_NodeCuts(ptr noundef captures(none) initializes(
   store i32 %17, ptr %18, align 4, !tbaa !45
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 0, ptr %20, align 4, !tbaa !45
+  store i32 0, ptr %20, align 8, !tbaa !45
   store i32 0, ptr %19, align 4, !tbaa !45
   %21 = and i32 %17, 31
   %22 = shl nuw i32 1, %21

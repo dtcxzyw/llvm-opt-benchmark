@@ -4003,7 +4003,7 @@ _ZN12_GLOBAL__N_126UninitializedObjectCheckerC2Ev.exit.i: ; preds = %13, %1
   store ptr %21, ptr %20, align 8, !tbaa !96
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 152
   store i64 0, ptr %22, align 8, !tbaa !98
-  store i8 0, ptr %21, align 1, !tbaa !50
+  store i8 0, ptr %21, align 8, !tbaa !50
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 176
   store i8 0, ptr %23, align 8, !tbaa !100
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 880

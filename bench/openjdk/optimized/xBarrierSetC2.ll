@@ -1300,7 +1300,7 @@ _ZN11CodeSection32maybe_expand_to_ensure_remainingEi.exit: ; preds = %21, %29
   %40 = load ptr, ptr %39, align 8
   call void @_ZNK20XBarrierSetAssembler29generate_c2_load_barrier_stubEP14MacroAssemblerP18XLoadBarrierStubC2(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull %3, ptr noundef %40) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %41 = load i32, ptr %12, align 4
+  %41 = load i32, ptr %12, align 8
   %42 = sext i32 %41 to i64
   %43 = icmp slt i64 %indvars.iv.next, %42
   br i1 %43, label %21, label %._crit_edge, !llvm.loop !17
@@ -1429,7 +1429,7 @@ define hidden noundef i32 @_ZNK13XBarrierSetC218estimate_stub_sizeEv(ptr nonnull
   %67 = add nsw i32 %.01011, %66
   call void @_ZN10CodeBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(448) %2) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %68 = load i32, ptr %16, align 4
+  %68 = load i32, ptr %16, align 8
   %69 = sext i32 %68 to i64
   %70 = icmp slt i64 %indvars.iv.next, %69
   br i1 %70, label %44, label %._crit_edge, !llvm.loop !18

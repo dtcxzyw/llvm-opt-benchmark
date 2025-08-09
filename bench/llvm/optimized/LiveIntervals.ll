@@ -1931,7 +1931,7 @@ _ZN4llvm13LiveIntervals19createEmptyIntervalENS_8RegisterE.exit: ; preds = %._ZN
   %58 = getelementptr inbounds nuw i8, ptr %50, i64 96
   %59 = getelementptr inbounds nuw i8, ptr %50, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, i8 0, i64 16, i1 false)
-  store i32 %19, ptr %59, align 4, !tbaa !293
+  store i32 %19, ptr %59, align 8, !tbaa !293
   %60 = getelementptr inbounds nuw i8, ptr %50, i64 116
   store float 0.000000e+00, ptr %60, align 4, !tbaa !295
   store ptr %50, ptr %49, align 8, !tbaa !99
@@ -2955,7 +2955,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm13LiveIntervals14createIntervalENS
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  store i32 %0, ptr %15, align 4, !tbaa !293
+  store i32 %0, ptr %15, align 8, !tbaa !293
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 116
   store float %5, ptr %16, align 4, !tbaa !295
   ret ptr %6
@@ -3330,7 +3330,7 @@ _ZN4llvm13LiveIntervals19createEmptyIntervalENS_8RegisterE.exit: ; preds = %._ZN
   %60 = getelementptr inbounds nuw i8, ptr %52, i64 96
   %61 = getelementptr inbounds nuw i8, ptr %52, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, i8 0, i64 16, i1 false)
-  store i32 %28, ptr %61, align 4, !tbaa !293
+  store i32 %28, ptr %61, align 8, !tbaa !293
   %62 = getelementptr inbounds nuw i8, ptr %52, i64 116
   store float %51, ptr %62, align 4, !tbaa !295
   store ptr %52, ptr %48, align 8, !tbaa !99
@@ -7063,7 +7063,7 @@ _ZN4llvm13LiveIntervals19createEmptyIntervalENS_8RegisterE.exit.i: ; preds = %_Z
   %45 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %46 = getelementptr inbounds nuw i8, ptr %37, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
-  store i32 %2, ptr %46, align 4, !tbaa !293
+  store i32 %2, ptr %46, align 8, !tbaa !293
   %47 = getelementptr inbounds nuw i8, ptr %37, i64 116
   store float %36, ptr %47, align 4, !tbaa !295
   store ptr %37, ptr %32, align 8, !tbaa !99
@@ -10258,7 +10258,7 @@ _ZN4llvm13LiveIntervals19createEmptyIntervalENS_8RegisterE.exit.i: ; preds = %_Z
   %295 = getelementptr inbounds nuw i8, ptr %287, i64 96
   %296 = getelementptr inbounds nuw i8, ptr %287, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %295, i8 0, i64 16, i1 false)
-  store i32 %223, ptr %296, align 4, !tbaa !293
+  store i32 %223, ptr %296, align 8, !tbaa !293
   %297 = getelementptr inbounds nuw i8, ptr %287, i64 116
   store float 0.000000e+00, ptr %297, align 4, !tbaa !295
   store ptr %287, ptr %286, align 8, !tbaa !99
@@ -10653,7 +10653,7 @@ _ZN4llvm13LiveIntervals19createEmptyIntervalENS_8RegisterE.exit: ; preds = %._ZN
   %39 = getelementptr inbounds nuw i8, ptr %31, i64 96
   %40 = getelementptr inbounds nuw i8, ptr %31, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
-  store i32 %1, ptr %40, align 4, !tbaa !293
+  store i32 %1, ptr %40, align 8, !tbaa !293
   %41 = getelementptr inbounds nuw i8, ptr %31, i64 116
   store float %30, ptr %41, align 4, !tbaa !295
   store ptr %31, ptr %26, align 8, !tbaa !99
@@ -14248,7 +14248,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11AnalysisKeyEbLj8ENS_12DenseMapIn
   store ptr %66, ptr %54, align 8, !tbaa !748
   %67 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %68 = load i8, ptr %3, align 1, !tbaa !264, !range !265, !noundef !266
-  store i8 %68, ptr %67, align 1, !tbaa !264
+  store i8 %68, ptr %67, align 8, !tbaa !264
   %69 = load i32, ptr %1, align 8
   %70 = and i32 %69, 1
   %.not.i.i.i.i7 = icmp eq i32 %70, 0
@@ -14393,7 +14393,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIPNS_11AnalysisKeyEbLj8E
   %30 = getelementptr inbounds nuw i8, ptr %.02738, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %.028.ptr39, i64 8
   %32 = load i8, ptr %31, align 8, !tbaa !264, !range !265, !noundef !266
-  store i8 %32, ptr %30, align 1, !tbaa !264
+  store i8 %32, ptr %30, align 8, !tbaa !264
   %33 = getelementptr inbounds nuw i8, ptr %.02738, i64 16
   br label %34
 
@@ -14552,7 +14552,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11AnalysisKeyEbLj8ENS_12DenseMapIn
   %48 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %.023, i64 8
   %50 = load i8, ptr %49, align 1, !tbaa !264, !range !265, !noundef !266
-  store i8 %50, ptr %48, align 1, !tbaa !264
+  store i8 %50, ptr %48, align 8, !tbaa !264
   %51 = load i32, ptr %0, align 8
   %52 = and i32 %51, -2
   %53 = add i32 %52, 2

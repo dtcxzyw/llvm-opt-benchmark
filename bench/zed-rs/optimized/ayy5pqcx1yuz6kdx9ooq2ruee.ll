@@ -18773,7 +18773,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_map17hbe385de862cb305fE(p
   %.val7.i.i = load ptr, ptr %47, align 8
   %49 = getelementptr i8, ptr %42, i64 -16
   %.val8.i.i = load i64, ptr %49, align 8
-  %.val9.i.i = load i8, ptr %48, align 1
+  %.val9.i.i = load i8, ptr %48, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !3598)
   call void @llvm.experimental.noalias.scope.decl(metadata !3601)
   %50 = load i64, ptr %12, align 8, !range !543, !alias.scope !3604, !noalias !3605, !noundef !46

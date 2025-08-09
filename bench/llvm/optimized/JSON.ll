@@ -706,7 +706,7 @@ define dso_local range(i16 0, 258) i16 @_ZNK4llvm4json6Object10getBooleanENS_9St
   %14 = load i16, ptr %13, align 8, !tbaa !39
   %15 = icmp eq i16 %14, 1
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %17 = load i8, ptr %16, align 1, !range !47
+  %17 = load i8, ptr %16, align 8, !range !47
   %18 = zext nneg i8 %17 to i16
   %19 = or disjoint i16 %18, 256
   %.sroa.0.0.insert.insert.i = select i1 %15, i16 %19, i16 0
@@ -7180,7 +7180,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %10
   store i64 %17, ptr %19, align 8, !tbaa !60
   store ptr %8, ptr %1, align 8, !tbaa !57
   store i64 0, ptr %18, align 8, !tbaa !60
-  store i8 0, ptr %8, align 1, !tbaa !43
+  store i8 0, ptr %8, align 8, !tbaa !43
   store ptr %5, ptr %0, align 8, !tbaa !80
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
@@ -8161,7 +8161,7 @@ _ZN4llvm4json5Value6createINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJ
   store i64 %36, ptr %37, align 8, !tbaa !60
   store ptr %29, ptr %1, align 8, !tbaa !57
   store i64 0, ptr %6, align 8, !tbaa !60
-  store i8 0, ptr %29, align 1, !tbaa !43
+  store i8 0, ptr %29, align 8, !tbaa !43
   ret void
 }
 

@@ -15086,7 +15086,7 @@ define linkonce_odr dso_local void @_ZNK7VSymEnt11dumpIterateERSoRSt13unordered_
   %28 = load i32, ptr %27, align 8, !tbaa !538
   %29 = and i32 %28, -177
   %30 = or disjoint i32 %29, 32
-  store i32 %30, ptr %27, align 4, !tbaa !539
+  store i32 %30, ptr %27, align 8, !tbaa !539
   %31 = load i64, ptr %24, align 8
   %32 = getelementptr inbounds i8, ptr %21, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -15285,7 +15285,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   %113 = load i32, ptr %112, align 8, !tbaa !538
   %114 = and i32 %113, -177
   %115 = or disjoint i32 %114, 128
-  store i32 %115, ptr %112, align 4, !tbaa !539
+  store i32 %115, ptr %112, align 8, !tbaa !539
   %116 = load ptr, ptr %10, align 8, !tbaa !46
   %117 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %118 = icmp eq ptr %116, %117
@@ -40084,7 +40084,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !tbaa !50, !alias.scope !673, !noalias !676
   store ptr %43, ptr %.0911.i.i.i, align 8, !tbaa !46, !alias.scope !676, !noalias !673
   store i64 0, ptr %52, align 8, !tbaa !50, !alias.scope !676, !noalias !673
-  store i8 0, ptr %43, align 1, !tbaa !51, !alias.scope !676, !noalias !673
+  store i8 0, ptr %43, align 8, !tbaa !51, !alias.scope !676, !noalias !673
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %54, %1
@@ -40132,7 +40132,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !tbaa !50, !alias.scope !680, !noalias !683
   store ptr %59, ptr %.0911.i.i.i29, align 8, !tbaa !46, !alias.scope !683, !noalias !680
   store i64 0, ptr %68, align 8, !tbaa !50, !alias.scope !683, !noalias !680
-  store i8 0, ptr %59, align 1, !tbaa !51, !alias.scope !683, !noalias !680
+  store i8 0, ptr %59, align 8, !tbaa !51, !alias.scope !683, !noalias !680
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %.not.i.i.i34 = icmp eq ptr %70, %6

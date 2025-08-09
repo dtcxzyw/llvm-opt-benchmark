@@ -6840,7 +6840,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIiSt4pairIKiNSt7__cxx1112basic_stringIcSt
   store ptr %14, ptr %13, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i64 0, ptr %15, align 8, !tbaa !13
-  store i8 0, ptr %14, align 1, !tbaa !12
+  store i8 0, ptr %14, align 8, !tbaa !12
   store ptr %8, ptr %7, align 8, !tbaa !167
   %16 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIiESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %9)
           to label %17 unwind label %32
@@ -16286,7 +16286,7 @@ _ZN5boost13re_detail_50019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 16
   store i32 1, ptr %192, align 8, !tbaa !318
   %193 = getelementptr inbounds nuw i8, ptr %191, i64 24
-  store i8 %150, ptr %193, align 1, !tbaa !12
+  store i8 %150, ptr %193, align 8, !tbaa !12
   %194 = load ptr, ptr %105, align 8, !tbaa !220
   %195 = load ptr, ptr %0, align 8, !tbaa !200
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 352
@@ -23797,7 +23797,7 @@ _ZNSt15basic_streambufIcSt11char_traitsIcEE9pubsetbufEPcl.exit: ; preds = %_ZSt4
   %switch.selectcmp48 = icmp eq i32 %87, 16
   %switch.select49 = select i1 %switch.selectcmp48, i32 8, i32 %switch.select
   %95 = or disjoint i32 %94, %switch.select49
-  store i32 %95, ptr %92, align 4, !tbaa !466
+  store i32 %95, ptr %92, align 8, !tbaa !466
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %96 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIlEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %101 unwind label %129
@@ -52184,7 +52184,7 @@ _ZN5boost13re_detail_50019basic_regex_creatorIwNS_12regex_traitsIwNS_16cpp_regex
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 16
   store i32 1, ptr %171, align 8, !tbaa !318
   %172 = getelementptr inbounds nuw i8, ptr %170, i64 24
-  store i32 %129, ptr %172, align 4, !tbaa !686
+  store i32 %129, ptr %172, align 8, !tbaa !686
   %173 = load ptr, ptr %0, align 8, !tbaa !801
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 352
   %175 = load ptr, ptr %174, align 8, !tbaa !198
@@ -61384,7 +61384,7 @@ _ZNSt15basic_streambufIwSt11char_traitsIwEE9pubsetbufEPwl.exit: ; preds = %_ZSt4
   %switch.selectcmp46 = icmp eq i32 %88, 16
   %switch.select47 = select i1 %switch.selectcmp46, i32 8, i32 %switch.select
   %96 = or disjoint i32 %95, %switch.select47
-  store i32 %96, ptr %93, align 4, !tbaa !466
+  store i32 %96, ptr %93, align 8, !tbaa !466
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %97 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt13basic_istreamIwSt11char_traitsIwEE10_M_extractIlEERS2_RT_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %102 unwind label %133

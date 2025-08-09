@@ -7321,7 +7321,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__17ArPackageResolverEED2Ev.e
   %989 = load i64, ptr %852, align 8, !noalias !74
   store i64 %989, ptr %988, align 8, !noalias !74
   %990 = getelementptr inbounds nuw i8, ptr %980, i64 40
-  store i8 0, ptr %990, align 1, !noalias !74
+  store i8 0, ptr %990, align 8, !noalias !74
   %991 = getelementptr inbounds nuw i8, ptr %980, i64 48
   %992 = getelementptr inbounds nuw i8, ptr %980, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %991, i8 0, i64 56, i1 false), !noalias !74

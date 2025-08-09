@@ -1212,7 +1212,7 @@ define dso_local void @rhash_sha1_final(ptr noundef %0, ptr noundef %1) local_un
   %26 = trunc i64 %25 to i32
   %27 = tail call i32 @llvm.bswap.i32(i32 %26)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %27, ptr %28, align 4, !tbaa !9
+  store i32 %27, ptr %28, align 8, !tbaa !9
   %.tr = trunc i64 %24 to i32
   %29 = shl i32 %.tr, 3
   %30 = tail call i32 @llvm.bswap.i32(i32 %29)

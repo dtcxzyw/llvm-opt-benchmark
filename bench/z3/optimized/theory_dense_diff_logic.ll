@@ -10287,7 +10287,7 @@ _ZNK6vectorIN3smt23theory_dense_diff_logicINS0_6mi_extEE4cellELb1EjE3endEv.exit:
   %48 = load i32, ptr %47, align 8, !tbaa !276
   %49 = and i32 %48, -177
   %50 = or disjoint i32 %49, 32
-  store i32 %50, ptr %47, align 4, !tbaa !277
+  store i32 %50, ptr %47, align 8, !tbaa !277
   %51 = load ptr, ptr %16, align 8, !tbaa !77
   %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv57
   %53 = load ptr, ptr %52, align 8, !tbaa !80
@@ -10308,7 +10308,7 @@ _ZNK6vectorIN3smt23theory_dense_diff_logicINS0_6mi_extEE4cellELb1EjE3endEv.exit:
   %67 = load i32, ptr %66, align 8, !tbaa !276
   %68 = and i32 %67, -177
   %69 = or disjoint i32 %68, 32
-  store i32 %69, ptr %66, align 4, !tbaa !277
+  store i32 %69, ptr %66, align 8, !tbaa !277
   %70 = getelementptr inbounds nuw i8, ptr %.03645, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK12inf_rational9to_stringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(64) %70)
@@ -10372,7 +10372,7 @@ _ZlsRSoRK12inf_rational.exit:                     ; preds = %_ZNKSt7__cxx1112bas
   %97 = load i32, ptr %96, align 8, !tbaa !276
   %98 = and i32 %97, -177
   %99 = or disjoint i32 %98, 32
-  store i32 %99, ptr %96, align 4, !tbaa !277
+  store i32 %99, ptr %96, align 8, !tbaa !277
   %100 = load i32, ptr %.03645, align 8, !tbaa !25
   %101 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %100)
   %102 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %101, ptr noundef nonnull @.str.10, i64 noundef 6)
@@ -10425,7 +10425,7 @@ define weak_odr hidden void @_ZNK3smt23theory_dense_diff_logicINS_6mi_extEE12dis
   %14 = load i32, ptr %13, align 8, !tbaa !276
   %15 = and i32 %14, -177
   %16 = or disjoint i32 %15, 32
-  store i32 %16, ptr %13, align 4, !tbaa !277
+  store i32 %16, ptr %13, align 8, !tbaa !277
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load i32, ptr %17, align 8, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -10450,7 +10450,7 @@ define weak_odr hidden void @_ZNK3smt23theory_dense_diff_logicINS_6mi_extEE12dis
   %37 = load i32, ptr %36, align 8, !tbaa !276
   %38 = and i32 %37, -177
   %39 = or disjoint i32 %38, 32
-  store i32 %39, ptr %36, align 4, !tbaa !277
+  store i32 %39, ptr %36, align 8, !tbaa !277
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %41 = load i32, ptr %40, align 4, !tbaa !14
   %42 = load ptr, ptr %19, align 8, !tbaa !77
@@ -10474,7 +10474,7 @@ define weak_odr hidden void @_ZNK3smt23theory_dense_diff_logicINS_6mi_extEE12dis
   %59 = load i32, ptr %58, align 8, !tbaa !276
   %60 = and i32 %59, -177
   %61 = or disjoint i32 %60, 32
-  store i32 %61, ptr %58, align 4, !tbaa !277
+  store i32 %61, ptr %58, align 8, !tbaa !277
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK12inf_rational9to_stringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(64) %62)
@@ -29632,7 +29632,7 @@ _ZNK6vectorIN3smt23theory_dense_diff_logicINS0_5i_extEE4cellELb1EjE3endEv.exit: 
   %48 = load i32, ptr %47, align 8, !tbaa !276
   %49 = and i32 %48, -177
   %50 = or disjoint i32 %49, 32
-  store i32 %50, ptr %47, align 4, !tbaa !277
+  store i32 %50, ptr %47, align 8, !tbaa !277
   %51 = load ptr, ptr %16, align 8, !tbaa !77
   %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv57
   %53 = load ptr, ptr %52, align 8, !tbaa !80
@@ -29653,7 +29653,7 @@ _ZNK6vectorIN3smt23theory_dense_diff_logicINS0_5i_extEE4cellELb1EjE3endEv.exit: 
   %67 = load i32, ptr %66, align 8, !tbaa !276
   %68 = and i32 %67, -177
   %69 = or disjoint i32 %68, 32
-  store i32 %69, ptr %66, align 4, !tbaa !277
+  store i32 %69, ptr %66, align 8, !tbaa !277
   %70 = getelementptr inbounds nuw i8, ptr %.03645, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %71 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !18
@@ -29718,7 +29718,7 @@ _ZlsRSoRK8rational.exit:                          ; preds = %_ZNKSt7__cxx1112bas
   %98 = load i32, ptr %97, align 8, !tbaa !276
   %99 = and i32 %98, -177
   %100 = or disjoint i32 %99, 32
-  store i32 %100, ptr %97, align 4, !tbaa !277
+  store i32 %100, ptr %97, align 8, !tbaa !277
   %101 = load i32, ptr %.03645, align 8, !tbaa !942
   %102 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %101)
   %103 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %102, ptr noundef nonnull @.str.10, i64 noundef 6)
@@ -29769,7 +29769,7 @@ define weak_odr hidden void @_ZNK3smt23theory_dense_diff_logicINS_5i_extEE12disp
   %14 = load i32, ptr %13, align 8, !tbaa !276
   %15 = and i32 %14, -177
   %16 = or disjoint i32 %15, 32
-  store i32 %16, ptr %13, align 4, !tbaa !277
+  store i32 %16, ptr %13, align 8, !tbaa !277
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load i32, ptr %17, align 8, !tbaa !938
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -29794,7 +29794,7 @@ define weak_odr hidden void @_ZNK3smt23theory_dense_diff_logicINS_5i_extEE12disp
   %37 = load i32, ptr %36, align 8, !tbaa !276
   %38 = and i32 %37, -177
   %39 = or disjoint i32 %38, 32
-  store i32 %39, ptr %36, align 4, !tbaa !277
+  store i32 %39, ptr %36, align 8, !tbaa !277
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %41 = load i32, ptr %40, align 4, !tbaa !937
   %42 = load ptr, ptr %19, align 8, !tbaa !77
@@ -29818,7 +29818,7 @@ define weak_odr hidden void @_ZNK3smt23theory_dense_diff_logicINS_5i_extEE12disp
   %59 = load i32, ptr %58, align 8, !tbaa !276
   %60 = and i32 %59, -177
   %61 = or disjoint i32 %60, 32
-  store i32 %61, ptr %58, align 4, !tbaa !277
+  store i32 %61, ptr %58, align 8, !tbaa !277
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %63 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !18
@@ -37947,7 +37947,7 @@ _ZN6vectorIN3smt23theory_dense_diff_logicINS0_7smi_extEE4cellELb1EjE6resizeEj.ex
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 4
   store i32 0, ptr %153, align 4, !tbaa !1113
   %154 = getelementptr inbounds nuw i8, ptr %152, i64 8
-  store i32 0, ptr %154, align 4, !tbaa !1114
+  store i32 0, ptr %154, align 8, !tbaa !1114
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %156 = load ptr, ptr %155, align 8, !tbaa !103
   call void @_ZN3smt7context13attach_th_varEPNS_5enodeEPNS_6theoryEi(ptr noundef nonnull align 8 dereferenceable(10544) %156, ptr noundef nonnull %1, ptr noundef nonnull %0, i32 noundef %.0.i2.i)
@@ -39390,7 +39390,7 @@ _ZN6vectorIN3smt23theory_dense_diff_logicINS0_7smi_extEE10cell_trailELb1EjE9push
   store i32 %11, ptr %96, align 8, !tbaa !1115
   store i32 %89, ptr %109, align 4, !tbaa !1113
   %127 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  store i32 %92, ptr %127, align 4, !tbaa !1114
+  store i32 %92, ptr %127, align 8, !tbaa !1114
   %128 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %129 = load ptr, ptr %128, align 8, !tbaa !1120
   %130 = icmp eq ptr %129, null
@@ -39780,7 +39780,7 @@ _ZNK6vectorIN3smt23theory_dense_diff_logicINS0_7smi_extEE10cell_trailELb1EjE4siz
   %29 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %30 = load i32, ptr %29, align 4, !tbaa !1114
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store i32 %30, ptr %31, align 4, !tbaa !1114
+  store i32 %30, ptr %31, align 8, !tbaa !1114
   %.wide = icmp ugt i64 %14, %12
   br i1 %.wide, label %13, label %_ZN6vectorIN3smt23theory_dense_diff_logicINS0_7smi_extEE10cell_trailELb1EjE3endEv.exit.i, !llvm.loop !1177
 
@@ -42598,7 +42598,7 @@ _ZNK6vectorIN3smt23theory_dense_diff_logicINS0_7smi_extEE10cell_trailELb1EjE4siz
   %40 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %41 = load i32, ptr %40, align 4, !tbaa !1114
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store i32 %41, ptr %42, align 4, !tbaa !1114
+  store i32 %41, ptr %42, align 8, !tbaa !1114
   %.wide.i = icmp ugt i64 %25, %23
   br i1 %.wide.i, label %24, label %_ZN6vectorIN3smt23theory_dense_diff_logicINS0_7smi_extEE10cell_trailELb1EjE3endEv.exit.i.i, !llvm.loop !1177
 
@@ -43275,7 +43275,7 @@ _ZNK6vectorIN3smt23theory_dense_diff_logicINS0_7smi_extEE4cellELb1EjE3endEv.exit
   %45 = load i32, ptr %44, align 8, !tbaa !276
   %46 = and i32 %45, -177
   %47 = or disjoint i32 %46, 32
-  store i32 %47, ptr %44, align 4, !tbaa !277
+  store i32 %47, ptr %44, align 8, !tbaa !277
   %48 = load ptr, ptr %15, align 8, !tbaa !77
   %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv57
   %50 = load ptr, ptr %49, align 8, !tbaa !80
@@ -43296,7 +43296,7 @@ _ZNK6vectorIN3smt23theory_dense_diff_logicINS0_7smi_extEE4cellELb1EjE3endEv.exit
   %64 = load i32, ptr %63, align 8, !tbaa !276
   %65 = and i32 %64, -177
   %66 = or disjoint i32 %65, 32
-  store i32 %66, ptr %63, align 4, !tbaa !277
+  store i32 %66, ptr %63, align 8, !tbaa !277
   %67 = getelementptr inbounds nuw i8, ptr %.03645, i64 4
   %68 = getelementptr inbounds nuw i8, ptr %.03645, i64 8
   %69 = load i32, ptr %68, align 4, !tbaa !1114
@@ -43343,7 +43343,7 @@ _ZlsRSoRK13inf_s_integer.exit:                    ; preds = %71, %79, %84
   %98 = load i32, ptr %97, align 8, !tbaa !276
   %99 = and i32 %98, -177
   %100 = or disjoint i32 %99, 32
-  store i32 %100, ptr %97, align 4, !tbaa !277
+  store i32 %100, ptr %97, align 8, !tbaa !277
   %101 = load i32, ptr %.03645, align 8, !tbaa !1115
   %102 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %101)
   %103 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %102, ptr noundef nonnull @.str.10, i64 noundef 6)
@@ -43430,7 +43430,7 @@ define weak_odr hidden void @_ZNK3smt23theory_dense_diff_logicINS_7smi_extEE12di
   %13 = load i32, ptr %12, align 8, !tbaa !276
   %14 = and i32 %13, -177
   %15 = or disjoint i32 %14, 32
-  store i32 %15, ptr %12, align 4, !tbaa !277
+  store i32 %15, ptr %12, align 8, !tbaa !277
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load i32, ptr %16, align 4, !tbaa !1109
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -43455,7 +43455,7 @@ define weak_odr hidden void @_ZNK3smt23theory_dense_diff_logicINS_7smi_extEE12di
   %36 = load i32, ptr %35, align 8, !tbaa !276
   %37 = and i32 %36, -177
   %38 = or disjoint i32 %37, 32
-  store i32 %38, ptr %35, align 4, !tbaa !277
+  store i32 %38, ptr %35, align 8, !tbaa !277
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %40 = load i32, ptr %39, align 4, !tbaa !1108
   %41 = load ptr, ptr %18, align 8, !tbaa !77
@@ -43479,7 +43479,7 @@ define weak_odr hidden void @_ZNK3smt23theory_dense_diff_logicINS_7smi_extEE12di
   %58 = load i32, ptr %57, align 8, !tbaa !276
   %59 = and i32 %58, -177
   %60 = or disjoint i32 %59, 32
-  store i32 %60, ptr %57, align 4, !tbaa !277
+  store i32 %60, ptr %57, align 8, !tbaa !277
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %62 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK13inf_s_integer(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %61)
   %63 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull @.str.15, i64 noundef 20)
@@ -55719,7 +55719,7 @@ _ZNK6vectorIN3smt23theory_dense_diff_logicINS0_6si_extEE4cellELb1EjE3endEv.exit:
   %45 = load i32, ptr %44, align 8, !tbaa !276
   %46 = and i32 %45, -177
   %47 = or disjoint i32 %46, 32
-  store i32 %47, ptr %44, align 4, !tbaa !277
+  store i32 %47, ptr %44, align 8, !tbaa !277
   %48 = load ptr, ptr %15, align 8, !tbaa !77
   %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv57
   %50 = load ptr, ptr %49, align 8, !tbaa !80
@@ -55740,7 +55740,7 @@ _ZNK6vectorIN3smt23theory_dense_diff_logicINS0_6si_extEE4cellELb1EjE3endEv.exit:
   %64 = load i32, ptr %63, align 8, !tbaa !276
   %65 = and i32 %64, -177
   %66 = or disjoint i32 %65, 32
-  store i32 %66, ptr %63, align 4, !tbaa !277
+  store i32 %66, ptr %63, align 8, !tbaa !277
   %67 = getelementptr inbounds nuw i8, ptr %.03645, i64 4
   %68 = load i32, ptr %67, align 4, !tbaa !1282
   %69 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %68)
@@ -55757,7 +55757,7 @@ _ZNK6vectorIN3smt23theory_dense_diff_logicINS0_6si_extEE4cellELb1EjE3endEv.exit:
   %79 = load i32, ptr %78, align 8, !tbaa !276
   %80 = and i32 %79, -177
   %81 = or disjoint i32 %80, 32
-  store i32 %81, ptr %78, align 4, !tbaa !277
+  store i32 %81, ptr %78, align 8, !tbaa !277
   %82 = load i32, ptr %.03645, align 8, !tbaa !1283
   %83 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %82)
   %84 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %83, ptr noundef nonnull @.str.10, i64 noundef 6)
@@ -55807,7 +55807,7 @@ define weak_odr hidden void @_ZNK3smt23theory_dense_diff_logicINS_6si_extEE12dis
   %13 = load i32, ptr %12, align 8, !tbaa !276
   %14 = and i32 %13, -177
   %15 = or disjoint i32 %14, 32
-  store i32 %15, ptr %12, align 4, !tbaa !277
+  store i32 %15, ptr %12, align 8, !tbaa !277
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load i32, ptr %16, align 4, !tbaa !1278
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -55832,7 +55832,7 @@ define weak_odr hidden void @_ZNK3smt23theory_dense_diff_logicINS_6si_extEE12dis
   %36 = load i32, ptr %35, align 8, !tbaa !276
   %37 = and i32 %36, -177
   %38 = or disjoint i32 %37, 32
-  store i32 %38, ptr %35, align 4, !tbaa !277
+  store i32 %38, ptr %35, align 8, !tbaa !277
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %40 = load i32, ptr %39, align 4, !tbaa !1277
   %41 = load ptr, ptr %18, align 8, !tbaa !77
@@ -55856,7 +55856,7 @@ define weak_odr hidden void @_ZNK3smt23theory_dense_diff_logicINS_6si_extEE12dis
   %58 = load i32, ptr %57, align 8, !tbaa !276
   %59 = and i32 %58, -177
   %60 = or disjoint i32 %59, 32
-  store i32 %60, ptr %57, align 4, !tbaa !277
+  store i32 %60, ptr %57, align 8, !tbaa !277
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %62 = load i32, ptr %61, align 4, !tbaa !1282
   %63 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %62)

@@ -122,7 +122,7 @@ define void @_ZN3gmx21FileNameOptionManagerC2Ev(ptr noundef nonnull align 8 dere
   store ptr %7, ptr %6, align 8, !tbaa !16
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 0, ptr %8, align 8, !tbaa !17
-  store i8 0, ptr %7, align 1, !tbaa !18
+  store i8 0, ptr %7, align 8, !tbaa !18
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i8 0, ptr %9, align 8, !tbaa !19
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8

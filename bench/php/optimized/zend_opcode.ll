@@ -41,7 +41,7 @@ define dso_local void @init_op_array(ptr noundef initializes((0, 76), (80, 100),
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 0, ptr %4, align 1, !tbaa !23
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 0, ptr %5, align 1, !tbaa !23
+  store i8 0, ptr %5, align 2, !tbaa !23
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 3
   store i8 0, ptr %6, align 1, !tbaa !23
   %7 = tail call noalias ptr @_emalloc_8() #14

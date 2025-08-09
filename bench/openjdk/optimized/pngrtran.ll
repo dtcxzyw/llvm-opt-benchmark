@@ -2708,7 +2708,7 @@ png_init_palette_transformations.exit:            ; preds = %png_init_palette_tr
   %544 = zext i16 %543 to i32
   %545 = call zeroext i16 @png_gamma_correct(ptr noundef nonnull %0, i32 noundef %544, i32 noundef %.0383) #11
   %546 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  store i16 %545, ptr %546, align 2
+  store i16 %545, ptr %546, align 4
   br label %547
 
 547:                                              ; preds = %534, %533

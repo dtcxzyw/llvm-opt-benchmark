@@ -620,7 +620,7 @@ define hidden void @"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$
   %2 = load ptr, ptr %0, align 8, !alias.scope !156, !noalias !159, !noundef !13
   store i64 0, ptr %2, align 8, !noalias !162
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i8 2, ptr %3, align 1, !noalias !162
+  store i8 2, ptr %3, align 8, !noalias !162
   ret void
 }
 
@@ -830,7 +830,7 @@ define hidden void @"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false), !noalias !225
   store i64 0, ptr %3, align 8, !noalias !225
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store i8 2, ptr %4, align 1, !noalias !225
+  store i8 2, ptr %4, align 8, !noalias !225
   tail call void @llvm.experimental.noalias.scope.decl(metadata !226)
   %5 = load i64, ptr %2, align 8, !range !27, !alias.scope !226, !noalias !225, !noundef !13
   %6 = icmp eq i64 %5, 0
@@ -2182,7 +2182,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17h6e19a31b88066da2E.l
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false), !noalias !558
   store i64 0, ptr %3, align 8, !noalias !558
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store i8 2, ptr %4, align 1, !noalias !558
+  store i8 2, ptr %4, align 8, !noalias !558
   tail call void @llvm.experimental.noalias.scope.decl(metadata !561)
   %5 = load i64, ptr %2, align 8, !range !27, !alias.scope !561, !noalias !558, !noundef !13
   %6 = icmp eq i64 %5, 0
@@ -2425,7 +2425,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17hc06fa9ca94ffa500E.l
   %2 = load ptr, ptr %0, align 8, !noalias !624, !noundef !13
   store i64 0, ptr %2, align 8, !noalias !624
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i8 2, ptr %3, align 1, !noalias !624
+  store i8 2, ptr %3, align 8, !noalias !624
   ret void
 }
 

@@ -380,10 +380,10 @@ entry:
   %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 108
   store float 1.000000e+00, ptr %arrayidx.i.i.i.i.i, align 4, !tbaa !10
   %arrayidx4.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 88
-  store float 1.000000e+00, ptr %arrayidx4.i.i.i.i.i, align 4, !tbaa !10
+  store float 1.000000e+00, ptr %arrayidx4.i.i.i.i.i, align 8, !tbaa !10
   %arrayidx6.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 68
   store float 1.000000e+00, ptr %arrayidx6.i.i.i.i.i, align 4, !tbaa !10
-  store float 1.000000e+00, ptr %AbsoluteTransformation.i.i.i, align 4, !tbaa !10
+  store float 1.000000e+00, ptr %AbsoluteTransformation.i.i.i, align 8, !tbaa !10
   %RelativeTranslation.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 112
   %RelativeScale.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %RelativeTranslation.i.i.i, i8 0, i64 24, i1 false)
@@ -435,10 +435,10 @@ _ZN3irr5scene29CDummyTransformationSceneNodeC1EPNS0_10ISceneNodeEPNS0_13ISceneMa
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %7, i8 0, i64 56, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 284
   %arrayidx4.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 264
-  store float 1.000000e+00, ptr %arrayidx4.i.i.i, align 4, !tbaa !10
+  store float 1.000000e+00, ptr %arrayidx4.i.i.i, align 8, !tbaa !10
   %arrayidx6.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 244
   store float 1.000000e+00, ptr %arrayidx6.i.i.i, align 4, !tbaa !10
-  store float 1.000000e+00, ptr %RelativeTransformationMatrix.i, align 4, !tbaa !10
+  store float 1.000000e+00, ptr %RelativeTransformationMatrix.i, align 8, !tbaa !10
   %Box.i = getelementptr inbounds nuw i8, ptr %call, i64 288
   store <4 x float> <float 1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00>, ptr %arrayidx.i.i.i, align 4, !tbaa !10
   %MaxEdge.i.i = getelementptr inbounds nuw i8, ptr %call, i64 300

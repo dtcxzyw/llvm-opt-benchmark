@@ -98,7 +98,7 @@ define dso_local void @_ZN4absl12crc_internal12CrcCordStateC2Ev(ptr noundef nonn
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %3, align 8, !tbaa !10
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 0, ptr %4, align 4, !tbaa !14
+  store i32 0, ptr %4, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, i8 0, i64 80, i1 false)
   invoke void @_ZNSt11_Deque_baseIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %5, i64 noundef 0)
@@ -651,7 +651,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4absl12crc_internal12CrcCordState1
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %6, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 0, ptr %7, align 4, !tbaa !14
+  store i32 0, ptr %7, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, i8 0, i64 80, i1 false)
   invoke void @_ZNSt11_Deque_baseIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %8, i64 noundef 0)

@@ -2666,7 +2666,7 @@ define internal fastcc zeroext i1 @MS_ADPCM_Init(ptr noundef nonnull captures(no
   %44 = load i16, ptr %43, align 1
   %45 = zext i16 %44 to i32
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %45, ptr %46, align 4
+  store i32 %45, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 20
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i64
@@ -2860,7 +2860,7 @@ define internal fastcc zeroext i1 @IMA_ADPCM_Init(ptr noundef nonnull captures(n
   %43 = load i16, ptr %42, align 1
   %44 = zext i16 %43 to i32
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %44, ptr %45, align 4
+  store i32 %44, ptr %45, align 8
   br label %46
 
 46:                                               ; preds = %31, %35, %39, %28

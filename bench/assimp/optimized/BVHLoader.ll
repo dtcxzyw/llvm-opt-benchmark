@@ -1056,7 +1056,7 @@ define hidden void @_ZN6Assimp9BVHLoader15CreateAnimationEP7aiScene(ptr noundef 
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 1088
   store ptr null, ptr %18, align 8
   store ptr %9, ptr %7, align 8
-  store i32 6, ptr %9, align 4
+  store i32 6, ptr %9, align 8
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %19, ptr noundef nonnull align 1 dereferenceable(6) @.str.39, i64 6, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -1536,11 +1536,11 @@ _ZNSt3mapIN6Assimp9BVHLoader11ChannelTypeEiSt4lessIS2_ESaISt4pairIKS2_iEEE4findE
   %238 = phi ptr [ %232, %235 ], [ %244, %237 ]
   store double 0.000000e+00, ptr %238, align 8
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 8
-  store float 1.000000e+00, ptr %239, align 4
+  store float 1.000000e+00, ptr %239, align 8
   %240 = getelementptr inbounds nuw i8, ptr %238, i64 12
   store float 0.000000e+00, ptr %240, align 4
   %241 = getelementptr inbounds nuw i8, ptr %238, i64 16
-  store float 0.000000e+00, ptr %241, align 4
+  store float 0.000000e+00, ptr %241, align 8
   %242 = getelementptr inbounds nuw i8, ptr %238, i64 20
   store float 0.000000e+00, ptr %242, align 4
   %243 = getelementptr inbounds nuw i8, ptr %238, i64 24
@@ -1580,11 +1580,11 @@ _ZNSt3mapIN6Assimp9BVHLoader11ChannelTypeEiSt4lessIS2_ESaISt4pairIKS2_iEEE4findE
   store ptr %253, ptr %73, align 8
   store double 0.000000e+00, ptr %253, align 8
   %255 = getelementptr inbounds nuw i8, ptr %253, i64 8
-  store float 1.000000e+00, ptr %255, align 4
+  store float 1.000000e+00, ptr %255, align 8
   %256 = getelementptr inbounds nuw i8, ptr %253, i64 12
   store float 1.000000e+00, ptr %256, align 4
   %257 = getelementptr inbounds nuw i8, ptr %253, i64 16
-  store float 1.000000e+00, ptr %257, align 4
+  store float 1.000000e+00, ptr %257, align 8
   %258 = load ptr, ptr %44, align 8
   invoke void @_ZNSt8_Rb_treeIN6Assimp9BVHLoader11ChannelTypeESt4pairIKS2_iESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %258)
           to label %_ZNSt3mapIN6Assimp9BVHLoader11ChannelTypeEiSt4lessIS2_ESaISt4pairIKS2_iEEED2Ev.exit unwind label %448

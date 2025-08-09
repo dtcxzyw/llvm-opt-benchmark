@@ -268,7 +268,7 @@ define hidden noundef zeroext i1 @_ZN4leaneqERKNS_7literalES2_(ptr noundef nonnu
   store ptr %37, ptr %36, align 8, !tbaa !28
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i64 0, ptr %38, align 8, !tbaa !31
-  store i8 0, ptr %37, align 1, !tbaa !33
+  store i8 0, ptr %37, align 8, !tbaa !33
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %35, align 8, !tbaa !34
   tail call void @__cxa_throw(ptr nonnull %35, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #17
   unreachable
@@ -345,7 +345,7 @@ define hidden noundef zeroext i1 @_ZN4leanltERKNS_7literalES2_(ptr noundef nonnu
   store ptr %33, ptr %32, align 8, !tbaa !28
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i64 0, ptr %34, align 8, !tbaa !31
-  store i8 0, ptr %33, align 1, !tbaa !33
+  store i8 0, ptr %33, align 8, !tbaa !33
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %31, align 8, !tbaa !34
   tail call void @__cxa_throw(ptr nonnull %31, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #17
   unreachable
@@ -370,7 +370,7 @@ define hidden noundef zeroext i1 @_ZN4lean9is_atomicERKNS_4exprE(ptr noundef non
   store ptr %8, ptr %7, align 8, !tbaa !28
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %9, align 8, !tbaa !31
-  store i8 0, ptr %8, align 1, !tbaa !33
+  store i8 0, ptr %8, align 8, !tbaa !33
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %6, align 8, !tbaa !34
   tail call void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #17
   unreachable

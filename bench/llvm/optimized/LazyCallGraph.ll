@@ -427,7 +427,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEiNS_12DenseMapInfoI
   %61 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %62 = load i64, ptr %3, align 8, !tbaa !13
   %63 = trunc i64 %62 to i32
-  store i32 %63, ptr %61, align 4, !tbaa !29
+  store i32 %63, ptr %61, align 8, !tbaa !29
   %64 = load ptr, ptr %1, align 8, !tbaa !18
   %65 = load i32, ptr %7, align 8, !tbaa !21
   br label %.loopexit
@@ -1171,7 +1171,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEiNS_12DenseMapInfoI
 293:                                              ; preds = %290, %284
   store ptr %.0.i, ptr %285, align 8, !tbaa !7, !noalias !129
   %294 = getelementptr inbounds nuw i8, ptr %285, i64 8
-  store i32 %217, ptr %294, align 4, !tbaa !29, !noalias !129
+  store i32 %217, ptr %294, align 8, !tbaa !29, !noalias !129
   %295 = ptrtoint ptr %.0.i to i64
   %296 = or disjoint i64 %295, 4
   %297 = load i32, ptr %45, align 8, !tbaa !10
@@ -6613,7 +6613,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12Dens
   %63 = load ptr, ptr %1, align 8, !tbaa !196
   store ptr %63, ptr %52, align 8, !tbaa !196
   %64 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store i32 0, ptr %64, align 4, !tbaa !29
+  store i32 0, ptr %64, align 8, !tbaa !29
   br label %.loopexit
 
 .loopexit:                                        ; preds = %30, %13, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E16InsertIntoBucketIS4_JEEEPS9_SD_OT_DpOT0_.exit
@@ -6738,7 +6738,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12Dens
   %63 = load ptr, ptr %1, align 8, !tbaa !196
   store ptr %63, ptr %52, align 8, !tbaa !196
   %64 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store i32 0, ptr %64, align 4, !tbaa !29
+  store i32 0, ptr %64, align 8, !tbaa !29
   br label %.loopexit
 
 .loopexit:                                        ; preds = %30, %13, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E16InsertIntoBucketIRKS4_JEEEPS9_SF_OT_DpOT0_.exit
@@ -10831,7 +10831,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12Dens
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E16InsertIntoBucketIS4_JEEEPS9_SD_OT_DpOT0_.exit.i: ; preds = %809, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit
   store ptr %726, ptr %802, align 8, !tbaa !196
   %812 = getelementptr inbounds nuw i8, ptr %802, i64 8
-  store i32 0, ptr %812, align 4, !tbaa !29
+  store i32 0, ptr %812, align 8, !tbaa !29
   br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_EixEOS4_.exit
 
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_EixEOS4_.exit: ; preds = %751, %735, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E16InsertIntoBucketIS4_JEEEPS9_SD_OT_DpOT0_.exit.i
@@ -11531,7 +11531,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInf
   %57 = load ptr, ptr %1, align 8, !tbaa !172
   store ptr %57, ptr %48, align 8, !tbaa !172
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !29
+  store i32 0, ptr %58, align 8, !tbaa !29
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E16InsertIntoBucketIS4_JEEEPS9_SD_OT_DpOT0_.exit
@@ -11647,7 +11647,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInf
   %57 = load ptr, ptr %1, align 8, !tbaa !172
   store ptr %57, ptr %48, align 8, !tbaa !172
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !29
+  store i32 0, ptr %58, align 8, !tbaa !29
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E16InsertIntoBucketIRKS4_JEEEPS9_SF_OT_DpOT0_.exit
@@ -16782,7 +16782,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12Dens
   %421 = load ptr, ptr %334, align 8, !tbaa !196
   store ptr %421, ptr %411, align 8, !tbaa !196
   %422 = getelementptr inbounds nuw i8, ptr %411, i64 8
-  store i32 0, ptr %422, align 4, !tbaa !29
+  store i32 0, ptr %422, align 8, !tbaa !29
   br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_EixERKS4_.exit
 
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_EixERKS4_.exit: ; preds = %359, %342, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E16InsertIntoBucketIRKS4_JEEEPS9_SF_OT_DpOT0_.exit.i
@@ -19639,7 +19639,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInf
 322:                                              ; preds = %319, %313
   store ptr %.0.i.i.i.i.i.i.i.i, ptr %314, align 8, !tbaa !172, !noalias !456
   %323 = getelementptr inbounds nuw i8, ptr %314, i64 8
-  store i32 %246, ptr %323, align 4, !tbaa !29, !noalias !456
+  store i32 %246, ptr %323, align 8, !tbaa !29, !noalias !456
   %.pre69.i = load i32, ptr %20, align 8, !tbaa !10
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E11try_emplaceIJmEEESt4pairINS_16DenseMapIteratorIS4_iS6_S9_Lb0EEEbERKS4_DpOT_.exit.i
 
@@ -22467,7 +22467,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEiNS_12DenseMapInfoI
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !29
-  store i32 %68, ptr %66, align 4, !tbaa !29
+  store i32 %68, ptr %66, align 8, !tbaa !29
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !27
   br label %70
@@ -23572,7 +23572,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIPNS_13LazyCallGraph3SCC
   %30 = getelementptr inbounds nuw i8, ptr %.02738, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %.028.ptr39, i64 8
   %32 = load i32, ptr %31, align 8, !tbaa !29
-  store i32 %32, ptr %30, align 4, !tbaa !29
+  store i32 %32, ptr %30, align 8, !tbaa !29
   %33 = getelementptr inbounds nuw i8, ptr %.02738, i64 16
   br label %34
 
@@ -23731,7 +23731,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12Dens
   %48 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %.023, i64 8
   %50 = load i32, ptr %49, align 4, !tbaa !29
-  store i32 %50, ptr %48, align 4, !tbaa !29
+  store i32 %50, ptr %48, align 8, !tbaa !29
   %51 = load i32, ptr %0, align 8
   %52 = and i32 %51, -2
   %53 = add i32 %52, 2
@@ -24952,7 +24952,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInf
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !29
-  store i32 %68, ptr %66, align 4, !tbaa !29
+  store i32 %68, ptr %66, align 8, !tbaa !29
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !328
   br label %70

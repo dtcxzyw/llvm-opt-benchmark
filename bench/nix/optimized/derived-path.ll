@@ -12635,7 +12635,7 @@ _ZN2rc3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0EEEEJN3nix17DerivedPathO
   store i64 %17, ptr %19, align 8
   store ptr %9, ptr %6, align 8
   store i64 0, ptr %18, align 8
-  store i8 0, ptr %9, align 1
+  store i8 0, ptr %9, align 8
   store ptr null, ptr %1, align 8
   invoke void @_ZN2rc3GenISt5tupleIJN3nix17DerivedPathOpaqueEEEEC2INS_3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0EEEEJS3_EEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3)
           to label %20 unwind label %34
@@ -14224,7 +14224,7 @@ _ZN2rc3GenISt5tupleIJN3nix17DerivedPathOpaqueEEEEC2EOS5_.exit: ; preds = %13, %_
   store i64 %19, ptr %21, align 8
   store ptr %11, ptr %8, align 8
   store i64 0, ptr %20, align 8
-  store i8 0, ptr %11, align 1
+  store i8 0, ptr %11, align 8
   store ptr null, ptr %1, align 8
   %22 = load ptr, ptr %2, align 8
   store ptr %22, ptr %4, align 8
@@ -19722,7 +19722,7 @@ _ZN2rc3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0EEEEJN3nix22SingleDerive
   store i64 %17, ptr %19, align 8
   store ptr %9, ptr %6, align 8
   store i64 0, ptr %18, align 8
-  store i8 0, ptr %9, align 1
+  store i8 0, ptr %9, align 8
   store ptr null, ptr %1, align 8
   invoke void @_ZN2rc3GenISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEC2INS_3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0EEEEJS3_EEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3)
           to label %20 unwind label %34
@@ -21228,7 +21228,7 @@ _ZN2rc3GenISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEC2EOS5_.exit: ; preds = %1
   store i64 %19, ptr %21, align 8
   store ptr %11, ptr %8, align 8
   store i64 0, ptr %20, align 8
-  store i8 0, ptr %11, align 1
+  store i8 0, ptr %11, align 8
   store ptr null, ptr %1, align 8
   %22 = load ptr, ptr %2, align 8
   store ptr %22, ptr %4, align 8
@@ -25765,7 +25765,7 @@ _ZNSt11_Tuple_implILm1EJN2rc3GenIN3nix9StorePathEEEEEC2IS4_EEOT_.exit.i.i.i: ; p
   store i64 %18, ptr %20, align 8
   store ptr %10, ptr %7, align 8
   store i64 0, ptr %19, align 8
-  store i8 0, ptr %10, align 1
+  store i8 0, ptr %10, align 8
   store ptr null, ptr %2, align 8
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %22 = load ptr, ptr %1, align 8
@@ -25804,7 +25804,7 @@ _ZN2rc3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0ELm1EEEEJN3nix22SingleDe
   store i64 %35, ptr %37, align 8
   store ptr %27, ptr %24, align 8
   store i64 0, ptr %36, align 8
-  store i8 0, ptr %27, align 1
+  store i8 0, ptr %27, align 8
   store ptr null, ptr %1, align 8
   invoke void @_ZN2rc3GenISt5tupleIJN3nix22SingleDerivedPathBuiltENS2_9StorePathEEEEC2INS_3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0ELm1EEEEJS3_S4_EEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(80) %4)
           to label %38 unwind label %39
@@ -28138,7 +28138,7 @@ _ZN2rc3GenISt5tupleIJN3nix22SingleDerivedPathBuiltENS2_9StorePathEEEEC2EOS6_.exi
   store i64 %19, ptr %21, align 8
   store ptr %11, ptr %8, align 8
   store i64 0, ptr %20, align 8
-  store i8 0, ptr %11, align 1
+  store i8 0, ptr %11, align 8
   store ptr null, ptr %1, align 8
   %22 = load ptr, ptr %2, align 8
   store ptr %22, ptr %4, align 8

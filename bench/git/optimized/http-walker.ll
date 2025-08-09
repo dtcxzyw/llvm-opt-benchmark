@@ -480,7 +480,7 @@ define internal void @prefetch(ptr noundef %0, ptr noundef readonly captures(non
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i32, ptr %6, align 4, !tbaa !75
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i32 %7, ptr %8, align 4, !tbaa !75
+  store i32 %7, ptr %8, align 8, !tbaa !75
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 48

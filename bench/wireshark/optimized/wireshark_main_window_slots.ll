@@ -12864,7 +12864,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %21
   %.repack5.i.i.i.i = getelementptr inbounds nuw i8, ptr %27, i64 24
   store i64 0, ptr %.repack5.i.i.i.i, align 8, !noalias !175
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  store i32 %14, ptr %32, align 4, !noalias !175
+  store i32 %14, ptr %32, align 8, !noalias !175
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 40
   store i64 %29, ptr %33, align 8, !noalias !175
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 48
@@ -43774,7 +43774,7 @@ _ZN9QtPrivate7FunctorISt5_BindIFM19WiresharkMainWindowFvP19PacketCommentDialogij
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr %12, align 4
-  %29 = load i32, ptr %25, align 4
+  %29 = load i32, ptr %25, align 8
   tail call void %24(ptr noundef align 8 dereferenceable_or_null(560) %15, ptr noundef %27, i32 noundef %28, i32 noundef %29)
   br label %30
 

@@ -1039,7 +1039,7 @@ _ZNSt10unique_ptrIN11flatbuffers12_GLOBAL__N_119CSharpCodeGeneratorESt14default_
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %4, ptr %3, align 8, !tbaa !16
-  store i8 0, ptr %4, align 1, !tbaa !15
+  store i8 0, ptr %4, align 8, !tbaa !15
   store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN11flatbuffers12_GLOBAL__N_119CSharpCodeGeneratorE, i64 16), ptr %1, align 8, !tbaa !4
   store ptr %1, ptr %0, align 8, !tbaa !17
   ret void
@@ -101950,7 +101950,7 @@ _ZSt19__relocate_object_aIN11flatbuffers6csharp15CSharpGenerator16FieldArrayLeng
   store i64 %54, ptr %56, align 8, !tbaa !14, !alias.scope !2283, !noalias !2286
   store ptr %46, ptr %.0911.i.i.i, align 8, !tbaa !7, !alias.scope !2286, !noalias !2283
   store i64 0, ptr %55, align 8, !tbaa !14, !alias.scope !2286, !noalias !2283
-  store i8 0, ptr %46, align 1, !tbaa !15, !alias.scope !2286, !noalias !2283
+  store i8 0, ptr %46, align 8, !tbaa !15, !alias.scope !2286, !noalias !2283
   %57 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %58 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %59 = load i32, ptr %58, align 8, !tbaa !1550, !alias.scope !2286, !noalias !2283
@@ -102002,7 +102002,7 @@ _ZSt19__relocate_object_aIN11flatbuffers6csharp15CSharpGenerator16FieldArrayLeng
   store i64 %73, ptr %75, align 8, !tbaa !14, !alias.scope !2290, !noalias !2293
   store ptr %65, ptr %.0911.i.i.i29, align 8, !tbaa !7, !alias.scope !2293, !noalias !2290
   store i64 0, ptr %74, align 8, !tbaa !14, !alias.scope !2293, !noalias !2290
-  store i8 0, ptr %65, align 1, !tbaa !15, !alias.scope !2293, !noalias !2290
+  store i8 0, ptr %65, align 8, !tbaa !15, !alias.scope !2293, !noalias !2290
   %76 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %77 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   %78 = load i32, ptr %77, align 8, !tbaa !1550, !alias.scope !2293, !noalias !2290
@@ -106116,7 +106116,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
   store ptr %33, ptr %32, align 8, !tbaa !16
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i64 0, ptr %34, align 8, !tbaa !14
-  store i8 0, ptr %33, align 1, !tbaa !15
+  store i8 0, ptr %33, align 8, !tbaa !15
   ret void
 
 35:                                               ; preds = %25

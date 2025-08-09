@@ -1139,7 +1139,7 @@ _ZN7rocksdb14IndexBlockIterC2Ev.exit:             ; preds = %82
   store ptr %96, ptr %95, align 8, !tbaa !167
   %97 = getelementptr inbounds nuw i8, ptr %55, i64 656
   store i64 0, ptr %97, align 8, !tbaa !168
-  store i8 0, ptr %96, align 1, !tbaa !169
+  store i8 0, ptr %96, align 8, !tbaa !169
   br label %98
 
 98:                                               ; preds = %_ZN7rocksdb14IndexBlockIterC2Ev.exit, %_ZN7rocksdb13PerfStepTimer5StartEv.exit

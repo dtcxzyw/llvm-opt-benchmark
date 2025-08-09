@@ -445,7 +445,7 @@ common.ret156:                                    ; preds = %118, %125, %156, %l
   %34 = tail call ptr @l_Lean_RBNode_del___at_Lake_JsonObject_erase___spec__1(ptr noundef nonnull %0, ptr noundef %21)
   store ptr %34, ptr %20, align 8, !tbaa !11
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i8 0, ptr %35, align 1, !tbaa !17
+  store i8 0, ptr %35, align 8, !tbaa !17
   br label %common.ret156
 
 36:                                               ; preds = %lean_string_dec_eq.exit.thread
@@ -516,7 +516,7 @@ lean_dec.exit123:                                 ; preds = %56, %55, %53, %lean
   %62 = tail call ptr @l_Lean_RBNode_del___at_Lake_JsonObject_erase___spec__1(ptr noundef %0, ptr noundef %15)
   store ptr %62, ptr %14, align 8, !tbaa !11
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i8 0, ptr %63, align 1, !tbaa !17
+  store i8 0, ptr %63, align 8, !tbaa !17
   br label %common.ret156
 
 64:                                               ; preds = %58
@@ -679,7 +679,7 @@ lean_string_dec_eq.exit147.thread:                ; preds = %110, %lean_string_d
   %123 = getelementptr inbounds nuw i8, ptr %119, i64 32
   store ptr %117, ptr %123, align 8, !tbaa !11
   %124 = getelementptr inbounds nuw i8, ptr %119, i64 40
-  store i8 0, ptr %124, align 1, !tbaa !17
+  store i8 0, ptr %124, align 8, !tbaa !17
   br label %common.ret156
 
 125:                                              ; preds = %lean_string_dec_eq.exit147.thread
@@ -752,7 +752,7 @@ lean_alloc_ctor.exit:                             ; preds = %146
   %150 = getelementptr inbounds nuw i8, ptr %147, i64 4
   %151 = getelementptr inbounds nuw i8, ptr %147, i64 40
   store i64 0, ptr %151, align 8, !tbaa !13
-  store i32 1, ptr %147, align 4, !tbaa !4
+  store i32 1, ptr %147, align 8, !tbaa !4
   store i32 17039408, ptr %150, align 4
   %152 = getelementptr inbounds nuw i8, ptr %147, i64 8
   store ptr %145, ptr %152, align 8, !tbaa !11

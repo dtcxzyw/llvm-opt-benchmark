@@ -9012,7 +9012,7 @@ define void @llama_perf_context(ptr dead_on_unwind noalias writable writeonly sr
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %22, ptr %23, align 8, !tbaa !544
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 760
-  %25 = load i32, ptr %24, align 4, !tbaa !155
+  %25 = load i32, ptr %24, align 8, !tbaa !155
   %.sroa.speculated10 = tail call i32 @llvm.smax.i32(i32 %25, i32 1)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %.sroa.speculated10, ptr %26, align 8, !tbaa !545
@@ -9050,7 +9050,7 @@ define void @llama_perf_context_print(ptr noundef readonly captures(address_is_n
   %18 = sitofp i64 %17 to double
   %19 = fmul double %18, 1.000000e-03
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 760
-  %21 = load i32, ptr %20, align 4, !tbaa !155, !noalias !547
+  %21 = load i32, ptr %20, align 8, !tbaa !155, !noalias !547
   %.sroa.speculated10.i = tail call i32 @llvm.smax.i32(i32 %21, i32 1)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 764
   %23 = load i32, ptr %22, align 4, !tbaa !155, !noalias !547
@@ -58135,7 +58135,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !148, !alias.scope !915, !noalias !918
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !145, !alias.scope !918, !noalias !915
   store i64 0, ptr %48, align 8, !tbaa !148, !alias.scope !918, !noalias !915
-  store i8 0, ptr %39, align 1, !tbaa !147, !alias.scope !918, !noalias !915
+  store i8 0, ptr %39, align 8, !tbaa !147, !alias.scope !918, !noalias !915
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -58183,7 +58183,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !148, !alias.scope !922, !noalias !925
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !145, !alias.scope !925, !noalias !922
   store i64 0, ptr %64, align 8, !tbaa !148, !alias.scope !925, !noalias !922
-  store i8 0, ptr %55, align 1, !tbaa !147, !alias.scope !925, !noalias !922
+  store i8 0, ptr %55, align 8, !tbaa !147, !alias.scope !925, !noalias !922
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5

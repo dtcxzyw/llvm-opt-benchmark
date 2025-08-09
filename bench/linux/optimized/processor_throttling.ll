@@ -1268,7 +1268,7 @@ define dso_local i32 @acpi_processor_get_throttling_info(ptr noundef %0) local_u
 213:                                              ; preds = %209
   store i8 1, ptr %184, align 2
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %215 = load i64, ptr %214, align 1
+  %215 = load i64, ptr %214, align 2
   %216 = trunc i64 %215 to i32
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 768
   store i32 %216, ptr %217, align 8
@@ -1277,7 +1277,7 @@ define dso_local i32 @acpi_processor_get_throttling_info(ptr noundef %0) local_u
   %220 = zext i32 %219 to i64
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 736
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %221, i64 %220) #10, !srcloc !11
-  %222 = load i64, ptr %214, align 1
+  %222 = load i64, ptr %214, align 8
   %223 = add i64 %222, -252
   %224 = icmp ult i64 %223, 3
   br i1 %224, label %226, label %225
@@ -1574,7 +1574,7 @@ define internal i32 @acpi_processor_get_throttling_ptc(ptr noundef %0) #0 align 
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !annotation !21
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 666
-  %12 = load i8, ptr %11, align 1
+  %12 = load i8, ptr %11, align 2
   switch i8 %12, label %47 [
     i8 1, label %13
     i8 127, label %30

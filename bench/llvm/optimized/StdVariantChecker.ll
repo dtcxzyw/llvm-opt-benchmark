@@ -390,7 +390,7 @@ define linkonce_odr hidden noundef ptr @_ZN5clang4ento14CheckerManager15register
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 256
   store i64 14, ptr %20, align 8, !tbaa !25
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 278
-  store i8 0, ptr %21, align 1, !tbaa !20
+  store i8 0, ptr %21, align 2, !tbaa !20
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 280
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 296
   store ptr %23, ptr %22, align 8, !tbaa !22
@@ -398,7 +398,7 @@ define linkonce_odr hidden noundef ptr @_ZN5clang4ento14CheckerManager15register
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 288
   store i64 14, ptr %24, align 8, !tbaa !25
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 310
-  store i8 0, ptr %25, align 1, !tbaa !20
+  store i8 0, ptr %25, align 2, !tbaa !20
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 312
   store ptr %8, ptr %26, align 8, !tbaa !27
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 320

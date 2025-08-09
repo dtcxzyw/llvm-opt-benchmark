@@ -1545,7 +1545,7 @@ _ZNSt5stackISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52D
   %621 = inttoptr i64 %620 to ptr
   %622 = getelementptr inbounds nuw i8, ptr %.sroa.0258.0375, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %623 = load i32, ptr %622, align 4, !tbaa !64
+  %623 = load i32, ptr %622, align 8, !tbaa !64
   %624 = sext i32 %623 to i64
   %625 = getelementptr inbounds [4 x [3 x i32]], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE23tab_vertex_triple_indexE, i64 0, i64 %624
   %626 = load i32, ptr %625, align 4, !tbaa !64

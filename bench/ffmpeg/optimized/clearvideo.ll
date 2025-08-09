@@ -327,7 +327,7 @@ bytestream2_get_byte.exit218:                     ; preds = %bytestream2_get_be3
   %.018.i.i = select i1 %or.cond3.i.i, i32 %83, i32 0
   %.017.i.i = select i1 %or.cond.i.i, ptr %80, ptr null
   %85 = lshr exact i32 %.018.i.i, 3
-  store ptr %.017.i.i, ptr %75, align 8, !tbaa !64
+  store ptr %.017.i.i, ptr %75, align 16, !tbaa !64
   %86 = getelementptr inbounds nuw i8, ptr %11, i64 164
   store i32 %.018.i.i, ptr %86, align 4, !tbaa !65
   %87 = add nuw nsw i32 %.018.i.i, 8
@@ -338,7 +338,7 @@ bytestream2_get_byte.exit218:                     ; preds = %bytestream2_get_be3
   %91 = getelementptr inbounds nuw i8, ptr %11, i64 152
   store ptr %90, ptr %91, align 8, !tbaa !67
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 160
-  store i32 0, ptr %92, align 8, !tbaa !68
+  store i32 0, ptr %92, align 16, !tbaa !68
   br i1 %or.cond3.i.i, label %.preheader313, label %.thread295
 
 .preheader313:                                    ; preds = %bytestream2_get_byte.exit218
@@ -1181,7 +1181,7 @@ extend_edges.exit:                                ; preds = %extend_edges.exit.l
   store ptr %544, ptr %542, align 16, !tbaa !47
   store i32 1, ptr %2, align 4, !tbaa !54
   %546 = getelementptr i8, ptr %11, i64 160
-  %.val221 = load i32, ptr %546, align 8, !tbaa !68
+  %.val221 = load i32, ptr %546, align 16, !tbaa !68
   %547 = getelementptr i8, ptr %11, i64 164
   %.val222 = load i32, ptr %547, align 4, !tbaa !65
   %548 = sub nsw i32 %.val222, %.val221

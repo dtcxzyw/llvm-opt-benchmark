@@ -6657,7 +6657,7 @@ _ZSt19__relocate_object_aIN6duckdb20ExceptionFormatValueES1_SaIS1_EEvPT_PT0_RT1_
   store i64 %49, ptr %51, align 8, !tbaa !9, !alias.scope !222, !noalias !225
   store ptr %41, ptr %38, align 8, !tbaa !21, !alias.scope !225, !noalias !222
   store i64 0, ptr %50, align 8, !tbaa !9, !alias.scope !225, !noalias !222
-  store i8 0, ptr %41, align 1, !tbaa !12, !alias.scope !225, !noalias !222
+  store i8 0, ptr %41, align 8, !tbaa !12, !alias.scope !225, !noalias !222
   %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 56
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 56
   %.not.i.i.i.i = icmp eq ptr %52, %1
@@ -6708,7 +6708,7 @@ _ZSt19__relocate_object_aIN6duckdb20ExceptionFormatValueES1_SaIS1_EEvPT_PT0_RT1_
   store i64 %67, ptr %69, align 8, !tbaa !9, !alias.scope !229, !noalias !232
   store ptr %59, ptr %56, align 8, !tbaa !21, !alias.scope !232, !noalias !229
   store i64 0, ptr %68, align 8, !tbaa !9, !alias.scope !232, !noalias !229
-  store i8 0, ptr %59, align 1, !tbaa !12, !alias.scope !232, !noalias !229
+  store i8 0, ptr %59, align 8, !tbaa !12, !alias.scope !232, !noalias !229
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 56
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 56
   %.not.i.i.i.i24 = icmp eq ptr %70, %5
@@ -6974,7 +6974,7 @@ _ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcE
   store i64 %49, ptr %51, align 8, !tbaa !9, !alias.scope !235, !noalias !238
   store ptr %41, ptr %.0911.i.i.i.i, align 8, !tbaa !21, !alias.scope !238, !noalias !235
   store i64 0, ptr %50, align 8, !tbaa !9, !alias.scope !238, !noalias !235
-  store i8 0, ptr %41, align 1, !tbaa !12, !alias.scope !238, !noalias !235
+  store i8 0, ptr %41, align 8, !tbaa !12, !alias.scope !238, !noalias !235
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   tail call void @_ZN6duckdb5ValueC1EOS0_(ptr noundef nonnull align 8 dereferenceable(64) %52, ptr noundef nonnull align 8 dereferenceable(64) %53) #26
@@ -7041,7 +7041,7 @@ _ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcE
   store i64 %71, ptr %73, align 8, !tbaa !9, !alias.scope !242, !noalias !245
   store ptr %63, ptr %.0911.i.i.i.i19, align 8, !tbaa !21, !alias.scope !245, !noalias !242
   store i64 0, ptr %72, align 8, !tbaa !9, !alias.scope !245, !noalias !242
-  store i8 0, ptr %63, align 1, !tbaa !12, !alias.scope !245, !noalias !242
+  store i8 0, ptr %63, align 8, !tbaa !12, !alias.scope !245, !noalias !242
   %74 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 32
   %75 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 32
   tail call void @_ZN6duckdb5ValueC1EOS0_(ptr noundef nonnull align 8 dereferenceable(64) %74, ptr noundef nonnull align 8 dereferenceable(64) %75) #26
@@ -42317,9 +42317,9 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN6
   %16 = load i32, ptr %12, align 8, !tbaa !12
   %17 = icmp ult i32 %16, %15
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %.0.copyload.i.i.i.i.i = load i32, ptr %18, align 1
+  %.0.copyload.i.i.i.i.i = load i32, ptr %18, align 4
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %.0.copyload.i16.i.i.i.i = load i32, ptr %19, align 1
+  %.0.copyload.i16.i.i.i.i = load i32, ptr %19, align 4
   %.not.i.i.i.i = icmp eq i32 %.0.copyload.i.i.i.i.i, %.0.copyload.i16.i.i.i.i
   br i1 %.not.i.i.i.i, label %24, label %20
 
@@ -42456,9 +42456,9 @@ define linkonce_odr void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_ite
   %5 = load i32, ptr %2, align 8, !tbaa !12
   %6 = load i32, ptr %1, align 8, !tbaa !12
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %.0.copyload.i.i.i.i.i = load i32, ptr %7, align 1
+  %.0.copyload.i.i.i.i.i = load i32, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.0.copyload.i16.i.i.i.i = load i32, ptr %8, align 1
+  %.0.copyload.i16.i.i.i.i = load i32, ptr %8, align 4
   %.not.i.i.i.i = icmp eq i32 %.0.copyload.i.i.i.i.i, %.0.copyload.i16.i.i.i.i
   br i1 %.not.i.i.i.i, label %13, label %9
 
@@ -42490,7 +42490,7 @@ define linkonce_odr void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_ite
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN6duckdb8string_tESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread: ; preds = %13, %9
   %28 = load i32, ptr %3, align 8, !tbaa !12
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %.0.copyload.i.i.i.i.i26 = load i32, ptr %29, align 1
+  %.0.copyload.i.i.i.i.i26 = load i32, ptr %29, align 4
   %.not.i.i.i.i28 = icmp eq i32 %.0.copyload.i.i.i.i.i26, %.0.copyload.i.i.i.i.i
   br i1 %.not.i.i.i.i28, label %34, label %30
 
@@ -42575,7 +42575,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN6duckdb8string_
 70:                                               ; preds = %13, %9
   %71 = load i32, ptr %3, align 8, !tbaa !12
   %72 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %.0.copyload.i.i.i.i.i40 = load i32, ptr %72, align 1
+  %.0.copyload.i.i.i.i.i40 = load i32, ptr %72, align 4
   %.not.i.i.i.i42 = icmp eq i32 %.0.copyload.i.i.i.i.i40, %.0.copyload.i16.i.i.i.i
   br i1 %.not.i.i.i.i42, label %77, label %73
 
@@ -42672,7 +42672,7 @@ define linkonce_odr ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_itera
   %.sroa.016.0 = phi ptr [ %0, %3 ], [ %52, %51 ]
   %.sroa.0.0 = phi ptr [ %1, %3 ], [ %.sroa.0.1, %51 ]
   %7 = load i32, ptr %2, align 8, !tbaa !12
-  %.0.copyload.i.i.i.i.i = load i32, ptr %4, align 1
+  %.0.copyload.i.i.i.i.i = load i32, ptr %4, align 4
   %8 = tail call i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i.i.i)
   %9 = icmp ult i32 %7, 13
   br label %10
@@ -55533,7 +55533,7 @@ define linkonce_odr void @_ZN6duckdb17AggregateExecutor7CombineINS_17HistogramAg
   %32 = load ptr, ptr %31, align 8, !tbaa !819
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %.not10.i.i.i.i = icmp eq ptr %32, null
-  %.pre.i9 = load i8, ptr %27, align 1, !tbaa !314, !range !316
+  %.pre.i9 = load i8, ptr %27, align 8, !tbaa !314, !range !316
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i, %.lr.ph.i.i.i.i
@@ -57096,7 +57096,7 @@ define linkonce_odr void @_ZN6duckdb17AggregateExecutor7CombineINS_17HistogramAg
   %32 = load ptr, ptr %31, align 8, !tbaa !819
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %.not10.i.i.i.i = icmp eq ptr %32, null
-  %.pre.i9 = load i8, ptr %27, align 1, !tbaa !12
+  %.pre.i9 = load i8, ptr %27, align 8, !tbaa !12
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i, %.lr.ph.i.i.i.i
@@ -58532,7 +58532,7 @@ define linkonce_odr void @_ZN6duckdb17AggregateExecutor7CombineINS_17HistogramAg
   %32 = load ptr, ptr %31, align 8, !tbaa !819
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %.not10.i.i.i.i = icmp eq ptr %32, null
-  %.pre.i9 = load i16, ptr %27, align 2, !tbaa !397
+  %.pre.i9 = load i16, ptr %27, align 8, !tbaa !397
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i, %.lr.ph.i.i.i.i
@@ -59968,7 +59968,7 @@ define linkonce_odr void @_ZN6duckdb17AggregateExecutor7CombineINS_17HistogramAg
   %32 = load ptr, ptr %31, align 8, !tbaa !819
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %.not10.i.i.i.i = icmp eq ptr %32, null
-  %.pre.i9 = load i32, ptr %27, align 4, !tbaa !41
+  %.pre.i9 = load i32, ptr %27, align 8, !tbaa !41
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i, %.lr.ph.i.i.i.i
@@ -62837,7 +62837,7 @@ define linkonce_odr void @_ZN6duckdb17AggregateExecutor7CombineINS_17HistogramAg
   %32 = load ptr, ptr %31, align 8, !tbaa !819
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %.not10.i.i.i.i = icmp eq ptr %32, null
-  %.pre.i9 = load i8, ptr %27, align 1, !tbaa !12
+  %.pre.i9 = load i8, ptr %27, align 8, !tbaa !12
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i, %.lr.ph.i.i.i.i
@@ -64273,7 +64273,7 @@ define linkonce_odr void @_ZN6duckdb17AggregateExecutor7CombineINS_17HistogramAg
   %32 = load ptr, ptr %31, align 8, !tbaa !819
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %.not10.i.i.i.i = icmp eq ptr %32, null
-  %.pre.i9 = load i16, ptr %27, align 2, !tbaa !397
+  %.pre.i9 = load i16, ptr %27, align 8, !tbaa !397
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i, %.lr.ph.i.i.i.i
@@ -65709,7 +65709,7 @@ define linkonce_odr void @_ZN6duckdb17AggregateExecutor7CombineINS_17HistogramAg
   %32 = load ptr, ptr %31, align 8, !tbaa !819
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %.not10.i.i.i.i = icmp eq ptr %32, null
-  %.pre.i9 = load i32, ptr %27, align 4, !tbaa !41
+  %.pre.i9 = load i32, ptr %27, align 8, !tbaa !41
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i, %.lr.ph.i.i.i.i
@@ -68584,7 +68584,7 @@ define linkonce_odr void @_ZN6duckdb17AggregateExecutor7CombineINS_17HistogramAg
   %32 = load ptr, ptr %31, align 8, !tbaa !819
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %.not10.i.i.i.i = icmp eq ptr %32, null
-  %.pre.i9 = load float, ptr %27, align 4, !tbaa !627
+  %.pre.i9 = load float, ptr %27, align 8, !tbaa !627
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i, %.lr.ph.i.i.i.i
@@ -71327,7 +71327,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIN6duckdb8string_tESt4pairIKS1_mE
   %12 = load i32, ptr %1, align 8, !tbaa !12
   %13 = icmp ult i32 %12, %11
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  %.0.copyload.i.i.i.i.i.i = load i32, ptr %14, align 1
+  %.0.copyload.i.i.i.i.i.i = load i32, ptr %14, align 4
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.0.copyload.i16.i.i.i.i.i = load i32, ptr %15, align 4
   %.not.i.i.i.i.i = icmp eq i32 %.0.copyload.i.i.i.i.i.i, %.0.copyload.i16.i.i.i.i.i
@@ -71532,9 +71532,9 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIN6duckdb8string_tESt4pairIKS1_mE
   %18 = load i32, ptr %4, align 8, !tbaa !12
   %19 = icmp ult i32 %18, %17
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 36
-  %.0.copyload.i.i.i.i.i.i.i = load i32, ptr %20, align 1
+  %.0.copyload.i.i.i.i.i.i.i = load i32, ptr %20, align 4
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  %.0.copyload.i16.i.i.i.i.i.i = load i32, ptr %21, align 1
+  %.0.copyload.i16.i.i.i.i.i.i = load i32, ptr %21, align 4
   %.not.i.i.i.i.i.i = icmp eq i32 %.0.copyload.i.i.i.i.i.i.i, %.0.copyload.i16.i.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i, label %26, label %22
 
@@ -71890,7 +71890,7 @@ _ZNSt8_Rb_treeIN6duckdb8string_tESt4pairIKS1_mESt10_Select1stIS4_ESt4lessIS1_ESa
   %146 = load i32, ptr %145, align 8, !tbaa !12
   %147 = icmp ult i32 %142, %146
   %148 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i4771, i64 36
-  %.0.copyload.i.i.i.i.i.i.i = load i32, ptr %148, align 1
+  %.0.copyload.i.i.i.i.i.i.i = load i32, ptr %148, align 4
   %.0.copyload.i16.i.i.i.i.i.i = load i32, ptr %15, align 4
   %.not.i.i.i.i.i.i = icmp eq i32 %.0.copyload.i.i.i.i.i.i.i, %.0.copyload.i16.i.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i, label %153, label %149
@@ -72083,7 +72083,7 @@ _ZNKSt4lessIN6duckdb8string_tEEclERKS1_S4_.exit.thread.i.thread: ; preds = %189,
   %235 = load i32, ptr %234, align 8, !tbaa !12
   %236 = icmp ugt i32 %235, %171
   %237 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph, i64 36
-  %.0.copyload.i.i.i.i.i.i.i.i = load i32, ptr %237, align 1
+  %.0.copyload.i.i.i.i.i.i.i.i = load i32, ptr %237, align 4
   %.not.i.i.i.i.i.i.i = icmp eq i32 %.0.copyload.i.i.i.i.i.i.i.i, %.0.copyload.i16.i.i.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i, label %242, label %238
 
@@ -74787,7 +74787,7 @@ _ZNSt10_HashtableIbSt4pairIKbmESaIS2_ENSt8__detail10_Select1stESt8equal_toIbESt4
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIbSt4pairIKbmESaIS2_ENSt8__detail10_Select1stESt8equal_toIbESt4hashIbENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !1095
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i8, ptr %15, align 1, !tbaa !314, !range !316, !noundef !317
+  %16 = load i8, ptr %15, align 8, !tbaa !314, !range !316, !noundef !317
   %17 = zext nneg i8 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -74879,7 +74879,7 @@ define linkonce_odr void @_ZN6duckdb17HistogramFunctionINS_14DefaultMapTypeISt13
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.011.019, i64 16
   %19 = load i64, ptr %18, align 8, !tbaa !817
   %20 = load ptr, ptr %1, align 8, !tbaa !1081
-  %21 = load i8, ptr %17, align 1, !tbaa !314, !range !316, !noundef !317
+  %21 = load i8, ptr %17, align 8, !tbaa !314, !range !316, !noundef !317
   %22 = zext nneg i8 %21 to i64
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !1086
@@ -76154,7 +76154,7 @@ _ZNSt10_HashtableIhSt4pairIKhmESaIS2_ENSt8__detail10_Select1stESt8equal_toIhESt4
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIhSt4pairIKhmESaIS2_ENSt8__detail10_Select1stESt8equal_toIhESt4hashIhENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !1095
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i8, ptr %15, align 1, !tbaa !12
+  %16 = load i8, ptr %15, align 8, !tbaa !12
   %17 = zext i8 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -76246,7 +76246,7 @@ define linkonce_odr void @_ZN6duckdb17HistogramFunctionINS_14DefaultMapTypeISt13
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.011.019, i64 16
   %19 = load i64, ptr %18, align 8, !tbaa !841
   %20 = load ptr, ptr %1, align 8, !tbaa !1112
-  %21 = load i8, ptr %17, align 1, !tbaa !12
+  %21 = load i8, ptr %17, align 8, !tbaa !12
   %22 = zext i8 %21 to i64
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !1117
@@ -77524,7 +77524,7 @@ _ZNSt10_HashtableItSt4pairIKtmESaIS2_ENSt8__detail10_Select1stESt8equal_toItESt4
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableItSt4pairIKtmESaIS2_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !1095
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i16, ptr %15, align 2, !tbaa !397
+  %16 = load i16, ptr %15, align 8, !tbaa !397
   %17 = zext i16 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -77616,7 +77616,7 @@ define linkonce_odr void @_ZN6duckdb17HistogramFunctionINS_14DefaultMapTypeISt13
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.011.019, i64 16
   %19 = load i64, ptr %18, align 8, !tbaa !861
   %20 = load ptr, ptr %1, align 8, !tbaa !1135
-  %21 = load i16, ptr %17, align 2, !tbaa !397
+  %21 = load i16, ptr %17, align 8, !tbaa !397
   %22 = zext i16 %21 to i64
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !1140
@@ -78894,7 +78894,7 @@ _ZNSt10_HashtableIjSt4pairIKjmESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIjSt4pairIKjmESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !1095
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !41
+  %16 = load i32, ptr %15, align 8, !tbaa !41
   %17 = zext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -78986,7 +78986,7 @@ define linkonce_odr void @_ZN6duckdb17HistogramFunctionINS_14DefaultMapTypeISt13
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.011.019, i64 16
   %19 = load i64, ptr %18, align 8, !tbaa !881
   %20 = load ptr, ptr %1, align 8, !tbaa !1158
-  %21 = load i32, ptr %17, align 4, !tbaa !41
+  %21 = load i32, ptr %17, align 8, !tbaa !41
   %22 = zext i32 %21 to i64
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !1163
@@ -81625,7 +81625,7 @@ _ZNSt10_HashtableIaSt4pairIKamESaIS2_ENSt8__detail10_Select1stESt8equal_toIaESt4
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIaSt4pairIKamESaIS2_ENSt8__detail10_Select1stESt8equal_toIaESt4hashIaENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !1095
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i8, ptr %15, align 1, !tbaa !12
+  %16 = load i8, ptr %15, align 8, !tbaa !12
   %17 = sext i8 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -81717,7 +81717,7 @@ define linkonce_odr void @_ZN6duckdb17HistogramFunctionINS_14DefaultMapTypeISt13
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.011.019, i64 16
   %19 = load i64, ptr %18, align 8, !tbaa !921
   %20 = load ptr, ptr %1, align 8, !tbaa !1204
-  %21 = load i8, ptr %17, align 1, !tbaa !12
+  %21 = load i8, ptr %17, align 8, !tbaa !12
   %22 = sext i8 %21 to i64
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !1209
@@ -82995,7 +82995,7 @@ _ZNSt10_HashtableIsSt4pairIKsmESaIS2_ENSt8__detail10_Select1stESt8equal_toIsESt4
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIsSt4pairIKsmESaIS2_ENSt8__detail10_Select1stESt8equal_toIsESt4hashIsENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !1095
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i16, ptr %15, align 2, !tbaa !397
+  %16 = load i16, ptr %15, align 8, !tbaa !397
   %17 = sext i16 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -83087,7 +83087,7 @@ define linkonce_odr void @_ZN6duckdb17HistogramFunctionINS_14DefaultMapTypeISt13
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.011.019, i64 16
   %19 = load i64, ptr %18, align 8, !tbaa !941
   %20 = load ptr, ptr %1, align 8, !tbaa !1227
-  %21 = load i16, ptr %17, align 2, !tbaa !397
+  %21 = load i16, ptr %17, align 8, !tbaa !397
   %22 = sext i16 %21 to i64
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !1232
@@ -84365,7 +84365,7 @@ _ZNSt10_HashtableIiSt4pairIKimESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKimESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !1095
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !41
+  %16 = load i32, ptr %15, align 8, !tbaa !41
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -84457,7 +84457,7 @@ define linkonce_odr void @_ZN6duckdb17HistogramFunctionINS_14DefaultMapTypeISt13
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.011.019, i64 16
   %19 = load i64, ptr %18, align 8, !tbaa !961
   %20 = load ptr, ptr %1, align 8, !tbaa !1250
-  %21 = load i32, ptr %17, align 4, !tbaa !41
+  %21 = load i32, ptr %17, align 8, !tbaa !41
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !1255
@@ -87145,7 +87145,7 @@ _ZNSt10_HashtableIfSt4pairIKfmESaIS2_ENSt8__detail10_Select1stESt8equal_toIfESt4
   %.02530 = phi i64 [ %.1, %36 ], [ 0, %_ZNSt10_HashtableIfSt4pairIKfmESaIS2_ENSt8__detail10_Select1stESt8equal_toIfESt4hashIfENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %15 = load ptr, ptr %.031, align 8, !tbaa !1095
   %16 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %17 = load float, ptr %16, align 4, !tbaa !627
+  %17 = load float, ptr %16, align 8, !tbaa !627
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store float %17, ptr %3, align 4, !tbaa !627
   %18 = fcmp une float %17, 0.000000e+00
@@ -87275,7 +87275,7 @@ define linkonce_odr void @_ZN6duckdb17AggregateExecutor7CombineINS_17HistogramAg
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.011.017.i, i64 16
   %32 = load i64, ptr %31, align 8, !tbaa !1001
   %33 = load ptr, ptr %16, align 8, !tbaa !1296
-  %34 = load float, ptr %30, align 4, !tbaa !627
+  %34 = load float, ptr %30, align 8, !tbaa !627
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store float %34, ptr %8, align 4, !tbaa !627
   %35 = fcmp une float %34, 0.000000e+00
@@ -87425,7 +87425,7 @@ _ZNSt10_HashtableIfSt4pairIKfmESaIS2_ENSt8__detail10_Select1stESt8equal_toIfESt4
   %.02530.i = phi i64 [ %.1.i10, %113 ], [ 0, %_ZNSt10_HashtableIfSt4pairIKfmESaIS2_ENSt8__detail10_Select1stESt8equal_toIfESt4hashIfENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i ]
   %92 = load ptr, ptr %.031.i, align 8, !tbaa !1095
   %93 = getelementptr inbounds nuw i8, ptr %.031.i, i64 8
-  %94 = load float, ptr %93, align 4, !tbaa !627
+  %94 = load float, ptr %93, align 8, !tbaa !627
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store float %94, ptr %5, align 4, !tbaa !627
   %95 = fcmp une float %94, 0.000000e+00

@@ -243,7 +243,7 @@ select.unfold:                                    ; preds = %60, %select.unfold.
   %79 = load i64, ptr %78, align 8, !tbaa !11
   %80 = xor i64 %79, %77
   %81 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  store i64 %80, ptr %81, align 1, !tbaa !11
+  store i64 %80, ptr %81, align 8, !tbaa !11
   %82 = call ptr @ff_data_to_hex(ptr noundef nonnull %6, ptr noundef nonnull %75, i32 noundef 16, i32 noundef 1) #10
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.17, ptr noundef nonnull %6) #10
   %83 = load ptr, ptr %65, align 8, !tbaa !40

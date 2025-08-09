@@ -1740,7 +1740,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   store i64 %18, ptr %21, align 8, !tbaa !9, !noalias !36
   store ptr %8, ptr %2, align 8, !tbaa !33, !noalias !36
   store i64 0, ptr %20, align 8, !tbaa !9, !noalias !36
-  store i8 0, ptr %8, align 1, !tbaa !12, !noalias !36
+  store i8 0, ptr %8, align 8, !tbaa !12, !noalias !36
   store ptr %5, ptr %19, align 8, !tbaa !34, !alias.scope !36
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %17, ptr %22, align 8, !tbaa !39
@@ -2015,7 +2015,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   store i64 %18, ptr %19, align 8, !tbaa !9
   store ptr %8, ptr %3, align 8, !tbaa !33
   store i64 0, ptr %17, align 8, !tbaa !9
-  store i8 0, ptr %8, align 1, !tbaa !12
+  store i8 0, ptr %8, align 8, !tbaa !12
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load ptr, ptr %5, align 8, !tbaa !33
   store ptr %21, ptr %20, align 8, !tbaa !39

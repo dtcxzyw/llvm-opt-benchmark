@@ -1328,9 +1328,9 @@ check_slice_end.exit.i:                           ; preds = %450, %448, %442
   %476 = mul nsw i32 %475, %441
   %477 = add nsw i32 %476, %468
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %265, i8 0, i64 40, i1 false)
-  store i32 1, ptr %266, align 4, !tbaa !76
+  store i32 1, ptr %266, align 8, !tbaa !76
   store i32 1, ptr %267, align 4, !tbaa !76
-  store i32 1, ptr %268, align 4, !tbaa !76
+  store i32 1, ptr %268, align 8, !tbaa !76
   store i32 1, ptr %269, align 4, !tbaa !76
   %478 = load i32, ptr %257, align 8, !tbaa !142
   %479 = sub nsw i32 %468, %478
@@ -2007,7 +2007,7 @@ rv34_mc_2mv_skip.exit.i.i.i.i:                    ; preds = %790, %789, %765
   %863 = getelementptr inbounds nuw i8, ptr %860, i64 2
   %864 = load i16, ptr %863, align 2, !tbaa !4
   %865 = sext i16 %864 to i32
-  %866 = load i32, ptr %275, align 4, !tbaa !76
+  %866 = load i32, ptr %275, align 8, !tbaa !76
   %.not6675.i.i.i.i.i = icmp eq i32 %866, 0
   br i1 %.not6675.i.i.i.i.i, label %867, label %878
 

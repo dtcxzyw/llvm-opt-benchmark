@@ -31729,11 +31729,11 @@ common.resume:                                    ; preds = %672, %108, %115
   %212 = getelementptr inbounds nuw i8, ptr %100, i64 2571
   %213 = load i8, ptr %212, align 1, !range !38, !alias.scope !1571, !noalias !1568, !noundef !3
   %214 = getelementptr inbounds nuw i8, ptr %100, i64 2572
-  %215 = load i8, ptr %214, align 1, !range !38, !alias.scope !1571, !noalias !1568, !noundef !3
+  %215 = load i8, ptr %214, align 2, !range !38, !alias.scope !1571, !noalias !1568, !noundef !3
   %216 = getelementptr inbounds nuw i8, ptr %100, i64 2573
   %217 = load i8, ptr %216, align 1, !range !38, !alias.scope !1571, !noalias !1568, !noundef !3
   %218 = getelementptr inbounds nuw i8, ptr %100, i64 2574
-  %219 = load i8, ptr %218, align 1, !range !38, !alias.scope !1571, !noalias !1568, !noundef !3
+  %219 = load i8, ptr %218, align 2, !range !38, !alias.scope !1571, !noalias !1568, !noundef !3
   %220 = getelementptr inbounds nuw i8, ptr %100, i64 2575
   %221 = load i8, ptr %220, align 1, !range !38, !alias.scope !1571, !noalias !1568, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %79), !noalias !1573

@@ -46649,7 +46649,7 @@ define internal fastcc void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h
   %91 = load i64, ptr %.sroa.0.0104, align 8, !range !532, !alias.scope !14114, !noalias !14109
   %92 = icmp eq i64 %91, -9223372036854775804
   %93 = getelementptr inbounds nuw i8, ptr %.sroa.0.0104, i64 8
-  %94 = load i32, ptr %93, align 4, !alias.scope !14114, !noalias !14109
+  %94 = load i32, ptr %93, align 8, !alias.scope !14114, !noalias !14109
   %95 = getelementptr inbounds nuw i8, ptr %.sroa.0.0104, i64 12
   %96 = load i16, ptr %95, align 4, !alias.scope !14114, !noalias !14109
   %97 = insertvalue { i32, i16 } poison, i32 %94, 0
@@ -46906,7 +46906,7 @@ _ZN4core5slice4sort8unstable9quicksort9partition17hadf903ae08a671bcE.exit: ; pre
   %183 = load i64, ptr %.sroa.0.0104, align 8, !range !532, !alias.scope !14163, !noalias !14158
   %184 = icmp eq i64 %183, -9223372036854775804
   %185 = getelementptr inbounds nuw i8, ptr %.sroa.0.0104, i64 8
-  %186 = load i32, ptr %185, align 4, !alias.scope !14163, !noalias !14158
+  %186 = load i32, ptr %185, align 8, !alias.scope !14163, !noalias !14158
   %187 = getelementptr inbounds nuw i8, ptr %.sroa.0.0104, i64 12
   %188 = load i16, ptr %187, align 4, !alias.scope !14163, !noalias !14158
   %189 = insertvalue { i32, i16 } poison, i32 %186, 0
@@ -47988,7 +47988,7 @@ define internal fastcc void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h
   %91 = load i64, ptr %.sroa.0.0104, align 8, !range !3861, !alias.scope !14410, !noalias !14405
   %92 = icmp eq i64 %91, -9223372036854775807
   %93 = getelementptr inbounds nuw i8, ptr %.sroa.0.0104, i64 8
-  %94 = load i32, ptr %93, align 4, !alias.scope !14410, !noalias !14405
+  %94 = load i32, ptr %93, align 8, !alias.scope !14410, !noalias !14405
   %95 = getelementptr inbounds nuw i8, ptr %.sroa.0.0104, i64 12
   %96 = load i16, ptr %95, align 4, !alias.scope !14410, !noalias !14405
   %97 = insertvalue { i32, i16 } poison, i32 %94, 0
@@ -48245,7 +48245,7 @@ _ZN4core5slice4sort8unstable9quicksort9partition17hbdec1e65a856fd76E.exit: ; pre
   %183 = load i64, ptr %.sroa.0.0104, align 8, !range !3861, !alias.scope !14459, !noalias !14454
   %184 = icmp eq i64 %183, -9223372036854775807
   %185 = getelementptr inbounds nuw i8, ptr %.sroa.0.0104, i64 8
-  %186 = load i32, ptr %185, align 4, !alias.scope !14459, !noalias !14454
+  %186 = load i32, ptr %185, align 8, !alias.scope !14459, !noalias !14454
   %187 = getelementptr inbounds nuw i8, ptr %.sroa.0.0104, i64 12
   %188 = load i16, ptr %187, align 4, !alias.scope !14459, !noalias !14454
   %189 = insertvalue { i32, i16 } poison, i32 %186, 0
@@ -155507,7 +155507,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h1f9ecdb2ab7c22c0E.exit: ; preds = %"_Z
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 264
   %25 = load ptr, ptr %24, align 8, !alias.scope !43190, !nonnull !4
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 272
-  %27 = load i64, ptr %26, align 8, !alias.scope !43190
+  %27 = load i64, ptr %26, align 16, !alias.scope !43190
   %.sroa.4.0.i = select i1 %or.cond.i, i64 undef, i64 %27
   %.sroa.0.0.i = select i1 %or.cond.i, ptr null, ptr %25
   %28 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0

@@ -2925,7 +2925,7 @@ _init_l___private_Std_Time_Date_Unit_Year_0__Std_Time_Year_reprEra____x40_Std_Ti
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %74 = getelementptr inbounds nuw i8, ptr %70, i64 16
   store i64 0, ptr %74, align 8, !tbaa !17
-  store i32 1, ptr %70, align 4, !tbaa !4
+  store i32 1, ptr %70, align 8, !tbaa !4
   store i32 100728856, ptr %73, align 4
   %75 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store ptr %69, ptr %75, align 8, !tbaa !10
@@ -2967,7 +2967,7 @@ _init_l___private_Std_Time_Date_Unit_Year_0__Std_Time_Year_reprEra____x40_Std_Ti
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 4
   %88 = getelementptr inbounds nuw i8, ptr %84, i64 16
   store i64 0, ptr %88, align 8, !tbaa !17
-  store i32 1, ptr %84, align 4, !tbaa !4
+  store i32 1, ptr %84, align 8, !tbaa !4
   store i32 100728856, ptr %87, align 4
   %89 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store ptr %83, ptr %89, align 8, !tbaa !10
@@ -3028,7 +3028,7 @@ _init_l___private_Std_Time_Date_Unit_Year_0__Std_Time_Year_reprEra____x40_Std_Ti
   %108 = getelementptr inbounds nuw i8, ptr %105, i64 4
   %109 = getelementptr inbounds nuw i8, ptr %105, i64 16
   store i64 0, ptr %109, align 8, !tbaa !17
-  store i32 1, ptr %105, align 4, !tbaa !4
+  store i32 1, ptr %105, align 8, !tbaa !4
   store i32 100728856, ptr %108, align 4
   %110 = getelementptr inbounds nuw i8, ptr %105, i64 8
   store ptr %104, ptr %110, align 8, !tbaa !10
@@ -3068,7 +3068,7 @@ _init_l___private_Std_Time_Date_Unit_Year_0__Std_Time_Year_reprEra____x40_Std_Ti
   %122 = getelementptr inbounds nuw i8, ptr %119, i64 4
   %123 = getelementptr inbounds nuw i8, ptr %119, i64 16
   store i64 0, ptr %123, align 8, !tbaa !17
-  store i32 1, ptr %119, align 4, !tbaa !4
+  store i32 1, ptr %119, align 8, !tbaa !4
   store i32 100728856, ptr %122, align 4
   %124 = getelementptr inbounds nuw i8, ptr %119, i64 8
   store ptr %118, ptr %124, align 8, !tbaa !10

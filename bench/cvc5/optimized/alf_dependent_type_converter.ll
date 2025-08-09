@@ -2769,7 +2769,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIN4cvc58internal4kind6Kind_tESt4pa
   store ptr %14, ptr %13, align 8, !tbaa !36
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i64 0, ptr %15, align 8, !tbaa !39
-  store i8 0, ptr %14, align 1, !tbaa !41
+  store i8 0, ptr %14, align 8, !tbaa !41
   store ptr %8, ptr %7, align 8, !tbaa !126
   %16 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN4cvc58internal4kind6Kind_tESt4pairIKS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISC_ESt4lessIS3_ESaISC_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISC_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %9)
           to label %17 unwind label %32
@@ -3408,7 +3408,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIN4cvc58internal4kind6Kind_tESt4pa
   store ptr %14, ptr %13, align 8, !tbaa !36
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i64 0, ptr %15, align 8, !tbaa !39
-  store i8 0, ptr %14, align 1, !tbaa !41
+  store i8 0, ptr %14, align 8, !tbaa !41
   store ptr %8, ptr %7, align 8, !tbaa !126
   %16 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN4cvc58internal4kind6Kind_tESt4pairIKS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISC_ESt4lessIS3_ESaISC_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISC_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %9)
           to label %17 unwind label %32

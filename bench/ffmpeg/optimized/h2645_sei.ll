@@ -1779,7 +1779,7 @@ define range(i32 -2147483648, 1) i32 @ff_h2645_sei_to_frame(ptr noundef %0, ptr 
   store i32 0, ptr %125, align 8, !tbaa !140
   %126 = getelementptr inbounds nuw i8, ptr %109, i64 4
   %127 = load i32, ptr %126, align 4, !tbaa !54
-  store i32 %127, ptr %115, align 4, !tbaa !141
+  store i32 %127, ptr %115, align 8, !tbaa !141
   %128 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %129 = load i32, ptr %128, align 4, !tbaa !55
   %.not176 = icmp eq i32 %129, 0

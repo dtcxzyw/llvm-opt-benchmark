@@ -5289,8 +5289,8 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %if.else.i.i679, %fo
   %289 = load double, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !51, !noalias !186
   %add.ptr.i2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i.i.i, i64 8
   store double %289, ptr %add.ptr.i2.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !51, !noalias !186
-  %290 = load i8, ptr %__first.addr.07.i.i.i.i.i.i.i, align 1, !tbaa !215, !range !26, !noalias !186, !noundef !27
-  store i8 %290, ptr %__result.addr.08.i.i.i.i.i.i.i, align 1, !tbaa !215, !noalias !186
+  %290 = load i8, ptr %__first.addr.07.i.i.i.i.i.i.i, align 8, !tbaa !215, !range !26, !noalias !186, !noundef !27
+  store i8 %290, ptr %__result.addr.08.i.i.i.i.i.i.i, align 8, !tbaa !215, !noalias !186
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i.i.i, i64 24
   %incdec.ptr1.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i.i.i, i64 24
   %dec.i.i.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i.i.i, -1
@@ -5327,8 +5327,8 @@ for.body.i.i.i.i.i32.i.i:                         ; preds = %for.body.i.i.i.i.i3
   %292 = load double, ptr %add.ptr.i.i.i.i.i.i.i.i.i38.i.i, align 8, !tbaa !51, !noalias !186
   %add.ptr.i2.i.i.i.i.i.i.i.i39.i.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i34.i.i, i64 8
   store double %292, ptr %add.ptr.i2.i.i.i.i.i.i.i.i39.i.i, align 8, !tbaa !51, !noalias !186
-  %293 = load i8, ptr %__first.addr.07.i.i.i.i.i35.i.i, align 1, !tbaa !215, !range !26, !noalias !186, !noundef !27
-  store i8 %293, ptr %__result.addr.08.i.i.i.i.i34.i.i, align 1, !tbaa !215, !noalias !186
+  %293 = load i8, ptr %__first.addr.07.i.i.i.i.i35.i.i, align 8, !tbaa !215, !range !26, !noalias !186, !noundef !27
+  store i8 %293, ptr %__result.addr.08.i.i.i.i.i34.i.i, align 8, !tbaa !215, !noalias !186
   %incdec.ptr.i.i.i.i.i40.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i35.i.i, i64 24
   %incdec.ptr1.i.i.i.i.i41.i.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i34.i.i, i64 24
   %dec.i.i.i.i.i42.i.i = add nsw i64 %__n.09.i.i.i.i.i33.i.i, -1
@@ -5436,8 +5436,8 @@ for.body.i.i.i.i.i.i122.i:                        ; preds = %if.else.i113.i, %fo
   %307 = load double, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i128.i, align 8, !tbaa !51, !noalias !186
   %add.ptr.i2.i.i.i.i.i.i.i.i.i129.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i.i124.i, i64 8
   store double %307, ptr %add.ptr.i2.i.i.i.i.i.i.i.i.i129.i, align 8, !tbaa !51, !noalias !186
-  %308 = load i8, ptr %__first.addr.07.i.i.i.i.i.i125.i, align 1, !tbaa !215, !range !26, !noalias !186, !noundef !27
-  store i8 %308, ptr %__result.addr.08.i.i.i.i.i.i124.i, align 1, !tbaa !215, !noalias !186
+  %308 = load i8, ptr %__first.addr.07.i.i.i.i.i.i125.i, align 8, !tbaa !215, !range !26, !noalias !186, !noundef !27
+  store i8 %308, ptr %__result.addr.08.i.i.i.i.i.i124.i, align 8, !tbaa !215, !noalias !186
   %incdec.ptr.i.i.i.i.i.i130.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i.i125.i, i64 24
   %incdec.ptr1.i.i.i.i.i.i131.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i.i124.i, i64 24
   %dec.i.i.i.i.i.i132.i = add nsw i64 %__n.09.i.i.i.i.i.i123.i, -1
@@ -5474,8 +5474,8 @@ for.body.i.i.i.i.i32.i149.i:                      ; preds = %for.body.i.i.i.i.i3
   %310 = load double, ptr %add.ptr.i.i.i.i.i.i.i.i.i38.i155.i, align 8, !tbaa !51, !noalias !186
   %add.ptr.i2.i.i.i.i.i.i.i.i39.i156.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i34.i151.i, i64 8
   store double %310, ptr %add.ptr.i2.i.i.i.i.i.i.i.i39.i156.i, align 8, !tbaa !51, !noalias !186
-  %311 = load i8, ptr %__first.addr.07.i.i.i.i.i35.i152.i, align 1, !tbaa !215, !range !26, !noalias !186, !noundef !27
-  store i8 %311, ptr %__result.addr.08.i.i.i.i.i34.i151.i, align 1, !tbaa !215, !noalias !186
+  %311 = load i8, ptr %__first.addr.07.i.i.i.i.i35.i152.i, align 8, !tbaa !215, !range !26, !noalias !186, !noundef !27
+  store i8 %311, ptr %__result.addr.08.i.i.i.i.i34.i151.i, align 8, !tbaa !215, !noalias !186
   %incdec.ptr.i.i.i.i.i40.i157.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i35.i152.i, i64 24
   %incdec.ptr1.i.i.i.i.i41.i158.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i34.i151.i, i64 24
   %dec.i.i.i.i.i42.i159.i = add nsw i64 %__n.09.i.i.i.i.i33.i150.i, -1
@@ -5583,8 +5583,8 @@ for.body.i.i.i.i.i.i187.i:                        ; preds = %if.else.i178.i, %fo
   %325 = load double, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i193.i, align 8, !tbaa !51, !noalias !186
   %add.ptr.i2.i.i.i.i.i.i.i.i.i194.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i.i189.i, i64 8
   store double %325, ptr %add.ptr.i2.i.i.i.i.i.i.i.i.i194.i, align 8, !tbaa !51, !noalias !186
-  %326 = load i8, ptr %__first.addr.07.i.i.i.i.i.i190.i, align 1, !tbaa !215, !range !26, !noalias !186, !noundef !27
-  store i8 %326, ptr %__result.addr.08.i.i.i.i.i.i189.i, align 1, !tbaa !215, !noalias !186
+  %326 = load i8, ptr %__first.addr.07.i.i.i.i.i.i190.i, align 8, !tbaa !215, !range !26, !noalias !186, !noundef !27
+  store i8 %326, ptr %__result.addr.08.i.i.i.i.i.i189.i, align 8, !tbaa !215, !noalias !186
   %incdec.ptr.i.i.i.i.i.i195.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i.i190.i, i64 24
   %incdec.ptr1.i.i.i.i.i.i196.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i.i189.i, i64 24
   %dec.i.i.i.i.i.i197.i = add nsw i64 %__n.09.i.i.i.i.i.i188.i, -1
@@ -5621,8 +5621,8 @@ for.body.i.i.i.i.i32.i214.i:                      ; preds = %for.body.i.i.i.i.i3
   %328 = load double, ptr %add.ptr.i.i.i.i.i.i.i.i.i38.i220.i, align 8, !tbaa !51, !noalias !186
   %add.ptr.i2.i.i.i.i.i.i.i.i39.i221.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i34.i216.i, i64 8
   store double %328, ptr %add.ptr.i2.i.i.i.i.i.i.i.i39.i221.i, align 8, !tbaa !51, !noalias !186
-  %329 = load i8, ptr %__first.addr.07.i.i.i.i.i35.i217.i, align 1, !tbaa !215, !range !26, !noalias !186, !noundef !27
-  store i8 %329, ptr %__result.addr.08.i.i.i.i.i34.i216.i, align 1, !tbaa !215, !noalias !186
+  %329 = load i8, ptr %__first.addr.07.i.i.i.i.i35.i217.i, align 8, !tbaa !215, !range !26, !noalias !186, !noundef !27
+  store i8 %329, ptr %__result.addr.08.i.i.i.i.i34.i216.i, align 8, !tbaa !215, !noalias !186
   %incdec.ptr.i.i.i.i.i40.i222.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i35.i217.i, i64 24
   %incdec.ptr1.i.i.i.i.i41.i223.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i34.i216.i, i64 24
   %dec.i.i.i.i.i42.i224.i = add nsw i64 %__n.09.i.i.i.i.i33.i215.i, -1

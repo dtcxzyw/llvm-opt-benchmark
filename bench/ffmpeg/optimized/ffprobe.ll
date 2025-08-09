@@ -7892,7 +7892,7 @@ show_log.exit:                                    ; preds = %clear_log.exit.i, %
   %807 = sext i32 %806 to i64
   call void @avtext_print_integer(ptr noundef %0, ptr noundef nonnull @.str.584, i64 noundef %807, i32 noundef 0) #20
   call void @av_bprint_clear(ptr noundef nonnull %5) #20
-  %808 = load i32, ptr %773, align 4, !tbaa !513
+  %808 = load i32, ptr %773, align 8, !tbaa !513
   %809 = icmp sgt i32 %808, 0
   br i1 %809, label %.lr.ph.i127.i, label %._crit_edge.i124.i
 

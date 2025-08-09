@@ -2775,7 +2775,7 @@ _ZN3tbb6detail2d115task_group_base12prepare_taskIN32pxrInternal_v0_24__pxrReserv
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS3_17Work_DetachedTaskINS3_27Work_AsyncSwapDestroyHelperISt10shared_ptrINS3_21HdContainerDataSourceEEEEEEEEEE, i64 16), ptr %105, align 64
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 64
   %108 = load ptr, ptr %4, align 8
-  store ptr %108, ptr %107, align 8
+  store ptr %108, ptr %107, align 64
   store ptr null, ptr %4, align 8
   %109 = getelementptr inbounds nuw i8, ptr %105, i64 72
   %110 = load ptr, ptr %24, align 8
@@ -2783,7 +2783,7 @@ _ZN3tbb6detail2d115task_group_base12prepare_taskIN32pxrInternal_v0_24__pxrReserv
   store ptr %110, ptr %109, align 8
   %111 = getelementptr inbounds nuw i8, ptr %105, i64 80
   %112 = load ptr, ptr %25, align 8
-  store ptr %112, ptr %111, align 8
+  store ptr %112, ptr %111, align 16
   %113 = getelementptr inbounds nuw i8, ptr %105, i64 88
   store ptr %99, ptr %113, align 8
   %114 = getelementptr inbounds nuw i8, ptr %105, i64 96
@@ -7909,7 +7909,7 @@ _ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS0_16HdSceneInd
   %.01642 = phi ptr [ %45, %.lr.ph ], [ %43, %.lr.ph45 ]
   %44 = getelementptr inbounds nuw i8, ptr %.01642, i64 32
   %45 = load ptr, ptr %44, align 8
-  %46 = load i32, ptr %.01642, align 4
+  %46 = load i32, ptr %.01642, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.01642, i64 4
   %48 = load i32, ptr %47, align 4
   %49 = zext i32 %46 to i64

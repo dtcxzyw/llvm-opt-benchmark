@@ -3287,7 +3287,7 @@ define linkonce_odr hidden void @_ZN6Assimp16AssbinFileWriter18WriteBinaryTextur
   store i32 %15, ptr %16, align 1
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %19 = load i64, ptr %17, align 1
+  %19 = load i64, ptr %17, align 4
   store i64 %19, ptr %18, align 1
   store i64 16, ptr %11, align 8
   %20 = load i8, ptr %0, align 1, !range !3, !noundef !4
@@ -5252,7 +5252,7 @@ define linkonce_odr hidden noundef i64 @_ZN6Assimp11WriteBoundsI11aiVectorKeyEEm
   %21 = fcmp olt double %18, %20
   %22 = select i1 %21, double %18, double %20
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %24 = load float, ptr %23, align 4, !noalias !50
+  %24 = load float, ptr %23, align 8, !noalias !50
   %25 = fcmp olt float %14, %24
   %26 = select i1 %25, float %14, float %24
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 12
@@ -5260,7 +5260,7 @@ define linkonce_odr hidden noundef i64 @_ZN6Assimp11WriteBoundsI11aiVectorKeyEEm
   %29 = fcmp olt float %13, %28
   %30 = select i1 %29, float %13, float %28
   %31 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %32 = load float, ptr %31, align 4, !noalias !50
+  %32 = load float, ptr %31, align 8, !noalias !50
   %33 = fcmp olt float %17, %32
   %34 = select i1 %33, float %17, float %32
   %35 = fcmp olt double %20, %16
@@ -5380,7 +5380,7 @@ define linkonce_odr hidden noundef i64 @_ZN6Assimp11WriteBoundsI9aiQuatKeyEEmPNS
   %29 = fcmp olt double %26, %28
   %30 = select i1 %29, double %26, double %28
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %32 = load float, ptr %31, align 4, !noalias !54
+  %32 = load float, ptr %31, align 8, !noalias !54
   %33 = fcmp olt float %24, %32
   %34 = select i1 %33, float %24, float %32
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 12
@@ -5388,7 +5388,7 @@ define linkonce_odr hidden noundef i64 @_ZN6Assimp11WriteBoundsI9aiQuatKeyEEmPNS
   %37 = fcmp olt float %23, %36
   %38 = select i1 %37, float %23, float %36
   %39 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %40 = load float, ptr %39, align 4, !noalias !54
+  %40 = load float, ptr %39, align 8, !noalias !54
   %41 = fcmp olt float %22, %40
   %42 = select i1 %41, float %22, float %40
   %43 = getelementptr inbounds nuw i8, ptr %27, i64 20

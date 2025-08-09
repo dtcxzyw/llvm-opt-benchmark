@@ -7175,7 +7175,7 @@ define dso_local i32 @getKeysUsingLegacyRangeSpec(ptr noundef readonly captures(
   %14 = select i1 %13, i32 0, i32 %10
   %spec.select = add nsw i32 %14, %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %16 = load i32, ptr %15, align 4, !tbaa !76
+  %16 = load i32, ptr %15, align 8, !tbaa !76
   %17 = icmp slt i32 %spec.select, 0
   %18 = select i1 %17, i32 %2, i32 0
   %.138 = add nsw i32 %18, %spec.select

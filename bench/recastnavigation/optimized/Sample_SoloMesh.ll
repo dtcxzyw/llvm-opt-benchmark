@@ -1906,14 +1906,14 @@ switch.lookup:                                    ; preds = %323
   store float %391, ptr %392, align 4
   %393 = getelementptr inbounds nuw i8, ptr %4, i64 156
   %394 = getelementptr inbounds nuw i8, ptr %.lcssa68, i64 56
-  %395 = load float, ptr %394, align 4
+  %395 = load float, ptr %394, align 8
   store float %395, ptr %393, align 4
   %396 = getelementptr inbounds nuw i8, ptr %.lcssa68, i64 60
   %397 = load float, ptr %396, align 4
   %398 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store float %397, ptr %398, align 8
   %399 = getelementptr inbounds nuw i8, ptr %.lcssa68, i64 64
-  %400 = load float, ptr %399, align 4
+  %400 = load float, ptr %399, align 8
   %401 = getelementptr inbounds nuw i8, ptr %4, i64 164
   store float %400, ptr %401, align 4
   %402 = getelementptr inbounds nuw i8, ptr %4, i64 168
@@ -1921,7 +1921,7 @@ switch.lookup:                                    ; preds = %323
   %404 = load float, ptr %403, align 4
   store float %404, ptr %402, align 8
   %405 = getelementptr inbounds nuw i8, ptr %.lcssa68, i64 72
-  %406 = load float, ptr %405, align 4
+  %406 = load float, ptr %405, align 8
   %407 = getelementptr inbounds nuw i8, ptr %4, i64 172
   store float %406, ptr %407, align 4
   %408 = getelementptr inbounds nuw i8, ptr %.lcssa68, i64 76

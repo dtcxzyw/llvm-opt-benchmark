@@ -2516,7 +2516,7 @@ define internal fastcc range(i32 -28, 268435722) i32 @calipso_genopt(ptr noundef
   %73 = lshr i32 %72, 2
   %74 = trunc i32 %73 to i8
   %75 = getelementptr i8, ptr %65, i64 6
-  store i8 %74, ptr %75, align 1
+  store i8 %74, ptr %75, align 2
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %77 = load i32, ptr %76, align 8
   %78 = trunc i32 %77 to i8
@@ -2526,7 +2526,7 @@ define internal fastcc range(i32 -28, 268435722) i32 @calipso_genopt(ptr noundef
   %81 = tail call zeroext i16 @crc_ccitt(i16 noundef zeroext -1, ptr noundef %65, i64 noundef %80) #14
   %82 = xor i16 %81, -1
   %83 = getelementptr i8, ptr %65, i64 8
-  store i16 %82, ptr %83, align 1
+  store i16 %82, ptr %83, align 2
   %84 = add nuw nsw i32 %48, %10
   br label %.loopexit
 

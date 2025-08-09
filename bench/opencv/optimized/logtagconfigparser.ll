@@ -2665,7 +2665,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !tbaa !9, !alias.scope !95, !noalias !98
   store ptr %43, ptr %.0911.i.i.i.i, align 8, !tbaa !31, !alias.scope !98, !noalias !95
   store i64 0, ptr %52, align 8, !tbaa !9, !alias.scope !98, !noalias !95
-  store i8 0, ptr %43, align 1, !tbaa !12, !alias.scope !98, !noalias !95
+  store i8 0, ptr %43, align 8, !tbaa !12, !alias.scope !98, !noalias !95
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %54, %1
@@ -2713,7 +2713,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !tbaa !9, !alias.scope !102, !noalias !105
   store ptr %59, ptr %.0911.i.i.i.i29, align 8, !tbaa !31, !alias.scope !105, !noalias !102
   store i64 0, ptr %68, align 8, !tbaa !9, !alias.scope !105, !noalias !102
-  store i8 0, ptr %59, align 1, !tbaa !12, !alias.scope !105, !noalias !102
+  store i8 0, ptr %59, align 8, !tbaa !12, !alias.scope !105, !noalias !102
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 32
   %.not.i.i.i.i34 = icmp eq ptr %70, %6
@@ -2883,7 +2883,7 @@ _ZSt19__relocate_object_aIN2cv5utils7logging12LogTagConfigES3_SaIS3_EEvPT_PT0_RT
   store i64 %49, ptr %51, align 8, !tbaa !9, !alias.scope !108, !noalias !111
   store ptr %41, ptr %.0911.i.i.i.i, align 8, !tbaa !31, !alias.scope !111, !noalias !108
   store i64 0, ptr %50, align 8, !tbaa !9, !alias.scope !111, !noalias !108
-  store i8 0, ptr %41, align 1, !tbaa !12, !alias.scope !111, !noalias !108
+  store i8 0, ptr %41, align 8, !tbaa !12, !alias.scope !111, !noalias !108
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %52, ptr noundef nonnull align 8 dereferenceable(7) %53, i64 7, i1 false), !alias.scope !113
@@ -2934,7 +2934,7 @@ _ZSt19__relocate_object_aIN2cv5utils7logging12LogTagConfigES3_SaIS3_EEvPT_PT0_RT
   store i64 %67, ptr %69, align 8, !tbaa !9, !alias.scope !115, !noalias !118
   store ptr %59, ptr %.0911.i.i.i.i19, align 8, !tbaa !31, !alias.scope !118, !noalias !115
   store i64 0, ptr %68, align 8, !tbaa !9, !alias.scope !118, !noalias !115
-  store i8 0, ptr %59, align 1, !tbaa !12, !alias.scope !118, !noalias !115
+  store i8 0, ptr %59, align 8, !tbaa !12, !alias.scope !118, !noalias !115
   %70 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %70, ptr noundef nonnull align 8 dereferenceable(7) %71, i64 7, i1 false), !alias.scope !120

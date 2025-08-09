@@ -2990,7 +2990,7 @@ _ZN4llvm14StringMapEntryINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6c
   store ptr %23, ptr %22, align 8, !tbaa !43
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i64 0, ptr %24, align 8, !tbaa !22
-  store i8 0, ptr %23, align 1, !tbaa !27
+  store i8 0, ptr %23, align 8, !tbaa !27
   store ptr %18, ptr %8, align 8, !tbaa !15
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %26 = load i32, ptr %25, align 4, !tbaa !12

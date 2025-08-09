@@ -29328,7 +29328,7 @@ _ZN4entt14basic_registryINS_6entityESaIS1_EE7storageIiEERNS_11storage_forIT_S1_S
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.0121.0137, i64 8
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.0121.0137, i64 16
   %58 = load ptr, ptr %57, align 8, !tbaa !126
-  %59 = load i32, ptr %56, align 4, !tbaa !33
+  %59 = load i32, ptr %56, align 8, !tbaa !33
   store i32 %59, ptr %4, align 8
   store ptr %58, ptr %46, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -29999,7 +29999,7 @@ _ZN4entt14basic_registryINS_6entityESaIS1_EE7storageIiEERNS_11storage_forIT_S1_S
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.0121.0137, i64 8
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.0121.0137, i64 16
   %58 = load ptr, ptr %57, align 8, !tbaa !126
-  %59 = load i32, ptr %56, align 4, !tbaa !33
+  %59 = load i32, ptr %56, align 8, !tbaa !33
   store i32 %59, ptr %4, align 8
   store ptr %58, ptr %46, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -33182,7 +33182,7 @@ _ZN7testing7MessageD2Ev.exit574:                  ; preds = %_ZNKSt14default_del
   %921 = getelementptr inbounds nuw i8, ptr %920, i64 8
   %922 = getelementptr inbounds nuw i8, ptr %920, i64 16
   %923 = load ptr, ptr %922, align 8, !tbaa !126
-  %924 = load i32, ptr %921, align 4, !tbaa !33
+  %924 = load i32, ptr %921, align 8, !tbaa !33
   store i32 %924, ptr %73, align 8
   %925 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store ptr %923, ptr %925, align 8
@@ -33190,7 +33190,7 @@ _ZN7testing7MessageD2Ev.exit574:                  ; preds = %_ZNKSt14default_del
   %926 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %927 = getelementptr inbounds nuw i8, ptr %130, i64 16
   %928 = load ptr, ptr %927, align 8, !tbaa !126
-  %929 = load i32, ptr %926, align 4, !tbaa !33
+  %929 = load i32, ptr %926, align 8, !tbaa !33
   store i32 %929, ptr %74, align 8
   %930 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store ptr %928, ptr %930, align 8
@@ -33841,7 +33841,7 @@ _ZN7testing7MessageD2Ev.exit630:                  ; preds = %_ZNKSt14default_del
   %1122 = getelementptr inbounds nuw i8, ptr %1121, i64 8
   %1123 = getelementptr inbounds nuw i8, ptr %1121, i64 16
   %1124 = load ptr, ptr %1123, align 8, !tbaa !126
-  %1125 = load i32, ptr %1122, align 4, !tbaa !33
+  %1125 = load i32, ptr %1122, align 8, !tbaa !33
   store i32 %1125, ptr %97, align 8
   %1126 = getelementptr inbounds nuw i8, ptr %97, i64 8
   store ptr %1124, ptr %1126, align 8
@@ -36910,7 +36910,7 @@ _ZN7testing7MessageD2Ev.exit574:                  ; preds = %_ZNKSt14default_del
   %921 = getelementptr inbounds nuw i8, ptr %920, i64 8
   %922 = getelementptr inbounds nuw i8, ptr %920, i64 16
   %923 = load ptr, ptr %922, align 8, !tbaa !126
-  %924 = load i32, ptr %921, align 4, !tbaa !33
+  %924 = load i32, ptr %921, align 8, !tbaa !33
   store i32 %924, ptr %73, align 8
   %925 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store ptr %923, ptr %925, align 8
@@ -36918,7 +36918,7 @@ _ZN7testing7MessageD2Ev.exit574:                  ; preds = %_ZNKSt14default_del
   %926 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %927 = getelementptr inbounds nuw i8, ptr %130, i64 16
   %928 = load ptr, ptr %927, align 8, !tbaa !126
-  %929 = load i32, ptr %926, align 4, !tbaa !33
+  %929 = load i32, ptr %926, align 8, !tbaa !33
   store i32 %929, ptr %74, align 8
   %930 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store ptr %928, ptr %930, align 8
@@ -37569,7 +37569,7 @@ _ZN7testing7MessageD2Ev.exit630:                  ; preds = %_ZNKSt14default_del
   %1122 = getelementptr inbounds nuw i8, ptr %1121, i64 8
   %1123 = getelementptr inbounds nuw i8, ptr %1121, i64 16
   %1124 = load ptr, ptr %1123, align 8, !tbaa !126
-  %1125 = load i32, ptr %1122, align 4, !tbaa !33
+  %1125 = load i32, ptr %1122, align 8, !tbaa !33
   store i32 %1125, ptr %97, align 8
   %1126 = getelementptr inbounds nuw i8, ptr %97, i64 8
   store ptr %1124, ptr %1126, align 8
@@ -38057,7 +38057,7 @@ _ZN4entt14basic_registryINS_6entityESaIS1_EE7storageIiEERNS_11storage_forIT_S1_S
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %55 = load ptr, ptr %54, align 8, !tbaa !126
-  %56 = load i32, ptr %53, align 4, !tbaa !33
+  %56 = load i32, ptr %53, align 8, !tbaa !33
   store i32 %56, ptr %7, align 8
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %55, ptr %57, align 8
@@ -38446,7 +38446,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %191 = getelementptr inbounds nuw i8, ptr %189, i64 16
   %192 = load ptr, ptr %191, align 8, !tbaa !126
-  %193 = load i32, ptr %190, align 4, !tbaa !33
+  %193 = load i32, ptr %190, align 8, !tbaa !33
   store i32 %193, ptr %15, align 8
   %194 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %192, ptr %194, align 8
@@ -38455,7 +38455,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 8
   %197 = getelementptr inbounds nuw i8, ptr %195, i64 16
   %198 = load ptr, ptr %197, align 8, !tbaa !126
-  %199 = load i32, ptr %196, align 4, !tbaa !33
+  %199 = load i32, ptr %196, align 8, !tbaa !33
   store i32 %199, ptr %16, align 8
   %200 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %198, ptr %200, align 8
@@ -106377,7 +106377,7 @@ _ZN7testing7MessageD2Ev.exit365:                  ; preds = %_ZNKSt14default_del
   %556 = getelementptr inbounds nuw i8, ptr %.sroa.03.09.i, i64 8
   %557 = getelementptr inbounds nuw i8, ptr %.sroa.03.09.i, i64 16
   %558 = load ptr, ptr %557, align 8, !tbaa !126
-  %559 = load i32, ptr %556, align 4, !tbaa !33
+  %559 = load i32, ptr %556, align 8, !tbaa !33
   %560 = getelementptr inbounds nuw i8, ptr %558, i64 8
   %561 = getelementptr inbounds nuw i8, ptr %558, i64 16
   %562 = load ptr, ptr %561, align 8, !tbaa !108
@@ -197327,7 +197327,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   store ptr null, ptr %22, align 8, !tbaa !1850
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %26 = load i32, ptr %24, align 4, !tbaa !33
-  store i32 %26, ptr %25, align 4, !tbaa !33
+  store i32 %26, ptr %25, align 8, !tbaa !33
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %27, align 8, !tbaa !1838
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -197351,7 +197351,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   store ptr null, ptr %33, align 8, !tbaa !1850
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %37 = load i32, ptr %35, align 4, !tbaa !33
-  store i32 %37, ptr %36, align 4, !tbaa !33
+  store i32 %37, ptr %36, align 8, !tbaa !33
   store ptr %33, ptr %.02636, align 8, !tbaa !1850
   %38 = sext i32 %37 to i64
   %39 = urem i64 %38, %29
@@ -216091,7 +216091,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %8, ptr %7, align 8, !tbaa !20
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %9, align 8, !tbaa !23
-  store i8 0, ptr %8, align 1, !tbaa !26
+  store i8 0, ptr %8, align 8, !tbaa !26
   store ptr %7, ptr %4, align 8, !tbaa !46
   br label %10
 
@@ -233608,7 +233608,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIiiSaIiENSt8__detail
   %44 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28
   store ptr null, ptr %44, align 8, !tbaa !1850
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store i32 %43, ptr %45, align 4, !tbaa !33
+  store i32 %43, ptr %45, align 8, !tbaa !33
   %46 = invoke ptr @_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIiLb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %41, i64 noundef %42, ptr noundef nonnull %44, i64 noundef 1)
           to label %_ZNKSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIiEEPNS1_10_Hash_nodeIiLb0EEEmRKT_m.exit unwind label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit20
 
@@ -233770,7 +233770,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !1850
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !33
+  %16 = load i32, ptr %15, align 8, !tbaa !33
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18

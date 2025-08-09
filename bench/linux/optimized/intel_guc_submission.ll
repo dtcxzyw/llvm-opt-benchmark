@@ -1654,7 +1654,7 @@ define dso_local void @intel_guc_submission_reset_finish(ptr noundef %0) local_u
   store ptr @guc_submission_tasklet, ptr %19, align 8
   tail call void asm sideeffect "sfence", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !41
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  %21 = load volatile i32, ptr %20, align 4
+  %21 = load volatile i32, ptr %20, align 8
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %33, label %23
 
@@ -3249,7 +3249,7 @@ define dso_local i32 @intel_guc_submission_enable(ptr noundef %0) local_unnamed_
   %127 = load i32, ptr %126, align 4
   %128 = shl i32 %127, 16
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  %130 = load i32, ptr %129, align 4
+  %130 = load i32, ptr %129, align 8
   %131 = shl i32 %130, 8
   %132 = or i32 %131, %128
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 1276
@@ -5049,7 +5049,7 @@ define dso_local noundef range(i32 -71, 1) i32 @intel_guc_sched_done_process_msg
   %106 = getelementptr inbounds nuw i8, ptr %33, i64 456
   store volatile ptr %95, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %33, i64 496
-  %108 = load volatile i32, ptr %107, align 4
+  %108 = load volatile i32, ptr %107, align 8
   %109 = icmp slt i32 %108, 0
   br i1 %109, label %112, label %110
 
@@ -8123,7 +8123,7 @@ define internal i64 @guc_engine_busyness(ptr noundef %0, ptr noundef writeonly c
   %33 = load i64, ptr %32, align 8
   tail call fastcc void @guc_update_engine_gt_clks(ptr noundef %0)
   tail call fastcc void @guc_update_pm_timestamp(ptr noundef nonnull %8, ptr noundef %1)
-  %34 = load volatile i32, ptr %19, align 4
+  %34 = load volatile i32, ptr %19, align 8
   %35 = icmp eq i32 %34, 1
   br i1 %35, label %._crit_edge, label %.lr.ph6, !prof !24
 
@@ -8554,7 +8554,7 @@ define internal void @guc_context_cancel_request(ptr noundef %0, ptr noundef %1)
   %10 = icmp eq ptr %9, null
   %11 = select i1 %10, ptr %7, ptr %9
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %13 = load volatile i32, ptr %12, align 4
+  %13 = load volatile i32, ptr %12, align 8
   %14 = icmp slt i32 %13, 1
   br i1 %14, label %15, label %.thread
 

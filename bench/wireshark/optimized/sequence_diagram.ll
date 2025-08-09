@@ -370,7 +370,7 @@ _ZN7QStringD2Ev.exit66:                           ; preds = %75, %_ZN17QArrayDat
   store ptr @_ZN15QtSharedPointer33ExternalRefCountWithCustomDeleterI17QCPAxisTickerTextNS_13NormalDeleterEE7deleterEPNS_20ExternalRefCountDataE, ptr %90, align 8
   %91 = getelementptr inbounds nuw i8, ptr %86, i64 4
   store atomic i32 1, ptr %91 monotonic, align 4
-  store atomic i32 1, ptr %86 monotonic, align 4
+  store atomic i32 1, ptr %86 monotonic, align 8
   store ptr %86, ptr %62, align 8
   store ptr %83, ptr %14, align 8
   store ptr %86, ptr %63, align 8
@@ -539,7 +539,7 @@ _ZN17QArrayDataPointerIP7QCPAxisE5derefEv.exit.i.i.i74: ; preds = %134
   store ptr @_ZN15QtSharedPointer33ExternalRefCountWithCustomDeleterI19QCPAxisTickerElidedNS_13NormalDeleterEE7deleterEPNS_20ExternalRefCountDataE, ptr %147, align 8
   %148 = getelementptr inbounds nuw i8, ptr %140, i64 4
   store atomic i32 1, ptr %148 monotonic, align 4
-  store atomic i32 1, ptr %140 monotonic, align 4
+  store atomic i32 1, ptr %140 monotonic, align 8
   %149 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %140, ptr %149, align 8
   %150 = load ptr, ptr %27, align 8

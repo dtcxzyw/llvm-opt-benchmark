@@ -371,7 +371,7 @@ _ZN17CodeBlobCollector4nextEv.exit:               ; preds = %12
   %29 = load ptr, ptr %28, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %29) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %30 = load i32, ptr %5, align 4
+  %30 = load i32, ptr %5, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next.i, %31
   br i1 %32, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !10

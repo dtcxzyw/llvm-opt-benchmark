@@ -11252,7 +11252,7 @@ define linkonce_odr dso_local noundef i64 @_ZN2tf10SerializerISt14basic_ofstream
   %53 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef %51, i64 noundef %52)
   %54 = load i64, ptr %46, align 8, !tbaa !119
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %55 = load i32, ptr %43, align 4, !tbaa !547
+  %55 = load i32, ptr %43, align 8, !tbaa !547
   store i32 %55, ptr %5, align 4, !tbaa !31
   %56 = load ptr, ptr %0, align 8, !tbaa !460
   %57 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef nonnull align 4 dereferenceable(4) %5, i64 noundef 4)
@@ -14925,7 +14925,7 @@ _ZSt19__relocate_object_aIN2tf7SegmentES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i: ; pre
   store i64 %58, ptr %60, align 8, !tbaa !119, !alias.scope !637, !noalias !640
   store ptr %50, ptr %.0911.i.i.i, align 8, !tbaa !117, !alias.scope !640, !noalias !637
   store i64 0, ptr %59, align 8, !tbaa !119, !alias.scope !640, !noalias !637
-  store i8 0, ptr %50, align 1, !tbaa !30, !alias.scope !640, !noalias !637
+  store i8 0, ptr %50, align 8, !tbaa !30, !alias.scope !640, !noalias !637
   %61 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %62 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) %62, i64 24, i1 false), !alias.scope !642
@@ -14976,7 +14976,7 @@ _ZSt19__relocate_object_aIN2tf7SegmentES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i36: ; p
   store i64 %76, ptr %78, align 8, !tbaa !119, !alias.scope !644, !noalias !647
   store ptr %68, ptr %.0911.i.i.i32, align 8, !tbaa !117, !alias.scope !647, !noalias !644
   store i64 0, ptr %77, align 8, !tbaa !119, !alias.scope !647, !noalias !644
-  store i8 0, ptr %68, align 1, !tbaa !30, !alias.scope !647, !noalias !644
+  store i8 0, ptr %68, align 8, !tbaa !30, !alias.scope !647, !noalias !644
   %79 = getelementptr inbounds nuw i8, ptr %.012.i.i.i31, i64 32
   %80 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i32, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, ptr noundef nonnull align 8 dereferenceable(24) %80, i64 24, i1 false), !alias.scope !649

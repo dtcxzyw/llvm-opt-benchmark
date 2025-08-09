@@ -4732,7 +4732,7 @@ define dso_local i64 @__snd_pcm_lib_xfer(ptr noundef %0, ptr noundef %1, i1 noun
   %247 = urem i64 %245, %246
   %248 = sub i64 %246, %247
   %249 = call i64 @llvm.umin.i64(i64 %243, i64 %248)
-  %250 = load volatile i32, ptr %120, align 4
+  %250 = load volatile i32, ptr %120, align 8
   %251 = icmp sgt i32 %250, -1
   br i1 %251, label %.lr.ph94, label %.thread40.thread.loopexit100, !prof !38
 

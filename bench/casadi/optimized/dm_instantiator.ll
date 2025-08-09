@@ -94222,7 +94222,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit157:                 ; preds = %210, %_ZNSt6vectorI
   %226 = load i32, ptr %225, align 8, !tbaa !1355
   %227 = and i32 %226, -177
   %228 = or disjoint i32 %227, 32
-  store i32 %228, ptr %225, align 4, !tbaa !1356
+  store i32 %228, ptr %225, align 8, !tbaa !1356
   %229 = invoke noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %230 unwind label %282
 
@@ -98198,7 +98198,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit251: ; preds = %_Z
   %404 = load i32, ptr %403, align 8, !tbaa !1355
   %405 = and i32 %404, -261
   %406 = or disjoint i32 %405, 256
-  store i32 %406, ptr %403, align 4, !tbaa !1356
+  store i32 %406, ptr %403, align 8, !tbaa !1356
   %407 = load i64, ptr %400, align 8
   %408 = getelementptr inbounds i8, ptr %2, i64 %407
   %409 = getelementptr inbounds nuw i8, ptr %408, i64 8
@@ -104731,7 +104731,7 @@ define linkonce_odr hidden noundef double @_ZN6casadi7printmeEdd(double noundef 
   %23 = load i32, ptr %22, align 8, !tbaa !1355
   %24 = and i32 %23, -261
   %25 = or disjoint i32 %24, 256
-  store i32 %25, ptr %22, align 4, !tbaa !1356
+  store i32 %25, ptr %22, align 8, !tbaa !1356
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi4uoutEv()
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %26, double noundef %0)
   %28 = load ptr, ptr %27, align 8, !tbaa !46
@@ -106747,7 +106747,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i: ; pre
   store i64 %20, ptr %21, align 8, !tbaa !28
   store ptr %11, ptr %8, align 8, !tbaa !23
   store i64 0, ptr %19, align 8, !tbaa !28
-  store i8 0, ptr %11, align 1, !tbaa !29
+  store i8 0, ptr %11, align 8, !tbaa !29
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 64
   invoke void @_ZN6casadi11GenericTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %22)
           to label %_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericTypeEEEEE9constructISB_JRKSt21piecewise_construct_tSt5tupleIJOS7_EESJ_IJEEEEEvRSD_PT_DpOT0_.exit unwind label %23
@@ -111139,7 +111139,7 @@ define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_trait
   store ptr %19, ptr %.08.i.i.i, align 8, !tbaa !42
   %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 8
   store i64 0, ptr %20, align 8, !tbaa !28
-  store i8 0, ptr %19, align 1, !tbaa !29
+  store i8 0, ptr %19, align 8, !tbaa !29
   %21 = add i64 %.057.i.i.i, -1
   %22 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 32
   %.not.i.i.i = icmp eq i64 %21, 0
@@ -111173,7 +111173,7 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
   store ptr %31, ptr %.08.i.i.i31, align 8, !tbaa !42
   %32 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 8
   store i64 0, ptr %32, align 8, !tbaa !28
-  store i8 0, ptr %31, align 1, !tbaa !29
+  store i8 0, ptr %31, align 8, !tbaa !29
   %33 = add i64 %.057.i.i.i32, -1
   %34 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 32
   %.not.i.i.i33 = icmp eq i64 %33, 0
@@ -111219,7 +111219,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %45, ptr %47, align 8, !tbaa !28, !alias.scope !1792, !noalias !1795
   store ptr %37, ptr %.0911.i.i.i, align 8, !tbaa !23, !alias.scope !1795, !noalias !1792
   store i64 0, ptr %46, align 8, !tbaa !28, !alias.scope !1795, !noalias !1792
-  store i8 0, ptr %37, align 1, !tbaa !29, !alias.scope !1795, !noalias !1792
+  store i8 0, ptr %37, align 8, !tbaa !29, !alias.scope !1795, !noalias !1792
   %48 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i38 = icmp eq ptr %48, %5

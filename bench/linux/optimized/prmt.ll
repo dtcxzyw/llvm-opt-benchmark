@@ -325,19 +325,19 @@ define internal noundef range(i32 0, 27) i32 @acpi_platformrt_space_handler(i32 
 65:                                               ; preds = %60
   store i32 1129140816, ptr %7, align 4
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i16 0, ptr %66, align 1
+  store i16 0, ptr %66, align 4
   %67 = getelementptr inbounds nuw i8, ptr %7, i64 6
-  store i16 0, ptr %67, align 1
+  store i16 0, ptr %67, align 2
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %68, ptr noundef nonnull align 8 dereferenceable(16) %41, i64 16, i1 false)
   %69 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %70 = load i64, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i64 %70, ptr %71, align 1
+  store i64 %70, ptr %71, align 4
   %72 = getelementptr i8, ptr %45, i64 -16
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr %73, ptr %74, align 1
+  store ptr %73, ptr %74, align 4
   %75 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %41, i64 32

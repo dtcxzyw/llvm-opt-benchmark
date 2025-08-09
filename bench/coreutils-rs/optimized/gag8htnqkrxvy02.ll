@@ -3932,7 +3932,7 @@ define internal void @_ZN3std3sys3pal6common12thread_local10fast_local13destroy_
   %7 = load ptr, ptr %6, align 8, !noalias !467
   store i64 0, ptr %0, align 8, !noalias !467
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 2, ptr %8, align 1, !noalias !467
+  store i8 2, ptr %8, align 8, !noalias !467
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !467
   store i64 %5, ptr %3, align 8, !noalias !467
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -4021,7 +4021,7 @@ define internal void @_ZN3std3sys3pal6common12thread_local10fast_local13destroy_
   %6 = load ptr, ptr %5, align 8, !noalias !493
   store i64 0, ptr %0, align 8, !noalias !493
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 2, ptr %7, align 1, !noalias !493
+  store i8 2, ptr %7, align 8, !noalias !493
   %8 = icmp eq i64 %4, 0
   br i1 %8, label %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h416ef67fa6ae96baE.exit", label %9
 

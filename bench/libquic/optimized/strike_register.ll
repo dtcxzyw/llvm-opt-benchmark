@@ -2086,7 +2086,7 @@ _ZNSt3setIjSt4lessIjESaIjEE6insertERKj.exit:      ; preds = %131, %_ZNSt8_Rb_tre
   %161 = zext i1 %160 to i8
   store i8 %161, ptr %24, align 1, !tbaa !55
   %162 = getelementptr inbounds nuw i8, ptr %.sroa.0188.0244, i64 4
-  %163 = load i8, ptr %162, align 1, !tbaa !55, !range !56, !noundef !57
+  %163 = load i8, ptr %162, align 4, !tbaa !55, !range !56, !noundef !57
   %164 = icmp eq i8 %163, %161
   br i1 %164, label %_ZN7logging11CheckEQImplIbbEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread, label %_ZN7logging11CheckEQImplIbbEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
 
@@ -2610,7 +2610,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit18: ; preds = %_ZN7l
   store ptr %27, ptr %25, align 8, !tbaa !88, !alias.scope !90
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 0, ptr %28, align 8, !tbaa !91, !alias.scope !90
-  store i8 0, ptr %27, align 1, !tbaa !31, !alias.scope !90
+  store i8 0, ptr %27, align 8, !tbaa !31, !alias.scope !90
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %30 = load ptr, ptr %29, align 8, !tbaa !93, !noalias !90
   %.not.i.not.i.i = icmp eq ptr %30, null
@@ -2808,7 +2808,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit18: ; preds = %_ZN7l
   store ptr %27, ptr %25, align 8, !tbaa !88, !alias.scope !103
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 0, ptr %28, align 8, !tbaa !91, !alias.scope !103
-  store i8 0, ptr %27, align 1, !tbaa !31, !alias.scope !103
+  store i8 0, ptr %27, align 8, !tbaa !31, !alias.scope !103
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %30 = load ptr, ptr %29, align 8, !tbaa !93, !noalias !103
   %.not.i.not.i.i = icmp eq ptr %30, null

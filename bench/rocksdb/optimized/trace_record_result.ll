@@ -108,7 +108,7 @@ define void @_ZN7rocksdb30StatusOnlyTraceExecutionResultC2ENS_6StatusEmmNS_9Trac
   store i8 %14, ptr %15, align 1, !tbaa !32
   store i8 0, ptr %13, align 1, !tbaa !32
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %17 = load i8, ptr %16, align 1, !tbaa !33
+  %17 = load i8, ptr %16, align 2, !tbaa !33
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 34
   store i8 %17, ptr %18, align 2, !tbaa !34
   store i8 0, ptr %16, align 2, !tbaa !34
@@ -118,7 +118,7 @@ define void @_ZN7rocksdb30StatusOnlyTraceExecutionResultC2ENS_6StatusEmmNS_9Trac
   store i8 %20, ptr %21, align 1, !tbaa !38
   store i8 0, ptr %19, align 1, !tbaa !38
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %23 = load i8, ptr %22, align 1, !tbaa !35, !range !36, !noundef !37
+  %23 = load i8, ptr %22, align 4, !tbaa !35, !range !36, !noundef !37
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 %23, ptr %24, align 4, !tbaa !39
   store i8 0, ptr %22, align 4, !tbaa !39
@@ -185,7 +185,7 @@ define void @_ZN7rocksdb31SingleValueTraceExecutionResultC2ENS_6StatusERKNSt7__c
   store i8 %16, ptr %17, align 1, !tbaa !32
   store i8 0, ptr %15, align 1, !tbaa !32
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %19 = load i8, ptr %18, align 1, !tbaa !33
+  %19 = load i8, ptr %18, align 2, !tbaa !33
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 34
   store i8 %19, ptr %20, align 2, !tbaa !34
   store i8 0, ptr %18, align 2, !tbaa !34
@@ -195,7 +195,7 @@ define void @_ZN7rocksdb31SingleValueTraceExecutionResultC2ENS_6StatusERKNSt7__c
   store i8 %22, ptr %23, align 1, !tbaa !38
   store i8 0, ptr %21, align 1, !tbaa !38
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %25 = load i8, ptr %24, align 1, !tbaa !35, !range !36, !noundef !37
+  %25 = load i8, ptr %24, align 4, !tbaa !35, !range !36, !noundef !37
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 %25, ptr %26, align 4, !tbaa !39
   store i8 0, ptr %24, align 4, !tbaa !39
@@ -308,7 +308,7 @@ define void @_ZN7rocksdb31SingleValueTraceExecutionResultC2ENS_6StatusEONSt7__cx
   store i8 %15, ptr %16, align 1, !tbaa !32
   store i8 0, ptr %14, align 1, !tbaa !32
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %18 = load i8, ptr %17, align 1, !tbaa !33
+  %18 = load i8, ptr %17, align 2, !tbaa !33
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 34
   store i8 %18, ptr %19, align 2, !tbaa !34
   store i8 0, ptr %17, align 2, !tbaa !34
@@ -318,7 +318,7 @@ define void @_ZN7rocksdb31SingleValueTraceExecutionResultC2ENS_6StatusEONSt7__cx
   store i8 %21, ptr %22, align 1, !tbaa !38
   store i8 0, ptr %20, align 1, !tbaa !38
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %24 = load i8, ptr %23, align 1, !tbaa !35, !range !36, !noundef !37
+  %24 = load i8, ptr %23, align 4, !tbaa !35, !range !36, !noundef !37
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 %24, ptr %25, align 4, !tbaa !39
   store i8 0, ptr %23, align 4, !tbaa !39
@@ -696,7 +696,7 @@ define void @_ZN7rocksdb28IteratorTraceExecutionResultC2EbNS_6StatusEONS_13Pinna
   store i8 %19, ptr %20, align 1, !tbaa !32
   store i8 0, ptr %18, align 1, !tbaa !32
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %22 = load i8, ptr %21, align 1, !tbaa !33
+  %22 = load i8, ptr %21, align 2, !tbaa !33
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 42
   store i8 %22, ptr %23, align 2, !tbaa !34
   store i8 0, ptr %21, align 2, !tbaa !34
@@ -706,7 +706,7 @@ define void @_ZN7rocksdb28IteratorTraceExecutionResultC2EbNS_6StatusEONS_13Pinna
   store i8 %25, ptr %26, align 1, !tbaa !38
   store i8 0, ptr %24, align 1, !tbaa !38
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %28 = load i8, ptr %27, align 1, !tbaa !35, !range !36, !noundef !37
+  %28 = load i8, ptr %27, align 4, !tbaa !35, !range !36, !noundef !37
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i8 %28, ptr %29, align 4, !tbaa !39
   store i8 0, ptr %27, align 4, !tbaa !39
@@ -824,7 +824,7 @@ define void @_ZN7rocksdb28IteratorTraceExecutionResultC2EbNS_6StatusERKNSt7__cxx
   store i8 %19, ptr %20, align 1, !tbaa !32
   store i8 0, ptr %18, align 1, !tbaa !32
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %22 = load i8, ptr %21, align 1, !tbaa !33
+  %22 = load i8, ptr %21, align 2, !tbaa !33
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 42
   store i8 %22, ptr %23, align 2, !tbaa !34
   store i8 0, ptr %21, align 2, !tbaa !34
@@ -834,7 +834,7 @@ define void @_ZN7rocksdb28IteratorTraceExecutionResultC2EbNS_6StatusERKNSt7__cxx
   store i8 %25, ptr %26, align 1, !tbaa !38
   store i8 0, ptr %24, align 1, !tbaa !38
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %28 = load i8, ptr %27, align 1, !tbaa !35, !range !36, !noundef !37
+  %28 = load i8, ptr %27, align 4, !tbaa !35, !range !36, !noundef !37
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i8 %28, ptr %29, align 4, !tbaa !39
   store i8 0, ptr %27, align 4, !tbaa !39

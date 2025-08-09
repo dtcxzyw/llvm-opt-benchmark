@@ -3528,7 +3528,7 @@ invoke.cont4:                                     ; preds = %if.else
   %m_receiver.i = getelementptr inbounds nuw i8, ptr %call2, i64 3584
   store ptr %3, ptr %m_receiver.i, align 8, !tbaa !156
   %m_mousepos.i = getelementptr inbounds nuw i8, ptr %call2, i64 3592
-  store i32 0, ptr %m_mousepos.i, align 4, !tbaa !173
+  store i32 0, ptr %m_mousepos.i, align 8, !tbaa !173
   %Y.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 3596
   store i32 0, ptr %Y.i.i, align 4, !tbaa !174
   %joystick.i = getelementptr inbounds nuw i8, ptr %call2, i64 8
@@ -3850,7 +3850,7 @@ if.then.i84:                                      ; preds = %for.body
   store ptr %46, ptr %Name.i.i.i.i, align 8, !tbaa !37
   %_M_string_length.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %43, i64 16
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i, align 8, !tbaa !11
-  store i8 0, ptr %46, align 1, !tbaa !34
+  store i8 0, ptr %46, align 8, !tbaa !34
   %cmp.i.i.i.i.i.i = icmp eq ptr %43, %add.ptr.i.i
   br i1 %cmp.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN3irr13SJoystickInfoEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i, label %if.end.i.i.i.i.i.i
 
@@ -10097,7 +10097,7 @@ for.body:                                         ; preds = %entry, %for.inc
   store ptr %1, ptr %Name.i.i, align 8, !tbaa !37
   %_M_string_length.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.018, i64 16
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !11
-  store i8 0, ptr %1, align 1, !tbaa !34
+  store i8 0, ptr %1, align 8, !tbaa !34
   %cmp.i.i.i.i = icmp eq ptr %__cur.018, %__first.addr.017
   br i1 %cmp.i.i.i.i, label %for.inc, label %if.end.i.i.i.i
 
@@ -10229,7 +10229,7 @@ _ZNKSt6vectorIN3irr13SJoystickInfoESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %
   store ptr %4, ptr %Name.i.i.i, align 8, !tbaa !37
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !11
-  store i8 0, ptr %4, align 1, !tbaa !34
+  store i8 0, ptr %4, align 8, !tbaa !34
   %cmp.i.i.i.i.i = icmp eq ptr %add.ptr, %__args
   br i1 %cmp.i.i.i.i.i, label %invoke.cont, label %if.end.i.i.i.i.i
 

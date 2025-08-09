@@ -2344,7 +2344,7 @@ _ZN5vcpkg11PackageSpecC2EOS0_.exit.i.i.i.i.i.i.i: ; preds = %_ZNKSt7__cxx1112bas
   store i64 %86, ptr %88, align 8, !tbaa !4, !alias.scope !123, !noalias !126
   store ptr %78, ptr %.0911.i.i.i, align 8, !tbaa !12, !alias.scope !126, !noalias !123
   store i64 0, ptr %87, align 8, !tbaa !4, !alias.scope !126, !noalias !123
-  store i8 0, ptr %78, align 1, !tbaa !41, !alias.scope !126, !noalias !123
+  store i8 0, ptr %78, align 8, !tbaa !41, !alias.scope !126, !noalias !123
   %89 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %90 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %91 = load i64, ptr %90, align 8, !tbaa !42, !alias.scope !126, !noalias !123
@@ -2382,7 +2382,7 @@ _ZN5vcpkg7VersionC2EOS0_.exit.i.i.i.i.i.i.i.i:    ; preds = %_ZNKSt7__cxx1112bas
   store i64 %104, ptr %106, align 8, !tbaa !4, !alias.scope !123, !noalias !126
   store ptr %96, ptr %93, align 8, !tbaa !12, !alias.scope !126, !noalias !123
   store i64 0, ptr %105, align 8, !tbaa !4, !alias.scope !126, !noalias !123
-  store i8 0, ptr %96, align 1, !tbaa !41, !alias.scope !126, !noalias !123
+  store i8 0, ptr %96, align 8, !tbaa !41, !alias.scope !126, !noalias !123
   %107 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 72
   %108 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 72
   %109 = load i32, ptr %108, align 8, !tbaa !121, !alias.scope !126, !noalias !123
@@ -2420,7 +2420,7 @@ _ZSt19__relocate_object_aIN5vcpkg15OutdatedPackageES1_SaIS1_EEvPT_PT0_RT1_.exit.
   store i64 %122, ptr %124, align 8, !tbaa !4, !alias.scope !123, !noalias !126
   store ptr %114, ptr %111, align 8, !tbaa !12, !alias.scope !126, !noalias !123
   store i64 0, ptr %123, align 8, !tbaa !4, !alias.scope !126, !noalias !123
-  store i8 0, ptr %114, align 1, !tbaa !41, !alias.scope !126, !noalias !123
+  store i8 0, ptr %114, align 8, !tbaa !41, !alias.scope !126, !noalias !123
   %125 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 112
   %126 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 112
   %127 = load i32, ptr %126, align 8, !tbaa !121, !alias.scope !126, !noalias !123
@@ -2472,7 +2472,7 @@ _ZN5vcpkg11PackageSpecC2EOS0_.exit.i.i.i.i.i.i.i23: ; preds = %_ZNKSt7__cxx1112b
   store i64 %141, ptr %143, align 8, !tbaa !4, !alias.scope !130, !noalias !133
   store ptr %133, ptr %.0911.i.i.i19, align 8, !tbaa !12, !alias.scope !133, !noalias !130
   store i64 0, ptr %142, align 8, !tbaa !4, !alias.scope !133, !noalias !130
-  store i8 0, ptr %133, align 1, !tbaa !41, !alias.scope !133, !noalias !130
+  store i8 0, ptr %133, align 8, !tbaa !41, !alias.scope !133, !noalias !130
   %144 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %145 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %146 = load i64, ptr %145, align 8, !tbaa !42, !alias.scope !133, !noalias !130
@@ -2510,7 +2510,7 @@ _ZN5vcpkg7VersionC2EOS0_.exit.i.i.i.i.i.i.i.i27:  ; preds = %_ZNKSt7__cxx1112bas
   store i64 %159, ptr %161, align 8, !tbaa !4, !alias.scope !130, !noalias !133
   store ptr %151, ptr %148, align 8, !tbaa !12, !alias.scope !133, !noalias !130
   store i64 0, ptr %160, align 8, !tbaa !4, !alias.scope !133, !noalias !130
-  store i8 0, ptr %151, align 1, !tbaa !41, !alias.scope !133, !noalias !130
+  store i8 0, ptr %151, align 8, !tbaa !41, !alias.scope !133, !noalias !130
   %162 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 72
   %163 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 72
   %164 = load i32, ptr %163, align 8, !tbaa !121, !alias.scope !133, !noalias !130
@@ -2548,7 +2548,7 @@ _ZSt19__relocate_object_aIN5vcpkg15OutdatedPackageES1_SaIS1_EEvPT_PT0_RT1_.exit.
   store i64 %177, ptr %179, align 8, !tbaa !4, !alias.scope !130, !noalias !133
   store ptr %169, ptr %166, align 8, !tbaa !12, !alias.scope !133, !noalias !130
   store i64 0, ptr %178, align 8, !tbaa !4, !alias.scope !133, !noalias !130
-  store i8 0, ptr %169, align 1, !tbaa !41, !alias.scope !133, !noalias !130
+  store i8 0, ptr %169, align 8, !tbaa !41, !alias.scope !133, !noalias !130
   %180 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 112
   %181 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 112
   %182 = load i32, ptr %181, align 8, !tbaa !121, !alias.scope !133, !noalias !130
@@ -2947,7 +2947,7 @@ _ZN5vcpkg11PackageSpecC2EOS0_.exit.i:             ; preds = %_ZNKSt7__cxx1112bas
   store i64 %48, ptr %15, align 8, !tbaa !4
   store ptr %39, ptr %37, align 8, !tbaa !12
   store i64 0, ptr %49, align 8, !tbaa !4
-  store i8 0, ptr %39, align 1, !tbaa !41
+  store i8 0, ptr %39, align 8, !tbaa !41
   %50 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %51 = load i64, ptr %50, align 8, !tbaa !42
   store i64 %51, ptr %16, align 8, !tbaa !42
@@ -2982,7 +2982,7 @@ _ZN5vcpkg7VersionC2EOS0_.exit.i.i:                ; preds = %_ZNKSt7__cxx1112bas
   store i64 %63, ptr %19, align 8, !tbaa !4
   store ptr %54, ptr %52, align 8, !tbaa !12
   store i64 0, ptr %64, align 8, !tbaa !4
-  store i8 0, ptr %54, align 1, !tbaa !41
+  store i8 0, ptr %54, align 8, !tbaa !41
   %65 = getelementptr inbounds nuw i8, ptr %37, i64 72
   %66 = load i32, ptr %65, align 8, !tbaa !121
   store i32 %66, ptr %20, align 8, !tbaa !121
@@ -3017,7 +3017,7 @@ _ZN5vcpkg15OutdatedPackageC2EOS0_.exit:           ; preds = %71, %_ZNKSt7__cxx11
   store i64 %78, ptr %23, align 8, !tbaa !4
   store ptr %69, ptr %67, align 8, !tbaa !12
   store i64 0, ptr %79, align 8, !tbaa !4
-  store i8 0, ptr %69, align 1, !tbaa !41
+  store i8 0, ptr %69, align 8, !tbaa !41
   %80 = getelementptr inbounds nuw i8, ptr %37, i64 112
   %81 = load i32, ptr %80, align 8, !tbaa !121
   store i32 %81, ptr %24, align 8, !tbaa !121
@@ -3250,7 +3250,7 @@ _ZN5vcpkg11PackageSpecC2EOS0_.exit.i:             ; preds = %_ZNKSt7__cxx1112bas
   store i64 %17, ptr %19, align 8, !tbaa !4
   store ptr %9, ptr %2, align 8, !tbaa !12
   store i64 0, ptr %18, align 8, !tbaa !4
-  store i8 0, ptr %9, align 1, !tbaa !41
+  store i8 0, ptr %9, align 8, !tbaa !41
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %22 = load i64, ptr %21, align 8, !tbaa !42
@@ -3288,7 +3288,7 @@ _ZN5vcpkg7VersionC2EOS0_.exit.i.i:                ; preds = %_ZNKSt7__cxx1112bas
   store i64 %35, ptr %37, align 8, !tbaa !4
   store ptr %27, ptr %24, align 8, !tbaa !12
   store i64 0, ptr %36, align 8, !tbaa !4
-  store i8 0, ptr %27, align 1, !tbaa !41
+  store i8 0, ptr %27, align 8, !tbaa !41
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %40 = load i32, ptr %39, align 8, !tbaa !121
@@ -3326,7 +3326,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %53, ptr %55, align 8, !tbaa !4
   store ptr %45, ptr %42, align 8, !tbaa !12
   store i64 0, ptr %54, align 8, !tbaa !4
-  store i8 0, ptr %45, align 1, !tbaa !41
+  store i8 0, ptr %45, align 8, !tbaa !41
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %58 = load i32, ptr %57, align 8, !tbaa !121
@@ -3878,7 +3878,7 @@ _ZN5vcpkg11PackageSpecC2EOS0_.exit.i:             ; preds = %_ZNKSt7__cxx1112bas
   store i64 %130, ptr %132, align 8, !tbaa !4
   store ptr %122, ptr %3, align 8, !tbaa !12
   store i64 0, ptr %131, align 8, !tbaa !4
-  store i8 0, ptr %122, align 1, !tbaa !41
+  store i8 0, ptr %122, align 8, !tbaa !41
   %133 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %134 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %135 = load i64, ptr %134, align 8, !tbaa !42
@@ -3916,7 +3916,7 @@ _ZN5vcpkg7VersionC2EOS0_.exit.i.i:                ; preds = %_ZNKSt7__cxx1112bas
   store i64 %148, ptr %150, align 8, !tbaa !4
   store ptr %140, ptr %137, align 8, !tbaa !12
   store i64 0, ptr %149, align 8, !tbaa !4
-  store i8 0, ptr %140, align 1, !tbaa !41
+  store i8 0, ptr %140, align 8, !tbaa !41
   %151 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %152 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %153 = load i32, ptr %152, align 8, !tbaa !121
@@ -3954,7 +3954,7 @@ _ZN5vcpkg15OutdatedPackageC2EOS0_.exit:           ; preds = %160, %_ZNKSt7__cxx1
   store i64 %166, ptr %168, align 8, !tbaa !4
   store ptr %158, ptr %155, align 8, !tbaa !12
   store i64 0, ptr %167, align 8, !tbaa !4
-  store i8 0, ptr %158, align 1, !tbaa !41
+  store i8 0, ptr %158, align 8, !tbaa !41
   %169 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %170 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %171 = load i32, ptr %170, align 8, !tbaa !121
@@ -4821,7 +4821,7 @@ _ZN5vcpkg11PackageSpecC2EOS0_.exit.i:             ; preds = %_ZNKSt7__cxx1112bas
   store i64 %34, ptr %7, align 8, !tbaa !4
   store ptr %25, ptr %.sroa.0.023, align 8, !tbaa !12
   store i64 0, ptr %33, align 8, !tbaa !4
-  store i8 0, ptr %25, align 1, !tbaa !41
+  store i8 0, ptr %25, align 8, !tbaa !41
   %35 = getelementptr inbounds nuw i8, ptr %.pn22, i64 152
   %36 = load i64, ptr %35, align 8, !tbaa !42
   store i64 %36, ptr %8, align 8, !tbaa !42
@@ -4853,7 +4853,7 @@ _ZN5vcpkg7VersionC2EOS0_.exit.i.i:                ; preds = %_ZNKSt7__cxx1112bas
   store i64 %48, ptr %11, align 8, !tbaa !4
   store ptr %39, ptr %37, align 8, !tbaa !12
   store i64 0, ptr %47, align 8, !tbaa !4
-  store i8 0, ptr %39, align 1, !tbaa !41
+  store i8 0, ptr %39, align 8, !tbaa !41
   %49 = getelementptr inbounds nuw i8, ptr %.pn22, i64 192
   %50 = load i32, ptr %49, align 8, !tbaa !121
   store i32 %50, ptr %12, align 8, !tbaa !121
@@ -4885,7 +4885,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3.
   store i64 %63, ptr %15, align 8, !tbaa !4
   store ptr %53, ptr %51, align 8, !tbaa !12
   store i64 0, ptr %62, align 8, !tbaa !4
-  store i8 0, ptr %53, align 1, !tbaa !41
+  store i8 0, ptr %53, align 8, !tbaa !41
   %64 = getelementptr inbounds nuw i8, ptr %.pn22, i64 232
   %65 = load i32, ptr %64, align 8, !tbaa !121
   store i32 %65, ptr %16, align 8, !tbaa !121
@@ -5075,7 +5075,7 @@ _ZN5vcpkg11PackageSpecC2EOS0_.exit.i:             ; preds = %_ZNKSt7__cxx1112bas
   store i64 %14, ptr %16, align 8, !tbaa !4
   store ptr %6, ptr %0, align 8, !tbaa !12
   store i64 0, ptr %15, align 8, !tbaa !4
-  store i8 0, ptr %6, align 1, !tbaa !41
+  store i8 0, ptr %6, align 8, !tbaa !41
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load i64, ptr %18, align 8, !tbaa !42
@@ -5113,7 +5113,7 @@ _ZN5vcpkg7VersionC2EOS0_.exit.i.i:                ; preds = %_ZNKSt7__cxx1112bas
   store i64 %32, ptr %34, align 8, !tbaa !4
   store ptr %24, ptr %21, align 8, !tbaa !12
   store i64 0, ptr %33, align 8, !tbaa !4
-  store i8 0, ptr %24, align 1, !tbaa !41
+  store i8 0, ptr %24, align 8, !tbaa !41
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %37 = load i32, ptr %36, align 8, !tbaa !121
@@ -5151,7 +5151,7 @@ _ZN5vcpkg15OutdatedPackageC2EOS0_.exit:           ; preds = %44, %_ZNKSt7__cxx11
   store i64 %50, ptr %52, align 8, !tbaa !4
   store ptr %42, ptr %39, align 8, !tbaa !12
   store i64 0, ptr %51, align 8, !tbaa !4
-  store i8 0, ptr %42, align 1, !tbaa !41
+  store i8 0, ptr %42, align 8, !tbaa !41
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %55 = load i32, ptr %54, align 8, !tbaa !121

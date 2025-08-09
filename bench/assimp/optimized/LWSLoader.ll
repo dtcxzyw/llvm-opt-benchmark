@@ -433,7 +433,7 @@ _ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit:         ; preds = %.critedge.i.i, %45
   store ptr %50, ptr %.ptr.i.i.i.i.i.i, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i.i.i, i64 8
   store i64 0, ptr %51, align 8
-  store i8 0, ptr %50, align 1
+  store i8 0, ptr %50, align 8
   %.add.i.i.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i.i.i, 32
   %52 = icmp eq i64 %.add.i.i.i.i.i.i, 64
   br i1 %52, label %_ZNSt7__cxx114listIN6Assimp3LWS7ElementESaIS3_EE12emplace_backIJEEERS3_DpOT_.exit, label %49
@@ -7730,7 +7730,7 @@ _ZNK6Assimp3LWS8NodeDesceqEj.exit.thread:         ; preds = %1163, %1162, %_ZNK6
   %1284 = getelementptr inbounds nuw i8, ptr %1274, i64 1088
   store ptr null, ptr %1284, align 8
   store ptr %1274, ptr %1271, align 8
-  store i32 13, ptr %1274, align 4
+  store i32 13, ptr %1274, align 8
   %1285 = getelementptr inbounds nuw i8, ptr %1274, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %1285, ptr noundef nonnull align 1 dereferenceable(13) @.str.80, i64 13, i1 false)
   %1286 = load double, ptr %130, align 8

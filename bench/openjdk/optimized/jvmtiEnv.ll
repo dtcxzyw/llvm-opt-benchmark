@@ -8760,7 +8760,7 @@ define hidden noundef range(i32 0, 41) i32 @_ZN8JvmtiEnv19SetFieldAccessWatchEP1
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 456
   %8 = load ptr, ptr %7, align 8
-  %9 = load i32, ptr %1, align 4
+  %9 = load i32, ptr %1, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %11 = sext i32 %9 to i64
   %12 = getelementptr inbounds %class.FieldStatus, ptr %10, i64 %11
@@ -8799,7 +8799,7 @@ define hidden noundef range(i32 0, 42) i32 @_ZN8JvmtiEnv21ClearFieldAccessWatchE
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 456
   %8 = load ptr, ptr %7, align 8
-  %9 = load i32, ptr %1, align 4
+  %9 = load i32, ptr %1, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %11 = sext i32 %9 to i64
   %12 = getelementptr inbounds %class.FieldStatus, ptr %10, i64 %11
@@ -8836,7 +8836,7 @@ define hidden noundef range(i32 0, 41) i32 @_ZN8JvmtiEnv25SetFieldModificationWa
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 456
   %8 = load ptr, ptr %7, align 8
-  %9 = load i32, ptr %1, align 4
+  %9 = load i32, ptr %1, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %11 = sext i32 %9 to i64
   %12 = getelementptr inbounds %class.FieldStatus, ptr %10, i64 %11
@@ -8873,7 +8873,7 @@ define hidden noundef range(i32 0, 42) i32 @_ZN8JvmtiEnv27ClearFieldModification
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 456
   %8 = load ptr, ptr %7, align 8
-  %9 = load i32, ptr %1, align 4
+  %9 = load i32, ptr %1, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %11 = sext i32 %9 to i64
   %12 = getelementptr inbounds %class.FieldStatus, ptr %10, i64 %11

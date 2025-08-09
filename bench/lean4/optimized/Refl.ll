@@ -9156,7 +9156,7 @@ _init_l_Lean_MVarId_heqOfEq___lambda__1___closed__3.exit: ; preds = %lean_dec_re
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i64 16777472, ptr %69, align 8, !tbaa !13
-  store i32 1, ptr %65, align 4, !tbaa !4
+  store i32 1, ptr %65, align 8, !tbaa !4
   store i32 16, ptr %68, align 4
   store ptr %65, ptr @l_Lean_MVarId_heqOfEq___lambda__1___closed__3, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %65) #4

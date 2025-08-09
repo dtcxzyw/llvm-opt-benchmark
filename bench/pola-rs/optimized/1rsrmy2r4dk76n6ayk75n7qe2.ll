@@ -41264,7 +41264,7 @@ _ZN14polars_parquet5arrow4read6schema7convert9to_struct17hd983349652bed779E.exit
   %107 = getelementptr inbounds nuw i8, ptr %85, i64 48
   %108 = load i64, ptr %107, align 8, !alias.scope !3130, !noalias !3127
   %.sroa.01.0.i.i = select i1 %103, i64 %108, i64 %.sroa.0.0.sroa.speculated.i.i.i
-  %.val34 = load i8, ptr %96, align 1
+  %.val34 = load i8, ptr %96, align 8
   %.val35 = load i8, ptr %95, align 1
   call fastcc void @_ZN14polars_parquet5arrow4read6schema7convert13to_group_type17hb644de6c86acb2ecE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %17, ptr noalias noundef readonly align 8 dereferenceable(40) %97, i8 %.val34, i8 %.val35, ptr noalias noundef nonnull readonly align 8 %99, i64 noundef %90, ptr noalias noundef nonnull readonly align 1 %spec.select.i.i, i64 noundef %.sroa.01.0.i.i, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %4)
   br label %_ZN14polars_parquet5arrow4read6schema7convert8to_dtype17hf54aa9848a267041E.exit

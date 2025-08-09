@@ -13635,13 +13635,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i32, ptr %19, align 8, !tbaa !109
   %21 = or i32 %20, 19464
-  store i32 %21, ptr %19, align 4, !tbaa !116
+  store i32 %21, ptr %19, align 8, !tbaa !116
   %22 = load i64, ptr %16, align 8
   %23 = getelementptr inbounds i8, ptr %3, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load i32, ptr %24, align 8, !tbaa !109
   %26 = or i32 %25, %20
-  store i32 %26, ptr %24, align 4, !tbaa !116
+  store i32 %26, ptr %24, align 8, !tbaa !116
   %27 = load i64, ptr %16, align 8
   %28 = getelementptr inbounds i8, ptr %3, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -13654,7 +13654,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load i32, ptr %35, align 8, !tbaa !109
   %37 = or i32 %36, 260
-  store i32 %37, ptr %35, align 4, !tbaa !116
+  store i32 %37, ptr %35, align 8, !tbaa !116
   %38 = invoke noundef double @_ZN11mpf_manager9to_doubleERK3mpf(ptr noundef nonnull align 8 dereferenceable(840) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %39 unwind label %106
 

@@ -653,7 +653,7 @@ _ZN3syn6buffer6Cursor6create17h6f60e92346255650E.llvm.1271834235494842624.exit.i
   %43 = load i32, ptr %42, align 8, !range !31, !noundef !4
   %trunc.i = trunc nuw i32 %43 to i1
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %45 = load i32, ptr %44, align 4, !range !89
+  %45 = load i32, ptr %44, align 8, !range !89
   %.03.i = select i1 %trunc.i, i32 0, i32 %45
   br label %_ZN3syn6buffer19close_span_of_group17h9710abc367cdf28aE.exit
 
@@ -4354,7 +4354,7 @@ _ZN3syn6buffer6Cursor6create17h6f60e92346255650E.llvm.1271834235494842624.exit.i
   %29 = load i32, ptr %12, align 8, !range !31, !noundef !4
   %trunc.i = trunc nuw i32 %29 to i1
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %31 = load i32, ptr %30, align 4, !range !89
+  %31 = load i32, ptr %30, align 8, !range !89
   %.03.i = select i1 %trunc.i, i32 0, i32 %31
   br label %_ZN3syn6buffer19close_span_of_group17h9710abc367cdf28aE.exit
 

@@ -16761,7 +16761,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN10open_spiel5
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %15 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %16 = load i8, ptr %14, align 2
-  %17 = load i8, ptr %15, align 1
+  %17 = load i8, ptr %15, align 8
   %18 = icmp eq i8 %16, %17
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %20 = load i8, ptr %19, align 1

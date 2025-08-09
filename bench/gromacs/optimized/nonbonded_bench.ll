@@ -353,7 +353,7 @@ _ZNSt10unique_ptrIN3gmx12_GLOBAL__N_118NonbondedBenchmarkESt14default_deleteIS2_
   store ptr %18, ptr %17, align 8, !tbaa !39, !noalias !4
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i64 0, ptr %19, align 8, !tbaa !40, !noalias !4
-  store i8 0, ptr %18, align 1, !tbaa !41, !noalias !4
+  store i8 0, ptr %18, align 8, !tbaa !41, !noalias !4
   store ptr %1, ptr %0, align 8, !tbaa !42
   ret void
 }

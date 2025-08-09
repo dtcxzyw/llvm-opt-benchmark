@@ -354,7 +354,7 @@ _ZN4llvm9StringSetINS_15MallocAllocatorEEC2ESt16initializer_listINS_9StringRefEE
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 120
   store i64 14, ptr %29, align 8, !tbaa !51
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 142
-  store i8 0, ptr %30, align 1, !tbaa !52
+  store i8 0, ptr %30, align 2, !tbaa !52
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 160
   store ptr %32, ptr %31, align 8, !tbaa !50
@@ -4506,11 +4506,11 @@ _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRe
   %50 = getelementptr i8, ptr %44, i64 48
   %.val18.i = load ptr, ptr %50, align 8, !tbaa !22
   %51 = getelementptr i8, ptr %44, i64 56
-  %.val19.i = load i32, ptr %51, align 4
+  %.val19.i = load i32, ptr %51, align 8
   %52 = getelementptr i8, ptr %49, i64 48
   %.val20.i = load ptr, ptr %52, align 8, !tbaa !22
   %53 = getelementptr i8, ptr %49, i64 56
-  %.val21.i = load i32, ptr %53, align 4
+  %.val21.i = load i32, ptr %53, align 8
   %54 = icmp eq ptr %.val18.i, %.val20.i
   %55 = icmp eq i32 %.val19.i, %.val21.i
   %spec.select.i.i.i = select i1 %54, i1 %55, i1 false

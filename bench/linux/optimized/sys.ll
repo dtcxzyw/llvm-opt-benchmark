@@ -611,7 +611,7 @@ define internal fastcc range(i64 -22, 2147483669) i64 @__se_sys_getpriority(i64 
   %56 = sext i32 %55 to i64
   %57 = sub nsw i64 20, %56
   %58 = tail call i64 @llvm.smax.i64(i64 %57, i64 %52)
-  %59 = load volatile ptr, ptr %51, align 8
+  %59 = load volatile ptr, ptr %51, align 16
   %60 = icmp eq ptr %59, %48
   br i1 %60, label %.loopexit, label %.preheader, !llvm.loop !14
 
@@ -4289,7 +4289,7 @@ define dso_local void @getrusage(ptr noundef %0, i32 noundef %1, ptr noundef cap
   %59 = add i64 %58, %57
   store i64 %59, ptr %24, align 8
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 2208
-  %61 = load i64, ptr %60, align 8
+  %61 = load i64, ptr %60, align 16
   %62 = lshr i64 %61, 9
   %63 = load i64, ptr %26, align 8
   %64 = add i64 %63, %62
@@ -4439,11 +4439,11 @@ define dso_local void @getrusage(ptr noundef %0, i32 noundef %1, ptr noundef cap
   %147 = add i64 %146, %126
   store i64 %147, ptr %24, align 8
   %148 = getelementptr i8, ptr %131, i64 720
-  %149 = load i64, ptr %148, align 8
+  %149 = load i64, ptr %148, align 16
   %150 = lshr i64 %149, 9
   %151 = add i64 %150, %125
   store i64 %151, ptr %26, align 8
-  %152 = load volatile ptr, ptr %131, align 8
+  %152 = load volatile ptr, ptr %131, align 16
   %153 = icmp eq ptr %152, %36
   br i1 %153, label %.loopexit, label %124, !llvm.loop !40
 
@@ -4497,7 +4497,7 @@ define dso_local void @getrusage(ptr noundef %0, i32 noundef %1, ptr noundef cap
   %173 = getelementptr inbounds nuw i8, ptr %170, i64 240
   %174 = load i64, ptr %173, align 16
   %175 = getelementptr i8, ptr %170, i64 832
-  %176 = load volatile i64, ptr %175, align 8
+  %176 = load volatile i64, ptr %175, align 16
   %177 = call i64 @llvm.smax.i64(i64 %176, i64 0)
   %178 = getelementptr i8, ptr %170, i64 872
   %179 = load volatile i64, ptr %178, align 8

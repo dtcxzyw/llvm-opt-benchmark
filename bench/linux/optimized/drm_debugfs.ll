@@ -830,7 +830,7 @@ define internal noundef i32 @drm_gem_one_name_info(i32 %0, ptr noundef %1, ptr n
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
-  %10 = load volatile i32, ptr %1, align 4
+  %10 = load volatile i32, ptr %1, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %2, ptr noundef nonnull @.str.30, i32 noundef %5, i64 noundef %7, i32 noundef %9, i32 noundef %10) #6
   ret i32 0
 }

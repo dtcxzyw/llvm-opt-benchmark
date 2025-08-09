@@ -8197,7 +8197,7 @@ define hidden void @"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_incremen
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 712
   %8 = load atomic i32, ptr %7 acquire, align 4, !noalias !1307
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 716
-  %10 = load atomic i8, ptr %9 acquire, align 1, !noalias !1310
+  %10 = load atomic i8, ptr %9 acquire, align 4, !noalias !1310
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %.lr.ph.i, label %.critedge
 

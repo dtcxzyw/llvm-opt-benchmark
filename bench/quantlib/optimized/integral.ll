@@ -66,7 +66,7 @@ invoke.cont:                                      ; preds = %entry
   %0 = load i32, ptr %_M_flags.i.i, align 8, !tbaa !12
   %and.i.i.i.i = and i32 %0, -261
   %or.i.i.i.i = or disjoint i32 %and.i.i.i.i, 256
-  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 4, !tbaa !20
+  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 8, !tbaa !20
   %call1.i8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %_ql_msg_stream, ptr noundef nonnull @.str, i64 noundef 20)
           to label %invoke.cont3 unwind label %lpad
 

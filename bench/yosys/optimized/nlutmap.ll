@@ -4332,7 +4332,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys5RTLIL8IdStringEESt6ve
   %1423 = getelementptr inbounds nuw i8, ptr %1422, i64 8
   %1424 = load ptr, ptr %1422, align 8, !tbaa !178
   %1425 = getelementptr inbounds nuw i8, ptr %1424, i64 72
-  %1426 = load i32, ptr %1423, align 4, !tbaa !28
+  %1426 = load i32, ptr %1423, align 8, !tbaa !28
   store i32 %1426, ptr %17, align 4, !tbaa !187
   %1427 = load i32, ptr %1425, align 4, !tbaa !78
   %.not.i.i.i334 = icmp eq i32 %1427, 0

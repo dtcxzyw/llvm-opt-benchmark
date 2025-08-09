@@ -3521,7 +3521,7 @@ define noalias nonnull ptr @l_Std_Time_ZonedDateTime_ofTimestampWithZone(ptr nou
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = getelementptr i8, ptr %1, i64 32
-  %.val = load i8, ptr %9, align 1, !tbaa !21
+  %.val = load i8, ptr %9, align 8, !tbaa !21
   %10 = ptrtoint ptr %6 to i64
   %11 = and i64 %10, 1
   %.not = icmp eq i64 %11, 0
@@ -3607,7 +3607,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit64
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 32
   store i64 65536, ptr %38, align 8, !tbaa !18
-  store i32 1, ptr %34, align 4, !tbaa !8
+  store i32 1, ptr %34, align 8, !tbaa !8
   store i32 196648, ptr %37, align 4
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %4, ptr %39, align 8, !tbaa !4
@@ -3615,7 +3615,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit64
   store ptr %8, ptr %40, align 8, !tbaa !4
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store ptr %6, ptr %41, align 8, !tbaa !4
-  store i8 %.val, ptr %38, align 1, !tbaa !21
+  store i8 %.val, ptr %38, align 8, !tbaa !21
   %42 = load ptr, ptr @l_Std_Time_ZonedDateTime_ofTimestampWithZone___closed__1, align 8, !tbaa !4
   %43 = ptrtoint ptr %34 to i64
   %44 = and i64 %43, 1
@@ -3943,7 +3943,7 @@ define noalias nonnull ptr @l_Std_Time_ZonedDateTime_ofPlainDateTimeWithZone(ptr
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = getelementptr i8, ptr %1, i64 32
-  %.val = load i8, ptr %9, align 1, !tbaa !21
+  %.val = load i8, ptr %9, align 8, !tbaa !21
   %10 = ptrtoint ptr %6 to i64
   %11 = and i64 %10, 1
   %.not = icmp eq i64 %11, 0
@@ -4029,7 +4029,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit167
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 32
   store i64 65536, ptr %38, align 8, !tbaa !18
-  store i32 1, ptr %34, align 4, !tbaa !8
+  store i32 1, ptr %34, align 8, !tbaa !8
   store i32 196648, ptr %37, align 4
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %4, ptr %39, align 8, !tbaa !4
@@ -4037,7 +4037,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit167
   store ptr %8, ptr %40, align 8, !tbaa !4
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store ptr %6, ptr %41, align 8, !tbaa !4
-  store i8 %.val, ptr %38, align 1, !tbaa !21
+  store i8 %.val, ptr %38, align 8, !tbaa !21
   %42 = load ptr, ptr @l_Std_Time_ZonedDateTime_ofTimestampWithZone___closed__1, align 8, !tbaa !4
   %43 = ptrtoint ptr %34 to i64
   %44 = and i64 %43, 1
@@ -98801,7 +98801,7 @@ _init_l_Std_Time_instInhabitedZonedDateTime___closed__5.exit: ; preds = %_init_l
   %546 = getelementptr inbounds nuw i8, ptr %543, i64 4
   %547 = getelementptr inbounds nuw i8, ptr %543, i64 32
   store i64 0, ptr %547, align 8, !tbaa !18
-  store i32 1, ptr %543, align 4, !tbaa !8
+  store i32 1, ptr %543, align 8, !tbaa !8
   store i32 196648, ptr %546, align 4
   %548 = getelementptr inbounds nuw i8, ptr %543, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %548, align 8, !tbaa !4
@@ -98857,7 +98857,7 @@ _init_l_Std_Time_instInhabitedZonedDateTime___closed__8.exit: ; preds = %_init_l
   %569 = getelementptr inbounds nuw i8, ptr %566, i64 4
   %570 = getelementptr inbounds nuw i8, ptr %566, i64 32
   store i64 0, ptr %570, align 8, !tbaa !18
-  store i32 1, ptr %566, align 4, !tbaa !8
+  store i32 1, ptr %566, align 8, !tbaa !8
   store i32 196648, ptr %569, align 4
   %571 = getelementptr inbounds nuw i8, ptr %566, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %571, align 8, !tbaa !4

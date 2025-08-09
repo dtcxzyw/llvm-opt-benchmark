@@ -233,7 +233,7 @@ bytestream2_get_le32.exit190:                     ; preds = %41, %42
   %.018.i.i.i = select i1 %or.cond3.i.i.i, i32 %85, i32 0
   %.017.i.i.i = select i1 %or.cond.i.i.i, ptr %77, ptr null
   %87 = lshr exact i32 %.018.i.i.i, 3
-  store ptr %.017.i.i.i, ptr %75, align 8, !tbaa !65
+  store ptr %.017.i.i.i, ptr %75, align 16, !tbaa !65
   %88 = getelementptr inbounds nuw i8, ptr %74, i64 36
   store i32 %.018.i.i.i, ptr %88, align 4, !tbaa !66
   %89 = add nuw nsw i32 %.018.i.i.i, 8
@@ -244,7 +244,7 @@ bytestream2_get_le32.exit190:                     ; preds = %41, %42
   %93 = getelementptr inbounds nuw i8, ptr %74, i64 24
   store ptr %92, ptr %93, align 8, !tbaa !68
   %94 = getelementptr inbounds nuw i8, ptr %74, i64 32
-  store i32 0, ptr %94, align 8, !tbaa !69
+  store i32 0, ptr %94, align 16, !tbaa !69
   br i1 %or.cond3.i.i.i, label %95, label %decode_huffman2.exit.thread
 
 95:                                               ; preds = %73
@@ -675,7 +675,7 @@ build_huff.exit.i:                                ; preds = %299
   %309 = load ptr, ptr %303, align 8, !tbaa !85
   %310 = load i32, ptr %220, align 16, !tbaa !86
   %311 = load i32, ptr %90, align 8, !tbaa !67
-  %312 = load ptr, ptr %75, align 8, !tbaa !65
+  %312 = load ptr, ptr %75, align 16, !tbaa !65
   %313 = lshr i32 %.val80.i, 3
   %314 = zext nneg i32 %313 to i64
   %315 = getelementptr inbounds nuw i8, ptr %312, i64 %314
@@ -756,7 +756,7 @@ get_vlc2.exit.i:                                  ; preds = %351, %330, %308
   %indvars.iv.next99.i = add nuw nsw i64 %indvars.iv98.i, 1
   %377 = getelementptr inbounds nuw i8, ptr %376, i64 %indvars.iv98.i
   store i8 %375, ptr %377, align 1, !tbaa !52
-  %.val.i = load i32, ptr %94, align 8, !tbaa !69
+  %.val.i = load i32, ptr %94, align 16, !tbaa !69
   %.val61.i = load i32, ptr %88, align 4, !tbaa !66
   %378 = icmp sgt i32 %.val61.i, %.val.i
   br i1 %378, label %304, label %.loopexit, !llvm.loop !87
@@ -803,8 +803,8 @@ decode_huffman2.exit.thread:                      ; preds = %get_vlc2.exit.i, %7
 394:                                              ; preds = %.loopexit
   %395 = getelementptr inbounds nuw i8, ptr %17, i64 128
   %396 = load ptr, ptr %395, align 16, !tbaa !71
-  store ptr %396, ptr %19, align 8, !tbaa !53
-  store ptr %396, ptr %27, align 8, !tbaa !49
+  store ptr %396, ptr %19, align 16, !tbaa !53
+  store ptr %396, ptr %27, align 16, !tbaa !49
   %397 = zext nneg i32 %380 to i64
   %398 = getelementptr inbounds nuw i8, ptr %396, i64 %397
   store ptr %398, ptr %30, align 8, !tbaa !50
@@ -1566,7 +1566,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_intra(ptr noundef r
   %39 = ashr i32 %38, 4
   store i32 %39, ptr %19, align 8, !tbaa !107
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %41 = load i32, ptr %40, align 4, !tbaa !72
+  %41 = load i32, ptr %40, align 8, !tbaa !72
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 448
   %43 = tail call fastcc i32 @decode_intra_plane(ptr noundef nonnull %5, ptr noundef %1, i32 noundef %41, ptr noundef nonnull %42, ptr noundef %2, i32 noundef 2)
   %44 = icmp slt i32 %43, 0
@@ -1657,7 +1657,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_inter(ptr noundef r
   %44 = getelementptr inbounds nuw i8, ptr %20, i64 92
   %45 = load i32, ptr %44, align 4, !tbaa !72
   %46 = getelementptr inbounds nuw i8, ptr %20, i64 96
-  %47 = load i32, ptr %46, align 4, !tbaa !72
+  %47 = load i32, ptr %46, align 16, !tbaa !72
   %48 = getelementptr inbounds nuw i8, ptr %20, i64 100
   %49 = load i32, ptr %48, align 4, !tbaa !72
   %50 = add i32 %47, %45
@@ -1797,7 +1797,7 @@ decode_motion_vectors.exit:                       ; preds = %._crit_edge.i
   %124 = ashr i32 %123, 4
   store i32 %124, ptr %104, align 8, !tbaa !107
   %125 = getelementptr inbounds nuw i8, ptr %9, i64 96
-  %126 = load i32, ptr %125, align 4, !tbaa !72
+  %126 = load i32, ptr %125, align 8, !tbaa !72
   %127 = getelementptr inbounds nuw i8, ptr %9, i64 448
   %128 = tail call fastcc i32 @decode_inter_plane(ptr noundef nonnull %9, ptr noundef %1, i32 noundef %126, ptr noundef nonnull %127, ptr noundef %2, ptr noundef %3, i32 noundef 2)
   %129 = icmp slt i32 %128, 0

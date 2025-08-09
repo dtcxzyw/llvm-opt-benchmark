@@ -889,7 +889,7 @@ Abc_Clock.exit.i:                                 ; preds = %271, %265
   store i32 %378, ptr %379, align 4, !tbaa !33
   %380 = load i32, ptr %205, align 4, !tbaa !33
   %381 = getelementptr inbounds nuw i8, ptr %376, i64 16
-  store i32 %380, ptr %381, align 4, !tbaa !33
+  store i32 %380, ptr %381, align 8, !tbaa !33
   %382 = getelementptr inbounds nuw i8, ptr %376, i64 76
   %383 = sext i32 %375 to i64
   %384 = shl nsw i64 %383, 2
@@ -1036,7 +1036,7 @@ Super_AddGateToTable.exit.i97:                    ; preds = %394, %._crit_edge.i
   store i32 %449, ptr %450, align 4, !tbaa !33
   %451 = load i32, ptr %205, align 4, !tbaa !33
   %452 = getelementptr inbounds nuw i8, ptr %447, i64 16
-  store i32 %451, ptr %452, align 4, !tbaa !33
+  store i32 %451, ptr %452, align 8, !tbaa !33
   %453 = getelementptr inbounds nuw i8, ptr %447, i64 76
   %454 = sext i32 %446 to i64
   %455 = shl nsw i64 %454, 2
@@ -1229,7 +1229,7 @@ Super_AddGateToTable.exit854.i:                   ; preds = %465, %._crit_edge.i
   store i32 %536, ptr %537, align 4, !tbaa !33
   %538 = load i32, ptr %205, align 4, !tbaa !33
   %539 = getelementptr inbounds nuw i8, ptr %534, i64 16
-  store i32 %538, ptr %539, align 4, !tbaa !33
+  store i32 %538, ptr %539, align 8, !tbaa !33
   %540 = getelementptr inbounds nuw i8, ptr %534, i64 76
   %541 = sext i32 %533 to i64
   %542 = shl nsw i64 %541, 2
@@ -1476,7 +1476,7 @@ Super_AddGateToTable.exit859.us.i:                ; preds = %552, %._crit_edge.i
   store i32 %639, ptr %640, align 4, !tbaa !33
   %641 = load i32, ptr %205, align 4, !tbaa !33
   %642 = getelementptr inbounds nuw i8, ptr %637, i64 16
-  store i32 %641, ptr %642, align 4, !tbaa !33
+  store i32 %641, ptr %642, align 8, !tbaa !33
   %643 = getelementptr inbounds nuw i8, ptr %637, i64 76
   %644 = sext i32 %636 to i64
   %645 = shl nsw i64 %644, 2
@@ -1772,7 +1772,7 @@ Super_AddGateToTable.exit864.us.us.i:             ; preds = %655, %._crit_edge.i
   store i32 %758, ptr %759, align 4, !tbaa !33
   %760 = load i32, ptr %205, align 4, !tbaa !33
   %761 = getelementptr inbounds nuw i8, ptr %756, i64 16
-  store i32 %760, ptr %761, align 4, !tbaa !33
+  store i32 %760, ptr %761, align 8, !tbaa !33
   %762 = getelementptr inbounds nuw i8, ptr %756, i64 76
   %763 = sext i32 %755 to i64
   %764 = shl nsw i64 %763, 2
@@ -2124,7 +2124,7 @@ Super_AddGateToTable.exit869.us.us.us.i:          ; preds = %774, %._crit_edge.i
   store i32 %895, ptr %896, align 4, !tbaa !33
   %897 = load i32, ptr %205, align 4, !tbaa !33
   %898 = getelementptr inbounds nuw i8, ptr %893, i64 16
-  store i32 %897, ptr %898, align 4, !tbaa !33
+  store i32 %897, ptr %898, align 8, !tbaa !33
   %899 = getelementptr inbounds nuw i8, ptr %893, i64 76
   %900 = sext i32 %892 to i64
   %901 = shl nsw i64 %900, 2

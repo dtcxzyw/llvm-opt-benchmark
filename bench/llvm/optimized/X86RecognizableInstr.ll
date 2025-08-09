@@ -5437,7 +5437,7 @@ define linkonce_odr void @_ZNSt6vectorI20InstructionSpecifierSaIS0_EE17_M_defaul
   store ptr %20, ptr %19, align 8, !tbaa !18
   %21 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 24
   store i64 0, ptr %21, align 8, !tbaa !11
-  store i8 0, ptr %20, align 1, !tbaa !12
+  store i8 0, ptr %20, align 8, !tbaa !12
   %22 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 12
   store i32 0, ptr %22, align 4, !tbaa !147
   %23 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.176, i64 noundef 0) #17
@@ -5476,7 +5476,7 @@ _ZNKSt6vectorI20InstructionSpecifierSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = 
   store ptr %35, ptr %34, align 8, !tbaa !18
   %36 = getelementptr inbounds nuw i8, ptr %.08.i.i.i26, i64 24
   store i64 0, ptr %36, align 8, !tbaa !11
-  store i8 0, ptr %35, align 1, !tbaa !12
+  store i8 0, ptr %35, align 8, !tbaa !12
   %37 = getelementptr inbounds nuw i8, ptr %.08.i.i.i26, i64 12
   store i32 0, ptr %37, align 4, !tbaa !147
   %38 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %34, i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.176, i64 noundef 0) #17
@@ -5529,7 +5529,7 @@ _ZSt19__relocate_object_aI20InstructionSpecifierS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i
   store i64 %53, ptr %55, align 8, !tbaa !11, !alias.scope !227, !noalias !230
   store ptr %45, ptr %42, align 8, !tbaa !3, !alias.scope !230, !noalias !227
   store i64 0, ptr %54, align 8, !tbaa !11, !alias.scope !230, !noalias !227
-  store i8 0, ptr %45, align 1, !tbaa !12, !alias.scope !230, !noalias !227
+  store i8 0, ptr %45, align 8, !tbaa !12, !alias.scope !230, !noalias !227
   %56 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 48
   %57 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 48
   %.not.i.i.i32 = icmp eq ptr %56, %5

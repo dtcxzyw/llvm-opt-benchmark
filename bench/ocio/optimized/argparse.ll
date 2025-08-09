@@ -2016,19 +2016,19 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN8ArgParse7optionsEPKcz(ptr nounde
   store ptr %80, ptr %79, align 8, !tbaa !4
   %81 = getelementptr inbounds nuw i8, ptr %64, i64 40
   store i64 0, ptr %81, align 8, !tbaa !15
-  store i8 0, ptr %80, align 1, !tbaa !14
+  store i8 0, ptr %80, align 8, !tbaa !14
   %82 = getelementptr inbounds nuw i8, ptr %64, i64 64
   %83 = getelementptr inbounds nuw i8, ptr %64, i64 80
   store ptr %83, ptr %82, align 8, !tbaa !4
   %84 = getelementptr inbounds nuw i8, ptr %64, i64 72
   store i64 0, ptr %84, align 8, !tbaa !15
-  store i8 0, ptr %83, align 1, !tbaa !14
+  store i8 0, ptr %83, align 8, !tbaa !14
   %85 = getelementptr inbounds nuw i8, ptr %64, i64 96
   %86 = getelementptr inbounds nuw i8, ptr %64, i64 112
   store ptr %86, ptr %85, align 8, !tbaa !4
   %87 = getelementptr inbounds nuw i8, ptr %64, i64 104
   store i64 0, ptr %87, align 8, !tbaa !15
-  store i8 0, ptr %86, align 1, !tbaa !14
+  store i8 0, ptr %86, align 8, !tbaa !14
   %88 = getelementptr inbounds nuw i8, ptr %64, i64 128
   %89 = getelementptr inbounds nuw i8, ptr %64, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %89, i8 0, i64 24, i1 false)
@@ -3257,7 +3257,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !15, !alias.scope !94, !noalias !97
   store ptr %39, ptr %.0911.i.i.i.i, align 8, !tbaa !12, !alias.scope !97, !noalias !94
   store i64 0, ptr %48, align 8, !tbaa !15, !alias.scope !97, !noalias !94
-  store i8 0, ptr %39, align 1, !tbaa !14, !alias.scope !97, !noalias !94
+  store i8 0, ptr %39, align 8, !tbaa !14, !alias.scope !97, !noalias !94
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %50, %1
@@ -3305,7 +3305,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !15, !alias.scope !101, !noalias !104
   store ptr %55, ptr %.0911.i.i.i.i19, align 8, !tbaa !12, !alias.scope !104, !noalias !101
   store i64 0, ptr %64, align 8, !tbaa !15, !alias.scope !104, !noalias !101
-  store i8 0, ptr %55, align 1, !tbaa !14, !alias.scope !104, !noalias !101
+  store i8 0, ptr %55, align 8, !tbaa !14, !alias.scope !104, !noalias !101
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 32
   %.not.i.i.i.i24 = icmp eq ptr %66, %5

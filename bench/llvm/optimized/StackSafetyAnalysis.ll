@@ -1553,7 +1553,7 @@ _ZNSt3mapIjN12_GLOBAL__N_17UseInfoIN4llvm11GlobalValueEEESt4lessIjESaISt4pairIKj
   store ptr %260, ptr %263, align 8, !tbaa !106
   %264 = getelementptr inbounds nuw i8, ptr %252, i64 160
   store i64 0, ptr %264, align 8, !tbaa !107
-  %.val6.i.i.i57.i = load i32, ptr %253, align 4
+  %.val6.i.i.i57.i = load i32, ptr %253, align 8
   br i1 %251, label %265, label %281
 
 265:                                              ; preds = %.critedge.i54.i
@@ -8395,7 +8395,7 @@ _ZNSt3mapIjN12_GLOBAL__N_17UseInfoIN4llvm15FunctionSummaryEEESt4lessIjESaISt4pai
   store ptr %476, ptr %479, align 8, !tbaa !106
   %480 = getelementptr inbounds nuw i8, ptr %468, i64 160
   store i64 0, ptr %480, align 8, !tbaa !107
-  %.val6.i.i.i106 = load i32, ptr %469, align 4
+  %.val6.i.i.i106 = load i32, ptr %469, align 8
   br i1 %467, label %481, label %497
 
 481:                                              ; preds = %.critedge.i105

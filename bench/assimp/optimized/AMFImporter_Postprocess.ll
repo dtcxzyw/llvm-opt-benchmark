@@ -4848,7 +4848,7 @@ _ZNSt7__cxx1110_List_baseIN6Assimp11AMFImporter12SComplexFaceESaIS3_EED2Ev.exit3
   %.sroa.0411.01312 = phi ptr [ %654, %.lr.ph1315 ], [ %.pre1808, %650 ]
   %654 = load ptr, ptr %.sroa.0411.01312, align 8
   %655 = getelementptr inbounds nuw i8, ptr %.sroa.0411.01312, i64 16
-  %656 = load i32, ptr %655, align 4
+  %656 = load i32, ptr %655, align 8
   %657 = load ptr, ptr %651, align 8
   %658 = getelementptr inbounds nuw i32, ptr %657, i64 %.01313
   store i32 %656, ptr %658, align 4
@@ -5492,14 +5492,14 @@ _ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; pr
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 1028
   %56 = load float, ptr %55, align 4
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 1032
-  %58 = load float, ptr %57, align 4
+  %58 = load float, ptr %57, align 8
   %59 = fmul float %58, 0.000000e+00
   %60 = fadd float %56, %59
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 1036
   %62 = load float, ptr %61, align 4
   %63 = call float @llvm.fmuladd.f32(float %62, float 0.000000e+00, float %60)
   %64 = getelementptr inbounds nuw i8, ptr %45, i64 1040
-  %65 = load float, ptr %64, align 4
+  %65 = load float, ptr %64, align 8
   %66 = call float @llvm.fmuladd.f32(float %65, float 0.000000e+00, float %63)
   %67 = call float @llvm.fmuladd.f32(float %56, float 0.000000e+00, float %58)
   %68 = call float @llvm.fmuladd.f32(float %62, float 0.000000e+00, float %67)
@@ -5514,14 +5514,14 @@ _ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; pr
   %77 = getelementptr inbounds nuw i8, ptr %45, i64 1044
   %78 = load float, ptr %77, align 4
   %79 = getelementptr inbounds nuw i8, ptr %45, i64 1048
-  %80 = load float, ptr %79, align 4
+  %80 = load float, ptr %79, align 8
   %81 = fmul float %80, 0.000000e+00
   %82 = fadd float %78, %81
   %83 = getelementptr inbounds nuw i8, ptr %45, i64 1052
   %84 = load float, ptr %83, align 4
   %85 = call float @llvm.fmuladd.f32(float %84, float 0.000000e+00, float %82)
   %86 = getelementptr inbounds nuw i8, ptr %45, i64 1056
-  %87 = load float, ptr %86, align 4
+  %87 = load float, ptr %86, align 8
   %88 = call float @llvm.fmuladd.f32(float %87, float 0.000000e+00, float %85)
   %89 = call float @llvm.fmuladd.f32(float %78, float 0.000000e+00, float %80)
   %90 = call float @llvm.fmuladd.f32(float %84, float 0.000000e+00, float %89)
@@ -5536,14 +5536,14 @@ _ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; pr
   %99 = getelementptr inbounds nuw i8, ptr %45, i64 1060
   %100 = load float, ptr %99, align 4
   %101 = getelementptr inbounds nuw i8, ptr %45, i64 1064
-  %102 = load float, ptr %101, align 4
+  %102 = load float, ptr %101, align 8
   %103 = fmul float %102, 0.000000e+00
   %104 = fadd float %100, %103
   %105 = getelementptr inbounds nuw i8, ptr %45, i64 1068
   %106 = load float, ptr %105, align 4
   %107 = call float @llvm.fmuladd.f32(float %106, float 0.000000e+00, float %104)
   %108 = getelementptr inbounds nuw i8, ptr %45, i64 1072
-  %109 = load float, ptr %108, align 4
+  %109 = load float, ptr %108, align 8
   %110 = call float @llvm.fmuladd.f32(float %109, float 0.000000e+00, float %107)
   %111 = call float @llvm.fmuladd.f32(float %100, float 0.000000e+00, float %102)
   %112 = call float @llvm.fmuladd.f32(float %106, float 0.000000e+00, float %111)
@@ -5558,14 +5558,14 @@ _ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; pr
   %121 = getelementptr inbounds nuw i8, ptr %45, i64 1076
   %122 = load float, ptr %121, align 4
   %123 = getelementptr inbounds nuw i8, ptr %45, i64 1080
-  %124 = load float, ptr %123, align 4
+  %124 = load float, ptr %123, align 8
   %125 = fmul float %124, 0.000000e+00
   %126 = fadd float %122, %125
   %127 = getelementptr inbounds nuw i8, ptr %45, i64 1084
   %128 = load float, ptr %127, align 4
   %129 = call float @llvm.fmuladd.f32(float %128, float 0.000000e+00, float %126)
   %130 = getelementptr inbounds nuw i8, ptr %45, i64 1088
-  %131 = load float, ptr %130, align 4
+  %131 = load float, ptr %130, align 8
   %132 = call float @llvm.fmuladd.f32(float %131, float 0.000000e+00, float %129)
   %133 = call float @llvm.fmuladd.f32(float %122, float 0.000000e+00, float %124)
   %134 = call float @llvm.fmuladd.f32(float %128, float 0.000000e+00, float %133)
@@ -5578,33 +5578,33 @@ _ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; pr
   %141 = call float @llvm.fmuladd.f32(float %54, float %128, float %140)
   %142 = fadd float %131, %141
   store float %66, ptr %55, align 4
-  store float %69, ptr %57, align 4
+  store float %69, ptr %57, align 8
   store float %72, ptr %61, align 4
-  store float %76, ptr %64, align 4
+  store float %76, ptr %64, align 8
   store float %88, ptr %77, align 4
-  store float %91, ptr %79, align 4
+  store float %91, ptr %79, align 8
   store float %94, ptr %83, align 4
-  store float %98, ptr %86, align 4
+  store float %98, ptr %86, align 8
   store float %110, ptr %99, align 4
-  store float %113, ptr %101, align 4
+  store float %113, ptr %101, align 8
   store float %116, ptr %105, align 4
-  store float %120, ptr %108, align 4
+  store float %120, ptr %108, align 8
   store float %132, ptr %121, align 4
-  store float %135, ptr %123, align 4
+  store float %135, ptr %123, align 8
   store float %138, ptr %127, align 4
-  store float %142, ptr %130, align 4
+  store float %142, ptr %130, align 8
   %143 = getelementptr inbounds nuw i8, ptr %28, i64 124
   %144 = load float, ptr %143, align 4
   %145 = call noundef float @cosf(float noundef %144) #29
   %146 = call noundef float @sinf(float noundef %144) #29
   %147 = fneg float %146
   %148 = load float, ptr %55, align 4
-  %149 = load float, ptr %57, align 4
+  %149 = load float, ptr %57, align 8
   %150 = fmul float %149, 0.000000e+00
   %151 = fadd float %148, %150
   %152 = load float, ptr %61, align 4
   %153 = call float @llvm.fmuladd.f32(float %152, float 0.000000e+00, float %151)
-  %154 = load float, ptr %64, align 4
+  %154 = load float, ptr %64, align 8
   %155 = call float @llvm.fmuladd.f32(float %154, float 0.000000e+00, float %153)
   %156 = fmul float %145, %149
   %157 = call float @llvm.fmuladd.f32(float %148, float 0.000000e+00, float %156)
@@ -5618,12 +5618,12 @@ _ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; pr
   %165 = call float @llvm.fmuladd.f32(float %152, float 0.000000e+00, float %164)
   %166 = fadd float %154, %165
   %167 = load float, ptr %77, align 4
-  %168 = load float, ptr %79, align 4
+  %168 = load float, ptr %79, align 8
   %169 = fmul float %168, 0.000000e+00
   %170 = fadd float %167, %169
   %171 = load float, ptr %83, align 4
   %172 = call float @llvm.fmuladd.f32(float %171, float 0.000000e+00, float %170)
-  %173 = load float, ptr %86, align 4
+  %173 = load float, ptr %86, align 8
   %174 = call float @llvm.fmuladd.f32(float %173, float 0.000000e+00, float %172)
   %175 = fmul float %145, %168
   %176 = call float @llvm.fmuladd.f32(float %167, float 0.000000e+00, float %175)
@@ -5637,12 +5637,12 @@ _ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; pr
   %184 = call float @llvm.fmuladd.f32(float %171, float 0.000000e+00, float %183)
   %185 = fadd float %173, %184
   %186 = load float, ptr %99, align 4
-  %187 = load float, ptr %101, align 4
+  %187 = load float, ptr %101, align 8
   %188 = fmul float %187, 0.000000e+00
   %189 = fadd float %186, %188
   %190 = load float, ptr %105, align 4
   %191 = call float @llvm.fmuladd.f32(float %190, float 0.000000e+00, float %189)
-  %192 = load float, ptr %108, align 4
+  %192 = load float, ptr %108, align 8
   %193 = call float @llvm.fmuladd.f32(float %192, float 0.000000e+00, float %191)
   %194 = fmul float %145, %187
   %195 = call float @llvm.fmuladd.f32(float %186, float 0.000000e+00, float %194)
@@ -5656,12 +5656,12 @@ _ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; pr
   %203 = call float @llvm.fmuladd.f32(float %190, float 0.000000e+00, float %202)
   %204 = fadd float %192, %203
   %205 = load float, ptr %121, align 4
-  %206 = load float, ptr %123, align 4
+  %206 = load float, ptr %123, align 8
   %207 = fmul float %206, 0.000000e+00
   %208 = fadd float %205, %207
   %209 = load float, ptr %127, align 4
   %210 = call float @llvm.fmuladd.f32(float %209, float 0.000000e+00, float %208)
-  %211 = load float, ptr %130, align 4
+  %211 = load float, ptr %130, align 8
   %212 = call float @llvm.fmuladd.f32(float %211, float 0.000000e+00, float %210)
   %213 = fmul float %145, %206
   %214 = call float @llvm.fmuladd.f32(float %205, float 0.000000e+00, float %213)
@@ -5675,33 +5675,33 @@ _ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; pr
   %222 = call float @llvm.fmuladd.f32(float %209, float 0.000000e+00, float %221)
   %223 = fadd float %211, %222
   store float %155, ptr %55, align 4
-  store float %159, ptr %57, align 4
+  store float %159, ptr %57, align 8
   store float %163, ptr %61, align 4
-  store float %166, ptr %64, align 4
+  store float %166, ptr %64, align 8
   store float %174, ptr %77, align 4
-  store float %178, ptr %79, align 4
+  store float %178, ptr %79, align 8
   store float %182, ptr %83, align 4
-  store float %185, ptr %86, align 4
+  store float %185, ptr %86, align 8
   store float %193, ptr %99, align 4
-  store float %197, ptr %101, align 4
+  store float %197, ptr %101, align 8
   store float %201, ptr %105, align 4
-  store float %204, ptr %108, align 4
+  store float %204, ptr %108, align 8
   store float %212, ptr %121, align 4
-  store float %216, ptr %123, align 4
+  store float %216, ptr %123, align 8
   store float %220, ptr %127, align 4
-  store float %223, ptr %130, align 4
+  store float %223, ptr %130, align 8
   %224 = getelementptr inbounds nuw i8, ptr %28, i64 128
   %225 = load float, ptr %224, align 4
   %226 = call noundef float @cosf(float noundef %225) #29
   %227 = call noundef float @sinf(float noundef %225) #29
   %228 = fneg float %227
   %229 = load float, ptr %55, align 4
-  %230 = load float, ptr %57, align 4
+  %230 = load float, ptr %57, align 8
   %231 = fmul float %230, 0.000000e+00
   %232 = call float @llvm.fmuladd.f32(float %226, float %229, float %231)
   %233 = load float, ptr %61, align 4
   %234 = call float @llvm.fmuladd.f32(float %228, float %233, float %232)
-  %235 = load float, ptr %64, align 4
+  %235 = load float, ptr %64, align 8
   %236 = call float @llvm.fmuladd.f32(float %235, float 0.000000e+00, float %234)
   %237 = call float @llvm.fmuladd.f32(float %229, float 0.000000e+00, float %230)
   %238 = call float @llvm.fmuladd.f32(float %233, float 0.000000e+00, float %237)
@@ -5713,12 +5713,12 @@ _ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; pr
   %244 = call float @llvm.fmuladd.f32(float %233, float 0.000000e+00, float %243)
   %245 = fadd float %235, %244
   %246 = load float, ptr %77, align 4
-  %247 = load float, ptr %79, align 4
+  %247 = load float, ptr %79, align 8
   %248 = fmul float %247, 0.000000e+00
   %249 = call float @llvm.fmuladd.f32(float %226, float %246, float %248)
   %250 = load float, ptr %83, align 4
   %251 = call float @llvm.fmuladd.f32(float %228, float %250, float %249)
-  %252 = load float, ptr %86, align 4
+  %252 = load float, ptr %86, align 8
   %253 = call float @llvm.fmuladd.f32(float %252, float 0.000000e+00, float %251)
   %254 = call float @llvm.fmuladd.f32(float %246, float 0.000000e+00, float %247)
   %255 = call float @llvm.fmuladd.f32(float %250, float 0.000000e+00, float %254)
@@ -5730,12 +5730,12 @@ _ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; pr
   %261 = call float @llvm.fmuladd.f32(float %250, float 0.000000e+00, float %260)
   %262 = fadd float %252, %261
   %263 = load float, ptr %99, align 4
-  %264 = load float, ptr %101, align 4
+  %264 = load float, ptr %101, align 8
   %265 = fmul float %264, 0.000000e+00
   %266 = call float @llvm.fmuladd.f32(float %226, float %263, float %265)
   %267 = load float, ptr %105, align 4
   %268 = call float @llvm.fmuladd.f32(float %228, float %267, float %266)
-  %269 = load float, ptr %108, align 4
+  %269 = load float, ptr %108, align 8
   %270 = call float @llvm.fmuladd.f32(float %269, float 0.000000e+00, float %268)
   %271 = call float @llvm.fmuladd.f32(float %263, float 0.000000e+00, float %264)
   %272 = call float @llvm.fmuladd.f32(float %267, float 0.000000e+00, float %271)
@@ -5747,12 +5747,12 @@ _ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; pr
   %278 = call float @llvm.fmuladd.f32(float %267, float 0.000000e+00, float %277)
   %279 = fadd float %269, %278
   %280 = load float, ptr %121, align 4
-  %281 = load float, ptr %123, align 4
+  %281 = load float, ptr %123, align 8
   %282 = fmul float %281, 0.000000e+00
   %283 = call float @llvm.fmuladd.f32(float %226, float %280, float %282)
   %284 = load float, ptr %127, align 4
   %285 = call float @llvm.fmuladd.f32(float %228, float %284, float %283)
-  %286 = load float, ptr %130, align 4
+  %286 = load float, ptr %130, align 8
   %287 = call float @llvm.fmuladd.f32(float %286, float 0.000000e+00, float %285)
   %288 = call float @llvm.fmuladd.f32(float %280, float 0.000000e+00, float %281)
   %289 = call float @llvm.fmuladd.f32(float %284, float 0.000000e+00, float %288)
@@ -5764,33 +5764,33 @@ _ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; pr
   %295 = call float @llvm.fmuladd.f32(float %284, float 0.000000e+00, float %294)
   %296 = fadd float %286, %295
   store float %236, ptr %55, align 4
-  store float %239, ptr %57, align 4
+  store float %239, ptr %57, align 8
   store float %242, ptr %61, align 4
-  store float %245, ptr %64, align 4
+  store float %245, ptr %64, align 8
   store float %253, ptr %77, align 4
-  store float %256, ptr %79, align 4
+  store float %256, ptr %79, align 8
   store float %259, ptr %83, align 4
-  store float %262, ptr %86, align 4
+  store float %262, ptr %86, align 8
   store float %270, ptr %99, align 4
-  store float %273, ptr %101, align 4
+  store float %273, ptr %101, align 8
   store float %276, ptr %105, align 4
-  store float %279, ptr %108, align 4
+  store float %279, ptr %108, align 8
   store float %287, ptr %121, align 4
-  store float %290, ptr %123, align 4
+  store float %290, ptr %123, align 8
   store float %293, ptr %127, align 4
-  store float %296, ptr %130, align 4
+  store float %296, ptr %130, align 8
   %297 = getelementptr inbounds nuw i8, ptr %28, i64 132
   %298 = load float, ptr %297, align 4
   %299 = call noundef float @cosf(float noundef %298) #29
   %300 = call noundef float @sinf(float noundef %298) #29
   %301 = fneg float %300
   %302 = load float, ptr %55, align 4
-  %303 = load float, ptr %57, align 4
+  %303 = load float, ptr %57, align 8
   %304 = fmul float %300, %303
   %305 = call float @llvm.fmuladd.f32(float %299, float %302, float %304)
   %306 = load float, ptr %61, align 4
   %307 = call float @llvm.fmuladd.f32(float %306, float 0.000000e+00, float %305)
-  %308 = load float, ptr %64, align 4
+  %308 = load float, ptr %64, align 8
   %309 = call float @llvm.fmuladd.f32(float %308, float 0.000000e+00, float %307)
   %310 = fmul float %299, %303
   %311 = call float @llvm.fmuladd.f32(float %301, float %302, float %310)
@@ -5803,12 +5803,12 @@ _ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; pr
   %318 = call float @llvm.fmuladd.f32(float %306, float 0.000000e+00, float %315)
   %319 = fadd float %308, %318
   %320 = load float, ptr %77, align 4
-  %321 = load float, ptr %79, align 4
+  %321 = load float, ptr %79, align 8
   %322 = fmul float %300, %321
   %323 = call float @llvm.fmuladd.f32(float %299, float %320, float %322)
   %324 = load float, ptr %83, align 4
   %325 = call float @llvm.fmuladd.f32(float %324, float 0.000000e+00, float %323)
-  %326 = load float, ptr %86, align 4
+  %326 = load float, ptr %86, align 8
   %327 = call float @llvm.fmuladd.f32(float %326, float 0.000000e+00, float %325)
   %328 = fmul float %299, %321
   %329 = call float @llvm.fmuladd.f32(float %301, float %320, float %328)
@@ -5821,12 +5821,12 @@ _ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; pr
   %336 = call float @llvm.fmuladd.f32(float %324, float 0.000000e+00, float %333)
   %337 = fadd float %326, %336
   %338 = load float, ptr %99, align 4
-  %339 = load float, ptr %101, align 4
+  %339 = load float, ptr %101, align 8
   %340 = fmul float %300, %339
   %341 = call float @llvm.fmuladd.f32(float %299, float %338, float %340)
   %342 = load float, ptr %105, align 4
   %343 = call float @llvm.fmuladd.f32(float %342, float 0.000000e+00, float %341)
-  %344 = load float, ptr %108, align 4
+  %344 = load float, ptr %108, align 8
   %345 = call float @llvm.fmuladd.f32(float %344, float 0.000000e+00, float %343)
   %346 = fmul float %299, %339
   %347 = call float @llvm.fmuladd.f32(float %301, float %338, float %346)
@@ -5839,12 +5839,12 @@ _ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; pr
   %354 = call float @llvm.fmuladd.f32(float %342, float 0.000000e+00, float %351)
   %355 = fadd float %344, %354
   %356 = load float, ptr %121, align 4
-  %357 = load float, ptr %123, align 4
+  %357 = load float, ptr %123, align 8
   %358 = fmul float %300, %357
   %359 = call float @llvm.fmuladd.f32(float %299, float %356, float %358)
   %360 = load float, ptr %127, align 4
   %361 = call float @llvm.fmuladd.f32(float %360, float 0.000000e+00, float %359)
-  %362 = load float, ptr %130, align 4
+  %362 = load float, ptr %130, align 8
   %363 = call float @llvm.fmuladd.f32(float %362, float 0.000000e+00, float %361)
   %364 = fmul float %299, %357
   %365 = call float @llvm.fmuladd.f32(float %301, float %356, float %364)
@@ -5857,21 +5857,21 @@ _ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; pr
   %372 = call float @llvm.fmuladd.f32(float %360, float 0.000000e+00, float %369)
   %373 = fadd float %362, %372
   store float %309, ptr %55, align 4
-  store float %313, ptr %57, align 4
+  store float %313, ptr %57, align 8
   store float %317, ptr %61, align 4
-  store float %319, ptr %64, align 4
+  store float %319, ptr %64, align 8
   store float %327, ptr %77, align 4
-  store float %331, ptr %79, align 4
+  store float %331, ptr %79, align 8
   store float %335, ptr %83, align 4
-  store float %337, ptr %86, align 4
+  store float %337, ptr %86, align 8
   store float %345, ptr %99, align 4
-  store float %349, ptr %101, align 4
+  store float %349, ptr %101, align 8
   store float %353, ptr %105, align 4
-  store float %355, ptr %108, align 4
+  store float %355, ptr %108, align 8
   store float %363, ptr %121, align 4
-  store float %367, ptr %123, align 4
+  store float %367, ptr %123, align 8
   store float %371, ptr %127, align 4
-  store float %373, ptr %130, align 4
+  store float %373, ptr %130, align 8
   %374 = getelementptr inbounds nuw i8, ptr %45, i64 1104
   store i32 1, ptr %374, align 8
   %375 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znam(i64 noundef 8) #32

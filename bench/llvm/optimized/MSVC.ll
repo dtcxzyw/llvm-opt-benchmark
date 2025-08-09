@@ -10807,7 +10807,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %22, ptr %23, align 8, !tbaa !22
   store ptr %13, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !29
   store i64 0, ptr %21, align 8, !tbaa !22
-  store i8 0, ptr %13, align 1, !tbaa !25
+  store i8 0, ptr %13, align 8, !tbaa !25
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq ptr %24, %10

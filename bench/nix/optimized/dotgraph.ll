@@ -701,7 +701,7 @@ _ZNSt12_Node_handleIN3nix9StorePathES1_SaISt13_Rb_tree_nodeIS1_EEED2Ev.exit: ; p
   store i64 %145, ptr %72, align 8
   store ptr %136, ptr %134, align 8
   store i64 0, ptr %144, align 8
-  store i8 0, ptr %136, align 1
+  store i8 0, ptr %136, align 8
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %134) #24
   call void @_ZdlPv(ptr noundef nonnull %131) #25
   call void @llvm.lifetime.start.p0(ptr nonnull %28)

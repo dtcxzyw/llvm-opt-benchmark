@@ -1443,7 +1443,7 @@ define internal void @arp_solicit(ptr noundef %0, ptr noundef readonly captures(
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %7 = load i32, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %9 = load volatile i32, ptr %8, align 4
+  %9 = load volatile i32, ptr %8, align 8
   tail call void @__rcu_read_lock() #14
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 952
   %11 = load volatile ptr, ptr %10, align 8
@@ -2157,7 +2157,7 @@ define internal fastcc range(i32 0, 2) i32 @arp_ignore(ptr noundef nonnull %0, i
   %9 = getelementptr i8, ptr %8, i64 80
   %10 = load i32, ptr %9, align 8
   %11 = getelementptr i8, ptr %0, i64 272
-  %12 = load i32, ptr %11, align 4
+  %12 = load i32, ptr %11, align 8
   %13 = tail call i32 @llvm.smax.i32(i32 %10, i32 %12)
   switch i32 %13, label %24 [
     i32 8, label %16
@@ -2323,7 +2323,7 @@ define internal fastcc range(i32 0, 2) i32 @arp_accept(ptr noundef nonnull %0, i
   %8 = getelementptr i8, ptr %7, i64 88
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr i8, ptr %0, i64 280
-  %11 = load i32, ptr %10, align 4
+  %11 = load i32, ptr %10, align 8
   %12 = tail call i32 @llvm.smax.i32(i32 %9, i32 %11)
   switch i32 %12, label %18 [
     i32 2, label %14

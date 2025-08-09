@@ -60,7 +60,7 @@ define dso_local nonnull ptr @workingset_eviction(ptr noundef %0, ptr noundef re
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 13544
   %8 = load volatile i64, ptr %7, align 8
   %9 = load i32, ptr @bucket_order, align 4
-  %10 = load volatile i64, ptr %0, align 8
+  %10 = load volatile i64, ptr %0, align 16
   %11 = and i64 %10, 64
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %17, label %13
@@ -216,7 +216,7 @@ define dso_local void @workingset_activation(ptr noundef %0) local_unnamed_addr 
   %3 = lshr i64 %2, 58
   %4 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
-  %6 = load volatile i64, ptr %0, align 8
+  %6 = load volatile i64, ptr %0, align 16
   %7 = and i64 %6, 64
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %13, label %9

@@ -435,7 +435,7 @@ define noalias noundef nonnull ptr @lean_io_process_child_kill(ptr noundef readn
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load i32, ptr %4, align 4, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %7 = load i8, ptr %6, align 1, !tbaa !13
+  %7 = load i8, ptr %6, align 4, !tbaa !13
   %.not = icmp eq i8 %7, 0
   br i1 %.not, label %10, label %8
 
@@ -1326,7 +1326,7 @@ _ZNSolsEPFRSoS_E.exit.i:                          ; preds = %_ZStlsISt11char_tra
   store ptr %188, ptr %187, align 8, !tbaa !45
   %189 = getelementptr inbounds nuw i8, ptr %186, i64 16
   store i64 0, ptr %189, align 8, !tbaa !48
-  store i8 0, ptr %188, align 1, !tbaa !13
+  store i8 0, ptr %188, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %186, align 8, !tbaa !50
   br label %.noexc40.invoke
 
@@ -1637,7 +1637,7 @@ _ZN4lean6bufferIPcLm16EED2Ev.exit119.i:           ; preds = %266, %264
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 32
   store i32 %51, ptr %308, align 4, !tbaa !3
   %309 = getelementptr inbounds nuw i8, ptr %307, i64 36
-  store i8 %50, ptr %309, align 1, !tbaa !13
+  store i8 %50, ptr %309, align 4, !tbaa !13
   store ptr inttoptr (i64 1 to ptr), ptr %9, align 8, !tbaa !14
   invoke void @lean_inc_heartbeat()
           to label %.noexc121.i unwind label %332
@@ -2056,7 +2056,7 @@ define internal fastcc void @_ZN4leanL11setup_stdioENS_5stdioE(ptr dead_on_unwin
   store ptr %19, ptr %18, align 8, !tbaa !45
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 0, ptr %20, align 8, !tbaa !48
-  store i8 0, ptr %19, align 1, !tbaa !13
+  store i8 0, ptr %19, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %17, align 8, !tbaa !50
   tail call void @__cxa_throw(ptr nonnull %17, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #25
   unreachable

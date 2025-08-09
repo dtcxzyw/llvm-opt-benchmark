@@ -3421,11 +3421,11 @@ _ZN7QStringD2Ev.exit335:                          ; preds = %727, %_ZN9QtPrivate
   %750 = getelementptr inbounds nuw i8, ptr %745, i64 20
   store i32 1507328, ptr %750, align 4
   %751 = getelementptr inbounds nuw i8, ptr %745, i64 24
-  store i32 0, ptr %751, align 4
+  store i32 0, ptr %751, align 8
   %752 = getelementptr inbounds nuw i8, ptr %745, i64 28
   store i32 0, ptr %752, align 4
   %753 = getelementptr inbounds nuw i8, ptr %745, i64 32
-  store i32 -1, ptr %753, align 4
+  store i32 -1, ptr %753, align 8
   %754 = getelementptr inbounds nuw i8, ptr %745, i64 36
   store i32 -1, ptr %754, align 4
   %755 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -3730,11 +3730,11 @@ _ZN7QStringD2Ev.exit371:                          ; preds = %827, %_ZN9QtPrivate
   %846 = getelementptr inbounds nuw i8, ptr %841, i64 20
   store i32 1507328, ptr %846, align 4
   %847 = getelementptr inbounds nuw i8, ptr %841, i64 24
-  store i32 0, ptr %847, align 4
+  store i32 0, ptr %847, align 8
   %848 = getelementptr inbounds nuw i8, ptr %841, i64 28
   store i32 0, ptr %848, align 4
   %849 = getelementptr inbounds nuw i8, ptr %841, i64 32
-  store i32 -1, ptr %849, align 4
+  store i32 -1, ptr %849, align 8
   %850 = getelementptr inbounds nuw i8, ptr %841, i64 36
   store i32 -1, ptr %850, align 4
   %851 = getelementptr inbounds nuw i8, ptr %0, i64 360
@@ -4039,11 +4039,11 @@ _ZN7QWidget14setMaximumSizeERK5QSize.exit408:     ; preds = %_ZN7QWidget14setMin
   %941 = getelementptr inbounds nuw i8, ptr %936, i64 20
   store i32 1507328, ptr %941, align 4
   %942 = getelementptr inbounds nuw i8, ptr %936, i64 24
-  store i32 0, ptr %942, align 4
+  store i32 0, ptr %942, align 8
   %943 = getelementptr inbounds nuw i8, ptr %936, i64 28
   store i32 0, ptr %943, align 4
   %944 = getelementptr inbounds nuw i8, ptr %936, i64 32
-  store i32 -1, ptr %944, align 4
+  store i32 -1, ptr %944, align 8
   %945 = getelementptr inbounds nuw i8, ptr %936, i64 36
   store i32 -1, ptr %945, align 4
   %946 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -4893,11 +4893,11 @@ _ZN7QStringD2Ev.exit515:                          ; preds = %1183, %_ZN9QtPrivat
   %1196 = getelementptr inbounds nuw i8, ptr %1191, i64 20
   store i32 1507328, ptr %1196, align 4
   %1197 = getelementptr inbounds nuw i8, ptr %1191, i64 24
-  store i32 0, ptr %1197, align 4
+  store i32 0, ptr %1197, align 8
   %1198 = getelementptr inbounds nuw i8, ptr %1191, i64 28
   store i32 0, ptr %1198, align 4
   %1199 = getelementptr inbounds nuw i8, ptr %1191, i64 32
-  store i32 -1, ptr %1199, align 4
+  store i32 -1, ptr %1199, align 8
   %1200 = getelementptr inbounds nuw i8, ptr %1191, i64 36
   store i32 -1, ptr %1200, align 4
   %1201 = getelementptr inbounds nuw i8, ptr %0, i64 536
@@ -11463,7 +11463,7 @@ _ZN5QListIP13QGraphicsItemE3endEv.exit:           ; preds = %1, %_ZN5QListIP13QG
   %.idx5 = shl nsw i64 %41, 3
   %42 = getelementptr inbounds i8, ptr %30, i64 %.idx5
   %gepdiff = sub nsw i64 %34, %.idx5
-  %43 = load atomic i32, ptr %29 monotonic, align 4, !noalias !116
+  %43 = load atomic i32, ptr %29 monotonic, align 8, !noalias !116
   %44 = icmp ugt i32 %43, 1
   br i1 %44, label %45, label %_ZN5QListIP13QGraphicsItemE5beginEv.exit.i
 
@@ -16746,7 +16746,7 @@ _ZN5QListIP8TFHandleE5beginEv.exit:               ; preds = %2, %_ZN5QListIP8TFH
   %38 = load i32, ptr %37, align 8, !noalias !154
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds ptr, ptr %36, i64 %39
-  %41 = load atomic i32, ptr %35 monotonic, align 4, !noalias !157
+  %41 = load atomic i32, ptr %35 monotonic, align 8, !noalias !157
   %42 = icmp ugt i32 %41, 1
   br i1 %42, label %43, label %_ZN5QListIP8TFHandleE3endEv.exit
 

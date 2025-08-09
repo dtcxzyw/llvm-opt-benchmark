@@ -1911,7 +1911,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %70
   %78 = load ptr, ptr %6, align 8, !tbaa !565
   %79 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !566
-  %81 = load i32, ptr %75, align 4, !tbaa !567
+  %81 = load i32, ptr %75, align 8, !tbaa !567
   %82 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %80, i32 noundef %81, i32 noundef 22, ptr noundef %78, ptr noundef %69)
           to label %_ZN7bv_util6mk_uleEP4exprS1_.exit unwind label %125
 
@@ -2478,7 +2478,7 @@ _ZNK8fpa_util5is_fpEPK4exprRPS0_S4_S4_.exit:      ; preds = %152
   %172 = load ptr, ptr %171, align 8, !tbaa !564
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %174 = load ptr, ptr %173, align 8, !tbaa !566
-  %175 = load i32, ptr %172, align 4, !tbaa !567
+  %175 = load i32, ptr %172, align 8, !tbaa !567
   %176 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPKP4expr(ptr noundef nonnull align 8 dereferenceable(976) %174, i32 noundef %175, i32 noundef 37, i32 noundef 3, ptr noundef nonnull %9)
           to label %_ZN7bv_util9mk_concatEjPKP4expr.exit unwind label %218
 

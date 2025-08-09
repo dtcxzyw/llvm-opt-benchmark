@@ -3799,7 +3799,7 @@ define dso_local void @__folio_start_writeback(ptr noundef %0, i1 noundef zeroex
   %92 = and i64 %91, 3
   %93 = getelementptr [4 x %struct.zone], ptr %90, i64 0, i64 %92
   call void @mod_zone_page_state(ptr noundef %93, i32 noundef 6, i64 noundef %12) #11
-  %94 = load volatile i64, ptr %0, align 8
+  %94 = load volatile i64, ptr %0, align 16
   ret void
 }
 

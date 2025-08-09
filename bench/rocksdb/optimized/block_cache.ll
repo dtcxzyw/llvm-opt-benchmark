@@ -510,7 +510,7 @@ define void @_ZN7rocksdb18BlockCreateContext6CreateEPSt10unique_ptrINS_17Uncompr
   store ptr %6, ptr %4, align 8, !tbaa !80
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %7, align 8, !tbaa !82
-  store i8 0, ptr %6, align 1, !tbaa !84
+  store i8 0, ptr %6, align 8, !tbaa !84
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %9 = load i64, ptr %5, align 8, !tbaa !85
   store i64 %9, ptr %8, align 8, !tbaa !85

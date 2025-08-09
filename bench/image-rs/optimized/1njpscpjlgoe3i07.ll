@@ -31375,11 +31375,11 @@ _ZN4core5slice5ascii8is_ascii17hd613dae18f560376E.exit.thread51.i: ; preds = %.p
   %.sroa.6.0..sroa_idx6.i.i.i = getelementptr inbounds nuw i8, ptr %92, i64 2
   store i8 %86, ptr %.sroa.6.0..sroa_idx6.i.i.i, align 2, !noalias !6189
   %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx8.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %92, i64 8
-  store i64 %89, ptr %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx8.sroa_idx.i.i.i, align 1, !noalias !6189
+  store i64 %89, ptr %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx8.sroa_idx.i.i.i, align 8, !noalias !6189
   %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx8.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %92, i64 16
-  store ptr %90, ptr %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx8.sroa_idx.i.i.i, align 1, !noalias !6189
+  store ptr %90, ptr %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx8.sroa_idx.i.i.i, align 8, !noalias !6189
   %.sroa.7.sroa.6.0..sroa.7.0..sroa_idx8.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %92, i64 24
-  store i64 %81, ptr %.sroa.7.sroa.6.0..sroa.7.0..sroa_idx8.sroa_idx.i.i.i, align 1, !noalias !6189
+  store i64 %81, ptr %.sroa.7.sroa.6.0..sroa.7.0..sroa_idx8.sroa_idx.i.i.i, align 8, !noalias !6189
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !6175
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !6168
   %99 = ptrtoint ptr %.sroa.11.0113 to i64
@@ -31789,11 +31789,11 @@ _ZN4core5slice5ascii8is_ascii17hd613dae18f560376E.exit.thread52.i: ; preds = %.p
   %.sroa.6.0..sroa_idx6.i.i.i = getelementptr inbounds nuw i8, ptr %91, i64 2
   store i8 %.sroa.4.0.extract.trunc.i.i, ptr %.sroa.6.0..sroa_idx6.i.i.i, align 2, !noalias !6285
   %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx8.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %91, i64 8
-  store i64 %88, ptr %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx8.sroa_idx.i.i.i, align 1, !noalias !6285
+  store i64 %88, ptr %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx8.sroa_idx.i.i.i, align 8, !noalias !6285
   %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx8.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %91, i64 16
-  store ptr %89, ptr %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx8.sroa_idx.i.i.i, align 1, !noalias !6285
+  store ptr %89, ptr %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx8.sroa_idx.i.i.i, align 8, !noalias !6285
   %.sroa.7.sroa.6.0..sroa.7.0..sroa_idx8.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %91, i64 24
-  store i64 %82, ptr %.sroa.7.sroa.6.0..sroa.7.0..sroa_idx8.sroa_idx.i.i.i, align 1, !noalias !6285
+  store i64 %82, ptr %.sroa.7.sroa.6.0..sroa.7.0..sroa_idx8.sroa_idx.i.i.i, align 8, !noalias !6285
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !6271
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !6264
   %98 = ptrtoint ptr %.sroa.12.0134 to i64

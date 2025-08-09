@@ -3110,7 +3110,7 @@ _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPNS_16EvictingCacheMap
   tail call void @llvm.assume(i1 %cmp.i.i)
   %conv.i.i.i = trunc i64 %desiredCapacity.addr.0.pn.i to i16
   %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i2.i.i7.i, i64 12
-  store i16 %conv.i.i.i, ptr %arrayidx.i.i.i.i.i, align 1
+  store i16 %conv.i.i.i, ptr %arrayidx.i.i.i.i.i, align 2
   %chunks_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i2.i.i7.i, ptr %chunks_, align 8
   %sizeAndChunkShiftAndPackedBegin_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -5383,7 +5383,7 @@ _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPNS_16EvictingCacheMap
   tail call void @llvm.assume(i1 %cmp.i.i)
   %conv.i.i.i = trunc i64 %newCapacityScale to i16
   %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i2.i.i7.i, i64 12
-  store i16 %conv.i.i.i, ptr %arrayidx.i.i.i.i.i, align 1
+  store i16 %conv.i.i.i, ptr %arrayidx.i.i.i.i.i, align 2
   store ptr %call5.i.i2.i.i7.i, ptr %chunks_, align 8
   %sizeAndChunkShiftAndPackedBegin_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %newChunkCount, i1 true)

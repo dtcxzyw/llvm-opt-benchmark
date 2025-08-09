@@ -4299,7 +4299,7 @@ av1_set_ref_frame.exit:                           ; preds = %46, %48
   %.not.i99 = icmp ne i32 %66, -1
   tail call void @llvm.assume(i1 %.not.i99)
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 25224
-  %68 = load i32, ptr %67, align 4
+  %68 = load i32, ptr %67, align 8
   %.not.i100 = icmp eq i32 %68, 0
   br i1 %.not.i100, label %get_relative_dist.exit, label %69
 

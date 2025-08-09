@@ -621,7 +621,7 @@ define dso_local void @svc_xprt_init(ptr noundef %0, ptr noundef %1, ptr noundef
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store volatile i32 1, ptr %9, align 4
+  store volatile i32 1, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store ptr %3, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -908,7 +908,7 @@ define internal fastcc i32 @_svc_xprt_create(ptr noundef %0, ptr noundef readonl
   call void @_raw_spin_unlock_bh(ptr noundef nonnull %17) #18
   call void @svc_xprt_received(ptr noundef %43)
   %83 = getelementptr inbounds nuw i8, ptr %43, i64 136
-  %84 = load i16, ptr %83, align 2
+  %84 = load i16, ptr %83, align 8
   switch i16 %84, label %.thread6 [
     i16 2, label %85
     i16 10, label %85
@@ -2229,7 +2229,7 @@ define dso_local void @svc_age_temp_xprts_now(ptr noundef %0, ptr noundef %1) #0
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr i8, ptr %15, i64 112
   %18 = load i16, ptr %1, align 2
-  %19 = load i16, ptr %17, align 2
+  %19 = load i16, ptr %17, align 8
   %20 = icmp eq i16 %18, %19
   br i1 %20, label %21, label %50
 
@@ -2886,7 +2886,7 @@ define dso_local i32 @svc_xprt_names(ptr noundef %0, ptr noundef writeonly captu
   %15 = load ptr, ptr %13, align 8
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr i8, ptr %10, i64 112
-  %18 = load i16, ptr %17, align 2
+  %18 = load i16, ptr %17, align 8
   switch i16 %18, label %24 [
     i16 2, label %19
     i16 10, label %19

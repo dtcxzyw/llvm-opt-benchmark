@@ -1619,7 +1619,7 @@ entry:
   %this.repack4.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i2.i.i, i64 8
   store i64 0, ptr %this.repack4.i.i.i.i.i, align 8
   %_M_bound_args.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i2.i.i, i64 16
-  store i32 %.sroa.speculated, ptr %_M_bound_args.i.i.i.i.i, align 4
+  store i32 %.sroa.speculated, ptr %_M_bound_args.i.i.i.i.i, align 8
   store ptr %call.i.i2.i.i, ptr %ref.tmp.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false)
@@ -1762,7 +1762,7 @@ entry:
   %this.repack4.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i2.i.i, i64 8
   store i64 0, ptr %this.repack4.i.i.i.i.i, align 8
   %_M_bound_args.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i2.i.i, i64 16
-  store i32 %.sroa.speculated, ptr %_M_bound_args.i.i.i.i.i, align 4
+  store i32 %.sroa.speculated, ptr %_M_bound_args.i.i.i.i.i, align 8
   store ptr %call.i.i2.i.i, ptr %ref.tmp.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false)
@@ -1804,7 +1804,7 @@ _ZNSt8functionIFvPN7openvdb5v11_05tools14LevelSetFilterINS1_4GridINS1_4tree4Tree
   %this.repack4.i.i.i.i.i18 = getelementptr inbounds nuw i8, ptr %call.i.i2.i.i14, i64 8
   store i64 0, ptr %this.repack4.i.i.i.i.i18, align 8
   %_M_bound_args.i.i.i.i.i19 = getelementptr inbounds nuw i8, ptr %call.i.i2.i.i14, i64 16
-  store i32 %.sroa.speculated, ptr %_M_bound_args.i.i.i.i.i19, align 4
+  store i32 %.sroa.speculated, ptr %_M_bound_args.i.i.i.i.i19, align 8
   store ptr %call.i.i2.i.i14, ptr %ref.tmp.i11, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i11, i64 16, i1 false)
@@ -1844,7 +1844,7 @@ _ZNSt8functionIFvPN7openvdb5v11_05tools14LevelSetFilterINS1_4GridINS1_4tree4Tree
   %this.repack4.i.i.i.i.i41 = getelementptr inbounds nuw i8, ptr %call.i.i2.i.i37, i64 8
   store i64 0, ptr %this.repack4.i.i.i.i.i41, align 8
   %_M_bound_args.i.i.i.i.i42 = getelementptr inbounds nuw i8, ptr %call.i.i2.i.i37, i64 16
-  store i32 %.sroa.speculated, ptr %_M_bound_args.i.i.i.i.i42, align 4
+  store i32 %.sroa.speculated, ptr %_M_bound_args.i.i.i.i.i42, align 8
   store ptr %call.i.i2.i.i37, ptr %ref.tmp.i34, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i33)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i33, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i34, i64 16, i1 false)
@@ -16002,7 +16002,7 @@ entry:
   %this.repack4.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i2.i.i, i64 8
   store i64 0, ptr %this.repack4.i.i.i.i.i, align 8
   %_M_bound_args.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i2.i.i, i64 16
-  store i32 %.sroa.speculated, ptr %_M_bound_args.i.i.i.i.i, align 4
+  store i32 %.sroa.speculated, ptr %_M_bound_args.i.i.i.i.i, align 8
   store ptr %call.i.i2.i.i, ptr %ref.tmp.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false)
@@ -16145,7 +16145,7 @@ entry:
   %this.repack4.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i2.i.i, i64 8
   store i64 0, ptr %this.repack4.i.i.i.i.i, align 8
   %_M_bound_args.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i2.i.i, i64 16
-  store i32 %.sroa.speculated, ptr %_M_bound_args.i.i.i.i.i, align 4
+  store i32 %.sroa.speculated, ptr %_M_bound_args.i.i.i.i.i, align 8
   store ptr %call.i.i2.i.i, ptr %ref.tmp.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false)
@@ -16187,7 +16187,7 @@ _ZNSt8functionIFvPN7openvdb5v11_05tools14LevelSetFilterINS1_4GridINS1_4tree4Tree
   %this.repack4.i.i.i.i.i18 = getelementptr inbounds nuw i8, ptr %call.i.i2.i.i14, i64 8
   store i64 0, ptr %this.repack4.i.i.i.i.i18, align 8
   %_M_bound_args.i.i.i.i.i19 = getelementptr inbounds nuw i8, ptr %call.i.i2.i.i14, i64 16
-  store i32 %.sroa.speculated, ptr %_M_bound_args.i.i.i.i.i19, align 4
+  store i32 %.sroa.speculated, ptr %_M_bound_args.i.i.i.i.i19, align 8
   store ptr %call.i.i2.i.i14, ptr %ref.tmp.i11, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i11, i64 16, i1 false)
@@ -16227,7 +16227,7 @@ _ZNSt8functionIFvPN7openvdb5v11_05tools14LevelSetFilterINS1_4GridINS1_4tree4Tree
   %this.repack4.i.i.i.i.i41 = getelementptr inbounds nuw i8, ptr %call.i.i2.i.i37, i64 8
   store i64 0, ptr %this.repack4.i.i.i.i.i41, align 8
   %_M_bound_args.i.i.i.i.i42 = getelementptr inbounds nuw i8, ptr %call.i.i2.i.i37, i64 16
-  store i32 %.sroa.speculated, ptr %_M_bound_args.i.i.i.i.i42, align 4
+  store i32 %.sroa.speculated, ptr %_M_bound_args.i.i.i.i.i42, align 8
   store ptr %call.i.i2.i.i37, ptr %ref.tmp.i34, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i33)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i33, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i34, i64 16, i1 false)
@@ -31997,9 +31997,9 @@ invoke.cont:                                      ; preds = %arrayctor.loop
   %arrayctor.cur.ptr.ptr = getelementptr inbounds nuw i8, ptr %call, i64 %arrayctor.cur.idx
   store ptr %call.i4, ptr %arrayctor.cur.ptr.ptr, align 8
   %mMutex.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr, i64 12
-  store i8 0, ptr %mMutex.i, align 1
+  store i8 0, ptr %mMutex.i, align 4
   %mOutOfCore2.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr, i64 8
-  store atomic i32 0, ptr %mOutOfCore2.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i seq_cst, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 16
   %7 = add nuw nsw i64 %arrayctor.cur.idx, 8
   %arrayctor.done = icmp eq i64 %7, %4
@@ -32305,7 +32305,7 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
 
 delete.end.i.i.i:                                 ; preds = %delete.notnull.i.i.i, %if.then.i.i.i
   store ptr null, ptr %arraydestroy.element.i, align 8
-  store atomic i32 0, ptr %mOutOfCore.i.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore.i.i.i seq_cst, align 8
   br label %_ZN7openvdb5v11_04tree10LeafBufferIfLj3EED2Ev.exit.i
 
 if.else.i.i:                                      ; preds = %arraydestroy.body.i
@@ -32849,7 +32849,7 @@ _ZN7openvdb5v11_04tree10LeafBufferIfLj3EE8FileInfoD2Ev.exit: ; preds = %_ZNSt10s
 
 delete.end.i.i:                                   ; preds = %_ZN7openvdb5v11_04tree10LeafBufferIfLj3EE8FileInfoD2Ev.exit, %if.then.i.i
   store ptr null, ptr %arrayidx7, align 8
-  store atomic i32 0, ptr %mOutOfCore.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore.i.i seq_cst, align 8
   br label %if.end7.i
 
 if.else.i:                                        ; preds = %if.then.i
@@ -33864,7 +33864,7 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
 
 delete.end.i.i.i:                                 ; preds = %delete.notnull.i.i.i, %if.then.i.i.i
   store ptr null, ptr %arraydestroy.element.i, align 8
-  store atomic i32 0, ptr %mOutOfCore.i.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore.i.i.i seq_cst, align 8
   br label %_ZN7openvdb5v11_04tree10LeafBufferIfLj3EED2Ev.exit.i
 
 if.else.i.i:                                      ; preds = %arraydestroy.body.i
@@ -33962,7 +33962,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
-  store i64 %6, ptr %my_range.i.i.i.i, align 8
+  store i64 %6, ptr %my_range.i.i.i.i, align 64
   %my_begin.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 72
   %7 = load i64, ptr %my_begin.i.i.i.i.i.i, align 8
   %sub.i.i.i.i.i.i = sub i64 %6, %7
@@ -33972,14 +33972,14 @@ do.body:                                          ; preds = %do.body.backedge, %
   store i64 %add.i.i.i.i.i.i, ptr %my_begin.i.i.i.i.i, align 8
   %my_grainsize.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 80
   %8 = load i64, ptr %my_grainsize3.i.i.i.i.i, align 16
-  store i64 %8, ptr %my_grainsize.i.i.i.i.i, align 8
+  store i64 %8, ptr %my_grainsize.i.i.i.i.i, align 16
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 88
   call void @_ZN7openvdb5v11_04tree11LeafManagerINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEC2ERKSC_(ptr noundef nonnull align 8 dereferenceable(96) %my_body.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(96) %my_body4.i.i.i.i)
   %my_partition.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 192
   %9 = load i64, ptr %my_partition6.i.i.i.i, align 64
   %div1.i.i.i.i.i.i.i.i = lshr i64 %9, 1
   store i64 %div1.i.i.i.i.i.i.i.i, ptr %my_partition6.i.i.i.i, align 64
-  store i64 %div1.i.i.i.i.i.i.i.i, ptr %my_partition.i.i.i.i, align 8
+  store i64 %div1.i.i.i.i.i.i.i.i, ptr %my_partition.i.i.i.i, align 64
   %my_delay.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 200
   store i32 2, ptr %my_delay.i.i.i.i.i.i, align 8
   %my_max_depth.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 204
@@ -33992,12 +33992,12 @@ do.body:                                          ; preds = %do.body.backedge, %
   %12 = load ptr, ptr %my_parent.i.i, align 8
   store ptr %12, ptr %call.i4.i.i, align 8
   %m_ref_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i, i64 8
-  store i32 2, ptr %m_ref_count.i.i.i.i.i, align 4
+  store i32 2, ptr %m_ref_count.i.i.i.i.i, align 8
   %m_allocator.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i, i64 16
   %13 = load i64, ptr %alloc.i.i, align 8
   store i64 %13, ptr %m_allocator.i.i.i.i, align 8
   %m_child_stolen.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i, i64 24
-  store i8 0, ptr %m_child_stolen.i.i.i.i, align 1
+  store i8 0, ptr %m_child_stolen.i.i.i.i, align 8
   store ptr %call.i4.i.i, ptr %my_parent.i.i, align 8
   %my_parent6.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 184
   store ptr %call.i4.i.i, ptr %my_parent6.i.i, align 8
@@ -34214,12 +34214,12 @@ invoke.cont14:                                    ; preds = %if.then10.thread, %
   %25 = load ptr, ptr %my_parent.i.i, align 8
   store ptr %25, ptr %call.i4.i.i19, align 8
   %m_ref_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i19, i64 8
-  store i32 2, ptr %m_ref_count.i.i.i.i.i, align 4
+  store i32 2, ptr %m_ref_count.i.i.i.i.i, align 8
   %m_allocator.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i19, i64 16
   %26 = load i64, ptr %alloc.i.i, align 8
   store i64 %26, ptr %m_allocator.i.i.i.i, align 8
   %m_child_stolen.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i19, i64 24
-  store i8 0, ptr %m_child_stolen.i.i.i.i, align 1
+  store i8 0, ptr %m_child_stolen.i.i.i.i, align 8
   store ptr %call.i4.i.i19, ptr %my_parent.i.i, align 8
   %my_parent8.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 184
   store ptr %call.i4.i.i19, ptr %my_parent8.i.i, align 8
@@ -34836,12 +34836,12 @@ do.body:                                          ; preds = %do.body.backedge, %
   %5 = load ptr, ptr %my_parent.i.i, align 16
   store ptr %5, ptr %call.i.i.i, align 8
   %m_ref_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
-  store i32 2, ptr %m_ref_count.i.i.i.i.i, align 4
+  store i32 2, ptr %m_ref_count.i.i.i.i.i, align 8
   %m_allocator.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   %6 = load i64, ptr %alloc.i.i, align 8
   store i64 %6, ptr %m_allocator.i.i.i.i, align 8
   %m_child_stolen.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 24
-  store i8 0, ptr %m_child_stolen.i.i.i.i, align 1
+  store i8 0, ptr %m_child_stolen.i.i.i.i, align 8
   store ptr %call.i.i.i, ptr %my_parent.i.i, align 16
   %my_parent6.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 144
   store ptr %call.i.i.i, ptr %my_parent6.i.i, align 16
@@ -35105,7 +35105,7 @@ entry:
   %my_range2.i = getelementptr inbounds nuw i8, ptr %args, i64 64
   %my_range.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   %1 = load i64, ptr %my_range2.i, align 64
-  store i64 %1, ptr %my_range.i, align 8
+  store i64 %1, ptr %my_range.i, align 64
   %mBegin.i.i = getelementptr inbounds nuw i8, ptr %call, i64 72
   %mBegin.i.i.i = getelementptr inbounds nuw i8, ptr %args, i64 72
   %2 = load i64, ptr %mBegin.i.i.i, align 8
@@ -35117,7 +35117,7 @@ entry:
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %call, i64 80
   %mGrainSize3.i.i = getelementptr inbounds nuw i8, ptr %args, i64 80
   %3 = load i64, ptr %mGrainSize3.i.i, align 16
-  store i64 %3, ptr %mGrainSize.i.i, align 8
+  store i64 %3, ptr %mGrainSize.i.i, align 16
   %mLeafManager.i.i = getelementptr inbounds nuw i8, ptr %call, i64 88
   %mLeafManager4.i.i = getelementptr inbounds nuw i8, ptr %args, i64 88
   %4 = load ptr, ptr %mLeafManager4.i.i, align 8
@@ -35267,12 +35267,12 @@ _ZN3tbb6detail2d122small_object_allocator10new_objectINS1_9start_forIN7openvdb5v
   %12 = load ptr, ptr %my_parent, align 16
   store ptr %12, ptr %call.i4, align 8
   %m_ref_count.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 8
-  store i32 2, ptr %m_ref_count.i.i.i, align 4
+  store i32 2, ptr %m_ref_count.i.i.i, align 8
   %m_allocator.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 16
   %13 = load i64, ptr %alloc, align 8
   store i64 %13, ptr %m_allocator.i.i, align 8
   %m_child_stolen.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 24
-  store i8 0, ptr %m_child_stolen.i.i, align 1
+  store i8 0, ptr %m_child_stolen.i.i, align 8
   store ptr %call.i4, ptr %my_parent, align 16
   %my_parent8 = getelementptr inbounds nuw i8, ptr %call.i, i64 144
   store ptr %call.i4, ptr %my_parent8, align 16
@@ -35308,10 +35308,10 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   store ptr %7, ptr %5, align 8
   store ptr %6, ptr %gep.i, align 8
   %mOutOfCore.i.i.i = getelementptr inbounds nuw i8, ptr %gep.i, i64 8
-  %8 = load atomic i32, ptr %mOutOfCore.i.i.i acquire, align 4
+  %8 = load atomic i32, ptr %mOutOfCore.i.i.i acquire, align 8
   %mOutOfCore2.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = atomicrmw xchg ptr %mOutOfCore2.i.i.i, i32 %8 seq_cst, align 4
-  store atomic i32 %9, ptr %mOutOfCore.i.i.i release, align 4
+  store atomic i32 %9, ptr %mOutOfCore.i.i.i release, align 8
   %inc.i = add i64 %n.06.i, 1
   %cmp.not.i = icmp eq i64 %inc.i, %4
   br i1 %cmp.not.i, label %_ZN7openvdb5v11_04tree15LeafManagerImplINS1_11LeafManagerINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEE16doSwapLeafBufferERKN3tbb6detail2d113blocked_rangeImEEmPPS8_PNS1_10LeafBufferIfLj3EEEm.exit, label %for.body.i, !llvm.loop !315
@@ -40381,9 +40381,9 @@ invoke.cont:                                      ; preds = %arrayctor.loop
   %arrayctor.cur.ptr.ptr = getelementptr inbounds nuw i8, ptr %call, i64 %arrayctor.cur.idx
   store ptr %call.i4, ptr %arrayctor.cur.ptr.ptr, align 8
   %mMutex.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr, i64 12
-  store i8 0, ptr %mMutex.i, align 1
+  store i8 0, ptr %mMutex.i, align 4
   %mOutOfCore2.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr, i64 8
-  store atomic i32 0, ptr %mOutOfCore2.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i seq_cst, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 16
   %7 = add nuw nsw i64 %arrayctor.cur.idx, 8
   %arrayctor.done = icmp eq i64 %7, %4
@@ -40683,7 +40683,7 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
 
 delete.end.i.i.i:                                 ; preds = %delete.notnull.i.i.i, %if.then.i.i.i
   store ptr null, ptr %arraydestroy.element.i, align 8
-  store atomic i32 0, ptr %mOutOfCore.i.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore.i.i.i seq_cst, align 8
   br label %_ZN7openvdb5v11_04tree10LeafBufferIdLj3EED2Ev.exit.i
 
 if.else.i.i:                                      ; preds = %arraydestroy.body.i
@@ -41147,7 +41147,7 @@ _ZN7openvdb5v11_04tree10LeafBufferIdLj3EE8FileInfoD2Ev.exit: ; preds = %_ZNSt10s
 
 delete.end.i.i:                                   ; preds = %_ZN7openvdb5v11_04tree10LeafBufferIdLj3EE8FileInfoD2Ev.exit, %if.then.i.i
   store ptr null, ptr %arrayidx7, align 8
-  store atomic i32 0, ptr %mOutOfCore.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore.i.i seq_cst, align 8
   br label %if.end7.i
 
 if.else.i:                                        ; preds = %if.then.i
@@ -42135,7 +42135,7 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
 
 delete.end.i.i.i:                                 ; preds = %delete.notnull.i.i.i, %if.then.i.i.i
   store ptr null, ptr %arraydestroy.element.i, align 8
-  store atomic i32 0, ptr %mOutOfCore.i.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore.i.i.i seq_cst, align 8
   br label %_ZN7openvdb5v11_04tree10LeafBufferIdLj3EED2Ev.exit.i
 
 if.else.i.i:                                      ; preds = %arraydestroy.body.i
@@ -42228,7 +42228,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
-  store i64 %6, ptr %my_range.i.i.i.i, align 8
+  store i64 %6, ptr %my_range.i.i.i.i, align 64
   %my_begin.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 72
   %7 = load i64, ptr %my_begin.i.i.i.i.i.i, align 8
   %sub.i.i.i.i.i.i = sub i64 %6, %7
@@ -42238,14 +42238,14 @@ do.body:                                          ; preds = %do.body.backedge, %
   store i64 %add.i.i.i.i.i.i, ptr %my_begin.i.i.i.i.i, align 8
   %my_grainsize.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 80
   %8 = load i64, ptr %my_grainsize3.i.i.i.i.i, align 16
-  store i64 %8, ptr %my_grainsize.i.i.i.i.i, align 8
+  store i64 %8, ptr %my_grainsize.i.i.i.i.i, align 16
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 88
   call void @_ZN7openvdb5v11_04tree11LeafManagerINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEC2ERKSC_(ptr noundef nonnull align 8 dereferenceable(96) %my_body.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(96) %my_body4.i.i.i.i)
   %my_partition.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 192
   %9 = load i64, ptr %my_partition6.i.i.i.i, align 64
   %div1.i.i.i.i.i.i.i.i = lshr i64 %9, 1
   store i64 %div1.i.i.i.i.i.i.i.i, ptr %my_partition6.i.i.i.i, align 64
-  store i64 %div1.i.i.i.i.i.i.i.i, ptr %my_partition.i.i.i.i, align 8
+  store i64 %div1.i.i.i.i.i.i.i.i, ptr %my_partition.i.i.i.i, align 64
   %my_delay.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 200
   store i32 2, ptr %my_delay.i.i.i.i.i.i, align 8
   %my_max_depth.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 204
@@ -42258,12 +42258,12 @@ do.body:                                          ; preds = %do.body.backedge, %
   %12 = load ptr, ptr %my_parent.i.i, align 8
   store ptr %12, ptr %call.i4.i.i, align 8
   %m_ref_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i, i64 8
-  store i32 2, ptr %m_ref_count.i.i.i.i.i, align 4
+  store i32 2, ptr %m_ref_count.i.i.i.i.i, align 8
   %m_allocator.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i, i64 16
   %13 = load i64, ptr %alloc.i.i, align 8
   store i64 %13, ptr %m_allocator.i.i.i.i, align 8
   %m_child_stolen.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i, i64 24
-  store i8 0, ptr %m_child_stolen.i.i.i.i, align 1
+  store i8 0, ptr %m_child_stolen.i.i.i.i, align 8
   store ptr %call.i4.i.i, ptr %my_parent.i.i, align 8
   %my_parent6.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 184
   store ptr %call.i4.i.i, ptr %my_parent6.i.i, align 8
@@ -42478,12 +42478,12 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   %25 = load ptr, ptr %my_parent.i.i, align 8
   store ptr %25, ptr %call.i4.i.i19, align 8
   %m_ref_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i19, i64 8
-  store i32 2, ptr %m_ref_count.i.i.i.i.i, align 4
+  store i32 2, ptr %m_ref_count.i.i.i.i.i, align 8
   %m_allocator.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i19, i64 16
   %26 = load i64, ptr %alloc.i.i, align 8
   store i64 %26, ptr %m_allocator.i.i.i.i, align 8
   %m_child_stolen.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i19, i64 24
-  store i8 0, ptr %m_child_stolen.i.i.i.i, align 1
+  store i8 0, ptr %m_child_stolen.i.i.i.i, align 8
   store ptr %call.i4.i.i19, ptr %my_parent.i.i, align 8
   %my_parent8.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 184
   store ptr %call.i4.i.i19, ptr %my_parent8.i.i, align 8
@@ -43085,12 +43085,12 @@ do.body:                                          ; preds = %do.body.backedge, %
   %5 = load ptr, ptr %my_parent.i.i, align 16
   store ptr %5, ptr %call.i.i.i, align 8
   %m_ref_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
-  store i32 2, ptr %m_ref_count.i.i.i.i.i, align 4
+  store i32 2, ptr %m_ref_count.i.i.i.i.i, align 8
   %m_allocator.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   %6 = load i64, ptr %alloc.i.i, align 8
   store i64 %6, ptr %m_allocator.i.i.i.i, align 8
   %m_child_stolen.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 24
-  store i8 0, ptr %m_child_stolen.i.i.i.i, align 1
+  store i8 0, ptr %m_child_stolen.i.i.i.i, align 8
   store ptr %call.i.i.i, ptr %my_parent.i.i, align 16
   %my_parent6.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 144
   store ptr %call.i.i.i, ptr %my_parent6.i.i, align 16
@@ -43354,7 +43354,7 @@ entry:
   %my_range2.i = getelementptr inbounds nuw i8, ptr %args, i64 64
   %my_range.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   %1 = load i64, ptr %my_range2.i, align 64
-  store i64 %1, ptr %my_range.i, align 8
+  store i64 %1, ptr %my_range.i, align 64
   %mBegin.i.i = getelementptr inbounds nuw i8, ptr %call, i64 72
   %mBegin.i.i.i = getelementptr inbounds nuw i8, ptr %args, i64 72
   %2 = load i64, ptr %mBegin.i.i.i, align 8
@@ -43366,7 +43366,7 @@ entry:
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %call, i64 80
   %mGrainSize3.i.i = getelementptr inbounds nuw i8, ptr %args, i64 80
   %3 = load i64, ptr %mGrainSize3.i.i, align 16
-  store i64 %3, ptr %mGrainSize.i.i, align 8
+  store i64 %3, ptr %mGrainSize.i.i, align 16
   %mLeafManager.i.i = getelementptr inbounds nuw i8, ptr %call, i64 88
   %mLeafManager4.i.i = getelementptr inbounds nuw i8, ptr %args, i64 88
   %4 = load ptr, ptr %mLeafManager4.i.i, align 8
@@ -43516,12 +43516,12 @@ _ZN3tbb6detail2d122small_object_allocator10new_objectINS1_9start_forIN7openvdb5v
   %12 = load ptr, ptr %my_parent, align 16
   store ptr %12, ptr %call.i4, align 8
   %m_ref_count.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 8
-  store i32 2, ptr %m_ref_count.i.i.i, align 4
+  store i32 2, ptr %m_ref_count.i.i.i, align 8
   %m_allocator.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 16
   %13 = load i64, ptr %alloc, align 8
   store i64 %13, ptr %m_allocator.i.i, align 8
   %m_child_stolen.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 24
-  store i8 0, ptr %m_child_stolen.i.i, align 1
+  store i8 0, ptr %m_child_stolen.i.i, align 8
   store ptr %call.i4, ptr %my_parent, align 16
   %my_parent8 = getelementptr inbounds nuw i8, ptr %call.i, i64 144
   store ptr %call.i4, ptr %my_parent8, align 16
@@ -43557,10 +43557,10 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   store ptr %7, ptr %5, align 8
   store ptr %6, ptr %gep.i, align 8
   %mOutOfCore.i.i.i = getelementptr inbounds nuw i8, ptr %gep.i, i64 8
-  %8 = load atomic i32, ptr %mOutOfCore.i.i.i acquire, align 4
+  %8 = load atomic i32, ptr %mOutOfCore.i.i.i acquire, align 8
   %mOutOfCore2.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = atomicrmw xchg ptr %mOutOfCore2.i.i.i, i32 %8 seq_cst, align 4
-  store atomic i32 %9, ptr %mOutOfCore.i.i.i release, align 4
+  store atomic i32 %9, ptr %mOutOfCore.i.i.i release, align 8
   %inc.i = add i64 %n.06.i, 1
   %cmp.not.i = icmp eq i64 %inc.i, %4
   br i1 %cmp.not.i, label %_ZN7openvdb5v11_04tree15LeafManagerImplINS1_11LeafManagerINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEE16doSwapLeafBufferERKN3tbb6detail2d113blocked_rangeImEEmPPS8_PNS1_10LeafBufferIdLj3EEEm.exit, label %for.body.i, !llvm.loop !359

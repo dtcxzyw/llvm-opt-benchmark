@@ -69242,9 +69242,9 @@ _ZN8wasmtime7runtime8instance8Instance16new_started_impl17h5a7cb580a0f788c2E.exi
   store ptr %192, ptr %84, align 8, !alias.scope !10231, !noalias !10225
   %.sroa.0.0.copyload1.i.i.i = load i32, ptr %191, align 8, !noalias !10232
   %.sroa.6.sroa.6.0..sroa.6.0..sroa_idx2.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %191, i64 56
-  %.sroa.6.sroa.6.0.copyload.i.i.i = load ptr, ptr %.sroa.6.sroa.6.0..sroa.6.0..sroa_idx2.sroa_idx.i.i.i, align 4, !noalias !10232
+  %.sroa.6.sroa.6.0.copyload.i.i.i = load ptr, ptr %.sroa.6.sroa.6.0..sroa.6.0..sroa_idx2.sroa_idx.i.i.i, align 8, !noalias !10232
   %.sroa.6.sroa.7.0..sroa.6.0..sroa_idx2.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %191, i64 64
-  %.sroa.6.sroa.7.0.copyload.i.i.i = load i64, ptr %.sroa.6.sroa.7.0..sroa.6.0..sroa_idx2.sroa_idx.i.i.i, align 4, !noalias !10232
+  %.sroa.6.sroa.7.0.copyload.i.i.i = load i64, ptr %.sroa.6.sroa.7.0..sroa.6.0..sroa_idx2.sroa_idx.i.i.i, align 8, !noalias !10232
   %193 = icmp eq i32 %.sroa.0.0.copyload1.i.i.i, 5
   br i1 %193, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h622e1e1da50b21c3E.exit.i._crit_edge.i.i", label %194
 

@@ -1164,12 +1164,12 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   store i16 %111, ptr %112, align 4
   %113 = shl i32 %107, 16
   %114 = ashr exact i32 %113, 16
-  store i32 %114, ptr %108, align 4
+  store i32 %114, ptr %108, align 8
   %115 = getelementptr inbounds nuw i8, ptr %110, i64 1936
   %116 = load i64, ptr %115, align 16
   %117 = trunc i64 %116 to i32
   %118 = getelementptr inbounds nuw i8, ptr %105, i64 32
-  store i32 %117, ptr %118, align 4
+  store i32 %117, ptr %118, align 8
   %119 = getelementptr inbounds nuw i8, ptr %110, i64 1896
   %120 = load i64, ptr %119, align 8
   %121 = trunc i64 %120 to i32
@@ -1184,10 +1184,10 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   call void @__rcu_read_unlock() #15
   %127 = call i32 @__task_pid_nr_ns(ptr noundef %110, i32 noundef 0, ptr noundef null) #15
   %128 = getelementptr inbounds nuw i8, ptr %105, i64 40
-  store i32 %127, ptr %128, align 4
+  store i32 %127, ptr %128, align 8
   %129 = call i32 @__task_pid_nr_ns(ptr noundef %110, i32 noundef 2, ptr noundef null) #15
   %130 = getelementptr inbounds nuw i8, ptr %105, i64 48
-  store i32 %129, ptr %130, align 4
+  store i32 %129, ptr %130, align 8
   %131 = call i32 @__task_pid_nr_ns(ptr noundef %110, i32 noundef 3, ptr noundef null) #15
   %132 = getelementptr inbounds nuw i8, ptr %105, i64 52
   store i32 %131, ptr %132, align 4

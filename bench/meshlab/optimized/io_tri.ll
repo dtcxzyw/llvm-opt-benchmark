@@ -3320,7 +3320,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %53, %55
   %118 = and i32 %storemerge.i.i, -524290
   %119 = or i32 %storemerge.i.i, 524288
   %storemerge18.i.i = select i1 %.not17.i.i, i32 %118, i32 %119
-  store i32 %storemerge18.i.i, ptr %106, align 4
+  store i32 %storemerge18.i.i, ptr %106, align 8
   %120 = load i8, ptr %104, align 1
   %121 = trunc i8 %120 to i1
   br i1 %121, label %122, label %133

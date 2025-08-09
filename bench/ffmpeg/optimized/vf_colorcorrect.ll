@@ -259,10 +259,10 @@ define internal range(i32 -558323010, 1) i32 @config_input(ptr noundef readonly 
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 60
   store i32 %66, ptr %68, align 4, !tbaa !35
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store i32 %66, ptr %69, align 4, !tbaa !35
+  store i32 %66, ptr %69, align 8, !tbaa !35
   %70 = load i32, ptr %31, align 4, !tbaa !56
   %71 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store i32 %70, ptr %71, align 4, !tbaa !35
+  store i32 %70, ptr %71, align 8, !tbaa !35
   store i32 %70, ptr %67, align 4, !tbaa !35
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %73 = load i32, ptr %72, align 8, !tbaa !63
@@ -273,11 +273,11 @@ define internal range(i32 -558323010, 1) i32 @config_input(ptr noundef readonly 
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 76
   store i32 %76, ptr %78, align 4, !tbaa !35
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store i32 %76, ptr %79, align 4, !tbaa !35
+  store i32 %76, ptr %79, align 8, !tbaa !35
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %81 = load i32, ptr %80, align 8, !tbaa !63
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store i32 %81, ptr %82, align 4, !tbaa !35
+  store i32 %81, ptr %82, align 8, !tbaa !35
   store i32 %81, ptr %77, align 4, !tbaa !35
   br label %83
 
@@ -306,9 +306,9 @@ define internal noundef i32 @colorcorrect_slice8(ptr noundef readonly captures(n
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %12 = load i32, ptr %11, align 4, !tbaa !60
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %14 = load i32, ptr %13, align 4, !tbaa !35
+  %14 = load i32, ptr %13, align 8, !tbaa !35
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %16 = load i32, ptr %15, align 4, !tbaa !35
+  %16 = load i32, ptr %15, align 8, !tbaa !35
   %17 = mul nsw i32 %16, %2
   %18 = sdiv i32 %17, %3
   %19 = add nsw i32 %2, 1
@@ -438,9 +438,9 @@ define internal noundef i32 @colorcorrect_slice16(ptr noundef readonly captures(
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %12 = load i32, ptr %11, align 4, !tbaa !60
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %14 = load i32, ptr %13, align 4, !tbaa !35
+  %14 = load i32, ptr %13, align 8, !tbaa !35
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %16 = load i32, ptr %15, align 4, !tbaa !35
+  %16 = load i32, ptr %15, align 8, !tbaa !35
   %17 = mul nsw i32 %16, %2
   %18 = sdiv i32 %17, %3
   %19 = add nsw i32 %2, 1
@@ -577,9 +577,9 @@ define internal noundef i32 @average_slice8(ptr noundef readonly captures(none) 
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load float, ptr %7, align 8, !tbaa !53
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %10 = load i32, ptr %9, align 4, !tbaa !35
+  %10 = load i32, ptr %9, align 8, !tbaa !35
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %12 = load i32, ptr %11, align 4, !tbaa !35
+  %12 = load i32, ptr %11, align 8, !tbaa !35
   %13 = mul nsw i32 %12, %2
   %14 = sdiv i32 %13, %3
   %15 = add nsw i32 %2, 1
@@ -678,9 +678,9 @@ define internal noundef i32 @average_slice16(ptr noundef readonly captures(none)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load float, ptr %7, align 8, !tbaa !53
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %10 = load i32, ptr %9, align 4, !tbaa !35
+  %10 = load i32, ptr %9, align 8, !tbaa !35
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %12 = load i32, ptr %11, align 4, !tbaa !35
+  %12 = load i32, ptr %11, align 8, !tbaa !35
   %13 = mul nsw i32 %12, %2
   %14 = sdiv i32 %13, %3
   %15 = add nsw i32 %2, 1
@@ -781,9 +781,9 @@ define internal noundef i32 @minmax_slice8(ptr noundef readonly captures(none) %
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load float, ptr %7, align 8, !tbaa !53
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %10 = load i32, ptr %9, align 4, !tbaa !35
+  %10 = load i32, ptr %9, align 8, !tbaa !35
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %12 = load i32, ptr %11, align 4, !tbaa !35
+  %12 = load i32, ptr %11, align 8, !tbaa !35
   %13 = mul nsw i32 %12, %2
   %14 = sdiv i32 %13, %3
   %15 = add nsw i32 %2, 1
@@ -887,9 +887,9 @@ define internal noundef i32 @minmax_slice16(ptr noundef readonly captures(none) 
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load float, ptr %7, align 8, !tbaa !53
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %10 = load i32, ptr %9, align 4, !tbaa !35
+  %10 = load i32, ptr %9, align 8, !tbaa !35
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %12 = load i32, ptr %11, align 4, !tbaa !35
+  %12 = load i32, ptr %11, align 8, !tbaa !35
   %13 = mul nsw i32 %12, %2
   %14 = sdiv i32 %13, %3
   %15 = add nsw i32 %2, 1
@@ -995,9 +995,9 @@ define internal noundef i32 @median_8(ptr noundef readonly captures(none) %0, pt
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load float, ptr %7, align 8, !tbaa !53
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %10 = load i32, ptr %9, align 4, !tbaa !35
+  %10 = load i32, ptr %9, align 8, !tbaa !35
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %12 = load i32, ptr %11, align 4, !tbaa !35
+  %12 = load i32, ptr %11, align 8, !tbaa !35
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %14 = load i32, ptr %13, align 4, !tbaa !35
   %15 = sext i32 %14 to i64
@@ -1144,9 +1144,9 @@ define internal noundef i32 @median_16(ptr noundef readonly captures(none) %0, p
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load float, ptr %7, align 8, !tbaa !53
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %10 = load i32, ptr %9, align 4, !tbaa !35
+  %10 = load i32, ptr %9, align 8, !tbaa !35
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %12 = load i32, ptr %11, align 4, !tbaa !35
+  %12 = load i32, ptr %11, align 8, !tbaa !35
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %14 = load i32, ptr %13, align 4, !tbaa !35
   %15 = sdiv i32 %14, 2

@@ -148,7 +148,7 @@ _ZN4llvm9StringRefC2EPKc.exit.thread.i.i:         ; preds = %1
   store ptr %24, ptr %23, align 8, !tbaa !11
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store i64 0, ptr %25, align 8, !tbaa !18
-  store i8 0, ptr %24, align 1, !tbaa !17
+  store i8 0, ptr %24, align 8, !tbaa !17
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 120
   store ptr %8, ptr %26, align 8, !tbaa !19
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 128
@@ -3033,11 +3033,11 @@ _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRe
   %90 = getelementptr i8, ptr %84, i64 48
   %.val18.i.i.i.i.i = load ptr, ptr %90, align 8, !tbaa !121, !noalias !199
   %91 = getelementptr i8, ptr %84, i64 56
-  %.val19.i.i.i.i.i = load i32, ptr %91, align 4, !noalias !199
+  %.val19.i.i.i.i.i = load i32, ptr %91, align 8, !noalias !199
   %92 = getelementptr i8, ptr %89, i64 48
   %.val20.i.i.i.i.i = load ptr, ptr %92, align 8, !tbaa !121, !noalias !199
   %93 = getelementptr i8, ptr %89, i64 56
-  %.val21.i.i.i.i.i = load i32, ptr %93, align 4, !noalias !199
+  %.val21.i.i.i.i.i = load i32, ptr %93, align 8, !noalias !199
   %94 = icmp eq ptr %.val18.i.i.i.i.i, %.val20.i.i.i.i.i
   %95 = icmp eq i32 %.val19.i.i.i.i.i, %.val21.i.i.i.i.i
   %spec.select.i.i.i.i.i.i.i = select i1 %94, i1 %95, i1 false

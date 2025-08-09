@@ -679,17 +679,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179: ; preds = %_Z
   store i32 %105, ptr %106, align 4, !tbaa !49
   %107 = add i32 %61, -1
   %108 = getelementptr inbounds nuw i8, ptr %97, i64 104
-  store i32 %107, ptr %108, align 4, !tbaa !50
+  store i32 %107, ptr %108, align 8, !tbaa !50
   %109 = getelementptr inbounds nuw i8, ptr %97, i64 376
   store i32 %spec.store.select, ptr %109, align 8, !tbaa !51
   %110 = getelementptr inbounds nuw i8, ptr %97, i64 108
   store i64 %5, ptr %110, align 4
   %111 = getelementptr inbounds nuw i8, ptr %97, i64 116
   %112 = getelementptr inbounds nuw i8, ptr %97, i64 120
-  store i32 1, ptr %112, align 4, !tbaa !52
+  store i32 1, ptr %112, align 8, !tbaa !52
   store i32 1, ptr %111, align 4, !tbaa !53
   %113 = getelementptr inbounds nuw i8, ptr %97, i64 128
-  store i32 1, ptr %113, align 4, !tbaa !54
+  store i32 1, ptr %113, align 8, !tbaa !54
   %114 = getelementptr inbounds nuw i8, ptr %97, i64 132
   store i32 2, ptr %114, align 4, !tbaa !55
   %115 = getelementptr inbounds nuw i8, ptr %97, i64 272
@@ -1209,11 +1209,11 @@ _ZL20icvEndProcessContourP17_CvContourScanner.exit: ; preds = %52, %84
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %93 = load i32, ptr %92, align 4, !tbaa !53
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %95 = load i32, ptr %94, align 4, !tbaa !52
+  %95 = load i32, ptr %94, align 8, !tbaa !52
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %97 = load i32, ptr %96, align 4, !tbaa !49
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %99 = load i32, ptr %98, align 4, !tbaa !50
+  %99 = load i32, ptr %98, align 8, !tbaa !50
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %101 = load i32, ptr %100, align 8, !tbaa !51
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 124
@@ -2984,7 +2984,7 @@ _ZL17icvFetchContourExPai7CvPointP5CvSeqiiP6CvRect.exit: ; preds = %.loopexit.i3
   %897 = add nsw i32 %216, 1
   %898 = add i32 %.neg, %897
   store i32 %898, ptr %92, align 4, !tbaa !53
-  store i32 %.0263566, ptr %94, align 4, !tbaa !52
+  store i32 %.0263566, ptr %94, align 8, !tbaa !52
   %.sroa.0.0.insert.insert.i.i407 = or disjoint i64 %.sroa.2.0.insert.shift.i.i405.le, %.sroa.0.0.insert.ext.i.i
   store i64 %.sroa.0.0.insert.insert.i.i407, ptr %102, align 4
   store ptr %.0250568, ptr %88, align 8, !tbaa !47

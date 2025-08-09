@@ -126,7 +126,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
   %19 = sext i32 %17 to i64
   %20 = mul nsw i64 %19, %18
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %22 = load i32, ptr %21, align 8, !tbaa !31
+  %22 = load i32, ptr %21, align 16, !tbaa !31
   %23 = sitofp i32 %22 to float
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %25 = load float, ptr %24, align 4, !tbaa !32

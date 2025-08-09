@@ -7399,7 +7399,7 @@ _ZN4Luau14NameConstraintC2EOS0_.exit:             ; preds = %10, %_ZNKSt7__cxx11
   store i64 %17, ptr %18, align 8, !tbaa !217
   store ptr %8, ptr %5, align 8, !tbaa !220
   store i64 0, ptr %16, align 8, !tbaa !217
-  store i8 0, ptr %8, align 1, !tbaa !251
+  store i8 0, ptr %8, align 8, !tbaa !251
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %21 = load i8, ptr %20, align 8, !tbaa !287, !range !171, !noundef !172
@@ -7509,7 +7509,7 @@ _ZN4Luau17HasPropConstraintC2EOS0_.exit:          ; preds = %9, %_ZNKSt7__cxx111
   store i64 %16, ptr %17, align 8, !tbaa !217
   store ptr %7, ptr %4, align 8, !tbaa !220
   store i64 0, ptr %15, align 8, !tbaa !217
-  store i8 0, ptr %7, align 1, !tbaa !251
+  store i8 0, ptr %7, align 8, !tbaa !251
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %18, ptr noundef nonnull align 8 dereferenceable(6) %19, i64 6, i1 false)
@@ -7557,7 +7557,7 @@ _ZN4Luau20AssignPropConstraintC2EOS0_.exit:       ; preds = %10, %_ZNKSt7__cxx11
   store i64 %17, ptr %18, align 8, !tbaa !217
   store ptr %8, ptr %5, align 8, !tbaa !220
   store i64 0, ptr %16, align 8, !tbaa !217
-  store i8 0, ptr %8, align 1, !tbaa !251
+  store i8 0, ptr %8, align 8, !tbaa !251
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %19, ptr noundef nonnull align 8 dereferenceable(41) %20, i64 41, i1 false)

@@ -50960,7 +50960,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor13runLoadLaneOpIhEEN5cxx
   %.sroa.0103.8.vec.insert = insertelement <2 x i64> %.sroa.0103.0.vec.insert, i64 %.sroa.2.0.copyload.i, i64 1
   %19 = bitcast <2 x i64> %.sroa.0103.8.vec.insert to <16 x i8>
   %20 = getelementptr inbounds i8, ptr %17, i64 -32
-  %21 = load i32, ptr %20, align 4
+  %21 = load i32, ptr %20, align 16
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = xor i32 %23, -1
@@ -51167,7 +51167,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor13runLoadLaneOpItEEN5cxx
   %.sroa.0103.8.vec.insert = insertelement <2 x i64> %.sroa.0103.0.vec.insert, i64 %.sroa.2.0.copyload.i, i64 1
   %19 = bitcast <2 x i64> %.sroa.0103.8.vec.insert to <8 x i16>
   %20 = getelementptr inbounds i8, ptr %17, i64 -32
-  %21 = load i32, ptr %20, align 4
+  %21 = load i32, ptr %20, align 16
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = xor i32 %23, -1
@@ -51374,7 +51374,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor13runLoadLaneOpIjEEN5cxx
   %.sroa.0103.8.vec.insert = insertelement <2 x i64> %.sroa.0103.0.vec.insert, i64 %.sroa.2.0.copyload.i, i64 1
   %19 = bitcast <2 x i64> %.sroa.0103.8.vec.insert to <4 x i32>
   %20 = getelementptr inbounds i8, ptr %17, i64 -32
-  %21 = load i32, ptr %20, align 4
+  %21 = load i32, ptr %20, align 16
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = xor i32 %23, -1
@@ -51580,7 +51580,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor13runLoadLaneOpImEEN5cxx
   %.sroa.0103.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i, i64 0
   %.sroa.0103.8.vec.insert = insertelement <2 x i64> %.sroa.0103.0.vec.insert, i64 %.sroa.2.0.copyload.i, i64 1
   %19 = getelementptr inbounds i8, ptr %17, i64 -32
-  %20 = load i32, ptr %19, align 4
+  %20 = load i32, ptr %19, align 16
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = xor i32 %22, -1
@@ -52836,7 +52836,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor15runAtomicWaitOpIiEENSt
   store ptr %23, ptr %20, align 8
   %.sroa.0168.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i27 to i32
   %24 = getelementptr inbounds i8, ptr %21, i64 -48
-  %25 = load i32, ptr %24, align 4
+  %25 = load i32, ptr %24, align 16
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %27 = load i32, ptr %26, align 8
   %28 = xor i32 %27, -1
@@ -53118,7 +53118,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor15runAtomicWaitOpIlEENSt
   %.sroa.0.0.copyload.i27 = load i64, ptr %23, align 16
   store ptr %23, ptr %20, align 8
   %24 = getelementptr inbounds i8, ptr %21, i64 -48
-  %25 = load i32, ptr %24, align 4
+  %25 = load i32, ptr %24, align 16
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %27 = load i32, ptr %26, align 8
   %28 = xor i32 %27, -1
@@ -57095,7 +57095,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor14runAtomicAddOpIijEENSt
   store ptr %22, ptr %20, align 8
   %.sroa.0177.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = xor i32 %26, -1
@@ -57381,7 +57381,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor14runAtomicAddOpIlmEENSt
   %.sroa.0.0.copyload.i = load i64, ptr %22, align 16
   store ptr %22, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = xor i32 %26, -1
@@ -57663,7 +57663,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor14runAtomicAddOpIjhEENSt
   %.sroa.0.0.copyload.i = load i64, ptr %18, align 16
   store ptr %18, ptr %16, align 8
   %19 = getelementptr inbounds i8, ptr %17, i64 -32
-  %20 = load i32, ptr %19, align 4
+  %20 = load i32, ptr %19, align 16
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = xor i32 %22, -1
@@ -57879,7 +57879,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor14runAtomicAddOpIjtEENSt
   %.sroa.0.0.copyload.i = load i64, ptr %22, align 16
   store ptr %22, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = xor i32 %26, -1
@@ -58163,7 +58163,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor14runAtomicAddOpImhEENSt
   %.sroa.0.0.copyload.i = load i64, ptr %18, align 16
   store ptr %18, ptr %16, align 8
   %19 = getelementptr inbounds i8, ptr %17, i64 -32
-  %20 = load i32, ptr %19, align 4
+  %20 = load i32, ptr %19, align 16
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = xor i32 %22, -1
@@ -58379,7 +58379,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor14runAtomicAddOpImtEENSt
   %.sroa.0.0.copyload.i = load i64, ptr %22, align 16
   store ptr %22, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = xor i32 %26, -1
@@ -58667,7 +58667,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor14runAtomicAddOpImjEENSt
   %.sroa.0.0.copyload.i = load i64, ptr %22, align 16
   store ptr %22, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = xor i32 %26, -1
@@ -58956,7 +58956,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor14runAtomicSubOpIijEENSt
   store ptr %22, ptr %20, align 8
   %.sroa.0177.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = xor i32 %26, -1
@@ -59242,7 +59242,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor14runAtomicSubOpIlmEENSt
   %.sroa.0.0.copyload.i = load i64, ptr %22, align 16
   store ptr %22, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = xor i32 %26, -1
@@ -59524,7 +59524,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor14runAtomicSubOpIjhEENSt
   %.sroa.0.0.copyload.i = load i64, ptr %18, align 16
   store ptr %18, ptr %16, align 8
   %19 = getelementptr inbounds i8, ptr %17, i64 -32
-  %20 = load i32, ptr %19, align 4
+  %20 = load i32, ptr %19, align 16
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = xor i32 %22, -1
@@ -59740,7 +59740,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor14runAtomicSubOpIjtEENSt
   %.sroa.0.0.copyload.i = load i64, ptr %22, align 16
   store ptr %22, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = xor i32 %26, -1
@@ -60024,7 +60024,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor14runAtomicSubOpImhEENSt
   %.sroa.0.0.copyload.i = load i64, ptr %18, align 16
   store ptr %18, ptr %16, align 8
   %19 = getelementptr inbounds i8, ptr %17, i64 -32
-  %20 = load i32, ptr %19, align 4
+  %20 = load i32, ptr %19, align 16
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = xor i32 %22, -1
@@ -60240,7 +60240,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor14runAtomicSubOpImtEENSt
   %.sroa.0.0.copyload.i = load i64, ptr %22, align 16
   store ptr %22, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = xor i32 %26, -1
@@ -60528,7 +60528,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor14runAtomicSubOpImjEENSt
   %.sroa.0.0.copyload.i = load i64, ptr %22, align 16
   store ptr %22, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = xor i32 %26, -1
@@ -60817,7 +60817,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor14runAtomicAndOpIijEENSt
   store ptr %22, ptr %20, align 8
   %.sroa.0177.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = xor i32 %26, -1
@@ -61103,7 +61103,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor14runAtomicAndOpIlmEENSt
   %.sroa.0.0.copyload.i = load i64, ptr %22, align 16
   store ptr %22, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = xor i32 %26, -1
@@ -61385,7 +61385,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor14runAtomicAndOpIjhEENSt
   %.sroa.0.0.copyload.i = load i64, ptr %18, align 16
   store ptr %18, ptr %16, align 8
   %19 = getelementptr inbounds i8, ptr %17, i64 -32
-  %20 = load i32, ptr %19, align 4
+  %20 = load i32, ptr %19, align 16
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = xor i32 %22, -1
@@ -61601,7 +61601,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor14runAtomicAndOpIjtEENSt
   %.sroa.0.0.copyload.i = load i64, ptr %22, align 16
   store ptr %22, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = xor i32 %26, -1
@@ -61885,7 +61885,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor14runAtomicAndOpImhEENSt
   %.sroa.0.0.copyload.i = load i64, ptr %18, align 16
   store ptr %18, ptr %16, align 8
   %19 = getelementptr inbounds i8, ptr %17, i64 -32
-  %20 = load i32, ptr %19, align 4
+  %20 = load i32, ptr %19, align 16
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = xor i32 %22, -1
@@ -62101,7 +62101,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor14runAtomicAndOpImtEENSt
   %.sroa.0.0.copyload.i = load i64, ptr %22, align 16
   store ptr %22, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = xor i32 %26, -1
@@ -62389,7 +62389,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor14runAtomicAndOpImjEENSt
   %.sroa.0.0.copyload.i = load i64, ptr %22, align 16
   store ptr %22, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = xor i32 %26, -1
@@ -62678,7 +62678,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor13runAtomicOrOpIijEENSt9
   store ptr %22, ptr %20, align 8
   %.sroa.0177.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = xor i32 %26, -1
@@ -62964,7 +62964,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor13runAtomicOrOpIlmEENSt9
   %.sroa.0.0.copyload.i = load i64, ptr %22, align 16
   store ptr %22, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = xor i32 %26, -1
@@ -63246,7 +63246,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor13runAtomicOrOpIjhEENSt9
   %.sroa.0.0.copyload.i = load i64, ptr %18, align 16
   store ptr %18, ptr %16, align 8
   %19 = getelementptr inbounds i8, ptr %17, i64 -32
-  %20 = load i32, ptr %19, align 4
+  %20 = load i32, ptr %19, align 16
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = xor i32 %22, -1
@@ -63462,7 +63462,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor13runAtomicOrOpIjtEENSt9
   %.sroa.0.0.copyload.i = load i64, ptr %22, align 16
   store ptr %22, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = xor i32 %26, -1
@@ -63746,7 +63746,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor13runAtomicOrOpImhEENSt9
   %.sroa.0.0.copyload.i = load i64, ptr %18, align 16
   store ptr %18, ptr %16, align 8
   %19 = getelementptr inbounds i8, ptr %17, i64 -32
-  %20 = load i32, ptr %19, align 4
+  %20 = load i32, ptr %19, align 16
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = xor i32 %22, -1
@@ -63962,7 +63962,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor13runAtomicOrOpImtEENSt9
   %.sroa.0.0.copyload.i = load i64, ptr %22, align 16
   store ptr %22, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = xor i32 %26, -1
@@ -64250,7 +64250,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor13runAtomicOrOpImjEENSt9
   %.sroa.0.0.copyload.i = load i64, ptr %22, align 16
   store ptr %22, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = xor i32 %26, -1
@@ -64539,7 +64539,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor14runAtomicXorOpIijEENSt
   store ptr %22, ptr %20, align 8
   %.sroa.0177.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = xor i32 %26, -1
@@ -64825,7 +64825,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor14runAtomicXorOpIlmEENSt
   %.sroa.0.0.copyload.i = load i64, ptr %22, align 16
   store ptr %22, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = xor i32 %26, -1
@@ -65107,7 +65107,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor14runAtomicXorOpIjhEENSt
   %.sroa.0.0.copyload.i = load i64, ptr %18, align 16
   store ptr %18, ptr %16, align 8
   %19 = getelementptr inbounds i8, ptr %17, i64 -32
-  %20 = load i32, ptr %19, align 4
+  %20 = load i32, ptr %19, align 16
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = xor i32 %22, -1
@@ -65323,7 +65323,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor14runAtomicXorOpIjtEENSt
   %.sroa.0.0.copyload.i = load i64, ptr %22, align 16
   store ptr %22, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = xor i32 %26, -1
@@ -65607,7 +65607,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor14runAtomicXorOpImhEENSt
   %.sroa.0.0.copyload.i = load i64, ptr %18, align 16
   store ptr %18, ptr %16, align 8
   %19 = getelementptr inbounds i8, ptr %17, i64 -32
-  %20 = load i32, ptr %19, align 4
+  %20 = load i32, ptr %19, align 16
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = xor i32 %22, -1
@@ -65823,7 +65823,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor14runAtomicXorOpImtEENSt
   %.sroa.0.0.copyload.i = load i64, ptr %22, align 16
   store ptr %22, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = xor i32 %26, -1
@@ -66111,7 +66111,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor14runAtomicXorOpImjEENSt
   %.sroa.0.0.copyload.i = load i64, ptr %22, align 16
   store ptr %22, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = xor i32 %26, -1
@@ -66400,7 +66400,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor19runAtomicExchangeOpIij
   store ptr %22, ptr %20, align 8
   %.sroa.0177.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = xor i32 %26, -1
@@ -66686,7 +66686,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor19runAtomicExchangeOpIlm
   %.sroa.0.0.copyload.i = load i64, ptr %22, align 16
   store ptr %22, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = xor i32 %26, -1
@@ -66968,7 +66968,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor19runAtomicExchangeOpIjh
   %.sroa.0.0.copyload.i = load i64, ptr %18, align 16
   store ptr %18, ptr %16, align 8
   %19 = getelementptr inbounds i8, ptr %17, i64 -32
-  %20 = load i32, ptr %19, align 4
+  %20 = load i32, ptr %19, align 16
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = xor i32 %22, -1
@@ -67184,7 +67184,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor19runAtomicExchangeOpIjt
   %.sroa.0.0.copyload.i = load i64, ptr %22, align 16
   store ptr %22, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = xor i32 %26, -1
@@ -67468,7 +67468,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor19runAtomicExchangeOpImh
   %.sroa.0.0.copyload.i = load i64, ptr %18, align 16
   store ptr %18, ptr %16, align 8
   %19 = getelementptr inbounds i8, ptr %17, i64 -32
-  %20 = load i32, ptr %19, align 4
+  %20 = load i32, ptr %19, align 16
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = xor i32 %22, -1
@@ -67684,7 +67684,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor19runAtomicExchangeOpImt
   %.sroa.0.0.copyload.i = load i64, ptr %22, align 16
   store ptr %22, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = xor i32 %26, -1
@@ -67972,7 +67972,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor19runAtomicExchangeOpImj
   %.sroa.0.0.copyload.i = load i64, ptr %22, align 16
   store ptr %22, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = xor i32 %26, -1
@@ -68265,7 +68265,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor26runAtomicCompareExchan
   store ptr %23, ptr %20, align 8
   %.sroa.0216.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i74 to i32
   %24 = getelementptr inbounds i8, ptr %21, i64 -48
-  %25 = load i32, ptr %24, align 4
+  %25 = load i32, ptr %24, align 16
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %27 = load i32, ptr %26, align 8
   %28 = xor i32 %27, -1
@@ -68555,7 +68555,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor26runAtomicCompareExchan
   %.sroa.0.0.copyload.i74 = load i64, ptr %23, align 16
   store ptr %23, ptr %20, align 8
   %24 = getelementptr inbounds i8, ptr %21, i64 -48
-  %25 = load i32, ptr %24, align 4
+  %25 = load i32, ptr %24, align 16
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %27 = load i32, ptr %26, align 8
   %28 = xor i32 %27, -1
@@ -68841,7 +68841,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor26runAtomicCompareExchan
   %.sroa.0.0.copyload.i73 = load i64, ptr %19, align 16
   store ptr %19, ptr %16, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 -48
-  %21 = load i32, ptr %20, align 4
+  %21 = load i32, ptr %20, align 16
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = xor i32 %23, -1
@@ -69062,7 +69062,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor26runAtomicCompareExchan
   %.sroa.0.0.copyload.i74 = load i64, ptr %23, align 16
   store ptr %23, ptr %20, align 8
   %24 = getelementptr inbounds i8, ptr %21, i64 -48
-  %25 = load i32, ptr %24, align 4
+  %25 = load i32, ptr %24, align 16
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %27 = load i32, ptr %26, align 8
   %28 = xor i32 %27, -1
@@ -69351,7 +69351,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor26runAtomicCompareExchan
   %.sroa.0.0.copyload.i73 = load i64, ptr %19, align 16
   store ptr %19, ptr %16, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 -48
-  %21 = load i32, ptr %20, align 4
+  %21 = load i32, ptr %20, align 16
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = xor i32 %23, -1
@@ -69572,7 +69572,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor26runAtomicCompareExchan
   %.sroa.0.0.copyload.i74 = load i64, ptr %23, align 16
   store ptr %23, ptr %20, align 8
   %24 = getelementptr inbounds i8, ptr %21, i64 -48
-  %25 = load i32, ptr %24, align 4
+  %25 = load i32, ptr %24, align 16
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %27 = load i32, ptr %26, align 8
   %28 = xor i32 %27, -1
@@ -69865,7 +69865,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor26runAtomicCompareExchan
   %.sroa.0.0.copyload.i74 = load i64, ptr %23, align 16
   store ptr %23, ptr %20, align 8
   %24 = getelementptr inbounds i8, ptr %21, i64 -48
-  %25 = load i32, ptr %24, align 4
+  %25 = load i32, ptr %24, align 16
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %27 = load i32, ptr %26, align 8
   %28 = xor i32 %27, -1
@@ -74518,7 +74518,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %35
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %46 = load i64, ptr %45, align 8
   %.not.not.i.i.i.i.i = icmp eq i64 %46, 0
-  %.pre33.i.i.i.i.i = load i32, ptr %41, align 4
+  %.pre33.i.i.i.i.i = load i32, ptr %41, align 8
   br i1 %.not.not.i.i.i.i.i, label %47, label %.loopexit.i.i.i.i
 
 47:                                               ; preds = %.noexc32
@@ -74979,7 +74979,7 @@ _ZNSt10_HashtableIjSt4pairIKjN8WasmEdge8Executor8Executor6WaiterEESaIS6_ENSt8__d
   %.05568 = phi i8 [ %.156, %44 ], [ 0, %_ZNSt10_HashtableIjSt4pairIKjN8WasmEdge8Executor8Executor6WaiterEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb0EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.072, align 8
   %15 = getelementptr inbounds nuw i8, ptr %.072, i64 8
-  %16 = load i32, ptr %15, align 4
+  %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
   %18 = urem i64 %17, %1
   %.not62 = icmp ne ptr %.05469, null
@@ -75408,7 +75408,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %35
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %46 = load i64, ptr %45, align 8
   %.not.not.i.i.i.i.i = icmp eq i64 %46, 0
-  %.pre33.i.i.i.i.i = load i32, ptr %41, align 4
+  %.pre33.i.i.i.i.i = load i32, ptr %41, align 8
   br i1 %.not.not.i.i.i.i.i, label %47, label %.loopexit.i.i.i.i
 
 47:                                               ; preds = %.noexc32

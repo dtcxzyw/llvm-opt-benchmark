@@ -5828,7 +5828,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue3GetINS_7GfVec2dEEERKT_v.exit20.i
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %791, i64 8
   store double %787, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
   %792 = getelementptr inbounds nuw i8, ptr %791, i64 16
-  store atomic i32 0, ptr %792 seq_cst, align 4
+  store atomic i32 0, ptr %792 seq_cst, align 8
   store ptr %791, ptr %19, align 8
   %793 = atomicrmw add ptr %792, i32 1 monotonic, align 4
   %.not.i.i.i28.i.i.i = icmp eq ptr %4, %19
@@ -7102,7 +7102,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue3GetINS_7GfVec3dEEERKT_v.exit20.i
   %.sroa.3.0..sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1312, i64 16
   store double %1308, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i.i.i.i, align 8
   %1313 = getelementptr inbounds nuw i8, ptr %1312, i64 24
-  store atomic i32 0, ptr %1313 seq_cst, align 4
+  store atomic i32 0, ptr %1313 seq_cst, align 8
   store ptr %1312, ptr %8, align 8
   %1314 = atomicrmw add ptr %1313, i32 1 monotonic, align 4
   %.not.i.i.i28.i.i.i.i.i.i = icmp eq ptr %4, %8
@@ -13886,7 +13886,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue3GetINS_7GfVec4dEEERKT_v.exit20.i
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %475, i64 24
   store double %471, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
   %476 = getelementptr inbounds nuw i8, ptr %475, i64 32
-  store atomic i32 0, ptr %476 seq_cst, align 4
+  store atomic i32 0, ptr %476 seq_cst, align 8
   store ptr %475, ptr %27, align 8
   %477 = atomicrmw add ptr %476, i32 1 monotonic, align 4
   %.not.i.i.i28.i = icmp eq ptr %4, %27
@@ -15235,7 +15235,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue3GetINS_7GfQuatdEEERKT_v.exit20.i
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1022, i64 24
   store double %1017, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i, align 8
   %1023 = getelementptr inbounds nuw i8, ptr %1022, i64 32
-  store atomic i32 0, ptr %1023 seq_cst, align 4
+  store atomic i32 0, ptr %1023 seq_cst, align 8
   store ptr %1022, ptr %14, align 8
   %1024 = atomicrmw add ptr %1023, i32 1 monotonic, align 4
   %.not.i.i.i29.i.i.i.i = icmp eq ptr %4, %14

@@ -403,7 +403,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %9,
   store i64 %16, ptr %17, align 8, !tbaa !14
   store ptr %7, ptr %1, align 8, !tbaa !11
   store i64 0, ptr %15, align 8, !tbaa !14
-  store i8 0, ptr %7, align 1, !tbaa !16
+  store i8 0, ptr %7, align 8, !tbaa !16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %2, ptr %18, align 8, !tbaa !54
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1469,7 +1469,7 @@ _ZN4LIEF12ref_iteratorIKSt6vectorIPNS_3DEX4TypeESaIS4_EES4_N9__gnu_cxx17__normal
   %330 = load i32, ptr %329, align 8, !tbaa !100
   %331 = and i32 %330, -75
   %332 = or disjoint i32 %331, 2
-  store i32 %332, ptr %329, align 4, !tbaa !109
+  store i32 %332, ptr %329, align 8, !tbaa !109
   %333 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %323, i64 noundef %.059) #17
   %334 = add nuw i64 %.059, 1
   %335 = load ptr, ptr %284, align 8, !tbaa !90
@@ -1653,7 +1653,7 @@ _ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4
   store ptr null, ptr %25, align 8, !tbaa !32
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i64, ptr %24, align 4
-  store i64 %27, ptr %26, align 4
+  store i64 %27, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %25, ptr %28, align 8, !tbaa !111
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1674,7 +1674,7 @@ _ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4
   store ptr null, ptr %35, align 8, !tbaa !32
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load i64, ptr %34, align 4
-  store i64 %37, ptr %36, align 4
+  store i64 %37, ptr %36, align 8
   store ptr %35, ptr %.028, align 8, !tbaa !32
   %38 = and i64 %37, 4294967295
   %39 = urem i64 %38, %30
@@ -1876,7 +1876,7 @@ _ZNKSt8__detail17_ReuseOrAllocNodeISaINS_10_Hash_nodeISt4pairIKjjELb0EEEEEclIJRK
   store ptr null, ptr %.sink12.i, align 8, !tbaa !32
   %29 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 8
   %30 = load i64, ptr %23, align 4
-  store i64 %30, ptr %29, align 4
+  store i64 %30, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sink12.i, ptr %31, align 8, !tbaa !111
   %32 = load ptr, ptr %0, align 8, !tbaa !23
@@ -1912,7 +1912,7 @@ _ZNKSt8__detail17_ReuseOrAllocNodeISaINS_10_Hash_nodeISt4pairIKjjELb0EEEEEclIJRK
   store ptr null, ptr %.sink12.i27, align 8, !tbaa !32
   %44 = getelementptr inbounds nuw i8, ptr %.sink12.i27, i64 8
   %45 = load i64, ptr %38, align 4
-  store i64 %45, ptr %44, align 4
+  store i64 %45, ptr %44, align 8
   store ptr %.sink12.i27, ptr %.031, align 8, !tbaa !32
   %46 = load i64, ptr %33, align 8, !tbaa !31
   %47 = and i64 %45, 4294967295
@@ -1949,7 +1949,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__det
   store ptr null, ptr %4, align 8, !tbaa !32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %1, align 4, !tbaa !58
-  store i32 %6, ptr %5, align 4, !tbaa !119
+  store i32 %6, ptr %5, align 8, !tbaa !119
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %8 = load i32, ptr %2, align 4, !tbaa !58
   store i32 %8, ptr %7, align 4, !tbaa !121
@@ -2141,7 +2141,7 @@ _ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4
   %.02530 = phi i64 [ %.1, %31 ], [ 0, %_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %16 = load ptr, ptr %.031, align 8, !tbaa !32
   %17 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %18 = load i32, ptr %17, align 4, !tbaa !58
+  %18 = load i32, ptr %17, align 8, !tbaa !58
   %19 = zext i32 %18 to i64
   %20 = urem i64 %19, %1
   %21 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %20

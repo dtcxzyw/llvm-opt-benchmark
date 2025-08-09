@@ -21607,7 +21607,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %91 = getelementptr inbounds i8, ptr %90, i64 -24
   %.val4.i = load ptr, ptr %91, align 8, !alias.scope !4629, !noalias !4638, !nonnull !4, !noundef !4
   %92 = getelementptr i8, ptr %90, i64 -16
-  %.val5.i = load i32, ptr %92, align 4, !alias.scope !4645, !noalias !4648, !noundef !4
+  %.val5.i = load i32, ptr %92, align 8, !alias.scope !4645, !noalias !4648, !noundef !4
   %93 = invoke { ptr, i32 } @_ZN5rowan6cursor8NodeData3key17hac391177412f5ff8E.llvm.16389444582445941026(ptr noundef nonnull align 8 %.val4.i)
           to label %115 unwind label %74
 
@@ -25565,7 +25565,7 @@ define internal noundef i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_
   %7 = getelementptr inbounds i8, ptr %6, i64 -24
   %.val4 = load ptr, ptr %7, align 8, !alias.scope !5683, !noalias !5692, !nonnull !4, !noundef !4
   %8 = getelementptr i8, ptr %6, i64 -16
-  %.val5 = load i32, ptr %8, align 4, !alias.scope !5699, !noalias !5702, !noundef !4
+  %.val5 = load i32, ptr %8, align 8, !alias.scope !5699, !noalias !5702, !noundef !4
   %9 = zext i32 %.val5 to i64
   %10 = mul i64 %9, 5871781006564002453
   %11 = tail call { ptr, i32 } @_ZN5rowan6cursor8NodeData3key17hac391177412f5ff8E.llvm.16389444582445941026(ptr noundef nonnull align 8 %.val4), !noalias !5704

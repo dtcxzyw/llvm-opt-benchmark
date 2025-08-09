@@ -2577,7 +2577,7 @@ _ZN4goal11assert_exprEP4expr.exit259:             ; preds = %_ZN11ast_manager10m
   %374 = getelementptr inbounds nuw i8, ptr %365, i64 48
   store i64 6, ptr %374, align 8, !tbaa !21
   %375 = getelementptr inbounds nuw i8, ptr %365, i64 62
-  store i8 0, ptr %375, align 1, !tbaa !15
+  store i8 0, ptr %375, align 2, !tbaa !15
   %376 = getelementptr inbounds nuw i8, ptr %365, i64 72
   store ptr null, ptr %376, align 8, !tbaa !158
   store i32 1, ptr %368, align 8, !tbaa !65
@@ -3740,7 +3740,7 @@ _ZNK6vectorIN17purify_arith_proc7bin_defELb0EjE5emptyEv.exit339.thread: ; preds 
   %847 = getelementptr inbounds nuw i8, ptr %838, i64 48
   store i64 14, ptr %847, align 8, !tbaa !21
   %848 = getelementptr inbounds nuw i8, ptr %838, i64 70
-  store i8 0, ptr %848, align 1, !tbaa !15
+  store i8 0, ptr %848, align 2, !tbaa !15
   %849 = getelementptr inbounds nuw i8, ptr %838, i64 72
   store ptr null, ptr %849, align 8, !tbaa !158
   %850 = load ptr, ptr %1, align 8, !tbaa !62

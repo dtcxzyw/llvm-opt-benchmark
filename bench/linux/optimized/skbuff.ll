@@ -4003,7 +4003,7 @@ define dso_local noundef ptr @msg_zerocopy_realloc(ptr noundef %0, i64 noundef %
   %69 = getelementptr inbounds nuw i8, ptr %51, i64 52
   store i8 11, ptr %69, align 4
   %70 = getelementptr inbounds nuw i8, ptr %51, i64 48
-  store volatile i32 1, ptr %70, align 4
+  store volatile i32 1, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %72 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %71, i32 1, ptr nonnull elementtype(i32) %71) #23, !srcloc !90
   %73 = icmp eq i32 %72, 0
@@ -4097,7 +4097,7 @@ define dso_local void @msg_zerocopy_callback(ptr readnone captures(none) %0, ptr
   store i8 5, ptr %47, align 4
   %48 = getelementptr i8, ptr %1, i64 36
   store i32 %43, ptr %48, align 4
-  store i32 %40, ptr %20, align 4
+  store i32 %40, ptr %20, align 8
   br i1 %46, label %49, label %51
 
 49:                                               ; preds = %39
@@ -12317,7 +12317,7 @@ define dso_local noundef ptr @skb_segment_list(ptr noundef %0, i64 noundef %1, i
   %16 = ptrtoint ptr %15 to i64
   %17 = ptrtoint ptr %5 to i64
   %18 = getelementptr i8, ptr %0, i64 72
-  %19 = load i32, ptr %18, align 4
+  %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
   %21 = add i64 %20, %17
   %22 = sub i64 %16, %21
@@ -12729,7 +12729,7 @@ define dso_local ptr @skb_segment(ptr noundef %0, i64 noundef %1) #0 align 16 {
   %24 = trunc i64 %23 to i32
   %25 = ptrtoint ptr %5 to i64
   %26 = getelementptr i8, ptr %0, i64 72
-  %27 = load i32, ptr %26, align 4
+  %27 = load i32, ptr %26, align 8
   %28 = zext i32 %27 to i64
   %29 = add i64 %28, %25
   %30 = sub i64 %22, %29
@@ -13926,7 +13926,7 @@ define dso_local ptr @skb_segment(ptr noundef %0, i64 noundef %1) #0 align 16 {
   %827 = trunc i64 %826 to i32
   %828 = add i32 %827, %24
   %829 = getelementptr i8, ptr %803, i64 72
-  store i32 %828, ptr %829, align 4
+  store i32 %828, ptr %829, align 8
   %830 = load ptr, ptr %803, align 8
   %831 = icmp eq ptr %830, null
   br i1 %831, label %832, label %802, !llvm.loop !236
@@ -14973,7 +14973,7 @@ define dso_local void @skb_complete_tx_timestamp(ptr noundef %0, ptr noundef rea
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %46, i8 0, i64 48, i1 false)
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 42, ptr %47, align 4
+  store i32 42, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i8 4, ptr %48, align 4
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -15364,7 +15364,7 @@ define dso_local void @skb_complete_wifi_ack(ptr noundef initializes((40, 88)) %
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %10, i8 0, i64 48, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 42, ptr %11, align 4
+  store i32 42, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i8 4, ptr %12, align 4
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 128
@@ -17730,20 +17730,20 @@ define dso_local noundef range(i32 -71, 1) i32 @skb_eth_push(ptr noundef %0, ptr
   %71 = load i32, ptr %1, align 4
   store i32 %71, ptr %70, align 4
   %72 = getelementptr i8, ptr %1, i64 4
-  %73 = load i16, ptr %72, align 2
+  %73 = load i16, ptr %72, align 4
   %74 = getelementptr i8, ptr %70, i64 4
-  store i16 %73, ptr %74, align 2
+  store i16 %73, ptr %74, align 4
   %75 = getelementptr inbounds nuw i8, ptr %70, i64 6
   %76 = load i32, ptr %2, align 4
   store i32 %76, ptr %75, align 4
   %77 = getelementptr i8, ptr %2, i64 4
-  %78 = load i16, ptr %77, align 2
+  %78 = load i16, ptr %77, align 4
   %79 = getelementptr i8, ptr %70, i64 10
   store i16 %78, ptr %79, align 2
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %81 = load i16, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %70, i64 12
-  store i16 %81, ptr %82, align 1
+  store i16 %81, ptr %82, align 4
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %84 = load i8, ptr %83, align 8
   %85 = and i8 %84, 96

@@ -2840,9 +2840,9 @@ _ZN4llvm12DenseMapInfoISt5tupleIJNS_9StringRefEjjmEEvE7isEqualERKS3_S6_.exit25.t
   store ptr null, ptr %43, align 8, !tbaa !317
   %45 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %46 = getelementptr inbounds nuw i8, ptr %.031, i64 40
-  %47 = load i32, ptr %46, align 4, !tbaa !250
-  store i32 %47, ptr %45, align 4, !tbaa !250
-  store i32 0, ptr %46, align 4, !tbaa !250
+  %47 = load i32, ptr %46, align 8, !tbaa !250
+  store i32 %47, ptr %45, align 8, !tbaa !250
+  store i32 0, ptr %46, align 8, !tbaa !250
   %48 = getelementptr inbounds nuw i8, ptr %33, i64 44
   %49 = getelementptr inbounds nuw i8, ptr %.031, i64 44
   %50 = load i32, ptr %48, align 4, !tbaa !250
@@ -2851,10 +2851,10 @@ _ZN4llvm12DenseMapInfoISt5tupleIJNS_9StringRefEjjmEEvE7isEqualERKS3_S6_.exit25.t
   store i32 %50, ptr %49, align 4, !tbaa !250
   %52 = getelementptr inbounds nuw i8, ptr %33, i64 48
   %53 = getelementptr inbounds nuw i8, ptr %.031, i64 48
-  %54 = load i32, ptr %52, align 4, !tbaa !250
-  %55 = load i32, ptr %53, align 4, !tbaa !250
-  store i32 %55, ptr %52, align 4, !tbaa !250
-  store i32 %54, ptr %53, align 4, !tbaa !250
+  %54 = load i32, ptr %52, align 8, !tbaa !250
+  %55 = load i32, ptr %53, align 8, !tbaa !250
+  store i32 %55, ptr %52, align 8, !tbaa !250
+  store i32 %54, ptr %53, align 8, !tbaa !250
   %56 = load i32, ptr %5, align 8, !tbaa !313
   %57 = add i32 %56, 1
   store i32 %57, ptr %5, align 8, !tbaa !313
@@ -3264,7 +3264,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt5tupleIJNS_9StringRefEjjmEEjNS_12DenseMapI
   %45 = load i64, ptr %2, align 8, !tbaa !55
   store i64 %45, ptr %21, align 8, !tbaa !55
   %46 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  store i32 0, ptr %46, align 4, !tbaa !250
+  store i32 0, ptr %46, align 8, !tbaa !250
   ret ptr %21
 }
 
@@ -3420,8 +3420,8 @@ _ZN4llvm12DenseMapInfoISt5tupleIJNS_9StringRefEjjmEEvE7isEqualERKS3_S6_.exit25.t
   store i64 %41, ptr %33, align 8, !tbaa !55
   %42 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %43 = getelementptr inbounds nuw i8, ptr %.031, i64 32
-  %44 = load i32, ptr %43, align 4, !tbaa !250
-  store i32 %44, ptr %42, align 4, !tbaa !250
+  %44 = load i32, ptr %43, align 8, !tbaa !250
+  store i32 %44, ptr %42, align 8, !tbaa !250
   %45 = load i32, ptr %5, align 8, !tbaa !332
   %46 = add i32 %45, 1
   store i32 %46, ptr %5, align 8, !tbaa !332

@@ -878,7 +878,7 @@ entry:
   %wrappedException.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i.i, i64 288
   store ptr null, ptr %wrappedException.i.i.i.i.i.i.i.i.i, align 8, !noalias !12
   %once.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i.i, i64 296
-  store i8 0, ptr %once.i.i.i.i.i.i.i.i.i, align 1, !noalias !12
+  store i8 0, ptr %once.i.i.i.i.i.i.i.i.i, align 8, !noalias !12
   %mutex_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i.i, i64 300
   tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEC1Ev(ptr noundef nonnull align 4 dereferenceable(4) %mutex_.i.i.i.i.i.i.i.i.i.i) #17, !noalias !12
   %elaborateMessage.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i.i, i64 304
@@ -1056,7 +1056,7 @@ entry:
   %wrappedException.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i.i, i64 288
   store ptr null, ptr %wrappedException.i.i.i.i.i.i.i.i.i, align 8, !noalias !19
   %once.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i.i, i64 296
-  store i8 0, ptr %once.i.i.i.i.i.i.i.i.i, align 1, !noalias !19
+  store i8 0, ptr %once.i.i.i.i.i.i.i.i.i, align 8, !noalias !19
   %mutex_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i.i, i64 300
   tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEC1Ev(ptr noundef nonnull align 4 dereferenceable(4) %mutex_.i.i.i.i.i.i.i.i.i.i) #17, !noalias !19
   %elaborateMessage.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i.i, i64 304

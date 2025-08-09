@@ -1297,7 +1297,7 @@ _ZNK6vectorISt5tupleIJPN3euf5enodeES3_bEELb0EjE4sizeEv.exit.i.i: ; preds = %57
   store ptr %.sroa.0.0.copyload, ptr %69, align 8, !tbaa !62
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store ptr %.sroa.5.0.copyload, ptr %70, align 8, !tbaa !62
-  store i8 1, ptr %68, align 1, !tbaa !235
+  store i8 1, ptr %68, align 8, !tbaa !235
   br label %85
 
 71:                                               ; preds = %_ZNK6vectorISt5tupleIJPN3euf5enodeES3_bEELb0EjE4sizeEv.exit.i.i
@@ -1670,9 +1670,9 @@ _ZNSt4pairI8rationalN3sat7literalEEC2IRKS0_RS2_Qcl16_S_constructibleITL0__TL0_0_
   %64 = or disjoint i8 %63, %58
   store i8 %64, ptr %14, align 4
   %65 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %66 = load i32, ptr %65, align 4, !tbaa !3
+  %66 = load i32, ptr %65, align 8, !tbaa !3
   %67 = load i32, ptr %16, align 8, !tbaa !3
-  store i32 %67, ptr %65, align 4, !tbaa !3
+  store i32 %67, ptr %65, align 8, !tbaa !3
   store i32 %66, ptr %16, align 8, !tbaa !3
   %68 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %69 = load ptr, ptr %68, align 8, !tbaa !254
@@ -2460,7 +2460,7 @@ _ZNK6vectorISt5tupleIJPN3euf5enodeES3_bEELb0EjE4sizeEv.exit.i.i: ; preds = %136
   store ptr %140, ptr %149, align 8, !tbaa !62
   %150 = getelementptr inbounds nuw i8, ptr %148, i64 8
   store ptr %141, ptr %150, align 8, !tbaa !62
-  store i8 1, ptr %148, align 1, !tbaa !235
+  store i8 1, ptr %148, align 8, !tbaa !235
   br label %_ZN5arith24arith_proof_hint_builder6add_eqEPN3euf5enodeES3_.exit
 
 151:                                              ; preds = %_ZNK6vectorISt5tupleIJPN3euf5enodeES3_bEELb0EjE4sizeEv.exit.i.i
@@ -2636,7 +2636,7 @@ _ZNK6vectorISt5tupleIJPN3euf5enodeES3_bEELb0EjE4sizeEv.exit.i.i: ; preds = %13
   store ptr %2, ptr %27, align 8, !tbaa !62
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %3, ptr %28, align 8, !tbaa !62
-  store i8 0, ptr %26, align 1, !tbaa !235
+  store i8 0, ptr %26, align 8, !tbaa !235
   br label %_ZN5arith24arith_proof_hint_builder9add_diseqEPN3euf5enodeES3_.exit
 
 29:                                               ; preds = %_ZNK6vectorISt5tupleIJPN3euf5enodeES3_bEELb0EjE4sizeEv.exit.i.i

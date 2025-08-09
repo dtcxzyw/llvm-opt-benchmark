@@ -277,23 +277,23 @@ define weak_odr noundef ptr @_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix33IfE
 2:                                                ; preds = %0
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix33IfEEEE, i64 16), ptr %1, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store float 1.000000e+00, ptr %3, align 4, !tbaa !6
+  store float 1.000000e+00, ptr %3, align 8, !tbaa !6
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store float 0.000000e+00, ptr %4, align 4, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store float 0.000000e+00, ptr %5, align 4, !tbaa !6
+  store float 0.000000e+00, ptr %5, align 8, !tbaa !6
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store float 0.000000e+00, ptr %6, align 4, !tbaa !6
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store float 1.000000e+00, ptr %7, align 4, !tbaa !6
+  store float 1.000000e+00, ptr %7, align 8, !tbaa !6
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store float 0.000000e+00, ptr %8, align 4, !tbaa !6
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store float 0.000000e+00, ptr %9, align 4, !tbaa !6
+  store float 0.000000e+00, ptr %9, align 8, !tbaa !6
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store float 0.000000e+00, ptr %10, align 4, !tbaa !6
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store float 1.000000e+00, ptr %11, align 4, !tbaa !6
+  store float 1.000000e+00, ptr %11, align 8, !tbaa !6
   ret ptr %1
 
 12:                                               ; preds = %0
@@ -321,23 +321,23 @@ define weak_odr noundef ptr @_ZNK7Imf_3_414TypedAttributeIN9Imath_3_28Matrix33If
 3:                                                ; preds = %1
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix33IfEEEE, i64 16), ptr %2, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store float 1.000000e+00, ptr %4, align 4, !tbaa !6
+  store float 1.000000e+00, ptr %4, align 8, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store float 0.000000e+00, ptr %5, align 4, !tbaa !6
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store float 0.000000e+00, ptr %6, align 4, !tbaa !6
+  store float 0.000000e+00, ptr %6, align 8, !tbaa !6
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store float 0.000000e+00, ptr %7, align 4, !tbaa !6
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store float 1.000000e+00, ptr %8, align 4, !tbaa !6
+  store float 1.000000e+00, ptr %8, align 8, !tbaa !6
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store float 0.000000e+00, ptr %9, align 4, !tbaa !6
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store float 0.000000e+00, ptr %10, align 4, !tbaa !6
+  store float 0.000000e+00, ptr %10, align 8, !tbaa !6
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 36
   store float 0.000000e+00, ptr %11, align 4, !tbaa !6
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store float 1.000000e+00, ptr %12, align 4, !tbaa !6
+  store float 1.000000e+00, ptr %12, align 8, !tbaa !6
   tail call void @_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix33IfEEE13copyValueFromERKNS_9AttributeE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret ptr %2
 
@@ -978,7 +978,7 @@ define weak_odr noundef ptr @_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix44IfE
 2:                                                ; preds = %0
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix44IfEEEE, i64 16), ptr %1, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store float 1.000000e+00, ptr %3, align 4, !tbaa !6
+  store float 1.000000e+00, ptr %3, align 8, !tbaa !6
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, i8 0, i64 16, i1 false)
@@ -986,7 +986,7 @@ define weak_odr noundef ptr @_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix44IfE
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %7, align 4, !tbaa !6
+  store float 1.000000e+00, ptr %7, align 8, !tbaa !6
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, i8 0, i64 16, i1 false)
@@ -1010,7 +1010,7 @@ define weak_odr noundef ptr @_ZNK7Imf_3_414TypedAttributeIN9Imath_3_28Matrix44If
 3:                                                ; preds = %1
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix44IfEEEE, i64 16), ptr %2, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store float 1.000000e+00, ptr %4, align 4, !tbaa !6
+  store float 1.000000e+00, ptr %4, align 8, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 0, i64 16, i1 false)
@@ -1018,7 +1018,7 @@ define weak_odr noundef ptr @_ZNK7Imf_3_414TypedAttributeIN9Imath_3_28Matrix44If
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %8, align 4, !tbaa !6
+  store float 1.000000e+00, ptr %8, align 8, !tbaa !6
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 52
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %9, i8 0, i64 16, i1 false)

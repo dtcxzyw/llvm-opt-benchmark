@@ -1207,7 +1207,7 @@ ZSTD_decodeLiteralsBlock.exit.thread31:           ; preds = %18, %30, %HUF_decom
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 10352
   store i64 131072, ptr %99, align 8, !tbaa !48
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 141432
-  store i64 0, ptr %100, align 1
+  store i64 0, ptr %100, align 8
   br label %ZSTD_decompressSequences.exit
 
 ZSTD_decodeLiteralsBlock.exit:                    ; preds = %HUF_decompress.exit.thread.i.i, %HUF_decompress.exit.i.i

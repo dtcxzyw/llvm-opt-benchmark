@@ -28259,7 +28259,7 @@ _ZNSt22_Optional_payload_baseIN5clang9FixItHintEE12_M_constructIJS1_EEEvDpOT_.ex
   store i64 %68, ptr %70, align 8, !tbaa !793
   store ptr %60, ptr %57, align 8, !tbaa !792
   store i64 0, ptr %69, align 8, !tbaa !793
-  store i8 0, ptr %60, align 1, !tbaa !21
+  store i8 0, ptr %60, align 8, !tbaa !21
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %72 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %73 = load i8, ptr %72, align 8, !tbaa !1758, !range !16, !noundef !17
@@ -87427,7 +87427,7 @@ _ZSt19__relocate_object_aIN5clang9FixItHintES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i: 
   store i64 %56, ptr %58, align 8, !tbaa !793, !alias.scope !2822, !noalias !2825
   store ptr %48, ptr %45, align 8, !tbaa !792, !alias.scope !2825, !noalias !2822
   store i64 0, ptr %57, align 8, !tbaa !793, !alias.scope !2825, !noalias !2822
-  store i8 0, ptr %48, align 1, !tbaa !21, !alias.scope !2825, !noalias !2822
+  store i8 0, ptr %48, align 8, !tbaa !21, !alias.scope !2825, !noalias !2822
   %59 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 56
   %60 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 56
   %61 = load i8, ptr %60, align 8, !tbaa !1758, !range !16, !alias.scope !2825, !noalias !2822, !noundef !17
@@ -87482,7 +87482,7 @@ _ZSt19__relocate_object_aIN5clang9FixItHintES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i23
   store i64 %77, ptr %79, align 8, !tbaa !793, !alias.scope !2829, !noalias !2832
   store ptr %69, ptr %66, align 8, !tbaa !792, !alias.scope !2832, !noalias !2829
   store i64 0, ptr %78, align 8, !tbaa !793, !alias.scope !2832, !noalias !2829
-  store i8 0, ptr %69, align 1, !tbaa !21, !alias.scope !2832, !noalias !2829
+  store i8 0, ptr %69, align 8, !tbaa !21, !alias.scope !2832, !noalias !2829
   %80 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 56
   %81 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 56
   %82 = load i8, ptr %81, align 8, !tbaa !1758, !range !16, !alias.scope !2832, !noalias !2829, !noundef !17
@@ -87633,7 +87633,7 @@ _ZSt19__relocate_object_aIN5clang9FixItHintES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i: 
   store i64 %56, ptr %58, align 8, !tbaa !793, !alias.scope !2835, !noalias !2838
   store ptr %48, ptr %45, align 8, !tbaa !792, !alias.scope !2838, !noalias !2835
   store i64 0, ptr %57, align 8, !tbaa !793, !alias.scope !2838, !noalias !2835
-  store i8 0, ptr %48, align 1, !tbaa !21, !alias.scope !2838, !noalias !2835
+  store i8 0, ptr %48, align 8, !tbaa !21, !alias.scope !2838, !noalias !2835
   %59 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 56
   %60 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 56
   %61 = load i8, ptr %60, align 8, !tbaa !1758, !range !16, !alias.scope !2838, !noalias !2835, !noundef !17
@@ -87688,7 +87688,7 @@ _ZSt19__relocate_object_aIN5clang9FixItHintES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i23
   store i64 %77, ptr %79, align 8, !tbaa !793, !alias.scope !2841, !noalias !2844
   store ptr %69, ptr %66, align 8, !tbaa !792, !alias.scope !2844, !noalias !2841
   store i64 0, ptr %78, align 8, !tbaa !793, !alias.scope !2844, !noalias !2841
-  store i8 0, ptr %69, align 1, !tbaa !21, !alias.scope !2844, !noalias !2841
+  store i8 0, ptr %69, align 8, !tbaa !21, !alias.scope !2844, !noalias !2841
   %80 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 56
   %81 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 56
   %82 = load i8, ptr %81, align 8, !tbaa !1758, !range !16, !alias.scope !2844, !noalias !2841, !noundef !17
@@ -94130,9 +94130,9 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang9NamedDeclEjELb1EE9push_backE
   store i32 4, ptr %15, align 4, !tbaa !755
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !25
-  store ptr %11, ptr %13, align 1
+  store ptr %11, ptr %13, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store i32 %17, ptr %.sroa.2.0..sroa_idx.i, align 1
+  store i32 %17, ptr %.sroa.2.0..sroa_idx.i, align 8
   store i32 1, ptr %14, align 8, !tbaa !26
   %18 = ptrtoint ptr %12 to i64
   %19 = or i64 %18, 4
@@ -98150,7 +98150,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang14IdentifierInfoEN12_GLOBAL__N_111C
   %58 = load ptr, ptr %57, align 8, !tbaa !2107
   %59 = icmp eq ptr %58, null
   %60 = getelementptr inbounds nuw i8, ptr %.sink34.i.ph, i64 48
-  %.val15 = load i32, ptr %60, align 4, !tbaa !21
+  %.val15 = load i32, ptr %60, align 8, !tbaa !21
   %61 = icmp samesign ult i8 %56, %50
   br i1 %61, label %_ZStgtIJbbN12_GLOBAL__N_111ConceptInfo6Member14AccessOperatorEEJbbS3_EEbRKSt5tupleIJDpT_EERKS4_IJDpT0_EE.exit.thread, label %62
 

@@ -7436,7 +7436,7 @@ _ZN14TypeInterfaces4makeEP13GrowableArrayIP15ciInstanceKlassE.exit: ; preds = %2
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 848
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 0, i32 noundef 8, ptr noundef %37) #17
-  store i32 0, ptr %30, align 4
+  store i32 0, ptr %30, align 8
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 28
   store i32 0, ptr %39, align 4
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
@@ -7685,7 +7685,7 @@ _ZN4TypenwEm.exit:                                ; preds = %20, %22
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 848
   %34 = load ptr, ptr %33, align 8
   %35 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 0, i32 noundef 8, ptr noundef %34) #17
-  store i32 0, ptr %27, align 4
+  store i32 0, ptr %27, align 8
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 28
   store i32 0, ptr %36, align 4
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
@@ -16584,7 +16584,7 @@ _ZN14TypeInterfaces4makeEP13GrowableArrayIP15ciInstanceKlassE.exit: ; preds = %4
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 848
   %57 = load ptr, ptr %56, align 8
   %58 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 0, i32 noundef 8, ptr noundef %57) #17
-  store i32 0, ptr %50, align 4
+  store i32 0, ptr %50, align 8
   %59 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 28
   store i32 0, ptr %59, align 4
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
@@ -16663,7 +16663,7 @@ _ZN14TypeInterfaces4makeEP13GrowableArrayIP15ciInstanceKlassE.exit24: ; preds = 
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 848
   %108 = load ptr, ptr %107, align 8
   %109 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 0, i32 noundef 8, ptr noundef %108) #17
-  store i32 0, ptr %101, align 4
+  store i32 0, ptr %101, align 8
   %110 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i23, i64 28
   store i32 0, ptr %110, align 4
   %111 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i23, i64 32

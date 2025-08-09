@@ -482,7 +482,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %if
   store i64 %5, ptr %_M_string_length.i29.i, align 8, !tbaa !13
   store ptr %2, ptr %in_message, align 8, !tbaa !7
   store i64 0, ptr %_M_string_length.i28.i, align 8, !tbaa !13
-  store i8 0, ptr %2, align 1, !tbaa !20
+  store i8 0, ptr %2, align 8, !tbaa !20
   %call = invoke noundef ptr @_ZN2fs19GetFilenameFromPathEPKc(ptr noundef %in_file)
           to label %invoke.cont unwind label %lpad
 
@@ -1039,11 +1039,11 @@ if.end27.i.i:                                     ; preds = %lor.lhs.false.i.i.i
 call5.i.i.i.i.i.i.i.noexc:                        ; preds = %if.end27.i.i
   store ptr null, ptr %call5.i.i.i.i.i.i.i697, align 8, !tbaa !80
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i697, i64 8
-  store i16 %add.i.i, ptr %add.ptr.i.i.i.i.i, align 2, !tbaa !30
+  store i16 %add.i.i, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !30
   %p.i.sroa.10.0.add.ptr.i.i.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i697, i64 10
   store i16 %add8.i.i, ptr %p.i.sroa.10.0.add.ptr.i.i.i.i.sroa_idx.i, align 2, !tbaa !30
   %p.i.sroa.15.0.add.ptr.i.i.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i697, i64 12
-  store i16 %add13.i.i, ptr %p.i.sroa.15.0.add.ptr.i.i.i.i.sroa_idx.i, align 2, !tbaa !30
+  store i16 %add13.i.i, ptr %p.i.sroa.15.0.add.ptr.i.i.i.i.sroa_idx.i, align 4, !tbaa !30
   %41 = load i64, ptr %_M_next_resize.i.i.i, align 8, !tbaa !86
   %call3.i418.i = invoke { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy.i.i, i64 noundef %40, i64 noundef %24, i64 noundef 1)
           to label %call3.i.noexc417.i unwind label %_ZNSt10_HashtableIN3irr4core8vector3dIsEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit63.i.i
@@ -1320,13 +1320,13 @@ cleanup.cont.i.i:                                 ; preds = %lor.lhs.false.i.i.i
 call5.i.i.i.i.i.i.noexc:                          ; preds = %cleanup.cont.i.i
   store ptr null, ptr %call5.i.i.i.i.i.i698, align 8, !tbaa !80
   %add.ptr.i.i29.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i698, i64 8
-  store i16 %add.i.i, ptr %add.ptr.i.i29.i.i, align 4, !tbaa !30
+  store i16 %add.i.i, ptr %add.ptr.i.i29.i.i, align 8, !tbaa !30
   %p.i.sroa.10.0.add.ptr.i.i29.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i698, i64 10
   store i16 %add8.i.i, ptr %p.i.sroa.10.0.add.ptr.i.i29.i.sroa_idx.i, align 2, !tbaa !30
   %p.i.sroa.15.0.add.ptr.i.i29.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i698, i64 12
   store i16 %add13.i.i, ptr %p.i.sroa.15.0.add.ptr.i.i29.i.sroa_idx.i, align 4, !tbaa !30
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i698, i64 16
-  store i32 0, ptr %second.i.i.i.i.i.i.i.i, align 4
+  store i32 0, ptr %second.i.i.i.i.i.i.i.i, align 8
   %82 = load i64, ptr %_M_next_resize.i.i.i690, align 8, !tbaa !86
   %83 = load i64, ptr %_M_element_count.i.i, align 8, !tbaa !92
   %call3.i387.i = invoke { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy.i.i689, i64 noundef %71, i64 noundef %83, i64 noundef 1)
@@ -4456,7 +4456,7 @@ cleanup.cont:                                     ; preds = %lor.lhs.false.i.i, 
   %add.ptr.i.i29 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %add.ptr.i.i29, ptr noundef nonnull align 2 dereferenceable(6) %__k, i64 6, i1 false), !tbaa.struct !31
   %second.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 16
-  store i32 0, ptr %second.i.i.i.i.i.i, align 4
+  store i32 0, ptr %second.i.i.i.i.i.i, align 8
   %call7 = invoke ptr @_ZNSt10_HashtableIN3irr4core8vector3dIsEESt4pairIKS3_7MapNodeESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS9_10_Hash_nodeIS7_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %rem.i.i.i, i64 noundef %xor9.i.i, ptr noundef nonnull %call5.i.i.i.i, i64 noundef 1)
           to label %cleanup15 unwind label %_ZNSt10_HashtableIN3irr4core8vector3dIsEESt4pairIKS3_7MapNodeESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit34
 

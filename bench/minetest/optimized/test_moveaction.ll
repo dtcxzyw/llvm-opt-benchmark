@@ -3770,7 +3770,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %if
   store i64 %5, ptr %_M_string_length.i24.i, align 8, !tbaa !14
   store ptr %2, ptr %in_message, align 8, !tbaa !11
   store i64 0, ptr %_M_string_length.i23.i, align 8, !tbaa !14
-  store i8 0, ptr %2, align 1, !tbaa !13
+  store i8 0, ptr %2, align 8, !tbaa !13
   %call = invoke noundef ptr @_ZN2fs19GetFilenameFromPathEPKc(ptr noundef %in_file)
           to label %invoke.cont unwind label %lpad
 
@@ -12781,7 +12781,7 @@ invoke.cont15:                                    ; preds = %if.end5
   store ptr null, ptr %call5.i.i.i.i64, align 8, !tbaa !51
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i64, i64 8
   %4 = load i64, ptr %add.ptr, align 4
-  store i64 %4, ptr %add.ptr.i.i, align 4
+  store i64 %4, ptr %add.ptr.i.i, align 8
   %_M_before_begin.i65 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i.i64, ptr %_M_before_begin.i65, align 8, !tbaa !328
   %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -12806,7 +12806,7 @@ invoke.cont22:                                    ; preds = %for.body
   store ptr null, ptr %call5.i.i.i.i68, align 8, !tbaa !51
   %add.ptr.i.i67 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i68, i64 8
   %6 = load i64, ptr %add.ptr18, align 4
-  store i64 %6, ptr %add.ptr.i.i67, align 4
+  store i64 %6, ptr %add.ptr.i.i67, align 8
   store ptr %call5.i.i.i.i68, ptr %__prev_n.072, align 8, !tbaa !51
   %sext74 = shl i64 %6, 32
   %conv.i.i.i.i = ashr exact i64 %sext74, 32

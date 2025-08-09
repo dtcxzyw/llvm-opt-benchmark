@@ -3780,7 +3780,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.0214.0312, i64 32
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.0214.0312, i64 40
   %59 = load ptr, ptr %58, align 8, !tbaa !126
-  %60 = load i32, ptr %57, align 4, !tbaa !28
+  %60 = load i32, ptr %57, align 8, !tbaa !28
   %.not.i = icmp eq i32 %60, 0
   br i1 %.not.i, label %_ZNK3g2o17SparseBlockMatrixIN5Eigen6MatrixIdLi1ELi1ELi0ELi1ELi1EEEE14rowBaseOfBlockEi.exit, label %61
 
@@ -4286,7 +4286,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i165: ; preds = %.noexc168, %
   %254 = load i32, ptr %253, align 8, !tbaa !272
   %255 = and i32 %254, -261
   %256 = or disjoint i32 %255, 4
-  store i32 %256, ptr %253, align 4, !tbaa !273
+  store i32 %256, ptr %253, align 8, !tbaa !273
   %257 = load i64, ptr %247, align 8
   %258 = getelementptr inbounds i8, ptr %6, i64 %257
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 240

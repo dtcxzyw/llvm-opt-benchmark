@@ -274,7 +274,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %30, ptr %32, align 8, !tbaa !20, !alias.scope !26, !noalias !29
   store ptr %22, ptr %.0911.i.i.i, align 8, !tbaa !17, !alias.scope !29, !noalias !26
   store i64 0, ptr %31, align 8, !tbaa !20, !alias.scope !29, !noalias !26
-  store i8 0, ptr %22, align 1, !tbaa !19, !alias.scope !29, !noalias !26
+  store i8 0, ptr %22, align 8, !tbaa !19, !alias.scope !29, !noalias !26
   %33 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %34 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %33, %15
@@ -724,7 +724,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !20, !alias.scope !53, !noalias !56
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !17, !alias.scope !56, !noalias !53
   store i64 0, ptr %48, align 8, !tbaa !20, !alias.scope !56, !noalias !53
-  store i8 0, ptr %39, align 1, !tbaa !19, !alias.scope !56, !noalias !53
+  store i8 0, ptr %39, align 8, !tbaa !19, !alias.scope !56, !noalias !53
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -772,7 +772,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !20, !alias.scope !59, !noalias !62
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !17, !alias.scope !62, !noalias !59
   store i64 0, ptr %64, align 8, !tbaa !20, !alias.scope !62, !noalias !59
-  store i8 0, ptr %55, align 1, !tbaa !19, !alias.scope !62, !noalias !59
+  store i8 0, ptr %55, align 8, !tbaa !19, !alias.scope !62, !noalias !59
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5
@@ -865,7 +865,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %37, ptr %38, align 8, !tbaa !20
   store ptr %28, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !17
   store i64 0, ptr %36, align 8, !tbaa !20
-  store i8 0, ptr %28, align 1, !tbaa !19
+  store i8 0, ptr %28, align 8, !tbaa !19
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 32
   %40 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq ptr %39, %15
@@ -1095,7 +1095,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %127, ptr %128, align 8, !tbaa !20
   store ptr %118, ptr %.sroa.04.08.i.i.i.i.i52, align 8, !tbaa !17
   store i64 0, ptr %126, align 8, !tbaa !20
-  store i8 0, ptr %118, align 1, !tbaa !19
+  store i8 0, ptr %118, align 8, !tbaa !19
   %129 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i52, i64 32
   %130 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i51, i64 32
   %.not.i.i.i.i.i55 = icmp eq ptr %129, %15
@@ -1188,7 +1188,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %166, ptr %167, align 8, !tbaa !20
   store ptr %157, ptr %.sroa.04.08.i.i.i.i.i67, align 8, !tbaa !17
   store i64 0, ptr %165, align 8, !tbaa !20
-  store i8 0, ptr %157, align 1, !tbaa !19
+  store i8 0, ptr %157, align 8, !tbaa !19
   %168 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i67, i64 32
   %169 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i66, i64 32
   %.not.i.i.i.i.i70 = icmp eq ptr %168, %1
@@ -1283,7 +1283,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %199, ptr %200, align 8, !tbaa !20
   store ptr %190, ptr %.sroa.04.08.i.i.i.i.i84, align 8, !tbaa !17
   store i64 0, ptr %198, align 8, !tbaa !20
-  store i8 0, ptr %190, align 1, !tbaa !19
+  store i8 0, ptr %190, align 8, !tbaa !19
   %201 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i84, i64 32
   %202 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i83, i64 32
   %.not.i.i.i.i.i87 = icmp eq ptr %201, %15

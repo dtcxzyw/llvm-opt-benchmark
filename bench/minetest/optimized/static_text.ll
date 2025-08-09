@@ -6228,7 +6228,7 @@ _ZSt19__relocate_object_aI14EnrichedStringS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i: ; 
   store i64 %8, ptr %_M_string_length.i24.i.i.i.i.i.i.i.i, align 8, !tbaa !54, !alias.scope !153, !noalias !156
   store ptr %5, ptr %__first.addr.07.i.i.i, align 8, !tbaa !57, !alias.scope !156, !noalias !153
   store i64 0, ptr %_M_string_length.i23.i.i.i.i.i.i.i.i, align 8, !tbaa !54, !alias.scope !156, !noalias !153
-  store i32 0, ptr %5, align 4, !tbaa !55, !alias.scope !156, !noalias !153
+  store i32 0, ptr %5, align 8, !tbaa !55, !alias.scope !156, !noalias !153
   %m_colors.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 32
   %m_colors3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 32
   %9 = load <2 x ptr>, ptr %m_colors3.i.i.i.i.i.i.i, align 8, !tbaa !81, !alias.scope !156, !noalias !153
@@ -6286,7 +6286,7 @@ _ZSt19__relocate_object_aI14EnrichedStringS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i54: 
   store i64 %16, ptr %_M_string_length.i24.i.i.i.i.i.i.i.i56, align 8, !tbaa !54, !alias.scope !160, !noalias !163
   store ptr %13, ptr %__first.addr.07.i.i.i51, align 8, !tbaa !57, !alias.scope !163, !noalias !160
   store i64 0, ptr %_M_string_length.i23.i.i.i.i.i.i.i.i55, align 8, !tbaa !54, !alias.scope !163, !noalias !160
-  store i32 0, ptr %13, align 4, !tbaa !55, !alias.scope !163, !noalias !160
+  store i32 0, ptr %13, align 8, !tbaa !55, !alias.scope !163, !noalias !160
   %m_colors.i.i.i.i.i.i.i57 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i50, i64 32
   %m_colors3.i.i.i.i.i.i.i58 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i51, i64 32
   %17 = load <2 x ptr>, ptr %m_colors3.i.i.i.i.i.i.i58, align 8, !tbaa !81, !alias.scope !163, !noalias !160
@@ -6645,7 +6645,7 @@ _ZSt19__relocate_object_aI14EnrichedStringS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i: ; 
   store i64 %16, ptr %_M_string_length.i24.i.i.i.i.i.i.i.i, align 8, !tbaa !54, !alias.scope !169, !noalias !172
   store ptr %13, ptr %__first.addr.07.i.i.i, align 8, !tbaa !57, !alias.scope !172, !noalias !169
   store i64 0, ptr %_M_string_length.i23.i.i.i.i.i.i.i.i, align 8, !tbaa !54, !alias.scope !172, !noalias !169
-  store i32 0, ptr %13, align 4, !tbaa !55, !alias.scope !172, !noalias !169
+  store i32 0, ptr %13, align 8, !tbaa !55, !alias.scope !172, !noalias !169
   %m_colors.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 32
   %m_colors3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 32
   %17 = load <2 x ptr>, ptr %m_colors3.i.i.i.i.i.i.i, align 8, !tbaa !81, !alias.scope !172, !noalias !169
@@ -6703,7 +6703,7 @@ _ZSt19__relocate_object_aI14EnrichedStringS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i38: 
   store i64 %24, ptr %_M_string_length.i24.i.i.i.i.i.i.i.i40, align 8, !tbaa !54, !alias.scope !175, !noalias !178
   store ptr %21, ptr %__first.addr.07.i.i.i35, align 8, !tbaa !57, !alias.scope !178, !noalias !175
   store i64 0, ptr %_M_string_length.i23.i.i.i.i.i.i.i.i39, align 8, !tbaa !54, !alias.scope !178, !noalias !175
-  store i32 0, ptr %21, align 4, !tbaa !55, !alias.scope !178, !noalias !175
+  store i32 0, ptr %21, align 8, !tbaa !55, !alias.scope !178, !noalias !175
   %m_colors.i.i.i.i.i.i.i41 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i34, i64 32
   %m_colors3.i.i.i.i.i.i.i42 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i35, i64 32
   %25 = load <2 x ptr>, ptr %m_colors3.i.i.i.i.i.i.i42, align 8, !tbaa !81, !alias.scope !178, !noalias !175

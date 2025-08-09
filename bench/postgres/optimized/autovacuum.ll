@@ -1612,7 +1612,7 @@ define internal void @FreeWorkerInfo(i32 %0, i64 %1) #3 {
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !14
-  store volatile i8 0, ptr %19, align 1
+  store volatile i8 0, ptr %19, align 8
   %20 = load ptr, ptr @AutoVacuumShmem, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr @MyWorkerInfo, align 8
@@ -3152,7 +3152,7 @@ dclist_push_head.exit:                            ; preds = %.lr.ph, %26
   store i32 %32, ptr %30, align 8
   %33 = getelementptr inbounds nuw i8, ptr %22, i64 40
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !14
-  store volatile i8 0, ptr %33, align 1
+  store volatile i8 0, ptr %33, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = load i32, ptr @autovacuum_worker_slots, align 4
   %35 = sext i32 %34 to i64

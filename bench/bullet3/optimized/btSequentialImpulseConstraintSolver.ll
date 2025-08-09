@@ -1430,19 +1430,19 @@ select.unfold:                                    ; preds = %5, %4
   store ptr null, ptr %98, align 8, !tbaa !63
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %97, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %99, align 4, !tbaa !59
+  store float 1.000000e+00, ptr %99, align 8, !tbaa !59
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 100
   store float 1.000000e+00, ptr %100, align 4, !tbaa !59
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  store float 1.000000e+00, ptr %101, align 4, !tbaa !59
+  store float 1.000000e+00, ptr %101, align 8, !tbaa !59
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 108
   store float 0.000000e+00, ptr %102, align 4, !tbaa !59
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  store float 1.000000e+00, ptr %103, align 4, !tbaa !59
+  store float 1.000000e+00, ptr %103, align 8, !tbaa !59
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 116
   store float 1.000000e+00, ptr %104, align 4, !tbaa !59
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store float 1.000000e+00, ptr %105, align 4, !tbaa !59
+  store float 1.000000e+00, ptr %105, align 8, !tbaa !59
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 124
   store float 0.000000e+00, ptr %106, align 4, !tbaa !59
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 176
@@ -2723,19 +2723,19 @@ _ZN20btAlignedObjectArrayI12btSolverBodyE6expandERKS0_.exit35: ; preds = %59, %6
   store ptr null, ptr %111, align 8, !tbaa !63
   %112 = getelementptr inbounds nuw i8, ptr %102, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %110, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %112, align 4, !tbaa !59
+  store float 1.000000e+00, ptr %112, align 8, !tbaa !59
   %113 = getelementptr inbounds nuw i8, ptr %102, i64 100
   store float 1.000000e+00, ptr %113, align 4, !tbaa !59
   %114 = getelementptr inbounds nuw i8, ptr %102, i64 104
-  store float 1.000000e+00, ptr %114, align 4, !tbaa !59
+  store float 1.000000e+00, ptr %114, align 8, !tbaa !59
   %115 = getelementptr inbounds nuw i8, ptr %102, i64 108
   store float 0.000000e+00, ptr %115, align 4, !tbaa !59
   %116 = getelementptr inbounds nuw i8, ptr %102, i64 112
-  store float 1.000000e+00, ptr %116, align 4, !tbaa !59
+  store float 1.000000e+00, ptr %116, align 8, !tbaa !59
   %117 = getelementptr inbounds nuw i8, ptr %102, i64 116
   store float 1.000000e+00, ptr %117, align 4, !tbaa !59
   %118 = getelementptr inbounds nuw i8, ptr %102, i64 120
-  store float 1.000000e+00, ptr %118, align 4, !tbaa !59
+  store float 1.000000e+00, ptr %118, align 8, !tbaa !59
   %119 = getelementptr inbounds nuw i8, ptr %102, i64 124
   store float 0.000000e+00, ptr %119, align 4, !tbaa !59
   %120 = getelementptr inbounds nuw i8, ptr %102, i64 176
@@ -5066,7 +5066,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver12convertJointEP1
   %131 = load ptr, ptr %9, align 8, !tbaa !132
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 372
   %133 = load float, ptr %132, align 4, !tbaa !59
-  %134 = load float, ptr %117, align 4, !tbaa !59
+  %134 = load float, ptr %117, align 8, !tbaa !59
   %135 = getelementptr inbounds nuw i8, ptr %131, i64 376
   %136 = load float, ptr %135, align 4, !tbaa !59
   %137 = getelementptr inbounds nuw i8, ptr %117, i64 4
@@ -5076,7 +5076,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver12convertJointEP1
   %141 = getelementptr inbounds nuw i8, ptr %131, i64 380
   %142 = load float, ptr %141, align 4, !tbaa !59
   %143 = getelementptr inbounds nuw i8, ptr %117, i64 8
-  %144 = load float, ptr %143, align 4, !tbaa !59
+  %144 = load float, ptr %143, align 8, !tbaa !59
   %145 = call noundef float @llvm.fmuladd.f32(float %142, float %144, float %140)
   %146 = getelementptr inbounds nuw i8, ptr %131, i64 388
   %147 = load float, ptr %146, align 4, !tbaa !59
@@ -5116,7 +5116,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver12convertJointEP1
   %175 = load ptr, ptr %11, align 8, !tbaa !135
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 372
   %177 = load float, ptr %176, align 4, !tbaa !59
-  %178 = load float, ptr %174, align 4, !tbaa !59
+  %178 = load float, ptr %174, align 8, !tbaa !59
   %179 = getelementptr inbounds nuw i8, ptr %175, i64 376
   %180 = load float, ptr %179, align 4, !tbaa !59
   %181 = getelementptr inbounds nuw i8, ptr %117, i64 36
@@ -5126,7 +5126,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver12convertJointEP1
   %185 = getelementptr inbounds nuw i8, ptr %175, i64 380
   %186 = load float, ptr %185, align 4, !tbaa !59
   %187 = getelementptr inbounds nuw i8, ptr %117, i64 40
-  %188 = load float, ptr %187, align 4, !tbaa !59
+  %188 = load float, ptr %187, align 8, !tbaa !59
   %189 = call noundef float @llvm.fmuladd.f32(float %186, float %188, float %184)
   %190 = getelementptr inbounds nuw i8, ptr %175, i64 388
   %191 = load float, ptr %190, align 4, !tbaa !59
@@ -5164,13 +5164,13 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver12convertJointEP1
   store <2 x float> %.sroa.3.12.vec.insert.i139, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !80
   %218 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %219 = load float, ptr %67, align 4, !tbaa !81
-  %220 = load float, ptr %218, align 4, !tbaa !59
+  %220 = load float, ptr %218, align 8, !tbaa !59
   %221 = fmul float %219, %220
   %222 = getelementptr inbounds nuw i8, ptr %117, i64 20
   %223 = load float, ptr %222, align 4, !tbaa !59
   %224 = fmul float %219, %223
   %225 = getelementptr inbounds nuw i8, ptr %117, i64 24
-  %226 = load float, ptr %225, align 4, !tbaa !59
+  %226 = load float, ptr %225, align 8, !tbaa !59
   %227 = fmul float %219, %226
   %228 = load float, ptr %68, align 4, !tbaa !59
   %229 = load float, ptr %69, align 4, !tbaa !59
@@ -5192,13 +5192,13 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver12convertJointEP1
   %245 = call noundef float @llvm.fmuladd.f32(float %244, float %144, float %243)
   %246 = getelementptr inbounds nuw i8, ptr %117, i64 48
   %247 = load float, ptr %77, align 4, !tbaa !81
-  %248 = load float, ptr %246, align 4, !tbaa !59
+  %248 = load float, ptr %246, align 8, !tbaa !59
   %249 = fmul float %247, %248
   %250 = getelementptr inbounds nuw i8, ptr %117, i64 52
   %251 = load float, ptr %250, align 4, !tbaa !59
   %252 = fmul float %247, %251
   %253 = getelementptr inbounds nuw i8, ptr %117, i64 56
-  %254 = load float, ptr %253, align 4, !tbaa !59
+  %254 = load float, ptr %253, align 8, !tbaa !59
   %255 = fmul float %247, %254
   %256 = load float, ptr %78, align 4, !tbaa !59
   %257 = load float, ptr %79, align 4, !tbaa !59
@@ -7673,11 +7673,11 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver15writeBackBodies
   %.phi.trans.insert33 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 240
   %.pre34 = load ptr, ptr %.phi.trans.insert33, align 8, !tbaa !63
   %.phi.trans.insert35 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 176
-  %.pre36 = load float, ptr %.phi.trans.insert35, align 4, !tbaa !59
+  %.pre36 = load float, ptr %.phi.trans.insert35, align 8, !tbaa !59
   %.phi.trans.insert37 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 180
   %.pre38 = load float, ptr %.phi.trans.insert37, align 4, !tbaa !59
   %.phi.trans.insert39 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 184
-  %.pre40 = load float, ptr %.phi.trans.insert39, align 4, !tbaa !59
+  %.pre40 = load float, ptr %.phi.trans.insert39, align 8, !tbaa !59
   br label %51
 
 _ZN12btSolverBody17writebackVelocityEv.exit:      ; preds = %16
@@ -7752,8 +7752,8 @@ _ZN12btSolverBody17writebackVelocityEv.exit:      ; preds = %16
   %74 = load ptr, ptr %73, align 8, !tbaa !63
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 192
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 224
-  %77 = load float, ptr %75, align 4, !tbaa !59
-  %78 = load float, ptr %76, align 4, !tbaa !59
+  %77 = load float, ptr %75, align 8, !tbaa !59
+  %78 = load float, ptr %76, align 8, !tbaa !59
   %79 = fadd float %77, %78
   %80 = getelementptr inbounds nuw i8, ptr %72, i64 196
   %81 = load float, ptr %80, align 4, !tbaa !59
@@ -7761,9 +7761,9 @@ _ZN12btSolverBody17writebackVelocityEv.exit:      ; preds = %16
   %83 = load float, ptr %82, align 4, !tbaa !59
   %84 = fadd float %81, %83
   %85 = getelementptr inbounds nuw i8, ptr %72, i64 200
-  %86 = load float, ptr %85, align 4, !tbaa !59
+  %86 = load float, ptr %85, align 8, !tbaa !59
   %87 = getelementptr inbounds nuw i8, ptr %72, i64 232
-  %88 = load float, ptr %87, align 4, !tbaa !59
+  %88 = load float, ptr %87, align 8, !tbaa !59
   %89 = fadd float %86, %88
   %.sroa.0.0.vec.insert.i23 = insertelement <2 x float> poison, float %79, i64 0
   %.sroa.0.4.vec.insert.i24 = insertelement <2 x float> %.sroa.0.0.vec.insert.i23, float %84, i64 1

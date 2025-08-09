@@ -3308,7 +3308,7 @@ define dso_local void @cpufreq_unregister_governor(ptr noundef captures(address_
 18:                                               ; preds = %14
   %19 = getelementptr i8, ptr %10, i64 -272
   store ptr null, ptr %19, align 8
-  store i8 0, ptr %15, align 1
+  store i8 0, ptr %15, align 8
   br label %20
 
 20:                                               ; preds = %18, %14, %.preheader

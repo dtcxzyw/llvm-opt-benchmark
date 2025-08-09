@@ -22990,7 +22990,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %52, ptr %54, align 8, !tbaa !12, !alias.scope !780, !noalias !783
   store ptr %44, ptr %.0911.i.i.i, align 8, !tbaa !77, !alias.scope !783, !noalias !780
   store i64 0, ptr %53, align 8, !tbaa !12, !alias.scope !783, !noalias !780
-  store i8 0, ptr %44, align 1, !tbaa !15, !alias.scope !783, !noalias !780
+  store i8 0, ptr %44, align 8, !tbaa !15, !alias.scope !783, !noalias !780
   %55 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %56 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %55, %1
@@ -23038,7 +23038,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %68, ptr %70, align 8, !tbaa !12, !alias.scope !787, !noalias !790
   store ptr %60, ptr %.0911.i.i.i30, align 8, !tbaa !77, !alias.scope !790, !noalias !787
   store i64 0, ptr %69, align 8, !tbaa !12, !alias.scope !790, !noalias !787
-  store i8 0, ptr %60, align 1, !tbaa !15, !alias.scope !790, !noalias !787
+  store i8 0, ptr %60, align 8, !tbaa !15, !alias.scope !790, !noalias !787
   %71 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 32
   %72 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 32
   %.not.i.i.i35 = icmp eq ptr %71, %6
@@ -23917,13 +23917,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8, !tbaa !12
   store ptr %13, ptr %10, align 8, !tbaa !77
   store i64 0, ptr %24, align 8, !tbaa !12
-  store i8 0, ptr %13, align 1, !tbaa !15
+  store i8 0, ptr %13, align 8, !tbaa !15
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store ptr %27, ptr %26, align 8, !tbaa !7
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store i64 0, ptr %28, align 8, !tbaa !12
-  store i8 0, ptr %27, align 1, !tbaa !15
+  store i8 0, ptr %27, align 8, !tbaa !15
   store ptr %7, ptr %23, align 8, !tbaa !801
   %29 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %30 unwind label %51

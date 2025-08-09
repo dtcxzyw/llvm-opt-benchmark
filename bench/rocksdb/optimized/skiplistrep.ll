@@ -1143,7 +1143,7 @@ define noundef nonnull ptr @_ZN7rocksdb15SkipListFactory17CreateMemTableRepERKNS
   store i32 12, ptr %20, align 1
   store ptr %20, ptr %19, align 8, !tbaa !84
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store i32 1, ptr %21, align 4, !tbaa !85
+  store i32 1, ptr %21, align 8, !tbaa !85
   %22 = load ptr, ptr %2, align 8, !tbaa !50
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load ptr, ptr %23, align 8
@@ -3179,7 +3179,7 @@ define internal noundef ptr @_ZN7rocksdb12_GLOBAL__N_111SkipListRep11GetIterator
   store ptr %16, ptr %15, align 8, !tbaa !62
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 0, ptr %17, align 8, !tbaa !16
-  store i8 0, ptr %16, align 1, !tbaa !17
+  store i8 0, ptr %16, align 8, !tbaa !17
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store ptr %0, ptr %18, align 8, !tbaa !175
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 48
@@ -3218,7 +3218,7 @@ define internal noundef ptr @_ZN7rocksdb12_GLOBAL__N_111SkipListRep11GetIterator
   store ptr %37, ptr %36, align 8, !tbaa !62
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store i64 0, ptr %38, align 8, !tbaa !16
-  store i8 0, ptr %37, align 1, !tbaa !17
+  store i8 0, ptr %37, align 8, !tbaa !17
   br label %39
 
 39:                                               ; preds = %31, %13
@@ -4142,7 +4142,7 @@ define internal void @_ZN7rocksdb12_GLOBAL__N_111SkipListRep8Iterator4SeekERKNS_
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !84
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %12 = load atomic i32, ptr %11 monotonic, align 4
+  %12 = load atomic i32, ptr %11 monotonic, align 8
   %13 = add nsw i32 %12, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -4213,7 +4213,7 @@ _ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE8Iterator4SeekEPK
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8, !tbaa !84
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  %51 = load atomic i32, ptr %50 monotonic, align 4
+  %51 = load atomic i32, ptr %50 monotonic, align 8
   %52 = add nsw i32 %51, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 16
@@ -4601,7 +4601,7 @@ define internal void @_ZN7rocksdb12_GLOBAL__N_111SkipListRep8Iterator15SeekAndVa
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !84, !noalias !211
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %14 = load atomic i32, ptr %13 monotonic, align 4, !noalias !211
+  %14 = load atomic i32, ptr %13 monotonic, align 8, !noalias !211
   %15 = add nsw i32 %14, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !211
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -4701,7 +4701,7 @@ define internal void @_ZN7rocksdb12_GLOBAL__N_111SkipListRep8Iterator15SeekAndVa
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %67 = load ptr, ptr %66, align 8, !tbaa !84, !noalias !218
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 32
-  %69 = load atomic i32, ptr %68 monotonic, align 4, !noalias !218
+  %69 = load atomic i32, ptr %68 monotonic, align 8, !noalias !218
   %70 = add nsw i32 %69, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !218
   %71 = getelementptr inbounds nuw i8, ptr %65, i64 16
@@ -4844,7 +4844,7 @@ define internal void @_ZN7rocksdb12_GLOBAL__N_111SkipListRep8Iterator10SeekToLas
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !84
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %7 = load atomic i32, ptr %6 monotonic, align 4
+  %7 = load atomic i32, ptr %6 monotonic, align 8
   %8 = add nsw i32 %7, -1
   br label %.outer
 
@@ -5386,7 +5386,7 @@ define linkonce_odr void @_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyCom
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !84
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %9 = load atomic i32, ptr %8 monotonic, align 4
+  %9 = load atomic i32, ptr %8 monotonic, align 8
   %10 = add nsw i32 %9, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -5450,7 +5450,7 @@ _ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE8Iterator4SeekEPK
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load ptr, ptr %41, align 8, !tbaa !84
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  %44 = load atomic i32, ptr %43 monotonic, align 4
+  %44 = load atomic i32, ptr %43 monotonic, align 8
   %45 = add nsw i32 %44, -1
   br label %.outer
 
@@ -6428,7 +6428,7 @@ define internal void @_ZN7rocksdb12_GLOBAL__N_111SkipListRep17LookaheadIterator4
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = load ptr, ptr %51, align 8, !tbaa !84
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 32
-  %54 = load atomic i32, ptr %53 monotonic, align 4
+  %54 = load atomic i32, ptr %53 monotonic, align 8
   %55 = add nsw i32 %54, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %56 = getelementptr inbounds nuw i8, ptr %50, i64 16
@@ -6540,7 +6540,7 @@ define internal void @_ZN7rocksdb12_GLOBAL__N_111SkipListRep17LookaheadIterator1
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !84
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %7 = load atomic i32, ptr %6 monotonic, align 4
+  %7 = load atomic i32, ptr %6 monotonic, align 8
   %8 = add nsw i32 %7, -1
   br label %.outer
 

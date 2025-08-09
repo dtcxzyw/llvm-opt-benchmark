@@ -31718,7 +31718,7 @@ _ZN4absl15LogInfoStreamerESt17basic_string_viewIcSt11char_traitsIcEEi.exit: ; pr
   %404 = load i32, ptr %403, align 8, !tbaa !375
   %405 = and i32 %404, -75
   %406 = or disjoint i32 %405, 8
-  store i32 %406, ptr %403, align 4, !tbaa !376
+  store i32 %406, ptr %403, align 8, !tbaa !376
   %407 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %396, i32 noundef 16)
           to label %408 unwind label %440
 
@@ -34700,7 +34700,7 @@ _ZN4absl15LogInfoStreamerESt17basic_string_viewIcSt11char_traitsIcEEi.exit: ; pr
   %796 = load i32, ptr %795, align 8, !tbaa !375
   %797 = and i32 %796, -75
   %798 = or disjoint i32 %797, 8
-  store i32 %798, ptr %795, align 4, !tbaa !376
+  store i32 %798, ptr %795, align 8, !tbaa !376
   %799 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %788, i32 noundef 16)
           to label %800 unwind label %860
 
@@ -35332,10 +35332,10 @@ _ZNSoaSEOSo.exit:                                 ; preds = %12
   store ptr %19, ptr %18, align 8, !tbaa !1010
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 224
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 224
-  %23 = load i8, ptr %21, align 1, !tbaa !37
-  %24 = load i8, ptr %22, align 1, !tbaa !37
-  store i8 %24, ptr %21, align 1, !tbaa !37
-  store i8 %23, ptr %22, align 1, !tbaa !37
+  %23 = load i8, ptr %21, align 8, !tbaa !37
+  %24 = load i8, ptr %22, align 8, !tbaa !37
+  store i8 %24, ptr %21, align 8, !tbaa !37
+  store i8 %23, ptr %22, align 8, !tbaa !37
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 225
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 225
   %27 = load i8, ptr %25, align 1, !tbaa !138, !range !117, !noundef !118
@@ -35817,7 +35817,7 @@ _ZN4absl15LogInfoStreamerESt17basic_string_viewIcSt11char_traitsIcEEi.exit: ; pr
   %180 = load i32, ptr %179, align 8, !tbaa !375
   %181 = and i32 %180, -75
   %182 = or disjoint i32 %181, 8
-  store i32 %182, ptr %179, align 4, !tbaa !376
+  store i32 %182, ptr %179, align 8, !tbaa !376
   %183 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %173, i64 noundef 3735928559)
           to label %_ZNSolsEj.exit unwind label %203
 

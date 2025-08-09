@@ -290,11 +290,11 @@ entry:
   %exec_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 72
   store ptr null, ptr %exec_.i.i.i.i.i, align 8
   %state_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 80
-  store i8 1, ptr %state_.i.i.i.i, align 1
+  store i8 1, ptr %state_.i.i.i.i, align 16
   %attached_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 81
   store i8 2, ptr %attached_.i.i.i.i, align 1
   %callbackReferences_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 82
-  store i8 0, ptr %callbackReferences_.i.i.i.i, align 1
+  store i8 0, ptr %callbackReferences_.i.i.i.i, align 2
   %executor_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 88
   store i32 0, ptr %executor_.i.i.i.i, align 8
   %0 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 96
@@ -424,11 +424,11 @@ _ZN5folly10makeFutureIPN8proxygen15HTTPSessionBaseEEENS_6FutureINSt5decayIT_E4ty
   %exec_.i.i.i.i.i.i16 = getelementptr inbounds nuw i8, ptr %call.i.i1.i21, i64 72
   store ptr null, ptr %exec_.i.i.i.i.i.i16, align 8, !noalias !16
   %state_.i.i.i.i.i17 = getelementptr inbounds nuw i8, ptr %call.i.i1.i21, i64 80
-  store i8 2, ptr %state_.i.i.i.i.i17, align 1, !noalias !16
+  store i8 2, ptr %state_.i.i.i.i.i17, align 16, !noalias !16
   %attached_.i.i.i.i.i18 = getelementptr inbounds nuw i8, ptr %call.i.i1.i21, i64 81
   store i8 1, ptr %attached_.i.i.i.i.i18, align 1, !noalias !16
   %callbackReferences_.i.i.i.i.i19 = getelementptr inbounds nuw i8, ptr %call.i.i1.i21, i64 82
-  store i8 0, ptr %callbackReferences_.i.i.i.i.i19, align 1, !noalias !16
+  store i8 0, ptr %callbackReferences_.i.i.i.i.i19, align 2, !noalias !16
   %executor_.i.i.i.i.i20 = getelementptr inbounds nuw i8, ptr %call.i.i1.i21, i64 88
   store i32 0, ptr %executor_.i.i.i.i.i20, align 8, !noalias !16
   %13 = getelementptr inbounds nuw i8, ptr %call.i.i1.i21, i64 96
@@ -436,7 +436,7 @@ _ZN5folly10makeFutureIPN8proxygen15HTTPSessionBaseEEENS_6FutureINSt5decayIT_E4ty
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly7futures6detail4CoreIPN8proxygen15HTTPSessionBaseEEE, i64 16), ptr %call.i.i1.i21, align 16, !noalias !16
   store i32 0, ptr %12, align 8, !noalias !16
   %14 = getelementptr inbounds nuw i8, ptr %call.i.i1.i21, i64 144
-  store ptr null, ptr %14, align 8, !noalias !16
+  store ptr null, ptr %14, align 16, !noalias !16
   store ptr %call.i.i1.i21, ptr %agg.result, align 8, !alias.scope !16
   br label %cleanup30
 
@@ -486,11 +486,11 @@ cleanup30.critedge:                               ; preds = %if.then
   %exec_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1.i8, i64 72
   store ptr null, ptr %exec_.i.i.i.i.i.i, align 8, !noalias !17
   %state_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1.i8, i64 80
-  store i8 2, ptr %state_.i.i.i.i.i, align 1, !noalias !17
+  store i8 2, ptr %state_.i.i.i.i.i, align 16, !noalias !17
   %attached_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1.i8, i64 81
   store i8 1, ptr %attached_.i.i.i.i.i, align 1, !noalias !17
   %callbackReferences_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1.i8, i64 82
-  store i8 0, ptr %callbackReferences_.i.i.i.i.i, align 1, !noalias !17
+  store i8 0, ptr %callbackReferences_.i.i.i.i.i, align 2, !noalias !17
   %executor_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1.i8, i64 88
   store i32 0, ptr %executor_.i.i.i.i.i, align 8, !noalias !17
   %22 = getelementptr inbounds nuw i8, ptr %call.i.i1.i8, i64 96
@@ -498,7 +498,7 @@ cleanup30.critedge:                               ; preds = %if.then
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly7futures6detail4CoreIPN8proxygen15HTTPSessionBaseEEE, i64 16), ptr %call.i.i1.i8, align 16, !noalias !17
   store i32 0, ptr %21, align 8, !noalias !17
   %23 = getelementptr inbounds nuw i8, ptr %call.i.i1.i8, i64 144
-  store ptr null, ptr %23, align 8, !noalias !17
+  store ptr null, ptr %23, align 16, !noalias !17
   store ptr %call.i.i1.i8, ptr %agg.result, align 8, !alias.scope !17
   %call1.i.i.i28 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %this) #21
   br label %cleanup30

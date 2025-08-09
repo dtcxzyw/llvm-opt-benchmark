@@ -87,8 +87,8 @@ define dso_local noundef range(i32 -22, 1) i32 @skl_update_scaler_crtc(ptr nound
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 1544
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 848
-  %32 = load i32, ptr %31, align 4
-  %33 = load i32, ptr %30, align 4
+  %32 = load i32, ptr %31, align 8
+  %33 = load i32, ptr %30, align 8
   %34 = sub i32 %32, %33
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 852
   %36 = load i32, ptr %35, align 4
@@ -107,8 +107,8 @@ define internal fastcc noundef range(i32 -22, 1) i32 @skl_update_scaler(ptr noun
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 848
-  %17 = load i32, ptr %16, align 4
-  %18 = load i32, ptr %15, align 4
+  %17 = load i32, ptr %16, align 8
+  %18 = load i32, ptr %15, align 8
   %19 = sub i32 %17, %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 852
   %21 = load i32, ptr %20, align 4
@@ -886,8 +886,8 @@ define dso_local void @skl_pfit_enable(ptr noundef %0) local_unnamed_addr #0 ali
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 1648
   %7 = load i32, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1480
-  %9 = load i32, ptr %8, align 4
-  %10 = load i32, ptr %5, align 4
+  %9 = load i32, ptr %8, align 8
+  %10 = load i32, ptr %5, align 8
   %11 = sub i32 %9, %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1484
   %13 = load i32, ptr %12, align 4
@@ -1534,12 +1534,12 @@ define dso_local void @skl_program_plane_scaler(ptr noundef readonly captures(no
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 124
   %12 = load i32, ptr %11, align 4
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  %14 = load i32, ptr %13, align 4
+  %14 = load i32, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 132
   %16 = load i32, ptr %15, align 4
   %17 = sub i32 %16, %12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 136
-  %19 = load i32, ptr %18, align 4
+  %19 = load i32, ptr %18, align 8
   %20 = sub i32 %19, %14
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %22 = tail call i32 @drm_rect_calc_hscale(ptr noundef nonnull %21, ptr noundef nonnull %11, i32 noundef 0, i32 noundef 2147483647) #7
@@ -2295,10 +2295,10 @@ define dso_local void @skl_scaler_get_config(ptr noundef captures(none) %0) loca
   %47 = and i32 %39, 65535
   %48 = lshr i32 %45, 16
   %49 = and i32 %45, 65535
-  store i32 %46, ptr %12, align 4
+  store i32 %46, ptr %12, align 8
   store i32 %47, ptr %14, align 4
   %50 = add nuw nsw i32 %48, %46
-  store i32 %50, ptr %15, align 4
+  store i32 %50, ptr %15, align 8
   %51 = add nuw nsw i32 %49, %47
   store i32 %51, ptr %16, align 4
   %52 = getelementptr [2 x %struct.intel_scaler], ptr %3, i64 0, i64 %23

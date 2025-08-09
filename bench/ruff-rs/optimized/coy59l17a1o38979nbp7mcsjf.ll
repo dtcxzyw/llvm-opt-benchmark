@@ -1785,7 +1785,7 @@ define hidden void @_ZN5salsa5views5Views3add17h6095698a0c51b766E(ptr noundef no
   %.sroa.7.0..sroa_idx = getelementptr i8, ptr %57, i64 1568
   store i64 7469766667972927328, ptr %.sroa.7.0..sroa_idx, align 8
   %59 = getelementptr i8, ptr %57, i64 1576
-  store atomic i8 1, ptr %59 release, align 1, !noalias !110
+  store atomic i8 1, ptr %59 release, align 8, !noalias !110
   %60 = atomicrmw add ptr %5, i64 1 release, align 8, !noalias !110
   br label %.loopexit16
 
@@ -1916,7 +1916,7 @@ define hidden void @_ZN5salsa5views5Views3add17h7ecdcca6f9710212E(ptr noundef no
   %.sroa.7.0..sroa_idx = getelementptr i8, ptr %57, i64 1568
   store i64 637409720492316309, ptr %.sroa.7.0..sroa_idx, align 8
   %59 = getelementptr i8, ptr %57, i64 1576
-  store atomic i8 1, ptr %59 release, align 1, !noalias !128
+  store atomic i8 1, ptr %59 release, align 8, !noalias !128
   %60 = atomicrmw add ptr %5, i64 1 release, align 8, !noalias !128
   br label %.loopexit16
 
@@ -2047,7 +2047,7 @@ define hidden void @_ZN5salsa5views5Views3add17he4c6e513f91cec2fE(ptr noundef no
   %.sroa.7.0..sroa_idx = getelementptr i8, ptr %57, i64 1568
   store i64 760515197786833164, ptr %.sroa.7.0..sroa_idx, align 8
   %59 = getelementptr i8, ptr %57, i64 1576
-  store atomic i8 1, ptr %59 release, align 1, !noalias !146
+  store atomic i8 1, ptr %59 release, align 8, !noalias !146
   %60 = atomicrmw add ptr %5, i64 1 release, align 8, !noalias !146
   br label %.loopexit16
 
@@ -2135,7 +2135,7 @@ define hidden void @_ZN5salsa5views5Views3new17hf19d48875363ee3bE(ptr dead_on_un
   %.sroa.7.0..sroa_idx = getelementptr i8, ptr %36, i64 1568
   store i64 760515197786833164, ptr %.sroa.7.0..sroa_idx, align 8
   %38 = getelementptr i8, ptr %36, i64 1576
-  store atomic i8 1, ptr %38 release, align 1, !noalias !152
+  store atomic i8 1, ptr %38 release, align 8, !noalias !152
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 480
   %40 = atomicrmw add ptr %39, i64 1 release, align 8, !noalias !152
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16

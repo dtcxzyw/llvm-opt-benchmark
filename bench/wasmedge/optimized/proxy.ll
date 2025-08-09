@@ -4441,7 +4441,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %35
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %46 = load i64, ptr %45, align 8
   %.not.not.i.i.i.i.i = icmp eq i64 %46, 0
-  %.pre33.i.i.i.i.i = load i32, ptr %41, align 4
+  %.pre33.i.i.i.i.i = load i32, ptr %41, align 8
   br i1 %.not.not.i.i.i.i.i, label %47, label %.loopexit.i.i.i.i
 
 47:                                               ; preds = %.noexc32
@@ -4742,7 +4742,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %35
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %46 = load i64, ptr %45, align 8
   %.not.not.i.i.i.i.i = icmp eq i64 %46, 0
-  %.pre33.i.i.i.i.i = load i32, ptr %41, align 4
+  %.pre33.i.i.i.i.i = load i32, ptr %41, align 8
   br i1 %.not.not.i.i.i.i.i, label %47, label %.loopexit.i.i.i.i
 
 47:                                               ; preds = %.noexc32
@@ -33668,7 +33668,7 @@ _ZNSt10_HashtableIjSt4pairIKjN8WasmEdge8Executor8Executor6WaiterEESaIS6_ENSt8__d
   %.05568 = phi i8 [ %.156, %44 ], [ 0, %_ZNSt10_HashtableIjSt4pairIKjN8WasmEdge8Executor8Executor6WaiterEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb0EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.072, align 8
   %15 = getelementptr inbounds nuw i8, ptr %.072, i64 8
-  %16 = load i32, ptr %15, align 4
+  %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
   %18 = urem i64 %17, %1
   %.not62 = icmp ne ptr %.05469, null

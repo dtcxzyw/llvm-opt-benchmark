@@ -1390,7 +1390,7 @@ _ZN5boost10filesystem4pathC2EOS1_.exit:           ; preds = %19, %_ZNKSt7__cxx11
   store i64 %25, ptr %27, align 8, !tbaa !34
   store ptr %17, ptr %3, align 8, !tbaa !31
   store i64 0, ptr %26, align 8, !tbaa !34
-  store i8 0, ptr %17, align 1, !tbaa !33
+  store i8 0, ptr %17, align 8, !tbaa !33
   invoke fastcc void @_ZN5folly4test12_GLOBAL__N_118generateUniquePathEN5boost10filesystem4pathENS_5RangeIPKcEE(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef %8, ptr %1, ptr %2)
           to label %28 unwind label %81
 
@@ -2112,7 +2112,7 @@ _ZN5boost10filesystem4pathC2EOS1_.exit:           ; preds = %185, %_ZNKSt7__cxx1
   store i64 %190, ptr %191, align 8, !tbaa !34
   store ptr %183, ptr %1, align 8, !tbaa !31
   store i64 0, ptr %16, align 8, !tbaa !34
-  store i8 0, ptr %183, align 1, !tbaa !33
+  store i8 0, ptr %183, align 8, !tbaa !33
   ret void
 }
 
@@ -2841,7 +2841,7 @@ _ZN5boost10filesystem4pathC2EOS1_.exit:           ; preds = %13, %_ZNKSt7__cxx11
   store i64 %19, ptr %21, align 8, !tbaa !34
   store ptr %11, ptr %3, align 8, !tbaa !31
   store i64 0, ptr %20, align 8, !tbaa !34
-  store i8 0, ptr %11, align 1, !tbaa !33
+  store i8 0, ptr %11, align 8, !tbaa !33
   invoke fastcc void @_ZN5folly4test12_GLOBAL__N_118generateUniquePathEN5boost10filesystem4pathENS_5RangeIPKcEE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef %7, ptr %1, ptr %2)
           to label %22 unwind label %45
 
@@ -21779,7 +21779,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIiSt4pairIKiNSt7__cxx1112basic_stringIcSt
   store ptr %14, ptr %13, align 8, !tbaa !26
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i64 0, ptr %15, align 8, !tbaa !34
-  store i8 0, ptr %14, align 1, !tbaa !33
+  store i8 0, ptr %14, align 8, !tbaa !33
   store ptr %8, ptr %7, align 8, !tbaa !514
   %16 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIiESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %9)
           to label %17 unwind label %32
@@ -30777,7 +30777,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 16
   store i32 1, ptr %255, align 8, !tbaa !261
   %256 = getelementptr inbounds nuw i8, ptr %254, i64 24
-  store i8 %184, ptr %256, align 1, !tbaa !33
+  store i8 %184, ptr %256, align 8, !tbaa !33
   %257 = load ptr, ptr %139, align 8, !tbaa !555
   %258 = load ptr, ptr %0, align 8, !tbaa !545
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 352
@@ -38151,7 +38151,7 @@ _ZNSt15basic_streambufIcSt11char_traitsIcEE9pubsetbufEPcl.exit: ; preds = %_ZSt4
   %switch.selectcmp48 = icmp eq i32 %87, 16
   %switch.select49 = select i1 %switch.selectcmp48, i32 8, i32 %switch.select
   %95 = or disjoint i32 %94, %switch.select49
-  store i32 %95, ptr %92, align 4, !tbaa !777
+  store i32 %95, ptr %92, align 8, !tbaa !777
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %96 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIlEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %101 unwind label %129

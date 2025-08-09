@@ -1449,7 +1449,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__23HdVolumeFieldDescriptorESaIS1_
   store i64 0, ptr %32, align 8
   %163 = getelementptr inbounds nuw i8, ptr %158, i64 16
   %164 = load i32, ptr %33, align 8
-  store i32 %164, ptr %163, align 4
+  store i32 %164, ptr %163, align 8
   store i32 0, ptr %33, align 8
   %165 = getelementptr inbounds nuw i8, ptr %158, i64 20
   %166 = load i32, ptr %34, align 4
@@ -2588,7 +2588,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfT
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %.07, i64 40
-  %9 = load i32, ptr %8, align 4
+  %9 = load i32, ptr %8, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %9, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i, label %10
 
@@ -2746,7 +2746,7 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__23HdVolumeFieldDescriptorESaIS1
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %28 = load i32, ptr %27, align 8
-  store i32 %28, ptr %26, align 4
+  store i32 %28, ptr %26, align 8
   store i32 0, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 20
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -2771,9 +2771,9 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__23HdVolumeFieldDescriptorESaIS1
   store i64 0, ptr %34, align 8, !alias.scope !20, !noalias !17
   %36 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %37 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
-  %38 = load i32, ptr %37, align 4, !alias.scope !20, !noalias !17
-  store i32 %38, ptr %36, align 4, !alias.scope !17, !noalias !20
-  store i32 0, ptr %37, align 4, !alias.scope !20, !noalias !17
+  %38 = load i32, ptr %37, align 8, !alias.scope !20, !noalias !17
+  store i32 %38, ptr %36, align 8, !alias.scope !17, !noalias !20
+  store i32 0, ptr %37, align 8, !alias.scope !20, !noalias !17
   %39 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 20
   %40 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 20
   %41 = load i32, ptr %40, align 4, !alias.scope !20, !noalias !17
@@ -2805,9 +2805,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__23HdVolumeFieldDescriptorESaIS1_
   store i64 0, ptr %47, align 8, !alias.scope !26, !noalias !23
   %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 16
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 16
-  %51 = load i32, ptr %50, align 4, !alias.scope !26, !noalias !23
-  store i32 %51, ptr %49, align 4, !alias.scope !23, !noalias !26
-  store i32 0, ptr %50, align 4, !alias.scope !26, !noalias !23
+  %51 = load i32, ptr %50, align 8, !alias.scope !26, !noalias !23
+  store i32 %51, ptr %49, align 8, !alias.scope !23, !noalias !26
+  store i32 0, ptr %50, align 8, !alias.scope !26, !noalias !23
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 20
   %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 20
   %54 = load i32, ptr %53, align 4, !alias.scope !26, !noalias !23

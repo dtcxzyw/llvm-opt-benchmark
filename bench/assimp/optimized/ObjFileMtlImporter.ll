@@ -3012,7 +3012,7 @@ define hidden void @_ZN6Assimp18ObjFileMtlImporter10getTextureEv(ptr noundef non
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %34, ptr noundef nonnull align 1 dereferenceable(14) @.str.4, i64 14, i1 false)
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 18
-  store i8 0, ptr %35, align 1
+  store i8 0, ptr %35, align 2
   %36 = load ptr, ptr %8, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 64
   %38 = load ptr, ptr %37, align 8
@@ -6133,7 +6133,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !alias.scope !44, !noalias !47
   store ptr %43, ptr %.0911.i.i.i, align 8, !alias.scope !47, !noalias !44
   store i64 0, ptr %52, align 8, !alias.scope !47, !noalias !44
-  store i8 0, ptr %43, align 1, !alias.scope !47, !noalias !44
+  store i8 0, ptr %43, align 8, !alias.scope !47, !noalias !44
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %54, %1
@@ -6181,7 +6181,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !alias.scope !51, !noalias !54
   store ptr %59, ptr %.0911.i.i.i29, align 8, !alias.scope !54, !noalias !51
   store i64 0, ptr %68, align 8, !alias.scope !54, !noalias !51
-  store i8 0, ptr %59, align 1, !alias.scope !54, !noalias !51
+  store i8 0, ptr %59, align 8, !alias.scope !54, !noalias !51
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %.not.i.i.i34 = icmp eq ptr %70, %6
@@ -8344,7 +8344,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8
   store ptr %13, ptr %10, align 8
   store i64 0, ptr %24, align 8
-  store i8 0, ptr %13, align 1
+  store i8 0, ptr %13, align 8
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store ptr null, ptr %26, align 8
   store ptr %7, ptr %23, align 8

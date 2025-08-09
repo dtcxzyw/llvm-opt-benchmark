@@ -806,7 +806,7 @@ define dso_local ptr @tcp_try_fastopen(ptr noundef %0, ptr noundef %1, ptr nound
   %234 = getelementptr inbounds nuw i8, ptr %207, i64 1064
   call void @sk_reset_timer(ptr noundef nonnull %207, ptr noundef nonnull %234, i64 noundef %232) #9
   %235 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  store volatile i32 2, ptr %235, align 4
+  store volatile i32 2, ptr %235, align 8
   call void @tcp_init_transfer(ptr noundef nonnull %207, i32 noundef 5, ptr noundef %1) #9
   %236 = load i32, ptr %9, align 8
   %237 = add i32 %236, 1
@@ -1183,7 +1183,7 @@ define dso_local void @tcp_fastopen_active_disable(ptr noundef readonly captures
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 1260
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %10, ptr nonnull elementtype(i32) %10) #9, !srcloc !36
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 432
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 16
   %13 = getelementptr i8, ptr %12, i64 720
   tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %13, ptr elementtype(i64) %13) #9, !srcloc !37
   br label %14
@@ -1239,7 +1239,7 @@ define dso_local void @tcp_fastopen_active_disable_ofo_check(ptr noundef %0) loc
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 1260
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %31, ptr nonnull elementtype(i32) %31) #9, !srcloc !36
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 432
-  %33 = load ptr, ptr %32, align 8
+  %33 = load ptr, ptr %32, align 16
   %34 = getelementptr i8, ptr %33, i64 720
   tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %34, ptr elementtype(i64) %34) #9, !srcloc !37
   br label %68
@@ -1350,7 +1350,7 @@ define dso_local void @tcp_fastopen_active_detect_blackhole(ptr noundef readonly
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 1260
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %23, ptr nonnull elementtype(i32) %23) #9, !srcloc !36
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 432
-  %25 = load ptr, ptr %24, align 8
+  %25 = load ptr, ptr %24, align 16
   %26 = getelementptr i8, ptr %25, i64 720
   tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %26, ptr elementtype(i64) %26) #9, !srcloc !37
   %.pre = load ptr, ptr %15, align 8

@@ -263,11 +263,11 @@ lean_alloc_ctor.exit:                             ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 0, ptr %6, align 8, !tbaa !14
-  store i32 1, ptr %2, align 4, !tbaa !4
+  store i32 1, ptr %2, align 8, !tbaa !4
   store i32 50397208, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %7, align 8, !tbaa !9
-  store i8 %0, ptr %6, align 1, !tbaa !16
+  store i8 %0, ptr %6, align 8, !tbaa !16
   ret ptr %2
 }
 
@@ -312,11 +312,11 @@ l_Lake_instToTomlBool.exit:                       ; preds = %lean_dec.exit
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 0, ptr %17, align 8, !tbaa !14
-  store i32 1, ptr %11, align 4, !tbaa !4
+  store i32 1, ptr %11, align 8, !tbaa !4
   store i32 50397208, ptr %16, align 4
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %18, align 8, !tbaa !9
-  store i8 %15, ptr %17, align 1, !tbaa !16
+  store i8 %15, ptr %17, align 8, !tbaa !16
   ret ptr %11
 }
 

@@ -6566,7 +6566,7 @@ define void @_ZN6casadi16normalized_setupERSo(ptr noundef nonnull align 8 derefe
   %14 = load i32, ptr %13, align 8, !tbaa !156
   %15 = and i32 %14, -261
   %16 = or disjoint i32 %15, 256
-  store i32 %16, ptr %13, align 4, !tbaa !163
+  store i32 %16, ptr %13, align 8, !tbaa !163
   %17 = load i64, ptr %10, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8

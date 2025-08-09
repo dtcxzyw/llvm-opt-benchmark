@@ -19007,10 +19007,10 @@ define linkonce_odr noundef i64 @_ZN5folly6detail8function13DispatchSmall4execIZ
   store ptr %15, ptr %12, align 8, !tbaa !691
   store ptr null, ptr %13, align 8, !tbaa !691
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %17 = load i32, ptr %14, align 2
-  %18 = load i32, ptr %16, align 2
-  store i32 %18, ptr %14, align 2
-  store i32 %17, ptr %16, align 2
+  %17 = load i32, ptr %14, align 8
+  %18 = load i32, ptr %16, align 8
+  store i32 %18, ptr %14, align 8
+  store i32 %17, ptr %16, align 8
   %19 = trunc i32 %17 to i16
   br label %20
 
@@ -20941,11 +20941,11 @@ define linkonce_odr void @_ZN5folly15observer_detail15ObserverManager14UpdatesMa
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr null, ptr %16, align 8, !tbaa !761, !noalias !788
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store i32 0, ptr %17, align 4, !tbaa !48, !noalias !788
+  store i32 0, ptr %17, align 8, !tbaa !48, !noalias !788
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 36
-  store i8 0, ptr %18, align 1, !tbaa !791, !noalias !788
+  store i8 0, ptr %18, align 4, !tbaa !791, !noalias !788
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  store i32 0, ptr %19, align 4, !tbaa !793, !noalias !788
+  store i32 0, ptr %19, align 8, !tbaa !793, !noalias !788
   store ptr %12, ptr %11, align 8, !tbaa !616, !alias.scope !788
   store ptr %15, ptr %7, align 8, !tbaa !671, !alias.scope !788
   %20 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #39
@@ -22019,7 +22019,7 @@ _ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit: ; 
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(28) %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load atomic i32, ptr %8 acquire, align 4
+  %9 = load atomic i32, ptr %8 acquire, align 8
   %10 = and i32 %9, 2147483647
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %_ZNSt23__atomic_futex_unsignedILj2147483648EE7_M_loadESt12memory_order.exit.us.i.i
@@ -23492,7 +23492,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   store i32 1, ptr %203, align 4, !tbaa !626, !noalias !922
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly5BatonILb1ESt6atomicEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %200, align 8, !tbaa !35, !noalias !922
   %204 = getelementptr inbounds nuw i8, ptr %200, i64 16
-  store i32 0, ptr %204, align 4, !tbaa !48, !noalias !922
+  store i32 0, ptr %204, align 8, !tbaa !48, !noalias !922
   store ptr %200, ptr %199, align 8, !tbaa !616, !alias.scope !922
   store ptr %204, ptr %23, align 8, !tbaa !925, !alias.scope !922
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
@@ -23508,7 +23508,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   store i32 1, ptr %209, align 4, !tbaa !626, !noalias !926
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6atomicIbESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %206, align 8, !tbaa !35, !noalias !926
   %210 = getelementptr inbounds nuw i8, ptr %206, i64 16
-  store i8 0, ptr %210, align 1, !tbaa !53, !noalias !926
+  store i8 0, ptr %210, align 8, !tbaa !53, !noalias !926
   store ptr %206, ptr %205, align 8, !tbaa !616, !alias.scope !926
   store ptr %210, ptr %24, align 8, !tbaa !929, !alias.scope !926
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
@@ -25464,7 +25464,7 @@ _ZNK5folly11ThreadLocalINS_10TLRefCount13LocalRefCountES1_vEdeEv.exit: ; preds =
   %22 = load atomic i64, ptr %17 monotonic, align 8
   %23 = add nsw i64 %22, -1
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store atomic i8 1, ptr %24 monotonic, align 1
+  store atomic i8 1, ptr %24 monotonic, align 8
   store atomic i64 %23, ptr %17 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !65
   %25 = load ptr, ptr %18, align 8, !tbaa !986
@@ -27364,7 +27364,7 @@ _ZNK5folly11ThreadLocalINS_10TLRefCount13LocalRefCountES1_vEdeEv.exit: ; preds =
   %22 = load atomic i64, ptr %17 monotonic, align 8
   %23 = add nsw i64 %22, 1
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store atomic i8 1, ptr %24 monotonic, align 1
+  store atomic i8 1, ptr %24 monotonic, align 8
   store atomic i64 %23, ptr %17 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !65
   %25 = load ptr, ptr %18, align 8, !tbaa !986

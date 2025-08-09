@@ -50464,7 +50464,7 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   store i32 %49, ptr %57, align 4, !tbaa !100
   %58 = load ptr, ptr %8, align 8, !tbaa !1176
   %59 = load atomic i64, ptr %.016.i.i acquire, align 8, !noalias !1195
-  %60 = load i32, ptr %45, align 4, !tbaa !100, !noalias !1195
+  %60 = load i32, ptr %45, align 8, !tbaa !100, !noalias !1195
   %61 = sext i32 %60 to i64
   %62 = xor i64 %61, -3750763034362895579
   %63 = mul i64 %62, 1099511628211
@@ -51255,7 +51255,7 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   store i64 %21, ptr %40, align 8, !tbaa !165
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %42 = load i64, ptr %3, align 4
-  store i64 %42, ptr %41, align 4
+  store i64 %42, ptr %41, align 8
   %43 = ptrtoint ptr %39 to i64
   store atomic i64 %.0.lcssa.i.ph, ptr %39 release, align 8
   %44 = cmpxchg ptr %.2.ph, i64 %.0.lcssa.i.ph, i64 %43 seq_cst seq_cst, align 8
@@ -66086,7 +66086,7 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   store i32 %49, ptr %57, align 4, !tbaa !100
   %58 = load ptr, ptr %8, align 8, !tbaa !1578
   %59 = load atomic i64, ptr %.016.i.i acquire, align 8, !noalias !1599
-  %60 = load i16, ptr %45, align 2, !tbaa !1590, !noalias !1599
+  %60 = load i16, ptr %45, align 8, !tbaa !1590, !noalias !1599
   %61 = sext i16 %60 to i64
   %62 = xor i64 %61, -3750763034362895579
   %63 = mul i64 %62, 1099511628211
@@ -66877,7 +66877,7 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   store i64 %21, ptr %40, align 8, !tbaa !165
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %42 = load i64, ptr %3, align 4
-  store i64 %42, ptr %41, align 4
+  store i64 %42, ptr %41, align 8
   %43 = ptrtoint ptr %39 to i64
   store atomic i64 %.0.lcssa.i.ph, ptr %39 release, align 8
   %44 = cmpxchg ptr %.2.ph, i64 %.0.lcssa.i.ph, i64 %43 seq_cst seq_cst, align 8
@@ -69438,7 +69438,7 @@ _ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIsLi2EEENS4_11MiniVecHa
   store i64 %24, ptr %47, align 8, !tbaa !165
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %49 = load i64, ptr %3, align 4
-  store i64 %49, ptr %48, align 4
+  store i64 %49, ptr %48, align 8
   %50 = ptrtoint ptr %46 to i64
   store atomic i64 %.0.lcssa.i.ph, ptr %46 release, align 8
   %51 = cmpxchg ptr %.2.ph, i64 %.0.lcssa.i.ph, i64 %50 seq_cst seq_cst, align 8

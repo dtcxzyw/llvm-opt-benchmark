@@ -1609,7 +1609,7 @@ if.then:                                          ; preds = %entry
   store ptr %1, ptr %firstFreeWeak_, align 8
   %state_.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %state_.i, align 8
-  store i32 %ptr.coerce, ptr %0, align 4
+  store i32 %ptr.coerce, ptr %0, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -2253,7 +2253,7 @@ if.end.i.i:                                       ; preds = %if.then12.i.i.i.i, 
   %12 = load ptr, ptr %mem.addr, align 8
   store ptr %12, ptr %call.i.i.i, align 8
   %second.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
-  store i32 0, ptr %second.i.i.i.i, align 4
+  store i32 0, ptr %second.i.i.i.i, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPKvjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixERKS3_.exit
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPKvjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixERKS3_.exit: ; preds = %if.end13.i.i.i.i, %if.end.i.i.i.i, %if.end.i.i
@@ -3239,7 +3239,7 @@ if.end.i.i:                                       ; preds = %if.then12.i.i.i.i, 
   %6 = load double, ptr %num.addr, align 8
   store double %6, ptr %call.i.i.i, align 8
   %second.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
-  store i32 0, ptr %second.i.i.i.i, align 4
+  store i32 0, ptr %second.i.i.i.i, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIdjN6hermes2vm6GCBase9IDTracker16DoubleComparatorENS_6detail12DenseMapPairIdjEEEEdjS6_S9_EixERKd.exit
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIdjN6hermes2vm6GCBase9IDTracker16DoubleComparatorENS_6detail12DenseMapPairIdjEEEEdjS6_S9_EixERKd.exit: ; preds = %if.end13.i.i.i.i, %if.end.i.i.i.i, %if.end.i.i
@@ -6880,7 +6880,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIdjN6hermes2vm6GCBase9IDTracker16DoubleCompar
   %second.i.i = getelementptr inbounds nuw i8, ptr %cond.sink.i.i.i, i64 8
   %second.i13.i = getelementptr inbounds nuw i8, ptr %B.020.i, i64 8
   %12 = load i32, ptr %second.i13.i, align 4
-  store i32 %12, ptr %second.i.i, align 4
+  store i32 %12, ptr %second.i.i, align 8
   %13 = load i32, ptr %NumEntries.i.i.i.i, align 8
   %add.i.i = add i32 %13, 1
   store i32 %add.i.i, ptr %NumEntries.i.i.i.i, align 8
@@ -7177,7 +7177,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPKvjNS_12DenseMapInfoIS3_EENS_6detail12Dense
   %second.i.i = getelementptr inbounds nuw i8, ptr %cond.sink.i.i.i, i64 8
   %second.i13.i = getelementptr inbounds nuw i8, ptr %B.020.i, i64 8
   %11 = load i32, ptr %second.i13.i, align 4
-  store i32 %11, ptr %second.i.i, align 4
+  store i32 %11, ptr %second.i.i, align 8
   %12 = load i32, ptr %NumEntries.i.i.i.i, align 8
   %add.i.i = add i32 %12, 1
   store i32 %add.i.i, ptr %NumEntries.i.i.i.i, align 8

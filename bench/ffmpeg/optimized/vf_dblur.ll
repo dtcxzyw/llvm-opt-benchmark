@@ -679,11 +679,11 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 52
   store i32 %20, ptr %22, align 4, !tbaa !47
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store i32 %20, ptr %23, align 4, !tbaa !47
+  store i32 %20, ptr %23, align 8, !tbaa !47
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load i32, ptr %24, align 8, !tbaa !44
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  store i32 %25, ptr %26, align 4, !tbaa !47
+  store i32 %25, ptr %26, align 8, !tbaa !47
   store i32 %25, ptr %21, align 4, !tbaa !47
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %28 = load i32, ptr %27, align 4, !tbaa !45
@@ -697,11 +697,11 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 68
   store i32 %34, ptr %36, align 4, !tbaa !47
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  store i32 %34, ptr %37, align 4, !tbaa !47
+  store i32 %34, ptr %37, align 8, !tbaa !47
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %39 = load i32, ptr %38, align 4, !tbaa !45
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store i32 %39, ptr %40, align 4, !tbaa !47
+  store i32 %39, ptr %40, align 8, !tbaa !47
   store i32 %39, ptr %35, align 4, !tbaa !47
   %41 = load i32, ptr %2, align 4, !tbaa !79
   %42 = tail call i32 @av_pix_fmt_count_planes(i32 noundef %41) #5

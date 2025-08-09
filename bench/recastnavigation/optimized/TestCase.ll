@@ -563,7 +563,7 @@ _ZN8TestCase10resetTimesEv.exit:                  ; preds = %.lr.ph.i
   %106 = load float, ptr %44, align 4
   store float %106, ptr %105, align 4
   %107 = getelementptr inbounds nuw i8, ptr %.0108, i64 8
-  %108 = load float, ptr %107, align 4
+  %108 = load float, ptr %107, align 8
   %109 = load ptr, ptr %33, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
   store float %108, ptr %110, align 4
@@ -1019,7 +1019,7 @@ define dso_local noundef zeroext i1 @_ZN8TestCase19handleRenderOverlayEPdS0_Pi(p
   %23 = load float, ptr %22, align 4
   %24 = fsub float %23, %17
   %25 = getelementptr inbounds nuw i8, ptr %.03564, i64 8
-  %26 = load float, ptr %25, align 4
+  %26 = load float, ptr %25, align 8
   %27 = fsub float %26, %19
   %28 = getelementptr inbounds nuw i8, ptr %.03564, i64 12
   %29 = load float, ptr %28, align 4

@@ -207,7 +207,7 @@ define internal fastcc void @_ZN6open3d12_GLOBAL__N_135CreatePointCloudFromFloat
   store ptr %15, ptr %14, align 8, !tbaa !41, !noalias !36
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i64 0, ptr %16, align 8, !tbaa !42, !noalias !36
-  store i8 0, ptr %15, align 1, !tbaa !33, !noalias !36
+  store i8 0, ptr %15, align 8, !tbaa !33, !noalias !36
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry10PointCloudE, i64 16), ptr %11, align 8, !tbaa !31, !noalias !36
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %17, i8 0, i64 96, i1 false), !noalias !36
@@ -1022,7 +1022,7 @@ define void @_ZN6open3d8geometry10PointCloud19CreateFromRGBDImageERKNS0_9RGBDIma
   store ptr %28, ptr %27, align 8, !tbaa !41, !noalias !83
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store i64 0, ptr %29, align 8, !tbaa !42, !noalias !83
-  store i8 0, ptr %28, align 1, !tbaa !33, !noalias !83
+  store i8 0, ptr %28, align 8, !tbaa !33, !noalias !83
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry10PointCloudE, i64 16), ptr %24, align 8, !tbaa !31, !noalias !83
   %30 = getelementptr inbounds nuw i8, ptr %21, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %30, i8 0, i64 96, i1 false), !noalias !83
@@ -1438,7 +1438,7 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i: ;
   store ptr %290, ptr %289, align 8, !tbaa !41, !noalias !95
   %291 = getelementptr inbounds nuw i8, ptr %283, i64 40
   store i64 0, ptr %291, align 8, !tbaa !42, !noalias !95
-  store i8 0, ptr %290, align 1, !tbaa !33, !noalias !95
+  store i8 0, ptr %290, align 8, !tbaa !33, !noalias !95
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry10PointCloudE, i64 16), ptr %286, align 8, !tbaa !31, !noalias !95
   %292 = getelementptr inbounds nuw i8, ptr %283, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %292, i8 0, i64 96, i1 false), !noalias !95
@@ -1850,7 +1850,7 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i46:
   store ptr %553, ptr %552, align 8, !tbaa !41, !noalias !104
   %554 = getelementptr inbounds nuw i8, ptr %546, i64 40
   store i64 0, ptr %554, align 8, !tbaa !42, !noalias !104
-  store i8 0, ptr %553, align 1, !tbaa !33, !noalias !104
+  store i8 0, ptr %553, align 8, !tbaa !33, !noalias !104
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry10PointCloudE, i64 16), ptr %549, align 8, !tbaa !31, !noalias !104
   %555 = getelementptr inbounds nuw i8, ptr %546, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %555, i8 0, i64 96, i1 false), !noalias !104
@@ -2261,7 +2261,7 @@ define void @_ZN6open3d8geometry10PointCloud19CreateFromVoxelGridERKNS0_9VoxelGr
   store ptr %12, ptr %11, align 8, !tbaa !41, !noalias !107
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 0, ptr %13, align 8, !tbaa !42, !noalias !107
-  store i8 0, ptr %12, align 1, !tbaa !33, !noalias !107
+  store i8 0, ptr %12, align 8, !tbaa !33, !noalias !107
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry10PointCloudE, i64 16), ptr %8, align 8, !tbaa !31, !noalias !107
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %14, i8 0, i64 96, i1 false), !noalias !107

@@ -365,13 +365,13 @@ define void @_ZN3gmx15analysismodules8DsspInfo6createEv(ptr dead_on_unwind noali
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store i64 8, ptr %14, align 8, !tbaa !69
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  store i8 0, ptr %15, align 1, !tbaa !70
+  store i8 0, ptr %15, align 8, !tbaa !70
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store ptr %17, ptr %16, align 8, !tbaa !68
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i64 0, ptr %18, align 8, !tbaa !69
-  store i8 0, ptr %17, align 1, !tbaa !70
+  store i8 0, ptr %17, align 8, !tbaa !70
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 216
@@ -379,7 +379,7 @@ define void @_ZN3gmx15analysismodules8DsspInfo6createEv(ptr dead_on_unwind noali
   store ptr %21, ptr %20, align 8, !tbaa !68
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 208
   store i64 0, ptr %22, align 8, !tbaa !69
-  store i8 0, ptr %21, align 1, !tbaa !70
+  store i8 0, ptr %21, align 8, !tbaa !70
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 232
   store float -5.000000e-01, ptr %23, align 8, !tbaa !71
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 236
@@ -5427,7 +5427,7 @@ _ZSt19__relocate_object_aIN3gmx15analysismodules12_GLOBAL__N_116DsspStorageFrame
   store i64 %1367, ptr %1369, align 8, !tbaa !69, !alias.scope !296, !noalias !299
   store ptr %1359, ptr %1356, align 8, !tbaa !76, !alias.scope !299, !noalias !296
   store i64 0, ptr %1368, align 8, !tbaa !69, !alias.scope !299, !noalias !296
-  store i8 0, ptr %1359, align 1, !tbaa !70, !alias.scope !299, !noalias !296
+  store i8 0, ptr %1359, align 8, !tbaa !70, !alias.scope !299, !noalias !296
   %1370 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i, i64 40
   %1371 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i, i64 40
   %.not.i.i.i.i.i.i19 = icmp eq ptr %1370, %1300

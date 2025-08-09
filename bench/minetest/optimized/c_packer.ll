@@ -1130,7 +1130,7 @@ if.then.i.i:                                      ; preds = %sw.bb
   store ptr %2, ptr %sdata.i.i.i.i.i, align 8, !tbaa !22
   %_M_string_length.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i, align 8, !tbaa !17
-  store i8 0, ptr %2, align 1, !tbaa !24
+  store i8 0, ptr %2, align 8, !tbaa !24
   %3 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !57
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8, !tbaa !57
@@ -1168,7 +1168,7 @@ if.then.i.i312:                                   ; preds = %sw.bb2
   store ptr %8, ptr %sdata.i.i.i.i.i313, align 8, !tbaa !22
   %_M_string_length.i.i.i.i.i.i.i.i314 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i314, align 8, !tbaa !17
-  store i8 0, ptr %8, align 1, !tbaa !24
+  store i8 0, ptr %8, align 8, !tbaa !24
   %9 = load ptr, ptr %_M_finish.i.i309, align 8, !tbaa !57
   %incdec.ptr.i.i315 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr %incdec.ptr.i.i315, ptr %_M_finish.i.i309, align 8, !tbaa !57
@@ -1212,7 +1212,7 @@ if.then.i.i330:                                   ; preds = %sw.bb6
   store ptr %15, ptr %sdata.i.i.i.i.i331, align 8, !tbaa !22
   %_M_string_length.i.i.i.i.i.i.i.i332 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i332, align 8, !tbaa !17
-  store i8 0, ptr %15, align 1, !tbaa !24
+  store i8 0, ptr %15, align 8, !tbaa !24
   %16 = load ptr, ptr %_M_finish.i.i327, align 8, !tbaa !57
   %incdec.ptr.i.i333 = getelementptr inbounds nuw i8, ptr %16, i64 48
   store ptr %incdec.ptr.i.i333, ptr %_M_finish.i.i327, align 8, !tbaa !57
@@ -1254,7 +1254,7 @@ if.then.i.i349:                                   ; preds = %sw.bb10
   store ptr %22, ptr %sdata.i.i.i.i.i350, align 8, !tbaa !22
   %_M_string_length.i.i.i.i.i.i.i.i351 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i351, align 8, !tbaa !17
-  store i8 0, ptr %22, align 1, !tbaa !24
+  store i8 0, ptr %22, align 8, !tbaa !24
   %23 = load ptr, ptr %_M_finish.i.i346, align 8, !tbaa !57
   %incdec.ptr.i.i352 = getelementptr inbounds nuw i8, ptr %23, i64 48
   store ptr %incdec.ptr.i.i352, ptr %_M_finish.i.i346, align 8, !tbaa !57
@@ -1315,7 +1315,7 @@ if.then.i.i369:                                   ; preds = %if.end22
   store ptr %34, ptr %sdata.i.i.i.i.i370, align 8, !tbaa !22
   %_M_string_length.i.i.i.i.i.i.i.i371 = getelementptr inbounds nuw i8, ptr %32, i64 24
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i371, align 8, !tbaa !17
-  store i8 0, ptr %34, align 1, !tbaa !24
+  store i8 0, ptr %34, align 8, !tbaa !24
   %35 = load ptr, ptr %_M_finish.i.i366, align 8, !tbaa !57
   %incdec.ptr.i.i372 = getelementptr inbounds nuw i8, ptr %35, i64 48
   store ptr %incdec.ptr.i.i372, ptr %_M_finish.i.i366, align 8, !tbaa !57
@@ -1490,7 +1490,7 @@ if.then.i.i400:                                   ; preds = %if.end46
   store ptr %51, ptr %sdata.i.i.i.i.i401, align 8, !tbaa !22
   %_M_string_length.i.i.i.i.i.i.i.i402 = getelementptr inbounds nuw i8, ptr %49, i64 24
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i402, align 8, !tbaa !17
-  store i8 0, ptr %51, align 1, !tbaa !24
+  store i8 0, ptr %51, align 8, !tbaa !24
   %52 = load ptr, ptr %_M_finish.i.i397, align 8, !tbaa !57
   %incdec.ptr.i.i403 = getelementptr inbounds nuw i8, ptr %52, i64 48
   store ptr %incdec.ptr.i.i403, ptr %_M_finish.i.i397, align 8, !tbaa !57
@@ -1657,7 +1657,7 @@ if.then.i.i435:                                   ; preds = %sw.epilog
   store ptr %71, ptr %sdata.i.i.i.i.i436, align 8, !tbaa !22
   %_M_string_length.i.i.i.i.i.i.i.i437 = getelementptr inbounds nuw i8, ptr %69, i64 24
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i437, align 8, !tbaa !17
-  store i8 0, ptr %71, align 1, !tbaa !24
+  store i8 0, ptr %71, align 8, !tbaa !24
   %72 = load ptr, ptr %_M_finish.i.i432, align 8, !tbaa !57
   %incdec.ptr.i.i438 = getelementptr inbounds nuw i8, ptr %72, i64 48
   store ptr %incdec.ptr.i.i438, ptr %_M_finish.i.i432, align 8, !tbaa !57
@@ -1808,7 +1808,7 @@ if.then.i.i470:                                   ; preds = %if.then119
   store ptr %89, ptr %sdata.i.i.i.i.i471, align 8, !tbaa !22
   %_M_string_length.i.i.i.i.i.i.i.i472 = getelementptr inbounds nuw i8, ptr %87, i64 24
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i472, align 8, !tbaa !17
-  store i8 0, ptr %89, align 1, !tbaa !24
+  store i8 0, ptr %89, align 8, !tbaa !24
   %90 = load ptr, ptr %_M_finish.i.i432, align 8, !tbaa !57
   %incdec.ptr.i.i473 = getelementptr inbounds nuw i8, ptr %90, i64 48
   store ptr %incdec.ptr.i.i473, ptr %_M_finish.i.i432, align 8, !tbaa !57
@@ -1854,7 +1854,7 @@ if.then.i.i491:                                   ; preds = %if.else124
   store ptr %96, ptr %sdata.i.i.i.i.i492, align 8, !tbaa !22
   %_M_string_length.i.i.i.i.i.i.i.i493 = getelementptr inbounds nuw i8, ptr %94, i64 24
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i493, align 8, !tbaa !17
-  store i8 0, ptr %96, align 1, !tbaa !24
+  store i8 0, ptr %96, align 8, !tbaa !24
   %97 = load ptr, ptr %_M_finish.i.i432, align 8, !tbaa !57
   %incdec.ptr.i.i494 = getelementptr inbounds nuw i8, ptr %97, i64 48
   store ptr %incdec.ptr.i.i494, ptr %_M_finish.i.i432, align 8, !tbaa !57
@@ -2881,7 +2881,7 @@ if.then.i:                                        ; preds = %entry
   store ptr %2, ptr %sdata.i.i.i.i, align 8, !tbaa !22
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !17
-  store i8 0, ptr %2, align 1, !tbaa !24
+  store i8 0, ptr %2, align 8, !tbaa !24
   %3 = load ptr, ptr %_M_finish.i, align 8, !tbaa !57
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8, !tbaa !57
@@ -3080,7 +3080,7 @@ if.then.i.i38:                                    ; preds = %if.end
   store ptr %26, ptr %sdata.i.i.i.i.i, align 8, !tbaa !22
   %_M_string_length.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i, align 8, !tbaa !17
-  store i8 0, ptr %26, align 1, !tbaa !24
+  store i8 0, ptr %26, align 8, !tbaa !24
   %27 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !57
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %27, i64 48
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8, !tbaa !57
@@ -3272,7 +3272,7 @@ _ZNKSt6vectorI11PackedInstrSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   store ptr %3, ptr %sdata.i.i.i, align 8, !tbaa !22
   %_M_string_length.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 24
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !17
-  store i8 0, ptr %3, align 1, !tbaa !24
+  store i8 0, ptr %3, align 8, !tbaa !24
   %cmp.not6.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not6.i.i.i, label %_ZNSt6vectorI11PackedInstrSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, label %for.body.i.i.i
 
@@ -3315,7 +3315,7 @@ _ZSt19__relocate_object_aI11PackedInstrS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i: ; pre
   store i64 %9, ptr %_M_string_length.i29.i.i.i.i.i.i.i.i, align 8, !tbaa !17, !alias.scope !82, !noalias !85
   store ptr %6, ptr %sdata3.i.i.i.i.i.i.i, align 8, !tbaa !14, !alias.scope !85, !noalias !82
   store i64 0, ptr %_M_string_length.i28.i.i.i.i.i.i.i.i, align 8, !tbaa !17, !alias.scope !85, !noalias !82
-  store i8 0, ptr %6, align 1, !tbaa !24, !alias.scope !85, !noalias !82
+  store i8 0, ptr %6, align 8, !tbaa !24, !alias.scope !85, !noalias !82
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 48
   %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 48
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
@@ -3366,7 +3366,7 @@ _ZSt19__relocate_object_aI11PackedInstrS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i58: ; p
   store i64 %15, ptr %_M_string_length.i29.i.i.i.i.i.i.i.i60, align 8, !tbaa !17, !alias.scope !89, !noalias !92
   store ptr %12, ptr %sdata3.i.i.i.i.i.i.i53, align 8, !tbaa !14, !alias.scope !92, !noalias !89
   store i64 0, ptr %_M_string_length.i28.i.i.i.i.i.i.i.i59, align 8, !tbaa !17, !alias.scope !92, !noalias !89
-  store i8 0, ptr %12, align 1, !tbaa !24, !alias.scope !92, !noalias !89
+  store i8 0, ptr %12, align 8, !tbaa !24, !alias.scope !92, !noalias !89
   %incdec.ptr.i.i.i61 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i51, i64 48
   %incdec.ptr1.i.i.i62 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i50, i64 48
   %cmp.not.i.i.i63 = icmp eq ptr %incdec.ptr.i.i.i61, %0

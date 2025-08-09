@@ -195,11 +195,11 @@ check_retval.exit:                                ; preds = %2
   store i32 2, ptr %67, align 8, !tbaa !34
   %68 = getelementptr inbounds nuw i8, ptr %12, i64 104
   %69 = getelementptr inbounds nuw i8, ptr %12, i64 128
-  store i32 0, ptr %68, align 4, !tbaa !35
+  store i32 0, ptr %68, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %12, i64 108
   store i32 10, ptr %70, align 4, !tbaa !35
   %71 = getelementptr inbounds nuw i8, ptr %12, i64 112
-  store i32 20, ptr %71, align 4, !tbaa !35
+  store i32 20, ptr %71, align 8, !tbaa !35
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %69, i8 0, i64 40, i1 false), !tbaa !35
   br label %.preheader.i.i
 

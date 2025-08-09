@@ -18689,9 +18689,9 @@ _ZN6vectorI4mpbqLb0EjE4backEv.exit:               ; preds = %_ZN6vectorI4mpbqLb0
   %126 = or disjoint i8 %125, %120
   store i8 %126, ptr %10, align 4
   %127 = getelementptr inbounds nuw i8, ptr %103, i64 16
-  %128 = load i32, ptr %127, align 4, !tbaa !27
+  %128 = load i32, ptr %127, align 8, !tbaa !27
   %129 = load i32, ptr %12, align 8, !tbaa !27
-  store i32 %129, ptr %127, align 4, !tbaa !27
+  store i32 %129, ptr %127, align 8, !tbaa !27
   store i32 %128, ptr %12, align 8, !tbaa !27
   %130 = load ptr, ptr %4, align 8, !tbaa !196
   %131 = icmp eq ptr %130, null
@@ -18735,7 +18735,7 @@ _ZN6vectorI4mpbqLb0EjE4backEv.exit24:             ; preds = %_ZN6vectorI4mpbqLb0
   store i8 %156, ptr %143, align 4
   %157 = getelementptr inbounds nuw i8, ptr %137, i64 16
   %158 = load i32, ptr %15, align 8, !tbaa !27
-  store i32 %158, ptr %157, align 4, !tbaa !27
+  store i32 %158, ptr %157, align 8, !tbaa !27
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -18881,7 +18881,7 @@ _ZN6vectorI4mpbqLb0EjE4backEv.exit:               ; preds = %36, %42
   store i8 %76, ptr %63, align 4
   %77 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %78 = load i32, ptr %9, align 8, !tbaa !27
-  store i32 %78, ptr %77, align 4, !tbaa !27
+  store i32 %78, ptr %77, align 8, !tbaa !27
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -20110,10 +20110,10 @@ _ZNK6vectorI4mpbqLb0EjE4sizeEv.exit.i122:         ; preds = %_ZN11upolynomialL10
   store i8 %156, ptr %141, align 4
   %157 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %158 = getelementptr inbounds nuw i8, ptr %131, i64 16
-  %159 = load i32, ptr %157, align 4, !tbaa !27
-  %160 = load i32, ptr %158, align 4, !tbaa !27
-  store i32 %160, ptr %157, align 4, !tbaa !27
-  store i32 %159, ptr %158, align 4, !tbaa !27
+  %159 = load i32, ptr %157, align 8, !tbaa !27
+  %160 = load i32, ptr %158, align 8, !tbaa !27
+  store i32 %160, ptr %157, align 8, !tbaa !27
+  store i32 %159, ptr %158, align 8, !tbaa !27
   %indvars.iv.next.i127 = add nuw nsw i64 %indvars.iv.i126, 1
   %exitcond.not.i128 = icmp eq i64 %indvars.iv.next.i127, %wide.trip.count.i124
   br i1 %exitcond.not.i128, label %_ZN11upolynomialL18swap_lowers_uppersEjR7svectorI4mpbqjES3_.exit, label %.lr.ph.i125, !llvm.loop !202
@@ -21298,9 +21298,9 @@ _ZN11upolynomial12core_manager10checkpointEv.exit: ; preds = %.noexc196
   %376 = getelementptr inbounds nuw i8, ptr %373, i64 52
   %377 = load i32, ptr %376, align 4, !tbaa !209
   %378 = load i32, ptr %21, align 8, !tbaa !27
-  %379 = load i32, ptr %373, align 4, !tbaa !27
+  %379 = load i32, ptr %373, align 8, !tbaa !27
   store i32 %379, ptr %21, align 8, !tbaa !27
-  store i32 %378, ptr %373, align 4, !tbaa !27
+  store i32 %378, ptr %373, align 8, !tbaa !27
   %380 = getelementptr inbounds nuw i8, ptr %373, i64 8
   %381 = load ptr, ptr %23, align 8, !tbaa !44
   %382 = load ptr, ptr %380, align 8, !tbaa !44
@@ -21330,14 +21330,14 @@ _ZN11upolynomial12core_manager10checkpointEv.exit: ; preds = %.noexc196
   store i8 %400, ptr %385, align 4
   %401 = getelementptr inbounds nuw i8, ptr %373, i64 16
   %402 = load i32, ptr %24, align 8, !tbaa !27
-  %403 = load i32, ptr %401, align 4, !tbaa !27
+  %403 = load i32, ptr %401, align 8, !tbaa !27
   store i32 %403, ptr %24, align 8, !tbaa !27
-  store i32 %402, ptr %401, align 4, !tbaa !27
+  store i32 %402, ptr %401, align 8, !tbaa !27
   %404 = getelementptr inbounds nuw i8, ptr %373, i64 24
   %405 = load i32, ptr %25, align 8, !tbaa !27
-  %406 = load i32, ptr %404, align 4, !tbaa !27
+  %406 = load i32, ptr %404, align 8, !tbaa !27
   store i32 %406, ptr %25, align 8, !tbaa !27
-  store i32 %405, ptr %404, align 4, !tbaa !27
+  store i32 %405, ptr %404, align 8, !tbaa !27
   %407 = getelementptr inbounds nuw i8, ptr %373, i64 32
   %408 = load ptr, ptr %27, align 8, !tbaa !44
   %409 = load ptr, ptr %407, align 8, !tbaa !44
@@ -21367,9 +21367,9 @@ _ZN11upolynomial12core_manager10checkpointEv.exit: ; preds = %.noexc196
   store i8 %427, ptr %412, align 4
   %428 = getelementptr inbounds nuw i8, ptr %373, i64 40
   %429 = load i32, ptr %28, align 8, !tbaa !27
-  %430 = load i32, ptr %428, align 4, !tbaa !27
+  %430 = load i32, ptr %428, align 8, !tbaa !27
   store i32 %430, ptr %28, align 8, !tbaa !27
-  store i32 %429, ptr %428, align 4, !tbaa !27
+  store i32 %429, ptr %428, align 8, !tbaa !27
   %431 = load ptr, ptr %14, align 8, !tbaa !204
   %432 = icmp eq ptr %431, null
   br i1 %432, label %_ZN6vectorIN11upolynomial8ss_frameELb0EjE4backEv.exit.i, label %433

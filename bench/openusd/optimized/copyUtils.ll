@@ -29957,7 +29957,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_Coun
   store ptr %19, ptr %10, align 8, !noalias !256
   %.pre = load ptr, ptr %0, align 8
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store atomic i32 0, ptr %29 seq_cst, align 4, !noalias !256
+  store atomic i32 0, ptr %29 seq_cst, align 8, !noalias !256
   %30 = atomicrmw add ptr %29, i32 1 monotonic, align 4, !noalias !256
   %.not.i.i = icmp eq ptr %.pre, null
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_7VtValue8_CountedISt3mapINS_7SdfPathES4_St4lessIS4_ESaISt4pairIKS4_S4_EEEEEED2Ev.exit, label %31

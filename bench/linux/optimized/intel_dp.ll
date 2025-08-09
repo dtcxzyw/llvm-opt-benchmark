@@ -872,7 +872,7 @@ define dso_local zeroext i8 @intel_dp_dsc_get_slice_count(ptr noundef %0, i32 no
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2440
   %7 = getelementptr i8, ptr %0, i64 2452
-  %8 = load i8, ptr %7, align 1
+  %8 = load i8, ptr %7, align 4
   %9 = zext i8 %8 to i32
   %10 = mul nuw nsw i32 %9, 320
   %11 = icmp ult i8 %8, 8
@@ -4389,7 +4389,7 @@ define dso_local void @intel_dp_check_frl_training(ptr noundef %0) local_unnamed
   %6 = getelementptr i8, ptr %0, i64 -392
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %0, i64 36
-  %9 = load i8, ptr %8, align 2
+  %9 = load i8, ptr %8, align 4
   %10 = and i8 %9, 32
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %224, label %12
@@ -4784,7 +4784,7 @@ define dso_local void @intel_dp_pcon_dsc_configure(ptr noundef %0, ptr noundef %
   %6 = getelementptr i8, ptr %0, i64 -392
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %0, i64 22
-  %9 = load i8, ptr %8, align 1
+  %9 = load i8, ptr %8, align 2
   %10 = and i8 %9, 1
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %.thread, label %12
@@ -12024,7 +12024,7 @@ define internal fastcc void @intel_dp_set_edid(ptr noundef initializes((3104, 31
   %103 = load i16, ptr %102, align 8
   %104 = icmp ugt i16 %103, 10
   %105 = getelementptr i8, ptr %0, i64 22
-  %106 = load i8, ptr %105, align 1
+  %106 = load i8, ptr %105, align 2
   %107 = and i8 %106, 1
   %108 = icmp eq i8 %107, 0
   br i1 %104, label %109, label %._crit_edge

@@ -8216,7 +8216,7 @@ _ZSt19__relocate_object_aIN6duckdb20ExceptionFormatValueES1_SaIS1_EEvPT_PT0_RT1_
   store i64 %49, ptr %51, align 8, !tbaa !39, !alias.scope !158, !noalias !161
   store ptr %41, ptr %38, align 8, !tbaa !35, !alias.scope !161, !noalias !158
   store i64 0, ptr %50, align 8, !tbaa !39, !alias.scope !161, !noalias !158
-  store i8 0, ptr %41, align 1, !tbaa !22, !alias.scope !161, !noalias !158
+  store i8 0, ptr %41, align 8, !tbaa !22, !alias.scope !161, !noalias !158
   %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 56
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 56
   %.not.i.i.i.i = icmp eq ptr %52, %1
@@ -8267,7 +8267,7 @@ _ZSt19__relocate_object_aIN6duckdb20ExceptionFormatValueES1_SaIS1_EEvPT_PT0_RT1_
   store i64 %67, ptr %69, align 8, !tbaa !39, !alias.scope !165, !noalias !168
   store ptr %59, ptr %56, align 8, !tbaa !35, !alias.scope !168, !noalias !165
   store i64 0, ptr %68, align 8, !tbaa !39, !alias.scope !168, !noalias !165
-  store i8 0, ptr %59, align 1, !tbaa !22, !alias.scope !168, !noalias !165
+  store i8 0, ptr %59, align 8, !tbaa !22, !alias.scope !168, !noalias !165
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 56
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 56
   %.not.i.i.i.i24 = icmp eq ptr %70, %5
@@ -9581,7 +9581,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !39, !alias.scope !177, !noalias !180
   store ptr %39, ptr %.0911.i.i.i.i, align 8, !tbaa !35, !alias.scope !180, !noalias !177
   store i64 0, ptr %48, align 8, !tbaa !39, !alias.scope !180, !noalias !177
-  store i8 0, ptr %39, align 1, !tbaa !22, !alias.scope !180, !noalias !177
+  store i8 0, ptr %39, align 8, !tbaa !22, !alias.scope !180, !noalias !177
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %50, %1
@@ -9629,7 +9629,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !39, !alias.scope !184, !noalias !187
   store ptr %55, ptr %.0911.i.i.i.i19, align 8, !tbaa !35, !alias.scope !187, !noalias !184
   store i64 0, ptr %64, align 8, !tbaa !39, !alias.scope !187, !noalias !184
-  store i8 0, ptr %55, align 1, !tbaa !22, !alias.scope !187, !noalias !184
+  store i8 0, ptr %55, align 8, !tbaa !22, !alias.scope !187, !noalias !184
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 32
   %.not.i.i.i.i24 = icmp eq ptr %66, %5
@@ -10387,7 +10387,7 @@ _ZSt19__relocate_object_aIN6duckdb19FunctionDescriptionES1_SaIS1_EEvPT_PT0_RT1_.
   store i64 %90, ptr %92, align 8, !tbaa !39, !alias.scope !194, !noalias !197
   store ptr %82, ptr %79, align 8, !tbaa !35, !alias.scope !197, !noalias !194
   store i64 0, ptr %91, align 8, !tbaa !39, !alias.scope !197, !noalias !194
-  store i8 0, ptr %82, align 1, !tbaa !22, !alias.scope !197, !noalias !194
+  store i8 0, ptr %82, align 8, !tbaa !22, !alias.scope !197, !noalias !194
   %93 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 80
   %94 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 80
   %95 = load ptr, ptr %94, align 8, !tbaa !82, !alias.scope !197, !noalias !194
@@ -10475,7 +10475,7 @@ _ZSt19__relocate_object_aIN6duckdb19FunctionDescriptionES1_SaIS1_EEvPT_PT0_RT1_.
   store i64 %133, ptr %135, align 8, !tbaa !39, !alias.scope !201, !noalias !204
   store ptr %125, ptr %122, align 8, !tbaa !35, !alias.scope !204, !noalias !201
   store i64 0, ptr %134, align 8, !tbaa !39, !alias.scope !204, !noalias !201
-  store i8 0, ptr %125, align 1, !tbaa !22, !alias.scope !204, !noalias !201
+  store i8 0, ptr %125, align 8, !tbaa !22, !alias.scope !204, !noalias !201
   %136 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 80
   %137 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 80
   %138 = load ptr, ptr %137, align 8, !tbaa !82, !alias.scope !204, !noalias !201

@@ -3019,8 +3019,8 @@ _ZNKSt3setIPKN4llvm8FunctionESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread.i: ; p
   %29 = getelementptr inbounds nuw i8, ptr %.020, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %.020, i64 12
   %31 = load ptr, ptr %.020, align 8, !tbaa !135
-  %32 = load i32, ptr %29, align 4
-  %33 = load i8, ptr %30, align 1, !range !101
+  %32 = load i32, ptr %29, align 8
+  %33 = load i8, ptr %30, align 4, !range !101
   br label %34
 
 34:                                               ; preds = %_ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit.thread11.i.i.i.i, %.lr.ph.i.i.i3.i
@@ -3106,8 +3106,8 @@ _ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit.i.i.i
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 40
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 44
   %72 = load ptr, ptr %68, align 8, !tbaa !135
-  %73 = load i32, ptr %70, align 4
-  %74 = load i8, ptr %71, align 1, !range !101
+  %73 = load i32, ptr %70, align 8
+  %74 = load i8, ptr %71, align 4, !range !101
   br label %75
 
 75:                                               ; preds = %_ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit.thread.i.i.i, %.lr.ph.i.i.i
@@ -3451,8 +3451,8 @@ _ZNKSt3setIPKN4llvm8FunctionESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread.i: ; p
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.07.015, i64 56
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.07.015, i64 60
   %62 = load ptr, ptr %49, align 8, !tbaa !135
-  %63 = load i32, ptr %60, align 4
-  %64 = load i8, ptr %61, align 1, !range !101
+  %63 = load i32, ptr %60, align 8
+  %64 = load i8, ptr %61, align 4, !range !101
   br label %65
 
 65:                                               ; preds = %_ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit.thread11.i.i.i.i, %.lr.ph.i.i.i3.i
@@ -8888,7 +8888,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %19, ptr %20, align 8, !tbaa !126
   store ptr %10, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !123
   store i64 0, ptr %18, align 8, !tbaa !126
-  store i8 0, ptr %10, align 1, !tbaa !127
+  store i8 0, ptr %10, align 8, !tbaa !127
   %21 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 48
@@ -8920,7 +8920,7 @@ _ZSt10_ConstructIN4llvm30DiagnosticInfoOptimizationBase8ArgumentEJS2_EEvPT_DpOT0
   store i64 %34, ptr %35, align 8, !tbaa !126
   store ptr %25, ptr %22, align 8, !tbaa !123
   store i64 0, ptr %33, align 8, !tbaa !126
-  store i8 0, ptr %25, align 1, !tbaa !127
+  store i8 0, ptr %25, align 8, !tbaa !127
   %36 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 64
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 16, i1 false), !tbaa.struct !400

@@ -50787,7 +50787,7 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17he58445dd6a910ca4E(ptr noali
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.06, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13752)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13753)
-  %16 = load i32, ptr %15, align 4, !alias.scope !13739, !noalias !13754, !noundef !14
+  %16 = load i32, ptr %15, align 8, !alias.scope !13739, !noalias !13754, !noundef !14
   %17 = zext i32 %16 to i64
   %18 = tail call i64 @llvm.fshl.i64(i64 %14, i64 %14, i64 5)
   %19 = xor i64 %18, %17
@@ -64468,7 +64468,7 @@ default.unreachable394:                           ; preds = %63
   %trunc.i = trunc nuw i64 %196 to i1
   %197 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %198 = getelementptr inbounds nuw i8, ptr %64, i64 32
-  %199 = load i32, ptr %198, align 4, !range !1806, !alias.scope !17218, !noalias !17221, !noundef !14
+  %199 = load i32, ptr %198, align 8, !range !1806, !alias.scope !17218, !noalias !17221, !noundef !14
   br i1 %trunc.i, label %204, label %200
 
 200:                                              ; preds = %194
@@ -64493,7 +64493,7 @@ default.unreachable394:                           ; preds = %63
   %211 = load i64, ptr %210, align 8, !alias.scope !17233, !noalias !17236, !noundef !14
   %212 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %213 = getelementptr inbounds nuw i8, ptr %64, i64 34
-  %.val.i235 = load i8, ptr %213, align 1, !range !17238, !alias.scope !17233, !noalias !17236, !noundef !14
+  %.val.i235 = load i8, ptr %213, align 2, !range !17238, !alias.scope !17233, !noalias !17236, !noundef !14
   %214 = load i8, ptr %212, align 8, !range !64, !alias.scope !17233, !noalias !17236, !noundef !14
   %215 = getelementptr inbounds nuw i8, ptr %64, i64 33
   %216 = load i8, ptr %215, align 1, !range !64, !alias.scope !17233, !noalias !17236, !noundef !14
@@ -66306,7 +66306,7 @@ default.unreachable281:                           ; preds = %57
   %trunc.i = trunc nuw i64 %190 to i1
   %191 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %192 = getelementptr inbounds nuw i8, ptr %58, i64 32
-  %193 = load i32, ptr %192, align 4, !range !1806, !alias.scope !17517, !noalias !17520, !noundef !14
+  %193 = load i32, ptr %192, align 8, !range !1806, !alias.scope !17517, !noalias !17520, !noundef !14
   br i1 %trunc.i, label %198, label %194
 
 194:                                              ; preds = %188
@@ -66331,7 +66331,7 @@ default.unreachable281:                           ; preds = %57
   %205 = load i64, ptr %204, align 8, !alias.scope !17532, !noalias !17535, !noundef !14
   %206 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %207 = getelementptr inbounds nuw i8, ptr %58, i64 34
-  %.val.i134 = load i8, ptr %207, align 1, !range !17238, !alias.scope !17532, !noalias !17535, !noundef !14
+  %.val.i134 = load i8, ptr %207, align 2, !range !17238, !alias.scope !17532, !noalias !17535, !noundef !14
   %208 = load i8, ptr %206, align 8, !range !64, !alias.scope !17532, !noalias !17535, !noundef !14
   %209 = getelementptr inbounds nuw i8, ptr %58, i64 33
   %210 = load i8, ptr %209, align 1, !range !64, !alias.scope !17532, !noalias !17535, !noundef !14
@@ -67600,7 +67600,7 @@ default.unreachable394:                           ; preds = %63
   %trunc.i = trunc nuw i64 %196 to i1
   %197 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %198 = getelementptr inbounds nuw i8, ptr %64, i64 32
-  %199 = load i32, ptr %198, align 4, !range !1806, !alias.scope !17687, !noalias !17690, !noundef !14
+  %199 = load i32, ptr %198, align 8, !range !1806, !alias.scope !17687, !noalias !17690, !noundef !14
   br i1 %trunc.i, label %204, label %200
 
 200:                                              ; preds = %194
@@ -67625,7 +67625,7 @@ default.unreachable394:                           ; preds = %63
   %211 = load i64, ptr %210, align 8, !alias.scope !17702, !noalias !17705, !noundef !14
   %212 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %213 = getelementptr inbounds nuw i8, ptr %64, i64 34
-  %.val.i235 = load i8, ptr %213, align 1, !range !17238, !alias.scope !17702, !noalias !17705, !noundef !14
+  %.val.i235 = load i8, ptr %213, align 2, !range !17238, !alias.scope !17702, !noalias !17705, !noundef !14
   %214 = load i8, ptr %212, align 8, !range !64, !alias.scope !17702, !noalias !17705, !noundef !14
   %215 = getelementptr inbounds nuw i8, ptr %64, i64 33
   %216 = load i8, ptr %215, align 1, !range !64, !alias.scope !17702, !noalias !17705, !noundef !14
@@ -69517,7 +69517,7 @@ default.unreachable1066:                          ; preds = %85
   %trunc.i = trunc nuw i64 %217 to i1
   %218 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %219 = getelementptr inbounds nuw i8, ptr %86, i64 32
-  %220 = load i32, ptr %219, align 4, !range !1806, !alias.scope !17985, !noalias !17988, !noundef !14
+  %220 = load i32, ptr %219, align 8, !range !1806, !alias.scope !17985, !noalias !17988, !noundef !14
   br i1 %trunc.i, label %225, label %221
 
 221:                                              ; preds = %215
@@ -69542,7 +69542,7 @@ default.unreachable1066:                          ; preds = %85
   %232 = load i64, ptr %231, align 8, !alias.scope !18000, !noalias !18003, !noundef !14
   %233 = getelementptr inbounds nuw i8, ptr %86, i64 32
   %234 = getelementptr inbounds nuw i8, ptr %86, i64 34
-  %.val.i728 = load i8, ptr %234, align 1, !range !17238, !alias.scope !18000, !noalias !18003, !noundef !14
+  %.val.i728 = load i8, ptr %234, align 2, !range !17238, !alias.scope !18000, !noalias !18003, !noundef !14
   %235 = load i8, ptr %233, align 8, !range !64, !alias.scope !18000, !noalias !18003, !noundef !14
   %236 = getelementptr inbounds nuw i8, ptr %86, i64 33
   %237 = load i8, ptr %236, align 1, !range !64, !alias.scope !18000, !noalias !18003, !noundef !14

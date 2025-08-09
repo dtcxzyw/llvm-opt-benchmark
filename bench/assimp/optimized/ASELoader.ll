@@ -6063,11 +6063,11 @@ _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit76: 
   %280 = phi ptr [ %275, %277 ], [ %286, %279 ]
   store double 0.000000e+00, ptr %280, align 8
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 8
-  store float 1.000000e+00, ptr %281, align 4
+  store float 1.000000e+00, ptr %281, align 8
   %282 = getelementptr inbounds nuw i8, ptr %280, i64 12
   store float 0.000000e+00, ptr %282, align 4
   %283 = getelementptr inbounds nuw i8, ptr %280, i64 16
-  store float 0.000000e+00, ptr %283, align 4
+  store float 0.000000e+00, ptr %283, align 8
   %284 = getelementptr inbounds nuw i8, ptr %280, i64 20
   store float 0.000000e+00, ptr %284, align 4
   %285 = getelementptr inbounds nuw i8, ptr %280, i64 24
@@ -7037,7 +7037,7 @@ _ZNSt6vectorIP6aiNodeSaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorIP6aiN
   %.sroa.35.0..sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 1088
   store float %174, ptr %.sroa.35.0..sroa_idx, align 4
   %176 = load ptr, ptr %76, align 8
-  %177 = load i32, ptr %63, align 4
+  %177 = load i32, ptr %63, align 8
   %178 = load i32, ptr %176, align 4
   %179 = icmp eq i32 %177, %178
   br i1 %179, label %_ZNK8aiStringneERKS_.exit, label %_ZNK8aiStringneERKS_.exit.thread

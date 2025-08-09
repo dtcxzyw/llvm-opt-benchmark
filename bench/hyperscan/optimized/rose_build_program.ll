@@ -9106,7 +9106,7 @@ _ZNKSt3mapIjN3ue211engine_infoESt4lessIjESaISt4pairIKjS1_EEE2atERS5_.exit.i: ; p
 1277:                                             ; preds = %_ZNKSt3mapIjN3ue211engine_infoESt4lessIjESaISt4pairIKjS1_EEE2atERS5_.exit.i
   %1278 = load ptr, ptr %.phi.trans.insert.i223, align 8
   %1279 = load i64, ptr %1238, align 8
-  %1280 = load i32, ptr %1239, align 4
+  %1280 = load i32, ptr %1239, align 8
   %1281 = trunc i64 %1279 to i32
   %1282 = getelementptr inbounds nuw i8, ptr %1278, i64 16
   %1283 = load ptr, ptr %1282, align 8
@@ -26031,7 +26031,7 @@ _ZSt19__relocate_object_aIN3ue215ue2_case_stringES1_SaIS1_EEvPT_PT0_RT1_.exit.i.
   store i64 %35, ptr %37, align 8, !alias.scope !686, !noalias !689
   store ptr %27, ptr %.0911.i.i.i.i, align 8, !alias.scope !689, !noalias !686
   store i64 0, ptr %36, align 8, !alias.scope !689, !noalias !686
-  store i8 0, ptr %27, align 1, !alias.scope !689, !noalias !686
+  store i8 0, ptr %27, align 8, !alias.scope !689, !noalias !686
   %38 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %39 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %40 = load i8, ptr %39, align 8, !range !168, !alias.scope !689, !noalias !686, !noundef !169
@@ -26083,7 +26083,7 @@ _ZSt19__relocate_object_aIN3ue215ue2_case_stringES1_SaIS1_EEvPT_PT0_RT1_.exit.i.
   store i64 %54, ptr %56, align 8, !alias.scope !693, !noalias !696
   store ptr %46, ptr %.0911.i.i.i.i30, align 8, !alias.scope !696, !noalias !693
   store i64 0, ptr %55, align 8, !alias.scope !696, !noalias !693
-  store i8 0, ptr %46, align 1, !alias.scope !696, !noalias !693
+  store i8 0, ptr %46, align 8, !alias.scope !696, !noalias !693
   %57 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i29, i64 32
   %58 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i30, i64 32
   %59 = load i8, ptr %58, align 8, !range !168, !alias.scope !696, !noalias !693, !noundef !169

@@ -773,7 +773,7 @@ define internal noundef i32 @config_output(ptr noundef captures(none) initialize
   %23 = sext i32 %22 to i64
   %24 = mul nsw i64 %23, %20
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %26 = load i32, ptr %25, align 4, !tbaa !96
+  %26 = load i32, ptr %25, align 8, !tbaa !96
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %29 = load i32, ptr %28, align 4, !tbaa !97
@@ -783,9 +783,9 @@ define internal noundef i32 @config_output(ptr noundef captures(none) initialize
   %33 = mul nsw i64 %27, %23
   %34 = tail call i32 @av_reduce(ptr noundef nonnull %16, ptr noundef nonnull %17, i64 noundef %32, i64 noundef %33, i64 noundef 2147483647) #11
   %35 = load i32, ptr %18, align 4, !tbaa !94
-  %36 = load i32, ptr %25, align 4, !tbaa !96
+  %36 = load i32, ptr %25, align 8, !tbaa !96
   %37 = load i32, ptr %16, align 4, !tbaa !98
-  %38 = load i32, ptr %17, align 4, !tbaa !99
+  %38 = load i32, ptr %17, align 8, !tbaa !99
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %2, i32 noundef 32, ptr noundef nonnull @.str.5, i32 noundef %35, i32 noundef %36, i32 noundef %37, i32 noundef %38, i32 noundef %34) #11
   %.not = icmp eq i32 %34, 0
   br i1 %.not, label %39, label %40

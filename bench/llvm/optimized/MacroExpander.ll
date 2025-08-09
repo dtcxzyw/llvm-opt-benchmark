@@ -583,13 +583,13 @@ _ZN4llvm15SmallVectorImplIPN5clang6format11FormatTokenEEaSEOS5_.exit: ; preds = 
   %186 = load ptr, ptr %177, align 8, !tbaa !81
   store ptr %179, ptr %177, align 8, !tbaa !81
   %187 = getelementptr inbounds nuw i8, ptr %83, i64 192
-  %188 = load i32, ptr %187, align 4, !tbaa !82
-  store i32 %181, ptr %187, align 4, !tbaa !82
+  %188 = load i32, ptr %187, align 8, !tbaa !82
+  store i32 %181, ptr %187, align 8, !tbaa !82
   %189 = getelementptr inbounds nuw i8, ptr %83, i64 196
   %190 = load i32, ptr %189, align 4, !tbaa !82
   store i32 %183, ptr %189, align 4, !tbaa !82
   %191 = getelementptr inbounds nuw i8, ptr %83, i64 200
-  store i32 %185, ptr %191, align 4, !tbaa !82
+  store i32 %185, ptr %191, align 8, !tbaa !82
   %192 = icmp eq i32 %190, 0
   %.not10.i.i = icmp eq i32 %188, 0
   %or.cond.i = select i1 %192, i1 true, i1 %.not10.i.i

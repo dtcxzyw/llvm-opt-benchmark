@@ -210,7 +210,7 @@ define dso_local noundef i32 @ZSTD_XXH32_update(ptr noundef captures(none) %0, p
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull readonly align 1 %1, i64 %32, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load i32, ptr %33, align 4, !tbaa !11
-  %.0.copyload.i = load i32, ptr %29, align 1
+  %.0.copyload.i = load i32, ptr %29, align 4
   %35 = mul i32 %.0.copyload.i, -2048144777
   %36 = add i32 %35, %34
   %37 = tail call i32 @llvm.fshl.i32(i32 %36, i32 %36, i32 13)
@@ -219,7 +219,7 @@ define dso_local noundef i32 @ZSTD_XXH32_update(ptr noundef captures(none) %0, p
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %41 = load i32, ptr %40, align 4, !tbaa !11
-  %.0.copyload.i81 = load i32, ptr %39, align 1
+  %.0.copyload.i81 = load i32, ptr %39, align 4
   %42 = mul i32 %.0.copyload.i81, -2048144777
   %43 = add i32 %42, %41
   %44 = tail call i32 @llvm.fshl.i32(i32 %43, i32 %43, i32 13)
@@ -228,7 +228,7 @@ define dso_local noundef i32 @ZSTD_XXH32_update(ptr noundef captures(none) %0, p
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = load i32, ptr %47, align 4, !tbaa !11
-  %.0.copyload.i82 = load i32, ptr %46, align 1
+  %.0.copyload.i82 = load i32, ptr %46, align 4
   %49 = mul i32 %.0.copyload.i82, -2048144777
   %50 = add i32 %49, %48
   %51 = tail call i32 @llvm.fshl.i32(i32 %50, i32 %50, i32 13)
@@ -237,7 +237,7 @@ define dso_local noundef i32 @ZSTD_XXH32_update(ptr noundef captures(none) %0, p
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %55 = load i32, ptr %54, align 4, !tbaa !11
-  %.0.copyload.i83 = load i32, ptr %53, align 1
+  %.0.copyload.i83 = load i32, ptr %53, align 4
   %56 = mul i32 %.0.copyload.i83, -2048144777
   %57 = add i32 %56, %55
   %58 = tail call i32 @llvm.fshl.i32(i32 %57, i32 %57, i32 13)
@@ -672,7 +672,7 @@ define dso_local noundef i32 @ZSTD_XXH64_update(ptr noundef captures(none) %0, p
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull readonly align 1 %1, i64 %25, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i64, ptr %26, align 8, !tbaa !21
-  %.0.copyload.i = load i64, ptr %22, align 1
+  %.0.copyload.i = load i64, ptr %22, align 8
   %28 = mul i64 %.0.copyload.i, -4417276706812531889
   %29 = add i64 %28, %27
   %30 = tail call i64 @llvm.fshl.i64(i64 %29, i64 %29, i64 31)
@@ -681,7 +681,7 @@ define dso_local noundef i32 @ZSTD_XXH64_update(ptr noundef captures(none) %0, p
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load i64, ptr %32, align 8, !tbaa !21
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.0.copyload.i73 = load i64, ptr %34, align 1
+  %.0.copyload.i73 = load i64, ptr %34, align 8
   %35 = mul i64 %.0.copyload.i73, -4417276706812531889
   %36 = add i64 %35, %33
   %37 = tail call i64 @llvm.fshl.i64(i64 %36, i64 %36, i64 31)
@@ -690,7 +690,7 @@ define dso_local noundef i32 @ZSTD_XXH64_update(ptr noundef captures(none) %0, p
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = load i64, ptr %39, align 8, !tbaa !21
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.0.copyload.i74 = load i64, ptr %41, align 1
+  %.0.copyload.i74 = load i64, ptr %41, align 8
   %42 = mul i64 %.0.copyload.i74, -4417276706812531889
   %43 = add i64 %42, %40
   %44 = tail call i64 @llvm.fshl.i64(i64 %43, i64 %43, i64 31)
@@ -699,7 +699,7 @@ define dso_local noundef i32 @ZSTD_XXH64_update(ptr noundef captures(none) %0, p
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %47 = load i64, ptr %46, align 8, !tbaa !21
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %.0.copyload.i75 = load i64, ptr %48, align 1
+  %.0.copyload.i75 = load i64, ptr %48, align 8
   %49 = mul i64 %.0.copyload.i75, -4417276706812531889
   %50 = add i64 %49, %47
   %51 = tail call i64 @llvm.fshl.i64(i64 %50, i64 %50, i64 31)

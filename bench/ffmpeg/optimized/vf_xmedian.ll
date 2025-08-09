@@ -312,10 +312,10 @@ define internal i32 @config_output(ptr noundef captures(none) %0) #0 {
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 84
   store i32 %62, ptr %64, align 4, !tbaa !67
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i32 %62, ptr %65, align 4, !tbaa !67
+  store i32 %62, ptr %65, align 8, !tbaa !67
   %66 = load i32, ptr %14, align 8, !tbaa !54
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  store i32 %66, ptr %67, align 4, !tbaa !67
+  store i32 %66, ptr %67, align 8, !tbaa !67
   store i32 %66, ptr %63, align 4, !tbaa !67
   %68 = load i32, ptr %12, align 4, !tbaa !53
   %69 = sub nsw i32 0, %68
@@ -328,10 +328,10 @@ define internal i32 @config_output(ptr noundef captures(none) %0) #0 {
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 100
   store i32 %74, ptr %76, align 4, !tbaa !67
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  store i32 %74, ptr %77, align 4, !tbaa !67
+  store i32 %74, ptr %77, align 8, !tbaa !67
   %78 = load i32, ptr %12, align 4, !tbaa !53
   %79 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  store i32 %78, ptr %79, align 4, !tbaa !67
+  store i32 %78, ptr %79, align 8, !tbaa !67
   store i32 %78, ptr %75, align 4, !tbaa !67
   %80 = load i32, ptr %45, align 8, !tbaa !63
   %81 = load i32, ptr %16, align 8, !tbaa !32
@@ -1491,7 +1491,7 @@ update_index.exit:                                ; preds = %1, %23
   %62 = getelementptr inbounds nuw i8, ptr %9, i64 232
   %63 = load ptr, ptr %62, align 8, !tbaa !64
   %64 = getelementptr inbounds nuw i8, ptr %9, i64 96
-  %65 = load i32, ptr %64, align 4, !tbaa !67
+  %65 = load i32, ptr %64, align 8, !tbaa !67
   %66 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %67 = load i32, ptr %66, align 8, !tbaa !63
   %. = tail call i32 @llvm.smin.i32(i32 %65, i32 %67)
@@ -1663,7 +1663,7 @@ update_index.exit:                                ; preds = %2, %22
   %71 = getelementptr inbounds nuw i8, ptr %10, i64 232
   %72 = load ptr, ptr %71, align 8, !tbaa !64
   %73 = getelementptr inbounds nuw i8, ptr %10, i64 96
-  %74 = load i32, ptr %73, align 4, !tbaa !67
+  %74 = load i32, ptr %73, align 8, !tbaa !67
   %75 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %76 = load i32, ptr %75, align 8, !tbaa !63
   %. = tail call i32 @llvm.smin.i32(i32 %74, i32 %76)

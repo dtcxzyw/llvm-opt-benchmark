@@ -682,35 +682,35 @@ define internal void @h264_er_decode_mb(ptr noundef %0, i32 noundef %1, i32 %2, 
   %57 = and i32 %54, 65535
   %58 = shl i32 %56, 16
   %59 = or disjoint i32 %58, %57
-  store i32 %59, ptr %53, align 4, !tbaa !89
+  store i32 %59, ptr %53, align 16, !tbaa !89
   %60 = getelementptr inbounds nuw i8, ptr %11, i64 28804
   store i32 %59, ptr %60, align 4, !tbaa !89
   %61 = getelementptr inbounds nuw i8, ptr %11, i64 28808
-  store i32 %59, ptr %61, align 4, !tbaa !89
+  store i32 %59, ptr %61, align 8, !tbaa !89
   %62 = getelementptr inbounds nuw i8, ptr %11, i64 28812
   store i32 %59, ptr %62, align 4, !tbaa !89
   %63 = getelementptr inbounds nuw i8, ptr %11, i64 28832
-  store i32 %59, ptr %63, align 4, !tbaa !89
+  store i32 %59, ptr %63, align 16, !tbaa !89
   %64 = getelementptr inbounds nuw i8, ptr %11, i64 28836
   store i32 %59, ptr %64, align 4, !tbaa !89
   %65 = getelementptr inbounds nuw i8, ptr %11, i64 28840
-  store i32 %59, ptr %65, align 4, !tbaa !89
+  store i32 %59, ptr %65, align 8, !tbaa !89
   %66 = getelementptr inbounds nuw i8, ptr %11, i64 28844
   store i32 %59, ptr %66, align 4, !tbaa !89
   %67 = getelementptr inbounds nuw i8, ptr %11, i64 28864
-  store i32 %59, ptr %67, align 4, !tbaa !89
+  store i32 %59, ptr %67, align 16, !tbaa !89
   %68 = getelementptr inbounds nuw i8, ptr %11, i64 28868
   store i32 %59, ptr %68, align 4, !tbaa !89
   %69 = getelementptr inbounds nuw i8, ptr %11, i64 28872
-  store i32 %59, ptr %69, align 4, !tbaa !89
+  store i32 %59, ptr %69, align 8, !tbaa !89
   %70 = getelementptr inbounds nuw i8, ptr %11, i64 28876
   store i32 %59, ptr %70, align 4, !tbaa !89
   %71 = getelementptr inbounds nuw i8, ptr %11, i64 28896
-  store i32 %59, ptr %71, align 4, !tbaa !89
+  store i32 %59, ptr %71, align 16, !tbaa !89
   %72 = getelementptr inbounds nuw i8, ptr %11, i64 28900
   store i32 %59, ptr %72, align 4, !tbaa !89
   %73 = getelementptr inbounds nuw i8, ptr %11, i64 28904
-  store i32 %59, ptr %73, align 4, !tbaa !89
+  store i32 %59, ptr %73, align 8, !tbaa !89
   %74 = getelementptr inbounds nuw i8, ptr %11, i64 28908
   store i32 %59, ptr %74, align 4, !tbaa !89
   %75 = getelementptr inbounds nuw i8, ptr %11, i64 21072
@@ -1883,10 +1883,10 @@ idr.exit.i:                                       ; preds = %337, %335
 406:                                              ; preds = %402
   %407 = load ptr, ptr %141, align 8, !tbaa !79
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %407, i32 noundef 48, ptr noundef nonnull @.str.36) #11
-  %408 = load i8, ptr %296, align 2, !tbaa !239
+  %408 = load i8, ptr %296, align 4, !tbaa !239
   %409 = zext i8 %408 to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %407, i32 noundef 48, ptr noundef nonnull @.str.37, i32 noundef %409) #11
-  %410 = load i8, ptr %296, align 2, !tbaa !239
+  %410 = load i8, ptr %296, align 4, !tbaa !239
   switch i8 %410, label %debug_green_metadata.exit.i [
     i8 0, label %411
     i8 1, label %436

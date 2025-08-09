@@ -585,7 +585,7 @@ define linkonce_odr hidden void @_ZN8goal2sat3impC2ER11ast_managerRK10params_ref
   %.01012.i.i.i.i.i.i.i = phi i32 [ %27, %.lr.ph.i.i.i.i.i.i.i ], [ 8, %.noexc ]
   store ptr null, ptr %.013.i.i.i.i.i.i.i, align 8, !tbaa !90
   %26 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i, i64 8
-  store i32 -2, ptr %26, align 4, !tbaa !94
+  store i32 -2, ptr %26, align 8, !tbaa !94
   %27 = add nsw i32 %.01012.i.i.i.i.i.i.i, -1
   %28 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i.i = icmp eq i32 %27, 0
@@ -10332,7 +10332,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI3appN3sat7literal
   %.01012.i.i.i.i.i = phi i32 [ %9, %.lr.ph.i.i.i.i.i ], [ %4, %1 ]
   store ptr null, ptr %.013.i.i.i.i.i, align 8, !tbaa !90
   %8 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 8
-  store i32 -2, ptr %8, align 4, !tbaa !94
+  store i32 -2, ptr %8, align 8, !tbaa !94
   %9 = add i32 %.01012.i.i.i.i.i, -1
   %10 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq i32 %9, 0
@@ -11195,7 +11195,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI3appN3sat7literal
   %.01012.i.i.i.i.i = phi i32 [ %10, %.lr.ph.i.i.i.i.i ], [ %5, %3 ]
   store ptr null, ptr %.013.i.i.i.i.i, align 8, !tbaa !90
   %9 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 8
-  store i32 -2, ptr %9, align 4, !tbaa !94
+  store i32 -2, ptr %9, align 8, !tbaa !94
   %10 = add i32 %.01012.i.i.i.i.i, -1
   %11 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq i32 %10, 0
@@ -11802,7 +11802,7 @@ _ZN14core_hashtableIN7obj_mapI3appN3sat7literalEE13obj_map_entryE8obj_hashINS4_8
   %.01012.i.i.i.i.i.i.i = phi i32 [ %69, %.lr.ph.i.i.i.i.i.i.i ], [ %64, %.noexc3 ]
   store ptr null, ptr %.013.i.i.i.i.i.i.i, align 8, !tbaa !90
   %68 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i, i64 8
-  store i32 -2, ptr %68, align 4, !tbaa !94
+  store i32 -2, ptr %68, align 8, !tbaa !94
   %69 = add nsw i32 %.01012.i.i.i.i.i.i.i, -1
   %70 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i.i = icmp eq i32 %69, 0
@@ -14602,7 +14602,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4exprN3sat7litera
   %.01012.i.i.i.i.i = phi i32 [ %9, %.lr.ph.i.i.i.i.i ], [ %4, %1 ]
   store ptr null, ptr %.013.i.i.i.i.i, align 8, !tbaa !390
   %8 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 8
-  store i32 -2, ptr %8, align 4, !tbaa !94
+  store i32 -2, ptr %8, align 8, !tbaa !94
   %9 = add i32 %.01012.i.i.i.i.i, -1
   %10 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq i32 %9, 0

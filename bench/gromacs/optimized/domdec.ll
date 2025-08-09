@@ -2971,7 +2971,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %154, %_ZNSt6vectorI
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 912
   %182 = load ptr, ptr %181, align 8, !tbaa !8
   %183 = getelementptr inbounds nuw i8, ptr %180, i64 152
-  %.val.i51 = load i32, ptr %183, align 4, !tbaa !4
+  %.val.i51 = load i32, ptr %183, align 8, !tbaa !4
   %184 = getelementptr inbounds nuw i8, ptr %180, i64 156
   %.val5.i = load i32, ptr %184, align 4, !tbaa !4
   %185 = mul nsw i32 %.val.i51, %.03999
@@ -10894,7 +10894,7 @@ _ZNSt10unique_ptrIN3gmx15UpdateGroupsCogESt14default_deleteIS1_EED2Ev.exit.i: ; 
   %169 = getelementptr inbounds nuw i8, ptr %1, i64 456
   %170 = load i32, ptr %169, align 8, !tbaa !4
   %171 = getelementptr inbounds nuw i8, ptr %35, i64 168
-  store i32 %170, ptr %171, align 4, !tbaa !4
+  store i32 %170, ptr %171, align 8, !tbaa !4
   %172 = getelementptr inbounds nuw i8, ptr %1, i64 460
   %173 = load i32, ptr %172, align 4, !tbaa !4
   %174 = getelementptr inbounds nuw i8, ptr %35, i64 172
@@ -11105,7 +11105,7 @@ _ZL20average_cellsize_minRK11gmx_ddbox_tPKi.exit.i: ; preds = %275
   %276 = fadd float %242, %.1.i.i
   %277 = fmul float %276, 5.000000e-01
   store float %277, ptr %243, align 8, !tbaa !238
-  %.val.i = load i32, ptr %113, align 4, !tbaa !596
+  %.val.i = load i32, ptr %113, align 8, !tbaa !596
   %spec.select.i96.i = icmp ult i32 %.val.i, 2
   br i1 %spec.select.i96.i, label %283, label %278
 
@@ -12959,7 +12959,7 @@ _Z17ddRankFromDDCoordRK12gmx_domdec_tRKN3gmx11BasicVectorIiEE.exit.us.i: ; preds
   store i32 -1, ptr %9, align 4, !tbaa !4
   %1178 = load ptr, ptr %379, align 8, !tbaa !8
   %1179 = getelementptr inbounds nuw i8, ptr %1178, i64 264
-  %.val.i.i104 = load i32, ptr %1131, align 4, !tbaa !4
+  %.val.i.i104 = load i32, ptr %1131, align 8, !tbaa !4
   %.val9.i.i = load i32, ptr %1132, align 4, !tbaa !4
   %1180 = load i32, ptr %11, align 4, !tbaa !4
   %1181 = mul nsw i32 %1180, %.val.i.i104
@@ -13160,7 +13160,7 @@ _ZSt8_DestroyIP11domdec_loadS0_EvT_S2_RSaIT0_E.exit.i.i.i.i: ; preds = %_ZSt8_De
 _ZNSt6vectorI11domdec_loadSaIS0_EE6resizeEm.exit.i.i: ; preds = %1262, %_ZSt8_DestroyIP11domdec_loadS0_EvT_S2_RSaIT0_E.exit.i.i.i.i, %1266, %1264
   %1277 = load ptr, ptr %379, align 8, !tbaa !8
   %1278 = getelementptr inbounds nuw i8, ptr %1277, i64 1512
-  %1279 = load i32, ptr %1125, align 4, !tbaa !4
+  %1279 = load i32, ptr %1125, align 8, !tbaa !4
   %.sroa.speculated.i.i95 = call i32 @llvm.smax.i32(i32 %1279, i32 1)
   %1280 = zext nneg i32 %.sroa.speculated.i.i95 to i64
   %1281 = getelementptr inbounds nuw i8, ptr %1277, i64 1520
@@ -15547,7 +15547,7 @@ define internal fastcc void @_ZL22make_load_communicatorP12gmx_domdec_tiPi(ptr n
   %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %7
   store ptr %45, ptr %50, align 8, !tbaa !347
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 368
-  %.val55 = load i32, ptr %51, align 4, !tbaa !596
+  %.val55 = load i32, ptr %51, align 8, !tbaa !596
   %spec.select.i = icmp ult i32 %.val55, 2
   br i1 %spec.select.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit60, label %52
 

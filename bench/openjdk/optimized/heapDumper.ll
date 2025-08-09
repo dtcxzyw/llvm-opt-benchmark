@@ -3992,7 +3992,7 @@ define linkonce_odr hidden noundef ptr @_ZN21DumperClassCacheTable16lookup_or_cr
   store i64 0, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %37 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 4) #19
-  store i32 0, ptr %36, align 4
+  store i32 0, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %31, i64 28
   store i32 2, ptr %38, align 4
   %39 = getelementptr inbounds nuw i8, ptr %31, i64 32

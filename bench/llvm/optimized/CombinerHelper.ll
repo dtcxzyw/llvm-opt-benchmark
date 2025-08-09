@@ -32787,13 +32787,13 @@ _ZL18isContractableFMulRN4llvm12MachineInstrEb.exit35: ; preds = %._crit_edge
   %.sroa.445.0..sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i32 %24, ptr %.sroa.445.0..sroa_idx, align 8, !tbaa !213
   %.sroa.546.sroa.3.0..sroa.546.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 16
-  store ptr %.sroa.059.0, ptr %.sroa.546.sroa.3.0..sroa.546.0..sroa_idx.sroa_idx, align 4, !tbaa !244
+  store ptr %.sroa.059.0, ptr %.sroa.546.sroa.3.0..sroa.546.0..sroa_idx.sroa_idx, align 16, !tbaa !244
   %.sroa.546.sroa.4.0..sroa.546.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 24
-  store i32 %.sroa.1064.0, ptr %.sroa.546.sroa.4.0..sroa.546.0..sroa_idx.sroa_idx, align 4, !tbaa !213
+  store i32 %.sroa.1064.0, ptr %.sroa.546.sroa.4.0..sroa.546.0..sroa_idx.sroa_idx, align 8, !tbaa !213
   %.sroa.647.sroa.3.0..sroa.647.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 32
-  store ptr %.sroa.049.0, ptr %.sroa.647.sroa.3.0..sroa.647.0..sroa_idx.sroa_idx, align 4, !tbaa !244
+  store ptr %.sroa.049.0, ptr %.sroa.647.sroa.3.0..sroa.647.0..sroa_idx.sroa_idx, align 16, !tbaa !244
   %.sroa.647.sroa.4.0..sroa.647.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 40
-  store i32 %.sroa.10.0, ptr %.sroa.647.sroa.4.0..sroa.647.0..sroa_idx.sroa_idx, align 4, !tbaa !213
+  store i32 %.sroa.10.0, ptr %.sroa.647.sroa.4.0..sroa.647.0..sroa_idx.sroa_idx, align 8, !tbaa !213
   store ptr %59, ptr %5, align 8, !tbaa !245
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false), !tbaa.struct !246
@@ -32855,13 +32855,13 @@ _ZL18isContractableFMulRN4llvm12MachineInstrEb.exit40: ; preds = %66
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 8
   store i32 %24, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !213
   %.sroa.5.sroa.3.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 16
-  store ptr %.sroa.049.0, ptr %.sroa.5.sroa.3.0..sroa.5.0..sroa_idx.sroa_idx, align 4, !tbaa !244
+  store ptr %.sroa.049.0, ptr %.sroa.5.sroa.3.0..sroa.5.0..sroa_idx.sroa_idx, align 16, !tbaa !244
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 24
-  store i32 %.sroa.10.0, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 4, !tbaa !213
+  store i32 %.sroa.10.0, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8, !tbaa !213
   %.sroa.6.sroa.3.0..sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 32
-  store ptr %.sroa.059.0, ptr %.sroa.6.sroa.3.0..sroa.6.0..sroa_idx.sroa_idx, align 4, !tbaa !244
+  store ptr %.sroa.059.0, ptr %.sroa.6.sroa.3.0..sroa.6.0..sroa_idx.sroa_idx, align 16, !tbaa !244
   %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 40
-  store i32 %.sroa.1064.0, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx, align 4, !tbaa !213
+  store i32 %.sroa.1064.0, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx, align 8, !tbaa !213
   store ptr %79, ptr %4, align 8, !tbaa !245
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i41)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i41, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false), !tbaa.struct !246
@@ -33265,9 +33265,9 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit57: ; preds = %92, %99,
   %.sroa.676.0..sroa_idx = getelementptr inbounds nuw i8, ptr %118, i64 24
   store i32 %47, ptr %.sroa.676.0..sroa_idx, align 8, !tbaa !213
   %.sroa.777.sroa.3.0..sroa.777.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %118, i64 32
-  store ptr %.sroa.081.0, ptr %.sroa.777.sroa.3.0..sroa.777.0..sroa_idx.sroa_idx, align 4, !tbaa !244
+  store ptr %.sroa.081.0, ptr %.sroa.777.sroa.3.0..sroa.777.0..sroa_idx.sroa_idx, align 16, !tbaa !244
   %.sroa.777.sroa.4.0..sroa.777.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %118, i64 40
-  store i32 %.sroa.885.0, ptr %.sroa.777.sroa.4.0..sroa.777.0..sroa_idx.sroa_idx, align 4, !tbaa !213
+  store i32 %.sroa.885.0, ptr %.sroa.777.sroa.4.0..sroa.777.0..sroa_idx.sroa_idx, align 8, !tbaa !213
   store ptr %118, ptr %5, align 8, !tbaa !245
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false), !tbaa.struct !246
@@ -33386,9 +33386,9 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit68: ; preds = %147, %15
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %173, i64 24
   store i32 %47, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !213
   %.sroa.7.sroa.3.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %173, i64 32
-  store ptr %.sroa.089.0, ptr %.sroa.7.sroa.3.0..sroa.7.0..sroa_idx.sroa_idx, align 4, !tbaa !244
+  store ptr %.sroa.089.0, ptr %.sroa.7.sroa.3.0..sroa.7.0..sroa_idx.sroa_idx, align 16, !tbaa !244
   %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %173, i64 40
-  store i32 %.sroa.892.0, ptr %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx, align 4, !tbaa !213
+  store i32 %.sroa.892.0, ptr %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx, align 8, !tbaa !213
   store ptr %173, ptr %4, align 8, !tbaa !245
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i69)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i69, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false), !tbaa.struct !246
@@ -33908,9 +33908,9 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit120: ; preds = %100, %1
   %.sroa.7191.sroa.4.0..sroa.7191.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %126, i64 40
   store i32 %.sroa.12.0, ptr %.sroa.7191.sroa.4.0..sroa.7191.0..sroa_idx.sroa_idx, align 8, !tbaa !213
   %.sroa.8192.sroa.3.0..sroa.8192.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %126, i64 48
-  store ptr %.sroa.0209.0, ptr %.sroa.8192.sroa.3.0..sroa.8192.0..sroa_idx.sroa_idx, align 4, !tbaa !244
+  store ptr %.sroa.0209.0, ptr %.sroa.8192.sroa.3.0..sroa.8192.0..sroa_idx.sroa_idx, align 16, !tbaa !244
   %.sroa.8192.sroa.4.0..sroa.8192.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %126, i64 56
-  store i32 %.sroa.12216.0, ptr %.sroa.8192.sroa.4.0..sroa.8192.0..sroa_idx.sroa_idx, align 4, !tbaa !213
+  store i32 %.sroa.12216.0, ptr %.sroa.8192.sroa.4.0..sroa.8192.0..sroa_idx.sroa_idx, align 8, !tbaa !213
   store ptr %126, ptr %7, align 8, !tbaa !245
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false), !tbaa.struct !246
@@ -34177,9 +34177,9 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit144: ; preds = %224, %2
   %.sroa.7170.sroa.4.0..sroa.7170.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %250, i64 40
   store i32 %.sroa.12216.0, ptr %.sroa.7170.sroa.4.0..sroa.7170.0..sroa_idx.sroa_idx, align 8, !tbaa !213
   %.sroa.8171.sroa.3.0..sroa.8171.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %250, i64 48
-  store ptr %.sroa.0196.0, ptr %.sroa.8171.sroa.3.0..sroa.8171.0..sroa_idx.sroa_idx, align 4, !tbaa !244
+  store ptr %.sroa.0196.0, ptr %.sroa.8171.sroa.3.0..sroa.8171.0..sroa_idx.sroa_idx, align 16, !tbaa !244
   %.sroa.8171.sroa.4.0..sroa.8171.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %250, i64 56
-  store i32 %.sroa.12.0, ptr %.sroa.8171.sroa.4.0..sroa.8171.0..sroa_idx.sroa_idx, align 4, !tbaa !213
+  store i32 %.sroa.12.0, ptr %.sroa.8171.sroa.4.0..sroa.8171.0..sroa_idx.sroa_idx, align 8, !tbaa !213
   store ptr %250, ptr %5, align 8, !tbaa !245
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i145)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i145, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false), !tbaa.struct !246
@@ -53369,7 +53369,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNK
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 36
   %15 = load i32, ptr %14, align 4, !tbaa !204
   %16 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %17 = load i32, ptr %16, align 4, !tbaa !255
+  %17 = load i32, ptr %16, align 8, !tbaa !255
   %18 = icmp eq i32 %15, %17
   br i1 %18, label %19, label %"_ZSt10__invoke_rIvRZNK4llvm14CombinerHelper22matchAndOrDisjointMaskERNS0_12MachineInstrERSt8functionIFvRNS0_16MachineIRBuilderEEEE3$_0JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
 
@@ -61936,7 +61936,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNK
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 44
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %49, align 4, !tbaa !213
   %50 = getelementptr inbounds nuw i8, ptr %.val, i64 48
-  %51 = load i32, ptr %50, align 4, !tbaa !213
+  %51 = load i32, ptr %50, align 8, !tbaa !213
   %.sroa.0.0.insert.ext.i.i.i = zext i32 %51 to i64
   %.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %.sroa.0.0.insert.ext.i.i.i, 4294967296
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -62339,7 +62339,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNK
   %57 = getelementptr inbounds nuw i8, ptr %.val, i64 44
   %.sroa.02.0.copyload.i.i.i = load i32, ptr %57, align 4, !tbaa !213
   %58 = getelementptr inbounds nuw i8, ptr %.val, i64 48
-  %59 = load i32, ptr %58, align 4, !tbaa !213
+  %59 = load i32, ptr %58, align 8, !tbaa !213
   %.sroa.0.0.insert.ext.i.i.i = zext i32 %59 to i64
   %.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %.sroa.0.0.insert.ext.i.i.i, 4294967296
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

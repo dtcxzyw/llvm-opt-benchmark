@@ -137,7 +137,7 @@ define noundef zeroext i1 @_ZNK3g2o9VertexTag5writeERSo(ptr noundef nonnull read
   %14 = load i32, ptr %13, align 8, !tbaa !16
   %15 = and i32 %14, -261
   %16 = or disjoint i32 %15, 4
-  store i32 %16, ptr %13, align 4, !tbaa !26
+  store i32 %16, ptr %13, align 8, !tbaa !26
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %18 = load float, ptr %17, align 8, !tbaa !27
   %19 = fpext float %18 to double
@@ -160,7 +160,7 @@ define noundef zeroext i1 @_ZNK3g2o9VertexTag5writeERSo(ptr noundef nonnull read
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load i32, ptr %36, align 8, !tbaa !16
   %38 = and i32 %37, -5
-  store i32 %38, ptr %36, align 4, !tbaa !26
+  store i32 %38, ptr %36, align 8, !tbaa !26
   %39 = load ptr, ptr %1, align 8, !tbaa !3
   %40 = getelementptr i8, ptr %39, i64 -24
   %41 = load i64, ptr %40, align 8
@@ -169,7 +169,7 @@ define noundef zeroext i1 @_ZNK3g2o9VertexTag5writeERSo(ptr noundef nonnull read
   %44 = load i32, ptr %43, align 8, !tbaa !16
   %45 = and i32 %44, -261
   %46 = or disjoint i32 %45, 4
-  store i32 %46, ptr %43, align 4, !tbaa !26
+  store i32 %46, ptr %43, align 8, !tbaa !26
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %48 = load float, ptr %47, align 4, !tbaa !27
   %49 = fpext float %48 to double
@@ -192,7 +192,7 @@ define noundef zeroext i1 @_ZNK3g2o9VertexTag5writeERSo(ptr noundef nonnull read
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %67 = load i32, ptr %66, align 8, !tbaa !16
   %68 = and i32 %67, -5
-  store i32 %68, ptr %66, align 4, !tbaa !26
+  store i32 %68, ptr %66, align 8, !tbaa !26
   %69 = load ptr, ptr %1, align 8, !tbaa !3
   %70 = getelementptr i8, ptr %69, i64 -24
   %71 = load i64, ptr %70, align 8
@@ -201,7 +201,7 @@ define noundef zeroext i1 @_ZNK3g2o9VertexTag5writeERSo(ptr noundef nonnull read
   %74 = load i32, ptr %73, align 8, !tbaa !16
   %75 = and i32 %74, -261
   %76 = or disjoint i32 %75, 4
-  store i32 %76, ptr %73, align 4, !tbaa !26
+  store i32 %76, ptr %73, align 8, !tbaa !26
   %77 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str, i64 noundef 1)
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %79 = load double, ptr %78, align 8, !tbaa !29
@@ -223,7 +223,7 @@ define noundef zeroext i1 @_ZNK3g2o9VertexTag5writeERSo(ptr noundef nonnull read
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %96 = load i32, ptr %95, align 8, !tbaa !16
   %97 = and i32 %96, -5
-  store i32 %97, ptr %95, align 4, !tbaa !26
+  store i32 %97, ptr %95, align 8, !tbaa !26
   %98 = load ptr, ptr %1, align 8, !tbaa !3
   %99 = getelementptr i8, ptr %98, i64 -24
   %100 = load i64, ptr %99, align 8

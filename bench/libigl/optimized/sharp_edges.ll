@@ -376,7 +376,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %98 = load ptr, ptr %11, align 8, !tbaa !46
   %99 = load <2 x double>, ptr %98, align 16, !tbaa !48
   %100 = getelementptr i8, ptr %98, i64 16
-  %101 = load double, ptr %100, align 8, !tbaa !38
+  %101 = load double, ptr %100, align 16, !tbaa !38
   call void @free(ptr noundef %98) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -811,7 +811,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %98 = load ptr, ptr %11, align 8, !tbaa !46
   %99 = load <2 x double>, ptr %98, align 16, !tbaa !48
   %100 = getelementptr i8, ptr %98, i64 16
-  %101 = load double, ptr %100, align 8, !tbaa !38
+  %101 = load double, ptr %100, align 16, !tbaa !38
   call void @free(ptr noundef %98) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

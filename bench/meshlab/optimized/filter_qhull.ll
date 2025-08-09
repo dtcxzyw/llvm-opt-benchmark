@@ -5707,7 +5707,7 @@ _ZNSt6vectorISt4pairIP8CVertexOfESaIS3_EEC2EmRKS3_RKS4_.exit: ; preds = %_ZNSt6v
   %132 = getelementptr inbounds nuw i8, ptr %115, i64 36
   %133 = load float, ptr %132, align 4
   %134 = getelementptr inbounds nuw i8, ptr %115, i64 40
-  %135 = load float, ptr %134, align 4
+  %135 = load float, ptr %134, align 8
   %136 = fmul float %126, %135
   %137 = call float @llvm.fmuladd.f32(float %121, float %133, float %136)
   %138 = getelementptr inbounds nuw i8, ptr %115, i64 44
@@ -6023,7 +6023,7 @@ _ZNSt5queueIiSt5dequeIiSaIiEEE3popEv.exit:        ; preds = %253, %255
   %300 = getelementptr inbounds nuw i8, ptr %275, i64 36
   %301 = load float, ptr %300, align 4
   %302 = getelementptr inbounds nuw i8, ptr %275, i64 40
-  %303 = load float, ptr %302, align 4
+  %303 = load float, ptr %302, align 8
   %304 = fmul float %295, %303
   %305 = call float @llvm.fmuladd.f32(float %291, float %301, float %304)
   %306 = getelementptr inbounds nuw i8, ptr %275, i64 44
@@ -6791,7 +6791,7 @@ _ZNSt5queueIiSt5dequeIiSaIiEEE4pushERKi.exit:     ; preds = %.noexc242, %368, %2
   %685 = getelementptr inbounds nuw i8, ptr %684, i64 8
   store ptr %indvars.iv940.sroa.phi.sroa.speculated, ptr %685, align 8
   %686 = getelementptr inbounds nuw i8, ptr %684, i64 16
-  store i32 0, ptr %686, align 4
+  store i32 0, ptr %686, align 8
   %687 = getelementptr inbounds nuw i8, ptr %684, i64 20
   store i8 0, ptr %687, align 4
   %688 = invoke ptr @_ZNSt10_HashtableIP8CVertexOSt4pairIKS1_S2_IicEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %13, i64 noundef %.pre-phi959, i64 noundef %.pre-phi, ptr noundef nonnull %684, i64 noundef 1)
@@ -7112,7 +7112,7 @@ _ZNSt6vectorIP8CVertexOSaIS1_EE6resizeEm.exit:    ; preds = %814, %789, %_ZSt6fi
   %841 = load float, ptr %840, align 4
   %842 = fsub float %839, %841
   %843 = load float, ptr %578, align 4
-  %844 = load float, ptr %819, align 4
+  %844 = load float, ptr %819, align 8
   %845 = fmul float %837, %844
   %846 = call float @llvm.fmuladd.f32(float %832, float %843, float %845)
   %847 = load float, ptr %.sroa.245.0..sroa_idx, align 4
@@ -8439,7 +8439,7 @@ define linkonce_odr void @_ZN3vcg3tri10ConvexHullI6CMeshOS2_E22ComputePointVisib
   %202 = and i32 %storemerge.i.i, -524290
   %203 = or i32 %storemerge.i.i, 524288
   %storemerge18.i.i = select i1 %.not17.i.i, i32 %202, i32 %203
-  store i32 %storemerge18.i.i, ptr %190, align 4
+  store i32 %storemerge18.i.i, ptr %190, align 8
   %204 = load i8, ptr %188, align 1
   %205 = trunc i8 %204 to i1
   br i1 %205, label %206, label %217
@@ -12529,7 +12529,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 32
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 80
-  %47 = load i32, ptr %46, align 4
+  %47 = load i32, ptr %46, align 8
   br label %48
 
 48:                                               ; preds = %_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit, %13, %43
@@ -12676,7 +12676,7 @@ _ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEEmEC2ERKS4_.exit: ; pre
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %61 = load i32, ptr %60, align 4
+  %61 = load i32, ptr %60, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #27
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %59, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %61, 1

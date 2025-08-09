@@ -1898,13 +1898,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8, !tbaa !16
   store ptr %13, ptr %10, align 8, !tbaa !13
   store i64 0, ptr %24, align 8, !tbaa !16
-  store i8 0, ptr %13, align 1, !tbaa !18
+  store i8 0, ptr %13, align 8, !tbaa !18
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store ptr %27, ptr %26, align 8, !tbaa !10
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store i64 0, ptr %28, align 8, !tbaa !16
-  store i8 0, ptr %27, align 1, !tbaa !18
+  store i8 0, ptr %27, align 8, !tbaa !18
   store ptr %7, ptr %23, align 8, !tbaa !56
   %29 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %30 unwind label %51
@@ -2568,7 +2568,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
   store ptr %33, ptr %32, align 8, !tbaa !10
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i64 0, ptr %34, align 8, !tbaa !16
-  store i8 0, ptr %33, align 1, !tbaa !18
+  store i8 0, ptr %33, align 8, !tbaa !18
   ret void
 
 35:                                               ; preds = %25

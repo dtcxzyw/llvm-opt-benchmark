@@ -3540,7 +3540,7 @@ define linkonce_odr dso_local void @_ZN4Luau6detail14DenseHashTableIPNS_12AstExp
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = add nuw i64 %.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %14, %spec.select
-  store i64 0, ptr %13, align 4
+  store i64 0, ptr %13, align 8
   br i1 %exitcond.not.i.i, label %_ZN4Luau6detail14DenseHashTableIPNS_12AstExprTableESt4pairIS3_NS_7Compile10TableShapeEES4_IKS3_S6_ENS0_16ItemInterfaceMapIS3_S6_EENS_16DenseHashPointerESt8equal_toIS3_EEC2ERS8_m.exit.loopexit, label %.lr.ph.i.i, !llvm.loop !140
 
 _ZN4Luau6detail14DenseHashTableIPNS_12AstExprTableESt4pairIS3_NS_7Compile10TableShapeEES4_IKS3_S6_ENS0_16ItemInterfaceMapIS3_S6_EENS_16DenseHashPointerESt8equal_toIS3_EEC2ERS8_m.exit.loopexit: ; preds = %.lr.ph.i.i

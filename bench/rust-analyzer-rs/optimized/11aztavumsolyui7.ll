@@ -5389,7 +5389,7 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17he32fad1fb275f4e5E(ptr noali
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.06, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1649)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1650)
-  %16 = load i32, ptr %15, align 4, !alias.scope !1636, !noalias !1651, !noundef !11
+  %16 = load i32, ptr %15, align 8, !alias.scope !1636, !noalias !1651, !noundef !11
   %17 = zext i32 %16 to i64
   %18 = tail call i64 @llvm.fshl.i64(i64 %14, i64 %14, i64 5)
   %19 = xor i64 %18, %17

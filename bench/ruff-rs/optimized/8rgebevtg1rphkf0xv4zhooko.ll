@@ -6456,7 +6456,7 @@ _ZN7ruff_db10diagnostic10Diagnostic12primary_span17hb80c945fde0d3182E.exit: ; pr
   %260 = load i32, ptr %259, align 4, !alias.scope !1058, !noalias !1061
   %.sroa.52.0.i.i = select i1 %258, i32 %260, i32 undef
   %261 = getelementptr inbounds nuw i8, ptr %232, i64 48
-  %262 = load i32, ptr %261, align 4, !alias.scope !1058, !noalias !1061
+  %262 = load i32, ptr %261, align 8, !alias.scope !1058, !noalias !1061
   %.sroa.63.0.i.i = select i1 %258, i32 %262, i32 undef
   call void @llvm.lifetime.start.p0(ptr nonnull %59)
   store i32 %.sroa.0.0.i.i, ptr %59, align 8
@@ -8040,7 +8040,7 @@ _ZN7ruff_db10diagnostic10Diagnostic18primary_annotation17heee8fcb2c29a89efE.exit
   %32 = getelementptr inbounds nuw i8, ptr %10, i64 44
   %33 = load i32, ptr %32, align 4, !alias.scope !1278, !noalias !1281
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %35 = load i32, ptr %34, align 4, !alias.scope !1278, !noalias !1281
+  %35 = load i32, ptr %34, align 8, !alias.scope !1278, !noalias !1281
   %.sroa.63.0.i = select i1 %31, i32 %35, i32 undef
   %.sroa.52.0.i = select i1 %31, i32 %33, i32 undef
   store i32 %.sroa.0.0.i, ptr %0, align 8
@@ -8159,7 +8159,7 @@ _ZN7ruff_db10diagnostic10Diagnostic18primary_annotation17heee8fcb2c29a89efE.exit
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 44
   %34 = load i32, ptr %33, align 4, !alias.scope !1303, !noalias !1306
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %36 = load i32, ptr %35, align 4, !alias.scope !1303, !noalias !1306
+  %36 = load i32, ptr %35, align 8, !alias.scope !1303, !noalias !1306
   %.sroa.63.0.i.i = select i1 %32, i32 %36, i32 undef
   %.sroa.52.0.i.i = select i1 %32, i32 %34, i32 undef
   store i32 %.sroa.0.0.i.i, ptr %0, align 8
@@ -8281,7 +8281,7 @@ _ZN7ruff_db10diagnostic10Diagnostic18primary_annotation17heee8fcb2c29a89efE.exit
   %37 = getelementptr inbounds nuw i8, ptr %15, i64 44
   %38 = load i32, ptr %37, align 4, !alias.scope !1322, !noalias !1325
   %39 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  %40 = load i32, ptr %39, align 4, !alias.scope !1322, !noalias !1325
+  %40 = load i32, ptr %39, align 8, !alias.scope !1322, !noalias !1325
   %.sroa.63.0.i.i = select i1 %36, i32 %40, i32 undef
   %.sroa.52.0.i.i = select i1 %36, i32 %38, i32 undef
   br label %_ZN7ruff_db10diagnostic10Diagnostic12primary_span17hb80c945fde0d3182E.exit
@@ -8350,7 +8350,7 @@ _ZN7ruff_db10diagnostic10Diagnostic18primary_annotation17heee8fcb2c29a89efE.exit
   %72 = getelementptr inbounds nuw i8, ptr %50, i64 44
   %73 = load i32, ptr %72, align 4, !alias.scope !1341, !noalias !1344
   %74 = getelementptr inbounds nuw i8, ptr %50, i64 48
-  %75 = load i32, ptr %74, align 4, !alias.scope !1341, !noalias !1344
+  %75 = load i32, ptr %74, align 8, !alias.scope !1341, !noalias !1344
   %.sroa.63.0.i.i19 = select i1 %71, i32 %75, i32 undef
   %.sroa.52.0.i.i20 = select i1 %71, i32 %73, i32 undef
   br label %_ZN7ruff_db10diagnostic10Diagnostic12primary_span17hb80c945fde0d3182E.exit26

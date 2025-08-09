@@ -2275,7 +2275,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   store ptr %433, ptr %432, align 8, !tbaa !44
   %434 = getelementptr inbounds nuw i8, ptr %431, i64 32
   store i64 0, ptr %434, align 8, !tbaa !45
-  store i8 0, ptr %433, align 1, !tbaa !46
+  store i8 0, ptr %433, align 8, !tbaa !46
   %435 = getelementptr inbounds nuw i8, ptr %431, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %435, i8 0, i64 64, i1 false)
   store ptr %431, ptr %41, align 8, !tbaa !111

@@ -6562,7 +6562,7 @@ _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorIS5_EENS_8FreeTypeE
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %10, ptr %7, align 8, !tbaa !179
   store i64 0, ptr %20, align 8, !tbaa !181
-  store i8 0, ptr %10, align 1, !tbaa !182
+  store i8 0, ptr %10, align 8, !tbaa !182
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %24 = load i8, ptr %23, align 8, !tbaa !183, !range !39, !noundef !40
@@ -6860,7 +6860,7 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   store i64 %49, ptr %51, align 8, !tbaa !181
   store ptr %40, ptr %32, align 8, !tbaa !179
   store i64 0, ptr %50, align 8, !tbaa !181
-  store i8 0, ptr %40, align 1, !tbaa !182
+  store i8 0, ptr %40, align 8, !tbaa !182
   store i8 1, ptr %34, align 8, !tbaa !209
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS6_.exit.i
 
@@ -6908,7 +6908,7 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   store i64 %71, ptr %73, align 8, !tbaa !181
   store ptr %63, ptr %55, align 8, !tbaa !179
   store i64 0, ptr %72, align 8, !tbaa !181
-  store i8 0, ptr %63, align 1, !tbaa !182
+  store i8 0, ptr %63, align 8, !tbaa !182
   store i8 1, ptr %57, align 8, !tbaa !209
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS6_.exit13.i
 
@@ -6973,7 +6973,7 @@ _ZN4Luau9TableTypeC2EOS0_.exit:                   ; preds = %98, %_ZNKSt7__cxx11
   store i64 %105, ptr %107, align 8, !tbaa !181
   store ptr %96, ptr %93, align 8, !tbaa !179
   store i64 0, ptr %106, align 8, !tbaa !181
-  store i8 0, ptr %96, align 1, !tbaa !182
+  store i8 0, ptr %96, align 8, !tbaa !182
   %108 = getelementptr inbounds nuw i8, ptr %4, i64 264
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 256
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef nonnull align 8 dereferenceable(32) %109, i64 32, i1 false)

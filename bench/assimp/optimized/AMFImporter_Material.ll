@@ -302,7 +302,7 @@ _ZNK4pugi13xml_attribute9as_stringEPKc.exit:      ; preds = %15, %8, %_ZNK4pugi8
   store ptr %40, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store i64 0, ptr %41, align 8
-  store i8 0, ptr %40, align 1
+  store i8 0, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 48
   store ptr %37, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %34, i64 56
@@ -323,7 +323,7 @@ _ZNK4pugi13xml_attribute9as_stringEPKc.exit:      ; preds = %15, %8, %_ZNK4pugi8
   store ptr %48, ptr %.ptr.i, align 8
   %49 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 8
   store i64 0, ptr %49, align 8
-  store i8 0, ptr %48, align 1
+  store i8 0, ptr %48, align 8
   %.add.i = add nuw nsw i64 %.idx.i, 32
   %50 = icmp eq i64 %.add.i, 216
   br i1 %50, label %51, label %47
@@ -336,7 +336,7 @@ _ZNK4pugi13xml_attribute9as_stringEPKc.exit:      ; preds = %15, %8, %_ZNK4pugi8
   store ptr %54, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %34, i64 240
   store i64 0, ptr %55, align 8
-  store i8 0, ptr %54, align 1
+  store i8 0, ptr %54, align 8
   invoke void @_ZN6Assimp11AMFImporter22ParseHelper_Node_EnterEP18AMFNodeElementBase(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull %34)
           to label %56 unwind label %70
 
@@ -1008,7 +1008,7 @@ _ZNK4pugi13xml_attribute9as_stringEPKc.exit:      ; preds = %26, %9, %2, %_ZNK4p
   store ptr %51, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %45, i64 24
   store i64 0, ptr %52, align 8
-  store i8 0, ptr %51, align 1
+  store i8 0, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 48
   store ptr %48, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %45, i64 56
@@ -2034,7 +2034,7 @@ _ZNK4pugi13xml_attribute7as_boolEb.exit.thread253: ; preds = %320, %_ZNK4pugi8xm
   store ptr %336, ptr %335, align 8
   %337 = getelementptr inbounds nuw i8, ptr %330, i64 24
   store i64 0, ptr %337, align 8
-  store i8 0, ptr %336, align 1
+  store i8 0, ptr %336, align 8
   %338 = getelementptr inbounds nuw i8, ptr %330, i64 48
   store ptr %333, ptr %338, align 8
   %339 = getelementptr inbounds nuw i8, ptr %330, i64 56
@@ -2613,7 +2613,7 @@ define hidden void @_ZN6Assimp11AMFImporter16ParseNode_TexMapERN4pugi8xml_nodeEb
   store ptr %19, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i64 0, ptr %20, align 8
-  store i8 0, ptr %19, align 1
+  store i8 0, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 48
   store ptr %16, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 56
@@ -2630,25 +2630,25 @@ define hidden void @_ZN6Assimp11AMFImporter16ParseNode_TexMapERN4pugi8xml_nodeEb
   store ptr %26, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 128
   store i64 0, ptr %27, align 8
-  store i8 0, ptr %26, align 1
+  store i8 0, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 152
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 168
   store ptr %29, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 160
   store i64 0, ptr %30, align 8
-  store i8 0, ptr %29, align 1
+  store i8 0, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %14, i64 184
   %32 = getelementptr inbounds nuw i8, ptr %14, i64 200
   store ptr %32, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %14, i64 192
   store i64 0, ptr %33, align 8
-  store i8 0, ptr %32, align 1
+  store i8 0, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %14, i64 216
   %35 = getelementptr inbounds nuw i8, ptr %14, i64 232
   store ptr %35, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %14, i64 224
   store i64 0, ptr %36, align 8
-  store i8 0, ptr %35, align 1
+  store i8 0, ptr %35, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %37, ptr %7, align 8

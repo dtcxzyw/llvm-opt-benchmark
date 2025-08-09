@@ -560,7 +560,7 @@ if.then:                                          ; preds = %_ZNSt10lock_guardIS
   %runtime_.i.i = getelementptr inbounds nuw i8, ptr %call5, i64 16
   %3 = load ptr, ptr %runtime_.i.i, align 8
   %domain_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5, i64 48
-  %4 = load i32, ptr %domain_.i.i.i.i, align 4
+  %4 = load i32, ptr %domain_.i.i.i.i, align 8
   %cmp.i.i.not.i.i.i.i.i.i = icmp eq i32 %4, 0
   br i1 %cmp.i.i.not.i.i.i.i.i.i, label %_ZN6hermes2vm13RuntimeModule15getDomainUnsafeERNS0_7RuntimeE.exit.i.i.i, label %if.end.i.i.i.i.i.i
 
@@ -712,7 +712,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
   %sub.i.i.i.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i.i, %0
   %conv.i.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i.i to i32
   %retval.sroa.0.0.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i.i
-  store i32 %retval.sroa.0.0.i.i.i.i.i.i, ptr %domain_.i, align 4
+  store i32 %retval.sroa.0.0.i.i.i.i.i.i, ptr %domain_.i, align 8
   %functionMap_.i = getelementptr inbounds nuw i8, ptr %call5, i64 56
   %flags_.i = getelementptr inbounds nuw i8, ptr %call5, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %functionMap_.i, i8 0, i64 40, i1 false)

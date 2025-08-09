@@ -6228,13 +6228,13 @@ _ZNSt3mapItP6aiNodeSt4lessItESaISt4pairIKtS1_EEE4findERS5_.exit.thread: ; preds 
   store float %157, ptr %159, align 4
   %160 = load float, ptr %145, align 8
   %161 = getelementptr inbounds nuw i8, ptr %66, i64 1040
-  store float %160, ptr %161, align 4
+  store float %160, ptr %161, align 8
   %162 = load float, ptr %150, align 4
   %163 = getelementptr inbounds nuw i8, ptr %66, i64 1056
-  store float %162, ptr %163, align 4
+  store float %162, ptr %163, align 8
   %164 = load float, ptr %155, align 8
   %165 = getelementptr inbounds nuw i8, ptr %66, i64 1072
-  store float %164, ptr %165, align 4
+  store float %164, ptr %165, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %166 = load i16, ptr %59, align 8
   %167 = sub i16 -2, %166
@@ -12259,7 +12259,7 @@ define hidden void @_ZN6Assimp11LWOImporter12LoadLWO2ClipEj(ptr noundef nonnull 
   store ptr %19, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 0, ptr %20, align 8
-  store i8 0, ptr %19, align 1
+  store i8 0, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %21, i8 0, i64 9, i1 false)
   %22 = load ptr, ptr %13, align 8
@@ -12793,7 +12793,7 @@ define hidden void @_ZN6Assimp11LWOImporter12LoadLWO3ClipEj(ptr noundef nonnull 
   store ptr %19, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 0, ptr %20, align 8
-  store i8 0, ptr %19, align 1
+  store i8 0, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %21, i8 0, i64 9, i1 false)
   %22 = load ptr, ptr %13, align 8
@@ -19188,7 +19188,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !alias.scope !178, !noalias !181
   store ptr %39, ptr %.0911.i.i.i, align 8, !alias.scope !181, !noalias !178
   store i64 0, ptr %48, align 8, !alias.scope !181, !noalias !178
-  store i8 0, ptr %39, align 1, !alias.scope !181, !noalias !178
+  store i8 0, ptr %39, align 8, !alias.scope !181, !noalias !178
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -19236,7 +19236,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !alias.scope !185, !noalias !188
   store ptr %55, ptr %.0911.i.i.i19, align 8, !alias.scope !188, !noalias !185
   store i64 0, ptr %64, align 8, !alias.scope !188, !noalias !185
-  store i8 0, ptr %55, align 1, !alias.scope !188, !noalias !185
+  store i8 0, ptr %55, align 8, !alias.scope !188, !noalias !185
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5
@@ -22066,7 +22066,7 @@ _ZNKSt6vectorIN6Assimp3LWO4ClipESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %2
   store ptr %22, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i64 0, ptr %23, align 8
-  store i8 0, ptr %22, align 1
+  store i8 0, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %24, i8 0, i64 9, i1 false)
   %.not10.i.i.i = icmp eq ptr %5, %1
@@ -22112,7 +22112,7 @@ _ZSt19__relocate_object_aIN6Assimp3LWO4ClipES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i: 
   store i64 %38, ptr %40, align 8, !alias.scope !265, !noalias !268
   store ptr %30, ptr %27, align 8, !alias.scope !268, !noalias !265
   store i64 0, ptr %39, align 8, !alias.scope !268, !noalias !265
-  store i8 0, ptr %30, align 1, !alias.scope !268, !noalias !265
+  store i8 0, ptr %30, align 8, !alias.scope !268, !noalias !265
   %41 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
   %42 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %41, ptr noundef nonnull align 8 dereferenceable(9) %42, i64 9, i1 false), !alias.scope !270
@@ -22167,7 +22167,7 @@ _ZSt19__relocate_object_aIN6Assimp3LWO4ClipES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i32
   store i64 %59, ptr %61, align 8, !alias.scope !272, !noalias !275
   store ptr %51, ptr %48, align 8, !alias.scope !275, !noalias !272
   store i64 0, ptr %60, align 8, !alias.scope !275, !noalias !272
-  store i8 0, ptr %51, align 1, !alias.scope !275, !noalias !272
+  store i8 0, ptr %51, align 8, !alias.scope !275, !noalias !272
   %62 = getelementptr inbounds nuw i8, ptr %.012.i.i.i27, i64 40
   %63 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i28, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %62, ptr noundef nonnull align 8 dereferenceable(9) %63, i64 9, i1 false), !alias.scope !277

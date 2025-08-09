@@ -358,10 +358,10 @@ _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit: ; pr
   %36 = load <2 x i64>, ptr %35, align 16, !tbaa !69, !noalias !70
   %37 = xor <2 x i64> %36, <i64 -9223372036854775808, i64 0>
   %38 = getelementptr inbounds nuw i8, ptr %15, i64 224
-  %39 = load <2 x double>, ptr %38, align 1, !tbaa !69, !noalias !77
+  %39 = load <2 x double>, ptr %38, align 16, !tbaa !69, !noalias !77
   %40 = fneg <2 x double> %39
   %41 = getelementptr inbounds nuw i8, ptr %15, i64 240
-  %42 = load double, ptr %41, align 8, !tbaa !49, !noalias !77
+  %42 = load double, ptr %41, align 16, !tbaa !49, !noalias !77
   %43 = fneg double %42
   %bc.i = bitcast <2 x i64> %34 to <2 x double>
   %44 = extractelement <2 x double> %bc.i, i64 1
@@ -440,7 +440,7 @@ _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit: ; pr
   %100 = tail call double @llvm.fmuladd.f64(double %49, double %.sroa.027.8.vec.extract.i.i.i.i16, double %99)
   %.sroa.0.0.vec.insert.i.i.i.i18 = insertelement <2 x double> poison, double %94, i64 0
   %.sroa.0.8.vec.insert.i.i.i.i19 = insertelement <2 x double> %.sroa.0.0.vec.insert.i.i.i.i18, double %97, i64 1
-  %101 = load <2 x double>, ptr %75, align 1, !tbaa !69, !noalias !94
+  %101 = load <2 x double>, ptr %75, align 8, !tbaa !69, !noalias !94
   %102 = fmul <2 x double> %67, %90
   %103 = fadd <2 x double> %101, %102
   %104 = fadd <2 x double> %103, %.sroa.0.8.vec.insert.i.i.i.i19
@@ -523,13 +523,13 @@ _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit: ; pr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %163, ptr noundef nonnull align 16 dereferenceable(24) %38, i64 24, i1 false), !tbaa.struct !110
   %164 = getelementptr inbounds nuw i8, ptr %15, i64 200
   %165 = load double, ptr %164, align 8, !tbaa !49, !noalias !111
-  %166 = load double, ptr %35, align 8, !tbaa !49, !noalias !111
+  %166 = load double, ptr %35, align 16, !tbaa !49, !noalias !111
   %167 = extractelement <2 x double> %161, i64 1
   %168 = fneg double %167
   %169 = fmul double %166, %168
   %170 = tail call double @llvm.fmuladd.f64(double %165, double %162, double %169)
   %171 = extractelement <2 x double> %161, i64 0
-  %172 = load double, ptr %32, align 8, !tbaa !49, !noalias !111
+  %172 = load double, ptr %32, align 16, !tbaa !49, !noalias !111
   %173 = fneg double %162
   %174 = fmul double %172, %173
   %175 = tail call double @llvm.fmuladd.f64(double %166, double %171, double %174)
@@ -653,10 +653,10 @@ _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.threa
   %257 = load <2 x i64>, ptr %256, align 16, !tbaa !69, !noalias !123
   %258 = xor <2 x i64> %257, <i64 -9223372036854775808, i64 0>
   %259 = getelementptr inbounds nuw i8, ptr %22, i64 224
-  %260 = load <2 x double>, ptr %259, align 1, !tbaa !69, !noalias !130
+  %260 = load <2 x double>, ptr %259, align 16, !tbaa !69, !noalias !130
   %261 = fneg <2 x double> %260
   %262 = getelementptr inbounds nuw i8, ptr %22, i64 240
-  %263 = load double, ptr %262, align 8, !tbaa !49, !noalias !130
+  %263 = load double, ptr %262, align 16, !tbaa !49, !noalias !130
   %264 = fneg double %263
   %bc.i31 = bitcast <2 x i64> %255 to <2 x double>
   %265 = extractelement <2 x double> %bc.i31, i64 1
@@ -735,7 +735,7 @@ _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.threa
   %321 = tail call double @llvm.fmuladd.f64(double %270, double %.sroa.027.8.vec.extract.i.i.i.i46, double %320)
   %.sroa.0.0.vec.insert.i.i.i.i48 = insertelement <2 x double> poison, double %315, i64 0
   %.sroa.0.8.vec.insert.i.i.i.i49 = insertelement <2 x double> %.sroa.0.0.vec.insert.i.i.i.i48, double %318, i64 1
-  %322 = load <2 x double>, ptr %296, align 1, !tbaa !69, !noalias !147
+  %322 = load <2 x double>, ptr %296, align 8, !tbaa !69, !noalias !147
   %323 = fmul <2 x double> %288, %311
   %324 = fadd <2 x double> %322, %323
   %325 = fadd <2 x double> %324, %.sroa.0.8.vec.insert.i.i.i.i49
@@ -818,13 +818,13 @@ _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.threa
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %384, ptr noundef nonnull align 16 dereferenceable(24) %259, i64 24, i1 false), !tbaa.struct !110
   %385 = getelementptr inbounds nuw i8, ptr %22, i64 200
   %386 = load double, ptr %385, align 8, !tbaa !49, !noalias !156
-  %387 = load double, ptr %256, align 8, !tbaa !49, !noalias !156
+  %387 = load double, ptr %256, align 16, !tbaa !49, !noalias !156
   %388 = extractelement <2 x double> %382, i64 1
   %389 = fneg double %388
   %390 = fmul double %387, %389
   %391 = tail call double @llvm.fmuladd.f64(double %386, double %383, double %390)
   %392 = extractelement <2 x double> %382, i64 0
-  %393 = load double, ptr %253, align 8, !tbaa !49, !noalias !156
+  %393 = load double, ptr %253, align 16, !tbaa !49, !noalias !156
   %394 = fneg double %383
   %395 = fmul double %393, %394
   %396 = tail call double @llvm.fmuladd.f64(double %387, double %392, double %395)

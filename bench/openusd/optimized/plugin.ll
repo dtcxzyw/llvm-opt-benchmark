@@ -6222,7 +6222,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %55, ptr noundef nonnull align 8 dereferenceable(32) %57)
   %58 = getelementptr inbounds nuw i8, ptr %49, i64 40
   store ptr null, ptr %58, align 8
-  store i32 %53, ptr %49, align 4
+  store i32 %53, ptr %49, align 8
   store i16 %.134, ptr %50, align 4
   br label %64
 
@@ -6431,10 +6431,10 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_
   %43 = load ptr, ptr %40, align 8
   store ptr %43, ptr %29, align 8
   store ptr %42, ptr %40, align 8
-  %44 = load i16, ptr %34, align 2
-  store i16 %.013.i.us, ptr %34, align 2
-  %45 = load i32, ptr %33, align 4
-  store i32 %.012.i.us, ptr %33, align 4
+  %44 = load i16, ptr %34, align 4
+  store i16 %.013.i.us, ptr %34, align 4
+  %45 = load i32, ptr %33, align 8
+  store i32 %.012.i.us, ptr %33, align 8
   %.pre25 = load i64, ptr %4, align 8
   br label %46
 
@@ -6452,7 +6452,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   %51 = load i64, ptr %29, align 8
   store i64 %51, ptr %40, align 8
   store ptr null, ptr %29, align 8
-  store i32 %.012.i.us, ptr %33, align 4
+  store i32 %.012.i.us, ptr %33, align 8
   store i16 %.013.i.us, ptr %34, align 4
   br label %52
 
@@ -6519,10 +6519,10 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt
   %83 = load ptr, ptr %80, align 8
   store ptr %83, ptr %69, align 8
   store ptr %82, ptr %80, align 8
-  %84 = load i16, ptr %74, align 2
-  store i16 %.013.i, ptr %74, align 2
-  %85 = load i32, ptr %73, align 4
-  store i32 %.012.i, ptr %73, align 4
+  %84 = load i16, ptr %74, align 4
+  store i16 %.013.i, ptr %74, align 4
+  %85 = load i32, ptr %73, align 8
+  store i32 %.012.i, ptr %73, align 8
   %.pre = load i64, ptr %4, align 8
   br label %86
 
@@ -6540,7 +6540,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   %91 = load i64, ptr %69, align 8
   store i64 %91, ptr %80, align 8
   store ptr null, ptr %69, align 8
-  store i32 %.012.i, ptr %73, align 4
+  store i32 %.012.i, ptr %73, align 8
   store i16 %.013.i, ptr %74, align 4
   br label %92
 
@@ -6982,10 +6982,10 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_
   store ptr %13, ptr %10, align 8
   store ptr %12, ptr %11, align 8
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %15 = load i16, ptr %14, align 2
-  store i16 %2, ptr %14, align 2
-  %16 = load i32, ptr %8, align 4
-  store i32 %3, ptr %8, align 4
+  %15 = load i16, ptr %14, align 4
+  store i16 %2, ptr %14, align 4
+  %16 = load i32, ptr %8, align 8
+  store i32 %3, ptr %8, align 8
   %17 = add i64 %1, 1
   %18 = load i64, ptr %0, align 8
   %19 = and i64 %18, %17
@@ -7031,8 +7031,8 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_
   store ptr %39, ptr %38, align 8
   %41 = load i16, ptr %30, align 2
   store i16 %storemerge25, ptr %30, align 2
-  %42 = load i32, ptr %31, align 4
-  store i32 %.01823, ptr %31, align 4
+  %42 = load i32, ptr %31, align 8
+  store i32 %.01823, ptr %31, align 8
   %.pre = load i64, ptr %0, align 8
   %.pre32 = load ptr, ptr %6, align 8
   br label %43
@@ -7062,7 +7062,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_
   %54 = load i64, ptr %10, align 8
   store i64 %54, ptr %53, align 8
   store ptr null, ptr %10, align 8
-  store i32 %.018.lcssa, ptr %.lcssa21, align 4
+  store i32 %.018.lcssa, ptr %.lcssa21, align 8
   store i16 %storemerge.lcssa, ptr %.lcssa, align 4
   ret void
 }
@@ -7129,7 +7129,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryIS
   %36 = load i64, ptr %35, align 8
   store i64 %36, ptr %34, align 8
   store ptr null, ptr %35, align 8
-  store i32 %31, ptr %30, align 4
+  store i32 %31, ptr %30, align 8
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i16 %29, ptr %37, align 4
   %38 = load ptr, ptr %13, align 8

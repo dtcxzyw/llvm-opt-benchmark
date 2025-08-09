@@ -736,7 +736,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   store i64 %296, ptr %41, align 8, !tbaa !37
   store ptr %287, ptr %285, align 8, !tbaa !33
   store i64 0, ptr %295, align 8, !tbaa !37
-  store i8 0, ptr %287, align 1, !tbaa !46
+  store i8 0, ptr %287, align 8, !tbaa !46
   br label %"_ZN5folly3f146detail16F14VectorSetImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_23HeterogeneousAccessHashIS8_vEENS_26HeterogeneousAccessEqualToIS8_vEESaIS8_ESt17integral_constantIbLb1EEE15eraseUnderlyingIRZZNS_8settings16freezeImmutablesENS_10F14FastSetIS8_SA_SC_SD_EEENK3$_0clISK_EEDaRT_EUlOSN_E_EEvNS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESP_.exit.i.i.i"
 
 "_ZN5folly3f146detail16F14VectorSetImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_23HeterogeneousAccessHashIS8_vEENS_26HeterogeneousAccessEqualToIS8_vEESaIS8_ESt17integral_constantIbLb1EEE15eraseUnderlyingIRZZNS_8settings16freezeImmutablesENS_10F14FastSetIS8_SA_SC_SD_EEENK3$_0clISK_EEDaRT_EUlOSN_E_EEvNS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESP_.exit.i.i.i": ; preds = %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i.i.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i.i.i.i
@@ -1445,7 +1445,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   store i64 %56, ptr %57, align 8, !tbaa !37
   store ptr %47, ptr %.01418.i.i, align 8, !tbaa !33
   store i64 0, ptr %55, align 8, !tbaa !37
-  store i8 0, ptr %47, align 1, !tbaa !46
+  store i8 0, ptr %47, align 8, !tbaa !46
   %58 = add nuw i64 %.019.i.i, 1
   %59 = getelementptr inbounds nuw i8, ptr %.01418.i.i, i64 32
   %60 = getelementptr inbounds nuw i8, ptr %.01517.i.i, i64 32
@@ -1473,7 +1473,7 @@ _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyINSt7__cxx1112basic_str
   tail call void @llvm.assume(i1 %65)
   %66 = trunc i64 %5 to i16
   %67 = getelementptr inbounds nuw i8, ptr %41, i64 12
-  store i16 %66, ptr %67, align 1
+  store i16 %66, ptr %67, align 2
   store ptr %41, ptr %19, align 8, !tbaa !8
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %69 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %4, i1 true)
@@ -2078,7 +2078,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   store i64 %18, ptr %19, align 8, !tbaa !37
   store ptr %9, ptr %.01418.i, align 8, !tbaa !33
   store i64 0, ptr %17, align 8, !tbaa !37
-  store i8 0, ptr %9, align 1, !tbaa !46
+  store i8 0, ptr %9, align 8, !tbaa !46
   %20 = add nuw i64 %.019.i, 1
   %21 = getelementptr inbounds nuw i8, ptr %.01418.i, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %.01517.i, i64 32

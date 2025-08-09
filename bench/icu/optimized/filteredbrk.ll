@@ -229,7 +229,7 @@ define void @_ZN6icu_7735SimpleFilteredSentenceBreakIteratorC2EPNS_13BreakIterat
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %3, ptr %15, align 8, !tbaa !6
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store i32 1, ptr %16, align 4, !tbaa !25
+  store i32 1, ptr %16, align 8, !tbaa !25
   store ptr %11, ptr %10, align 8, !tbaa !11
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %17, align 8, !tbaa !23

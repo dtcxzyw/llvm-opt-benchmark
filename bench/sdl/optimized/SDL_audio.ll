@@ -3485,7 +3485,7 @@ define internal fastcc void @UpdateAudioStreamFormatsPhysical(ptr noundef captur
   %37 = getelementptr inbounds nuw i8, ptr %.03342.us, i64 72
   %38 = load ptr, ptr %.03342.us, align 8
   tail call void @SDL_LockMutex_REAL(ptr noundef %38) #14
-  store i32 %.sroa.0.3.us, ptr %36, align 4
+  store i32 %.sroa.0.3.us, ptr %36, align 8
   %.sroa.7.0..0.1.sroa_idx.us = getelementptr inbounds nuw i8, ptr %.03342.us, i64 52
   store i64 %7, ptr %.sroa.7.0..0.1.sroa_idx.us, align 4
   %39 = load ptr, ptr %26, align 8
@@ -3525,7 +3525,7 @@ define internal fastcc void @UpdateAudioStreamFormatsPhysical(ptr noundef captur
   tail call void @SDL_LockMutex_REAL(ptr noundef %49) #14
   store i32 %.sroa.0.05661, ptr %47, align 4
   %.sroa.7.0..0.1.sroa_idx = getelementptr inbounds nuw i8, ptr %.03342, i64 64
-  store i64 %7, ptr %.sroa.7.0..0.1.sroa_idx, align 4
+  store i64 %7, ptr %.sroa.7.0..0.1.sroa_idx, align 8
   %50 = load ptr, ptr %25, align 8
   %51 = load i32, ptr %.sroa.7.0..sroa_idx, align 4
   %52 = tail call zeroext i1 @SetAudioStreamChannelMap(ptr noundef nonnull %.03342, ptr noundef nonnull %47, ptr noundef nonnull %48, ptr noundef %50, i32 noundef %51, i32 noundef -1) #14
@@ -4931,7 +4931,7 @@ define hidden noundef zeroext i1 @SDL_AudioDeviceFormatChangedAlreadyLocked(ptr 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 8
   %9 = load i32, ptr %1, align 4
   %.not.i = icmp eq i32 %8, %9
   br i1 %.not.i, label %10, label %SDL_AudioSpecsEqual.exit.thread

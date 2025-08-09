@@ -17737,7 +17737,7 @@ _ZN7xgboost10JsonStringC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.
   store ptr %133, ptr %132, align 8, !tbaa !28
   %134 = getelementptr inbounds nuw i8, ptr %128, i64 32
   store i64 0, ptr %134, align 8, !tbaa !31
-  store i8 0, ptr %133, align 1, !tbaa !34
+  store i8 0, ptr %133, align 8, !tbaa !34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %116, ptr noundef nonnull align 8 dereferenceable(32) %132) #17
   store ptr %128, ptr %0, align 8, !tbaa !173
   %135 = atomicrmw add ptr %130, i32 1 monotonic, align 4
@@ -22697,7 +22697,7 @@ _ZN7xgboost10JsonReader11GetNextCharEv.exit:      ; preds = %_ZN7xgboost10JsonRe
   store ptr %93, ptr %92, align 8, !tbaa !28
   %94 = getelementptr inbounds nuw i8, ptr %88, i64 32
   store i64 0, ptr %94, align 8, !tbaa !31
-  store i8 0, ptr %93, align 1, !tbaa !34
+  store i8 0, ptr %93, align 8, !tbaa !34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull align 8 dereferenceable(32) %92) #17
   store ptr %88, ptr %0, align 8, !tbaa !173
   %95 = atomicrmw add ptr %90, i32 1 monotonic, align 4
@@ -29571,7 +29571,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit7: ; preds = %_ZNSol
   store ptr %14, ptr %12, align 8, !tbaa !28, !alias.scope !468
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 0, ptr %15, align 8, !tbaa !31, !alias.scope !468
-  store i8 0, ptr %14, align 1, !tbaa !34, !alias.scope !468
+  store i8 0, ptr %14, align 8, !tbaa !34, !alias.scope !468
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %17 = load ptr, ptr %16, align 8, !tbaa !357, !noalias !468
   %.not.i.not.i.i = icmp eq ptr %17, null
@@ -31092,7 +31092,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit9: ; preds = %22
   store ptr %26, ptr %24, align 8, !tbaa !28, !alias.scope !498
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 0, ptr %27, align 8, !tbaa !31, !alias.scope !498
-  store i8 0, ptr %26, align 1, !tbaa !34, !alias.scope !498
+  store i8 0, ptr %26, align 8, !tbaa !34, !alias.scope !498
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %29 = load ptr, ptr %28, align 8, !tbaa !357, !noalias !498
   %.not.i.not.i.i = icmp eq ptr %29, null

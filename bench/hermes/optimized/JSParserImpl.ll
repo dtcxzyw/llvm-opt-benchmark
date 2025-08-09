@@ -4568,7 +4568,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit:    ; preds = %if.then.i.i.i, %if.
   %parens_.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i, i8 0, i64 28, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 48
-  store i32 -1, ptr %21, align 4
+  store i32 -1, ptr %21, align 8
   %_body.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 56
   store ptr %8, ptr %_body.i, align 8
   %_test.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 64
@@ -4722,7 +4722,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit:    ; preds = %if.then.i.i.i, %if.
   %parens_.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 20
   store i32 0, ptr %parens_.i.i.i.i, align 4
   %24 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 48
-  store i32 -1, ptr %24, align 4
+  store i32 -1, ptr %24, align 8
   %_body.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 56
   store ptr %22, ptr %_body.i, align 8
   %_test.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 64
@@ -5133,7 +5133,7 @@ if.then119:                                       ; preds = %if.end117
   %parens_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call121, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i, i8 0, i64 28, i1 false)
   %56 = getelementptr inbounds nuw i8, ptr %call121, i64 48
-  store i32 -1, ptr %56, align 4
+  store i32 -1, ptr %56, align 8
   %_left.i = getelementptr inbounds nuw i8, ptr %call121, i64 56
   store ptr %cond, ptr %_left.i, align 8
   %_right.i = getelementptr inbounds nuw i8, ptr %call121, i64 64
@@ -5151,7 +5151,7 @@ if.else128:                                       ; preds = %if.end117
   %parens_.i.i.i.i89 = getelementptr inbounds nuw i8, ptr %call130, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i89, i8 0, i64 28, i1 false)
   %57 = getelementptr inbounds nuw i8, ptr %call130, i64 48
-  store i32 -1, ptr %57, align 4
+  store i32 -1, ptr %57, align 8
   %_left.i90 = getelementptr inbounds nuw i8, ptr %call130, i64 56
   store ptr %cond, ptr %_left.i90, align 8
   %_right.i91 = getelementptr inbounds nuw i8, ptr %call130, i64 64
@@ -5325,7 +5325,7 @@ if.end199:                                        ; preds = %if.end187
   %parens_.i.i.i.i144 = getelementptr inbounds nuw i8, ptr %call204, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i144, i8 0, i64 28, i1 false)
   %81 = getelementptr inbounds nuw i8, ptr %call204, i64 48
-  store i32 -1, ptr %81, align 4
+  store i32 -1, ptr %81, align 8
   %_init.i145 = getelementptr inbounds nuw i8, ptr %call204, i64 56
   store ptr %cond209, ptr %_init.i145, align 8
   %_test.i = getelementptr inbounds nuw i8, ptr %call204, i64 64
@@ -5437,7 +5437,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit:    ; preds = %if.then.i.i.i, %if.
   %parens_.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 20
   store i32 0, ptr %parens_.i.i.i, align 4
   %14 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 48
-  store i32 -1, ptr %14, align 4
+  store i32 -1, ptr %14, align 8
   %_label.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 56
   store ptr null, ptr %_label.i, align 8
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 24
@@ -5602,7 +5602,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit64:  ; preds = %if.then.i.i.i62, %i
   %parens_.i.i.i66 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i61, i64 20
   store i32 0, ptr %parens_.i.i.i66, align 4
   %43 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i61, i64 48
-  store i32 -1, ptr %43, align 4
+  store i32 -1, ptr %43, align 8
   %_label.i67 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i61, i64 56
   store ptr %retval.0.i.i.i19, ptr %_label.i67, align 8
   %sourceRange_.i.i68 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i61, i64 24
@@ -5697,7 +5697,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit:    ; preds = %if.then.i.i.i, %if.
   %parens_.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 20
   store i32 0, ptr %parens_.i.i.i, align 4
   %14 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 48
-  store i32 -1, ptr %14, align 4
+  store i32 -1, ptr %14, align 8
   %_label.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 56
   store ptr null, ptr %_label.i, align 8
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 24
@@ -5862,7 +5862,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit64:  ; preds = %if.then.i.i.i62, %i
   %parens_.i.i.i66 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i61, i64 20
   store i32 0, ptr %parens_.i.i.i66, align 4
   %43 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i61, i64 48
-  store i32 -1, ptr %43, align 4
+  store i32 -1, ptr %43, align 8
   %_label.i67 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i61, i64 56
   store ptr %retval.0.i.i.i19, ptr %_label.i67, align 8
   %sourceRange_.i.i68 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i61, i64 24
@@ -6530,7 +6530,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit154: ; preds = %if.then.i.i.i152, %
   %parens_.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i151, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i, i8 0, i64 28, i1 false)
   %52 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i151, i64 48
-  store i32 -1, ptr %52, align 4
+  store i32 -1, ptr %52, align 8
   %_discriminant.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i151, i64 56
   store ptr %51, ptr %_discriminant.i, align 8
   %_cases.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i151, i64 64
@@ -7323,7 +7323,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit:    ; preds = %if.then.i.i.i, %if.
   %parens_.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i, i8 0, i64 28, i1 false)
   %41 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 48
-  store i32 -1, ptr %41, align 4
+  store i32 -1, ptr %41, align 8
   %_label.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 56
   store ptr %19, ptr %_label.i, align 8
   %_body.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 64

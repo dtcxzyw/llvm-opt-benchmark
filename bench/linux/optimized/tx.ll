@@ -2310,8 +2310,8 @@ define dso_local noundef i32 @ieee80211_monitor_start_xmit(ptr noundef %0, ptr n
   %64 = load i32, ptr @rfc1042_header, align 4
   %65 = xor i32 %64, %63
   %66 = getelementptr i8, ptr %62, i64 4
-  %67 = load i16, ptr %66, align 2
-  %68 = load i16, ptr getelementptr inbounds nuw (i8, ptr @rfc1042_header, i64 4), align 2
+  %67 = load i16, ptr %66, align 4
+  %68 = load i16, ptr getelementptr inbounds nuw (i8, ptr @rfc1042_header, i64 4), align 4
   %69 = xor i16 %68, %67
   %70 = zext i16 %69 to i32
   %71 = or i32 %65, %70
@@ -3486,21 +3486,21 @@ define dso_local void @__ieee80211_xmit_fast(ptr noundef %0, ptr noundef %1, ptr
   %231 = load i32, ptr %5, align 4
   store i32 %231, ptr %230, align 4
   %232 = getelementptr i8, ptr %5, i64 4
-  %233 = load i16, ptr %232, align 2
+  %233 = load i16, ptr %232, align 4
   %234 = getelementptr i8, ptr %230, i64 4
-  store i16 %233, ptr %234, align 2
+  store i16 %233, ptr %234, align 4
   %235 = getelementptr i8, ptr %230, i64 6
   %236 = load i32, ptr %6, align 4
   store i32 %236, ptr %235, align 4
   %237 = getelementptr i8, ptr %6, i64 4
-  %238 = load i16, ptr %237, align 2
+  %238 = load i16, ptr %237, align 4
   %239 = getelementptr i8, ptr %230, i64 10
   store i16 %238, ptr %239, align 2
   %240 = getelementptr i8, ptr %230, i64 12
   %241 = trunc i32 %42 to i16
   %242 = add i16 %241, -6
   %243 = tail call i16 @llvm.bswap.i16(i16 %242)
-  store i16 %243, ptr %240, align 1
+  store i16 %243, ptr %240, align 4
   %244 = getelementptr i8, ptr %230, i64 14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(6) %244, ptr noundef nonnull align 1 dereferenceable(6) @rfc1042_header, i64 6, i1 false)
   %245 = tail call ptr @skb_push(ptr noundef nonnull %27, i32 noundef %225) #20
@@ -9659,7 +9659,7 @@ define internal fastcc void @ieee80211_convert_to_unicast(ptr noundef %0, ptr no
   %27 = xor i32 %26, %25
   %28 = load i16, ptr %14, align 2
   %29 = getelementptr i8, ptr %18, i64 2684
-  %30 = load i16, ptr %29, align 2
+  %30 = load i16, ptr %29, align 4
   %31 = xor i16 %30, %28
   %32 = zext i16 %31 to i32
   %33 = or i32 %27, %32
@@ -9685,9 +9685,9 @@ define internal fastcc void @ieee80211_convert_to_unicast(ptr noundef %0, ptr no
   %45 = load ptr, ptr %44, align 8
   %46 = load i32, ptr %24, align 4
   store i32 %46, ptr %45, align 4
-  %47 = load i16, ptr %29, align 2
+  %47 = load i16, ptr %29, align 4
   %48 = getelementptr i8, ptr %45, i64 4
-  store i16 %47, ptr %48, align 2
+  store i16 %47, ptr %48, align 4
   %49 = load ptr, ptr %15, align 8
   store volatile ptr %2, ptr %38, align 8
   %50 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -9724,9 +9724,9 @@ define internal fastcc void @ieee80211_convert_to_unicast(ptr noundef %0, ptr no
   %66 = load i32, ptr %65, align 4
   store i32 %66, ptr %64, align 4
   %67 = getelementptr i8, ptr %55, i64 2684
-  %68 = load i16, ptr %67, align 2
+  %68 = load i16, ptr %67, align 4
   %69 = getelementptr i8, ptr %64, i64 4
-  store i16 %68, ptr %69, align 2
+  store i16 %68, ptr %69, align 4
   %70 = load ptr, ptr %15, align 8
   store volatile ptr %2, ptr %0, align 8
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -13612,15 +13612,15 @@ define internal fastcc noundef zeroext i1 @ieee80211_amsdu_prepare_head(ptr noun
   %59 = load i32, ptr %50, align 4
   store i32 %59, ptr %58, align 4
   %60 = getelementptr i8, ptr %50, i64 4
-  %61 = load i16, ptr %60, align 2
+  %61 = load i16, ptr %60, align 4
   %62 = getelementptr i8, ptr %46, i64 10
   store i16 %61, ptr %62, align 2
   %63 = load i32, ptr %54, align 4
   store i32 %63, ptr %46, align 4
   %64 = getelementptr i8, ptr %54, i64 4
-  %65 = load i16, ptr %64, align 2
+  %65 = load i16, ptr %64, align 4
   %66 = getelementptr i8, ptr %46, i64 4
-  store i16 %65, ptr %66, align 2
+  store i16 %65, ptr %66, align 4
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 4056
   %68 = load i32, ptr %67, align 8
   switch i32 %68, label %87 [
@@ -13644,8 +13644,8 @@ define internal fastcc noundef zeroext i1 @ieee80211_amsdu_prepare_head(ptr noun
   %76 = load i32, ptr %71, align 4
   store i32 %76, ptr %50, align 4
   %77 = getelementptr i8, ptr %71, i64 4
-  %78 = load i16, ptr %77, align 2
-  store i16 %78, ptr %60, align 2
+  %78 = load i16, ptr %77, align 4
+  store i16 %78, ptr %60, align 4
   %.pre = load i16, ptr %43, align 2
   br label %79
 
@@ -13659,8 +13659,8 @@ define internal fastcc noundef zeroext i1 @ieee80211_amsdu_prepare_head(ptr noun
   %84 = load i32, ptr %71, align 4
   store i32 %84, ptr %54, align 4
   %85 = getelementptr i8, ptr %71, i64 4
-  %86 = load i16, ptr %85, align 2
-  store i16 %86, ptr %64, align 2
+  %86 = load i16, ptr %85, align 4
+  store i16 %86, ptr %64, align 4
   br label %87
 
 87:                                               ; preds = %42, %83, %79

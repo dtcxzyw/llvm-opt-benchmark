@@ -554,7 +554,7 @@ malloc_mutex_lock.exit:                           ; preds = %59, %65
   %89 = sub i64 %88, %.sroa.6.2
   store i64 %89, ptr %87, align 8, !tbaa !76
   %90 = getelementptr inbounds nuw i8, ptr %54, i64 104
-  store atomic i8 0, ptr %90 monotonic, align 1
+  store atomic i8 0, ptr %90 monotonic, align 8
   %91 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %55) #14
   br i1 %35, label %arena_decay_ticks.exit, label %92, !prof !4
 
@@ -580,7 +580,7 @@ malloc_mutex_lock.exit:                           ; preds = %59, %65
   %106 = mul nsw i64 %105, %102
   %107 = udiv i64 %106, 61
   %108 = trunc i64 %107 to i32
-  store i32 %108, ptr %36, align 4, !tbaa !77
+  store i32 %108, ptr %36, align 8, !tbaa !77
   tail call void @je_arena_decay(ptr noundef nonnull %0, ptr noundef %.0.i17, i1 noundef zeroext false, i1 noundef zeroext false) #14
   br label %arena_decay_ticks.exit
 
@@ -734,7 +734,7 @@ malloc_mutex_lock.exit22:                         ; preds = %164, %170
   store i64 %181, ptr %179, align 8, !tbaa !74
   store i64 0, ptr %177, align 8, !tbaa !73
   %182 = getelementptr inbounds nuw i8, ptr %159, i64 104
-  store atomic i8 0, ptr %182 monotonic, align 1
+  store atomic i8 0, ptr %182 monotonic, align 8
   %183 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %160) #14
   br label %tcache_bin_flush_impl.exit
 
@@ -961,7 +961,7 @@ malloc_mutex_lock.exit:                           ; preds = %64, %58, %arena_get
   %105 = mul nsw i64 %104, %101
   %106 = udiv i64 %105, 61
   %107 = trunc i64 %106 to i32
-  store i32 %107, ptr %37, align 4, !tbaa !77
+  store i32 %107, ptr %37, align 8, !tbaa !77
   tail call void @je_arena_decay(ptr noundef nonnull %0, ptr noundef %.0.i15, i1 noundef zeroext false, i1 noundef zeroext false) #14
   br label %arena_decay_ticks.exit
 
@@ -1457,7 +1457,7 @@ arena_dalloc_bin_locked_step.exit.thread:         ; preds = %192, %tcache_bin_fl
   %199 = sub i64 %198, %.us-phi
   store i64 %199, ptr %197, align 8, !tbaa !76
   %200 = getelementptr inbounds nuw i8, ptr %.0134.i64, i64 104
-  store atomic i8 0, ptr %200 monotonic, align 1
+  store atomic i8 0, ptr %200 monotonic, align 8
   %201 = getelementptr inbounds nuw i8, ptr %.0134.i64, i64 64
   %202 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %201) #14
   br label %203
@@ -1487,7 +1487,7 @@ arena_dalloc_bin_locked_step.exit.thread:         ; preds = %192, %tcache_bin_fl
   %218 = mul nsw i64 %217, %214
   %219 = udiv i64 %218, 61
   %220 = trunc i64 %219 to i32
-  store i32 %220, ptr %48, align 4, !tbaa !77
+  store i32 %220, ptr %48, align 8, !tbaa !77
   tail call void @je_arena_decay(ptr noundef nonnull %0, ptr noundef %.0.i47, i1 noundef zeroext false, i1 noundef zeroext false) #14
   br label %arena_decay_ticks.exit
 
@@ -1560,7 +1560,7 @@ malloc_mutex_lock.exit55:                         ; preds = %234, %240
   store i64 %251, ptr %249, align 8, !tbaa !74
   store i64 0, ptr %247, align 8, !tbaa !73
   %252 = getelementptr inbounds nuw i8, ptr %229, i64 104
-  store atomic i8 0, ptr %252 monotonic, align 1
+  store atomic i8 0, ptr %252 monotonic, align 8
   %253 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %230) #14
   br label %tcache_bin_flush_impl.exit
 
@@ -1690,7 +1690,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %17
   %47 = phi ptr [ %.pre39, %40 ], [ %33, %31 ]
   store ptr %47, ptr %37, align 8, !tbaa !139
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 10512
-  store atomic i8 0, ptr %48 monotonic, align 1
+  store atomic i8 0, ptr %48 monotonic, align 8
   %49 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #14
   ret void
 }
@@ -3119,7 +3119,7 @@ malloc_mutex_lock.exit:                           ; preds = %18, %24
   %32 = add i64 %31, %29
   store i64 %32, ptr %30, align 8, !tbaa !74
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 104
-  store atomic i8 0, ptr %33 monotonic, align 1
+  store atomic i8 0, ptr %33 monotonic, align 8
   %34 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %14) #14
   %.pre = load i32, ptr @je_nhbins, align 4, !tbaa !46
   br label %44

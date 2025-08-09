@@ -944,21 +944,21 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler10embedLabelERK
   %119 = getelementptr inbounds nuw i8, ptr %111, i64 24
   store i64 %118, ptr %119, align 8, !tbaa !80
   %120 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  store i8 1, ptr %120, align 1, !tbaa !81
+  store i8 1, ptr %120, align 8, !tbaa !81
   %121 = getelementptr inbounds nuw i8, ptr %111, i64 9
   store i8 0, ptr %121, align 1, !tbaa !82
   %122 = trunc nuw nsw i64 %34 to i8
   %123 = getelementptr inbounds nuw i8, ptr %111, i64 10
-  store i8 %122, ptr %123, align 1, !tbaa !83
+  store i8 %122, ptr %123, align 2, !tbaa !83
   %124 = getelementptr inbounds nuw i8, ptr %111, i64 11
   store i8 %122, ptr %124, align 1, !tbaa !84
   %125 = getelementptr inbounds nuw i8, ptr %111, i64 12
-  store i8 0, ptr %125, align 1, !tbaa !85
+  store i8 0, ptr %125, align 4, !tbaa !85
   %126 = shl nuw nsw i8 %122, 3
   %127 = getelementptr inbounds nuw i8, ptr %111, i64 13
   store i8 %126, ptr %127, align 1, !tbaa !86
   %128 = getelementptr inbounds nuw i8, ptr %111, i64 14
-  store i8 0, ptr %128, align 1, !tbaa !87
+  store i8 0, ptr %128, align 2, !tbaa !87
   %129 = getelementptr inbounds nuw i8, ptr %111, i64 15
   store i8 0, ptr %129, align 1, !tbaa !88
   %130 = getelementptr inbounds nuw i8, ptr %23, i64 32

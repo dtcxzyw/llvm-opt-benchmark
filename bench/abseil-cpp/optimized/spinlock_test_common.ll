@@ -3769,7 +3769,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %7, ptr %6, align 8, !tbaa !94, !noalias !115
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %8, align 8, !tbaa !26, !noalias !115
-  store i8 0, ptr %7, align 1, !tbaa !27, !noalias !115
+  store i8 0, ptr %7, align 8, !tbaa !27, !noalias !115
   store ptr %6, ptr %4, align 8, !tbaa !20
   br label %9
 
@@ -4628,7 +4628,7 @@ _ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds = %_Z
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %0, ptr %21, align 8, !tbaa !128
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store i32 %storemerge55, ptr %22, align 4, !tbaa !131
+  store i32 %storemerge55, ptr %22, align 8, !tbaa !131
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store ptr @_ZN4absl13base_internal12_GLOBAL__N_112TestFunctionEjPNS0_8SpinLockE, ptr %23, align 8, !tbaa !133
   store ptr %20, ptr %1, align 8, !tbaa !135

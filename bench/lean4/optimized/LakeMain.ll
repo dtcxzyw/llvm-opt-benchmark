@@ -298,7 +298,7 @@ lean_alloc_ctor.exit:                             ; preds = %.lr.ph
   %31 = ptrtoint ptr %.020.val25 to i64
   %32 = lshr i64 %31, 1
   %33 = trunc i64 %32 to i32
-  %34 = load i32, ptr %.020, align 4, !tbaa !4
+  %34 = load i32, ptr %.020, align 8, !tbaa !4
   %35 = icmp sgt i32 %34, 1
   br i1 %35, label %36, label %38, !prof !11
 

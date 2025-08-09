@@ -48972,7 +48972,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN7rocksdb11TemperatureESt4pairIKS1_NSt7_
   store ptr %14, ptr %13, align 8, !tbaa !37
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i64 0, ptr %15, align 8, !tbaa !12
-  store i8 0, ptr %14, align 1, !tbaa !13
+  store i8 0, ptr %14, align 8, !tbaa !13
   store ptr %8, ptr %7, align 8, !tbaa !768
   %16 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN7rocksdb11TemperatureESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 1 dereferenceable(1) %9)
           to label %17 unwind label %32

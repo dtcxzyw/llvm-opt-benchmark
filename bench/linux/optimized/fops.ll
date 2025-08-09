@@ -1139,7 +1139,7 @@ define internal fastcc range(i64 -2147483648, 4294967296) i64 @blkdev_direct_IO(
   store ptr %0, ptr %198, align 64
   %200 = ashr i64 %168, 9
   %201 = getelementptr inbounds nuw i8, ptr %197, i64 32
-  store i64 %200, ptr %201, align 8
+  store i64 %200, ptr %201, align 32
   %202 = getelementptr inbounds nuw i8, ptr %197, i64 56
   store ptr @blkdev_bio_end_io_async, ptr %202, align 8
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 36

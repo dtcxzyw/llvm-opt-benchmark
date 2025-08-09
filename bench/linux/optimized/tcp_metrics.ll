@@ -366,7 +366,7 @@ define internal fastcc ptr @tcp_get_metrics(ptr noundef readonly captures(none) 
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = load i64, ptr %16, align 8
   %18 = getelementptr i8, ptr %0, i64 64
-  %19 = load i32, ptr %18, align 4
+  %19 = load i32, ptr %18, align 8
   %20 = xor i32 %19, -65536
   %21 = zext i32 %20 to i64
   %22 = or i64 %17, %21
@@ -1295,7 +1295,7 @@ define internal fastcc void @tcpm_suck_dst(ptr noundef %0, ptr noundef readonly 
   %28 = load i32, ptr %27, align 4
   %29 = mul i32 %28, 1000
   %30 = getelementptr i8, ptr %0, i64 72
-  store volatile i32 %29, ptr %30, align 4
+  store volatile i32 %29, ptr %30, align 8
   %31 = load i64, ptr %6, align 8
   %32 = and i64 %31, -4
   %33 = inttoptr i64 %32 to ptr
@@ -1309,7 +1309,7 @@ define internal fastcc void @tcpm_suck_dst(ptr noundef %0, ptr noundef readonly 
   %40 = getelementptr i8, ptr %39, i64 24
   %41 = load i32, ptr %40, align 4
   %42 = getelementptr i8, ptr %0, i64 80
-  store volatile i32 %41, ptr %42, align 4
+  store volatile i32 %41, ptr %42, align 8
   %43 = load i64, ptr %6, align 8
   %44 = and i64 %43, -4
   %45 = inttoptr i64 %44 to ptr

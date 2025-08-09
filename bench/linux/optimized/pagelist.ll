@@ -324,7 +324,7 @@ define dso_local noundef zeroext i1 @nfs_async_iocounter_wait(ptr noundef %0, pt
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %10 = load volatile i32, ptr %9, align 4
+  %10 = load volatile i32, ptr %9, align 8
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %12, label %18
 
@@ -3513,7 +3513,7 @@ define dso_local void @nfs_pageio_cond_complete(ptr noundef %0, i64 noundef %1) 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %31 = load i64, ptr %30, align 16
-  %32 = load volatile i64, ptr %27, align 8
+  %32 = load volatile i64, ptr %27, align 16
   %33 = and i64 %32, 64
   %34 = icmp eq i64 %33, 0
   br i1 %34, label %39, label %35
@@ -3582,7 +3582,7 @@ define dso_local void @nfs_pageio_cond_complete(ptr noundef %0, i64 noundef %1) 
 74:                                               ; preds = %70
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %76 = load i64, ptr %75, align 16
-  %77 = load volatile i64, ptr %72, align 8
+  %77 = load volatile i64, ptr %72, align 16
   %78 = and i64 %77, 64
   %79 = icmp eq i64 %78, 0
   br i1 %79, label %84, label %80

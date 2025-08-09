@@ -1833,7 +1833,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25
   store ptr %170, ptr %.ptr.i.i.i.i, align 8, !tbaa !3
   %171 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
   store i64 0, ptr %171, align 8, !tbaa !9
-  store i8 0, ptr %170, align 1, !tbaa !12
+  store i8 0, ptr %170, align 8, !tbaa !12
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 32
   %172 = icmp eq i64 %.add.i.i.i.i, 416
   br i1 %172, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %169
@@ -1966,7 +1966,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   store ptr %232, ptr %.ptr.i.i.i.i1028, align 8, !tbaa !3
   %233 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i1028, i64 8
   store i64 0, ptr %233, align 8, !tbaa !9
-  store i8 0, ptr %232, align 1, !tbaa !12
+  store i8 0, ptr %232, align 8, !tbaa !12
   %.add.i.i.i.i1029 = add nuw nsw i64 %.idx.i.i.i.i1027, 32
   %234 = icmp eq i64 %.add.i.i.i.i1029, 416
   br i1 %234, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i1030, label %231
@@ -6511,7 +6511,7 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEED2Ev.exit: ; preds = %44, %_ZN4llvm17S
   %49 = load i64, ptr %47, align 8, !tbaa !372
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %51 = load i8, ptr %50, align 1, !tbaa !375, !range !152, !noundef !153
+  %51 = load i8, ptr %50, align 8, !tbaa !375, !range !152, !noundef !153
   %52 = trunc nuw i8 %51 to i1
   %.str..str.77 = select i1 %52, ptr @.str, ptr @.str.77
   store i8 3, ptr %26, align 8, !tbaa !376, !alias.scope !379
@@ -8343,7 +8343,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llv
   store ptr %16, ptr %.ptr.i.i.i, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %17, align 8, !tbaa !9
-  store i8 0, ptr %16, align 1, !tbaa !12
+  store i8 0, ptr %16, align 8, !tbaa !12
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %18 = icmp eq i64 %.add.i.i.i, 416
   br i1 %18, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %15

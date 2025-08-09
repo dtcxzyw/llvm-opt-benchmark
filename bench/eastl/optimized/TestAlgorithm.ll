@@ -3043,10 +3043,10 @@ if.then.i.i.i.i.i:                                ; preds = %for.body.i818
   store i32 %170, ptr %mMagicValue4.i.i.i.i.i, align 8
   store i32 %168, ptr %mMagicValue3.i.i.i.i.i, align 4
   %mbThrowOnCopy4.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %first2.addr.07.i819, i64 4
-  %171 = load i8, ptr %mbThrowOnCopy4.i.i.i.i.i, align 1
+  %171 = load i8, ptr %mbThrowOnCopy4.i.i.i.i.i, align 4
   %frombool3.i.i.i.i.i.i = and i8 %171, 1
   store i8 %frombool3.i.i.i.i.i.i, ptr %mbThrowOnCopy3.i.i.i.i.i, align 4
-  store i8 %frombool.i.i.i.i.i821, ptr %mbThrowOnCopy4.i.i.i.i.i, align 1
+  store i8 %frombool.i.i.i.i.i821, ptr %mbThrowOnCopy4.i.i.i.i.i, align 4
   br label %_ZN10TestObjectaSEOS_.exit.i.i.i.i
 
 _ZN10TestObjectaSEOS_.exit.i.i.i.i:               ; preds = %for.body.i818._ZN10TestObjectaSEOS_.exit.i.i.i.i_crit_edge, %if.then.i.i.i.i.i
@@ -3055,7 +3055,7 @@ _ZN10TestObjectaSEOS_.exit.i.i.i.i:               ; preds = %for.body.i818._ZN10
   %mMagicValue.i9.i.i.i.i = getelementptr inbounds nuw i8, ptr %first2.addr.07.i819, i64 16
   store i32 %168, ptr %mMagicValue.i9.i.i.i.i, align 4
   %mbThrowOnCopy.i11.i.i.i.i = getelementptr inbounds nuw i8, ptr %first2.addr.07.i819, i64 4
-  store i8 %frombool.i.i.i.i.i821, ptr %mbThrowOnCopy.i11.i.i.i.i, align 1
+  store i8 %frombool.i.i.i.i.i821, ptr %mbThrowOnCopy.i11.i.i.i.i, align 4
   %cmp.not.i17.i.i.i.i = icmp eq i32 %172, 32623592
   br i1 %cmp.not.i17.i.i.i.i, label %_ZN5eastl9iter_swapIP10TestObjectS2_EEvT_T0_.exit.i, label %if.then.i18.i.i.i.i
 
@@ -7176,7 +7176,7 @@ for.body.i3325:                                   ; preds = %for.body.i3325.preh
   %580 = load i32, ptr %mMagicValue.i.i3333, align 4, !noalias !190
   store i32 32623592, ptr %mMagicValue.i.i3333, align 4, !noalias !190
   %mbThrowOnCopy.i.i3334 = getelementptr inbounds nuw i8, ptr %agg.tmp1939.sroa.0.0, i64 12
-  store i8 0, ptr %mbThrowOnCopy.i.i3334, align 1, !noalias !190
+  store i8 0, ptr %mbThrowOnCopy.i.i3334, align 4, !noalias !190
   %cmp.not.i3.i3335 = icmp eq i32 %580, 32623592
   br i1 %cmp.not.i3.i3335, label %_ZN10TestObjectD2Ev.exit.i3338, label %if.then.i4.i3336
 
@@ -13071,23 +13071,23 @@ _ZN10TestObjectaSEOS_.exit.i.i.i.i.i6908:         ; preds = %land.rhs.i.i6899
   store i64 %inc6.i.i.i.i.i.i6915, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   store i32 0, ptr %mValue.i.i.i.i.i6909, align 8
   %1342 = load i32, ptr %mValue.i1.i.i.i.i6910, align 4
-  store i32 %1342, ptr %mValue.i.i.i.i.i6909, align 4
+  store i32 %1342, ptr %mValue.i.i.i.i.i6909, align 8
   store i32 0, ptr %mValue.i1.i.i.i.i6910, align 4
   %mMagicValue3.i.i.i.i.i.i6916 = getelementptr inbounds nuw i8, ptr %1338, i64 32
-  %1343 = load i32, ptr %mMagicValue4.i.i.i.i.i.i6913, align 4
+  %1343 = load i32, ptr %mMagicValue4.i.i.i.i.i.i6913, align 8
   %1344 = load i32, ptr %mMagicValue3.i.i.i.i.i.i6916, align 4
-  store i32 %1344, ptr %mMagicValue4.i.i.i.i.i.i6913, align 4
+  store i32 %1344, ptr %mMagicValue4.i.i.i.i.i.i6913, align 8
   store i32 %1343, ptr %mMagicValue3.i.i.i.i.i.i6916, align 4
   %mbThrowOnCopy4.i.i.i.i.i.i6917 = getelementptr inbounds nuw i8, ptr %1338, i64 20
-  %1345 = load i8, ptr %mbThrowOnCopy4.i.i.i.i.i.i6917, align 1
+  %1345 = load i8, ptr %mbThrowOnCopy4.i.i.i.i.i.i6917, align 4
   %frombool3.i.i.i.i.i.i.i6918 = and i8 %1345, 1
-  store i8 %frombool3.i.i.i.i.i.i.i6918, ptr %mbThrowOnCopy3.i.i.i.i.i.i6911, align 1
+  store i8 %frombool3.i.i.i.i.i.i.i6918, ptr %mbThrowOnCopy3.i.i.i.i.i.i6911, align 4
   %inc.i6.i.i.i.i.i6919 = add nsw i64 %inc.i6.i.i.i.i6.i6902, 2
   store i64 %inc.i6.i.i.i.i.i6919, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   store i32 %1339, ptr %mValue.i1.i.i.i.i6910, align 4
   %1346 = load i32, ptr %mMagicValue3.i.i.i.i.i.i6916, align 4
   store i32 %1341, ptr %mMagicValue3.i.i.i.i.i.i6916, align 4
-  store i8 %frombool.i.i.i.i.i.i6912, ptr %mbThrowOnCopy4.i.i.i.i.i.i6917, align 1
+  store i8 %frombool.i.i.i.i.i.i6912, ptr %mbThrowOnCopy4.i.i.i.i.i.i6917, align 4
   %cmp.not.i17.i.i.i.i.i6920 = icmp eq i32 %1346, 32623592
   br i1 %cmp.not.i17.i.i.i.i.i6920, label %_ZN5eastl9iter_swapINS_12ListIteratorI10TestObjectPS2_RS2_EES5_EEvT_T0_.exit.i.i6923, label %if.then.i18.i.i.i.i.i6921
 
@@ -19807,10 +19807,10 @@ do.body.i.i.i:                                    ; preds = %while.body.i.i.i.i2
   %mValue.i.i13.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp10.sroa.0.0.i.i, i64 16
   %2037 = load ptr, ptr %current.sroa.0.0.i.i.i, align 8, !noalias !739
   %mValue.i1.i14.i.i = getelementptr inbounds nuw i8, ptr %current.sroa.0.0.i.i.i, i64 16
-  %2038 = load i32, ptr %mValue.i.i13.i.i, align 4, !noalias !742
-  %2039 = load i32, ptr %mValue.i1.i14.i.i, align 4, !noalias !742
-  store i32 %2039, ptr %mValue.i.i13.i.i, align 4, !noalias !742
-  store i32 %2038, ptr %mValue.i1.i14.i.i, align 4, !noalias !742
+  %2038 = load i32, ptr %mValue.i.i13.i.i, align 8, !noalias !742
+  %2039 = load i32, ptr %mValue.i1.i14.i.i, align 8, !noalias !742
+  store i32 %2039, ptr %mValue.i.i13.i.i, align 8, !noalias !742
+  store i32 %2038, ptr %mValue.i1.i14.i.i, align 8, !noalias !742
   %cmp.i.i.i.i11089 = icmp eq ptr %2036, %agg.tmp11.sroa.0.0.i.i
   %spec.select.i.i11090 = select i1 %cmp.i.i.i.i11089, ptr %2037, ptr %agg.tmp11.sroa.0.0.i.i
   %cmp.i2.not.i.i.i = icmp eq ptr %2037, %intList5537
@@ -19828,10 +19828,10 @@ while.body.i.i.i11091:                            ; preds = %do.end.i.i.i, %whil
   %mValue.i4.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp10.sroa.0.1.i.i, i64 16
   %2041 = load ptr, ptr %current.sroa.0.114.i.i.i, align 8, !noalias !747
   %mValue.i5.i.i.i = getelementptr inbounds nuw i8, ptr %current.sroa.0.114.i.i.i, i64 16
-  %2042 = load i32, ptr %mValue.i4.i.i.i, align 4, !noalias !742
-  %2043 = load i32, ptr %mValue.i5.i.i.i, align 4, !noalias !742
-  store i32 %2043, ptr %mValue.i4.i.i.i, align 4, !noalias !742
-  store i32 %2042, ptr %mValue.i5.i.i.i, align 4, !noalias !742
+  %2042 = load i32, ptr %mValue.i4.i.i.i, align 8, !noalias !742
+  %2043 = load i32, ptr %mValue.i5.i.i.i, align 8, !noalias !742
+  store i32 %2043, ptr %mValue.i4.i.i.i, align 8, !noalias !742
+  store i32 %2042, ptr %mValue.i5.i.i.i, align 8, !noalias !742
   %cmp.i6.i.i.i = icmp eq ptr %2040, %agg.tmp11.sroa.0.2.i.i
   %cmp.i7.i.i.i = icmp eq ptr %2041, %intList5537
   %spec.select16.i.i.i = select i1 %cmp.i7.i.i.i, ptr %agg.tmp11.sroa.0.2.i.i, ptr %2041
@@ -20030,10 +20030,10 @@ do.body.i.i.i11155:                               ; preds = %if.then2.i11152, %d
   %mValue.i.i1.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp3.sroa.0.0.i.i, i64 8
   %2063 = load ptr, ptr %current.sroa.0.0.i.i.i11156, align 8, !noalias !794
   %mValue.i1.i2.i.i = getelementptr inbounds nuw i8, ptr %current.sroa.0.0.i.i.i11156, i64 8
-  %2064 = load i32, ptr %mValue.i.i1.i.i, align 4, !noalias !797
-  %2065 = load i32, ptr %mValue.i1.i2.i.i, align 4, !noalias !797
-  store i32 %2065, ptr %mValue.i.i1.i.i, align 4, !noalias !797
-  store i32 %2064, ptr %mValue.i1.i2.i.i, align 4, !noalias !797
+  %2064 = load i32, ptr %mValue.i.i1.i.i, align 8, !noalias !797
+  %2065 = load i32, ptr %mValue.i1.i2.i.i, align 8, !noalias !797
+  store i32 %2065, ptr %mValue.i.i1.i.i, align 8, !noalias !797
+  store i32 %2064, ptr %mValue.i1.i2.i.i, align 8, !noalias !797
   %cmp.i.i.i.i11157 = icmp eq ptr %2062, %agg.tmp4.sroa.0.0.i.i
   %spec.select.i.i11158 = select i1 %cmp.i.i.i.i11157, ptr %2063, ptr %agg.tmp4.sroa.0.0.i.i
   %cmp.i2.not.i.i.i11159 = icmp eq ptr %2063, null
@@ -20051,10 +20051,10 @@ while.body.i.i.i11162:                            ; preds = %do.end.i.i.i11160, 
   %mValue.i4.i.i.i11164 = getelementptr inbounds nuw i8, ptr %agg.tmp3.sroa.0.1.i.i, i64 8
   %2067 = load ptr, ptr %current.sroa.0.114.i.i.i11163, align 8, !noalias !802
   %mValue.i5.i.i.i11165 = getelementptr inbounds nuw i8, ptr %current.sroa.0.114.i.i.i11163, i64 8
-  %2068 = load i32, ptr %mValue.i4.i.i.i11164, align 4, !noalias !797
-  %2069 = load i32, ptr %mValue.i5.i.i.i11165, align 4, !noalias !797
-  store i32 %2069, ptr %mValue.i4.i.i.i11164, align 4, !noalias !797
-  store i32 %2068, ptr %mValue.i5.i.i.i11165, align 4, !noalias !797
+  %2068 = load i32, ptr %mValue.i4.i.i.i11164, align 8, !noalias !797
+  %2069 = load i32, ptr %mValue.i5.i.i.i11165, align 8, !noalias !797
+  store i32 %2069, ptr %mValue.i4.i.i.i11164, align 8, !noalias !797
+  store i32 %2068, ptr %mValue.i5.i.i.i11165, align 8, !noalias !797
   %cmp.i6.i.i.i11166 = icmp eq ptr %2066, %agg.tmp4.sroa.0.2.i.i
   %cmp.i7.i.i.i11167 = icmp eq ptr %2067, null
   %spec.select16.i.i.i11168 = select i1 %cmp.i7.i.i.i11167, ptr %agg.tmp4.sroa.0.2.i.i, ptr %2067
@@ -20074,7 +20074,7 @@ for.body5611:                                     ; preds = %for.body5611.prehea
   %spec.select12985 = select i1 %cmp.i11181, ptr %intSlist.sroa.0.0.intSlist.sroa.0.0.intSlist.sroa.0.0.intSlist.sroa.0.0.12000, ptr %intSlistIt.sroa.0.013743
   %2070 = load ptr, ptr %spec.select12985, align 8, !noalias !806
   %mValue.i11190 = getelementptr inbounds nuw i8, ptr %spec.select12985, i64 8
-  %2071 = load i32, ptr %mValue.i11190, align 4
+  %2071 = load i32, ptr %mValue.i11190, align 8
   %conv5622 = trunc nuw nsw i64 %j5608.013744 to i32
   %cmp5623 = icmp eq i32 %2071, %conv5622
   %call5625 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp5623, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 2748, ptr noundef nonnull @.str.354)

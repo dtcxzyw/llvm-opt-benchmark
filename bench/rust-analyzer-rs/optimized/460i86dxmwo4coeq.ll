@@ -365,7 +365,7 @@ define internal void @_ZN3std3sys3pal6common12thread_local10fast_local13destroy_
   %7 = load ptr, ptr %6, align 8, !noalias !110
   store i64 0, ptr %0, align 8, !noalias !110
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 2, ptr %8, align 1, !noalias !110
+  store i8 2, ptr %8, align 8, !noalias !110
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !110
   store i64 %5, ptr %3, align 8, !noalias !110
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8

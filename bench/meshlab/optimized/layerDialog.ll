@@ -2031,11 +2031,11 @@ _ZN7QStringD2Ev.exit106:                          ; preds = %183, %_ZN9QtPrivate
   %198 = getelementptr inbounds nuw i8, ptr %193, i64 20
   store i32 1507328, ptr %198, align 4
   %199 = getelementptr inbounds nuw i8, ptr %193, i64 24
-  store i32 0, ptr %199, align 4
+  store i32 0, ptr %199, align 8
   %200 = getelementptr inbounds nuw i8, ptr %193, i64 28
   store i32 0, ptr %200, align 4
   %201 = getelementptr inbounds nuw i8, ptr %193, i64 32
-  store i32 -1, ptr %201, align 4
+  store i32 -1, ptr %201, align 8
   %202 = getelementptr inbounds nuw i8, ptr %193, i64 36
   store i32 -1, ptr %202, align 4
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2343,11 +2343,11 @@ _ZN7QStringD2Ev.exit148:                          ; preds = %279, %_ZN9QtPrivate
   %294 = getelementptr inbounds nuw i8, ptr %289, i64 20
   store i32 1507328, ptr %294, align 4
   %295 = getelementptr inbounds nuw i8, ptr %289, i64 24
-  store i32 0, ptr %295, align 4
+  store i32 0, ptr %295, align 8
   %296 = getelementptr inbounds nuw i8, ptr %289, i64 28
   store i32 0, ptr %296, align 4
   %297 = getelementptr inbounds nuw i8, ptr %289, i64 32
-  store i32 -1, ptr %297, align 4
+  store i32 -1, ptr %297, align 8
   %298 = getelementptr inbounds nuw i8, ptr %289, i64 36
   store i32 -1, ptr %298, align 4
   %299 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -16143,7 +16143,7 @@ _ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pre
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  %23 = load i32, ptr %22, align 4
+  %23 = load i32, ptr %22, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit, %13, %19
@@ -16459,7 +16459,7 @@ _ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pre
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  %23 = load i32, ptr %22, align 4
+  %23 = load i32, ptr %22, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit, %13, %19
@@ -16516,7 +16516,7 @@ _ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pre
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  %23 = load i32, ptr %22, align 4
+  %23 = load i32, ptr %22, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit, %13, %19
@@ -16573,7 +16573,7 @@ _ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pre
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  %23 = load i32, ptr %22, align 4
+  %23 = load i32, ptr %22, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit, %13, %19

@@ -2914,7 +2914,7 @@ _ZSt19__relocate_object_aIN6duckdb20ExceptionFormatValueES1_SaIS1_EEvPT_PT0_RT1_
   store i64 %49, ptr %51, align 8, !tbaa !27, !alias.scope !167, !noalias !170
   store ptr %41, ptr %38, align 8, !tbaa !22, !alias.scope !170, !noalias !167
   store i64 0, ptr %50, align 8, !tbaa !27, !alias.scope !170, !noalias !167
-  store i8 0, ptr %41, align 1, !tbaa !117, !alias.scope !170, !noalias !167
+  store i8 0, ptr %41, align 8, !tbaa !117, !alias.scope !170, !noalias !167
   %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 56
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 56
   %.not.i.i.i.i = icmp eq ptr %52, %1
@@ -2965,7 +2965,7 @@ _ZSt19__relocate_object_aIN6duckdb20ExceptionFormatValueES1_SaIS1_EEvPT_PT0_RT1_
   store i64 %67, ptr %69, align 8, !tbaa !27, !alias.scope !174, !noalias !177
   store ptr %59, ptr %56, align 8, !tbaa !22, !alias.scope !177, !noalias !174
   store i64 0, ptr %68, align 8, !tbaa !27, !alias.scope !177, !noalias !174
-  store i8 0, ptr %59, align 1, !tbaa !117, !alias.scope !177, !noalias !174
+  store i8 0, ptr %59, align 8, !tbaa !117, !alias.scope !177, !noalias !174
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 56
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 56
   %.not.i.i.i.i24 = icmp eq ptr %70, %5
@@ -4036,7 +4036,7 @@ _ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcE
   store i64 %49, ptr %51, align 8, !tbaa !27, !alias.scope !193, !noalias !196
   store ptr %41, ptr %.0911.i.i.i.i, align 8, !tbaa !22, !alias.scope !196, !noalias !193
   store i64 0, ptr %50, align 8, !tbaa !27, !alias.scope !196, !noalias !193
-  store i8 0, ptr %41, align 1, !tbaa !117, !alias.scope !196, !noalias !193
+  store i8 0, ptr %41, align 8, !tbaa !117, !alias.scope !196, !noalias !193
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   tail call void @_ZN6duckdb11LogicalTypeC1EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(24) %53) #21
@@ -4103,7 +4103,7 @@ _ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcE
   store i64 %71, ptr %73, align 8, !tbaa !27, !alias.scope !200, !noalias !203
   store ptr %63, ptr %.0911.i.i.i.i19, align 8, !tbaa !22, !alias.scope !203, !noalias !200
   store i64 0, ptr %72, align 8, !tbaa !27, !alias.scope !203, !noalias !200
-  store i8 0, ptr %63, align 1, !tbaa !117, !alias.scope !203, !noalias !200
+  store i8 0, ptr %63, align 8, !tbaa !117, !alias.scope !203, !noalias !200
   %74 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 32
   %75 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 32
   tail call void @_ZN6duckdb11LogicalTypeC1EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %74, ptr noundef nonnull align 8 dereferenceable(24) %75) #21

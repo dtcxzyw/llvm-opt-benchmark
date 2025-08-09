@@ -3923,7 +3923,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
   store i64 %20, ptr %22, align 8, !tbaa !77
   store ptr %12, ptr %9, align 8, !tbaa !74
   store i64 0, ptr %21, align 8, !tbaa !77
-  store i8 0, ptr %12, align 1, !tbaa !78
+  store i8 0, ptr %12, align 8, !tbaa !78
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i64 0, ptr %23, align 8
   %24 = tail call { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4llvm13RISCVISAUtils16ExtensionVersionEESt10_Select1stISB_ENS9_19ExtensionComparatorESaISB_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %7)

@@ -1054,7 +1054,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %11
   store i64 %17, ptr %19, align 8, !tbaa !16
   store ptr %9, ptr %3, align 8, !tbaa !30
   store i64 0, ptr %18, align 8, !tbaa !16
-  store i8 0, ptr %9, align 1, !tbaa !18
+  store i8 0, ptr %9, align 8, !tbaa !18
   invoke void @_ZNK11cmTimestamp24CreateTimestampFromTimeTEljNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 noundef %2, i32 noundef 0, ptr noundef nonnull %6, i1 noundef zeroext %4)
           to label %20 unwind label %27
 

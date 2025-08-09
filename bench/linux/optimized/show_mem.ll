@@ -513,7 +513,7 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
   %249 = getelementptr inbounds nuw i8, ptr %193, i64 160
   %250 = load ptr, ptr %249, align 32
   %251 = getelementptr inbounds nuw i8, ptr %193, i64 1088
-  %252 = load volatile i64, ptr %251, align 8
+  %252 = load volatile i64, ptr %251, align 32
   %253 = tail call i64 @llvm.smax.i64(i64 %252, i64 0)
   %254 = shl i64 %253, 2
   %255 = getelementptr inbounds nuw i8, ptr %193, i64 32
@@ -534,7 +534,7 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
   %270 = load i64, ptr %269, align 8
   %271 = shl i64 %270, 2
   %272 = getelementptr i8, ptr %193, i64 1104
-  %273 = load volatile i64, ptr %272, align 8
+  %273 = load volatile i64, ptr %272, align 16
   %274 = tail call i64 @llvm.smax.i64(i64 %273, i64 0)
   %275 = shl i64 %274, 2
   %276 = getelementptr i8, ptr %193, i64 1096
@@ -542,7 +542,7 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
   %278 = tail call i64 @llvm.smax.i64(i64 %277, i64 0)
   %279 = shl i64 %278, 2
   %280 = getelementptr i8, ptr %193, i64 1120
-  %281 = load volatile i64, ptr %280, align 8
+  %281 = load volatile i64, ptr %280, align 32
   %282 = tail call i64 @llvm.smax.i64(i64 %281, i64 0)
   %283 = shl i64 %282, 2
   %284 = getelementptr i8, ptr %193, i64 1112
@@ -554,7 +554,7 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
   %290 = tail call i64 @llvm.smax.i64(i64 %289, i64 0)
   %291 = shl i64 %290, 2
   %292 = getelementptr i8, ptr %193, i64 1136
-  %293 = load volatile i64, ptr %292, align 8
+  %293 = load volatile i64, ptr %292, align 16
   %294 = tail call i64 @llvm.smax.i64(i64 %293, i64 0)
   %295 = shl i64 %294, 2
   %296 = load i64, ptr %194, align 8
@@ -567,7 +567,7 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
   %303 = tail call i64 @llvm.smax.i64(i64 %302, i64 0)
   %304 = shl i64 %303, 2
   %305 = getelementptr i8, ptr %193, i64 1152
-  %306 = load volatile i64, ptr %305, align 8
+  %306 = load volatile i64, ptr %305, align 64
   %307 = tail call i64 @llvm.smax.i64(i64 %306, i64 0)
   %308 = shl i64 %307, 2
   %309 = shl i64 %.lcssa44, 2

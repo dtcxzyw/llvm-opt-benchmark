@@ -2509,11 +2509,11 @@ _ZN7QStringD2Ev.exit456:                          ; preds = %652, %_ZN17QArrayDa
   %671 = getelementptr inbounds nuw i8, ptr %666, i64 20
   store i32 65536, ptr %671, align 4
   %672 = getelementptr inbounds nuw i8, ptr %666, i64 24
-  store i32 0, ptr %672, align 4
+  store i32 0, ptr %672, align 8
   %673 = getelementptr inbounds nuw i8, ptr %666, i64 28
   store i32 0, ptr %673, align 4
   %674 = getelementptr inbounds nuw i8, ptr %666, i64 32
-  store i32 -1, ptr %674, align 4
+  store i32 -1, ptr %674, align 8
   %675 = getelementptr inbounds nuw i8, ptr %666, i64 36
   store i32 -1, ptr %675, align 4
   %676 = getelementptr inbounds nuw i8, ptr %0, i64 240
@@ -2821,11 +2821,11 @@ _ZN7QStringD2Ev.exit498:                          ; preds = %762, %_ZN17QArrayDa
   %775 = getelementptr inbounds nuw i8, ptr %770, i64 20
   store i32 1507328, ptr %775, align 4
   %776 = getelementptr inbounds nuw i8, ptr %770, i64 24
-  store i32 0, ptr %776, align 4
+  store i32 0, ptr %776, align 8
   %777 = getelementptr inbounds nuw i8, ptr %770, i64 28
   store i32 0, ptr %777, align 4
   %778 = getelementptr inbounds nuw i8, ptr %770, i64 32
-  store i32 -1, ptr %778, align 4
+  store i32 -1, ptr %778, align 8
   %779 = getelementptr inbounds nuw i8, ptr %770, i64 36
   store i32 -1, ptr %779, align 4
   %780 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -2899,11 +2899,11 @@ _ZN7QStringD2Ev.exit504:                          ; preds = %794, %_ZN17QArrayDa
   %807 = getelementptr inbounds nuw i8, ptr %802, i64 20
   store i32 65536, ptr %807, align 4
   %808 = getelementptr inbounds nuw i8, ptr %802, i64 24
-  store i32 0, ptr %808, align 4
+  store i32 0, ptr %808, align 8
   %809 = getelementptr inbounds nuw i8, ptr %802, i64 28
   store i32 0, ptr %809, align 4
   %810 = getelementptr inbounds nuw i8, ptr %802, i64 32
-  store i32 -1, ptr %810, align 4
+  store i32 -1, ptr %810, align 8
   %811 = getelementptr inbounds nuw i8, ptr %802, i64 36
   store i32 -1, ptr %811, align 4
   %812 = getelementptr inbounds nuw i8, ptr %0, i64 320
@@ -3053,11 +3053,11 @@ _ZN7QStringD2Ev.exit522:                          ; preds = %849, %_ZN17QArrayDa
   %862 = getelementptr inbounds nuw i8, ptr %857, i64 20
   store i32 7405568, ptr %862, align 4
   %863 = getelementptr inbounds nuw i8, ptr %857, i64 24
-  store i32 0, ptr %863, align 4
+  store i32 0, ptr %863, align 8
   %864 = getelementptr inbounds nuw i8, ptr %857, i64 28
   store i32 0, ptr %864, align 4
   %865 = getelementptr inbounds nuw i8, ptr %857, i64 32
-  store i32 -1, ptr %865, align 4
+  store i32 -1, ptr %865, align 8
   %866 = getelementptr inbounds nuw i8, ptr %857, i64 36
   store i32 -1, ptr %866, align 4
   %867 = getelementptr inbounds nuw i8, ptr %0, i64 352

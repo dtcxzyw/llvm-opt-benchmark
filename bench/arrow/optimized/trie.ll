@@ -994,7 +994,7 @@ define void @_ZN5arrow8internal11TrieBuilder9SplitNodeEll(ptr dead_on_unwind noa
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %14 = add nsw i64 %3, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
-  %15 = load i8, ptr %13, align 1, !tbaa !33
+  %15 = load i8, ptr %13, align 2, !tbaa !33
   %16 = zext i8 %15 to i64
   %17 = icmp ugt i64 %14, %16
   br i1 %17, label %18, label %_ZN5arrow6StatusD2Ev.exit

@@ -439,7 +439,7 @@ define void @_ZN9grpc_core26MakeInProcessTransportPairERKNS_11ChannelArgsE(ptr d
   store i64 1, ptr %9, align 8, !tbaa !6, !noalias !3
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_121InprocServerTransportE, i64 16), ptr %8, align 8, !tbaa !11, !noalias !3
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i8 0, ptr %10, align 1, !tbaa !13, !noalias !3
+  store i8 0, ptr %10, align 8, !tbaa !13, !noalias !3
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
@@ -459,7 +459,7 @@ define void @_ZN9grpc_core26MakeInProcessTransportPairERKNS_11ChannelArgsE(ptr d
   store i64 0, ptr %18, align 8, !tbaa !6, !noalias !18
   store ptr @.str.40, ptr %15, align 8, !tbaa !21, !noalias !18
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  store i32 1, ptr %19, align 4, !tbaa !33, !noalias !18
+  store i32 1, ptr %19, align 8, !tbaa !33, !noalias !18
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store i64 1, ptr %20, align 8, !tbaa !19, !noalias !18
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 56

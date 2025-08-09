@@ -1199,7 +1199,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   store ptr %105, ptr %104, align 8, !tbaa !4
   %106 = getelementptr inbounds nuw i8, ptr %100, i64 32
   store i64 0, ptr %106, align 8, !tbaa !14
-  store i8 0, ptr %105, align 1, !tbaa !13
+  store i8 0, ptr %105, align 8, !tbaa !13
   %107 = getelementptr inbounds nuw i8, ptr %100, i64 56
   store ptr null, ptr %107, align 8, !tbaa !31
   %108 = getelementptr inbounds nuw i8, ptr %100, i64 64
@@ -1207,7 +1207,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   store ptr %109, ptr %108, align 8, !tbaa !4
   %110 = getelementptr inbounds nuw i8, ptr %100, i64 72
   store i64 0, ptr %110, align 8, !tbaa !14
-  store i8 0, ptr %109, align 1, !tbaa !13
+  store i8 0, ptr %109, align 8, !tbaa !13
   %111 = getelementptr inbounds nuw i8, ptr %100, i64 96
   store ptr null, ptr %111, align 8, !tbaa !31
   %112 = getelementptr inbounds nuw i8, ptr %100, i64 104
@@ -1215,7 +1215,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   store ptr %113, ptr %112, align 8, !tbaa !4
   %114 = getelementptr inbounds nuw i8, ptr %100, i64 112
   store i64 0, ptr %114, align 8, !tbaa !14
-  store i8 0, ptr %113, align 1, !tbaa !13
+  store i8 0, ptr %113, align 8, !tbaa !13
   %115 = getelementptr inbounds nuw i8, ptr %100, i64 136
   %116 = getelementptr inbounds nuw i8, ptr %100, i64 144
   store ptr null, ptr %116, align 8, !tbaa !32
@@ -1238,7 +1238,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   store ptr %124, ptr %123, align 8, !tbaa !4
   %125 = getelementptr inbounds nuw i8, ptr %119, i64 32
   store i64 0, ptr %125, align 8, !tbaa !14
-  store i8 0, ptr %124, align 1, !tbaa !13
+  store i8 0, ptr %124, align 8, !tbaa !13
   %126 = getelementptr inbounds nuw i8, ptr %119, i64 56
   store ptr null, ptr %126, align 8, !tbaa !31
   %127 = getelementptr inbounds nuw i8, ptr %119, i64 64
@@ -1246,7 +1246,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   store ptr %128, ptr %127, align 8, !tbaa !4
   %129 = getelementptr inbounds nuw i8, ptr %119, i64 72
   store i64 0, ptr %129, align 8, !tbaa !14
-  store i8 0, ptr %128, align 1, !tbaa !13
+  store i8 0, ptr %128, align 8, !tbaa !13
   %130 = getelementptr inbounds nuw i8, ptr %119, i64 96
   store ptr null, ptr %130, align 8, !tbaa !31
   %131 = getelementptr inbounds nuw i8, ptr %119, i64 104
@@ -1254,7 +1254,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   store ptr %132, ptr %131, align 8, !tbaa !4
   %133 = getelementptr inbounds nuw i8, ptr %119, i64 112
   store i64 0, ptr %133, align 8, !tbaa !14
-  store i8 0, ptr %132, align 1, !tbaa !13
+  store i8 0, ptr %132, align 8, !tbaa !13
   %134 = getelementptr inbounds nuw i8, ptr %119, i64 136
   %135 = getelementptr inbounds nuw i8, ptr %119, i64 144
   store ptr null, ptr %135, align 8, !tbaa !32
@@ -1277,7 +1277,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   store ptr %143, ptr %142, align 8, !tbaa !4
   %144 = getelementptr inbounds nuw i8, ptr %138, i64 32
   store i64 0, ptr %144, align 8, !tbaa !14
-  store i8 0, ptr %143, align 1, !tbaa !13
+  store i8 0, ptr %143, align 8, !tbaa !13
   %145 = getelementptr inbounds nuw i8, ptr %138, i64 56
   store ptr null, ptr %145, align 8, !tbaa !31
   %146 = getelementptr inbounds nuw i8, ptr %138, i64 64
@@ -1285,7 +1285,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   store ptr %147, ptr %146, align 8, !tbaa !4
   %148 = getelementptr inbounds nuw i8, ptr %138, i64 72
   store i64 0, ptr %148, align 8, !tbaa !14
-  store i8 0, ptr %147, align 1, !tbaa !13
+  store i8 0, ptr %147, align 8, !tbaa !13
   %149 = getelementptr inbounds nuw i8, ptr %138, i64 96
   store ptr null, ptr %149, align 8, !tbaa !31
   %150 = getelementptr inbounds nuw i8, ptr %138, i64 104
@@ -1293,7 +1293,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   store ptr %151, ptr %150, align 8, !tbaa !4
   %152 = getelementptr inbounds nuw i8, ptr %138, i64 112
   store i64 0, ptr %152, align 8, !tbaa !14
-  store i8 0, ptr %151, align 1, !tbaa !13
+  store i8 0, ptr %151, align 8, !tbaa !13
   %153 = getelementptr inbounds nuw i8, ptr %138, i64 136
   %154 = getelementptr inbounds nuw i8, ptr %138, i64 144
   store ptr null, ptr %154, align 8, !tbaa !32
@@ -1324,7 +1324,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   store ptr %166, ptr %165, align 8, !tbaa !4
   %167 = getelementptr inbounds nuw i8, ptr %161, i64 32
   store i64 0, ptr %167, align 8, !tbaa !14
-  store i8 0, ptr %166, align 1, !tbaa !13
+  store i8 0, ptr %166, align 8, !tbaa !13
   %168 = getelementptr inbounds nuw i8, ptr %161, i64 56
   store ptr null, ptr %168, align 8, !tbaa !31
   %169 = getelementptr inbounds nuw i8, ptr %161, i64 64
@@ -1332,7 +1332,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   store ptr %170, ptr %169, align 8, !tbaa !4
   %171 = getelementptr inbounds nuw i8, ptr %161, i64 72
   store i64 0, ptr %171, align 8, !tbaa !14
-  store i8 0, ptr %170, align 1, !tbaa !13
+  store i8 0, ptr %170, align 8, !tbaa !13
   %172 = getelementptr inbounds nuw i8, ptr %161, i64 96
   store ptr null, ptr %172, align 8, !tbaa !31
   %173 = getelementptr inbounds nuw i8, ptr %161, i64 104
@@ -1340,7 +1340,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   store ptr %174, ptr %173, align 8, !tbaa !4
   %175 = getelementptr inbounds nuw i8, ptr %161, i64 112
   store i64 0, ptr %175, align 8, !tbaa !14
-  store i8 0, ptr %174, align 1, !tbaa !13
+  store i8 0, ptr %174, align 8, !tbaa !13
   %176 = getelementptr inbounds nuw i8, ptr %161, i64 136
   %177 = getelementptr inbounds nuw i8, ptr %161, i64 144
   store ptr null, ptr %177, align 8, !tbaa !32
@@ -1363,7 +1363,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   store ptr %185, ptr %184, align 8, !tbaa !4
   %186 = getelementptr inbounds nuw i8, ptr %180, i64 32
   store i64 0, ptr %186, align 8, !tbaa !14
-  store i8 0, ptr %185, align 1, !tbaa !13
+  store i8 0, ptr %185, align 8, !tbaa !13
   %187 = getelementptr inbounds nuw i8, ptr %180, i64 56
   store ptr null, ptr %187, align 8, !tbaa !31
   %188 = getelementptr inbounds nuw i8, ptr %180, i64 64
@@ -1371,7 +1371,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   store ptr %189, ptr %188, align 8, !tbaa !4
   %190 = getelementptr inbounds nuw i8, ptr %180, i64 72
   store i64 0, ptr %190, align 8, !tbaa !14
-  store i8 0, ptr %189, align 1, !tbaa !13
+  store i8 0, ptr %189, align 8, !tbaa !13
   %191 = getelementptr inbounds nuw i8, ptr %180, i64 96
   store ptr null, ptr %191, align 8, !tbaa !31
   %192 = getelementptr inbounds nuw i8, ptr %180, i64 104
@@ -1379,7 +1379,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   store ptr %193, ptr %192, align 8, !tbaa !4
   %194 = getelementptr inbounds nuw i8, ptr %180, i64 112
   store i64 0, ptr %194, align 8, !tbaa !14
-  store i8 0, ptr %193, align 1, !tbaa !13
+  store i8 0, ptr %193, align 8, !tbaa !13
   %195 = getelementptr inbounds nuw i8, ptr %180, i64 136
   %196 = getelementptr inbounds nuw i8, ptr %180, i64 144
   store ptr null, ptr %196, align 8, !tbaa !32
@@ -1466,7 +1466,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   store ptr %236, ptr %235, align 8, !tbaa !4
   %237 = getelementptr inbounds nuw i8, ptr %231, i64 32
   store i64 0, ptr %237, align 8, !tbaa !14
-  store i8 0, ptr %236, align 1, !tbaa !13
+  store i8 0, ptr %236, align 8, !tbaa !13
   %238 = getelementptr inbounds nuw i8, ptr %231, i64 56
   store ptr null, ptr %238, align 8, !tbaa !31
   %239 = getelementptr inbounds nuw i8, ptr %231, i64 64
@@ -1474,7 +1474,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   store ptr %240, ptr %239, align 8, !tbaa !4
   %241 = getelementptr inbounds nuw i8, ptr %231, i64 72
   store i64 0, ptr %241, align 8, !tbaa !14
-  store i8 0, ptr %240, align 1, !tbaa !13
+  store i8 0, ptr %240, align 8, !tbaa !13
   %242 = getelementptr inbounds nuw i8, ptr %231, i64 96
   store ptr null, ptr %242, align 8, !tbaa !31
   %243 = getelementptr inbounds nuw i8, ptr %231, i64 104
@@ -1482,7 +1482,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   store ptr %244, ptr %243, align 8, !tbaa !4
   %245 = getelementptr inbounds nuw i8, ptr %231, i64 112
   store i64 0, ptr %245, align 8, !tbaa !14
-  store i8 0, ptr %244, align 1, !tbaa !13
+  store i8 0, ptr %244, align 8, !tbaa !13
   %246 = getelementptr inbounds nuw i8, ptr %231, i64 136
   %247 = getelementptr inbounds nuw i8, ptr %231, i64 144
   store ptr null, ptr %247, align 8, !tbaa !32
@@ -1505,7 +1505,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   store ptr %255, ptr %254, align 8, !tbaa !4
   %256 = getelementptr inbounds nuw i8, ptr %250, i64 32
   store i64 0, ptr %256, align 8, !tbaa !14
-  store i8 0, ptr %255, align 1, !tbaa !13
+  store i8 0, ptr %255, align 8, !tbaa !13
   %257 = getelementptr inbounds nuw i8, ptr %250, i64 56
   store ptr null, ptr %257, align 8, !tbaa !31
   %258 = getelementptr inbounds nuw i8, ptr %250, i64 64
@@ -1513,7 +1513,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   store ptr %259, ptr %258, align 8, !tbaa !4
   %260 = getelementptr inbounds nuw i8, ptr %250, i64 72
   store i64 0, ptr %260, align 8, !tbaa !14
-  store i8 0, ptr %259, align 1, !tbaa !13
+  store i8 0, ptr %259, align 8, !tbaa !13
   %261 = getelementptr inbounds nuw i8, ptr %250, i64 96
   store ptr null, ptr %261, align 8, !tbaa !31
   %262 = getelementptr inbounds nuw i8, ptr %250, i64 104
@@ -1521,7 +1521,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   store ptr %263, ptr %262, align 8, !tbaa !4
   %264 = getelementptr inbounds nuw i8, ptr %250, i64 112
   store i64 0, ptr %264, align 8, !tbaa !14
-  store i8 0, ptr %263, align 1, !tbaa !13
+  store i8 0, ptr %263, align 8, !tbaa !13
   %265 = getelementptr inbounds nuw i8, ptr %250, i64 136
   %266 = getelementptr inbounds nuw i8, ptr %250, i64 144
   store ptr null, ptr %266, align 8, !tbaa !32
@@ -1552,7 +1552,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   store ptr %278, ptr %277, align 8, !tbaa !4
   %279 = getelementptr inbounds nuw i8, ptr %273, i64 32
   store i64 0, ptr %279, align 8, !tbaa !14
-  store i8 0, ptr %278, align 1, !tbaa !13
+  store i8 0, ptr %278, align 8, !tbaa !13
   %280 = getelementptr inbounds nuw i8, ptr %273, i64 56
   store ptr null, ptr %280, align 8, !tbaa !31
   %281 = getelementptr inbounds nuw i8, ptr %273, i64 64
@@ -1560,7 +1560,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   store ptr %282, ptr %281, align 8, !tbaa !4
   %283 = getelementptr inbounds nuw i8, ptr %273, i64 72
   store i64 0, ptr %283, align 8, !tbaa !14
-  store i8 0, ptr %282, align 1, !tbaa !13
+  store i8 0, ptr %282, align 8, !tbaa !13
   %284 = getelementptr inbounds nuw i8, ptr %273, i64 96
   store ptr null, ptr %284, align 8, !tbaa !31
   %285 = getelementptr inbounds nuw i8, ptr %273, i64 104
@@ -1568,7 +1568,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   store ptr %286, ptr %285, align 8, !tbaa !4
   %287 = getelementptr inbounds nuw i8, ptr %273, i64 112
   store i64 0, ptr %287, align 8, !tbaa !14
-  store i8 0, ptr %286, align 1, !tbaa !13
+  store i8 0, ptr %286, align 8, !tbaa !13
   %288 = getelementptr inbounds nuw i8, ptr %273, i64 136
   %289 = getelementptr inbounds nuw i8, ptr %273, i64 144
   store ptr null, ptr %289, align 8, !tbaa !32
@@ -1599,7 +1599,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   store ptr %301, ptr %300, align 8, !tbaa !4
   %302 = getelementptr inbounds nuw i8, ptr %296, i64 32
   store i64 0, ptr %302, align 8, !tbaa !14
-  store i8 0, ptr %301, align 1, !tbaa !13
+  store i8 0, ptr %301, align 8, !tbaa !13
   %303 = getelementptr inbounds nuw i8, ptr %296, i64 56
   store ptr null, ptr %303, align 8, !tbaa !31
   %304 = getelementptr inbounds nuw i8, ptr %296, i64 64
@@ -1607,7 +1607,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   store ptr %305, ptr %304, align 8, !tbaa !4
   %306 = getelementptr inbounds nuw i8, ptr %296, i64 72
   store i64 0, ptr %306, align 8, !tbaa !14
-  store i8 0, ptr %305, align 1, !tbaa !13
+  store i8 0, ptr %305, align 8, !tbaa !13
   %307 = getelementptr inbounds nuw i8, ptr %296, i64 96
   store ptr null, ptr %307, align 8, !tbaa !31
   %308 = getelementptr inbounds nuw i8, ptr %296, i64 104
@@ -1615,7 +1615,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   store ptr %309, ptr %308, align 8, !tbaa !4
   %310 = getelementptr inbounds nuw i8, ptr %296, i64 112
   store i64 0, ptr %310, align 8, !tbaa !14
-  store i8 0, ptr %309, align 1, !tbaa !13
+  store i8 0, ptr %309, align 8, !tbaa !13
   %311 = getelementptr inbounds nuw i8, ptr %296, i64 136
   %312 = getelementptr inbounds nuw i8, ptr %296, i64 144
   store ptr null, ptr %312, align 8, !tbaa !32
@@ -1638,7 +1638,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   store ptr %320, ptr %319, align 8, !tbaa !4
   %321 = getelementptr inbounds nuw i8, ptr %315, i64 32
   store i64 0, ptr %321, align 8, !tbaa !14
-  store i8 0, ptr %320, align 1, !tbaa !13
+  store i8 0, ptr %320, align 8, !tbaa !13
   %322 = getelementptr inbounds nuw i8, ptr %315, i64 56
   store ptr null, ptr %322, align 8, !tbaa !31
   %323 = getelementptr inbounds nuw i8, ptr %315, i64 64
@@ -1646,7 +1646,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   store ptr %324, ptr %323, align 8, !tbaa !4
   %325 = getelementptr inbounds nuw i8, ptr %315, i64 72
   store i64 0, ptr %325, align 8, !tbaa !14
-  store i8 0, ptr %324, align 1, !tbaa !13
+  store i8 0, ptr %324, align 8, !tbaa !13
   %326 = getelementptr inbounds nuw i8, ptr %315, i64 96
   store ptr null, ptr %326, align 8, !tbaa !31
   %327 = getelementptr inbounds nuw i8, ptr %315, i64 104
@@ -1654,7 +1654,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   store ptr %328, ptr %327, align 8, !tbaa !4
   %329 = getelementptr inbounds nuw i8, ptr %315, i64 112
   store i64 0, ptr %329, align 8, !tbaa !14
-  store i8 0, ptr %328, align 1, !tbaa !13
+  store i8 0, ptr %328, align 8, !tbaa !13
   %330 = getelementptr inbounds nuw i8, ptr %315, i64 136
   %331 = getelementptr inbounds nuw i8, ptr %315, i64 144
   store ptr null, ptr %331, align 8, !tbaa !32
@@ -1679,7 +1679,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   store ptr %340, ptr %339, align 8, !tbaa !4
   %341 = getelementptr inbounds nuw i8, ptr %335, i64 32
   store i64 0, ptr %341, align 8, !tbaa !14
-  store i8 0, ptr %340, align 1, !tbaa !13
+  store i8 0, ptr %340, align 8, !tbaa !13
   %342 = getelementptr inbounds nuw i8, ptr %335, i64 56
   store ptr null, ptr %342, align 8, !tbaa !31
   %343 = getelementptr inbounds nuw i8, ptr %335, i64 64
@@ -1687,7 +1687,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   store ptr %344, ptr %343, align 8, !tbaa !4
   %345 = getelementptr inbounds nuw i8, ptr %335, i64 72
   store i64 0, ptr %345, align 8, !tbaa !14
-  store i8 0, ptr %344, align 1, !tbaa !13
+  store i8 0, ptr %344, align 8, !tbaa !13
   %346 = getelementptr inbounds nuw i8, ptr %335, i64 96
   store ptr null, ptr %346, align 8, !tbaa !31
   %347 = getelementptr inbounds nuw i8, ptr %335, i64 104
@@ -1695,7 +1695,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   store ptr %348, ptr %347, align 8, !tbaa !4
   %349 = getelementptr inbounds nuw i8, ptr %335, i64 112
   store i64 0, ptr %349, align 8, !tbaa !14
-  store i8 0, ptr %348, align 1, !tbaa !13
+  store i8 0, ptr %348, align 8, !tbaa !13
   %350 = getelementptr inbounds nuw i8, ptr %335, i64 136
   %351 = getelementptr inbounds nuw i8, ptr %335, i64 144
   store ptr null, ptr %351, align 8, !tbaa !32
@@ -16226,7 +16226,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   store ptr %33, ptr %32, align 8, !tbaa !4
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i64 0, ptr %34, align 8, !tbaa !14
-  store i8 0, ptr %33, align 1, !tbaa !13
+  store i8 0, ptr %33, align 8, !tbaa !13
   ret void
 
 35:                                               ; preds = %25
@@ -21313,7 +21313,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !tbaa !14, !alias.scope !394, !noalias !397
   store ptr %43, ptr %.0911.i.i.i, align 8, !tbaa !11, !alias.scope !397, !noalias !394
   store i64 0, ptr %52, align 8, !tbaa !14, !alias.scope !397, !noalias !394
-  store i8 0, ptr %43, align 1, !tbaa !13, !alias.scope !397, !noalias !394
+  store i8 0, ptr %43, align 8, !tbaa !13, !alias.scope !397, !noalias !394
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %54, %1
@@ -21361,7 +21361,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !tbaa !14, !alias.scope !401, !noalias !404
   store ptr %59, ptr %.0911.i.i.i29, align 8, !tbaa !11, !alias.scope !404, !noalias !401
   store i64 0, ptr %68, align 8, !tbaa !14, !alias.scope !404, !noalias !401
-  store i8 0, ptr %59, align 1, !tbaa !13, !alias.scope !404, !noalias !401
+  store i8 0, ptr %59, align 8, !tbaa !13, !alias.scope !404, !noalias !401
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %.not.i.i.i34 = icmp eq ptr %70, %6
@@ -21523,7 +21523,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !14, !alias.scope !407, !noalias !410
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !11, !alias.scope !410, !noalias !407
   store i64 0, ptr %48, align 8, !tbaa !14, !alias.scope !410, !noalias !407
-  store i8 0, ptr %39, align 1, !tbaa !13, !alias.scope !410, !noalias !407
+  store i8 0, ptr %39, align 8, !tbaa !13, !alias.scope !410, !noalias !407
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -21571,7 +21571,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !14, !alias.scope !413, !noalias !416
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !11, !alias.scope !416, !noalias !413
   store i64 0, ptr %64, align 8, !tbaa !14, !alias.scope !416, !noalias !413
-  store i8 0, ptr %55, align 1, !tbaa !13, !alias.scope !416, !noalias !413
+  store i8 0, ptr %55, align 8, !tbaa !13, !alias.scope !416, !noalias !413
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5

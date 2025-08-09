@@ -738,7 +738,7 @@ _ZL16EncodeWindowBitsiiPtPh.exit.i:               ; preds = %103, %100, %97, %96
   %.sink18.i.i = phi i16 [ %102, %100 ], [ %105, %103 ], [ 1, %97 ], [ %95, %92 ], [ 0, %96 ]
   %.sink.i.i = phi i8 [ 4, %100 ], [ 7, %103 ], [ 7, %97 ], [ 14, %92 ], [ 1, %96 ]
   store i16 %.sink18.i.i, ptr %14, align 2, !tbaa !82
-  store i8 %.sink.i.i, ptr %13, align 1, !tbaa !72
+  store i8 %.sink.i.i, ptr %13, align 2, !tbaa !72
   br label %111
 
 106:                                              ; preds = %75
@@ -973,7 +973,7 @@ _ZL22InjectBytePaddingBlockPN13duckdb_brotli24BrotliEncoderStateStructE.exit.i.i
   %217 = load i8, ptr %147, align 2, !tbaa !77
   %218 = zext i8 %217 to i64
   %219 = load i16, ptr %148, align 8, !tbaa !78
-  store i16 %219, ptr %151, align 1
+  store i16 %219, ptr %151, align 8
   store i16 0, ptr %148, align 8, !tbaa !78
   store i8 0, ptr %147, align 2, !tbaa !77
   %220 = lshr i64 %218, 3
@@ -3332,9 +3332,9 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %700 = mul i32 %.0.copyload.i.i.i277, 506832829
   %701 = lshr i32 %700, 17
   %702 = zext nneg i32 %701 to i64
-  %703 = load i16, ptr %690, align 2, !tbaa !82, !alias.scope !323, !noalias !326
+  %703 = load i16, ptr %690, align 8, !tbaa !82, !alias.scope !323, !noalias !326
   %704 = add i16 %703, 1
-  store i16 %704, ptr %690, align 2, !tbaa !82, !alias.scope !323, !noalias !326
+  store i16 %704, ptr %690, align 8, !tbaa !82, !alias.scope !323, !noalias !326
   %705 = zext i16 %703 to i64
   %706 = getelementptr inbounds nuw i32, ptr %693, i64 %702
   %707 = load i32, ptr %706, align 4, !tbaa !61, !noalias !331
@@ -3368,9 +3368,9 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %726 = mul i32 %.0.copyload.i.i.i275, 506832829
   %727 = lshr i32 %726, 17
   %728 = zext nneg i32 %727 to i64
-  %729 = load i16, ptr %690, align 2, !tbaa !82, !alias.scope !335, !noalias !338
+  %729 = load i16, ptr %690, align 8, !tbaa !82, !alias.scope !335, !noalias !338
   %730 = add i16 %729, 1
-  store i16 %730, ptr %690, align 2, !tbaa !82, !alias.scope !335, !noalias !338
+  store i16 %730, ptr %690, align 8, !tbaa !82, !alias.scope !335, !noalias !338
   %731 = zext i16 %729 to i64
   %732 = getelementptr inbounds nuw i32, ptr %720, i64 %728
   %733 = load i32, ptr %732, align 4, !tbaa !61, !noalias !343
@@ -3404,9 +3404,9 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %752 = mul i32 %.0.copyload.i.i.i274, 506832829
   %753 = lshr i32 %752, 17
   %754 = zext nneg i32 %753 to i64
-  %755 = load i16, ptr %690, align 2, !tbaa !82, !alias.scope !344, !noalias !347
+  %755 = load i16, ptr %690, align 8, !tbaa !82, !alias.scope !344, !noalias !347
   %756 = add i16 %755, 1
-  store i16 %756, ptr %690, align 2, !tbaa !82, !alias.scope !344, !noalias !347
+  store i16 %756, ptr %690, align 8, !tbaa !82, !alias.scope !344, !noalias !347
   %757 = zext i16 %755 to i64
   %758 = getelementptr inbounds nuw i32, ptr %746, i64 %754
   %759 = load i32, ptr %758, align 4, !tbaa !61, !noalias !352
@@ -3452,9 +3452,9 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %785 = mul i32 %.0.copyload.i.i.i283, 506832829
   %786 = lshr i32 %785, 17
   %787 = zext nneg i32 %786 to i64
-  %788 = load i16, ptr %775, align 2, !tbaa !82, !alias.scope !353, !noalias !356
+  %788 = load i16, ptr %775, align 8, !tbaa !82, !alias.scope !353, !noalias !356
   %789 = add i16 %788, 1
-  store i16 %789, ptr %775, align 2, !tbaa !82, !alias.scope !353, !noalias !356
+  store i16 %789, ptr %775, align 8, !tbaa !82, !alias.scope !353, !noalias !356
   %790 = zext i16 %788 to i64
   %791 = getelementptr inbounds nuw i32, ptr %778, i64 %787
   %792 = load i32, ptr %791, align 4, !tbaa !61, !noalias !361
@@ -3488,9 +3488,9 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %811 = mul i32 %.0.copyload.i.i.i281, 506832829
   %812 = lshr i32 %811, 17
   %813 = zext nneg i32 %812 to i64
-  %814 = load i16, ptr %775, align 2, !tbaa !82, !alias.scope !365, !noalias !368
+  %814 = load i16, ptr %775, align 8, !tbaa !82, !alias.scope !365, !noalias !368
   %815 = add i16 %814, 1
-  store i16 %815, ptr %775, align 2, !tbaa !82, !alias.scope !365, !noalias !368
+  store i16 %815, ptr %775, align 8, !tbaa !82, !alias.scope !365, !noalias !368
   %816 = zext i16 %814 to i64
   %817 = getelementptr inbounds nuw i32, ptr %805, i64 %813
   %818 = load i32, ptr %817, align 4, !tbaa !61, !noalias !373
@@ -3524,9 +3524,9 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %837 = mul i32 %.0.copyload.i.i.i279, 506832829
   %838 = lshr i32 %837, 17
   %839 = zext nneg i32 %838 to i64
-  %840 = load i16, ptr %775, align 2, !tbaa !82, !alias.scope !374, !noalias !377
+  %840 = load i16, ptr %775, align 8, !tbaa !82, !alias.scope !374, !noalias !377
   %841 = add i16 %840, 1
-  store i16 %841, ptr %775, align 2, !tbaa !82, !alias.scope !374, !noalias !377
+  store i16 %841, ptr %775, align 8, !tbaa !82, !alias.scope !374, !noalias !377
   %842 = zext i16 %840 to i64
   %843 = getelementptr inbounds nuw i32, ptr %831, i64 %839
   %844 = load i32, ptr %843, align 4, !tbaa !61, !noalias !382

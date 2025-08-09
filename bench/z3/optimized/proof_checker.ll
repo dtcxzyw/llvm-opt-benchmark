@@ -12215,9 +12215,9 @@ _ZNK6vectorI8rationalLb1EjE4sizeEv.exit:          ; preds = %_ZNK6vectorI8ration
   %254 = or disjoint i8 %253, %248
   store i8 %254, ptr %218, align 4
   %255 = getelementptr inbounds nuw i8, ptr %231, i64 16
-  %256 = load i32, ptr %255, align 4, !tbaa !33
+  %256 = load i32, ptr %255, align 8, !tbaa !33
   %257 = load i32, ptr %219, align 8, !tbaa !33
-  store i32 %257, ptr %255, align 4, !tbaa !33
+  store i32 %257, ptr %255, align 8, !tbaa !33
   store i32 %256, ptr %219, align 8, !tbaa !33
   %258 = getelementptr inbounds nuw i8, ptr %231, i64 24
   %259 = load ptr, ptr %258, align 8, !tbaa !290

@@ -1302,7 +1302,7 @@ _ZNSt10unique_ptrIN5arrow4util12_GLOBAL__N_118AsyncTaskGroupImplESt14default_del
   store i32 1, ptr %17, align 4, !tbaa !79, !noalias !170
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow4util12_GLOBAL__N_118AsyncTaskGroupImpl5StateESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8, !tbaa !17, !noalias !170
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i32 1, ptr %18, align 4, !tbaa !171, !noalias !170
+  store i32 1, ptr %18, align 8, !tbaa !171, !noalias !170
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 %5, ptr %19, align 8, !tbaa !159, !noalias !170
   store ptr %8, ptr %14, align 8, !tbaa !14, !alias.scope !167, !noalias !156
@@ -1376,7 +1376,7 @@ _ZN5arrow8internal6FnOnceIFNS_6StatusEvEED2Ev.exit: ; preds = %.noexc
   store i32 1, ptr %28, align 4, !tbaa !79, !noalias !185
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow4util12_GLOBAL__N_118AsyncTaskGroupImpl5StateESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19, align 8, !tbaa !17, !noalias !185
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store i32 1, ptr %29, align 4, !tbaa !171, !noalias !185
+  store i32 1, ptr %29, align 8, !tbaa !171, !noalias !185
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store i64 %15, ptr %30, align 8, !tbaa !159, !noalias !185
   store ptr %19, ptr %25, align 8, !tbaa !14, !alias.scope !182, !noalias !177

@@ -17682,7 +17682,7 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h4a15a44f3438393eE
   %236 = mul i64 %235, 5871781006564002453
   %237 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %238 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.val1.i.i.i.i.i = load i32, ptr %238, align 4, !alias.scope !4547, !noalias !4550, !noundef !4
+  %.val1.i.i.i.i.i = load i32, ptr %238, align 8, !alias.scope !4547, !noalias !4550, !noundef !4
   %239 = zext i32 %.val1.i.i.i.i.i to i64
   %240 = tail call i64 @llvm.fshl.i64(i64 %236, i64 %236, i64 5)
   %241 = xor i64 %240, %239
@@ -17703,7 +17703,7 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h4a15a44f3438393eE
   %253 = xor i64 %251, %252
   %254 = mul i64 %253, 5871781006564002453
   %255 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.val.i.i.i.i.i = load i8, ptr %255, align 1, !range !17, !alias.scope !4552, !noalias !4555, !noundef !4
+  %.val.i.i.i.i.i = load i8, ptr %255, align 8, !range !17, !alias.scope !4552, !noalias !4555, !noundef !4
   %256 = getelementptr inbounds nuw i8, ptr %6, i64 33
   %.val1.i15.i.i.i.i = load i8, ptr %256, align 1, !range !17, !alias.scope !4552, !noalias !4555, !noundef !4
   %257 = tail call i64 @llvm.fshl.i64(i64 %254, i64 %254, i64 5)

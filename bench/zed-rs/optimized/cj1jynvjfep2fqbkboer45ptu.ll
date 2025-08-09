@@ -11367,7 +11367,7 @@ define internal { float, float } @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
   %8 = uitofp i64 %7 to float
   %9 = fmul float %6, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val6.i.i = load float, ptr %10, align 4, !alias.scope !2110, !noalias !2115
+  %.val6.i.i = load float, ptr %10, align 8, !alias.scope !2110, !noalias !2115
   %switch3.i.i = icmp eq i32 %.sroa.6.16.copyload, 0
   br i1 %switch3.i.i, label %11, label %_ZN4core3ops8function6FnOnce9call_once17h8d1a8c48249e29deE.exit
 
@@ -70325,7 +70325,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h2a05ce0a9008b170E.exit265: ; preds = %"_Z
   %798 = add nuw nsw i64 %793, 1
   store i64 %798, ptr %792, align 8
   %799 = getelementptr inbounds nuw i8, ptr %791, i64 24
-  %.val166 = load i8, ptr %799, align 1, !range !245, !noundef !9
+  %.val166 = load i8, ptr %799, align 8, !range !245, !noundef !9
   %800 = getelementptr i8, ptr %791, i64 25
   %.val167 = load i8, ptr %800, align 1
   %801 = trunc nuw i8 %.val166 to i1
@@ -73008,7 +73008,7 @@ _ZN4gpui6window8HitboxId10is_hovered17hd292ee8eb0cec627E.exit68: ; preds = %245,
   %268 = add nuw nsw i64 %266, 1
   store i64 %268, ptr %267, align 8
   %269 = getelementptr inbounds nuw i8, ptr %265, i64 24
-  %270 = load i8, ptr %269, align 1, !range !245, !noundef !9
+  %270 = load i8, ptr %269, align 8, !range !245, !noundef !9
   %271 = trunc nuw i8 %270 to i1
   %272 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %273 = load i64, ptr %272, align 8, !range !1919
@@ -75474,9 +75474,9 @@ define void @_ZN4gpui8elements4list9ListState21scroll_to_reveal_item17h7a15355d6
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 108
   %.sroa.0.0.copyload = load i32, ptr %25, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 112
-  %.sroa.4.sroa.0.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 4
+  %.sroa.4.sroa.0.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 120
-  %.sroa.4.sroa.5.0.copyload = load float, ptr %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx, align 4
+  %.sroa.4.sroa.5.0.copyload = load float, ptr %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   %switch = icmp eq i32 %.sroa.0.0.copyload, 0
   %.sroa.328.0 = select i1 %switch, float 0.000000e+00, float %.sroa.4.sroa.5.0.copyload
   %.sroa.026.0 = select i1 %switch, float 0.000000e+00, float %.sroa.4.sroa.0.0.copyload
@@ -75621,7 +75621,7 @@ define void @_ZN4gpui8elements4list9ListState15bounds_for_item17h4b3d2b5ae808e6f
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 92
   %.sroa.4.sroa.0.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 96
-  %.sroa.4.sroa.4.0.copyload = load float, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 4
+  %.sroa.4.sroa.4.0.copyload = load float, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 100
   %.sroa.4.sroa.5.0.copyload = load float, ptr %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx, align 4
   %switch = icmp eq i32 %.sroa.0.0.copyload, 0
@@ -77829,9 +77829,9 @@ _ZN4gpui7element10AnyElement11prepaint_at17ha115c4fe4577ae52E.exit.i.i: ; preds 
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 3872
   %.sroa.071.0.copyload.i.i = load i32, ptr %220, align 8, !noalias !15651
   %.sroa.572.sroa.5.0..sroa.572.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %219, i64 3880
-  %.sroa.572.sroa.5.0.copyload.i.i = load float, ptr %.sroa.572.sroa.5.0..sroa.572.0..sroa_idx.sroa_idx.i.i, align 4, !noalias !15651
+  %.sroa.572.sroa.5.0.copyload.i.i = load float, ptr %.sroa.572.sroa.5.0..sroa.572.0..sroa_idx.sroa_idx.i.i, align 8, !noalias !15651
   %.sroa.572.sroa.7.0..sroa.572.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %219, i64 3888
-  %.sroa.572.sroa.7.0.copyload.i.i = load float, ptr %.sroa.572.sroa.7.0..sroa.572.0..sroa_idx.sroa_idx.i.i, align 4, !noalias !15651
+  %.sroa.572.sroa.7.0.copyload.i.i = load float, ptr %.sroa.572.sroa.7.0..sroa.572.0..sroa_idx.sroa_idx.i.i, align 8, !noalias !15651
   store i32 0, ptr %220, align 8, !noalias !15652
   %trunc.i.i = trunc nuw i32 %.sroa.071.0.copyload.i.i to i1
   %brmerge.demorgan = and i1 %4, %trunc.i.i
@@ -79461,7 +79461,7 @@ define internal fastcc noundef i64 @"_ZN69_$LT$gpui..elements..list..List$u20$as
   %.sroa.05.0 = load float, ptr %.sroa.05.0.in, align 4, !noundef !9
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 104
-  %.sroa.4.sroa.5.0.copyload = load float, ptr %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx, align 4
+  %.sroa.4.sroa.5.0.copyload = load float, ptr %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   %switch10.not.not = icmp eq i32 %19, 0
   %.sroa.322.0 = select i1 %switch10.not.not, float 0.000000e+00, float %.sroa.4.sroa.5.0.copyload
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15878)
@@ -80269,11 +80269,11 @@ _ZN4gpui8geometry14DefiniteLength9to_pixels17h3b85af339a2a793bE.exit10.i: ; pred
   %162 = getelementptr inbounds nuw i8, ptr %16, i64 108
   store i32 1, ptr %162, align 4
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 112
-  store float %.sroa.02.0.i.i, ptr %.sroa.46.0..sroa_idx, align 4
+  store float %.sroa.02.0.i.i, ptr %.sroa.46.0..sroa_idx, align 8
   %.sroa.46.sroa.4.0..sroa.46.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 116
   store float %.sroa.02.0.i3.i, ptr %.sroa.46.sroa.4.0..sroa.46.0..sroa_idx.sroa_idx, align 4
   %.sroa.46.sroa.5.0..sroa.46.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 120
-  store float %.sroa.02.0.i8.i, ptr %.sroa.46.sroa.5.0..sroa.46.0..sroa_idx.sroa_idx, align 4
+  store float %.sroa.02.0.i8.i, ptr %.sroa.46.sroa.5.0..sroa.46.0..sroa_idx.sroa_idx, align 8
   %.sroa.46.sroa.6.0..sroa.46.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 124
   store float %.sroa.02.0.i13.i, ptr %.sroa.46.sroa.6.0..sroa.46.0..sroa_idx.sroa_idx, align 4
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -86236,19 +86236,19 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17hc88db2ddf50df1cbE.exit: ; preds = %69
   store ptr null, ptr %178, align 8
   %182 = load i64, ptr %176, align 8, !noundef !9
   %183 = getelementptr inbounds nuw i8, ptr %176, i64 8
-  %184 = load float, ptr %183, align 4, !alias.scope !17141, !noalias !17148, !noundef !9
+  %184 = load float, ptr %183, align 8, !alias.scope !17141, !noalias !17148, !noundef !9
   %185 = getelementptr inbounds nuw i8, ptr %176, i64 12
   %186 = load float, ptr %185, align 4, !alias.scope !17150, !noalias !17148, !noundef !9
   %187 = getelementptr inbounds nuw i8, ptr %176, i64 16
-  %188 = load float, ptr %187, align 4, !alias.scope !17153, !noalias !17148, !noundef !9
+  %188 = load float, ptr %187, align 8, !alias.scope !17153, !noalias !17148, !noundef !9
   %189 = getelementptr inbounds nuw i8, ptr %176, i64 20
   %190 = load float, ptr %189, align 4, !alias.scope !17158, !noalias !17148, !noundef !9
   %191 = getelementptr inbounds nuw i8, ptr %176, i64 24
-  %192 = load float, ptr %191, align 4, !alias.scope !17161, !noalias !17168, !noundef !9
+  %192 = load float, ptr %191, align 8, !alias.scope !17161, !noalias !17168, !noundef !9
   %193 = getelementptr inbounds nuw i8, ptr %176, i64 28
   %194 = load float, ptr %193, align 4, !alias.scope !17170, !noalias !17168, !noundef !9
   %195 = getelementptr inbounds nuw i8, ptr %176, i64 32
-  %196 = load float, ptr %195, align 4, !alias.scope !17173, !noalias !17168, !noundef !9
+  %196 = load float, ptr %195, align 8, !alias.scope !17173, !noalias !17168, !noundef !9
   %197 = getelementptr inbounds nuw i8, ptr %176, i64 36
   %198 = load float, ptr %197, align 4, !alias.scope !17178, !noalias !17168, !noundef !9
   %199 = getelementptr inbounds nuw i8, ptr %176, i64 40
@@ -88147,11 +88147,11 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h6ce61a656e189a8dE.exit: ; preds = %143
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %150, i64 52
   store float %112, ptr %.sroa.4.0..sroa_idx.i, align 4
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %150, i64 56
-  store float %113, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i, align 4
+  store float %113, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i, align 8
   %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %150, i64 60
   store float %131, ptr %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i, align 4
   %.sroa.4.sroa.6.0..sroa.4.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %150, i64 64
-  store float %137, ptr %.sroa.4.sroa.6.0..sroa.4.0..sroa_idx.sroa_idx.i, align 4
+  store float %137, ptr %.sroa.4.sroa.6.0..sroa.4.0..sroa_idx.sroa_idx.i, align 8
   %174 = load i64, ptr %172, align 8, !range !1339, !noundef !9
   %175 = getelementptr inbounds nuw i8, ptr %150, i64 32
   %176 = load i64, ptr %175, align 8
@@ -139451,11 +139451,11 @@ _ZN4gpui5scene5Scene10push_layer17h805c0ad39fafa583E.exit: ; preds = %"_ZN5alloc
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %105, i64 4
   store float %81, ptr %.sroa.4.0..sroa_idx.i, align 4
   %.sroa.5.0..sroa.4.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 8
-  store float %82, ptr %.sroa.5.0..sroa.4.0..sroa_idx.i.sroa_idx, align 4
+  store float %82, ptr %.sroa.5.0..sroa.4.0..sroa_idx.i.sroa_idx, align 8
   %.sroa.616.0..sroa.4.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 12
   store float %83, ptr %.sroa.616.0..sroa.4.0..sroa_idx.i.sroa_idx, align 4
   %.sroa.7.0..sroa.4.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 16
-  store float %84, ptr %.sroa.7.0..sroa.4.0..sroa_idx.i.sroa_idx, align 4
+  store float %84, ptr %.sroa.7.0..sroa.4.0..sroa_idx.i.sroa_idx, align 8
   %106 = add i64 %99, 1
   store i64 %106, ptr %98, align 8, !alias.scope !26949, !noalias !26952
   br label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8is_empty17h3d6f845e3d63ff8eE.exit.thread"
@@ -142971,7 +142971,7 @@ define internal void @"_ZN4gpui6window13WindowContext14on_mouse_event28_$u7b$$u7
   %29 = load i32, ptr %28, align 8, !noalias !27887, !noundef !9
   %30 = getelementptr inbounds nuw i8, ptr %.val3, i64 3772
   %31 = load i32, ptr %30, align 4, !noalias !27887, !noundef !9
-  %32 = load i32, ptr %22, align 4, !alias.scope !27890, !noalias !27899, !noundef !9
+  %32 = load i32, ptr %22, align 8, !alias.scope !27890, !noalias !27899, !noundef !9
   %33 = ashr i32 %29, 31
   %34 = lshr i32 %33, 1
   %35 = xor i32 %34, %29
@@ -143288,7 +143288,7 @@ define internal void @"_ZN4gpui6window13WindowContext14on_mouse_event28_$u7b$$u7
 36:                                               ; preds = %30
   store i64 -1, ptr %32, align 8, !noalias !28026
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %38 = load float, ptr %37, align 4, !noalias !28026, !noundef !9
+  %38 = load float, ptr %37, align 8, !noalias !28026, !noundef !9
   %39 = getelementptr inbounds nuw i8, ptr %31, i64 28
   %40 = load float, ptr %39, align 4, !noalias !28026, !noundef !9
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -144350,7 +144350,7 @@ define internal void @"_ZN4gpui6window13WindowContext14on_mouse_event28_$u7b$$u7
   %43 = load i32, ptr %42, align 8, !noalias !28375, !noundef !9
   %44 = getelementptr inbounds nuw i8, ptr %.val4, i64 3772
   %45 = load i32, ptr %44, align 4, !noalias !28375, !noundef !9
-  %46 = load i32, ptr %36, align 4, !alias.scope !28378, !noalias !28387, !noundef !9
+  %46 = load i32, ptr %36, align 8, !alias.scope !28378, !noalias !28387, !noundef !9
   %47 = ashr i32 %43, 31
   %48 = lshr i32 %47, 1
   %49 = xor i32 %48, %43
@@ -144456,7 +144456,7 @@ _ZN4gpui6window6Hitbox10is_hovered17h8f986d4f26cbfb9bE.exit.i: ; preds = %93, %9
   %109 = load i32, ptr %108, align 8, !noalias !28446, !noundef !9
   %110 = getelementptr inbounds nuw i8, ptr %.val4, i64 3772
   %111 = load i32, ptr %110, align 4, !noalias !28446, !noundef !9
-  %112 = load i32, ptr %102, align 4, !alias.scope !28449, !noalias !28458, !noundef !9
+  %112 = load i32, ptr %102, align 8, !alias.scope !28449, !noalias !28458, !noundef !9
   %113 = ashr i32 %109, 31
   %114 = lshr i32 %113, 1
   %115 = xor i32 %114, %109
@@ -144980,7 +144980,7 @@ define internal void @"_ZN4gpui6window13WindowContext14on_mouse_event28_$u7b$$u7
   %29 = load i32, ptr %28, align 8, !noalias !28640, !noundef !9
   %30 = getelementptr inbounds nuw i8, ptr %.val3, i64 3772
   %31 = load i32, ptr %30, align 4, !noalias !28640, !noundef !9
-  %32 = load i32, ptr %22, align 4, !alias.scope !28643, !noalias !28652, !noundef !9
+  %32 = load i32, ptr %22, align 8, !alias.scope !28643, !noalias !28652, !noundef !9
   %33 = ashr i32 %29, 31
   %34 = lshr i32 %33, 1
   %35 = xor i32 %34, %29
@@ -145738,7 +145738,7 @@ define internal void @"_ZN4gpui6window13WindowContext14on_mouse_event28_$u7b$$u7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(22) %25, ptr noundef nonnull align 8 dereferenceable(22) %24, i64 22, i1 false), !noalias !28920
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = load i8, ptr %26, align 8, !range !3258, !alias.scope !28916, !noalias !28922, !noundef !9
-  %28 = load float, ptr %1, align 4, !alias.scope !28923, !noalias !28922, !noundef !9
+  %28 = load float, ptr %1, align 8, !alias.scope !28923, !noalias !28922, !noundef !9
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %30 = load float, ptr %29, align 4, !alias.scope !28928, !noalias !28922, !noundef !9
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 17

@@ -359,7 +359,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %50, %_ZNK10ciMetada
   %69 = load ptr, ptr %68, align 8
   %70 = tail call noundef i32 @_ZN10CompileLog8identifyEP12ciBaseObject(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef %69)
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  %72 = load i32, ptr %71, align 4
+  %72 = load i32, ptr %71, align 8
   %73 = icmp sgt i32 %72, 0
   br i1 %73, label %.lr.ph76, label %._crit_edge77
 
@@ -374,7 +374,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %50, %_ZNK10ciMetada
   %78 = load ptr, ptr %77, align 8
   %79 = tail call noundef i32 @_ZN10CompileLog8identifyEP12ciBaseObject(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef %78)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %80 = load i32, ptr %71, align 4
+  %80 = load i32, ptr %71, align 8
   %81 = sext i32 %80 to i64
   %82 = icmp slt i64 %indvars.iv.next, %81
   br i1 %82, label %75, label %._crit_edge77, !llvm.loop !8
@@ -401,7 +401,7 @@ _ZN10CompileLog4nameEP8ciSymbol.exit:             ; preds = %._crit_edge77, %89
   %92 = load ptr, ptr %68, align 8
   %93 = tail call noundef i32 @_ZN10CompileLog8identifyEP12ciBaseObject(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef %92)
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.7, i32 noundef %93) #11
-  %94 = load i32, ptr %71, align 4
+  %94 = load i32, ptr %71, align 8
   %95 = icmp sgt i32 %94, 0
   br i1 %95, label %96, label %110
 
@@ -425,7 +425,7 @@ _ZN10CompileLog4nameEP8ciSymbol.exit:             ; preds = %._crit_edge77, %89
   %106 = tail call noundef i32 @_ZN10CompileLog8identifyEP12ciBaseObject(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef %105)
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %102, i32 noundef %106) #11
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
-  %107 = load i32, ptr %71, align 4
+  %107 = load i32, ptr %71, align 8
   %108 = sext i32 %107 to i64
   %109 = icmp slt i64 %indvars.iv.next84, %108
   br i1 %109, label %100, label %._crit_edge81, !llvm.loop !9

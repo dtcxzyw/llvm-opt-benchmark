@@ -2549,7 +2549,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %35
   store i64 %41, ptr %43, align 8, !tbaa !16
   store ptr %33, ptr %1, align 8, !tbaa !11
   store i64 0, ptr %42, align 8, !tbaa !16
-  store i8 0, ptr %33, align 1, !tbaa !17
+  store i8 0, ptr %33, align 8, !tbaa !17
   ret void
 }
 
@@ -7083,7 +7083,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %7, ptr %6, align 8, !tbaa !53, !noalias !136
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %8, align 8, !tbaa !16, !noalias !136
-  store i8 0, ptr %7, align 1, !tbaa !17, !noalias !136
+  store i8 0, ptr %7, align 8, !tbaa !17, !noalias !136
   store ptr %6, ptr %4, align 8, !tbaa !44
   br label %9
 
@@ -20533,7 +20533,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !16, !alias.scope !265, !noalias !268
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !11, !alias.scope !268, !noalias !265
   store i64 0, ptr %48, align 8, !tbaa !16, !alias.scope !268, !noalias !265
-  store i8 0, ptr %39, align 1, !tbaa !17, !alias.scope !268, !noalias !265
+  store i8 0, ptr %39, align 8, !tbaa !17, !alias.scope !268, !noalias !265
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -20581,7 +20581,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !16, !alias.scope !272, !noalias !275
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !11, !alias.scope !275, !noalias !272
   store i64 0, ptr %64, align 8, !tbaa !16, !alias.scope !275, !noalias !272
-  store i8 0, ptr %55, align 1, !tbaa !17, !alias.scope !275, !noalias !272
+  store i8 0, ptr %55, align 8, !tbaa !17, !alias.scope !275, !noalias !272
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5
@@ -21741,7 +21741,7 @@ define linkonce_odr dso_local void @_ZN7testing13ContainsRegexIPKcEENS_18Polymor
   store ptr %24, ptr %5, align 8, !tbaa !53
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %25, align 8, !tbaa !16
-  store i8 0, ptr %24, align 1, !tbaa !17
+  store i8 0, ptr %24, align 8, !tbaa !17
   %26 = load ptr, ptr %4, align 8, !tbaa !11
   invoke void @_ZN7testing8internal2RE4InitEPKc(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef %26)
           to label %_ZN7testing8internal2REC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %27
@@ -31841,7 +31841,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %29, ptr %.08.i.i.i.i.i, align 8, !tbaa !53
   %30 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 8
   store i64 0, ptr %30, align 8, !tbaa !16
-  store i8 0, ptr %29, align 1, !tbaa !17
+  store i8 0, ptr %29, align 8, !tbaa !17
   %31 = add i64 %.057.i.i.i.i.i, -1
   %32 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq i64 %31, 0

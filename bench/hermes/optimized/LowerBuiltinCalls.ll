@@ -299,7 +299,7 @@ if.end.i.i:                                       ; preds = %if.then20.i.i.i.i, 
   %3 = load i64, ptr %ref.tmp4, align 8
   store i64 %3, ptr %call.i.i.i, align 8
   %second.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
-  store i32 0, ptr %second.i.i.i.i, align 4
+  store i32 0, ptr %second.i.i.i.i, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit: ; preds = %if.end21.i.i.i.i, %if.end.i.i.i.i, %if.end.i.i
@@ -361,7 +361,7 @@ if.end.i.i320:                                    ; preds = %if.then20.i.i.i.i31
   %7 = load i64, ptr %ref.tmp11, align 8
   store i64 %7, ptr %call.i.i.i322, align 8
   %second.i.i.i.i323 = getelementptr inbounds nuw i8, ptr %call.i.i.i322, i64 8
-  store i32 0, ptr %second.i.i.i.i323, align 4
+  store i32 0, ptr %second.i.i.i.i323, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit324
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit324: ; preds = %if.end21.i.i.i.i303, %if.end.i.i.i.i284, %if.end.i.i320
@@ -423,7 +423,7 @@ if.end.i.i364:                                    ; preds = %if.then20.i.i.i.i36
   %11 = load i64, ptr %ref.tmp18, align 8
   store i64 %11, ptr %call.i.i.i366, align 8
   %second.i.i.i.i367 = getelementptr inbounds nuw i8, ptr %call.i.i.i366, i64 8
-  store i32 0, ptr %second.i.i.i.i367, align 4
+  store i32 0, ptr %second.i.i.i.i367, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit368
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit368: ; preds = %if.end21.i.i.i.i347, %if.end.i.i.i.i328, %if.end.i.i364
@@ -485,7 +485,7 @@ if.end.i.i408:                                    ; preds = %if.then20.i.i.i.i40
   %15 = load i64, ptr %ref.tmp25, align 8
   store i64 %15, ptr %call.i.i.i410, align 8
   %second.i.i.i.i411 = getelementptr inbounds nuw i8, ptr %call.i.i.i410, i64 8
-  store i32 0, ptr %second.i.i.i.i411, align 4
+  store i32 0, ptr %second.i.i.i.i411, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit412
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit412: ; preds = %if.end21.i.i.i.i391, %if.end.i.i.i.i372, %if.end.i.i408
@@ -547,7 +547,7 @@ if.end.i.i452:                                    ; preds = %if.then20.i.i.i.i44
   %19 = load i64, ptr %ref.tmp32, align 8
   store i64 %19, ptr %call.i.i.i454, align 8
   %second.i.i.i.i455 = getelementptr inbounds nuw i8, ptr %call.i.i.i454, i64 8
-  store i32 0, ptr %second.i.i.i.i455, align 4
+  store i32 0, ptr %second.i.i.i.i455, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit456
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit456: ; preds = %if.end21.i.i.i.i435, %if.end.i.i.i.i416, %if.end.i.i452
@@ -609,7 +609,7 @@ if.end.i.i496:                                    ; preds = %if.then20.i.i.i.i49
   %23 = load i64, ptr %ref.tmp41, align 8
   store i64 %23, ptr %call.i.i.i498, align 8
   %second.i.i.i.i499 = getelementptr inbounds nuw i8, ptr %call.i.i.i498, i64 8
-  store i32 0, ptr %second.i.i.i.i499, align 4
+  store i32 0, ptr %second.i.i.i.i499, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit500
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit500: ; preds = %if.end21.i.i.i.i479, %if.end.i.i.i.i460, %if.end.i.i496
@@ -634,7 +634,7 @@ if.end.i.i503:                                    ; preds = %_ZN4llvh12DenseMapB
   %28 = load i64, ptr %25, align 8
   store i64 %28, ptr %second3.i.i.i.i, align 8
   %second.i6.i.i.i = getelementptr inbounds nuw i8, ptr %call.i2.i.i, i64 16
-  store i8 0, ptr %second.i6.i.i.i, align 1
+  store i8 0, ptr %second.i6.i.i.i, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit500, %if.end.i.i503
@@ -696,7 +696,7 @@ if.end.i.i546:                                    ; preds = %if.then20.i.i.i.i54
   %32 = load i64, ptr %ref.tmp57, align 8
   store i64 %32, ptr %call.i.i.i548, align 8
   %second.i.i.i.i549 = getelementptr inbounds nuw i8, ptr %call.i.i.i548, i64 8
-  store i32 0, ptr %second.i.i.i.i549, align 4
+  store i32 0, ptr %second.i.i.i.i549, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit550
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit550: ; preds = %if.end21.i.i.i.i529, %if.end.i.i.i.i510, %if.end.i.i546
@@ -721,7 +721,7 @@ if.end.i.i556:                                    ; preds = %_ZN4llvh12DenseMapB
   %37 = load i64, ptr %34, align 8
   store i64 %37, ptr %second3.i.i.i.i559, align 8
   %second.i6.i.i.i560 = getelementptr inbounds nuw i8, ptr %call.i2.i.i557, i64 16
-  store i8 0, ptr %second.i6.i.i.i560, align 1
+  store i8 0, ptr %second.i6.i.i.i560, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit563
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit563: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit550, %if.end.i.i556
@@ -783,7 +783,7 @@ if.end.i.i603:                                    ; preds = %if.then20.i.i.i.i60
   %41 = load i64, ptr %ref.tmp73, align 8
   store i64 %41, ptr %call.i.i.i605, align 8
   %second.i.i.i.i606 = getelementptr inbounds nuw i8, ptr %call.i.i.i605, i64 8
-  store i32 0, ptr %second.i.i.i.i606, align 4
+  store i32 0, ptr %second.i.i.i.i606, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit607
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit607: ; preds = %if.end21.i.i.i.i586, %if.end.i.i.i.i567, %if.end.i.i603
@@ -808,7 +808,7 @@ if.end.i.i613:                                    ; preds = %_ZN4llvh12DenseMapB
   %46 = load i64, ptr %43, align 8
   store i64 %46, ptr %second3.i.i.i.i616, align 8
   %second.i6.i.i.i617 = getelementptr inbounds nuw i8, ptr %call.i2.i.i614, i64 16
-  store i8 0, ptr %second.i6.i.i.i617, align 1
+  store i8 0, ptr %second.i6.i.i.i617, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit620
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit620: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit607, %if.end.i.i613
@@ -870,7 +870,7 @@ if.end.i.i660:                                    ; preds = %if.then20.i.i.i.i65
   %50 = load i64, ptr %ref.tmp89, align 8
   store i64 %50, ptr %call.i.i.i662, align 8
   %second.i.i.i.i663 = getelementptr inbounds nuw i8, ptr %call.i.i.i662, i64 8
-  store i32 0, ptr %second.i.i.i.i663, align 4
+  store i32 0, ptr %second.i.i.i.i663, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit664
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit664: ; preds = %if.end21.i.i.i.i643, %if.end.i.i.i.i624, %if.end.i.i660
@@ -895,7 +895,7 @@ if.end.i.i670:                                    ; preds = %_ZN4llvh12DenseMapB
   %55 = load i64, ptr %52, align 8
   store i64 %55, ptr %second3.i.i.i.i673, align 8
   %second.i6.i.i.i674 = getelementptr inbounds nuw i8, ptr %call.i2.i.i671, i64 16
-  store i8 0, ptr %second.i6.i.i.i674, align 1
+  store i8 0, ptr %second.i6.i.i.i674, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit677
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit677: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit664, %if.end.i.i670
@@ -957,7 +957,7 @@ if.end.i.i717:                                    ; preds = %if.then20.i.i.i.i71
   %59 = load i64, ptr %ref.tmp105, align 8
   store i64 %59, ptr %call.i.i.i719, align 8
   %second.i.i.i.i720 = getelementptr inbounds nuw i8, ptr %call.i.i.i719, i64 8
-  store i32 0, ptr %second.i.i.i.i720, align 4
+  store i32 0, ptr %second.i.i.i.i720, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit721
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit721: ; preds = %if.end21.i.i.i.i700, %if.end.i.i.i.i681, %if.end.i.i717
@@ -982,7 +982,7 @@ if.end.i.i727:                                    ; preds = %_ZN4llvh12DenseMapB
   %64 = load i64, ptr %61, align 8
   store i64 %64, ptr %second3.i.i.i.i730, align 8
   %second.i6.i.i.i731 = getelementptr inbounds nuw i8, ptr %call.i2.i.i728, i64 16
-  store i8 0, ptr %second.i6.i.i.i731, align 1
+  store i8 0, ptr %second.i6.i.i.i731, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit734
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit734: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit721, %if.end.i.i727
@@ -1044,7 +1044,7 @@ if.end.i.i774:                                    ; preds = %if.then20.i.i.i.i77
   %68 = load i64, ptr %ref.tmp121, align 8
   store i64 %68, ptr %call.i.i.i776, align 8
   %second.i.i.i.i777 = getelementptr inbounds nuw i8, ptr %call.i.i.i776, i64 8
-  store i32 0, ptr %second.i.i.i.i777, align 4
+  store i32 0, ptr %second.i.i.i.i777, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit778
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit778: ; preds = %if.end21.i.i.i.i757, %if.end.i.i.i.i738, %if.end.i.i774
@@ -1069,7 +1069,7 @@ if.end.i.i784:                                    ; preds = %_ZN4llvh12DenseMapB
   %73 = load i64, ptr %70, align 8
   store i64 %73, ptr %second3.i.i.i.i787, align 8
   %second.i6.i.i.i788 = getelementptr inbounds nuw i8, ptr %call.i2.i.i785, i64 16
-  store i8 0, ptr %second.i6.i.i.i788, align 1
+  store i8 0, ptr %second.i6.i.i.i788, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit791
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit791: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit778, %if.end.i.i784
@@ -1131,7 +1131,7 @@ if.end.i.i831:                                    ; preds = %if.then20.i.i.i.i82
   %77 = load i64, ptr %ref.tmp137, align 8
   store i64 %77, ptr %call.i.i.i833, align 8
   %second.i.i.i.i834 = getelementptr inbounds nuw i8, ptr %call.i.i.i833, i64 8
-  store i32 0, ptr %second.i.i.i.i834, align 4
+  store i32 0, ptr %second.i.i.i.i834, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit835
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit835: ; preds = %if.end21.i.i.i.i814, %if.end.i.i.i.i795, %if.end.i.i831
@@ -1156,7 +1156,7 @@ if.end.i.i841:                                    ; preds = %_ZN4llvh12DenseMapB
   %82 = load i64, ptr %79, align 8
   store i64 %82, ptr %second3.i.i.i.i844, align 8
   %second.i6.i.i.i845 = getelementptr inbounds nuw i8, ptr %call.i2.i.i842, i64 16
-  store i8 0, ptr %second.i6.i.i.i845, align 1
+  store i8 0, ptr %second.i6.i.i.i845, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit848
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit848: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit835, %if.end.i.i841
@@ -1218,7 +1218,7 @@ if.end.i.i888:                                    ; preds = %if.then20.i.i.i.i88
   %86 = load i64, ptr %ref.tmp153, align 8
   store i64 %86, ptr %call.i.i.i890, align 8
   %second.i.i.i.i891 = getelementptr inbounds nuw i8, ptr %call.i.i.i890, i64 8
-  store i32 0, ptr %second.i.i.i.i891, align 4
+  store i32 0, ptr %second.i.i.i.i891, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit892
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit892: ; preds = %if.end21.i.i.i.i871, %if.end.i.i.i.i852, %if.end.i.i888
@@ -1243,7 +1243,7 @@ if.end.i.i898:                                    ; preds = %_ZN4llvh12DenseMapB
   %91 = load i64, ptr %88, align 8
   store i64 %91, ptr %second3.i.i.i.i901, align 8
   %second.i6.i.i.i902 = getelementptr inbounds nuw i8, ptr %call.i2.i.i899, i64 16
-  store i8 0, ptr %second.i6.i.i.i902, align 1
+  store i8 0, ptr %second.i6.i.i.i902, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit905
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit905: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit892, %if.end.i.i898
@@ -1305,7 +1305,7 @@ if.end.i.i945:                                    ; preds = %if.then20.i.i.i.i94
   %95 = load i64, ptr %ref.tmp169, align 8
   store i64 %95, ptr %call.i.i.i947, align 8
   %second.i.i.i.i948 = getelementptr inbounds nuw i8, ptr %call.i.i.i947, i64 8
-  store i32 0, ptr %second.i.i.i.i948, align 4
+  store i32 0, ptr %second.i.i.i.i948, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit949
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit949: ; preds = %if.end21.i.i.i.i928, %if.end.i.i.i.i909, %if.end.i.i945
@@ -1330,7 +1330,7 @@ if.end.i.i955:                                    ; preds = %_ZN4llvh12DenseMapB
   %100 = load i64, ptr %97, align 8
   store i64 %100, ptr %second3.i.i.i.i958, align 8
   %second.i6.i.i.i959 = getelementptr inbounds nuw i8, ptr %call.i2.i.i956, i64 16
-  store i8 0, ptr %second.i6.i.i.i959, align 1
+  store i8 0, ptr %second.i6.i.i.i959, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit962
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit962: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit949, %if.end.i.i955
@@ -1392,7 +1392,7 @@ if.end.i.i1002:                                   ; preds = %if.then20.i.i.i.i99
   %104 = load i64, ptr %ref.tmp185, align 8
   store i64 %104, ptr %call.i.i.i1004, align 8
   %second.i.i.i.i1005 = getelementptr inbounds nuw i8, ptr %call.i.i.i1004, i64 8
-  store i32 0, ptr %second.i.i.i.i1005, align 4
+  store i32 0, ptr %second.i.i.i.i1005, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1006
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1006: ; preds = %if.end21.i.i.i.i985, %if.end.i.i.i.i966, %if.end.i.i1002
@@ -1417,7 +1417,7 @@ if.end.i.i1012:                                   ; preds = %_ZN4llvh12DenseMapB
   %109 = load i64, ptr %106, align 8
   store i64 %109, ptr %second3.i.i.i.i1015, align 8
   %second.i6.i.i.i1016 = getelementptr inbounds nuw i8, ptr %call.i2.i.i1013, i64 16
-  store i8 0, ptr %second.i6.i.i.i1016, align 1
+  store i8 0, ptr %second.i6.i.i.i1016, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit1019
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit1019: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1006, %if.end.i.i1012
@@ -1479,7 +1479,7 @@ if.end.i.i1059:                                   ; preds = %if.then20.i.i.i.i10
   %113 = load i64, ptr %ref.tmp201, align 8
   store i64 %113, ptr %call.i.i.i1061, align 8
   %second.i.i.i.i1062 = getelementptr inbounds nuw i8, ptr %call.i.i.i1061, i64 8
-  store i32 0, ptr %second.i.i.i.i1062, align 4
+  store i32 0, ptr %second.i.i.i.i1062, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1063
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1063: ; preds = %if.end21.i.i.i.i1042, %if.end.i.i.i.i1023, %if.end.i.i1059
@@ -1504,7 +1504,7 @@ if.end.i.i1069:                                   ; preds = %_ZN4llvh12DenseMapB
   %118 = load i64, ptr %115, align 8
   store i64 %118, ptr %second3.i.i.i.i1072, align 8
   %second.i6.i.i.i1073 = getelementptr inbounds nuw i8, ptr %call.i2.i.i1070, i64 16
-  store i8 0, ptr %second.i6.i.i.i1073, align 1
+  store i8 0, ptr %second.i6.i.i.i1073, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit1076
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit1076: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1063, %if.end.i.i1069
@@ -1566,7 +1566,7 @@ if.end.i.i1116:                                   ; preds = %if.then20.i.i.i.i11
   %122 = load i64, ptr %ref.tmp217, align 8
   store i64 %122, ptr %call.i.i.i1118, align 8
   %second.i.i.i.i1119 = getelementptr inbounds nuw i8, ptr %call.i.i.i1118, i64 8
-  store i32 0, ptr %second.i.i.i.i1119, align 4
+  store i32 0, ptr %second.i.i.i.i1119, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1120
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1120: ; preds = %if.end21.i.i.i.i1099, %if.end.i.i.i.i1080, %if.end.i.i1116
@@ -1591,7 +1591,7 @@ if.end.i.i1126:                                   ; preds = %_ZN4llvh12DenseMapB
   %127 = load i64, ptr %124, align 8
   store i64 %127, ptr %second3.i.i.i.i1129, align 8
   %second.i6.i.i.i1130 = getelementptr inbounds nuw i8, ptr %call.i2.i.i1127, i64 16
-  store i8 0, ptr %second.i6.i.i.i1130, align 1
+  store i8 0, ptr %second.i6.i.i.i1130, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit1133
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit1133: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1120, %if.end.i.i1126
@@ -1653,7 +1653,7 @@ if.end.i.i1173:                                   ; preds = %if.then20.i.i.i.i11
   %131 = load i64, ptr %ref.tmp233, align 8
   store i64 %131, ptr %call.i.i.i1175, align 8
   %second.i.i.i.i1176 = getelementptr inbounds nuw i8, ptr %call.i.i.i1175, i64 8
-  store i32 0, ptr %second.i.i.i.i1176, align 4
+  store i32 0, ptr %second.i.i.i.i1176, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1177
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1177: ; preds = %if.end21.i.i.i.i1156, %if.end.i.i.i.i1137, %if.end.i.i1173
@@ -1678,7 +1678,7 @@ if.end.i.i1183:                                   ; preds = %_ZN4llvh12DenseMapB
   %136 = load i64, ptr %133, align 8
   store i64 %136, ptr %second3.i.i.i.i1186, align 8
   %second.i6.i.i.i1187 = getelementptr inbounds nuw i8, ptr %call.i2.i.i1184, i64 16
-  store i8 0, ptr %second.i6.i.i.i1187, align 1
+  store i8 0, ptr %second.i6.i.i.i1187, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit1190
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit1190: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1177, %if.end.i.i1183
@@ -1740,7 +1740,7 @@ if.end.i.i1230:                                   ; preds = %if.then20.i.i.i.i12
   %140 = load i64, ptr %ref.tmp249, align 8
   store i64 %140, ptr %call.i.i.i1232, align 8
   %second.i.i.i.i1233 = getelementptr inbounds nuw i8, ptr %call.i.i.i1232, i64 8
-  store i32 0, ptr %second.i.i.i.i1233, align 4
+  store i32 0, ptr %second.i.i.i.i1233, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1234
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1234: ; preds = %if.end21.i.i.i.i1213, %if.end.i.i.i.i1194, %if.end.i.i1230
@@ -1765,7 +1765,7 @@ if.end.i.i1240:                                   ; preds = %_ZN4llvh12DenseMapB
   %145 = load i64, ptr %142, align 8
   store i64 %145, ptr %second3.i.i.i.i1243, align 8
   %second.i6.i.i.i1244 = getelementptr inbounds nuw i8, ptr %call.i2.i.i1241, i64 16
-  store i8 0, ptr %second.i6.i.i.i1244, align 1
+  store i8 0, ptr %second.i6.i.i.i1244, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit1247
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit1247: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1234, %if.end.i.i1240
@@ -1827,7 +1827,7 @@ if.end.i.i1287:                                   ; preds = %if.then20.i.i.i.i12
   %149 = load i64, ptr %ref.tmp265, align 8
   store i64 %149, ptr %call.i.i.i1289, align 8
   %second.i.i.i.i1290 = getelementptr inbounds nuw i8, ptr %call.i.i.i1289, i64 8
-  store i32 0, ptr %second.i.i.i.i1290, align 4
+  store i32 0, ptr %second.i.i.i.i1290, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1291
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1291: ; preds = %if.end21.i.i.i.i1270, %if.end.i.i.i.i1251, %if.end.i.i1287
@@ -1852,7 +1852,7 @@ if.end.i.i1297:                                   ; preds = %_ZN4llvh12DenseMapB
   %154 = load i64, ptr %151, align 8
   store i64 %154, ptr %second3.i.i.i.i1300, align 8
   %second.i6.i.i.i1301 = getelementptr inbounds nuw i8, ptr %call.i2.i.i1298, i64 16
-  store i8 0, ptr %second.i6.i.i.i1301, align 1
+  store i8 0, ptr %second.i6.i.i.i1301, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit1304
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit1304: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1291, %if.end.i.i1297
@@ -1914,7 +1914,7 @@ if.end.i.i1344:                                   ; preds = %if.then20.i.i.i.i13
   %158 = load i64, ptr %ref.tmp281, align 8
   store i64 %158, ptr %call.i.i.i1346, align 8
   %second.i.i.i.i1347 = getelementptr inbounds nuw i8, ptr %call.i.i.i1346, i64 8
-  store i32 0, ptr %second.i.i.i.i1347, align 4
+  store i32 0, ptr %second.i.i.i.i1347, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1348
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1348: ; preds = %if.end21.i.i.i.i1327, %if.end.i.i.i.i1308, %if.end.i.i1344
@@ -1939,7 +1939,7 @@ if.end.i.i1354:                                   ; preds = %_ZN4llvh12DenseMapB
   %163 = load i64, ptr %160, align 8
   store i64 %163, ptr %second3.i.i.i.i1357, align 8
   %second.i6.i.i.i1358 = getelementptr inbounds nuw i8, ptr %call.i2.i.i1355, i64 16
-  store i8 0, ptr %second.i6.i.i.i1358, align 1
+  store i8 0, ptr %second.i6.i.i.i1358, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit1361
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit1361: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1348, %if.end.i.i1354
@@ -2001,7 +2001,7 @@ if.end.i.i1401:                                   ; preds = %if.then20.i.i.i.i13
   %167 = load i64, ptr %ref.tmp297, align 8
   store i64 %167, ptr %call.i.i.i1403, align 8
   %second.i.i.i.i1404 = getelementptr inbounds nuw i8, ptr %call.i.i.i1403, i64 8
-  store i32 0, ptr %second.i.i.i.i1404, align 4
+  store i32 0, ptr %second.i.i.i.i1404, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1405
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1405: ; preds = %if.end21.i.i.i.i1384, %if.end.i.i.i.i1365, %if.end.i.i1401
@@ -2026,7 +2026,7 @@ if.end.i.i1411:                                   ; preds = %_ZN4llvh12DenseMapB
   %172 = load i64, ptr %169, align 8
   store i64 %172, ptr %second3.i.i.i.i1414, align 8
   %second.i6.i.i.i1415 = getelementptr inbounds nuw i8, ptr %call.i2.i.i1412, i64 16
-  store i8 0, ptr %second.i6.i.i.i1415, align 1
+  store i8 0, ptr %second.i6.i.i.i1415, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit1418
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit1418: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1405, %if.end.i.i1411
@@ -2088,7 +2088,7 @@ if.end.i.i1458:                                   ; preds = %if.then20.i.i.i.i14
   %176 = load i64, ptr %ref.tmp313, align 8
   store i64 %176, ptr %call.i.i.i1460, align 8
   %second.i.i.i.i1461 = getelementptr inbounds nuw i8, ptr %call.i.i.i1460, i64 8
-  store i32 0, ptr %second.i.i.i.i1461, align 4
+  store i32 0, ptr %second.i.i.i.i1461, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1462
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1462: ; preds = %if.end21.i.i.i.i1441, %if.end.i.i.i.i1422, %if.end.i.i1458
@@ -2113,7 +2113,7 @@ if.end.i.i1468:                                   ; preds = %_ZN4llvh12DenseMapB
   %181 = load i64, ptr %178, align 8
   store i64 %181, ptr %second3.i.i.i.i1471, align 8
   %second.i6.i.i.i1472 = getelementptr inbounds nuw i8, ptr %call.i2.i.i1469, i64 16
-  store i8 0, ptr %second.i6.i.i.i1472, align 1
+  store i8 0, ptr %second.i6.i.i.i1472, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit1475
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit1475: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1462, %if.end.i.i1468
@@ -2175,7 +2175,7 @@ if.end.i.i1515:                                   ; preds = %if.then20.i.i.i.i15
   %185 = load i64, ptr %ref.tmp329, align 8
   store i64 %185, ptr %call.i.i.i1517, align 8
   %second.i.i.i.i1518 = getelementptr inbounds nuw i8, ptr %call.i.i.i1517, i64 8
-  store i32 0, ptr %second.i.i.i.i1518, align 4
+  store i32 0, ptr %second.i.i.i.i1518, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1519
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1519: ; preds = %if.end21.i.i.i.i1498, %if.end.i.i.i.i1479, %if.end.i.i1515
@@ -2200,7 +2200,7 @@ if.end.i.i1525:                                   ; preds = %_ZN4llvh12DenseMapB
   %190 = load i64, ptr %187, align 8
   store i64 %190, ptr %second3.i.i.i.i1528, align 8
   %second.i6.i.i.i1529 = getelementptr inbounds nuw i8, ptr %call.i2.i.i1526, i64 16
-  store i8 0, ptr %second.i6.i.i.i1529, align 1
+  store i8 0, ptr %second.i6.i.i.i1529, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit1532
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit1532: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1519, %if.end.i.i1525
@@ -2262,7 +2262,7 @@ if.end.i.i1572:                                   ; preds = %if.then20.i.i.i.i15
   %194 = load i64, ptr %ref.tmp345, align 8
   store i64 %194, ptr %call.i.i.i1574, align 8
   %second.i.i.i.i1575 = getelementptr inbounds nuw i8, ptr %call.i.i.i1574, i64 8
-  store i32 0, ptr %second.i.i.i.i1575, align 4
+  store i32 0, ptr %second.i.i.i.i1575, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1576
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1576: ; preds = %if.end21.i.i.i.i1555, %if.end.i.i.i.i1536, %if.end.i.i1572
@@ -2287,7 +2287,7 @@ if.end.i.i1582:                                   ; preds = %_ZN4llvh12DenseMapB
   %199 = load i64, ptr %196, align 8
   store i64 %199, ptr %second3.i.i.i.i1585, align 8
   %second.i6.i.i.i1586 = getelementptr inbounds nuw i8, ptr %call.i2.i.i1583, i64 16
-  store i8 0, ptr %second.i6.i.i.i1586, align 1
+  store i8 0, ptr %second.i6.i.i.i1586, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit1589
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit1589: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1576, %if.end.i.i1582
@@ -2349,7 +2349,7 @@ if.end.i.i1629:                                   ; preds = %if.then20.i.i.i.i16
   %203 = load i64, ptr %ref.tmp361, align 8
   store i64 %203, ptr %call.i.i.i1631, align 8
   %second.i.i.i.i1632 = getelementptr inbounds nuw i8, ptr %call.i.i.i1631, i64 8
-  store i32 0, ptr %second.i.i.i.i1632, align 4
+  store i32 0, ptr %second.i.i.i.i1632, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1633
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1633: ; preds = %if.end21.i.i.i.i1612, %if.end.i.i.i.i1593, %if.end.i.i1629
@@ -2374,7 +2374,7 @@ if.end.i.i1639:                                   ; preds = %_ZN4llvh12DenseMapB
   %208 = load i64, ptr %205, align 8
   store i64 %208, ptr %second3.i.i.i.i1642, align 8
   %second.i6.i.i.i1643 = getelementptr inbounds nuw i8, ptr %call.i2.i.i1640, i64 16
-  store i8 0, ptr %second.i6.i.i.i1643, align 1
+  store i8 0, ptr %second.i6.i.i.i1643, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit1646
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit1646: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1633, %if.end.i.i1639
@@ -2436,7 +2436,7 @@ if.end.i.i1686:                                   ; preds = %if.then20.i.i.i.i16
   %212 = load i64, ptr %ref.tmp377, align 8
   store i64 %212, ptr %call.i.i.i1688, align 8
   %second.i.i.i.i1689 = getelementptr inbounds nuw i8, ptr %call.i.i.i1688, i64 8
-  store i32 0, ptr %second.i.i.i.i1689, align 4
+  store i32 0, ptr %second.i.i.i.i1689, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1690
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1690: ; preds = %if.end21.i.i.i.i1669, %if.end.i.i.i.i1650, %if.end.i.i1686
@@ -2461,7 +2461,7 @@ if.end.i.i1696:                                   ; preds = %_ZN4llvh12DenseMapB
   %217 = load i64, ptr %214, align 8
   store i64 %217, ptr %second3.i.i.i.i1699, align 8
   %second.i6.i.i.i1700 = getelementptr inbounds nuw i8, ptr %call.i2.i.i1697, i64 16
-  store i8 0, ptr %second.i6.i.i.i1700, align 1
+  store i8 0, ptr %second.i6.i.i.i1700, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit1703
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit1703: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1690, %if.end.i.i1696
@@ -2523,7 +2523,7 @@ if.end.i.i1743:                                   ; preds = %if.then20.i.i.i.i17
   %221 = load i64, ptr %ref.tmp393, align 8
   store i64 %221, ptr %call.i.i.i1745, align 8
   %second.i.i.i.i1746 = getelementptr inbounds nuw i8, ptr %call.i.i.i1745, i64 8
-  store i32 0, ptr %second.i.i.i.i1746, align 4
+  store i32 0, ptr %second.i.i.i.i1746, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1747
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1747: ; preds = %if.end21.i.i.i.i1726, %if.end.i.i.i.i1707, %if.end.i.i1743
@@ -2548,7 +2548,7 @@ if.end.i.i1753:                                   ; preds = %_ZN4llvh12DenseMapB
   %226 = load i64, ptr %223, align 8
   store i64 %226, ptr %second3.i.i.i.i1756, align 8
   %second.i6.i.i.i1757 = getelementptr inbounds nuw i8, ptr %call.i2.i.i1754, i64 16
-  store i8 0, ptr %second.i6.i.i.i1757, align 1
+  store i8 0, ptr %second.i6.i.i.i1757, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit1760
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit1760: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1747, %if.end.i.i1753
@@ -2610,7 +2610,7 @@ if.end.i.i1800:                                   ; preds = %if.then20.i.i.i.i17
   %230 = load i64, ptr %ref.tmp409, align 8
   store i64 %230, ptr %call.i.i.i1802, align 8
   %second.i.i.i.i1803 = getelementptr inbounds nuw i8, ptr %call.i.i.i1802, i64 8
-  store i32 0, ptr %second.i.i.i.i1803, align 4
+  store i32 0, ptr %second.i.i.i.i1803, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1804
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1804: ; preds = %if.end21.i.i.i.i1783, %if.end.i.i.i.i1764, %if.end.i.i1800
@@ -2635,7 +2635,7 @@ if.end.i.i1810:                                   ; preds = %_ZN4llvh12DenseMapB
   %235 = load i64, ptr %232, align 8
   store i64 %235, ptr %second3.i.i.i.i1813, align 8
   %second.i6.i.i.i1814 = getelementptr inbounds nuw i8, ptr %call.i2.i.i1811, i64 16
-  store i8 0, ptr %second.i6.i.i.i1814, align 1
+  store i8 0, ptr %second.i6.i.i.i1814, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit1817
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit1817: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1804, %if.end.i.i1810
@@ -2697,7 +2697,7 @@ if.end.i.i1857:                                   ; preds = %if.then20.i.i.i.i18
   %239 = load i64, ptr %ref.tmp425, align 8
   store i64 %239, ptr %call.i.i.i1859, align 8
   %second.i.i.i.i1860 = getelementptr inbounds nuw i8, ptr %call.i.i.i1859, i64 8
-  store i32 0, ptr %second.i.i.i.i1860, align 4
+  store i32 0, ptr %second.i.i.i.i1860, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1861
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1861: ; preds = %if.end21.i.i.i.i1840, %if.end.i.i.i.i1821, %if.end.i.i1857
@@ -2722,7 +2722,7 @@ if.end.i.i1867:                                   ; preds = %_ZN4llvh12DenseMapB
   %244 = load i64, ptr %241, align 8
   store i64 %244, ptr %second3.i.i.i.i1870, align 8
   %second.i6.i.i.i1871 = getelementptr inbounds nuw i8, ptr %call.i2.i.i1868, i64 16
-  store i8 0, ptr %second.i6.i.i.i1871, align 1
+  store i8 0, ptr %second.i6.i.i.i1871, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit1874
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit1874: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1861, %if.end.i.i1867
@@ -2784,7 +2784,7 @@ if.end.i.i1914:                                   ; preds = %if.then20.i.i.i.i19
   %248 = load i64, ptr %ref.tmp441, align 8
   store i64 %248, ptr %call.i.i.i1916, align 8
   %second.i.i.i.i1917 = getelementptr inbounds nuw i8, ptr %call.i.i.i1916, i64 8
-  store i32 0, ptr %second.i.i.i.i1917, align 4
+  store i32 0, ptr %second.i.i.i.i1917, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1918
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1918: ; preds = %if.end21.i.i.i.i1897, %if.end.i.i.i.i1878, %if.end.i.i1914
@@ -2809,7 +2809,7 @@ if.end.i.i1924:                                   ; preds = %_ZN4llvh12DenseMapB
   %253 = load i64, ptr %250, align 8
   store i64 %253, ptr %second3.i.i.i.i1927, align 8
   %second.i6.i.i.i1928 = getelementptr inbounds nuw i8, ptr %call.i2.i.i1925, i64 16
-  store i8 0, ptr %second.i6.i.i.i1928, align 1
+  store i8 0, ptr %second.i6.i.i.i1928, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit1931
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit1931: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1918, %if.end.i.i1924
@@ -2871,7 +2871,7 @@ if.end.i.i1971:                                   ; preds = %if.then20.i.i.i.i19
   %257 = load i64, ptr %ref.tmp457, align 8
   store i64 %257, ptr %call.i.i.i1973, align 8
   %second.i.i.i.i1974 = getelementptr inbounds nuw i8, ptr %call.i.i.i1973, i64 8
-  store i32 0, ptr %second.i.i.i.i1974, align 4
+  store i32 0, ptr %second.i.i.i.i1974, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1975
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1975: ; preds = %if.end21.i.i.i.i1954, %if.end.i.i.i.i1935, %if.end.i.i1971
@@ -2896,7 +2896,7 @@ if.end.i.i1981:                                   ; preds = %_ZN4llvh12DenseMapB
   %262 = load i64, ptr %259, align 8
   store i64 %262, ptr %second3.i.i.i.i1984, align 8
   %second.i6.i.i.i1985 = getelementptr inbounds nuw i8, ptr %call.i2.i.i1982, i64 16
-  store i8 0, ptr %second.i6.i.i.i1985, align 1
+  store i8 0, ptr %second.i6.i.i.i1985, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit1988
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit1988: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit1975, %if.end.i.i1981
@@ -2958,7 +2958,7 @@ if.end.i.i2028:                                   ; preds = %if.then20.i.i.i.i20
   %266 = load i64, ptr %ref.tmp473, align 8
   store i64 %266, ptr %call.i.i.i2030, align 8
   %second.i.i.i.i2031 = getelementptr inbounds nuw i8, ptr %call.i.i.i2030, i64 8
-  store i32 0, ptr %second.i.i.i.i2031, align 4
+  store i32 0, ptr %second.i.i.i.i2031, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit2032
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit2032: ; preds = %if.end21.i.i.i.i2011, %if.end.i.i.i.i1992, %if.end.i.i2028
@@ -2983,7 +2983,7 @@ if.end.i.i2038:                                   ; preds = %_ZN4llvh12DenseMapB
   %271 = load i64, ptr %268, align 8
   store i64 %271, ptr %second3.i.i.i.i2041, align 8
   %second.i6.i.i.i2042 = getelementptr inbounds nuw i8, ptr %call.i2.i.i2039, i64 16
-  store i8 0, ptr %second.i6.i.i.i2042, align 1
+  store i8 0, ptr %second.i6.i.i.i2042, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit2045
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit2045: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit2032, %if.end.i.i2038
@@ -3045,7 +3045,7 @@ if.end.i.i2085:                                   ; preds = %if.then20.i.i.i.i20
   %275 = load i64, ptr %ref.tmp489, align 8
   store i64 %275, ptr %call.i.i.i2087, align 8
   %second.i.i.i.i2088 = getelementptr inbounds nuw i8, ptr %call.i.i.i2087, i64 8
-  store i32 0, ptr %second.i.i.i.i2088, align 4
+  store i32 0, ptr %second.i.i.i.i2088, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit2089
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit2089: ; preds = %if.end21.i.i.i.i2068, %if.end.i.i.i.i2049, %if.end.i.i2085
@@ -3070,7 +3070,7 @@ if.end.i.i2095:                                   ; preds = %_ZN4llvh12DenseMapB
   %280 = load i64, ptr %277, align 8
   store i64 %280, ptr %second3.i.i.i.i2098, align 8
   %second.i6.i.i.i2099 = getelementptr inbounds nuw i8, ptr %call.i2.i.i2096, i64 16
-  store i8 0, ptr %second.i6.i.i.i2099, align 1
+  store i8 0, ptr %second.i6.i.i.i2099, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit2102
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit2102: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit2089, %if.end.i.i2095
@@ -3132,7 +3132,7 @@ if.end.i.i2142:                                   ; preds = %if.then20.i.i.i.i21
   %284 = load i64, ptr %ref.tmp505, align 8
   store i64 %284, ptr %call.i.i.i2144, align 8
   %second.i.i.i.i2145 = getelementptr inbounds nuw i8, ptr %call.i.i.i2144, i64 8
-  store i32 0, ptr %second.i.i.i.i2145, align 4
+  store i32 0, ptr %second.i.i.i.i2145, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit2146
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit2146: ; preds = %if.end21.i.i.i.i2125, %if.end.i.i.i.i2106, %if.end.i.i2142
@@ -3157,7 +3157,7 @@ if.end.i.i2152:                                   ; preds = %_ZN4llvh12DenseMapB
   %289 = load i64, ptr %286, align 8
   store i64 %289, ptr %second3.i.i.i.i2155, align 8
   %second.i6.i.i.i2156 = getelementptr inbounds nuw i8, ptr %call.i2.i.i2153, i64 16
-  store i8 0, ptr %second.i6.i.i.i2156, align 1
+  store i8 0, ptr %second.i6.i.i.i2156, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit2159
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit2159: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit2146, %if.end.i.i2152
@@ -3219,7 +3219,7 @@ if.end.i.i2199:                                   ; preds = %if.then20.i.i.i.i21
   %293 = load i64, ptr %ref.tmp521, align 8
   store i64 %293, ptr %call.i.i.i2201, align 8
   %second.i.i.i.i2202 = getelementptr inbounds nuw i8, ptr %call.i.i.i2201, i64 8
-  store i32 0, ptr %second.i.i.i.i2202, align 4
+  store i32 0, ptr %second.i.i.i.i2202, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit2203
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit2203: ; preds = %if.end21.i.i.i.i2182, %if.end.i.i.i.i2163, %if.end.i.i2199
@@ -3244,7 +3244,7 @@ if.end.i.i2209:                                   ; preds = %_ZN4llvh12DenseMapB
   %298 = load i64, ptr %295, align 8
   store i64 %298, ptr %second3.i.i.i.i2212, align 8
   %second.i6.i.i.i2213 = getelementptr inbounds nuw i8, ptr %call.i2.i.i2210, i64 16
-  store i8 0, ptr %second.i6.i.i.i2213, align 1
+  store i8 0, ptr %second.i6.i.i.i2213, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit2216
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit2216: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit2203, %if.end.i.i2209
@@ -3306,7 +3306,7 @@ if.end.i.i2256:                                   ; preds = %if.then20.i.i.i.i22
   %302 = load i64, ptr %ref.tmp537, align 8
   store i64 %302, ptr %call.i.i.i2258, align 8
   %second.i.i.i.i2259 = getelementptr inbounds nuw i8, ptr %call.i.i.i2258, i64 8
-  store i32 0, ptr %second.i.i.i.i2259, align 4
+  store i32 0, ptr %second.i.i.i.i2259, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit2260
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit2260: ; preds = %if.end21.i.i.i.i2239, %if.end.i.i.i.i2220, %if.end.i.i2256
@@ -3331,7 +3331,7 @@ if.end.i.i2266:                                   ; preds = %_ZN4llvh12DenseMapB
   %307 = load i64, ptr %304, align 8
   store i64 %307, ptr %second3.i.i.i.i2269, align 8
   %second.i6.i.i.i2270 = getelementptr inbounds nuw i8, ptr %call.i2.i.i2267, i64 16
-  store i8 0, ptr %second.i6.i.i.i2270, align 1
+  store i8 0, ptr %second.i6.i.i.i2270, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit2273
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit2273: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit2260, %if.end.i.i2266
@@ -3393,7 +3393,7 @@ if.end.i.i2313:                                   ; preds = %if.then20.i.i.i.i23
   %311 = load i64, ptr %ref.tmp553, align 8
   store i64 %311, ptr %call.i.i.i2315, align 8
   %second.i.i.i.i2316 = getelementptr inbounds nuw i8, ptr %call.i.i.i2315, i64 8
-  store i32 0, ptr %second.i.i.i.i2316, align 4
+  store i32 0, ptr %second.i.i.i.i2316, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit2317
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit2317: ; preds = %if.end21.i.i.i.i2296, %if.end.i.i.i.i2277, %if.end.i.i2313
@@ -3418,7 +3418,7 @@ if.end.i.i2323:                                   ; preds = %_ZN4llvh12DenseMapB
   %316 = load i64, ptr %313, align 8
   store i64 %316, ptr %second3.i.i.i.i2326, align 8
   %second.i6.i.i.i2327 = getelementptr inbounds nuw i8, ptr %call.i2.i.i2324, i64 16
-  store i8 0, ptr %second.i6.i.i.i2327, align 1
+  store i8 0, ptr %second.i6.i.i.i2327, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit2330
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit2330: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit2317, %if.end.i.i2323
@@ -3480,7 +3480,7 @@ if.end.i.i2370:                                   ; preds = %if.then20.i.i.i.i23
   %320 = load i64, ptr %ref.tmp569, align 8
   store i64 %320, ptr %call.i.i.i2372, align 8
   %second.i.i.i.i2373 = getelementptr inbounds nuw i8, ptr %call.i.i.i2372, i64 8
-  store i32 0, ptr %second.i.i.i.i2373, align 4
+  store i32 0, ptr %second.i.i.i.i2373, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit2374
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit2374: ; preds = %if.end21.i.i.i.i2353, %if.end.i.i.i.i2334, %if.end.i.i2370
@@ -3505,7 +3505,7 @@ if.end.i.i2380:                                   ; preds = %_ZN4llvh12DenseMapB
   %325 = load i64, ptr %322, align 8
   store i64 %325, ptr %second3.i.i.i.i2383, align 8
   %second.i6.i.i.i2384 = getelementptr inbounds nuw i8, ptr %call.i2.i.i2381, i64 16
-  store i8 0, ptr %second.i6.i.i.i2384, align 1
+  store i8 0, ptr %second.i6.i.i.i2384, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit2387
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit2387: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit2374, %if.end.i.i2380
@@ -3567,7 +3567,7 @@ if.end.i.i2427:                                   ; preds = %if.then20.i.i.i.i24
   %329 = load i64, ptr %ref.tmp585, align 8
   store i64 %329, ptr %call.i.i.i2429, align 8
   %second.i.i.i.i2430 = getelementptr inbounds nuw i8, ptr %call.i.i.i2429, i64 8
-  store i32 0, ptr %second.i.i.i.i2430, align 4
+  store i32 0, ptr %second.i.i.i.i2430, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit2431
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit2431: ; preds = %if.end21.i.i.i.i2410, %if.end.i.i.i.i2391, %if.end.i.i2427
@@ -3592,7 +3592,7 @@ if.end.i.i2437:                                   ; preds = %_ZN4llvh12DenseMapB
   %334 = load i64, ptr %331, align 8
   store i64 %334, ptr %second3.i.i.i.i2440, align 8
   %second.i6.i.i.i2441 = getelementptr inbounds nuw i8, ptr %call.i2.i.i2438, i64 16
-  store i8 0, ptr %second.i6.i.i.i2441, align 1
+  store i8 0, ptr %second.i6.i.i.i2441, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit2444
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit2444: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit2431, %if.end.i.i2437
@@ -3654,7 +3654,7 @@ if.end.i.i2484:                                   ; preds = %if.then20.i.i.i.i24
   %338 = load i64, ptr %ref.tmp601, align 8
   store i64 %338, ptr %call.i.i.i2486, align 8
   %second.i.i.i.i2487 = getelementptr inbounds nuw i8, ptr %call.i.i.i2486, i64 8
-  store i32 0, ptr %second.i.i.i.i2487, align 4
+  store i32 0, ptr %second.i.i.i.i2487, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit2488
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit2488: ; preds = %if.end21.i.i.i.i2467, %if.end.i.i.i.i2448, %if.end.i.i2484
@@ -3679,7 +3679,7 @@ if.end.i.i2494:                                   ; preds = %_ZN4llvh12DenseMapB
   %343 = load i64, ptr %340, align 8
   store i64 %343, ptr %second3.i.i.i.i2497, align 8
   %second.i6.i.i.i2498 = getelementptr inbounds nuw i8, ptr %call.i2.i.i2495, i64 16
-  store i8 0, ptr %second.i6.i.i.i2498, align 1
+  store i8 0, ptr %second.i6.i.i.i2498, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit2501
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit2501: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit2488, %if.end.i.i2494
@@ -3741,7 +3741,7 @@ if.end.i.i2541:                                   ; preds = %if.then20.i.i.i.i25
   %347 = load i64, ptr %ref.tmp617, align 8
   store i64 %347, ptr %call.i.i.i2543, align 8
   %second.i.i.i.i2544 = getelementptr inbounds nuw i8, ptr %call.i.i.i2543, i64 8
-  store i32 0, ptr %second.i.i.i.i2544, align 4
+  store i32 0, ptr %second.i.i.i.i2544, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit2545
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit2545: ; preds = %if.end21.i.i.i.i2524, %if.end.i.i.i.i2505, %if.end.i.i2541
@@ -3766,7 +3766,7 @@ if.end.i.i2551:                                   ; preds = %_ZN4llvh12DenseMapB
   %352 = load i64, ptr %349, align 8
   store i64 %352, ptr %second3.i.i.i.i2554, align 8
   %second.i6.i.i.i2555 = getelementptr inbounds nuw i8, ptr %call.i2.i.i2552, i64 16
-  store i8 0, ptr %second.i6.i.i.i2555, align 1
+  store i8 0, ptr %second.i6.i.i.i2555, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit2558
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13BuiltinMethod4EnumENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixEOS5_.exit2558: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit2545, %if.end.i.i2551
@@ -5156,7 +5156,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_E
   %second.i.i = getelementptr inbounds nuw i8, ptr %cond.sink.i.i.i, i64 8
   %second.i14.i = getelementptr inbounds nuw i8, ptr %B.021.i, i64 8
   %7 = load i32, ptr %second.i14.i, align 4
-  store i32 %7, ptr %second.i.i, align 4
+  store i32 %7, ptr %second.i.i, align 8
   %8 = load i32, ptr %NumEntries.i.i.i.i, align 8
   %add.i.i = add i32 %8, 1
   store i32 %add.i.i, ptr %NumEntries.i.i.i.i, align 8
@@ -5446,8 +5446,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   store i64 %10, ptr %second3.i16.i, align 8
   %second.i17.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   %second.i18.i = getelementptr inbounds nuw i8, ptr %B.023.i, i64 16
-  %11 = load i8, ptr %second.i18.i, align 1
-  store i8 %11, ptr %second.i17.i, align 1
+  %11 = load i8, ptr %second.i18.i, align 8
+  store i8 %11, ptr %second.i17.i, align 8
   %12 = load i32, ptr %NumEntries.i.i.i.i, align 8
   %add.i.i = add i32 %12, 1
   store i32 %add.i.i, ptr %NumEntries.i.i.i.i, align 8

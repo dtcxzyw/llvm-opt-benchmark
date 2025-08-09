@@ -1082,7 +1082,7 @@ define noalias noundef nonnull ptr @llama_sampler_init_mirostat(i32 noundef %0, 
   store float %14, ptr %13, align 8, !tbaa !89
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %16 = zext i32 %6 to i64
-  store i64 %16, ptr %15, align 8, !tbaa !46
+  store i64 %16, ptr %15, align 16, !tbaa !46
   br label %17
 
 17:                                               ; preds = %17, %5
@@ -1170,13 +1170,13 @@ define internal fastcc noalias noundef nonnull ptr @_ZL31llama_sampler_init_gram
   store ptr %15, ptr %14, align 8, !tbaa !52
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !55
-  store i8 0, ptr %15, align 1, !tbaa !57
+  store i8 0, ptr %15, align 8, !tbaa !57
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 56
   store ptr %18, ptr %17, align 8, !tbaa !52
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store i64 0, ptr %19, align 8, !tbaa !55
-  store i8 0, ptr %18, align 1, !tbaa !57
+  store i8 0, ptr %18, align 8, !tbaa !57
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %88, label %20
 
@@ -1455,7 +1455,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i:
   store float %3, ptr %7, align 4, !tbaa !117
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = zext nneg i32 %.sroa.speculated to i64
-  store i64 %9, ptr %8, align 8, !tbaa !118
+  store i64 %9, ptr %8, align 16, !tbaa !118
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %.not.i.i.i.i.i = icmp slt i32 %0, 1
@@ -2273,7 +2273,7 @@ _ZNSt10_HashtableIiSt4pairIKiSt6vectorIiSaIiEEESaIS5_ENSt8__detail10_Select1stES
   %.05568.i.i = phi i8 [ %.156.i.i, %306 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiSt6vectorIiSaIiEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb0EEEE19_M_allocate_bucketsEm.exit.i.i ]
   %276 = load ptr, ptr %.072.i.i, align 8, !tbaa !135
   %277 = getelementptr inbounds nuw i8, ptr %.072.i.i, i64 8
-  %278 = load i32, ptr %277, align 4, !tbaa !27
+  %278 = load i32, ptr %277, align 8, !tbaa !27
   %279 = sext i32 %278 to i64
   %280 = urem i64 %279, %266
   %.not62.i.i = icmp ne ptr %.05469.i.i, null
@@ -2710,14 +2710,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store ptr %442, ptr %441, align 8, !tbaa !127
   %443 = getelementptr inbounds nuw i8, ptr %435, i64 32
   %444 = load i64, ptr %21, align 8, !tbaa !129
-  store i64 %444, ptr %443, align 8, !tbaa !129
+  store i64 %444, ptr %443, align 16, !tbaa !129
   %445 = getelementptr inbounds nuw i8, ptr %435, i64 40
   %446 = load ptr, ptr %22, align 8, !tbaa !153
   store ptr %446, ptr %445, align 8, !tbaa !135
   %447 = getelementptr inbounds nuw i8, ptr %435, i64 48
   %448 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %449 = load i64, ptr %448, align 8, !tbaa !139
-  store i64 %449, ptr %447, align 8, !tbaa !139
+  store i64 %449, ptr %447, align 16, !tbaa !139
   %450 = getelementptr inbounds nuw i8, ptr %435, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %450, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false), !tbaa.struct !167
   %451 = getelementptr inbounds nuw i8, ptr %435, i64 72
@@ -3452,7 +3452,7 @@ define { double, i32 } @llama_perf_sampler(ptr noundef readonly captures(address
   %11 = sitofp i64 %10 to double
   %12 = fmul double %11, 1.000000e-03
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %14 = load i32, ptr %13, align 4, !tbaa !27
+  %14 = load i32, ptr %13, align 8, !tbaa !27
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %14, i32 0)
   %.fca.0.insert = insertvalue { double, i32 } poison, double %12, 0
   %.fca.1.insert = insertvalue { double, i32 } %.fca.0.insert, i32 %.sroa.speculated, 1
@@ -3481,7 +3481,7 @@ llama_perf_sampler.exit:                          ; preds = %3
   %10 = sitofp i64 %9 to double
   %11 = fmul double %10, 1.000000e-03
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %13 = load i32, ptr %12, align 4, !tbaa !27
+  %13 = load i32, ptr %12, align 8, !tbaa !27
   %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %13, i32 0)
   %14 = uitofp nneg i32 %.sroa.speculated.i to double
   %15 = fdiv double %11, %14
@@ -9250,7 +9250,7 @@ define internal noalias noundef nonnull ptr @_ZL28llama_sampler_mirostat_clonePK
   store float %21, ptr %20, align 8, !tbaa !89
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %23 = zext i32 %13 to i64
-  store i64 %23, ptr %22, align 8, !tbaa !46
+  store i64 %23, ptr %22, align 16, !tbaa !46
   br label %24
 
 24:                                               ; preds = %24, %1
@@ -10154,7 +10154,7 @@ define internal void @_ZL30llama_sampler_penalties_acceptP13llama_sampleri(ptr n
   %30 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   store ptr null, ptr %30, align 8, !tbaa !135
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store i32 %1, ptr %31, align 4, !tbaa !330
+  store i32 %1, ptr %31, align 8, !tbaa !330
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 12
   store i32 0, ptr %32, align 4, !tbaa !332
   %33 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS4_10_Hash_nodeIS2_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %9, i64 noundef %13, i64 noundef %10, ptr noundef nonnull %30, i64 noundef 1)
@@ -10260,7 +10260,7 @@ _ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEEixERS5_.exit20.t
   %76 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   store ptr null, ptr %76, align 8, !tbaa !135
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  store i32 %54, ptr %77, align 4, !tbaa !330
+  store i32 %54, ptr %77, align 8, !tbaa !330
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 12
   store i32 0, ptr %78, align 4, !tbaa !332
   %79 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS4_10_Hash_nodeIS2_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %9, i64 noundef %57, i64 noundef %55, ptr noundef nonnull %76, i64 noundef 1)
@@ -10328,7 +10328,7 @@ _ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEEixERS5_.exit20: 
   %100 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   store ptr null, ptr %100, align 8, !tbaa !135
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  store i32 %54, ptr %101, align 4, !tbaa !330
+  store i32 %54, ptr %101, align 8, !tbaa !330
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 12
   store i32 0, ptr %102, align 4, !tbaa !332
   %103 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS4_10_Hash_nodeIS2_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %9, i64 noundef %.pre-phi53, i64 noundef %55, ptr noundef nonnull %100, i64 noundef 1)
@@ -10626,7 +10626,7 @@ define internal noalias noundef nonnull ptr @_ZL29llama_sampler_penalties_cloneP
   store float %10, ptr %14, align 4, !tbaa !117
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %16 = zext nneg i32 %.sroa.speculated.i to i64
-  store i64 %16, ptr %15, align 8, !tbaa !118
+  store i64 %16, ptr %15, align 16, !tbaa !118
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %.not.i.i.i.i.i.i = icmp slt i32 %4, 1
@@ -10895,7 +10895,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !135
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !27
+  %16 = load i32, ptr %15, align 8, !tbaa !27
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -11662,7 +11662,7 @@ _ZNSt10_HashtableIiSt4pairIKiSt6vectorIiSaIiEEESaIS5_ENSt8__detail10_Select1stES
   %.05568 = phi i8 [ %.156, %44 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiSt6vectorIiSaIiEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb0EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.072, align 8, !tbaa !135
   %15 = getelementptr inbounds nuw i8, ptr %.072, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !27
+  %16 = load i32, ptr %15, align 8, !tbaa !27
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %.not62 = icmp ne ptr %.05469, null
@@ -11897,7 +11897,7 @@ define internal void @_ZL23llama_sampler_dry_applyP13llama_samplerP22llama_token
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %26 = load i64, ptr %25, align 8, !tbaa !333
   %27 = trunc i64 %26 to i32
-  %28 = load i32, ptr %6, align 4, !tbaa !27
+  %28 = load i32, ptr %6, align 8, !tbaa !27
   %29 = tail call i32 @llvm.smin.i32(i32 %23, i32 %27)
   %30 = tail call i32 @llvm.smin.i32(i32 %28, i32 %29)
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -12531,7 +12531,7 @@ _ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE4findERS5_.exit:
   %301 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   store ptr null, ptr %301, align 8, !tbaa !135
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 8
-  store i32 %253, ptr %302, align 4, !tbaa !330
+  store i32 %253, ptr %302, align 8, !tbaa !330
   %303 = getelementptr inbounds nuw i8, ptr %301, i64 12
   store i32 0, ptr %303, align 4, !tbaa !332
   %304 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS4_10_Hash_nodeIS2_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %36, i64 noundef %284, i64 noundef %282, ptr noundef nonnull %301, i64 noundef 1)
@@ -13877,7 +13877,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   store ptr null, ptr %.sink12.i, align 8, !tbaa !135
   %28 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 8
   %29 = load i64, ptr %21, align 4
-  store i64 %29, ptr %28, align 4
+  store i64 %29, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sink12.i, ptr %30, align 8, !tbaa !168
   %31 = load ptr, ptr %0, align 8, !tbaa !122
@@ -13914,7 +13914,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   store ptr null, ptr %.sink12.i34, align 8, !tbaa !135
   %44 = getelementptr inbounds nuw i8, ptr %.sink12.i34, i64 8
   %45 = load i64, ptr %37, align 4
-  store i64 %45, ptr %44, align 4
+  store i64 %45, ptr %44, align 8
   store ptr %.sink12.i34, ptr %.02639, align 8, !tbaa !135
   %46 = load i64, ptr %32, align 8, !tbaa !123
   %sext41 = shl i64 %45, 32

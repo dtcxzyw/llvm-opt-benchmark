@@ -509,7 +509,7 @@ define dso_local void @qdisc_hash_add(ptr noundef %0, i1 noundef zeroext %1) #0 
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %18, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store volatile ptr %28, ptr %30, align 8
+  store volatile ptr %28, ptr %30, align 16
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !22
   store volatile ptr %18, ptr %28, align 8
   %31 = icmp eq ptr %29, null

@@ -125,7 +125,7 @@ define weak_odr noundef ptr @_ZN7Imf_3_414TypedAttributeINS_8RationalEE16makeNew
 2:                                                ; preds = %0
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN7Imf_3_414TypedAttributeINS_8RationalEEE, i64 16), ptr %1, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 0, ptr %3, align 4, !tbaa !6
+  store i32 0, ptr %3, align 8, !tbaa !6
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 1, ptr %4, align 4, !tbaa !10
   ret ptr %1
@@ -155,7 +155,7 @@ define weak_odr noundef ptr @_ZNK7Imf_3_414TypedAttributeINS_8RationalEE4copyEv(
 3:                                                ; preds = %1
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN7Imf_3_414TypedAttributeINS_8RationalEEE, i64 16), ptr %2, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 0, ptr %4, align 4, !tbaa !6
+  store i32 0, ptr %4, align 8, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 1, ptr %5, align 4, !tbaa !10
   %6 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(8) %0, ptr nonnull @_ZTIN7Imf_3_49AttributeE, ptr nonnull @_ZTIN7Imf_3_414TypedAttributeINS_8RationalEEE, i64 0) #15

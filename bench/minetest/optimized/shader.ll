@@ -3461,7 +3461,7 @@ invoke.cont59:                                    ; preds = %lor.end
   %_M_flags.i.i2312 = getelementptr inbounds nuw i8, ptr %add.ptr.i1046, i64 24
   %26 = load i32, ptr %_M_flags.i.i2312, align 8, !tbaa !118
   %or.i.i.i.i = or i32 %26, 1024
-  store i32 %or.i.i.i.i, ptr %_M_flags.i.i2312, align 4, !tbaa !118
+  store i32 %or.i.i.i.i, ptr %_M_flags.i.i2312, align 8, !tbaa !118
   call void @llvm.lifetime.start.p0(ptr nonnull %vertex_header)
   %27 = getelementptr inbounds nuw i8, ptr %vertex_header, i64 16
   store ptr %27, ptr %vertex_header, align 8, !tbaa !15
@@ -10711,7 +10711,7 @@ invoke.cont10:                                    ; preds = %if.end.i.i.i.i.i.i.
   store ptr %10, ptr %second.i.i.i.i, align 8, !tbaa !15
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i, i64 48
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !19
-  store i8 0, ptr %10, align 1, !tbaa !21
+  store i8 0, ptr %10, align 8, !tbaa !21
   ret ptr %call5.i.i
 
 invoke.cont14:                                    ; preds = %if.then.i.i.i.i.i.i
@@ -11662,7 +11662,7 @@ try.cont:                                         ; preds = %if.end.i.i.i.i.i.i.
   store ptr %14, ptr %second.i.i.i.i, align 8, !tbaa !15
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__node, i64 72
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !19
-  store i8 0, ptr %14, align 1, !tbaa !21
+  store i8 0, ptr %14, align 8, !tbaa !21
   ret void
 
 eh.resume:                                        ; preds = %lpad7

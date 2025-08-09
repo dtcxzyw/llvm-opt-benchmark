@@ -444,7 +444,7 @@ lean_alloc_ctor.exit150:                          ; preds = %lean_alloc_ctor.exi
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 48
   store i64 0, ptr %48, align 8, !tbaa !12
-  store i32 1, ptr %44, align 4, !tbaa !8
+  store i32 1, ptr %44, align 8, !tbaa !8
   store i32 327736, ptr %47, align 4
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %1, ptr %49, align 8, !tbaa !4
@@ -459,7 +459,7 @@ lean_alloc_ctor.exit150:                          ; preds = %lean_alloc_ctor.exi
   %54 = getelementptr inbounds nuw i8, ptr %44, i64 49
   store i8 %4, ptr %54, align 1, !tbaa !14
   %55 = getelementptr inbounds nuw i8, ptr %44, i64 50
-  store i8 %5, ptr %55, align 1, !tbaa !14
+  store i8 %5, ptr %55, align 2, !tbaa !14
   %56 = tail call ptr @lean_st_ref_take(ptr noundef %8, ptr noundef %9) #4
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8, !tbaa !4
@@ -12268,7 +12268,7 @@ _init_l_Lean_Linter_initFn____x40_Lean_Linter_Deprecated___hyg_5____closed__6.ex
   %.val35 = load ptr, ptr %69, align 8, !tbaa !4
   store ptr %.val35, ptr @l_Lean_Linter_linter_deprecated, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val35) #4
-  %70 = load i32, ptr %65, align 4, !tbaa !8
+  %70 = load i32, ptr %65, align 8, !tbaa !8
   %71 = icmp sgt i32 %70, 1
   br i1 %71, label %72, label %74, !prof !11
 
@@ -12443,7 +12443,7 @@ _init_l_Lean_Linter_initFn____x40_Lean_Linter_Deprecated___hyg_88____closed__5.e
   %135 = getelementptr inbounds nuw i8, ptr %132, i64 4
   %136 = getelementptr inbounds nuw i8, ptr %132, i64 32
   store i64 0, ptr %136, align 8, !tbaa !12
-  store i32 1, ptr %132, align 4, !tbaa !8
+  store i32 1, ptr %132, align 8, !tbaa !8
   store i32 196648, ptr %135, align 4
   %137 = getelementptr inbounds nuw i8, ptr %132, i64 8
   store ptr %129, ptr %137, align 8, !tbaa !4
@@ -12559,7 +12559,7 @@ _init_l_Lean_Linter_initFn____x40_Lean_Linter_Deprecated___hyg_88____closed__9.e
   %.val36 = load ptr, ptr %179, align 8, !tbaa !4
   store ptr %.val36, ptr @l_Lean_Linter_deprecatedAttr, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val36) #4
-  %180 = load i32, ptr %175, align 4, !tbaa !8
+  %180 = load i32, ptr %175, align 8, !tbaa !8
   %181 = icmp sgt i32 %180, 1
   br i1 %181, label %182, label %184, !prof !11
 

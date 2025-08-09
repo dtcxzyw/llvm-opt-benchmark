@@ -2519,7 +2519,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__21UsdSkelInbetweenShapeESaIS1_EE
   store ptr null, ptr %19, align 8
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %43 = load i32, ptr %20, align 8
-  store i32 %43, ptr %42, align 4
+  store i32 %43, ptr %42, align 8
   store i32 0, ptr %20, align 8
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %45 = load i32, ptr %21, align 4
@@ -2742,9 +2742,9 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__21UsdSkelInbetweenShapeES
   store ptr null, ptr %22, align 8, !alias.scope !14, !noalias !11
   %24 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
-  %26 = load i32, ptr %25, align 4, !alias.scope !14, !noalias !11
-  store i32 %26, ptr %24, align 4, !alias.scope !11, !noalias !14
-  store i32 0, ptr %25, align 4, !alias.scope !14, !noalias !11
+  %26 = load i32, ptr %25, align 8, !alias.scope !14, !noalias !11
+  store i32 %26, ptr %24, align 8, !alias.scope !11, !noalias !14
+  store i32 0, ptr %25, align 8, !alias.scope !14, !noalias !11
   %27 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 20
   %28 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 20
   %29 = load i32, ptr %28, align 4, !alias.scope !14, !noalias !11
@@ -4995,7 +4995,7 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__21UsdSkelInbetweenShapeESaIS1_E
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %28 = load i32, ptr %27, align 8
-  store i32 %28, ptr %26, align 4
+  store i32 %28, ptr %26, align 8
   store i32 0, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 20
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -5024,9 +5024,9 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__21UsdSkelInbetweenShapeESaIS1_E
   store ptr null, ptr %37, align 8, !alias.scope !26, !noalias !23
   %39 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
-  %41 = load i32, ptr %40, align 4, !alias.scope !26, !noalias !23
-  store i32 %41, ptr %39, align 4, !alias.scope !23, !noalias !26
-  store i32 0, ptr %40, align 4, !alias.scope !26, !noalias !23
+  %41 = load i32, ptr %40, align 8, !alias.scope !26, !noalias !23
+  store i32 %41, ptr %39, align 8, !alias.scope !23, !noalias !26
+  store i32 0, ptr %40, align 8, !alias.scope !26, !noalias !23
   %42 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 20
   %43 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 20
   %44 = load i32, ptr %43, align 4, !alias.scope !26, !noalias !23
@@ -5062,9 +5062,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__21UsdSkelInbetweenShapeESaIS1_EE
   store ptr null, ptr %53, align 8, !alias.scope !31, !noalias !28
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 16
   %56 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 16
-  %57 = load i32, ptr %56, align 4, !alias.scope !31, !noalias !28
-  store i32 %57, ptr %55, align 4, !alias.scope !28, !noalias !31
-  store i32 0, ptr %56, align 4, !alias.scope !31, !noalias !28
+  %57 = load i32, ptr %56, align 8, !alias.scope !31, !noalias !28
+  store i32 %57, ptr %55, align 8, !alias.scope !28, !noalias !31
+  store i32 0, ptr %56, align 8, !alias.scope !31, !noalias !28
   %58 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 20
   %59 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 20
   %60 = load i32, ptr %59, align 4, !alias.scope !31, !noalias !28

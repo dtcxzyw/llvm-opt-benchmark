@@ -621,7 +621,7 @@ define hidden noundef ptr @hb_font_funcs_create() local_unnamed_addr #4 {
   store atomic i32 1, ptr %3 monotonic, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store atomic i64 0, ptr %4 monotonic, align 8
-  %5 = load atomic i32, ptr %1 monotonic, align 4
+  %5 = load atomic i32, ptr %1 monotonic, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %6, ptr noundef nonnull align 8 dereferenceable(152) getelementptr inbounds nuw (i8, ptr @_ZL22_hb_font_funcs_default, i64 32), i64 152, i1 false)
   br label %7
@@ -6179,7 +6179,7 @@ define internal fastcc noundef nonnull ptr @_ZL15_hb_font_createP9hb_face_t(ptr 
   store atomic i32 1, ptr %7 monotonic, align 4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store atomic i64 0, ptr %8 monotonic, align 8
-  %9 = load atomic i32, ptr %5 monotonic, align 4
+  %9 = load atomic i32, ptr %5 monotonic, align 8
   tail call void @hb_face_make_immutable(ptr noundef %.019)
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr @_hb_Null_hb_font_t, ptr %10, align 8

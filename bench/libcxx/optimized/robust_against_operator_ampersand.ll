@@ -4041,7 +4041,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic12AddFixItHintER
   store ptr %19, ptr %.ptr.i.i.i, align 8, !tbaa !15
   %20 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %20, align 8, !tbaa !18
-  store i8 0, ptr %19, align 1, !tbaa !17
+  store i8 0, ptr %19, align 8, !tbaa !17
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %21 = icmp eq i64 %.add.i.i.i, 416
   br i1 %21, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %18
@@ -4285,7 +4285,7 @@ _ZSt10_ConstructIN5clang9FixItHintEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = 
   store i64 %25, ptr %26, align 8, !tbaa !18
   store ptr %16, ptr %13, align 8, !tbaa !62
   store i64 0, ptr %24, align 8, !tbaa !18
-  store i8 0, ptr %16, align 1, !tbaa !17
+  store i8 0, ptr %16, align 8, !tbaa !17
   %27 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 56
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i.i.i, i64 56
   %29 = load i8, ptr %28, align 8, !tbaa !150, !range !107, !noundef !108

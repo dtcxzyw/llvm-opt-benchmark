@@ -435,7 +435,7 @@ for.body19:                                       ; preds = %for.body19.lr.ph, %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %value.i15, ptr noundef nonnull align 8 dereferenceable(24) %value3.i, i64 24, i1 false)
   %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.056, i64 47
   store i8 23, ptr %arrayidx.i.i.i.i.i, align 1
-  store i8 0, ptr %value3.i, align 1
+  store i8 0, ptr %value3.i, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %21 = load ptr, ptr %vfn, align 8

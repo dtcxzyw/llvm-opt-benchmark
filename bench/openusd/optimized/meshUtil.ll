@@ -19337,7 +19337,7 @@ _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7GfVec2iES1_SaIS1_ENSt8__d
   store ptr null, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load i64, ptr %1, align 4
-  store i64 %55, ptr %54, align 4
+  store i64 %55, ptr %54, align 8
   %56 = invoke ptr @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7GfVec2iES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ENS0_20HdMeshEdgeIndexTable17_EdgeVerticesHashENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS3_10_Hash_nodeIS1_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %30, i64 noundef %27, ptr noundef nonnull %53, i64 noundef 1)
           to label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7GfVec2iES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ENS0_20HdMeshEdgeIndexTable17_EdgeVerticesHashENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit unwind label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7GfVec2iES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ENS0_20HdMeshEdgeIndexTable17_EdgeVerticesHashENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit17
 

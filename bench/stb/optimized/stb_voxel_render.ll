@@ -3003,8 +3003,8 @@ define void @stbvox_bring_up_to_date(ptr noundef captures(none) %0) local_unname
   store i32 1, ptr %4, align 8, !tbaa !87
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 800
-  store i32 32, ptr %5, align 4, !tbaa !14
-  store i32 8, ptr %6, align 4, !tbaa !14
+  store i32 32, ptr %5, align 8, !tbaa !14
+  store i32 8, ptr %6, align 8, !tbaa !14
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 788
   store i32 32, ptr %7, align 4, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 812
@@ -3028,8 +3028,8 @@ define range(i32 0, 2) i32 @stbvox_make_mesh(ptr noundef initializes((604, 608))
   store i32 1, ptr %4, align 8, !tbaa !87
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 800
-  store i32 32, ptr %5, align 4, !tbaa !14
-  store i32 8, ptr %6, align 4, !tbaa !14
+  store i32 32, ptr %5, align 8, !tbaa !14
+  store i32 8, ptr %6, align 8, !tbaa !14
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 788
   store i32 32, ptr %7, align 4, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 812
@@ -3213,8 +3213,8 @@ define i32 @stbvox_get_buffer_count(ptr noundef captures(none) %0) local_unnamed
   store i32 1, ptr %.phi.trans.insert, align 8, !tbaa !87
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 800
-  store i32 32, ptr %4, align 4, !tbaa !14
-  store i32 8, ptr %5, align 4, !tbaa !14
+  store i32 32, ptr %4, align 8, !tbaa !14
+  store i32 8, ptr %5, align 8, !tbaa !14
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 788
   store i32 32, ptr %6, align 4, !tbaa !14
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 812
@@ -3257,8 +3257,8 @@ define void @stbvox_set_buffer(ptr noundef captures(none) %0, i32 noundef %1, i3
   store i32 1, ptr %8, align 8, !tbaa !87
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 800
-  store i32 32, ptr %9, align 4, !tbaa !14
-  store i32 8, ptr %10, align 4, !tbaa !14
+  store i32 32, ptr %9, align 8, !tbaa !14
+  store i32 8, ptr %10, align 8, !tbaa !14
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 788
   store i32 32, ptr %11, align 4, !tbaa !14
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 812

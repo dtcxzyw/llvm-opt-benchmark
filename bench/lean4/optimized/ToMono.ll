@@ -93661,7 +93661,7 @@ lean_alloc_ctor.exit714:                          ; preds = %lean_dec.exit396
   %767 = getelementptr inbounds nuw i8, ptr %764, i64 4
   %768 = getelementptr inbounds nuw i8, ptr %764, i64 56
   store i64 0, ptr %768, align 8, !tbaa !4
-  store i32 1, ptr %764, align 4, !tbaa !8
+  store i32 1, ptr %764, align 8, !tbaa !8
   store i32 393280, ptr %767, align 4
   %769 = getelementptr inbounds nuw i8, ptr %764, i64 8
   store ptr %10, ptr %769, align 8, !tbaa !12
@@ -93675,7 +93675,7 @@ lean_alloc_ctor.exit714:                          ; preds = %lean_dec.exit396
   store ptr %738, ptr %773, align 8, !tbaa !12
   %774 = getelementptr inbounds nuw i8, ptr %764, i64 48
   store ptr %558, ptr %774, align 8, !tbaa !12
-  store i8 %554, ptr %768, align 1, !tbaa !16
+  store i8 %554, ptr %768, align 8, !tbaa !16
   %775 = getelementptr inbounds nuw i8, ptr %764, i64 57
   store i8 %556, ptr %775, align 1, !tbaa !16
   %776 = ptrtoint ptr %764 to i64
@@ -96633,7 +96633,7 @@ _init_l_Lean_Compiler_LCNF_toMono___closed__4.exit: ; preds = %_init_l_Lean_Comp
   %299 = getelementptr inbounds nuw i8, ptr %296, i64 4
   %300 = getelementptr inbounds nuw i8, ptr %296, i64 32
   store i64 256, ptr %300, align 8, !tbaa !4
-  store i32 1, ptr %296, align 4, !tbaa !8
+  store i32 1, ptr %296, align 8, !tbaa !8
   store i32 196648, ptr %299, align 4
   %301 = getelementptr inbounds nuw i8, ptr %296, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %301, align 8, !tbaa !12

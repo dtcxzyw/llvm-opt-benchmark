@@ -3222,7 +3222,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit215: ;
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %557, i64 16
   store double %556, ptr %.sroa.3.0..sroa_idx, align 8
   %561 = getelementptr inbounds nuw i8, ptr %557, i64 24
-  store atomic i32 0, ptr %561 seq_cst, align 4
+  store atomic i32 0, ptr %561 seq_cst, align 8
   store ptr %557, ptr %64, align 8
   %562 = atomicrmw add ptr %561, i32 1 monotonic, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %67) #16

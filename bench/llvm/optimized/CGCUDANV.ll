@@ -3740,7 +3740,7 @@ define internal noundef ptr @_ZN12_GLOBAL__N_115CGNVCUDARuntime14finalizeModuleE
   %.041.i = phi ptr [ %.val.i, %.lr.ph.i ], [ %275, %274 ]
   %46 = load ptr, ptr %.041.i, align 8, !tbaa !1211
   %47 = getelementptr inbounds nuw i8, ptr %.041.i, i64 16
-  %48 = load i8, ptr %47, align 4
+  %48 = load i8, ptr %47, align 8
   %49 = and i8 %48, 19
   %or.cond.i = icmp eq i8 %49, 16
   br i1 %or.cond.i, label %50, label %274
@@ -4568,7 +4568,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   %415 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %7) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %416 = getelementptr inbounds nuw i8, ptr %.069107.i, i64 16
-  %417 = load i8, ptr %416, align 4
+  %417 = load i8, ptr %416, align 8
   %418 = shl i8 %417, 1
   %419 = and i8 %417, 32
   %420 = and i8 %418, 24
@@ -11160,7 +11160,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llv
   store ptr %16, ptr %.ptr.i.i.i, align 8, !tbaa !1052
   %17 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %17, align 8, !tbaa !1053
-  store i8 0, ptr %16, align 1, !tbaa !726
+  store i8 0, ptr %16, align 8, !tbaa !726
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %18 = icmp eq i64 %.add.i.i.i, 416
   br i1 %18, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %15

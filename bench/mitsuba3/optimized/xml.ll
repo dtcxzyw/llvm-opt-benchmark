@@ -20929,7 +20929,7 @@ _ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bE
   %101 = getelementptr inbounds nuw i8, ptr %.05.i, i64 25
   store i8 0, ptr %101, align 1
   %102 = getelementptr inbounds nuw i8, ptr %.05.i, i64 48
-  %103 = load i8, ptr %102, align 1
+  %103 = load i8, ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
   %105 = and i8 %103, 1
   store i8 %105, ptr %104, align 1
@@ -21093,7 +21093,7 @@ _ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bE
   %168 = getelementptr inbounds nuw i8, ptr %.05.i64, i64 25
   store i8 0, ptr %168, align 1
   %169 = getelementptr inbounds nuw i8, ptr %.05.i64, i64 48
-  %170 = load i8, ptr %169, align 1
+  %170 = load i8, ptr %169, align 8
   %171 = getelementptr inbounds nuw i8, ptr %.0.i65, i64 48
   %172 = and i8 %170, 1
   store i8 %172, ptr %171, align 1
@@ -21297,7 +21297,7 @@ _ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bE
   %264 = getelementptr inbounds nuw i8, ptr %.111.i, i64 25
   store i8 0, ptr %264, align 1
   %265 = getelementptr inbounds nuw i8, ptr %.111.i, i64 48
-  %266 = load i8, ptr %265, align 1
+  %266 = load i8, ptr %265, align 8
   %267 = getelementptr inbounds nuw i8, ptr %.013.i, i64 48
   %268 = and i8 %266, 1
   store i8 %268, ptr %267, align 1
@@ -21507,7 +21507,7 @@ _ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bE
   %366 = getelementptr inbounds nuw i8, ptr %.15.i.i.i.i.i, i64 25
   store i8 0, ptr %366, align 1
   %367 = getelementptr inbounds nuw i8, ptr %.15.i.i.i.i.i, i64 48
-  %368 = load i8, ptr %367, align 1
+  %368 = load i8, ptr %367, align 8
   %369 = getelementptr inbounds nuw i8, ptr %.04.i.i.i.i.i, i64 48
   %370 = and i8 %368, 1
   store i8 %370, ptr %369, align 1
@@ -21588,7 +21588,7 @@ _ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bE
   %399 = getelementptr inbounds i8, ptr %.0136.i.i.i, i64 -31
   store i8 0, ptr %399, align 1
   %400 = getelementptr inbounds i8, ptr %.0136.i.i.i, i64 -8
-  %401 = load i8, ptr %400, align 1
+  %401 = load i8, ptr %400, align 8
   %402 = and i8 %401, 1
   store i8 %402, ptr %372, align 1
   %403 = getelementptr inbounds nuw i8, ptr %.15.i.i.i.i.i, i64 56
@@ -21710,7 +21710,7 @@ _ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bE
   %455 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i, i64 25
   store i8 0, ptr %455, align 1
   %456 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i, i64 48
-  %457 = load i8, ptr %456, align 1
+  %457 = load i8, ptr %456, align 8
   %458 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i.i, i64 48
   %459 = and i8 %457, 1
   store i8 %459, ptr %458, align 1
@@ -22037,7 +22037,7 @@ _ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bE
   %601 = getelementptr inbounds i8, ptr %.3.lcssa.i, i64 -31
   store i8 0, ptr %601, align 1
   %602 = getelementptr inbounds i8, ptr %.3.lcssa.i, i64 -8
-  %603 = load i8, ptr %602, align 1
+  %603 = load i8, ptr %602, align 8
   %604 = and i8 %603, 1
   store i8 %604, ptr %522, align 1
   br label %605
@@ -22266,7 +22266,7 @@ _ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bE
   %698 = getelementptr inbounds i8, ptr %.1.lcssa.i, i64 -31
   store i8 0, ptr %698, align 1
   %699 = getelementptr inbounds i8, ptr %.1.lcssa.i, i64 -8
-  %700 = load i8, ptr %699, align 1
+  %700 = load i8, ptr %699, align 8
   %701 = and i8 %700, 1
   store i8 %701, ptr %622, align 1
   br label %702
@@ -22862,7 +22862,7 @@ _ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bE
   %81 = getelementptr inbounds nuw i8, ptr %.0, i64 25
   store i8 0, ptr %81, align 1
   %82 = getelementptr inbounds nuw i8, ptr %.0, i64 48
-  %83 = load i8, ptr %82, align 1
+  %83 = load i8, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %.120, i64 48
   %85 = and i8 %83, 1
   store i8 %85, ptr %84, align 1

@@ -7053,8 +7053,8 @@ define hidden void @"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$GT$$u20$a
   store ptr %16, ptr %18, align 8, !noalias !1332
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 1336
   store ptr %17, ptr %32, align 8, !noalias !1332
-  store atomic i8 0, ptr %19 seq_cst, align 1, !noalias !1333
-  %33 = load atomic i8, ptr %6 seq_cst, align 1, !noalias !1332
+  store atomic i8 0, ptr %19 seq_cst, align 8, !noalias !1333
+  %33 = load atomic i8, ptr %6 seq_cst, align 8, !noalias !1332
   %34 = icmp eq i8 %33, 0
   br i1 %34, label %40, label %37
 
@@ -7063,7 +7063,7 @@ define hidden void @"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$GT$$u20$a
           cleanup
   store ptr %16, ptr %18, align 8, !noalias !1332
   store ptr %17, ptr %26, align 8, !noalias !1332
-  store atomic i8 0, ptr %19 seq_cst, align 1, !noalias !1338
+  store atomic i8 0, ptr %19 seq_cst, align 8, !noalias !1338
   resume { ptr, i32 } %36
 
 37:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h064b24a35dff698cE.exit.i", %29, %3
@@ -7153,15 +7153,15 @@ define hidden { i64, ptr } @"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$G
           cleanup
   store ptr %15, ptr %17, align 8, !noalias !1353
   store ptr %16, ptr %25, align 8, !noalias !1353
-  store atomic i8 0, ptr %18 seq_cst, align 1, !noalias !1356
+  store atomic i8 0, ptr %18 seq_cst, align 8, !noalias !1356
   resume { ptr, i32 } %32
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h064b24a35dff698cE.exit.i": ; preds = %24, %22
   store ptr %15, ptr %17, align 8, !noalias !1353
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %16, ptr %33, align 8, !noalias !1353
-  store atomic i8 0, ptr %18 seq_cst, align 1, !noalias !1361
-  %34 = load atomic i8, ptr %5 seq_cst, align 1, !noalias !1353
+  store atomic i8 0, ptr %18 seq_cst, align 8, !noalias !1361
+  %34 = load atomic i8, ptr %5 seq_cst, align 8, !noalias !1353
   %35 = icmp eq i8 %34, 0
   br i1 %35, label %"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17he111ba959a95e19fE.llvm.11796837120844898689.exit", label %36
 
@@ -7177,7 +7177,7 @@ define hidden { i64, ptr } @"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$G
   %42 = load ptr, ptr %41, align 8, !noalias !1353
   store i64 0, ptr %4, align 8, !noalias !1353
   %trunc.i = trunc nuw i64 %40 to i1
-  store atomic i8 0, ptr %37 seq_cst, align 1, !noalias !1353
+  store atomic i8 0, ptr %37 seq_cst, align 8, !noalias !1353
   %..i = select i1 %trunc.i, ptr %42, ptr undef
   %not.trunc.i = xor i64 %40, 1
   br label %"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17he111ba959a95e19fE.llvm.11796837120844898689.exit"

@@ -36991,7 +36991,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__det
   %45 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #36
   store ptr null, ptr %45, align 8, !tbaa !52
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store i32 %43, ptr %46, align 4, !tbaa !1340
+  store i32 %43, ptr %46, align 8, !tbaa !1340
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %48 = load i32, ptr %44, align 4, !tbaa !482
   store i32 %48, ptr %47, align 4, !tbaa !1342
@@ -37154,7 +37154,7 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !52
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !482
+  %16 = load i32, ptr %15, align 8, !tbaa !482
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -45734,18 +45734,18 @@ define linkonce_odr hidden ptr @_ZZN8pybind1112cpp_function10initializeIZNOS_6de
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 3, ptr %10, align 4, !tbaa !1639
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %5, ptr %11, align 8, !tbaa !123
+  store ptr %5, ptr %11, align 16, !tbaa !123
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 0, ptr %12, align 8, !tbaa !127
-  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry22AxisAlignedBoundingBoxE, i64 16), ptr %8, align 8, !tbaa !476
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry22AxisAlignedBoundingBoxE, i64 16), ptr %8, align 16, !tbaa !476
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %13, i8 0, i64 48, i1 false)
-  store double 1.000000e+00, ptr %14, align 8, !tbaa !1640
+  store double 1.000000e+00, ptr %14, align 16, !tbaa !1640
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store double 1.000000e+00, ptr %15, align 8, !tbaa !1640
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 128
-  store double 1.000000e+00, ptr %16, align 8, !tbaa !1640
+  store double 1.000000e+00, ptr %16, align 16, !tbaa !1640
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 312
   store double -1.000000e+00, ptr %17, align 8, !tbaa !386
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 320

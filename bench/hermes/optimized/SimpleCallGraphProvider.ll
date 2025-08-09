@@ -1142,7 +1142,7 @@ if.end.i279:                                      ; preds = %if.then12.i.i.i276,
   store ptr null, ptr %second.i.i54, align 8, !noalias !41
   %NumEntries.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i280, i64 16
   %143 = load i32, ptr %NumEntries.i.i3.i.i.i.i.i.i.i63, align 8, !noalias !41
-  store i32 %143, ptr %NumEntries.i.i.i.i.i.i, align 4, !noalias !41
+  store i32 %143, ptr %NumEntries.i.i.i.i.i.i, align 8, !noalias !41
   store i32 0, ptr %NumEntries.i.i3.i.i.i.i.i.i.i63, align 8, !noalias !41
   %NumTombstones.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i280, i64 20
   %144 = load i32, ptr %NumTombstones.i.i4.i.i.i.i.i.i.i65, align 4, !noalias !41
@@ -1150,7 +1150,7 @@ if.end.i279:                                      ; preds = %if.then12.i.i.i276,
   store i32 0, ptr %NumTombstones.i.i4.i.i.i.i.i.i.i65, align 4, !noalias !41
   %NumBuckets.i.i.i.i.i.i281 = getelementptr inbounds nuw i8, ptr %call.i.i280, i64 24
   %145 = load i32, ptr %NumBuckets.i.i.i.i.i.i.i56, align 8, !noalias !41
-  store i32 %145, ptr %NumBuckets.i.i.i.i.i.i281, align 4, !noalias !41
+  store i32 %145, ptr %NumBuckets.i.i.i.i.i.i281, align 8, !noalias !41
   store i32 0, ptr %NumBuckets.i.i.i.i.i.i.i56, align 8, !noalias !41
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8CallInstENS_8DenseSetIPNS2_8FunctionENS_12DenseMapInfoIS7_EEEENS8_IS4_EENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SB_SE_E11try_emplaceIJSA_EEESt4pairINS_16DenseMapIteratorIS4_SA_SB_SE_Lb0EEEbEOS4_DpOT_.exit
 
@@ -1705,9 +1705,9 @@ if.end:                                           ; preds = %if.then12.i.i, %ent
   store ptr null, ptr %Args, align 8
   %NumEntries.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   %NumEntries3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %Args, i64 8
-  %9 = load i32, ptr %NumEntries.i.i.i.i.i, align 4
+  %9 = load i32, ptr %NumEntries.i.i.i.i.i, align 8
   %10 = load i32, ptr %NumEntries3.i.i.i.i.i, align 8
-  store i32 %10, ptr %NumEntries.i.i.i.i.i, align 4
+  store i32 %10, ptr %NumEntries.i.i.i.i.i, align 8
   store i32 %9, ptr %NumEntries3.i.i.i.i.i, align 8
   %NumTombstones.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 20
   %NumTombstones4.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %Args, i64 12
@@ -1717,9 +1717,9 @@ if.end:                                           ; preds = %if.then12.i.i, %ent
   store i32 %11, ptr %NumTombstones4.i.i.i.i.i, align 4
   %NumBuckets.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   %NumBuckets5.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %Args, i64 16
-  %13 = load i32, ptr %NumBuckets.i.i.i.i.i, align 4
+  %13 = load i32, ptr %NumBuckets.i.i.i.i.i, align 8
   %14 = load i32, ptr %NumBuckets5.i.i.i.i.i, align 8
-  store i32 %14, ptr %NumBuckets.i.i.i.i.i, align 4
+  store i32 %14, ptr %NumBuckets.i.i.i.i.i, align 8
   store i32 %13, ptr %NumBuckets5.i.i.i.i.i, align 8
   %15 = load ptr, ptr %this, align 8
   %16 = load i32, ptr %NumBuckets.i.i.i.i, align 8
@@ -2071,10 +2071,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8FunctionENS_8DenseSetIPNS2_8CallIn
   store ptr null, ptr %second.i13, align 8
   %NumEntries.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.sink.i.i, i64 16
   %NumEntries3.i.i.i.i = getelementptr inbounds nuw i8, ptr %B.021, i64 16
-  %9 = load i32, ptr %NumEntries.i.i.i.i, align 4
-  %10 = load i32, ptr %NumEntries3.i.i.i.i, align 4
-  store i32 %10, ptr %NumEntries.i.i.i.i, align 4
-  store i32 %9, ptr %NumEntries3.i.i.i.i, align 4
+  %9 = load i32, ptr %NumEntries.i.i.i.i, align 8
+  %10 = load i32, ptr %NumEntries3.i.i.i.i, align 8
+  store i32 %10, ptr %NumEntries.i.i.i.i, align 8
+  store i32 %9, ptr %NumEntries3.i.i.i.i, align 8
   %NumTombstones.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.sink.i.i, i64 20
   %NumTombstones4.i.i.i.i = getelementptr inbounds nuw i8, ptr %B.021, i64 20
   %11 = load i32, ptr %NumTombstones.i.i.i.i, align 4
@@ -2083,10 +2083,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8FunctionENS_8DenseSetIPNS2_8CallIn
   store i32 %11, ptr %NumTombstones4.i.i.i.i, align 4
   %NumBuckets.i.i.i.i14 = getelementptr inbounds nuw i8, ptr %cond.sink.i.i, i64 24
   %NumBuckets5.i.i.i.i = getelementptr inbounds nuw i8, ptr %B.021, i64 24
-  %13 = load i32, ptr %NumBuckets.i.i.i.i14, align 4
-  %14 = load i32, ptr %NumBuckets5.i.i.i.i, align 4
-  store i32 %14, ptr %NumBuckets.i.i.i.i14, align 4
-  store i32 %13, ptr %NumBuckets5.i.i.i.i, align 4
+  %13 = load i32, ptr %NumBuckets.i.i.i.i14, align 8
+  %14 = load i32, ptr %NumBuckets5.i.i.i.i, align 8
+  store i32 %14, ptr %NumBuckets.i.i.i.i14, align 8
+  store i32 %13, ptr %NumBuckets5.i.i.i.i, align 8
   %15 = load i32, ptr %NumEntries.i.i.i, align 8
   %add.i = add i32 %15, 1
   store i32 %add.i, ptr %NumEntries.i.i.i, align 8
@@ -2434,10 +2434,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8CallInstENS_8DenseSetIPNS2_8Functi
   store ptr null, ptr %second.i13, align 8
   %NumEntries.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.sink.i.i, i64 16
   %NumEntries3.i.i.i.i = getelementptr inbounds nuw i8, ptr %B.021, i64 16
-  %9 = load i32, ptr %NumEntries.i.i.i.i, align 4
-  %10 = load i32, ptr %NumEntries3.i.i.i.i, align 4
-  store i32 %10, ptr %NumEntries.i.i.i.i, align 4
-  store i32 %9, ptr %NumEntries3.i.i.i.i, align 4
+  %9 = load i32, ptr %NumEntries.i.i.i.i, align 8
+  %10 = load i32, ptr %NumEntries3.i.i.i.i, align 8
+  store i32 %10, ptr %NumEntries.i.i.i.i, align 8
+  store i32 %9, ptr %NumEntries3.i.i.i.i, align 8
   %NumTombstones.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.sink.i.i, i64 20
   %NumTombstones4.i.i.i.i = getelementptr inbounds nuw i8, ptr %B.021, i64 20
   %11 = load i32, ptr %NumTombstones.i.i.i.i, align 4
@@ -2446,10 +2446,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8CallInstENS_8DenseSetIPNS2_8Functi
   store i32 %11, ptr %NumTombstones4.i.i.i.i, align 4
   %NumBuckets.i.i.i.i14 = getelementptr inbounds nuw i8, ptr %cond.sink.i.i, i64 24
   %NumBuckets5.i.i.i.i = getelementptr inbounds nuw i8, ptr %B.021, i64 24
-  %13 = load i32, ptr %NumBuckets.i.i.i.i14, align 4
-  %14 = load i32, ptr %NumBuckets5.i.i.i.i, align 4
-  store i32 %14, ptr %NumBuckets.i.i.i.i14, align 4
-  store i32 %13, ptr %NumBuckets5.i.i.i.i, align 4
+  %13 = load i32, ptr %NumBuckets.i.i.i.i14, align 8
+  %14 = load i32, ptr %NumBuckets5.i.i.i.i, align 8
+  store i32 %14, ptr %NumBuckets.i.i.i.i14, align 8
+  store i32 %13, ptr %NumBuckets5.i.i.i.i, align 8
   %15 = load i32, ptr %NumEntries.i.i.i, align 8
   %add.i = add i32 %15, 1
   store i32 %add.i, ptr %NumEntries.i.i.i, align 8

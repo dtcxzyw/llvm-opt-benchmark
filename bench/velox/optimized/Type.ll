@@ -3372,7 +3372,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end15.i.i
   %add.ptr.i9.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 48
   %11 = load i64, ptr %add.ptr.i9.i.i.i.i, align 8
   %cmp.i.i10.i.i.i.i = icmp eq i64 %11, %conv.i.i.i.i.i
-  %12 = load i8, ptr %add.ptr8.i.i.i.i, align 1
+  %12 = load i8, ptr %add.ptr8.i.i.i.i, align 8
   %cmp.i.i.i11.i.i.i.i = icmp eq i8 %5, %12
   %13 = select i1 %cmp.i.i10.i.i.i.i, i1 %cmp.i.i.i11.i.i.i.i, i1 false
   br i1 %13, label %if.end, label %if.end3.i.i.i.i
@@ -20743,8 +20743,8 @@ invoke.cont2:                                     ; preds = %init
   store i64 0, ptr %2, align 16
   %3 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %kind_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
-  store i8 4, ptr %kind_.i.i.i.i, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox19IntervalDayTimeTypeE, i64 16), ptr %call, align 8
+  store i8 4, ptr %kind_.i.i.i.i, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox19IntervalDayTimeTypeE, i64 16), ptr %call, align 16
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox19IntervalDayTimeTypeE, i64 160), ptr %3, align 8
   invoke void @_ZNSt10shared_ptrIKN8facebook5velox19IntervalDayTimeTypeEEC2IS2_vEEPT_(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN8facebook5velox19IntervalDayTimeType3getEvE5kType, ptr noundef nonnull %call)
           to label %invoke.cont3 unwind label %lpad
@@ -21392,8 +21392,8 @@ invoke.cont2:                                     ; preds = %init
   store i64 0, ptr %2, align 16
   %3 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %kind_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
-  store i8 3, ptr %kind_.i.i.i.i, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox21IntervalYearMonthTypeE, i64 16), ptr %call, align 8
+  store i8 3, ptr %kind_.i.i.i.i, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox21IntervalYearMonthTypeE, i64 16), ptr %call, align 16
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox21IntervalYearMonthTypeE, i64 160), ptr %3, align 8
   invoke void @_ZNSt10shared_ptrIKN8facebook5velox21IntervalYearMonthTypeEEC2IS2_vEEPT_(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN8facebook5velox21IntervalYearMonthType3getEvE5kType, ptr noundef nonnull %call)
           to label %invoke.cont3 unwind label %lpad
@@ -22032,8 +22032,8 @@ invoke.cont2:                                     ; preds = %init
   store i64 0, ptr %2, align 16
   %3 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %kind_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
-  store i8 3, ptr %kind_.i.i.i.i, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox8DateTypeE, i64 16), ptr %call, align 8
+  store i8 3, ptr %kind_.i.i.i.i, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox8DateTypeE, i64 16), ptr %call, align 16
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox8DateTypeE, i64 160), ptr %3, align 8
   invoke void @_ZNSt10shared_ptrIKN8facebook5velox8DateTypeEEC2IS2_vEEPT_(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN8facebook5velox8DateType3getEvE5kType, ptr noundef nonnull %call)
           to label %invoke.cont3 unwind label %lpad
@@ -23127,7 +23127,7 @@ _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyINSt7__cxx1112basic_str
   tail call void @llvm.assume(i1 %cmp.i.i)
   %conv.i.i.i = trunc i64 %desiredCapacity.addr.0.pn.i to i16
   %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i2.i.i7.i, i64 12
-  store i16 %conv.i.i.i, ptr %arrayidx.i.i.i.i.i, align 1
+  store i16 %conv.i.i.i, ptr %arrayidx.i.i.i.i.i, align 2
   %chunks_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call5.i.i2.i.i7.i, ptr %chunks_, align 8
   %3 = trunc i64 %.pn.i.fr to i32
@@ -23274,7 +23274,7 @@ _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyINSt7__cxx1112basic_str
   tail call void @llvm.assume(i1 %cmp.i.i)
   %conv.i.i.i = trunc i64 %newCapacityScale to i16
   %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i2.i.i7.i, i64 12
-  store i16 %conv.i.i.i, ptr %arrayidx.i.i.i.i.i, align 1
+  store i16 %conv.i.i.i, ptr %arrayidx.i.i.i.i.i, align 2
   store ptr %call5.i.i2.i.i7.i, ptr %chunks_, align 8
   %4 = trunc i64 %newChunkCount to i32
   %conv = add i32 %4, -1
@@ -33403,7 +33403,7 @@ if.end.i.i:                                       ; preds = %if.end13.thread
   %add.ptr.i9.i.i = getelementptr inbounds nuw i8, ptr %8, i64 48
   %9 = load i64, ptr %add.ptr.i9.i.i, align 8
   %cmp.i.i10.i.i = icmp eq i64 %9, %conv.i.i.i17
-  %10 = load i8, ptr %add.ptr8.i.i, align 1
+  %10 = load i8, ptr %add.ptr8.i.i, align 8
   %cmp.i.i.i11.i.i = icmp eq i8 %1, %10
   %11 = select i1 %cmp.i.i10.i.i, i1 %cmp.i.i.i11.i.i, i1 false
   br i1 %11, label %return, label %if.end3.i.i

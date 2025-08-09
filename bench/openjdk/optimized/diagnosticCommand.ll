@@ -2108,7 +2108,7 @@ _ZN17GrowableArrayViewIPKcE4sortEPFiPS1_S3_E.exit: ; preds = %7, %12
   %38 = load ptr, ptr %17, align 8
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %38) #17
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
-  %39 = load i32, ptr %8, align 4
+  %39 = load i32, ptr %8, align 8
   %40 = sext i32 %39 to i64
   %41 = icmp slt i64 %indvars.iv.next49, %40
   br i1 %41, label %18, label %_ZN8DCmdMarkD2Ev.exit, !llvm.loop !6
@@ -2229,7 +2229,7 @@ _ZN17GrowableArrayViewIPKcE4sortEPFiPS1_S3_E.exit42: ; preds = %97, %104
   %122 = select i1 %121, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %114, ptr noundef nonnull @.str.10, ptr noundef %118, ptr noundef nonnull %122) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %123 = load i32, ptr %100, align 4
+  %123 = load i32, ptr %100, align 8
   %124 = sext i32 %123 to i64
   %125 = icmp slt i64 %indvars.iv.next, %124
   br i1 %125, label %.lr.ph, label %._crit_edge, !llvm.loop !8

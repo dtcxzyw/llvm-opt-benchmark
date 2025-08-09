@@ -7118,10 +7118,10 @@ _ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_17
   store double %41, ptr %40, align 8, !tbaa !378
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %43 = load i64, ptr %21, align 4
-  store i64 %43, ptr %42, align 4
+  store i64 %43, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.val7.i.i.i = load i32, ptr %15, align 4, !tbaa !48
-  store i32 %.val7.i.i.i, ptr %44, align 4, !tbaa !48
+  store i32 %.val7.i.i.i, ptr %44, align 8, !tbaa !48
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %.val8.i.i = load i32, ptr %10, align 4, !tbaa !48
   store i32 %.val8.i.i, ptr %45, align 4, !tbaa !48
@@ -12120,7 +12120,7 @@ define internal void @_GLOBAL__sub_I_perf_domain_transform.cpp() #24 section ".t
   %71 = getelementptr inbounds nuw i8, ptr %61, i64 40
   store i64 4, ptr %71, align 8, !tbaa !20
   %72 = getelementptr inbounds nuw i8, ptr %61, i64 52
-  store i8 0, ptr %72, align 1, !tbaa !22
+  store i8 0, ptr %72, align 4, !tbaa !22
   %73 = getelementptr inbounds nuw i8, ptr %61, i64 64
   store ptr %59, ptr %73, align 8, !tbaa !165
   %74 = getelementptr inbounds nuw i8, ptr %57, i64 80
@@ -12679,7 +12679,7 @@ _ZSt19__relocate_object_aIN7testing8internal25ParameterizedTestCaseInfoIN11openc
   store i64 %253, ptr %255, align 8, !tbaa !20, !alias.scope !475, !noalias !478
   store ptr %245, ptr %.092.i.i.i.i.i.i.i.i.i, align 8, !tbaa !17, !alias.scope !478, !noalias !475
   store i64 0, ptr %254, align 8, !tbaa !20, !alias.scope !478, !noalias !475
-  store i8 0, ptr %245, align 1, !tbaa !22, !alias.scope !478, !noalias !475
+  store i8 0, ptr %245, align 8, !tbaa !22, !alias.scope !478, !noalias !475
   %256 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i.i.i.i, i64 32
   %257 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %256, ptr noundef nonnull align 8 dereferenceable(28) %257, i64 28, i1 false), !alias.scope !480

@@ -1519,7 +1519,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN6open3d4core6kernel15
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %32 = load i64, ptr %31, align 8, !tbaa !32
   %33 = icmp eq i64 %32, %8
-  %34 = load i32, ptr %30, align 4
+  %34 = load i32, ptr %30, align 8
   %35 = icmp eq i32 %7, %34
   %36 = select i1 %33, i1 %35, i1 false
   br i1 %36, label %_ZNKSt10_HashtableIN6open3d4core6kernel15ReductionOpCodeES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ENS0_7utility15hash_enum_classENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS3_EEPNS5_10_Hash_nodeIS3_Lb1EEEmRKT_m.exit, label %.lr.ph.i.i
@@ -1555,7 +1555,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN6open3d4core6kernel15
   %51 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #36
   store ptr null, ptr %51, align 8, !tbaa !16
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store i32 %50, ptr %52, align 4, !tbaa !28
+  store i32 %50, ptr %52, align 8, !tbaa !28
   %53 = invoke ptr @_ZNSt10_HashtableIN6open3d4core6kernel15ReductionOpCodeES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ENS0_7utility15hash_enum_classENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS5_10_Hash_nodeIS3_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %48, i64 noundef %49, ptr noundef nonnull %51, i64 noundef 1)
           to label %_ZNKSt10_HashtableIN6open3d4core6kernel15ReductionOpCodeES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ENS0_7utility15hash_enum_classENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS3_EEPNS5_10_Hash_nodeIS3_Lb1EEEmRKT_m.exit unwind label %_ZNSt10_HashtableIN6open3d4core6kernel15ReductionOpCodeES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ENS0_7utility15hash_enum_classENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit20
 
@@ -1947,7 +1947,7 @@ define hidden void @_ZN6open3d4core6kernel12ReductionCPUERKNS0_6TensorERS2_RKNS0
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %108 = load i64, ptr %107, align 8, !tbaa !32
   %109 = icmp eq i64 %108, %98
-  %110 = load i32, ptr %106, align 4
+  %110 = load i32, ptr %106, align 8
   %111 = icmp eq i32 %4, %110
   %112 = select i1 %109, i1 %111, i1 false
   br i1 %112, label %_ZNKSt13unordered_setIN6open3d4core6kernel15ReductionOpCodeENS0_7utility15hash_enum_classESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit, label %.lr.ph.i.i.i.i
@@ -2248,7 +2248,7 @@ _ZN6open3d4core6TensorD2Ev.exit:                  ; preds = %_ZN6open3d4core11Sm
   %229 = getelementptr inbounds nuw i8, ptr %227, i64 16
   %230 = load i64, ptr %229, align 8, !tbaa !32
   %231 = icmp eq i64 %230, %220
-  %232 = load i32, ptr %228, align 4
+  %232 = load i32, ptr %228, align 8
   %233 = icmp eq i32 %4, %232
   %234 = select i1 %231, i1 %233, i1 false
   br i1 %234, label %_ZNKSt13unordered_setIN6open3d4core6kernel15ReductionOpCodeENS0_7utility15hash_enum_classESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit79, label %.lr.ph.i.i.i.i70
@@ -3729,7 +3729,7 @@ _ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit236:  ; preds = %661, %666
   %695 = getelementptr inbounds nuw i8, ptr %693, i64 16
   %696 = load i64, ptr %695, align 8, !tbaa !32
   %697 = icmp eq i64 %696, %686
-  %698 = load i32, ptr %694, align 4
+  %698 = load i32, ptr %694, align 8
   %699 = icmp eq i32 %4, %698
   %700 = select i1 %697, i1 %699, i1 false
   br i1 %700, label %_ZNKSt13unordered_setIN6open3d4core6kernel15ReductionOpCodeENS0_7utility15hash_enum_classESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit248, label %.lr.ph.i.i.i.i239

@@ -3683,7 +3683,7 @@ _ZNSt10unique_ptrI18cmWorkerPoolWorkerSt14default_deleteIS0_EED2Ev.exit: ; preds
   %76 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJM20cmWorkerPoolInternalFvjEPS3_jEEEEEE, i64 16), ptr %76, align 8, !tbaa !169
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  store i32 %storemerge43, ptr %77, align 4, !tbaa !268
+  store i32 %storemerge43, ptr %77, align 8, !tbaa !268
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 16
   store ptr %5, ptr %78, align 8, !tbaa !270
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 24

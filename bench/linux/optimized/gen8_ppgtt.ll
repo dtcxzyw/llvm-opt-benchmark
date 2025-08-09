@@ -1787,7 +1787,7 @@ define internal fastcc void @__gen8_ppgtt_alloc(ptr noundef readonly captures(no
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %58 = load ptr, ptr %57, align 8
   store ptr %58, ptr %32, align 8
-  store volatile i32 0, ptr %57, align 4
+  store volatile i32 0, ptr %57, align 8
   %59 = trunc i32 %37 to i16
   tail call void @__set_pd_entry(ptr noundef %2, i16 noundef zeroext %59, ptr noundef %45, ptr noundef nonnull @gen8_pde_encode) #7
   br label %60
@@ -1846,7 +1846,7 @@ define internal fastcc void @__gen8_ppgtt_alloc(ptr noundef readonly captures(no
   %98 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %99 = load ptr, ptr %98, align 8
   store ptr %99, ptr %32, align 8
-  store volatile i32 0, ptr %98, align 4
+  store volatile i32 0, ptr %98, align 8
   %100 = trunc i32 %78 to i16
   tail call void @__set_pd_entry(ptr noundef %2, i16 noundef zeroext %100, ptr noundef %86, ptr noundef nonnull @gen8_pde_encode) #7
   br label %101

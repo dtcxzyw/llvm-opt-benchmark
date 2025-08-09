@@ -8966,7 +8966,7 @@ Abc_Clock.exit549:                                ; preds = %459, %466
   %504 = getelementptr inbounds nuw i8, ptr %476, i64 140
   store i32 %503, ptr %504, align 4, !tbaa !32
   %505 = getelementptr inbounds nuw i8, ptr %476, i64 144
-  %506 = load i32, ptr %505, align 4, !tbaa !32
+  %506 = load i32, ptr %505, align 8, !tbaa !32
   %507 = getelementptr inbounds nuw i8, ptr %476, i64 152
   %508 = load i32, ptr %507, align 8, !tbaa !243
   %509 = shl i32 %506, %508
@@ -9590,7 +9590,7 @@ Prf_ManStopP.exit578:                             ; preds = %782, %Vec_WrdFree.e
   %827 = getelementptr inbounds nuw i8, ptr %800, i64 140
   store i32 %826, ptr %827, align 4, !tbaa !32
   %828 = getelementptr inbounds nuw i8, ptr %800, i64 144
-  %829 = load i32, ptr %828, align 4, !tbaa !32
+  %829 = load i32, ptr %828, align 8, !tbaa !32
   %830 = getelementptr inbounds nuw i8, ptr %800, i64 152
   %831 = load i32, ptr %830, align 8, !tbaa !243
   %832 = shl i32 %829, %831

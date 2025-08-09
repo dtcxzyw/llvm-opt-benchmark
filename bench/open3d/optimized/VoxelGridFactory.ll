@@ -596,7 +596,7 @@ define void @_ZN6open3d8geometry9VoxelGrid11CreateDenseERKN5Eigen6MatrixIdLi3ELi
   store ptr %17, ptr %16, align 8, !tbaa !24, !noalias !4
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i64 0, ptr %18, align 8, !tbaa !25, !noalias !4
-  store i8 0, ptr %17, align 1, !tbaa !26, !noalias !4
+  store i8 0, ptr %17, align 8, !tbaa !26, !noalias !4
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry9VoxelGridE, i64 16), ptr %13, align 8, !tbaa !13, !noalias !4
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 96
@@ -623,7 +623,7 @@ define void @_ZN6open3d8geometry9VoxelGrid11CreateDenseERKN5Eigen6MatrixIdLi3ELi
   %34 = fptosi double %33 to i32
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %36 = load <2 x double>, ptr %1, align 8, !tbaa !26
-  store <2 x double> %36, ptr %35, align 1, !tbaa !26
+  store <2 x double> %36, ptr %35, align 8, !tbaa !26
   %37 = getelementptr inbounds nuw i8, ptr %10, i64 88
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %39 = load double, ptr %38, align 8, !tbaa !42
@@ -939,7 +939,7 @@ define void @_ZN6open3d8geometry9VoxelGrid32CreateFromPointCloudWithinBoundsERKN
   store ptr %20, ptr %19, align 8, !tbaa !24, !noalias !62
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i64 0, ptr %21, align 8, !tbaa !25, !noalias !62
-  store i8 0, ptr %20, align 1, !tbaa !26, !noalias !62
+  store i8 0, ptr %20, align 8, !tbaa !26, !noalias !62
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry9VoxelGridE, i64 16), ptr %16, align 8, !tbaa !13, !noalias !62
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 96
@@ -995,7 +995,7 @@ define void @_ZN6open3d8geometry9VoxelGrid32CreateFromPointCloudWithinBoundsERKN
 _ZNK6open3d8geometry10PointCloud9HasColorsEv.exit: ; preds = %32
   store double %2, ptr %22, align 8, !tbaa !44
   %49 = getelementptr inbounds nuw i8, ptr %13, i64 72
-  store <2 x double> %35, ptr %49, align 1, !tbaa !26
+  store <2 x double> %35, ptr %49, align 8, !tbaa !26
   %50 = getelementptr inbounds nuw i8, ptr %13, i64 88
   store double %42, ptr %50, align 8, !tbaa !42
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -1215,7 +1215,7 @@ _ZN6open3d8geometry13AggColorVoxel3AddERKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEER
   store i32 %144, ptr %114, align 8, !tbaa !73
   %145 = getelementptr inbounds nuw i8, ptr %114, i64 40
   %146 = load <2 x double>, ptr %145, align 8, !tbaa !26
-  %147 = load <2 x double>, ptr %116, align 1, !tbaa !26
+  %147 = load <2 x double>, ptr %116, align 8, !tbaa !26
   %148 = call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %146, <2 x double> %147) #34, !srcloc !85
   store <2 x double> %148, ptr %145, align 8, !tbaa !26
   %149 = getelementptr inbounds nuw i8, ptr %114, i64 56
@@ -1226,7 +1226,7 @@ _ZN6open3d8geometry13AggColorVoxel3AddERKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEER
   store double %153, ptr %149, align 8, !tbaa !42
   %154 = getelementptr inbounds nuw i8, ptr %114, i64 64
   %155 = load <2 x double>, ptr %154, align 8, !tbaa !26
-  %156 = load <2 x double>, ptr %116, align 1, !tbaa !26
+  %156 = load <2 x double>, ptr %116, align 8, !tbaa !26
   %157 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %155, <2 x double> %156) #34, !srcloc !86
   store <2 x double> %157, ptr %154, align 8, !tbaa !26
   %158 = getelementptr inbounds nuw i8, ptr %114, i64 80
@@ -31741,7 +31741,7 @@ define void @_ZN6open3d8geometry9VoxelGrid34CreateFromTriangleMeshWithinBoundsER
   store ptr %17, ptr %16, align 8, !tbaa !24, !noalias !682
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i64 0, ptr %18, align 8, !tbaa !25, !noalias !682
-  store i8 0, ptr %17, align 1, !tbaa !26, !noalias !682
+  store i8 0, ptr %17, align 8, !tbaa !26, !noalias !682
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry9VoxelGridE, i64 16), ptr %13, align 8, !tbaa !13, !noalias !682
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 96
@@ -31797,7 +31797,7 @@ define void @_ZN6open3d8geometry9VoxelGrid34CreateFromTriangleMeshWithinBoundsER
 46:                                               ; preds = %29
   store double %2, ptr %19, align 8, !tbaa !44
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  store <2 x double> %32, ptr %47, align 1, !tbaa !26
+  store <2 x double> %32, ptr %47, align 8, !tbaa !26
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 88
   store double %39, ptr %48, align 8, !tbaa !42
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

@@ -294,7 +294,7 @@ _ZN8hashlink15linked_hash_map13allocate_node17h653af9d63ece118bE.exit.i.i.i: ; p
   %.sroa.4.0..sroa_idx5.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.0..sroa_idx5.i.i.i.i, align 8, !noalias !51
   %65 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i, i64 16
-  store i32 %1, ptr %65, align 4, !noalias !38
+  store i32 %1, ptr %65, align 8, !noalias !38
   %66 = load ptr, ptr %47, align 8, !alias.scope !11, !noalias !38, !noundef !3
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8, !noalias !38, !nonnull !3, !noundef !3
@@ -967,7 +967,7 @@ define hidden void @_ZN5salsa5views5Views3new17h74eeec2114763eaeE(ptr dead_on_un
   %.sroa.7.0..sroa_idx = getelementptr i8, ptr %36, i64 1568
   store i64 -3556890168815789981, ptr %.sroa.7.0..sroa_idx, align 8
   %38 = getelementptr i8, ptr %36, i64 1576
-  store atomic i8 1, ptr %38 release, align 1, !noalias !89
+  store atomic i8 1, ptr %38 release, align 8, !noalias !89
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 480
   %40 = atomicrmw add ptr %39, i64 1 release, align 8, !noalias !89
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16

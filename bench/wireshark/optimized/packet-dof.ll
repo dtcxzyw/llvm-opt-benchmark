@@ -6942,7 +6942,7 @@ define internal fastcc i32 @ObjectID_ToStringLength(ptr noundef nonnull readonly
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i16, ptr %5, align 4
   %7 = zext i16 %6 to i32
-  %8 = load i8, ptr %4, align 1
+  %8 = load i8, ptr %4, align 2
   %9 = lshr i8 %8, 6
   switch i8 %9, label %.thread.i.i.i.i [
     i8 2, label %11
@@ -7187,7 +7187,7 @@ DOFObjectID_GetIDClass.exit66:                    ; preds = %ObjectID_DataToStri
   tail call void @increment_dissection_depth(ptr noundef %1)
   %77 = load i16, ptr %5, align 4
   %78 = zext i16 %77 to i32
-  %79 = load i8, ptr %4, align 1
+  %79 = load i8, ptr %4, align 2
   %80 = lshr i8 %79, 6
   switch i8 %80, label %.thread.i.i.i71 [
     i8 2, label %82
@@ -7333,7 +7333,7 @@ DOFObjectID_GetAttributeCount.exit:               ; preds = %.lr.ph.i76
   %.033129 = phi i8 [ %188, %186 ], [ 0, %.lr.ph.preheader ]
   %124 = load i16, ptr %5, align 4
   %125 = zext i16 %124 to i32
-  %126 = load i8, ptr %4, align 1
+  %126 = load i8, ptr %4, align 2
   %127 = lshr i8 %126, 6
   switch i8 %127, label %.thread.i.i.i.i94 [
     i8 2, label %129
@@ -7659,7 +7659,7 @@ DOFObjectID_GetIDClass.exit:                      ; preds = %.lr.ph.i.i
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %77 = load i16, ptr %76, align 4
   %78 = zext i16 %77 to i32
-  %79 = load i8, ptr %6, align 1
+  %79 = load i8, ptr %6, align 2
   %80 = lshr i8 %79, 6
   switch i8 %80, label %.thread.i.i.i.i [
     i8 2, label %82
@@ -7747,7 +7747,7 @@ DOFObjectID_GetDataSize.exit:                     ; preds = %96, %.thread.i.i.i1
   %106 = add i32 %105, %74
   %107 = load i16, ptr %76, align 4
   %108 = zext i16 %107 to i32
-  %109 = load i8, ptr %6, align 1
+  %109 = load i8, ptr %6, align 2
   %110 = lshr i8 %109, 6
   switch i8 %110, label %.thread.i.i.i107 [
     i8 2, label %112
@@ -7905,7 +7905,7 @@ DOFObjectID_GetAttributeCount.exit:               ; preds = %.lr.ph.i
 161:                                              ; preds = %.lr.ph
   %162 = load i16, ptr %76, align 4
   %163 = zext i16 %162 to i32
-  %164 = load i8, ptr %6, align 1
+  %164 = load i8, ptr %6, align 2
   %165 = lshr i8 %164, 6
   switch i8 %165, label %.thread.i.i.i.i128 [
     i8 2, label %167

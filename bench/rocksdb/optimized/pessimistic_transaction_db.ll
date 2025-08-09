@@ -11678,7 +11678,7 @@ _ZNSt12_Vector_baseIN7rocksdb13PinnableSliceESaIS1_EEC2EmRKS2_.exit.i: ; preds =
   store ptr %39, ptr %38, align 8, !tbaa !194
   %40 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 56
   store i64 0, ptr %40, align 8, !tbaa !16
-  store i8 0, ptr %39, align 1, !tbaa !17
+  store i8 0, ptr %39, align 8, !tbaa !17
   %41 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 88
   store i8 0, ptr %41, align 8, !tbaa !558
   %42 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 80
@@ -16172,7 +16172,7 @@ define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_trait
   store ptr %19, ptr %.08.i.i.i, align 8, !tbaa !194
   %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 8
   store i64 0, ptr %20, align 8, !tbaa !16
-  store i8 0, ptr %19, align 1, !tbaa !17
+  store i8 0, ptr %19, align 8, !tbaa !17
   %21 = add i64 %.057.i.i.i, -1
   %22 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 32
   %.not.i.i.i = icmp eq i64 %21, 0
@@ -16206,7 +16206,7 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
   store ptr %31, ptr %.08.i.i.i31, align 8, !tbaa !194
   %32 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 8
   store i64 0, ptr %32, align 8, !tbaa !16
-  store i8 0, ptr %31, align 1, !tbaa !17
+  store i8 0, ptr %31, align 8, !tbaa !17
   %33 = add i64 %.057.i.i.i32, -1
   %34 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 32
   %.not.i.i.i33 = icmp eq i64 %33, 0
@@ -16252,7 +16252,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %45, ptr %47, align 8, !tbaa !16, !alias.scope !621, !noalias !624
   store ptr %37, ptr %.0911.i.i.i, align 8, !tbaa !11, !alias.scope !624, !noalias !621
   store i64 0, ptr %46, align 8, !tbaa !16, !alias.scope !624, !noalias !621
-  store i8 0, ptr %37, align 1, !tbaa !17, !alias.scope !624, !noalias !621
+  store i8 0, ptr %37, align 8, !tbaa !17, !alias.scope !624, !noalias !621
   %48 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i38 = icmp eq ptr %48, %5
@@ -20158,7 +20158,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %42, ptr %44, align 8, !tbaa !16, !alias.scope !780, !noalias !783
   store ptr %33, ptr %21, align 8, !tbaa !11, !alias.scope !783, !noalias !780
   store i64 0, ptr %43, align 8, !tbaa !16, !alias.scope !783, !noalias !780
-  store i8 0, ptr %33, align 1, !tbaa !17, !alias.scope !783, !noalias !780
+  store i8 0, ptr %33, align 8, !tbaa !17, !alias.scope !783, !noalias !780
   br label %_ZNSt22_Optional_payload_baseISt7variantIJN7rocksdb5SliceENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE10_M_destroyEv.exit.i.i.i.i.i.i.i.i.i.i
 
 _ZNSt22_Optional_payload_baseISt7variantIJN7rocksdb5SliceENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE10_M_destroyEv.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %41, %.thread.i.i.i.i
@@ -20355,7 +20355,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %69, ptr %71, align 8, !tbaa !16, !alias.scope !787, !noalias !790
   store ptr %60, ptr %48, align 8, !tbaa !11, !alias.scope !790, !noalias !787
   store i64 0, ptr %70, align 8, !tbaa !16, !alias.scope !790, !noalias !787
-  store i8 0, ptr %60, align 1, !tbaa !17, !alias.scope !790, !noalias !787
+  store i8 0, ptr %60, align 8, !tbaa !17, !alias.scope !790, !noalias !787
   br label %_ZNSt22_Optional_payload_baseISt7variantIJN7rocksdb5SliceENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE10_M_destroyEv.exit.i.i.i.i.i.i.i.i.i.i
 
 _ZNSt22_Optional_payload_baseISt7variantIJN7rocksdb5SliceENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE10_M_destroyEv.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %68, %.thread.i.i.i.i
@@ -20435,7 +20435,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %97, ptr %99, align 8, !tbaa !16, !alias.scope !793, !noalias !796
   store ptr %88, ptr %76, align 8, !tbaa !11, !alias.scope !796, !noalias !793
   store i64 0, ptr %98, align 8, !tbaa !16, !alias.scope !796, !noalias !793
-  store i8 0, ptr %88, align 1, !tbaa !17, !alias.scope !796, !noalias !793
+  store i8 0, ptr %88, align 8, !tbaa !17, !alias.scope !796, !noalias !793
   br label %_ZNSt22_Optional_payload_baseISt7variantIJN7rocksdb5SliceENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE10_M_destroyEv.exit.i.i.i.i.i.i.i.i.i.i27
 
 _ZNSt22_Optional_payload_baseISt7variantIJN7rocksdb5SliceENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE10_M_destroyEv.exit.i.i.i.i.i.i.i.i.i.i27: ; preds = %96, %.thread.i.i.i.i28
@@ -24529,7 +24529,7 @@ _ZNSt16allocator_traitsISaIN7rocksdb22ColumnFamilyDescriptorEEE9constructIS1_JS1
   store i64 %60, ptr %62, align 8, !tbaa !16, !alias.scope !954, !noalias !957
   store ptr %52, ptr %.0911.i.i.i, align 8, !tbaa !11, !alias.scope !957, !noalias !954
   store i64 0, ptr %61, align 8, !tbaa !16, !alias.scope !957, !noalias !954
-  store i8 0, ptr %52, align 1, !tbaa !17, !alias.scope !957, !noalias !954
+  store i8 0, ptr %52, align 8, !tbaa !17, !alias.scope !957, !noalias !954
   %63 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %64 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   call void @_ZN7rocksdb19ColumnFamilyOptionsC2EOS0_(ptr noundef nonnull align 8 dereferenceable(832) %63, ptr noundef nonnull align 8 dereferenceable(832) %64) #28
@@ -24598,7 +24598,7 @@ _ZNSt16allocator_traitsISaIN7rocksdb22ColumnFamilyDescriptorEEE9constructIS1_JS1
   store i64 %84, ptr %86, align 8, !tbaa !16, !alias.scope !961, !noalias !964
   store ptr %76, ptr %.0911.i.i.i30, align 8, !tbaa !11, !alias.scope !964, !noalias !961
   store i64 0, ptr %85, align 8, !tbaa !16, !alias.scope !964, !noalias !961
-  store i8 0, ptr %76, align 1, !tbaa !17, !alias.scope !964, !noalias !961
+  store i8 0, ptr %76, align 8, !tbaa !17, !alias.scope !964, !noalias !961
   %87 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 32
   %88 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 32
   call void @_ZN7rocksdb19ColumnFamilyOptionsC2EOS0_(ptr noundef nonnull align 8 dereferenceable(832) %87, ptr noundef nonnull align 8 dereferenceable(832) %88) #28

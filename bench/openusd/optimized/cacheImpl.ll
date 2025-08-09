@@ -8174,7 +8174,7 @@ _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__17UsdSkel_CacheImpl17_Sk
   store ptr null, ptr %420, align 8
   %1940 = getelementptr inbounds nuw i8, ptr %1934, i64 272
   %1941 = load i32, ptr %421, align 8
-  store i32 %1941, ptr %1940, align 4
+  store i32 %1941, ptr %1940, align 8
   store i32 0, ptr %421, align 8
   %1942 = getelementptr inbounds nuw i8, ptr %1934, i64 276
   %1943 = load i32, ptr %422, align 4
@@ -13136,7 +13136,7 @@ _ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPr
   %70 = lshr i64 %69, 1
   %71 = getelementptr inbounds nuw i8, ptr %.02230, i64 36
   %72 = load i32, ptr %71, align 4
-  %73 = load i32, ptr %61, align 4
+  %73 = load i32, ptr %61, align 8
   %74 = zext i32 %73 to i64
   %75 = add i64 %66, %74
   %76 = add i64 %75, %70
@@ -14696,7 +14696,7 @@ _ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPr
   %70 = lshr i64 %69, 1
   %71 = getelementptr inbounds nuw i8, ptr %.02230, i64 36
   %72 = load i32, ptr %71, align 4
-  %73 = load i32, ptr %61, align 4
+  %73 = load i32, ptr %61, align 8
   %74 = zext i32 %73 to i64
   %75 = add i64 %66, %74
   %76 = add i64 %75, %70
@@ -16132,7 +16132,7 @@ _ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPr
   %70 = lshr i64 %69, 1
   %71 = getelementptr inbounds nuw i8, ptr %.02230, i64 36
   %72 = load i32, ptr %71, align 4
-  %73 = load i32, ptr %61, align 4
+  %73 = load i32, ptr %61, align 8
   %74 = zext i32 %73 to i64
   %75 = add i64 %66, %74
   %76 = add i64 %75, %70
@@ -17641,7 +17641,7 @@ _ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPr
   %70 = lshr i64 %69, 1
   %71 = getelementptr inbounds nuw i8, ptr %.02230, i64 36
   %72 = load i32, ptr %71, align 4
-  %73 = load i32, ptr %61, align 4
+  %73 = load i32, ptr %61, align 8
   %74 = zext i32 %73 to i64
   %75 = add i64 %66, %74
   %76 = add i64 %75, %70
@@ -18581,7 +18581,7 @@ _ZNKSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__17UsdSkel_CacheImpl17_S
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 272
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %30 = load i32, ptr %29, align 8
-  store i32 %30, ptr %28, align 4
+  store i32 %30, ptr %28, align 8
   store i32 0, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %22, i64 276
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 20
@@ -18613,9 +18613,9 @@ _ZNKSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__17UsdSkel_CacheImpl17_S
   store ptr null, ptr %41, align 8, !alias.scope !159, !noalias !156
   %43 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 272
   %44 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 272
-  %45 = load i32, ptr %44, align 4, !alias.scope !159, !noalias !156
-  store i32 %45, ptr %43, align 4, !alias.scope !156, !noalias !159
-  store i32 0, ptr %44, align 4, !alias.scope !159, !noalias !156
+  %45 = load i32, ptr %44, align 8, !alias.scope !159, !noalias !156
+  store i32 %45, ptr %43, align 8, !alias.scope !156, !noalias !159
+  store i32 0, ptr %44, align 8, !alias.scope !159, !noalias !156
   %46 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 276
   %47 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 276
   %48 = load i32, ptr %47, align 4, !alias.scope !159, !noalias !156
@@ -18655,9 +18655,9 @@ _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__17UsdSkel_CacheImpl17_Sk
   store ptr null, ptr %59, align 8, !alias.scope !165, !noalias !162
   %61 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 272
   %62 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 272
-  %63 = load i32, ptr %62, align 4, !alias.scope !165, !noalias !162
-  store i32 %63, ptr %61, align 4, !alias.scope !162, !noalias !165
-  store i32 0, ptr %62, align 4, !alias.scope !165, !noalias !162
+  %63 = load i32, ptr %62, align 8, !alias.scope !165, !noalias !162
+  store i32 %63, ptr %61, align 8, !alias.scope !162, !noalias !165
+  store i32 0, ptr %62, align 8, !alias.scope !165, !noalias !162
   %64 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 276
   %65 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 276
   %66 = load i32, ptr %65, align 4, !alias.scope !165, !noalias !162

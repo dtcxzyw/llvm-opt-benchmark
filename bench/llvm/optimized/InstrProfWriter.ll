@@ -2661,9 +2661,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm15InstrProfWriter14addMemProfDataEN
   store ptr null, ptr %5, align 8, !tbaa !245
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 5152
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %36 = load i32, ptr %35, align 4, !tbaa !246
+  %36 = load i32, ptr %35, align 8, !tbaa !246
   store i32 %36, ptr %34, align 8, !tbaa !246
-  store i32 0, ptr %35, align 4, !tbaa !246
+  store i32 0, ptr %35, align 8, !tbaa !246
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 5156
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %39 = load i32, ptr %37, align 4, !tbaa !246
@@ -2672,9 +2672,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm15InstrProfWriter14addMemProfDataEN
   store i32 %39, ptr %38, align 4, !tbaa !246
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %42 = load i32, ptr %29, align 8, !tbaa !246
-  %43 = load i32, ptr %41, align 4, !tbaa !246
+  %43 = load i32, ptr %41, align 8, !tbaa !246
   store i32 %43, ptr %29, align 8, !tbaa !246
-  store i32 %42, ptr %41, align 4, !tbaa !246
+  store i32 %42, ptr %41, align 8, !tbaa !246
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 5168
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %46 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm11SmallVectorISt4pairImNS_7memprof5FrameEELj0EEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(16) %45)
@@ -2751,9 +2751,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm15InstrProfWriter14addMemProfDataEN
   store ptr null, ptr %1, align 8, !tbaa !245
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 5112
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %85 = load i32, ptr %84, align 4, !tbaa !246
+  %85 = load i32, ptr %84, align 8, !tbaa !246
   store i32 %85, ptr %83, align 8, !tbaa !246
-  store i32 0, ptr %84, align 4, !tbaa !246
+  store i32 0, ptr %84, align 8, !tbaa !246
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 5116
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %88 = load i32, ptr %86, align 4, !tbaa !246
@@ -2762,9 +2762,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm15InstrProfWriter14addMemProfDataEN
   store i32 %88, ptr %87, align 4, !tbaa !246
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %91 = load i32, ptr %78, align 8, !tbaa !246
-  %92 = load i32, ptr %90, align 4, !tbaa !246
+  %92 = load i32, ptr %90, align 8, !tbaa !246
   store i32 %92, ptr %78, align 8, !tbaa !246
-  store i32 %91, ptr %90, align 4, !tbaa !246
+  store i32 %91, ptr %90, align 8, !tbaa !246
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 5128
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %95 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm11SmallVectorISt4pairImNS_7memprof20IndexedMemProfRecordEELj0EEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %93, ptr noundef nonnull align 8 dereferenceable(16) %94)
@@ -17774,7 +17774,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMap
   %68 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %69 = getelementptr inbounds nuw i8, ptr %.021.i, i64 8
   %70 = load i32, ptr %69, align 4, !tbaa !246
-  store i32 %70, ptr %68, align 4, !tbaa !246
+  store i32 %70, ptr %68, align 8, !tbaa !246
   %71 = add i32 %38, 1
   store i32 %71, ptr %32, align 8, !tbaa !390
   br label %72
@@ -17957,7 +17957,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMap
   store i64 %61, ptr %51, align 8, !tbaa !56
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %63 = load i32, ptr %3, align 4, !tbaa !246
-  store i32 %63, ptr %62, align 4, !tbaa !246
+  store i32 %63, ptr %62, align 8, !tbaa !246
   %64 = load ptr, ptr %1, align 8, !tbaa !96
   %65 = load i32, ptr %7, align 8, !tbaa !97
   br label %.loopexit
@@ -25210,7 +25210,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !103, !alias.scope !854, !noalias !857
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !100, !alias.scope !857, !noalias !854
   store i64 0, ptr %48, align 8, !tbaa !103, !alias.scope !857, !noalias !854
-  store i8 0, ptr %39, align 1, !tbaa !104, !alias.scope !857, !noalias !854
+  store i8 0, ptr %39, align 8, !tbaa !104, !alias.scope !857, !noalias !854
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -25258,7 +25258,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !103, !alias.scope !861, !noalias !864
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !100, !alias.scope !864, !noalias !861
   store i64 0, ptr %64, align 8, !tbaa !103, !alias.scope !864, !noalias !861
-  store i8 0, ptr %55, align 1, !tbaa !104, !alias.scope !864, !noalias !861
+  store i8 0, ptr %55, align 8, !tbaa !104, !alias.scope !864, !noalias !861
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5

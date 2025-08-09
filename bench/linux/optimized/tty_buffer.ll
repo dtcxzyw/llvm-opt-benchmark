@@ -844,9 +844,9 @@ define dso_local void @tty_buffer_init(ptr noundef %0) local_unnamed_addr #0 ali
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store volatile i32 0, ptr %7, align 4
+  store volatile i32 0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store volatile i32 0, ptr %8, align 4
+  store volatile i32 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 68719476704, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -870,7 +870,7 @@ define internal void @flush_to_ldisc(ptr noundef %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef %3) #9
   %4 = getelementptr i8, ptr %0, i64 64
   %5 = load ptr, ptr %2, align 8
-  %6 = load volatile i32, ptr %4, align 4
+  %6 = load volatile i32, ptr %4, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %.loopexit9
 
@@ -1046,7 +1046,7 @@ define internal void @flush_to_ldisc(ptr noundef %0) #0 align 16 {
 
 111:                                              ; preds = %109, %103, %36, %34, %33
   %112 = load ptr, ptr %2, align 8
-  %113 = load volatile i32, ptr %4, align 4
+  %113 = load volatile i32, ptr %4, align 8
   %114 = icmp eq i32 %113, 0
   br i1 %114, label %12, label %.loopexit9
 

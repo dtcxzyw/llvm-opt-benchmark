@@ -11645,7 +11645,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67: ; preds = %_ZN
   %130 = load i32, ptr %129, align 8, !tbaa !267
   %131 = and i32 %130, -75
   %132 = or disjoint i32 %131, 8
-  store i32 %132, ptr %129, align 4, !tbaa !277
+  store i32 %132, ptr %129, align 8, !tbaa !277
   %133 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef %95)
           to label %_ZNSolsEm.exit unwind label %200
 
@@ -12201,7 +12201,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %10
   store i64 %16, ptr %18, align 8, !tbaa !19
   store ptr %8, ptr %1, align 8, !tbaa !16
   store i64 0, ptr %17, align 8, !tbaa !19
-  store i8 0, ptr %8, align 1, !tbaa !18
+  store i8 0, ptr %8, align 8, !tbaa !18
   invoke void @_ZN11cmCMakePath10FormatPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6formatE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull %5, i8 noundef zeroext %2)
           to label %19 unwind label %60
 
@@ -19570,7 +19570,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7emplaceIJEE
   store ptr %9, ptr %5, align 8, !tbaa !11
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %10, align 8, !tbaa !19
-  store i8 0, ptr %9, align 1, !tbaa !18
+  store i8 0, ptr %9, align 8, !tbaa !18
   store i8 1, ptr %6, align 8, !tbaa !394
   br label %_ZSt10__invoke_rIvRZN16cmArgumentParserIZN12_GLOBAL__N_126HandleTransformPathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusRKSt8functionIF11cmCMakePathRKSG_RKS8_EEbE9ArgumentsE4BindIMSP_St8optionalIS8_ESP_ST_vvEERSQ_N2cm18static_string_viewET_EUlRN14ArgumentParser8InstanceEE_JS11_EENSt9enable_ifIX16is_invocable_r_vISY_T0_DpT1_EESY_E4typeEOS15_DpOS16_.exit
 

@@ -12528,7 +12528,7 @@ _ZNSt6vectorISt4pairIN5Yosys5RTLIL7SigSpecENS2_8IdStringEESaIS5_EE9push_backEOS5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %442, i8 0, i64 24, i1 false)
   %2488 = getelementptr inbounds nuw i8, ptr %2473, i64 56
   %2489 = load i32, ptr %438, align 8, !tbaa !76
-  store i32 %2489, ptr %2488, align 4, !tbaa !76
+  store i32 %2489, ptr %2488, align 8, !tbaa !76
   store i32 0, ptr %438, align 8, !tbaa !76
   %2490 = load ptr, ptr %299, align 8, !tbaa !143
   %2491 = getelementptr inbounds nuw i8, ptr %2490, i64 64
@@ -15530,7 +15530,7 @@ _ZNSt6vectorISt4pairIN5Yosys5RTLIL7SigSpecENS2_8IdStringEESaIS5_EE9push_backEOS5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %304, i8 0, i64 24, i1 false)
   %3644 = getelementptr inbounds nuw i8, ptr %3629, i64 56
   %3645 = load i32, ptr %298, align 8, !tbaa !76
-  store i32 %3645, ptr %3644, align 4, !tbaa !76
+  store i32 %3645, ptr %3644, align 8, !tbaa !76
   store i32 0, ptr %298, align 8, !tbaa !76
   %3646 = load ptr, ptr %299, align 8, !tbaa !143
   %3647 = getelementptr inbounds nuw i8, ptr %3646, i64 64
@@ -36150,7 +36150,7 @@ _ZNKSt6vectorISt4pairIN5Yosys5RTLIL7SigSpecENS2_8IdStringEESaIS5_EE12_M_check_le
   %41 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %43 = load i32, ptr %42, align 8, !tbaa !76
-  store i32 %43, ptr %41, align 4, !tbaa !76
+  store i32 %43, ptr %41, align 8, !tbaa !76
   store i32 0, ptr %42, align 8, !tbaa !76
   %.not15.i.i.i.i.i = icmp eq ptr %6, %1
   br i1 %.not15.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIN5Yosys5RTLIL7SigSpecENS2_8IdStringEES6_SaIS5_EET0_T_S9_S8_RT1_.exit, label %.lr.ph.i.i.i.i.i

@@ -9756,7 +9756,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
   %38 = load i64, ptr %37, align 8, !tbaa !4
   store i64 %38, ptr %28, align 8, !tbaa !345
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %40 = load i32, ptr %39, align 4, !tbaa !10
+  %40 = load i32, ptr %39, align 8, !tbaa !10
   store i32 %40, ptr %29, align 8, !tbaa !346
   %41 = load ptr, ptr %5, align 8, !tbaa !23
   %42 = load i64, ptr %6, align 8, !tbaa !4
@@ -9951,7 +9951,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit52: ; preds =
   %145 = trunc nuw nsw i64 %144 to i32
   %146 = add nuw nsw i32 %145, %139
   %147 = getelementptr inbounds nuw i8, ptr %.04757, i64 16
-  %148 = load i32, ptr %147, align 4, !tbaa !10
+  %148 = load i32, ptr %147, align 8, !tbaa !10
   %149 = load i32, ptr %29, align 8, !tbaa !346
   %150 = xor i32 %149, %148
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
@@ -10244,7 +10244,7 @@ _ZN5faiss11simd8uint32C2Ej.exit113:               ; preds = %47
   %66 = trunc nuw nsw i64 %65 to i32
   %67 = add nuw nsw i32 %66, %61
   %68 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  %69 = load i32, ptr %68, align 4, !tbaa !10
+  %69 = load i32, ptr %68, align 8, !tbaa !10
   %70 = xor i32 %46, %69
   %71 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %70)
   %72 = add nuw nsw i32 %67, %71
@@ -10562,7 +10562,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
   %192 = trunc nuw nsw i64 %191 to i32
   %193 = add nuw nsw i32 %192, %187
   %194 = getelementptr inbounds nuw i8, ptr %183, i64 16
-  %195 = load i32, ptr %194, align 4, !tbaa !10
+  %195 = load i32, ptr %194, align 8, !tbaa !10
   %196 = xor i32 %110, %195
   %197 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %196)
   %198 = add nuw nsw i32 %193, %197
@@ -10812,7 +10812,7 @@ _ZN5faiss11simd8uint32C2Ej.exit113:               ; preds = %48
   %65 = trunc nuw nsw i64 %64 to i32
   %66 = add nuw nsw i32 %65, %60
   %67 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  %68 = load i32, ptr %67, align 4, !tbaa !10
+  %68 = load i32, ptr %67, align 8, !tbaa !10
   %69 = xor i32 %46, %68
   %70 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %69)
   %71 = add nuw nsw i32 %66, %70
@@ -11124,7 +11124,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
   %189 = trunc nuw nsw i64 %188 to i32
   %190 = add nuw nsw i32 %189, %184
   %191 = getelementptr inbounds nuw i8, ptr %180, i64 16
-  %192 = load i32, ptr %191, align 4, !tbaa !10
+  %192 = load i32, ptr %191, align 8, !tbaa !10
   %193 = xor i32 %108, %192
   %194 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %193)
   %195 = add nuw nsw i32 %190, %194
@@ -11414,7 +11414,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   %77 = trunc nuw nsw i64 %76 to i32
   %78 = add nuw nsw i32 %77, %72
   %79 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  %80 = load i32, ptr %79, align 4, !tbaa !10
+  %80 = load i32, ptr %79, align 8, !tbaa !10
   %81 = xor i32 %48, %80
   %82 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %81)
   %83 = add nuw nsw i32 %78, %82
@@ -11760,7 +11760,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
   %204 = trunc nuw nsw i64 %203 to i32
   %205 = add nuw nsw i32 %204, %199
   %206 = getelementptr inbounds nuw i8, ptr %195, i64 16
-  %207 = load i32, ptr %206, align 4, !tbaa !10
+  %207 = load i32, ptr %206, align 8, !tbaa !10
   %208 = xor i32 %137, %207
   %209 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %208)
   %210 = add nuw nsw i32 %205, %209
@@ -12047,7 +12047,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   %80 = trunc nuw nsw i64 %79 to i32
   %81 = add nuw nsw i32 %80, %75
   %82 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %83 = load i32, ptr %82, align 4, !tbaa !10
+  %83 = load i32, ptr %82, align 8, !tbaa !10
   %84 = xor i32 %49, %83
   %85 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %84)
   %86 = add nuw nsw i32 %81, %85
@@ -12403,7 +12403,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
   %207 = trunc nuw nsw i64 %206 to i32
   %208 = add nuw nsw i32 %207, %202
   %209 = getelementptr inbounds nuw i8, ptr %198, i64 16
-  %210 = load i32, ptr %209, align 4, !tbaa !10
+  %210 = load i32, ptr %209, align 8, !tbaa !10
   %211 = xor i32 %141, %210
   %212 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %211)
   %213 = add nuw nsw i32 %208, %212
@@ -22676,7 +22676,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i232.i:   ; preds = %.noexc69.i.i231.i, 
   %407 = getelementptr inbounds nuw i8, ptr %405, i64 8
   %408 = load i64, ptr %407, align 8, !tbaa !4, !alias.scope !679, !noalias !689
   %409 = getelementptr inbounds nuw i8, ptr %405, i64 16
-  %410 = load i32, ptr %409, align 4, !tbaa !10, !alias.scope !679, !noalias !689
+  %410 = load i32, ptr %409, align 8, !tbaa !10, !alias.scope !679, !noalias !689
   %.not.i.i.i.i240.i = icmp eq ptr %400, %399
   br i1 %.not.i.i.i.i240.i, label %412, label %411
 
@@ -24261,7 +24261,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_16HammingCompu
   %65 = load i32, ptr %35, align 8, !tbaa !812
   %66 = add nsw i32 %65, 1
   %67 = load i32, ptr %32, align 8, !tbaa !811
-  %.promoted.i = load i32, ptr %31, align 1
+  %.promoted.i = load i32, ptr %31, align 4
   store i32 %66, ptr %35, align 8, !tbaa !812
   %68 = icmp eq i32 %66, %67
   br i1 %68, label %.lr.ph.i, label %_ZN5faiss13HCounterStateINS_16HammingComputer4EE14update_counterEPKhm.exit
@@ -24438,7 +24438,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_16HammingCompu
   %65 = load i32, ptr %35, align 4, !tbaa !819
   %66 = add nsw i32 %65, 1
   %67 = load i32, ptr %32, align 4, !tbaa !818
-  %.promoted.i = load i32, ptr %31, align 1
+  %.promoted.i = load i32, ptr %31, align 8
   store i32 %66, ptr %35, align 4, !tbaa !819
   %68 = icmp eq i32 %66, %67
   br i1 %68, label %.lr.ph.i, label %_ZN5faiss13HCounterStateINS_16HammingComputer8EE14update_counterEPKhm.exit
@@ -24614,7 +24614,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_17HammingCompu
   %74 = load i32, ptr %36, align 4, !tbaa !826
   %75 = add nsw i32 %74, 1
   %76 = load i32, ptr %33, align 4, !tbaa !825
-  %.promoted.i = load i32, ptr %32, align 1
+  %.promoted.i = load i32, ptr %32, align 8
   store i32 %75, ptr %36, align 4, !tbaa !826
   %77 = icmp eq i32 %75, %76
   br i1 %77, label %.lr.ph.i, label %_ZN5faiss13HCounterStateINS_17HammingComputer16EE14update_counterEPKhm.exit
@@ -24768,7 +24768,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_17HammingCompu
   %58 = trunc nuw nsw i64 %57 to i32
   %59 = add nuw nsw i32 %58, %52
   %60 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %61 = load i32, ptr %60, align 4, !tbaa !10
+  %61 = load i32, ptr %60, align 8, !tbaa !10
   %62 = load i32, ptr %32, align 8, !tbaa !346
   %63 = xor i32 %62, %61
   %64 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %63)
@@ -24798,7 +24798,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_17HammingCompu
   %81 = load i32, ptr %37, align 4, !tbaa !833
   %82 = add nsw i32 %81, 1
   %83 = load i32, ptr %34, align 4, !tbaa !832
-  %.promoted.i = load i32, ptr %33, align 1
+  %.promoted.i = load i32, ptr %33, align 8
   store i32 %82, ptr %37, align 4, !tbaa !833
   %84 = icmp eq i32 %82, %83
   br i1 %84, label %.lr.ph.i, label %_ZN5faiss13HCounterStateINS_17HammingComputer20EE14update_counterEPKhm.exit
@@ -24991,7 +24991,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_17HammingCompu
   %90 = load i32, ptr %38, align 4, !tbaa !840
   %91 = add nsw i32 %90, 1
   %92 = load i32, ptr %35, align 4, !tbaa !839
-  %.promoted.i = load i32, ptr %34, align 1
+  %.promoted.i = load i32, ptr %34, align 8
   store i32 %91, ptr %38, align 4, !tbaa !840
   %93 = icmp eq i32 %91, %92
   br i1 %93, label %.lr.ph.i, label %_ZN5faiss13HCounterStateINS_17HammingComputer32EE14update_counterEPKhm.exit
@@ -25216,7 +25216,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_17HammingCompu
   %122 = load i32, ptr %42, align 4, !tbaa !847
   %123 = add nsw i32 %122, 1
   %124 = load i32, ptr %39, align 4, !tbaa !846
-  %.promoted.i = load i32, ptr %38, align 1
+  %.promoted.i = load i32, ptr %38, align 8
   store i32 %123, ptr %42, align 4, !tbaa !847
   %125 = icmp eq i32 %123, %124
   br i1 %125, label %.lr.ph.i, label %_ZN5faiss13HCounterStateINS_17HammingComputer64EE14update_counterEPKhm.exit
@@ -25377,7 +25377,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_22HammingCompu
   %60 = load i32, ptr %59, align 4, !tbaa !854
   %61 = add nsw i32 %60, 1
   %62 = load i32, ptr %45, align 4, !tbaa !853
-  %.promoted.i = load i32, ptr %41, align 1
+  %.promoted.i = load i32, ptr %41, align 8
   store i32 %61, ptr %59, align 4, !tbaa !854
   %63 = icmp eq i32 %61, %62
   br i1 %63, label %.lr.ph.i, label %_ZN5faiss13HCounterStateINS_22HammingComputerDefaultEE14update_counterEPKhm.exit
@@ -26182,7 +26182,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_17Hamming
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !4
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %31 = load i32, ptr %30, align 4, !tbaa !10
+  %31 = load i32, ptr %30, align 8, !tbaa !10
   %32 = load ptr, ptr %6, align 8, !tbaa !23
   %33 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5faiss24RangeSearchPartialResult10new_resultEl(ptr noundef nonnull align 8 dereferenceable(72) %10, i64 noundef %.035)
           to label %.preheader unwind label %.loopexit.split-lp.loopexit
@@ -26214,7 +26214,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_17Hamming
   %48 = trunc nuw nsw i64 %47 to i32
   %49 = add nuw nsw i32 %48, %43
   %50 = getelementptr inbounds nuw i8, ptr %.02833, i64 16
-  %51 = load i32, ptr %50, align 4, !tbaa !10
+  %51 = load i32, ptr %50, align 8, !tbaa !10
   %52 = xor i32 %51, %31
   %53 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %52)
   %54 = add nuw nsw i32 %49, %53

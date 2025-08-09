@@ -849,7 +849,7 @@ _ZN8QuantLib10DayCounterC2ERKS0_.exit55:          ; preds = %_ZN8QuantLib10DayCo
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp27)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp28)
   store i8 0, ptr %agg.tmp29, align 8, !tbaa !51
-  %43 = load i8, ptr %schedule, align 4, !tbaa !51, !range !26, !noundef !27
+  %43 = load i8, ptr %schedule, align 8, !tbaa !51, !range !26, !noundef !27
   %loadedv.i.i.i.i = trunc nuw i8 %43 to i1
   br i1 %loadedv.i.i.i.i, label %invoke.cont.i.i.i, label %_ZN8QuantLib8ScheduleC2EOS0_.exit
 
@@ -3134,7 +3134,7 @@ _ZN8QuantLib10DayCounterC2ERKS0_.exit59:          ; preds = %_ZN8QuantLib10DayCo
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp23)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp24)
   store i8 0, ptr %agg.tmp25, align 8, !tbaa !51
-  %41 = load i8, ptr %schedule, align 4, !tbaa !51, !range !26, !noundef !27
+  %41 = load i8, ptr %schedule, align 8, !tbaa !51, !range !26, !noundef !27
   %loadedv.i.i.i.i = trunc nuw i8 %41 to i1
   br i1 %loadedv.i.i.i.i, label %invoke.cont.i.i.i, label %_ZN8QuantLib8ScheduleC2EOS0_.exit
 

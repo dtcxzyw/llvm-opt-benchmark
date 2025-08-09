@@ -586,7 +586,7 @@ define dso_local noundef zeroext i1 @ieee80211_is_our_addr(ptr noundef %0, ptr n
   %8 = getelementptr i8, ptr %0, i64 5066
   %9 = load i16, ptr %8, align 2
   %10 = getelementptr i8, ptr %1, i64 4
-  %11 = load i16, ptr %10, align 2
+  %11 = load i16, ptr %10, align 4
   %12 = xor i16 %11, %9
   %13 = zext i16 %12 to i32
   %14 = or i32 %7, %13
@@ -616,7 +616,7 @@ define dso_local noundef zeroext i1 @ieee80211_is_our_addr(ptr noundef %0, ptr n
   %29 = load i32, ptr %28, align 4
   %30 = xor i32 %6, %29
   %31 = getelementptr i8, ptr %25, i64 24
-  %32 = load i16, ptr %31, align 2
+  %32 = load i16, ptr %31, align 4
   %33 = xor i16 %11, %32
   %34 = zext i16 %33 to i32
   %35 = or i32 %30, %34
@@ -640,7 +640,7 @@ define dso_local noundef zeroext i1 @ieee80211_is_our_addr(ptr noundef %0, ptr n
   %44 = load i32, ptr %43, align 4
   %45 = xor i32 %6, %44
   %46 = getelementptr i8, ptr %40, i64 24
-  %47 = load i16, ptr %46, align 2
+  %47 = load i16, ptr %46, align 4
   %48 = xor i16 %11, %47
   %49 = zext i16 %48 to i32
   %50 = or i32 %45, %49
@@ -1494,7 +1494,7 @@ define internal fastcc void @ieee80211_rx_handlers(ptr noundef %0, ptr noundef %
   %167 = load i32, ptr %165, align 4
   %168 = xor i32 %167, %166
   %169 = getelementptr i8, ptr %163, i64 4
-  %170 = load i16, ptr %169, align 2
+  %170 = load i16, ptr %169, align 4
   %171 = getelementptr i8, ptr %164, i64 1990
   %172 = load i16, ptr %171, align 2
   %173 = xor i16 %172, %170
@@ -2911,7 +2911,7 @@ thread-pre-split112:                              ; preds = %430, %650
   %1017 = load i32, ptr %1015, align 4
   %1018 = xor i32 %1017, %1016
   %1019 = getelementptr i8, ptr %971, i64 8
-  %1020 = load i16, ptr %1019, align 2
+  %1020 = load i16, ptr %1019, align 4
   %1021 = getelementptr i8, ptr %973, i64 5066
   %1022 = load i16, ptr %1021, align 2
   %1023 = xor i16 %1022, %1020
@@ -2969,7 +2969,7 @@ thread-pre-split112:                              ; preds = %430, %650
   %1059 = load i32, ptr %1046, align 4
   %1060 = xor i32 %1059, 12746753
   %1061 = getelementptr i8, ptr %1046, i64 4
-  %1062 = load i16, ptr %1061, align 2
+  %1062 = load i16, ptr %1061, align 4
   %1063 = xor i16 %1062, 768
   %1064 = zext i16 %1063 to i32
   %1065 = or i32 %1060, %1064
@@ -3788,9 +3788,9 @@ thread-pre-split112:                              ; preds = %430, %650
   %1521 = load i32, ptr %1519, align 4
   %1522 = xor i32 %1521, %1520
   %1523 = getelementptr i8, ptr %1410, i64 20
-  %1524 = load i16, ptr %1523, align 2
+  %1524 = load i16, ptr %1523, align 4
   %1525 = getelementptr i8, ptr %1413, i64 3636
-  %1526 = load i16, ptr %1525, align 2
+  %1526 = load i16, ptr %1525, align 4
   %1527 = xor i16 %1526, %1524
   %1528 = zext i16 %1527 to i32
   %1529 = or i32 %1522, %1528
@@ -3938,9 +3938,9 @@ thread-pre-split112:                              ; preds = %430, %650
   %1597 = load i32, ptr %1594, align 4
   %1598 = xor i32 %1597, %1596
   %1599 = getelementptr i8, ptr %1410, i64 20
-  %1600 = load i16, ptr %1599, align 2
+  %1600 = load i16, ptr %1599, align 4
   %1601 = getelementptr i8, ptr %1594, i64 4
-  %1602 = load i16, ptr %1601, align 2
+  %1602 = load i16, ptr %1601, align 4
   %1603 = xor i16 %1602, %1600
   %1604 = zext i16 %1603 to i32
   %1605 = or i32 %1598, %1604
@@ -4221,7 +4221,7 @@ thread-pre-split112:                              ; preds = %430, %650
   %1775 = load i32, ptr %1773, align 4
   %1776 = xor i32 %1775, %1774
   %1777 = getelementptr i8, ptr %1747, i64 8
-  %1778 = load i16, ptr %1777, align 2
+  %1778 = load i16, ptr %1777, align 4
   %1779 = getelementptr i8, ptr %1749, i64 5066
   %1780 = load i16, ptr %1779, align 2
   %1781 = xor i16 %1780, %1778
@@ -4239,7 +4239,7 @@ thread-pre-split112:                              ; preds = %430, %650
   %1791 = getelementptr i8, ptr %1747, i64 14
   %1792 = load i16, ptr %1791, align 2
   %1793 = getelementptr i8, ptr %1749, i64 3636
-  %1794 = load i16, ptr %1793, align 2
+  %1794 = load i16, ptr %1793, align 4
   %1795 = xor i16 %1794, %1792
   %1796 = zext i16 %1795 to i32
   %1797 = or i32 %1790, %1796
@@ -4251,7 +4251,7 @@ thread-pre-split112:                              ; preds = %430, %650
   %1801 = load i32, ptr %1800, align 4
   %1802 = xor i32 %1801, %1789
   %1803 = getelementptr i8, ptr %1747, i64 20
-  %1804 = load i16, ptr %1803, align 2
+  %1804 = load i16, ptr %1803, align 4
   %1805 = xor i16 %1804, %1794
   %1806 = zext i16 %1805 to i32
   %1807 = or i32 %1802, %1806
@@ -4294,7 +4294,7 @@ thread-pre-split112:                              ; preds = %430, %650
   %1831 = getelementptr inbounds nuw i8, ptr %1824, i64 26
   %1832 = getelementptr inbounds nuw i8, ptr %1747, i64 26
   %1833 = load i16, ptr %1832, align 1
-  store i16 %1833, ptr %1831, align 1
+  store i16 %1833, ptr %1831, align 2
   call void @ieee80211_tx_skb_tid(ptr noundef %1749, ptr noundef nonnull %1813, i32 noundef 7, i32 noundef -1) #18
   br label %1834
 
@@ -4625,7 +4625,7 @@ define dso_local void @ieee80211_check_fast_rx(ptr noundef %0) local_unnamed_add
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(22) %17, i8 0, i64 22, i1 false)
   %22 = load i32, ptr @rfc1042_header, align 4
   store i32 %22, ptr %13, align 4
-  %23 = load i16, ptr getelementptr inbounds nuw (i8, ptr @rfc1042_header, i64 4), align 2
+  %23 = load i16, ptr getelementptr inbounds nuw (i8, ptr @rfc1042_header, i64 4), align 4
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 22
   store i16 %23, ptr %24, align 2
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 5062
@@ -5659,8 +5659,8 @@ define dso_local void @ieee80211_rx_list(ptr noundef %0, ptr noundef %1, ptr nou
   %304 = load i32, ptr %278, align 4
   %305 = xor i32 %304, %303
   %306 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %307 = load i16, ptr %306, align 2
-  %308 = load i16, ptr %283, align 2
+  %307 = load i16, ptr %306, align 4
+  %308 = load i16, ptr %283, align 4
   %309 = xor i16 %308, %307
   %310 = zext i16 %309 to i32
   %311 = or i32 %305, %310
@@ -7666,9 +7666,9 @@ define internal fastcc noundef ptr @ieee80211_reassemble_find(ptr noundef %0, i3
   %49 = load i32, ptr %8, align 4
   %50 = load i32, ptr %48, align 4
   %51 = xor i32 %50, %49
-  %52 = load i16, ptr %9, align 2
+  %52 = load i16, ptr %9, align 4
   %53 = getelementptr i8, ptr %41, i64 8
-  %54 = load i16, ptr %53, align 2
+  %54 = load i16, ptr %53, align 4
   %55 = xor i16 %54, %52
   %56 = zext i16 %55 to i32
   %57 = or i32 %51, %56
@@ -7916,7 +7916,7 @@ define internal fastcc noundef range(i32 0, 65550) i32 @__ieee80211_rx_h_amsdu(p
   %107 = load i32, ptr %97, align 4
   %108 = xor i32 %107, 12746753
   %109 = getelementptr i8, ptr %97, i64 4
-  %110 = load i16, ptr %109, align 2
+  %110 = load i16, ptr %109, align 4
   %111 = xor i16 %110, 768
   %112 = zext i16 %111 to i32
   %113 = or i32 %108, %112
@@ -8234,7 +8234,7 @@ define internal fastcc void @ieee80211_deliver_skb_to_local_stack(ptr noundef %0
   %43 = load i32, ptr %41, align 4
   %44 = xor i32 %43, %42
   %45 = getelementptr i8, ptr %36, i64 4
-  %46 = load i16, ptr %45, align 2
+  %46 = load i16, ptr %45, align 4
   %47 = getelementptr i8, ptr %4, i64 5066
   %48 = load i16, ptr %47, align 2
   %49 = xor i16 %48, %46
@@ -8246,7 +8246,7 @@ define internal fastcc void @ieee80211_deliver_skb_to_local_stack(ptr noundef %0
 53:                                               ; preds = %40
   store i32 %43, ptr %36, align 4
   %54 = load i16, ptr %47, align 2
-  store i16 %54, ptr %45, align 2
+  store i16 %54, ptr %45, align 4
   br label %55
 
 55:                                               ; preds = %53, %40, %30
@@ -10125,9 +10125,9 @@ define internal fastcc noundef zeroext i1 @ieee80211_prepare_and_rx_handle(ptr n
   %55 = load i32, ptr %53, align 4
   %56 = xor i32 %55, %54
   %57 = getelementptr i8, ptr %23, i64 16
-  %58 = load i16, ptr %57, align 2
+  %58 = load i16, ptr %57, align 4
   %59 = getelementptr i8, ptr %26, i64 8
-  %60 = load i16, ptr %59, align 2
+  %60 = load i16, ptr %59, align 4
   %61 = xor i16 %60, %58
   %62 = zext i16 %61 to i32
   %63 = or i32 %56, %62
@@ -10184,7 +10184,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_prepare_and_rx_handle(ptr n
   %98 = load i32, ptr %96, align 4
   %99 = xor i32 %98, %97
   %100 = getelementptr i8, ptr %95, i64 4
-  %101 = load i16, ptr %100, align 2
+  %101 = load i16, ptr %100, align 4
   %102 = getelementptr i8, ptr %23, i64 22
   %103 = load i16, ptr %102, align 2
   %104 = xor i16 %103, %101
@@ -10258,14 +10258,14 @@ define internal fastcc noundef zeroext i1 @ieee80211_prepare_and_rx_handle(ptr n
   %149 = getelementptr i8, ptr %145, i64 %148
   %150 = load i32, ptr %149, align 4
   %151 = getelementptr i8, ptr %149, i64 4
-  %152 = load i16, ptr %151, align 2
+  %152 = load i16, ptr %151, align 4
   %153 = getelementptr inbounds nuw i8, ptr %23, i64 31
   %154 = load i8, ptr %153, align 1
   %155 = zext i8 %154 to i64
   %156 = getelementptr i8, ptr %145, i64 %155
   %157 = load i32, ptr %156, align 4
   %158 = getelementptr i8, ptr %156, i64 4
-  %159 = load i16, ptr %158, align 2
+  %159 = load i16, ptr %158, align 4
   %160 = sext i32 %75 to i64
   %161 = getelementptr i8, ptr %145, i64 %160
   tail call fastcc void @skb_postpull_rcsum(ptr noundef %1, ptr noundef %161)
@@ -10445,7 +10445,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_prepare_and_rx_handle(ptr n
   %264 = load i32, ptr %263, align 4
   %265 = xor i32 %197, %264
   %266 = getelementptr i8, ptr %260, i64 24
-  %267 = load i16, ptr %266, align 2
+  %267 = load i16, ptr %266, align 4
   %268 = xor i16 %246, %267
   %269 = zext i16 %268 to i32
   %270 = or i32 %265, %269
@@ -10513,7 +10513,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_prepare_and_rx_handle(ptr n
   %314 = load i32, ptr %195, align 4
   %315 = xor i32 %314, %294
   %316 = getelementptr i8, ptr %195, i64 4
-  %317 = load i16, ptr %316, align 2
+  %317 = load i16, ptr %316, align 4
   %318 = xor i16 %317, %297
   %319 = zext i16 %318 to i32
   %320 = or i32 %315, %319
@@ -10599,7 +10599,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_prepare_and_rx_handle(ptr n
   %375 = load i32, ptr %374, align 4
   %376 = xor i32 %375, %197
   %377 = getelementptr i8, ptr %374, i64 4
-  %378 = load i16, ptr %377, align 2
+  %378 = load i16, ptr %377, align 4
   %379 = getelementptr i8, ptr %189, i64 8
   %380 = load i16, ptr %379, align 2
   %381 = xor i16 %380, %378
@@ -10703,7 +10703,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_prepare_and_rx_handle(ptr n
   %454 = load i32, ptr %453, align 4
   %455 = xor i32 %197, %454
   %456 = getelementptr i8, ptr %450, i64 24
-  %457 = load i16, ptr %456, align 2
+  %457 = load i16, ptr %456, align 4
   %458 = xor i16 %436, %457
   %459 = zext i16 %458 to i32
   %460 = or i32 %455, %459
@@ -10766,7 +10766,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_prepare_and_rx_handle(ptr n
   %499 = load i32, ptr %498, align 4
   %500 = xor i32 %499, %478
   %501 = getelementptr i8, ptr %495, i64 24
-  %502 = load i16, ptr %501, align 2
+  %502 = load i16, ptr %501, align 4
   %503 = xor i16 %502, %472
   %504 = zext i16 %503 to i32
   %505 = or i32 %500, %504
@@ -10811,7 +10811,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_prepare_and_rx_handle(ptr n
   %526 = load i32, ptr %525, align 4
   %527 = xor i32 %526, %197
   %528 = getelementptr i8, ptr %522, i64 24
-  %529 = load i16, ptr %528, align 2
+  %529 = load i16, ptr %528, align 4
   %530 = xor i16 %529, %512
   %531 = zext i16 %530 to i32
   %532 = or i32 %527, %531
@@ -10993,7 +10993,7 @@ ieee80211_is_our_addr.exit.thread._crit_edge:     ; preds = %ieee80211_is_our_ad
   %631 = load i32, ptr %630, align 4
   %632 = xor i32 %631, %620
   %633 = getelementptr i8, ptr %629, i64 24
-  %634 = load i16, ptr %633, align 2
+  %634 = load i16, ptr %633, align 4
   %635 = getelementptr i8, ptr %610, i64 8
   %636 = load i16, ptr %635, align 2
   %637 = xor i16 %636, %634
@@ -11009,7 +11009,7 @@ ieee80211_is_our_addr.exit.thread._crit_edge:     ; preds = %ieee80211_is_our_ad
   store i32 %644, ptr %619, align 4
   %645 = getelementptr i8, ptr %642, i64 5066
   %646 = load i16, ptr %645, align 2
-  store i16 %646, ptr %635, align 2
+  store i16 %646, ptr %635, align 4
   br label %647
 
 647:                                              ; preds = %641, %627
@@ -11018,7 +11018,7 @@ ieee80211_is_our_addr.exit.thread._crit_edge:     ; preds = %ieee80211_is_our_ad
   %650 = load i32, ptr %648, align 4
   %651 = xor i32 %650, %649
   %652 = getelementptr i8, ptr %13, i64 4
-  %653 = load i16, ptr %652, align 2
+  %653 = load i16, ptr %652, align 4
   %654 = getelementptr i8, ptr %610, i64 14
   %655 = load i16, ptr %654, align 2
   %656 = xor i16 %655, %653
@@ -11033,7 +11033,7 @@ ieee80211_is_our_addr.exit.thread._crit_edge:     ; preds = %ieee80211_is_our_ad
   %663 = load i32, ptr %662, align 4
   store i32 %663, ptr %648, align 4
   %664 = getelementptr i8, ptr %661, i64 68
-  %665 = load i16, ptr %664, align 2
+  %665 = load i16, ptr %664, align 4
   store i16 %665, ptr %654, align 2
   br label %666
 
@@ -11047,9 +11047,9 @@ ieee80211_is_our_addr.exit.thread._crit_edge:     ; preds = %ieee80211_is_our_ad
   %671 = load i32, ptr %13, align 4
   %672 = load i32, ptr %670, align 4
   %673 = xor i32 %672, %671
-  %674 = load i16, ptr %652, align 2
+  %674 = load i16, ptr %652, align 4
   %675 = getelementptr i8, ptr %610, i64 20
-  %676 = load i16, ptr %675, align 2
+  %676 = load i16, ptr %675, align 4
   %677 = xor i16 %676, %674
   %678 = zext i16 %677 to i32
   %679 = or i32 %673, %678
@@ -11070,7 +11070,7 @@ ieee80211_is_our_addr.exit.thread._crit_edge:     ; preds = %ieee80211_is_our_ad
   %689 = load i32, ptr %688, align 4
   %690 = xor i32 %689, %672
   %691 = getelementptr i8, ptr %687, i64 24
-  %692 = load i16, ptr %691, align 2
+  %692 = load i16, ptr %691, align 4
   %693 = xor i16 %692, %676
   %694 = zext i16 %693 to i32
   %695 = or i32 %690, %694

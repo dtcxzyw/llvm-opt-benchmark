@@ -28094,9 +28094,9 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %55, i64 -63
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.217.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.217.sroa.0, i64 39, i1 false)
   %.sroa.217.sroa.2.0..sroa.217.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %55, i64 -24
-  store i64 %40, ptr %.sroa.217.sroa.2.0..sroa.217.0..sroa_idx.sroa_idx, align 1
+  store i64 %40, ptr %.sroa.217.sroa.2.0..sroa.217.0..sroa_idx.sroa_idx, align 8
   %.sroa.217.sroa.3.0..sroa.217.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %55, i64 -16
-  store i64 %42, ptr %.sroa.217.sroa.3.0..sroa.217.0..sroa_idx.sroa_idx, align 1
+  store i64 %42, ptr %.sroa.217.sroa.3.0..sroa.217.0..sroa_idx.sroa_idx, align 8
   %.sroa.318.0..sroa_idx = getelementptr inbounds i8, ptr %55, i64 -8
   store i8 %38, ptr %.sroa.318.0..sroa_idx, align 8
   %57 = icmp eq i64 %48, 0

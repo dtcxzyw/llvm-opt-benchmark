@@ -352,7 +352,7 @@ make_lpc_coefs.exit:                              ; preds = %._crit_edge38.i, %1
   %142 = getelementptr inbounds nuw i8, ptr %7, i64 312
   %143 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %144 = load ptr, ptr %143, align 8, !tbaa !41
-  %.promoted = load i32, ptr %142, align 4, !tbaa !63
+  %.promoted = load i32, ptr %142, align 8, !tbaa !63
   br label %145
 
 145:                                              ; preds = %.lr.ph106, %145

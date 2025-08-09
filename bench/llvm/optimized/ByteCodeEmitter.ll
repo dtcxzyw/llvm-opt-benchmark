@@ -1420,7 +1420,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclENS2_6interp11ParamOffset
   %57 = load ptr, ptr %1, align 8, !tbaa !121
   store ptr %57, ptr %48, align 8, !tbaa !121
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i64 0, ptr %58, align 4
+  store i64 0, ptr %58, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclENS2_6interp11ParamOffsetENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E16InsertIntoBucketIRKS5_JEEEPSC_SI_OT_DpOT0_.exit
@@ -27558,7 +27558,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclENS2_6interp11ParamOffset
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i64, ptr %67, align 4
-  store i64 %68, ptr %66, align 4
+  store i64 %68, ptr %66, align 8
   %69 = load i32, ptr %32, align 8, !tbaa !217
   %70 = add i32 %69, 1
   store i32 %70, ptr %32, align 8, !tbaa !217
@@ -28008,7 +28008,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang11ParmVarDeclENS2_6interp11ParamOff
   store ptr %60, ptr %50, align 8, !tbaa !135
   %61 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %62 = load i64, ptr %3, align 4
-  store i64 %62, ptr %61, align 4
+  store i64 %62, ptr %61, align 8
   %63 = load ptr, ptr %1, align 8, !tbaa !512
   %64 = load i32, ptr %7, align 8, !tbaa !513
   br label %.loopexit
@@ -28220,7 +28220,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang11ParmVarDeclENS2_6interp11ParamOff
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i64, ptr %67, align 4
-  store i64 %68, ptr %66, align 4
+  store i64 %68, ptr %66, align 8
   %69 = load i32, ptr %32, align 8, !tbaa !516
   %70 = add i32 %69, 1
   store i32 %70, ptr %32, align 8, !tbaa !516

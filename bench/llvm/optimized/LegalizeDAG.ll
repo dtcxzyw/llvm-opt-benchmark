@@ -30913,7 +30913,7 @@ _ZNKSt4lessIN4llvm7SDValueEEclERKS1_S4_.exit.thread79.i: ; preds = %_ZNKSt4lessI
 .lr.ph.i.i:                                       ; preds = %_ZNKSt4lessIN4llvm7SDValueEEclERKS1_S4_.exit.thread79.i
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i, i64 8
   %25 = load ptr, ptr %.sroa.04.08.i, align 8, !tbaa !179
-  %26 = load i32, ptr %24, align 4
+  %26 = load i32, ptr %24, align 8
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.backedge.i.backedge, %.lr.ph.i.i

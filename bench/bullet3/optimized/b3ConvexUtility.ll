@@ -919,7 +919,7 @@ _ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i: ; preds = %176, %_ZNK20b3Al
   %257 = load float, ptr %243, align 4, !tbaa !56
   %258 = getelementptr inbounds nuw i8, ptr %255, i64 36
   store float %257, ptr %258, align 4, !tbaa !56
-  %259 = load float, ptr %247, align 4, !tbaa !56
+  %259 = load float, ptr %247, align 8, !tbaa !56
   %260 = getelementptr inbounds nuw i8, ptr %255, i64 40
   store float %259, ptr %260, align 8, !tbaa !56
   %261 = getelementptr inbounds nuw i8, ptr %255, i64 44

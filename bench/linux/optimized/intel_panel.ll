@@ -858,8 +858,8 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_panel_fitting(ptr noundef 
   %10 = icmp eq i16 %9, 0
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 848
-  %13 = load i32, ptr %12, align 4
-  %14 = load i32, ptr %11, align 4
+  %13 = load i32, ptr %12, align 8
+  %14 = load i32, ptr %11, align 8
   %15 = sub i32 %13, %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 852
   %17 = load i32, ptr %16, align 4

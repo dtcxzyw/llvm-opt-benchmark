@@ -8864,7 +8864,7 @@ _ZN6vectorISt5tupleIJ7obj_refI4expr11ast_managerEjjEELb1EjE3endEv.exit90: ; pred
   %53 = load ptr, ptr %52, align 8, !tbaa !395
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %53, ptr %2, align 8, !tbaa !858
-  %54 = load i32, ptr %.072156, align 4, !tbaa !13
+  %54 = load i32, ptr %.072156, align 8, !tbaa !13
   store i32 %54, ptr %38, align 8, !tbaa !860
   invoke void @_ZN14core_hashtableIN7obj_mapI4exprjE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6insertEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %55 unwind label %57

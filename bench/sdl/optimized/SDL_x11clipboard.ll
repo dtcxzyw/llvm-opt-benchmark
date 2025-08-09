@@ -271,7 +271,7 @@ GetWindow.exit:                                   ; preds = %4, %20
   %61 = call i32 %60(ptr noundef %13, i64 noundef %1, i64 noundef %15, i64 noundef %59, i64 noundef %36, i64 noundef 0) #6
   %62 = getelementptr inbounds nuw i8, ptr %12, i64 1640
   %63 = call i64 @SDL_GetTicks_REAL() #6
-  store i8 1, ptr %62, align 1
+  store i8 1, ptr %62, align 8
   br label %64
 
 64:                                               ; preds = %67, %57

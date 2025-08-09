@@ -677,7 +677,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef %0) #1 {
   %265 = getelementptr inbounds nuw i8, ptr %119, i64 124
   store i32 1, ptr %265, align 4, !tbaa !81
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %119, i64 128
-  store i32 1, ptr %.sroa.2.0..sroa_idx.i.i, align 4, !tbaa !81
+  store i32 1, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !81
   %266 = call i32 @ff_filter_frame(ptr noundef nonnull %48, ptr noundef nonnull %119) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

@@ -1874,7 +1874,7 @@ sema_trace_expr_list_liveness.exit192:            ; preds = %.lr.ph265, %59, %58
   %237 = getelementptr inbounds nuw %struct.Expr_, ptr %235, i64 %236
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef %237)
   %238 = getelementptr inbounds nuw i8, ptr %.0150248, i64 32
-  %239 = load i32, ptr %238, align 4
+  %239 = load i32, ptr %238, align 8
   %240 = load ptr, ptr @expr_arena, align 8
   %241 = zext i32 %239 to i64
   %242 = getelementptr inbounds nuw %struct.Expr_, ptr %240, i64 %241

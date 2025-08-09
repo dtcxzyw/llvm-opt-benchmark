@@ -784,7 +784,7 @@ define void @_Z24duDebugDrawNavMeshBVTreeP11duDebugDrawRK9dtNavMesh(ptr noundef 
   %47 = uitofp i16 %46 to float
   %48 = tail call float @llvm.fmuladd.f32(float %47, float %11, float %29)
   %49 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %50 = load i16, ptr %49, align 2
+  %50 = load i16, ptr %49, align 4
   %51 = uitofp i16 %50 to float
   %52 = tail call float @llvm.fmuladd.f32(float %51, float %11, float %34)
   %53 = getelementptr inbounds nuw i8, ptr %23, i64 10

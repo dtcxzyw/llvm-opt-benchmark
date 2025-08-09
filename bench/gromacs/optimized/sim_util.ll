@@ -7395,7 +7395,7 @@ define internal fastcc void @_ZN3gmxL31postProcessForceWithShiftForcesEP6t_nrnbP
   store ptr %31, ptr %41, align 8, !tbaa !151
   tail call void @_ZN3gmx19VirtualSitesHandler12spreadForcesENS_8ArrayRefIKNS_11BasicVectorIfEEEENS1_IS3_EENS0_14VirialHandlingES6_PA3_fP6t_nrnbPA3_KfP13gmx_wallcycle(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr %3, ptr %36, ptr %21, ptr %40, i32 noundef %32, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %12, ptr noundef null, ptr noundef %0, ptr noundef %2, ptr noundef %1)
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i8 1, ptr %42, align 1, !tbaa !153
+  store i8 1, ptr %42, align 8, !tbaa !153
   br label %43
 
 43:                                               ; preds = %13, %20, %11
@@ -7555,7 +7555,7 @@ _ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit: ; preds = %41, %26
   %74 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %75 = load float, ptr %74, align 4, !tbaa !146
   %76 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %77 = load float, ptr %76, align 4, !tbaa !146
+  %77 = load float, ptr %76, align 8, !tbaa !146
   %78 = fadd float %75, %77
   store float %78, ptr %74, align 4, !tbaa !146
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -7567,7 +7567,7 @@ _ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit: ; preds = %41, %26
   %84 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %85 = load float, ptr %84, align 4, !tbaa !146
   %86 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %87 = load float, ptr %86, align 4, !tbaa !146
+  %87 = load float, ptr %86, align 8, !tbaa !146
   %88 = fadd float %85, %87
   store float %88, ptr %84, align 4, !tbaa !146
   %89 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -7579,7 +7579,7 @@ _ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit: ; preds = %41, %26
   %94 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %95 = load float, ptr %94, align 4, !tbaa !146
   %96 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  %97 = load float, ptr %96, align 4, !tbaa !146
+  %97 = load float, ptr %96, align 8, !tbaa !146
   %98 = fadd float %95, %97
   store float %98, ptr %94, align 4, !tbaa !146
   %99 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -7591,7 +7591,7 @@ _ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit: ; preds = %41, %26
   %104 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %105 = load float, ptr %104, align 4, !tbaa !146
   %106 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %107 = load float, ptr %106, align 4, !tbaa !146
+  %107 = load float, ptr %106, align 8, !tbaa !146
   %108 = fadd float %105, %107
   store float %108, ptr %104, align 4, !tbaa !146
   %109 = getelementptr inbounds nuw i8, ptr %6, i64 32

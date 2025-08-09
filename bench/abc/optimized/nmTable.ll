@@ -136,7 +136,7 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %21
   %58 = getelementptr inbounds nuw i8, ptr %.sink112.i, i64 16
   %59 = load ptr, ptr %58, align 8, !tbaa !26
   %60 = getelementptr inbounds nuw i8, ptr %.sink112.i, i64 32
-  %61 = load i8, ptr %60, align 1, !tbaa !27
+  %61 = load i8, ptr %60, align 8, !tbaa !27
   %.not12.i.i = icmp eq i8 %61, 0
   br i1 %.not12.i.i, label %Nm_HashString.exit.i, label %.lr.ph.i73.i
 
@@ -227,7 +227,7 @@ Nm_ManResize.exit:                                ; preds = %80, %83
   store ptr %106, ptr %107, align 8, !tbaa !21
   store ptr %1, ptr %105, align 8, !tbaa !19
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %109 = load i8, ptr %108, align 1, !tbaa !27
+  %109 = load i8, ptr %108, align 8, !tbaa !27
   %.not12.i.i29 = icmp eq i8 %109, 0
   br i1 %.not12.i.i29, label %Nm_HashString.exit.i34, label %.lr.ph.i.i30
 

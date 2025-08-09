@@ -8010,7 +8010,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSIbEENSt9enable_ifIXaasr12_TypeInf
   %17 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIbEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %18 = inttoptr i64 %17 to ptr
   store ptr %18, ptr %6, align 8
-  store i8 %16, ptr %1, align 1
+  store i8 %16, ptr %1, align 8
   ret i1 true
 }
 
@@ -10341,7 +10341,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSIiEENSt9enable_ifIXaasr12_TypeInf
   %16 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIiEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %17 = inttoptr i64 %16 to ptr
   store ptr %17, ptr %6, align 8
-  store i32 %5, ptr %1, align 4
+  store i32 %5, ptr %1, align 8
   ret i1 true
 }
 

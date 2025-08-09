@@ -4120,7 +4120,7 @@ zval_ptr_dtor_str.exit:                           ; preds = %48, %53
   %85 = getelementptr inbounds nuw i8, ptr %81, i64 24
   store i64 6732144106328585051, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %81, i64 32
-  store i8 0, ptr %86, align 1, !tbaa !8
+  store i8 0, ptr %86, align 8, !tbaa !8
   store ptr %81, ptr %6, align 8, !tbaa !44
   br label %261
 

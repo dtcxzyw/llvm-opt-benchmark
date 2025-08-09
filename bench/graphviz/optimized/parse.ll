@@ -318,7 +318,7 @@ parseCase.exit:                                   ; preds = %86, %88
 
 96:                                               ; preds = %92
   store ptr %.1115, ptr %30, align 8, !tbaa !14
-  store i32 %.1112, ptr %31, align 4, !tbaa !3
+  store i32 %.1112, ptr %31, align 8, !tbaa !3
   br label %bindAction.exit.backedge
 
 97:                                               ; preds = %parseCase.exit
@@ -464,7 +464,7 @@ addBlock.exit:                                    ; preds = %110, %116, %101
 
 147:                                              ; preds = %143
   store ptr %.1115, ptr %24, align 8, !tbaa !14
-  store i32 %.1112, ptr %25, align 4, !tbaa !3
+  store i32 %.1112, ptr %25, align 8, !tbaa !3
   br label %bindAction.exit.backedge
 
 148:                                              ; preds = %parseCase.exit

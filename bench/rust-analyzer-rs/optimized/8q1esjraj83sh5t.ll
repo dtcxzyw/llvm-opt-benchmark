@@ -26044,7 +26044,7 @@ _ZN6hir_ty3mir12ProjectionId6lookup17h97c7a19d43dfb3e1E.exit: ; preds = %127
   %142 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %143 = load i32, ptr %142, align 8, !range !433, !noundef !4
   %trunc = trunc nuw i32 %143 to i1
-  %144 = load i32, ptr %121, align 4, !range !433, !alias.scope !4285, !noalias !4290, !noundef !4
+  %144 = load i32, ptr %121, align 8, !range !433, !alias.scope !4285, !noalias !4290, !noundef !4
   %trunc.i.i92 = trunc nuw i32 %144 to i1
   %145 = getelementptr inbounds nuw i8, ptr %52, i64 20
   br i1 %trunc, label %select.unfold.us, label %_ZN4core4iter6traits8iterator8Iterator4fold17h3866a39041c99373E.llvm.13094975786070861856.exit
@@ -71248,7 +71248,7 @@ switch.lookup:                                    ; preds = %60
   %161 = trunc i128 %160 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %162 = getelementptr inbounds nuw i8, ptr %32, i64 336
-  %163 = load ptr, ptr %162, align 8, !nonnull !4, !noundef !4
+  %163 = load ptr, ptr %162, align 16, !nonnull !4, !noundef !4
   %164 = getelementptr inbounds nuw i8, ptr %32, i64 344
   %165 = load i64, ptr %164, align 8, !noundef !4
   %166 = getelementptr inbounds { { [40 x i8], i8, [7 x i8] }, { i8, [111 x i8] }, { [3 x i64], i64, [2 x i64] }, { [13 x i64], i64, [2 x i64] }, i64, { i8, i8 }, { i8, [1 x i8] }, i8, [3 x i8] }, ptr %163, i64 %165
@@ -73627,7 +73627,7 @@ default.unreachable:                              ; preds = %169
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i), !noalias !13713
   %230 = getelementptr inbounds nuw i8, ptr %171, i64 328
   %231 = getelementptr inbounds nuw i8, ptr %171, i64 320
-  %232 = load ptr, ptr %231, align 8, !alias.scope !13714, !noalias !13717, !nonnull !4, !noundef !4
+  %232 = load ptr, ptr %231, align 16, !alias.scope !13714, !noalias !13717, !nonnull !4, !noundef !4
   %233 = load i64, ptr %230, align 8, !alias.scope !13714, !noalias !13717, !noundef !4
   invoke void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hb33836ee37715610E.llvm.6579604558243679033"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %.sroa.0.i.i, ptr noalias noundef nonnull readonly align 16 %232, i64 noundef %233)
           to label %.noexc.i unwind label %234, !noalias !13668

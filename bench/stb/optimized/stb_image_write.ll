@@ -2039,7 +2039,7 @@ define ptr @stbi_zlib_compress(ptr noundef %0, i32 noundef %1, ptr noundef write
   %9 = getelementptr inbounds nuw i8, ptr %malloc, i64 8
   store i32 2, ptr %malloc, align 4, !tbaa !3
   store i32 1, ptr %8, align 4, !tbaa !3
-  store i8 120, ptr %9, align 1, !tbaa !11
+  store i8 120, ptr %9, align 4, !tbaa !11
   %10 = tail call dereferenceable_or_null(13) ptr @realloc(ptr noundef nonnull %malloc, i64 noundef 13) #28
   %.not18.i253 = icmp eq ptr %10, null
   br i1 %.not18.i253, label %stbiw__zlib_flushf.exit.thread, label %11

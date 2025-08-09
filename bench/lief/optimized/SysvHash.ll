@@ -79,14 +79,14 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF3ELFlsERSoRKNS0_8
   %28 = load i32, ptr %27, align 8, !tbaa !6
   %29 = and i32 %28, -75
   %30 = or disjoint i32 %29, 8
-  store i32 %30, ptr %27, align 4, !tbaa !19
+  store i32 %30, ptr %27, align 8, !tbaa !19
   %31 = load i64, ptr %24, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load i32, ptr %33, align 8, !tbaa !6
   %35 = and i32 %34, -177
   %36 = or disjoint i32 %35, 32
-  store i32 %36, ptr %33, align 4, !tbaa !19
+  store i32 %36, ptr %33, align 8, !tbaa !19
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
@@ -183,7 +183,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF3ELFlsERSoRKNS0_8
   %91 = load i32, ptr %90, align 8, !tbaa !6, !noalias !35
   %92 = and i32 %91, -75
   %93 = or disjoint i32 %92, 2
-  store i32 %93, ptr %90, align 4, !tbaa !19, !noalias !35
+  store i32 %93, ptr %90, align 8, !tbaa !19, !noalias !35
   %94 = zext i32 %75 to i64
   %95 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef %94) #10, !noalias !35
   %96 = load i64, ptr %43, align 8, !tbaa !25, !noalias !35
@@ -759,7 +759,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZN
   %319 = load i32, ptr %318, align 8, !tbaa !6, !noalias !91
   %320 = and i32 %319, -75
   %321 = or disjoint i32 %320, 2
-  store i32 %321, ptr %318, align 4, !tbaa !19, !noalias !91
+  store i32 %321, ptr %318, align 8, !tbaa !19, !noalias !91
   %322 = zext i32 %303 to i64
   %323 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef %322) #10, !noalias !91
   %324 = load i64, ptr %271, align 8, !tbaa !25, !noalias !91

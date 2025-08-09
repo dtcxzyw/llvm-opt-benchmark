@@ -22416,9 +22416,9 @@ _ZN8rationalC2ERKS_.exit:                         ; preds = %_ZN8rationalC2ERKS_
   %1166 = or disjoint i8 %1165, %1160
   store i8 %1166, ptr %881, align 4
   %1167 = getelementptr inbounds nuw i8, ptr %1143, i64 16
-  %1168 = load i32, ptr %1167, align 4, !tbaa !40
+  %1168 = load i32, ptr %1167, align 8, !tbaa !40
   %1169 = load i32, ptr %883, align 8, !tbaa !40
-  store i32 %1169, ptr %1167, align 4, !tbaa !40
+  store i32 %1169, ptr %1167, align 8, !tbaa !40
   store i32 %1168, ptr %883, align 8, !tbaa !40
   %1170 = getelementptr inbounds nuw i8, ptr %1143, i64 24
   %1171 = load ptr, ptr %1170, align 8, !tbaa !280

@@ -1033,7 +1033,7 @@ define hidden void @_ZN6open3d4core6kernel11BinaryEWCPUERKNS0_6TensorES4_RS2_NS1
   %213 = getelementptr inbounds nuw i8, ptr %211, i64 16
   %214 = load i64, ptr %213, align 8, !tbaa !29
   %215 = icmp eq i64 %214, %204
-  %216 = load i32, ptr %212, align 4
+  %216 = load i32, ptr %212, align 8
   %217 = icmp eq i32 %3, %216
   %218 = select i1 %215, i1 %217, i1 false
   br i1 %218, label %.loopexit426, label %.lr.ph.i.i.i.i

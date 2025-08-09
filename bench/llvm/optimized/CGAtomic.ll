@@ -523,7 +523,7 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
   store ptr %176, ptr %.ptr.i.i.i.i, align 8, !tbaa !694
   %177 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
   store i64 0, ptr %177, align 8, !tbaa !695
-  store i8 0, ptr %176, align 1, !tbaa !8
+  store i8 0, ptr %176, align 8, !tbaa !8
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 32
   %178 = icmp eq i64 %.add.i.i.i.i, 416
   br i1 %178, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %175
@@ -724,7 +724,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basi
   store ptr %270, ptr %.ptr.i.i.i.i609, align 8, !tbaa !694
   %271 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i609, i64 8
   store i64 0, ptr %271, align 8, !tbaa !695
-  store i8 0, ptr %270, align 1, !tbaa !8
+  store i8 0, ptr %270, align 8, !tbaa !8
   %.add.i.i.i.i610 = add nuw nsw i64 %.idx.i.i.i.i608, 32
   %272 = icmp eq i64 %.add.i.i.i.i610, 416
   br i1 %272, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i611, label %269

@@ -233,9 +233,9 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8DenseMapIN5clang13BaseSubobjectENS2_12VTab
   store ptr null, ptr %.016.i.i.i, align 8, !tbaa !352
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %84 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 8
-  %85 = load i32, ptr %84, align 4, !tbaa !354
-  store i32 %85, ptr %83, align 4, !tbaa !354
-  store i32 0, ptr %84, align 4, !tbaa !354
+  %85 = load i32, ptr %84, align 8, !tbaa !354
+  store i32 %85, ptr %83, align 8, !tbaa !354
+  store i32 0, ptr %84, align 8, !tbaa !354
   %86 = getelementptr inbounds nuw i8, ptr %81, i64 12
   %87 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 12
   %88 = load i32, ptr %86, align 4, !tbaa !354
@@ -244,10 +244,10 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8DenseMapIN5clang13BaseSubobjectENS2_12VTab
   store i32 %88, ptr %87, align 4, !tbaa !354
   %90 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %91 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 16
-  %92 = load i32, ptr %90, align 4, !tbaa !354
-  %93 = load i32, ptr %91, align 4, !tbaa !354
-  store i32 %93, ptr %90, align 4, !tbaa !354
-  store i32 %92, ptr %91, align 4, !tbaa !354
+  %92 = load i32, ptr %90, align 8, !tbaa !354
+  %93 = load i32, ptr %91, align 8, !tbaa !354
+  store i32 %93, ptr %90, align 8, !tbaa !354
+  store i32 %92, ptr %91, align 8, !tbaa !354
   %94 = load i32, ptr %34, align 8, !tbaa !347
   %95 = add i32 %94, 1
   store i32 %95, ptr %34, align 8, !tbaa !347
@@ -2230,9 +2230,9 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseINS_8DenseMapIN5clang
   store ptr null, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !352
   %12 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 8
-  %14 = load i32, ptr %13, align 4, !tbaa !354
-  store i32 %14, ptr %12, align 4, !tbaa !354
-  store i32 0, ptr %13, align 4, !tbaa !354
+  %14 = load i32, ptr %13, align 8, !tbaa !354
+  store i32 %14, ptr %12, align 8, !tbaa !354
+  store i32 0, ptr %13, align 8, !tbaa !354
   %15 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 12
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 12
   %17 = load i32, ptr %15, align 4, !tbaa !354
@@ -2241,10 +2241,10 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseINS_8DenseMapIN5clang
   store i32 %17, ptr %16, align 4, !tbaa !354
   %19 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 16
-  %21 = load i32, ptr %19, align 4, !tbaa !354
-  %22 = load i32, ptr %20, align 4, !tbaa !354
-  store i32 %22, ptr %19, align 4, !tbaa !354
-  store i32 %21, ptr %20, align 4, !tbaa !354
+  %21 = load i32, ptr %19, align 8, !tbaa !354
+  %22 = load i32, ptr %20, align 8, !tbaa !354
+  store i32 %22, ptr %19, align 8, !tbaa !354
+  store i32 %21, ptr %20, align 8, !tbaa !354
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i.i = icmp eq ptr %23, %10

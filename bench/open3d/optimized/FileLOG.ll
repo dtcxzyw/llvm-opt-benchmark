@@ -567,19 +567,19 @@ define noundef zeroext i1 @_ZN6open3d2io34ReadPinholeCameraTrajectoryFromLOGERKN
   store i64 %27, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %29 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %30 = load <2 x double>, ptr %29, align 1, !tbaa !19
+  %30 = load <2 x double>, ptr %29, align 8, !tbaa !19
   store <2 x double> %30, ptr %28, align 8, !tbaa !19
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %32 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %33 = load <2 x double>, ptr %32, align 1, !tbaa !19
+  %33 = load <2 x double>, ptr %32, align 8, !tbaa !19
   store <2 x double> %33, ptr %31, align 8, !tbaa !19
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %35 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  %36 = load <2 x double>, ptr %35, align 1, !tbaa !19
+  %36 = load <2 x double>, ptr %35, align 8, !tbaa !19
   store <2 x double> %36, ptr %34, align 8, !tbaa !19
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %38 = getelementptr inbounds nuw i8, ptr %16, i64 72
-  %39 = load <2 x double>, ptr %38, align 1, !tbaa !19
+  %39 = load <2 x double>, ptr %38, align 8, !tbaa !19
   store <2 x double> %39, ptr %37, align 8, !tbaa !19
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %41 = getelementptr inbounds nuw i8, ptr %16, i64 88

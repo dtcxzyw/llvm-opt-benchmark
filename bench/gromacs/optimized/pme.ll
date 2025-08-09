@@ -5331,7 +5331,7 @@ _ZNSt6vectorI11PmeAtomCommSaIS0_EE12emplace_backIJRP10tmpi_comm_RiS7_RKiRbEEERS0
 1088:                                             ; preds = %1080
   %1089 = load ptr, ptr %1081, align 8, !tbaa !355
   %1090 = load i32, ptr %1082, align 4, !tbaa !263
-  %1091 = load i32, ptr %1083, align 4, !tbaa !263
+  %1091 = load i32, ptr %1083, align 8, !tbaa !263
   invoke void @_ZN11PmeAtomCommC1EP10tmpi_comm_iiib(ptr noundef nonnull align 8 dereferenceable(392) %1085, ptr noundef %1089, i32 noundef %1090, i32 noundef %1091, i32 noundef 1, i1 noundef zeroext false)
           to label %.noexc237 unwind label %1098
 
@@ -11317,10 +11317,10 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %75, %86, %
   %141 = load ptr, ptr %6, align 8, !tbaa !583
   %142 = load float, ptr %7, align 16, !tbaa !290
   %143 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %144 = load float, ptr %143, align 4, !tbaa !290
+  %144 = load float, ptr %143, align 16, !tbaa !290
   %145 = fmul float %142, %144
   %146 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %147 = load float, ptr %146, align 8, !tbaa !290
+  %147 = load float, ptr %146, align 16, !tbaa !290
   %148 = fmul float %145, %147
   %149 = load i8, ptr %8, align 1, !tbaa !427, !range !389, !noundef !390
   %150 = trunc nuw i8 %149 to i1
@@ -11344,10 +11344,10 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %75, %86, %
   %162 = getelementptr inbounds nuw i8, ptr %156, i64 %161
   %163 = load float, ptr %7, align 16, !tbaa !290
   %164 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %165 = load float, ptr %164, align 4, !tbaa !290
+  %165 = load float, ptr %164, align 16, !tbaa !290
   %166 = fmul float %163, %165
   %167 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %168 = load float, ptr %167, align 8, !tbaa !290
+  %168 = load float, ptr %167, align 16, !tbaa !290
   %169 = fmul float %166, %168
   %170 = load i8, ptr %8, align 1, !tbaa !427, !range !389, !noundef !390
   %171 = trunc nuw i8 %170 to i1
@@ -12180,10 +12180,10 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %33, %28, 
   %67 = getelementptr inbounds nuw i8, ptr %61, i64 %66
   %68 = load float, ptr %4, align 16, !tbaa !290
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %70 = load float, ptr %69, align 4, !tbaa !290
+  %70 = load float, ptr %69, align 16, !tbaa !290
   %71 = fmul float %68, %70
   %72 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %73 = load float, ptr %72, align 8, !tbaa !290
+  %73 = load float, ptr %72, align 16, !tbaa !290
   %74 = fmul float %71, %73
   %75 = load i8, ptr %5, align 1, !tbaa !427, !range !389, !noundef !390
   %76 = trunc nuw i8 %75 to i1
@@ -13708,7 +13708,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !tbaa !12, !alias.scope !616, !noalias !619
   store ptr %43, ptr %.0911.i.i.i, align 8, !tbaa !4, !alias.scope !619, !noalias !616
   store i64 0, ptr %52, align 8, !tbaa !12, !alias.scope !619, !noalias !616
-  store i8 0, ptr %43, align 1, !tbaa !14, !alias.scope !619, !noalias !616
+  store i8 0, ptr %43, align 8, !tbaa !14, !alias.scope !619, !noalias !616
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %54, %1
@@ -13756,7 +13756,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !tbaa !12, !alias.scope !623, !noalias !626
   store ptr %59, ptr %.0911.i.i.i29, align 8, !tbaa !4, !alias.scope !626, !noalias !623
   store i64 0, ptr %68, align 8, !tbaa !12, !alias.scope !626, !noalias !623
-  store i8 0, ptr %59, align 1, !tbaa !14, !alias.scope !626, !noalias !623
+  store i8 0, ptr %59, align 8, !tbaa !14, !alias.scope !626, !noalias !623
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %.not.i.i.i34 = icmp eq ptr %70, %6

@@ -888,10 +888,10 @@ define dso_local void @netpoll_send_udp(ptr noundef %0, ptr noundef readonly cap
   store i16 0, ptr %154, align 2
   %155 = getelementptr inbounds nuw i8, ptr %141, i64 12
   %156 = load i32, ptr %91, align 8
-  store i32 %156, ptr %155, align 1
+  store i32 %156, ptr %155, align 4
   %157 = getelementptr inbounds nuw i8, ptr %141, i64 16
   %158 = load i32, ptr %118, align 8
-  store i32 %158, ptr %157, align 1
+  store i32 %158, ptr %157, align 4
   %159 = load i8, ptr %141, align 4
   %160 = and i8 %159, 15
   %161 = zext nneg i8 %160 to i32
@@ -923,7 +923,7 @@ define dso_local void @netpoll_send_udp(ptr noundef %0, ptr noundef readonly cap
   %181 = load i32, ptr %180, align 4
   store i32 %181, ptr %177, align 4
   %182 = getelementptr i8, ptr %180, i64 4
-  %183 = load i16, ptr %182, align 2
+  %183 = load i16, ptr %182, align 4
   %184 = getelementptr i8, ptr %167, i64 10
   store i16 %183, ptr %184, align 2
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 70
@@ -932,7 +932,7 @@ define dso_local void @netpoll_send_udp(ptr noundef %0, ptr noundef readonly cap
   %187 = getelementptr i8, ptr %0, i64 74
   %188 = load i16, ptr %187, align 2
   %189 = getelementptr i8, ptr %167, i64 4
-  store i16 %188, ptr %189, align 2
+  store i16 %188, ptr %189, align 4
   %190 = load ptr, ptr %0, align 8
   %191 = getelementptr inbounds nuw i8, ptr %57, i64 16
   store ptr %190, ptr %191, align 8

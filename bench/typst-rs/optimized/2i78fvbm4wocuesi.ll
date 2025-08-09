@@ -54925,7 +54925,7 @@ define internal fastcc void @"_ZN71_$LT$hayagriva..types..numeric..Numeric$u20$a
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !11326
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i.i, i64 4
   call void @llvm.experimental.noalias.scope.decl(metadata !11332)
-  %29 = load i8, ptr %28, align 1, !range !569, !alias.scope !11335, !noalias !11336, !noundef !4
+  %29 = load i8, ptr %28, align 4, !range !569, !alias.scope !11335, !noalias !11336, !noundef !4
   %30 = icmp ne i8 %29, 3
   %31 = zext i1 %30 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !11338

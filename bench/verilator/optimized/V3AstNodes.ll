@@ -108845,7 +108845,7 @@ _ZNK8FileLine15filenameLettersB5cxx11Ev.exit:     ; preds = %_ZStlsISt11char_tra
   %67 = load i32, ptr %66, align 8, !tbaa !387
   %68 = and i32 %67, -75
   %69 = or disjoint i32 %68, 2
-  store i32 %69, ptr %66, align 4, !tbaa !388
+  store i32 %69, ptr %66, align 8, !tbaa !388
   %70 = load ptr, ptr %53, align 8, !tbaa !379
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load i32, ptr %71, align 8, !tbaa !389
@@ -112559,7 +112559,7 @@ define dso_local noundef ptr @_ZN11AstClocking12ensureEventpEb(ptr noundef nonnu
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %13, i8 0, i64 10, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 408) (i8, ptr @_ZTV13AstBasicDType, i64 16), ptr %11, align 8, !tbaa !24
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 164
-  store i8 0, ptr %14, align 1, !tbaa !424
+  store i8 0, ptr %14, align 4, !tbaa !424
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %15, i8 0, i64 9, i1 false)
   invoke void @_ZN13AstBasicDType4initE14VBasicDTypeKwd8VSigningiiP8AstRange(ptr noundef nonnull align 8 dereferenceable(184) %11, i8 4, i8 2, i32 noundef 0, i32 noundef -1, ptr noundef null)
@@ -118250,7 +118250,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit142:        ; preds = %176, %_ZNSt6vectorI
   %203 = load ptr, ptr %202, align 8, !tbaa !4
   %.not.i = icmp ne ptr %203, null
   %204 = getelementptr inbounds nuw i8, ptr %39, i64 176
-  %205 = load i8, ptr %204, align 4, !range !95
+  %205 = load i8, ptr %204, align 8, !range !95
   %206 = trunc nuw i8 %205 to i1
   %207 = select i1 %.not.i, i1 true, i1 %206
   br i1 %207, label %208, label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit214.thread
@@ -122687,7 +122687,7 @@ _ZNK13AstBasicDType11isDpiBitVecEv.exit:          ; preds = %20
   %23 = load ptr, ptr %22, align 8, !tbaa !4
   %.not.i.i11 = icmp ne ptr %23, null
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 176
-  %25 = load i8, ptr %24, align 4, !range !95
+  %25 = load i8, ptr %24, align 8, !range !95
   %26 = trunc nuw i8 %25 to i1
   %27 = select i1 %.not.i.i11, i1 true, i1 %26
   br i1 %27, label %_ZNK13AstBasicDType11isDpiBitVecEv.exit16, label %_ZNK13AstBasicDType13isDpiLogicVecEv.exit.thread
@@ -122697,7 +122697,7 @@ _ZNK13AstBasicDType13isDpiLogicVecEv.exit:        ; preds = %20
   %29 = load ptr, ptr %28, align 8, !tbaa !4
   %.not.i.i13 = icmp ne ptr %29, null
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 176
-  %31 = load i8, ptr %30, align 4, !range !95
+  %31 = load i8, ptr %30, align 8, !range !95
   %32 = trunc nuw i8 %31 to i1
   %33 = select i1 %.not.i.i13, i1 true, i1 %32
   br i1 %33, label %_ZNK13AstBasicDType11isDpiBitVecEv.exit16, label %_ZNK13AstBasicDType13isDpiLogicVecEv.exit.thread
@@ -129916,7 +129916,7 @@ _ZN7AstNode9privateIsI17AstPackArrayDTypeKPK17AstNodeArrayDTypeEEbPKS_.exit: ; p
   %14 = load ptr, ptr %13, align 8, !tbaa !4
   %.not.i35 = icmp ne ptr %14, null
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 176
-  %16 = load i8, ptr %15, align 4, !range !95
+  %16 = load i8, ptr %15, align 8, !range !95
   %17 = trunc nuw i8 %16 to i1
   %18 = select i1 %.not.i35, i1 true, i1 %17
   br i1 %18, label %22, label %19
@@ -132606,7 +132606,7 @@ define dso_local noundef ptr @_ZN12AstTypeTable14findBasicDTypeEP8FileLine14VBas
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %12, i8 0, i64 10, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 408) (i8, ptr @_ZTV13AstBasicDType, i64 16), ptr %11, align 8, !tbaa !24
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 164
-  store i8 0, ptr %13, align 1, !tbaa !424
+  store i8 0, ptr %13, align 4, !tbaa !424
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %14, i8 0, i64 9, i1 false)
   invoke void @_ZN13AstBasicDType4initE14VBasicDTypeKwd8VSigningiiP8AstRange(ptr noundef nonnull align 8 dereferenceable(184) %11, i8 %2, i8 2, i32 noundef 0, i32 noundef -1, ptr noundef null)
@@ -132690,7 +132690,7 @@ define dso_local noundef ptr @_ZN12AstTypeTable17findLogicBitDTypeEP8FileLine14V
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %10, i8 0, i64 10, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 408) (i8, ptr @_ZTV13AstBasicDType, i64 16), ptr %9, align 8, !tbaa !24
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 164
-  store i8 0, ptr %11, align 1, !tbaa !424
+  store i8 0, ptr %11, align 4, !tbaa !424
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %12, i8 0, i64 9, i1 false)
   invoke void @_ZN13AstBasicDType4initE14VBasicDTypeKwd8VSigningiiP8AstRange(ptr noundef nonnull align 8 dereferenceable(184) %9, i8 %2, i8 %5, i32 noundef %3, i32 noundef %4, ptr noundef null)
@@ -132775,7 +132775,7 @@ define dso_local noundef ptr @_ZN12AstTypeTable17findLogicBitDTypeEP8FileLine14V
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %10, i8 0, i64 10, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 408) (i8, ptr @_ZTV13AstBasicDType, i64 16), ptr %9, align 8, !tbaa !24
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 164
-  store i8 0, ptr %11, align 1, !tbaa !424
+  store i8 0, ptr %11, align 4, !tbaa !424
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %12, i8 0, i64 9, i1 false)
   %sub.i.i = sub nsw i32 %.sroa.08.sroa.0.0.extract.trunc.i, %.sroa.08.sroa.3.0.extract.trunc.i
@@ -162026,7 +162026,7 @@ common.ret10:                                     ; preds = %31, %34, %27, %29
   %41 = load i32, ptr %40, align 8, !tbaa !387
   %42 = and i32 %41, -75
   %43 = or disjoint i32 %42, 2
-  store i32 %43, ptr %40, align 4, !tbaa !388
+  store i32 %43, ptr %40, align 8, !tbaa !388
   %44 = load i32, ptr %32, align 4, !tbaa !1138
   %45 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %44)
   br label %common.ret10
@@ -232938,7 +232938,7 @@ _ZNSt10_HashtableIjSt4pairIKjP11AstVarScopeESaIS4_ENSt8__detail10_Select1stESt8e
   store ptr %22, ptr %26, align 8, !tbaa !695
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load i64, ptr %27, align 8, !tbaa !691
-  %29 = load i32, ptr %25, align 4, !tbaa !58
+  %29 = load i32, ptr %25, align 8, !tbaa !58
   %30 = zext i32 %29 to i64
   %31 = urem i64 %30, %28
   %32 = getelementptr inbounds nuw ptr, ptr %18, i64 %31
@@ -232959,7 +232959,7 @@ _ZNSt10_HashtableIjSt4pairIKjP11AstVarScopeESaIS4_ENSt8__detail10_Select1stESt8e
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false)
   store ptr %33, ptr %.02636, align 8, !tbaa !696
-  %37 = load i32, ptr %36, align 4, !tbaa !58
+  %37 = load i32, ptr %36, align 8, !tbaa !58
   %38 = zext i32 %37 to i64
   %39 = urem i64 %38, %28
   %40 = getelementptr inbounds nuw ptr, ptr %18, i64 %39
@@ -236059,7 +236059,7 @@ _ZNSt10_HashtableIjSt4pairIKjP11AstVarScopeESaIS4_ENSt8__detail10_Select1stESt8e
   %.05568 = phi i8 [ %.156, %44 ], [ 0, %_ZNSt10_HashtableIjSt4pairIKjP11AstVarScopeESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb0EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.072, align 8, !tbaa !696
   %15 = getelementptr inbounds nuw i8, ptr %.072, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !58
+  %16 = load i32, ptr %15, align 8, !tbaa !58
   %17 = zext i32 %16 to i64
   %18 = urem i64 %17, %1
   %.not62 = icmp ne ptr %.05469, null

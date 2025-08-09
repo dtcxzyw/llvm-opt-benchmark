@@ -723,7 +723,7 @@ define dso_local void @hugetlb_cgroup_migrate(ptr noundef %0, ptr noundef %1) lo
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 104
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %24 = load ptr, ptr %23, align 8
+  %24 = load ptr, ptr %23, align 16
   %25 = load ptr, ptr %21, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %24, ptr %26, align 8
@@ -732,7 +732,7 @@ define dso_local void @hugetlb_cgroup_migrate(ptr noundef %0, ptr noundef %1) lo
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %21, ptr %28, align 8
   store ptr %27, ptr %21, align 8
-  store ptr %22, ptr %23, align 8
+  store ptr %22, ptr %23, align 16
   store volatile ptr %21, ptr %22, align 8
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull @hugetlb_lock) #9
   br label %29

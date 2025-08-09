@@ -1586,7 +1586,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %7,
   store i64 %14, ptr %15, align 8, !tbaa !25
   store ptr %5, ptr %1, align 8, !tbaa !22
   store i64 0, ptr %13, align 8, !tbaa !25
-  store i8 0, ptr %5, align 1, !tbaa !26
+  store i8 0, ptr %5, align 8, !tbaa !26
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 1, ptr %16, align 8, !tbaa !27
   ret void
@@ -1609,7 +1609,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.thread: ; pred
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.sroa.2, ptr noundef nonnull align 8 dereferenceable(1) %4, i64 %9, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 0, ptr %10, align 8, !tbaa !25
-  store i8 0, ptr %4, align 1, !tbaa !26
+  store i8 0, ptr %4, align 8, !tbaa !26
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %11, ptr %0, align 8, !tbaa !19
   %12 = add nuw nsw i64 %7, 1
@@ -1624,7 +1624,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %4, ptr %1, align 8, !tbaa !22
   store i64 0, ptr %14, align 8, !tbaa !25
-  store i8 0, ptr %4, align 1, !tbaa !26
+  store i8 0, ptr %4, align 8, !tbaa !26
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %0, align 8, !tbaa !22
   %.sroa.2.0..sroa.2.16. = load i64, ptr %.sroa.2, align 8, !tbaa !26
@@ -1659,7 +1659,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.thread: ; pred
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.sroa.2, ptr noundef nonnull align 8 dereferenceable(1) %4, i64 %9, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 0, ptr %10, align 8, !tbaa !25
-  store i8 0, ptr %4, align 1, !tbaa !26
+  store i8 0, ptr %4, align 8, !tbaa !26
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %11, ptr %0, align 8, !tbaa !19
   %12 = add nuw nsw i64 %7, 1
@@ -1674,7 +1674,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %4, ptr %1, align 8, !tbaa !22
   store i64 0, ptr %14, align 8, !tbaa !25
-  store i8 0, ptr %4, align 1, !tbaa !26
+  store i8 0, ptr %4, align 8, !tbaa !26
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %0, align 8, !tbaa !22
   %.sroa.2.0..sroa.2.16. = load i64, ptr %.sroa.2, align 8, !tbaa !26
@@ -2480,7 +2480,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.thread: ; pred
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %11, ptr %14, align 8, !tbaa !25
   store i64 0, ptr %10, align 8, !tbaa !25
-  store i8 0, ptr %8, align 1, !tbaa !26
+  store i8 0, ptr %8, align 8, !tbaa !26
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %15, ptr %4, align 8, !tbaa !19
   br label %20
@@ -2494,7 +2494,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %2
   store i64 %.pre, ptr %17, align 8, !tbaa !25
   store ptr %8, ptr %1, align 8, !tbaa !22
   store i64 0, ptr %.phi.trans.insert, align 8, !tbaa !25
-  store i8 0, ptr %8, align 1, !tbaa !26
+  store i8 0, ptr %8, align 8, !tbaa !26
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %18, ptr %4, align 8, !tbaa !19
   %19 = icmp eq ptr %7, %6
@@ -2743,7 +2743,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.thread: ; pred
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %11, ptr %14, align 8, !tbaa !25
   store i64 0, ptr %10, align 8, !tbaa !25
-  store i8 0, ptr %8, align 1, !tbaa !26
+  store i8 0, ptr %8, align 8, !tbaa !26
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %15, ptr %4, align 8, !tbaa !19
   br label %20
@@ -2757,7 +2757,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %2
   store i64 %.pre, ptr %17, align 8, !tbaa !25
   store ptr %8, ptr %1, align 8, !tbaa !22
   store i64 0, ptr %.phi.trans.insert, align 8, !tbaa !25
-  store i8 0, ptr %8, align 1, !tbaa !26
+  store i8 0, ptr %8, align 8, !tbaa !26
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %18, ptr %4, align 8, !tbaa !19
   %19 = icmp eq ptr %7, %6
@@ -3006,7 +3006,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.thread: ; pred
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %11, ptr %14, align 8, !tbaa !25
   store i64 0, ptr %10, align 8, !tbaa !25
-  store i8 0, ptr %8, align 1, !tbaa !26
+  store i8 0, ptr %8, align 8, !tbaa !26
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %15, ptr %4, align 8, !tbaa !19
   br label %20
@@ -3020,7 +3020,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %2
   store i64 %.pre, ptr %17, align 8, !tbaa !25
   store ptr %8, ptr %1, align 8, !tbaa !22
   store i64 0, ptr %.phi.trans.insert, align 8, !tbaa !25
-  store i8 0, ptr %8, align 1, !tbaa !26
+  store i8 0, ptr %8, align 8, !tbaa !26
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %18, ptr %4, align 8, !tbaa !19
   %19 = icmp eq ptr %7, %6
@@ -3334,7 +3334,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4Luau8TypeP
 .noexc:                                           ; preds = %1
   store i32 2, ptr %5, align 8, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 1, ptr %8, align 4, !tbaa !43
+  store i32 1, ptr %8, align 8, !tbaa !43
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %9, ptr %4, align 8, !tbaa !10
   br label %_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EE9push_backEOS8_.exit
@@ -3405,7 +3405,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4Luau8TypeP
 .noexc:                                           ; preds = %1
   store i32 2, ptr %5, align 8, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 2, ptr %8, align 4, !tbaa !43
+  store i32 2, ptr %8, align 8, !tbaa !43
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %9, ptr %4, align 8, !tbaa !10
   br label %_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EE9push_backEOS8_.exit
@@ -3476,7 +3476,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4Luau8TypeP
 .noexc:                                           ; preds = %1
   store i32 2, ptr %5, align 8, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 3, ptr %8, align 4, !tbaa !43
+  store i32 3, ptr %8, align 8, !tbaa !43
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %9, ptr %4, align 8, !tbaa !10
   br label %_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EE9push_backEOS8_.exit
@@ -3547,7 +3547,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4Luau8TypeP
 .noexc:                                           ; preds = %1
   store i32 2, ptr %5, align 8, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 4, ptr %8, align 4, !tbaa !43
+  store i32 4, ptr %8, align 8, !tbaa !43
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %9, ptr %4, align 8, !tbaa !10
   br label %_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EE9push_backEOS8_.exit
@@ -3618,7 +3618,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4Luau8TypeP
 .noexc:                                           ; preds = %1
   store i32 2, ptr %5, align 8, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 5, ptr %8, align 4, !tbaa !43
+  store i32 5, ptr %8, align 8, !tbaa !43
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %9, ptr %4, align 8, !tbaa !10
   br label %_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EE9push_backEOS8_.exit
@@ -3689,7 +3689,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4Luau8TypeP
 .noexc:                                           ; preds = %1
   store i32 2, ptr %5, align 8, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 6, ptr %8, align 4, !tbaa !43
+  store i32 6, ptr %8, align 8, !tbaa !43
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %9, ptr %4, align 8, !tbaa !10
   br label %_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EE9push_backEOS8_.exit
@@ -3760,7 +3760,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4Luau8TypeP
 .noexc:                                           ; preds = %1
   store i32 2, ptr %5, align 8, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 7, ptr %8, align 4, !tbaa !43
+  store i32 7, ptr %8, align 8, !tbaa !43
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %9, ptr %4, align 8, !tbaa !10
   br label %_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EE9push_backEOS8_.exit
@@ -3831,7 +3831,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4Luau8TypeP
 .noexc:                                           ; preds = %1
   store i32 3, ptr %5, align 8, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 0, ptr %8, align 4, !tbaa !45
+  store i32 0, ptr %8, align 8, !tbaa !45
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %9, ptr %4, align 8, !tbaa !10
   br label %_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EE9push_backEOS8_.exit
@@ -3902,7 +3902,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4Luau8TypeP
 .noexc:                                           ; preds = %1
   store i32 3, ptr %5, align 8, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 1, ptr %8, align 4, !tbaa !45
+  store i32 1, ptr %8, align 8, !tbaa !45
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %9, ptr %4, align 8, !tbaa !10
   br label %_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EE9push_backEOS8_.exit
@@ -3973,7 +3973,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4Luau8TypeP
 .noexc:                                           ; preds = %1
   store i32 3, ptr %5, align 8, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 2, ptr %8, align 4, !tbaa !45
+  store i32 2, ptr %8, align 8, !tbaa !45
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %9, ptr %4, align 8, !tbaa !10
   br label %_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EE9push_backEOS8_.exit
@@ -9997,7 +9997,7 @@ _ZN4Luau8TypePath8PropertyC2EOS1_.exit:           ; preds = %7, %_ZNKSt7__cxx111
   store i64 %14, ptr %15, align 8, !tbaa !25
   store ptr %5, ptr %1, align 8, !tbaa !22
   store i64 0, ptr %13, align 8, !tbaa !25
-  store i8 0, ptr %5, align 1, !tbaa !26
+  store i8 0, ptr %5, align 8, !tbaa !26
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i8, ptr %17, align 8, !tbaa !27, !range !30, !noundef !42

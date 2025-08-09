@@ -1393,7 +1393,7 @@ lean_dec_ref.exit:                                ; preds = %14, %16, %17
   %.val21 = load ptr, ptr %23, align 8, !tbaa !9
   store ptr %.val21, ptr @l___private_Lean_ImportingFlag_0__Lean_importingRef, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %.val21) #3
-  %24 = load i32, ptr %19, align 4, !tbaa !4
+  %24 = load i32, ptr %19, align 8, !tbaa !4
   %25 = icmp sgt i32 %24, 1
   br i1 %25, label %26, label %28, !prof !11
 
@@ -1423,7 +1423,7 @@ lean_dec_ref.exit16:                              ; preds = %29, %28, %26
   %.val22 = load ptr, ptr %34, align 8, !tbaa !9
   store ptr %.val22, ptr @l___private_Lean_ImportingFlag_0__Lean_runInitializersRef, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %.val22) #3
-  %35 = load i32, ptr %30, align 4, !tbaa !4
+  %35 = load i32, ptr %30, align 8, !tbaa !4
   %36 = icmp sgt i32 %35, 1
   br i1 %36, label %37, label %39, !prof !11
 

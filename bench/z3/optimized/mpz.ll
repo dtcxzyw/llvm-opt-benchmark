@@ -13993,7 +13993,7 @@ _ZNSt9basic_iosIcSt11char_traitsIcEEC2EPSt15basic_streambufIcS1_E.exit: ; preds 
   %23 = load i32, ptr %22, align 8, !tbaa !113
   %24 = and i32 %23, -75
   %25 = or disjoint i32 %24, 8
-  store i32 %25, ptr %22, align 4, !tbaa !114
+  store i32 %25, ptr %22, align 8, !tbaa !114
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %27 = load i8, ptr %26, align 4
   %28 = and i8 %27, 1
@@ -30798,7 +30798,7 @@ _ZNSt9basic_iosIcSt11char_traitsIcEEC2EPSt15basic_streambufIcS1_E.exit: ; preds 
   %23 = load i32, ptr %22, align 8, !tbaa !113
   %24 = and i32 %23, -75
   %25 = or disjoint i32 %24, 8
-  store i32 %25, ptr %22, align 4, !tbaa !114
+  store i32 %25, ptr %22, align 8, !tbaa !114
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %27 = load i8, ptr %26, align 4
   %28 = and i8 %27, 1

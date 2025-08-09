@@ -422,7 +422,7 @@ _ZNSt6vectorIN5Eigen10QuaternionIdLi0EEENS0_17aligned_allocatorIS2_EEE6resizeEm.
   %57 = load ptr, ptr %5, align 8, !tbaa !28
   %58 = load <2 x double>, ptr %57, align 16, !tbaa !25
   %59 = getelementptr i8, ptr %57, i64 16
-  %60 = load double, ptr %59, align 8, !tbaa !26
+  %60 = load double, ptr %59, align 16, !tbaa !26
   call void @free(ptr noundef %57) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %61 = fmul <2 x double> %58, <double 1.000000e+00, double 0.000000e+00>
@@ -477,7 +477,7 @@ _ZNSt6vectorIN5Eigen10QuaternionIdLi0EEENS0_17aligned_allocatorIS2_EEE6resizeEm.
   %.sroa.6.16.vec.insert.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %81, i64 0
   %82 = shufflevector <2 x double> %.sroa.6.16.vec.insert.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %83 = fmul <2 x double> %74, %82
-  store <2 x double> %83, ptr %56, align 1, !tbaa !25
+  store <2 x double> %83, ptr %56, align 8, !tbaa !25
   %84 = getelementptr i8, ptr %56, i64 16
   %85 = fmul double %75, %81
   store double %85, ptr %84, align 8, !tbaa !26

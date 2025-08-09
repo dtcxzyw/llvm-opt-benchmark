@@ -8359,12 +8359,12 @@ proto_item_set_generated.exit891:                 ; preds = %proto_item_set_gene
   store i32 0, ptr %3323, align 8
   %3324 = getelementptr inbounds nuw i8, ptr %3318, i64 24
   %3325 = load i64, ptr %55, align 4
-  store i64 %3325, ptr %3324, align 1
+  store i64 %3325, ptr %3324, align 8
   %3326 = getelementptr inbounds nuw i8, ptr %3318, i64 64
   store i32 0, ptr %3326, align 8
   %3327 = getelementptr inbounds nuw i8, ptr %3318, i64 72
   %3328 = load i64, ptr %57, align 1
-  store i64 %3328, ptr %3327, align 1
+  store i64 %3328, ptr %3327, align 8
   %3329 = load i32, ptr @lbmc_stream_tap_handle, align 4
   call void @tap_queue_packet(i32 noundef %3329, ptr noundef %2, ptr noundef %3318)
   br label %3330

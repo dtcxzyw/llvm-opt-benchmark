@@ -1923,7 +1923,7 @@ _ZN5follylsERSoRKNS_11AsyncSocket9StateEnumE.exit: ; preds = %_ZStlsISt11char_tr
   %32 = load i32, ptr %31, align 8, !tbaa !159
   %33 = and i32 %32, -75
   %34 = or disjoint i32 %33, 8
-  store i32 %34, ptr %31, align 4, !tbaa !168
+  store i32 %34, ptr %31, align 8, !tbaa !168
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 233
   %36 = load i8, ptr %35, align 1, !tbaa !169
   %37 = zext i8 %36 to i32
@@ -2120,7 +2120,7 @@ _ZN5follylsERSoRKNS_11AsyncSocket9StateEnumE.exit: ; preds = %_ZStlsISt11char_tr
   %33 = load i32, ptr %32, align 8, !tbaa !159
   %34 = and i32 %33, -75
   %35 = or disjoint i32 %34, 8
-  store i32 %35, ptr %32, align 4, !tbaa !168
+  store i32 %35, ptr %32, align 8, !tbaa !168
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 233
   %37 = load i8, ptr %36, align 1, !tbaa !169
   %38 = zext i8 %37 to i32
@@ -2648,7 +2648,7 @@ _ZN5follylsERSoRKNS_11AsyncSocket9StateEnumE.exit: ; preds = %_ZStlsISt11char_tr
   %31 = load i32, ptr %30, align 8, !tbaa !159
   %32 = and i32 %31, -75
   %33 = or disjoint i32 %32, 8
-  store i32 %33, ptr %30, align 4, !tbaa !168
+  store i32 %33, ptr %30, align 8, !tbaa !168
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 233
   %35 = load i8, ptr %34, align 1, !tbaa !169
   %36 = zext i8 %35 to i32
@@ -2766,7 +2766,7 @@ _ZN5follylsERSoRKNS_11AsyncSocket9StateEnumE.exit: ; preds = %_ZStlsISt11char_tr
   %34 = load i32, ptr %33, align 8, !tbaa !159
   %35 = and i32 %34, -75
   %36 = or disjoint i32 %35, 8
-  store i32 %36, ptr %33, align 4, !tbaa !168
+  store i32 %36, ptr %33, align 8, !tbaa !168
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 233
   %38 = load i8, ptr %37, align 1, !tbaa !169
   %39 = zext i8 %38 to i32
@@ -3061,7 +3061,7 @@ _ZN5follylsERSoRKNS_11AsyncSocket9StateEnumE.exit67: ; preds = %_ZStlsISt11char_
   %164 = load i32, ptr %163, align 8, !tbaa !159
   %165 = and i32 %164, -75
   %166 = or disjoint i32 %165, 8
-  store i32 %166, ptr %163, align 4, !tbaa !168
+  store i32 %166, ptr %163, align 8, !tbaa !168
   %167 = load i8, ptr %41, align 1, !tbaa !169
   %168 = zext i8 %167 to i32
   %169 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %151, i32 noundef %168)
@@ -3437,7 +3437,7 @@ _ZN5follylsERSoRKNS_11AsyncSocket9StateEnumE.exit: ; preds = %_ZStlsISt11char_tr
   %40 = load i32, ptr %39, align 8, !tbaa !159
   %41 = and i32 %40, -75
   %42 = or disjoint i32 %41, 8
-  store i32 %42, ptr %39, align 4, !tbaa !168
+  store i32 %42, ptr %39, align 8, !tbaa !168
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 234
   %44 = load i16, ptr %43, align 2, !tbaa !176
   %45 = zext i16 %44 to i64
@@ -3633,7 +3633,7 @@ _ZN5follylsERSoRKNS_11AsyncSocket9StateEnumE.exit: ; preds = %_ZStlsISt11char_tr
   %37 = load i32, ptr %36, align 8, !tbaa !159
   %38 = and i32 %37, -75
   %39 = or disjoint i32 %38, 8
-  store i32 %39, ptr %36, align 4, !tbaa !168
+  store i32 %39, ptr %36, align 8, !tbaa !168
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 234
   %41 = load i16, ptr %40, align 2, !tbaa !176
   %42 = zext i16 %41 to i64
@@ -6636,7 +6636,7 @@ _ZN5follylsERSoRKNS_11AsyncSocket9StateEnumE.exit: ; preds = %_ZStlsISt11char_tr
   %38 = load i32, ptr %37, align 8, !tbaa !159
   %39 = and i32 %38, -75
   %40 = or disjoint i32 %39, 8
-  store i32 %40, ptr %37, align 4, !tbaa !168
+  store i32 %40, ptr %37, align 8, !tbaa !168
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 234
   %42 = load i16, ptr %41, align 2, !tbaa !176
   %43 = zext i16 %42 to i64
@@ -11376,7 +11376,7 @@ _ZN5follylsERSoRKNS_11AsyncSocket9StateEnumE.exit: ; preds = %_ZStlsISt11char_tr
   %38 = load i32, ptr %37, align 8, !tbaa !159
   %39 = and i32 %38, -75
   %40 = or disjoint i32 %39, 8
-  store i32 %40, ptr %37, align 4, !tbaa !168
+  store i32 %40, ptr %37, align 8, !tbaa !168
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 234
   %42 = load i16, ptr %41, align 2, !tbaa !176
   %43 = zext i16 %42 to i64
@@ -13037,10 +13037,10 @@ _ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfa
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEE10uninitCallES4_S6_RNS1_4DataE, ptr %62, align 16, !tbaa !207
   store ptr null, ptr %63, align 8, !tbaa !209
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 16 dereferenceable(64) %68, ptr noundef nonnull align 16 dereferenceable(64) %6) #48
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 16), ptr %68, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 16), ptr %68, align 16, !tbaa !7
   %74 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %75 = load i64, ptr %64, align 16
-  store i64 %75, ptr %74, align 8
+  store i64 %75, ptr %74, align 16
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 16 dereferenceable(64) %6) #48
   store ptr %68, ptr %3, align 16, !tbaa !183
   store ptr @_ZN5folly6detail8function5call_INS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEELb0ELb0EvJPNS_21ObserverContainerBaseIS4_S6_NS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE12ObserverBaseES7_EEET2_DpT3_RNS1_4DataE, ptr %70, align 16, !tbaa !210
@@ -18633,7 +18633,7 @@ _ZN5follylsERSoRKNS_11AsyncSocket9StateEnumE.exit: ; preds = %_ZStlsISt11char_tr
   %50 = load i32, ptr %49, align 8, !tbaa !159
   %51 = and i32 %50, -75
   %52 = or disjoint i32 %51, 8
-  store i32 %52, ptr %49, align 4, !tbaa !168
+  store i32 %52, ptr %49, align 8, !tbaa !168
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 234
   %54 = load i16, ptr %53, align 2, !tbaa !176
   %55 = zext i16 %54 to i64
@@ -19156,7 +19156,7 @@ _ZN5follylsIcSt11char_traitsIcEEERSt13basic_ostreamIT_T0_ES7_RKNS_13NetworkSocke
   %30 = load i32, ptr %29, align 8, !tbaa !159
   %31 = and i32 %30, -75
   %32 = or disjoint i32 %31, 8
-  store i32 %32, ptr %29, align 4, !tbaa !168
+  store i32 %32, ptr %29, align 8, !tbaa !168
   %33 = zext i16 %1 to i64
   %34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %16, i64 noundef %33)
           to label %_ZNSolsEt.exit unwind label %149
@@ -19284,7 +19284,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit49: ; preds = %_ZNSo
   %94 = load i32, ptr %93, align 8, !tbaa !159
   %95 = and i32 %94, -75
   %96 = or disjoint i32 %95, 8
-  store i32 %96, ptr %93, align 4, !tbaa !168
+  store i32 %96, ptr %93, align 8, !tbaa !168
   %97 = zext i16 %1 to i64
   %98 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %85, i64 noundef %97)
           to label %_ZNSolsEt.exit56 unwind label %149
@@ -27270,7 +27270,7 @@ define linkonce_odr noundef i64 @_ZN5folly6detail8function13DispatchSmall4execIZ
   %5 = load ptr, ptr %1, align 8, !tbaa !675
   store ptr %5, ptr %2, align 8, !tbaa !675
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i8 0, ptr %6, align 4, !tbaa !183
+  store i8 0, ptr %6, align 8, !tbaa !183
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i8 0, ptr %7, align 4, !tbaa !213
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -27346,7 +27346,7 @@ define linkonce_odr noundef i64 @_ZN5folly6detail8function13DispatchSmall4execIZ
   %5 = load ptr, ptr %1, align 8, !tbaa !681
   store ptr %5, ptr %2, align 8, !tbaa !681
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i8 0, ptr %6, align 4, !tbaa !183
+  store i8 0, ptr %6, align 8, !tbaa !183
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i8 0, ptr %7, align 4, !tbaa !213
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -28424,10 +28424,10 @@ _ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfa
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEE10uninitCallES4_S6_RNS1_4DataE, ptr %97, align 16, !tbaa !207
   store ptr null, ptr %98, align 8, !tbaa !209
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 16 dereferenceable(64) %103, ptr noundef nonnull align 16 dereferenceable(64) %10) #48
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 16), ptr %103, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 16), ptr %103, align 16, !tbaa !7
   %109 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %110 = load i64, ptr %99, align 16
-  store i64 %110, ptr %109, align 8
+  store i64 %110, ptr %109, align 16
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 16 dereferenceable(64) %10) #48
   store ptr %103, ptr %3, align 16, !tbaa !183
   store ptr @_ZN5folly6detail8function5call_INS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEELb0ELb0EvJPNS_21ObserverContainerBaseIS4_S6_NS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE12ObserverBaseES7_EEET2_DpT3_RNS1_4DataE, ptr %105, align 16, !tbaa !210
@@ -30829,7 +30829,7 @@ _ZN5follylsERSoRKNS_11AsyncSocket9StateEnumE.exit: ; preds = %_ZStlsISt11char_tr
   %38 = load i32, ptr %37, align 8, !tbaa !159
   %39 = and i32 %38, -75
   %40 = or disjoint i32 %39, 8
-  store i32 %40, ptr %37, align 4, !tbaa !168
+  store i32 %40, ptr %37, align 8, !tbaa !168
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 234
   %42 = load i16, ptr %41, align 2, !tbaa !176
   %43 = zext i16 %42 to i64
@@ -31448,7 +31448,7 @@ _ZNSt10_HashtableIjSt4pairIKjPN5folly5IOBufEESaIS5_ENSt8__detail10_Select1stESt8
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIjSt4pairIKjPN5folly5IOBufEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !599
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !17
+  %16 = load i32, ptr %15, align 8, !tbaa !17
   %17 = zext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18

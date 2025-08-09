@@ -3211,7 +3211,7 @@ define internal fastcc void @_ZL7init_emP8_IO_FILERKN3gmx8MDLoggerEPKcPK9t_commr
   store ptr %140, ptr %144, align 8, !tbaa !545, !alias.scope !546
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   %145 = getelementptr inbounds nuw i8, ptr %10, i64 52
-  %146 = load float, ptr %105, align 4, !tbaa !336
+  %146 = load float, ptr %105, align 8, !tbaa !336
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
   %147 = call noundef zeroext i1 @_ZN3gmx11Constraints5applyEblifNS_19ArrayRefWithPaddingINS_11BasicVectorIfEEEES4_NS_8ArrayRefIS3_EEPA3_KffPfS4_bPA3_fNS_18ConstraintVariableE(ptr noundef nonnull align 8 dereferenceable(8) %17, i1 noundef zeroext true, i64 noundef -1, i32 noundef 0, float noundef 1.000000e+00, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull byval(%"class.gmx::ArrayRef.325") align 8 %25, ptr noundef nonnull %145, float noundef %146, ptr noundef nonnull %20, ptr noundef nonnull %26, i1 noundef zeroext false, ptr noundef null, i32 noundef 0)
   br label %148
@@ -3836,7 +3836,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %_ZNSt6vect
   %392 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %375, ptr %392, align 8
   %393 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %394 = load float, ptr %393, align 4, !tbaa !336
+  %394 = load float, ptr %393, align 8, !tbaa !336
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
   %395 = call noundef zeroext i1 @_ZN3gmx11Constraints5applyEblifNS_19ArrayRefWithPaddingINS_11BasicVectorIfEEEES4_NS_8ArrayRefIS3_EEPA3_KffPfS4_bPA3_fNS_18ConstraintVariableE(ptr noundef nonnull align 8 dereferenceable(8) %371, i1 noundef zeroext false, i64 noundef %5, i32 noundef 0, float noundef 1.000000e+00, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull byval(%"class.gmx::ArrayRef.325") align 8 %28, ptr noundef nonnull %231, float noundef %394, ptr noundef nonnull %19, ptr noundef nonnull %29, i1 noundef zeroext true, ptr noundef nonnull %17, i32 noundef 5)
   %396 = load float, ptr %19, align 4, !tbaa !336
@@ -4806,7 +4806,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %89, %87, %85, %83, 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   %170 = getelementptr inbounds nuw i8, ptr %134, i64 52
   %171 = getelementptr inbounds nuw i8, ptr %134, i64 40
-  %172 = load float, ptr %171, align 4, !tbaa !336
+  %172 = load float, ptr %171, align 8, !tbaa !336
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
   %173 = call noundef zeroext i1 @_ZN3gmx11Constraints5applyEblifNS_19ArrayRefWithPaddingINS_11BasicVectorIfEEEES4_NS_8ArrayRefIS3_EEPA3_KffPfS4_bPA3_fNS_18ConstraintVariableE(ptr noundef nonnull align 8 dereferenceable(8) %7, i1 noundef zeroext true, i64 noundef %8, i32 noundef 0, float noundef 1.000000e+00, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull byval(%"class.gmx::ArrayRef.325") align 8 %24, ptr noundef nonnull %170, float noundef %172, ptr noundef nonnull %18, ptr noundef nonnull %25, i1 noundef zeroext false, ptr noundef null, i32 noundef 0)
   %174 = load ptr, ptr %10, align 8, !tbaa !709

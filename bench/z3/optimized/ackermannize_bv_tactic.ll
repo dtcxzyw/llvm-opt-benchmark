@@ -171,7 +171,7 @@ define hidden noundef ptr @_Z25mk_ackermannize_bv_tacticR11ast_managerRK10params
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @_ZN10params_refC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i32 0, ptr %7, align 4, !tbaa !14
+  store i32 0, ptr %7, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i32 0, ptr %8, align 4, !tbaa !16
   %9 = load ptr, ptr %3, align 8, !tbaa !9
@@ -1535,7 +1535,7 @@ define linkonce_odr hidden noundef ptr @_ZN22ackermannize_bv_tactic9translateER1
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @_ZN10params_refC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i32 0, ptr %8, align 4, !tbaa !14
+  store i32 0, ptr %8, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i32 0, ptr %9, align 4, !tbaa !16
   %10 = load ptr, ptr %3, align 8, !tbaa !9

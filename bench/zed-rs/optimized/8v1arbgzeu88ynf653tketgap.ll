@@ -7475,7 +7475,7 @@ define hidden { i8, i8 } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$G
   %.sroa.610.0..8.val.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.val, i64 3
   store i8 0, ptr %.sroa.610.0..8.val.sroa_idx.i.i, align 1
   %.sroa.5.sroa.5.0..sroa.610.0..8.val.sroa_idx.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.val, i64 4
-  store i16 %17, ptr %.sroa.5.sroa.5.0..sroa.610.0..8.val.sroa_idx.i.sroa_idx.i, align 1
+  store i16 %17, ptr %.sroa.5.sroa.5.0..sroa.610.0..8.val.sroa_idx.i.sroa_idx.i, align 4
   resume { ptr, i32 } %20
 
 21:                                               ; preds = %13
@@ -7485,7 +7485,7 @@ define hidden { i8, i8 } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$G
   %.sroa.610.0..8.val.sroa_idx11.i.i = getelementptr inbounds nuw i8, ptr %.val, i64 3
   store i8 0, ptr %.sroa.610.0..8.val.sroa_idx11.i.i, align 1
   %.sroa.5.sroa.5.0..sroa.610.0..8.val.sroa_idx11.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.val, i64 4
-  store i16 %17, ptr %.sroa.5.sroa.5.0..sroa.610.0..8.val.sroa_idx11.i.sroa_idx.i, align 1
+  store i16 %17, ptr %.sroa.5.sroa.5.0..sroa.610.0..8.val.sroa_idx11.i.sroa_idx.i, align 4
   br label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h644b3dbc9cd3dee9E.exit"
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h644b3dbc9cd3dee9E.exit": ; preds = %"_ZN4tiff7decoder10tag_reader18TagReader$LT$R$GT$17find_tag_uint_vec28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9fbc7571f5cbe3c4E.exit.thread.i", %21
@@ -68296,19 +68296,19 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hb70ccb0ac
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20763)
   %21 = load i64, ptr %20, align 8, !alias.scope !20766, !noalias !20771, !noundef !14
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %23 = load float, ptr %22, align 4, !alias.scope !20781, !noalias !20788, !noundef !14
+  %23 = load float, ptr %22, align 8, !alias.scope !20781, !noalias !20788, !noundef !14
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %25 = load float, ptr %24, align 4, !alias.scope !20790, !noalias !20788, !noundef !14
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %27 = load float, ptr %26, align 4, !alias.scope !20793, !noalias !20788, !noundef !14
+  %27 = load float, ptr %26, align 8, !alias.scope !20793, !noalias !20788, !noundef !14
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 20
   %29 = load float, ptr %28, align 4, !alias.scope !20798, !noalias !20788, !noundef !14
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %31 = load float, ptr %30, align 4, !alias.scope !20801, !noalias !20808, !noundef !14
+  %31 = load float, ptr %30, align 8, !alias.scope !20801, !noalias !20808, !noundef !14
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 28
   %33 = load float, ptr %32, align 4, !alias.scope !20810, !noalias !20808, !noundef !14
   %34 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %35 = load float, ptr %34, align 4, !alias.scope !20813, !noalias !20808, !noundef !14
+  %35 = load float, ptr %34, align 8, !alias.scope !20813, !noalias !20808, !noundef !14
   %36 = getelementptr inbounds nuw i8, ptr %20, i64 36
   %37 = load float, ptr %36, align 4, !alias.scope !20818, !noalias !20808, !noundef !14
   %38 = getelementptr inbounds nuw i8, ptr %20, i64 40
@@ -86261,7 +86261,7 @@ define hidden noundef float @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$
   %76 = load float, ptr %75, align 8, !alias.scope !23981, !noalias !23977, !noundef !14
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 96
   %78 = fadd float %.sink.i.i.i.i.i.i, %74
-  %.sink.i3.i.i.i.i.i = load float, ptr %77, align 4, !alias.scope !23982, !noalias !23977, !noundef !14
+  %.sink.i3.i.i.i.i.i = load float, ptr %77, align 8, !alias.scope !23982, !noalias !23977, !noundef !14
   %79 = getelementptr inbounds nuw i8, ptr %71, i64 100
   %80 = load float, ptr %79, align 4, !alias.scope !23982, !noalias !23977, !noundef !14
   %81 = fadd float %.sink.i3.i.i.i.i.i, %80
@@ -88842,7 +88842,7 @@ define hidden noundef float @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$
   %76 = load float, ptr %75, align 8, !alias.scope !24632, !noalias !24628, !noundef !14
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 96
   %78 = fadd float %.sink.i.i.i.i.i.i, %74
-  %.sink.i3.i.i.i.i.i = load float, ptr %77, align 4, !alias.scope !24633, !noalias !24628, !noundef !14
+  %.sink.i3.i.i.i.i.i = load float, ptr %77, align 8, !alias.scope !24633, !noalias !24628, !noundef !14
   %79 = getelementptr inbounds nuw i8, ptr %71, i64 100
   %80 = load float, ptr %79, align 4, !alias.scope !24633, !noalias !24628, !noundef !14
   %81 = fadd float %.sink.i3.i.i.i.i.i, %80
@@ -92170,19 +92170,19 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25246)
   %21 = load i64, ptr %20, align 8, !alias.scope !25249, !noalias !25254, !noundef !14
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %23 = load float, ptr %22, align 4, !alias.scope !25264, !noalias !25271, !noundef !14
+  %23 = load float, ptr %22, align 8, !alias.scope !25264, !noalias !25271, !noundef !14
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %25 = load float, ptr %24, align 4, !alias.scope !25273, !noalias !25271, !noundef !14
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %27 = load float, ptr %26, align 4, !alias.scope !25276, !noalias !25271, !noundef !14
+  %27 = load float, ptr %26, align 8, !alias.scope !25276, !noalias !25271, !noundef !14
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 20
   %29 = load float, ptr %28, align 4, !alias.scope !25281, !noalias !25271, !noundef !14
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %31 = load float, ptr %30, align 4, !alias.scope !25284, !noalias !25291, !noundef !14
+  %31 = load float, ptr %30, align 8, !alias.scope !25284, !noalias !25291, !noundef !14
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 28
   %33 = load float, ptr %32, align 4, !alias.scope !25293, !noalias !25291, !noundef !14
   %34 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %35 = load float, ptr %34, align 4, !alias.scope !25296, !noalias !25291, !noundef !14
+  %35 = load float, ptr %34, align 8, !alias.scope !25296, !noalias !25291, !noundef !14
   %36 = getelementptr inbounds nuw i8, ptr %20, i64 36
   %37 = load float, ptr %36, align 4, !alias.scope !25301, !noalias !25291, !noundef !14
   %38 = getelementptr inbounds nuw i8, ptr %20, i64 40
@@ -93239,7 +93239,7 @@ define hidden noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$6insert17h
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25494)
-  %57 = load float, ptr %56, align 4, !alias.scope !25497, !noalias !25506, !noundef !14
+  %57 = load float, ptr %56, align 8, !alias.scope !25497, !noalias !25506, !noundef !14
   %58 = fcmp ugt float %57, %15
   %59 = fcmp ult float %57, %15
   %..i.i.i.i.i = select i1 %59, i8 2, i8 1
@@ -93259,7 +93259,7 @@ define hidden noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$6insert17h
   %switch.i6.i.i = icmp samesign ult i8 %65, -2
   %.sroa.01.0.i.i = select i1 %switch.i6.i.i, float %62, float %17
   %66 = getelementptr inbounds nuw i8, ptr %51, i64 32
-  %67 = load float, ptr %66, align 4, !alias.scope !25524, !noalias !25529, !noundef !14
+  %67 = load float, ptr %66, align 8, !alias.scope !25524, !noalias !25529, !noundef !14
   %68 = fadd float %57, %67
   %69 = getelementptr inbounds nuw i8, ptr %51, i64 36
   %70 = load float, ptr %69, align 4, !alias.scope !25530, !noalias !25529, !noundef !14

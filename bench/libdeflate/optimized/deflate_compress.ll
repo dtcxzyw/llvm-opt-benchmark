@@ -7337,7 +7337,7 @@ define internal fastcc void @deflate_flush_block(ptr noundef initializes((6060, 
   %202 = shl i64 %200, %201
   %203 = add i32 %9, 17
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 4776
-  %205 = load i8, ptr %204, align 1, !tbaa !25
+  %205 = load i8, ptr %204, align 8, !tbaa !25
   %206 = zext i8 %205 to i64
   %207 = zext nneg i32 %203 to i64
   %208 = shl i64 %206, %207

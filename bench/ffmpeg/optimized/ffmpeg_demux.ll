@@ -3309,7 +3309,7 @@ err_merge.exit:                                   ; preds = %demux_bsf_flush.exi
   %214 = getelementptr inbounds nuw i8, ptr %182, i64 16
   %215 = load i64, ptr %214, align 8, !tbaa !307
   %216 = getelementptr inbounds nuw i8, ptr %206, i64 32
-  %.val.i = load i64, ptr %216, align 4
+  %.val.i = load i64, ptr %216, align 8
   %217 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %23, i64 noundef %215, i64 %.val.i) #14
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.53, ptr noundef %210, i32 noundef %211, i64 noundef %213, ptr noundef %217) #14
   %218 = load i32, ptr %183, align 4, !tbaa !300

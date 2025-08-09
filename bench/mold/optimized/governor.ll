@@ -486,7 +486,7 @@ _ZN3tbb6detail2r1L14get_stack_baseEm.exit:        ; preds = %36, %.thread.i
   store ptr %20, ptr %42, align 128, !tbaa !95
   %46 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store ptr %42, ptr %46, align 8, !tbaa !79
-  store atomic i8 1, ptr %40 release, align 1
+  store atomic i8 1, ptr %40 release, align 8
   call void @_ZN3tbb6detail2r117threading_control15register_threadERNS1_11thread_dataE(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(240) %20)
   %47 = load i32, ptr @_ZN3tbb6detail2r18governor6theTLSE, align 4, !tbaa !73
   %48 = call i32 @pthread_setspecific(i32 noundef %47, ptr noundef nonnull align 8 dereferenceable(240) %20) #7

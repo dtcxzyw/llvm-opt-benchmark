@@ -321,7 +321,7 @@ define range(i32 -811, 808) i32 @SUNLinSolSolve_SPGMR(ptr noundef readonly captu
   %44 = load i32, ptr %43, align 4, !tbaa !36
   %.not = icmp eq ptr %25, null
   %.not360 = icmp eq ptr %27, null
-  %45 = load i32, ptr %36, align 4, !tbaa !56
+  %45 = load i32, ptr %36, align 8, !tbaa !56
   %.not361 = icmp eq i32 %45, 0
   br i1 %.not361, label %47, label %46
 

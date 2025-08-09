@@ -207,7 +207,7 @@ define range(i32 0, 128) i32 @ff_vvc_sao_merge_flag_decode(ptr noundef readonly 
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 510
   %10 = load i16, ptr %9, align 2, !tbaa !58
   %11 = zext i16 %10 to i32
-  %12 = load i16, ptr %5, align 2, !tbaa !58
+  %12 = load i16, ptr %5, align 4, !tbaa !58
   %13 = zext i16 %12 to i32
   %14 = shl nuw nsw i32 %13, 4
   %15 = add nuw nsw i32 %14, %11
@@ -307,7 +307,7 @@ define range(i32 0, 3) i32 @ff_vvc_sao_type_idx_decode(ptr noundef readonly capt
   %7 = load i32, ptr %6, align 4, !tbaa !100
   %8 = ashr i32 %7, 5
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 516
-  %10 = load i16, ptr %9, align 2, !tbaa !58
+  %10 = load i16, ptr %9, align 4, !tbaa !58
   %11 = zext i16 %10 to i32
   %12 = load i16, ptr %5, align 2, !tbaa !58
   %13 = zext i16 %12 to i32
@@ -906,7 +906,7 @@ define range(i32 0, 128) i32 @ff_vvc_alf_use_aps_flag(ptr noundef readonly captu
   %7 = load i32, ptr %6, align 4, !tbaa !100
   %8 = ashr i32 %7, 5
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 456
-  %10 = load i16, ptr %9, align 2, !tbaa !58
+  %10 = load i16, ptr %9, align 4, !tbaa !58
   %11 = zext i16 %10 to i32
   %12 = load i16, ptr %5, align 2, !tbaa !58
   %13 = zext i16 %12 to i32
@@ -2731,7 +2731,7 @@ define range(i32 0, 128) i32 @ff_vvc_pred_mode_plt_flag(ptr noundef readonly cap
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 726
   %10 = load i16, ptr %9, align 2, !tbaa !58
   %11 = zext i16 %10 to i32
-  %12 = load i16, ptr %5, align 2, !tbaa !58
+  %12 = load i16, ptr %5, align 4, !tbaa !58
   %13 = zext i16 %12 to i32
   %14 = shl nuw nsw i32 %13, 4
   %15 = add nuw nsw i32 %14, %11
@@ -2833,7 +2833,7 @@ define range(i32 0, 128) i32 @ff_vvc_intra_bdpcm_luma_flag(ptr noundef readonly 
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 738
   %10 = load i16, ptr %9, align 2, !tbaa !58
   %11 = zext i16 %10 to i32
-  %12 = load i16, ptr %5, align 2, !tbaa !58
+  %12 = load i16, ptr %5, align 4, !tbaa !58
   %13 = zext i16 %12 to i32
   %14 = shl nuw nsw i32 %13, 4
   %15 = add nuw nsw i32 %14, %11
@@ -2933,7 +2933,7 @@ define range(i32 0, 128) i32 @ff_vvc_intra_bdpcm_luma_dir_flag(ptr noundef reado
   %7 = load i32, ptr %6, align 4, !tbaa !100
   %8 = ashr i32 %7, 5
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 744
-  %10 = load i16, ptr %9, align 2, !tbaa !58
+  %10 = load i16, ptr %9, align 4, !tbaa !58
   %11 = zext i16 %10 to i32
   %12 = load i16, ptr %5, align 2, !tbaa !58
   %13 = zext i16 %12 to i32
@@ -3035,7 +3035,7 @@ define range(i32 0, 128) i32 @ff_vvc_intra_bdpcm_chroma_flag(ptr noundef readonl
   %7 = load i32, ptr %6, align 4, !tbaa !100
   %8 = ashr i32 %7, 5
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 816
-  %10 = load i16, ptr %9, align 2, !tbaa !58
+  %10 = load i16, ptr %9, align 4, !tbaa !58
   %11 = zext i16 %10 to i32
   %12 = load i16, ptr %5, align 2, !tbaa !58
   %13 = zext i16 %12 to i32
@@ -3139,7 +3139,7 @@ define range(i32 0, 128) i32 @ff_vvc_intra_bdpcm_chroma_dir_flag(ptr noundef rea
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 822
   %10 = load i16, ptr %9, align 2, !tbaa !58
   %11 = zext i16 %10 to i32
-  %12 = load i16, ptr %5, align 2, !tbaa !58
+  %12 = load i16, ptr %5, align 4, !tbaa !58
   %13 = zext i16 %12 to i32
   %14 = shl nuw nsw i32 %13, 4
   %15 = add nuw nsw i32 %14, %11
@@ -3974,7 +3974,7 @@ define range(i32 0, 128) i32 @ff_vvc_intra_subpartitions_mode_flag(ptr noundef r
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 786
   %10 = load i16, ptr %9, align 2, !tbaa !58
   %11 = zext i16 %10 to i32
-  %12 = load i16, ptr %5, align 2, !tbaa !58
+  %12 = load i16, ptr %5, align 4, !tbaa !58
   %13 = zext i16 %12 to i32
   %14 = shl nuw nsw i32 %13, 4
   %15 = add nuw nsw i32 %14, %11
@@ -4078,7 +4078,7 @@ define range(i32 0, 129) i32 @ff_vvc_isp_split_type(ptr noundef readonly capture
   %9 = load i32, ptr %8, align 4, !tbaa !100
   %10 = ashr i32 %9, 5
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 792
-  %12 = load i16, ptr %11, align 2, !tbaa !58
+  %12 = load i16, ptr %11, align 4, !tbaa !58
   %13 = zext i16 %12 to i32
   %14 = load i16, ptr %7, align 2, !tbaa !58
   %15 = zext i16 %14 to i32
@@ -4187,7 +4187,7 @@ define range(i32 0, 128) i32 @ff_vvc_intra_luma_mpm_flag(ptr noundef readonly ca
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 798
   %10 = load i16, ptr %9, align 2, !tbaa !58
   %11 = zext i16 %10 to i32
-  %12 = load i16, ptr %5, align 2, !tbaa !58
+  %12 = load i16, ptr %5, align 4, !tbaa !58
   %13 = zext i16 %12 to i32
   %14 = shl nuw nsw i32 %13, 4
   %15 = add nuw nsw i32 %14, %11
@@ -4459,7 +4459,7 @@ define range(i32 0, 128) i32 @ff_vvc_cclm_mode_flag(ptr noundef readonly capture
   %7 = load i32, ptr %6, align 4, !tbaa !100
   %8 = ashr i32 %7, 5
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 828
-  %10 = load i16, ptr %9, align 2, !tbaa !58
+  %10 = load i16, ptr %9, align 4, !tbaa !58
   %11 = zext i16 %10 to i32
   %12 = load i16, ptr %5, align 2, !tbaa !58
   %13 = zext i16 %12 to i32
@@ -4563,7 +4563,7 @@ define range(i32 0, 3) i32 @ff_vvc_cclm_mode_idx(ptr noundef readonly captures(n
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 834
   %10 = load i16, ptr %9, align 2, !tbaa !58
   %11 = zext i16 %10 to i32
-  %12 = load i16, ptr %5, align 2, !tbaa !58
+  %12 = load i16, ptr %5, align 4, !tbaa !58
   %13 = zext i16 %12 to i32
   %14 = shl nuw nsw i32 %13, 4
   %15 = add nuw nsw i32 %14, %11
@@ -4711,7 +4711,7 @@ define range(i32 0, 5) i32 @ff_vvc_intra_chroma_pred_mode(ptr noundef readonly c
   %7 = load i32, ptr %6, align 4, !tbaa !100
   %8 = ashr i32 %7, 5
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 840
-  %10 = load i16, ptr %9, align 2, !tbaa !58
+  %10 = load i16, ptr %9, align 4, !tbaa !58
   %11 = zext i16 %10 to i32
   %12 = load i16, ptr %5, align 2, !tbaa !58
   %13 = zext i16 %12 to i32
@@ -5164,7 +5164,7 @@ define zeroext i1 @ff_vvc_palette_transpose_flag(ptr noundef readonly captures(n
   %7 = load i32, ptr %6, align 4, !tbaa !100
   %8 = ashr i32 %7, 5
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 1068
-  %10 = load i16, ptr %9, align 2, !tbaa !58
+  %10 = load i16, ptr %9, align 4, !tbaa !58
   %11 = zext i16 %10 to i32
   %12 = load i16, ptr %5, align 2, !tbaa !58
   %13 = zext i16 %12 to i32
@@ -5393,7 +5393,7 @@ define zeroext i1 @ff_vvc_copy_above_palette_indices_flag(ptr noundef readonly c
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 1062
   %10 = load i16, ptr %9, align 2, !tbaa !58
   %11 = zext i16 %10 to i32
-  %12 = load i16, ptr %5, align 2, !tbaa !58
+  %12 = load i16, ptr %5, align 4, !tbaa !58
   %13 = zext i16 %12 to i32
   %14 = shl nuw nsw i32 %13, 4
   %15 = add nuw nsw i32 %14, %11
@@ -5513,7 +5513,7 @@ define range(i32 0, 128) i32 @ff_vvc_general_merge_flag(ptr noundef readonly cap
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 846
   %10 = load i16, ptr %9, align 2, !tbaa !58
   %11 = zext i16 %10 to i32
-  %12 = load i16, ptr %5, align 2, !tbaa !58
+  %12 = load i16, ptr %5, align 4, !tbaa !58
   %13 = zext i16 %12 to i32
   %14 = shl nuw nsw i32 %13, 4
   %15 = add nuw nsw i32 %14, %11
@@ -5816,7 +5816,7 @@ define range(i32 -2147483648, 2147483647) i32 @ff_vvc_merge_subblock_idx(ptr nou
   %8 = load i32, ptr %7, align 4, !tbaa !100
   %9 = ashr i32 %8, 5
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 1176
-  %11 = load i16, ptr %10, align 2, !tbaa !58
+  %11 = load i16, ptr %10, align 4, !tbaa !58
   %12 = zext i16 %11 to i32
   %13 = load i16, ptr %6, align 2, !tbaa !58
   %14 = zext i16 %13 to i32
@@ -6085,7 +6085,7 @@ define range(i32 0, 128) i32 @ff_vvc_mmvd_merge_flag(ptr noundef readonly captur
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 1134
   %10 = load i16, ptr %9, align 2, !tbaa !58
   %11 = zext i16 %10 to i32
-  %12 = load i16, ptr %5, align 2, !tbaa !58
+  %12 = load i16, ptr %5, align 4, !tbaa !58
   %13 = zext i16 %12 to i32
   %14 = shl nuw nsw i32 %13, 4
   %15 = add nuw nsw i32 %14, %11
@@ -6185,7 +6185,7 @@ define range(i32 0, 128) i32 @ff_vvc_mmvd_cand_flag(ptr noundef readonly capture
   %7 = load i32, ptr %6, align 4, !tbaa !100
   %8 = ashr i32 %7, 5
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 1140
-  %10 = load i16, ptr %9, align 2, !tbaa !58
+  %10 = load i16, ptr %9, align 4, !tbaa !58
   %11 = zext i16 %10 to i32
   %12 = load i16, ptr %5, align 2, !tbaa !58
   %13 = zext i16 %12 to i32
@@ -6289,7 +6289,7 @@ define void @ff_vvc_mmvd_offset_coding(ptr noundef readonly captures(none) %0, p
   %10 = getelementptr inbounds nuw i8, ptr %.val, i64 1146
   %11 = load i16, ptr %10, align 2, !tbaa !58
   %12 = zext i16 %11 to i32
-  %13 = load i16, ptr %6, align 2, !tbaa !58
+  %13 = load i16, ptr %6, align 4, !tbaa !58
   %14 = zext i16 %13 to i32
   %15 = shl nuw nsw i32 %14, 4
   %16 = add nuw nsw i32 %15, %12
@@ -6584,7 +6584,7 @@ get_luma_pred_mode.exit:                          ; preds = %9, %12
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1182
   %46 = load i16, ptr %45, align 2, !tbaa !58
   %47 = zext i16 %46 to i32
-  %48 = load i16, ptr %41, align 2, !tbaa !58
+  %48 = load i16, ptr %41, align 4, !tbaa !58
   %49 = zext i16 %48 to i32
   %50 = shl nuw nsw i32 %49, 4
   %51 = add nuw nsw i32 %50, %47
@@ -6822,7 +6822,7 @@ define i32 @ff_vvc_merge_gpm_idx(ptr noundef readonly captures(none) %0, i32 nou
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 1182
   %20 = load i16, ptr %19, align 2, !tbaa !58
   %21 = zext i16 %20 to i32
-  %22 = load i16, ptr %15, align 2, !tbaa !58
+  %22 = load i16, ptr %15, align 4, !tbaa !58
   %23 = zext i16 %22 to i32
   %24 = shl nuw nsw i32 %23, 4
   %25 = add nuw nsw i32 %24, %21
@@ -6981,7 +6981,7 @@ define range(i32 0, 128) i32 @ff_vvc_ciip_flag(ptr noundef readonly captures(non
   %7 = load i32, ptr %6, align 4, !tbaa !100
   %8 = ashr i32 %7, 5
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 1152
-  %10 = load i16, ptr %9, align 2, !tbaa !58
+  %10 = load i16, ptr %9, align 4, !tbaa !58
   %11 = zext i16 %10 to i32
   %12 = load i16, ptr %5, align 2, !tbaa !58
   %13 = zext i16 %12 to i32
@@ -7554,7 +7554,7 @@ define range(i32 0, 128) i32 @ff_vvc_cu_affine_type_flag(ptr noundef readonly ca
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 906
   %10 = load i16, ptr %9, align 2, !tbaa !58
   %11 = zext i16 %10 to i32
-  %12 = load i16, ptr %5, align 2, !tbaa !58
+  %12 = load i16, ptr %5, align 4, !tbaa !58
   %13 = zext i16 %12 to i32
   %14 = shl nuw nsw i32 %13, 4
   %15 = add nuw nsw i32 %14, %11
@@ -7654,7 +7654,7 @@ define range(i32 0, 128) i32 @ff_vvc_sym_mvd_flag(ptr noundef readonly captures(
   %7 = load i32, ptr %6, align 4, !tbaa !100
   %8 = ashr i32 %7, 5
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 912
-  %10 = load i16, ptr %9, align 2, !tbaa !58
+  %10 = load i16, ptr %9, align 4, !tbaa !58
   %11 = zext i16 %10 to i32
   %12 = load i16, ptr %5, align 2, !tbaa !58
   %13 = zext i16 %12 to i32
@@ -7953,7 +7953,7 @@ define range(i32 0, 128) i32 @ff_vvc_abs_mvd_greater0_flag(ptr noundef readonly 
   %7 = load i32, ptr %6, align 4, !tbaa !100
   %8 = ashr i32 %7, 5
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 1188
-  %10 = load i16, ptr %9, align 2, !tbaa !58
+  %10 = load i16, ptr %9, align 4, !tbaa !58
   %11 = zext i16 %10 to i32
   %12 = load i16, ptr %5, align 2, !tbaa !58
   %13 = zext i16 %12 to i32
@@ -8057,7 +8057,7 @@ define range(i32 0, 128) i32 @ff_vvc_abs_mvd_greater1_flag(ptr noundef readonly 
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 1194
   %10 = load i16, ptr %9, align 2, !tbaa !58
   %11 = zext i16 %10 to i32
-  %12 = load i16, ptr %5, align 2, !tbaa !58
+  %12 = load i16, ptr %5, align 4, !tbaa !58
   %13 = zext i16 %12 to i32
   %14 = shl nuw nsw i32 %13, 4
   %15 = add nuw nsw i32 %14, %11
@@ -8356,7 +8356,7 @@ define range(i32 0, 128) i32 @ff_vvc_mvp_lx_flag(ptr noundef readonly captures(n
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 930
   %10 = load i16, ptr %9, align 2, !tbaa !58
   %11 = zext i16 %10 to i32
-  %12 = load i16, ptr %5, align 2, !tbaa !58
+  %12 = load i16, ptr %5, align 4, !tbaa !58
   %13 = zext i16 %12 to i32
   %14 = shl nuw nsw i32 %13, 4
   %15 = add nuw nsw i32 %14, %11
@@ -8816,7 +8816,7 @@ define i32 @ff_vvc_bcw_idx(ptr noundef readonly captures(none) %0, i32 noundef %
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 966
   %12 = load i16, ptr %11, align 2, !tbaa !58
   %13 = zext i16 %12 to i32
-  %14 = load i16, ptr %7, align 2, !tbaa !58
+  %14 = load i16, ptr %7, align 4, !tbaa !58
   %15 = zext i16 %14 to i32
   %16 = shl nuw nsw i32 %15, 4
   %17 = add nuw nsw i32 %16, %13
@@ -9318,7 +9318,7 @@ define range(i32 0, 128) i32 @ff_vvc_cu_act_enabled_flag(ptr noundef readonly ca
   %7 = load i32, ptr %6, align 4, !tbaa !100
   %8 = ashr i32 %7, 5
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 732
-  %10 = load i16, ptr %9, align 2, !tbaa !58
+  %10 = load i16, ptr %9, align 4, !tbaa !58
   %11 = zext i16 %10 to i32
   %12 = load i16, ptr %5, align 2, !tbaa !58
   %13 = zext i16 %12 to i32
@@ -9422,7 +9422,7 @@ define range(i32 -2147483643, -2147483648) i32 @ff_vvc_cu_qp_delta_abs(ptr nound
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 1254
   %10 = load i16, ptr %9, align 2, !tbaa !58
   %11 = zext i16 %10 to i32
-  %12 = load i16, ptr %5, align 2, !tbaa !58
+  %12 = load i16, ptr %5, align 4, !tbaa !58
   %13 = zext i16 %12 to i32
   %14 = shl nuw nsw i32 %13, 4
   %15 = add nuw nsw i32 %14, %11
@@ -9807,7 +9807,7 @@ define range(i32 0, 128) i32 @ff_vvc_cu_chroma_qp_offset_flag(ptr noundef readon
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 1266
   %10 = load i16, ptr %9, align 2, !tbaa !58
   %11 = zext i16 %10 to i32
-  %12 = load i16, ptr %5, align 2, !tbaa !58
+  %12 = load i16, ptr %5, align 4, !tbaa !58
   %13 = zext i16 %12 to i32
   %14 = shl nuw nsw i32 %13, 4
   %15 = add nuw nsw i32 %14, %11
@@ -9922,7 +9922,7 @@ define i32 @ff_vvc_cu_chroma_qp_offset_idx(ptr noundef readonly captures(none) %
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 1274
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 1275
   %.promoted = load i32, ptr %14, align 4, !tbaa !100
-  %.promoted9 = load i16, ptr %15, align 2, !tbaa !58
+  %.promoted9 = load i16, ptr %15, align 4, !tbaa !58
   %.promoted10 = load i16, ptr %13, align 2, !tbaa !58
   %.promoted11 = load i32, ptr %12, align 8, !tbaa !70
   br label %20
@@ -14192,7 +14192,7 @@ define range(i32 0, 128) i32 @ff_vvc_cu_coded_flag(ptr noundef readonly captures
   %7 = load i32, ptr %6, align 4, !tbaa !100
   %8 = ashr i32 %7, 5
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 972
-  %10 = load i16, ptr %9, align 2, !tbaa !58
+  %10 = load i16, ptr %9, align 4, !tbaa !58
   %11 = zext i16 %10 to i32
   %12 = load i16, ptr %5, align 2, !tbaa !58
   %13 = zext i16 %12 to i32
@@ -14408,7 +14408,7 @@ define range(i32 0, 128) i32 @ff_vvc_sbt_quad_flag(ptr noundef readonly captures
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 990
   %10 = load i16, ptr %9, align 2, !tbaa !58
   %11 = zext i16 %10 to i32
-  %12 = load i16, ptr %5, align 2, !tbaa !58
+  %12 = load i16, ptr %5, align 4, !tbaa !58
   %13 = zext i16 %12 to i32
   %14 = shl nuw nsw i32 %13, 4
   %15 = add nuw nsw i32 %14, %11
@@ -14623,7 +14623,7 @@ define range(i32 0, 128) i32 @ff_vvc_sbt_pos_flag(ptr noundef readonly captures(
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 1014
   %10 = load i16, ptr %9, align 2, !tbaa !58
   %11 = zext i16 %10 to i32
-  %12 = load i16, ptr %5, align 2, !tbaa !58
+  %12 = load i16, ptr %5, align 4, !tbaa !58
   %13 = zext i16 %12 to i32
   %14 = shl nuw nsw i32 %13, 4
   %15 = add nuw nsw i32 %14, %11

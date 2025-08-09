@@ -4753,7 +4753,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %5, %13
   %22 = load i32, ptr %21, align 8, !tbaa !175
   %23 = and i32 %22, -75
   %24 = or disjoint i32 %23, 2
-  store i32 %24, ptr %21, align 4, !tbaa !176
+  store i32 %24, ptr %21, align 8, !tbaa !176
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef %2)
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull @.str.8, i64 noundef 2)
   %27 = load atomic i8, ptr @_ZGVZN7V3Error1sEvE3s_s acquire, align 8
@@ -4904,7 +4904,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   %39 = load i32, ptr %38, align 8, !tbaa !175
   %40 = and i32 %39, -75
   %41 = or disjoint i32 %40, 2
-  store i32 %41, ptr %38, align 4, !tbaa !176
+  store i32 %41, ptr %38, align 8, !tbaa !176
   %42 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %31, i32 noundef %2)
           to label %43 unwind label %146
 
@@ -5289,7 +5289,7 @@ define dso_local void @_ZN7V3Error15abortIfWarningsEv() local_unnamed_addr #7 al
   %16 = load i32, ptr %15, align 8, !tbaa !175
   %17 = and i32 %16, -75
   %18 = or disjoint i32 %17, 2
-  store i32 %18, ptr %15, align 4, !tbaa !176
+  store i32 %18, ptr %15, align 8, !tbaa !176
   %19 = tail call noundef nonnull align 8 dereferenceable(760) ptr @_ZN7V3Error1sEv()
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 80
   %21 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %20, ptr nonnull @.str, ptr nonnull @.str.2, i32 327, ptr null)
@@ -5328,7 +5328,7 @@ define dso_local void @_ZN7V3Error15abortIfWarningsEv() local_unnamed_addr #7 al
   %44 = load i32, ptr %43, align 8, !tbaa !175
   %45 = and i32 %44, -75
   %46 = or disjoint i32 %45, 2
-  store i32 %46, ptr %43, align 4, !tbaa !176
+  store i32 %46, ptr %43, align 8, !tbaa !176
   %47 = tail call noundef nonnull align 8 dereferenceable(760) ptr @_ZN7V3Error1sEv()
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 80
   %49 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %48, ptr nonnull @.str, ptr nonnull @.str.2, i32 327, ptr null)
@@ -5353,7 +5353,7 @@ define dso_local void @_ZN7V3Error15abortIfWarningsEv() local_unnamed_addr #7 al
   %63 = load i32, ptr %62, align 8, !tbaa !175
   %64 = and i32 %63, -75
   %65 = or disjoint i32 %64, 2
-  store i32 %65, ptr %62, align 4, !tbaa !176
+  store i32 %65, ptr %62, align 8, !tbaa !176
   %66 = tail call noundef nonnull align 8 dereferenceable(760) ptr @_ZN7V3Error1sEv()
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 76
   %68 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %67, ptr nonnull @.str, ptr nonnull @.str.2, i32 326, ptr null)

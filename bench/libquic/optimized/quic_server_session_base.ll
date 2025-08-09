@@ -1178,7 +1178,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
 23:                                               ; preds = %2
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %24, align 8, !tbaa !100
-  store i8 0, ptr %5, align 1, !tbaa !101
+  store i8 0, ptr %5, align 8, !tbaa !101
   br label %25
 
 25:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit, %23

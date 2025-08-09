@@ -468,9 +468,9 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr noundef nonnull r
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 36
   %95 = load float, ptr %93, align 8
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 40
-  %97 = load i32, ptr %96, align 4
+  %97 = load i32, ptr %96, align 8
   %98 = getelementptr inbounds nuw i8, ptr %93, i64 48
-  %99 = load i32, ptr %98, align 4
+  %99 = load i32, ptr %98, align 8
   %.not416450 = icmp sgt i32 %97, %99
   br i1 %.not416450, label %._crit_edge454, label %.lr.ph453
 
@@ -998,11 +998,11 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr noundef nonnull r
   %443 = load i32, ptr %213, align 8
   %444 = icmp eq i32 %443, %.0401478
   %spec.select = select i1 %444, i32 -2147483393, i32 536870912
-  %445 = load float, ptr %442, align 4
+  %445 = load float, ptr %442, align 8
   %446 = getelementptr inbounds nuw i8, ptr %436, i64 420
   %447 = load float, ptr %446, align 4
   %448 = getelementptr inbounds nuw i8, ptr %436, i64 424
-  %449 = load float, ptr %448, align 4
+  %449 = load float, ptr %448, align 8
   tail call void @_Z17duDebugDrawCircleP11duDebugDrawffffjf(ptr noundef nonnull %4, float noundef %445, float noundef %447, float noundef %449, float noundef %441, i32 noundef %spec.select, float noundef 2.000000e+00)
   br label %450
 
@@ -2238,14 +2238,14 @@ define dso_local noundef i32 @_ZN14CrowdToolState13hitTestAgentsEPKfS1_(ptr noun
   %33 = load float, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 484
   %35 = load float, ptr %34, align 4
-  %36 = load float, ptr %31, align 4
+  %36 = load float, ptr %31, align 8
   %37 = fsub float %36, %33
   store float %37, ptr %5, align 4
   %38 = getelementptr inbounds nuw i8, ptr %27, i64 420
   %39 = load float, ptr %38, align 4
   store float %39, ptr %16, align 4
   %40 = getelementptr inbounds nuw i8, ptr %27, i64 424
-  %41 = load float, ptr %40, align 4
+  %41 = load float, ptr %40, align 8
   %42 = fsub float %41, %33
   store float %42, ptr %17, align 4
   %43 = fadd float %33, %36

@@ -8990,7 +8990,7 @@ _ZNK5Klass11java_mirrorEv.exit:                   ; preds = %117, %121
   store ptr %125, ptr %131, align 8
   %132 = getelementptr inbounds nuw i8, ptr %128, i64 24
   %133 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #11
-  store i32 0, ptr %132, align 4
+  store i32 0, ptr %132, align 8
   %134 = getelementptr inbounds nuw i8, ptr %128, i64 28
   store i32 2, ptr %134, align 4
   %135 = getelementptr inbounds nuw i8, ptr %128, i64 32

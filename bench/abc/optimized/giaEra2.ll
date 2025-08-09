@@ -4062,7 +4062,7 @@ Abc_Clock.exit:                                   ; preds = %75, %78
   store i32 %142, ptr %141, align 4, !tbaa !91
   %143 = load i32, ptr %118, align 8, !tbaa !39
   %144 = add nsw i32 %143, -1
-  store i32 %144, ptr %138, align 4, !tbaa !91
+  store i32 %144, ptr %138, align 8, !tbaa !91
   br label %Gia_ManAreCubeProcess.exit
 
 Gia_ManAreCubeProcess.exit:                       ; preds = %.thread.i, %125, %.thread29.i, %140
@@ -5358,7 +5358,7 @@ Gia_ManAreCreateStaInit.exit:                     ; preds = %49, %38, %.lr.ph.i
   store i32 %85, ptr %84, align 4, !tbaa !91
   %86 = load i32, ptr %61, align 8, !tbaa !39
   %87 = add nsw i32 %86, -1
-  store i32 %87, ptr %81, align 4, !tbaa !91
+  store i32 %87, ptr %81, align 8, !tbaa !91
   br label %Gia_ManAreCubeProcess.exit
 
 Gia_ManAreCubeProcess.exit:                       ; preds = %.thread.i, %68, %.thread29.i, %83

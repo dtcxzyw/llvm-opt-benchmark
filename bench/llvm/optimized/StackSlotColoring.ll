@@ -588,7 +588,7 @@ define internal noundef nonnull ptr @_ZN4llvm15callDefaultCtorIN12_GLOBAL__N_117
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 1704
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 1708
   store i32 2, ptr %28, align 4, !tbaa !27
-  store i32 -1, ptr %26, align 1
+  store i32 -1, ptr %26, align 8
   store i32 1, ptr %27, align 8, !tbaa !26
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 1720
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 1736

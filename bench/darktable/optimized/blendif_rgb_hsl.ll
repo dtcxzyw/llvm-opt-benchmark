@@ -409,9 +409,9 @@ _blendif_compute_factor.exit.us.i:                ; preds = %59, %54, %51, %48, 
   %73 = sitofp i32 %72 to float
   %74 = add nsw i32 %71, -2
   %75 = sitofp i32 %74 to float
-  %76 = load float, ptr %29, align 4, !tbaa !36, !alias.scope !44, !noalias !48
+  %76 = load float, ptr %29, align 16, !tbaa !36, !alias.scope !44, !noalias !48
   %77 = load float, ptr %28, align 4, !tbaa !36, !alias.scope !44, !noalias !48
-  %78 = load float, ptr %27, align 4, !tbaa !36, !alias.scope !44, !noalias !48
+  %78 = load float, ptr %27, align 8, !tbaa !36, !alias.scope !44, !noalias !48
   br label %79
 
 79:                                               ; preds = %_blendif_compute_factor.exit.i, %.lr.ph.split.i

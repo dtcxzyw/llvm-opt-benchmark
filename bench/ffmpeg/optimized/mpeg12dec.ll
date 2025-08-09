@@ -613,7 +613,7 @@ define internal i32 @ipu_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 1292
   store i32 %60, ptr %62, align 4, !tbaa !64
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 1288
-  store i32 %60, ptr %63, align 4, !tbaa !64
+  store i32 %60, ptr %63, align 8, !tbaa !64
   store i32 %60, ptr %61, align 4, !tbaa !64
   %64 = getelementptr inbounds nuw i8, ptr %6, i64 1472
   store i32 1, ptr %64, align 8, !tbaa !116
@@ -2013,7 +2013,7 @@ av_cmp_q.exit.thread149.i:                        ; preds = %520, %516
   %629 = getelementptr inbounds nuw i8, ptr %623, i64 4
   %630 = load i32, ptr %629, align 4, !tbaa !159
   %631 = getelementptr inbounds nuw i8, ptr %482, i64 4888
-  %632 = load i32, ptr %631, align 4, !tbaa !160
+  %632 = load i32, ptr %631, align 8, !tbaa !160
   %633 = mul nsw i32 %632, %630
   %634 = sext i32 %633 to i64
   %635 = call i32 @av_reduce(ptr noundef nonnull %618, ptr noundef nonnull %619, i64 noundef %628, i64 noundef %634, i64 noundef 1073741824) #12
@@ -2198,7 +2198,7 @@ mpeg_decode_postinit.exit:                        ; preds = %mpeg_get_pixelforma
   store i32 %728, ptr %679, align 8, !tbaa !109
   %729 = and i32 %727, 1
   %730 = getelementptr inbounds nuw i8, ptr %667, i64 4272
-  store i32 %729, ptr %730, align 4, !tbaa !64
+  store i32 %729, ptr %730, align 8, !tbaa !64
   %731 = lshr i32 %728, 3
   %732 = zext nneg i32 %731 to i64
   %733 = getelementptr inbounds nuw i8, ptr %194, i64 %732
@@ -2451,7 +2451,7 @@ check_marker.exit.i347:                           ; preds = %839, %789
   %886 = add i32 %843, 16
   store i32 %886, ptr %27, align 8, !tbaa !109
   %887 = add nuw nsw i32 %885, 1
-  store i32 %887, ptr %69, align 4, !tbaa !160
+  store i32 %887, ptr %69, align 8, !tbaa !160
   %888 = getelementptr inbounds nuw i8, ptr %841, i64 24
   store i32 2, ptr %888, align 8, !tbaa !70
   store i32 2, ptr %70, align 4, !tbaa !85
@@ -2885,7 +2885,7 @@ load_matrix.exit22.i:                             ; preds = %1041, %.split31.us.
   %1140 = lshr i32 %1139, 4
   %1141 = and i32 %1140, 15
   store i32 12, ptr %27, align 8, !tbaa !109
-  store i32 %1141, ptr %31, align 4, !tbaa !64
+  store i32 %1141, ptr %31, align 8, !tbaa !64
   %1142 = load i32, ptr %1138, align 1, !tbaa !58
   %1143 = and i32 %1142, 15
   store i32 16, ptr %27, align 8, !tbaa !109
@@ -2898,11 +2898,11 @@ load_matrix.exit22.i:                             ; preds = %1041, %.split31.us.
   %1148 = call i32 @llvm.umax.i32(i32 %1137, i32 1)
   store i32 %1148, ptr %30, align 4, !tbaa !64
   %1149 = call i32 @llvm.umax.i32(i32 %1141, i32 1)
-  store i32 %1149, ptr %31, align 4, !tbaa !64
+  store i32 %1149, ptr %31, align 8, !tbaa !64
   %1150 = call i32 @llvm.umax.i32(i32 %1143, i32 1)
   store i32 %1150, ptr %32, align 4, !tbaa !64
   %1151 = call i32 @llvm.umax.i32(i32 %1147, i32 1)
-  store i32 %1151, ptr %33, align 4, !tbaa !64
+  store i32 %1151, ptr %33, align 8, !tbaa !64
   %1152 = load i32, ptr %34, align 8, !tbaa !132
   %.not.i372 = icmp eq i32 %1152, 0
   br i1 %.not.i372, label %1153, label %mpeg_decode_picture_coding_extension.exit.thread
@@ -5051,11 +5051,11 @@ get_vlc2.exit:                                    ; preds = %.lr.ph, %105
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 4196
   %189 = load i32, ptr %188, align 4, !tbaa !64
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 4200
-  %191 = load i32, ptr %190, align 4, !tbaa !64
+  %191 = load i32, ptr %190, align 8, !tbaa !64
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 4204
   %193 = load i32, ptr %192, align 4, !tbaa !64
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 4208
-  %195 = load i32, ptr %194, align 4, !tbaa !64
+  %195 = load i32, ptr %194, align 8, !tbaa !64
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %197 = load i32, ptr %196, align 8, !tbaa !132
   switch i32 %197, label %198 [
@@ -5450,7 +5450,7 @@ mpeg_get_qscale.exit.i:                           ; preds = %449, %444
   store i32 %460, ptr %261, align 8, !tbaa !64
   store i32 %460, ptr %245, align 8, !tbaa !64
   store i32 %460, ptr %236, align 8, !tbaa !64
-  %461 = load i32, ptr %262, align 4, !tbaa !64
+  %461 = load i32, ptr %262, align 8, !tbaa !64
   %462 = load i32, ptr %263, align 4, !tbaa !64
   %463 = tail call fastcc i32 @mpeg_decode_motion(ptr noundef nonnull %0, i32 noundef %461, i32 noundef %462)
   store i32 %463, ptr %264, align 4, !tbaa !64
@@ -6272,7 +6272,7 @@ default.unreachable:                              ; preds = %593
   %942 = load i32, ptr %251, align 8, !tbaa !112
   %943 = shl i32 128, %942
   store i32 %943, ptr %253, align 4, !tbaa !64
-  store i32 %943, ptr %254, align 4, !tbaa !64
+  store i32 %943, ptr %254, align 8, !tbaa !64
   store i32 %943, ptr %252, align 4, !tbaa !64
   %944 = and i32 %.3444.i, 1024
   %.not473.i = icmp eq i32 %944, 0
@@ -7285,7 +7285,7 @@ get_vlc2.exit343:                                 ; preds = %1491, %1509
   %1556 = load i32, ptr %251, align 8, !tbaa !112
   %1557 = shl i32 128, %1556
   store i32 %1557, ptr %253, align 4, !tbaa !64
-  store i32 %1557, ptr %254, align 4, !tbaa !64
+  store i32 %1557, ptr %254, align 8, !tbaa !64
   store i32 %1557, ptr %252, align 4, !tbaa !64
   %1558 = load i32, ptr %10, align 4, !tbaa !82
   %1559 = icmp eq i32 %1558, 3
@@ -7377,7 +7377,7 @@ define internal range(i32 -2147483648, 1) i32 @slice_decode_thread(ptr noundef r
   %21 = ashr i32 %20, %13
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 4336
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 4400
-  store atomic i32 %21, ptr %23 seq_cst, align 4, !tbaa !136
+  store atomic i32 %21, ptr %23 seq_cst, align 8, !tbaa !136
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4168
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 3960
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 3964

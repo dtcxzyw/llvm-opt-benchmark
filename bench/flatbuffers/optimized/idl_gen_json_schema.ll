@@ -190,7 +190,7 @@ _ZNSt10unique_ptrIN11flatbuffers12_GLOBAL__N_123JsonSchemaCodeGeneratorESt14defa
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %4, ptr %3, align 8, !tbaa !4
-  store i8 0, ptr %4, align 1, !tbaa !10
+  store i8 0, ptr %4, align 8, !tbaa !10
   store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN11flatbuffers12_GLOBAL__N_123JsonSchemaCodeGeneratorE, i64 16), ptr %1, align 8, !tbaa !11
   store ptr %1, ptr %0, align 8, !tbaa !13
   ret void
@@ -17792,13 +17792,13 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i: ; preds = %.noexc4._ZN
   %35 = load i32, ptr %34, align 8, !tbaa !644
   %36 = and i32 %35, -75
   %37 = or disjoint i32 %36, 8
-  store i32 %37, ptr %34, align 4, !tbaa !645
+  store i32 %37, ptr %34, align 8, !tbaa !645
   %38 = load i64, ptr %31, align 8
   %39 = getelementptr inbounds i8, ptr %5, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %41 = load i32, ptr %40, align 8, !tbaa !644
   %42 = or i32 %41, 16384
-  store i32 %42, ptr %40, align 4, !tbaa !645
+  store i32 %42, ptr %40, align 8, !tbaa !645
   %43 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %1)
           to label %44 unwind label %93
 

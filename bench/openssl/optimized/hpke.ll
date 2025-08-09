@@ -141,7 +141,7 @@ hpke_suite_check.exit:                            ; preds = %13
   %37 = getelementptr inbounds nuw i8, ptr %19, i64 20
   store i32 %.sroa.0.0.extract.trunc, ptr %37, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store i16 %.sroa.3.0.extract.trunc, ptr %.sroa.3.0..sroa_idx, align 4, !tbaa !22
+  store i16 %.sroa.3.0.extract.trunc, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !22
   %38 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr %8, ptr %38, align 8, !tbaa !23
   %39 = getelementptr inbounds nuw i8, ptr %19, i64 40

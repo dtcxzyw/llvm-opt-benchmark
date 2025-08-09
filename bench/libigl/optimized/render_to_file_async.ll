@@ -225,7 +225,7 @@ define linkonce_odr dso_local void @_ZNSt6threadC2IRFbPhiiNSt7__cxx1112basic_str
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFbPhiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbES3_iiS9_bEEEEEE, i64 16), ptr %10, align 8, !tbaa !28
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i8, ptr %6, align 1, !tbaa !8, !range !30, !noundef !31
-  store i8 %12, ptr %11, align 1, !tbaa !32
+  store i8 %12, ptr %11, align 8, !tbaa !32
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %14, ptr %13, align 8, !tbaa !21
@@ -280,7 +280,7 @@ define linkonce_odr dso_local void @_ZNSt6threadC2IRFbPhiiNSt7__cxx1112basic_str
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %31 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %32 = load i32, ptr %4, align 4, !tbaa !4
-  store i32 %32, ptr %31, align 4, !tbaa !34
+  store i32 %32, ptr %31, align 8, !tbaa !34
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 52
   %34 = load i32, ptr %3, align 4, !tbaa !4
   store i32 %34, ptr %33, align 4, !tbaa !36

@@ -32478,7 +32478,7 @@ _ZSt19__relocate_object_aIN4LIEF2PE13EnclaveImportES2_SaIS2_EEvPT_PT0_RT1_.exit.
   store i64 %49, ptr %51, align 8, !tbaa !57, !alias.scope !872, !noalias !875
   store ptr %41, ptr %38, align 8, !tbaa !53, !alias.scope !875, !noalias !872
   store i64 0, ptr %50, align 8, !tbaa !57, !alias.scope !875, !noalias !872
-  store i8 0, ptr %41, align 1, !tbaa !58, !alias.scope !875, !noalias !872
+  store i8 0, ptr %41, align 8, !tbaa !58, !alias.scope !875, !noalias !872
   %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 112
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 112
   %.not.i.i.i = icmp eq ptr %52, %1
@@ -32529,7 +32529,7 @@ _ZSt19__relocate_object_aIN4LIEF2PE13EnclaveImportES2_SaIS2_EEvPT_PT0_RT1_.exit.
   store i64 %67, ptr %69, align 8, !tbaa !57, !alias.scope !879, !noalias !882
   store ptr %59, ptr %56, align 8, !tbaa !53, !alias.scope !882, !noalias !879
   store i64 0, ptr %68, align 8, !tbaa !57, !alias.scope !882, !noalias !879
-  store i8 0, ptr %59, align 1, !tbaa !58, !alias.scope !882, !noalias !879
+  store i8 0, ptr %59, align 8, !tbaa !58, !alias.scope !882, !noalias !879
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 112
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 112
   %.not.i.i.i24 = icmp eq ptr %70, %5

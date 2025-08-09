@@ -4991,7 +4991,7 @@ define void @_ZNK6casadi6Newton14printIterationERSoxddd(ptr noundef nonnull read
   %23 = load i32, ptr %22, align 8, !tbaa !236
   %24 = and i32 %23, -261
   %25 = or disjoint i32 %24, 256
-  store i32 %25, ptr %22, align 4, !tbaa !235
+  store i32 %25, ptr %22, align 8, !tbaa !235
   %26 = load i64, ptr %16, align 8
   %27 = getelementptr inbounds i8, ptr %1, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -5009,7 +5009,7 @@ define void @_ZNK6casadi6Newton14printIterationERSoxddd(ptr noundef nonnull read
   %38 = load i32, ptr %37, align 8, !tbaa !236
   %39 = and i32 %38, -261
   %40 = or disjoint i32 %39, 256
-  store i32 %40, ptr %37, align 4, !tbaa !235
+  store i32 %40, ptr %37, align 8, !tbaa !235
   %41 = load i64, ptr %31, align 8
   %42 = getelementptr inbounds i8, ptr %1, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -5033,7 +5033,7 @@ define void @_ZNK6casadi6Newton14printIterationERSoxddd(ptr noundef nonnull read
   %57 = load i32, ptr %56, align 8, !tbaa !236
   %58 = and i32 %57, -261
   %59 = or disjoint i32 %58, 256
-  store i32 %59, ptr %56, align 4, !tbaa !235
+  store i32 %59, ptr %56, align 8, !tbaa !235
   %60 = load i64, ptr %50, align 8
   %61 = getelementptr inbounds i8, ptr %1, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
@@ -5050,7 +5050,7 @@ define void @_ZNK6casadi6Newton14printIterationERSoxddd(ptr noundef nonnull read
   %70 = load i32, ptr %69, align 8, !tbaa !236
   %71 = and i32 %70, -261
   %72 = or disjoint i32 %71, 4
-  store i32 %72, ptr %69, align 4, !tbaa !235
+  store i32 %72, ptr %69, align 8, !tbaa !235
   %73 = load i64, ptr %66, align 8
   %74 = getelementptr inbounds i8, ptr %1, i64 %73
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 240
@@ -10165,7 +10165,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8, !tbaa !14
   store ptr %13, ptr %10, align 8, !tbaa !11
   store i64 0, ptr %24, align 8, !tbaa !14
-  store i8 0, ptr %13, align 1, !tbaa !13
+  store i8 0, ptr %13, align 8, !tbaa !13
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %26, i8 0, i64 28, i1 false)
@@ -11314,7 +11314,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i: ; pre
   store i64 %20, ptr %21, align 8, !tbaa !14
   store ptr %11, ptr %8, align 8, !tbaa !11
   store i64 0, ptr %19, align 8, !tbaa !14
-  store i8 0, ptr %11, align 1, !tbaa !13
+  store i8 0, ptr %11, align 8, !tbaa !13
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 64
   invoke void @_ZN6casadi11GenericTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %22)
           to label %_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericTypeEEEEE9constructISB_JRKSt21piecewise_construct_tSt5tupleIJOS7_EESJ_IJEEEEEvRSD_PT_DpOT0_.exit unwind label %23

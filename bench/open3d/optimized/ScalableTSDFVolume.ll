@@ -1891,7 +1891,7 @@ define void @_ZN6open3d9pipelines11integration18ScalableTSDFVolume17ExtractPoint
   store ptr %19, ptr %18, align 8, !tbaa !113, !noalias !108
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i64 0, ptr %20, align 8, !tbaa !114, !noalias !108
-  store i8 0, ptr %19, align 1, !tbaa !26, !noalias !108
+  store i8 0, ptr %19, align 8, !tbaa !26, !noalias !108
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry10PointCloudE, i64 16), ptr %15, align 8, !tbaa !24, !noalias !108
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %21, i8 0, i64 96, i1 false), !noalias !108
@@ -2897,7 +2897,7 @@ define void @_ZN6open3d9pipelines11integration18ScalableTSDFVolume19ExtractTrian
   store ptr %20, ptr %19, align 8, !tbaa !113, !noalias !176
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i64 0, ptr %21, align 8, !tbaa !114, !noalias !176
-  store i8 0, ptr %20, align 1, !tbaa !26, !noalias !176
+  store i8 0, ptr %20, align 8, !tbaa !26, !noalias !176
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %22, i8 0, i64 72, i1 false), !noalias !176
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry12TriangleMeshE, i64 16), ptr %16, align 8, !tbaa !24, !noalias !176
@@ -35207,7 +35207,7 @@ define void @_ZN6open3d9pipelines11integration18ScalableTSDFVolume22ExtractVoxel
   store ptr %12, ptr %11, align 8, !tbaa !113, !noalias !826
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 0, ptr %13, align 8, !tbaa !114, !noalias !826
-  store i8 0, ptr %12, align 1, !tbaa !26, !noalias !826
+  store i8 0, ptr %12, align 8, !tbaa !26, !noalias !826
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry10PointCloudE, i64 16), ptr %8, align 8, !tbaa !24, !noalias !826
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %14, i8 0, i64 96, i1 false), !noalias !826

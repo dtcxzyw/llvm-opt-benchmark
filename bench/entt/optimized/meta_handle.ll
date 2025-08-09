@@ -10451,7 +10451,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %8, ptr %7, align 8, !tbaa !310
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %9, align 8, !tbaa !58
-  store i8 0, ptr %8, align 1, !tbaa !59
+  store i8 0, ptr %8, align 8, !tbaa !59
   store ptr %7, ptr %4, align 8, !tbaa !62
   br label %10
 
@@ -10836,7 +10836,7 @@ _ZNK4entt9meta_type4baseEv.exit:                  ; preds = %13, %_ZN4entt8inter
   %57 = load ptr, ptr %42, align 8, !tbaa !98, !noalias !333
   %58 = load ptr, ptr %43, align 8, !tbaa !97, !noalias !333
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !333
-  %59 = load i32, ptr %.sroa.051.072, align 4, !tbaa !91, !noalias !333
+  %59 = load i32, ptr %.sroa.051.072, align 8, !tbaa !91, !noalias !333
   store i32 %59, ptr %9, align 8, !tbaa !334, !alias.scope !333
   store i32 %54, ptr %44, align 8, !tbaa !95, !alias.scope !333
   store ptr %55, ptr %45, align 8, !tbaa !96, !alias.scope !333

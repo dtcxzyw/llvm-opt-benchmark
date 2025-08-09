@@ -4300,7 +4300,7 @@ _ZSt10_ConstructIN4llvm13MCELFStreamer13AttributeItemEJS2_EEvPT_DpOT0_.exit.i.i.
   store i64 %24, ptr %25, align 8, !tbaa !420
   store ptr %15, ptr %12, align 8, !tbaa !419
   store i64 0, ptr %23, align 8, !tbaa !420
-  store i8 0, ptr %15, align 1, !tbaa !286
+  store i8 0, ptr %15, align 8, !tbaa !286
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 48
   %27 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 48
   %.not.i.i.i.i.i.i = icmp eq ptr %26, %10

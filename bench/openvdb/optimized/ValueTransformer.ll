@@ -1548,7 +1548,7 @@ invoke.cont:
   %second.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 48
   store ptr null, ptr %second.i.i.i.i.i.i.i, align 8
   %tile.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 56
-  store i8 0, ptr %tile.i.i.i.i.i.i.i.i, align 1
+  store i8 0, ptr %tile.i.i.i.i.i.i.i.i, align 8
   %active.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 57
   store i8 0, ptr %active.i.i.i.i.i.i.i.i.i, align 1
   %call8 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISF_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 4 dereferenceable(12) %_M_storage.i.i.i.i)
@@ -2881,7 +2881,7 @@ invoke.cont:
   %second.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 48
   store ptr null, ptr %second.i.i.i.i.i.i.i, align 8
   %tile.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 56
-  store i32 0, ptr %tile.i.i.i.i.i.i.i.i, align 4
+  store i32 0, ptr %tile.i.i.i.i.i.i.i.i, align 8
   %active.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 60
   store i8 0, ptr %active.i.i.i.i.i.i.i.i.i, align 4
   %call8 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISF_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 4 dereferenceable(12) %_M_storage.i.i.i.i)
@@ -3625,7 +3625,7 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
 
 delete.end.i.i.i:                                 ; preds = %delete.notnull.i.i.i, %if.then.i.i.i
   store ptr null, ptr %3, align 8
-  store atomic i32 0, ptr %mOutOfCore.i.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore.i.i.i seq_cst, align 8
   br label %_ZN7openvdb5v11_04tree8LeafNodeIiLj3EED2Ev.exit
 
 if.else.i.i:                                      ; preds = %delete.notnull
@@ -4004,10 +4004,10 @@ if.then14:                                        ; preds = %if.then, %if.end
 call.i.i.noexc:                                   ; preds = %if.then14
   store ptr %call.i.i24, ptr %call15, align 8
   %mMutex.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 12
-  store i8 0, ptr %mMutex.i.i, align 1
+  store i8 0, ptr %mMutex.i.i, align 4
   %mOutOfCore2.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
-  %9 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
+  %9 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 8
   %tobool.i.i.not.i.i.i = icmp eq i32 %9, 0
   %.pre.i.i.i = load ptr, ptr %call15, align 8
   %cmp.not.i.i.i = icmp eq ptr %.pre.i.i.i, null
@@ -4023,7 +4023,7 @@ delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIiLj3EE14detachFromFileEv.exit.thread.i.i.i: ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i.i
   store ptr null, ptr %call15, align 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
   br label %_ZN7openvdb5v11_04tree10LeafBufferIiLj3EEC2ERKi.exit.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIiLj3EE14detachFromFileEv.exit.i.i.i: ; preds = %call.i.i.noexc
@@ -6547,7 +6547,7 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
 
 delete.end.i.i.i:                                 ; preds = %delete.notnull.i.i.i, %if.then.i.i.i
   store ptr null, ptr %3, align 8
-  store atomic i32 0, ptr %mOutOfCore.i.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore.i.i.i seq_cst, align 8
   br label %_ZN7openvdb5v11_04tree8LeafNodeIlLj3EED2Ev.exit
 
 if.else.i.i:                                      ; preds = %delete.notnull
@@ -6843,10 +6843,10 @@ if.then14:                                        ; preds = %if.then, %if.end
 call.i.i.noexc:                                   ; preds = %if.then14
   store ptr %call.i.i24, ptr %call15, align 8
   %mMutex.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 12
-  store i8 0, ptr %mMutex.i.i, align 1
+  store i8 0, ptr %mMutex.i.i, align 4
   %mOutOfCore2.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
-  %9 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
+  %9 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 8
   %tobool.i.i.not.i.i.i = icmp eq i32 %9, 0
   %.pre.i.i.i = load ptr, ptr %call15, align 8
   %cmp.not.i.i.i = icmp eq ptr %.pre.i.i.i, null
@@ -6862,7 +6862,7 @@ delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIlLj3EE14detachFromFileEv.exit.thread.i.i.i: ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i.i
   store ptr null, ptr %call15, align 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
   br label %_ZN7openvdb5v11_04tree10LeafBufferIlLj3EEC2ERKl.exit.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIlLj3EE14detachFromFileEv.exit.i.i.i: ; preds = %call.i.i.noexc
@@ -8262,7 +8262,7 @@ invoke.cont:
   %second.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 48
   store ptr null, ptr %second.i.i.i.i.i.i.i, align 8
   %tile.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 56
-  store float 0.000000e+00, ptr %tile.i.i.i.i.i.i.i.i, align 4
+  store float 0.000000e+00, ptr %tile.i.i.i.i.i.i.i.i, align 8
   %active.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 60
   store i8 0, ptr %active.i.i.i.i.i.i.i.i.i, align 4
   %call8 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISF_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 4 dereferenceable(12) %_M_storage.i.i.i.i)
@@ -9006,7 +9006,7 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
 
 delete.end.i.i.i:                                 ; preds = %delete.notnull.i.i.i, %if.then.i.i.i
   store ptr null, ptr %3, align 8
-  store atomic i32 0, ptr %mOutOfCore.i.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore.i.i.i seq_cst, align 8
   br label %_ZN7openvdb5v11_04tree8LeafNodeIfLj3EED2Ev.exit
 
 if.else.i.i:                                      ; preds = %delete.notnull
@@ -9304,10 +9304,10 @@ if.then14:                                        ; preds = %if.then, %if.end
 call.i.i.noexc:                                   ; preds = %if.then14
   store ptr %call.i.i25, ptr %call15, align 8
   %mMutex.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 12
-  store i8 0, ptr %mMutex.i.i, align 1
+  store i8 0, ptr %mMutex.i.i, align 4
   %mOutOfCore2.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
-  %10 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
+  %10 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 8
   %tobool.i.i.not.i.i.i = icmp eq i32 %10, 0
   %.pre.i.i.i = load ptr, ptr %call15, align 8
   %cmp.not.i.i.i = icmp eq ptr %.pre.i.i.i, null
@@ -9323,7 +9323,7 @@ delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIfLj3EE14detachFromFileEv.exit.thread.i.i.i: ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i.i
   store ptr null, ptr %call15, align 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
   br label %_ZN7openvdb5v11_04tree10LeafBufferIfLj3EEC2ERKf.exit.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIfLj3EE14detachFromFileEv.exit.i.i.i: ; preds = %call.i.i.noexc
@@ -11633,7 +11633,7 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
 
 delete.end.i.i.i:                                 ; preds = %delete.notnull.i.i.i, %if.then.i.i.i
   store ptr null, ptr %3, align 8
-  store atomic i32 0, ptr %mOutOfCore.i.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore.i.i.i seq_cst, align 8
   br label %_ZN7openvdb5v11_04tree8LeafNodeIdLj3EED2Ev.exit
 
 if.else.i.i:                                      ; preds = %delete.notnull
@@ -11931,10 +11931,10 @@ if.then14:                                        ; preds = %if.then, %if.end
 call.i.i.noexc:                                   ; preds = %if.then14
   store ptr %call.i.i25, ptr %call15, align 8
   %mMutex.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 12
-  store i8 0, ptr %mMutex.i.i, align 1
+  store i8 0, ptr %mMutex.i.i, align 4
   %mOutOfCore2.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
-  %10 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
+  %10 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 8
   %tobool.i.i.not.i.i.i = icmp eq i32 %10, 0
   %.pre.i.i.i = load ptr, ptr %call15, align 8
   %cmp.not.i.i.i = icmp eq ptr %.pre.i.i.i, null
@@ -11950,7 +11950,7 @@ delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIdLj3EE14detachFromFileEv.exit.thread.i.i.i: ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i.i
   store ptr null, ptr %call15, align 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
   br label %_ZN7openvdb5v11_04tree10LeafBufferIdLj3EEC2ERKd.exit.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIdLj3EE14detachFromFileEv.exit.i.i.i: ; preds = %call.i.i.noexc
@@ -14389,7 +14389,7 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
 
 delete.end.i.i.i:                                 ; preds = %delete.notnull.i.i.i, %if.then.i.i.i
   store ptr null, ptr %3, align 8
-  store atomic i32 0, ptr %mOutOfCore.i.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore.i.i.i seq_cst, align 8
   br label %_ZN7openvdb5v11_04tree8LeafNodeINS0_4math4Vec3IfEELj3EED2Ev.exit
 
 if.else.i.i:                                      ; preds = %delete.notnull
@@ -14734,10 +14734,10 @@ if.then14:                                        ; preds = %if.then, %_ZNK7open
 call.i.i.noexc:                                   ; preds = %if.then14
   store ptr %call.i.i27, ptr %call15, align 8
   %mMutex.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 12
-  store i8 0, ptr %mMutex.i.i, align 1
+  store i8 0, ptr %mMutex.i.i, align 4
   %mOutOfCore2.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
-  %17 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
+  %17 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 8
   %tobool.i.i.not.i.i.i = icmp eq i32 %17, 0
   %.pre.i.i.i = load ptr, ptr %call15, align 8
   %cmp.not.i.i.i = icmp eq ptr %.pre.i.i.i, null
@@ -14753,7 +14753,7 @@ delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE14detachFromFileEv.exit.thread.i.i.i: ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i.i
   store ptr null, ptr %call15, align 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
   br label %_ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EEC2ERKS5_.exit.i
 
 _ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE14detachFromFileEv.exit.i.i.i: ; preds = %call.i.i.noexc
@@ -17354,7 +17354,7 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
 
 delete.end.i.i.i:                                 ; preds = %delete.notnull.i.i.i, %if.then.i.i.i
   store ptr null, ptr %3, align 8
-  store atomic i32 0, ptr %mOutOfCore.i.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore.i.i.i seq_cst, align 8
   br label %_ZN7openvdb5v11_04tree8LeafNodeINS0_4math4Vec3IdEELj3EED2Ev.exit
 
 if.else.i.i:                                      ; preds = %delete.notnull
@@ -17699,10 +17699,10 @@ if.then14:                                        ; preds = %if.then, %_ZNK7open
 call.i.i.noexc:                                   ; preds = %if.then14
   store ptr %call.i.i27, ptr %call15, align 8
   %mMutex.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 12
-  store i8 0, ptr %mMutex.i.i, align 1
+  store i8 0, ptr %mMutex.i.i, align 4
   %mOutOfCore2.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
-  %17 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
+  %17 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 8
   %tobool.i.i.not.i.i.i = icmp eq i32 %17, 0
   %.pre.i.i.i = load ptr, ptr %call15, align 8
   %cmp.not.i.i.i = icmp eq ptr %.pre.i.i.i, null
@@ -17718,7 +17718,7 @@ delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE14detachFromFileEv.exit.thread.i.i.i: ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i.i
   store ptr null, ptr %call15, align 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
   br label %_ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EEC2ERKS5_.exit.i
 
 _ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE14detachFromFileEv.exit.i.i.i: ; preds = %call.i.i.noexc
@@ -20333,7 +20333,7 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
 
 delete.end.i.i.i:                                 ; preds = %delete.notnull.i.i.i, %if.then.i.i.i
   store ptr null, ptr %3, align 8
-  store atomic i32 0, ptr %mOutOfCore.i.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore.i.i.i seq_cst, align 8
   br label %_ZN7openvdb5v11_04tree8LeafNodeINS0_4math4Vec3IiEELj3EED2Ev.exit
 
 if.else.i.i:                                      ; preds = %delete.notnull
@@ -20678,10 +20678,10 @@ if.then14:                                        ; preds = %if.then, %_ZNK7open
 call.i.i.noexc:                                   ; preds = %if.then14
   store ptr %call.i.i27, ptr %call15, align 8
   %mMutex.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 12
-  store i8 0, ptr %mMutex.i.i, align 1
+  store i8 0, ptr %mMutex.i.i, align 4
   %mOutOfCore2.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
-  %17 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
+  %17 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 8
   %tobool.i.i.not.i.i.i = icmp eq i32 %17, 0
   %.pre.i.i.i = load ptr, ptr %call15, align 8
   %cmp.not.i.i.i = icmp eq ptr %.pre.i.i.i, null
@@ -20697,7 +20697,7 @@ delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE14detachFromFileEv.exit.thread.i.i.i: ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i.i
   store ptr null, ptr %call15, align 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
   br label %_ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EEC2ERKS5_.exit.i
 
 _ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE14detachFromFileEv.exit.i.i.i: ; preds = %call.i.i.noexc
@@ -22782,10 +22782,10 @@ if.then14:                                        ; preds = %if.then, %if.end
 call.i.i.noexc:                                   ; preds = %if.then14
   store ptr %call.i.i24, ptr %call15, align 8
   %mMutex.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 12
-  store i8 0, ptr %mMutex.i.i, align 1
+  store i8 0, ptr %mMutex.i.i, align 4
   %mOutOfCore2.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
-  %9 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
+  %9 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 8
   %tobool.i.i.not.i.i.i = icmp eq i32 %9, 0
   %.pre.i.i.i = load ptr, ptr %call15, align 8
   %cmp.not.i.i.i = icmp eq ptr %.pre.i.i.i, null
@@ -22801,7 +22801,7 @@ delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIiLj3EE14detachFromFileEv.exit.thread.i.i.i: ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i.i
   store ptr null, ptr %call15, align 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
   br label %_ZN7openvdb5v11_04tree10LeafBufferIiLj3EEC2ERKi.exit.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIiLj3EE14detachFromFileEv.exit.i.i.i: ; preds = %call.i.i.noexc
@@ -23390,10 +23390,10 @@ if.then14:                                        ; preds = %if.then, %if.end
 call.i.i.noexc:                                   ; preds = %if.then14
   store ptr %call.i.i24, ptr %call15, align 8
   %mMutex.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 12
-  store i8 0, ptr %mMutex.i.i, align 1
+  store i8 0, ptr %mMutex.i.i, align 4
   %mOutOfCore2.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
-  %9 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
+  %9 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 8
   %tobool.i.i.not.i.i.i = icmp eq i32 %9, 0
   %.pre.i.i.i = load ptr, ptr %call15, align 8
   %cmp.not.i.i.i = icmp eq ptr %.pre.i.i.i, null
@@ -23409,7 +23409,7 @@ delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIlLj3EE14detachFromFileEv.exit.thread.i.i.i: ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i.i
   store ptr null, ptr %call15, align 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
   br label %_ZN7openvdb5v11_04tree10LeafBufferIlLj3EEC2ERKl.exit.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIlLj3EE14detachFromFileEv.exit.i.i.i: ; preds = %call.i.i.noexc
@@ -24004,10 +24004,10 @@ if.then14:                                        ; preds = %if.then, %if.end
 call.i.i.noexc:                                   ; preds = %if.then14
   store ptr %call.i.i25, ptr %call15, align 8
   %mMutex.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 12
-  store i8 0, ptr %mMutex.i.i, align 1
+  store i8 0, ptr %mMutex.i.i, align 4
   %mOutOfCore2.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
-  %10 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
+  %10 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 8
   %tobool.i.i.not.i.i.i = icmp eq i32 %10, 0
   %.pre.i.i.i = load ptr, ptr %call15, align 8
   %cmp.not.i.i.i = icmp eq ptr %.pre.i.i.i, null
@@ -24023,7 +24023,7 @@ delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIfLj3EE14detachFromFileEv.exit.thread.i.i.i: ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i.i
   store ptr null, ptr %call15, align 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
   br label %_ZN7openvdb5v11_04tree10LeafBufferIfLj3EEC2ERKf.exit.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIfLj3EE14detachFromFileEv.exit.i.i.i: ; preds = %call.i.i.noexc
@@ -24619,10 +24619,10 @@ if.then14:                                        ; preds = %if.then, %if.end
 call.i.i.noexc:                                   ; preds = %if.then14
   store ptr %call.i.i25, ptr %call15, align 8
   %mMutex.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 12
-  store i8 0, ptr %mMutex.i.i, align 1
+  store i8 0, ptr %mMutex.i.i, align 4
   %mOutOfCore2.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
-  %10 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
+  %10 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 8
   %tobool.i.i.not.i.i.i = icmp eq i32 %10, 0
   %.pre.i.i.i = load ptr, ptr %call15, align 8
   %cmp.not.i.i.i = icmp eq ptr %.pre.i.i.i, null
@@ -24638,7 +24638,7 @@ delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIdLj3EE14detachFromFileEv.exit.thread.i.i.i: ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i.i
   store ptr null, ptr %call15, align 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
   br label %_ZN7openvdb5v11_04tree10LeafBufferIdLj3EEC2ERKd.exit.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIdLj3EE14detachFromFileEv.exit.i.i.i: ; preds = %call.i.i.noexc
@@ -25411,10 +25411,10 @@ if.then14:                                        ; preds = %if.then, %_ZNK7open
 call.i.i.noexc:                                   ; preds = %if.then14
   store ptr %call.i.i27, ptr %call15, align 8
   %mMutex.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 12
-  store i8 0, ptr %mMutex.i.i, align 1
+  store i8 0, ptr %mMutex.i.i, align 4
   %mOutOfCore2.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
-  %17 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
+  %17 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 8
   %tobool.i.i.not.i.i.i = icmp eq i32 %17, 0
   %.pre.i.i.i = load ptr, ptr %call15, align 8
   %cmp.not.i.i.i = icmp eq ptr %.pre.i.i.i, null
@@ -25430,7 +25430,7 @@ delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE14detachFromFileEv.exit.thread.i.i.i: ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i.i
   store ptr null, ptr %call15, align 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
   br label %_ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EEC2ERKS5_.exit.i
 
 _ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE14detachFromFileEv.exit.i.i.i: ; preds = %call.i.i.noexc
@@ -26250,10 +26250,10 @@ if.then14:                                        ; preds = %if.then, %_ZNK7open
 call.i.i.noexc:                                   ; preds = %if.then14
   store ptr %call.i.i27, ptr %call15, align 8
   %mMutex.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 12
-  store i8 0, ptr %mMutex.i.i, align 1
+  store i8 0, ptr %mMutex.i.i, align 4
   %mOutOfCore2.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
-  %17 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
+  %17 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 8
   %tobool.i.i.not.i.i.i = icmp eq i32 %17, 0
   %.pre.i.i.i = load ptr, ptr %call15, align 8
   %cmp.not.i.i.i = icmp eq ptr %.pre.i.i.i, null
@@ -26269,7 +26269,7 @@ delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE14detachFromFileEv.exit.thread.i.i.i: ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i.i
   store ptr null, ptr %call15, align 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
   br label %_ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EEC2ERKS5_.exit.i
 
 _ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE14detachFromFileEv.exit.i.i.i: ; preds = %call.i.i.noexc
@@ -27090,10 +27090,10 @@ if.then14:                                        ; preds = %if.then, %_ZNK7open
 call.i.i.noexc:                                   ; preds = %if.then14
   store ptr %call.i.i27, ptr %call15, align 8
   %mMutex.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 12
-  store i8 0, ptr %mMutex.i.i, align 1
+  store i8 0, ptr %mMutex.i.i, align 4
   %mOutOfCore2.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
-  %17 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
+  %17 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 8
   %tobool.i.i.not.i.i.i = icmp eq i32 %17, 0
   %.pre.i.i.i = load ptr, ptr %call15, align 8
   %cmp.not.i.i.i = icmp eq ptr %.pre.i.i.i, null
@@ -27109,7 +27109,7 @@ delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE14detachFromFileEv.exit.thread.i.i.i: ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i.i
   store ptr null, ptr %call15, align 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
   br label %_ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EEC2ERKS5_.exit.i
 
 _ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE14detachFromFileEv.exit.i.i.i: ; preds = %call.i.i.noexc
@@ -28300,10 +28300,10 @@ if.then14:                                        ; preds = %if.then
 call.i.i.noexc:                                   ; preds = %if.then14
   store ptr %call.i.i25, ptr %call15, align 8
   %mMutex.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 12
-  store i8 0, ptr %mMutex.i.i, align 1
+  store i8 0, ptr %mMutex.i.i, align 4
   %mOutOfCore2.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
-  %8 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
+  %8 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 8
   %tobool.i.i.not.i.i.i = icmp eq i32 %8, 0
   %.pre.i.i.i = load ptr, ptr %call15, align 8
   %cmp.not.i.i.i = icmp eq ptr %.pre.i.i.i, null
@@ -28319,7 +28319,7 @@ delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIiLj3EE14detachFromFileEv.exit.thread.i.i.i: ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i.i
   store ptr null, ptr %call15, align 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
   br label %_ZN7openvdb5v11_04tree10LeafBufferIiLj3EEC2ERKi.exit.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIiLj3EE14detachFromFileEv.exit.i.i.i: ; preds = %call.i.i.noexc
@@ -28896,10 +28896,10 @@ if.then14:                                        ; preds = %if.then
 call.i.i.noexc:                                   ; preds = %if.then14
   store ptr %call.i.i25, ptr %call15, align 8
   %mMutex.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 12
-  store i8 0, ptr %mMutex.i.i, align 1
+  store i8 0, ptr %mMutex.i.i, align 4
   %mOutOfCore2.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
-  %8 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
+  %8 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 8
   %tobool.i.i.not.i.i.i = icmp eq i32 %8, 0
   %.pre.i.i.i = load ptr, ptr %call15, align 8
   %cmp.not.i.i.i = icmp eq ptr %.pre.i.i.i, null
@@ -28915,7 +28915,7 @@ delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIlLj3EE14detachFromFileEv.exit.thread.i.i.i: ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i.i
   store ptr null, ptr %call15, align 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
   br label %_ZN7openvdb5v11_04tree10LeafBufferIlLj3EEC2ERKl.exit.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIlLj3EE14detachFromFileEv.exit.i.i.i: ; preds = %call.i.i.noexc
@@ -29507,10 +29507,10 @@ if.then14:                                        ; preds = %if.then, %if.end
 call.i.i.noexc:                                   ; preds = %if.then14
   store ptr %call.i.i25, ptr %call15, align 8
   %mMutex.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 12
-  store i8 0, ptr %mMutex.i.i, align 1
+  store i8 0, ptr %mMutex.i.i, align 4
   %mOutOfCore2.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
-  %9 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
+  %9 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 8
   %tobool.i.i.not.i.i.i = icmp eq i32 %9, 0
   %.pre.i.i.i = load ptr, ptr %call15, align 8
   %cmp.not.i.i.i = icmp eq ptr %.pre.i.i.i, null
@@ -29526,7 +29526,7 @@ delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIfLj3EE14detachFromFileEv.exit.thread.i.i.i: ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i.i
   store ptr null, ptr %call15, align 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
   br label %_ZN7openvdb5v11_04tree10LeafBufferIfLj3EEC2ERKf.exit.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIfLj3EE14detachFromFileEv.exit.i.i.i: ; preds = %call.i.i.noexc
@@ -30118,10 +30118,10 @@ if.then14:                                        ; preds = %if.then, %if.end
 call.i.i.noexc:                                   ; preds = %if.then14
   store ptr %call.i.i25, ptr %call15, align 8
   %mMutex.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 12
-  store i8 0, ptr %mMutex.i.i, align 1
+  store i8 0, ptr %mMutex.i.i, align 4
   %mOutOfCore2.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
-  %9 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
+  %9 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 8
   %tobool.i.i.not.i.i.i = icmp eq i32 %9, 0
   %.pre.i.i.i = load ptr, ptr %call15, align 8
   %cmp.not.i.i.i = icmp eq ptr %.pre.i.i.i, null
@@ -30137,7 +30137,7 @@ delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIdLj3EE14detachFromFileEv.exit.thread.i.i.i: ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i.i
   store ptr null, ptr %call15, align 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
   br label %_ZN7openvdb5v11_04tree10LeafBufferIdLj3EEC2ERKd.exit.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIdLj3EE14detachFromFileEv.exit.i.i.i: ; preds = %call.i.i.noexc
@@ -30807,10 +30807,10 @@ if.then14:                                        ; preds = %if.then, %if.then8
 call.i.i.noexc:                                   ; preds = %if.then14
   store ptr %call.i.i27, ptr %call15, align 8
   %mMutex.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 12
-  store i8 0, ptr %mMutex.i.i, align 1
+  store i8 0, ptr %mMutex.i.i, align 4
   %mOutOfCore2.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
-  %10 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
+  %10 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 8
   %tobool.i.i.not.i.i.i = icmp eq i32 %10, 0
   %.pre.i.i.i = load ptr, ptr %call15, align 8
   %cmp.not.i.i.i = icmp eq ptr %.pre.i.i.i, null
@@ -30826,7 +30826,7 @@ delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE14detachFromFileEv.exit.thread.i.i.i: ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i.i
   store ptr null, ptr %call15, align 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
   br label %_ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EEC2ERKS5_.exit.i
 
 _ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE14detachFromFileEv.exit.i.i.i: ; preds = %call.i.i.noexc
@@ -31529,10 +31529,10 @@ if.then14:                                        ; preds = %if.then, %if.then8
 call.i.i.noexc:                                   ; preds = %if.then14
   store ptr %call.i.i27, ptr %call15, align 8
   %mMutex.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 12
-  store i8 0, ptr %mMutex.i.i, align 1
+  store i8 0, ptr %mMutex.i.i, align 4
   %mOutOfCore2.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
-  %10 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
+  %10 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 8
   %tobool.i.i.not.i.i.i = icmp eq i32 %10, 0
   %.pre.i.i.i = load ptr, ptr %call15, align 8
   %cmp.not.i.i.i = icmp eq ptr %.pre.i.i.i, null
@@ -31548,7 +31548,7 @@ delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE14detachFromFileEv.exit.thread.i.i.i: ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i.i
   store ptr null, ptr %call15, align 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
   br label %_ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EEC2ERKS5_.exit.i
 
 _ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE14detachFromFileEv.exit.i.i.i: ; preds = %call.i.i.noexc
@@ -32224,10 +32224,10 @@ if.then14:                                        ; preds = %if.then8, %if.then
 call.i.i.noexc:                                   ; preds = %if.then14
   store ptr %call.i.i27, ptr %call15, align 8
   %mMutex.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 12
-  store i8 0, ptr %mMutex.i.i, align 1
+  store i8 0, ptr %mMutex.i.i, align 4
   %mOutOfCore2.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
-  %10 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
+  %10 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 8
   %tobool.i.i.not.i.i.i = icmp eq i32 %10, 0
   %.pre.i.i.i = load ptr, ptr %call15, align 8
   %cmp.not.i.i.i = icmp eq ptr %.pre.i.i.i, null
@@ -32243,7 +32243,7 @@ delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE14detachFromFileEv.exit.thread.i.i.i: ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i.i
   store ptr null, ptr %call15, align 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
   br label %_ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EEC2ERKS5_.exit.i
 
 _ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE14detachFromFileEv.exit.i.i.i: ; preds = %call.i.i.noexc
@@ -33434,10 +33434,10 @@ if.then14:                                        ; preds = %if.then, %if.end
 call.i.i.noexc:                                   ; preds = %if.then14
   store ptr %call.i.i24, ptr %call15, align 8
   %mMutex.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 12
-  store i8 0, ptr %mMutex.i.i, align 1
+  store i8 0, ptr %mMutex.i.i, align 4
   %mOutOfCore2.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
-  %9 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
+  %9 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 8
   %tobool.i.i.not.i.i.i = icmp eq i32 %9, 0
   %.pre.i.i.i = load ptr, ptr %call15, align 8
   %cmp.not.i.i.i = icmp eq ptr %.pre.i.i.i, null
@@ -33453,7 +33453,7 @@ delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIiLj3EE14detachFromFileEv.exit.thread.i.i.i: ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i.i
   store ptr null, ptr %call15, align 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
   br label %_ZN7openvdb5v11_04tree10LeafBufferIiLj3EEC2ERKi.exit.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIiLj3EE14detachFromFileEv.exit.i.i.i: ; preds = %call.i.i.noexc
@@ -34045,10 +34045,10 @@ if.then14:                                        ; preds = %if.then, %if.end
 call.i.i.noexc:                                   ; preds = %if.then14
   store ptr %call.i.i24, ptr %call15, align 8
   %mMutex.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 12
-  store i8 0, ptr %mMutex.i.i, align 1
+  store i8 0, ptr %mMutex.i.i, align 4
   %mOutOfCore2.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
-  %9 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
+  %9 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 8
   %tobool.i.i.not.i.i.i = icmp eq i32 %9, 0
   %.pre.i.i.i = load ptr, ptr %call15, align 8
   %cmp.not.i.i.i = icmp eq ptr %.pre.i.i.i, null
@@ -34064,7 +34064,7 @@ delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIlLj3EE14detachFromFileEv.exit.thread.i.i.i: ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i.i
   store ptr null, ptr %call15, align 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
   br label %_ZN7openvdb5v11_04tree10LeafBufferIlLj3EEC2ERKl.exit.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIlLj3EE14detachFromFileEv.exit.i.i.i: ; preds = %call.i.i.noexc
@@ -34656,10 +34656,10 @@ if.then14:                                        ; preds = %if.then, %if.end
 call.i.i.noexc:                                   ; preds = %if.then14
   store ptr %call.i.i24, ptr %call15, align 8
   %mMutex.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 12
-  store i8 0, ptr %mMutex.i.i, align 1
+  store i8 0, ptr %mMutex.i.i, align 4
   %mOutOfCore2.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
-  %9 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
+  %9 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 8
   %tobool.i.i.not.i.i.i = icmp eq i32 %9, 0
   %.pre.i.i.i = load ptr, ptr %call15, align 8
   %cmp.not.i.i.i = icmp eq ptr %.pre.i.i.i, null
@@ -34675,7 +34675,7 @@ delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIfLj3EE14detachFromFileEv.exit.thread.i.i.i: ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i.i
   store ptr null, ptr %call15, align 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
   br label %_ZN7openvdb5v11_04tree10LeafBufferIfLj3EEC2ERKf.exit.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIfLj3EE14detachFromFileEv.exit.i.i.i: ; preds = %call.i.i.noexc
@@ -35267,10 +35267,10 @@ if.then14:                                        ; preds = %if.then, %if.end
 call.i.i.noexc:                                   ; preds = %if.then14
   store ptr %call.i.i24, ptr %call15, align 8
   %mMutex.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 12
-  store i8 0, ptr %mMutex.i.i, align 1
+  store i8 0, ptr %mMutex.i.i, align 4
   %mOutOfCore2.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
-  %9 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
+  %9 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 8
   %tobool.i.i.not.i.i.i = icmp eq i32 %9, 0
   %.pre.i.i.i = load ptr, ptr %call15, align 8
   %cmp.not.i.i.i = icmp eq ptr %.pre.i.i.i, null
@@ -35286,7 +35286,7 @@ delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIdLj3EE14detachFromFileEv.exit.thread.i.i.i: ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i.i
   store ptr null, ptr %call15, align 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
   br label %_ZN7openvdb5v11_04tree10LeafBufferIdLj3EEC2ERKd.exit.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIdLj3EE14detachFromFileEv.exit.i.i.i: ; preds = %call.i.i.noexc
@@ -35956,10 +35956,10 @@ if.then14:                                        ; preds = %if.then, %if.then8
 call.i.i.noexc:                                   ; preds = %if.then14
   store ptr %call.i.i27, ptr %call15, align 8
   %mMutex.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 12
-  store i8 0, ptr %mMutex.i.i, align 1
+  store i8 0, ptr %mMutex.i.i, align 4
   %mOutOfCore2.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
-  %10 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
+  %10 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 8
   %tobool.i.i.not.i.i.i = icmp eq i32 %10, 0
   %.pre.i.i.i = load ptr, ptr %call15, align 8
   %cmp.not.i.i.i = icmp eq ptr %.pre.i.i.i, null
@@ -35975,7 +35975,7 @@ delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE14detachFromFileEv.exit.thread.i.i.i: ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i.i
   store ptr null, ptr %call15, align 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
   br label %_ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EEC2ERKS5_.exit.i
 
 _ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE14detachFromFileEv.exit.i.i.i: ; preds = %call.i.i.noexc
@@ -36678,10 +36678,10 @@ if.then14:                                        ; preds = %if.then, %if.then8
 call.i.i.noexc:                                   ; preds = %if.then14
   store ptr %call.i.i27, ptr %call15, align 8
   %mMutex.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 12
-  store i8 0, ptr %mMutex.i.i, align 1
+  store i8 0, ptr %mMutex.i.i, align 4
   %mOutOfCore2.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
-  %10 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
+  %10 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 8
   %tobool.i.i.not.i.i.i = icmp eq i32 %10, 0
   %.pre.i.i.i = load ptr, ptr %call15, align 8
   %cmp.not.i.i.i = icmp eq ptr %.pre.i.i.i, null
@@ -36697,7 +36697,7 @@ delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE14detachFromFileEv.exit.thread.i.i.i: ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i.i
   store ptr null, ptr %call15, align 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
   br label %_ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EEC2ERKS5_.exit.i
 
 _ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE14detachFromFileEv.exit.i.i.i: ; preds = %call.i.i.noexc
@@ -37401,10 +37401,10 @@ if.then14:                                        ; preds = %if.then, %if.then8
 call.i.i.noexc:                                   ; preds = %if.then14
   store ptr %call.i.i27, ptr %call15, align 8
   %mMutex.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 12
-  store i8 0, ptr %mMutex.i.i, align 1
+  store i8 0, ptr %mMutex.i.i, align 4
   %mOutOfCore2.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
-  %10 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
+  %10 = load atomic i32, ptr %mOutOfCore2.i.i seq_cst, align 8
   %tobool.i.i.not.i.i.i = icmp eq i32 %10, 0
   %.pre.i.i.i = load ptr, ptr %call15, align 8
   %cmp.not.i.i.i = icmp eq ptr %.pre.i.i.i, null
@@ -37420,7 +37420,7 @@ delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE14detachFromFileEv.exit.thread.i.i.i: ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i.i
   store ptr null, ptr %call15, align 8
-  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 4
+  store atomic i32 0, ptr %mOutOfCore2.i.i seq_cst, align 8
   br label %_ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EEC2ERKS5_.exit.i
 
 _ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE14detachFromFileEv.exit.i.i.i: ; preds = %call.i.i.noexc

@@ -15437,7 +15437,7 @@ lean_alloc_ctor.exit309:                          ; preds = %lean_alloc_ctor.exi
   %292 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %293 = load ptr, ptr %292, align 8, !tbaa !4
   %294 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %295 = load i8, ptr %294, align 1, !tbaa !14
+  %295 = load i8, ptr %294, align 8, !tbaa !14
   %296 = getelementptr inbounds nuw i8, ptr %1, i64 49
   %297 = load i8, ptr %296, align 1, !tbaa !14
   %298 = ptrtoint ptr %293 to i64
@@ -15574,7 +15574,7 @@ lean_alloc_ctor.exit322:                          ; preds = %lean_dec.exit229
   %343 = getelementptr inbounds nuw i8, ptr %340, i64 4
   %344 = getelementptr inbounds nuw i8, ptr %340, i64 48
   store i64 0, ptr %344, align 8, !tbaa !12
-  store i32 1, ptr %340, align 4, !tbaa !8
+  store i32 1, ptr %340, align 8, !tbaa !8
   store i32 327736, ptr %343, align 4
   %345 = getelementptr inbounds nuw i8, ptr %340, i64 8
   store ptr %339, ptr %345, align 8, !tbaa !4
@@ -15586,7 +15586,7 @@ lean_alloc_ctor.exit322:                          ; preds = %lean_dec.exit229
   store ptr %291, ptr %348, align 8, !tbaa !4
   %349 = getelementptr inbounds nuw i8, ptr %340, i64 40
   store ptr %293, ptr %349, align 8, !tbaa !4
-  store i8 %295, ptr %344, align 1, !tbaa !14
+  store i8 %295, ptr %344, align 8, !tbaa !14
   %350 = getelementptr inbounds nuw i8, ptr %340, i64 49
   store i8 %297, ptr %350, align 1, !tbaa !14
   %351 = getelementptr inbounds nuw i8, ptr %2, i64 48
@@ -16670,7 +16670,7 @@ lean_alloc_ctor.exit942:                          ; preds = %lean_alloc_ctor.exi
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 48
   store i64 1, ptr %56, align 8, !tbaa !12
-  store i32 1, ptr %52, align 4, !tbaa !8
+  store i32 1, ptr %52, align 8, !tbaa !8
   store i32 327736, ptr %55, align 4
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store ptr %50, ptr %57, align 8, !tbaa !4
@@ -20571,7 +20571,7 @@ _init_l_Lean_Elab_Tactic_BVDecide_External_runInterruptible___closed__1.exit: ; 
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %84 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store i64 2, ptr %84, align 8, !tbaa !12
-  store i32 1, ptr %80, align 4, !tbaa !8
+  store i32 1, ptr %80, align 8, !tbaa !8
   store i32 16, ptr %83, align 4
   store ptr %80, ptr @l_Lean_Elab_Tactic_BVDecide_External_runInterruptible___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %80) #5
@@ -20659,7 +20659,7 @@ _init_l_Lean_Elab_Tactic_BVDecide_External_satQuery___closed__7.exit: ; preds = 
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 4
   %115 = getelementptr inbounds nuw i8, ptr %111, i64 8
   store i64 131072, ptr %115, align 8, !tbaa !12
-  store i32 1, ptr %111, align 4, !tbaa !8
+  store i32 1, ptr %111, align 8, !tbaa !8
   store i32 16, ptr %114, align 4
   store ptr %111, ptr @l_Lean_Elab_Tactic_BVDecide_External_satQuery___closed__7, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %111) #5

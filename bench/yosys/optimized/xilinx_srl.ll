@@ -34744,7 +34744,7 @@ define linkonce_odr noundef i32 @_ZNK5Yosys7hashlib4dictISt5tupleIJNS_5RTLIL8IdS
   %.sroa.2.0.copyload57 = load i32, ptr %.sroa.2.0..sroa_idx56, align 8
   %.sroa.2.sroa.065.0.extract.trunc = trunc i32 %.sroa.2.0.copyload57 to i8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %38 = load i32, ptr %37, align 4, !tbaa !118
+  %38 = load i32, ptr %37, align 8, !tbaa !118
   %.not.i.i.i.i.i = icmp eq i32 %38, 0
   br i1 %.not.i.i.i.i.i, label %_ZNSt5tupleIJN5Yosys5RTLIL8IdStringENS1_6SigBitEEEC2ERKS4_.exit, label %39
 
@@ -37016,7 +37016,7 @@ define linkonce_odr noundef i32 @_ZNK5Yosys7hashlib4dictISt5tupleIJNS_5RTLIL8IdS
   %.sroa.5.0.copyload64 = load i32, ptr %.sroa.5.0..sroa_idx63, align 8
   %.sroa.5.sroa.072.0.extract.trunc = trunc i32 %.sroa.5.0.copyload64 to i8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  %38 = load i32, ptr %37, align 4, !tbaa !118
+  %38 = load i32, ptr %37, align 8, !tbaa !118
   %.not.i.i.i.i.i = icmp eq i32 %38, 0
   br i1 %.not.i.i.i.i.i, label %_ZNSt5tupleIJN5Yosys5RTLIL8IdStringENS1_6SigBitES3_EEC2ERKS4_.exit, label %39
 

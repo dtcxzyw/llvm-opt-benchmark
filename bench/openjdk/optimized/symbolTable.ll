@@ -4971,7 +4971,7 @@ _ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE8ScopedCSC2EP6ThreadPS
   %33 = getelementptr inbounds nuw i8, ptr %.09.i, i64 12
   %34 = load i16, ptr %33, align 4
   %35 = zext i16 %34 to i32
-  %36 = load volatile i32, ptr %30, align 4
+  %36 = load volatile i32, ptr %30, align 8
   %37 = and i32 %36, 65535
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %31, ptr noundef nonnull @.str.59, i32 noundef %35, i32 noundef %37) #18
   tail call void @_ZN17HashtableTextDump8put_utf8EP12outputStreamPKci(ptr noundef nonnull %31, ptr noundef nonnull %32, i32 noundef %35) #18

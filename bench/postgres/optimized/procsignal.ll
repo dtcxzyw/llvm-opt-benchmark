@@ -101,7 +101,7 @@ define dso_local void @ProcSignalShmemInit() local_unnamed_addr #0 {
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 72
   store volatile i64 -1, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 80
-  store volatile i32 0, ptr %26, align 4
+  store volatile i32 0, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 84
   call void @ConditionVariableInit(ptr noundef nonnull %27) #11
   %indvar.next = add nuw nsw i64 %indvar, 1
@@ -215,7 +215,7 @@ define dso_local void @ProcSignalInit(i1 noundef zeroext %0, i32 noundef %1) loc
   %47 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 %1, ptr %47, align 8
   %48 = load i32, ptr @MyProcPid, align 4
-  store volatile i32 %48, ptr %21, align 4
+  store volatile i32 %48, ptr %21, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
   store i8 0, ptr %22, align 4
   store ptr %21, ptr @MyProcSignalSlot, align 8

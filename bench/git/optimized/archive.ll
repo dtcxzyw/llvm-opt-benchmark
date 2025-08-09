@@ -653,7 +653,7 @@ queue_directory.exit:                             ; preds = %st_add.exit19.i
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %83 = load i32, ptr %82, align 4, !tbaa !13
   %84 = getelementptr inbounds nuw i8, ptr %71, i64 40
-  store i32 %83, ptr %84, align 4, !tbaa !13
+  store i32 %83, ptr %84, align 8, !tbaa !13
   br label %94
 
 85:                                               ; preds = %.critedge

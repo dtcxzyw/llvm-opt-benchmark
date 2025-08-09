@@ -1220,7 +1220,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_mult_precompute(ptr noundef %0
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 6, ptr %14, align 8, !tbaa !46
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store atomic i32 1, ptr %15 seq_cst, align 4, !tbaa !47
+  store atomic i32 1, ptr %15 seq_cst, align 8, !tbaa !47
   %16 = icmp eq ptr %1, null
   br i1 %16, label %17, label %22
 

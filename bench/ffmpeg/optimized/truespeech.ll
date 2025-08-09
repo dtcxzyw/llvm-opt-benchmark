@@ -169,7 +169,7 @@ define internal i32 @truespeech_decode_frame(ptr noundef %0, ptr noundef %1, ptr
   %.04278 = phi i32 [ 0, %.lr.ph ], [ %495, %truespeech_save_prevvec.exit ]
   %92 = load ptr, ptr %14, align 16, !tbaa !41
   tail call void %92(ptr noundef nonnull %27, ptr noundef %.04080, i32 noundef 8) #7
-  %93 = load i32, ptr %27, align 1, !tbaa !29
+  %93 = load i32, ptr %27, align 16, !tbaa !29
   %94 = tail call i32 @llvm.bswap.i32(i32 %93)
   %95 = lshr i32 %94, 29
   %96 = zext nneg i32 %95 to i64
@@ -202,7 +202,7 @@ define internal i32 @truespeech_decode_frame(ptr noundef %0, ptr noundef %1, ptr
   %119 = getelementptr inbounds nuw i16, ptr @ts_cb_3, i64 %118
   %120 = load i16, ptr %119, align 2, !tbaa !44
   store i16 %120, ptr %34, align 2, !tbaa !44
-  %121 = load i32, ptr %35, align 1, !tbaa !29
+  %121 = load i32, ptr %35, align 2, !tbaa !29
   %122 = tail call i32 @llvm.bswap.i32(i32 %121)
   %123 = lshr i32 %122, 27
   %124 = and i32 %123, 15
@@ -225,7 +225,7 @@ define internal i32 @truespeech_decode_frame(ptr noundef %0, ptr noundef %1, ptr
   store i16 %138, ptr %28, align 16, !tbaa !44
   %139 = and i32 %133, 1
   store i32 %139, ptr %39, align 8, !tbaa !46
-  %140 = load i32, ptr %40, align 1, !tbaa !29
+  %140 = load i32, ptr %40, align 4, !tbaa !29
   %141 = tail call i32 @llvm.bswap.i32(i32 %140)
   %142 = lshr i32 %141, 24
   %143 = and i32 %142, 240
@@ -236,8 +236,8 @@ define internal i32 @truespeech_decode_frame(ptr noundef %0, ptr noundef %1, ptr
   %147 = tail call i32 @llvm.bswap.i32(i32 %146)
   %148 = lshr i32 %147, 22
   %149 = and i32 %148, 127
-  store i32 %149, ptr %45, align 8, !tbaa !28
-  %150 = load i32, ptr %46, align 1, !tbaa !29
+  store i32 %149, ptr %45, align 16, !tbaa !28
+  %150 = load i32, ptr %46, align 2, !tbaa !29
   %151 = tail call i32 @llvm.bswap.i32(i32 %150)
   %152 = lshr i32 %151, 23
   %153 = and i32 %152, 127
@@ -245,18 +245,18 @@ define internal i32 @truespeech_decode_frame(ptr noundef %0, ptr noundef %1, ptr
   %154 = load i32, ptr %48, align 1, !tbaa !29
   %155 = and i32 %154, 127
   store i32 %155, ptr %42, align 8, !tbaa !28
-  %156 = load i32, ptr %49, align 1, !tbaa !29
+  %156 = load i32, ptr %49, align 8, !tbaa !29
   %157 = tail call i32 @llvm.bswap.i32(i32 %156)
   %158 = lshr i32 %157, 28
   %159 = lshr i32 %157, 14
   %160 = and i32 %159, 16383
   store i32 %160, ptr %52, align 4, !tbaa !28
-  %161 = load i32, ptr %53, align 1, !tbaa !29
+  %161 = load i32, ptr %53, align 2, !tbaa !29
   %162 = tail call i32 @llvm.bswap.i32(i32 %161)
   %163 = lshr i32 %162, 16
   %164 = and i32 %163, 16383
   store i32 %164, ptr %51, align 8, !tbaa !28
-  %165 = load i32, ptr %54, align 1, !tbaa !29
+  %165 = load i32, ptr %54, align 4, !tbaa !29
   %166 = tail call i32 @llvm.bswap.i32(i32 %165)
   %167 = lshr i32 %166, 24
   %168 = and i32 %167, 240
@@ -265,17 +265,17 @@ define internal i32 @truespeech_decode_frame(ptr noundef %0, ptr noundef %1, ptr
   %170 = lshr i32 %166, 14
   %171 = and i32 %170, 16383
   store i32 %171, ptr %55, align 4, !tbaa !28
-  %172 = load i32, ptr %56, align 1
+  %172 = load i32, ptr %56, align 2
   %173 = tail call i32 @llvm.bswap.i32(i32 %172)
   %174 = lshr i32 %173, 16
   %175 = and i32 %174, 16383
-  store i32 %175, ptr %57, align 8, !tbaa !28
+  store i32 %175, ptr %57, align 16, !tbaa !28
   %sum.shift.i = lshr i32 %172, 23
   %176 = and i32 %sum.shift.i, 1
   %177 = or disjoint i32 %176, %143
-  %178 = load i32, ptr %58, align 1, !tbaa !29
+  %178 = load i32, ptr %58, align 16, !tbaa !29
   %179 = tail call i32 @llvm.bswap.i32(i32 %178)
-  %180 = load i32, ptr %59, align 1, !tbaa !29
+  %180 = load i32, ptr %59, align 2, !tbaa !29
   %181 = tail call i32 @llvm.bswap.i32(i32 %180)
   %182 = lshr i32 %181, 20
   %183 = and i32 %182, 2047
@@ -289,9 +289,9 @@ define internal i32 @truespeech_decode_frame(ptr noundef %0, ptr noundef %1, ptr
   %sum.shift133.i = lshr i32 %187, 14
   %189 = and i32 %sum.shift133.i, 2
   %190 = or disjoint i32 %177, %189
-  %191 = load i32, ptr %63, align 1, !tbaa !29
+  %191 = load i32, ptr %63, align 4, !tbaa !29
   %192 = tail call i32 @llvm.bswap.i32(i32 %191)
-  %193 = load i32, ptr %64, align 1, !tbaa !29
+  %193 = load i32, ptr %64, align 2, !tbaa !29
   %194 = tail call i32 @llvm.bswap.i32(i32 %193)
   %195 = lshr i32 %194, 20
   %196 = and i32 %195, 2047
@@ -305,26 +305,26 @@ define internal i32 @truespeech_decode_frame(ptr noundef %0, ptr noundef %1, ptr
   %sum.shift134.i = lshr i32 %200, 13
   %202 = and i32 %sum.shift134.i, 4
   %203 = or disjoint i32 %190, %202
-  %204 = load i32, ptr %68, align 1, !tbaa !29
+  %204 = load i32, ptr %68, align 8, !tbaa !29
   %205 = tail call i32 @llvm.bswap.i32(i32 %204)
-  %206 = load i32, ptr %69, align 1, !tbaa !29
+  %206 = load i32, ptr %69, align 2, !tbaa !29
   %207 = tail call i32 @llvm.bswap.i32(i32 %206)
   %208 = lshr i32 %207, 20
   %209 = and i32 %208, 2047
   %210 = lshr i32 %205, 4
   %211 = and i32 %210, 134215680
   %212 = or disjoint i32 %209, %211
-  store i32 %212, ptr %70, align 8, !tbaa !28
+  store i32 %212, ptr %70, align 16, !tbaa !28
   %213 = load i32, ptr %71, align 1
   %214 = and i32 %213, 15
-  store i32 %214, ptr %72, align 8, !tbaa !28
+  store i32 %214, ptr %72, align 16, !tbaa !28
   %sum.shift135.i = lshr i32 %213, 12
   %215 = and i32 %sum.shift135.i, 8
   %216 = or disjoint i32 %203, %215
   store i32 %216, ptr %41, align 16, !tbaa !28
-  %217 = load i32, ptr %73, align 1, !tbaa !29
+  %217 = load i32, ptr %73, align 4, !tbaa !29
   %218 = tail call i32 @llvm.bswap.i32(i32 %217)
-  %219 = load i32, ptr %74, align 1, !tbaa !29
+  %219 = load i32, ptr %74, align 2, !tbaa !29
   %220 = tail call i32 @llvm.bswap.i32(i32 %219)
   %221 = lshr i32 %220, 20
   %222 = and i32 %221, 2047

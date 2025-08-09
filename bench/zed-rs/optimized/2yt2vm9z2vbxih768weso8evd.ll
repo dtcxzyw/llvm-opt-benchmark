@@ -642,7 +642,7 @@ select.unfold.i:                                  ; preds = %.sink.split.i.i, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !208
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.i.i.ph, i64 120
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.i.i.ph, i64 112
-  %35 = load ptr, ptr %34, align 8, !alias.scope !209, !noalias !212, !nonnull !7, !noundef !7
+  %35 = load ptr, ptr %34, align 16, !alias.scope !209, !noalias !212, !nonnull !7, !noundef !7
   %36 = load i64, ptr %33, align 8, !alias.scope !209, !noalias !212, !noundef !7
   invoke void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hac7685a8527fb767E.llvm.13602880533186600580"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 %35, i64 noundef %36)
           to label %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h05ebb60f3f1e1b99E.exit.i" unwind label %38, !noalias !206
@@ -910,7 +910,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u2
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !287
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 120
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  %27 = load ptr, ptr %26, align 8, !alias.scope !288, !noalias !291, !nonnull !7, !noundef !7
+  %27 = load ptr, ptr %26, align 16, !alias.scope !288, !noalias !291, !nonnull !7, !noundef !7
   %28 = load i64, ptr %25, align 8, !alias.scope !288, !noalias !291, !noundef !7
   invoke void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hac7685a8527fb767E.llvm.13602880533186600580"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 %27, i64 noundef %28)
           to label %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h05ebb60f3f1e1b99E.exit.i" unwind label %30, !noalias !285

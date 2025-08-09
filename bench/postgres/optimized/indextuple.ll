@@ -381,7 +381,7 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
 .thread168:                                       ; preds = %55, %53
   %64 = load i32, ptr %2, align 8
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i32 0, ptr %65, align 4
+  store i32 0, ptr %65, align 8
   %66 = icmp sgt i32 %64, 1
   br i1 %66, label %.lr.ph199.preheader, label %.critedge
 

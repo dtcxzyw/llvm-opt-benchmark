@@ -5182,7 +5182,7 @@ invoke.cont13:                                    ; preds = %if.end.i63, %if.the
   store ptr null, ptr %call5.i.i.i.sink16.i, align 8, !tbaa !265
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.sink16.i, i64 8
   %6 = load i32, ptr %add.ptr, align 4, !tbaa !229
-  store i32 %6, ptr %add.ptr.i.i, align 4, !tbaa !229
+  store i32 %6, ptr %add.ptr.i.i, align 8, !tbaa !229
   %_M_before_begin.i65 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i.sink16.i, ptr %_M_before_begin.i65, align 8, !tbaa !271
   %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -5217,7 +5217,7 @@ invoke.cont20:                                    ; preds = %if.end.i71, %if.the
   store ptr null, ptr %call5.i.i.i.sink16.i69, align 8, !tbaa !265
   %add.ptr.i.i70 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.sink16.i69, i64 8
   %10 = load i32, ptr %add.ptr16, align 4, !tbaa !229
-  store i32 %10, ptr %add.ptr.i.i70, align 4, !tbaa !229
+  store i32 %10, ptr %add.ptr.i.i70, align 8, !tbaa !229
   store ptr %call5.i.i.i.sink16.i69, ptr %__prev_n.077, align 8, !tbaa !265
   %conv.i.i.i.i = sext i32 %10 to i64
   %rem.i.i.i = urem i64 %conv.i.i.i.i, %7

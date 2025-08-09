@@ -9848,7 +9848,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %23, ptr %24, align 8, !tbaa !15
   store ptr %13, ptr %10, align 8, !tbaa !12
   store i64 0, ptr %22, align 8, !tbaa !15
-  store i8 0, ptr %13, align 1, !tbaa !14
+  store i8 0, ptr %13, align 8, !tbaa !14
   %25 = getelementptr inbounds nuw i8, ptr %.014, i64 432
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.08.013, i64 432
   %27 = load ptr, ptr %26, align 8, !tbaa !515

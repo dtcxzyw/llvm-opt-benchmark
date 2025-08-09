@@ -350,7 +350,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %12
   store i64 %130, ptr %131, align 8, !tbaa !13
   store ptr %121, ptr %3, align 8, !tbaa !10
   store i64 0, ptr %129, align 8, !tbaa !13
-  store i8 0, ptr %121, align 1, !tbaa !15
+  store i8 0, ptr %121, align 8, !tbaa !15
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr %133, ptr %132, align 8, !tbaa !4
@@ -381,7 +381,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit36: ; preds = %
   store i64 %144, ptr %145, align 8, !tbaa !13
   store ptr %135, ptr %4, align 8, !tbaa !10
   store i64 0, ptr %143, align 8, !tbaa !13
-  store i8 0, ptr %135, align 1, !tbaa !15
+  store i8 0, ptr %135, align 8, !tbaa !15
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store ptr %147, ptr %146, align 8, !tbaa !4
@@ -412,7 +412,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit38: ; preds = %
   store i64 %158, ptr %159, align 8, !tbaa !13
   store ptr %149, ptr %9, align 8, !tbaa !10
   store i64 0, ptr %157, align 8, !tbaa !13
-  store i8 0, ptr %149, align 1, !tbaa !15
+  store i8 0, ptr %149, align 8, !tbaa !15
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store i8 %20, ptr %160, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %18)

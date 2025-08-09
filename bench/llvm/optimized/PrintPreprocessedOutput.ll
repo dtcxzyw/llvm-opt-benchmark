@@ -435,7 +435,7 @@ _ZL13DoPrintMacrosRN5clang12PreprocessorEPN4llvm11raw_ostreamE.exit: ; preds = %
   store i32 0, ptr %135, align 8, !tbaa !315
   %136 = getelementptr inbounds nuw i8, ptr %93, i64 504
   store i32 0, ptr %136, align 8, !tbaa !316
-  store i64 4500337850586133820, ptr %122, align 1
+  store i64 4500337850586133820, ptr %122, align 8
   store i64 8, ptr %123, align 8, !tbaa !317
   %137 = getelementptr inbounds nuw i8, ptr %93, i64 508
   store i8 0, ptr %137, align 4, !tbaa !318
@@ -477,7 +477,7 @@ _ZN12_GLOBAL__N_124PrintPPOutputPPCallbacksC2ERN5clang12PreprocessorEPN4llvm11ra
   store ptr %156, ptr %155, align 8, !tbaa !329
   %157 = getelementptr inbounds nuw i8, ptr %148, i64 16
   store i64 0, ptr %157, align 8, !tbaa !330
-  store i8 0, ptr %156, align 1, !tbaa !42
+  store i8 0, ptr %156, align 8, !tbaa !42
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_120UnknownPragmaHandlerE, i64 16), ptr %148, align 8, !tbaa !44
   %158 = getelementptr inbounds nuw i8, ptr %148, i64 40
   store ptr @.str, ptr %158, align 8, !tbaa !331
@@ -495,7 +495,7 @@ _ZN12_GLOBAL__N_124PrintPPOutputPPCallbacksC2ERN5clang12PreprocessorEPN4llvm11ra
   store ptr %167, ptr %166, align 8, !tbaa !329
   %168 = getelementptr inbounds nuw i8, ptr %161, i64 16
   store i64 0, ptr %168, align 8, !tbaa !330
-  store i8 0, ptr %167, align 1, !tbaa !42
+  store i8 0, ptr %167, align 8, !tbaa !42
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_120UnknownPragmaHandlerE, i64 16), ptr %161, align 8, !tbaa !44
   %169 = getelementptr inbounds nuw i8, ptr %161, i64 40
   store ptr @.str.1, ptr %169, align 8, !tbaa !331
@@ -513,7 +513,7 @@ _ZN12_GLOBAL__N_124PrintPPOutputPPCallbacksC2ERN5clang12PreprocessorEPN4llvm11ra
   store ptr %178, ptr %177, align 8, !tbaa !329
   %179 = getelementptr inbounds nuw i8, ptr %172, i64 16
   store i64 0, ptr %179, align 8, !tbaa !330
-  store i8 0, ptr %178, align 1, !tbaa !42
+  store i8 0, ptr %178, align 8, !tbaa !42
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_120UnknownPragmaHandlerE, i64 16), ptr %172, align 8, !tbaa !44
   %180 = getelementptr inbounds nuw i8, ptr %172, i64 40
   store ptr @.str.2, ptr %180, align 8, !tbaa !331
@@ -530,7 +530,7 @@ _ZN12_GLOBAL__N_124PrintPPOutputPPCallbacksC2ERN5clang12PreprocessorEPN4llvm11ra
   store ptr %185, ptr %184, align 8, !tbaa !329
   %186 = getelementptr inbounds nuw i8, ptr %183, i64 16
   store i64 0, ptr %186, align 8, !tbaa !330
-  store i8 0, ptr %185, align 1, !tbaa !42
+  store i8 0, ptr %185, align 8, !tbaa !42
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_120UnknownPragmaHandlerE, i64 16), ptr %183, align 8, !tbaa !44
   %187 = getelementptr inbounds nuw i8, ptr %183, i64 40
   store ptr @.str.5, ptr %187, align 8, !tbaa !331

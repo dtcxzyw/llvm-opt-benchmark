@@ -988,7 +988,7 @@ pmix_obj_new_tma.exit249:                         ; preds = %.lr.ph.i.i246, %394
   store i32 1, ptr %414, align 8, !tbaa !117
   %415 = load ptr, ptr @stdout, align 8, !tbaa !122
   %416 = call i32 @fflush(ptr noundef %415)
-  %417 = load i32, ptr %414, align 4, !tbaa !124
+  %417 = load i32, ptr %414, align 8, !tbaa !124
   %.not.i250 = icmp eq i32 %417, 0
   br i1 %.not.i250, label %.critedge.i, label %418
 

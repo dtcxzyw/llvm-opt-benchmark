@@ -579,11 +579,11 @@ _ZN4i18n12phonenumbers13LoggerHandlerD2Ev.exit:   ; preds = %33, %_ZNSt7__cxx111
   %82 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %81, i64 %.fca.0.extract.i.i.i.i.i.i
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
   store ptr %83, ptr %82, align 8, !tbaa !19, !noalias !62
-  store i16 21058, ptr %83, align 1, !noalias !62
+  store i16 21058, ptr %83, align 8, !noalias !62
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 8
   store i64 2, ptr %84, align 8, !tbaa !23, !noalias !62
   %85 = getelementptr inbounds nuw i8, ptr %82, i64 18
-  store i8 0, ptr %85, align 1, !tbaa !22, !noalias !62
+  store i8 0, ptr %85, align 2, !tbaa !22, !noalias !62
   br label %131
 
 86:                                               ; preds = %.lr.ph, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4i18n12phonenumbers13PhoneMetadataEED2Ev.exit
@@ -737,11 +737,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4i18n12phonenumb
   %137 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %136, i64 %.fca.0.extract.i.i.i.i.i.i38
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
   store ptr %138, ptr %137, align 8, !tbaa !19, !noalias !107
-  store i16 19523, ptr %138, align 1, !noalias !107
+  store i16 19523, ptr %138, align 8, !noalias !107
   %139 = getelementptr inbounds nuw i8, ptr %137, i64 8
   store i64 2, ptr %139, align 8, !tbaa !23, !noalias !107
   %140 = getelementptr inbounds nuw i8, ptr %137, i64 18
-  store i8 0, ptr %140, align 1, !tbaa !22, !noalias !107
+  store i8 0, ptr %140, align 2, !tbaa !22, !noalias !107
   br label %141
 
 141:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i41, %.noexc44
@@ -761,11 +761,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4i18n12phonenumb
   %147 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %146, i64 %.fca.0.extract.i.i.i.i.i.i47
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 16
   store ptr %148, ptr %147, align 8, !tbaa !19, !noalias !120
-  store i16 18766, ptr %148, align 1, !noalias !120
+  store i16 18766, ptr %148, align 8, !noalias !120
   %149 = getelementptr inbounds nuw i8, ptr %147, i64 8
   store i64 2, ptr %149, align 8, !tbaa !23, !noalias !120
   %150 = getelementptr inbounds nuw i8, ptr %147, i64 18
-  store i8 0, ptr %150, align 1, !tbaa !22, !noalias !120
+  store i8 0, ptr %150, align 2, !tbaa !22, !noalias !120
   br label %151
 
 151:                                              ; preds = %.noexc53, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i50, %_ZN4i18n12phonenumbers13LoggerHandlerD2Ev.exit
@@ -5788,7 +5788,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i: ; preds =
   store i64 %21, ptr %22, align 8, !tbaa !23
   store ptr %12, ptr %7, align 8, !tbaa !26
   store i64 0, ptr %20, align 8, !tbaa !23
-  store i8 0, ptr %12, align 1, !tbaa !22
+  store i8 0, ptr %12, align 8, !tbaa !22
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   invoke void @_ZN4i18n12phonenumbers13PhoneMetadataC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(280) %23, ptr noundef null)
           to label %_ZN4i18n12phonenumbers13PhoneMetadataC2Ev.exit.i.i.i unwind label %47
@@ -6235,7 +6235,7 @@ _ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashSetPolicy
   store i64 %84, ptr %85, align 8, !tbaa !23
   store ptr %77, ptr %27, align 8, !tbaa !26
   store i64 0, ptr %28, align 8, !tbaa !23
-  store i8 0, ptr %77, align 1, !tbaa !22
+  store i8 0, ptr %77, align 8, !tbaa !22
   br label %86
 
 86:                                               ; preds = %.lr.ph, %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvE8transferISaIS9_EEEvPT_PS9_SG_.exit
@@ -6422,7 +6422,7 @@ _ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashSetPolicy
   store i64 %103, ptr %104, align 8, !tbaa !23
   store ptr %94, ptr %91, align 8, !tbaa !26
   store i64 0, ptr %102, align 8, !tbaa !23
-  store i8 0, ptr %94, align 1, !tbaa !22
+  store i8 0, ptr %94, align 8, !tbaa !22
   %105 = load ptr, ptr %0, align 8, !tbaa !45
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 %.02244
   store i8 -128, ptr %106, align 1, !tbaa !22
@@ -6466,7 +6466,7 @@ _ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashSetPolicy
   store i64 %127, ptr %9, align 8, !tbaa !23
   store ptr %118, ptr %116, align 8, !tbaa !26
   store i64 0, ptr %126, align 8, !tbaa !23
-  store i8 0, ptr %118, align 1, !tbaa !22
+  store i8 0, ptr %118, align 8, !tbaa !22
   %128 = load ptr, ptr %7, align 8, !tbaa !61
   %129 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %128, i64 %.02244
   %130 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %128, i64 %57
@@ -6499,7 +6499,7 @@ _ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashSetPolicy
   store i64 %142, ptr %143, align 8, !tbaa !23
   store ptr %133, ptr %130, align 8, !tbaa !26
   store i64 0, ptr %141, align 8, !tbaa !23
-  store i8 0, ptr %133, align 1, !tbaa !22
+  store i8 0, ptr %133, align 8, !tbaa !22
   %144 = load ptr, ptr %7, align 8, !tbaa !61
   %145 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %144, i64 %57
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 16

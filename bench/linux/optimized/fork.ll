@@ -1316,9 +1316,9 @@ define internal fastcc noundef ptr @mm_init(ptr noundef nonnull initializes((68,
   store volatile ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store volatile i32 1, ptr %4, align 4
-  store volatile i32 1, ptr %0, align 4
+  store volatile i32 1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  store i32 0, ptr %5, align 4
+  store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
   tail call void @__init_rwsem(ptr noundef nonnull %6, ptr noundef nonnull @.str.30, ptr noundef nonnull @mmap_init_lock.__key) #18
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -1354,11 +1354,11 @@ define internal fastcc noundef ptr @mm_init(ptr noundef nonnull initializes((68,
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   store ptr null, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1168
-  store volatile i32 0, ptr %24, align 4
+  store volatile i32 0, ptr %24, align 16
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1176
   store ptr null, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1184
-  store volatile i64 0, ptr %26, align 8
+  store volatile i64 0, ptr %26, align 32
   %27 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #20, !srcloc !34
   %28 = inttoptr i64 %27 to ptr
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 1192
@@ -2456,7 +2456,7 @@ define dso_local ptr @copy_process(ptr noundef readnone captures(address) %0, i3
   call void @recalc_sigpending() #18
   %67 = load ptr, ptr %54, align 32
   call void @_raw_spin_unlock_irq(ptr noundef %67) #18
-  %68 = load volatile i64, ptr %9, align 8
+  %68 = load volatile i64, ptr %9, align 32
   %69 = and i64 %68, 4
   %70 = icmp eq i64 %69, 0
   br i1 %70, label %71, label %596
@@ -2626,7 +2626,7 @@ define dso_local ptr @copy_process(ptr noundef readnone captures(address) %0, i3
   %168 = getelementptr inbounds nuw i8, ptr %72, i64 1040
   store ptr null, ptr %168, align 16
   %169 = getelementptr inbounds nuw i8, ptr %72, i64 1024
-  store volatile ptr %169, ptr %169, align 8
+  store volatile ptr %169, ptr %169, align 16
   %170 = getelementptr inbounds nuw i8, ptr %72, i64 1032
   store volatile ptr %169, ptr %170, align 8
   %171 = getelementptr inbounds nuw i8, ptr %72, i64 1056
@@ -2634,7 +2634,7 @@ define dso_local ptr @copy_process(ptr noundef readnone captures(address) %0, i3
   %172 = getelementptr inbounds nuw i8, ptr %72, i64 1064
   store volatile ptr %172, ptr %172, align 8
   %173 = getelementptr inbounds nuw i8, ptr %72, i64 1072
-  store volatile ptr %172, ptr %173, align 8
+  store volatile ptr %172, ptr %173, align 16
   %174 = getelementptr inbounds nuw i8, ptr %72, i64 1060
   store i32 -1, ptr %174, align 4
   %175 = getelementptr inbounds nuw i8, ptr %72, i64 1504
@@ -2643,8 +2643,8 @@ define dso_local ptr @copy_process(ptr noundef readnone captures(address) %0, i3
   store i32 0, ptr %176, align 8
   %177 = getelementptr inbounds nuw i8, ptr %72, i64 1920
   %178 = getelementptr inbounds nuw i8, ptr %72, i64 1936
-  store i64 0, ptr %178, align 8
-  store volatile ptr %177, ptr %177, align 8
+  store i64 0, ptr %178, align 16
+  store volatile ptr %177, ptr %177, align 32
   %179 = getelementptr inbounds nuw i8, ptr %72, i64 1928
   store volatile ptr %177, ptr %179, align 8
   %180 = getelementptr inbounds nuw i8, ptr %72, i64 1536
@@ -2661,11 +2661,11 @@ define dso_local ptr @copy_process(ptr noundef readnone captures(address) %0, i3
   %186 = getelementptr inbounds nuw i8, ptr %72, i64 1632
   %187 = getelementptr inbounds nuw i8, ptr %72, i64 1640
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %187, i8 0, i64 72, i1 false)
-  store i64 -1, ptr %186, align 8
+  store i64 -1, ptr %186, align 32
   %188 = getelementptr i8, ptr %72, i64 1656
   store i64 -1, ptr %188, align 8
   %189 = getelementptr i8, ptr %72, i64 1680
-  store i64 -1, ptr %189, align 8
+  store i64 -1, ptr %189, align 16
   %190 = getelementptr inbounds nuw i8, ptr %72, i64 2136
   store ptr null, ptr %190, align 8
   %191 = getelementptr inbounds nuw i8, ptr %72, i64 1976
@@ -2704,7 +2704,7 @@ define dso_local ptr @copy_process(ptr noundef readnone captures(address) %0, i3
   %208 = getelementptr inbounds nuw i8, ptr %72, i64 2264
   store i32 -1, ptr %208, align 8
   %209 = getelementptr inbounds nuw i8, ptr %72, i64 2256
-  store i32 0, ptr %209, align 4
+  store i32 0, ptr %209, align 8
   %210 = getelementptr inbounds nuw i8, ptr %72, i64 2628
   store i32 0, ptr %210, align 4
   %211 = call i32 @sched_fork(i64 noundef %7, ptr noundef nonnull %72) #18
@@ -3121,14 +3121,14 @@ define dso_local ptr @copy_process(ptr noundef readnone captures(address) %0, i3
   %471 = getelementptr inbounds nuw i8, ptr %469, i64 1352
   %472 = load ptr, ptr %471, align 8
   store ptr %164, ptr %471, align 8
-  store ptr %470, ptr %164, align 8
+  store ptr %470, ptr %164, align 16
   store ptr %472, ptr %165, align 8
   store volatile ptr %164, ptr %472, align 8
   %473 = getelementptr inbounds nuw i8, ptr %72, i64 1112
   %474 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_task, i64 1120), align 32
   store ptr getelementptr inbounds nuw (i8, ptr @init_task, i64 1112), ptr %473, align 8
   %475 = getelementptr inbounds nuw i8, ptr %72, i64 1120
-  store ptr %474, ptr %475, align 8
+  store ptr %474, ptr %475, align 16
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !80
   store volatile ptr %473, ptr %474, align 8
   store ptr %473, ptr getelementptr inbounds nuw (i8, ptr @init_task, i64 1120), align 32
@@ -3524,7 +3524,7 @@ define internal fastcc ptr @dup_task_struct(ptr noundef %0, i32 noundef %1) unna
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %48, ptr %50, align 32
   %51 = getelementptr inbounds nuw i8, ptr %9, i64 2688
-  store volatile i32 1, ptr %51, align 8
+  store volatile i32 1, ptr %51, align 32
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 32
   br label %53
 

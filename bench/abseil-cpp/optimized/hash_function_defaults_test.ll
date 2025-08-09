@@ -16368,7 +16368,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %7, ptr %6, align 8, !tbaa !40, !noalias !320
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %8, align 8, !tbaa !28, !noalias !320
-  store i8 0, ptr %7, align 1, !tbaa !29, !noalias !320
+  store i8 0, ptr %7, align 8, !tbaa !29, !noalias !320
   store ptr %6, ptr %4, align 8, !tbaa !269
   br label %9
 
@@ -31017,7 +31017,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !tbaa !28, !alias.scope !579, !noalias !582
   store ptr %43, ptr %.0911.i.i.i, align 8, !tbaa !24, !alias.scope !582, !noalias !579
   store i64 0, ptr %52, align 8, !tbaa !28, !alias.scope !582, !noalias !579
-  store i8 0, ptr %43, align 1, !tbaa !29, !alias.scope !582, !noalias !579
+  store i8 0, ptr %43, align 8, !tbaa !29, !alias.scope !582, !noalias !579
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %54, %1
@@ -31065,7 +31065,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !tbaa !28, !alias.scope !586, !noalias !589
   store ptr %59, ptr %.0911.i.i.i29, align 8, !tbaa !24, !alias.scope !589, !noalias !586
   store i64 0, ptr %68, align 8, !tbaa !28, !alias.scope !589, !noalias !586
-  store i8 0, ptr %59, align 1, !tbaa !29, !alias.scope !589, !noalias !586
+  store i8 0, ptr %59, align 8, !tbaa !29, !alias.scope !589, !noalias !586
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %.not.i.i.i34 = icmp eq ptr %70, %6
@@ -31856,7 +31856,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %35
   store i64 %41, ptr %43, align 8, !tbaa !28
   store ptr %33, ptr %1, align 8, !tbaa !24
   store i64 0, ptr %42, align 8, !tbaa !28
-  store i8 0, ptr %33, align 1, !tbaa !29
+  store i8 0, ptr %33, align 8, !tbaa !29
   ret void
 }
 
@@ -32344,7 +32344,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !28, !alias.scope !603, !noalias !606
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !24, !alias.scope !606, !noalias !603
   store i64 0, ptr %48, align 8, !tbaa !28, !alias.scope !606, !noalias !603
-  store i8 0, ptr %39, align 1, !tbaa !29, !alias.scope !606, !noalias !603
+  store i8 0, ptr %39, align 8, !tbaa !29, !alias.scope !606, !noalias !603
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -32392,7 +32392,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !28, !alias.scope !609, !noalias !612
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !24, !alias.scope !612, !noalias !609
   store i64 0, ptr %64, align 8, !tbaa !28, !alias.scope !612, !noalias !609
-  store i8 0, ptr %55, align 1, !tbaa !29, !alias.scope !612, !noalias !609
+  store i8 0, ptr %55, align 8, !tbaa !29, !alias.scope !612, !noalias !609
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5
@@ -33913,7 +33913,7 @@ define internal void @_ZN4absl18container_internal12_GLOBAL__N_120EqPointer_Work
   store i32 1, ptr %11, align 4, !tbaa !423, !noalias !637
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9, align 8, !tbaa !4, !noalias !637
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 0, ptr %12, align 4, !tbaa !424, !noalias !637
+  store i32 0, ptr %12, align 8, !tbaa !424, !noalias !637
   store ptr %9, ptr %8, align 8, !tbaa !640, !alias.scope !637
   store ptr %12, ptr %2, align 8, !tbaa !643, !alias.scope !637
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -34411,7 +34411,7 @@ define internal void @_ZN4absl18container_internal12_GLOBAL__N_120EqPointer_Work
   store i32 1, ptr %11, align 4, !tbaa !423, !noalias !649
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9, align 8, !tbaa !4, !noalias !649
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 0, ptr %12, align 4, !tbaa !424, !noalias !649
+  store i32 0, ptr %12, align 8, !tbaa !424, !noalias !649
   store ptr %9, ptr %8, align 8, !tbaa !640, !alias.scope !649
   store ptr %12, ptr %2, align 8, !tbaa !643, !alias.scope !649
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -35407,7 +35407,7 @@ _ZN7testing8internal12CodeLocationC2EOS1_.exit:   ; preds = %299, %_ZNKSt7__cxx1
   store i64 %304, ptr %305, align 8, !tbaa !28
   store ptr %297, ptr %0, align 8, !tbaa !24
   store i64 0, ptr %175, align 8, !tbaa !28
-  store i8 0, ptr %297, align 1, !tbaa !29
+  store i8 0, ptr %297, align 8, !tbaa !29
   %306 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %307 = load i32, ptr %190, align 8, !tbaa !67
   store i32 %307, ptr %306, align 8, !tbaa !67
@@ -39322,7 +39322,7 @@ define internal void @_ZN4absl18container_internal12_GLOBAL__N_120EqPointer_Work
   store i32 1, ptr %11, align 4, !tbaa !423, !noalias !727
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9, align 8, !tbaa !4, !noalias !727
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 0, ptr %12, align 4, !tbaa !424, !noalias !727
+  store i32 0, ptr %12, align 8, !tbaa !424, !noalias !727
   store ptr %9, ptr %8, align 8, !tbaa !640, !alias.scope !727
   store ptr %12, ptr %2, align 8, !tbaa !643, !alias.scope !727
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -39656,7 +39656,7 @@ define internal void @_ZN4absl18container_internal12_GLOBAL__N_120EqPointer_Work
   store i32 1, ptr %11, align 4, !tbaa !423, !noalias !730
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9, align 8, !tbaa !4, !noalias !730
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 0, ptr %12, align 4, !tbaa !424, !noalias !730
+  store i32 0, ptr %12, align 8, !tbaa !424, !noalias !730
   store ptr %9, ptr %8, align 8, !tbaa !640, !alias.scope !730
   store ptr %12, ptr %2, align 8, !tbaa !643, !alias.scope !730
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -39990,7 +39990,7 @@ define internal void @_ZN4absl18container_internal12_GLOBAL__N_120EqPointer_Work
   store i32 1, ptr %11, align 4, !tbaa !423, !noalias !733
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9, align 8, !tbaa !4, !noalias !733
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 0, ptr %12, align 4, !tbaa !424, !noalias !733
+  store i32 0, ptr %12, align 8, !tbaa !424, !noalias !733
   store ptr %9, ptr %8, align 8, !tbaa !640, !alias.scope !733
   store ptr %12, ptr %2, align 8, !tbaa !643, !alias.scope !733
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -40324,7 +40324,7 @@ define internal void @_ZN4absl18container_internal12_GLOBAL__N_120EqPointer_Work
   store i32 1, ptr %11, align 4, !tbaa !423, !noalias !736
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9, align 8, !tbaa !4, !noalias !736
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 0, ptr %12, align 4, !tbaa !424, !noalias !736
+  store i32 0, ptr %12, align 8, !tbaa !424, !noalias !736
   store ptr %9, ptr %8, align 8, !tbaa !640, !alias.scope !736
   store ptr %12, ptr %2, align 8, !tbaa !643, !alias.scope !736
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -40658,7 +40658,7 @@ define internal void @_ZN4absl18container_internal12_GLOBAL__N_120EqPointer_Work
   store i32 1, ptr %11, align 4, !tbaa !423, !noalias !739
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9, align 8, !tbaa !4, !noalias !739
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 0, ptr %12, align 4, !tbaa !424, !noalias !739
+  store i32 0, ptr %12, align 8, !tbaa !424, !noalias !739
   store ptr %9, ptr %8, align 8, !tbaa !640, !alias.scope !739
   store ptr %12, ptr %2, align 8, !tbaa !643, !alias.scope !739
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -40992,7 +40992,7 @@ define internal void @_ZN4absl18container_internal12_GLOBAL__N_120EqPointer_Work
   store i32 1, ptr %11, align 4, !tbaa !423, !noalias !742
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9, align 8, !tbaa !4, !noalias !742
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 0, ptr %12, align 4, !tbaa !424, !noalias !742
+  store i32 0, ptr %12, align 8, !tbaa !424, !noalias !742
   store ptr %9, ptr %8, align 8, !tbaa !640, !alias.scope !742
   store ptr %12, ptr %2, align 8, !tbaa !643, !alias.scope !742
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -41665,7 +41665,7 @@ define internal void @_ZN4absl18container_internal12_GLOBAL__N_122HashPointer_Wo
   store i32 1, ptr %50, align 4, !tbaa !423, !noalias !755
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %48, align 8, !tbaa !4, !noalias !755
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  store i32 0, ptr %51, align 4, !tbaa !424, !noalias !755
+  store i32 0, ptr %51, align 8, !tbaa !424, !noalias !755
   store ptr %48, ptr %47, align 8, !tbaa !640, !alias.scope !755
   store ptr %51, ptr %3, align 8, !tbaa !643, !alias.scope !755
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -43293,7 +43293,7 @@ define internal void @_ZN4absl18container_internal12_GLOBAL__N_122HashPointer_Wo
   store i32 1, ptr %50, align 4, !tbaa !423, !noalias !758
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %48, align 8, !tbaa !4, !noalias !758
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  store i32 0, ptr %51, align 4, !tbaa !424, !noalias !758
+  store i32 0, ptr %51, align 8, !tbaa !424, !noalias !758
   store ptr %48, ptr %47, align 8, !tbaa !640, !alias.scope !758
   store ptr %51, ptr %3, align 8, !tbaa !643, !alias.scope !758
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -45543,7 +45543,7 @@ _ZN7testing8internal12CodeLocationC2EOS1_.exit:   ; preds = %299, %_ZNKSt7__cxx1
   store i64 %304, ptr %305, align 8, !tbaa !28
   store ptr %297, ptr %0, align 8, !tbaa !24
   store i64 0, ptr %175, align 8, !tbaa !28
-  store i8 0, ptr %297, align 1, !tbaa !29
+  store i8 0, ptr %297, align 8, !tbaa !29
   %306 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %307 = load i32, ptr %190, align 8, !tbaa !67
   store i32 %307, ptr %306, align 8, !tbaa !67
@@ -49498,7 +49498,7 @@ define internal void @_ZN4absl18container_internal12_GLOBAL__N_122HashPointer_Wo
   store i32 1, ptr %50, align 4, !tbaa !423, !noalias !836
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %48, align 8, !tbaa !4, !noalias !836
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  store i32 0, ptr %51, align 4, !tbaa !424, !noalias !836
+  store i32 0, ptr %51, align 8, !tbaa !424, !noalias !836
   store ptr %48, ptr %47, align 8, !tbaa !640, !alias.scope !836
   store ptr %51, ptr %3, align 8, !tbaa !643, !alias.scope !836
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -51126,7 +51126,7 @@ define internal void @_ZN4absl18container_internal12_GLOBAL__N_122HashPointer_Wo
   store i32 1, ptr %50, align 4, !tbaa !423, !noalias !839
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %48, align 8, !tbaa !4, !noalias !839
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  store i32 0, ptr %51, align 4, !tbaa !424, !noalias !839
+  store i32 0, ptr %51, align 8, !tbaa !424, !noalias !839
   store ptr %48, ptr %47, align 8, !tbaa !640, !alias.scope !839
   store ptr %51, ptr %3, align 8, !tbaa !643, !alias.scope !839
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -52754,7 +52754,7 @@ define internal void @_ZN4absl18container_internal12_GLOBAL__N_122HashPointer_Wo
   store i32 1, ptr %50, align 4, !tbaa !423, !noalias !842
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %48, align 8, !tbaa !4, !noalias !842
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  store i32 0, ptr %51, align 4, !tbaa !424, !noalias !842
+  store i32 0, ptr %51, align 8, !tbaa !424, !noalias !842
   store ptr %48, ptr %47, align 8, !tbaa !640, !alias.scope !842
   store ptr %51, ptr %3, align 8, !tbaa !643, !alias.scope !842
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -54382,7 +54382,7 @@ define internal void @_ZN4absl18container_internal12_GLOBAL__N_122HashPointer_Wo
   store i32 1, ptr %50, align 4, !tbaa !423, !noalias !845
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %48, align 8, !tbaa !4, !noalias !845
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  store i32 0, ptr %51, align 4, !tbaa !424, !noalias !845
+  store i32 0, ptr %51, align 8, !tbaa !424, !noalias !845
   store ptr %48, ptr %47, align 8, !tbaa !640, !alias.scope !845
   store ptr %51, ptr %3, align 8, !tbaa !643, !alias.scope !845
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -56010,7 +56010,7 @@ define internal void @_ZN4absl18container_internal12_GLOBAL__N_122HashPointer_Wo
   store i32 1, ptr %50, align 4, !tbaa !423, !noalias !848
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %48, align 8, !tbaa !4, !noalias !848
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  store i32 0, ptr %51, align 4, !tbaa !424, !noalias !848
+  store i32 0, ptr %51, align 8, !tbaa !424, !noalias !848
   store ptr %48, ptr %47, align 8, !tbaa !640, !alias.scope !848
   store ptr %51, ptr %3, align 8, !tbaa !643, !alias.scope !848
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -57638,7 +57638,7 @@ define internal void @_ZN4absl18container_internal12_GLOBAL__N_122HashPointer_Wo
   store i32 1, ptr %50, align 4, !tbaa !423, !noalias !851
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %48, align 8, !tbaa !4, !noalias !851
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  store i32 0, ptr %51, align 4, !tbaa !424, !noalias !851
+  store i32 0, ptr %51, align 8, !tbaa !424, !noalias !851
   store ptr %48, ptr %47, align 8, !tbaa !640, !alias.scope !851
   store ptr %51, ptr %3, align 8, !tbaa !643, !alias.scope !851
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -59204,7 +59204,7 @@ _ZN4absl4CordC2ESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i: ; preds = %
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 6, ptr %6, align 8, !tbaa !28
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 54
-  store i8 0, ptr %7, align 1, !tbaa !29
+  store i8 0, ptr %7, align 2, !tbaa !29
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   invoke void @_ZN4absl4CordC2ESt17basic_string_viewIcSt11char_traitsIcEENS_13cord_internal18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 6, ptr nonnull @_ZN4absl18container_internal12_GLOBAL__N_113kSecondStringE, i32 noundef 9)
           to label %20 unwind label %11
@@ -59250,7 +59250,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i64 6, ptr %23, align 8, !tbaa !28
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 102
-  store i8 0, ptr %24, align 1, !tbaa !29
+  store i8 0, ptr %24, align 2, !tbaa !29
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_122StringLikeTest_Eq_TestISt4pairINS_4CordENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE, i64 16), ptr %2, align 8, !tbaa !4
   ret ptr %2
 
@@ -61442,7 +61442,7 @@ _ZN7testing8internal12CodeLocationC2EOS1_.exit:   ; preds = %299, %_ZNKSt7__cxx1
   store i64 %304, ptr %305, align 8, !tbaa !28
   store ptr %297, ptr %0, align 8, !tbaa !24
   store i64 0, ptr %175, align 8, !tbaa !28
-  store i8 0, ptr %297, align 1, !tbaa !29
+  store i8 0, ptr %297, align 8, !tbaa !29
   %306 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %307 = load i32, ptr %190, align 8, !tbaa !67
   store i32 %307, ptr %306, align 8, !tbaa !67
@@ -66866,7 +66866,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 6, ptr %8, align 8, !tbaa !28
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 54
-  store i8 0, ptr %9, align 1, !tbaa !29
+  store i8 0, ptr %9, align 2, !tbaa !29
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i64 6, ptr %10, align 8, !tbaa !854
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -66878,7 +66878,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i64 6, ptr %14, align 8, !tbaa !28
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 102
-  store i8 0, ptr %15, align 1, !tbaa !29
+  store i8 0, ptr %15, align 2, !tbaa !29
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_122StringLikeTest_Eq_TestISt4pairISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEEE, i64 16), ptr %2, align 8, !tbaa !4
   ret ptr %2
 
@@ -69519,7 +69519,7 @@ _ZN4absl4CordC2ESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i: ; preds = %
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 6, ptr %6, align 8, !tbaa !28
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 54
-  store i8 0, ptr %7, align 1, !tbaa !29
+  store i8 0, ptr %7, align 2, !tbaa !29
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   invoke void @_ZN4absl4CordC2ESt17basic_string_viewIcSt11char_traitsIcEENS_13cord_internal18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 6, ptr nonnull @_ZN4absl18container_internal12_GLOBAL__N_113kSecondStringE, i32 noundef 9)
           to label %20 unwind label %11
@@ -69565,7 +69565,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i64 6, ptr %23, align 8, !tbaa !28
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 102
-  store i8 0, ptr %24, align 1, !tbaa !29
+  store i8 0, ptr %24, align 2, !tbaa !29
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_125StringLikeTest_NotEq_TestISt4pairINS_4CordENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE, i64 16), ptr %2, align 8, !tbaa !4
   ret ptr %2
 
@@ -71670,7 +71670,7 @@ _ZN7testing8internal12CodeLocationC2EOS1_.exit:   ; preds = %299, %_ZNKSt7__cxx1
   store i64 %304, ptr %305, align 8, !tbaa !28
   store ptr %297, ptr %0, align 8, !tbaa !24
   store i64 0, ptr %175, align 8, !tbaa !28
-  store i8 0, ptr %297, align 1, !tbaa !29
+  store i8 0, ptr %297, align 8, !tbaa !29
   %306 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %307 = load i32, ptr %190, align 8, !tbaa !67
   store i32 %307, ptr %306, align 8, !tbaa !67
@@ -76980,7 +76980,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 6, ptr %8, align 8, !tbaa !28
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 54
-  store i8 0, ptr %9, align 1, !tbaa !29
+  store i8 0, ptr %9, align 2, !tbaa !29
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i64 6, ptr %10, align 8, !tbaa !854
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -76992,7 +76992,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i64 6, ptr %14, align 8, !tbaa !28
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 102
-  store i8 0, ptr %15, align 1, !tbaa !29
+  store i8 0, ptr %15, align 2, !tbaa !29
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_125StringLikeTest_NotEq_TestISt4pairISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEEE, i64 16), ptr %2, align 8, !tbaa !4
   ret ptr %2
 
@@ -78271,7 +78271,7 @@ _ZN4absl4CordC2ESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i: ; preds = %
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 6, ptr %6, align 8, !tbaa !28
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 54
-  store i8 0, ptr %7, align 1, !tbaa !29
+  store i8 0, ptr %7, align 2, !tbaa !29
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   invoke void @_ZN4absl4CordC2ESt17basic_string_viewIcSt11char_traitsIcEENS_13cord_internal18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 6, ptr nonnull @_ZN4absl18container_internal12_GLOBAL__N_113kSecondStringE, i32 noundef 9)
           to label %20 unwind label %11
@@ -78317,7 +78317,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i64 6, ptr %23, align 8, !tbaa !28
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 102
-  store i8 0, ptr %24, align 1, !tbaa !29
+  store i8 0, ptr %24, align 2, !tbaa !29
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_126StringLikeTest_HashEq_TestISt4pairINS_4CordENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE, i64 16), ptr %2, align 8, !tbaa !4
   ret ptr %2
 
@@ -81346,7 +81346,7 @@ _ZN7testing8internal12CodeLocationC2EOS1_.exit:   ; preds = %299, %_ZNKSt7__cxx1
   store i64 %304, ptr %305, align 8, !tbaa !28
   store ptr %297, ptr %0, align 8, !tbaa !24
   store i64 0, ptr %175, align 8, !tbaa !28
-  store i8 0, ptr %297, align 1, !tbaa !29
+  store i8 0, ptr %297, align 8, !tbaa !29
   %306 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %307 = load i32, ptr %190, align 8, !tbaa !67
   store i32 %307, ptr %306, align 8, !tbaa !67
@@ -87463,7 +87463,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 6, ptr %8, align 8, !tbaa !28
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 54
-  store i8 0, ptr %9, align 1, !tbaa !29
+  store i8 0, ptr %9, align 2, !tbaa !29
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i64 6, ptr %10, align 8, !tbaa !854
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -87475,7 +87475,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i64 6, ptr %14, align 8, !tbaa !28
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 102
-  store i8 0, ptr %15, align 1, !tbaa !29
+  store i8 0, ptr %15, align 2, !tbaa !29
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_126StringLikeTest_HashEq_TestISt4pairISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEEE, i64 16), ptr %2, align 8, !tbaa !4
   ret ptr %2
 

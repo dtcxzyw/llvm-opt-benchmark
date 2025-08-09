@@ -991,11 +991,11 @@ _ZN7QStringD2Ev.exit261:                          ; preds = %256, %_ZN17QArrayDa
   %264 = getelementptr inbounds nuw i8, ptr %259, i64 20
   store i32 1114112, ptr %264, align 4
   %265 = getelementptr inbounds nuw i8, ptr %259, i64 24
-  store i32 0, ptr %265, align 4
+  store i32 0, ptr %265, align 8
   %266 = getelementptr inbounds nuw i8, ptr %259, i64 28
   store i32 0, ptr %266, align 4
   %267 = getelementptr inbounds nuw i8, ptr %259, i64 32
-  store i32 -1, ptr %267, align 4
+  store i32 -1, ptr %267, align 8
   %268 = getelementptr inbounds nuw i8, ptr %259, i64 36
   store i32 -1, ptr %268, align 4
   invoke void @_ZN11QGridLayout7addItemEP11QLayoutItemiiii6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef align 8 dereferenceable_or_null(28) %96, ptr noundef %259, i32 noundef %257, i32 noundef 0, i32 noundef 1, i32 noundef 1, i32 0)

@@ -7652,7 +7652,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %10
   store i64 %16, ptr %18, align 8
   store ptr %8, ptr %5, align 8
   store i64 0, ptr %17, align 8
-  store i8 0, ptr %8, align 1
+  store i8 0, ptr %8, align 8
   %19 = load ptr, ptr %1, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -7687,7 +7687,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit3: ; preds = %2
   store i64 %31, ptr %33, align 8
   store ptr %23, ptr %20, align 8
   store i64 0, ptr %32, align 8
-  store i8 0, ptr %23, align 1
+  store i8 0, ptr %23, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load ptr, ptr %34, align 8
   %.not.i.i = icmp eq ptr %35, null
@@ -8110,7 +8110,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %9,
   store i64 %15, ptr %17, align 8
   store ptr %7, ptr %4, align 8
   store i64 0, ptr %16, align 8
-  store i8 0, ptr %7, align 1
+  store i8 0, ptr %7, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
   %.not.i.i = icmp eq ptr %19, null
@@ -9516,7 +9516,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   store i64 %45, ptr %46, align 8
   store ptr %36, ptr %1, align 8
   store i64 0, ptr %44, align 8
-  store i8 0, ptr %36, align 1
+  store i8 0, ptr %36, align 8
   %47 = load ptr, ptr %29, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   store ptr %48, ptr %29, align 8
@@ -9756,7 +9756,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %30, ptr %32, align 8, !alias.scope !26, !noalias !29
   store ptr %22, ptr %.0911.i.i.i, align 8, !alias.scope !29, !noalias !26
   store i64 0, ptr %31, align 8, !alias.scope !29, !noalias !26
-  store i8 0, ptr %22, align 1, !alias.scope !29, !noalias !26
+  store i8 0, ptr %22, align 8, !alias.scope !29, !noalias !26
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i) #25
   %33 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %34 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
@@ -9995,7 +9995,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !alias.scope !44, !noalias !47
   store ptr %39, ptr %.0911.i.i.i, align 8, !alias.scope !47, !noalias !44
   store i64 0, ptr %48, align 8, !alias.scope !47, !noalias !44
-  store i8 0, ptr %39, align 1, !alias.scope !47, !noalias !44
+  store i8 0, ptr %39, align 8, !alias.scope !47, !noalias !44
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i) #25
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
@@ -10045,7 +10045,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !alias.scope !50, !noalias !53
   store ptr %55, ptr %.0911.i.i.i19, align 8, !alias.scope !53, !noalias !50
   store i64 0, ptr %64, align 8, !alias.scope !53, !noalias !50
-  store i8 0, ptr %55, align 1, !alias.scope !53, !noalias !50
+  store i8 0, ptr %55, align 8, !alias.scope !53, !noalias !50
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i19) #25
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
@@ -14381,7 +14381,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
   store i64 %20, ptr %22, align 8
   store ptr %12, ptr %9, align 8
   store i64 0, ptr %21, align 8
-  store i8 0, ptr %12, align 1
+  store i8 0, ptr %12, align 8
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %23, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

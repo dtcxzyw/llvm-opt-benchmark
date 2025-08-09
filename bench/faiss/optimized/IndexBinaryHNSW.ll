@@ -3376,7 +3376,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComput
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %6, ptr %7, align 8, !tbaa !154
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load i32, ptr %8, align 4, !tbaa !59
+  %9 = load i32, ptr %8, align 8, !tbaa !59
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %9, ptr %10, align 8, !tbaa !155
   ret void
@@ -3410,7 +3410,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17Hamm
   %25 = trunc nuw nsw i64 %24 to i32
   %26 = add nuw nsw i32 %25, %18
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %28 = load i32, ptr %27, align 4, !tbaa !59
+  %28 = load i32, ptr %27, align 8, !tbaa !59
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %30 = load i32, ptr %29, align 8, !tbaa !155
   %31 = xor i32 %30, %28

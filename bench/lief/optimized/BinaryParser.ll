@@ -5433,7 +5433,7 @@ _ZNK4LIEF12BinaryStream4readIhEEN2tl8expectedIT_11lief_errorsEEv.exit: ; preds =
   store ptr %73, ptr %72, align 8, !tbaa !316, !noalias !370
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 16
   store i64 0, ptr %74, align 8, !tbaa !219, !noalias !370
-  store i8 0, ptr %73, align 1, !tbaa !220, !noalias !370
+  store i8 0, ptr %73, align 8, !tbaa !220, !noalias !370
   %75 = getelementptr inbounds nuw i8, ptr %71, i64 40
   %76 = getelementptr inbounds nuw i8, ptr %71, i64 48
   store i64 0, ptr %76, align 8
@@ -6329,7 +6329,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN4LIEF5MachO6SymbolEJEENSt8__detail9
   store ptr %4, ptr %3, align 8, !tbaa !316
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 0, ptr %5, align 8, !tbaa !219
-  store i8 0, ptr %4, align 1, !tbaa !220
+  store i8 0, ptr %4, align 8, !tbaa !220
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4LIEF5MachO6SymbolE, i64 16), ptr %2, align 8, !tbaa !13
@@ -51668,7 +51668,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorIPNS_5MachO14SegmentCommandESaIS4_EES4_N9__gnu_
   store ptr %91, ptr %90, align 8, !tbaa !316, !noalias !1750
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 16
   store i64 0, ptr %92, align 8, !tbaa !219, !noalias !1750
-  store i8 0, ptr %91, align 1, !tbaa !220, !noalias !1750
+  store i8 0, ptr %91, align 8, !tbaa !220, !noalias !1750
   %93 = getelementptr inbounds nuw i8, ptr %89, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %93, i8 0, i64 16, i1 false), !noalias !1750
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4LIEF5MachO6SymbolE, i64 16), ptr %89, align 8, !tbaa !13, !noalias !1750
@@ -52096,7 +52096,7 @@ _ZSt19__relocate_object_aIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_SaIS3_
   store i64 %67, ptr %69, align 8, !tbaa !219, !alias.scope !1769, !noalias !1772
   store ptr %59, ptr %.092.i.i.i.i.i, align 8, !tbaa !215, !alias.scope !1772, !noalias !1769
   store i64 0, ptr %68, align 8, !tbaa !219, !alias.scope !1772, !noalias !1769
-  store i8 0, ptr %59, align 1, !tbaa !220, !alias.scope !1772, !noalias !1769
+  store i8 0, ptr %59, align 8, !tbaa !220, !alias.scope !1772, !noalias !1769
   %70 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %70, ptr noundef nonnull align 8 dereferenceable(18) %71, i64 18, i1 false), !alias.scope !1774
@@ -52537,7 +52537,7 @@ _ZSt19__relocate_object_aIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_SaIS3_
   store i64 %24, ptr %26, align 8, !tbaa !219, !alias.scope !1784, !noalias !1787
   store ptr %16, ptr %.092.i.i.i, align 8, !tbaa !215, !alias.scope !1787, !noalias !1784
   store i64 0, ptr %25, align 8, !tbaa !219, !alias.scope !1787, !noalias !1784
-  store i8 0, ptr %16, align 1, !tbaa !220, !alias.scope !1787, !noalias !1784
+  store i8 0, ptr %16, align 8, !tbaa !220, !alias.scope !1787, !noalias !1784
   %27 = getelementptr inbounds nuw i8, ptr %.03.i.i.i, i64 32
   %28 = getelementptr inbounds nuw i8, ptr %.092.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %27, ptr noundef nonnull align 8 dereferenceable(18) %28, i64 18, i1 false), !alias.scope !1789
@@ -54338,7 +54338,7 @@ define linkonce_odr hidden i64 @_ZN4LIEF5MachO12BinaryParser8do_fixupINS0_7detai
   store ptr %81, ptr %80, align 8, !tbaa !316, !noalias !1831
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 16
   store i64 0, ptr %82, align 8, !tbaa !219, !noalias !1831
-  store i8 0, ptr %81, align 1, !tbaa !220, !noalias !1831
+  store i8 0, ptr %81, align 8, !tbaa !220, !noalias !1831
   %83 = getelementptr inbounds nuw i8, ptr %79, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, i8 0, i64 16, i1 false), !noalias !1831
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4LIEF5MachO6SymbolE, i64 16), ptr %79, align 8, !tbaa !13, !noalias !1831
@@ -68752,7 +68752,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorIPNS_5MachO14SegmentCommandESaIS4_EES4_N9__gnu_
   store ptr %91, ptr %90, align 8, !tbaa !316, !noalias !2297
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 16
   store i64 0, ptr %92, align 8, !tbaa !219, !noalias !2297
-  store i8 0, ptr %91, align 1, !tbaa !220, !noalias !2297
+  store i8 0, ptr %91, align 8, !tbaa !220, !noalias !2297
   %93 = getelementptr inbounds nuw i8, ptr %89, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %93, i8 0, i64 16, i1 false), !noalias !2297
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4LIEF5MachO6SymbolE, i64 16), ptr %89, align 8, !tbaa !13, !noalias !2297
@@ -70623,7 +70623,7 @@ define linkonce_odr hidden i64 @_ZN4LIEF5MachO12BinaryParser8do_fixupINS0_7detai
   store ptr %81, ptr %80, align 8, !tbaa !316, !noalias !2331
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 16
   store i64 0, ptr %82, align 8, !tbaa !219, !noalias !2331
-  store i8 0, ptr %81, align 1, !tbaa !220, !noalias !2331
+  store i8 0, ptr %81, align 8, !tbaa !220, !noalias !2331
   %83 = getelementptr inbounds nuw i8, ptr %79, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, i8 0, i64 16, i1 false), !noalias !2331
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4LIEF5MachO6SymbolE, i64 16), ptr %79, align 8, !tbaa !13, !noalias !2331

@@ -9204,7 +9204,7 @@ define hidden noundef ptr @_ZNK4goal9translateER15ast_translation(ptr noundef no
   store ptr %22, ptr %21, align 8, !tbaa !8
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store i64 0, ptr %23, align 8, !tbaa !11
-  store i8 0, ptr %22, align 1, !tbaa !14
+  store i8 0, ptr %22, align 8, !tbaa !14
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 72
   store ptr null, ptr %24, align 8, !tbaa !15
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 80

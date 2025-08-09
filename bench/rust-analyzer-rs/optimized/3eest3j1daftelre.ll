@@ -20723,7 +20723,7 @@ _ZN5rowan6cursor8NodeData3key17hac391177412f5ff8E.llvm.11762030844908852975.exit
   %1151 = getelementptr inbounds i8, ptr %1150, i64 -24
   %.val4.i.i.i.i.i = load ptr, ptr %1151, align 8, !noalias !5596
   %1152 = getelementptr i8, ptr %1150, i64 -16
-  %.val5.i.i.i.i.i = load i32, ptr %1152, align 4, !alias.scope !5599, !noalias !5606, !noundef !17
+  %.val5.i.i.i.i.i = load i32, ptr %1152, align 8, !alias.scope !5599, !noalias !5606, !noundef !17
   %1153 = icmp eq i32 %1116, %.val5.i.i.i.i.i
   br i1 %1153, label %1154, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h436725e9209235c3E.exit.backedge.i.i.i.i"
 

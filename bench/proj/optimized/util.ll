@@ -671,7 +671,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %1
   store ptr %7, ptr %6, align 8, !tbaa !53, !noalias !42
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %8, align 8, !tbaa !54, !noalias !42
-  store i8 0, ptr %7, align 1, !tbaa !16, !noalias !42
+  store i8 0, ptr %7, align 8, !tbaa !16, !noalias !42
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 0, ptr %9, align 8, !tbaa !55, !noalias !42
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 44
@@ -967,7 +967,7 @@ define void @_ZN5osgeo4proj4util10BoxedValueC2Ei(ptr noundef nonnull align 8 cap
   store ptr %9, ptr %8, align 8, !tbaa !53, !noalias !76
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %10, align 8, !tbaa !54, !noalias !76
-  store i8 0, ptr %9, align 1, !tbaa !16, !noalias !76
+  store i8 0, ptr %9, align 8, !tbaa !16, !noalias !76
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 %1, ptr %11, align 8, !tbaa !55, !noalias !76
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 44
@@ -1004,7 +1004,7 @@ define void @_ZN5osgeo4proj4util10BoxedValueC2Eb(ptr noundef nonnull align 8 cap
   store ptr %10, ptr %9, align 8, !tbaa !53, !noalias !82
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %11, align 8, !tbaa !54, !noalias !82
-  store i8 0, ptr %10, align 1, !tbaa !16, !noalias !82
+  store i8 0, ptr %10, align 8, !tbaa !16, !noalias !82
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 0, ptr %12, align 8, !tbaa !55, !noalias !82
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 44
@@ -3287,13 +3287,13 @@ define hidden void @_ZN5osgeo4proj4util9NameSpaceC2ERKSt10shared_ptrINS1_11Gener
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 80, i1 false), !noalias !191
   store ptr %5, ptr %4, align 8, !tbaa !53, !noalias !191
-  store i8 58, ptr %5, align 1, !tbaa !16, !noalias !191
+  store i8 58, ptr %5, align 8, !tbaa !16, !noalias !191
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 1, ptr %7, align 8, !tbaa !54, !noalias !191
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store ptr %9, ptr %8, align 8, !tbaa !53, !noalias !191
-  store i8 58, ptr %9, align 1, !tbaa !16, !noalias !191
+  store i8 58, ptr %9, align 8, !tbaa !16, !noalias !191
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i64 1, ptr %10, align 8, !tbaa !54, !noalias !191
   store ptr %3, ptr %0, align 8, !tbaa !194, !alias.scope !191
@@ -4015,13 +4015,13 @@ define linkonce_odr hidden void @_ZN5osgeo4proj4util9NameSpace14nn_make_sharedIS
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !219
   store ptr %11, ptr %10, align 8, !tbaa !53, !noalias !219
-  store i8 58, ptr %11, align 1, !tbaa !16, !noalias !219
+  store i8 58, ptr %11, align 8, !tbaa !16, !noalias !219
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i64 1, ptr %13, align 8, !tbaa !54, !noalias !219
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 72
   store ptr %15, ptr %14, align 8, !tbaa !53, !noalias !219
-  store i8 58, ptr %15, align 1, !tbaa !16, !noalias !219
+  store i8 58, ptr %15, align 8, !tbaa !16, !noalias !219
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store i64 1, ptr %16, align 8, !tbaa !54, !noalias !219
   store ptr %9, ptr %4, align 8, !tbaa !194, !alias.scope !219

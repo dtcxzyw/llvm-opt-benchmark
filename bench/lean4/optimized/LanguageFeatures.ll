@@ -2905,7 +2905,7 @@ lean_alloc_ctor.exit199:                          ; preds = %264
   %268 = getelementptr inbounds nuw i8, ptr %265, i64 4
   %269 = getelementptr inbounds nuw i8, ptr %265, i64 24
   store i64 0, ptr %269, align 8, !tbaa !12
-  store i32 1, ptr %265, align 4, !tbaa !8
+  store i32 1, ptr %265, align 8, !tbaa !8
   store i32 131104, ptr %268, align 4
   %270 = getelementptr inbounds nuw i8, ptr %265, i64 8
   store ptr %77, ptr %270, align 8, !tbaa !4
@@ -3000,7 +3000,7 @@ lean_alloc_ctor.exit204:                          ; preds = %lean_dec.exit111
   %302 = getelementptr inbounds nuw i8, ptr %299, i64 4
   %303 = getelementptr inbounds nuw i8, ptr %299, i64 24
   store i64 0, ptr %303, align 8, !tbaa !12
-  store i32 1, ptr %299, align 4, !tbaa !8
+  store i32 1, ptr %299, align 8, !tbaa !8
   store i32 131104, ptr %302, align 4
   %304 = getelementptr inbounds nuw i8, ptr %299, i64 8
   store ptr %77, ptr %304, align 8, !tbaa !4
@@ -3352,9 +3352,9 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i64 0, ptr %41, align 8, !tbaa !12
-  store i32 1, ptr %37, align 4, !tbaa !8
+  store i32 1, ptr %37, align 8, !tbaa !8
   store i32 16777232, ptr %40, align 4
-  store i8 %27, ptr %41, align 1, !tbaa !14
+  store i8 %27, ptr %41, align 8, !tbaa !14
   %42 = load ptr, ptr @l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_fromJsonCompletionOptions____x40_Lean_Data_Lsp_LanguageFeatures___hyg_44____closed__22, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #9
   %43 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #9
@@ -21076,7 +21076,7 @@ lean_alloc_ctor.exit128:                          ; preds = %161
   %165 = getelementptr inbounds nuw i8, ptr %162, i64 4
   %166 = getelementptr inbounds nuw i8, ptr %162, i64 16
   store i64 0, ptr %166, align 8, !tbaa !12
-  store i32 1, ptr %162, align 4, !tbaa !8
+  store i32 1, ptr %162, align 8, !tbaa !8
   store i32 65560, ptr %165, align 4
   %167 = getelementptr inbounds nuw i8, ptr %162, i64 8
   store ptr %160, ptr %167, align 8, !tbaa !4
@@ -21166,7 +21166,7 @@ lean_alloc_ctor.exit133:                          ; preds = %lean_dec.exit76
   %196 = getelementptr inbounds nuw i8, ptr %193, i64 4
   %197 = getelementptr inbounds nuw i8, ptr %193, i64 16
   store i64 0, ptr %197, align 8, !tbaa !12
-  store i32 1, ptr %193, align 4, !tbaa !8
+  store i32 1, ptr %193, align 8, !tbaa !8
   store i32 65560, ptr %196, align 4
   %198 = getelementptr inbounds nuw i8, ptr %193, i64 8
   store ptr %160, ptr %198, align 8, !tbaa !4
@@ -21516,9 +21516,9 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %27, align 8, !tbaa !12
-  store i32 1, ptr %23, align 4, !tbaa !8
+  store i32 1, ptr %23, align 8, !tbaa !8
   store i32 16777232, ptr %26, align 4
-  store i8 %4, ptr %27, align 1, !tbaa !14
+  store i8 %4, ptr %27, align 8, !tbaa !14
   %28 = load ptr, ptr @l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_fromJsonCompletionList____x40_Lean_Data_Lsp_LanguageFeatures___hyg_2783____closed__1, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #9
   %29 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #9
@@ -26247,9 +26247,9 @@ lean_alloc_ctor.exit:                             ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %6, align 8, !tbaa !12
-  store i32 1, ptr %2, align 4, !tbaa !8
+  store i32 1, ptr %2, align 8, !tbaa !8
   store i32 16777232, ptr %5, align 4
-  store i8 %0, ptr %6, align 1, !tbaa !14
+  store i8 %0, ptr %6, align 8, !tbaa !14
   %7 = load ptr, ptr @l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_fromJsonReferenceContext____x40_Lean_Data_Lsp_LanguageFeatures___hyg_3973____closed__1, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #9
   %8 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #9
@@ -54902,7 +54902,7 @@ lean_alloc_ctor.exit456:                          ; preds = %654
   %658 = getelementptr inbounds nuw i8, ptr %655, i64 4
   %659 = getelementptr inbounds nuw i8, ptr %655, i64 48
   store i64 0, ptr %659, align 8, !tbaa !12
-  store i32 1, ptr %655, align 4, !tbaa !8
+  store i32 1, ptr %655, align 8, !tbaa !8
   store i32 327736, ptr %658, align 4
   %660 = getelementptr inbounds nuw i8, ptr %655, i64 8
   store ptr %86, ptr %660, align 8, !tbaa !4
@@ -55000,7 +55000,7 @@ lean_alloc_ctor.exit461:                          ; preds = %lean_dec.exit228
   %693 = getelementptr inbounds nuw i8, ptr %690, i64 4
   %694 = getelementptr inbounds nuw i8, ptr %690, i64 48
   store i64 0, ptr %694, align 8, !tbaa !12
-  store i32 1, ptr %690, align 4, !tbaa !8
+  store i32 1, ptr %690, align 8, !tbaa !8
   store i32 327736, ptr %693, align 4
   %695 = getelementptr inbounds nuw i8, ptr %690, i64 8
   store ptr %86, ptr %695, align 8, !tbaa !4
@@ -61590,7 +61590,7 @@ lean_alloc_ctor.exit353:                          ; preds = %489
   %493 = getelementptr inbounds nuw i8, ptr %490, i64 4
   %494 = getelementptr inbounds nuw i8, ptr %490, i64 40
   store i64 0, ptr %494, align 8, !tbaa !12
-  store i32 1, ptr %490, align 4, !tbaa !8
+  store i32 1, ptr %490, align 8, !tbaa !8
   store i32 262192, ptr %493, align 4
   %495 = getelementptr inbounds nuw i8, ptr %490, i64 8
   store ptr %76, ptr %495, align 8, !tbaa !4
@@ -61686,7 +61686,7 @@ lean_alloc_ctor.exit358:                          ; preds = %lean_dec.exit184
   %527 = getelementptr inbounds nuw i8, ptr %524, i64 4
   %528 = getelementptr inbounds nuw i8, ptr %524, i64 40
   store i64 0, ptr %528, align 8, !tbaa !12
-  store i32 1, ptr %524, align 4, !tbaa !8
+  store i32 1, ptr %524, align 8, !tbaa !8
   store i32 262192, ptr %527, align 4
   %529 = getelementptr inbounds nuw i8, ptr %524, i64 8
   store ptr %76, ptr %529, align 8, !tbaa !4
@@ -67145,7 +67145,7 @@ define zeroext i8 @l_Lean_Lsp_beqCallHierarchyItem____x40_Lean_Data_Lsp_Language
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %6 = load i8, ptr %5, align 1, !tbaa !14
+  %6 = load i8, ptr %5, align 8, !tbaa !14
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -67161,7 +67161,7 @@ define zeroext i8 @l_Lean_Lsp_beqCallHierarchyItem____x40_Lean_Data_Lsp_Language
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %22 = load i8, ptr %21, align 1, !tbaa !14
+  %22 = load i8, ptr %21, align 8, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !4
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -67694,7 +67694,7 @@ l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_hashSymbolKind____x40_Lea
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load ptr, ptr %1, align 8, !tbaa !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %4 = load i8, ptr %3, align 1, !tbaa !14
+  %4 = load i8, ptr %3, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -80385,7 +80385,7 @@ lean_alloc_ctor.exit209:                          ; preds = %263
   %267 = getelementptr inbounds nuw i8, ptr %264, i64 4
   %268 = getelementptr inbounds nuw i8, ptr %264, i64 16
   store i64 0, ptr %268, align 8, !tbaa !12
-  store i32 1, ptr %264, align 4, !tbaa !8
+  store i32 1, ptr %264, align 8, !tbaa !8
   store i32 65560, ptr %267, align 4
   %269 = getelementptr inbounds nuw i8, ptr %264, i64 8
   store ptr %77, ptr %269, align 8, !tbaa !4
@@ -80503,7 +80503,7 @@ lean_alloc_ctor.exit214:                          ; preds = %lean_dec.exit116
   %310 = getelementptr inbounds nuw i8, ptr %307, i64 4
   %311 = getelementptr inbounds nuw i8, ptr %307, i64 16
   store i64 0, ptr %311, align 8, !tbaa !12
-  store i32 1, ptr %307, align 4, !tbaa !8
+  store i32 1, ptr %307, align 8, !tbaa !8
   store i32 65560, ptr %310, align 4
   %312 = getelementptr inbounds nuw i8, ptr %307, i64 8
   store ptr %77, ptr %312, align 8, !tbaa !4
@@ -80688,9 +80688,9 @@ lean_alloc_ctor.exit51:                           ; preds = %lean_alloc_ctor.exi
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 0, ptr %32, align 8, !tbaa !12
-  store i32 1, ptr %28, align 4, !tbaa !8
+  store i32 1, ptr %28, align 8, !tbaa !8
   store i32 16777232, ptr %31, align 4
-  store i8 %27, ptr %32, align 1, !tbaa !14
+  store i8 %27, ptr %32, align 8, !tbaa !14
   %33 = load ptr, ptr @l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonHover____x40_Lean_Data_Lsp_LanguageFeatures___hyg_3133____closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #9
   %34 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #9
@@ -80765,9 +80765,9 @@ lean_alloc_ctor.exit55:                           ; preds = %lean_dec.exit
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store i64 0, ptr %61, align 8, !tbaa !12
-  store i32 1, ptr %57, align 4, !tbaa !8
+  store i32 1, ptr %57, align 8, !tbaa !8
   store i32 16777232, ptr %60, align 4
-  store i8 %47, ptr %61, align 1, !tbaa !14
+  store i8 %47, ptr %61, align 8, !tbaa !14
   %62 = load ptr, ptr @l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_fromJsonSemanticTokensOptions____x40_Lean_Data_Lsp_LanguageFeatures___hyg_10077____closed__12, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #9
   %63 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #9
@@ -84704,9 +84704,9 @@ lean_alloc_ctor.exit:                             ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %6, align 8, !tbaa !12
-  store i32 1, ptr %2, align 4, !tbaa !8
+  store i32 1, ptr %2, align 8, !tbaa !8
   store i32 16777232, ptr %5, align 4
-  store i8 %0, ptr %6, align 1, !tbaa !14
+  store i8 %0, ptr %6, align 8, !tbaa !14
   %7 = load ptr, ptr @l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_fromJsonRenameOptions____x40_Lean_Data_Lsp_LanguageFeatures___hyg_11010____closed__1, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #9
   %8 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #9
@@ -103680,12 +103680,12 @@ lean_alloc_ctor.exit:                             ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 0, ptr %29, align 8, !tbaa !12
-  store i32 1, ptr %25, align 4, !tbaa !8
+  store i32 1, ptr %25, align 8, !tbaa !8
   store i32 16777232, ptr %28, align 4
   %30 = ptrtoint ptr %24 to i64
   %31 = lshr i64 %30, 1
   %32 = trunc i64 %31 to i8
-  store i8 %32, ptr %29, align 1, !tbaa !14
+  store i8 %32, ptr %29, align 8, !tbaa !14
   tail call void @lean_inc_heartbeat() #9
   %33 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #9
   %34 = icmp eq ptr %33, null
@@ -106745,7 +106745,7 @@ lean_alloc_ctor.exit:                             ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 0, ptr %12, align 8, !tbaa !12
-  store i32 1, ptr %8, align 4, !tbaa !8
+  store i32 1, ptr %8, align 8, !tbaa !8
   store i32 16777232, ptr %11, align 4
   %13 = ptrtoint ptr %4 to i64
   %14 = lshr i64 %13, 1
@@ -106932,7 +106932,7 @@ lean_alloc_ctor.exit84:                           ; preds = %lean_dec.exit65
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %81 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store i64 0, ptr %81, align 8, !tbaa !12
-  store i32 1, ptr %77, align 4, !tbaa !8
+  store i32 1, ptr %77, align 8, !tbaa !8
   store i32 16777232, ptr %80, align 4
   %82 = lshr i64 %60, 1
   %83 = trunc i64 %82 to i8
@@ -107399,7 +107399,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %135 = getelementptr inbounds nuw i8, ptr %132, i64 4
   %136 = getelementptr inbounds nuw i8, ptr %132, i64 16
   store i64 0, ptr %136, align 8, !tbaa !12
-  store i32 1, ptr %132, align 4, !tbaa !8
+  store i32 1, ptr %132, align 8, !tbaa !8
   store i32 100728856, ptr %135, align 4
   %137 = getelementptr inbounds nuw i8, ptr %132, i64 8
   store ptr %131, ptr %137, align 8, !tbaa !4
@@ -107441,7 +107441,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %149 = getelementptr inbounds nuw i8, ptr %146, i64 4
   %150 = getelementptr inbounds nuw i8, ptr %146, i64 16
   store i64 0, ptr %150, align 8, !tbaa !12
-  store i32 1, ptr %146, align 4, !tbaa !8
+  store i32 1, ptr %146, align 8, !tbaa !8
   store i32 100728856, ptr %149, align 4
   %151 = getelementptr inbounds nuw i8, ptr %146, i64 8
   store ptr %145, ptr %151, align 8, !tbaa !4
@@ -107502,7 +107502,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %170 = getelementptr inbounds nuw i8, ptr %167, i64 4
   %171 = getelementptr inbounds nuw i8, ptr %167, i64 16
   store i64 0, ptr %171, align 8, !tbaa !12
-  store i32 1, ptr %167, align 4, !tbaa !8
+  store i32 1, ptr %167, align 8, !tbaa !8
   store i32 100728856, ptr %170, align 4
   %172 = getelementptr inbounds nuw i8, ptr %167, i64 8
   store ptr %166, ptr %172, align 8, !tbaa !4
@@ -107542,7 +107542,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %184 = getelementptr inbounds nuw i8, ptr %181, i64 4
   %185 = getelementptr inbounds nuw i8, ptr %181, i64 16
   store i64 0, ptr %185, align 8, !tbaa !12
-  store i32 1, ptr %181, align 4, !tbaa !8
+  store i32 1, ptr %181, align 8, !tbaa !8
   store i32 100728856, ptr %184, align 4
   %186 = getelementptr inbounds nuw i8, ptr %181, i64 8
   store ptr %180, ptr %186, align 8, !tbaa !4
@@ -107603,7 +107603,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %205 = getelementptr inbounds nuw i8, ptr %202, i64 4
   %206 = getelementptr inbounds nuw i8, ptr %202, i64 16
   store i64 0, ptr %206, align 8, !tbaa !12
-  store i32 1, ptr %202, align 4, !tbaa !8
+  store i32 1, ptr %202, align 8, !tbaa !8
   store i32 100728856, ptr %205, align 4
   %207 = getelementptr inbounds nuw i8, ptr %202, i64 8
   store ptr %201, ptr %207, align 8, !tbaa !4
@@ -107643,7 +107643,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %219 = getelementptr inbounds nuw i8, ptr %216, i64 4
   %220 = getelementptr inbounds nuw i8, ptr %216, i64 16
   store i64 0, ptr %220, align 8, !tbaa !12
-  store i32 1, ptr %216, align 4, !tbaa !8
+  store i32 1, ptr %216, align 8, !tbaa !8
   store i32 100728856, ptr %219, align 4
   %221 = getelementptr inbounds nuw i8, ptr %216, i64 8
   store ptr %215, ptr %221, align 8, !tbaa !4
@@ -107704,7 +107704,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %240 = getelementptr inbounds nuw i8, ptr %237, i64 4
   %241 = getelementptr inbounds nuw i8, ptr %237, i64 16
   store i64 0, ptr %241, align 8, !tbaa !12
-  store i32 1, ptr %237, align 4, !tbaa !8
+  store i32 1, ptr %237, align 8, !tbaa !8
   store i32 100728856, ptr %240, align 4
   %242 = getelementptr inbounds nuw i8, ptr %237, i64 8
   store ptr %236, ptr %242, align 8, !tbaa !4
@@ -107744,7 +107744,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %254 = getelementptr inbounds nuw i8, ptr %251, i64 4
   %255 = getelementptr inbounds nuw i8, ptr %251, i64 16
   store i64 0, ptr %255, align 8, !tbaa !12
-  store i32 1, ptr %251, align 4, !tbaa !8
+  store i32 1, ptr %251, align 8, !tbaa !8
   store i32 100728856, ptr %254, align 4
   %256 = getelementptr inbounds nuw i8, ptr %251, i64 8
   store ptr %250, ptr %256, align 8, !tbaa !4
@@ -107805,7 +107805,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %275 = getelementptr inbounds nuw i8, ptr %272, i64 4
   %276 = getelementptr inbounds nuw i8, ptr %272, i64 16
   store i64 0, ptr %276, align 8, !tbaa !12
-  store i32 1, ptr %272, align 4, !tbaa !8
+  store i32 1, ptr %272, align 8, !tbaa !8
   store i32 100728856, ptr %275, align 4
   %277 = getelementptr inbounds nuw i8, ptr %272, i64 8
   store ptr %271, ptr %277, align 8, !tbaa !4
@@ -107845,7 +107845,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %289 = getelementptr inbounds nuw i8, ptr %286, i64 4
   %290 = getelementptr inbounds nuw i8, ptr %286, i64 16
   store i64 0, ptr %290, align 8, !tbaa !12
-  store i32 1, ptr %286, align 4, !tbaa !8
+  store i32 1, ptr %286, align 8, !tbaa !8
   store i32 100728856, ptr %289, align 4
   %291 = getelementptr inbounds nuw i8, ptr %286, i64 8
   store ptr %285, ptr %291, align 8, !tbaa !4
@@ -107906,7 +107906,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %310 = getelementptr inbounds nuw i8, ptr %307, i64 4
   %311 = getelementptr inbounds nuw i8, ptr %307, i64 16
   store i64 0, ptr %311, align 8, !tbaa !12
-  store i32 1, ptr %307, align 4, !tbaa !8
+  store i32 1, ptr %307, align 8, !tbaa !8
   store i32 100728856, ptr %310, align 4
   %312 = getelementptr inbounds nuw i8, ptr %307, i64 8
   store ptr %306, ptr %312, align 8, !tbaa !4
@@ -107946,7 +107946,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %324 = getelementptr inbounds nuw i8, ptr %321, i64 4
   %325 = getelementptr inbounds nuw i8, ptr %321, i64 16
   store i64 0, ptr %325, align 8, !tbaa !12
-  store i32 1, ptr %321, align 4, !tbaa !8
+  store i32 1, ptr %321, align 8, !tbaa !8
   store i32 100728856, ptr %324, align 4
   %326 = getelementptr inbounds nuw i8, ptr %321, i64 8
   store ptr %320, ptr %326, align 8, !tbaa !4
@@ -108007,7 +108007,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %345 = getelementptr inbounds nuw i8, ptr %342, i64 4
   %346 = getelementptr inbounds nuw i8, ptr %342, i64 16
   store i64 0, ptr %346, align 8, !tbaa !12
-  store i32 1, ptr %342, align 4, !tbaa !8
+  store i32 1, ptr %342, align 8, !tbaa !8
   store i32 100728856, ptr %345, align 4
   %347 = getelementptr inbounds nuw i8, ptr %342, i64 8
   store ptr %341, ptr %347, align 8, !tbaa !4
@@ -108047,7 +108047,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %359 = getelementptr inbounds nuw i8, ptr %356, i64 4
   %360 = getelementptr inbounds nuw i8, ptr %356, i64 16
   store i64 0, ptr %360, align 8, !tbaa !12
-  store i32 1, ptr %356, align 4, !tbaa !8
+  store i32 1, ptr %356, align 8, !tbaa !8
   store i32 100728856, ptr %359, align 4
   %361 = getelementptr inbounds nuw i8, ptr %356, i64 8
   store ptr %355, ptr %361, align 8, !tbaa !4
@@ -108108,7 +108108,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %380 = getelementptr inbounds nuw i8, ptr %377, i64 4
   %381 = getelementptr inbounds nuw i8, ptr %377, i64 16
   store i64 0, ptr %381, align 8, !tbaa !12
-  store i32 1, ptr %377, align 4, !tbaa !8
+  store i32 1, ptr %377, align 8, !tbaa !8
   store i32 100728856, ptr %380, align 4
   %382 = getelementptr inbounds nuw i8, ptr %377, i64 8
   store ptr %376, ptr %382, align 8, !tbaa !4
@@ -108148,7 +108148,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %394 = getelementptr inbounds nuw i8, ptr %391, i64 4
   %395 = getelementptr inbounds nuw i8, ptr %391, i64 16
   store i64 0, ptr %395, align 8, !tbaa !12
-  store i32 1, ptr %391, align 4, !tbaa !8
+  store i32 1, ptr %391, align 8, !tbaa !8
   store i32 100728856, ptr %394, align 4
   %396 = getelementptr inbounds nuw i8, ptr %391, i64 8
   store ptr %390, ptr %396, align 8, !tbaa !4
@@ -108209,7 +108209,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %415 = getelementptr inbounds nuw i8, ptr %412, i64 4
   %416 = getelementptr inbounds nuw i8, ptr %412, i64 16
   store i64 0, ptr %416, align 8, !tbaa !12
-  store i32 1, ptr %412, align 4, !tbaa !8
+  store i32 1, ptr %412, align 8, !tbaa !8
   store i32 100728856, ptr %415, align 4
   %417 = getelementptr inbounds nuw i8, ptr %412, i64 8
   store ptr %411, ptr %417, align 8, !tbaa !4
@@ -108249,7 +108249,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %429 = getelementptr inbounds nuw i8, ptr %426, i64 4
   %430 = getelementptr inbounds nuw i8, ptr %426, i64 16
   store i64 0, ptr %430, align 8, !tbaa !12
-  store i32 1, ptr %426, align 4, !tbaa !8
+  store i32 1, ptr %426, align 8, !tbaa !8
   store i32 100728856, ptr %429, align 4
   %431 = getelementptr inbounds nuw i8, ptr %426, i64 8
   store ptr %425, ptr %431, align 8, !tbaa !4
@@ -108310,7 +108310,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %450 = getelementptr inbounds nuw i8, ptr %447, i64 4
   %451 = getelementptr inbounds nuw i8, ptr %447, i64 16
   store i64 0, ptr %451, align 8, !tbaa !12
-  store i32 1, ptr %447, align 4, !tbaa !8
+  store i32 1, ptr %447, align 8, !tbaa !8
   store i32 100728856, ptr %450, align 4
   %452 = getelementptr inbounds nuw i8, ptr %447, i64 8
   store ptr %446, ptr %452, align 8, !tbaa !4
@@ -108350,7 +108350,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %464 = getelementptr inbounds nuw i8, ptr %461, i64 4
   %465 = getelementptr inbounds nuw i8, ptr %461, i64 16
   store i64 0, ptr %465, align 8, !tbaa !12
-  store i32 1, ptr %461, align 4, !tbaa !8
+  store i32 1, ptr %461, align 8, !tbaa !8
   store i32 100728856, ptr %464, align 4
   %466 = getelementptr inbounds nuw i8, ptr %461, i64 8
   store ptr %460, ptr %466, align 8, !tbaa !4
@@ -108411,7 +108411,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %485 = getelementptr inbounds nuw i8, ptr %482, i64 4
   %486 = getelementptr inbounds nuw i8, ptr %482, i64 16
   store i64 0, ptr %486, align 8, !tbaa !12
-  store i32 1, ptr %482, align 4, !tbaa !8
+  store i32 1, ptr %482, align 8, !tbaa !8
   store i32 100728856, ptr %485, align 4
   %487 = getelementptr inbounds nuw i8, ptr %482, i64 8
   store ptr %481, ptr %487, align 8, !tbaa !4
@@ -108451,7 +108451,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %499 = getelementptr inbounds nuw i8, ptr %496, i64 4
   %500 = getelementptr inbounds nuw i8, ptr %496, i64 16
   store i64 0, ptr %500, align 8, !tbaa !12
-  store i32 1, ptr %496, align 4, !tbaa !8
+  store i32 1, ptr %496, align 8, !tbaa !8
   store i32 100728856, ptr %499, align 4
   %501 = getelementptr inbounds nuw i8, ptr %496, i64 8
   store ptr %495, ptr %501, align 8, !tbaa !4
@@ -108512,7 +108512,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %520 = getelementptr inbounds nuw i8, ptr %517, i64 4
   %521 = getelementptr inbounds nuw i8, ptr %517, i64 16
   store i64 0, ptr %521, align 8, !tbaa !12
-  store i32 1, ptr %517, align 4, !tbaa !8
+  store i32 1, ptr %517, align 8, !tbaa !8
   store i32 100728856, ptr %520, align 4
   %522 = getelementptr inbounds nuw i8, ptr %517, i64 8
   store ptr %516, ptr %522, align 8, !tbaa !4
@@ -108552,7 +108552,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %534 = getelementptr inbounds nuw i8, ptr %531, i64 4
   %535 = getelementptr inbounds nuw i8, ptr %531, i64 16
   store i64 0, ptr %535, align 8, !tbaa !12
-  store i32 1, ptr %531, align 4, !tbaa !8
+  store i32 1, ptr %531, align 8, !tbaa !8
   store i32 100728856, ptr %534, align 4
   %536 = getelementptr inbounds nuw i8, ptr %531, i64 8
   store ptr %530, ptr %536, align 8, !tbaa !4
@@ -108613,7 +108613,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %555 = getelementptr inbounds nuw i8, ptr %552, i64 4
   %556 = getelementptr inbounds nuw i8, ptr %552, i64 16
   store i64 0, ptr %556, align 8, !tbaa !12
-  store i32 1, ptr %552, align 4, !tbaa !8
+  store i32 1, ptr %552, align 8, !tbaa !8
   store i32 100728856, ptr %555, align 4
   %557 = getelementptr inbounds nuw i8, ptr %552, i64 8
   store ptr %551, ptr %557, align 8, !tbaa !4
@@ -108653,7 +108653,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %569 = getelementptr inbounds nuw i8, ptr %566, i64 4
   %570 = getelementptr inbounds nuw i8, ptr %566, i64 16
   store i64 0, ptr %570, align 8, !tbaa !12
-  store i32 1, ptr %566, align 4, !tbaa !8
+  store i32 1, ptr %566, align 8, !tbaa !8
   store i32 100728856, ptr %569, align 4
   %571 = getelementptr inbounds nuw i8, ptr %566, i64 8
   store ptr %565, ptr %571, align 8, !tbaa !4
@@ -108714,7 +108714,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %590 = getelementptr inbounds nuw i8, ptr %587, i64 4
   %591 = getelementptr inbounds nuw i8, ptr %587, i64 16
   store i64 0, ptr %591, align 8, !tbaa !12
-  store i32 1, ptr %587, align 4, !tbaa !8
+  store i32 1, ptr %587, align 8, !tbaa !8
   store i32 100728856, ptr %590, align 4
   %592 = getelementptr inbounds nuw i8, ptr %587, i64 8
   store ptr %586, ptr %592, align 8, !tbaa !4
@@ -108754,7 +108754,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %604 = getelementptr inbounds nuw i8, ptr %601, i64 4
   %605 = getelementptr inbounds nuw i8, ptr %601, i64 16
   store i64 0, ptr %605, align 8, !tbaa !12
-  store i32 1, ptr %601, align 4, !tbaa !8
+  store i32 1, ptr %601, align 8, !tbaa !8
   store i32 100728856, ptr %604, align 4
   %606 = getelementptr inbounds nuw i8, ptr %601, i64 8
   store ptr %600, ptr %606, align 8, !tbaa !4
@@ -108815,7 +108815,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %625 = getelementptr inbounds nuw i8, ptr %622, i64 4
   %626 = getelementptr inbounds nuw i8, ptr %622, i64 16
   store i64 0, ptr %626, align 8, !tbaa !12
-  store i32 1, ptr %622, align 4, !tbaa !8
+  store i32 1, ptr %622, align 8, !tbaa !8
   store i32 100728856, ptr %625, align 4
   %627 = getelementptr inbounds nuw i8, ptr %622, i64 8
   store ptr %621, ptr %627, align 8, !tbaa !4
@@ -108855,7 +108855,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %639 = getelementptr inbounds nuw i8, ptr %636, i64 4
   %640 = getelementptr inbounds nuw i8, ptr %636, i64 16
   store i64 0, ptr %640, align 8, !tbaa !12
-  store i32 1, ptr %636, align 4, !tbaa !8
+  store i32 1, ptr %636, align 8, !tbaa !8
   store i32 100728856, ptr %639, align 4
   %641 = getelementptr inbounds nuw i8, ptr %636, i64 8
   store ptr %635, ptr %641, align 8, !tbaa !4
@@ -108916,7 +108916,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %660 = getelementptr inbounds nuw i8, ptr %657, i64 4
   %661 = getelementptr inbounds nuw i8, ptr %657, i64 16
   store i64 0, ptr %661, align 8, !tbaa !12
-  store i32 1, ptr %657, align 4, !tbaa !8
+  store i32 1, ptr %657, align 8, !tbaa !8
   store i32 100728856, ptr %660, align 4
   %662 = getelementptr inbounds nuw i8, ptr %657, i64 8
   store ptr %656, ptr %662, align 8, !tbaa !4
@@ -108956,7 +108956,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %674 = getelementptr inbounds nuw i8, ptr %671, i64 4
   %675 = getelementptr inbounds nuw i8, ptr %671, i64 16
   store i64 0, ptr %675, align 8, !tbaa !12
-  store i32 1, ptr %671, align 4, !tbaa !8
+  store i32 1, ptr %671, align 8, !tbaa !8
   store i32 100728856, ptr %674, align 4
   %676 = getelementptr inbounds nuw i8, ptr %671, i64 8
   store ptr %670, ptr %676, align 8, !tbaa !4
@@ -109017,7 +109017,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %695 = getelementptr inbounds nuw i8, ptr %692, i64 4
   %696 = getelementptr inbounds nuw i8, ptr %692, i64 16
   store i64 0, ptr %696, align 8, !tbaa !12
-  store i32 1, ptr %692, align 4, !tbaa !8
+  store i32 1, ptr %692, align 8, !tbaa !8
   store i32 100728856, ptr %695, align 4
   %697 = getelementptr inbounds nuw i8, ptr %692, i64 8
   store ptr %691, ptr %697, align 8, !tbaa !4
@@ -109057,7 +109057,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %709 = getelementptr inbounds nuw i8, ptr %706, i64 4
   %710 = getelementptr inbounds nuw i8, ptr %706, i64 16
   store i64 0, ptr %710, align 8, !tbaa !12
-  store i32 1, ptr %706, align 4, !tbaa !8
+  store i32 1, ptr %706, align 8, !tbaa !8
   store i32 100728856, ptr %709, align 4
   %711 = getelementptr inbounds nuw i8, ptr %706, i64 8
   store ptr %705, ptr %711, align 8, !tbaa !4
@@ -109118,7 +109118,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %730 = getelementptr inbounds nuw i8, ptr %727, i64 4
   %731 = getelementptr inbounds nuw i8, ptr %727, i64 16
   store i64 0, ptr %731, align 8, !tbaa !12
-  store i32 1, ptr %727, align 4, !tbaa !8
+  store i32 1, ptr %727, align 8, !tbaa !8
   store i32 100728856, ptr %730, align 4
   %732 = getelementptr inbounds nuw i8, ptr %727, i64 8
   store ptr %726, ptr %732, align 8, !tbaa !4
@@ -109158,7 +109158,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %744 = getelementptr inbounds nuw i8, ptr %741, i64 4
   %745 = getelementptr inbounds nuw i8, ptr %741, i64 16
   store i64 0, ptr %745, align 8, !tbaa !12
-  store i32 1, ptr %741, align 4, !tbaa !8
+  store i32 1, ptr %741, align 8, !tbaa !8
   store i32 100728856, ptr %744, align 4
   %746 = getelementptr inbounds nuw i8, ptr %741, i64 8
   store ptr %740, ptr %746, align 8, !tbaa !4
@@ -109219,7 +109219,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %765 = getelementptr inbounds nuw i8, ptr %762, i64 4
   %766 = getelementptr inbounds nuw i8, ptr %762, i64 16
   store i64 0, ptr %766, align 8, !tbaa !12
-  store i32 1, ptr %762, align 4, !tbaa !8
+  store i32 1, ptr %762, align 8, !tbaa !8
   store i32 100728856, ptr %765, align 4
   %767 = getelementptr inbounds nuw i8, ptr %762, i64 8
   store ptr %761, ptr %767, align 8, !tbaa !4
@@ -109259,7 +109259,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %779 = getelementptr inbounds nuw i8, ptr %776, i64 4
   %780 = getelementptr inbounds nuw i8, ptr %776, i64 16
   store i64 0, ptr %780, align 8, !tbaa !12
-  store i32 1, ptr %776, align 4, !tbaa !8
+  store i32 1, ptr %776, align 8, !tbaa !8
   store i32 100728856, ptr %779, align 4
   %781 = getelementptr inbounds nuw i8, ptr %776, i64 8
   store ptr %775, ptr %781, align 8, !tbaa !4
@@ -109320,7 +109320,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %800 = getelementptr inbounds nuw i8, ptr %797, i64 4
   %801 = getelementptr inbounds nuw i8, ptr %797, i64 16
   store i64 0, ptr %801, align 8, !tbaa !12
-  store i32 1, ptr %797, align 4, !tbaa !8
+  store i32 1, ptr %797, align 8, !tbaa !8
   store i32 100728856, ptr %800, align 4
   %802 = getelementptr inbounds nuw i8, ptr %797, i64 8
   store ptr %796, ptr %802, align 8, !tbaa !4
@@ -109360,7 +109360,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %814 = getelementptr inbounds nuw i8, ptr %811, i64 4
   %815 = getelementptr inbounds nuw i8, ptr %811, i64 16
   store i64 0, ptr %815, align 8, !tbaa !12
-  store i32 1, ptr %811, align 4, !tbaa !8
+  store i32 1, ptr %811, align 8, !tbaa !8
   store i32 100728856, ptr %814, align 4
   %816 = getelementptr inbounds nuw i8, ptr %811, i64 8
   store ptr %810, ptr %816, align 8, !tbaa !4
@@ -109421,7 +109421,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %835 = getelementptr inbounds nuw i8, ptr %832, i64 4
   %836 = getelementptr inbounds nuw i8, ptr %832, i64 16
   store i64 0, ptr %836, align 8, !tbaa !12
-  store i32 1, ptr %832, align 4, !tbaa !8
+  store i32 1, ptr %832, align 8, !tbaa !8
   store i32 100728856, ptr %835, align 4
   %837 = getelementptr inbounds nuw i8, ptr %832, i64 8
   store ptr %831, ptr %837, align 8, !tbaa !4
@@ -109461,7 +109461,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %849 = getelementptr inbounds nuw i8, ptr %846, i64 4
   %850 = getelementptr inbounds nuw i8, ptr %846, i64 16
   store i64 0, ptr %850, align 8, !tbaa !12
-  store i32 1, ptr %846, align 4, !tbaa !8
+  store i32 1, ptr %846, align 8, !tbaa !8
   store i32 100728856, ptr %849, align 4
   %851 = getelementptr inbounds nuw i8, ptr %846, i64 8
   store ptr %845, ptr %851, align 8, !tbaa !4
@@ -109522,7 +109522,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %870 = getelementptr inbounds nuw i8, ptr %867, i64 4
   %871 = getelementptr inbounds nuw i8, ptr %867, i64 16
   store i64 0, ptr %871, align 8, !tbaa !12
-  store i32 1, ptr %867, align 4, !tbaa !8
+  store i32 1, ptr %867, align 8, !tbaa !8
   store i32 100728856, ptr %870, align 4
   %872 = getelementptr inbounds nuw i8, ptr %867, i64 8
   store ptr %866, ptr %872, align 8, !tbaa !4
@@ -109562,7 +109562,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %884 = getelementptr inbounds nuw i8, ptr %881, i64 4
   %885 = getelementptr inbounds nuw i8, ptr %881, i64 16
   store i64 0, ptr %885, align 8, !tbaa !12
-  store i32 1, ptr %881, align 4, !tbaa !8
+  store i32 1, ptr %881, align 8, !tbaa !8
   store i32 100728856, ptr %884, align 4
   %886 = getelementptr inbounds nuw i8, ptr %881, i64 8
   store ptr %880, ptr %886, align 8, !tbaa !4
@@ -109623,7 +109623,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %905 = getelementptr inbounds nuw i8, ptr %902, i64 4
   %906 = getelementptr inbounds nuw i8, ptr %902, i64 16
   store i64 0, ptr %906, align 8, !tbaa !12
-  store i32 1, ptr %902, align 4, !tbaa !8
+  store i32 1, ptr %902, align 8, !tbaa !8
   store i32 100728856, ptr %905, align 4
   %907 = getelementptr inbounds nuw i8, ptr %902, i64 8
   store ptr %901, ptr %907, align 8, !tbaa !4
@@ -109663,7 +109663,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %919 = getelementptr inbounds nuw i8, ptr %916, i64 4
   %920 = getelementptr inbounds nuw i8, ptr %916, i64 16
   store i64 0, ptr %920, align 8, !tbaa !12
-  store i32 1, ptr %916, align 4, !tbaa !8
+  store i32 1, ptr %916, align 8, !tbaa !8
   store i32 100728856, ptr %919, align 4
   %921 = getelementptr inbounds nuw i8, ptr %916, i64 8
   store ptr %915, ptr %921, align 8, !tbaa !4
@@ -109724,7 +109724,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %940 = getelementptr inbounds nuw i8, ptr %937, i64 4
   %941 = getelementptr inbounds nuw i8, ptr %937, i64 16
   store i64 0, ptr %941, align 8, !tbaa !12
-  store i32 1, ptr %937, align 4, !tbaa !8
+  store i32 1, ptr %937, align 8, !tbaa !8
   store i32 100728856, ptr %940, align 4
   %942 = getelementptr inbounds nuw i8, ptr %937, i64 8
   store ptr %936, ptr %942, align 8, !tbaa !4
@@ -109764,7 +109764,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %954 = getelementptr inbounds nuw i8, ptr %951, i64 4
   %955 = getelementptr inbounds nuw i8, ptr %951, i64 16
   store i64 0, ptr %955, align 8, !tbaa !12
-  store i32 1, ptr %951, align 4, !tbaa !8
+  store i32 1, ptr %951, align 8, !tbaa !8
   store i32 100728856, ptr %954, align 4
   %956 = getelementptr inbounds nuw i8, ptr %951, i64 8
   store ptr %950, ptr %956, align 8, !tbaa !4
@@ -109825,7 +109825,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %975 = getelementptr inbounds nuw i8, ptr %972, i64 4
   %976 = getelementptr inbounds nuw i8, ptr %972, i64 16
   store i64 0, ptr %976, align 8, !tbaa !12
-  store i32 1, ptr %972, align 4, !tbaa !8
+  store i32 1, ptr %972, align 8, !tbaa !8
   store i32 100728856, ptr %975, align 4
   %977 = getelementptr inbounds nuw i8, ptr %972, i64 8
   store ptr %971, ptr %977, align 8, !tbaa !4
@@ -109865,7 +109865,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemK
   %989 = getelementptr inbounds nuw i8, ptr %986, i64 4
   %990 = getelementptr inbounds nuw i8, ptr %986, i64 16
   store i64 0, ptr %990, align 8, !tbaa !12
-  store i32 1, ptr %986, align 4, !tbaa !8
+  store i32 1, ptr %986, align 8, !tbaa !8
   store i32 100728856, ptr %989, align 4
   %991 = getelementptr inbounds nuw i8, ptr %986, i64 8
   store ptr %985, ptr %991, align 8, !tbaa !4
@@ -110157,7 +110157,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemT
   %1105 = getelementptr inbounds nuw i8, ptr %1102, i64 4
   %1106 = getelementptr inbounds nuw i8, ptr %1102, i64 16
   store i64 0, ptr %1106, align 8, !tbaa !12
-  store i32 1, ptr %1102, align 4, !tbaa !8
+  store i32 1, ptr %1102, align 8, !tbaa !8
   store i32 100728856, ptr %1105, align 4
   %1107 = getelementptr inbounds nuw i8, ptr %1102, i64 8
   store ptr %1101, ptr %1107, align 8, !tbaa !4
@@ -110197,7 +110197,7 @@ _init_l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_reprCompletionItemT
   %1119 = getelementptr inbounds nuw i8, ptr %1116, i64 4
   %1120 = getelementptr inbounds nuw i8, ptr %1116, i64 16
   store i64 0, ptr %1120, align 8, !tbaa !12
-  store i32 1, ptr %1116, align 4, !tbaa !8
+  store i32 1, ptr %1116, align 8, !tbaa !8
   store i32 100728856, ptr %1119, align 4
   %1121 = getelementptr inbounds nuw i8, ptr %1116, i64 8
   store ptr %1115, ptr %1121, align 8, !tbaa !4
@@ -113606,7 +113606,7 @@ _init_l_Lean_Lsp_instInhabitedCallHierarchyItem___closed__3.exit: ; preds = %_in
   %2490 = getelementptr inbounds nuw i8, ptr %2487, i64 4
   %2491 = getelementptr inbounds nuw i8, ptr %2487, i64 64
   store i64 0, ptr %2491, align 8, !tbaa !12
-  store i32 1, ptr %2487, align 4, !tbaa !8
+  store i32 1, ptr %2487, align 8, !tbaa !8
   store i32 458824, ptr %2490, align 4
   %2492 = getelementptr inbounds nuw i8, ptr %2487, i64 8
   store ptr %2485, ptr %2492, align 8, !tbaa !4

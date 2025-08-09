@@ -1547,11 +1547,11 @@ _ZNK11occf_tactic3imp13is_constraintEP4expr.exit.thread14.i: ; preds = %_ZNK11oc
   %218 = getelementptr inbounds nuw i8, ptr %212, i64 40
   %219 = getelementptr inbounds nuw i8, ptr %212, i64 56
   store ptr %219, ptr %218, align 8, !tbaa !28
-  store i32 1717789551, ptr %219, align 1
+  store i32 1717789551, ptr %219, align 8
   %220 = getelementptr inbounds nuw i8, ptr %212, i64 48
   store i64 4, ptr %220, align 8, !tbaa !23
   %221 = getelementptr inbounds nuw i8, ptr %212, i64 60
-  store i8 0, ptr %221, align 1, !tbaa !17
+  store i8 0, ptr %221, align 4, !tbaa !17
   %222 = getelementptr inbounds nuw i8, ptr %212, i64 72
   store ptr null, ptr %222, align 8, !tbaa !99
   store ptr %212, ptr %14, align 8, !tbaa !33

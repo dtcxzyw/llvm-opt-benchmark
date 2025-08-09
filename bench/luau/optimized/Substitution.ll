@@ -12525,7 +12525,7 @@ _ZN4Luau11GenericTypeC2EOS0_.exit:                ; preds = %9, %_ZNKSt7__cxx111
   store i64 %16, ptr %17, align 8, !tbaa !256
   store ptr %7, ptr %4, align 8, !tbaa !254
   store i64 0, ptr %15, align 8, !tbaa !256
-  store i8 0, ptr %7, align 1, !tbaa !258
+  store i8 0, ptr %7, align 8, !tbaa !258
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %20 = load i8, ptr %19, align 8, !tbaa !259, !range !117, !noundef !118
@@ -12641,7 +12641,7 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   store i64 %24, ptr %25, align 8, !tbaa !256
   store ptr %15, ptr %1, align 8, !tbaa !254
   store i64 0, ptr %23, align 8, !tbaa !256
-  store i8 0, ptr %15, align 1, !tbaa !258
+  store i8 0, ptr %15, align 8, !tbaa !258
   store i8 1, ptr %9, align 8, !tbaa !275
   br label %_ZNSt22_Optional_payload_baseIN4Luau18FunctionDefinitionEE12_M_constructIJS1_EEEvDpOT_.exit.i.i.i.i.i.i
 
@@ -12773,7 +12773,7 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   store i64 %21, ptr %22, align 8, !tbaa !256
   store ptr %12, ptr %4, align 8, !tbaa !254
   store i64 0, ptr %20, align 8, !tbaa !256
-  store i8 0, ptr %12, align 1, !tbaa !258
+  store i8 0, ptr %12, align 8, !tbaa !258
   store i8 1, ptr %6, align 8, !tbaa !275
   br label %_ZN4Luau13MetatableTypeC2EOS0_.exit
 
@@ -12812,7 +12812,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
   store i64 %14, ptr %15, align 8, !tbaa !256
   store ptr %5, ptr %1, align 8, !tbaa !254
   store i64 0, ptr %13, align 8, !tbaa !256
-  store i8 0, ptr %5, align 1, !tbaa !258
+  store i8 0, ptr %5, align 8, !tbaa !258
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %18 = load ptr, ptr %17, align 8, !tbaa !307
@@ -12916,7 +12916,7 @@ _ZN4Luau9ClassTypeC2EOS0_.exit:                   ; preds = %61, %_ZNKSt7__cxx11
   store i64 %68, ptr %69, align 8, !tbaa !256
   store ptr %59, ptr %56, align 8, !tbaa !254
   store i64 0, ptr %67, align 8, !tbaa !256
-  store i8 0, ptr %59, align 1, !tbaa !258
+  store i8 0, ptr %59, align 8, !tbaa !258
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 184
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %70, ptr noundef nonnull align 8 dereferenceable(48) %71, i64 48, i1 false)
@@ -13122,7 +13122,7 @@ _ZN4Luau15StringSingletonC2EOS0_.exit:            ; preds = %7, %_ZNKSt7__cxx111
   store i64 %14, ptr %15, align 8, !tbaa !256
   store ptr %5, ptr %1, align 8, !tbaa !254
   store i64 0, ptr %13, align 8, !tbaa !256
-  store i8 0, ptr %5, align 1, !tbaa !258
+  store i8 0, ptr %5, align 8, !tbaa !258
   ret void
 }
 
@@ -15261,7 +15261,7 @@ _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorIS5_EENS_8FreeTypeE
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %10, ptr %7, align 8, !tbaa !254
   store i64 0, ptr %20, align 8, !tbaa !256
-  store i8 0, ptr %10, align 1, !tbaa !258
+  store i8 0, ptr %10, align 8, !tbaa !258
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %24 = load i8, ptr %23, align 8, !tbaa !259, !range !117, !noundef !118
@@ -16294,7 +16294,7 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   store i64 %27, ptr %29, align 8, !tbaa !256
   store ptr %18, ptr %1, align 8, !tbaa !254
   store i64 0, ptr %28, align 8, !tbaa !256
-  store i8 0, ptr %18, align 1, !tbaa !258
+  store i8 0, ptr %18, align 8, !tbaa !258
   store i8 1, ptr %12, align 8, !tbaa !275
   br label %_ZNSt22_Optional_payload_baseIN4Luau18FunctionDefinitionEE12_M_constructIJS1_EEEvDpOT_.exit.i.i.i.i.i.i.i
 
@@ -17308,7 +17308,7 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   store i64 %49, ptr %51, align 8, !tbaa !256
   store ptr %40, ptr %32, align 8, !tbaa !254
   store i64 0, ptr %50, align 8, !tbaa !256
-  store i8 0, ptr %40, align 1, !tbaa !258
+  store i8 0, ptr %40, align 8, !tbaa !258
   store i8 1, ptr %34, align 8, !tbaa !275
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS6_.exit.i
 
@@ -17356,7 +17356,7 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   store i64 %71, ptr %73, align 8, !tbaa !256
   store ptr %63, ptr %55, align 8, !tbaa !254
   store i64 0, ptr %72, align 8, !tbaa !256
-  store i8 0, ptr %63, align 1, !tbaa !258
+  store i8 0, ptr %63, align 8, !tbaa !258
   store i8 1, ptr %57, align 8, !tbaa !275
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS6_.exit13.i
 
@@ -17421,7 +17421,7 @@ _ZN4Luau9TableTypeC2EOS0_.exit:                   ; preds = %98, %_ZNKSt7__cxx11
   store i64 %105, ptr %107, align 8, !tbaa !256
   store ptr %96, ptr %93, align 8, !tbaa !254
   store i64 0, ptr %106, align 8, !tbaa !256
-  store i8 0, ptr %96, align 1, !tbaa !258
+  store i8 0, ptr %96, align 8, !tbaa !258
   %108 = getelementptr inbounds nuw i8, ptr %4, i64 264
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 256
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef nonnull align 8 dereferenceable(32) %109, i64 32, i1 false)
@@ -17756,7 +17756,7 @@ _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorIS5_EENS_8FreeTypeE
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %15, ptr %7, align 8, !tbaa !254
   store i64 0, ptr %28, align 8, !tbaa !256
-  store i8 0, ptr %15, align 1, !tbaa !258
+  store i8 0, ptr %15, align 8, !tbaa !258
   store i8 1, ptr %9, align 8, !tbaa !275
   store i32 10, ptr %3, align 8, !tbaa !81
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -18207,7 +18207,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i: ; preds =
   store i64 %17, ptr %19, align 8, !tbaa !256
   store ptr %8, ptr %1, align 8, !tbaa !254
   store i64 0, ptr %18, align 8, !tbaa !256
-  store i8 0, ptr %8, align 1, !tbaa !258
+  store i8 0, ptr %8, align 8, !tbaa !258
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %22 = load ptr, ptr %21, align 8, !tbaa !307
@@ -18310,7 +18310,7 @@ _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorIS5_EENS_8FreeTypeE
   store i64 %73, ptr %75, align 8, !tbaa !256
   store ptr %64, ptr %61, align 8, !tbaa !254
   store i64 0, ptr %74, align 8, !tbaa !256
-  store i8 0, ptr %64, align 1, !tbaa !258
+  store i8 0, ptr %64, align 8, !tbaa !258
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 184
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %76, ptr noundef nonnull align 8 dereferenceable(48) %77, i64 48, i1 false)

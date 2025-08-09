@@ -828,13 +828,13 @@ define hidden range(i32 -1, 2) i32 @Curl_resolv(ptr noundef %0, ptr noundef %1, 
   %103 = getelementptr inbounds nuw i8, ptr %97, i64 48
   %104 = getelementptr inbounds nuw i8, ptr %97, i64 32
   store ptr %103, ptr %104, align 8, !tbaa !13
-  store i16 2, ptr %103, align 2
+  store i16 2, ptr %103, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %97, i64 50
   store i16 %rev.i.i, ptr %.sroa.5.0..sroa_idx.i, align 2
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %97, i64 52
-  store i32 %.sroa.6.4.copyload.i, ptr %.sroa.6.0..sroa_idx.i, align 2
+  store i32 %.sroa.6.4.copyload.i, ptr %.sroa.6.0..sroa_idx.i, align 4
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %97, i64 56
-  store i64 0, ptr %.sroa.7.0..sroa_idx.i, align 2
+  store i64 0, ptr %.sroa.7.0..sroa_idx.i, align 8
   %105 = getelementptr inbounds nuw i8, ptr %97, i64 64
   %106 = getelementptr inbounds nuw i8, ptr %97, i64 24
   store ptr %105, ptr %106, align 8, !tbaa !133
@@ -867,15 +867,15 @@ get_localhost6.exit.thread.i:                     ; preds = %98
   %119 = getelementptr inbounds nuw i8, ptr %111, i64 48
   %120 = getelementptr inbounds nuw i8, ptr %111, i64 32
   store ptr %119, ptr %120, align 8, !tbaa !13
-  store i16 10, ptr %119, align 2
+  store i16 10, ptr %119, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %111, i64 50
   store i16 %rev.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 2
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %111, i64 52
-  store i32 0, ptr %.sroa.5.0..sroa_idx.i.i, align 2
+  store i32 0, ptr %.sroa.5.0..sroa_idx.i.i, align 4
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %111, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %.sroa.6.0..sroa_idx.i.i, ptr noundef nonnull align 16 dereferenceable(16) %6, i64 16, i1 false)
   %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %111, i64 72
-  store i32 0, ptr %.sroa.7.0..sroa_idx.i.i, align 2
+  store i32 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8
   %121 = getelementptr inbounds nuw i8, ptr %111, i64 76
   %122 = getelementptr inbounds nuw i8, ptr %111, i64 24
   store ptr %121, ptr %122, align 8, !tbaa !133

@@ -436,7 +436,7 @@ define void @_ZN3g2o14CacheSE2Offset10updateImplEv(ptr noundef nonnull align 16 
   %17 = fmul <2 x double> %.sroa.5.24.vec.insert.i.i.i, %16
   %18 = fadd <2 x double> %15, %17
   %19 = fadd <2 x double> %.sroa.499.16.copyload, %18
-  %20 = load double, ptr %6, align 8, !tbaa !43, !noalias !81
+  %20 = load double, ptr %6, align 16, !tbaa !43, !noalias !81
   %21 = fadd double %7, %20
   %22 = fadd double %21, 0x400921FB54442D18
   %23 = tail call double @fmod(double noundef %22, double noundef 0x401921FB54442D18) #17, !tbaa !13, !noalias !81
@@ -514,7 +514,7 @@ define void @_ZN3g2o14CacheSE2Offset10updateImplEv(ptr noundef nonnull align 16 
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %65 = load <2 x double>, ptr %55, align 16, !tbaa !6
   store <2 x double> %65, ptr %64, align 16, !tbaa !6
-  %66 = load double, ptr %3, align 8, !tbaa !43, !noalias !110
+  %66 = load double, ptr %3, align 16, !tbaa !43, !noalias !110
   %67 = fsub double 0x400921FB54442D18, %66
   %68 = tail call double @fmod(double noundef %67, double noundef 0x401921FB54442D18) #17, !tbaa !13, !noalias !110
   %69 = fcmp ugt double %68, 0.000000e+00
@@ -527,7 +527,7 @@ define void @_ZN3g2o14CacheSE2Offset10updateImplEv(ptr noundef nonnull align 16 
   %.sroa.0.8.vec.insert.i.i.i.i19 = insertelement <2 x double> %.sroa.0.0.vec.insert.i.i.i.i18, double %70, i64 1
   %.sroa.5.16.vec.insert.i.i.i.i20 = insertelement <2 x double> poison, double %72, i64 0
   %.sroa.5.24.vec.insert.i.i.i.i21 = insertelement <2 x double> %.sroa.5.16.vec.insert.i.i.i.i20, double %71, i64 1
-  %73 = load double, ptr %8, align 8, !tbaa !8, !noalias !124
+  %73 = load double, ptr %8, align 16, !tbaa !8, !noalias !124
   %74 = fneg double %73
   %75 = insertelement <2 x double> poison, double %74, i64 0
   %76 = shufflevector <2 x double> %75, <2 x double> poison, <2 x i32> zeroinitializer
@@ -558,7 +558,7 @@ define void @_ZN3g2o14CacheSE2Offset10updateImplEv(ptr noundef nonnull align 16 
   store double 1.000000e+00, ptr %92, align 8, !tbaa !8
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store <2 x double> %84, ptr %93, align 8, !tbaa !6
-  %94 = load double, ptr %3, align 8, !tbaa !43
+  %94 = load double, ptr %3, align 16, !tbaa !43
   %95 = tail call double @cos(double noundef %94) #17, !tbaa !13
   %96 = tail call double @sin(double noundef %94) #17, !tbaa !13
   %97 = fneg double %96
@@ -567,7 +567,7 @@ define void @_ZN3g2o14CacheSE2Offset10updateImplEv(ptr noundef nonnull align 16 
   %98 = fneg double %95
   %.sroa.0103.8.vec.insert = insertelement <2 x double> %.sroa.0103.0.vec.insert, double %98, i64 1
   %.sroa.5105.24.vec.insert = insertelement <2 x double> %.sroa.5105.16.vec.insert, double %97, i64 1
-  %99 = load double, ptr %6, align 8, !tbaa !43, !noalias !128
+  %99 = load double, ptr %6, align 16, !tbaa !43, !noalias !128
   %100 = tail call double @sin(double noundef %99) #17, !tbaa !13, !noalias !128
   %101 = tail call double @cos(double noundef %99) #17, !tbaa !13, !noalias !128
   %102 = fneg double %100

@@ -395,7 +395,7 @@ define internal range(i32 -2147483648, 43) i32 @dss_sp_decode_frame(ptr noundef 
 202:                                              ; preds = %200
   %203 = load ptr, ptr %9, align 16, !tbaa !36
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %203, i32 noundef 24, ptr noundef nonnull @.str.3) #7
-  %.0112.in181.pre.pre.i.i = load i16, ptr %193, align 2, !tbaa !48
+  %.0112.in181.pre.pre.i.i = load i16, ptr %193, align 16, !tbaa !48
   br label %204
 
 204:                                              ; preds = %202, %200

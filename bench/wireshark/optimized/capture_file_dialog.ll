@@ -437,11 +437,11 @@ _Z12qobject_castIP11QGridLayoutET_P7QObject.exit: ; preds = %70
   %83 = getelementptr inbounds nuw i8, ptr %78, i64 20
   store i32 1114112, ptr %83, align 4
   %84 = getelementptr inbounds nuw i8, ptr %78, i64 24
-  store i32 0, ptr %84, align 4
+  store i32 0, ptr %84, align 8
   %85 = getelementptr inbounds nuw i8, ptr %78, i64 28
   store i32 0, ptr %85, align 4
   %86 = getelementptr inbounds nuw i8, ptr %78, i64 32
-  store i32 -1, ptr %86, align 4
+  store i32 -1, ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %78, i64 36
   store i32 -1, ptr %87, align 4
   invoke void @_ZN11QGridLayout7addItemEP11QLayoutItemiiii6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef align 8 dereferenceable_or_null(28) %71, ptr noundef %78, i32 noundef %75, i32 noundef 0, i32 noundef 1, i32 noundef 1, i32 0)

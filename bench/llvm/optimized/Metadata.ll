@@ -43829,7 +43829,7 @@ _ZNK4llvm18DILexicalBlockBase11getRawScopeEv.exit.i.thread.i.i: ; preds = %8
   %22 = load ptr, ptr %21, align 8, !tbaa !41
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !39
-  %25 = load i8, ptr %9, align 4, !tbaa !35
+  %25 = load i8, ptr %9, align 8, !tbaa !35
   %26 = icmp eq i8 %25, 16
   br i1 %26, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_14DILexicalBlockENS_6detail13DenseSetEmptyENS_10MDNodeInfoIS2_EENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E12getHashValueERKS3_.exit, label %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i
 
@@ -44296,7 +44296,7 @@ _ZNK4llvm18DILexicalBlockBase11getRawScopeEv.exit.i.thread.i.i: ; preds = %8
   %22 = load ptr, ptr %21, align 8, !tbaa !41
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !39
-  %25 = load i8, ptr %9, align 4, !tbaa !35
+  %25 = load i8, ptr %9, align 8, !tbaa !35
   %26 = icmp eq i8 %25, 16
   br i1 %26, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_18DILexicalBlockFileENS_6detail13DenseSetEmptyENS_10MDNodeInfoIS2_EENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E12getHashValueERKS3_.exit, label %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i
 
@@ -51816,7 +51816,7 @@ _ZNK4llvm18DILexicalBlockBase11getRawScopeEv.exit.i.thread.i.i: ; preds = %7
   %21 = load ptr, ptr %20, align 8, !tbaa !41
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !39
-  %24 = load i8, ptr %8, align 4, !tbaa !35
+  %24 = load i8, ptr %8, align 8, !tbaa !35
   %25 = icmp eq i8 %24, 16
   br i1 %25, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_14DILexicalBlockENS_6detail13DenseSetEmptyENS_10MDNodeInfoIS2_EENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E12getHashValueERKS3_.exit, label %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i
 
@@ -51931,7 +51931,7 @@ _ZNK4llvm18DILexicalBlockBase11getRawScopeEv.exit.i.thread.i.i: ; preds = %7
   %21 = load ptr, ptr %20, align 8, !tbaa !41
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !39
-  %24 = load i8, ptr %8, align 4, !tbaa !35
+  %24 = load i8, ptr %8, align 8, !tbaa !35
   %25 = icmp eq i8 %24, 16
   br i1 %25, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_18DILexicalBlockFileENS_6detail13DenseSetEmptyENS_10MDNodeInfoIS2_EENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E12getHashValueERKS3_.exit, label %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i
 

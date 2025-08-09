@@ -382,7 +382,7 @@ _ZNK4lean18reducibility_hints4kindEv.exit52:      ; preds = %96, %99
   store ptr %106, ptr %105, align 8, !tbaa !12
   %107 = getelementptr inbounds nuw i8, ptr %104, i64 16
   store i64 0, ptr %107, align 8, !tbaa !15
-  store i8 0, ptr %106, align 1, !tbaa !18
+  store i8 0, ptr %106, align 8, !tbaa !18
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %104, align 8, !tbaa !19
   tail call void @__cxa_throw(ptr nonnull %104, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #17
   unreachable
@@ -2442,7 +2442,7 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %66, %71, %73, %74
   store ptr %84, ptr %83, align 8, !tbaa !12
   %85 = getelementptr inbounds nuw i8, ptr %82, i64 16
   store i64 0, ptr %85, align 8, !tbaa !15
-  store i8 0, ptr %84, align 1, !tbaa !18
+  store i8 0, ptr %84, align 8, !tbaa !18
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %82, align 8, !tbaa !19
   tail call void @__cxa_throw(ptr nonnull %82, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #17
   unreachable
@@ -4607,7 +4607,7 @@ _ZNK4lean12recursor_val9is_unsafeEv.exit:         ; preds = %75, %82, %84, %85
   store ptr %92, ptr %91, align 8, !tbaa !12
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 16
   store i64 0, ptr %93, align 8, !tbaa !15
-  store i8 0, ptr %92, align 1, !tbaa !18
+  store i8 0, ptr %92, align 8, !tbaa !18
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %90, align 8, !tbaa !19
   tail call void @__cxa_throw(ptr nonnull %90, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #17
   unreachable

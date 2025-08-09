@@ -254,12 +254,12 @@ cin_read_frame_header.exit:                       ; preds = %30
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %62 = load ptr, ptr %61, align 8, !tbaa !72
   store i8 %60, ptr %62, align 1, !tbaa !11
-  %63 = load i32, ptr %16, align 4, !tbaa !64
+  %63 = load i32, ptr %16, align 8, !tbaa !64
   %64 = trunc i32 %63 to i8
   %65 = load ptr, ptr %61, align 8, !tbaa !72
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 1
   store i8 %64, ptr %66, align 1, !tbaa !11
-  %67 = load i32, ptr %16, align 4, !tbaa !64
+  %67 = load i32, ptr %16, align 8, !tbaa !64
   %68 = lshr i32 %67, 8
   %69 = trunc i32 %68 to i8
   %70 = load ptr, ptr %61, align 8, !tbaa !72

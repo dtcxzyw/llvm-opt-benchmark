@@ -884,7 +884,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %.sroa.06.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 12
   store i32 %.sroa.13.sroa.0.1, ptr %.sroa.06.sroa.5.0..sroa_idx, align 4
   %.sroa.06.sroa.5.sroa.4.0..sroa.06.sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 16
-  store i64 %.sroa.13.sroa.5.1, ptr %.sroa.06.sroa.5.sroa.4.0..sroa.06.sroa.5.0..sroa_idx.sroa_idx, align 4
+  store i64 %.sroa.13.sroa.5.1, ptr %.sroa.06.sroa.5.sroa.4.0..sroa.06.sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.06.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 24
   store i8 %.sroa.1323.1, ptr %.sroa.06.sroa.6.0..sroa_idx, align 8
   %.sroa.06.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 25

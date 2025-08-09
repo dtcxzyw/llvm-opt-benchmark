@@ -612,7 +612,7 @@ define internal ptr @H5FD__log_open(ptr noundef %0, i32 noundef %1, i64 noundef 
   %112 = getelementptr inbounds nuw i8, ptr %96, i64 105
   %113 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %112, ptr noundef nonnull dereferenceable(1) %0, i64 noundef 1023) #19
   %114 = getelementptr inbounds nuw i8, ptr %96, i64 1128
-  store i8 0, ptr %114, align 1, !tbaa !20
+  store i8 0, ptr %114, align 8, !tbaa !20
   %115 = load i64, ptr %55, align 8, !tbaa !18
   %116 = getelementptr inbounds nuw i8, ptr %96, i64 1264
   %117 = getelementptr inbounds nuw i8, ptr %96, i64 1272

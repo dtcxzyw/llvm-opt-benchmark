@@ -2161,7 +2161,7 @@ define internal noundef nonnull ptr @_ZL24createRISCVMCInstPrinterRKN4llvm6Tripl
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 76
   store i32 4, ptr %19, align 4, !tbaa !122
-  store i32 17, ptr %17, align 1
+  store i32 17, ptr %17, align 8
   store i32 1, ptr %18, align 8, !tbaa !123
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm16RISCVInstPrinterE, i64 16), ptr %6, align 8, !tbaa !10
   ret ptr %6

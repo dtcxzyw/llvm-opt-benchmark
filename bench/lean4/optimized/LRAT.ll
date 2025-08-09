@@ -5934,7 +5934,7 @@ lean_alloc_ctor.exit:                             ; preds = %20, %15
   %24 = getelementptr inbounds nuw i8, ptr %.sink58, i64 4
   %25 = getelementptr inbounds nuw i8, ptr %.sink58, i64 40
   store i64 0, ptr %25, align 8, !tbaa !12
-  store i32 1, ptr %.sink58, align 4, !tbaa !8
+  store i32 1, ptr %.sink58, align 8, !tbaa !8
   store i32 131120, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %.sink58, i64 8
   store ptr %0, ptr %26, align 8, !tbaa !4
@@ -5944,7 +5944,7 @@ lean_alloc_ctor.exit:                             ; preds = %20, %15
   store double %.sink47, ptr %28, align 8, !tbaa !16
   %29 = getelementptr inbounds nuw i8, ptr %.sink58, i64 32
   store double %.sink44, ptr %29, align 8, !tbaa !16
-  store i8 %1, ptr %25, align 1, !tbaa !18
+  store i8 %1, ptr %25, align 8, !tbaa !18
   %30 = tail call ptr @l_Lean_withTraceNode___at_Lean_Elab_Tactic_BVDecide_Frontend_LratCert_load___spec__2___lambda__1(ptr noundef %3, ptr noundef %4, ptr noundef %9, ptr noundef %5, ptr noundef nonnull %.sink58, ptr nonnull poison, ptr noundef %10, ptr noundef %11, ptr noundef %12)
   ret ptr %30
 }
@@ -6176,7 +6176,7 @@ l_Lean_withTraceNode___at_Lean_Elab_Tactic_BVDecide_Frontend_LratCert_load___spe
   %96 = getelementptr inbounds nuw i8, ptr %.sink58.i, i64 4
   %97 = getelementptr inbounds nuw i8, ptr %.sink58.i, i64 40
   store i64 0, ptr %97, align 8, !tbaa !12
-  store i32 1, ptr %.sink58.i, align 4, !tbaa !8
+  store i32 1, ptr %.sink58.i, align 8, !tbaa !8
   store i32 131120, ptr %96, align 4
   %98 = getelementptr inbounds nuw i8, ptr %.sink58.i, i64 8
   store ptr %0, ptr %98, align 8, !tbaa !4
@@ -6186,7 +6186,7 @@ l_Lean_withTraceNode___at_Lean_Elab_Tactic_BVDecide_Frontend_LratCert_load___spe
   store double %.sink47.i, ptr %100, align 8, !tbaa !16
   %101 = getelementptr inbounds nuw i8, ptr %.sink58.i, i64 32
   store double %.sink44.i, ptr %101, align 8, !tbaa !16
-  store i8 %1, ptr %97, align 1, !tbaa !18
+  store i8 %1, ptr %97, align 8, !tbaa !18
   %102 = tail call noalias noundef nonnull ptr @l_Lean_withTraceNode___at_Lean_Elab_Tactic_BVDecide_Frontend_LratCert_load___spec__2___lambda__1(ptr noundef %3, ptr noundef %15, ptr noundef %60, ptr noundef %4, ptr noundef nonnull %.sink58.i, ptr nonnull poison, ptr noundef nonnull %10, ptr noundef %11, ptr noundef %70)
   br i1 %.not97, label %103, label %lean_dec.exit60
 
@@ -6309,7 +6309,7 @@ l_Lean_withTraceNode___at_Lean_Elab_Tactic_BVDecide_Frontend_LratCert_load___spe
   %146 = getelementptr inbounds nuw i8, ptr %.sink58.i93, i64 4
   %147 = getelementptr inbounds nuw i8, ptr %.sink58.i93, i64 40
   store i64 0, ptr %147, align 8, !tbaa !12
-  store i32 1, ptr %.sink58.i93, align 4, !tbaa !8
+  store i32 1, ptr %.sink58.i93, align 8, !tbaa !8
   store i32 131120, ptr %146, align 4
   %148 = getelementptr inbounds nuw i8, ptr %.sink58.i93, i64 8
   store ptr %0, ptr %148, align 8, !tbaa !4
@@ -6319,7 +6319,7 @@ l_Lean_withTraceNode___at_Lean_Elab_Tactic_BVDecide_Frontend_LratCert_load___spe
   store double %.sink47.i94, ptr %150, align 8, !tbaa !16
   %151 = getelementptr inbounds nuw i8, ptr %.sink58.i93, i64 32
   store double %.sink44.i95, ptr %151, align 8, !tbaa !16
-  store i8 %1, ptr %147, align 1, !tbaa !18
+  store i8 %1, ptr %147, align 8, !tbaa !18
   %152 = tail call noalias noundef nonnull ptr @l_Lean_withTraceNode___at_Lean_Elab_Tactic_BVDecide_Frontend_LratCert_load___spec__2___lambda__1(ptr noundef %3, ptr noundef %15, ptr noundef %135, ptr noundef %4, ptr noundef nonnull %.sink58.i93, ptr nonnull poison, ptr noundef nonnull %10, ptr noundef %11, ptr noundef %119)
   br i1 %.not97, label %153, label %lean_dec.exit57
 
@@ -18006,7 +18006,7 @@ l_Lean_withTraceNode___at_Lean_Elab_Tactic_BVDecide_Frontend_LratCert_load___spe
   %65 = getelementptr inbounds nuw i8, ptr %.sink58.i, i64 4
   %66 = getelementptr inbounds nuw i8, ptr %.sink58.i, i64 40
   store i64 0, ptr %66, align 8, !tbaa !12
-  store i32 1, ptr %.sink58.i, align 4, !tbaa !8
+  store i32 1, ptr %.sink58.i, align 8, !tbaa !8
   store i32 131120, ptr %65, align 4
   %67 = getelementptr inbounds nuw i8, ptr %.sink58.i, i64 8
   store ptr %0, ptr %67, align 8, !tbaa !4
@@ -18016,7 +18016,7 @@ l_Lean_withTraceNode___at_Lean_Elab_Tactic_BVDecide_Frontend_LratCert_load___spe
   store double %.sink47.i, ptr %69, align 8, !tbaa !16
   %70 = getelementptr inbounds nuw i8, ptr %.sink58.i, i64 32
   store double %.sink44.i, ptr %70, align 8, !tbaa !16
-  store i8 %16, ptr %66, align 1, !tbaa !18
+  store i8 %16, ptr %66, align 8, !tbaa !18
   %71 = tail call noalias noundef nonnull ptr @l_Lean_withTraceNode___at_Lean_Elab_Tactic_BVDecide_Frontend_LratCert_load___spec__2___lambda__1(ptr noundef %3, ptr noundef %4, ptr noundef %9, ptr noundef %5, ptr noundef nonnull %.sink58.i, ptr nonnull poison, ptr noundef %10, ptr noundef %11, ptr noundef %12)
   %72 = ptrtoint ptr %11 to i64
   %73 = and i64 %72, 1
@@ -19361,7 +19361,7 @@ lean_alloc_ctor.exit:                             ; preds = %20, %15
   %24 = getelementptr inbounds nuw i8, ptr %.sink58, i64 4
   %25 = getelementptr inbounds nuw i8, ptr %.sink58, i64 40
   store i64 0, ptr %25, align 8, !tbaa !12
-  store i32 1, ptr %.sink58, align 4, !tbaa !8
+  store i32 1, ptr %.sink58, align 8, !tbaa !8
   store i32 131120, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %.sink58, i64 8
   store ptr %0, ptr %26, align 8, !tbaa !4
@@ -19371,7 +19371,7 @@ lean_alloc_ctor.exit:                             ; preds = %20, %15
   store double %.sink47, ptr %28, align 8, !tbaa !16
   %29 = getelementptr inbounds nuw i8, ptr %.sink58, i64 32
   store double %.sink44, ptr %29, align 8, !tbaa !16
-  store i8 %1, ptr %25, align 1, !tbaa !18
+  store i8 %1, ptr %25, align 8, !tbaa !18
   %30 = tail call ptr @l_Lean_withTraceNode___at_Lean_Elab_Tactic_BVDecide_Frontend_runExternal___spec__1___lambda__1(ptr noundef %3, ptr noundef %4, ptr noundef %9, ptr noundef %5, ptr noundef nonnull %.sink58, ptr nonnull poison, ptr noundef %10, ptr noundef %11, ptr noundef %12)
   ret ptr %30
 }
@@ -19603,7 +19603,7 @@ l_Lean_withTraceNode___at_Lean_Elab_Tactic_BVDecide_Frontend_runExternal___spec_
   %96 = getelementptr inbounds nuw i8, ptr %.sink58.i, i64 4
   %97 = getelementptr inbounds nuw i8, ptr %.sink58.i, i64 40
   store i64 0, ptr %97, align 8, !tbaa !12
-  store i32 1, ptr %.sink58.i, align 4, !tbaa !8
+  store i32 1, ptr %.sink58.i, align 8, !tbaa !8
   store i32 131120, ptr %96, align 4
   %98 = getelementptr inbounds nuw i8, ptr %.sink58.i, i64 8
   store ptr %0, ptr %98, align 8, !tbaa !4
@@ -19613,7 +19613,7 @@ l_Lean_withTraceNode___at_Lean_Elab_Tactic_BVDecide_Frontend_runExternal___spec_
   store double %.sink47.i, ptr %100, align 8, !tbaa !16
   %101 = getelementptr inbounds nuw i8, ptr %.sink58.i, i64 32
   store double %.sink44.i, ptr %101, align 8, !tbaa !16
-  store i8 %1, ptr %97, align 1, !tbaa !18
+  store i8 %1, ptr %97, align 8, !tbaa !18
   %102 = tail call noalias noundef nonnull ptr @l_Lean_withTraceNode___at_Lean_Elab_Tactic_BVDecide_Frontend_runExternal___spec__1___lambda__1(ptr noundef %3, ptr noundef %15, ptr noundef %60, ptr noundef %4, ptr noundef nonnull %.sink58.i, ptr nonnull poison, ptr noundef nonnull %10, ptr noundef %11, ptr noundef %70)
   br i1 %.not97, label %103, label %lean_dec.exit60
 
@@ -19736,7 +19736,7 @@ l_Lean_withTraceNode___at_Lean_Elab_Tactic_BVDecide_Frontend_runExternal___spec_
   %146 = getelementptr inbounds nuw i8, ptr %.sink58.i93, i64 4
   %147 = getelementptr inbounds nuw i8, ptr %.sink58.i93, i64 40
   store i64 0, ptr %147, align 8, !tbaa !12
-  store i32 1, ptr %.sink58.i93, align 4, !tbaa !8
+  store i32 1, ptr %.sink58.i93, align 8, !tbaa !8
   store i32 131120, ptr %146, align 4
   %148 = getelementptr inbounds nuw i8, ptr %.sink58.i93, i64 8
   store ptr %0, ptr %148, align 8, !tbaa !4
@@ -19746,7 +19746,7 @@ l_Lean_withTraceNode___at_Lean_Elab_Tactic_BVDecide_Frontend_runExternal___spec_
   store double %.sink47.i94, ptr %150, align 8, !tbaa !16
   %151 = getelementptr inbounds nuw i8, ptr %.sink58.i93, i64 32
   store double %.sink44.i95, ptr %151, align 8, !tbaa !16
-  store i8 %1, ptr %147, align 1, !tbaa !18
+  store i8 %1, ptr %147, align 8, !tbaa !18
   %152 = tail call noalias noundef nonnull ptr @l_Lean_withTraceNode___at_Lean_Elab_Tactic_BVDecide_Frontend_runExternal___spec__1___lambda__1(ptr noundef %3, ptr noundef %15, ptr noundef %135, ptr noundef %4, ptr noundef nonnull %.sink58.i93, ptr nonnull poison, ptr noundef nonnull %10, ptr noundef %11, ptr noundef %119)
   br i1 %.not97, label %153, label %lean_dec.exit57
 
@@ -27736,7 +27736,7 @@ lean_alloc_ctor.exit:                             ; preds = %20, %15
   %24 = getelementptr inbounds nuw i8, ptr %.sink58, i64 4
   %25 = getelementptr inbounds nuw i8, ptr %.sink58, i64 40
   store i64 0, ptr %25, align 8, !tbaa !12
-  store i32 1, ptr %.sink58, align 4, !tbaa !8
+  store i32 1, ptr %.sink58, align 8, !tbaa !8
   store i32 131120, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %.sink58, i64 8
   store ptr %0, ptr %26, align 8, !tbaa !4
@@ -27746,7 +27746,7 @@ lean_alloc_ctor.exit:                             ; preds = %20, %15
   store double %.sink47, ptr %28, align 8, !tbaa !16
   %29 = getelementptr inbounds nuw i8, ptr %.sink58, i64 32
   store double %.sink44, ptr %29, align 8, !tbaa !16
-  store i8 %1, ptr %25, align 1, !tbaa !18
+  store i8 %1, ptr %25, align 8, !tbaa !18
   %30 = tail call ptr @l_Lean_withTraceNode___at_Lean_Elab_Tactic_BVDecide_Frontend_runExternal___spec__3___lambda__1(ptr noundef %3, ptr noundef %4, ptr noundef %9, ptr noundef %5, ptr noundef nonnull %.sink58, ptr nonnull poison, ptr noundef %10, ptr noundef %11, ptr noundef %12)
   ret ptr %30
 }
@@ -27978,7 +27978,7 @@ l_Lean_withTraceNode___at_Lean_Elab_Tactic_BVDecide_Frontend_runExternal___spec_
   %96 = getelementptr inbounds nuw i8, ptr %.sink58.i, i64 4
   %97 = getelementptr inbounds nuw i8, ptr %.sink58.i, i64 40
   store i64 0, ptr %97, align 8, !tbaa !12
-  store i32 1, ptr %.sink58.i, align 4, !tbaa !8
+  store i32 1, ptr %.sink58.i, align 8, !tbaa !8
   store i32 131120, ptr %96, align 4
   %98 = getelementptr inbounds nuw i8, ptr %.sink58.i, i64 8
   store ptr %0, ptr %98, align 8, !tbaa !4
@@ -27988,7 +27988,7 @@ l_Lean_withTraceNode___at_Lean_Elab_Tactic_BVDecide_Frontend_runExternal___spec_
   store double %.sink47.i, ptr %100, align 8, !tbaa !16
   %101 = getelementptr inbounds nuw i8, ptr %.sink58.i, i64 32
   store double %.sink44.i, ptr %101, align 8, !tbaa !16
-  store i8 %1, ptr %97, align 1, !tbaa !18
+  store i8 %1, ptr %97, align 8, !tbaa !18
   %102 = tail call noalias noundef nonnull ptr @l_Lean_withTraceNode___at_Lean_Elab_Tactic_BVDecide_Frontend_runExternal___spec__3___lambda__1(ptr noundef %3, ptr noundef %15, ptr noundef %60, ptr noundef %4, ptr noundef nonnull %.sink58.i, ptr nonnull poison, ptr noundef nonnull %10, ptr noundef %11, ptr noundef %70)
   br i1 %.not97, label %103, label %lean_dec.exit60
 
@@ -28111,7 +28111,7 @@ l_Lean_withTraceNode___at_Lean_Elab_Tactic_BVDecide_Frontend_runExternal___spec_
   %146 = getelementptr inbounds nuw i8, ptr %.sink58.i93, i64 4
   %147 = getelementptr inbounds nuw i8, ptr %.sink58.i93, i64 40
   store i64 0, ptr %147, align 8, !tbaa !12
-  store i32 1, ptr %.sink58.i93, align 4, !tbaa !8
+  store i32 1, ptr %.sink58.i93, align 8, !tbaa !8
   store i32 131120, ptr %146, align 4
   %148 = getelementptr inbounds nuw i8, ptr %.sink58.i93, i64 8
   store ptr %0, ptr %148, align 8, !tbaa !4
@@ -28121,7 +28121,7 @@ l_Lean_withTraceNode___at_Lean_Elab_Tactic_BVDecide_Frontend_runExternal___spec_
   store double %.sink47.i94, ptr %150, align 8, !tbaa !16
   %151 = getelementptr inbounds nuw i8, ptr %.sink58.i93, i64 32
   store double %.sink44.i95, ptr %151, align 8, !tbaa !16
-  store i8 %1, ptr %147, align 1, !tbaa !18
+  store i8 %1, ptr %147, align 8, !tbaa !18
   %152 = tail call noalias noundef nonnull ptr @l_Lean_withTraceNode___at_Lean_Elab_Tactic_BVDecide_Frontend_runExternal___spec__3___lambda__1(ptr noundef %3, ptr noundef %15, ptr noundef %135, ptr noundef %4, ptr noundef nonnull %.sink58.i93, ptr nonnull poison, ptr noundef nonnull %10, ptr noundef %11, ptr noundef %119)
   br i1 %.not97, label %153, label %lean_dec.exit57
 
@@ -41310,7 +41310,7 @@ l_Lean_withTraceNode___at_Lean_Elab_Tactic_BVDecide_Frontend_runExternal___spec_
   %65 = getelementptr inbounds nuw i8, ptr %.sink58.i, i64 4
   %66 = getelementptr inbounds nuw i8, ptr %.sink58.i, i64 40
   store i64 0, ptr %66, align 8, !tbaa !12
-  store i32 1, ptr %.sink58.i, align 4, !tbaa !8
+  store i32 1, ptr %.sink58.i, align 8, !tbaa !8
   store i32 131120, ptr %65, align 4
   %67 = getelementptr inbounds nuw i8, ptr %.sink58.i, i64 8
   store ptr %0, ptr %67, align 8, !tbaa !4
@@ -41320,7 +41320,7 @@ l_Lean_withTraceNode___at_Lean_Elab_Tactic_BVDecide_Frontend_runExternal___spec_
   store double %.sink47.i, ptr %69, align 8, !tbaa !16
   %70 = getelementptr inbounds nuw i8, ptr %.sink58.i, i64 32
   store double %.sink44.i, ptr %70, align 8, !tbaa !16
-  store i8 %16, ptr %66, align 1, !tbaa !18
+  store i8 %16, ptr %66, align 8, !tbaa !18
   %71 = tail call noalias noundef nonnull ptr @l_Lean_withTraceNode___at_Lean_Elab_Tactic_BVDecide_Frontend_runExternal___spec__1___lambda__1(ptr noundef %3, ptr noundef %4, ptr noundef %9, ptr noundef %5, ptr noundef nonnull %.sink58.i, ptr nonnull poison, ptr noundef %10, ptr noundef %11, ptr noundef %12)
   %72 = ptrtoint ptr %11 to i64
   %73 = and i64 %72, 1
@@ -41937,7 +41937,7 @@ l_Lean_withTraceNode___at_Lean_Elab_Tactic_BVDecide_Frontend_runExternal___spec_
   %65 = getelementptr inbounds nuw i8, ptr %.sink58.i, i64 4
   %66 = getelementptr inbounds nuw i8, ptr %.sink58.i, i64 40
   store i64 0, ptr %66, align 8, !tbaa !12
-  store i32 1, ptr %.sink58.i, align 4, !tbaa !8
+  store i32 1, ptr %.sink58.i, align 8, !tbaa !8
   store i32 131120, ptr %65, align 4
   %67 = getelementptr inbounds nuw i8, ptr %.sink58.i, i64 8
   store ptr %0, ptr %67, align 8, !tbaa !4
@@ -41947,7 +41947,7 @@ l_Lean_withTraceNode___at_Lean_Elab_Tactic_BVDecide_Frontend_runExternal___spec_
   store double %.sink47.i, ptr %69, align 8, !tbaa !16
   %70 = getelementptr inbounds nuw i8, ptr %.sink58.i, i64 32
   store double %.sink44.i, ptr %70, align 8, !tbaa !16
-  store i8 %16, ptr %66, align 1, !tbaa !18
+  store i8 %16, ptr %66, align 8, !tbaa !18
   %71 = tail call noalias noundef nonnull ptr @l_Lean_withTraceNode___at_Lean_Elab_Tactic_BVDecide_Frontend_runExternal___spec__3___lambda__1(ptr noundef %3, ptr noundef %4, ptr noundef %9, ptr noundef %5, ptr noundef nonnull %.sink58.i, ptr nonnull poison, ptr noundef %10, ptr noundef %11, ptr noundef %12)
   %72 = ptrtoint ptr %11 to i64
   %73 = and i64 %72, 1

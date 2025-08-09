@@ -3024,7 +3024,7 @@ _ZNSolsEPFRSoS_E.exit9:                           ; preds = %.noexc24
   %72 = load i32, ptr %71, align 8, !tbaa !197
   %73 = and i32 %72, -261
   %74 = or disjoint i32 %73, 4
-  store i32 %74, ptr %71, align 4, !tbaa !198
+  store i32 %74, ptr %71, align 8, !tbaa !198
   %75 = load i64, ptr %68, align 8
   %76 = getelementptr inbounds i8, ptr %3, i64 %75
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8

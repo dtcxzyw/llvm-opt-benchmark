@@ -1356,7 +1356,7 @@ define hidden void @zif_set_time_limit(ptr noundef readonly captures(none) %0, p
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %19, ptr noundef nonnull align 1 dereferenceable(18) @.str.32, i64 18, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 42
-  store i8 0, ptr %20, align 1, !tbaa !24
+  store i8 0, ptr %20, align 2, !tbaa !24
   %21 = load ptr, ptr %4, align 8, !tbaa !12
   %22 = call i32 @zend_alter_ini_entry_chars_ex(ptr noundef nonnull %15, ptr noundef %21, i64 noundef %14, i32 noundef 1, i32 noundef 16, i32 noundef 0) #28
   %23 = icmp eq i32 %22, 0

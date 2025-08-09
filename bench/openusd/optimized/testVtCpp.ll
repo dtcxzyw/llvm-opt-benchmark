@@ -7862,7 +7862,7 @@ _ZL21testTypedVtValueProxyv.exit:                 ; preds = %_ZN32pxrInternal_v0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1574, i8 0, i64 16, i1 false)
   store double 1.234000e+00, ptr %1576, align 8
   %1577 = getelementptr inbounds nuw i8, ptr %1574, i64 24
-  store atomic i32 0, ptr %1577 seq_cst, align 4
+  store atomic i32 0, ptr %1577 seq_cst, align 8
   store ptr %1574, ptr %121, align 8
   %1578 = atomicrmw add ptr %1577, i32 1 monotonic, align 4
   %1579 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue11_TypeIsImplERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16) %121, ptr noundef nonnull align 8 dereferenceable(16) @_ZTId)
@@ -8821,7 +8821,7 @@ _ZL22testErasedVtValueProxyv.exit:                ; preds = %_ZN32pxrInternal_v0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1902, i8 0, i64 16, i1 false)
   store double 1.234000e+00, ptr %1904, align 8
   %1905 = getelementptr inbounds nuw i8, ptr %1902, i64 24
-  store atomic i32 0, ptr %1905 seq_cst, align 4
+  store atomic i32 0, ptr %1905 seq_cst, align 8
   store ptr %1902, ptr %95, align 8
   %1906 = atomicrmw add ptr %1905, i32 1 monotonic, align 4
   %1907 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue11_TypeIsImplERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16) %94, ptr noundef nonnull align 8 dereferenceable(16) @_ZTId)
@@ -9787,7 +9787,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %_ZNSt16allocator_tr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(492) %2214, i8 0, i64 492, i1 false)
   store ptr %2218, ptr %2217, align 8
   %2220 = getelementptr inbounds nuw i8, ptr %2213, i64 24
-  store atomic i32 0, ptr %2220 seq_cst, align 4
+  store atomic i32 0, ptr %2220 seq_cst, align 8
   store ptr %2213, ptr %52, align 8
   %2221 = atomicrmw add ptr %2220, i32 1 monotonic, align 4
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueI9StringifyEEDaRKNS_7VtValueEOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %53, ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 1 dereferenceable(1) %54)
@@ -37579,7 +37579,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__16ArchGetDemangledINS_7GfVec2hEEENSt7__cxx1
   %.sroa.34982.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3768, i64 8
   store double 2.000000e+00, ptr %.sroa.34982.0..sroa_idx, align 8
   %3770 = getelementptr inbounds nuw i8, ptr %3768, i64 16
-  store atomic i32 0, ptr %3770 seq_cst, align 4
+  store atomic i32 0, ptr %3770 seq_cst, align 8
   store ptr %3768, ptr %469, align 8
   %3771 = atomicrmw add ptr %3770, i32 1 monotonic, align 4
   %3772 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9GetTypeidEv(ptr noundef nonnull align 8 dereferenceable(16) %469)
@@ -37917,7 +37917,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__16ArchGetDemangledINS_7GfVec2fEEENSt7__cxx1
   %.sroa.34980.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3874, i64 8
   store double 2.000000e+00, ptr %.sroa.34980.0..sroa_idx, align 8
   %3876 = getelementptr inbounds nuw i8, ptr %3874, i64 16
-  store atomic i32 0, ptr %3876 seq_cst, align 4
+  store atomic i32 0, ptr %3876 seq_cst, align 8
   store ptr %3874, ptr %456, align 8
   %3877 = atomicrmw add ptr %3876, i32 1 monotonic, align 4
   %3878 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9GetTypeidEv(ptr noundef nonnull align 8 dereferenceable(16) %456)
@@ -40926,7 +40926,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__16ArchGetDemangledINS_7GfVec3fEEENSt7__cxx1
   %.sroa.54957.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4837, i64 16
   store double 3.000000e+00, ptr %.sroa.54957.0..sroa_idx, align 8
   %4839 = getelementptr inbounds nuw i8, ptr %4837, i64 24
-  store atomic i32 0, ptr %4839 seq_cst, align 4
+  store atomic i32 0, ptr %4839 seq_cst, align 8
   store ptr %4837, ptr %336, align 8
   %4840 = atomicrmw add ptr %4839, i32 1 monotonic, align 4
   %4841 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9GetTypeidEv(ptr noundef nonnull align 8 dereferenceable(16) %336)
@@ -44062,7 +44062,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__16ArchGetDemangledINS_7GfVec4fEEENSt7__cxx1
   %.sroa.74924.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5867, i64 24
   store double 4.000000e+00, ptr %.sroa.74924.0..sroa_idx, align 8
   %5869 = getelementptr inbounds nuw i8, ptr %5867, i64 32
-  store atomic i32 0, ptr %5869 seq_cst, align 4
+  store atomic i32 0, ptr %5869 seq_cst, align 8
   store ptr %5867, ptr %216, align 8
   %5870 = atomicrmw add ptr %5869, i32 1 monotonic, align 4
   %5871 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9GetTypeidEv(ptr noundef nonnull align 8 dereferenceable(16) %216)
@@ -44806,7 +44806,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__16ArchGetDemangledINS_7GfVec4iEEENSt7__cxx1
   %.sroa.44908.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6080, i64 24
   store double 4.000000e+00, ptr %.sroa.44908.0..sroa_idx, align 8
   %6082 = getelementptr inbounds nuw i8, ptr %6080, i64 32
-  store atomic i32 0, ptr %6082 seq_cst, align 4
+  store atomic i32 0, ptr %6082 seq_cst, align 8
   store ptr %6080, ptr %191, align 8
   %6083 = atomicrmw add ptr %6082, i32 1 monotonic, align 4
   %6084 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9GetTypeidEv(ptr noundef nonnull align 8 dereferenceable(16) %191)
@@ -45405,7 +45405,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__16ArchGetDemangledINS_7GfVec3iEEENSt7__cxx1
   %.sroa.34895.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6246, i64 16
   store double 3.000000e+00, ptr %.sroa.34895.0..sroa_idx, align 8
   %6248 = getelementptr inbounds nuw i8, ptr %6246, i64 24
-  store atomic i32 0, ptr %6248 seq_cst, align 4
+  store atomic i32 0, ptr %6248 seq_cst, align 8
   store ptr %6246, ptr %167, align 8
   %6249 = atomicrmw add ptr %6248, i32 1 monotonic, align 4
   %6250 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9GetTypeidEv(ptr noundef nonnull align 8 dereferenceable(16) %167)
@@ -45974,7 +45974,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__16ArchGetDemangledINS_7GfVec2iEEENSt7__cxx1
   %.sroa.24885.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6403, i64 8
   store double 2.000000e+00, ptr %.sroa.24885.0..sroa_idx, align 8
   %6405 = getelementptr inbounds nuw i8, ptr %6403, i64 16
-  store atomic i32 0, ptr %6405 seq_cst, align 4
+  store atomic i32 0, ptr %6405 seq_cst, align 8
   store ptr %6403, ptr %143, align 8
   %6406 = atomicrmw add ptr %6405, i32 1 monotonic, align 4
   %6407 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9GetTypeidEv(ptr noundef nonnull align 8 dereferenceable(16) %143)
@@ -69518,7 +69518,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValue10_HoldAsideC2EPS0_.exit: ; preds =
   %39 = load double, ptr %38, align 8
   store double %39, ptr %37, align 8
   %40 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store atomic i32 0, ptr %40 seq_cst, align 4
+  store atomic i32 0, ptr %40 seq_cst, align 8
   store ptr %23, ptr %0, align 8
   %41 = atomicrmw add ptr %40, i32 1 monotonic, align 4
   %42 = load ptr, ptr %4, align 8
@@ -69961,7 +69961,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_Coun
   %22 = load double, ptr %21, align 8, !noalias !353
   store double %22, ptr %20, align 8, !noalias !353
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store atomic i32 0, ptr %23 seq_cst, align 4, !noalias !353
+  store atomic i32 0, ptr %23 seq_cst, align 8, !noalias !353
   %24 = atomicrmw add ptr %23, i32 1 monotonic, align 4, !noalias !353
   %25 = load ptr, ptr %0, align 8
   %.not.i.i = icmp eq ptr %25, null

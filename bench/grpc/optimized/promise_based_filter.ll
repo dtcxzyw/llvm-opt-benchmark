@@ -1079,7 +1079,7 @@ _ZN9grpc_core5Arena3NewINS_4PipeISt10unique_ptrI19grpc_metadata_batchNS0_13Poole
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 42
   store i16 0, ptr %47, align 2, !tbaa !60
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
-  store i16 0, ptr %48, align 2, !tbaa !60
+  store i16 0, ptr %48, align 4, !tbaa !60
   %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 46
   store i16 0, ptr %49, align 2, !tbaa !60
   %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
@@ -6070,7 +6070,7 @@ define linkonce_odr void @_ZN9grpc_core10PipeSenderISt10unique_ptrINS_7MessageEN
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !301
   %.not.i.i.i.i = icmp ne ptr %13, null
-  %14 = load i8, ptr %11, align 1, !range !104
+  %14 = load i8, ptr %11, align 8, !range !104
   %15 = trunc nuw i8 %14 to i1
   %or.cond.i.i.i.i = select i1 %.not.i.i.i.i, i1 %15, i1 false
   br i1 %or.cond.i.i.i.i, label %16, label %_ZNSt10unique_ptrIN9grpc_core7MessageENS0_5Arena13PooledDeleterEED2Ev.exit.i.i.i
@@ -6232,7 +6232,7 @@ _ZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrIN9grpc_core7Messa
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %23 = load ptr, ptr %22, align 8, !tbaa !301
   %.not.i.i.i.i = icmp ne ptr %23, null
-  %24 = load i8, ptr %21, align 1, !range !104
+  %24 = load i8, ptr %21, align 8, !range !104
   %25 = trunc nuw i8 %24 to i1
   %or.cond.i.i.i.i = select i1 %.not.i.i.i.i, i1 %25, i1 false
   br i1 %or.cond.i.i.i.i, label %26, label %_ZNSt10unique_ptrIN9grpc_core7MessageENS0_5Arena13PooledDeleterEED2Ev.exit.i.i.i
@@ -6330,7 +6330,7 @@ define linkonce_odr void @_ZN9grpc_core14promise_detail3SeqINS_11pipe_detail4Nex
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %14 = load ptr, ptr %13, align 8, !tbaa !301
   %.not.i.i.i.i.i.i = icmp ne ptr %14, null
-  %15 = load i8, ptr %12, align 1, !range !104
+  %15 = load i8, ptr %12, align 8, !range !104
   %16 = trunc nuw i8 %15 to i1
   %or.cond.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i, i1 %16, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %17, label %_ZNSt10unique_ptrIN9grpc_core7MessageENS0_5Arena13PooledDeleterEED2Ev.exit.i.i.i.i.i
@@ -6392,7 +6392,7 @@ _ZNSt10unique_ptrIN9grpc_core7MessageENS0_5Arena13PooledDeleterEED2Ev.exit.i.i.i
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %42 = load ptr, ptr %41, align 8, !tbaa !301
   %.not.i.i.i.i.i.i.i.i.i = icmp ne ptr %42, null
-  %43 = load i8, ptr %40, align 1, !range !104
+  %43 = load i8, ptr %40, align 8, !range !104
   %44 = trunc nuw i8 %43 to i1
   %or.cond.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i1 %44, i1 false
   br i1 %or.cond.i.i.i.i.i.i.i.i.i, label %45, label %_ZNSt10unique_ptrIN9grpc_core7MessageENS0_5Arena13PooledDeleterEED2Ev.exit.i.i.i.i.i.i.i.i
@@ -6456,7 +6456,7 @@ _ZN9grpc_core14promise_detail11PromiseLikeINS_11pipe_detail4NextISt10unique_ptrI
   %65 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %66 = load ptr, ptr %65, align 8, !tbaa !301
   %.not.i.i.i.i.i.i3 = icmp ne ptr %66, null
-  %67 = load i8, ptr %64, align 1, !range !104
+  %67 = load i8, ptr %64, align 8, !range !104
   %68 = trunc nuw i8 %67 to i1
   %or.cond.i.i.i.i.i.i4 = select i1 %.not.i.i.i.i.i.i3, i1 %68, i1 false
   br i1 %or.cond.i.i.i.i.i.i4, label %69, label %_ZNSt10unique_ptrIN9grpc_core7MessageENS0_5Arena13PooledDeleterEED2Ev.exit.i.i.i.i.i5
@@ -12020,7 +12020,7 @@ _ZNSt8optionalIN9grpc_core11pipe_detail4PushISt10unique_ptrI19grpc_metadata_batc
   %158 = getelementptr inbounds nuw i8, ptr %150, i64 32
   %159 = load ptr, ptr %158, align 8, !tbaa !508
   %.not.i.i.i.i.i = icmp ne ptr %159, null
-  %160 = load i8, ptr %157, align 1, !range !104
+  %160 = load i8, ptr %157, align 8, !range !104
   %161 = trunc nuw i8 %160 to i1
   %or.cond.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %161, i1 false
   br i1 %or.cond.i.i.i.i.i, label %162, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i.i.i
@@ -12101,7 +12101,7 @@ _ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.ex
   store ptr %186, ptr %173, align 8, !tbaa !76
   %193 = getelementptr inbounds nuw i8, ptr %143, i64 88
   %194 = getelementptr inbounds nuw i8, ptr %143, i64 72
-  store i8 0, ptr %194, align 1, !tbaa !282
+  store i8 0, ptr %194, align 8, !tbaa !282
   %195 = getelementptr inbounds nuw i8, ptr %143, i64 80
   store i64 %192, ptr %195, align 8, !tbaa !508
   store i8 0, ptr %193, align 8, !tbaa !601
@@ -12242,7 +12242,7 @@ _ZNSt22_Optional_payload_baseISt10unique_ptrI19grpc_metadata_batchN9grpc_core5Ar
   %243 = getelementptr inbounds nuw i8, ptr %235, i64 32
   %244 = load ptr, ptr %243, align 8, !tbaa !508, !noalias !609
   %.not.i.i.i.i.i.i219 = icmp ne ptr %244, null
-  %245 = load i8, ptr %242, align 1, !range !104, !noalias !609
+  %245 = load i8, ptr %242, align 8, !range !104, !noalias !609
   %246 = trunc nuw i8 %245 to i1
   %or.cond.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i219, i1 %246, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %247, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i.i.i.i
@@ -12421,7 +12421,7 @@ _ZNSt22_Optional_payload_baseISt10unique_ptrI19grpc_metadata_batchN9grpc_core5Ar
   %321 = getelementptr inbounds nuw i8, ptr %313, i64 32
   %322 = load ptr, ptr %321, align 8, !tbaa !508, !noalias !609
   %.not.i.i.i.i.i.i226 = icmp ne ptr %322, null
-  %323 = load i8, ptr %320, align 1, !range !104, !noalias !609
+  %323 = load i8, ptr %320, align 8, !range !104, !noalias !609
   %324 = trunc nuw i8 %323 to i1
   %or.cond.i.i.i.i.i.i227 = select i1 %.not.i.i.i.i.i.i226, i1 %324, i1 false
   br i1 %or.cond.i.i.i.i.i.i227, label %325, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i.i.i.i228
@@ -12494,7 +12494,7 @@ _ZN9grpc_core14promise_detail18OncePromiseFactoryISt8optionalISt10unique_ptrI19g
   %355 = getelementptr inbounds nuw i8, ptr %206, i64 128
   %356 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %357 = load i8, ptr %356, align 8, !tbaa !282, !noalias !609
-  store i8 %357, ptr %355, align 1, !tbaa !282, !noalias !609
+  store i8 %357, ptr %355, align 8, !tbaa !282, !noalias !609
   %358 = getelementptr inbounds nuw i8, ptr %206, i64 136
   %359 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %360 = load i64, ptr %359, align 8, !tbaa !159, !noalias !609
@@ -12932,7 +12932,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %522, %519, %_ZN9grp
   %539 = getelementptr inbounds nuw i8, ptr %530, i64 32
   %540 = load ptr, ptr %539, align 8, !tbaa !508
   %.not.i.i.i.i.i329 = icmp ne ptr %540, null
-  %541 = load i8, ptr %538, align 1, !range !104
+  %541 = load i8, ptr %538, align 8, !range !104
   %542 = trunc nuw i8 %541 to i1
   %or.cond.i.i.i.i.i330 = select i1 %.not.i.i.i.i.i329, i1 %542, i1 false
   br i1 %or.cond.i.i.i.i.i330, label %543, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i.i.i331
@@ -13882,7 +13882,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit386:        ; preds = %825, %822, %890
   %901 = load ptr, ptr %900, align 8, !tbaa !508
   store ptr %626, ptr %900, align 8, !tbaa !508
   %.not.i.i.i.i395 = icmp ne ptr %901, null
-  %902 = load i8, ptr %899, align 1, !range !104
+  %902 = load i8, ptr %899, align 8, !range !104
   %903 = trunc nuw i8 %902 to i1
   %or.cond.i.i.i.i = select i1 %.not.i.i.i.i395, i1 %903, i1 false
   br i1 %or.cond.i.i.i.i, label %904, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEaSEOS4_.exit
@@ -22050,7 +22050,7 @@ _ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.ex
   store ptr %132, ptr %138, align 8, !tbaa !76
   %140 = getelementptr inbounds nuw i8, ptr %76, i64 48
   %141 = getelementptr inbounds nuw i8, ptr %76, i64 32
-  store i8 0, ptr %141, align 1, !tbaa !282
+  store i8 0, ptr %141, align 8, !tbaa !282
   %142 = getelementptr inbounds nuw i8, ptr %76, i64 40
   store i64 %139, ptr %142, align 8, !tbaa !508
   store i8 0, ptr %140, align 8, !tbaa !601
@@ -23666,7 +23666,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit502: ; preds = %_Z
   %730 = getelementptr inbounds nuw i8, ptr %721, i64 32
   %731 = load ptr, ptr %730, align 8, !tbaa !508
   %.not.i.i.i.i.i509 = icmp ne ptr %731, null
-  %732 = load i8, ptr %729, align 1, !range !104
+  %732 = load i8, ptr %729, align 8, !range !104
   %733 = trunc nuw i8 %732 to i1
   %or.cond.i.i.i.i.i510 = select i1 %.not.i.i.i.i.i509, i1 %733, i1 false
   br i1 %or.cond.i.i.i.i.i510, label %734, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i.i.i511
@@ -24061,7 +24061,7 @@ define linkonce_odr void @_ZN9grpc_core14promise_detail3SeqINS_11pipe_detail4Nex
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %14 = load ptr, ptr %13, align 8, !tbaa !508
   %.not.i.i.i.i.i.i = icmp ne ptr %14, null
-  %15 = load i8, ptr %12, align 1, !range !104
+  %15 = load i8, ptr %12, align 8, !range !104
   %16 = trunc nuw i8 %15 to i1
   %or.cond.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i, i1 %16, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %17, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i.i.i.i
@@ -24121,7 +24121,7 @@ _ZN9grpc_core14promise_detail11PromiseLikeINS_11pipe_detail4NextISt10unique_ptrI
   %39 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %40 = load ptr, ptr %39, align 8, !tbaa !508
   %.not.i.i.i.i.i.i2 = icmp ne ptr %40, null
-  %41 = load i8, ptr %38, align 1, !range !104
+  %41 = load i8, ptr %38, align 8, !range !104
   %42 = trunc nuw i8 %41 to i1
   %or.cond.i.i.i.i.i.i3 = select i1 %.not.i.i.i.i.i.i2, i1 %42, i1 false
   br i1 %or.cond.i.i.i.i.i.i3, label %43, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i.i.i.i4
@@ -25139,7 +25139,7 @@ define linkonce_odr void @_ZN9grpc_core13RefCountedPtrINS_11pipe_detail6CenterIS
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !301
   %.not.i.i.i = icmp ne ptr %11, null
-  %12 = load i8, ptr %9, align 1, !range !104
+  %12 = load i8, ptr %9, align 8, !range !104
   %13 = trunc nuw i8 %12 to i1
   %or.cond.i.i.i = select i1 %.not.i.i.i, i1 %13, i1 false
   br i1 %or.cond.i.i.i, label %14, label %_ZNSt10unique_ptrIN9grpc_core7MessageENS0_5Arena13PooledDeleterEED2Ev.exit.i.i
@@ -25199,7 +25199,7 @@ define linkonce_odr void @_ZN9grpc_core14promise_detail11PromiseLikeINS_11pipe_d
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !301
   %.not.i.i.i.i.i = icmp ne ptr %11, null
-  %12 = load i8, ptr %9, align 1, !range !104
+  %12 = load i8, ptr %9, align 8, !range !104
   %13 = trunc nuw i8 %12 to i1
   %or.cond.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %13, i1 false
   br i1 %or.cond.i.i.i.i.i, label %14, label %_ZNSt10unique_ptrIN9grpc_core7MessageENS0_5Arena13PooledDeleterEED2Ev.exit.i.i.i.i
@@ -25266,7 +25266,7 @@ define linkonce_odr void @_ZN9grpc_core14promise_detail11PromiseLikeINS_2IfIbZZN
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %16 = load ptr, ptr %15, align 8, !tbaa !301
   %.not.i.i.i.i.i.i.i.i = icmp ne ptr %16, null
-  %17 = load i8, ptr %14, align 1, !range !104
+  %17 = load i8, ptr %14, align 8, !range !104
   %18 = trunc nuw i8 %17 to i1
   %or.cond.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i1 %18, i1 false
   br i1 %or.cond.i.i.i.i.i.i.i.i, label %19, label %_ZNSt10unique_ptrIN9grpc_core7MessageENS0_5Arena13PooledDeleterEED2Ev.exit.i.i.i.i.i.i.i
@@ -25335,7 +25335,7 @@ define linkonce_odr void @_ZN9grpc_core14promise_detail11PromiseLikeINS_3MapINS_
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !301
   %.not.i.i.i.i.i.i.i = icmp ne ptr %12, null
-  %13 = load i8, ptr %10, align 1, !range !104
+  %13 = load i8, ptr %10, align 8, !range !104
   %14 = trunc nuw i8 %13 to i1
   %or.cond.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i, i1 %14, i1 false
   br i1 %or.cond.i.i.i.i.i.i.i, label %15, label %_ZNSt10unique_ptrIN9grpc_core7MessageENS0_5Arena13PooledDeleterEED2Ev.exit.i.i.i.i.i.i
@@ -25533,7 +25533,7 @@ define linkonce_odr void @_ZN9grpc_core10NextResultISt10unique_ptrINS_7MessageEN
   %12 = getelementptr inbounds nuw i8, ptr %.pr, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !301
   %.not.i.i.i.i = icmp ne ptr %13, null
-  %14 = load i8, ptr %11, align 1, !range !104
+  %14 = load i8, ptr %11, align 8, !range !104
   %15 = trunc nuw i8 %14 to i1
   %or.cond.i.i.i.i = select i1 %.not.i.i.i.i, i1 %15, i1 false
   br i1 %or.cond.i.i.i.i, label %16, label %_ZNSt10unique_ptrIN9grpc_core7MessageENS0_5Arena13PooledDeleterEED2Ev.exit.i.i.i
@@ -25744,7 +25744,7 @@ define linkonce_odr void @_ZN9grpc_core14promise_detail18OncePromiseFactoryISt8o
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !301
   %.not.i.i.i.i.i = icmp ne ptr %11, null
-  %12 = load i8, ptr %9, align 1, !range !104
+  %12 = load i8, ptr %9, align 8, !range !104
   %13 = trunc nuw i8 %12 to i1
   %or.cond.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %13, i1 false
   br i1 %or.cond.i.i.i.i.i, label %14, label %_ZNSt10unique_ptrIN9grpc_core7MessageENS0_5Arena13PooledDeleterEED2Ev.exit.i.i.i.i
@@ -26173,7 +26173,7 @@ _ZNSt14_Optional_baseISt10unique_ptrIN9grpc_core7MessageENS1_5Arena13PooledDelet
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %24 = load ptr, ptr %23, align 8, !tbaa !301
   %.not.i.i.i.i = icmp ne ptr %24, null
-  %25 = load i8, ptr %22, align 1, !range !104
+  %25 = load i8, ptr %22, align 8, !range !104
   %26 = trunc nuw i8 %25 to i1
   %or.cond.i.i.i.i = select i1 %.not.i.i.i.i, i1 %26, i1 false
   br i1 %or.cond.i.i.i.i, label %27, label %_ZNSt10unique_ptrIN9grpc_core7MessageENS0_5Arena13PooledDeleterEED2Ev.exit.i.i.i
@@ -26732,7 +26732,7 @@ define linkonce_odr void @_ZZZZN9grpc_core12PipeReceiverISt10unique_ptrINS_7Mess
   %15 = load ptr, ptr %14, align 8, !tbaa !301
   store ptr %13, ptr %14, align 8, !tbaa !301
   %.not.i.i.i.i = icmp ne ptr %15, null
-  %16 = load i8, ptr %11, align 1, !range !104
+  %16 = load i8, ptr %11, align 8, !range !104
   %17 = trunc nuw i8 %16 to i1
   %or.cond.i.i.i.i = select i1 %.not.i.i.i.i, i1 %17, i1 false
   br i1 %or.cond.i.i.i.i, label %18, label %_ZNSt10unique_ptrIN9grpc_core7MessageENS0_5Arena13PooledDeleterEEaSEOS4_.exit
@@ -26968,7 +26968,7 @@ _ZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI19grpc_metadata_b
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %21 = load ptr, ptr %20, align 8, !tbaa !508
   %.not.i.i.i.i.i = icmp ne ptr %21, null
-  %22 = load i8, ptr %19, align 1, !range !104
+  %22 = load i8, ptr %19, align 8, !range !104
   %23 = trunc nuw i8 %22 to i1
   %or.cond.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %23, i1 false
   br i1 %or.cond.i.i.i.i.i, label %24, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i.i.i
@@ -29448,7 +29448,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_
   store i64 %42, ptr %43, align 8, !tbaa !157
   store ptr %33, ptr %30, align 8, !tbaa !160
   store i64 0, ptr %41, align 8, !tbaa !157
-  store i8 0, ptr %33, align 1, !tbaa !111
+  store i8 0, ptr %33, align 8, !tbaa !111
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.010.0.i.i, i64 40
   %45 = add nuw nsw i64 %.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %45, %25
@@ -29769,7 +29769,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_
   store i64 %85, ptr %86, align 8, !tbaa !157
   store ptr %76, ptr %73, align 8, !tbaa !160
   store i64 0, ptr %84, align 8, !tbaa !157
-  store i8 0, ptr %76, align 1, !tbaa !111
+  store i8 0, ptr %76, align 8, !tbaa !111
   %87 = getelementptr inbounds nuw i8, ptr %.sroa.067.2, i64 40
   %88 = add nuw i64 %.06.i, 1
   %exitcond.not.i27 = icmp eq i64 %88, %.sroa.747.08097
@@ -29934,7 +29934,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__c
   store i64 %39, ptr %40, align 8, !tbaa !157
   store ptr %30, ptr %.sroa.010.0.i.i, align 8, !tbaa !160
   store i64 0, ptr %38, align 8, !tbaa !157
-  store i8 0, ptr %30, align 1, !tbaa !111
+  store i8 0, ptr %30, align 8, !tbaa !111
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.010.0.i.i, i64 32
   %42 = add nuw nsw i64 %.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %42, %25
@@ -30246,7 +30246,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__c
   store i64 %79, ptr %80, align 8, !tbaa !157
   store ptr %70, ptr %.sroa.067.2, align 8, !tbaa !160
   store i64 0, ptr %78, align 8, !tbaa !157
-  store i8 0, ptr %70, align 1, !tbaa !111
+  store i8 0, ptr %70, align 8, !tbaa !111
   %81 = getelementptr inbounds nuw i8, ptr %.sroa.067.2, i64 32
   %82 = add nuw i64 %.06.i, 1
   %exitcond.not.i27 = icmp eq i64 %82, %.sroa.747.08097
@@ -30571,7 +30571,7 @@ define linkonce_odr void @_ZN9grpc_core13RefCountedPtrINS_11pipe_detail6CenterIS
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !508
   %.not.i.i.i = icmp ne ptr %11, null
-  %12 = load i8, ptr %9, align 1, !range !104
+  %12 = load i8, ptr %9, align 8, !range !104
   %13 = trunc nuw i8 %12 to i1
   %or.cond.i.i.i = select i1 %.not.i.i.i, i1 %13, i1 false
   br i1 %or.cond.i.i.i, label %14, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i
@@ -30621,7 +30621,7 @@ define linkonce_odr void @_ZN9grpc_core14promise_detail11PromiseLikeINS_11pipe_d
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !508
   %.not.i.i.i.i.i = icmp ne ptr %11, null
-  %12 = load i8, ptr %9, align 1, !range !104
+  %12 = load i8, ptr %9, align 8, !range !104
   %13 = trunc nuw i8 %12 to i1
   %or.cond.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %13, i1 false
   br i1 %or.cond.i.i.i.i.i, label %14, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i.i.i
@@ -30691,7 +30691,7 @@ define linkonce_odr void @_ZN9grpc_core3MapINS_15InterceptorListISt10unique_ptrI
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !508
   %.not.i.i.i.i.i.i = icmp ne ptr %12, null
-  %13 = load i8, ptr %10, align 1, !range !104
+  %13 = load i8, ptr %10, align 8, !range !104
   %14 = trunc nuw i8 %13 to i1
   %or.cond.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i, i1 %14, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %15, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i.i.i.i
@@ -30850,7 +30850,7 @@ define linkonce_odr void @_ZN9grpc_core10NextResultISt10unique_ptrI19grpc_metada
   %12 = getelementptr inbounds nuw i8, ptr %.pr, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !508
   %.not.i.i.i.i = icmp ne ptr %13, null
-  %14 = load i8, ptr %11, align 1, !range !104
+  %14 = load i8, ptr %11, align 8, !range !104
   %15 = trunc nuw i8 %14 to i1
   %or.cond.i.i.i.i = select i1 %.not.i.i.i.i, i1 %15, i1 false
   br i1 %or.cond.i.i.i.i, label %16, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i.i
@@ -31051,7 +31051,7 @@ define linkonce_odr void @_ZN9grpc_core14promise_detail18OncePromiseFactoryISt8o
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !508
   %.not.i.i.i.i.i = icmp ne ptr %11, null
-  %12 = load i8, ptr %9, align 1, !range !104
+  %12 = load i8, ptr %9, align 8, !range !104
   %13 = trunc nuw i8 %12 to i1
   %or.cond.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %13, i1 false
   br i1 %or.cond.i.i.i.i.i, label %14, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i.i.i
@@ -31306,7 +31306,7 @@ _ZNSt14_Optional_baseISt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13Poo
   %106 = getelementptr inbounds nuw i8, ptr %98, i64 32
   %107 = load ptr, ptr %106, align 8, !tbaa !508
   %.not.i.i.i.i.i.i5 = icmp ne ptr %107, null
-  %108 = load i8, ptr %105, align 1, !range !104
+  %108 = load i8, ptr %105, align 8, !range !104
   %109 = trunc nuw i8 %108 to i1
   %or.cond.i.i.i.i.i.i6 = select i1 %.not.i.i.i.i.i.i5, i1 %109, i1 false
   br i1 %or.cond.i.i.i.i.i.i6, label %110, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i.i.i.i
@@ -31383,7 +31383,7 @@ _ZNSt14_Optional_baseISt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13Poo
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %21 = load ptr, ptr %20, align 8, !tbaa !508
   %.not.i.i.i.i = icmp ne ptr %21, null
-  %22 = load i8, ptr %19, align 1, !range !104
+  %22 = load i8, ptr %19, align 8, !range !104
   %23 = trunc nuw i8 %22 to i1
   %or.cond.i.i.i.i = select i1 %.not.i.i.i.i, i1 %23, i1 false
   br i1 %or.cond.i.i.i.i, label %24, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i.i
@@ -31459,7 +31459,7 @@ _ZNSt14_Optional_baseISt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13Poo
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %21 = load ptr, ptr %20, align 8, !tbaa !508
   %.not.i.i.i.i.i = icmp ne ptr %21, null
-  %22 = load i8, ptr %19, align 1, !range !104
+  %22 = load i8, ptr %19, align 8, !range !104
   %23 = trunc nuw i8 %22 to i1
   %or.cond.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %23, i1 false
   br i1 %or.cond.i.i.i.i.i, label %24, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i.i.i
@@ -31957,7 +31957,7 @@ define linkonce_odr void @_ZZZZN9grpc_core12PipeReceiverISt10unique_ptrI19grpc_m
   %15 = load ptr, ptr %14, align 8, !tbaa !508
   store ptr %13, ptr %14, align 8, !tbaa !508
   %.not.i.i.i.i = icmp ne ptr %15, null
-  %16 = load i8, ptr %11, align 1, !range !104
+  %16 = load i8, ptr %11, align 8, !range !104
   %17 = trunc nuw i8 %16 to i1
   %or.cond.i.i.i.i = select i1 %.not.i.i.i.i, i1 %17, i1 false
   br i1 %or.cond.i.i.i.i, label %18, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEaSEOS4_.exit
@@ -35747,7 +35747,7 @@ define linkonce_odr void @_ZN9grpc_core10PipeSenderISt10unique_ptrI19grpc_metada
   %12 = getelementptr inbounds nuw i8, ptr %.pr, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !508
   %.not.i.i.i.i = icmp ne ptr %13, null
-  %14 = load i8, ptr %11, align 1, !range !104
+  %14 = load i8, ptr %11, align 8, !range !104
   %15 = trunc nuw i8 %14 to i1
   %or.cond.i.i.i.i = select i1 %.not.i.i.i.i, i1 %15, i1 false
   br i1 %or.cond.i.i.i.i, label %16, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i.i
@@ -36039,7 +36039,7 @@ define linkonce_odr void @_ZN9grpc_core12PipeReceiverISt10unique_ptrI19grpc_meta
   %12 = getelementptr inbounds nuw i8, ptr %.pr, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !508
   %.not.i.i.i.i = icmp ne ptr %13, null
-  %14 = load i8, ptr %11, align 1, !range !104
+  %14 = load i8, ptr %11, align 8, !range !104
   %15 = trunc nuw i8 %14 to i1
   %or.cond.i.i.i.i = select i1 %.not.i.i.i.i, i1 %15, i1 false
   br i1 %or.cond.i.i.i.i, label %16, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i.i
@@ -39819,7 +39819,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZN9grpc_co
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %14 = load ptr, ptr %13, align 8, !tbaa !301
   %.not.i.i.i.i.i = icmp ne ptr %14, null
-  %15 = load i8, ptr %12, align 1, !range !104
+  %15 = load i8, ptr %12, align 8, !range !104
   %16 = trunc nuw i8 %15 to i1
   %or.cond.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %16, i1 false
   br i1 %or.cond.i.i.i.i.i, label %17, label %_ZNSt10unique_ptrIN9grpc_core7MessageENS0_5Arena13PooledDeleterEED2Ev.exit.i.i.i.i
@@ -39898,7 +39898,7 @@ define linkonce_odr void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx
   %14 = load ptr, ptr %13, align 8, !tbaa !301
   store ptr %12, ptr %13, align 8, !tbaa !301
   %.not.i.i.i.i.i.i.i.i = icmp ne ptr %14, null
-  %15 = load i8, ptr %5, align 1, !range !104
+  %15 = load i8, ptr %5, align 8, !range !104
   %16 = trunc nuw i8 %15 to i1
   %or.cond.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i1 %16, i1 false
   br i1 %or.cond.i.i.i.i.i.i.i.i, label %17, label %_ZNSt10unique_ptrIN9grpc_core7MessageENS0_5Arena13PooledDeleterEEaSEOS4_.exit.i.i.i.i
@@ -39944,7 +39944,7 @@ _ZNSt8__detail9__variant9__emplaceILm0ELb0EJSt10unique_ptrIN9grpc_core7MessageEN
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !301
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ne ptr %29, null
-  %30 = load i8, ptr %5, align 1, !range !104
+  %30 = load i8, ptr %5, align 8, !range !104
   %31 = trunc nuw i8 %30 to i1
   %or.cond.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, i1 %31, i1 false
   br i1 %or.cond.i.i.i.i.i.i.i.i.i.i.i.i.i, label %32, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJSt10unique_ptrIN9grpc_core7MessageENS5_5Arena13PooledDeleterEENS5_11pipe_detail4PushIS9_E11AwaitingAckEEE8_M_resetEvEUlOT_E_RSt7variantIJS9_SD_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESI_SL_.exit.i.i.i.i.i.i.i
@@ -40920,7 +40920,7 @@ _ZN9grpc_core5Arena5AllocEm.exit.i.i.i.i.i:       ; preds = %11, %9
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i.i, i64 42
   store i16 0, ptr %26, align 2, !tbaa !60
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i.i, i64 44
-  store i16 0, ptr %27, align 2, !tbaa !60
+  store i16 0, ptr %27, align 4, !tbaa !60
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i.i, i64 46
   store i16 0, ptr %28, align 2, !tbaa !60
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i.i, i64 40
@@ -41051,7 +41051,7 @@ define linkonce_odr void @_ZN9grpc_core10PipeSenderISt10unique_ptrINS_7MessageEN
   %12 = getelementptr inbounds nuw i8, ptr %.pr, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !301
   %.not.i.i.i.i = icmp ne ptr %13, null
-  %14 = load i8, ptr %11, align 1, !range !104
+  %14 = load i8, ptr %11, align 8, !range !104
   %15 = trunc nuw i8 %14 to i1
   %or.cond.i.i.i.i = select i1 %.not.i.i.i.i, i1 %15, i1 false
   br i1 %or.cond.i.i.i.i, label %16, label %_ZNSt10unique_ptrIN9grpc_core7MessageENS0_5Arena13PooledDeleterEED2Ev.exit.i.i.i
@@ -41127,7 +41127,7 @@ define linkonce_odr void @_ZN9grpc_core12PipeReceiverISt10unique_ptrINS_7Message
   %12 = getelementptr inbounds nuw i8, ptr %.pr, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !301
   %.not.i.i.i.i = icmp ne ptr %13, null
-  %14 = load i8, ptr %11, align 1, !range !104
+  %14 = load i8, ptr %11, align 8, !range !104
   %15 = trunc nuw i8 %14 to i1
   %or.cond.i.i.i.i = select i1 %.not.i.i.i.i, i1 %15, i1 false
   br i1 %or.cond.i.i.i.i, label %16, label %_ZNSt10unique_ptrIN9grpc_core7MessageENS0_5Arena13PooledDeleterEED2Ev.exit.i.i.i
@@ -41227,7 +41227,7 @@ _ZN9grpc_core5Arena5AllocEm.exit.i.i.i.i.i:       ; preds = %11, %9
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i.i, i64 42
   store i16 0, ptr %26, align 2, !tbaa !60
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i.i, i64 44
-  store i16 0, ptr %27, align 2, !tbaa !60
+  store i16 0, ptr %27, align 4, !tbaa !60
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i.i, i64 46
   store i16 0, ptr %28, align 2, !tbaa !60
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i.i, i64 40
@@ -41644,7 +41644,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__c
   store i64 %42, ptr %44, align 8, !tbaa !157
   store ptr %34, ptr %.sroa.024.0, align 8, !tbaa !160
   store i64 0, ptr %43, align 8, !tbaa !157
-  store i8 0, ptr %34, align 1, !tbaa !111
+  store i8 0, ptr %34, align 8, !tbaa !111
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.024.0, i64 32
   %46 = add nuw nsw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %46, %.sink1.i
@@ -41752,7 +41752,7 @@ _ZN9grpc_core5Arena5AllocEm.exit.i.i.i.i.i:       ; preds = %11, %9
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i.i, i64 42
   store i16 0, ptr %26, align 2, !tbaa !60
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i.i, i64 44
-  store i16 0, ptr %27, align 2, !tbaa !60
+  store i16 0, ptr %27, align 4, !tbaa !60
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i.i, i64 46
   store i16 0, ptr %28, align 2, !tbaa !60
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i.i, i64 40
@@ -41819,7 +41819,7 @@ _ZN9grpc_core5Arena5AllocEm.exit.i.i.i.i.i:       ; preds = %11, %9
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i.i, i64 42
   store i16 0, ptr %26, align 2, !tbaa !60
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i.i, i64 44
-  store i16 0, ptr %27, align 2, !tbaa !60
+  store i16 0, ptr %27, align 4, !tbaa !60
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i.i, i64 46
   store i16 0, ptr %28, align 2, !tbaa !60
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i.i, i64 40

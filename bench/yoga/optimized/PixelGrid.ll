@@ -87,7 +87,7 @@ define hidden void @_ZN8facebook4yoga29roundLayoutResultsToPixelGridEPNS0_4NodeE
   %8 = load float, ptr %7, align 4, !tbaa !58
   %9 = fpext float %8 to double
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %11 = load float, ptr %10, align 4, !tbaa !58
+  %11 = load float, ptr %10, align 8, !tbaa !58
   %12 = fpext float %11 to double
   %13 = fadd double %1, %9
   %14 = fadd double %2, %12

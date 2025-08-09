@@ -20039,7 +20039,7 @@ default.unreachable:                              ; preds = %_RNvXs1k_NtCs2al5CL
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !noalias !3755
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !3758
   %66 = getelementptr inbounds nuw i8, ptr %.sroa.0.020, i64 48
-  %.val.i = load i32, ptr %66, align 4, !range !23, !alias.scope !3787, !noalias !3790, !noundef !5
+  %.val.i = load i32, ptr %66, align 8, !range !23, !alias.scope !3787, !noalias !3790, !noundef !5
   store i32 %47, ptr %.021, align 8
   %.sroa.2.0..021.sroa_idx = getelementptr inbounds nuw i8, ptr %.021, i64 4
   store i32 %.sroa.6.1, ptr %.sroa.2.0..021.sroa_idx, align 4

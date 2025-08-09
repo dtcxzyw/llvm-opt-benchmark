@@ -4362,7 +4362,7 @@ if.end:                                           ; preds = %entry
   %4 = load i32, ptr %ColorFormat.i, align 8, !tbaa !185
   call void @llvm.lifetime.start.p0(ptr nonnull %size)
   %OriginalSize.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %5 = load i64, ptr %OriginalSize.i, align 4, !tbaa.struct !29
+  %5 = load i64, ptr %OriginalSize.i, align 8, !tbaa.struct !29
   store i64 %5, ptr %size, align 8, !tbaa.struct !29
   %driver = getelementptr inbounds nuw i8, ptr %this, i64 152
   %6 = load ptr, ptr %driver, align 8, !tbaa !124
@@ -7999,7 +7999,7 @@ if.end6:                                          ; preds = %if.then5, %if.end
   %8 = load i32, ptr %ColorFormat.i, align 8, !tbaa !185
   call void @llvm.lifetime.start.p0(ptr nonnull %tex_size)
   %OriginalSize.i = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %9 = load i64, ptr %OriginalSize.i, align 4, !tbaa.struct !29
+  %9 = load i64, ptr %OriginalSize.i, align 8, !tbaa.struct !29
   store i64 %9, ptr %tex_size, align 8, !tbaa.struct !29
   %Driver = getelementptr inbounds nuw i8, ptr %this, i64 48
   %10 = load ptr, ptr %Driver, align 8, !tbaa !123
@@ -8171,7 +8171,7 @@ entry:
   %arrayctor.end.i.i = getelementptr inbounds nuw i8, ptr %call, i64 160
   store <4 x i32> <i32 0, i32 -1, i32 -1, i32 0>, ptr %arrayctor.end.i.i, align 8, !tbaa !41
   %SpecularColor.i.i = getelementptr inbounds nuw i8, ptr %call, i64 176
-  store i32 -1, ptr %SpecularColor.i.i, align 4, !tbaa !31
+  store i32 -1, ptr %SpecularColor.i.i, align 8, !tbaa !31
   %Shininess.i.i = getelementptr inbounds nuw i8, ptr %call, i64 180
   store <2 x float> zeroinitializer, ptr %Shininess.i.i, align 4, !tbaa !299
   %Thickness.i.i = getelementptr inbounds nuw i8, ptr %call, i64 188
@@ -8197,9 +8197,9 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Indices.i, i8 0, i64 24, i1 false)
   store i8 1, ptr %is_sorted.i13.i, align 8, !tbaa !336
   %BoundingBox.i = getelementptr inbounds nuw i8, ptr %call, i64 280
-  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i, align 4, !tbaa !299
+  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i, align 8, !tbaa !299
   %Y.i2.i.i = getelementptr inbounds nuw i8, ptr %call, i64 296
-  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 4, !tbaa !299
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 8, !tbaa !299
   %PrimitiveType.i = getelementptr inbounds nuw i8, ptr %call, i64 304
   store i32 6, ptr %PrimitiveType.i, align 8, !tbaa !337
   call void @_ZN3irr5scene11CMeshBufferINS_5video9S3DVertexEE6appendEPKvjPKtj(ptr noundef nonnull align 8 dereferenceable(308) %call, ptr noundef nonnull %vertices, i32 noundef 4, ptr noundef nonnull %indices, i32 noundef 6)
@@ -9366,7 +9366,7 @@ for.body:                                         ; preds = %invoke.cont286, %fo
   %source_rect221 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i478, i64 8
   %95 = load i32, ptr %source_rect221, align 8, !tbaa !206
   %LowerRightCorner.i481 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i478, i64 16
-  %96 = load i32, ptr %LowerRightCorner.i481, align 4, !tbaa !205
+  %96 = load i32, ptr %LowerRightCorner.i481, align 8, !tbaa !205
   %sub.i482 = sub nsw i32 %96, %95
   %Y234 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i478, i64 12
   %97 = load i32, ptr %Y234, align 4, !tbaa !208
@@ -11774,7 +11774,7 @@ entry:
   store ptr %0, ptr %_M_storage.i, align 8, !tbaa !102
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__node, i64 40
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !103
-  store i8 0, ptr %0, align 1, !tbaa !41
+  store i8 0, ptr %0, align 8, !tbaa !41
   %cmp.i.i.i.i.i = icmp eq ptr %_M_storage.i, %__args
   br i1 %cmp.i.i.i.i.i, label %try.cont, label %if.end.i.i.i.i.i
 

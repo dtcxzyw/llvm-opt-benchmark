@@ -3034,7 +3034,7 @@ define linkonce_odr noundef ptr @_ZNK9grpc_core11json_detail10AutoLoaderISt6vect
   store ptr %8, ptr %4, align 8, !tbaa !57
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %9, align 8, !tbaa !51
-  store i8 0, ptr %8, align 1, !tbaa !52
+  store i8 0, ptr %8, align 8, !tbaa !52
   %10 = load ptr, ptr %3, align 8, !tbaa !46
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %11, ptr %3, align 8, !tbaa !46
@@ -3089,7 +3089,7 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
   store ptr %21, ptr %20, align 8, !tbaa !57
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 0, ptr %22, align 8, !tbaa !51
-  store i8 0, ptr %21, align 1, !tbaa !52
+  store i8 0, ptr %21, align 8, !tbaa !52
   %.not10.i.i.i = icmp eq ptr %5, %1
   br i1 %.not10.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %.lr.ph.i.i.i
 
@@ -3129,7 +3129,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %33, ptr %35, align 8, !tbaa !51, !alias.scope !107, !noalias !110
   store ptr %25, ptr %.0911.i.i.i, align 8, !tbaa !47, !alias.scope !110, !noalias !107
   store i64 0, ptr %34, align 8, !tbaa !51, !alias.scope !110, !noalias !107
-  store i8 0, ptr %25, align 1, !tbaa !52, !alias.scope !110, !noalias !107
+  store i8 0, ptr %25, align 8, !tbaa !52, !alias.scope !110, !noalias !107
   %36 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %37 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %36, %1
@@ -3177,7 +3177,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %49, ptr %51, align 8, !tbaa !51, !alias.scope !114, !noalias !117
   store ptr %41, ptr %.0911.i.i.i18, align 8, !tbaa !47, !alias.scope !117, !noalias !114
   store i64 0, ptr %50, align 8, !tbaa !51, !alias.scope !117, !noalias !114
-  store i8 0, ptr %41, align 1, !tbaa !52, !alias.scope !117, !noalias !114
+  store i8 0, ptr %41, align 8, !tbaa !52, !alias.scope !117, !noalias !114
   %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i18, i64 32
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i17, i64 32
   %.not.i.i.i23 = icmp eq ptr %52, %4

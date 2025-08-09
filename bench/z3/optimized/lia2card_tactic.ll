@@ -4927,11 +4927,11 @@ define linkonce_odr hidden void @_ZN15lia2card_tactic10mk_boundedER10ref_vectorI
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 56
   store ptr %27, ptr %26, align 8, !tbaa !247
-  store i64 7237954629812709740, ptr %27, align 1
+  store i64 7237954629812709740, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 48
   store i64 8, ptr %28, align 8, !tbaa !115
   %29 = getelementptr inbounds nuw i8, ptr %20, i64 64
-  store i8 0, ptr %29, align 1, !tbaa !109
+  store i8 0, ptr %29, align 8, !tbaa !109
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 72
   store ptr null, ptr %30, align 8, !tbaa !257
   store i32 1, ptr %22, align 8, !tbaa !101

@@ -1795,7 +1795,7 @@ xstrdup_or_null.exit:                             ; preds = %3, %10
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %16 = call i64 @strtoul(ptr noundef %1, ptr noundef nonnull %4, i32 noundef 8) #21
   %17 = trunc i64 %16 to i32
-  store i32 %17, ptr %15, align 4, !tbaa !34
+  store i32 %17, ptr %15, align 8, !tbaa !34
   %18 = load ptr, ptr %4, align 8, !tbaa !32
   %19 = icmp eq ptr %18, %1
   br i1 %19, label %26, label %20
@@ -4071,10 +4071,10 @@ parse_chunk.exit.thread:                          ; preds = %143, %77, %parse_bi
   %652 = getelementptr inbounds nuw i8, ptr %.066.i, i64 72
   %653 = load ptr, ptr %652, align 8, !tbaa !54
   %654 = getelementptr inbounds nuw i8, ptr %.066.i, i64 8
-  %.sroa.033.0.copyload.i = load i64, ptr %.066.i, align 1
-  %655 = load i64, ptr %654, align 1
-  store i64 %655, ptr %.066.i, align 1
-  store i64 %.sroa.033.0.copyload.i, ptr %654, align 1
+  %.sroa.033.0.copyload.i = load i64, ptr %.066.i, align 8
+  %655 = load i64, ptr %654, align 8
+  store i64 %655, ptr %.066.i, align 8
+  store i64 %.sroa.033.0.copyload.i, ptr %654, align 8
   %656 = getelementptr inbounds nuw i8, ptr %.066.i, i64 28
   %657 = load i32, ptr %656, align 4, !tbaa !112
   %.not61.i = icmp eq i32 %657, 0
@@ -14232,7 +14232,7 @@ create_ce_mode.exit.us.i:                         ; preds = %.split.us.i
   %108 = getelementptr inbounds nuw i8, ptr %96, i64 32
   %109 = load i32, ptr %108, align 4, !tbaa !185
   %110 = getelementptr inbounds nuw i8, ptr %100, i64 104
-  store i32 %109, ptr %110, align 4, !tbaa !185
+  store i32 %109, ptr %110, align 8, !tbaa !185
   %111 = load ptr, ptr %84, align 8, !tbaa !23
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 384
   %113 = load ptr, ptr %112, align 8, !tbaa !109
@@ -14278,7 +14278,7 @@ create_ce_mode.exit.us40.i:                       ; preds = %.split.split.us.i
   %131 = getelementptr inbounds nuw i8, ptr %119, i64 32
   %132 = load i32, ptr %131, align 4, !tbaa !185
   %133 = getelementptr inbounds nuw i8, ptr %123, i64 104
-  store i32 %132, ptr %133, align 4, !tbaa !185
+  store i32 %132, ptr %133, align 8, !tbaa !185
   %134 = load ptr, ptr %84, align 8, !tbaa !23
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 384
   %136 = load ptr, ptr %135, align 8, !tbaa !109
@@ -14329,7 +14329,7 @@ create_ce_mode.exit.us48.i:                       ; preds = %.split.split.split.
   %153 = getelementptr inbounds nuw i8, ptr %141, i64 32
   %154 = load i32, ptr %153, align 4, !tbaa !185
   %155 = getelementptr inbounds nuw i8, ptr %145, i64 104
-  store i32 %154, ptr %155, align 4, !tbaa !185
+  store i32 %154, ptr %155, align 8, !tbaa !185
   %156 = load ptr, ptr %84, align 8, !tbaa !23
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 384
   %158 = load ptr, ptr %157, align 8, !tbaa !109
@@ -14371,7 +14371,7 @@ create_ce_mode.exit.i:                            ; preds = %.split.split.split.
   %175 = getelementptr inbounds nuw i8, ptr %163, i64 32
   %176 = load i32, ptr %175, align 4, !tbaa !185
   %177 = getelementptr inbounds nuw i8, ptr %167, i64 104
-  store i32 %176, ptr %177, align 4, !tbaa !185
+  store i32 %176, ptr %177, align 8, !tbaa !185
   %178 = load ptr, ptr %84, align 8, !tbaa !23
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 384
   %180 = load ptr, ptr %179, align 8, !tbaa !109

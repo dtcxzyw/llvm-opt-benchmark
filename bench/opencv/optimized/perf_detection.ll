@@ -10190,7 +10190,7 @@ define internal void @_GLOBAL__sub_I_perf_detection.cpp() #24 section ".text.sta
   %78 = getelementptr inbounds nuw i8, ptr %72, i64 40
   store i64 6, ptr %78, align 8, !tbaa !20
   %79 = getelementptr inbounds nuw i8, ptr %72, i64 54
-  store i8 0, ptr %79, align 1, !tbaa !22
+  store i8 0, ptr %79, align 2, !tbaa !22
   %80 = getelementptr inbounds nuw i8, ptr %72, i64 64
   store ptr %70, ptr %80, align 8, !tbaa !51
   %81 = getelementptr inbounds nuw i8, ptr %68, i64 80
@@ -10739,7 +10739,7 @@ _ZSt19__relocate_object_aIN7testing8internal25ParameterizedTestCaseInfoIN11openc
   store i64 %257, ptr %259, align 8, !tbaa !20, !alias.scope !294, !noalias !297
   store ptr %249, ptr %.092.i.i.i.i.i.i.i.i.i, align 8, !tbaa !17, !alias.scope !297, !noalias !294
   store i64 0, ptr %258, align 8, !tbaa !20, !alias.scope !297, !noalias !294
-  store i8 0, ptr %249, align 1, !tbaa !22, !alias.scope !297, !noalias !294
+  store i8 0, ptr %249, align 8, !tbaa !22, !alias.scope !297, !noalias !294
   %260 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i.i.i.i, i64 32
   %261 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %260, ptr noundef nonnull align 8 dereferenceable(28) %261, i64 28, i1 false), !alias.scope !299
@@ -11016,7 +11016,7 @@ __cxx_global_var_init.22.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   %342 = getelementptr inbounds nuw i8, ptr %332, i64 40
   store i64 10, ptr %342, align 8, !tbaa !20
   %343 = getelementptr inbounds nuw i8, ptr %332, i64 58
-  store i8 0, ptr %343, align 1, !tbaa !22
+  store i8 0, ptr %343, align 2, !tbaa !22
   %344 = getelementptr inbounds nuw i8, ptr %332, i64 64
   store ptr %330, ptr %344, align 8, !tbaa !51
   %345 = getelementptr inbounds nuw i8, ptr %328, i64 80
@@ -11571,7 +11571,7 @@ _ZSt19__relocate_object_aIN7testing8internal25ParameterizedTestCaseInfoIN11openc
   store i64 %524, ptr %526, align 8, !tbaa !20, !alias.scope !304, !noalias !307
   store ptr %516, ptr %.092.i.i.i.i.i.i.i.i.i95, align 8, !tbaa !17, !alias.scope !307, !noalias !304
   store i64 0, ptr %525, align 8, !tbaa !20, !alias.scope !307, !noalias !304
-  store i8 0, ptr %516, align 1, !tbaa !22, !alias.scope !307, !noalias !304
+  store i8 0, ptr %516, align 8, !tbaa !22, !alias.scope !307, !noalias !304
   %527 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i.i.i.i94, i64 32
   %528 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i.i.i.i95, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %527, ptr noundef nonnull align 8 dereferenceable(28) %528, i64 28, i1 false), !alias.scope !309

@@ -7367,7 +7367,7 @@ _ZN7rocksdb19MemTableListVersion6RemoveEPNS_16ReadOnlyMemTableEPNS_10autovectorI
   %743 = load ptr, ptr %742, align 8, !tbaa !18
   %744 = icmp ne ptr %743, %742
   %745 = zext i1 %744 to i8
-  store atomic i8 %745, ptr %598 monotonic, align 1
+  store atomic i8 %745, ptr %598 monotonic, align 8
   %746 = cmpxchg ptr %599, i8 1, i8 0 monotonic monotonic, align 1
   %747 = add nuw i64 %.sroa.5293.0364, 1
   %.not314 = icmp eq i64 %747, %594

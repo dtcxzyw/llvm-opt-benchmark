@@ -1026,7 +1026,7 @@ define internal void @blkiolatency_timer_fn(ptr noundef readonly captures(none) 
   %91 = load i64, ptr %90, align 8
   %92 = lshr i64 %91, 4
   %93 = tail call i64 @llvm.umax.i64(i64 %92, i64 1)
-  %94 = load volatile i32, ptr %71, align 4
+  %94 = load volatile i32, ptr %71, align 8
   %95 = sext i32 %94 to i64
   %96 = add nsw i64 %93, %95
   %97 = icmp ugt i64 %96, 1000000

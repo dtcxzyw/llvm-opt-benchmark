@@ -1841,7 +1841,7 @@ define hidden noundef ptr @_ZN10InlineTree22build_inline_tree_rootEv() local_unn
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 296
   %21 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 2, i32 noundef 8, ptr noundef nonnull %20) #11
-  store i32 0, ptr %19, align 4
+  store i32 0, ptr %19, align 8
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 52
   store i32 2, ptr %22, align 4
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 56

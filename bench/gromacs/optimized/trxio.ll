@@ -3419,7 +3419,7 @@ define noundef i32 @_Z12read_first_xPK16gmx_output_env_tPP11t_trxstatusRKNSt10fi
   %23 = load float, ptr %22, align 4, !tbaa !66
   store float %23, ptr %5, align 4, !tbaa !66
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 120
-  %25 = load float, ptr %24, align 4, !tbaa !66
+  %25 = load float, ptr %24, align 8, !tbaa !66
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float %25, ptr %26, align 4, !tbaa !66
   %27 = getelementptr inbounds nuw i8, ptr %17, i64 124
@@ -3428,14 +3428,14 @@ define noundef i32 @_Z12read_first_xPK16gmx_output_env_tPP11t_trxstatusRKNSt10fi
   store float %28, ptr %29, align 4, !tbaa !66
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 128
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %32 = load float, ptr %30, align 4, !tbaa !66
+  %32 = load float, ptr %30, align 8, !tbaa !66
   store float %32, ptr %31, align 4, !tbaa !66
   %33 = getelementptr inbounds nuw i8, ptr %17, i64 132
   %34 = load float, ptr %33, align 4, !tbaa !66
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store float %34, ptr %35, align 4, !tbaa !66
   %36 = getelementptr inbounds nuw i8, ptr %17, i64 136
-  %37 = load float, ptr %36, align 4, !tbaa !66
+  %37 = load float, ptr %36, align 8, !tbaa !66
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store float %37, ptr %38, align 4, !tbaa !66
   %39 = getelementptr inbounds nuw i8, ptr %17, i64 140
@@ -3443,7 +3443,7 @@ define noundef i32 @_Z12read_first_xPK16gmx_output_env_tPP11t_trxstatusRKNSt10fi
   %41 = load float, ptr %39, align 4, !tbaa !66
   store float %41, ptr %40, align 4, !tbaa !66
   %42 = getelementptr inbounds nuw i8, ptr %17, i64 144
-  %43 = load float, ptr %42, align 4, !tbaa !66
+  %43 = load float, ptr %42, align 8, !tbaa !66
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store float %43, ptr %44, align 4, !tbaa !66
   %45 = getelementptr inbounds nuw i8, ptr %17, i64 148

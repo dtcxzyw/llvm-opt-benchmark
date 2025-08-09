@@ -3129,14 +3129,14 @@ define internal fastcc void @entryGetItem(ptr noundef readonly captures(none) %0
   %148 = zext i16 %145 to i64
   %149 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %146, i64 %148
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %126, ptr noundef nonnull align 2 dereferenceable(6) %149, i64 6, i1 false)
-  %.val8.i = load i16, ptr %126, align 2
+  %.val8.i = load i16, ptr %126, align 8
   %.val9.i = load i16, ptr %128, align 2
   %150 = zext i16 %.val8.i to i64
   %151 = zext i16 %.val9.i to i64
   %152 = shl nuw i64 %150, 48
   %153 = shl nuw nsw i64 %151, 32
   %154 = or disjoint i64 %153, %152
-  %.val5.i = load i16, ptr %129, align 2
+  %.val5.i = load i16, ptr %129, align 4
   %155 = zext i16 %.val5.i to i64
   %156 = or disjoint i64 %154, %155
   %.not89 = icmp ugt i64 %156, %136
@@ -3435,14 +3435,14 @@ entryLoadMoreItems.exit:                          ; preds = %177, %227, %289, %2
   %298 = zext i16 %172 to i64
   %299 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %296, i64 %298
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %109, ptr noundef nonnull align 2 dereferenceable(6) %299, i64 6, i1 false)
-  %.val8.i79 = load i16, ptr %109, align 2
+  %.val8.i79 = load i16, ptr %109, align 8
   %.val9.i80 = load i16, ptr %110, align 2
   %300 = zext i16 %.val8.i79 to i64
   %301 = zext i16 %.val9.i80 to i64
   %302 = shl nuw i64 %300, 48
   %303 = shl nuw nsw i64 %301, 32
   %304 = or disjoint i64 %303, %302
-  %.val5.i81 = load i16, ptr %111, align 2
+  %.val5.i81 = load i16, ptr %111, align 4
   %305 = zext i16 %.val5.i81 to i64
   %306 = or disjoint i64 %304, %305
   %.not90 = icmp ugt i64 %306, %345

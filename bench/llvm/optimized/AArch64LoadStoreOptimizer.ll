@@ -2073,7 +2073,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !tbaa !14, !alias.scope !130, !noalias !133
   store ptr %43, ptr %.0911.i.i.i, align 8, !tbaa !11, !alias.scope !133, !noalias !130
   store i64 0, ptr %52, align 8, !tbaa !14, !alias.scope !133, !noalias !130
-  store i8 0, ptr %43, align 1, !tbaa !13, !alias.scope !133, !noalias !130
+  store i8 0, ptr %43, align 8, !tbaa !13, !alias.scope !133, !noalias !130
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %54, %1
@@ -2121,7 +2121,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !tbaa !14, !alias.scope !137, !noalias !140
   store ptr %59, ptr %.0911.i.i.i19, align 8, !tbaa !11, !alias.scope !140, !noalias !137
   store i64 0, ptr %68, align 8, !tbaa !14, !alias.scope !140, !noalias !137
-  store i8 0, ptr %59, align 1, !tbaa !13, !alias.scope !140, !noalias !137
+  store i8 0, ptr %59, align 8, !tbaa !13, !alias.scope !140, !noalias !137
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %70, %6
@@ -2381,7 +2381,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
   store i64 %52, ptr %53, align 8, !tbaa !14
   store ptr %43, ptr %40, align 8, !tbaa !11
   store i64 0, ptr %51, align 8, !tbaa !14
-  store i8 0, ptr %43, align 1, !tbaa !13
+  store i8 0, ptr %43, align 8, !tbaa !13
   %54 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 64
   %55 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 80
   store ptr %55, ptr %54, align 8, !tbaa !32
@@ -13729,7 +13729,7 @@ _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread.i.i.i: ;
 
 58:                                               ; preds = %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread.i.i.i
   %.val.i.i.i = load ptr, ptr %27, align 8, !tbaa !973
-  %.val59.i.i.i = load i16, ptr %28, align 2, !tbaa !490
+  %.val59.i.i.i = load i16, ptr %28, align 8, !tbaa !490
   %59 = getelementptr i8, ptr %.val.i.i.i, i64 72
   %.val.val.i.i.i = load ptr, ptr %59, align 8, !tbaa !267
   %60 = getelementptr i8, ptr %.val.val.i.i.i, i64 8
@@ -13898,7 +13898,7 @@ _ZN4llvm15concat_iteratorIKtJNS_16MCSubRegIteratorENS_18MCSuperRegIteratorEEEppE
   %134 = load i32, ptr %40, align 4, !tbaa !13
   %135 = call noundef ptr @_ZNK4llvm18TargetRegisterInfo22getMinimalPhysRegClassENS_10MCRegisterENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(308) %133, i32 %134, i16 1) #21
   %.val60.i.i.i = load ptr, ptr %27, align 8, !tbaa !973
-  %.val61.i.i.i = load i16, ptr %28, align 2, !tbaa !490
+  %.val61.i.i.i = load i16, ptr %28, align 8, !tbaa !490
   %136 = getelementptr i8, ptr %.val60.i.i.i, i64 72
   %.val60.val.i.i.i = load ptr, ptr %136, align 8, !tbaa !267
   %137 = getelementptr i8, ptr %.val60.val.i.i.i, i64 8
@@ -14114,7 +14114,7 @@ _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit110.thread.i.i.i
 
 231:                                              ; preds = %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit110.thread.i.i.i
   %.val62.i.i.i = load ptr, ptr %16, align 8, !tbaa !973
-  %.val63.i.i.i = load i16, ptr %17, align 2, !tbaa !490
+  %.val63.i.i.i = load i16, ptr %17, align 8, !tbaa !490
   %232 = getelementptr i8, ptr %.val62.i.i.i, i64 72
   %.val62.val.i.i.i = load ptr, ptr %232, align 8, !tbaa !267
   %233 = getelementptr i8, ptr %.val62.val.i.i.i, i64 8
@@ -14276,7 +14276,7 @@ _ZN4llvm15concat_iteratorIKtJNS_16MCSubRegIteratorENS_18MCSuperRegIteratorEEEppE
   %305 = load i32, ptr %217, align 4, !tbaa !13
   %306 = call noundef ptr @_ZNK4llvm18TargetRegisterInfo22getMinimalPhysRegClassENS_10MCRegisterENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(308) %304, i32 %305, i16 1) #21
   %.val64.i.i.i = load ptr, ptr %16, align 8, !tbaa !973
-  %.val65.i.i.i = load i16, ptr %17, align 2, !tbaa !490
+  %.val65.i.i.i = load i16, ptr %17, align 8, !tbaa !490
   %307 = getelementptr i8, ptr %.val64.i.i.i, i64 72
   %.val64.val.i.i.i = load ptr, ptr %307, align 8, !tbaa !267
   %308 = getelementptr i8, ptr %.val64.val.i.i.i, i64 8

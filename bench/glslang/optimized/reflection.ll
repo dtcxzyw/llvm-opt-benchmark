@@ -2444,10 +2444,10 @@ define void @_ZN7glslang17TObjectReflectionC2ERKNSt7__cxx1112basic_stringIcSt11c
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
-  %28 = load i32, ptr %27, align 4
+  %28 = load i32, ptr %27, align 8
   %29 = and i32 %28, -2147483648
   %30 = or disjoint i32 %29, 520093696
-  store i32 %30, ptr %27, align 4
+  store i32 %30, ptr %27, align 8
   %31 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %33 = load i64, ptr %32, align 8
@@ -15497,10 +15497,10 @@ _ZNSt3mapIPN7glslang7TVectorINS0_8TTypeLocEEES4_St4lessIS4_ENS0_14pool_allocator
   %213 = getelementptr inbounds nuw i8, ptr %206, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %211, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %212, i8 0, i64 16, i1 false)
-  %214 = load i32, ptr %213, align 4
+  %214 = load i32, ptr %213, align 8
   %215 = and i32 %214, -2147483648
   %216 = or disjoint i32 %215, 520093696
-  store i32 %216, ptr %213, align 4
+  store i32 %216, ptr %213, align 8
   %217 = getelementptr inbounds nuw i8, ptr %206, i64 16
   %218 = getelementptr inbounds nuw i8, ptr %206, i64 24
   %219 = load i64, ptr %218, align 8

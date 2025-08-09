@@ -146,7 +146,7 @@ define hidden i32 @expand_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %87 = load i32, ptr %86, align 8
   %..i = tail call i32 @llvm.umin.i32(i32 %87, i32 %85)
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 312
-  %89 = load i32, ptr %88, align 4
+  %89 = load i32, ptr %88, align 8
   %90 = zext i32 %89 to i64
   %91 = getelementptr inbounds nuw i8, ptr %7, i64 %90
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 %84
@@ -449,7 +449,7 @@ define hidden i32 @expand_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %290 = getelementptr inbounds nuw i8, ptr %2, i64 %278
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %289, ptr nonnull align 1 %290, i64 %279, i1 false)
   %291 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %292 = load i32, ptr %291, align 4
+  %292 = load i32, ptr %291, align 8
   %293 = zext i32 %292 to i64
   %294 = getelementptr inbounds nuw i8, ptr %7, i64 %293
   %295 = getelementptr inbounds nuw i8, ptr %2, i64 %280
@@ -1996,7 +1996,7 @@ define hidden i64 @compress_stream(ptr noundef writeonly initializes((0, 9)) %0,
   %9 = load i64, ptr %8, align 8
   store i64 %9, ptr %0, align 1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load i8, ptr %7, align 1
+  %11 = load i8, ptr %7, align 8
   store i8 %11, ptr %10, align 1
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -2179,7 +2179,7 @@ mmbit_compsize.exit418.thread.i:                  ; preds = %18
   %104 = load i32, ptr %103, align 8
   %..i = tail call i32 @llvm.umin.i32(i32 %104, i32 %102)
   %105 = getelementptr inbounds nuw i8, ptr %2, i64 312
-  %106 = load i32, ptr %105, align 4
+  %106 = load i32, ptr %105, align 8
   %107 = zext i32 %106 to i64
   %108 = getelementptr inbounds nuw i8, ptr %7, i64 %107
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 %100
@@ -2593,7 +2593,7 @@ mmbit_compsize.exit384.thread.i:                  ; preds = %206
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %330, ptr nonnull readonly align 1 %335, i64 %333, i1 false)
   %336 = add i64 %326, %333
   %337 = getelementptr inbounds nuw i8, ptr %2, i64 288
-  %338 = load i32, ptr %337, align 4
+  %338 = load i32, ptr %337, align 8
   %339 = zext i32 %338 to i64
   %340 = getelementptr inbounds nuw i8, ptr %7, i64 %339
   %341 = getelementptr inbounds nuw i8, ptr %0, i64 %336
@@ -5375,7 +5375,7 @@ mmbit_compsize.exit.i:                            ; preds = %50, %13, %9
   %62 = load i32, ptr %61, align 8
   %..i = tail call i32 @llvm.umin.i32(i32 %62, i32 %60)
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %64 = load i32, ptr %63, align 4
+  %64 = load i32, ptr %63, align 8
   %65 = zext i32 %64 to i64
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 148

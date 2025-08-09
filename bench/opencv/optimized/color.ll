@@ -281,19 +281,19 @@ define hidden void @_ZN2cv3ccm5ColorC2Ev(ptr noundef nonnull align 8 dereference
   store ptr %10, ptr %9, align 8, !tbaa !14, !noalias !10
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 0, ptr %11, align 8, !tbaa !18, !noalias !10
-  store i8 0, ptr %10, align 1, !tbaa !21, !noalias !10
+  store i8 0, ptr %10, align 8, !tbaa !21, !noalias !10
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store ptr %13, ptr %12, align 8, !tbaa !14, !noalias !10
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i64 0, ptr %14, align 8, !tbaa !18, !noalias !10
-  store i8 0, ptr %13, align 1, !tbaa !21, !noalias !10
+  store i8 0, ptr %13, align 8, !tbaa !21, !noalias !10
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 112
   store ptr %16, ptr %15, align 8, !tbaa !14, !noalias !10
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 104
   store i64 0, ptr %17, align 8, !tbaa !18, !noalias !10
-  store i8 0, ptr %16, align 1, !tbaa !21, !noalias !10
+  store i8 0, ptr %16, align 8, !tbaa !21, !noalias !10
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 136
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %18, align 8, !tbaa !3, !noalias !10
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 144

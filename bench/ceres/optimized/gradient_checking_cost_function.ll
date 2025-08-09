@@ -1208,7 +1208,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %18
   store i64 %25, ptr %26, align 8, !tbaa !19
   store ptr %16, ptr %5, align 8, !tbaa !23
   store i64 0, ptr %24, align 8, !tbaa !19
-  store i8 0, ptr %16, align 1, !tbaa !20
+  store i8 0, ptr %16, align 8, !tbaa !20
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %6, ptr %27, align 8, !tbaa !181
   %.not = icmp eq ptr %6, null

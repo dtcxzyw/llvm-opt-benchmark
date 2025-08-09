@@ -2870,7 +2870,7 @@ define void @_ZNK4YAML7Emitter21PrepareIntegralStreamERNSt7__cxx1118basic_string
   %19 = load i32, ptr %18, align 8, !tbaa !69
   %20 = and i32 %19, -75
   %21 = or disjoint i32 %20, %.sink8
-  store i32 %21, ptr %18, align 4, !tbaa !78
+  store i32 %21, ptr %18, align 8, !tbaa !78
   br label %22
 
 22:                                               ; preds = %.sink.split, %2

@@ -398,7 +398,7 @@ define hidden void @_ZN16LogConfiguration10initializeEl(i64 noundef %0) local_un
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %5, i64 noundef 0) #11
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 152
-  store i32 3076, ptr %6, align 4
+  store i32 3076, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 156
   store i8 0, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 157
@@ -417,7 +417,7 @@ define hidden void @_ZN16LogConfiguration10initializeEl(i64 noundef %0) local_un
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   tail call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %14, i64 noundef 0) #11
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 152
-  store i32 3076, ptr %15, align 4
+  store i32 3076, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 156
   store i8 0, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 157

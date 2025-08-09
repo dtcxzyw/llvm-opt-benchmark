@@ -39396,7 +39396,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit: ; preds = %_ZN8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %call6, i64 32
   store i64 %sub, ptr %capacity_.i.i, align 8
   %referenceCount_.i.i = getelementptr inbounds nuw i8, ptr %call6, i64 40
-  store i32 0, ptr %referenceCount_.i.i, align 4
+  store i32 0, ptr %referenceCount_.i.i, align 8
   %podType_.i.i = getelementptr inbounds nuw i8, ptr %call6, i64 44
   store i8 0, ptr %podType_.i.i, align 4
   %padding_.i.i = getelementptr inbounds nuw i8, ptr %call6, i64 48

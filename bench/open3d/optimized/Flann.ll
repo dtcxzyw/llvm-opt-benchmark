@@ -1084,7 +1084,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit140: ; preds = %_Z
   store ptr %101, ptr %100, align 8, !tbaa !21, !noalias !35
   %102 = getelementptr inbounds nuw i8, ptr %94, i64 40
   store i64 0, ptr %102, align 8, !tbaa !28, !noalias !35
-  store i8 0, ptr %101, align 1, !tbaa !27, !noalias !35
+  store i8 0, ptr %101, align 8, !tbaa !27, !noalias !35
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry10PointCloudE, i64 16), ptr %97, align 8, !tbaa !42, !noalias !35
   %103 = getelementptr inbounds nuw i8, ptr %94, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %103, i8 0, i64 96, i1 false), !noalias !35
@@ -3547,7 +3547,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIiSt4pairIKijESaIS2_
   %45 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #34
   store ptr null, ptr %45, align 8, !tbaa !16
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store i32 %43, ptr %46, align 4, !tbaa !134
+  store i32 %43, ptr %46, align 8, !tbaa !134
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %48 = load i32, ptr %44, align 4, !tbaa !66
   store i32 %48, ptr %47, align 4, !tbaa !136
@@ -3712,7 +3712,7 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !16
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !66
+  %16 = load i32, ptr %15, align 8, !tbaa !66
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18

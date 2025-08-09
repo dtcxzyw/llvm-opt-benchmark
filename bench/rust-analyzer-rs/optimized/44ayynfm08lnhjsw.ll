@@ -8545,7 +8545,7 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17h3fba3fa8624cb8abE(ptr noali
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.06, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2314)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2315)
-  %16 = load i32, ptr %15, align 4, !alias.scope !2301, !noalias !2316, !noundef !11
+  %16 = load i32, ptr %15, align 8, !alias.scope !2301, !noalias !2316, !noundef !11
   %17 = zext i32 %16 to i64
   %18 = tail call i64 @llvm.fshl.i64(i64 %14, i64 %14, i64 5)
   %19 = xor i64 %18, %17
@@ -8874,7 +8874,7 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17hd4ab71ae9d7e3d4fE(ptr noali
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !2428
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.0.06, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !2431)
-  %13 = load i32, ptr %12, align 4, !alias.scope !2434, !noalias !2435, !noundef !11
+  %13 = load i32, ptr %12, align 8, !alias.scope !2434, !noalias !2435, !noundef !11
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2437
   store i32 %13, ptr %4, align 4, !noalias !2437
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h9de80228e49dfea7E.llvm.6977743830891006301"(ptr noalias noundef nonnull align 8 dereferenceable(72) %2, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef 4), !noalias !2434
@@ -20416,10 +20416,10 @@ define hidden noundef zeroext i1 @"_ZN68_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$
   %34 = getelementptr inbounds [0 x { ptr, i32, [1 x i32] }], ptr %28, i64 0, i64 %.sroa.01.0.i.i
   %.val.i.i = load ptr, ptr %33, align 8, !alias.scope !5732, !noalias !5737, !nonnull !11, !noundef !11
   %35 = getelementptr i8, ptr %33, i64 8
-  %.val7.i.i = load i32, ptr %35, align 4, !alias.scope !5727, !noalias !5740
+  %.val7.i.i = load i32, ptr %35, align 8, !alias.scope !5727, !noalias !5740
   %.val8.i.i = load ptr, ptr %34, align 8, !alias.scope !5741, !noalias !5742, !nonnull !11, !noundef !11
   %36 = getelementptr i8, ptr %34, i64 8
-  %.val9.i.i = load i32, ptr %36, align 4, !alias.scope !5730, !noalias !5743
+  %.val9.i.i = load i32, ptr %36, align 8, !alias.scope !5730, !noalias !5743
   %37 = icmp ne ptr %.val.i.i, %.val8.i.i
   %38 = icmp ne i32 %.val7.i.i, %.val9.i.i
   %spec.select.i.i.i = select i1 %37, i1 true, i1 %38
@@ -24029,10 +24029,10 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$hir_ty..traits..TraitEnvironment$u2
   %28 = getelementptr inbounds [0 x { ptr, i32, [1 x i32] }], ptr %22, i64 0, i64 %.sroa.01.0.i
   %.val.i = load ptr, ptr %27, align 8, !alias.scope !6714, !noalias !6719, !nonnull !11, !noundef !11
   %29 = getelementptr i8, ptr %27, i64 8
-  %.val7.i = load i32, ptr %29, align 4, !alias.scope !6709, !noalias !6712
+  %.val7.i = load i32, ptr %29, align 8, !alias.scope !6709, !noalias !6712
   %.val8.i = load ptr, ptr %28, align 8, !alias.scope !6719, !noalias !6714, !nonnull !11, !noundef !11
   %30 = getelementptr i8, ptr %28, i64 8
-  %.val9.i = load i32, ptr %30, align 4, !alias.scope !6712, !noalias !6709
+  %.val9.i = load i32, ptr %30, align 8, !alias.scope !6712, !noalias !6709
   %31 = icmp ne ptr %.val.i, %.val8.i
   %32 = icmp ne i32 %.val7.i, %.val9.i
   %spec.select.i.i = select i1 %31, i1 true, i1 %32

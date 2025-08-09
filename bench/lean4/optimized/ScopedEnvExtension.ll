@@ -6982,7 +6982,7 @@ define ptr @l_Lean_SMap_insert___at_Lean_ScopedEnvExtension_ScopedEntries_insert
   %13 = tail call i64 @l_Lean_Name_hash___override(ptr noundef %1) #7
   %14 = tail call ptr @l_Lean_PersistentHashMap_insertAux___at_Lean_ScopedEnvExtension_ScopedEntries_insert___spec__10___rarg(ptr noundef %12, i64 noundef %13, i64 noundef 1, ptr noundef %1, ptr noundef %2)
   store ptr %14, ptr %11, align 8, !tbaa !9
-  store i8 0, ptr %5, align 1, !tbaa !17
+  store i8 0, ptr %5, align 8, !tbaa !17
   br label %738
 
 15:                                               ; preds = %9
@@ -7076,7 +7076,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit350
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 24
   store i64 0, ptr %50, align 8, !tbaa !12
-  store i32 1, ptr %46, align 4, !tbaa !4
+  store i32 1, ptr %46, align 8, !tbaa !4
   store i32 131104, ptr %49, align 4
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %16, ptr %51, align 8, !tbaa !9
@@ -7881,7 +7881,7 @@ lean_alloc_ctor.exit469:                          ; preds = %l_Std_DHashMap_Inte
   %398 = getelementptr inbounds nuw i8, ptr %393, i64 16
   store ptr %392, ptr %398, align 8, !tbaa !9
   store ptr %393, ptr %4, align 8, !tbaa !9
-  store i8 1, ptr %5, align 1, !tbaa !17
+  store i8 1, ptr %5, align 8, !tbaa !17
   br label %738
 
 399:                                              ; preds = %376, %373, %lean_dec.exit340.thread, %lean_dec.exit339
@@ -7903,7 +7903,7 @@ lean_alloc_ctor.exit470:                          ; preds = %399
   %405 = getelementptr inbounds nuw i8, ptr %400, i64 16
   store ptr %.0.i.i457, ptr %405, align 8, !tbaa !9
   store ptr %400, ptr %4, align 8, !tbaa !9
-  store i8 1, ptr %5, align 1, !tbaa !17
+  store i8 1, ptr %5, align 8, !tbaa !17
   br label %738
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_ScopedEnvExtension_ScopedEntries_insert___spec__13___rarg.exit451: ; preds = %286
@@ -8002,7 +8002,7 @@ lean_alloc_ctor.exit483:                          ; preds = %lean_array_uset.exi
   %442 = getelementptr inbounds nuw i8, ptr %437, i64 16
   store ptr %.0.i.i479, ptr %442, align 8, !tbaa !9
   store ptr %437, ptr %4, align 8, !tbaa !9
-  store i8 1, ptr %5, align 1, !tbaa !17
+  store i8 1, ptr %5, align 8, !tbaa !17
   br label %738
 
 443:                                              ; preds = %53
@@ -8548,7 +8548,7 @@ lean_alloc_ctor.exit532:                          ; preds = %662
   %668 = getelementptr inbounds nuw i8, ptr %665, i64 4
   %669 = getelementptr inbounds nuw i8, ptr %665, i64 24
   store i64 1, ptr %669, align 8, !tbaa !12
-  store i32 1, ptr %665, align 4, !tbaa !4
+  store i32 1, ptr %665, align 8, !tbaa !4
   store i32 131104, ptr %668, align 4
   %670 = getelementptr inbounds nuw i8, ptr %665, i64 8
   store ptr %.0306, ptr %670, align 8, !tbaa !9
@@ -8597,7 +8597,7 @@ lean_alloc_ctor.exit535:                          ; preds = %680
   %686 = getelementptr inbounds nuw i8, ptr %683, i64 4
   %687 = getelementptr inbounds nuw i8, ptr %683, i64 24
   store i64 1, ptr %687, align 8, !tbaa !12
-  store i32 1, ptr %683, align 4, !tbaa !4
+  store i32 1, ptr %683, align 8, !tbaa !4
   store i32 131104, ptr %686, align 4
   %688 = getelementptr inbounds nuw i8, ptr %683, i64 8
   store ptr %.0307, ptr %688, align 8, !tbaa !9
@@ -8723,7 +8723,7 @@ lean_alloc_ctor.exit550:                          ; preds = %728
   %734 = getelementptr inbounds nuw i8, ptr %731, i64 4
   %735 = getelementptr inbounds nuw i8, ptr %731, i64 24
   store i64 1, ptr %735, align 8, !tbaa !12
-  store i32 1, ptr %731, align 4, !tbaa !4
+  store i32 1, ptr %731, align 8, !tbaa !4
   store i32 131104, ptr %734, align 4
   %736 = getelementptr inbounds nuw i8, ptr %731, i64 8
   store ptr %.0304, ptr %736, align 8, !tbaa !9
@@ -12509,7 +12509,7 @@ define ptr @l_Lean_SMap_insert___at_Lean_ScopedEnvExtension_ScopedEntries_insert
   %13 = tail call i64 @l_Lean_Name_hash___override(ptr noundef %1) #7
   %14 = tail call ptr @l_Lean_PersistentHashMap_insertAux___at_Lean_ScopedEnvExtension_ScopedEntries_insert___spec__20___rarg(ptr noundef %12, i64 noundef %13, i64 noundef 1, ptr noundef %1, ptr noundef %2)
   store ptr %14, ptr %11, align 8, !tbaa !9
-  store i8 0, ptr %5, align 1, !tbaa !17
+  store i8 0, ptr %5, align 8, !tbaa !17
   br label %738
 
 15:                                               ; preds = %9
@@ -12603,7 +12603,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit350
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 24
   store i64 0, ptr %50, align 8, !tbaa !12
-  store i32 1, ptr %46, align 4, !tbaa !4
+  store i32 1, ptr %46, align 8, !tbaa !4
   store i32 131104, ptr %49, align 4
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %16, ptr %51, align 8, !tbaa !9
@@ -13408,7 +13408,7 @@ lean_alloc_ctor.exit469:                          ; preds = %l_Std_DHashMap_Inte
   %398 = getelementptr inbounds nuw i8, ptr %393, i64 16
   store ptr %392, ptr %398, align 8, !tbaa !9
   store ptr %393, ptr %4, align 8, !tbaa !9
-  store i8 1, ptr %5, align 1, !tbaa !17
+  store i8 1, ptr %5, align 8, !tbaa !17
   br label %738
 
 399:                                              ; preds = %376, %373, %lean_dec.exit340.thread, %lean_dec.exit339
@@ -13430,7 +13430,7 @@ lean_alloc_ctor.exit470:                          ; preds = %399
   %405 = getelementptr inbounds nuw i8, ptr %400, i64 16
   store ptr %.0.i.i457, ptr %405, align 8, !tbaa !9
   store ptr %400, ptr %4, align 8, !tbaa !9
-  store i8 1, ptr %5, align 1, !tbaa !17
+  store i8 1, ptr %5, align 8, !tbaa !17
   br label %738
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_ScopedEnvExtension_ScopedEntries_insert___spec__23___rarg.exit451: ; preds = %286
@@ -13529,7 +13529,7 @@ lean_alloc_ctor.exit483:                          ; preds = %lean_array_uset.exi
   %442 = getelementptr inbounds nuw i8, ptr %437, i64 16
   store ptr %.0.i.i479, ptr %442, align 8, !tbaa !9
   store ptr %437, ptr %4, align 8, !tbaa !9
-  store i8 1, ptr %5, align 1, !tbaa !17
+  store i8 1, ptr %5, align 8, !tbaa !17
   br label %738
 
 443:                                              ; preds = %53
@@ -14075,7 +14075,7 @@ lean_alloc_ctor.exit532:                          ; preds = %662
   %668 = getelementptr inbounds nuw i8, ptr %665, i64 4
   %669 = getelementptr inbounds nuw i8, ptr %665, i64 24
   store i64 1, ptr %669, align 8, !tbaa !12
-  store i32 1, ptr %665, align 4, !tbaa !4
+  store i32 1, ptr %665, align 8, !tbaa !4
   store i32 131104, ptr %668, align 4
   %670 = getelementptr inbounds nuw i8, ptr %665, i64 8
   store ptr %.0306, ptr %670, align 8, !tbaa !9
@@ -14124,7 +14124,7 @@ lean_alloc_ctor.exit535:                          ; preds = %680
   %686 = getelementptr inbounds nuw i8, ptr %683, i64 4
   %687 = getelementptr inbounds nuw i8, ptr %683, i64 24
   store i64 1, ptr %687, align 8, !tbaa !12
-  store i32 1, ptr %683, align 4, !tbaa !4
+  store i32 1, ptr %683, align 8, !tbaa !4
   store i32 131104, ptr %686, align 4
   %688 = getelementptr inbounds nuw i8, ptr %683, i64 8
   store ptr %.0307, ptr %688, align 8, !tbaa !9
@@ -14250,7 +14250,7 @@ lean_alloc_ctor.exit550:                          ; preds = %728
   %734 = getelementptr inbounds nuw i8, ptr %731, i64 4
   %735 = getelementptr inbounds nuw i8, ptr %731, i64 24
   store i64 1, ptr %735, align 8, !tbaa !12
-  store i32 1, ptr %731, align 4, !tbaa !4
+  store i32 1, ptr %731, align 8, !tbaa !4
   store i32 131104, ptr %734, align 4
   %736 = getelementptr inbounds nuw i8, ptr %731, i64 8
   store ptr %.0304, ptr %736, align 8, !tbaa !9
@@ -22821,7 +22821,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_alloc_closure.
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 72
   store i64 2, ptr %63, align 8, !tbaa !12
-  store i32 1, ptr %59, align 4, !tbaa !4
+  store i32 1, ptr %59, align 8, !tbaa !4
   store i32 524368, ptr %62, align 4
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store ptr %4, ptr %64, align 8, !tbaa !9
@@ -40156,7 +40156,7 @@ _init_l_Lean_ScopedEnvExtension_instInhabitedScopedEntries___closed__6.exit: ; p
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 24
   store i64 1, ptr %61, align 8, !tbaa !12
-  store i32 1, ptr %57, align 4, !tbaa !4
+  store i32 1, ptr %57, align 8, !tbaa !4
   store i32 131104, ptr %60, align 4
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %55, ptr %62, align 8, !tbaa !9
@@ -40631,7 +40631,7 @@ _init_l_Lean_instInhabitedScopedEnvExtension___rarg___closed__1.exit: ; preds = 
   %253 = getelementptr inbounds nuw i8, ptr %250, i64 4
   %254 = getelementptr inbounds nuw i8, ptr %250, i64 32
   store i64 0, ptr %254, align 8, !tbaa !12
-  store i32 1, ptr %250, align 4, !tbaa !4
+  store i32 1, ptr %250, align 8, !tbaa !4
   store i32 196648, ptr %253, align 4
   %255 = getelementptr inbounds nuw i8, ptr %250, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %255, align 8, !tbaa !9
@@ -40754,7 +40754,7 @@ _init_l_Lean_instInhabitedScopedEnvExtension___rarg___closed__5.exit: ; preds = 
   %.val27 = load ptr, ptr %300, align 8, !tbaa !9
   store ptr %.val27, ptr @l_Lean_scopedEnvExtensionsRef, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %.val27) #7
-  %301 = load i32, ptr %296, align 4, !tbaa !4
+  %301 = load i32, ptr %296, align 8, !tbaa !4
   %302 = icmp sgt i32 %301, 1
   br i1 %302, label %303, label %305, !prof !11
 

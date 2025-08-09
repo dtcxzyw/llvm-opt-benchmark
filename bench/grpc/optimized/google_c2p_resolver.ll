@@ -3832,7 +3832,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i: ; p
   store i64 %18, ptr %20, align 8, !tbaa !27
   store ptr %10, ptr %7, align 8, !tbaa !38
   store i64 0, ptr %19, align 8, !tbaa !27
-  store i8 0, ptr %10, align 1, !tbaa !123
+  store i8 0, ptr %10, align 8, !tbaa !123
   br label %23
 
 ._crit_edge.i.i.i.i.i.i.i:                        ; preds = %1
@@ -9918,7 +9918,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %23, ptr %26, align 8, !tbaa !27
   store ptr %14, ptr %11, align 8, !tbaa !38
   store i64 0, ptr %25, align 8, !tbaa !27
-  store i8 0, ptr %14, align 1, !tbaa !123
+  store i8 0, ptr %14, align 8, !tbaa !123
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %27, i8 0, i64 56, i1 false)
   store ptr %8, ptr %24, align 8, !tbaa !271

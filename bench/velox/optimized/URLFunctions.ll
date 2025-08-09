@@ -12705,7 +12705,7 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
   %length69 = getelementptr inbounds nuw i8, ptr %69, i64 16
   store i32 1, ptr %length69, align 8
   %add.ptr70 = getelementptr inbounds nuw i8, ptr %69, i64 24
-  store i8 %56, ptr %add.ptr70, align 1
+  store i8 %56, ptr %add.ptr70, align 8
   %70 = load ptr, ptr %m_last_state, align 8
   %71 = load ptr, ptr %this, align 8
   %start.i.i43 = getelementptr inbounds nuw i8, ptr %71, i64 352

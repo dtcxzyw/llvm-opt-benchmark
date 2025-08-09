@@ -4381,7 +4381,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !tbaa !55, !alias.scope !178, !noalias !181
   store ptr %43, ptr %.0911.i.i.i, align 8, !tbaa !52, !alias.scope !181, !noalias !178
   store i64 0, ptr %52, align 8, !tbaa !55, !alias.scope !181, !noalias !178
-  store i8 0, ptr %43, align 1, !tbaa !56, !alias.scope !181, !noalias !178
+  store i8 0, ptr %43, align 8, !tbaa !56, !alias.scope !181, !noalias !178
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %54, %1
@@ -4429,7 +4429,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !tbaa !55, !alias.scope !185, !noalias !188
   store ptr %59, ptr %.0911.i.i.i19, align 8, !tbaa !52, !alias.scope !188, !noalias !185
   store i64 0, ptr %68, align 8, !tbaa !55, !alias.scope !188, !noalias !185
-  store i8 0, ptr %59, align 1, !tbaa !56, !alias.scope !188, !noalias !185
+  store i8 0, ptr %59, align 8, !tbaa !56, !alias.scope !188, !noalias !185
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %70, %6
@@ -5278,7 +5278,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_13C
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.014, i64 32
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %21 = load i32, ptr %19, align 4, !tbaa !128
+  %21 = load i32, ptr %19, align 8, !tbaa !128
   store ptr %.sroa.01.0.copyload, ptr %3, align 8, !tbaa !38
   store i64 %.sroa.22.0.copyload, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !tbaa !39
   store ptr %.sroa.0.0.copyload, ptr %9, align 8, !tbaa !38
@@ -6043,7 +6043,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %22, ptr %23, align 8, !tbaa !55
   store ptr %13, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !52
   store i64 0, ptr %21, align 8, !tbaa !55
-  store i8 0, ptr %13, align 1, !tbaa !56
+  store i8 0, ptr %13, align 8, !tbaa !56
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq ptr %24, %10

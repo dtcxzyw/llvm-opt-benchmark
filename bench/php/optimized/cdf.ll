@@ -2425,7 +2425,7 @@ define hidden i32 @cdf_print_classid(ptr noundef %0, i64 noundef %1, ptr noundef
   %21 = load i8, ptr %20, align 1, !tbaa !44
   %22 = zext i8 %21 to i32
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %24 = load i8, ptr %23, align 2, !tbaa !44
+  %24 = load i8, ptr %23, align 4, !tbaa !44
   %25 = zext i8 %24 to i32
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 13
   %27 = load i8, ptr %26, align 1, !tbaa !44

@@ -293,7 +293,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %52, ptr %.08.i.i.i.i.i, align 8, !tbaa !35
   %53 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 8
   store i64 0, ptr %53, align 8, !tbaa !12
-  store i8 0, ptr %52, align 1, !tbaa !13
+  store i8 0, ptr %52, align 8, !tbaa !13
   %54 = add i64 %.057.i.i.i.i.i, -1
   %55 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i125 = icmp eq i64 %54, 0

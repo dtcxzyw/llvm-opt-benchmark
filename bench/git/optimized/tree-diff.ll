@@ -852,7 +852,7 @@ strbuf_setlen.exit:                               ; preds = %43, %45
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %56 = load i32, ptr %55, align 4, !tbaa !114
   %57 = getelementptr inbounds nuw i8, ptr %51, i64 40
-  store i32 %56, ptr %57, align 4, !tbaa !114
+  store i32 %56, ptr %57, align 8, !tbaa !114
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %exitcond136.not = icmp eq i64 %indvars.iv.next133, %wide.trip.count135
   br i1 %exitcond136.not, label %._crit_edge, label %.thread.us, !llvm.loop !115

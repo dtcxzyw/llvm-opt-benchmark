@@ -10652,7 +10652,7 @@ _ZNK4entt9meta_type4baseEv.exit139:               ; preds = %_ZNKSt14default_del
   %203 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %204 = load ptr, ptr %203, align 8, !tbaa !31, !noalias !242
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !242
-  %205 = load i32, ptr %192, align 4, !tbaa !47, !noalias !242
+  %205 = load i32, ptr %192, align 8, !tbaa !47, !noalias !242
   store i32 %205, ptr %18, align 8, !tbaa !249, !alias.scope !239
   %206 = getelementptr inbounds nuw i8, ptr %18, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %206, ptr noundef nonnull align 4 dereferenceable(96) %.sroa.4.8..sroa_idx.i, i64 96, i1 false)
@@ -62217,7 +62217,7 @@ _ZN4entt7type_idIiEERKNS_9type_infoEv.exit:       ; preds = %3, %8, %10
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15, align 8, !tbaa !4, !noalias !1132
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = load i32, ptr %2, align 4, !tbaa !47, !noalias !1132
-  store i32 %19, ptr %18, align 4, !tbaa !47, !noalias !1132
+  store i32 %19, ptr %18, align 8, !tbaa !47, !noalias !1132
   store ptr %18, ptr %13, align 8, !tbaa !110
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %14, align 8, !tbaa !31
@@ -70109,7 +70109,7 @@ _ZN4entt7type_idIcEERKNS_9type_infoEv.exit:       ; preds = %3, %8, %10
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIcSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15, align 8, !tbaa !4, !noalias !1281
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = load i8, ptr %2, align 1, !tbaa !46, !noalias !1281
-  store i8 %19, ptr %18, align 1, !tbaa !46, !noalias !1281
+  store i8 %19, ptr %18, align 8, !tbaa !46, !noalias !1281
   store ptr %18, ptr %13, align 8, !tbaa !110
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %14, align 8, !tbaa !31
@@ -77312,7 +77312,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %8, ptr %7, align 8, !tbaa !1411
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %9, align 8, !tbaa !55
-  store i8 0, ptr %8, align 1, !tbaa !46
+  store i8 0, ptr %8, align 8, !tbaa !46
   store ptr %7, ptr %4, align 8, !tbaa !58
   br label %10
 
@@ -78775,7 +78775,7 @@ _ZNK4entt9meta_type4baseEv.exit:                  ; preds = %13, %_ZN4entt8inter
   %57 = load ptr, ptr %42, align 8, !tbaa !111, !noalias !1457
   %58 = load ptr, ptr %43, align 8, !tbaa !31, !noalias !1457
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1457
-  %59 = load i32, ptr %.sroa.051.072, align 4, !tbaa !47, !noalias !1457
+  %59 = load i32, ptr %.sroa.051.072, align 8, !tbaa !47, !noalias !1457
   store i32 %59, ptr %9, align 8, !tbaa !249, !alias.scope !1457
   store i32 %54, ptr %44, align 8, !tbaa !109, !alias.scope !1457
   store ptr %55, ptr %45, align 8, !tbaa !110, !alias.scope !1457
@@ -83144,7 +83144,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIiSt4pairIKiiESaIS2_
   %45 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #29
   store ptr null, ptr %45, align 8, !tbaa !838
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store i32 %43, ptr %46, align 4, !tbaa !726
+  store i32 %43, ptr %46, align 8, !tbaa !726
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %48 = load i32, ptr %44, align 4, !tbaa !47
   store i32 %48, ptr %47, align 4, !tbaa !728
@@ -83309,7 +83309,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !838
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !47
+  %16 = load i32, ptr %15, align 8, !tbaa !47
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -84133,7 +84133,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   store ptr null, ptr %.sink12.i, align 8, !tbaa !838
   %28 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 8
   %29 = load i64, ptr %21, align 4
-  store i64 %29, ptr %28, align 4
+  store i64 %29, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sink12.i, ptr %30, align 8, !tbaa !831
   %31 = load ptr, ptr %0, align 8, !tbaa !840
@@ -84170,7 +84170,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   store ptr null, ptr %.sink12.i34, align 8, !tbaa !838
   %44 = getelementptr inbounds nuw i8, ptr %.sink12.i34, i64 8
   %45 = load i64, ptr %37, align 4
-  store i64 %45, ptr %44, align 4
+  store i64 %45, ptr %44, align 8
   store ptr %.sink12.i34, ptr %.02639, align 8, !tbaa !838
   %46 = load i64, ptr %32, align 8, !tbaa !841
   %sext41 = shl i64 %45, 32
@@ -84308,7 +84308,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   store ptr null, ptr %22, align 8, !tbaa !838
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %26 = load i64, ptr %24, align 4
-  store i64 %26, ptr %25, align 4
+  store i64 %26, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %27, align 8, !tbaa !831
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -84333,7 +84333,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   store ptr null, ptr %33, align 8, !tbaa !838
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %37 = load i64, ptr %35, align 4
-  store i64 %37, ptr %36, align 4
+  store i64 %37, ptr %36, align 8
   store ptr %33, ptr %.02636, align 8, !tbaa !838
   %sext38 = shl i64 %37, 32
   %38 = ashr exact i64 %sext38, 32
@@ -92031,7 +92031,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIiSt4pairIKiiESaIS2_
   store ptr null, ptr %4, align 8, !tbaa !838
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %1, align 4, !tbaa !47
-  store i32 %6, ptr %5, align 4, !tbaa !726
+  store i32 %6, ptr %5, align 8, !tbaa !726
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %8 = load i32, ptr %2, align 4, !tbaa !47
   store i32 %8, ptr %7, align 4, !tbaa !728

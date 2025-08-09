@@ -1679,7 +1679,7 @@ _ZNKSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_
   %44 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #35
   store ptr null, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store i32 %43, ptr %45, align 4
+  store i32 %43, ptr %45, align 8
   %46 = invoke ptr @_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIiLb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %41, i64 noundef %42, ptr noundef nonnull %44, i64 noundef 1)
           to label %_ZNKSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIiEEPNS1_10_Hash_nodeIiLb0EEEmRKT_m.exit unwind label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit17
 
@@ -1850,7 +1850,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4
+  %16 = load i32, ptr %15, align 8
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds ptr, ptr %.0.i, i64 %18
@@ -2065,7 +2065,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 32
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 80
-  %47 = load i32, ptr %46, align 4
+  %47 = load i32, ptr %46, align 8
   br label %48
 
 48:                                               ; preds = %_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit, %13, %43
@@ -2208,7 +2208,7 @@ _ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE12CoordStorageEC2ERKS4_.exit:
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %60 = load i32, ptr %59, align 4
+  %60 = load i32, ptr %59, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %58, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %60, 1
@@ -4036,7 +4036,7 @@ _ZN5Eigen12SparseMatrixIdLi1EiE7reserveINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvR
   %.sroa.0.027 = phi ptr [ %52, %.lr.ph28 ], [ %76, %56 ]
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.0.027, i64 8
   %58 = load double, ptr %57, align 8
-  %59 = load i32, ptr %.sroa.0.027, align 4
+  %59 = load i32, ptr %.sroa.0.027, align 8
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.0.027, i64 4
   %62 = load i32, ptr %61, align 4
@@ -6710,7 +6710,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 32
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 80
-  %47 = load i32, ptr %46, align 4
+  %47 = load i32, ptr %46, align 8
   br label %48
 
 48:                                               ; preds = %_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit, %13, %43
@@ -6853,7 +6853,7 @@ _ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE15TexCoordStorageEC2ERKS4_.ex
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %60 = load i32, ptr %59, align 4
+  %60 = load i32, ptr %59, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %58, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %60, 1
@@ -27211,7 +27211,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %83, %80
   %90 = getelementptr inbounds %"struct.Eigen::internal::GemmParallelInfo", ptr %88, i64 %.06.i.i
   store i64 -1, ptr %90, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  store i32 0, ptr %91, align 4
+  store i32 0, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %92, i8 0, i64 16, i1 false)
   %93 = add nuw i64 %.06.i.i, 1

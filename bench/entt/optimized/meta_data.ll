@@ -87617,7 +87617,7 @@ _ZN4entt7type_idIiEERKNS_9type_infoEv.exit:       ; preds = %3, %8, %10
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15, align 8, !tbaa !16, !noalias !1664
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = load i32, ptr %2, align 4, !tbaa !65, !noalias !1664
-  store i32 %19, ptr %18, align 4, !tbaa !65, !noalias !1664
+  store i32 %19, ptr %18, align 8, !tbaa !65, !noalias !1664
   store ptr %18, ptr %13, align 8, !tbaa !76
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %14, align 8, !tbaa !61
@@ -96519,7 +96519,7 @@ _ZN4entt7type_idIcEERKNS_9type_infoEv.exit:       ; preds = %3, %8, %10
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIcSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15, align 8, !tbaa !16, !noalias !1859
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = load i8, ptr %2, align 1, !tbaa !14, !noalias !1859
-  store i8 %19, ptr %18, align 1, !tbaa !14, !noalias !1859
+  store i8 %19, ptr %18, align 8, !tbaa !14, !noalias !1859
   store ptr %18, ptr %13, align 8, !tbaa !76
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %14, align 8, !tbaa !61
@@ -116716,7 +116716,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %9, align 8, !tbaa !15
-  store i8 0, ptr %8, align 1, !tbaa !14
+  store i8 0, ptr %8, align 8, !tbaa !14
   store ptr %7, ptr %4, align 8, !tbaa !54
   br label %10
 
@@ -117589,7 +117589,7 @@ _ZZN4entt8internal7resolveINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   store ptr %13, ptr %12, align 8, !tbaa !4, !noalias !2236
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 0, ptr %14, align 8, !tbaa !15, !noalias !2236
-  store i8 0, ptr %13, align 1, !tbaa !14, !noalias !2236
+  store i8 0, ptr %13, align 8, !tbaa !14, !noalias !2236
   store ptr %12, ptr %0, align 8, !tbaa !14, !alias.scope !2236
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %15, align 8, !tbaa !96, !alias.scope !2236

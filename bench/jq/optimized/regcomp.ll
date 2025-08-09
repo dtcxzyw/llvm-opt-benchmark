@@ -12801,7 +12801,7 @@ define internal fastcc range(i32 -6, 1) i32 @optimize_nodes(ptr noundef captures
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(276) %11, i8 0, i64 276, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(41) %1, i8 0, i64 41, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val.i = load i32, ptr %2, align 4, !tbaa !54
+  %.val.i = load i32, ptr %2, align 8, !tbaa !54
   %13 = getelementptr i8, ptr %2, i64 4
   %.val6.i = load i32, ptr %13, align 4, !tbaa !53
   store i32 %.val.i, ptr %12, align 4, !tbaa !54
@@ -12810,7 +12810,7 @@ define internal fastcc range(i32 -6, 1) i32 @optimize_nodes(ptr noundef captures
   store i32 %.val.i, ptr %10, align 4, !tbaa !54
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 116
   store i32 %.val6.i, ptr %15, align 4, !tbaa !53
-  %.val9.i = load i32, ptr %2, align 4, !tbaa !54
+  %.val9.i = load i32, ptr %2, align 8, !tbaa !54
   %.val10.i = load i32, ptr %13, align 4, !tbaa !53
   store i32 %.val9.i, ptr %11, align 4, !tbaa !54
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 164

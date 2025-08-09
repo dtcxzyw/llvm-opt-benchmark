@@ -169,7 +169,7 @@ define void @_ZN19OpenColorIO_v2_5dev21LegacyViewingPipeline6CreateEv(ptr dead_o
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(82) %4, i8 0, i64 82, i1 false)
   store ptr %6, ptr %5, align 8, !tbaa !6
-  store i8 0, ptr %6, align 1, !tbaa !11
+  store i8 0, ptr %6, align 8, !tbaa !11
   store ptr %2, ptr %0, align 8, !tbaa !12
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %7, align 8, !tbaa !17

@@ -9592,7 +9592,7 @@ define internal fastcc void @add_preferred_base(ptr noundef %0) unnamed_addr #0 
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %18 = load i32, ptr %17, align 4, !tbaa !171
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  store i32 %18, ptr %19, align 4, !tbaa !171
+  store i32 %18, ptr %19, align 8, !tbaa !171
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 56
   store ptr %9, ptr %20, align 8, !tbaa !151
   %21 = load i64, ptr %2, align 8, !tbaa !28

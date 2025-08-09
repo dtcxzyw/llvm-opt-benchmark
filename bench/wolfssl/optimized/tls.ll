@@ -70,7 +70,7 @@ define range(i32 -320, 1) i32 @BuildTlsHandshakeHash(ptr noundef %0, ptr noundef
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 576
   %27 = tail call i32 @wc_Sha256GetHash(ptr noundef nonnull %26, ptr noundef nonnull %1) #17
   %28 = or i32 %27, %19
-  %.pr = load i8, ptr %22, align 2, !tbaa !44
+  %.pr = load i8, ptr %22, align 4, !tbaa !44
   br label %29
 
 29:                                               ; preds = %21, %24
@@ -140,7 +140,7 @@ select.unfold:                                    ; preds = %11, %8
   %17 = load i32, ptr %4, align 4, !tbaa !3
   %18 = call i32 @IsAtLeastTLSv1_2(ptr noundef %0) #17
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 724
-  %20 = load i8, ptr %19, align 2, !tbaa !44
+  %20 = load i8, ptr %19, align 4, !tbaa !44
   %21 = zext i8 %20 to i32
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %23 = load ptr, ptr %22, align 16, !tbaa !46
@@ -547,7 +547,7 @@ define i32 @DeriveTlsKeys(ptr noundef %0) local_unnamed_addr #0 {
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 28
   %21 = tail call i32 @IsAtLeastTLSv1_2(ptr noundef %0) #17
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 724
-  %23 = load i8, ptr %22, align 2, !tbaa !44
+  %23 = load i8, ptr %22, align 4, !tbaa !44
   %24 = zext i8 %23 to i32
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %26 = load ptr, ptr %25, align 16, !tbaa !46
@@ -625,7 +625,7 @@ define i32 @MakeTlsMasterSecret(ptr noundef %0) local_unnamed_addr #0 {
   %20 = load i32, ptr %5, align 4, !tbaa !3
   %21 = call i32 @IsAtLeastTLSv1_2(ptr noundef nonnull %0) #17
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 724
-  %23 = load i8, ptr %22, align 2, !tbaa !44
+  %23 = load i8, ptr %22, align 4, !tbaa !44
   %24 = zext i8 %23 to i32
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %26 = load ptr, ptr %25, align 16, !tbaa !46
@@ -677,7 +677,7 @@ ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.prehe
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 60
   %46 = tail call i32 @IsAtLeastTLSv1_2(ptr noundef nonnull %0) #17
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 724
-  %48 = load i8, ptr %47, align 2, !tbaa !44
+  %48 = load i8, ptr %47, align 4, !tbaa !44
   %49 = zext i8 %48 to i32
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %51 = load ptr, ptr %50, align 16, !tbaa !46
@@ -717,7 +717,7 @@ ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.prehe
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 28
   %76 = call i32 @IsAtLeastTLSv1_2(ptr noundef nonnull %0) #17
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 724
-  %78 = load i8, ptr %77, align 2, !tbaa !44
+  %78 = load i8, ptr %77, align 4, !tbaa !44
   %79 = zext i8 %78 to i32
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %81 = load ptr, ptr %80, align 16, !tbaa !46
@@ -762,7 +762,7 @@ define i32 @wolfSSL_make_eap_keys(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %13 = trunc i64 %12 to i32
   %14 = tail call i32 @IsAtLeastTLSv1_2(ptr noundef %0) #17
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 724
-  %16 = load i8, ptr %15, align 2, !tbaa !44
+  %16 = load i8, ptr %15, align 4, !tbaa !44
   %17 = zext i8 %16 to i32
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %19 = load ptr, ptr %18, align 16, !tbaa !46
@@ -2746,9 +2746,9 @@ TLSX_Find.exit:                                   ; preds = %.lr.ph.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 491
   store i8 0, ptr %31, align 1, !tbaa !120
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 1024
-  %33 = load i64, ptr %32, align 8
+  %33 = load i64, ptr %32, align 16
   %34 = and i64 %33, -33554433
-  store i64 %34, ptr %32, align 8
+  store i64 %34, ptr %32, align 16
   %35 = call fastcc i32 @TLSX_PopulateSupportedGroups(ptr noundef nonnull %0, ptr noundef nonnull %2)
   %36 = icmp eq i32 %35, 1
   br i1 %36, label %.lr.ph.i45, label %tlsx_ffdhe_find_group.exit
@@ -2853,10 +2853,10 @@ TLSX_Find.exit50:                                 ; preds = %.lr.ph.i45
   store i32 %75, ptr %76, align 8, !tbaa !131
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 1082
   store i16 %64, ptr %77, align 2, !tbaa !132
-  %78 = load i64, ptr %32, align 8
+  %78 = load i64, ptr %32, align 16
   %79 = and i64 %78, -1125899940397057
   %80 = or disjoint i64 %79, 33554432
-  store i64 %80, ptr %32, align 8
+  store i64 %80, ptr %32, align 16
   br label %tlsx_ffdhe_find_group.exit
 
 tlsx_ffdhe_find_group.exit:                       ; preds = %.thread55.i, %50, %69, %TLSX_Find.exit50, %30

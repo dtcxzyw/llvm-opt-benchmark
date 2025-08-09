@@ -608,7 +608,7 @@ define hidden noundef zeroext i1 @_ZN20RangeCheckEliminator23set_process_block_f
   %19 = tail call noundef zeroext i1 @_ZN20RangeCheckEliminator23set_process_block_flagsEP10BlockBegin(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %18)
   %20 = or i1 %.121, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %21 = load i32, ptr %11, align 4
+  %21 = load i32, ptr %11, align 8
   %22 = sext i32 %21 to i64
   %23 = icmp slt i64 %indvars.iv.next, %22
   br i1 %23, label %15, label %._crit_edge25, !llvm.loop !8

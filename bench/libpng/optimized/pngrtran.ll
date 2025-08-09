@@ -2067,7 +2067,7 @@ png_init_gamma_values.exit:                       ; preds = %21
   %128 = load i8, ptr %127, align 1, !tbaa !67, !noalias !148
   %129 = zext i8 %128 to i16
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  store i16 %129, ptr %130, align 4, !tbaa !145, !alias.scope !148
+  store i16 %129, ptr %130, align 8, !tbaa !145, !alias.scope !148
   %131 = getelementptr inbounds nuw %struct.png_color_struct, ptr %119, i64 %122, i32 2
   %132 = load i8, ptr %131, align 1, !tbaa !68, !noalias !148
   %133 = zext i8 %132 to i16
@@ -2381,7 +2381,7 @@ png_init_palette_transformations.exit:            ; preds = %png_init_palette_tr
   %299 = getelementptr inbounds nuw i8, ptr %295, i64 %298
   %300 = load i8, ptr %299, align 1, !tbaa !27
   %301 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  %302 = load i16, ptr %301, align 4, !tbaa !145
+  %302 = load i16, ptr %301, align 8, !tbaa !145
   %303 = zext i16 %302 to i64
   %304 = getelementptr inbounds nuw i8, ptr %295, i64 %303
   %305 = load i8, ptr %304, align 1, !tbaa !27
@@ -2732,7 +2732,7 @@ png_init_palette_transformations.exit:            ; preds = %png_init_palette_tr
   %537 = zext i16 %536 to i32
   %538 = call zeroext i16 @png_gamma_correct(ptr noundef nonnull %0, i32 noundef %537, i32 noundef %.0370) #11
   %539 = getelementptr inbounds nuw i8, ptr %0, i64 660
-  store i16 %538, ptr %539, align 2, !tbaa !170
+  store i16 %538, ptr %539, align 4, !tbaa !170
   br label %540
 
 540:                                              ; preds = %527, %526
@@ -2849,7 +2849,7 @@ png_init_palette_transformations.exit:            ; preds = %png_init_palette_tr
   %603 = load i16, ptr %602, align 2, !tbaa !144
   %604 = trunc i16 %603 to i8
   %605 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  %606 = load i16, ptr %605, align 4, !tbaa !145
+  %606 = load i16, ptr %605, align 8, !tbaa !145
   %607 = trunc i16 %606 to i8
   %608 = getelementptr inbounds nuw i8, ptr %0, i64 650
   %609 = load i16, ptr %608, align 2, !tbaa !146

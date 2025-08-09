@@ -214,7 +214,7 @@ _ZN5osgeo4proj12_GLOBAL__N_119InstallSqliteLogger12GetSingletonEv.exit: ; preds 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(208) %20, i8 0, i64 208, i1 false)
   store ptr %25, ptr %24, align 8, !tbaa !19
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 184
-  store i8 0, ptr %25, align 1, !tbaa !14
+  store i8 0, ptr %25, align 8, !tbaa !14
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj12_GLOBAL__N_120pj_sqlite3_customvfsE, i64 16), ptr %20, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %27 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #26

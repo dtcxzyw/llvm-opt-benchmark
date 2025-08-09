@@ -2900,7 +2900,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ipip6_tunnel_create(ptr no
   tail call void @dev_addr_mod(ptr noundef %0, i32 noundef 0, ptr noundef %11, i64 noundef 4) #18
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   %13 = getelementptr i8, ptr %0, i64 2440
-  %14 = load i32, ptr %13, align 4
+  %14 = load i32, ptr %13, align 8
   store i32 %14, ptr %12, align 8
   %15 = getelementptr i8, ptr %0, i64 2412
   %16 = load i16, ptr %15, align 4
@@ -2974,7 +2974,7 @@ define internal fastcc void @ipip6_tunnel_update(ptr noundef %0, ptr noundef %1,
   tail call void @__rcu_read_unlock() #18
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %14 = load i32, ptr %13, align 4
+  %14 = load i32, ptr %13, align 8
   %15 = load i32, ptr %12, align 4
   %16 = icmp eq i32 %14, 0
   %17 = select i1 %16, i64 0, i64 2
@@ -3024,7 +3024,7 @@ define internal fastcc void @ipip6_tunnel_update(ptr noundef %0, ptr noundef %1,
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 1000
   %47 = load i32, ptr %41, align 4
   store i32 %47, ptr %46, align 8
-  %48 = load i32, ptr %13, align 4
+  %48 = load i32, ptr %13, align 8
   %49 = load i32, ptr %12, align 4
   %50 = icmp eq i32 %48, 0
   %51 = select i1 %50, i64 0, i64 2
@@ -4632,9 +4632,9 @@ define internal i32 @sit_init_net(ptr noundef %0) #4 align 16 {
   tail call void @__rcu_read_unlock() #18
   %48 = getelementptr i8, ptr %36, i64 2433
   store i8 41, ptr %48, align 1
-  store i8 69, ptr %39, align 4
+  store i8 69, ptr %39, align 8
   %49 = getelementptr i8, ptr %36, i64 2432
-  store i8 64, ptr %49, align 4
+  store i8 64, ptr %49, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !70
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 384
   store volatile ptr %38, ptr %50, align 8

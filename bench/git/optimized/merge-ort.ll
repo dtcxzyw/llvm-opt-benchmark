@@ -3791,7 +3791,7 @@ _.exit.i.i78:                                     ; preds = %1131, %1122
   %1168 = getelementptr inbounds nuw i8, ptr %1160, i64 32
   %1169 = load i32, ptr %1168, align 4, !tbaa !83
   %1170 = getelementptr inbounds nuw i8, ptr %.0274.i.i, i64 32
-  store i32 %1169, ptr %1170, align 4, !tbaa !83
+  store i32 %1169, ptr %1170, align 8, !tbaa !83
   br label %1478
 
 1171:                                             ; preds = %.thread.i.i80
@@ -3824,9 +3824,9 @@ _.exit.i.i78:                                     ; preds = %1131, %1122
   %1190 = load i8, ptr %1189, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.0274.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %1175, i64 32, i1 false)
   %1191 = getelementptr inbounds nuw i8, ptr %.0274.i.i, i64 96
-  %1192 = load i32, ptr %1191, align 4, !tbaa !83
+  %1192 = load i32, ptr %1191, align 8, !tbaa !83
   %1193 = getelementptr inbounds nuw i8, ptr %.0274.i.i, i64 32
-  store i32 %1192, ptr %1193, align 4, !tbaa !83
+  store i32 %1192, ptr %1193, align 8, !tbaa !83
   %1194 = getelementptr inbounds nuw i8, ptr %.0274.i.i, i64 100
   %1195 = load i16, ptr %1194, align 4, !tbaa !79
   %1196 = getelementptr inbounds nuw i8, ptr %.0274.i.i, i64 36
@@ -3910,7 +3910,7 @@ _.exit338.i.i:                                    ; preds = %1225, %1222
   store i16 %1232, ptr %1233, align 4, !tbaa !164
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %1205, ptr noundef nonnull readonly align 4 dereferenceable(32) %1180, i64 32, i1 false)
   %1234 = getelementptr inbounds nuw i8, ptr %.0274.i.i, i64 176
-  %1235 = load i32, ptr %1234, align 4, !tbaa !83
+  %1235 = load i32, ptr %1234, align 8, !tbaa !83
   %1236 = getelementptr inbounds nuw i8, ptr %1205, i64 32
   store i32 %1235, ptr %1236, align 4, !tbaa !83
   %1237 = getelementptr inbounds nuw i8, ptr %1205, i64 104
@@ -4078,7 +4078,7 @@ record_entry_for_tree.exit340.i.i:                ; preds = %1294, %1287
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.0274.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %8, i64 32, i1 false)
   %1333 = load i32, ptr %958, align 4, !tbaa !83
   %1334 = getelementptr inbounds nuw i8, ptr %.0274.i.i, i64 32
-  store i32 %1333, ptr %1334, align 4, !tbaa !83
+  store i32 %1333, ptr %1334, align 8, !tbaa !83
   br i1 %.not315.i.i, label %.critedge332.i.i, label %1335
 
 1335:                                             ; preds = %1323
@@ -4380,7 +4380,7 @@ _.exit356.i.i:                                    ; preds = %1439, %1437
   %1468 = getelementptr inbounds nuw i8, ptr %1467, i64 32
   %1469 = load i32, ptr %1468, align 4, !tbaa !83
   %1470 = getelementptr inbounds nuw i8, ptr %.0274.i.i, i64 32
-  store i32 %1469, ptr %1470, align 4, !tbaa !83
+  store i32 %1469, ptr %1470, align 8, !tbaa !83
   %1471 = load i16, ptr %1134, align 8
   %1472 = load i8, ptr %1463, align 8
   %1473 = trunc i16 %1471 to i8
@@ -5075,7 +5075,7 @@ traverse_path_len.exit:                           ; preds = %65
   %98 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %99 = load i32, ptr %98, align 4, !tbaa !83
   %100 = getelementptr inbounds nuw i8, ptr %87, i64 32
-  store i32 %99, ptr %100, align 4, !tbaa !83
+  store i32 %99, ptr %100, align 8, !tbaa !83
   %101 = trunc i64 %1 to i8
   %102 = and i8 %101, 1
   %103 = and i8 %93, -2
@@ -5116,7 +5116,7 @@ traverse_path_len.exit:                           ; preds = %65
   %126 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %127 = load i32, ptr %126, align 4, !tbaa !83
   %128 = getelementptr inbounds nuw i8, ptr %115, i64 32
-  store i32 %127, ptr %128, align 4, !tbaa !83
+  store i32 %127, ptr %128, align 8, !tbaa !83
   %129 = zext i1 %.not206 to i8
   %130 = and i8 %121, -2
   %131 = or disjoint i8 %130, %129
@@ -5154,7 +5154,7 @@ traverse_path_len.exit:                           ; preds = %65
   %151 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %152 = load i32, ptr %151, align 4, !tbaa !83
   %153 = getelementptr inbounds nuw i8, ptr %140, i64 32
-  store i32 %152, ptr %153, align 4, !tbaa !83
+  store i32 %152, ptr %153, align 8, !tbaa !83
   %154 = zext i1 %.not207 to i8
   %155 = and i8 %146, -2
   %156 = or disjoint i8 %155, %154
@@ -5192,7 +5192,7 @@ traverse_path_len.exit:                           ; preds = %65
   %176 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %177 = load i32, ptr %176, align 4, !tbaa !83
   %178 = getelementptr inbounds nuw i8, ptr %165, i64 32
-  store i32 %177, ptr %178, align 4, !tbaa !83
+  store i32 %177, ptr %178, align 8, !tbaa !83
   %179 = zext i1 %.not206 to i8
   %180 = and i8 %171, -2
   %181 = or disjoint i8 %180, %179
@@ -6846,7 +6846,7 @@ check_for_directory_rename.exit:                  ; preds = %strmap_empty.exit.i
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 32
   %208 = load i32, ptr %207, align 4, !tbaa !83
   %209 = getelementptr inbounds nuw i8, ptr %200, i64 136
-  store i32 %208, ptr %209, align 4, !tbaa !83
+  store i32 %208, ptr %209, align 8, !tbaa !83
   %210 = load i16, ptr %192, align 8
   %211 = and i16 %210, -29
   store i16 %211, ptr %192, align 8
@@ -8213,7 +8213,7 @@ create_ce_mode.exit:                              ; preds = %22, %29, %31, %31, 
   %39 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %40 = load i32, ptr %39, align 4, !tbaa !83
   %41 = getelementptr inbounds nuw i8, ptr %23, i64 104
-  store i32 %40, ptr %41, align 4, !tbaa !83
+  store i32 %40, ptr %41, align 8, !tbaa !83
   %42 = getelementptr inbounds nuw i8, ptr %23, i64 108
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %42, ptr noundef nonnull align 1 dereferenceable(14) @.str.88, i64 14, i1 false)
   %43 = tail call i32 @add_index_entry(ptr noundef nonnull %4, ptr noundef %23, i32 noundef 3) #19
@@ -8274,7 +8274,7 @@ create_ce_mode.exit53:                            ; preds = %53, %61, %63, %63, 
   %72 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %73 = load i32, ptr %72, align 4, !tbaa !83
   %74 = getelementptr inbounds nuw i8, ptr %54, i64 104
-  store i32 %73, ptr %74, align 4, !tbaa !83
+  store i32 %73, ptr %74, align 8, !tbaa !83
   %75 = getelementptr inbounds nuw i8, ptr %54, i64 108
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %75, ptr noundef nonnull align 1 dereferenceable(14) @.str.88, i64 14, i1 false)
   %76 = tail call i32 @add_index_entry(ptr noundef nonnull %4, ptr noundef %54, i32 noundef 3) #19

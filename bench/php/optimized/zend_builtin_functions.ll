@@ -570,7 +570,7 @@ define hidden void @zif_gc_enable(ptr noundef readonly captures(none) %0, ptr re
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %11, ptr noundef nonnull align 1 dereferenceable(14) @.str.1, i64 14, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 38
-  store i8 0, ptr %12, align 1, !tbaa !28
+  store i8 0, ptr %12, align 2, !tbaa !28
   %13 = tail call i32 @zend_alter_ini_entry_chars(ptr noundef nonnull %7, ptr noundef nonnull @.str.2, i64 noundef 1, i32 noundef 1, i32 noundef 16) #14
   %14 = load i32, ptr %8, align 4, !tbaa !28
   %15 = and i32 %14, 64
@@ -619,7 +619,7 @@ define hidden void @zif_gc_disable(ptr noundef readonly captures(none) %0, ptr r
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %11, ptr noundef nonnull align 1 dereferenceable(14) @.str.1, i64 14, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 38
-  store i8 0, ptr %12, align 1, !tbaa !28
+  store i8 0, ptr %12, align 2, !tbaa !28
   %13 = tail call i32 @zend_alter_ini_entry_chars(ptr noundef nonnull %7, ptr noundef nonnull @.str.3, i64 noundef 1, i32 noundef 1, i32 noundef 16) #14
   %14 = load i32, ptr %8, align 4, !tbaa !28
   %15 = and i32 %14, 64

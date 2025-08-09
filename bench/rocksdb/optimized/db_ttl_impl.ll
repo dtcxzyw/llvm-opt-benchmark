@@ -11108,7 +11108,7 @@ _ZNSt12_Vector_baseIN7rocksdb13PinnableSliceESaIS1_EEC2EmRKS2_.exit.i: ; preds =
   store ptr %39, ptr %38, align 8, !tbaa !18
   %40 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 56
   store i64 0, ptr %40, align 8, !tbaa !16
-  store i8 0, ptr %39, align 1, !tbaa !17
+  store i8 0, ptr %39, align 8, !tbaa !17
   %41 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 88
   store i8 0, ptr %41, align 8, !tbaa !363
   %42 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 80
@@ -17809,7 +17809,7 @@ define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_trait
   store ptr %19, ptr %.08.i.i.i, align 8, !tbaa !18
   %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 8
   store i64 0, ptr %20, align 8, !tbaa !16
-  store i8 0, ptr %19, align 1, !tbaa !17
+  store i8 0, ptr %19, align 8, !tbaa !17
   %21 = add i64 %.057.i.i.i, -1
   %22 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 32
   %.not.i.i.i = icmp eq i64 %21, 0
@@ -17843,7 +17843,7 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
   store ptr %31, ptr %.08.i.i.i31, align 8, !tbaa !18
   %32 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 8
   store i64 0, ptr %32, align 8, !tbaa !16
-  store i8 0, ptr %31, align 1, !tbaa !17
+  store i8 0, ptr %31, align 8, !tbaa !17
   %33 = add i64 %.057.i.i.i32, -1
   %34 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 32
   %.not.i.i.i33 = icmp eq i64 %33, 0
@@ -17889,7 +17889,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %45, ptr %47, align 8, !tbaa !16, !alias.scope !551, !noalias !554
   store ptr %37, ptr %.0911.i.i.i, align 8, !tbaa !11, !alias.scope !554, !noalias !551
   store i64 0, ptr %46, align 8, !tbaa !16, !alias.scope !554, !noalias !551
-  store i8 0, ptr %37, align 1, !tbaa !17, !alias.scope !554, !noalias !551
+  store i8 0, ptr %37, align 8, !tbaa !17, !alias.scope !554, !noalias !551
   %48 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i38 = icmp eq ptr %48, %5
@@ -20613,7 +20613,7 @@ define linkonce_odr void @_ZN7rocksdb14ObjectRegistry10AddLibraryERKNSt7__cxx111
   store ptr %17, ptr %16, align 8, !tbaa !18
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 120
   store i64 0, ptr %18, align 8, !tbaa !16
-  store i8 0, ptr %17, align 1, !tbaa !17
+  store i8 0, ptr %17, align 8, !tbaa !17
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %_ZNSt12__shared_ptrIN7rocksdb13ObjectLibraryELN9__gnu_cxx12_Lock_policyE2EEC2ISaIvEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEESt20_Sp_alloc_shared_tagIT_EDpOT0_.exit unwind label %19
 
@@ -21439,7 +21439,7 @@ _ZNSt16allocator_traitsISaIN7rocksdb22ColumnFamilyDescriptorEEE9constructIS1_JS1
   store i64 %60, ptr %62, align 8, !tbaa !16, !alias.scope !681, !noalias !684
   store ptr %52, ptr %.0911.i.i.i, align 8, !tbaa !11, !alias.scope !684, !noalias !681
   store i64 0, ptr %61, align 8, !tbaa !16, !alias.scope !684, !noalias !681
-  store i8 0, ptr %52, align 1, !tbaa !17, !alias.scope !684, !noalias !681
+  store i8 0, ptr %52, align 8, !tbaa !17, !alias.scope !684, !noalias !681
   %63 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %64 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   call void @_ZN7rocksdb19ColumnFamilyOptionsC2EOS0_(ptr noundef nonnull align 8 dereferenceable(832) %63, ptr noundef nonnull align 8 dereferenceable(832) %64) #27
@@ -21508,7 +21508,7 @@ _ZNSt16allocator_traitsISaIN7rocksdb22ColumnFamilyDescriptorEEE9constructIS1_JS1
   store i64 %84, ptr %86, align 8, !tbaa !16, !alias.scope !688, !noalias !691
   store ptr %76, ptr %.0911.i.i.i30, align 8, !tbaa !11, !alias.scope !691, !noalias !688
   store i64 0, ptr %85, align 8, !tbaa !16, !alias.scope !691, !noalias !688
-  store i8 0, ptr %76, align 1, !tbaa !17, !alias.scope !691, !noalias !688
+  store i8 0, ptr %76, align 8, !tbaa !17, !alias.scope !691, !noalias !688
   %87 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 32
   %88 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 32
   call void @_ZN7rocksdb19ColumnFamilyOptionsC2EOS0_(ptr noundef nonnull align 8 dereferenceable(832) %87, ptr noundef nonnull align 8 dereferenceable(832) %88) #27

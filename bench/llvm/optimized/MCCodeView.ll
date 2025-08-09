@@ -349,7 +349,7 @@ define dso_local void @_ZN4llvm15CodeViewContext16addToStringTableENS_9StringRef
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %15, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !114
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = load i32, ptr %16, align 4, !tbaa !69, !noalias !116
+  %18 = load i32, ptr %16, align 8, !tbaa !69, !noalias !116
   store i32 %18, ptr %17, align 8, !tbaa !119, !alias.scope !116
   %19 = trunc nuw i8 %.fca.1.extract to i1
   br i1 %19, label %20, label %32
@@ -546,7 +546,7 @@ _ZNSt6vectorIN4llvm16MCCVFunctionInfoESaIS1_EE6resizeEm.exit: ; preds = %_ZSt8_D
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i32 %3, ptr %40, align 4, !tbaa !69
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store i32 %4, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !69
+  store i32 %4, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !69
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 12
   store i32 %5, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !69
   %41 = icmp ult i32 %2, -2

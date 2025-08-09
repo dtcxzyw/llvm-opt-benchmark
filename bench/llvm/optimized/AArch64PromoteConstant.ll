@@ -1787,7 +1787,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_11InstructionEjEE12assignRemoteEOS5_.exit.
   %624 = load ptr, ptr %.0910.i.i.i.i.i.i.i.i, align 8, !tbaa !161
   store ptr %624, ptr %.0811.i.i.i.i.i.i.i.i, align 8, !tbaa !170
   %625 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 8
-  %626 = load i32, ptr %625, align 4, !tbaa !190
+  %626 = load i32, ptr %625, align 8, !tbaa !190
   %627 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 8
   store i32 %626, ptr %627, align 8, !tbaa !172
   %628 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 16
@@ -1829,7 +1829,7 @@ _ZSt4moveIPSt4pairIPN4llvm11InstructionEjES5_ET0_T_S7_S6_.exit.i.i.i: ; preds = 
   %641 = load ptr, ptr %.0910.i.i.i.i.i38.i.i.i, align 8, !tbaa !161
   store ptr %641, ptr %.0811.i.i.i.i.i37.i.i.i, align 8, !tbaa !170
   %642 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i38.i.i.i, i64 8
-  %643 = load i32, ptr %642, align 4, !tbaa !190
+  %643 = load i32, ptr %642, align 8, !tbaa !190
   %644 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i37.i.i.i, i64 8
   store i32 %643, ptr %644, align 8, !tbaa !172
   %645 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i38.i.i.i, i64 16
@@ -3540,7 +3540,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_11InstructionEjEE12assignRemoteEOS5_.exit:
   %30 = load ptr, ptr %.0910.i.i.i.i.i, align 8, !tbaa !161
   store ptr %30, ptr %.0811.i.i.i.i.i, align 8, !tbaa !170
   %31 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 8
-  %32 = load i32, ptr %31, align 4, !tbaa !190
+  %32 = load i32, ptr %31, align 8, !tbaa !190
   %33 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 8
   store i32 %32, ptr %33, align 8, !tbaa !172
   %34 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 16
@@ -3583,7 +3583,7 @@ _ZSt4moveIPSt4pairIPN4llvm11InstructionEjES5_ET0_T_S7_S6_.exit: ; preds = %.lr.p
   %47 = load ptr, ptr %.0910.i.i.i.i.i38, align 8, !tbaa !161
   store ptr %47, ptr %.0811.i.i.i.i.i37, align 8, !tbaa !170
   %48 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i38, i64 8
-  %49 = load i32, ptr %48, align 4, !tbaa !190
+  %49 = load i32, ptr %48, align 8, !tbaa !190
   %50 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i37, i64 8
   store i32 %49, ptr %50, align 8, !tbaa !172
   %51 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i38, i64 16

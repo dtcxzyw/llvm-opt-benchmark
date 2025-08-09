@@ -1257,7 +1257,7 @@ define dso_local noundef range(i32 0, 2) i32 @ip6_err_gen_icmpv6_unreach(ptr nou
   %80 = load i32, ptr %79, align 4
   store i64 0, ptr %5, align 8
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 -65536, ptr %81, align 4
+  store i32 -65536, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %80, ptr %82, align 4
   br i1 %33, label %105, label %83

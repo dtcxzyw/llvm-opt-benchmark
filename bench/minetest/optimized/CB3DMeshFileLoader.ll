@@ -7332,7 +7332,7 @@ _ZSt19__relocate_object_aIN3irr5scene11SB3dTextureES2_SaIS2_EEvPT_PT0_RT1_.exit.
   store i64 %14, ptr %_M_string_length.i22.i.i.i.i.i.i.i.i, align 8, !tbaa !48, !alias.scope !267, !noalias !270
   store ptr %11, ptr %__first.addr.07.i.i.i, align 8, !tbaa !52, !alias.scope !270, !noalias !267
   store i64 0, ptr %_M_string_length.i21.i.i.i.i.i.i.i.i, align 8, !tbaa !48, !alias.scope !270, !noalias !267
-  store i8 0, ptr %11, align 1, !tbaa !51, !alias.scope !270, !noalias !267
+  store i8 0, ptr %11, align 8, !tbaa !51, !alias.scope !270, !noalias !267
   %Flags.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 32
   %Flags3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %Flags.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(28) %Flags3.i.i.i.i.i.i.i, i64 28, i1 false), !alias.scope !272
@@ -7383,7 +7383,7 @@ _ZSt19__relocate_object_aIN3irr5scene11SB3dTextureES2_SaIS2_EEvPT_PT0_RT1_.exit.
   store i64 %20, ptr %_M_string_length.i22.i.i.i.i.i.i.i.i42, align 8, !tbaa !48, !alias.scope !274, !noalias !277
   store ptr %17, ptr %__first.addr.07.i.i.i35, align 8, !tbaa !52, !alias.scope !277, !noalias !274
   store i64 0, ptr %_M_string_length.i21.i.i.i.i.i.i.i.i41, align 8, !tbaa !48, !alias.scope !277, !noalias !274
-  store i8 0, ptr %17, align 1, !tbaa !51, !alias.scope !277, !noalias !274
+  store i8 0, ptr %17, align 8, !tbaa !51, !alias.scope !277, !noalias !274
   %Flags.i.i.i.i.i.i.i43 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i34, i64 32
   %Flags3.i.i.i.i.i.i.i44 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i35, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %Flags.i.i.i.i.i.i.i43, ptr noundef nonnull align 8 dereferenceable(28) %Flags3.i.i.i.i.i.i.i44, i64 28, i1 false), !alias.scope !279

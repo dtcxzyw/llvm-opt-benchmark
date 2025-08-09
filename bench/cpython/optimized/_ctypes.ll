@@ -4341,7 +4341,7 @@ Py_DECREF.exit22.i:                               ; preds = %10, %7, %5, %1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %19, align 16, !tbaa !42
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %21 = load ptr, ptr %20, align 8, !tbaa !107
+  %21 = load ptr, ptr %20, align 16, !tbaa !107
   %.not20.i = icmp eq ptr %21, null
   br i1 %.not20.i, label %PyCData_clear.exit, label %22
 
@@ -4476,7 +4476,7 @@ Py_DECREF.exit22:                                 ; preds = %9, %6, %4, %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %18, align 16, !tbaa !42
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %20 = load ptr, ptr %19, align 8, !tbaa !107
+  %20 = load ptr, ptr %19, align 16, !tbaa !107
   %.not20 = icmp eq ptr %20, null
   br i1 %.not20, label %Py_DECREF.exit, label %21
 
@@ -4576,7 +4576,7 @@ PyStgInfo_FromType.exit:                          ; preds = %29, %26
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load ptr, ptr %32, align 16, !tbaa !42
   store ptr %33, ptr %1, align 8, !tbaa !109
-  %34 = load i32, ptr %0, align 8, !tbaa !23
+  %34 = load i32, ptr %0, align 16, !tbaa !23
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %_Py_NewRef.exit, label %36
 
@@ -6236,7 +6236,7 @@ define internal ptr @StructUnionType_paramfunc(ptr noundef %0, ptr noundef %1) #
 25:                                               ; preds = %2
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = load ptr, ptr %26, align 16, !tbaa !42
-  %28 = load i32, ptr %1, align 8, !tbaa !23
+  %28 = load i32, ptr %1, align 16, !tbaa !23
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %_Py_NewRef.exit42, label %30
 
@@ -7387,7 +7387,7 @@ define internal ptr @PyCArrayType_paramfunc(ptr noundef %0, ptr noundef %1) #0 {
   %9 = load ptr, ptr %8, align 16, !tbaa !42
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %9, ptr %10, align 16, !tbaa !23
-  %11 = load i32, ptr %1, align 8, !tbaa !23
+  %11 = load i32, ptr %1, align 16, !tbaa !23
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %_Py_NewRef.exit, label %13
 
@@ -11206,7 +11206,7 @@ PyObject_TypeCheck.exit:                          ; preds = %PyStgInfo_FromObjec
   %37 = getelementptr i8, ptr %0, i64 16
   %.val33 = load ptr, ptr %37, align 16, !tbaa !42
   store ptr %36, ptr %.val33, align 8, !tbaa !46
-  %38 = load i32, ptr %1, align 8, !tbaa !23
+  %38 = load i32, ptr %1, align 16, !tbaa !23
   %39 = icmp slt i32 %38, 0
   br i1 %39, label %Py_INCREF.exit28, label %40
 
@@ -13385,7 +13385,7 @@ Py_DECREF.exit22.i:                               ; preds = %73, %70, %68, %Py_D
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %82, align 16, !tbaa !42
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %84 = load ptr, ptr %83, align 8, !tbaa !107
+  %84 = load ptr, ptr %83, align 16, !tbaa !107
   %.not20.i = icmp eq ptr %84, null
   br i1 %.not20.i, label %PyCData_clear.exit, label %85
 

@@ -5488,7 +5488,7 @@ _ZSt13move_backwardIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLoc
   store ptr %220, ptr %.ptr.i.i.i.i, align 8, !tbaa !375
   %221 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
   store i64 0, ptr %221, align 8, !tbaa !52
-  store i8 0, ptr %220, align 1, !tbaa !53
+  store i8 0, ptr %220, align 8, !tbaa !53
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 32
   %222 = icmp eq i64 %.add.i.i.i.i, 416
   br i1 %222, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %219
@@ -5727,7 +5727,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basi
   store ptr %339, ptr %.ptr.i.i.i.i146, align 8, !tbaa !375
   %340 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i146, i64 8
   store i64 0, ptr %340, align 8, !tbaa !52
-  store i8 0, ptr %339, align 1, !tbaa !53
+  store i8 0, ptr %339, align 8, !tbaa !53
   %.add.i.i.i.i147 = add nuw nsw i64 %.idx.i.i.i.i145, 32
   %341 = icmp eq i64 %.add.i.i.i.i147, 416
   br i1 %341, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i148, label %338
@@ -5940,7 +5940,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit68:          ; preds = %_ZNSt7__cxx1112basi
   store ptr %445, ptr %.ptr.i.i.i.i200, align 8, !tbaa !375
   %446 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i200, i64 8
   store i64 0, ptr %446, align 8, !tbaa !52
-  store i8 0, ptr %445, align 1, !tbaa !53
+  store i8 0, ptr %445, align 8, !tbaa !53
   %.add.i.i.i.i201 = add nuw nsw i64 %.idx.i.i.i.i199, 32
   %447 = icmp eq i64 %.add.i.i.i.i201, 416
   br i1 %447, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i202, label %444
@@ -11481,7 +11481,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit: ; preds = %20, %_ZNK
   %.sroa.0.0.copyload.i.i = load i32, ptr %61, align 4, !tbaa !45
   %62 = icmp ne i32 %.sroa.0.0.copyload.i.i, 0
   %63 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
-  %64 = load i32, ptr %63, align 4
+  %64 = load i32, ptr %63, align 8
   %65 = icmp eq i32 %64, 0
   %66 = select i1 %62, i1 %65, i1 false
   br i1 %66, label %67, label %74
@@ -15115,19 +15115,19 @@ _ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticOptionsEEC2EPS2_.exit.i: ; preds
   store ptr %53, ptr %52, align 8, !tbaa !375
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 56
   store i64 0, ptr %54, align 8, !tbaa !52
-  store i8 0, ptr %53, align 1, !tbaa !53
+  store i8 0, ptr %53, align 8, !tbaa !53
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 96
   store ptr %56, ptr %55, align 8, !tbaa !375
   %57 = getelementptr inbounds nuw i8, ptr %51, i64 88
   store i64 0, ptr %57, align 8, !tbaa !52
-  store i8 0, ptr %56, align 1, !tbaa !53
+  store i8 0, ptr %56, align 8, !tbaa !53
   %58 = getelementptr inbounds nuw i8, ptr %51, i64 112
   %59 = getelementptr inbounds nuw i8, ptr %51, i64 128
   store ptr %59, ptr %58, align 8, !tbaa !375
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 120
   store i64 0, ptr %60, align 8, !tbaa !52
-  store i8 0, ptr %59, align 1, !tbaa !53
+  store i8 0, ptr %59, align 8, !tbaa !53
   %61 = getelementptr inbounds nuw i8, ptr %51, i64 144
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %61, i8 0, i64 120, i1 false)
@@ -15147,7 +15147,7 @@ _ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticOptionsEEC2EPS2_.exit.i: ; preds
   %68 = call noalias noundef nonnull dereferenceable(15248) ptr @_Znwm(i64 noundef 15248) #34, !noalias !535
   store ptr %48, ptr %7, align 8, !tbaa !538, !noalias !535
   store ptr %51, ptr %8, align 8, !tbaa !539, !noalias !535
-  store i32 1, ptr %51, align 4, !tbaa !540, !noalias !535
+  store i32 1, ptr %51, align 8, !tbaa !540, !noalias !535
   call void @_ZN5clang17DiagnosticsEngineC1EN4llvm18IntrusiveRefCntPtrINS_13DiagnosticIDsEEENS2_INS_17DiagnosticOptionsEEEPNS_18DiagnosticConsumerEb(ptr noundef nonnull align 8 dereferenceable(15248) %68, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null, i1 noundef zeroext true) #30, !noalias !535
   %69 = load ptr, ptr %8, align 8, !tbaa !539, !noalias !535
   %.not.i.i2.i13 = icmp eq ptr %69, null
@@ -16013,7 +16013,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9FileEntryEjNS_12DenseMapInfoIS5_vE
   store ptr %60, ptr %50, align 8, !tbaa !312
   %61 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %62 = load i32, ptr %3, align 4, !tbaa !45
-  store i32 %62, ptr %61, align 4, !tbaa !45
+  store i32 %62, ptr %61, align 8, !tbaa !45
   %63 = load ptr, ptr %1, align 8, !tbaa !347
   %64 = load i32, ptr %7, align 8, !tbaa !346
   br label %.loopexit
@@ -16225,7 +16225,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9FileEntryEjNS_12DenseMapInfoIS5_vE
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !45
-  store i32 %68, ptr %66, align 4, !tbaa !45
+  store i32 %68, ptr %66, align 8, !tbaa !45
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !343
   br label %70
@@ -16413,7 +16413,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llv
   store ptr %16, ptr %.ptr.i.i.i, align 8, !tbaa !375
   %17 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %17, align 8, !tbaa !52
-  store i8 0, ptr %16, align 1, !tbaa !53
+  store i8 0, ptr %16, align 8, !tbaa !53
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %18 = icmp eq i64 %.add.i.i.i, 416
   br i1 %18, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %15
@@ -16695,7 +16695,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEm
   store ptr %14, ptr %.ptr.i.i.i, align 8, !tbaa !375
   %15 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %15, align 8, !tbaa !52
-  store i8 0, ptr %14, align 1, !tbaa !53
+  store i8 0, ptr %14, align 8, !tbaa !53
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %16 = icmp eq i64 %.add.i.i.i, 416
   br i1 %16, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %13

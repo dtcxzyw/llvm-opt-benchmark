@@ -939,7 +939,7 @@ define hidden void @_ZN13CollectedHeapC2Ev(ptr noundef nonnull align 8 captures(
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 24
   store ptr %80, ptr %79, align 8
-  store i8 0, ptr %80, align 1
+  store i8 0, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 1056
   %82 = icmp eq ptr %81, %76
   br i1 %82, label %_ZN9GCHeapLogC2Ev.exit, label %77

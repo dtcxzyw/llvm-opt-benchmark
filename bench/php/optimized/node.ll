@@ -394,7 +394,7 @@ zend_string_alloc.exit85:                         ; preds = %6, %6, %6, %6
   %84 = getelementptr inbounds nuw i8, ptr %80, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %84, ptr noundef nonnull align 1 dereferenceable(14) @.str.1, i64 14, i1 false)
   %85 = getelementptr inbounds nuw i8, ptr %80, i64 38
-  store i8 0, ptr %85, align 1, !tbaa !9
+  store i8 0, ptr %85, align 2, !tbaa !9
   store ptr %80, ptr %1, align 8, !tbaa !9
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %86, align 8, !tbaa !9
@@ -412,7 +412,7 @@ zend_string_alloc.exit85:                         ; preds = %6, %6, %6, %6
   %92 = getelementptr inbounds nuw i8, ptr %88, i64 24
   store i64 8389754676499669795, ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %88, i64 32
-  store i8 0, ptr %93, align 1, !tbaa !9
+  store i8 0, ptr %93, align 8, !tbaa !9
   store ptr %88, ptr %1, align 8, !tbaa !9
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %94, align 8, !tbaa !9
@@ -448,7 +448,7 @@ zend_string_alloc.exit85:                         ; preds = %6, %6, %6, %6
   %108 = getelementptr inbounds nuw i8, ptr %104, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %108, ptr noundef nonnull align 1 dereferenceable(18) @.str.4, i64 18, i1 false)
   %109 = getelementptr inbounds nuw i8, ptr %104, i64 42
-  store i8 0, ptr %109, align 1, !tbaa !9
+  store i8 0, ptr %109, align 2, !tbaa !9
   store ptr %104, ptr %1, align 8, !tbaa !9
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %110, align 8, !tbaa !9

@@ -1382,7 +1382,7 @@ define internal void @_GLOBAL__sub_I_retry_filter.cc() #11 section ".text.startu
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 12, ptr %10, align 8, !tbaa !40
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  store i8 0, ptr %11, align 1, !tbaa !45
+  store i8 0, ptr %11, align 4, !tbaa !45
   store ptr %7, ptr @"_ZZNK9grpc_core11RetryFilter3$_1clEvE7factory", align 8, !tbaa !116
   %12 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @"_ZZNK9grpc_core11RetryFilter3$_1clEvE7factory")
   tail call void @__cxa_guard_release(ptr nonnull @"_ZGVZNK9grpc_core11RetryFilter3$_1clEvE7factory") #24

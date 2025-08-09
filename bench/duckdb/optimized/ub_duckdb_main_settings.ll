@@ -2838,7 +2838,7 @@ define void @_ZN6duckdb19AddOptimizerMetricsERSt13unordered_setINS_11MetricsType
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %25 = load i64, ptr %24, align 8, !tbaa !241
   %26 = icmp eq i64 %25, 14
-  %27 = load i8, ptr %23, align 1
+  %27 = load i8, ptr %23, align 8
   %28 = icmp eq i8 %27, 14
   %29 = select i1 %26, i1 %28, i1 false
   br i1 %29, label %_ZNSt13unordered_setIN6duckdb11MetricsTypeENS0_23MetricsTypeHashFunctionESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit, label %.lr.ph.i.i.i.i
@@ -24305,7 +24305,7 @@ _ZNSt10_HashtableIN6duckdb11MetricsTypeES1_SaIS1_ENSt8__detail9_IdentityESt8equa
   store ptr null, ptr %.sink12.i, align 8, !tbaa !224
   %29 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 8
   %30 = load i8, ptr %22, align 1, !tbaa !235
-  store i8 %30, ptr %29, align 1, !tbaa !235
+  store i8 %30, ptr %29, align 8, !tbaa !235
   %31 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 16
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %33 = load i64, ptr %32, align 8, !tbaa !241
@@ -24348,7 +24348,7 @@ _ZNSt10_HashtableIN6duckdb11MetricsTypeES1_SaIS1_ENSt8__detail9_IdentityESt8equa
   store ptr null, ptr %.sink12.i34, align 8, !tbaa !224
   %47 = getelementptr inbounds nuw i8, ptr %.sink12.i34, i64 8
   %48 = load i8, ptr %40, align 1, !tbaa !235
-  store i8 %48, ptr %47, align 1, !tbaa !235
+  store i8 %48, ptr %47, align 8, !tbaa !235
   store ptr %.sink12.i34, ptr %.02639, align 8, !tbaa !224
   %49 = getelementptr inbounds nuw i8, ptr %.sink12.i34, i64 16
   %50 = getelementptr inbounds nuw i8, ptr %.02840, i64 16
@@ -24981,7 +24981,7 @@ _ZSt19__relocate_object_aIN6duckdb20ExceptionFormatValueES1_SaIS1_EEvPT_PT0_RT1_
   store i64 %49, ptr %51, align 8, !tbaa !9, !alias.scope !443, !noalias !446
   store ptr %41, ptr %38, align 8, !tbaa !13, !alias.scope !446, !noalias !443
   store i64 0, ptr %50, align 8, !tbaa !9, !alias.scope !446, !noalias !443
-  store i8 0, ptr %41, align 1, !tbaa !12, !alias.scope !446, !noalias !443
+  store i8 0, ptr %41, align 8, !tbaa !12, !alias.scope !446, !noalias !443
   %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 56
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 56
   %.not.i.i.i.i = icmp eq ptr %52, %1
@@ -25032,7 +25032,7 @@ _ZSt19__relocate_object_aIN6duckdb20ExceptionFormatValueES1_SaIS1_EEvPT_PT0_RT1_
   store i64 %67, ptr %69, align 8, !tbaa !9, !alias.scope !450, !noalias !453
   store ptr %59, ptr %56, align 8, !tbaa !13, !alias.scope !453, !noalias !450
   store i64 0, ptr %68, align 8, !tbaa !9, !alias.scope !453, !noalias !450
-  store i8 0, ptr %59, align 1, !tbaa !12, !alias.scope !453, !noalias !450
+  store i8 0, ptr %59, align 8, !tbaa !12, !alias.scope !453, !noalias !450
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 56
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 56
   %.not.i.i.i.i24 = icmp eq ptr %70, %5
@@ -25662,7 +25662,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIN6duckdb11MetricsTypeES1_SaIS
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %32 = load i64, ptr %31, align 8, !tbaa !241
   %33 = icmp eq i64 %32, %8
-  %34 = load i8, ptr %30, align 1
+  %34 = load i8, ptr %30, align 8
   %35 = icmp eq i8 %7, %34
   %36 = select i1 %33, i1 %35, i1 false
   br i1 %36, label %_ZNKSt10_HashtableIN6duckdb11MetricsTypeES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ENS0_23MetricsTypeHashFunctionENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit, label %.lr.ph.i.i
@@ -25698,7 +25698,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIN6duckdb11MetricsTypeES1_SaIS
   %51 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
   store ptr null, ptr %51, align 8, !tbaa !224
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store i8 %50, ptr %52, align 1, !tbaa !235
+  store i8 %50, ptr %52, align 8, !tbaa !235
   %53 = invoke ptr @_ZNSt10_HashtableIN6duckdb11MetricsTypeES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ENS0_23MetricsTypeHashFunctionENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS3_10_Hash_nodeIS1_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %48, i64 noundef %49, ptr noundef nonnull %51, i64 noundef 1)
           to label %_ZNKSt10_HashtableIN6duckdb11MetricsTypeES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ENS0_23MetricsTypeHashFunctionENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit unwind label %_ZNSt10_HashtableIN6duckdb11MetricsTypeES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ENS0_23MetricsTypeHashFunctionENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit20
 
@@ -26050,7 +26050,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !tbaa !9, !alias.scope !460, !noalias !463
   store ptr %43, ptr %.0911.i.i.i.i, align 8, !tbaa !13, !alias.scope !463, !noalias !460
   store i64 0, ptr %52, align 8, !tbaa !9, !alias.scope !463, !noalias !460
-  store i8 0, ptr %43, align 1, !tbaa !12, !alias.scope !463, !noalias !460
+  store i8 0, ptr %43, align 8, !tbaa !12, !alias.scope !463, !noalias !460
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %54, %1
@@ -26098,7 +26098,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !tbaa !9, !alias.scope !467, !noalias !470
   store ptr %59, ptr %.0911.i.i.i.i29, align 8, !tbaa !13, !alias.scope !470, !noalias !467
   store i64 0, ptr %68, align 8, !tbaa !9, !alias.scope !470, !noalias !467
-  store i8 0, ptr %59, align 1, !tbaa !12, !alias.scope !470, !noalias !467
+  store i8 0, ptr %59, align 8, !tbaa !12, !alias.scope !470, !noalias !467
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 32
   %.not.i.i.i.i34 = icmp eq ptr %70, %6

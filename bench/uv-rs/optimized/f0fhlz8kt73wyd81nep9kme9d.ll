@@ -8464,14 +8464,14 @@ define void @"_ZN69_$LT$uv_pep440..version..Version$u20$as$u20$rkyv..traits..Arc
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1583)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i8, ptr %12, align 8, !alias.scope !1586, !noundef !3
-  store i8 %13, ptr %11, align 1, !noalias !1586
+  store i8 %13, ptr %11, align 8, !noalias !1586
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = load i64, ptr %0, align 8, !alias.scope !1586, !noundef !3
   store i64 %15, ptr %14, align 8, !noalias !1586
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %18 = load i8, ptr %17, align 1, !range !1587, !alias.scope !1586, !noundef !3
-  store i8 %18, ptr %16, align 1, !noalias !1586
+  store i8 %18, ptr %16, align 8, !noalias !1586
   br label %"_ZN9uv_pep4407version1_84_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_pep440..version..VersionInner$GT$7resolve17h21ac9dae0514306dE.exit"
 
 "_ZN9uv_pep4407version1_84_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_pep440..version..VersionInner$GT$7resolve17h21ac9dae0514306dE.exit": ; preds = %6, %10
@@ -8497,14 +8497,14 @@ define void @"_ZN9uv_pep4407version1_84_$LT$impl$u20$rkyv..traits..Archive$u20$f
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1588)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i8, ptr %12, align 8, !alias.scope !1588, !noundef !3
-  store i8 %13, ptr %11, align 1, !noalias !1588
+  store i8 %13, ptr %11, align 8, !noalias !1588
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = load i64, ptr %0, align 8, !alias.scope !1588, !noundef !3
   store i64 %15, ptr %14, align 8, !noalias !1588
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %18 = load i8, ptr %17, align 1, !range !1587, !alias.scope !1588, !noundef !3
-  store i8 %18, ptr %16, align 1, !noalias !1588
+  store i8 %18, ptr %16, align 8, !noalias !1588
   br label %19
 
 19:                                               ; preds = %6, %10
@@ -8522,7 +8522,7 @@ define void @"_ZN74_$LT$uv_pep440..version..VersionSmall$u20$as$u20$rkyv..traits
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %10 = load i8, ptr %9, align 1, !range !1587, !noundef !3
-  store i8 %10, ptr %8, align 1
+  store i8 %10, ptr %8, align 8
   ret void
 }
 

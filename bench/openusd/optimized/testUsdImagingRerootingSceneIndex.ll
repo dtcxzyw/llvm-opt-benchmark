@@ -9615,7 +9615,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__32HdRet
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS_7SdfPathEEE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %1, align 4
-  store i32 %5, ptr %4, align 4
+  store i32 %5, ptr %4, align 8
   %.not.i.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS_7SdfPathEEC2ERKS1_.exit, label %6
 
@@ -11932,7 +11932,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_Coun
   %16 = atomicrmw add ptr %.sink.i.i.i.i.i, i64 1 monotonic, align 8, !noalias !93
   %.pre.i.i = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store atomic i32 0, ptr %17 seq_cst, align 4, !noalias !93
+  store atomic i32 0, ptr %17 seq_cst, align 8, !noalias !93
   %18 = atomicrmw add ptr %17, i32 1 monotonic, align 4, !noalias !93
   %.not.i.i.i.i = icmp eq ptr %.pre.i.i, null
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_7VtValue8_CountedINS_7VtArrayINS_7SdfPathEEEEEED2Ev.exit.i.i, label %19

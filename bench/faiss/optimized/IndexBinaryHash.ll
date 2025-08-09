@@ -3156,7 +3156,7 @@ _ZN5faiss15IndexBinaryHashC2ERKS0_.exit136.i.i:   ; preds = %498
   %511 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %512 = load i64, ptr %511, align 8, !tbaa !24
   %513 = getelementptr inbounds nuw i8, ptr %134, i64 16
-  %514 = load i32, ptr %513, align 4, !tbaa !61
+  %514 = load i32, ptr %513, align 8, !tbaa !61
   %515 = lshr i64 %503, 32
   %516 = trunc nuw i64 %515 to i32
   %517 = sitofp i32 %129 to float
@@ -3255,7 +3255,7 @@ _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal
   %561 = trunc nuw nsw i64 %560 to i32
   %562 = add nuw nsw i32 %561, %556
   %563 = getelementptr inbounds nuw i8, ptr %.02819.i.i.i.i, i64 16
-  %564 = load i32, ptr %563, align 4, !tbaa !61
+  %564 = load i32, ptr %563, align 8, !tbaa !61
   %565 = xor i32 %564, %514
   %566 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %565)
   %567 = add nuw nsw i32 %562, %566
@@ -6338,7 +6338,7 @@ _ZN5faiss15IndexBinaryHashC2ERKS0_.exit130.i.i:   ; preds = %619
   %632 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %633 = load i64, ptr %632, align 8, !tbaa !24
   %634 = getelementptr inbounds nuw i8, ptr %140, i64 16
-  %635 = load i32, ptr %634, align 4, !tbaa !61
+  %635 = load i32, ptr %634, align 8, !tbaa !61
   %636 = lshr i64 %624, 32
   %637 = trunc nuw i64 %636 to i32
   %638 = load ptr, ptr %79, align 8
@@ -6440,7 +6440,7 @@ _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal
   %685 = trunc nuw nsw i64 %684 to i32
   %686 = add nuw nsw i32 %685, %680
   %687 = getelementptr inbounds nuw i8, ptr %.02848.i.i.i.i, i64 16
-  %688 = load i32, ptr %687, align 4, !tbaa !61
+  %688 = load i32, ptr %687, align 8, !tbaa !61
   %689 = xor i32 %688, %635
   %690 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %689)
   %691 = add nuw nsw i32 %686, %690
@@ -9578,7 +9578,7 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   %402 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %403 = load i64, ptr %402, align 8, !tbaa !24
   %404 = getelementptr inbounds nuw i8, ptr %110, i64 16
-  %405 = load i32, ptr %404, align 4, !tbaa !61
+  %405 = load i32, ptr %404, align 8, !tbaa !61
   %.not5.i.i.i.i = icmp eq ptr %.val58.i.i, null
   br i1 %.not5.i.i.i.i, label %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i98.i.i, label %.lr.ph.i.i90.i.i
 
@@ -9603,7 +9603,7 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   %420 = trunc nuw nsw i64 %419 to i32
   %421 = add nuw nsw i32 %420, %415
   %422 = getelementptr inbounds nuw i8, ptr %411, i64 16
-  %423 = load i32, ptr %422, align 4, !tbaa !61
+  %423 = load i32, ptr %422, align 8, !tbaa !61
   %424 = xor i32 %423, %405
   %425 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %424)
   %426 = add nuw nsw i32 %421, %425
@@ -11647,7 +11647,7 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   %553 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %554 = load i64, ptr %553, align 8, !tbaa !24
   %555 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  %556 = load i32, ptr %555, align 4, !tbaa !61
+  %556 = load i32, ptr %555, align 8, !tbaa !61
   %.not5.i.i106.i.i = icmp eq ptr %.val39.i.i, null
   br i1 %.not5.i.i106.i.i, label %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i129.i.i, label %.lr.ph.i.i107.i.i
 
@@ -11675,7 +11675,7 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   %573 = trunc nuw nsw i64 %572 to i32
   %574 = add nuw nsw i32 %573, %568
   %575 = getelementptr inbounds nuw i8, ptr %564, i64 16
-  %576 = load i32, ptr %575, align 4, !tbaa !61
+  %576 = load i32, ptr %575, align 8, !tbaa !61
   %577 = xor i32 %576, %556
   %578 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %577)
   %579 = add nuw nsw i32 %574, %578

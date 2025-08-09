@@ -26016,7 +26016,7 @@ _ZnwmRKN5clang10ASTContextEm.exit:                ; preds = %39, %42
   store ptr %45, ptr %.ptr.i, align 8, !tbaa !703
   %46 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 8
   store i64 0, ptr %46, align 8, !tbaa !704
-  store i8 0, ptr %45, align 1, !tbaa !625
+  store i8 0, ptr %45, align 8, !tbaa !625
   %.add.i = add nuw nsw i64 %.idx.i, 32
   %47 = icmp eq i64 %.add.i, 416
   br i1 %47, label %_ZN5clang17DiagnosticStorageC2Ev.exit, label %44
@@ -27548,7 +27548,7 @@ _ZSt10_ConstructIN5clang9FixItHintEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = 
   store i64 %24, ptr %25, align 8, !tbaa !704
   store ptr %15, ptr %12, align 8, !tbaa !711
   store i64 0, ptr %23, align 8, !tbaa !704
-  store i8 0, ptr %15, align 1, !tbaa !625
+  store i8 0, ptr %15, align 8, !tbaa !625
   %26 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 56
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 56
   %28 = load i8, ptr %27, align 8, !tbaa !863, !range !553, !noundef !554

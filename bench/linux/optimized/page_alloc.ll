@@ -3199,7 +3199,7 @@ define internal fastcc void @free_unref_page_commit(ptr noundef %0, ptr noundef 
   %135 = load i64, ptr %134, align 32
   %136 = add i64 %135, %133
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 1088
-  %138 = load volatile i64, ptr %137, align 8
+  %138 = load volatile i64, ptr %137, align 32
   %139 = tail call i64 @llvm.smax.i64(i64 %138, i64 0)
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %141 = load i64, ptr %140, align 8
@@ -3510,13 +3510,13 @@ define dso_local i32 @__isolate_free_page(ptr noundef %0, i32 noundef %1) local_
   %41 = shl nuw i64 1, %40
   %42 = add i64 %39, %41
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 1088
-  %44 = load volatile i64, ptr %43, align 8
+  %44 = load volatile i64, ptr %43, align 64
   %45 = tail call i64 @llvm.smax.i64(i64 %44, i64 0)
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %47 = load i64, ptr %46, align 8
   %48 = sub i64 %45, %47
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %50 = load i64, ptr %49, align 8
+  %50 = load i64, ptr %49, align 16
   %51 = add i64 %42, %50
   %52 = icmp sgt i64 %48, %51
   br i1 %52, label %53, label %.loopexit13
@@ -4338,7 +4338,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__alloc_pages_bulk(i32 
   %103 = add i64 %102, %101
   %104 = load i32, ptr %82, align 8
   %105 = getelementptr inbounds nuw i8, ptr %83, i64 1088
-  %106 = load volatile i64, ptr %105, align 8
+  %106 = load volatile i64, ptr %105, align 32
   %107 = tail call i64 @llvm.smax.i64(i64 %106, i64 0)
   %108 = getelementptr inbounds nuw i8, ptr %83, i64 40
   %109 = load i64, ptr %108, align 8
@@ -4414,7 +4414,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__alloc_pages_bulk(i32 
   %155 = add i64 %154, %153
   %156 = load i32, ptr %82, align 8
   %157 = getelementptr inbounds nuw i8, ptr %131, i64 1088
-  %158 = load volatile i64, ptr %157, align 8
+  %158 = load volatile i64, ptr %157, align 32
   %159 = tail call i64 @llvm.smax.i64(i64 %158, i64 0)
   %160 = getelementptr inbounds nuw i8, ptr %131, i64 40
   %161 = load i64, ptr %160, align 8
@@ -5786,7 +5786,7 @@ define internal fastcc ptr @get_page_from_freelist(i32 noundef %0, i32 noundef r
   %122 = add i64 %121, %119
   %123 = load i32, ptr %8, align 4
   %124 = getelementptr inbounds nuw i8, ptr %74, i64 1088
-  %125 = load volatile i64, ptr %124, align 8
+  %125 = load volatile i64, ptr %124, align 32
   %126 = tail call i64 @llvm.smax.i64(i64 %125, i64 0)
   br i1 %.not68, label %127, label %__zone_watermark_ok.exit
 
@@ -5873,7 +5873,7 @@ __zone_watermark_ok.exit:                         ; preds = %117
   %173 = add i64 %172, %170
   %174 = load i32, ptr %8, align 4
   %175 = getelementptr inbounds nuw i8, ptr %74, i64 1088
-  %176 = load volatile i64, ptr %175, align 8
+  %176 = load volatile i64, ptr %175, align 32
   %177 = tail call i64 @llvm.smax.i64(i64 %176, i64 0)
   br i1 %.not68, label %178, label %__zone_watermark_ok.exit37
 
@@ -7122,7 +7122,7 @@ wake_all_kswapds.exit29:                          ; preds = %257, %230, %214
   %368 = load i64, ptr %367, align 32
   %369 = call i64 @zone_reclaimable_pages(ptr noundef nonnull %364) #22
   %370 = getelementptr inbounds nuw i8, ptr %364, i64 1088
-  %371 = load volatile i64, ptr %370, align 8
+  %371 = load volatile i64, ptr %370, align 64
   %372 = load i64, ptr @__cpu_online_mask, align 8
   %373 = getelementptr inbounds nuw i8, ptr %364, i64 104
   br label %374

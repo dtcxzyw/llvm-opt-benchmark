@@ -211,7 +211,7 @@ define hidden void @_ZN10ValueStackC2EPS_NS_4KindEi(ptr noundef nonnull align 8 
   store i32 %2, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %13 = load i32, ptr %12, align 4
+  %13 = load i32, ptr %12, align 8
   %14 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %13, i32 noundef 8) #9
   store i32 0, ptr %11, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 28

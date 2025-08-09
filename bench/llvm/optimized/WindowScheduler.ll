@@ -4290,7 +4290,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEiNS_12DenseMapInfoIS3_vEE
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E16InsertIntoBucketIRKS3_JEEEPS8_SE_OT_DpOT0_.exit.i: ; preds = %265, %259
   store ptr %192, ptr %260, align 8, !tbaa !227
   %268 = getelementptr inbounds nuw i8, ptr %260, i64 8
-  store i32 0, ptr %268, align 4, !tbaa !51
+  store i32 0, ptr %268, align 8, !tbaa !51
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixERKS3_.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixERKS3_.exit: ; preds = %212, %196, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E16InsertIntoBucketIRKS3_JEEEPS8_SE_OT_DpOT0_.exit.i
@@ -4721,7 +4721,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEiNS_12DenseMapInfoIS3_vEE
   %57 = load ptr, ptr %1, align 8, !tbaa !227
   store ptr %57, ptr %48, align 8, !tbaa !227
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !51
+  store i32 0, ptr %58, align 8, !tbaa !51
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E16InsertIntoBucketIS3_JEEEPS8_SC_OT_DpOT0_.exit
@@ -5487,7 +5487,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEiNS_12DenseMapInfoIS3_vEE
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E16InsertIntoBucketIRKS3_JEEEPS8_SE_OT_DpOT0_.exit.i: ; preds = %235, %229
   store ptr %162, ptr %230, align 8, !tbaa !227
   %238 = getelementptr inbounds nuw i8, ptr %230, i64 8
-  store i32 0, ptr %238, align 4, !tbaa !51
+  store i32 0, ptr %238, align 8, !tbaa !51
   %.pre = load ptr, ptr %15, align 8, !tbaa !395
   %.pre211 = load i32, ptr %16, align 8, !tbaa !394
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixERKS3_.exit
@@ -5982,7 +5982,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEiNS_12DenseMapInfoIS3_vEE
   %57 = load ptr, ptr %1, align 8, !tbaa !227
   store ptr %57, ptr %48, align 8, !tbaa !227
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !51
+  store i32 0, ptr %58, align 8, !tbaa !51
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E16InsertIntoBucketIRKS3_JEEEPS8_SE_OT_DpOT0_.exit
@@ -6535,7 +6535,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEiNS_12DenseMapInfoIS3_vEE
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E16InsertIntoBucketIRKS3_JEEEPS8_SE_OT_DpOT0_.exit.i: ; preds = %255, %248
   store ptr %181, ptr %250, align 8, !tbaa !227
   %258 = getelementptr inbounds nuw i8, ptr %250, i64 8
-  store i32 0, ptr %258, align 4, !tbaa !51
+  store i32 0, ptr %258, align 8, !tbaa !51
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixERKS3_.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixERKS3_.exit: ; preds = %201, %185, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E16InsertIntoBucketIRKS3_JEEEPS8_SE_OT_DpOT0_.exit.i
@@ -7007,11 +7007,11 @@ select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %13, %17 ], [ %38, %._crit_edge.i.i.loopexit.i.i.i.i ]
   %41 = inttoptr i64 %.in.i.i.i.i.i.i to ptr
   store ptr %41, ptr %26, align 8, !tbaa !227
-  store i32 %40, ptr %23, align 4, !tbaa !51
+  store i32 %40, ptr %23, align 8, !tbaa !51
   %42 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 4
   %43 = load i32, ptr %42, align 4, !tbaa !51
   store i32 %43, ptr %20, align 4, !tbaa !51
-  store i32 %39, ptr %.val, align 4, !tbaa !51
+  store i32 %39, ptr %.val, align 8, !tbaa !51
   br label %_ZNSt17_Temporary_bufferIPSt5tupleIJPN4llvm12MachineInstrEiiiEES4_EC2ES5_l.exit.i.i.i
 
 .loopexit.i.i.i:                                  ; preds = %select.unfold.i.i.i.i.i
@@ -8475,7 +8475,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEiNS_12DenseMapInfoIS3_vEE
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !51
-  store i32 %68, ptr %66, align 4, !tbaa !51
+  store i32 %68, ptr %66, align 8, !tbaa !51
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !223
   br label %70
@@ -9751,22 +9751,22 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortIPSt5tupleIJPN4llvm12Ma
   %31 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -8
   store ptr %30, ptr %31, align 8, !tbaa !227
   %32 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -16
-  %33 = load i32, ptr %32, align 4, !tbaa !51
+  %33 = load i32, ptr %32, align 8, !tbaa !51
   %34 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -16
-  store i32 %33, ptr %34, align 4, !tbaa !51
+  store i32 %33, ptr %34, align 8, !tbaa !51
   %35 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -20
   %36 = load i32, ptr %35, align 4, !tbaa !51
   %37 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -20
   store i32 %36, ptr %37, align 4, !tbaa !51
-  %38 = load i32, ptr %27, align 4, !tbaa !51
-  store i32 %38, ptr %28, align 4, !tbaa !51
+  %38 = load i32, ptr %27, align 8, !tbaa !51
+  store i32 %38, ptr %28, align 8, !tbaa !51
   %39 = add nsw i64 %.010.i.i.i.i.i.i, -1
   %40 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %40, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit.i, !llvm.loop !673
 
 _ZSt13move_backwardIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i, %20
   store ptr %21, ptr %9, align 8, !tbaa !227
-  store i32 %17, ptr %10, align 4, !tbaa !51
+  store i32 %17, ptr %10, align 8, !tbaa !51
   store i32 %15, ptr %11, align 4, !tbaa !51
   br label %57
 
@@ -9784,14 +9784,14 @@ _ZSt13move_backwardIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit.i
   %45 = getelementptr inbounds nuw i8, ptr %.0914.i.i, i64 16
   store ptr %44, ptr %45, align 8, !tbaa !227
   %46 = getelementptr inbounds i8, ptr %.0914.i.i, i64 -16
-  %47 = load i32, ptr %46, align 4, !tbaa !51
+  %47 = load i32, ptr %46, align 8, !tbaa !51
   %48 = getelementptr inbounds nuw i8, ptr %.0914.i.i, i64 8
-  store i32 %47, ptr %48, align 4, !tbaa !51
+  store i32 %47, ptr %48, align 8, !tbaa !51
   %49 = getelementptr inbounds i8, ptr %.0914.i.i, i64 -20
   %50 = load i32, ptr %49, align 4, !tbaa !51
   %51 = getelementptr inbounds nuw i8, ptr %.0914.i.i, i64 4
   store i32 %50, ptr %51, align 4, !tbaa !51
-  store i32 %.0.val16.i.i, ptr %.0914.i.i, align 4, !tbaa !51
+  store i32 %.0.val16.i.i, ptr %.0914.i.i, align 8, !tbaa !51
   %.0.i.i = getelementptr inbounds i8, ptr %.015.i.i, i64 -24
   %.0.val.i.i = load i32, ptr %.0.i.i, align 4, !tbaa !51
   %52 = icmp slt i32 %.0.val.i, %.0.val.i.i
@@ -9803,7 +9803,7 @@ _ZSt13move_backwardIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit.i
   %54 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i.i, i64 16
   store ptr %53, ptr %54, align 8, !tbaa !227
   %55 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i.i, i64 8
-  store i32 %17, ptr %55, align 4, !tbaa !51
+  store i32 %17, ptr %55, align 8, !tbaa !51
   %56 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i.i, i64 4
   store i32 %15, ptr %56, align 4, !tbaa !51
   br label %57
@@ -9899,20 +9899,20 @@ define internal fastcc void @"_ZSt22__merge_without_bufferIPSt5tupleIJPN4llvm12M
   store ptr %17, ptr %16, align 8, !tbaa !227
   %19 = getelementptr inbounds nuw i8, ptr %.tr75, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %.tr6876, i64 8
-  %21 = load i32, ptr %19, align 4, !tbaa !51
-  %22 = load i32, ptr %20, align 4, !tbaa !51
-  store i32 %22, ptr %19, align 4, !tbaa !51
-  store i32 %21, ptr %20, align 4, !tbaa !51
+  %21 = load i32, ptr %19, align 8, !tbaa !51
+  %22 = load i32, ptr %20, align 8, !tbaa !51
+  store i32 %22, ptr %19, align 8, !tbaa !51
+  store i32 %21, ptr %20, align 8, !tbaa !51
   %23 = getelementptr inbounds nuw i8, ptr %.tr75, i64 4
   %24 = getelementptr inbounds nuw i8, ptr %.tr6876, i64 4
   %25 = load i32, ptr %23, align 4, !tbaa !51
   %26 = load i32, ptr %24, align 4, !tbaa !51
   store i32 %26, ptr %23, align 4, !tbaa !51
   store i32 %25, ptr %24, align 4, !tbaa !51
-  %27 = load i32, ptr %.tr75, align 4, !tbaa !51
-  %28 = load i32, ptr %.tr6876, align 4, !tbaa !51
-  store i32 %28, ptr %.tr75, align 4, !tbaa !51
-  store i32 %27, ptr %.tr6876, align 4, !tbaa !51
+  %27 = load i32, ptr %.tr75, align 8, !tbaa !51
+  %28 = load i32, ptr %.tr6876, align 8, !tbaa !51
+  store i32 %28, ptr %.tr75, align 8, !tbaa !51
+  store i32 %27, ptr %.tr6876, align 8, !tbaa !51
   br label %.loopexit
 
 29:                                               ; preds = %9
@@ -10047,20 +10047,20 @@ define linkonce_odr noundef ptr @_ZNSt3_V28__rotateIPSt5tupleIJPN4llvm12MachineI
   store ptr %19, ptr %18, align 8, !tbaa !227
   %21 = getelementptr inbounds nuw i8, ptr %.079.i, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
-  %23 = load i32, ptr %21, align 4, !tbaa !51
-  %24 = load i32, ptr %22, align 4, !tbaa !51
-  store i32 %24, ptr %21, align 4, !tbaa !51
-  store i32 %23, ptr %22, align 4, !tbaa !51
+  %23 = load i32, ptr %21, align 8, !tbaa !51
+  %24 = load i32, ptr %22, align 8, !tbaa !51
+  store i32 %24, ptr %21, align 8, !tbaa !51
+  store i32 %23, ptr %22, align 8, !tbaa !51
   %25 = getelementptr inbounds nuw i8, ptr %.079.i, i64 4
   %26 = getelementptr inbounds nuw i8, ptr %.010.i, i64 4
   %27 = load i32, ptr %25, align 4, !tbaa !51
   %28 = load i32, ptr %26, align 4, !tbaa !51
   store i32 %28, ptr %25, align 4, !tbaa !51
   store i32 %27, ptr %26, align 4, !tbaa !51
-  %29 = load i32, ptr %.079.i, align 4, !tbaa !51
-  %30 = load i32, ptr %.010.i, align 4, !tbaa !51
-  store i32 %30, ptr %.079.i, align 4, !tbaa !51
-  store i32 %29, ptr %.010.i, align 4, !tbaa !51
+  %29 = load i32, ptr %.079.i, align 8, !tbaa !51
+  %30 = load i32, ptr %.010.i, align 8, !tbaa !51
+  store i32 %30, ptr %.079.i, align 8, !tbaa !51
+  store i32 %29, ptr %.010.i, align 8, !tbaa !51
   %31 = getelementptr inbounds nuw i8, ptr %.079.i, i64 24
   %32 = getelementptr inbounds nuw i8, ptr %.010.i, i64 24
   %.not.i = icmp eq ptr %31, %1
@@ -10105,20 +10105,20 @@ define linkonce_odr noundef ptr @_ZNSt3_V28__rotateIPSt5tupleIJPN4llvm12MachineI
   store ptr %45, ptr %44, align 8, !tbaa !227
   %47 = getelementptr inbounds nuw i8, ptr %.14385, i64 8
   %48 = getelementptr inbounds nuw i8, ptr %.04086, i64 8
-  %49 = load i32, ptr %47, align 4, !tbaa !51
-  %50 = load i32, ptr %48, align 4, !tbaa !51
-  store i32 %50, ptr %47, align 4, !tbaa !51
-  store i32 %49, ptr %48, align 4, !tbaa !51
+  %49 = load i32, ptr %47, align 8, !tbaa !51
+  %50 = load i32, ptr %48, align 8, !tbaa !51
+  store i32 %50, ptr %47, align 8, !tbaa !51
+  store i32 %49, ptr %48, align 8, !tbaa !51
   %51 = getelementptr inbounds nuw i8, ptr %.14385, i64 4
   %52 = getelementptr inbounds nuw i8, ptr %.04086, i64 4
   %53 = load i32, ptr %51, align 4, !tbaa !51
   %54 = load i32, ptr %52, align 4, !tbaa !51
   store i32 %54, ptr %51, align 4, !tbaa !51
   store i32 %53, ptr %52, align 4, !tbaa !51
-  %55 = load i32, ptr %.14385, align 4, !tbaa !51
-  %56 = load i32, ptr %.04086, align 4, !tbaa !51
-  store i32 %56, ptr %.14385, align 4, !tbaa !51
-  store i32 %55, ptr %.04086, align 4, !tbaa !51
+  %55 = load i32, ptr %.14385, align 8, !tbaa !51
+  %56 = load i32, ptr %.04086, align 8, !tbaa !51
+  store i32 %56, ptr %.14385, align 8, !tbaa !51
+  store i32 %55, ptr %.04086, align 8, !tbaa !51
   %57 = getelementptr inbounds nuw i8, ptr %.14385, i64 24
   %58 = getelementptr inbounds nuw i8, ptr %.04086, i64 24
   %59 = add nuw nsw i64 %.03987, 1
@@ -10162,20 +10162,20 @@ define linkonce_odr noundef ptr @_ZNSt3_V28__rotateIPSt5tupleIJPN4llvm12MachineI
   store ptr %72, ptr %71, align 8, !tbaa !227
   %74 = getelementptr inbounds i8, ptr %.34582, i64 -16
   %75 = getelementptr inbounds i8, ptr %.03883, i64 -16
-  %76 = load i32, ptr %74, align 4, !tbaa !51
-  %77 = load i32, ptr %75, align 4, !tbaa !51
-  store i32 %77, ptr %74, align 4, !tbaa !51
-  store i32 %76, ptr %75, align 4, !tbaa !51
+  %76 = load i32, ptr %74, align 8, !tbaa !51
+  %77 = load i32, ptr %75, align 8, !tbaa !51
+  store i32 %77, ptr %74, align 8, !tbaa !51
+  store i32 %76, ptr %75, align 8, !tbaa !51
   %78 = getelementptr inbounds i8, ptr %.34582, i64 -20
   %79 = getelementptr inbounds i8, ptr %.03883, i64 -20
   %80 = load i32, ptr %78, align 4, !tbaa !51
   %81 = load i32, ptr %79, align 4, !tbaa !51
   store i32 %81, ptr %78, align 4, !tbaa !51
   store i32 %80, ptr %79, align 4, !tbaa !51
-  %82 = load i32, ptr %68, align 4, !tbaa !51
-  %83 = load i32, ptr %69, align 4, !tbaa !51
-  store i32 %83, ptr %68, align 4, !tbaa !51
-  store i32 %82, ptr %69, align 4, !tbaa !51
+  %82 = load i32, ptr %68, align 8, !tbaa !51
+  %83 = load i32, ptr %69, align 8, !tbaa !51
+  store i32 %83, ptr %68, align 8, !tbaa !51
+  store i32 %82, ptr %69, align 8, !tbaa !51
   %84 = add nuw nsw i64 %.084, 1
   %exitcond.not = icmp eq i64 %84, %.066
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !681
@@ -10241,22 +10241,22 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIPSt5tupleIJPN4llvm1
   %33 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i.i, i64 -8
   store ptr %32, ptr %33, align 8, !tbaa !227
   %34 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i.i, i64 -16
-  %35 = load i32, ptr %34, align 4, !tbaa !51
+  %35 = load i32, ptr %34, align 8, !tbaa !51
   %36 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i.i, i64 -16
-  store i32 %35, ptr %36, align 4, !tbaa !51
+  store i32 %35, ptr %36, align 8, !tbaa !51
   %37 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i.i, i64 -20
   %38 = load i32, ptr %37, align 4, !tbaa !51
   %39 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i.i, i64 -20
   store i32 %38, ptr %39, align 4, !tbaa !51
-  %40 = load i32, ptr %29, align 4, !tbaa !51
-  store i32 %40, ptr %30, align 4, !tbaa !51
+  %40 = load i32, ptr %29, align 8, !tbaa !51
+  store i32 %40, ptr %30, align 8, !tbaa !51
   %41 = add nsw i64 %.010.i.i.i.i.i.i.i, -1
   %42 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i, 1
   br i1 %42, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt13move_backwardIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit.i.i, !llvm.loop !673
 
 _ZSt13move_backwardIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %22
   store ptr %23, ptr %11, align 8, !tbaa !227
-  store i32 %19, ptr %12, align 4, !tbaa !51
+  store i32 %19, ptr %12, align 8, !tbaa !51
   store i32 %17, ptr %13, align 4, !tbaa !51
   br label %59
 
@@ -10274,14 +10274,14 @@ _ZSt13move_backwardIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit.i
   %47 = getelementptr inbounds nuw i8, ptr %.0914.i.i.i, i64 16
   store ptr %46, ptr %47, align 8, !tbaa !227
   %48 = getelementptr inbounds i8, ptr %.0914.i.i.i, i64 -16
-  %49 = load i32, ptr %48, align 4, !tbaa !51
+  %49 = load i32, ptr %48, align 8, !tbaa !51
   %50 = getelementptr inbounds nuw i8, ptr %.0914.i.i.i, i64 8
-  store i32 %49, ptr %50, align 4, !tbaa !51
+  store i32 %49, ptr %50, align 8, !tbaa !51
   %51 = getelementptr inbounds i8, ptr %.0914.i.i.i, i64 -20
   %52 = load i32, ptr %51, align 4, !tbaa !51
   %53 = getelementptr inbounds nuw i8, ptr %.0914.i.i.i, i64 4
   store i32 %52, ptr %53, align 4, !tbaa !51
-  store i32 %.0.val16.i.i.i, ptr %.0914.i.i.i, align 4, !tbaa !51
+  store i32 %.0.val16.i.i.i, ptr %.0914.i.i.i, align 8, !tbaa !51
   %.0.i.i.i = getelementptr inbounds i8, ptr %.015.i.i.i, i64 -24
   %.0.val.i.i.i = load i32, ptr %.0.i.i.i, align 4, !tbaa !51
   %54 = icmp slt i32 %.0.val.i.i, %.0.val.i.i.i
@@ -10293,7 +10293,7 @@ _ZSt13move_backwardIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit.i
   %56 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i.i.i, i64 16
   store ptr %55, ptr %56, align 8, !tbaa !227
   %57 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i.i.i, i64 8
-  store i32 %19, ptr %57, align 4, !tbaa !51
+  store i32 %19, ptr %57, align 8, !tbaa !51
   %58 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i.i.i, i64 4
   store i32 %17, ptr %58, align 4, !tbaa !51
   br label %59
@@ -10366,22 +10366,22 @@ _ZSt13move_backwardIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit.i
   %87 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i34.i, i64 -8
   store ptr %86, ptr %87, align 8, !tbaa !227
   %88 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i35.i, i64 -16
-  %89 = load i32, ptr %88, align 4, !tbaa !51
+  %89 = load i32, ptr %88, align 8, !tbaa !51
   %90 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i34.i, i64 -16
-  store i32 %89, ptr %90, align 4, !tbaa !51
+  store i32 %89, ptr %90, align 8, !tbaa !51
   %91 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i35.i, i64 -20
   %92 = load i32, ptr %91, align 4, !tbaa !51
   %93 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i34.i, i64 -20
   store i32 %92, ptr %93, align 4, !tbaa !51
-  %94 = load i32, ptr %83, align 4, !tbaa !51
-  store i32 %94, ptr %84, align 4, !tbaa !51
+  %94 = load i32, ptr %83, align 8, !tbaa !51
+  store i32 %94, ptr %84, align 8, !tbaa !51
   %95 = add nsw i64 %.010.i.i.i.i.i.i33.i, -1
   %96 = icmp samesign ugt i64 %.010.i.i.i.i.i.i33.i, 1
   br i1 %96, label %.lr.ph.i.i.i.i.i.i32.i, label %_ZSt13move_backwardIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit.i30.i, !llvm.loop !673
 
 _ZSt13move_backwardIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit.i30.i: ; preds = %.lr.ph.i.i.i.i.i.i32.i, %76
   store ptr %77, ptr %65, align 8, !tbaa !227
-  store i32 %73, ptr %66, align 4, !tbaa !51
+  store i32 %73, ptr %66, align 8, !tbaa !51
   store i32 %71, ptr %67, align 4, !tbaa !51
   br label %113
 
@@ -10399,14 +10399,14 @@ _ZSt13move_backwardIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit.i
   %101 = getelementptr inbounds nuw i8, ptr %.0914.i.i27.i, i64 16
   store ptr %100, ptr %101, align 8, !tbaa !227
   %102 = getelementptr inbounds i8, ptr %.0914.i.i27.i, i64 -16
-  %103 = load i32, ptr %102, align 4, !tbaa !51
+  %103 = load i32, ptr %102, align 8, !tbaa !51
   %104 = getelementptr inbounds nuw i8, ptr %.0914.i.i27.i, i64 8
-  store i32 %103, ptr %104, align 4, !tbaa !51
+  store i32 %103, ptr %104, align 8, !tbaa !51
   %105 = getelementptr inbounds i8, ptr %.0914.i.i27.i, i64 -20
   %106 = load i32, ptr %105, align 4, !tbaa !51
   %107 = getelementptr inbounds nuw i8, ptr %.0914.i.i27.i, i64 4
   store i32 %106, ptr %107, align 4, !tbaa !51
-  store i32 %.0.val16.i.i25.i, ptr %.0914.i.i27.i, align 4, !tbaa !51
+  store i32 %.0.val16.i.i25.i, ptr %.0914.i.i27.i, align 8, !tbaa !51
   %.0.i.i28.i = getelementptr inbounds i8, ptr %.015.i.i26.i, i64 -24
   %.0.val.i.i29.i = load i32, ptr %.0.i.i28.i, align 4, !tbaa !51
   %108 = icmp slt i32 %.0.val.i16.i, %.0.val.i.i29.i
@@ -10418,7 +10418,7 @@ _ZSt13move_backwardIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit.i
   %110 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i.i20.i, i64 16
   store ptr %109, ptr %110, align 8, !tbaa !227
   %111 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i.i20.i, i64 8
-  store i32 %73, ptr %111, align 4, !tbaa !51
+  store i32 %73, ptr %111, align 8, !tbaa !51
   %112 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i.i20.i, i64 4
   store i32 %71, ptr %112, align 4, !tbaa !51
   br label %113
@@ -10480,15 +10480,15 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %16 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 16
   store ptr %15, ptr %16, align 8, !tbaa !227
   %17 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 8
-  %18 = load i32, ptr %17, align 4, !tbaa !51
+  %18 = load i32, ptr %17, align 8, !tbaa !51
   %19 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 8
-  store i32 %18, ptr %19, align 4, !tbaa !51
+  store i32 %18, ptr %19, align 8, !tbaa !51
   %20 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !51
   %22 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 4
   store i32 %21, ptr %22, align 4, !tbaa !51
-  %23 = load i32, ptr %.0910.i.i.i.i.i, align 4, !tbaa !51
-  store i32 %23, ptr %.0811.i.i.i.i.i, align 4, !tbaa !51
+  %23 = load i32, ptr %.0910.i.i.i.i.i, align 8, !tbaa !51
+  store i32 %23, ptr %.0811.i.i.i.i.i, align 8, !tbaa !51
   %24 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 24
   %25 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 24
   %26 = add nsw i64 %.012.i.i.i.i.i, -1
@@ -10514,7 +10514,7 @@ _ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit: ; preds = 
   %32 = getelementptr inbounds nuw i8, ptr %.01922.i, i64 16
   %33 = load ptr, ptr %32, align 8, !tbaa !227
   %34 = getelementptr inbounds nuw i8, ptr %.01922.i, i64 8
-  %35 = load i32, ptr %34, align 4, !tbaa !51
+  %35 = load i32, ptr %34, align 8, !tbaa !51
   store i32 %35, ptr %29, align 4, !tbaa !51
   %36 = getelementptr inbounds nuw i8, ptr %.01922.i, i64 24
   br label %43
@@ -10523,7 +10523,7 @@ _ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit: ; preds = 
   %38 = getelementptr inbounds nuw i8, ptr %.01823.i, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !227
   %40 = getelementptr inbounds nuw i8, ptr %.01823.i, i64 8
-  %41 = load i32, ptr %40, align 4, !tbaa !51
+  %41 = load i32, ptr %40, align 8, !tbaa !51
   store i32 %41, ptr %29, align 4, !tbaa !51
   %42 = getelementptr inbounds nuw i8, ptr %.01823.i, i64 24
   br label %43
@@ -10539,7 +10539,7 @@ _ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit: ; preds = 
   %.sink.i = load i32, ptr %.sink.in.i, align 4, !tbaa !51
   %44 = getelementptr inbounds nuw i8, ptr %.024.i, i64 16
   store ptr %.sink29.i, ptr %44, align 8, !tbaa !227
-  store i32 %.sink.i, ptr %.024.i, align 4, !tbaa !51
+  store i32 %.sink.i, ptr %.024.i, align 8, !tbaa !51
   %45 = getelementptr inbounds nuw i8, ptr %.024.i, i64 24
   %46 = icmp ne ptr %.1.i, %25
   %47 = icmp ne ptr %.120.i, %2
@@ -10571,15 +10571,15 @@ _ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit: ; preds = 
   %56 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 16
   store ptr %55, ptr %56, align 8, !tbaa !227
   %57 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i, i64 8
-  %58 = load i32, ptr %57, align 4, !tbaa !51
+  %58 = load i32, ptr %57, align 8, !tbaa !51
   %59 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 8
-  store i32 %58, ptr %59, align 4, !tbaa !51
+  store i32 %58, ptr %59, align 8, !tbaa !51
   %60 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i, i64 4
   %61 = load i32, ptr %60, align 4, !tbaa !51
   %62 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 4
   store i32 %61, ptr %62, align 4, !tbaa !51
-  %63 = load i32, ptr %.0910.i.i.i.i.i.i, align 4, !tbaa !51
-  store i32 %63, ptr %.0811.i.i.i.i.i.i, align 4, !tbaa !51
+  %63 = load i32, ptr %.0910.i.i.i.i.i.i, align 8, !tbaa !51
+  store i32 %63, ptr %.0811.i.i.i.i.i.i, align 8, !tbaa !51
   %64 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i, i64 24
   %65 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 24
   %66 = add nsw i64 %.012.i.i.i.i.i.i, -1
@@ -10614,15 +10614,15 @@ _ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit: ; preds = 
   %76 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i77, i64 16
   store ptr %75, ptr %76, align 8, !tbaa !227
   %77 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i78, i64 8
-  %78 = load i32, ptr %77, align 4, !tbaa !51
+  %78 = load i32, ptr %77, align 8, !tbaa !51
   %79 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i77, i64 8
-  store i32 %78, ptr %79, align 4, !tbaa !51
+  store i32 %78, ptr %79, align 8, !tbaa !51
   %80 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i78, i64 4
   %81 = load i32, ptr %80, align 4, !tbaa !51
   %82 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i77, i64 4
   store i32 %81, ptr %82, align 4, !tbaa !51
-  %83 = load i32, ptr %.0910.i.i.i.i.i78, align 4, !tbaa !51
-  store i32 %83, ptr %.0811.i.i.i.i.i77, align 4, !tbaa !51
+  %83 = load i32, ptr %.0910.i.i.i.i.i78, align 8, !tbaa !51
+  store i32 %83, ptr %.0811.i.i.i.i.i77, align 8, !tbaa !51
   %84 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i78, i64 24
   %85 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i77, i64 24
   %86 = add nsw i64 %.012.i.i.i.i.i76, -1
@@ -10656,15 +10656,15 @@ _ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit79: ; preds 
   %99 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -8
   store ptr %98, ptr %99, align 8, !tbaa !227
   %100 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -16
-  %101 = load i32, ptr %100, align 4, !tbaa !51
+  %101 = load i32, ptr %100, align 8, !tbaa !51
   %102 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -16
-  store i32 %101, ptr %102, align 4, !tbaa !51
+  store i32 %101, ptr %102, align 8, !tbaa !51
   %103 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -20
   %104 = load i32, ptr %103, align 4, !tbaa !51
   %105 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -20
   store i32 %104, ptr %105, align 4, !tbaa !51
-  %106 = load i32, ptr %95, align 4, !tbaa !51
-  store i32 %106, ptr %96, align 4, !tbaa !51
+  %106 = load i32, ptr %95, align 8, !tbaa !51
+  store i32 %106, ptr %96, align 8, !tbaa !51
   %107 = add nsw i64 %.010.i.i.i.i.i.i, -1
   %108 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %108, label %.lr.ph.i.i.i.i.i.i82, label %"_ZSt21__move_merge_adaptiveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_S5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_15WindowScheduler6expandEvE3$_0EEEvT_SC_T0_SD_T1_T2_.exit", !llvm.loop !673
@@ -10701,13 +10701,13 @@ _ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit79: ; preds 
   %121 = load ptr, ptr %120, align 8, !tbaa !227
   store ptr %121, ptr %116, align 8, !tbaa !227
   %122 = getelementptr inbounds i8, ptr %.026.i.ph.pn, i64 -16
-  %123 = load i32, ptr %122, align 4, !tbaa !51
-  store i32 %123, ptr %117, align 4, !tbaa !51
+  %123 = load i32, ptr %122, align 8, !tbaa !51
+  store i32 %123, ptr %117, align 8, !tbaa !51
   %124 = getelementptr inbounds i8, ptr %.026.i.ph.pn, i64 -20
   %125 = load i32, ptr %124, align 4, !tbaa !51
   store i32 %125, ptr %118, align 4, !tbaa !51
-  %126 = load i32, ptr %.026.i.ph, align 4, !tbaa !51
-  store i32 %126, ptr %115, align 4, !tbaa !51
+  %126 = load i32, ptr %.026.i.ph, align 8, !tbaa !51
+  store i32 %126, ptr %115, align 8, !tbaa !51
   %127 = icmp eq ptr %.tr139, %.026.i.ph
   br i1 %127, label %128, label %.outer, !llvm.loop !686
 
@@ -10734,15 +10734,15 @@ _ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit79: ; preds 
   %139 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i36.i, i64 -8
   store ptr %138, ptr %139, align 8, !tbaa !227
   %140 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i37.i, i64 -16
-  %141 = load i32, ptr %140, align 4, !tbaa !51
+  %141 = load i32, ptr %140, align 8, !tbaa !51
   %142 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i36.i, i64 -16
-  store i32 %141, ptr %142, align 4, !tbaa !51
+  store i32 %141, ptr %142, align 8, !tbaa !51
   %143 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i37.i, i64 -20
   %144 = load i32, ptr %143, align 4, !tbaa !51
   %145 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i36.i, i64 -20
   store i32 %144, ptr %145, align 4, !tbaa !51
-  %146 = load i32, ptr %135, align 4, !tbaa !51
-  store i32 %146, ptr %136, align 4, !tbaa !51
+  %146 = load i32, ptr %135, align 8, !tbaa !51
+  store i32 %146, ptr %136, align 8, !tbaa !51
   %147 = add nsw i64 %.010.i.i.i.i.i35.i, -1
   %148 = icmp samesign ugt i64 %.010.i.i.i.i.i35.i, 1
   br i1 %148, label %.lr.ph.i.i.i.i.i34.i, label %"_ZSt21__move_merge_adaptiveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_S5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_15WindowScheduler6expandEvE3$_0EEEvT_SC_T0_SD_T1_T2_.exit", !llvm.loop !673
@@ -10752,13 +10752,13 @@ _ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit79: ; preds 
   %151 = load ptr, ptr %150, align 8, !tbaa !227
   store ptr %151, ptr %116, align 8, !tbaa !227
   %152 = getelementptr inbounds nuw i8, ptr %.024.i80, i64 8
-  %153 = load i32, ptr %152, align 4, !tbaa !51
-  store i32 %153, ptr %117, align 4, !tbaa !51
+  %153 = load i32, ptr %152, align 8, !tbaa !51
+  store i32 %153, ptr %117, align 8, !tbaa !51
   %154 = getelementptr inbounds nuw i8, ptr %.024.i80, i64 4
   %155 = load i32, ptr %154, align 4, !tbaa !51
   store i32 %155, ptr %118, align 4, !tbaa !51
-  %156 = load i32, ptr %.024.i80, align 4, !tbaa !51
-  store i32 %156, ptr %115, align 4, !tbaa !51
+  %156 = load i32, ptr %.024.i80, align 8, !tbaa !51
+  store i32 %156, ptr %115, align 8, !tbaa !51
   %157 = icmp eq ptr %5, %.024.i80
   br i1 %157, label %"_ZSt21__move_merge_adaptiveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_S5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_15WindowScheduler6expandEvE3$_0EEEvT_SC_T0_SD_T1_T2_.exit", label %158
 
@@ -10902,7 +10902,7 @@ define internal fastcc void @"_ZSt17__merge_sort_loopIPSt5tupleIJPN4llvm12Machin
   %17 = getelementptr inbounds nuw i8, ptr %.01929.i, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !227
   %19 = getelementptr inbounds nuw i8, ptr %.01929.i, i64 8
-  %20 = load i32, ptr %19, align 4, !tbaa !51
+  %20 = load i32, ptr %19, align 8, !tbaa !51
   store i32 %20, ptr %14, align 4, !tbaa !51
   %21 = getelementptr inbounds nuw i8, ptr %.01929.i, i64 24
   br label %28
@@ -10911,7 +10911,7 @@ define internal fastcc void @"_ZSt17__merge_sort_loopIPSt5tupleIJPN4llvm12Machin
   %23 = getelementptr inbounds nuw i8, ptr %.01830.i, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !227
   %25 = getelementptr inbounds nuw i8, ptr %.01830.i, i64 8
-  %26 = load i32, ptr %25, align 4, !tbaa !51
+  %26 = load i32, ptr %25, align 8, !tbaa !51
   store i32 %26, ptr %14, align 4, !tbaa !51
   %27 = getelementptr inbounds nuw i8, ptr %.01830.i, i64 24
   br label %28
@@ -10927,7 +10927,7 @@ define internal fastcc void @"_ZSt17__merge_sort_loopIPSt5tupleIJPN4llvm12Machin
   %.sink.i = load i32, ptr %.sink.in.i, align 4, !tbaa !51
   %29 = getelementptr inbounds nuw i8, ptr %.031.i, i64 16
   store ptr %.sink36.i, ptr %29, align 8, !tbaa !227
-  store i32 %.sink.i, ptr %.031.i, align 4, !tbaa !51
+  store i32 %.sink.i, ptr %.031.i, align 8, !tbaa !51
   %30 = getelementptr inbounds nuw i8, ptr %.031.i, i64 24
   %31 = icmp ne ptr %.1.i, %11
   %32 = icmp ne ptr %.120.i, %12
@@ -10957,15 +10957,15 @@ define internal fastcc void @"_ZSt17__merge_sort_loopIPSt5tupleIJPN4llvm12Machin
   %41 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 16
   store ptr %40, ptr %41, align 8, !tbaa !227
   %42 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i, i64 8
-  %43 = load i32, ptr %42, align 4, !tbaa !51
+  %43 = load i32, ptr %42, align 8, !tbaa !51
   %44 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 8
-  store i32 %43, ptr %44, align 4, !tbaa !51
+  store i32 %43, ptr %44, align 8, !tbaa !51
   %45 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i, i64 4
   %46 = load i32, ptr %45, align 4, !tbaa !51
   %47 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 4
   store i32 %46, ptr %47, align 4, !tbaa !51
-  %48 = load i32, ptr %.0910.i.i.i.i.i.i, align 4, !tbaa !51
-  store i32 %48, ptr %.0811.i.i.i.i.i.i, align 4, !tbaa !51
+  %48 = load i32, ptr %.0910.i.i.i.i.i.i, align 8, !tbaa !51
+  store i32 %48, ptr %.0811.i.i.i.i.i.i, align 8, !tbaa !51
   %49 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i, i64 24
   %50 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 24
   %51 = add nsw i64 %.012.i.i.i.i.i.i, -1
@@ -10993,15 +10993,15 @@ _ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit.i: ; preds 
   %60 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i25.i, i64 16
   store ptr %59, ptr %60, align 8, !tbaa !227
   %61 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i26.i, i64 8
-  %62 = load i32, ptr %61, align 4, !tbaa !51
+  %62 = load i32, ptr %61, align 8, !tbaa !51
   %63 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i25.i, i64 8
-  store i32 %62, ptr %63, align 4, !tbaa !51
+  store i32 %62, ptr %63, align 8, !tbaa !51
   %64 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i26.i, i64 4
   %65 = load i32, ptr %64, align 4, !tbaa !51
   %66 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i25.i, i64 4
   store i32 %65, ptr %66, align 4, !tbaa !51
-  %67 = load i32, ptr %.0910.i.i.i.i.i26.i, align 4, !tbaa !51
-  store i32 %67, ptr %.0811.i.i.i.i.i25.i, align 4, !tbaa !51
+  %67 = load i32, ptr %.0910.i.i.i.i.i26.i, align 8, !tbaa !51
+  store i32 %67, ptr %.0811.i.i.i.i.i25.i, align 8, !tbaa !51
   %68 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i26.i, i64 24
   %69 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i25.i, i64 24
   %70 = add nsw i64 %.012.i.i.i.i.i24.i, -1
@@ -11042,7 +11042,7 @@ _ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit.i: ; preds 
   %82 = getelementptr inbounds nuw i8, ptr %.01929.i43, i64 16
   %83 = load ptr, ptr %82, align 8, !tbaa !227
   %84 = getelementptr inbounds nuw i8, ptr %.01929.i43, i64 8
-  %85 = load i32, ptr %84, align 4, !tbaa !51
+  %85 = load i32, ptr %84, align 8, !tbaa !51
   store i32 %85, ptr %79, align 4, !tbaa !51
   %86 = getelementptr inbounds nuw i8, ptr %.01929.i43, i64 24
   br label %93
@@ -11051,7 +11051,7 @@ _ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit.i: ; preds 
   %88 = getelementptr inbounds nuw i8, ptr %.01830.i42, i64 16
   %89 = load ptr, ptr %88, align 8, !tbaa !227
   %90 = getelementptr inbounds nuw i8, ptr %.01830.i42, i64 8
-  %91 = load i32, ptr %90, align 4, !tbaa !51
+  %91 = load i32, ptr %90, align 8, !tbaa !51
   store i32 %91, ptr %79, align 4, !tbaa !51
   %92 = getelementptr inbounds nuw i8, ptr %.01830.i42, i64 24
   br label %93
@@ -11067,7 +11067,7 @@ _ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit.i: ; preds 
   %.sink.i50 = load i32, ptr %.sink.in.i47, align 4, !tbaa !51
   %94 = getelementptr inbounds nuw i8, ptr %.031.i41, i64 16
   store ptr %.sink36.i46, ptr %94, align 8, !tbaa !227
-  store i32 %.sink.i50, ptr %.031.i41, align 4, !tbaa !51
+  store i32 %.sink.i50, ptr %.031.i41, align 8, !tbaa !51
   %95 = getelementptr inbounds nuw i8, ptr %.031.i41, i64 24
   %96 = icmp ne ptr %.1.i49, %74
   %97 = icmp ne ptr %.120.i48, %1
@@ -11097,15 +11097,15 @@ _ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit.i: ; preds 
   %106 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i38, i64 16
   store ptr %105, ptr %106, align 8, !tbaa !227
   %107 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i39, i64 8
-  %108 = load i32, ptr %107, align 4, !tbaa !51
+  %108 = load i32, ptr %107, align 8, !tbaa !51
   %109 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i38, i64 8
-  store i32 %108, ptr %109, align 4, !tbaa !51
+  store i32 %108, ptr %109, align 8, !tbaa !51
   %110 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i39, i64 4
   %111 = load i32, ptr %110, align 4, !tbaa !51
   %112 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i38, i64 4
   store i32 %111, ptr %112, align 4, !tbaa !51
-  %113 = load i32, ptr %.0910.i.i.i.i.i.i39, align 4, !tbaa !51
-  store i32 %113, ptr %.0811.i.i.i.i.i.i38, align 4, !tbaa !51
+  %113 = load i32, ptr %.0910.i.i.i.i.i.i39, align 8, !tbaa !51
+  store i32 %113, ptr %.0811.i.i.i.i.i.i38, align 8, !tbaa !51
   %114 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i39, i64 24
   %115 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i38, i64 24
   %116 = add nsw i64 %.012.i.i.i.i.i.i37, -1
@@ -11132,15 +11132,15 @@ _ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit.i27: ; pred
   %124 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i25.i33, i64 16
   store ptr %123, ptr %124, align 8, !tbaa !227
   %125 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i26.i34, i64 8
-  %126 = load i32, ptr %125, align 4, !tbaa !51
+  %126 = load i32, ptr %125, align 8, !tbaa !51
   %127 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i25.i33, i64 8
-  store i32 %126, ptr %127, align 4, !tbaa !51
+  store i32 %126, ptr %127, align 8, !tbaa !51
   %128 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i26.i34, i64 4
   %129 = load i32, ptr %128, align 4, !tbaa !51
   %130 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i25.i33, i64 4
   store i32 %129, ptr %130, align 4, !tbaa !51
-  %131 = load i32, ptr %.0910.i.i.i.i.i26.i34, align 4, !tbaa !51
-  store i32 %131, ptr %.0811.i.i.i.i.i25.i33, align 4, !tbaa !51
+  %131 = load i32, ptr %.0910.i.i.i.i.i26.i34, align 8, !tbaa !51
+  store i32 %131, ptr %.0811.i.i.i.i.i25.i33, align 8, !tbaa !51
   %132 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i26.i34, i64 24
   %133 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i25.i33, i64 24
   %134 = add nsw i64 %.012.i.i.i.i.i24.i32, -1
@@ -11182,15 +11182,15 @@ define linkonce_odr noundef ptr @_ZSt17__rotate_adaptiveIPSt5tupleIJPN4llvm12Mac
   %18 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 16
   store ptr %17, ptr %18, align 8, !tbaa !227
   %19 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 8
-  %20 = load i32, ptr %19, align 4, !tbaa !51
+  %20 = load i32, ptr %19, align 8, !tbaa !51
   %21 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 8
-  store i32 %20, ptr %21, align 4, !tbaa !51
+  store i32 %20, ptr %21, align 8, !tbaa !51
   %22 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 4
   %23 = load i32, ptr %22, align 4, !tbaa !51
   %24 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 4
   store i32 %23, ptr %24, align 4, !tbaa !51
-  %25 = load i32, ptr %.0910.i.i.i.i.i, align 4, !tbaa !51
-  store i32 %25, ptr %.0811.i.i.i.i.i, align 4, !tbaa !51
+  %25 = load i32, ptr %.0910.i.i.i.i.i, align 8, !tbaa !51
+  store i32 %25, ptr %.0811.i.i.i.i.i, align 8, !tbaa !51
   %26 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 24
   %27 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 24
   %28 = add nsw i64 %.012.i.i.i.i.i, -1
@@ -11219,15 +11219,15 @@ _ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit: ; preds = 
   %38 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
   store ptr %37, ptr %38, align 8, !tbaa !227
   %39 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -16
-  %40 = load i32, ptr %39, align 4, !tbaa !51
+  %40 = load i32, ptr %39, align 8, !tbaa !51
   %41 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -16
-  store i32 %40, ptr %41, align 4, !tbaa !51
+  store i32 %40, ptr %41, align 8, !tbaa !51
   %42 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -20
   %43 = load i32, ptr %42, align 4, !tbaa !51
   %44 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -20
   store i32 %43, ptr %44, align 4, !tbaa !51
-  %45 = load i32, ptr %34, align 4, !tbaa !51
-  store i32 %45, ptr %35, align 4, !tbaa !51
+  %45 = load i32, ptr %34, align 8, !tbaa !51
+  store i32 %45, ptr %35, align 8, !tbaa !51
   %46 = add nsw i64 %.010.i.i.i.i.i, -1
   %47 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %47, label %.lr.ph.i.i.i.i.i37, label %_ZSt13move_backwardIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit, !llvm.loop !673
@@ -11252,15 +11252,15 @@ _ZSt13move_backwardIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit: 
   %55 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i42, i64 16
   store ptr %54, ptr %55, align 8, !tbaa !227
   %56 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i43, i64 8
-  %57 = load i32, ptr %56, align 4, !tbaa !51
+  %57 = load i32, ptr %56, align 8, !tbaa !51
   %58 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i42, i64 8
-  store i32 %57, ptr %58, align 4, !tbaa !51
+  store i32 %57, ptr %58, align 8, !tbaa !51
   %59 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i43, i64 4
   %60 = load i32, ptr %59, align 4, !tbaa !51
   %61 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i42, i64 4
   store i32 %60, ptr %61, align 4, !tbaa !51
-  %62 = load i32, ptr %.0910.i.i.i.i.i43, align 4, !tbaa !51
-  store i32 %62, ptr %.0811.i.i.i.i.i42, align 4, !tbaa !51
+  %62 = load i32, ptr %.0910.i.i.i.i.i43, align 8, !tbaa !51
+  store i32 %62, ptr %.0811.i.i.i.i.i42, align 8, !tbaa !51
   %63 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i43, i64 24
   %64 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i42, i64 24
   %65 = add nsw i64 %.012.i.i.i.i.i41, -1
@@ -11295,15 +11295,15 @@ _ZSt13move_backwardIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit: 
   %77 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i49, i64 16
   store ptr %76, ptr %77, align 8, !tbaa !227
   %78 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i50, i64 8
-  %79 = load i32, ptr %78, align 4, !tbaa !51
+  %79 = load i32, ptr %78, align 8, !tbaa !51
   %80 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i49, i64 8
-  store i32 %79, ptr %80, align 4, !tbaa !51
+  store i32 %79, ptr %80, align 8, !tbaa !51
   %81 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i50, i64 4
   %82 = load i32, ptr %81, align 4, !tbaa !51
   %83 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i49, i64 4
   store i32 %82, ptr %83, align 4, !tbaa !51
-  %84 = load i32, ptr %.0910.i.i.i.i.i50, align 4, !tbaa !51
-  store i32 %84, ptr %.0811.i.i.i.i.i49, align 4, !tbaa !51
+  %84 = load i32, ptr %.0910.i.i.i.i.i50, align 8, !tbaa !51
+  store i32 %84, ptr %.0811.i.i.i.i.i49, align 8, !tbaa !51
   %85 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i50, i64 24
   %86 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i49, i64 24
   %87 = add nsw i64 %.012.i.i.i.i.i48, -1
@@ -11330,15 +11330,15 @@ _ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit51: ; preds 
   %95 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i56, i64 16
   store ptr %94, ptr %95, align 8, !tbaa !227
   %96 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i57, i64 8
-  %97 = load i32, ptr %96, align 4, !tbaa !51
+  %97 = load i32, ptr %96, align 8, !tbaa !51
   %98 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i56, i64 8
-  store i32 %97, ptr %98, align 4, !tbaa !51
+  store i32 %97, ptr %98, align 8, !tbaa !51
   %99 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i57, i64 4
   %100 = load i32, ptr %99, align 4, !tbaa !51
   %101 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i56, i64 4
   store i32 %100, ptr %101, align 4, !tbaa !51
-  %102 = load i32, ptr %.0910.i.i.i.i.i57, align 4, !tbaa !51
-  store i32 %102, ptr %.0811.i.i.i.i.i56, align 4, !tbaa !51
+  %102 = load i32, ptr %.0910.i.i.i.i.i57, align 8, !tbaa !51
+  store i32 %102, ptr %.0811.i.i.i.i.i56, align 8, !tbaa !51
   %103 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i57, i64 24
   %104 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i56, i64 24
   %105 = add nsw i64 %.012.i.i.i.i.i55, -1
@@ -11367,15 +11367,15 @@ _ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit58: ; preds 
   %116 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i63, i64 -8
   store ptr %115, ptr %116, align 8, !tbaa !227
   %117 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i64, i64 -16
-  %118 = load i32, ptr %117, align 4, !tbaa !51
+  %118 = load i32, ptr %117, align 8, !tbaa !51
   %119 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i63, i64 -16
-  store i32 %118, ptr %119, align 4, !tbaa !51
+  store i32 %118, ptr %119, align 8, !tbaa !51
   %120 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i64, i64 -20
   %121 = load i32, ptr %120, align 4, !tbaa !51
   %122 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i63, i64 -20
   store i32 %121, ptr %122, align 4, !tbaa !51
-  %123 = load i32, ptr %112, align 4, !tbaa !51
-  store i32 %123, ptr %113, align 4, !tbaa !51
+  %123 = load i32, ptr %112, align 8, !tbaa !51
+  store i32 %123, ptr %113, align 8, !tbaa !51
   %124 = add nsw i64 %.010.i.i.i.i.i62, -1
   %125 = icmp samesign ugt i64 %.010.i.i.i.i.i62, 1
   br i1 %125, label %.lr.ph.i.i.i.i.i61, label %_ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit44, !llvm.loop !673

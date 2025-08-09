@@ -7116,7 +7116,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4768 = getelementptr inbounds nuw i8, ptr %4761, i64 24
   store i64 %4767, ptr %4768, align 8, !tbaa !100
   %4769 = getelementptr inbounds nuw i8, ptr %4761, i64 8
-  store i8 0, ptr %4769, align 1, !tbaa !101
+  store i8 0, ptr %4769, align 8, !tbaa !101
   %4770 = getelementptr inbounds nuw i8, ptr %4761, i64 9
   store i8 0, ptr %4770, align 1, !tbaa !102
   %4771 = getelementptr inbounds nuw i8, ptr %4761, i64 10
@@ -7126,7 +7126,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4774 = getelementptr inbounds nuw i8, ptr %4761, i64 13
   store i8 32, ptr %4774, align 1, !tbaa !104
   %4775 = getelementptr inbounds nuw i8, ptr %4761, i64 14
-  store i8 0, ptr %4775, align 1, !tbaa !105
+  store i8 0, ptr %4775, align 2, !tbaa !105
   %4776 = getelementptr inbounds nuw i8, ptr %4761, i64 15
   store i8 0, ptr %4776, align 1, !tbaa !106
   %4777 = ptrtoint ptr %4757 to i64
@@ -7134,9 +7134,9 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4779 = add i64 %4778, %4749
   %4780 = trunc i64 %4779 to i8
   %4781 = add i8 %4780, 4
-  store i8 %4781, ptr %4771, align 1, !tbaa !107
+  store i8 %4781, ptr %4771, align 2, !tbaa !107
   %4782 = trunc i64 %4778 to i8
-  store i8 %4782, ptr %4773, align 1, !tbaa !108
+  store i8 %4782, ptr %4773, align 4, !tbaa !108
   %4783 = load i32, ptr %4606, align 4, !tbaa !31
   %4784 = and i32 %4783, 248
   %4785 = icmp eq i32 %4784, 0
@@ -7492,7 +7492,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %5013 = getelementptr inbounds nuw i8, ptr %5005, i64 24
   store i64 %5012, ptr %5013, align 8, !tbaa !100
   %5014 = getelementptr inbounds nuw i8, ptr %5005, i64 8
-  store i8 1, ptr %5014, align 1, !tbaa !101
+  store i8 1, ptr %5014, align 8, !tbaa !101
   %5015 = getelementptr inbounds nuw i8, ptr %5005, i64 9
   store i8 0, ptr %5015, align 1, !tbaa !102
   %5016 = getelementptr inbounds nuw i8, ptr %5005, i64 10
@@ -7502,7 +7502,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %5019 = getelementptr inbounds nuw i8, ptr %5005, i64 13
   store i8 32, ptr %5019, align 1, !tbaa !104
   %5020 = getelementptr inbounds nuw i8, ptr %5005, i64 14
-  store i8 0, ptr %5020, align 1, !tbaa !105
+  store i8 0, ptr %5020, align 2, !tbaa !105
   %5021 = getelementptr inbounds nuw i8, ptr %5005, i64 15
   store i8 0, ptr %5021, align 1, !tbaa !106
   %5022 = ptrtoint ptr %4961 to i64
@@ -7510,8 +7510,8 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %5024 = trunc i64 %5023 to i8
   %5025 = add nuw nsw i8 %4963, 4
   %5026 = add i8 %5025, %5024
-  store i8 %5026, ptr %5016, align 1, !tbaa !107
-  store i8 %5024, ptr %5018, align 1, !tbaa !108
+  store i8 %5026, ptr %5016, align 2, !tbaa !107
+  store i8 %5024, ptr %5018, align 4, !tbaa !108
   %5027 = sext i32 %4982 to i64
   %5028 = getelementptr inbounds nuw i8, ptr %5005, i64 32
   store i64 %5027, ptr %5028, align 8, !tbaa !109
@@ -7552,7 +7552,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %5051 = getelementptr inbounds nuw i8, ptr %5049, i64 20
   store i32 %5048, ptr %5051, align 4, !tbaa !126
   %5052 = getelementptr inbounds nuw i8, ptr %5049, i64 8
-  store i8 1, ptr %5052, align 1, !tbaa !101
+  store i8 1, ptr %5052, align 8, !tbaa !101
   %5053 = getelementptr inbounds nuw i8, ptr %5049, i64 9
   store i8 0, ptr %5053, align 1, !tbaa !102
   %5054 = getelementptr inbounds nuw i8, ptr %5049, i64 10
@@ -7562,7 +7562,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %5057 = getelementptr inbounds nuw i8, ptr %5049, i64 13
   store i8 32, ptr %5057, align 1, !tbaa !104
   %5058 = getelementptr inbounds nuw i8, ptr %5049, i64 14
-  store i8 0, ptr %5058, align 1, !tbaa !105
+  store i8 0, ptr %5058, align 2, !tbaa !105
   %5059 = getelementptr inbounds nuw i8, ptr %5049, i64 15
   store i8 0, ptr %5059, align 1, !tbaa !106
   %5060 = load ptr, ptr %11, align 8, !tbaa !29
@@ -7572,8 +7572,8 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %5064 = trunc i64 %5063 to i8
   %5065 = add nuw nsw i8 %4963, 4
   %5066 = add i8 %5065, %5064
-  store i8 %5066, ptr %5054, align 1, !tbaa !107
-  store i8 %5064, ptr %5056, align 1, !tbaa !108
+  store i8 %5066, ptr %5054, align 2, !tbaa !107
+  store i8 %5064, ptr %5056, align 4, !tbaa !108
   %5067 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5068 = load ptr, ptr %5067, align 8, !tbaa !80
   %5069 = ptrtoint ptr %5068 to i64

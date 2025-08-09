@@ -23,7 +23,7 @@ define hidden void @handleSomInternal(ptr noundef captures(none) %0, ptr noundef
   %16 = zext i32 %15 to i64
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 360
-  %19 = load i32, ptr %18, align 4
+  %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 440
@@ -2926,7 +2926,7 @@ define hidden void @setSomFromSomAware(ptr noundef captures(none) %0, ptr nounde
   %13 = zext i32 %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 360
-  %16 = load i32, ptr %15, align 4
+  %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 440

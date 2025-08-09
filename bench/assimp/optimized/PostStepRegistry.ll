@@ -471,7 +471,7 @@ _ZNSt6vectorIPN6Assimp11BaseProcessESaIS2_EE9push_backEOS2_.exit68: ; preds = %1
   store ptr %155, ptr %154, align 8
   %156 = getelementptr inbounds nuw i8, ptr %153, i64 32
   store i64 0, ptr %156, align 8
-  store i8 0, ptr %155, align 1
+  store i8 0, ptr %155, align 8
   %157 = getelementptr inbounds nuw i8, ptr %153, i64 56
   store ptr null, ptr %157, align 8
   %158 = load ptr, ptr %20, align 8

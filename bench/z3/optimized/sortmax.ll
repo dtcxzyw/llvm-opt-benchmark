@@ -152,7 +152,7 @@ define hidden noundef ptr @_ZN3opt10mk_sortmaxERNS_14maxsat_contextER6vectorINS_
   tail call void @_ZN3opt18maxsmt_solver_baseC2ERNS_14maxsat_contextER6vectorINS_4softELb1EjEj(ptr noundef nonnull align 8 dereferenceable(232) %4, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2)
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN3opt7sortmaxE, i64 16), ptr %4, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 160
-  store i32 0, ptr %5, align 4, !tbaa !6
+  store i32 0, ptr %5, align 8, !tbaa !6
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 168
   store ptr %4, ptr %6, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 180

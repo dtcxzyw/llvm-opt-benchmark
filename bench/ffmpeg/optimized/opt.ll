@@ -562,7 +562,7 @@ opt_array_sep.exit:                               ; preds = %5, %16
 
 101:                                              ; preds = %95, %.critedge
   store ptr %93, ptr %4, align 8, !tbaa !19
-  store i32 %.us-phi, ptr %94, align 4, !tbaa !26
+  store i32 %.us-phi, ptr %94, align 8, !tbaa !26
   br label %115
 
 .thread:                                          ; preds = %.loopexit, %82, %48, %.loopexit.us, %99
@@ -1673,7 +1673,7 @@ define range(i32 -1414549496, 1) i32 @av_opt_set_bin(ptr noundef %0, ptr noundef
   %15 = load ptr, ptr %13, align 8, !tbaa !33
   tail call void @av_free(ptr noundef %15) #18
   store ptr %12, ptr %13, align 8, !tbaa !33
-  store i32 %3, ptr %14, align 4, !tbaa !26
+  store i32 %3, ptr %14, align 8, !tbaa !26
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr align 1 %2, i64 %11, i1 false)
   br label %19
 
@@ -1683,7 +1683,7 @@ define range(i32 -1414549496, 1) i32 @av_opt_set_bin(ptr noundef %0, ptr noundef
   %18 = load ptr, ptr %16, align 8, !tbaa !33
   tail call void @av_free(ptr noundef %18) #18
   store ptr null, ptr %16, align 8, !tbaa !33
-  store i32 0, ptr %17, align 4, !tbaa !26
+  store i32 0, ptr %17, align 8, !tbaa !26
   br label %19
 
 19:                                               ; preds = %.critedge, %.thread, %10, %5
@@ -4562,7 +4562,7 @@ hexchar2int.exit45:                               ; preds = %31, %35, %37
 
 ._crit_edge:                                      ; preds = %42, %.preheader
   store ptr %12, ptr %1, align 8, !tbaa !33
-  store i32 %10, ptr %3, align 4, !tbaa !26
+  store i32 %10, ptr %3, align 8, !tbaa !26
   br label %48
 
 48:                                               ; preds = %.thread, %9, %7, %2, %4, %._crit_edge
@@ -5321,7 +5321,7 @@ define range(i32 -2147483648, 1) i32 @av_opt_copy(ptr noundef %0, ptr noundef %1
 35:                                               ; preds = %29
   store ptr null, ptr %24, align 8, !tbaa !19
   %36 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store i32 0, ptr %36, align 4, !tbaa !26
+  store i32 0, ptr %36, align 8, !tbaa !26
   br label %37
 
 37:                                               ; preds = %35, %29
@@ -5401,7 +5401,7 @@ opt_free_elem.exit.i.i:                           ; preds = %67, %66, %65, %.lr.
 
 .thread.i34:                                      ; preds = %46, %.preheader.i
   store ptr %45, ptr %24, align 8, !tbaa !19
-  store i32 %31, ptr %38, align 4, !tbaa !26
+  store i32 %31, ptr %38, align 8, !tbaa !26
   br label %opt_copy_array.exit
 
 opt_copy_array.exit:                              ; preds = %37, %68, %.thread.i34
@@ -6357,7 +6357,7 @@ read_number.exit:                                 ; preds = %119, %154, %169, %1
   call fastcc void @opt_free_array(ptr noundef nonnull %20, ptr noundef %28, ptr noundef nonnull %29)
   %196 = load ptr, ptr %12, align 8, !tbaa !19
   store ptr %196, ptr %28, align 8, !tbaa !19
-  store i32 %4, ptr %29, align 4, !tbaa !26
+  store i32 %4, ptr %29, align 8, !tbaa !26
   store ptr null, ptr %12, align 8, !tbaa !19
   store i32 0, ptr %8, align 4, !tbaa !26
   br label %.loopexit263
@@ -6447,7 +6447,7 @@ opt_free_elem.exit195:                            ; preds = %.lr.ph276, %214, %2
   call void @av_freep(ptr noundef nonnull %12) #18
   store i32 0, ptr %8, align 4, !tbaa !26
   store ptr %200, ptr %28, align 8, !tbaa !19
-  store i32 %.0132, ptr %29, align 4, !tbaa !26
+  store i32 %.0132, ptr %29, align 8, !tbaa !26
   br label %.loopexit263
 
 .loopexit263:                                     ; preds = %switch.early.test, %116, %190, %169, %162, %.loopexit, %197, %195

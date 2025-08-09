@@ -409,7 +409,7 @@ define void @_ZN5Yosys6FfDataC2EPNS_10FfInitValsEPNS_5RTLIL4CellE(ptr noundef no
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %62 = load ptr, ptr %61, align 8, !tbaa !6
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %64 = load i32, ptr %63, align 4, !tbaa !33
+  %64 = load i32, ptr %63, align 8, !tbaa !33
   %.not.i.i = icmp eq i32 %64, 0
   br i1 %.not.i.i, label %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.thread, label %67
 

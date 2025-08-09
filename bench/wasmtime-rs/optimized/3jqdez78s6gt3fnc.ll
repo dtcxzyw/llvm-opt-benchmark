@@ -17492,19 +17492,19 @@ default.unreachable:                              ; preds = %"_ZN71_$LT$cranelif
   %.sroa.553.0..sroa_idx55 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   store i8 %.sroa.553.sroa.0.0, ptr %.sroa.553.0..sroa_idx55, align 1
   %.sroa.553.sroa.3.0..sroa.553.0..sroa_idx55.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i, i64 2
-  store i16 %.sroa.553.sroa.3.0, ptr %.sroa.553.sroa.3.0..sroa.553.0..sroa_idx55.sroa_idx, align 1
+  store i16 %.sroa.553.sroa.3.0, ptr %.sroa.553.sroa.3.0..sroa.553.0..sroa_idx55.sroa_idx, align 2
   %.sroa.553.sroa.4.0..sroa.553.0..sroa_idx55.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
-  store i32 %.sroa.553.sroa.4.0, ptr %.sroa.553.sroa.4.0..sroa.553.0..sroa_idx55.sroa_idx, align 1
+  store i32 %.sroa.553.sroa.4.0, ptr %.sroa.553.sroa.4.0..sroa.553.0..sroa_idx55.sroa_idx, align 4
   %.sroa.553.sroa.5.0..sroa.553.0..sroa_idx55.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  store i64 %.sroa.553.sroa.5.0, ptr %.sroa.553.sroa.5.0..sroa.553.0..sroa_idx55.sroa_idx, align 1
+  store i64 %.sroa.553.sroa.5.0, ptr %.sroa.553.sroa.5.0..sroa.553.0..sroa_idx55.sroa_idx, align 8
   %.sroa.553.sroa.6.0..sroa.553.0..sroa_idx55.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  store i64 %.sroa.553.sroa.6.0, ptr %.sroa.553.sroa.6.0..sroa.553.0..sroa_idx55.sroa_idx, align 1
+  store i64 %.sroa.553.sroa.6.0, ptr %.sroa.553.sroa.6.0..sroa.553.0..sroa_idx55.sroa_idx, align 8
   %.sroa.553.sroa.7.0..sroa.553.0..sroa_idx55.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
-  store i32 %.sroa.553.sroa.7.0, ptr %.sroa.553.sroa.7.0..sroa.553.0..sroa_idx55.sroa_idx, align 1
+  store i32 %.sroa.553.sroa.7.0, ptr %.sroa.553.sroa.7.0..sroa.553.0..sroa_idx55.sroa_idx, align 8
   %.sroa.553.sroa.8.0..sroa.553.0..sroa_idx55.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i, i64 28
-  store i32 %.sroa.553.sroa.8.0, ptr %.sroa.553.sroa.8.0..sroa.553.0..sroa_idx55.sroa_idx, align 1
+  store i32 %.sroa.553.sroa.8.0, ptr %.sroa.553.sroa.8.0..sroa.553.0..sroa_idx55.sroa_idx, align 4
   %.sroa.553.sroa.9.0..sroa.553.0..sroa_idx55.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
-  store i64 %.sroa.553.sroa.9.0, ptr %.sroa.553.sroa.9.0..sroa.553.0..sroa_idx55.sroa_idx, align 1
+  store i64 %.sroa.553.sroa.9.0, ptr %.sroa.553.sroa.9.0..sroa.553.0..sroa_idx55.sroa_idx, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !2529)
   %375 = load ptr, ptr %23, align 8, !alias.scope !2529, !nonnull !4, !align !11, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !2532)

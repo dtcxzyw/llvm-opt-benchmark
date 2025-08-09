@@ -3940,7 +3940,7 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %_ZNSt6vectorIN8raws
   store i32 2, ptr %394, align 8, !tbaa !139
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %385, i8 0, i64 16, i1 false), !tbaa !139
   %395 = getelementptr inbounds nuw i8, ptr %378, i64 160
-  store i64 4295032831, ptr %395, align 4
+  store i64 4295032831, ptr %395, align 8
   br label %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit183.thread
 
 396:                                              ; preds = %359
@@ -6429,11 +6429,11 @@ _ZN8rawspeed8OptionalINS_10Array2DRefIiEEEaSIS2_Qsr3stdE7same_asITL0__T_EEERS3_O
   %76 = fptosi float %59 to i32
   store i32 %76, ptr %66, align 4, !tbaa !139
   %77 = getelementptr inbounds nuw i8, ptr %65, i64 104
-  store i32 %76, ptr %77, align 4, !tbaa !139
+  store i32 %76, ptr %77, align 8, !tbaa !139
   %78 = getelementptr inbounds nuw i8, ptr %65, i64 108
   store i32 %76, ptr %78, align 4, !tbaa !139
   %79 = getelementptr inbounds nuw i8, ptr %65, i64 112
-  store i32 %76, ptr %79, align 4, !tbaa !139
+  store i32 %76, ptr %79, align 8, !tbaa !139
   br label %.loopexit
 
 80:                                               ; preds = %55

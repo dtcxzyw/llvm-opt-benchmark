@@ -3795,7 +3795,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127_PerThreadPropertyPathCache
   %.pre = phi i32 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i ], [ %.pre.pre, %87 ]
   store i64 %.sroa.0.0.i, ptr %83, align 8
   %91 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  store i32 %75, ptr %91, align 4
+  store i32 %75, ptr %91, align 8
   br label %94
 
 92:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127_PerThreadPropertyPathCache4FindERKNS_7TfTokenEPi.exit.thread

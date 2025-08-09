@@ -382,7 +382,7 @@ zend_string_equals_cstr.exit:                     ; preds = %27
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 24
   %133 = getelementptr inbounds nuw i8, ptr %131, i64 16
   %134 = load i64, ptr %133, align 8, !tbaa !54
-  %135 = load i8, ptr %132, align 1, !tbaa !53
+  %135 = load i8, ptr %132, align 8, !tbaa !53
   %136 = icmp sgt i8 %135, 57
   br i1 %136, label %_zend_handle_numeric_str.exit.thread, label %137, !prof !69
 

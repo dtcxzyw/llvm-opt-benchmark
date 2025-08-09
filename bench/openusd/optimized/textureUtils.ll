@@ -170,7 +170,7 @@ _ZNSt6vectorISt5tupleIJiN32pxrInternal_v0_24__pxrReserved__7TfTokenEEESaIS3_EE12
   store i64 0, ptr %11, align 8
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %55 = load i32, ptr %10, align 4
-  store i32 %55, ptr %54, align 4
+  store i32 %55, ptr %54, align 8
   %56 = load ptr, ptr %32, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store ptr %57, ptr %32, align 8
@@ -424,7 +424,7 @@ _ZNKSt6vectorISt5tupleIJiN32pxrInternal_v0_24__pxrReserved__7TfTokenEEESaIS3_EE1
   store i64 0, ptr %3, align 8
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %25 = load i32, ptr %2, align 4
-  store i32 %25, ptr %24, align 4
+  store i32 %25, ptr %24, align 8
   %.not10.i.i.i = icmp eq ptr %7, %1
   br i1 %.not10.i.i.i, label %_ZNSt6vectorISt5tupleIJiN32pxrInternal_v0_24__pxrReserved__7TfTokenEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i
 

@@ -12352,7 +12352,7 @@ Vec_WrdFree.exit.i.i374:                          ; preds = %349, %Vec_IntFree.e
   %380 = getelementptr inbounds nuw i8, ptr %352, i64 140
   store i32 %379, ptr %380, align 4, !tbaa !22
   %381 = getelementptr inbounds nuw i8, ptr %352, i64 144
-  %382 = load i32, ptr %381, align 4, !tbaa !22
+  %382 = load i32, ptr %381, align 8, !tbaa !22
   %383 = getelementptr inbounds nuw i8, ptr %352, i64 152
   %384 = load i32, ptr %383, align 8, !tbaa !246
   %385 = shl i32 %382, %384

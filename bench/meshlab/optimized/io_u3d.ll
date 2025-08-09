@@ -4135,7 +4135,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %480 = getelementptr inbounds nuw i8, ptr %479, i64 24
   %481 = load i32, ptr %480, align 8, !noalias !29
   %482 = or i32 %481, 4
-  store i32 %482, ptr %480, align 4, !noalias !29
+  store i32 %482, ptr %480, align 8, !noalias !29
   %483 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %484 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %483, i64 noundef %475)
           to label %485 unwind label %493, !noalias !29
@@ -4148,7 +4148,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %490 = getelementptr inbounds nuw i8, ptr %489, i64 24
   %491 = load i32, ptr %490, align 8, !noalias !29
   %492 = or i32 %491, 256
-  store i32 %492, ptr %490, align 4, !noalias !29
+  store i32 %492, ptr %490, align 8, !noalias !29
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %116, ptr noundef nonnull align 8 dereferenceable(128) %65)
           to label %495 unwind label %493
 
@@ -4201,7 +4201,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %511 = getelementptr inbounds nuw i8, ptr %510, i64 24
   %512 = load i32, ptr %511, align 8, !noalias !32
   %513 = or i32 %512, 4
-  store i32 %513, ptr %511, align 4, !noalias !32
+  store i32 %513, ptr %511, align 8, !noalias !32
   %514 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %501, i32 noundef %.01161209)
           to label %515 unwind label %523, !noalias !32
 
@@ -4213,7 +4213,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %520 = getelementptr inbounds nuw i8, ptr %519, i64 24
   %521 = load i32, ptr %520, align 8, !noalias !32
   %522 = or i32 %521, 256
-  store i32 %522, ptr %520, align 4, !noalias !32
+  store i32 %522, ptr %520, align 8, !noalias !32
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %119, ptr noundef nonnull align 8 dereferenceable(128) %64)
           to label %525 unwind label %523
 
@@ -4255,7 +4255,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %535 = getelementptr inbounds nuw i8, ptr %534, i64 24
   %536 = load i32, ptr %535, align 8, !noalias !35
   %537 = or i32 %536, 4
-  store i32 %537, ptr %535, align 4, !noalias !35
+  store i32 %537, ptr %535, align 8, !noalias !35
   %538 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %502, i32 noundef %.01161209)
           to label %539 unwind label %547, !noalias !35
 
@@ -4267,7 +4267,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %544 = getelementptr inbounds nuw i8, ptr %543, i64 24
   %545 = load i32, ptr %544, align 8, !noalias !35
   %546 = or i32 %545, 256
-  store i32 %546, ptr %544, align 4, !noalias !35
+  store i32 %546, ptr %544, align 8, !noalias !35
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %122, ptr noundef nonnull align 8 dereferenceable(128) %63)
           to label %549 unwind label %547
 
@@ -4826,7 +4826,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %698 = getelementptr inbounds nuw i8, ptr %697, i64 24
   %699 = load i32, ptr %698, align 8, !noalias !38
   %700 = or i32 %699, 4
-  store i32 %700, ptr %698, align 4, !noalias !38
+  store i32 %700, ptr %698, align 8, !noalias !38
   %701 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %503, i64 noundef %.0115)
           to label %702 unwind label %710, !noalias !38
 
@@ -4838,7 +4838,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %707 = getelementptr inbounds nuw i8, ptr %706, i64 24
   %708 = load i32, ptr %707, align 8, !noalias !38
   %709 = or i32 %708, 256
-  store i32 %709, ptr %707, align 4, !noalias !38
+  store i32 %709, ptr %707, align 8, !noalias !38
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %129, ptr noundef nonnull align 8 dereferenceable(128) %62)
           to label %712 unwind label %710
 
@@ -4899,7 +4899,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %725 = getelementptr inbounds nuw i8, ptr %724, i64 24
   %726 = load i32, ptr %725, align 8, !noalias !41
   %727 = or i32 %726, 4
-  store i32 %727, ptr %725, align 4, !noalias !41
+  store i32 %727, ptr %725, align 8, !noalias !41
   %728 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %504, i32 noundef %.01161209)
           to label %729 unwind label %737, !noalias !41
 
@@ -4911,7 +4911,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %734 = getelementptr inbounds nuw i8, ptr %733, i64 24
   %735 = load i32, ptr %734, align 8, !noalias !41
   %736 = or i32 %735, 256
-  store i32 %736, ptr %734, align 4, !noalias !41
+  store i32 %736, ptr %734, align 8, !noalias !41
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %136, ptr noundef nonnull align 8 dereferenceable(128) %61)
           to label %739 unwind label %737
 
@@ -5449,7 +5449,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %878 = getelementptr inbounds nuw i8, ptr %877, i64 24
   %879 = load i32, ptr %878, align 8, !noalias !45
   %880 = or i32 %879, 4
-  store i32 %880, ptr %878, align 4, !noalias !45
+  store i32 %880, ptr %878, align 8, !noalias !45
   %881 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %882 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %881, i64 noundef %873)
           to label %883 unwind label %891, !noalias !45
@@ -5462,7 +5462,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %888 = getelementptr inbounds nuw i8, ptr %887, i64 24
   %889 = load i32, ptr %888, align 8, !noalias !45
   %890 = or i32 %889, 256
-  store i32 %890, ptr %888, align 4, !noalias !45
+  store i32 %890, ptr %888, align 8, !noalias !45
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %176, ptr noundef nonnull align 8 dereferenceable(128) %54)
           to label %893 unwind label %891
 
@@ -5511,7 +5511,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %907 = getelementptr inbounds nuw i8, ptr %906, i64 24
   %908 = load i32, ptr %907, align 8, !noalias !48
   %909 = or i32 %908, 4
-  store i32 %909, ptr %907, align 4, !noalias !48
+  store i32 %909, ptr %907, align 8, !noalias !48
   %910 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %899, i32 noundef %.01141210)
           to label %911 unwind label %919, !noalias !48
 
@@ -5523,7 +5523,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %916 = getelementptr inbounds nuw i8, ptr %915, i64 24
   %917 = load i32, ptr %916, align 8, !noalias !48
   %918 = or i32 %917, 256
-  store i32 %918, ptr %916, align 4, !noalias !48
+  store i32 %918, ptr %916, align 8, !noalias !48
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %179, ptr noundef nonnull align 8 dereferenceable(128) %53)
           to label %921 unwind label %919
 
@@ -5565,7 +5565,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %931 = getelementptr inbounds nuw i8, ptr %930, i64 24
   %932 = load i32, ptr %931, align 8, !noalias !51
   %933 = or i32 %932, 4
-  store i32 %933, ptr %931, align 4, !noalias !51
+  store i32 %933, ptr %931, align 8, !noalias !51
   %934 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %900, i32 noundef %.01141210)
           to label %935 unwind label %943, !noalias !51
 
@@ -5577,7 +5577,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %940 = getelementptr inbounds nuw i8, ptr %939, i64 24
   %941 = load i32, ptr %940, align 8, !noalias !51
   %942 = or i32 %941, 256
-  store i32 %942, ptr %940, align 4, !noalias !51
+  store i32 %942, ptr %940, align 8, !noalias !51
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %182, ptr noundef nonnull align 8 dereferenceable(128) %52)
           to label %945 unwind label %943
 
@@ -6125,7 +6125,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1107 = getelementptr inbounds nuw i8, ptr %1106, i64 24
   %1108 = load i32, ptr %1107, align 8, !noalias !55
   %1109 = or i32 %1108, 4
-  store i32 %1109, ptr %1107, align 4, !noalias !55
+  store i32 %1109, ptr %1107, align 8, !noalias !55
   %1110 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %1111 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %1110, i64 noundef %1102)
           to label %1112 unwind label %1120, !noalias !55
@@ -6138,7 +6138,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1117 = getelementptr inbounds nuw i8, ptr %1116, i64 24
   %1118 = load i32, ptr %1117, align 8, !noalias !55
   %1119 = or i32 %1118, 256
-  store i32 %1119, ptr %1117, align 4, !noalias !55
+  store i32 %1119, ptr %1117, align 8, !noalias !55
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %204, ptr noundef nonnull align 8 dereferenceable(128) %48)
           to label %1122 unwind label %1120
 
@@ -6182,7 +6182,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1138 = getelementptr inbounds nuw i8, ptr %1137, i64 24
   %1139 = load i32, ptr %1138, align 8, !noalias !58
   %1140 = or i32 %1139, 4
-  store i32 %1140, ptr %1138, align 4, !noalias !58
+  store i32 %1140, ptr %1138, align 8, !noalias !58
   %1141 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %1142 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %1141, i64 noundef %1133)
           to label %1143 unwind label %1151, !noalias !58
@@ -6195,7 +6195,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1148 = getelementptr inbounds nuw i8, ptr %1147, i64 24
   %1149 = load i32, ptr %1148, align 8, !noalias !58
   %1150 = or i32 %1149, 256
-  store i32 %1150, ptr %1148, align 4, !noalias !58
+  store i32 %1150, ptr %1148, align 8, !noalias !58
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %206, ptr noundef nonnull align 8 dereferenceable(128) %47)
           to label %1153 unwind label %1151
 
@@ -6237,7 +6237,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1167 = getelementptr inbounds nuw i8, ptr %1166, i64 24
   %1168 = load i32, ptr %1167, align 8, !noalias !61
   %1169 = or i32 %1168, 4
-  store i32 %1169, ptr %1167, align 4, !noalias !61
+  store i32 %1169, ptr %1167, align 8, !noalias !61
   %1170 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %1171 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %1170, i64 noundef %1162)
           to label %1172 unwind label %1180, !noalias !61
@@ -6250,7 +6250,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1177 = getelementptr inbounds nuw i8, ptr %1176, i64 24
   %1178 = load i32, ptr %1177, align 8, !noalias !61
   %1179 = or i32 %1178, 256
-  store i32 %1179, ptr %1177, align 4, !noalias !61
+  store i32 %1179, ptr %1177, align 8, !noalias !61
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %208, ptr noundef nonnull align 8 dereferenceable(128) %46)
           to label %1182 unwind label %1180
 
@@ -6297,7 +6297,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1198 = getelementptr inbounds nuw i8, ptr %1197, i64 24
   %1199 = load i32, ptr %1198, align 8, !noalias !64
   %1200 = or i32 %1199, 4
-  store i32 %1200, ptr %1198, align 4, !noalias !64
+  store i32 %1200, ptr %1198, align 8, !noalias !64
   %1201 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %1202 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %1201, i64 noundef %1193)
           to label %1203 unwind label %1211, !noalias !64
@@ -6310,7 +6310,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1208 = getelementptr inbounds nuw i8, ptr %1207, i64 24
   %1209 = load i32, ptr %1208, align 8, !noalias !64
   %1210 = or i32 %1209, 256
-  store i32 %1210, ptr %1208, align 4, !noalias !64
+  store i32 %1210, ptr %1208, align 8, !noalias !64
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %210, ptr noundef nonnull align 8 dereferenceable(128) %45)
           to label %1213 unwind label %1211
 
@@ -6564,7 +6564,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1290 = getelementptr inbounds nuw i8, ptr %1289, i64 24
   %1291 = load i32, ptr %1290, align 8, !noalias !67
   %1292 = or i32 %1291, 4
-  store i32 %1292, ptr %1290, align 4, !noalias !67
+  store i32 %1292, ptr %1290, align 8, !noalias !67
   %1293 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %1294 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %1293, i64 noundef %1285)
           to label %1295 unwind label %1303, !noalias !67
@@ -6577,7 +6577,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1300 = getelementptr inbounds nuw i8, ptr %1299, i64 24
   %1301 = load i32, ptr %1300, align 8, !noalias !67
   %1302 = or i32 %1301, 256
-  store i32 %1302, ptr %1300, align 4, !noalias !67
+  store i32 %1302, ptr %1300, align 8, !noalias !67
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %216, ptr noundef nonnull align 8 dereferenceable(128) %44)
           to label %1305 unwind label %1303
 
@@ -6715,7 +6715,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1348 = getelementptr inbounds nuw i8, ptr %1347, i64 24
   %1349 = load i32, ptr %1348, align 8, !noalias !70
   %1350 = or i32 %1349, 4
-  store i32 %1350, ptr %1348, align 4, !noalias !70
+  store i32 %1350, ptr %1348, align 8, !noalias !70
   %1351 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %1352 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %1351, i64 noundef %spec.select)
           to label %1353 unwind label %1361, !noalias !70
@@ -6728,7 +6728,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1358 = getelementptr inbounds nuw i8, ptr %1357, i64 24
   %1359 = load i32, ptr %1358, align 8, !noalias !70
   %1360 = or i32 %1359, 256
-  store i32 %1360, ptr %1358, align 4, !noalias !70
+  store i32 %1360, ptr %1358, align 8, !noalias !70
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %222, ptr noundef nonnull align 8 dereferenceable(128) %43)
           to label %1363 unwind label %1361
 
@@ -6780,7 +6780,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1375 = getelementptr inbounds nuw i8, ptr %1374, i64 24
   %1376 = load i32, ptr %1375, align 8, !noalias !73
   %1377 = or i32 %1376, 4
-  store i32 %1377, ptr %1375, align 4, !noalias !73
+  store i32 %1377, ptr %1375, align 8, !noalias !73
   %1378 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %1369, i32 noundef %.0112)
           to label %1379 unwind label %1387, !noalias !73
 
@@ -6792,7 +6792,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1384 = getelementptr inbounds nuw i8, ptr %1383, i64 24
   %1385 = load i32, ptr %1384, align 8, !noalias !73
   %1386 = or i32 %1385, 256
-  store i32 %1386, ptr %1384, align 4, !noalias !73
+  store i32 %1386, ptr %1384, align 8, !noalias !73
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %227, ptr noundef nonnull align 8 dereferenceable(128) %42)
           to label %1389 unwind label %1387
 
@@ -7149,7 +7149,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1496 = getelementptr inbounds nuw i8, ptr %1495, i64 24
   %1497 = load i32, ptr %1496, align 8, !noalias !77
   %1498 = or i32 %1497, 4
-  store i32 %1498, ptr %1496, align 4, !noalias !77
+  store i32 %1498, ptr %1496, align 8, !noalias !77
   %1499 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8) %1481, i64 noundef %1491)
           to label %1500 unwind label %1508, !noalias !77
 
@@ -7161,7 +7161,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1505 = getelementptr inbounds nuw i8, ptr %1504, i64 24
   %1506 = load i32, ptr %1505, align 8, !noalias !77
   %1507 = or i32 %1506, 256
-  store i32 %1507, ptr %1505, align 4, !noalias !77
+  store i32 %1507, ptr %1505, align 8, !noalias !77
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %252, ptr noundef nonnull align 8 dereferenceable(128) %41)
           to label %1510 unwind label %1508
 
@@ -7198,7 +7198,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1524 = getelementptr inbounds nuw i8, ptr %1523, i64 24
   %1525 = load i32, ptr %1524, align 8, !noalias !80
   %1526 = or i32 %1525, 4
-  store i32 %1526, ptr %1524, align 4, !noalias !80
+  store i32 %1526, ptr %1524, align 8, !noalias !80
   %1527 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8) %1482, i64 noundef %1519)
           to label %1528 unwind label %1536, !noalias !80
 
@@ -7210,7 +7210,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1533 = getelementptr inbounds nuw i8, ptr %1532, i64 24
   %1534 = load i32, ptr %1533, align 8, !noalias !80
   %1535 = or i32 %1534, 256
-  store i32 %1535, ptr %1533, align 4, !noalias !80
+  store i32 %1535, ptr %1533, align 8, !noalias !80
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %253, ptr noundef nonnull align 8 dereferenceable(128) %40)
           to label %1538 unwind label %1536
 
@@ -7270,7 +7270,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1564 = getelementptr inbounds nuw i8, ptr %1563, i64 24
   %1565 = load i32, ptr %1564, align 8, !noalias !86
   %1566 = or i32 %1565, 4
-  store i32 %1566, ptr %1564, align 4, !noalias !86
+  store i32 %1566, ptr %1564, align 8, !noalias !86
   %1567 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8) %1483, i64 noundef %1559)
           to label %1568 unwind label %1576, !noalias !86
 
@@ -7282,7 +7282,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1573 = getelementptr inbounds nuw i8, ptr %1572, i64 24
   %1574 = load i32, ptr %1573, align 8, !noalias !86
   %1575 = or i32 %1574, 256
-  store i32 %1575, ptr %1573, align 4, !noalias !86
+  store i32 %1575, ptr %1573, align 8, !noalias !86
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %254, ptr noundef nonnull align 8 dereferenceable(128) %39)
           to label %1578 unwind label %1576
 
@@ -7497,7 +7497,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1641 = getelementptr inbounds nuw i8, ptr %1640, i64 24
   %1642 = load i32, ptr %1641, align 8, !noalias !93
   %1643 = or i32 %1642, 4
-  store i32 %1643, ptr %1641, align 4, !noalias !93
+  store i32 %1643, ptr %1641, align 8, !noalias !93
   %1644 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %1633, i32 noundef %.01111221)
           to label %1645 unwind label %1653, !noalias !93
 
@@ -7509,7 +7509,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1650 = getelementptr inbounds nuw i8, ptr %1649, i64 24
   %1651 = load i32, ptr %1650, align 8, !noalias !93
   %1652 = or i32 %1651, 256
-  store i32 %1652, ptr %1650, align 4, !noalias !93
+  store i32 %1652, ptr %1650, align 8, !noalias !93
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %263, ptr noundef nonnull align 8 dereferenceable(128) %38)
           to label %1655 unwind label %1653
 
@@ -7540,7 +7540,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1663 = getelementptr inbounds nuw i8, ptr %1662, i64 24
   %1664 = load i32, ptr %1663, align 8, !noalias !96
   %1665 = or i32 %1664, 4
-  store i32 %1665, ptr %1663, align 4, !noalias !96
+  store i32 %1665, ptr %1663, align 8, !noalias !96
   %1666 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %1634, i32 noundef %1658)
           to label %1667 unwind label %1675, !noalias !96
 
@@ -7552,7 +7552,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1672 = getelementptr inbounds nuw i8, ptr %1671, i64 24
   %1673 = load i32, ptr %1672, align 8, !noalias !96
   %1674 = or i32 %1673, 256
-  store i32 %1674, ptr %1672, align 4, !noalias !96
+  store i32 %1674, ptr %1672, align 8, !noalias !96
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %264, ptr noundef nonnull align 8 dereferenceable(128) %37)
           to label %1677 unwind label %1675
 
@@ -7606,7 +7606,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1697 = getelementptr inbounds nuw i8, ptr %1696, i64 24
   %1698 = load i32, ptr %1697, align 8, !noalias !102
   %1699 = or i32 %1698, 4
-  store i32 %1699, ptr %1697, align 4, !noalias !102
+  store i32 %1699, ptr %1697, align 8, !noalias !102
   %1700 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %1635, i32 noundef %1692)
           to label %1701 unwind label %1709, !noalias !102
 
@@ -7618,7 +7618,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1706 = getelementptr inbounds nuw i8, ptr %1705, i64 24
   %1707 = load i32, ptr %1706, align 8, !noalias !102
   %1708 = or i32 %1707, 256
-  store i32 %1708, ptr %1706, align 4, !noalias !102
+  store i32 %1708, ptr %1706, align 8, !noalias !102
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %265, ptr noundef nonnull align 8 dereferenceable(128) %36)
           to label %1711 unwind label %1709
 
@@ -7865,7 +7865,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1791 = getelementptr inbounds nuw i8, ptr %1790, i64 24
   %1792 = load i32, ptr %1791, align 8, !noalias !109
   %1793 = or i32 %1792, 4
-  store i32 %1793, ptr %1791, align 4, !noalias !109
+  store i32 %1793, ptr %1791, align 8, !noalias !109
   %1794 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %1762, i32 noundef %.0110)
           to label %1795 unwind label %1803, !noalias !109
 
@@ -7877,7 +7877,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1800 = getelementptr inbounds nuw i8, ptr %1799, i64 24
   %1801 = load i32, ptr %1800, align 8, !noalias !109
   %1802 = or i32 %1801, 256
-  store i32 %1802, ptr %1800, align 4, !noalias !109
+  store i32 %1802, ptr %1800, align 8, !noalias !109
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %270, ptr noundef nonnull align 8 dereferenceable(128) %35)
           to label %1805 unwind label %1803
 
@@ -7958,7 +7958,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1827 = getelementptr inbounds nuw i8, ptr %1826, i64 24
   %1828 = load i32, ptr %1827, align 8, !noalias !113
   %1829 = or i32 %1828, 4
-  store i32 %1829, ptr %1827, align 4, !noalias !113
+  store i32 %1829, ptr %1827, align 8, !noalias !113
   %1830 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %1818, i32 noundef %.01091230)
           to label %1831 unwind label %1839, !noalias !113
 
@@ -7970,7 +7970,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1836 = getelementptr inbounds nuw i8, ptr %1835, i64 24
   %1837 = load i32, ptr %1836, align 8, !noalias !113
   %1838 = or i32 %1837, 256
-  store i32 %1838, ptr %1836, align 4, !noalias !113
+  store i32 %1838, ptr %1836, align 8, !noalias !113
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %277, ptr noundef nonnull align 8 dereferenceable(128) %34)
           to label %1841 unwind label %1839
 
@@ -8013,7 +8013,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1852 = getelementptr inbounds nuw i8, ptr %1851, i64 24
   %1853 = load i32, ptr %1852, align 8, !noalias !116
   %1854 = or i32 %1853, 4
-  store i32 %1854, ptr %1852, align 4, !noalias !116
+  store i32 %1854, ptr %1852, align 8, !noalias !116
   %1855 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %1819, i32 noundef %1847)
           to label %1856 unwind label %1864, !noalias !116
 
@@ -8025,7 +8025,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1861 = getelementptr inbounds nuw i8, ptr %1860, i64 24
   %1862 = load i32, ptr %1861, align 8, !noalias !116
   %1863 = or i32 %1862, 256
-  store i32 %1863, ptr %1861, align 4, !noalias !116
+  store i32 %1863, ptr %1861, align 8, !noalias !116
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %283, ptr noundef nonnull align 8 dereferenceable(128) %33)
           to label %1866 unwind label %1864
 
@@ -8061,7 +8061,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1876 = getelementptr inbounds nuw i8, ptr %1875, i64 24
   %1877 = load i32, ptr %1876, align 8, !noalias !119
   %1878 = or i32 %1877, 4
-  store i32 %1878, ptr %1876, align 4, !noalias !119
+  store i32 %1878, ptr %1876, align 8, !noalias !119
   %1879 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %1820, i32 noundef %1871)
           to label %1880 unwind label %1888, !noalias !119
 
@@ -8073,7 +8073,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1885 = getelementptr inbounds nuw i8, ptr %1884, i64 24
   %1886 = load i32, ptr %1885, align 8, !noalias !119
   %1887 = or i32 %1886, 256
-  store i32 %1887, ptr %1885, align 4, !noalias !119
+  store i32 %1887, ptr %1885, align 8, !noalias !119
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %284, ptr noundef nonnull align 8 dereferenceable(128) %32)
           to label %1890 unwind label %1888
 
@@ -8127,7 +8127,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1910 = getelementptr inbounds nuw i8, ptr %1909, i64 24
   %1911 = load i32, ptr %1910, align 8, !noalias !125
   %1912 = or i32 %1911, 4
-  store i32 %1912, ptr %1910, align 4, !noalias !125
+  store i32 %1912, ptr %1910, align 8, !noalias !125
   %1913 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %1821, i32 noundef %1905)
           to label %1914 unwind label %1922, !noalias !125
 
@@ -8139,7 +8139,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %1919 = getelementptr inbounds nuw i8, ptr %1918, i64 24
   %1920 = load i32, ptr %1919, align 8, !noalias !125
   %1921 = or i32 %1920, 256
-  store i32 %1921, ptr %1919, align 4, !noalias !125
+  store i32 %1921, ptr %1919, align 8, !noalias !125
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %285, ptr noundef nonnull align 8 dereferenceable(128) %31)
           to label %1924 unwind label %1922
 
@@ -8430,7 +8430,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %2014 = getelementptr inbounds nuw i8, ptr %2013, i64 24
   %2015 = load i32, ptr %2014, align 8, !noalias !132
   %2016 = or i32 %2015, 4
-  store i32 %2016, ptr %2014, align 4, !noalias !132
+  store i32 %2016, ptr %2014, align 8, !noalias !132
   %2017 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %2006, i32 noundef %.11236)
           to label %2018 unwind label %2026, !noalias !132
 
@@ -8442,7 +8442,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %2023 = getelementptr inbounds nuw i8, ptr %2022, i64 24
   %2024 = load i32, ptr %2023, align 8, !noalias !132
   %2025 = or i32 %2024, 256
-  store i32 %2025, ptr %2023, align 4, !noalias !132
+  store i32 %2025, ptr %2023, align 8, !noalias !132
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %296, ptr noundef nonnull align 8 dereferenceable(128) %30)
           to label %2028 unwind label %2026
 
@@ -8473,7 +8473,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %2036 = getelementptr inbounds nuw i8, ptr %2035, i64 24
   %2037 = load i32, ptr %2036, align 8, !noalias !135
   %2038 = or i32 %2037, 4
-  store i32 %2038, ptr %2036, align 4, !noalias !135
+  store i32 %2038, ptr %2036, align 8, !noalias !135
   %2039 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %2007, i32 noundef %2031)
           to label %2040 unwind label %2048, !noalias !135
 
@@ -8485,7 +8485,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %2045 = getelementptr inbounds nuw i8, ptr %2044, i64 24
   %2046 = load i32, ptr %2045, align 8, !noalias !135
   %2047 = or i32 %2046, 256
-  store i32 %2047, ptr %2045, align 4, !noalias !135
+  store i32 %2047, ptr %2045, align 8, !noalias !135
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %297, ptr noundef nonnull align 8 dereferenceable(128) %29)
           to label %2050 unwind label %2048
 
@@ -8539,7 +8539,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %2070 = getelementptr inbounds nuw i8, ptr %2069, i64 24
   %2071 = load i32, ptr %2070, align 8, !noalias !141
   %2072 = or i32 %2071, 4
-  store i32 %2072, ptr %2070, align 4, !noalias !141
+  store i32 %2072, ptr %2070, align 8, !noalias !141
   %2073 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %2008, i32 noundef %2065)
           to label %2074 unwind label %2082, !noalias !141
 
@@ -8551,7 +8551,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %2079 = getelementptr inbounds nuw i8, ptr %2078, i64 24
   %2080 = load i32, ptr %2079, align 8, !noalias !141
   %2081 = or i32 %2080, 256
-  store i32 %2081, ptr %2079, align 4, !noalias !141
+  store i32 %2081, ptr %2079, align 8, !noalias !141
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %298, ptr noundef nonnull align 8 dereferenceable(128) %28)
           to label %2084 unwind label %2082
 
@@ -8760,7 +8760,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %2146 = getelementptr inbounds nuw i8, ptr %2145, i64 24
   %2147 = load i32, ptr %2146, align 8, !noalias !148
   %2148 = or i32 %2147, 4
-  store i32 %2148, ptr %2146, align 4, !noalias !148
+  store i32 %2148, ptr %2146, align 8, !noalias !148
   %2149 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %2136, float noundef %2141)
           to label %2150 unwind label %2158, !noalias !148
 
@@ -8772,7 +8772,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %2155 = getelementptr inbounds nuw i8, ptr %2154, i64 24
   %2156 = load i32, ptr %2155, align 8, !noalias !148
   %2157 = or i32 %2156, 256
-  store i32 %2157, ptr %2155, align 4, !noalias !148
+  store i32 %2157, ptr %2155, align 8, !noalias !148
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %307, ptr noundef nonnull align 8 dereferenceable(128) %27)
           to label %2160 unwind label %2158
 
@@ -8802,7 +8802,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %2167 = getelementptr inbounds nuw i8, ptr %2166, i64 24
   %2168 = load i32, ptr %2167, align 8, !noalias !151
   %2169 = or i32 %2168, 4
-  store i32 %2169, ptr %2167, align 4, !noalias !151
+  store i32 %2169, ptr %2167, align 8, !noalias !151
   %2170 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %2137, float noundef %.sroa.31142.0.copyload)
           to label %2171 unwind label %2179, !noalias !151
 
@@ -8814,7 +8814,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %2176 = getelementptr inbounds nuw i8, ptr %2175, i64 24
   %2177 = load i32, ptr %2176, align 8, !noalias !151
   %2178 = or i32 %2177, 256
-  store i32 %2178, ptr %2176, align 4, !noalias !151
+  store i32 %2178, ptr %2176, align 8, !noalias !151
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %308, ptr noundef nonnull align 8 dereferenceable(128) %26)
           to label %2181 unwind label %2179
 
@@ -8867,7 +8867,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %2200 = getelementptr inbounds nuw i8, ptr %2199, i64 24
   %2201 = load i32, ptr %2200, align 8, !noalias !157
   %2202 = or i32 %2201, 4
-  store i32 %2202, ptr %2200, align 4, !noalias !157
+  store i32 %2202, ptr %2200, align 8, !noalias !157
   %2203 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %2138, float noundef %.sroa.21141.0.copyload)
           to label %2204 unwind label %2212, !noalias !157
 
@@ -8879,7 +8879,7 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %2209 = getelementptr inbounds nuw i8, ptr %2208, i64 24
   %2210 = load i32, ptr %2209, align 8, !noalias !157
   %2211 = or i32 %2210, 256
-  store i32 %2211, ptr %2209, align 4, !noalias !157
+  store i32 %2211, ptr %2209, align 8, !noalias !157
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %309, ptr noundef nonnull align 8 dereferenceable(128) %25)
           to label %2214 unwind label %2212
 
@@ -9090,7 +9090,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %2265, %2273
   %2283 = getelementptr inbounds nuw i8, ptr %2282, i64 24
   %2284 = load i32, ptr %2283, align 8, !noalias !164
   %2285 = or i32 %2284, 4
-  store i32 %2285, ptr %2283, align 4, !noalias !164
+  store i32 %2285, ptr %2283, align 8, !noalias !164
   %2286 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %2259, float noundef %2278)
           to label %2287 unwind label %2295, !noalias !164
 
@@ -9102,7 +9102,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %2265, %2273
   %2292 = getelementptr inbounds nuw i8, ptr %2291, i64 24
   %2293 = load i32, ptr %2292, align 8, !noalias !164
   %2294 = or i32 %2293, 256
-  store i32 %2294, ptr %2292, align 4, !noalias !164
+  store i32 %2294, ptr %2292, align 8, !noalias !164
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %318, ptr noundef nonnull align 8 dereferenceable(128) %24)
           to label %2297 unwind label %2295
 
@@ -9133,7 +9133,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %2265, %2273
   %2305 = getelementptr inbounds nuw i8, ptr %2304, i64 24
   %2306 = load i32, ptr %2305, align 8, !noalias !167
   %2307 = or i32 %2306, 4
-  store i32 %2307, ptr %2305, align 4, !noalias !167
+  store i32 %2307, ptr %2305, align 8, !noalias !167
   %2308 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %2260, float noundef %2300)
           to label %2309 unwind label %2317, !noalias !167
 
@@ -9145,7 +9145,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %2265, %2273
   %2314 = getelementptr inbounds nuw i8, ptr %2313, i64 24
   %2315 = load i32, ptr %2314, align 8, !noalias !167
   %2316 = or i32 %2315, 256
-  store i32 %2316, ptr %2314, align 4, !noalias !167
+  store i32 %2316, ptr %2314, align 8, !noalias !167
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %319, ptr noundef nonnull align 8 dereferenceable(128) %23)
           to label %2319 unwind label %2317
 
@@ -9199,7 +9199,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %2265, %2273
   %2339 = getelementptr inbounds nuw i8, ptr %2338, i64 24
   %2340 = load i32, ptr %2339, align 8, !noalias !173
   %2341 = or i32 %2340, 4
-  store i32 %2341, ptr %2339, align 4, !noalias !173
+  store i32 %2341, ptr %2339, align 8, !noalias !173
   %2342 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %2261, float noundef %2334)
           to label %2343 unwind label %2351, !noalias !173
 
@@ -9211,7 +9211,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %2265, %2273
   %2348 = getelementptr inbounds nuw i8, ptr %2347, i64 24
   %2349 = load i32, ptr %2348, align 8, !noalias !173
   %2350 = or i32 %2349, 256
-  store i32 %2350, ptr %2348, align 4, !noalias !173
+  store i32 %2350, ptr %2348, align 8, !noalias !173
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %320, ptr noundef nonnull align 8 dereferenceable(128) %22)
           to label %2353 unwind label %2351
 
@@ -9523,7 +9523,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %2265, %2273
   %2449 = getelementptr inbounds nuw i8, ptr %2448, i64 24
   %2450 = load i32, ptr %2449, align 8, !noalias !182
   %2451 = or i32 %2450, 4
-  store i32 %2451, ptr %2449, align 4, !noalias !182
+  store i32 %2451, ptr %2449, align 8, !noalias !182
   %2452 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %2412, float noundef %2444)
           to label %2453 unwind label %2461, !noalias !182
 
@@ -9535,7 +9535,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %2265, %2273
   %2458 = getelementptr inbounds nuw i8, ptr %2457, i64 24
   %2459 = load i32, ptr %2458, align 8, !noalias !182
   %2460 = or i32 %2459, 256
-  store i32 %2460, ptr %2458, align 4, !noalias !182
+  store i32 %2460, ptr %2458, align 8, !noalias !182
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %331, ptr noundef nonnull align 8 dereferenceable(128) %20)
           to label %2463 unwind label %2461
 
@@ -9567,7 +9567,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %2265, %2273
   %2472 = getelementptr inbounds nuw i8, ptr %2471, i64 24
   %2473 = load i32, ptr %2472, align 8, !noalias !185
   %2474 = or i32 %2473, 4
-  store i32 %2474, ptr %2472, align 4, !noalias !185
+  store i32 %2474, ptr %2472, align 8, !noalias !185
   %2475 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %2413, float noundef %2467)
           to label %2476 unwind label %2484, !noalias !185
 
@@ -9579,7 +9579,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %2265, %2273
   %2481 = getelementptr inbounds nuw i8, ptr %2480, i64 24
   %2482 = load i32, ptr %2481, align 8, !noalias !185
   %2483 = or i32 %2482, 256
-  store i32 %2483, ptr %2481, align 4, !noalias !185
+  store i32 %2483, ptr %2481, align 8, !noalias !185
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %332, ptr noundef nonnull align 8 dereferenceable(128) %19)
           to label %2486 unwind label %2484
 
@@ -9634,7 +9634,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %2265, %2273
   %2507 = getelementptr inbounds nuw i8, ptr %2506, i64 24
   %2508 = load i32, ptr %2507, align 8, !noalias !191
   %2509 = or i32 %2508, 4
-  store i32 %2509, ptr %2507, align 4, !noalias !191
+  store i32 %2509, ptr %2507, align 8, !noalias !191
   %2510 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %2414, float noundef %2502)
           to label %2511 unwind label %2519, !noalias !191
 
@@ -9646,7 +9646,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %2265, %2273
   %2516 = getelementptr inbounds nuw i8, ptr %2515, i64 24
   %2517 = load i32, ptr %2516, align 8, !noalias !191
   %2518 = or i32 %2517, 256
-  store i32 %2518, ptr %2516, align 4, !noalias !191
+  store i32 %2518, ptr %2516, align 8, !noalias !191
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %333, ptr noundef nonnull align 8 dereferenceable(128) %18)
           to label %2521 unwind label %2519
 
@@ -9701,7 +9701,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %2265, %2273
   %2542 = getelementptr inbounds nuw i8, ptr %2541, i64 24
   %2543 = load i32, ptr %2542, align 8, !noalias !197
   %2544 = or i32 %2543, 4
-  store i32 %2544, ptr %2542, align 4, !noalias !197
+  store i32 %2544, ptr %2542, align 8, !noalias !197
   %2545 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %2415, float noundef %2537)
           to label %2546 unwind label %2554, !noalias !197
 
@@ -9713,7 +9713,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %2265, %2273
   %2551 = getelementptr inbounds nuw i8, ptr %2550, i64 24
   %2552 = load i32, ptr %2551, align 8, !noalias !197
   %2553 = or i32 %2552, 256
-  store i32 %2553, ptr %2551, align 4, !noalias !197
+  store i32 %2553, ptr %2551, align 8, !noalias !197
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %334, ptr noundef nonnull align 8 dereferenceable(128) %17)
           to label %2556 unwind label %2554
 
@@ -9990,7 +9990,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %2265, %2273
   %2638 = getelementptr inbounds nuw i8, ptr %2637, i64 24
   %2639 = load i32, ptr %2638, align 8, !noalias !205
   %2640 = or i32 %2639, 4
-  store i32 %2640, ptr %2638, align 4, !noalias !205
+  store i32 %2640, ptr %2638, align 8, !noalias !205
   %2641 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %2618, float noundef %2633)
           to label %2642 unwind label %2650, !noalias !205
 
@@ -10002,7 +10002,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %2265, %2273
   %2647 = getelementptr inbounds nuw i8, ptr %2646, i64 24
   %2648 = load i32, ptr %2647, align 8, !noalias !205
   %2649 = or i32 %2648, 256
-  store i32 %2649, ptr %2647, align 4, !noalias !205
+  store i32 %2649, ptr %2647, align 8, !noalias !205
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %345, ptr noundef nonnull align 8 dereferenceable(128) %15)
           to label %2652 unwind label %2650
 
@@ -10043,7 +10043,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %2265, %2273
   %2670 = getelementptr inbounds nuw i8, ptr %2669, i64 24
   %2671 = load i32, ptr %2670, align 8, !noalias !208
   %2672 = or i32 %2671, 4
-  store i32 %2672, ptr %2670, align 4, !noalias !208
+  store i32 %2672, ptr %2670, align 8, !noalias !208
   %2673 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %2619, float noundef %2665)
           to label %2674 unwind label %2682, !noalias !208
 
@@ -10055,7 +10055,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %2265, %2273
   %2679 = getelementptr inbounds nuw i8, ptr %2678, i64 24
   %2680 = load i32, ptr %2679, align 8, !noalias !208
   %2681 = or i32 %2680, 256
-  store i32 %2681, ptr %2679, align 4, !noalias !208
+  store i32 %2681, ptr %2679, align 8, !noalias !208
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %346, ptr noundef nonnull align 8 dereferenceable(128) %14)
           to label %2684 unwind label %2682
 
@@ -10108,7 +10108,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %2265, %2273
   %2703 = getelementptr inbounds nuw i8, ptr %2702, i64 24
   %2704 = load i32, ptr %2703, align 8, !noalias !214
   %2705 = or i32 %2704, 4
-  store i32 %2705, ptr %2703, align 4, !noalias !214
+  store i32 %2705, ptr %2703, align 8, !noalias !214
   %2706 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %2620, float noundef 0.000000e+00)
           to label %2707 unwind label %2715, !noalias !214
 
@@ -10120,7 +10120,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %2265, %2273
   %2712 = getelementptr inbounds nuw i8, ptr %2711, i64 24
   %2713 = load i32, ptr %2712, align 8, !noalias !214
   %2714 = or i32 %2713, 256
-  store i32 %2714, ptr %2712, align 4, !noalias !214
+  store i32 %2714, ptr %2712, align 8, !noalias !214
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %347, ptr noundef nonnull align 8 dereferenceable(128) %13)
           to label %2717 unwind label %2715
 
@@ -10173,7 +10173,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %2265, %2273
   %2736 = getelementptr inbounds nuw i8, ptr %2735, i64 24
   %2737 = load i32, ptr %2736, align 8, !noalias !220
   %2738 = or i32 %2737, 4
-  store i32 %2738, ptr %2736, align 4, !noalias !220
+  store i32 %2738, ptr %2736, align 8, !noalias !220
   %2739 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %2621, float noundef 0.000000e+00)
           to label %2740 unwind label %2748, !noalias !220
 
@@ -10185,7 +10185,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %2265, %2273
   %2745 = getelementptr inbounds nuw i8, ptr %2744, i64 24
   %2746 = load i32, ptr %2745, align 8, !noalias !220
   %2747 = or i32 %2746, 256
-  store i32 %2747, ptr %2745, align 4, !noalias !220
+  store i32 %2747, ptr %2745, align 8, !noalias !220
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %348, ptr noundef nonnull align 8 dereferenceable(128) %12)
           to label %2750 unwind label %2748
 
@@ -10578,7 +10578,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %2265, %2273
   %2852 = getelementptr inbounds nuw i8, ptr %2851, i64 24
   %2853 = load i32, ptr %2852, align 8, !noalias !228
   %2854 = or i32 %2853, 4
-  store i32 %2854, ptr %2852, align 4, !noalias !228
+  store i32 %2854, ptr %2852, align 8, !noalias !228
   %2855 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %2856 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %2855, i64 noundef %2847)
           to label %2857 unwind label %2865, !noalias !228
@@ -10591,7 +10591,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %2265, %2273
   %2862 = getelementptr inbounds nuw i8, ptr %2861, i64 24
   %2863 = load i32, ptr %2862, align 8, !noalias !228
   %2864 = or i32 %2863, 256
-  store i32 %2864, ptr %2862, align 4, !noalias !228
+  store i32 %2864, ptr %2862, align 8, !noalias !228
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %366, ptr noundef nonnull align 8 dereferenceable(128) %7)
           to label %2867 unwind label %2865
 
@@ -10650,7 +10650,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %2265, %2273
   %2882 = getelementptr inbounds nuw i8, ptr %2881, i64 24
   %2883 = load i32, ptr %2882, align 8, !noalias !231
   %2884 = or i32 %2883, 4
-  store i32 %2884, ptr %2882, align 4, !noalias !231
+  store i32 %2884, ptr %2882, align 8, !noalias !231
   %2885 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %2875, i32 noundef %.01257)
           to label %2886 unwind label %2894, !noalias !231
 
@@ -10662,7 +10662,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %2265, %2273
   %2891 = getelementptr inbounds nuw i8, ptr %2890, i64 24
   %2892 = load i32, ptr %2891, align 8, !noalias !231
   %2893 = or i32 %2892, 256
-  store i32 %2893, ptr %2891, align 4, !noalias !231
+  store i32 %2893, ptr %2891, align 8, !noalias !231
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %371, ptr noundef nonnull align 8 dereferenceable(128) %6)
           to label %2896 unwind label %2894
 
@@ -10726,7 +10726,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %2265, %2273
   %2910 = getelementptr inbounds nuw i8, ptr %2909, i64 24
   %2911 = load i32, ptr %2910, align 8, !noalias !234
   %2912 = or i32 %2911, 4
-  store i32 %2912, ptr %2910, align 4, !noalias !234
+  store i32 %2912, ptr %2910, align 8, !noalias !234
   %2913 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %2876, i32 noundef %.01257)
           to label %2914 unwind label %2922, !noalias !234
 
@@ -10738,7 +10738,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %2265, %2273
   %2919 = getelementptr inbounds nuw i8, ptr %2918, i64 24
   %2920 = load i32, ptr %2919, align 8, !noalias !234
   %2921 = or i32 %2920, 256
-  store i32 %2921, ptr %2919, align 4, !noalias !234
+  store i32 %2921, ptr %2919, align 8, !noalias !234
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %378, ptr noundef nonnull align 8 dereferenceable(128) %5)
           to label %2924 unwind label %2922
 
@@ -11936,7 +11936,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 24
   %203 = load i32, ptr %202, align 8, !noalias !260
   %204 = or i32 %203, 4
-  store i32 %204, ptr %202, align 4, !noalias !260
+  store i32 %204, ptr %202, align 8, !noalias !260
   %205 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %206 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %205, float noundef %197)
           to label %207 unwind label %215, !noalias !260
@@ -11949,7 +11949,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 24
   %213 = load i32, ptr %212, align 8, !noalias !260
   %214 = or i32 %213, 256
-  store i32 %214, ptr %212, align 4, !noalias !260
+  store i32 %214, ptr %212, align 8, !noalias !260
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %71, ptr noundef nonnull align 8 dereferenceable(128) %14)
           to label %217 unwind label %215
 
@@ -12004,7 +12004,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 24
   %239 = load i32, ptr %238, align 8, !noalias !266
   %240 = or i32 %239, 4
-  store i32 %240, ptr %238, align 4, !noalias !266
+  store i32 %240, ptr %238, align 8, !noalias !266
   %241 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %242 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %241, float noundef %233)
           to label %243 unwind label %251, !noalias !266
@@ -12017,7 +12017,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 24
   %249 = load i32, ptr %248, align 8, !noalias !266
   %250 = or i32 %249, 256
-  store i32 %250, ptr %248, align 4, !noalias !266
+  store i32 %250, ptr %248, align 8, !noalias !266
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %72, ptr noundef nonnull align 8 dereferenceable(128) %13)
           to label %253 unwind label %251
 
@@ -12072,7 +12072,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 24
   %275 = load i32, ptr %274, align 8, !noalias !272
   %276 = or i32 %275, 4
-  store i32 %276, ptr %274, align 4, !noalias !272
+  store i32 %276, ptr %274, align 8, !noalias !272
   %277 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %278 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %277, float noundef %269)
           to label %279 unwind label %287, !noalias !272
@@ -12085,7 +12085,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 24
   %285 = load i32, ptr %284, align 8, !noalias !272
   %286 = or i32 %285, 256
-  store i32 %286, ptr %284, align 4, !noalias !272
+  store i32 %286, ptr %284, align 8, !noalias !272
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %73, ptr noundef nonnull align 8 dereferenceable(128) %12)
           to label %289 unwind label %287
 
@@ -12140,7 +12140,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 24
   %311 = load i32, ptr %310, align 8, !noalias !278
   %312 = or i32 %311, 4
-  store i32 %312, ptr %310, align 4, !noalias !278
+  store i32 %312, ptr %310, align 8, !noalias !278
   %313 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %314 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %313, float noundef %305)
           to label %315 unwind label %323, !noalias !278
@@ -12153,7 +12153,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %320 = getelementptr inbounds nuw i8, ptr %319, i64 24
   %321 = load i32, ptr %320, align 8, !noalias !278
   %322 = or i32 %321, 256
-  store i32 %322, ptr %320, align 4, !noalias !278
+  store i32 %322, ptr %320, align 8, !noalias !278
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %74, ptr noundef nonnull align 8 dereferenceable(128) %11)
           to label %325 unwind label %323
 
@@ -12208,7 +12208,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %346 = getelementptr inbounds nuw i8, ptr %345, i64 24
   %347 = load i32, ptr %346, align 8, !noalias !284
   %348 = or i32 %347, 4
-  store i32 %348, ptr %346, align 4, !noalias !284
+  store i32 %348, ptr %346, align 8, !noalias !284
   %349 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %350 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %349, float noundef %341)
           to label %351 unwind label %359, !noalias !284
@@ -12221,7 +12221,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %356 = getelementptr inbounds nuw i8, ptr %355, i64 24
   %357 = load i32, ptr %356, align 8, !noalias !284
   %358 = or i32 %357, 256
-  store i32 %358, ptr %356, align 4, !noalias !284
+  store i32 %358, ptr %356, align 8, !noalias !284
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %75, ptr noundef nonnull align 8 dereferenceable(128) %10)
           to label %361 unwind label %359
 
@@ -12276,7 +12276,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %382 = getelementptr inbounds nuw i8, ptr %381, i64 24
   %383 = load i32, ptr %382, align 8, !noalias !290
   %384 = or i32 %383, 4
-  store i32 %384, ptr %382, align 4, !noalias !290
+  store i32 %384, ptr %382, align 8, !noalias !290
   %385 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %386 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %385, float noundef %377)
           to label %387 unwind label %395, !noalias !290
@@ -12289,7 +12289,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %392 = getelementptr inbounds nuw i8, ptr %391, i64 24
   %393 = load i32, ptr %392, align 8, !noalias !290
   %394 = or i32 %393, 256
-  store i32 %394, ptr %392, align 4, !noalias !290
+  store i32 %394, ptr %392, align 8, !noalias !290
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %76, ptr noundef nonnull align 8 dereferenceable(128) %9)
           to label %397 unwind label %395
 
@@ -12345,7 +12345,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %419 = getelementptr inbounds nuw i8, ptr %418, i64 24
   %420 = load i32, ptr %419, align 8, !noalias !296
   %421 = or i32 %420, 4
-  store i32 %421, ptr %419, align 4, !noalias !296
+  store i32 %421, ptr %419, align 8, !noalias !296
   %422 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %423 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %422, float noundef %414)
           to label %424 unwind label %432, !noalias !296
@@ -12358,7 +12358,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %429 = getelementptr inbounds nuw i8, ptr %428, i64 24
   %430 = load i32, ptr %429, align 8, !noalias !296
   %431 = or i32 %430, 256
-  store i32 %431, ptr %429, align 4, !noalias !296
+  store i32 %431, ptr %429, align 8, !noalias !296
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %77, ptr noundef nonnull align 8 dereferenceable(128) %8)
           to label %434 unwind label %432
 
@@ -12413,7 +12413,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %455 = getelementptr inbounds nuw i8, ptr %454, i64 24
   %456 = load i32, ptr %455, align 8, !noalias !302
   %457 = or i32 %456, 4
-  store i32 %457, ptr %455, align 4, !noalias !302
+  store i32 %457, ptr %455, align 8, !noalias !302
   %458 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %459 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %458, float noundef %450)
           to label %460 unwind label %468, !noalias !302
@@ -12426,7 +12426,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %465 = getelementptr inbounds nuw i8, ptr %464, i64 24
   %466 = load i32, ptr %465, align 8, !noalias !302
   %467 = or i32 %466, 256
-  store i32 %467, ptr %465, align 4, !noalias !302
+  store i32 %467, ptr %465, align 8, !noalias !302
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %78, ptr noundef nonnull align 8 dereferenceable(128) %7)
           to label %470 unwind label %468
 
@@ -12481,7 +12481,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %491 = getelementptr inbounds nuw i8, ptr %490, i64 24
   %492 = load i32, ptr %491, align 8, !noalias !308
   %493 = or i32 %492, 4
-  store i32 %493, ptr %491, align 4, !noalias !308
+  store i32 %493, ptr %491, align 8, !noalias !308
   %494 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %495 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %494, float noundef %486)
           to label %496 unwind label %504, !noalias !308
@@ -12494,7 +12494,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %501 = getelementptr inbounds nuw i8, ptr %500, i64 24
   %502 = load i32, ptr %501, align 8, !noalias !308
   %503 = or i32 %502, 256
-  store i32 %503, ptr %501, align 4, !noalias !308
+  store i32 %503, ptr %501, align 8, !noalias !308
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %79, ptr noundef nonnull align 8 dereferenceable(128) %6)
           to label %506 unwind label %504
 

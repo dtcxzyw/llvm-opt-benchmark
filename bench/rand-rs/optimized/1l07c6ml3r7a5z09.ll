@@ -71,7 +71,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hec61148ebf90ef6bE(ptr noalia
   %2 = load ptr, ptr %.val.i, align 8, !noalias !8, !noundef !7
   store ptr null, ptr %.val.i, align 8, !noalias !8
   %3 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
-  store i8 2, ptr %3, align 1, !noalias !8
+  store i8 2, ptr %3, align 8, !noalias !8
   %4 = icmp eq ptr %2, null
   br i1 %4, label %__rust_try.llvm.509470019704245047.exit, label %5
 
@@ -105,7 +105,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h753c0c8ecb82ac4cE.llvm.50947
   %3 = load ptr, ptr %.val, align 8, !noalias !20, !noundef !7
   store ptr null, ptr %.val, align 8, !noalias !20
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  store i8 2, ptr %4, align 1, !noalias !20
+  store i8 2, ptr %4, align 8, !noalias !20
   %5 = icmp eq ptr %3, null
   br i1 %5, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h624a7fc771368352E.exit", label %6
 

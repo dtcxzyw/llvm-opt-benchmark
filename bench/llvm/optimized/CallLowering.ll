@@ -2839,7 +2839,7 @@ _ZN4llvm12CallLowering7ArgInfoC2ENS_8ArrayRefINS_8RegisterEEEPNS_4TypeEjNS2_INS_
   %48 = getelementptr inbounds nuw i8, ptr %36, i64 108
   store i32 4, ptr %48, align 4, !tbaa !60
   %49 = load i32, ptr %20, align 4
-  store i32 %49, ptr %46, align 1
+  store i32 %49, ptr %46, align 8
   store i32 1, ptr %47, align 8, !tbaa !59
   %50 = getelementptr inbounds nuw i8, ptr %36, i64 128
   %51 = getelementptr inbounds nuw i8, ptr %36, i64 144
@@ -2940,7 +2940,7 @@ _ZN4llvm12CallLowering7ArgInfoC2ENS_8ArrayRefINS_8RegisterEEEPNS_4TypeEjNS2_INS_
   %105 = getelementptr inbounds nuw i8, ptr %94, i64 108
   store i32 4, ptr %105, align 4, !tbaa !60
   %106 = load i32, ptr %86, align 4
-  store i32 %106, ptr %103, align 1
+  store i32 %106, ptr %103, align 8
   store i32 1, ptr %104, align 8, !tbaa !59
   %107 = getelementptr inbounds nuw i8, ptr %94, i64 128
   %108 = getelementptr inbounds nuw i8, ptr %94, i64 144
@@ -10130,7 +10130,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZNK4llvm12CallLowering17hand
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %6, align 8, !tbaa !3
   %7 = load ptr, ptr %.val, align 8, !tbaa !470
-  %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %5, align 4, !tbaa !3
+  %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %5, align 8, !tbaa !3
   %8 = load ptr, ptr %7, align 8, !tbaa !221
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8

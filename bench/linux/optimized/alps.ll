@@ -1628,7 +1628,7 @@ alps_command_mode_read_reg.exit4.thread:          ; preds = %.preheader.i3, %100
   store i32 4095, ptr %24, align 4
   store i32 2047, ptr %25, align 8
   %205 = getelementptr i8, ptr %1, i64 196
-  %206 = load i8, ptr %205, align 1
+  %206 = load i8, ptr %205, align 4
   %207 = icmp eq i8 %206, -70
   br i1 %207, label %210, label %208
 
@@ -3872,7 +3872,7 @@ define internal void @alps_process_packet_v4(ptr noundef readonly captures(none)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 284
   %5 = getelementptr i8, ptr %0, i64 238
-  %6 = load i8, ptr %5, align 1
+  %6 = load i8, ptr %5, align 2
   %7 = and i8 %6, 64
   %8 = icmp eq i8 %7, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 268

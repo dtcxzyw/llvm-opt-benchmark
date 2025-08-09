@@ -511,7 +511,7 @@ tsdn_witness_tsdp_get.exit:
 12:                                               ; preds = %tsdn_witness_tsdp_get.exit
   store i8 1, ptr %8, align 8, !tbaa !60
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store atomic i8 0, ptr %13 monotonic, align 1
+  store atomic i8 0, ptr %13 monotonic, align 8
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %14) #9
   %16 = getelementptr i8, ptr %1, i64 58376

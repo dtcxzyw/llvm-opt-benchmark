@@ -8830,7 +8830,7 @@ _init_l_Lean_PremiseSelection_initFn____x40_Lean_PremiseSelection___hyg_326____c
   %.val54 = load ptr, ptr %70, align 8, !tbaa !4
   store ptr %.val54, ptr @l_Lean_PremiseSelection_premiseSelectorExt, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val54) #4
-  %71 = load i32, ptr %66, align 4, !tbaa !8
+  %71 = load i32, ptr %66, align 8, !tbaa !8
   %72 = icmp sgt i32 %71, 1
   br i1 %72, label %73, label %75, !prof !15
 

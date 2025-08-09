@@ -75,7 +75,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit10.thread24.sink.split: ; preds = %_ZN4llvmeqEN
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 4, ptr %11, align 8, !tbaa !10, !noalias !3
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 28
-  store i8 0, ptr %12, align 1, !tbaa !13, !noalias !3
+  store i8 0, ptr %12, align 4, !tbaa !13, !noalias !3
   store ptr %.sink26, ptr %8, align 8, !tbaa !14, !noalias !3
   br label %_ZN4llvmeqENS_9StringRefES0_.exit10.thread24
 

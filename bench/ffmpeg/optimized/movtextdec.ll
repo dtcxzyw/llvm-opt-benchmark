@@ -142,7 +142,7 @@ define internal i32 @mov_text_init(ptr noundef %0) #0 {
   %59 = shl nuw nsw i32 %58, 8
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %61 = or disjoint i32 %59, %55
-  store i32 %61, ptr %60, align 4, !tbaa !46
+  store i32 %61, ptr %60, align 8, !tbaa !46
   %62 = load i8, ptr %53, align 1, !tbaa !36
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 52
   store i8 %62, ptr %63, align 4, !tbaa !47
@@ -286,7 +286,7 @@ mov_text_tx3g.exit:                               ; preds = %119, %117, %23
   %138 = xor i8 %137, -1
   %139 = zext i8 %138 to i32
   %140 = shl nuw i32 %139, 24
-  %141 = load i32, ptr %60, align 4, !tbaa !46
+  %141 = load i32, ptr %60, align 8, !tbaa !46
   %142 = or i32 %140, %141
   %143 = load i8, ptr %34, align 4, !tbaa !39
   %144 = xor i8 %143, -1
@@ -840,7 +840,7 @@ define internal fastcc void @text_to_ass(ptr noundef nonnull %0, ptr noundef non
   %132 = load i8, ptr %17, align 8, !tbaa !62
   %133 = and i8 %132, 4
   %.not113 = icmp eq i8 %133, 0
-  %134 = load i32, ptr %7, align 4, !tbaa !46
+  %134 = load i32, ptr %7, align 8, !tbaa !46
   br i1 %.not113, label %136, label %135
 
 135:                                              ; preds = %131
@@ -1181,7 +1181,7 @@ define internal noundef i32 @decode_hclr(ptr noundef readonly captures(none) %0,
   store i8 %6, ptr %4, align 8, !tbaa !62
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %8 = load i32, ptr %0, align 1
-  store i32 %8, ptr %7, align 1
+  store i32 %8, ptr %7, align 4
   ret i32 0
 }
 

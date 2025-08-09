@@ -9839,10 +9839,10 @@ define internal fastcc noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17hb068e01b6
   %24 = load i64, ptr %23, align 8, !noalias !1468, !noundef !29
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1469)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1472)
-  %.val.i.i1 = load i32, ptr %18, align 4, !alias.scope !1469, !noalias !1474
+  %.val.i.i1 = load i32, ptr %18, align 8, !alias.scope !1469, !noalias !1474
   %25 = getelementptr i8, ptr %17, i64 12
   %.val1.i.i2 = load i16, ptr %25, align 4, !alias.scope !1469, !noalias !1474, !noundef !29
-  %.val2.i.i = load i32, ptr %22, align 4, !alias.scope !1472, !noalias !1475
+  %.val2.i.i = load i32, ptr %22, align 8, !alias.scope !1472, !noalias !1475
   %26 = getelementptr i8, ptr %21, i64 12
   %.val3.i.i = load i16, ptr %26, align 4, !alias.scope !1472, !noalias !1475, !noundef !29
   %27 = icmp eq i16 %.val1.i.i2, %.val3.i.i
@@ -9882,8 +9882,8 @@ define internal fastcc noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17hb068e01b6
   %45 = load i64, ptr %44, align 8, !noalias !1476, !noundef !29
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1477), !noalias !1476
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1480), !noalias !1476
-  %.val.i.i = load i16, ptr %40, align 2, !alias.scope !1477, !noalias !1482, !noundef !29
-  %.val1.i.i = load i16, ptr %43, align 2, !alias.scope !1480, !noalias !1483, !noundef !29
+  %.val.i.i = load i16, ptr %40, align 8, !alias.scope !1477, !noalias !1482, !noundef !29
+  %.val1.i.i = load i16, ptr %43, align 8, !alias.scope !1480, !noalias !1483, !noundef !29
   %46 = icmp eq i16 %.val.i.i, %.val1.i.i
   %47 = icmp eq i64 %42, %45
   %or.cond.i = and i1 %47, %46
@@ -11285,10 +11285,10 @@ define hidden noundef zeroext i1 @"_ZN4core5tuple64_$LT$impl$u20$core..cmp..Part
   %8 = load i64, ptr %7, align 8, !noalias !1683, !noundef !29
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1684)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1687)
-  %.val.i.i.i = load i32, ptr %3, align 4, !alias.scope !1684, !noalias !1689
+  %.val.i.i.i = load i32, ptr %3, align 8, !alias.scope !1684, !noalias !1689
   %9 = getelementptr i8, ptr %.val.i, i64 12
   %.val1.i.i.i = load i16, ptr %9, align 4, !alias.scope !1684, !noalias !1689, !noundef !29
-  %.val2.i.i.i = load i32, ptr %6, align 4, !alias.scope !1687, !noalias !1690
+  %.val2.i.i.i = load i32, ptr %6, align 8, !alias.scope !1687, !noalias !1690
   %10 = getelementptr i8, ptr %.val3.i, i64 12
   %.val3.i.i.i = load i16, ptr %10, align 4, !alias.scope !1687, !noalias !1690, !noundef !29
   %11 = icmp eq i16 %.val1.i.i.i, %.val3.i.i.i
@@ -19539,10 +19539,10 @@ define hidden noundef zeroext i1 @"_ZN63_$LT$syntax..Parse$LT$T$GT$$u20$as$u20$c
   %8 = load i64, ptr %7, align 8, !noundef !29
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3238)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3241)
-  %.val.i.i = load i32, ptr %3, align 4, !alias.scope !3238, !noalias !3241
+  %.val.i.i = load i32, ptr %3, align 8, !alias.scope !3238, !noalias !3241
   %9 = getelementptr i8, ptr %.val, i64 12
   %.val1.i.i = load i16, ptr %9, align 4, !alias.scope !3238, !noalias !3241, !noundef !29
-  %.val2.i.i = load i32, ptr %6, align 4, !alias.scope !3241, !noalias !3238
+  %.val2.i.i = load i32, ptr %6, align 8, !alias.scope !3241, !noalias !3238
   %10 = getelementptr i8, ptr %.val3, i64 12
   %.val3.i.i = load i16, ptr %10, align 4, !alias.scope !3241, !noalias !3238, !noundef !29
   %11 = icmp eq i16 %.val1.i.i, %.val3.i.i

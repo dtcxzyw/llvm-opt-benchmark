@@ -25,7 +25,7 @@ define internal noundef i32 @ra144_decode_init(ptr noundef %0) #0 {
   store ptr %5, ptr %6, align 8, !tbaa !35
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 37856
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 37904
-  store ptr %7, ptr %8, align 8, !tbaa !35
+  store ptr %7, ptr %8, align 16, !tbaa !35
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 352
   tail call void @av_channel_layout_uninit(ptr noundef nonnull %9) #5
   store i32 1, ptr %9, align 8, !tbaa !36

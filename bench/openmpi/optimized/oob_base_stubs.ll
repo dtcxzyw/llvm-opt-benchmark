@@ -1444,9 +1444,9 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i252, %647
   %678 = call noundef i32 @llvm.bswap.i32(i32 %677)
   store i32 %678, ptr %676, align 4, !tbaa !103
   %679 = getelementptr inbounds nuw i8, ptr %643, i64 800
-  %680 = load i32, ptr %679, align 4, !tbaa !104
+  %680 = load i32, ptr %679, align 8, !tbaa !104
   %681 = call noundef i32 @llvm.bswap.i32(i32 %680)
-  store i32 %681, ptr %679, align 4, !tbaa !104
+  store i32 %681, ptr %679, align 8, !tbaa !104
   %682 = call noundef i32 @llvm.bswap.i32(i32 %664)
   store i32 %682, ptr %665, align 4, !tbaa !105
   %683 = call noundef i32 @llvm.bswap.i32(i32 %674)
@@ -1550,9 +1550,9 @@ pmix_obj_new_tma.exit261:                         ; preds = %.lr.ph.i.i258, %706
   %737 = call noundef i32 @llvm.bswap.i32(i32 %736)
   store i32 %737, ptr %735, align 4, !tbaa !103
   %738 = getelementptr inbounds nuw i8, ptr %702, i64 800
-  %739 = load i32, ptr %738, align 4, !tbaa !104
+  %739 = load i32, ptr %738, align 8, !tbaa !104
   %740 = call noundef i32 @llvm.bswap.i32(i32 %739)
-  store i32 %740, ptr %738, align 4, !tbaa !104
+  store i32 %740, ptr %738, align 8, !tbaa !104
   %741 = call noundef i32 @llvm.bswap.i32(i32 %723)
   store i32 %741, ptr %724, align 4, !tbaa !105
   %742 = call noundef i32 @llvm.bswap.i32(i32 %733)

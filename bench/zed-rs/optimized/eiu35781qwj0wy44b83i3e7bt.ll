@@ -49325,11 +49325,11 @@ default.unreachable121:                           ; preds = %98, %2
   %.sroa.03.0.copyload.i = load i16, ptr %122, align 8
   %.sroa.5.0..sroa_idx.i48 = getelementptr inbounds nuw i8, ptr %121, i64 18
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %121, i64 36
-  %.sroa.5.sroa.4.0.copyload.i = load i32, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i, align 2
+  %.sroa.5.sroa.4.0.copyload.i = load i32, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i, align 4
   %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %121, i64 40
-  %.sroa.5.sroa.5.0.copyload.i = load i32, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i, align 2
+  %.sroa.5.sroa.5.0.copyload.i = load i32, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i, align 8
   %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %121, i64 44
-  %.sroa.5.sroa.6.0.copyload.i = load i16, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i, align 2
+  %.sroa.5.sroa.6.0.copyload.i = load i16, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i, align 4
   %.sroa.5.sroa.7.0..sroa.5.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %121, i64 46
   %.sroa.5.sroa.7.0.copyload.i = load i16, ptr %.sroa.5.sroa.7.0..sroa.5.0..sroa_idx.sroa_idx.i, align 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(18) %.sroa.8.i, ptr noundef nonnull align 2 dereferenceable(18) %.sroa.5.0..sroa_idx.i48, i64 18, i1 false)
@@ -51262,7 +51262,7 @@ _ZN4core3ops8function6FnOnce9call_once17h9df09a517b193acdE.exit.i: ; preds = %36
   %202 = getelementptr inbounds i8, ptr %196, i64 -40
   store i32 %.sroa.10.8.copyload99, ptr %202, align 8, !noalias !11191
   %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %196, i64 -32
-  store i64 %181, ptr %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx.i, align 4, !noalias !11191
+  store i64 %181, ptr %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx.i, align 8, !noalias !11191
   %.sroa.5.0..sroa_idx.i67 = getelementptr inbounds i8, ptr %196, i64 -24
   store i64 0, ptr %.sroa.5.0..sroa_idx.i67, align 8, !noalias !11191
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %196, i64 -16
@@ -98583,7 +98583,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_map17h8bc2c6b29aa3da04E(p
   %.val7.i.i = load ptr, ptr %39, align 8
   %41 = getelementptr i8, ptr %34, i64 -16
   %.val8.i.i = load i64, ptr %41, align 8
-  %.val9.i.i = load i8, ptr %40, align 1
+  %.val9.i.i = load i8, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !21716)
   call void @llvm.experimental.noalias.scope.decl(metadata !21719)
   %42 = load i64, ptr %10, align 8, !range !490, !alias.scope !21722, !noalias !21723, !noundef !5

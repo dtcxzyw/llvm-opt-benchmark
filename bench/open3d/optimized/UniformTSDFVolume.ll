@@ -868,7 +868,7 @@ define void @_ZN6open3d9pipelines11integration17UniformTSDFVolume17ExtractPointC
   store ptr %22, ptr %21, align 8, !tbaa !60, !noalias !55
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i64 0, ptr %23, align 8, !tbaa !61, !noalias !55
-  store i8 0, ptr %22, align 1, !tbaa !52, !noalias !55
+  store i8 0, ptr %22, align 8, !tbaa !52, !noalias !55
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry10PointCloudE, i64 16), ptr %18, align 8, !tbaa !50, !noalias !55
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %24, i8 0, i64 96, i1 false), !noalias !55
@@ -1841,7 +1841,7 @@ define void @_ZN6open3d9pipelines11integration17UniformTSDFVolume19ExtractTriang
   store ptr %17, ptr %16, align 8, !tbaa !60, !noalias !123
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i64 0, ptr %18, align 8, !tbaa !61, !noalias !123
-  store i8 0, ptr %17, align 1, !tbaa !52, !noalias !123
+  store i8 0, ptr %17, align 8, !tbaa !52, !noalias !123
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %19, i8 0, i64 72, i1 false), !noalias !123
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry12TriangleMeshE, i64 16), ptr %13, align 8, !tbaa !50, !noalias !123
@@ -33560,7 +33560,7 @@ define void @_ZNK6open3d9pipelines11integration17UniformTSDFVolume22ExtractVoxel
   store ptr %11, ptr %10, align 8, !tbaa !60, !noalias !784
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 0, ptr %12, align 8, !tbaa !61, !noalias !784
-  store i8 0, ptr %11, align 1, !tbaa !52, !noalias !784
+  store i8 0, ptr %11, align 8, !tbaa !52, !noalias !784
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry10PointCloudE, i64 16), ptr %7, align 8, !tbaa !50, !noalias !784
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %13, i8 0, i64 96, i1 false), !noalias !784
@@ -33914,7 +33914,7 @@ define void @_ZNK6open3d9pipelines11integration17UniformTSDFVolume16ExtractVoxel
   store ptr %12, ptr %11, align 8, !tbaa !60, !noalias !798
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 0, ptr %13, align 8, !tbaa !61, !noalias !798
-  store i8 0, ptr %12, align 1, !tbaa !52, !noalias !798
+  store i8 0, ptr %12, align 8, !tbaa !52, !noalias !798
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry9VoxelGridE, i64 16), ptr %8, align 8, !tbaa !50, !noalias !798
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 96
@@ -33936,7 +33936,7 @@ define void @_ZNK6open3d9pipelines11integration17UniformTSDFVolume16ExtractVoxel
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %25 = load <2 x double>, ptr %23, align 8, !tbaa !52
-  store <2 x double> %25, ptr %24, align 1, !tbaa !52
+  store <2 x double> %25, ptr %24, align 8, !tbaa !52
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %28 = load double, ptr %27, align 8, !tbaa !87
@@ -34135,11 +34135,11 @@ _ZNKSt8__detail15_Hashtable_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIK
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %99, ptr noundef nonnull align 4 dereferenceable(12) %9, i64 12, i1 false), !tbaa.struct !178
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 24
-  store i32 0, ptr %100, align 4, !tbaa !53
+  store i32 0, ptr %100, align 8, !tbaa !53
   %101 = getelementptr inbounds nuw i8, ptr %98, i64 28
   store i32 0, ptr %101, align 4, !tbaa !53
   %102 = getelementptr inbounds nuw i8, ptr %98, i64 32
-  store i32 0, ptr %102, align 4, !tbaa !53
+  store i32 0, ptr %102, align 8, !tbaa !53
   %103 = getelementptr inbounds nuw i8, ptr %98, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %103, i8 0, i64 24, i1 false)
   %104 = invoke ptr @_ZNSt10_HashtableIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS2_N6open3d8geometry5VoxelEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_ENS5_7utility10hash_eigenIS2_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %70, i64 noundef %73, i64 noundef %66, ptr noundef nonnull %98, i64 noundef 1)
@@ -34160,7 +34160,7 @@ _ZNSt10_HashtableIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS2_N6open3d8geo
   %107 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 32
   store i32 %storemerge45, ptr %107, align 4, !tbaa !53
   %108 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 40
-  store <2 x double> %.sroa.032.8.vec.insert, ptr %108, align 1, !tbaa !52
+  store <2 x double> %.sroa.032.8.vec.insert, ptr %108, align 4, !tbaa !52
   %109 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 56
   store double %69, ptr %109, align 8, !tbaa !87
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -35401,13 +35401,13 @@ define internal void @_ZN6open3d9pipelines11integration17UniformTSDFVolume44Inte
   %166 = fpext float %165 to double
   %.sroa.6.32.vec.insert.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %164, i64 0
   %.sroa.12.56.vec.insert.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %166, i64 0
-  %167 = load <2 x double>, ptr %161, align 1, !tbaa !52
+  %167 = load <2 x double>, ptr %161, align 4, !tbaa !52
   %168 = shufflevector <2 x double> %.sroa.6.32.vec.insert.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %169 = fmul <2 x double> %167, %168
   %170 = fadd <2 x double> %.sroa.0.8.vec.insert, %169
   %171 = shufflevector <2 x double> %.sroa.12.56.vec.insert.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %172 = fdiv <2 x double> %170, %171
-  store <2 x double> %172, ptr %161, align 1, !tbaa !52
+  store <2 x double> %172, ptr %161, align 4, !tbaa !52
   br label %.sink.split
 
 173:                                              ; preds = %133
@@ -35428,14 +35428,14 @@ define internal void @_ZN6open3d9pipelines11integration17UniformTSDFVolume44Inte
   %.sroa.6.32.vec.insert.i.i.i.i.i.i.i88 = insertelement <2 x double> poison, double %181, i64 0
   %.sroa.9.48.vec.insert.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %183, i64 0
   %.sroa.12.64.vec.insert.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %185, i64 0
-  %186 = load <2 x double>, ptr %178, align 1, !tbaa !52
+  %186 = load <2 x double>, ptr %178, align 4, !tbaa !52
   %187 = shufflevector <2 x double> %.sroa.6.32.vec.insert.i.i.i.i.i.i.i88, <2 x double> poison, <2 x i32> zeroinitializer
   %188 = fmul <2 x double> %186, %187
   %189 = shufflevector <2 x double> %.sroa.9.48.vec.insert.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %190 = fadd <2 x double> %189, %188
   %191 = shufflevector <2 x double> %.sroa.12.64.vec.insert.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %192 = fdiv <2 x double> %190, %191
-  store <2 x double> %192, ptr %178, align 1, !tbaa !52
+  store <2 x double> %192, ptr %178, align 4, !tbaa !52
   br label %.sink.split
 
 .sink.split:                                      ; preds = %150, %175

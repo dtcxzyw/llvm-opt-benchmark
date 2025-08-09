@@ -21096,7 +21096,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.e
   %501 = getelementptr inbounds nuw i8, ptr %497, i64 146
   %502 = load i8, ptr %501, align 2, !tbaa !669, !range !32, !noundef !33
   %503 = trunc nuw i8 %502 to i1
-  %504 = load i32, ptr %498, align 4, !tbaa !357
+  %504 = load i32, ptr %498, align 8, !tbaa !357
   br i1 %.not.i8, label %506, label %505
 
 505:                                              ; preds = %494

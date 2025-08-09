@@ -930,7 +930,7 @@ phi_at.exit:                                      ; preds = %23, %27
   %70 = load i64, ptr %0, align 8, !tbaa !61
   %71 = trunc i64 %70 to i32
   %72 = sub i32 %69, %71
-  %73 = load i32, ptr %68, align 4, !tbaa !50
+  %73 = load i32, ptr %68, align 8, !tbaa !50
   %.not16.i = icmp eq i32 %72, 0
   br i1 %.not16.i, label %lcg_seek.exit, label %.lr.ph.i
 

@@ -402,7 +402,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xxh32_update(ptr noundef capture
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr nonnull align 1 %1, i64 %33, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load i32, ptr %34, align 4
-  %36 = load i32, ptr %30, align 1
+  %36 = load i32, ptr %30, align 4
   %37 = mul i32 %36, -2048144777
   %38 = add i32 %37, %35
   %39 = tail call i32 @llvm.fshl.i32(i32 %38, i32 %38, i32 13)
@@ -411,7 +411,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xxh32_update(ptr noundef capture
   %41 = getelementptr i8, ptr %0, i64 28
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %43 = load i32, ptr %42, align 4
-  %44 = load i32, ptr %41, align 1
+  %44 = load i32, ptr %41, align 4
   %45 = mul i32 %44, -2048144777
   %46 = add i32 %45, %43
   %47 = tail call i32 @llvm.fshl.i32(i32 %46, i32 %46, i32 13)
@@ -420,7 +420,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xxh32_update(ptr noundef capture
   %49 = getelementptr i8, ptr %0, i64 32
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %51 = load i32, ptr %50, align 4
-  %52 = load i32, ptr %49, align 1
+  %52 = load i32, ptr %49, align 4
   %53 = mul i32 %52, -2048144777
   %54 = add i32 %53, %51
   %55 = tail call i32 @llvm.fshl.i32(i32 %54, i32 %54, i32 13)
@@ -429,7 +429,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xxh32_update(ptr noundef capture
   %57 = getelementptr i8, ptr %0, i64 36
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %59 = load i32, ptr %58, align 4
-  %60 = load i32, ptr %57, align 1
+  %60 = load i32, ptr %57, align 4
   %61 = mul i32 %60, -2048144777
   %62 = add i32 %61, %59
   %63 = tail call i32 @llvm.fshl.i32(i32 %62, i32 %62, i32 13)
@@ -650,7 +650,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xxh64_update(ptr noundef capture
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr nonnull align 1 %1, i64 %26, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load i64, ptr %27, align 8
-  %29 = load i64, ptr %23, align 1
+  %29 = load i64, ptr %23, align 8
   %30 = mul i64 %29, -4417276706812531889
   %31 = add i64 %30, %28
   %32 = tail call i64 @llvm.fshl.i64(i64 %31, i64 %31, i64 31)
@@ -659,7 +659,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xxh64_update(ptr noundef capture
   %34 = getelementptr i8, ptr %0, i64 48
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = load i64, ptr %35, align 8
-  %37 = load i64, ptr %34, align 1
+  %37 = load i64, ptr %34, align 8
   %38 = mul i64 %37, -4417276706812531889
   %39 = add i64 %38, %36
   %40 = tail call i64 @llvm.fshl.i64(i64 %39, i64 %39, i64 31)
@@ -668,7 +668,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xxh64_update(ptr noundef capture
   %42 = getelementptr i8, ptr %0, i64 56
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %44 = load i64, ptr %43, align 8
-  %45 = load i64, ptr %42, align 1
+  %45 = load i64, ptr %42, align 8
   %46 = mul i64 %45, -4417276706812531889
   %47 = add i64 %46, %44
   %48 = tail call i64 @llvm.fshl.i64(i64 %47, i64 %47, i64 31)
@@ -677,7 +677,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xxh64_update(ptr noundef capture
   %50 = getelementptr i8, ptr %0, i64 64
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %52 = load i64, ptr %51, align 8
-  %53 = load i64, ptr %50, align 1
+  %53 = load i64, ptr %50, align 8
   %54 = mul i64 %53, -4417276706812531889
   %55 = add i64 %54, %52
   %56 = tail call i64 @llvm.fshl.i64(i64 %55, i64 %55, i64 31)

@@ -20252,7 +20252,7 @@ define internal fastcc void @_ZN6google8protobuf8internal12_GLOBAL__N_111InitSCC
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8, !tbaa !160
   tail call void %21()
-  store atomic i32 0, ptr %0 release, align 4
+  store atomic i32 0, ptr %0 release, align 8
   br label %31
 
 .lr.ph30:                                         ; preds = %._crit_edge, %27

@@ -583,7 +583,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %276 = getelementptr inbounds nuw i8, ptr %203, i64 20
   store i32 -1, ptr %276, align 4, !tbaa !124
   %277 = getelementptr inbounds nuw i8, ptr %203, i64 24
-  store atomic i32 0, ptr %277 seq_cst, align 4
+  store atomic i32 0, ptr %277 seq_cst, align 8
   %278 = getelementptr inbounds nuw i8, ptr %203, i64 32
   store i32 1, ptr %278, align 8, !tbaa !119
   %279 = getelementptr inbounds nuw i8, ptr %203, i64 40
@@ -593,7 +593,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %281 = getelementptr inbounds nuw i8, ptr %203, i64 52
   store i32 -1, ptr %281, align 4, !tbaa !124
   %282 = getelementptr inbounds nuw i8, ptr %203, i64 56
-  store atomic i32 0, ptr %282 seq_cst, align 4
+  store atomic i32 0, ptr %282 seq_cst, align 8
   %283 = getelementptr inbounds nuw i8, ptr %203, i64 64
   store i32 2, ptr %283, align 8, !tbaa !119
   %284 = getelementptr inbounds nuw i8, ptr %203, i64 72
@@ -603,7 +603,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %286 = getelementptr inbounds nuw i8, ptr %203, i64 84
   store i32 -1, ptr %286, align 4, !tbaa !124
   %287 = getelementptr inbounds nuw i8, ptr %203, i64 88
-  store atomic i32 0, ptr %287 seq_cst, align 4
+  store atomic i32 0, ptr %287 seq_cst, align 8
   %288 = getelementptr inbounds nuw i8, ptr %203, i64 96
   br i1 %86, label %.lr.ph822.preheader, label %.preheader771
 
@@ -732,7 +732,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %347 = getelementptr inbounds nuw i8, ptr %.0707820, i64 20
   store i32 %346, ptr %347, align 4, !tbaa !124
   %348 = getelementptr inbounds nuw i8, ptr %.0707820, i64 24
-  store atomic i32 0, ptr %348 seq_cst, align 4
+  store atomic i32 0, ptr %348 seq_cst, align 8
   %349 = getelementptr inbounds nuw i8, ptr %.0707820, i64 32
   %indvars.iv.next972 = add nuw nsw i64 %indvars.iv971, 1
   %exitcond976.not = icmp eq i64 %indvars.iv.next972, %wide.trip.count975
@@ -747,7 +747,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %352 = getelementptr inbounds nuw i8, ptr %.1708824, i64 52
   store i32 -1, ptr %352, align 4, !tbaa !124
   %353 = getelementptr inbounds nuw i8, ptr %.1708824, i64 56
-  store atomic i32 0, ptr %353 seq_cst, align 4
+  store atomic i32 0, ptr %353 seq_cst, align 8
   %.27098281049 = getelementptr inbounds nuw i8, ptr %.1708824, i64 64
   %wide.trip.count987 = zext nneg i32 %.1677 to i64
   br label %.lr.ph833
@@ -772,7 +772,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %365 = getelementptr inbounds nuw i8, ptr %.1708824, i64 20
   store i32 %364, ptr %365, align 4, !tbaa !124
   %366 = getelementptr inbounds nuw i8, ptr %.1708824, i64 24
-  store atomic i32 0, ptr %366 seq_cst, align 4
+  store atomic i32 0, ptr %366 seq_cst, align 8
   %367 = getelementptr inbounds nuw i8, ptr %.1708824, i64 32
   %indvars.iv.next978 = add nuw nsw i64 %indvars.iv977, 1
   %exitcond982.not = icmp eq i64 %indvars.iv.next978, %wide.trip.count981
@@ -787,7 +787,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %370 = getelementptr inbounds nuw i8, ptr %203, i64 116
   store i32 -1, ptr %370, align 4, !tbaa !124
   %371 = getelementptr inbounds nuw i8, ptr %203, i64 120
-  store atomic i32 0, ptr %371 seq_cst, align 4
+  store atomic i32 0, ptr %371 seq_cst, align 8
   %.2709828 = getelementptr inbounds nuw i8, ptr %203, i64 128
   br label %._crit_edge838
 
@@ -816,7 +816,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %383 = getelementptr inbounds nuw i8, ptr %.1708.pn830, i64 52
   store i32 %382, ptr %383, align 4, !tbaa !124
   %384 = getelementptr inbounds nuw i8, ptr %.1708.pn830, i64 56
-  store atomic i32 0, ptr %384 seq_cst, align 4
+  store atomic i32 0, ptr %384 seq_cst, align 8
   %indvars.iv.next984 = add nuw nsw i64 %indvars.iv983, 1
   %.2709 = getelementptr inbounds nuw i8, ptr %.2709831, i64 32
   %exitcond988.not = icmp eq i64 %indvars.iv.next984, %wide.trip.count987
@@ -832,7 +832,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %387 = getelementptr inbounds nuw i8, ptr %.3.lcssa, i64 20
   store i32 -1, ptr %387, align 4, !tbaa !124
   %388 = getelementptr inbounds nuw i8, ptr %.3.lcssa, i64 24
-  store atomic i32 0, ptr %388 seq_cst, align 4
+  store atomic i32 0, ptr %388 seq_cst, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %389 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store ptr %45, ptr %389, align 8, !tbaa !132
@@ -851,7 +851,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %396 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr %203, ptr %396, align 8, !tbaa !139
   %397 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  store atomic i32 0, ptr %397 seq_cst, align 4
+  store atomic i32 0, ptr %397 seq_cst, align 8
   %398 = call float @b2GetMillisecondsAndReset(ptr noundef nonnull %3) #8
   %399 = getelementptr inbounds nuw i8, ptr %0, i64 1616
   store float %398, ptr %399, align 4, !tbaa !140
@@ -889,7 +889,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %417 = getelementptr inbounds nuw i8, ptr %.3836, i64 20
   store i32 %416, ptr %417, align 4, !tbaa !124
   %418 = getelementptr inbounds nuw i8, ptr %.3836, i64 24
-  store atomic i32 0, ptr %418 seq_cst, align 4
+  store atomic i32 0, ptr %418 seq_cst, align 8
   %419 = getelementptr inbounds nuw i8, ptr %.3836, i64 32
   %indvars.iv.next990 = add nuw nsw i64 %indvars.iv989, 1
   %exitcond994.not = icmp eq i64 %indvars.iv.next990, %wide.trip.count993
@@ -1485,7 +1485,7 @@ b2BufferMove.exit:                                ; preds = %.lr.ph877, %b2IntAr
   %707 = load ptr, ptr %43, align 8, !tbaa !77
   call void @b2FreeArenaItem(ptr noundef nonnull %0, ptr noundef %707) #8
   store ptr null, ptr %43, align 8, !tbaa !77
-  store atomic i32 0, ptr %40 seq_cst, align 4
+  store atomic i32 0, ptr %40 seq_cst, align 8
   %708 = getelementptr inbounds nuw i8, ptr %0, i64 1782
   %709 = load i8, ptr %708, align 2, !tbaa !214, !range !197, !noundef !198
   %710 = trunc nuw i8 %709 to i1

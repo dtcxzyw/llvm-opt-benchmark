@@ -4723,7 +4723,7 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal14WireFormatLite9ReadByte
   store ptr %7, ptr %6, align 8, !tbaa !31
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %8, align 8, !tbaa !33
-  store i8 0, ptr %7, align 1, !tbaa !16
+  store i8 0, ptr %7, align 8, !tbaa !16
   store ptr %6, ptr %1, align 8, !tbaa !52
   br label %9
 

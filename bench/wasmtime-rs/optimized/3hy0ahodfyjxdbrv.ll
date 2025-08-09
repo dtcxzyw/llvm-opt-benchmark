@@ -4520,7 +4520,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h426950b99ca3b5a2E(ptr noalia
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %.val.i, i64 32, i1 false), !noalias !1165
   store i64 0, ptr %.val.i, align 8, !noalias !1165
   %3 = getelementptr inbounds nuw i8, ptr %.val.i, i64 32
-  store i8 2, ptr %3, align 1, !noalias !1165
+  store i8 2, ptr %3, align 8, !noalias !1165
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1168)
   %4 = load i64, ptr %2, align 8, !range !751, !alias.scope !1168, !noalias !1165, !noundef !9
   %5 = icmp eq i64 %4, 0
@@ -4599,7 +4599,7 @@ __rust_try.llvm.17595789031839490487.exit:
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !1182, !noundef !9
   store i64 0, ptr %.val.i, align 8, !noalias !1185
   %1 = getelementptr inbounds nuw i8, ptr %.val.i, i64 816
-  store i8 2, ptr %1, align 1, !noalias !1185
+  store i8 2, ptr %1, align 8, !noalias !1185
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
@@ -4609,7 +4609,7 @@ __rust_try.llvm.17595789031839490487.exit:
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !1188, !noundef !9
   store i64 0, ptr %.val.i, align 8, !noalias !1191
   %1 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
-  store i8 2, ptr %1, align 1, !noalias !1191
+  store i8 2, ptr %1, align 8, !noalias !1191
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
@@ -4619,7 +4619,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h3ad136b34265c30aE.llvm.17595
   %.val = load ptr, ptr %2, align 8, !alias.scope !1194, !noundef !9
   store i64 0, ptr %.val, align 8, !noalias !1197
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 816
-  store i8 2, ptr %3, align 1, !noalias !1197
+  store i8 2, ptr %3, align 8, !noalias !1197
   ret void
 }
 
@@ -4632,7 +4632,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h6f304e127bc67428E.llvm.17595
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %.val, i64 32, i1 false), !noalias !1203
   store i64 0, ptr %.val, align 8, !noalias !1203
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 32
-  store i8 2, ptr %4, align 1, !noalias !1203
+  store i8 2, ptr %4, align 8, !noalias !1203
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1206)
   %5 = load i64, ptr %2, align 8, !range !751, !alias.scope !1206, !noalias !1203, !noundef !9
   %6 = icmp eq i64 %5, 0
@@ -4680,7 +4680,7 @@ define hidden void @_ZN3std9panicking3try7do_call17habd9f84cabdee31cE.llvm.17595
   %.val = load ptr, ptr %2, align 8, !alias.scope !1220, !noundef !9
   store i64 0, ptr %.val, align 8, !noalias !1223
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  store i8 2, ptr %3, align 1, !noalias !1223
+  store i8 2, ptr %3, align 8, !noalias !1223
   ret void
 }
 

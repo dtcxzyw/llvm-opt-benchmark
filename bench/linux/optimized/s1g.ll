@@ -373,7 +373,7 @@ define dso_local void @ieee80211_s1g_status_twt_action(ptr noundef %0, ptr nound
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 25
   store i8 7, ptr %45, align 1
   %46 = getelementptr inbounds nuw i8, ptr %39, i64 26
-  store i8 %18, ptr %46, align 1
+  store i8 %18, ptr %46, align 2
   %47 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %48 = load i32, ptr %47, align 8
   %49 = or i32 %48, 65537

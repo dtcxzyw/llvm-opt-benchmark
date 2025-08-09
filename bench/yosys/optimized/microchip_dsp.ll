@@ -8375,7 +8375,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i.i.i.i.i.i:       ; preds = %._crit_edge.i.i.i.i
   %3512 = getelementptr inbounds nuw %"class.std::tuple.268", ptr %3510, i64 %indvars.iv.i.i.i.i.i.i
   %3513 = getelementptr inbounds nuw i8, ptr %3512, i64 8
   %3514 = load ptr, ptr %3513, align 8, !tbaa !147
-  %3515 = load i32, ptr %3512, align 4, !tbaa !145
+  %3515 = load i32, ptr %3512, align 8, !tbaa !145
   %3516 = trunc nuw nsw i64 %indvars.iv.i.i.i.i.i.i to i32
   %3517 = urem i32 %3516, 24
   %.not42.i.i.i.i.i.i = icmp eq i32 %3517, 0
@@ -74283,8 +74283,8 @@ _ZNSt12_Vector_baseISt5tupleIJPN5Yosys5RTLIL4CellEiEESaIS5_EE13_M_deallocateEPS5
   %36 = load ptr, ptr %35, align 8, !tbaa !147
   %37 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 8
   store ptr %36, ptr %37, align 8, !tbaa !147
-  %38 = load i32, ptr %.0910.i.i.i.i.i, align 4, !tbaa !145
-  store i32 %38, ptr %.0811.i.i.i.i.i, align 4, !tbaa !145
+  %38 = load i32, ptr %.0910.i.i.i.i.i, align 8, !tbaa !145
+  store i32 %38, ptr %.0811.i.i.i.i.i, align 8, !tbaa !145
   %39 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 16
   %41 = add nsw i64 %.012.i.i.i.i.i, -1
@@ -74305,8 +74305,8 @@ _ZNSt12_Vector_baseISt5tupleIJPN5Yosys5RTLIL4CellEiEESaIS5_EE13_M_deallocateEPS5
   %48 = load ptr, ptr %47, align 8, !tbaa !147
   %49 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i28, i64 8
   store ptr %48, ptr %49, align 8, !tbaa !147
-  %50 = load i32, ptr %.0910.i.i.i.i.i29, align 4, !tbaa !145
-  store i32 %50, ptr %.0811.i.i.i.i.i28, align 4, !tbaa !145
+  %50 = load i32, ptr %.0910.i.i.i.i.i29, align 8, !tbaa !145
+  store i32 %50, ptr %.0811.i.i.i.i.i28, align 8, !tbaa !145
   %51 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i29, i64 16
   %52 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i28, i64 16
   %53 = add nsw i64 %.012.i.i.i.i.i27, -1

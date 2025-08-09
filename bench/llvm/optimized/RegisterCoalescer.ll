@@ -2261,7 +2261,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_15MachineFunction19DebugPHIRegallocPosEN
   %80 = load ptr, ptr %60, align 8, !tbaa !25
   %81 = getelementptr inbounds nuw %"struct.std::pair.411", ptr %80, i64 %79
   %.sroa.0.0.copyload.i = load i64, ptr %81, align 8, !tbaa !117
-  %.val = load i32, ptr %.sroa.0134.0167, align 4, !tbaa !78
+  %.val = load i32, ptr %.sroa.0134.0167, align 8, !tbaa !78
   %.val9.i.i = load ptr, ptr %61, align 8, !tbaa !424, !noalias !425
   %.val10.i.i = load i32, ptr %62, align 8, !tbaa !430, !noalias !425
   %82 = icmp eq i32 %.val10.i.i, 0

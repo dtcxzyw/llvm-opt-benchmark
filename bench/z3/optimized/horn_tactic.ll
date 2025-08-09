@@ -3086,11 +3086,11 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   %284 = getelementptr inbounds nuw i8, ptr %278, i64 40
   %285 = getelementptr inbounds nuw i8, ptr %278, i64 56
   store ptr %285, ptr %284, align 8, !tbaa !271
-  store i32 1852993384, ptr %285, align 1
+  store i32 1852993384, ptr %285, align 8
   %286 = getelementptr inbounds nuw i8, ptr %278, i64 48
   store i64 4, ptr %286, align 8, !tbaa !267
   %287 = getelementptr inbounds nuw i8, ptr %278, i64 60
-  store i8 0, ptr %287, align 1, !tbaa !265
+  store i8 0, ptr %287, align 4, !tbaa !265
   %288 = getelementptr inbounds nuw i8, ptr %278, i64 72
   store ptr null, ptr %288, align 8, !tbaa !553
   %289 = load ptr, ptr %8, align 8, !tbaa !470

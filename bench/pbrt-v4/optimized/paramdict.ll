@@ -3642,7 +3642,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %58
   store i64 %64, ptr %66, align 8, !tbaa !33
   store ptr %56, ptr %3, align 8, !tbaa !36
   store i64 0, ptr %65, align 8, !tbaa !33
-  store i8 0, ptr %56, align 1, !tbaa !35
+  store i8 0, ptr %56, align 8, !tbaa !35
   br label %67
 
 67:                                               ; preds = %49, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
@@ -10972,7 +10972,7 @@ _ZN4pstd3pmr21polymorphic_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIc
   store i64 %41, ptr %42, align 8, !tbaa !33
   store ptr %32, ptr %29, align 8, !tbaa !36
   store i64 0, ptr %40, align 8, !tbaa !33
-  store i8 0, ptr %32, align 1, !tbaa !35
+  store i8 0, ptr %32, align 8, !tbaa !35
   %43 = load ptr, ptr %16, align 8, !tbaa !80
   %44 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %43, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8, !tbaa !36
@@ -19257,7 +19257,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %52, ptr %.08.i.i.i.i.i.i, align 8, !tbaa !27, !noalias !575
   %53 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 8
   store i64 0, ptr %53, align 8, !tbaa !33, !noalias !575
-  store i8 0, ptr %52, align 1, !tbaa !35, !noalias !575
+  store i8 0, ptr %52, align 8, !tbaa !35, !noalias !575
   %54 = add i64 %.057.i.i.i.i.i.i, -1
   %55 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq i64 %54, 0

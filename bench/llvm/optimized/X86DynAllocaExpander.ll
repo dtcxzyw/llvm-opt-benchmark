@@ -835,7 +835,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEjNS_12DenseMapInfoIS3_vEE
 282:                                              ; preds = %277, %271
   store ptr %.sroa.075.0149.i, ptr %272, align 8, !tbaa !277, !noalias !273
   %283 = getelementptr inbounds nuw i8, ptr %272, i64 8
-  store i32 0, ptr %283, align 4, !tbaa !281, !noalias !273
+  store i32 0, ptr %283, align 8, !tbaa !281, !noalias !273
   %284 = load i32, ptr %61, align 8, !tbaa !225
   %285 = load i32, ptr %62, align 4, !tbaa !226
   %.not.not.i.i.i.i.i = icmp ult i32 %284, %285
@@ -3439,7 +3439,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEjNS_12DenseMapInfoIS3_vEE
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !281
-  store i32 %68, ptr %66, align 4, !tbaa !281
+  store i32 %68, ptr %66, align 8, !tbaa !281
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !279
   br label %70

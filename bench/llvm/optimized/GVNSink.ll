@@ -836,7 +836,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEjNS_12DenseMapInfoIS4_vEEN
   %57 = load ptr, ptr %1, align 8, !tbaa !61
   store ptr %57, ptr %48, align 8, !tbaa !61
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !76
+  store i32 0, ptr %58, align 8, !tbaa !76
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E16InsertIntoBucketIRKS4_JEEEPS9_SF_OT_DpOT0_.exit
@@ -7530,7 +7530,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEjNS_12DenseMapInfoIS4_vEEN
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !76
-  store i32 %68, ptr %66, align 4, !tbaa !76
+  store i32 %68, ptr %66, align 8, !tbaa !76
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !129
   br label %70
@@ -13628,7 +13628,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEjNS_12DenseMapInfoIS3_vEENS_6deta
   %57 = load ptr, ptr %1, align 8, !tbaa !181
   store ptr %57, ptr %48, align 8, !tbaa !181
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !76
+  store i32 0, ptr %58, align 8, !tbaa !76
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E16InsertIntoBucketIRKS3_JEEEPS8_SE_OT_DpOT0_.exit
@@ -14141,7 +14141,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13GVNExpression10ExpressionEjNS_12DenseM
   %57 = load ptr, ptr %1, align 8, !tbaa !403
   store ptr %57, ptr %48, align 8, !tbaa !403
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !76
+  store i32 0, ptr %58, align 8, !tbaa !76
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13GVNExpression10ExpressionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E16InsertIntoBucketIS4_JEEEPS9_SD_OT_DpOT0_.exit
@@ -14257,7 +14257,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMap
   store i64 %61, ptr %51, align 8, !tbaa !143
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %63 = load i32, ptr %3, align 4, !tbaa !76
-  store i32 %63, ptr %62, align 4, !tbaa !76
+  store i32 %63, ptr %62, align 8, !tbaa !76
   %64 = load ptr, ptr %1, align 8, !tbaa !118
   %65 = load i32, ptr %7, align 8, !tbaa !119
   br label %.loopexit
@@ -14469,7 +14469,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEjNS_12DenseMapInfoIS3_vEENS_6deta
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !76
-  store i32 %68, ptr %66, align 4, !tbaa !76
+  store i32 %68, ptr %66, align 8, !tbaa !76
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !425
   br label %70
@@ -16579,7 +16579,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13GVNExpression10ExpressionEjNS_12DenseM
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !76
-  store i32 %68, ptr %66, align 4, !tbaa !76
+  store i32 %68, ptr %66, align 8, !tbaa !76
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !446
   br label %70
@@ -16830,7 +16830,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMap
   %68 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %69 = getelementptr inbounds nuw i8, ptr %.021.i, i64 8
   %70 = load i32, ptr %69, align 4, !tbaa !76
-  store i32 %70, ptr %68, align 4, !tbaa !76
+  store i32 %70, ptr %68, align 8, !tbaa !76
   %71 = add i32 %38, 1
   store i32 %71, ptr %32, align 8, !tbaa !450
   br label %72

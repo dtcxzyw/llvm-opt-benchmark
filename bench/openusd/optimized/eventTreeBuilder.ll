@@ -8850,7 +8850,7 @@ _ZNSt8__detail9__variant9__emplaceILm2ELb0EJN32pxrInternal_v0_24__pxrReserved__1
   store i8 -1, ptr %6, align 8
   %19 = load i8, ptr %1, align 8
   %20 = and i8 %19, 1
-  store i8 %20, ptr %5, align 1
+  store i8 %20, ptr %5, align 8
   store i8 2, ptr %6, align 8
   br label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_17_Move_assign_baseILb0EJN32pxrInternal_v0_24__pxrReserved__14TraceEventData7_NoDataENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdEEaSEOSE_EUlOT_T0_E_RSt7variantIJS7_SD_blmdEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESK_SN_.exit
 

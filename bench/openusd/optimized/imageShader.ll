@@ -1537,7 +1537,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue3GetINS_20HdMaterialNetworkMapEEE
   store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2InterfaceE, i64 16), ptr %336, align 8, !noalias !8
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 8
   %338 = load i32, ptr %45, align 8, !noalias !8
-  store i32 %338, ptr %337, align 4, !noalias !8
+  store i32 %338, ptr %337, align 8, !noalias !8
   %.not.i.i.i.i = icmp eq i32 %338, 0
   br i1 %.not.i.i.i.i, label %350, label %339
 

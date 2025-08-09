@@ -6107,7 +6107,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %23, ptr %26, align 8, !tbaa !50
   store ptr %14, ptr %11, align 8, !tbaa !47
   store i64 0, ptr %25, align 8, !tbaa !50
-  store i8 0, ptr %14, align 1, !tbaa !51
+  store i8 0, ptr %14, align 8, !tbaa !51
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %27, i8 0, i64 56, i1 false)
   store ptr %8, ptr %24, align 8, !tbaa !222
@@ -8049,7 +8049,7 @@ _ZN9grpc_core12ArenaPromiseIN4absl12lts_202407226StatusEED2Ev.exit.i.i: ; preds 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !239
   %.not.i.i.i = icmp ne ptr %11, null
-  %12 = load i8, ptr %0, align 1, !range !71
+  %12 = load i8, ptr %0, align 8, !range !71
   %13 = trunc nuw i8 %12 to i1
   %or.cond.i.i.i = select i1 %.not.i.i.i, i1 %13, i1 false
   br i1 %or.cond.i.i.i, label %14, label %_ZZN9grpc_core14filters_detail9AddOpImplINS_20FaultInjectionFilterESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEMNS2_4CallEFNS_12ArenaPromiseIN4absl12lts_202407226StatusEEERS4_PS2_EXadL_ZNS8_23OnClientInitialMetadataESE_SF_EEvE3AddESF_mRNS0_6LayoutIS7_EEENKUlPvE0_clESM_.exit

@@ -36066,7 +36066,7 @@ _ZNKSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_
   %46 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19
   store ptr null, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  store i32 %45, ptr %47, align 4
+  store i32 %45, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %49 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %48, i64 noundef %42, i64 noundef %6, i64 noundef 1) #18
   %50 = extractvalue { i8, i64 } %49, 0
@@ -36181,7 +36181,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   %.02530 = phi i64 [ %.1, %31 ], [ 0, %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %16 = load ptr, ptr %.031, align 8
   %17 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %18 = load i32, ptr %17, align 4
+  %18 = load i32, ptr %17, align 8
   %19 = sext i32 %18 to i64
   %20 = urem i64 %19, %1
   %21 = getelementptr inbounds ptr, ptr %.0.i, i64 %20

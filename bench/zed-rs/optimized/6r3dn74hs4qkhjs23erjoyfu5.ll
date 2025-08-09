@@ -13813,8 +13813,8 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN92_$LT$futures_channel..oneshot..Re
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hb9fa080ce1f8f499E.exit.i": ; preds = %24, %21
   store ptr %15, ptr %4, align 8, !noalias !2903
   store ptr %16, ptr %22, align 8, !noalias !2903
-  store atomic i8 0, ptr %17 seq_cst, align 1, !noalias !2906
-  %30 = load atomic i8, ptr %5 seq_cst, align 1, !noalias !2903
+  store atomic i8 0, ptr %17 seq_cst, align 8, !noalias !2906
+  %30 = load atomic i8, ptr %5 seq_cst, align 2, !noalias !2903
   %31 = icmp eq i8 %30, 0
   br i1 %31, label %"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17h7b81e85ec9302c86E.llvm.8023350549582346695.exit", label %34
 
@@ -13823,7 +13823,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN92_$LT$futures_channel..oneshot..Re
           cleanup
   store ptr %15, ptr %4, align 8, !noalias !2903
   store ptr %16, ptr %22, align 8, !noalias !2903
-  store atomic i8 0, ptr %17 seq_cst, align 1, !noalias !2911
+  store atomic i8 0, ptr %17 seq_cst, align 8, !noalias !2911
   resume { ptr, i32 } %33
 
 34:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hb9fa080ce1f8f499E.exit.i", %27, %2

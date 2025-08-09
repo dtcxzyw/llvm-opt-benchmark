@@ -8628,9 +8628,9 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__13UsdRenderSpec7Pr
   store i64 0, ptr %30, align 8, !alias.scope !48, !noalias !45
   %32 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
   %33 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 24
-  %34 = load i32, ptr %33, align 4, !alias.scope !48, !noalias !45
-  store i32 %34, ptr %32, align 4, !alias.scope !45, !noalias !48
-  store i32 0, ptr %33, align 4, !alias.scope !48, !noalias !45
+  %34 = load i32, ptr %33, align 8, !alias.scope !48, !noalias !45
+  store i32 %34, ptr %32, align 8, !alias.scope !45, !noalias !48
+  store i32 0, ptr %33, align 8, !alias.scope !48, !noalias !45
   %35 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 28
   %36 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 28
   %37 = load i32, ptr %36, align 4, !alias.scope !48, !noalias !45
@@ -8702,9 +8702,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13UsdRenderSpec7ProductESaIS2_EE
   store i64 0, ptr %68, align 8, !alias.scope !55, !noalias !52
   %70 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 24
   %71 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 24
-  %72 = load i32, ptr %71, align 4, !alias.scope !55, !noalias !52
-  store i32 %72, ptr %70, align 4, !alias.scope !52, !noalias !55
-  store i32 0, ptr %71, align 4, !alias.scope !55, !noalias !52
+  %72 = load i32, ptr %71, align 8, !alias.scope !55, !noalias !52
+  store i32 %72, ptr %70, align 8, !alias.scope !52, !noalias !55
+  store i32 0, ptr %71, align 8, !alias.scope !55, !noalias !52
   %73 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 28
   %74 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 28
   %75 = load i32, ptr %74, align 4, !alias.scope !55, !noalias !52

@@ -2474,7 +2474,7 @@ define hidden void @_ZN12opencv_caffe9BlobShape12InternalSwapEPS0_(ptr noundef n
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.0.copyload.i.i.i = load i128, ptr %7, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 1 dereferenceable(16) %8, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i, ptr %8, align 1
+  store i128 %.0.copyload.i.i.i, ptr %8, align 8
   ret void
 }
 
@@ -5144,29 +5144,29 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %6, align 8, !tbaa !71
-  %9 = load i32, ptr %7, align 4, !tbaa !71
+  %9 = load i32, ptr %7, align 8, !tbaa !71
   store i32 %9, ptr %6, align 8, !tbaa !71
-  store i32 %8, ptr %7, align 4, !tbaa !71
+  store i32 %8, ptr %7, align 8, !tbaa !71
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.0.copyload.i.i.i = load i128, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 1 dereferenceable(16) %11, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i, ptr %11, align 1
+  store i128 %.0.copyload.i.i.i, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.0.copyload.i.i.i15 = load i128, ptr %12, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 1 dereferenceable(16) %13, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i15, ptr %13, align 1
+  store i128 %.0.copyload.i.i.i15, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.0.copyload.i.i.i16 = load i128, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 1 dereferenceable(16) %15, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i16, ptr %15, align 1
+  store i128 %.0.copyload.i.i.i16, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.0.copyload.i.i.i17 = load i128, ptr %16, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 1 dereferenceable(16) %17, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i17, ptr %17, align 1
+  store i128 %.0.copyload.i.i.i17, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %.sroa.0.0.copyload.i = load ptr, ptr %19, align 8, !tbaa !87
@@ -5177,19 +5177,19 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %.0.copyload.i.i = load i128, ptr %21, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 1 dereferenceable(16) %22, i64 16, i1 false)
-  store i128 %.0.copyload.i.i, ptr %22, align 1
+  store i128 %.0.copyload.i.i, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %.0.copyload.i.i.i18 = load i64, ptr %23, align 8
-  %25 = load i64, ptr %24, align 1
+  %25 = load i64, ptr %24, align 8
   store i64 %25, ptr %23, align 8
-  store i64 %.0.copyload.i.i.i18, ptr %24, align 1
+  store i64 %.0.copyload.i.i.i18, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %.0.copyload.i.i.i.i = load i32, ptr %26, align 8
-  %28 = load i32, ptr %27, align 1
+  %28 = load i32, ptr %27, align 8
   store i32 %28, ptr %26, align 8
-  store i32 %.0.copyload.i.i.i.i, ptr %27, align 1
+  store i32 %.0.copyload.i.i.i.i, ptr %27, align 8
   ret void
 }
 
@@ -5914,7 +5914,7 @@ define hidden void @_ZN12opencv_caffe15BlobProtoVector12InternalSwapEPS0_(ptr no
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !99, !noalias !100
   %13 = load i32, ptr %10, align 4, !tbaa !71, !noalias !100
-  %14 = load i32, ptr %9, align 4, !tbaa !71, !noalias !100
+  %14 = load i32, ptr %9, align 8, !tbaa !71, !noalias !100
   %15 = load ptr, ptr %8, align 8, !tbaa !103, !noalias !100
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -5924,7 +5924,7 @@ define hidden void @_ZN12opencv_caffe15BlobProtoVector12InternalSwapEPS0_(ptr no
   %21 = load i32, ptr %16, align 8, !tbaa !71, !noalias !104
   %22 = load ptr, ptr %7, align 8, !tbaa !103, !noalias !104
   store ptr %22, ptr %8, align 8, !tbaa !103
-  store i32 %21, ptr %9, align 4, !tbaa !71
+  store i32 %21, ptr %9, align 8, !tbaa !71
   store i32 %20, ptr %10, align 4, !tbaa !71
   store ptr %19, ptr %11, align 8, !tbaa !99
   store ptr %15, ptr %7, align 8, !tbaa !103
@@ -6680,7 +6680,7 @@ define hidden void @_ZN12opencv_caffe16PermuteParameter12InternalSwapEPS0_(ptr n
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.0.copyload.i.i.i = load i128, ptr %7, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 1 dereferenceable(16) %8, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i, ptr %8, align 1
+  store i128 %.0.copyload.i.i.i, ptr %8, align 8
   ret void
 }
 
@@ -7897,9 +7897,9 @@ define hidden void @_ZN12opencv_caffe22NormalizeBBoxParameter12InternalSwapEPS0_
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load ptr, ptr %11, align 8, !tbaa !132
@@ -7909,9 +7909,9 @@ define hidden void @_ZN12opencv_caffe22NormalizeBBoxParameter12InternalSwapEPS0_
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load i8, ptr %15, align 8, !tbaa !133, !range !126, !noundef !127
-  %18 = load i8, ptr %16, align 1, !tbaa !133, !range !126, !noundef !127
+  %18 = load i8, ptr %16, align 8, !tbaa !133, !range !126, !noundef !127
   store i8 %18, ptr %15, align 8, !tbaa !133
-  store i8 %17, ptr %16, align 1, !tbaa !133
+  store i8 %17, ptr %16, align 8, !tbaa !133
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 33
   %21 = load i8, ptr %19, align 1, !tbaa !133, !range !126, !noundef !127
@@ -10603,66 +10603,66 @@ define hidden void @_ZN12opencv_caffe17PriorBoxParameter12InternalSwapEPS0_(ptr 
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.0.copyload.i.i.i = load i128, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 1 dereferenceable(16) %12, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i, ptr %12, align 1
+  store i128 %.0.copyload.i.i.i, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.0.copyload.i.i.i15 = load i128, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 1 dereferenceable(16) %14, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i15, ptr %14, align 1
+  store i128 %.0.copyload.i.i.i15, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.0.copyload.i.i.i16 = load i128, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 1 dereferenceable(16) %16, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i16, ptr %16, align 1
+  store i128 %.0.copyload.i.i.i16, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.0.copyload.i.i.i17 = load i128, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 1 dereferenceable(16) %18, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i17, ptr %18, align 1
+  store i128 %.0.copyload.i.i.i17, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %.0.copyload.i.i.i18 = load i128, ptr %19, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 1 dereferenceable(16) %20, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i18, ptr %20, align 1
+  store i128 %.0.copyload.i.i.i18, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %.0.copyload.i.i.i19 = load i128, ptr %21, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 1 dereferenceable(16) %22, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i19, ptr %22, align 1
+  store i128 %.0.copyload.i.i.i19, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %.0.copyload.i.i.i20 = load i128, ptr %23, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 1 dereferenceable(16) %24, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i20, ptr %24, align 1
+  store i128 %.0.copyload.i.i.i20, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %.0.copyload.i.i.i21 = load i128, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 1 dereferenceable(16) %26, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i21, ptr %26, align 1
+  store i128 %.0.copyload.i.i.i21, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %.0.copyload.i.i = load i128, ptr %27, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 1 dereferenceable(16) %28, i64 16, i1 false)
-  store i128 %.0.copyload.i.i, ptr %28, align 1
+  store i128 %.0.copyload.i.i, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %.0.copyload.i.i.i22 = load i64, ptr %29, align 8
-  %31 = load i64, ptr %30, align 1
+  %31 = load i64, ptr %30, align 8
   store i64 %31, ptr %29, align 8
-  store i64 %.0.copyload.i.i.i22, ptr %30, align 1
+  store i64 %.0.copyload.i.i.i22, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %34 = load i8, ptr %32, align 8, !tbaa !133, !range !126, !noundef !127
-  %35 = load i8, ptr %33, align 1, !tbaa !133, !range !126, !noundef !127
+  %35 = load i8, ptr %33, align 8, !tbaa !133, !range !126, !noundef !127
   store i8 %35, ptr %32, align 8, !tbaa !133
-  store i8 %34, ptr %33, align 1, !tbaa !133
+  store i8 %34, ptr %33, align 8, !tbaa !133
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 177
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 177
   %38 = load i8, ptr %36, align 1, !tbaa !133, !range !126, !noundef !127
@@ -13199,38 +13199,38 @@ define hidden void @_ZN12opencv_caffe24DetectionOutputParameter12InternalSwapEPS
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.0.copyload.i.i = load i128, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 1 dereferenceable(16) %12, i64 16, i1 false)
-  store i128 %.0.copyload.i.i, ptr %12, align 1
+  store i128 %.0.copyload.i.i, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.0.copyload.i.i.i = load i64, ptr %13, align 8
-  %15 = load i64, ptr %14, align 1
+  %15 = load i64, ptr %14, align 8
   store i64 %15, ptr %13, align 8
-  store i64 %.0.copyload.i.i.i, ptr %14, align 1
+  store i64 %.0.copyload.i.i.i, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.0.copyload.i.i.i.i = load i32, ptr %16, align 8
-  %18 = load i32, ptr %17, align 1
+  %18 = load i32, ptr %17, align 8
   store i32 %18, ptr %16, align 8
-  store i32 %.0.copyload.i.i.i.i, ptr %17, align 1
+  store i32 %.0.copyload.i.i.i.i, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %.0.copyload.i.i.i.i.i = load i16, ptr %19, align 4
-  %21 = load i16, ptr %20, align 1
+  %21 = load i16, ptr %20, align 4
   store i16 %21, ptr %19, align 4
-  store i16 %.0.copyload.i.i.i.i.i, ptr %20, align 1
+  store i16 %.0.copyload.i.i.i.i.i, ptr %20, align 4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %24 = load i32, ptr %22, align 8, !tbaa !71
-  %25 = load i32, ptr %23, align 4, !tbaa !71
+  %25 = load i32, ptr %23, align 8, !tbaa !71
   store i32 %25, ptr %22, align 8, !tbaa !71
-  store i32 %24, ptr %23, align 4, !tbaa !71
+  store i32 %24, ptr %23, align 8, !tbaa !71
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %28 = load i32, ptr %26, align 4, !tbaa !71
@@ -13240,9 +13240,9 @@ define hidden void @_ZN12opencv_caffe24DetectionOutputParameter12InternalSwapEPS
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %32 = load i8, ptr %30, align 8, !tbaa !133, !range !126, !noundef !127
-  %33 = load i8, ptr %31, align 1, !tbaa !133, !range !126, !noundef !127
+  %33 = load i8, ptr %31, align 8, !tbaa !133, !range !126, !noundef !127
   store i8 %33, ptr %30, align 8, !tbaa !133
-  store i8 %32, ptr %31, align 1, !tbaa !133
+  store i8 %32, ptr %31, align 8, !tbaa !133
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 65
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 65
   %36 = load i8, ptr %34, align 1, !tbaa !133, !range !126, !noundef !127
@@ -14706,14 +14706,14 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %6, align 8, !tbaa !71
-  %9 = load i32, ptr %7, align 4, !tbaa !71
+  %9 = load i32, ptr %7, align 8, !tbaa !71
   store i32 %9, ptr %6, align 8, !tbaa !71
-  store i32 %8, ptr %7, align 4, !tbaa !71
+  store i32 %8, ptr %7, align 8, !tbaa !71
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.0.copyload.i.i.i = load i128, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 1 dereferenceable(16) %11, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i, ptr %11, align 1
+  store i128 %.0.copyload.i.i.i, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i = load ptr, ptr %13, align 8, !tbaa !87
@@ -14724,13 +14724,13 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.0.copyload.i.i = load i128, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 1 dereferenceable(16) %16, i64 16, i1 false)
-  store i128 %.0.copyload.i.i, ptr %16, align 1
+  store i128 %.0.copyload.i.i, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.0.copyload.i.i.i12 = load i8, ptr %17, align 8
-  %19 = load i8, ptr %18, align 1
+  %19 = load i8, ptr %18, align 8
   store i8 %19, ptr %17, align 8
-  store i8 %.0.copyload.i.i.i12, ptr %18, align 1
+  store i8 %.0.copyload.i.i.i12, ptr %18, align 8
   ret void
 }
 
@@ -15792,9 +15792,9 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %6, align 8, !tbaa !71
-  %9 = load i32, ptr %7, align 4, !tbaa !71
+  %9 = load i32, ptr %7, align 8, !tbaa !71
   store i32 %9, ptr %6, align 8, !tbaa !71
-  store i32 %8, ptr %7, align 4, !tbaa !71
+  store i32 %8, ptr %7, align 8, !tbaa !71
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload.i = load ptr, ptr %11, align 8, !tbaa !87
@@ -15805,13 +15805,13 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.0.copyload.i.i = load i128, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 1 dereferenceable(16) %14, i64 16, i1 false)
-  store i128 %.0.copyload.i.i, ptr %14, align 1
+  store i128 %.0.copyload.i.i, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %17 = load i32, ptr %15, align 8, !tbaa !71
-  %18 = load i32, ptr %16, align 4, !tbaa !71
+  %18 = load i32, ptr %16, align 8, !tbaa !71
   store i32 %18, ptr %15, align 8, !tbaa !71
-  store i32 %17, ptr %16, align 4, !tbaa !71
+  store i32 %17, ptr %16, align 8, !tbaa !71
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %21 = load float, ptr %19, align 4, !tbaa !83
@@ -15821,9 +15821,9 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %25 = load float, ptr %23, align 8, !tbaa !83
-  %26 = load float, ptr %24, align 4, !tbaa !83
+  %26 = load float, ptr %24, align 8, !tbaa !83
   store float %26, ptr %23, align 8, !tbaa !83
-  store float %25, ptr %24, align 4, !tbaa !83
+  store float %25, ptr %24, align 8, !tbaa !83
   ret void
 }
 
@@ -17059,7 +17059,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %132, ptr %.sink6.i.i.i.i.i, align 8, !tbaa !213
   %133 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i, i64 8
   store i64 0, ptr %133, align 8, !tbaa !72
-  store i8 0, ptr %132, align 1, !tbaa !36
+  store i8 0, ptr %132, align 8, !tbaa !36
   %134 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull %.sink6.i.i.i.i.i)
   br label %_ZN12opencv_caffe12NetParameter19_internal_add_inputB5cxx11Ev.exit
 
@@ -18693,9 +18693,9 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %6, align 8, !tbaa !71
-  %9 = load i32, ptr %7, align 4, !tbaa !71
+  %9 = load i32, ptr %7, align 8, !tbaa !71
   store i32 %9, ptr %6, align 8, !tbaa !71
-  store i32 %8, ptr %7, align 4, !tbaa !71
+  store i32 %8, ptr %7, align 8, !tbaa !71
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -18703,7 +18703,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %15 = load ptr, ptr %14, align 8, !tbaa !99, !noalias !230
   %16 = load i32, ptr %13, align 4, !tbaa !71, !noalias !230
-  %17 = load i32, ptr %12, align 4, !tbaa !71, !noalias !230
+  %17 = load i32, ptr %12, align 8, !tbaa !71, !noalias !230
   %18 = load ptr, ptr %11, align 8, !tbaa !103, !noalias !230
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -18713,7 +18713,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %24 = load i32, ptr %19, align 8, !tbaa !71, !noalias !233
   %25 = load ptr, ptr %10, align 8, !tbaa !103, !noalias !233
   store ptr %25, ptr %11, align 8, !tbaa !103
-  store i32 %24, ptr %12, align 4, !tbaa !71
+  store i32 %24, ptr %12, align 8, !tbaa !71
   store i32 %23, ptr %13, align 4, !tbaa !71
   store ptr %22, ptr %14, align 8, !tbaa !99
   store ptr %18, ptr %10, align 8, !tbaa !103
@@ -18727,7 +18727,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %31 = load ptr, ptr %30, align 8, !tbaa !99, !noalias !236
   %32 = load i32, ptr %29, align 4, !tbaa !71, !noalias !236
-  %33 = load i32, ptr %28, align 4, !tbaa !71, !noalias !236
+  %33 = load i32, ptr %28, align 8, !tbaa !71, !noalias !236
   %34 = load ptr, ptr %27, align 8, !tbaa !103, !noalias !236
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -18737,7 +18737,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %40 = load i32, ptr %35, align 8, !tbaa !71, !noalias !239
   %41 = load ptr, ptr %26, align 8, !tbaa !103, !noalias !239
   store ptr %41, ptr %27, align 8, !tbaa !103
-  store i32 %40, ptr %28, align 4, !tbaa !71
+  store i32 %40, ptr %28, align 8, !tbaa !71
   store i32 %39, ptr %29, align 4, !tbaa !71
   store ptr %38, ptr %30, align 8, !tbaa !99
   store ptr %34, ptr %26, align 8, !tbaa !103
@@ -18748,7 +18748,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.0.copyload.i.i.i = load i128, ptr %42, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 1 dereferenceable(16) %43, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i, ptr %43, align 1
+  store i128 %.0.copyload.i.i.i, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -18756,7 +18756,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %49 = load ptr, ptr %48, align 8, !tbaa !99, !noalias !242
   %50 = load i32, ptr %47, align 4, !tbaa !71, !noalias !242
-  %51 = load i32, ptr %46, align 4, !tbaa !71, !noalias !242
+  %51 = load i32, ptr %46, align 8, !tbaa !71, !noalias !242
   %52 = load ptr, ptr %45, align 8, !tbaa !103, !noalias !242
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 100
@@ -18766,7 +18766,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %58 = load i32, ptr %53, align 8, !tbaa !71, !noalias !245
   %59 = load ptr, ptr %44, align 8, !tbaa !103, !noalias !245
   store ptr %59, ptr %45, align 8, !tbaa !103
-  store i32 %58, ptr %46, align 4, !tbaa !71
+  store i32 %58, ptr %46, align 8, !tbaa !71
   store i32 %57, ptr %47, align 4, !tbaa !71
   store ptr %56, ptr %48, align 8, !tbaa !99
   store ptr %52, ptr %44, align 8, !tbaa !103
@@ -18780,7 +18780,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %65 = load ptr, ptr %64, align 8, !tbaa !99, !noalias !248
   %66 = load i32, ptr %63, align 4, !tbaa !71, !noalias !248
-  %67 = load i32, ptr %62, align 4, !tbaa !71, !noalias !248
+  %67 = load i32, ptr %62, align 8, !tbaa !71, !noalias !248
   %68 = load ptr, ptr %61, align 8, !tbaa !103, !noalias !248
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 124
@@ -18790,7 +18790,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %74 = load i32, ptr %69, align 8, !tbaa !71, !noalias !251
   %75 = load ptr, ptr %60, align 8, !tbaa !103, !noalias !251
   store ptr %75, ptr %61, align 8, !tbaa !103
-  store i32 %74, ptr %62, align 4, !tbaa !71
+  store i32 %74, ptr %62, align 8, !tbaa !71
   store i32 %73, ptr %63, align 4, !tbaa !71
   store ptr %72, ptr %64, align 8, !tbaa !99
   store ptr %68, ptr %60, align 8, !tbaa !103
@@ -18806,15 +18806,15 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %.0.copyload.i.i = load i64, ptr %79, align 8
-  %81 = load i64, ptr %80, align 1
+  %81 = load i64, ptr %80, align 8
   store i64 %81, ptr %79, align 8
-  store i64 %.0.copyload.i.i, ptr %80, align 1
+  store i64 %.0.copyload.i.i, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %.0.copyload.i.i.i16 = load i16, ptr %82, align 8
-  %84 = load i16, ptr %83, align 1
+  %84 = load i16, ptr %83, align 8
   store i16 %84, ptr %82, align 8
-  store i16 %.0.copyload.i.i.i16, ptr %83, align 1
+  store i16 %.0.copyload.i.i.i16, ptr %83, align 8
   ret void
 }
 
@@ -20487,7 +20487,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %137, ptr %.sink6.i.i.i.i.i, align 8, !tbaa !213
   %138 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i, i64 8
   store i64 0, ptr %138, align 8, !tbaa !72
-  store i8 0, ptr %137, align 1, !tbaa !36
+  store i8 0, ptr %137, align 8, !tbaa !36
   %139 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr noundef nonnull %.sink6.i.i.i.i.i)
   br label %_ZN12opencv_caffe15SolverParameter22_internal_add_test_netB5cxx11Ev.exit
 
@@ -25812,9 +25812,9 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %6, align 8, !tbaa !71
-  %9 = load i32, ptr %7, align 4, !tbaa !71
+  %9 = load i32, ptr %7, align 8, !tbaa !71
   store i32 %9, ptr %6, align 8, !tbaa !71
-  store i32 %8, ptr %7, align 4, !tbaa !71
+  store i32 %8, ptr %7, align 8, !tbaa !71
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %12 = load i32, ptr %10, align 4, !tbaa !71
@@ -25828,7 +25828,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %19 = load ptr, ptr %18, align 8, !tbaa !99, !noalias !303
   %20 = load i32, ptr %17, align 4, !tbaa !71, !noalias !303
-  %21 = load i32, ptr %16, align 4, !tbaa !71, !noalias !303
+  %21 = load i32, ptr %16, align 8, !tbaa !71, !noalias !303
   %22 = load ptr, ptr %15, align 8, !tbaa !103, !noalias !303
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -25838,7 +25838,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %28 = load i32, ptr %23, align 8, !tbaa !71, !noalias !306
   %29 = load ptr, ptr %14, align 8, !tbaa !103, !noalias !306
   store ptr %29, ptr %15, align 8, !tbaa !103
-  store i32 %28, ptr %16, align 4, !tbaa !71
+  store i32 %28, ptr %16, align 8, !tbaa !71
   store i32 %27, ptr %17, align 4, !tbaa !71
   store ptr %26, ptr %18, align 8, !tbaa !99
   store ptr %22, ptr %14, align 8, !tbaa !103
@@ -25849,7 +25849,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.0.copyload.i.i.i = load i128, ptr %30, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 1 dereferenceable(16) %31, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i, ptr %31, align 1
+  store i128 %.0.copyload.i.i.i, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -25857,7 +25857,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %37 = load ptr, ptr %36, align 8, !tbaa !99, !noalias !309
   %38 = load i32, ptr %35, align 4, !tbaa !71, !noalias !309
-  %39 = load i32, ptr %34, align 4, !tbaa !71, !noalias !309
+  %39 = load i32, ptr %34, align 8, !tbaa !71, !noalias !309
   %40 = load ptr, ptr %33, align 8, !tbaa !103, !noalias !309
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -25867,7 +25867,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %46 = load i32, ptr %41, align 8, !tbaa !71, !noalias !312
   %47 = load ptr, ptr %32, align 8, !tbaa !103, !noalias !312
   store ptr %47, ptr %33, align 8, !tbaa !103
-  store i32 %46, ptr %34, align 4, !tbaa !71
+  store i32 %46, ptr %34, align 8, !tbaa !71
   store i32 %45, ptr %35, align 4, !tbaa !71
   store ptr %44, ptr %36, align 8, !tbaa !99
   store ptr %40, ptr %32, align 8, !tbaa !103
@@ -25881,7 +25881,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %53 = load ptr, ptr %52, align 8, !tbaa !99, !noalias !315
   %54 = load i32, ptr %51, align 4, !tbaa !71, !noalias !315
-  %55 = load i32, ptr %50, align 4, !tbaa !71, !noalias !315
+  %55 = load i32, ptr %50, align 8, !tbaa !71, !noalias !315
   %56 = load ptr, ptr %49, align 8, !tbaa !103, !noalias !315
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 108
@@ -25891,7 +25891,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %62 = load i32, ptr %57, align 8, !tbaa !71, !noalias !318
   %63 = load ptr, ptr %48, align 8, !tbaa !103, !noalias !318
   store ptr %63, ptr %49, align 8, !tbaa !103
-  store i32 %62, ptr %50, align 4, !tbaa !71
+  store i32 %62, ptr %50, align 8, !tbaa !71
   store i32 %61, ptr %51, align 4, !tbaa !71
   store ptr %60, ptr %52, align 8, !tbaa !99
   store ptr %56, ptr %48, align 8, !tbaa !103
@@ -25902,7 +25902,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %.0.copyload.i.i.i43 = load i128, ptr %64, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 1 dereferenceable(16) %65, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i43, ptr %65, align 1
+  store i128 %.0.copyload.i.i.i43, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %.sroa.0.0.copyload.i = load ptr, ptr %67, align 8, !tbaa !87
@@ -25943,34 +25943,34 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %.0.copyload.i.i = load i128, ptr %84, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef nonnull align 1 dereferenceable(16) %85, i64 16, i1 false)
-  store i128 %.0.copyload.i.i, ptr %85, align 1
+  store i128 %.0.copyload.i.i, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %.0.copyload.i.i.i49 = load i128, ptr %86, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 1 dereferenceable(16) %87, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i49, ptr %87, align 1
+  store i128 %.0.copyload.i.i.i49, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %.0.copyload.i.i.i.i = load i128, ptr %88, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %88, ptr noundef nonnull align 1 dereferenceable(16) %89, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i.i, ptr %89, align 1
+  store i128 %.0.copyload.i.i.i.i, ptr %89, align 8
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %.0.copyload.i.i.i.i.i = load i128, ptr %90, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %90, ptr noundef nonnull align 1 dereferenceable(16) %91, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i.i.i, ptr %91, align 1
+  store i128 %.0.copyload.i.i.i.i.i, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %92, align 8
-  %94 = load i64, ptr %93, align 1
+  %94 = load i64, ptr %93, align 8
   store i64 %94, ptr %92, align 8
-  store i64 %.0.copyload.i.i.i.i.i.i, ptr %93, align 1
+  store i64 %.0.copyload.i.i.i.i.i.i, ptr %93, align 8
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %.0.copyload.i.i.i.i.i.i.i = load i32, ptr %95, align 8
-  %97 = load i32, ptr %96, align 1
+  %97 = load i32, ptr %96, align 8
   store i32 %97, ptr %95, align 8
-  store i32 %.0.copyload.i.i.i.i.i.i.i, ptr %96, align 1
+  store i32 %.0.copyload.i.i.i.i.i.i.i, ptr %96, align 8
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 260
   %100 = load float, ptr %98, align 4, !tbaa !83
@@ -25986,15 +25986,15 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %108 = load i32, ptr %106, align 8, !tbaa !71
-  %109 = load i32, ptr %107, align 4, !tbaa !71
+  %109 = load i32, ptr %107, align 8, !tbaa !71
   store i32 %109, ptr %106, align 8, !tbaa !71
-  store i32 %108, ptr %107, align 4, !tbaa !71
+  store i32 %108, ptr %107, align 8, !tbaa !71
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 276
   %112 = load i8, ptr %110, align 4, !tbaa !133, !range !126, !noundef !127
-  %113 = load i8, ptr %111, align 1, !tbaa !133, !range !126, !noundef !127
+  %113 = load i8, ptr %111, align 4, !tbaa !133, !range !126, !noundef !127
   store i8 %113, ptr %110, align 4, !tbaa !133
-  store i8 %112, ptr %111, align 1, !tbaa !133
+  store i8 %112, ptr %111, align 4, !tbaa !133
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 277
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 277
   %116 = load i8, ptr %114, align 1, !tbaa !133, !range !126, !noundef !127
@@ -26004,9 +26004,9 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %120 = load float, ptr %118, align 8, !tbaa !83
-  %121 = load float, ptr %119, align 4, !tbaa !83
+  %121 = load float, ptr %119, align 8, !tbaa !83
   store float %121, ptr %118, align 8, !tbaa !83
-  store float %120, ptr %119, align 4, !tbaa !83
+  store float %120, ptr %119, align 8, !tbaa !83
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %123 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %124 = load i32, ptr %122, align 4, !tbaa !71
@@ -26016,9 +26016,9 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %128 = load float, ptr %126, align 8, !tbaa !83
-  %129 = load float, ptr %127, align 4, !tbaa !83
+  %129 = load float, ptr %127, align 8, !tbaa !83
   store float %129, ptr %126, align 8, !tbaa !83
-  store float %128, ptr %127, align 4, !tbaa !83
+  store float %128, ptr %127, align 8, !tbaa !83
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %132 = load i32, ptr %130, align 4, !tbaa !71
@@ -26028,9 +26028,9 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %136 = load i32, ptr %134, align 8, !tbaa !71
-  %137 = load i32, ptr %135, align 4, !tbaa !71
+  %137 = load i32, ptr %135, align 8, !tbaa !71
   store i32 %137, ptr %134, align 8, !tbaa !71
-  store i32 %136, ptr %135, align 4, !tbaa !71
+  store i32 %136, ptr %135, align 8, !tbaa !71
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %139 = getelementptr inbounds nuw i8, ptr %1, i64 300
   %140 = load float, ptr %138, align 4, !tbaa !83
@@ -27221,9 +27221,9 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %6, align 8, !tbaa !71
-  %9 = load i32, ptr %7, align 4, !tbaa !71
+  %9 = load i32, ptr %7, align 8, !tbaa !71
   store i32 %9, ptr %6, align 8, !tbaa !71
-  store i32 %8, ptr %7, align 4, !tbaa !71
+  store i32 %8, ptr %7, align 8, !tbaa !71
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -27231,7 +27231,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %15 = load ptr, ptr %14, align 8, !tbaa !99, !noalias !328
   %16 = load i32, ptr %13, align 4, !tbaa !71, !noalias !328
-  %17 = load i32, ptr %12, align 4, !tbaa !71, !noalias !328
+  %17 = load i32, ptr %12, align 8, !tbaa !71, !noalias !328
   %18 = load ptr, ptr %11, align 8, !tbaa !103, !noalias !328
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -27241,7 +27241,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %24 = load i32, ptr %19, align 8, !tbaa !71, !noalias !331
   %25 = load ptr, ptr %10, align 8, !tbaa !103, !noalias !331
   store ptr %25, ptr %11, align 8, !tbaa !103
-  store i32 %24, ptr %12, align 4, !tbaa !71
+  store i32 %24, ptr %12, align 8, !tbaa !71
   store i32 %23, ptr %13, align 4, !tbaa !71
   store ptr %22, ptr %14, align 8, !tbaa !99
   store ptr %18, ptr %10, align 8, !tbaa !103
@@ -27257,9 +27257,9 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.0.copyload.i.i = load i64, ptr %29, align 8
-  %31 = load i64, ptr %30, align 1
+  %31 = load i64, ptr %30, align 8
   store i64 %31, ptr %29, align 8
-  store i64 %.0.copyload.i.i, ptr %30, align 1
+  store i64 %.0.copyload.i.i, ptr %30, align 8
   ret void
 }
 
@@ -27769,7 +27769,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %125, ptr %.sink6.i.i.i.i.i, align 8, !tbaa !213
   %126 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i, i64 8
   store i64 0, ptr %126, align 8, !tbaa !72
-  store i8 0, ptr %125, align 1, !tbaa !36
+  store i8 0, ptr %125, align 8, !tbaa !36
   %127 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull %.sink6.i.i.i.i.i)
   br label %_ZN12opencv_caffe8NetState19_internal_add_stageB5cxx11Ev.exit
 
@@ -28223,9 +28223,9 @@ define hidden void @_ZN12opencv_caffe8NetState12InternalSwapEPS0_(ptr noundef no
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -28233,7 +28233,7 @@ define hidden void @_ZN12opencv_caffe8NetState12InternalSwapEPS0_(ptr noundef no
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %16 = load ptr, ptr %15, align 8, !tbaa !99, !noalias !337
   %17 = load i32, ptr %14, align 4, !tbaa !71, !noalias !337
-  %18 = load i32, ptr %13, align 4, !tbaa !71, !noalias !337
+  %18 = load i32, ptr %13, align 8, !tbaa !71, !noalias !337
   %19 = load ptr, ptr %12, align 8, !tbaa !103, !noalias !337
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -28243,7 +28243,7 @@ define hidden void @_ZN12opencv_caffe8NetState12InternalSwapEPS0_(ptr noundef no
   %25 = load i32, ptr %20, align 8, !tbaa !71, !noalias !340
   %26 = load ptr, ptr %11, align 8, !tbaa !103, !noalias !340
   store ptr %26, ptr %12, align 8, !tbaa !103
-  store i32 %25, ptr %13, align 4, !tbaa !71
+  store i32 %25, ptr %13, align 8, !tbaa !71
   store i32 %24, ptr %14, align 4, !tbaa !71
   store ptr %23, ptr %15, align 8, !tbaa !99
   store ptr %19, ptr %11, align 8, !tbaa !103
@@ -28253,9 +28253,9 @@ define hidden void @_ZN12opencv_caffe8NetState12InternalSwapEPS0_(ptr noundef no
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %29 = load i32, ptr %27, align 8, !tbaa !71
-  %30 = load i32, ptr %28, align 4, !tbaa !71
+  %30 = load i32, ptr %28, align 8, !tbaa !71
   store i32 %30, ptr %27, align 8, !tbaa !71
-  store i32 %29, ptr %28, align 4, !tbaa !71
+  store i32 %29, ptr %28, align 8, !tbaa !71
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %33 = load i32, ptr %31, align 4, !tbaa !71
@@ -28899,7 +28899,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %147, ptr %.sink6.i.i.i.i.i, align 8, !tbaa !213
   %148 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i, i64 8
   store i64 0, ptr %148, align 8, !tbaa !72
-  store i8 0, ptr %147, align 1, !tbaa !36
+  store i8 0, ptr %147, align 8, !tbaa !36
   %149 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull %.sink6.i.i.i.i.i)
   br label %_ZN12opencv_caffe12NetStateRule19_internal_add_stageB5cxx11Ev.exit
 
@@ -28974,7 +28974,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %185, ptr %.sink6.i.i.i.i.i47, align 8, !tbaa !213
   %186 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i47, i64 8
   store i64 0, ptr %186, align 8, !tbaa !72
-  store i8 0, ptr %185, align 1, !tbaa !36
+  store i8 0, ptr %185, align 8, !tbaa !36
   %187 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull %.sink6.i.i.i.i.i47)
   br label %_ZN12opencv_caffe12NetStateRule23_internal_add_not_stageB5cxx11Ev.exit
 
@@ -29753,9 +29753,9 @@ define hidden void @_ZN12opencv_caffe12NetStateRule12InternalSwapEPS0_(ptr nound
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -29763,7 +29763,7 @@ define hidden void @_ZN12opencv_caffe12NetStateRule12InternalSwapEPS0_(ptr nound
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %16 = load ptr, ptr %15, align 8, !tbaa !99, !noalias !354
   %17 = load i32, ptr %14, align 4, !tbaa !71, !noalias !354
-  %18 = load i32, ptr %13, align 4, !tbaa !71, !noalias !354
+  %18 = load i32, ptr %13, align 8, !tbaa !71, !noalias !354
   %19 = load ptr, ptr %12, align 8, !tbaa !103, !noalias !354
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -29773,7 +29773,7 @@ define hidden void @_ZN12opencv_caffe12NetStateRule12InternalSwapEPS0_(ptr nound
   %25 = load i32, ptr %20, align 8, !tbaa !71, !noalias !357
   %26 = load ptr, ptr %11, align 8, !tbaa !103, !noalias !357
   store ptr %26, ptr %12, align 8, !tbaa !103
-  store i32 %25, ptr %13, align 4, !tbaa !71
+  store i32 %25, ptr %13, align 8, !tbaa !71
   store i32 %24, ptr %14, align 4, !tbaa !71
   store ptr %23, ptr %15, align 8, !tbaa !99
   store ptr %19, ptr %11, align 8, !tbaa !103
@@ -29787,7 +29787,7 @@ define hidden void @_ZN12opencv_caffe12NetStateRule12InternalSwapEPS0_(ptr nound
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %32 = load ptr, ptr %31, align 8, !tbaa !99, !noalias !360
   %33 = load i32, ptr %30, align 4, !tbaa !71, !noalias !360
-  %34 = load i32, ptr %29, align 4, !tbaa !71, !noalias !360
+  %34 = load i32, ptr %29, align 8, !tbaa !71, !noalias !360
   %35 = load ptr, ptr %28, align 8, !tbaa !103, !noalias !360
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -29797,7 +29797,7 @@ define hidden void @_ZN12opencv_caffe12NetStateRule12InternalSwapEPS0_(ptr nound
   %41 = load i32, ptr %36, align 8, !tbaa !71, !noalias !363
   %42 = load ptr, ptr %27, align 8, !tbaa !103, !noalias !363
   store ptr %42, ptr %28, align 8, !tbaa !103
-  store i32 %41, ptr %29, align 4, !tbaa !71
+  store i32 %41, ptr %29, align 8, !tbaa !71
   store i32 %40, ptr %30, align 4, !tbaa !71
   store ptr %39, ptr %31, align 8, !tbaa !99
   store ptr %35, ptr %27, align 8, !tbaa !103
@@ -29807,15 +29807,15 @@ define hidden void @_ZN12opencv_caffe12NetStateRule12InternalSwapEPS0_(ptr nound
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.0.copyload.i.i = load i64, ptr %43, align 8
-  %45 = load i64, ptr %44, align 1
+  %45 = load i64, ptr %44, align 8
   store i64 %45, ptr %43, align 8
-  store i64 %.0.copyload.i.i, ptr %44, align 1
+  store i64 %.0.copyload.i.i, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %.0.copyload.i.i.i = load i32, ptr %46, align 8
-  %48 = load i32, ptr %47, align 1
+  %48 = load i32, ptr %47, align 8
   store i32 %48, ptr %46, align 8
-  store i32 %.0.copyload.i.i.i, ptr %47, align 1
+  store i32 %.0.copyload.i.i.i, ptr %47, align 8
   ret void
 }
 
@@ -30775,9 +30775,9 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %6, align 8, !tbaa !71
-  %9 = load i32, ptr %7, align 4, !tbaa !71
+  %9 = load i32, ptr %7, align 8, !tbaa !71
   store i32 %9, ptr %6, align 8, !tbaa !71
-  store i32 %8, ptr %7, align 4, !tbaa !71
+  store i32 %8, ptr %7, align 8, !tbaa !71
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload.i = load ptr, ptr %11, align 8, !tbaa !87
@@ -30787,9 +30787,9 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %15 = load i32, ptr %13, align 8, !tbaa !71
-  %16 = load i32, ptr %14, align 4, !tbaa !71
+  %16 = load i32, ptr %14, align 8, !tbaa !71
   store i32 %16, ptr %13, align 8, !tbaa !71
-  store i32 %15, ptr %14, align 4, !tbaa !71
+  store i32 %15, ptr %14, align 8, !tbaa !71
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %19 = load float, ptr %17, align 4, !tbaa !83
@@ -30799,9 +30799,9 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %23 = load float, ptr %21, align 8, !tbaa !83
-  %24 = load float, ptr %22, align 4, !tbaa !83
+  %24 = load float, ptr %22, align 8, !tbaa !83
   store float %24, ptr %21, align 8, !tbaa !83
-  store float %23, ptr %22, align 4, !tbaa !83
+  store float %23, ptr %22, align 8, !tbaa !83
   ret void
 }
 
@@ -37646,7 +37646,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN12opencv_caffe12NetStateRuleEE5ClearEv.ex
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 24
   store i32 0, ptr %186, align 8, !tbaa !65
   %187 = getelementptr inbounds nuw i8, ptr %185, i64 16
-  %188 = load i32, ptr %187, align 4, !tbaa !71
+  %188 = load i32, ptr %187, align 8, !tbaa !71
   %189 = and i32 %188, 1
   %.not.i = icmp eq i32 %189, 0
   br i1 %.not.i, label %198, label %190
@@ -38007,7 +38007,7 @@ _ZN12opencv_caffe16DropoutParameter5ClearEv.exit: ; preds = %346, %342, %_ZN12op
   %356 = getelementptr inbounds nuw i8, ptr %355, i64 24
   store i32 0, ptr %356, align 8, !tbaa !65
   %357 = getelementptr inbounds nuw i8, ptr %355, i64 16
-  %358 = load i32, ptr %357, align 4, !tbaa !71
+  %358 = load i32, ptr %357, align 8, !tbaa !71
   %359 = and i32 %358, 3
   %.not.i169 = icmp eq i32 %359, 0
   br i1 %.not.i169, label %363, label %360
@@ -38168,7 +38168,7 @@ _ZN12opencv_caffe19HDF5OutputParameter5ClearEv.exit: ; preds = %427, %423, %_ZN1
   %434 = getelementptr inbounds nuw i8, ptr %433, i64 24
   store i32 1, ptr %434, align 8, !tbaa !485
   %435 = getelementptr inbounds nuw i8, ptr %433, i64 16
-  store i32 0, ptr %435, align 4
+  store i32 0, ptr %435, align 8
   %436 = getelementptr inbounds nuw i8, ptr %433, i64 8
   %437 = load i64, ptr %436, align 8, !tbaa !8
   %438 = and i64 %437, 1
@@ -38562,7 +38562,7 @@ _ZN12opencv_caffe13ReLUParameter5ClearEv.exit:    ; preds = %616, %612, %_ZN12op
   %621 = getelementptr inbounds nuw i8, ptr %620, i64 24
   store i32 0, ptr %621, align 8, !tbaa !487
   %622 = getelementptr inbounds nuw i8, ptr %620, i64 16
-  store i32 0, ptr %622, align 4
+  store i32 0, ptr %622, align 8
   %623 = getelementptr inbounds nuw i8, ptr %620, i64 8
   %624 = load i64, ptr %623, align 8, !tbaa !8
   %625 = and i64 %624, 1
@@ -38617,7 +38617,7 @@ _ZN12opencv_caffe16SoftmaxParameter5ClearEv.exit: ; preds = %641, %637, %_ZN12op
   %646 = getelementptr inbounds nuw i8, ptr %645, i64 24
   store i32 0, ptr %646, align 8, !tbaa !107
   %647 = getelementptr inbounds nuw i8, ptr %645, i64 16
-  %648 = load i32, ptr %647, align 4, !tbaa !71
+  %648 = load i32, ptr %647, align 8, !tbaa !71
   %649 = and i32 %648, 3
   %.not.i202 = icmp eq i32 %649, 0
   br i1 %.not.i202, label %653, label %650
@@ -38652,7 +38652,7 @@ _ZN12opencv_caffe14SliceParameter5ClearEv.exit:   ; preds = %657, %653, %_ZN12op
   %662 = getelementptr inbounds nuw i8, ptr %661, i64 24
   store i32 0, ptr %662, align 8, !tbaa !489
   %663 = getelementptr inbounds nuw i8, ptr %661, i64 16
-  store i32 0, ptr %663, align 4
+  store i32 0, ptr %663, align 8
   %664 = getelementptr inbounds nuw i8, ptr %661, i64 8
   %665 = load i64, ptr %664, align 8, !tbaa !8
   %666 = and i64 %665, 1
@@ -38674,7 +38674,7 @@ _ZN12opencv_caffe13TanHParameter5ClearEv.exit:    ; preds = %667, %659, %_ZN12op
   %672 = getelementptr inbounds nuw i8, ptr %671, i64 24
   store float 0.000000e+00, ptr %672, align 8, !tbaa !491
   %673 = getelementptr inbounds nuw i8, ptr %671, i64 16
-  store i32 0, ptr %673, align 4
+  store i32 0, ptr %673, align 8
   %674 = getelementptr inbounds nuw i8, ptr %671, i64 8
   %675 = load i64, ptr %674, align 8, !tbaa !8
   %676 = and i64 %675, 1
@@ -38770,7 +38770,7 @@ _ZN12opencv_caffe18ThresholdParameter5ClearEv.exit: ; preds = %677, %669, %_ZN12
 723:                                              ; preds = %715, %713, %687
   %724 = getelementptr inbounds nuw i8, ptr %689, i64 48
   store i8 0, ptr %724, align 8, !tbaa !556
-  store i32 0, ptr %690, align 4
+  store i32 0, ptr %690, align 8
   %725 = getelementptr inbounds nuw i8, ptr %689, i64 8
   %726 = load i64, ptr %725, align 8, !tbaa !8
   %727 = and i64 %726, 1
@@ -38854,7 +38854,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i.i: ; preds = %
 _ZN12opencv_caffe15FillerParameter5ClearEv.exit.i: ; preds = %762, %758, %730
   %763 = getelementptr inbounds nuw i8, ptr %732, i64 32
   store i8 0, ptr %763, align 8, !tbaa !560
-  store i32 0, ptr %733, align 4
+  store i32 0, ptr %733, align 8
   %764 = getelementptr inbounds nuw i8, ptr %732, i64 8
   %765 = load i64, ptr %764, align 8, !tbaa !8
   %766 = and i64 %765, 1
@@ -39112,7 +39112,7 @@ _ZN12opencv_caffe13TileParameter5ClearEv.exit:    ; preds = %874, %870, %859
   %879 = getelementptr inbounds nuw i8, ptr %878, i64 24
   store i16 0, ptr %879, align 8
   %880 = getelementptr inbounds nuw i8, ptr %878, i64 16
-  %881 = load i32, ptr %880, align 4, !tbaa !71
+  %881 = load i32, ptr %880, align 8, !tbaa !71
   %882 = and i32 %881, 12
   %.not.i226 = icmp eq i32 %882, 0
   br i1 %.not.i226, label %886, label %883
@@ -39147,7 +39147,7 @@ _ZN12opencv_caffe18BatchNormParameter5ClearEv.exit: ; preds = %890, %886, %_ZN12
   %895 = getelementptr inbounds nuw i8, ptr %894, i64 24
   store float 1.000000e+00, ptr %895, align 8, !tbaa !493
   %896 = getelementptr inbounds nuw i8, ptr %894, i64 16
-  store i32 0, ptr %896, align 4
+  store i32 0, ptr %896, align 8
   %897 = getelementptr inbounds nuw i8, ptr %894, i64 8
   %898 = load i64, ptr %897, align 8, !tbaa !8
   %899 = and i64 %898, 1
@@ -39249,7 +39249,7 @@ _ZN12opencv_caffe14InputParameter5ClearEv.exit:   ; preds = %934, %_ZN6google8pr
   %940 = getelementptr inbounds nuw i8, ptr %938, i64 40
   store i32 2, ptr %940, align 8, !tbaa !495
   %941 = getelementptr inbounds nuw i8, ptr %938, i64 16
-  store i32 0, ptr %941, align 4
+  store i32 0, ptr %941, align 8
   %942 = getelementptr inbounds nuw i8, ptr %938, i64 8
   %943 = load i64, ptr %942, align 8, !tbaa !8
   %944 = and i64 %943, 1
@@ -39384,7 +39384,7 @@ _ZN12opencv_caffe16PermuteParameter5ClearEv.exit: ; preds = %985, %978, %976
   %1002 = getelementptr inbounds nuw i8, ptr %994, i64 136
   store i32 0, ptr %1002, align 8, !tbaa !65
   %1003 = getelementptr inbounds nuw i8, ptr %994, i64 16
-  %1004 = load i32, ptr %1003, align 4, !tbaa !71
+  %1004 = load i32, ptr %1003, align 8, !tbaa !71
   %1005 = and i32 %1004, 255
   %.not.i236 = icmp eq i32 %1005, 0
   br i1 %.not.i236, label %1010, label %1006
@@ -39425,7 +39425,7 @@ _ZN12opencv_caffe17PriorBoxParameter5ClearEv.exit: ; preds = %1015, %1010, %990
   %1021 = getelementptr inbounds nuw i8, ptr %1019, i64 40
   store i32 0, ptr %1021, align 8, !tbaa !65
   %1022 = getelementptr inbounds nuw i8, ptr %1019, i64 16
-  %1023 = load i32, ptr %1022, align 4, !tbaa !71
+  %1023 = load i32, ptr %1022, align 8, !tbaa !71
   %1024 = and i32 %1023, 63
   %.not.i238 = icmp eq i32 %1024, 0
   br i1 %.not.i238, label %1032, label %1025
@@ -42634,7 +42634,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %181, ptr %.sink6.i.i.i.i.i, align 8, !tbaa !213
   %182 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i, i64 8
   store i64 0, ptr %182, align 8, !tbaa !72
-  store i8 0, ptr %181, align 1, !tbaa !36
+  store i8 0, ptr %181, align 8, !tbaa !36
   %183 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %86, ptr noundef nonnull %.sink6.i.i.i.i.i)
   br label %_ZN12opencv_caffe14LayerParameter20_internal_add_bottomB5cxx11Ev.exit
 
@@ -42709,7 +42709,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %219, ptr %.sink6.i.i.i.i.i227, align 8, !tbaa !213
   %220 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i227, i64 8
   store i64 0, ptr %220, align 8, !tbaa !72
-  store i8 0, ptr %219, align 1, !tbaa !36
+  store i8 0, ptr %219, align 8, !tbaa !36
   %221 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %83, ptr noundef nonnull %.sink6.i.i.i.i.i227)
   br label %_ZN12opencv_caffe14LayerParameter17_internal_add_topB5cxx11Ev.exit
 
@@ -49198,7 +49198,7 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe9ParamS
   %236 = zext i32 %235 to i64
   %237 = mul nuw nsw i64 %236, 5
   %238 = getelementptr inbounds nuw i8, ptr %233, i64 16
-  %239 = load i32, ptr %238, align 4, !tbaa !71
+  %239 = load i32, ptr %238, align 8, !tbaa !71
   %240 = and i32 %239, 63
   %.not.i.i243 = icmp eq i32 %240, 0
   br i1 %.not.i.i243, label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe23TransformationParameterEEEmRKT_.exit, label %241
@@ -49753,7 +49753,7 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16Dropo
   %611 = zext i32 %610 to i64
   %612 = mul nuw nsw i64 %611, 5
   %613 = getelementptr inbounds nuw i8, ptr %608, i64 16
-  %614 = load i32, ptr %613, align 4, !tbaa !71
+  %614 = load i32, ptr %613, align 8, !tbaa !71
   %615 = and i32 %614, 3
   %.not.i.i276 = icmp eq i32 %615, 0
   br i1 %.not.i.i276, label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16EltwiseParameterEEEmRKT_.exit, label %616
@@ -50560,7 +50560,7 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16Softm
   %1161 = zext i32 %1160 to i64
   %1162 = add i64 %1159, %1161
   %1163 = getelementptr inbounds nuw i8, ptr %1157, i64 16
-  %1164 = load i32, ptr %1163, align 4, !tbaa !71
+  %1164 = load i32, ptr %1163, align 8, !tbaa !71
   %1165 = and i32 %1164, 3
   %.not.i.i335 = icmp eq i32 %1165, 0
   br i1 %.not.i.i335, label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe14SliceParameterEEEmRKT_.exit, label %1166
@@ -51492,7 +51492,7 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe14Input
   %1792 = zext i32 %1791 to i64
   %1793 = add i64 %1790, %1792
   %1794 = getelementptr inbounds nuw i8, ptr %1788, i64 16
-  %1795 = load i32, ptr %1794, align 4, !tbaa !71
+  %1795 = load i32, ptr %1794, align 8, !tbaa !71
   %1796 = and i32 %1795, 1
   %.not.i.i401 = icmp eq i32 %1796, 0
   br i1 %.not.i.i401, label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13CropParameterEEEmRKT_.exit, label %1797
@@ -61734,9 +61734,9 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %6, align 8, !tbaa !71
-  %9 = load i32, ptr %7, align 4, !tbaa !71
+  %9 = load i32, ptr %7, align 8, !tbaa !71
   store i32 %9, ptr %6, align 8, !tbaa !71
-  store i32 %8, ptr %7, align 4, !tbaa !71
+  store i32 %8, ptr %7, align 8, !tbaa !71
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %12 = load i32, ptr %10, align 4, !tbaa !71
@@ -61750,7 +61750,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %19 = load ptr, ptr %18, align 8, !tbaa !99, !noalias !724
   %20 = load i32, ptr %17, align 4, !tbaa !71, !noalias !724
-  %21 = load i32, ptr %16, align 4, !tbaa !71, !noalias !724
+  %21 = load i32, ptr %16, align 8, !tbaa !71, !noalias !724
   %22 = load ptr, ptr %15, align 8, !tbaa !103, !noalias !724
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -61760,7 +61760,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %28 = load i32, ptr %23, align 8, !tbaa !71, !noalias !727
   %29 = load ptr, ptr %14, align 8, !tbaa !103, !noalias !727
   store ptr %29, ptr %15, align 8, !tbaa !103
-  store i32 %28, ptr %16, align 4, !tbaa !71
+  store i32 %28, ptr %16, align 8, !tbaa !71
   store i32 %27, ptr %17, align 4, !tbaa !71
   store ptr %26, ptr %18, align 8, !tbaa !99
   store ptr %22, ptr %14, align 8, !tbaa !103
@@ -61774,7 +61774,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %35 = load ptr, ptr %34, align 8, !tbaa !99, !noalias !730
   %36 = load i32, ptr %33, align 4, !tbaa !71, !noalias !730
-  %37 = load i32, ptr %32, align 4, !tbaa !71, !noalias !730
+  %37 = load i32, ptr %32, align 8, !tbaa !71, !noalias !730
   %38 = load ptr, ptr %31, align 8, !tbaa !103, !noalias !730
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 68
@@ -61784,7 +61784,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %44 = load i32, ptr %39, align 8, !tbaa !71, !noalias !733
   %45 = load ptr, ptr %30, align 8, !tbaa !103, !noalias !733
   store ptr %45, ptr %31, align 8, !tbaa !103
-  store i32 %44, ptr %32, align 4, !tbaa !71
+  store i32 %44, ptr %32, align 8, !tbaa !71
   store i32 %43, ptr %33, align 4, !tbaa !71
   store ptr %42, ptr %34, align 8, !tbaa !99
   store ptr %38, ptr %30, align 8, !tbaa !103
@@ -61795,7 +61795,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %.0.copyload.i.i.i = load i128, ptr %46, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 1 dereferenceable(16) %47, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i, ptr %47, align 1
+  store i128 %.0.copyload.i.i.i, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -61803,7 +61803,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %53 = load ptr, ptr %52, align 8, !tbaa !99, !noalias !736
   %54 = load i32, ptr %51, align 4, !tbaa !71, !noalias !736
-  %55 = load i32, ptr %50, align 4, !tbaa !71, !noalias !736
+  %55 = load i32, ptr %50, align 8, !tbaa !71, !noalias !736
   %56 = load ptr, ptr %49, align 8, !tbaa !103, !noalias !736
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 108
@@ -61813,7 +61813,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %62 = load i32, ptr %57, align 8, !tbaa !71, !noalias !739
   %63 = load ptr, ptr %48, align 8, !tbaa !103, !noalias !739
   store ptr %63, ptr %49, align 8, !tbaa !103
-  store i32 %62, ptr %50, align 4, !tbaa !71
+  store i32 %62, ptr %50, align 8, !tbaa !71
   store i32 %61, ptr %51, align 4, !tbaa !71
   store ptr %60, ptr %52, align 8, !tbaa !99
   store ptr %56, ptr %48, align 8, !tbaa !103
@@ -61827,7 +61827,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %69 = load ptr, ptr %68, align 8, !tbaa !99, !noalias !742
   %70 = load i32, ptr %67, align 4, !tbaa !71, !noalias !742
-  %71 = load i32, ptr %66, align 4, !tbaa !71, !noalias !742
+  %71 = load i32, ptr %66, align 8, !tbaa !71, !noalias !742
   %72 = load ptr, ptr %65, align 8, !tbaa !103, !noalias !742
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 132
@@ -61837,7 +61837,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %78 = load i32, ptr %73, align 8, !tbaa !71, !noalias !745
   %79 = load ptr, ptr %64, align 8, !tbaa !103, !noalias !745
   store ptr %79, ptr %65, align 8, !tbaa !103
-  store i32 %78, ptr %66, align 4, !tbaa !71
+  store i32 %78, ptr %66, align 8, !tbaa !71
   store i32 %77, ptr %67, align 4, !tbaa !71
   store ptr %76, ptr %68, align 8, !tbaa !99
   store ptr %72, ptr %64, align 8, !tbaa !103
@@ -61851,7 +61851,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %85 = load ptr, ptr %84, align 8, !tbaa !99, !noalias !748
   %86 = load i32, ptr %83, align 4, !tbaa !71, !noalias !748
-  %87 = load i32, ptr %82, align 4, !tbaa !71, !noalias !748
+  %87 = load i32, ptr %82, align 8, !tbaa !71, !noalias !748
   %88 = load ptr, ptr %81, align 8, !tbaa !103, !noalias !748
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 156
@@ -61861,7 +61861,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %94 = load i32, ptr %89, align 8, !tbaa !71, !noalias !751
   %95 = load ptr, ptr %80, align 8, !tbaa !103, !noalias !751
   store ptr %95, ptr %81, align 8, !tbaa !103
-  store i32 %94, ptr %82, align 4, !tbaa !71
+  store i32 %94, ptr %82, align 8, !tbaa !71
   store i32 %93, ptr %83, align 4, !tbaa !71
   store ptr %92, ptr %84, align 8, !tbaa !99
   store ptr %88, ptr %80, align 8, !tbaa !103
@@ -61875,7 +61875,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %101 = load ptr, ptr %100, align 8, !tbaa !99, !noalias !754
   %102 = load i32, ptr %99, align 4, !tbaa !71, !noalias !754
-  %103 = load i32, ptr %98, align 4, !tbaa !71, !noalias !754
+  %103 = load i32, ptr %98, align 8, !tbaa !71, !noalias !754
   %104 = load ptr, ptr %97, align 8, !tbaa !103, !noalias !754
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 180
@@ -61885,7 +61885,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %110 = load i32, ptr %105, align 8, !tbaa !71, !noalias !757
   %111 = load ptr, ptr %96, align 8, !tbaa !103, !noalias !757
   store ptr %111, ptr %97, align 8, !tbaa !103
-  store i32 %110, ptr %98, align 4, !tbaa !71
+  store i32 %110, ptr %98, align 8, !tbaa !71
   store i32 %109, ptr %99, align 4, !tbaa !71
   store ptr %108, ptr %100, align 8, !tbaa !99
   store ptr %104, ptr %96, align 8, !tbaa !103
@@ -61896,7 +61896,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %.0.copyload.i.i.i23 = load i128, ptr %112, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %112, ptr noundef nonnull align 1 dereferenceable(16) %113, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i23, ptr %113, align 1
+  store i128 %.0.copyload.i.i.i23, ptr %113, align 8
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %.sroa.0.0.copyload.i = load ptr, ptr %115, align 8, !tbaa !87
@@ -63149,14 +63149,14 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %6, align 8, !tbaa !71
-  %9 = load i32, ptr %7, align 4, !tbaa !71
+  %9 = load i32, ptr %7, align 8, !tbaa !71
   store i32 %9, ptr %6, align 8, !tbaa !71
-  store i32 %8, ptr %7, align 4, !tbaa !71
+  store i32 %8, ptr %7, align 8, !tbaa !71
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.0.copyload.i.i.i = load i128, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 1 dereferenceable(16) %11, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i, ptr %11, align 1
+  store i128 %.0.copyload.i.i.i, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i = load ptr, ptr %13, align 8, !tbaa !87
@@ -63166,27 +63166,27 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.0.copyload.i.i = load i32, ptr %15, align 8
-  %17 = load i32, ptr %16, align 1
+  %17 = load i32, ptr %16, align 8
   store i32 %17, ptr %15, align 8
-  store i32 %.0.copyload.i.i, ptr %16, align 1
+  store i32 %.0.copyload.i.i, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %.0.copyload.i.i.i13 = load i16, ptr %18, align 4
-  %20 = load i16, ptr %19, align 1
+  %20 = load i16, ptr %19, align 4
   store i16 %20, ptr %18, align 4
-  store i16 %.0.copyload.i.i.i13, ptr %19, align 1
+  store i16 %.0.copyload.i.i.i13, ptr %19, align 4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 54
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 54
   %.0.copyload.i.i.i.i = load i8, ptr %21, align 2
-  %23 = load i8, ptr %22, align 1
+  %23 = load i8, ptr %22, align 2
   store i8 %23, ptr %21, align 2
-  store i8 %.0.copyload.i.i.i.i, ptr %22, align 1
+  store i8 %.0.copyload.i.i.i.i, ptr %22, align 2
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %26 = load float, ptr %24, align 8, !tbaa !83
-  %27 = load float, ptr %25, align 4, !tbaa !83
+  %27 = load float, ptr %25, align 8, !tbaa !83
   store float %27, ptr %24, align 8, !tbaa !83
-  store float %26, ptr %25, align 4, !tbaa !83
+  store float %26, ptr %25, align 8, !tbaa !83
   ret void
 }
 
@@ -64107,27 +64107,27 @@ define hidden void @_ZN12opencv_caffe13LossParameter12InternalSwapEPS0_(ptr noun
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.0.copyload.i.i = load i32, ptr %11, align 8
-  %13 = load i32, ptr %12, align 1
+  %13 = load i32, ptr %12, align 8
   store i32 %13, ptr %11, align 8
-  store i32 %.0.copyload.i.i, ptr %12, align 1
+  store i32 %.0.copyload.i.i, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %.0.copyload.i.i.i = load i8, ptr %14, align 4
-  %16 = load i8, ptr %15, align 1
+  %16 = load i8, ptr %15, align 4
   store i8 %16, ptr %14, align 4
-  store i8 %.0.copyload.i.i.i, ptr %15, align 1
+  store i8 %.0.copyload.i.i.i, ptr %15, align 4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %19 = load i32, ptr %17, align 8, !tbaa !71
-  %20 = load i32, ptr %18, align 4, !tbaa !71
+  %20 = load i32, ptr %18, align 8, !tbaa !71
   store i32 %20, ptr %17, align 8, !tbaa !71
-  store i32 %19, ptr %18, align 4, !tbaa !71
+  store i32 %19, ptr %18, align 8, !tbaa !71
   ret void
 }
 
@@ -65061,15 +65061,15 @@ define hidden void @_ZN12opencv_caffe17AccuracyParameter12InternalSwapEPS0_(ptr 
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i32, ptr %11, align 8, !tbaa !71
-  %14 = load i32, ptr %12, align 4, !tbaa !71
+  %14 = load i32, ptr %12, align 8, !tbaa !71
   store i32 %14, ptr %11, align 8, !tbaa !71
-  store i32 %13, ptr %12, align 4, !tbaa !71
+  store i32 %13, ptr %12, align 8, !tbaa !71
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %17 = load i32, ptr %15, align 4, !tbaa !71
@@ -65079,9 +65079,9 @@ define hidden void @_ZN12opencv_caffe17AccuracyParameter12InternalSwapEPS0_(ptr 
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %21 = load i32, ptr %19, align 8, !tbaa !71
-  %22 = load i32, ptr %20, align 4, !tbaa !71
+  %22 = load i32, ptr %20, align 8, !tbaa !71
   store i32 %22, ptr %19, align 8, !tbaa !71
-  store i32 %21, ptr %20, align 4, !tbaa !71
+  store i32 %21, ptr %20, align 8, !tbaa !71
   ret void
 }
 
@@ -65965,21 +65965,21 @@ define hidden void @_ZN12opencv_caffe15ArgMaxParameter12InternalSwapEPS0_(ptr no
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.0.copyload.i.i = load i64, ptr %11, align 8
-  %13 = load i64, ptr %12, align 1
+  %13 = load i64, ptr %12, align 8
   store i64 %13, ptr %11, align 8
-  store i64 %.0.copyload.i.i, ptr %12, align 1
+  store i64 %.0.copyload.i.i, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %16 = load i32, ptr %14, align 8, !tbaa !71
-  %17 = load i32, ptr %15, align 4, !tbaa !71
+  %17 = load i32, ptr %15, align 8, !tbaa !71
   store i32 %17, ptr %14, align 8, !tbaa !71
-  store i32 %16, ptr %15, align 4, !tbaa !71
+  store i32 %16, ptr %15, align 8, !tbaa !71
   ret void
 }
 
@@ -66764,15 +66764,15 @@ define hidden void @_ZN12opencv_caffe15ConcatParameter12InternalSwapEPS0_(ptr no
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i32, ptr %11, align 8, !tbaa !71
-  %14 = load i32, ptr %12, align 4, !tbaa !71
+  %14 = load i32, ptr %12, align 8, !tbaa !71
   store i32 %14, ptr %11, align 8, !tbaa !71
-  store i32 %13, ptr %12, align 4, !tbaa !71
+  store i32 %13, ptr %12, align 8, !tbaa !71
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %17 = load i32, ptr %15, align 4, !tbaa !71
@@ -67618,15 +67618,15 @@ define hidden void @_ZN12opencv_caffe18BatchNormParameter12InternalSwapEPS0_(ptr
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.0.copyload.i.i = load i16, ptr %11, align 8
-  %13 = load i16, ptr %12, align 1
+  %13 = load i16, ptr %12, align 8
   store i16 %13, ptr %11, align 8
-  store i16 %.0.copyload.i.i, ptr %12, align 1
+  store i16 %.0.copyload.i.i, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %16 = load float, ptr %14, align 4, !tbaa !83
@@ -67636,9 +67636,9 @@ define hidden void @_ZN12opencv_caffe18BatchNormParameter12InternalSwapEPS0_(ptr
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %20 = load float, ptr %18, align 8, !tbaa !83
-  %21 = load float, ptr %19, align 4, !tbaa !83
+  %21 = load float, ptr %19, align 8, !tbaa !83
   store float %21, ptr %18, align 8, !tbaa !83
-  store float %20, ptr %19, align 4, !tbaa !83
+  store float %20, ptr %19, align 8, !tbaa !83
   ret void
 }
 
@@ -68475,9 +68475,9 @@ define hidden void @_ZN12opencv_caffe13BiasParameter12InternalSwapEPS0_(ptr noun
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load ptr, ptr %11, align 8, !tbaa !132
@@ -68487,9 +68487,9 @@ define hidden void @_ZN12opencv_caffe13BiasParameter12InternalSwapEPS0_(ptr noun
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load i32, ptr %15, align 8, !tbaa !71
-  %18 = load i32, ptr %16, align 4, !tbaa !71
+  %18 = load i32, ptr %16, align 8, !tbaa !71
   store i32 %18, ptr %15, align 8, !tbaa !71
-  store i32 %17, ptr %16, align 4, !tbaa !71
+  store i32 %17, ptr %16, align 8, !tbaa !71
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %21 = load i32, ptr %19, align 4, !tbaa !71
@@ -69160,15 +69160,15 @@ define hidden void @_ZN12opencv_caffe24ContrastiveLossParameter12InternalSwapEPS
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i8, ptr %11, align 8, !tbaa !133, !range !126, !noundef !127
-  %14 = load i8, ptr %12, align 1, !tbaa !133, !range !126, !noundef !127
+  %14 = load i8, ptr %12, align 8, !tbaa !133, !range !126, !noundef !127
   store i8 %14, ptr %11, align 8, !tbaa !133
-  store i8 %13, ptr %12, align 1, !tbaa !133
+  store i8 %13, ptr %12, align 8, !tbaa !133
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %17 = load float, ptr %15, align 4, !tbaa !83
@@ -72242,50 +72242,50 @@ define hidden void @_ZN12opencv_caffe20ConvolutionParameter12InternalSwapEPS0_(p
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.0.copyload.i.i.i = load i128, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 1 dereferenceable(16) %12, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i, ptr %12, align 1
+  store i128 %.0.copyload.i.i.i, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.0.copyload.i.i.i11 = load i128, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 1 dereferenceable(16) %14, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i11, ptr %14, align 1
+  store i128 %.0.copyload.i.i.i11, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.0.copyload.i.i.i12 = load i128, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 1 dereferenceable(16) %16, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i12, ptr %16, align 1
+  store i128 %.0.copyload.i.i.i12, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.0.copyload.i.i.i13 = load i128, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 1 dereferenceable(16) %18, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i13, ptr %18, align 1
+  store i128 %.0.copyload.i.i.i13, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %.0.copyload.i.i = load i128, ptr %19, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 1 dereferenceable(16) %20, i64 16, i1 false)
-  store i128 %.0.copyload.i.i, ptr %20, align 1
+  store i128 %.0.copyload.i.i, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %.0.copyload.i.i.i14 = load i128, ptr %21, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 1 dereferenceable(16) %22, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i14, ptr %22, align 1
+  store i128 %.0.copyload.i.i.i14, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %.0.copyload.i.i.i.i = load i128, ptr %23, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 1 dereferenceable(16) %24, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i.i, ptr %24, align 1
+  store i128 %.0.copyload.i.i.i.i, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %.0.copyload.i.i.i.i.i = load i8, ptr %25, align 8
-  %27 = load i8, ptr %26, align 1
+  %27 = load i8, ptr %26, align 8
   store i8 %27, ptr %25, align 8
-  store i8 %.0.copyload.i.i.i.i.i, ptr %26, align 1
+  store i8 %.0.copyload.i.i.i.i.i, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %30 = load i32, ptr %28, align 4, !tbaa !71
@@ -72295,9 +72295,9 @@ define hidden void @_ZN12opencv_caffe20ConvolutionParameter12InternalSwapEPS0_(p
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %34 = load i8, ptr %32, align 8, !tbaa !133, !range !126, !noundef !127
-  %35 = load i8, ptr %33, align 1, !tbaa !133, !range !126, !noundef !127
+  %35 = load i8, ptr %33, align 8, !tbaa !133, !range !126, !noundef !127
   store i8 %35, ptr %32, align 8, !tbaa !133
-  store i8 %34, ptr %33, align 1, !tbaa !133
+  store i8 %34, ptr %33, align 8, !tbaa !133
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %38 = load i32, ptr %36, align 4, !tbaa !71
@@ -73166,20 +73166,20 @@ define hidden void @_ZN12opencv_caffe13CropParameter12InternalSwapEPS0_(ptr noun
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.0.copyload.i.i.i = load i128, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 1 dereferenceable(16) %12, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i, ptr %12, align 1
+  store i128 %.0.copyload.i.i.i, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %15 = load i32, ptr %13, align 8, !tbaa !71
-  %16 = load i32, ptr %14, align 4, !tbaa !71
+  %16 = load i32, ptr %14, align 8, !tbaa !71
   store i32 %16, ptr %13, align 8, !tbaa !71
-  store i32 %15, ptr %14, align 4, !tbaa !71
+  store i32 %15, ptr %14, align 8, !tbaa !71
   ret void
 }
 
@@ -74750,9 +74750,9 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %6, align 8, !tbaa !71
-  %9 = load i32, ptr %7, align 4, !tbaa !71
+  %9 = load i32, ptr %7, align 8, !tbaa !71
   store i32 %9, ptr %6, align 8, !tbaa !71
-  store i32 %8, ptr %7, align 4, !tbaa !71
+  store i32 %8, ptr %7, align 8, !tbaa !71
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload.i = load ptr, ptr %11, align 8, !tbaa !87
@@ -74769,13 +74769,13 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.0.copyload.i.i = load i128, ptr %16, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 1 dereferenceable(16) %17, i64 16, i1 false)
-  store i128 %.0.copyload.i.i, ptr %17, align 1
+  store i128 %.0.copyload.i.i, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.0.copyload.i.i.i = load i32, ptr %18, align 8
-  %20 = load i32, ptr %19, align 1
+  %20 = load i32, ptr %19, align 8
   store i32 %20, ptr %18, align 8
-  store i32 %.0.copyload.i.i.i, ptr %19, align 1
+  store i32 %.0.copyload.i.i.i, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %23 = load float, ptr %21, align 4, !tbaa !83
@@ -74785,9 +74785,9 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %27 = load i32, ptr %25, align 8, !tbaa !71
-  %28 = load i32, ptr %26, align 4, !tbaa !71
+  %28 = load i32, ptr %26, align 8, !tbaa !71
   store i32 %28, ptr %25, align 8, !tbaa !71
-  store i32 %27, ptr %26, align 4, !tbaa !71
+  store i32 %27, ptr %26, align 8, !tbaa !71
   ret void
 }
 
@@ -75568,15 +75568,15 @@ define hidden void @_ZN12opencv_caffe30NonMaximumSuppressionParameter12InternalS
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i32, ptr %11, align 8, !tbaa !71
-  %14 = load i32, ptr %12, align 4, !tbaa !71
+  %14 = load i32, ptr %12, align 8, !tbaa !71
   store i32 %14, ptr %11, align 8, !tbaa !71
-  store i32 %13, ptr %12, align 4, !tbaa !71
+  store i32 %13, ptr %12, align 8, !tbaa !71
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %17 = load float, ptr %15, align 4, !tbaa !83
@@ -75586,9 +75586,9 @@ define hidden void @_ZN12opencv_caffe30NonMaximumSuppressionParameter12InternalS
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %21 = load float, ptr %19, align 8, !tbaa !83
-  %22 = load float, ptr %20, align 4, !tbaa !83
+  %22 = load float, ptr %20, align 8, !tbaa !83
   store float %22, ptr %19, align 8, !tbaa !83
-  store float %21, ptr %20, align 4, !tbaa !83
+  store float %21, ptr %20, align 8, !tbaa !83
   ret void
 }
 
@@ -76786,9 +76786,9 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %6, align 8, !tbaa !71
-  %9 = load i32, ptr %7, align 4, !tbaa !71
+  %9 = load i32, ptr %7, align 8, !tbaa !71
   store i32 %9, ptr %6, align 8, !tbaa !71
-  store i32 %8, ptr %7, align 4, !tbaa !71
+  store i32 %8, ptr %7, align 8, !tbaa !71
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload.i = load ptr, ptr %11, align 8, !tbaa !87
@@ -76822,9 +76822,9 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %27 = load i32, ptr %25, align 8, !tbaa !71
-  %28 = load i32, ptr %26, align 4, !tbaa !71
+  %28 = load i32, ptr %26, align 8, !tbaa !71
   store i32 %28, ptr %25, align 8, !tbaa !71
-  store i32 %27, ptr %26, align 4, !tbaa !71
+  store i32 %27, ptr %26, align 8, !tbaa !71
   ret void
 }
 
@@ -77491,21 +77491,21 @@ define hidden void @_ZN12opencv_caffe16DropoutParameter12InternalSwapEPS0_(ptr n
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load float, ptr %11, align 8, !tbaa !83
-  %14 = load float, ptr %12, align 4, !tbaa !83
+  %14 = load float, ptr %12, align 8, !tbaa !83
   store float %14, ptr %11, align 8, !tbaa !83
-  store float %13, ptr %12, align 4, !tbaa !83
+  store float %13, ptr %12, align 8, !tbaa !83
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %17 = load i8, ptr %15, align 4, !tbaa !133, !range !126, !noundef !127
-  %18 = load i8, ptr %16, align 1, !tbaa !133, !range !126, !noundef !127
+  %18 = load i8, ptr %16, align 4, !tbaa !133, !range !126, !noundef !127
   store i8 %18, ptr %15, align 4, !tbaa !133
-  store i8 %17, ptr %16, align 1, !tbaa !133
+  store i8 %17, ptr %16, align 4, !tbaa !133
   ret void
 }
 
@@ -79169,7 +79169,7 @@ define hidden void @_ZN12opencv_caffe18DummyDataParameter12InternalSwapEPS0_(ptr
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !99, !noalias !793
   %13 = load i32, ptr %10, align 4, !tbaa !71, !noalias !793
-  %14 = load i32, ptr %9, align 4, !tbaa !71, !noalias !793
+  %14 = load i32, ptr %9, align 8, !tbaa !71, !noalias !793
   %15 = load ptr, ptr %8, align 8, !tbaa !103, !noalias !793
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -79179,7 +79179,7 @@ define hidden void @_ZN12opencv_caffe18DummyDataParameter12InternalSwapEPS0_(ptr
   %21 = load i32, ptr %16, align 8, !tbaa !71, !noalias !796
   %22 = load ptr, ptr %7, align 8, !tbaa !103, !noalias !796
   store ptr %22, ptr %8, align 8, !tbaa !103
-  store i32 %21, ptr %9, align 4, !tbaa !71
+  store i32 %21, ptr %9, align 8, !tbaa !71
   store i32 %20, ptr %10, align 4, !tbaa !71
   store ptr %19, ptr %11, align 8, !tbaa !99
   store ptr %15, ptr %7, align 8, !tbaa !103
@@ -79190,22 +79190,22 @@ define hidden void @_ZN12opencv_caffe18DummyDataParameter12InternalSwapEPS0_(ptr
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.0.copyload.i.i.i = load i128, ptr %23, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 1 dereferenceable(16) %24, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i, ptr %24, align 1
+  store i128 %.0.copyload.i.i.i, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.0.copyload.i.i.i8 = load i128, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 1 dereferenceable(16) %26, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i8, ptr %26, align 1
+  store i128 %.0.copyload.i.i.i8, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.0.copyload.i.i.i9 = load i128, ptr %27, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 1 dereferenceable(16) %28, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i9, ptr %28, align 1
+  store i128 %.0.copyload.i.i.i9, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %.0.copyload.i.i.i10 = load i128, ptr %29, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 1 dereferenceable(16) %30, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i10, ptr %30, align 1
+  store i128 %.0.copyload.i.i.i10, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -79213,7 +79213,7 @@ define hidden void @_ZN12opencv_caffe18DummyDataParameter12InternalSwapEPS0_(ptr
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %36 = load ptr, ptr %35, align 8, !tbaa !99, !noalias !799
   %37 = load i32, ptr %34, align 4, !tbaa !71, !noalias !799
-  %38 = load i32, ptr %33, align 4, !tbaa !71, !noalias !799
+  %38 = load i32, ptr %33, align 8, !tbaa !71, !noalias !799
   %39 = load ptr, ptr %32, align 8, !tbaa !103, !noalias !799
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -79223,7 +79223,7 @@ define hidden void @_ZN12opencv_caffe18DummyDataParameter12InternalSwapEPS0_(ptr
   %45 = load i32, ptr %40, align 8, !tbaa !71, !noalias !802
   %46 = load ptr, ptr %31, align 8, !tbaa !103, !noalias !802
   store ptr %46, ptr %32, align 8, !tbaa !103
-  store i32 %45, ptr %33, align 4, !tbaa !71
+  store i32 %45, ptr %33, align 8, !tbaa !71
   store i32 %44, ptr %34, align 4, !tbaa !71
   store ptr %43, ptr %35, align 8, !tbaa !99
   store ptr %39, ptr %31, align 8, !tbaa !103
@@ -80197,26 +80197,26 @@ define hidden void @_ZN12opencv_caffe16EltwiseParameter12InternalSwapEPS0_(ptr n
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.0.copyload.i.i.i = load i128, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 1 dereferenceable(16) %12, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i, ptr %12, align 1
+  store i128 %.0.copyload.i.i.i, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %15 = load i32, ptr %13, align 8, !tbaa !71
-  %16 = load i32, ptr %14, align 4, !tbaa !71
+  %16 = load i32, ptr %14, align 8, !tbaa !71
   store i32 %16, ptr %13, align 8, !tbaa !71
-  store i32 %15, ptr %14, align 4, !tbaa !71
+  store i32 %15, ptr %14, align 8, !tbaa !71
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %19 = load i8, ptr %17, align 4, !tbaa !133, !range !126, !noundef !127
-  %20 = load i8, ptr %18, align 1, !tbaa !133, !range !126, !noundef !127
+  %20 = load i8, ptr %18, align 4, !tbaa !133, !range !126, !noundef !127
   store i8 %20, ptr %17, align 4, !tbaa !133
-  store i8 %19, ptr %18, align 1, !tbaa !133
+  store i8 %19, ptr %18, align 4, !tbaa !133
   ret void
 }
 
@@ -80728,15 +80728,15 @@ define hidden void @_ZN12opencv_caffe12ELUParameter12InternalSwapEPS0_(ptr nound
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load float, ptr %11, align 8, !tbaa !83
-  %14 = load float, ptr %12, align 4, !tbaa !83
+  %14 = load float, ptr %12, align 8, !tbaa !83
   store float %14, ptr %11, align 8, !tbaa !83
-  store float %13, ptr %12, align 4, !tbaa !83
+  store float %13, ptr %12, align 8, !tbaa !83
   ret void
 }
 
@@ -81856,26 +81856,26 @@ define hidden void @_ZN12opencv_caffe14EmbedParameter12InternalSwapEPS0_(ptr nou
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.0.copyload.i.i = load i128, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 1 dereferenceable(16) %12, i64 16, i1 false)
-  store i128 %.0.copyload.i.i, ptr %12, align 1
+  store i128 %.0.copyload.i.i, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.0.copyload.i.i.i = load i64, ptr %13, align 8
-  %15 = load i64, ptr %14, align 1
+  %15 = load i64, ptr %14, align 8
   store i64 %15, ptr %13, align 8
-  store i64 %.0.copyload.i.i.i, ptr %14, align 1
+  store i64 %.0.copyload.i.i.i, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %18 = load i8, ptr %16, align 8, !tbaa !133, !range !126, !noundef !127
-  %19 = load i8, ptr %17, align 1, !tbaa !133, !range !126, !noundef !127
+  %19 = load i8, ptr %17, align 8, !tbaa !133, !range !126, !noundef !127
   store i8 %19, ptr %16, align 8, !tbaa !133
-  store i8 %18, ptr %17, align 1, !tbaa !133
+  store i8 %18, ptr %17, align 8, !tbaa !133
   ret void
 }
 
@@ -82573,15 +82573,15 @@ define hidden void @_ZN12opencv_caffe12ExpParameter12InternalSwapEPS0_(ptr nound
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load float, ptr %11, align 8, !tbaa !83
-  %14 = load float, ptr %12, align 4, !tbaa !83
+  %14 = load float, ptr %12, align 8, !tbaa !83
   store float %14, ptr %11, align 8, !tbaa !83
-  store float %13, ptr %12, align 4, !tbaa !83
+  store float %13, ptr %12, align 8, !tbaa !83
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %17 = load float, ptr %15, align 4, !tbaa !83
@@ -82591,9 +82591,9 @@ define hidden void @_ZN12opencv_caffe12ExpParameter12InternalSwapEPS0_(ptr nound
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %21 = load float, ptr %19, align 8, !tbaa !83
-  %22 = load float, ptr %20, align 4, !tbaa !83
+  %22 = load float, ptr %20, align 8, !tbaa !83
   store float %22, ptr %19, align 8, !tbaa !83
-  store float %21, ptr %20, align 4, !tbaa !83
+  store float %21, ptr %20, align 8, !tbaa !83
   ret void
 }
 
@@ -83379,15 +83379,15 @@ define hidden void @_ZN12opencv_caffe16FlattenParameter12InternalSwapEPS0_(ptr n
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i32, ptr %11, align 8, !tbaa !71
-  %14 = load i32, ptr %12, align 4, !tbaa !71
+  %14 = load i32, ptr %12, align 8, !tbaa !71
   store i32 %14, ptr %11, align 8, !tbaa !71
-  store i32 %13, ptr %12, align 4, !tbaa !71
+  store i32 %13, ptr %12, align 8, !tbaa !71
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %17 = load i32, ptr %15, align 4, !tbaa !71
@@ -84318,9 +84318,9 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %6, align 8, !tbaa !71
-  %9 = load i32, ptr %7, align 4, !tbaa !71
+  %9 = load i32, ptr %7, align 8, !tbaa !71
   store i32 %9, ptr %6, align 8, !tbaa !71
-  store i32 %8, ptr %7, align 4, !tbaa !71
+  store i32 %8, ptr %7, align 8, !tbaa !71
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload.i = load ptr, ptr %11, align 8, !tbaa !87
@@ -84330,15 +84330,15 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.0.copyload.i.i = load i32, ptr %13, align 8
-  %15 = load i32, ptr %14, align 1
+  %15 = load i32, ptr %14, align 8
   store i32 %15, ptr %13, align 8
-  store i32 %.0.copyload.i.i, ptr %14, align 1
+  store i32 %.0.copyload.i.i, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %.0.copyload.i.i.i = load i8, ptr %16, align 4
-  %18 = load i8, ptr %17, align 1
+  %18 = load i8, ptr %17, align 4
   store i8 %18, ptr %16, align 4
-  store i8 %.0.copyload.i.i.i, ptr %17, align 1
+  store i8 %.0.copyload.i.i.i, ptr %17, align 4
   ret void
 }
 
@@ -84946,9 +84946,9 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %6, align 8, !tbaa !71
-  %9 = load i32, ptr %7, align 4, !tbaa !71
+  %9 = load i32, ptr %7, align 8, !tbaa !71
   store i32 %9, ptr %6, align 8, !tbaa !71
-  store i32 %8, ptr %7, align 4, !tbaa !71
+  store i32 %8, ptr %7, align 8, !tbaa !71
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload.i = load ptr, ptr %11, align 8, !tbaa !87
@@ -85576,15 +85576,15 @@ define hidden void @_ZN12opencv_caffe18HingeLossParameter12InternalSwapEPS0_(ptr
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i32, ptr %11, align 8, !tbaa !71
-  %14 = load i32, ptr %12, align 4, !tbaa !71
+  %14 = load i32, ptr %12, align 8, !tbaa !71
   store i32 %14, ptr %11, align 8, !tbaa !71
-  store i32 %13, ptr %12, align 4, !tbaa !71
+  store i32 %13, ptr %12, align 8, !tbaa !71
   ret void
 }
 
@@ -87367,9 +87367,9 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %6, align 8, !tbaa !71
-  %9 = load i32, ptr %7, align 4, !tbaa !71
+  %9 = load i32, ptr %7, align 8, !tbaa !71
   store i32 %9, ptr %6, align 8, !tbaa !71
-  store i32 %8, ptr %7, align 4, !tbaa !71
+  store i32 %8, ptr %7, align 8, !tbaa !71
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload.i = load ptr, ptr %11, align 8, !tbaa !87
@@ -87392,25 +87392,25 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.0.copyload.i.i = load i128, ptr %19, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 1 dereferenceable(16) %20, i64 16, i1 false)
-  store i128 %.0.copyload.i.i, ptr %20, align 1
+  store i128 %.0.copyload.i.i, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.0.copyload.i.i.i = load i32, ptr %21, align 8
-  %23 = load i32, ptr %22, align 1
+  %23 = load i32, ptr %22, align 8
   store i32 %23, ptr %21, align 8
-  store i32 %.0.copyload.i.i.i, ptr %22, align 1
+  store i32 %.0.copyload.i.i.i, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %26 = load i8, ptr %24, align 4, !tbaa !133, !range !126, !noundef !127
-  %27 = load i8, ptr %25, align 1, !tbaa !133, !range !126, !noundef !127
+  %27 = load i8, ptr %25, align 4, !tbaa !133, !range !126, !noundef !127
   store i8 %27, ptr %24, align 4, !tbaa !133
-  store i8 %26, ptr %25, align 1, !tbaa !133
+  store i8 %26, ptr %25, align 4, !tbaa !133
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %30 = load float, ptr %28, align 8, !tbaa !83
-  %31 = load float, ptr %29, align 4, !tbaa !83
+  %31 = load float, ptr %29, align 8, !tbaa !83
   store float %31, ptr %28, align 8, !tbaa !83
-  store float %30, ptr %29, align 4, !tbaa !83
+  store float %30, ptr %29, align 8, !tbaa !83
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %34 = load i32, ptr %32, align 4, !tbaa !71
@@ -88024,9 +88024,9 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %6, align 8, !tbaa !71
-  %9 = load i32, ptr %7, align 4, !tbaa !71
+  %9 = load i32, ptr %7, align 8, !tbaa !71
   store i32 %9, ptr %6, align 8, !tbaa !71
-  store i32 %8, ptr %7, align 4, !tbaa !71
+  store i32 %8, ptr %7, align 8, !tbaa !71
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload.i = load ptr, ptr %11, align 8, !tbaa !87
@@ -89230,26 +89230,26 @@ define hidden void @_ZN12opencv_caffe21InnerProductParameter12InternalSwapEPS0_(
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.0.copyload.i.i = load i128, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 1 dereferenceable(16) %12, i64 16, i1 false)
-  store i128 %.0.copyload.i.i, ptr %12, align 1
+  store i128 %.0.copyload.i.i, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.0.copyload.i.i.i = load i32, ptr %13, align 8
-  %15 = load i32, ptr %14, align 1
+  %15 = load i32, ptr %14, align 8
   store i32 %15, ptr %13, align 8
-  store i32 %.0.copyload.i.i.i, ptr %14, align 1
+  store i32 %.0.copyload.i.i.i, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %.0.copyload.i.i.i.i = load i8, ptr %16, align 4
-  %18 = load i8, ptr %17, align 1
+  %18 = load i8, ptr %17, align 4
   store i8 %18, ptr %16, align 4
-  store i8 %.0.copyload.i.i.i.i, ptr %17, align 1
+  store i8 %.0.copyload.i.i.i.i, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 45
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 45
   %21 = load i8, ptr %19, align 1, !tbaa !133, !range !126, !noundef !127
@@ -89259,9 +89259,9 @@ define hidden void @_ZN12opencv_caffe21InnerProductParameter12InternalSwapEPS0_(
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %25 = load i32, ptr %23, align 8, !tbaa !71
-  %26 = load i32, ptr %24, align 4, !tbaa !71
+  %26 = load i32, ptr %24, align 8, !tbaa !71
   store i32 %26, ptr %23, align 8, !tbaa !71
-  store i32 %25, ptr %24, align 4, !tbaa !71
+  store i32 %25, ptr %24, align 8, !tbaa !71
   ret void
 }
 
@@ -89952,7 +89952,7 @@ define hidden void @_ZN12opencv_caffe14InputParameter12InternalSwapEPS0_(ptr nou
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !99, !noalias !813
   %13 = load i32, ptr %10, align 4, !tbaa !71, !noalias !813
-  %14 = load i32, ptr %9, align 4, !tbaa !71, !noalias !813
+  %14 = load i32, ptr %9, align 8, !tbaa !71, !noalias !813
   %15 = load ptr, ptr %8, align 8, !tbaa !103, !noalias !813
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -89962,7 +89962,7 @@ define hidden void @_ZN12opencv_caffe14InputParameter12InternalSwapEPS0_(ptr nou
   %21 = load i32, ptr %16, align 8, !tbaa !71, !noalias !816
   %22 = load ptr, ptr %7, align 8, !tbaa !103, !noalias !816
   store ptr %22, ptr %8, align 8, !tbaa !103
-  store i32 %21, ptr %9, align 4, !tbaa !71
+  store i32 %21, ptr %9, align 8, !tbaa !71
   store i32 %20, ptr %10, align 4, !tbaa !71
   store ptr %19, ptr %11, align 8, !tbaa !99
   store ptr %15, ptr %7, align 8, !tbaa !103
@@ -90666,15 +90666,15 @@ define hidden void @_ZN12opencv_caffe12LogParameter12InternalSwapEPS0_(ptr nound
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load float, ptr %11, align 8, !tbaa !83
-  %14 = load float, ptr %12, align 4, !tbaa !83
+  %14 = load float, ptr %12, align 8, !tbaa !83
   store float %14, ptr %11, align 8, !tbaa !83
-  store float %13, ptr %12, align 4, !tbaa !83
+  store float %13, ptr %12, align 8, !tbaa !83
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %17 = load float, ptr %15, align 4, !tbaa !83
@@ -90684,9 +90684,9 @@ define hidden void @_ZN12opencv_caffe12LogParameter12InternalSwapEPS0_(ptr nound
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %21 = load float, ptr %19, align 8, !tbaa !83
-  %22 = load float, ptr %20, align 4, !tbaa !83
+  %22 = load float, ptr %20, align 8, !tbaa !83
   store float %22, ptr %19, align 8, !tbaa !83
-  store float %21, ptr %20, align 4, !tbaa !83
+  store float %21, ptr %20, align 8, !tbaa !83
   ret void
 }
 
@@ -91891,21 +91891,21 @@ define hidden void @_ZN12opencv_caffe12LRNParameter12InternalSwapEPS0_(ptr nound
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.0.copyload.i.i = load i64, ptr %11, align 8
-  %13 = load i64, ptr %12, align 1
+  %13 = load i64, ptr %12, align 8
   store i64 %13, ptr %11, align 8
-  store i64 %.0.copyload.i.i, ptr %12, align 1
+  store i64 %.0.copyload.i.i, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %16 = load i32, ptr %14, align 8, !tbaa !71
-  %17 = load i32, ptr %15, align 4, !tbaa !71
+  %17 = load i32, ptr %15, align 8, !tbaa !71
   store i32 %17, ptr %14, align 8, !tbaa !71
-  store i32 %16, ptr %15, align 4, !tbaa !71
+  store i32 %16, ptr %15, align 8, !tbaa !71
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %20 = load float, ptr %18, align 4, !tbaa !83
@@ -91915,9 +91915,9 @@ define hidden void @_ZN12opencv_caffe12LRNParameter12InternalSwapEPS0_(ptr nound
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %24 = load float, ptr %22, align 8, !tbaa !83
-  %25 = load float, ptr %23, align 4, !tbaa !83
+  %25 = load float, ptr %23, align 8, !tbaa !83
   store float %25, ptr %22, align 8, !tbaa !83
-  store float %24, ptr %23, align 4, !tbaa !83
+  store float %24, ptr %23, align 8, !tbaa !83
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %28 = load float, ptr %26, align 4, !tbaa !83
@@ -92984,14 +92984,14 @@ define hidden void @_ZN12opencv_caffe19MemoryDataParameter12InternalSwapEPS0_(pt
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.0.copyload.i.i = load i128, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 1 dereferenceable(16) %12, i64 16, i1 false)
-  store i128 %.0.copyload.i.i, ptr %12, align 1
+  store i128 %.0.copyload.i.i, ptr %12, align 8
   ret void
 }
 
@@ -93762,15 +93762,15 @@ define hidden void @_ZN12opencv_caffe12MVNParameter12InternalSwapEPS0_(ptr nound
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i8, ptr %11, align 8, !tbaa !133, !range !126, !noundef !127
-  %14 = load i8, ptr %12, align 1, !tbaa !133, !range !126, !noundef !127
+  %14 = load i8, ptr %12, align 8, !tbaa !133, !range !126, !noundef !127
   store i8 %14, ptr %11, align 8, !tbaa !133
-  store i8 %13, ptr %12, align 1, !tbaa !133
+  store i8 %13, ptr %12, align 8, !tbaa !133
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 25
   %17 = load i8, ptr %15, align 1, !tbaa !133, !range !126, !noundef !127
@@ -94444,9 +94444,9 @@ define hidden void @_ZN12opencv_caffe18ParameterParameter12InternalSwapEPS0_(ptr
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load ptr, ptr %11, align 8, !tbaa !822
@@ -96468,31 +96468,31 @@ define hidden void @_ZN12opencv_caffe16PoolingParameter12InternalSwapEPS0_(ptr n
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.0.copyload.i.i = load i128, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 1 dereferenceable(16) %12, i64 16, i1 false)
-  store i128 %.0.copyload.i.i, ptr %12, align 1
+  store i128 %.0.copyload.i.i, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.0.copyload.i.i.i = load i128, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 1 dereferenceable(16) %14, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i, ptr %14, align 1
+  store i128 %.0.copyload.i.i.i, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.0.copyload.i.i.i.i = load i64, ptr %15, align 8
-  %17 = load i64, ptr %16, align 1
+  %17 = load i64, ptr %16, align 8
   store i64 %17, ptr %15, align 8
-  store i64 %.0.copyload.i.i.i.i, ptr %16, align 1
+  store i64 %.0.copyload.i.i.i.i, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.0.copyload.i.i.i.i.i = load i8, ptr %18, align 8
-  %20 = load i8, ptr %19, align 1
+  %20 = load i8, ptr %19, align 8
   store i8 %20, ptr %18, align 8
-  store i8 %.0.copyload.i.i.i.i.i, ptr %19, align 1
+  store i8 %.0.copyload.i.i.i.i.i, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %23 = load i32, ptr %21, align 4, !tbaa !71
@@ -96502,9 +96502,9 @@ define hidden void @_ZN12opencv_caffe16PoolingParameter12InternalSwapEPS0_(ptr n
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %27 = load i8, ptr %25, align 8, !tbaa !133, !range !126, !noundef !127
-  %28 = load i8, ptr %26, align 1, !tbaa !133, !range !126, !noundef !127
+  %28 = load i8, ptr %26, align 8, !tbaa !133, !range !126, !noundef !127
   store i8 %28, ptr %25, align 8, !tbaa !133
-  store i8 %27, ptr %26, align 1, !tbaa !133
+  store i8 %27, ptr %26, align 8, !tbaa !133
   ret void
 }
 
@@ -97202,15 +97202,15 @@ define hidden void @_ZN12opencv_caffe14PowerParameter12InternalSwapEPS0_(ptr nou
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load float, ptr %11, align 8, !tbaa !83
-  %14 = load float, ptr %12, align 4, !tbaa !83
+  %14 = load float, ptr %12, align 8, !tbaa !83
   store float %14, ptr %11, align 8, !tbaa !83
-  store float %13, ptr %12, align 4, !tbaa !83
+  store float %13, ptr %12, align 8, !tbaa !83
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %17 = load float, ptr %15, align 4, !tbaa !83
@@ -97220,9 +97220,9 @@ define hidden void @_ZN12opencv_caffe14PowerParameter12InternalSwapEPS0_(ptr nou
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %21 = load float, ptr %19, align 8, !tbaa !83
-  %22 = load float, ptr %20, align 4, !tbaa !83
+  %22 = load float, ptr %20, align 8, !tbaa !83
   store float %22, ptr %19, align 8, !tbaa !83
-  store float %21, ptr %20, align 4, !tbaa !83
+  store float %21, ptr %20, align 8, !tbaa !83
   ret void
 }
 
@@ -98174,9 +98174,9 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %6, align 8, !tbaa !71
-  %9 = load i32, ptr %7, align 4, !tbaa !71
+  %9 = load i32, ptr %7, align 8, !tbaa !71
   store i32 %9, ptr %6, align 8, !tbaa !71
-  store i32 %8, ptr %7, align 4, !tbaa !71
+  store i32 %8, ptr %7, align 8, !tbaa !71
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload.i = load ptr, ptr %11, align 8, !tbaa !87
@@ -98198,9 +98198,9 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %21 = load i8, ptr %19, align 8, !tbaa !133, !range !126, !noundef !127
-  %22 = load i8, ptr %20, align 1, !tbaa !133, !range !126, !noundef !127
+  %22 = load i8, ptr %20, align 8, !tbaa !133, !range !126, !noundef !127
   store i8 %22, ptr %19, align 8, !tbaa !133
-  store i8 %21, ptr %20, align 1, !tbaa !133
+  store i8 %21, ptr %20, align 8, !tbaa !133
   ret void
 }
 
@@ -99276,26 +99276,26 @@ define hidden void @_ZN12opencv_caffe18RecurrentParameter12InternalSwapEPS0_(ptr
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.0.copyload.i.i = load i128, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 1 dereferenceable(16) %12, i64 16, i1 false)
-  store i128 %.0.copyload.i.i, ptr %12, align 1
+  store i128 %.0.copyload.i.i, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.0.copyload.i.i.i = load i32, ptr %13, align 8
-  %15 = load i32, ptr %14, align 1
+  %15 = load i32, ptr %14, align 8
   store i32 %15, ptr %13, align 8
-  store i32 %.0.copyload.i.i.i, ptr %14, align 1
+  store i32 %.0.copyload.i.i.i, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %.0.copyload.i.i.i.i = load i16, ptr %16, align 4
-  %18 = load i16, ptr %17, align 1
+  %18 = load i16, ptr %17, align 4
   store i16 %18, ptr %16, align 4
-  store i16 %.0.copyload.i.i.i.i, ptr %17, align 1
+  store i16 %.0.copyload.i.i.i.i, ptr %17, align 4
   ret void
 }
 
@@ -100193,15 +100193,15 @@ define hidden void @_ZN12opencv_caffe18ReductionParameter12InternalSwapEPS0_(ptr
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i32, ptr %11, align 8, !tbaa !71
-  %14 = load i32, ptr %12, align 4, !tbaa !71
+  %14 = load i32, ptr %12, align 8, !tbaa !71
   store i32 %14, ptr %11, align 8, !tbaa !71
-  store i32 %13, ptr %12, align 4, !tbaa !71
+  store i32 %13, ptr %12, align 8, !tbaa !71
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %17 = load i32, ptr %15, align 4, !tbaa !71
@@ -100211,9 +100211,9 @@ define hidden void @_ZN12opencv_caffe18ReductionParameter12InternalSwapEPS0_(ptr
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %21 = load float, ptr %19, align 8, !tbaa !83
-  %22 = load float, ptr %20, align 4, !tbaa !83
+  %22 = load float, ptr %20, align 8, !tbaa !83
   store float %22, ptr %19, align 8, !tbaa !83
-  store float %21, ptr %20, align 4, !tbaa !83
+  store float %21, ptr %20, align 8, !tbaa !83
   ret void
 }
 
@@ -100942,15 +100942,15 @@ define hidden void @_ZN12opencv_caffe13ReLUParameter12InternalSwapEPS0_(ptr noun
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.0.copyload.i.i = load i64, ptr %11, align 8
-  %13 = load i64, ptr %12, align 1
+  %13 = load i64, ptr %12, align 8
   store i64 %13, ptr %11, align 8
-  store i64 %.0.copyload.i.i, ptr %12, align 1
+  store i64 %.0.copyload.i.i, ptr %12, align 8
   ret void
 }
 
@@ -101900,21 +101900,21 @@ define hidden void @_ZN12opencv_caffe16ReshapeParameter12InternalSwapEPS0_(ptr n
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.0.copyload.i.i = load i64, ptr %11, align 8
-  %13 = load i64, ptr %12, align 1
+  %13 = load i64, ptr %12, align 8
   store i64 %13, ptr %11, align 8
-  store i64 %.0.copyload.i.i, ptr %12, align 1
+  store i64 %.0.copyload.i.i, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.0.copyload.i.i.i = load i32, ptr %14, align 8
-  %16 = load i32, ptr %15, align 1
+  %16 = load i32, ptr %15, align 8
   store i32 %16, ptr %14, align 8
-  store i32 %.0.copyload.i.i.i, ptr %15, align 1
+  store i32 %.0.copyload.i.i.i, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %19 = load i32, ptr %17, align 4, !tbaa !71
@@ -103040,20 +103040,20 @@ define hidden void @_ZN12opencv_caffe14ScaleParameter12InternalSwapEPS0_(ptr nou
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.0.copyload.i.i = load i128, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 1 dereferenceable(16) %12, i64 16, i1 false)
-  store i128 %.0.copyload.i.i, ptr %12, align 1
+  store i128 %.0.copyload.i.i, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.0.copyload.i.i.i = load i8, ptr %13, align 8
-  %15 = load i8, ptr %14, align 1
+  %15 = load i8, ptr %14, align 8
   store i8 %15, ptr %13, align 8
-  store i8 %.0.copyload.i.i.i, ptr %14, align 1
+  store i8 %.0.copyload.i.i.i, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %18 = load i32, ptr %16, align 4, !tbaa !71
@@ -103063,9 +103063,9 @@ define hidden void @_ZN12opencv_caffe14ScaleParameter12InternalSwapEPS0_(ptr nou
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %22 = load i32, ptr %20, align 8, !tbaa !71
-  %23 = load i32, ptr %21, align 4, !tbaa !71
+  %23 = load i32, ptr %21, align 8, !tbaa !71
   store i32 %23, ptr %20, align 8, !tbaa !71
-  store i32 %22, ptr %21, align 4, !tbaa !71
+  store i32 %22, ptr %21, align 8, !tbaa !71
   ret void
 }
 
@@ -103686,15 +103686,15 @@ define hidden void @_ZN12opencv_caffe16SigmoidParameter12InternalSwapEPS0_(ptr n
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i32, ptr %11, align 8, !tbaa !71
-  %14 = load i32, ptr %12, align 4, !tbaa !71
+  %14 = load i32, ptr %12, align 8, !tbaa !71
   store i32 %14, ptr %11, align 8, !tbaa !71
-  store i32 %13, ptr %12, align 4, !tbaa !71
+  store i32 %13, ptr %12, align 8, !tbaa !71
   ret void
 }
 
@@ -104739,20 +104739,20 @@ define hidden void @_ZN12opencv_caffe14SliceParameter12InternalSwapEPS0_(ptr nou
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.0.copyload.i.i.i = load i128, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 1 dereferenceable(16) %12, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i, ptr %12, align 1
+  store i128 %.0.copyload.i.i.i, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %15 = load i32, ptr %13, align 8, !tbaa !71
-  %16 = load i32, ptr %14, align 4, !tbaa !71
+  %16 = load i32, ptr %14, align 8, !tbaa !71
   store i32 %16, ptr %13, align 8, !tbaa !71
-  store i32 %15, ptr %14, align 4, !tbaa !71
+  store i32 %15, ptr %14, align 8, !tbaa !71
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %19 = load i32, ptr %17, align 4, !tbaa !71
@@ -105579,15 +105579,15 @@ define hidden void @_ZN12opencv_caffe16SoftmaxParameter12InternalSwapEPS0_(ptr n
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i32, ptr %11, align 8, !tbaa !71
-  %14 = load i32, ptr %12, align 4, !tbaa !71
+  %14 = load i32, ptr %12, align 8, !tbaa !71
   store i32 %14, ptr %11, align 8, !tbaa !71
-  store i32 %13, ptr %12, align 4, !tbaa !71
+  store i32 %13, ptr %12, align 8, !tbaa !71
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %17 = load i32, ptr %15, align 4, !tbaa !71
@@ -106214,15 +106214,15 @@ define hidden void @_ZN12opencv_caffe13TanHParameter12InternalSwapEPS0_(ptr noun
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i32, ptr %11, align 8, !tbaa !71
-  %14 = load i32, ptr %12, align 4, !tbaa !71
+  %14 = load i32, ptr %12, align 8, !tbaa !71
   store i32 %14, ptr %11, align 8, !tbaa !71
-  store i32 %13, ptr %12, align 4, !tbaa !71
+  store i32 %13, ptr %12, align 8, !tbaa !71
   ret void
 }
 
@@ -107008,15 +107008,15 @@ define hidden void @_ZN12opencv_caffe13TileParameter12InternalSwapEPS0_(ptr noun
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i32, ptr %11, align 8, !tbaa !71
-  %14 = load i32, ptr %12, align 4, !tbaa !71
+  %14 = load i32, ptr %12, align 8, !tbaa !71
   store i32 %14, ptr %11, align 8, !tbaa !71
-  store i32 %13, ptr %12, align 4, !tbaa !71
+  store i32 %13, ptr %12, align 8, !tbaa !71
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %17 = load i32, ptr %15, align 4, !tbaa !71
@@ -107534,15 +107534,15 @@ define hidden void @_ZN12opencv_caffe18ThresholdParameter12InternalSwapEPS0_(ptr
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load float, ptr %11, align 8, !tbaa !83
-  %14 = load float, ptr %12, align 4, !tbaa !83
+  %14 = load float, ptr %12, align 8, !tbaa !83
   store float %14, ptr %11, align 8, !tbaa !83
-  store float %13, ptr %12, align 4, !tbaa !83
+  store float %13, ptr %12, align 8, !tbaa !83
   ret void
 }
 
@@ -109190,9 +109190,9 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %6, align 8, !tbaa !71
-  %9 = load i32, ptr %7, align 4, !tbaa !71
+  %9 = load i32, ptr %7, align 8, !tbaa !71
   store i32 %9, ptr %6, align 8, !tbaa !71
-  store i32 %8, ptr %7, align 4, !tbaa !71
+  store i32 %8, ptr %7, align 8, !tbaa !71
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload.i = load ptr, ptr %11, align 8, !tbaa !87
@@ -109221,13 +109221,13 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.0.copyload.i.i = load i128, ptr %22, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 1 dereferenceable(16) %23, i64 16, i1 false)
-  store i128 %.0.copyload.i.i, ptr %23, align 1
+  store i128 %.0.copyload.i.i, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %26 = load float, ptr %24, align 8, !tbaa !83
-  %27 = load float, ptr %25, align 4, !tbaa !83
+  %27 = load float, ptr %25, align 8, !tbaa !83
   store float %27, ptr %24, align 8, !tbaa !83
-  store float %26, ptr %25, align 4, !tbaa !83
+  store float %26, ptr %25, align 8, !tbaa !83
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %30 = load float, ptr %28, align 4, !tbaa !83
@@ -109237,9 +109237,9 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %34 = load float, ptr %32, align 8, !tbaa !83
-  %35 = load float, ptr %33, align 4, !tbaa !83
+  %35 = load float, ptr %33, align 8, !tbaa !83
   store float %35, ptr %32, align 8, !tbaa !83
-  store float %34, ptr %33, align 4, !tbaa !83
+  store float %34, ptr %33, align 8, !tbaa !83
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %38 = load float, ptr %36, align 4, !tbaa !83
@@ -110235,21 +110235,21 @@ define hidden void @_ZN12opencv_caffe12SPPParameter12InternalSwapEPS0_(ptr nound
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.0.copyload.i.i = load i64, ptr %11, align 8
-  %13 = load i64, ptr %12, align 1
+  %13 = load i64, ptr %12, align 8
   store i64 %13, ptr %11, align 8
-  store i64 %.0.copyload.i.i, ptr %12, align 1
+  store i64 %.0.copyload.i.i, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.0.copyload.i.i.i = load i32, ptr %14, align 8
-  %16 = load i32, ptr %15, align 1
+  %16 = load i32, ptr %15, align 8
   store i32 %16, ptr %14, align 8
-  store i32 %.0.copyload.i.i.i, ptr %15, align 1
+  store i32 %.0.copyload.i.i.i, ptr %15, align 8
   ret void
 }
 
@@ -115451,7 +115451,7 @@ _ZN12opencv_caffe15ArgMaxParameter5ClearEv.exit:  ; preds = %448, %444, %433
   %453 = getelementptr inbounds nuw i8, ptr %452, i64 24
   store i32 0, ptr %453, align 8, !tbaa !65
   %454 = getelementptr inbounds nuw i8, ptr %452, i64 16
-  %455 = load i32, ptr %454, align 4, !tbaa !71
+  %455 = load i32, ptr %454, align 8, !tbaa !71
   %456 = and i32 %455, 3
   %.not.i127 = icmp eq i32 %456, 0
   br i1 %.not.i127, label %460, label %457
@@ -115486,7 +115486,7 @@ _ZN12opencv_caffe16EltwiseParameter5ClearEv.exit: ; preds = %464, %460, %_ZN12op
   %469 = getelementptr inbounds nuw i8, ptr %468, i64 24
   store float 0.000000e+00, ptr %469, align 8, !tbaa !491
   %470 = getelementptr inbounds nuw i8, ptr %468, i64 16
-  store i32 0, ptr %470, align 4
+  store i32 0, ptr %470, align 8
   %471 = getelementptr inbounds nuw i8, ptr %468, i64 8
   %472 = load i64, ptr %471, align 8, !tbaa !8
   %473 = and i64 %472, 1
@@ -115554,7 +115554,7 @@ _ZN12opencv_caffe17AccuracyParameter5ClearEv.exit: ; preds = %495, %491, %479
   %500 = getelementptr inbounds nuw i8, ptr %499, i64 24
   store i32 1, ptr %500, align 8, !tbaa !485
   %501 = getelementptr inbounds nuw i8, ptr %499, i64 16
-  store i32 0, ptr %501, align 4
+  store i32 0, ptr %501, align 8
   %502 = getelementptr inbounds nuw i8, ptr %499, i64 8
   %503 = load i64, ptr %502, align 8, !tbaa !8
   %504 = and i64 %503, 1
@@ -115607,7 +115607,7 @@ _ZN12opencv_caffe13ReLUParameter5ClearEv.exit:    ; preds = %519, %515, %_ZN12op
   %524 = getelementptr inbounds nuw i8, ptr %523, i64 24
   store i32 0, ptr %524, align 8, !tbaa !107
   %525 = getelementptr inbounds nuw i8, ptr %523, i64 16
-  %526 = load i32, ptr %525, align 4, !tbaa !71
+  %526 = load i32, ptr %525, align 8, !tbaa !71
   %527 = and i32 %526, 3
   %.not.i135 = icmp eq i32 %527, 0
   br i1 %.not.i135, label %531, label %528
@@ -115681,7 +115681,7 @@ _ZN12opencv_caffe12MVNParameter5ClearEv.exit:     ; preds = %552, %548, %536
   %557 = getelementptr inbounds nuw i8, ptr %556, i64 24
   store i32 0, ptr %557, align 8, !tbaa !65
   %558 = getelementptr inbounds nuw i8, ptr %556, i64 16
-  %559 = load i32, ptr %558, align 4, !tbaa !71
+  %559 = load i32, ptr %558, align 8, !tbaa !71
   %560 = and i32 %559, 1
   %.not.i139 = icmp eq i32 %560, 0
   br i1 %.not.i139, label %569, label %561
@@ -115733,7 +115733,7 @@ _ZN12opencv_caffe23TransformationParameter5ClearEv.exit: ; preds = %578, %574, %
   %583 = getelementptr inbounds nuw i8, ptr %582, i64 24
   store i32 0, ptr %583, align 8, !tbaa !489
   %584 = getelementptr inbounds nuw i8, ptr %582, i64 16
-  store i32 0, ptr %584, align 4
+  store i32 0, ptr %584, align 8
   %585 = getelementptr inbounds nuw i8, ptr %582, i64 8
   %586 = load i64, ptr %585, align 8, !tbaa !8
   %587 = and i64 %586, 1
@@ -115755,7 +115755,7 @@ _ZN12opencv_caffe13TanHParameter5ClearEv.exit:    ; preds = %588, %580, %_ZN12op
   %593 = getelementptr inbounds nuw i8, ptr %592, i64 24
   store i32 0, ptr %593, align 8, !tbaa !487
   %594 = getelementptr inbounds nuw i8, ptr %592, i64 16
-  store i32 0, ptr %594, align 4
+  store i32 0, ptr %594, align 8
   %595 = getelementptr inbounds nuw i8, ptr %592, i64 8
   %596 = load i64, ptr %595, align 8, !tbaa !8
   %597 = and i64 %596, 1
@@ -116545,7 +116545,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %157, ptr %.sink6.i.i.i.i.i, align 8, !tbaa !213
   %158 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i, i64 8
   store i64 0, ptr %158, align 8, !tbaa !72
-  store i8 0, ptr %157, align 1, !tbaa !36
+  store i8 0, ptr %157, align 8, !tbaa !36
   %159 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %73, ptr noundef nonnull %.sink6.i.i.i.i.i)
   br label %_ZN12opencv_caffe16V1LayerParameter20_internal_add_bottomB5cxx11Ev.exit
 
@@ -116620,7 +116620,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %195, ptr %.sink6.i.i.i.i.i165, align 8, !tbaa !213
   %196 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i165, i64 8
   store i64 0, ptr %196, align 8, !tbaa !72
-  store i8 0, ptr %195, align 1, !tbaa !36
+  store i8 0, ptr %195, align 8, !tbaa !36
   %197 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr noundef nonnull %.sink6.i.i.i.i.i165)
   br label %_ZN12opencv_caffe16V1LayerParameter17_internal_add_topB5cxx11Ev.exit
 
@@ -118231,7 +118231,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %980, ptr %.sink6.i.i.i.i.i280, align 8, !tbaa !213
   %981 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i280, i64 8
   store i64 0, ptr %981, align 8, !tbaa !72
-  store i8 0, ptr %980, align 1, !tbaa !36
+  store i8 0, ptr %980, align 8, !tbaa !36
   %982 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull %.sink6.i.i.i.i.i280)
   br label %_ZN12opencv_caffe16V1LayerParameter19_internal_add_paramB5cxx11Ev.exit
 
@@ -121891,7 +121891,7 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe15ArgMa
   %696 = zext i32 %695 to i64
   %697 = mul nuw nsw i64 %696, 5
   %698 = getelementptr inbounds nuw i8, ptr %693, i64 16
-  %699 = load i32, ptr %698, align 4, !tbaa !71
+  %699 = load i32, ptr %698, align 8, !tbaa !71
   %700 = and i32 %699, 3
   %.not.i.i206 = icmp eq i32 %700, 0
   br i1 %.not.i.i206, label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16EltwiseParameterEEEmRKT_.exit, label %701
@@ -122192,7 +122192,7 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13ReLUP
   %904 = zext i32 %903 to i64
   %905 = add i64 %902, %904
   %906 = getelementptr inbounds nuw i8, ptr %900, i64 16
-  %907 = load i32, ptr %906, align 4, !tbaa !71
+  %907 = load i32, ptr %906, align 8, !tbaa !71
   %908 = and i32 %907, 3
   %.not.i.i227 = icmp eq i32 %908, 0
   br i1 %.not.i.i227, label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe14SliceParameterEEEmRKT_.exit, label %909
@@ -122313,7 +122313,7 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12MVNPa
   %983 = zext i32 %982 to i64
   %984 = mul nuw nsw i64 %983, 5
   %985 = getelementptr inbounds nuw i8, ptr %980, i64 16
-  %986 = load i32, ptr %985, align 4, !tbaa !71
+  %986 = load i32, ptr %985, align 8, !tbaa !71
   %987 = and i32 %986, 63
   %.not.i.i237 = icmp eq i32 %987, 0
   br i1 %.not.i.i237, label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe23TransformationParameterEEEmRKT_.exit, label %988
@@ -126552,9 +126552,9 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %6, align 8, !tbaa !71
-  %9 = load i32, ptr %7, align 4, !tbaa !71
+  %9 = load i32, ptr %7, align 8, !tbaa !71
   store i32 %9, ptr %6, align 8, !tbaa !71
-  store i32 %8, ptr %7, align 4, !tbaa !71
+  store i32 %8, ptr %7, align 8, !tbaa !71
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %12 = load i32, ptr %10, align 4, !tbaa !71
@@ -126568,7 +126568,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %19 = load ptr, ptr %18, align 8, !tbaa !99, !noalias !926
   %20 = load i32, ptr %17, align 4, !tbaa !71, !noalias !926
-  %21 = load i32, ptr %16, align 4, !tbaa !71, !noalias !926
+  %21 = load i32, ptr %16, align 8, !tbaa !71, !noalias !926
   %22 = load ptr, ptr %15, align 8, !tbaa !103, !noalias !926
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -126578,7 +126578,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %28 = load i32, ptr %23, align 8, !tbaa !71, !noalias !929
   %29 = load ptr, ptr %14, align 8, !tbaa !103, !noalias !929
   store ptr %29, ptr %15, align 8, !tbaa !103
-  store i32 %28, ptr %16, align 4, !tbaa !71
+  store i32 %28, ptr %16, align 8, !tbaa !71
   store i32 %27, ptr %17, align 4, !tbaa !71
   store ptr %26, ptr %18, align 8, !tbaa !99
   store ptr %22, ptr %14, align 8, !tbaa !103
@@ -126592,7 +126592,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %35 = load ptr, ptr %34, align 8, !tbaa !99, !noalias !932
   %36 = load i32, ptr %33, align 4, !tbaa !71, !noalias !932
-  %37 = load i32, ptr %32, align 4, !tbaa !71, !noalias !932
+  %37 = load i32, ptr %32, align 8, !tbaa !71, !noalias !932
   %38 = load ptr, ptr %31, align 8, !tbaa !103, !noalias !932
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 68
@@ -126602,7 +126602,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %44 = load i32, ptr %39, align 8, !tbaa !71, !noalias !935
   %45 = load ptr, ptr %30, align 8, !tbaa !103, !noalias !935
   store ptr %45, ptr %31, align 8, !tbaa !103
-  store i32 %44, ptr %32, align 4, !tbaa !71
+  store i32 %44, ptr %32, align 8, !tbaa !71
   store i32 %43, ptr %33, align 4, !tbaa !71
   store ptr %42, ptr %34, align 8, !tbaa !99
   store ptr %38, ptr %30, align 8, !tbaa !103
@@ -126616,7 +126616,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %51 = load ptr, ptr %50, align 8, !tbaa !99, !noalias !938
   %52 = load i32, ptr %49, align 4, !tbaa !71, !noalias !938
-  %53 = load i32, ptr %48, align 4, !tbaa !71, !noalias !938
+  %53 = load i32, ptr %48, align 8, !tbaa !71, !noalias !938
   %54 = load ptr, ptr %47, align 8, !tbaa !103, !noalias !938
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 92
@@ -126626,7 +126626,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %60 = load i32, ptr %55, align 8, !tbaa !71, !noalias !941
   %61 = load ptr, ptr %46, align 8, !tbaa !103, !noalias !941
   store ptr %61, ptr %47, align 8, !tbaa !103
-  store i32 %60, ptr %48, align 4, !tbaa !71
+  store i32 %60, ptr %48, align 8, !tbaa !71
   store i32 %59, ptr %49, align 4, !tbaa !71
   store ptr %58, ptr %50, align 8, !tbaa !99
   store ptr %54, ptr %46, align 8, !tbaa !103
@@ -126637,12 +126637,12 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %.0.copyload.i.i.i = load i128, ptr %62, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 1 dereferenceable(16) %63, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i, ptr %63, align 1
+  store i128 %.0.copyload.i.i.i, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %.0.copyload.i.i.i22 = load i128, ptr %64, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 1 dereferenceable(16) %65, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i22, ptr %65, align 1
+  store i128 %.0.copyload.i.i.i22, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -126650,7 +126650,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %71 = load ptr, ptr %70, align 8, !tbaa !99, !noalias !944
   %72 = load i32, ptr %69, align 4, !tbaa !71, !noalias !944
-  %73 = load i32, ptr %68, align 4, !tbaa !71, !noalias !944
+  %73 = load i32, ptr %68, align 8, !tbaa !71, !noalias !944
   %74 = load ptr, ptr %67, align 8, !tbaa !103, !noalias !944
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 148
@@ -126660,7 +126660,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %80 = load i32, ptr %75, align 8, !tbaa !71, !noalias !947
   %81 = load ptr, ptr %66, align 8, !tbaa !103, !noalias !947
   store ptr %81, ptr %67, align 8, !tbaa !103
-  store i32 %80, ptr %68, align 4, !tbaa !71
+  store i32 %80, ptr %68, align 8, !tbaa !71
   store i32 %79, ptr %69, align 4, !tbaa !71
   store ptr %78, ptr %70, align 8, !tbaa !99
   store ptr %74, ptr %66, align 8, !tbaa !103
@@ -126674,7 +126674,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %87 = load ptr, ptr %86, align 8, !tbaa !99, !noalias !950
   %88 = load i32, ptr %85, align 4, !tbaa !71, !noalias !950
-  %89 = load i32, ptr %84, align 4, !tbaa !71, !noalias !950
+  %89 = load i32, ptr %84, align 8, !tbaa !71, !noalias !950
   %90 = load ptr, ptr %83, align 8, !tbaa !103, !noalias !950
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 172
@@ -126684,7 +126684,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %96 = load i32, ptr %91, align 8, !tbaa !71, !noalias !953
   %97 = load ptr, ptr %82, align 8, !tbaa !103, !noalias !953
   store ptr %97, ptr %83, align 8, !tbaa !103
-  store i32 %96, ptr %84, align 4, !tbaa !71
+  store i32 %96, ptr %84, align 8, !tbaa !71
   store i32 %95, ptr %85, align 4, !tbaa !71
   store ptr %94, ptr %86, align 8, !tbaa !99
   store ptr %90, ptr %82, align 8, !tbaa !103
@@ -126695,7 +126695,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %.0.copyload.i.i.i23 = load i128, ptr %98, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull align 1 dereferenceable(16) %99, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i23, ptr %99, align 1
+  store i128 %.0.copyload.i.i.i23, ptr %99, align 8
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 208
@@ -126703,7 +126703,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %105 = load ptr, ptr %104, align 8, !tbaa !99, !noalias !956
   %106 = load i32, ptr %103, align 4, !tbaa !71, !noalias !956
-  %107 = load i32, ptr %102, align 4, !tbaa !71, !noalias !956
+  %107 = load i32, ptr %102, align 8, !tbaa !71, !noalias !956
   %108 = load ptr, ptr %101, align 8, !tbaa !103, !noalias !956
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 212
@@ -126713,7 +126713,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %114 = load i32, ptr %109, align 8, !tbaa !71, !noalias !959
   %115 = load ptr, ptr %100, align 8, !tbaa !103, !noalias !959
   store ptr %115, ptr %101, align 8, !tbaa !103
-  store i32 %114, ptr %102, align 4, !tbaa !71
+  store i32 %114, ptr %102, align 8, !tbaa !71
   store i32 %113, ptr %103, align 4, !tbaa !71
   store ptr %112, ptr %104, align 8, !tbaa !99
   store ptr %108, ptr %100, align 8, !tbaa !103
@@ -126724,7 +126724,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %117 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %.0.copyload.i.i.i24 = load i128, ptr %116, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %116, ptr noundef nonnull align 1 dereferenceable(16) %117, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i24, ptr %117, align 1
+  store i128 %.0.copyload.i.i.i24, ptr %117, align 8
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %.sroa.0.0.copyload.i = load ptr, ptr %119, align 8, !tbaa !87
@@ -126735,89 +126735,89 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %.0.copyload.i.i = load i128, ptr %121, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %121, ptr noundef nonnull align 1 dereferenceable(16) %122, i64 16, i1 false)
-  store i128 %.0.copyload.i.i, ptr %122, align 1
+  store i128 %.0.copyload.i.i, ptr %122, align 8
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %124 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %.0.copyload.i.i.i25 = load i128, ptr %123, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %123, ptr noundef nonnull align 1 dereferenceable(16) %124, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i25, ptr %124, align 1
+  store i128 %.0.copyload.i.i.i25, ptr %124, align 8
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %.0.copyload.i.i.i.i = load i128, ptr %125, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %125, ptr noundef nonnull align 1 dereferenceable(16) %126, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i.i, ptr %126, align 1
+  store i128 %.0.copyload.i.i.i.i, ptr %126, align 8
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %.0.copyload.i.i.i.i.i = load i128, ptr %127, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %127, ptr noundef nonnull align 1 dereferenceable(16) %128, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i.i.i, ptr %128, align 1
+  store i128 %.0.copyload.i.i.i.i.i, ptr %128, align 8
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %130 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %.0.copyload.i.i.i.i.i.i = load i128, ptr %129, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %129, ptr noundef nonnull align 1 dereferenceable(16) %130, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i.i.i.i, ptr %130, align 1
+  store i128 %.0.copyload.i.i.i.i.i.i, ptr %130, align 8
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %.0.copyload.i.i.i.i.i.i.i = load i128, ptr %131, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %131, ptr noundef nonnull align 1 dereferenceable(16) %132, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i.i.i.i.i, ptr %132, align 1
+  store i128 %.0.copyload.i.i.i.i.i.i.i, ptr %132, align 8
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %.0.copyload.i.i.i.i.i.i.i.i = load i128, ptr %133, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %133, ptr noundef nonnull align 1 dereferenceable(16) %134, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i.i.i.i.i.i, ptr %134, align 1
+  store i128 %.0.copyload.i.i.i.i.i.i.i.i, ptr %134, align 8
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i128, ptr %135, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %135, ptr noundef nonnull align 1 dereferenceable(16) %136, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i.i.i.i.i.i.i, ptr %136, align 1
+  store i128 %.0.copyload.i.i.i.i.i.i.i.i.i, ptr %136, align 8
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %138 = getelementptr inbounds nuw i8, ptr %1, i64 376
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i128, ptr %137, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr noundef nonnull align 1 dereferenceable(16) %138, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i.i.i.i.i.i.i.i, ptr %138, align 1
+  store i128 %.0.copyload.i.i.i.i.i.i.i.i.i.i, ptr %138, align 8
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i128, ptr %139, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %139, ptr noundef nonnull align 1 dereferenceable(16) %140, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, ptr %140, align 1
+  store i128 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, ptr %140, align 8
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %142 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i128, ptr %141, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %141, ptr noundef nonnull align 1 dereferenceable(16) %142, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, ptr %142, align 1
+  store i128 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, ptr %142, align 8
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %144 = getelementptr inbounds nuw i8, ptr %1, i64 424
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i = load i128, ptr %143, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %143, ptr noundef nonnull align 1 dereferenceable(16) %144, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %144, align 1
+  store i128 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %144, align 8
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 440
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i128, ptr %145, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %145, ptr noundef nonnull align 1 dereferenceable(16) %146, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %146, align 1
+  store i128 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %146, align 8
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 456
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i128, ptr %147, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %147, ptr noundef nonnull align 1 dereferenceable(16) %148, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %148, align 1
+  store i128 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %148, align 8
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 472
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i128, ptr %149, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %149, ptr noundef nonnull align 1 dereferenceable(16) %150, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %150, align 1
+  store i128 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %150, align 8
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %152 = getelementptr inbounds nuw i8, ptr %1, i64 488
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %151, align 8
-  %153 = load i64, ptr %152, align 1
+  %153 = load i64, ptr %152, align 8
   store i64 %153, ptr %151, align 8
-  store i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %152, align 1
+  store i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %152, align 8
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %155 = getelementptr inbounds nuw i8, ptr %1, i64 496
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %154, align 8
-  %156 = load i32, ptr %155, align 1
+  %156 = load i32, ptr %155, align 8
   store i32 %156, ptr %154, align 8
-  store i32 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %155, align 1
+  store i32 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %155, align 8
   ret void
 }
 
@@ -131847,9 +131847,9 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %6, align 8, !tbaa !71
-  %9 = load i32, ptr %7, align 4, !tbaa !71
+  %9 = load i32, ptr %7, align 8, !tbaa !71
   store i32 %9, ptr %6, align 8, !tbaa !71
-  store i32 %8, ptr %7, align 4, !tbaa !71
+  store i32 %8, ptr %7, align 8, !tbaa !71
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %12 = load i32, ptr %10, align 4, !tbaa !71
@@ -131863,7 +131863,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %19 = load ptr, ptr %18, align 8, !tbaa !99, !noalias !969
   %20 = load i32, ptr %17, align 4, !tbaa !71, !noalias !969
-  %21 = load i32, ptr %16, align 4, !tbaa !71, !noalias !969
+  %21 = load i32, ptr %16, align 8, !tbaa !71, !noalias !969
   %22 = load ptr, ptr %15, align 8, !tbaa !103, !noalias !969
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -131873,7 +131873,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %28 = load i32, ptr %23, align 8, !tbaa !71, !noalias !972
   %29 = load ptr, ptr %14, align 8, !tbaa !103, !noalias !972
   store ptr %29, ptr %15, align 8, !tbaa !103
-  store i32 %28, ptr %16, align 4, !tbaa !71
+  store i32 %28, ptr %16, align 8, !tbaa !71
   store i32 %27, ptr %17, align 4, !tbaa !71
   store ptr %26, ptr %18, align 8, !tbaa !99
   store ptr %22, ptr %14, align 8, !tbaa !103
@@ -131884,12 +131884,12 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.0.copyload.i.i.i = load i128, ptr %30, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 1 dereferenceable(16) %31, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i, ptr %31, align 1
+  store i128 %.0.copyload.i.i.i, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.0.copyload.i.i.i40 = load i128, ptr %32, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 1 dereferenceable(16) %33, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i40, ptr %33, align 1
+  store i128 %.0.copyload.i.i.i40, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %.sroa.0.0.copyload.i = load ptr, ptr %35, align 8, !tbaa !87
@@ -131924,34 +131924,34 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %.0.copyload.i.i = load i128, ptr %49, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 1 dereferenceable(16) %50, i64 16, i1 false)
-  store i128 %.0.copyload.i.i, ptr %50, align 1
+  store i128 %.0.copyload.i.i, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %.0.copyload.i.i.i45 = load i128, ptr %51, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 1 dereferenceable(16) %52, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i45, ptr %52, align 1
+  store i128 %.0.copyload.i.i.i45, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %.0.copyload.i.i.i.i = load i128, ptr %53, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 1 dereferenceable(16) %54, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i.i, ptr %54, align 1
+  store i128 %.0.copyload.i.i.i.i, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %.0.copyload.i.i.i.i.i = load i128, ptr %55, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 1 dereferenceable(16) %56, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i.i.i, ptr %56, align 1
+  store i128 %.0.copyload.i.i.i.i.i, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %57, align 8
-  %59 = load i64, ptr %58, align 1
+  %59 = load i64, ptr %58, align 8
   store i64 %59, ptr %57, align 8
-  store i64 %.0.copyload.i.i.i.i.i.i, ptr %58, align 1
+  store i64 %.0.copyload.i.i.i.i.i.i, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %.0.copyload.i.i.i.i.i.i.i = load i32, ptr %60, align 8
-  %62 = load i32, ptr %61, align 1
+  %62 = load i32, ptr %61, align 8
   store i32 %62, ptr %60, align 8
-  store i32 %.0.copyload.i.i.i.i.i.i.i, ptr %61, align 1
+  store i32 %.0.copyload.i.i.i.i.i.i.i, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 204
   %65 = load i32, ptr %63, align 4, !tbaa !71
@@ -131961,9 +131961,9 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %69 = load i8, ptr %67, align 8, !tbaa !133, !range !126, !noundef !127
-  %70 = load i8, ptr %68, align 1, !tbaa !133, !range !126, !noundef !127
+  %70 = load i8, ptr %68, align 8, !tbaa !133, !range !126, !noundef !127
   store i8 %70, ptr %67, align 8, !tbaa !133
-  store i8 %69, ptr %68, align 1, !tbaa !133
+  store i8 %69, ptr %68, align 8, !tbaa !133
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %73 = load i32, ptr %71, align 4, !tbaa !71
@@ -131973,9 +131973,9 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %77 = load i32, ptr %75, align 8, !tbaa !71
-  %78 = load i32, ptr %76, align 4, !tbaa !71
+  %78 = load i32, ptr %76, align 8, !tbaa !71
   store i32 %78, ptr %75, align 8, !tbaa !71
-  store i32 %77, ptr %76, align 4, !tbaa !71
+  store i32 %77, ptr %76, align 8, !tbaa !71
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 220
   %81 = load float, ptr %79, align 4, !tbaa !83
@@ -131985,9 +131985,9 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %85 = load i32, ptr %83, align 8, !tbaa !71
-  %86 = load i32, ptr %84, align 4, !tbaa !71
+  %86 = load i32, ptr %84, align 8, !tbaa !71
   store i32 %86, ptr %83, align 8, !tbaa !71
-  store i32 %85, ptr %84, align 4, !tbaa !71
+  store i32 %85, ptr %84, align 8, !tbaa !71
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 228
   %89 = load float, ptr %87, align 4, !tbaa !83
@@ -131997,9 +131997,9 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %93 = load float, ptr %91, align 8, !tbaa !83
-  %94 = load float, ptr %92, align 4, !tbaa !83
+  %94 = load float, ptr %92, align 8, !tbaa !83
   store float %94, ptr %91, align 8, !tbaa !83
-  store float %93, ptr %92, align 4, !tbaa !83
+  store float %93, ptr %92, align 8, !tbaa !83
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %97 = load float, ptr %95, align 4, !tbaa !83
@@ -132009,9 +132009,9 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %101 = load float, ptr %99, align 8, !tbaa !83
-  %102 = load float, ptr %100, align 4, !tbaa !83
+  %102 = load float, ptr %100, align 8, !tbaa !83
   store float %102, ptr %99, align 8, !tbaa !83
-  store float %101, ptr %100, align 4, !tbaa !83
+  store float %101, ptr %100, align 8, !tbaa !83
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 244
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 244
   %105 = load float, ptr %103, align 4, !tbaa !83
@@ -132021,9 +132021,9 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %109 = load float, ptr %107, align 8, !tbaa !83
-  %110 = load float, ptr %108, align 4, !tbaa !83
+  %110 = load float, ptr %108, align 8, !tbaa !83
   store float %110, ptr %107, align 8, !tbaa !83
-  store float %109, ptr %108, align 4, !tbaa !83
+  store float %109, ptr %108, align 8, !tbaa !83
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 252
   %113 = load float, ptr %111, align 4, !tbaa !83
@@ -132775,21 +132775,21 @@ define hidden void @_ZN12opencv_caffe14PReLUParameter12InternalSwapEPS0_(ptr nou
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.0.copyload.i.i = load i64, ptr %11, align 8
-  %13 = load i64, ptr %12, align 1
+  %13 = load i64, ptr %12, align 8
   store i64 %13, ptr %11, align 8
-  store i64 %.0.copyload.i.i, ptr %12, align 1
+  store i64 %.0.copyload.i.i, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.0.copyload.i.i.i = load i8, ptr %14, align 8
-  %16 = load i8, ptr %15, align 1
+  %16 = load i8, ptr %15, align 8
   store i8 %16, ptr %14, align 8
-  store i8 %.0.copyload.i.i.i, ptr %15, align 1
+  store i8 %.0.copyload.i.i.i, ptr %15, align 8
   ret void
 }
 
@@ -133842,19 +133842,19 @@ define hidden void @_ZN12opencv_caffe14NormalizedBBox12InternalSwapEPS0_(ptr nou
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.0.copyload.i.i = load i128, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 1 dereferenceable(16) %12, i64 16, i1 false)
-  store i128 %.0.copyload.i.i, ptr %12, align 1
+  store i128 %.0.copyload.i.i, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.0.copyload.i.i.i = load i128, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 1 dereferenceable(16) %14, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i, ptr %14, align 1
+  store i128 %.0.copyload.i.i.i, ptr %14, align 8
   ret void
 }
 
@@ -134704,21 +134704,21 @@ define hidden void @_ZN12opencv_caffe19ROIPoolingParameter12InternalSwapEPS0_(pt
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.0.copyload.i.i = load i64, ptr %11, align 8
-  %13 = load i64, ptr %12, align 1
+  %13 = load i64, ptr %12, align 8
   store i64 %13, ptr %11, align 8
-  store i64 %.0.copyload.i.i, ptr %12, align 1
+  store i64 %.0.copyload.i.i, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %16 = load float, ptr %14, align 8, !tbaa !83
-  %17 = load float, ptr %15, align 4, !tbaa !83
+  %17 = load float, ptr %15, align 8, !tbaa !83
   store float %17, ptr %14, align 8, !tbaa !83
-  store float %16, ptr %15, align 4, !tbaa !83
+  store float %16, ptr %15, align 8, !tbaa !83
   ret void
 }
 
@@ -136053,25 +136053,25 @@ define hidden void @_ZN12opencv_caffe17ProposalParameter12InternalSwapEPS0_(ptr 
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.0.copyload.i.i.i = load i128, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 1 dereferenceable(16) %12, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i, ptr %12, align 1
+  store i128 %.0.copyload.i.i.i, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.0.copyload.i.i.i11 = load i128, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 1 dereferenceable(16) %14, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i11, ptr %14, align 1
+  store i128 %.0.copyload.i.i.i11, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %17 = load i32, ptr %15, align 8, !tbaa !71
-  %18 = load i32, ptr %16, align 4, !tbaa !71
+  %18 = load i32, ptr %16, align 8, !tbaa !71
   store i32 %18, ptr %15, align 8, !tbaa !71
-  store i32 %17, ptr %16, align 4, !tbaa !71
+  store i32 %17, ptr %16, align 8, !tbaa !71
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %21 = load i32, ptr %19, align 4, !tbaa !71
@@ -136081,9 +136081,9 @@ define hidden void @_ZN12opencv_caffe17ProposalParameter12InternalSwapEPS0_(ptr 
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %25 = load i32, ptr %23, align 8, !tbaa !71
-  %26 = load i32, ptr %24, align 4, !tbaa !71
+  %26 = load i32, ptr %24, align 8, !tbaa !71
   store i32 %26, ptr %23, align 8, !tbaa !71
-  store i32 %25, ptr %24, align 4, !tbaa !71
+  store i32 %25, ptr %24, align 8, !tbaa !71
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %29 = load i32, ptr %27, align 4, !tbaa !71
@@ -136093,9 +136093,9 @@ define hidden void @_ZN12opencv_caffe17ProposalParameter12InternalSwapEPS0_(ptr 
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %33 = load i32, ptr %31, align 8, !tbaa !71
-  %34 = load i32, ptr %32, align 4, !tbaa !71
+  %34 = load i32, ptr %32, align 8, !tbaa !71
   store i32 %34, ptr %31, align 8, !tbaa !71
-  store i32 %33, ptr %32, align 4, !tbaa !71
+  store i32 %33, ptr %32, align 8, !tbaa !71
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %37 = load float, ptr %35, align 4, !tbaa !83
@@ -137011,21 +137011,21 @@ define hidden void @_ZN12opencv_caffe21PSROIPoolingParameter12InternalSwapEPS0_(
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 8, !tbaa !71
-  %10 = load i32, ptr %8, align 4, !tbaa !71
+  %10 = load i32, ptr %8, align 8, !tbaa !71
   store i32 %10, ptr %7, align 8, !tbaa !71
-  store i32 %9, ptr %8, align 4, !tbaa !71
+  store i32 %9, ptr %8, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.0.copyload.i.i = load i64, ptr %11, align 8
-  %13 = load i64, ptr %12, align 1
+  %13 = load i64, ptr %12, align 8
   store i64 %13, ptr %11, align 8
-  store i64 %.0.copyload.i.i, ptr %12, align 1
+  store i64 %.0.copyload.i.i, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.0.copyload.i.i.i = load i32, ptr %14, align 8
-  %16 = load i32, ptr %15, align 1
+  %16 = load i32, ptr %15, align 8
   store i32 %16, ptr %14, align 8
-  store i32 %.0.copyload.i.i.i, ptr %15, align 1
+  store i32 %.0.copyload.i.i.i, ptr %15, align 8
   ret void
 }
 
@@ -137185,7 +137185,7 @@ _ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe16PermuteParameterEE3Ne
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %0, ptr %12, align 8, !tbaa !110
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i32 0, ptr %13, align 4, !tbaa !18
+  store i32 0, ptr %13, align 8, !tbaa !18
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalIN12opencv_caffe16PermuteParameterEEEPT_PS1_.exit
 
 _ZN6google8protobuf5Arena21CreateMessageInternalIN12opencv_caffe16PermuteParameterEEEPT_PS1_.exit: ; preds = %_ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe16PermuteParameterEE3NewEv.exit, %6
@@ -137434,7 +137434,7 @@ _ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe12NetParameterEE3NewEv.
   store i64 %9, ptr %8, align 8, !tbaa !8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12NetParameterE, i64 16), ptr %7, align 8, !tbaa !11
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 0, ptr %.ptr.i.i, align 4, !tbaa !71
+  store i32 0, ptr %.ptr.i.i, align 8, !tbaa !71
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 0, ptr %10, align 4, !tbaa !18
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -137479,7 +137479,7 @@ _ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe15SolverParameterEE3New
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i32 0, ptr %6, align 4, !tbaa !18
+  store i32 0, ptr %6, align 8, !tbaa !18
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7, i8 0, i64 104, i1 false)
@@ -137495,7 +137495,7 @@ _ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe15SolverParameterEE3New
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i32 0, ptr %14, align 4, !tbaa !18
+  store i32 0, ptr %14, align 8, !tbaa !18
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %0, ptr %15, align 8, !tbaa !88
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -137574,7 +137574,7 @@ _ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe11SolverStateEE3NewEv.e
   store i64 %9, ptr %8, align 8, !tbaa !8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe11SolverStateE, i64 16), ptr %7, align 8, !tbaa !11
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 0, ptr %.ptr.i.i, align 4, !tbaa !71
+  store i32 0, ptr %.ptr.i.i, align 8, !tbaa !71
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 0, ptr %10, align 4, !tbaa !18
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -137615,7 +137615,7 @@ _ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe8NetStateEE3NewEv.exit:
   store i64 %9, ptr %8, align 8, !tbaa !8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe8NetStateE, i64 16), ptr %7, align 8, !tbaa !11
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 0, ptr %.ptr.i.i, align 4, !tbaa !71
+  store i32 0, ptr %.ptr.i.i, align 8, !tbaa !71
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 0, ptr %10, align 4, !tbaa !18
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -137652,7 +137652,7 @@ _ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe12NetStateRuleEE3NewEv.
   store i64 %8, ptr %7, align 8, !tbaa !8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12NetStateRuleE, i64 16), ptr %6, align 8, !tbaa !11
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 0, ptr %.ptr.i.i, align 4, !tbaa !71
+  store i32 0, ptr %.ptr.i.i, align 8, !tbaa !71
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 0, ptr %9, align 4, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -137692,7 +137692,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN12opencv_caffe9ParamSpecEEEPT_
   %.sink7 = phi ptr [ %3, %_ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe9ParamSpecEE3NewEv.exit ], [ %6, %5 ]
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe9ParamSpecE, i64 16), ptr %.sink7, align 8, !tbaa !11
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink7, i64 16
-  store i32 0, ptr %.ptr.i, align 4, !tbaa !71
+  store i32 0, ptr %.ptr.i, align 8, !tbaa !71
   %9 = getelementptr inbounds nuw i8, ptr %.sink7, i64 20
   store i32 0, ptr %9, align 4, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %.sink7, i64 24
@@ -137719,7 +137719,7 @@ _ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe14LayerParameterEE3NewE
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i32 0, ptr %6, align 4, !tbaa !18
+  store i32 0, ptr %6, align 8, !tbaa !18
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 208
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %7, i8 0, i64 176, i1 false)
@@ -137735,7 +137735,7 @@ _ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe14LayerParameterEE3NewE
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i32 0, ptr %14, align 4, !tbaa !18
+  store i32 0, ptr %14, align 8, !tbaa !18
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %0, ptr %15, align 8, !tbaa !88
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -137866,7 +137866,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN12opencv_caffe17AccuracyParame
   %.sink6 = phi ptr [ %3, %_ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe17AccuracyParameterEE3NewEv.exit ], [ %6, %5 ]
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17AccuracyParameterE, i64 16), ptr %.sink6, align 8, !tbaa !11
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink6, i64 16
-  store i32 0, ptr %.ptr.i, align 4, !tbaa !71
+  store i32 0, ptr %.ptr.i, align 8, !tbaa !71
   %9 = getelementptr inbounds nuw i8, ptr %.sink6, i64 20
   store i32 0, ptr %9, align 4, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %.sink6, i64 24
@@ -137928,7 +137928,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN12opencv_caffe15ConcatParamete
   %.sink5 = phi ptr [ %3, %_ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe15ConcatParameterEE3NewEv.exit ], [ %6, %5 ]
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ConcatParameterE, i64 16), ptr %.sink5, align 8, !tbaa !11
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink5, i64 16
-  store i32 0, ptr %.ptr.i, align 4, !tbaa !71
+  store i32 0, ptr %.ptr.i, align 8, !tbaa !71
   %9 = getelementptr inbounds nuw i8, ptr %.sink5, i64 20
   store i32 0, ptr %9, align 4, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %.sink5, i64 24
@@ -137960,7 +137960,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN12opencv_caffe18BatchNormParam
   %.sink6 = phi ptr [ %3, %_ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe18BatchNormParameterEE3NewEv.exit ], [ %6, %5 ]
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18BatchNormParameterE, i64 16), ptr %.sink6, align 8, !tbaa !11
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink6, i64 16
-  store i32 0, ptr %.ptr.i, align 4, !tbaa !71
+  store i32 0, ptr %.ptr.i, align 8, !tbaa !71
   %9 = getelementptr inbounds nuw i8, ptr %.sink6, i64 20
   store i32 0, ptr %9, align 4, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %.sink6, i64 24
@@ -138146,7 +138146,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN12opencv_caffe13DataParameterE
   %.sink8 = phi ptr [ %3, %_ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe13DataParameterEE3NewEv.exit ], [ %6, %5 ]
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13DataParameterE, i64 16), ptr %.sink8, align 8, !tbaa !11
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink8, i64 16
-  store i32 0, ptr %.ptr.i, align 4, !tbaa !71
+  store i32 0, ptr %.ptr.i, align 8, !tbaa !71
   %9 = getelementptr inbounds nuw i8, ptr %.sink8, i64 20
   store i32 0, ptr %9, align 4, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %.sink8, i64 24
@@ -138184,7 +138184,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN12opencv_caffe30NonMaximumSupp
   %.sink6 = phi ptr [ %3, %_ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe30NonMaximumSuppressionParameterEE3NewEv.exit ], [ %6, %5 ]
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe30NonMaximumSuppressionParameterE, i64 16), ptr %.sink6, align 8, !tbaa !11
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink6, i64 16
-  store i32 0, ptr %.ptr.i, align 4, !tbaa !71
+  store i32 0, ptr %.ptr.i, align 8, !tbaa !71
   %9 = getelementptr inbounds nuw i8, ptr %.sink6, i64 20
   store i32 0, ptr %9, align 4, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %.sink6, i64 24
@@ -138218,7 +138218,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN12opencv_caffe19SaveOutputPara
   %.sink9 = phi ptr [ %3, %_ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe19SaveOutputParameterEE3NewEv.exit ], [ %6, %5 ]
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19SaveOutputParameterE, i64 16), ptr %.sink9, align 8, !tbaa !11
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
-  store i32 0, ptr %.ptr.i, align 4, !tbaa !71
+  store i32 0, ptr %.ptr.i, align 8, !tbaa !71
   %9 = getelementptr inbounds nuw i8, ptr %.sink9, i64 20
   store i32 0, ptr %9, align 4, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %.sink9, i64 24
@@ -138258,7 +138258,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN12opencv_caffe16DropoutParamet
   %.sink5 = phi ptr [ %3, %_ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe16DropoutParameterEE3NewEv.exit ], [ %6, %5 ]
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16DropoutParameterE, i64 16), ptr %.sink5, align 8, !tbaa !11
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink5, i64 16
-  store i32 0, ptr %.ptr.i, align 4, !tbaa !71
+  store i32 0, ptr %.ptr.i, align 8, !tbaa !71
   %9 = getelementptr inbounds nuw i8, ptr %.sink5, i64 20
   store i32 0, ptr %9, align 4, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %.sink5, i64 24
@@ -138382,7 +138382,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN12opencv_caffe12ELUParameterEE
   %.sink4 = phi ptr [ %3, %_ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe12ELUParameterEE3NewEv.exit ], [ %6, %5 ]
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12ELUParameterE, i64 16), ptr %.sink4, align 8, !tbaa !11
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink4, i64 16
-  store i32 0, ptr %.ptr.i, align 4, !tbaa !71
+  store i32 0, ptr %.ptr.i, align 8, !tbaa !71
   %9 = getelementptr inbounds nuw i8, ptr %.sink4, i64 20
   store i32 0, ptr %9, align 4, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %.sink4, i64 24
@@ -138440,7 +138440,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN12opencv_caffe12ExpParameterEE
   %.sink6 = phi ptr [ %3, %_ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe12ExpParameterEE3NewEv.exit ], [ %6, %5 ]
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12ExpParameterE, i64 16), ptr %.sink6, align 8, !tbaa !11
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink6, i64 16
-  store i32 0, ptr %.ptr.i, align 4, !tbaa !71
+  store i32 0, ptr %.ptr.i, align 8, !tbaa !71
   %9 = getelementptr inbounds nuw i8, ptr %.sink6, i64 20
   store i32 0, ptr %9, align 4, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %.sink6, i64 24
@@ -138474,7 +138474,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN12opencv_caffe16FlattenParamet
   %.sink5 = phi ptr [ %3, %_ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe16FlattenParameterEE3NewEv.exit ], [ %6, %5 ]
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16FlattenParameterE, i64 16), ptr %.sink5, align 8, !tbaa !11
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink5, i64 16
-  store i32 0, ptr %.ptr.i, align 4, !tbaa !71
+  store i32 0, ptr %.ptr.i, align 8, !tbaa !71
   %9 = getelementptr inbounds nuw i8, ptr %.sink5, i64 20
   store i32 0, ptr %9, align 4, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %.sink5, i64 24
@@ -138506,7 +138506,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN12opencv_caffe17HDF5DataParame
   %.sink5 = phi ptr [ %3, %_ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe17HDF5DataParameterEE3NewEv.exit ], [ %6, %5 ]
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17HDF5DataParameterE, i64 16), ptr %.sink5, align 8, !tbaa !11
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink5, i64 16
-  store i32 0, ptr %.ptr.i, align 4, !tbaa !71
+  store i32 0, ptr %.ptr.i, align 8, !tbaa !71
   %9 = getelementptr inbounds nuw i8, ptr %.sink5, i64 20
   store i32 0, ptr %9, align 4, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %.sink5, i64 24
@@ -138538,7 +138538,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN12opencv_caffe19HDF5OutputPara
   %.sink4 = phi ptr [ %3, %_ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe19HDF5OutputParameterEE3NewEv.exit ], [ %6, %5 ]
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19HDF5OutputParameterE, i64 16), ptr %.sink4, align 8, !tbaa !11
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink4, i64 16
-  store i32 0, ptr %.ptr.i, align 4, !tbaa !71
+  store i32 0, ptr %.ptr.i, align 8, !tbaa !71
   %9 = getelementptr inbounds nuw i8, ptr %.sink4, i64 20
   store i32 0, ptr %9, align 4, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %.sink4, i64 24
@@ -138568,7 +138568,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN12opencv_caffe18HingeLossParam
   %.sink4 = phi ptr [ %3, %_ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe18HingeLossParameterEE3NewEv.exit ], [ %6, %5 ]
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18HingeLossParameterE, i64 16), ptr %.sink4, align 8, !tbaa !11
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink4, i64 16
-  store i32 0, ptr %.ptr.i, align 4, !tbaa !71
+  store i32 0, ptr %.ptr.i, align 8, !tbaa !71
   %9 = getelementptr inbounds nuw i8, ptr %.sink4, i64 20
   store i32 0, ptr %9, align 4, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %.sink4, i64 24
@@ -138598,7 +138598,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN12opencv_caffe18ImageDataParam
   %.sink10 = phi ptr [ %3, %_ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe18ImageDataParameterEE3NewEv.exit ], [ %6, %5 ]
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ImageDataParameterE, i64 16), ptr %.sink10, align 8, !tbaa !11
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink10, i64 16
-  store i32 0, ptr %.ptr.i, align 4, !tbaa !71
+  store i32 0, ptr %.ptr.i, align 8, !tbaa !71
   %9 = getelementptr inbounds nuw i8, ptr %.sink10, i64 20
   store i32 0, ptr %9, align 4, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %.sink10, i64 24
@@ -138640,7 +138640,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN12opencv_caffe21InfogainLossPa
   %.sink4 = phi ptr [ %3, %_ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe21InfogainLossParameterEE3NewEv.exit ], [ %6, %5 ]
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21InfogainLossParameterE, i64 16), ptr %.sink4, align 8, !tbaa !11
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink4, i64 16
-  store i32 0, ptr %.ptr.i, align 4, !tbaa !71
+  store i32 0, ptr %.ptr.i, align 8, !tbaa !71
   %9 = getelementptr inbounds nuw i8, ptr %.sink4, i64 20
   store i32 0, ptr %9, align 4, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %.sink4, i64 24
@@ -138731,7 +138731,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN12opencv_caffe12LogParameterEE
   %.sink6 = phi ptr [ %3, %_ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe12LogParameterEE3NewEv.exit ], [ %6, %5 ]
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12LogParameterE, i64 16), ptr %.sink6, align 8, !tbaa !11
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink6, i64 16
-  store i32 0, ptr %.ptr.i, align 4, !tbaa !71
+  store i32 0, ptr %.ptr.i, align 8, !tbaa !71
   %9 = getelementptr inbounds nuw i8, ptr %.sink6, i64 20
   store i32 0, ptr %9, align 4, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %.sink6, i64 24
@@ -138911,7 +138911,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN12opencv_caffe14PowerParameter
   %.sink6 = phi ptr [ %3, %_ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe14PowerParameterEE3NewEv.exit ], [ %6, %5 ]
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14PowerParameterE, i64 16), ptr %.sink6, align 8, !tbaa !11
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink6, i64 16
-  store i32 0, ptr %.ptr.i, align 4, !tbaa !71
+  store i32 0, ptr %.ptr.i, align 8, !tbaa !71
   %9 = getelementptr inbounds nuw i8, ptr %.sink6, i64 20
   store i32 0, ptr %9, align 4, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %.sink6, i64 24
@@ -138945,7 +138945,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN12opencv_caffe15PythonParamete
   %.sink7 = phi ptr [ %3, %_ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe15PythonParameterEE3NewEv.exit ], [ %6, %5 ]
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15PythonParameterE, i64 16), ptr %.sink7, align 8, !tbaa !11
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink7, i64 16
-  store i32 0, ptr %.ptr.i, align 4, !tbaa !71
+  store i32 0, ptr %.ptr.i, align 8, !tbaa !71
   %9 = getelementptr inbounds nuw i8, ptr %.sink7, i64 20
   store i32 0, ptr %9, align 4, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %.sink7, i64 24
@@ -139007,7 +139007,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN12opencv_caffe18ReductionParam
   %.sink6 = phi ptr [ %3, %_ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe18ReductionParameterEE3NewEv.exit ], [ %6, %5 ]
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ReductionParameterE, i64 16), ptr %.sink6, align 8, !tbaa !11
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink6, i64 16
-  store i32 0, ptr %.ptr.i, align 4, !tbaa !71
+  store i32 0, ptr %.ptr.i, align 8, !tbaa !71
   %9 = getelementptr inbounds nuw i8, ptr %.sink6, i64 20
   store i32 0, ptr %9, align 4, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %.sink6, i64 24
@@ -139125,7 +139125,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN12opencv_caffe16SigmoidParamet
   %.sink4 = phi ptr [ %3, %_ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe16SigmoidParameterEE3NewEv.exit ], [ %6, %5 ]
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SigmoidParameterE, i64 16), ptr %.sink4, align 8, !tbaa !11
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink4, i64 16
-  store i32 0, ptr %.ptr.i, align 4, !tbaa !71
+  store i32 0, ptr %.ptr.i, align 8, !tbaa !71
   %9 = getelementptr inbounds nuw i8, ptr %.sink4, i64 20
   store i32 0, ptr %9, align 4, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %.sink4, i64 24
@@ -139192,7 +139192,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN12opencv_caffe16SoftmaxParamet
   %.sink5 = phi ptr [ %3, %_ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe16SoftmaxParameterEE3NewEv.exit ], [ %6, %5 ]
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SoftmaxParameterE, i64 16), ptr %.sink5, align 8, !tbaa !11
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink5, i64 16
-  store i32 0, ptr %.ptr.i, align 4, !tbaa !71
+  store i32 0, ptr %.ptr.i, align 8, !tbaa !71
   %9 = getelementptr inbounds nuw i8, ptr %.sink5, i64 20
   store i32 0, ptr %9, align 4, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %.sink5, i64 24
@@ -139224,7 +139224,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN12opencv_caffe13TanHParameterE
   %.sink4 = phi ptr [ %3, %_ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe13TanHParameterEE3NewEv.exit ], [ %6, %5 ]
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13TanHParameterE, i64 16), ptr %.sink4, align 8, !tbaa !11
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink4, i64 16
-  store i32 0, ptr %.ptr.i, align 4, !tbaa !71
+  store i32 0, ptr %.ptr.i, align 8, !tbaa !71
   %9 = getelementptr inbounds nuw i8, ptr %.sink4, i64 20
   store i32 0, ptr %9, align 4, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %.sink4, i64 24
@@ -139254,7 +139254,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN12opencv_caffe13TileParameterE
   %.sink5 = phi ptr [ %3, %_ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe13TileParameterEE3NewEv.exit ], [ %6, %5 ]
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13TileParameterE, i64 16), ptr %.sink5, align 8, !tbaa !11
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink5, i64 16
-  store i32 0, ptr %.ptr.i, align 4, !tbaa !71
+  store i32 0, ptr %.ptr.i, align 8, !tbaa !71
   %9 = getelementptr inbounds nuw i8, ptr %.sink5, i64 20
   store i32 0, ptr %9, align 4, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %.sink5, i64 24
@@ -139286,7 +139286,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN12opencv_caffe18ThresholdParam
   %.sink4 = phi ptr [ %3, %_ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe18ThresholdParameterEE3NewEv.exit ], [ %6, %5 ]
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ThresholdParameterE, i64 16), ptr %.sink4, align 8, !tbaa !11
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink4, i64 16
-  store i32 0, ptr %.ptr.i, align 4, !tbaa !71
+  store i32 0, ptr %.ptr.i, align 8, !tbaa !71
   %9 = getelementptr inbounds nuw i8, ptr %.sink4, i64 20
   store i32 0, ptr %9, align 4, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %.sink4, i64 24
@@ -139316,7 +139316,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN12opencv_caffe19WindowDataPara
   %.sink12 = phi ptr [ %3, %_ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe19WindowDataParameterEE3NewEv.exit ], [ %6, %5 ]
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19WindowDataParameterE, i64 16), ptr %.sink12, align 8, !tbaa !11
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink12, i64 16
-  store i32 0, ptr %.ptr.i, align 4, !tbaa !71
+  store i32 0, ptr %.ptr.i, align 8, !tbaa !71
   %9 = getelementptr inbounds nuw i8, ptr %.sink12, i64 20
   store i32 0, ptr %9, align 4, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %.sink12, i64 24
@@ -139379,7 +139379,7 @@ _ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe16V1LayerParameterEE3Ne
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i32 0, ptr %6, align 4, !tbaa !18
+  store i32 0, ptr %6, align 8, !tbaa !18
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 240
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %7, i8 0, i64 208, i1 false)
@@ -139395,7 +139395,7 @@ _ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe16V1LayerParameterEE3Ne
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i32 0, ptr %14, align 4, !tbaa !18
+  store i32 0, ptr %14, align 8, !tbaa !18
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %0, ptr %15, align 8, !tbaa !88
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -139456,7 +139456,7 @@ _ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe16V0LayerParameterEE3Ne
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i32 0, ptr %6, align 4, !tbaa !18
+  store i32 0, ptr %6, align 8, !tbaa !18
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
@@ -139472,7 +139472,7 @@ _ZN6google8protobuf5Arena14InternalHelperIN12opencv_caffe16V0LayerParameterEE3Ne
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i32 0, ptr %14, align 4, !tbaa !18
+  store i32 0, ptr %14, align 8, !tbaa !18
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %0, ptr %15, align 8, !tbaa !88
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -140811,7 +140811,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 72
   store i32 0, ptr %15, align 8, !tbaa !67
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %17 = load i32, ptr %16, align 4, !tbaa !71
+  %17 = load i32, ptr %16, align 8, !tbaa !71
   %18 = and i32 %17, 3
   %.not.i.i = icmp eq i32 %18, 0
   br i1 %.not.i.i, label %_ZN12opencv_caffe9BlobShape5ClearEv.exit.i.i, label %19
@@ -141085,7 +141085,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %12, ptr %11, align 8, !tbaa !213
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %13, align 8, !tbaa !72
-  store i8 0, ptr %12, align 1, !tbaa !36
+  store i8 0, ptr %12, align 8, !tbaa !36
   %14 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv28
   store ptr %11, ptr %14, align 8, !tbaa !87
   %indvars.iv.next29 = add nsw i64 %indvars.iv28, 1
@@ -141104,7 +141104,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %19, ptr %16, align 8, !tbaa !213
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 0, ptr %20, align 8, !tbaa !72
-  store i8 0, ptr %19, align 1, !tbaa !36
+  store i8 0, ptr %19, align 8, !tbaa !36
   %21 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   store ptr %16, ptr %21, align 8, !tbaa !87
   %indvars.iv.next = add nsw i64 %indvars.iv, 1

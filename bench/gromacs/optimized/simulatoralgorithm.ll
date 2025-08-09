@@ -755,7 +755,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %41
   store i64 %48, ptr %49, align 8, !tbaa !156
   store ptr %39, ptr %1, align 8, !tbaa !155
   store i64 0, ptr %47, align 8, !tbaa !156
-  store i8 0, ptr %39, align 1, !tbaa !157
+  store i8 0, ptr %39, align 8, !tbaa !157
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 368
   store ptr %2, ptr %50, align 8, !tbaa !158
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 376
@@ -4522,7 +4522,7 @@ _ZNSt10unique_ptrIN3gmx19StatePropagatorDataESt14default_deleteIS1_EED2Ev.exit: 
   %181 = load ptr, ptr %158, align 8, !tbaa !788, !noalias !784
   %182 = load ptr, ptr %1, align 8, !tbaa !290, !noalias !784
   %183 = load ptr, ptr %176, align 8, !tbaa !789, !noalias !784
-  %184 = load i32, ptr %67, align 4, !tbaa !790, !noalias !784
+  %184 = load i32, ptr %67, align 8, !tbaa !790, !noalias !784
   %185 = load ptr, ptr %175, align 8, !tbaa !791, !noalias !784
   invoke void @_ZN3gmx10EnergyDataC1EPNS_19StatePropagatorDataEPNS_26FreeEnergyPerturbationDataERK10gmx_mtop_tPK10t_inputrecPKNS_7MDAtomsEP14gmx_enerdata_tP14gmx_ekindata_tPKNS_11ConstraintsEP8_IO_FILEP8t_fcdataRKNS_18MDModulesNotifiersEbP18ObservablesHistoryNS_16StartingBehaviorEbP6pull_t(ptr noundef nonnull align 8 dereferenceable(552) %174, ptr noundef %153, ptr noundef %154, ptr noundef nonnull align 8 dereferenceable(768) %155, ptr noundef %177, ptr noundef %178, ptr noundef %179, ptr noundef %180, ptr noundef %181, ptr noundef %182, ptr noundef %161, ptr noundef nonnull align 1 %163, i1 noundef zeroext %173, ptr noundef %183, i32 noundef %184, i1 noundef zeroext false, ptr noundef %185)
           to label %_ZSt11make_uniqueIN3gmx10EnergyDataEJPNS0_19StatePropagatorDataEPNS0_26FreeEnergyPerturbationDataERK10gmx_mtop_tRPK10t_inputrecRPNS0_7MDAtomsERP14gmx_enerdata_tRP14gmx_ekindata_tRPNS0_11ConstraintsERP8_IO_FILEP8t_fcdataRKNS0_18MDModulesNotifiersEbRP18ObservablesHistoryRKNS0_16StartingBehaviorERKbRP6pull_tEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %186, !noalias !784

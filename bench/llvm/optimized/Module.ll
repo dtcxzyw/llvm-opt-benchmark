@@ -3667,7 +3667,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6Module11RequirementELb0EE9push_backEOS
   store i64 %60, ptr %61, align 8, !tbaa !14
   store ptr %51, ptr %.016.i.i.i, align 8, !tbaa !11
   store i64 0, ptr %59, align 8, !tbaa !14
-  store i8 0, ptr %51, align 1, !tbaa !13
+  store i8 0, ptr %51, align 8, !tbaa !13
   %62 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %63 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 32
   %64 = load i8, ptr %63, align 8, !tbaa !186, !range !188, !noundef !189
@@ -8663,7 +8663,7 @@ _ZSt10_ConstructIN5clang6Module11RequirementEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i: 
   store i64 %22, ptr %23, align 8, !tbaa !14
   store ptr %13, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !11
   store i64 0, ptr %21, align 8, !tbaa !14
-  store i8 0, ptr %13, align 1, !tbaa !13
+  store i8 0, ptr %13, align 8, !tbaa !13
   %24 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 32
   %26 = load i8, ptr %25, align 8, !tbaa !186, !range !188, !noundef !189

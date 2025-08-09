@@ -363,7 +363,7 @@ define internal noundef i32 @crypto_cbcmac_digest_init(ptr noundef captures(none
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 -8
   %7 = load i32, ptr %6, align 8
-  store i32 0, ptr %2, align 4
+  store i32 0, ptr %2, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = sext i32 %7 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %8, i8 0, i64 %9, i1 false)
@@ -428,7 +428,7 @@ define internal noundef i32 @crypto_cbcmac_digest_final(ptr noundef %0, ptr noun
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -8
   %8 = load i32, ptr %7, align 8
-  %9 = load i32, ptr %4, align 4
+  %9 = load i32, ptr %4, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %15, label %11
 

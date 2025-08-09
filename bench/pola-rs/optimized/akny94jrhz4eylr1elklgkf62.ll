@@ -2448,9 +2448,9 @@ _ZN11polars_core9datatypes9any_value8AnyValue11into_static17hf9d4d20c14e42da2E.e
   %.sroa.68.16..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %375, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.68.16..sroa_idx.i.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.i.i, i64 7, i1 false), !noalias !132
   %.sroa.6.sroa.4.0..sroa.68.16..sroa_idx.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %375, i64 8
-  store ptr %.sroa.7.0.i, ptr %.sroa.6.sroa.4.0..sroa.68.16..sroa_idx.i.sroa_idx.i, align 1, !noalias !267
+  store ptr %.sroa.7.0.i, ptr %.sroa.6.sroa.4.0..sroa.68.16..sroa_idx.i.sroa_idx.i, align 8, !noalias !267
   %.sroa.6.sroa.7.0..sroa.68.16..sroa_idx.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %375, i64 16
-  store ptr %.sroa.93.0.i, ptr %.sroa.6.sroa.7.0..sroa.68.16..sroa_idx.i.sroa_idx.i, align 1, !noalias !267
+  store ptr %.sroa.93.0.i, ptr %.sroa.6.sroa.7.0..sroa.68.16..sroa_idx.i.sroa_idx.i, align 16, !noalias !267
   %.sroa.6.sroa.8.0..sroa.68.16..sroa_idx.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %375, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %.sroa.6.sroa.8.0..sroa.68.16..sroa_idx.i.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(48) %.sroa.6.sroa.8.i, i64 48, i1 false), !noalias !267
   %.sroa.7.16..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %375, i64 72

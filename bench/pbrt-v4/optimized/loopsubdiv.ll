@@ -1650,7 +1650,7 @@ _ZNSt6vectorIPN4pbrt8SDVertexESaIS2_EE9push_backERKS2_.exit770: ; preds = %_ZNSt
   %558 = fmul float %.sroa.0.4.vec.extract.i772, 5.000000e-01
   %559 = fmul float %.sroa.2397.0.copyload, 5.000000e-01
   %560 = fadd float %557, %554
-  store float %560, ptr %524, align 4, !tbaa !82
+  store float %560, ptr %524, align 8, !tbaa !82
   %561 = fadd float %558, %555
   store float %561, ptr %.sroa.4.0..sroa_idx.i.i757, align 4, !tbaa !83
   %562 = fadd float %556, %559
@@ -1686,11 +1686,11 @@ _ZNSt6vectorIPN4pbrt8SDVertexESaIS2_EE9push_backERKS2_.exit770: ; preds = %_ZNSt
   %568 = fmul float %.sroa.0.4.vec.extract.i784, 3.750000e-01
   %569 = fmul float %.sroa.2375.0.copyload, 3.750000e-01
   %570 = fadd float %567, %564
-  store float %570, ptr %524, align 4, !tbaa !82
+  store float %570, ptr %524, align 8, !tbaa !82
   %571 = fadd float %568, %565
   store float %571, ptr %.sroa.4.0..sroa_idx.i.i757, align 4, !tbaa !83
   %572 = fadd float %566, %569
-  store float %572, ptr %.sroa.5.0..sroa_idx.i.i758, align 4, !tbaa !84
+  store float %572, ptr %.sroa.5.0..sroa_idx.i.i758, align 8, !tbaa !84
   br label %574
 
 573:                                              ; preds = %574

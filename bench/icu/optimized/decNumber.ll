@@ -13313,7 +13313,7 @@ uprv_decNumberCopy_77.exit258:                    ; preds = %.uprv_decNumberCopy
   %171 = getelementptr inbounds nuw i8, ptr %.0202, i64 9
   store i8 9, ptr %171, align 1, !tbaa !10
   %172 = getelementptr i8, ptr %.0202, i64 10
-  store i8 %.sink313, ptr %172, align 1, !tbaa !10
+  store i8 %.sink313, ptr %172, align 2, !tbaa !10
   %173 = getelementptr inbounds nuw i8, ptr %.0202, i64 11
   store i8 %.sink, ptr %173, align 1, !tbaa !10
   %174 = call fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef nonnull %.0202, ptr noundef nonnull %.0202, ptr noundef nonnull %.0203, ptr noundef nonnull %5, ptr noundef %10)

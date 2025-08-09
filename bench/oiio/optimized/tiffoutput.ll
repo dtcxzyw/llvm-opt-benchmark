@@ -36815,11 +36815,11 @@ define internal fastcc void @"_ZStL19__create_task_stateIFviEZN11OpenImageIO6v3_
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr null, ptr %7, align 8, !tbaa !797, !noalias !794
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i32 0, ptr %8, align 4, !tbaa !800, !noalias !794
+  store i32 0, ptr %8, align 8, !tbaa !800, !noalias !794
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  store i8 0, ptr %9, align 1, !tbaa !802, !noalias !794
+  store i8 0, ptr %9, align 4, !tbaa !802, !noalias !794
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i32 0, ptr %10, align 4, !tbaa !804, !noalias !794
+  store i32 0, ptr %10, align 8, !tbaa !804, !noalias !794
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFviEEE, i64 16), ptr %6, align 8, !tbaa !21, !noalias !794
   tail call void @llvm.experimental.noalias.scope.decl(metadata !806)
   %11 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #36
@@ -38627,11 +38627,11 @@ define internal fastcc void @"_ZStL19__create_task_stateIFviEZN11OpenImageIO6v3_
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr null, ptr %7, align 8, !tbaa !797, !noalias !889
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i32 0, ptr %8, align 4, !tbaa !800, !noalias !889
+  store i32 0, ptr %8, align 8, !tbaa !800, !noalias !889
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  store i8 0, ptr %9, align 1, !tbaa !802, !noalias !889
+  store i8 0, ptr %9, align 4, !tbaa !802, !noalias !889
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i32 0, ptr %10, align 4, !tbaa !804, !noalias !889
+  store i32 0, ptr %10, align 8, !tbaa !804, !noalias !889
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFviEEE, i64 16), ptr %6, align 8, !tbaa !21, !noalias !889
   tail call void @llvm.experimental.noalias.scope.decl(metadata !892)
   %11 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #36

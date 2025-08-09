@@ -154,7 +154,7 @@ _ZN3nix9CanonPathC2EOS0_.exit:                    ; preds = %21, %_ZNKSt7__cxx11
   store i64 %27, ptr %29, align 8
   store ptr %19, ptr %2, align 8
   store i64 0, ptr %28, align 8
-  store i8 0, ptr %19, align 1
+  store i8 0, ptr %19, align 8
   store ptr %6, ptr %0, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %30, align 8

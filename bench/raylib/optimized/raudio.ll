@@ -4765,7 +4765,7 @@ ma_channel_map_copy.exit169.i:                    ; preds = %.preheader.i172.i, 
   %268 = getelementptr inbounds nuw i8, ptr %7, i64 104
   store ptr %267, ptr %268, align 8
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %270 = load atomic i32, ptr %269 seq_cst, align 4
+  %270 = load atomic i32, ptr %269 seq_cst, align 8
   %.not.i82 = icmp eq i32 %270, 0
   br i1 %.not.i82, label %ma_data_converter_uninit.exit.i, label %271
 
@@ -4986,7 +4986,7 @@ ma_data_converter_init.exit.i:                    ; preds = %.thread.i.i, %335
   %384 = getelementptr inbounds nuw i8, ptr %8, i64 104
   store ptr %383, ptr %384, align 8
   %385 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %386 = load atomic i32, ptr %385 seq_cst, align 4
+  %386 = load atomic i32, ptr %385 seq_cst, align 8
   %.not162.i = icmp eq i32 %386, 0
   br i1 %.not162.i, label %ma_data_converter_uninit.exit192.i, label %387
 
@@ -10695,7 +10695,7 @@ ma_device_get_state.exit:                         ; preds = %.lr.ph.i.i, %53
   store i32 0, ptr %26, align 8
   %60 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %27) #70
   store i32 0, ptr %29, align 8
-  %61 = load atomic i32, ptr %19 seq_cst, align 4
+  %61 = load atomic i32, ptr %19 seq_cst, align 8
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %370, label %63
 
@@ -11556,7 +11556,7 @@ ma_aligned_malloc.exit.i:                         ; preds = %78
   %98 = getelementptr inbounds nuw i8, ptr %6, i64 144
   store i32 0, ptr %98, align 8
   %99 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  store i64 0, ptr %99, align 1
+  store i64 0, ptr %99, align 8
   store ptr @ma_gRBDataSourceVTable, ptr %6, align 8
   %100 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %100, align 8
@@ -30000,7 +30000,7 @@ ma_spatializer_validate_config.exit.i:            ; preds = %10
   %77 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %.sroa.23.0..sroa_idx.i110 = getelementptr inbounds nuw i8, ptr %2, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %76, i8 0, i64 24, i1 false)
-  store float -1.000000e+00, ptr %.sroa.23.0..sroa_idx.i110, align 4
+  store float -1.000000e+00, ptr %.sroa.23.0..sroa_idx.i110, align 8
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 100
   %79 = getelementptr inbounds nuw i8, ptr %2, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %78, i8 0, i64 20, i1 false)
@@ -30487,7 +30487,7 @@ ma_copy_pcm_frames.exit:                          ; preds = %.lr.ph.i, %ma_zero_
   %47 = load atomic volatile i32, ptr %46 seq_cst, align 4
   %48 = bitcast i32 %47 to float
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %50 = load atomic volatile i32, ptr %49 seq_cst, align 4
+  %50 = load atomic volatile i32, ptr %49 seq_cst, align 8
   %51 = bitcast i32 %50 to float
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %53 = load atomic volatile i32, ptr %52 seq_cst, align 4
@@ -43860,7 +43860,7 @@ ma_zero_memory_default.exit:                      ; preds = %8
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 144
   store i32 0, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  store i64 0, ptr %27, align 1
+  store i64 0, ptr %27, align 8
   store ptr @ma_gRBDataSourceVTable, ptr %7, align 8
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %28, align 8
@@ -43948,7 +43948,7 @@ ma_zero_memory_default.exit.i:                    ; preds = %6
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 144
   store i32 0, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store i64 0, ptr %22, align 1
+  store i64 0, ptr %22, align 8
   store ptr @ma_gRBDataSourceVTable, ptr %5, align 8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %23, align 8
@@ -56840,7 +56840,7 @@ define internal fastcc range(i32 0, 2) i32 @drwav_init_write__internal(ptr nound
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %109 = add i64 %105, %108
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %111 = load i32, ptr %110, align 4
+  %111 = load i32, ptr %110, align 8
   %.val167 = load ptr, ptr %102, align 8
   %.val168 = load ptr, ptr %103, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -56858,7 +56858,7 @@ define internal fastcc range(i32 0, 2) i32 @drwav_init_write__internal(ptr nound
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %117 = add i64 %113, %116
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %119 = load i16, ptr %118, align 4
+  %119 = load i16, ptr %118, align 8
   %.val191 = load ptr, ptr %102, align 8
   %.val192 = load ptr, ptr %103, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -59592,7 +59592,7 @@ define internal fastcc i64 @drwav_read_pcm_frames_s16__msadpcm(ptr noundef nonnu
   store i32 %59, ptr %21, align 8
   %60 = load i16, ptr %37, align 1
   %61 = sext i16 %60 to i32
-  store i32 %61, ptr %26, align 4
+  store i32 %61, ptr %26, align 8
   %62 = load i16, ptr %38, align 1
   %63 = sext i16 %62 to i32
   store i32 %63, ptr %25, align 4
@@ -59633,10 +59633,10 @@ define internal fastcc i64 @drwav_read_pcm_frames_s16__msadpcm(ptr noundef nonnu
   store i32 %79, ptr %23, align 4
   %80 = load i16, ptr %24, align 1
   %81 = sext i16 %80 to i32
-  store i32 %81, ptr %26, align 4
+  store i32 %81, ptr %26, align 8
   %82 = load i16, ptr %27, align 1
   %83 = sext i16 %82 to i32
-  store i32 %83, ptr %29, align 4
+  store i32 %83, ptr %29, align 8
   %84 = load i16, ptr %30, align 1
   %85 = sext i16 %84 to i32
   store i32 %85, ptr %25, align 4
@@ -59753,7 +59753,7 @@ define internal fastcc i64 @drwav_read_pcm_frames_s16__msadpcm(ptr noundef nonnu
   %.0 = or disjoint i32 %masksel, %135
   %137 = load i16, ptr %14, align 8
   %138 = icmp eq i16 %137, 1
-  %139 = load i32, ptr %26, align 4
+  %139 = load i32, ptr %26, align 8
   %140 = load i16, ptr %17, align 4
   %141 = zext i16 %140 to i64
   %142 = getelementptr inbounds nuw [7 x i32], ptr @drwav_read_pcm_frames_s16__msadpcm.coeff1Table, i64 0, i64 %141
@@ -59796,14 +59796,14 @@ define internal fastcc i64 @drwav_read_pcm_frames_s16__msadpcm(ptr noundef nonnu
   %storemerge188 = call i32 @llvm.smax.i32(i32 %175, i32 16)
   store i32 %storemerge188, ptr %21, align 8
   store i32 %155, ptr %25, align 4
-  store i32 %169, ptr %26, align 4
+  store i32 %169, ptr %26, align 8
   br label %.thread193
 
 176:                                              ; preds = %126
   store i32 %spec.select, ptr %21, align 8
   store i32 %139, ptr %25, align 4
-  store i32 %155, ptr %26, align 4
-  %177 = load i32, ptr %29, align 4
+  store i32 %155, ptr %26, align 8
+  %177 = load i32, ptr %29, align 8
   %178 = load i16, ptr %19, align 2
   %179 = zext i16 %178 to i64
   %180 = getelementptr inbounds nuw [7 x i32], ptr @drwav_read_pcm_frames_s16__msadpcm.coeff1Table, i64 0, i64 %179
@@ -59829,7 +59829,7 @@ define internal fastcc i64 @drwav_read_pcm_frames_s16__msadpcm(ptr noundef nonnu
   %storemerge185 = call i32 @llvm.smax.i32(i32 %199, i32 16)
   store i32 %storemerge185, ptr %23, align 4
   store i32 %177, ptr %28, align 4
-  store i32 %193, ptr %29, align 4
+  store i32 %193, ptr %29, align 8
   br label %.thread193
 
 .thread193:                                       ; preds = %161, %176
@@ -60046,7 +60046,7 @@ define internal fastcc i64 @drwav_read_pcm_frames_s16__ima(ptr noundef nonnull c
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i64, ptr %7, align 8
-  %.pre329 = load i32, ptr %13, align 4
+  %.pre329 = load i32, ptr %13, align 8
   %100 = zext i16 %97 to i64
   br label %._crit_edge
 
@@ -60060,7 +60060,7 @@ define internal fastcc i64 @drwav_read_pcm_frames_s16__ima(ptr noundef nonnull c
   %106 = add i64 %102, 1
   store i64 %106, ptr %7, align 8
   %107 = add i32 %101, -1
-  store i32 %107, ptr %13, align 4
+  store i32 %107, ptr %13, align 8
   %cond = icmp eq i64 %104, 0
   br i1 %cond, label %.loopexit.loopexit, label %.lr.ph283
 
@@ -69851,7 +69851,7 @@ setup_temp_free.exit1195:                         ; preds = %645, %652, %479
   %776 = shl nuw i32 1, %775
   %777 = trunc i32 %776 to i16
   %778 = getelementptr inbounds nuw i8, ptr %719, i64 340
-  store i16 %777, ptr %778, align 2
+  store i16 %777, ptr %778, align 4
   %779 = getelementptr inbounds nuw i8, ptr %719, i64 1592
   store i32 2, ptr %779, align 4
   %780 = load i8, ptr %719, align 4
@@ -80202,9 +80202,9 @@ drmp3d_DCT_II.exit:                               ; preds = %189
   %271 = load float, ptr %266, align 4
   %272 = insertelement <4 x float> poison, float %271, i64 0
   %273 = shufflevector <4 x float> %272, <4 x float> poison, <4 x i32> zeroinitializer
-  %274 = load <4 x float>, ptr %240, align 1
+  %274 = load <4 x float>, ptr %240, align 4
   %275 = getelementptr i8, ptr %240, i64 -3840
-  %276 = load <4 x float>, ptr %275, align 1
+  %276 = load <4 x float>, ptr %275, align 4
   %277 = fmul <4 x float> %274, %273
   %278 = fmul <4 x float> %269, %276
   %279 = fadd <4 x float> %277, %278
@@ -80220,9 +80220,9 @@ drmp3d_DCT_II.exit:                               ; preds = %189
   %289 = insertelement <4 x float> poison, float %288, i64 0
   %290 = shufflevector <4 x float> %289, <4 x float> poison, <4 x i32> zeroinitializer
   %291 = getelementptr i8, ptr %240, i64 -256
-  %292 = load <4 x float>, ptr %291, align 1
+  %292 = load <4 x float>, ptr %291, align 4
   %293 = getelementptr i8, ptr %240, i64 -3584
-  %294 = load <4 x float>, ptr %293, align 1
+  %294 = load <4 x float>, ptr %293, align 4
   %295 = fmul <4 x float> %292, %290
   %296 = fmul <4 x float> %286, %294
   %297 = fadd <4 x float> %295, %296
@@ -80240,9 +80240,9 @@ drmp3d_DCT_II.exit:                               ; preds = %189
   %309 = insertelement <4 x float> poison, float %308, i64 0
   %310 = shufflevector <4 x float> %309, <4 x float> poison, <4 x i32> zeroinitializer
   %311 = getelementptr i8, ptr %240, i64 -512
-  %312 = load <4 x float>, ptr %311, align 1
+  %312 = load <4 x float>, ptr %311, align 4
   %313 = getelementptr i8, ptr %240, i64 -3328
-  %314 = load <4 x float>, ptr %313, align 1
+  %314 = load <4 x float>, ptr %313, align 4
   %315 = fmul <4 x float> %312, %310
   %316 = fmul <4 x float> %306, %314
   %317 = fadd <4 x float> %315, %316
@@ -80260,9 +80260,9 @@ drmp3d_DCT_II.exit:                               ; preds = %189
   %329 = insertelement <4 x float> poison, float %328, i64 0
   %330 = shufflevector <4 x float> %329, <4 x float> poison, <4 x i32> zeroinitializer
   %331 = getelementptr i8, ptr %240, i64 -768
-  %332 = load <4 x float>, ptr %331, align 1
+  %332 = load <4 x float>, ptr %331, align 4
   %333 = getelementptr i8, ptr %240, i64 -3072
-  %334 = load <4 x float>, ptr %333, align 1
+  %334 = load <4 x float>, ptr %333, align 4
   %335 = fmul <4 x float> %332, %330
   %336 = fmul <4 x float> %326, %334
   %337 = fadd <4 x float> %335, %336
@@ -80280,9 +80280,9 @@ drmp3d_DCT_II.exit:                               ; preds = %189
   %349 = insertelement <4 x float> poison, float %348, i64 0
   %350 = shufflevector <4 x float> %349, <4 x float> poison, <4 x i32> zeroinitializer
   %351 = getelementptr i8, ptr %240, i64 -1024
-  %352 = load <4 x float>, ptr %351, align 1
+  %352 = load <4 x float>, ptr %351, align 4
   %353 = getelementptr i8, ptr %240, i64 -2816
-  %354 = load <4 x float>, ptr %353, align 1
+  %354 = load <4 x float>, ptr %353, align 4
   %355 = fmul <4 x float> %352, %350
   %356 = fmul <4 x float> %346, %354
   %357 = fadd <4 x float> %355, %356
@@ -80300,9 +80300,9 @@ drmp3d_DCT_II.exit:                               ; preds = %189
   %369 = insertelement <4 x float> poison, float %368, i64 0
   %370 = shufflevector <4 x float> %369, <4 x float> poison, <4 x i32> zeroinitializer
   %371 = getelementptr i8, ptr %240, i64 -1280
-  %372 = load <4 x float>, ptr %371, align 1
+  %372 = load <4 x float>, ptr %371, align 4
   %373 = getelementptr i8, ptr %240, i64 -2560
-  %374 = load <4 x float>, ptr %373, align 1
+  %374 = load <4 x float>, ptr %373, align 4
   %375 = fmul <4 x float> %372, %370
   %376 = fmul <4 x float> %366, %374
   %377 = fadd <4 x float> %375, %376
@@ -80320,9 +80320,9 @@ drmp3d_DCT_II.exit:                               ; preds = %189
   %389 = insertelement <4 x float> poison, float %388, i64 0
   %390 = shufflevector <4 x float> %389, <4 x float> poison, <4 x i32> zeroinitializer
   %391 = getelementptr i8, ptr %240, i64 -1536
-  %392 = load <4 x float>, ptr %391, align 1
+  %392 = load <4 x float>, ptr %391, align 4
   %393 = getelementptr i8, ptr %240, i64 -2304
-  %394 = load <4 x float>, ptr %393, align 1
+  %394 = load <4 x float>, ptr %393, align 4
   %395 = fmul <4 x float> %392, %390
   %396 = fmul <4 x float> %386, %394
   %397 = fadd <4 x float> %395, %396
@@ -80340,9 +80340,9 @@ drmp3d_DCT_II.exit:                               ; preds = %189
   %409 = insertelement <4 x float> poison, float %408, i64 0
   %410 = shufflevector <4 x float> %409, <4 x float> poison, <4 x i32> zeroinitializer
   %411 = getelementptr i8, ptr %240, i64 -1792
-  %412 = load <4 x float>, ptr %411, align 1
+  %412 = load <4 x float>, ptr %411, align 4
   %413 = getelementptr i8, ptr %240, i64 -2048
-  %414 = load <4 x float>, ptr %413, align 1
+  %414 = load <4 x float>, ptr %413, align 4
   %415 = fmul <4 x float> %412, %410
   %416 = fmul <4 x float> %406, %414
   %417 = fadd <4 x float> %415, %416
@@ -80619,7 +80619,7 @@ define hidden range(i32 0, 2) i32 @drmp3_init_memory(ptr noundef %0, ptr noundef
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16048
   store i64 %2, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 6152
-  store i8 0, ptr %12, align 4
+  store i8 0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 6680
   store ptr @drmp3__on_read_memory, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 6688
@@ -81418,7 +81418,7 @@ define hidden range(i32 0, 2) i32 @drmp3_seek_to_pcm_frame(ptr noundef %0, i64 n
   %21 = and i8 %20, -2
   store i8 %21, ptr %19, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 6152
-  store i8 0, ptr %22, align 4
+  store i8 0, ptr %22, align 8
   br label %drmp3_seek_to_start_of_stream.exit
 
 23:                                               ; preds = %8
@@ -81551,7 +81551,7 @@ drmp3__on_seek_64.exit.i:                         ; preds = %.thread.i.i, %48
   %78 = and i8 %77, -2
   store i8 %78, ptr %76, align 8
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 6152
-  store i8 0, ptr %79, align 4
+  store i8 0, ptr %79, align 8
   %.not.i = icmp eq i32 %.sroa.7.037.i, 0
   br i1 %.not.i, label %._crit_edge57.i, label %.lr.ph56.i
 
@@ -81651,7 +81651,7 @@ drmp3_seek_to_start_of_stream.exit.i:             ; preds = %115
   %124 = and i8 %123, -2
   store i8 %124, ptr %122, align 8
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 6152
-  store i8 0, ptr %125, align 4
+  store i8 0, ptr %125, align 8
   br label %126
 
 126:                                              ; preds = %drmp3_seek_to_start_of_stream.exit.i, %113
@@ -81741,7 +81741,7 @@ drmp3_seek_to_start_of_stream.exit:               ; preds = %9
   %20 = and i8 %19, -2
   store i8 %20, ptr %18, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 6152
-  store i8 0, ptr %21, align 4
+  store i8 0, ptr %21, align 8
   br label %22
 
 22:                                               ; preds = %drmp3_seek_to_start_of_stream.exit, %22
@@ -81769,7 +81769,7 @@ drmp3_seek_to_start_of_stream.exit:               ; preds = %9
   %33 = load i8, ptr %18, align 8
   %34 = and i8 %33, -2
   store i8 %34, ptr %18, align 8
-  store i8 0, ptr %21, align 4
+  store i8 0, ptr %21, align 8
   %35 = tail call i32 @drmp3_seek_to_pcm_frame(ptr noundef nonnull %0, i64 noundef %11)
   %.not28 = icmp eq i32 %35, 0
   br i1 %.not28, label %drmp3_seek_to_start_of_stream.exit.thread, label %36
@@ -82254,7 +82254,7 @@ drmp3_seek_to_start_of_stream.exit:               ; preds = %21
   %41 = and i8 %40, -2
   store i8 %41, ptr %39, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 6152
-  store i8 0, ptr %42, align 4
+  store i8 0, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 15976
   %44 = getelementptr i8, ptr %0, i64 6672
   %45 = getelementptr i8, ptr %0, i64 6740
@@ -82378,7 +82378,7 @@ drmp3_seek_to_start_of_stream.exit:               ; preds = %21
   %100 = load i8, ptr %39, align 8
   %101 = and i8 %100, -2
   store i8 %101, ptr %39, align 8
-  store i8 0, ptr %42, align 4
+  store i8 0, ptr %42, align 8
   %102 = call i32 @drmp3_seek_to_pcm_frame(ptr noundef nonnull %0, i64 noundef %15)
   %.not91.not = icmp eq i32 %102, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -84752,7 +84752,7 @@ define hidden i32 @qoaplay_decode_frame(ptr noundef captures(none) initializes((
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr %0, align 4
+  %8 = load i32, ptr %0, align 8
   %9 = shl i32 %8, 4
   %10 = or disjoint i32 %9, 8
   %11 = shl i32 %8, 11
@@ -84949,7 +84949,7 @@ qoaplay_rewind.exit._crit_edge:                   ; preds = %qoaplay_rewind.exit
 
 61:                                               ; preds = %qoaplay_rewind.exit
   %62 = load ptr, ptr %13, align 8
-  %63 = load i32, ptr %0, align 4
+  %63 = load i32, ptr %0, align 8
   %64 = shl i32 %63, 4
   %65 = or disjoint i32 %64, 8
   %66 = shl i32 %63, 11
@@ -85092,7 +85092,7 @@ define hidden void @qoaplay_seek_frame(ptr noundef captures(none) initializes((3
   store i32 0, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %12 = load i32, ptr %11, align 8
-  %13 = load i32, ptr %0, align 4
+  %13 = load i32, ptr %0, align 8
   %14 = shl i32 %13, 4
   %15 = or disjoint i32 %14, 8
   %16 = shl i32 %13, 11
@@ -96501,7 +96501,7 @@ LoadAudioStream.exit94:                           ; preds = %85, %89
   %109 = getelementptr inbounds nuw i8, ptr %101, i64 16048
   store i64 %102, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %101, i64 6152
-  store i8 0, ptr %110, align 4
+  store i8 0, ptr %110, align 8
   %111 = getelementptr inbounds nuw i8, ptr %101, i64 6680
   store ptr @drmp3__on_read_memory, ptr %111, align 8
   %112 = getelementptr inbounds nuw i8, ptr %101, i64 6688
@@ -97305,7 +97305,7 @@ StopAudioStream.exit:                             ; preds = %1, %3, %IsAudioBuff
   %63 = and i8 %62, -2
   store i8 %63, ptr %61, align 8
   %64 = getelementptr inbounds nuw i8, ptr %50, i64 6152
-  store i8 0, ptr %64, align 4
+  store i8 0, ptr %64, align 8
   br label %drwav_seek_to_first_pcm_frame.exit
 
 65:                                               ; preds = %StopAudioStream.exit
@@ -97551,7 +97551,7 @@ define void @SeekMusicStream(ptr noundef readonly byval(%struct.Music) align 8 c
   store i32 0, ptr %36, align 4
   %37 = getelementptr inbounds nuw i8, ptr %29, i64 296
   %38 = load i32, ptr %37, align 8
-  %39 = load i32, ptr %29, align 4
+  %39 = load i32, ptr %29, align 8
   %40 = shl i32 %39, 4
   %41 = or disjoint i32 %40, 8
   %42 = shl i32 %39, 11
@@ -97856,7 +97856,7 @@ drwav_seek_to_first_pcm_frame.exit89:             ; preds = %127, %117, %.lr.ph1
   %157 = load i8, ptr %40, align 8
   %158 = and i8 %157, -2
   store i8 %158, ptr %40, align 8
-  store i8 0, ptr %41, align 4
+  store i8 0, ptr %41, align 8
   br label %drmp3_seek_to_start_of_stream.exit
 
 drmp3_seek_to_start_of_stream.exit:               ; preds = %156, %.lr.ph
@@ -101390,7 +101390,7 @@ ma_device_get_state.exit:                         ; preds = %3
   %18 = mul i32 %17, %14
   %19 = zext i32 %18 to i64
   %20 = udiv i64 %1, %19
-  %21 = load atomic i32, ptr %7 seq_cst, align 4
+  %21 = load atomic i32, ptr %7 seq_cst, align 8
   %22 = icmp eq i32 %21, 2
   %23 = icmp uge i64 %1, %19
   %24 = and i1 %22, %23
@@ -101800,7 +101800,7 @@ ma_device_get_state.exit:
   %11 = load i32, ptr %10, align 4
   %12 = mul i32 %11, %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load atomic i32, ptr %13 seq_cst, align 4
+  %14 = load atomic i32, ptr %13 seq_cst, align 8
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 904
   %17 = load ptr, ptr %16, align 8
@@ -106300,7 +106300,7 @@ define internal noundef i32 @ma_device_read__null(ptr noundef captures(none) %0,
   %45 = load i32, ptr %14, align 8
   %46 = zext i32 %45 to i64
   %47 = add i64 %44, %46
-  %48 = load atomic i32, ptr %16 seq_cst, align 4
+  %48 = load atomic i32, ptr %16 seq_cst, align 8
   %.not5064 = icmp eq i32 %48, 0
   br i1 %.not5064, label %._crit_edge, label %.lr.ph
 
@@ -106410,7 +106410,7 @@ define internal noundef i32 @ma_device_write__null(ptr noundef %0, ptr readnone 
 .thread:                                          ; preds = %20, %22
   %.24459 = phi i32 [ %25, %22 ], [ %.04269, %20 ]
   store i32 0, ptr %11, align 8
-  %26 = load atomic i32, ptr %9 seq_cst, align 4
+  %26 = load atomic i32, ptr %9 seq_cst, align 8
   %27 = icmp ne i32 %26, 0
   %or.cond = select i1 %27, i1 true, i1 %12
   br i1 %or.cond, label %29, label %28
@@ -106427,7 +106427,7 @@ define internal noundef i32 @ma_device_write__null(ptr noundef %0, ptr readnone 
 
 31:                                               ; preds = %29
   %32 = load i64, ptr %13, align 8
-  %33 = load atomic i32, ptr %9 seq_cst, align 4
+  %33 = load atomic i32, ptr %9 seq_cst, align 8
   %.not5367 = icmp eq i32 %33, 0
   br i1 %.not5367, label %._crit_edge, label %.lr.ph
 
@@ -110110,7 +110110,7 @@ drwav_buffer_reader_seek.exit61:                  ; preds = %drwav_buffer_reader
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 42
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 330
   %56 = load i64, ptr %55, align 2
-  store i64 %56, ptr %54, align 1
+  store i64 %56, ptr %54, align 2
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 338
   %58 = load i64, ptr %57, align 2
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -110118,7 +110118,7 @@ drwav_buffer_reader_seek.exit61:                  ; preds = %drwav_buffer_reader
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 346
   %62 = load i16, ptr %61, align 2
-  store i16 %62, ptr %60, align 2
+  store i16 %62, ptr %60, align 8
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 64

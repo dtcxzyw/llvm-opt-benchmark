@@ -94,7 +94,7 @@ define linkonce_odr noundef ptr @_ZN5folly6detail5thunk4makeINS_10rcu_domainEJEE
   %1 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #10
   store i64 0, ptr %1, align 8, !tbaa !7
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 0, ptr %2, align 4, !tbaa !12
+  store i32 0, ptr %2, align 8, !tbaa !12
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 -1, ptr %3, align 4, !tbaa !12
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -102,7 +102,7 @@ define linkonce_odr noundef ptr @_ZN5folly6detail5thunk4makeINS_10rcu_domainEJEE
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %5, i8 0, i64 68, i1 false)
-  store i32 -1, ptr %6, align 4, !tbaa !12
+  store i32 -1, ptr %6, align 8, !tbaa !12
   %7 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5folly23QueuedImmediateExecutor8instanceEv()
           to label %_ZN5folly10rcu_domainC2EPNS_8ExecutorE.exit unwind label %8
 

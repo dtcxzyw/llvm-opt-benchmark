@@ -5135,7 +5135,7 @@ define void @_ZN3net10SpdyFramer25ProcessControlFrameHeaderEi(ptr noundef nonnul
   %132 = load i32, ptr %131, align 8, !tbaa !136
   %133 = and i32 %132, -75
   %134 = or disjoint i32 %133, 8
-  store i32 %134, ptr %131, align 4, !tbaa !145
+  store i32 %134, ptr %131, align 8, !tbaa !145
   %135 = load i8, ptr %118, align 4, !tbaa !93
   %136 = zext i8 %135 to i32
   %137 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %124, i32 noundef %136)
@@ -5311,7 +5311,7 @@ _ZNK3net10SpdyFramer22GetSettingsMinimumSizeEv.exit: ; preds = %149, %152
   %229 = load i32, ptr %228, align 8, !tbaa !136
   %230 = and i32 %229, -75
   %231 = or disjoint i32 %230, 8
-  store i32 %231, ptr %228, align 4, !tbaa !145
+  store i32 %231, ptr %228, align 8, !tbaa !145
   %232 = load i8, ptr %179, align 4, !tbaa !93
   %233 = zext i8 %232 to i32
   %234 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %221, i32 noundef %233)
@@ -5402,7 +5402,7 @@ _ZNK3net10SpdyFramer22GetSettingsMinimumSizeEv.exit: ; preds = %149, %152
   %277 = load i32, ptr %276, align 8, !tbaa !136
   %278 = and i32 %277, -75
   %279 = or disjoint i32 %278, 8
-  store i32 %279, ptr %276, align 4, !tbaa !145
+  store i32 %279, ptr %276, align 8, !tbaa !145
   %280 = load i8, ptr %263, align 4, !tbaa !93
   %281 = zext i8 %280 to i32
   %282 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %269, i32 noundef %281)
@@ -5451,7 +5451,7 @@ _ZNK3net10SpdyFramer22GetSettingsMinimumSizeEv.exit: ; preds = %149, %152
   %300 = load i32, ptr %299, align 8, !tbaa !136
   %301 = and i32 %300, -75
   %302 = or disjoint i32 %301, 8
-  store i32 %302, ptr %299, align 4, !tbaa !145
+  store i32 %302, ptr %299, align 8, !tbaa !145
   %303 = load i8, ptr %286, align 4, !tbaa !93
   %304 = zext i8 %303 to i32
   %305 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %292, i32 noundef %304)
@@ -5555,7 +5555,7 @@ thread-pre-split:                                 ; preds = %314
   %357 = load i32, ptr %356, align 8, !tbaa !136
   %358 = and i32 %357, -75
   %359 = or disjoint i32 %358, 8
-  store i32 %359, ptr %356, align 4, !tbaa !145
+  store i32 %359, ptr %356, align 8, !tbaa !145
   %360 = load i8, ptr %343, align 4, !tbaa !93
   %361 = zext i8 %360 to i32
   %362 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %349, i32 noundef %361)
@@ -5655,7 +5655,7 @@ thread-pre-split:                                 ; preds = %314
   %412 = load i32, ptr %411, align 8, !tbaa !136
   %413 = and i32 %412, -75
   %414 = or disjoint i32 %413, 8
-  store i32 %414, ptr %411, align 4, !tbaa !145
+  store i32 %414, ptr %411, align 8, !tbaa !145
   %415 = load i8, ptr %398, align 4, !tbaa !93
   %416 = zext i8 %415 to i32
   %417 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %404, i32 noundef %416)
@@ -5710,7 +5710,7 @@ thread-pre-split:                                 ; preds = %314
   %439 = load i32, ptr %438, align 8, !tbaa !136
   %440 = and i32 %439, -75
   %441 = or disjoint i32 %440, 8
-  store i32 %441, ptr %438, align 4, !tbaa !145
+  store i32 %441, ptr %438, align 8, !tbaa !145
   %442 = load i8, ptr %424, align 4, !tbaa !93
   %443 = zext i8 %442 to i32
   %444 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %431, i32 noundef %443)
@@ -5794,7 +5794,7 @@ thread-pre-split:                                 ; preds = %314
   %485 = load i32, ptr %484, align 8, !tbaa !136
   %486 = and i32 %485, -75
   %487 = or disjoint i32 %486, 8
-  store i32 %487, ptr %484, align 4, !tbaa !145
+  store i32 %487, ptr %484, align 8, !tbaa !145
   %488 = load i8, ptr %471, align 4, !tbaa !93
   %489 = zext i8 %488 to i32
   %490 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %477, i32 noundef %489)
@@ -5877,7 +5877,7 @@ thread-pre-split:                                 ; preds = %314
   %529 = load i32, ptr %528, align 8, !tbaa !136
   %530 = and i32 %529, -75
   %531 = or disjoint i32 %530, 8
-  store i32 %531, ptr %528, align 4, !tbaa !145
+  store i32 %531, ptr %528, align 8, !tbaa !145
   %532 = load i8, ptr %515, align 4, !tbaa !93
   %533 = zext i8 %532 to i32
   %534 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %521, i32 noundef %533)
@@ -5964,7 +5964,7 @@ thread-pre-split:                                 ; preds = %314
   %575 = load i32, ptr %574, align 8, !tbaa !136
   %576 = and i32 %575, -75
   %577 = or disjoint i32 %576, 8
-  store i32 %577, ptr %574, align 4, !tbaa !145
+  store i32 %577, ptr %574, align 8, !tbaa !145
   %578 = load i8, ptr %561, align 4, !tbaa !93
   %579 = zext i8 %578 to i32
   %580 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %567, i32 noundef %579)
@@ -6014,7 +6014,7 @@ thread-pre-split:                                 ; preds = %314
   %599 = load i32, ptr %598, align 8, !tbaa !136
   %600 = and i32 %599, -75
   %601 = or disjoint i32 %600, 8
-  store i32 %601, ptr %598, align 4, !tbaa !145
+  store i32 %601, ptr %598, align 8, !tbaa !145
   %602 = load i8, ptr %584, align 4, !tbaa !93
   %603 = zext i8 %602 to i32
   %604 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %591, i32 noundef %603)
@@ -6100,7 +6100,7 @@ thread-pre-split:                                 ; preds = %314
   %647 = load i32, ptr %646, align 8, !tbaa !136
   %648 = and i32 %647, -75
   %649 = or disjoint i32 %648, 8
-  store i32 %649, ptr %646, align 4, !tbaa !145
+  store i32 %649, ptr %646, align 8, !tbaa !145
   %650 = load i8, ptr %632, align 4, !tbaa !93
   %651 = zext i8 %650 to i32
   %652 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %639, i32 noundef %651)
@@ -6182,7 +6182,7 @@ thread-pre-split:                                 ; preds = %314
   %692 = load i32, ptr %691, align 8, !tbaa !136
   %693 = and i32 %692, -75
   %694 = or disjoint i32 %693, 8
-  store i32 %694, ptr %691, align 4, !tbaa !145
+  store i32 %694, ptr %691, align 8, !tbaa !145
   %695 = load i8, ptr %678, align 4, !tbaa !93
   %696 = zext i8 %695 to i32
   %697 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %684, i32 noundef %696)
@@ -6266,7 +6266,7 @@ thread-pre-split:                                 ; preds = %314
   %737 = load i32, ptr %736, align 8, !tbaa !136
   %738 = and i32 %737, -75
   %739 = or disjoint i32 %738, 8
-  store i32 %739, ptr %736, align 4, !tbaa !145
+  store i32 %739, ptr %736, align 8, !tbaa !145
   %740 = load i8, ptr %723, align 4, !tbaa !93
   %741 = zext i8 %740 to i32
   %742 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %729, i32 noundef %741)
@@ -14259,7 +14259,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit18: ; preds = %_ZN7l
   store ptr %25, ptr %23, align 8, !tbaa !78, !alias.scope !377
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %26, align 8, !tbaa !79, !alias.scope !377
-  store i8 0, ptr %25, align 1, !tbaa !80, !alias.scope !377
+  store i8 0, ptr %25, align 8, !tbaa !80, !alias.scope !377
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %28 = load ptr, ptr %27, align 8, !tbaa !378, !noalias !377
   %.not.i.not.i.i = icmp eq ptr %28, null

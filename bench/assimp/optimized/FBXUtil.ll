@@ -73,7 +73,7 @@ define hidden void @_ZN6Assimp3FBX4Util13GetOffsetTextB5cxx11Em(ptr dead_on_unwi
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, -75
   %13 = or disjoint i32 %12, 8
-  store i32 %13, ptr %10, align 4
+  store i32 %13, ptr %10, align 8
   %14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(376) %3, i64 noundef %1)
           to label %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEElsImTnPNSt9enable_ifIXntsr3std10is_base_ofISt9exceptionT_EE5valueEvE4typeELPv0EEERS5_RKS9_.exit unwind label %57
 
@@ -400,7 +400,7 @@ _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEElsIPKcTnPNSt9enab
   %23 = load i32, ptr %22, align 8
   %24 = and i32 %23, -75
   %25 = or disjoint i32 %24, 8
-  store i32 %25, ptr %22, align 4
+  store i32 %25, ptr %22, align 8
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load i64, ptr %26, align 8
   %28 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(376) %3, i64 noundef %27)

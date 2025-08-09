@@ -287,7 +287,7 @@ _ZNSt10unique_ptrIN5clang16ExtractAPIActionESt14default_deleteIS1_EED2Ev.exit.i:
   store ptr %49, ptr %48, align 8, !tbaa !122, !noalias !119
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 128
   store i64 0, ptr %50, align 8, !tbaa !68, !noalias !119
-  store i8 0, ptr %49, align 1, !tbaa !123, !noalias !119
+  store i8 0, ptr %49, align 8, !tbaa !123, !noalias !119
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 152
   store ptr null, ptr %51, align 8, !tbaa !124, !noalias !119
   %52 = getelementptr inbounds nuw i8, ptr %46, i64 160
@@ -896,7 +896,7 @@ _ZNSt10unique_ptrIN5clang24WrappingExtractAPIActionESt14default_deleteIS1_EED2Ev
   store ptr %274, ptr %273, align 8, !tbaa !122, !noalias !224
   %275 = getelementptr inbounds nuw i8, ptr %266, i64 136
   store i64 0, ptr %275, align 8, !tbaa !68, !noalias !224
-  store i8 0, ptr %274, align 1, !tbaa !123, !noalias !224
+  store i8 0, ptr %274, align 8, !tbaa !123, !noalias !224
   %276 = getelementptr inbounds nuw i8, ptr %266, i64 160
   store ptr null, ptr %276, align 8, !tbaa !124, !noalias !224
   %277 = getelementptr inbounds nuw i8, ptr %266, i64 168
@@ -1328,7 +1328,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
   store i64 %20, ptr %22, align 8, !tbaa !68
   store ptr %12, ptr %9, align 8, !tbaa !67
   store i64 0, ptr %21, align 8, !tbaa !68
-  store i8 0, ptr %12, align 1, !tbaa !123
+  store i8 0, ptr %12, align 8, !tbaa !123
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
   %24 = tail call { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS5_SaIS5_EEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %7)
@@ -1803,7 +1803,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llv
   store ptr %16, ptr %.ptr.i.i.i, align 8, !tbaa !122
   %17 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %17, align 8, !tbaa !68
-  store i8 0, ptr %16, align 1, !tbaa !123
+  store i8 0, ptr %16, align 8, !tbaa !123
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %18 = icmp eq i64 %.add.i.i.i, 416
   br i1 %18, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %15

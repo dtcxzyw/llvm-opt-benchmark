@@ -143,7 +143,7 @@ declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferen
 define hidden void @_ZN8LocationC2EP19DebugInfoReadStream(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %0, ptr noundef captures(none) %1) unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds i8, ptr %3, i64 %6
   %8 = load i8, ptr %7, align 1

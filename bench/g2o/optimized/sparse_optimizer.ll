@@ -3399,7 +3399,7 @@ _ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit54: ; preds = %.lr.ph14.i50,
   %192 = load i32, ptr %191, align 8, !tbaa !215
   %193 = and i32 %192, -261
   %194 = or disjoint i32 %193, 4
-  store i32 %194, ptr %191, align 4, !tbaa !216
+  store i32 %194, ptr %191, align 8, !tbaa !216
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %195 = load ptr, ptr %32, align 8, !tbaa !93
   %196 = load ptr, ptr %33, align 8, !tbaa !93
@@ -3446,7 +3446,7 @@ _ZNK3g2o15SparseOptimizer16activeRobustChi2Ev.exit64: ; preds = %209, %_ZN3g2o15
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 24
   %218 = load i32, ptr %217, align 8, !tbaa !215
   %219 = and i32 %218, -5
-  store i32 %219, ptr %217, align 4, !tbaa !216
+  store i32 %219, ptr %217, align 8, !tbaa !216
   %220 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %212, ptr noundef nonnull @.str.10, i64 noundef 8)
   %221 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %212, double noundef %146)
   %222 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %221, ptr noundef nonnull @.str.11, i64 noundef 11)

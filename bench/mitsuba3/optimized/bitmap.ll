@@ -8565,7 +8565,7 @@ define void @_ZN7mitsuba6Bitmap10accumulateEPKS0_NS_5PointIiLm2EEES4_NS_6VectorI
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %46 = load i64, ptr %45, align 4
+  %46 = load i64, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -8577,7 +8577,7 @@ define void @_ZN7mitsuba6Bitmap10accumulateEPKS0_NS_5PointIiLm2EEES4_NS_6VectorI
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %55 = load i64, ptr %54, align 4
+  %55 = load i64, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -8589,7 +8589,7 @@ define void @_ZN7mitsuba6Bitmap10accumulateEPKS0_NS_5PointIiLm2EEES4_NS_6VectorI
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %64 = load i64, ptr %63, align 4
+  %64 = load i64, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -8601,7 +8601,7 @@ define void @_ZN7mitsuba6Bitmap10accumulateEPKS0_NS_5PointIiLm2EEES4_NS_6VectorI
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %73 = load i64, ptr %72, align 4
+  %73 = load i64, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -8613,7 +8613,7 @@ define void @_ZN7mitsuba6Bitmap10accumulateEPKS0_NS_5PointIiLm2EEES4_NS_6VectorI
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %82 = load i64, ptr %81, align 4
+  %82 = load i64, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -8625,7 +8625,7 @@ define void @_ZN7mitsuba6Bitmap10accumulateEPKS0_NS_5PointIiLm2EEES4_NS_6VectorI
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %91 = load i64, ptr %90, align 4
+  %91 = load i64, ptr %90, align 8
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %93 = load ptr, ptr %92, align 8
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -29448,7 +29448,7 @@ define internal void @_ZZN5drjit12parallel_forImZN7mitsubaL8resampleINS_4halfELb
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %26 = load i32, ptr %25, align 4
+  %26 = load i32, ptr %25, align 8
   %27 = zext i32 %26 to i64
   %28 = load ptr, ptr %14, align 8
   %29 = load i64, ptr %28, align 8
@@ -31318,9 +31318,9 @@ define internal void @_ZZN5drjit12parallel_forImZN7mitsubaL8resampleINS_4halfELb
   %32 = getelementptr inbounds %"struct.drjit::half", ptr %31, i64 %26
   %33 = load ptr, ptr %16, align 8
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %35 = load i32, ptr %34, align 4
+  %35 = load i32, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  %37 = load i32, ptr %36, align 4
+  %37 = load i32, ptr %36, align 8
   %38 = trunc i64 %25 to i32
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %40 = load half, ptr %39, align 2
@@ -31741,7 +31741,7 @@ define internal void @_ZZN5drjit12parallel_forImZN7mitsubaL8resampleIfLb0ENS1_20
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 8
   %25 = zext i32 %24 to i64
   %26 = load ptr, ptr %14, align 8
   %27 = load i64, ptr %26, align 8
@@ -33348,9 +33348,9 @@ define internal void @_ZZN5drjit12parallel_forImZN7mitsubaL8resampleIfLb0ENS1_20
   %30 = getelementptr inbounds float, ptr %29, i64 %24
   %31 = load ptr, ptr %16, align 8
   %32 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %33 = load i32, ptr %32, align 4
+  %33 = load i32, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %35 = load i32, ptr %34, align 4
+  %35 = load i32, ptr %34, align 8
   %36 = trunc i64 %23 to i32
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %38 = load float, ptr %37, align 4
@@ -33767,7 +33767,7 @@ define internal void @_ZZN5drjit12parallel_forImZN7mitsubaL8resampleIdLb0ENS1_20
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 8
   %25 = zext i32 %24 to i64
   %26 = load ptr, ptr %14, align 8
   %27 = load i64, ptr %26, align 8
@@ -35382,9 +35382,9 @@ define internal void @_ZZN5drjit12parallel_forImZN7mitsubaL8resampleIdLb0ENS1_20
   %30 = getelementptr inbounds double, ptr %29, i64 %24
   %31 = load ptr, ptr %16, align 8
   %32 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %33 = load i32, ptr %32, align 4
+  %33 = load i32, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %35 = load i32, ptr %34, align 4
+  %35 = load i32, ptr %34, align 8
   %36 = trunc i64 %23 to i32
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %38 = load double, ptr %37, align 8
@@ -44316,11 +44316,11 @@ define linkonce_odr hidden noundef ptr @_ZNK7Imf_2_514TypedAttributeIN9Imath_2_5
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %5, i8 0, i64 28, i1 false)
-  store float 1.000000e+00, ptr %4, align 4
+  store float 1.000000e+00, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store float 1.000000e+00, ptr %6, align 4
+  store float 1.000000e+00, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store float 1.000000e+00, ptr %7, align 4
+  store float 1.000000e+00, ptr %7, align 8
   %8 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(8) %0, ptr nonnull @_ZTIN7Imf_2_59AttributeE, ptr nonnull @_ZTIN7Imf_2_514TypedAttributeIN9Imath_2_58Matrix33IfEEEE, i64 0) #38
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.thread.i.i.i, label %_ZN7Imf_2_514TypedAttributeIN9Imath_2_58Matrix33IfEEE13copyValueFromERKNS_9AttributeE.exit
@@ -44393,11 +44393,11 @@ define linkonce_odr hidden noundef ptr @_ZNK7Imf_2_514TypedAttributeIN9Imath_2_5
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store float 1.000000e+00, ptr %4, align 4
+  store float 1.000000e+00, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store float 1.000000e+00, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store float 1.000000e+00, ptr %7, align 4
+  store float 1.000000e+00, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 68
   store float 1.000000e+00, ptr %8, align 4
   tail call void @_ZN7Imf_2_514TypedAttributeIN9Imath_2_58Matrix44IfEEE13copyValueFromERKNS_9AttributeE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %0)

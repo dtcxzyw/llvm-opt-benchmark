@@ -1929,7 +1929,7 @@ _ZN6vectorISt4pairIRN3sat6clauseENS1_6statusEELb0EjE9push_backEOS5_.exit: ; pred
   store ptr %42, ptr %62, align 8, !tbaa !125
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 12
-  store i32 %44, ptr %63, align 4, !tbaa !126
+  store i32 %44, ptr %63, align 8, !tbaa !126
   store i32 %46, ptr %64, align 4, !tbaa !66
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store ptr %48, ptr %65, align 8, !tbaa !127
@@ -2387,7 +2387,7 @@ _ZN6vectorISt4pairIRN3sat6clauseENS1_6statusEELb0EjE9push_backEOS5_.exit: ; pred
   store ptr %1, ptr %64, align 8, !tbaa !125
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 12
-  store i32 %45, ptr %65, align 4, !tbaa !126
+  store i32 %45, ptr %65, align 8, !tbaa !126
   store i32 %48, ptr %66, align 4, !tbaa !66
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 16
   store ptr %50, ptr %67, align 8, !tbaa !127
@@ -4712,7 +4712,7 @@ _ZN6vectorIjLb0EjE3endEv.exit:                    ; preds = %2
   %20 = getelementptr inbounds nuw %"struct.sat::drat::watched_clause", ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !130
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %23 = load i32, ptr %22, align 4, !tbaa !107
+  %23 = load i32, ptr %22, align 8, !tbaa !107
   %24 = xor i32 %23, %1
   %25 = icmp eq i32 %24, 1
   br i1 %25, label %26, label %29
@@ -7551,9 +7551,9 @@ _ZNK6vectorISt4pairIRN3sat6clauseENS1_6statusEELb0EjE4sizeEv.exit: ; preds = %49
   %62 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i.i.i, i64 8
   %64 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 12
-  %65 = load i32, ptr %63, align 4, !tbaa !126
-  store i32 %65, ptr %62, align 4, !tbaa !126
-  store i32 1, ptr %63, align 4, !tbaa !126
+  %65 = load i32, ptr %63, align 8, !tbaa !126
+  store i32 %65, ptr %62, align 8, !tbaa !126
+  store i32 1, ptr %63, align 8, !tbaa !126
   %66 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i.i.i, i64 12
   %67 = load i32, ptr %66, align 4, !tbaa !66
   store i32 %67, ptr %64, align 4, !tbaa !66

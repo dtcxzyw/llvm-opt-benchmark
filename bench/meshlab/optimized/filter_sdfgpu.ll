@@ -7387,7 +7387,7 @@ define void @_ZN12SdfGpuPlugin17faceDataToTextureER9MeshModel(ptr noundef nonnul
   %65 = getelementptr inbounds nuw i8, ptr %17, i64 36
   %.sroa.0.0.copyload = load float, ptr %65, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 40
-  %.sroa.2.0.copyload = load float, ptr %.sroa.2.0..sroa_idx, align 4
+  %.sroa.2.0.copyload = load float, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 44
   %.sroa.3.0.copyload = load float, ptr %.sroa.3.0..sroa_idx, align 4
   %66 = getelementptr inbounds nuw float, ptr %10, i64 %35
@@ -11126,7 +11126,7 @@ _ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEENS_6Point3IfEEEC2ERKS4
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %60 = load i32, ptr %59, align 4
+  %60 = load i32, ptr %59, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %58, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %60, 1
@@ -11268,7 +11268,7 @@ _ZN3vcg14SimpleTempDataINS_4face10vector_ocfI6CFaceOEENS_6Point3IfEEEC2ERKS4_.ex
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %60 = load i32, ptr %59, align 4
+  %60 = load i32, ptr %59, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %58, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %60, 1

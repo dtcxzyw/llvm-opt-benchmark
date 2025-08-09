@@ -19278,7 +19278,7 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17hef3f96ebac8f43dfE(ptr noali
   tail call void %10(ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 1 %14, i64 noundef %16), !noalias !3994
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.0.06, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3995)
-  %18 = load i32, ptr %17, align 4, !range !3998, !alias.scope !3999, !noalias !4000, !noundef !16
+  %18 = load i32, ptr %17, align 8, !range !3998, !alias.scope !3999, !noalias !4000, !noundef !16
   %19 = load ptr, ptr %11, align 8, !invariant.load !16, !noalias !4002, !nonnull !16
   tail call void %19(ptr noundef nonnull align 1 %6, i32 noundef %18), !noalias !4002
   %20 = icmp eq ptr %13, %4

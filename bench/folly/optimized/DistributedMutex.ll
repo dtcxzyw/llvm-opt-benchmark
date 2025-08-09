@@ -759,7 +759,7 @@ _ZN5folly6detail17distributed_mutex10tryCombineISt6atomicEEmPNS1_6WaiterIT_EEmmm
   %.sroa.0.0.copyload.i = load i64, ptr %3, align 8
   store i64 %.sroa.0.0.copyload.i, ptr %60, align 8, !tbaa !73
   %61 = getelementptr inbounds nuw i8, ptr %.02583, i64 96
-  store i32 0, ptr %61, align 4, !tbaa !74
+  store i32 0, ptr %61, align 16, !tbaa !74
   store atomic i64 2, ptr %15 release, align 8
   br label %.loopexit
 

@@ -843,8 +843,8 @@ update_map_generation.exit:                       ; preds = %31, %50
   %61 = load ptr, ptr %56, align 8, !tbaa !60
   %62 = sext i32 %53 to i64
   %63 = tail call i32 %.01061.i(ptr noundef nonnull %0, ptr noundef %60, ptr noundef %61, i64 noundef %62, i32 noundef 16) #14
-  store i32 %51, ptr %30, align 4, !tbaa !58
-  store i32 %63, ptr %22, align 4, !tbaa !58
+  store i32 %51, ptr %30, align 8, !tbaa !58
+  store i32 %63, ptr %22, align 8, !tbaa !58
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %65 = load i32, ptr %64, align 8, !tbaa !77
   %66 = icmp eq i32 %65, 3
@@ -2500,8 +2500,8 @@ cmp.exit172:                                      ; preds = %1258, %1230
   %1260 = tail call fastcc i32 @cmp_fpel_internal(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i32 noundef %8, i32 noundef %9, i32 noundef %5, i32 noundef %4, ptr noundef %.01061.i31, ptr noundef %.01064.i32, i32 noundef %14)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !77
-  store i32 %1259, ptr %30, align 4, !tbaa !58
-  store i32 %1260, ptr %22, align 4, !tbaa !58
+  store i32 %1259, ptr %30, align 8, !tbaa !58
+  store i32 %1260, ptr %22, align 8, !tbaa !58
   %1261 = icmp eq i32 %.pre, 3
   br i1 %1261, label %1262, label %1265
 

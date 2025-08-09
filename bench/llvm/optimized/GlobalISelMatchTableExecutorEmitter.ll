@@ -5708,7 +5708,7 @@ _ZNSt4pairISt6vectorIPKN4llvm6RecordESaIS4_EEiED2Ev.exit10.i.i.i: ; preds = %36,
   %57 = load ptr, ptr %15, align 8, !tbaa !83
   store ptr %57, ptr %51, align 8, !tbaa !83
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, i8 0, i64 24, i1 false)
-  %58 = load i32, ptr %17, align 4, !tbaa !143
+  %58 = load i32, ptr %17, align 8, !tbaa !143
   store i32 %58, ptr %53, align 8, !tbaa !147
   %59 = ptrtoint ptr %47 to i64
   %60 = sub i64 %59, %6
@@ -6468,10 +6468,10 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i20.i.i: ; preds = %.lr.ph.
   store ptr %366, ptr %367, align 8, !tbaa !83
   %369 = getelementptr inbounds nuw i8, ptr %.sroa.034.159.i.i, i64 24
   %370 = getelementptr inbounds i8, ptr %.sroa.0.0.pn69.i.i, i64 -8
-  %371 = load i32, ptr %369, align 4, !tbaa !143
-  %372 = load i32, ptr %370, align 4, !tbaa !143
-  store i32 %372, ptr %369, align 4, !tbaa !143
-  store i32 %371, ptr %370, align 4, !tbaa !143
+  %371 = load i32, ptr %369, align 8, !tbaa !143
+  %372 = load i32, ptr %370, align 8, !tbaa !143
+  store i32 %372, ptr %369, align 8, !tbaa !143
+  store i32 %371, ptr %370, align 8, !tbaa !143
   %373 = getelementptr inbounds nuw i8, ptr %.sroa.034.159.i.i, i64 32
   br label %259, !llvm.loop !203
 

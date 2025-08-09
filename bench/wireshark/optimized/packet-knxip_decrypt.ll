@@ -1116,7 +1116,7 @@ fprintf_hex.exit:                                 ; preds = %34
   store ptr null, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %46 = load i32, ptr %0, align 1
-  store i32 %46, ptr %45, align 1
+  store i32 %46, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %47, ptr noundef nonnull align 16 dereferenceable(16) %5, i64 noundef 16, i1 noundef false) #14
   store ptr %43, ptr %.024.lcssa, align 8

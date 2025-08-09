@@ -313,7 +313,7 @@ entry:
   %arrayctor.end.i.i = getelementptr inbounds nuw i8, ptr %call, i64 160
   store <4 x i32> <i32 0, i32 -1, i32 -1, i32 0>, ptr %arrayctor.end.i.i, align 8, !tbaa !46
   %SpecularColor.i.i = getelementptr inbounds nuw i8, ptr %call, i64 176
-  store i32 -1, ptr %SpecularColor.i.i, align 4, !tbaa !47
+  store i32 -1, ptr %SpecularColor.i.i, align 8, !tbaa !47
   %Shininess.i.i = getelementptr inbounds nuw i8, ptr %call, i64 180
   store <2 x float> zeroinitializer, ptr %Shininess.i.i, align 4, !tbaa !6
   %Thickness.i.i = getelementptr inbounds nuw i8, ptr %call, i64 188
@@ -339,9 +339,9 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Indices.i, i8 0, i64 24, i1 false)
   store i8 1, ptr %is_sorted.i2.i, align 8, !tbaa !53
   %BoundingBox.i = getelementptr inbounds nuw i8, ptr %call, i64 280
-  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i, align 4, !tbaa !6
+  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i, align 8, !tbaa !6
   %Y.i2.i.i = getelementptr inbounds nuw i8, ptr %call, i64 296
-  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 4, !tbaa !6
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 8, !tbaa !6
   %PrimitiveType.i = getelementptr inbounds nuw i8, ptr %call, i64 304
   store i32 6, ptr %PrimitiveType.i, align 8, !tbaa !54
   store ptr %call, ptr %Buffer, align 8, !tbaa !55
@@ -588,7 +588,7 @@ _ZN3irr5scene19IBillboardSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEiRKN
   %arrayctor.end.i.i = getelementptr inbounds nuw i8, ptr %call, i64 160
   store <4 x i32> <i32 0, i32 -1, i32 -1, i32 0>, ptr %arrayctor.end.i.i, align 8, !tbaa !46
   %SpecularColor.i.i = getelementptr inbounds nuw i8, ptr %call, i64 176
-  store i32 -1, ptr %SpecularColor.i.i, align 4, !tbaa !47
+  store i32 -1, ptr %SpecularColor.i.i, align 8, !tbaa !47
   %Shininess.i.i = getelementptr inbounds nuw i8, ptr %call, i64 180
   store <2 x float> zeroinitializer, ptr %Shininess.i.i, align 4, !tbaa !6
   %Thickness.i.i = getelementptr inbounds nuw i8, ptr %call, i64 188
@@ -614,9 +614,9 @@ _ZN3irr5scene19IBillboardSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEiRKN
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Indices.i, i8 0, i64 24, i1 false)
   store i8 1, ptr %is_sorted.i2.i, align 8, !tbaa !53
   %BoundingBox.i = getelementptr inbounds nuw i8, ptr %call, i64 280
-  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i, align 4, !tbaa !6
+  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i, align 8, !tbaa !6
   %Y.i2.i.i = getelementptr inbounds nuw i8, ptr %call, i64 296
-  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 4, !tbaa !6
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 8, !tbaa !6
   %PrimitiveType.i = getelementptr inbounds nuw i8, ptr %call, i64 304
   store i32 6, ptr %PrimitiveType.i, align 8, !tbaa !54
   store ptr %call, ptr %Buffer, align 8, !tbaa !55

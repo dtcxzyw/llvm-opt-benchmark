@@ -1995,14 +1995,14 @@ define internal range(i32 0, 3) i32 @lv_draw_mask_radius(ptr noundef %0, i32 nou
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %12 = load i32, ptr %11, align 8, !tbaa !54
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %13 = load i32, ptr %7, align 4, !tbaa !50
+  %13 = load i32, ptr %7, align 8, !tbaa !50
   store i32 %13, ptr %6, align 4, !tbaa !50
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %15 = load i32, ptr %14, align 4, !tbaa !51
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %15, ptr %16, align 4, !tbaa !51
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %18 = load i32, ptr %17, align 4, !tbaa !52
+  %18 = load i32, ptr %17, align 8, !tbaa !52
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %18, ptr %19, align 4, !tbaa !52
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 28

@@ -7725,7 +7725,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %12
   store i64 %134, ptr %111, align 8, !tbaa !29
   store ptr %125, ptr %123, align 8, !tbaa !28
   store i64 0, ptr %133, align 8, !tbaa !29
-  store i8 0, ptr %125, align 1, !tbaa !30
+  store i8 0, ptr %125, align 8, !tbaa !30
   %135 = load ptr, ptr %107, align 8, !tbaa !216
   %136 = load ptr, ptr %112, align 8, !tbaa !217
   %137 = getelementptr inbounds i8, ptr %136, i64 -32
@@ -12648,7 +12648,7 @@ _ZSt19__relocate_object_aIN14arrow_vendored4date9time_zoneES2_SaIS2_EEvPT_PT0_RT
   store i64 %33, ptr %35, align 8, !tbaa !29, !alias.scope !318, !noalias !321
   store ptr %25, ptr %.0911.i.i.i, align 8, !tbaa !28, !alias.scope !321, !noalias !318
   store i64 0, ptr %34, align 8, !tbaa !29, !alias.scope !321, !noalias !318
-  store i8 0, ptr %25, align 1, !tbaa !30, !alias.scope !321, !noalias !318
+  store i8 0, ptr %25, align 8, !tbaa !30, !alias.scope !321, !noalias !318
   %36 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %37 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !44, !alias.scope !321, !noalias !318
@@ -12728,7 +12728,7 @@ _ZSt19__relocate_object_aIN14arrow_vendored4date9time_zoneES2_SaIS2_EEvPT_PT0_RT
   store i64 %70, ptr %72, align 8, !tbaa !29, !alias.scope !325, !noalias !328
   store ptr %62, ptr %.0911.i.i.i30, align 8, !tbaa !28, !alias.scope !328, !noalias !325
   store i64 0, ptr %71, align 8, !tbaa !29, !alias.scope !328, !noalias !325
-  store i8 0, ptr %62, align 1, !tbaa !30, !alias.scope !328, !noalias !325
+  store i8 0, ptr %62, align 8, !tbaa !30, !alias.scope !328, !noalias !325
   %73 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 32
   %74 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 32
   %75 = load ptr, ptr %74, align 8, !tbaa !44, !alias.scope !328, !noalias !325
@@ -12982,7 +12982,7 @@ _ZSt10_ConstructIN14arrow_vendored4date9time_zoneEJS2_EEvPT_DpOT0_.exit.i.i.i.i.
   store i64 %23, ptr %25, align 8, !tbaa !29
   store ptr %15, ptr %.sroa.08.011.i.i.i.i.i, align 8, !tbaa !28
   store i64 0, ptr %24, align 8, !tbaa !29
-  store i8 0, ptr %15, align 1, !tbaa !30
+  store i8 0, ptr %15, align 8, !tbaa !30
   %26 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 32
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i.i.i.i, i64 32
   %28 = load ptr, ptr %27, align 8, !tbaa !44
@@ -13274,7 +13274,7 @@ _ZN14arrow_vendored4date9time_zoneC2EOS1_.exit:   ; preds = %37, %_ZNKSt7__cxx11
   %45 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %35, ptr %33, align 8, !tbaa !28
   store i64 0, ptr %45, align 8, !tbaa !29
-  store i8 0, ptr %35, align 1, !tbaa !30
+  store i8 0, ptr %35, align 8, !tbaa !30
   %46 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %47 = load ptr, ptr %46, align 8, !tbaa !44
   store ptr %47, ptr %16, align 8, !tbaa !44
@@ -13566,7 +13566,7 @@ _ZN14arrow_vendored4date9time_zoneC2EOS1_.exit:   ; preds = %11, %_ZNKSt7__cxx11
   store i64 %17, ptr %19, align 8, !tbaa !29
   store ptr %9, ptr %2, align 8, !tbaa !28
   store i64 0, ptr %18, align 8, !tbaa !29
-  store i8 0, ptr %9, align 1, !tbaa !30
+  store i8 0, ptr %9, align 8, !tbaa !30
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %22 = load ptr, ptr %21, align 8, !tbaa !44
@@ -13949,7 +13949,7 @@ _ZN14arrow_vendored4date9time_zoneC2EOS1_.exit:   ; preds = %45, %_ZNKSt7__cxx11
   store i64 %51, ptr %53, align 8, !tbaa !29
   store ptr %43, ptr %3, align 8, !tbaa !28
   store i64 0, ptr %52, align 8, !tbaa !29
-  store i8 0, ptr %43, align 1, !tbaa !30
+  store i8 0, ptr %43, align 8, !tbaa !30
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %56 = load ptr, ptr %55, align 8, !tbaa !44
@@ -14691,7 +14691,7 @@ _ZN14arrow_vendored4date9time_zoneC2EOS1_.exit:   ; preds = %30, %_ZNKSt7__cxx11
   store i64 %34, ptr %7, align 8, !tbaa !29
   store ptr %28, ptr %.sroa.0.021, align 8, !tbaa !28
   store i64 0, ptr %17, align 8, !tbaa !29
-  store i8 0, ptr %28, align 1, !tbaa !30
+  store i8 0, ptr %28, align 8, !tbaa !30
   %35 = getelementptr inbounds nuw i8, ptr %.pn20, i64 120
   %36 = load ptr, ptr %35, align 8, !tbaa !44
   store ptr %36, ptr %8, align 8, !tbaa !44
@@ -14879,7 +14879,7 @@ _ZN14arrow_vendored4date9time_zoneC2EOS1_.exit:   ; preds = %7, %_ZNKSt7__cxx111
   store i64 %13, ptr %15, align 8, !tbaa !29
   store ptr %5, ptr %0, align 8, !tbaa !28
   store i64 0, ptr %14, align 8, !tbaa !29
-  store i8 0, ptr %5, align 1, !tbaa !30
+  store i8 0, ptr %5, align 8, !tbaa !30
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8, !tbaa !44
@@ -17262,7 +17262,7 @@ _ZSt19__relocate_object_aIN14arrow_vendored4date6detail15expanded_ttinfoES3_SaIS
   store i64 %33, ptr %35, align 8, !tbaa !29, !alias.scope !402, !noalias !405
   store ptr %25, ptr %22, align 8, !tbaa !28, !alias.scope !405, !noalias !402
   store i64 0, ptr %34, align 8, !tbaa !29, !alias.scope !405, !noalias !402
-  store i8 0, ptr %25, align 1, !tbaa !30, !alias.scope !405, !noalias !402
+  store i8 0, ptr %25, align 8, !tbaa !30, !alias.scope !405, !noalias !402
   %36 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
   %37 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
   %38 = load i8, ptr %37, align 8, !tbaa !80, !range !83, !alias.scope !405, !noalias !402, !noundef !84
@@ -17415,7 +17415,7 @@ _ZSt19__relocate_object_aIN14arrow_vendored4date6detail15expanded_ttinfoES3_SaIS
   store i64 %54, ptr %56, align 8, !tbaa !29, !alias.scope !409, !noalias !412
   store ptr %46, ptr %43, align 8, !tbaa !28, !alias.scope !412, !noalias !409
   store i64 0, ptr %55, align 8, !tbaa !29, !alias.scope !412, !noalias !409
-  store i8 0, ptr %46, align 1, !tbaa !30, !alias.scope !412, !noalias !409
+  store i8 0, ptr %46, align 8, !tbaa !30, !alias.scope !412, !noalias !409
   %57 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
   %58 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
   %59 = load i8, ptr %58, align 8, !tbaa !80, !range !83, !alias.scope !412, !noalias !409, !noundef !84
@@ -17471,7 +17471,7 @@ _ZSt19__relocate_object_aIN14arrow_vendored4date6detail15expanded_ttinfoES3_SaIS
   store i64 %76, ptr %78, align 8, !tbaa !29, !alias.scope !415, !noalias !418
   store ptr %68, ptr %65, align 8, !tbaa !28, !alias.scope !418, !noalias !415
   store i64 0, ptr %77, align 8, !tbaa !29, !alias.scope !418, !noalias !415
-  store i8 0, ptr %68, align 1, !tbaa !30, !alias.scope !418, !noalias !415
+  store i8 0, ptr %68, align 8, !tbaa !30, !alias.scope !418, !noalias !415
   %79 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 40
   %80 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 40
   %81 = load i8, ptr %80, align 8, !tbaa !80, !range !83, !alias.scope !418, !noalias !415, !noundef !84

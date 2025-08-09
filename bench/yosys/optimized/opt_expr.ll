@@ -179237,7 +179237,7 @@ define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4poolINS_7SigPool8bitDef_tENS0
   %57 = load ptr, ptr %54, align 8, !tbaa !84
   store ptr %57, ptr %56, align 8, !tbaa !172
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %59 = load i32, ptr %58, align 4, !tbaa !112
+  %59 = load i32, ptr %58, align 8, !tbaa !112
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store i32 %59, ptr %60, align 8, !tbaa !174
   %61 = getelementptr inbounds nuw i8, ptr %54, i64 16

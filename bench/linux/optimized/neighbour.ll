@@ -1011,7 +1011,7 @@ define internal fastcc ptr @___neigh_create(ptr noundef %0, ptr noundef %1, ptr 
   %46 = getelementptr i8, ptr %43, i64 -312
   %47 = load ptr, ptr %43, align 8
   %48 = getelementptr i8, ptr %43, i64 -264
-  %49 = load volatile i32, ptr %48, align 4
+  %49 = load volatile i32, ptr %48, align 8
   %50 = icmp eq i32 %49, 1
   br i1 %50, label %51, label %.thread
 
@@ -1336,7 +1336,7 @@ define internal fastcc ptr @___neigh_create(ptr noundef %0, ptr noundef %1, ptr 
   %231 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %232 = load ptr, ptr %231, align 8
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %234 = load volatile i32, ptr %233, align 4
+  %234 = load volatile i32, ptr %233, align 8
   %235 = getelementptr inbounds nuw i8, ptr %232, i64 8
   %236 = load i32, ptr %235, align 8
   %237 = shl nuw i32 1, %236
@@ -3411,10 +3411,10 @@ define dso_local void @__neigh_set_probe_once(ptr noundef %0) #0 align 16 {
   %18 = getelementptr i8, ptr %15, i64 96
   %19 = load i32, ptr %18, align 8
   %20 = getelementptr i8, ptr %15, i64 88
-  %21 = load i32, ptr %20, align 4
+  %21 = load i32, ptr %20, align 8
   %22 = add i32 %19, %17
   %23 = add i32 %22, %21
-  store volatile i32 %23, ptr %13, align 4
+  store volatile i32 %23, ptr %13, align 8
   %24 = load volatile i64, ptr @jiffies, align 64
   %25 = getelementptr i8, ptr %15, i64 104
   %26 = load i32, ptr %25, align 8
@@ -4661,7 +4661,7 @@ define dso_local noundef i32 @neigh_table_clear(i32 noundef %0, ptr noundef %1) 
   tail call fastcc void @pneigh_queue_purge(ptr noundef nonnull %11, ptr noundef null, i32 noundef %12)
   tail call fastcc void @__neigh_ifdown(ptr noundef %1, ptr noundef null, i1 noundef zeroext false)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 520
-  %14 = load volatile i32, ptr %13, align 4
+  %14 = load volatile i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %18, label %16
 
@@ -6694,7 +6694,7 @@ define internal void @neigh_timer_handler(ptr noundef %0) #0 align 16 {
   %74 = load volatile i64, ptr @jiffies, align 64
   store i64 %74, ptr %62, align 8
   %75 = getelementptr i8, ptr %0, i64 48
-  store volatile i32 0, ptr %75, align 4
+  store volatile i32 0, ptr %75, align 8
   %76 = getelementptr i8, ptr %55, i64 104
   %77 = load i32, ptr %76, align 8
   %78 = tail call i32 @llvm.smax.i32(i32 %77, i32 10)
@@ -7423,13 +7423,13 @@ define internal fastcc noundef range(i32 -90, 1) i32 @neigh_fill_info(ptr nounde
   %106 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %105, ptr %106, align 4
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %108 = load volatile i32, ptr %107, align 4
+  %108 = load volatile i32, ptr %107, align 8
   %109 = add i32 %108, -1
   %110 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 %109, ptr %110, align 4
   call void @_raw_read_unlock_bh(ptr noundef nonnull %55) #21
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %112 = load volatile i32, ptr %111, align 4
+  %112 = load volatile i32, ptr %111, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %112, ptr %9, align 4
   %113 = call i32 @nla_put(ptr noundef %0, i32 noundef 4, i32 noundef 4, ptr noundef nonnull %9) #21
@@ -9430,7 +9430,7 @@ define internal i32 @neightbl_dump_info(ptr noundef %0, ptr noundef captures(non
   %155 = trunc i32 %154 to i16
   store i16 %155, ptr %55, align 2
   %156 = getelementptr inbounds nuw i8, ptr %82, i64 520
-  %157 = load volatile i32, ptr %156, align 4
+  %157 = load volatile i32, ptr %156, align 8
   store i32 %157, ptr %56, align 4
   %158 = call i32 @jiffies_to_msecs(i64 noundef %146) #21
   store i32 %158, ptr %57, align 4

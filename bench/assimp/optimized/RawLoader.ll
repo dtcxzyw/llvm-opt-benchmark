@@ -3165,7 +3165,7 @@ _ZSt19__relocate_object_aIN6Assimp11RAWImporter15MeshInformationES2_SaIS2_EEvPT_
   store i64 %30, ptr %32, align 8, !alias.scope !55, !noalias !58
   store ptr %22, ptr %.0911.i.i.i, align 8, !alias.scope !58, !noalias !55
   store i64 0, ptr %31, align 8, !alias.scope !58, !noalias !55
-  store i8 0, ptr %22, align 1, !alias.scope !58, !noalias !55
+  store i8 0, ptr %22, align 8, !alias.scope !58, !noalias !55
   %33 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %34 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %35 = load ptr, ptr %34, align 8, !alias.scope !58, !noalias !55
@@ -4349,7 +4349,7 @@ _ZNSt16allocator_traitsISaIN6Assimp11RAWImporter16GroupInformationEEE9constructI
   store i64 %32, ptr %34, align 8, !alias.scope !77, !noalias !80
   store ptr %24, ptr %.0911.i.i.i, align 8, !alias.scope !80, !noalias !77
   store i64 0, ptr %33, align 8, !alias.scope !80, !noalias !77
-  store i8 0, ptr %24, align 1, !alias.scope !80, !noalias !77
+  store i8 0, ptr %24, align 8, !alias.scope !80, !noalias !77
   %35 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %36 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %37 = load ptr, ptr %36, align 8, !alias.scope !80, !noalias !77
@@ -4428,7 +4428,7 @@ _ZNSt16allocator_traitsISaIN6Assimp11RAWImporter16GroupInformationEEE9constructI
   store i64 %63, ptr %65, align 8, !alias.scope !84, !noalias !87
   store ptr %55, ptr %.0911.i.i.i29, align 8, !alias.scope !87, !noalias !84
   store i64 0, ptr %64, align 8, !alias.scope !87, !noalias !84
-  store i8 0, ptr %55, align 1, !alias.scope !87, !noalias !84
+  store i8 0, ptr %55, align 8, !alias.scope !87, !noalias !84
   %66 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   %68 = load ptr, ptr %67, align 8, !alias.scope !87, !noalias !84
@@ -5664,7 +5664,7 @@ _ZSt19__relocate_object_aIN6Assimp11RAWImporter15MeshInformationES2_SaIS2_EEvPT_
   store i64 %32, ptr %34, align 8, !alias.scope !111, !noalias !114
   store ptr %24, ptr %.0911.i.i.i, align 8, !alias.scope !114, !noalias !111
   store i64 0, ptr %33, align 8, !alias.scope !114, !noalias !111
-  store i8 0, ptr %24, align 1, !alias.scope !114, !noalias !111
+  store i8 0, ptr %24, align 8, !alias.scope !114, !noalias !111
   %35 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %36 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %37 = load ptr, ptr %36, align 8, !alias.scope !114, !noalias !111
@@ -5738,7 +5738,7 @@ _ZSt19__relocate_object_aIN6Assimp11RAWImporter15MeshInformationES2_SaIS2_EEvPT_
   store i64 %66, ptr %68, align 8, !alias.scope !117, !noalias !120
   store ptr %58, ptr %.0911.i.i.i29, align 8, !alias.scope !120, !noalias !117
   store i64 0, ptr %67, align 8, !alias.scope !120, !noalias !117
-  store i8 0, ptr %58, align 1, !alias.scope !120, !noalias !117
+  store i8 0, ptr %58, align 8, !alias.scope !120, !noalias !117
   %69 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   %71 = load ptr, ptr %70, align 8, !alias.scope !120, !noalias !117

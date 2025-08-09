@@ -18578,7 +18578,7 @@ define hidden void @"_ZN4core3ptr248drop_in_place$LT$hyper..client..dispatch..Re
   %12 = load ptr, ptr %11, align 8
   store ptr null, ptr %9, align 8
   %.not6.i.i = icmp eq ptr %10, null
-  store atomic i8 0, ptr %6 seq_cst, align 1
+  store atomic i8 0, ptr %6 seq_cst, align 8
   br i1 %.not6.i.i, label %"_ZN88_$LT$hyper..client..dispatch..Receiver$LT$T$C$U$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3226b32cc4900b32E.exit", label %13
 
 13:                                               ; preds = %8
@@ -18635,7 +18635,7 @@ define hidden void @"_ZN4core3ptr248drop_in_place$LT$hyper..client..dispatch..Re
   %31 = load ptr, ptr %30, align 8, !noalias !3541
   store ptr null, ptr %28, align 8, !noalias !3541
   %.not6.i.i.i = icmp eq ptr %29, null
-  store atomic i8 0, ptr %25 seq_cst, align 1, !noalias !3541
+  store atomic i8 0, ptr %25 seq_cst, align 8, !noalias !3541
   br i1 %.not6.i.i.i, label %"_ZN53_$LT$want..Taker$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0bc816c2edcd77a9E.exit.i", label %32
 
 32:                                               ; preds = %27
@@ -22173,7 +22173,7 @@ define internal fastcc void @"_ZN4core3ptr32drop_in_place$LT$want..Taker$GT$17hd
   %11 = load ptr, ptr %10, align 8
   store ptr null, ptr %8, align 8
   %.not6.i.i = icmp eq ptr %9, null
-  store atomic i8 0, ptr %5 seq_cst, align 1
+  store atomic i8 0, ptr %5 seq_cst, align 8
   br i1 %.not6.i.i, label %"_ZN53_$LT$want..Taker$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0bc816c2edcd77a9E.exit", label %12
 
 12:                                               ; preds = %7
@@ -47677,7 +47677,7 @@ define hidden noundef double @_ZN4rand3rng3Rng9gen_range17hc3066033c471b212E(ptr
 "_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17hae525760e5d36b96E.exit.i.i.i.i.i": ; preds = %39, %37
   store i64 1, ptr %10, align 16, !alias.scope !9559, !noalias !9543
   %40 = zext i32 %29 to i64
-  %41 = load i32, ptr %9, align 4, !alias.scope !9540, !noalias !9543, !noundef !7
+  %41 = load i32, ptr %9, align 16, !alias.scope !9540, !noalias !9543, !noundef !7
   %42 = zext i32 %41 to i64
   %43 = shl nuw i64 %42, 32
   %44 = or disjoint i64 %43, %40
@@ -47709,7 +47709,7 @@ define hidden noundef double @_ZN4rand3rng3Rng9gen_range17hc3066033c471b212E(ptr
 
 "_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17hae525760e5d36b96E.exit8.i.i.i.i.i": ; preds = %55, %53
   store i64 2, ptr %10, align 16, !alias.scope !9570, !noalias !9543
-  %56 = load i64, ptr %9, align 4, !alias.scope !9571, !noalias !9543
+  %56 = load i64, ptr %9, align 16, !alias.scope !9571, !noalias !9543
   br label %_ZN4rand3rng3Rng3gen17hd8096d5e7fb79509E.exit.i.i
 
 _ZN4rand3rng3Rng3gen17hd8096d5e7fb79509E.exit.i.i: ; preds = %"_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17hae525760e5d36b96E.exit8.i.i.i.i.i", %"_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17hae525760e5d36b96E.exit.i.i.i.i.i", %24

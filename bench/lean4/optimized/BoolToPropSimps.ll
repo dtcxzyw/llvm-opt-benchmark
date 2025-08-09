@@ -104,7 +104,7 @@ lean_dec_ref.exit:                                ; preds = %14, %16, %17
   %.val21 = load ptr, ptr %29, align 8, !tbaa !4
   store ptr %.val21, ptr @l_bool__to__prop, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val21) #3
-  %30 = load i32, ptr %25, align 4, !tbaa !8
+  %30 = load i32, ptr %25, align 8, !tbaa !8
   %31 = icmp sgt i32 %30, 1
   br i1 %31, label %32, label %34, !prof !11
 
@@ -143,7 +143,7 @@ lean_dec_ref.exit:                                ; preds = %14, %16, %17
   %.val22 = load ptr, ptr %46, align 8, !tbaa !4
   store ptr %.val22, ptr @l_boolToPropSimps, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val22) #3
-  %47 = load i32, ptr %42, align 4, !tbaa !8
+  %47 = load i32, ptr %42, align 8, !tbaa !8
   %48 = icmp sgt i32 %47, 1
   br i1 %48, label %49, label %51, !prof !11
 

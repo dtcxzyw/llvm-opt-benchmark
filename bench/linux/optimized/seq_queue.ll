@@ -1628,7 +1628,7 @@ define dso_local void @snd_seq_info_queues_read(ptr noundef readnone captures(no
   %52 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %53 = load i32, ptr %52, align 4
   %54 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %55 = load i32, ptr %54, align 4
+  %55 = load i32, ptr %54, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %51, ptr noundef nonnull @.str.13, i32 noundef %53, i32 noundef %55) #9
   %56 = load ptr, ptr %1, align 8
   %57 = getelementptr inbounds nuw i8, ptr %12, i64 24

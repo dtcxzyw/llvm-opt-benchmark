@@ -1651,7 +1651,7 @@ define void @_ZN2cv4gapi3oak11ColorCameraC2Ev(ptr noundef nonnull align 8 derefe
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false), !noalias !67
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN2cv4gapi3oak15OAKMediaAdapterE, i64 16), ptr %5, align 8, !tbaa !27, !noalias !67
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 0, ptr %8, align 4, !tbaa !70, !noalias !67
+  store i32 0, ptr %8, align 8, !tbaa !70, !noalias !67
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 0, ptr %9, align 4, !tbaa !72, !noalias !67
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -1733,7 +1733,7 @@ define void @_ZN2cv4gapi3oak11ColorCameraC2ERKNS1_17ColorCameraParamsE(ptr nound
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false), !noalias !85
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN2cv4gapi3oak15OAKMediaAdapterE, i64 16), ptr %6, align 8, !tbaa !27, !noalias !85
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 0, ptr %9, align 4, !tbaa !70, !noalias !85
+  store i32 0, ptr %9, align 8, !tbaa !70, !noalias !85
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 0, ptr %10, align 4, !tbaa !72, !noalias !85
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 24

@@ -4529,7 +4529,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %47
   store i64 %54, ptr %55, align 8, !tbaa !9
   store ptr %45, ptr %2, align 8, !tbaa !40
   store i64 0, ptr %53, align 8, !tbaa !9
-  store i8 0, ptr %45, align 1, !tbaa !12
+  store i8 0, ptr %45, align 8, !tbaa !12
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %57, ptr %56, align 8, !tbaa !3
@@ -4560,7 +4560,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit10: ; preds = %
   store i64 %68, ptr %69, align 8, !tbaa !9
   store ptr %59, ptr %3, align 8, !tbaa !40
   store i64 0, ptr %67, align 8, !tbaa !9
-  store i8 0, ptr %59, align 1, !tbaa !12
+  store i8 0, ptr %59, align 8, !tbaa !12
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 184
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %70, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -4659,7 +4659,7 @@ define void @_ZN6duckdb19CreateTableRelation4BindERNS_6BinderE(ptr dead_on_unwin
   store ptr %18, ptr %17, align 8, !tbaa !3, !noalias !191
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store i64 0, ptr %19, align 8, !tbaa !9, !noalias !191
-  store i8 0, ptr %18, align 1, !tbaa !12, !noalias !191
+  store i8 0, ptr %18, align 8, !tbaa !12, !noalias !191
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN6duckdb15SelectStatementE, i64 16), ptr %8, align 8, !tbaa !13, !noalias !191
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 120
   store ptr null, ptr %20, align 8, !tbaa !94, !noalias !191
@@ -5592,7 +5592,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %50
   store i64 %57, ptr %58, align 8, !tbaa !9
   store ptr %48, ptr %2, align 8, !tbaa !40
   store i64 0, ptr %56, align 8, !tbaa !9
-  store i8 0, ptr %48, align 1, !tbaa !12
+  store i8 0, ptr %48, align 8, !tbaa !12
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i8 %6, ptr %59, align 8, !tbaa !243
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 185
@@ -5785,7 +5785,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %48
   store i64 %55, ptr %56, align 8, !tbaa !9
   store ptr %46, ptr %2, align 8, !tbaa !40
   store i64 0, ptr %54, align 8, !tbaa !9
-  store i8 0, ptr %46, align 1, !tbaa !12
+  store i8 0, ptr %46, align 8, !tbaa !12
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %58, ptr %57, align 8, !tbaa !3
@@ -5816,7 +5816,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit10: ; preds = %
   store i64 %69, ptr %70, align 8, !tbaa !9
   store ptr %60, ptr %3, align 8, !tbaa !40
   store i64 0, ptr %68, align 8, !tbaa !9
-  store i8 0, ptr %60, align 1, !tbaa !12
+  store i8 0, ptr %60, align 8, !tbaa !12
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i8 %7, ptr %71, align 8, !tbaa !243
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 185
@@ -5915,7 +5915,7 @@ define void @_ZN6duckdb18CreateViewRelation4BindERNS_6BinderE(ptr dead_on_unwind
   store ptr %18, ptr %17, align 8, !tbaa !3, !noalias !246
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store i64 0, ptr %19, align 8, !tbaa !9, !noalias !246
-  store i8 0, ptr %18, align 1, !tbaa !12, !noalias !246
+  store i8 0, ptr %18, align 8, !tbaa !12, !noalias !246
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN6duckdb15SelectStatementE, i64 16), ptr %8, align 8, !tbaa !13, !noalias !246
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 120
   store ptr null, ptr %20, align 8, !tbaa !94, !noalias !246
@@ -7329,7 +7329,7 @@ define void @_ZN6duckdb20CrossProductRelation11GetTableRefEv(ptr dead_on_unwind 
   store ptr %11, ptr %10, align 8, !tbaa !3, !noalias !277
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 0, ptr %12, align 8, !tbaa !9, !noalias !277
-  store i8 0, ptr %11, align 1, !tbaa !12, !noalias !277
+  store i8 0, ptr %11, align 8, !tbaa !12, !noalias !277
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr null, ptr %13, align 8, !tbaa !295, !noalias !277
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 56
@@ -8280,7 +8280,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %41
   store i64 %48, ptr %49, align 8, !tbaa !9
   store ptr %39, ptr %3, align 8, !tbaa !40
   store i64 0, ptr %47, align 8, !tbaa !9
-  store i8 0, ptr %39, align 1, !tbaa !12
+  store i8 0, ptr %39, align 8, !tbaa !12
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %51, ptr %50, align 8, !tbaa !3
@@ -8311,7 +8311,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit9: ; preds = %5
   store i64 %62, ptr %63, align 8, !tbaa !9
   store ptr %53, ptr %4, align 8, !tbaa !40
   store i64 0, ptr %61, align 8, !tbaa !9
-  store i8 0, ptr %53, align 1, !tbaa !12
+  store i8 0, ptr %53, align 8, !tbaa !12
   invoke void @_ZN6duckdb8Relation15TryBindRelationERNS_6vectorINS_16ColumnDefinitionELb1EEE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(24) %33)
           to label %64 unwind label %67
 
@@ -8402,7 +8402,7 @@ define void @_ZN6duckdb14DeleteRelation4BindERNS_6BinderE(ptr dead_on_unwind noa
   store ptr %10, ptr %9, align 8, !tbaa !3, !noalias !310
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 0, ptr %11, align 8, !tbaa !9, !noalias !310
-  store i8 0, ptr %10, align 1, !tbaa !12, !noalias !310
+  store i8 0, ptr %10, align 8, !tbaa !12, !noalias !310
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr null, ptr %12, align 8, !tbaa !295, !noalias !310
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 56
@@ -8415,19 +8415,19 @@ define void @_ZN6duckdb14DeleteRelation4BindERNS_6BinderE(ptr dead_on_unwind noa
   store ptr %16, ptr %15, align 8, !tbaa !3, !noalias !310
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 112
   store i64 0, ptr %17, align 8, !tbaa !9, !noalias !310
-  store i8 0, ptr %16, align 1, !tbaa !12, !noalias !310
+  store i8 0, ptr %16, align 8, !tbaa !12, !noalias !310
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 136
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 152
   store ptr %19, ptr %18, align 8, !tbaa !3, !noalias !310
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 144
   store i64 0, ptr %20, align 8, !tbaa !9, !noalias !310
-  store i8 0, ptr %19, align 1, !tbaa !12, !noalias !310
+  store i8 0, ptr %19, align 8, !tbaa !12, !noalias !310
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 184
   store ptr %22, ptr %21, align 8, !tbaa !3, !noalias !310
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 176
   store i64 0, ptr %23, align 8, !tbaa !9, !noalias !310
-  store i8 0, ptr %22, align 1, !tbaa !12, !noalias !310
+  store i8 0, ptr %22, align 8, !tbaa !12, !noalias !310
   store ptr %7, ptr %4, align 8, !tbaa !313, !alias.scope !310
   %24 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_12BaseTableRefESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %25 unwind label %62
@@ -10676,7 +10676,7 @@ define void @_ZN6duckdb15ExplainRelation4BindERNS_6BinderE(ptr dead_on_unwind no
   store ptr %18, ptr %17, align 8, !tbaa !3, !noalias !369
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store i64 0, ptr %19, align 8, !tbaa !9, !noalias !369
-  store i8 0, ptr %18, align 1, !tbaa !12, !noalias !369
+  store i8 0, ptr %18, align 8, !tbaa !12, !noalias !369
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN6duckdb15SelectStatementE, i64 16), ptr %8, align 8, !tbaa !13, !noalias !369
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 120
   store ptr null, ptr %20, align 8, !tbaa !94, !noalias !369
@@ -12715,7 +12715,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %44
   store i64 %51, ptr %52, align 8, !tbaa !9
   store ptr %42, ptr %2, align 8, !tbaa !40
   store i64 0, ptr %50, align 8, !tbaa !9
-  store i8 0, ptr %42, align 1, !tbaa !12
+  store i8 0, ptr %42, align 8, !tbaa !12
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %54, ptr %53, align 8, !tbaa !3
@@ -12746,7 +12746,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit8: ; preds = %5
   store i64 %65, ptr %66, align 8, !tbaa !9
   store ptr %56, ptr %3, align 8, !tbaa !40
   store i64 0, ptr %64, align 8, !tbaa !9
-  store i8 0, ptr %56, align 1, !tbaa !12
+  store i8 0, ptr %56, align 8, !tbaa !12
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 184
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %67, i8 0, i64 24, i1 false)
   invoke void @_ZN6duckdb8Relation15TryBindRelationERNS_6vectorINS_16ColumnDefinitionELb1EEE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(24) %67)
@@ -12845,7 +12845,7 @@ define void @_ZN6duckdb14InsertRelation4BindERNS_6BinderE(ptr dead_on_unwind noa
   store ptr %18, ptr %17, align 8, !tbaa !3, !noalias !409
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store i64 0, ptr %19, align 8, !tbaa !9, !noalias !409
-  store i8 0, ptr %18, align 1, !tbaa !12, !noalias !409
+  store i8 0, ptr %18, align 8, !tbaa !12, !noalias !409
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN6duckdb15SelectStatementE, i64 16), ptr %7, align 8, !tbaa !13, !noalias !409
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 120
   store ptr null, ptr %20, align 8, !tbaa !94, !noalias !409
@@ -14598,7 +14598,7 @@ define void @_ZN6duckdb12JoinRelation11GetTableRefEv(ptr dead_on_unwind noalias 
   store ptr %13, ptr %12, align 8, !tbaa !3, !noalias !437
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 0, ptr %14, align 8, !tbaa !9, !noalias !437
-  store i8 0, ptr %13, align 1, !tbaa !12, !noalias !437
+  store i8 0, ptr %13, align 8, !tbaa !12, !noalias !437
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr null, ptr %15, align 8, !tbaa !295, !noalias !437
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 56
@@ -19214,7 +19214,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %43
   store i64 %50, ptr %51, align 8, !tbaa !9
   store ptr %41, ptr %3, align 8, !tbaa !40
   store i64 0, ptr %49, align 8, !tbaa !9
-  store i8 0, ptr %41, align 1, !tbaa !12
+  store i8 0, ptr %41, align 8, !tbaa !12
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %53, ptr %52, align 8, !tbaa !3
@@ -19245,7 +19245,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit9: ; preds = %5
   store i64 %64, ptr %65, align 8, !tbaa !9
   store ptr %55, ptr %4, align 8, !tbaa !40
   store i64 0, ptr %63, align 8, !tbaa !9
-  store i8 0, ptr %55, align 1, !tbaa !12
+  store i8 0, ptr %55, align 8, !tbaa !12
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %67 = load ptr, ptr %5, align 8, !tbaa !412
   store ptr %67, ptr %66, align 8, !tbaa !412
@@ -19364,7 +19364,7 @@ define void @_ZN6duckdb14UpdateRelation4BindERNS_6BinderE(ptr dead_on_unwind noa
   store ptr %12, ptr %11, align 8, !tbaa !3, !noalias !567
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 0, ptr %13, align 8, !tbaa !9, !noalias !567
-  store i8 0, ptr %12, align 1, !tbaa !12, !noalias !567
+  store i8 0, ptr %12, align 8, !tbaa !12, !noalias !567
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr null, ptr %14, align 8, !tbaa !295, !noalias !567
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 56
@@ -19377,19 +19377,19 @@ define void @_ZN6duckdb14UpdateRelation4BindERNS_6BinderE(ptr dead_on_unwind noa
   store ptr %18, ptr %17, align 8, !tbaa !3, !noalias !567
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 112
   store i64 0, ptr %19, align 8, !tbaa !9, !noalias !567
-  store i8 0, ptr %18, align 1, !tbaa !12, !noalias !567
+  store i8 0, ptr %18, align 8, !tbaa !12, !noalias !567
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 152
   store ptr %21, ptr %20, align 8, !tbaa !3, !noalias !567
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 144
   store i64 0, ptr %22, align 8, !tbaa !9, !noalias !567
-  store i8 0, ptr %21, align 1, !tbaa !12, !noalias !567
+  store i8 0, ptr %21, align 8, !tbaa !12, !noalias !567
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 184
   store ptr %24, ptr %23, align 8, !tbaa !3, !noalias !567
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 176
   store i64 0, ptr %25, align 8, !tbaa !9, !noalias !567
-  store i8 0, ptr %24, align 1, !tbaa !12, !noalias !567
+  store i8 0, ptr %24, align 8, !tbaa !12, !noalias !567
   store ptr %9, ptr %4, align 8, !tbaa !313, !alias.scope !567
   %26 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_12BaseTableRefESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %27 unwind label %78
@@ -22622,7 +22622,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %32
   store i64 %39, ptr %40, align 8, !tbaa !9
   store ptr %30, ptr %3, align 8, !tbaa !40
   store i64 0, ptr %38, align 8, !tbaa !9
-  store i8 0, ptr %30, align 1, !tbaa !12
+  store i8 0, ptr %30, align 8, !tbaa !12
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false)
   %42 = load i64, ptr %24, align 8, !tbaa !9
@@ -23601,7 +23601,7 @@ define void @_ZN6duckdb13QueryRelation4BindERNS_6BinderE(ptr dead_on_unwind noal
   store ptr %52, ptr %51, align 8, !tbaa !3, !noalias !654
   %53 = getelementptr inbounds nuw i8, ptr %41, i64 96
   store i64 0, ptr %53, align 8, !tbaa !9, !noalias !654
-  store i8 0, ptr %52, align 1, !tbaa !12, !noalias !654
+  store i8 0, ptr %52, align 8, !tbaa !12, !noalias !654
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN6duckdb15SelectStatementE, i64 16), ptr %41, align 8, !tbaa !13, !noalias !654
   %54 = getelementptr inbounds nuw i8, ptr %41, i64 120
   store ptr null, ptr %54, align 8, !tbaa !94, !noalias !654
@@ -25281,7 +25281,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %90
   store i64 %97, ptr %98, align 8, !tbaa !9
   store ptr %88, ptr %4, align 8, !tbaa !40
   store i64 0, ptr %96, align 8, !tbaa !9
-  store i8 0, ptr %88, align 1, !tbaa !12
+  store i8 0, ptr %88, align 8, !tbaa !12
   invoke void @_ZN6duckdb15ReadCSVRelation15InitializeAliasERKNS_6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEE(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %99 unwind label %224
 
@@ -27485,7 +27485,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %13
   store i64 %20, ptr %21, align 8, !tbaa !9
   store ptr %11, ptr %2, align 8, !tbaa !40
   store i64 0, ptr %19, align 8, !tbaa !9
-  store i8 0, ptr %11, align 1, !tbaa !12
+  store i8 0, ptr %11, align 8, !tbaa !12
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %23 = load ptr, ptr %3, align 8, !tbaa !702
   store ptr %23, ptr %22, align 8, !tbaa !702
@@ -30649,7 +30649,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %11
   store i64 %118, ptr %119, align 8, !tbaa !9
   store ptr %109, ptr %5, align 8, !tbaa !40
   store i64 0, ptr %117, align 8, !tbaa !9
-  store i8 0, ptr %109, align 1, !tbaa !12
+  store i8 0, ptr %109, align 8, !tbaa !12
   invoke void @_ZN6duckdb16ReadJSONRelation15InitializeAliasERKNS_6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %120 unwind label %129
 
@@ -30767,7 +30767,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %14
   store i64 %21, ptr %22, align 8, !tbaa !9
   store ptr %12, ptr %2, align 8, !tbaa !40
   store i64 0, ptr %20, align 8, !tbaa !9
-  store i8 0, ptr %12, align 1, !tbaa !12
+  store i8 0, ptr %12, align 8, !tbaa !12
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %24 = load ptr, ptr %3, align 8, !tbaa !702
   store ptr %24, ptr %23, align 8, !tbaa !702
@@ -31285,7 +31285,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %13
   store i64 %137, ptr %138, align 8, !tbaa !9
   store ptr %130, ptr %2, align 8, !tbaa !40
   store i64 0, ptr %21, align 8, !tbaa !9
-  store i8 0, ptr %130, align 1, !tbaa !12
+  store i8 0, ptr %130, align 8, !tbaa !12
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store ptr %140, ptr %139, align 8, !tbaa !3
@@ -31316,7 +31316,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit38: ; preds = %
   store i64 %151, ptr %152, align 8, !tbaa !9
   store ptr %142, ptr %5, align 8, !tbaa !40
   store i64 0, ptr %150, align 8, !tbaa !9
-  store i8 0, ptr %142, align 1, !tbaa !12
+  store i8 0, ptr %142, align 8, !tbaa !12
   %153 = load i64, ptr %152, align 8, !tbaa !9
   %154 = icmp eq i64 %153, 0
   br i1 %154, label %._crit_edge.i.i39, label %208
@@ -33226,7 +33226,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %41
   store i64 %48, ptr %49, align 8, !tbaa !9
   store ptr %39, ptr %2, align 8, !tbaa !40
   store i64 0, ptr %47, align 8, !tbaa !9
-  store i8 0, ptr %39, align 1, !tbaa !12
+  store i8 0, ptr %39, align 8, !tbaa !12
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %51 = load ptr, ptr %3, align 8, !tbaa !702
   store ptr %51, ptr %50, align 8, !tbaa !702
@@ -33681,7 +33681,7 @@ define void @_ZN6duckdb21TableFunctionRelation11GetTableRefEv(ptr dead_on_unwind
   store ptr %31, ptr %30, align 8, !tbaa !3, !noalias !940
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 96
   store i64 0, ptr %32, align 8, !tbaa !9, !noalias !940
-  store i8 0, ptr %31, align 1, !tbaa !12, !noalias !940
+  store i8 0, ptr %31, align 8, !tbaa !12, !noalias !940
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN6duckdb15SelectStatementE, i64 16), ptr %20, align 8, !tbaa !13, !noalias !940
   %33 = getelementptr inbounds nuw i8, ptr %20, i64 120
   store ptr null, ptr %33, align 8, !tbaa !94, !noalias !940
@@ -35808,7 +35808,7 @@ define void @_ZN6duckdb13TableRelation11GetTableRefEv(ptr dead_on_unwind noalias
   store ptr %7, ptr %6, align 8, !tbaa !3, !noalias !1005
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %8, align 8, !tbaa !9, !noalias !1005
-  store i8 0, ptr %7, align 1, !tbaa !12, !noalias !1005
+  store i8 0, ptr %7, align 8, !tbaa !12, !noalias !1005
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr null, ptr %9, align 8, !tbaa !295, !noalias !1005
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -35821,19 +35821,19 @@ define void @_ZN6duckdb13TableRelation11GetTableRefEv(ptr dead_on_unwind noalias
   store ptr %13, ptr %12, align 8, !tbaa !3, !noalias !1005
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 112
   store i64 0, ptr %14, align 8, !tbaa !9, !noalias !1005
-  store i8 0, ptr %13, align 1, !tbaa !12, !noalias !1005
+  store i8 0, ptr %13, align 8, !tbaa !12, !noalias !1005
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store ptr %16, ptr %15, align 8, !tbaa !3, !noalias !1005
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 144
   store i64 0, ptr %17, align 8, !tbaa !9, !noalias !1005
-  store i8 0, ptr %16, align 1, !tbaa !12, !noalias !1005
+  store i8 0, ptr %16, align 8, !tbaa !12, !noalias !1005
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 168
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 184
   store ptr %19, ptr %18, align 8, !tbaa !3, !noalias !1005
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 176
   store i64 0, ptr %20, align 8, !tbaa !9, !noalias !1005
-  store i8 0, ptr %19, align 1, !tbaa !12, !noalias !1005
+  store i8 0, ptr %19, align 8, !tbaa !12, !noalias !1005
   store ptr %4, ptr %3, align 8, !tbaa !313, !alias.scope !1005
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %22 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_16TableDescriptionESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %21)
@@ -37780,7 +37780,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %23
   store i64 %30, ptr %31, align 8, !tbaa !9
   store ptr %21, ptr %4, align 8, !tbaa !40
   store i64 0, ptr %29, align 8, !tbaa !9
-  store i8 0, ptr %21, align 1, !tbaa !12
+  store i8 0, ptr %21, align 8, !tbaa !12
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !1031
   %34 = load ptr, ptr %2, align 8, !tbaa !1034
@@ -38297,7 +38297,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %52
   store i64 %58, ptr %60, align 8, !tbaa !9
   store ptr %50, ptr %4, align 8, !tbaa !40
   store i64 0, ptr %59, align 8, !tbaa !9
-  store i8 0, ptr %50, align 1, !tbaa !12
+  store i8 0, ptr %50, align 8, !tbaa !12
   invoke void @_ZN6duckdb13ValueRelationC2ERKNS_10shared_ptrINS_22RelationContextWrapperELb1EEEONS_6vectorINS6_INS_10unique_ptrINS_16ParsedExpressionESt14default_deleteIS8_ELb1EEELb1EEELb1EEENS6_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEESK_(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %7, ptr noundef nonnull %8)
           to label %61 unwind label %99
 
@@ -38549,7 +38549,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %42
   store i64 %49, ptr %50, align 8, !tbaa !9
   store ptr %40, ptr %4, align 8, !tbaa !40
   store i64 0, ptr %48, align 8, !tbaa !9
-  store i8 0, ptr %40, align 1, !tbaa !12
+  store i8 0, ptr %40, align 8, !tbaa !12
   %51 = load ptr, ptr %3, align 8, !tbaa !605
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !605
@@ -38964,7 +38964,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %23
   store i64 %30, ptr %31, align 8, !tbaa !9
   store ptr %21, ptr %4, align 8, !tbaa !40
   store i64 0, ptr %29, align 8, !tbaa !9
-  store i8 0, ptr %21, align 1, !tbaa !12
+  store i8 0, ptr %21, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %32 = invoke noundef ptr @_ZNK6duckdb10shared_ptrINS_13ClientContextELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %33 unwind label %74
@@ -39287,7 +39287,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %50
   store i64 %57, ptr %58, align 8, !tbaa !9
   store ptr %48, ptr %4, align 8, !tbaa !40
   store i64 0, ptr %56, align 8, !tbaa !9
-  store i8 0, ptr %48, align 1, !tbaa !12
+  store i8 0, ptr %48, align 8, !tbaa !12
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !1031
   %61 = load ptr, ptr %2, align 8, !tbaa !1034
@@ -39970,7 +39970,7 @@ define void @_ZN6duckdb13ValueRelation11GetTableRefEv(ptr dead_on_unwind noalias
   store ptr %14, ptr %13, align 8, !tbaa !3, !noalias !1078
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 0, ptr %15, align 8, !tbaa !9, !noalias !1078
-  store i8 0, ptr %14, align 1, !tbaa !12, !noalias !1078
+  store i8 0, ptr %14, align 8, !tbaa !12, !noalias !1078
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store ptr null, ptr %16, align 8, !tbaa !295, !noalias !1078
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 56
@@ -41376,7 +41376,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %17
   store i64 %24, ptr %25, align 8, !tbaa !9
   store ptr %15, ptr %4, align 8, !tbaa !40
   store i64 0, ptr %23, align 8, !tbaa !9
-  store i8 0, ptr %15, align 1, !tbaa !12
+  store i8 0, ptr %15, align 8, !tbaa !12
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 160
   invoke void @_ZNSt12__shared_ptrIN6duckdb20ColumnDataCollectionELN9__gnu_cxx12_Lock_policyE2EEC2IS1_St14default_deleteIS1_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %_ZN6duckdb10shared_ptrINS_20ColumnDataCollectionELb1EEC2IS1_St14default_deleteIS1_ELb1ETnNSt9enable_ifIXaasr17compatible_with_tIT_S1_EE5valuesr3std14is_convertibleINS_10unique_ptrIS7_T0_Lb1EE7pointerEPS1_EE5valueEiE4typeELi0EEEONS8_IS7_S9_XT1_EEE.exit unwind label %40
@@ -42186,7 +42186,7 @@ _ZN6duckdb9make_uniqINS_13ColumnDataRefEJRNS_10shared_ptrINS_20ColumnDataCollect
   store ptr %21, ptr %20, align 8, !tbaa !3, !noalias !1115
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 0, ptr %22, align 8, !tbaa !9, !noalias !1115
-  store i8 0, ptr %21, align 1, !tbaa !12, !noalias !1115
+  store i8 0, ptr %21, align 8, !tbaa !12, !noalias !1115
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr null, ptr %23, align 8, !tbaa !295, !noalias !1115
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 56
@@ -42632,7 +42632,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %10
   store i64 %17, ptr %18, align 8, !tbaa !9
   store ptr %8, ptr %2, align 8, !tbaa !40
   store i64 0, ptr %16, align 8, !tbaa !9
-  store i8 0, ptr %8, align 1, !tbaa !12
+  store i8 0, ptr %8, align 8, !tbaa !12
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %20, ptr %19, align 8, !tbaa !3
@@ -42663,7 +42663,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit4: ; preds = %2
   store i64 %31, ptr %32, align 8, !tbaa !9
   store ptr %22, ptr %3, align 8, !tbaa !40
   store i64 0, ptr %30, align 8, !tbaa !9
-  store i8 0, ptr %22, align 1, !tbaa !12
+  store i8 0, ptr %22, align 8, !tbaa !12
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, i8 0, i64 32, i1 false)
@@ -42833,7 +42833,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %37
   store i64 %44, ptr %45, align 8, !tbaa !9
   store ptr %35, ptr %2, align 8, !tbaa !40
   store i64 0, ptr %43, align 8, !tbaa !9
-  store i8 0, ptr %35, align 1, !tbaa !12
+  store i8 0, ptr %35, align 8, !tbaa !12
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %47, ptr %46, align 8, !tbaa !3
@@ -42864,7 +42864,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit9: ; preds = %5
   store i64 %58, ptr %59, align 8, !tbaa !9
   store ptr %49, ptr %3, align 8, !tbaa !40
   store i64 0, ptr %57, align 8, !tbaa !9
-  store i8 0, ptr %49, align 1, !tbaa !12
+  store i8 0, ptr %49, align 8, !tbaa !12
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %60, i8 0, i64 32, i1 false)
@@ -43367,7 +43367,7 @@ define void @_ZN6duckdb12ViewRelation11GetTableRefEv(ptr dead_on_unwind noalias 
   store ptr %15, ptr %14, align 8, !tbaa !3, !noalias !1131
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i64 0, ptr %16, align 8, !tbaa !9, !noalias !1131
-  store i8 0, ptr %15, align 1, !tbaa !12, !noalias !1131
+  store i8 0, ptr %15, align 8, !tbaa !12, !noalias !1131
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store ptr null, ptr %17, align 8, !tbaa !295, !noalias !1131
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 56
@@ -43380,19 +43380,19 @@ define void @_ZN6duckdb12ViewRelation11GetTableRefEv(ptr dead_on_unwind noalias 
   store ptr %21, ptr %20, align 8, !tbaa !3, !noalias !1131
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 112
   store i64 0, ptr %22, align 8, !tbaa !9, !noalias !1131
-  store i8 0, ptr %21, align 1, !tbaa !12, !noalias !1131
+  store i8 0, ptr %21, align 8, !tbaa !12, !noalias !1131
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 136
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 152
   store ptr %24, ptr %23, align 8, !tbaa !3, !noalias !1131
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 144
   store i64 0, ptr %25, align 8, !tbaa !9, !noalias !1131
-  store i8 0, ptr %24, align 1, !tbaa !12, !noalias !1131
+  store i8 0, ptr %24, align 8, !tbaa !12, !noalias !1131
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 168
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 184
   store ptr %27, ptr %26, align 8, !tbaa !3, !noalias !1131
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 176
   store i64 0, ptr %28, align 8, !tbaa !9, !noalias !1131
-  store i8 0, ptr %27, align 1, !tbaa !12, !noalias !1131
+  store i8 0, ptr %27, align 8, !tbaa !12, !noalias !1131
   store ptr %12, ptr %3, align 8, !tbaa !313, !alias.scope !1131
   %29 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_12BaseTableRefESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %30 unwind label %38
@@ -43898,7 +43898,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %44
   store i64 %51, ptr %52, align 8, !tbaa !9
   store ptr %42, ptr %2, align 8, !tbaa !40
   store i64 0, ptr %50, align 8, !tbaa !9
-  store i8 0, ptr %42, align 1, !tbaa !12
+  store i8 0, ptr %42, align 8, !tbaa !12
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, i8 0, i64 24, i1 false)
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -44022,7 +44022,7 @@ define void @_ZN6duckdb20WriteParquetRelation4BindERNS_6BinderE(ptr dead_on_unwi
   store ptr %11, ptr %10, align 8, !tbaa !3, !noalias !1149
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 0, ptr %12, align 8, !tbaa !9, !noalias !1149
-  store i8 0, ptr %11, align 1, !tbaa !12, !noalias !1149
+  store i8 0, ptr %11, align 8, !tbaa !12, !noalias !1149
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store ptr %14, ptr %13, align 8, !tbaa !3, !noalias !1149
@@ -44030,13 +44030,13 @@ define void @_ZN6duckdb20WriteParquetRelation4BindERNS_6BinderE(ptr dead_on_unwi
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i64 4, ptr %15, align 8, !tbaa !9, !noalias !1149
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 68
-  store i8 0, ptr %16, align 1, !tbaa !12, !noalias !1149
+  store i8 0, ptr %16, align 4, !tbaa !12, !noalias !1149
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store ptr %18, ptr %17, align 8, !tbaa !3, !noalias !1149
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 88
   store i64 0, ptr %19, align 8, !tbaa !9, !noalias !1149
-  store i8 0, ptr %18, align 1, !tbaa !12, !noalias !1149
+  store i8 0, ptr %18, align 8, !tbaa !12, !noalias !1149
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false), !noalias !1149
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 144
@@ -44044,13 +44044,13 @@ define void @_ZN6duckdb20WriteParquetRelation4BindERNS_6BinderE(ptr dead_on_unwi
   store ptr %22, ptr %21, align 8, !tbaa !3, !noalias !1149
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 152
   store i64 0, ptr %23, align 8, !tbaa !9, !noalias !1149
-  store i8 0, ptr %22, align 1, !tbaa !12, !noalias !1149
+  store i8 0, ptr %22, align 8, !tbaa !12, !noalias !1149
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 176
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 192
   store ptr %25, ptr %24, align 8, !tbaa !3, !noalias !1149
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 184
   store i64 0, ptr %26, align 8, !tbaa !9, !noalias !1149
-  store i8 0, ptr %25, align 1, !tbaa !12, !noalias !1149
+  store i8 0, ptr %25, align 8, !tbaa !12, !noalias !1149
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 208
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 256
   store ptr %28, ptr %27, align 8, !tbaa !1143, !noalias !1149
@@ -45023,7 +45023,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %44
   store i64 %51, ptr %52, align 8, !tbaa !9
   store ptr %42, ptr %2, align 8, !tbaa !40
   store i64 0, ptr %50, align 8, !tbaa !9
-  store i8 0, ptr %42, align 1, !tbaa !12
+  store i8 0, ptr %42, align 8, !tbaa !12
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, i8 0, i64 24, i1 false)
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -45147,7 +45147,7 @@ define void @_ZN6duckdb16WriteCSVRelation4BindERNS_6BinderE(ptr dead_on_unwind n
   store ptr %11, ptr %10, align 8, !tbaa !3, !noalias !1170
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 0, ptr %12, align 8, !tbaa !9, !noalias !1170
-  store i8 0, ptr %11, align 1, !tbaa !12, !noalias !1170
+  store i8 0, ptr %11, align 8, !tbaa !12, !noalias !1170
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store ptr %14, ptr %13, align 8, !tbaa !3, !noalias !1170
@@ -45155,13 +45155,13 @@ define void @_ZN6duckdb16WriteCSVRelation4BindERNS_6BinderE(ptr dead_on_unwind n
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i64 4, ptr %15, align 8, !tbaa !9, !noalias !1170
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 68
-  store i8 0, ptr %16, align 1, !tbaa !12, !noalias !1170
+  store i8 0, ptr %16, align 4, !tbaa !12, !noalias !1170
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store ptr %18, ptr %17, align 8, !tbaa !3, !noalias !1170
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 88
   store i64 0, ptr %19, align 8, !tbaa !9, !noalias !1170
-  store i8 0, ptr %18, align 1, !tbaa !12, !noalias !1170
+  store i8 0, ptr %18, align 8, !tbaa !12, !noalias !1170
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false), !noalias !1170
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 144
@@ -45169,13 +45169,13 @@ define void @_ZN6duckdb16WriteCSVRelation4BindERNS_6BinderE(ptr dead_on_unwind n
   store ptr %22, ptr %21, align 8, !tbaa !3, !noalias !1170
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 152
   store i64 0, ptr %23, align 8, !tbaa !9, !noalias !1170
-  store i8 0, ptr %22, align 1, !tbaa !12, !noalias !1170
+  store i8 0, ptr %22, align 8, !tbaa !12, !noalias !1170
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 176
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 192
   store ptr %25, ptr %24, align 8, !tbaa !3, !noalias !1170
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 184
   store i64 0, ptr %26, align 8, !tbaa !9, !noalias !1170
-  store i8 0, ptr %25, align 1, !tbaa !12, !noalias !1170
+  store i8 0, ptr %25, align 8, !tbaa !12, !noalias !1170
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 208
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 256
   store ptr %28, ptr %27, align 8, !tbaa !1143, !noalias !1170
@@ -50832,7 +50832,7 @@ _ZSt19__relocate_object_aIN6duckdb20ExceptionFormatValueES1_SaIS1_EEvPT_PT0_RT1_
   store i64 %49, ptr %51, align 8, !tbaa !9, !alias.scope !1194, !noalias !1197
   store ptr %41, ptr %38, align 8, !tbaa !40, !alias.scope !1197, !noalias !1194
   store i64 0, ptr %50, align 8, !tbaa !9, !alias.scope !1197, !noalias !1194
-  store i8 0, ptr %41, align 1, !tbaa !12, !alias.scope !1197, !noalias !1194
+  store i8 0, ptr %41, align 8, !tbaa !12, !alias.scope !1197, !noalias !1194
   %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 56
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 56
   %.not.i.i.i.i = icmp eq ptr %52, %1
@@ -50883,7 +50883,7 @@ _ZSt19__relocate_object_aIN6duckdb20ExceptionFormatValueES1_SaIS1_EEvPT_PT0_RT1_
   store i64 %67, ptr %69, align 8, !tbaa !9, !alias.scope !1201, !noalias !1204
   store ptr %59, ptr %56, align 8, !tbaa !40, !alias.scope !1204, !noalias !1201
   store i64 0, ptr %68, align 8, !tbaa !9, !alias.scope !1204, !noalias !1201
-  store i8 0, ptr %59, align 1, !tbaa !12, !alias.scope !1204, !noalias !1201
+  store i8 0, ptr %59, align 8, !tbaa !12, !alias.scope !1204, !noalias !1201
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 56
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 56
   %.not.i.i.i.i24 = icmp eq ptr %70, %5
@@ -58373,7 +58373,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !tbaa !9, !alias.scope !1332, !noalias !1335
   store ptr %43, ptr %.0911.i.i.i.i, align 8, !tbaa !40, !alias.scope !1335, !noalias !1332
   store i64 0, ptr %52, align 8, !tbaa !9, !alias.scope !1335, !noalias !1332
-  store i8 0, ptr %43, align 1, !tbaa !12, !alias.scope !1335, !noalias !1332
+  store i8 0, ptr %43, align 8, !tbaa !12, !alias.scope !1335, !noalias !1332
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %54, %1
@@ -58421,7 +58421,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !tbaa !9, !alias.scope !1339, !noalias !1342
   store ptr %59, ptr %.0911.i.i.i.i29, align 8, !tbaa !40, !alias.scope !1342, !noalias !1339
   store i64 0, ptr %68, align 8, !tbaa !9, !alias.scope !1342, !noalias !1339
-  store i8 0, ptr %59, align 1, !tbaa !12, !alias.scope !1342, !noalias !1339
+  store i8 0, ptr %59, align 8, !tbaa !12, !alias.scope !1342, !noalias !1339
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 32
   %.not.i.i.i.i34 = icmp eq ptr %70, %6
@@ -58936,7 +58936,7 @@ _ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store i64 %54, ptr %56, align 8, !tbaa !9, !alias.scope !1357, !noalias !1360
   store ptr %46, ptr %.0911.i.i.i.i, align 8, !tbaa !40, !alias.scope !1360, !noalias !1357
   store i64 0, ptr %55, align 8, !tbaa !9, !alias.scope !1360, !noalias !1357
-  store i8 0, ptr %46, align 1, !tbaa !12, !alias.scope !1360, !noalias !1357
+  store i8 0, ptr %46, align 8, !tbaa !12, !alias.scope !1360, !noalias !1357
   %57 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %58 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %59 = load i64, ptr %58, align 8, !tbaa !681, !alias.scope !1360, !noalias !1357
@@ -58989,7 +58989,7 @@ _ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store i64 %73, ptr %75, align 8, !tbaa !9, !alias.scope !1364, !noalias !1367
   store ptr %65, ptr %.0911.i.i.i.i30, align 8, !tbaa !40, !alias.scope !1367, !noalias !1364
   store i64 0, ptr %74, align 8, !tbaa !9, !alias.scope !1367, !noalias !1364
-  store i8 0, ptr %65, align 1, !tbaa !12, !alias.scope !1367, !noalias !1364
+  store i8 0, ptr %65, align 8, !tbaa !12, !alias.scope !1367, !noalias !1364
   %76 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i29, i64 32
   %77 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i30, i64 32
   %78 = load i64, ptr %77, align 8, !tbaa !681, !alias.scope !1367, !noalias !1364
@@ -59558,7 +59558,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !tbaa !9, !alias.scope !1375, !noalias !1378
   store ptr %43, ptr %.0911.i.i.i.i, align 8, !tbaa !40, !alias.scope !1378, !noalias !1375
   store i64 0, ptr %52, align 8, !tbaa !9, !alias.scope !1378, !noalias !1375
-  store i8 0, ptr %43, align 1, !tbaa !12, !alias.scope !1378, !noalias !1375
+  store i8 0, ptr %43, align 8, !tbaa !12, !alias.scope !1378, !noalias !1375
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %54, %1
@@ -59606,7 +59606,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !tbaa !9, !alias.scope !1381, !noalias !1384
   store ptr %59, ptr %.0911.i.i.i.i29, align 8, !tbaa !40, !alias.scope !1384, !noalias !1381
   store i64 0, ptr %68, align 8, !tbaa !9, !alias.scope !1384, !noalias !1381
-  store i8 0, ptr %59, align 1, !tbaa !12, !alias.scope !1384, !noalias !1381
+  store i8 0, ptr %59, align 8, !tbaa !12, !alias.scope !1384, !noalias !1381
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 32
   %.not.i.i.i.i34 = icmp eq ptr %70, %6
@@ -59875,7 +59875,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !9, !alias.scope !1388, !noalias !1391
   store ptr %39, ptr %.0911.i.i.i.i, align 8, !tbaa !40, !alias.scope !1391, !noalias !1388
   store i64 0, ptr %48, align 8, !tbaa !9, !alias.scope !1391, !noalias !1388
-  store i8 0, ptr %39, align 1, !tbaa !12, !alias.scope !1391, !noalias !1388
+  store i8 0, ptr %39, align 8, !tbaa !12, !alias.scope !1391, !noalias !1388
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %50, %1
@@ -59923,7 +59923,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !9, !alias.scope !1394, !noalias !1397
   store ptr %55, ptr %.0911.i.i.i.i19, align 8, !tbaa !40, !alias.scope !1397, !noalias !1394
   store i64 0, ptr %64, align 8, !tbaa !9, !alias.scope !1397, !noalias !1394
-  store i8 0, ptr %55, align 1, !tbaa !12, !alias.scope !1397, !noalias !1394
+  store i8 0, ptr %55, align 8, !tbaa !12, !alias.scope !1397, !noalias !1394
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 32
   %.not.i.i.i.i24 = icmp eq ptr %66, %5
@@ -70626,7 +70626,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i: ; pre
   store i64 %20, ptr %22, align 8, !tbaa !9
   store ptr %12, ptr %9, align 8, !tbaa !40
   store i64 0, ptr %21, align 8, !tbaa !9
-  store i8 0, ptr %12, align 1, !tbaa !12
+  store i8 0, ptr %12, align 8, !tbaa !12
   invoke void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 noundef zeroext 1)
           to label %23 unwind label %25
 
@@ -70803,7 +70803,7 @@ _ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcE
   store i64 %49, ptr %51, align 8, !tbaa !9, !alias.scope !1622, !noalias !1625
   store ptr %41, ptr %.0911.i.i.i.i, align 8, !tbaa !40, !alias.scope !1625, !noalias !1622
   store i64 0, ptr %50, align 8, !tbaa !9, !alias.scope !1625, !noalias !1622
-  store i8 0, ptr %41, align 1, !tbaa !12, !alias.scope !1625, !noalias !1622
+  store i8 0, ptr %41, align 8, !tbaa !12, !alias.scope !1625, !noalias !1622
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   tail call void @_ZN6duckdb5ValueC1EOS0_(ptr noundef nonnull align 8 dereferenceable(64) %52, ptr noundef nonnull align 8 dereferenceable(64) %53) #25
@@ -70870,7 +70870,7 @@ _ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcE
   store i64 %71, ptr %73, align 8, !tbaa !9, !alias.scope !1629, !noalias !1632
   store ptr %63, ptr %.0911.i.i.i.i19, align 8, !tbaa !40, !alias.scope !1632, !noalias !1629
   store i64 0, ptr %72, align 8, !tbaa !9, !alias.scope !1632, !noalias !1629
-  store i8 0, ptr %63, align 1, !tbaa !12, !alias.scope !1632, !noalias !1629
+  store i8 0, ptr %63, align 8, !tbaa !12, !alias.scope !1632, !noalias !1629
   %74 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 32
   %75 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 32
   tail call void @_ZN6duckdb5ValueC1EOS0_(ptr noundef nonnull align 8 dereferenceable(64) %74, ptr noundef nonnull align 8 dereferenceable(64) %75) #25

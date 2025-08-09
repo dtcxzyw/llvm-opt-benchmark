@@ -497,9 +497,9 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %125 = getelementptr inbounds nuw i8, ptr %9, i64 340
   store i32 0, ptr %125, align 4, !tbaa !88
   %126 = getelementptr inbounds nuw i8, ptr %9, i64 336
-  store i32 0, ptr %126, align 4, !tbaa !89
+  store i32 0, ptr %126, align 8, !tbaa !89
   %127 = getelementptr inbounds nuw i8, ptr %9, i64 360
-  store i32 0, ptr %127, align 4, !tbaa !90
+  store i32 0, ptr %127, align 8, !tbaa !90
   %128 = getelementptr inbounds nuw i8, ptr %9, i64 356
   store i32 -1, ptr %128, align 4, !tbaa !91
   br i1 %.not77, label %289, label %129

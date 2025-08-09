@@ -1181,7 +1181,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 4, !tbaa !160
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %17 = load i32, ptr %16, align 4, !tbaa !162
+  %17 = load i32, ptr %16, align 16, !tbaa !162
   %18 = sitofp i32 %17 to float
   %19 = fmul reassoc nsz arcp contract afn float %18, 5.000000e-01
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 148

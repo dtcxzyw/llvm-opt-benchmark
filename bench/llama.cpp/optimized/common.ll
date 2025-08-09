@@ -12619,7 +12619,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !27, !alias.scope !521, !noalias !524
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !25, !alias.scope !524, !noalias !521
   store i64 0, ptr %48, align 8, !tbaa !27, !alias.scope !524, !noalias !521
-  store i8 0, ptr %39, align 1, !tbaa !28, !alias.scope !524, !noalias !521
+  store i8 0, ptr %39, align 8, !tbaa !28, !alias.scope !524, !noalias !521
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -12667,7 +12667,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !27, !alias.scope !528, !noalias !531
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !25, !alias.scope !531, !noalias !528
   store i64 0, ptr %64, align 8, !tbaa !27, !alias.scope !531, !noalias !528
-  store i8 0, ptr %55, align 1, !tbaa !28, !alias.scope !531, !noalias !528
+  store i8 0, ptr %55, align 8, !tbaa !28, !alias.scope !531, !noalias !528
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5
@@ -13835,7 +13835,7 @@ _ZNSt10_HashtableIiSt4pairIKimESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKimESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !67
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !72
+  %16 = load i32, ptr %15, align 8, !tbaa !72
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18

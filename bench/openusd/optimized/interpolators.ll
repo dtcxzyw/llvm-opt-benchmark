@@ -4458,7 +4458,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSINS_8pxr_half4halfEEENSt9enable_i
   %273 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_8pxr_half4halfEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %274 = inttoptr i64 %273 to ptr
   store ptr %274, ptr %263, align 8
-  store i16 %.sroa.04.0.copyload, ptr %262, align 2
+  store i16 %.sroa.04.0.copyload, ptr %262, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
 
 275:                                              ; preds = %251
@@ -4582,7 +4582,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSIfEENSt9enable_ifIXaasr12_TypeInf
   %328 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIfEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %329 = inttoptr i64 %328 to ptr
   store ptr %329, ptr %318, align 8
-  store float %315, ptr %317, align 4
+  store float %315, ptr %317, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
 
 330:                                              ; preds = %305
@@ -5341,7 +5341,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSINS_7GfVec2fEEENSt9enable_ifIXaas
   %652 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_7GfVec2fEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %653 = inttoptr i64 %652 to ptr
   store ptr %653, ptr %642, align 8
-  store <2 x float> %.sroa.03.0.copyload, ptr %641, align 4
+  store <2 x float> %.sroa.03.0.copyload, ptr %641, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
 
 654:                                              ; preds = %630
@@ -5465,7 +5465,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSINS_7GfVec2hEEENSt9enable_ifIXaas
   %706 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_7GfVec2hEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %707 = inttoptr i64 %706 to ptr
   store ptr %707, ptr %696, align 8
-  store i32 %.sroa.02.0.copyload, ptr %695, align 2
+  store i32 %.sroa.02.0.copyload, ptr %695, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
 
 708:                                              ; preds = %684
@@ -6121,7 +6121,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSINS_7GfVec4hEEENSt9enable_ifIXaas
   %986 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_7GfVec4hEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %987 = inttoptr i64 %986 to ptr
   store ptr %987, ptr %976, align 8
-  store i64 %.sroa.0.0.copyload, ptr %975, align 2
+  store i64 %.sroa.0.0.copyload, ptr %975, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
 
 988:                                              ; preds = %964
@@ -6963,7 +6963,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSINS_8pxr_half4halfEEENSt9enable_i
   %278 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_8pxr_half4halfEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %279 = inttoptr i64 %278 to ptr
   store ptr %279, ptr %268, align 8
-  store i16 %.sroa.04.0.copyload, ptr %267, align 2
+  store i16 %.sroa.04.0.copyload, ptr %267, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__20Usd_HeldInterpolatorINS_7VtValueEE11InterpolateERKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEddd.exit
 
 280:                                              ; preds = %256
@@ -7087,7 +7087,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSIfEENSt9enable_ifIXaasr12_TypeInf
   %333 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIfEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %334 = inttoptr i64 %333 to ptr
   store ptr %334, ptr %323, align 8
-  store float %320, ptr %322, align 4
+  store float %320, ptr %322, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__20Usd_HeldInterpolatorINS_7VtValueEE11InterpolateERKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEddd.exit
 
 335:                                              ; preds = %310
@@ -7846,7 +7846,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSINS_7GfVec2fEEENSt9enable_ifIXaas
   %657 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_7GfVec2fEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %658 = inttoptr i64 %657 to ptr
   store ptr %658, ptr %647, align 8
-  store <2 x float> %.sroa.03.0.copyload, ptr %646, align 4
+  store <2 x float> %.sroa.03.0.copyload, ptr %646, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__20Usd_HeldInterpolatorINS_7VtValueEE11InterpolateERKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEddd.exit
 
 659:                                              ; preds = %635
@@ -7970,7 +7970,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSINS_7GfVec2hEEENSt9enable_ifIXaas
   %711 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_7GfVec2hEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %712 = inttoptr i64 %711 to ptr
   store ptr %712, ptr %701, align 8
-  store i32 %.sroa.02.0.copyload, ptr %700, align 2
+  store i32 %.sroa.02.0.copyload, ptr %700, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__20Usd_HeldInterpolatorINS_7VtValueEE11InterpolateERKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEddd.exit
 
 713:                                              ; preds = %689
@@ -8626,7 +8626,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSINS_7GfVec4hEEENSt9enable_ifIXaas
   %991 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_7GfVec4hEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %992 = inttoptr i64 %991 to ptr
   store ptr %992, ptr %981, align 8
-  store i64 %.sroa.0.0.copyload, ptr %980, align 2
+  store i64 %.sroa.0.0.copyload, ptr %980, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__20Usd_HeldInterpolatorINS_7VtValueEE11InterpolateERKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEddd.exit
 
 993:                                              ; preds = %969
@@ -21946,7 +21946,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_Coun
   %16 = atomicrmw add ptr %.sink.i.i.i, i64 1 monotonic, align 8, !noalias !97
   %.pre = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store atomic i32 0, ptr %17 seq_cst, align 4, !noalias !97
+  store atomic i32 0, ptr %17 seq_cst, align 8, !noalias !97
   %18 = atomicrmw add ptr %17, i32 1 monotonic, align 4, !noalias !97
   %.not.i.i = icmp eq ptr %.pre, null
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_7VtValue8_CountedINS_7VtArrayINS_11SdfTimeCodeEEEEEED2Ev.exit, label %19

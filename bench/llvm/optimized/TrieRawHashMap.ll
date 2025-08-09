@@ -79,9 +79,9 @@ define dso_local noundef nonnull align 8 dereferenceable(104) ptr @_ZN4llvm28Thr
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false), !noalias !12
   store i64 1, ptr %20, align 8, !tbaa !20, !noalias !12
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 96
-  store i8 0, ptr %21, align 1, !tbaa !33, !noalias !12
+  store i8 0, ptr %21, align 8, !tbaa !33, !noalias !12
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 104
-  store i8 1, ptr %22, align 1, !tbaa !36, !noalias !12
+  store i8 1, ptr %22, align 8, !tbaa !36, !noalias !12
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 108
   store i32 0, ptr %23, align 4, !tbaa !38, !noalias !12
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 112
@@ -359,9 +359,9 @@ define dso_local { ptr, i64 } @_ZN4llvm28ThreadSafeTrieRawHashMapBase6insertENS0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false), !noalias !58
   store i64 1, ptr %27, align 8, !tbaa !20, !noalias !58
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 96
-  store i8 0, ptr %28, align 1, !tbaa !33, !noalias !58
+  store i8 0, ptr %28, align 8, !tbaa !33, !noalias !58
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 104
-  store i8 1, ptr %29, align 1, !tbaa !36, !noalias !58
+  store i8 1, ptr %29, align 8, !tbaa !36, !noalias !58
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 108
   store i32 0, ptr %30, align 4, !tbaa !38, !noalias !58
   %31 = getelementptr inbounds nuw i8, ptr %19, i64 112

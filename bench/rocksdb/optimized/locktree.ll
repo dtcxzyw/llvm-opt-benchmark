@@ -2634,7 +2634,7 @@ _ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE7nweightERKNS_12omt_internal17sub
   %347 = getelementptr inbounds nuw i8, ptr %345, i64 12
   store i32 -1, ptr %347, align 4, !tbaa !69
   %348 = getelementptr inbounds nuw i8, ptr %345, i64 16
-  store i32 -1, ptr %348, align 4, !tbaa !69
+  store i32 -1, ptr %348, align 8, !tbaa !69
   store ptr %152, ptr %345, align 8, !tbaa !168
   store i32 %341, ptr %.tr40.lcssa.i, align 4, !tbaa !69
   %.not13.i = icmp eq ptr %.4, null

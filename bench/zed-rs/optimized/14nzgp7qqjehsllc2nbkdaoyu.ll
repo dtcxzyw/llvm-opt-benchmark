@@ -100161,7 +100161,7 @@ _ZN10serde_json3ser6indent17h9ff2de81bee2cd60E.exit.i.i.i.i.i.i.i: ; preds = %"_
   call void @llvm.assume(i1 %111)
   %.val7.i.i.i.i.i.i.i = load ptr, ptr %110, align 8, !noalias !28033
   %112 = getelementptr i8, ptr %110, i64 8
-  %.val8.i.i.i.i.i.i.i = load i8, ptr %112, align 1, !noalias !28033
+  %.val8.i.i.i.i.i.i.i = load i8, ptr %112, align 8, !noalias !28033
   call fastcc void @"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17h96aadb3c26c0787bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %29, ptr nonnull readonly align 8 dereferenceable(16) %108)
   %.val3.i.i.i.i.i.i.i.i.i.i = load i8, ptr %29, align 8, !range !307, !noalias !27974, !noundef !4
   %.val4.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %.sroa.614.0..sroa_idx.i.i.i.i.i, align 8, !noalias !27974

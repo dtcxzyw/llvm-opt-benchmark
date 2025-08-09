@@ -5443,7 +5443,7 @@ define dso_local void @_ZN16btCollisionWorld15debugDrawObjectERK11btTransformPK1
   %276 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %277 = load float, ptr %276, align 8, !tbaa !322
   %278 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %279 = load i32, ptr %278, align 4, !tbaa !276
+  %279 = load i32, ptr %278, align 8, !tbaa !276
   %280 = load ptr, ptr %0, align 8, !tbaa !4
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 40
   %282 = load ptr, ptr %281, align 8
@@ -5463,9 +5463,9 @@ define dso_local void @_ZN16btCollisionWorld15debugDrawObjectERK11btTransformPK1
   %293 = tail call noundef float %292(ptr noundef nonnull align 8 dereferenceable(76) %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %294 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.sroa.03.0.copyload.i154 = load <2 x float>, ptr %294, align 4
+  %.sroa.03.0.copyload.i154 = load <2 x float>, ptr %294, align 8
   %.sroa.67.0..sroa_idx.i155 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %.sroa.67.0.copyload.i156 = load <2 x float>, ptr %.sroa.67.0..sroa_idx.i155, align 4, !tbaa !59
+  %.sroa.67.0.copyload.i156 = load <2 x float>, ptr %.sroa.67.0..sroa_idx.i155, align 8, !tbaa !59
   %295 = load ptr, ptr %2, align 8, !tbaa !4
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 96
   %297 = load ptr, ptr %296, align 8

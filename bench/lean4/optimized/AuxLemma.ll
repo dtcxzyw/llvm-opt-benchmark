@@ -4810,7 +4810,7 @@ lean_alloc_ctor.exit821:                          ; preds = %lean_inc.exit669
   %130 = getelementptr inbounds nuw i8, ptr %127, i64 4
   %131 = getelementptr inbounds nuw i8, ptr %127, i64 40
   store i64 0, ptr %131, align 8, !tbaa !12
-  store i32 1, ptr %127, align 4, !tbaa !4
+  store i32 1, ptr %127, align 8, !tbaa !4
   store i32 262192, ptr %130, align 4
   %132 = getelementptr inbounds nuw i8, ptr %127, i64 8
   store ptr %110, ptr %132, align 8, !tbaa !9
@@ -4979,7 +4979,7 @@ lean_alloc_ctor.exit837:                          ; preds = %lean_inc.exit665
   %190 = getelementptr inbounds nuw i8, ptr %187, i64 4
   %191 = getelementptr inbounds nuw i8, ptr %187, i64 40
   store i64 0, ptr %191, align 8, !tbaa !12
-  store i32 1, ptr %187, align 4, !tbaa !4
+  store i32 1, ptr %187, align 8, !tbaa !4
   store i32 262192, ptr %190, align 4
   %192 = getelementptr inbounds nuw i8, ptr %187, i64 8
   store ptr %170, ptr %192, align 8, !tbaa !9
@@ -7321,7 +7321,7 @@ lean_alloc_ctor.exit1013:                         ; preds = %lean_alloc_ctor.exi
   %1068 = getelementptr inbounds nuw i8, ptr %1065, i64 4
   %1069 = getelementptr inbounds nuw i8, ptr %1065, i64 40
   store i64 0, ptr %1069, align 8, !tbaa !12
-  store i32 1, ptr %1065, align 4, !tbaa !4
+  store i32 1, ptr %1065, align 8, !tbaa !4
   store i32 262192, ptr %1068, align 4
   %1070 = getelementptr inbounds nuw i8, ptr %1065, i64 8
   store ptr %1046, ptr %1070, align 8, !tbaa !9
@@ -7498,7 +7498,7 @@ lean_alloc_ctor.exit1030:                         ; preds = %lean_alloc_ctor.exi
   %1128 = getelementptr inbounds nuw i8, ptr %1125, i64 4
   %1129 = getelementptr inbounds nuw i8, ptr %1125, i64 40
   store i64 0, ptr %1129, align 8, !tbaa !12
-  store i32 1, ptr %1125, align 4, !tbaa !4
+  store i32 1, ptr %1125, align 8, !tbaa !4
   store i32 262192, ptr %1128, align 4
   %1130 = getelementptr inbounds nuw i8, ptr %1125, i64 8
   store ptr %1106, ptr %1130, align 8, !tbaa !9
@@ -10606,7 +10606,7 @@ _init_l_Lean_Meta_initFn____x40_Lean_Meta_Tactic_AuxLemma___hyg_41____closed__1.
   %.val20 = load ptr, ptr %51, align 8, !tbaa !9
   store ptr %.val20, ptr @l_Lean_Meta_auxLemmasExt, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %.val20) #4
-  %52 = load i32, ptr %47, align 4, !tbaa !4
+  %52 = load i32, ptr %47, align 8, !tbaa !4
   %53 = icmp sgt i32 %52, 1
   br i1 %53, label %54, label %56, !prof !11
 

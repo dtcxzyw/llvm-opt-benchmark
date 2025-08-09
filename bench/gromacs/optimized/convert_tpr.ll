@@ -301,19 +301,19 @@ _ZNSt10unique_ptrIN3gmx12_GLOBAL__N_110ConvertTprESt14default_deleteIS2_EED2Ev.e
   store ptr %3, ptr %2, align 8, !tbaa !10, !noalias !4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 0, ptr %4, align 8, !tbaa !15, !noalias !4
-  store i8 0, ptr %3, align 1, !tbaa !18, !noalias !4
+  store i8 0, ptr %3, align 8, !tbaa !18, !noalias !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr %6, ptr %5, align 8, !tbaa !10, !noalias !4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i64 0, ptr %7, align 8, !tbaa !15, !noalias !4
-  store i8 0, ptr %6, align 1, !tbaa !18, !noalias !4
+  store i8 0, ptr %6, align 8, !tbaa !18, !noalias !4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store ptr %9, ptr %8, align 8, !tbaa !10, !noalias !4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i64 0, ptr %10, align 8, !tbaa !15, !noalias !4
-  store i8 0, ptr %9, align 1, !tbaa !18, !noalias !4
+  store i8 0, ptr %9, align 8, !tbaa !18, !noalias !4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store i8 0, ptr %11, align 8, !tbaa !19, !noalias !4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 108

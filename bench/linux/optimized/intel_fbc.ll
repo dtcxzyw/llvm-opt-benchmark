@@ -2610,9 +2610,9 @@ define internal fastcc i32 @intel_fbc_cfb_size(ptr noundef readonly captures(non
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 8
   %9 = sub i32 %6, %8
   %10 = ashr i32 %9, 16
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 2632
@@ -3151,9 +3151,9 @@ define internal fastcc zeroext i1 @intel_fbc_hw_tracking_covers_screen(ptr nound
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %33 = load i32, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %35 = load i32, ptr %34, align 4
+  %35 = load i32, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %37 = load i32, ptr %36, align 4
+  %37 = load i32, ptr %36, align 8
   %38 = sub i32 %35, %37
   %39 = ashr i32 %38, 16
   %40 = add i32 %39, %33
@@ -3336,9 +3336,9 @@ define internal fastcc void @intel_fbc_update_state(ptr noundef readonly capture
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr inbounds nuw i8, ptr %16, i64 108
   %119 = getelementptr inbounds nuw i8, ptr %16, i64 120
-  %120 = load i32, ptr %119, align 4
+  %120 = load i32, ptr %119, align 8
   %121 = getelementptr inbounds nuw i8, ptr %16, i64 112
-  %122 = load i32, ptr %121, align 4
+  %122 = load i32, ptr %121, align 8
   %123 = sub i32 %120, %122
   %124 = ashr i32 %123, 16
   %125 = getelementptr inbounds nuw i8, ptr %117, i64 2632
@@ -4489,7 +4489,7 @@ define internal void @i8xx_fbc_activate(ptr noundef readonly captures(none) %0) 
   %49 = add i32 %48, 8160
   %50 = and i32 %49, 8160
   %51 = getelementptr inbounds nuw i8, ptr %32, i64 7184
-  %52 = load i32, ptr %51, align 4
+  %52 = load i32, ptr %51, align 8
   %53 = and i32 %52, 2048
   %54 = icmp eq i32 %53, 0
   %55 = select i1 %54, i32 1073741824, i32 1073750016

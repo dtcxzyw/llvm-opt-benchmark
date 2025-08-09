@@ -14461,7 +14461,7 @@ define internal fastcc i32 @_ZN5arrow3ipc8internalL22FileBlocksToFlatbufferERN22
 
 9:                                                ; preds = %.lr.ph
   %10 = load i64, ptr %.sroa.01.025, align 8, !tbaa !98
-  %11 = load i32, ptr %7, align 4, !tbaa !13
+  %11 = load i32, ptr %7, align 8, !tbaa !13
   %12 = load i64, ptr %8, align 8, !tbaa !98
   store i64 %10, ptr %.sroa.10.023, align 8, !tbaa !693
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.10.023, i64 8
@@ -14502,7 +14502,7 @@ _ZNKSt6vectorIN3org6apache5arrow7flatbuf5BlockESaIS4_EE12_M_check_lenEmPKc.exit.
 .noexc10:                                         ; preds = %_ZNKSt6vectorIN3org6apache5arrow7flatbuf5BlockESaIS4_EE12_M_check_lenEmPKc.exit.i.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 %19
   %30 = load i64, ptr %.sroa.01.025, align 8, !tbaa !98
-  %31 = load i32, ptr %7, align 4, !tbaa !13
+  %31 = load i32, ptr %7, align 8, !tbaa !13
   %32 = load i64, ptr %8, align 8, !tbaa !98
   store i64 %30, ptr %29, align 8, !tbaa !693
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -25560,7 +25560,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   store ptr %60, ptr %59, align 8, !tbaa !97
   %61 = getelementptr inbounds nuw i8, ptr %46, i64 48
   store i64 0, ptr %61, align 8, !tbaa !99
-  store i8 0, ptr %60, align 1, !tbaa !12
+  store i8 0, ptr %60, align 8, !tbaa !12
   store ptr %46, ptr %57, align 8, !tbaa !1296
   %62 = invoke ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %13, i64 noundef %7, ptr noundef nonnull %46, i64 noundef 1)
           to label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %63
@@ -42037,7 +42037,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !99, !alias.scope !1374, !noalias !1377
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !100, !alias.scope !1377, !noalias !1374
   store i64 0, ptr %48, align 8, !tbaa !99, !alias.scope !1377, !noalias !1374
-  store i8 0, ptr %39, align 1, !tbaa !12, !alias.scope !1377, !noalias !1374
+  store i8 0, ptr %39, align 8, !tbaa !12, !alias.scope !1377, !noalias !1374
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -42085,7 +42085,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !99, !alias.scope !1381, !noalias !1384
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !100, !alias.scope !1384, !noalias !1381
   store i64 0, ptr %64, align 8, !tbaa !99, !alias.scope !1384, !noalias !1381
-  store i8 0, ptr %55, align 1, !tbaa !12, !alias.scope !1384, !noalias !1381
+  store i8 0, ptr %55, align 8, !tbaa !12, !alias.scope !1384, !noalias !1381
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5

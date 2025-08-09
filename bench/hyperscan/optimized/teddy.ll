@@ -54,7 +54,7 @@ define hidden range(i32 0, 2) i32 @fdr_exec_teddy_msks1(ptr noundef readonly %0,
   %44 = load <2 x i64>, ptr %43, align 16
   %45 = shufflevector <2 x i64> %44, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %47 = load i32, ptr %46, align 4
+  %47 = load i32, ptr %46, align 16
   %48 = zext i32 %47 to i64
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -5668,7 +5668,7 @@ define hidden range(i32 0, 2) i32 @fdr_exec_teddy_msks1_pck(ptr noundef readonly
   %44 = load <2 x i64>, ptr %43, align 16
   %45 = shufflevector <2 x i64> %44, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %47 = load i32, ptr %46, align 4
+  %47 = load i32, ptr %46, align 16
   %48 = zext i32 %47 to i64
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -11285,7 +11285,7 @@ define hidden range(i32 0, 2) i32 @fdr_exec_teddy_msks2(ptr noundef readonly %0,
   %50 = load <2 x i64>, ptr %49, align 16
   %51 = shufflevector <2 x i64> %50, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %53 = load i32, ptr %52, align 4
+  %53 = load i32, ptr %52, align 16
   %54 = zext i32 %53 to i64
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -16960,7 +16960,7 @@ define hidden range(i32 0, 2) i32 @fdr_exec_teddy_msks2_pck(ptr noundef readonly
   %50 = load <2 x i64>, ptr %49, align 16
   %51 = shufflevector <2 x i64> %50, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %53 = load i32, ptr %52, align 4
+  %53 = load i32, ptr %52, align 16
   %54 = zext i32 %53 to i64
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -22641,7 +22641,7 @@ define hidden range(i32 0, 2) i32 @fdr_exec_teddy_msks3(ptr noundef readonly %0,
   %56 = load <2 x i64>, ptr %55, align 16
   %57 = shufflevector <2 x i64> %56, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 4
+  %59 = load i32, ptr %58, align 16
   %60 = zext i32 %59 to i64
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -28362,7 +28362,7 @@ define hidden range(i32 0, 2) i32 @fdr_exec_teddy_msks3_pck(ptr noundef readonly
   %56 = load <2 x i64>, ptr %55, align 16
   %57 = shufflevector <2 x i64> %56, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 4
+  %59 = load i32, ptr %58, align 16
   %60 = zext i32 %59 to i64
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -34089,7 +34089,7 @@ define hidden range(i32 0, 2) i32 @fdr_exec_teddy_msks4(ptr noundef readonly %0,
   %62 = load <2 x i64>, ptr %61, align 16
   %63 = shufflevector <2 x i64> %62, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %65 = load i32, ptr %64, align 4
+  %65 = load i32, ptr %64, align 16
   %66 = zext i32 %65 to i64
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -39856,7 +39856,7 @@ define hidden range(i32 0, 2) i32 @fdr_exec_teddy_msks4_pck(ptr noundef readonly
   %62 = load <2 x i64>, ptr %61, align 16
   %63 = shufflevector <2 x i64> %62, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %65 = load i32, ptr %64, align 4
+  %65 = load i32, ptr %64, align 16
   %66 = zext i32 %65 to i64
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 192

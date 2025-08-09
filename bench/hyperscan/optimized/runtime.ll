@@ -1125,7 +1125,7 @@ nfaRevAccelCheck.exit:                            ; preds = %44, %337
   %349 = getelementptr inbounds nuw i8, ptr %345, i64 %348
   %350 = getelementptr inbounds nuw i8, ptr %341, i64 16
   store ptr %349, ptr %350, align 8
-  %351 = load ptr, ptr %3, align 8
+  %351 = load ptr, ptr %3, align 16
   %352 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %353 = load i32, ptr %352, align 4
   %354 = zext i32 %353 to i64
@@ -1133,17 +1133,17 @@ nfaRevAccelCheck.exit:                            ; preds = %44, %337
   %356 = getelementptr inbounds nuw i8, ptr %341, i64 24
   store ptr %355, ptr %356, align 8
   %357 = getelementptr inbounds nuw i8, ptr %1, i64 320
-  %358 = load i64, ptr %357, align 8
+  %358 = load i64, ptr %357, align 16
   %359 = getelementptr inbounds nuw i8, ptr %341, i64 32
   store i64 %358, ptr %359, align 8
-  %360 = load ptr, ptr %36, align 8
+  %360 = load ptr, ptr %36, align 16
   %361 = getelementptr inbounds nuw i8, ptr %341, i64 40
   store ptr %360, ptr %361, align 8
   %362 = load i64, ptr %38, align 8
   %363 = getelementptr inbounds nuw i8, ptr %341, i64 48
   store i64 %362, ptr %363, align 8
   %364 = getelementptr inbounds nuw i8, ptr %1, i64 304
-  %365 = load ptr, ptr %364, align 8
+  %365 = load ptr, ptr %364, align 16
   %366 = getelementptr inbounds nuw i8, ptr %341, i64 56
   store ptr %365, ptr %366, align 8
   %367 = getelementptr inbounds nuw i8, ptr %1, i64 312
@@ -1268,10 +1268,10 @@ validDatabase.exit:                               ; preds = %7
   store ptr %13, ptr %25, align 8
   %37 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 0, ptr %37, align 8
-  store i8 0, ptr %27, align 1
+  store i8 0, ptr %27, align 8
   tail call void @roseInitState(ptr noundef nonnull %13, ptr noundef nonnull %27) #13
   %38 = getelementptr inbounds nuw i8, ptr %13, i64 288
-  %39 = load i32, ptr %38, align 4
+  %39 = load i32, ptr %38, align 8
   %40 = zext i32 %39 to i64
   %41 = getelementptr inbounds nuw i8, ptr %27, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %13, i64 20
@@ -1505,7 +1505,7 @@ validScratch.exit:                                ; preds = %28
   store i8 1, ptr %34, align 4
   %37 = load ptr, ptr %0, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %39 = load i8, ptr %38, align 1
+  %39 = load i8, ptr %38, align 8
   %40 = and i8 %39, 11
   %.not.i40 = icmp eq i8 %40, 0
   br i1 %.not.i40, label %41, label %report_eod_matches.exit
@@ -1533,7 +1533,7 @@ validScratch.exit:                                ; preds = %28
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 256
   store ptr %38, ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %37, i64 288
-  %59 = load i32, ptr %58, align 4
+  %59 = load i32, ptr %58, align 8
   %60 = zext i32 %59 to i64
   %61 = getelementptr inbounds nuw i8, ptr %38, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 264
@@ -1940,7 +1940,7 @@ define internal fastcc range(i32 -13, 1) i32 @hs_scan_stream_internal(ptr nounde
 7:                                                ; preds = %6
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load i8, ptr %9, align 1
+  %10 = load i8, ptr %9, align 8
   %11 = zext i8 %10 to i32
   %12 = and i32 %11, 11
   %.not79 = icmp eq i32 %12, 0
@@ -1987,7 +1987,7 @@ define internal fastcc range(i32 -13, 1) i32 @hs_scan_stream_internal(ptr nounde
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 256
   store ptr %9, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 288
-  %40 = load i32, ptr %39, align 4
+  %40 = load i32, ptr %39, align 8
   %41 = zext i32 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 264
@@ -2268,9 +2268,9 @@ isAllExhausted.exit.i.thread142:                  ; preds = %157, %isAllExhauste
   store i32 0, ptr %178, align 16
   %179 = getelementptr inbounds nuw i8, ptr %3, i64 208
   store i64 0, ptr %179, align 16
-  %180 = load ptr, ptr %38, align 8
+  %180 = load ptr, ptr %38, align 32
   %181 = getelementptr inbounds nuw i8, ptr %94, i64 336
-  %182 = load i32, ptr %181, align 4
+  %182 = load i32, ptr %181, align 8
   %183 = zext i32 %182 to i64
   %184 = getelementptr inbounds nuw i8, ptr %180, i64 %183
   %185 = getelementptr inbounds nuw i8, ptr %94, i64 340
@@ -2667,7 +2667,7 @@ validScratch.exit:                                ; preds = %24
   store i8 1, ptr %30, align 4
   %33 = load ptr, ptr %0, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %35 = load i8, ptr %34, align 1
+  %35 = load i8, ptr %34, align 8
   %36 = and i8 %35, 11
   %.not.i25 = icmp eq i8 %36, 0
   br i1 %.not.i25, label %37, label %report_eod_matches.exit
@@ -2695,7 +2695,7 @@ validScratch.exit:                                ; preds = %24
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 256
   store ptr %34, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %33, i64 288
-  %55 = load i32, ptr %54, align 4
+  %55 = load i32, ptr %54, align 8
   %56 = zext i32 %55 to i64
   %57 = getelementptr inbounds nuw i8, ptr %34, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 264
@@ -3087,7 +3087,7 @@ validScratch.exit:                                ; preds = %25
   store i8 1, ptr %31, align 4
   %34 = load ptr, ptr %0, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %36 = load i8, ptr %35, align 1
+  %36 = load i8, ptr %35, align 8
   %37 = and i8 %36, 11
   %.not.i25 = icmp eq i8 %37, 0
   br i1 %.not.i25, label %38, label %report_eod_matches.exit
@@ -3115,7 +3115,7 @@ validScratch.exit:                                ; preds = %25
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 256
   store ptr %35, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %34, i64 288
-  %56 = load i32, ptr %55, align 4
+  %56 = load i32, ptr %55, align 8
   %57 = zext i32 %56 to i64
   %58 = getelementptr inbounds nuw i8, ptr %35, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 264
@@ -3441,7 +3441,7 @@ report_eod_matches.exit:                          ; preds = %33, %97, %102, %flu
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %212, align 8
-  store i8 0, ptr %211, align 1
+  store i8 0, ptr %211, align 8
   tail call void @roseInitState(ptr noundef %210, ptr noundef nonnull %211) #13
   %213 = getelementptr inbounds nuw i8, ptr %210, i64 288
   %214 = load i32, ptr %213, align 4
@@ -3696,10 +3696,10 @@ validScratch.exit:                                ; preds = %32
   store ptr %20, ptr %42, align 8
   %53 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i64 0, ptr %53, align 8
-  store i8 0, ptr %43, align 1
+  store i8 0, ptr %43, align 8
   tail call void @roseInitState(ptr noundef nonnull %20, ptr noundef nonnull %43) #13
   %54 = getelementptr inbounds nuw i8, ptr %20, i64 288
-  %55 = load i32, ptr %54, align 4
+  %55 = load i32, ptr %54, align 8
   %56 = zext i32 %55 to i64
   %57 = getelementptr inbounds nuw i8, ptr %43, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %20, i64 20
@@ -3847,7 +3847,7 @@ initSomState.exit:                                ; preds = %init_stream.exit, %
 
 128:                                              ; preds = %._crit_edge
   %129 = load ptr, ptr %42, align 8
-  %130 = load i8, ptr %43, align 1
+  %130 = load i8, ptr %43, align 8
   %131 = and i8 %130, 11
   %.not.i66 = icmp eq i8 %131, 0
   br i1 %.not.i66, label %132, label %report_eod_matches.exit
@@ -3874,7 +3874,7 @@ initSomState.exit:                                ; preds = %init_stream.exit, %
   %147 = getelementptr inbounds nuw i8, ptr %5, i64 256
   store ptr %43, ptr %147, align 8
   %148 = getelementptr inbounds nuw i8, ptr %129, i64 288
-  %149 = load i32, ptr %148, align 4
+  %149 = load i32, ptr %148, align 8
   %150 = zext i32 %149 to i64
   %151 = getelementptr inbounds nuw i8, ptr %43, i64 %150
   %152 = getelementptr inbounds nuw i8, ptr %5, i64 264
@@ -4372,7 +4372,7 @@ validScratch.exit:                                ; preds = %26
   store i8 1, ptr %32, align 4
   %35 = load ptr, ptr %0, align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %37 = load i8, ptr %36, align 1
+  %37 = load i8, ptr %36, align 8
   %38 = and i8 %37, 11
   %.not.i30 = icmp eq i8 %38, 0
   br i1 %.not.i30, label %39, label %report_eod_matches.exit
@@ -4400,7 +4400,7 @@ validScratch.exit:                                ; preds = %26
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 256
   store ptr %36, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %35, i64 288
-  %57 = load i32, ptr %56, align 4
+  %57 = load i32, ptr %56, align 8
   %58 = zext i32 %57 to i64
   %59 = getelementptr inbounds nuw i8, ptr %36, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 264
@@ -4946,7 +4946,7 @@ isAllExhausted.exit.thread:                       ; preds = %.lr.ph, %.lr.ph33, 
   %91 = getelementptr inbounds nuw i8, ptr %82, i64 16
   store ptr %90, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %93 = load ptr, ptr %92, align 8
+  %93 = load ptr, ptr %92, align 16
   %94 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %95 = load i32, ptr %94, align 4
   %96 = zext i32 %95 to i64
@@ -4954,11 +4954,11 @@ isAllExhausted.exit.thread:                       ; preds = %.lr.ph, %.lr.ph33, 
   %98 = getelementptr inbounds nuw i8, ptr %82, i64 24
   store ptr %97, ptr %98, align 8
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %100 = load i64, ptr %99, align 8
+  %100 = load i64, ptr %99, align 16
   %101 = getelementptr inbounds nuw i8, ptr %82, i64 32
   store i64 %100, ptr %101, align 8
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %103 = load ptr, ptr %102, align 8
+  %103 = load ptr, ptr %102, align 16
   %104 = getelementptr inbounds nuw i8, ptr %82, i64 40
   store ptr %103, ptr %104, align 8
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -4966,7 +4966,7 @@ isAllExhausted.exit.thread:                       ; preds = %.lr.ph, %.lr.ph33, 
   %107 = getelementptr inbounds nuw i8, ptr %82, i64 48
   store i64 %106, ptr %107, align 8
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %109 = load ptr, ptr %108, align 8
+  %109 = load ptr, ptr %108, align 16
   %110 = getelementptr inbounds nuw i8, ptr %82, i64 56
   store ptr %109, ptr %110, align 8
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -4979,7 +4979,7 @@ isAllExhausted.exit.thread:                       ; preds = %.lr.ph, %.lr.ph33, 
   store ptr %0, ptr %115, align 8
   %116 = getelementptr inbounds nuw i8, ptr %82, i64 80
   store i8 0, ptr %116, align 8
-  %117 = load i64, ptr %99, align 8
+  %117 = load i64, ptr %99, align 16
   %.not22 = icmp eq i64 %117, 0
   br i1 %.not22, label %isAllExhausted.exit.thread13, label %118
 
@@ -5036,7 +5036,7 @@ define internal fastcc void @soleOutfixStreamExec(ptr %.0.val, ptr noundef %0) u
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %18, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %21 = load ptr, ptr %20, align 8
+  %21 = load ptr, ptr %20, align 16
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = zext i32 %23 to i64
@@ -5044,11 +5044,11 @@ define internal fastcc void @soleOutfixStreamExec(ptr %.0.val, ptr noundef %0) u
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %25, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %28 = load i64, ptr %27, align 8
+  %28 = load i64, ptr %27, align 16
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i64 %28, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %31 = load ptr, ptr %30, align 8
+  %31 = load ptr, ptr %30, align 16
   %32 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store ptr %31, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -5056,7 +5056,7 @@ define internal fastcc void @soleOutfixStreamExec(ptr %.0.val, ptr noundef %0) u
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store i64 %34, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %37 = load ptr, ptr %36, align 8
+  %37 = load ptr, ptr %36, align 16
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store ptr %37, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -5069,7 +5069,7 @@ define internal fastcc void @soleOutfixStreamExec(ptr %.0.val, ptr noundef %0) u
   store ptr %0, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 80
   store i8 0, ptr %44, align 8
-  %45 = load i64, ptr %27, align 8
+  %45 = load i64, ptr %27, align 16
   %.not = icmp eq i64 %45, 0
   br i1 %.not, label %46, label %50
 

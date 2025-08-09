@@ -1574,11 +1574,11 @@ _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRe
   %50 = getelementptr i8, ptr %44, i64 48
   %.val18.i = load ptr, ptr %50, align 8, !tbaa !484
   %51 = getelementptr i8, ptr %44, i64 56
-  %.val19.i = load i8, ptr %51, align 4
+  %.val19.i = load i8, ptr %51, align 8
   %52 = getelementptr i8, ptr %49, i64 48
   %.val20.i = load ptr, ptr %52, align 8, !tbaa !484
   %53 = getelementptr i8, ptr %49, i64 56
-  %.val21.i = load i8, ptr %53, align 4
+  %.val21.i = load i8, ptr %53, align 8
   %54 = icmp eq ptr %.val18.i, %.val20.i
   %55 = icmp eq i8 %.val19.i, %.val21.i
   %spec.select.i.i.i = select i1 %54, i1 %55, i1 false
@@ -4423,7 +4423,7 @@ _ZSt10_ConstructIN5clang9FixItHintEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = 
   store i64 %24, ptr %25, align 8, !tbaa !592
   store ptr %15, ptr %12, align 8, !tbaa !591
   store i64 0, ptr %23, align 8, !tbaa !592
-  store i8 0, ptr %15, align 1, !tbaa !233
+  store i8 0, ptr %15, align 8, !tbaa !233
   %26 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 56
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 56
   %28 = load i8, ptr %27, align 8, !tbaa !596, !range !435, !noundef !436

@@ -14207,7 +14207,7 @@ invoke.cont:                                      ; preds = %if.else.i.i.i.i.i.i
   store i64 %7, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i, align 8, !tbaa !101
   store ptr %4, ptr %1, align 8, !tbaa !98
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i, align 8, !tbaa !101
-  store i8 0, ptr %4, align 1, !tbaa !102
+  store i8 0, ptr %4, align 8, !tbaa !102
   %second.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 64
   store ptr null, ptr %second.i.i.i.i.i.i.i, align 8, !tbaa !191
   store ptr %call5.i.i.i.i.i, ptr %_M_node.i, align 8, !tbaa !286

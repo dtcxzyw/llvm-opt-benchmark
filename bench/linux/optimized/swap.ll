@@ -980,8 +980,8 @@ define dso_local void @lru_note_cost_refault(ptr noundef %0) local_unnamed_addr 
   %3 = lshr i64 %2, 58
   %4 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
-  %6 = load volatile i64, ptr %0, align 8
-  %7 = load volatile i64, ptr %0, align 8
+  %6 = load volatile i64, ptr %0, align 16
+  %7 = load volatile i64, ptr %0, align 16
   %8 = and i64 %7, 64
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %13, label %10
@@ -3233,7 +3233,7 @@ define internal fastcc void @zone_stat_sub_folio(ptr noundef %0) unnamed_addr #5
   %3 = lshr i64 %2, 58
   %4 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
-  %6 = load volatile i64, ptr %0, align 8
+  %6 = load volatile i64, ptr %0, align 16
   %7 = and i64 %6, 64
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %13, label %9

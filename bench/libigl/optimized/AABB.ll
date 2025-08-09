@@ -1417,27 +1417,27 @@ define weak_odr dso_local noundef nonnull align 8 dereferenceable(76) ptr @_ZN3i
   %.sroa.6.24.copyload.i.i = load <2 x double>, ptr %15, align 8
   %.sroa.8.24..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.8.24.copyload.i.i = load double, ptr %.sroa.8.24..sroa_idx.i.i, align 8, !tbaa !4
-  %16 = load <2 x double>, ptr %14, align 1, !tbaa !4
+  %16 = load <2 x double>, ptr %14, align 8, !tbaa !4
   store <2 x double> %16, ptr %13, align 8, !tbaa !4
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %18 = load double, ptr %17, align 8, !tbaa !7
   store double %18, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !7
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %20 = load <2 x double>, ptr %19, align 1, !tbaa !4
+  %20 = load <2 x double>, ptr %19, align 8, !tbaa !4
   store <2 x double> %20, ptr %15, align 8, !tbaa !4
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %22 = load double, ptr %21, align 8, !tbaa !7
   store double %22, ptr %.sroa.8.24..sroa_idx.i.i, align 8, !tbaa !7
-  store <2 x double> %.sroa.0.0.copyload.i.i, ptr %14, align 1, !tbaa !4
+  store <2 x double> %.sroa.0.0.copyload.i.i, ptr %14, align 8, !tbaa !4
   store double %.sroa.5.0.copyload.i.i, ptr %17, align 8, !tbaa !7
-  store <2 x double> %.sroa.6.24.copyload.i.i, ptr %19, align 1, !tbaa !4
+  store <2 x double> %.sroa.6.24.copyload.i.i, ptr %19, align 8, !tbaa !4
   store double %.sroa.8.24.copyload.i.i, ptr %21, align 8, !tbaa !7
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %25 = load i32, ptr %23, align 8, !tbaa !51
-  %26 = load i32, ptr %24, align 4, !tbaa !51
+  %26 = load i32, ptr %24, align 8, !tbaa !51
   store i32 %26, ptr %23, align 8, !tbaa !51
-  store i32 %25, ptr %24, align 4, !tbaa !51
+  store i32 %25, ptr %24, align 8, !tbaa !51
   ret ptr %0
 }
 
@@ -1777,10 +1777,10 @@ _ZN5Eigen10AlignedBoxIdLi3EE8setEmptyEv.exit:     ; preds = %.lr.ph.i.i.i.i.i.i.
   %19 = select i1 %18, double %16, double %17
   store double %19, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !7
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %21 = load <2 x double>, ptr %3, align 1, !tbaa !4
-  %22 = load <2 x double>, ptr %20, align 1, !tbaa !4
+  %21 = load <2 x double>, ptr %3, align 8, !tbaa !4
+  %22 = load <2 x double>, ptr %20, align 8, !tbaa !4
   %23 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %21, <2 x double> %22) #30, !srcloc !53
-  store <2 x double> %23, ptr %3, align 1, !tbaa !4
+  store <2 x double> %23, ptr %3, align 8, !tbaa !4
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %25 = load double, ptr %.sroa.10.24..sroa_idx, align 8, !tbaa !7
   %26 = load double, ptr %24, align 8, !tbaa !7
@@ -1805,10 +1805,10 @@ _ZN5Eigen10AlignedBoxIdLi3EE8setEmptyEv.exit:     ; preds = %.lr.ph.i.i.i.i.i.i.
   %39 = select i1 %38, double %36, double %37
   store double %39, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !7
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %41 = load <2 x double>, ptr %3, align 1, !tbaa !4
-  %42 = load <2 x double>, ptr %40, align 1, !tbaa !4
+  %41 = load <2 x double>, ptr %3, align 8, !tbaa !4
+  %42 = load <2 x double>, ptr %40, align 8, !tbaa !4
   %43 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %41, <2 x double> %42) #30, !srcloc !53
-  store <2 x double> %43, ptr %3, align 1, !tbaa !4
+  store <2 x double> %43, ptr %3, align 8, !tbaa !4
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %45 = load double, ptr %.sroa.10.24..sroa_idx, align 8, !tbaa !7
   %46 = load double, ptr %44, align 8, !tbaa !7
@@ -2408,10 +2408,10 @@ _ZN5Eigen10AlignedBoxIdLi3EE8setEmptyEv.exit.i:   ; preds = %.lr.ph.i.i.i.i.i.i.
   %54 = select i1 %53, double %51, double %52
   store double %54, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !7
   %55 = getelementptr inbounds nuw i8, ptr %39, i64 48
-  %56 = load <2 x double>, ptr %38, align 1, !tbaa !4
-  %57 = load <2 x double>, ptr %55, align 1, !tbaa !4
+  %56 = load <2 x double>, ptr %38, align 8, !tbaa !4
+  %57 = load <2 x double>, ptr %55, align 8, !tbaa !4
   %58 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %56, <2 x double> %57) #30, !srcloc !53
-  store <2 x double> %58, ptr %38, align 1, !tbaa !4
+  store <2 x double> %58, ptr %38, align 8, !tbaa !4
   %59 = getelementptr inbounds nuw i8, ptr %39, i64 64
   %60 = load double, ptr %.sroa.10.24..sroa_idx.i, align 8, !tbaa !7
   %61 = load double, ptr %59, align 8, !tbaa !7
@@ -2436,10 +2436,10 @@ _ZN5Eigen10AlignedBoxIdLi3EE8setEmptyEv.exit.i:   ; preds = %.lr.ph.i.i.i.i.i.i.
   %74 = select i1 %73, double %71, double %72
   store double %74, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !7
   %75 = getelementptr inbounds nuw i8, ptr %42, i64 48
-  %76 = load <2 x double>, ptr %38, align 1, !tbaa !4
-  %77 = load <2 x double>, ptr %75, align 1, !tbaa !4
+  %76 = load <2 x double>, ptr %38, align 8, !tbaa !4
+  %77 = load <2 x double>, ptr %75, align 8, !tbaa !4
   %78 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %76, <2 x double> %77) #30, !srcloc !53
-  store <2 x double> %78, ptr %38, align 1, !tbaa !4
+  store <2 x double> %78, ptr %38, align 8, !tbaa !4
   %79 = getelementptr inbounds nuw i8, ptr %42, i64 64
   %80 = load double, ptr %.sroa.10.24..sroa_idx.i, align 8, !tbaa !7
   %81 = load double, ptr %79, align 8, !tbaa !7
@@ -2541,10 +2541,10 @@ _ZN5Eigen10AlignedBoxIdLi3EE8setEmptyEv.exit.i51: ; preds = %.lr.ph.i.i.i.i.i.i.
   %122 = select i1 %121, double %119, double %120
   store double %122, ptr %.sroa.6.0..sroa_idx.i34, align 8, !tbaa !7
   %123 = getelementptr inbounds nuw i8, ptr %107, i64 48
-  %124 = load <2 x double>, ptr %106, align 1, !tbaa !4
-  %125 = load <2 x double>, ptr %123, align 1, !tbaa !4
+  %124 = load <2 x double>, ptr %106, align 8, !tbaa !4
+  %125 = load <2 x double>, ptr %123, align 8, !tbaa !4
   %126 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %124, <2 x double> %125) #30, !srcloc !53
-  store <2 x double> %126, ptr %106, align 1, !tbaa !4
+  store <2 x double> %126, ptr %106, align 8, !tbaa !4
   %127 = getelementptr inbounds nuw i8, ptr %107, i64 64
   %128 = load double, ptr %.sroa.10.24..sroa_idx.i39, align 8, !tbaa !7
   %129 = load double, ptr %127, align 8, !tbaa !7
@@ -2569,10 +2569,10 @@ _ZN5Eigen10AlignedBoxIdLi3EE8setEmptyEv.exit.i51: ; preds = %.lr.ph.i.i.i.i.i.i.
   %142 = select i1 %141, double %139, double %140
   store double %142, ptr %.sroa.6.0..sroa_idx.i34, align 8, !tbaa !7
   %143 = getelementptr inbounds nuw i8, ptr %110, i64 48
-  %144 = load <2 x double>, ptr %106, align 1, !tbaa !4
-  %145 = load <2 x double>, ptr %143, align 1, !tbaa !4
+  %144 = load <2 x double>, ptr %106, align 8, !tbaa !4
+  %145 = load <2 x double>, ptr %143, align 8, !tbaa !4
   %146 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %144, <2 x double> %145) #30, !srcloc !53
-  store <2 x double> %146, ptr %106, align 1, !tbaa !4
+  store <2 x double> %146, ptr %106, align 8, !tbaa !4
   %147 = getelementptr inbounds nuw i8, ptr %110, i64 64
   %148 = load double, ptr %.sroa.10.24..sroa_idx.i39, align 8, !tbaa !7
   %149 = load double, ptr %147, align 8, !tbaa !7
@@ -2804,7 +2804,7 @@ define weak_odr dso_local noundef ptr @_ZN3igl4AABBIN5Eigen6MatrixIdLin1ELin1ELi
   store ptr %1, ptr %19, align 8, !tbaa !45
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = load <2 x double>, ptr %20, align 1, !tbaa !4
+  %22 = load <2 x double>, ptr %20, align 8, !tbaa !4
   %23 = load <2 x double>, ptr %21, align 8, !tbaa !4
   %24 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %22, <2 x double> %23) #30, !srcloc !52
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -2815,7 +2815,7 @@ define weak_odr dso_local noundef ptr @_ZN3igl4AABBIN5Eigen6MatrixIdLin1ELin1ELi
   %30 = select i1 %29, double %27, double %28
   %31 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = load <2 x double>, ptr %31, align 1, !tbaa !4
+  %33 = load <2 x double>, ptr %31, align 8, !tbaa !4
   %34 = load <2 x double>, ptr %32, align 8, !tbaa !4
   %35 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %33, <2 x double> %34) #30, !srcloc !53
   %36 = getelementptr inbounds nuw i8, ptr %16, i64 64
@@ -2827,16 +2827,16 @@ define weak_odr dso_local noundef ptr @_ZN3igl4AABBIN5Eigen6MatrixIdLin1ELin1ELi
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %43 = load <2 x double>, ptr %42, align 1, !tbaa !4
   %44 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %24, <2 x double> %43) #30, !srcloc !52
-  store <2 x double> %44, ptr %20, align 1, !tbaa !4
+  store <2 x double> %44, ptr %20, align 8, !tbaa !4
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %46 = load double, ptr %45, align 8, !tbaa !7
   %47 = fcmp olt double %46, %30
   %48 = select i1 %47, double %46, double %30
   store double %48, ptr %25, align 8, !tbaa !7
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %50 = load <2 x double>, ptr %49, align 1, !tbaa !4
+  %50 = load <2 x double>, ptr %49, align 8, !tbaa !4
   %51 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %35, <2 x double> %50) #30, !srcloc !53
-  store <2 x double> %51, ptr %31, align 1, !tbaa !4
+  store <2 x double> %51, ptr %31, align 8, !tbaa !4
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %53 = load double, ptr %52, align 8, !tbaa !7
   %54 = fcmp olt double %41, %53
@@ -2936,7 +2936,7 @@ _ZNK5Eigen10AlignedBoxIdLi3EE8containsERKS1_.exit.thread: ; preds = %66, %_ZN5Ei
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 8
   store ptr %1, ptr %103, align 8, !tbaa !45
   %104 = getelementptr inbounds nuw i8, ptr %100, i64 24
-  %105 = load <2 x double>, ptr %104, align 1, !tbaa !4
+  %105 = load <2 x double>, ptr %104, align 8, !tbaa !4
   %106 = load <2 x double>, ptr %67, align 8, !tbaa !4
   %107 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %105, <2 x double> %106) #30, !srcloc !52
   %108 = getelementptr inbounds nuw i8, ptr %100, i64 40
@@ -2947,7 +2947,7 @@ _ZNK5Eigen10AlignedBoxIdLi3EE8containsERKS1_.exit.thread: ; preds = %66, %_ZN5Ei
   %113 = select i1 %112, double %110, double %111
   %114 = getelementptr inbounds nuw i8, ptr %100, i64 48
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %116 = load <2 x double>, ptr %114, align 1, !tbaa !4
+  %116 = load <2 x double>, ptr %114, align 8, !tbaa !4
   %117 = load <2 x double>, ptr %115, align 8, !tbaa !4
   %118 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %116, <2 x double> %117) #30, !srcloc !53
   %119 = getelementptr inbounds nuw i8, ptr %100, i64 64
@@ -2958,16 +2958,16 @@ _ZNK5Eigen10AlignedBoxIdLi3EE8containsERKS1_.exit.thread: ; preds = %66, %_ZN5Ei
   %124 = select i1 %123, double %122, double %121
   %125 = load <2 x double>, ptr %68, align 1, !tbaa !4
   %126 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %107, <2 x double> %125) #30, !srcloc !52
-  store <2 x double> %126, ptr %104, align 1, !tbaa !4
+  store <2 x double> %126, ptr %104, align 8, !tbaa !4
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %128 = load double, ptr %127, align 8, !tbaa !7
   %129 = fcmp olt double %128, %113
   %130 = select i1 %129, double %128, double %113
   store double %130, ptr %108, align 8, !tbaa !7
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %132 = load <2 x double>, ptr %131, align 1, !tbaa !4
+  %132 = load <2 x double>, ptr %131, align 8, !tbaa !4
   %133 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %118, <2 x double> %132) #30, !srcloc !53
-  store <2 x double> %133, ptr %114, align 1, !tbaa !4
+  store <2 x double> %133, ptr %114, align 8, !tbaa !4
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %135 = load double, ptr %134, align 8, !tbaa !7
   %136 = fcmp olt double %124, %135
@@ -3408,10 +3408,10 @@ _ZN5Eigen10AlignedBoxIdLi3EE8setEmptyEv.exit.i:   ; preds = %.lr.ph.i.i.i.i.i.i.
   %83 = select i1 %82, double %80, double %81
   store double %83, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !7
   %84 = getelementptr inbounds nuw i8, ptr %68, i64 48
-  %85 = load <2 x double>, ptr %67, align 1, !tbaa !4
-  %86 = load <2 x double>, ptr %84, align 1, !tbaa !4
+  %85 = load <2 x double>, ptr %67, align 8, !tbaa !4
+  %86 = load <2 x double>, ptr %84, align 8, !tbaa !4
   %87 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %85, <2 x double> %86) #30, !srcloc !53
-  store <2 x double> %87, ptr %67, align 1, !tbaa !4
+  store <2 x double> %87, ptr %67, align 8, !tbaa !4
   %88 = getelementptr inbounds nuw i8, ptr %68, i64 64
   %89 = load double, ptr %.sroa.10.24..sroa_idx.i, align 8, !tbaa !7
   %90 = load double, ptr %88, align 8, !tbaa !7
@@ -3436,10 +3436,10 @@ _ZN5Eigen10AlignedBoxIdLi3EE8setEmptyEv.exit.i:   ; preds = %.lr.ph.i.i.i.i.i.i.
   %103 = select i1 %102, double %100, double %101
   store double %103, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !7
   %104 = getelementptr inbounds nuw i8, ptr %71, i64 48
-  %105 = load <2 x double>, ptr %67, align 1, !tbaa !4
-  %106 = load <2 x double>, ptr %104, align 1, !tbaa !4
+  %105 = load <2 x double>, ptr %67, align 8, !tbaa !4
+  %106 = load <2 x double>, ptr %104, align 8, !tbaa !4
   %107 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %105, <2 x double> %106) #30, !srcloc !53
-  store <2 x double> %107, ptr %67, align 1, !tbaa !4
+  store <2 x double> %107, ptr %67, align 8, !tbaa !4
   %108 = getelementptr inbounds nuw i8, ptr %71, i64 64
   %109 = load double, ptr %.sroa.10.24..sroa_idx.i, align 8, !tbaa !7
   %110 = load double, ptr %108, align 8, !tbaa !7
@@ -3506,7 +3506,7 @@ define weak_odr dso_local noundef ptr @_ZN3igl4AABBIN5Eigen6MatrixIdLin1ELin1ELi
   store ptr %1, ptr %8, align 8, !tbaa !45
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load <2 x double>, ptr %9, align 1, !tbaa !4
+  %11 = load <2 x double>, ptr %9, align 8, !tbaa !4
   %12 = load <2 x double>, ptr %10, align 8, !tbaa !4
   %13 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %11, <2 x double> %12) #30, !srcloc !52
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -3517,7 +3517,7 @@ define weak_odr dso_local noundef ptr @_ZN3igl4AABBIN5Eigen6MatrixIdLin1ELin1ELi
   %19 = select i1 %18, double %16, double %17
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %22 = load <2 x double>, ptr %20, align 1, !tbaa !4
+  %22 = load <2 x double>, ptr %20, align 8, !tbaa !4
   %23 = load <2 x double>, ptr %21, align 8, !tbaa !4
   %24 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %22, <2 x double> %23) #30, !srcloc !53
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -3529,16 +3529,16 @@ define weak_odr dso_local noundef ptr @_ZN3igl4AABBIN5Eigen6MatrixIdLin1ELin1ELi
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %32 = load <2 x double>, ptr %31, align 1, !tbaa !4
   %33 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %13, <2 x double> %32) #30, !srcloc !52
-  store <2 x double> %33, ptr %9, align 1, !tbaa !4
+  store <2 x double> %33, ptr %9, align 8, !tbaa !4
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %35 = load double, ptr %34, align 8, !tbaa !7
   %36 = fcmp olt double %35, %19
   %37 = select i1 %36, double %35, double %19
   store double %37, ptr %14, align 8, !tbaa !7
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %39 = load <2 x double>, ptr %38, align 1, !tbaa !4
+  %39 = load <2 x double>, ptr %38, align 8, !tbaa !4
   %40 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %24, <2 x double> %39) #30, !srcloc !53
-  store <2 x double> %40, ptr %20, align 1, !tbaa !4
+  store <2 x double> %40, ptr %20, align 8, !tbaa !4
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %42 = load double, ptr %41, align 8, !tbaa !7
   %43 = fcmp olt double %30, %42
@@ -3853,7 +3853,7 @@ _ZN5Eigen10AlignedBoxIdLi3EEC2Ev.exit._crit_edge.i: ; preds = %_ZN5Eigen10Aligne
   %56 = select i1 %55, double %53, double %54
   %57 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %58 = load <2 x double>, ptr %46, align 8, !tbaa !4
-  %59 = load <2 x double>, ptr %57, align 1, !tbaa !4
+  %59 = load <2 x double>, ptr %57, align 8, !tbaa !4
   %60 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %58, <2 x double> %59) #30, !srcloc !53
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %62 = getelementptr inbounds nuw i8, ptr %32, i64 64
@@ -3879,7 +3879,7 @@ _ZN5Eigen10AlignedBoxIdLi3EEC2Ev.exit._crit_edge.i: ; preds = %_ZN5Eigen10Aligne
   %79 = select i1 %78, double %77, double %70
   store double %79, ptr %75, align 16, !tbaa !7
   %80 = getelementptr inbounds nuw i8, ptr %42, i64 48
-  %81 = load <2 x double>, ptr %80, align 1, !tbaa !4
+  %81 = load <2 x double>, ptr %80, align 8, !tbaa !4
   %82 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %69, <2 x double> %81) #30, !srcloc !53
   store <2 x double> %82, ptr %46, align 8, !tbaa !4
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -3912,7 +3912,7 @@ _ZN5Eigen10AlignedBoxIdLi3EEC2Ev.exit._crit_edge.i: ; preds = %_ZN5Eigen10Aligne
   store double %101, ptr %96, align 16, !tbaa !7
   %102 = getelementptr inbounds nuw i8, ptr %44, i64 48
   %103 = load <2 x double>, ptr %89, align 8, !tbaa !4
-  %104 = load <2 x double>, ptr %102, align 1, !tbaa !4
+  %104 = load <2 x double>, ptr %102, align 8, !tbaa !4
   %105 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %103, <2 x double> %104) #30, !srcloc !53
   store <2 x double> %105, ptr %89, align 8, !tbaa !4
   %106 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -3991,7 +3991,7 @@ _ZN5Eigen10AlignedBoxIdLi3EEC2Ev.exit._crit_edge.i45: ; preds = %_ZN5Eigen10Alig
   %131 = select i1 %130, double %128, double %129
   %132 = getelementptr inbounds nuw i8, ptr %121, i64 48
   %133 = load <2 x double>, ptr %120, align 8, !tbaa !4
-  %134 = load <2 x double>, ptr %132, align 1, !tbaa !4
+  %134 = load <2 x double>, ptr %132, align 8, !tbaa !4
   %135 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %133, <2 x double> %134) #30, !srcloc !53
   %136 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %137 = getelementptr inbounds nuw i8, ptr %121, i64 64
@@ -4017,7 +4017,7 @@ _ZN5Eigen10AlignedBoxIdLi3EEC2Ev.exit._crit_edge.i45: ; preds = %_ZN5Eigen10Alig
   %154 = select i1 %153, double %152, double %145
   store double %154, ptr %150, align 16, !tbaa !7
   %155 = getelementptr inbounds nuw i8, ptr %44, i64 48
-  %156 = load <2 x double>, ptr %155, align 1, !tbaa !4
+  %156 = load <2 x double>, ptr %155, align 8, !tbaa !4
   %157 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %144, <2 x double> %156) #30, !srcloc !53
   store <2 x double> %157, ptr %120, align 8, !tbaa !4
   %158 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -4049,7 +4049,7 @@ _ZN5Eigen10AlignedBoxIdLi3EEC2Ev.exit._crit_edge.i45: ; preds = %_ZN5Eigen10Alig
   store double %176, ptr %171, align 16, !tbaa !7
   %177 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %178 = load <2 x double>, ptr %164, align 8, !tbaa !4
-  %179 = load <2 x double>, ptr %177, align 1, !tbaa !4
+  %179 = load <2 x double>, ptr %177, align 8, !tbaa !4
   %180 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %178, <2 x double> %179) #30, !srcloc !53
   store <2 x double> %180, ptr %164, align 8, !tbaa !4
   %181 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -4274,7 +4274,7 @@ _ZN5Eigen10AlignedBoxIdLi3EEC2Ev.exit._crit_edge: ; preds = %_ZN5Eigen10AlignedB
   %22 = select i1 %21, double %19, double %20
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %24 = load <2 x double>, ptr %10, align 8, !tbaa !4
-  %25 = load <2 x double>, ptr %23, align 1, !tbaa !4
+  %25 = load <2 x double>, ptr %23, align 8, !tbaa !4
   %26 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %24, <2 x double> %25) #30, !srcloc !53
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 64
@@ -4300,7 +4300,7 @@ _ZN5Eigen10AlignedBoxIdLi3EEC2Ev.exit._crit_edge: ; preds = %_ZN5Eigen10AlignedB
   %45 = select i1 %44, double %43, double %36
   store double %45, ptr %41, align 16, !tbaa !7
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %47 = load <2 x double>, ptr %46, align 1, !tbaa !4
+  %47 = load <2 x double>, ptr %46, align 8, !tbaa !4
   %48 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %35, <2 x double> %47) #30, !srcloc !53
   store <2 x double> %48, ptr %10, align 8, !tbaa !4
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -4333,7 +4333,7 @@ _ZN5Eigen10AlignedBoxIdLi3EEC2Ev.exit._crit_edge: ; preds = %_ZN5Eigen10AlignedB
   store double %67, ptr %62, align 16, !tbaa !7
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %69 = load <2 x double>, ptr %55, align 8, !tbaa !4
-  %70 = load <2 x double>, ptr %68, align 1, !tbaa !4
+  %70 = load <2 x double>, ptr %68, align 8, !tbaa !4
   %71 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %69, <2 x double> %70) #30, !srcloc !53
   store <2 x double> %71, ptr %55, align 8, !tbaa !4
   %72 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -4370,7 +4370,7 @@ _ZN5Eigen10AlignedBoxIdLi3EEC2Ev.exit._crit_edge: ; preds = %_ZN5Eigen10AlignedB
   store double %94, ptr %93, align 8, !tbaa !7
   %95 = getelementptr inbounds nuw i8, ptr %90, i64 48
   %96 = load <2 x double>, ptr %10, align 8, !tbaa !4
-  store <2 x double> %96, ptr %95, align 1, !tbaa !4
+  store <2 x double> %96, ptr %95, align 8, !tbaa !4
   %97 = getelementptr inbounds nuw i8, ptr %90, i64 64
   %98 = load double, ptr %49, align 8, !tbaa !7
   store double %98, ptr %97, align 8, !tbaa !7
@@ -4397,7 +4397,7 @@ _ZN5Eigen10AlignedBoxIdLi3EEC2Ev.exit._crit_edge: ; preds = %_ZN5Eigen10AlignedB
   store double %114, ptr %112, align 8, !tbaa !7
   %115 = getelementptr inbounds nuw i8, ptr %109, i64 48
   %116 = load <2 x double>, ptr %55, align 8, !tbaa !4
-  store <2 x double> %116, ptr %115, align 1, !tbaa !4
+  store <2 x double> %116, ptr %115, align 8, !tbaa !4
   %117 = getelementptr inbounds nuw i8, ptr %109, i64 64
   %118 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %119 = load double, ptr %118, align 8, !tbaa !7
@@ -4476,7 +4476,7 @@ define weak_odr dso_local noundef double @_ZN3igl4AABBIN5Eigen6MatrixIdLin1ELin1
   store double %29, ptr %24, align 16, !tbaa !7
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %31 = load <2 x double>, ptr %19, align 8, !tbaa !4
-  %32 = load <2 x double>, ptr %30, align 1, !tbaa !4
+  %32 = load <2 x double>, ptr %30, align 8, !tbaa !4
   %33 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %31, <2 x double> %32) #30, !srcloc !53
   store <2 x double> %33, ptr %19, align 8, !tbaa !4
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -4509,13 +4509,13 @@ define weak_odr dso_local noundef double @_ZN3igl4AABBIN5Eigen6MatrixIdLin1ELin1
   store ptr %3, ptr %48, align 8, !tbaa !49
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %50 = load <2 x double>, ptr %7, align 16, !tbaa !4
-  store <2 x double> %50, ptr %49, align 1, !tbaa !4
+  store <2 x double> %50, ptr %49, align 8, !tbaa !4
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %52 = load double, ptr %24, align 16, !tbaa !7
   store double %52, ptr %51, align 8, !tbaa !7
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %54 = load <2 x double>, ptr %19, align 8, !tbaa !4
-  store <2 x double> %54, ptr %53, align 1, !tbaa !4
+  store <2 x double> %54, ptr %53, align 8, !tbaa !4
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %56 = load double, ptr %34, align 8, !tbaa !7
   store double %56, ptr %55, align 8, !tbaa !7
@@ -5107,27 +5107,27 @@ define weak_odr dso_local noundef nonnull align 8 dereferenceable(76) ptr @_ZN3i
   %.sroa.6.24.copyload.i.i = load <2 x double>, ptr %15, align 8
   %.sroa.8.24..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.8.24.copyload.i.i = load double, ptr %.sroa.8.24..sroa_idx.i.i, align 8, !tbaa !4
-  %16 = load <2 x double>, ptr %14, align 1, !tbaa !4
+  %16 = load <2 x double>, ptr %14, align 8, !tbaa !4
   store <2 x double> %16, ptr %13, align 8, !tbaa !4
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %18 = load double, ptr %17, align 8, !tbaa !7
   store double %18, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !7
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %20 = load <2 x double>, ptr %19, align 1, !tbaa !4
+  %20 = load <2 x double>, ptr %19, align 8, !tbaa !4
   store <2 x double> %20, ptr %15, align 8, !tbaa !4
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %22 = load double, ptr %21, align 8, !tbaa !7
   store double %22, ptr %.sroa.8.24..sroa_idx.i.i, align 8, !tbaa !7
-  store <2 x double> %.sroa.0.0.copyload.i.i, ptr %14, align 1, !tbaa !4
+  store <2 x double> %.sroa.0.0.copyload.i.i, ptr %14, align 8, !tbaa !4
   store double %.sroa.5.0.copyload.i.i, ptr %17, align 8, !tbaa !7
-  store <2 x double> %.sroa.6.24.copyload.i.i, ptr %19, align 1, !tbaa !4
+  store <2 x double> %.sroa.6.24.copyload.i.i, ptr %19, align 8, !tbaa !4
   store double %.sroa.8.24.copyload.i.i, ptr %21, align 8, !tbaa !7
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %25 = load i32, ptr %23, align 8, !tbaa !51
-  %26 = load i32, ptr %24, align 4, !tbaa !51
+  %26 = load i32, ptr %24, align 8, !tbaa !51
   store i32 %26, ptr %23, align 8, !tbaa !51
-  store i32 %25, ptr %24, align 4, !tbaa !51
+  store i32 %25, ptr %24, align 8, !tbaa !51
   ret ptr %0
 }
 
@@ -5455,10 +5455,10 @@ _ZN5Eigen10AlignedBoxIdLi3EE8setEmptyEv.exit:     ; preds = %.lr.ph.i.i.i.i.i.i.
   %19 = select i1 %18, double %16, double %17
   store double %19, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !7
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %21 = load <2 x double>, ptr %3, align 1, !tbaa !4
-  %22 = load <2 x double>, ptr %20, align 1, !tbaa !4
+  %21 = load <2 x double>, ptr %3, align 8, !tbaa !4
+  %22 = load <2 x double>, ptr %20, align 8, !tbaa !4
   %23 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %21, <2 x double> %22) #30, !srcloc !53
-  store <2 x double> %23, ptr %3, align 1, !tbaa !4
+  store <2 x double> %23, ptr %3, align 8, !tbaa !4
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %25 = load double, ptr %.sroa.10.24..sroa_idx, align 8, !tbaa !7
   %26 = load double, ptr %24, align 8, !tbaa !7
@@ -5483,10 +5483,10 @@ _ZN5Eigen10AlignedBoxIdLi3EE8setEmptyEv.exit:     ; preds = %.lr.ph.i.i.i.i.i.i.
   %39 = select i1 %38, double %36, double %37
   store double %39, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !7
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %41 = load <2 x double>, ptr %3, align 1, !tbaa !4
-  %42 = load <2 x double>, ptr %40, align 1, !tbaa !4
+  %41 = load <2 x double>, ptr %3, align 8, !tbaa !4
+  %42 = load <2 x double>, ptr %40, align 8, !tbaa !4
   %43 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %41, <2 x double> %42) #30, !srcloc !53
-  store <2 x double> %43, ptr %3, align 1, !tbaa !4
+  store <2 x double> %43, ptr %3, align 8, !tbaa !4
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %45 = load double, ptr %.sroa.10.24..sroa_idx, align 8, !tbaa !7
   %46 = load double, ptr %44, align 8, !tbaa !7
@@ -6086,10 +6086,10 @@ _ZN5Eigen10AlignedBoxIdLi3EE8setEmptyEv.exit.i:   ; preds = %.lr.ph.i.i.i.i.i.i.
   %54 = select i1 %53, double %51, double %52
   store double %54, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !7
   %55 = getelementptr inbounds nuw i8, ptr %39, i64 48
-  %56 = load <2 x double>, ptr %38, align 1, !tbaa !4
-  %57 = load <2 x double>, ptr %55, align 1, !tbaa !4
+  %56 = load <2 x double>, ptr %38, align 8, !tbaa !4
+  %57 = load <2 x double>, ptr %55, align 8, !tbaa !4
   %58 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %56, <2 x double> %57) #30, !srcloc !53
-  store <2 x double> %58, ptr %38, align 1, !tbaa !4
+  store <2 x double> %58, ptr %38, align 8, !tbaa !4
   %59 = getelementptr inbounds nuw i8, ptr %39, i64 64
   %60 = load double, ptr %.sroa.10.24..sroa_idx.i, align 8, !tbaa !7
   %61 = load double, ptr %59, align 8, !tbaa !7
@@ -6114,10 +6114,10 @@ _ZN5Eigen10AlignedBoxIdLi3EE8setEmptyEv.exit.i:   ; preds = %.lr.ph.i.i.i.i.i.i.
   %74 = select i1 %73, double %71, double %72
   store double %74, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !7
   %75 = getelementptr inbounds nuw i8, ptr %42, i64 48
-  %76 = load <2 x double>, ptr %38, align 1, !tbaa !4
-  %77 = load <2 x double>, ptr %75, align 1, !tbaa !4
+  %76 = load <2 x double>, ptr %38, align 8, !tbaa !4
+  %77 = load <2 x double>, ptr %75, align 8, !tbaa !4
   %78 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %76, <2 x double> %77) #30, !srcloc !53
-  store <2 x double> %78, ptr %38, align 1, !tbaa !4
+  store <2 x double> %78, ptr %38, align 8, !tbaa !4
   %79 = getelementptr inbounds nuw i8, ptr %42, i64 64
   %80 = load double, ptr %.sroa.10.24..sroa_idx.i, align 8, !tbaa !7
   %81 = load double, ptr %79, align 8, !tbaa !7
@@ -6219,10 +6219,10 @@ _ZN5Eigen10AlignedBoxIdLi3EE8setEmptyEv.exit.i51: ; preds = %.lr.ph.i.i.i.i.i.i.
   %122 = select i1 %121, double %119, double %120
   store double %122, ptr %.sroa.6.0..sroa_idx.i34, align 8, !tbaa !7
   %123 = getelementptr inbounds nuw i8, ptr %107, i64 48
-  %124 = load <2 x double>, ptr %106, align 1, !tbaa !4
-  %125 = load <2 x double>, ptr %123, align 1, !tbaa !4
+  %124 = load <2 x double>, ptr %106, align 8, !tbaa !4
+  %125 = load <2 x double>, ptr %123, align 8, !tbaa !4
   %126 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %124, <2 x double> %125) #30, !srcloc !53
-  store <2 x double> %126, ptr %106, align 1, !tbaa !4
+  store <2 x double> %126, ptr %106, align 8, !tbaa !4
   %127 = getelementptr inbounds nuw i8, ptr %107, i64 64
   %128 = load double, ptr %.sroa.10.24..sroa_idx.i39, align 8, !tbaa !7
   %129 = load double, ptr %127, align 8, !tbaa !7
@@ -6247,10 +6247,10 @@ _ZN5Eigen10AlignedBoxIdLi3EE8setEmptyEv.exit.i51: ; preds = %.lr.ph.i.i.i.i.i.i.
   %142 = select i1 %141, double %139, double %140
   store double %142, ptr %.sroa.6.0..sroa_idx.i34, align 8, !tbaa !7
   %143 = getelementptr inbounds nuw i8, ptr %110, i64 48
-  %144 = load <2 x double>, ptr %106, align 1, !tbaa !4
-  %145 = load <2 x double>, ptr %143, align 1, !tbaa !4
+  %144 = load <2 x double>, ptr %106, align 8, !tbaa !4
+  %145 = load <2 x double>, ptr %143, align 8, !tbaa !4
   %146 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %144, <2 x double> %145) #30, !srcloc !53
-  store <2 x double> %146, ptr %106, align 1, !tbaa !4
+  store <2 x double> %146, ptr %106, align 8, !tbaa !4
   %147 = getelementptr inbounds nuw i8, ptr %110, i64 64
   %148 = load double, ptr %.sroa.10.24..sroa_idx.i39, align 8, !tbaa !7
   %149 = load double, ptr %147, align 8, !tbaa !7
@@ -6480,7 +6480,7 @@ define weak_odr dso_local noundef ptr @_ZN3igl4AABBIN5Eigen6MatrixIdLin1ELi3ELi0
   store ptr %1, ptr %19, align 8, !tbaa !89
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = load <2 x double>, ptr %20, align 1, !tbaa !4
+  %22 = load <2 x double>, ptr %20, align 8, !tbaa !4
   %23 = load <2 x double>, ptr %21, align 8, !tbaa !4
   %24 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %22, <2 x double> %23) #30, !srcloc !52
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -6491,7 +6491,7 @@ define weak_odr dso_local noundef ptr @_ZN3igl4AABBIN5Eigen6MatrixIdLin1ELi3ELi0
   %30 = select i1 %29, double %27, double %28
   %31 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = load <2 x double>, ptr %31, align 1, !tbaa !4
+  %33 = load <2 x double>, ptr %31, align 8, !tbaa !4
   %34 = load <2 x double>, ptr %32, align 8, !tbaa !4
   %35 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %33, <2 x double> %34) #30, !srcloc !53
   %36 = getelementptr inbounds nuw i8, ptr %16, i64 64
@@ -6503,16 +6503,16 @@ define weak_odr dso_local noundef ptr @_ZN3igl4AABBIN5Eigen6MatrixIdLin1ELi3ELi0
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %43 = load <2 x double>, ptr %42, align 1, !tbaa !4
   %44 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %24, <2 x double> %43) #30, !srcloc !52
-  store <2 x double> %44, ptr %20, align 1, !tbaa !4
+  store <2 x double> %44, ptr %20, align 8, !tbaa !4
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %46 = load double, ptr %45, align 8, !tbaa !7
   %47 = fcmp olt double %46, %30
   %48 = select i1 %47, double %46, double %30
   store double %48, ptr %25, align 8, !tbaa !7
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %50 = load <2 x double>, ptr %49, align 1, !tbaa !4
+  %50 = load <2 x double>, ptr %49, align 8, !tbaa !4
   %51 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %35, <2 x double> %50) #30, !srcloc !53
-  store <2 x double> %51, ptr %31, align 1, !tbaa !4
+  store <2 x double> %51, ptr %31, align 8, !tbaa !4
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %53 = load double, ptr %52, align 8, !tbaa !7
   %54 = fcmp olt double %41, %53
@@ -6612,7 +6612,7 @@ _ZNK5Eigen10AlignedBoxIdLi3EE8containsERKS1_.exit.thread: ; preds = %66, %_ZN5Ei
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 8
   store ptr %1, ptr %103, align 8, !tbaa !89
   %104 = getelementptr inbounds nuw i8, ptr %100, i64 24
-  %105 = load <2 x double>, ptr %104, align 1, !tbaa !4
+  %105 = load <2 x double>, ptr %104, align 8, !tbaa !4
   %106 = load <2 x double>, ptr %67, align 8, !tbaa !4
   %107 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %105, <2 x double> %106) #30, !srcloc !52
   %108 = getelementptr inbounds nuw i8, ptr %100, i64 40
@@ -6623,7 +6623,7 @@ _ZNK5Eigen10AlignedBoxIdLi3EE8containsERKS1_.exit.thread: ; preds = %66, %_ZN5Ei
   %113 = select i1 %112, double %110, double %111
   %114 = getelementptr inbounds nuw i8, ptr %100, i64 48
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %116 = load <2 x double>, ptr %114, align 1, !tbaa !4
+  %116 = load <2 x double>, ptr %114, align 8, !tbaa !4
   %117 = load <2 x double>, ptr %115, align 8, !tbaa !4
   %118 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %116, <2 x double> %117) #30, !srcloc !53
   %119 = getelementptr inbounds nuw i8, ptr %100, i64 64
@@ -6634,16 +6634,16 @@ _ZNK5Eigen10AlignedBoxIdLi3EE8containsERKS1_.exit.thread: ; preds = %66, %_ZN5Ei
   %124 = select i1 %123, double %122, double %121
   %125 = load <2 x double>, ptr %68, align 1, !tbaa !4
   %126 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %107, <2 x double> %125) #30, !srcloc !52
-  store <2 x double> %126, ptr %104, align 1, !tbaa !4
+  store <2 x double> %126, ptr %104, align 8, !tbaa !4
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %128 = load double, ptr %127, align 8, !tbaa !7
   %129 = fcmp olt double %128, %113
   %130 = select i1 %129, double %128, double %113
   store double %130, ptr %108, align 8, !tbaa !7
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %132 = load <2 x double>, ptr %131, align 1, !tbaa !4
+  %132 = load <2 x double>, ptr %131, align 8, !tbaa !4
   %133 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %118, <2 x double> %132) #30, !srcloc !53
-  store <2 x double> %133, ptr %114, align 1, !tbaa !4
+  store <2 x double> %133, ptr %114, align 8, !tbaa !4
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %135 = load double, ptr %134, align 8, !tbaa !7
   %136 = fcmp olt double %124, %135
@@ -7084,10 +7084,10 @@ _ZN5Eigen10AlignedBoxIdLi3EE8setEmptyEv.exit.i:   ; preds = %.lr.ph.i.i.i.i.i.i.
   %83 = select i1 %82, double %80, double %81
   store double %83, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !7
   %84 = getelementptr inbounds nuw i8, ptr %68, i64 48
-  %85 = load <2 x double>, ptr %67, align 1, !tbaa !4
-  %86 = load <2 x double>, ptr %84, align 1, !tbaa !4
+  %85 = load <2 x double>, ptr %67, align 8, !tbaa !4
+  %86 = load <2 x double>, ptr %84, align 8, !tbaa !4
   %87 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %85, <2 x double> %86) #30, !srcloc !53
-  store <2 x double> %87, ptr %67, align 1, !tbaa !4
+  store <2 x double> %87, ptr %67, align 8, !tbaa !4
   %88 = getelementptr inbounds nuw i8, ptr %68, i64 64
   %89 = load double, ptr %.sroa.10.24..sroa_idx.i, align 8, !tbaa !7
   %90 = load double, ptr %88, align 8, !tbaa !7
@@ -7112,10 +7112,10 @@ _ZN5Eigen10AlignedBoxIdLi3EE8setEmptyEv.exit.i:   ; preds = %.lr.ph.i.i.i.i.i.i.
   %103 = select i1 %102, double %100, double %101
   store double %103, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !7
   %104 = getelementptr inbounds nuw i8, ptr %71, i64 48
-  %105 = load <2 x double>, ptr %67, align 1, !tbaa !4
-  %106 = load <2 x double>, ptr %104, align 1, !tbaa !4
+  %105 = load <2 x double>, ptr %67, align 8, !tbaa !4
+  %106 = load <2 x double>, ptr %104, align 8, !tbaa !4
   %107 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %105, <2 x double> %106) #30, !srcloc !53
-  store <2 x double> %107, ptr %67, align 1, !tbaa !4
+  store <2 x double> %107, ptr %67, align 8, !tbaa !4
   %108 = getelementptr inbounds nuw i8, ptr %71, i64 64
   %109 = load double, ptr %.sroa.10.24..sroa_idx.i, align 8, !tbaa !7
   %110 = load double, ptr %108, align 8, !tbaa !7
@@ -7182,7 +7182,7 @@ define weak_odr dso_local noundef ptr @_ZN3igl4AABBIN5Eigen6MatrixIdLin1ELi3ELi0
   store ptr %1, ptr %8, align 8, !tbaa !89
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load <2 x double>, ptr %9, align 1, !tbaa !4
+  %11 = load <2 x double>, ptr %9, align 8, !tbaa !4
   %12 = load <2 x double>, ptr %10, align 8, !tbaa !4
   %13 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %11, <2 x double> %12) #30, !srcloc !52
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -7193,7 +7193,7 @@ define weak_odr dso_local noundef ptr @_ZN3igl4AABBIN5Eigen6MatrixIdLin1ELi3ELi0
   %19 = select i1 %18, double %16, double %17
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %22 = load <2 x double>, ptr %20, align 1, !tbaa !4
+  %22 = load <2 x double>, ptr %20, align 8, !tbaa !4
   %23 = load <2 x double>, ptr %21, align 8, !tbaa !4
   %24 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %22, <2 x double> %23) #30, !srcloc !53
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -7205,16 +7205,16 @@ define weak_odr dso_local noundef ptr @_ZN3igl4AABBIN5Eigen6MatrixIdLin1ELi3ELi0
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %32 = load <2 x double>, ptr %31, align 1, !tbaa !4
   %33 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %13, <2 x double> %32) #30, !srcloc !52
-  store <2 x double> %33, ptr %9, align 1, !tbaa !4
+  store <2 x double> %33, ptr %9, align 8, !tbaa !4
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %35 = load double, ptr %34, align 8, !tbaa !7
   %36 = fcmp olt double %35, %19
   %37 = select i1 %36, double %35, double %19
   store double %37, ptr %14, align 8, !tbaa !7
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %39 = load <2 x double>, ptr %38, align 1, !tbaa !4
+  %39 = load <2 x double>, ptr %38, align 8, !tbaa !4
   %40 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %24, <2 x double> %39) #30, !srcloc !53
-  store <2 x double> %40, ptr %20, align 1, !tbaa !4
+  store <2 x double> %40, ptr %20, align 8, !tbaa !4
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %42 = load double, ptr %41, align 8, !tbaa !7
   %43 = fcmp olt double %30, %42
@@ -7527,7 +7527,7 @@ _ZN5Eigen10AlignedBoxIdLi3EEC2Ev.exit._crit_edge.i: ; preds = %_ZN5Eigen10Aligne
   %56 = select i1 %55, double %53, double %54
   %57 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %58 = load <2 x double>, ptr %46, align 8, !tbaa !4
-  %59 = load <2 x double>, ptr %57, align 1, !tbaa !4
+  %59 = load <2 x double>, ptr %57, align 8, !tbaa !4
   %60 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %58, <2 x double> %59) #30, !srcloc !53
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %62 = getelementptr inbounds nuw i8, ptr %32, i64 64
@@ -7553,7 +7553,7 @@ _ZN5Eigen10AlignedBoxIdLi3EEC2Ev.exit._crit_edge.i: ; preds = %_ZN5Eigen10Aligne
   %79 = select i1 %78, double %77, double %70
   store double %79, ptr %75, align 16, !tbaa !7
   %80 = getelementptr inbounds nuw i8, ptr %42, i64 48
-  %81 = load <2 x double>, ptr %80, align 1, !tbaa !4
+  %81 = load <2 x double>, ptr %80, align 8, !tbaa !4
   %82 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %69, <2 x double> %81) #30, !srcloc !53
   store <2 x double> %82, ptr %46, align 8, !tbaa !4
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -7586,7 +7586,7 @@ _ZN5Eigen10AlignedBoxIdLi3EEC2Ev.exit._crit_edge.i: ; preds = %_ZN5Eigen10Aligne
   store double %101, ptr %96, align 16, !tbaa !7
   %102 = getelementptr inbounds nuw i8, ptr %44, i64 48
   %103 = load <2 x double>, ptr %89, align 8, !tbaa !4
-  %104 = load <2 x double>, ptr %102, align 1, !tbaa !4
+  %104 = load <2 x double>, ptr %102, align 8, !tbaa !4
   %105 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %103, <2 x double> %104) #30, !srcloc !53
   store <2 x double> %105, ptr %89, align 8, !tbaa !4
   %106 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -7665,7 +7665,7 @@ _ZN5Eigen10AlignedBoxIdLi3EEC2Ev.exit._crit_edge.i45: ; preds = %_ZN5Eigen10Alig
   %131 = select i1 %130, double %128, double %129
   %132 = getelementptr inbounds nuw i8, ptr %121, i64 48
   %133 = load <2 x double>, ptr %120, align 8, !tbaa !4
-  %134 = load <2 x double>, ptr %132, align 1, !tbaa !4
+  %134 = load <2 x double>, ptr %132, align 8, !tbaa !4
   %135 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %133, <2 x double> %134) #30, !srcloc !53
   %136 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %137 = getelementptr inbounds nuw i8, ptr %121, i64 64
@@ -7691,7 +7691,7 @@ _ZN5Eigen10AlignedBoxIdLi3EEC2Ev.exit._crit_edge.i45: ; preds = %_ZN5Eigen10Alig
   %154 = select i1 %153, double %152, double %145
   store double %154, ptr %150, align 16, !tbaa !7
   %155 = getelementptr inbounds nuw i8, ptr %44, i64 48
-  %156 = load <2 x double>, ptr %155, align 1, !tbaa !4
+  %156 = load <2 x double>, ptr %155, align 8, !tbaa !4
   %157 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %144, <2 x double> %156) #30, !srcloc !53
   store <2 x double> %157, ptr %120, align 8, !tbaa !4
   %158 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -7723,7 +7723,7 @@ _ZN5Eigen10AlignedBoxIdLi3EEC2Ev.exit._crit_edge.i45: ; preds = %_ZN5Eigen10Alig
   store double %176, ptr %171, align 16, !tbaa !7
   %177 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %178 = load <2 x double>, ptr %164, align 8, !tbaa !4
-  %179 = load <2 x double>, ptr %177, align 1, !tbaa !4
+  %179 = load <2 x double>, ptr %177, align 8, !tbaa !4
   %180 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %178, <2 x double> %179) #30, !srcloc !53
   store <2 x double> %180, ptr %164, align 8, !tbaa !4
   %181 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -7948,7 +7948,7 @@ _ZN5Eigen10AlignedBoxIdLi3EEC2Ev.exit._crit_edge: ; preds = %_ZN5Eigen10AlignedB
   %22 = select i1 %21, double %19, double %20
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %24 = load <2 x double>, ptr %10, align 8, !tbaa !4
-  %25 = load <2 x double>, ptr %23, align 1, !tbaa !4
+  %25 = load <2 x double>, ptr %23, align 8, !tbaa !4
   %26 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %24, <2 x double> %25) #30, !srcloc !53
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 64
@@ -7974,7 +7974,7 @@ _ZN5Eigen10AlignedBoxIdLi3EEC2Ev.exit._crit_edge: ; preds = %_ZN5Eigen10AlignedB
   %45 = select i1 %44, double %43, double %36
   store double %45, ptr %41, align 16, !tbaa !7
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %47 = load <2 x double>, ptr %46, align 1, !tbaa !4
+  %47 = load <2 x double>, ptr %46, align 8, !tbaa !4
   %48 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %35, <2 x double> %47) #30, !srcloc !53
   store <2 x double> %48, ptr %10, align 8, !tbaa !4
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -8007,7 +8007,7 @@ _ZN5Eigen10AlignedBoxIdLi3EEC2Ev.exit._crit_edge: ; preds = %_ZN5Eigen10AlignedB
   store double %67, ptr %62, align 16, !tbaa !7
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %69 = load <2 x double>, ptr %55, align 8, !tbaa !4
-  %70 = load <2 x double>, ptr %68, align 1, !tbaa !4
+  %70 = load <2 x double>, ptr %68, align 8, !tbaa !4
   %71 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %69, <2 x double> %70) #30, !srcloc !53
   store <2 x double> %71, ptr %55, align 8, !tbaa !4
   %72 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -8044,7 +8044,7 @@ _ZN5Eigen10AlignedBoxIdLi3EEC2Ev.exit._crit_edge: ; preds = %_ZN5Eigen10AlignedB
   store double %94, ptr %93, align 8, !tbaa !7
   %95 = getelementptr inbounds nuw i8, ptr %90, i64 48
   %96 = load <2 x double>, ptr %10, align 8, !tbaa !4
-  store <2 x double> %96, ptr %95, align 1, !tbaa !4
+  store <2 x double> %96, ptr %95, align 8, !tbaa !4
   %97 = getelementptr inbounds nuw i8, ptr %90, i64 64
   %98 = load double, ptr %49, align 8, !tbaa !7
   store double %98, ptr %97, align 8, !tbaa !7
@@ -8071,7 +8071,7 @@ _ZN5Eigen10AlignedBoxIdLi3EEC2Ev.exit._crit_edge: ; preds = %_ZN5Eigen10AlignedB
   store double %114, ptr %112, align 8, !tbaa !7
   %115 = getelementptr inbounds nuw i8, ptr %109, i64 48
   %116 = load <2 x double>, ptr %55, align 8, !tbaa !4
-  store <2 x double> %116, ptr %115, align 1, !tbaa !4
+  store <2 x double> %116, ptr %115, align 8, !tbaa !4
   %117 = getelementptr inbounds nuw i8, ptr %109, i64 64
   %118 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %119 = load double, ptr %118, align 8, !tbaa !7
@@ -8150,7 +8150,7 @@ define weak_odr dso_local noundef double @_ZN3igl4AABBIN5Eigen6MatrixIdLin1ELi3E
   store double %29, ptr %24, align 16, !tbaa !7
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %31 = load <2 x double>, ptr %19, align 8, !tbaa !4
-  %32 = load <2 x double>, ptr %30, align 1, !tbaa !4
+  %32 = load <2 x double>, ptr %30, align 8, !tbaa !4
   %33 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %31, <2 x double> %32) #30, !srcloc !53
   store <2 x double> %33, ptr %19, align 8, !tbaa !4
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -8183,13 +8183,13 @@ define weak_odr dso_local noundef double @_ZN3igl4AABBIN5Eigen6MatrixIdLin1ELi3E
   store ptr %3, ptr %48, align 8, !tbaa !90
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %50 = load <2 x double>, ptr %7, align 16, !tbaa !4
-  store <2 x double> %50, ptr %49, align 1, !tbaa !4
+  store <2 x double> %50, ptr %49, align 8, !tbaa !4
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %52 = load double, ptr %24, align 16, !tbaa !7
   store double %52, ptr %51, align 8, !tbaa !7
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %54 = load <2 x double>, ptr %19, align 8, !tbaa !4
-  store <2 x double> %54, ptr %53, align 1, !tbaa !4
+  store <2 x double> %54, ptr %53, align 8, !tbaa !4
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %56 = load double, ptr %34, align 8, !tbaa !7
   store double %56, ptr %55, align 8, !tbaa !7
@@ -8778,27 +8778,27 @@ define weak_odr dso_local noundef nonnull align 8 dereferenceable(76) ptr @_ZN3i
   %.sroa.6.24.copyload.i.i = load <2 x double>, ptr %15, align 8
   %.sroa.8.24..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.8.24.copyload.i.i = load double, ptr %.sroa.8.24..sroa_idx.i.i, align 8, !tbaa !4
-  %16 = load <2 x double>, ptr %14, align 1, !tbaa !4
+  %16 = load <2 x double>, ptr %14, align 8, !tbaa !4
   store <2 x double> %16, ptr %13, align 8, !tbaa !4
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %18 = load double, ptr %17, align 8, !tbaa !7
   store double %18, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !7
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %20 = load <2 x double>, ptr %19, align 1, !tbaa !4
+  %20 = load <2 x double>, ptr %19, align 8, !tbaa !4
   store <2 x double> %20, ptr %15, align 8, !tbaa !4
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %22 = load double, ptr %21, align 8, !tbaa !7
   store double %22, ptr %.sroa.8.24..sroa_idx.i.i, align 8, !tbaa !7
-  store <2 x double> %.sroa.0.0.copyload.i.i, ptr %14, align 1, !tbaa !4
+  store <2 x double> %.sroa.0.0.copyload.i.i, ptr %14, align 8, !tbaa !4
   store double %.sroa.5.0.copyload.i.i, ptr %17, align 8, !tbaa !7
-  store <2 x double> %.sroa.6.24.copyload.i.i, ptr %19, align 1, !tbaa !4
+  store <2 x double> %.sroa.6.24.copyload.i.i, ptr %19, align 8, !tbaa !4
   store double %.sroa.8.24.copyload.i.i, ptr %21, align 8, !tbaa !7
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %25 = load i32, ptr %23, align 8, !tbaa !51
-  %26 = load i32, ptr %24, align 4, !tbaa !51
+  %26 = load i32, ptr %24, align 8, !tbaa !51
   store i32 %26, ptr %23, align 8, !tbaa !51
-  store i32 %25, ptr %24, align 4, !tbaa !51
+  store i32 %25, ptr %24, align 8, !tbaa !51
   ret ptr %0
 }
 
@@ -9126,10 +9126,10 @@ _ZN5Eigen10AlignedBoxIdLi3EE8setEmptyEv.exit:     ; preds = %.lr.ph.i.i.i.i.i.i.
   %19 = select i1 %18, double %16, double %17
   store double %19, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !7
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %21 = load <2 x double>, ptr %3, align 1, !tbaa !4
-  %22 = load <2 x double>, ptr %20, align 1, !tbaa !4
+  %21 = load <2 x double>, ptr %3, align 8, !tbaa !4
+  %22 = load <2 x double>, ptr %20, align 8, !tbaa !4
   %23 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %21, <2 x double> %22) #30, !srcloc !53
-  store <2 x double> %23, ptr %3, align 1, !tbaa !4
+  store <2 x double> %23, ptr %3, align 8, !tbaa !4
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %25 = load double, ptr %.sroa.10.24..sroa_idx, align 8, !tbaa !7
   %26 = load double, ptr %24, align 8, !tbaa !7
@@ -9154,10 +9154,10 @@ _ZN5Eigen10AlignedBoxIdLi3EE8setEmptyEv.exit:     ; preds = %.lr.ph.i.i.i.i.i.i.
   %39 = select i1 %38, double %36, double %37
   store double %39, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !7
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %41 = load <2 x double>, ptr %3, align 1, !tbaa !4
-  %42 = load <2 x double>, ptr %40, align 1, !tbaa !4
+  %41 = load <2 x double>, ptr %3, align 8, !tbaa !4
+  %42 = load <2 x double>, ptr %40, align 8, !tbaa !4
   %43 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %41, <2 x double> %42) #30, !srcloc !53
-  store <2 x double> %43, ptr %3, align 1, !tbaa !4
+  store <2 x double> %43, ptr %3, align 8, !tbaa !4
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %45 = load double, ptr %.sroa.10.24..sroa_idx, align 8, !tbaa !7
   %46 = load double, ptr %44, align 8, !tbaa !7
@@ -9757,10 +9757,10 @@ _ZN5Eigen10AlignedBoxIdLi3EE8setEmptyEv.exit.i:   ; preds = %.lr.ph.i.i.i.i.i.i.
   %54 = select i1 %53, double %51, double %52
   store double %54, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !7
   %55 = getelementptr inbounds nuw i8, ptr %39, i64 48
-  %56 = load <2 x double>, ptr %38, align 1, !tbaa !4
-  %57 = load <2 x double>, ptr %55, align 1, !tbaa !4
+  %56 = load <2 x double>, ptr %38, align 8, !tbaa !4
+  %57 = load <2 x double>, ptr %55, align 8, !tbaa !4
   %58 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %56, <2 x double> %57) #30, !srcloc !53
-  store <2 x double> %58, ptr %38, align 1, !tbaa !4
+  store <2 x double> %58, ptr %38, align 8, !tbaa !4
   %59 = getelementptr inbounds nuw i8, ptr %39, i64 64
   %60 = load double, ptr %.sroa.10.24..sroa_idx.i, align 8, !tbaa !7
   %61 = load double, ptr %59, align 8, !tbaa !7
@@ -9785,10 +9785,10 @@ _ZN5Eigen10AlignedBoxIdLi3EE8setEmptyEv.exit.i:   ; preds = %.lr.ph.i.i.i.i.i.i.
   %74 = select i1 %73, double %71, double %72
   store double %74, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !7
   %75 = getelementptr inbounds nuw i8, ptr %42, i64 48
-  %76 = load <2 x double>, ptr %38, align 1, !tbaa !4
-  %77 = load <2 x double>, ptr %75, align 1, !tbaa !4
+  %76 = load <2 x double>, ptr %38, align 8, !tbaa !4
+  %77 = load <2 x double>, ptr %75, align 8, !tbaa !4
   %78 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %76, <2 x double> %77) #30, !srcloc !53
-  store <2 x double> %78, ptr %38, align 1, !tbaa !4
+  store <2 x double> %78, ptr %38, align 8, !tbaa !4
   %79 = getelementptr inbounds nuw i8, ptr %42, i64 64
   %80 = load double, ptr %.sroa.10.24..sroa_idx.i, align 8, !tbaa !7
   %81 = load double, ptr %79, align 8, !tbaa !7
@@ -9890,10 +9890,10 @@ _ZN5Eigen10AlignedBoxIdLi3EE8setEmptyEv.exit.i51: ; preds = %.lr.ph.i.i.i.i.i.i.
   %122 = select i1 %121, double %119, double %120
   store double %122, ptr %.sroa.6.0..sroa_idx.i34, align 8, !tbaa !7
   %123 = getelementptr inbounds nuw i8, ptr %107, i64 48
-  %124 = load <2 x double>, ptr %106, align 1, !tbaa !4
-  %125 = load <2 x double>, ptr %123, align 1, !tbaa !4
+  %124 = load <2 x double>, ptr %106, align 8, !tbaa !4
+  %125 = load <2 x double>, ptr %123, align 8, !tbaa !4
   %126 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %124, <2 x double> %125) #30, !srcloc !53
-  store <2 x double> %126, ptr %106, align 1, !tbaa !4
+  store <2 x double> %126, ptr %106, align 8, !tbaa !4
   %127 = getelementptr inbounds nuw i8, ptr %107, i64 64
   %128 = load double, ptr %.sroa.10.24..sroa_idx.i39, align 8, !tbaa !7
   %129 = load double, ptr %127, align 8, !tbaa !7
@@ -9918,10 +9918,10 @@ _ZN5Eigen10AlignedBoxIdLi3EE8setEmptyEv.exit.i51: ; preds = %.lr.ph.i.i.i.i.i.i.
   %142 = select i1 %141, double %139, double %140
   store double %142, ptr %.sroa.6.0..sroa_idx.i34, align 8, !tbaa !7
   %143 = getelementptr inbounds nuw i8, ptr %110, i64 48
-  %144 = load <2 x double>, ptr %106, align 1, !tbaa !4
-  %145 = load <2 x double>, ptr %143, align 1, !tbaa !4
+  %144 = load <2 x double>, ptr %106, align 8, !tbaa !4
+  %145 = load <2 x double>, ptr %143, align 8, !tbaa !4
   %146 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %144, <2 x double> %145) #30, !srcloc !53
-  store <2 x double> %146, ptr %106, align 1, !tbaa !4
+  store <2 x double> %146, ptr %106, align 8, !tbaa !4
   %147 = getelementptr inbounds nuw i8, ptr %110, i64 64
   %148 = load double, ptr %.sroa.10.24..sroa_idx.i39, align 8, !tbaa !7
   %149 = load double, ptr %147, align 8, !tbaa !7
@@ -10151,7 +10151,7 @@ define weak_odr dso_local noundef ptr @_ZN3igl4AABBIN5Eigen6MatrixIdLin1ELi3ELi1
   store ptr %1, ptr %19, align 8, !tbaa !117
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = load <2 x double>, ptr %20, align 1, !tbaa !4
+  %22 = load <2 x double>, ptr %20, align 8, !tbaa !4
   %23 = load <2 x double>, ptr %21, align 8, !tbaa !4
   %24 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %22, <2 x double> %23) #30, !srcloc !52
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -10162,7 +10162,7 @@ define weak_odr dso_local noundef ptr @_ZN3igl4AABBIN5Eigen6MatrixIdLin1ELi3ELi1
   %30 = select i1 %29, double %27, double %28
   %31 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = load <2 x double>, ptr %31, align 1, !tbaa !4
+  %33 = load <2 x double>, ptr %31, align 8, !tbaa !4
   %34 = load <2 x double>, ptr %32, align 8, !tbaa !4
   %35 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %33, <2 x double> %34) #30, !srcloc !53
   %36 = getelementptr inbounds nuw i8, ptr %16, i64 64
@@ -10174,16 +10174,16 @@ define weak_odr dso_local noundef ptr @_ZN3igl4AABBIN5Eigen6MatrixIdLin1ELi3ELi1
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %43 = load <2 x double>, ptr %42, align 1, !tbaa !4
   %44 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %24, <2 x double> %43) #30, !srcloc !52
-  store <2 x double> %44, ptr %20, align 1, !tbaa !4
+  store <2 x double> %44, ptr %20, align 8, !tbaa !4
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %46 = load double, ptr %45, align 8, !tbaa !7
   %47 = fcmp olt double %46, %30
   %48 = select i1 %47, double %46, double %30
   store double %48, ptr %25, align 8, !tbaa !7
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %50 = load <2 x double>, ptr %49, align 1, !tbaa !4
+  %50 = load <2 x double>, ptr %49, align 8, !tbaa !4
   %51 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %35, <2 x double> %50) #30, !srcloc !53
-  store <2 x double> %51, ptr %31, align 1, !tbaa !4
+  store <2 x double> %51, ptr %31, align 8, !tbaa !4
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %53 = load double, ptr %52, align 8, !tbaa !7
   %54 = fcmp olt double %41, %53
@@ -10283,7 +10283,7 @@ _ZNK5Eigen10AlignedBoxIdLi3EE8containsERKS1_.exit.thread: ; preds = %66, %_ZN5Ei
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 8
   store ptr %1, ptr %103, align 8, !tbaa !117
   %104 = getelementptr inbounds nuw i8, ptr %100, i64 24
-  %105 = load <2 x double>, ptr %104, align 1, !tbaa !4
+  %105 = load <2 x double>, ptr %104, align 8, !tbaa !4
   %106 = load <2 x double>, ptr %67, align 8, !tbaa !4
   %107 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %105, <2 x double> %106) #30, !srcloc !52
   %108 = getelementptr inbounds nuw i8, ptr %100, i64 40
@@ -10294,7 +10294,7 @@ _ZNK5Eigen10AlignedBoxIdLi3EE8containsERKS1_.exit.thread: ; preds = %66, %_ZN5Ei
   %113 = select i1 %112, double %110, double %111
   %114 = getelementptr inbounds nuw i8, ptr %100, i64 48
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %116 = load <2 x double>, ptr %114, align 1, !tbaa !4
+  %116 = load <2 x double>, ptr %114, align 8, !tbaa !4
   %117 = load <2 x double>, ptr %115, align 8, !tbaa !4
   %118 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %116, <2 x double> %117) #30, !srcloc !53
   %119 = getelementptr inbounds nuw i8, ptr %100, i64 64
@@ -10305,16 +10305,16 @@ _ZNK5Eigen10AlignedBoxIdLi3EE8containsERKS1_.exit.thread: ; preds = %66, %_ZN5Ei
   %124 = select i1 %123, double %122, double %121
   %125 = load <2 x double>, ptr %68, align 1, !tbaa !4
   %126 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %107, <2 x double> %125) #30, !srcloc !52
-  store <2 x double> %126, ptr %104, align 1, !tbaa !4
+  store <2 x double> %126, ptr %104, align 8, !tbaa !4
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %128 = load double, ptr %127, align 8, !tbaa !7
   %129 = fcmp olt double %128, %113
   %130 = select i1 %129, double %128, double %113
   store double %130, ptr %108, align 8, !tbaa !7
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %132 = load <2 x double>, ptr %131, align 1, !tbaa !4
+  %132 = load <2 x double>, ptr %131, align 8, !tbaa !4
   %133 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %118, <2 x double> %132) #30, !srcloc !53
-  store <2 x double> %133, ptr %114, align 1, !tbaa !4
+  store <2 x double> %133, ptr %114, align 8, !tbaa !4
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %135 = load double, ptr %134, align 8, !tbaa !7
   %136 = fcmp olt double %124, %135
@@ -10755,10 +10755,10 @@ _ZN5Eigen10AlignedBoxIdLi3EE8setEmptyEv.exit.i:   ; preds = %.lr.ph.i.i.i.i.i.i.
   %83 = select i1 %82, double %80, double %81
   store double %83, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !7
   %84 = getelementptr inbounds nuw i8, ptr %68, i64 48
-  %85 = load <2 x double>, ptr %67, align 1, !tbaa !4
-  %86 = load <2 x double>, ptr %84, align 1, !tbaa !4
+  %85 = load <2 x double>, ptr %67, align 8, !tbaa !4
+  %86 = load <2 x double>, ptr %84, align 8, !tbaa !4
   %87 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %85, <2 x double> %86) #30, !srcloc !53
-  store <2 x double> %87, ptr %67, align 1, !tbaa !4
+  store <2 x double> %87, ptr %67, align 8, !tbaa !4
   %88 = getelementptr inbounds nuw i8, ptr %68, i64 64
   %89 = load double, ptr %.sroa.10.24..sroa_idx.i, align 8, !tbaa !7
   %90 = load double, ptr %88, align 8, !tbaa !7
@@ -10783,10 +10783,10 @@ _ZN5Eigen10AlignedBoxIdLi3EE8setEmptyEv.exit.i:   ; preds = %.lr.ph.i.i.i.i.i.i.
   %103 = select i1 %102, double %100, double %101
   store double %103, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !7
   %104 = getelementptr inbounds nuw i8, ptr %71, i64 48
-  %105 = load <2 x double>, ptr %67, align 1, !tbaa !4
-  %106 = load <2 x double>, ptr %104, align 1, !tbaa !4
+  %105 = load <2 x double>, ptr %67, align 8, !tbaa !4
+  %106 = load <2 x double>, ptr %104, align 8, !tbaa !4
   %107 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %105, <2 x double> %106) #30, !srcloc !53
-  store <2 x double> %107, ptr %67, align 1, !tbaa !4
+  store <2 x double> %107, ptr %67, align 8, !tbaa !4
   %108 = getelementptr inbounds nuw i8, ptr %71, i64 64
   %109 = load double, ptr %.sroa.10.24..sroa_idx.i, align 8, !tbaa !7
   %110 = load double, ptr %108, align 8, !tbaa !7
@@ -10853,7 +10853,7 @@ define weak_odr dso_local noundef ptr @_ZN3igl4AABBIN5Eigen6MatrixIdLin1ELi3ELi1
   store ptr %1, ptr %8, align 8, !tbaa !117
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load <2 x double>, ptr %9, align 1, !tbaa !4
+  %11 = load <2 x double>, ptr %9, align 8, !tbaa !4
   %12 = load <2 x double>, ptr %10, align 8, !tbaa !4
   %13 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %11, <2 x double> %12) #30, !srcloc !52
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -10864,7 +10864,7 @@ define weak_odr dso_local noundef ptr @_ZN3igl4AABBIN5Eigen6MatrixIdLin1ELi3ELi1
   %19 = select i1 %18, double %16, double %17
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %22 = load <2 x double>, ptr %20, align 1, !tbaa !4
+  %22 = load <2 x double>, ptr %20, align 8, !tbaa !4
   %23 = load <2 x double>, ptr %21, align 8, !tbaa !4
   %24 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %22, <2 x double> %23) #30, !srcloc !53
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -10876,16 +10876,16 @@ define weak_odr dso_local noundef ptr @_ZN3igl4AABBIN5Eigen6MatrixIdLin1ELi3ELi1
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %32 = load <2 x double>, ptr %31, align 1, !tbaa !4
   %33 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %13, <2 x double> %32) #30, !srcloc !52
-  store <2 x double> %33, ptr %9, align 1, !tbaa !4
+  store <2 x double> %33, ptr %9, align 8, !tbaa !4
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %35 = load double, ptr %34, align 8, !tbaa !7
   %36 = fcmp olt double %35, %19
   %37 = select i1 %36, double %35, double %19
   store double %37, ptr %14, align 8, !tbaa !7
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %39 = load <2 x double>, ptr %38, align 1, !tbaa !4
+  %39 = load <2 x double>, ptr %38, align 8, !tbaa !4
   %40 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %24, <2 x double> %39) #30, !srcloc !53
-  store <2 x double> %40, ptr %20, align 1, !tbaa !4
+  store <2 x double> %40, ptr %20, align 8, !tbaa !4
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %42 = load double, ptr %41, align 8, !tbaa !7
   %43 = fcmp olt double %30, %42
@@ -11198,7 +11198,7 @@ _ZN5Eigen10AlignedBoxIdLi3EEC2Ev.exit._crit_edge.i: ; preds = %_ZN5Eigen10Aligne
   %56 = select i1 %55, double %53, double %54
   %57 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %58 = load <2 x double>, ptr %46, align 8, !tbaa !4
-  %59 = load <2 x double>, ptr %57, align 1, !tbaa !4
+  %59 = load <2 x double>, ptr %57, align 8, !tbaa !4
   %60 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %58, <2 x double> %59) #30, !srcloc !53
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %62 = getelementptr inbounds nuw i8, ptr %32, i64 64
@@ -11224,7 +11224,7 @@ _ZN5Eigen10AlignedBoxIdLi3EEC2Ev.exit._crit_edge.i: ; preds = %_ZN5Eigen10Aligne
   %79 = select i1 %78, double %77, double %70
   store double %79, ptr %75, align 16, !tbaa !7
   %80 = getelementptr inbounds nuw i8, ptr %42, i64 48
-  %81 = load <2 x double>, ptr %80, align 1, !tbaa !4
+  %81 = load <2 x double>, ptr %80, align 8, !tbaa !4
   %82 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %69, <2 x double> %81) #30, !srcloc !53
   store <2 x double> %82, ptr %46, align 8, !tbaa !4
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -11257,7 +11257,7 @@ _ZN5Eigen10AlignedBoxIdLi3EEC2Ev.exit._crit_edge.i: ; preds = %_ZN5Eigen10Aligne
   store double %101, ptr %96, align 16, !tbaa !7
   %102 = getelementptr inbounds nuw i8, ptr %44, i64 48
   %103 = load <2 x double>, ptr %89, align 8, !tbaa !4
-  %104 = load <2 x double>, ptr %102, align 1, !tbaa !4
+  %104 = load <2 x double>, ptr %102, align 8, !tbaa !4
   %105 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %103, <2 x double> %104) #30, !srcloc !53
   store <2 x double> %105, ptr %89, align 8, !tbaa !4
   %106 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -11336,7 +11336,7 @@ _ZN5Eigen10AlignedBoxIdLi3EEC2Ev.exit._crit_edge.i45: ; preds = %_ZN5Eigen10Alig
   %131 = select i1 %130, double %128, double %129
   %132 = getelementptr inbounds nuw i8, ptr %121, i64 48
   %133 = load <2 x double>, ptr %120, align 8, !tbaa !4
-  %134 = load <2 x double>, ptr %132, align 1, !tbaa !4
+  %134 = load <2 x double>, ptr %132, align 8, !tbaa !4
   %135 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %133, <2 x double> %134) #30, !srcloc !53
   %136 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %137 = getelementptr inbounds nuw i8, ptr %121, i64 64
@@ -11362,7 +11362,7 @@ _ZN5Eigen10AlignedBoxIdLi3EEC2Ev.exit._crit_edge.i45: ; preds = %_ZN5Eigen10Alig
   %154 = select i1 %153, double %152, double %145
   store double %154, ptr %150, align 16, !tbaa !7
   %155 = getelementptr inbounds nuw i8, ptr %44, i64 48
-  %156 = load <2 x double>, ptr %155, align 1, !tbaa !4
+  %156 = load <2 x double>, ptr %155, align 8, !tbaa !4
   %157 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %144, <2 x double> %156) #30, !srcloc !53
   store <2 x double> %157, ptr %120, align 8, !tbaa !4
   %158 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -11394,7 +11394,7 @@ _ZN5Eigen10AlignedBoxIdLi3EEC2Ev.exit._crit_edge.i45: ; preds = %_ZN5Eigen10Alig
   store double %176, ptr %171, align 16, !tbaa !7
   %177 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %178 = load <2 x double>, ptr %164, align 8, !tbaa !4
-  %179 = load <2 x double>, ptr %177, align 1, !tbaa !4
+  %179 = load <2 x double>, ptr %177, align 8, !tbaa !4
   %180 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %178, <2 x double> %179) #30, !srcloc !53
   store <2 x double> %180, ptr %164, align 8, !tbaa !4
   %181 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -11619,7 +11619,7 @@ _ZN5Eigen10AlignedBoxIdLi3EEC2Ev.exit._crit_edge: ; preds = %_ZN5Eigen10AlignedB
   %22 = select i1 %21, double %19, double %20
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %24 = load <2 x double>, ptr %10, align 8, !tbaa !4
-  %25 = load <2 x double>, ptr %23, align 1, !tbaa !4
+  %25 = load <2 x double>, ptr %23, align 8, !tbaa !4
   %26 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %24, <2 x double> %25) #30, !srcloc !53
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 64
@@ -11645,7 +11645,7 @@ _ZN5Eigen10AlignedBoxIdLi3EEC2Ev.exit._crit_edge: ; preds = %_ZN5Eigen10AlignedB
   %45 = select i1 %44, double %43, double %36
   store double %45, ptr %41, align 16, !tbaa !7
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %47 = load <2 x double>, ptr %46, align 1, !tbaa !4
+  %47 = load <2 x double>, ptr %46, align 8, !tbaa !4
   %48 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %35, <2 x double> %47) #30, !srcloc !53
   store <2 x double> %48, ptr %10, align 8, !tbaa !4
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -11678,7 +11678,7 @@ _ZN5Eigen10AlignedBoxIdLi3EEC2Ev.exit._crit_edge: ; preds = %_ZN5Eigen10AlignedB
   store double %67, ptr %62, align 16, !tbaa !7
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %69 = load <2 x double>, ptr %55, align 8, !tbaa !4
-  %70 = load <2 x double>, ptr %68, align 1, !tbaa !4
+  %70 = load <2 x double>, ptr %68, align 8, !tbaa !4
   %71 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %69, <2 x double> %70) #30, !srcloc !53
   store <2 x double> %71, ptr %55, align 8, !tbaa !4
   %72 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -11715,7 +11715,7 @@ _ZN5Eigen10AlignedBoxIdLi3EEC2Ev.exit._crit_edge: ; preds = %_ZN5Eigen10AlignedB
   store double %94, ptr %93, align 8, !tbaa !7
   %95 = getelementptr inbounds nuw i8, ptr %90, i64 48
   %96 = load <2 x double>, ptr %10, align 8, !tbaa !4
-  store <2 x double> %96, ptr %95, align 1, !tbaa !4
+  store <2 x double> %96, ptr %95, align 8, !tbaa !4
   %97 = getelementptr inbounds nuw i8, ptr %90, i64 64
   %98 = load double, ptr %49, align 8, !tbaa !7
   store double %98, ptr %97, align 8, !tbaa !7
@@ -11742,7 +11742,7 @@ _ZN5Eigen10AlignedBoxIdLi3EEC2Ev.exit._crit_edge: ; preds = %_ZN5Eigen10AlignedB
   store double %114, ptr %112, align 8, !tbaa !7
   %115 = getelementptr inbounds nuw i8, ptr %109, i64 48
   %116 = load <2 x double>, ptr %55, align 8, !tbaa !4
-  store <2 x double> %116, ptr %115, align 1, !tbaa !4
+  store <2 x double> %116, ptr %115, align 8, !tbaa !4
   %117 = getelementptr inbounds nuw i8, ptr %109, i64 64
   %118 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %119 = load double, ptr %118, align 8, !tbaa !7
@@ -11821,7 +11821,7 @@ define weak_odr dso_local noundef double @_ZN3igl4AABBIN5Eigen6MatrixIdLin1ELi3E
   store double %29, ptr %24, align 16, !tbaa !7
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %31 = load <2 x double>, ptr %19, align 8, !tbaa !4
-  %32 = load <2 x double>, ptr %30, align 1, !tbaa !4
+  %32 = load <2 x double>, ptr %30, align 8, !tbaa !4
   %33 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %31, <2 x double> %32) #30, !srcloc !53
   store <2 x double> %33, ptr %19, align 8, !tbaa !4
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -11854,13 +11854,13 @@ define weak_odr dso_local noundef double @_ZN3igl4AABBIN5Eigen6MatrixIdLin1ELi3E
   store ptr %3, ptr %48, align 8, !tbaa !118
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %50 = load <2 x double>, ptr %7, align 16, !tbaa !4
-  store <2 x double> %50, ptr %49, align 1, !tbaa !4
+  store <2 x double> %50, ptr %49, align 8, !tbaa !4
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %52 = load double, ptr %24, align 16, !tbaa !7
   store double %52, ptr %51, align 8, !tbaa !7
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %54 = load <2 x double>, ptr %19, align 8, !tbaa !4
-  store <2 x double> %54, ptr %53, align 1, !tbaa !4
+  store <2 x double> %54, ptr %53, align 8, !tbaa !4
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %56 = load double, ptr %34, align 8, !tbaa !7
   store double %56, ptr %55, align 8, !tbaa !7
@@ -12455,9 +12455,9 @@ define weak_odr dso_local noundef nonnull align 16 dereferenceable(68) ptr @_ZN3
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %21 = load i32, ptr %19, align 16, !tbaa !51
-  %22 = load i32, ptr %20, align 4, !tbaa !51
+  %22 = load i32, ptr %20, align 16, !tbaa !51
   store i32 %22, ptr %19, align 16, !tbaa !51
-  store i32 %21, ptr %20, align 4, !tbaa !51
+  store i32 %21, ptr %20, align 16, !tbaa !51
   ret ptr %0
 }
 
@@ -15812,9 +15812,9 @@ define weak_odr dso_local noundef nonnull align 16 dereferenceable(68) ptr @_ZN3
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %21 = load i32, ptr %19, align 16, !tbaa !51
-  %22 = load i32, ptr %20, align 4, !tbaa !51
+  %22 = load i32, ptr %20, align 16, !tbaa !51
   store i32 %22, ptr %19, align 16, !tbaa !51
-  store i32 %21, ptr %20, align 4, !tbaa !51
+  store i32 %21, ptr %20, align 16, !tbaa !51
   ret ptr %0
 }
 
@@ -24026,7 +24026,7 @@ _ZNK5Eigen10AlignedBoxIdLi3EE8containsINS_9TransposeIKNS_6MatrixIdLi1ELin1ELi1EL
   store <2 x double> %104, ptr %11, align 16, !tbaa !4
   %105 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %106 = getelementptr i8, ptr %103, i64 16
-  %107 = load double, ptr %106, align 8, !tbaa !7
+  %107 = load double, ptr %106, align 16, !tbaa !7
   store double %107, ptr %105, align 16, !tbaa !7
   %108 = call noundef double @_ZN3igl13volume_singleIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_S3_S3_EENT_6ScalarERKS4_RKT0_RKT1_RKT2_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -24036,7 +24036,7 @@ _ZNK5Eigen10AlignedBoxIdLi3EE8containsINS_9TransposeIKNS_6MatrixIdLi1ELin1ELi1EL
   store <2 x double> %110, ptr %12, align 16, !tbaa !4
   %111 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %112 = getelementptr i8, ptr %109, i64 16
-  %113 = load double, ptr %112, align 8, !tbaa !7
+  %113 = load double, ptr %112, align 16, !tbaa !7
   store double %113, ptr %111, align 16, !tbaa !7
   %114 = call noundef double @_ZN3igl13volume_singleIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_S3_S3_EENT_6ScalarERKS4_RKT0_RKT1_RKT2_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -24046,7 +24046,7 @@ _ZNK5Eigen10AlignedBoxIdLi3EE8containsINS_9TransposeIKNS_6MatrixIdLi1ELin1ELi1EL
   store <2 x double> %116, ptr %13, align 16, !tbaa !4
   %117 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %118 = getelementptr i8, ptr %115, i64 16
-  %119 = load double, ptr %118, align 8, !tbaa !7
+  %119 = load double, ptr %118, align 16, !tbaa !7
   store double %119, ptr %117, align 16, !tbaa !7
   %120 = call noundef double @_ZN3igl13volume_singleIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_S3_S3_EENT_6ScalarERKS4_RKT0_RKT1_RKT2_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -24056,7 +24056,7 @@ _ZNK5Eigen10AlignedBoxIdLi3EE8containsINS_9TransposeIKNS_6MatrixIdLi1ELin1ELi1EL
   store <2 x double> %122, ptr %14, align 16, !tbaa !4
   %123 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %124 = getelementptr i8, ptr %121, i64 16
-  %125 = load double, ptr %124, align 8, !tbaa !7
+  %125 = load double, ptr %124, align 16, !tbaa !7
   store double %125, ptr %123, align 16, !tbaa !7
   %126 = call noundef double @_ZN3igl13volume_singleIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_S3_S3_EENT_6ScalarERKS4_RKT0_RKT1_RKT2_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -24682,7 +24682,7 @@ _ZNK5Eigen10AlignedBoxIdLi3EE8containsINS_9TransposeIKNS_6MatrixIdLi1ELi3ELi1ELi
   %105 = call noundef double @_ZN3igl13volume_singleIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_S3_S3_EENT_6ScalarERKS4_RKT0_RKT1_RKT2_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %106 = load <2 x double>, ptr %4, align 1, !tbaa !4
+  %106 = load <2 x double>, ptr %4, align 8, !tbaa !4
   store <2 x double> %106, ptr %12, align 16, !tbaa !4
   %107 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %108 = load double, ptr %27, align 8, !tbaa !7
@@ -24690,7 +24690,7 @@ _ZNK5Eigen10AlignedBoxIdLi3EE8containsINS_9TransposeIKNS_6MatrixIdLi1ELi3ELi1ELi
   %109 = call noundef double @_ZN3igl13volume_singleIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_S3_S3_EENT_6ScalarERKS4_RKT0_RKT1_RKT2_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %110 = load <2 x double>, ptr %4, align 1, !tbaa !4
+  %110 = load <2 x double>, ptr %4, align 8, !tbaa !4
   store <2 x double> %110, ptr %13, align 16, !tbaa !4
   %111 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %112 = load double, ptr %27, align 8, !tbaa !7
@@ -24698,7 +24698,7 @@ _ZNK5Eigen10AlignedBoxIdLi3EE8containsINS_9TransposeIKNS_6MatrixIdLi1ELi3ELi1ELi
   %113 = call noundef double @_ZN3igl13volume_singleIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_S3_S3_EENT_6ScalarERKS4_RKT0_RKT1_RKT2_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %114 = load <2 x double>, ptr %4, align 1, !tbaa !4
+  %114 = load <2 x double>, ptr %4, align 8, !tbaa !4
   store <2 x double> %114, ptr %14, align 16, !tbaa !4
   %115 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %116 = load double, ptr %27, align 8, !tbaa !7
@@ -35278,7 +35278,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKd.exit.i.
   %93 = fcmp olt double %92, %74
   %94 = select i1 %93, double %92, double %74
   store double %94, ptr %28, align 8, !tbaa !7
-  %95 = load <2 x double>, ptr %88, align 1, !tbaa !4
+  %95 = load <2 x double>, ptr %88, align 8, !tbaa !4
   %96 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %72, <2 x double> %95) #30, !srcloc !53
   store <2 x double> %96, ptr %31, align 8, !tbaa !4
   %97 = load double, ptr %91, align 8, !tbaa !7
@@ -35307,7 +35307,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKd.exit.i.
   %117 = fcmp olt double %116, %94
   %118 = select i1 %117, double %116, double %94
   store double %118, ptr %28, align 8, !tbaa !7
-  %119 = load <2 x double>, ptr %112, align 1, !tbaa !4
+  %119 = load <2 x double>, ptr %112, align 8, !tbaa !4
   %120 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %96, <2 x double> %119) #30, !srcloc !53
   store <2 x double> %120, ptr %31, align 8, !tbaa !4
   %121 = load double, ptr %115, align 8, !tbaa !7
@@ -46674,7 +46674,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKd.exit.i.
   %74 = fcmp olt double %73, %57
   %75 = select i1 %74, double %73, double %57
   store double %75, ptr %25, align 8, !tbaa !7
-  %76 = load <2 x double>, ptr %69, align 1, !tbaa !4
+  %76 = load <2 x double>, ptr %69, align 8, !tbaa !4
   %77 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %55, <2 x double> %76) #30, !srcloc !53
   store <2 x double> %77, ptr %28, align 8, !tbaa !4
   %78 = load double, ptr %72, align 8, !tbaa !7
@@ -46702,7 +46702,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKd.exit.i.
   %96 = fcmp olt double %95, %75
   %97 = select i1 %96, double %95, double %75
   store double %97, ptr %25, align 8, !tbaa !7
-  %98 = load <2 x double>, ptr %91, align 1, !tbaa !4
+  %98 = load <2 x double>, ptr %91, align 8, !tbaa !4
   %99 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %77, <2 x double> %98) #30, !srcloc !53
   store <2 x double> %99, ptr %28, align 8, !tbaa !4
   %100 = load double, ptr %94, align 8, !tbaa !7

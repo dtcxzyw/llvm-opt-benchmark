@@ -5660,7 +5660,7 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv16CvCapture_ImagesES
   store ptr %9, ptr %8, align 8, !tbaa !40
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 0, ptr %10, align 8, !tbaa !3
-  store i8 0, ptr %9, align 1, !tbaa !12
+  store i8 0, ptr %9, align 8, !tbaa !12
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 72
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #24
   store i64 0, ptr %10, align 8, !tbaa !3

@@ -3796,7 +3796,7 @@ define hidden noundef ptr @_ZN5Parse16create_entry_mapEv(ptr noundef nonnull ali
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %44 = load i32, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %46 = load i32, ptr %45, align 4
+  %46 = load i32, ptr %45, align 8
   %47 = lshr i32 %46, 3
   %.lobit.i.i = and i32 %47, 1
   %48 = xor i32 %.lobit.i.i, 1

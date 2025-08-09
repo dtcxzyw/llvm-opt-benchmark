@@ -2827,8 +2827,8 @@ region_offset2size.exit.i:                        ; preds = %1124
   tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef %1132, ptr noundef nonnull @.str.28) #14
   %.pr.i.i = load i32, ptr %912, align 16, !tbaa !145
   %.pre.pre.i = load i32, ptr %842, align 4, !tbaa !100
-  %.pre658.pre.pre.i = load i32, ptr %26, align 8, !tbaa !96
-  %.pre659.pre.pre.i = load ptr, ptr %15, align 8, !tbaa !92
+  %.pre658.pre.pre.i = load i32, ptr %26, align 16, !tbaa !96
+  %.pre659.pre.pre.i = load ptr, ptr %15, align 16, !tbaa !92
   %.pre660.pre.pre.i = load i32, ptr %22, align 8, !tbaa !94
   br label %1133
 
@@ -2983,14 +2983,14 @@ compute_band_indexes.exit.i:                      ; preds = %1141, %1138, %1133
   %.018.i.i = select i1 %or.cond.i.i, i32 %1216, i32 0
   %.017.i371.i = select i1 %or.cond.i.i, ptr %1208, ptr null
   %1217 = lshr exact i32 %.018.i.i, 3
-  store ptr %.017.i371.i, ptr %15, align 8, !tbaa !92
+  store ptr %.017.i371.i, ptr %15, align 16, !tbaa !92
   store i32 %.018.i.i, ptr %20, align 4, !tbaa !93
   %1218 = add nuw nsw i32 %.018.i.i, 8
   store i32 %1218, ptr %22, align 8, !tbaa !94
   %1219 = zext nneg i32 %1217 to i64
   %1220 = getelementptr inbounds nuw i8, ptr %.017.i371.i, i64 %1219
   store ptr %1220, ptr %25, align 8, !tbaa !95
-  store i32 0, ptr %26, align 8, !tbaa !96
+  store i32 0, ptr %26, align 16, !tbaa !96
   %1221 = shl i32 %1213, 3
   store i32 %1221, ptr %1203, align 16, !tbaa !60
   %1222 = getelementptr inbounds nuw i8, ptr %0, i64 9376
@@ -3815,7 +3815,7 @@ exponents_from_scale_factors.exit.i:              ; preds = %.split20.us.i.i, %.
   store ptr null, ptr %1278, align 16, !tbaa !160
   store i32 0, ptr %1277, align 4, !tbaa !155
   %1631 = sub nsw i32 %.val203.i.i, %.2262303.i.i
-  %1632 = load i32, ptr %26, align 8, !tbaa !96
+  %1632 = load i32, ptr %26, align 16, !tbaa !96
   %1633 = sub nsw i32 0, %1632
   %1634 = load i32, ptr %22, align 8, !tbaa !94
   %1635 = sub nsw i32 %1634, %1632
@@ -3823,7 +3823,7 @@ exponents_from_scale_factors.exit.i:              ; preds = %.split20.us.i.i, %.
   %..i.i.i.i.i = tail call i32 @llvm.smin.i32(i32 %1631, i32 %1635)
   %.0.i.i.i.i.i = select i1 %1636, i32 %1633, i32 %..i.i.i.i.i
   %1637 = add nsw i32 %.0.i.i.i.i.i, %1632
-  store i32 %1637, ptr %26, align 8, !tbaa !96
+  store i32 %1637, ptr %26, align 16, !tbaa !96
   %1638 = sub i32 %.2270302.i.i, %.val203.i.i
   %1639 = add i32 %1637, %1638
   br label %switch_buffer.exit.i.i
@@ -4319,7 +4319,7 @@ l3_unscale.exit213.i.i:                           ; preds = %1906, %get_bitsz.ex
   store ptr null, ptr %1278, align 16, !tbaa !160
   store i32 0, ptr %1277, align 4, !tbaa !155
   %1970 = sub nsw i32 %.val202.i.i, %.5264319.i.i
-  %1971 = load i32, ptr %26, align 8, !tbaa !96
+  %1971 = load i32, ptr %26, align 16, !tbaa !96
   %1972 = sub nsw i32 0, %1971
   %1973 = load i32, ptr %22, align 8, !tbaa !94
   %1974 = sub nsw i32 %1973, %1971
@@ -4327,7 +4327,7 @@ l3_unscale.exit213.i.i:                           ; preds = %1906, %get_bitsz.ex
   %..i.i.i217.i.i = tail call i32 @llvm.smin.i32(i32 %1970, i32 %1974)
   %.0.i.i.i218.i.i = select i1 %1975, i32 %1972, i32 %..i.i.i217.i.i
   %1976 = add nsw i32 %.0.i.i.i218.i.i, %1971
-  store i32 %1976, ptr %26, align 8, !tbaa !96
+  store i32 %1976, ptr %26, align 16, !tbaa !96
   %1977 = sub i32 %.5273318.i.i, %.val202.i.i
   %1978 = add i32 %1976, %1977
   br label %switch_buffer.exit220.i.i
@@ -4496,7 +4496,7 @@ switch_buffer.exit220.i.i:                        ; preds = %1969, %1964, %1962
   store ptr null, ptr %1278, align 16, !tbaa !160
   store i32 0, ptr %1277, align 4, !tbaa !155
   %2068 = sub nsw i32 %2060, %.6265.i.i
-  %2069 = load i32, ptr %26, align 8, !tbaa !96
+  %2069 = load i32, ptr %26, align 16, !tbaa !96
   %2070 = sub nsw i32 0, %2069
   %2071 = load i32, ptr %22, align 8, !tbaa !94
   %2072 = sub nsw i32 %2071, %2069
@@ -4504,7 +4504,7 @@ switch_buffer.exit220.i.i:                        ; preds = %1969, %1964, %1962
   %..i.i.i226.i.i = tail call i32 @llvm.smin.i32(i32 %2068, i32 %2072)
   %.0.i.i.i227.i.i = select i1 %2073, i32 %2070, i32 %..i.i.i226.i.i
   %2074 = add nsw i32 %.0.i.i.i227.i.i, %2069
-  store i32 %2074, ptr %26, align 8, !tbaa !96
+  store i32 %2074, ptr %26, align 16, !tbaa !96
   br label %huffman_decode.exit.i
 
 huffman_decode.exit.i:                            ; preds = %2067, %2062, %.thread296.i.i
@@ -5221,7 +5221,7 @@ mp_decode_layer3.exit:                            ; preds = %.loopexit437.i, %94
   %2480 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   %2481 = load ptr, ptr %2480, align 16, !tbaa !160
   %.not110 = icmp eq ptr %2481, null
-  %.val.i147.pre251 = load i32, ptr %26, align 8, !tbaa !96
+  %.val.i147.pre251 = load i32, ptr %26, align 16, !tbaa !96
   br i1 %.not110, label %2505, label %2482
 
 2482:                                             ; preds = %mp_decode_layer3.exit
@@ -5269,7 +5269,7 @@ align_get_bits.exit:                              ; preds = %2482, %2485
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %15, ptr noundef nonnull align 16 dereferenceable(32) %2480, i64 32, i1 false), !tbaa.struct !156
   store ptr null, ptr %2480, align 16, !tbaa !160
   store i32 0, ptr %2491, align 4, !tbaa !155
-  %.val.i147.pre = load i32, ptr %26, align 8, !tbaa !96
+  %.val.i147.pre = load i32, ptr %26, align 16, !tbaa !96
   br label %2505
 
 2505:                                             ; preds = %2504, %mp_decode_layer3.exit

@@ -468,7 +468,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
   store i64 %36, ptr %37, align 8, !tbaa !32
   store ptr %27, ptr %24, align 8, !tbaa !30
   store i64 0, ptr %35, align 8, !tbaa !32
-  store i8 0, ptr %27, align 1, !tbaa !31
+  store i8 0, ptr %27, align 8, !tbaa !31
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %39 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 64
   %40 = getelementptr inbounds nuw i8, ptr %22, i64 80
@@ -500,7 +500,7 @@ _ZN5clang6format17WhitespaceManager6ChangeC2EOS2_.exit: ; preds = %44, %_ZNKSt7_
   store i64 %51, ptr %52, align 8, !tbaa !32
   store ptr %42, ptr %39, align 8, !tbaa !30
   store i64 0, ptr %50, align 8, !tbaa !32
-  store i8 0, ptr %42, align 1, !tbaa !31
+  store i8 0, ptr %42, align 8, !tbaa !31
   %53 = getelementptr inbounds nuw i8, ptr %22, i64 96
   %54 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %53, ptr noundef nonnull align 8 dereferenceable(40) %54, i64 40, i1 false)
@@ -9412,7 +9412,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %21, ptr %22, align 8, !tbaa !32
   store ptr %12, ptr %9, align 8, !tbaa !30
   store i64 0, ptr %20, align 8, !tbaa !32
-  store i8 0, ptr %12, align 1, !tbaa !31
+  store i8 0, ptr %12, align 8, !tbaa !31
   %23 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 64
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 64
   %25 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 80
@@ -9444,7 +9444,7 @@ _ZSt10_ConstructIN5clang6format17WhitespaceManager6ChangeEJS3_EEvPT_DpOT0_.exit.
   store i64 %36, ptr %37, align 8, !tbaa !32
   store ptr %27, ptr %24, align 8, !tbaa !30
   store i64 0, ptr %35, align 8, !tbaa !32
-  store i8 0, ptr %27, align 1, !tbaa !31
+  store i8 0, ptr %27, align 8, !tbaa !31
   %38 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 96
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %39, i64 40, i1 false)
@@ -9642,7 +9642,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
   store i64 %41, ptr %16, align 8, !tbaa !32
   store ptr %32, ptr %30, align 8, !tbaa !30
   store i64 0, ptr %42, align 8, !tbaa !32
-  store i8 0, ptr %32, align 1, !tbaa !31
+  store i8 0, ptr %32, align 8, !tbaa !31
   %43 = getelementptr inbounds nuw i8, ptr %29, i64 64
   store ptr %18, ptr %17, align 8, !tbaa !28
   %44 = load ptr, ptr %43, align 8, !tbaa !30
@@ -9674,7 +9674,7 @@ _ZN5clang6format17WhitespaceManager6ChangeC2EOS2_.exit: ; preds = %47, %_ZNKSt7_
   store i64 %54, ptr %19, align 8, !tbaa !32
   store ptr %45, ptr %43, align 8, !tbaa !30
   store i64 0, ptr %55, align 8, !tbaa !32
-  store i8 0, ptr %45, align 1, !tbaa !31
+  store i8 0, ptr %45, align 8, !tbaa !31
   %56 = getelementptr inbounds nuw i8, ptr %29, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull align 8 dereferenceable(40) %56, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5, ptr noundef nonnull align 8 dereferenceable(136) %4, i64 28, i1 false)
@@ -9841,7 +9841,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
   store i64 %19, ptr %21, align 8, !tbaa !32
   store ptr %11, ptr %8, align 8, !tbaa !30
   store i64 0, ptr %20, align 8, !tbaa !32
-  store i8 0, ptr %11, align 1, !tbaa !31
+  store i8 0, ptr %11, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 80
@@ -9875,7 +9875,7 @@ _ZN5clang6format17WhitespaceManager6ChangeC2EOS2_.exit: ; preds = %28, %_ZNKSt7_
   store i64 %34, ptr %36, align 8, !tbaa !32
   store ptr %26, ptr %23, align 8, !tbaa !30
   store i64 0, ptr %35, align 8, !tbaa !32
-  store i8 0, ptr %26, align 1, !tbaa !31
+  store i8 0, ptr %26, align 8, !tbaa !31
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %38, i64 40, i1 false)
@@ -10124,7 +10124,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
   store i64 %54, ptr %56, align 8, !tbaa !32
   store ptr %46, ptr %43, align 8, !tbaa !30
   store i64 0, ptr %55, align 8, !tbaa !32
-  store i8 0, ptr %46, align 1, !tbaa !31
+  store i8 0, ptr %46, align 8, !tbaa !31
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 80
@@ -10158,7 +10158,7 @@ _ZN5clang6format17WhitespaceManager6ChangeC2EOS2_.exit: ; preds = %63, %_ZNKSt7_
   store i64 %69, ptr %71, align 8, !tbaa !32
   store ptr %61, ptr %58, align 8, !tbaa !30
   store i64 0, ptr %70, align 8, !tbaa !32
-  store i8 0, ptr %61, align 1, !tbaa !31
+  store i8 0, ptr %61, align 8, !tbaa !31
   %72 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %73 = getelementptr inbounds nuw i8, ptr %3, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %72, ptr noundef nonnull align 8 dereferenceable(40) %73, i64 40, i1 false)
@@ -10835,7 +10835,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
   store i64 %34, ptr %10, align 8, !tbaa !32
   store ptr %25, ptr %23, align 8, !tbaa !30
   store i64 0, ptr %33, align 8, !tbaa !32
-  store i8 0, ptr %25, align 1, !tbaa !31
+  store i8 0, ptr %25, align 8, !tbaa !31
   %35 = getelementptr inbounds nuw i8, ptr %.pn22, i64 200
   store ptr %12, ptr %11, align 8, !tbaa !28
   %36 = load ptr, ptr %35, align 8, !tbaa !30
@@ -10864,7 +10864,7 @@ _ZN5clang6format17WhitespaceManager6ChangeC2EOS2_.exit: ; preds = %39, %_ZNKSt7_
   store i64 %46, ptr %13, align 8, !tbaa !32
   store ptr %37, ptr %35, align 8, !tbaa !30
   store i64 0, ptr %45, align 8, !tbaa !32
-  store i8 0, ptr %37, align 1, !tbaa !31
+  store i8 0, ptr %37, align 8, !tbaa !31
   %47 = getelementptr inbounds nuw i8, ptr %.pn22, i64 232
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %47, i64 40, i1 false)
   %48 = ptrtoint ptr %.023 to i64
@@ -11159,7 +11159,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
   store i64 %16, ptr %18, align 8, !tbaa !32
   store ptr %8, ptr %5, align 8, !tbaa !30
   store i64 0, ptr %17, align 8, !tbaa !32
-  store i8 0, ptr %8, align 1, !tbaa !31
+  store i8 0, ptr %8, align 8, !tbaa !31
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -11193,7 +11193,7 @@ _ZN5clang6format17WhitespaceManager6ChangeC2EOS2_.exit: ; preds = %25, %_ZNKSt7_
   store i64 %31, ptr %33, align 8, !tbaa !32
   store ptr %23, ptr %20, align 8, !tbaa !30
   store i64 0, ptr %32, align 8, !tbaa !32
-  store i8 0, ptr %23, align 1, !tbaa !31
+  store i8 0, ptr %23, align 8, !tbaa !31
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %35, i64 40, i1 false)

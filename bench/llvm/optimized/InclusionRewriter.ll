@@ -257,7 +257,7 @@ define dso_local void @_ZN5clang22RewriteIncludesInInputERNS_12PreprocessorEPN4l
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 272
   store i64 0, ptr %44, align 8, !tbaa !273
   %45 = getelementptr inbounds nuw i8, ptr %10, i64 280
-  store i32 0, ptr %45, align 4, !tbaa !274
+  store i32 0, ptr %45, align 8, !tbaa !274
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 448
   %.sroa.0.0.copyload.i.i = load i32, ptr %46, align 8, !tbaa !275

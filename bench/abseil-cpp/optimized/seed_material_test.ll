@@ -5543,7 +5543,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %35
   store i64 %41, ptr %43, align 8, !tbaa !39
   store ptr %33, ptr %1, align 8, !tbaa !33
   store i64 0, ptr %42, align 8, !tbaa !39
-  store i8 0, ptr %33, align 1, !tbaa !40
+  store i8 0, ptr %33, align 8, !tbaa !40
   ret void
 }
 
@@ -5575,7 +5575,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %7, ptr %6, align 8, !tbaa !48, !noalias !151
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %8, align 8, !tbaa !39, !noalias !151
-  store i8 0, ptr %7, align 1, !tbaa !40, !noalias !151
+  store i8 0, ptr %7, align 8, !tbaa !40, !noalias !151
   store ptr %6, ptr %4, align 8, !tbaa !32
   br label %9
 
@@ -6011,7 +6011,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal29PredicateFormatterFro
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i64 0, ptr %18, align 8, !alias.scope !170, !noalias !169
   store ptr @_ZZN7testing8internal11MatcherBaseIRKjE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherIjEELb1EEEEEPKNS4_6VTableEvE7kVTable, ptr %17, align 8, !tbaa !179, !alias.scope !170, !noalias !169
-  store i32 %.sroa.0.0.copyload.i.i.i.i.i, ptr %18, align 4, !alias.scope !170, !noalias !169
+  store i32 %.sroa.0.0.copyload.i.i.i.i.i, ptr %18, align 8, !alias.scope !170, !noalias !169
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing7MatcherIRKjEE, i64 16), ptr %16, align 8, !tbaa !4, !alias.scope !170, !noalias !169
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal15EachMatcherImplIRA32_KjEE, i64 16), ptr %15, align 8, !tbaa !4, !noalias !169
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 8

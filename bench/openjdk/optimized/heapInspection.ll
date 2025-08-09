@@ -1466,7 +1466,7 @@ define hidden void @_ZNK14KlassInfoHisto14print_elementsEP12outputStream(ptr nou
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, %.01316
-  %24 = load i32, ptr %13, align 4
+  %24 = load i32, ptr %13, align 8
   %25 = sext i32 %24 to i64
   %26 = icmp slt i64 %indvars.iv.next, %25
   br i1 %26, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !13
@@ -2888,7 +2888,7 @@ define hidden void @_ZN14KlassInfoHisto14print_histo_onEP12outputStream(ptr noun
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, %.01316.i
-  %24 = load i32, ptr %13, align 4
+  %24 = load i32, ptr %13, align 8
   %25 = sext i32 %24 to i64
   %26 = icmp slt i64 %indvars.iv.next.i, %25
   br i1 %26, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !13

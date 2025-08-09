@@ -12799,9 +12799,9 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h91fa79d40f0d9722E(ptr 
   %.sroa.4.0..sroa_idx1.i.i = getelementptr inbounds nuw i8, ptr %270, i64 88
   %.sroa.4.0.copyload2.i.i = load i8, ptr %.sroa.4.0..sroa_idx1.i.i, align 8, !noalias !2989
   %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx3.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %270, i64 96
-  %.sroa.6.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx3.sroa_idx.i.i, align 1, !noalias !2989
+  %.sroa.6.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx3.sroa_idx.i.i, align 8, !noalias !2989
   %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx3.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %270, i64 104
-  %.sroa.6.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx3.sroa_idx.i.i, align 1, !noalias !2989
+  %.sroa.6.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx3.sroa_idx.i.i, align 8, !noalias !2989
   %272 = icmp eq i8 %.sroa.4.0.copyload2.i.i, 2
   br i1 %272, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7eb022b1a40e9557E.exit.i.i._crit_edge", label %273
 

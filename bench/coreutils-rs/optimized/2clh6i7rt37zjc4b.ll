@@ -236,7 +236,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h39dfa6d8db18963aE(ptr noalia
   %5 = load ptr, ptr %4, align 8, !noalias !21
   store i64 0, ptr %.val.i, align 8, !noalias !21
   %6 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
-  store i8 2, ptr %6, align 1, !noalias !21
+  store i8 2, ptr %6, align 8, !noalias !21
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !21
   store i64 %3, ptr %2, align 8, !noalias !21
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -323,7 +323,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hb3e00469a8cd5666E.llvm.14175
   %6 = load ptr, ptr %5, align 8, !noalias !55
   store i64 0, ptr %.val, align 8, !noalias !55
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  store i8 2, ptr %7, align 1, !noalias !55
+  store i8 2, ptr %7, align 8, !noalias !55
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !55
   store i64 %4, ptr %2, align 8, !noalias !55
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8

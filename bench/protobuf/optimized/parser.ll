@@ -3161,9 +3161,9 @@ call52.i.i.noexc:                                 ; preds = %call49.i.i.noexc
 if.then.i.i.i802:                                 ; preds = %call52.i.i.noexc
   store i32 %conv.i.i, ptr %317, align 8, !noalias !66
   %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %317, i64 8
-  store i64 %315, ptr %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx, align 4, !noalias !66
+  store i64 %315, ptr %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx, align 8, !noalias !66
   %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %317, i64 16
-  store ptr %316, ptr %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx, align 4, !noalias !66
+  store ptr %316, ptr %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx, align 8, !noalias !66
   %ref.tmp.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %317, i64 24
   store i64 %agg.tmp47.sroa.0.0.copyload.i.i, ptr %ref.tmp.sroa.4.0..sroa_idx.i, align 8, !noalias !66
   %ref.tmp.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %317, i64 32
@@ -3207,9 +3207,9 @@ call5.i.i.i.i.i.i.i.noexc:                        ; preds = %_ZNKSt6vectorIN6goo
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i811, i64 %sub.ptr.sub.i.i.i.i.i.i
   store i32 %conv.i.i, ptr %add.ptr.i.i.i.i, align 8, !noalias !66
   %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 8
-  store i64 %315, ptr %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx, align 4, !noalias !66
+  store i64 %315, ptr %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx, align 8, !noalias !66
   %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 16
-  store ptr %316, ptr %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx, align 4, !noalias !66
+  store ptr %316, ptr %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx, align 8, !noalias !66
   %ref.tmp.sroa.4.0.add.ptr.i.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 24
   store i64 %agg.tmp47.sroa.0.0.copyload.i.i, ptr %ref.tmp.sroa.4.0.add.ptr.i.i.i.sroa_idx.i, align 8, !noalias !66
   %ref.tmp.sroa.5.0.add.ptr.i.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 32
@@ -6326,9 +6326,9 @@ call52.i.i.noexc:                                 ; preds = %for.cond.i.i, %for.
 if.then.i.i.i835:                                 ; preds = %call52.i.i.noexc
   store i32 %326, ptr %333, align 8, !noalias !140
   %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %333, i64 8
-  store i64 %sub.i.i, ptr %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx, align 4, !noalias !140
+  store i64 %sub.i.i, ptr %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx, align 8, !noalias !140
   %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %333, i64 16
-  store ptr %add.ptr.i.i, ptr %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx, align 4, !noalias !140
+  store ptr %add.ptr.i.i, ptr %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx, align 8, !noalias !140
   %ref.tmp.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %333, i64 24
   store i64 %agg.tmp47.sroa.0.0.copyload.i.i, ptr %ref.tmp.sroa.4.0..sroa_idx.i, align 8, !noalias !140
   %ref.tmp.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %333, i64 32
@@ -6372,9 +6372,9 @@ call5.i.i.i.i.i.i.i.noexc:                        ; preds = %_ZNKSt6vectorIN6goo
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i844, i64 %sub.ptr.sub.i.i.i.i.i.i
   store i32 %326, ptr %add.ptr.i.i.i.i, align 8, !noalias !140
   %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 8
-  store i64 %sub.i.i, ptr %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx, align 4, !noalias !140
+  store i64 %sub.i.i, ptr %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx, align 8, !noalias !140
   %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 16
-  store ptr %add.ptr.i.i, ptr %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx, align 4, !noalias !140
+  store ptr %add.ptr.i.i, ptr %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx, align 8, !noalias !140
   %ref.tmp.sroa.4.0.add.ptr.i.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 24
   store i64 %agg.tmp47.sroa.0.0.copyload.i.i, ptr %ref.tmp.sroa.4.0.add.ptr.i.i.i.sroa_idx.i, align 8, !noalias !140
   %ref.tmp.sroa.5.0.add.ptr.i.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 32
@@ -7083,9 +7083,9 @@ entry:
 if.then.i.i.i:                                    ; preds = %entry
   store i32 11, ptr %3, align 8, !noalias !156
   %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %1, ptr %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx, align 4, !noalias !156
+  store i64 %1, ptr %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx, align 8, !noalias !156
   %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %2, ptr %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx, align 4, !noalias !156
+  store ptr %2, ptr %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx, align 8, !noalias !156
   %ref.tmp.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 8, ptr %ref.tmp.sroa.4.0..sroa_idx.i, align 8, !noalias !156
   %ref.tmp.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -7123,9 +7123,9 @@ _ZNKSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE12
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i
   store i32 11, ptr %add.ptr.i.i.i.i, align 8, !noalias !156
   %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 8
-  store i64 %1, ptr %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx, align 4, !noalias !156
+  store i64 %1, ptr %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx, align 8, !noalias !156
   %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 16
-  store ptr %2, ptr %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx, align 4, !noalias !156
+  store ptr %2, ptr %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx, align 8, !noalias !156
   %ref.tmp.sroa.4.0.add.ptr.i.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 24
   store i64 8, ptr %ref.tmp.sroa.4.0.add.ptr.i.i.i.sroa_idx.i, align 8, !noalias !156
   %ref.tmp.sroa.5.0.add.ptr.i.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 32
@@ -7242,9 +7242,9 @@ entry:
 if.then.i.i.i:                                    ; preds = %entry
   store i32 11, ptr %3, align 8, !noalias !163
   %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %1, ptr %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx, align 4, !noalias !163
+  store i64 %1, ptr %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx, align 8, !noalias !163
   %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %2, ptr %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx, align 4, !noalias !163
+  store ptr %2, ptr %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx, align 8, !noalias !163
   %ref.tmp.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 6, ptr %ref.tmp.sroa.4.0..sroa_idx.i, align 8, !noalias !163
   %ref.tmp.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -7282,9 +7282,9 @@ _ZNKSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE12
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i
   store i32 11, ptr %add.ptr.i.i.i.i, align 8, !noalias !163
   %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 8
-  store i64 %1, ptr %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx, align 4, !noalias !163
+  store i64 %1, ptr %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx, align 8, !noalias !163
   %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 16
-  store ptr %2, ptr %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx, align 4, !noalias !163
+  store ptr %2, ptr %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx, align 8, !noalias !163
   %ref.tmp.sroa.4.0.add.ptr.i.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 24
   store i64 6, ptr %ref.tmp.sroa.4.0.add.ptr.i.i.i.sroa_idx.i, align 8, !noalias !163
   %ref.tmp.sroa.5.0.add.ptr.i.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 32
@@ -11044,9 +11044,9 @@ _ZNK6google8protobuf7Message3NewEv.exit.i:        ; preds = %invoke.cont.i5
 if.then.i.i.i20:                                  ; preds = %_ZNK6google8protobuf7Message3NewEv.exit.i
   store i32 11, ptr %21, align 8, !noalias !234
   %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i64 %19, ptr %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx, align 4, !noalias !234
+  store i64 %19, ptr %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx, align 8, !noalias !234
   %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store ptr %20, ptr %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx, align 4, !noalias !234
+  store ptr %20, ptr %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx, align 8, !noalias !234
   %ref.tmp.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 24
   store i64 5, ptr %ref.tmp.sroa.4.0..sroa_idx.i, align 8, !noalias !234
   %ref.tmp.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 32
@@ -11090,9 +11090,9 @@ call5.i.i.i.i.i.i.i.noexc:                        ; preds = %_ZNKSt6vectorIN6goo
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i22, i64 %sub.ptr.sub.i.i.i.i.i.i
   store i32 11, ptr %add.ptr.i.i.i.i, align 8, !noalias !234
   %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 8
-  store i64 %19, ptr %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx, align 4, !noalias !234
+  store i64 %19, ptr %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx, align 8, !noalias !234
   %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 16
-  store ptr %20, ptr %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx, align 4, !noalias !234
+  store ptr %20, ptr %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx, align 8, !noalias !234
   %ref.tmp.sroa.4.0.add.ptr.i.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 24
   store i64 5, ptr %ref.tmp.sroa.4.0.add.ptr.i.i.i.sroa_idx.i, align 8, !noalias !234
   %ref.tmp.sroa.5.0.add.ptr.i.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 32
@@ -20869,9 +20869,9 @@ _ZN6google8protobuf13json_internal10Proto3Type13FieldTypeNameEPKNS1_12ResolverPo
 if.then.i.i.i6:                                   ; preds = %_ZN6google8protobuf13json_internal10Proto3Type13FieldTypeNameEPKNS1_12ResolverPool5FieldE.exit
   store i32 11, ptr %8, align 8, !noalias !398
   %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %sub.i.i, ptr %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx, align 4, !noalias !398
+  store i64 %sub.i.i, ptr %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx, align 8, !noalias !398
   %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %add.ptr.i.i, ptr %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx, align 4, !noalias !398
+  store ptr %add.ptr.i.i, ptr %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx, align 8, !noalias !398
   %ref.tmp.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 8, ptr %ref.tmp.sroa.4.0..sroa_idx.i, align 8, !noalias !398
   %ref.tmp.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -20909,9 +20909,9 @@ _ZNKSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE12
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i
   store i32 11, ptr %add.ptr.i.i.i.i, align 8, !noalias !398
   %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 8
-  store i64 %sub.i.i, ptr %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx, align 4, !noalias !398
+  store i64 %sub.i.i, ptr %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx, align 8, !noalias !398
   %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 16
-  store ptr %add.ptr.i.i, ptr %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx, align 4, !noalias !398
+  store ptr %add.ptr.i.i, ptr %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx, align 8, !noalias !398
   %ref.tmp.sroa.4.0.add.ptr.i.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 24
   store i64 8, ptr %ref.tmp.sroa.4.0.add.ptr.i.i.i.sroa_idx.i, align 8, !noalias !398
   %ref.tmp.sroa.5.0.add.ptr.i.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 32
@@ -21018,9 +21018,9 @@ _ZN6google8protobuf13json_internal10Proto3Type13FieldTypeNameEPKNS1_12ResolverPo
 if.then.i.i.i6:                                   ; preds = %_ZN6google8protobuf13json_internal10Proto3Type13FieldTypeNameEPKNS1_12ResolverPool5FieldE.exit
   store i32 11, ptr %8, align 8, !noalias !405
   %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %sub.i.i, ptr %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx, align 4, !noalias !405
+  store i64 %sub.i.i, ptr %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx, align 8, !noalias !405
   %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %add.ptr.i.i, ptr %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx, align 4, !noalias !405
+  store ptr %add.ptr.i.i, ptr %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx, align 8, !noalias !405
   %ref.tmp.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 6, ptr %ref.tmp.sroa.4.0..sroa_idx.i, align 8, !noalias !405
   %ref.tmp.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -21058,9 +21058,9 @@ _ZNKSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE12
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i
   store i32 11, ptr %add.ptr.i.i.i.i, align 8, !noalias !405
   %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 8
-  store i64 %sub.i.i, ptr %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx, align 4, !noalias !405
+  store i64 %sub.i.i, ptr %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx, align 8, !noalias !405
   %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 16
-  store ptr %add.ptr.i.i, ptr %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx, align 4, !noalias !405
+  store ptr %add.ptr.i.i, ptr %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx, align 8, !noalias !405
   %ref.tmp.sroa.4.0.add.ptr.i.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 24
   store i64 6, ptr %ref.tmp.sroa.4.0.add.ptr.i.i.i.sroa_idx.i, align 8, !noalias !405
   %ref.tmp.sroa.5.0.add.ptr.i.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 32
@@ -25916,9 +25916,9 @@ entry:
 if.then.i.i.i:                                    ; preds = %entry
   store i32 11, ptr %7, align 8, !noalias !546
   %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %5, ptr %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx, align 4, !noalias !546
+  store i64 %5, ptr %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx, align 8, !noalias !546
   %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %6, ptr %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx, align 4, !noalias !546
+  store ptr %6, ptr %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0..sroa_idx.i.sroa_idx, align 8, !noalias !546
   %ref.tmp.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 5, ptr %ref.tmp.sroa.4.0..sroa_idx.i, align 8, !noalias !546
   %ref.tmp.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -25956,9 +25956,9 @@ _ZNKSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE12
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i
   store i32 11, ptr %add.ptr.i.i.i.i, align 8, !noalias !546
   %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 8
-  store i64 %5, ptr %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx, align 4, !noalias !546
+  store i64 %5, ptr %ref.tmp.sroa.3.i.sroa.4.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx, align 8, !noalias !546
   %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 16
-  store ptr %6, ptr %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx, align 4, !noalias !546
+  store ptr %6, ptr %ref.tmp.sroa.3.i.sroa.5.0.ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx.i.sroa_idx, align 8, !noalias !546
   %ref.tmp.sroa.4.0.add.ptr.i.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 24
   store i64 5, ptr %ref.tmp.sroa.4.0.add.ptr.i.i.i.sroa_idx.i, align 8, !noalias !546
   %ref.tmp.sroa.5.0.add.ptr.i.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 32

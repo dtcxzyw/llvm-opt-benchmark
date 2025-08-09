@@ -3312,7 +3312,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load i32, ptr %16, align 8, !tbaa !145
   %18 = or i32 %17, 1024
-  store i32 %18, ptr %16, align 4, !tbaa !146
+  store i32 %18, ptr %16, align 8, !tbaa !146
   br label %19
 
 19:                                               ; preds = %12, %10

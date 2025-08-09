@@ -431,7 +431,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
   store i64 %17, ptr %18, align 8, !tbaa !4
   store ptr %8, ptr %1, align 8, !tbaa !39
   store i64 0, ptr %16, align 8, !tbaa !4
-  store i8 0, ptr %8, align 1, !tbaa !28
+  store i8 0, ptr %8, align 8, !tbaa !28
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -463,7 +463,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit5.i: ; preds = 
   store i64 %32, ptr %33, align 8, !tbaa !4
   store ptr %23, ptr %20, align 8, !tbaa !39
   store i64 0, ptr %31, align 8, !tbaa !4
-  store i8 0, ptr %23, align 1, !tbaa !28
+  store i8 0, ptr %23, align 8, !tbaa !28
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -495,7 +495,7 @@ _ZN17cmFortranCompilerC2EOS_.exit:                ; preds = %40, %_ZNKSt7__cxx11
   store i64 %47, ptr %48, align 8, !tbaa !4
   store ptr %38, ptr %35, align 8, !tbaa !39
   store i64 0, ptr %46, align 8, !tbaa !4
-  store i8 0, ptr %38, align 1, !tbaa !28
+  store i8 0, ptr %38, align 8, !tbaa !28
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %50 = load ptr, ptr %2, align 8, !tbaa !50
   store ptr %50, ptr %49, align 8, !tbaa !50

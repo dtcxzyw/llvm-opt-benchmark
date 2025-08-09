@@ -372,7 +372,7 @@ define linkonce_odr hidden void @_ZN3sls10smt_solver10solver_ctxC2ER11ast_manage
   %.01012.i.i.i.i.i.i.i = phi i32 [ %14, %.lr.ph.i.i.i.i.i.i.i ], [ 8, %3 ]
   store ptr null, ptr %.013.i.i.i.i.i.i.i, align 8, !tbaa !136
   %13 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i, i64 8
-  store i32 -2, ptr %13, align 4, !tbaa !140
+  store i32 -2, ptr %13, align 8, !tbaa !140
   %14 = add nsw i32 %.01012.i.i.i.i.i.i.i, -1
   %15 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i.i = icmp eq i32 %14, 0

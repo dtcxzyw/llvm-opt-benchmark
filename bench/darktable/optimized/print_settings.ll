@@ -5523,7 +5523,7 @@ define noalias noundef ptr @legacy_params(ptr noundef readnone captures(none) %0
   %sext139 = add i64 %25, 4294967296
   %26 = ashr exact i64 %sext139, 32
   %27 = getelementptr inbounds i8, ptr %23, i64 %26
-  %28 = load i8, ptr %17, align 1, !tbaa !91
+  %28 = load i8, ptr %17, align 4, !tbaa !91
   %29 = icmp eq i8 %28, 0
   br i1 %29, label %37, label %30
 

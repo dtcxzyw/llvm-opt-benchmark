@@ -744,7 +744,7 @@ udp_socket_create.exit.thread280:                 ; preds = %188, %191
   %270 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %271 = load i32, ptr %270, align 4, !tbaa !37
   %272 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  %.val = load i16, ptr %272, align 2, !tbaa !49
+  %.val = load i16, ptr %272, align 4, !tbaa !49
   %273 = call fastcc i32 @udp_set_multicast_ttl(i32 noundef %187, i32 noundef %271, i16 %.val, ptr noundef nonnull %0)
   %274 = icmp slt i32 %273, 0
   br i1 %274, label %376, label %._crit_edge
@@ -1277,7 +1277,7 @@ define internal noundef i32 @udp_close(ptr noundef %0) #0 {
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %28 = load i32, ptr %27, align 8, !tbaa !30
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %30 = load i16, ptr %29, align 2, !tbaa !49
+  %30 = load i16, ptr %29, align 8, !tbaa !49
   %31 = icmp eq i16 %30, 2
   br i1 %31, label %32, label %41
 

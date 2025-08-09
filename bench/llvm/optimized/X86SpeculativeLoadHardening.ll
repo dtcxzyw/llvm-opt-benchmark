@@ -2705,7 +2705,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_17MachineBasicBlockEiLj4ENS_12Dens
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_17MachineBasicBlockEiLj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E16InsertIntoBucketIS3_JEEEPS8_SC_OT_DpOT0_.exit.i.i: ; preds = %654, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_17MachineBasicBlockEiLj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i
   store ptr %572, ptr %647, align 8, !tbaa !240
   %657 = getelementptr inbounds nuw i8, ptr %647, i64 8
-  store i32 0, ptr %657, align 4, !tbaa !326
+  store i32 0, ptr %657, align 8, !tbaa !326
   br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_17MachineBasicBlockEiLj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit.i
 
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_17MachineBasicBlockEiLj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit.i: ; preds = %596, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_17MachineBasicBlockEiLj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E16InsertIntoBucketIS3_JEEEPS8_SC_OT_DpOT0_.exit.i.i, %580
@@ -2993,7 +2993,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_17MachineBasicBlockEiLj4ENS_12Dens
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_17MachineBasicBlockEiLj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E16InsertIntoBucketIS3_JEEEPS8_SC_OT_DpOT0_.exit.i84.i: ; preds = %787, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_17MachineBasicBlockEiLj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit115.i
   store ptr %705, ptr %780, align 8, !tbaa !240
   %790 = getelementptr inbounds nuw i8, ptr %780, i64 8
-  store i32 0, ptr %790, align 4, !tbaa !326
+  store i32 0, ptr %790, align 8, !tbaa !326
   br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_17MachineBasicBlockEiLj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit88.i
 
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_17MachineBasicBlockEiLj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixEOS3_.exit88.i: ; preds = %729, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_17MachineBasicBlockEiLj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E16InsertIntoBucketIS3_JEEEPS8_SC_OT_DpOT0_.exit.i84.i, %713
@@ -11570,7 +11570,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_17MachineBasicBlockEiLj4ENS_12Dens
   %63 = load ptr, ptr %1, align 8, !tbaa !240
   store ptr %63, ptr %52, align 8, !tbaa !240
   %64 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store i32 0, ptr %64, align 4, !tbaa !326
+  store i32 0, ptr %64, align 8, !tbaa !326
   br label %.loopexit
 
 .loopexit:                                        ; preds = %30, %13, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_17MachineBasicBlockEiLj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E16InsertIntoBucketIRKS3_JEEEPS8_SE_OT_DpOT0_.exit
@@ -11990,7 +11990,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIPNS_17MachineBasicBlock
   %30 = getelementptr inbounds nuw i8, ptr %.02738, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %.028.ptr39, i64 8
   %32 = load i32, ptr %31, align 8, !tbaa !326
-  store i32 %32, ptr %30, align 4, !tbaa !326
+  store i32 %32, ptr %30, align 8, !tbaa !326
   %33 = getelementptr inbounds nuw i8, ptr %.02738, i64 16
   br label %34
 
@@ -12149,7 +12149,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_17MachineBasicBlockEiLj4ENS_12Dens
   %48 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %.023, i64 8
   %50 = load i32, ptr %49, align 4, !tbaa !326
-  store i32 %50, ptr %48, align 4, !tbaa !326
+  store i32 %50, ptr %48, align 8, !tbaa !326
   %51 = load i32, ptr %0, align 8
   %52 = and i32 %51, -2
   %53 = add i32 %52, 2

@@ -1301,9 +1301,9 @@ _ZN9used_vars7processEP4expr.exit143:             ; preds = %79
 _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit148:   ; preds = %88
   store i8 0, ptr %41, align 8, !tbaa !127
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %90 = load i32, ptr %89, align 4, !tbaa !41
+  %90 = load i32, ptr %89, align 8, !tbaa !41
   %91 = add i32 %90, 1
-  store i32 %91, ptr %89, align 4, !tbaa !41
+  store i32 %91, ptr %89, align 8, !tbaa !41
   store ptr %2, ptr %0, align 8, !tbaa !38
   br label %567
 

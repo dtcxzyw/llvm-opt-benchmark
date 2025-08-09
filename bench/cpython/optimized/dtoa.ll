@@ -4031,7 +4031,7 @@ rv_alloc.exit.i:                                  ; preds = %34, %19
   store i32 0, ptr %37, align 4, !tbaa !125
   %38 = getelementptr inbounds nuw i8, ptr %.024.i.i.i, i64 16
   store i32 0, ptr %38, align 8, !tbaa !123
-  store i32 0, ptr %.024.i.i.i, align 4, !tbaa !124
+  store i32 0, ptr %.024.i.i.i, align 8, !tbaa !124
   %39 = getelementptr i8, ptr %.024.i.i.i, i64 4
   %40 = icmp eq ptr %39, null
   br i1 %40, label %nrv_alloc.exit, label %.preheader.i
@@ -4100,7 +4100,7 @@ rv_alloc.exit.i639:                               ; preds = %61, %46
   store i32 0, ptr %64, align 4, !tbaa !125
   %65 = getelementptr inbounds nuw i8, ptr %.024.i.i.i640, i64 16
   store i32 0, ptr %65, align 8, !tbaa !123
-  store i32 0, ptr %.024.i.i.i640, align 4, !tbaa !124
+  store i32 0, ptr %.024.i.i.i640, align 8, !tbaa !124
   %66 = getelementptr i8, ptr %.024.i.i.i640, i64 4
   %67 = icmp eq ptr %66, null
   br i1 %67, label %nrv_alloc.exit, label %.preheader.i641
@@ -4181,7 +4181,7 @@ rv_alloc.exit.i654:                               ; preds = %94, %79
   store i32 0, ptr %97, align 4, !tbaa !125
   %98 = getelementptr inbounds nuw i8, ptr %.024.i.i.i655, i64 16
   store i32 0, ptr %98, align 8, !tbaa !123
-  store i32 0, ptr %.024.i.i.i655, align 4, !tbaa !124
+  store i32 0, ptr %.024.i.i.i655, align 8, !tbaa !124
   %99 = getelementptr i8, ptr %.024.i.i.i655, i64 4
   %100 = icmp eq ptr %99, null
   br i1 %100, label %nrv_alloc.exit, label %.preheader.i656
@@ -4701,7 +4701,7 @@ rv_alloc.exit:                                    ; preds = %288, %320
   store i32 0, ptr %324, align 4, !tbaa !125
   %325 = getelementptr inbounds nuw i8, ptr %.024.i.i671, i64 16
   store i32 0, ptr %325, align 8, !tbaa !123
-  store i32 %.09.lcssa20.i, ptr %.024.i.i671, align 4, !tbaa !124
+  store i32 %.09.lcssa20.i, ptr %.024.i.i671, align 8, !tbaa !124
   %326 = getelementptr i8, ptr %.024.i.i671, i64 4
   %327 = icmp eq ptr %326, null
   br i1 %327, label %Bfree.exit737.thread, label %328

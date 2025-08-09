@@ -741,7 +741,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %107, ptr %.sink6.i.i.i.i.i, align 8, !tbaa !34
   %108 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i, i64 8
   store i64 0, ptr %108, align 8, !tbaa !37
-  store i8 0, ptr %107, align 1, !tbaa !39
+  store i8 0, ptr %107, align 8, !tbaa !39
   %109 = invoke noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull %.sink6.i.i.i.i.i)
           to label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i unwind label %79
 
@@ -2743,7 +2743,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %87, ptr %.sink6.i.i.i.i.i, align 8, !tbaa !34
   %88 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i, i64 8
   store i64 0, ptr %88, align 8, !tbaa !37
-  store i8 0, ptr %87, align 1, !tbaa !39
+  store i8 0, ptr %87, align 8, !tbaa !39
   %89 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull %.sink6.i.i.i.i.i)
   br label %_ZN12opencv_caffe16V1LayerParameter10add_bottomERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -2817,7 +2817,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %126, ptr %.sink6.i.i.i.i.i253, align 8, !tbaa !34
   %127 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i253, i64 8
   store i64 0, ptr %127, align 8, !tbaa !37
-  store i8 0, ptr %126, align 1, !tbaa !39
+  store i8 0, ptr %126, align 8, !tbaa !39
   %128 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull %.sink6.i.i.i.i.i253)
   br label %_ZN12opencv_caffe16V1LayerParameter7add_topERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -2907,17 +2907,17 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit: ; preds = %137,
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %180 = load ptr, ptr %179, align 8, !tbaa !170, !noalias !171
   %181 = load i32, ptr %178, align 4, !tbaa !17, !noalias !171
-  %182 = load i32, ptr %177, align 4, !tbaa !17, !noalias !171
+  %182 = load i32, ptr %177, align 8, !tbaa !17, !noalias !171
   %183 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %184 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %185 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %186 = load ptr, ptr %185, align 8, !tbaa !170, !noalias !174
   %187 = load i32, ptr %184, align 4, !tbaa !17, !noalias !174
-  %188 = load i32, ptr %183, align 4, !tbaa !17, !noalias !174
-  store i32 %188, ptr %177, align 4, !tbaa !17
+  %188 = load i32, ptr %183, align 8, !tbaa !17, !noalias !174
+  store i32 %188, ptr %177, align 8, !tbaa !17
   store i32 %187, ptr %178, align 4, !tbaa !17
   store ptr %186, ptr %179, align 8, !tbaa !170
-  store i32 %182, ptr %183, align 4, !tbaa !17
+  store i32 %182, ptr %183, align 8, !tbaa !17
   store i32 %181, ptr %184, align 4, !tbaa !17
   store ptr %180, ptr %185, align 8, !tbaa !170
   br label %_ZN6google8protobuf16RepeatedPtrFieldIN12opencv_caffe9BlobProtoEE4SwapEPS4_.exit
@@ -9255,9 +9255,9 @@ _ZN12opencv_caffe16V1LayerParameter23mutable_transform_paramEv.exit77: ; preds =
   %157 = getelementptr inbounds nuw i8, ptr %147, i64 56
   store float %153, ptr %157, align 8, !tbaa !249
   store float 1.000000e+00, ptr %152, align 8, !tbaa !307
-  %158 = load i32, ptr %148, align 4, !tbaa !17
+  %158 = load i32, ptr %148, align 8, !tbaa !17
   %159 = and i32 %158, -1025
-  store i32 %159, ptr %148, align 4, !tbaa !17
+  store i32 %159, ptr %148, align 8, !tbaa !17
   br label %160
 
 160:                                              ; preds = %151, %_ZN12opencv_caffe16V1LayerParameter23mutable_transform_paramEv.exit77
@@ -9314,9 +9314,9 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit80: ; preds = %16
   %191 = getelementptr inbounds nuw i8, ptr %147, i64 48
   store i32 %187, ptr %191, align 8, !tbaa !262
   store i32 0, ptr %186, align 8, !tbaa !308
-  %192 = load i32, ptr %148, align 4, !tbaa !17
+  %192 = load i32, ptr %148, align 8, !tbaa !17
   %193 = and i32 %192, -9
-  store i32 %193, ptr %148, align 4, !tbaa !17
+  store i32 %193, ptr %148, align 8, !tbaa !17
   br label %194
 
 194:                                              ; preds = %185, %182
@@ -9434,9 +9434,9 @@ _ZN12opencv_caffe16V1LayerParameter23mutable_transform_paramEv.exit87: ; preds =
   %257 = getelementptr inbounds nuw i8, ptr %247, i64 56
   store float %253, ptr %257, align 8, !tbaa !249
   store float 1.000000e+00, ptr %252, align 8, !tbaa !310
-  %258 = load i32, ptr %248, align 4, !tbaa !17
+  %258 = load i32, ptr %248, align 8, !tbaa !17
   %259 = and i32 %258, -513
-  store i32 %259, ptr %248, align 4, !tbaa !17
+  store i32 %259, ptr %248, align 8, !tbaa !17
   br label %260
 
 260:                                              ; preds = %251, %_ZN12opencv_caffe16V1LayerParameter23mutable_transform_paramEv.exit87
@@ -9514,9 +9514,9 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit90: ; preds = %26
   %303 = getelementptr inbounds nuw i8, ptr %247, i64 52
   store i8 %299, ptr %303, align 4, !tbaa !264
   store i8 0, ptr %298, align 8, !tbaa !312
-  %304 = load i32, ptr %248, align 4, !tbaa !17
+  %304 = load i32, ptr %248, align 8, !tbaa !17
   %305 = and i32 %304, -65
-  store i32 %305, ptr %248, align 4, !tbaa !17
+  store i32 %305, ptr %248, align 8, !tbaa !17
   br label %306
 
 306:                                              ; preds = %294, %297, %206
@@ -11366,7 +11366,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %62, ptr %.sink6.i.i.i.i.i, align 8, !tbaa !34
   %63 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i, i64 8
   store i64 0, ptr %63, align 8, !tbaa !37
-  store i8 0, ptr %62, align 1, !tbaa !39
+  store i8 0, ptr %62, align 8, !tbaa !39
   %64 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull %.sink6.i.i.i.i.i)
   br label %_ZN12opencv_caffe14LayerParameter10add_bottomERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -11435,7 +11435,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %97, ptr %.sink6.i.i.i.i.i206, align 8, !tbaa !34
   %98 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i206, i64 8
   store i64 0, ptr %98, align 8, !tbaa !37
-  store i8 0, ptr %97, align 1, !tbaa !39
+  store i8 0, ptr %97, align 8, !tbaa !39
   %99 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull %.sink6.i.i.i.i.i206)
   br label %_ZN12opencv_caffe14LayerParameter7add_topERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -11633,17 +11633,17 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit212: ; preds = %1
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %211 = load ptr, ptr %210, align 8, !tbaa !170, !noalias !336
   %212 = load i32, ptr %209, align 4, !tbaa !17, !noalias !336
-  %213 = load i32, ptr %208, align 4, !tbaa !17, !noalias !336
+  %213 = load i32, ptr %208, align 8, !tbaa !17, !noalias !336
   %214 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %215 = getelementptr inbounds nuw i8, ptr %1, i64 132
   %216 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %217 = load ptr, ptr %216, align 8, !tbaa !170, !noalias !339
   %218 = load i32, ptr %215, align 4, !tbaa !17, !noalias !339
-  %219 = load i32, ptr %214, align 4, !tbaa !17, !noalias !339
-  store i32 %219, ptr %208, align 4, !tbaa !17
+  %219 = load i32, ptr %214, align 8, !tbaa !17, !noalias !339
+  store i32 %219, ptr %208, align 8, !tbaa !17
   store i32 %218, ptr %209, align 4, !tbaa !17
   store ptr %217, ptr %210, align 8, !tbaa !170
-  store i32 %213, ptr %214, align 4, !tbaa !17
+  store i32 %213, ptr %214, align 8, !tbaa !17
   store i32 %212, ptr %215, align 4, !tbaa !17
   store ptr %211, ptr %216, align 8, !tbaa !170
   br label %_ZN6google8protobuf16RepeatedPtrFieldIN12opencv_caffe9BlobProtoEE4SwapEPS4_.exit
@@ -12127,7 +12127,7 @@ _ZN12opencv_caffe14LayerParameter22mutable_accuracy_paramEv.exit: ; preds = %441
   %.not.i.i = icmp eq ptr %458, null
   %459 = select i1 %.not.i.i, ptr @_ZN12opencv_caffe36_AccuracyParameter_default_instance_E, ptr %458
   tail call void @_ZN12opencv_caffe17AccuracyParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %457, ptr noundef nonnull align 8 dereferenceable(40) %459)
-  %.pre479 = load i32, ptr %68, align 4, !tbaa !17
+  %.pre479 = load i32, ptr %68, align 8, !tbaa !17
   br label %460
 
 460:                                              ; preds = %_ZN12opencv_caffe14LayerParameter22mutable_accuracy_paramEv.exit, %._crit_edge448
@@ -12176,7 +12176,7 @@ _ZN12opencv_caffe14LayerParameter20mutable_argmax_paramEv.exit: ; preds = %467, 
   %.not.i.i236 = icmp eq ptr %484, null
   %485 = select i1 %.not.i.i236, ptr @_ZN12opencv_caffe34_ArgMaxParameter_default_instance_E, ptr %484
   tail call void @_ZN12opencv_caffe15ArgMaxParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %483, ptr noundef nonnull align 8 dereferenceable(40) %485)
-  %.pre480 = load i32, ptr %68, align 4, !tbaa !17
+  %.pre480 = load i32, ptr %68, align 8, !tbaa !17
   br label %486
 
 486:                                              ; preds = %_ZN12opencv_caffe14LayerParameter20mutable_argmax_paramEv.exit, %460
@@ -12225,7 +12225,7 @@ _ZN12opencv_caffe14LayerParameter20mutable_concat_paramEv.exit: ; preds = %493, 
   %.not.i.i241 = icmp eq ptr %510, null
   %511 = select i1 %.not.i.i241, ptr @_ZN12opencv_caffe34_ConcatParameter_default_instance_E, ptr %510
   tail call void @_ZN12opencv_caffe15ConcatParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %509, ptr noundef nonnull align 8 dereferenceable(32) %511)
-  %.pre481 = load i32, ptr %68, align 4, !tbaa !17
+  %.pre481 = load i32, ptr %68, align 8, !tbaa !17
   br label %512
 
 512:                                              ; preds = %_ZN12opencv_caffe14LayerParameter20mutable_concat_paramEv.exit, %486
@@ -12274,7 +12274,7 @@ _ZN12opencv_caffe14LayerParameter30mutable_contrastive_loss_paramEv.exit: ; pred
   %.not.i.i246 = icmp eq ptr %536, null
   %537 = select i1 %.not.i.i246, ptr @_ZN12opencv_caffe43_ContrastiveLossParameter_default_instance_E, ptr %536
   tail call void @_ZN12opencv_caffe24ContrastiveLossParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %535, ptr noundef nonnull align 8 dereferenceable(32) %537)
-  %.pre482 = load i32, ptr %68, align 4, !tbaa !17
+  %.pre482 = load i32, ptr %68, align 8, !tbaa !17
   br label %538
 
 538:                                              ; preds = %_ZN12opencv_caffe14LayerParameter30mutable_contrastive_loss_paramEv.exit, %512
@@ -12323,7 +12323,7 @@ _ZN12opencv_caffe14LayerParameter25mutable_convolution_paramEv.exit: ; preds = %
   %.not.i.i251 = icmp eq ptr %562, null
   %563 = select i1 %.not.i.i251, ptr @_ZN12opencv_caffe39_ConvolutionParameter_default_instance_E, ptr %562
   tail call void @_ZN12opencv_caffe20ConvolutionParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %561, ptr noundef nonnull align 8 dereferenceable(152) %563)
-  %.pre483 = load i32, ptr %68, align 4, !tbaa !17
+  %.pre483 = load i32, ptr %68, align 8, !tbaa !17
   br label %564
 
 564:                                              ; preds = %_ZN12opencv_caffe14LayerParameter25mutable_convolution_paramEv.exit, %538
@@ -12372,7 +12372,7 @@ _ZN12opencv_caffe14LayerParameter18mutable_data_paramEv.exit: ; preds = %571, %_
   %.not.i.i256 = icmp eq ptr %588, null
   %589 = select i1 %.not.i.i256, ptr @_ZN12opencv_caffe32_DataParameter_default_instance_E, ptr %588
   tail call void @_ZN12opencv_caffe13DataParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %587, ptr noundef nonnull align 8 dereferenceable(72) %589)
-  %.pre484 = load i32, ptr %68, align 4, !tbaa !17
+  %.pre484 = load i32, ptr %68, align 8, !tbaa !17
   br label %590
 
 590:                                              ; preds = %_ZN12opencv_caffe14LayerParameter18mutable_data_paramEv.exit, %564
@@ -12421,7 +12421,7 @@ _ZN12opencv_caffe14LayerParameter21mutable_dropout_paramEv.exit: ; preds = %597,
   %.not.i.i261 = icmp eq ptr %614, null
   %615 = select i1 %.not.i.i261, ptr @_ZN12opencv_caffe35_DropoutParameter_default_instance_E, ptr %614
   tail call void @_ZN12opencv_caffe16DropoutParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %613, ptr noundef nonnull align 8 dereferenceable(32) %615)
-  %.pre485 = load i32, ptr %68, align 4, !tbaa !17
+  %.pre485 = load i32, ptr %68, align 8, !tbaa !17
   br label %616
 
 616:                                              ; preds = %_ZN12opencv_caffe14LayerParameter21mutable_dropout_paramEv.exit, %590
@@ -12470,7 +12470,7 @@ _ZN12opencv_caffe14LayerParameter24mutable_dummy_data_paramEv.exit: ; preds = %6
   %.not.i.i266 = icmp eq ptr %640, null
   %641 = select i1 %.not.i.i266, ptr @_ZN12opencv_caffe37_DummyDataParameter_default_instance_E, ptr %640
   tail call void @_ZN12opencv_caffe18DummyDataParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(136) %639, ptr noundef nonnull align 8 dereferenceable(136) %641)
-  %.pre486 = load i32, ptr %68, align 4, !tbaa !17
+  %.pre486 = load i32, ptr %68, align 8, !tbaa !17
   br label %642
 
 642:                                              ; preds = %_ZN12opencv_caffe14LayerParameter24mutable_dummy_data_paramEv.exit, %616
@@ -12519,7 +12519,7 @@ _ZN12opencv_caffe14LayerParameter21mutable_eltwise_paramEv.exit: ; preds = %649,
   %.not.i.i271 = icmp eq ptr %666, null
   %667 = select i1 %.not.i.i271, ptr @_ZN12opencv_caffe35_EltwiseParameter_default_instance_E, ptr %666
   tail call void @_ZN12opencv_caffe16EltwiseParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %665, ptr noundef nonnull align 8 dereferenceable(48) %667)
-  %.pre487 = load i32, ptr %68, align 4, !tbaa !17
+  %.pre487 = load i32, ptr %68, align 8, !tbaa !17
   br label %668
 
 668:                                              ; preds = %_ZN12opencv_caffe14LayerParameter21mutable_eltwise_paramEv.exit, %642
@@ -12568,7 +12568,7 @@ _ZN12opencv_caffe14LayerParameter17mutable_exp_paramEv.exit: ; preds = %675, %_Z
   %.not.i.i276 = icmp eq ptr %692, null
   %693 = select i1 %.not.i.i276, ptr @_ZN12opencv_caffe31_ExpParameter_default_instance_E, ptr %692
   tail call void @_ZN12opencv_caffe12ExpParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %691, ptr noundef nonnull align 8 dereferenceable(40) %693)
-  %.pre488 = load i32, ptr %68, align 4, !tbaa !17
+  %.pre488 = load i32, ptr %68, align 8, !tbaa !17
   br label %694
 
 694:                                              ; preds = %_ZN12opencv_caffe14LayerParameter17mutable_exp_paramEv.exit, %668
@@ -12617,7 +12617,7 @@ _ZN12opencv_caffe14LayerParameter23mutable_hdf5_data_paramEv.exit: ; preds = %70
   %.not.i.i281 = icmp eq ptr %718, null
   %719 = select i1 %.not.i.i281, ptr @_ZN12opencv_caffe36_HDF5DataParameter_default_instance_E, ptr %718
   tail call void @_ZN12opencv_caffe17HDF5DataParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %717, ptr noundef nonnull align 8 dereferenceable(40) %719)
-  %.pre489 = load i32, ptr %68, align 4, !tbaa !17
+  %.pre489 = load i32, ptr %68, align 8, !tbaa !17
   br label %720
 
 720:                                              ; preds = %_ZN12opencv_caffe14LayerParameter23mutable_hdf5_data_paramEv.exit, %694
@@ -12666,7 +12666,7 @@ _ZN12opencv_caffe14LayerParameter25mutable_hdf5_output_paramEv.exit: ; preds = %
   %.not.i.i286 = icmp eq ptr %744, null
   %745 = select i1 %.not.i.i286, ptr @_ZN12opencv_caffe38_HDF5OutputParameter_default_instance_E, ptr %744
   tail call void @_ZN12opencv_caffe19HDF5OutputParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %743, ptr noundef nonnull align 8 dereferenceable(32) %745)
-  %.pre490 = load i32, ptr %68, align 4, !tbaa !17
+  %.pre490 = load i32, ptr %68, align 8, !tbaa !17
   br label %746
 
 746:                                              ; preds = %_ZN12opencv_caffe14LayerParameter25mutable_hdf5_output_paramEv.exit, %720
@@ -12715,7 +12715,7 @@ _ZN12opencv_caffe14LayerParameter24mutable_hinge_loss_paramEv.exit: ; preds = %7
   %.not.i.i291 = icmp eq ptr %770, null
   %771 = select i1 %.not.i.i291, ptr @_ZN12opencv_caffe37_HingeLossParameter_default_instance_E, ptr %770
   tail call void @_ZN12opencv_caffe18HingeLossParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %769, ptr noundef nonnull align 8 dereferenceable(32) %771)
-  %.pre491 = load i32, ptr %68, align 4, !tbaa !17
+  %.pre491 = load i32, ptr %68, align 8, !tbaa !17
   br label %772
 
 772:                                              ; preds = %_ZN12opencv_caffe14LayerParameter24mutable_hinge_loss_paramEv.exit, %746
@@ -12764,7 +12764,7 @@ _ZN12opencv_caffe14LayerParameter24mutable_image_data_paramEv.exit: ; preds = %7
   %.not.i.i296 = icmp eq ptr %796, null
   %797 = select i1 %.not.i.i296, ptr @_ZN12opencv_caffe37_ImageDataParameter_default_instance_E, ptr %796
   tail call void @_ZN12opencv_caffe18ImageDataParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %795, ptr noundef nonnull align 8 dereferenceable(80) %797)
-  %.pre492 = load i32, ptr %68, align 4, !tbaa !17
+  %.pre492 = load i32, ptr %68, align 8, !tbaa !17
   br label %798
 
 798:                                              ; preds = %_ZN12opencv_caffe14LayerParameter24mutable_image_data_paramEv.exit, %772
@@ -12813,7 +12813,7 @@ _ZN12opencv_caffe14LayerParameter27mutable_infogain_loss_paramEv.exit: ; preds =
   %.not.i.i301 = icmp eq ptr %822, null
   %823 = select i1 %.not.i.i301, ptr @_ZN12opencv_caffe40_InfogainLossParameter_default_instance_E, ptr %822
   tail call void @_ZN12opencv_caffe21InfogainLossParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %821, ptr noundef nonnull align 8 dereferenceable(32) %823)
-  %.pre493 = load i32, ptr %68, align 4, !tbaa !17
+  %.pre493 = load i32, ptr %68, align 8, !tbaa !17
   br label %824
 
 824:                                              ; preds = %_ZN12opencv_caffe14LayerParameter27mutable_infogain_loss_paramEv.exit, %798
@@ -12862,7 +12862,7 @@ _ZN12opencv_caffe14LayerParameter27mutable_inner_product_paramEv.exit: ; preds =
   %.not.i.i306 = icmp eq ptr %848, null
   %849 = select i1 %.not.i.i306, ptr @_ZN12opencv_caffe40_InnerProductParameter_default_instance_E, ptr %848
   tail call void @_ZN12opencv_caffe21InnerProductParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %847, ptr noundef nonnull align 8 dereferenceable(56) %849)
-  %.pre494 = load i32, ptr %68, align 4, !tbaa !17
+  %.pre494 = load i32, ptr %68, align 8, !tbaa !17
   br label %850
 
 850:                                              ; preds = %_ZN12opencv_caffe14LayerParameter27mutable_inner_product_paramEv.exit, %824
@@ -12911,7 +12911,7 @@ _ZN12opencv_caffe14LayerParameter17mutable_lrn_paramEv.exit: ; preds = %857, %_Z
   %.not.i.i311 = icmp eq ptr %874, null
   %875 = select i1 %.not.i.i311, ptr @_ZN12opencv_caffe31_LRNParameter_default_instance_E, ptr %874
   tail call void @_ZN12opencv_caffe12LRNParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %873, ptr noundef nonnull align 8 dereferenceable(48) %875)
-  %.pre495 = load i32, ptr %68, align 4, !tbaa !17
+  %.pre495 = load i32, ptr %68, align 8, !tbaa !17
   br label %876
 
 876:                                              ; preds = %_ZN12opencv_caffe14LayerParameter17mutable_lrn_paramEv.exit, %850
@@ -12960,7 +12960,7 @@ _ZN12opencv_caffe14LayerParameter25mutable_memory_data_paramEv.exit: ; preds = %
   %.not.i.i316 = icmp eq ptr %900, null
   %901 = select i1 %.not.i.i316, ptr @_ZN12opencv_caffe38_MemoryDataParameter_default_instance_E, ptr %900
   tail call void @_ZN12opencv_caffe19MemoryDataParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %899, ptr noundef nonnull align 8 dereferenceable(40) %901)
-  %.pre496 = load i32, ptr %68, align 4, !tbaa !17
+  %.pre496 = load i32, ptr %68, align 8, !tbaa !17
   br label %902
 
 902:                                              ; preds = %_ZN12opencv_caffe14LayerParameter25mutable_memory_data_paramEv.exit, %876
@@ -13009,7 +13009,7 @@ _ZN12opencv_caffe14LayerParameter17mutable_mvn_paramEv.exit: ; preds = %909, %_Z
   %.not.i.i321 = icmp eq ptr %926, null
   %927 = select i1 %.not.i.i321, ptr @_ZN12opencv_caffe31_MVNParameter_default_instance_E, ptr %926
   tail call void @_ZN12opencv_caffe12MVNParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %925, ptr noundef nonnull align 8 dereferenceable(32) %927)
-  %.pre497 = load i32, ptr %68, align 4, !tbaa !17
+  %.pre497 = load i32, ptr %68, align 8, !tbaa !17
   br label %928
 
 928:                                              ; preds = %_ZN12opencv_caffe14LayerParameter17mutable_mvn_paramEv.exit, %902
@@ -13058,7 +13058,7 @@ _ZN12opencv_caffe14LayerParameter21mutable_pooling_paramEv.exit: ; preds = %935,
   %.not.i.i326 = icmp eq ptr %952, null
   %953 = select i1 %.not.i.i326, ptr @_ZN12opencv_caffe35_PoolingParameter_default_instance_E, ptr %952
   tail call void @_ZN12opencv_caffe16PoolingParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %951, ptr noundef nonnull align 8 dereferenceable(80) %953)
-  %.pre498 = load i32, ptr %68, align 4, !tbaa !17
+  %.pre498 = load i32, ptr %68, align 8, !tbaa !17
   br label %954
 
 954:                                              ; preds = %_ZN12opencv_caffe14LayerParameter21mutable_pooling_paramEv.exit, %928
@@ -13107,7 +13107,7 @@ _ZN12opencv_caffe14LayerParameter19mutable_power_paramEv.exit: ; preds = %961, %
   %.not.i.i331 = icmp eq ptr %978, null
   %979 = select i1 %.not.i.i331, ptr @_ZN12opencv_caffe33_PowerParameter_default_instance_E, ptr %978
   tail call void @_ZN12opencv_caffe14PowerParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %977, ptr noundef nonnull align 8 dereferenceable(40) %979)
-  %.pre499 = load i32, ptr %68, align 4, !tbaa !17
+  %.pre499 = load i32, ptr %68, align 8, !tbaa !17
   br label %980
 
 980:                                              ; preds = %_ZN12opencv_caffe14LayerParameter19mutable_power_paramEv.exit, %954
@@ -13156,7 +13156,7 @@ _ZN12opencv_caffe14LayerParameter18mutable_relu_paramEv.exit: ; preds = %987, %_
   %.not.i.i336 = icmp eq ptr %1004, null
   %1005 = select i1 %.not.i.i336, ptr @_ZN12opencv_caffe32_ReLUParameter_default_instance_E, ptr %1004
   tail call void @_ZN12opencv_caffe13ReLUParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1003, ptr noundef nonnull align 8 dereferenceable(32) %1005)
-  %.pre500 = load i32, ptr %68, align 4, !tbaa !17
+  %.pre500 = load i32, ptr %68, align 8, !tbaa !17
   br label %1006
 
 1006:                                             ; preds = %_ZN12opencv_caffe14LayerParameter18mutable_relu_paramEv.exit, %980
@@ -13205,7 +13205,7 @@ _ZN12opencv_caffe14LayerParameter21mutable_sigmoid_paramEv.exit: ; preds = %1013
   %.not.i.i341 = icmp eq ptr %1030, null
   %1031 = select i1 %.not.i.i341, ptr @_ZN12opencv_caffe35_SigmoidParameter_default_instance_E, ptr %1030
   tail call void @_ZN12opencv_caffe16SigmoidParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1029, ptr noundef nonnull align 8 dereferenceable(32) %1031)
-  %.pre501 = load i32, ptr %68, align 4, !tbaa !17
+  %.pre501 = load i32, ptr %68, align 8, !tbaa !17
   br label %1032
 
 1032:                                             ; preds = %_ZN12opencv_caffe14LayerParameter21mutable_sigmoid_paramEv.exit, %1006
@@ -13254,7 +13254,7 @@ _ZN12opencv_caffe14LayerParameter21mutable_softmax_paramEv.exit: ; preds = %1039
   %.not.i.i346 = icmp eq ptr %1056, null
   %1057 = select i1 %.not.i.i346, ptr @_ZN12opencv_caffe35_SoftmaxParameter_default_instance_E, ptr %1056
   tail call void @_ZN12opencv_caffe16SoftmaxParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1055, ptr noundef nonnull align 8 dereferenceable(32) %1057)
-  %.pre502 = load i32, ptr %68, align 4, !tbaa !17
+  %.pre502 = load i32, ptr %68, align 8, !tbaa !17
   br label %1058
 
 1058:                                             ; preds = %_ZN12opencv_caffe14LayerParameter21mutable_softmax_paramEv.exit, %1032
@@ -13303,7 +13303,7 @@ _ZN12opencv_caffe14LayerParameter19mutable_slice_paramEv.exit: ; preds = %1065, 
   %.not.i.i351 = icmp eq ptr %1082, null
   %1083 = select i1 %.not.i.i351, ptr @_ZN12opencv_caffe33_SliceParameter_default_instance_E, ptr %1082
   tail call void @_ZN12opencv_caffe14SliceParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %1081, ptr noundef nonnull align 8 dereferenceable(48) %1083)
-  %.pre503 = load i32, ptr %68, align 4, !tbaa !17
+  %.pre503 = load i32, ptr %68, align 8, !tbaa !17
   br label %1084
 
 1084:                                             ; preds = %_ZN12opencv_caffe14LayerParameter19mutable_slice_paramEv.exit, %1058
@@ -13352,7 +13352,7 @@ _ZN12opencv_caffe14LayerParameter18mutable_tanh_paramEv.exit: ; preds = %1091, %
   %.not.i.i356 = icmp eq ptr %1108, null
   %1109 = select i1 %.not.i.i356, ptr @_ZN12opencv_caffe32_TanHParameter_default_instance_E, ptr %1108
   tail call void @_ZN12opencv_caffe13TanHParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1107, ptr noundef nonnull align 8 dereferenceable(32) %1109)
-  %.pre504 = load i32, ptr %68, align 4, !tbaa !17
+  %.pre504 = load i32, ptr %68, align 8, !tbaa !17
   br label %1110
 
 1110:                                             ; preds = %_ZN12opencv_caffe14LayerParameter18mutable_tanh_paramEv.exit, %1084
@@ -13401,7 +13401,7 @@ _ZN12opencv_caffe14LayerParameter23mutable_threshold_paramEv.exit: ; preds = %11
   %.not.i.i361 = icmp eq ptr %1134, null
   %1135 = select i1 %.not.i.i361, ptr @_ZN12opencv_caffe37_ThresholdParameter_default_instance_E, ptr %1134
   tail call void @_ZN12opencv_caffe18ThresholdParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1133, ptr noundef nonnull align 8 dereferenceable(32) %1135)
-  %.pre505 = load i32, ptr %68, align 4, !tbaa !17
+  %.pre505 = load i32, ptr %68, align 8, !tbaa !17
   br label %1136
 
 1136:                                             ; preds = %_ZN12opencv_caffe14LayerParameter23mutable_threshold_paramEv.exit, %1110
@@ -13450,7 +13450,7 @@ _ZN12opencv_caffe14LayerParameter25mutable_window_data_paramEv.exit: ; preds = %
   %.not.i.i366 = icmp eq ptr %1160, null
   %1161 = select i1 %.not.i.i366, ptr @_ZN12opencv_caffe38_WindowDataParameter_default_instance_E, ptr %1160
   tail call void @_ZN12opencv_caffe19WindowDataParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %1159, ptr noundef nonnull align 8 dereferenceable(88) %1161)
-  %.pre506 = load i32, ptr %68, align 4, !tbaa !17
+  %.pre506 = load i32, ptr %68, align 8, !tbaa !17
   br label %1162
 
 1162:                                             ; preds = %_ZN12opencv_caffe14LayerParameter25mutable_window_data_paramEv.exit, %1136
@@ -13499,7 +13499,7 @@ _ZN12opencv_caffe14LayerParameter23mutable_transform_paramEv.exit: ; preds = %11
   %.not.i.i371 = icmp eq ptr %1186, null
   %1187 = select i1 %.not.i.i371, ptr @_ZN12opencv_caffe42_TransformationParameter_default_instance_E, ptr %1186
   tail call void @_ZN12opencv_caffe23TransformationParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %1185, ptr noundef nonnull align 8 dereferenceable(64) %1187)
-  %.pre507 = load i32, ptr %68, align 4, !tbaa !17
+  %.pre507 = load i32, ptr %68, align 8, !tbaa !17
   br label %1188
 
 1188:                                             ; preds = %_ZN12opencv_caffe14LayerParameter23mutable_transform_paramEv.exit, %1162
@@ -13547,7 +13547,7 @@ _ZN12opencv_caffe14LayerParameter18mutable_loss_paramEv.exit: ; preds = %1195, %
   %.not.i.i376 = icmp eq ptr %1212, null
   %1213 = select i1 %.not.i.i376, ptr @_ZN12opencv_caffe32_LossParameter_default_instance_E, ptr %1212
   tail call void @_ZN12opencv_caffe13LossParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %1211, ptr noundef nonnull align 8 dereferenceable(40) %1213)
-  %.pre508 = load i32, ptr %68, align 4, !tbaa !17
+  %.pre508 = load i32, ptr %68, align 8, !tbaa !17
   br label %1214
 
 1214:                                             ; preds = %_ZN12opencv_caffe14LayerParameter18mutable_loss_paramEv.exit, %1188
@@ -16364,14 +16364,14 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldI
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %58 = load ptr, ptr %57, align 8, !tbaa !170, !noalias !472
   %59 = load i32, ptr %56, align 4, !tbaa !17, !noalias !472
-  %60 = load i32, ptr %31, align 4, !tbaa !17, !noalias !472
+  %60 = load i32, ptr %31, align 8, !tbaa !17, !noalias !472
   %61 = load ptr, ptr %1, align 8, !tbaa !471, !noalias !472
   store ptr %61, ptr %3, align 8, !tbaa !471
   store i32 %60, ptr %5, align 8, !tbaa !17
   store i32 %59, ptr %50, align 4, !tbaa !17
   store ptr %58, ptr %51, align 8, !tbaa !170
   store ptr %55, ptr %1, align 8, !tbaa !471
-  store i32 %54, ptr %31, align 4, !tbaa !17
+  store i32 %54, ptr %31, align 8, !tbaa !17
   store i32 %53, ptr %56, align 4, !tbaa !17
   store ptr %52, ptr %57, align 8, !tbaa !170
   %.not.i = icmp ne ptr %58, null

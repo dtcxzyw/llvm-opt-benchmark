@@ -5392,7 +5392,7 @@ define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #22
   call void @_ZN32pxrInternal_v0_24__pxrReserved__12Tf_HashState12_AppendBytesEPKcm(ptr noundef nonnull align 8 dereferenceable(9) %2, ptr noundef nonnull %10, i64 noundef %11)
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %13 = load i32, ptr %12, align 4
+  %13 = load i32, ptr %12, align 8
   %14 = load i8, ptr %4, align 8
   %15 = trunc i8 %14 to i1
   br i1 %15, label %18, label %16

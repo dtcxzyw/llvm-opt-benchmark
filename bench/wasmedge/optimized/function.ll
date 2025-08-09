@@ -1500,9 +1500,9 @@ _ZNSt12_Vector_baseIN8WasmEdge3AST11InstructionESaIS2_EE13_M_deallocateEPS2_m.ex
   store i128 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, ptr %.0811.i.i.i.i.i, align 16
   %46 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 16
   %47 = load i32, ptr %41, align 16
-  %48 = load i32, ptr %46, align 4
+  %48 = load i32, ptr %46, align 16
   store i32 %48, ptr %41, align 16
-  store i32 %47, ptr %46, align 4
+  store i32 %47, ptr %46, align 16
   %49 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 20
   %50 = load i32, ptr %42, align 4
   %51 = load i32, ptr %49, align 4
@@ -1510,9 +1510,9 @@ _ZNSt12_Vector_baseIN8WasmEdge3AST11InstructionESaIS2_EE13_M_deallocateEPS2_m.ex
   store i32 %50, ptr %49, align 4
   %52 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 24
   %.sroa.0.0.copyload.i5.i.i.i.i.i.i.i = load i8, ptr %43, align 8
-  %53 = load i8, ptr %52, align 1
+  %53 = load i8, ptr %52, align 8
   store i8 %53, ptr %43, align 8
-  store i8 %.sroa.0.0.copyload.i5.i.i.i.i.i.i.i, ptr %52, align 1
+  store i8 %.sroa.0.0.copyload.i5.i.i.i.i.i.i.i, ptr %52, align 8
   call void @_ZN8WasmEdge3AST11Instruction5resetEv(ptr noundef nonnull align 16 dereferenceable(25) %5) #14
   br label %_ZN8WasmEdge3AST11InstructionaSERKS1_.exit.i.i.i.i.i
 
@@ -1572,9 +1572,9 @@ _ZSt7advanceIPKN8WasmEdge3AST11InstructionEmEvRT_T0_.exit: ; preds = %34
   store i128 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i24, ptr %.0811.i.i.i.i.i21, align 16
   %67 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i21, i64 16
   %68 = load i32, ptr %62, align 16
-  %69 = load i32, ptr %67, align 4
+  %69 = load i32, ptr %67, align 16
   store i32 %69, ptr %62, align 16
-  store i32 %68, ptr %67, align 4
+  store i32 %68, ptr %67, align 16
   %70 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i21, i64 20
   %71 = load i32, ptr %63, align 4
   %72 = load i32, ptr %70, align 4
@@ -1582,9 +1582,9 @@ _ZSt7advanceIPKN8WasmEdge3AST11InstructionEmEvRT_T0_.exit: ; preds = %34
   store i32 %71, ptr %70, align 4
   %73 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i21, i64 24
   %.sroa.0.0.copyload.i5.i.i.i.i.i.i.i25 = load i8, ptr %64, align 8
-  %74 = load i8, ptr %73, align 1
+  %74 = load i8, ptr %73, align 8
   store i8 %74, ptr %64, align 8
-  store i8 %.sroa.0.0.copyload.i5.i.i.i.i.i.i.i25, ptr %73, align 1
+  store i8 %.sroa.0.0.copyload.i5.i.i.i.i.i.i.i25, ptr %73, align 8
   call void @_ZN8WasmEdge3AST11Instruction5resetEv(ptr noundef nonnull align 16 dereferenceable(25) %4) #14
   br label %_ZN8WasmEdge3AST11InstructionaSERKS1_.exit.i.i.i.i.i26
 

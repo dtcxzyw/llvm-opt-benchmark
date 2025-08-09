@@ -1114,7 +1114,7 @@ define linkonce_odr dso_local void @_ZNK3dap13BasicTypeInfoINSt7__cxx1112basic_s
   store ptr %3, ptr %1, align 8, !tbaa !32
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 0, ptr %4, align 8, !tbaa !30
-  store i8 0, ptr %3, align 1, !tbaa !31
+  store i8 0, ptr %3, align 8, !tbaa !31
   ret void
 }
 

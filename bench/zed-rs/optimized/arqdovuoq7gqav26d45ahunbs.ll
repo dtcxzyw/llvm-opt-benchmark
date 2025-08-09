@@ -852,7 +852,7 @@ define hidden void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h54756cdc6
   %85 = load i64, ptr %.sroa.0.0100, align 8, !range !50, !alias.scope !81, !noalias !76
   %86 = icmp eq i64 %85, -9223372036854775804
   %87 = getelementptr inbounds nuw i8, ptr %.sroa.0.0100, i64 8
-  %88 = load i32, ptr %87, align 4, !alias.scope !81, !noalias !76
+  %88 = load i32, ptr %87, align 8, !alias.scope !81, !noalias !76
   %89 = getelementptr inbounds nuw i8, ptr %.sroa.0.0100, i64 12
   %90 = load i16, ptr %89, align 4, !alias.scope !81, !noalias !76
   %91 = insertvalue { i32, i16 } poison, i32 %88, 0
@@ -1109,7 +1109,7 @@ _ZN4core5slice4sort8unstable9quicksort9partition17h2423d6817281a2a6E.exit: ; pre
   %177 = load i64, ptr %.sroa.0.0100, align 8, !range !50, !alias.scope !130, !noalias !125
   %178 = icmp eq i64 %177, -9223372036854775804
   %179 = getelementptr inbounds nuw i8, ptr %.sroa.0.0100, i64 8
-  %180 = load i32, ptr %179, align 4, !alias.scope !130, !noalias !125
+  %180 = load i32, ptr %179, align 8, !alias.scope !130, !noalias !125
   %181 = getelementptr inbounds nuw i8, ptr %.sroa.0.0100, i64 12
   %182 = load i16, ptr %181, align 4, !alias.scope !130, !noalias !125
   %183 = insertvalue { i32, i16 } poison, i32 %180, 0
@@ -1510,7 +1510,7 @@ define hidden void @_ZN4core5slice4sort8unstable9quicksort9quicksort17hee03a32b8
   %85 = load i64, ptr %.sroa.0.0100, align 8, !range !6, !alias.scope !209, !noalias !204
   %86 = icmp eq i64 %85, -9223372036854775807
   %87 = getelementptr inbounds nuw i8, ptr %.sroa.0.0100, i64 8
-  %88 = load i32, ptr %87, align 4, !alias.scope !209, !noalias !204
+  %88 = load i32, ptr %87, align 8, !alias.scope !209, !noalias !204
   %89 = getelementptr inbounds nuw i8, ptr %.sroa.0.0100, i64 12
   %90 = load i16, ptr %89, align 4, !alias.scope !209, !noalias !204
   %91 = insertvalue { i32, i16 } poison, i32 %88, 0
@@ -1767,7 +1767,7 @@ _ZN4core5slice4sort8unstable9quicksort9partition17h55f2b79a6a4eb951E.exit: ; pre
   %177 = load i64, ptr %.sroa.0.0100, align 8, !range !6, !alias.scope !258, !noalias !253
   %178 = icmp eq i64 %177, -9223372036854775807
   %179 = getelementptr inbounds nuw i8, ptr %.sroa.0.0100, i64 8
-  %180 = load i32, ptr %179, align 4, !alias.scope !258, !noalias !253
+  %180 = load i32, ptr %179, align 8, !alias.scope !258, !noalias !253
   %181 = getelementptr inbounds nuw i8, ptr %.sroa.0.0100, i64 12
   %182 = load i16, ptr %181, align 4, !alias.scope !258, !noalias !253
   %183 = insertvalue { i32, i16 } poison, i32 %180, 0

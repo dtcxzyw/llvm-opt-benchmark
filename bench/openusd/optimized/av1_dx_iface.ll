@@ -440,7 +440,7 @@ decrease_ref_count.exit:                          ; preds = %25, %28, %32, %35
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %151 = load i32, ptr %150, align 8
   %152 = getelementptr inbounds nuw i8, ptr %146, i64 49024
-  store i32 %151, ptr %152, align 4
+  store i32 %151, ptr %152, align 16
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 444
   %154 = load i32, ptr %153, align 4
   %155 = getelementptr inbounds nuw i8, ptr %146, i64 458884

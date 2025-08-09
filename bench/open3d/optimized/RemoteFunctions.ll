@@ -1527,7 +1527,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__det
   %45 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #39
   store ptr null, ptr %45, align 8, !tbaa !16
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store i32 %43, ptr %46, align 4, !tbaa !33
+  store i32 %43, ptr %46, align 8, !tbaa !33
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %48 = load i32, ptr %44, align 4, !tbaa !28
   store i32 %48, ptr %47, align 4, !tbaa !35
@@ -1711,7 +1711,7 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !16
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !28
+  %16 = load i32, ptr %15, align 8, !tbaa !28
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -5207,7 +5207,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %13
   store i64 %20, ptr %21, align 8, !tbaa !45
   store ptr %11, ptr %8, align 8, !tbaa !89
   store i64 0, ptr %19, align 8, !tbaa !45
-  store i8 0, ptr %11, align 1, !tbaa !47
+  store i8 0, ptr %11, align 8, !tbaa !47
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %23, i8 0, i64 224, i1 false)
@@ -8502,7 +8502,7 @@ _ZN7msgpack2v16packerINS0_7sbufferEE4packINSt7__cxx1112basic_stringIcSt11char_tr
   %29 = load ptr, ptr %1, align 8, !tbaa !175
   tail call void @_ZN7msgpack2v17sbuffer5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef %28, i64 noundef %18)
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.07.012, i64 64
-  %31 = load i32, ptr %30, align 4, !tbaa !271
+  %31 = load i32, ptr %30, align 8, !tbaa !271
   %32 = tail call noundef i32 @llvm.bswap.i32(i32 %31)
   %33 = load ptr, ptr %1, align 8, !tbaa !175
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16

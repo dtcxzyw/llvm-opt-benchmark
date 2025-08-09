@@ -1168,7 +1168,7 @@ define internal noundef range(i32 -9, 10559488) i32 @_ZL20_UTF16BEGetNextUCharP2
   store i8 %65, ptr %63, align 1, !tbaa !28
   %66 = load i8, ptr %29, align 1, !tbaa !28
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 66
-  store i8 %66, ptr %67, align 1, !tbaa !28
+  store i8 %66, ptr %67, align 2, !tbaa !28
   store i32 12, ptr %1, align 4, !tbaa !14
   br label %68
 
@@ -2517,7 +2517,7 @@ define internal noundef range(i32 -9, 10559488) i32 @_ZL20_UTF16LEGetNextUCharP2
   store i8 %64, ptr %62, align 1, !tbaa !28
   %65 = load i8, ptr %19, align 1, !tbaa !28
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 66
-  store i8 %65, ptr %66, align 1, !tbaa !28
+  store i8 %65, ptr %66, align 2, !tbaa !28
   store i32 12, ptr %1, align 4, !tbaa !14
   br label %67
 
@@ -2716,7 +2716,7 @@ define internal noundef range(i32 -9, 10559488) i32 @_ZL18_UTF16GetNextUCharP23U
   store i8 %64, ptr %62, align 1, !tbaa !28
   %65 = load i8, ptr %28, align 1, !tbaa !28
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 66
-  store i8 %65, ptr %66, align 1, !tbaa !28
+  store i8 %65, ptr %66, align 2, !tbaa !28
   store i32 12, ptr %1, align 4, !tbaa !14
   br label %67
 
@@ -2827,7 +2827,7 @@ define internal noundef range(i32 -9, 10559488) i32 @_ZL18_UTF16GetNextUCharP23U
   store i8 %124, ptr %122, align 1, !tbaa !28
   %125 = load i8, ptr %79, align 1, !tbaa !28
   %126 = getelementptr inbounds nuw i8, ptr %4, i64 66
-  store i8 %125, ptr %126, align 1, !tbaa !28
+  store i8 %125, ptr %126, align 2, !tbaa !28
   store i32 12, ptr %1, align 4, !tbaa !14
   br label %127
 

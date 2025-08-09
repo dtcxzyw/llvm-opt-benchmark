@@ -50,7 +50,7 @@ define internal void @prores_idct_put_10_c(ptr noundef writeonly captures(none) 
   %22 = or i32 %21, %13
   %23 = or i32 %22, %20
   %.not.i.i = icmp eq i32 %23, 0
-  %24 = load i16, ptr %11, align 2, !tbaa !16, !alias.scope !11, !noalias !14
+  %24 = load i16, ptr %11, align 4, !tbaa !16, !alias.scope !11, !noalias !14
   %25 = sext i16 %24 to i32
   br i1 %.not.i.i, label %26, label %31
 
@@ -412,7 +412,7 @@ define internal void @prores_idct_put_12_c(ptr noundef writeonly captures(none) 
   %22 = or i32 %21, %13
   %23 = or i32 %22, %20
   %.not.i.i = icmp eq i32 %23, 0
-  %24 = load i16, ptr %11, align 2, !tbaa !16, !alias.scope !26, !noalias !29
+  %24 = load i16, ptr %11, align 4, !tbaa !16, !alias.scope !26, !noalias !29
   %25 = sext i16 %24 to i32
   br i1 %.not.i.i, label %26, label %31
 

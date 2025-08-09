@@ -253,7 +253,7 @@ ExecGetJunkAttribute.exit:                        ; preds = %54, %slot_getsomeat
   %78 = getelementptr inbounds nuw i8, ptr %42, i64 38
   store i16 -1, ptr %78, align 2
   %79 = getelementptr inbounds nuw i8, ptr %42, i64 40
-  store i16 -1, ptr %79, align 2
+  store i16 -1, ptr %79, align 4
   %80 = getelementptr inbounds nuw i8, ptr %42, i64 42
   store i16 0, ptr %80, align 2
   br label %.thread98

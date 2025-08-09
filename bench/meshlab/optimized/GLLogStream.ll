@@ -1179,7 +1179,7 @@ define linkonce_odr void @_ZN5QListISt4pairIi7QStringEE5eraseENS3_8iteratorE(ptr
   %13 = ptrtoint ptr %.pre1 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
-  %16 = load atomic i32, ptr %4 monotonic, align 4, !noalias !24
+  %16 = load atomic i32, ptr %4 monotonic, align 8, !noalias !24
   %17 = icmp ugt i32 %16, 1
   br i1 %17, label %18, label %_ZN5QListISt4pairIi7QStringEE5beginEv.exit
 

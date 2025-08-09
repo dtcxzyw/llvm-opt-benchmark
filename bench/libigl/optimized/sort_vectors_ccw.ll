@@ -213,7 +213,7 @@ define weak_odr dso_local void @_ZN3igl16sort_vectors_ccwIN5Eigen6MatrixIdLi1ELi
   %21 = load ptr, ptr %6, align 8, !tbaa !14
   %22 = load <2 x double>, ptr %21, align 16, !tbaa !25
   %23 = getelementptr i8, ptr %21, i64 16
-  %24 = load double, ptr %23, align 8, !tbaa !26
+  %24 = load double, ptr %23, align 16, !tbaa !26
   call void @free(ptr noundef %21) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -354,7 +354,7 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i: ; preds = %77
   %88 = phi ptr [ %82, %86 ], [ %.pre, %74 ]
   %89 = load <2 x double>, ptr %88, align 16, !tbaa !25
   %90 = getelementptr i8, ptr %88, i64 16
-  %91 = load double, ptr %90, align 8, !tbaa !26
+  %91 = load double, ptr %90, align 16, !tbaa !26
   call void @free(ptr noundef %88) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.sroa.074.8.vec.extract = extractelement <2 x double> %89, i64 1

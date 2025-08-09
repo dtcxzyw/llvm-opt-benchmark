@@ -3111,8 +3111,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_2022_jp(ptr noundef 
   %294 = load i64, ptr %56, align 8, !tbaa !20
   %295 = add i64 %294, %293
   store i64 %295, ptr %56, align 8, !tbaa !20
-  %296 = load i8, ptr %4, align 4, !tbaa !38
-  store i8 0, ptr %4, align 4, !tbaa !38
+  %296 = load i8, ptr %4, align 8, !tbaa !38
+  store i8 0, ptr %4, align 8, !tbaa !38
   br label %60
 
 .loopexit399:                                     ; preds = %274

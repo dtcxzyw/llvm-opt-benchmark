@@ -5726,7 +5726,7 @@ _ZNSt16allocator_traitsISaIN11OpenImageIO6v3_1_010ParamValueEEE8allocateERS3_m.e
   %.sroa.04.08.i.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i.i ], [ %18, %13 ]
   store ptr null, ptr %.09.i.i.i.i, align 8, !tbaa !133
   %20 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i, i64 8
-  store i8 0, ptr %20, align 4, !tbaa !244
+  store i8 0, ptr %20, align 8, !tbaa !244
   %21 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i, i64 9
   store i8 1, ptr %21, align 1, !tbaa !245
   %22 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i, i64 10

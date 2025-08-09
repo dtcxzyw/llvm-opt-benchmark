@@ -41011,7 +41011,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6Appen
   %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq double %24, 0.000000e+00
   %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, double 0.000000e+00, double %24
   %25 = bitcast double %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %26 = load i8, ptr %23, align 1
+  %26 = load i8, ptr %23, align 8
   %27 = and i8 %26, 1
   %28 = zext nneg i8 %27 to i64
   %29 = add i64 %25, %28
@@ -41026,7 +41026,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6Appen
   %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, double 0.000000e+00, double %36
   %37 = bitcast double %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %38 = getelementptr inbounds nuw i8, ptr %.024.i.i, i64 24
-  %39 = load i8, ptr %38, align 1
+  %39 = load i8, ptr %38, align 8
   %40 = and i8 %39, 1
   %41 = zext nneg i8 %40 to i64
   %42 = add i64 %37, %41
@@ -59638,7 +59638,7 @@ define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13
   %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq double %5, 0.000000e+00
   %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i, double 0.000000e+00, double %5
   %6 = bitcast double %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %7 = load i8, ptr %4, align 1
+  %7 = load i8, ptr %4, align 8
   %8 = and i8 %7, 1
   %9 = zext nneg i8 %8 to i64
   %10 = add i64 %6, %9
@@ -59653,7 +59653,7 @@ define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13
   %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, double 0.000000e+00, double %17
   %18 = bitcast double %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %20 = load i8, ptr %19, align 1
+  %20 = load i8, ptr %19, align 8
   %21 = and i8 %20, 1
   %22 = zext nneg i8 %21 to i64
   %23 = add i64 %18, %22
@@ -64778,7 +64778,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_Coun
   store ptr %19, ptr %10, align 8, !noalias !1081
   %.pre = load ptr, ptr %0, align 8
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store atomic i32 0, ptr %29 seq_cst, align 4, !noalias !1081
+  store atomic i32 0, ptr %29 seq_cst, align 8, !noalias !1081
   %30 = atomicrmw add ptr %29, i32 1 monotonic, align 4, !noalias !1081
   %.not.i.i = icmp eq ptr %.pre, null
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_7VtValue8_CountedINS_15GfMultiIntervalEEEED2Ev.exit, label %31
@@ -65300,7 +65300,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__32HdRetainedTyped
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS_7SdfPathEEE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %1, align 4
-  store i32 %5, ptr %4, align 4
+  store i32 %5, ptr %4, align 8
   %.not.i.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS_7SdfPathEEC2ERKS1_.exit, label %6
 
@@ -66862,7 +66862,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_Coun
   %16 = atomicrmw add ptr %.sink.i.i.i.i.i, i64 1 monotonic, align 8, !noalias !1090
   %.pre.i.i = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store atomic i32 0, ptr %17 seq_cst, align 4, !noalias !1090
+  store atomic i32 0, ptr %17 seq_cst, align 8, !noalias !1090
   %18 = atomicrmw add ptr %17, i32 1 monotonic, align 4, !noalias !1090
   %.not.i.i.i.i = icmp eq ptr %.pre.i.i, null
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_7VtValue8_CountedINS_7VtArrayINS_7SdfPathEEEEEED2Ev.exit.i.i, label %19
@@ -67957,7 +67957,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_Coun
   %16 = atomicrmw add ptr %.sink.i.i.i.i.i, i64 1 monotonic, align 8, !noalias !1104
   %.pre.i.i = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store atomic i32 0, ptr %17 seq_cst, align 4, !noalias !1104
+  store atomic i32 0, ptr %17 seq_cst, align 8, !noalias !1104
   %18 = atomicrmw add ptr %17, i32 1 monotonic, align 4, !noalias !1104
   %.not.i.i.i.i = icmp eq ptr %.pre.i.i, null
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_7VtValue8_CountedINS_7VtArrayINS_12SdfAssetPathEEEEEED2Ev.exit.i.i, label %19

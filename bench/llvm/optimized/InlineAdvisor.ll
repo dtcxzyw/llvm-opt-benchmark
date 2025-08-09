@@ -2452,7 +2452,7 @@ _ZNK4llvm15AnalysisManagerINS_6ModuleEJEE16isPassRegisteredINS_27PluginInlineAdv
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 48
   store i64 6, ptr %60, align 8, !tbaa !93
   %61 = getelementptr inbounds nuw i8, ptr %51, i64 62
-  store i8 0, ptr %61, align 1, !tbaa !92
+  store i8 0, ptr %61, align 2, !tbaa !92
   br label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %._crit_edge.i.i.i.i, %.critedge.critedge.i.i
@@ -7929,7 +7929,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %19, ptr %20, align 8, !tbaa !93
   store ptr %10, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !90
   store i64 0, ptr %18, align 8, !tbaa !93
-  store i8 0, ptr %10, align 1, !tbaa !92
+  store i8 0, ptr %10, align 8, !tbaa !92
   %21 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 48
@@ -7961,7 +7961,7 @@ _ZSt10_ConstructIN4llvm30DiagnosticInfoOptimizationBase8ArgumentEJS2_EEvPT_DpOT0
   store i64 %34, ptr %35, align 8, !tbaa !93
   store ptr %25, ptr %22, align 8, !tbaa !90
   store i64 0, ptr %33, align 8, !tbaa !93
-  store i8 0, ptr %25, align 1, !tbaa !92
+  store i8 0, ptr %25, align 8, !tbaa !92
   %36 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 64
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 16, i1 false), !tbaa.struct !429
@@ -8333,7 +8333,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRN4llvm8CallBase
   %43 = getelementptr inbounds nuw i8, ptr %.val, i64 71
   %44 = load i8, ptr %43, align 1, !tbaa !233, !range !48, !noalias !537, !noundef !49
   %45 = trunc nuw i8 %44 to i1
-  %46 = load i8, ptr %42, align 1, !range !48, !noalias !537
+  %46 = load i8, ptr %42, align 2, !range !48, !noalias !537
   %47 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL20EnableInlineDeferral, i64 120), align 8, !range !48, !noalias !537
   %.0.v.i.i.i.i.i = select i1 %45, i8 %46, i8 %47
   %.0.i.i.i.i.i = trunc nuw i8 %.0.v.i.i.i.i.i to i1

@@ -848,7 +848,7 @@ _ZN5Eigen8internal24call_assignment_no_aliasINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EE
   store <2 x double> %345, ptr %6, align 8, !tbaa !28
   %346 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %347 = getelementptr i8, ptr %344, i64 16
-  %348 = load double, ptr %347, align 8, !tbaa !23
+  %348 = load double, ptr %347, align 16, !tbaa !23
   store double %348, ptr %346, align 8, !tbaa !23
   call void @free(ptr noundef %344) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

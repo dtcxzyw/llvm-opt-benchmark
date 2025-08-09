@@ -1070,7 +1070,7 @@ _ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit: ; preds 
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store ptr %54, ptr %55, align 8, !tbaa !9
   %56 = getelementptr inbounds nuw i8, ptr %.01621, i64 24
-  store atomic i8 0, ptr %56 monotonic, align 1
+  store atomic i8 0, ptr %56 monotonic, align 8
   %57 = load atomic i64, ptr %3 monotonic, align 8
   %58 = add i64 %57, 1
   store atomic i64 %58, ptr %3 monotonic, align 8

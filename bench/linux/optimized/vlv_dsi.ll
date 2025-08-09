@@ -840,7 +840,7 @@ define internal void @intel_dsi_pre_enable(ptr readnone captures(none) %0, ptr n
   tail call void %34(ptr noundef nonnull %27, i32 1441824, i32 noundef 1, i1 noundef zeroext true) #9
   %35 = load ptr, ptr %32, align 8
   tail call void %35(ptr noundef nonnull %27, i32 1441876, i32 noundef 0, i1 noundef zeroext true) #9
-  %.pre = load i32, ptr %16, align 4
+  %.pre = load i32, ptr %16, align 8
   br label %36
 
 36:                                               ; preds = %26, %22
@@ -863,7 +863,7 @@ define internal void @intel_dsi_pre_enable(ptr readnone captures(none) %0, ptr n
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 7544
   %52 = load ptr, ptr %51, align 8
   tail call void %52(ptr noundef nonnull %46, i32 %45, i32 noundef %50, i1 noundef zeroext true) #9
-  %.pre26 = load i32, ptr %16, align 4
+  %.pre26 = load i32, ptr %16, align 8
   br label %53
 
 53:                                               ; preds = %40, %36
@@ -1851,7 +1851,7 @@ define internal void @intel_dsi_post_disable(ptr readnone captures(none) %0, ptr
   %104 = add i32 %102, %103
   %105 = load ptr, ptr %91, align 8
   tail call void %105(ptr noundef nonnull %90, i32 %104, i32 noundef 0, i1 noundef zeroext true) #9
-  %106 = load i32, ptr %83, align 4
+  %106 = load i32, ptr %83, align 8
   %107 = and i32 %106, 335544320
   %108 = icmp eq i32 %107, 0
   %109 = trunc i64 %94 to i32
@@ -2148,7 +2148,7 @@ define internal void @intel_dsi_post_disable(ptr readnone captures(none) %0, ptr
   %301 = load ptr, ptr %275, align 8
   tail call void %301(ptr noundef nonnull %274, i32 %300, i32 noundef 5, i1 noundef zeroext true) #9
   tail call void @usleep_range_state(i64 noundef 2000, i64 noundef 2500, i32 noundef 2) #9
-  %302 = load i32, ptr %135, align 4
+  %302 = load i32, ptr %135, align 8
   %303 = and i32 %302, 67108864
   %304 = icmp ne i32 %303, 0
   %305 = or i1 %289, %304
@@ -2209,7 +2209,7 @@ define internal void @intel_dsi_post_disable(ptr readnone captures(none) %0, ptr
   %336 = and i32 %335, -5
   %337 = load ptr, ptr %330, align 8
   tail call void %337(ptr noundef nonnull %329, i32 1278096, i32 noundef %336, i1 noundef zeroext true) #9
-  %.pre = load i32, ptr %12, align 4
+  %.pre = load i32, ptr %12, align 8
   br label %338
 
 338:                                              ; preds = %328, %.loopexit
@@ -2311,7 +2311,7 @@ define internal noundef zeroext i1 @intel_dsi_get_hw_state(ptr noundef readonly 
   %42 = select i1 %38, i32 %41, i32 %40
   %43 = load ptr, ptr %24, align 8
   %44 = tail call i32 %43(ptr noundef nonnull %23, i32 %42, i1 noundef zeroext true) #9
-  %45 = load i32, ptr %15, align 4
+  %45 = load i32, ptr %15, align 8
   %46 = zext i32 %45 to i64
   %47 = and i64 %46, 2097152
   %48 = icmp eq i64 %47, 0
@@ -3422,7 +3422,7 @@ define internal fastcc void @intel_dsi_prepare(ptr noundef readonly captures(non
   %393 = select i1 %391, i32 500, i32 %392
   %394 = load ptr, ptr %41, align 8
   tail call void %394(ptr noundef nonnull %39, i32 %388, i32 noundef %393, i1 noundef zeroext true) #9
-  %395 = load i32, ptr %37, align 4
+  %395 = load i32, ptr %37, align 8
   %396 = and i32 %395, 335544320
   %397 = icmp eq i32 %396, 0
   br i1 %397, label %408, label %398
@@ -3468,7 +3468,7 @@ define internal fastcc void @intel_dsi_prepare(ptr noundef readonly captures(non
   %428 = zext i16 %427 to i32
   %429 = load ptr, ptr %41, align 8
   tail call void %429(ptr noundef nonnull %39, i32 %426, i32 noundef %428, i1 noundef zeroext true) #9
-  %430 = load i32, ptr %37, align 4
+  %430 = load i32, ptr %37, align 8
   %431 = and i32 %430, 268435456
   %432 = icmp eq i32 %431, 0
   br i1 %432, label %445, label %433

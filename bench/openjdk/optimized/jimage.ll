@@ -91,7 +91,7 @@ define void @JIMAGE_ResourceIterator(ptr noundef %0, ptr noundef readonly captur
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 8
   %9 = load ptr, ptr %6, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -100,7 +100,7 @@ define void @JIMAGE_ResourceIterator(ptr noundef %0, ptr noundef readonly captur
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %5, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %17 = load i32, ptr %16, align 4
+  %17 = load i32, ptr %16, align 8
   %18 = load ptr, ptr %15, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8

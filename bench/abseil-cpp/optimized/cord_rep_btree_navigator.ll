@@ -288,7 +288,7 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit: ; preds = %_ZN4ab
   %80 = getelementptr inbounds nuw i8, ptr %68, i64 13
   store i8 %77, ptr %80, align 1, !tbaa !4
   %81 = getelementptr inbounds nuw i8, ptr %68, i64 14
-  store i8 0, ptr %81, align 1, !tbaa !4
+  store i8 0, ptr %81, align 2, !tbaa !4
   %82 = getelementptr inbounds nuw i8, ptr %68, i64 15
   store i8 1, ptr %82, align 1, !tbaa !4
   %83 = getelementptr inbounds nuw i8, ptr %68, i64 16
@@ -403,7 +403,7 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit121: ; preds = %121
   %134 = getelementptr inbounds nuw i8, ptr %122, i64 13
   store i8 %131, ptr %134, align 1, !tbaa !4
   %135 = getelementptr inbounds nuw i8, ptr %122, i64 14
-  store i8 0, ptr %135, align 1, !tbaa !4
+  store i8 0, ptr %135, align 2, !tbaa !4
   %136 = getelementptr inbounds nuw i8, ptr %122, i64 15
   store i8 1, ptr %136, align 1, !tbaa !4
   %137 = getelementptr inbounds nuw i8, ptr %122, i64 16
@@ -503,7 +503,7 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit121: ; preds = %121
   %183 = getelementptr inbounds nuw i8, ptr %179, i64 13
   store i8 %182, ptr %183, align 1, !tbaa !4
   %184 = getelementptr inbounds nuw i8, ptr %179, i64 14
-  store i8 0, ptr %184, align 1, !tbaa !4
+  store i8 0, ptr %184, align 2, !tbaa !4
   %185 = getelementptr inbounds nuw i8, ptr %179, i64 15
   store i8 0, ptr %185, align 1, !tbaa !4
   store i64 %.1100156, ptr %179, align 8, !tbaa !12

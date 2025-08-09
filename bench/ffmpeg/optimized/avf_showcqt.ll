@@ -4547,7 +4547,7 @@ switch.lookup:                                    ; preds = %1
   %28 = fdiv nsz double %27, %23
   %29 = fptrunc nsz double %28 to float
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store float %29, ptr %30, align 4, !tbaa !61
+  store float %29, ptr %30, align 8, !tbaa !61
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 228
   store float 1.120000e+02, ptr %31, align 4, !tbaa !61
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 232

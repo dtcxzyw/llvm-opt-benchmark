@@ -344,7 +344,7 @@ define hidden void @_ZN7ciField15initialize_fromEP15fieldDescriptor(ptr noundef 
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 456
   %10 = load ptr, ptr %9, align 8
-  %11 = load i32, ptr %1, align 4
+  %11 = load i32, ptr %1, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = sext i32 %11 to i64
   %14 = getelementptr inbounds %class.FieldStatus, ptr %12, i64 %13

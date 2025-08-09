@@ -782,7 +782,7 @@ BufferGetPage.exit.i24:                           ; preds = %432, %426
   store i64 %438, ptr %447, align 8
   %448 = lshr i64 %418, 32
   %449 = trunc nuw i64 %448 to i32
-  store i32 %449, ptr %.0.i.i.i25, align 4
+  store i32 %449, ptr %.0.i.i.i25, align 8
   %450 = trunc i64 %418 to i32
   %451 = getelementptr inbounds nuw i8, ptr %.0.i.i.i25, i64 4
   store i32 %450, ptr %451, align 4

@@ -1358,7 +1358,7 @@ define dso_local void @ip_forward_options(ptr noundef %0) local_unnamed_addr #0 
   %10 = zext i16 %9 to i64
   %11 = getelementptr i8, ptr %7, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %13 = load i8, ptr %12, align 4
+  %13 = load i8, ptr %12, align 8
   %14 = and i8 %13, 8
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %28, label %16

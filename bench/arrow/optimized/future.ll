@@ -341,7 +341,7 @@ _ZNSt10unique_ptrIN5arrow18ConcreteFutureImplESt14default_deleteIS1_EED2Ev.exit:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 112
   tail call void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #24
-  store atomic i8 %1, ptr %3 seq_cst, align 1
+  store atomic i8 %1, ptr %3 seq_cst, align 8
   store ptr %2, ptr %0, align 8, !tbaa !9
   ret void
 }
@@ -4070,7 +4070,7 @@ define linkonce_odr void @_ZN5arrow6FutureINS_8internal5EmptyEE20InitializeFromR
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, i8 0, i64 40, i1 false), !noalias !171
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 112
   tail call void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %13) #24, !noalias !171
-  store atomic i8 1, ptr %11 seq_cst, align 1, !noalias !171
+  store atomic i8 1, ptr %11 seq_cst, align 8, !noalias !171
   store ptr %10, ptr %4, align 8, !tbaa !9, !alias.scope !171
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZNSt12__shared_ptrIN5arrow10FutureImplELN9__gnu_cxx12_Lock_policyE2EEC2IS1_St14default_deleteIS1_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
@@ -5698,7 +5698,7 @@ define linkonce_odr void @_ZN5arrow6FutureISt6vectorINS_6ResultINS_8internal5Emp
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false), !noalias !188
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 112
   tail call void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %10) #24, !noalias !188
-  store atomic i8 1, ptr %8 seq_cst, align 1, !noalias !188
+  store atomic i8 1, ptr %8 seq_cst, align 8, !noalias !188
   store ptr %6, ptr %4, align 8, !tbaa !9, !alias.scope !188
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZNSt12__shared_ptrIN5arrow10FutureImplELN9__gnu_cxx12_Lock_policyE2EEC2IS1_St14default_deleteIS1_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)

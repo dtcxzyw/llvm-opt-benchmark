@@ -22386,9 +22386,9 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   %73 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %74 = load ptr, ptr %73, align 8, !tbaa !337
   %75 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %76 = load i32, ptr %75, align 4, !tbaa !253
+  %76 = load i32, ptr %75, align 8, !tbaa !253
   %77 = add i32 %76, 1
-  store i32 %77, ptr %75, align 4, !tbaa !253
+  store i32 %77, ptr %75, align 8, !tbaa !253
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %79 = load ptr, ptr %78, align 8, !tbaa !167
   %80 = icmp eq ptr %79, null
@@ -124957,7 +124957,7 @@ define hidden noundef zeroext i1 @_ZN3smt10theory_str18finalcheck_str2intEP3app(
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = load ptr, ptr %46, align 8, !tbaa !386
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8656
-  %49 = load i32, ptr %1, align 4, !tbaa !840
+  %49 = load i32, ptr %1, align 8, !tbaa !840
   %50 = load ptr, ptr %48, align 8, !tbaa !371
   %51 = icmp eq ptr %50, null
   br i1 %51, label %547, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.i
@@ -143017,7 +143017,7 @@ _ZNK8seq_util9is_stringEP4sort.exit:              ; preds = %19
   %64 = load i32, ptr %63, align 8, !tbaa !1480
   %65 = and i32 %64, -75
   %66 = or disjoint i32 %65, 8
-  store i32 %66, ptr %63, align 4, !tbaa !1481
+  store i32 %66, ptr %63, align 8, !tbaa !1481
   %67 = load i32, ptr %35, align 8, !tbaa !1429
   %68 = add i32 %67, 1
   store i32 %68, ptr %35, align 8, !tbaa !1429
@@ -143034,7 +143034,7 @@ _ZNK8seq_util9is_stringEP4sort.exit:              ; preds = %19
   %77 = load i32, ptr %76, align 8, !tbaa !1480
   %78 = and i32 %77, -75
   %79 = or disjoint i32 %78, 2
-  store i32 %79, ptr %76, align 4, !tbaa !1481
+  store i32 %79, ptr %76, align 8, !tbaa !1481
   %80 = load ptr, ptr %33, align 8, !tbaa !952
   %81 = load i64, ptr %34, align 8, !tbaa !949
   %82 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %70, ptr noundef %80, i64 noundef %81)

@@ -1330,7 +1330,7 @@ define void @If_ManNodeShape2_rec(ptr noundef %0, ptr noundef %1, ptr noundef ca
   %9 = getelementptr i8, ptr %0, i64 328
   %.val = load ptr, ptr %9, align 8, !tbaa !62
   %10 = getelementptr i8, ptr %2, i64 80
-  %.0.val30 = load i32, ptr %10, align 4, !tbaa !3
+  %.0.val30 = load i32, ptr %10, align 8, !tbaa !3
   %11 = sext i32 %.0.val30 to i64
   %12 = getelementptr i32, ptr %.val, i64 %11
   %13 = getelementptr i8, ptr %12, i64 4

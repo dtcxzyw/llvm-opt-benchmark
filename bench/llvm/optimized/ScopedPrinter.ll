@@ -7158,7 +7158,7 @@ _ZN4llvm4json5Value6createINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJ
   store i64 %31, ptr %32, align 8, !tbaa !22
   store ptr %24, ptr %1, align 8, !tbaa !25
   store i64 0, ptr %5, align 8, !tbaa !22
-  store i8 0, ptr %24, align 1, !tbaa !19
+  store i8 0, ptr %24, align 8, !tbaa !19
   ret void
 }
 

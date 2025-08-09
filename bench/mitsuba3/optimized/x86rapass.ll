@@ -1425,7 +1425,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder14onBeforeInvok
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 384
   store ptr %16, ptr %17, align 8, !tbaa !129
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 80
-  %19 = load i32, ptr %18, align 4, !tbaa !37
+  %19 = load i32, ptr %18, align 8, !tbaa !37
   %20 = trunc i32 %19 to i8
   %21 = lshr i8 %20, 3
   %22 = icmp eq i8 %13, 0
@@ -2179,7 +2179,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder17moveRegToStac
   %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %29
   %32 = load ptr, ptr %31, align 8, !tbaa !52
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 72
-  %34 = load i8, ptr %33, align 1, !tbaa !187
+  %34 = load i8, ptr %33, align 8, !tbaa !187
   %35 = and i8 %34, 1
   %36 = icmp eq i8 %35, 0
   %37 = trunc i32 %11 to i8
@@ -4346,7 +4346,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
   %309 = getelementptr inbounds nuw i8, ptr %308, i64 16
   store ptr null, ptr %309, align 8, !tbaa !95
   %310 = getelementptr inbounds nuw i8, ptr %308, i64 32
-  %311 = load i32, ptr %310, align 4, !tbaa !37
+  %311 = load i32, ptr %310, align 8, !tbaa !37
   %312 = lshr i32 %311, 8
   %313 = trunc i32 %312 to i8
   %314 = and i8 %313, 15
@@ -4439,9 +4439,9 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
   %371 = or i32 %370, 257
   store i32 %371, ptr %369, align 4, !tbaa !157
   %372 = getelementptr inbounds nuw i8, ptr %367, i64 48
-  %373 = load i32, ptr %372, align 4, !tbaa !96
+  %373 = load i32, ptr %372, align 8, !tbaa !96
   %374 = or i32 %373, %362
-  store i32 %374, ptr %372, align 4, !tbaa !96
+  store i32 %374, ptr %372, align 8, !tbaa !96
   %375 = getelementptr inbounds nuw i8, ptr %161, i64 52
   %376 = load i32, ptr %375, align 4, !tbaa !257
   %377 = and i32 %376, 2
@@ -4810,9 +4810,9 @@ _ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE8logBlockEPNS0_7RABl
   %606 = or i32 %605, 1
   store i32 %606, ptr %604, align 4, !tbaa !157
   %607 = getelementptr inbounds nuw i8, ptr %602, i64 48
-  %608 = load i32, ptr %607, align 4, !tbaa !96
+  %608 = load i32, ptr %607, align 8, !tbaa !96
   %609 = or i32 %608, %362
-  store i32 %609, ptr %607, align 4, !tbaa !96
+  store i32 %609, ptr %607, align 8, !tbaa !96
   %610 = load ptr, ptr %98, align 8, !tbaa !265
   %611 = call noundef i32 @_ZN6asmjit9_abi_1_107RABlock15appendSuccessorEPS1_(ptr noundef nonnull align 8 dereferenceable(208) %602, ptr noundef %610) #16
   %612 = icmp eq i32 %611, 0
@@ -4908,9 +4908,9 @@ _ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE8logBlockEPNS0_7RABl
   store i32 %663, ptr %661, align 4, !tbaa !157
   %664 = getelementptr inbounds nuw i8, ptr %620, i64 48
   %665 = load i32, ptr %96, align 8, !tbaa !96
-  %666 = load i32, ptr %664, align 4, !tbaa !96
+  %666 = load i32, ptr %664, align 8, !tbaa !96
   %667 = or i32 %666, %665
-  store i32 %667, ptr %664, align 4, !tbaa !96
+  store i32 %667, ptr %664, align 8, !tbaa !96
   %668 = call noundef i32 @_ZN6asmjit9_abi_1_107RABlock15appendSuccessorEPS1_(ptr noundef nonnull align 8 dereferenceable(208) %620, ptr noundef nonnull %623) #16
   %669 = icmp eq i32 %668, 0
   br i1 %669, label %670, label %.loopexit56
@@ -4944,9 +4944,9 @@ _ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE8logBlockEPNS0_7RABl
   store i32 %685, ptr %683, align 4, !tbaa !157
   %686 = getelementptr inbounds nuw i8, ptr %620, i64 48
   %687 = load i32, ptr %96, align 8, !tbaa !96
-  %688 = load i32, ptr %686, align 4, !tbaa !96
+  %688 = load i32, ptr %686, align 8, !tbaa !96
   %689 = or i32 %688, %687
-  store i32 %689, ptr %686, align 4, !tbaa !96
+  store i32 %689, ptr %686, align 8, !tbaa !96
   %690 = load ptr, ptr %0, align 8, !tbaa !46
   %691 = call noundef ptr @_ZN6asmjit9_abi_1_1010BaseRAPass8newBlockEPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(944) %690, ptr noundef nonnull %107) #16
   %692 = icmp eq ptr %691, null
@@ -5056,9 +5056,9 @@ _ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE8logBlockEPNS0_7RABl
   store i32 %766, ptr %764, align 4, !tbaa !157
   %767 = getelementptr inbounds nuw i8, ptr %762, i64 48
   %768 = load i32, ptr %96, align 8, !tbaa !96
-  %769 = load i32, ptr %767, align 4, !tbaa !96
+  %769 = load i32, ptr %767, align 8, !tbaa !96
   %770 = or i32 %769, %768
-  store i32 %770, ptr %767, align 4, !tbaa !96
+  store i32 %770, ptr %767, align 8, !tbaa !96
   %771 = load ptr, ptr %0, align 8, !tbaa !46
   %772 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass12addExitBlockEPNS0_7RABlockE(ptr noundef nonnull align 8 dereferenceable(944) %771, ptr noundef %762) #16
   %773 = icmp eq i32 %772, 0

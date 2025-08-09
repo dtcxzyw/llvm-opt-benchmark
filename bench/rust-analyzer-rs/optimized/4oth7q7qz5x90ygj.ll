@@ -47823,7 +47823,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h14e84330fbd171efE.exit.thread:
   %117 = getelementptr inbounds i8, ptr %113, i64 -8
   %118 = load i64, ptr %117, align 8, !alias.scope !12225, !noalias !12230, !noundef !4
   %119 = load i32, ptr %28, align 8, !noundef !4
-  %120 = load i32, ptr %114, align 4, !noundef !4
+  %120 = load i32, ptr %114, align 8, !noundef !4
   %121 = icmp eq i32 %120, %119
   br i1 %121, label %.backedge, label %122
 

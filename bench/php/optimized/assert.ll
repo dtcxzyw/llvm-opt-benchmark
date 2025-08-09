@@ -705,7 +705,7 @@ zval_try_get_string.exit136.thread:               ; preds = %114, %119, %zval_tr
   %129 = getelementptr inbounds nuw i8, ptr %125, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %129, ptr noundef nonnull align 1 dereferenceable(14) @.str.4, i64 14, i1 false)
   %130 = getelementptr inbounds nuw i8, ptr %125, i64 38
-  store i8 0, ptr %130, align 1, !tbaa !4
+  store i8 0, ptr %130, align 2, !tbaa !4
   %131 = call i32 @zend_alter_ini_entry_ex(ptr noundef nonnull %125, ptr noundef nonnull %.0.i135182, i32 noundef 1, i32 noundef 64, i1 noundef zeroext false) #9
   %132 = load i32, ptr %126, align 4, !tbaa !4
   %133 = and i32 %132, 64
@@ -883,7 +883,7 @@ zval_try_get_string.exit138.thread:               ; preds = %196, %201, %zval_tr
   %211 = getelementptr inbounds nuw i8, ptr %207, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %211, ptr noundef nonnull align 1 dereferenceable(16) @.str.5, i64 16, i1 false)
   %212 = getelementptr inbounds nuw i8, ptr %207, i64 40
-  store i8 0, ptr %212, align 1, !tbaa !4
+  store i8 0, ptr %212, align 8, !tbaa !4
   %213 = call i32 @zend_alter_ini_entry_ex(ptr noundef nonnull %207, ptr noundef nonnull %.0.i137188, i32 noundef 1, i32 noundef 64, i1 noundef zeroext false) #9
   %214 = getelementptr inbounds nuw i8, ptr %.0.i137188, i64 4
   %215 = load i32, ptr %214, align 4, !tbaa !4

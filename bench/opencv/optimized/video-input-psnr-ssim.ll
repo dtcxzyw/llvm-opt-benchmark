@@ -1020,7 +1020,7 @@ _ZNSolsEPFRSoS_E.exit142:                         ; preds = %.noexc274
   %421 = getelementptr inbounds nuw i8, ptr %420, i64 24
   %422 = load i32, ptr %421, align 8, !tbaa !43
   %423 = or i32 %422, 4
-  store i32 %423, ptr %421, align 4, !tbaa !44
+  store i32 %423, ptr %421, align 8, !tbaa !44
   %424 = load i64, ptr %418, align 8
   %425 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %424
   %426 = getelementptr inbounds nuw i8, ptr %425, i64 8
@@ -1249,7 +1249,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit164: ; preds = %504
   %512 = getelementptr inbounds nuw i8, ptr %511, i64 24
   %513 = load i32, ptr %512, align 8, !tbaa !43
   %514 = or i32 %513, 4
-  store i32 %514, ptr %512, align 4, !tbaa !44
+  store i32 %514, ptr %512, align 8, !tbaa !44
   %515 = load i64, ptr %509, align 8
   %516 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %515
   %517 = getelementptr inbounds nuw i8, ptr %516, i64 8
@@ -1294,7 +1294,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit170: ; preds = %525
   %536 = getelementptr inbounds nuw i8, ptr %535, i64 24
   %537 = load i32, ptr %536, align 8, !tbaa !43
   %538 = or i32 %537, 4
-  store i32 %538, ptr %536, align 4, !tbaa !44
+  store i32 %538, ptr %536, align 8, !tbaa !44
   %539 = load i64, ptr %533, align 8
   %540 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %539
   %541 = getelementptr inbounds nuw i8, ptr %540, i64 8
@@ -1319,7 +1319,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit176: ; preds = %_ZNS
   %551 = getelementptr inbounds nuw i8, ptr %550, i64 24
   %552 = load i32, ptr %551, align 8, !tbaa !43
   %553 = or i32 %552, 4
-  store i32 %553, ptr %551, align 4, !tbaa !44
+  store i32 %553, ptr %551, align 8, !tbaa !44
   %554 = load i64, ptr %548, align 8
   %555 = getelementptr inbounds i8, ptr %543, i64 %554
   %556 = getelementptr inbounds nuw i8, ptr %555, i64 8
@@ -1344,7 +1344,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit182: ; preds = %_ZNS
   %566 = getelementptr inbounds nuw i8, ptr %565, i64 24
   %567 = load i32, ptr %566, align 8, !tbaa !43
   %568 = or i32 %567, 4
-  store i32 %568, ptr %566, align 4, !tbaa !44
+  store i32 %568, ptr %566, align 8, !tbaa !44
   %569 = load i64, ptr %563, align 8
   %570 = getelementptr inbounds i8, ptr %558, i64 %569
   %571 = getelementptr inbounds nuw i8, ptr %570, i64 8

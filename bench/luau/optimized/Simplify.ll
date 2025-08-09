@@ -11918,7 +11918,7 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   store i64 %49, ptr %51, align 8, !tbaa !61
   store ptr %40, ptr %32, align 8, !tbaa !59
   store i64 0, ptr %50, align 8, !tbaa !61
-  store i8 0, ptr %40, align 1, !tbaa !62
+  store i8 0, ptr %40, align 8, !tbaa !62
   store i8 1, ptr %34, align 8, !tbaa !67
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS6_.exit.i
 
@@ -11966,7 +11966,7 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   store i64 %71, ptr %73, align 8, !tbaa !61
   store ptr %63, ptr %55, align 8, !tbaa !59
   store i64 0, ptr %72, align 8, !tbaa !61
-  store i8 0, ptr %63, align 1, !tbaa !62
+  store i8 0, ptr %63, align 8, !tbaa !62
   store i8 1, ptr %57, align 8, !tbaa !67
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS6_.exit13.i
 
@@ -12031,7 +12031,7 @@ _ZN4Luau9TableTypeC2EOS0_.exit:                   ; preds = %98, %_ZNKSt7__cxx11
   store i64 %105, ptr %107, align 8, !tbaa !61
   store ptr %96, ptr %93, align 8, !tbaa !59
   store i64 0, ptr %106, align 8, !tbaa !61
-  store i8 0, ptr %96, align 1, !tbaa !62
+  store i8 0, ptr %96, align 8, !tbaa !62
   %108 = getelementptr inbounds nuw i8, ptr %4, i64 264
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 256
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef nonnull align 8 dereferenceable(32) %109, i64 32, i1 false)
@@ -15911,7 +15911,7 @@ _ZN4Luau6detail14DenseHashTableISt4pairIPKNS_4TypeES5_ES2_IS6_bES2_IKS6_bENS0_16
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store ptr %62, ptr %63, align 8, !tbaa !95
   %64 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %65 = load i8, ptr %64, align 1, !tbaa !96, !range !46, !noundef !47
+  %65 = load i8, ptr %64, align 8, !tbaa !96, !range !46, !noundef !47
   %66 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store i8 %65, ptr %66, align 8, !tbaa !239
   br label %67

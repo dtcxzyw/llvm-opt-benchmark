@@ -4077,15 +4077,15 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
   %.sroa.917.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %167, i64 40
   store i8 %134, ptr %.sroa.917.0..sroa_idx.i.i, align 8, !noalias !1429
   %.sroa.10.sroa.5.0..sroa.10.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %167, i64 48
-  store ptr %.val35.i.i, ptr %.sroa.10.sroa.5.0..sroa.10.0..sroa_idx.sroa_idx.i.i, align 1, !noalias !1429
+  store ptr %.val35.i.i, ptr %.sroa.10.sroa.5.0..sroa.10.0..sroa_idx.sroa_idx.i.i, align 8, !noalias !1429
   %.sroa.10.sroa.6.0..sroa.10.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %167, i64 56
-  store i64 %157, ptr %.sroa.10.sroa.6.0..sroa.10.0..sroa_idx.sroa_idx.i.i, align 1, !noalias !1429
+  store i64 %157, ptr %.sroa.10.sroa.6.0..sroa.10.0..sroa_idx.sroa_idx.i.i, align 8, !noalias !1429
   %.sroa.10.sroa.7.0..sroa.10.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %167, i64 64
-  store ptr %111, ptr %.sroa.10.sroa.7.0..sroa.10.0..sroa_idx.sroa_idx.i.i, align 1, !noalias !1429
+  store ptr %111, ptr %.sroa.10.sroa.7.0..sroa.10.0..sroa_idx.sroa_idx.i.i, align 8, !noalias !1429
   %.sroa.10.sroa.8.0..sroa.10.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %167, i64 72
-  store i32 %78, ptr %.sroa.10.sroa.8.0..sroa.10.0..sroa_idx.sroa_idx.i.i, align 1, !noalias !1429
+  store i32 %78, ptr %.sroa.10.sroa.8.0..sroa.10.0..sroa_idx.sroa_idx.i.i, align 8, !noalias !1429
   %.sroa.10.sroa.9.0..sroa.10.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %167, i64 76
-  store i32 %166, ptr %.sroa.10.sroa.9.0..sroa.10.0..sroa_idx.sroa_idx.i.i, align 1, !noalias !1429
+  store i32 %166, ptr %.sroa.10.sroa.9.0..sroa.10.0..sroa_idx.sroa_idx.i.i, align 4, !noalias !1429
   br label %"_ZN4core3ptr161drop_in_place$LT$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$17hd77347798349483dE.llvm.3266194154532769905.exit40.i.i"
 
 186:                                              ; preds = %165, %153, %141

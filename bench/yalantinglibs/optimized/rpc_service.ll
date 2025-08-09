@@ -3417,7 +3417,7 @@ _ZN8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEE26release_request_a
   store i64 %22, ptr %_M_string_length.i13.i.i, align 8, !alias.scope !16
   store ptr %19, ptr %req_attachment_.i, align 8
   store i64 0, ptr %_M_string_length.i12.i.i, align 8
-  store i8 0, ptr %19, align 1
+  store i8 0, ptr %19, align 8
   %23 = getelementptr inbounds nuw i8, ptr %agg.tmp14, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp14, ptr noundef nonnull align 8 dereferenceable(32) %str) #33
   store ptr %23, ptr %agg.tmp14, align 8
@@ -3543,7 +3543,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %if
   store i64 %5, ptr %_M_string_length.i13.i, align 8
   store ptr %2, ptr %attachment, align 8
   store i64 0, ptr %_M_string_length.i12.i, align 8
-  store i8 0, ptr %2, align 1
+  store i8 0, ptr %2, align 8
   %call.i.i2.i2 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #35
           to label %call.i.i2.i.noexc unwind label %lpad
 
@@ -4304,7 +4304,7 @@ CoroSave:
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8, !alias.scope !28
   %index.addr161 = getelementptr inbounds nuw i8, ptr %call, i64 116
-  store i2 0, ptr %index.addr161, align 1
+  store i2 0, ptr %index.addr161, align 4
   ret void
 }
 
@@ -4544,7 +4544,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %if
   store i64 %24, ptr %_M_string_length.i13.i, align 8
   store ptr %21, ptr %hello, align 8
   store i64 0, ptr %_M_string_length.i12.i, align 8
-  store i8 0, ptr %21, align 1
+  store i8 0, ptr %21, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   store i64 0, ptr %ref.tmp14, align 8
   %call.i11 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #35
@@ -4866,7 +4866,7 @@ CoroSave:
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8, !alias.scope !34
   %index.addr331 = getelementptr inbounds nuw i8, ptr %call, i64 512
-  store i3 0, ptr %index.addr331, align 1
+  store i3 0, ptr %index.addr331, align 8
   ret void
 }
 
@@ -5182,7 +5182,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit30: ; preds = %
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8
   store ptr %call.i, ptr %agg.result, align 8, !alias.scope !40
   %index.addr318.i = getelementptr inbounds nuw i8, ptr %call.i, i64 352
-  store i2 0, ptr %index.addr318.i, align 1
+  store i2 0, ptr %index.addr318.i, align 8
   ret void
 }
 
@@ -5742,7 +5742,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %if
   store i64 %24, ptr %_M_string_length.i13.i, align 8
   store ptr %21, ptr %hello, align 8
   store i64 0, ptr %_M_string_length.i12.i, align 8
-  store i8 0, ptr %21, align 1
+  store i8 0, ptr %21, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   store i64 0, ptr %ref.tmp15, align 8
   %call.i11 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #35
@@ -13180,7 +13180,7 @@ entry:
   store ptr %interrupter_.i, ptr %data.i, align 4
   %epoll_fd_.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load i32, ptr %epoll_fd_.i, align 8
-  %1 = load i32, ptr %interrupter_.i, align 4
+  %1 = load i32, ptr %interrupter_.i, align 8
   %call3.i = call i32 @epoll_ctl(i32 noundef %0, i32 noundef 3, i32 noundef %1, ptr noundef nonnull %ev.i) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %ev.i)
   ret void
@@ -22748,7 +22748,7 @@ CoroSave75:
   store ptr null, ptr %lazy2.reload.addr, align 8, !noalias !376
   store ptr %retval.sroa.0.0.copyload.i.i.i.cast, ptr %ref.tmp12.reload.addr, align 8, !alias.scope !376
   %index.addr90 = getelementptr inbounds nuw i8, ptr %call, i64 56
-  store i2 1, ptr %index.addr90, align 1
+  store i2 1, ptr %index.addr90, align 8
   %1 = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.copyload.i.i.i.cast, i64 16
   store ptr %call, ptr %1, align 8
   invoke void @_ZN12async_simple4coro6detail8LazyBaseIbLb1EE11AwaiterBase16awaitSuspendImplEv(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12.reload.addr)
@@ -27134,7 +27134,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i: ; preds
   store i64 %5, ptr %_M_string_length.i13.i.i.i.i, align 8
   store ptr %2, ptr %host_name_3.i.i.i, align 8
   store i64 0, ptr %_M_string_length.i12.i.i.i.i, align 8
-  store i8 0, ptr %2, align 1
+  store i8 0, ptr %2, align 8
   %service_name_.i.i.i = getelementptr inbounds nuw i8, ptr %__dest, i64 64
   %service_name_4.i.i.i = getelementptr inbounds nuw i8, ptr %__orig, i64 64
   %6 = getelementptr inbounds nuw i8, ptr %__dest, i64 80
@@ -27169,7 +27169,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = 
   store i64 %11, ptr %_M_string_length.i13.i6.i.i.i, align 8
   store ptr %8, ptr %service_name_4.i.i.i, align 8
   store i64 0, ptr %_M_string_length.i12.i5.i.i.i, align 8
-  store i8 0, ptr %8, align 1
+  store i8 0, ptr %8, align 8
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %service_name_4.i.i.i) #33
   %12 = load ptr, ptr %host_name_3.i.i.i, align 8
   %cmp.i.i.i1.i.i.i = icmp eq ptr %12, %2
@@ -35251,7 +35251,7 @@ if.then.i.i.i140:                                 ; preds = %if.else.i.i135
 while.body.i.i.i.i142:                            ; preds = %release.i.i.i.i.i144, %if.then.i.i.i140
   %head.0.in.i.i.i.i143 = phi i64 [ %85, %if.then.i.i.i140 ], [ %88, %release.i.i.i.i.i144 ]
   store atomic i64 %head.0.in.i.i.i.i143, ptr %freeListNext.i.i.i.i141 monotonic, align 8
-  store atomic i32 1, ptr %freeListRefs.i.i.i138 release, align 4
+  store atomic i32 1, ptr %freeListRefs.i.i.i138 release, align 8
   %86 = cmpxchg ptr %freeList.i.i137, i64 %head.0.in.i.i.i.i143, i64 %74 release monotonic, align 8
   %87 = extractvalue { i64, i1 } %86, 1
   br i1 %87, label %while.body32, label %release.i.i.i.i.i144
@@ -35486,7 +35486,7 @@ if.then.i.i.i63:                                  ; preds = %if.else.i.i61
 while.body.i.i.i.i:                               ; preds = %release.i.i.i.i.i, %if.then.i.i.i63
   %head.0.in.i.i.i.i = phi i64 [ %135, %if.then.i.i.i63 ], [ %138, %release.i.i.i.i.i ]
   store atomic i64 %head.0.in.i.i.i.i, ptr %freeListNext.i.i.i.i monotonic, align 8
-  store atomic i32 1, ptr %freeListRefs.i.i.i release, align 4
+  store atomic i32 1, ptr %freeListRefs.i.i.i release, align 8
   %136 = cmpxchg ptr %freeList.i.i, i64 %head.0.in.i.i.i.i, i64 %124 release monotonic, align 8
   %137 = extractvalue { i64, i1 } %136, 1
   br i1 %137, label %while.body32, label %release.i.i.i.i.i
@@ -38107,7 +38107,7 @@ if.then.i.i:                                      ; preds = %if.else.i
 while.body.i.i.i:                                 ; preds = %release.i.i.i.i, %if.then.i.i
   %head.0.in.i.i.i = phi i64 [ %26, %if.then.i.i ], [ %29, %release.i.i.i.i ]
   store atomic i64 %head.0.in.i.i.i, ptr %freeListNext.i.i.i monotonic, align 8
-  store atomic i32 1, ptr %freeListRefs.i.i release, align 4
+  store atomic i32 1, ptr %freeListRefs.i.i release, align 8
   %27 = cmpxchg ptr %freeList.i, i64 %head.0.in.i.i.i, i64 %15 release monotonic, align 8
   %28 = extractvalue { i64, i1 } %27, 1
   br i1 %28, label %return, label %release.i.i.i.i
@@ -39571,7 +39571,7 @@ if.then18.i.i.i:                                  ; preds = %acqrel.i31.i.i.i
 while.body.i.i.i.i:                               ; preds = %release.i.i.i.i.i, %if.then18.i.i.i
   %head.0.in.i.i.i.i = phi i64 [ %19, %if.then18.i.i.i ], [ %22, %release.i.i.i.i.i ]
   store atomic i64 %head.0.in.i.i.i.i, ptr %freeListNext.i.i.i monotonic, align 8
-  store atomic i32 1, ptr %freeListRefs.i.i.i release, align 4
+  store atomic i32 1, ptr %freeListRefs.i.i.i release, align 8
   %20 = cmpxchg ptr %freeList.i.i, i64 %head.0.in.i.i.i.i, i64 %head.0.in55.i.i.i release monotonic, align 8
   %21 = extractvalue { i64, i1 } %20, 1
   br i1 %21, label %while.cond.backedge.i.i.i, label %release.i.i.i.i.i
@@ -39879,7 +39879,7 @@ if.then.i.i:                                      ; preds = %if.else.i
 while.body.i.i.i:                                 ; preds = %release.i.i.i.i, %if.then.i.i
   %head.0.in.i.i.i = phi i64 [ %5, %if.then.i.i ], [ %9, %release.i.i.i.i ]
   store atomic i64 %head.0.in.i.i.i, ptr %freeListNext.i.i.i monotonic, align 8
-  store atomic i32 1, ptr %freeListRefs.i.i release, align 4
+  store atomic i32 1, ptr %freeListRefs.i.i release, align 8
   %7 = cmpxchg ptr %freeList.i, i64 %head.0.in.i.i.i, i64 %6 release monotonic, align 8
   %8 = extractvalue { i64, i1 } %7, 1
   br i1 %8, label %invoke.cont8, label %release.i.i.i.i
@@ -39999,7 +39999,7 @@ if.then.i.i25:                                    ; preds = %if.else.i21
 while.body.i.i.i27:                               ; preds = %release.i.i.i.i29, %if.then.i.i25
   %head.0.in.i.i.i28 = phi i64 [ %29, %if.then.i.i25 ], [ %33, %release.i.i.i.i29 ]
   store atomic i64 %head.0.in.i.i.i28, ptr %freeListNext.i.i.i26 monotonic, align 8
-  store atomic i32 1, ptr %freeListRefs.i.i23 release, align 4
+  store atomic i32 1, ptr %freeListRefs.i.i23 release, align 8
   %31 = cmpxchg ptr %freeList.i22, i64 %head.0.in.i.i.i28, i64 %30 release monotonic, align 8
   %32 = extractvalue { i64, i1 } %31, 1
   br i1 %32, label %if.end21, label %release.i.i.i.i29
@@ -42472,7 +42472,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %if
   store i64 %5, ptr %_M_string_length.i13.i, align 8
   store ptr %2, ptr %header_buf, align 8
   store i64 0, ptr %_M_string_length.i12.i, align 8
-  store i8 0, ptr %2, align 1
+  store i8 0, ptr %2, align 8
   %6 = getelementptr inbounds nuw i8, ptr %call, i64 88
   tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %body_buf3.reload.addr, ptr noundef nonnull align 8 dereferenceable(32) %body_buf) #33
   store ptr %6, ptr %body_buf3.reload.addr, align 8
@@ -42505,7 +42505,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit10: ; preds = %
   store i64 %11, ptr %_M_string_length.i13.i5, align 8
   store ptr %8, ptr %body_buf, align 8
   store i64 0, ptr %_M_string_length.i12.i4, align 8
-  store i8 0, ptr %8, align 1
+  store i8 0, ptr %8, align 8
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   %_M_invoker2.i = getelementptr inbounds nuw i8, ptr %resp_attachment, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %resp_attachment4.reload.addr, i8 0, i64 24, i1 false)
@@ -42540,7 +42540,7 @@ CoroSave:                                         ; preds = %if.then.i11, %_ZNSt
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__promise.reload.addr, i8 0, i64 24, i1 false)
   store ptr %call, ptr %agg.result, align 8, !alias.scope !529
   %index.addr155 = getelementptr inbounds nuw i8, ptr %call, i64 176
-  store i2 0, ptr %index.addr155, align 1
+  store i2 0, ptr %index.addr155, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
@@ -48148,7 +48148,7 @@ CoroSave75:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__promise.reload.addr, i8 0, i64 16, i1 false)
   store ptr %retval.sroa.0.0.copyload.i.i.i.cast, ptr %ref.tmp12.reload.addr, align 8, !alias.scope !591
   %index.addr90 = getelementptr inbounds nuw i8, ptr %call, i64 48
-  store i2 1, ptr %index.addr90, align 1
+  store i2 1, ptr %index.addr90, align 8
   %1 = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.copyload.i.i.i.cast, i64 16
   store ptr %call, ptr %1, align 8
   invoke void @_ZN12async_simple4coro6detail8LazyBaseIvLb1EE11AwaiterBase16awaitSuspendImplEv(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12.reload.addr)
@@ -49109,11 +49109,11 @@ call5.i.i.i.i.i.i.i.i.noexc:                      ; preds = %entry
   %_M_result.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i7, i64 24
   store ptr null, ptr %_M_result.i.i.i.i.i.i.i.i.i, align 8, !noalias !597
   %_M_status.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i7, i64 32
-  store i32 0, ptr %_M_status.i.i.i.i.i.i.i.i.i, align 4, !noalias !597
+  store i32 0, ptr %_M_status.i.i.i.i.i.i.i.i.i, align 8, !noalias !597
   %_M_retrieved.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i7, i64 36
-  store i8 0, ptr %_M_retrieved.i.i.i.i.i.i.i.i.i, align 1, !noalias !597
+  store i8 0, ptr %_M_retrieved.i.i.i.i.i.i.i.i.i, align 4, !noalias !597
   %_M_once.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i7, i64 40
-  store i32 0, ptr %_M_once.i.i.i.i.i.i.i.i.i, align 4, !noalias !597
+  store i32 0, ptr %_M_once.i.i.i.i.i.i.i.i.i, align 8, !noalias !597
   store ptr %call5.i.i.i.i.i.i.i.i7, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !597
   store ptr %_M_impl.i.i.i.i.i.i.i, ptr %promise_, align 8, !alias.scope !597
   %call.i = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #35
@@ -60875,7 +60875,7 @@ CoroSave267:                                      ; preds = %if.then
   %_M_index.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i15, i64 56
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8
   %index.addr70.i = getelementptr inbounds nuw i8, ptr %call.i15, i64 160
-  store i2 0, ptr %index.addr70.i, align 1
+  store i2 0, ptr %index.addr70.i, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !745)
   %_executor.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %_executor.i, align 8, !noalias !745
@@ -61073,7 +61073,7 @@ _ZN7coro_io11async_writeIN4asio19basic_stream_socketINS1_2ip3tcpENS1_15any_io_ex
   store ptr %awaitor.reload.addr.i, ptr %ref.tmp10.reload.addr.i, align 8
   %51 = getelementptr inbounds nuw i8, ptr %call.i50, i64 104
   store ptr %ref.tmp12.reload.addr.i, ptr %51, align 8
-  store i2 1, ptr %index.addr70.i57, align 1
+  store i2 1, ptr %index.addr70.i57, align 8
   tail call void @_ZN7coro_io21callback_awaitor_baseISt4pairISt10error_codemENS_16callback_awaitorIS3_EEE21callback_awaitor_implIZNS_11async_writeIN4asio19basic_stream_socketINS9_2ip3tcpENS9_15any_io_executorEEERSt5arrayINS9_12const_bufferELm3EEEEN12async_simple4coro4LazyIS3_EERT_OT0_EUlSN_E_E13await_suspendESt16coroutine_handleIvE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10.reload.addr.i, ptr nonnull align 8 dereferenceable(168) %call.i50) #33
   ret void
 
@@ -62994,7 +62994,7 @@ CoroSave94:                                       ; preds = %invoke.cont14
   %_M_index.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i2, i64 40
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8
   %index.addr65.i = getelementptr inbounds nuw i8, ptr %call.i2, i64 112
-  store i2 0, ptr %index.addr65.i, align 1
+  store i2 0, ptr %index.addr65.i, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !811)
   %_executor.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %_executor.i, align 8, !noalias !811
@@ -63261,7 +63261,7 @@ CoroSave153:                                      ; preds = %if.then
   %3 = getelementptr inbounds nuw i8, ptr %call.i34, i64 32
   store i64 0, ptr %3, align 8
   %index.addr109.i = getelementptr inbounds nuw i8, ptr %call.i34, i64 96
-  store i2 0, ptr %index.addr109.i, align 1
+  store i2 0, ptr %index.addr109.i, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !821)
   %_executor.i5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %_executor.i5, align 8, !noalias !821
@@ -63424,7 +63424,7 @@ CoroSave157:                                      ; preds = %invoke.cont61
   %33 = getelementptr inbounds nuw i8, ptr %call.i1720, i64 32
   store i64 0, ptr %33, align 8
   %index.addr108.i = getelementptr inbounds nuw i8, ptr %call.i1720, i64 192
-  store i2 0, ptr %index.addr108.i, align 1
+  store i2 0, ptr %index.addr108.i, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !831)
   %_executor.i21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load ptr, ptr %_executor.i21, align 8, !noalias !831
@@ -63878,7 +63878,7 @@ CoroSave147:                                      ; preds = %if.end
   %18 = getelementptr inbounds nuw i8, ptr %call.i1213, i64 32
   store i64 0, ptr %18, align 8
   %index.addr174.i = getelementptr inbounds nuw i8, ptr %call.i1213, i64 96
-  store i3 0, ptr %index.addr174.i, align 1
+  store i3 0, ptr %index.addr174.i, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !844)
   %_executor.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %_executor.i, align 8, !noalias !844
@@ -64546,7 +64546,7 @@ CoroSave113:                                      ; preds = %invoke.cont14
   %_M_index.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i3, i64 40
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8
   %index.addr65.i = getelementptr inbounds nuw i8, ptr %call.i3, i64 112
-  store i2 0, ptr %index.addr65.i, align 1
+  store i2 0, ptr %index.addr65.i, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !857)
   %_executor.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %_executor.i, align 8, !noalias !857
@@ -66225,7 +66225,7 @@ invoke.cont93:                                    ; preds = %if.else.i.i, %if.th
   %_M_index.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i5556, i64 40
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8
   %index.addr128.i = getelementptr inbounds nuw i8, ptr %call.i5556, i64 144
-  store i2 0, ptr %index.addr128.i, align 1
+  store i2 0, ptr %index.addr128.i, align 8
   %this1.reload304 = load ptr, ptr %this1.reload.addr313, align 8
   %_executor.i = getelementptr inbounds nuw i8, ptr %call.i5556, i64 24
   store ptr %this1.reload304, ptr %_executor.i, align 8, !noalias !882
@@ -66326,7 +66326,7 @@ CoroSave276:                                      ; preds = %_ZNSt7__cxx1112basi
   %_M_index.i.i.i.i.i.i.i.i.i.i76 = getelementptr inbounds nuw i8, ptr %call.i73, i64 48
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i.i76, align 8
   %index.addr127.i = getelementptr inbounds nuw i8, ptr %call.i73, i64 352
-  store i2 0, ptr %index.addr127.i, align 1
+  store i2 0, ptr %index.addr127.i, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !885)
   %_executor.i77 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %65 = load ptr, ptr %_executor.i77, align 8, !noalias !885
@@ -66500,7 +66500,7 @@ invoke.cont145:                                   ; preds = %_ZN12async_simple4c
   store ptr null, ptr %_ctx.i.i.i.i.i, align 8, !noalias !901
   store ptr %call.i2.i.i.i, ptr %_viaCoroutine.i.i.i, align 8, !alias.scope !909
   %index.addr35.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i2.i.i.i, i64 56
-  store i1 false, ptr %index.addr35.i.i.i.i, align 1, !noalias !901
+  store i1 false, ptr %index.addr35.i.i.i.i, align 8, !noalias !901
   %90 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   br label %for.body.i.i.i.i.i.i.i
 
@@ -67260,7 +67260,7 @@ CoroSave113:                                      ; preds = %invoke.cont14
   %_M_index.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i3, i64 40
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8
   %index.addr65.i = getelementptr inbounds nuw i8, ptr %call.i3, i64 112
-  store i2 0, ptr %index.addr65.i, align 1
+  store i2 0, ptr %index.addr65.i, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !915)
   %_executor.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %_executor.i, align 8, !noalias !915
@@ -68390,7 +68390,7 @@ CoroSave415:                                      ; preds = %if.then28
   %_M_index.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i11, i64 56
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8
   %index.addr70.i = getelementptr inbounds nuw i8, ptr %call.i11, i64 160
-  store i2 0, ptr %index.addr70.i, align 1
+  store i2 0, ptr %index.addr70.i, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !928)
   %_executor.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load ptr, ptr %_executor.i, align 8, !noalias !928
@@ -68538,7 +68538,7 @@ CoroSave419:                                      ; preds = %if.else
   %_M_index.i.i.i.i.i.i.i.i.i.i38 = getelementptr inbounds nuw i8, ptr %call.i32, i64 56
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i.i38, align 8
   %index.addr70.i39 = getelementptr inbounds nuw i8, ptr %call.i32, i64 160
-  store i2 0, ptr %index.addr70.i39, align 1
+  store i2 0, ptr %index.addr70.i39, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !941)
   %_executor.i40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %58 = load ptr, ptr %_executor.i40, align 8, !noalias !941
@@ -68683,7 +68683,7 @@ CoroSave423:                                      ; preds = %if.then115
   %_M_index.i.i.i.i.i.i.i.i.i.i79 = getelementptr inbounds nuw i8, ptr %call.i73, i64 56
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i.i79, align 8
   %index.addr70.i80 = getelementptr inbounds nuw i8, ptr %call.i73, i64 160
-  store i2 0, ptr %index.addr70.i80, align 1
+  store i2 0, ptr %index.addr70.i80, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !954)
   %_executor.i81 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %86 = load ptr, ptr %_executor.i81, align 8, !noalias !954
@@ -68797,7 +68797,7 @@ CoroSave427:                                      ; preds = %if.then159
   %_M_index.i.i.i.i.i.i.i.i.i.i110 = getelementptr inbounds nuw i8, ptr %call.i104, i64 56
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i.i110, align 8
   %index.addr70.i111 = getelementptr inbounds nuw i8, ptr %call.i104, i64 160
-  store i2 0, ptr %index.addr70.i111, align 1
+  store i2 0, ptr %index.addr70.i111, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !967)
   %_executor.i113 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %107 = load ptr, ptr %_executor.i113, align 8, !noalias !967
@@ -69010,7 +69010,7 @@ CoroSave431:                                      ; preds = %invoke.cont205
   %_M_index.i.i.i.i.i.i.i.i.i.i161 = getelementptr inbounds nuw i8, ptr %call.i155, i64 56
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i.i161, align 8
   %index.addr70.i162 = getelementptr inbounds nuw i8, ptr %call.i155, i64 160
-  store i2 0, ptr %index.addr70.i162, align 1
+  store i2 0, ptr %index.addr70.i162, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !980)
   %_executor.i163 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %150 = load ptr, ptr %_executor.i163, align 8, !noalias !980
@@ -70382,7 +70382,7 @@ invoke.cont73:                                    ; preds = %if.else.i.i, %if.th
   %_M_index.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i2829, i64 40
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8
   %index.addr128.i = getelementptr inbounds nuw i8, ptr %call.i2829, i64 144
-  store i2 0, ptr %index.addr128.i, align 1
+  store i2 0, ptr %index.addr128.i, align 8
   %this1.reload253 = load ptr, ptr %this1.reload.addr258, align 8
   %_executor.i = getelementptr inbounds nuw i8, ptr %call.i2829, i64 24
   store ptr %this1.reload253, ptr %_executor.i, align 8, !noalias !999
@@ -70477,7 +70477,7 @@ CoroSave230:                                      ; preds = %_ZNSt7__cxx1112basi
   %_M_index.i.i.i.i.i.i.i.i.i.i50 = getelementptr inbounds nuw i8, ptr %call.i4651, i64 80
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i.i50, align 8
   %index.addr474.i = getelementptr inbounds nuw i8, ptr %call.i4651, i64 548
-  store i3 0, ptr %index.addr474.i, align 1
+  store i3 0, ptr %index.addr474.i, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !1002)
   %_executor.i52 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %60 = load ptr, ptr %_executor.i52, align 8, !noalias !1002
@@ -70883,7 +70883,7 @@ invoke.cont145:                                   ; preds = %_ZN12async_simple4c
   store ptr null, ptr %_ctx.i.i.i.i.i, align 8, !noalias !1018
   store ptr %call.i2.i.i.i, ptr %_viaCoroutine.i.i.i, align 8, !alias.scope !1026
   %index.addr35.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i2.i.i.i, i64 56
-  store i1 false, ptr %index.addr35.i.i.i.i, align 1, !noalias !1018
+  store i1 false, ptr %index.addr35.i.i.i.i, align 8, !noalias !1018
   %120 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   br label %for.body.i.i.i.i.i.i.i
 
@@ -71610,7 +71610,7 @@ CoroSave307:                                      ; preds = %if.end
   %_M_index.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i1516, i64 40
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8
   %index.addr76.i = getelementptr inbounds nuw i8, ptr %call.i1516, i64 64
-  store i2 0, ptr %index.addr76.i, align 1
+  store i2 0, ptr %index.addr76.i, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1032)
   %_executor.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %_executor.i, align 8, !noalias !1032
@@ -72102,7 +72102,7 @@ CoroSave315:                                      ; preds = %if.end159
   %_M_index.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i98, i64 80
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1058
   %index.addr261.i.i = getelementptr inbounds nuw i8, ptr %call.i.i98, i64 496
-  store i2 0, ptr %index.addr261.i.i, align 1, !noalias !1058
+  store i2 0, ptr %index.addr261.i.i, align 8, !noalias !1058
   call void @llvm.experimental.noalias.scope.decl(metadata !1061)
   %_executor.i99 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %100 = load ptr, ptr %_executor.i99, align 8, !noalias !1061

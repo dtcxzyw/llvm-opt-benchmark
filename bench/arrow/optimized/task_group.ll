@@ -464,9 +464,9 @@ _ZN5arrow9StopTokenC2ERKS0_.exit:                 ; preds = %3, %13, %16
   store ptr %18, ptr %23, align 8, !tbaa !11
   store ptr null, ptr %4, align 8, !tbaa !3
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i32 0, ptr %24, align 4, !tbaa !58
+  store i32 0, ptr %24, align 8, !tbaa !58
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 52
-  store i8 1, ptr %25, align 1, !tbaa !59
+  store i8 1, ptr %25, align 4, !tbaa !59
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 53
   store i8 0, ptr %26, align 1, !tbaa !59
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 56

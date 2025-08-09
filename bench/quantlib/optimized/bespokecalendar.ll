@@ -134,7 +134,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %if
   store i64 %7, ptr %_M_string_length.i13.i, align 8, !tbaa !21
   store ptr %4, ptr %name, align 8, !tbaa !19
   store i64 0, ptr %_M_string_length.i12.i, align 8, !tbaa !21
-  store i8 0, ptr %4, align 1, !tbaa !22
+  store i8 0, ptr %4, align 8, !tbaa !22
   %weekend_mask_ = getelementptr inbounds nuw i8, ptr %this, i64 136
   store i32 0, ptr %weekend_mask_, align 8, !tbaa !23
   ret void

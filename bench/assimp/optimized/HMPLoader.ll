@@ -918,7 +918,7 @@ _ZN6Assimp11HMPImporter21GenerateTextureCoordsEjj.exit: ; preds = %._crit_edge.u
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %119, ptr noundef nonnull align 1 dereferenceable(12) @.str.23, i64 12, i1 false)
   %120 = getelementptr inbounds nuw i8, ptr %118, i64 16
-  store i8 0, ptr %120, align 1
+  store i8 0, ptr %120, align 4
   %121 = load ptr, ptr %6, align 8
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = load ptr, ptr %122, align 8
@@ -1194,7 +1194,7 @@ _ZN6Assimp11HMPImporter21GenerateTextureCoordsEjj.exit: ; preds = %._crit_edge.u
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %134, ptr noundef nonnull align 1 dereferenceable(12) @.str.23, i64 12, i1 false)
   %135 = getelementptr inbounds nuw i8, ptr %133, i64 16
-  store i8 0, ptr %135, align 1
+  store i8 0, ptr %135, align 4
   %136 = load ptr, ptr %6, align 8
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %138 = load ptr, ptr %137, align 8

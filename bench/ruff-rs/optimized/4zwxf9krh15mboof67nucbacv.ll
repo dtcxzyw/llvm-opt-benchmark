@@ -4730,7 +4730,7 @@ define hidden void @_ZN12clap_builder4util9any_value8AnyValue13downcast_into17h2
   %.sroa.6.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %11, i64 17
   %.sroa.6.sroa.0.0.copyload = load i8, ptr %.sroa.6.0..sroa_idx13, align 1
   %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx13.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 18
-  %.sroa.6.sroa.4.0.copyload = load i8, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx13.sroa_idx, align 1
+  %.sroa.6.sroa.4.0.copyload = load i8, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx13.sroa_idx, align 2
   %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx13.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.6.sroa.5, ptr noundef nonnull align 1 dereferenceable(5) %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx13.sroa_idx, i64 5, i1 false)
   %.sroa.614.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -16730,7 +16730,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.011.052.i, i64 50
   %49 = load i8, ptr %48, align 2, !range !1233, !alias.scope !2612, !noalias !2610, !noundef !4
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.011.052.i, i64 48
-  %.val.i.i.i = load i8, ptr %50, align 1, !alias.scope !2612, !noalias !2610, !noundef !4
+  %.val.i.i.i = load i8, ptr %50, align 2, !alias.scope !2612, !noalias !2610, !noundef !4
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.011.052.i, i64 49
   %.val2.i.i.i = load i8, ptr %51, align 1, !alias.scope !2612, !noalias !2610, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.025.i)

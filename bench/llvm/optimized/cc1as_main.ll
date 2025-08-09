@@ -436,19 +436,19 @@ define dso_local noundef range(i32 0, 2) i32 @_Z10cc1as_mainN4llvm8ArrayRefIPKcE
   store ptr %98, ptr %97, align 8, !tbaa !3
   %99 = getelementptr inbounds nuw i8, ptr %96, i64 56
   store i64 0, ptr %99, align 8, !tbaa !9
-  store i8 0, ptr %98, align 1, !tbaa !12
+  store i8 0, ptr %98, align 8, !tbaa !12
   %100 = getelementptr inbounds nuw i8, ptr %96, i64 80
   %101 = getelementptr inbounds nuw i8, ptr %96, i64 96
   store ptr %101, ptr %100, align 8, !tbaa !3
   %102 = getelementptr inbounds nuw i8, ptr %96, i64 88
   store i64 0, ptr %102, align 8, !tbaa !9
-  store i8 0, ptr %101, align 1, !tbaa !12
+  store i8 0, ptr %101, align 8, !tbaa !12
   %103 = getelementptr inbounds nuw i8, ptr %96, i64 112
   %104 = getelementptr inbounds nuw i8, ptr %96, i64 128
   store ptr %104, ptr %103, align 8, !tbaa !3
   %105 = getelementptr inbounds nuw i8, ptr %96, i64 120
   store i64 0, ptr %105, align 8, !tbaa !9
-  store i8 0, ptr %104, align 1, !tbaa !12
+  store i8 0, ptr %104, align 8, !tbaa !12
   %106 = getelementptr inbounds nuw i8, ptr %96, i64 144
   %107 = getelementptr inbounds nuw i8, ptr %96, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %106, i8 0, i64 120, i1 false)
@@ -463,7 +463,7 @@ define dso_local noundef range(i32 0, 2) i32 @_Z10cc1as_mainN4llvm8ArrayRefIPKcE
   %112 = getelementptr inbounds nuw i8, ptr %96, i64 36
   store i64 8, ptr %112, align 4
   store i8 0, ptr %108, align 4
-  store i32 1, ptr %96, align 4, !tbaa !13
+  store i32 1, ptr %96, align 8, !tbaa !13
   %113 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #19
   %114 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #18
   tail call void @_ZN5clang21TextDiagnosticPrinterC1ERN4llvm11raw_ostreamEPNS_17DiagnosticOptionsEb(ptr noundef nonnull align 8 dereferenceable(73) %113, ptr noundef nonnull align 8 dereferenceable(48) %114, ptr noundef nonnull %96, i1 noundef zeroext false) #18
@@ -721,7 +721,7 @@ _ZN4llvm18IntrusiveRefCntPtrIN5clang13DiagnosticIDsEED2Ev.exit: ; preds = %_ZN4l
   store ptr %233, ptr %.ptr.i.i.i.i.i, align 8, !tbaa !3
   %234 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i.i, i64 8
   store i64 0, ptr %234, align 8, !tbaa !9
-  store i8 0, ptr %233, align 1, !tbaa !12
+  store i8 0, ptr %233, align 8, !tbaa !12
   %.add.i.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i.i, 32
   %235 = icmp eq i64 %.add.i.i.i.i.i, 416
   br i1 %235, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i.i, label %232
@@ -1481,7 +1481,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %531, %527
   store ptr %552, ptr %.ptr.i.i.i.i546.i, align 8, !tbaa !3
   %553 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i546.i, i64 8
   store i64 0, ptr %553, align 8, !tbaa !9
-  store i8 0, ptr %552, align 1, !tbaa !12
+  store i8 0, ptr %552, align 8, !tbaa !12
   %.add.i.i.i.i547.i = add nuw nsw i64 %.idx.i.i.i.i545.i, 32
   %554 = icmp eq i64 %.add.i.i.i.i547.i, 416
   br i1 %554, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i548.i, label %551
@@ -6383,7 +6383,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEm
   store ptr %14, ptr %.ptr.i.i.i, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %15, align 8, !tbaa !9
-  store i8 0, ptr %14, align 1, !tbaa !12
+  store i8 0, ptr %14, align 8, !tbaa !12
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %16 = icmp eq i64 %.add.i.i.i, 416
   br i1 %16, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %13
@@ -6974,7 +6974,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llv
   store ptr %16, ptr %.ptr.i.i.i, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %17, align 8, !tbaa !9
-  store i8 0, ptr %16, align 1, !tbaa !12
+  store i8 0, ptr %16, align 8, !tbaa !12
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %18 = icmp eq i64 %.add.i.i.i, 416
   br i1 %18, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %15
@@ -7420,7 +7420,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %19, ptr %20, align 8, !tbaa !9
   store ptr %10, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !16
   store i64 0, ptr %18, align 8, !tbaa !9
-  store i8 0, ptr %10, align 1, !tbaa !12
+  store i8 0, ptr %10, align 8, !tbaa !12
   %21 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 48
@@ -7452,7 +7452,7 @@ _ZSt10_ConstructISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_
   store i64 %34, ptr %35, align 8, !tbaa !9
   store ptr %25, ptr %22, align 8, !tbaa !16
   store i64 0, ptr %33, align 8, !tbaa !9
-  store i8 0, ptr %25, align 1, !tbaa !12
+  store i8 0, ptr %25, align 8, !tbaa !12
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 64
   %37 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 64
   %.not.i.i.i.i.i = icmp eq ptr %36, %7

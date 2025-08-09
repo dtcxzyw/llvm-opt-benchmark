@@ -1615,7 +1615,7 @@ _ZN5faiss12_GLOBAL__N_112BuildScanner1fINS_16HammingComputer4EEEPNS_19InvertedLi
   store ptr %.0.i.i.i.i.i28.i.i.i, ptr %101, align 8, !tbaa !102
   %102 = getelementptr inbounds nuw i8, ptr %34, i64 136
   %103 = load i32, ptr %77, align 4, !tbaa !56
-  store i32 %103, ptr %102, align 4, !tbaa !103
+  store i32 %103, ptr %102, align 8, !tbaa !103
   %104 = zext i1 %1 to i8
   store i8 %104, ptr %37, align 1, !tbaa !87
   store i64 %29, ptr %100, align 8, !tbaa !104
@@ -2159,7 +2159,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i81.i: ; preds = %304
   %.phi.trans.insert.i87.i = getelementptr inbounds nuw i8, ptr %313, i64 8
   %.pre.i88.i = load i64, ptr %.phi.trans.insert.i87.i, align 8, !tbaa !55
   %.phi.trans.insert4.i.i = getelementptr inbounds nuw i8, ptr %313, i64 16
-  %.pre5.i.i = load i32, ptr %.phi.trans.insert4.i.i, align 4, !tbaa !56
+  %.pre5.i.i = load i32, ptr %.phi.trans.insert4.i.i, align 8, !tbaa !56
   br label %_ZN5faiss12_GLOBAL__N_112BuildScanner1fINS_17HammingComputer20EEEPNS_19InvertedListScannerEPKNS_20IndexIVFSpectralHashEb.exit.i
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i.thread.i76.i:     ; preds = %295
@@ -5696,7 +5696,7 @@ _ZN5faiss12_GLOBAL__N_118binarize_with_freqEmfPKfS2_Ph.exit: ; preds = %.lr.ph.i
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i64 %105, ptr %106, align 8, !tbaa !128
   %107 = getelementptr inbounds nuw i8, ptr %102, i64 16
-  %108 = load i32, ptr %107, align 4, !tbaa !56
+  %108 = load i32, ptr %107, align 8, !tbaa !56
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 %108, ptr %109, align 8, !tbaa !129
   br label %110
@@ -5775,7 +5775,7 @@ _ZN5faiss12_GLOBAL__N_118binarize_with_freqEmfPKfS2_Ph.exit: ; preds = %.lr.ph.i
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i64 %45, ptr %46, align 8, !tbaa !128
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %48 = load i32, ptr %47, align 4, !tbaa !56
+  %48 = load i32, ptr %47, align 8, !tbaa !56
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 %48, ptr %49, align 8, !tbaa !129
   br label %50
@@ -5801,7 +5801,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_110IVFScannerINS_17Hamming
   %15 = trunc nuw nsw i64 %14 to i32
   %16 = add nuw nsw i32 %15, %8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %18 = load i32, ptr %17, align 4, !tbaa !56
+  %18 = load i32, ptr %17, align 8, !tbaa !56
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %20 = load i32, ptr %19, align 8, !tbaa !129
   %21 = xor i32 %20, %18
@@ -5853,7 +5853,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_110IVFScannerINS_17HammingCo
   %31 = trunc nuw nsw i64 %30 to i32
   %32 = add nuw nsw i32 %31, %25
   %33 = getelementptr inbounds nuw i8, ptr %.023, i64 16
-  %34 = load i32, ptr %33, align 4, !tbaa !56
+  %34 = load i32, ptr %33, align 8, !tbaa !56
   %35 = xor i32 %11, %34
   %36 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %35)
   %37 = add nuw nsw i32 %32, %36
@@ -5996,7 +5996,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer2
   %24 = trunc nuw nsw i64 %23 to i32
   %25 = add nuw nsw i32 %24, %18
   %26 = getelementptr inbounds nuw i8, ptr %.017, i64 16
-  %27 = load i32, ptr %26, align 4, !tbaa !56
+  %27 = load i32, ptr %26, align 8, !tbaa !56
   %28 = load i32, ptr %9, align 8, !tbaa !129
   %29 = xor i32 %28, %27
   %30 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %29)

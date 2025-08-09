@@ -2910,11 +2910,11 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_13CXXRecordDeclEEENS1_15
   %305 = getelementptr inbounds nuw i8, ptr %302, i64 32
   store ptr %305, ptr %304, align 8, !tbaa !25, !noalias !208
   %306 = load i64, ptr %298, align 8, !noalias !208
-  store i64 %306, ptr %305, align 1, !noalias !208
+  store i64 %306, ptr %305, align 8, !noalias !208
   %307 = getelementptr inbounds nuw i8, ptr %302, i64 24
   store i64 8, ptr %307, align 8, !tbaa !28, !noalias !208
   %308 = getelementptr inbounds nuw i8, ptr %302, i64 40
-  store i8 0, ptr %308, align 1, !tbaa !31, !noalias !208
+  store i8 0, ptr %308, align 8, !tbaa !31, !noalias !208
   %309 = atomicrmw add ptr %303, i32 1 monotonic, align 4, !noalias !208
   %310 = atomicrmw add ptr %303, i32 1 monotonic, align 4, !noalias !211
   %311 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #21, !noalias !214
@@ -3937,11 +3937,11 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_17ObjCInterfaceDeclEEENS
   %743 = getelementptr inbounds nuw i8, ptr %740, i64 32
   store ptr %743, ptr %742, align 8, !tbaa !25, !noalias !398
   %744 = load i64, ptr %736, align 8, !noalias !398
-  store i64 %744, ptr %743, align 1, !noalias !398
+  store i64 %744, ptr %743, align 8, !noalias !398
   %745 = getelementptr inbounds nuw i8, ptr %740, i64 24
   store i64 8, ptr %745, align 8, !tbaa !28, !noalias !398
   %746 = getelementptr inbounds nuw i8, ptr %740, i64 40
-  store i8 0, ptr %746, align 1, !tbaa !31, !noalias !398
+  store i8 0, ptr %746, align 8, !tbaa !31, !noalias !398
   %747 = atomicrmw add ptr %741, i32 1 monotonic, align 4, !noalias !398
   %748 = atomicrmw add ptr %741, i32 1 monotonic, align 4, !noalias !401
   %749 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #21, !noalias !404
@@ -4972,11 +4972,11 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_13CXXRecordDeclEEENS1_15
   %1191 = getelementptr inbounds nuw i8, ptr %1188, i64 32
   store ptr %1191, ptr %1190, align 8, !tbaa !25, !noalias !560
   %1192 = load i64, ptr %1184, align 8, !noalias !560
-  store i64 %1192, ptr %1191, align 1, !noalias !560
+  store i64 %1192, ptr %1191, align 8, !noalias !560
   %1193 = getelementptr inbounds nuw i8, ptr %1188, i64 24
   store i64 8, ptr %1193, align 8, !tbaa !28, !noalias !560
   %1194 = getelementptr inbounds nuw i8, ptr %1188, i64 40
-  store i8 0, ptr %1194, align 1, !tbaa !31, !noalias !560
+  store i8 0, ptr %1194, align 8, !tbaa !31, !noalias !560
   %1195 = atomicrmw add ptr %1189, i32 1 monotonic, align 4, !noalias !560
   %1196 = atomicrmw add ptr %1189, i32 1 monotonic, align 4, !noalias !563
   %1197 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #21, !noalias !566
@@ -6660,11 +6660,11 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_13CXXRecordDeclEEENS1_15
   %1936 = getelementptr inbounds nuw i8, ptr %1933, i64 32
   store ptr %1936, ptr %1935, align 8, !tbaa !25, !noalias !831
   %1937 = load i64, ptr %1929, align 8, !noalias !831
-  store i64 %1937, ptr %1936, align 1, !noalias !831
+  store i64 %1937, ptr %1936, align 8, !noalias !831
   %1938 = getelementptr inbounds nuw i8, ptr %1933, i64 24
   store i64 8, ptr %1938, align 8, !tbaa !28, !noalias !831
   %1939 = getelementptr inbounds nuw i8, ptr %1933, i64 40
-  store i8 0, ptr %1939, align 1, !tbaa !31, !noalias !831
+  store i8 0, ptr %1939, align 8, !tbaa !31, !noalias !831
   %1940 = atomicrmw add ptr %1934, i32 1 monotonic, align 4, !noalias !831
   %1941 = atomicrmw add ptr %1934, i32 1 monotonic, align 4, !noalias !834
   %1942 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #21, !noalias !837
@@ -6773,7 +6773,7 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_13CXXRecordDeclEEENS1_15
   %1982 = getelementptr inbounds nuw i8, ptr %1978, i64 24
   store i64 6, ptr %1982, align 8, !tbaa !28, !noalias !854
   %1983 = getelementptr inbounds nuw i8, ptr %1978, i64 38
-  store i8 0, ptr %1983, align 1, !tbaa !31, !noalias !854
+  store i8 0, ptr %1983, align 2, !tbaa !31, !noalias !854
   %1984 = atomicrmw add ptr %1979, i32 1 monotonic, align 4, !noalias !854
   %1985 = atomicrmw add ptr %1979, i32 1 monotonic, align 4, !noalias !857
   %1986 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #21, !noalias !860
@@ -7950,11 +7950,11 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_17ObjCInterfaceDeclEEENS
   %2489 = getelementptr inbounds nuw i8, ptr %2486, i64 32
   store ptr %2489, ptr %2488, align 8, !tbaa !25, !noalias !1064
   %2490 = load i64, ptr %2482, align 8, !noalias !1064
-  store i64 %2490, ptr %2489, align 1, !noalias !1064
+  store i64 %2490, ptr %2489, align 8, !noalias !1064
   %2491 = getelementptr inbounds nuw i8, ptr %2486, i64 24
   store i64 8, ptr %2491, align 8, !tbaa !28, !noalias !1064
   %2492 = getelementptr inbounds nuw i8, ptr %2486, i64 40
-  store i8 0, ptr %2492, align 1, !tbaa !31, !noalias !1064
+  store i8 0, ptr %2492, align 8, !tbaa !31, !noalias !1064
   %2493 = atomicrmw add ptr %2487, i32 1 monotonic, align 4, !noalias !1064
   %2494 = atomicrmw add ptr %2487, i32 1 monotonic, align 4, !noalias !1067
   %2495 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #21, !noalias !1070
@@ -8211,7 +8211,7 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_17ObjCInterfaceDeclEEENS
   %2597 = getelementptr inbounds nuw i8, ptr %2593, i64 24
   store i64 6, ptr %2597, align 8, !tbaa !28, !noalias !1139
   %2598 = getelementptr inbounds nuw i8, ptr %2593, i64 38
-  store i8 0, ptr %2598, align 1, !tbaa !31, !noalias !1139
+  store i8 0, ptr %2598, align 2, !tbaa !31, !noalias !1139
   %2599 = atomicrmw add ptr %2594, i32 1 monotonic, align 4, !noalias !1139
   %2600 = atomicrmw add ptr %2594, i32 1 monotonic, align 4, !noalias !1142
   %2601 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #21, !noalias !1145
@@ -9817,11 +9817,11 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_13CXXRecordDeclEEENS1_15
   %3302 = getelementptr inbounds nuw i8, ptr %3299, i64 32
   store ptr %3302, ptr %3301, align 8, !tbaa !25, !noalias !1370
   %3303 = load i64, ptr %3295, align 8, !noalias !1370
-  store i64 %3303, ptr %3302, align 1, !noalias !1370
+  store i64 %3303, ptr %3302, align 8, !noalias !1370
   %3304 = getelementptr inbounds nuw i8, ptr %3299, i64 24
   store i64 8, ptr %3304, align 8, !tbaa !28, !noalias !1370
   %3305 = getelementptr inbounds nuw i8, ptr %3299, i64 40
-  store i8 0, ptr %3305, align 1, !tbaa !31, !noalias !1370
+  store i8 0, ptr %3305, align 8, !tbaa !31, !noalias !1370
   %3306 = atomicrmw add ptr %3300, i32 1 monotonic, align 4, !noalias !1370
   %3307 = atomicrmw add ptr %3300, i32 1 monotonic, align 4, !noalias !1373
   %3308 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #21, !noalias !1376
@@ -10051,7 +10051,7 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_13CXXRecordDeclEEENS1_15
   %3397 = getelementptr inbounds nuw i8, ptr %3393, i64 24
   store i64 6, ptr %3397, align 8, !tbaa !28, !noalias !1431
   %3398 = getelementptr inbounds nuw i8, ptr %3393, i64 38
-  store i8 0, ptr %3398, align 1, !tbaa !31, !noalias !1431
+  store i8 0, ptr %3398, align 2, !tbaa !31, !noalias !1431
   %3399 = atomicrmw add ptr %3394, i32 1 monotonic, align 4, !noalias !1431
   %3400 = atomicrmw add ptr %3394, i32 1 monotonic, align 4, !noalias !1434
   %3401 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #21, !noalias !1437
@@ -11482,7 +11482,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19.i: ; preds = %_
   store ptr %4047, ptr %4046, align 8, !tbaa !25, !noalias !1621
   %4048 = getelementptr inbounds nuw i8, ptr %4040, i64 32
   store i64 0, ptr %4048, align 8, !tbaa !28, !noalias !1621
-  store i8 0, ptr %4047, align 1, !tbaa !31, !noalias !1621
+  store i8 0, ptr %4047, align 8, !tbaa !31, !noalias !1621
   %4049 = getelementptr inbounds nuw i8, ptr %4040, i64 56
   %4050 = getelementptr inbounds nuw i8, ptr %4040, i64 72
   store ptr %4050, ptr %4049, align 8, !tbaa !25, !noalias !1621
@@ -11560,7 +11560,7 @@ _ZN5clang4ento9BugReport8addRangeENS_11SourceRangeE.exit.i: ; preds = %4062, %40
   store ptr null, ptr %4080, align 8, !tbaa !1645, !noalias !1621
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   %4081 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %3975) #19
-  store i64 %4081, ptr %4068, align 1
+  store i64 %4081, ptr %4068, align 8
   store i32 1, ptr %4069, align 8, !tbaa !73
   store ptr %4040, ptr %47, align 8, !tbaa !1647
   %4082 = load ptr, ptr %3, align 8, !tbaa !23
@@ -12367,7 +12367,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19.i1181: ; preds 
   store ptr %4434, ptr %4433, align 8, !tbaa !25, !noalias !1652
   %4435 = getelementptr inbounds nuw i8, ptr %4427, i64 32
   store i64 0, ptr %4435, align 8, !tbaa !28, !noalias !1652
-  store i8 0, ptr %4434, align 1, !tbaa !31, !noalias !1652
+  store i8 0, ptr %4434, align 8, !tbaa !31, !noalias !1652
   %4436 = getelementptr inbounds nuw i8, ptr %4427, i64 56
   %4437 = getelementptr inbounds nuw i8, ptr %4427, i64 72
   store ptr %4437, ptr %4436, align 8, !tbaa !25, !noalias !1652
@@ -12445,7 +12445,7 @@ _ZN5clang4ento9BugReport8addRangeENS_11SourceRangeE.exit.i1188: ; preds = %4449,
   store ptr null, ptr %4467, align 8, !tbaa !1645, !noalias !1652
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %4468 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %4362) #19
-  store i64 %4468, ptr %4455, align 1
+  store i64 %4468, ptr %4455, align 8
   store i32 1, ptr %4456, align 8, !tbaa !73
   store ptr %4427, ptr %38, align 8, !tbaa !1647
   %4469 = load ptr, ptr %3, align 8, !tbaa !23

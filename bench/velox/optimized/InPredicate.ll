@@ -33028,7 +33028,7 @@ if.end:                                           ; preds = %entry
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !275
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !275
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !275
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !275
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -34325,7 +34325,7 @@ entry:
   %size_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !285
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !285
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !285
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 48
@@ -37416,7 +37416,7 @@ if.end:                                           ; preds = %entry
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !316
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !316
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !316
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !316
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -38433,7 +38433,7 @@ entry:
   %size_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !325
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !325
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !325
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 48
@@ -40847,7 +40847,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i.i: ; preds = %
   %capacity_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 32
   store i64 %sub.i.i, ptr %capacity_.i.i.i.i, align 8, !noalias !346
   %referenceCount_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i.i, align 4, !noalias !346
+  store i32 0, ptr %referenceCount_.i.i.i.i, align 8, !noalias !346
   %podType_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 44
   store i8 1, ptr %podType_.i.i.i.i, align 4, !noalias !346
   %padding_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 48
@@ -48803,7 +48803,7 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIjvvvvEEE16initializeChu
   tail call void @llvm.assume(i1 %1)
   %conv.i.i.i = trunc i64 %newCapacityScale to i16
   %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i2.i.i1.i, i64 12
-  store i16 %conv.i.i.i, ptr %arrayidx.i.i.i.i.i, align 1
+  store i16 %conv.i.i.i, ptr %arrayidx.i.i.i.i.i, align 2
   store ptr %call5.i.i2.i.i1.i, ptr %this, align 8
   %chunkMask_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %sub.i28, ptr %chunkMask_, align 8
@@ -49626,7 +49626,7 @@ _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyINSt7__cxx1112basic_str
   tail call void @llvm.assume(i1 %cmp.i.i)
   %conv.i.i.i = trunc i64 %newCapacityScale to i16
   %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i2.i.i7.i, i64 12
-  store i16 %conv.i.i.i, ptr %arrayidx.i.i.i.i.i, align 1
+  store i16 %conv.i.i.i, ptr %arrayidx.i.i.i.i.i, align 2
   store ptr %call5.i.i2.i.i7.i, ptr %chunks_, align 8
   %3 = trunc i64 %newChunkCount to i32
   %conv = add i32 %3, -1

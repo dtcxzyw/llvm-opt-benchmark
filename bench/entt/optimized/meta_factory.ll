@@ -11504,7 +11504,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %906 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %907 = load ptr, ptr %906, align 8, !tbaa !68, !noalias !283
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !283
-  %908 = load i32, ptr %.sroa.0390.0, align 4, !tbaa !73, !noalias !283
+  %908 = load i32, ptr %.sroa.0390.0, align 8, !tbaa !73, !noalias !283
   store i32 %908, ptr %38, align 8, !tbaa !290, !alias.scope !280
   %909 = getelementptr inbounds nuw i8, ptr %38, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %909, ptr noundef nonnull align 4 dereferenceable(96) %.sroa.4.8..sroa_idx.i, i64 96, i1 false)
@@ -11824,7 +11824,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %1030 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %1031 = load ptr, ptr %1030, align 8, !tbaa !68, !noalias !300
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !300
-  %1032 = load i32, ptr %.sroa.0390.0, align 4, !tbaa !73, !noalias !300
+  %1032 = load i32, ptr %.sroa.0390.0, align 8, !tbaa !73, !noalias !300
   store i32 %1032, ptr %43, align 8, !tbaa !290, !alias.scope !297
   %1033 = getelementptr inbounds nuw i8, ptr %43, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %1033, ptr noundef nonnull align 4 dereferenceable(96) %.sroa.4.8..sroa_idx.i350, i64 96, i1 false)
@@ -49962,7 +49962,7 @@ _ZN4entt7type_idIiEERKNS_9type_infoEv.exit:       ; preds = %3, %8, %10
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15, align 8, !tbaa !4, !noalias !938
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = load i32, ptr %2, align 4, !tbaa !73, !noalias !938
-  store i32 %19, ptr %18, align 4, !tbaa !73, !noalias !938
+  store i32 %19, ptr %18, align 8, !tbaa !73, !noalias !938
   store ptr %18, ptr %13, align 8, !tbaa !103
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %14, align 8, !tbaa !68
@@ -63660,7 +63660,7 @@ _ZZN4entt8internal7resolveINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   store ptr %13, ptr %12, align 8, !tbaa !353, !noalias !1080
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 0, ptr %14, align 8, !tbaa !93, !noalias !1080
-  store i8 0, ptr %13, align 1, !tbaa !72, !noalias !1080
+  store i8 0, ptr %13, align 8, !tbaa !72, !noalias !1080
   store ptr %12, ptr %0, align 8, !tbaa !72, !alias.scope !1080
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %15, align 8, !tbaa !326, !alias.scope !1080
@@ -67687,7 +67687,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %8, ptr %7, align 8, !tbaa !353
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %9, align 8, !tbaa !93
-  store i8 0, ptr %8, align 1, !tbaa !72
+  store i8 0, ptr %8, align 8, !tbaa !72
   store ptr %7, ptr %4, align 8, !tbaa !87
   br label %10
 
@@ -81604,7 +81604,7 @@ _ZNK4entt9meta_type4baseEv.exit:                  ; preds = %13, %_ZN4entt8inter
   %57 = load ptr, ptr %42, align 8, !tbaa !104, !noalias !1380
   %58 = load ptr, ptr %43, align 8, !tbaa !68, !noalias !1380
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1380
-  %59 = load i32, ptr %.sroa.051.072, align 4, !tbaa !73, !noalias !1380
+  %59 = load i32, ptr %.sroa.051.072, align 8, !tbaa !73, !noalias !1380
   store i32 %59, ptr %9, align 8, !tbaa !290, !alias.scope !1380
   store i32 %54, ptr %44, align 8, !tbaa !102, !alias.scope !1380
   store ptr %55, ptr %45, align 8, !tbaa !103, !alias.scope !1380

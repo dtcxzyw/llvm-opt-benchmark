@@ -2842,14 +2842,14 @@ switch.lookup:                                    ; preds = %395
   store i32 %2, ptr %465, align 4
   %466 = getelementptr inbounds nuw i8, ptr %12, i64 156
   %467 = getelementptr inbounds nuw i8, ptr %.lcssa84, i64 56
-  %468 = load float, ptr %467, align 4
+  %468 = load float, ptr %467, align 8
   store float %468, ptr %466, align 4
   %469 = getelementptr inbounds nuw i8, ptr %.lcssa84, i64 60
   %470 = load float, ptr %469, align 4
   %471 = getelementptr inbounds nuw i8, ptr %12, i64 160
   store float %470, ptr %471, align 8
   %472 = getelementptr inbounds nuw i8, ptr %.lcssa84, i64 64
-  %473 = load float, ptr %472, align 4
+  %473 = load float, ptr %472, align 8
   %474 = getelementptr inbounds nuw i8, ptr %12, i64 164
   store float %473, ptr %474, align 4
   %475 = getelementptr inbounds nuw i8, ptr %12, i64 168
@@ -2857,7 +2857,7 @@ switch.lookup:                                    ; preds = %395
   %477 = load float, ptr %476, align 4
   store float %477, ptr %475, align 8
   %478 = getelementptr inbounds nuw i8, ptr %.lcssa84, i64 72
-  %479 = load float, ptr %478, align 4
+  %479 = load float, ptr %478, align 8
   %480 = getelementptr inbounds nuw i8, ptr %12, i64 172
   store float %479, ptr %480, align 4
   %481 = getelementptr inbounds nuw i8, ptr %.lcssa84, i64 76

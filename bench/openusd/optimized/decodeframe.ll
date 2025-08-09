@@ -397,9 +397,9 @@ define hidden void @av1_free_mc_tmp_buf(ptr noundef captures(none) %0) local_unn
   tail call void @aom_free(ptr noundef %17) #16
   store ptr null, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 289680
-  %19 = load ptr, ptr %18, align 8
+  %19 = load ptr, ptr %18, align 16
   tail call void @aom_free(ptr noundef %19) #16
-  store ptr null, ptr %18, align 8
+  store ptr null, ptr %18, align 16
   ret void
 }
 
@@ -1665,7 +1665,7 @@ define internal fastcc void @read_uncompressed_header(ptr noundef initializes((4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 458940
   store i32 0, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 458944
-  store i32 0, ptr %12, align 4
+  store i32 0, ptr %12, align 16
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 431880
   %14 = load i32, ptr %13, align 8
   %.not585 = icmp eq i32 %14, 0
@@ -1687,7 +1687,7 @@ define internal fastcc void @read_uncompressed_header(ptr noundef initializes((4
   store i32 0, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48992
   store i32 1, ptr %22, align 16
-  store i8 0, ptr %5, align 4
+  store i8 0, ptr %5, align 16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 431884
   %24 = load i32, ptr %23, align 4
   %.not604 = icmp eq i32 %24, 0
@@ -2666,7 +2666,7 @@ get_free_fb.exit:                                 ; preds = %.thread.i, %485
   %506 = load i32, ptr %442, align 4
   %507 = load i8, ptr %443, align 4
   %508 = zext i8 %507 to i32
-  %509 = load i32, ptr %444, align 4
+  %509 = load i32, ptr %444, align 8
   %510 = getelementptr inbounds nuw i8, ptr %500, i64 1288
   %511 = load ptr, ptr %445, align 8
   %512 = load ptr, ptr %437, align 8
@@ -3816,7 +3816,7 @@ read_tile_info_max_tile.exit.i:                   ; preds = %1074, %.lr.ph101.i.
   store i32 0, ptr %1108, align 32
   %1109 = getelementptr inbounds nuw i8, ptr %0, i64 75108
   %1110 = load i32, ptr %1109, align 4
-  %1111 = load i32, ptr %1000, align 16
+  %1111 = load i32, ptr %1000, align 32
   %1112 = mul nsw i32 %1111, %1110
   %1113 = icmp sgt i32 %1112, 1
   br i1 %1113, label %1114, label %read_tile_info.exit
@@ -3830,7 +3830,7 @@ read_tile_info_max_tile.exit.i:                   ; preds = %1074, %.lr.ph101.i.
   %1120 = call i32 @aom_rb_read_literal(ptr noundef %1, i32 noundef %1119) #16
   store i32 %1120, ptr %1108, align 32
   %1121 = load i32, ptr %1109, align 4
-  %1122 = load i32, ptr %1000, align 16
+  %1122 = load i32, ptr %1000, align 32
   %1123 = mul nsw i32 %1122, %1121
   %.not.i722 = icmp slt i32 %1120, %1123
   br i1 %.not.i722, label %1126, label %1124
@@ -3993,7 +3993,7 @@ setup_quantization.exit:                          ; preds = %1180, %1185, %1187
   store i32 %1191, ptr %1192, align 16
   %1193 = getelementptr inbounds nuw i8, ptr %0, i64 75704
   %1194 = getelementptr inbounds nuw i8, ptr %0, i64 75744
-  %1195 = load i32, ptr %1194, align 8
+  %1195 = load i32, ptr %1194, align 16
   %.val658 = load i8, ptr %962, align 1
   %.not.i728 = icmp eq i8 %.val658, 0
   %1196 = select i1 %.not.i728, i32 3, i32 1
@@ -4343,8 +4343,8 @@ setup_segmentation.exit:                          ; preds = %1345, %1253
   store i32 %1362, ptr %1363, align 4
   %1364 = call i32 @aom_rb_read_literal(ptr noundef %1, i32 noundef 2) #16
   %1365 = shl nuw i32 1, %1364
-  store i32 %1365, ptr %1353, align 4
-  %1366 = load i8, ptr %246, align 4
+  store i32 %1365, ptr %1353, align 8
+  %1366 = load i8, ptr %246, align 8
   %1367 = trunc i8 %1366 to i1
   br i1 %1367, label %thread-pre-split827, label %1368
 
@@ -5511,9 +5511,9 @@ define hidden void @av1_decode_tg_tiles_and_wrapup(ptr noundef %0, ptr noundef %
   tail call void @aom_free(ptr noundef %46) #16
   store ptr null, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 366128
-  %48 = load ptr, ptr %47, align 8
+  %48 = load ptr, ptr %47, align 16
   tail call void @aom_free(ptr noundef %48) #16
-  store ptr null, ptr %47, align 8
+  store ptr null, ptr %47, align 16
   tail call fastcc void @allocate_mc_tmp_buf(ptr noundef nonnull %10, ptr noundef nonnull %29, i32 noundef %26, i32 noundef %25)
   br label %setup_frame_info.exit
 
@@ -5712,7 +5712,7 @@ decoder_alloc_tile_data.exit.i:                   ; preds = %.lr.ph.i.i, %125
   %.1203.us.i = phi i32 [ %.0152208.us.i, %.preheader199.us.i ], [ %147, %146 ]
   %.1156202.us.i = phi i32 [ %.0155207.us.i, %.preheader199.us.i ], [ %151, %146 ]
   %135 = load ptr, ptr %107, align 32
-  %136 = load i32, ptr %11, align 4
+  %136 = load i32, ptr %11, align 32
   %137 = mul nsw i32 %136, %.0149209.us.i
   %138 = sext i32 %137 to i64
   %139 = getelementptr inbounds %struct.TileDataDec, ptr %135, i64 %138
@@ -5970,9 +5970,9 @@ dec_row_mt_alloc.exit.i:                          ; preds = %185, %.loopexit.i.i
   %245 = and i32 %244, %notmask70.us.i.i
   %246 = getelementptr inbounds nuw i8, ptr %231, i64 21400
   store i32 %245, ptr %246, align 8
-  %247 = load i32, ptr %217, align 4
+  %247 = load i32, ptr %217, align 8
   %248 = add nsw i32 %247, %239
-  store i32 %248, ptr %217, align 4
+  store i32 %248, ptr %217, align 8
   %249 = getelementptr inbounds nuw i8, ptr %231, i64 21384
   %250 = load ptr, ptr %249, align 8
   tail call void @llvm.memset.p0.i64(ptr align 4 %250, i8 -1, i64 %219, i1 false)
@@ -6383,7 +6383,7 @@ decoder_alloc_tile_data.exit.i145:                ; preds = %.lr.ph.i.i165, %441
 450:                                              ; preds = %450, %.preheader.us.i
   %indvars.iv.i159 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i160, %450 ]
   %451 = load ptr, ptr %429, align 32
-  %452 = load i32, ptr %11, align 4
+  %452 = load i32, ptr %11, align 32
   %453 = mul nsw i32 %452, %.0108143.us.i
   %454 = sext i32 %453 to i64
   %455 = getelementptr inbounds %struct.TileDataDec, ptr %451, i64 %454
@@ -6776,9 +6776,9 @@ decoder_alloc_tile_data.exit.i173:                ; preds = %.lr.ph.i.i179, %656
   %671 = getelementptr inbounds nuw i8, ptr %0, i64 124280
   store ptr %670, ptr %671, align 8
   %672 = getelementptr inbounds nuw i8, ptr %0, i64 366096
-  %673 = load ptr, ptr %672, align 8
+  %673 = load ptr, ptr %672, align 16
   %674 = getelementptr inbounds nuw i8, ptr %0, i64 124288
-  store ptr %673, ptr %674, align 8
+  store ptr %673, ptr %674, align 32
   %675 = getelementptr inbounds nuw i8, ptr %0, i64 366112
   %676 = load ptr, ptr %675, align 32
   %677 = getelementptr inbounds nuw i8, ptr %0, i64 124248
@@ -6833,7 +6833,7 @@ decoder_alloc_tile_data.exit.i173:                ; preds = %.lr.ph.i.i179, %656
   %717 = add i32 %605, %716
   %718 = select i1 %.0171.i, i32 %.0168201.us.i, i32 %717
   %719 = load ptr, ptr %644, align 32
-  %720 = load i32, ptr %11, align 4
+  %720 = load i32, ptr %11, align 32
   %721 = mul nsw i32 %720, %712
   %722 = sext i32 %721 to i64
   %723 = getelementptr inbounds %struct.TileDataDec, ptr %719, i64 %722
@@ -7776,14 +7776,14 @@ define internal fastcc void @setup_buffer_pool(ptr noundef %0) unnamed_addr #0 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 460
   %11 = load i32, ptr %10, align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 25280
-  %13 = load i32, ptr %12, align 8
+  %13 = load i32, ptr %12, align 16
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 25284
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 25260
   %17 = load i8, ptr %16, align 4
   %18 = zext i8 %17 to i32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1056
-  %20 = load i32, ptr %19, align 4
+  %20 = load i32, ptr %19, align 16
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 1288
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %23 = load ptr, ptr %22, align 8
@@ -8146,9 +8146,9 @@ define internal fastcc void @decode_mt_init(ptr noundef %0) unnamed_addr #0 {
   tail call void @aom_free(ptr noundef %79) #16
   store ptr null, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %60, i64 289680
-  %81 = load ptr, ptr %80, align 8
+  %81 = load ptr, ptr %80, align 16
   tail call void @aom_free(ptr noundef %81) #16
-  store ptr null, ptr %80, align 8
+  store ptr null, ptr %80, align 16
   %82 = load ptr, ptr %59, align 8
   tail call fastcc void @allocate_mc_tmp_buf(ptr noundef nonnull %2, ptr noundef %82, i32 noundef %51, i32 noundef %50)
   %.pre64 = load i32, ptr %52, align 8
@@ -8942,7 +8942,7 @@ alloc_dec_jobs.exit:                              ; preds = %32, %._crit_edge.i,
   %56 = getelementptr inbounds [64 x %struct.TileBufferDec], ptr %46, i64 0, i64 %indvars.iv.i21
   store ptr %56, ptr %.133.us.i, align 8
   %57 = load ptr, ptr %42, align 32
-  %58 = load i32, ptr %40, align 16
+  %58 = load i32, ptr %40, align 32
   %59 = sext i32 %58 to i64
   %60 = mul nsw i64 %indvars.iv40.i, %59
   %61 = getelementptr inbounds %struct.TileDataDec, ptr %57, i64 %60
@@ -8950,9 +8950,9 @@ alloc_dec_jobs.exit:                              ; preds = %32, %._crit_edge.i,
   %63 = getelementptr inbounds nuw i8, ptr %.133.us.i, i64 8
   store ptr %62, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %.133.us.i, i64 16
-  %65 = load i32, ptr %36, align 8
+  %65 = load i32, ptr %36, align 32
   %66 = add nsw i32 %65, 1
-  store i32 %66, ptr %36, align 8
+  store i32 %66, ptr %36, align 32
   br label %67
 
 67:                                               ; preds = %55, %48
@@ -9138,10 +9138,10 @@ get_dec_job_info.exit:                            ; preds = %73
   %106 = xor i32 %notmask.i.i, -1
   %107 = add nsw i32 %104, %106
   %108 = and i32 %107, %notmask.i.i
-  %109 = load i32, ptr %49, align 8
+  %109 = load i32, ptr %49, align 32
   %110 = ashr i32 %.sroa.3.0.copyload.i, %109
   %111 = ashr i32 %108, %109
-  %112 = load ptr, ptr %50, align 8
+  %112 = load ptr, ptr %50, align 32
   %113 = sext i32 %.sroa.7.0.copyload.i to i64
   %114 = getelementptr inbounds ptr, ptr %112, i64 %113
   %115 = load ptr, ptr %114, align 8
@@ -9277,7 +9277,7 @@ set_cb_buffer.exit.us.i:                          ; preds = %159
   %183 = call i32 @pthread_cond_signal(ptr noundef %182) #16
   %184 = load ptr, ptr %45, align 32
   %185 = call i32 @pthread_mutex_unlock(ptr noundef %184) #16
-  %186 = load i32, ptr %70, align 16
+  %186 = load i32, ptr %70, align 32
   %187 = add nsw i32 %186, %.048.us.i
   %188 = icmp slt i32 %187, %.sroa.2.0.copyload.i
   br i1 %188, label %.lr.ph.us.i, label %._crit_edge50.i, !llvm.loop !93
@@ -9299,7 +9299,7 @@ set_cb_buffer.exit.us.i:                          ; preds = %159
   %196 = call i32 @pthread_cond_signal(ptr noundef %195) #16
   %197 = load ptr, ptr %45, align 32
   %198 = call i32 @pthread_mutex_unlock(ptr noundef %197) #16
-  %199 = load i32, ptr %70, align 16
+  %199 = load i32, ptr %70, align 32
   %200 = add nsw i32 %199, %.048.i
   %201 = icmp slt i32 %200, %.sroa.2.0.copyload.i
   br i1 %201, label %.lr.ph49.split.i, label %._crit_edge50.i, !llvm.loop !94
@@ -9395,8 +9395,8 @@ parse_tile_row_mt.exit:                           ; preds = %222, %.lr.ph.i.i, %
   %251 = getelementptr inbounds nuw i8, ptr %1, i64 458852
   %252 = getelementptr inbounds nuw i8, ptr %1, i64 458864
   %253 = getelementptr inbounds nuw i8, ptr %1, i64 458856
-  %254 = load i32, ptr %252, align 4
-  %255 = load i32, ptr %253, align 4
+  %254 = load i32, ptr %252, align 16
+  %255 = load i32, ptr %253, align 8
   %256 = icmp eq i32 %254, %255
   br i1 %256, label %.thread103, label %.lr.ph127.lr.ph
 
@@ -9540,7 +9540,7 @@ parse_tile_row_mt.exit:                           ; preds = %222, %.lr.ph.i.i, %
   %331 = load i8, ptr %330, align 1
   %332 = zext i8 %331 to i32
   %333 = load ptr, ptr %257, align 32
-  %334 = load i32, ptr %24, align 16
+  %334 = load i32, ptr %24, align 32
   %335 = mul nsw i32 %334, %.284.us.i
   %336 = sext i32 %335 to i64
   %337 = getelementptr inbounds %struct.TileDataDec, ptr %333, i64 %336
@@ -9548,18 +9548,18 @@ parse_tile_row_mt.exit:                           ; preds = %222, %.lr.ph.i.i, %
   %339 = getelementptr inbounds %struct.TileDataDec, ptr %337, i64 %338
   %.sroa.0.0.copyload.i80 = load i32, ptr %339, align 16
   %340 = getelementptr inbounds nuw i8, ptr %339, i64 21408
-  %341 = load i32, ptr %340, align 8
+  %341 = load i32, ptr %340, align 16
   %342 = add nsw i32 %341, %.sroa.0.0.copyload.i80
   %343 = getelementptr inbounds nuw i8, ptr %339, i64 21412
   %344 = load i32, ptr %343, align 4
   %345 = add nsw i32 %344, 1
   store i32 %345, ptr %343, align 4
   %346 = add nsw i32 %341, %332
-  store i32 %346, ptr %340, align 8
-  %347 = load i32, ptr %252, align 4
+  store i32 %346, ptr %340, align 16
+  %347 = load i32, ptr %252, align 16
   %348 = add nsw i32 %347, %332
-  store i32 %348, ptr %252, align 4
-  %349 = load i32, ptr %253, align 4
+  store i32 %348, ptr %252, align 16
+  %349 = load i32, ptr %253, align 8
   %350 = icmp eq i32 %348, %349
   br i1 %350, label %351, label %364
 
@@ -9572,8 +9572,8 @@ get_next_job_info.exit:                           ; preds = %._crit_edge116.i, %
   %354 = load ptr, ptr %72, align 8
   %355 = load ptr, ptr %45, align 32
   %356 = call i32 @pthread_cond_wait(ptr noundef %354, ptr noundef %355) #16
-  %357 = load i32, ptr %252, align 4
-  %358 = load i32, ptr %253, align 4
+  %357 = load i32, ptr %252, align 16
+  %358 = load i32, ptr %253, align 8
   %359 = icmp eq i32 %357, %358
   br i1 %359, label %.thread103, label %.lr.ph127.backedge
 
@@ -9594,7 +9594,7 @@ get_next_job_info.exit:                           ; preds = %._crit_edge116.i, %
   %365 = load ptr, ptr %45, align 32
   %366 = call i32 @pthread_mutex_unlock(ptr noundef %365) #16
   %367 = load ptr, ptr %257, align 32
-  %368 = load i32, ptr %24, align 16
+  %368 = load i32, ptr %24, align 32
   %369 = mul nsw i32 %368, %.284.us.i
   %370 = sext i32 %369 to i64
   %371 = getelementptr inbounds %struct.TileDataDec, ptr %367, i64 %370
@@ -9661,7 +9661,7 @@ av1_init_macroblockd.exit:                        ; preds = %386, %.split.us
   %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 4
   %.val.i85 = load i8, ptr %47, align 1
   %388 = load ptr, ptr %257, align 32
-  %389 = load i32, ptr %24, align 16
+  %389 = load i32, ptr %24, align 32
   %390 = call i32 @av1_get_sb_cols_in_tile(ptr noundef nonnull %4, ptr noundef nonnull byval(%struct.TileInfo) align 8 %3) #16
   %391 = icmp slt i32 %.sroa.4148.0.copyload, %.sroa.5.0.copyload
   br i1 %391, label %.lr.ph.i, label %decode_tile_sb_row.exit
@@ -9813,8 +9813,8 @@ decode_tile_sb_row.exit:                          ; preds = %sync_write.exit.i, 
   %478 = call i32 @pthread_mutex_unlock(ptr noundef %477) #16
   %479 = load ptr, ptr %45, align 32
   %480 = call i32 @pthread_mutex_lock(ptr noundef %479) #16
-  %481 = load i32, ptr %252, align 4
-  %482 = load i32, ptr %253, align 4
+  %481 = load i32, ptr %252, align 16
+  %482 = load i32, ptr %253, align 8
   %483 = icmp eq i32 %481, %482
   br i1 %483, label %.thread103, label %.lr.ph127.backedge
 

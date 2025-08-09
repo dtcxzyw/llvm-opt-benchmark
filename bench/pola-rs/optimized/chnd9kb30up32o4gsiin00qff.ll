@@ -46611,7 +46611,7 @@ define hidden void @_ZN4core5slice4sort6select18partition_at_index17h06c2c3b2688
   %76 = getelementptr i8, ptr %75, i64 -8
   %77 = icmp ult ptr %74, %76
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.0.034.i, i64 4
-  %.val1.i20.i.i.i = load i16, ptr %78, align 2, !alias.scope !10340, !noalias !10341
+  %.val1.i20.i.i.i = load i16, ptr %78, align 4, !alias.scope !10340, !noalias !10341
   br i1 %77, label %.lr.ph.i.i.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i.i.i, %69
@@ -46655,7 +46655,7 @@ define hidden void @_ZN4core5slice4sort6select18partition_at_index17h06c2c3b2688
   %101 = add i64 %93, %100
   %102 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %103 = getelementptr i8, ptr %92, i64 12
-  %.val.i21.i.i.i = load i16, ptr %103, align 2, !alias.scope !10358, !noalias !10361, !noundef !8
+  %.val.i21.i.i.i = load i16, ptr %103, align 4, !alias.scope !10358, !noalias !10361, !noundef !8
   %104 = icmp sge i16 %.val1.i20.i.i.i, %.val.i21.i.i.i
   %105 = getelementptr inbounds nuw { i32, i16, [1 x i16] }, ptr %70, i64 %101
   %106 = load i64, ptr %105, align 4, !alias.scope !10336, !noalias !10365
@@ -47025,7 +47025,7 @@ define hidden void @_ZN4core5slice4sort6select18partition_at_index17h08799e3506c
   %79 = getelementptr i8, ptr %78, i64 -8
   %80 = icmp ult ptr %77, %79
   %81 = getelementptr inbounds nuw i8, ptr %.sroa.0.034.i, i64 4
-  %.val1.i20.i.i.i = load i8, ptr %81, align 1, !range !562, !alias.scope !10432, !noalias !10433
+  %.val1.i20.i.i.i = load i8, ptr %81, align 4, !range !562, !alias.scope !10432, !noalias !10433
   br i1 %80, label %.lr.ph.i.i.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i.i.i, %72
@@ -47071,7 +47071,7 @@ define hidden void @_ZN4core5slice4sort6select18partition_at_index17h08799e3506c
   %106 = add i64 %97, %105
   %107 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %108 = getelementptr i8, ptr %96, i64 12
-  %.val.i21.i.i.i = load i8, ptr %108, align 1, !range !562, !alias.scope !10428, !noalias !10440, !noundef !8
+  %.val.i21.i.i.i = load i8, ptr %108, align 4, !range !562, !alias.scope !10428, !noalias !10440, !noundef !8
   %109 = sub nsw i8 %.val1.i20.i.i.i, %.val.i21.i.i.i
   %110 = icmp ne i8 %109, -1
   %111 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %73, i64 %106
@@ -48323,7 +48323,7 @@ define hidden void @_ZN4core5slice4sort6select18partition_at_index17h276a9121480
   %76 = getelementptr i8, ptr %75, i64 -8
   %77 = icmp ult ptr %74, %76
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.0.034.i, i64 4
-  %.val1.i20.i.i.i = load i16, ptr %78, align 2, !alias.scope !10771, !noalias !10772
+  %.val1.i20.i.i.i = load i16, ptr %78, align 4, !alias.scope !10771, !noalias !10772
   br i1 %77, label %.lr.ph.i.i.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i.i.i, %69
@@ -48367,7 +48367,7 @@ define hidden void @_ZN4core5slice4sort6select18partition_at_index17h276a9121480
   %101 = add i64 %93, %100
   %102 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %103 = getelementptr i8, ptr %92, i64 12
-  %.val.i21.i.i.i = load i16, ptr %103, align 2, !alias.scope !10789, !noalias !10792, !noundef !8
+  %.val.i21.i.i.i = load i16, ptr %103, align 4, !alias.scope !10789, !noalias !10792, !noundef !8
   %104 = icmp uge i16 %.val1.i20.i.i.i, %.val.i21.i.i.i
   %105 = getelementptr inbounds nuw { i32, i16, [1 x i16] }, ptr %70, i64 %101
   %106 = load i64, ptr %105, align 4, !alias.scope !10767, !noalias !10796
@@ -48734,7 +48734,7 @@ define hidden void @_ZN4core5slice4sort6select18partition_at_index17h2895c4c4e52
   %76 = getelementptr i8, ptr %75, i64 -8
   %77 = icmp ult ptr %74, %76
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.0.034.i, i64 4
-  %.val1.i20.i.i.i = load i8, ptr %78, align 1, !alias.scope !10875, !noalias !10876
+  %.val1.i20.i.i.i = load i8, ptr %78, align 4, !alias.scope !10875, !noalias !10876
   br i1 %77, label %.lr.ph.i.i.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i.i.i, %69
@@ -48778,7 +48778,7 @@ define hidden void @_ZN4core5slice4sort6select18partition_at_index17h2895c4c4e52
   %101 = add i64 %93, %100
   %102 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %103 = getelementptr i8, ptr %92, i64 12
-  %.val.i21.i.i.i = load i8, ptr %103, align 1, !alias.scope !10893, !noalias !10896, !noundef !8
+  %.val.i21.i.i.i = load i8, ptr %103, align 4, !alias.scope !10893, !noalias !10896, !noundef !8
   %104 = icmp uge i8 %.val1.i20.i.i.i, %.val.i21.i.i.i
   %105 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %70, i64 %101
   %106 = load i64, ptr %105, align 4, !alias.scope !10871, !noalias !10900
@@ -52406,7 +52406,7 @@ define hidden void @_ZN4core5slice4sort6select18partition_at_index17h56ec8747b66
   %76 = getelementptr i8, ptr %75, i64 -8
   %77 = icmp ult ptr %74, %76
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.0.034.i, i64 4
-  %.val1.i20.i.i.i = load i16, ptr %78, align 2, !alias.scope !11839, !noalias !11840
+  %.val1.i20.i.i.i = load i16, ptr %78, align 4, !alias.scope !11839, !noalias !11840
   br i1 %77, label %.lr.ph.i.i.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i.i.i, %69
@@ -52450,7 +52450,7 @@ define hidden void @_ZN4core5slice4sort6select18partition_at_index17h56ec8747b66
   %101 = add i64 %93, %100
   %102 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %103 = getelementptr i8, ptr %92, i64 12
-  %.val.i21.i.i.i = load i16, ptr %103, align 2, !alias.scope !11857, !noalias !11860, !noundef !8
+  %.val.i21.i.i.i = load i16, ptr %103, align 4, !alias.scope !11857, !noalias !11860, !noundef !8
   %104 = icmp sge i16 %.val1.i20.i.i.i, %.val.i21.i.i.i
   %105 = getelementptr inbounds nuw { i32, i16, [1 x i16] }, ptr %70, i64 %101
   %106 = load i64, ptr %105, align 4, !alias.scope !11835, !noalias !11864
@@ -53700,7 +53700,7 @@ define hidden void @_ZN4core5slice4sort6select18partition_at_index17h6b13c352d96
   %76 = getelementptr i8, ptr %75, i64 -8
   %77 = icmp ult ptr %74, %76
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.0.034.i, i64 4
-  %.val1.i20.i.i.i = load i8, ptr %78, align 1, !alias.scope !12193, !noalias !12194
+  %.val1.i20.i.i.i = load i8, ptr %78, align 4, !alias.scope !12193, !noalias !12194
   br i1 %77, label %.lr.ph.i.i.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i.i.i, %69
@@ -53744,7 +53744,7 @@ define hidden void @_ZN4core5slice4sort6select18partition_at_index17h6b13c352d96
   %101 = add i64 %93, %100
   %102 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %103 = getelementptr i8, ptr %92, i64 12
-  %.val.i21.i.i.i = load i8, ptr %103, align 1, !alias.scope !12211, !noalias !12214, !noundef !8
+  %.val.i21.i.i.i = load i8, ptr %103, align 4, !alias.scope !12211, !noalias !12214, !noundef !8
   %104 = icmp sge i8 %.val1.i20.i.i.i, %.val.i21.i.i.i
   %105 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %70, i64 %101
   %106 = load i64, ptr %105, align 4, !alias.scope !12189, !noalias !12218
@@ -55347,7 +55347,7 @@ define hidden void @_ZN4core5slice4sort6select18partition_at_index17h9245fa089f3
   %79 = getelementptr i8, ptr %78, i64 -8
   %80 = icmp ult ptr %77, %79
   %81 = getelementptr inbounds nuw i8, ptr %.sroa.0.034.i, i64 4
-  %.val1.i20.i.i.i = load i8, ptr %81, align 1, !range !562, !alias.scope !12604, !noalias !12605
+  %.val1.i20.i.i.i = load i8, ptr %81, align 4, !range !562, !alias.scope !12604, !noalias !12605
   br i1 %80, label %.lr.ph.i.i.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i.i.i, %72
@@ -55393,7 +55393,7 @@ define hidden void @_ZN4core5slice4sort6select18partition_at_index17h9245fa089f3
   %106 = add i64 %97, %105
   %107 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %108 = getelementptr i8, ptr %96, i64 12
-  %.val.i21.i.i.i = load i8, ptr %108, align 1, !range !562, !alias.scope !12600, !noalias !12612, !noundef !8
+  %.val.i21.i.i.i = load i8, ptr %108, align 4, !range !562, !alias.scope !12600, !noalias !12612, !noundef !8
   %109 = sub nsw i8 %.val1.i20.i.i.i, %.val.i21.i.i.i
   %110 = icmp ne i8 %109, -1
   %111 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %73, i64 %106
@@ -57812,7 +57812,7 @@ define hidden void @_ZN4core5slice4sort6select18partition_at_index17hc097036dac3
   %76 = getelementptr i8, ptr %75, i64 -8
   %77 = icmp ult ptr %74, %76
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.0.034.i, i64 4
-  %.val1.i20.i.i.i = load i8, ptr %78, align 1, !alias.scope !13254, !noalias !13255
+  %.val1.i20.i.i.i = load i8, ptr %78, align 4, !alias.scope !13254, !noalias !13255
   br i1 %77, label %.lr.ph.i.i.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i.i.i, %69
@@ -57856,7 +57856,7 @@ define hidden void @_ZN4core5slice4sort6select18partition_at_index17hc097036dac3
   %101 = add i64 %93, %100
   %102 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %103 = getelementptr i8, ptr %92, i64 12
-  %.val.i21.i.i.i = load i8, ptr %103, align 1, !alias.scope !13272, !noalias !13275, !noundef !8
+  %.val.i21.i.i.i = load i8, ptr %103, align 4, !alias.scope !13272, !noalias !13275, !noundef !8
   %104 = icmp uge i8 %.val1.i20.i.i.i, %.val.i21.i.i.i
   %105 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %70, i64 %101
   %106 = load i64, ptr %105, align 4, !alias.scope !13250, !noalias !13279
@@ -60744,7 +60744,7 @@ define hidden void @_ZN4core5slice4sort6select18partition_at_index17hf150512ce01
   %76 = getelementptr i8, ptr %75, i64 -8
   %77 = icmp ult ptr %74, %76
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.0.034.i, i64 4
-  %.val1.i20.i.i.i = load i8, ptr %78, align 1, !alias.scope !13975, !noalias !13976
+  %.val1.i20.i.i.i = load i8, ptr %78, align 4, !alias.scope !13975, !noalias !13976
   br i1 %77, label %.lr.ph.i.i.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i.i.i, %69
@@ -60788,7 +60788,7 @@ define hidden void @_ZN4core5slice4sort6select18partition_at_index17hf150512ce01
   %101 = add i64 %93, %100
   %102 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %103 = getelementptr i8, ptr %92, i64 12
-  %.val.i21.i.i.i = load i8, ptr %103, align 1, !alias.scope !13993, !noalias !13996, !noundef !8
+  %.val.i21.i.i.i = load i8, ptr %103, align 4, !alias.scope !13993, !noalias !13996, !noundef !8
   %104 = icmp sge i8 %.val1.i20.i.i.i, %.val.i21.i.i.i
   %105 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %70, i64 %101
   %106 = load i64, ptr %105, align 4, !alias.scope !13971, !noalias !14000
@@ -61155,7 +61155,7 @@ define hidden void @_ZN4core5slice4sort6select18partition_at_index17hf524224d99d
   %76 = getelementptr i8, ptr %75, i64 -8
   %77 = icmp ult ptr %74, %76
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.0.034.i, i64 4
-  %.val1.i20.i.i.i = load i16, ptr %78, align 2, !alias.scope !14079, !noalias !14080
+  %.val1.i20.i.i.i = load i16, ptr %78, align 4, !alias.scope !14079, !noalias !14080
   br i1 %77, label %.lr.ph.i.i.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i.i.i, %69
@@ -61199,7 +61199,7 @@ define hidden void @_ZN4core5slice4sort6select18partition_at_index17hf524224d99d
   %101 = add i64 %93, %100
   %102 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %103 = getelementptr i8, ptr %92, i64 12
-  %.val.i21.i.i.i = load i16, ptr %103, align 2, !alias.scope !14097, !noalias !14100, !noundef !8
+  %.val.i21.i.i.i = load i16, ptr %103, align 4, !alias.scope !14097, !noalias !14100, !noundef !8
   %104 = icmp uge i16 %.val1.i20.i.i.i, %.val.i21.i.i.i
   %105 = getelementptr inbounds nuw { i32, i16, [1 x i16] }, ptr %70, i64 %101
   %106 = load i64, ptr %105, align 4, !alias.scope !14075, !noalias !14104
@@ -65784,7 +65784,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h0233f97b1a373590E(
   %39 = add i64 %.sroa.27.129.i, %38
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i, i64 8
   %41 = getelementptr i8, ptr %.sroa.9.130.i, i64 12
-  %.val27.i = load i8, ptr %41, align 1, !alias.scope !14355, !noalias !14358, !noundef !8
+  %.val27.i = load i8, ptr %41, align 4, !alias.scope !14355, !noalias !14358, !noundef !8
   %42 = icmp slt i8 %23, %.val27.i
   %43 = getelementptr inbounds i8, ptr %.sroa.43.131.i, i64 -16
   %.sroa.01.0.i35.i = select i1 %42, ptr %2, ptr %43
@@ -65795,7 +65795,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h0233f97b1a373590E(
   %47 = add i64 %39, %46
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i, i64 16
   %49 = getelementptr i8, ptr %.sroa.9.130.i, i64 20
-  %.val29.i = load i8, ptr %49, align 1, !alias.scope !14355, !noalias !14358, !noundef !8
+  %.val29.i = load i8, ptr %49, align 4, !alias.scope !14355, !noalias !14358, !noundef !8
   %50 = icmp slt i8 %23, %.val29.i
   %51 = getelementptr inbounds i8, ptr %.sroa.43.131.i, i64 -24
   %.sroa.01.0.i36.i = select i1 %50, ptr %2, ptr %51
@@ -65806,7 +65806,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h0233f97b1a373590E(
   %55 = add i64 %47, %54
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i, i64 24
   %57 = getelementptr i8, ptr %.sroa.9.130.i, i64 28
-  %.val31.i = load i8, ptr %57, align 1, !alias.scope !14355, !noalias !14358, !noundef !8
+  %.val31.i = load i8, ptr %57, align 4, !alias.scope !14355, !noalias !14358, !noundef !8
   %58 = icmp slt i8 %23, %.val31.i
   %59 = getelementptr inbounds i8, ptr %.sroa.43.131.i, i64 -32
   %.sroa.01.0.i37.i = select i1 %58, ptr %2, ptr %59
@@ -65935,7 +65935,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h0233f97b1a373590E(
   %109 = add i64 %.sroa.27.129.i58, %108
   %110 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i57, i64 8
   %111 = getelementptr i8, ptr %.sroa.9.130.i57, i64 12
-  %.val27.i62 = load i8, ptr %111, align 1, !alias.scope !14395, !noalias !14396, !noundef !8
+  %.val27.i62 = load i8, ptr %111, align 4, !alias.scope !14395, !noalias !14396, !noundef !8
   %112 = icmp sge i8 %.val27.i62, %.val26.i60
   %113 = getelementptr inbounds i8, ptr %.sroa.43.131.i56, i64 -16
   %.sroa.01.0.i35.i64 = select i1 %112, ptr %2, ptr %113
@@ -65946,7 +65946,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h0233f97b1a373590E(
   %117 = add i64 %109, %116
   %118 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i57, i64 16
   %119 = getelementptr i8, ptr %.sroa.9.130.i57, i64 20
-  %.val29.i65 = load i8, ptr %119, align 1, !alias.scope !14395, !noalias !14396, !noundef !8
+  %.val29.i65 = load i8, ptr %119, align 4, !alias.scope !14395, !noalias !14396, !noundef !8
   %120 = icmp sge i8 %.val29.i65, %.val26.i60
   %121 = getelementptr inbounds i8, ptr %.sroa.43.131.i56, i64 -24
   %.sroa.01.0.i36.i67 = select i1 %120, ptr %2, ptr %121
@@ -65957,7 +65957,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h0233f97b1a373590E(
   %125 = add i64 %117, %124
   %126 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i57, i64 24
   %127 = getelementptr i8, ptr %.sroa.9.130.i57, i64 28
-  %.val31.i68 = load i8, ptr %127, align 1, !alias.scope !14395, !noalias !14396, !noundef !8
+  %.val31.i68 = load i8, ptr %127, align 4, !alias.scope !14395, !noalias !14396, !noundef !8
   %128 = icmp sge i8 %.val31.i68, %.val26.i60
   %129 = getelementptr inbounds i8, ptr %.sroa.43.131.i56, i64 -32
   %.sroa.01.0.i37.i70 = select i1 %128, ptr %2, ptr %129
@@ -67980,7 +67980,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h092dfc54090a14b2E(
   %39 = add i64 %.sroa.27.129.i, %38
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i, i64 8
   %41 = getelementptr i8, ptr %.sroa.9.130.i, i64 12
-  %.val27.i = load i16, ptr %41, align 2, !alias.scope !14879, !noalias !14882, !noundef !8
+  %.val27.i = load i16, ptr %41, align 4, !alias.scope !14879, !noalias !14882, !noundef !8
   %42 = icmp slt i16 %23, %.val27.i
   %43 = getelementptr inbounds i8, ptr %.sroa.43.131.i, i64 -16
   %.sroa.01.0.i35.i = select i1 %42, ptr %2, ptr %43
@@ -67991,7 +67991,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h092dfc54090a14b2E(
   %47 = add i64 %39, %46
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i, i64 16
   %49 = getelementptr i8, ptr %.sroa.9.130.i, i64 20
-  %.val29.i = load i16, ptr %49, align 2, !alias.scope !14879, !noalias !14882, !noundef !8
+  %.val29.i = load i16, ptr %49, align 4, !alias.scope !14879, !noalias !14882, !noundef !8
   %50 = icmp slt i16 %23, %.val29.i
   %51 = getelementptr inbounds i8, ptr %.sroa.43.131.i, i64 -24
   %.sroa.01.0.i36.i = select i1 %50, ptr %2, ptr %51
@@ -68002,7 +68002,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h092dfc54090a14b2E(
   %55 = add i64 %47, %54
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i, i64 24
   %57 = getelementptr i8, ptr %.sroa.9.130.i, i64 28
-  %.val31.i = load i16, ptr %57, align 2, !alias.scope !14879, !noalias !14882, !noundef !8
+  %.val31.i = load i16, ptr %57, align 4, !alias.scope !14879, !noalias !14882, !noundef !8
   %58 = icmp slt i16 %23, %.val31.i
   %59 = getelementptr inbounds i8, ptr %.sroa.43.131.i, i64 -32
   %.sroa.01.0.i37.i = select i1 %58, ptr %2, ptr %59
@@ -68131,7 +68131,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h092dfc54090a14b2E(
   %109 = add i64 %.sroa.27.129.i58, %108
   %110 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i57, i64 8
   %111 = getelementptr i8, ptr %.sroa.9.130.i57, i64 12
-  %.val27.i62 = load i16, ptr %111, align 2, !alias.scope !14919, !noalias !14920, !noundef !8
+  %.val27.i62 = load i16, ptr %111, align 4, !alias.scope !14919, !noalias !14920, !noundef !8
   %112 = icmp sge i16 %.val27.i62, %.val26.i60
   %113 = getelementptr inbounds i8, ptr %.sroa.43.131.i56, i64 -16
   %.sroa.01.0.i35.i64 = select i1 %112, ptr %2, ptr %113
@@ -68142,7 +68142,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h092dfc54090a14b2E(
   %117 = add i64 %109, %116
   %118 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i57, i64 16
   %119 = getelementptr i8, ptr %.sroa.9.130.i57, i64 20
-  %.val29.i65 = load i16, ptr %119, align 2, !alias.scope !14919, !noalias !14920, !noundef !8
+  %.val29.i65 = load i16, ptr %119, align 4, !alias.scope !14919, !noalias !14920, !noundef !8
   %120 = icmp sge i16 %.val29.i65, %.val26.i60
   %121 = getelementptr inbounds i8, ptr %.sroa.43.131.i56, i64 -24
   %.sroa.01.0.i36.i67 = select i1 %120, ptr %2, ptr %121
@@ -68153,7 +68153,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h092dfc54090a14b2E(
   %125 = add i64 %117, %124
   %126 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i57, i64 24
   %127 = getelementptr i8, ptr %.sroa.9.130.i57, i64 28
-  %.val31.i68 = load i16, ptr %127, align 2, !alias.scope !14919, !noalias !14920, !noundef !8
+  %.val31.i68 = load i16, ptr %127, align 4, !alias.scope !14919, !noalias !14920, !noundef !8
   %128 = icmp sge i16 %.val31.i68, %.val26.i60
   %129 = getelementptr inbounds i8, ptr %.sroa.43.131.i56, i64 -32
   %.sroa.01.0.i37.i70 = select i1 %128, ptr %2, ptr %129
@@ -70751,7 +70751,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h28f118e9da0a5317E(
   %39 = add i64 %.sroa.27.129.i, %38
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i, i64 8
   %41 = getelementptr i8, ptr %.sroa.9.130.i, i64 12
-  %.val27.i = load i8, ptr %41, align 1, !alias.scope !15480, !noalias !15483, !noundef !8
+  %.val27.i = load i8, ptr %41, align 4, !alias.scope !15480, !noalias !15483, !noundef !8
   %42 = icmp ult i8 %23, %.val27.i
   %43 = getelementptr inbounds i8, ptr %.sroa.43.131.i, i64 -16
   %.sroa.01.0.i35.i = select i1 %42, ptr %2, ptr %43
@@ -70762,7 +70762,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h28f118e9da0a5317E(
   %47 = add i64 %39, %46
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i, i64 16
   %49 = getelementptr i8, ptr %.sroa.9.130.i, i64 20
-  %.val29.i = load i8, ptr %49, align 1, !alias.scope !15480, !noalias !15483, !noundef !8
+  %.val29.i = load i8, ptr %49, align 4, !alias.scope !15480, !noalias !15483, !noundef !8
   %50 = icmp ult i8 %23, %.val29.i
   %51 = getelementptr inbounds i8, ptr %.sroa.43.131.i, i64 -24
   %.sroa.01.0.i36.i = select i1 %50, ptr %2, ptr %51
@@ -70773,7 +70773,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h28f118e9da0a5317E(
   %55 = add i64 %47, %54
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i, i64 24
   %57 = getelementptr i8, ptr %.sroa.9.130.i, i64 28
-  %.val31.i = load i8, ptr %57, align 1, !alias.scope !15480, !noalias !15483, !noundef !8
+  %.val31.i = load i8, ptr %57, align 4, !alias.scope !15480, !noalias !15483, !noundef !8
   %58 = icmp ult i8 %23, %.val31.i
   %59 = getelementptr inbounds i8, ptr %.sroa.43.131.i, i64 -32
   %.sroa.01.0.i37.i = select i1 %58, ptr %2, ptr %59
@@ -70902,7 +70902,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h28f118e9da0a5317E(
   %109 = add i64 %.sroa.27.129.i58, %108
   %110 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i57, i64 8
   %111 = getelementptr i8, ptr %.sroa.9.130.i57, i64 12
-  %.val27.i62 = load i8, ptr %111, align 1, !alias.scope !15520, !noalias !15521, !noundef !8
+  %.val27.i62 = load i8, ptr %111, align 4, !alias.scope !15520, !noalias !15521, !noundef !8
   %112 = icmp uge i8 %.val27.i62, %.val26.i60
   %113 = getelementptr inbounds i8, ptr %.sroa.43.131.i56, i64 -16
   %.sroa.01.0.i35.i64 = select i1 %112, ptr %2, ptr %113
@@ -70913,7 +70913,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h28f118e9da0a5317E(
   %117 = add i64 %109, %116
   %118 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i57, i64 16
   %119 = getelementptr i8, ptr %.sroa.9.130.i57, i64 20
-  %.val29.i65 = load i8, ptr %119, align 1, !alias.scope !15520, !noalias !15521, !noundef !8
+  %.val29.i65 = load i8, ptr %119, align 4, !alias.scope !15520, !noalias !15521, !noundef !8
   %120 = icmp uge i8 %.val29.i65, %.val26.i60
   %121 = getelementptr inbounds i8, ptr %.sroa.43.131.i56, i64 -24
   %.sroa.01.0.i36.i67 = select i1 %120, ptr %2, ptr %121
@@ -70924,7 +70924,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h28f118e9da0a5317E(
   %125 = add i64 %117, %124
   %126 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i57, i64 24
   %127 = getelementptr i8, ptr %.sroa.9.130.i57, i64 28
-  %.val31.i68 = load i8, ptr %127, align 1, !alias.scope !15520, !noalias !15521, !noundef !8
+  %.val31.i68 = load i8, ptr %127, align 4, !alias.scope !15520, !noalias !15521, !noundef !8
   %128 = icmp uge i8 %.val31.i68, %.val26.i60
   %129 = getelementptr inbounds i8, ptr %.sroa.43.131.i56, i64 -32
   %.sroa.01.0.i37.i70 = select i1 %128, ptr %2, ptr %129
@@ -76207,7 +76207,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h6996070ed8204e95E(
   %39 = add i64 %.sroa.27.129.i, %38
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i, i64 8
   %41 = getelementptr i8, ptr %.sroa.9.130.i, i64 12
-  %.val27.i = load i16, ptr %41, align 2, !alias.scope !16721, !noalias !16724, !noundef !8
+  %.val27.i = load i16, ptr %41, align 4, !alias.scope !16721, !noalias !16724, !noundef !8
   %42 = icmp ult i16 %.val27.i, %23
   %43 = getelementptr inbounds i8, ptr %.sroa.43.131.i, i64 -16
   %.sroa.01.0.i35.i = select i1 %42, ptr %2, ptr %43
@@ -76218,7 +76218,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h6996070ed8204e95E(
   %47 = add i64 %39, %46
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i, i64 16
   %49 = getelementptr i8, ptr %.sroa.9.130.i, i64 20
-  %.val29.i = load i16, ptr %49, align 2, !alias.scope !16721, !noalias !16724, !noundef !8
+  %.val29.i = load i16, ptr %49, align 4, !alias.scope !16721, !noalias !16724, !noundef !8
   %50 = icmp ult i16 %.val29.i, %23
   %51 = getelementptr inbounds i8, ptr %.sroa.43.131.i, i64 -24
   %.sroa.01.0.i36.i = select i1 %50, ptr %2, ptr %51
@@ -76229,7 +76229,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h6996070ed8204e95E(
   %55 = add i64 %47, %54
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i, i64 24
   %57 = getelementptr i8, ptr %.sroa.9.130.i, i64 28
-  %.val31.i = load i16, ptr %57, align 2, !alias.scope !16721, !noalias !16724, !noundef !8
+  %.val31.i = load i16, ptr %57, align 4, !alias.scope !16721, !noalias !16724, !noundef !8
   %58 = icmp ult i16 %.val31.i, %23
   %59 = getelementptr inbounds i8, ptr %.sroa.43.131.i, i64 -32
   %.sroa.01.0.i37.i = select i1 %58, ptr %2, ptr %59
@@ -76358,7 +76358,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h6996070ed8204e95E(
   %109 = add i64 %.sroa.27.129.i58, %108
   %110 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i57, i64 8
   %111 = getelementptr i8, ptr %.sroa.9.130.i57, i64 12
-  %.val27.i62 = load i16, ptr %111, align 2, !alias.scope !16761, !noalias !16762, !noundef !8
+  %.val27.i62 = load i16, ptr %111, align 4, !alias.scope !16761, !noalias !16762, !noundef !8
   %112 = icmp uge i16 %.val26.i60, %.val27.i62
   %113 = getelementptr inbounds i8, ptr %.sroa.43.131.i56, i64 -16
   %.sroa.01.0.i35.i64 = select i1 %112, ptr %2, ptr %113
@@ -76369,7 +76369,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h6996070ed8204e95E(
   %117 = add i64 %109, %116
   %118 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i57, i64 16
   %119 = getelementptr i8, ptr %.sroa.9.130.i57, i64 20
-  %.val29.i65 = load i16, ptr %119, align 2, !alias.scope !16761, !noalias !16762, !noundef !8
+  %.val29.i65 = load i16, ptr %119, align 4, !alias.scope !16761, !noalias !16762, !noundef !8
   %120 = icmp uge i16 %.val26.i60, %.val29.i65
   %121 = getelementptr inbounds i8, ptr %.sroa.43.131.i56, i64 -24
   %.sroa.01.0.i36.i67 = select i1 %120, ptr %2, ptr %121
@@ -76380,7 +76380,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h6996070ed8204e95E(
   %125 = add i64 %117, %124
   %126 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i57, i64 24
   %127 = getelementptr i8, ptr %.sroa.9.130.i57, i64 28
-  %.val31.i68 = load i16, ptr %127, align 2, !alias.scope !16761, !noalias !16762, !noundef !8
+  %.val31.i68 = load i16, ptr %127, align 4, !alias.scope !16761, !noalias !16762, !noundef !8
   %128 = icmp uge i16 %.val26.i60, %.val31.i68
   %129 = getelementptr inbounds i8, ptr %.sroa.43.131.i56, i64 -32
   %.sroa.01.0.i37.i70 = select i1 %128, ptr %2, ptr %129
@@ -77374,7 +77374,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h8173eccc6c8abe3cE(
   %39 = add i64 %.sroa.27.129.i, %38
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i, i64 8
   %41 = getelementptr i8, ptr %.sroa.9.130.i, i64 12
-  %.val27.i = load i16, ptr %41, align 2, !alias.scope !16951, !noalias !16954, !noundef !8
+  %.val27.i = load i16, ptr %41, align 4, !alias.scope !16951, !noalias !16954, !noundef !8
   %42 = icmp slt i16 %.val27.i, %23
   %43 = getelementptr inbounds i8, ptr %.sroa.43.131.i, i64 -16
   %.sroa.01.0.i35.i = select i1 %42, ptr %2, ptr %43
@@ -77385,7 +77385,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h8173eccc6c8abe3cE(
   %47 = add i64 %39, %46
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i, i64 16
   %49 = getelementptr i8, ptr %.sroa.9.130.i, i64 20
-  %.val29.i = load i16, ptr %49, align 2, !alias.scope !16951, !noalias !16954, !noundef !8
+  %.val29.i = load i16, ptr %49, align 4, !alias.scope !16951, !noalias !16954, !noundef !8
   %50 = icmp slt i16 %.val29.i, %23
   %51 = getelementptr inbounds i8, ptr %.sroa.43.131.i, i64 -24
   %.sroa.01.0.i36.i = select i1 %50, ptr %2, ptr %51
@@ -77396,7 +77396,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h8173eccc6c8abe3cE(
   %55 = add i64 %47, %54
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i, i64 24
   %57 = getelementptr i8, ptr %.sroa.9.130.i, i64 28
-  %.val31.i = load i16, ptr %57, align 2, !alias.scope !16951, !noalias !16954, !noundef !8
+  %.val31.i = load i16, ptr %57, align 4, !alias.scope !16951, !noalias !16954, !noundef !8
   %58 = icmp slt i16 %.val31.i, %23
   %59 = getelementptr inbounds i8, ptr %.sroa.43.131.i, i64 -32
   %.sroa.01.0.i37.i = select i1 %58, ptr %2, ptr %59
@@ -77525,7 +77525,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h8173eccc6c8abe3cE(
   %109 = add i64 %.sroa.27.129.i58, %108
   %110 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i57, i64 8
   %111 = getelementptr i8, ptr %.sroa.9.130.i57, i64 12
-  %.val27.i62 = load i16, ptr %111, align 2, !alias.scope !16991, !noalias !16992, !noundef !8
+  %.val27.i62 = load i16, ptr %111, align 4, !alias.scope !16991, !noalias !16992, !noundef !8
   %112 = icmp sge i16 %.val26.i60, %.val27.i62
   %113 = getelementptr inbounds i8, ptr %.sroa.43.131.i56, i64 -16
   %.sroa.01.0.i35.i64 = select i1 %112, ptr %2, ptr %113
@@ -77536,7 +77536,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h8173eccc6c8abe3cE(
   %117 = add i64 %109, %116
   %118 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i57, i64 16
   %119 = getelementptr i8, ptr %.sroa.9.130.i57, i64 20
-  %.val29.i65 = load i16, ptr %119, align 2, !alias.scope !16991, !noalias !16992, !noundef !8
+  %.val29.i65 = load i16, ptr %119, align 4, !alias.scope !16991, !noalias !16992, !noundef !8
   %120 = icmp sge i16 %.val26.i60, %.val29.i65
   %121 = getelementptr inbounds i8, ptr %.sroa.43.131.i56, i64 -24
   %.sroa.01.0.i36.i67 = select i1 %120, ptr %2, ptr %121
@@ -77547,7 +77547,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h8173eccc6c8abe3cE(
   %125 = add i64 %117, %124
   %126 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i57, i64 24
   %127 = getelementptr i8, ptr %.sroa.9.130.i57, i64 28
-  %.val31.i68 = load i16, ptr %127, align 2, !alias.scope !16991, !noalias !16992, !noundef !8
+  %.val31.i68 = load i16, ptr %127, align 4, !alias.scope !16991, !noalias !16992, !noundef !8
   %128 = icmp sge i16 %.val26.i60, %.val31.i68
   %129 = getelementptr inbounds i8, ptr %.sroa.43.131.i56, i64 -32
   %.sroa.01.0.i37.i70 = select i1 %128, ptr %2, ptr %129
@@ -77765,7 +77765,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h8251dd83f478aa07E(
   %41 = add i64 %.sroa.27.129.i, %40
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i, i64 8
   %43 = getelementptr i8, ptr %.sroa.9.130.i, i64 12
-  %.val27.i = load i8, ptr %43, align 1, !range !562, !alias.scope !17021, !noalias !17024, !noundef !8
+  %.val27.i = load i8, ptr %43, align 4, !range !562, !alias.scope !17021, !noalias !17024, !noundef !8
   %44 = sub nsw i8 %23, %.val27.i
   %45 = icmp eq i8 %44, -1
   %46 = getelementptr inbounds i8, ptr %.sroa.43.131.i, i64 -16
@@ -77777,7 +77777,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h8251dd83f478aa07E(
   %50 = add i64 %41, %49
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i, i64 16
   %52 = getelementptr i8, ptr %.sroa.9.130.i, i64 20
-  %.val29.i = load i8, ptr %52, align 1, !range !562, !alias.scope !17021, !noalias !17024, !noundef !8
+  %.val29.i = load i8, ptr %52, align 4, !range !562, !alias.scope !17021, !noalias !17024, !noundef !8
   %53 = sub nsw i8 %23, %.val29.i
   %54 = icmp eq i8 %53, -1
   %55 = getelementptr inbounds i8, ptr %.sroa.43.131.i, i64 -24
@@ -77789,7 +77789,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h8251dd83f478aa07E(
   %59 = add i64 %50, %58
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i, i64 24
   %61 = getelementptr i8, ptr %.sroa.9.130.i, i64 28
-  %.val31.i = load i8, ptr %61, align 1, !range !562, !alias.scope !17021, !noalias !17024, !noundef !8
+  %.val31.i = load i8, ptr %61, align 4, !range !562, !alias.scope !17021, !noalias !17024, !noundef !8
   %62 = sub nsw i8 %23, %.val31.i
   %63 = icmp eq i8 %62, -1
   %64 = getelementptr inbounds i8, ptr %.sroa.43.131.i, i64 -32
@@ -77921,7 +77921,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h8251dd83f478aa07E(
   %116 = add i64 %.sroa.27.129.i58, %115
   %117 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i57, i64 8
   %118 = getelementptr i8, ptr %.sroa.9.130.i57, i64 12
-  %.val27.i62 = load i8, ptr %118, align 1, !range !562, !alias.scope !17051, !noalias !17054, !noundef !8
+  %.val27.i62 = load i8, ptr %118, align 4, !range !562, !alias.scope !17051, !noalias !17054, !noundef !8
   %119 = sub nsw i8 %.val27.i62, %.val26.i60
   %120 = icmp ne i8 %119, -1
   %121 = getelementptr inbounds i8, ptr %.sroa.43.131.i56, i64 -16
@@ -77933,7 +77933,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h8251dd83f478aa07E(
   %125 = add i64 %116, %124
   %126 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i57, i64 16
   %127 = getelementptr i8, ptr %.sroa.9.130.i57, i64 20
-  %.val29.i65 = load i8, ptr %127, align 1, !range !562, !alias.scope !17051, !noalias !17054, !noundef !8
+  %.val29.i65 = load i8, ptr %127, align 4, !range !562, !alias.scope !17051, !noalias !17054, !noundef !8
   %128 = sub nsw i8 %.val29.i65, %.val26.i60
   %129 = icmp ne i8 %128, -1
   %130 = getelementptr inbounds i8, ptr %.sroa.43.131.i56, i64 -24
@@ -77945,7 +77945,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h8251dd83f478aa07E(
   %134 = add i64 %125, %133
   %135 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i57, i64 24
   %136 = getelementptr i8, ptr %.sroa.9.130.i57, i64 28
-  %.val31.i68 = load i8, ptr %136, align 1, !range !562, !alias.scope !17051, !noalias !17054, !noundef !8
+  %.val31.i68 = load i8, ptr %136, align 4, !range !562, !alias.scope !17051, !noalias !17054, !noundef !8
   %137 = sub nsw i8 %.val31.i68, %.val26.i60
   %138 = icmp ne i8 %137, -1
   %139 = getelementptr inbounds i8, ptr %.sroa.43.131.i56, i64 -32
@@ -78163,7 +78163,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h85ba909d7e935e67E(
   %39 = add i64 %.sroa.27.129.i, %38
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i, i64 8
   %41 = getelementptr i8, ptr %.sroa.9.130.i, i64 12
-  %.val27.i = load i8, ptr %41, align 1, !alias.scope !17089, !noalias !17092, !noundef !8
+  %.val27.i = load i8, ptr %41, align 4, !alias.scope !17089, !noalias !17092, !noundef !8
   %42 = icmp ult i8 %.val27.i, %23
   %43 = getelementptr inbounds i8, ptr %.sroa.43.131.i, i64 -16
   %.sroa.01.0.i35.i = select i1 %42, ptr %2, ptr %43
@@ -78174,7 +78174,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h85ba909d7e935e67E(
   %47 = add i64 %39, %46
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i, i64 16
   %49 = getelementptr i8, ptr %.sroa.9.130.i, i64 20
-  %.val29.i = load i8, ptr %49, align 1, !alias.scope !17089, !noalias !17092, !noundef !8
+  %.val29.i = load i8, ptr %49, align 4, !alias.scope !17089, !noalias !17092, !noundef !8
   %50 = icmp ult i8 %.val29.i, %23
   %51 = getelementptr inbounds i8, ptr %.sroa.43.131.i, i64 -24
   %.sroa.01.0.i36.i = select i1 %50, ptr %2, ptr %51
@@ -78185,7 +78185,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h85ba909d7e935e67E(
   %55 = add i64 %47, %54
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i, i64 24
   %57 = getelementptr i8, ptr %.sroa.9.130.i, i64 28
-  %.val31.i = load i8, ptr %57, align 1, !alias.scope !17089, !noalias !17092, !noundef !8
+  %.val31.i = load i8, ptr %57, align 4, !alias.scope !17089, !noalias !17092, !noundef !8
   %58 = icmp ult i8 %.val31.i, %23
   %59 = getelementptr inbounds i8, ptr %.sroa.43.131.i, i64 -32
   %.sroa.01.0.i37.i = select i1 %58, ptr %2, ptr %59
@@ -78314,7 +78314,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h85ba909d7e935e67E(
   %109 = add i64 %.sroa.27.129.i58, %108
   %110 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i57, i64 8
   %111 = getelementptr i8, ptr %.sroa.9.130.i57, i64 12
-  %.val27.i62 = load i8, ptr %111, align 1, !alias.scope !17129, !noalias !17130, !noundef !8
+  %.val27.i62 = load i8, ptr %111, align 4, !alias.scope !17129, !noalias !17130, !noundef !8
   %112 = icmp uge i8 %.val26.i60, %.val27.i62
   %113 = getelementptr inbounds i8, ptr %.sroa.43.131.i56, i64 -16
   %.sroa.01.0.i35.i64 = select i1 %112, ptr %2, ptr %113
@@ -78325,7 +78325,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h85ba909d7e935e67E(
   %117 = add i64 %109, %116
   %118 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i57, i64 16
   %119 = getelementptr i8, ptr %.sroa.9.130.i57, i64 20
-  %.val29.i65 = load i8, ptr %119, align 1, !alias.scope !17129, !noalias !17130, !noundef !8
+  %.val29.i65 = load i8, ptr %119, align 4, !alias.scope !17129, !noalias !17130, !noundef !8
   %120 = icmp uge i8 %.val26.i60, %.val29.i65
   %121 = getelementptr inbounds i8, ptr %.sroa.43.131.i56, i64 -24
   %.sroa.01.0.i36.i67 = select i1 %120, ptr %2, ptr %121
@@ -78336,7 +78336,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h85ba909d7e935e67E(
   %125 = add i64 %117, %124
   %126 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i57, i64 24
   %127 = getelementptr i8, ptr %.sroa.9.130.i57, i64 28
-  %.val31.i68 = load i8, ptr %127, align 1, !alias.scope !17129, !noalias !17130, !noundef !8
+  %.val31.i68 = load i8, ptr %127, align 4, !alias.scope !17129, !noalias !17130, !noundef !8
   %128 = icmp uge i8 %.val26.i60, %.val31.i68
   %129 = getelementptr inbounds i8, ptr %.sroa.43.131.i56, i64 -32
   %.sroa.01.0.i37.i70 = select i1 %128, ptr %2, ptr %129
@@ -91226,7 +91226,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdd7f5c3d58ed6fb1E(
   %39 = add i64 %.sroa.27.129.i, %38
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i, i64 8
   %41 = getelementptr i8, ptr %.sroa.9.130.i, i64 12
-  %.val27.i = load i16, ptr %41, align 2, !alias.scope !20485, !noalias !20488, !noundef !8
+  %.val27.i = load i16, ptr %41, align 4, !alias.scope !20485, !noalias !20488, !noundef !8
   %42 = icmp ult i16 %23, %.val27.i
   %43 = getelementptr inbounds i8, ptr %.sroa.43.131.i, i64 -16
   %.sroa.01.0.i35.i = select i1 %42, ptr %2, ptr %43
@@ -91237,7 +91237,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdd7f5c3d58ed6fb1E(
   %47 = add i64 %39, %46
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i, i64 16
   %49 = getelementptr i8, ptr %.sroa.9.130.i, i64 20
-  %.val29.i = load i16, ptr %49, align 2, !alias.scope !20485, !noalias !20488, !noundef !8
+  %.val29.i = load i16, ptr %49, align 4, !alias.scope !20485, !noalias !20488, !noundef !8
   %50 = icmp ult i16 %23, %.val29.i
   %51 = getelementptr inbounds i8, ptr %.sroa.43.131.i, i64 -24
   %.sroa.01.0.i36.i = select i1 %50, ptr %2, ptr %51
@@ -91248,7 +91248,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdd7f5c3d58ed6fb1E(
   %55 = add i64 %47, %54
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i, i64 24
   %57 = getelementptr i8, ptr %.sroa.9.130.i, i64 28
-  %.val31.i = load i16, ptr %57, align 2, !alias.scope !20485, !noalias !20488, !noundef !8
+  %.val31.i = load i16, ptr %57, align 4, !alias.scope !20485, !noalias !20488, !noundef !8
   %58 = icmp ult i16 %23, %.val31.i
   %59 = getelementptr inbounds i8, ptr %.sroa.43.131.i, i64 -32
   %.sroa.01.0.i37.i = select i1 %58, ptr %2, ptr %59
@@ -91377,7 +91377,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdd7f5c3d58ed6fb1E(
   %109 = add i64 %.sroa.27.129.i58, %108
   %110 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i57, i64 8
   %111 = getelementptr i8, ptr %.sroa.9.130.i57, i64 12
-  %.val27.i62 = load i16, ptr %111, align 2, !alias.scope !20525, !noalias !20526, !noundef !8
+  %.val27.i62 = load i16, ptr %111, align 4, !alias.scope !20525, !noalias !20526, !noundef !8
   %112 = icmp uge i16 %.val27.i62, %.val26.i60
   %113 = getelementptr inbounds i8, ptr %.sroa.43.131.i56, i64 -16
   %.sroa.01.0.i35.i64 = select i1 %112, ptr %2, ptr %113
@@ -91388,7 +91388,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdd7f5c3d58ed6fb1E(
   %117 = add i64 %109, %116
   %118 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i57, i64 16
   %119 = getelementptr i8, ptr %.sroa.9.130.i57, i64 20
-  %.val29.i65 = load i16, ptr %119, align 2, !alias.scope !20525, !noalias !20526, !noundef !8
+  %.val29.i65 = load i16, ptr %119, align 4, !alias.scope !20525, !noalias !20526, !noundef !8
   %120 = icmp uge i16 %.val29.i65, %.val26.i60
   %121 = getelementptr inbounds i8, ptr %.sroa.43.131.i56, i64 -24
   %.sroa.01.0.i36.i67 = select i1 %120, ptr %2, ptr %121
@@ -91399,7 +91399,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdd7f5c3d58ed6fb1E(
   %125 = add i64 %117, %124
   %126 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i57, i64 24
   %127 = getelementptr i8, ptr %.sroa.9.130.i57, i64 28
-  %.val31.i68 = load i16, ptr %127, align 2, !alias.scope !20525, !noalias !20526, !noundef !8
+  %.val31.i68 = load i16, ptr %127, align 4, !alias.scope !20525, !noalias !20526, !noundef !8
   %128 = icmp uge i16 %.val31.i68, %.val26.i60
   %129 = getelementptr inbounds i8, ptr %.sroa.43.131.i56, i64 -32
   %.sroa.01.0.i37.i70 = select i1 %128, ptr %2, ptr %129
@@ -92045,7 +92045,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17hde8fa7dc27a5e588E(
   %39 = add i64 %.sroa.27.129.i, %38
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i, i64 8
   %41 = getelementptr i8, ptr %.sroa.9.130.i, i64 12
-  %.val27.i = load i8, ptr %41, align 1, !alias.scope !20650, !noalias !20653, !noundef !8
+  %.val27.i = load i8, ptr %41, align 4, !alias.scope !20650, !noalias !20653, !noundef !8
   %42 = icmp slt i8 %.val27.i, %23
   %43 = getelementptr inbounds i8, ptr %.sroa.43.131.i, i64 -16
   %.sroa.01.0.i35.i = select i1 %42, ptr %2, ptr %43
@@ -92056,7 +92056,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17hde8fa7dc27a5e588E(
   %47 = add i64 %39, %46
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i, i64 16
   %49 = getelementptr i8, ptr %.sroa.9.130.i, i64 20
-  %.val29.i = load i8, ptr %49, align 1, !alias.scope !20650, !noalias !20653, !noundef !8
+  %.val29.i = load i8, ptr %49, align 4, !alias.scope !20650, !noalias !20653, !noundef !8
   %50 = icmp slt i8 %.val29.i, %23
   %51 = getelementptr inbounds i8, ptr %.sroa.43.131.i, i64 -24
   %.sroa.01.0.i36.i = select i1 %50, ptr %2, ptr %51
@@ -92067,7 +92067,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17hde8fa7dc27a5e588E(
   %55 = add i64 %47, %54
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i, i64 24
   %57 = getelementptr i8, ptr %.sroa.9.130.i, i64 28
-  %.val31.i = load i8, ptr %57, align 1, !alias.scope !20650, !noalias !20653, !noundef !8
+  %.val31.i = load i8, ptr %57, align 4, !alias.scope !20650, !noalias !20653, !noundef !8
   %58 = icmp slt i8 %.val31.i, %23
   %59 = getelementptr inbounds i8, ptr %.sroa.43.131.i, i64 -32
   %.sroa.01.0.i37.i = select i1 %58, ptr %2, ptr %59
@@ -92196,7 +92196,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17hde8fa7dc27a5e588E(
   %109 = add i64 %.sroa.27.129.i58, %108
   %110 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i57, i64 8
   %111 = getelementptr i8, ptr %.sroa.9.130.i57, i64 12
-  %.val27.i62 = load i8, ptr %111, align 1, !alias.scope !20690, !noalias !20691, !noundef !8
+  %.val27.i62 = load i8, ptr %111, align 4, !alias.scope !20690, !noalias !20691, !noundef !8
   %112 = icmp sge i8 %.val26.i60, %.val27.i62
   %113 = getelementptr inbounds i8, ptr %.sroa.43.131.i56, i64 -16
   %.sroa.01.0.i35.i64 = select i1 %112, ptr %2, ptr %113
@@ -92207,7 +92207,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17hde8fa7dc27a5e588E(
   %117 = add i64 %109, %116
   %118 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i57, i64 16
   %119 = getelementptr i8, ptr %.sroa.9.130.i57, i64 20
-  %.val29.i65 = load i8, ptr %119, align 1, !alias.scope !20690, !noalias !20691, !noundef !8
+  %.val29.i65 = load i8, ptr %119, align 4, !alias.scope !20690, !noalias !20691, !noundef !8
   %120 = icmp sge i8 %.val26.i60, %.val29.i65
   %121 = getelementptr inbounds i8, ptr %.sroa.43.131.i56, i64 -24
   %.sroa.01.0.i36.i67 = select i1 %120, ptr %2, ptr %121
@@ -92218,7 +92218,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17hde8fa7dc27a5e588E(
   %125 = add i64 %117, %124
   %126 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i57, i64 24
   %127 = getelementptr i8, ptr %.sroa.9.130.i57, i64 28
-  %.val31.i68 = load i8, ptr %127, align 1, !alias.scope !20690, !noalias !20691, !noundef !8
+  %.val31.i68 = load i8, ptr %127, align 4, !alias.scope !20690, !noalias !20691, !noundef !8
   %128 = icmp sge i8 %.val26.i60, %.val31.i68
   %129 = getelementptr inbounds i8, ptr %.sroa.43.131.i56, i64 -32
   %.sroa.01.0.i37.i70 = select i1 %128, ptr %2, ptr %129
@@ -94105,7 +94105,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17he6f863a3123fd93bE(
   %41 = add i64 %.sroa.27.129.i, %40
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i, i64 8
   %43 = getelementptr i8, ptr %.sroa.9.130.i, i64 12
-  %.val27.i = load i8, ptr %43, align 1, !range !562, !alias.scope !21125, !noalias !21128, !noundef !8
+  %.val27.i = load i8, ptr %43, align 4, !range !562, !alias.scope !21125, !noalias !21128, !noundef !8
   %44 = sub nsw i8 %.val27.i, %23
   %45 = icmp eq i8 %44, -1
   %46 = getelementptr inbounds i8, ptr %.sroa.43.131.i, i64 -16
@@ -94117,7 +94117,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17he6f863a3123fd93bE(
   %50 = add i64 %41, %49
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i, i64 16
   %52 = getelementptr i8, ptr %.sroa.9.130.i, i64 20
-  %.val29.i = load i8, ptr %52, align 1, !range !562, !alias.scope !21125, !noalias !21128, !noundef !8
+  %.val29.i = load i8, ptr %52, align 4, !range !562, !alias.scope !21125, !noalias !21128, !noundef !8
   %53 = sub nsw i8 %.val29.i, %23
   %54 = icmp eq i8 %53, -1
   %55 = getelementptr inbounds i8, ptr %.sroa.43.131.i, i64 -24
@@ -94129,7 +94129,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17he6f863a3123fd93bE(
   %59 = add i64 %50, %58
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i, i64 24
   %61 = getelementptr i8, ptr %.sroa.9.130.i, i64 28
-  %.val31.i = load i8, ptr %61, align 1, !range !562, !alias.scope !21125, !noalias !21128, !noundef !8
+  %.val31.i = load i8, ptr %61, align 4, !range !562, !alias.scope !21125, !noalias !21128, !noundef !8
   %62 = sub nsw i8 %.val31.i, %23
   %63 = icmp eq i8 %62, -1
   %64 = getelementptr inbounds i8, ptr %.sroa.43.131.i, i64 -32
@@ -94261,7 +94261,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17he6f863a3123fd93bE(
   %116 = add i64 %.sroa.27.129.i58, %115
   %117 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i57, i64 8
   %118 = getelementptr i8, ptr %.sroa.9.130.i57, i64 12
-  %.val27.i62 = load i8, ptr %118, align 1, !range !562, !alias.scope !21155, !noalias !21158, !noundef !8
+  %.val27.i62 = load i8, ptr %118, align 4, !range !562, !alias.scope !21155, !noalias !21158, !noundef !8
   %119 = sub nsw i8 %.val26.i60, %.val27.i62
   %120 = icmp ne i8 %119, -1
   %121 = getelementptr inbounds i8, ptr %.sroa.43.131.i56, i64 -16
@@ -94273,7 +94273,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17he6f863a3123fd93bE(
   %125 = add i64 %116, %124
   %126 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i57, i64 16
   %127 = getelementptr i8, ptr %.sroa.9.130.i57, i64 20
-  %.val29.i65 = load i8, ptr %127, align 1, !range !562, !alias.scope !21155, !noalias !21158, !noundef !8
+  %.val29.i65 = load i8, ptr %127, align 4, !range !562, !alias.scope !21155, !noalias !21158, !noundef !8
   %128 = sub nsw i8 %.val26.i60, %.val29.i65
   %129 = icmp ne i8 %128, -1
   %130 = getelementptr inbounds i8, ptr %.sroa.43.131.i56, i64 -24
@@ -94285,7 +94285,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17he6f863a3123fd93bE(
   %134 = add i64 %125, %133
   %135 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i57, i64 24
   %136 = getelementptr i8, ptr %.sroa.9.130.i57, i64 28
-  %.val31.i68 = load i8, ptr %136, align 1, !range !562, !alias.scope !21155, !noalias !21158, !noundef !8
+  %.val31.i68 = load i8, ptr %136, align 4, !range !562, !alias.scope !21155, !noalias !21158, !noundef !8
   %137 = sub nsw i8 %.val26.i60, %.val31.i68
   %138 = icmp ne i8 %137, -1
   %139 = getelementptr inbounds i8, ptr %.sroa.43.131.i56, i64 -32
@@ -100577,7 +100577,7 @@ define internal fastcc noundef range(i64 0, -1) i64 @_ZN4core5slice4sort8unstabl
   %37 = add i64 %29, %36
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %39 = getelementptr i8, ptr %28, i64 12
-  %.val.i21.i = load i16, ptr %39, align 2, !alias.scope !22796, !noalias !22799, !noundef !8
+  %.val.i21.i = load i16, ptr %39, align 4, !alias.scope !22796, !noalias !22799, !noundef !8
   %40 = icmp ult i16 %.val.i21.i, %.val1.i20.i
   %41 = getelementptr inbounds nuw { i32, i16, [1 x i16] }, ptr %6, i64 %37
   %42 = load i64, ptr %41, align 4, !alias.scope !22775, !noalias !22803
@@ -101814,7 +101814,7 @@ define internal fastcc noundef range(i64 0, -1) i64 @_ZN4core5slice4sort8unstabl
   %37 = add i64 %29, %36
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %39 = getelementptr i8, ptr %28, i64 12
-  %.val.i21.i = load i8, ptr %39, align 1, !alias.scope !23244, !noalias !23247, !noundef !8
+  %.val.i21.i = load i8, ptr %39, align 4, !alias.scope !23244, !noalias !23247, !noundef !8
   %40 = icmp slt i8 %.val.i21.i, %.val1.i20.i
   %41 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %6, i64 %37
   %42 = load i64, ptr %41, align 4, !alias.scope !23223, !noalias !23251
@@ -102299,7 +102299,7 @@ define internal fastcc noundef range(i64 0, -1) i64 @_ZN4core5slice4sort8unstabl
   %37 = add i64 %29, %36
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %39 = getelementptr i8, ptr %28, i64 12
-  %.val.i21.i = load i16, ptr %39, align 2, !alias.scope !23419, !noalias !23422, !noundef !8
+  %.val.i21.i = load i16, ptr %39, align 4, !alias.scope !23419, !noalias !23422, !noundef !8
   %40 = icmp slt i16 %.val.i21.i, %.val1.i20.i
   %41 = getelementptr inbounds nuw { i32, i16, [1 x i16] }, ptr %6, i64 %37
   %42 = load i64, ptr %41, align 4, !alias.scope !23398, !noalias !23426
@@ -102406,7 +102406,7 @@ define internal fastcc noundef range(i64 0, -1) i64 @_ZN4core5slice4sort8unstabl
   %39 = add i64 %30, %38
   %40 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %41 = getelementptr i8, ptr %29, i64 12
-  %.val.i21.i = load i8, ptr %41, align 1, !range !562, !alias.scope !23430, !noalias !23441, !noundef !8
+  %.val.i21.i = load i8, ptr %41, align 4, !range !562, !alias.scope !23430, !noalias !23441, !noundef !8
   %42 = sub nsw i8 %.val.i21.i, %.val1.i20.i
   %43 = icmp eq i8 %42, -1
   %44 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %6, i64 %39
@@ -102660,7 +102660,7 @@ define internal fastcc noundef range(i64 0, -1) i64 @_ZN4core5slice4sort8unstabl
   %37 = add i64 %29, %36
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %39 = getelementptr i8, ptr %28, i64 12
-  %.val.i21.i = load i16, ptr %39, align 2, !alias.scope !23492, !noalias !23495, !noundef !8
+  %.val.i21.i = load i16, ptr %39, align 4, !alias.scope !23492, !noalias !23495, !noundef !8
   %40 = icmp slt i16 %.val.i21.i, %.val1.i20.i
   %41 = getelementptr inbounds nuw { i32, i16, [1 x i16] }, ptr %6, i64 %37
   %42 = load i64, ptr %41, align 4, !alias.scope !23471, !noalias !23499
@@ -102876,7 +102876,7 @@ define internal fastcc noundef range(i64 0, -1) i64 @_ZN4core5slice4sort8unstabl
   %37 = add i64 %29, %36
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %39 = getelementptr i8, ptr %28, i64 12
-  %.val.i21.i = load i8, ptr %39, align 1, !alias.scope !23556, !noalias !23559, !noundef !8
+  %.val.i21.i = load i8, ptr %39, align 4, !alias.scope !23556, !noalias !23559, !noundef !8
   %40 = icmp ult i8 %.val.i21.i, %.val1.i20.i
   %41 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %6, i64 %37
   %42 = load i64, ptr %41, align 4, !alias.scope !23535, !noalias !23563
@@ -103086,7 +103086,7 @@ define internal fastcc noundef range(i64 0, -1) i64 @_ZN4core5slice4sort8unstabl
   %37 = add i64 %29, %36
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %39 = getelementptr i8, ptr %28, i64 12
-  %.val.i21.i = load i8, ptr %39, align 1, !alias.scope !23620, !noalias !23623, !noundef !8
+  %.val.i21.i = load i8, ptr %39, align 4, !alias.scope !23620, !noalias !23623, !noundef !8
   %40 = icmp ult i8 %.val.i21.i, %.val1.i20.i
   %41 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %6, i64 %37
   %42 = load i64, ptr %41, align 4, !alias.scope !23599, !noalias !23627
@@ -103295,7 +103295,7 @@ define internal fastcc noundef range(i64 0, -1) i64 @_ZN4core5slice4sort8unstabl
   %37 = add i64 %29, %36
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %39 = getelementptr i8, ptr %28, i64 12
-  %.val.i21.i = load i16, ptr %39, align 2, !alias.scope !23684, !noalias !23687, !noundef !8
+  %.val.i21.i = load i16, ptr %39, align 4, !alias.scope !23684, !noalias !23687, !noundef !8
   %40 = icmp ult i16 %.val.i21.i, %.val1.i20.i
   %41 = getelementptr inbounds nuw { i32, i16, [1 x i16] }, ptr %6, i64 %37
   %42 = load i64, ptr %41, align 4, !alias.scope !23663, !noalias !23691
@@ -103782,7 +103782,7 @@ define internal fastcc noundef range(i64 0, -1) i64 @_ZN4core5slice4sort8unstabl
   %39 = add i64 %30, %38
   %40 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %41 = getelementptr i8, ptr %29, i64 12
-  %.val.i21.i = load i8, ptr %41, align 1, !range !562, !alias.scope !23838, !noalias !23849, !noundef !8
+  %.val.i21.i = load i8, ptr %41, align 4, !range !562, !alias.scope !23838, !noalias !23849, !noundef !8
   %42 = sub nsw i8 %.val.i21.i, %.val1.i20.i
   %43 = icmp eq i8 %42, -1
   %44 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %6, i64 %39
@@ -103889,7 +103889,7 @@ define internal fastcc noundef range(i64 0, -1) i64 @_ZN4core5slice4sort8unstabl
   %37 = add i64 %29, %36
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %39 = getelementptr i8, ptr %28, i64 12
-  %.val.i21.i = load i8, ptr %39, align 1, !alias.scope !23876, !noalias !23879, !noundef !8
+  %.val.i21.i = load i8, ptr %39, align 4, !alias.scope !23876, !noalias !23879, !noundef !8
   %40 = icmp slt i8 %.val.i21.i, %.val1.i20.i
   %41 = getelementptr inbounds nuw { i32, i8, [3 x i8] }, ptr %6, i64 %37
   %42 = load i64, ptr %41, align 4, !alias.scope !23855, !noalias !23883

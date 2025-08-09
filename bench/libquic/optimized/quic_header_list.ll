@@ -3382,7 +3382,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %184, ptr %185, align 8, !tbaa !97, !noalias !195
   store ptr %175, ptr %.sroa.04.0.i.i.i.i, align 8, !tbaa !100, !noalias !195
   store i64 0, ptr %183, align 8, !tbaa !97, !noalias !195
-  store i8 0, ptr %175, align 1, !tbaa !99, !noalias !195
+  store i8 0, ptr %175, align 8, !tbaa !99, !noalias !195
   %186 = getelementptr inbounds nuw i8, ptr %170, i64 32
   %187 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.i.i.i.i, i64 32
   %188 = getelementptr inbounds nuw i8, ptr %170, i64 48
@@ -3414,7 +3414,7 @@ _ZSt10_ConstructISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_
   store i64 %199, ptr %200, align 8, !tbaa !97, !noalias !195
   store ptr %190, ptr %187, align 8, !tbaa !100, !noalias !195
   store i64 0, ptr %198, align 8, !tbaa !97, !noalias !195
-  store i8 0, ptr %190, align 1, !tbaa !99, !noalias !195
+  store i8 0, ptr %190, align 8, !tbaa !99, !noalias !195
   %201 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.i.i.i.i, i64 64
   %202 = icmp eq ptr %201, %.sroa.7.0.i.i.i.i
   br i1 %202, label %203, label %_ZNSt13move_iteratorISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERS8_PS8_EEppEv.exit.i.i.i.i.i
@@ -3963,7 +3963,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i5
   store i64 %464, ptr %465, align 8, !tbaa !97, !noalias !249
   store ptr %455, ptr %.sroa.04.0.i.i.i.i47, align 8, !tbaa !100, !noalias !249
   store i64 0, ptr %463, align 8, !tbaa !97, !noalias !249
-  store i8 0, ptr %455, align 1, !tbaa !99, !noalias !249
+  store i8 0, ptr %455, align 8, !tbaa !99, !noalias !249
   %466 = getelementptr inbounds nuw i8, ptr %450, i64 32
   %467 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.i.i.i.i47, i64 32
   %468 = getelementptr inbounds nuw i8, ptr %450, i64 48
@@ -3995,7 +3995,7 @@ _ZSt10_ConstructISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_
   store i64 %479, ptr %480, align 8, !tbaa !97, !noalias !249
   store ptr %470, ptr %467, align 8, !tbaa !100, !noalias !249
   store i64 0, ptr %478, align 8, !tbaa !97, !noalias !249
-  store i8 0, ptr %470, align 1, !tbaa !99, !noalias !249
+  store i8 0, ptr %470, align 8, !tbaa !99, !noalias !249
   %481 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.i.i.i.i47, i64 64
   %482 = icmp eq ptr %481, %.sroa.7.0.i.i.i.i48
   br i1 %482, label %483, label %_ZNSt13move_iteratorISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERS8_PS8_EEppEv.exit.i.i.i.i.i54
@@ -4269,7 +4269,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.
   store i64 %611, ptr %612, align 8, !tbaa !97, !noalias !289
   store ptr %602, ptr %.sroa.04.0.i.i.i.i.i, align 8, !tbaa !100, !noalias !289
   store i64 0, ptr %610, align 8, !tbaa !97, !noalias !289
-  store i8 0, ptr %602, align 1, !tbaa !99, !noalias !289
+  store i8 0, ptr %602, align 8, !tbaa !99, !noalias !289
   %613 = getelementptr inbounds nuw i8, ptr %597, i64 32
   %614 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.i.i.i.i.i, i64 32
   %615 = getelementptr inbounds nuw i8, ptr %597, i64 48
@@ -4301,7 +4301,7 @@ _ZSt10_ConstructISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_
   store i64 %626, ptr %627, align 8, !tbaa !97, !noalias !289
   store ptr %617, ptr %614, align 8, !tbaa !100, !noalias !289
   store i64 0, ptr %625, align 8, !tbaa !97, !noalias !289
-  store i8 0, ptr %617, align 1, !tbaa !99, !noalias !289
+  store i8 0, ptr %617, align 8, !tbaa !99, !noalias !289
   %628 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.i.i.i.i.i, i64 64
   %629 = icmp eq ptr %628, %.sroa.7.0.i.i.i.i.i
   br i1 %629, label %630, label %_ZNSt13move_iteratorISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERS8_PS8_EEppEv.exit.i.i.i.i.i.i
@@ -4862,7 +4862,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %41, ptr %42, align 8, !tbaa !97, !noalias !313
   store ptr %32, ptr %.sroa.04.0.i.i.i.i, align 8, !tbaa !100, !noalias !313
   store i64 0, ptr %40, align 8, !tbaa !97, !noalias !313
-  store i8 0, ptr %32, align 1, !tbaa !99, !noalias !313
+  store i8 0, ptr %32, align 8, !tbaa !99, !noalias !313
   %43 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.i.i.i.i, i64 32
   %45 = getelementptr inbounds nuw i8, ptr %26, i64 48
@@ -4894,7 +4894,7 @@ _ZSt10_ConstructISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_
   store i64 %56, ptr %57, align 8, !tbaa !97, !noalias !313
   store ptr %47, ptr %44, align 8, !tbaa !100, !noalias !313
   store i64 0, ptr %55, align 8, !tbaa !97, !noalias !313
-  store i8 0, ptr %47, align 1, !tbaa !99, !noalias !313
+  store i8 0, ptr %47, align 8, !tbaa !99, !noalias !313
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.i.i.i.i, i64 64
   %59 = icmp eq ptr %58, %.sroa.7.0.i.i.i.i
   br i1 %59, label %60, label %_ZNSt13move_iteratorISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERS8_PS8_EEppEv.exit.i.i.i.i.i

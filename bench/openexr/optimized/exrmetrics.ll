@@ -10433,7 +10433,7 @@ _ZSt19__relocate_object_aI9partStatsS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i: ; preds = 
   store i64 %62, ptr %64, align 8, !tbaa !15, !alias.scope !278, !noalias !281
   store ptr %54, ptr %51, align 8, !tbaa !12, !alias.scope !281, !noalias !278
   store i64 0, ptr %63, align 8, !tbaa !15, !alias.scope !281, !noalias !278
-  store i8 0, ptr %54, align 1, !tbaa !14, !alias.scope !281, !noalias !278
+  store i8 0, ptr %54, align 8, !tbaa !14, !alias.scope !281, !noalias !278
   tail call void @_ZN9partStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %.0911.i.i) #27
   %65 = getelementptr inbounds nuw i8, ptr %.0911.i.i, i64 192
   %66 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 192

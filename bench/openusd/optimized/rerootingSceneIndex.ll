@@ -898,7 +898,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit: ; preds = %15, %17
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_RerootingSceneIndexContainerDataSourceE, i64 16), ptr %52, align 8, !noalias !6
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %55 = load i32, ptr %53, align 8, !noalias !6
-  store i32 %55, ptr %54, align 4, !noalias !6
+  store i32 %55, ptr %54, align 8, !noalias !6
   %.not.i.i.i.i = icmp eq i32 %55, 0
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i, label %56
 
@@ -4473,7 +4473,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_p
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_RerootingSceneIndexContainerDataSourceE, i64 16), ptr %33, align 8, !noalias !21
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %36 = load i32, ptr %34, align 8, !noalias !21
-  store i32 %36, ptr %35, align 4, !noalias !21
+  store i32 %36, ptr %35, align 8, !noalias !21
   %.not.i.i.i.i = icmp eq i32 %36, 0
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i, label %37
 
@@ -4795,7 +4795,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7SdfPathEE4Ca
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_134_RerootingSceneIndexPathDataSourceE, i64 16), ptr %185, align 8, !noalias !31
   %187 = getelementptr inbounds nuw i8, ptr %185, i64 8
   %188 = load i32, ptr %186, align 8, !noalias !31
-  store i32 %188, ptr %187, align 4, !noalias !31
+  store i32 %188, ptr %187, align 8, !noalias !31
   %.not.i.i.i.i38 = icmp eq i32 %188, 0
   br i1 %.not.i.i.i.i38, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i39, label %189
 
@@ -5117,7 +5117,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_7
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_RerootingSceneIndexPathArrayDataSourceE, i64 16), ptr %337, align 8, !noalias !41
   %339 = getelementptr inbounds nuw i8, ptr %337, i64 8
   %340 = load i32, ptr %338, align 8, !noalias !41
-  store i32 %340, ptr %339, align 4, !noalias !41
+  store i32 %340, ptr %339, align 8, !noalias !41
   %.not.i.i.i.i70 = icmp eq i32 %340, 0
   br i1 %.not.i.i.i.i70, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i71, label %341
 
@@ -6991,7 +6991,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_Coun
   %16 = atomicrmw add ptr %.sink.i.i.i.i.i, i64 1 monotonic, align 8, !noalias !52
   %.pre.i.i = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store atomic i32 0, ptr %17 seq_cst, align 4, !noalias !52
+  store atomic i32 0, ptr %17 seq_cst, align 8, !noalias !52
   %18 = atomicrmw add ptr %17, i32 1 monotonic, align 4, !noalias !52
   %.not.i.i.i.i = icmp eq ptr %.pre.i.i, null
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_7VtValue8_CountedINS_7VtArrayINS_7SdfPathEEEEEED2Ev.exit.i.i, label %19

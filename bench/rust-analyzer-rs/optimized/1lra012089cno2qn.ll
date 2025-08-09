@@ -111577,9 +111577,9 @@ define hidden void @"_ZN79_$LT$serde_json..value..de..SeqDeserializer$u20$as$u20
   %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx5.sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 9
   %.sroa.6.sroa.4.sroa.0.0.copyload = load i56, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx5.sroa_idx, align 1, !noalias !31186
   %.sroa.6.sroa.4.sroa.4.0..sroa.6.sroa.4.0..sroa.6.0..sroa_idx5.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sroa.6.sroa.4.sroa.4.0.copyload = load i64, ptr %.sroa.6.sroa.4.sroa.4.0..sroa.6.sroa.4.0..sroa.6.0..sroa_idx5.sroa_idx.sroa_idx, align 1, !noalias !31186
+  %.sroa.6.sroa.4.sroa.4.0.copyload = load i64, ptr %.sroa.6.sroa.4.sroa.4.0..sroa.6.sroa.4.0..sroa.6.0..sroa_idx5.sroa_idx.sroa_idx, align 8, !noalias !31186
   %.sroa.6.sroa.4.sroa.5.0..sroa.6.sroa.4.0..sroa.6.0..sroa_idx5.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %.sroa.6.sroa.4.sroa.5.sroa.0.0.copyload = load i64, ptr %.sroa.6.sroa.4.sroa.5.0..sroa.6.sroa.4.0..sroa.6.0..sroa_idx5.sroa_idx.sroa_idx, align 1, !noalias !31186
+  %.sroa.6.sroa.4.sroa.5.sroa.0.0.copyload = load i64, ptr %.sroa.6.sroa.4.sroa.5.0..sroa.6.sroa.4.0..sroa.6.0..sroa_idx5.sroa_idx.sroa_idx, align 8, !noalias !31186
   %.sroa.6.sroa.4.sroa.5.sroa.4.0..sroa.6.sroa.4.sroa.5.0..sroa.6.sroa.4.0..sroa.6.0..sroa_idx5.sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 32
   %13 = icmp eq i64 %.sroa.0.0.copyload4, -9223372036854775803
   br i1 %13, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7bf4c8a7f5c404d8E.llvm.1186121590401690724.exit.thread", label %14

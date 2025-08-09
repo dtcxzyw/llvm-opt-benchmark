@@ -5636,7 +5636,7 @@ _ZNO5clang12ast_matchers8internal18PolymorphicMatcherINS1_31matcher_hasOperatorN
   %1228 = getelementptr inbounds nuw i8, ptr %1225, i64 32
   store ptr %1228, ptr %1227, align 8, !tbaa !241, !noalias !578
   %1229 = load i8, ptr %1222, align 8, !tbaa !30, !noalias !578
-  store i8 %1229, ptr %1228, align 1, !tbaa !30, !noalias !578
+  store i8 %1229, ptr %1228, align 8, !tbaa !30, !noalias !578
   %1230 = getelementptr inbounds nuw i8, ptr %1225, i64 24
   store i64 1, ptr %1230, align 8, !tbaa !244, !noalias !578
   %1231 = getelementptr inbounds nuw i8, ptr %1225, i64 33
@@ -9673,11 +9673,11 @@ _ZNO5clang12ast_matchers8internal18PolymorphicMatcherINS1_31matcher_hasOperatorN
   %126 = getelementptr inbounds nuw i8, ptr %123, i64 32
   store ptr %126, ptr %125, align 8, !tbaa !241, !noalias !1151
   %127 = load i16, ptr %119, align 8, !noalias !1151
-  store i16 %127, ptr %126, align 1, !noalias !1151
+  store i16 %127, ptr %126, align 8, !noalias !1151
   %128 = getelementptr inbounds nuw i8, ptr %123, i64 24
   store i64 2, ptr %128, align 8, !tbaa !244, !noalias !1151
   %129 = getelementptr inbounds nuw i8, ptr %123, i64 34
-  store i8 0, ptr %129, align 1, !tbaa !30, !noalias !1151
+  store i8 0, ptr %129, align 2, !tbaa !30, !noalias !1151
   store i8 0, ptr %24, align 8, !tbaa !222, !alias.scope !1151
   %130 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 304, ptr %130, align 4, !alias.scope !1151
@@ -18423,11 +18423,11 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_15CXXForRangeStmtEEENS1_
   %517 = getelementptr inbounds nuw i8, ptr %514, i64 32
   store ptr %517, ptr %516, align 8, !tbaa !241, !noalias !2339
   %518 = load i32, ptr %510, align 8, !noalias !2339
-  store i32 %518, ptr %517, align 1, !noalias !2339
+  store i32 %518, ptr %517, align 8, !noalias !2339
   %519 = getelementptr inbounds nuw i8, ptr %514, i64 24
   store i64 4, ptr %519, align 8, !tbaa !244, !noalias !2339
   %520 = getelementptr inbounds nuw i8, ptr %514, i64 36
-  store i8 0, ptr %520, align 1, !tbaa !30, !noalias !2339
+  store i8 0, ptr %520, align 4, !tbaa !30, !noalias !2339
   %521 = atomicrmw add ptr %515, i32 1 monotonic, align 4, !noalias !2339
   %522 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26, !noalias !2342
   %523 = getelementptr inbounds nuw i8, ptr %522, i64 8
@@ -21847,7 +21847,7 @@ _ZNO5clang12ast_matchers8internal18PolymorphicMatcherINS1_31matcher_hasOperatorN
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store ptr %32, ptr %31, align 8, !tbaa !241, !noalias !2718
   %33 = load i8, ptr %26, align 8, !tbaa !30, !noalias !2718
-  store i8 %33, ptr %32, align 1, !tbaa !30, !noalias !2718
+  store i8 %33, ptr %32, align 8, !tbaa !30, !noalias !2718
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store i64 1, ptr %34, align 8, !tbaa !244, !noalias !2718
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 33

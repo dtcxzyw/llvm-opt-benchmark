@@ -509,7 +509,7 @@ define hidden ptr @rb_vm_cref_dup_without_refinements(ptr noundef readonly captu
   %6 = and i32 %4, 524288
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !24
-  %9 = load i8, ptr %2, align 4
+  %9 = load i8, ptr %2, align 8
   %10 = and i8 %9, 15
   %switch.i.i = icmp ult ptr %.val, inttoptr (i64 2 to ptr)
   br i1 %switch.i.i, label %17, label %11
@@ -59508,7 +59508,7 @@ define internal fastcc ptr @vm_cref_dup(ptr noundef readonly captures(none) %0) 
   %6 = and i32 %4, 524288
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !24
-  %9 = load i8, ptr %2, align 4
+  %9 = load i8, ptr %2, align 8
   %10 = and i8 %9, 15
   %switch.i.i = icmp ult ptr %.val, inttoptr (i64 2 to ptr)
   br i1 %switch.i.i, label %17, label %11

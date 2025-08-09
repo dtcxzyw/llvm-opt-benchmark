@@ -11913,7 +11913,7 @@ _ZN6hermes2vm17NativeConstructor6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectE
   store ptr @_ZN6hermes2vm25typedArrayBaseConstructorEPvRNS0_7RuntimeENS0_10NativeArgsE, ptr %functionPtr_.i.i.i.i.i.i.i.i, align 8
   %creator_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i, i64 40
   store ptr @_ZN6hermes2vm17NativeConstructor15creatorFunctionINS0_8JSObjectEEENS0_10CallResultINS0_12PseudoHandleIS3_EELNS0_6detail20CallResultSpecializeE6EEERNS0_7RuntimeENS0_6HandleIS3_EEPv, ptr %creator_.i.i.i.i.i.i.i, align 8
-  store i32 1174405168, ptr %cond.i.i.i.i.i.i, align 4
+  store i32 1174405168, ptr %cond.i.i.i.i.i.i, align 8
   %3 = ptrtoint ptr %cond.i.i.i.i.i.i to i64
   %or.i.i.i.i.i = or i64 %3, -281474976710656
   %topGCScope_.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 8

@@ -4133,7 +4133,7 @@ define internal fastcc range(i32 0, 2) i32 @indev_proc_short_click(ptr noundef n
 
 38:                                               ; preds = %33, %33
   %39 = load i32, ptr %2, align 8, !tbaa !93
-  store i32 %39, ptr %35, align 4, !tbaa !116
+  store i32 %39, ptr %35, align 8, !tbaa !116
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %41 = load i32, ptr %40, align 4, !tbaa !94
   br label %lv_indev_get_point.exit

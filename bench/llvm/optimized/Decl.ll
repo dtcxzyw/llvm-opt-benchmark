@@ -24530,7 +24530,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store ptr %109, ptr %.ptr.i.i.i.i, align 8, !tbaa !697
   %110 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
   store i64 0, ptr %110, align 8, !tbaa !698
-  store i8 0, ptr %109, align 1, !tbaa !390
+  store i8 0, ptr %109, align 8, !tbaa !390
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 32
   %111 = icmp eq i64 %.add.i.i.i.i, 416
   br i1 %111, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %108
@@ -26885,7 +26885,7 @@ define dso_local noundef ptr @_ZN5clang10ExportDecl6CreateERNS_10ASTContextEPNS_
   tail call void @_ZN5clang11DeclContextC2ENS_4Decl4KindE(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 6) #31
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN5clang10ExportDeclE, i64 16), ptr %4, align 8, !tbaa !388
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store i32 0, ptr %6, align 4, !tbaa !843
+  store i32 0, ptr %6, align 8, !tbaa !843
   ret ptr %4
 }
 
@@ -26924,7 +26924,7 @@ _ZN5clang4DeclC2ENS0_4KindEPNS_11DeclContextENS_14SourceLocationE.exit: ; preds 
   tail call void @_ZN5clang11DeclContextC2ENS_4Decl4KindE(ptr noundef nonnull align 8 dereferenceable(32) %21, i32 noundef 6) #31
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN5clang10ExportDeclE, i64 16), ptr %3, align 8, !tbaa !388
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store i32 0, ptr %22, align 4, !tbaa !843
+  store i32 0, ptr %22, align 8, !tbaa !843
   ret ptr %3
 }
 
@@ -28773,10 +28773,10 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_14PointerIntPairIPKN5clang9NamedDec
   %58 = load i64, ptr %1, align 8, !tbaa !390
   store i64 %58, ptr %48, align 8, !tbaa !390
   %59 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %60 = load i8, ptr %59, align 1
+  %60 = load i8, ptr %59, align 8
   %61 = and i8 %60, -64
   %62 = or disjoint i8 %61, 22
-  store i8 %62, ptr %59, align 1
+  store i8 %62, ptr %59, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %26, %13, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_14PointerIntPairIPKN5clang9NamedDeclELj3EjNS_21PointerLikeTypeTraitsIS6_EENS_18PointerIntPairInfoIS6_Lj3ES8_EEEENS3_11LinkageInfoELj8ENS_12DenseMapInfoISB_vEENS_6detail12DenseMapPairISB_SC_EEEESB_SC_SE_SH_E16InsertIntoBucketISB_JEEEPSH_SL_OT_DpOT0_.exit
@@ -28902,7 +28902,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapINS_14PointerIntPairIPKN
   %29 = getelementptr inbounds nuw i8, ptr %.02539, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %.026.ptr40, i64 8
   %31 = load i8, ptr %30, align 8, !tbaa !390
-  store i8 %31, ptr %29, align 1, !tbaa !390
+  store i8 %31, ptr %29, align 8, !tbaa !390
   %32 = getelementptr inbounds nuw i8, ptr %.02539, i64 16
   br label %33
 
@@ -29059,7 +29059,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_14PointerIntPairIPKN5clang9NamedDec
   %45 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
   %46 = getelementptr inbounds nuw i8, ptr %.024, i64 8
   %47 = load i8, ptr %46, align 1, !tbaa !390
-  store i8 %47, ptr %45, align 1, !tbaa !390
+  store i8 %47, ptr %45, align 8, !tbaa !390
   %48 = load i32, ptr %0, align 8
   %49 = and i32 %48, -2
   %50 = add i32 %49, 2
@@ -30622,7 +30622,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llv
   store ptr %16, ptr %.ptr.i.i.i, align 8, !tbaa !697
   %17 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %17, align 8, !tbaa !698
-  store i8 0, ptr %16, align 1, !tbaa !390
+  store i8 0, ptr %16, align 8, !tbaa !390
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %18 = icmp eq i64 %.add.i.i.i, 416
   br i1 %18, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %15

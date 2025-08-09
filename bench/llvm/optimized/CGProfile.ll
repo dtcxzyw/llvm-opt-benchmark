@@ -1435,7 +1435,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_8FunctionES4_EjNS_12DenseMapInfo
   store ptr %109, ptr %561, align 8, !tbaa !216, !noalias !212
   store ptr %439, ptr %566, align 8, !tbaa !225, !noalias !212
   %576 = getelementptr inbounds nuw i8, ptr %561, i64 16
-  store i32 0, ptr %576, align 4, !tbaa !224, !noalias !212
+  store i32 0, ptr %576, align 8, !tbaa !224, !noalias !212
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %109, ptr %6, align 8
   store ptr %439, ptr %.sroa.5211.0..sroa_idx212.i, align 8
@@ -1721,7 +1721,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_8FunctionES4_EjNS_12DenseMapInfo
   store ptr %109, ptr %730, align 8, !tbaa !216, !noalias !258
   store ptr %spec.select.i.i, ptr %735, align 8, !tbaa !225, !noalias !258
   %745 = getelementptr inbounds nuw i8, ptr %730, i64 16
-  store i32 0, ptr %745, align 4, !tbaa !224, !noalias !258
+  store i32 0, ptr %745, align 8, !tbaa !224, !noalias !258
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %109, ptr %5, align 8
   store ptr %spec.select.i.i, ptr %.sroa.5216.0..sroa_idx217.i, align 8
@@ -2201,8 +2201,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_8FunctionES4_EjNS_12DenseMapInfo
   store ptr %78, ptr %79, align 8, !tbaa !225
   %80 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 16
   %81 = getelementptr inbounds nuw i8, ptr %.022, i64 16
-  %82 = load i32, ptr %81, align 4, !tbaa !224
-  store i32 %82, ptr %80, align 4, !tbaa !224
+  %82 = load i32, ptr %81, align 8, !tbaa !224
+  store i32 %82, ptr %80, align 8, !tbaa !224
   %83 = load i32, ptr %4, align 8, !tbaa !222
   %84 = add i32 %83, 1
   store i32 %84, ptr %4, align 8, !tbaa !222

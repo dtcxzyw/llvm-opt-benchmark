@@ -4322,9 +4322,9 @@ define internal fastcc void @ext4_update_super(ptr noundef %0, ptr noundef reado
   %115 = load i32, ptr %8, align 4
   %116 = trunc i64 %114 to i32
   %117 = mul i32 %115, %116
-  %118 = load i32, ptr %7, align 4
+  %118 = load i32, ptr %7, align 8
   %119 = add i32 %118, %117
-  store i32 %119, ptr %7, align 4
+  store i32 %119, ptr %7, align 8
   %120 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %121 = load ptr, ptr %4, align 8
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 32
@@ -4332,9 +4332,9 @@ define internal fastcc void @ext4_update_super(ptr noundef %0, ptr noundef reado
   %124 = load i32, ptr %8, align 4
   %125 = trunc i64 %123 to i32
   %126 = mul i32 %124, %125
-  %127 = load i32, ptr %120, align 4
+  %127 = load i32, ptr %120, align 8
   %128 = add i32 %127, %126
-  store i32 %128, ptr %120, align 4
+  store i32 %128, ptr %120, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !58
   %129 = load i32, ptr %8, align 4
   %130 = getelementptr inbounds nuw i8, ptr %5, i64 64

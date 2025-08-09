@@ -398,25 +398,25 @@ define void @_ZN3gmx15analysismodules9HbondInfo6createEv(ptr dead_on_unwind noal
   store ptr %13, ptr %12, align 8, !tbaa !7
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store i64 0, ptr %14, align 8, !tbaa !12
-  store i8 0, ptr %13, align 1, !tbaa !15
+  store i8 0, ptr %13, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 112
   store ptr %16, ptr %15, align 8, !tbaa !7
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 104
   store i64 0, ptr %17, align 8, !tbaa !12
-  store i8 0, ptr %16, align 1, !tbaa !15
+  store i8 0, ptr %16, align 8, !tbaa !15
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 144
   store ptr %19, ptr %18, align 8, !tbaa !7
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 136
   store i64 0, ptr %20, align 8, !tbaa !12
-  store i8 0, ptr %19, align 1, !tbaa !15
+  store i8 0, ptr %19, align 8, !tbaa !15
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 176
   store ptr %22, ptr %21, align 8, !tbaa !7
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 168
   store i64 0, ptr %23, align 8, !tbaa !12
-  store i8 0, ptr %22, align 1, !tbaa !15
+  store i8 0, ptr %22, align 8, !tbaa !15
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 208
   store ptr %25, ptr %24, align 8, !tbaa !7
@@ -13264,7 +13264,7 @@ _ZSt19__relocate_object_aIN3gmx15analysismodules12_GLOBAL__N_17t_donorES3_SaIS3_
   store i64 %685, ptr %687, align 8, !tbaa !12, !alias.scope !440, !noalias !443
   store ptr %677, ptr %674, align 8, !tbaa !85, !alias.scope !443, !noalias !440
   store i64 0, ptr %686, align 8, !tbaa !12, !alias.scope !443, !noalias !440
-  store i8 0, ptr %677, align 1, !tbaa !15, !alias.scope !443, !noalias !440
+  store i8 0, ptr %677, align 8, !tbaa !15, !alias.scope !443, !noalias !440
   %688 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i, i64 64
   %689 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i, i64 64
   %.not.i.i.i.i.i233 = icmp eq ptr %688, %596

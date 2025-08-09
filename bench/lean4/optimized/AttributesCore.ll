@@ -3557,7 +3557,7 @@ _init_l_Lake_initFn____x40_Lake_DSL_AttributesCore___hyg_4____closed__7.exit: ; 
   %.val141 = load ptr, ptr %46, align 8, !tbaa !9
   store ptr %.val141, ptr @l_Lake_packageAttr, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %.val141) #4
-  %47 = load i32, ptr %42, align 4, !tbaa !4
+  %47 = load i32, ptr %42, align 8, !tbaa !4
   %48 = icmp sgt i32 %47, 1
   br i1 %48, label %49, label %51, !prof !11
 
@@ -3612,7 +3612,7 @@ lean_dec_ref.exit91:                              ; preds = %52, %51, %49, %_ini
   %.val142 = load ptr, ptr %70, align 8, !tbaa !9
   store ptr %.val142, ptr @l_Lake_packageDepAttr, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %.val142) #4
-  %71 = load i32, ptr %66, align 4, !tbaa !4
+  %71 = load i32, ptr %66, align 8, !tbaa !4
   %72 = icmp sgt i32 %71, 1
   br i1 %72, label %73, label %75, !prof !11
 
@@ -3667,7 +3667,7 @@ lean_dec_ref.exit93:                              ; preds = %76, %75, %73, %lean
   %.val143 = load ptr, ptr %94, align 8, !tbaa !9
   store ptr %.val143, ptr @l_Lake_postUpdateAttr, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %.val143) #4
-  %95 = load i32, ptr %90, align 4, !tbaa !4
+  %95 = load i32, ptr %90, align 8, !tbaa !4
   %96 = icmp sgt i32 %95, 1
   br i1 %96, label %97, label %99, !prof !11
 
@@ -3722,7 +3722,7 @@ lean_dec_ref.exit95:                              ; preds = %100, %99, %97, %lea
   %.val144 = load ptr, ptr %118, align 8, !tbaa !9
   store ptr %.val144, ptr @l_Lake_scriptAttr, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %.val144) #4
-  %119 = load i32, ptr %114, align 4, !tbaa !4
+  %119 = load i32, ptr %114, align 8, !tbaa !4
   %120 = icmp sgt i32 %119, 1
   br i1 %120, label %121, label %123, !prof !11
 
@@ -3829,7 +3829,7 @@ _init_l_Lake_initFn____x40_Lake_DSL_AttributesCore___hyg_108____closed__6.exit: 
   %.val145 = load ptr, ptr %160, align 8, !tbaa !9
   store ptr %.val145, ptr @l_Lake_defaultScriptAttr, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %.val145) #4
-  %161 = load i32, ptr %156, align 4, !tbaa !4
+  %161 = load i32, ptr %156, align 8, !tbaa !4
   %162 = icmp sgt i32 %161, 1
   br i1 %162, label %163, label %165, !prof !11
 
@@ -3884,7 +3884,7 @@ lean_dec_ref.exit99:                              ; preds = %166, %165, %163, %_
   %.val146 = load ptr, ptr %184, align 8, !tbaa !9
   store ptr %.val146, ptr @l_Lake_leanLibAttr, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %.val146) #4
-  %185 = load i32, ptr %180, align 4, !tbaa !4
+  %185 = load i32, ptr %180, align 8, !tbaa !4
   %186 = icmp sgt i32 %185, 1
   br i1 %186, label %187, label %189, !prof !11
 
@@ -3939,7 +3939,7 @@ lean_dec_ref.exit101:                             ; preds = %190, %189, %187, %l
   %.val147 = load ptr, ptr %208, align 8, !tbaa !9
   store ptr %.val147, ptr @l_Lake_leanExeAttr, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %.val147) #4
-  %209 = load i32, ptr %204, align 4, !tbaa !4
+  %209 = load i32, ptr %204, align 8, !tbaa !4
   %210 = icmp sgt i32 %209, 1
   br i1 %210, label %211, label %213, !prof !11
 
@@ -3994,7 +3994,7 @@ lean_dec_ref.exit103:                             ; preds = %214, %213, %211, %l
   %.val148 = load ptr, ptr %232, align 8, !tbaa !9
   store ptr %.val148, ptr @l_Lake_externLibAttr, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %.val148) #4
-  %233 = load i32, ptr %228, align 4, !tbaa !4
+  %233 = load i32, ptr %228, align 8, !tbaa !4
   %234 = icmp sgt i32 %233, 1
   br i1 %234, label %235, label %237, !prof !11
 
@@ -4049,7 +4049,7 @@ lean_dec_ref.exit105:                             ; preds = %238, %237, %235, %l
   %.val149 = load ptr, ptr %256, align 8, !tbaa !9
   store ptr %.val149, ptr @l_Lake_inputFileAttr, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %.val149) #4
-  %257 = load i32, ptr %252, align 4, !tbaa !4
+  %257 = load i32, ptr %252, align 8, !tbaa !4
   %258 = icmp sgt i32 %257, 1
   br i1 %258, label %259, label %261, !prof !11
 
@@ -4104,7 +4104,7 @@ lean_dec_ref.exit107:                             ; preds = %262, %261, %259, %l
   %.val150 = load ptr, ptr %280, align 8, !tbaa !9
   store ptr %.val150, ptr @l_Lake_inputDirAttr, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %.val150) #4
-  %281 = load i32, ptr %276, align 4, !tbaa !4
+  %281 = load i32, ptr %276, align 8, !tbaa !4
   %282 = icmp sgt i32 %281, 1
   br i1 %282, label %283, label %285, !prof !11
 
@@ -4159,7 +4159,7 @@ lean_dec_ref.exit109:                             ; preds = %286, %285, %283, %l
   %.val151 = load ptr, ptr %304, align 8, !tbaa !9
   store ptr %.val151, ptr @l_Lake_targetAttr, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %.val151) #4
-  %305 = load i32, ptr %300, align 4, !tbaa !4
+  %305 = load i32, ptr %300, align 8, !tbaa !4
   %306 = icmp sgt i32 %305, 1
   br i1 %306, label %307, label %309, !prof !11
 
@@ -4227,7 +4227,7 @@ lean_dec_ref.exit111:                             ; preds = %310, %309, %307, %l
   %.val152 = load ptr, ptr %333, align 8, !tbaa !9
   store ptr %.val152, ptr @l_Lake_defaultTargetAttr, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %.val152) #4
-  %334 = load i32, ptr %329, align 4, !tbaa !4
+  %334 = load i32, ptr %329, align 8, !tbaa !4
   %335 = icmp sgt i32 %334, 1
   br i1 %335, label %336, label %338, !prof !11
 
@@ -4298,7 +4298,7 @@ lean_dec_ref.exit113:                             ; preds = %339, %338, %336, %l
   %.val153 = load ptr, ptr %363, align 8, !tbaa !9
   store ptr %.val153, ptr @l_Lake_testDriverAttr, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %.val153) #4
-  %364 = load i32, ptr %359, align 4, !tbaa !4
+  %364 = load i32, ptr %359, align 8, !tbaa !4
   %365 = icmp sgt i32 %364, 1
   br i1 %365, label %366, label %368, !prof !11
 
@@ -4363,7 +4363,7 @@ lean_dec_ref.exit115:                             ; preds = %369, %368, %366, %l
   %.val154 = load ptr, ptr %391, align 8, !tbaa !9
   store ptr %.val154, ptr @l_Lake_lintDriverAttr, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %.val154) #4
-  %392 = load i32, ptr %387, align 4, !tbaa !4
+  %392 = load i32, ptr %387, align 8, !tbaa !4
   %393 = icmp sgt i32 %392, 1
   br i1 %393, label %394, label %396, !prof !11
 
@@ -4418,7 +4418,7 @@ lean_dec_ref.exit117:                             ; preds = %397, %396, %394, %l
   %.val155 = load ptr, ptr %415, align 8, !tbaa !9
   store ptr %.val155, ptr @l_Lake_moduleFacetAttr, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %.val155) #4
-  %416 = load i32, ptr %411, align 4, !tbaa !4
+  %416 = load i32, ptr %411, align 8, !tbaa !4
   %417 = icmp sgt i32 %416, 1
   br i1 %417, label %418, label %420, !prof !11
 
@@ -4473,7 +4473,7 @@ lean_dec_ref.exit119:                             ; preds = %421, %420, %418, %l
   %.val156 = load ptr, ptr %439, align 8, !tbaa !9
   store ptr %.val156, ptr @l_Lake_packageFacetAttr, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %.val156) #4
-  %440 = load i32, ptr %435, align 4, !tbaa !4
+  %440 = load i32, ptr %435, align 8, !tbaa !4
   %441 = icmp sgt i32 %440, 1
   br i1 %441, label %442, label %444, !prof !11
 
@@ -4528,7 +4528,7 @@ lean_dec_ref.exit121:                             ; preds = %445, %444, %442, %l
   %.val157 = load ptr, ptr %463, align 8, !tbaa !9
   store ptr %.val157, ptr @l_Lake_libraryFacetAttr, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %.val157) #4
-  %464 = load i32, ptr %459, align 4, !tbaa !4
+  %464 = load i32, ptr %459, align 8, !tbaa !4
   %465 = icmp sgt i32 %464, 1
   br i1 %465, label %466, label %468, !prof !11
 

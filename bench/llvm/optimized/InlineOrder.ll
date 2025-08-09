@@ -1192,7 +1192,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optI18Inli
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.014, i64 32
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !55
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %21 = load i32, ptr %19, align 4, !tbaa !68
+  %21 = load i32, ptr %19, align 8, !tbaa !68
   store ptr %.sroa.01.0.copyload, ptr %3, align 8, !tbaa !54
   store i64 %.sroa.22.0.copyload, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !tbaa !55
   store ptr %.sroa.0.0.copyload, ptr %9, align 8, !tbaa !54
@@ -1604,7 +1604,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriority
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %9, ptr %71, align 8, !tbaa !128
   %78 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  store i32 -1, ptr %78, align 4, !tbaa !144
+  store i32 -1, ptr %78, align 8, !tbaa !144
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_EixERKS4_.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_EixERKS4_.exit: ; preds = %51, %36, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E16InsertIntoBucketIRKS4_JEEEPSB_SH_OT_DpOT0_.exit.i
@@ -2799,7 +2799,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6d
   %57 = load ptr, ptr %1, align 8, !tbaa !128
   store ptr %57, ptr %48, align 8, !tbaa !128
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !68
+  store i32 0, ptr %58, align 8, !tbaa !68
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E16InsertIntoBucketIRKS3_JEEEPS8_SE_OT_DpOT0_.exit
@@ -2998,7 +2998,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriority
   %63 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 8
   %64 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 8
   %65 = load i32, ptr %64, align 4, !tbaa !68
-  store i32 %65, ptr %63, align 4, !tbaa !68
+  store i32 %65, ptr %63, align 8, !tbaa !68
   %66 = add i32 %.val.i19.i.i, 1
   store i32 %66, ptr %32, align 8, !tbaa !142
   br label %67
@@ -3209,7 +3209,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6d
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !68
-  store i32 %68, ptr %66, align 4, !tbaa !68
+  store i32 %68, ptr %66, align 8, !tbaa !68
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !152
   br label %70
@@ -3672,7 +3672,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriority
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %10, ptr %96, align 8, !tbaa !128
   %103 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  store i32 2147483647, ptr %103, align 4, !tbaa !198
+  store i32 2147483647, ptr %103, align 8, !tbaa !198
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_EixERKS4_.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_EixERKS4_.exit: ; preds = %76, %61, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E16InsertIntoBucketIRKS4_JEEEPSB_SH_OT_DpOT0_.exit.i
@@ -5245,7 +5245,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriority
   %63 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 8
   %64 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 8
   %65 = load i32, ptr %64, align 4, !tbaa !68
-  store i32 %65, ptr %63, align 4, !tbaa !68
+  store i32 %65, ptr %63, align 8, !tbaa !68
   %66 = add i32 %.val.i19.i.i, 1
   store i32 %66, ptr %32, align 8, !tbaa !196
   br label %67
@@ -7804,7 +7804,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityEN
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %10, ptr %96, align 8, !tbaa !128
   %103 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  store i32 2147483647, ptr %103, align 4, !tbaa !308
+  store i32 2147483647, ptr %103, align 8, !tbaa !308
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_EixERKS4_.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_EixERKS4_.exit: ; preds = %76, %61, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E16InsertIntoBucketIRKS4_JEEEPSB_SH_OT_DpOT0_.exit.i
@@ -9123,7 +9123,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityEN
   %63 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 8
   %64 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 8
   %65 = load i32, ptr %64, align 4, !tbaa !68
-  store i32 %65, ptr %63, align 4, !tbaa !68
+  store i32 %65, ptr %63, align 8, !tbaa !68
   %66 = add i32 %.val.i19.i.i, 1
   store i32 %66, ptr %32, align 8, !tbaa !306
   br label %67

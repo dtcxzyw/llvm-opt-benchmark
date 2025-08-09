@@ -7911,7 +7911,7 @@ _ZNK4cvc58internal4expr9NodeValue8iteratorINS0_12NodeTemplateILb1EEEEdeEv.exit: 
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 8
   store ptr %.pre.i, ptr %230, align 8, !tbaa !72
   %231 = getelementptr inbounds nuw i8, ptr %229, i64 16
-  store i8 0, ptr %231, align 1, !tbaa !443
+  store i8 0, ptr %231, align 8, !tbaa !443
   %232 = getelementptr inbounds nuw i8, ptr %229, i64 17
   store i8 0, ptr %232, align 1, !tbaa !444
   %233 = invoke ptr @_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_S4_IbbEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS9_10_Hash_nodeIS7_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %3, i64 noundef %205, i64 noundef %203, ptr noundef nonnull %229, i64 noundef 1)

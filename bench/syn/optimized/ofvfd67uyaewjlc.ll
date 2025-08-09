@@ -4964,7 +4964,7 @@ define hidden noundef i32 @_ZN3syn6buffer19close_span_of_group17h9710abc367cdf28
   %6 = load i32, ptr %5, align 8, !range !234, !noundef !9
   %trunc = trunc nuw i32 %6 to i1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load i32, ptr %7, align 4, !range !54
+  %8 = load i32, ptr %7, align 8, !range !54
   %.03 = select i1 %trunc, i32 0, i32 %8
   br label %_ZN3syn6buffer6Cursor4span17hd5c13f4be6233906E.exit
 

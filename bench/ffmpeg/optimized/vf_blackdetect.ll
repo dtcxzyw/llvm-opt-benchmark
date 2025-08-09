@@ -198,7 +198,7 @@ av_ts_make_string.exit:                           ; preds = %62, %63
   store i64 %84, ptr %85, align 8, !tbaa !58
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 312
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %5, i8 0, i64 32, i1 false)
-  %.val60 = load i64, ptr %66, align 4
+  %.val60 = load i64, ptr %66, align 8
   %87 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %5, i64 noundef %84, i64 %.val60) #10
   %88 = call i32 @av_dict_set(ptr noundef nonnull %86, ptr noundef nonnull @.str.4, ptr noundef %87, i32 noundef 0) #10
   br label %97
@@ -216,7 +216,7 @@ av_ts_make_string.exit:                           ; preds = %62, %63
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 312
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   %94 = load i64, ptr %92, align 8, !tbaa !27
-  %.val61 = load i64, ptr %66, align 4
+  %.val61 = load i64, ptr %66, align 8
   %95 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %6, i64 noundef %94, i64 %.val61) #10
   %96 = call i32 @av_dict_set(ptr noundef nonnull %93, ptr noundef nonnull @.str.5, ptr noundef %95, i32 noundef 0) #10
   br label %97
@@ -278,7 +278,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
 29:                                               ; preds = %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   %30 = load i64, ptr %25, align 8, !tbaa !66
-  %.val = load i64, ptr %15, align 4
+  %.val = load i64, ptr %15, align 8
   %31 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %2, i64 noundef %30, i64 %.val) #10
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %33 = load double, ptr %32, align 8, !tbaa !43
@@ -447,13 +447,13 @@ define internal fastcc void @check_black_end(ptr %.72.val) unnamed_addr #1 {
   %13 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %1, i64 noundef %7, i64 %.val13) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   %14 = load i64, ptr %4, align 8, !tbaa !27
-  %.val12 = load i64, ptr %12, align 4
+  %.val12 = load i64, ptr %12, align 8
   %15 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %2, i64 noundef %14, i64 %.val12) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %16 = load i64, ptr %4, align 8, !tbaa !27
   %17 = load i64, ptr %6, align 8, !tbaa !58
   %18 = sub nsw i64 %16, %17
-  %.val = load i64, ptr %12, align 4
+  %.val = load i64, ptr %12, align 8
   %19 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %3, i64 noundef %18, i64 %.val) #10
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %.72.val, i32 noundef 32, ptr noundef nonnull @.str.8, ptr noundef %13, ptr noundef %15, ptr noundef %19) #10
   br label %20

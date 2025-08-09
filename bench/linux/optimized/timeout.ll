@@ -984,7 +984,7 @@ define dso_local noundef i32 @io_timeout(ptr noundef %0, i32 noundef %1) local_u
   store i32 %26, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 520
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 528
-  %32 = load ptr, ptr %31, align 8
+  %32 = load ptr, ptr %31, align 16
   %33 = icmp eq ptr %32, %30
   br i1 %33, label %.loopexit, label %.preheader
 

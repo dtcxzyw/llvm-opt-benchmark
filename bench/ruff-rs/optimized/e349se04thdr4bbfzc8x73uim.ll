@@ -1214,7 +1214,7 @@ _ZN7ty_test6parser12SectionStack3top17hcf8ffcb7833b8db1E.exit.i89.i.i: ; preds =
   %275 = getelementptr inbounds nuw i8, ptr %270, i64 97
   %276 = load i8, ptr %275, align 1, !alias.scope !114, !noalias !115
   %277 = getelementptr inbounds nuw i8, ptr %270, i64 98
-  %278 = load i8, ptr %277, align 1, !alias.scope !114, !noalias !115
+  %278 = load i8, ptr %277, align 2, !alias.scope !114, !noalias !115
   call void @llvm.lifetime.start.p0(ptr nonnull %46), !noalias !117
   %279 = getelementptr inbounds nuw i8, ptr %270, i64 72
   %280 = load i64, ptr %279, align 8, !range !109, !alias.scope !114, !noalias !115, !noundef !3

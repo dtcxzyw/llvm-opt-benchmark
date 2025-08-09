@@ -1734,18 +1734,18 @@ _Z18set_grid_alignmentPii.exit:
   %26 = add i32 %11, %25
   %27 = add i32 %26, %8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %27, ptr %28, align 4, !tbaa !11
+  store i32 %27, ptr %28, align 8, !tbaa !11
   %29 = xor i32 %6, -1
   %30 = add i32 %11, %29
   %31 = add i32 %30, %9
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %31, ptr %32, align 4, !tbaa !11
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %23, ptr %33, align 4, !tbaa !11
+  store i32 %23, ptr %33, align 8, !tbaa !11
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %27, ptr %34, align 4, !tbaa !11
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %31, ptr %35, align 4, !tbaa !11
+  store i32 %31, ptr %35, align 8, !tbaa !11
   %36 = icmp ne i32 %11, 5
   %37 = add nsw i32 %31, 3
   %38 = and i32 %37, -4

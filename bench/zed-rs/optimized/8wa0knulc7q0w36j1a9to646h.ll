@@ -36377,7 +36377,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.45.0.copyload.i.i, i64 92
   store i32 %.sroa.0.0.i.i9, ptr %.sroa.4.0..sroa_idx.i.i, align 4, !alias.scope !8206
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.45.0.copyload.i.i, i64 96
-  store i32 %.sroa.7.0.i.i, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i.i, align 4, !alias.scope !8206
+  store i32 %.sroa.7.0.i.i, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i.i, align 8, !alias.scope !8206
   %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.45.0.copyload.i.i, i64 100
   store i32 0, ptr %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i.i, align 4, !alias.scope !8206
   %74 = icmp ne ptr %.sroa.416.0.copyload, null
@@ -36593,7 +36593,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.45.0.copyload.i.i, i64 92
   store i32 %.sroa.0.0.i.i10, ptr %.sroa.4.0..sroa_idx.i.i, align 4, !alias.scope !8256
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.45.0.copyload.i.i, i64 96
-  store i32 %.sroa.7.0.i.i, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i.i, align 4, !alias.scope !8256
+  store i32 %.sroa.7.0.i.i, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i.i, align 8, !alias.scope !8256
   %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.45.0.copyload.i.i, i64 100
   store i32 0, ptr %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i.i, align 4, !alias.scope !8256
   %76 = icmp ne ptr %.sroa.417.0.copyload, null

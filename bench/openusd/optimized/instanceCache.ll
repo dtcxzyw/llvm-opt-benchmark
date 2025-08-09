@@ -1233,7 +1233,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St4lessIS1_ESaISt4pairI
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 152
   %67 = load i64, ptr %66, align 8
   %68 = icmp eq i64 %57, %67
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i = load i64, ptr %65, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i = load i64, ptr %65, align 8
   %69 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i
   %70 = select i1 %68, i1 %69, i1 false
   br i1 %70, label %.critedge8, label %.lr.ph.i.i.i.i
@@ -4204,7 +4204,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE9push_backERKS1
   %591 = getelementptr inbounds nuw i8, ptr %589, i64 24
   %592 = load i64, ptr %591, align 8
   %593 = icmp eq i64 %581, %592
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i = load i64, ptr %590, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i = load i64, ptr %590, align 8
   %594 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i
   %595 = select i1 %593, i1 %594, i1 false
   br i1 %595, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_NS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S1_EEE4findERS6_.exit, label %.lr.ph.i.i.i.i
@@ -8831,7 +8831,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7Sdf
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %.07, i64 40
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__15Usd_InstanceKeyD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %8) #16
-  %9 = load i32, ptr %7, align 4
+  %9 = load i32, ptr %7, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %9, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_15Usd_InstanceKeyEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS5_E.exit, label %10
 
@@ -10743,8 +10743,8 @@ define linkonce_odr noundef ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_access_it
   %12 = tail call noundef nonnull align 8 dereferenceable(80) ptr @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifieraSERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %10, ptr noundef nonnull align 8 dereferenceable(88) %11)
   %13 = getelementptr inbounds nuw i8, ptr %.0812, i64 88
   %14 = getelementptr inbounds nuw i8, ptr %.0911, i64 88
-  %15 = load i32, ptr %13, align 4
-  %16 = load i32, ptr %14, align 4
+  %15 = load i32, ptr %13, align 8
+  %16 = load i32, ptr %14, align 8
   %17 = icmp eq i32 %15, %16
   br i1 %17, label %_ZN32pxrInternal_v0_24__pxrReserved__14PcpInstanceKey4_ArcaSERKS1_.exit, label %18
 
@@ -10842,8 +10842,8 @@ define linkonce_odr noundef ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_access_it
   %12 = tail call noundef nonnull align 8 dereferenceable(80) ptr @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifieraSERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %10, ptr noundef nonnull align 8 dereferenceable(88) %11)
   %13 = getelementptr inbounds nuw i8, ptr %.0812, i64 88
   %14 = getelementptr inbounds nuw i8, ptr %.0911, i64 88
-  %15 = load i32, ptr %13, align 4
-  %16 = load i32, ptr %14, align 4
+  %15 = load i32, ptr %13, align 8
+  %16 = load i32, ptr %14, align 8
   %17 = icmp eq i32 %15, %16
   br i1 %17, label %_ZN32pxrInternal_v0_24__pxrReserved__14PcpInstanceKey4_ArcaSERKS1_.exit, label %18
 
@@ -15495,7 +15495,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(136) ptr @_ZNSt8__de
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 152
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %17, %28
-  %.0.copyload.i2.i.i.i.i18.i.i = load i64, ptr %26, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i = load i64, ptr %26, align 8
   %30 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i
   %31 = select i1 %29, i1 %30, i1 false
   br i1 %31, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_15Usd_InstanceKeyEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_4HashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %.lr.ph.i.i
@@ -15705,7 +15705,7 @@ define linkonce_odr noundef ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_
   %7 = load i64, ptr %2, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = load i32, ptr %8, align 4
-  store i32 %9, ptr %6, align 4
+  store i32 %9, ptr %6, align 8
   %.not.i.i.i.i.i.i = icmp eq i32 %9, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i, label %10
 
@@ -19367,7 +19367,7 @@ define linkonce_odr noundef nonnull align 4 dereferenceable(8) ptr @_ZNSt8__deta
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %26 = load i64, ptr %25, align 8
   %27 = icmp eq i64 %15, %26
-  %.0.copyload.i2.i.i.i.i18.i.i = load i64, ptr %24, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i = load i64, ptr %24, align 8
   %28 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i
   %29 = select i1 %27, i1 %28, i1 false
   %30 = lshr i64 %.0.copyload.i.i.i.i.i.i.i, 32
@@ -19404,7 +19404,7 @@ define linkonce_odr noundef nonnull align 4 dereferenceable(8) ptr @_ZNSt8__deta
   %43 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
   store ptr null, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store i32 %4, ptr %44, align 4
+  store i32 %4, ptr %44, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_4HashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS3_EESM_IJEEEEEPNS6_16_Hashtable_allocISaINS6_10_Hash_nodeIS4_Lb1EEEEEEDpOT_.exit, label %45
 
@@ -19740,7 +19740,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_15
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 152
   %43 = load i64, ptr %42, align 8
   %44 = icmp eq i64 %32, %43
-  %.0.copyload.i2.i.i.i.i18.i = load i64, ptr %41, align 4
+  %.0.copyload.i2.i.i.i.i18.i = load i64, ptr %41, align 8
   %45 = icmp eq i64 %.0.copyload.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i
   %46 = select i1 %44, i1 %45, i1 false
   br i1 %46, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_15Usd_InstanceKeyEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_4HashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS3_m.exit, label %.lr.ph.i
@@ -19850,7 +19850,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_15
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__15Usd_InstanceKeyD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %37) #16
-  %38 = load i32, ptr %36, align 4
+  %38 = load i32, ptr %36, align 8
   %.not.i.i.i.i.i.i = icmp eq i32 %38, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_15Usd_InstanceKeyEELb1EEEEE18_M_deallocate_nodeEPS8_.exit, label %39
 
@@ -19956,7 +19956,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__15Usd_InstanceKeyESt4pairIK
   %35 = load ptr, ptr %3, align 8
   store ptr %35, ptr %2, align 8
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  %37 = load i32, ptr %36, align 4
+  %37 = load i32, ptr %36, align 8
   %.not.i.i.i.i.i.i = icmp eq i32 %37, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__15Usd_InstanceKeyENS3_7SdfPathEELb1EEEEE18_M_deallocate_nodeEPS8_.exit, label %38
 

@@ -147,11 +147,11 @@ define range(i32 -2147483648, 1) i32 @ff_dca_core_parse(ptr noundef initializes(
   store i32 %.018.i.i, ptr %14, align 4, !tbaa !24
   %15 = add nuw nsw i32 %.018.i.i, 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %15, ptr %16, align 8, !tbaa !25
+  store i32 %15, ptr %16, align 16, !tbaa !25
   %17 = zext nneg i32 %13 to i64
   %18 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %18, ptr %19, align 8, !tbaa !26
+  store ptr %18, ptr %19, align 16, !tbaa !26
   %20 = getelementptr i8, ptr %0, i64 24
   store i32 0, ptr %20, align 8, !tbaa !27
   br i1 %or.cond3.i.i, label %21, label %alloc_sample_buffer.exit
@@ -6101,7 +6101,7 @@ map_prm_ch_to_spkr.exit.thread107:                ; preds = %120, %105, %108, %1
   %167 = load ptr, ptr %158, align 16, !tbaa !164
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 64
   %169 = load ptr, ptr %168, align 8, !tbaa !236
-  %170 = load ptr, ptr %149, align 8, !tbaa !75
+  %170 = load ptr, ptr %149, align 16, !tbaa !75
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 46136
   tail call void %169(ptr noundef %170, ptr noundef %157, ptr noundef nonnull %171, i64 noundef %156) #11
   br label %172
@@ -6252,7 +6252,7 @@ define range(i32 -2147483648, 1) i32 @ff_dca_core_filter_frame(ptr noundef initi
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 96
   %76 = load ptr, ptr %75, align 8, !tbaa !248
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 45904
-  %78 = load ptr, ptr %77, align 8, !tbaa !75
+  %78 = load ptr, ptr %77, align 16, !tbaa !75
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 45912
   %80 = load ptr, ptr %79, align 8, !tbaa !75
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 45928
@@ -6526,7 +6526,7 @@ map_prm_ch_to_spkr.exit.i:                        ; preds = %174, %153, %146
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 48
   %227 = load ptr, ptr %226, align 8, !tbaa !255
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 45888
-  %229 = load ptr, ptr %228, align 8, !tbaa !75
+  %229 = load ptr, ptr %228, align 16, !tbaa !75
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 45896
   %231 = load ptr, ptr %230, align 8, !tbaa !75
   tail call void %227(ptr noundef %229, ptr noundef %231, i32 noundef %57) #11
@@ -6549,7 +6549,7 @@ map_prm_ch_to_spkr.exit.i:                        ; preds = %174, %153, %146
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 48
   %241 = load ptr, ptr %240, align 8, !tbaa !255
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 45904
-  %243 = load ptr, ptr %242, align 8, !tbaa !75
+  %243 = load ptr, ptr %242, align 16, !tbaa !75
   %244 = getelementptr inbounds nuw i8, ptr %0, i64 45912
   %245 = load ptr, ptr %244, align 8, !tbaa !75
   tail call void %241(ptr noundef %243, ptr noundef %245, i32 noundef %57) #11
@@ -8444,7 +8444,7 @@ parse_x96_coding_header.exit:                     ; preds = %parse_x96_coding_he
   %367 = getelementptr i8, ptr %gep.us.i, i64 8
   %.val148.us.i = load ptr, ptr %367, align 8, !tbaa !148
   %368 = load i32, ptr %6, align 8, !tbaa !27
-  %369 = load i32, ptr %.phi.trans.insert.i, align 8, !tbaa !25
+  %369 = load i32, ptr %.phi.trans.insert.i, align 16, !tbaa !25
   %370 = load ptr, ptr %5, align 8, !tbaa !23
   %371 = lshr i32 %368, 3
   %372 = zext nneg i32 %371 to i64
@@ -8519,7 +8519,7 @@ dca_get_vlc.exit.us.i:                            ; preds = %388, %.lr.ph190.spl
   %421 = load i32, ptr %51, align 16, !tbaa !282
   %422 = add nsw i32 %421, 3
   %423 = load i32, ptr %6, align 8, !tbaa !27
-  %424 = load i32, ptr %.phi.trans.insert.i, align 8, !tbaa !25
+  %424 = load i32, ptr %.phi.trans.insert.i, align 16, !tbaa !25
   %425 = load ptr, ptr %5, align 8, !tbaa !23
   %426 = lshr i32 %423, 3
   %427 = zext nneg i32 %426 to i64

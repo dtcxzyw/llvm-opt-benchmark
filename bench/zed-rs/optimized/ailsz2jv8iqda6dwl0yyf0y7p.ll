@@ -1107,7 +1107,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   %13 = getelementptr i8, ptr %12, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !340
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load i8, ptr %14, align 1, !range !195, !alias.scope !341, !noalias !336, !noundef !4
+  %15 = load i8, ptr %14, align 8, !range !195, !alias.scope !341, !noalias !336, !noundef !4
   %16 = and i8 %15, 2
   %..i.i.i.i = xor i8 %16, 2
   store i8 %..i.i.i.i, ptr %4, align 1, !noalias !340

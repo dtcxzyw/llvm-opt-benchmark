@@ -8774,7 +8774,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit16: ; preds = %25, %27
   %72 = load i32, ptr %71, align 8, !tbaa !242
   %73 = and i32 %72, -75
   %74 = or disjoint i32 %73, 8
-  store i32 %74, ptr %71, align 4, !tbaa !243
+  store i32 %74, ptr %71, align 8, !tbaa !243
   %75 = load i64, ptr %68, align 8
   %76 = getelementptr inbounds i8, ptr %58, i64 %75
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
@@ -9153,7 +9153,7 @@ _ZSt19__relocate_object_aIN10myprotocol3GetES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i: 
   store i64 %51, ptr %53, align 8, !tbaa !10, !alias.scope !247, !noalias !250
   store ptr %43, ptr %40, align 8, !tbaa !17, !alias.scope !250, !noalias !247
   store i64 0, ptr %52, align 8, !tbaa !10, !alias.scope !250, !noalias !247
-  store i8 0, ptr %43, align 1, !tbaa !13, !alias.scope !250, !noalias !247
+  store i8 0, ptr %43, align 8, !tbaa !13, !alias.scope !250, !noalias !247
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
   %.not.i.i.i = icmp eq ptr %54, %1
@@ -9205,7 +9205,7 @@ _ZSt19__relocate_object_aIN10myprotocol3GetES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i23
   store i64 %70, ptr %72, align 8, !tbaa !10, !alias.scope !254, !noalias !257
   store ptr %62, ptr %59, align 8, !tbaa !17, !alias.scope !257, !noalias !254
   store i64 0, ptr %71, align 8, !tbaa !10, !alias.scope !257, !noalias !254
-  store i8 0, ptr %62, align 1, !tbaa !13, !alias.scope !257, !noalias !254
+  store i8 0, ptr %62, align 8, !tbaa !13, !alias.scope !257, !noalias !254
   %73 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 40
   %74 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 40
   %.not.i.i.i24 = icmp eq ptr %73, %5
@@ -9844,7 +9844,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN10myprotocol3GetESaIS1_EE17_M_
   store ptr %20, ptr %19, align 8, !tbaa !4
   %21 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 16
   store i64 0, ptr %21, align 8, !tbaa !10
-  store i8 0, ptr %20, align 1, !tbaa !13
+  store i8 0, ptr %20, align 8, !tbaa !13
   %22 = add i64 %.01012.i.i.i, -1
   %23 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 40
   %.not.i.i.i = icmp eq i64 %22, 0
@@ -9879,7 +9879,7 @@ _ZNKSt6vectorIN10myprotocol3GetESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %24
   store ptr %33, ptr %32, align 8, !tbaa !4
   %34 = getelementptr inbounds nuw i8, ptr %.013.i.i.i31, i64 16
   store i64 0, ptr %34, align 8, !tbaa !10
-  store i8 0, ptr %33, align 1, !tbaa !13
+  store i8 0, ptr %33, align 8, !tbaa !13
   %35 = add i64 %.01012.i.i.i32, -1
   %36 = getelementptr inbounds nuw i8, ptr %.013.i.i.i31, i64 40
   %.not.i.i.i33 = icmp eq i64 %35, 0
@@ -9929,7 +9929,7 @@ _ZSt19__relocate_object_aIN10myprotocol3GetES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i: 
   store i64 %50, ptr %52, align 8, !tbaa !10, !alias.scope !274, !noalias !277
   store ptr %42, ptr %39, align 8, !tbaa !17, !alias.scope !277, !noalias !274
   store i64 0, ptr %51, align 8, !tbaa !10, !alias.scope !277, !noalias !274
-  store i8 0, ptr %42, align 1, !tbaa !13, !alias.scope !277, !noalias !274
+  store i8 0, ptr %42, align 8, !tbaa !13, !alias.scope !277, !noalias !274
   %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
   %54 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
   %.not.i.i.i38 = icmp eq ptr %53, %5

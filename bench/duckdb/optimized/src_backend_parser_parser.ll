@@ -1205,7 +1205,7 @@ _ZSt19__relocate_object_aIN17duckdb_libpgquery9PGKeywordES1_SaIS1_EEvPT_PT0_RT1_
   store i64 %54, ptr %56, align 8, !tbaa !20, !alias.scope !51, !noalias !54
   store ptr %46, ptr %.0911.i.i.i.i, align 8, !tbaa !24, !alias.scope !54, !noalias !51
   store i64 0, ptr %55, align 8, !tbaa !20, !alias.scope !54, !noalias !51
-  store i8 0, ptr %46, align 1, !tbaa !22, !alias.scope !54, !noalias !51
+  store i8 0, ptr %46, align 8, !tbaa !22, !alias.scope !54, !noalias !51
   %57 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %58 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %59 = load i8, ptr %58, align 8, !tbaa !25, !alias.scope !54, !noalias !51
@@ -1257,7 +1257,7 @@ _ZSt19__relocate_object_aIN17duckdb_libpgquery9PGKeywordES1_SaIS1_EEvPT_PT0_RT1_
   store i64 %73, ptr %75, align 8, !tbaa !20, !alias.scope !58, !noalias !61
   store ptr %65, ptr %.0911.i.i.i.i29, align 8, !tbaa !24, !alias.scope !61, !noalias !58
   store i64 0, ptr %74, align 8, !tbaa !20, !alias.scope !61, !noalias !58
-  store i8 0, ptr %65, align 1, !tbaa !22, !alias.scope !61, !noalias !58
+  store i8 0, ptr %65, align 8, !tbaa !22, !alias.scope !61, !noalias !58
   %76 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 32
   %77 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 32
   %78 = load i8, ptr %77, align 8, !tbaa !25, !alias.scope !61, !noalias !58

@@ -518,7 +518,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h264_init_sequence_p
   %49 = add nsw i32 %48, 1
   %50 = load i32, ptr %21, align 8, !tbaa !113
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 3816
-  %52 = load i8, ptr %51, align 4, !tbaa !126
+  %52 = load i8, ptr %51, align 8, !tbaa !126
   %53 = zext i8 %52 to i32
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 3818
   %55 = load i16, ptr %54, align 2, !tbaa !127
@@ -545,10 +545,10 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h264_init_sequence_p
   %76 = and i8 %75, 16
   %77 = or disjoint i8 %72, %76
   %78 = getelementptr inbounds nuw i8, ptr %4, i64 3824
-  %79 = load i8, ptr %78, align 4, !tbaa !133
+  %79 = load i8, ptr %78, align 8, !tbaa !133
   %80 = shl i8 %79, 5
   %81 = getelementptr inbounds nuw i8, ptr %4, i64 2776
-  %82 = load i8, ptr %81, align 4, !tbaa !134
+  %82 = load i8, ptr %81, align 8, !tbaa !134
   %83 = and i8 %82, 15
   %84 = zext nneg i8 %83 to i32
   %85 = shl nuw nsw i32 %84, 6
@@ -575,7 +575,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h264_init_sequence_p
   %105 = shl nuw nsw i32 %104, 16
   %106 = or disjoint i32 %100, %105
   %107 = getelementptr inbounds nuw i8, ptr %4, i64 1992
-  %108 = load i8, ptr %107, align 4, !tbaa !138
+  %108 = load i8, ptr %107, align 8, !tbaa !138
   %109 = getelementptr inbounds nuw i8, ptr %4, i64 1993
   %110 = load i8, ptr %109, align 1, !tbaa !139
   %111 = getelementptr inbounds nuw i8, ptr %4, i64 3825
@@ -590,7 +590,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h264_init_sequence_p
   %120 = load i16, ptr %119, align 2, !tbaa !143
   %121 = zext i16 %120 to i32
   %122 = getelementptr inbounds nuw i8, ptr %4, i64 3832
-  %123 = load i16, ptr %122, align 4, !tbaa !144
+  %123 = load i16, ptr %122, align 8, !tbaa !144
   %124 = zext i16 %123 to i32
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 3834
   %126 = load i8, ptr %125, align 2, !tbaa !145
@@ -624,10 +624,10 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h264_init_sequence_p
   %153 = load i16, ptr %152, align 2, !tbaa !152
   %154 = zext i16 %153 to i32
   %155 = getelementptr inbounds nuw i8, ptr %4, i64 3840
-  %156 = load i16, ptr %155, align 4, !tbaa !153
+  %156 = load i16, ptr %155, align 8, !tbaa !153
   %157 = zext i16 %156 to i32
   %158 = getelementptr inbounds nuw i8, ptr %4, i64 3856
-  %159 = load i32, ptr %158, align 4, !tbaa !154
+  %159 = load i32, ptr %158, align 8, !tbaa !154
   %160 = getelementptr inbounds nuw i8, ptr %4, i64 3860
   %161 = load i32, ptr %160, align 4, !tbaa !155
   store i8 %42, ptr %7, align 4, !tbaa !156

@@ -1491,10 +1491,10 @@ AllocUnits.exit232.thread:                        ; preds = %311
   %315 = getelementptr inbounds nuw i8, ptr %313, i64 %314
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 4
   %317 = load i32, ptr %316, align 4, !tbaa !70
-  store i32 %317, ptr %215, align 4, !tbaa !60
-  %318 = load i32, ptr %216, align 4, !tbaa !60
+  store i32 %317, ptr %215, align 8, !tbaa !60
+  %318 = load i32, ptr %216, align 8, !tbaa !60
   %319 = add i32 %318, -1
-  store i32 %319, ptr %216, align 4, !tbaa !60
+  store i32 %319, ptr %216, align 8, !tbaa !60
   br label %335
 
 320:                                              ; preds = %311
@@ -3019,10 +3019,10 @@ define internal fastcc ptr @CreateSuccessors(ptr noundef %0, i32 noundef range(i
   %140 = getelementptr inbounds nuw i8, ptr %138, i64 %139
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 4
   %142 = load i32, ptr %141, align 4, !tbaa !70
-  store i32 %142, ptr %127, align 4, !tbaa !60
-  %143 = load i32, ptr %128, align 4, !tbaa !60
+  store i32 %142, ptr %127, align 8, !tbaa !60
+  %143 = load i32, ptr %128, align 8, !tbaa !60
   %144 = add i32 %143, -1
-  store i32 %144, ptr %128, align 4, !tbaa !60
+  store i32 %144, ptr %128, align 8, !tbaa !60
   br label %147
 
 145:                                              ; preds = %135
@@ -3128,7 +3128,7 @@ define internal fastcc void @RestoreModel(ptr noundef initializes((80, 88)) %0, 
   %39 = load i32, ptr %14, align 4, !tbaa !60
   %40 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i32 %39, ptr %40, align 4, !tbaa !70
-  %41 = load i8, ptr %15, align 1, !tbaa !14
+  %41 = load i8, ptr %15, align 4, !tbaa !14
   %42 = zext i8 %41 to i32
   %43 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i32 %42, ptr %43, align 4, !tbaa !71
@@ -3137,10 +3137,10 @@ define internal fastcc void @RestoreModel(ptr noundef initializes((80, 88)) %0, 
   %46 = ptrtoint ptr %44 to i64
   %47 = sub i64 %45, %46
   %48 = trunc i64 %47 to i32
-  store i32 %48, ptr %14, align 4, !tbaa !60
-  %49 = load i32, ptr %16, align 4, !tbaa !60
+  store i32 %48, ptr %14, align 8, !tbaa !60
+  %49 = load i32, ptr %16, align 8, !tbaa !60
   %50 = add i32 %49, 1
-  store i32 %50, ptr %16, align 4, !tbaa !60
+  store i32 %50, ptr %16, align 8, !tbaa !60
   br label %SpecialFreeUnit.exit
 
 51:                                               ; preds = %24
@@ -4004,7 +4004,7 @@ define internal fastcc i32 @CutOff(ptr noundef %0, ptr noundef %1, i32 noundef %
   %40 = load i32, ptr %39, align 4, !tbaa !60
   store i32 %40, ptr %8, align 4, !tbaa !70
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %42 = load i8, ptr %41, align 1, !tbaa !14
+  %42 = load i8, ptr %41, align 4, !tbaa !14
   %43 = zext i8 %42 to i32
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %43, ptr %44, align 4, !tbaa !71
@@ -4013,11 +4013,11 @@ define internal fastcc i32 @CutOff(ptr noundef %0, ptr noundef %1, i32 noundef %
   %47 = ptrtoint ptr %45 to i64
   %48 = sub i64 %46, %47
   %49 = trunc i64 %48 to i32
-  store i32 %49, ptr %39, align 4, !tbaa !60
+  store i32 %49, ptr %39, align 8, !tbaa !60
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %51 = load i32, ptr %50, align 4, !tbaa !60
+  %51 = load i32, ptr %50, align 8, !tbaa !60
   %52 = add i32 %51, 1
-  store i32 %52, ptr %50, align 4, !tbaa !60
+  store i32 %52, ptr %50, align 8, !tbaa !60
   br label %SpecialFreeUnit.exit
 
 53:                                               ; preds = %36
@@ -4233,7 +4233,7 @@ define internal fastcc i32 @CutOff(ptr noundef %0, ptr noundef %1, i32 noundef %
   store i32 -1, ptr %1, align 4, !tbaa !68
   %183 = load i32, ptr %167, align 4, !tbaa !60
   store i32 %183, ptr %8, align 4, !tbaa !70
-  %184 = load i8, ptr %172, align 1, !tbaa !14
+  %184 = load i8, ptr %172, align 4, !tbaa !14
   %185 = zext i8 %184 to i32
   %186 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %185, ptr %186, align 4, !tbaa !71

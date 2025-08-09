@@ -1097,14 +1097,14 @@ split.i:                                          ; preds = %184, %._crit_edge.i
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 24
   %198 = load i32, ptr %197, align 8, !tbaa !54
   %199 = or i32 %198, 512
-  store i32 %199, ptr %197, align 4, !tbaa !55
+  store i32 %199, ptr %197, align 8, !tbaa !55
   %200 = load i64, ptr %194, align 8
   %201 = getelementptr inbounds i8, ptr %6, i64 %200
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 24
   %203 = load i32, ptr %202, align 8, !tbaa !54
   %204 = and i32 %203, -75
   %205 = or disjoint i32 %204, 8
-  store i32 %205, ptr %202, align 4, !tbaa !55
+  store i32 %205, ptr %202, align 8, !tbaa !55
   %206 = tail call i64 @pthread_self() #27
   %207 = icmp eq i64 %206, 0
   br i1 %207, label %208, label %210

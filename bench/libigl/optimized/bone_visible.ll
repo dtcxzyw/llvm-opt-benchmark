@@ -2174,7 +2174,7 @@ define linkonce_odr dso_local void @_ZZN3igl6embree12bone_visibleIN5Eigen6Matrix
   %35 = fadd double %square91, %square92
   %36 = fadd double %square90, %35
   store double %36, ptr %4, align 8, !tbaa !67
-  %37 = load <2 x double>, ptr %26, align 1, !tbaa !66
+  %37 = load <2 x double>, ptr %26, align 8, !tbaa !66
   store <2 x double> %37, ptr %5, align 16, !tbaa !66
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store double %33, ptr %38, align 16, !tbaa !67
@@ -2219,7 +2219,7 @@ define linkonce_odr dso_local void @_ZZN3igl6embree12bone_visibleIN5Eigen6Matrix
   %68 = fadd double %square88, %square89
   %69 = fadd double %square87, %68
   store double %69, ptr %4, align 8, !tbaa !67
-  %70 = load <2 x double>, ptr %59, align 1, !tbaa !66
+  %70 = load <2 x double>, ptr %59, align 8, !tbaa !66
   store <2 x double> %70, ptr %5, align 16, !tbaa !66
   %71 = load double, ptr %65, align 8, !tbaa !67
   store double %71, ptr %55, align 16, !tbaa !67
@@ -2251,7 +2251,7 @@ define linkonce_odr dso_local void @_ZZN3igl6embree12bone_visibleIN5Eigen6Matrix
   %84 = fadd double %square85, %square86
   %85 = fadd double %square, %84
   store double %85, ptr %4, align 8, !tbaa !67
-  %86 = load <2 x double>, ptr %75, align 1, !tbaa !66
+  %86 = load <2 x double>, ptr %75, align 8, !tbaa !66
   store <2 x double> %86, ptr %5, align 16, !tbaa !66
   %87 = load double, ptr %81, align 8, !tbaa !67
   store double %87, ptr %55, align 16, !tbaa !67
@@ -3220,7 +3220,7 @@ define linkonce_odr dso_local void @_ZZN3igl6embree12bone_visibleIN5Eigen6Matrix
   store double %73, ptr %4, align 8, !tbaa !67
   %74 = load <2 x double>, ptr %63, align 16, !tbaa !66
   store <2 x double> %74, ptr %5, align 16, !tbaa !66
-  %75 = load double, ptr %69, align 8, !tbaa !67
+  %75 = load double, ptr %69, align 16, !tbaa !67
   store double %75, ptr %58, align 16, !tbaa !67
   br label %93
 
@@ -3253,7 +3253,7 @@ define linkonce_odr dso_local void @_ZZN3igl6embree12bone_visibleIN5Eigen6Matrix
   store double %90, ptr %4, align 8, !tbaa !67
   %91 = load <2 x double>, ptr %80, align 16, !tbaa !66
   store <2 x double> %91, ptr %5, align 16, !tbaa !66
-  %92 = load double, ptr %86, align 8, !tbaa !67
+  %92 = load double, ptr %86, align 16, !tbaa !67
   store double %92, ptr %58, align 16, !tbaa !67
   br label %93
 

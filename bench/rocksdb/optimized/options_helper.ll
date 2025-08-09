@@ -32925,7 +32925,7 @@ define linkonce_odr noundef ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_
   store ptr %27, ptr %26, align 8, !tbaa !26
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i64 0, ptr %28, align 8, !tbaa !28
-  store i8 0, ptr %27, align 1, !tbaa !27
+  store i8 0, ptr %27, align 8, !tbaa !27
   ret ptr %6
 
 29:                                               ; preds = %.noexc.i.i.i.i.i

@@ -4833,7 +4833,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm14object_creatorINSt7__cxx1112ba
   store ptr %2, ptr %1, align 8, !tbaa !27
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 0, ptr %3, align 8, !tbaa !25
-  store i8 0, ptr %2, align 1, !tbaa !26
+  store i8 0, ptr %2, align 8, !tbaa !26
   ret ptr %1
 }
 

@@ -9855,7 +9855,7 @@ define linkonce_odr void @_ZN7rocksdb14ObjectRegistry10AddLibraryERKNSt7__cxx111
   store ptr %17, ptr %16, align 8, !tbaa !44
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 120
   store i64 0, ptr %18, align 8, !tbaa !16
-  store i8 0, ptr %17, align 1, !tbaa !17
+  store i8 0, ptr %17, align 8, !tbaa !17
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %_ZNSt12__shared_ptrIN7rocksdb13ObjectLibraryELN9__gnu_cxx12_Lock_policyE2EEC2ISaIvEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEESt20_Sp_alloc_shared_tagIT_EDpOT0_.exit unwind label %19
 
@@ -15217,7 +15217,7 @@ _ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store i64 %54, ptr %56, align 8, !tbaa !16, !alias.scope !625, !noalias !628
   store ptr %46, ptr %.0911.i.i.i, align 8, !tbaa !11, !alias.scope !628, !noalias !625
   store i64 0, ptr %55, align 8, !tbaa !16, !alias.scope !628, !noalias !625
-  store i8 0, ptr %46, align 1, !tbaa !17, !alias.scope !628, !noalias !625
+  store i8 0, ptr %46, align 8, !tbaa !17, !alias.scope !628, !noalias !625
   %57 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %58 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %59 = load i32, ptr %58, align 8, !tbaa !593, !alias.scope !628, !noalias !625
@@ -15269,7 +15269,7 @@ _ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store i64 %73, ptr %75, align 8, !tbaa !16, !alias.scope !632, !noalias !635
   store ptr %65, ptr %.0911.i.i.i30, align 8, !tbaa !11, !alias.scope !635, !noalias !632
   store i64 0, ptr %74, align 8, !tbaa !16, !alias.scope !635, !noalias !632
-  store i8 0, ptr %65, align 1, !tbaa !17, !alias.scope !635, !noalias !632
+  store i8 0, ptr %65, align 8, !tbaa !17, !alias.scope !635, !noalias !632
   %76 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 32
   %77 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 32
   %78 = load i32, ptr %77, align 8, !tbaa !593, !alias.scope !635, !noalias !632

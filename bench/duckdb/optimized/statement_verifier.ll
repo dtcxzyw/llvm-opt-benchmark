@@ -134,7 +134,7 @@ _ZNSt10unique_ptrIN6duckdb12SQLStatementESt14default_deleteIS1_EED2Ev.exit: ; pr
   store i64 %19, ptr %20, align 8, !tbaa !36
   store ptr %10, ptr %2, align 8, !tbaa !35
   store i64 0, ptr %18, align 8, !tbaa !36
-  store i8 0, ptr %10, align 1, !tbaa !37
+  store i8 0, ptr %10, align 8, !tbaa !37
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load i64, ptr %3, align 8, !tbaa !38
   %23 = inttoptr i64 %22 to ptr

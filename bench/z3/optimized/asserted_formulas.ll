@@ -10746,7 +10746,7 @@ _ZNK7bv_util11get_bv_sizeEPK4expr.exit:           ; preds = %20
   store i8 0, ptr %55, align 8, !tbaa !539
   %56 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !547
-  %58 = load i32, ptr %47, align 4, !tbaa !548
+  %58 = load i32, ptr %47, align 8, !tbaa !548
   %59 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %57, i32 noundef %58, i32 noundef 40, i32 noundef 2, ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull %5, ptr noundef null)
           to label %60 unwind label %62
 
@@ -10786,7 +10786,7 @@ _ZN7bv_util10mk_extractEjjP4expr.exit:            ; preds = %65
   %74 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %59, ptr %74, align 8, !tbaa !415
   %75 = load ptr, ptr %56, align 8, !tbaa !547
-  %76 = load i32, ptr %47, align 4, !tbaa !548
+  %76 = load i32, ptr %47, align 8, !tbaa !548
   %77 = call noundef ptr @_ZN11ast_manager6mk_appEiijPKP4expr(ptr noundef nonnull align 8 dereferenceable(976) %75, i32 noundef %76, i32 noundef 37, i32 noundef 2, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 40

@@ -1425,7 +1425,7 @@ define internal fastcc void @xs_format_peer_addresses(ptr noundef initializes((1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %4, i8 0, i64 128, i1 false), !annotation !11
-  %8 = load i16, ptr %7, align 2
+  %8 = load i16, ptr %7, align 8
   switch i16 %8, label %36 [
     i16 1, label %9
     i16 2, label %22
@@ -2725,7 +2725,7 @@ define internal fastcc void @xs_format_common_peer_ports(ptr noundef captures(no
   %13 = call noalias ptr @kstrdup(ptr noundef nonnull %2, i32 noundef 3264) #12
   %14 = getelementptr i8, ptr %0, i64 1400
   store ptr %13, ptr %14, align 8
-  %15 = load i16, ptr %3, align 2
+  %15 = load i16, ptr %3, align 8
   switch i16 %15, label %21 [
     i16 2, label %16
     i16 10, label %16

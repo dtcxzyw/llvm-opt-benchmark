@@ -19189,7 +19189,7 @@ _ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St8_SetfillIS3_E.exit.i: 
   %733 = load i32, ptr %732, align 8, !tbaa !856
   %734 = and i32 %733, -75
   %735 = or disjoint i32 %734, 8
-  store i32 %735, ptr %732, align 4, !tbaa !857
+  store i32 %735, ptr %732, align 8, !tbaa !857
   %736 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %102, i64 noundef %694) #23
   call void @llvm.lifetime.start.p0(ptr nonnull %103)
   call void @llvm.experimental.noalias.scope.decl(metadata !858)
@@ -22185,7 +22185,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10AllocaInstEbNS_12DenseMapInfoIS4_vEEN
   %57 = load ptr, ptr %1, align 8, !tbaa !506
   store ptr %57, ptr %48, align 8, !tbaa !506
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i8 0, ptr %58, align 1, !tbaa !51
+  store i8 0, ptr %58, align 8, !tbaa !51
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10AllocaInstEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E16InsertIntoBucketIRKS4_JEEEPS9_SF_OT_DpOT0_.exit
@@ -22475,7 +22475,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10AllocaInstEbNS_12DenseMapInfoIS4_vEEN
   %65 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %66 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %67 = load i8, ptr %66, align 1, !tbaa !51, !range !52, !noundef !53
-  store i8 %67, ptr %65, align 1, !tbaa !51
+  store i8 %67, ptr %65, align 8, !tbaa !51
   %68 = add i32 %40, 1
   store i32 %68, ptr %32, align 8, !tbaa !645
   br label %69
@@ -23551,7 +23551,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10AllocaInstEbNS_12DenseMapInfoIS4_vEEN
   %57 = load ptr, ptr %1, align 8, !tbaa !506
   store ptr %57, ptr %48, align 8, !tbaa !506
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i8 0, ptr %58, align 1, !tbaa !51
+  store i8 0, ptr %58, align 8, !tbaa !51
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10AllocaInstEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E16InsertIntoBucketIS4_JEEEPS9_SD_OT_DpOT0_.exit
@@ -30148,7 +30148,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_33A
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.014, i64 32
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %21 = load i32, ptr %19, align 4, !tbaa !68
+  %21 = load i32, ptr %19, align 8, !tbaa !68
   store ptr %.sroa.01.0.copyload, ptr %3, align 8, !tbaa !44
   store i64 %.sroa.22.0.copyload, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !tbaa !45
   store ptr %.sroa.0.0.copyload, ptr %9, align 8, !tbaa !44
@@ -30433,7 +30433,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_12A
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.014, i64 32
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %21 = load i32, ptr %19, align 4, !tbaa !68
+  %21 = load i32, ptr %19, align 8, !tbaa !68
   store ptr %.sroa.01.0.copyload, ptr %3, align 8, !tbaa !44
   store i64 %.sroa.22.0.copyload, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !tbaa !45
   store ptr %.sroa.0.0.copyload, ptr %9, align 8, !tbaa !44
@@ -30634,7 +30634,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_12A
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.014, i64 32
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %21 = load i32, ptr %19, align 4, !tbaa !68
+  %21 = load i32, ptr %19, align 8, !tbaa !68
   store ptr %.sroa.01.0.copyload, ptr %3, align 8, !tbaa !44
   store i64 %.sroa.22.0.copyload, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !tbaa !45
   store ptr %.sroa.0.0.copyload, ptr %9, align 8, !tbaa !44

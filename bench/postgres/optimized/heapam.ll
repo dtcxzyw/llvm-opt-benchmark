@@ -682,11 +682,11 @@ define internal fastcc void @initscan(ptr noundef captures(none) initializes((64
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr null, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  store i16 -1, ptr %75, align 2
+  store i16 -1, ptr %75, align 4
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 102
   store i16 -1, ptr %76, align 2
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i16 0, ptr %77, align 2
+  store i16 0, ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 0, ptr %78, align 4
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1355,10 +1355,10 @@ BufferGetPage.exit54:                             ; preds = %58, %64
   %94 = load i32, ptr %80, align 8
   %95 = lshr i32 %94, 16
   %96 = trunc nuw i32 %95 to i16
-  store i16 %96, ptr %79, align 2
+  store i16 %96, ptr %79, align 4
   %97 = trunc i32 %94 to i16
   store i16 %97, ptr %81, align 2
-  store i16 %85, ptr %82, align 2
+  store i16 %85, ptr %82, align 8
   %98 = load ptr, ptr %0, align 8
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 64
   %100 = load ptr, ptr %99, align 8
@@ -1536,10 +1536,10 @@ heap_getattr.exit:                                ; preds = %118, %142, %145, %1
   %196 = load i32, ptr %80, align 8
   %197 = lshr i32 %196, 16
   %198 = trunc nuw i32 %197 to i16
-  store i16 %198, ptr %79, align 2
+  store i16 %198, ptr %79, align 4
   %199 = trunc i32 %196 to i16
   store i16 %199, ptr %81, align 2
-  store i16 %187, ptr %82, align 2
+  store i16 %187, ptr %82, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %102, %.critedge.sink.split
@@ -1772,10 +1772,10 @@ heapgettup_continue_page.exit:                    ; preds = %41, %28, %heapgettu
   %119 = load i32, ptr %101, align 8
   %120 = lshr i32 %119, 16
   %121 = trunc nuw i32 %120 to i16
-  store i16 %121, ptr %100, align 2
+  store i16 %121, ptr %100, align 4
   %122 = trunc i32 %119 to i16
   store i16 %122, ptr %102, align 2
-  store i16 %.15768.us, ptr %103, align 2
+  store i16 %.15768.us, ptr %103, align 8
   %123 = load ptr, ptr %104, align 8
   %124 = load i32, ptr %105, align 4
   %125 = call zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef nonnull %6, ptr noundef %123, i32 noundef %124) #13
@@ -1817,10 +1817,10 @@ HeapKeyTest.exit.us:                              ; preds = %113, %.lr.ph.split.
   %144 = load i32, ptr %101, align 8
   %145 = lshr i32 %144, 16
   %146 = trunc nuw i32 %145 to i16
-  store i16 %146, ptr %100, align 2
+  store i16 %146, ptr %100, align 4
   %147 = trunc i32 %144 to i16
   store i16 %147, ptr %102, align 2
-  store i16 %.15768.us73, ptr %103, align 2
+  store i16 %.15768.us73, ptr %103, align 8
   %148 = load ptr, ptr %104, align 8
   %149 = load i32, ptr %105, align 4
   %150 = call zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef nonnull %6, ptr noundef %148, i32 noundef %149) #13
@@ -1858,10 +1858,10 @@ HeapKeyTest.exit.us74:                            ; preds = %138, %.lr.ph.split.
   %169 = load i32, ptr %101, align 8
   %170 = lshr i32 %169, 16
   %171 = trunc nuw i32 %170 to i16
-  store i16 %171, ptr %100, align 2
+  store i16 %171, ptr %100, align 4
   %172 = trunc i32 %169 to i16
   store i16 %172, ptr %102, align 2
-  store i16 %.15768, ptr %103, align 2
+  store i16 %.15768, ptr %103, align 8
   %173 = load ptr, ptr %104, align 8
   %174 = load i32, ptr %105, align 4
   %175 = call zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef nonnull %6, ptr noundef %173, i32 noundef %174) #13
@@ -2794,9 +2794,9 @@ BufferGetPage.exit:                               ; preds = %11, %17
   store i32 %63, ptr %4, align 8
   %64 = load i32, ptr %32, align 8
   store i32 %64, ptr %33, align 4
-  store i16 %.val82, ptr %34, align 2
+  store i16 %.val82, ptr %34, align 4
   store i16 %.val83108, ptr %35, align 2
-  store i16 %.072113, ptr %36, align 2
+  store i16 %.072113, ptr %36, align 8
   br i1 %.070114, label %65, label %68
 
 65:                                               ; preds = %58

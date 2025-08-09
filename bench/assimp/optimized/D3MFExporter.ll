@@ -1691,19 +1691,19 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit29: ; preds = %88
   store ptr %102, ptr %101, align 8
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 8
   store i64 0, ptr %103, align 8
-  store i8 0, ptr %102, align 1
+  store i8 0, ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 32
   %105 = getelementptr inbounds nuw i8, ptr %101, i64 48
   store ptr %105, ptr %104, align 8
   %106 = getelementptr inbounds nuw i8, ptr %101, i64 40
   store i64 0, ptr %106, align 8
-  store i8 0, ptr %105, align 1
+  store i8 0, ptr %105, align 8
   %107 = getelementptr inbounds nuw i8, ptr %101, i64 64
   %108 = getelementptr inbounds nuw i8, ptr %101, i64 80
   store ptr %108, ptr %107, align 8
   %109 = getelementptr inbounds nuw i8, ptr %101, i64 72
   store i64 0, ptr %109, align 8
-  store i8 0, ptr %108, align 1
+  store i8 0, ptr %108, align 8
   %110 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %101, i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.28, i64 noundef 4)
   %111 = load i64, ptr %109, align 8
   %112 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %107, i64 noundef 0, i64 noundef %111, ptr noundef nonnull @.str.29, i64 noundef 17)
@@ -5213,7 +5213,7 @@ define linkonce_odr hidden void @_Z11ai_rgba2hexB5cxx11iiiib(ptr dead_on_unwind 
   %20 = load i32, ptr %19, align 8
   %21 = and i32 %20, -75
   %22 = or disjoint i32 %21, 8
-  store i32 %22, ptr %19, align 4
+  store i32 %22, ptr %19, align 8
   %23 = load ptr, ptr %14, align 8
   %24 = getelementptr i8, ptr %23, i64 -24
   %25 = load i64, ptr %24, align 8
@@ -5399,7 +5399,7 @@ define linkonce_odr hidden void @_Z18ai_decimal_to_hexaIfENSt7__cxx1112basic_str
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, -75
   %15 = or disjoint i32 %14, 8
-  store i32 %15, ptr %12, align 4
+  store i32 %15, ptr %12, align 8
   %16 = fpext float %1 to double
   %17 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %7, double noundef %16)
           to label %_ZNSolsEf.exit unwind label %46

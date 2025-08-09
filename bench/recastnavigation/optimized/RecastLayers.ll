@@ -1354,15 +1354,15 @@ _ZL8containsPKhhh.exit690:                        ; preds = %.lr.ph.i685, %397, 
   %556 = load float, ptr %513, align 8
   %557 = getelementptr inbounds nuw i8, ptr %523, i64 28
   store float %556, ptr %557, align 4
-  store float %495, ptr %523, align 4
+  store float %495, ptr %523, align 8
   %558 = getelementptr inbounds nuw i8, ptr %523, i64 4
   store float %483, ptr %558, align 4
   %559 = getelementptr inbounds nuw i8, ptr %523, i64 8
-  store float %496, ptr %559, align 4
+  store float %496, ptr %559, align 8
   %560 = getelementptr inbounds nuw i8, ptr %523, i64 12
   store float %498, ptr %560, align 4
   %561 = getelementptr inbounds nuw i8, ptr %523, i64 16
-  store float %489, ptr %561, align 4
+  store float %489, ptr %561, align 8
   %562 = getelementptr inbounds nuw i8, ptr %523, i64 20
   store float %499, ptr %562, align 4
   %563 = uitofp nneg i32 %.0552.lcssa to float
@@ -1372,7 +1372,7 @@ _ZL8containsPKhhh.exit690:                        ; preds = %.lr.ph.i685, %397, 
   %566 = uitofp nneg i32 %.0550.lcssa to float
   %567 = load float, ptr %513, align 8
   %568 = tail call float @llvm.fmuladd.f32(float %566, float %567, float %483)
-  store float %568, ptr %561, align 4
+  store float %568, ptr %561, align 8
   %569 = getelementptr inbounds nuw i8, ptr %523, i64 56
   store i32 %.0552.lcssa, ptr %569, align 8
   %570 = getelementptr inbounds nuw i8, ptr %523, i64 60

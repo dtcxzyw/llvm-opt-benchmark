@@ -4267,7 +4267,7 @@ define internal fastcc noundef range(i32 -108, 1) i32 @xhci_configure_endpoint(p
   %421 = load ptr, ptr %420, align 8
   tail call void @wait_for_completion(ptr noundef %421) #21
   %422 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %423 = load i32, ptr %422, align 4
+  %423 = load i32, ptr %422, align 8
   br i1 %3, label %440, label %424
 
 424:                                              ; preds = %419
@@ -7781,7 +7781,7 @@ define internal void @xhci_clear_tt_buffer_complete(ptr noundef %0, ptr noundef 
   %18 = and i8 %17, 3
   %19 = icmp eq i8 %18, 0
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %21 = load i8, ptr %20, align 1
+  %21 = load i8, ptr %20, align 2
   %22 = shl i8 %21, 1
   %23 = and i8 %22, 30
   br i1 %19, label %24, label %26

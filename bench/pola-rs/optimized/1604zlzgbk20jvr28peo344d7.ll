@@ -33576,7 +33576,7 @@ define hidden void @"_ZN11polars_pipe9executors5sinks8group_by7generic10hash_tab
   %50 = extractvalue { i32, i32 } %48, 1
   %51 = trunc i32 %49 to i1
   tail call void @llvm.assume(i1 %51)
-  %52 = load i32, ptr %39, align 4, !noundef !3
+  %52 = load i32, ptr %39, align 8, !noundef !3
   %53 = zext i32 %52 to i64
   %54 = load i64, ptr %17, align 8, !noundef !3
   %55 = getelementptr inbounds nuw { i32, [31 x i32] }, ptr %19, i64 %53
@@ -33862,7 +33862,7 @@ define hidden void @"_ZN11polars_pipe9executors5sinks8group_by7generic10hash_tab
   %50 = zext i32 %49 to i64
   %51 = getelementptr inbounds i8, ptr %37, i64 -8
   %52 = tail call fastcc i32 @"_ZN11polars_pipe9executors5sinks8group_by7generic10hash_table21AggHashTable$LT$_$GT$10insert_key17hdd2dc3cdc8116510E"(ptr noalias noundef align 8 dereferenceable(120) %0, i64 noundef %40, ptr noalias noundef nonnull readonly align 1 %47, i64 noundef %50)
-  %53 = load i32, ptr %51, align 4, !noundef !3
+  %53 = load i32, ptr %51, align 8, !noundef !3
   %54 = zext i32 %53 to i64
   %55 = load i64, ptr %19, align 8, !noundef !3
   %56 = getelementptr inbounds nuw { i32, [31 x i32] }, ptr %21, i64 %54

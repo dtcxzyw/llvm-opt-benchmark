@@ -7500,7 +7500,7 @@ declare noundef zeroext i1 @_ZN9QMetaType10canConvertES_S_(ptr, ptr) local_unnam
 define linkonce_odr void @_ZZN9QtPrivate16QMetaTypeForTypeI6QColorE13getDefaultCtrEvENUlPKNS_18QMetaTypeInterfaceEPvE_8__invokeES5_S6_(ptr noundef %0, ptr noundef %1) #19 comdat align 2 {
   store i32 0, ptr %1, align 4
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i16 -1, ptr %3, align 2
+  store i16 -1, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 6
   store i64 0, ptr %4, align 2
   ret void

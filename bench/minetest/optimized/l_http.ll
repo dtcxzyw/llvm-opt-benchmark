@@ -1236,7 +1236,7 @@ invoke.cont10:                                    ; preds = %invoke.cont6
   %11 = load i32, ptr %_M_flags.i.i, align 8, !tbaa !74
   %and.i.i.i.i = and i32 %11, -75
   %or.i.i.i.i = or disjoint i32 %and.i.i.i.i, 8
-  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 4, !tbaa !74
+  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 8, !tbaa !74
   %caller = getelementptr inbounds nuw i8, ptr %req, i64 32
   %12 = load i64, ptr %caller, align 8, !tbaa !4
   %call.i39 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, i64 noundef %12)
@@ -1499,7 +1499,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   %6 = load i32, ptr %_M_flags.i.i, align 8, !tbaa !74
   %and.i.i.i.i = and i32 %6, -75
   %or.i.i.i.i = or disjoint i32 %and.i.i.i.i, 8
-  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 4, !tbaa !74
+  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 8, !tbaa !74
   %7 = load ptr, ptr %handle_str, align 8, !tbaa !29
   %8 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !27
   %call2.i29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef %7, i64 noundef %8)
@@ -2111,7 +2111,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   store ptr %24, ptr %second.i.i.i.i.i.i, align 8, !tbaa !26
   %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 48
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i.i, align 8, !tbaa !27
-  store i8 0, ptr %24, align 1, !tbaa !28
+  store i8 0, ptr %24, align 8, !tbaa !28
   store ptr %call5.i.i.i.i, ptr %_M_node.i, align 8, !tbaa !91
   %call7 = invoke ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %rem.i.i.i, i64 noundef %call.i5.i.i, ptr noundef nonnull %call5.i.i.i.i, i64 noundef 1)
           to label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %lpad
@@ -2512,7 +2512,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %14, ptr %_M_string_length.i24.i.i.i.i.i.i.i, align 8, !tbaa !27, !alias.scope !96, !noalias !99
   store ptr %11, ptr %__first.addr.07.i.i.i, align 8, !tbaa !29, !alias.scope !99, !noalias !96
   store i64 0, ptr %_M_string_length.i23.i.i.i.i.i.i.i, align 8, !tbaa !27, !alias.scope !99, !noalias !96
-  store i8 0, ptr %11, align 1, !tbaa !28, !alias.scope !99, !noalias !96
+  store i8 0, ptr %11, align 8, !tbaa !28, !alias.scope !99, !noalias !96
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 32
   %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
@@ -2560,7 +2560,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %20, ptr %_M_string_length.i24.i.i.i.i.i.i.i42, align 8, !tbaa !27, !alias.scope !102, !noalias !105
   store ptr %17, ptr %__first.addr.07.i.i.i35, align 8, !tbaa !29, !alias.scope !105, !noalias !102
   store i64 0, ptr %_M_string_length.i23.i.i.i.i.i.i.i41, align 8, !tbaa !27, !alias.scope !105, !noalias !102
-  store i8 0, ptr %17, align 1, !tbaa !28, !alias.scope !105, !noalias !102
+  store i8 0, ptr %17, align 8, !tbaa !28, !alias.scope !105, !noalias !102
   %incdec.ptr.i.i.i43 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i35, i64 32
   %incdec.ptr1.i.i.i44 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i34, i64 32
   %cmp.not.i.i.i45 = icmp eq ptr %incdec.ptr.i.i.i43, %0

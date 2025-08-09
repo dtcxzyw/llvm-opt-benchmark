@@ -14298,7 +14298,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic14AddSourceRange
   store ptr %13, ptr %.ptr.i.i.i, align 8, !tbaa !1463
   %14 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %14, align 8, !tbaa !695
-  store i8 0, ptr %13, align 1, !tbaa !641
+  store i8 0, ptr %13, align 8, !tbaa !641
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %15 = icmp eq i64 %.add.i.i.i, 416
   br i1 %15, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %12
@@ -15003,7 +15003,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEjNS_12DenseMapInfoIS3_vEENS_6deta
   store ptr %60, ptr %50, align 8, !tbaa !649
   %61 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %62 = load i32, ptr %3, align 4, !tbaa !680
-  store i32 %62, ptr %61, align 4, !tbaa !680
+  store i32 %62, ptr %61, align 8, !tbaa !680
   %63 = load ptr, ptr %1, align 8, !tbaa !1469
   %64 = load i32, ptr %7, align 8, !tbaa !1470
   br label %.loopexit
@@ -15215,7 +15215,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEjNS_12DenseMapInfoIS3_vEENS_6deta
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !680
-  store i32 %68, ptr %66, align 4, !tbaa !680
+  store i32 %68, ptr %66, align 8, !tbaa !680
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !1473
   br label %70
@@ -15342,7 +15342,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10AllocaInstEiNS_12DenseMapInfoIS3_vEENS
   store ptr %60, ptr %50, align 8, !tbaa !1479
   %61 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %62 = load i32, ptr %3, align 4, !tbaa !680
-  store i32 %62, ptr %61, align 4, !tbaa !680
+  store i32 %62, ptr %61, align 8, !tbaa !680
   %63 = load ptr, ptr %1, align 8, !tbaa !1477
   %64 = load i32, ptr %7, align 8, !tbaa !1478
   br label %.loopexit
@@ -15554,7 +15554,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10AllocaInstEiNS_12DenseMapInfoIS3_vEENS
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !680
-  store i32 %68, ptr %66, align 4, !tbaa !680
+  store i32 %68, ptr %66, align 8, !tbaa !680
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !966
   br label %70

@@ -4129,7 +4129,7 @@ define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer9ReadPosesEPNS0_4MeshE(
   store ptr %35, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 0, ptr %36, align 8
-  store i8 0, ptr %35, align 1
+  store i8 0, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 32
   store i16 0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 34
@@ -16254,7 +16254,7 @@ _ZSt19__relocate_object_aIN6Assimp4Ogre20VertexAnimationTrackES2_SaIS2_EEvPT_PT0
   store i64 %34, ptr %36, align 8, !alias.scope !154, !noalias !157
   store ptr %26, ptr %23, align 8, !alias.scope !157, !noalias !154
   store i64 0, ptr %35, align 8, !alias.scope !157, !noalias !154
-  store i8 0, ptr %26, align 1, !alias.scope !157, !noalias !154
+  store i8 0, ptr %26, align 8, !alias.scope !157, !noalias !154
   %37 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
   %38 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
   %39 = load ptr, ptr %38, align 8, !alias.scope !157, !noalias !154
@@ -16345,7 +16345,7 @@ _ZSt19__relocate_object_aIN6Assimp4Ogre20VertexAnimationTrackES2_SaIS2_EEvPT_PT0
   store i64 %79, ptr %81, align 8, !alias.scope !161, !noalias !164
   store ptr %71, ptr %68, align 8, !alias.scope !164, !noalias !161
   store i64 0, ptr %80, align 8, !alias.scope !164, !noalias !161
-  store i8 0, ptr %71, align 1, !alias.scope !164, !noalias !161
+  store i8 0, ptr %71, align 8, !alias.scope !164, !noalias !161
   %82 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 40
   %83 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 40
   %84 = load ptr, ptr %83, align 8, !alias.scope !164, !noalias !161

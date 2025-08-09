@@ -120,7 +120,7 @@ malloc_mutex_lock.exit:                           ; preds = %10, %16
   tail call void @je_hpdata_init(ptr noundef nonnull %27, ptr noundef %34, i64 noundef %36) #8
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
-  store atomic i8 0, ptr %38 monotonic, align 1
+  store atomic i8 0, ptr %38 monotonic, align 8
   %39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #8
   br label %68
 
@@ -179,7 +179,7 @@ malloc_mutex_lock.exit:                           ; preds = %10, %16
   %63 = add i64 %62, -2097152
   store i64 %63, ptr %61, align 8, !tbaa !27
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  store atomic i8 0, ptr %64 monotonic, align 1
+  store atomic i8 0, ptr %64 monotonic, align 8
   %65 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #8
   br label %68
 
@@ -1019,10 +1019,10 @@ malloc_mutex_lock.exit15:                         ; preds = %24, %30
   %54 = add i64 %53, %51
   store i64 %54, ptr %52, align 8, !tbaa !93
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  store atomic i8 0, ptr %55 monotonic, align 1
+  store atomic i8 0, ptr %55 monotonic, align 8
   %56 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %19) #8
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  store atomic i8 0, ptr %57 monotonic, align 1
+  store atomic i8 0, ptr %57 monotonic, align 8
   %58 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #8
   ret void
 }
@@ -1294,7 +1294,7 @@ hpa_should_purge.exit:                            ; preds = %hpa_ndirty_max.exit
   %82 = load i64, ptr %17, align 8, !tbaa !53
   %83 = add i64 %82, %81
   store i64 %83, ptr %17, align 8, !tbaa !53
-  store atomic i8 0, ptr %22 monotonic, align 1
+  store atomic i8 0, ptr %22 monotonic, align 8
   %84 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %23) #8
   br i1 %80, label %85, label %89
 

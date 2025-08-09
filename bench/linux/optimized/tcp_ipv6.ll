@@ -3639,7 +3639,7 @@ define internal i32 @tcp_v6_conn_request(ptr noundef %0, ptr noundef %1) #1 alig
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i64, ptr %23, align 8
   %25 = getelementptr i8, ptr %22, i64 16
-  %26 = load i32, ptr %25, align 4
+  %26 = load i32, ptr %25, align 8
   %27 = xor i32 %26, -65536
   %28 = zext i32 %27 to i64
   %29 = or i64 %24, %28
@@ -4389,7 +4389,7 @@ define internal i32 @tcp_v6_connect(ptr noundef %0, ptr noundef %1, i32 noundef 
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %48 = load i64, ptr %47, align 8
   %49 = getelementptr i8, ptr %0, i64 80
-  %50 = load i32, ptr %49, align 4
+  %50 = load i32, ptr %49, align 8
   %51 = xor i32 %50, -65536
   %52 = zext i32 %51 to i64
   %53 = or i64 %48, %52
@@ -5812,19 +5812,19 @@ define internal noundef i32 @tcp6_seq_show(ptr noundef %0, ptr noundef %1) #1 al
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 142
   %25 = load i16, ptr %24, align 2
   %26 = tail call i16 @llvm.bswap.i16(i16 %25)
-  %27 = load i32, ptr %20, align 4
+  %27 = load i32, ptr %20, align 8
   %28 = getelementptr i8, ptr %1, i64 76
   %29 = load i32, ptr %28, align 4
   %30 = getelementptr i8, ptr %1, i64 80
-  %31 = load i32, ptr %30, align 4
+  %31 = load i32, ptr %30, align 8
   %32 = getelementptr i8, ptr %1, i64 84
   %33 = load i32, ptr %32, align 4
   %34 = zext i16 %26 to i32
-  %35 = load i32, ptr %19, align 4
+  %35 = load i32, ptr %19, align 8
   %36 = getelementptr i8, ptr %1, i64 60
   %37 = load i32, ptr %36, align 4
   %38 = getelementptr i8, ptr %1, i64 64
-  %39 = load i32, ptr %38, align 4
+  %39 = load i32, ptr %38, align 8
   %40 = getelementptr i8, ptr %1, i64 68
   %41 = load i32, ptr %40, align 4
   %42 = zext i16 %23 to i32
@@ -5834,7 +5834,7 @@ define internal noundef i32 @tcp6_seq_show(ptr noundef %0, ptr noundef %1) #1 al
   %46 = tail call i64 @llvm.smax.i64(i64 %18, i64 0)
   %47 = tail call i64 @jiffies_to_clock_t(i64 noundef %46) #15
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %49 = load volatile i32, ptr %48, align 4
+  %49 = load volatile i32, ptr %48, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.20, i32 noundef %14, i32 noundef %27, i32 noundef %29, i32 noundef %31, i32 noundef %33, i32 noundef %34, i32 noundef %35, i32 noundef %37, i32 noundef %39, i32 noundef %41, i32 noundef %42, i32 noundef %45, i32 noundef 0, i32 noundef 0, i32 noundef 3, i64 noundef %47, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %49, ptr noundef %1) #15
   br label %211
 
@@ -5853,21 +5853,21 @@ define internal noundef i32 @tcp6_seq_show(ptr noundef %0, ptr noundef %1) #1 al
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %62 = tail call i64 @llvm.smax.i64(i64 %59, i64 0)
-  %63 = load i32, ptr %60, align 4
+  %63 = load i32, ptr %60, align 8
   %64 = getelementptr i8, ptr %1, i64 76
   %65 = load i32, ptr %64, align 4
   %66 = getelementptr i8, ptr %1, i64 80
-  %67 = load i32, ptr %66, align 4
+  %67 = load i32, ptr %66, align 8
   %68 = getelementptr i8, ptr %1, i64 84
   %69 = load i32, ptr %68, align 4
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 14
   %71 = load i16, ptr %70, align 2
   %72 = zext i16 %71 to i32
-  %73 = load i32, ptr %61, align 4
+  %73 = load i32, ptr %61, align 8
   %74 = getelementptr i8, ptr %1, i64 60
   %75 = load i32, ptr %74, align 4
   %76 = getelementptr i8, ptr %1, i64 64
-  %77 = load i32, ptr %76, align 4
+  %77 = load i32, ptr %76, align 8
   %78 = getelementptr i8, ptr %1, i64 68
   %79 = load i32, ptr %78, align 4
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -5988,7 +5988,7 @@ define internal noundef i32 @tcp6_seq_show(ptr noundef %0, ptr noundef %1) #1 al
   %163 = load i8, ptr %162, align 1
   %164 = tail call i64 @sock_i_ino(ptr noundef %1) #15
   %165 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %166 = load volatile i32, ptr %165, align 4
+  %166 = load volatile i32, ptr %165, align 64
   %167 = getelementptr inbounds nuw i8, ptr %1, i64 1144
   %168 = load i32, ptr %167, align 8
   %169 = zext i32 %168 to i64
@@ -6003,7 +6003,7 @@ define internal noundef i32 @tcp6_seq_show(ptr noundef %0, ptr noundef %1) #1 al
   %178 = getelementptr inbounds nuw i8, ptr %1, i64 1218
   %179 = load i8, ptr %178, align 2
   %180 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %181 = load ptr, ptr %180, align 8
+  %181 = load ptr, ptr %180, align 16
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 1155
   %183 = load volatile i8, ptr %182, align 1
   %184 = getelementptr inbounds nuw i8, ptr %1, i64 1420

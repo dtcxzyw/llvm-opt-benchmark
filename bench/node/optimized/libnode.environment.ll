@@ -2483,7 +2483,7 @@ entry:
   %can_call_into_js_.i = getelementptr inbounds nuw i8, ptr %env, i64 873
   store atomic i8 0, ptr %can_call_into_js_.i seq_cst, align 1
   %is_stopping_.i = getelementptr inbounds nuw i8, ptr %env, i64 872
-  store atomic i8 1, ptr %is_stopping_.i seq_cst, align 1
+  store atomic i8 1, ptr %is_stopping_.i seq_cst, align 8
   call void @_ZN4node11Environment24stop_sub_worker_contextsEv(ptr noundef nonnull align 8 dereferenceable(2872) %env) #12
   call void @_ZN4node11Environment10RunCleanupEv(ptr noundef nonnull align 8 dereferenceable(2872) %env) #12
   call void @_ZN4node9RunAtExitEPNS_11EnvironmentE(ptr noundef nonnull %env) #12

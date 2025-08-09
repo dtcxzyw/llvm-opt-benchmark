@@ -677,7 +677,7 @@ _ZNK7datalog8rule_set13get_num_rulesEv.exit151:   ; preds = %193, %_ZNK7datalog8
   %215 = getelementptr inbounds nuw i8, ptr %206, i64 48
   store i64 6, ptr %215, align 8, !tbaa !100
   %216 = getelementptr inbounds nuw i8, ptr %206, i64 62
-  store i8 0, ptr %216, align 1, !tbaa !103
+  store i8 0, ptr %216, align 2, !tbaa !103
   %217 = getelementptr inbounds nuw i8, ptr %206, i64 72
   store ptr null, ptr %217, align 8, !tbaa !104
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -2575,7 +2575,7 @@ _ZNK7datalog8rule_set13get_num_rulesEv.exit157:   ; preds = %380, %_ZNK7datalog8
   %401 = getelementptr inbounds nuw i8, ptr %392, i64 48
   store i64 6, ptr %401, align 8, !tbaa !100
   %402 = getelementptr inbounds nuw i8, ptr %392, i64 62
-  store i8 0, ptr %402, align 1, !tbaa !103
+  store i8 0, ptr %402, align 2, !tbaa !103
   %403 = getelementptr inbounds nuw i8, ptr %392, i64 72
   store ptr null, ptr %403, align 8, !tbaa !104
   %404 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -2858,7 +2858,7 @@ define linkonce_odr hidden void @_ZN7datalog15dataflow_engineINS_17reachability_
   %5 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i.i, i64 4
   store i32 0, ptr %5, align 4, !tbaa !70
   %6 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i.i, i64 16
-  store i8 0, ptr %6, align 1, !tbaa !79
+  store i8 0, ptr %6, align 8, !tbaa !79
   %7 = add nsw i32 %.01012.i.i.i.i.i.i.i.i, -1
   %8 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %7, 0
@@ -4930,7 +4930,7 @@ _ZN6vectorIPN7datalog4ruleELb0EjE3endEv.exit:     ; preds = %.loopexit95
   %119 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i, i64 4
   store i32 0, ptr %119, align 4, !tbaa !70
   %120 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i, i64 16
-  store i8 0, ptr %120, align 1, !tbaa !79
+  store i8 0, ptr %120, align 8, !tbaa !79
   %121 = add i32 %.01012.i.i.i.i.i.i, -1
   %122 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i.i44 = icmp eq i32 %121, 0
@@ -5732,7 +5732,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIP9func_
   %8 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 4
   store i32 0, ptr %8, align 4, !tbaa !70
   %9 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 16
-  store i8 0, ptr %9, align 1, !tbaa !79
+  store i8 0, ptr %9, align 8, !tbaa !79
   %10 = add i32 %.01012.i.i.i.i.i, -1
   %11 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i = icmp eq i32 %10, 0
@@ -6479,7 +6479,7 @@ _ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE
   %49 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i, i64 4
   store i32 0, ptr %49, align 4, !tbaa !70
   %50 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i, i64 16
-  store i8 0, ptr %50, align 1, !tbaa !79
+  store i8 0, ptr %50, align 8, !tbaa !79
   %51 = add i32 %.01012.i.i.i.i.i.i, -1
   %52 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i.i = icmp eq i32 %51, 0
@@ -7204,7 +7204,7 @@ _ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqI
   %108 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i, i64 4
   store i32 0, ptr %108, align 4, !tbaa !70
   %109 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i, i64 16
-  store i8 0, ptr %109, align 1, !tbaa !79
+  store i8 0, ptr %109, align 8, !tbaa !79
   %110 = add i32 %.01012.i.i.i.i.i.i, -1
   %111 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i.i51 = icmp eq i32 %110, 0

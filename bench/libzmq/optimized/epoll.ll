@@ -224,7 +224,7 @@ define noundef ptr @_ZN3zmq7epoll_t6add_fdEiPNS_13i_poll_eventsE(ptr noundef non
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %11, align 4, !tbaa !56
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %4, ptr %12, align 4, !tbaa !57
+  store ptr %4, ptr %12, align 8, !tbaa !57
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %2, ptr %13, align 8, !tbaa !58
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 192

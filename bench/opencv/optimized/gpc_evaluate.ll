@@ -4352,11 +4352,11 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv7optflow9GPCForestIL
   %9 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i.i.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i.i.i.i, i64 32
-  store i32 20, ptr %10, align 4, !tbaa !197
+  store i32 20, ptr %10, align 8, !tbaa !197
   %11 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i.i.i.i, i64 36
   store i32 3, ptr %11, align 4, !tbaa !198
   %12 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i.i.i.i, i64 40
-  store i32 0, ptr %12, align 4, !tbaa !199
+  store i32 0, ptr %12, align 8, !tbaa !199
   %13 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i.i.i.i, i64 44
   store i8 1, ptr %13, align 4, !tbaa !200
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 48

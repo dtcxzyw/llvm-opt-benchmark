@@ -4085,9 +4085,9 @@ define internal void @tablet_seat_handle_tool_added(ptr noundef %0, ptr readnone
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %2, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store float -1.000000e+00, ptr %7, align 4
+  store float -1.000000e+00, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 -1, ptr %8, align 4
+  store i32 -1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 84
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %9, i8 -1, i64 16, i1 false)
   %10 = load ptr, ptr @WAYLAND_wl_list_insert, align 8

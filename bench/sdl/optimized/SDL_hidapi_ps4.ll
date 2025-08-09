@@ -1530,7 +1530,7 @@ HIDAPI_DriverPS4_UpdateEnhancedModeOnApplicationUsage.exit: ; preds = %3, %11
   %200 = sitofp i16 %187 to float
   %201 = fdiv float %199, %200
   %202 = getelementptr inbounds nuw i8, ptr %23, i64 64
-  store float %201, ptr %202, align 4
+  store float %201, ptr %202, align 8
   %203 = sub i16 %120, %122
   %204 = sdiv i16 %203, -2
   %205 = add i16 %204, %120
@@ -1539,7 +1539,7 @@ HIDAPI_DriverPS4_UpdateEnhancedModeOnApplicationUsage.exit: ; preds = %3, %11
   %207 = sitofp i16 %203 to float
   %208 = fdiv float %199, %207
   %209 = getelementptr inbounds nuw i8, ptr %23, i64 72
-  store float %208, ptr %209, align 4
+  store float %208, ptr %209, align 8
   %210 = sub i16 %130, %132
   %211 = sdiv i16 %210, -2
   %212 = add i16 %211, %130
@@ -1548,7 +1548,7 @@ HIDAPI_DriverPS4_UpdateEnhancedModeOnApplicationUsage.exit: ; preds = %3, %11
   %214 = sitofp i16 %210 to float
   %215 = fdiv float %199, %214
   %216 = getelementptr inbounds nuw i8, ptr %23, i64 80
-  store float %215, ptr %216, align 4
+  store float %215, ptr %216, align 8
   %217 = getelementptr inbounds nuw i8, ptr %23, i64 35
   store i8 1, ptr %217, align 1
   br label %218
@@ -2389,7 +2389,7 @@ define internal fastcc void @HIDAPI_DriverPS4_HandleStatePacket(ptr noundef nonn
   %200 = sitofp i16 %199 to float
   %201 = fsub float %198, %200
   %202 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %203 = load float, ptr %202, align 4
+  %203 = load float, ptr %202, align 8
   %204 = fmul float %203, %201
   store float %204, ptr %5, align 4
   %205 = getelementptr inbounds nuw i8, ptr %2, i64 14
@@ -2400,7 +2400,7 @@ define internal fastcc void @HIDAPI_DriverPS4_HandleStatePacket(ptr noundef nonn
   %210 = sitofp i16 %209 to float
   %211 = fsub float %208, %210
   %212 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %213 = load float, ptr %212, align 4
+  %213 = load float, ptr %212, align 8
   %214 = fmul float %213, %211
   %215 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float %214, ptr %215, align 4
@@ -2412,7 +2412,7 @@ define internal fastcc void @HIDAPI_DriverPS4_HandleStatePacket(ptr noundef nonn
   %221 = sitofp i16 %220 to float
   %222 = fsub float %219, %221
   %223 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %224 = load float, ptr %223, align 4
+  %224 = load float, ptr %223, align 8
   %225 = fmul float %224, %222
   %226 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store float %225, ptr %226, align 4
@@ -2425,7 +2425,7 @@ define internal fastcc void @HIDAPI_DriverPS4_HandleStatePacket(ptr noundef nonn
   %232 = sitofp i16 %231 to float
   %233 = fsub float %230, %232
   %234 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %235 = load float, ptr %234, align 4
+  %235 = load float, ptr %234, align 8
   %236 = fmul float %235, %233
   store float %236, ptr %5, align 4
   %237 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -2436,7 +2436,7 @@ define internal fastcc void @HIDAPI_DriverPS4_HandleStatePacket(ptr noundef nonn
   %242 = sitofp i16 %241 to float
   %243 = fsub float %240, %242
   %244 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %245 = load float, ptr %244, align 4
+  %245 = load float, ptr %244, align 8
   %246 = fmul float %245, %243
   store float %246, ptr %215, align 4
   %247 = getelementptr inbounds nuw i8, ptr %2, i64 22
@@ -2447,7 +2447,7 @@ define internal fastcc void @HIDAPI_DriverPS4_HandleStatePacket(ptr noundef nonn
   %252 = sitofp i16 %251 to float
   %253 = fsub float %250, %252
   %254 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %255 = load float, ptr %254, align 4
+  %255 = load float, ptr %254, align 8
   %256 = fmul float %255, %253
   store float %256, ptr %226, align 4
   call void @SDL_SendJoystickSensor(i64 noundef %6, ptr noundef nonnull %0, i32 noundef 1, i64 noundef %194, ptr noundef nonnull %5, i32 noundef 3) #9

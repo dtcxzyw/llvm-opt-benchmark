@@ -2582,9 +2582,9 @@ define internal fastcc void @kernel_init_freeable() unnamed_addr #4 section ".in
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 2248
   store i64 %2, ptr %10, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !78
-  %11 = load i32, ptr %7, align 4
+  %11 = load i32, ptr %7, align 8
   %12 = add i32 %11, 1
-  store i32 %12, ptr %7, align 4
+  store i32 %12, ptr %7, align 8
   %13 = and i64 %6, 512
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %16, label %15

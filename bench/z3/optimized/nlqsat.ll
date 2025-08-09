@@ -8605,7 +8605,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i.i.i:      ; preds = %.noexc4.i
   %68 = getelementptr inbounds nuw i8, ptr %60, i64 48
   store i64 6, ptr %68, align 8, !tbaa !165
   %69 = getelementptr inbounds nuw i8, ptr %60, i64 62
-  store i8 0, ptr %69, align 1, !tbaa !160
+  store i8 0, ptr %69, align 2, !tbaa !160
   %70 = getelementptr inbounds nuw i8, ptr %60, i64 72
   store ptr null, ptr %70, align 8, !tbaa !376
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 648

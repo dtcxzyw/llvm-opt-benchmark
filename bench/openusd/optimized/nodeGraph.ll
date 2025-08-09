@@ -4648,7 +4648,7 @@ _ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__13UsdShadeIn
   store ptr %523, ptr %590, align 8
   store ptr null, ptr %169, align 8
   %591 = getelementptr inbounds nuw i8, ptr %588, i64 24
-  store i32 %532, ptr %591, align 4
+  store i32 %532, ptr %591, align 8
   store i32 0, ptr %168, align 8
   %592 = getelementptr inbounds nuw i8, ptr %588, i64 28
   store i32 %531, ptr %592, align 4
@@ -4850,9 +4850,9 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__13UsdShadeInputEEE
   store ptr null, ptr %686, align 8, !alias.scope !41, !noalias !38
   %688 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 16
   %689 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 16
-  %690 = load i32, ptr %689, align 4, !alias.scope !41, !noalias !38
-  store i32 %690, ptr %688, align 4, !alias.scope !38, !noalias !41
-  store i32 0, ptr %689, align 4, !alias.scope !41, !noalias !38
+  %690 = load i32, ptr %689, align 8, !alias.scope !41, !noalias !38
+  store i32 %690, ptr %688, align 8, !alias.scope !38, !noalias !41
+  store i32 0, ptr %689, align 8, !alias.scope !41, !noalias !38
   %691 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 20
   %692 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 20
   %693 = load i32, ptr %692, align 4, !alias.scope !41, !noalias !38
@@ -10160,9 +10160,9 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__13UsdShadeInputEEE
   store ptr null, ptr %58, align 8, !alias.scope !58, !noalias !55
   %60 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %61 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
-  %62 = load i32, ptr %61, align 4, !alias.scope !58, !noalias !55
-  store i32 %62, ptr %60, align 4, !alias.scope !55, !noalias !58
-  store i32 0, ptr %61, align 4, !alias.scope !58, !noalias !55
+  %62 = load i32, ptr %61, align 8, !alias.scope !58, !noalias !55
+  store i32 %62, ptr %60, align 8, !alias.scope !55, !noalias !58
+  store i32 0, ptr %61, align 8, !alias.scope !58, !noalias !55
   %63 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 20
   %64 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 20
   %65 = load i32, ptr %64, align 4, !alias.scope !58, !noalias !55
@@ -10198,9 +10198,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13UsdShadeInputESaIS1_EE11_S_rel
   store ptr null, ptr %74, align 8, !alias.scope !63, !noalias !60
   %76 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 16
   %77 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 16
-  %78 = load i32, ptr %77, align 4, !alias.scope !63, !noalias !60
-  store i32 %78, ptr %76, align 4, !alias.scope !60, !noalias !63
-  store i32 0, ptr %77, align 4, !alias.scope !63, !noalias !60
+  %78 = load i32, ptr %77, align 8, !alias.scope !63, !noalias !60
+  store i32 %78, ptr %76, align 8, !alias.scope !60, !noalias !63
+  store i32 0, ptr %77, align 8, !alias.scope !63, !noalias !60
   %79 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 20
   %80 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 20
   %81 = load i32, ptr %80, align 4, !alias.scope !63, !noalias !60
@@ -12481,9 +12481,9 @@ define linkonce_odr void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13UsdS
   store ptr null, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 16
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 16
-  %30 = load i32, ptr %29, align 4
-  store i32 %30, ptr %28, align 4
-  store i32 0, ptr %29, align 4
+  %30 = load i32, ptr %29, align 8
+  store i32 %30, ptr %28, align 8
+  store i32 0, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 20
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 20
   %33 = load i32, ptr %32, align 4
@@ -12637,9 +12637,9 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_2
   store ptr null, ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i55, i64 16
   %105 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i56, i64 16
-  %106 = load i32, ptr %105, align 4
-  store i32 %106, ptr %104, align 4
-  store i32 0, ptr %105, align 4
+  %106 = load i32, ptr %105, align 8
+  store i32 %106, ptr %104, align 8
+  store i32 0, ptr %105, align 8
   %107 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i55, i64 20
   %108 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i56, i64 20
   %109 = load i32, ptr %108, align 4
@@ -12722,9 +12722,9 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__13UsdShadeInputESaIS1_EE1
   store ptr null, ptr %142, align 8
   %144 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i68, i64 16
   %145 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i69, i64 16
-  %146 = load i32, ptr %145, align 4
-  store i32 %146, ptr %144, align 4
-  store i32 0, ptr %145, align 4
+  %146 = load i32, ptr %145, align 8
+  store i32 %146, ptr %144, align 8
+  store i32 0, ptr %145, align 8
   %147 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i68, i64 20
   %148 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i69, i64 20
   %149 = load i32, ptr %148, align 4
@@ -12833,9 +12833,9 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_2
   store ptr null, ptr %197, align 8
   %199 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i88, i64 16
   %200 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i89, i64 16
-  %201 = load i32, ptr %200, align 4
-  store i32 %201, ptr %199, align 4
-  store i32 0, ptr %200, align 4
+  %201 = load i32, ptr %200, align 8
+  store i32 %201, ptr %199, align 8
+  store i32 0, ptr %200, align 8
   %202 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i88, i64 20
   %203 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i89, i64 20
   %204 = load i32, ptr %203, align 4

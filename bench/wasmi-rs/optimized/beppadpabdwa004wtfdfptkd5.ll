@@ -1957,7 +1957,7 @@ define internal fastcc noundef align 8 ptr @_ZN5wasmi6engine8executor14EngineExe
   %200 = icmp eq i32 %73, %199
   %or.cond.i.i = select i1 %197, i1 %200, i1 false
   %201 = getelementptr inbounds nuw i8, ptr %.8.val, i64 56
-  %202 = load i32, ptr %201, align 4, !alias.scope !230, !noalias !227
+  %202 = load i32, ptr %201, align 8, !alias.scope !230, !noalias !227
   %203 = icmp eq i32 %75, %202
   %or.cond10.i.i = select i1 %or.cond.i.i, i1 %203, i1 false
   br i1 %or.cond10.i.i, label %216, label %204

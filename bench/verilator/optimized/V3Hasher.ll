@@ -2502,7 +2502,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   %36 = xor i32 %35, %28
   store i32 %36, ptr %17, align 8, !tbaa !20
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %38 = load i32, ptr %37, align 4, !tbaa !89
+  %38 = load i32, ptr %37, align 8, !tbaa !89
   %39 = add i32 %38, -1640531527
   %40 = shl i32 %36, 6
   %41 = add i32 %39, %40
@@ -13714,7 +13714,7 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFvvEZN13HasherVisit
   %22 = xor i32 %21, %14
   store i32 %22, ptr %6, align 4, !tbaa !20
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 168
-  %24 = load i32, ptr %23, align 4, !tbaa !89
+  %24 = load i32, ptr %23, align 8, !tbaa !89
   %25 = add i32 %24, -1640531527
   %26 = shl i32 %22, 6
   %27 = add i32 %25, %26
@@ -14446,7 +14446,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP8AstCFuncENKUlvE_
   store i32 %28, ptr %19, align 8, !tbaa !20
   store i64 1, ptr %16, align 8, !tbaa !43
   store i32 %14, ptr %12, align 4, !tbaa !4
-  %.pre7 = load i32, ptr %19, align 4, !tbaa !23
+  %.pre7 = load i32, ptr %19, align 8, !tbaa !23
   br label %_ZNKSt8functionIFvvEEclEv.exit.i
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %26, %21
@@ -14507,7 +14507,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 
 56:                                               ; preds = %51, %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %57 = load i32, ptr %31, align 8, !tbaa !20
-  store i32 %30, ptr %31, align 4, !tbaa !20
+  store i32 %30, ptr %31, align 8, !tbaa !20
   %.pre5 = load ptr, ptr %6, align 8, !tbaa !47
   br label %._crit_edge
 
@@ -18268,7 +18268,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 
 70:                                               ; preds = %65, %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %71 = load i32, ptr %21, align 8, !tbaa !20
-  store i32 %22, ptr %21, align 4, !tbaa !20
+  store i32 %22, ptr %21, align 8, !tbaa !20
   %.pre5 = load ptr, ptr %7, align 8, !tbaa !47
   br label %72
 

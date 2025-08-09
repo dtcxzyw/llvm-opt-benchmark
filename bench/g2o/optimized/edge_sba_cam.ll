@@ -862,10 +862,10 @@ define noundef zeroext i1 @_ZN3g2o10EdgeSBACam23setMeasurementFromStateEv(ptr no
   %13 = load <2 x i64>, ptr %12, align 16, !tbaa !63, !noalias !116
   %14 = xor <2 x i64> %13, <i64 -9223372036854775808, i64 0>
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 224
-  %16 = load <2 x double>, ptr %15, align 1, !tbaa !63, !noalias !123
+  %16 = load <2 x double>, ptr %15, align 16, !tbaa !63, !noalias !123
   %17 = fneg <2 x double> %16
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 240
-  %19 = load double, ptr %18, align 8, !tbaa !3, !noalias !123
+  %19 = load double, ptr %18, align 16, !tbaa !3, !noalias !123
   %20 = fneg double %19
   %bc.i = bitcast <2 x i64> %11 to <2 x double>
   %21 = extractelement <2 x double> %bc.i, i64 1
@@ -934,7 +934,7 @@ define noundef zeroext i1 @_ZN3g2o10EdgeSBACam23setMeasurementFromStateEv(ptr no
   %67 = tail call double @llvm.fmuladd.f64(double %22, double %.sroa.027.0.vec.extract.i.i.i.i7, double %66)
   %.sroa.0.0.vec.insert.i.i.i.i8 = insertelement <2 x double> poison, double %64, i64 0
   %.sroa.0.8.vec.insert.i.i.i.i9 = insertelement <2 x double> %.sroa.0.0.vec.insert.i.i.i.i8, double %67, i64 1
-  %68 = load <2 x double>, ptr %45, align 1, !tbaa !63, !noalias !140
+  %68 = load <2 x double>, ptr %45, align 8, !tbaa !63, !noalias !140
   %69 = fmul <2 x double> %40, %60
   %70 = fadd <2 x double> %68, %69
   %71 = fadd <2 x double> %70, %.sroa.0.8.vec.insert.i.i.i.i9
@@ -1302,10 +1302,10 @@ define void @_ZN3g2o10EdgeSBACam12computeErrorEv(ptr noundef nonnull align 16 ca
   %13 = load <2 x i64>, ptr %12, align 16, !tbaa !63, !noalias !187
   %14 = xor <2 x i64> %13, <i64 -9223372036854775808, i64 0>
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 224
-  %16 = load <2 x double>, ptr %15, align 1, !tbaa !63, !noalias !194
+  %16 = load <2 x double>, ptr %15, align 16, !tbaa !63, !noalias !194
   %17 = fneg <2 x double> %16
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 240
-  %19 = load double, ptr %18, align 8, !tbaa !3, !noalias !194
+  %19 = load double, ptr %18, align 16, !tbaa !3, !noalias !194
   %20 = fneg double %19
   %bc.i = bitcast <2 x i64> %11 to <2 x double>
   %21 = extractelement <2 x double> %bc.i, i64 1
@@ -1384,7 +1384,7 @@ define void @_ZN3g2o10EdgeSBACam12computeErrorEv(ptr noundef nonnull align 16 ca
   %77 = tail call double @llvm.fmuladd.f64(double %26, double %.sroa.027.8.vec.extract.i.i.i.i6, double %76)
   %.sroa.0.0.vec.insert.i.i.i.i8 = insertelement <2 x double> poison, double %71, i64 0
   %.sroa.0.8.vec.insert.i.i.i.i9 = insertelement <2 x double> %.sroa.0.0.vec.insert.i.i.i.i8, double %74, i64 1
-  %78 = load <2 x double>, ptr %52, align 1, !tbaa !63, !noalias !211
+  %78 = load <2 x double>, ptr %52, align 8, !tbaa !63, !noalias !211
   %79 = fmul <2 x double> %44, %67
   %80 = fadd <2 x double> %78, %79
   %81 = fadd <2 x double> %80, %.sroa.0.8.vec.insert.i.i.i.i9

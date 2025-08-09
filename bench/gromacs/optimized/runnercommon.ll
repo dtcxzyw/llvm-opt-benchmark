@@ -1348,7 +1348,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %169 = load float, ptr %168, align 4, !tbaa !165
   %170 = getelementptr inbounds nuw i8, ptr %163, i64 120
-  store float %169, ptr %170, align 4, !tbaa !165
+  store float %169, ptr %170, align 8, !tbaa !165
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %172 = load float, ptr %171, align 8, !tbaa !165
   %173 = getelementptr inbounds nuw i8, ptr %163, i64 124
@@ -1356,7 +1356,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %175 = getelementptr inbounds nuw i8, ptr %163, i64 128
   %176 = load float, ptr %174, align 4, !tbaa !165
-  store float %176, ptr %175, align 4, !tbaa !165
+  store float %176, ptr %175, align 8, !tbaa !165
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %178 = load float, ptr %177, align 8, !tbaa !165
   %179 = getelementptr inbounds nuw i8, ptr %163, i64 132
@@ -1364,7 +1364,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %181 = load float, ptr %180, align 4, !tbaa !165
   %182 = getelementptr inbounds nuw i8, ptr %163, i64 136
-  store float %181, ptr %182, align 4, !tbaa !165
+  store float %181, ptr %182, align 8, !tbaa !165
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %184 = getelementptr inbounds nuw i8, ptr %163, i64 140
   %185 = load float, ptr %183, align 8, !tbaa !165
@@ -1372,7 +1372,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %187 = load float, ptr %186, align 4, !tbaa !165
   %188 = getelementptr inbounds nuw i8, ptr %163, i64 144
-  store float %187, ptr %188, align 4, !tbaa !165
+  store float %187, ptr %188, align 8, !tbaa !165
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %190 = load float, ptr %189, align 8, !tbaa !165
   %191 = getelementptr inbounds nuw i8, ptr %163, i64 148

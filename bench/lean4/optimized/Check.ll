@@ -54862,7 +54862,7 @@ lean_inc.exit101:                                 ; preds = %lean_dec.exit96
   %.val132163 = load i64, ptr %62, align 8, !tbaa !13
   %63 = load ptr, ptr @l_Lean_Compiler_LCNF_Check_checkCases___closed__1, align 8, !tbaa !9
   %64 = tail call ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Compiler_LCNF_Check_checkCases___spec__3(ptr noundef nonnull %0, ptr nonnull poison, ptr nonnull poison, ptr noundef nonnull %49, i64 noundef %.val132163, i64 noundef 0, ptr noundef %63, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %32)
-  %65 = load i32, ptr %49, align 4, !tbaa !4
+  %65 = load i32, ptr %49, align 8, !tbaa !4
   %66 = icmp sgt i32 %65, 1
   br i1 %66, label %67, label %69, !prof !12
 

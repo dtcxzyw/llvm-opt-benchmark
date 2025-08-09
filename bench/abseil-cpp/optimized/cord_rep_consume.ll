@@ -17,7 +17,7 @@ define dso_local void @_ZN4absl13cord_internal7ConsumeEPNS0_7CordRepENS_11Functi
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !18
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load atomic i32, ptr %13 acquire, align 4
+  %14 = load atomic i32, ptr %13 acquire, align 8
   %15 = icmp eq i32 %14, 2
   br i1 %15, label %16, label %17
 
@@ -59,7 +59,7 @@ define dso_local void @_ZN4absl13cord_internal14ReverseConsumeEPNS0_7CordRepENS_
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !18
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load atomic i32, ptr %13 acquire, align 4
+  %14 = load atomic i32, ptr %13 acquire, align 8
   %15 = icmp eq i32 %14, 2
   br i1 %15, label %16, label %17
 

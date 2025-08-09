@@ -142,7 +142,7 @@ if.then.i12:                                      ; preds = %_ZN11StreamProxylsI
   %5 = load i32, ptr %_M_flags.i.i, align 8, !tbaa !21
   %and.i.i.i.i = and i32 %5, -75
   %or.i.i.i.i = or disjoint i32 %and.i.i.i.i, 8
-  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 4, !tbaa !21
+  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 8, !tbaa !21
   %call.i1085 = tail call i64 @pthread_self() #18
   %cmp.i.i.i = icmp eq i64 %call.i1085, 0
   br i1 %cmp.i.i.i, label %if.then.i.i14, label %if.else.i.i
@@ -425,7 +425,7 @@ if.then.i12:                                      ; preds = %_ZN11StreamProxylsI
   %5 = load i32, ptr %_M_flags.i.i, align 8, !tbaa !21
   %and.i.i.i.i = and i32 %5, -75
   %or.i.i.i.i = or disjoint i32 %and.i.i.i.i, 8
-  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 4, !tbaa !21
+  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 8, !tbaa !21
   %call.i1083 = tail call i64 @pthread_self() #18
   %cmp.i.i.i = icmp eq i64 %call.i1083, 0
   br i1 %cmp.i.i.i, label %if.then.i.i14, label %if.else.i.i

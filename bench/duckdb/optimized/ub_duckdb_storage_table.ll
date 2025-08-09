@@ -28282,7 +28282,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %537, ptr %539, align 8, !tbaa !33, !alias.scope !1366, !noalias !1369
   store ptr %529, ptr %.0911.i.i.i.i.i, align 8, !tbaa !29, !alias.scope !1369, !noalias !1366
   store i64 0, ptr %538, align 8, !tbaa !33, !alias.scope !1369, !noalias !1366
-  store i8 0, ptr %529, align 1, !tbaa !59, !alias.scope !1369, !noalias !1366
+  store i8 0, ptr %529, align 8, !tbaa !59, !alias.scope !1369, !noalias !1366
   %540 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 32
   %541 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i208 = icmp eq ptr %540, %486
@@ -48128,7 +48128,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit18.us.i246: ; preds = %340, %_ZNK6d
   %346 = load i32, ptr %345, align 8, !tbaa !59
   %347 = icmp ult i32 %346, %332
   %348 = getelementptr inbounds nuw i8, ptr %345, i64 4
-  %.0.copyload.i16.i.i.i.i.us.i = load i32, ptr %348, align 1
+  %.0.copyload.i16.i.i.i.i.us.i = load i32, ptr %348, align 4
   %.not.i.i.i.i.us.i247 = icmp eq i32 %.0.copyload.i16.i.i.i.i.us.i, %334
   br i1 %.not.i.i.i.i.us.i247, label %352, label %349
 
@@ -48177,7 +48177,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.us7.i238: ; preds = %.lr.ph.split.
   %372 = load i32, ptr %371, align 8, !tbaa !59
   %373 = icmp ult i32 %372, %332
   %374 = getelementptr inbounds nuw i8, ptr %371, i64 4
-  %.0.copyload.i16.i.i.i.i.us11.i = load i32, ptr %374, align 1
+  %.0.copyload.i16.i.i.i.i.us11.i = load i32, ptr %374, align 4
   %.not.i.i.i.i.us12.i241 = icmp eq i32 %.0.copyload.i16.i.i.i.i.us11.i, %334
   br i1 %.not.i.i.i.i.us12.i241, label %378, label %375
 
@@ -48225,7 +48225,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.i232: ; preds = %.lr.ph.split.i231
   %400 = load i32, ptr %399, align 8, !tbaa !59
   %401 = icmp ult i32 %400, %332
   %402 = getelementptr inbounds nuw i8, ptr %399, i64 4
-  %.0.copyload.i16.i.i.i.i.i = load i32, ptr %402, align 1
+  %.0.copyload.i16.i.i.i.i.i = load i32, ptr %402, align 4
   %.not.i.i.i.i.i235 = icmp eq i32 %.0.copyload.i16.i.i.i.i.i, %334
   br i1 %.not.i.i.i.i.i235, label %406, label %403
 
@@ -48318,7 +48318,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us10.i280: ; pre
   %446 = load i32, ptr %445, align 8, !tbaa !59
   %447 = icmp ult i32 %446, %425
   %448 = getelementptr inbounds nuw i8, ptr %445, i64 4
-  %.0.copyload.i16.i.i.i.i.us11.i281 = load i32, ptr %448, align 1
+  %.0.copyload.i16.i.i.i.i.us11.i281 = load i32, ptr %448, align 4
   %.not.i.i.i.i.us12.i282 = icmp eq i32 %.0.copyload.i16.i.i.i.i.us11.i281, %427
   br i1 %.not.i.i.i.i.us12.i282, label %452, label %449
 
@@ -48381,7 +48381,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us23.i272: ; pre
   %480 = load i32, ptr %479, align 8, !tbaa !59
   %481 = icmp ult i32 %480, %425
   %482 = getelementptr inbounds nuw i8, ptr %479, i64 4
-  %.0.copyload.i16.i.i.i.i.us24.i = load i32, ptr %482, align 1
+  %.0.copyload.i16.i.i.i.i.us24.i = load i32, ptr %482, align 4
   %.not.i.i.i.i.us25.i273 = icmp eq i32 %.0.copyload.i16.i.i.i.i.us24.i, %427
   br i1 %.not.i.i.i.i.us25.i273, label %486, label %483
 
@@ -48443,7 +48443,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i260: ; preds = 
   %516 = load i32, ptr %515, align 8, !tbaa !59
   %517 = icmp ult i32 %516, %425
   %518 = getelementptr inbounds nuw i8, ptr %515, i64 4
-  %.0.copyload.i16.i.i.i.i.i261 = load i32, ptr %518, align 1
+  %.0.copyload.i16.i.i.i.i.i261 = load i32, ptr %518, align 4
   %.not.i.i.i.i.i262 = icmp eq i32 %.0.copyload.i16.i.i.i.i.i261, %427
   br i1 %.not.i.i.i.i.i262, label %522, label %519
 
@@ -48536,7 +48536,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit18.us.i321: ; preds = %553, %_ZNK6d
   %559 = load i32, ptr %558, align 8, !tbaa !59
   %560 = icmp ugt i32 %559, %545
   %561 = getelementptr inbounds nuw i8, ptr %558, i64 4
-  %.0.copyload.i.i.i.i.us.i322 = load i32, ptr %561, align 1
+  %.0.copyload.i.i.i.i.us.i322 = load i32, ptr %561, align 4
   %.not.i.i.i.us.i323 = icmp eq i32 %.0.copyload.i.i.i.i.us.i322, %547
   br i1 %.not.i.i.i.us.i323, label %565, label %562
 
@@ -48585,7 +48585,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.us7.i312: ; preds = %.lr.ph.split.
   %585 = load i32, ptr %584, align 8, !tbaa !59
   %586 = icmp ugt i32 %585, %545
   %587 = getelementptr inbounds nuw i8, ptr %584, i64 4
-  %.0.copyload.i.i.i.i.us11.i315 = load i32, ptr %587, align 1
+  %.0.copyload.i.i.i.i.us11.i315 = load i32, ptr %587, align 4
   %.not.i.i.i.us12.i316 = icmp eq i32 %.0.copyload.i.i.i.i.us11.i315, %547
   br i1 %.not.i.i.i.us12.i316, label %591, label %588
 
@@ -48633,7 +48633,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.i304: ; preds = %.lr.ph.split.i303
   %613 = load i32, ptr %612, align 8, !tbaa !59
   %614 = icmp ugt i32 %613, %545
   %615 = getelementptr inbounds nuw i8, ptr %612, i64 4
-  %.0.copyload.i.i.i.i.i307 = load i32, ptr %615, align 1
+  %.0.copyload.i.i.i.i.i307 = load i32, ptr %615, align 4
   %.not.i.i.i.i308 = icmp eq i32 %.0.copyload.i.i.i.i.i307, %547
   br i1 %.not.i.i.i.i308, label %619, label %616
 
@@ -48726,7 +48726,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us10.i358: ; pre
   %659 = load i32, ptr %658, align 8, !tbaa !59
   %660 = icmp ugt i32 %659, %638
   %661 = getelementptr inbounds nuw i8, ptr %658, i64 4
-  %.0.copyload.i.i.i.i.us11.i359 = load i32, ptr %661, align 1
+  %.0.copyload.i.i.i.i.us11.i359 = load i32, ptr %661, align 4
   %.not.i.i.i.us12.i360 = icmp eq i32 %.0.copyload.i.i.i.i.us11.i359, %640
   br i1 %.not.i.i.i.us12.i360, label %665, label %662
 
@@ -48789,7 +48789,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us23.i349: ; pre
   %693 = load i32, ptr %692, align 8, !tbaa !59
   %694 = icmp ugt i32 %693, %638
   %695 = getelementptr inbounds nuw i8, ptr %692, i64 4
-  %.0.copyload.i.i.i.i.us24.i350 = load i32, ptr %695, align 1
+  %.0.copyload.i.i.i.i.us24.i350 = load i32, ptr %695, align 4
   %.not.i.i.i.us25.i351 = icmp eq i32 %.0.copyload.i.i.i.i.us24.i350, %640
   br i1 %.not.i.i.i.us25.i351, label %699, label %696
 
@@ -48851,7 +48851,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i337: ; preds = 
   %729 = load i32, ptr %728, align 8, !tbaa !59
   %730 = icmp ugt i32 %729, %638
   %731 = getelementptr inbounds nuw i8, ptr %728, i64 4
-  %.0.copyload.i.i.i.i.i338 = load i32, ptr %731, align 1
+  %.0.copyload.i.i.i.i.i338 = load i32, ptr %731, align 4
   %.not.i.i.i.i339 = icmp eq i32 %.0.copyload.i.i.i.i.i338, %640
   br i1 %.not.i.i.i.i339, label %735, label %732
 
@@ -48944,7 +48944,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit18.us.i402: ; preds = %766, %_ZNK6d
   %772 = load i32, ptr %771, align 8, !tbaa !59
   %773 = icmp ugt i32 %772, %758
   %774 = getelementptr inbounds nuw i8, ptr %771, i64 4
-  %.0.copyload.i.i.i.i.i.us.i403 = load i32, ptr %774, align 1
+  %.0.copyload.i.i.i.i.i.us.i403 = load i32, ptr %774, align 4
   %.not.i.i.i.i.us.i404 = icmp eq i32 %.0.copyload.i.i.i.i.i.us.i403, %760
   br i1 %.not.i.i.i.i.us.i404, label %778, label %775
 
@@ -48994,7 +48994,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.us7.i391: ; preds = %.lr.ph.split.
   %799 = load i32, ptr %798, align 8, !tbaa !59
   %800 = icmp ugt i32 %799, %758
   %801 = getelementptr inbounds nuw i8, ptr %798, i64 4
-  %.0.copyload.i.i.i.i.i.us11.i394 = load i32, ptr %801, align 1
+  %.0.copyload.i.i.i.i.i.us11.i394 = load i32, ptr %801, align 4
   %.not.i.i.i.i.us12.i395 = icmp eq i32 %.0.copyload.i.i.i.i.i.us11.i394, %760
   br i1 %.not.i.i.i.i.us12.i395, label %805, label %802
 
@@ -49043,7 +49043,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.i382: ; preds = %.lr.ph.split.i381
   %828 = load i32, ptr %827, align 8, !tbaa !59
   %829 = icmp ugt i32 %828, %758
   %830 = getelementptr inbounds nuw i8, ptr %827, i64 4
-  %.0.copyload.i.i.i.i.i.i385 = load i32, ptr %830, align 1
+  %.0.copyload.i.i.i.i.i.i385 = load i32, ptr %830, align 4
   %.not.i.i.i.i.i386 = icmp eq i32 %.0.copyload.i.i.i.i.i.i385, %760
   br i1 %.not.i.i.i.i.i386, label %834, label %831
 
@@ -49137,7 +49137,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us10.i442: ; pre
   %875 = load i32, ptr %874, align 8, !tbaa !59
   %876 = icmp ugt i32 %875, %854
   %877 = getelementptr inbounds nuw i8, ptr %874, i64 4
-  %.0.copyload.i.i.i.i.i.us11.i443 = load i32, ptr %877, align 1
+  %.0.copyload.i.i.i.i.i.us11.i443 = load i32, ptr %877, align 4
   %.not.i.i.i.i.us12.i444 = icmp eq i32 %.0.copyload.i.i.i.i.i.us11.i443, %856
   br i1 %.not.i.i.i.i.us12.i444, label %881, label %878
 
@@ -49201,7 +49201,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us23.i431: ; pre
   %910 = load i32, ptr %909, align 8, !tbaa !59
   %911 = icmp ugt i32 %910, %854
   %912 = getelementptr inbounds nuw i8, ptr %909, i64 4
-  %.0.copyload.i.i.i.i.i.us24.i432 = load i32, ptr %912, align 1
+  %.0.copyload.i.i.i.i.i.us24.i432 = load i32, ptr %912, align 4
   %.not.i.i.i.i.us25.i433 = icmp eq i32 %.0.copyload.i.i.i.i.i.us24.i432, %856
   br i1 %.not.i.i.i.i.us25.i433, label %916, label %913
 
@@ -49264,7 +49264,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i419: ; preds = 
   %947 = load i32, ptr %946, align 8, !tbaa !59
   %948 = icmp ugt i32 %947, %854
   %949 = getelementptr inbounds nuw i8, ptr %946, i64 4
-  %.0.copyload.i.i.i.i.i.i420 = load i32, ptr %949, align 1
+  %.0.copyload.i.i.i.i.i.i420 = load i32, ptr %949, align 4
   %.not.i.i.i.i.i421 = icmp eq i32 %.0.copyload.i.i.i.i.i.i420, %856
   br i1 %.not.i.i.i.i.i421, label %953, label %950
 
@@ -49358,7 +49358,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit18.us.i486: ; preds = %985, %_ZNK6d
   %991 = load i32, ptr %990, align 8, !tbaa !59
   %992 = icmp ult i32 %991, %977
   %993 = getelementptr inbounds nuw i8, ptr %990, i64 4
-  %.0.copyload.i16.i.i.i.i.us.i487 = load i32, ptr %993, align 1
+  %.0.copyload.i16.i.i.i.i.us.i487 = load i32, ptr %993, align 4
   %.not.i.i.i.i.us.i488 = icmp eq i32 %.0.copyload.i16.i.i.i.i.us.i487, %979
   br i1 %.not.i.i.i.i.us.i488, label %997, label %994
 
@@ -49408,7 +49408,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.us7.i475: ; preds = %.lr.ph.split.
   %1018 = load i32, ptr %1017, align 8, !tbaa !59
   %1019 = icmp ult i32 %1018, %977
   %1020 = getelementptr inbounds nuw i8, ptr %1017, i64 4
-  %.0.copyload.i16.i.i.i.i.us11.i478 = load i32, ptr %1020, align 1
+  %.0.copyload.i16.i.i.i.i.us11.i478 = load i32, ptr %1020, align 4
   %.not.i.i.i.i.us12.i479 = icmp eq i32 %.0.copyload.i16.i.i.i.i.us11.i478, %979
   br i1 %.not.i.i.i.i.us12.i479, label %1024, label %1021
 
@@ -49457,7 +49457,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.i466: ; preds = %.lr.ph.split.i465
   %1047 = load i32, ptr %1046, align 8, !tbaa !59
   %1048 = icmp ult i32 %1047, %977
   %1049 = getelementptr inbounds nuw i8, ptr %1046, i64 4
-  %.0.copyload.i16.i.i.i.i.i469 = load i32, ptr %1049, align 1
+  %.0.copyload.i16.i.i.i.i.i469 = load i32, ptr %1049, align 4
   %.not.i.i.i.i.i470 = icmp eq i32 %.0.copyload.i16.i.i.i.i.i469, %979
   br i1 %.not.i.i.i.i.i470, label %1053, label %1050
 
@@ -49551,7 +49551,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us10.i526: ; pre
   %1094 = load i32, ptr %1093, align 8, !tbaa !59
   %1095 = icmp ult i32 %1094, %1073
   %1096 = getelementptr inbounds nuw i8, ptr %1093, i64 4
-  %.0.copyload.i16.i.i.i.i.us11.i527 = load i32, ptr %1096, align 1
+  %.0.copyload.i16.i.i.i.i.us11.i527 = load i32, ptr %1096, align 4
   %.not.i.i.i.i.us12.i528 = icmp eq i32 %.0.copyload.i16.i.i.i.i.us11.i527, %1075
   br i1 %.not.i.i.i.i.us12.i528, label %1100, label %1097
 
@@ -49615,7 +49615,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us23.i515: ; pre
   %1129 = load i32, ptr %1128, align 8, !tbaa !59
   %1130 = icmp ult i32 %1129, %1073
   %1131 = getelementptr inbounds nuw i8, ptr %1128, i64 4
-  %.0.copyload.i16.i.i.i.i.us24.i516 = load i32, ptr %1131, align 1
+  %.0.copyload.i16.i.i.i.i.us24.i516 = load i32, ptr %1131, align 4
   %.not.i.i.i.i.us25.i517 = icmp eq i32 %.0.copyload.i16.i.i.i.i.us24.i516, %1075
   br i1 %.not.i.i.i.i.us25.i517, label %1135, label %1132
 
@@ -49678,7 +49678,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i503: ; preds = 
   %1166 = load i32, ptr %1165, align 8, !tbaa !59
   %1167 = icmp ult i32 %1166, %1073
   %1168 = getelementptr inbounds nuw i8, ptr %1165, i64 4
-  %.0.copyload.i16.i.i.i.i.i504 = load i32, ptr %1168, align 1
+  %.0.copyload.i16.i.i.i.i.i504 = load i32, ptr %1168, align 4
   %.not.i.i.i.i.i505 = icmp eq i32 %.0.copyload.i16.i.i.i.i.i504, %1075
   br i1 %.not.i.i.i.i.i505, label %1172, label %1169
 
@@ -79155,7 +79155,7 @@ _ZN6duckdb11SegmentTreeINS_8RowGroupELb1EE4LockEv.exit: ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 96
   store i64 %15, ptr %16, align 8, !tbaa !2455
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store atomic i8 0, ptr %17 seq_cst, align 1
+  store atomic i8 0, ptr %17 seq_cst, align 8
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %19 = load ptr, ptr %18, align 8, !tbaa !2456
   %20 = load ptr, ptr %19, align 8, !tbaa !2055
@@ -101635,7 +101635,7 @@ _ZNSt10unique_ptrIN6duckdb29StandardColumnCheckpointStateESt14default_deleteIS1_
   store ptr %1, ptr %6, align 8, !tbaa !109, !noalias !3039
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i8 1, ptr %8, align 1, !tbaa !111, !noalias !3039
+  store i8 1, ptr %8, align 8, !tbaa !111, !noalias !3039
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, i8 0, i64 64, i1 false), !noalias !3039
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6duckdb17ColumnSegmentTreeE, i64 16), ptr %7, align 8, !tbaa !10, !noalias !3039
@@ -129020,7 +129020,7 @@ _ZSt19__relocate_object_aIN6duckdb20ExceptionFormatValueES1_SaIS1_EEvPT_PT0_RT1_
   store i64 %49, ptr %51, align 8, !tbaa !33, !alias.scope !3583, !noalias !3586
   store ptr %41, ptr %38, align 8, !tbaa !29, !alias.scope !3586, !noalias !3583
   store i64 0, ptr %50, align 8, !tbaa !33, !alias.scope !3586, !noalias !3583
-  store i8 0, ptr %41, align 1, !tbaa !59, !alias.scope !3586, !noalias !3583
+  store i8 0, ptr %41, align 8, !tbaa !59, !alias.scope !3586, !noalias !3583
   %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 56
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 56
   %.not.i.i.i.i = icmp eq ptr %52, %1
@@ -129071,7 +129071,7 @@ _ZSt19__relocate_object_aIN6duckdb20ExceptionFormatValueES1_SaIS1_EEvPT_PT0_RT1_
   store i64 %67, ptr %69, align 8, !tbaa !33, !alias.scope !3590, !noalias !3593
   store ptr %59, ptr %56, align 8, !tbaa !29, !alias.scope !3593, !noalias !3590
   store i64 0, ptr %68, align 8, !tbaa !33, !alias.scope !3593, !noalias !3590
-  store i8 0, ptr %59, align 1, !tbaa !59, !alias.scope !3593, !noalias !3590
+  store i8 0, ptr %59, align 8, !tbaa !59, !alias.scope !3593, !noalias !3590
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 56
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 56
   %.not.i.i.i.i24 = icmp eq ptr %70, %5

@@ -137,7 +137,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_vp9_start_frame(ptr noundef
   %109 = zext nneg i8 %108 to i32
   %110 = shl nuw nsw i32 %109, 22
   %111 = getelementptr inbounds nuw i8, ptr %7, i64 22
-  %112 = load i8, ptr %111, align 1, !tbaa !62
+  %112 = load i8, ptr %111, align 2, !tbaa !62
   %113 = and i8 %112, 7
   %114 = zext nneg i8 %113 to i32
   %115 = shl nuw nsw i32 %114, 23
@@ -182,7 +182,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_vp9_start_frame(ptr noundef
   %142 = load i8, ptr %141, align 1, !tbaa !65
   %143 = getelementptr inbounds nuw i8, ptr %7, i64 276
   %144 = getelementptr inbounds nuw i8, ptr %7, i64 280
-  %145 = load i32, ptr %144, align 4, !tbaa !66
+  %145 = load i32, ptr %144, align 8, !tbaa !66
   %146 = trunc i32 %145 to i8
   %147 = load i32, ptr %143, align 4, !tbaa !67
   %148 = trunc i32 %147 to i8

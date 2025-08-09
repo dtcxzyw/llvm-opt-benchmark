@@ -568,13 +568,13 @@ if.end4:                                          ; preds = %if.end
   store ptr %2, ptr %Name.i, align 8, !tbaa !23
   %_M_string_length.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5, i64 64
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !25
-  store i8 0, ptr %2, align 1, !tbaa !28
+  store i8 0, ptr %2, align 8, !tbaa !28
   %Group.i = getelementptr inbounds nuw i8, ptr %call5, i64 88
   %3 = getelementptr inbounds nuw i8, ptr %call5, i64 104
   store ptr %3, ptr %Group.i, align 8, !tbaa !23
   %_M_string_length.i.i.i.i20.i = getelementptr inbounds nuw i8, ptr %call5, i64 96
   store i64 0, ptr %_M_string_length.i.i.i.i20.i, align 8, !tbaa !25
-  store i8 0, ptr %3, align 1, !tbaa !28
+  store i8 0, ptr %3, align 8, !tbaa !28
   %Bumpiness.i = getelementptr inbounds nuw i8, ptr %call5, i64 120
   store float 1.000000e+00, ptr %Bumpiness.i, align 8, !tbaa !37
   %Illumination.i = getelementptr inbounds nuw i8, ptr %call5, i64 124
@@ -666,9 +666,9 @@ if.end4:                                          ; preds = %if.end
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Indices.i.i, i8 0, i64 24, i1 false)
   store i8 1, ptr %is_sorted.i2.i.i, align 8, !tbaa !87
   %BoundingBox.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 280
-  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i.i, align 4, !tbaa !84
+  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i.i, align 8, !tbaa !84
   %Y.i2.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 296
-  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i.i, align 4, !tbaa !84
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i.i, align 8, !tbaa !84
   %PrimitiveType.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 304
   store i32 6, ptr %PrimitiveType.i.i, align 8, !tbaa !88
   store ptr %call.i, ptr %Meshbuffer.i, align 8, !tbaa !89
@@ -3350,9 +3350,9 @@ if.end217:                                        ; preds = %_ZN3irr4core6string
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %MeshBuffers.i, i8 0, i64 24, i1 false)
   store i8 1, ptr %is_sorted.i.i, align 8, !tbaa !177
   %BoundingBox.i = getelementptr inbounds nuw i8, ptr %call218, i64 40
-  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i, align 4, !tbaa !84
+  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i, align 8, !tbaa !84
   %Y.i2.i.i = getelementptr inbounds nuw i8, ptr %call218, i64 56
-  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 4, !tbaa !84
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 8, !tbaa !84
   %301 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !93
   %302 = load ptr, ptr %Materials, align 8, !tbaa !22
   %sub.ptr.lhs.cast.i.i9901304 = ptrtoint ptr %301 to i64
@@ -3539,9 +3539,9 @@ if.then265:                                       ; preds = %for.cond.cleanup223
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Meshes.i, i8 0, i64 24, i1 false)
   store i8 1, ptr %is_sorted.i.i1007, align 8, !tbaa !189
   %Box.i = getelementptr inbounds nuw i8, ptr %call266, i64 40
-  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %Box.i, align 4, !tbaa !84
+  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %Box.i, align 8, !tbaa !84
   %Y.i2.i.i1011 = getelementptr inbounds nuw i8, ptr %call266, i64 56
-  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i1011, align 4, !tbaa !84
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i1011, align 8, !tbaa !84
   %FramesPerSecond.i = getelementptr inbounds nuw i8, ptr %call266, i64 64
   store float 2.500000e+01, ptr %FramesPerSecond.i, align 8, !tbaa !195
   %Type.i = getelementptr inbounds nuw i8, ptr %call266, i64 68
@@ -7618,7 +7618,7 @@ _ZN3irr4core6stringIcEC2ERKS2_.exit17:            ; preds = %if.end.i.i16, %_ZN3
   %arrayctor.end.i.i = getelementptr inbounds nuw i8, ptr %call, i64 160
   store <4 x i32> <i32 0, i32 -1, i32 -1, i32 0>, ptr %arrayctor.end.i.i, align 8, !tbaa !28
   %SpecularColor.i.i = getelementptr inbounds nuw i8, ptr %call, i64 176
-  store i32 -1, ptr %SpecularColor.i.i, align 4, !tbaa !80
+  store i32 -1, ptr %SpecularColor.i.i, align 8, !tbaa !80
   %Shininess.i.i = getelementptr inbounds nuw i8, ptr %call, i64 180
   store <2 x float> zeroinitializer, ptr %Shininess.i.i, align 4, !tbaa !84
   %Thickness.i.i = getelementptr inbounds nuw i8, ptr %call, i64 188
@@ -7644,9 +7644,9 @@ _ZN3irr4core6stringIcEC2ERKS2_.exit17:            ; preds = %if.end.i.i16, %_ZN3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Indices.i, i8 0, i64 24, i1 false)
   store i8 1, ptr %is_sorted.i2.i, align 8, !tbaa !87
   %BoundingBox.i = getelementptr inbounds nuw i8, ptr %call, i64 280
-  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i, align 4, !tbaa !84
+  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i, align 8, !tbaa !84
   %Y.i2.i.i = getelementptr inbounds nuw i8, ptr %call, i64 296
-  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 4, !tbaa !84
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 8, !tbaa !84
   %PrimitiveType.i = getelementptr inbounds nuw i8, ptr %call, i64 304
   store i32 6, ptr %PrimitiveType.i, align 8, !tbaa !88
   %Meshbuffer = getelementptr inbounds nuw i8, ptr %this, i64 48

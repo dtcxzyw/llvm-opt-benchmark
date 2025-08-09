@@ -5520,7 +5520,7 @@ _ZNK4lean11declaration4kindEv.exit:               ; preds = %8, %11
   store ptr %24, ptr %23, align 8, !tbaa !84
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i64 0, ptr %25, align 8, !tbaa !87
-  store i8 0, ptr %24, align 1, !tbaa !89
+  store i8 0, ptr %24, align 8, !tbaa !89
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %22, align 8, !tbaa !26
   tail call void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #24
   unreachable

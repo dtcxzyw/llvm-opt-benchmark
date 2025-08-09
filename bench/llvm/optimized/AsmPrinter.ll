@@ -29651,7 +29651,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_4bitsI18PGO
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.014, i64 32
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !47
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %21 = load i32, ptr %19, align 4, !tbaa !918
+  %21 = load i32, ptr %19, align 8, !tbaa !918
   store ptr %.sroa.01.0.copyload, ptr %3, align 8, !tbaa !46
   store i64 %.sroa.22.0.copyload, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !tbaa !47
   store ptr %.sroa.0.0.copyload, ptr %9, align 8, !tbaa !46
@@ -32455,7 +32455,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MCSymbolEjNS_12DenseMapInfoIS4_vEENS_6
   store ptr %60, ptr %50, align 8, !tbaa !270
   %61 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %62 = load i32, ptr %3, align 4, !tbaa !918
-  store i32 %62, ptr %61, align 4, !tbaa !918
+  store i32 %62, ptr %61, align 8, !tbaa !918
   %63 = load ptr, ptr %1, align 8, !tbaa !370
   %64 = load i32, ptr %7, align 8, !tbaa !371
   br label %.loopexit
@@ -32667,7 +32667,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MCSymbolEjNS_12DenseMapInfoIS4_vEENS_6
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !918
-  store i32 %68, ptr %66, align 4, !tbaa !918
+  store i32 %68, ptr %66, align 8, !tbaa !918
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !1273
   br label %70

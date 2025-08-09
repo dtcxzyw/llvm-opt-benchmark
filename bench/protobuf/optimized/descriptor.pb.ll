@@ -4065,9 +4065,9 @@ entry:
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %4 = load i32, ptr %2, align 8
-  %5 = load i32, ptr %3, align 4
+  %5 = load i32, ptr %3, align 8
   store i32 %5, ptr %2, align 8
-  store i32 %4, ptr %3, align 4
+  store i32 %4, ptr %3, align 8
   %dependency_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %dependency_7 = getelementptr inbounds nuw i8, ptr %other, i64 24
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %dependency_, ptr noundef nonnull %dependency_7)
@@ -4896,9 +4896,9 @@ entry:
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %4 = load i32, ptr %2, align 8
-  %5 = load i32, ptr %3, align 4
+  %5 = load i32, ptr %3, align 8
   store i32 %5, ptr %2, align 8
-  store i32 %4, ptr %3, align 4
+  store i32 %4, ptr %3, align 8
   %options_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %options_5 = getelementptr inbounds nuw i8, ptr %other, i64 24
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %options_, ptr noundef nonnull %options_5)
@@ -5384,9 +5384,9 @@ entry:
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %4 = load i32, ptr %2, align 8
-  %5 = load i32, ptr %3, align 4
+  %5 = load i32, ptr %3, align 8
   store i32 %5, ptr %2, align 8
-  store i32 %4, ptr %3, align 4
+  store i32 %4, ptr %3, align 8
   %start_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %start_5 = getelementptr inbounds nuw i8, ptr %other, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
@@ -7758,9 +7758,9 @@ entry:
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %4 = load i32, ptr %2, align 8
-  %5 = load i32, ptr %3, align 4
+  %5 = load i32, ptr %3, align 8
   store i32 %5, ptr %2, align 8
-  store i32 %4, ptr %3, align 4
+  store i32 %4, ptr %3, align 8
   %field_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %field_7 = getelementptr inbounds nuw i8, ptr %other, i64 24
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %field_, ptr noundef nonnull %field_7)
@@ -8542,9 +8542,9 @@ entry:
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %4 = load i32, ptr %2, align 8
-  %5 = load i32, ptr %3, align 4
+  %5 = load i32, ptr %3, align 8
   store i32 %5, ptr %2, align 8
-  store i32 %4, ptr %3, align 4
+  store i32 %4, ptr %3, align 8
   %full_name_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %full_name_7 = getelementptr inbounds nuw i8, ptr %other, i64 24
   %__tmp.sroa.0.0.copyload.i = load ptr, ptr %full_name_7, align 8
@@ -9464,9 +9464,9 @@ entry:
   %_has_bits_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %_has_bits_4 = getelementptr inbounds nuw i8, ptr %other, i64 40
   %4 = load i32, ptr %_has_bits_, align 8
-  %5 = load i32, ptr %_has_bits_4, align 4
+  %5 = load i32, ptr %_has_bits_4, align 8
   store i32 %5, ptr %_has_bits_, align 8
-  store i32 %4, ptr %_has_bits_4, align 4
+  store i32 %4, ptr %_has_bits_4, align 8
   %declaration_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %declaration_6 = getelementptr inbounds nuw i8, ptr %other, i64 48
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %declaration_, ptr noundef nonnull %declaration_6)
@@ -11167,9 +11167,9 @@ entry:
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %4 = load i32, ptr %2, align 8
-  %5 = load i32, ptr %3, align 4
+  %5 = load i32, ptr %3, align 8
   store i32 %5, ptr %2, align 8
-  store i32 %4, ptr %3, align 4
+  store i32 %4, ptr %3, align 8
   %name_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %name_7 = getelementptr inbounds nuw i8, ptr %other, i64 24
   %__tmp.sroa.0.0.copyload.i = load ptr, ptr %name_7, align 8
@@ -11929,9 +11929,9 @@ entry:
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %4 = load i32, ptr %2, align 8
-  %5 = load i32, ptr %3, align 4
+  %5 = load i32, ptr %3, align 8
   store i32 %5, ptr %2, align 8
-  store i32 %4, ptr %3, align 4
+  store i32 %4, ptr %3, align 8
   %name_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %name_7 = getelementptr inbounds nuw i8, ptr %other, i64 24
   %__tmp.sroa.0.0.copyload.i = load ptr, ptr %name_7, align 8
@@ -12424,9 +12424,9 @@ entry:
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %4 = load i32, ptr %2, align 8
-  %5 = load i32, ptr %3, align 4
+  %5 = load i32, ptr %3, align 8
   store i32 %5, ptr %2, align 8
-  store i32 %4, ptr %3, align 4
+  store i32 %4, ptr %3, align 8
   %start_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %start_5 = getelementptr inbounds nuw i8, ptr %other, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
@@ -13681,9 +13681,9 @@ entry:
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %4 = load i32, ptr %2, align 8
-  %5 = load i32, ptr %3, align 4
+  %5 = load i32, ptr %3, align 8
   store i32 %5, ptr %2, align 8
-  store i32 %4, ptr %3, align 4
+  store i32 %4, ptr %3, align 8
   %value_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %value_7 = getelementptr inbounds nuw i8, ptr %other, i64 24
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %value_, ptr noundef nonnull %value_7)
@@ -14499,9 +14499,9 @@ entry:
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %4 = load i32, ptr %2, align 8
-  %5 = load i32, ptr %3, align 4
+  %5 = load i32, ptr %3, align 8
   store i32 %5, ptr %2, align 8
-  store i32 %4, ptr %3, align 4
+  store i32 %4, ptr %3, align 8
   %name_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %name_7 = getelementptr inbounds nuw i8, ptr %other, i64 24
   %__tmp.sroa.0.0.copyload.i = load ptr, ptr %name_7, align 8
@@ -15491,9 +15491,9 @@ entry:
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %4 = load i32, ptr %2, align 8
-  %5 = load i32, ptr %3, align 4
+  %5 = load i32, ptr %3, align 8
   store i32 %5, ptr %2, align 8
-  store i32 %4, ptr %3, align 4
+  store i32 %4, ptr %3, align 8
   %method_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %method_7 = getelementptr inbounds nuw i8, ptr %other, i64 24
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %method_, ptr noundef nonnull %method_7)
@@ -16559,9 +16559,9 @@ entry:
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %4 = load i32, ptr %2, align 8
-  %5 = load i32, ptr %3, align 4
+  %5 = load i32, ptr %3, align 8
   store i32 %5, ptr %2, align 8
-  store i32 %4, ptr %3, align 4
+  store i32 %4, ptr %3, align 8
   %name_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %name_7 = getelementptr inbounds nuw i8, ptr %other, i64 24
   %__tmp.sroa.0.0.copyload.i = load ptr, ptr %name_7, align 8
@@ -18867,9 +18867,9 @@ entry:
   %_has_bits_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %_has_bits_6 = getelementptr inbounds nuw i8, ptr %other, i64 40
   %4 = load i32, ptr %_has_bits_, align 8
-  %5 = load i32, ptr %_has_bits_6, align 4
+  %5 = load i32, ptr %_has_bits_6, align 8
   store i32 %5, ptr %_has_bits_, align 8
-  store i32 %4, ptr %_has_bits_6, align 4
+  store i32 %4, ptr %_has_bits_6, align 8
   %uninterpreted_option_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %uninterpreted_option_8 = getelementptr inbounds nuw i8, ptr %other, i64 48
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %uninterpreted_option_, ptr noundef nonnull %uninterpreted_option_8)
@@ -19655,9 +19655,9 @@ entry:
   %_has_bits_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %_has_bits_4 = getelementptr inbounds nuw i8, ptr %other, i64 40
   %4 = load i32, ptr %_has_bits_, align 8
-  %5 = load i32, ptr %_has_bits_4, align 4
+  %5 = load i32, ptr %_has_bits_4, align 8
   store i32 %5, ptr %_has_bits_, align 8
-  store i32 %4, ptr %_has_bits_4, align 4
+  store i32 %4, ptr %_has_bits_4, align 8
   %uninterpreted_option_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %uninterpreted_option_6 = getelementptr inbounds nuw i8, ptr %other, i64 48
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %uninterpreted_option_, ptr noundef nonnull %uninterpreted_option_6)
@@ -20222,9 +20222,9 @@ entry:
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %4 = load i32, ptr %2, align 8
-  %5 = load i32, ptr %3, align 4
+  %5 = load i32, ptr %3, align 8
   store i32 %5, ptr %2, align 8
-  store i32 %4, ptr %3, align 4
+  store i32 %4, ptr %3, align 8
   %value_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %value_7 = getelementptr inbounds nuw i8, ptr %other, i64 24
   %__tmp.sroa.0.0.copyload.i = load ptr, ptr %value_7, align 8
@@ -20234,9 +20234,9 @@ entry:
   %edition_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %edition_8 = getelementptr inbounds nuw i8, ptr %other, i64 32
   %7 = load i32, ptr %edition_, align 8
-  %8 = load i32, ptr %edition_8, align 4
+  %8 = load i32, ptr %edition_8, align 8
   store i32 %8, ptr %edition_, align 8
-  store i32 %7, ptr %edition_8, align 4
+  store i32 %7, ptr %edition_8, align 8
   ret void
 }
 
@@ -21554,9 +21554,9 @@ entry:
   %_has_bits_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %_has_bits_4 = getelementptr inbounds nuw i8, ptr %other, i64 40
   %4 = load i32, ptr %_has_bits_, align 8
-  %5 = load i32, ptr %_has_bits_4, align 4
+  %5 = load i32, ptr %_has_bits_4, align 8
   store i32 %5, ptr %_has_bits_, align 8
-  store i32 %4, ptr %_has_bits_4, align 4
+  store i32 %4, ptr %_has_bits_4, align 8
   %targets_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %targets_6 = getelementptr inbounds nuw i8, ptr %other, i64 48
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(16) %targets_, ptr noundef nonnull %targets_6)
@@ -22061,9 +22061,9 @@ entry:
   %_has_bits_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %_has_bits_4 = getelementptr inbounds nuw i8, ptr %other, i64 40
   %4 = load i32, ptr %_has_bits_, align 8
-  %5 = load i32, ptr %_has_bits_4, align 4
+  %5 = load i32, ptr %_has_bits_4, align 8
   store i32 %5, ptr %_has_bits_, align 8
-  store i32 %4, ptr %_has_bits_4, align 4
+  store i32 %4, ptr %_has_bits_4, align 8
   %uninterpreted_option_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %uninterpreted_option_6 = getelementptr inbounds nuw i8, ptr %other, i64 48
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %uninterpreted_option_, ptr noundef nonnull %uninterpreted_option_6)
@@ -22691,9 +22691,9 @@ entry:
   %_has_bits_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %_has_bits_4 = getelementptr inbounds nuw i8, ptr %other, i64 40
   %4 = load i32, ptr %_has_bits_, align 8
-  %5 = load i32, ptr %_has_bits_4, align 4
+  %5 = load i32, ptr %_has_bits_4, align 8
   store i32 %5, ptr %_has_bits_, align 8
-  store i32 %4, ptr %_has_bits_4, align 4
+  store i32 %4, ptr %_has_bits_4, align 8
   %uninterpreted_option_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %uninterpreted_option_6 = getelementptr inbounds nuw i8, ptr %other, i64 48
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %uninterpreted_option_, ptr noundef nonnull %uninterpreted_option_6)
@@ -23294,9 +23294,9 @@ entry:
   %_has_bits_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %_has_bits_4 = getelementptr inbounds nuw i8, ptr %other, i64 40
   %4 = load i32, ptr %_has_bits_, align 8
-  %5 = load i32, ptr %_has_bits_4, align 4
+  %5 = load i32, ptr %_has_bits_4, align 8
   store i32 %5, ptr %_has_bits_, align 8
-  store i32 %4, ptr %_has_bits_4, align 4
+  store i32 %4, ptr %_has_bits_4, align 8
   %uninterpreted_option_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %uninterpreted_option_6 = getelementptr inbounds nuw i8, ptr %other, i64 48
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %uninterpreted_option_, ptr noundef nonnull %uninterpreted_option_6)
@@ -23861,9 +23861,9 @@ entry:
   %_has_bits_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %_has_bits_4 = getelementptr inbounds nuw i8, ptr %other, i64 40
   %4 = load i32, ptr %_has_bits_, align 8
-  %5 = load i32, ptr %_has_bits_4, align 4
+  %5 = load i32, ptr %_has_bits_4, align 8
   store i32 %5, ptr %_has_bits_, align 8
-  store i32 %4, ptr %_has_bits_4, align 4
+  store i32 %4, ptr %_has_bits_4, align 8
   %uninterpreted_option_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %uninterpreted_option_6 = getelementptr inbounds nuw i8, ptr %other, i64 48
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %uninterpreted_option_, ptr noundef nonnull %uninterpreted_option_6)
@@ -24501,9 +24501,9 @@ entry:
   %_has_bits_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %_has_bits_4 = getelementptr inbounds nuw i8, ptr %other, i64 40
   %4 = load i32, ptr %_has_bits_, align 8
-  %5 = load i32, ptr %_has_bits_4, align 4
+  %5 = load i32, ptr %_has_bits_4, align 8
   store i32 %5, ptr %_has_bits_, align 8
-  store i32 %4, ptr %_has_bits_4, align 4
+  store i32 %4, ptr %_has_bits_4, align 8
   %uninterpreted_option_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %uninterpreted_option_6 = getelementptr inbounds nuw i8, ptr %other, i64 48
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %uninterpreted_option_, ptr noundef nonnull %uninterpreted_option_6)
@@ -25027,9 +25027,9 @@ entry:
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %4 = load i32, ptr %2, align 8
-  %5 = load i32, ptr %3, align 4
+  %5 = load i32, ptr %3, align 8
   store i32 %5, ptr %2, align 8
-  store i32 %4, ptr %3, align 4
+  store i32 %4, ptr %3, align 8
   %name_part_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %name_part_7 = getelementptr inbounds nuw i8, ptr %other, i64 24
   %__tmp.sroa.0.0.copyload.i = load ptr, ptr %name_part_7, align 8
@@ -25040,10 +25040,10 @@ entry:
   %is_extension_8 = getelementptr inbounds nuw i8, ptr %other, i64 32
   %7 = load i8, ptr %is_extension_, align 8
   %frombool.i = and i8 %7, 1
-  %8 = load i8, ptr %is_extension_8, align 1
+  %8 = load i8, ptr %is_extension_8, align 8
   %frombool2.i = and i8 %8, 1
   store i8 %frombool2.i, ptr %is_extension_, align 8
-  store i8 %frombool.i, ptr %is_extension_8, align 1
+  store i8 %frombool.i, ptr %is_extension_8, align 8
   ret void
 }
 
@@ -26149,9 +26149,9 @@ entry:
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %4 = load i32, ptr %2, align 8
-  %5 = load i32, ptr %3, align 4
+  %5 = load i32, ptr %3, align 8
   store i32 %5, ptr %2, align 8
-  store i32 %4, ptr %3, align 4
+  store i32 %4, ptr %3, align 8
   %name_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %name_7 = getelementptr inbounds nuw i8, ptr %other, i64 24
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %name_, ptr noundef nonnull %name_7)
@@ -26909,9 +26909,9 @@ entry:
   %_has_bits_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %_has_bits_4 = getelementptr inbounds nuw i8, ptr %other, i64 40
   %4 = load i32, ptr %_has_bits_, align 8
-  %5 = load i32, ptr %_has_bits_4, align 4
+  %5 = load i32, ptr %_has_bits_4, align 8
   store i32 %5, ptr %_has_bits_, align 8
-  store i32 %4, ptr %_has_bits_4, align 4
+  store i32 %4, ptr %_has_bits_4, align 8
   %field_presence_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %field_presence_6 = getelementptr inbounds nuw i8, ptr %other, i64 48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !159)
@@ -27459,9 +27459,9 @@ entry:
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %4 = load i32, ptr %2, align 8
-  %5 = load i32, ptr %3, align 4
+  %5 = load i32, ptr %3, align 8
   store i32 %5, ptr %2, align 8
-  store i32 %4, ptr %3, align 4
+  store i32 %4, ptr %3, align 8
   %features_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %features_5 = getelementptr inbounds nuw i8, ptr %other, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !164)
@@ -28226,9 +28226,9 @@ entry:
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %4 = load i32, ptr %2, align 8
-  %5 = load i32, ptr %3, align 4
+  %5 = load i32, ptr %3, align 8
   store i32 %5, ptr %2, align 8
-  store i32 %4, ptr %3, align 4
+  store i32 %4, ptr %3, align 8
   %defaults_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %defaults_5 = getelementptr inbounds nuw i8, ptr %other, i64 24
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %defaults_, ptr noundef nonnull %defaults_5)
@@ -29342,9 +29342,9 @@ entry:
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %4 = load i32, ptr %2, align 8
-  %5 = load i32, ptr %3, align 4
+  %5 = load i32, ptr %3, align 8
   store i32 %5, ptr %2, align 8
-  store i32 %4, ptr %3, align 4
+  store i32 %4, ptr %3, align 8
   %path_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %path_7 = getelementptr inbounds nuw i8, ptr %other, i64 24
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(16) %path_, ptr noundef nonnull %path_7)
@@ -30585,9 +30585,9 @@ entry:
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %4 = load i32, ptr %2, align 8
-  %5 = load i32, ptr %3, align 4
+  %5 = load i32, ptr %3, align 8
   store i32 %5, ptr %2, align 8
-  store i32 %4, ptr %3, align 4
+  store i32 %4, ptr %3, align 8
   %path_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %path_7 = getelementptr inbounds nuw i8, ptr %other, i64 24
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(16) %path_, ptr noundef nonnull %path_7)

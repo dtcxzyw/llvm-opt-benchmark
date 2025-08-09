@@ -1737,7 +1737,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
   %172 = getelementptr inbounds nuw i8, ptr %164, i64 48
   store i64 6, ptr %172, align 8, !tbaa !32
   %173 = getelementptr inbounds nuw i8, ptr %164, i64 62
-  store i8 0, ptr %173, align 1, !tbaa !26
+  store i8 0, ptr %173, align 2, !tbaa !26
   %174 = getelementptr inbounds nuw i8, ptr %164, i64 72
   store ptr null, ptr %174, align 8, !tbaa !90
   %175 = getelementptr inbounds nuw i8, ptr %48, i64 16

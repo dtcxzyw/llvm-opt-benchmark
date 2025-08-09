@@ -7016,7 +7016,7 @@ select.unfold.i:                                  ; preds = %43, %4
   store ptr %.sroa.6.0.i, ptr %149, align 8, !noalias !416
   %150 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.i, i64 40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !476)
-  %.val6.val.i.i = load i32, ptr %150, align 4, !noalias !477, !noundef !4
+  %.val6.val.i.i = load i32, ptr %150, align 8, !noalias !477, !noundef !4
   %151 = load i64, ptr @_ZN8foldhash4seed6global19GLOBAL_SEED_STORAGE17h4be705e7998ccae0E, align 8, !noalias !478, !noundef !4
   %152 = zext i32 %.val6.val.i.i to i64
   %153 = xor i64 %.val.i10.i, %152

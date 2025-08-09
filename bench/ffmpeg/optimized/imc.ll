@@ -285,8 +285,8 @@ define internal range(i32 -2147483648, 2147483585) i32 @imc_decode_frame(ptr nou
   call void %59(ptr noundef nonnull %9, ptr noundef %.03469, i32 noundef 32) #10
   store ptr %9, ptr %31, align 8, !tbaa !64
   store i32 512, ptr %32, align 4, !tbaa !65
-  store i32 520, ptr %33, align 8, !tbaa !66
-  store ptr %34, ptr %35, align 8, !tbaa !67
+  store i32 520, ptr %33, align 16, !tbaa !66
+  store ptr %34, ptr %35, align 16, !tbaa !67
   %60 = getelementptr inbounds nuw %struct.IMCChannel, ptr %15, i64 %indvars.iv
   %61 = load i32, ptr %9, align 16, !tbaa !31
   %62 = call i32 @llvm.bswap.i32(i32 %61)

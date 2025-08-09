@@ -634,14 +634,14 @@ define internal void @_ZL11DieInThreadPi(ptr noundef readonly captures(none) %0)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i32, ptr %8, align 8, !tbaa !62
   %10 = or i32 %9, 512
-  store i32 %10, ptr %8, align 4, !tbaa !63
+  store i32 %10, ptr %8, align 8, !tbaa !63
   %11 = load i64, ptr %5, align 8
   %12 = getelementptr inbounds i8, ptr %2, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load i32, ptr %13, align 8, !tbaa !62
   %15 = and i32 %14, -75
   %16 = or disjoint i32 %15, 8
-  store i32 %16, ptr %13, align 4, !tbaa !63
+  store i32 %16, ptr %13, align 8, !tbaa !63
   %17 = tail call i64 @pthread_self() #32
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %19, label %21

@@ -10,7 +10,7 @@ define noundef nonnull ptr @proj_area_create() local_unnamed_addr #0 personality
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %1, i8 0, i64 72, i1 false)
   store ptr %3, ptr %2, align 8, !tbaa !3
-  store i8 0, ptr %3, align 1, !tbaa !9
+  store i8 0, ptr %3, align 8, !tbaa !9
   ret ptr %1
 }
 

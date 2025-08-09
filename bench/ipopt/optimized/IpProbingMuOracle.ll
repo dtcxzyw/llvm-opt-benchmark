@@ -4813,7 +4813,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   %33 = load i32, ptr %32, align 8, !tbaa !274
   %34 = and i32 %33, -261
   %35 = or disjoint i32 %34, 256
-  store i32 %35, ptr %32, align 4, !tbaa !275
+  store i32 %35, ptr %32, align 8, !tbaa !275
   %36 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %.0.i, double noundef %2)
           to label %_ZNSolsEd.exit unwind label %93
 

@@ -2018,7 +2018,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %22, ptr %23, align 8, !tbaa !22
   store ptr %13, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !17
   store i64 0, ptr %21, align 8, !tbaa !22
-  store i8 0, ptr %13, align 1, !tbaa !29
+  store i8 0, ptr %13, align 8, !tbaa !29
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq ptr %24, %10
@@ -4587,7 +4587,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIPSt4pairIS0_IjjEmElN9__gnu_cxx5
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.07.i.i, i64 -8
   %.sroa.4.0.copyload.i.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
   %22 = load i32, ptr %0, align 4, !tbaa !16
-  store i32 %22, ptr %21, align 4, !tbaa !68
+  store i32 %22, ptr %21, align 8, !tbaa !68
   %23 = load i32, ptr %9, align 4, !tbaa !16
   %24 = getelementptr inbounds i8, ptr %.07.i.i, i64 -12
   store i32 %23, ptr %24, align 4, !tbaa !69
@@ -6636,7 +6636,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %22, ptr %23, align 8, !tbaa !22
   store ptr %13, ptr %10, align 8, !tbaa !17
   store i64 0, ptr %21, align 8, !tbaa !22
-  store i8 0, ptr %13, align 1, !tbaa !29
+  store i8 0, ptr %13, align 8, !tbaa !29
   %24 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 40
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 40
   %26 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 56
@@ -6668,7 +6668,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit7.i.i.i.i.i.i.i
   store i64 %37, ptr %38, align 8, !tbaa !22
   store ptr %28, ptr %25, align 8, !tbaa !17
   store i64 0, ptr %36, align 8, !tbaa !22
-  store i8 0, ptr %28, align 1, !tbaa !29
+  store i8 0, ptr %28, align 8, !tbaa !29
   %39 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 72
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 72
   %41 = load i32, ptr %40, align 8, !tbaa !152
@@ -8189,11 +8189,11 @@ _ZN4llvm15SmallVectorImplINS_14StableFunctionEE7reserveEm.exit: ; preds = %._ZN4
   %53 = getelementptr inbounds nuw i8, ptr %.012, i64 8
   %54 = getelementptr inbounds nuw i8, ptr %.012, i64 24
   store ptr %54, ptr %53, align 8, !tbaa !95
-  store i8 0, ptr %54, align 1, !tbaa !29
+  store i8 0, ptr %54, align 8, !tbaa !29
   %55 = getelementptr inbounds nuw i8, ptr %.012, i64 40
   %56 = getelementptr inbounds nuw i8, ptr %.012, i64 56
   store ptr %56, ptr %55, align 8, !tbaa !95
-  store i8 0, ptr %56, align 1, !tbaa !29
+  store i8 0, ptr %56, align 8, !tbaa !29
   %57 = getelementptr inbounds nuw i8, ptr %.012, i64 80
   %58 = getelementptr inbounds nuw i8, ptr %.012, i64 96
   store ptr %58, ptr %57, align 8, !tbaa !11

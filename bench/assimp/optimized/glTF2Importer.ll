@@ -12799,7 +12799,7 @@ _ZSt4fillIPP7aiLightDnEvT_S3_RKT0_.exit:          ; preds = %13
   %54 = load float, ptr %53, align 8
   %55 = fmul float %52, %54
   %56 = getelementptr inbounds nuw i8, ptr %30, i64 272
-  %57 = load float, ptr %56, align 4
+  %57 = load float, ptr %56, align 8
   %58 = fmul float %54, %57
   %59 = getelementptr inbounds nuw i8, ptr %30, i64 276
   %60 = load float, ptr %59, align 4
@@ -17696,7 +17696,7 @@ _ZN8aiStringaSERKS_.exit195:                      ; preds = %1582, %1590
   %1619 = getelementptr inbounds nuw i8, ptr %1608, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %1619, ptr noundef nonnull align 1 dereferenceable(14) @.str.33, i64 14, i1 false)
   %1620 = getelementptr inbounds nuw i8, ptr %1608, i64 18
-  store i8 0, ptr %1620, align 1
+  store i8 0, ptr %1620, align 2
   store i32 3, ptr %1610, align 8
   %1621 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #40
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit205 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit208
@@ -20051,11 +20051,11 @@ _ZNK10glTFCommon3RefIN5glTF28AccessorEEcvbEv.exit161: ; preds = %209
   %261 = phi ptr [ %255, %258 ], [ %267, %260 ]
   store double 0.000000e+00, ptr %261, align 8
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 8
-  store float 1.000000e+00, ptr %262, align 4
+  store float 1.000000e+00, ptr %262, align 8
   %263 = getelementptr inbounds nuw i8, ptr %261, i64 12
   store float 0.000000e+00, ptr %263, align 4
   %264 = getelementptr inbounds nuw i8, ptr %261, i64 16
-  store float 0.000000e+00, ptr %264, align 4
+  store float 0.000000e+00, ptr %264, align 8
   %265 = getelementptr inbounds nuw i8, ptr %261, i64 20
   store float 0.000000e+00, ptr %265, align 4
   %266 = getelementptr inbounds nuw i8, ptr %261, i64 24
@@ -51004,25 +51004,25 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store ptr %61, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 24
   store i64 0, ptr %62, align 8
-  store i8 0, ptr %61, align 1
+  store i8 0, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 48
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 64
   store ptr %64, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %59, i64 56
   store i64 0, ptr %65, align 8
-  store i8 0, ptr %64, align 1
+  store i8 0, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %59, i64 80
   %67 = getelementptr inbounds nuw i8, ptr %59, i64 96
   store ptr %67, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %59, i64 88
   store i64 0, ptr %68, align 8
-  store i8 0, ptr %67, align 1
+  store i8 0, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %59, i64 112
   %70 = getelementptr inbounds nuw i8, ptr %59, i64 128
   store ptr %70, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %59, i64 120
   store i64 0, ptr %71, align 8
-  store i8 0, ptr %70, align 1
+  store i8 0, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %59, i64 144
   store i8 0, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %59, i64 160
@@ -61713,19 +61713,19 @@ _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nod
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 32
   store ptr %116, ptr %115, align 8
   %117 = getelementptr inbounds nuw i8, ptr %114, i64 24
-  store i8 0, ptr %116, align 1
+  store i8 0, ptr %116, align 8
   %118 = getelementptr inbounds nuw i8, ptr %114, i64 48
   %119 = getelementptr inbounds nuw i8, ptr %114, i64 64
   store ptr %119, ptr %118, align 8
-  store i8 0, ptr %119, align 1
+  store i8 0, ptr %119, align 8
   %120 = getelementptr inbounds nuw i8, ptr %114, i64 80
   %121 = getelementptr inbounds nuw i8, ptr %114, i64 96
   store ptr %121, ptr %120, align 8
-  store i8 0, ptr %121, align 1
+  store i8 0, ptr %121, align 8
   %122 = getelementptr inbounds nuw i8, ptr %114, i64 112
   %123 = getelementptr inbounds nuw i8, ptr %114, i64 128
   store ptr %123, ptr %122, align 8
-  store i8 0, ptr %123, align 1
+  store i8 0, ptr %123, align 8
   %124 = getelementptr inbounds nuw i8, ptr %114, i64 160
   store i8 0, ptr %124, align 8
   %125 = getelementptr inbounds nuw i8, ptr %114, i64 192
@@ -61738,7 +61738,7 @@ _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nod
   %128 = getelementptr inbounds nuw i8, ptr %114, i64 264
   %129 = getelementptr inbounds nuw i8, ptr %114, i64 280
   store ptr %129, ptr %128, align 8
-  store i8 0, ptr %129, align 1
+  store i8 0, ptr %129, align 8
   %130 = getelementptr inbounds nuw i8, ptr %114, i64 296
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %130, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -62697,19 +62697,19 @@ _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nod
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 32
   store ptr %116, ptr %115, align 8
   %117 = getelementptr inbounds nuw i8, ptr %114, i64 24
-  store i8 0, ptr %116, align 1
+  store i8 0, ptr %116, align 8
   %118 = getelementptr inbounds nuw i8, ptr %114, i64 48
   %119 = getelementptr inbounds nuw i8, ptr %114, i64 64
   store ptr %119, ptr %118, align 8
-  store i8 0, ptr %119, align 1
+  store i8 0, ptr %119, align 8
   %120 = getelementptr inbounds nuw i8, ptr %114, i64 80
   %121 = getelementptr inbounds nuw i8, ptr %114, i64 96
   store ptr %121, ptr %120, align 8
-  store i8 0, ptr %121, align 1
+  store i8 0, ptr %121, align 8
   %122 = getelementptr inbounds nuw i8, ptr %114, i64 112
   %123 = getelementptr inbounds nuw i8, ptr %114, i64 128
   store ptr %123, ptr %122, align 8
-  store i8 0, ptr %123, align 1
+  store i8 0, ptr %123, align 8
   %124 = getelementptr inbounds nuw i8, ptr %114, i64 160
   store i8 0, ptr %124, align 8
   %125 = getelementptr inbounds nuw i8, ptr %114, i64 192
@@ -62726,7 +62726,7 @@ _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nod
   %130 = getelementptr inbounds nuw i8, ptr %114, i64 376
   %131 = getelementptr inbounds nuw i8, ptr %114, i64 392
   store ptr %131, ptr %130, align 8
-  store i8 0, ptr %131, align 1
+  store i8 0, ptr %131, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -63683,19 +63683,19 @@ _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nod
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 32
   store ptr %116, ptr %115, align 8
   %117 = getelementptr inbounds nuw i8, ptr %114, i64 24
-  store i8 0, ptr %116, align 1
+  store i8 0, ptr %116, align 8
   %118 = getelementptr inbounds nuw i8, ptr %114, i64 48
   %119 = getelementptr inbounds nuw i8, ptr %114, i64 64
   store ptr %119, ptr %118, align 8
-  store i8 0, ptr %119, align 1
+  store i8 0, ptr %119, align 8
   %120 = getelementptr inbounds nuw i8, ptr %114, i64 80
   %121 = getelementptr inbounds nuw i8, ptr %114, i64 96
   store ptr %121, ptr %120, align 8
-  store i8 0, ptr %121, align 1
+  store i8 0, ptr %121, align 8
   %122 = getelementptr inbounds nuw i8, ptr %114, i64 112
   %123 = getelementptr inbounds nuw i8, ptr %114, i64 128
   store ptr %123, ptr %122, align 8
-  store i8 0, ptr %123, align 1
+  store i8 0, ptr %123, align 8
   %124 = getelementptr inbounds nuw i8, ptr %114, i64 160
   store i8 0, ptr %124, align 8
   %125 = getelementptr inbounds nuw i8, ptr %114, i64 192
@@ -75986,9 +75986,9 @@ _ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveINS0_23SchemaValidationC
   %177 = load ptr, ptr %176, align 8
   %178 = tail call noundef ptr %177(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef nonnull align 8 dereferenceable(419) %174, i1 noundef zeroext true)
   %179 = load ptr, ptr %164, align 8
-  %180 = load i32, ptr %165, align 4
+  %180 = load i32, ptr %165, align 8
   %181 = add i32 %180, 1
-  store i32 %181, ptr %165, align 4
+  store i32 %181, ptr %165, align 8
   %182 = zext i32 %180 to i64
   %183 = getelementptr inbounds nuw ptr, ptr %179, i64 %182
   store ptr %178, ptr %183, align 8
@@ -85612,7 +85612,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8
   store ptr %13, ptr %10, align 8
   store i64 0, ptr %24, align 8
-  store i8 0, ptr %13, align 1
+  store i8 0, ptr %13, align 8
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i8 0, ptr %26, align 8
   store ptr %7, ptr %23, align 8
@@ -90528,19 +90528,19 @@ _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nod
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 32
   store ptr %116, ptr %115, align 8
   %117 = getelementptr inbounds nuw i8, ptr %114, i64 24
-  store i8 0, ptr %116, align 1
+  store i8 0, ptr %116, align 8
   %118 = getelementptr inbounds nuw i8, ptr %114, i64 48
   %119 = getelementptr inbounds nuw i8, ptr %114, i64 64
   store ptr %119, ptr %118, align 8
-  store i8 0, ptr %119, align 1
+  store i8 0, ptr %119, align 8
   %120 = getelementptr inbounds nuw i8, ptr %114, i64 80
   %121 = getelementptr inbounds nuw i8, ptr %114, i64 96
   store ptr %121, ptr %120, align 8
-  store i8 0, ptr %121, align 1
+  store i8 0, ptr %121, align 8
   %122 = getelementptr inbounds nuw i8, ptr %114, i64 112
   %123 = getelementptr inbounds nuw i8, ptr %114, i64 128
   store ptr %123, ptr %122, align 8
-  store i8 0, ptr %123, align 1
+  store i8 0, ptr %123, align 8
   %124 = getelementptr inbounds nuw i8, ptr %114, i64 160
   store i8 0, ptr %124, align 8
   %125 = getelementptr inbounds nuw i8, ptr %114, i64 192
@@ -90552,7 +90552,7 @@ _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nod
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5glTF24NodeE, i64 16), ptr %114, align 8
   %128 = getelementptr inbounds nuw i8, ptr %114, i64 264
   %129 = getelementptr inbounds nuw i8, ptr %114, i64 392
-  store i8 0, ptr %129, align 4
+  store i8 0, ptr %129, align 8
   %130 = getelementptr inbounds nuw i8, ptr %114, i64 428
   store i8 0, ptr %130, align 4
   %131 = getelementptr inbounds nuw i8, ptr %114, i64 440
@@ -90565,7 +90565,7 @@ _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nod
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %128, i8 0, i64 48, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %133, i8 0, i64 36, i1 false)
   store ptr %135, ptr %134, align 8
-  store i8 0, ptr %135, align 1
+  store i8 0, ptr %135, align 8
   %136 = getelementptr inbounds nuw i8, ptr %114, i64 544
   store i32 0, ptr %136, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -92671,19 +92671,19 @@ _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nod
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 32
   store ptr %116, ptr %115, align 8
   %117 = getelementptr inbounds nuw i8, ptr %114, i64 24
-  store i8 0, ptr %116, align 1
+  store i8 0, ptr %116, align 8
   %118 = getelementptr inbounds nuw i8, ptr %114, i64 48
   %119 = getelementptr inbounds nuw i8, ptr %114, i64 64
   store ptr %119, ptr %118, align 8
-  store i8 0, ptr %119, align 1
+  store i8 0, ptr %119, align 8
   %120 = getelementptr inbounds nuw i8, ptr %114, i64 80
   %121 = getelementptr inbounds nuw i8, ptr %114, i64 96
   store ptr %121, ptr %120, align 8
-  store i8 0, ptr %121, align 1
+  store i8 0, ptr %121, align 8
   %122 = getelementptr inbounds nuw i8, ptr %114, i64 112
   %123 = getelementptr inbounds nuw i8, ptr %114, i64 128
   store ptr %123, ptr %122, align 8
-  store i8 0, ptr %123, align 1
+  store i8 0, ptr %123, align 8
   %124 = getelementptr inbounds nuw i8, ptr %114, i64 160
   store i8 0, ptr %124, align 8
   %125 = getelementptr inbounds nuw i8, ptr %114, i64 192
@@ -93651,25 +93651,25 @@ _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nod
   store ptr %116, ptr %115, align 8
   %117 = getelementptr inbounds nuw i8, ptr %114, i64 24
   store i64 0, ptr %117, align 8
-  store i8 0, ptr %116, align 1
+  store i8 0, ptr %116, align 8
   %118 = getelementptr inbounds nuw i8, ptr %114, i64 48
   %119 = getelementptr inbounds nuw i8, ptr %114, i64 64
   store ptr %119, ptr %118, align 8
   %120 = getelementptr inbounds nuw i8, ptr %114, i64 56
   store i64 0, ptr %120, align 8
-  store i8 0, ptr %119, align 1
+  store i8 0, ptr %119, align 8
   %121 = getelementptr inbounds nuw i8, ptr %114, i64 80
   %122 = getelementptr inbounds nuw i8, ptr %114, i64 96
   store ptr %122, ptr %121, align 8
   %123 = getelementptr inbounds nuw i8, ptr %114, i64 88
   store i64 0, ptr %123, align 8
-  store i8 0, ptr %122, align 1
+  store i8 0, ptr %122, align 8
   %124 = getelementptr inbounds nuw i8, ptr %114, i64 112
   %125 = getelementptr inbounds nuw i8, ptr %114, i64 128
   store ptr %125, ptr %124, align 8
   %126 = getelementptr inbounds nuw i8, ptr %114, i64 120
   store i64 0, ptr %126, align 8
-  store i8 0, ptr %125, align 1
+  store i8 0, ptr %125, align 8
   %127 = getelementptr inbounds nuw i8, ptr %114, i64 144
   store i8 0, ptr %127, align 8
   %128 = getelementptr inbounds nuw i8, ptr %114, i64 160
@@ -94643,19 +94643,19 @@ _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nod
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 32
   store ptr %116, ptr %115, align 8
   %117 = getelementptr inbounds nuw i8, ptr %114, i64 24
-  store i8 0, ptr %116, align 1
+  store i8 0, ptr %116, align 8
   %118 = getelementptr inbounds nuw i8, ptr %114, i64 48
   %119 = getelementptr inbounds nuw i8, ptr %114, i64 64
   store ptr %119, ptr %118, align 8
-  store i8 0, ptr %119, align 1
+  store i8 0, ptr %119, align 8
   %120 = getelementptr inbounds nuw i8, ptr %114, i64 80
   %121 = getelementptr inbounds nuw i8, ptr %114, i64 96
   store ptr %121, ptr %120, align 8
-  store i8 0, ptr %121, align 1
+  store i8 0, ptr %121, align 8
   %122 = getelementptr inbounds nuw i8, ptr %114, i64 112
   %123 = getelementptr inbounds nuw i8, ptr %114, i64 128
   store ptr %123, ptr %122, align 8
-  store i8 0, ptr %123, align 1
+  store i8 0, ptr %123, align 8
   %124 = getelementptr inbounds nuw i8, ptr %114, i64 160
   store i8 0, ptr %124, align 8
   %125 = getelementptr inbounds nuw i8, ptr %114, i64 192
@@ -97197,19 +97197,19 @@ _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nod
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 32
   store ptr %116, ptr %115, align 8
   %117 = getelementptr inbounds nuw i8, ptr %114, i64 24
-  store i8 0, ptr %116, align 1
+  store i8 0, ptr %116, align 8
   %118 = getelementptr inbounds nuw i8, ptr %114, i64 48
   %119 = getelementptr inbounds nuw i8, ptr %114, i64 64
   store ptr %119, ptr %118, align 8
-  store i8 0, ptr %119, align 1
+  store i8 0, ptr %119, align 8
   %120 = getelementptr inbounds nuw i8, ptr %114, i64 80
   %121 = getelementptr inbounds nuw i8, ptr %114, i64 96
   store ptr %121, ptr %120, align 8
-  store i8 0, ptr %121, align 1
+  store i8 0, ptr %121, align 8
   %122 = getelementptr inbounds nuw i8, ptr %114, i64 112
   %123 = getelementptr inbounds nuw i8, ptr %114, i64 128
   store ptr %123, ptr %122, align 8
-  store i8 0, ptr %123, align 1
+  store i8 0, ptr %123, align 8
   %124 = getelementptr inbounds nuw i8, ptr %114, i64 160
   store i8 0, ptr %124, align 8
   %125 = getelementptr inbounds nuw i8, ptr %114, i64 192
@@ -101706,19 +101706,19 @@ _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nod
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 32
   store ptr %116, ptr %115, align 8
   %117 = getelementptr inbounds nuw i8, ptr %114, i64 24
-  store i8 0, ptr %116, align 1
+  store i8 0, ptr %116, align 8
   %118 = getelementptr inbounds nuw i8, ptr %114, i64 48
   %119 = getelementptr inbounds nuw i8, ptr %114, i64 64
   store ptr %119, ptr %118, align 8
-  store i8 0, ptr %119, align 1
+  store i8 0, ptr %119, align 8
   %120 = getelementptr inbounds nuw i8, ptr %114, i64 80
   %121 = getelementptr inbounds nuw i8, ptr %114, i64 96
   store ptr %121, ptr %120, align 8
-  store i8 0, ptr %121, align 1
+  store i8 0, ptr %121, align 8
   %122 = getelementptr inbounds nuw i8, ptr %114, i64 112
   %123 = getelementptr inbounds nuw i8, ptr %114, i64 128
   store ptr %123, ptr %122, align 8
-  store i8 0, ptr %123, align 1
+  store i8 0, ptr %123, align 8
   %124 = getelementptr inbounds nuw i8, ptr %114, i64 160
   store i8 0, ptr %124, align 8
   %125 = getelementptr inbounds nuw i8, ptr %114, i64 192
@@ -103754,25 +103754,25 @@ _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nod
   store ptr %116, ptr %115, align 8
   %117 = getelementptr inbounds nuw i8, ptr %114, i64 24
   store i64 0, ptr %117, align 8
-  store i8 0, ptr %116, align 1
+  store i8 0, ptr %116, align 8
   %118 = getelementptr inbounds nuw i8, ptr %114, i64 48
   %119 = getelementptr inbounds nuw i8, ptr %114, i64 64
   store ptr %119, ptr %118, align 8
   %120 = getelementptr inbounds nuw i8, ptr %114, i64 56
   store i64 0, ptr %120, align 8
-  store i8 0, ptr %119, align 1
+  store i8 0, ptr %119, align 8
   %121 = getelementptr inbounds nuw i8, ptr %114, i64 80
   %122 = getelementptr inbounds nuw i8, ptr %114, i64 96
   store ptr %122, ptr %121, align 8
   %123 = getelementptr inbounds nuw i8, ptr %114, i64 88
   store i64 0, ptr %123, align 8
-  store i8 0, ptr %122, align 1
+  store i8 0, ptr %122, align 8
   %124 = getelementptr inbounds nuw i8, ptr %114, i64 112
   %125 = getelementptr inbounds nuw i8, ptr %114, i64 128
   store ptr %125, ptr %124, align 8
   %126 = getelementptr inbounds nuw i8, ptr %114, i64 120
   store i64 0, ptr %126, align 8
-  store i8 0, ptr %125, align 1
+  store i8 0, ptr %125, align 8
   %127 = getelementptr inbounds nuw i8, ptr %114, i64 144
   store i8 0, ptr %127, align 8
   %128 = getelementptr inbounds nuw i8, ptr %114, i64 160
@@ -110444,19 +110444,19 @@ _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nod
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 32
   store ptr %116, ptr %115, align 8
   %117 = getelementptr inbounds nuw i8, ptr %114, i64 24
-  store i8 0, ptr %116, align 1
+  store i8 0, ptr %116, align 8
   %118 = getelementptr inbounds nuw i8, ptr %114, i64 48
   %119 = getelementptr inbounds nuw i8, ptr %114, i64 64
   store ptr %119, ptr %118, align 8
-  store i8 0, ptr %119, align 1
+  store i8 0, ptr %119, align 8
   %120 = getelementptr inbounds nuw i8, ptr %114, i64 80
   %121 = getelementptr inbounds nuw i8, ptr %114, i64 96
   store ptr %121, ptr %120, align 8
-  store i8 0, ptr %121, align 1
+  store i8 0, ptr %121, align 8
   %122 = getelementptr inbounds nuw i8, ptr %114, i64 112
   %123 = getelementptr inbounds nuw i8, ptr %114, i64 128
   store ptr %123, ptr %122, align 8
-  store i8 0, ptr %123, align 1
+  store i8 0, ptr %123, align 8
   %124 = getelementptr inbounds nuw i8, ptr %114, i64 160
   store i8 0, ptr %124, align 8
   %125 = getelementptr inbounds nuw i8, ptr %114, i64 192
@@ -111567,25 +111567,25 @@ _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nod
   store ptr %116, ptr %115, align 8
   %117 = getelementptr inbounds nuw i8, ptr %114, i64 24
   store i64 0, ptr %117, align 8
-  store i8 0, ptr %116, align 1
+  store i8 0, ptr %116, align 8
   %118 = getelementptr inbounds nuw i8, ptr %114, i64 48
   %119 = getelementptr inbounds nuw i8, ptr %114, i64 64
   store ptr %119, ptr %118, align 8
   %120 = getelementptr inbounds nuw i8, ptr %114, i64 56
   store i64 0, ptr %120, align 8
-  store i8 0, ptr %119, align 1
+  store i8 0, ptr %119, align 8
   %121 = getelementptr inbounds nuw i8, ptr %114, i64 80
   %122 = getelementptr inbounds nuw i8, ptr %114, i64 96
   store ptr %122, ptr %121, align 8
   %123 = getelementptr inbounds nuw i8, ptr %114, i64 88
   store i64 0, ptr %123, align 8
-  store i8 0, ptr %122, align 1
+  store i8 0, ptr %122, align 8
   %124 = getelementptr inbounds nuw i8, ptr %114, i64 112
   %125 = getelementptr inbounds nuw i8, ptr %114, i64 128
   store ptr %125, ptr %124, align 8
   %126 = getelementptr inbounds nuw i8, ptr %114, i64 120
   store i64 0, ptr %126, align 8
-  store i8 0, ptr %125, align 1
+  store i8 0, ptr %125, align 8
   %127 = getelementptr inbounds nuw i8, ptr %114, i64 144
   store i8 0, ptr %127, align 8
   %128 = getelementptr inbounds nuw i8, ptr %114, i64 160
@@ -111606,7 +111606,7 @@ _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nod
   store ptr %135, ptr %134, align 8
   %136 = getelementptr inbounds nuw i8, ptr %114, i64 272
   store i64 0, ptr %136, align 8
-  store i8 0, ptr %135, align 1
+  store i8 0, ptr %135, align 8
   %137 = getelementptr inbounds nuw i8, ptr %114, i64 296
   store ptr null, ptr %137, align 8
   %138 = getelementptr inbounds nuw i8, ptr %114, i64 304
@@ -111616,7 +111616,7 @@ _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nod
   store ptr %140, ptr %139, align 8
   %141 = getelementptr inbounds nuw i8, ptr %114, i64 320
   store i64 0, ptr %141, align 8
-  store i8 0, ptr %140, align 1
+  store i8 0, ptr %140, align 8
   %142 = getelementptr inbounds nuw i8, ptr %114, i64 344
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %142, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -112575,25 +112575,25 @@ _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nod
   store ptr %116, ptr %115, align 8
   %117 = getelementptr inbounds nuw i8, ptr %114, i64 24
   store i64 0, ptr %117, align 8
-  store i8 0, ptr %116, align 1
+  store i8 0, ptr %116, align 8
   %118 = getelementptr inbounds nuw i8, ptr %114, i64 48
   %119 = getelementptr inbounds nuw i8, ptr %114, i64 64
   store ptr %119, ptr %118, align 8
   %120 = getelementptr inbounds nuw i8, ptr %114, i64 56
   store i64 0, ptr %120, align 8
-  store i8 0, ptr %119, align 1
+  store i8 0, ptr %119, align 8
   %121 = getelementptr inbounds nuw i8, ptr %114, i64 80
   %122 = getelementptr inbounds nuw i8, ptr %114, i64 96
   store ptr %122, ptr %121, align 8
   %123 = getelementptr inbounds nuw i8, ptr %114, i64 88
   store i64 0, ptr %123, align 8
-  store i8 0, ptr %122, align 1
+  store i8 0, ptr %122, align 8
   %124 = getelementptr inbounds nuw i8, ptr %114, i64 112
   %125 = getelementptr inbounds nuw i8, ptr %114, i64 128
   store ptr %125, ptr %124, align 8
   %126 = getelementptr inbounds nuw i8, ptr %114, i64 120
   store i64 0, ptr %126, align 8
-  store i8 0, ptr %125, align 1
+  store i8 0, ptr %125, align 8
   %127 = getelementptr inbounds nuw i8, ptr %114, i64 144
   store i8 0, ptr %127, align 8
   %128 = getelementptr inbounds nuw i8, ptr %114, i64 160
@@ -115627,7 +115627,7 @@ define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_trait
   store ptr %19, ptr %.08.i.i.i, align 8
   %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 8
   store i64 0, ptr %20, align 8
-  store i8 0, ptr %19, align 1
+  store i8 0, ptr %19, align 8
   %21 = add i64 %.057.i.i.i, -1
   %22 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 32
   %.not.i.i.i = icmp eq i64 %21, 0
@@ -115661,7 +115661,7 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
   store ptr %31, ptr %.08.i.i.i31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 8
   store i64 0, ptr %32, align 8
-  store i8 0, ptr %31, align 1
+  store i8 0, ptr %31, align 8
   %33 = add i64 %.057.i.i.i32, -1
   %34 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 32
   %.not.i.i.i33 = icmp eq i64 %33, 0
@@ -115707,7 +115707,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %45, ptr %47, align 8, !alias.scope !859, !noalias !862
   store ptr %37, ptr %.0911.i.i.i, align 8, !alias.scope !862, !noalias !859
   store i64 0, ptr %46, align 8, !alias.scope !862, !noalias !859
-  store i8 0, ptr %37, align 1, !alias.scope !862, !noalias !859
+  store i8 0, ptr %37, align 8, !alias.scope !862, !noalias !859
   %48 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i38 = icmp eq ptr %48, %5
@@ -123189,7 +123189,7 @@ _ZNSt10_HashtableIjSt4pairIKj17AnimationSamplersESaIS3_ENSt8__detail10_Select1st
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIjSt4pairIKj17AnimationSamplersESaIS3_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4
+  %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18

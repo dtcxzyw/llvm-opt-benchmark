@@ -1855,13 +1855,13 @@ define internal fastcc void @__hrtimer_run_queues(ptr noundef %0, i64 noundef %1
 
 58:                                               ; preds = %55, %51, %38, %37
   store ptr %32, ptr %27, align 8
-  %59 = load i32, ptr %28, align 4
+  %59 = load i32, ptr %28, align 8
   %60 = add i32 %59, 1
-  store i32 %60, ptr %28, align 4
+  store i32 %60, ptr %28, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !72
-  %61 = load i32, ptr %28, align 4
+  %61 = load i32, ptr %28, align 8
   %62 = add i32 %61, 1
-  store i32 %62, ptr %28, align 4
+  store i32 %62, ptr %28, align 8
   %63 = load ptr, ptr %19, align 64
   %64 = getelementptr inbounds nuw i8, ptr %32, i64 56
   %65 = load i8, ptr %64, align 8
@@ -3103,7 +3103,7 @@ define dso_local noundef i32 @hrtimers_prepare_cpu(i32 noundef %0) local_unnamed
   %10 = getelementptr [8 x %struct.hrtimer_clock_base], ptr %7, i64 0, i64 %9
   store ptr %6, ptr %10, align 64
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i32 0, ptr %11, align 4
+  store i32 0, ptr %11, align 16
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %13 = add nuw nsw i64 %9, 1

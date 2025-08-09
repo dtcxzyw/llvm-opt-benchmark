@@ -10801,7 +10801,7 @@ _ZNKSt8__detail15_Hashtable_baseISt6vectorI17mmbit_sparse_iterSaIS2_EESt4pairIKS
   %46 = load i64, ptr %.sroa.05.010.i.i.i, align 8
   %47 = mul i64 %46, 814605021516865831
   %48 = add i64 %47, 3571081485394615273
-  %49 = load i32, ptr %45, align 4
+  %49 = load i32, ptr %45, align 8
   %50 = zext i32 %49 to i64
   %51 = mul i64 %50, 814605021516865831
   %52 = xor i64 %51, %48
@@ -11031,7 +11031,7 @@ _ZNKSt8__detail15_Hashtable_baseISt6vectorI17mmbit_sparse_iterSaIS2_EESt4pairIKS
   %49 = load i64, ptr %.sroa.05.010.i.i.i, align 8
   %50 = mul i64 %49, 814605021516865831
   %51 = add i64 %50, 3571081485394615273
-  %52 = load i32, ptr %48, align 4
+  %52 = load i32, ptr %48, align 8
   %53 = zext i32 %52 to i64
   %54 = mul i64 %53, 814605021516865831
   %55 = xor i64 %54, %51

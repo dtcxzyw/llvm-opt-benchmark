@@ -2320,7 +2320,7 @@ define noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__16Sdf_RootPathNode3NewE
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 %9
   store ptr null, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 1, ptr %11, align 4
+  store i32 1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i16 0, ptr %12, align 4
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 14
@@ -2352,7 +2352,7 @@ define noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode19GetAbso
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 %13
   store ptr null, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i32 1, ptr %15, align 4
+  store i32 1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i16 0, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 14
@@ -2360,7 +2360,7 @@ define noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode19GetAbso
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 15
   store i8 1, ptr %18, align 1
   store ptr %14, ptr %5, align 8
-  %19 = load atomic i32, ptr %15 monotonic, align 4
+  %19 = load atomic i32, ptr %15 monotonic, align 8
   %20 = and i32 %19, 2147483647
   %21 = icmp eq i32 %20, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
@@ -2421,7 +2421,7 @@ define noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode19GetRela
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 %13
   store ptr null, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i32 1, ptr %15, align 4
+  store i32 1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i16 0, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 14
@@ -2429,7 +2429,7 @@ define noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode19GetRela
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 15
   store i8 0, ptr %18, align 1
   store ptr %14, ptr %5, align 8
-  %19 = load atomic i32, ptr %15 monotonic, align 4
+  %19 = load atomic i32, ptr %15 monotonic, align 8
   %20 = and i32 %19, 2147483647
   %21 = icmp eq i32 %20, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
@@ -2707,7 +2707,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   store i64 %.sroa.5.1.i.i.i, ptr %116, align 8, !noalias !14
   %118 = getelementptr inbounds nuw i8, ptr %111, i64 24
   store i32 0, ptr %118, align 8, !noalias !14
-  store i32 %114, ptr %111, align 4, !noalias !14
+  store i32 %114, ptr %111, align 8, !noalias !14
   store i16 %.130.i.i.i.i.i, ptr %112, align 4, !noalias !14
   br label %167
 
@@ -2717,11 +2717,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_ParentAndINS_7TfTokenEEaSE
   store ptr %1, ptr %115, align 8, !noalias !14
   store i64 %.sroa.5.1.i.i.i, ptr %116, align 8, !noalias !14
   %120 = getelementptr inbounds nuw i8, ptr %111, i64 24
-  %121 = load i32, ptr %120, align 4, !noalias !14
-  store i32 0, ptr %120, align 4, !noalias !14
-  store i16 %.130.i.i.i.i.i, ptr %112, align 2, !noalias !14
-  %122 = load i32, ptr %111, align 4, !noalias !14
-  store i32 %114, ptr %111, align 4, !noalias !14
+  %121 = load i32, ptr %120, align 8, !noalias !14
+  store i32 0, ptr %120, align 8, !noalias !14
+  store i16 %.130.i.i.i.i.i, ptr %112, align 4, !noalias !14
+  %122 = load i32, ptr %111, align 8, !noalias !14
+  store i32 %114, ptr %111, align 8, !noalias !14
   %.val12.i.i.i.i.i.i.i = load i64, ptr %18, align 8, !noalias !14
   %123 = add i64 %.1.i.i.i.i.i, 1
   %124 = and i64 %.val12.i.i.i.i.i.i.i, %123
@@ -2770,12 +2770,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_ParentAndINS_7TfTokenEEaSE
   store ptr %.sroa.0.0.i.i.i, ptr %137, align 8, !noalias !14
   store i64 %138, ptr %140, align 8, !noalias !14
   %142 = getelementptr inbounds nuw i8, ptr %132, i64 24
-  %143 = load i32, ptr %142, align 4, !noalias !14
-  store i32 %.sroa.19.0.i.i.i, ptr %142, align 4, !noalias !14
+  %143 = load i32, ptr %142, align 8, !noalias !14
+  store i32 %.sroa.19.0.i.i.i, ptr %142, align 8, !noalias !14
   %144 = load i16, ptr %131, align 2, !noalias !14
   store i16 %storemerge37.i.i.i.i.i.i.i, ptr %131, align 2, !noalias !14
-  %145 = load i32, ptr %132, align 4, !noalias !14
-  store i32 %.02935.i.i.i.i.i.i.i, ptr %132, align 4, !noalias !14
+  %145 = load i32, ptr %132, align 8, !noalias !14
+  store i32 %.02935.i.i.i.i.i.i.i, ptr %132, align 8, !noalias !14
   %.val11.pre.i.i.i.i.i.i.i = load i64, ptr %18, align 8, !noalias !14
   %.pre.i.i.i.i.i.i.i = load ptr, ptr %46, align 8, !noalias !14
   br label %146
@@ -2815,7 +2815,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   store i64 %.sroa.5.4.i.i.i, ptr %155, align 8, !noalias !14
   %156 = getelementptr inbounds nuw i8, ptr %.lcssa32.i.i.i.i.i.i.i, i64 24
   store i32 %.sroa.19.2.i.i.i, ptr %156, align 8, !noalias !14
-  store i32 %.029.lcssa.i.i.i.i.i.i.i, ptr %.lcssa32.i.i.i.i.i.i.i, align 4, !noalias !14
+  store i32 %.029.lcssa.i.i.i.i.i.i.i, ptr %.lcssa32.i.i.i.i.i.i.i, align 8, !noalias !14
   store i16 %storemerge.lcssa.i.i.i.i.i.i.i, ptr %.lcssa.i.i.i.i.i.i.i, align 4, !noalias !14
   br label %167
 
@@ -3027,7 +3027,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(11264) ptr @_ZNK3
   %19 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 56
   store i64 0, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 80
-  store i8 0, ptr %20, align 1
+  store i8 0, ptr %20, align 8
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 88
   %21 = icmp eq i64 %.add.i.i.i.i, 11264
   br i1 %21, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131_primNodes_Tf_StaticDataFactory3NewEv.exit.i.i, label %5
@@ -3220,7 +3220,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 %47
   store ptr null, ptr %48, align 8, !noalias !27
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 1, ptr %49, align 4, !noalias !27
+  store i32 1, ptr %49, align 8, !noalias !27
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 12
   store i16 1, ptr %50, align 4, !noalias !27
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 14
@@ -3314,7 +3314,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(11264) ptr @_ZNK3
   %19 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 56
   store i64 0, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 80
-  store i8 0, ptr %20, align 1
+  store i8 0, ptr %20, align 8
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 88
   %21 = icmp eq i64 %.add.i.i.i.i, 11264
   br i1 %21, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_primPropertyNodes_Tf_StaticDataFactory3NewEv.exit.i.i, label %5
@@ -3718,7 +3718,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   store i64 %.sroa.20.1.i.i.i, ptr %161, align 8, !noalias !31
   %163 = getelementptr inbounds nuw i8, ptr %155, i64 32
   store i32 0, ptr %163, align 8, !noalias !31
-  store i32 %158, ptr %155, align 4, !noalias !31
+  store i32 %158, ptr %155, align 8, !noalias !31
   store i16 %.130.i.i.i.i.i, ptr %156, align 4, !noalias !31
   br label %220
 
@@ -3729,12 +3729,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryIS
   store ptr %1, ptr %159, align 8, !noalias !31
   store i64 %.sroa.5.1.i.i.i, ptr %160, align 8, !noalias !31
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %155, i64 32
-  %.pre36.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i, align 4, !noalias !31
-  %.pre37.i.i.i = load i32, ptr %155, align 4, !noalias !31
+  %.pre36.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i, align 8, !noalias !31
+  %.pre37.i.i.i = load i32, ptr %155, align 8, !noalias !31
   store i64 %.sroa.20.1.i.i.i, ptr %161, align 8, !noalias !31
-  store i32 0, ptr %.phi.trans.insert.i.i.i, align 4, !noalias !31
-  store i16 %.130.i.i.i.i.i, ptr %156, align 2, !noalias !31
-  store i32 %158, ptr %155, align 4, !noalias !31
+  store i32 0, ptr %.phi.trans.insert.i.i.i, align 8, !noalias !31
+  store i16 %.130.i.i.i.i.i, ptr %156, align 4, !noalias !31
+  store i32 %158, ptr %155, align 8, !noalias !31
   %.val12.i.i.i.i.i.i.i = load i64, ptr %42, align 8, !noalias !31
   %165 = add i64 %.1.i.i.i.i.i, 1
   %166 = and i64 %.val12.i.i.i.i.i.i.i, %165
@@ -3788,14 +3788,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryIS
   %187 = inttoptr i64 %.pre38.i.i.i to ptr
   store ptr %.sroa.0.0.i.i.i, ptr %180, align 8, !noalias !31
   store i64 %181, ptr %184, align 8, !noalias !31
-  %.pre41.i.i.i = load i32, ptr %175, align 4, !noalias !31
+  %.pre41.i.i.i = load i32, ptr %175, align 8, !noalias !31
   %.phi.trans.insert39.i.i.i = getelementptr inbounds nuw i8, ptr %175, i64 32
-  %.pre40.i.i.i = load i32, ptr %.phi.trans.insert39.i.i.i, align 4, !noalias !31
+  %.pre40.i.i.i = load i32, ptr %.phi.trans.insert39.i.i.i, align 8, !noalias !31
   store i64 %182, ptr %186, align 8, !noalias !31
-  store i32 %.sroa.36.0.i.i.i, ptr %.phi.trans.insert39.i.i.i, align 4, !noalias !31
+  store i32 %.sroa.36.0.i.i.i, ptr %.phi.trans.insert39.i.i.i, align 8, !noalias !31
   %188 = load i16, ptr %174, align 2, !noalias !31
   store i16 %storemerge39.i.i.i.i.i.i.i, ptr %174, align 2, !noalias !31
-  store i32 %.03137.i.i.i.i.i.i.i, ptr %175, align 4, !noalias !31
+  store i32 %.03137.i.i.i.i.i.i.i, ptr %175, align 8, !noalias !31
   %.val11.pre.i.i.i.i.i.i.i = load i64, ptr %42, align 8, !noalias !31
   %.pre.i.i.i.i.i.i.i = load ptr, ptr %84, align 8, !noalias !31
   br label %189
@@ -3840,7 +3840,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   store i64 %.sroa.20.4.i.i.i, ptr %200, align 8, !noalias !31
   %201 = getelementptr inbounds nuw i8, ptr %.lcssa34.i.i.i.i.i.i.i, i64 32
   store i32 %.sroa.36.2.i.i.i, ptr %201, align 8, !noalias !31
-  store i32 %.031.lcssa.i.i.i.i.i.i.i, ptr %.lcssa34.i.i.i.i.i.i.i, align 4, !noalias !31
+  store i32 %.031.lcssa.i.i.i.i.i.i.i, ptr %.lcssa34.i.i.i.i.i.i.i, align 8, !noalias !31
   store i16 %storemerge.lcssa.i.i.i.i.i.i.i, ptr %.lcssa.i.i.i.i.i.i.i, align 4, !noalias !31
   br label %220
 
@@ -4059,7 +4059,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(11264) ptr @_ZNK3
   %19 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 56
   store i64 0, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 80
-  store i8 0, ptr %20, align 1
+  store i8 0, ptr %20, align 8
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 88
   %21 = icmp eq i64 %.add.i.i.i.i, 11264
   br i1 %21, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_137_primVarSelNodes_Tf_StaticDataFactory3NewEv.exit.i.i, label %5
@@ -4425,7 +4425,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(11264) ptr @_ZNK3
   %19 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 56
   store i64 0, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 80
-  store i8 0, ptr %20, align 1
+  store i8 0, ptr %20, align 8
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 88
   %21 = icmp eq i64 %.add.i.i.i.i, 11264
   br i1 %21, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_133_targetNodes_Tf_StaticDataFactory3NewEv.exit.i.i, label %5
@@ -4756,7 +4756,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(11264) ptr @_ZNK3
   %19 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 56
   store i64 0, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 80
-  store i8 0, ptr %20, align 1
+  store i8 0, ptr %20, align 8
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 88
   %21 = icmp eq i64 %.add.i.i.i.i, 11264
   br i1 %21, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_134_relAttrNodes_Tf_StaticDataFactory3NewEv.exit.i.i, label %5
@@ -5076,7 +5076,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(11264) ptr @_ZNK3
   %19 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 56
   store i64 0, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 80
-  store i8 0, ptr %20, align 1
+  store i8 0, ptr %20, align 8
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 88
   %21 = icmp eq i64 %.add.i.i.i.i, 11264
   br i1 %21, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_133_mapperNodes_Tf_StaticDataFactory3NewEv.exit.i.i, label %5
@@ -5407,7 +5407,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(11264) ptr @_ZNK3
   %19 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 56
   store i64 0, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 80
-  store i8 0, ptr %20, align 1
+  store i8 0, ptr %20, align 8
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 88
   %21 = icmp eq i64 %.add.i.i.i.i, 11264
   br i1 %21, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136_mapperArgNodes_Tf_StaticDataFactory3NewEv.exit.i.i, label %5
@@ -5695,7 +5695,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   store ptr %1, ptr %90, align 8, !noalias !54
   %.sroa.8.0..sroa_idx2.i.i.i = getelementptr inbounds nuw i8, ptr %86, i64 16
   store i32 0, ptr %.sroa.8.0..sroa_idx2.i.i.i, align 8, !noalias !54
-  store i32 %89, ptr %86, align 4, !noalias !54
+  store i32 %89, ptr %86, align 8, !noalias !54
   store i16 %.130.i.i.i.i.i, ptr %87, align 4, !noalias !54
   br label %127
 
@@ -5704,11 +5704,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   %94 = inttoptr i64 %93 to ptr
   store ptr %1, ptr %90, align 8, !noalias !54
   %95 = getelementptr inbounds nuw i8, ptr %86, i64 16
-  %96 = load i32, ptr %95, align 4, !noalias !54
-  store i32 0, ptr %95, align 4, !noalias !54
-  store i16 %.130.i.i.i.i.i, ptr %87, align 2, !noalias !54
-  %97 = load i32, ptr %86, align 4, !noalias !54
-  store i32 %89, ptr %86, align 4, !noalias !54
+  %96 = load i32, ptr %95, align 8, !noalias !54
+  store i32 0, ptr %95, align 8, !noalias !54
+  store i16 %.130.i.i.i.i.i, ptr %87, align 4, !noalias !54
+  %97 = load i32, ptr %86, align 8, !noalias !54
+  store i32 %89, ptr %86, align 8, !noalias !54
   %.val12.i.i.i.i.i.i.i = load i64, ptr %10, align 8, !noalias !54
   %98 = add i64 %.1.i.i.i.i.i, 1
   %99 = and i64 %.val12.i.i.i.i.i.i.i, %98
@@ -5748,12 +5748,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   %114 = inttoptr i64 %113 to ptr
   store ptr %.sroa.0.0.i.i.i, ptr %112, align 8, !noalias !54
   %115 = getelementptr inbounds nuw i8, ptr %106, i64 16
-  %116 = load i32, ptr %115, align 4, !noalias !54
-  store i32 %.sroa.8.0.i.i.i, ptr %115, align 4, !noalias !54
+  %116 = load i32, ptr %115, align 8, !noalias !54
+  store i32 %.sroa.8.0.i.i.i, ptr %115, align 8, !noalias !54
   %117 = load i16, ptr %105, align 2, !noalias !54
   store i16 %storemerge31.i.i.i.i.i.i.i, ptr %105, align 2, !noalias !54
-  %118 = load i32, ptr %106, align 4, !noalias !54
-  store i32 %.02329.i.i.i.i.i.i.i, ptr %106, align 4, !noalias !54
+  %118 = load i32, ptr %106, align 8, !noalias !54
+  store i32 %.02329.i.i.i.i.i.i.i, ptr %106, align 8, !noalias !54
   %.val11.pre.i.i.i.i.i.i.i = load i64, ptr %10, align 8, !noalias !54
   %.pre.i.i.i.i.i.i.i = load ptr, ptr %26, align 8, !noalias !54
   br label %119
@@ -5785,7 +5785,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   store ptr %.sroa.0.2.i.i.i, ptr %126, align 8, !noalias !54
   %.sroa.8.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.lcssa26.i.i.i.i.i.i.i, i64 16
   store i32 %.sroa.8.2.i.i.i, ptr %.sroa.8.0..sroa_idx.i.i.i, align 8, !noalias !54
-  store i32 %.023.lcssa.i.i.i.i.i.i.i, ptr %.lcssa26.i.i.i.i.i.i.i, align 4, !noalias !54
+  store i32 %.023.lcssa.i.i.i.i.i.i.i, ptr %.lcssa26.i.i.i.i.i.i.i, align 8, !noalias !54
   store i16 %storemerge.lcssa.i.i.i.i.i.i.i, ptr %.lcssa.i.i.i.i.i.i.i, align 4, !noalias !54
   br label %127
 
@@ -5996,7 +5996,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(11264) ptr @_ZNK3
   %19 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 56
   store i64 0, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 80
-  store i8 0, ptr %20, align 1
+  store i8 0, ptr %20, align 8
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 88
   %21 = icmp eq i64 %.add.i.i.i.i, 11264
   br i1 %21, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_137_expressionNodes_Tf_StaticDataFactory3NewEv.exit.i.i, label %5
@@ -6181,7 +6181,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoC2IRA4_KcJRA8_S3_EEEOT_Dp
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 40
   store i64 0, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 48
-  store i8 0, ptr %33, align 1
+  store i8 0, ptr %33, align 8
   %34 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
           to label %_ZN3tbb6detail2d219concurrent_hash_mapIPKN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNodeENS3_12_GLOBAL__N_117_PropToTokenTableENS0_2d116tbb_hash_compareIS6_EENS9_13tbb_allocatorISt4pairIKS6_S8_EEEE14const_accessor7releaseEv.exit.i.i unwind label %35
 
@@ -10760,7 +10760,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ParentAndRefINS_7SdfPathE
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %.val10.i.i.i.i.i = load ptr, ptr %67, align 8
   %68 = getelementptr i8, ptr %66, i64 16
-  %.val11.i.i.i.i.i = load i64, ptr %68, align 4
+  %.val11.i.i.i.i.i = load i64, ptr %68, align 8
   %69 = icmp eq ptr %.val10.i.i.i.i.i, %.0.val
   %70 = icmp eq i64 %.val11.i.i.i.i.i, %.sroa.2.8.insert.insert
   %spec.select.i.i.i.i.i.i.i.i = select i1 %69, i1 %70, i1 false
@@ -14180,7 +14180,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i.i: ; pred
 
 _ZZN3tbb6detail2d211micro_queueIN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS3_15Sdf_PathPrimTagELj24ELj8ELj16384EE9_FreeListENS0_2d123cache_aligned_allocatorIS7_EEE12prepare_pageEmRNS1_20concurrent_queue_repIS7_SA_EENS9_INSB_11padded_pageEEERPSF_ENKUlvE0_clEv.exit: ; preds = %32, %33
   store atomic i64 1, ptr %29 monotonic, align 8
-  store atomic i8 0, ptr %14 release, align 1
+  store atomic i8 0, ptr %14 release, align 8
   br label %34
 
 34:                                               ; preds = %_ZZN3tbb6detail2d211micro_queueIN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS3_15Sdf_PathPrimTagELj24ELj8ELj16384EE9_FreeListENS0_2d123cache_aligned_allocatorIS7_EEE12prepare_pageEmRNS1_20concurrent_queue_repIS7_SA_EENS9_INSB_11padded_pageEEERPSF_ENKUlvE0_clEv.exit, %1
@@ -14729,7 +14729,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i.i: ; pred
 
 _ZZN3tbb6detail2d211micro_queueIN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS3_15Sdf_PathPropTagELj24ELj8ELj16384EE9_FreeListENS0_2d123cache_aligned_allocatorIS7_EEE12prepare_pageEmRNS1_20concurrent_queue_repIS7_SA_EENS9_INSB_11padded_pageEEERPSF_ENKUlvE0_clEv.exit: ; preds = %32, %33
   store atomic i64 1, ptr %29 monotonic, align 8
-  store atomic i8 0, ptr %14 release, align 1
+  store atomic i8 0, ptr %14 release, align 8
   br label %34
 
 34:                                               ; preds = %_ZZN3tbb6detail2d211micro_queueIN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS3_15Sdf_PathPropTagELj24ELj8ELj16384EE9_FreeListENS0_2d123cache_aligned_allocatorIS7_EEE12prepare_pageEmRNS1_20concurrent_queue_repIS7_SA_EENS9_INSB_11padded_pageEEERPSF_ENKUlvE0_clEv.exit, %1
@@ -14847,7 +14847,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryIS
   %39 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %40 = load i32, ptr %39, align 8
   store i32 %40, ptr %38, align 8
-  store i32 %31, ptr %30, align 4
+  store i32 %31, ptr %30, align 8
   %41 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i16 %29, ptr %41, align 4
   %42 = load ptr, ptr %16, align 8
@@ -15198,13 +15198,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryIS
   store i64 %119, ptr %121, align 8
   %128 = getelementptr inbounds nuw i8, ptr %111, i64 24
   %.sroa.0.0.copyload.i.i.i.i.i = load i32, ptr %108, align 4
-  %129 = load i32, ptr %128, align 4
+  %129 = load i32, ptr %128, align 8
   store i32 %129, ptr %108, align 4
-  store i32 %.sroa.0.0.copyload.i.i.i.i.i, ptr %128, align 4
-  %130 = load i16, ptr %112, align 2
-  store i16 %.015.i, ptr %112, align 2
-  %131 = load i32, ptr %111, align 4
-  store i32 %.014.i, ptr %111, align 4
+  store i32 %.sroa.0.0.copyload.i.i.i.i.i, ptr %128, align 8
+  %130 = load i16, ptr %112, align 4
+  store i16 %.015.i, ptr %112, align 4
+  %131 = load i32, ptr %111, align 8
+  store i32 %.014.i, ptr %111, align 8
   %.val8.i.pre = load i64, ptr %3, align 8
   br label %132
 
@@ -15227,7 +15227,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   %138 = getelementptr inbounds nuw i8, ptr %111, i64 24
   %139 = load i32, ptr %108, align 8
   store i32 %139, ptr %138, align 8
-  store i32 %.014.i, ptr %111, align 4
+  store i32 %.014.i, ptr %111, align 8
   store i16 %.015.i, ptr %112, align 4
   br label %140
 
@@ -15595,7 +15595,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   store i64 %.sroa.5.1.i, ptr %91, align 8
   %93 = getelementptr inbounds nuw i8, ptr %86, i64 24
   store i32 %11, ptr %93, align 8
-  store i32 %89, ptr %86, align 4
+  store i32 %89, ptr %86, align 8
   store i16 %.130.i.i.i, ptr %87, align 4
   br label %.loopexit.thread.i
 
@@ -15605,11 +15605,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_ParentAndINS_7TfTokenEEaSE
   store ptr %.val.i.i, ptr %90, align 8
   store i64 %.sroa.5.1.i, ptr %91, align 8
   %95 = getelementptr inbounds nuw i8, ptr %86, i64 24
-  %96 = load i32, ptr %95, align 4
-  store i32 %11, ptr %95, align 4
-  store i16 %.130.i.i.i, ptr %87, align 2
-  %97 = load i32, ptr %86, align 4
-  store i32 %89, ptr %86, align 4
+  %96 = load i32, ptr %95, align 8
+  store i32 %11, ptr %95, align 8
+  store i16 %.130.i.i.i, ptr %87, align 4
+  %97 = load i32, ptr %86, align 8
+  store i32 %89, ptr %86, align 8
   %.val12.i.i.i.i.i = load i64, ptr %0, align 8
   %98 = add i64 %.1.i.i.i, 1
   %99 = and i64 %.val12.i.i.i.i.i, %98
@@ -15658,12 +15658,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_ParentAndINS_7TfTokenEEaSE
   store ptr %.sroa.0.0.i, ptr %112, align 8
   store i64 %113, ptr %115, align 8
   %117 = getelementptr inbounds nuw i8, ptr %107, i64 24
-  %118 = load i32, ptr %117, align 4
-  store i32 %.sroa.19.0.i, ptr %117, align 4
+  %118 = load i32, ptr %117, align 8
+  store i32 %.sroa.19.0.i, ptr %117, align 8
   %119 = load i16, ptr %106, align 2
   store i16 %storemerge37.i.i.i.i.i, ptr %106, align 2
-  %120 = load i32, ptr %107, align 4
-  store i32 %.02935.i.i.i.i.i, ptr %107, align 4
+  %120 = load i32, ptr %107, align 8
+  store i32 %.02935.i.i.i.i.i, ptr %107, align 8
   %.val11.pre.i.i.i.i.i = load i64, ptr %0, align 8
   %.pre.i.i.i.i.i = load ptr, ptr %21, align 8
   br label %121
@@ -15703,7 +15703,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   store i64 %.sroa.5.4.i, ptr %130, align 8
   %131 = getelementptr inbounds nuw i8, ptr %.lcssa32.i.i.i.i.i, i64 24
   store i32 %.sroa.19.2.i, ptr %131, align 8
-  store i32 %.029.lcssa.i.i.i.i.i, ptr %.lcssa32.i.i.i.i.i, align 4
+  store i32 %.029.lcssa.i.i.i.i.i, ptr %.lcssa32.i.i.i.i.i, align 8
   store i16 %storemerge.lcssa.i.i.i.i.i, ptr %.lcssa.i.i.i.i.i, align 4
   br label %.loopexit.thread.i
 
@@ -15820,7 +15820,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryIS
   %39 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %40 = load i32, ptr %39, align 8
   store i32 %40, ptr %38, align 8
-  store i32 %31, ptr %30, align 4
+  store i32 %31, ptr %30, align 8
   %41 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i16 %29, ptr %41, align 4
   %42 = load ptr, ptr %16, align 8
@@ -16171,13 +16171,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryIS
   store i64 %119, ptr %121, align 8
   %128 = getelementptr inbounds nuw i8, ptr %111, i64 24
   %.sroa.0.0.copyload.i.i.i.i.i = load i32, ptr %108, align 4
-  %129 = load i32, ptr %128, align 4
+  %129 = load i32, ptr %128, align 8
   store i32 %129, ptr %108, align 4
-  store i32 %.sroa.0.0.copyload.i.i.i.i.i, ptr %128, align 4
-  %130 = load i16, ptr %112, align 2
-  store i16 %.015.i, ptr %112, align 2
-  %131 = load i32, ptr %111, align 4
-  store i32 %.014.i, ptr %111, align 4
+  store i32 %.sroa.0.0.copyload.i.i.i.i.i, ptr %128, align 8
+  %130 = load i16, ptr %112, align 4
+  store i16 %.015.i, ptr %112, align 4
+  %131 = load i32, ptr %111, align 8
+  store i32 %.014.i, ptr %111, align 8
   %.val8.i.pre = load i64, ptr %3, align 8
   br label %132
 
@@ -16200,7 +16200,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   %138 = getelementptr inbounds nuw i8, ptr %111, i64 24
   %139 = load i32, ptr %108, align 8
   store i32 %139, ptr %138, align 8
-  store i32 %.014.i, ptr %111, align 4
+  store i32 %.014.i, ptr %111, align 8
   store i16 %.015.i, ptr %112, align 4
   br label %140
 
@@ -16472,7 +16472,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryIS
   %51 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %52 = load i32, ptr %51, align 8
   store i32 %52, ptr %50, align 8
-  store i32 %40, ptr %39, align 4
+  store i32 %40, ptr %39, align 8
   %53 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i16 %38, ptr %53, align 4
   %54 = load ptr, ptr %25, align 8
@@ -16981,13 +16981,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryIS
   store i64 %132, ptr %152, align 8
   %160 = getelementptr inbounds nuw i8, ptr %123, i64 32
   %.sroa.0.0.copyload.i.i.i.i.i = load i32, ptr %120, align 4
-  %161 = load i32, ptr %160, align 4
+  %161 = load i32, ptr %160, align 8
   store i32 %161, ptr %120, align 4
-  store i32 %.sroa.0.0.copyload.i.i.i.i.i, ptr %160, align 4
-  %162 = load i16, ptr %124, align 2
-  store i16 %.015.i, ptr %124, align 2
-  %163 = load i32, ptr %123, align 4
-  store i32 %.014.i, ptr %123, align 4
+  store i32 %.sroa.0.0.copyload.i.i.i.i.i, ptr %160, align 8
+  %162 = load i16, ptr %124, align 4
+  store i16 %.015.i, ptr %124, align 4
+  %163 = load i32, ptr %123, align 8
+  store i32 %.014.i, ptr %123, align 8
   %.val8.i.pre = load i64, ptr %3, align 8
   br label %164
 
@@ -17014,7 +17014,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   %172 = getelementptr inbounds nuw i8, ptr %123, i64 32
   %173 = load i32, ptr %120, align 8
   store i32 %173, ptr %172, align 8
-  store i32 %.014.i, ptr %123, align 4
+  store i32 %.014.i, ptr %123, align 8
   store i16 %.015.i, ptr %124, align 4
   br label %174
 
@@ -17329,7 +17329,7 @@ _ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_ParentAndINS0_7Sd
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %.val38.i.i.i = load ptr, ptr %48, align 8
   %49 = getelementptr i8, ptr %47, i64 16
-  %.val39.i.i.i = load i64, ptr %49, align 4
+  %.val39.i.i.i = load i64, ptr %49, align 8
   %50 = icmp eq ptr %.val38.i.i.i, %.val.i.i
   %51 = icmp eq i64 %.val39.i.i.i, %.val41.i.i.i
   %spec.select.i.i.i.i.i.i = select i1 %50, i1 %51, i1 false
@@ -17468,14 +17468,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   %110 = getelementptr inbounds nuw i8, ptr %105, i64 8
   store ptr %.val.i.i, ptr %110, align 8
   %111 = getelementptr inbounds nuw i8, ptr %105, i64 16
-  store i32 %8, ptr %111, align 4
+  store i32 %8, ptr %111, align 8
   store i32 0, ptr %7, align 8
   %112 = getelementptr inbounds nuw i8, ptr %105, i64 20
   store i32 %22, ptr %112, align 4
   store i32 0, ptr %20, align 4
   %113 = getelementptr inbounds nuw i8, ptr %105, i64 24
   store i32 %25, ptr %113, align 8
-  store i32 %108, ptr %105, align 4
+  store i32 %108, ptr %105, align 8
   store i16 %.130.i.i.i, ptr %106, align 4
   br label %145
 
@@ -17547,7 +17547,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   store ptr %138, ptr %137, align 8
   %139 = getelementptr inbounds nuw i8, ptr %.lcssa14.i.i.i.i.i, i64 16
   %140 = load i32, ptr %7, align 8
-  store i32 %140, ptr %139, align 4
+  store i32 %140, ptr %139, align 8
   store i32 0, ptr %7, align 8
   %141 = getelementptr inbounds nuw i8, ptr %.lcssa14.i.i.i.i.i, i64 20
   %142 = load i32, ptr %20, align 4
@@ -17556,7 +17556,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   %143 = getelementptr inbounds nuw i8, ptr %.lcssa14.i.i.i.i.i, i64 24
   %144 = load i32, ptr %23, align 8
   store i32 %144, ptr %143, align 8
-  store i32 %136, ptr %.lcssa14.i.i.i.i.i, align 4
+  store i32 %136, ptr %.lcssa14.i.i.i.i.i, align 8
   store i16 %storemerge.lcssa.i.i.i.i.i, ptr %135, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -17701,9 +17701,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryIS
   store ptr %45, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %47 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %48 = load i32, ptr %47, align 4
-  store i32 %48, ptr %46, align 4
-  store i32 0, ptr %47, align 4
+  %48 = load i32, ptr %47, align 8
+  store i32 %48, ptr %46, align 8
+  store i32 0, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %41, i64 20
   %50 = getelementptr inbounds nuw i8, ptr %38, i64 20
   %51 = load i32, ptr %50, align 4
@@ -17713,7 +17713,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryIS
   %53 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %54 = load i32, ptr %53, align 8
   store i32 %54, ptr %52, align 8
-  store i32 %42, ptr %41, align 4
+  store i32 %42, ptr %41, align 8
   %55 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i16 %40, ptr %55, align 4
   %56 = load ptr, ptr %27, align 8
@@ -18011,7 +18011,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   %93 = getelementptr inbounds nuw i8, ptr %.sroa.025.042, i64 16
   %94 = getelementptr inbounds nuw i8, ptr %.sroa.025.042, i64 20
   %95 = load i32, ptr %94, align 4
-  %96 = load i32, ptr %93, align 4
+  %96 = load i32, ptr %93, align 8
   %97 = zext i32 %96 to i64
   %98 = add i64 %97, %92
   %99 = add i64 %98, 1
@@ -18058,17 +18058,17 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   br i1 %125, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINS_12_GLOBAL__N_110_ParentAndINS_7SdfPathEEENS_8Sdf_PoolINS_15Sdf_PathPropTagELj24ELj8ELj16384EE6HandleEENS0_9robin_mapIS7_SB_NS_6TfHashESt8equal_toIS7_ESaISC_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSL_11ValueSelectESE_SG_SH_Lb0ESK_E22insert_value_on_rehashEmsjOSC_.exit, label %128
 
 128:                                              ; preds = %124
-  %129 = load i32, ptr %116, align 4
-  store i32 0, ptr %116, align 4
+  %129 = load i32, ptr %116, align 8
+  store i32 0, ptr %116, align 8
   %130 = load i32, ptr %117, align 4
   store i32 0, ptr %117, align 4
   %131 = load ptr, ptr %126, align 8
   store ptr %131, ptr %115, align 8
   %132 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  %133 = load i32, ptr %132, align 4
-  store i32 0, ptr %132, align 4
-  %134 = load i32, ptr %116, align 4
-  store i32 %133, ptr %116, align 4
+  %133 = load i32, ptr %132, align 8
+  store i32 0, ptr %132, align 8
+  %134 = load i32, ptr %116, align 8
+  store i32 %133, ptr %116, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %134, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_ParentAndINS_7SdfPathEEaSEOS3_.exit.i.i.i.i, label %135
 
@@ -18104,8 +18104,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_ParentAndINS_7SdfPathEEaSE
   store i32 0, ptr %152, align 4
   store i32 %153, ptr %117, align 4
   store ptr %127, ptr %126, align 8
-  %154 = load i32, ptr %132, align 4
-  store i32 %129, ptr %132, align 4
+  %154 = load i32, ptr %132, align 8
+  store i32 %129, ptr %132, align 8
   %.not.i.i.i.i4.i.i.i.i = icmp eq i32 %154, 0
   br i1 %.not.i.i.i.i4.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairINS_12_GLOBAL__N_110_ParentAndINS_7SdfPathEEENS_8Sdf_PoolINS_15Sdf_PathPropTagELj24ELj8ELj16384EE6HandleEELb1EE25swap_with_value_in_bucketERsRjRSC_.exit, label %155
 
@@ -18142,8 +18142,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryIS
   %173 = load i32, ptr %172, align 4
   store i32 %173, ptr %118, align 4
   store i32 %.sroa.0.0.copyload.i.i.i.i, ptr %172, align 4
-  %174 = load i16, ptr %122, align 2
-  store i16 %.0, ptr %122, align 2
+  %174 = load i16, ptr %122, align 4
+  store i16 %.0, ptr %122, align 4
   %175 = load i32, ptr %121, align 4
   store i32 %.029, ptr %121, align 4
   %.val8.i.pre = load i64, ptr %3, align 8
@@ -18162,9 +18162,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryIS
 _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINS_12_GLOBAL__N_110_ParentAndINS_7SdfPathEEENS_8Sdf_PoolINS_15Sdf_PathPropTagELj24ELj8ELj16384EE6HandleEENS0_9robin_mapIS7_SB_NS_6TfHashESt8equal_toIS7_ESaISC_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSL_11ValueSelectESE_SG_SH_Lb0ESK_E22insert_value_on_rehashEmsjOSC_.exit: ; preds = %124
   store ptr %127, ptr %126, align 8
   %181 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  %182 = load i32, ptr %116, align 4
-  store i32 %182, ptr %181, align 4
-  store i32 0, ptr %116, align 4
+  %182 = load i32, ptr %116, align 8
+  store i32 %182, ptr %181, align 8
+  store i32 0, ptr %116, align 8
   %183 = getelementptr inbounds nuw i8, ptr %121, i64 20
   %184 = load i32, ptr %117, align 4
   store i32 %184, ptr %183, align 4
@@ -18172,7 +18172,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   %185 = getelementptr inbounds nuw i8, ptr %121, i64 24
   %186 = load i32, ptr %118, align 8
   store i32 %186, ptr %185, align 8
-  store i32 %.029, ptr %121, align 4
+  store i32 %.029, ptr %121, align 8
   store i16 %.0, ptr %122, align 4
   br label %187
 
@@ -18668,14 +18668,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   store i64 %92, ptr %82, align 8
   store ptr %.sroa.0.0.copyload.i.i.i.i.i, ptr %90, align 8
   %93 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  %.sroa.0.0.copyload.i3.i.i.i.i = load i32, ptr %83, align 4
-  %94 = load i32, ptr %93, align 4
-  store i32 %94, ptr %83, align 4
-  store i32 %.sroa.0.0.copyload.i3.i.i.i.i, ptr %93, align 4
-  %95 = load i16, ptr %86, align 2
-  store i16 %.015.i, ptr %86, align 2
-  %96 = load i32, ptr %85, align 4
-  store i32 %.014.i, ptr %85, align 4
+  %.sroa.0.0.copyload.i3.i.i.i.i = load i32, ptr %83, align 8
+  %94 = load i32, ptr %93, align 8
+  store i32 %94, ptr %83, align 8
+  store i32 %.sroa.0.0.copyload.i3.i.i.i.i, ptr %93, align 8
+  %95 = load i16, ptr %86, align 4
+  store i16 %.015.i, ptr %86, align 4
+  %96 = load i32, ptr %85, align 8
+  store i32 %.014.i, ptr %85, align 8
   br label %97
 
 97:                                               ; preds = %91, %84

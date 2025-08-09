@@ -370,7 +370,7 @@ if.then16.i.i.i:                                  ; preds = %if.end12.i.i.i
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPKN6hermes11InstructionEZNS2_25InstructionEscapeAnalysis8addRangeENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsIS3_Lb0ELb0EvEELb0ELb0EEEEEE6EscapeNS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E16InsertIntoBucketIRKS5_JSE_EEEPSJ_SP_OT_DpOT0_.exit.i: ; preds = %if.then16.i.i.i, %if.end12.i.i.i
   store ptr %iter.sroa.0.0143, ptr %TheBucket.addr.0.i.i.i, align 8, !noalias !8
   %second.i.i9.i = getelementptr inbounds nuw i8, ptr %TheBucket.addr.0.i.i.i, i64 8
-  store i64 %ref.tmp24.sroa.0.0.insert.insert, ptr %second.i.i9.i, align 4, !noalias !8
+  store i64 %ref.tmp24.sroa.0.0.insert.insert, ptr %second.i.i9.i, align 8, !noalias !8
   %escapes.val12.pre = load i32, ptr %5, align 8
   br label %if.end26
 
@@ -990,7 +990,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPKN6hermes11InstructionEZNS2_25InstructionEs
   %second.i.i.i = getelementptr inbounds nuw i8, ptr %cond.sink.i.i.i.i, i64 8
   %second.i13.i.i = getelementptr inbounds nuw i8, ptr %B.020.i.i, i64 8
   %7 = load i64, ptr %second.i13.i.i, align 4
-  store i64 %7, ptr %second.i.i.i, align 4
+  store i64 %7, ptr %second.i.i.i, align 8
   %this.val.i14.i.i = load i32, ptr %NumEntries.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %this.val.i14.i.i, 1
   store i32 %add.i.i.i, ptr %NumEntries.i.i.i.i.i, align 8

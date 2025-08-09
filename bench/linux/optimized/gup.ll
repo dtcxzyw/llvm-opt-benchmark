@@ -603,7 +603,7 @@ define dso_local void @unpin_user_page(ptr noundef %0) #0 align 16 {
   %39 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %38
   %40 = load ptr, ptr %39, align 8
   tail call void @mod_node_page_state(ptr noundef %40, i32 noundef 36, i64 noundef 1) #9
-  %41 = load volatile i64, ptr %30, align 8
+  %41 = load volatile i64, ptr %30, align 16
   %42 = and i64 %41, 64
   %43 = icmp eq i64 %42, 0
   br i1 %43, label %46, label %44
@@ -652,7 +652,7 @@ define internal fastcc void @gup_put_folio(ptr noundef %0, i32 noundef %1, i32 n
   %17 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %16
   %18 = load ptr, ptr %17, align 8
   tail call void @mod_node_page_state(ptr noundef %18, i32 noundef 36, i64 noundef %14) #9
-  %19 = load volatile i64, ptr %0, align 8
+  %19 = load volatile i64, ptr %0, align 16
   %20 = and i64 %19, 64
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %24, label %22
@@ -891,7 +891,7 @@ define dso_local void @unpin_user_pages_dirty_lock(ptr noundef readonly captures
   %96 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %95
   %97 = load ptr, ptr %96, align 8
   tail call void @mod_node_page_state(ptr noundef %97, i32 noundef 36, i64 noundef %93) #9
-  %98 = load volatile i64, ptr %35, align 8
+  %98 = load volatile i64, ptr %35, align 16
   %99 = and i64 %98, 64
   %100 = icmp eq i64 %99, 0
   br i1 %100, label %103, label %101
@@ -1062,7 +1062,7 @@ define dso_local void @unpin_user_pages(ptr noundef readonly captures(none) %0, 
   %84 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %83
   %85 = load ptr, ptr %84, align 8
   tail call void @mod_node_page_state(ptr noundef %85, i32 noundef 36, i64 noundef %81) #9
-  %86 = load volatile i64, ptr %35, align 8
+  %86 = load volatile i64, ptr %35, align 16
   %87 = and i64 %86, 64
   %88 = icmp eq i64 %87, 0
   br i1 %88, label %91, label %89
@@ -1230,7 +1230,7 @@ define dso_local void @unpin_user_page_range_dirty_lock(ptr noundef %0, i64 noun
   %81 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %80
   %82 = load ptr, ptr %81, align 8
   tail call void @mod_node_page_state(ptr noundef %82, i32 noundef 36, i64 noundef %78) #9
-  %83 = load volatile i64, ptr %35, align 8
+  %83 = load volatile i64, ptr %35, align 16
   %84 = and i64 %83, 64
   %85 = icmp eq i64 %84, 0
   br i1 %85, label %88, label %86
@@ -5250,7 +5250,7 @@ define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 nou
   %385 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %384
   %386 = load ptr, ptr %385, align 8
   call void @mod_node_page_state(ptr noundef %386, i32 noundef 36, i64 noundef 1) #9
-  %387 = load volatile i64, ptr %321, align 8
+  %387 = load volatile i64, ptr %321, align 16
   %388 = and i64 %387, 64
   %389 = icmp eq i64 %388, 0
   br i1 %389, label %392, label %390
@@ -5340,7 +5340,7 @@ define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 nou
   %437 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %436
   %438 = load ptr, ptr %437, align 8
   call void @mod_node_page_state(ptr noundef %438, i32 noundef 36, i64 noundef 1) #9
-  %439 = load volatile i64, ptr %321, align 8
+  %439 = load volatile i64, ptr %321, align 16
   %440 = and i64 %439, 64
   %441 = icmp eq i64 %440, 0
   br i1 %441, label %444, label %442
@@ -5499,7 +5499,7 @@ gup_must_unshare.exit.thread33:                   ; preds = %489, %gup_must_unsh
   %531 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %530
   %532 = load ptr, ptr %531, align 8
   call void @mod_node_page_state(ptr noundef %532, i32 noundef 36, i64 noundef 1) #9
-  %533 = load volatile i64, ptr %321, align 8
+  %533 = load volatile i64, ptr %321, align 16
   %534 = and i64 %533, 64
   %535 = icmp eq i64 %534, 0
   br i1 %535, label %538, label %536
@@ -5687,7 +5687,7 @@ gup_must_unshare.exit.thread33:                   ; preds = %489, %gup_must_unsh
   %644 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %643
   %645 = load ptr, ptr %644, align 8
   call void @mod_node_page_state(ptr noundef %645, i32 noundef 36, i64 noundef %641) #9
-  %646 = load volatile i64, ptr %599, align 8
+  %646 = load volatile i64, ptr %599, align 16
   %647 = and i64 %646, 64
   %648 = icmp eq i64 %647, 0
   br i1 %648, label %651, label %649
@@ -5751,7 +5751,7 @@ gup_must_unshare.exit.thread33:                   ; preds = %489, %gup_must_unsh
   %681 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %680
   %682 = load ptr, ptr %681, align 8
   call void @mod_node_page_state(ptr noundef %682, i32 noundef 36, i64 noundef %678) #9
-  %683 = load volatile i64, ptr %599, align 8
+  %683 = load volatile i64, ptr %599, align 16
   %684 = and i64 %683, 64
   %685 = icmp eq i64 %684, 0
   br i1 %685, label %688, label %686
@@ -5992,7 +5992,7 @@ gup_must_unshare.exit.thread33:                   ; preds = %489, %gup_must_unsh
   %802 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %801
   %803 = load ptr, ptr %802, align 8
   call void @mod_node_page_state(ptr noundef %803, i32 noundef 36, i64 noundef %799) #9
-  %804 = load volatile i64, ptr %753, align 8
+  %804 = load volatile i64, ptr %753, align 16
   %805 = and i64 %804, 64
   %806 = icmp eq i64 %805, 0
   br i1 %806, label %809, label %807
@@ -7143,7 +7143,7 @@ define internal fastcc i64 @__gup_longterm_locked(ptr noundef %0, i64 noundef %1
   %548 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %547
   %549 = load ptr, ptr %548, align 8
   call void @mod_node_page_state(ptr noundef %549, i32 noundef 36, i64 noundef 1) #9
-  %550 = load volatile i64, ptr %539, align 8
+  %550 = load volatile i64, ptr %539, align 16
   %551 = and i64 %550, 64
   %552 = icmp eq i64 %551, 0
   br i1 %552, label %555, label %553
@@ -7710,7 +7710,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @gup_huge_pud(i64 %0, ptr nou
   %109 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %108
   %110 = load ptr, ptr %109, align 8
   tail call void @mod_node_page_state(ptr noundef %110, i32 noundef 36, i64 noundef %106) #9
-  %111 = load volatile i64, ptr %61, align 8
+  %111 = load volatile i64, ptr %61, align 16
   %112 = and i64 %111, 64
   %113 = icmp eq i64 %112, 0
   br i1 %113, label %116, label %114
@@ -7866,7 +7866,7 @@ gup_must_unshare.exit.thread4:                    ; preds = %gup_must_unshare.ex
   %206 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %205
   %207 = load ptr, ptr %206, align 8
   tail call void @mod_node_page_state(ptr noundef %207, i32 noundef 36, i64 noundef %203) #9
-  %208 = load volatile i64, ptr %61, align 8
+  %208 = load volatile i64, ptr %61, align 16
   %209 = and i64 %208, 64
   %210 = icmp eq i64 %209, 0
   br i1 %210, label %213, label %211

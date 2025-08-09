@@ -4879,7 +4879,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
   store i64 %27, ptr %29, align 8, !tbaa !125
   store ptr %19, ptr %16, align 8, !tbaa !124
   store i64 0, ptr %28, align 8, !tbaa !125
-  store i8 0, ptr %19, align 1, !tbaa !31
+  store i8 0, ptr %19, align 8, !tbaa !31
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -4913,7 +4913,7 @@ _ZN7rocksdb14BlockCacheTier8InsertOpC2EOS1_.exit: ; preds = %36, %_ZNKSt7__cxx11
   store i64 %42, ptr %44, align 8, !tbaa !125
   store ptr %34, ptr %31, align 8, !tbaa !124
   store i64 0, ptr %43, align 8, !tbaa !125
-  store i8 0, ptr %34, align 1, !tbaa !31
+  store i8 0, ptr %34, align 8, !tbaa !31
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %47 = load i8, ptr %46, align 8, !tbaa !214, !range !27, !noundef !28

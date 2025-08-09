@@ -720,7 +720,7 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   store ptr %93, ptr %92, align 8
   %94 = getelementptr inbounds nuw i8, ptr %87, i64 24
   store i64 0, ptr %94, align 8
-  store i8 0, ptr %93, align 1
+  store i8 0, ptr %93, align 8
   %95 = getelementptr inbounds nuw i8, ptr %87, i64 48
   %96 = getelementptr inbounds nuw i8, ptr %87, i64 56
   store ptr %95, ptr %96, align 8
@@ -734,13 +734,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   store ptr %100, ptr %99, align 8
   %101 = getelementptr inbounds nuw i8, ptr %87, i64 88
   store i64 0, ptr %101, align 8
-  store i8 0, ptr %100, align 1
+  store i8 0, ptr %100, align 8
   %102 = getelementptr inbounds nuw i8, ptr %87, i64 112
   %103 = getelementptr inbounds nuw i8, ptr %87, i64 128
   store ptr %103, ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %87, i64 120
   store i64 0, ptr %104, align 8
-  store i8 0, ptr %103, align 1
+  store i8 0, ptr %103, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV25X3DNodeElementMetaBoolean, i64 16), ptr %87, align 8
   %105 = getelementptr inbounds nuw i8, ptr %87, i64 144
   store ptr null, ptr %105, align 8
@@ -1286,7 +1286,7 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   store ptr %89, ptr %88, align 8
   %90 = getelementptr inbounds nuw i8, ptr %83, i64 24
   store i64 0, ptr %90, align 8
-  store i8 0, ptr %89, align 1
+  store i8 0, ptr %89, align 8
   %91 = getelementptr inbounds nuw i8, ptr %83, i64 48
   %92 = getelementptr inbounds nuw i8, ptr %83, i64 56
   store ptr %91, ptr %92, align 8
@@ -1300,13 +1300,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   store ptr %96, ptr %95, align 8
   %97 = getelementptr inbounds nuw i8, ptr %83, i64 88
   store i64 0, ptr %97, align 8
-  store i8 0, ptr %96, align 1
+  store i8 0, ptr %96, align 8
   %98 = getelementptr inbounds nuw i8, ptr %83, i64 112
   %99 = getelementptr inbounds nuw i8, ptr %83, i64 128
   store ptr %99, ptr %98, align 8
   %100 = getelementptr inbounds nuw i8, ptr %83, i64 120
   store i64 0, ptr %100, align 8
-  store i8 0, ptr %99, align 1
+  store i8 0, ptr %99, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV24X3DNodeElementMetaDouble, i64 16), ptr %83, align 8
   %101 = getelementptr inbounds nuw i8, ptr %83, i64 144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %101, i8 0, i64 24, i1 false)
@@ -1837,7 +1837,7 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   store ptr %89, ptr %88, align 8
   %90 = getelementptr inbounds nuw i8, ptr %83, i64 24
   store i64 0, ptr %90, align 8
-  store i8 0, ptr %89, align 1
+  store i8 0, ptr %89, align 8
   %91 = getelementptr inbounds nuw i8, ptr %83, i64 48
   %92 = getelementptr inbounds nuw i8, ptr %83, i64 56
   store ptr %91, ptr %92, align 8
@@ -1851,13 +1851,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   store ptr %96, ptr %95, align 8
   %97 = getelementptr inbounds nuw i8, ptr %83, i64 88
   store i64 0, ptr %97, align 8
-  store i8 0, ptr %96, align 1
+  store i8 0, ptr %96, align 8
   %98 = getelementptr inbounds nuw i8, ptr %83, i64 112
   %99 = getelementptr inbounds nuw i8, ptr %83, i64 128
   store ptr %99, ptr %98, align 8
   %100 = getelementptr inbounds nuw i8, ptr %83, i64 120
   store i64 0, ptr %100, align 8
-  store i8 0, ptr %99, align 1
+  store i8 0, ptr %99, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV23X3DNodeElementMetaFloat, i64 16), ptr %83, align 8
   %101 = getelementptr inbounds nuw i8, ptr %83, i64 144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %101, i8 0, i64 24, i1 false)
@@ -2388,7 +2388,7 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   store ptr %89, ptr %88, align 8
   %90 = getelementptr inbounds nuw i8, ptr %83, i64 24
   store i64 0, ptr %90, align 8
-  store i8 0, ptr %89, align 1
+  store i8 0, ptr %89, align 8
   %91 = getelementptr inbounds nuw i8, ptr %83, i64 48
   %92 = getelementptr inbounds nuw i8, ptr %83, i64 56
   store ptr %91, ptr %92, align 8
@@ -2402,13 +2402,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   store ptr %96, ptr %95, align 8
   %97 = getelementptr inbounds nuw i8, ptr %83, i64 88
   store i64 0, ptr %97, align 8
-  store i8 0, ptr %96, align 1
+  store i8 0, ptr %96, align 8
   %98 = getelementptr inbounds nuw i8, ptr %83, i64 112
   %99 = getelementptr inbounds nuw i8, ptr %83, i64 128
   store ptr %99, ptr %98, align 8
   %100 = getelementptr inbounds nuw i8, ptr %83, i64 120
   store i64 0, ptr %100, align 8
-  store i8 0, ptr %99, align 1
+  store i8 0, ptr %99, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV21X3DNodeElementMetaInt, i64 16), ptr %83, align 8
   %101 = getelementptr inbounds nuw i8, ptr %83, i64 144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %101, i8 0, i64 24, i1 false)
@@ -2932,7 +2932,7 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   store ptr %86, ptr %85, align 8
   %87 = getelementptr inbounds nuw i8, ptr %80, i64 24
   store i64 0, ptr %87, align 8
-  store i8 0, ptr %86, align 1
+  store i8 0, ptr %86, align 8
   %88 = getelementptr inbounds nuw i8, ptr %80, i64 48
   %89 = getelementptr inbounds nuw i8, ptr %80, i64 56
   store ptr %88, ptr %89, align 8
@@ -2946,13 +2946,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   store ptr %93, ptr %92, align 8
   %94 = getelementptr inbounds nuw i8, ptr %80, i64 88
   store i64 0, ptr %94, align 8
-  store i8 0, ptr %93, align 1
+  store i8 0, ptr %93, align 8
   %95 = getelementptr inbounds nuw i8, ptr %80, i64 112
   %96 = getelementptr inbounds nuw i8, ptr %80, i64 128
   store ptr %96, ptr %95, align 8
   %97 = getelementptr inbounds nuw i8, ptr %80, i64 120
   store i64 0, ptr %97, align 8
-  store i8 0, ptr %96, align 1
+  store i8 0, ptr %96, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV21X3DNodeElementMetaSet, i64 16), ptr %80, align 8
   %98 = getelementptr inbounds nuw i8, ptr %80, i64 144
   %99 = getelementptr inbounds nuw i8, ptr %80, i64 152
@@ -3453,7 +3453,7 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   store ptr %89, ptr %88, align 8
   %90 = getelementptr inbounds nuw i8, ptr %83, i64 24
   store i64 0, ptr %90, align 8
-  store i8 0, ptr %89, align 1
+  store i8 0, ptr %89, align 8
   %91 = getelementptr inbounds nuw i8, ptr %83, i64 48
   %92 = getelementptr inbounds nuw i8, ptr %83, i64 56
   store ptr %91, ptr %92, align 8
@@ -3467,13 +3467,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   store ptr %96, ptr %95, align 8
   %97 = getelementptr inbounds nuw i8, ptr %83, i64 88
   store i64 0, ptr %97, align 8
-  store i8 0, ptr %96, align 1
+  store i8 0, ptr %96, align 8
   %98 = getelementptr inbounds nuw i8, ptr %83, i64 112
   %99 = getelementptr inbounds nuw i8, ptr %83, i64 128
   store ptr %99, ptr %98, align 8
   %100 = getelementptr inbounds nuw i8, ptr %83, i64 120
   store i64 0, ptr %100, align 8
-  store i8 0, ptr %99, align 1
+  store i8 0, ptr %99, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV24X3DNodeElementMetaString, i64 16), ptr %83, align 8
   %101 = getelementptr inbounds nuw i8, ptr %83, i64 144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %101, i8 0, i64 24, i1 false)

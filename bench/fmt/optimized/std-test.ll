@@ -15780,7 +15780,7 @@ define hidden void @_ZN23std_test_exception_Test8TestBodyEv(ptr nonnull readnone
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i64 12, ptr %35, align 8, !tbaa !15
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 36
-  store i8 0, ptr %36, align 1, !tbaa !14
+  store i8 0, ptr %36, align 4, !tbaa !14
   invoke void @__cxa_throw(ptr nonnull %29, ptr nonnull @_ZTIN6my_ns16my_ns212my_exceptionE, ptr nonnull @_ZN6my_ns16my_ns212my_exceptionD2Ev) #33
           to label %362 unwind label %.body.thread
 
@@ -52171,7 +52171,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %9, align 8, !tbaa !15
-  store i8 0, ptr %8, align 1, !tbaa !14
+  store i8 0, ptr %8, align 8, !tbaa !14
   store ptr %7, ptr %4, align 8, !tbaa !50
   br label %10
 

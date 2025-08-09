@@ -21264,8 +21264,8 @@ _ZN3vcg16QualityMeanRatioIfEET_RKNS_6Point3IS1_EES5_S5_.exit: ; preds = %2307, %
   %2603 = fmul float %2554, %2602
   %2604 = getelementptr inbounds nuw i8, ptr %2568, i64 8
   %2605 = getelementptr inbounds nuw i8, ptr %2556, i64 8
-  %2606 = load float, ptr %2604, align 4
-  %2607 = load float, ptr %2605, align 4
+  %2606 = load float, ptr %2604, align 8
+  %2607 = load float, ptr %2605, align 8
   %2608 = fsub float %2606, %2607
   %2609 = getelementptr inbounds nuw i8, ptr %2568, i64 12
   %2610 = load float, ptr %2609, align 4
@@ -21273,18 +21273,18 @@ _ZN3vcg16QualityMeanRatioIfEET_RKNS_6Point3IS1_EES5_S5_.exit: ; preds = %2307, %
   %2612 = load float, ptr %2611, align 4
   %2613 = fsub float %2610, %2612
   %2614 = getelementptr inbounds nuw i8, ptr %2568, i64 16
-  %2615 = load float, ptr %2614, align 4
+  %2615 = load float, ptr %2614, align 8
   %2616 = getelementptr inbounds nuw i8, ptr %2556, i64 16
-  %2617 = load float, ptr %2616, align 4
+  %2617 = load float, ptr %2616, align 8
   %2618 = fsub float %2615, %2617
   %2619 = getelementptr inbounds nuw i8, ptr %2580, i64 8
-  %2620 = load float, ptr %2619, align 4
+  %2620 = load float, ptr %2619, align 8
   %2621 = fsub float %2620, %2607
   %2622 = getelementptr inbounds nuw i8, ptr %2580, i64 12
   %2623 = load float, ptr %2622, align 4
   %2624 = fsub float %2623, %2612
   %2625 = getelementptr inbounds nuw i8, ptr %2580, i64 16
-  %2626 = load float, ptr %2625, align 4
+  %2626 = load float, ptr %2625, align 8
   %2627 = fsub float %2626, %2617
   %2628 = fneg float %2624
   %2629 = fmul float %2618, %2628
@@ -22339,7 +22339,7 @@ _ZN7QStringD2Ev.exit1352:                         ; preds = %2983, %_ZN9QtPrivat
   %3051 = load float, ptr %3050, align 4
   %3052 = call noundef float @llvm.floor.f32(float %3051)
   %3053 = getelementptr inbounds nuw i8, ptr %3046, i64 8
-  %3054 = load i16, ptr %3053, align 2
+  %3054 = load i16, ptr %3053, align 4
   %3055 = sext i16 %3054 to i32
   %3056 = icmp sgt i16 %3054, -1
   br i1 %3056, label %3057, label %3090
@@ -23913,7 +23913,7 @@ define linkonce_odr void @_ZN3vcg3tri11UpdateColorI6CMeshOE23PerVertexPerlinColo
   %.sroa.2.0.insert.insert = or disjoint i32 %.sroa.3.0.insert.insert, %.sroa.2.0.insert.shift
   %.sroa.0.0.insert.ext = and i32 %50, 255
   %.sroa.0.0.insert.insert = or disjoint i32 %.sroa.2.0.insert.insert, %.sroa.0.0.insert.ext
-  store i32 %.sroa.0.0.insert.insert, ptr %60, align 1
+  store i32 %.sroa.0.0.insert.insert, ptr %60, align 4
   %.pre = load ptr, ptr %10, align 8
   br label %61
 
@@ -25232,7 +25232,7 @@ _ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit: ; preds = %
   %49 = fpext float %48 to double
   %50 = tail call i32 @_ZN3vcg15GetColorMappingEdddNS_8ColorMapE(double noundef %49, double noundef %40, double noundef %41, i32 noundef %3)
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.013.021, i64 40
-  store i32 %50, ptr %51, align 1
+  store i32 %50, ptr %51, align 4
   br label %52
 
 52:                                               ; preds = %42, %46
@@ -39871,7 +39871,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 32
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 80
-  %47 = load i32, ptr %46, align 4
+  %47 = load i32, ptr %46, align 8
   br label %48
 
 48:                                               ; preds = %_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit, %13, %43
@@ -40018,7 +40018,7 @@ _ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEEfEC2ERKS4_.exit: ; pre
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %61 = load i32, ptr %60, align 4
+  %61 = load i32, ptr %60, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #30
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %59, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %61, 1

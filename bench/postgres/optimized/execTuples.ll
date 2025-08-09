@@ -80,11 +80,11 @@ define internal void @tts_virtual_clear(ptr noundef captures(none) initializes((
   %13 = or i16 %11, 2
   store i16 %13, ptr %2, align 4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i16 -1, ptr %14, align 2
+  store i16 -1, ptr %14, align 4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 50
   store i16 -1, ptr %15, align 2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i16 0, ptr %16, align 2
+  store i16 0, ptr %16, align 4
   ret void
 }
 
@@ -466,11 +466,11 @@ tts_virtual_clear.exit:                           ; preds = %2, %8
   %15 = or i16 %13, 2
   store i16 %15, ptr %5, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i16 -1, ptr %16, align 2
+  store i16 -1, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 50
   store i16 -1, ptr %17, align 2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i16 0, ptr %18, align 2
+  store i16 0, ptr %18, align 4
   %19 = load ptr, ptr %3, align 8
   %20 = load i32, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 6
@@ -596,11 +596,11 @@ define internal void @tts_heap_clear(ptr noundef captures(none) initializes((6, 
   %13 = or i16 %11, 2
   store i16 %13, ptr %2, align 4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i16 -1, ptr %14, align 2
+  store i16 -1, ptr %14, align 4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 50
   store i16 -1, ptr %15, align 2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i16 0, ptr %16, align 2
+  store i16 0, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1605,11 +1605,11 @@ define internal void @tts_minimal_clear(ptr noundef captures(none) initializes((
   %13 = or i16 %11, 2
   store i16 %13, ptr %2, align 4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i16 -1, ptr %14, align 2
+  store i16 -1, ptr %14, align 4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 50
   store i16 -1, ptr %15, align 2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i16 0, ptr %16, align 2
+  store i16 0, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 0, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2629,11 +2629,11 @@ define internal void @tts_buffer_heap_clear(ptr noundef captures(none) initializ
   %18 = or i16 %16, 2
   store i16 %18, ptr %2, align 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i16 -1, ptr %19, align 2
+  store i16 -1, ptr %19, align 4
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 50
   store i16 -1, ptr %20, align 2
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i16 0, ptr %21, align 2
+  store i16 0, ptr %21, align 4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr null, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72

@@ -7528,9 +7528,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, i8 0, i64 16, i1 false), !alias.scope !49, !noalias !46
   %56 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %57 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
-  %58 = load i32, ptr %57, align 4, !alias.scope !49, !noalias !46
-  store i32 %58, ptr %56, align 4, !alias.scope !46, !noalias !49
-  store i32 0, ptr %57, align 4, !alias.scope !49, !noalias !46
+  %58 = load i32, ptr %57, align 8, !alias.scope !49, !noalias !46
+  store i32 %58, ptr %56, align 8, !alias.scope !46, !noalias !49
+  store i32 0, ptr %57, align 8, !alias.scope !49, !noalias !46
   %59 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 36
   %60 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 36
   %61 = load i32, ptr %60, align 4, !alias.scope !49, !noalias !46
@@ -7570,9 +7570,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22UsdValidationErrorSiteESaIS1_E
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, i8 0, i64 16, i1 false), !alias.scope !55, !noalias !52
   %75 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 32
   %76 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 32
-  %77 = load i32, ptr %76, align 4, !alias.scope !55, !noalias !52
-  store i32 %77, ptr %75, align 4, !alias.scope !52, !noalias !55
-  store i32 0, ptr %76, align 4, !alias.scope !55, !noalias !52
+  %77 = load i32, ptr %76, align 8, !alias.scope !55, !noalias !52
+  store i32 %77, ptr %75, align 8, !alias.scope !52, !noalias !55
+  store i32 0, ptr %76, align 8, !alias.scope !55, !noalias !52
   %78 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 36
   %79 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 36
   %80 = load i32, ptr %79, align 4, !alias.scope !55, !noalias !52

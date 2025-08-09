@@ -3631,7 +3631,7 @@ _ZN9typst_svg11SVGRenderer12render_group17hab2748341e3aa815E.exit: ; preds = %33
   call void @llvm.lifetime.end.p0(ptr nonnull %121), !noalias !619
   call void @llvm.experimental.noalias.scope.decl(metadata !630)
   %379 = getelementptr inbounds nuw i8, ptr %.sroa.0.093, i64 160
-  %380 = load double, ptr %379, align 8, !alias.scope !630, !noalias !633, !noundef !37
+  %380 = load double, ptr %379, align 16, !alias.scope !630, !noalias !633, !noundef !37
   %381 = call noundef double @_ZN5typst6layout3abs3Abs5to_pt17hb03eedad55f691b4E(double noundef %380), !noalias !636
   %382 = getelementptr inbounds nuw i8, ptr %.sroa.0.093, i64 152
   %383 = call noundef double @_ZN5typst4text4font4Font12units_per_em17h948a33facd92266cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %382), !noalias !633
@@ -3670,7 +3670,7 @@ _ZN9typst_svg11SVGRenderer12render_group17hab2748341e3aa815E.exit: ; preds = %33
   call void @llvm.lifetime.end.p0(ptr nonnull %47), !noalias !649
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   %385 = getelementptr i8, ptr %.sroa.0.093, i64 32
-  %.val.i5 = load ptr, ptr %385, align 8, !alias.scope !630, !noalias !633, !nonnull !37, !noundef !37
+  %.val.i5 = load ptr, ptr %385, align 16, !alias.scope !630, !noalias !633, !nonnull !37, !noundef !37
   %386 = getelementptr i8, ptr %.sroa.0.093, i64 40
   %.val4.i = load i64, ptr %386, align 8, !alias.scope !630, !noalias !633, !noundef !37
   %.idx = mul nsw i64 %.val4.i, 40
@@ -7398,7 +7398,7 @@ default.unreachable164.i:                         ; preds = %.noexc58
   store i128 %705, ptr %273, align 16, !noalias !1467
   store i64 %.sroa.7.0158.i, ptr %.sroa.6.0..sroa_idx.i45, align 16, !noalias !1467
   store i32 %704, ptr %.sroa.7124.0..sroa_idx.i, align 8, !noalias !1467
-  %706 = load i64, ptr %703, align 8, !range !405, !noundef !37
+  %706 = load i64, ptr %703, align 16, !range !405, !noundef !37
   switch i64 %706, label %default.unreachable [
     i64 0, label %707
     i64 1, label %722
@@ -9362,7 +9362,7 @@ _ZN9typst_svg11SVGRenderer19write_gradient_refs17hfcc1294aebf2d1a8E.exit: ; pred
   store i32 %1152, ptr %.sroa.6.0..sroa_idx.i140, align 8, !noalias !2151
   call void @llvm.lifetime.start.p0(ptr nonnull %89), !noalias !2151
   %1154 = getelementptr inbounds nuw i8, ptr %.sroa.09.020.i, i64 32
-  %1155 = load double, ptr %1154, align 8, !noundef !37
+  %1155 = load double, ptr %1154, align 16, !noundef !37
   %1156 = invoke noundef double @_ZN5typst6layout5angle5Angle3cos17h1c9fe469e9230507E(double noundef %1155)
           to label %.noexc147 unwind label %.body.thread208.loopexit.split-lp.loopexit
 

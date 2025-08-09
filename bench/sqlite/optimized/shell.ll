@@ -40414,7 +40414,7 @@ define internal i32 @zipfileConnect(ptr noundef %0, ptr readnone captures(none) 
   %39 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store ptr %38, ptr %39, align 8, !tbaa !839
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr nonnull align 1 %.034, i64 %27, i1 false)
-  %40 = load i8, ptr %38, align 1, !tbaa !25
+  %40 = load i8, ptr %38, align 8, !tbaa !25
   switch i8 %40, label %zipfileDequote.exit [
     i8 96, label %41
     i8 91, label %41
@@ -47742,7 +47742,7 @@ dbdataBufferSize.exit:                            ; preds = %dbdataBufferSize.ex
 thread-pre-split:                                 ; preds = %.preheader342, %33
   %.val239 = load ptr, ptr %13, align 8, !tbaa !986
   store ptr null, ptr %9, align 8, !tbaa !29
-  store i32 0, ptr %12, align 4, !tbaa !36
+  store i32 0, ptr %12, align 8, !tbaa !36
   %.not.i = icmp eq i32 %31, 0
   br i1 %.not.i, label %.thread, label %36
 
@@ -47780,7 +47780,7 @@ thread-pre-split:                                 ; preds = %.preheader342, %33
 53:                                               ; preds = %48, %44
   %.3.i = phi i32 [ 0, %48 ], [ 7, %44 ]
   store ptr %47, ptr %9, align 8, !tbaa !29
-  store i32 %42, ptr %12, align 4, !tbaa !36
+  store i32 %42, ptr %12, align 8, !tbaa !36
   %54 = tail call i32 @sqlite3_reset(ptr noundef %.val239) #43
   %spec.select.i = select i1 %.not2.i, i32 %.3.i, i32 %54
   br label %dbdataLoadPage.exit
@@ -52952,7 +52952,7 @@ define internal fastcc i32 @recoverDatabaseCmd(ptr noundef nonnull %0, i32 nound
   %61 = getelementptr inbounds nuw i8, ptr %56, i64 333
   %62 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store ptr %61, ptr %62, align 8, !tbaa !343
-  store i32 1852399981, ptr %59, align 1
+  store i32 1852399981, ptr %59, align 8
   %63 = getelementptr inbounds nuw i8, ptr %56, i64 32
   store ptr @recoverSqlCb, ptr %63, align 8, !tbaa !344
   %64 = getelementptr inbounds nuw i8, ptr %56, i64 24

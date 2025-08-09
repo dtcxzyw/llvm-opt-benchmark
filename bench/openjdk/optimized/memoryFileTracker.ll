@@ -661,7 +661,7 @@ define hidden void @_ZN17MemoryFileTracker8Instance20print_all_reports_onEP12out
   %12 = load ptr, ptr @_ZN17MemoryFileTracker8Instance8_trackerE, align 8
   tail call void @_ZN17MemoryFileTracker15print_report_onEPKNS_10MemoryFileEP12outputStreamm(ptr noundef nonnull align 8 dereferenceable(112) %12, ptr noundef readonly %11, ptr noundef nonnull %0, i64 noundef %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = load i32, ptr %4, align 4
+  %13 = load i32, ptr %4, align 8
   %14 = sext i32 %13 to i64
   %15 = icmp slt i64 %indvars.iv.next, %14
   br i1 %15, label %8, label %._crit_edge, !llvm.loop !14

@@ -3234,7 +3234,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
   store i64 %19, ptr %20, align 8
   store ptr %10, ptr %7, align 8
   store i64 0, ptr %18, align 8
-  store i8 0, ptr %10, align 1
+  store i8 0, ptr %10, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %21, ptr noundef nonnull align 8 dereferenceable(5) %22, i64 5, i1 false)

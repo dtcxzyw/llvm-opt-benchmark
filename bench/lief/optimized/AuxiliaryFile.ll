@@ -764,7 +764,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %53, ptr %52, align 8, !tbaa !40, !noalias !48
   %54 = getelementptr inbounds nuw i8, ptr %49, i64 48
   store i64 0, ptr %54, align 8, !tbaa !32, !noalias !48
-  store i8 0, ptr %53, align 1, !tbaa !33, !noalias !48
+  store i8 0, ptr %53, align 8, !tbaa !33, !noalias !48
   store ptr %49, ptr %0, align 8, !tbaa !41, !alias.scope !48
   %.pre = load i8, ptr %18, align 8, !tbaa !22, !range !24
   %55 = trunc nuw i8 %.pre to i1

@@ -3792,7 +3792,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !tbaa !15, !alias.scope !318, !noalias !321
   store ptr %43, ptr %.0911.i.i.i, align 8, !tbaa !16, !alias.scope !321, !noalias !318
   store i64 0, ptr %52, align 8, !tbaa !15, !alias.scope !321, !noalias !318
-  store i8 0, ptr %43, align 1, !tbaa !47, !alias.scope !321, !noalias !318
+  store i8 0, ptr %43, align 8, !tbaa !47, !alias.scope !321, !noalias !318
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %54, %1
@@ -3840,7 +3840,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !tbaa !15, !alias.scope !325, !noalias !328
   store ptr %59, ptr %.0911.i.i.i29, align 8, !tbaa !16, !alias.scope !328, !noalias !325
   store i64 0, ptr %68, align 8, !tbaa !15, !alias.scope !328, !noalias !325
-  store i8 0, ptr %59, align 1, !tbaa !47, !alias.scope !328, !noalias !325
+  store i8 0, ptr %59, align 8, !tbaa !47, !alias.scope !328, !noalias !325
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %.not.i.i.i34 = icmp eq ptr %70, %6
@@ -4211,7 +4211,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %20, ptr %21, align 8, !tbaa !15
   store ptr %11, ptr %8, align 8, !tbaa !16
   store i64 0, ptr %19, align 8, !tbaa !15
-  store i8 0, ptr %11, align 1, !tbaa !47
+  store i8 0, ptr %11, align 8, !tbaa !47
   %.01318 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.not19 = icmp eq ptr %.01318, %1
   br i1 %.not19, label %._crit_edge, label %.lr.ph
@@ -4250,7 +4250,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %32, ptr %34, align 8, !tbaa !15
   store ptr %24, ptr %.021, align 8, !tbaa !16
   store i64 0, ptr %33, align 8, !tbaa !15
-  store i8 0, ptr %24, align 1, !tbaa !47
+  store i8 0, ptr %24, align 8, !tbaa !47
   %35 = getelementptr inbounds nuw i8, ptr %.021, i64 32
   %.013 = getelementptr inbounds nuw i8, ptr %.01322, i64 32
   %.not = icmp eq ptr %.013, %1
@@ -4432,7 +4432,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %36
   store i64 %42, ptr %14, align 8, !tbaa !15
   store ptr %32, ptr %18, align 8, !tbaa !16
   store i64 0, ptr %43, align 8, !tbaa !15
-  store i8 0, ptr %32, align 1, !tbaa !47
+  store i8 0, ptr %32, align 8, !tbaa !47
   %44 = load i64, ptr %0, align 8, !tbaa !37
   %45 = sub i64 %44, %16
   %46 = ashr exact i64 %45, 5
@@ -4678,7 +4678,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
   store i64 %136, ptr %10, align 8, !tbaa !15
   store ptr %32, ptr %18, align 8, !tbaa !16
   store i64 0, ptr %137, align 8, !tbaa !15
-  store i8 0, ptr %32, align 1, !tbaa !47
+  store i8 0, ptr %32, align 8, !tbaa !47
   %138 = load ptr, ptr %11, align 8, !tbaa !64
   %.not10.i.i.i.i1068 = icmp eq ptr %138, null
   br i1 %.not10.i.i.i.i1068, label %.critedge.i30.invoke, label %.lr.ph.i.i.i.i11
@@ -11494,7 +11494,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %36
   store i64 %42, ptr %14, align 8, !tbaa !15
   store ptr %32, ptr %18, align 8, !tbaa !16
   store i64 0, ptr %43, align 8, !tbaa !15
-  store i8 0, ptr %32, align 1, !tbaa !47
+  store i8 0, ptr %32, align 8, !tbaa !47
   %44 = load i64, ptr %0, align 8, !tbaa !37
   %45 = sub i64 %44, %16
   %46 = ashr exact i64 %45, 5
@@ -11740,7 +11740,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
   store i64 %136, ptr %10, align 8, !tbaa !15
   store ptr %32, ptr %18, align 8, !tbaa !16
   store i64 0, ptr %137, align 8, !tbaa !15
-  store i8 0, ptr %32, align 1, !tbaa !47
+  store i8 0, ptr %32, align 8, !tbaa !47
   %138 = load ptr, ptr %11, align 8, !tbaa !64
   %.not10.i.i.i.i1068 = icmp eq ptr %138, null
   br i1 %.not10.i.i.i.i1068, label %.critedge.i30.invoke, label %.lr.ph.i.i.i.i11

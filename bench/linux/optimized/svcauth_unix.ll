@@ -387,7 +387,7 @@ define dso_local noundef range(i32 5, 9) i32 @svcauth_unix_set_client(ptr nounde
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 -65536, ptr %23, align 4
+  store i32 -65536, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 %21, ptr %24, align 4
   br label %26
@@ -2014,7 +2014,7 @@ define internal void @ip_map_request(ptr readnone captures(none) %0, ptr noundef
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr i8, ptr %1, i64 64
-  %9 = load i32, ptr %8, align 4
+  %9 = load i32, ptr %8, align 8
   %10 = xor i32 %9, -65536
   %11 = zext i32 %10 to i64
   %12 = or i64 %7, %11
@@ -2097,7 +2097,7 @@ define internal noundef range(i32 -22, 1) i32 @ip_map_parse(ptr noundef %0, ptr 
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i32 -65536, ptr %34, align 4
+  store i32 -65536, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i32 %32, ptr %35, align 4
   br label %37
@@ -2223,7 +2223,7 @@ define internal noundef i32 @ip_map_show(ptr noundef %0, ptr readnone captures(n
   %23 = phi ptr [ %21, %17 ], [ @.str.16, %13 ], [ @.str.16, %7 ]
   %24 = load i64, ptr %4, align 8
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %26 = load i32, ptr %25, align 4
+  %26 = load i32, ptr %25, align 8
   %27 = xor i32 %26, -65536
   %28 = zext i32 %27 to i64
   %29 = or i64 %24, %28

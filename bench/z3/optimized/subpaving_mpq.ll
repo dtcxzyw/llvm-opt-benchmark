@@ -24718,7 +24718,7 @@ _ZNK9subpaving9context_tINS_10config_mpqEE6is_intEPKNS2_10polynomialE.exit: ; pr
   %186 = getelementptr inbounds nuw %class.mpq, ptr %184, i64 %185
   %187 = load i32, ptr %186, align 4, !tbaa !35
   store i32 0, ptr %186, align 4, !tbaa !35
-  store i32 %187, ptr %175, align 4, !tbaa !35
+  store i32 %187, ptr %175, align 8, !tbaa !35
   %188 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %189 = load ptr, ptr %188, align 8, !tbaa !229
   store ptr null, ptr %188, align 8, !tbaa !229
@@ -24746,10 +24746,10 @@ _ZNK9subpaving9context_tINS_10config_mpqEE6is_intEPKNS2_10polynomialE.exit: ; pr
   %207 = or disjoint i8 %206, %201
   store i8 %207, ptr %176, align 4
   %208 = getelementptr inbounds nuw i8, ptr %186, i64 16
-  %209 = load i32, ptr %208, align 4, !tbaa !35
-  %210 = load i32, ptr %178, align 4, !tbaa !35
-  store i32 %210, ptr %208, align 4, !tbaa !35
-  store i32 %209, ptr %178, align 4, !tbaa !35
+  %209 = load i32, ptr %208, align 8, !tbaa !35
+  %210 = load i32, ptr %178, align 8, !tbaa !35
+  store i32 %210, ptr %208, align 8, !tbaa !35
+  store i32 %209, ptr %178, align 8, !tbaa !35
   %211 = getelementptr inbounds nuw i8, ptr %186, i64 24
   %212 = load ptr, ptr %211, align 8, !tbaa !229
   %213 = load ptr, ptr %180, align 8, !tbaa !229

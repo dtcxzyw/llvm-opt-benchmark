@@ -11668,7 +11668,7 @@ _area_mapping_active.exit.thread.i:               ; preds = %_area_mapping_activ
   %322 = call ptr @g_type_check_instance_cast(ptr noundef %321, i64 noundef 80) #27
   %323 = call i64 @g_signal_connect_data(ptr noundef %322, ptr noundef nonnull @.str.121, ptr noundef nonnull @_spot_settings_changed_callback, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #27
   %324 = getelementptr inbounds nuw i8, ptr %18, i64 816
-  %325 = load ptr, ptr %324, align 8, !tbaa !317
+  %325 = load ptr, ptr %324, align 16, !tbaa !317
   %326 = call ptr @g_type_check_instance_cast(ptr noundef %325, i64 noundef %61) #27
   %327 = load ptr, ptr %229, align 8, !tbaa !279
   store ptr %327, ptr %5, align 8, !tbaa !14
@@ -11994,7 +11994,7 @@ _area_mapping_section_text.exit333:               ; preds = %383, %_area_mapping
   %510 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.189, i32 noundef 5) #27
   call void @gtk_widget_set_tooltip_text(ptr noundef %509, ptr noundef %510) #27
   %511 = getelementptr inbounds nuw i8, ptr %18, i64 736
-  %512 = load ptr, ptr %511, align 16, !tbaa !332
+  %512 = load ptr, ptr %511, align 32, !tbaa !332
   %513 = call ptr @g_type_check_instance_cast(ptr noundef %512, i64 noundef 80) #27
   %514 = call i64 @g_signal_connect_data(ptr noundef %513, ptr noundef nonnull @.str.135, ptr noundef nonnull @_start_profiling_callback, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #27
   %515 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.199, i32 noundef 5) #27

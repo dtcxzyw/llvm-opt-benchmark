@@ -9240,7 +9240,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValue10_HoldAsideC2EPS0_.exit.i: ; preds
   %30 = inttoptr i64 %29 to ptr
   store ptr %30, ptr %13, align 8
   %31 = load i32, ptr %5, align 8
-  store i32 %31, ptr %11, align 4
+  store i32 %31, ptr %11, align 8
   %.not.i.i.i.i.i.i = icmp eq i32 %31, 0
   br i1 %.not.i.i.i.i.i.i, label %43, label %32
 
@@ -29466,7 +29466,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_Coun
   store ptr %19, ptr %10, align 8, !noalias !220
   %.pre = load ptr, ptr %0, align 8
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store atomic i32 0, ptr %29 seq_cst, align 4, !noalias !220
+  store atomic i32 0, ptr %29 seq_cst, align 8, !noalias !220
   %30 = atomicrmw add ptr %29, i32 1 monotonic, align 4, !noalias !220
   %.not.i.i = icmp eq ptr %.pre, null
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_7VtValue8_CountedISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EEEEEED2Ev.exit, label %31

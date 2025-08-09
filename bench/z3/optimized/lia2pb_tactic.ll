@@ -2823,7 +2823,7 @@ _ZN3refI23generic_model_converterEaSEPS0_.exit:   ; preds = %349
   %358 = getelementptr inbounds nuw i8, ptr %350, i64 48
   store i64 6, ptr %358, align 8, !tbaa !56
   %359 = getelementptr inbounds nuw i8, ptr %350, i64 62
-  store i8 0, ptr %359, align 1, !tbaa !50
+  store i8 0, ptr %359, align 2, !tbaa !50
   %360 = getelementptr inbounds nuw i8, ptr %350, i64 72
   store ptr null, ptr %360, align 8, !tbaa !120
   store i32 1, ptr %352, align 8, !tbaa !123

@@ -43,7 +43,7 @@ define internal range(i32 -2147483648, 1) i32 @h261_decode_init(ptr noundef init
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 30000, ptr %4, align 4, !tbaa !27
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i32 1001, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !27
+  store i32 1001, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !27
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 1480
   store i32 2, ptr %5, align 8, !tbaa !28
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 4808
@@ -602,7 +602,7 @@ get_vlc2.exit114.i.i:                             ; preds = %323, %276
   %343 = add i32 %.0.i113.i.i, %.064.i111.i.i
   %344 = tail call i32 @llvm.umin.i32(i32 %305, i32 %343)
   store i32 %344, ptr %22, align 8, !tbaa !65
-  store i32 %.062.i112.i.i, ptr %134, align 4, !tbaa !88
+  store i32 %.062.i112.i.i, ptr %134, align 8, !tbaa !88
   %345 = icmp slt i32 %.062.i112.i.i, 0
   br i1 %345, label %346, label %348
 

@@ -5032,7 +5032,7 @@ _init_l_Lean_initFn____x40_Lean_Hygiene___hyg_337____closed__5.exit: ; preds = %
   %.val27 = load ptr, ptr %176, align 8, !tbaa !9
   store ptr %.val27, ptr @l_Lean_pp_sanitizeNames, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %.val27) #3
-  %177 = load i32, ptr %172, align 4, !tbaa !4
+  %177 = load i32, ptr %172, align 8, !tbaa !4
   %178 = icmp sgt i32 %177, 1
   br i1 %178, label %179, label %181, !prof !11
 

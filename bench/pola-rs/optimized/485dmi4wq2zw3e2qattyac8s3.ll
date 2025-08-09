@@ -15045,7 +15045,7 @@ default.unreachable:                              ; preds = %"_ZN81_$LT$polars_p
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2301)
   %209 = getelementptr inbounds nuw i8, ptr %.sroa.027.0270.i, i64 24
   %210 = getelementptr inbounds nuw i8, ptr %.sroa.027.0270.i, i64 16
-  %211 = load ptr, ptr %210, align 8, !alias.scope !2301, !noalias !2303, !nonnull !12, !noundef !12
+  %211 = load ptr, ptr %210, align 16, !alias.scope !2301, !noalias !2303, !nonnull !12, !noundef !12
   %212 = load i64, ptr %209, align 8, !alias.scope !2301, !noalias !2303, !noundef !12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2304)
   call void @llvm.lifetime.start.p0(ptr nonnull %31), !noalias !2307
@@ -16576,11 +16576,11 @@ default.unreachable:                              ; preds = %"_ZN81_$LT$polars_p
   %.sroa.05.i.sroa.10.24..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.027.0270.i, i64 104
   %.sroa.05.i.sroa.10.sroa.0.0.copyload308.i = load i64, ptr %.sroa.05.i.sroa.10.24..sroa_idx.i, align 8, !noalias !2268
   %.sroa.05.i.sroa.10.sroa.5.0..sroa.05.i.sroa.10.24..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.027.0270.i, i64 112
-  %611 = load i64, ptr %.sroa.05.i.sroa.10.sroa.5.0..sroa.05.i.sroa.10.24..sroa_idx.sroa_idx.i, align 8, !noalias !2268
+  %611 = load i64, ptr %.sroa.05.i.sroa.10.sroa.5.0..sroa.05.i.sroa.10.24..sroa_idx.sroa_idx.i, align 16, !noalias !2268
   %612 = getelementptr inbounds nuw i8, ptr %.sroa.027.0270.i, i64 120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.05.i.sroa.10.sroa.5.i.sroa.5, ptr noundef nonnull align 8 dereferenceable(40) %612, i64 40, i1 false), !noalias !2268
   %613 = getelementptr inbounds nuw i8, ptr %.sroa.027.0270.i, i64 160
-  %614 = load i8, ptr %613, align 8, !range !49, !noalias !2268, !noundef !12
+  %614 = load i8, ptr %613, align 16, !range !49, !noalias !2268, !noundef !12
   br label %606
 
 615:                                              ; preds = %606, %589, %"_ZN81_$LT$polars_plan..dsl..expr..LazySerde$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h595256d2f6f46e59E.exit.i.i", %532, %.noexc26.i, %.noexc25.i, %519, %229, %227, %222, %199, %195, %.noexc18.i, %182, %"_ZN76_$LT$polars_plan..plans..lit..LiteralValue$u20$as$u20$core..clone..Clone$GT$5clone17h0dcffc4dafc63c26E.exit.i.i", %110, %101
@@ -16632,7 +16632,7 @@ default.unreachable:                              ; preds = %"_ZN81_$LT$polars_p
   %.sroa.10170.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %616, i64 52
   store i32 %.sroa.52.sroa.0.1.i, ptr %.sroa.10170.0..sroa_idx.i, align 4, !noalias !2262
   %.sroa.10170.sroa.4.0..sroa.10170.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %616, i64 56
-  store i64 %.sroa.52.sroa.8.1.i, ptr %.sroa.10170.sroa.4.0..sroa.10170.0..sroa_idx.sroa_idx.i, align 4, !noalias !2262
+  store i64 %.sroa.52.sroa.8.1.i, ptr %.sroa.10170.sroa.4.0..sroa.10170.0..sroa_idx.sroa_idx.i, align 8, !noalias !2262
   %.sroa.11171.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %616, i64 64
   store i64 %.sroa.53.1.i, ptr %.sroa.11171.0..sroa_idx.i, align 16, !noalias !2262
   %.sroa.12172.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %616, i64 72
@@ -16644,7 +16644,7 @@ default.unreachable:                              ; preds = %"_ZN81_$LT$polars_p
   %.sroa.15175.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %616, i64 104
   store i64 %.sroa.57.sroa.0.1.i, ptr %.sroa.15175.0..sroa_idx.i, align 8, !noalias !2262
   %.sroa.15175.sroa.4.0..sroa.15175.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %616, i64 112
-  store i64 %.sroa.57.sroa.7.i.sroa.0.1, ptr %.sroa.15175.sroa.4.0..sroa.15175.0..sroa_idx.sroa_idx.i, align 8, !noalias !2262
+  store i64 %.sroa.57.sroa.7.i.sroa.0.1, ptr %.sroa.15175.sroa.4.0..sroa.15175.0..sroa_idx.sroa_idx.i, align 16, !noalias !2262
   %.sroa.57.sroa.7.i.sroa.6.0..sroa.15175.sroa.4.0..sroa.15175.0..sroa_idx.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %616, i64 120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.57.sroa.7.i.sroa.6.0..sroa.15175.sroa.4.0..sroa.15175.0..sroa_idx.sroa_idx.i.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.57.sroa.7.i.sroa.6, i64 16, i1 false), !noalias !2262
   %.sroa.16176.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %616, i64 136
@@ -23427,7 +23427,7 @@ default.unreachable1.i.i.i.i:                     ; preds = %1183
   %.sroa.34346.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1224, i64 280
   store i64 %.sroa.130.sroa.0.1.i, ptr %.sroa.34346.0..sroa_idx.i, align 8, !noalias !2765
   %.sroa.34346.sroa.4.0..sroa.34346.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %1224, i64 288
-  store ptr %.sroa.130.sroa.4.1.i, ptr %.sroa.34346.sroa.4.0..sroa.34346.0..sroa_idx.sroa_idx.i, align 8, !noalias !2765
+  store ptr %.sroa.130.sroa.4.1.i, ptr %.sroa.34346.sroa.4.0..sroa.34346.0..sroa_idx.sroa_idx.i, align 16, !noalias !2765
   %.sroa.34346.sroa.5.0..sroa.34346.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %1224, i64 296
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %.sroa.34346.sroa.5.0..sroa.34346.0..sroa_idx.sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(3) %.sroa.130.sroa.5.i, i64 3, i1 false), !noalias !2765
   %.sroa.35347.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1224, i64 304

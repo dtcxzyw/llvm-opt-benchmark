@@ -703,7 +703,7 @@ define dso_local void @i9xx_wm_init(ptr noundef %0) local_unnamed_addr #0 align 
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 7184
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 8
   br i1 %4, label %154, label %7
 
 7:                                                ; preds = %1
@@ -725,7 +725,7 @@ define dso_local void @i9xx_wm_init(ptr noundef %0) local_unnamed_addr #0 align 
   %20 = trunc i64 %16 to i16
   %21 = and i16 %20, 15
   %22 = select i1 %19, i16 %21, i16 %18
-  store i16 %22, ptr %11, align 2
+  store i16 %22, ptr %11, align 8
   %23 = lshr i16 %20, 4
   %24 = and i16 %23, 255
   %25 = getelementptr i8, ptr %0, i64 6890
@@ -734,7 +734,7 @@ define dso_local void @i9xx_wm_init(ptr noundef %0) local_unnamed_addr #0 align 
   %27 = trunc i64 %26 to i16
   %28 = and i16 %27, 255
   %29 = getelementptr i8, ptr %0, i64 6892
-  store i16 %28, ptr %29, align 2
+  store i16 %28, ptr %29, align 4
   %30 = lshr i64 %16, 20
   %31 = trunc i64 %30 to i16
   %32 = and i16 %31, 511
@@ -761,7 +761,7 @@ define dso_local void @i9xx_wm_init(ptr noundef %0) local_unnamed_addr #0 align 
   %47 = tail call i32 %46(ptr noundef nonnull %43, i32 1334544, i1 noundef zeroext true) #14
   %48 = trunc i32 %47 to i16
   %49 = and i16 %48, 63
-  store i16 %49, ptr %41, align 2
+  store i16 %49, ptr %41, align 8
   %50 = lshr i16 %48, 8
   %51 = and i16 %50, 63
   %52 = getelementptr i8, ptr %0, i64 6890
@@ -770,7 +770,7 @@ define dso_local void @i9xx_wm_init(ptr noundef %0) local_unnamed_addr #0 align 
   %54 = trunc nuw i32 %53 to i16
   %55 = and i16 %54, 63
   %56 = getelementptr i8, ptr %0, i64 6892
-  store i16 %55, ptr %56, align 2
+  store i16 %55, ptr %56, align 4
   %57 = lshr i32 %47, 24
   %58 = trunc nuw nsw i32 %57 to i16
   %59 = and i16 %58, 63
@@ -780,7 +780,7 @@ define dso_local void @i9xx_wm_init(ptr noundef %0) local_unnamed_addr #0 align 
   store i8 3, ptr %42, align 8
   %61 = load ptr, ptr %44, align 8
   %62 = tail call i32 %61(ptr noundef nonnull %43, i32 70178, i1 noundef zeroext true) #14
-  store i16 7, ptr %41, align 2
+  store i16 7, ptr %41, align 8
   %63 = trunc i32 %62 to i16
   %64 = and i16 %63, 63
   %65 = getelementptr i8, ptr %0, i64 6890
@@ -1707,7 +1707,7 @@ define internal void @ilk_wm_get_hw_state(ptr noundef %0) #0 align 16 {
   %68 = load ptr, ptr %3, align 8
   %69 = tail call i32 %68(ptr noundef nonnull %2, i32 282892, i1 noundef zeroext true) #14
   %70 = getelementptr i8, ptr %0, i64 6952
-  store i32 %69, ptr %70, align 4
+  store i32 %69, ptr %70, align 8
   %71 = load ptr, ptr %3, align 8
   %72 = tail call i32 %71(ptr noundef nonnull %2, i32 282896, i1 noundef zeroext true) #14
   %73 = getelementptr i8, ptr %0, i64 6956
@@ -1715,7 +1715,7 @@ define internal void @ilk_wm_get_hw_state(ptr noundef %0) #0 align 16 {
   %74 = load ptr, ptr %3, align 8
   %75 = tail call i32 %74(ptr noundef nonnull %2, i32 282912, i1 noundef zeroext true) #14
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 6960
-  store i32 %75, ptr %76, align 4
+  store i32 %75, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 2632
   %78 = load i16, ptr %77, align 8
   %79 = icmp ugt i16 %78, 6
@@ -1729,7 +1729,7 @@ define internal void @ilk_wm_get_hw_state(ptr noundef %0) #0 align 16 {
   %84 = load ptr, ptr %3, align 8
   %85 = tail call i32 %84(ptr noundef nonnull %2, i32 282920, i1 noundef zeroext true) #14
   %86 = getelementptr i8, ptr %0, i64 6968
-  store i32 %85, ptr %86, align 4
+  store i32 %85, ptr %86, align 8
   br label %87
 
 87:                                               ; preds = %80, %.loopexit3
@@ -2535,7 +2535,7 @@ define internal fastcc void @ilk_program_watermarks(ptr noundef %0) unnamed_addr
   %249 = getelementptr i8, ptr %233, i64 1632
   %250 = load i32, ptr %249, align 8
   %251 = getelementptr i8, ptr %233, i64 1712
-  %252 = load i32, ptr %251, align 4
+  %252 = load i32, ptr %251, align 8
   %253 = shl i32 %252, 16
   %254 = getelementptr i8, ptr %233, i64 1716
   %255 = load i32, ptr %254, align 4
@@ -2543,7 +2543,7 @@ define internal fastcc void @ilk_program_watermarks(ptr noundef %0) unnamed_addr
   %257 = and i32 %256, 65280
   %258 = or disjoint i32 %257, %253
   %259 = getelementptr i8, ptr %233, i64 1720
-  %260 = load i32, ptr %259, align 4
+  %260 = load i32, ptr %259, align 8
   %261 = and i32 %260, 255
   %262 = or disjoint i32 %258, %261
   %263 = sext i32 %250 to i64
@@ -3414,13 +3414,13 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
   %228 = and i8 %224, 6
   %229 = icmp eq i8 %228, 4
   %230 = zext i1 %229 to i32
-  %231 = load i16, ptr %222, align 2
+  %231 = load i16, ptr %222, align 4
   %232 = zext i16 %231 to i32
   %233 = getelementptr i8, ptr %9, i64 1558
   %234 = load i16, ptr %233, align 2
   %235 = zext i16 %234 to i32
   %236 = getelementptr i8, ptr %9, i64 1560
-  %237 = load i16, ptr %236, align 2
+  %237 = load i16, ptr %236, align 8
   %238 = zext i16 %237 to i32
   %239 = add nuw nsw i32 %232, %230
   %240 = add nuw nsw i32 %239, %235
@@ -4237,12 +4237,12 @@ define internal void @vlv_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   %47 = and i16 %46, 63
   %48 = getelementptr i8, ptr %0, i64 6954
   %49 = getelementptr i8, ptr %0, i64 6968
-  store i16 %47, ptr %49, align 2
+  store i16 %47, ptr %49, align 8
   %50 = trunc i32 %41 to i16
   %51 = lshr i16 %50, 8
   store i16 %51, ptr %48, align 2
   %52 = and i16 %50, 255
-  store i16 %52, ptr %34, align 2
+  store i16 %52, ptr %34, align 8
   %53 = load ptr, ptr %35, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %55 = load i32, ptr %54, align 4
@@ -4253,7 +4253,7 @@ define internal void @vlv_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   %60 = trunc nuw i32 %59 to i16
   %61 = and i16 %60, 255
   %62 = getelementptr i8, ptr %0, i64 6940
-  store i16 %61, ptr %62, align 2
+  store i16 %61, ptr %62, align 4
   %63 = trunc i32 %58 to i16
   %64 = lshr i16 %63, 8
   %65 = and i16 %64, 63
@@ -4272,9 +4272,9 @@ define internal void @vlv_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   %76 = trunc nuw nsw i32 %75 to i16
   %77 = and i16 %76, 63
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 6992
-  store i16 %77, ptr %78, align 2
+  store i16 %77, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 7184
-  %80 = load i32, ptr %79, align 4
+  %80 = load i32, ptr %79, align 8
   %81 = and i32 %80, 16777216
   %82 = icmp eq i32 %81, 0
   %83 = load ptr, ptr %4, align 8
@@ -4298,7 +4298,7 @@ define internal void @vlv_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   %97 = and i16 %96, 255
   %98 = getelementptr i8, ptr %0, i64 6972
   %99 = getelementptr i8, ptr %0, i64 6976
-  store i16 %97, ptr %99, align 2
+  store i16 %97, ptr %99, align 8
   %100 = trunc i32 %94 to i16
   %101 = and i16 %100, 255
   %102 = getelementptr i8, ptr %0, i64 6974
@@ -4308,7 +4308,7 @@ define internal void @vlv_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   %105 = lshr i32 %104, 16
   %106 = trunc nuw i32 %105 to i16
   %107 = and i16 %106, 255
-  store i16 %107, ptr %98, align 2
+  store i16 %107, ptr %98, align 4
   %108 = trunc i32 %104 to i16
   %109 = and i16 %108, 63
   %110 = getelementptr i8, ptr %0, i64 6986
@@ -4320,10 +4320,10 @@ define internal void @vlv_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   %115 = trunc i32 %113 to i16
   %116 = and i16 %115, 1536
   %117 = or i16 %116, %114
-  %118 = load i16, ptr %99, align 2
+  %118 = load i16, ptr %99, align 8
   %119 = and i16 %115, 256
   %120 = or i16 %119, %118
-  store i16 %120, ptr %99, align 2
+  store i16 %120, ptr %99, align 8
   %121 = lshr i32 %112, 14
   %122 = load i16, ptr %102, align 2
   %123 = trunc i32 %121 to i16
@@ -4331,11 +4331,11 @@ define internal void @vlv_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   %125 = or i16 %122, %124
   store i16 %125, ptr %102, align 2
   %126 = lshr i32 %112, 13
-  %127 = load i16, ptr %98, align 2
+  %127 = load i16, ptr %98, align 4
   %128 = trunc i32 %126 to i16
   %129 = and i16 %128, 256
   %130 = or i16 %127, %129
-  store i16 %130, ptr %98, align 2
+  store i16 %130, ptr %98, align 4
   %131 = lshr i32 %112, 12
   %132 = load i16, ptr %84, align 2
   %133 = trunc i32 %131 to i16
@@ -4406,8 +4406,8 @@ define internal void @vlv_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   %184 = and i8 %183, 1
   store i8 %184, ptr %181, align 1
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 7020
-  store i8 0, ptr %185, align 2
-  %186 = load i32, ptr %79, align 4
+  store i8 0, ptr %185, align 4
+  %186 = load i32, ptr %79, align 8
   %187 = and i32 %186, 16777216
   %188 = icmp eq i32 %187, 0
   br i1 %188, label %231, label %189
@@ -4943,7 +4943,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @_vlv_compute_pipe_wm(ptr n
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 7024
   %13 = load i8, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1756
-  store i8 %13, ptr %14, align 2
+  store i8 %13, ptr %14, align 4
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 1648
   %16 = load i32, ptr %15, align 8
   %17 = icmp ne i32 %16, 2
@@ -5437,7 +5437,7 @@ define internal fastcc void @vlv_program_watermarks(ptr noundef %0) unnamed_addr
   %222 = load ptr, ptr %104, align 8
   call void %222(ptr noundef nonnull %102, i32 %216, i32 noundef %221, i1 noundef zeroext true) #14
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 7184
-  %224 = load i32, ptr %223, align 4
+  %224 = load i32, ptr %223, align 8
   %225 = and i32 %224, 16777216
   %226 = icmp eq i32 %225, 0
   %227 = getelementptr inbounds nuw i8, ptr %2, i64 22
@@ -6716,19 +6716,19 @@ define internal void @g4x_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   %12 = lshr i32 %11, 23
   %13 = trunc nuw nsw i32 %12 to i16
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 6972
-  store i16 %13, ptr %14, align 2
+  store i16 %13, ptr %14, align 4
   %15 = lshr i32 %11, 16
   %16 = trunc nuw i32 %15 to i16
   %17 = and i16 %16, 63
   %18 = getelementptr i8, ptr %0, i64 6954
   %19 = getelementptr i8, ptr %0, i64 6968
-  store i16 %17, ptr %19, align 2
+  store i16 %17, ptr %19, align 8
   %20 = trunc i32 %11 to i16
   %21 = lshr i16 %20, 8
   %22 = and i16 %21, 127
   store i16 %22, ptr %18, align 2
   %23 = and i16 %20, 127
-  store i16 %23, ptr %2, align 2
+  store i16 %23, ptr %2, align 8
   %24 = load ptr, ptr %4, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %26 = load i32, ptr %25, align 4
@@ -6743,7 +6743,7 @@ define internal void @g4x_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   %34 = trunc nuw nsw i32 %33 to i16
   %35 = and i16 %34, 7
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 6976
-  store i16 %35, ptr %36, align 2
+  store i16 %35, ptr %36, align 8
   %37 = lshr i32 %29, 24
   %38 = trunc nuw nsw i32 %37 to i16
   %39 = and i16 %38, 15
@@ -6754,7 +6754,7 @@ define internal void @g4x_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   %43 = trunc nuw i32 %42 to i16
   %44 = and i16 %43, 127
   %45 = getelementptr i8, ptr %0, i64 6956
-  store i16 %44, ptr %45, align 2
+  store i16 %44, ptr %45, align 4
   %46 = trunc i32 %29 to i16
   %47 = lshr i16 %46, 8
   %48 = and i16 %47, 63
@@ -6782,7 +6782,7 @@ define internal void @g4x_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   %66 = trunc nuw i32 %65 to i16
   %67 = and i16 %66, 63
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 6980
-  store i16 %67, ptr %68, align 2
+  store i16 %67, ptr %68, align 4
   %69 = trunc i32 %57 to i16
   %70 = and i16 %69, 511
   store i16 %70, ptr %40, align 2
@@ -6792,7 +6792,7 @@ define internal void @g4x_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   %74 = lshr i32 %72, 15
   %75 = trunc i32 %74 to i8
   %76 = and i8 %75, 1
-  store i8 %76, ptr %73, align 2
+  store i8 %76, ptr %73, align 8
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %78 = load ptr, ptr %77, align 8
   %79 = icmp eq ptr %78, %77
@@ -6818,7 +6818,7 @@ define internal void @g4x_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   store i8 %92, ptr %93, align 1
   %94 = load i8, ptr %30, align 2, !range !27, !noundef !28
   %95 = getelementptr i8, ptr %84, i64 1740
-  store i8 %94, ptr %95, align 2
+  store i8 %94, ptr %95, align 4
   %96 = getelementptr i8, ptr %84, i64 1726
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(6) %96, ptr noundef nonnull align 2 dereferenceable(6) %14, i64 6, i1 false)
   %97 = getelementptr i8, ptr %84, i64 1732
@@ -7045,11 +7045,11 @@ define internal void @g4x_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
 229:                                              ; preds = %.loopexit19
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %231 = load ptr, ptr %230, align 8
-  %232 = load i16, ptr %14, align 2
+  %232 = load i16, ptr %14, align 4
   %233 = zext i16 %232 to i32
   %234 = load i16, ptr %64, align 2
   %235 = zext i16 %234 to i32
-  %236 = load i16, ptr %36, align 2
+  %236 = load i16, ptr %36, align 8
   %237 = zext i16 %236 to i32
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %231, i32 noundef 2, ptr noundef nonnull @.str.46, i32 noundef %233, i32 noundef %235, i32 noundef %237) #14
   %238 = load ptr, ptr %230, align 8
@@ -7701,7 +7701,7 @@ define internal fastcc void @g4x_program_watermarks(ptr noundef %0) unnamed_addr
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %213 = load ptr, ptr %212, align 8
   %214 = call i32 %213(ptr noundef nonnull %118, i32 %211, i1 noundef zeroext false) #14
-  %215 = load i8, ptr %75, align 2, !range !27, !noundef !28
+  %215 = load i8, ptr %75, align 8, !range !27, !noundef !28
   %216 = load i8, ptr %4, align 2, !range !27, !noundef !28
   %217 = icmp eq i8 %215, 0
   %218 = icmp ne i8 %216, 0

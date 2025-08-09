@@ -8342,7 +8342,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
   store i64 %18, ptr %_M_string_length.i24.i.i, align 8, !tbaa !33
   store ptr %15, ptr %fetch_request3.i.i, align 8, !tbaa !36
   store i64 0, ptr %_M_string_length.i23.i.i, align 8, !tbaa !33
-  store i8 0, ptr %15, align 1, !tbaa !35
+  store i8 0, ptr %15, align 8, !tbaa !35
   %caller3.i = getelementptr inbounds nuw i8, ptr %12, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %caller.i, ptr noundef nonnull align 8 dereferenceable(34) %caller3.i, i64 34, i1 false)
   %fields4.i = getelementptr inbounds nuw i8, ptr %12, i64 80
@@ -8419,7 +8419,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit21.i: ; preds =
   store i64 %31, ptr %_M_string_length.i24.i16.i, align 8, !tbaa !33
   store ptr %28, ptr %raw_data5.i, align 8, !tbaa !36
   store i64 0, ptr %_M_string_length.i23.i15.i, align 8, !tbaa !33
-  store i8 0, ptr %28, align 1, !tbaa !35
+  store i8 0, ptr %28, align 8, !tbaa !35
   %extra_headers6.i = getelementptr inbounds nuw i8, ptr %12, i64 168
   %32 = load <2 x ptr>, ptr %extra_headers6.i, align 8, !tbaa !14
   store <2 x ptr> %32, ptr %extra_headers.i177, align 8, !tbaa !14
@@ -8455,7 +8455,7 @@ _ZN16HTTPFetchRequestC2EOS_.exit:                 ; preds = %if.else.i23.i, %if.
   store i64 %38, ptr %_M_string_length.i24.i25.i, align 8, !tbaa !33
   store ptr %35, ptr %useragent7.i, align 8, !tbaa !36
   store i64 0, ptr %_M_string_length.i23.i24.i, align 8, !tbaa !33
-  store i8 0, ptr %35, align 1, !tbaa !35
+  store i8 0, ptr %35, align 8, !tbaa !35
   %event4.i.i = getelementptr inbounds nuw i8, ptr %12, i64 224
   %39 = load ptr, ptr %event4.i.i, align 8, !tbaa !103
   store ptr %39, ptr %event.i.i, align 8, !tbaa !103, !alias.scope !237
@@ -10272,7 +10272,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
   store i64 %11, ptr %_M_string_length.i24.i.i, align 8, !tbaa !33
   store ptr %8, ptr %_M_storage.i.i.i, align 8, !tbaa !36
   store i64 0, ptr %_M_string_length.i23.i.i, align 8, !tbaa !33
-  store i8 0, ptr %8, align 1, !tbaa !35
+  store i8 0, ptr %8, align 8, !tbaa !35
   %caller3.i = getelementptr inbounds nuw i8, ptr %6, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %caller.i, ptr noundef nonnull align 8 dereferenceable(34) %caller3.i, i64 34, i1 false)
   %fields4.i = getelementptr inbounds nuw i8, ptr %6, i64 88
@@ -10349,7 +10349,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit21.i: ; preds =
   store i64 %24, ptr %_M_string_length.i24.i16.i, align 8, !tbaa !33
   store ptr %21, ptr %raw_data5.i, align 8, !tbaa !36
   store i64 0, ptr %_M_string_length.i23.i15.i, align 8, !tbaa !33
-  store i8 0, ptr %21, align 1, !tbaa !35
+  store i8 0, ptr %21, align 8, !tbaa !35
   %extra_headers6.i = getelementptr inbounds nuw i8, ptr %6, i64 176
   %25 = load <2 x ptr>, ptr %extra_headers6.i, align 8, !tbaa !14
   store <2 x ptr> %25, ptr %extra_headers.i, align 8, !tbaa !14
@@ -10385,7 +10385,7 @@ _ZN16HTTPFetchRequestC2EOS_.exit:                 ; preds = %if.else.i23.i, %if.
   store i64 %31, ptr %_M_string_length.i24.i25.i, align 8, !tbaa !33
   store ptr %28, ptr %useragent7.i, align 8, !tbaa !36
   store i64 0, ptr %_M_string_length.i23.i24.i, align 8, !tbaa !33
-  store i8 0, ptr %28, align 1, !tbaa !35
+  store i8 0, ptr %28, align 8, !tbaa !35
   %32 = load ptr, ptr %m_queued_fetches, align 8, !tbaa !204
   %33 = load i64, ptr %_M_size.i.i.i, align 8, !tbaa !266
   %sub.i.i.i = add i64 %33, -1

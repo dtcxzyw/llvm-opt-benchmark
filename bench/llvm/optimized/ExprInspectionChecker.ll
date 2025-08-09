@@ -14942,7 +14942,7 @@ _ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_114DenotedSymbolsEEENS0_17Progra
   %66 = lshr i32 %65, 22
   %67 = and i32 %66, 7
   %68 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %69 = load i32, ptr %68, align 4, !tbaa !659, !noalias !1098
+  %69 = load i32, ptr %68, align 8, !tbaa !659, !noalias !1098
   %70 = mul i32 %67, %69
   %71 = zext i32 %70 to i64
   %72 = getelementptr inbounds nuw i8, ptr %5, i64 16

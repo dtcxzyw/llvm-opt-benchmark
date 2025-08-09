@@ -4047,7 +4047,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit17.i:             ; preds = %128, %126
   store ptr %154, ptr %153, align 8, !tbaa !9, !noalias !155
   %155 = getelementptr inbounds nuw i8, ptr %150, i64 32
   store i64 0, ptr %155, align 8, !tbaa !17, !noalias !155
-  store i8 0, ptr %154, align 1, !tbaa !16, !noalias !155
+  store i8 0, ptr %154, align 8, !tbaa !16, !noalias !155
   %156 = getelementptr inbounds nuw i8, ptr %150, i64 56
   %157 = getelementptr inbounds nuw i8, ptr %150, i64 72
   store ptr %157, ptr %156, align 8, !tbaa !9, !noalias !155
@@ -4125,7 +4125,7 @@ _ZN5clang4ento9BugReport8addRangeENS_11SourceRangeE.exit.i: ; preds = %169, %167
   store ptr null, ptr %187, align 8, !tbaa !182, !noalias !155
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %188 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #27
-  store i64 %188, ptr %175, align 1
+  store i64 %188, ptr %175, align 8
   store i32 1, ptr %176, align 8, !tbaa !180
   %189 = load ptr, ptr %17, align 8, !tbaa !62
   store ptr %150, ptr %12, align 8, !tbaa !184
@@ -4476,7 +4476,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit50.i:             ; preds = %347, %345
   store ptr %373, ptr %372, align 8, !tbaa !9, !noalias !189
   %374 = getelementptr inbounds nuw i8, ptr %369, i64 32
   store i64 0, ptr %374, align 8, !tbaa !17, !noalias !189
-  store i8 0, ptr %373, align 1, !tbaa !16, !noalias !189
+  store i8 0, ptr %373, align 8, !tbaa !16, !noalias !189
   %375 = getelementptr inbounds nuw i8, ptr %369, i64 56
   %376 = getelementptr inbounds nuw i8, ptr %369, i64 72
   store ptr %376, ptr %375, align 8, !tbaa !9, !noalias !189
@@ -4557,7 +4557,7 @@ _ZN5clang4ento9BugReport8addRangeENS_11SourceRangeE.exit65.i: ; preds = %388, %3
   %408 = getelementptr inbounds nuw i8, ptr %407, i64 16
   %409 = load ptr, ptr %408, align 8
   %410 = call i64 %409(ptr noundef nonnull align 8 dereferenceable(100) %40) #27
-  store i64 %410, ptr %394, align 1
+  store i64 %410, ptr %394, align 8
   store i32 1, ptr %395, align 8, !tbaa !180
   store ptr %3, ptr %406, align 8, !tbaa !182
   %411 = load ptr, ptr %17, align 8, !tbaa !62

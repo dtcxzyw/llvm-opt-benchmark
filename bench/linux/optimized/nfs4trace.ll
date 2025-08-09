@@ -4906,7 +4906,7 @@ define internal void @trace_event_raw_event_nfs4_open_event(ptr noundef %0, ptr 
   store i64 %76, ptr %77, align 8
   %78 = getelementptr i8, ptr %56, i64 -424
   %79 = getelementptr i8, ptr %56, i64 -422
-  %80 = load i16, ptr %78, align 2
+  %80 = load i16, ptr %78, align 8
   %81 = zext i16 %80 to i64
   %82 = call i32 @crc32_le(i32 noundef -1, ptr noundef %79, i64 noundef %81) #13
   %83 = xor i32 %82, -1
@@ -5065,7 +5065,7 @@ define internal void @perf_trace_nfs4_open_event(ptr noundef %0, ptr noundef rea
   store i64 %87, ptr %88, align 8
   %89 = getelementptr i8, ptr %67, i64 -424
   %90 = getelementptr i8, ptr %67, i64 -422
-  %91 = load i16, ptr %89, align 2
+  %91 = load i16, ptr %89, align 8
   %92 = zext i16 %91 to i64
   %93 = call i32 @crc32_le(i32 noundef -1, ptr noundef %90, i64 noundef %92) #13
   %94 = xor i32 %93, -1
@@ -5147,7 +5147,7 @@ define internal void @trace_event_raw_event_nfs4_cached_open(ptr noundef %0, ptr
   store i64 %25, ptr %26, align 8
   %27 = getelementptr i8, ptr %18, i64 -424
   %28 = getelementptr i8, ptr %18, i64 -422
-  %29 = load i16, ptr %27, align 2
+  %29 = load i16, ptr %27, align 8
   %30 = zext i16 %29 to i64
   %31 = call i32 @crc32_le(i32 noundef -1, ptr noundef %28, i64 noundef %30) #13
   %32 = xor i32 %31, -1
@@ -5230,7 +5230,7 @@ define internal void @perf_trace_nfs4_cached_open(ptr noundef %0, ptr noundef %1
   store i64 %36, ptr %37, align 8
   %38 = getelementptr i8, ptr %29, i64 -424
   %39 = getelementptr i8, ptr %29, i64 -422
-  %40 = load i16, ptr %38, align 2
+  %40 = load i16, ptr %38, align 8
   %41 = zext i16 %40 to i64
   %42 = call i32 @crc32_le(i32 noundef -1, ptr noundef %39, i64 noundef %41) #13
   %43 = xor i32 %42, -1
@@ -5300,7 +5300,7 @@ define internal void @trace_event_raw_event_nfs4_close(ptr noundef %0, ptr nound
   store i64 %28, ptr %29, align 8
   %30 = getelementptr i8, ptr %21, i64 -424
   %31 = getelementptr i8, ptr %21, i64 -422
-  %32 = load i16, ptr %30, align 2
+  %32 = load i16, ptr %30, align 8
   %33 = zext i16 %32 to i64
   %34 = call i32 @crc32_le(i32 noundef -1, ptr noundef %31, i64 noundef %33) #13
   %35 = xor i32 %34, -1
@@ -5389,7 +5389,7 @@ define internal void @perf_trace_nfs4_close(ptr noundef %0, ptr noundef readonly
   store i64 %39, ptr %40, align 8
   %41 = getelementptr i8, ptr %32, i64 -424
   %42 = getelementptr i8, ptr %32, i64 -422
-  %43 = load i16, ptr %41, align 2
+  %43 = load i16, ptr %41, align 8
   %44 = zext i16 %43 to i64
   %45 = call i32 @crc32_le(i32 noundef -1, ptr noundef %42, i64 noundef %44) #13
   %46 = xor i32 %45, -1
@@ -5487,7 +5487,7 @@ define internal void @trace_event_raw_event_nfs4_lock_event(ptr noundef %0, ptr 
   store i64 %45, ptr %46, align 8
   %47 = getelementptr i8, ptr %21, i64 -424
   %48 = getelementptr i8, ptr %21, i64 -422
-  %49 = load i16, ptr %47, align 2
+  %49 = load i16, ptr %47, align 8
   %50 = zext i16 %49 to i64
   %51 = call i32 @crc32_le(i32 noundef -1, ptr noundef %48, i64 noundef %50) #13
   %52 = xor i32 %51, -1
@@ -5588,7 +5588,7 @@ define internal void @perf_trace_nfs4_lock_event(ptr noundef %0, ptr noundef rea
   store i64 %56, ptr %57, align 8
   %58 = getelementptr i8, ptr %32, i64 -424
   %59 = getelementptr i8, ptr %32, i64 -422
-  %60 = load i16, ptr %58, align 2
+  %60 = load i16, ptr %58, align 8
   %61 = zext i16 %60 to i64
   %62 = call i32 @crc32_le(i32 noundef -1, ptr noundef %59, i64 noundef %61) #13
   %63 = xor i32 %62, -1
@@ -5676,7 +5676,7 @@ define internal void @trace_event_raw_event_nfs4_set_lock(ptr noundef %0, ptr no
   store i64 %46, ptr %47, align 8
   %48 = getelementptr i8, ptr %22, i64 -424
   %49 = getelementptr i8, ptr %22, i64 -422
-  %50 = load i16, ptr %48, align 2
+  %50 = load i16, ptr %48, align 8
   %51 = zext i16 %50 to i64
   %52 = call i32 @crc32_le(i32 noundef -1, ptr noundef %49, i64 noundef %51) #13
   %53 = xor i32 %52, -1
@@ -5786,7 +5786,7 @@ define internal void @perf_trace_nfs4_set_lock(ptr noundef %0, ptr noundef reado
   store i64 %57, ptr %58, align 8
   %59 = getelementptr i8, ptr %33, i64 -424
   %60 = getelementptr i8, ptr %33, i64 -422
-  %61 = load i16, ptr %59, align 2
+  %61 = load i16, ptr %59, align 8
   %62 = zext i16 %61 to i64
   %63 = call i32 @crc32_le(i32 noundef -1, ptr noundef %60, i64 noundef %62) #13
   %64 = xor i32 %63, -1
@@ -5861,7 +5861,7 @@ define internal void @trace_event_raw_event_nfs4_state_lock_reclaim(ptr noundef 
   store i64 %26, ptr %27, align 8
   %28 = getelementptr i8, ptr %19, i64 -424
   %29 = getelementptr i8, ptr %19, i64 -422
-  %30 = load i16, ptr %28, align 2
+  %30 = load i16, ptr %28, align 8
   %31 = zext i16 %30 to i64
   %32 = call i32 @crc32_le(i32 noundef -1, ptr noundef %29, i64 noundef %31) #13
   %33 = xor i32 %32, -1
@@ -5948,7 +5948,7 @@ define internal void @perf_trace_nfs4_state_lock_reclaim(ptr noundef %0, ptr nou
   store i64 %37, ptr %38, align 8
   %39 = getelementptr i8, ptr %30, i64 -424
   %40 = getelementptr i8, ptr %30, i64 -422
-  %41 = load i16, ptr %39, align 2
+  %41 = load i16, ptr %39, align 8
   %42 = zext i16 %41 to i64
   %43 = call i32 @crc32_le(i32 noundef -1, ptr noundef %40, i64 noundef %42) #13
   %44 = xor i32 %43, -1
@@ -6020,7 +6020,7 @@ define internal void @trace_event_raw_event_nfs4_set_delegation_event(ptr nounde
   store i64 %24, ptr %25, align 8
   %26 = getelementptr i8, ptr %1, i64 -424
   %27 = getelementptr i8, ptr %1, i64 -422
-  %28 = load i16, ptr %26, align 2
+  %28 = load i16, ptr %26, align 8
   %29 = zext i16 %28 to i64
   %30 = call i32 @crc32_le(i32 noundef -1, ptr noundef %27, i64 noundef %29) #13
   %31 = xor i32 %30, -1
@@ -6089,7 +6089,7 @@ define internal void @perf_trace_nfs4_set_delegation_event(ptr noundef %0, ptr n
   store i64 %35, ptr %36, align 8
   %37 = getelementptr i8, ptr %1, i64 -424
   %38 = getelementptr i8, ptr %1, i64 -422
-  %39 = load i16, ptr %37, align 2
+  %39 = load i16, ptr %37, align 8
   %40 = zext i16 %39 to i64
   %41 = call i32 @crc32_le(i32 noundef -1, ptr noundef %38, i64 noundef %40) #13
   %42 = xor i32 %41, -1
@@ -6765,7 +6765,7 @@ define internal void @trace_event_raw_event_nfs4_inode_event(ptr noundef %0, ptr
   store i64 %24, ptr %25, align 8
   %26 = getelementptr i8, ptr %1, i64 -424
   %27 = getelementptr i8, ptr %1, i64 -422
-  %28 = load i16, ptr %26, align 2
+  %28 = load i16, ptr %26, align 8
   %29 = zext i16 %28 to i64
   %30 = call i32 @crc32_le(i32 noundef -1, ptr noundef %27, i64 noundef %29) #13
   %31 = xor i32 %30, -1
@@ -6838,7 +6838,7 @@ define internal void @perf_trace_nfs4_inode_event(ptr noundef %0, ptr noundef %1
   store i64 %35, ptr %36, align 8
   %37 = getelementptr i8, ptr %1, i64 -424
   %38 = getelementptr i8, ptr %1, i64 -422
-  %39 = load i16, ptr %37, align 2
+  %39 = load i16, ptr %37, align 8
   %40 = zext i16 %39 to i64
   %41 = call i32 @crc32_le(i32 noundef -1, ptr noundef %38, i64 noundef %40) #13
   %42 = xor i32 %41, -1
@@ -6898,7 +6898,7 @@ define internal void @trace_event_raw_event_nfs4_inode_stateid_event(ptr noundef
   store i64 %25, ptr %26, align 8
   %27 = getelementptr i8, ptr %1, i64 -424
   %28 = getelementptr i8, ptr %1, i64 -422
-  %29 = load i16, ptr %27, align 2
+  %29 = load i16, ptr %27, align 8
   %30 = zext i16 %29 to i64
   %31 = call i32 @crc32_le(i32 noundef -1, ptr noundef %28, i64 noundef %30) #13
   %32 = xor i32 %31, -1
@@ -6980,7 +6980,7 @@ define internal void @perf_trace_nfs4_inode_stateid_event(ptr noundef %0, ptr no
   store i64 %36, ptr %37, align 8
   %38 = getelementptr i8, ptr %1, i64 -424
   %39 = getelementptr i8, ptr %1, i64 -422
-  %40 = load i16, ptr %38, align 2
+  %40 = load i16, ptr %38, align 8
   %41 = zext i16 %40 to i64
   %42 = call i32 @crc32_le(i32 noundef -1, ptr noundef %39, i64 noundef %41) #13
   %43 = xor i32 %42, -1

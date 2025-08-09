@@ -13400,7 +13400,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_7SdfDataEEptEv.exit.i1934: ; 
   %.sroa.2.0..sroa_idx2261 = getelementptr inbounds nuw i8, ptr %4556, i64 8
   store i32 %.sroa.2.0.copyload.i, ptr %.sroa.2.0..sroa_idx2261, align 8
   %4557 = getelementptr inbounds nuw i8, ptr %4556, i64 16
-  store atomic i32 0, ptr %4557 seq_cst, align 4
+  store atomic i32 0, ptr %4557 seq_cst, align 8
   store ptr %4556, ptr %22, align 8
   %4558 = atomicrmw add ptr %4557, i32 1 monotonic, align 4
   %4559 = load ptr, ptr %.val924, align 8
@@ -14423,7 +14423,7 @@ _ZL15_ValueSetShapedPN32pxrInternal_v0_24__pxrReserved__21Sdf_TextParserContextE
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValue10_HoldAsideC2EPS0_.exit.i.i: ; preds = %4908, %4905, %.thread.i.i.i
   store ptr %225, ptr %245, align 8
   %4914 = load i32, ptr %10, align 8
-  store i32 %4914, ptr %243, align 4
+  store i32 %4914, ptr %243, align 8
   %.not.i.i.i.i.i.i.i2039 = icmp eq i32 %4914, 0
   br i1 %.not.i.i.i.i.i.i.i2039, label %4926, label %4915
 
@@ -57985,7 +57985,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_Coun
   store ptr %19, ptr %10, align 8, !noalias !412
   %.pre = load ptr, ptr %0, align 8
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store atomic i32 0, ptr %29 seq_cst, align 4, !noalias !412
+  store atomic i32 0, ptr %29 seq_cst, align 8, !noalias !412
   %30 = atomicrmw add ptr %29, i32 1 monotonic, align 4, !noalias !412
   %.not.i.i = icmp eq ptr %.pre, null
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_7VtValue8_CountedISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EEEEEED2Ev.exit, label %31
@@ -61754,7 +61754,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_Coun
   %41 = atomicrmw add ptr %.sink.i.i.i.i.i, i64 1 monotonic, align 8, !noalias !480
   %.pre.i.i = load ptr, ptr %0, align 8
   %42 = getelementptr inbounds nuw i8, ptr %32, i64 40
-  store atomic i32 0, ptr %42 seq_cst, align 4, !noalias !480
+  store atomic i32 0, ptr %42 seq_cst, align 8, !noalias !480
   %43 = atomicrmw add ptr %42, i32 1 monotonic, align 4, !noalias !480
   %.not.i.i.i.i = icmp eq ptr %.pre.i.i, null
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_7VtValue8_CountedINS_7VtArrayINS_17SdfPathExpressionEEEEEED2Ev.exit.i.i, label %44
@@ -67832,7 +67832,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_Coun
   store ptr %19, ptr %10, align 8, !noalias !565
   %.pre = load ptr, ptr %0, align 8
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store atomic i32 0, ptr %29 seq_cst, align 4, !noalias !565
+  store atomic i32 0, ptr %29 seq_cst, align 8, !noalias !565
   %30 = atomicrmw add ptr %29, i32 1 monotonic, align 4, !noalias !565
   %.not.i.i = icmp eq ptr %.pre, null
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_7VtValue8_CountedISt3mapINS_7SdfPathES4_St4lessIS4_ESaISt4pairIKS4_S4_EEEEEED2Ev.exit, label %31
@@ -69559,7 +69559,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_Coun
   store ptr %19, ptr %10, align 8, !noalias !624
   %.pre = load ptr, ptr %0, align 8
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store atomic i32 0, ptr %29 seq_cst, align 4, !noalias !624
+  store atomic i32 0, ptr %29 seq_cst, align 8, !noalias !624
   %30 = atomicrmw add ptr %29, i32 1 monotonic, align 4, !noalias !624
   %.not.i.i = icmp eq ptr %.pre, null
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_7VtValue8_CountedISt3mapIdS1_St4lessIdESaISt4pairIKdS1_EEEEEED2Ev.exit, label %31
@@ -70286,7 +70286,7 @@ define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #27
   call void @_ZN32pxrInternal_v0_24__pxrReserved__12Tf_HashState12_AppendBytesEPKcm(ptr noundef nonnull align 8 dereferenceable(9) %2, ptr noundef nonnull %10, i64 noundef %11)
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %13 = load i32, ptr %12, align 4
+  %13 = load i32, ptr %12, align 8
   %14 = load i8, ptr %4, align 8
   %15 = trunc i8 %14 to i1
   br i1 %15, label %18, label %16

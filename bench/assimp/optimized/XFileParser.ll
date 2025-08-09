@@ -1277,7 +1277,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %30
   store ptr %32, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 0, ptr %33, align 8
-  store i8 0, ptr %32, align 1
+  store i8 0, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %scevgep.i = getelementptr inbounds nuw i8, ptr %31, i64 136
   %scevgep9.i = getelementptr inbounds nuw i8, ptr %31, i64 336
@@ -3300,9 +3300,9 @@ define hidden void @_ZN6Assimp11XFileParser20ParseDataObjectFrameEPNS_5XFile4Nod
   store ptr %11, ptr %9, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %12, align 8
-  store i8 0, ptr %11, align 1
+  store i8 0, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store float 1.000000e+00, ptr %13, align 4
+  store float 1.000000e+00, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 36
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 52
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %14, i8 0, i64 16, i1 false)
@@ -3310,7 +3310,7 @@ define hidden void @_ZN6Assimp11XFileParser20ParseDataObjectFrameEPNS_5XFile4Nod
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %17, align 4
+  store float 1.000000e+00, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 76
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 92
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %18, i8 0, i64 16, i1 false)
@@ -3422,9 +3422,9 @@ _ZNSt6vectorIPN6Assimp5XFile4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_
   store ptr %65, ptr %63, align 8
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i64 0, ptr %66, align 8
-  store i8 0, ptr %65, align 1
+  store i8 0, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %63, i64 32
-  store float 1.000000e+00, ptr %67, align 4
+  store float 1.000000e+00, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %63, i64 36
   %69 = getelementptr inbounds nuw i8, ptr %63, i64 52
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %68, i8 0, i64 16, i1 false)
@@ -3432,7 +3432,7 @@ _ZNSt6vectorIPN6Assimp5XFile4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_
   %70 = getelementptr inbounds nuw i8, ptr %63, i64 56
   %71 = getelementptr inbounds nuw i8, ptr %63, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %71, align 4
+  store float 1.000000e+00, ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %63, i64 76
   %73 = getelementptr inbounds nuw i8, ptr %63, i64 92
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %72, i8 0, i64 16, i1 false)
@@ -4842,7 +4842,7 @@ define hidden void @_ZN6Assimp11XFileParser27ParseDataObjectAnimationSetEv(ptr n
   store ptr %9, ptr %7, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %10, align 8
-  store i8 0, ptr %9, align 1
+  store i8 0, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -8754,7 +8754,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38: ; preds = %_ZN
   store ptr %209, ptr %206, align 8
   %210 = getelementptr inbounds nuw i8, ptr %206, i64 8
   store i64 0, ptr %210, align 8
-  store i8 0, ptr %209, align 1
+  store i8 0, ptr %209, align 8
   %211 = getelementptr inbounds nuw i8, ptr %206, i64 32
   store i8 0, ptr %211, align 8
   %212 = getelementptr inbounds nuw i8, ptr %206, i64 36
@@ -8921,7 +8921,7 @@ define hidden void @_ZN6Assimp11XFileParser26ParseDataObjectSkinWeightsEPNS_5XFi
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  store float 1.000000e+00, ptr %19, align 4
+  store float 1.000000e+00, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 60
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 76
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %20, i8 0, i64 16, i1 false)
@@ -8929,7 +8929,7 @@ define hidden void @_ZN6Assimp11XFileParser26ParseDataObjectSkinWeightsEPNS_5XFi
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %23, align 4
+  store float 1.000000e+00, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 100
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 116
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %24, i8 0, i64 16, i1 false)
@@ -10773,7 +10773,7 @@ define hidden void @_ZN6Assimp11XFileParser24ParseDataObjectAnimationEPNS_5XFile
   store ptr %7, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %8, align 8
-  store i8 0, ptr %7, align 1
+  store i8 0, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %9, i8 0, i64 96, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -16376,7 +16376,7 @@ _ZNSt12_Vector_baseIN6Assimp5XFile4BoneESaIS2_EE11_M_allocateEm.exit: ; preds = 
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 56
-  store float 1.000000e+00, ptr %26, align 4
+  store float 1.000000e+00, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 60
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 76
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %27, i8 0, i64 16, i1 false)
@@ -16384,7 +16384,7 @@ _ZNSt12_Vector_baseIN6Assimp5XFile4BoneESaIS2_EE11_M_allocateEm.exit: ; preds = 
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 80
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %30, align 4
+  store float 1.000000e+00, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %22, i64 100
   %32 = getelementptr inbounds nuw i8, ptr %22, i64 116
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %31, i8 0, i64 16, i1 false)
@@ -16428,7 +16428,7 @@ _ZSt19__relocate_object_aIN6Assimp5XFile4BoneES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i
   store i64 %43, ptr %45, align 8, !alias.scope !97, !noalias !100
   store ptr %35, ptr %.0911.i.i.i, align 8, !alias.scope !100, !noalias !97
   store i64 0, ptr %44, align 8, !alias.scope !100, !noalias !97
-  store i8 0, ptr %35, align 1, !alias.scope !100, !noalias !97
+  store i8 0, ptr %35, align 8, !alias.scope !100, !noalias !97
   %46 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %47 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %48 = load ptr, ptr %47, align 8, !alias.scope !100, !noalias !97
@@ -16492,7 +16492,7 @@ _ZSt19__relocate_object_aIN6Assimp5XFile4BoneES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i
   store i64 %70, ptr %72, align 8, !alias.scope !104, !noalias !107
   store ptr %62, ptr %.0911.i.i.i18, align 8, !alias.scope !107, !noalias !104
   store i64 0, ptr %71, align 8, !alias.scope !107, !noalias !104
-  store i8 0, ptr %62, align 1, !alias.scope !107, !noalias !104
+  store i8 0, ptr %62, align 8, !alias.scope !107, !noalias !104
   %73 = getelementptr inbounds nuw i8, ptr %.012.i.i.i17, i64 32
   %74 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i18, i64 32
   %75 = load ptr, ptr %74, align 8, !alias.scope !107, !noalias !104
@@ -18391,7 +18391,7 @@ _ZNSt12_Vector_baseIN6Assimp5XFile8MaterialESaIS2_EE11_M_allocateEm.exit: ; pred
   store ptr %23, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 0, ptr %24, align 8
-  store i8 0, ptr %23, align 1
+  store i8 0, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 36
@@ -18753,7 +18753,7 @@ _ZSt19__relocate_object_aIN6Assimp5XFile8TexEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i
   store i64 %52, ptr %54, align 8, !alias.scope !113, !noalias !116
   store ptr %44, ptr %.0911.i.i.i, align 8, !alias.scope !116, !noalias !113
   store i64 0, ptr %53, align 8, !alias.scope !116, !noalias !113
-  store i8 0, ptr %44, align 1, !alias.scope !116, !noalias !113
+  store i8 0, ptr %44, align 8, !alias.scope !116, !noalias !113
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %56 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %57 = load i8, ptr %56, align 8, !range !5, !alias.scope !116, !noalias !113, !noundef !6
@@ -18805,7 +18805,7 @@ _ZSt19__relocate_object_aIN6Assimp5XFile8TexEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i
   store i64 %71, ptr %73, align 8, !alias.scope !120, !noalias !123
   store ptr %63, ptr %.0911.i.i.i29, align 8, !alias.scope !123, !noalias !120
   store i64 0, ptr %72, align 8, !alias.scope !123, !noalias !120
-  store i8 0, ptr %63, align 1, !alias.scope !123, !noalias !120
+  store i8 0, ptr %63, align 8, !alias.scope !123, !noalias !120
   %74 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %75 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   %76 = load i8, ptr %75, align 8, !range !5, !alias.scope !123, !noalias !120, !noundef !6
@@ -18987,7 +18987,7 @@ _ZSt19__relocate_object_aIN6Assimp5XFile8TexEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i
   store i64 %54, ptr %56, align 8, !alias.scope !126, !noalias !129
   store ptr %46, ptr %.0911.i.i.i, align 8, !alias.scope !129, !noalias !126
   store i64 0, ptr %55, align 8, !alias.scope !129, !noalias !126
-  store i8 0, ptr %46, align 1, !alias.scope !129, !noalias !126
+  store i8 0, ptr %46, align 8, !alias.scope !129, !noalias !126
   %57 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %58 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %59 = load i8, ptr %58, align 8, !range !5, !alias.scope !129, !noalias !126, !noundef !6
@@ -19039,7 +19039,7 @@ _ZSt19__relocate_object_aIN6Assimp5XFile8TexEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i
   store i64 %73, ptr %75, align 8, !alias.scope !132, !noalias !135
   store ptr %65, ptr %.0911.i.i.i30, align 8, !alias.scope !135, !noalias !132
   store i64 0, ptr %74, align 8, !alias.scope !135, !noalias !132
-  store i8 0, ptr %65, align 1, !alias.scope !135, !noalias !132
+  store i8 0, ptr %65, align 8, !alias.scope !135, !noalias !132
   %76 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 32
   %77 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 32
   %78 = load i8, ptr %77, align 8, !range !5, !alias.scope !135, !noalias !132, !noundef !6

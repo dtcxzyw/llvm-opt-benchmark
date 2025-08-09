@@ -1623,7 +1623,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %22, ptr %23, align 8, !tbaa !92
   store ptr %13, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !91
   store i64 0, ptr %21, align 8, !tbaa !92
-  store i8 0, ptr %13, align 1, !tbaa !94
+  store i8 0, ptr %13, align 8, !tbaa !94
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq ptr %24, %10
@@ -1907,7 +1907,7 @@ _ZSt10_ConstructIN5clang6driver9ToolChain18BitCodeLibraryInfoEJS3_EEvPT_DpOT0_.e
   store i64 %45, ptr %46, align 8, !tbaa !92
   store ptr %36, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !91
   store i64 0, ptr %44, align 8, !tbaa !92
-  store i8 0, ptr %36, align 1, !tbaa !94
+  store i8 0, ptr %36, align 8, !tbaa !94
   %47 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 32
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 32
   %49 = load i8, ptr %48, align 8, !tbaa !166, !range !168, !noundef !169

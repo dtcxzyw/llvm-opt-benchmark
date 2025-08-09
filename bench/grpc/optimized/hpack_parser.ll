@@ -3382,7 +3382,7 @@ define void @_ZN9grpc_core11HPackParser10BeginFrameEP19grpc_metadata_batchjjNS0_
   %storemerge.i.i.i.i = or i16 %10, 8
   store i16 %storemerge.i.i.i.i, ptr %9, align 2, !tbaa !148
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i8 1, ptr %11, align 1, !tbaa !150
+  store i8 1, ptr %11, align 2, !tbaa !150
   br label %12
 
 12:                                               ; preds = %8, %7
@@ -3735,13 +3735,13 @@ _ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread: ; preds = %_ZNK9grpc_
   store i64 1, ptr %111, align 8, !tbaa !182, !noalias !184
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 16), ptr %110, align 8, !tbaa !136, !noalias !184
   %112 = getelementptr inbounds nuw i8, ptr %110, i64 16
-  store i8 10, ptr %112, align 1, !tbaa !29, !noalias !184
+  store i8 10, ptr %112, align 8, !tbaa !29, !noalias !184
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 40
   %114 = getelementptr inbounds nuw i8, ptr %110, i64 56
   store ptr %114, ptr %113, align 8, !tbaa !187, !noalias !184
   %115 = getelementptr inbounds nuw i8, ptr %110, i64 48
   store i64 0, ptr %115, align 8, !tbaa !189, !noalias !184
-  store i8 0, ptr %114, align 1, !tbaa !54, !noalias !184
+  store i8 0, ptr %114, align 8, !tbaa !54, !noalias !184
   %116 = getelementptr inbounds nuw i8, ptr %110, i64 80
   store i8 0, ptr %116, align 8, !tbaa !191, !noalias !184
   store ptr %110, ptr %93, align 8, !tbaa !193
@@ -4032,13 +4032,13 @@ define void @_ZN9grpc_core11HPackParser35HandleMetadataSoftSizeLimitExceededEPNS
   store i64 1, ptr %11, align 8, !tbaa !182, !noalias !206
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 16), ptr %10, align 8, !tbaa !136, !noalias !206
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i8 5, ptr %12, align 1, !tbaa !29, !noalias !206
+  store i8 5, ptr %12, align 8, !tbaa !29, !noalias !206
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store ptr %14, ptr %13, align 8, !tbaa !187, !noalias !206
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store i64 0, ptr %15, align 8, !tbaa !189, !noalias !206
-  store i8 0, ptr %14, align 1, !tbaa !54, !noalias !206
+  store i8 0, ptr %14, align 8, !tbaa !54, !noalias !206
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 80
   store i8 0, ptr %16, align 8, !tbaa !191, !noalias !206
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -4825,13 +4825,13 @@ _ZN9grpc_core11HPackParser5Input15ClearFieldErrorEv.exit: ; preds = %_ZN9grpc_co
   store i64 1, ptr %108, align 8, !tbaa !182, !noalias !236
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 16), ptr %107, align 8, !tbaa !136, !noalias !236
   %109 = getelementptr inbounds nuw i8, ptr %107, i64 16
-  store i8 18, ptr %109, align 1, !tbaa !29, !noalias !236
+  store i8 18, ptr %109, align 8, !tbaa !29, !noalias !236
   %110 = getelementptr inbounds nuw i8, ptr %107, i64 40
   %111 = getelementptr inbounds nuw i8, ptr %107, i64 56
   store ptr %111, ptr %110, align 8, !tbaa !187, !noalias !236
   %112 = getelementptr inbounds nuw i8, ptr %107, i64 48
   store i64 0, ptr %112, align 8, !tbaa !189, !noalias !236
-  store i8 0, ptr %111, align 1, !tbaa !54, !noalias !236
+  store i8 0, ptr %111, align 8, !tbaa !54, !noalias !236
   %113 = getelementptr inbounds nuw i8, ptr %107, i64 80
   store i8 0, ptr %113, align 8, !tbaa !191, !noalias !236
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -5138,13 +5138,13 @@ _ZNK9grpc_core11HPackParser6Parser23ShouldSkipParsingStringEm.exit: ; preds = %3
   store i64 1, ptr %52, align 8, !tbaa !182, !noalias !244
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 16), ptr %51, align 8, !tbaa !136, !noalias !244
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  store i8 6, ptr %53, align 1, !tbaa !29, !noalias !244
+  store i8 6, ptr %53, align 8, !tbaa !29, !noalias !244
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 56
   store ptr %55, ptr %54, align 8, !tbaa !187, !noalias !244
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 48
   store i64 0, ptr %56, align 8, !tbaa !189, !noalias !244
-  store i8 0, ptr %55, align 1, !tbaa !54, !noalias !244
+  store i8 0, ptr %55, align 8, !tbaa !54, !noalias !244
   %57 = getelementptr inbounds nuw i8, ptr %51, i64 80
   store i8 0, ptr %57, align 8, !tbaa !191, !noalias !244
   %58 = getelementptr inbounds nuw i8, ptr %51, i64 24
@@ -7216,13 +7216,13 @@ define linkonce_odr noundef zeroext i1 @_ZN9grpc_core11HPackParser6Parser18Finis
   store i64 1, ptr %15, align 8, !tbaa !182, !noalias !305
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 16), ptr %14, align 8, !tbaa !136, !noalias !305
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i8 16, ptr %16, align 1, !tbaa !29, !noalias !305
+  store i8 16, ptr %16, align 8, !tbaa !29, !noalias !305
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 56
   store ptr %18, ptr %17, align 8, !tbaa !187, !noalias !305
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 48
   store i64 0, ptr %19, align 8, !tbaa !189, !noalias !305
-  store i8 0, ptr %18, align 1, !tbaa !54, !noalias !305
+  store i8 0, ptr %18, align 8, !tbaa !54, !noalias !305
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 80
   store i8 0, ptr %20, align 8, !tbaa !191, !noalias !305
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -7285,13 +7285,13 @@ _ZN9grpc_core16HpackParseResultD2Ev.exit:         ; preds = %21, %23, %27
   store i64 1, ptr %50, align 8, !tbaa !182, !noalias !311
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 16), ptr %49, align 8, !tbaa !136, !noalias !311
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  store i8 13, ptr %51, align 1, !tbaa !29, !noalias !311
+  store i8 13, ptr %51, align 8, !tbaa !29, !noalias !311
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 40
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 56
   store ptr %53, ptr %52, align 8, !tbaa !187, !noalias !311
   %54 = getelementptr inbounds nuw i8, ptr %49, i64 48
   store i64 0, ptr %54, align 8, !tbaa !189, !noalias !311
-  store i8 0, ptr %53, align 1, !tbaa !54, !noalias !311
+  store i8 0, ptr %53, align 8, !tbaa !54, !noalias !311
   %55 = getelementptr inbounds nuw i8, ptr %49, i64 80
   store i8 0, ptr %55, align 8, !tbaa !191, !noalias !311
   %56 = getelementptr inbounds nuw i8, ptr %49, i64 24
@@ -7656,13 +7656,13 @@ define linkonce_odr void @_ZN9grpc_core11HPackParser6Parser22InvalidHPackIndexEr
   store i64 1, ptr %6, align 8, !tbaa !182, !noalias !317
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 16), ptr %5, align 8, !tbaa !136, !noalias !317
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i8 12, ptr %7, align 1, !tbaa !29, !noalias !317
+  store i8 12, ptr %7, align 8, !tbaa !29, !noalias !317
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %9, ptr %8, align 8, !tbaa !187, !noalias !317
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i64 0, ptr %10, align 8, !tbaa !189, !noalias !317
-  store i8 0, ptr %9, align 1, !tbaa !54, !noalias !317
+  store i8 0, ptr %9, align 8, !tbaa !54, !noalias !317
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store i8 0, ptr %11, align 8, !tbaa !191, !noalias !317
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -7734,13 +7734,13 @@ define linkonce_odr i64 @_ZN9grpc_core11HPackParser5Input21ParseVarintOutOfRange
   store i64 1, ptr %6, align 8, !tbaa !182, !noalias !323
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 16), ptr %5, align 8, !tbaa !136, !noalias !323
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i8 11, ptr %7, align 1, !tbaa !29, !noalias !323
+  store i8 11, ptr %7, align 8, !tbaa !29, !noalias !323
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %9, ptr %8, align 8, !tbaa !187, !noalias !323
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i64 0, ptr %10, align 8, !tbaa !189, !noalias !323
-  store i8 0, ptr %9, align 1, !tbaa !54, !noalias !323
+  store i8 0, ptr %9, align 8, !tbaa !54, !noalias !323
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store i8 0, ptr %11, align 8, !tbaa !191, !noalias !323
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -7810,13 +7810,13 @@ define linkonce_odr i64 @_ZN9grpc_core11HPackParser5Input28ParseVarintMaliciousE
   store i64 1, ptr %4, align 8, !tbaa !182, !noalias !329
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 16), ptr %3, align 8, !tbaa !136, !noalias !329
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i8 17, ptr %5, align 1, !tbaa !29, !noalias !329
+  store i8 17, ptr %5, align 8, !tbaa !29, !noalias !329
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store ptr %7, ptr %6, align 8, !tbaa !187, !noalias !329
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i64 0, ptr %8, align 8, !tbaa !189, !noalias !329
-  store i8 0, ptr %7, align 1, !tbaa !54, !noalias !329
+  store i8 0, ptr %7, align 8, !tbaa !54, !noalias !329
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i8 0, ptr %9, align 8, !tbaa !191, !noalias !329
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -8536,13 +8536,13 @@ _ZN9grpc_core16HpackParseResultD2Ev.exit:         ; preds = %23, %25, %29
   store i64 1, ptr %62, align 8, !tbaa !182, !noalias !347
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 16), ptr %61, align 8, !tbaa !136, !noalias !347
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  store i8 4, ptr %63, align 1, !tbaa !29, !noalias !347
+  store i8 4, ptr %63, align 8, !tbaa !29, !noalias !347
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 40
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 56
   store ptr %65, ptr %64, align 8, !tbaa !187, !noalias !347
   %66 = getelementptr inbounds nuw i8, ptr %61, i64 48
   store i64 0, ptr %66, align 8, !tbaa !189, !noalias !347
-  store i8 0, ptr %65, align 1, !tbaa !54, !noalias !347
+  store i8 0, ptr %65, align 8, !tbaa !54, !noalias !347
   %67 = getelementptr inbounds nuw i8, ptr %61, i64 80
   store i8 0, ptr %67, align 8, !tbaa !191, !noalias !347
   %68 = getelementptr inbounds nuw i8, ptr %61, i64 24
@@ -8688,13 +8688,13 @@ _ZN9grpc_core16HpackParseResultC2ENS_16HpackParseStatusE.exit: ; preds = %2, %2
   store i64 1, ptr %7, align 8, !tbaa !182, !noalias !352
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 16), ptr %6, align 8, !tbaa !136, !noalias !352
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i8 %1, ptr %8, align 1, !tbaa !29, !noalias !352
+  store i8 %1, ptr %8, align 8, !tbaa !29, !noalias !352
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store ptr %10, ptr %9, align 8, !tbaa !187, !noalias !352
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i64 0, ptr %11, align 8, !tbaa !189, !noalias !352
-  store i8 0, ptr %10, align 1, !tbaa !54, !noalias !352
+  store i8 0, ptr %10, align 8, !tbaa !54, !noalias !352
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store i8 0, ptr %12, align 8, !tbaa !191, !noalias !352
   store ptr %6, ptr %0, align 8, !tbaa !193
@@ -8769,13 +8769,13 @@ define linkonce_odr void @_ZN9grpc_core16HpackParseResult37HardMetadataLimitExce
   store i64 1, ptr %9, align 8, !tbaa !182, !noalias !357
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 16), ptr %8, align 8, !tbaa !136, !noalias !357
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i8 7, ptr %10, align 1, !tbaa !29, !noalias !357
+  store i8 7, ptr %10, align 8, !tbaa !29, !noalias !357
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store ptr %12, ptr %11, align 8, !tbaa !187, !noalias !357
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i64 0, ptr %13, align 8, !tbaa !189, !noalias !357
-  store i8 0, ptr %12, align 1, !tbaa !54, !noalias !357
+  store i8 0, ptr %12, align 8, !tbaa !54, !noalias !357
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 80
   store i8 0, ptr %14, align 8, !tbaa !191, !noalias !357
   store ptr %8, ptr %0, align 8, !tbaa !193
@@ -9004,13 +9004,13 @@ define linkonce_odr void @_ZN9grpc_core16HpackParseResult20InvalidMetadataErrorE
   store i64 1, ptr %8, align 8, !tbaa !182, !noalias !360
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 16), ptr %7, align 8, !tbaa !136, !noalias !360
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i8 3, ptr %9, align 1, !tbaa !29, !noalias !360
+  store i8 3, ptr %9, align 8, !tbaa !29, !noalias !360
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %11, ptr %10, align 8, !tbaa !187, !noalias !360
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i64 0, ptr %12, align 8, !tbaa !189, !noalias !360
-  store i8 0, ptr %11, align 1, !tbaa !54, !noalias !360
+  store i8 0, ptr %11, align 8, !tbaa !54, !noalias !360
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store i8 0, ptr %13, align 8, !tbaa !191, !noalias !360
   store ptr %7, ptr %0, align 8, !tbaa !193
@@ -9478,13 +9478,13 @@ _ZN9grpc_core10HPackTable7MementoD2Ev.exit:       ; preds = %_ZN9grpc_core19Uniq
   store i64 1, ptr %50, align 8, !tbaa !182, !noalias !366
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 16), ptr %49, align 8, !tbaa !136, !noalias !366
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  store i8 14, ptr %51, align 1, !tbaa !29, !noalias !366
+  store i8 14, ptr %51, align 8, !tbaa !29, !noalias !366
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 40
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 56
   store ptr %53, ptr %52, align 8, !tbaa !187, !noalias !366
   %54 = getelementptr inbounds nuw i8, ptr %49, i64 48
   store i64 0, ptr %54, align 8, !tbaa !189, !noalias !366
-  store i8 0, ptr %53, align 1, !tbaa !54, !noalias !366
+  store i8 0, ptr %53, align 8, !tbaa !54, !noalias !366
   %55 = getelementptr inbounds nuw i8, ptr %49, i64 80
   store i8 0, ptr %55, align 8, !tbaa !191, !noalias !366
   store ptr %49, ptr %4, align 8, !tbaa !193, !alias.scope !363
@@ -10635,7 +10635,7 @@ define linkonce_odr void @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE1
   %storemerge.i.i.i.i.i = or i16 %4, 2
   store i16 %storemerge.i.i.i.i.i, ptr %3, align 2, !tbaa !148
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  store i8 %.0.copyload.i.i, ptr %5, align 1, !tbaa !417
+  store i8 %.0.copyload.i.i, ptr %5, align 2, !tbaa !417
   ret void
 }
 
@@ -11506,7 +11506,7 @@ define linkonce_odr void @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE1
   %storemerge.i.i.i.i.i = or i16 %4, 16384
   store i16 %storemerge.i.i.i.i.i, ptr %3, align 2, !tbaa !148
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i8 %.0.copyload.i.i, ptr %5, align 1, !tbaa !456
+  store i8 %.0.copyload.i.i, ptr %5, align 2, !tbaa !456
   ret void
 }
 
@@ -12356,7 +12356,7 @@ define linkonce_odr void @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE2
   %storemerge.i.i.i.i.i = or i16 %5, 1024
   store i16 %storemerge.i.i.i.i.i, ptr %4, align 2, !tbaa !148
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i8 %.sroa.0.0.copyload.i, ptr %6, align 1, !tbaa !54
+  store i8 %.sroa.0.0.copyload.i, ptr %6, align 2, !tbaa !54
   ret void
 }
 
@@ -15598,7 +15598,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %49, ptr %51, align 8, !tbaa !189
   store ptr %40, ptr %37, align 8, !tbaa !231
   store i64 0, ptr %50, align 8, !tbaa !189
-  store i8 0, ptr %40, align 1, !tbaa !54
+  store i8 0, ptr %40, align 8, !tbaa !54
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.023.0, i64 40
   %53 = add nuw nsw i64 %.012.i, 1
   %exitcond.not.i = icmp eq i64 %53, %.sink1.i
@@ -17101,13 +17101,13 @@ define linkonce_odr void @_ZN9grpc_core16HpackParseResult18MetadataParseErrorESt
   store i64 1, ptr %7, align 8, !tbaa !182, !noalias !649
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 16), ptr %6, align 8, !tbaa !136, !noalias !649
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i8 8, ptr %8, align 1, !tbaa !29, !noalias !649
+  store i8 8, ptr %8, align 8, !tbaa !29, !noalias !649
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store ptr %10, ptr %9, align 8, !tbaa !187, !noalias !649
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i64 0, ptr %11, align 8, !tbaa !189, !noalias !649
-  store i8 0, ptr %10, align 1, !tbaa !54, !noalias !649
+  store i8 0, ptr %10, align 8, !tbaa !54, !noalias !649
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store i8 0, ptr %12, align 8, !tbaa !191, !noalias !649
   store ptr %6, ptr %0, align 8, !tbaa !193

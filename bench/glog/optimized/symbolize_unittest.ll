@@ -4236,7 +4236,7 @@ _Znwm.exit:                                       ; preds = %_ZnwmRKSt9nothrow_t
   store ptr %17, ptr %13, align 8, !tbaa !110
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %18, align 8, !tbaa !45
-  store i8 0, ptr %17, align 1, !tbaa !82
+  store i8 0, ptr %17, align 8, !tbaa !82
   %19 = load ptr, ptr %4, align 8, !tbaa !66
   store ptr %13, ptr %4, align 8, !tbaa !66
   %.not.i.i3 = icmp eq ptr %19, null

@@ -2537,7 +2537,7 @@ if.end.i.i:                                       ; preds = %if.then12.i.i.i.i, 
   %32 = load ptr, ptr %I.addr, align 8
   store ptr %32, ptr %call.i.i.i, align 8
   %second.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
-  store i32 0, ptr %second.i.i.i.i, align 4
+  store i32 0, ptr %second.i.i.i.i, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes11InstructionEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes11InstructionEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit: ; preds = %if.end13.i.i.i.i, %if.end.i.i.i.i, %if.end.i.i
@@ -3616,7 +3616,7 @@ if.end.i.i.i31:                                   ; preds = %if.then12.i.i.i.i.i
   %17 = load ptr, ptr %I.addr.i, align 8
   store ptr %17, ptr %call.i.i.i.i, align 8
   %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 8
-  store i32 -1, ptr %second.i.i.i.i.i, align 4
+  store i32 -1, ptr %second.i.i.i.i.i, align 8
   br label %_ZN6hermes17RegisterAllocator11getRegisterEPNS_5ValueE.exit
 
 _ZN6hermes17RegisterAllocator11getRegisterEPNS_5ValueE.exit: ; preds = %if.end13.i.i.i.i.i, %if.end.i.i.i.i.i, %if.end.i.i.i31
@@ -3881,7 +3881,7 @@ if.end.i.i:                                       ; preds = %if.then12.i.i.i.i, 
   %6 = load ptr, ptr %I.addr, align 8
   store ptr %6, ptr %call.i.i.i, align 8
   %second.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
-  store i32 -1, ptr %second.i.i.i.i, align 4
+  store i32 -1, ptr %second.i.i.i.i, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueENS2_8RegisterENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_EixERKS4_.exit
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueENS2_8RegisterENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_EixERKS4_.exit: ; preds = %if.end13.i.i.i.i, %if.end.i.i.i.i, %if.end.i.i
@@ -6459,7 +6459,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueENS2_8RegisterENS_12DenseMapI
   %second.i.i.i604 = getelementptr inbounds nuw i8, ptr %cond.sink.i.i.i.i603, i64 8
   %second.i13.i.i605 = getelementptr inbounds nuw i8, ptr %B.020.i.i568, i64 8
   %45 = load i32, ptr %second.i13.i.i605, align 4
-  store i32 %45, ptr %second.i.i.i604, align 4
+  store i32 %45, ptr %second.i.i.i604, align 8
   %46 = load i32, ptr %NumEntries.i.i.i, align 8
   %add.i.i.i606 = add i32 %46, 1
   store i32 %add.i.i.i606, ptr %NumEntries.i.i.i, align 8
@@ -6654,7 +6654,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueENS2_8RegisterENS_12DenseMapI
   %second.i.i.i = getelementptr inbounds nuw i8, ptr %cond.sink.i.i.i.i, i64 8
   %second.i13.i.i = getelementptr inbounds nuw i8, ptr %B.020.i.i, i64 8
   %62 = load i32, ptr %second.i13.i.i, align 4
-  store i32 %62, ptr %second.i.i.i, align 4
+  store i32 %62, ptr %second.i.i.i, align 8
   %63 = load i32, ptr %NumEntries.i.i.i, align 8
   %add.i.i.i526 = add i32 %63, 1
   store i32 %add.i.i.i526, ptr %NumEntries.i.i.i, align 8
@@ -6734,7 +6734,7 @@ if.then16.i:                                      ; preds = %if.end12.i
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueENS2_8RegisterENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_.exit: ; preds = %if.end12.i, %if.then16.i
   store ptr %add.ptr.i.i.i.i.i.i, ptr %TheBucket.addr.0.i, align 8
   %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %TheBucket.addr.0.i, i64 8
-  store i32 -1, ptr %second.i.i.i.i.i, align 4
+  store i32 -1, ptr %second.i.i.i.i.i, align 8
   br label %_ZN6hermes17RegisterAllocator14updateRegisterEPNS_5ValueENS_8RegisterE.exit
 
 _ZN6hermes17RegisterAllocator14updateRegisterEPNS_5ValueENS_8RegisterE.exit: ; preds = %if.end13.i.i.i.i.i, %if.end.i.i.i.i.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueENS2_8RegisterENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_.exit
@@ -6930,7 +6930,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueENS2_8RegisterENS_12DenseMapI
   %second.i.i.i784 = getelementptr inbounds nuw i8, ptr %cond.sink.i.i.i.i783, i64 8
   %second.i13.i.i785 = getelementptr inbounds nuw i8, ptr %B.020.i.i748, i64 8
   %89 = load i32, ptr %second.i13.i.i785, align 4
-  store i32 %89, ptr %second.i.i.i784, align 4
+  store i32 %89, ptr %second.i.i.i784, align 8
   %90 = load i32, ptr %NumEntries.i.i.i, align 8
   %add.i.i.i786 = add i32 %90, 1
   store i32 %add.i.i.i786, ptr %NumEntries.i.i.i, align 8
@@ -7125,7 +7125,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueENS2_8RegisterENS_12DenseMapI
   %second.i.i.i694 = getelementptr inbounds nuw i8, ptr %cond.sink.i.i.i.i693, i64 8
   %second.i13.i.i695 = getelementptr inbounds nuw i8, ptr %B.020.i.i658, i64 8
   %106 = load i32, ptr %second.i13.i.i695, align 4
-  store i32 %106, ptr %second.i.i.i694, align 4
+  store i32 %106, ptr %second.i.i.i694, align 8
   %107 = load i32, ptr %NumEntries.i.i.i, align 8
   %add.i.i.i696 = add i32 %107, 1
   store i32 %add.i.i.i696, ptr %NumEntries.i.i.i, align 8
@@ -7205,7 +7205,7 @@ if.then16.i287:                                   ; preds = %if.end12.i283
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueENS2_8RegisterENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_.exit332: ; preds = %if.end12.i283, %if.then16.i287
   store ptr %72, ptr %TheBucket.addr.0.i284, align 8
   %second.i.i.i.i.i66 = getelementptr inbounds nuw i8, ptr %TheBucket.addr.0.i284, i64 8
-  store i32 -1, ptr %second.i.i.i.i.i66, align 4
+  store i32 -1, ptr %second.i.i.i.i.i66, align 8
   br label %_ZN6hermes17RegisterAllocator14updateRegisterEPNS_5ValueENS_8RegisterE.exit67
 
 _ZN6hermes17RegisterAllocator14updateRegisterEPNS_5ValueENS_8RegisterE.exit67: ; preds = %if.end13.i.i.i.i.i47, %if.end.i.i.i.i.i31, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueENS2_8RegisterENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_.exit332
@@ -7705,7 +7705,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueENS2_8RegisterENS_12DenseMapI
   %second.i.i.i964 = getelementptr inbounds nuw i8, ptr %cond.sink.i.i.i.i963, i64 8
   %second.i13.i.i965 = getelementptr inbounds nuw i8, ptr %B.020.i.i928, i64 8
   %165 = load i32, ptr %second.i13.i.i965, align 4
-  store i32 %165, ptr %second.i.i.i964, align 4
+  store i32 %165, ptr %second.i.i.i964, align 8
   %166 = load i32, ptr %NumEntries.i.i.i427, align 8
   %add.i.i.i966 = add i32 %166, 1
   store i32 %add.i.i.i966, ptr %NumEntries.i.i.i427, align 8
@@ -7900,7 +7900,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueENS2_8RegisterENS_12DenseMapI
   %second.i.i.i874 = getelementptr inbounds nuw i8, ptr %cond.sink.i.i.i.i873, i64 8
   %second.i13.i.i875 = getelementptr inbounds nuw i8, ptr %B.020.i.i838, i64 8
   %182 = load i32, ptr %second.i13.i.i875, align 4
-  store i32 %182, ptr %second.i.i.i874, align 4
+  store i32 %182, ptr %second.i.i.i874, align 8
   %183 = load i32, ptr %NumEntries.i.i.i427, align 8
   %add.i.i.i876 = add i32 %183, 1
   store i32 %add.i.i.i876, ptr %NumEntries.i.i.i427, align 8
@@ -7980,7 +7980,7 @@ if.then16.i467:                                   ; preds = %if.end12.i463
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueENS2_8RegisterENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_.exit512: ; preds = %if.end12.i463, %if.then16.i467
   store ptr %add.ptr48, ptr %TheBucket.addr.0.i464, align 8
   %second.i.i.i.i.i167 = getelementptr inbounds nuw i8, ptr %TheBucket.addr.0.i464, i64 8
-  store i32 -1, ptr %second.i.i.i.i.i167, align 4
+  store i32 -1, ptr %second.i.i.i.i.i167, align 8
   br label %_ZN6hermes17RegisterAllocator14updateRegisterEPNS_5ValueENS_8RegisterE.exit168
 
 _ZN6hermes17RegisterAllocator14updateRegisterEPNS_5ValueENS_8RegisterE.exit168: ; preds = %if.end13.i.i.i.i.i148, %if.end.i.i.i.i.i132, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueENS2_8RegisterENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_.exit512
@@ -8163,7 +8163,7 @@ if.end.i.i:                                       ; preds = %if.then12.i.i.i.i, 
   %6 = load ptr, ptr %I.addr, align 8
   store ptr %6, ptr %call.i.i.i, align 8
   %second.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
-  store i32 -1, ptr %second.i.i.i.i, align 4
+  store i32 -1, ptr %second.i.i.i.i, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueENS2_8RegisterENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_EixERKS4_.exit
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueENS2_8RegisterENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_EixERKS4_.exit: ; preds = %if.end13.i.i.i.i, %if.end.i.i.i.i, %if.end.i.i
@@ -9255,7 +9255,7 @@ if.then16.i665:                                   ; preds = %if.end12.i662
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueENS2_8RegisterENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_.exit: ; preds = %if.end12.i662, %if.then16.i665
   store ptr %spec.select, ptr %TheBucket.addr.0.i, align 8
   %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %TheBucket.addr.0.i, i64 8
-  store i32 -1, ptr %second.i.i.i.i.i, align 4
+  store i32 -1, ptr %second.i.i.i.i.i, align 8
   br label %_ZN6hermes17RegisterAllocator11getRegisterEPNS_5ValueE.exit
 
 _ZN6hermes17RegisterAllocator11getRegisterEPNS_5ValueE.exit: ; preds = %if.end13.i.i.i.i.i, %if.end.i.i.i.i.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueENS2_8RegisterENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_.exit
@@ -9497,7 +9497,7 @@ if.end.i.i.i275:                                  ; preds = %if.then12.i.i.i.i.i
   %157 = load ptr, ptr %I.addr.i239, align 8
   store ptr %157, ptr %call.i.i.i.i277, align 8
   %second.i.i.i.i.i278 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i277, i64 8
-  store i32 -1, ptr %second.i.i.i.i.i278, align 4
+  store i32 -1, ptr %second.i.i.i.i.i278, align 8
   br label %_ZN6hermes17RegisterAllocator14updateRegisterEPNS_5ValueENS_8RegisterE.exit
 
 _ZN6hermes17RegisterAllocator14updateRegisterEPNS_5ValueENS_8RegisterE.exit: ; preds = %if.end13.i.i.i.i.i259, %if.end.i.i.i.i.i243, %if.end.i.i.i275
@@ -9724,7 +9724,7 @@ if.end.i.i.i349:                                  ; preds = %if.then12.i.i.i.i.i
   %188 = load ptr, ptr %I.addr.i312, align 8
   store ptr %188, ptr %call.i.i.i.i351, align 8
   %second.i.i.i.i.i352 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i351, i64 8
-  store i32 -1, ptr %second.i.i.i.i.i352, align 4
+  store i32 -1, ptr %second.i.i.i.i.i352, align 8
   br label %_ZN6hermes17RegisterAllocator11getRegisterEPNS_5ValueE.exit353
 
 _ZN6hermes17RegisterAllocator11getRegisterEPNS_5ValueE.exit353: ; preds = %if.end13.i.i.i.i.i332, %if.end.i.i.i.i.i316, %if.end.i.i.i349
@@ -9892,7 +9892,7 @@ if.end.i.i.i419:                                  ; preds = %if.then12.i.i.i.i.i
   %212 = load ptr, ptr %I.addr.i382, align 8
   store ptr %212, ptr %call.i.i.i.i421, align 8
   %second.i.i.i.i.i422 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i421, i64 8
-  store i32 -1, ptr %second.i.i.i.i.i422, align 4
+  store i32 -1, ptr %second.i.i.i.i.i422, align 8
   %.pre787 = load ptr, ptr %allocated.i383, align 8
   %.pre788 = load i32, ptr %NumBuckets.i.i.i.i.i.i.i384, align 8
   br label %_ZN6hermes17RegisterAllocator11getRegisterEPNS_5ValueE.exit423
@@ -9961,7 +9961,7 @@ if.end.i.i.i460:                                  ; preds = %if.then12.i.i.i.i.i
   %221 = load ptr, ptr %I.addr.i424, align 8
   store ptr %221, ptr %call.i.i.i.i462, align 8
   %second.i.i.i.i.i463 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i462, i64 8
-  store i32 -1, ptr %second.i.i.i.i.i463, align 4
+  store i32 -1, ptr %second.i.i.i.i.i463, align 8
   br label %_ZN6hermes17RegisterAllocator14updateRegisterEPNS_5ValueENS_8RegisterE.exit464
 
 _ZN6hermes17RegisterAllocator14updateRegisterEPNS_5ValueENS_8RegisterE.exit464: ; preds = %if.end13.i.i.i.i.i444, %if.end.i.i.i.i.i428, %if.end.i.i.i460
@@ -11015,7 +11015,7 @@ if.end.i.i:                                       ; preds = %if.then12.i.i.i.i, 
   %7 = load ptr, ptr %v, align 8
   store ptr %7, ptr %call.i.i.i, align 8
   %second.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
-  store i32 -1, ptr %second.i.i.i.i, align 4
+  store i32 -1, ptr %second.i.i.i.i, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueENS2_8RegisterENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_EixERKS4_.exit
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueENS2_8RegisterENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_EixERKS4_.exit: ; preds = %if.end13.i.i.i.i, %if.end.i.i.i.i, %if.end.i.i
@@ -11709,7 +11709,7 @@ if.end.i.i.i6:                                    ; preds = %if.then12.i.i.i.i.i
   %19 = load ptr, ptr %I.addr.i, align 8
   store ptr %19, ptr %call.i.i.i.i, align 8
   %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 8
-  store i32 -1, ptr %second.i.i.i.i.i, align 4
+  store i32 -1, ptr %second.i.i.i.i.i, align 8
   br label %_ZN6hermes17RegisterAllocator11getRegisterEPNS_5ValueE.exit
 
 _ZN6hermes17RegisterAllocator11getRegisterEPNS_5ValueE.exit: ; preds = %if.end13.i.i.i.i.i, %if.end.i.i.i.i.i, %if.end.i.i.i6
@@ -12025,7 +12025,7 @@ if.end.i.i.i5:                                    ; preds = %if.then12.i.i.i.i.i
   %18 = load ptr, ptr %I.addr.i, align 8
   store ptr %18, ptr %call.i.i.i.i, align 8
   %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 8
-  store i32 -1, ptr %second.i.i.i.i.i, align 4
+  store i32 -1, ptr %second.i.i.i.i.i, align 8
   br label %_ZN6hermes17RegisterAllocator11getRegisterEPNS_5ValueE.exit
 
 _ZN6hermes17RegisterAllocator11getRegisterEPNS_5ValueE.exit: ; preds = %if.end13.i.i.i.i.i, %if.end.i.i.i.i.i, %if.end.i.i.i5
@@ -12299,7 +12299,7 @@ if.end.i.i.i23:                                   ; preds = %if.then12.i.i.i.i.i
   %22 = load ptr, ptr %I.addr.i, align 8
   store ptr %22, ptr %call.i.i.i.i, align 8
   %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 8
-  store i32 -1, ptr %second.i.i.i.i.i, align 4
+  store i32 -1, ptr %second.i.i.i.i.i, align 8
   br label %_ZN6hermes17RegisterAllocator11getRegisterEPNS_5ValueE.exit
 
 _ZN6hermes17RegisterAllocator11getRegisterEPNS_5ValueE.exit: ; preds = %if.end13.i.i.i.i.i, %if.end.i.i.i.i.i, %if.end.i.i.i23
@@ -14405,7 +14405,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueENS2_8RegisterENS_12DenseMapI
   %second.i.i = getelementptr inbounds nuw i8, ptr %cond.sink.i.i.i, i64 8
   %second.i13.i = getelementptr inbounds nuw i8, ptr %B.020.i, i64 8
   %11 = load i32, ptr %second.i13.i, align 4
-  store i32 %11, ptr %second.i.i, align 4
+  store i32 %11, ptr %second.i.i, align 8
   %12 = load i32, ptr %NumEntries.i.i.i.i, align 8
   %add.i.i = add i32 %12, 1
   store i32 %add.i.i, ptr %NumEntries.i.i.i.i, align 8
@@ -14826,7 +14826,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes11InstructionEjNS_12DenseMapInfoIS4
   %second.i.i = getelementptr inbounds nuw i8, ptr %cond.sink.i.i.i, i64 8
   %second.i13.i = getelementptr inbounds nuw i8, ptr %B.020.i, i64 8
   %11 = load i32, ptr %second.i13.i, align 4
-  store i32 %11, ptr %second.i.i, align 4
+  store i32 %11, ptr %second.i.i, align 8
   %12 = load i32, ptr %NumEntries.i.i.i.i, align 8
   %add.i.i = add i32 %12, 1
   store i32 %add.i.i, ptr %NumEntries.i.i.i.i, align 8

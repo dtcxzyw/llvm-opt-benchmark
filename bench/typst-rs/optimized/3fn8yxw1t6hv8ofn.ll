@@ -43,7 +43,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %13 = getelementptr inbounds { i128, ptr, [1 x i64] }, ptr %.sroa.0.0.copyload, i64 %.0.i.i.i
   %.val19.i.i.i = load i128, ptr %13, align 16, !alias.scope !5, !noalias !10, !noundef !4
   %14 = getelementptr i8, ptr %13, i64 16
-  %.val20.i.i.i = load ptr, ptr %14, align 8, !alias.scope !21, !noalias !22, !nonnull !4, !noundef !4
+  %.val20.i.i.i = load ptr, ptr %14, align 16, !alias.scope !21, !noalias !22, !nonnull !4, !noundef !4
   %15 = load i32, ptr %9, align 8, !range !29, !noalias !30, !noundef !4
   %16 = atomicrmw add ptr %.val20.i.i.i, i64 1 monotonic, align 8, !noalias !39
   %17 = icmp slt i64 %16, 0
@@ -182,7 +182,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %15 = getelementptr inbounds { i128, ptr, [1 x i64] }, ptr %.sroa.0.0.copyload, i64 %.0.i.i
   %.val19.i.i = load i128, ptr %15, align 16, !alias.scope !65, !noalias !70, !noundef !4
   %16 = getelementptr i8, ptr %15, i64 16
-  %.val20.i.i = load ptr, ptr %16, align 8, !alias.scope !78, !noalias !79, !nonnull !4, !noundef !4
+  %.val20.i.i = load ptr, ptr %16, align 16, !alias.scope !78, !noalias !79, !nonnull !4, !noundef !4
   %17 = load i32, ptr %11, align 8, !range !29, !noalias !86, !noundef !4
   %18 = atomicrmw add ptr %.val20.i.i, i64 1 monotonic, align 8, !noalias !95
   %19 = icmp slt i64 %18, 0
@@ -292,7 +292,7 @@ define hidden void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$
   %18 = getelementptr inbounds { i128, ptr, [1 x i64] }, ptr %3, i64 %.0.i
   %.val19.i = load i128, ptr %18, align 16, !alias.scope !112, !noalias !117, !noundef !4
   %19 = getelementptr i8, ptr %18, i64 16
-  %.val20.i = load ptr, ptr %19, align 8, !alias.scope !122, !noalias !123, !nonnull !4, !noundef !4
+  %.val20.i = load ptr, ptr %19, align 16, !alias.scope !122, !noalias !123, !nonnull !4, !noundef !4
   %20 = load i32, ptr %14, align 8, !range !29, !noalias !130, !noundef !4
   %21 = atomicrmw add ptr %.val20.i, i64 1 monotonic, align 8, !noalias !139
   %22 = icmp slt i64 %21, 0
@@ -1000,7 +1000,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %22 = getelementptr inbounds { i128, ptr, [1 x i64] }, ptr %0, i64 %.0
   %.val19 = load i128, ptr %22, align 16, !alias.scope !269, !noalias !274, !noundef !4
   %23 = getelementptr i8, ptr %22, i64 16
-  %.val20 = load ptr, ptr %23, align 8, !alias.scope !277, !noalias !278, !nonnull !4, !noundef !4
+  %.val20 = load ptr, ptr %23, align 16, !alias.scope !277, !noalias !278, !nonnull !4, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !268)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !285)
   %24 = load i32, ptr %13, align 8, !range !29, !noalias !286, !noundef !4

@@ -957,7 +957,7 @@ define dso_local noundef nonnull ptr @_ZN13SubprocessSet3AddERKNSt7__cxx1112basi
   store ptr %6, ptr %4, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %7, align 8, !tbaa !10
-  store i8 0, ptr %6, align 1, !tbaa !13
+  store i8 0, ptr %6, align 8, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 -1, ptr %8, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 36

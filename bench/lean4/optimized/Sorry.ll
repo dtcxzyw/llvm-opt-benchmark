@@ -6500,7 +6500,7 @@ lean_dec.exit206:                                 ; preds = %153, %152, %150, %l
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
   store ptr %154, ptr %156, align 8, !tbaa !4
   %157 = getelementptr inbounds nuw i8, ptr %155, i64 16
-  store i8 1, ptr %157, align 1, !tbaa !14
+  store i8 1, ptr %157, align 8, !tbaa !14
   store ptr %155, ptr %105, align 8, !tbaa !4
   store ptr inttoptr (i64 1 to ptr), ptr %77, align 8, !tbaa !4
   br label %492
@@ -6650,7 +6650,7 @@ lean_dec.exit203:                                 ; preds = %207, %206, %204, %l
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 8
   store ptr %208, ptr %210, align 8, !tbaa !4
   %211 = getelementptr inbounds nuw i8, ptr %209, i64 16
-  store i8 1, ptr %211, align 1, !tbaa !14
+  store i8 1, ptr %211, align 8, !tbaa !14
   %212 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 2, i32 noundef 0)
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %213, align 8, !tbaa !4
@@ -6872,7 +6872,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit200
   %291 = getelementptr inbounds nuw i8, ptr %288, i64 4
   %292 = getelementptr inbounds nuw i8, ptr %288, i64 16
   store i64 1, ptr %292, align 8, !tbaa !12
-  store i32 1, ptr %288, align 4, !tbaa !8
+  store i32 1, ptr %288, align 8, !tbaa !8
   store i32 65560, ptr %291, align 4
   %293 = getelementptr inbounds nuw i8, ptr %288, i64 8
   store ptr %287, ptr %293, align 8, !tbaa !4
@@ -8330,7 +8330,7 @@ lean_nat_lt.exit277:                              ; preds = %lean_dec.exit231
   %227 = getelementptr inbounds nuw i8, ptr %224, i64 4
   %228 = getelementptr inbounds nuw i8, ptr %224, i64 16
   store i64 0, ptr %228, align 8, !tbaa !12
-  store i32 1, ptr %224, align 4, !tbaa !8
+  store i32 1, ptr %224, align 8, !tbaa !8
   store i32 65560, ptr %227, align 4
   %229 = getelementptr inbounds nuw i8, ptr %224, i64 8
   store ptr %206, ptr %229, align 8, !tbaa !4
@@ -10244,7 +10244,7 @@ _init_l_Lean_IR_updateSorryDep___closed__1.exit:  ; preds = %_init_l_Lean_IR_Sor
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i64 0, ptr %30, align 8, !tbaa !12
-  store i32 1, ptr %26, align 4, !tbaa !8
+  store i32 1, ptr %26, align 8, !tbaa !8
   store i32 65560, ptr %29, align 4
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %31, align 8, !tbaa !4

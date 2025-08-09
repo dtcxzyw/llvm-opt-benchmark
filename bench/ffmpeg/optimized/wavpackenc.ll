@@ -8599,9 +8599,9 @@ put_bits.exit89:                                  ; preds = %put_bits.exit85, %1
   %146 = add nsw i32 %.0.i.i88, -1
   store i32 %145, ptr %3, align 8, !tbaa !153
   store i32 %146, ptr %108, align 4, !tbaa !152
-  %147 = load i32, ptr %102, align 4, !tbaa !205
+  %147 = load i32, ptr %102, align 8, !tbaa !205
   %148 = add nsw i32 %147, -16
-  store i32 %148, ptr %102, align 4, !tbaa !205
+  store i32 %148, ptr %102, align 8, !tbaa !205
   %.not61 = icmp eq i32 %148, 0
   br i1 %.not61, label %._crit_edge135, label %149
 
@@ -8734,7 +8734,7 @@ put_bits.exit101:                                 ; preds = %196, %211
   %213 = add nsw i32 %.0.i.i100, -1
   store i32 %.020.i.i99, ptr %3, align 8, !tbaa !153
   store i32 %213, ptr %108, align 4, !tbaa !152
-  %.pr123 = load i32, ptr %102, align 4, !tbaa !205
+  %.pr123 = load i32, ptr %102, align 8, !tbaa !205
   %214 = icmp sgt i32 %.pr123, 1
   br i1 %214, label %.lr.ph137, label %._crit_edge138
 
@@ -8788,7 +8788,7 @@ put_bits.exit105:                                 ; preds = %217, %236
   store i32 %.020.i.i103, ptr %3, align 8, !tbaa !153
   store i32 %240, ptr %108, align 4, !tbaa !152
   %241 = ashr i32 %239, 1
-  store i32 %241, ptr %102, align 4, !tbaa !205
+  store i32 %241, ptr %102, align 8, !tbaa !205
   %242 = icmp sgt i32 %241, 1
   br i1 %242, label %217, label %._crit_edge138, !llvm.loop !210
 
@@ -8893,7 +8893,7 @@ put_bits.exit113:                                 ; preds = %273, %290
   %292 = add nsw i32 %.0.i.i112, -1
   store i32 %.020.i.i111, ptr %3, align 8, !tbaa !153
   store i32 %292, ptr %275, align 4, !tbaa !152
-  store i32 0, ptr %271, align 4, !tbaa !204
+  store i32 0, ptr %271, align 8, !tbaa !204
   br label %293
 
 293:                                              ; preds = %put_bits.exit113, %270

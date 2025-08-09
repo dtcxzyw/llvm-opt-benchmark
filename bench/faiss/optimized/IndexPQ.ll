@@ -4983,7 +4983,7 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.i.i.i: ; preds = %300, %_ZN5f
   %314 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %315 = load i64, ptr %314, align 8, !tbaa !41
   %316 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %317 = load i32, ptr %316, align 4, !tbaa !49
+  %317 = load i32, ptr %316, align 8, !tbaa !49
   %.not.i.i138.i = icmp eq i64 %312, 0
   br i1 %.not.i.i138.i, label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_125Run_polysemous_inner_loopEJPKNS_7IndexPQEPKfPKhlPfPliEEENT_1TEiRSC_DpT0_.exit, label %.lr.ph48.i.i.i
 
@@ -5019,7 +5019,7 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.i.i.i: ; preds = %300, %_ZN5f
   %337 = trunc nuw nsw i64 %336 to i32
   %338 = add nuw nsw i32 %337, %332
   %339 = getelementptr inbounds nuw i8, ptr %.03546.i.i.i, i64 16
-  %340 = load i32, ptr %339, align 4, !tbaa !49
+  %340 = load i32, ptr %339, align 8, !tbaa !49
   %341 = xor i32 %340, %317
   %342 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %341)
   %343 = add nuw nsw i32 %338, %342

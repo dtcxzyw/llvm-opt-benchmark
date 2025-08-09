@@ -5707,7 +5707,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit530:            ; preds = %727, %721
   %756 = getelementptr inbounds nuw i8, ptr %754, i64 16
   %757 = load i64, ptr %756, align 8, !tbaa !333
   %758 = icmp eq i64 %757, %746
-  %759 = load i32, ptr %755, align 4
+  %759 = load i32, ptr %755, align 8
   %760 = icmp eq i32 %144, %759
   %761 = select i1 %758, i1 %760, i1 false
   br i1 %761, label %.critedge222, label %.lr.ph.i.i.i.i533
@@ -5776,7 +5776,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit530:            ; preds = %727, %721
   %794 = getelementptr inbounds nuw i8, ptr %792, i64 16
   %795 = load i64, ptr %794, align 8, !tbaa !333
   %796 = icmp eq i64 %795, %784
-  %797 = load i32, ptr %793, align 4
+  %797 = load i32, ptr %793, align 8
   %798 = icmp eq i32 %144, %797
   %799 = select i1 %796, i1 %798, i1 false
   br i1 %799, label %.critedge222, label %.lr.ph.i.i.i.i544
@@ -6635,7 +6635,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit723: ; preds = %1121, %1115, %
   %1195 = getelementptr inbounds nuw i8, ptr %1193, i64 16
   %1196 = load i64, ptr %1195, align 8, !tbaa !333
   %1197 = icmp eq i64 %1196, %1185
-  %1198 = load i32, ptr %1194, align 4
+  %1198 = load i32, ptr %1194, align 8
   %1199 = icmp eq i32 %1173, %1198
   %1200 = select i1 %1197, i1 %1199, i1 false
   br i1 %1200, label %.thread, label %.lr.ph.i.i.i.i734
@@ -6712,7 +6712,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit723: ; preds = %1121, %1115, %
   %1236 = getelementptr inbounds nuw i8, ptr %1234, i64 16
   %1237 = load i64, ptr %1236, align 8, !tbaa !333
   %1238 = icmp eq i64 %1237, %1226
-  %1239 = load i32, ptr %1235, align 4
+  %1239 = load i32, ptr %1235, align 8
   %1240 = icmp eq i32 %1173, %1239
   %1241 = select i1 %1238, i1 %1240, i1 false
   br i1 %1241, label %_ZNKSt13unordered_setIN4cvc58internal4kind6Kind_tENS2_16KindHashFunctionESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit755, label %.lr.ph.i.i.i.i746
@@ -8746,7 +8746,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZN4cvc58internal12
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %99 = load i64, ptr %98, align 8, !tbaa !333
   %100 = icmp eq i64 %99, %89
-  %101 = load i32, ptr %97, align 4
+  %101 = load i32, ptr %97, align 8
   %102 = icmp eq i32 %82, %101
   %103 = select i1 %100, i1 %102, i1 false
   br i1 %103, label %_ZNKSt13unordered_setIN4cvc58internal4kind6Kind_tENS2_16KindHashFunctionESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit, label %.lr.ph.i.i.i.i
@@ -23048,7 +23048,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4cvc58internal4kind6K
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %32 = load i64, ptr %31, align 8, !tbaa !333
   %33 = icmp eq i64 %32, %8
-  %34 = load i32, ptr %30, align 4
+  %34 = load i32, ptr %30, align 8
   %35 = icmp eq i32 %7, %34
   %36 = select i1 %33, i1 %35, i1 false
   br i1 %36, label %_ZNKSt10_HashtableIN4cvc58internal4kind6Kind_tES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ENS2_16KindHashFunctionENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS3_EEPNS5_10_Hash_nodeIS3_Lb1EEEmRKT_m.exit, label %.lr.ph.i.i
@@ -23084,7 +23084,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4cvc58internal4kind6K
   %51 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
   store ptr null, ptr %51, align 8, !tbaa !90
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store i32 %50, ptr %52, align 4, !tbaa !97
+  store i32 %50, ptr %52, align 8, !tbaa !97
   %53 = invoke ptr @_ZNSt10_HashtableIN4cvc58internal4kind6Kind_tES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ENS2_16KindHashFunctionENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS5_10_Hash_nodeIS3_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %48, i64 noundef %49, ptr noundef nonnull %51, i64 noundef 1)
           to label %_ZNKSt10_HashtableIN4cvc58internal4kind6Kind_tES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ENS2_16KindHashFunctionENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS3_EEPNS5_10_Hash_nodeIS3_Lb1EEEmRKT_m.exit unwind label %_ZNSt10_HashtableIN4cvc58internal4kind6Kind_tES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ENS2_16KindHashFunctionENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit20
 

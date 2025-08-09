@@ -878,10 +878,10 @@ define range(i32 -2147483648, 1) i32 @ff_mjpeg_decode_sof(ptr noundef initialize
   store i32 0, ptr %7, align 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = load i32, ptr %9, align 8, !tbaa !61
+  %10 = load i32, ptr %9, align 16, !tbaa !61
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i32, ptr %11, align 8, !tbaa !59
-  %13 = load ptr, ptr %8, align 8, !tbaa !57
+  %13 = load ptr, ptr %8, align 16, !tbaa !57
   %14 = lshr i32 %10, 3
   %15 = zext nneg i32 %14 to i64
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 %15
@@ -892,7 +892,7 @@ define range(i32 -2147483648, 1) i32 @ff_mjpeg_decode_sof(ptr noundef initialize
   %21 = lshr i32 %20, 16
   %22 = add i32 %10, 16
   %23 = tail call i32 @llvm.umin.i32(i32 %12, i32 %22)
-  store i32 %23, ptr %9, align 8, !tbaa !61
+  store i32 %23, ptr %9, align 16, !tbaa !61
   %24 = lshr i32 %23, 3
   %25 = zext nneg i32 %24 to i64
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 %25
@@ -903,7 +903,7 @@ define range(i32 -2147483648, 1) i32 @ff_mjpeg_decode_sof(ptr noundef initialize
   %31 = lshr i32 %30, 24
   %32 = add i32 %23, 8
   %33 = tail call i32 @llvm.umin.i32(i32 %12, i32 %32)
-  store i32 %33, ptr %9, align 8, !tbaa !61
+  store i32 %33, ptr %9, align 16, !tbaa !61
   %34 = add nsw i32 %31, -17
   %or.cond = icmp ult i32 %34, -16
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3411,7 +3411,7 @@ align_get_bits.exit:                              ; preds = %393
   store i32 %.sroa.10.0.copyload, ptr %.sroa.10.0..sroa_idx, align 4
   %416 = add i32 %.sroa.6278.0, 16
   %417 = tail call i32 @llvm.umin.i32(i32 %.sroa.9283.0.copyload, i32 %416)
-  store i32 %417, ptr %35, align 8, !tbaa !61
+  store i32 %417, ptr %35, align 16, !tbaa !61
   %418 = load i32, ptr %321, align 4, !tbaa !105
   %419 = xor i32 %418, 1
   store i32 %419, ptr %321, align 4, !tbaa !105

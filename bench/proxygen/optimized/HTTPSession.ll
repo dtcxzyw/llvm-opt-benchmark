@@ -24687,7 +24687,7 @@ _ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSERKS6_.
   %recvwnd = getelementptr inbounds nuw i8, ptr %tinfo, i64 72
   store i64 %conv21, ptr %recvwnd, align 8
   %tcpi_rtt = getelementptr inbounds nuw i8, ptr %tinfo, i64 200
-  %41 = load i32, ptr %tcpi_rtt, align 4
+  %41 = load i32, ptr %tcpi_rtt, align 8
   %cmp.not = icmp eq i32 %41, 0
   br i1 %cmp.not, label %if.end, label %if.then23
 
@@ -38190,7 +38190,7 @@ sw.bb:                                            ; preds = %entry
   %0 = load ptr, ptr %src, align 8
   store ptr %0, ptr %dst, align 8
   %1 = getelementptr inbounds nuw i8, ptr %dst, i64 8
-  store i8 0, ptr %1, align 4
+  store i8 0, ptr %1, align 8
   %hasValue.i.i.i = getelementptr inbounds nuw i8, ptr %dst, i64 12
   store i8 0, ptr %hasValue.i.i.i, align 4
   %hasValue.i.i.i.i = getelementptr inbounds nuw i8, ptr %src, i64 12
@@ -38268,7 +38268,7 @@ sw.bb:                                            ; preds = %entry
   %0 = load ptr, ptr %src, align 8
   store ptr %0, ptr %dst, align 8
   %1 = getelementptr inbounds nuw i8, ptr %dst, i64 8
-  store i8 0, ptr %1, align 4
+  store i8 0, ptr %1, align 8
   %hasValue.i.i.i = getelementptr inbounds nuw i8, ptr %dst, i64 12
   store i8 0, ptr %hasValue.i.i.i, align 4
   %hasValue.i.i.i.i = getelementptr inbounds nuw i8, ptr %src, i64 12

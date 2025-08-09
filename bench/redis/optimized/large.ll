@@ -392,7 +392,7 @@ edata_list_active_append.exit:                    ; preds = %malloc_mutex_lock.e
   %178 = phi ptr [ %.pre.i, %164 ], [ %137, %malloc_mutex_lock.exit ]
   store ptr %178, ptr %159, align 8, !tbaa !87
   %179 = getelementptr inbounds nuw i8, ptr %.02445, i64 10640
-  store atomic i8 0, ptr %179 monotonic, align 1
+  store atomic i8 0, ptr %179 monotonic, align 8
   %180 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %144) #11
   br label %181
 
@@ -423,7 +423,7 @@ edata_list_active_append.exit:                    ; preds = %malloc_mutex_lock.e
   %199 = mul nsw i64 %198, %195
   %200 = udiv i64 %199, 61
   %201 = trunc i64 %200 to i32
-  store i32 %201, ptr %183, align 4, !tbaa !88
+  store i32 %201, ptr %183, align 8, !tbaa !88
   tail call void @je_arena_decay(ptr noundef nonnull %0, ptr noundef nonnull %.02445, i1 noundef zeroext false, i1 noundef zeroext false) #11
   br label %arena_decay_ticks.exit
 
@@ -487,7 +487,7 @@ define hidden noundef zeroext i1 @je_large_ralloc_no_move(ptr noundef %0, ptr no
   %36 = mul nsw i64 %35, %32
   %37 = udiv i64 %36, 61
   %38 = trunc i64 %37 to i32
-  store i32 %38, ptr %20, align 4, !tbaa !88
+  store i32 %38, ptr %20, align 8, !tbaa !88
   tail call void @je_arena_decay(ptr noundef nonnull %0, ptr noundef %.0.i.i, i1 noundef zeroext false, i1 noundef zeroext false) #11
   br label %arena_decay_ticks.exit
 
@@ -534,7 +534,7 @@ define hidden noundef zeroext i1 @je_large_ralloc_no_move(ptr noundef %0, ptr no
   %66 = mul nsw i64 %65, %62
   %67 = udiv i64 %66, 61
   %68 = trunc i64 %67 to i32
-  store i32 %68, ptr %50, align 4, !tbaa !88
+  store i32 %68, ptr %50, align 8, !tbaa !88
   tail call void @je_arena_decay(ptr noundef nonnull %0, ptr noundef %.0.i.i45, i1 noundef zeroext false, i1 noundef zeroext false) #11
   br label %arena_decay_ticks.exit
 
@@ -577,7 +577,7 @@ define hidden noundef zeroext i1 @je_large_ralloc_no_move(ptr noundef %0, ptr no
   %92 = mul nsw i64 %91, %88
   %93 = udiv i64 %92, 61
   %94 = trunc i64 %93 to i32
-  store i32 %94, ptr %76, align 4, !tbaa !88
+  store i32 %94, ptr %76, align 8, !tbaa !88
   tail call void @je_arena_decay(ptr noundef nonnull %0, ptr noundef %.0.i.i47, i1 noundef zeroext false, i1 noundef zeroext false) #11
   br label %arena_decay_ticks.exit
 
@@ -699,7 +699,7 @@ large_ralloc_no_move_shrink.exit.thread53:        ; preds = %sz_size2index.exit.
   %168 = mul nsw i64 %167, %164
   %169 = udiv i64 %168, 61
   %170 = trunc i64 %169 to i32
-  store i32 %170, ptr %152, align 4, !tbaa !88
+  store i32 %170, ptr %152, align 8, !tbaa !88
   call void @je_arena_decay(ptr noundef nonnull %0, ptr noundef %.0.i.i50, i1 noundef zeroext false, i1 noundef zeroext false) #11
   br label %arena_decay_ticks.exit
 
@@ -1396,7 +1396,7 @@ large_dalloc_finish_impl.exit:                    ; preds = %2, %10
   %29 = mul nsw i64 %28, %25
   %30 = udiv i64 %29, 61
   %31 = trunc i64 %30 to i32
-  store i32 %31, ptr %13, align 4, !tbaa !88
+  store i32 %31, ptr %13, align 8, !tbaa !88
   call void @je_arena_decay(ptr noundef nonnull %0, ptr noundef nonnull %.0.i.i, i1 noundef zeroext false, i1 noundef zeroext false) #11
   br label %arena_decay_ticks.exit
 

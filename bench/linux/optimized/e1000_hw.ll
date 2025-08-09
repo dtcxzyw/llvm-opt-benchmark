@@ -7034,7 +7034,7 @@ define internal fastcc void @e1000_standby_eeprom(ptr noundef readonly captures(
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr i8, ptr %3, i64 16
   %5 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4) #7, !srcloc !5
-  %6 = load i32, ptr %2, align 4
+  %6 = load i32, ptr %2, align 8
   switch i32 %6, label %59 [
     i32 2, label %7
     i32 1, label %39
@@ -7122,7 +7122,7 @@ define internal fastcc void @e1000_shift_out_ee_bits(ptr noundef readonly captur
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr i8, ptr %8, i64 16
   %10 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %9) #7, !srcloc !5
-  %11 = load i32, ptr %4, align 4
+  %11 = load i32, ptr %4, align 8
   switch i32 %11, label %16 [
     i32 2, label %12
     i32 1, label %14

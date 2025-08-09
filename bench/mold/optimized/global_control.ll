@@ -129,7 +129,7 @@ define void @_ZN3tbb6detail2r122global_control_acquireEv() local_unnamed_addr #0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %2, ptr %4, align 8, !tbaa !12
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN3tbb6detail2r127allowed_parallelism_controlE, i64 16), ptr %1, align 128, !tbaa !16
   store ptr %1, ptr @_ZN3tbb6detail2r1L8controlsE, align 16, !tbaa !18
   %6 = tail call noundef ptr @_ZN3tbb6detail2r122cache_aligned_allocateEm(i64 noundef 128)
@@ -140,7 +140,7 @@ define void @_ZN3tbb6detail2r122global_control_acquireEv() local_unnamed_addr #0
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %7, ptr %9, align 8, !tbaa !12
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  store i8 0, ptr %10, align 1, !tbaa !13
+  store i8 0, ptr %10, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN3tbb6detail2r118stack_size_controlE, i64 16), ptr %6, align 128, !tbaa !16
   store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @_ZN3tbb6detail2r1L8controlsE, i64 8), align 8, !tbaa !18
   %11 = tail call noundef ptr @_ZN3tbb6detail2r122cache_aligned_allocateEm(i64 noundef 128)
@@ -151,7 +151,7 @@ define void @_ZN3tbb6detail2r122global_control_acquireEv() local_unnamed_addr #0
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store ptr %12, ptr %14, align 8, !tbaa !12
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 64
-  store i8 0, ptr %15, align 1, !tbaa !13
+  store i8 0, ptr %15, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN3tbb6detail2r130terminate_on_exception_controlE, i64 16), ptr %11, align 128, !tbaa !16
   store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @_ZN3tbb6detail2r1L8controlsE, i64 16), align 16, !tbaa !18
   %16 = tail call noundef ptr @_ZN3tbb6detail2r122cache_aligned_allocateEm(i64 noundef 128)
@@ -162,7 +162,7 @@ define void @_ZN3tbb6detail2r122global_control_acquireEv() local_unnamed_addr #0
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 48
   store ptr %17, ptr %19, align 8, !tbaa !12
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 64
-  store i8 0, ptr %20, align 1, !tbaa !13
+  store i8 0, ptr %20, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN3tbb6detail2r116lifetime_controlE, i64 16), ptr %16, align 128, !tbaa !16
   store ptr %16, ptr getelementptr inbounds nuw (i8, ptr @_ZN3tbb6detail2r1L8controlsE, i64 24), align 8, !tbaa !18
   ret void
@@ -607,7 +607,7 @@ _ZN3tbb6detail2r119global_control_impl25remove_and_check_if_emptyERNS0_2d114glob
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %27 = load i64, ptr %26, align 8, !tbaa !24
   %28 = icmp eq i64 %27, 0
-  store atomic i8 0, ptr %11 release, align 1
+  store atomic i8 0, ptr %11 release, align 8
   ret i1 %28
 }
 

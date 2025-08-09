@@ -397,7 +397,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_
   store i64 %64, ptr %65, align 8, !tbaa !38
   store ptr %54, ptr %51, align 8, !tbaa !35
   store i64 0, ptr %63, align 8, !tbaa !38
-  store i8 0, ptr %54, align 1, !tbaa !39
+  store i8 0, ptr %54, align 8, !tbaa !39
   %66 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 56
   %67 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i.i, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %66, ptr noundef nonnull align 8 dereferenceable(40) %67, i64 40, i1 false), !tbaa.struct !40

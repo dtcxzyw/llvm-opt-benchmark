@@ -11759,7 +11759,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i229:
   %499 = getelementptr inbounds nuw i8, ptr %496, i64 24
   store ptr %499, ptr %498, align 8, !tbaa !12
   %500 = getelementptr inbounds nuw i8, ptr %496, i64 16
-  store i8 0, ptr %499, align 1, !tbaa !14
+  store i8 0, ptr %499, align 8, !tbaa !14
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN20TestDeformationModel9Component20ConstantTimeFunctionE, i64 16), ptr %496, align 8, !tbaa !31
   %501 = load ptr, ptr %24, align 8, !tbaa !4
   %502 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -11866,7 +11866,7 @@ _ZNKSt14default_deleteIN20TestDeformationModel9Component12TimeFunctionEEclEPS2_.
   %542 = getelementptr inbounds nuw i8, ptr %538, i64 24
   store ptr %542, ptr %541, align 8, !tbaa !12
   %543 = getelementptr inbounds nuw i8, ptr %538, i64 16
-  store i8 0, ptr %542, align 1, !tbaa !14
+  store i8 0, ptr %542, align 8, !tbaa !14
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN20TestDeformationModel9Component20VelocityTimeFunctionE, i64 16), ptr %538, align 8, !tbaa !31
   %544 = getelementptr inbounds nuw i8, ptr %538, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -12231,7 +12231,7 @@ _ZNSt10unique_ptrIN20TestDeformationModel9Component20VelocityTimeFunctionESt14de
   %687 = getelementptr inbounds nuw i8, ptr %683, i64 24
   store ptr %687, ptr %686, align 8, !tbaa !12
   %688 = getelementptr inbounds nuw i8, ptr %683, i64 16
-  store i8 0, ptr %687, align 1, !tbaa !14
+  store i8 0, ptr %687, align 8, !tbaa !14
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN20TestDeformationModel9Component16StepTimeFunctionE, i64 16), ptr %683, align 8, !tbaa !31
   %689 = getelementptr inbounds nuw i8, ptr %683, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -12596,7 +12596,7 @@ _ZNSt10unique_ptrIN20TestDeformationModel9Component16StepTimeFunctionESt14defaul
   %832 = getelementptr inbounds nuw i8, ptr %828, i64 24
   store ptr %832, ptr %831, align 8, !tbaa !12
   %833 = getelementptr inbounds nuw i8, ptr %828, i64 16
-  store i8 0, ptr %832, align 1, !tbaa !14
+  store i8 0, ptr %832, align 8, !tbaa !14
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN20TestDeformationModel9Component23ReverseStepTimeFunctionE, i64 16), ptr %828, align 8, !tbaa !31
   %834 = getelementptr inbounds nuw i8, ptr %828, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -12961,18 +12961,18 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i352:
   %976 = getelementptr inbounds nuw i8, ptr %973, i64 24
   store ptr %976, ptr %975, align 8, !tbaa !12
   %977 = getelementptr inbounds nuw i8, ptr %973, i64 16
-  store i8 0, ptr %976, align 1, !tbaa !14
+  store i8 0, ptr %976, align 8, !tbaa !14
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN20TestDeformationModel9Component21PiecewiseTimeFunctionE, i64 16), ptr %973, align 8, !tbaa !31
   %978 = getelementptr inbounds nuw i8, ptr %973, i64 40
   %979 = getelementptr inbounds nuw i8, ptr %973, i64 56
   store ptr %979, ptr %978, align 8, !tbaa !12
   %980 = getelementptr inbounds nuw i8, ptr %973, i64 48
-  store i8 0, ptr %979, align 1, !tbaa !14
+  store i8 0, ptr %979, align 8, !tbaa !14
   %981 = getelementptr inbounds nuw i8, ptr %973, i64 72
   %982 = getelementptr inbounds nuw i8, ptr %973, i64 88
   store ptr %982, ptr %981, align 8, !tbaa !12
   %983 = getelementptr inbounds nuw i8, ptr %973, i64 80
-  store i8 0, ptr %982, align 1, !tbaa !14
+  store i8 0, ptr %982, align 8, !tbaa !14
   %984 = getelementptr inbounds nuw i8, ptr %973, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %984, i8 0, i64 24, i1 false)
   %985 = load ptr, ptr %24, align 8, !tbaa !4
@@ -28048,11 +28048,11 @@ define internal fastcc void @_ZN12_GLOBAL__N_118getMinValidContentB5cxx11Ev(ptr 
 .noexc70:                                         ; preds = %70
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
   store ptr %77, ptr %76, align 8, !tbaa !12
-  store i32 2020565602, ptr %77, align 1
+  store i32 2020565602, ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store i64 4, ptr %78, align 8, !tbaa !15
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 20
-  store i8 0, ptr %79, align 1, !tbaa !14
+  store i8 0, ptr %79, align 4, !tbaa !14
   store ptr %76, ptr %75, align 8, !tbaa !14
   %80 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEixIKcEERSC_PT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef @.str.56)
           to label %81 unwind label %205
@@ -28082,11 +28082,11 @@ define internal fastcc void @_ZN12_GLOBAL__N_118getMinValidContentB5cxx11Ev(ptr 
   %89 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 16
   store ptr %90, ptr %88, align 8, !tbaa !12
-  store i32 2020565602, ptr %90, align 1
+  store i32 2020565602, ptr %90, align 8
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 8
   store i64 4, ptr %91, align 8, !tbaa !15
   %92 = getelementptr inbounds nuw i8, ptr %88, i64 20
-  store i8 0, ptr %92, align 1, !tbaa !14
+  store i8 0, ptr %92, align 4, !tbaa !14
   store ptr %88, ptr %89, align 8, !tbaa !14
   %93 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %14, ptr %93, align 8, !tbaa !298
@@ -34118,7 +34118,7 @@ define linkonce_odr hidden void @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorN
   store ptr %12, ptr %11, align 8, !tbaa !12
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %13, align 8, !tbaa !15
-  store i8 0, ptr %12, align 1, !tbaa !14
+  store i8 0, ptr %12, align 8, !tbaa !14
   store ptr %11, ptr %0, align 8, !tbaa !14
   br label %22
 
@@ -45029,11 +45029,11 @@ define internal fastcc void @_ZN12_GLOBAL__N_119getFullValidContentB5cxx11Ev(ptr
 .noexc:                                           ; preds = %1
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 16
   store ptr %131, ptr %130, align 8, !tbaa !12
-  store i32 1701667182, ptr %131, align 1
+  store i32 1701667182, ptr %131, align 8
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 8
   store i64 4, ptr %132, align 8, !tbaa !15
   %133 = getelementptr inbounds nuw i8, ptr %130, i64 20
-  store i8 0, ptr %133, align 1, !tbaa !14
+  store i8 0, ptr %133, align 4, !tbaa !14
   store ptr %130, ptr %129, align 8, !tbaa !14
   %134 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEixIKcEERSC_PT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef @.str.23)
           to label %135 unwind label %2046
@@ -45195,7 +45195,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN13proj_n
   %191 = getelementptr inbounds nuw i8, ptr %189, i64 8
   store i64 14, ptr %191, align 8, !tbaa !15
   %192 = getelementptr inbounds nuw i8, ptr %189, i64 30
-  store i8 0, ptr %192, align 1, !tbaa !14
+  store i8 0, ptr %192, align 2, !tbaa !14
   store ptr %189, ptr %188, align 8, !tbaa !14
   %193 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEixIKcEERSC_PT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef @.str.28)
           to label %194 unwind label %2061
@@ -45347,11 +45347,11 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN13proj_n
   %246 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %247 = getelementptr inbounds nuw i8, ptr %244, i64 16
   store ptr %247, ptr %244, align 8, !tbaa !12
-  store i32 1717924456, ptr %247, align 1
+  store i32 1717924456, ptr %247, align 8
   %248 = getelementptr inbounds nuw i8, ptr %244, i64 8
   store i64 4, ptr %248, align 8, !tbaa !15
   %249 = getelementptr inbounds nuw i8, ptr %244, i64 20
-  store i8 0, ptr %249, align 1, !tbaa !14
+  store i8 0, ptr %249, align 4, !tbaa !14
   store ptr %244, ptr %246, align 8, !tbaa !14
   %250 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store ptr %40, ptr %250, align 8, !tbaa !298
@@ -45367,11 +45367,11 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN13proj_n
 .noexc1348:                                       ; preds = %.noexc1341
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 16
   store ptr %255, ptr %254, align 8, !tbaa !12
-  store i32 1717924456, ptr %255, align 1
+  store i32 1717924456, ptr %255, align 8
   %256 = getelementptr inbounds nuw i8, ptr %254, i64 8
   store i64 4, ptr %256, align 8, !tbaa !15
   %257 = getelementptr inbounds nuw i8, ptr %254, i64 20
-  store i8 0, ptr %257, align 1, !tbaa !14
+  store i8 0, ptr %257, align 4, !tbaa !14
   store ptr %254, ptr %253, align 8, !tbaa !14
   %258 = getelementptr inbounds nuw i8, ptr %40, i64 48
   store ptr %252, ptr %258, align 8, !tbaa !298
@@ -45453,11 +45453,11 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN13proj_n
   %286 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %287 = getelementptr inbounds nuw i8, ptr %284, i64 16
   store ptr %287, ptr %284, align 8, !tbaa !12
-  store i32 1701869940, ptr %287, align 1
+  store i32 1701869940, ptr %287, align 8
   %288 = getelementptr inbounds nuw i8, ptr %284, i64 8
   store i64 4, ptr %288, align 8, !tbaa !15
   %289 = getelementptr inbounds nuw i8, ptr %284, i64 20
-  store i8 0, ptr %289, align 1, !tbaa !14
+  store i8 0, ptr %289, align 4, !tbaa !14
   store ptr %284, ptr %286, align 8, !tbaa !14
   %290 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %42, ptr %290, align 8, !tbaa !298
@@ -45473,11 +45473,11 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN13proj_n
 .noexc1383:                                       ; preds = %.noexc1375
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 16
   store ptr %295, ptr %294, align 8, !tbaa !12
-  store i32 1701869940, ptr %295, align 1
+  store i32 1701869940, ptr %295, align 8
   %296 = getelementptr inbounds nuw i8, ptr %294, i64 8
   store i64 4, ptr %296, align 8, !tbaa !15
   %297 = getelementptr inbounds nuw i8, ptr %294, i64 20
-  store i8 0, ptr %297, align 1, !tbaa !14
+  store i8 0, ptr %297, align 4, !tbaa !14
   store ptr %294, ptr %293, align 8, !tbaa !14
   %298 = getelementptr inbounds nuw i8, ptr %42, i64 48
   store ptr %292, ptr %298, align 8, !tbaa !298
@@ -45746,11 +45746,11 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN13proj_n
 .noexc1431:                                       ; preds = %401
   %408 = getelementptr inbounds nuw i8, ptr %407, i64 16
   store ptr %408, ptr %407, align 8, !tbaa !12
-  store i64 7957695015292265569, ptr %408, align 1
+  store i64 7957695015292265569, ptr %408, align 8
   %409 = getelementptr inbounds nuw i8, ptr %407, i64 8
   store i64 8, ptr %409, align 8, !tbaa !15
   %410 = getelementptr inbounds nuw i8, ptr %407, i64 24
-  store i8 0, ptr %410, align 1, !tbaa !14
+  store i8 0, ptr %410, align 8, !tbaa !14
   store ptr %407, ptr %406, align 8, !tbaa !14
   %411 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEixIKcEERSC_PT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef @.str.54)
           to label %412 unwind label %2155
@@ -46085,7 +46085,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN13proj_n
   %527 = getelementptr inbounds nuw i8, ptr %524, i64 8
   store i64 10, ptr %527, align 8, !tbaa !15
   %528 = getelementptr inbounds nuw i8, ptr %524, i64 26
-  store i8 0, ptr %528, align 1, !tbaa !14
+  store i8 0, ptr %528, align 2, !tbaa !14
   store ptr %524, ptr %523, align 8, !tbaa !14
   %529 = getelementptr inbounds nuw i8, ptr %57, i64 48
   store ptr %522, ptr %529, align 8, !tbaa !298
@@ -46152,11 +46152,11 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN13proj_n
 .noexc1527:                                       ; preds = %.noexc.i.i.i.i.i.i.i1519
   %550 = getelementptr inbounds nuw i8, ptr %548, i64 16
   store ptr %550, ptr %548, align 8, !tbaa !12
-  store i32 1701736302, ptr %550, align 1
+  store i32 1701736302, ptr %550, align 8
   %551 = getelementptr inbounds nuw i8, ptr %548, i64 8
   store i64 4, ptr %551, align 8, !tbaa !15
   %552 = getelementptr inbounds nuw i8, ptr %548, i64 20
-  store i8 0, ptr %552, align 1, !tbaa !14
+  store i8 0, ptr %552, align 4, !tbaa !14
   store ptr %548, ptr %547, align 8, !tbaa !14
   %553 = getelementptr inbounds nuw i8, ptr %58, i64 48
   store ptr %546, ptr %553, align 8, !tbaa !298
@@ -46292,7 +46292,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN13proj_n
   %600 = getelementptr inbounds nuw i8, ptr %597, i64 8
   store i64 6, ptr %600, align 8, !tbaa !15
   %601 = getelementptr inbounds nuw i8, ptr %597, i64 22
-  store i8 0, ptr %601, align 1, !tbaa !14
+  store i8 0, ptr %601, align 2, !tbaa !14
   store ptr %597, ptr %598, align 8, !tbaa !14
   %602 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store ptr %61, ptr %602, align 8, !tbaa !298
@@ -46314,11 +46314,11 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN13proj_n
   %607 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %608 = getelementptr inbounds nuw i8, ptr %605, i64 16
   store ptr %608, ptr %605, align 8, !tbaa !12
-  store i32 1701869940, ptr %608, align 1
+  store i32 1701869940, ptr %608, align 8
   %609 = getelementptr inbounds nuw i8, ptr %605, i64 8
   store i64 4, ptr %609, align 8, !tbaa !15
   %610 = getelementptr inbounds nuw i8, ptr %605, i64 20
-  store i8 0, ptr %610, align 1, !tbaa !14
+  store i8 0, ptr %610, align 4, !tbaa !14
   store ptr %605, ptr %607, align 8, !tbaa !14
   %611 = getelementptr inbounds nuw i8, ptr %63, i64 16
   store ptr %63, ptr %611, align 8, !tbaa !298
@@ -46334,11 +46334,11 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN13proj_n
 .noexc1568:                                       ; preds = %.noexc1560
   %616 = getelementptr inbounds nuw i8, ptr %615, i64 16
   store ptr %616, ptr %615, align 8, !tbaa !12
-  store i32 2020565602, ptr %616, align 1
+  store i32 2020565602, ptr %616, align 8
   %617 = getelementptr inbounds nuw i8, ptr %615, i64 8
   store i64 4, ptr %617, align 8, !tbaa !15
   %618 = getelementptr inbounds nuw i8, ptr %615, i64 20
-  store i8 0, ptr %618, align 1, !tbaa !14
+  store i8 0, ptr %618, align 4, !tbaa !14
   store ptr %615, ptr %614, align 8, !tbaa !14
   %619 = getelementptr inbounds nuw i8, ptr %63, i64 48
   store ptr %613, ptr %619, align 8, !tbaa !298
@@ -46366,7 +46366,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN13proj_n
   %628 = getelementptr inbounds nuw i8, ptr %625, i64 8
   store i64 10, ptr %628, align 8, !tbaa !15
   %629 = getelementptr inbounds nuw i8, ptr %625, i64 26
-  store i8 0, ptr %629, align 1, !tbaa !14
+  store i8 0, ptr %629, align 2, !tbaa !14
   store ptr %625, ptr %626, align 8, !tbaa !14
   %630 = getelementptr inbounds nuw i8, ptr %64, i64 16
   store ptr %64, ptr %630, align 8, !tbaa !298
@@ -46383,11 +46383,11 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN13proj_n
   %634 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %635 = getelementptr inbounds nuw i8, ptr %633, i64 16
   store ptr %635, ptr %633, align 8, !tbaa !12
-  store i32 2020565602, ptr %635, align 1
+  store i32 2020565602, ptr %635, align 8
   %636 = getelementptr inbounds nuw i8, ptr %633, i64 8
   store i64 4, ptr %636, align 8, !tbaa !15
   %637 = getelementptr inbounds nuw i8, ptr %633, i64 20
-  store i8 0, ptr %637, align 1, !tbaa !14
+  store i8 0, ptr %637, align 4, !tbaa !14
   store ptr %633, ptr %634, align 8, !tbaa !14
   %638 = getelementptr inbounds nuw i8, ptr %66, i64 16
   store ptr %66, ptr %638, align 8, !tbaa !298
@@ -46510,11 +46510,11 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN13proj_n
   %685 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %686 = getelementptr inbounds nuw i8, ptr %683, i64 16
   store ptr %686, ptr %683, align 8, !tbaa !12
-  store i32 1701869940, ptr %686, align 1
+  store i32 1701869940, ptr %686, align 8
   %687 = getelementptr inbounds nuw i8, ptr %683, i64 8
   store i64 4, ptr %687, align 8, !tbaa !15
   %688 = getelementptr inbounds nuw i8, ptr %683, i64 20
-  store i8 0, ptr %688, align 1, !tbaa !14
+  store i8 0, ptr %688, align 4, !tbaa !14
   store ptr %683, ptr %685, align 8, !tbaa !14
   %689 = getelementptr inbounds nuw i8, ptr %70, i64 16
   store ptr %70, ptr %689, align 8, !tbaa !298
@@ -46601,11 +46601,11 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN13proj_n
 .noexc1637:                                       ; preds = %.noexc.i.i.i.i.i.i.i1629
   %718 = getelementptr inbounds nuw i8, ptr %716, i64 16
   store ptr %718, ptr %716, align 8, !tbaa !12
-  store i64 8241980317954238818, ptr %718, align 1
+  store i64 8241980317954238818, ptr %718, align 8
   %719 = getelementptr inbounds nuw i8, ptr %716, i64 8
   store i64 8, ptr %719, align 8, !tbaa !15
   %720 = getelementptr inbounds nuw i8, ptr %716, i64 24
-  store i8 0, ptr %720, align 1, !tbaa !14
+  store i8 0, ptr %720, align 8, !tbaa !14
   store ptr %716, ptr %715, align 8, !tbaa !14
   %721 = getelementptr inbounds nuw i8, ptr %71, i64 48
   store ptr %714, ptr %721, align 8, !tbaa !298
@@ -46634,11 +46634,11 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN13proj_n
   %729 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %730 = getelementptr inbounds nuw i8, ptr %727, i64 16
   store ptr %730, ptr %727, align 8, !tbaa !12
-  store i64 7308604897068083558, ptr %730, align 1
+  store i64 7308604897068083558, ptr %730, align 8
   %731 = getelementptr inbounds nuw i8, ptr %727, i64 8
   store i64 8, ptr %731, align 8, !tbaa !15
   %732 = getelementptr inbounds nuw i8, ptr %727, i64 24
-  store i8 0, ptr %732, align 1, !tbaa !14
+  store i8 0, ptr %732, align 8, !tbaa !14
   store ptr %727, ptr %729, align 8, !tbaa !14
   %733 = getelementptr inbounds nuw i8, ptr %72, i64 16
   store ptr %72, ptr %733, align 8, !tbaa !298
@@ -46708,7 +46708,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN13proj_n
   %755 = getelementptr inbounds nuw i8, ptr %751, i64 8
   store i64 12, ptr %755, align 8, !tbaa !15
   %756 = getelementptr inbounds nuw i8, ptr %751, i64 28
-  store i8 0, ptr %756, align 1, !tbaa !14
+  store i8 0, ptr %756, align 4, !tbaa !14
   store ptr %751, ptr %753, align 8, !tbaa !14
   %757 = getelementptr inbounds nuw i8, ptr %73, i64 16
   store ptr %73, ptr %757, align 8, !tbaa !298
@@ -46811,11 +46811,11 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN13proj_n
   %791 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %792 = getelementptr inbounds nuw i8, ptr %789, i64 16
   store ptr %792, ptr %789, align 8, !tbaa !12
-  store i32 1701869940, ptr %792, align 1
+  store i32 1701869940, ptr %792, align 8
   %793 = getelementptr inbounds nuw i8, ptr %789, i64 8
   store i64 4, ptr %793, align 8, !tbaa !15
   %794 = getelementptr inbounds nuw i8, ptr %789, i64 20
-  store i8 0, ptr %794, align 1, !tbaa !14
+  store i8 0, ptr %794, align 4, !tbaa !14
   store ptr %789, ptr %791, align 8, !tbaa !14
   %795 = getelementptr inbounds nuw i8, ptr %76, i64 16
   store ptr %76, ptr %795, align 8, !tbaa !298
@@ -46831,11 +46831,11 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN13proj_n
 .noexc1699:                                       ; preds = %.noexc1691
   %800 = getelementptr inbounds nuw i8, ptr %799, i64 16
   store ptr %800, ptr %799, align 8, !tbaa !12
-  store i64 8389750308618530659, ptr %800, align 1
+  store i64 8389750308618530659, ptr %800, align 8
   %801 = getelementptr inbounds nuw i8, ptr %799, i64 8
   store i64 8, ptr %801, align 8, !tbaa !15
   %802 = getelementptr inbounds nuw i8, ptr %799, i64 24
-  store i8 0, ptr %802, align 1, !tbaa !14
+  store i8 0, ptr %802, align 8, !tbaa !14
   store ptr %799, ptr %798, align 8, !tbaa !14
   %803 = getelementptr inbounds nuw i8, ptr %76, i64 48
   store ptr %797, ptr %803, align 8, !tbaa !298
@@ -46863,7 +46863,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN13proj_n
   %812 = getelementptr inbounds nuw i8, ptr %809, i64 8
   store i64 10, ptr %812, align 8, !tbaa !15
   %813 = getelementptr inbounds nuw i8, ptr %809, i64 26
-  store i8 0, ptr %813, align 1, !tbaa !14
+  store i8 0, ptr %813, align 2, !tbaa !14
   store ptr %809, ptr %810, align 8, !tbaa !14
   %814 = getelementptr inbounds nuw i8, ptr %77, i64 16
   store ptr %77, ptr %814, align 8, !tbaa !298
@@ -47288,11 +47288,11 @@ _ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11cha
   %1033 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %1034 = getelementptr inbounds nuw i8, ptr %1031, i64 16
   store ptr %1034, ptr %1031, align 8, !tbaa !12
-  store i32 1701869940, ptr %1034, align 1
+  store i32 1701869940, ptr %1034, align 8
   %1035 = getelementptr inbounds nuw i8, ptr %1031, i64 8
   store i64 4, ptr %1035, align 8, !tbaa !15
   %1036 = getelementptr inbounds nuw i8, ptr %1031, i64 20
-  store i8 0, ptr %1036, align 1, !tbaa !14
+  store i8 0, ptr %1036, align 4, !tbaa !14
   store ptr %1031, ptr %1033, align 8, !tbaa !14
   %1037 = getelementptr inbounds nuw i8, ptr %81, i64 16
   store ptr %81, ptr %1037, align 8, !tbaa !298
@@ -47308,11 +47308,11 @@ _ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11cha
 .noexc1736:                                       ; preds = %.noexc1728
   %1042 = getelementptr inbounds nuw i8, ptr %1041, i64 16
   store ptr %1042, ptr %1041, align 8, !tbaa !12
-  store i64 8751735851679769974, ptr %1042, align 1
+  store i64 8751735851679769974, ptr %1042, align 8
   %1043 = getelementptr inbounds nuw i8, ptr %1041, i64 8
   store i64 8, ptr %1043, align 8, !tbaa !15
   %1044 = getelementptr inbounds nuw i8, ptr %1041, i64 24
-  store i8 0, ptr %1044, align 1, !tbaa !14
+  store i8 0, ptr %1044, align 8, !tbaa !14
   store ptr %1041, ptr %1040, align 8, !tbaa !14
   %1045 = getelementptr inbounds nuw i8, ptr %81, i64 48
   store ptr %1039, ptr %1045, align 8, !tbaa !298
@@ -47340,7 +47340,7 @@ _ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11cha
   %1054 = getelementptr inbounds nuw i8, ptr %1051, i64 8
   store i64 10, ptr %1054, align 8, !tbaa !15
   %1055 = getelementptr inbounds nuw i8, ptr %1051, i64 26
-  store i8 0, ptr %1055, align 1, !tbaa !14
+  store i8 0, ptr %1055, align 2, !tbaa !14
   store ptr %1051, ptr %1052, align 8, !tbaa !14
   %1056 = getelementptr inbounds nuw i8, ptr %82, i64 16
   store ptr %82, ptr %1056, align 8, !tbaa !298
@@ -47551,11 +47551,11 @@ _ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11cha
   %1143 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %1144 = getelementptr inbounds nuw i8, ptr %1141, i64 16
   store ptr %1144, ptr %1141, align 8, !tbaa !12
-  store i32 1701869940, ptr %1144, align 1
+  store i32 1701869940, ptr %1144, align 8
   %1145 = getelementptr inbounds nuw i8, ptr %1141, i64 8
   store i64 4, ptr %1145, align 8, !tbaa !15
   %1146 = getelementptr inbounds nuw i8, ptr %1141, i64 20
-  store i8 0, ptr %1146, align 1, !tbaa !14
+  store i8 0, ptr %1146, align 4, !tbaa !14
   store ptr %1141, ptr %1143, align 8, !tbaa !14
   %1147 = getelementptr inbounds nuw i8, ptr %87, i64 16
   store ptr %87, ptr %1147, align 8, !tbaa !298
@@ -47571,11 +47571,11 @@ _ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11cha
 .noexc1785:                                       ; preds = %.noexc1777
   %1152 = getelementptr inbounds nuw i8, ptr %1151, i64 16
   store ptr %1152, ptr %1151, align 8, !tbaa !12
-  store i32 1885697139, ptr %1152, align 1
+  store i32 1885697139, ptr %1152, align 8
   %1153 = getelementptr inbounds nuw i8, ptr %1151, i64 8
   store i64 4, ptr %1153, align 8, !tbaa !15
   %1154 = getelementptr inbounds nuw i8, ptr %1151, i64 20
-  store i8 0, ptr %1154, align 1, !tbaa !14
+  store i8 0, ptr %1154, align 4, !tbaa !14
   store ptr %1151, ptr %1150, align 8, !tbaa !14
   %1155 = getelementptr inbounds nuw i8, ptr %87, i64 48
   store ptr %1149, ptr %1155, align 8, !tbaa !298
@@ -47603,7 +47603,7 @@ _ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11cha
   %1164 = getelementptr inbounds nuw i8, ptr %1161, i64 8
   store i64 10, ptr %1164, align 8, !tbaa !15
   %1165 = getelementptr inbounds nuw i8, ptr %1161, i64 26
-  store i8 0, ptr %1165, align 1, !tbaa !14
+  store i8 0, ptr %1165, align 2, !tbaa !14
   store ptr %1161, ptr %1162, align 8, !tbaa !14
   %1166 = getelementptr inbounds nuw i8, ptr %88, i64 16
   store ptr %88, ptr %1166, align 8, !tbaa !298
@@ -47629,7 +47629,7 @@ _ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11cha
   %1173 = getelementptr inbounds nuw i8, ptr %1169, i64 8
   store i64 10, ptr %1173, align 8, !tbaa !15
   %1174 = getelementptr inbounds nuw i8, ptr %1169, i64 26
-  store i8 0, ptr %1174, align 1, !tbaa !14
+  store i8 0, ptr %1174, align 2, !tbaa !14
   store ptr %1169, ptr %1171, align 8, !tbaa !14
   %1175 = getelementptr inbounds nuw i8, ptr %90, i64 16
   store ptr %90, ptr %1175, align 8, !tbaa !298
@@ -47814,11 +47814,11 @@ _ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11cha
   %1253 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %1254 = getelementptr inbounds nuw i8, ptr %1251, i64 16
   store ptr %1254, ptr %1251, align 8, !tbaa !12
-  store i32 1701869940, ptr %1254, align 1
+  store i32 1701869940, ptr %1254, align 8
   %1255 = getelementptr inbounds nuw i8, ptr %1251, i64 8
   store i64 4, ptr %1255, align 8, !tbaa !15
   %1256 = getelementptr inbounds nuw i8, ptr %1251, i64 20
-  store i8 0, ptr %1256, align 1, !tbaa !14
+  store i8 0, ptr %1256, align 4, !tbaa !14
   store ptr %1251, ptr %1253, align 8, !tbaa !14
   %1257 = getelementptr inbounds nuw i8, ptr %93, i64 16
   store ptr %93, ptr %1257, align 8, !tbaa !298
@@ -47838,7 +47838,7 @@ _ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11cha
   %1263 = getelementptr inbounds nuw i8, ptr %1261, i64 8
   store i64 12, ptr %1263, align 8, !tbaa !15
   %1264 = getelementptr inbounds nuw i8, ptr %1261, i64 28
-  store i8 0, ptr %1264, align 1, !tbaa !14
+  store i8 0, ptr %1264, align 4, !tbaa !14
   store ptr %1261, ptr %1260, align 8, !tbaa !14
   %1265 = getelementptr inbounds nuw i8, ptr %93, i64 48
   store ptr %1259, ptr %1265, align 8, !tbaa !298
@@ -47866,7 +47866,7 @@ _ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11cha
   %1274 = getelementptr inbounds nuw i8, ptr %1271, i64 8
   store i64 10, ptr %1274, align 8, !tbaa !15
   %1275 = getelementptr inbounds nuw i8, ptr %1271, i64 26
-  store i8 0, ptr %1275, align 1, !tbaa !14
+  store i8 0, ptr %1275, align 2, !tbaa !14
   store ptr %1271, ptr %1272, align 8, !tbaa !14
   %1276 = getelementptr inbounds nuw i8, ptr %94, i64 16
   store ptr %94, ptr %1276, align 8, !tbaa !298
@@ -47892,7 +47892,7 @@ _ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11cha
   %1283 = getelementptr inbounds nuw i8, ptr %1279, i64 8
   store i64 10, ptr %1283, align 8, !tbaa !15
   %1284 = getelementptr inbounds nuw i8, ptr %1279, i64 26
-  store i8 0, ptr %1284, align 1, !tbaa !14
+  store i8 0, ptr %1284, align 2, !tbaa !14
   store ptr %1279, ptr %1281, align 8, !tbaa !14
   %1285 = getelementptr inbounds nuw i8, ptr %96, i64 16
   store ptr %96, ptr %1285, align 8, !tbaa !298
@@ -48077,11 +48077,11 @@ _ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11cha
   %1363 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %1364 = getelementptr inbounds nuw i8, ptr %1361, i64 16
   store ptr %1364, ptr %1361, align 8, !tbaa !12
-  store i32 1701869940, ptr %1364, align 1
+  store i32 1701869940, ptr %1364, align 8
   %1365 = getelementptr inbounds nuw i8, ptr %1361, i64 8
   store i64 4, ptr %1365, align 8, !tbaa !15
   %1366 = getelementptr inbounds nuw i8, ptr %1361, i64 20
-  store i8 0, ptr %1366, align 1, !tbaa !14
+  store i8 0, ptr %1366, align 4, !tbaa !14
   store ptr %1361, ptr %1363, align 8, !tbaa !14
   %1367 = getelementptr inbounds nuw i8, ptr %99, i64 16
   store ptr %99, ptr %1367, align 8, !tbaa !298
@@ -48129,7 +48129,7 @@ _ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11cha
   %1384 = getelementptr inbounds nuw i8, ptr %1381, i64 8
   store i64 10, ptr %1384, align 8, !tbaa !15
   %1385 = getelementptr inbounds nuw i8, ptr %1381, i64 26
-  store i8 0, ptr %1385, align 1, !tbaa !14
+  store i8 0, ptr %1385, align 2, !tbaa !14
   store ptr %1381, ptr %1382, align 8, !tbaa !14
   %1386 = getelementptr inbounds nuw i8, ptr %100, i64 16
   store ptr %100, ptr %1386, align 8, !tbaa !298
@@ -48155,7 +48155,7 @@ _ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11cha
   %1393 = getelementptr inbounds nuw i8, ptr %1389, i64 8
   store i64 12, ptr %1393, align 8, !tbaa !15
   %1394 = getelementptr inbounds nuw i8, ptr %1389, i64 28
-  store i8 0, ptr %1394, align 1, !tbaa !14
+  store i8 0, ptr %1394, align 4, !tbaa !14
   store ptr %1389, ptr %1391, align 8, !tbaa !14
   %1395 = getelementptr inbounds nuw i8, ptr %102, i64 16
   store ptr %102, ptr %1395, align 8, !tbaa !298
@@ -48171,11 +48171,11 @@ _ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11cha
 .noexc1912:                                       ; preds = %.noexc1904
   %1400 = getelementptr inbounds nuw i8, ptr %1399, i64 16
   store ptr %1400, ptr %1399, align 8, !tbaa !12
-  store i32 1869768058, ptr %1400, align 1
+  store i32 1869768058, ptr %1400, align 8
   %1401 = getelementptr inbounds nuw i8, ptr %1399, i64 8
   store i64 4, ptr %1401, align 8, !tbaa !15
   %1402 = getelementptr inbounds nuw i8, ptr %1399, i64 20
-  store i8 0, ptr %1402, align 1, !tbaa !14
+  store i8 0, ptr %1402, align 4, !tbaa !14
   store ptr %1399, ptr %1398, align 8, !tbaa !14
   %1403 = getelementptr inbounds nuw i8, ptr %102, i64 48
   store ptr %1397, ptr %1403, align 8, !tbaa !298
@@ -48208,7 +48208,7 @@ _ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11cha
   %1413 = getelementptr inbounds nuw i8, ptr %1409, i64 8
   store i64 10, ptr %1413, align 8, !tbaa !15
   %1414 = getelementptr inbounds nuw i8, ptr %1409, i64 26
-  store i8 0, ptr %1414, align 1, !tbaa !14
+  store i8 0, ptr %1414, align 2, !tbaa !14
   store ptr %1409, ptr %1411, align 8, !tbaa !14
   %1415 = getelementptr inbounds nuw i8, ptr %103, i64 16
   store ptr %103, ptr %1415, align 8, !tbaa !298
@@ -48224,11 +48224,11 @@ _ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11cha
 .noexc1931:                                       ; preds = %.noexc1923
   %1420 = getelementptr inbounds nuw i8, ptr %1419, i64 16
   store ptr %1420, ptr %1419, align 8, !tbaa !12
-  store i64 8389750308618530659, ptr %1420, align 1
+  store i64 8389750308618530659, ptr %1420, align 8
   %1421 = getelementptr inbounds nuw i8, ptr %1419, i64 8
   store i64 8, ptr %1421, align 8, !tbaa !15
   %1422 = getelementptr inbounds nuw i8, ptr %1419, i64 24
-  store i8 0, ptr %1422, align 1, !tbaa !14
+  store i8 0, ptr %1422, align 8, !tbaa !14
   store ptr %1419, ptr %1418, align 8, !tbaa !14
   %1423 = getelementptr inbounds nuw i8, ptr %103, i64 48
   store ptr %1417, ptr %1423, align 8, !tbaa !298
@@ -48348,7 +48348,7 @@ _ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11cha
   %1464 = getelementptr inbounds nuw i8, ptr %1461, i64 8
   store i64 12, ptr %1464, align 8, !tbaa !15
   %1465 = getelementptr inbounds nuw i8, ptr %1461, i64 28
-  store i8 0, ptr %1465, align 1, !tbaa !14
+  store i8 0, ptr %1465, align 4, !tbaa !14
   store ptr %1461, ptr %1462, align 8, !tbaa !14
   %1466 = getelementptr inbounds nuw i8, ptr %108, i64 16
   store ptr %108, ptr %1466, align 8, !tbaa !298
@@ -48463,7 +48463,7 @@ _ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11cha
   %1506 = getelementptr inbounds nuw i8, ptr %1503, i64 8
   store i64 12, ptr %1506, align 8, !tbaa !15
   %1507 = getelementptr inbounds nuw i8, ptr %1503, i64 28
-  store i8 0, ptr %1507, align 1, !tbaa !14
+  store i8 0, ptr %1507, align 4, !tbaa !14
   store ptr %1503, ptr %1504, align 8, !tbaa !14
   %1508 = getelementptr inbounds nuw i8, ptr %111, i64 16
   store ptr %111, ptr %1508, align 8, !tbaa !298
@@ -48578,7 +48578,7 @@ _ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11cha
   %1548 = getelementptr inbounds nuw i8, ptr %1545, i64 8
   store i64 12, ptr %1548, align 8, !tbaa !15
   %1549 = getelementptr inbounds nuw i8, ptr %1545, i64 28
-  store i8 0, ptr %1549, align 1, !tbaa !14
+  store i8 0, ptr %1549, align 4, !tbaa !14
   store ptr %1545, ptr %1546, align 8, !tbaa !14
   %1550 = getelementptr inbounds nuw i8, ptr %114, i64 16
   store ptr %114, ptr %1550, align 8, !tbaa !298
@@ -48693,7 +48693,7 @@ _ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11cha
   %1590 = getelementptr inbounds nuw i8, ptr %1587, i64 8
   store i64 12, ptr %1590, align 8, !tbaa !15
   %1591 = getelementptr inbounds nuw i8, ptr %1587, i64 28
-  store i8 0, ptr %1591, align 1, !tbaa !14
+  store i8 0, ptr %1591, align 4, !tbaa !14
   store ptr %1587, ptr %1588, align 8, !tbaa !14
   %1592 = getelementptr inbounds nuw i8, ptr %117, i64 16
   store ptr %117, ptr %1592, align 8, !tbaa !298
@@ -49093,11 +49093,11 @@ _ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11cha
   %1797 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %1798 = getelementptr inbounds nuw i8, ptr %1795, i64 16
   store ptr %1798, ptr %1795, align 8, !tbaa !12
-  store i32 1701869940, ptr %1798, align 1
+  store i32 1701869940, ptr %1798, align 8
   %1799 = getelementptr inbounds nuw i8, ptr %1795, i64 8
   store i64 4, ptr %1799, align 8, !tbaa !15
   %1800 = getelementptr inbounds nuw i8, ptr %1795, i64 20
-  store i8 0, ptr %1800, align 1, !tbaa !14
+  store i8 0, ptr %1800, align 4, !tbaa !14
   store ptr %1795, ptr %1797, align 8, !tbaa !14
   %1801 = getelementptr inbounds nuw i8, ptr %120, i64 16
   store ptr %120, ptr %1801, align 8, !tbaa !298
@@ -49145,7 +49145,7 @@ _ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11cha
   %1818 = getelementptr inbounds nuw i8, ptr %1815, i64 8
   store i64 10, ptr %1818, align 8, !tbaa !15
   %1819 = getelementptr inbounds nuw i8, ptr %1815, i64 26
-  store i8 0, ptr %1819, align 1, !tbaa !14
+  store i8 0, ptr %1819, align 2, !tbaa !14
   store ptr %1815, ptr %1816, align 8, !tbaa !14
   %1820 = getelementptr inbounds nuw i8, ptr %121, i64 16
   store ptr %121, ptr %1820, align 8, !tbaa !298
@@ -56451,7 +56451,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %8, ptr %7, align 8, !tbaa !12
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %9, align 8, !tbaa !15
-  store i8 0, ptr %8, align 1, !tbaa !14
+  store i8 0, ptr %8, align 8, !tbaa !14
   store ptr %7, ptr %4, align 8, !tbaa !247
   br label %10
 
@@ -60940,7 +60940,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit900: ; preds = %_ZNKSt7__cxx1112bas
   %1533 = getelementptr inbounds nuw i8, ptr %1531, i64 8
   store i64 10, ptr %1533, align 8, !tbaa !15
   %1534 = getelementptr inbounds nuw i8, ptr %1531, i64 26
-  store i8 0, ptr %1534, align 1, !tbaa !14
+  store i8 0, ptr %1534, align 2, !tbaa !14
   store ptr %1531, ptr %1530, align 8, !tbaa !14
   %1535 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEixIKcEERSC_PT_(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef @.str.54)
           to label %1536 unwind label %1572
@@ -61392,7 +61392,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit940: ; preds = %_ZNKSt7__cxx1112bas
   %1696 = getelementptr inbounds nuw i8, ptr %1694, i64 8
   store i64 6, ptr %1696, align 8, !tbaa !15
   %1697 = getelementptr inbounds nuw i8, ptr %1694, i64 22
-  store i8 0, ptr %1697, align 1, !tbaa !14
+  store i8 0, ptr %1697, align 2, !tbaa !14
   store ptr %1694, ptr %1693, align 8, !tbaa !14
   %1698 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEixIKcEERSC_PT_(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef @.str.46)
           to label %1699 unwind label %1735
@@ -61844,7 +61844,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit980: ; preds = %_ZNKSt7__cxx1112bas
   %1859 = getelementptr inbounds nuw i8, ptr %1857, i64 8
   store i64 10, ptr %1859, align 8, !tbaa !15
   %1860 = getelementptr inbounds nuw i8, ptr %1857, i64 26
-  store i8 0, ptr %1860, align 1, !tbaa !14
+  store i8 0, ptr %1860, align 2, !tbaa !14
   store ptr %1857, ptr %1856, align 8, !tbaa !14
   %1861 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEixIKcEERSC_PT_(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef @.str.54)
           to label %1862 unwind label %1909
@@ -61873,7 +61873,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit980: ; preds = %_ZNKSt7__cxx1112bas
   %1870 = getelementptr inbounds nuw i8, ptr %1868, i64 8
   store i64 6, ptr %1870, align 8, !tbaa !15
   %1871 = getelementptr inbounds nuw i8, ptr %1868, i64 22
-  store i8 0, ptr %1871, align 1, !tbaa !14
+  store i8 0, ptr %1871, align 2, !tbaa !14
   store ptr %1868, ptr %1867, align 8, !tbaa !14
   %1872 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEixIKcEERSC_PT_(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef @.str.46)
           to label %1873 unwind label %1912
@@ -62785,7 +62785,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit1067: ; preds = %_ZNKSt7__cxx1112ba
   %2198 = getelementptr inbounds nuw i8, ptr %2196, i64 8
   store i64 6, ptr %2198, align 8, !tbaa !15
   %2199 = getelementptr inbounds nuw i8, ptr %2196, i64 22
-  store i8 0, ptr %2199, align 1, !tbaa !14
+  store i8 0, ptr %2199, align 2, !tbaa !14
   store ptr %2196, ptr %2195, align 8, !tbaa !14
   %2200 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEixIKcEERSC_PT_(ptr noundef nonnull align 8 dereferenceable(16) %113, ptr noundef @.str.46)
           to label %2201 unwind label %2237
@@ -63295,7 +63295,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN13proj_n
   %2382 = getelementptr inbounds nuw i8, ptr %2380, i64 8
   store i64 6, ptr %2382, align 8, !tbaa !15
   %2383 = getelementptr inbounds nuw i8, ptr %2380, i64 22
-  store i8 0, ptr %2383, align 1, !tbaa !14
+  store i8 0, ptr %2383, align 2, !tbaa !14
   store ptr %2380, ptr %2379, align 8, !tbaa !14
   %2384 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEixIKcEERSC_PT_(ptr noundef nonnull align 8 dereferenceable(16) %122, ptr noundef @.str.46)
           to label %2385 unwind label %2424
@@ -71894,11 +71894,11 @@ _ZNSt10unique_ptrIN20TestDeformationModel10MasterFileESt14default_deleteIS1_EED2
 .noexc577:                                        ; preds = %596
   %599 = getelementptr inbounds nuw i8, ptr %598, i64 16
   store ptr %599, ptr %598, align 8, !tbaa !12
-  store i32 1869768058, ptr %599, align 1
+  store i32 1869768058, ptr %599, align 8
   %600 = getelementptr inbounds nuw i8, ptr %598, i64 8
   store i64 4, ptr %600, align 8, !tbaa !15
   %601 = getelementptr inbounds nuw i8, ptr %598, i64 20
-  store i8 0, ptr %601, align 1, !tbaa !14
+  store i8 0, ptr %601, align 4, !tbaa !14
   store ptr %598, ptr %597, align 8, !tbaa !14
   %602 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEixIKcEERSC_PT_(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef @.str.60)
           to label %603 unwind label %648
@@ -72213,11 +72213,11 @@ _ZNSt10unique_ptrIN20TestDeformationModel10MasterFileESt14default_deleteIS1_EED2
 .noexc606:                                        ; preds = %707
   %710 = getelementptr inbounds nuw i8, ptr %709, i64 16
   store ptr %710, ptr %709, align 8, !tbaa !12
-  store i64 8389750308618530659, ptr %710, align 1
+  store i64 8389750308618530659, ptr %710, align 8
   %711 = getelementptr inbounds nuw i8, ptr %709, i64 8
   store i64 8, ptr %711, align 8, !tbaa !15
   %712 = getelementptr inbounds nuw i8, ptr %709, i64 24
-  store i8 0, ptr %712, align 1, !tbaa !14
+  store i8 0, ptr %712, align 8, !tbaa !14
   store ptr %709, ptr %708, align 8, !tbaa !14
   %713 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEixIKcEERSC_PT_(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef @.str.60)
           to label %714 unwind label %761
@@ -72544,7 +72544,7 @@ _ZNSt10unique_ptrIN20TestDeformationModel10MasterFileESt14default_deleteIS1_EED2
   %824 = getelementptr inbounds nuw i8, ptr %822, i64 8
   store i64 6, ptr %824, align 8, !tbaa !15
   %825 = getelementptr inbounds nuw i8, ptr %822, i64 22
-  store i8 0, ptr %825, align 1, !tbaa !14
+  store i8 0, ptr %825, align 2, !tbaa !14
   store ptr %822, ptr %821, align 8, !tbaa !14
   %826 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEixIKcEERSC_PT_(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef @.str.60)
           to label %827 unwind label %874
@@ -72867,11 +72867,11 @@ _ZNSt10unique_ptrIN20TestDeformationModel10MasterFileESt14default_deleteIS1_EED2
 .noexc671:                                        ; preds = %933
   %936 = getelementptr inbounds nuw i8, ptr %935, i64 16
   store ptr %936, ptr %935, align 8, !tbaa !12
-  store i32 1869768058, ptr %936, align 1
+  store i32 1869768058, ptr %936, align 8
   %937 = getelementptr inbounds nuw i8, ptr %935, i64 8
   store i64 4, ptr %937, align 8, !tbaa !15
   %938 = getelementptr inbounds nuw i8, ptr %935, i64 20
-  store i8 0, ptr %938, align 1, !tbaa !14
+  store i8 0, ptr %938, align 4, !tbaa !14
   store ptr %935, ptr %934, align 8, !tbaa !14
   %939 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEixIKcEERSC_PT_(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef @.str.60)
           to label %940 unwind label %987
@@ -73194,11 +73194,11 @@ _ZNSt10unique_ptrIN20TestDeformationModel10MasterFileESt14default_deleteIS1_EED2
 .noexc705:                                        ; preds = %1046
   %1049 = getelementptr inbounds nuw i8, ptr %1048, i64 16
   store ptr %1049, ptr %1048, align 8, !tbaa !12
-  store i64 8389750308618530659, ptr %1049, align 1
+  store i64 8389750308618530659, ptr %1049, align 8
   %1050 = getelementptr inbounds nuw i8, ptr %1048, i64 8
   store i64 8, ptr %1050, align 8, !tbaa !15
   %1051 = getelementptr inbounds nuw i8, ptr %1048, i64 24
-  store i8 0, ptr %1051, align 1, !tbaa !14
+  store i8 0, ptr %1051, align 8, !tbaa !14
   store ptr %1048, ptr %1047, align 8, !tbaa !14
   %1052 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEixIKcEERSC_PT_(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef @.str.60)
           to label %1053 unwind label %1100
@@ -73525,7 +73525,7 @@ _ZNSt10unique_ptrIN20TestDeformationModel10MasterFileESt14default_deleteIS1_EED2
   %1163 = getelementptr inbounds nuw i8, ptr %1161, i64 8
   store i64 6, ptr %1163, align 8, !tbaa !15
   %1164 = getelementptr inbounds nuw i8, ptr %1161, i64 22
-  store i8 0, ptr %1164, align 1, !tbaa !14
+  store i8 0, ptr %1164, align 2, !tbaa !14
   store ptr %1161, ptr %1160, align 8, !tbaa !14
   %1165 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEixIKcEERSC_PT_(ptr noundef nonnull align 8 dereferenceable(16) %91, ptr noundef @.str.60)
           to label %1166 unwind label %1213
@@ -74220,7 +74220,7 @@ _ZNSt10unique_ptrIN20TestDeformationModel10MasterFileESt14default_deleteIS1_EED2
   %1401 = getelementptr inbounds nuw i8, ptr %1398, i64 8
   store i64 12, ptr %1401, align 8, !tbaa !15
   %1402 = getelementptr inbounds nuw i8, ptr %1398, i64 28
-  store i8 0, ptr %1402, align 1, !tbaa !14
+  store i8 0, ptr %1402, align 4, !tbaa !14
   store ptr %1398, ptr %1399, align 8, !tbaa !14
   %1403 = getelementptr inbounds nuw i8, ptr %113, i64 16
   store ptr %113, ptr %1403, align 8, !tbaa !298
@@ -74344,7 +74344,7 @@ _ZNSt10unique_ptrIN20TestDeformationModel10MasterFileESt14default_deleteIS1_EED2
   %1460 = getelementptr inbounds nuw i8, ptr %1458, i64 8
   store i64 6, ptr %1460, align 8, !tbaa !15
   %1461 = getelementptr inbounds nuw i8, ptr %1458, i64 22
-  store i8 0, ptr %1461, align 1, !tbaa !14
+  store i8 0, ptr %1461, align 2, !tbaa !14
   store ptr %1458, ptr %1457, align 8, !tbaa !14
   %1462 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEixIKcEERSC_PT_(ptr noundef nonnull align 8 dereferenceable(16) %108, ptr noundef @.str.60)
           to label %1463 unwind label %1578
@@ -74389,7 +74389,7 @@ _ZNSt10unique_ptrIN20TestDeformationModel10MasterFileESt14default_deleteIS1_EED2
   %1479 = getelementptr inbounds nuw i8, ptr %1477, i64 8
   store i64 6, ptr %1479, align 8, !tbaa !15
   %1480 = getelementptr inbounds nuw i8, ptr %1477, i64 22
-  store i8 0, ptr %1480, align 1, !tbaa !14
+  store i8 0, ptr %1480, align 2, !tbaa !14
   store ptr %1477, ptr %1476, align 8, !tbaa !14
   %1481 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEixIKcEERSC_PT_(ptr noundef nonnull align 8 dereferenceable(16) %108, ptr noundef @.str.60)
           to label %1482 unwind label %1581
@@ -75086,7 +75086,7 @@ _ZNSt10unique_ptrIN20TestDeformationModel10MasterFileESt14default_deleteIS1_EED2
   %1721 = getelementptr inbounds nuw i8, ptr %1718, i64 8
   store i64 12, ptr %1721, align 8, !tbaa !15
   %1722 = getelementptr inbounds nuw i8, ptr %1718, i64 28
-  store i8 0, ptr %1722, align 1, !tbaa !14
+  store i8 0, ptr %1722, align 4, !tbaa !14
   store ptr %1718, ptr %1719, align 8, !tbaa !14
   %1723 = getelementptr inbounds nuw i8, ptr %133, i64 16
   store ptr %133, ptr %1723, align 8, !tbaa !298
@@ -75201,7 +75201,7 @@ _ZNSt10unique_ptrIN20TestDeformationModel10MasterFileESt14default_deleteIS1_EED2
   %1763 = getelementptr inbounds nuw i8, ptr %1760, i64 8
   store i64 12, ptr %1763, align 8, !tbaa !15
   %1764 = getelementptr inbounds nuw i8, ptr %1760, i64 28
-  store i8 0, ptr %1764, align 1, !tbaa !14
+  store i8 0, ptr %1764, align 4, !tbaa !14
   store ptr %1760, ptr %1761, align 8, !tbaa !14
   %1765 = getelementptr inbounds nuw i8, ptr %136, i64 16
   store ptr %136, ptr %1765, align 8, !tbaa !298
@@ -75377,7 +75377,7 @@ _ZNSt10unique_ptrIN20TestDeformationModel10MasterFileESt14default_deleteIS1_EED2
   %1852 = getelementptr inbounds nuw i8, ptr %1850, i64 8
   store i64 6, ptr %1852, align 8, !tbaa !15
   %1853 = getelementptr inbounds nuw i8, ptr %1850, i64 22
-  store i8 0, ptr %1853, align 1, !tbaa !14
+  store i8 0, ptr %1853, align 2, !tbaa !14
   store ptr %1850, ptr %1849, align 8, !tbaa !14
   %1854 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEixIKcEERSC_PT_(ptr noundef nonnull align 8 dereferenceable(16) %128, ptr noundef @.str.60)
           to label %1855 unwind label %2023
@@ -75422,7 +75422,7 @@ _ZNSt10unique_ptrIN20TestDeformationModel10MasterFileESt14default_deleteIS1_EED2
   %1871 = getelementptr inbounds nuw i8, ptr %1869, i64 8
   store i64 6, ptr %1871, align 8, !tbaa !15
   %1872 = getelementptr inbounds nuw i8, ptr %1869, i64 22
-  store i8 0, ptr %1872, align 1, !tbaa !14
+  store i8 0, ptr %1872, align 2, !tbaa !14
   store ptr %1869, ptr %1868, align 8, !tbaa !14
   %1873 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEixIKcEERSC_PT_(ptr noundef nonnull align 8 dereferenceable(16) %128, ptr noundef @.str.60)
           to label %1874 unwind label %2026
@@ -77430,11 +77430,11 @@ define internal void @_ZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degr
 .noexc:                                           ; preds = %1
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 16
   store ptr %202, ptr %201, align 8, !tbaa !12
-  store i64 7957695015292265569, ptr %202, align 1
+  store i64 7957695015292265569, ptr %202, align 8
   %203 = getelementptr inbounds nuw i8, ptr %201, i64 8
   store i64 8, ptr %203, align 8, !tbaa !15
   %204 = getelementptr inbounds nuw i8, ptr %201, i64 24
-  store i8 0, ptr %204, align 1, !tbaa !14
+  store i8 0, ptr %204, align 8, !tbaa !14
   store ptr %201, ptr %200, align 8, !tbaa !14
   %205 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEixIKcEERSC_PT_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef @.str.54)
           to label %206 unwind label %876
@@ -77463,7 +77463,7 @@ define internal void @_ZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degr
   %214 = getelementptr inbounds nuw i8, ptr %212, i64 8
   store i64 6, ptr %214, align 8, !tbaa !15
   %215 = getelementptr inbounds nuw i8, ptr %212, i64 22
-  store i8 0, ptr %215, align 1, !tbaa !14
+  store i8 0, ptr %215, align 2, !tbaa !14
   store ptr %212, ptr %211, align 8, !tbaa !14
   %216 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEixIKcEERSC_PT_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef @.str.46)
           to label %217 unwind label %879
@@ -77537,7 +77537,7 @@ define internal void @_ZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degr
   %238 = getelementptr inbounds nuw i8, ptr %235, i64 8
   store i64 10, ptr %238, align 8, !tbaa !15
   %239 = getelementptr inbounds nuw i8, ptr %235, i64 26
-  store i8 0, ptr %239, align 1, !tbaa !14
+  store i8 0, ptr %239, align 2, !tbaa !14
   store ptr %235, ptr %234, align 8, !tbaa !14
   %240 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store ptr %233, ptr %240, align 8, !tbaa !298
@@ -77604,11 +77604,11 @@ define internal void @_ZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degr
 .noexc1006:                                       ; preds = %.noexc.i.i.i.i.i.i.i999
   %261 = getelementptr inbounds nuw i8, ptr %259, i64 16
   store ptr %261, ptr %259, align 8, !tbaa !12
-  store i32 1701736302, ptr %261, align 1
+  store i32 1701736302, ptr %261, align 8
   %262 = getelementptr inbounds nuw i8, ptr %259, i64 8
   store i64 4, ptr %262, align 8, !tbaa !15
   %263 = getelementptr inbounds nuw i8, ptr %259, i64 20
-  store i8 0, ptr %263, align 1, !tbaa !14
+  store i8 0, ptr %263, align 4, !tbaa !14
   store ptr %259, ptr %258, align 8, !tbaa !14
   %264 = getelementptr inbounds nuw i8, ptr %14, i64 48
   store ptr %257, ptr %264, align 8, !tbaa !298
@@ -77636,7 +77636,7 @@ define internal void @_ZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degr
   %273 = getelementptr inbounds nuw i8, ptr %270, i64 8
   store i64 6, ptr %273, align 8, !tbaa !15
   %274 = getelementptr inbounds nuw i8, ptr %270, i64 22
-  store i8 0, ptr %274, align 1, !tbaa !14
+  store i8 0, ptr %274, align 2, !tbaa !14
   store ptr %270, ptr %271, align 8, !tbaa !14
   %275 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %15, ptr %275, align 8, !tbaa !298
@@ -77658,11 +77658,11 @@ define internal void @_ZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degr
   %280 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %281 = getelementptr inbounds nuw i8, ptr %278, i64 16
   store ptr %281, ptr %278, align 8, !tbaa !12
-  store i32 1701869940, ptr %281, align 1
+  store i32 1701869940, ptr %281, align 8
   %282 = getelementptr inbounds nuw i8, ptr %278, i64 8
   store i64 4, ptr %282, align 8, !tbaa !15
   %283 = getelementptr inbounds nuw i8, ptr %278, i64 20
-  store i8 0, ptr %283, align 1, !tbaa !14
+  store i8 0, ptr %283, align 4, !tbaa !14
   store ptr %278, ptr %280, align 8, !tbaa !14
   %284 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %17, ptr %284, align 8, !tbaa !298
@@ -77678,11 +77678,11 @@ define internal void @_ZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degr
 .noexc1030:                                       ; preds = %.noexc1022
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 16
   store ptr %289, ptr %288, align 8, !tbaa !12
-  store i32 2020565602, ptr %289, align 1
+  store i32 2020565602, ptr %289, align 8
   %290 = getelementptr inbounds nuw i8, ptr %288, i64 8
   store i64 4, ptr %290, align 8, !tbaa !15
   %291 = getelementptr inbounds nuw i8, ptr %288, i64 20
-  store i8 0, ptr %291, align 1, !tbaa !14
+  store i8 0, ptr %291, align 4, !tbaa !14
   store ptr %288, ptr %287, align 8, !tbaa !14
   %292 = getelementptr inbounds nuw i8, ptr %17, i64 48
   store ptr %286, ptr %292, align 8, !tbaa !298
@@ -77710,7 +77710,7 @@ define internal void @_ZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degr
   %301 = getelementptr inbounds nuw i8, ptr %298, i64 8
   store i64 10, ptr %301, align 8, !tbaa !15
   %302 = getelementptr inbounds nuw i8, ptr %298, i64 26
-  store i8 0, ptr %302, align 1, !tbaa !14
+  store i8 0, ptr %302, align 2, !tbaa !14
   store ptr %298, ptr %299, align 8, !tbaa !14
   %303 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %18, ptr %303, align 8, !tbaa !298
@@ -77727,11 +77727,11 @@ define internal void @_ZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degr
   %307 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %308 = getelementptr inbounds nuw i8, ptr %306, i64 16
   store ptr %308, ptr %306, align 8, !tbaa !12
-  store i32 2020565602, ptr %308, align 1
+  store i32 2020565602, ptr %308, align 8
   %309 = getelementptr inbounds nuw i8, ptr %306, i64 8
   store i64 4, ptr %309, align 8, !tbaa !15
   %310 = getelementptr inbounds nuw i8, ptr %306, i64 20
-  store i8 0, ptr %310, align 1, !tbaa !14
+  store i8 0, ptr %310, align 4, !tbaa !14
   store ptr %306, ptr %307, align 8, !tbaa !14
   %311 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %20, ptr %311, align 8, !tbaa !298
@@ -77854,11 +77854,11 @@ define internal void @_ZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degr
   %358 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %359 = getelementptr inbounds nuw i8, ptr %356, i64 16
   store ptr %359, ptr %356, align 8, !tbaa !12
-  store i32 1701869940, ptr %359, align 1
+  store i32 1701869940, ptr %359, align 8
   %360 = getelementptr inbounds nuw i8, ptr %356, i64 8
   store i64 4, ptr %360, align 8, !tbaa !15
   %361 = getelementptr inbounds nuw i8, ptr %356, i64 20
-  store i8 0, ptr %361, align 1, !tbaa !14
+  store i8 0, ptr %361, align 4, !tbaa !14
   store ptr %356, ptr %358, align 8, !tbaa !14
   %362 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr %24, ptr %362, align 8, !tbaa !298
@@ -77945,11 +77945,11 @@ define internal void @_ZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degr
 .noexc1097:                                       ; preds = %.noexc.i.i.i.i.i.i.i1090
   %391 = getelementptr inbounds nuw i8, ptr %389, i64 16
   store ptr %391, ptr %389, align 8, !tbaa !12
-  store i64 8241980317954238818, ptr %391, align 1
+  store i64 8241980317954238818, ptr %391, align 8
   %392 = getelementptr inbounds nuw i8, ptr %389, i64 8
   store i64 8, ptr %392, align 8, !tbaa !15
   %393 = getelementptr inbounds nuw i8, ptr %389, i64 24
-  store i8 0, ptr %393, align 1, !tbaa !14
+  store i8 0, ptr %393, align 8, !tbaa !14
   store ptr %389, ptr %388, align 8, !tbaa !14
   %394 = getelementptr inbounds nuw i8, ptr %25, i64 48
   store ptr %387, ptr %394, align 8, !tbaa !298
@@ -77978,11 +77978,11 @@ define internal void @_ZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degr
   %402 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %403 = getelementptr inbounds nuw i8, ptr %400, i64 16
   store ptr %403, ptr %400, align 8, !tbaa !12
-  store i64 7308604897068083558, ptr %403, align 1
+  store i64 7308604897068083558, ptr %403, align 8
   %404 = getelementptr inbounds nuw i8, ptr %400, i64 8
   store i64 8, ptr %404, align 8, !tbaa !15
   %405 = getelementptr inbounds nuw i8, ptr %400, i64 24
-  store i8 0, ptr %405, align 1, !tbaa !14
+  store i8 0, ptr %405, align 8, !tbaa !14
   store ptr %400, ptr %402, align 8, !tbaa !14
   %406 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr %26, ptr %406, align 8, !tbaa !298
@@ -78068,11 +78068,11 @@ define internal void @_ZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degr
   %436 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %437 = getelementptr inbounds nuw i8, ptr %434, i64 16
   store ptr %437, ptr %434, align 8, !tbaa !12
-  store i32 1701869940, ptr %437, align 1
+  store i32 1701869940, ptr %437, align 8
   %438 = getelementptr inbounds nuw i8, ptr %434, i64 8
   store i64 4, ptr %438, align 8, !tbaa !15
   %439 = getelementptr inbounds nuw i8, ptr %434, i64 20
-  store i8 0, ptr %439, align 1, !tbaa !14
+  store i8 0, ptr %439, align 4, !tbaa !14
   store ptr %434, ptr %436, align 8, !tbaa !14
   %440 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr %29, ptr %440, align 8, !tbaa !298
@@ -78120,7 +78120,7 @@ define internal void @_ZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degr
   %457 = getelementptr inbounds nuw i8, ptr %454, i64 8
   store i64 10, ptr %457, align 8, !tbaa !15
   %458 = getelementptr inbounds nuw i8, ptr %454, i64 26
-  store i8 0, ptr %458, align 1, !tbaa !14
+  store i8 0, ptr %458, align 2, !tbaa !14
   store ptr %454, ptr %455, align 8, !tbaa !14
   %459 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr %30, ptr %459, align 8, !tbaa !298
@@ -78146,7 +78146,7 @@ define internal void @_ZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degr
   %466 = getelementptr inbounds nuw i8, ptr %462, i64 8
   store i64 12, ptr %466, align 8, !tbaa !15
   %467 = getelementptr inbounds nuw i8, ptr %462, i64 28
-  store i8 0, ptr %467, align 1, !tbaa !14
+  store i8 0, ptr %467, align 4, !tbaa !14
   store ptr %462, ptr %464, align 8, !tbaa !14
   %468 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %32, ptr %468, align 8, !tbaa !298
@@ -78162,11 +78162,11 @@ define internal void @_ZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degr
 .noexc1169:                                       ; preds = %.noexc1162
   %473 = getelementptr inbounds nuw i8, ptr %472, i64 16
   store ptr %473, ptr %472, align 8, !tbaa !12
-  store i32 1869768058, ptr %473, align 1
+  store i32 1869768058, ptr %473, align 8
   %474 = getelementptr inbounds nuw i8, ptr %472, i64 8
   store i64 4, ptr %474, align 8, !tbaa !15
   %475 = getelementptr inbounds nuw i8, ptr %472, i64 20
-  store i8 0, ptr %475, align 1, !tbaa !14
+  store i8 0, ptr %475, align 4, !tbaa !14
   store ptr %472, ptr %471, align 8, !tbaa !14
   %476 = getelementptr inbounds nuw i8, ptr %32, i64 48
   store ptr %470, ptr %476, align 8, !tbaa !298
@@ -78199,7 +78199,7 @@ define internal void @_ZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degr
   %486 = getelementptr inbounds nuw i8, ptr %482, i64 8
   store i64 10, ptr %486, align 8, !tbaa !15
   %487 = getelementptr inbounds nuw i8, ptr %482, i64 26
-  store i8 0, ptr %487, align 1, !tbaa !14
+  store i8 0, ptr %487, align 2, !tbaa !14
   store ptr %482, ptr %484, align 8, !tbaa !14
   %488 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store ptr %33, ptr %488, align 8, !tbaa !298
@@ -78215,11 +78215,11 @@ define internal void @_ZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degr
 .noexc1188:                                       ; preds = %.noexc1180
   %493 = getelementptr inbounds nuw i8, ptr %492, i64 16
   store ptr %493, ptr %492, align 8, !tbaa !12
-  store i32 1869768058, ptr %493, align 1
+  store i32 1869768058, ptr %493, align 8
   %494 = getelementptr inbounds nuw i8, ptr %492, i64 8
   store i64 4, ptr %494, align 8, !tbaa !15
   %495 = getelementptr inbounds nuw i8, ptr %492, i64 20
-  store i8 0, ptr %495, align 1, !tbaa !14
+  store i8 0, ptr %495, align 4, !tbaa !14
   store ptr %492, ptr %491, align 8, !tbaa !14
   %496 = getelementptr inbounds nuw i8, ptr %33, i64 48
   store ptr %490, ptr %496, align 8, !tbaa !298
@@ -78339,7 +78339,7 @@ define internal void @_ZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degr
   %537 = getelementptr inbounds nuw i8, ptr %534, i64 8
   store i64 12, ptr %537, align 8, !tbaa !15
   %538 = getelementptr inbounds nuw i8, ptr %534, i64 28
-  store i8 0, ptr %538, align 1, !tbaa !14
+  store i8 0, ptr %538, align 4, !tbaa !14
   store ptr %534, ptr %535, align 8, !tbaa !14
   %539 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store ptr %38, ptr %539, align 8, !tbaa !298
@@ -78454,7 +78454,7 @@ define internal void @_ZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degr
   %579 = getelementptr inbounds nuw i8, ptr %576, i64 8
   store i64 12, ptr %579, align 8, !tbaa !15
   %580 = getelementptr inbounds nuw i8, ptr %576, i64 28
-  store i8 0, ptr %580, align 1, !tbaa !14
+  store i8 0, ptr %580, align 4, !tbaa !14
   store ptr %576, ptr %577, align 8, !tbaa !14
   %581 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %41, ptr %581, align 8, !tbaa !298
@@ -85340,11 +85340,11 @@ _ZN7testing15AssertionResultD2Ev.exit1786:        ; preds = %2963, %_ZNKSt14defa
 .noexc1791:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit1786
   %2977 = getelementptr inbounds nuw i8, ptr %2976, i64 16
   store ptr %2977, ptr %2976, align 8, !tbaa !12
-  store i64 7809632533413520758, ptr %2977, align 1
+  store i64 7809632533413520758, ptr %2977, align 8
   %2978 = getelementptr inbounds nuw i8, ptr %2976, i64 8
   store i64 8, ptr %2978, align 8, !tbaa !15
   %2979 = getelementptr inbounds nuw i8, ptr %2976, i64 24
-  store i8 0, ptr %2979, align 1, !tbaa !14
+  store i8 0, ptr %2979, align 8, !tbaa !14
   store ptr %2976, ptr %2975, align 8, !tbaa !14
   %2980 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEixIKcEERSC_PT_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef @.str.60)
           to label %2981 unwind label %3020
@@ -86074,11 +86074,11 @@ _ZN7testing15AssertionResultD2Ev.exit1867:        ; preds = %3211, %_ZNKSt14defa
 .noexc1871:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit1867
   %3225 = getelementptr inbounds nuw i8, ptr %3224, i64 16
   store ptr %3225, ptr %3224, align 8, !tbaa !12
-  store i16 25651, ptr %3225, align 1
+  store i16 25651, ptr %3225, align 8
   %3226 = getelementptr inbounds nuw i8, ptr %3224, i64 8
   store i64 2, ptr %3226, align 8, !tbaa !15
   %3227 = getelementptr inbounds nuw i8, ptr %3224, i64 18
-  store i8 0, ptr %3227, align 1, !tbaa !14
+  store i8 0, ptr %3227, align 2, !tbaa !14
   store ptr %3224, ptr %3223, align 8, !tbaa !14
   %3228 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEixIKcEERSC_PT_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef @.str.60)
           to label %3229 unwind label %3268
@@ -89510,11 +89510,11 @@ define internal void @_ZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metr
 .noexc:                                           ; preds = %1
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 16
   store ptr %168, ptr %167, align 8, !tbaa !12
-  store i64 7957695015292265569, ptr %168, align 1
+  store i64 7957695015292265569, ptr %168, align 8
   %169 = getelementptr inbounds nuw i8, ptr %167, i64 8
   store i64 8, ptr %169, align 8, !tbaa !15
   %170 = getelementptr inbounds nuw i8, ptr %167, i64 24
-  store i8 0, ptr %170, align 1, !tbaa !14
+  store i8 0, ptr %170, align 8, !tbaa !14
   store ptr %167, ptr %166, align 8, !tbaa !14
   %171 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEixIKcEERSC_PT_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef @.str.54)
           to label %172 unwind label %881
@@ -89646,7 +89646,7 @@ define internal void @_ZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metr
   %215 = getelementptr inbounds nuw i8, ptr %212, i64 8
   store i64 10, ptr %215, align 8, !tbaa !15
   %216 = getelementptr inbounds nuw i8, ptr %212, i64 26
-  store i8 0, ptr %216, align 1, !tbaa !14
+  store i8 0, ptr %216, align 2, !tbaa !14
   store ptr %212, ptr %211, align 8, !tbaa !14
   %217 = getelementptr inbounds nuw i8, ptr %17, i64 48
   store ptr %210, ptr %217, align 8, !tbaa !298
@@ -89713,11 +89713,11 @@ define internal void @_ZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metr
 .noexc931:                                        ; preds = %.noexc.i.i.i.i.i.i.i924
   %238 = getelementptr inbounds nuw i8, ptr %236, i64 16
   store ptr %238, ptr %236, align 8, !tbaa !12
-  store i32 1701736302, ptr %238, align 1
+  store i32 1701736302, ptr %238, align 8
   %239 = getelementptr inbounds nuw i8, ptr %236, i64 8
   store i64 4, ptr %239, align 8, !tbaa !15
   %240 = getelementptr inbounds nuw i8, ptr %236, i64 20
-  store i8 0, ptr %240, align 1, !tbaa !14
+  store i8 0, ptr %240, align 4, !tbaa !14
   store ptr %236, ptr %235, align 8, !tbaa !14
   %241 = getelementptr inbounds nuw i8, ptr %18, i64 48
   store ptr %234, ptr %241, align 8, !tbaa !298
@@ -89745,7 +89745,7 @@ define internal void @_ZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metr
   %250 = getelementptr inbounds nuw i8, ptr %247, i64 8
   store i64 6, ptr %250, align 8, !tbaa !15
   %251 = getelementptr inbounds nuw i8, ptr %247, i64 22
-  store i8 0, ptr %251, align 1, !tbaa !14
+  store i8 0, ptr %251, align 2, !tbaa !14
   store ptr %247, ptr %248, align 8, !tbaa !14
   %252 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %19, ptr %252, align 8, !tbaa !298
@@ -89767,11 +89767,11 @@ define internal void @_ZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metr
   %257 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %258 = getelementptr inbounds nuw i8, ptr %255, i64 16
   store ptr %258, ptr %255, align 8, !tbaa !12
-  store i32 1701869940, ptr %258, align 1
+  store i32 1701869940, ptr %258, align 8
   %259 = getelementptr inbounds nuw i8, ptr %255, i64 8
   store i64 4, ptr %259, align 8, !tbaa !15
   %260 = getelementptr inbounds nuw i8, ptr %255, i64 20
-  store i8 0, ptr %260, align 1, !tbaa !14
+  store i8 0, ptr %260, align 4, !tbaa !14
   store ptr %255, ptr %257, align 8, !tbaa !14
   %261 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %21, ptr %261, align 8, !tbaa !298
@@ -89787,11 +89787,11 @@ define internal void @_ZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metr
 .noexc955:                                        ; preds = %.noexc947
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 16
   store ptr %266, ptr %265, align 8, !tbaa !12
-  store i32 2020565602, ptr %266, align 1
+  store i32 2020565602, ptr %266, align 8
   %267 = getelementptr inbounds nuw i8, ptr %265, i64 8
   store i64 4, ptr %267, align 8, !tbaa !15
   %268 = getelementptr inbounds nuw i8, ptr %265, i64 20
-  store i8 0, ptr %268, align 1, !tbaa !14
+  store i8 0, ptr %268, align 4, !tbaa !14
   store ptr %265, ptr %264, align 8, !tbaa !14
   %269 = getelementptr inbounds nuw i8, ptr %21, i64 48
   store ptr %263, ptr %269, align 8, !tbaa !298
@@ -89819,7 +89819,7 @@ define internal void @_ZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metr
   %278 = getelementptr inbounds nuw i8, ptr %275, i64 8
   store i64 10, ptr %278, align 8, !tbaa !15
   %279 = getelementptr inbounds nuw i8, ptr %275, i64 26
-  store i8 0, ptr %279, align 1, !tbaa !14
+  store i8 0, ptr %279, align 2, !tbaa !14
   store ptr %275, ptr %276, align 8, !tbaa !14
   %280 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %22, ptr %280, align 8, !tbaa !298
@@ -89836,11 +89836,11 @@ define internal void @_ZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metr
   %284 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %285 = getelementptr inbounds nuw i8, ptr %283, i64 16
   store ptr %285, ptr %283, align 8, !tbaa !12
-  store i32 2020565602, ptr %285, align 1
+  store i32 2020565602, ptr %285, align 8
   %286 = getelementptr inbounds nuw i8, ptr %283, i64 8
   store i64 4, ptr %286, align 8, !tbaa !15
   %287 = getelementptr inbounds nuw i8, ptr %283, i64 20
-  store i8 0, ptr %287, align 1, !tbaa !14
+  store i8 0, ptr %287, align 4, !tbaa !14
   store ptr %283, ptr %284, align 8, !tbaa !14
   %288 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr %24, ptr %288, align 8, !tbaa !298
@@ -89963,11 +89963,11 @@ define internal void @_ZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metr
   %335 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %336 = getelementptr inbounds nuw i8, ptr %333, i64 16
   store ptr %336, ptr %333, align 8, !tbaa !12
-  store i32 1701869940, ptr %336, align 1
+  store i32 1701869940, ptr %336, align 8
   %337 = getelementptr inbounds nuw i8, ptr %333, i64 8
   store i64 4, ptr %337, align 8, !tbaa !15
   %338 = getelementptr inbounds nuw i8, ptr %333, i64 20
-  store i8 0, ptr %338, align 1, !tbaa !14
+  store i8 0, ptr %338, align 4, !tbaa !14
   store ptr %333, ptr %335, align 8, !tbaa !14
   %339 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %28, ptr %339, align 8, !tbaa !298
@@ -90087,11 +90087,11 @@ define internal void @_ZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metr
   %379 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %380 = getelementptr inbounds nuw i8, ptr %377, i64 16
   store ptr %380, ptr %377, align 8, !tbaa !12
-  store i64 7308604897068083558, ptr %380, align 1
+  store i64 7308604897068083558, ptr %380, align 8
   %381 = getelementptr inbounds nuw i8, ptr %377, i64 8
   store i64 8, ptr %381, align 8, !tbaa !15
   %382 = getelementptr inbounds nuw i8, ptr %377, i64 24
-  store i8 0, ptr %382, align 1, !tbaa !14
+  store i8 0, ptr %382, align 8, !tbaa !14
   store ptr %377, ptr %379, align 8, !tbaa !14
   %383 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr %30, ptr %383, align 8, !tbaa !298
@@ -90177,11 +90177,11 @@ define internal void @_ZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metr
   %413 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %414 = getelementptr inbounds nuw i8, ptr %411, i64 16
   store ptr %414, ptr %411, align 8, !tbaa !12
-  store i32 1701869940, ptr %414, align 1
+  store i32 1701869940, ptr %414, align 8
   %415 = getelementptr inbounds nuw i8, ptr %411, i64 8
   store i64 4, ptr %415, align 8, !tbaa !15
   %416 = getelementptr inbounds nuw i8, ptr %411, i64 20
-  store i8 0, ptr %416, align 1, !tbaa !14
+  store i8 0, ptr %416, align 4, !tbaa !14
   store ptr %411, ptr %413, align 8, !tbaa !14
   %417 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store ptr %33, ptr %417, align 8, !tbaa !298
@@ -90229,7 +90229,7 @@ define internal void @_ZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metr
   %434 = getelementptr inbounds nuw i8, ptr %431, i64 8
   store i64 10, ptr %434, align 8, !tbaa !15
   %435 = getelementptr inbounds nuw i8, ptr %431, i64 26
-  store i8 0, ptr %435, align 1, !tbaa !14
+  store i8 0, ptr %435, align 2, !tbaa !14
   store ptr %431, ptr %432, align 8, !tbaa !14
   %436 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr %34, ptr %436, align 8, !tbaa !298
@@ -90255,7 +90255,7 @@ define internal void @_ZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metr
   %443 = getelementptr inbounds nuw i8, ptr %439, i64 8
   store i64 12, ptr %443, align 8, !tbaa !15
   %444 = getelementptr inbounds nuw i8, ptr %439, i64 28
-  store i8 0, ptr %444, align 1, !tbaa !14
+  store i8 0, ptr %444, align 4, !tbaa !14
   store ptr %439, ptr %441, align 8, !tbaa !14
   %445 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store ptr %36, ptr %445, align 8, !tbaa !298
@@ -90271,11 +90271,11 @@ define internal void @_ZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metr
 .noexc1094:                                       ; preds = %.noexc1087
   %450 = getelementptr inbounds nuw i8, ptr %449, i64 16
   store ptr %450, ptr %449, align 8, !tbaa !12
-  store i32 1869768058, ptr %450, align 1
+  store i32 1869768058, ptr %450, align 8
   %451 = getelementptr inbounds nuw i8, ptr %449, i64 8
   store i64 4, ptr %451, align 8, !tbaa !15
   %452 = getelementptr inbounds nuw i8, ptr %449, i64 20
-  store i8 0, ptr %452, align 1, !tbaa !14
+  store i8 0, ptr %452, align 4, !tbaa !14
   store ptr %449, ptr %448, align 8, !tbaa !14
   %453 = getelementptr inbounds nuw i8, ptr %36, i64 48
   store ptr %447, ptr %453, align 8, !tbaa !298
@@ -90308,7 +90308,7 @@ define internal void @_ZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metr
   %463 = getelementptr inbounds nuw i8, ptr %459, i64 8
   store i64 10, ptr %463, align 8, !tbaa !15
   %464 = getelementptr inbounds nuw i8, ptr %459, i64 26
-  store i8 0, ptr %464, align 1, !tbaa !14
+  store i8 0, ptr %464, align 2, !tbaa !14
   store ptr %459, ptr %461, align 8, !tbaa !14
   %465 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store ptr %37, ptr %465, align 8, !tbaa !298
@@ -90324,11 +90324,11 @@ define internal void @_ZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metr
 .noexc1113:                                       ; preds = %.noexc1105
   %470 = getelementptr inbounds nuw i8, ptr %469, i64 16
   store ptr %470, ptr %469, align 8, !tbaa !12
-  store i32 1869768058, ptr %470, align 1
+  store i32 1869768058, ptr %470, align 8
   %471 = getelementptr inbounds nuw i8, ptr %469, i64 8
   store i64 4, ptr %471, align 8, !tbaa !15
   %472 = getelementptr inbounds nuw i8, ptr %469, i64 20
-  store i8 0, ptr %472, align 1, !tbaa !14
+  store i8 0, ptr %472, align 4, !tbaa !14
   store ptr %469, ptr %468, align 8, !tbaa !14
   %473 = getelementptr inbounds nuw i8, ptr %37, i64 48
   store ptr %467, ptr %473, align 8, !tbaa !298
@@ -90448,7 +90448,7 @@ define internal void @_ZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metr
   %514 = getelementptr inbounds nuw i8, ptr %511, i64 8
   store i64 12, ptr %514, align 8, !tbaa !15
   %515 = getelementptr inbounds nuw i8, ptr %511, i64 28
-  store i8 0, ptr %515, align 1, !tbaa !14
+  store i8 0, ptr %515, align 4, !tbaa !14
   store ptr %511, ptr %512, align 8, !tbaa !14
   %516 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %42, ptr %516, align 8, !tbaa !298
@@ -90563,7 +90563,7 @@ define internal void @_ZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metr
   %556 = getelementptr inbounds nuw i8, ptr %553, i64 8
   store i64 12, ptr %556, align 8, !tbaa !15
   %557 = getelementptr inbounds nuw i8, ptr %553, i64 28
-  store i8 0, ptr %557, align 1, !tbaa !14
+  store i8 0, ptr %557, align 4, !tbaa !14
   store ptr %553, ptr %554, align 8, !tbaa !14
   %558 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store ptr %45, ptr %558, align 8, !tbaa !298
@@ -91133,11 +91133,11 @@ define internal void @_ZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metr
 .noexc1207:                                       ; preds = %872
   %875 = getelementptr inbounds nuw i8, ptr %874, i64 16
   store ptr %875, ptr %874, align 8, !tbaa !12
-  store i64 7957695015292265569, ptr %875, align 1
+  store i64 7957695015292265569, ptr %875, align 8
   %876 = getelementptr inbounds nuw i8, ptr %874, i64 8
   store i64 8, ptr %876, align 8, !tbaa !15
   %877 = getelementptr inbounds nuw i8, ptr %874, i64 24
-  store i8 0, ptr %877, align 1, !tbaa !14
+  store i8 0, ptr %877, align 8, !tbaa !14
   store ptr %874, ptr %873, align 8, !tbaa !14
   %878 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEixIKcEERSC_PT_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef @.str.54)
           to label %2355 unwind label %2409
@@ -95614,11 +95614,11 @@ _ZN20TestDeformationModel9EvaluatorIZN12_GLOBAL__N_145defmodel_evaluator_horizon
 .noexc1571:                                       ; preds = %2355
   %2362 = getelementptr inbounds nuw i8, ptr %2361, i64 16
   store ptr %2362, ptr %2361, align 8, !tbaa !12
-  store i16 25651, ptr %2362, align 1
+  store i16 25651, ptr %2362, align 8
   %2363 = getelementptr inbounds nuw i8, ptr %2361, i64 8
   store i64 2, ptr %2363, align 8, !tbaa !15
   %2364 = getelementptr inbounds nuw i8, ptr %2361, i64 18
-  store i8 0, ptr %2364, align 1, !tbaa !14
+  store i8 0, ptr %2364, align 2, !tbaa !14
   store ptr %2361, ptr %2360, align 8, !tbaa !14
   %2365 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEixIKcEERSC_PT_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef @.str.60)
           to label %2366 unwind label %2412
@@ -95651,11 +95651,11 @@ _ZN20TestDeformationModel9EvaluatorIZN12_GLOBAL__N_145defmodel_evaluator_horizon
 .noexc1579:                                       ; preds = %2370
   %2377 = getelementptr inbounds nuw i8, ptr %2376, i64 16
   store ptr %2377, ptr %2376, align 8, !tbaa !12
-  store i64 8241980317954238818, ptr %2377, align 1
+  store i64 8241980317954238818, ptr %2377, align 8
   %2378 = getelementptr inbounds nuw i8, ptr %2376, i64 8
   store i64 8, ptr %2378, align 8, !tbaa !15
   %2379 = getelementptr inbounds nuw i8, ptr %2376, i64 24
-  store i8 0, ptr %2379, align 1, !tbaa !14
+  store i8 0, ptr %2379, align 8, !tbaa !14
   store ptr %2376, ptr %2375, align 8, !tbaa !14
   %2380 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEixIKcEERSC_PT_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef @.str.60)
           to label %2381 unwind label %2415
@@ -96661,7 +96661,7 @@ _ZN20TestDeformationModel9EvaluatorIZN12_GLOBAL__N_145defmodel_evaluator_horizon
   %2709 = getelementptr inbounds nuw i8, ptr %2707, i64 8
   store i64 10, ptr %2709, align 8, !tbaa !15
   %2710 = getelementptr inbounds nuw i8, ptr %2707, i64 26
-  store i8 0, ptr %2710, align 1, !tbaa !14
+  store i8 0, ptr %2710, align 2, !tbaa !14
   store ptr %2707, ptr %2706, align 8, !tbaa !14
   %2711 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEixIKcEERSC_PT_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef @.str.54)
           to label %2712 unwind label %2767
@@ -96686,11 +96686,11 @@ _ZN20TestDeformationModel9EvaluatorIZN12_GLOBAL__N_145defmodel_evaluator_horizon
 .noexc1700:                                       ; preds = %2712
   %2719 = getelementptr inbounds nuw i8, ptr %2718, i64 16
   store ptr %2719, ptr %2718, align 8, !tbaa !12
-  store i16 25651, ptr %2719, align 1
+  store i16 25651, ptr %2719, align 8
   %2720 = getelementptr inbounds nuw i8, ptr %2718, i64 8
   store i64 2, ptr %2720, align 8, !tbaa !15
   %2721 = getelementptr inbounds nuw i8, ptr %2718, i64 18
-  store i8 0, ptr %2721, align 1, !tbaa !14
+  store i8 0, ptr %2721, align 2, !tbaa !14
   store ptr %2718, ptr %2717, align 8, !tbaa !14
   %2722 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEixIKcEERSC_PT_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef @.str.60)
           to label %2723 unwind label %2770
@@ -96723,11 +96723,11 @@ _ZN20TestDeformationModel9EvaluatorIZN12_GLOBAL__N_145defmodel_evaluator_horizon
 .noexc1709:                                       ; preds = %2727
   %2734 = getelementptr inbounds nuw i8, ptr %2733, i64 16
   store ptr %2734, ptr %2733, align 8, !tbaa !12
-  store i64 8241980317954238818, ptr %2734, align 1
+  store i64 8241980317954238818, ptr %2734, align 8
   %2735 = getelementptr inbounds nuw i8, ptr %2733, i64 8
   store i64 8, ptr %2735, align 8, !tbaa !15
   %2736 = getelementptr inbounds nuw i8, ptr %2733, i64 24
-  store i8 0, ptr %2736, align 1, !tbaa !14
+  store i8 0, ptr %2736, align 8, !tbaa !14
   store ptr %2733, ptr %2732, align 8, !tbaa !14
   %2737 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEixIKcEERSC_PT_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef @.str.60)
           to label %2738 unwind label %2773
@@ -101147,11 +101147,11 @@ define internal void @_ZN12_GLOBAL__N_137defmodel_evaluator_projected_crs_Test8T
 .noexc:                                           ; preds = %1
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
   store ptr %111, ptr %110, align 8, !tbaa !12
-  store i64 7957695015292265569, ptr %111, align 1
+  store i64 7957695015292265569, ptr %111, align 8
   %112 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store i64 8, ptr %112, align 8, !tbaa !15
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 24
-  store i8 0, ptr %113, align 1, !tbaa !14
+  store i8 0, ptr %113, align 8, !tbaa !14
   store ptr %110, ptr %109, align 8, !tbaa !14
   %114 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEixIKcEERSC_PT_(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef @.str.54)
           to label %115 unwind label %974
@@ -101235,11 +101235,11 @@ define internal void @_ZN12_GLOBAL__N_137defmodel_evaluator_projected_crs_Test8T
   %143 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %144 = getelementptr inbounds nuw i8, ptr %142, i64 16
   store ptr %144, ptr %142, align 8, !tbaa !12
-  store i32 2020565602, ptr %144, align 1
+  store i32 2020565602, ptr %144, align 8
   %145 = getelementptr inbounds nuw i8, ptr %142, i64 8
   store i64 4, ptr %145, align 8, !tbaa !15
   %146 = getelementptr inbounds nuw i8, ptr %142, i64 20
-  store i8 0, ptr %146, align 1, !tbaa !14
+  store i8 0, ptr %146, align 4, !tbaa !14
   store ptr %142, ptr %143, align 8, !tbaa !14
   %147 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store ptr %44, ptr %147, align 8, !tbaa !298
@@ -101407,7 +101407,7 @@ define internal void @_ZN12_GLOBAL__N_137defmodel_evaluator_projected_crs_Test8T
   %215 = getelementptr inbounds nuw i8, ptr %212, i64 8
   store i64 10, ptr %215, align 8, !tbaa !15
   %216 = getelementptr inbounds nuw i8, ptr %212, i64 26
-  store i8 0, ptr %216, align 1, !tbaa !14
+  store i8 0, ptr %216, align 2, !tbaa !14
   store ptr %212, ptr %211, align 8, !tbaa !14
   %217 = getelementptr inbounds nuw i8, ptr %49, i64 48
   store ptr %210, ptr %217, align 8, !tbaa !298
@@ -101474,11 +101474,11 @@ define internal void @_ZN12_GLOBAL__N_137defmodel_evaluator_projected_crs_Test8T
 .noexc582:                                        ; preds = %.noexc.i.i.i.i.i.i.i574
   %238 = getelementptr inbounds nuw i8, ptr %236, i64 16
   store ptr %238, ptr %236, align 8, !tbaa !12
-  store i32 1701736302, ptr %238, align 1
+  store i32 1701736302, ptr %238, align 8
   %239 = getelementptr inbounds nuw i8, ptr %236, i64 8
   store i64 4, ptr %239, align 8, !tbaa !15
   %240 = getelementptr inbounds nuw i8, ptr %236, i64 20
-  store i8 0, ptr %240, align 1, !tbaa !14
+  store i8 0, ptr %240, align 4, !tbaa !14
   store ptr %236, ptr %235, align 8, !tbaa !14
   %241 = getelementptr inbounds nuw i8, ptr %50, i64 48
   store ptr %234, ptr %241, align 8, !tbaa !298
@@ -101506,7 +101506,7 @@ define internal void @_ZN12_GLOBAL__N_137defmodel_evaluator_projected_crs_Test8T
   %250 = getelementptr inbounds nuw i8, ptr %247, i64 8
   store i64 6, ptr %250, align 8, !tbaa !15
   %251 = getelementptr inbounds nuw i8, ptr %247, i64 22
-  store i8 0, ptr %251, align 1, !tbaa !14
+  store i8 0, ptr %251, align 2, !tbaa !14
   store ptr %247, ptr %248, align 8, !tbaa !14
   %252 = getelementptr inbounds nuw i8, ptr %51, i64 16
   store ptr %51, ptr %252, align 8, !tbaa !298
@@ -101528,11 +101528,11 @@ define internal void @_ZN12_GLOBAL__N_137defmodel_evaluator_projected_crs_Test8T
   %257 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %258 = getelementptr inbounds nuw i8, ptr %255, i64 16
   store ptr %258, ptr %255, align 8, !tbaa !12
-  store i32 1701869940, ptr %258, align 1
+  store i32 1701869940, ptr %258, align 8
   %259 = getelementptr inbounds nuw i8, ptr %255, i64 8
   store i64 4, ptr %259, align 8, !tbaa !15
   %260 = getelementptr inbounds nuw i8, ptr %255, i64 20
-  store i8 0, ptr %260, align 1, !tbaa !14
+  store i8 0, ptr %260, align 4, !tbaa !14
   store ptr %255, ptr %257, align 8, !tbaa !14
   %261 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store ptr %53, ptr %261, align 8, !tbaa !298
@@ -101548,11 +101548,11 @@ define internal void @_ZN12_GLOBAL__N_137defmodel_evaluator_projected_crs_Test8T
 .noexc607:                                        ; preds = %.noexc599
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 16
   store ptr %266, ptr %265, align 8, !tbaa !12
-  store i32 2020565602, ptr %266, align 1
+  store i32 2020565602, ptr %266, align 8
   %267 = getelementptr inbounds nuw i8, ptr %265, i64 8
   store i64 4, ptr %267, align 8, !tbaa !15
   %268 = getelementptr inbounds nuw i8, ptr %265, i64 20
-  store i8 0, ptr %268, align 1, !tbaa !14
+  store i8 0, ptr %268, align 4, !tbaa !14
   store ptr %265, ptr %264, align 8, !tbaa !14
   %269 = getelementptr inbounds nuw i8, ptr %53, i64 48
   store ptr %263, ptr %269, align 8, !tbaa !298
@@ -101580,7 +101580,7 @@ define internal void @_ZN12_GLOBAL__N_137defmodel_evaluator_projected_crs_Test8T
   %278 = getelementptr inbounds nuw i8, ptr %275, i64 8
   store i64 10, ptr %278, align 8, !tbaa !15
   %279 = getelementptr inbounds nuw i8, ptr %275, i64 26
-  store i8 0, ptr %279, align 1, !tbaa !14
+  store i8 0, ptr %279, align 2, !tbaa !14
   store ptr %275, ptr %276, align 8, !tbaa !14
   %280 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store ptr %54, ptr %280, align 8, !tbaa !298
@@ -101597,11 +101597,11 @@ define internal void @_ZN12_GLOBAL__N_137defmodel_evaluator_projected_crs_Test8T
   %284 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %285 = getelementptr inbounds nuw i8, ptr %283, i64 16
   store ptr %285, ptr %283, align 8, !tbaa !12
-  store i32 2020565602, ptr %285, align 1
+  store i32 2020565602, ptr %285, align 8
   %286 = getelementptr inbounds nuw i8, ptr %283, i64 8
   store i64 4, ptr %286, align 8, !tbaa !15
   %287 = getelementptr inbounds nuw i8, ptr %283, i64 20
-  store i8 0, ptr %287, align 1, !tbaa !14
+  store i8 0, ptr %287, align 4, !tbaa !14
   store ptr %283, ptr %284, align 8, !tbaa !14
   %288 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store ptr %56, ptr %288, align 8, !tbaa !298
@@ -101724,11 +101724,11 @@ define internal void @_ZN12_GLOBAL__N_137defmodel_evaluator_projected_crs_Test8T
   %335 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %336 = getelementptr inbounds nuw i8, ptr %333, i64 16
   store ptr %336, ptr %333, align 8, !tbaa !12
-  store i32 1701869940, ptr %336, align 1
+  store i32 1701869940, ptr %336, align 8
   %337 = getelementptr inbounds nuw i8, ptr %333, i64 8
   store i64 4, ptr %337, align 8, !tbaa !15
   %338 = getelementptr inbounds nuw i8, ptr %333, i64 20
-  store i8 0, ptr %338, align 1, !tbaa !14
+  store i8 0, ptr %338, align 4, !tbaa !14
   store ptr %333, ptr %335, align 8, !tbaa !14
   %339 = getelementptr inbounds nuw i8, ptr %60, i64 16
   store ptr %60, ptr %339, align 8, !tbaa !298
@@ -101815,11 +101815,11 @@ define internal void @_ZN12_GLOBAL__N_137defmodel_evaluator_projected_crs_Test8T
 .noexc674:                                        ; preds = %.noexc.i.i.i.i.i.i.i667
   %368 = getelementptr inbounds nuw i8, ptr %366, i64 16
   store ptr %368, ptr %366, align 8, !tbaa !12
-  store i64 8241980317954238818, ptr %368, align 1
+  store i64 8241980317954238818, ptr %368, align 8
   %369 = getelementptr inbounds nuw i8, ptr %366, i64 8
   store i64 8, ptr %369, align 8, !tbaa !15
   %370 = getelementptr inbounds nuw i8, ptr %366, i64 24
-  store i8 0, ptr %370, align 1, !tbaa !14
+  store i8 0, ptr %370, align 8, !tbaa !14
   store ptr %366, ptr %365, align 8, !tbaa !14
   %371 = getelementptr inbounds nuw i8, ptr %61, i64 48
   store ptr %364, ptr %371, align 8, !tbaa !298
@@ -101848,11 +101848,11 @@ define internal void @_ZN12_GLOBAL__N_137defmodel_evaluator_projected_crs_Test8T
   %379 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %380 = getelementptr inbounds nuw i8, ptr %377, i64 16
   store ptr %380, ptr %377, align 8, !tbaa !12
-  store i64 7308604897068083558, ptr %380, align 1
+  store i64 7308604897068083558, ptr %380, align 8
   %381 = getelementptr inbounds nuw i8, ptr %377, i64 8
   store i64 8, ptr %381, align 8, !tbaa !15
   %382 = getelementptr inbounds nuw i8, ptr %377, i64 24
-  store i8 0, ptr %382, align 1, !tbaa !14
+  store i8 0, ptr %382, align 8, !tbaa !14
   store ptr %377, ptr %379, align 8, !tbaa !14
   %383 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store ptr %62, ptr %383, align 8, !tbaa !298
@@ -101938,11 +101938,11 @@ define internal void @_ZN12_GLOBAL__N_137defmodel_evaluator_projected_crs_Test8T
   %413 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %414 = getelementptr inbounds nuw i8, ptr %411, i64 16
   store ptr %414, ptr %411, align 8, !tbaa !12
-  store i32 1701869940, ptr %414, align 1
+  store i32 1701869940, ptr %414, align 8
   %415 = getelementptr inbounds nuw i8, ptr %411, i64 8
   store i64 4, ptr %415, align 8, !tbaa !15
   %416 = getelementptr inbounds nuw i8, ptr %411, i64 20
-  store i8 0, ptr %416, align 1, !tbaa !14
+  store i8 0, ptr %416, align 4, !tbaa !14
   store ptr %411, ptr %413, align 8, !tbaa !14
   %417 = getelementptr inbounds nuw i8, ptr %65, i64 16
   store ptr %65, ptr %417, align 8, !tbaa !298
@@ -101958,11 +101958,11 @@ define internal void @_ZN12_GLOBAL__N_137defmodel_evaluator_projected_crs_Test8T
 .noexc723:                                        ; preds = %.noexc715
   %422 = getelementptr inbounds nuw i8, ptr %421, i64 16
   store ptr %422, ptr %421, align 8, !tbaa !12
-  store i64 8389750308618530659, ptr %422, align 1
+  store i64 8389750308618530659, ptr %422, align 8
   %423 = getelementptr inbounds nuw i8, ptr %421, i64 8
   store i64 8, ptr %423, align 8, !tbaa !15
   %424 = getelementptr inbounds nuw i8, ptr %421, i64 24
-  store i8 0, ptr %424, align 1, !tbaa !14
+  store i8 0, ptr %424, align 8, !tbaa !14
   store ptr %421, ptr %420, align 8, !tbaa !14
   %425 = getelementptr inbounds nuw i8, ptr %65, i64 48
   store ptr %419, ptr %425, align 8, !tbaa !298
@@ -104642,7 +104642,7 @@ _ZN7testing15AssertionResultD2Ev.exit808:         ; preds = %1425, %_ZNKSt14defa
   %1441 = getelementptr inbounds nuw i8, ptr %1439, i64 8
   store i64 6, ptr %1441, align 8, !tbaa !15
   %1442 = getelementptr inbounds nuw i8, ptr %1439, i64 22
-  store i8 0, ptr %1442, align 1, !tbaa !14
+  store i8 0, ptr %1442, align 2, !tbaa !14
   store ptr %1439, ptr %1438, align 8, !tbaa !14
   %1443 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEixIKcEERSC_PT_(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef @.str.46)
           to label %1444 unwind label %1488
@@ -105122,7 +105122,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit:    ; preds = %_ZNKSt7__cxx1112bas
   %1604 = getelementptr inbounds nuw i8, ptr %1602, i64 8
   store i64 10, ptr %1604, align 8, !tbaa !15
   %1605 = getelementptr inbounds nuw i8, ptr %1602, i64 26
-  store i8 0, ptr %1605, align 1, !tbaa !14
+  store i8 0, ptr %1605, align 2, !tbaa !14
   store ptr %1602, ptr %1601, align 8, !tbaa !14
   %1606 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEixIKcEERSC_PT_(ptr noundef nonnull align 8 dereferenceable(16) %91, ptr noundef @.str.54)
           to label %1607 unwind label %1660
@@ -121934,7 +121934,7 @@ define linkonce_odr hidden { i8, ptr } @_ZN13proj_nlohmann6detail28json_sax_dom_
   store ptr %32, ptr %31, align 8, !tbaa !12
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 0, ptr %33, align 8, !tbaa !15
-  store i8 0, ptr %32, align 1, !tbaa !14
+  store i8 0, ptr %32, align 8, !tbaa !14
   store ptr %31, ptr %22, align 8, !tbaa !14
   br label %_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEE10json_valueC2ENS_6detail7value_tE.exit
 
@@ -125470,7 +125470,7 @@ define linkonce_odr hidden noundef nonnull ptr @_ZN13proj_nlohmann6detail19json_
   store ptr %24, ptr %23, align 8, !tbaa !12
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %25, align 8, !tbaa !15
-  store i8 0, ptr %24, align 1, !tbaa !14
+  store i8 0, ptr %24, align 8, !tbaa !14
   %26 = ptrtoint ptr %23 to i64
   br label %_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEE10json_valueC2ENS_6detail7value_tE.exit
 
@@ -125577,7 +125577,7 @@ _ZNSt6vectorIN13proj_nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt1
   store ptr %76, ptr %75, align 8, !tbaa !12
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store i64 0, ptr %77, align 8, !tbaa !15
-  store i8 0, ptr %76, align 1, !tbaa !14
+  store i8 0, ptr %76, align 8, !tbaa !14
   %78 = ptrtoint ptr %75 to i64
   br label %_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEE10json_valueC2ENS_6detail7value_tE.exit7
 
@@ -127289,7 +127289,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8, !tbaa !15
   store ptr %13, ptr %10, align 8, !tbaa !4
   store i64 0, ptr %24, align 8, !tbaa !15
-  store i8 0, ptr %13, align 1, !tbaa !14
+  store i8 0, ptr %13, align 8, !tbaa !14
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i8 0, ptr %26, align 8, !tbaa !25
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 72
@@ -128208,7 +128208,7 @@ _ZSt19__relocate_object_aIN20TestDeformationModel9Component21PiecewiseTimeFuncti
   store i64 %53, ptr %55, align 8, !tbaa !15, !alias.scope !1496, !noalias !1499
   store ptr %45, ptr %.0911.i.i.i, align 8, !tbaa !4, !alias.scope !1499, !noalias !1496
   store i64 0, ptr %54, align 8, !tbaa !15, !alias.scope !1499, !noalias !1496
-  store i8 0, ptr %45, align 1, !tbaa !14, !alias.scope !1499, !noalias !1496
+  store i8 0, ptr %45, align 8, !tbaa !14, !alias.scope !1499, !noalias !1496
   %56 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %57 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %58 = load double, ptr %57, align 8, !tbaa !16, !alias.scope !1499, !noalias !1496
@@ -128264,7 +128264,7 @@ _ZSt19__relocate_object_aIN20TestDeformationModel9Component21PiecewiseTimeFuncti
   store i64 %75, ptr %77, align 8, !tbaa !15, !alias.scope !1503, !noalias !1506
   store ptr %67, ptr %.0911.i.i.i19, align 8, !tbaa !4, !alias.scope !1506, !noalias !1503
   store i64 0, ptr %76, align 8, !tbaa !15, !alias.scope !1506, !noalias !1503
-  store i8 0, ptr %67, align 1, !tbaa !14, !alias.scope !1506, !noalias !1503
+  store i8 0, ptr %67, align 8, !tbaa !14, !alias.scope !1506, !noalias !1503
   %78 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %79 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %80 = load double, ptr %79, align 8, !tbaa !16, !alias.scope !1506, !noalias !1503

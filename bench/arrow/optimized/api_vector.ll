@@ -12860,7 +12860,7 @@ define linkonce_odr void @_ZZN5arrow7compute8internal22GetFunctionOptionsTypeINS
   store ptr %10, ptr %7, align 8, !tbaa !127
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %11, align 8, !tbaa !131
-  store i8 0, ptr %10, align 1, !tbaa !130
+  store i8 0, ptr %10, align 8, !tbaa !130
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %8, ptr %12, align 8, !tbaa !295
   invoke void @_ZN5arrow7compute8internal13StringifyImplINS0_13FilterOptionsEEclINS_8internal18DataMemberPropertyIS3_NS3_21NullSelectionBehaviorEEEEEvRKT_m(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef 0)
@@ -14917,7 +14917,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !tbaa !131, !alias.scope !404, !noalias !407
   store ptr %43, ptr %.0911.i.i.i, align 8, !tbaa !129, !alias.scope !407, !noalias !404
   store i64 0, ptr %52, align 8, !tbaa !131, !alias.scope !407, !noalias !404
-  store i8 0, ptr %43, align 1, !tbaa !130, !alias.scope !407, !noalias !404
+  store i8 0, ptr %43, align 8, !tbaa !130, !alias.scope !407, !noalias !404
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %54, %1
@@ -14965,7 +14965,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !tbaa !131, !alias.scope !411, !noalias !414
   store ptr %59, ptr %.0911.i.i.i30, align 8, !tbaa !129, !alias.scope !414, !noalias !411
   store i64 0, ptr %68, align 8, !tbaa !131, !alias.scope !414, !noalias !411
-  store i8 0, ptr %59, align 1, !tbaa !130, !alias.scope !414, !noalias !411
+  store i8 0, ptr %59, align 8, !tbaa !130, !alias.scope !414, !noalias !411
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 32
   %.not.i.i.i35 = icmp eq ptr %70, %6
@@ -16849,7 +16849,7 @@ define linkonce_odr void @_ZZN5arrow7compute8internal22GetFunctionOptionsTypeINS
   store ptr %10, ptr %7, align 8, !tbaa !127
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %11, align 8, !tbaa !131
-  store i8 0, ptr %10, align 1, !tbaa !130
+  store i8 0, ptr %10, align 8, !tbaa !130
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %8, ptr %12, align 8, !tbaa !295
   invoke void @_ZN5arrow7compute8internal13StringifyImplINS0_11TakeOptionsEEclINS_8internal18DataMemberPropertyIS3_bEEEEvRKT_m(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef 0)
@@ -19580,7 +19580,7 @@ define linkonce_odr void @_ZZN5arrow7compute8internal22GetFunctionOptionsTypeINS
   store ptr %10, ptr %7, align 8, !tbaa !127
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %11, align 8, !tbaa !131
-  store i8 0, ptr %10, align 1, !tbaa !130
+  store i8 0, ptr %10, align 8, !tbaa !130
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %8, ptr %12, align 8, !tbaa !295
   invoke void @_ZN5arrow7compute8internal13StringifyImplINS0_23DictionaryEncodeOptionsEEclINS_8internal18DataMemberPropertyIS3_NS3_20NullEncodingBehaviorEEEEEvRKT_m(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef 0)
@@ -21787,7 +21787,7 @@ define linkonce_odr void @_ZZN5arrow7compute8internal22GetFunctionOptionsTypeINS
   store ptr %10, ptr %7, align 8, !tbaa !127
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %11, align 8, !tbaa !131
-  store i8 0, ptr %10, align 1, !tbaa !130
+  store i8 0, ptr %10, align 8, !tbaa !130
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %8, ptr %12, align 8, !tbaa !295
   invoke void @_ZN5arrow7compute8internal13StringifyImplINS0_19RunEndEncodeOptionsEEclINS_8internal18DataMemberPropertyIS3_St10shared_ptrINS_8DataTypeEEEEEEvRKT_m(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef 0)
@@ -24797,7 +24797,7 @@ define linkonce_odr void @_ZZN5arrow7compute8internal22GetFunctionOptionsTypeINS
   store ptr %9, ptr %.08.i.i.i.i.i.i, align 8, !tbaa !127
   %10 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 8
   store i64 0, ptr %10, align 8, !tbaa !131
-  store i8 0, ptr %9, align 1, !tbaa !130
+  store i8 0, ptr %9, align 8, !tbaa !130
   %11 = add nsw i64 %.057.i.i.i.i.i.i, -1
   %12 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq i64 %11, 0
@@ -29127,7 +29127,7 @@ define linkonce_odr void @_ZZN5arrow7compute8internal22GetFunctionOptionsTypeINS
   store ptr %9, ptr %.08.i.i.i.i.i.i, align 8, !tbaa !127
   %10 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 8
   store i64 0, ptr %10, align 8, !tbaa !131
-  store i8 0, ptr %9, align 1, !tbaa !130
+  store i8 0, ptr %9, align 8, !tbaa !130
   %11 = add nsw i64 %.057.i.i.i.i.i.i, -1
   %12 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq i64 %11, 0
@@ -34373,7 +34373,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %9,
   store i64 %15, ptr %17, align 8, !tbaa !131
   store ptr %7, ptr %1, align 8, !tbaa !129
   store i64 0, ptr %16, align 8, !tbaa !131
-  store i8 0, ptr %7, align 1, !tbaa !130
+  store i8 0, ptr %7, align 8, !tbaa !130
   %18 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow4utf8Ev()
           to label %19 unwind label %61
 
@@ -34545,7 +34545,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %10
   store i64 %16, ptr %18, align 8, !tbaa !131
   store ptr %8, ptr %1, align 8, !tbaa !129
   store i64 0, ptr %17, align 8, !tbaa !131
-  store i8 0, ptr %8, align 1, !tbaa !130
+  store i8 0, ptr %8, align 8, !tbaa !130
   %19 = load ptr, ptr %2, align 8, !tbaa !48
   store ptr %19, ptr %5, align 8, !tbaa !48
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -39539,7 +39539,7 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant
   store i64 %82, ptr %84, align 8, !tbaa !131, !alias.scope !1145, !noalias !1148
   store ptr %74, ptr %.0912.i.i.i, align 8, !tbaa !129, !alias.scope !1148, !noalias !1145
   store i64 0, ptr %83, align 8, !tbaa !131, !alias.scope !1148, !noalias !1145
-  store i8 0, ptr %74, align 1, !tbaa !130, !alias.scope !1148, !noalias !1145
+  store i8 0, ptr %74, align 8, !tbaa !130, !alias.scope !1148, !noalias !1145
   br label %_ZSt19__relocate_object_aIN5arrow7compute7SortKeyES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i
 
 85:                                               ; preds = %.lr.ph.i.i.i
@@ -39638,7 +39638,7 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant
   store i64 %122, ptr %124, align 8, !tbaa !131, !alias.scope !1152, !noalias !1155
   store ptr %114, ptr %.0912.i.i.i19, align 8, !tbaa !129, !alias.scope !1155, !noalias !1152
   store i64 0, ptr %123, align 8, !tbaa !131, !alias.scope !1155, !noalias !1152
-  store i8 0, ptr %114, align 1, !tbaa !130, !alias.scope !1155, !noalias !1152
+  store i8 0, ptr %114, align 8, !tbaa !130, !alias.scope !1155, !noalias !1152
   br label %_ZSt19__relocate_object_aIN5arrow7compute7SortKeyES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i20
 
 125:                                              ; preds = %.lr.ph.i.i.i17
@@ -39889,7 +39889,7 @@ define linkonce_odr void @_ZZN5arrow7compute8internal22GetFunctionOptionsTypeINS
   store ptr %9, ptr %.08.i.i.i.i.i.i, align 8, !tbaa !127
   %10 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 8
   store i64 0, ptr %10, align 8, !tbaa !131
-  store i8 0, ptr %9, align 1, !tbaa !130
+  store i8 0, ptr %9, align 8, !tbaa !130
   %11 = add nsw i64 %.057.i.i.i.i.i.i, -1
   %12 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq i64 %11, 0
@@ -43386,7 +43386,7 @@ define linkonce_odr void @_ZZN5arrow7compute8internal22GetFunctionOptionsTypeINS
   store ptr %9, ptr %.08.i.i.i.i.i.i, align 8, !tbaa !127
   %10 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 8
   store i64 0, ptr %10, align 8, !tbaa !131
-  store i8 0, ptr %9, align 1, !tbaa !130
+  store i8 0, ptr %9, align 8, !tbaa !130
   %11 = add nsw i64 %.057.i.i.i.i.i.i, -1
   %12 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq i64 %11, 0
@@ -46933,7 +46933,7 @@ define linkonce_odr void @_ZZN5arrow7compute8internal22GetFunctionOptionsTypeINS
   store ptr %9, ptr %.08.i.i.i.i.i.i, align 8, !tbaa !127
   %10 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 8
   store i64 0, ptr %10, align 8, !tbaa !131
-  store i8 0, ptr %9, align 1, !tbaa !130
+  store i8 0, ptr %9, align 8, !tbaa !130
   %11 = add nsw i64 %.057.i.i.i.i.i.i, -1
   %12 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq i64 %11, 0
@@ -51012,7 +51012,7 @@ define linkonce_odr void @_ZZN5arrow7compute8internal22GetFunctionOptionsTypeINS
   store ptr %9, ptr %.08.i.i.i.i.i.i, align 8, !tbaa !127
   %10 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 8
   store i64 0, ptr %10, align 8, !tbaa !131
-  store i8 0, ptr %9, align 1, !tbaa !130
+  store i8 0, ptr %9, align 8, !tbaa !130
   %11 = add nsw i64 %.057.i.i.i.i.i.i, -1
   %12 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq i64 %11, 0
@@ -55553,7 +55553,7 @@ define linkonce_odr void @_ZZN5arrow7compute8internal22GetFunctionOptionsTypeINS
   store ptr %9, ptr %.08.i.i.i.i.i.i, align 8, !tbaa !127
   %10 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 8
   store i64 0, ptr %10, align 8, !tbaa !131
-  store i8 0, ptr %9, align 1, !tbaa !130
+  store i8 0, ptr %9, align 8, !tbaa !130
   %11 = add nsw i64 %.057.i.i.i.i.i.i, -1
   %12 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq i64 %11, 0
@@ -58645,7 +58645,7 @@ define linkonce_odr void @_ZZN5arrow7compute8internal22GetFunctionOptionsTypeINS
   store ptr %10, ptr %7, align 8, !tbaa !127
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %11, align 8, !tbaa !131
-  store i8 0, ptr %10, align 1, !tbaa !130
+  store i8 0, ptr %10, align 8, !tbaa !130
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %8, ptr %12, align 8, !tbaa !295
   invoke void @_ZN5arrow7compute8internal13StringifyImplINS0_15PairwiseOptionsEEclINS_8internal18DataMemberPropertyIS3_lEEEEvRKT_m(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef 0)
@@ -60499,7 +60499,7 @@ define linkonce_odr void @_ZZN5arrow7compute8internal22GetFunctionOptionsTypeINS
   store ptr %10, ptr %7, align 8, !tbaa !127
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %11, align 8, !tbaa !131
-  store i8 0, ptr %10, align 1, !tbaa !130
+  store i8 0, ptr %10, align 8, !tbaa !130
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %8, ptr %12, align 8, !tbaa !295
   invoke void @_ZN5arrow7compute8internal13StringifyImplINS0_18ListFlattenOptionsEEclINS_8internal18DataMemberPropertyIS3_bEEEEvRKT_m(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef 0)
@@ -62355,7 +62355,7 @@ define linkonce_odr void @_ZZN5arrow7compute8internal22GetFunctionOptionsTypeINS
   store ptr %9, ptr %.08.i.i.i.i.i.i, align 8, !tbaa !127
   %10 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 8
   store i64 0, ptr %10, align 8, !tbaa !131
-  store i8 0, ptr %9, align 1, !tbaa !130
+  store i8 0, ptr %9, align 8, !tbaa !130
   %11 = add nsw i64 %.057.i.i.i.i.i.i, -1
   %12 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq i64 %11, 0
@@ -66003,7 +66003,7 @@ define linkonce_odr void @_ZZN5arrow7compute8internal22GetFunctionOptionsTypeINS
   store ptr %10, ptr %7, align 8, !tbaa !127
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %11, align 8, !tbaa !131
-  store i8 0, ptr %10, align 1, !tbaa !130
+  store i8 0, ptr %10, align 8, !tbaa !130
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %8, ptr %12, align 8, !tbaa !295
   invoke void @_ZN5arrow7compute8internal13StringifyImplINS0_14ScatterOptionsEEclINS_8internal18DataMemberPropertyIS3_lEEEEvRKT_m(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef 0)

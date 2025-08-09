@@ -1946,7 +1946,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.
   store i64 %32, ptr %34, align 8, !tbaa !14, !alias.scope !123, !noalias !126
   store ptr %24, ptr %.0911.i.i.i.i, align 8, !tbaa !27, !alias.scope !126, !noalias !123
   store i64 0, ptr %33, align 8, !tbaa !14, !alias.scope !126, !noalias !123
-  store i8 0, ptr %24, align 1, !tbaa !17, !alias.scope !126, !noalias !123
+  store i8 0, ptr %24, align 8, !tbaa !17, !alias.scope !126, !noalias !123
   %35 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %36 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %37 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 48
@@ -1980,7 +1980,7 @@ _ZSt19__relocate_object_aIN19OpenColorIO_v2_5dev10FormatInfoES1_SaIS1_EEvPT_PT0_
   store i64 %47, ptr %49, align 8, !tbaa !14, !alias.scope !123, !noalias !126
   store ptr %39, ptr %36, align 8, !tbaa !27, !alias.scope !126, !noalias !123
   store i64 0, ptr %48, align 8, !tbaa !14, !alias.scope !126, !noalias !123
-  store i8 0, ptr %39, align 1, !tbaa !17, !alias.scope !126, !noalias !123
+  store i8 0, ptr %39, align 8, !tbaa !17, !alias.scope !126, !noalias !123
   %50 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 64
   %51 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 64
   %52 = load i64, ptr %51, align 8, !alias.scope !126, !noalias !123
@@ -2032,7 +2032,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.
   store i64 %66, ptr %68, align 8, !tbaa !14, !alias.scope !130, !noalias !133
   store ptr %58, ptr %.0911.i.i.i.i29, align 8, !tbaa !27, !alias.scope !133, !noalias !130
   store i64 0, ptr %67, align 8, !tbaa !14, !alias.scope !133, !noalias !130
-  store i8 0, ptr %58, align 1, !tbaa !17, !alias.scope !133, !noalias !130
+  store i8 0, ptr %58, align 8, !tbaa !17, !alias.scope !133, !noalias !130
   %69 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 32
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 48
@@ -2066,7 +2066,7 @@ _ZSt19__relocate_object_aIN19OpenColorIO_v2_5dev10FormatInfoES1_SaIS1_EEvPT_PT0_
   store i64 %81, ptr %83, align 8, !tbaa !14, !alias.scope !130, !noalias !133
   store ptr %73, ptr %70, align 8, !tbaa !27, !alias.scope !133, !noalias !130
   store i64 0, ptr %82, align 8, !tbaa !14, !alias.scope !133, !noalias !130
-  store i8 0, ptr %73, align 1, !tbaa !17, !alias.scope !133, !noalias !130
+  store i8 0, ptr %73, align 8, !tbaa !17, !alias.scope !133, !noalias !130
   %84 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 64
   %85 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 64
   %86 = load i64, ptr %85, align 8, !alias.scope !133, !noalias !130

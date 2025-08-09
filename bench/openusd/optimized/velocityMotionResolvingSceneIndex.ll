@@ -3280,7 +3280,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit28.i: ; preds = %156, %150
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceE, i64 16), ptr %169, align 8, !noalias !10
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %171 = load i32, ptr %2, align 4, !noalias !10
-  store i32 %171, ptr %170, align 4, !noalias !10
+  store i32 %171, ptr %170, align 8, !noalias !10
   %.not.i.i.i.i6 = icmp eq i32 %171, 0
   br i1 %.not.i.i.i.i6, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i, label %172
 

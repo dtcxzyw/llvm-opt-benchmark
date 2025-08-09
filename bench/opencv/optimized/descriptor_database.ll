@@ -3407,7 +3407,7 @@ _ZN6google8protobuf20stringpiece_internalneENS1_11StringPieceES2_.exit.thread18:
   %40 = getelementptr inbounds nuw %"struct.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex::EncodedEntry", ptr %39, i64 %38
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %40, align 8, !tbaa !38
-  %43 = load i32, ptr %41, align 4, !tbaa !53
+  %43 = load i32, ptr %41, align 8, !tbaa !53
   br label %_ZN6google8protobuf20stringpiece_internalneENS1_11StringPieceES2_.exit.thread
 
 _ZN6google8protobuf20stringpiece_internalneENS1_11StringPieceES2_.exit.thread: ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryESt6vectorIS6_SaIS6_EEEENS3_20stringpiece_internal11StringPieceENS5_11FileCompareEET_SF_SF_RKT0_T1_.exit, %_ZN6google8protobuf20stringpiece_internalneENS1_11StringPieceES2_.exit, %29, %_ZN6google8protobuf20stringpiece_internalneENS1_11StringPieceES2_.exit.thread18
@@ -3671,7 +3671,7 @@ _ZN6google8protobuf20stringpiece_internalneENS1_11StringPieceES2_.exit.thread20:
   %35 = getelementptr inbounds nuw %"struct.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex::EncodedEntry", ptr %34, i64 %33
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %35, align 8, !tbaa !38
-  %38 = load i32, ptr %36, align 4, !tbaa !53
+  %38 = load i32, ptr %36, align 8, !tbaa !53
   br label %_ZN6google8protobuf20stringpiece_internalneENS1_11StringPieceES2_.exit.thread
 
 _ZN6google8protobuf20stringpiece_internalneENS1_11StringPieceES2_.exit.thread: ; preds = %4, %_ZN6google8protobuf20stringpiece_internalneENS1_11StringPieceES2_.exit, %_ZN6google8protobuf20stringpiece_internalneENS1_11StringPieceES2_.exit.thread20, %16, %31
@@ -5780,7 +5780,7 @@ _ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolENS0_20stringpiece_internal11Strin
   %63 = getelementptr inbounds nuw %"struct.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex::EncodedEntry", ptr %62, i64 %61
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load ptr, ptr %63, align 8, !tbaa !38
-  %66 = load i32, ptr %64, align 4, !tbaa !53
+  %66 = load i32, ptr %64, align 8, !tbaa !53
   br label %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolENS0_20stringpiece_internal11StringPieceES3_.exit.thread23
 
 _ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolENS0_20stringpiece_internal11StringPieceES3_.exit.thread23: ; preds = %_ZN6google8protobuf20stringpiece_internaleqENS1_11StringPieceES2_.exit.thread12.i, %_ZN6google8protobuf15HasPrefixStringENS0_20stringpiece_internal11StringPieceES2_.exit.i, %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolENS0_20stringpiece_internal11StringPieceES3_.exit, %.critedge11
@@ -7889,7 +7889,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %34, ptr %35, align 8, !tbaa !29
   store ptr %25, ptr %.sroa.08.012.i.i.i.i.i, align 8, !tbaa !25
   store i64 0, ptr %33, align 8, !tbaa !29
-  store i8 0, ptr %25, align 1, !tbaa !56
+  store i8 0, ptr %25, align 8, !tbaa !56
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 32
   %37 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq ptr %36, %10
@@ -8085,7 +8085,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %112, ptr %113, align 8, !tbaa !29
   store ptr %103, ptr %.sroa.08.012.i.i.i.i.i60, align 8, !tbaa !25
   store i64 0, ptr %111, align 8, !tbaa !29
-  store i8 0, ptr %103, align 1, !tbaa !56
+  store i8 0, ptr %103, align 8, !tbaa !56
   %114 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i60, i64 32
   %115 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i59, i64 32
   %.not.i.i.i.i.i63 = icmp eq ptr %114, %10
@@ -8176,7 +8176,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %147, ptr %148, align 8, !tbaa !29
   store ptr %138, ptr %.sroa.08.012.i.i.i.i.i76, align 8, !tbaa !25
   store i64 0, ptr %146, align 8, !tbaa !29
-  store i8 0, ptr %138, align 1, !tbaa !56
+  store i8 0, ptr %138, align 8, !tbaa !56
   %149 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i76, i64 32
   %150 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i75, i64 32
   %.not.i.i.i.i.i79 = icmp eq ptr %149, %1
@@ -8223,7 +8223,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %163, ptr %164, align 8, !tbaa !29
   store ptr %154, ptr %.sroa.08.012.i.i.i.i.i84, align 8, !tbaa !25
   store i64 0, ptr %162, align 8, !tbaa !29
-  store i8 0, ptr %154, align 1, !tbaa !56
+  store i8 0, ptr %154, align 8, !tbaa !56
   %165 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i84, i64 32
   %166 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i83, i64 32
   %.not.i.i.i.i.i87 = icmp eq ptr %165, %10
@@ -11530,7 +11530,7 @@ _ZSt19__relocate_object_aIN6google8protobuf25EncodedDescriptorDatabase15Descript
   store i64 %49, ptr %51, align 8, !tbaa !29, !alias.scope !338, !noalias !341
   store ptr %41, ptr %38, align 8, !tbaa !25, !alias.scope !341, !noalias !338
   store i64 0, ptr %50, align 8, !tbaa !29, !alias.scope !341, !noalias !338
-  store i8 0, ptr %41, align 1, !tbaa !56, !alias.scope !341, !noalias !338
+  store i8 0, ptr %41, align 8, !tbaa !56, !alias.scope !341, !noalias !338
   %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 48
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 48
   %.not.i.i.i.i = icmp eq ptr %52, %1
@@ -11581,7 +11581,7 @@ _ZSt19__relocate_object_aIN6google8protobuf25EncodedDescriptorDatabase15Descript
   store i64 %67, ptr %69, align 8, !tbaa !29, !alias.scope !345, !noalias !348
   store ptr %59, ptr %56, align 8, !tbaa !25, !alias.scope !348, !noalias !345
   store i64 0, ptr %68, align 8, !tbaa !29, !alias.scope !348, !noalias !345
-  store i8 0, ptr %59, align 1, !tbaa !56, !alias.scope !348, !noalias !345
+  store i8 0, ptr %59, align 8, !tbaa !56, !alias.scope !348, !noalias !345
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 48
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 48
   %.not.i.i.i.i24 = icmp eq ptr %70, %5
@@ -11850,7 +11850,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZSt13binary_searchIN9__gnu_cxx17
   %20 = extractvalue { ptr, i64 } %19, 0
   %21 = extractvalue { ptr, i64 } %19, 1
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %23 = load i32, ptr %22, align 4, !tbaa !53, !noalias !352
+  %23 = load i32, ptr %22, align 8, !tbaa !53, !noalias !352
   %spec.select.i.i.i.i = call i64 @llvm.umin.i64(i64 %12, i64 %21)
   %24 = call i32 @memcmp(ptr noundef %10, ptr noundef %20, i64 noundef %spec.select.i.i.i.i) #30
   %25 = icmp slt i32 %24, 0
@@ -12136,7 +12136,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf25EncodedDescripto
   %25 = extractvalue { ptr, i64 } %24, 0
   %26 = extractvalue { ptr, i64 } %24, 1
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %28 = load i32, ptr %27, align 4, !tbaa !53, !noalias !362
+  %28 = load i32, ptr %27, align 8, !tbaa !53, !noalias !362
   %spec.select.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %26, i64 %19)
   %29 = call i32 @memcmp(ptr noundef %25, ptr noundef %18, i64 noundef %spec.select.i.i.i.i.i) #30
   %30 = icmp slt i32 %29, 0
@@ -12977,7 +12977,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf25EncodedDescripto
   %20 = extractvalue { ptr, i64 } %19, 0
   %21 = extractvalue { ptr, i64 } %19, 1
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  %23 = load i32, ptr %22, align 4, !tbaa !53, !noalias !401
+  %23 = load i32, ptr %22, align 8, !tbaa !53, !noalias !401
   %spec.select.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %21, i64 %.sroa.3.0.copyload.i)
   %24 = call i32 @memcmp(ptr noundef %20, ptr noundef %.sroa.22.0.copyload.i, i64 noundef %spec.select.i.i.i.i.i) #30
   %25 = icmp slt i32 %24, 0
@@ -13090,7 +13090,7 @@ _ZSt10_ConstructIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12
   store i64 %26, ptr %28, align 8, !tbaa !29
   store ptr %18, ptr %15, align 8, !tbaa !25
   store i64 0, ptr %27, align 8, !tbaa !29
-  store i8 0, ptr %18, align 1, !tbaa !56
+  store i8 0, ptr %18, align 8, !tbaa !56
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i.i.i.i.i, i64 48
   %30 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 48
   %.not.i.i.i.i.i.i = icmp eq ptr %29, %4
@@ -13596,7 +13596,7 @@ define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_trait
   store ptr %19, ptr %.08.i.i.i, align 8, !tbaa !54
   %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 8
   store i64 0, ptr %20, align 8, !tbaa !29
-  store i8 0, ptr %19, align 1, !tbaa !56
+  store i8 0, ptr %19, align 8, !tbaa !56
   %21 = add i64 %.057.i.i.i, -1
   %22 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 32
   %.not.i.i.i = icmp eq i64 %21, 0
@@ -13630,7 +13630,7 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
   store ptr %31, ptr %.08.i.i.i31, align 8, !tbaa !54
   %32 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 8
   store i64 0, ptr %32, align 8, !tbaa !29
-  store i8 0, ptr %31, align 1, !tbaa !56
+  store i8 0, ptr %31, align 8, !tbaa !56
   %33 = add i64 %.057.i.i.i32, -1
   %34 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 32
   %.not.i.i.i33 = icmp eq i64 %33, 0
@@ -13676,7 +13676,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %45, ptr %47, align 8, !tbaa !29, !alias.scope !418, !noalias !421
   store ptr %37, ptr %.0911.i.i.i.i, align 8, !tbaa !25, !alias.scope !421, !noalias !418
   store i64 0, ptr %46, align 8, !tbaa !29, !alias.scope !421, !noalias !418
-  store i8 0, ptr %37, align 1, !tbaa !56, !alias.scope !421, !noalias !418
+  store i8 0, ptr %37, align 8, !tbaa !56, !alias.scope !421, !noalias !418
   %48 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %48, %5

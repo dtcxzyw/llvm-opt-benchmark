@@ -446,13 +446,13 @@ _ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit: ; preds = %_ZN11btMultiBody2
   %97 = getelementptr inbounds nuw i8, ptr %63, i64 448
   %98 = load ptr, ptr %97, align 8, !tbaa !59
   %99 = getelementptr inbounds nuw i8, ptr %63, i64 816
-  %100 = load float, ptr %99, align 4, !tbaa !37
+  %100 = load float, ptr %99, align 8, !tbaa !37
   %101 = getelementptr inbounds nuw i8, ptr %63, i64 820
   %102 = load float, ptr %101, align 4, !tbaa !37
   %103 = fmul float %95, %102
   %104 = call float @llvm.fmuladd.f32(float %96, float %100, float %103)
   %105 = getelementptr inbounds nuw i8, ptr %63, i64 824
-  %106 = load float, ptr %105, align 4, !tbaa !37
+  %106 = load float, ptr %105, align 8, !tbaa !37
   %107 = call noundef float @llvm.fmuladd.f32(float %94, float %106, float %104)
   br i1 %83, label %.lr.ph.i27, label %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit33
 
@@ -490,13 +490,13 @@ _ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit33: ; preds = %_ZN11btMultiBod
   %121 = getelementptr inbounds nuw i8, ptr %63, i64 656
   %122 = load ptr, ptr %121, align 8, !tbaa !59
   %123 = getelementptr inbounds nuw i8, ptr %63, i64 832
-  %124 = load float, ptr %123, align 4, !tbaa !37
+  %124 = load float, ptr %123, align 8, !tbaa !37
   %125 = getelementptr inbounds nuw i8, ptr %63, i64 836
   %126 = load float, ptr %125, align 4, !tbaa !37
   %127 = fmul float %119, %126
   %128 = call float @llvm.fmuladd.f32(float %120, float %124, float %127)
   %129 = getelementptr inbounds nuw i8, ptr %63, i64 840
-  %130 = load float, ptr %129, align 4, !tbaa !37
+  %130 = load float, ptr %129, align 8, !tbaa !37
   %131 = call noundef float @llvm.fmuladd.f32(float %118, float %130, float %128)
   br i1 %83, label %.lr.ph.i34, label %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit40
 
@@ -1611,7 +1611,7 @@ _ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit: ; preds = %338, %316
   %350 = load ptr, ptr %349, align 8, !tbaa !59
   %351 = getelementptr inbounds nuw i8, ptr %317, i64 816
   %352 = load float, ptr %3, align 8, !tbaa !37
-  %353 = load float, ptr %351, align 4, !tbaa !37
+  %353 = load float, ptr %351, align 8, !tbaa !37
   %354 = load float, ptr %140, align 4, !tbaa !37
   %355 = getelementptr inbounds nuw i8, ptr %317, i64 820
   %356 = load float, ptr %355, align 4, !tbaa !37
@@ -1619,7 +1619,7 @@ _ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit: ; preds = %338, %316
   %358 = call float @llvm.fmuladd.f32(float %352, float %353, float %357)
   %359 = load float, ptr %101, align 8, !tbaa !37
   %360 = getelementptr inbounds nuw i8, ptr %317, i64 824
-  %361 = load float, ptr %360, align 4, !tbaa !37
+  %361 = load float, ptr %360, align 8, !tbaa !37
   %362 = call noundef float @llvm.fmuladd.f32(float %359, float %361, float %358)
   br i1 %333, label %.lr.ph.i133, label %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit139
 
@@ -1657,13 +1657,13 @@ _ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit139: ; preds = %_ZN11btMultiBo
   %376 = getelementptr inbounds nuw i8, ptr %317, i64 656
   %377 = load ptr, ptr %376, align 8, !tbaa !59
   %378 = getelementptr inbounds nuw i8, ptr %317, i64 832
-  %379 = load float, ptr %378, align 4, !tbaa !37
+  %379 = load float, ptr %378, align 8, !tbaa !37
   %380 = getelementptr inbounds nuw i8, ptr %317, i64 836
   %381 = load float, ptr %380, align 4, !tbaa !37
   %382 = fmul float %374, %381
   %383 = call float @llvm.fmuladd.f32(float %375, float %379, float %382)
   %384 = getelementptr inbounds nuw i8, ptr %317, i64 840
-  %385 = load float, ptr %384, align 4, !tbaa !37
+  %385 = load float, ptr %384, align 8, !tbaa !37
   %386 = call noundef float @llvm.fmuladd.f32(float %373, float %385, float %383)
   br i1 %333, label %.lr.ph.i140, label %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit146
 
@@ -3168,7 +3168,7 @@ define dso_local void @_ZN37btDeformableFaceNodeContactConstraint12applyImpulseE
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load float, ptr %11, align 4, !tbaa !37
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %14 = load float, ptr %13, align 4, !tbaa !37
+  %14 = load float, ptr %13, align 8, !tbaa !37
   %15 = fmul float %7, %14
   %16 = fmul float %10, %14
   %17 = fmul float %12, %14

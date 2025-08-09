@@ -1714,7 +1714,7 @@ _ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit.i.i: ; preds = %
   %factory_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   store ptr @_ZN4node9inspector12_GLOBAL__N_122MainThreadSessionState6CreateEPNS0_19MainThreadInterfaceEb, ptr %factory_.i.i.i.i, align 8, !noalias !33
   %_M_bound_args.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 24
-  store i8 %frombool.i, ptr %_M_bound_args.i.i.i.i.i, align 1, !noalias !33
+  store i8 %frombool.i, ptr %_M_bound_args.i.i.i.i.i, align 8, !noalias !33
   call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i.i)
   %block_lock_.i.i.i = getelementptr inbounds nuw i8, ptr %29, i64 24
   tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %block_lock_.i.i.i) #20
@@ -4351,7 +4351,7 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIi
   %__bbegin_bkt.021 = phi i64 [ %__bbegin_bkt.1, %if.end22 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector9DeletableESt14default_deleteIS5_EEESaIS9_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %1 = load ptr, ptr %__p.022, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %__p.022, i64 8
-  %2 = load i32, ptr %add.ptr, align 4
+  %2 = load i32, ptr %add.ptr, align 8
   %conv.i.i.i = sext i32 %2 to i64
   %rem.i.i = urem i64 %conv.i.i.i, %__bkt_count
   %arrayidx = getelementptr inbounds ptr, ptr %retval.0.i, i64 %rem.i.i

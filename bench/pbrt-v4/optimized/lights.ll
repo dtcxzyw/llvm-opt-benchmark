@@ -4006,7 +4006,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92: ; preds = %_ZN
   %137 = getelementptr inbounds nuw i8, ptr %127, i64 164
   store float 0.000000e+00, ptr %137, align 4, !tbaa !92
   %138 = getelementptr inbounds nuw i8, ptr %127, i64 168
-  store float 0.000000e+00, ptr %138, align 4, !tbaa !94
+  store float 0.000000e+00, ptr %138, align 8, !tbaa !94
   %139 = getelementptr inbounds nuw i8, ptr %127, i64 172
   store float 0.000000e+00, ptr %139, align 4, !tbaa !95
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -28426,7 +28426,7 @@ define dso_local void @_ZNK4pbrt5Light6PDF_LeERKNS_3RayEPfS4_(ptr noundef nonnul
   %115 = load float, ptr %114, align 4, !tbaa !77
   %116 = fmul float %.sroa.012.0.vec.extract.i.i.i19.i.i, %115
   %117 = getelementptr inbounds nuw i8, ptr %6, i64 104
-  %118 = load float, ptr %117, align 4, !tbaa !77
+  %118 = load float, ptr %117, align 8, !tbaa !77
   %119 = fmul float %.sroa.012.4.vec.extract.i.i.i20.i.i, %118
   %120 = fadd float %116, %119
   %121 = getelementptr inbounds nuw i8, ptr %6, i64 108
@@ -30625,7 +30625,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pstd3pmr21polymorphic_allocatorIS
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 164
   store float 0.000000e+00, ptr %23, align 4, !tbaa !92
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 168
-  store float 0.000000e+00, ptr %24, align 4, !tbaa !94
+  store float 0.000000e+00, ptr %24, align 8, !tbaa !94
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 172
   store float 0.000000e+00, ptr %25, align 4, !tbaa !95
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -30661,7 +30661,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pstd3pmr21polymorphic_allocatorIS
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 164
   store float 0.000000e+00, ptr %21, align 4, !tbaa !92
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 168
-  store float 0.000000e+00, ptr %22, align 4, !tbaa !94
+  store float 0.000000e+00, ptr %22, align 8, !tbaa !94
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 172
   store float 0.000000e+00, ptr %23, align 4, !tbaa !95
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -34687,7 +34687,7 @@ _ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_20RGBUnboundedSpectrumEEEDaS1_.exit: ; p
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %81 = load float, ptr %80, align 4, !tbaa !250
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %83 = load float, ptr %82, align 4, !tbaa !251
+  %83 = load float, ptr %82, align 8, !tbaa !251
   %84 = load float, ptr %79, align 4, !tbaa !252
   %85 = tail call noundef float @llvm.fma.f32(float %74, float %84, float %83)
   %86 = tail call noundef float @llvm.fma.f32(float %74, float %85, float %81)
@@ -49395,7 +49395,7 @@ _ZN4pstd3pmr21polymorphic_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIc
   store i64 %60, ptr %61, align 8, !tbaa !13
   store ptr %51, ptr %48, align 8, !tbaa !17
   store i64 0, ptr %59, align 8, !tbaa !13
-  store i8 0, ptr %51, align 1, !tbaa !16
+  store i8 0, ptr %51, align 8, !tbaa !16
   %62 = add nuw i64 %.017, 1
   %63 = load i64, ptr %39, align 8, !tbaa !147
   %64 = icmp ult i64 %62, %63
@@ -49742,7 +49742,7 @@ _ZN4pstd3pmr21polymorphic_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIc
   store i64 %41, ptr %42, align 8, !tbaa !13
   store ptr %32, ptr %29, align 8, !tbaa !17
   store i64 0, ptr %40, align 8, !tbaa !13
-  store i8 0, ptr %32, align 1, !tbaa !16
+  store i8 0, ptr %32, align 8, !tbaa !16
   %43 = load ptr, ptr %16, align 8, !tbaa !152
   %44 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %43, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8, !tbaa !17

@@ -672,7 +672,7 @@ define void @_ZN8WasmEdge8Executor8Executor17runAtomicNotifyOpERNS_7Runtime12Sta
   store ptr %22, ptr %20, align 8
   %.sroa.0162.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = xor i32 %26, -1

@@ -46231,7 +46231,7 @@ _ZSt4bindIRFvN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_15SdfAbstractDataE
   store ptr %86, ptr %83, align 8
   %87 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %88 = load i32, ptr %32, align 8
-  store i32 %88, ptr %87, align 4
+  store i32 %88, ptr %87, align 8
   store i32 0, ptr %32, align 8
   %89 = getelementptr inbounds nuw i8, ptr %83, i64 12
   %90 = load i32, ptr %45, align 4
@@ -46239,7 +46239,7 @@ _ZSt4bindIRFvN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_15SdfAbstractDataE
   store i32 0, ptr %45, align 4
   %91 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %92 = load i32, ptr %48, align 8
-  store i32 %92, ptr %91, align 4
+  store i32 %92, ptr %91, align 8
   store i32 0, ptr %48, align 8
   %93 = getelementptr inbounds nuw i8, ptr %83, i64 20
   %94 = load i32, ptr %61, align 4
@@ -56787,7 +56787,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7Sdf
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 8
   %.not.i.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS1_E.exit, label %9
 
@@ -58442,7 +58442,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfT
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %.07, i64 40
-  %9 = load i32, ptr %8, align 4
+  %9 = load i32, ptr %8, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %9, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i, label %10
 

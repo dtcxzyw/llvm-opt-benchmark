@@ -63,7 +63,7 @@ define hidden noalias noundef nonnull ptr @_Z26array_ref_to_ArrayLLVMTypeRKN4lea
   store ptr %4, ptr %3, align 8, !tbaa !10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 0, ptr %5, align 8, !tbaa !13
-  store i8 0, ptr %4, align 1, !tbaa !16
+  store i8 0, ptr %4, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %2, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %2, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -90,7 +90,7 @@ define hidden noalias noundef nonnull ptr @_Z27array_ref_to_ArrayLLVMValueRKN4le
   store ptr %4, ptr %3, align 8, !tbaa !10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 0, ptr %5, align 8, !tbaa !13
-  store i8 0, ptr %4, align 1, !tbaa !16
+  store i8 0, ptr %4, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %2, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %2, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -105,7 +105,7 @@ define noalias noundef nonnull ptr @lean_llvm_create_context(ptr noundef readnon
   store ptr %4, ptr %3, align 8, !tbaa !10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 0, ptr %5, align 8, !tbaa !13
-  store i8 0, ptr %4, align 1, !tbaa !16
+  store i8 0, ptr %4, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %2, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %2, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -120,7 +120,7 @@ define noalias noundef nonnull ptr @lean_llvm_create_module(i64 noundef %0, ptr 
   store ptr %6, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8, !tbaa !13
-  store i8 0, ptr %6, align 1, !tbaa !16
+  store i8 0, ptr %6, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %4, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -135,7 +135,7 @@ define noalias noundef nonnull ptr @lean_llvm_write_bitcode_to_file(i64 noundef 
   store ptr %7, ptr %6, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %8, align 8, !tbaa !13
-  store i8 0, ptr %7, align 1, !tbaa !16
+  store i8 0, ptr %7, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %5, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -150,7 +150,7 @@ define noalias noundef nonnull ptr @lean_llvm_module_to_string(i64 noundef %0, i
   store ptr %6, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8, !tbaa !13
-  store i8 0, ptr %6, align 1, !tbaa !16
+  store i8 0, ptr %6, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %4, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -165,7 +165,7 @@ define noalias noundef nonnull ptr @lean_llvm_add_function(i64 noundef %0, i64 n
   store ptr %8, ptr %7, align 8, !tbaa !10
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %9, align 8, !tbaa !13
-  store i8 0, ptr %8, align 1, !tbaa !16
+  store i8 0, ptr %8, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %6, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -180,7 +180,7 @@ define noalias noundef nonnull ptr @lean_llvm_get_named_function(i64 noundef %0,
   store ptr %7, ptr %6, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %8, align 8, !tbaa !13
-  store i8 0, ptr %7, align 1, !tbaa !16
+  store i8 0, ptr %7, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %5, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -195,7 +195,7 @@ define noalias noundef nonnull ptr @lean_llvm_add_global(i64 noundef %0, i64 nou
   store ptr %8, ptr %7, align 8, !tbaa !10
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %9, align 8, !tbaa !13
-  store i8 0, ptr %8, align 1, !tbaa !16
+  store i8 0, ptr %8, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %6, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -210,7 +210,7 @@ define noalias noundef nonnull ptr @lean_llvm_get_named_global(i64 noundef %0, i
   store ptr %7, ptr %6, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %8, align 8, !tbaa !13
-  store i8 0, ptr %7, align 1, !tbaa !16
+  store i8 0, ptr %7, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %5, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -225,7 +225,7 @@ define noalias noundef nonnull ptr @lean_llvm_build_global_string(i64 noundef %0
   store ptr %8, ptr %7, align 8, !tbaa !10
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %9, align 8, !tbaa !13
-  store i8 0, ptr %8, align 1, !tbaa !16
+  store i8 0, ptr %8, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %6, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -240,7 +240,7 @@ define noalias noundef nonnull ptr @lean_llvm_get_undef(i64 noundef %0, i64 noun
   store ptr %6, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8, !tbaa !13
-  store i8 0, ptr %6, align 1, !tbaa !16
+  store i8 0, ptr %6, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %4, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -255,7 +255,7 @@ define noalias noundef nonnull ptr @lean_llvm_set_initializer(i64 noundef %0, i6
   store ptr %7, ptr %6, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %8, align 8, !tbaa !13
-  store i8 0, ptr %7, align 1, !tbaa !16
+  store i8 0, ptr %7, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %5, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -270,7 +270,7 @@ define noalias noundef nonnull ptr @lean_llvm_function_type(i64 noundef %0, i64 
   store ptr %8, ptr %7, align 8, !tbaa !10
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %9, align 8, !tbaa !13
-  store i8 0, ptr %8, align 1, !tbaa !16
+  store i8 0, ptr %8, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %6, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -285,7 +285,7 @@ define noalias noundef nonnull ptr @lean_llvm_opaque_pointer_type_in_context(i64
   store ptr %6, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8, !tbaa !13
-  store i8 0, ptr %6, align 1, !tbaa !16
+  store i8 0, ptr %6, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %4, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -300,7 +300,7 @@ define noalias noundef nonnull ptr @lean_llvm_int_type_in_context(i64 noundef %0
   store ptr %6, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8, !tbaa !13
-  store i8 0, ptr %6, align 1, !tbaa !16
+  store i8 0, ptr %6, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %4, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -315,7 +315,7 @@ define noalias noundef nonnull ptr @lean_llvm_float_type_in_context(i64 noundef 
   store ptr %5, ptr %4, align 8, !tbaa !10
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %6, align 8, !tbaa !13
-  store i8 0, ptr %5, align 1, !tbaa !16
+  store i8 0, ptr %5, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %3, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %3, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -330,7 +330,7 @@ define noalias noundef nonnull ptr @lean_llvm_void_type_in_context(i64 noundef %
   store ptr %5, ptr %4, align 8, !tbaa !10
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %6, align 8, !tbaa !13
-  store i8 0, ptr %5, align 1, !tbaa !16
+  store i8 0, ptr %5, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %3, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %3, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -345,7 +345,7 @@ define noalias noundef nonnull ptr @lean_llvm_double_type_in_context(i64 noundef
   store ptr %5, ptr %4, align 8, !tbaa !10
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %6, align 8, !tbaa !13
-  store i8 0, ptr %5, align 1, !tbaa !16
+  store i8 0, ptr %5, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %3, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %3, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -360,7 +360,7 @@ define noalias noundef nonnull ptr @lean_llvm_pointer_type(i64 noundef %0, i64 n
   store ptr %6, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8, !tbaa !13
-  store i8 0, ptr %6, align 1, !tbaa !16
+  store i8 0, ptr %6, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %4, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -375,7 +375,7 @@ define noalias noundef nonnull ptr @lean_llvm_array_type(i64 noundef %0, i64 nou
   store ptr %7, ptr %6, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %8, align 8, !tbaa !13
-  store i8 0, ptr %7, align 1, !tbaa !16
+  store i8 0, ptr %7, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %5, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -390,7 +390,7 @@ define noalias noundef nonnull ptr @lean_llvm_create_builder_in_context(i64 noun
   store ptr %5, ptr %4, align 8, !tbaa !10
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %6, align 8, !tbaa !13
-  store i8 0, ptr %5, align 1, !tbaa !16
+  store i8 0, ptr %5, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %3, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %3, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -405,7 +405,7 @@ define noalias noundef nonnull ptr @lean_llvm_append_basic_block_in_context(i64 
   store ptr %7, ptr %6, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %8, align 8, !tbaa !13
-  store i8 0, ptr %7, align 1, !tbaa !16
+  store i8 0, ptr %7, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %5, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -420,7 +420,7 @@ define noalias noundef nonnull ptr @lean_llvm_position_builder_at_end(i64 nounde
   store ptr %7, ptr %6, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %8, align 8, !tbaa !13
-  store i8 0, ptr %7, align 1, !tbaa !16
+  store i8 0, ptr %7, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %5, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -435,7 +435,7 @@ define noalias noundef nonnull ptr @lean_llvm_clear_insertion_position(i64 nound
   store ptr %6, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8, !tbaa !13
-  store i8 0, ptr %6, align 1, !tbaa !16
+  store i8 0, ptr %6, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %4, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -450,7 +450,7 @@ define noalias noundef nonnull ptr @lean_llvm_build_call2(i64 noundef %0, i64 no
   store ptr %10, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %11, align 8, !tbaa !13
-  store i8 0, ptr %10, align 1, !tbaa !16
+  store i8 0, ptr %10, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %8, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -465,7 +465,7 @@ define noalias noundef nonnull ptr @lean_llvm_build_cond_br(i64 noundef %0, i64 
   store ptr %9, ptr %8, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %10, align 8, !tbaa !13
-  store i8 0, ptr %9, align 1, !tbaa !16
+  store i8 0, ptr %9, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %7, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -480,7 +480,7 @@ define noalias noundef nonnull ptr @lean_llvm_build_br(i64 noundef %0, i64 nound
   store ptr %7, ptr %6, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %8, align 8, !tbaa !13
-  store i8 0, ptr %7, align 1, !tbaa !16
+  store i8 0, ptr %7, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %5, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -495,7 +495,7 @@ define noalias noundef nonnull ptr @lean_llvm_build_store(i64 noundef %0, i64 no
   store ptr %8, ptr %7, align 8, !tbaa !10
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %9, align 8, !tbaa !13
-  store i8 0, ptr %8, align 1, !tbaa !16
+  store i8 0, ptr %8, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %6, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -510,7 +510,7 @@ define noalias noundef nonnull ptr @lean_llvm_build_load2(i64 noundef %0, i64 no
   store ptr %9, ptr %8, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %10, align 8, !tbaa !13
-  store i8 0, ptr %9, align 1, !tbaa !16
+  store i8 0, ptr %9, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %7, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -525,7 +525,7 @@ define noalias noundef nonnull ptr @lean_llvm_build_alloca(i64 noundef %0, i64 n
   store ptr %8, ptr %7, align 8, !tbaa !10
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %9, align 8, !tbaa !13
-  store i8 0, ptr %8, align 1, !tbaa !16
+  store i8 0, ptr %8, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %6, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -540,7 +540,7 @@ define noalias noundef nonnull ptr @lean_llvm_build_ret(i64 noundef %0, i64 noun
   store ptr %7, ptr %6, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %8, align 8, !tbaa !13
-  store i8 0, ptr %7, align 1, !tbaa !16
+  store i8 0, ptr %7, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %5, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -555,7 +555,7 @@ define noalias noundef nonnull ptr @lean_llvm_build_ret_void(i64 noundef %0, ptr
   store ptr %5, ptr %4, align 8, !tbaa !10
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %6, align 8, !tbaa !13
-  store i8 0, ptr %5, align 1, !tbaa !16
+  store i8 0, ptr %5, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %3, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %3, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -570,7 +570,7 @@ define noalias noundef nonnull ptr @lean_llvm_build_unreachable(i64 noundef %0, 
   store ptr %6, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8, !tbaa !13
-  store i8 0, ptr %6, align 1, !tbaa !16
+  store i8 0, ptr %6, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %4, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -585,7 +585,7 @@ define noalias noundef nonnull ptr @lean_llvm_build_inbounds_gep2(i64 noundef %0
   store ptr %10, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %11, align 8, !tbaa !13
-  store i8 0, ptr %10, align 1, !tbaa !16
+  store i8 0, ptr %10, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %8, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -600,7 +600,7 @@ define noalias noundef nonnull ptr @lean_llvm_build_gep2(i64 noundef %0, i64 nou
   store ptr %10, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %11, align 8, !tbaa !13
-  store i8 0, ptr %10, align 1, !tbaa !16
+  store i8 0, ptr %10, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %8, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -615,7 +615,7 @@ define noalias noundef nonnull ptr @lean_llvm_build_sext(i64 noundef %0, i64 nou
   store ptr %9, ptr %8, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %10, align 8, !tbaa !13
-  store i8 0, ptr %9, align 1, !tbaa !16
+  store i8 0, ptr %9, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %7, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -630,7 +630,7 @@ define noalias noundef nonnull ptr @lean_llvm_build_zext(i64 noundef %0, i64 nou
   store ptr %9, ptr %8, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %10, align 8, !tbaa !13
-  store i8 0, ptr %9, align 1, !tbaa !16
+  store i8 0, ptr %9, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %7, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -645,7 +645,7 @@ define noalias noundef nonnull ptr @lean_llvm_build_sext_or_trunc(i64 noundef %0
   store ptr %9, ptr %8, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %10, align 8, !tbaa !13
-  store i8 0, ptr %9, align 1, !tbaa !16
+  store i8 0, ptr %9, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %7, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -660,7 +660,7 @@ define noalias noundef nonnull ptr @lean_llvm_build_switch(i64 noundef %0, i64 n
   store ptr %9, ptr %8, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %10, align 8, !tbaa !13
-  store i8 0, ptr %9, align 1, !tbaa !16
+  store i8 0, ptr %9, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %7, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -675,7 +675,7 @@ define noalias noundef nonnull ptr @lean_llvm_build_ptr_to_int(i64 noundef %0, i
   store ptr %9, ptr %8, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %10, align 8, !tbaa !13
-  store i8 0, ptr %9, align 1, !tbaa !16
+  store i8 0, ptr %9, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %7, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -690,7 +690,7 @@ define noalias noundef nonnull ptr @lean_llvm_build_mul(i64 noundef %0, i64 noun
   store ptr %9, ptr %8, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %10, align 8, !tbaa !13
-  store i8 0, ptr %9, align 1, !tbaa !16
+  store i8 0, ptr %9, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %7, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -705,7 +705,7 @@ define noalias noundef nonnull ptr @lean_llvm_build_add(i64 noundef %0, i64 noun
   store ptr %9, ptr %8, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %10, align 8, !tbaa !13
-  store i8 0, ptr %9, align 1, !tbaa !16
+  store i8 0, ptr %9, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %7, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -720,7 +720,7 @@ define noalias noundef nonnull ptr @lean_llvm_build_sub(i64 noundef %0, i64 noun
   store ptr %9, ptr %8, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %10, align 8, !tbaa !13
-  store i8 0, ptr %9, align 1, !tbaa !16
+  store i8 0, ptr %9, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %7, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -735,7 +735,7 @@ define noalias noundef nonnull ptr @lean_llvm_build_not(i64 noundef %0, i64 noun
   store ptr %8, ptr %7, align 8, !tbaa !10
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %9, align 8, !tbaa !13
-  store i8 0, ptr %8, align 1, !tbaa !16
+  store i8 0, ptr %8, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %6, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -750,7 +750,7 @@ define noalias noundef nonnull ptr @lean_llvm_build_icmp(i64 noundef %0, i64 nou
   store ptr %10, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %11, align 8, !tbaa !13
-  store i8 0, ptr %10, align 1, !tbaa !16
+  store i8 0, ptr %10, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %8, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -765,7 +765,7 @@ define noalias noundef nonnull ptr @lean_llvm_add_case(i64 noundef %0, i64 nound
   store ptr %8, ptr %7, align 8, !tbaa !10
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %9, align 8, !tbaa !13
-  store i8 0, ptr %8, align 1, !tbaa !16
+  store i8 0, ptr %8, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %6, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -780,7 +780,7 @@ define noalias noundef nonnull ptr @lean_llvm_get_basic_block_parent(i64 noundef
   store ptr %6, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8, !tbaa !13
-  store i8 0, ptr %6, align 1, !tbaa !16
+  store i8 0, ptr %6, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %4, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -795,7 +795,7 @@ define noalias noundef nonnull ptr @lean_llvm_get_insert_block(i64 noundef %0, i
   store ptr %6, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8, !tbaa !13
-  store i8 0, ptr %6, align 1, !tbaa !16
+  store i8 0, ptr %6, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %4, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -810,7 +810,7 @@ define noalias noundef nonnull ptr @lean_llvm_type_of(i64 noundef %0, i64 nounde
   store ptr %6, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8, !tbaa !13
-  store i8 0, ptr %6, align 1, !tbaa !16
+  store i8 0, ptr %6, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %4, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -825,7 +825,7 @@ define noalias noundef nonnull ptr @lean_llvm_print_module_to_string(i64 noundef
   store ptr %6, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8, !tbaa !13
-  store i8 0, ptr %6, align 1, !tbaa !16
+  store i8 0, ptr %6, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %4, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -840,7 +840,7 @@ define noalias noundef nonnull ptr @lean_llvm_print_module_to_file(i64 noundef %
   store ptr %7, ptr %6, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %8, align 8, !tbaa !13
-  store i8 0, ptr %7, align 1, !tbaa !16
+  store i8 0, ptr %7, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %5, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -855,7 +855,7 @@ define noalias noundef nonnull ptr @lean_llvm_const_int(i64 noundef %0, i64 noun
   store ptr %8, ptr %7, align 8, !tbaa !10
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %9, align 8, !tbaa !13
-  store i8 0, ptr %8, align 1, !tbaa !16
+  store i8 0, ptr %8, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %6, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -870,7 +870,7 @@ define noalias noundef nonnull ptr @lean_llvm_const_array(i64 noundef %0, i64 no
   store ptr %7, ptr %6, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %8, align 8, !tbaa !13
-  store i8 0, ptr %7, align 1, !tbaa !16
+  store i8 0, ptr %7, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %5, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -912,7 +912,7 @@ _ZN4lean10string_refC2EP11lean_objectb.exit:      ; preds = %3, %8, %10, %11
   store ptr %15, ptr %14, align 8, !tbaa !10
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !13
-  store i8 0, ptr %15, align 1, !tbaa !16
+  store i8 0, ptr %15, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %13, align 8, !tbaa !17
   invoke void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
           to label %29 unwind label %17
@@ -963,7 +963,7 @@ define noalias noundef nonnull ptr @lean_llvm_const_pointer_null(i64 noundef %0,
   store ptr %6, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8, !tbaa !13
-  store i8 0, ptr %6, align 1, !tbaa !16
+  store i8 0, ptr %6, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %4, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -978,7 +978,7 @@ define noalias noundef nonnull ptr @llvm_get_param(i64 noundef %0, i64 noundef %
   store ptr %7, ptr %6, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %8, align 8, !tbaa !13
-  store i8 0, ptr %7, align 1, !tbaa !16
+  store i8 0, ptr %7, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %5, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -993,7 +993,7 @@ define noalias noundef nonnull ptr @llvm_count_params(i64 noundef %0, i64 nounde
   store ptr %6, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8, !tbaa !13
-  store i8 0, ptr %6, align 1, !tbaa !16
+  store i8 0, ptr %6, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %4, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -1008,7 +1008,7 @@ define noalias noundef nonnull ptr @lean_llvm_set_tail_call(i64 noundef %0, i64 
   store ptr %7, ptr %6, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %8, align 8, !tbaa !13
-  store i8 0, ptr %7, align 1, !tbaa !16
+  store i8 0, ptr %7, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %5, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -1023,7 +1023,7 @@ define noalias noundef nonnull ptr @lean_llvm_create_memory_buffer_with_contents
   store ptr %6, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8, !tbaa !13
-  store i8 0, ptr %6, align 1, !tbaa !16
+  store i8 0, ptr %6, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %4, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -1038,7 +1038,7 @@ define noalias noundef nonnull ptr @lean_llvm_parse_bitcode(i64 noundef %0, i64 
   store ptr %6, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8, !tbaa !13
-  store i8 0, ptr %6, align 1, !tbaa !16
+  store i8 0, ptr %6, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %4, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -1053,7 +1053,7 @@ define noalias noundef nonnull ptr @lean_llvm_link_modules(i64 noundef %0, i64 n
   store ptr %7, ptr %6, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %8, align 8, !tbaa !13
-  store i8 0, ptr %7, align 1, !tbaa !16
+  store i8 0, ptr %7, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %5, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -1068,7 +1068,7 @@ define noalias noundef nonnull ptr @lean_llvm_create_target_machine(i64 noundef 
   store ptr %9, ptr %8, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %10, align 8, !tbaa !13
-  store i8 0, ptr %9, align 1, !tbaa !16
+  store i8 0, ptr %9, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %7, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -1083,7 +1083,7 @@ define noalias noundef nonnull ptr @lean_llvm_get_target_from_triple(i64 noundef
   store ptr %6, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8, !tbaa !13
-  store i8 0, ptr %6, align 1, !tbaa !16
+  store i8 0, ptr %6, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %4, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -1098,7 +1098,7 @@ define noalias noundef nonnull ptr @lean_llvm_get_default_target_triple(ptr noun
   store ptr %4, ptr %3, align 8, !tbaa !10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 0, ptr %5, align 8, !tbaa !13
-  store i8 0, ptr %4, align 1, !tbaa !16
+  store i8 0, ptr %4, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %2, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %2, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -1113,7 +1113,7 @@ define noalias noundef nonnull ptr @lean_llvm_target_machine_emit_to_file(i64 no
   store ptr %9, ptr %8, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %10, align 8, !tbaa !13
-  store i8 0, ptr %9, align 1, !tbaa !16
+  store i8 0, ptr %9, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %7, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -1128,7 +1128,7 @@ define noalias noundef nonnull ptr @lean_llvm_dispose_target_machine(i64 noundef
   store ptr %6, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8, !tbaa !13
-  store i8 0, ptr %6, align 1, !tbaa !16
+  store i8 0, ptr %6, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %4, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -1143,7 +1143,7 @@ define noalias noundef nonnull ptr @lean_llvm_dispose_module(i64 noundef %0, i64
   store ptr %6, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8, !tbaa !13
-  store i8 0, ptr %6, align 1, !tbaa !16
+  store i8 0, ptr %6, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %4, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -1158,7 +1158,7 @@ define noalias noundef nonnull ptr @lean_llvm_set_visibility(i64 noundef %0, i64
   store ptr %7, ptr %6, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %8, align 8, !tbaa !13
-  store i8 0, ptr %7, align 1, !tbaa !16
+  store i8 0, ptr %7, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %5, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -1173,7 +1173,7 @@ define noalias noundef nonnull ptr @lean_llvm_set_dll_storage_class(i64 noundef 
   store ptr %7, ptr %6, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %8, align 8, !tbaa !13
-  store i8 0, ptr %7, align 1, !tbaa !16
+  store i8 0, ptr %7, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %5, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -1188,7 +1188,7 @@ define noalias noundef nonnull ptr @lean_llvm_create_string_attribute(i64 nounde
   store ptr %7, ptr %6, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %8, align 8, !tbaa !13
-  store i8 0, ptr %7, align 1, !tbaa !16
+  store i8 0, ptr %7, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %5, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -1203,7 +1203,7 @@ define noalias noundef nonnull ptr @lean_llvm_add_attribute_at_index(i64 noundef
   store ptr %8, ptr %7, align 8, !tbaa !10
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %9, align 8, !tbaa !13
-  store i8 0, ptr %8, align 1, !tbaa !16
+  store i8 0, ptr %8, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %6, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -1218,7 +1218,7 @@ define noalias noundef nonnull ptr @lean_llvm_get_first_global(i64 noundef %0, i
   store ptr %6, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8, !tbaa !13
-  store i8 0, ptr %6, align 1, !tbaa !16
+  store i8 0, ptr %6, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %4, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -1233,7 +1233,7 @@ define noalias noundef nonnull ptr @lean_llvm_get_next_global(i64 noundef %0, i6
   store ptr %6, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8, !tbaa !13
-  store i8 0, ptr %6, align 1, !tbaa !16
+  store i8 0, ptr %6, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %4, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -1248,7 +1248,7 @@ define noalias noundef nonnull ptr @lean_llvm_get_first_function(i64 noundef %0,
   store ptr %6, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8, !tbaa !13
-  store i8 0, ptr %6, align 1, !tbaa !16
+  store i8 0, ptr %6, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %4, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -1263,7 +1263,7 @@ define noalias noundef nonnull ptr @lean_llvm_get_next_function(i64 noundef %0, 
   store ptr %6, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8, !tbaa !13
-  store i8 0, ptr %6, align 1, !tbaa !16
+  store i8 0, ptr %6, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %4, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -1278,7 +1278,7 @@ define noalias noundef nonnull ptr @lean_llvm_set_linkage(i64 noundef %0, i64 no
   store ptr %7, ptr %6, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %8, align 8, !tbaa !13
-  store i8 0, ptr %7, align 1, !tbaa !16
+  store i8 0, ptr %7, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %5, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -1293,7 +1293,7 @@ define noalias noundef nonnull ptr @lean_llvm_get_value_name2(i64 noundef %0, i6
   store ptr %6, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8, !tbaa !13
-  store i8 0, ptr %6, align 1, !tbaa !16
+  store i8 0, ptr %6, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %4, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -1308,7 +1308,7 @@ define noalias noundef nonnull ptr @llvm_is_declaration(i64 noundef %0, i64 noun
   store ptr %6, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8, !tbaa !13
-  store i8 0, ptr %6, align 1, !tbaa !16
+  store i8 0, ptr %6, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %4, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -1323,7 +1323,7 @@ define noalias noundef nonnull ptr @lean_llvm_verify_module(i64 noundef %0, i64 
   store ptr %6, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8, !tbaa !13
-  store i8 0, ptr %6, align 1, !tbaa !16
+  store i8 0, ptr %6, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %4, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -1338,7 +1338,7 @@ define noalias noundef nonnull ptr @lean_llvm_count_basic_blocks(i64 noundef %0,
   store ptr %6, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8, !tbaa !13
-  store i8 0, ptr %6, align 1, !tbaa !16
+  store i8 0, ptr %6, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %4, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -1353,7 +1353,7 @@ define noalias noundef nonnull ptr @lean_llvm_get_entry_basic_block(i64 noundef 
   store ptr %6, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8, !tbaa !13
-  store i8 0, ptr %6, align 1, !tbaa !16
+  store i8 0, ptr %6, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %4, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -1368,7 +1368,7 @@ define noalias noundef nonnull ptr @lean_llvm_get_first_instruction(i64 noundef 
   store ptr %6, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8, !tbaa !13
-  store i8 0, ptr %6, align 1, !tbaa !16
+  store i8 0, ptr %6, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %4, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
@@ -1383,7 +1383,7 @@ define noalias noundef nonnull ptr @lean_llvm_position_builder_before(i64 nounde
   store ptr %7, ptr %6, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %8, align 8, !tbaa !13
-  store i8 0, ptr %7, align 1, !tbaa !16
+  store i8 0, ptr %7, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %5, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable

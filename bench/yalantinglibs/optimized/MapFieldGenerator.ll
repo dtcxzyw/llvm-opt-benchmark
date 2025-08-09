@@ -7427,7 +7427,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %if
   store i64 %13, ptr %_M_string_length.i13.i, align 8
   store ptr %10, ptr %str, align 8
   store i64 0, ptr %_M_string_length.i.i.i, align 8
-  store i8 0, ptr %10, align 1
+  store i8 0, ptr %10, align 8
   ret void
 }
 

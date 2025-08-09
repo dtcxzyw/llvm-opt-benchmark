@@ -874,7 +874,7 @@ define linkonce_odr void @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7
   %4 = load ptr, ptr %.06.i.i, align 8
   %5 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 24
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition13_LayerAndPathD2Ev.exit.i.i.i.i.i.i, label %8
 

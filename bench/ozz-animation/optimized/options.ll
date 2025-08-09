@@ -2120,7 +2120,7 @@ define weak_odr dso_local void @_ZNK3ozz7options11TypedOptionIbE13FormatDefaultB
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load i32, ptr %13, align 8, !tbaa !80
   %15 = or i32 %14, 1
-  store i32 %15, ptr %13, align 4, !tbaa !81
+  store i32 %15, ptr %13, align 8, !tbaa !81
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %17 = load i8, ptr %16, align 8, !tbaa !15, !range !73, !noundef !74
   %18 = trunc nuw i8 %17 to i1
@@ -2484,7 +2484,7 @@ define weak_odr dso_local void @_ZNK3ozz7options11TypedOptionIiE13FormatDefaultB
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load i32, ptr %13, align 8, !tbaa !80
   %15 = or i32 %14, 1
-  store i32 %15, ptr %13, align 4, !tbaa !81
+  store i32 %15, ptr %13, align 8, !tbaa !81
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %17 = load i32, ptr %16, align 8, !tbaa !63
   %18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %17)
@@ -2770,7 +2770,7 @@ define weak_odr dso_local void @_ZNK3ozz7options11TypedOptionIfE13FormatDefaultB
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load i32, ptr %13, align 8, !tbaa !80
   %15 = or i32 %14, 1
-  store i32 %15, ptr %13, align 4, !tbaa !81
+  store i32 %15, ptr %13, align 8, !tbaa !81
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %17 = load float, ptr %16, align 8, !tbaa !66
   %18 = fpext float %17 to double
@@ -3036,7 +3036,7 @@ define weak_odr dso_local void @_ZNK3ozz7options11TypedOptionIPKcE13FormatDefaul
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load i32, ptr %13, align 8, !tbaa !80
   %15 = or i32 %14, 1
-  store i32 %15, ptr %13, align 4, !tbaa !81
+  store i32 %15, ptr %13, align 8, !tbaa !81
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %17 = load ptr, ptr %16, align 8, !tbaa !70
   %.not.i = icmp eq ptr %17, null
@@ -5252,7 +5252,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i80
   %399 = getelementptr inbounds nuw i8, ptr %398, i64 24
   %400 = load i32, ptr %399, align 8, !tbaa !80
   %401 = or i32 %400, 32
-  store i32 %401, ptr %399, align 4, !tbaa !81
+  store i32 %401, ptr %399, align 8, !tbaa !81
   %402 = load i64, ptr %396, align 8
   %403 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %402
   %404 = getelementptr inbounds nuw i8, ptr %403, i64 16
@@ -5270,7 +5270,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i80
   %413 = getelementptr inbounds nuw i8, ptr %412, i64 24
   %414 = load i32, ptr %413, align 8, !tbaa !80
   %415 = and i32 %414, -33
-  store i32 %415, ptr %413, align 4, !tbaa !81
+  store i32 %415, ptr %413, align 8, !tbaa !81
   %416 = getelementptr inbounds nuw i8, ptr %295, i64 16
   %417 = load ptr, ptr %416, align 8, !tbaa !11
   %.not.i84 = icmp eq ptr %417, null

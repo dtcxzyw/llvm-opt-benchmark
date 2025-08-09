@@ -23473,7 +23473,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !10, !alias.scope !483, !noalias !486
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !44, !alias.scope !486, !noalias !483
   store i64 0, ptr %48, align 8, !tbaa !10, !alias.scope !486, !noalias !483
-  store i8 0, ptr %39, align 1, !tbaa !13, !alias.scope !486, !noalias !483
+  store i8 0, ptr %39, align 8, !tbaa !13, !alias.scope !486, !noalias !483
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -23521,7 +23521,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !10, !alias.scope !490, !noalias !493
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !44, !alias.scope !493, !noalias !490
   store i64 0, ptr %64, align 8, !tbaa !10, !alias.scope !493, !noalias !490
-  store i8 0, ptr %55, align 1, !tbaa !13, !alias.scope !493, !noalias !490
+  store i8 0, ptr %55, align 8, !tbaa !13, !alias.scope !493, !noalias !490
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5
@@ -23840,7 +23840,7 @@ define linkonce_odr dso_local void @_ZNK47cmExternalMakefileProjectGeneratorSimp
   store ptr %7, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i64 0, ptr %8, align 8, !tbaa !10
-  store i8 0, ptr %7, align 1, !tbaa !13
+  store i8 0, ptr %7, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV27cmExtraEclipseCDT4Generator, i64 16), ptr %4, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
@@ -23859,13 +23859,13 @@ define linkonce_odr dso_local void @_ZNK47cmExternalMakefileProjectGeneratorSimp
   store ptr %16, ptr %15, align 8, !tbaa !4
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %17, align 8, !tbaa !10
-  store i8 0, ptr %16, align 1, !tbaa !13
+  store i8 0, ptr %16, align 8, !tbaa !13
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 192
   store ptr %19, ptr %18, align 8, !tbaa !4
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 184
   store i64 0, ptr %20, align 8, !tbaa !10
-  store i8 0, ptr %19, align 1, !tbaa !13
+  store i8 0, ptr %19, align 8, !tbaa !13
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 208
   store i8 0, ptr %21, align 8, !tbaa !25
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 209

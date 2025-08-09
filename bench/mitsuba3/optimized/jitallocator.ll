@@ -1521,7 +1521,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
   %81 = sub i32 %80, %74
   store i32 %81, ptr %79, align 8, !tbaa !62
   %82 = getelementptr inbounds nuw i8, ptr %14, i64 80
-  %83 = load i32, ptr %82, align 4, !tbaa !55
+  %83 = load i32, ptr %82, align 8, !tbaa !55
   %84 = tail call noundef i32 @llvm.umin.i32(i32 %46, i32 %83)
   store i32 %84, ptr %82, align 8, !tbaa !64
   %85 = getelementptr inbounds nuw i8, ptr %14, i64 84
@@ -1928,7 +1928,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
   %102 = sub i32 %101, %95
   store i32 %102, ptr %100, align 8, !tbaa !62
   %103 = getelementptr inbounds nuw i8, ptr %18, i64 80
-  %104 = load i32, ptr %103, align 4, !tbaa !55
+  %104 = load i32, ptr %103, align 8, !tbaa !55
   %105 = tail call noundef i32 @llvm.umin.i32(i32 %94, i32 %104)
   store i32 %105, ptr %103, align 8, !tbaa !64
   %106 = getelementptr inbounds nuw i8, ptr %18, i64 84

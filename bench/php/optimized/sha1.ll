@@ -151,7 +151,7 @@ PHP_SHA1Update.exit:                              ; preds = %.lr.ph.i, %.critedg
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %56, ptr noundef nonnull align 16 dereferenceable(20) %6, i64 20, i1 false)
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 44
-  store i8 0, ptr %57, align 1, !tbaa !8
+  store i8 0, ptr %57, align 4, !tbaa !8
   store ptr %52, ptr %1, align 8, !tbaa !8
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %58, align 8, !tbaa !8
@@ -618,7 +618,7 @@ PHP_SHA1Update.exit:                              ; preds = %.lr.ph.i, %47, %65
   %86 = getelementptr inbounds nuw i8, ptr %82, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %86, ptr noundef nonnull align 16 dereferenceable(20) %6, i64 20, i1 false)
   %87 = getelementptr inbounds nuw i8, ptr %82, i64 44
-  store i8 0, ptr %87, align 1, !tbaa !8
+  store i8 0, ptr %87, align 4, !tbaa !8
   store ptr %82, ptr %1, align 8, !tbaa !8
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %88, align 8, !tbaa !8

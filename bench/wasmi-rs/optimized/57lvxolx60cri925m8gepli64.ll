@@ -1072,7 +1072,7 @@ define hidden noundef align 8 ptr @"_ZN5wasmi6engine8executor44_$LT$impl$u20$was
   %228 = icmp eq i32 %102, %227
   %or.cond.i.i.i = select i1 %225, i1 %228, i1 false
   %229 = getelementptr inbounds nuw i8, ptr %55, i64 56
-  %230 = load i32, ptr %229, align 4, !alias.scope !119, !noalias !116
+  %230 = load i32, ptr %229, align 8, !alias.scope !119, !noalias !116
   %231 = icmp eq i32 %104, %230
   %or.cond10.i.i.i = select i1 %or.cond.i.i.i, i1 %231, i1 false
   br i1 %or.cond10.i.i.i, label %244, label %232

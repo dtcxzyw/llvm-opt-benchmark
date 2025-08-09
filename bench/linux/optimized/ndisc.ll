@@ -155,7 +155,7 @@ define internal noundef range(i32 -22, 1) i32 @ndisc_constructor(ptr noundef cap
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %4 = load ptr, ptr %3, align 8
-  %5 = load i32, ptr %2, align 4
+  %5 = load i32, ptr %2, align 8
   %6 = and i32 %5, 255
   %7 = icmp eq i32 %6, 255
   tail call void @__rcu_read_lock() #14
@@ -255,7 +255,7 @@ define internal noundef range(i32 -22, 1) i32 @ndisc_constructor(ptr noundef cap
   %57 = getelementptr i8, ptr %0, i64 154
   %58 = getelementptr i8, ptr %0, i64 380
   %59 = load i32, ptr %58, align 4
-  store i32 %59, ptr %57, align 1
+  store i32 %59, ptr %57, align 2
   br label %ndisc_mc_map.exit.thread
 
 60:                                               ; preds = %50
@@ -454,7 +454,7 @@ define internal noundef range(i32 -22, 1) i32 @pndisc_constructor(ptr noundef re
   store i64 767, ptr %2, align 8
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = or i32 %12, 255
-  store i32 16777216, ptr %13, align 4
+  store i32 16777216, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %14, ptr %15, align 4
   %16 = call i32 @ipv6_dev_mc_inc(ptr noundef nonnull %4, ptr noundef nonnull %2) #14
@@ -487,7 +487,7 @@ define internal void @pndisc_destructor(ptr noundef readonly captures(none) %0) 
   store i64 767, ptr %2, align 8
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = or i32 %12, 255
-  store i32 16777216, ptr %13, align 4
+  store i32 16777216, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %14, ptr %15, align 4
   %16 = call i32 @ipv6_dev_mc_dec(ptr noundef nonnull %4, ptr noundef nonnull %2) #14
@@ -4945,7 +4945,7 @@ define internal void @ndisc_solicit(ptr noundef %0, ptr noundef readonly capture
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %10 = load volatile i32, ptr %9, align 4
+  %10 = load volatile i32, ptr %9, align 8
   %11 = icmp eq ptr %1, null
   br i1 %11, label %30, label %12
 
@@ -5026,7 +5026,7 @@ define internal void @ndisc_solicit(ptr noundef %0, ptr noundef readonly capture
   store i64 767, ptr %5, align 8
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %61 = or i32 %59, 255
-  store i32 16777216, ptr %60, align 4
+  store i32 16777216, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %61, ptr %62, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

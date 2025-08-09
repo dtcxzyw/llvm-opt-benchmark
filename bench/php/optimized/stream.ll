@@ -140,7 +140,7 @@ zend_string_alloc.exit69:                         ; preds = %18
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store i32 1918986352, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 28
-  store i8 0, ptr %39, align 1, !tbaa !9
+  store i8 0, ptr %39, align 4, !tbaa !9
   store ptr %34, ptr %33, align 8, !tbaa !17
   %40 = load ptr, ptr %5, align 8, !tbaa !4
   %41 = load i64, ptr %8, align 8, !tbaa !21

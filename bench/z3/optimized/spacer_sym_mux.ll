@@ -3706,7 +3706,7 @@ _ZN14core_hashtableIN7obj_mapI9func_declSt4pairIPN6spacer7sym_mux13sym_mux_entry
   %28 = load ptr, ptr %27, align 8, !tbaa !171
   store ptr %28, ptr %26, align 8, !tbaa !79
   %29 = getelementptr inbounds nuw i8, ptr %.02839.i, i64 16
-  %30 = load i32, ptr %29, align 4, !tbaa !64
+  %30 = load i32, ptr %29, align 8, !tbaa !64
   %31 = getelementptr inbounds nuw i8, ptr %.034.i, i64 16
   store i32 %30, ptr %31, align 8, !tbaa !76
   br label %45
@@ -3729,7 +3729,7 @@ _ZN14core_hashtableIN7obj_mapI9func_declSt4pairIPN6spacer7sym_mux13sym_mux_entry
   %39 = load ptr, ptr %38, align 8, !tbaa !171
   store ptr %39, ptr %37, align 8, !tbaa !79
   %40 = getelementptr inbounds nuw i8, ptr %.02839.i, i64 16
-  %41 = load i32, ptr %40, align 4, !tbaa !64
+  %41 = load i32, ptr %40, align 8, !tbaa !64
   %42 = getelementptr inbounds nuw i8, ptr %.136.i, i64 16
   store i32 %41, ptr %42, align 8, !tbaa !76
   br label %45

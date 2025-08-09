@@ -745,7 +745,7 @@ _ZN26GrowableArrayWithAllocatorIP14compiledVFrame13GrowableArrayIS1_EE4pushERKS1
   %120 = load ptr, ptr %119, align 8
   call void @_ZN14compiledVFrame51create_deferred_updates_after_object_deoptimizationEv(ptr noundef nonnull align 8 dereferenceable(5076) %120) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %121 = load i32, ptr %65, align 4
+  %121 = load i32, ptr %65, align 8
   %122 = sext i32 %121 to i64
   %123 = icmp slt i64 %indvars.iv.next, %122
   br i1 %123, label %.lr.ph50, label %._crit_edge51, !llvm.loop !25

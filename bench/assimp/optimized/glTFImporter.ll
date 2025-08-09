@@ -40556,11 +40556,11 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %136 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %137 = getelementptr inbounds nuw i8, ptr %134, i64 24
   store ptr %137, ptr %136, align 8
-  store i8 0, ptr %137, align 1
+  store i8 0, ptr %137, align 8
   %138 = getelementptr inbounds nuw i8, ptr %134, i64 40
   %139 = getelementptr inbounds nuw i8, ptr %134, i64 56
   store ptr %139, ptr %138, align 8
-  store i8 0, ptr %139, align 1
+  store i8 0, ptr %139, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4glTF5SceneE, i64 16), ptr %134, align 8
   %140 = getelementptr inbounds nuw i8, ptr %134, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %140, i8 0, i64 24, i1 false)
@@ -40972,13 +40972,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store ptr %61, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 16
   store i64 0, ptr %62, align 8
-  store i8 0, ptr %61, align 1
+  store i8 0, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 40
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 56
   store ptr %64, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %59, i64 48
   store i64 0, ptr %65, align 8
-  store i8 0, ptr %64, align 1
+  store i8 0, ptr %64, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4glTF6BufferE, i64 16), ptr %59, align 8
   %66 = getelementptr inbounds nuw i8, ptr %59, i64 72
   store i64 0, ptr %66, align 8
@@ -46183,7 +46183,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8
   store ptr %13, ptr %10, align 8
   store i64 0, ptr %24, align 8
-  store i8 0, ptr %13, align 1
+  store i8 0, ptr %13, align 8
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i8 0, ptr %26, align 8
   store ptr %7, ptr %23, align 8
@@ -48081,15 +48081,15 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %136 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %137 = getelementptr inbounds nuw i8, ptr %134, i64 24
   store ptr %137, ptr %136, align 8
-  store i8 0, ptr %137, align 1
+  store i8 0, ptr %137, align 8
   %138 = getelementptr inbounds nuw i8, ptr %134, i64 40
   %139 = getelementptr inbounds nuw i8, ptr %134, i64 56
   store ptr %139, ptr %138, align 8
-  store i8 0, ptr %139, align 1
+  store i8 0, ptr %139, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4glTF4NodeE, i64 16), ptr %134, align 8
   %140 = getelementptr inbounds nuw i8, ptr %134, i64 72
   %141 = getelementptr inbounds nuw i8, ptr %134, i64 200
-  store i8 0, ptr %141, align 4
+  store i8 0, ptr %141, align 8
   %142 = getelementptr inbounds nuw i8, ptr %134, i64 236
   store i8 0, ptr %142, align 4
   %143 = getelementptr inbounds nuw i8, ptr %134, i64 248
@@ -48102,7 +48102,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %140, i8 0, i64 48, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %145, i8 0, i64 36, i1 false)
   store ptr %147, ptr %146, align 8
-  store i8 0, ptr %147, align 1
+  store i8 0, ptr %147, align 8
   %148 = getelementptr inbounds nuw i8, ptr %134, i64 352
   store i32 0, ptr %148, align 8
   %149 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #30
@@ -50225,11 +50225,11 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %136 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %137 = getelementptr inbounds nuw i8, ptr %134, i64 24
   store ptr %137, ptr %136, align 8
-  store i8 0, ptr %137, align 1
+  store i8 0, ptr %137, align 8
   %138 = getelementptr inbounds nuw i8, ptr %134, i64 40
   %139 = getelementptr inbounds nuw i8, ptr %134, i64 56
   store ptr %139, ptr %138, align 8
-  store i8 0, ptr %139, align 1
+  store i8 0, ptr %139, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4glTF4MeshE, i64 16), ptr %134, align 8
   %140 = getelementptr inbounds nuw i8, ptr %134, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %140, i8 0, i64 24, i1 false)
@@ -50658,11 +50658,11 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %136 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %137 = getelementptr inbounds nuw i8, ptr %134, i64 24
   store ptr %137, ptr %136, align 8
-  store i8 0, ptr %137, align 1
+  store i8 0, ptr %137, align 8
   %138 = getelementptr inbounds nuw i8, ptr %134, i64 40
   %139 = getelementptr inbounds nuw i8, ptr %134, i64 56
   store ptr %139, ptr %138, align 8
-  store i8 0, ptr %139, align 1
+  store i8 0, ptr %139, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4glTF6CameraE, i64 16), ptr %134, align 8
   %140 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #30
   %141 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %136, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %1, i64 noundef %140)
@@ -51083,11 +51083,11 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %136 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %137 = getelementptr inbounds nuw i8, ptr %134, i64 24
   store ptr %137, ptr %136, align 8
-  store i8 0, ptr %137, align 1
+  store i8 0, ptr %137, align 8
   %138 = getelementptr inbounds nuw i8, ptr %134, i64 40
   %139 = getelementptr inbounds nuw i8, ptr %134, i64 56
   store ptr %139, ptr %138, align 8
-  store i8 0, ptr %139, align 1
+  store i8 0, ptr %139, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4glTF5LightE, i64 16), ptr %134, align 8
   %140 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #30
   %141 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %136, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %1, i64 noundef %140)
@@ -52271,7 +52271,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   store ptr %585, ptr %584, align 8
   %586 = getelementptr inbounds nuw i8, ptr %582, i64 24
   store i64 0, ptr %586, align 8
-  store i8 0, ptr %585, align 1
+  store i8 0, ptr %585, align 8
   %587 = load i16, ptr %572, align 2
   %588 = icmp eq i16 %587, 3
   br i1 %588, label %589, label %_ZN10glTFCommonL10ReadMemberINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRN9rapidjson12GenericValueINS7_4UTF8IcEENS7_19MemoryPoolAllocatorINS7_12CrtAllocatorEEEEEPKcRT_.exit.thread
@@ -53813,11 +53813,11 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %136 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %137 = getelementptr inbounds nuw i8, ptr %134, i64 24
   store ptr %137, ptr %136, align 8
-  store i8 0, ptr %137, align 1
+  store i8 0, ptr %137, align 8
   %138 = getelementptr inbounds nuw i8, ptr %134, i64 40
   %139 = getelementptr inbounds nuw i8, ptr %134, i64 56
   store ptr %139, ptr %138, align 8
-  store i8 0, ptr %139, align 1
+  store i8 0, ptr %139, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4glTF8AccessorE, i64 16), ptr %134, align 8
   %140 = getelementptr inbounds nuw i8, ptr %134, i64 80
   store i32 0, ptr %140, align 8
@@ -54242,13 +54242,13 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   store ptr %136, ptr %135, align 8
   %137 = getelementptr inbounds nuw i8, ptr %134, i64 16
   store i64 0, ptr %137, align 8
-  store i8 0, ptr %136, align 1
+  store i8 0, ptr %136, align 8
   %138 = getelementptr inbounds nuw i8, ptr %134, i64 40
   %139 = getelementptr inbounds nuw i8, ptr %134, i64 56
   store ptr %139, ptr %138, align 8
   %140 = getelementptr inbounds nuw i8, ptr %134, i64 48
   store i64 0, ptr %140, align 8
-  store i8 0, ptr %139, align 1
+  store i8 0, ptr %139, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4glTF8MaterialE, i64 16), ptr %134, align 8
   %141 = getelementptr inbounds nuw i8, ptr %134, i64 72
   store ptr null, ptr %141, align 8
@@ -54267,35 +54267,35 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %148 = getelementptr inbounds nuw i8, ptr %134, i64 176
   store i32 0, ptr %148, align 8
   %149 = getelementptr inbounds nuw i8, ptr %134, i64 88
-  store float 0.000000e+00, ptr %149, align 4
+  store float 0.000000e+00, ptr %149, align 8
   %150 = getelementptr inbounds nuw i8, ptr %134, i64 92
   store float 0.000000e+00, ptr %150, align 4
   %151 = getelementptr inbounds nuw i8, ptr %134, i64 96
-  store float 0.000000e+00, ptr %151, align 4
+  store float 0.000000e+00, ptr %151, align 8
   %152 = getelementptr inbounds nuw i8, ptr %134, i64 100
   store float 1.000000e+00, ptr %152, align 4
   %153 = getelementptr inbounds nuw i8, ptr %134, i64 120
-  store float 0.000000e+00, ptr %153, align 4
+  store float 0.000000e+00, ptr %153, align 8
   %154 = getelementptr inbounds nuw i8, ptr %134, i64 124
   store float 0.000000e+00, ptr %154, align 4
   %155 = getelementptr inbounds nuw i8, ptr %134, i64 128
-  store float 0.000000e+00, ptr %155, align 4
+  store float 0.000000e+00, ptr %155, align 8
   %156 = getelementptr inbounds nuw i8, ptr %134, i64 132
   store float 1.000000e+00, ptr %156, align 4
   %157 = getelementptr inbounds nuw i8, ptr %134, i64 152
-  store float 0.000000e+00, ptr %157, align 4
+  store float 0.000000e+00, ptr %157, align 8
   %158 = getelementptr inbounds nuw i8, ptr %134, i64 156
   store float 0.000000e+00, ptr %158, align 4
   %159 = getelementptr inbounds nuw i8, ptr %134, i64 160
-  store float 0.000000e+00, ptr %159, align 4
+  store float 0.000000e+00, ptr %159, align 8
   %160 = getelementptr inbounds nuw i8, ptr %134, i64 164
   store float 1.000000e+00, ptr %160, align 4
   %161 = getelementptr inbounds nuw i8, ptr %134, i64 184
-  store float 0.000000e+00, ptr %161, align 4
+  store float 0.000000e+00, ptr %161, align 8
   %162 = getelementptr inbounds nuw i8, ptr %134, i64 188
   store float 0.000000e+00, ptr %162, align 4
   %163 = getelementptr inbounds nuw i8, ptr %134, i64 192
-  store float 0.000000e+00, ptr %163, align 4
+  store float 0.000000e+00, ptr %163, align 8
   %164 = getelementptr inbounds nuw i8, ptr %134, i64 196
   store float 1.000000e+00, ptr %164, align 4
   %165 = getelementptr inbounds nuw i8, ptr %134, i64 200
@@ -57723,11 +57723,11 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %136 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %137 = getelementptr inbounds nuw i8, ptr %134, i64 24
   store ptr %137, ptr %136, align 8
-  store i8 0, ptr %137, align 1
+  store i8 0, ptr %137, align 8
   %138 = getelementptr inbounds nuw i8, ptr %134, i64 40
   %139 = getelementptr inbounds nuw i8, ptr %134, i64 56
   store ptr %139, ptr %138, align 8
-  store i8 0, ptr %139, align 1
+  store i8 0, ptr %139, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4glTF10BufferViewE, i64 16), ptr %134, align 8
   %140 = getelementptr inbounds nuw i8, ptr %134, i64 80
   store i32 0, ptr %140, align 8
@@ -58631,13 +58631,13 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   store ptr %143, ptr %142, align 8
   %144 = getelementptr inbounds nuw i8, ptr %141, i64 16
   store i64 0, ptr %144, align 8
-  store i8 0, ptr %143, align 1
+  store i8 0, ptr %143, align 8
   %145 = getelementptr inbounds nuw i8, ptr %141, i64 40
   %146 = getelementptr inbounds nuw i8, ptr %141, i64 56
   store ptr %146, ptr %145, align 8
   %147 = getelementptr inbounds nuw i8, ptr %141, i64 48
   store i64 0, ptr %147, align 8
-  store i8 0, ptr %146, align 1
+  store i8 0, ptr %146, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4glTF6BufferE, i64 16), ptr %141, align 8
   %148 = getelementptr inbounds nuw i8, ptr %141, i64 72
   store i64 0, ptr %148, align 8
@@ -61984,11 +61984,11 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %136 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %137 = getelementptr inbounds nuw i8, ptr %134, i64 24
   store ptr %137, ptr %136, align 8
-  store i8 0, ptr %137, align 1
+  store i8 0, ptr %137, align 8
   %138 = getelementptr inbounds nuw i8, ptr %134, i64 40
   %139 = getelementptr inbounds nuw i8, ptr %134, i64 56
   store ptr %139, ptr %138, align 8
-  store i8 0, ptr %139, align 1
+  store i8 0, ptr %139, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4glTF7TextureE, i64 16), ptr %134, align 8
   %140 = getelementptr inbounds nuw i8, ptr %134, i64 80
   store i32 0, ptr %140, align 8
@@ -62777,20 +62777,20 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   store ptr %136, ptr %135, align 8
   %137 = getelementptr inbounds nuw i8, ptr %134, i64 16
   store i64 0, ptr %137, align 8
-  store i8 0, ptr %136, align 1
+  store i8 0, ptr %136, align 8
   %138 = getelementptr inbounds nuw i8, ptr %134, i64 40
   %139 = getelementptr inbounds nuw i8, ptr %134, i64 56
   store ptr %139, ptr %138, align 8
   %140 = getelementptr inbounds nuw i8, ptr %134, i64 48
   store i64 0, ptr %140, align 8
-  store i8 0, ptr %139, align 1
+  store i8 0, ptr %139, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4glTF5ImageE, i64 16), ptr %134, align 8
   %141 = getelementptr inbounds nuw i8, ptr %134, i64 72
   %142 = getelementptr inbounds nuw i8, ptr %134, i64 88
   store ptr %142, ptr %141, align 8
   %143 = getelementptr inbounds nuw i8, ptr %134, i64 80
   store i64 0, ptr %143, align 8
-  store i8 0, ptr %142, align 1
+  store i8 0, ptr %142, align 8
   %144 = getelementptr inbounds nuw i8, ptr %134, i64 104
   store ptr null, ptr %144, align 8
   %145 = getelementptr inbounds nuw i8, ptr %134, i64 112
@@ -62800,7 +62800,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   store ptr %147, ptr %146, align 8
   %148 = getelementptr inbounds nuw i8, ptr %134, i64 128
   store i64 0, ptr %148, align 8
-  store i8 0, ptr %147, align 1
+  store i8 0, ptr %147, align 8
   %149 = getelementptr inbounds nuw i8, ptr %134, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %149, i8 0, i64 24, i1 false)
   %150 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #30
@@ -63222,11 +63222,11 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %136 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %137 = getelementptr inbounds nuw i8, ptr %134, i64 24
   store ptr %137, ptr %136, align 8
-  store i8 0, ptr %137, align 1
+  store i8 0, ptr %137, align 8
   %138 = getelementptr inbounds nuw i8, ptr %134, i64 40
   %139 = getelementptr inbounds nuw i8, ptr %134, i64 56
   store ptr %139, ptr %138, align 8
-  store i8 0, ptr %139, align 1
+  store i8 0, ptr %139, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4glTF7SamplerE, i64 16), ptr %134, align 8
   %140 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #30
   %141 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %136, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %1, i64 noundef %140)

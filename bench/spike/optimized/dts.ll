@@ -144,7 +144,7 @@ define void @_Z8make_dtsmmPK5cfg_tSt6vectorISt4pairImP14abstract_mem_tESaIS6_EEN
   %33 = load i32, ptr %32, align 8, !tbaa !35
   %34 = and i32 %33, -75
   %35 = or disjoint i32 %34, 2
-  store i32 %35, ptr %32, align 4, !tbaa !45
+  store i32 %35, ptr %32, align 8, !tbaa !45
   %36 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull @.str, i64 noundef 170)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %46
 
@@ -553,7 +553,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit83: ; preds = %_ZStl
   %182 = load i32, ptr %181, align 8, !tbaa !35
   %183 = and i32 %182, -75
   %184 = or disjoint i32 %183, 8
-  store i32 %184, ptr %181, align 4, !tbaa !45
+  store i32 %184, ptr %181, align 8, !tbaa !45
   %185 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull @.str.22, i64 noundef 9)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit133 unwind label %218
 

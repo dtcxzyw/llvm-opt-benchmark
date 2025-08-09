@@ -409,9 +409,9 @@ _ZNKSt8__detail15_Hashtable_baseISt4pairIiiES1_IKS2_S2_ENS_10_Select1stESt8equal
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %.sroa.0301.0.insert.ext = zext i32 %125 to i64
   %.sroa.0301.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift.i174, %.sroa.0301.0.insert.ext
-  store i64 %.sroa.0301.0.insert.insert, ptr %156, align 4
+  store i64 %.sroa.0301.0.insert.insert, ptr %156, align 8
   %157 = getelementptr inbounds nuw i8, ptr %155, i64 16
-  store i32 0, ptr %157, align 4, !tbaa !51
+  store i32 0, ptr %157, align 8, !tbaa !51
   %158 = getelementptr inbounds nuw i8, ptr %155, i64 20
   store i32 0, ptr %158, align 4, !tbaa !54
   %159 = invoke ptr @_ZNSt10_HashtableISt4pairIiiES0_IKS1_S1_ESaIS3_ENSt8__detail10_Select1stESt8equal_toIS1_ERKZN3igl10seam_edgesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEESD_NSC_IiLin1ELin1ELi0ELin1ELin1EEESE_SE_SE_SE_EEvRKNSB_10MatrixBaseIT_EERKNSF_IT0_EERKNSF_IT1_EERKNSF_IT2_EERNSB_15PlainObjectBaseIT3_EERNSW_IT4_EERNSW_IT5_EEEUlRS2_E_NS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS5_10_Hash_nodeIS3_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(64) %10, i64 noundef %133, i64 noundef %131, ptr noundef nonnull %155, i64 noundef 1)
@@ -1660,7 +1660,7 @@ _ZNKSt8__detail15_Hashtable_baseISt4pairIiiES2_NS_9_IdentityESt8equal_toIS2_ERKZ
   store ptr null, ptr %52, align 8, !tbaa !48
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load i64, ptr %1, align 4
-  store i64 %54, ptr %53, align 4
+  store i64 %54, ptr %53, align 8
   %55 = invoke ptr @_ZNSt10_HashtableISt4pairIiiES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ERKZN3igl10seam_edgesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEESB_NSA_IiLin1ELin1ELi0ELin1ELin1EEESC_SC_SC_SC_EEvRKNS9_10MatrixBaseIT_EERKNSD_IT0_EERKNSD_IT1_EERKNSD_IT2_EERNS9_15PlainObjectBaseIT3_EERNSU_IT4_EERNSU_IT5_EEEUlRKS1_E_NS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS3_10_Hash_nodeIS1_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %28, i64 noundef %25, ptr noundef nonnull %52, i64 noundef 1)
           to label %_ZNKSt10_HashtableISt4pairIiiES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ERKZN3igl10seam_edgesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEESB_NSA_IiLin1ELin1ELi0ELin1ELin1EEESC_SC_SC_SC_EEvRKNS9_10MatrixBaseIT_EERKNSD_IT0_EERKNSD_IT1_EERKNSD_IT2_EERNS9_15PlainObjectBaseIT3_EERNSU_IT4_EERNSU_IT5_EEEUlRKS1_E_NS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb1EEEmRKSE_m.exit unwind label %_ZNSt10_HashtableISt4pairIiiES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ERKZN3igl10seam_edgesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEESB_NSA_IiLin1ELin1ELi0ELin1ELin1EEESC_SC_SC_SC_EEvRKNS9_10MatrixBaseIT_EERKNSD_IT0_EERKNSD_IT1_EERKNSD_IT2_EERNS9_15PlainObjectBaseIT3_EERNSU_IT4_EERNSU_IT5_EEEUlRKS1_E_NS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit20
 
@@ -1935,9 +1935,9 @@ _ZNKSt8__detail15_Hashtable_baseISt4pairIiiES1_IKS2_S2_ENS_10_Select1stESt8equal
   store ptr null, ptr %36, align 8, !tbaa !48
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load i64, ptr %1, align 4
-  store i64 %38, ptr %37, align 4
+  store i64 %38, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  store i32 0, ptr %39, align 4, !tbaa !51
+  store i32 0, ptr %39, align 8, !tbaa !51
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 20
   store i32 0, ptr %40, align 4, !tbaa !54
   %41 = invoke ptr @_ZNSt10_HashtableISt4pairIiiES0_IKS1_S1_ESaIS3_ENSt8__detail10_Select1stESt8equal_toIS1_ERKZN3igl10seam_edgesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEESD_NSC_IiLin1ELin1ELi0ELin1ELin1EEESE_SE_SE_SE_EEvRKNSB_10MatrixBaseIT_EERKNSF_IT0_EERKNSF_IT1_EERKNSF_IT2_EERNSB_15PlainObjectBaseIT3_EERNSW_IT4_EERNSW_IT5_EEEUlRS2_E_NS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS5_10_Hash_nodeIS3_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %13, i64 noundef %10, ptr noundef nonnull %36, i64 noundef 1)

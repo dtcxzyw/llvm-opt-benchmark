@@ -1553,7 +1553,7 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIbEEKNS_14StringMapEntryI
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i64, ptr %14, align 8, !tbaa !33
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %18 = load i8, ptr %17, align 1, !tbaa !27, !range !15, !noundef !16
+  %18 = load i8, ptr %17, align 8, !tbaa !27, !range !15, !noundef !16
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %20, label %.critedge.i.i.preheader
 
@@ -2476,7 +2476,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llv
   store ptr %16, ptr %.ptr.i.i.i, align 8, !tbaa !86
   %17 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %17, align 8, !tbaa !64
-  store i8 0, ptr %16, align 1, !tbaa !42
+  store i8 0, ptr %16, align 8, !tbaa !42
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %18 = icmp eq i64 %.add.i.i.i, 416
   br i1 %18, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %15

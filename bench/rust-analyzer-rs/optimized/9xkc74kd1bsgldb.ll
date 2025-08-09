@@ -26009,7 +26009,7 @@ define hidden { i64, i1 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11in
   %48 = getelementptr inbounds [0 x { i64, { i64, i8, [7 x i8] }, {} }], ptr %6, i64 0, i64 %.val.i.i.i.us.us.i, i32 1
   %.val3.i.i.i.i.us.us.i = load i64, ptr %48, align 8, !noalias !5998, !noundef !4
   %49 = getelementptr i8, ptr %48, i64 8
-  %.val4.i.i.i.i.us.us.i = load i8, ptr %49, align 1, !noalias !5998
+  %.val4.i.i.i.i.us.us.i = load i8, ptr %49, align 8, !noalias !5998
   %50 = icmp ne i64 %2, %.val3.i.i.i.i.us.us.i
   %51 = icmp ne i8 %.val4.i.i.i.i.us.us.i, 9
   %or.cond.i = select i1 %50, i1 true, i1 %51
@@ -29062,7 +29062,7 @@ define hidden { i64, i64 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$12g
   %36 = getelementptr inbounds [0 x { i64, ptr, { i32, i8, [3 x i8] } }], ptr %5, i64 0, i64 %.val.i.i.i, i32 2
   %.val3.i.i.i.i = load i32, ptr %36, align 4, !noalias !6836, !noundef !4
   %37 = getelementptr i8, ptr %36, i64 4
-  %.val4.i.i.i.i = load i8, ptr %37, align 1, !noalias !6836
+  %.val4.i.i.i.i = load i8, ptr %37, align 4, !noalias !6836
   %38 = icmp eq i32 %.val.i.i.i.i, %.val3.i.i.i.i
   %39 = icmp eq i8 %.val2.i.i.i.i, %.val4.i.i.i.i
   %spec.select.i.i.i.i.i.i = select i1 %38, i1 %39, i1 false
@@ -40813,7 +40813,7 @@ define hidden void @"_ZN8indexmap3map4core3raw64_$LT$impl$u20$indexmap..map..cor
   %37 = getelementptr inbounds [0 x { i64, ptr, { i32, i8, [3 x i8] } }], ptr %6, i64 0, i64 %.val.i.i, i32 2
   %.val2.i.i.i = load i32, ptr %37, align 4, !noalias !9173, !noundef !4
   %38 = getelementptr i8, ptr %37, i64 4
-  %.val3.i.i.i = load i8, ptr %38, align 1, !noalias !9173
+  %.val3.i.i.i = load i8, ptr %38, align 4, !noalias !9173
   %39 = icmp eq i32 %.val2.i.i.i, %.val2.i.i.i.i
   %40 = icmp eq i8 %.val3.i.i.i, %.val3.i.i.i.i
   %spec.select.i.i.i.i.i = select i1 %39, i1 %40, i1 false
@@ -42683,7 +42683,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
   %37 = getelementptr inbounds [0 x { i64, ptr, { i32, i8, [3 x i8] } }], ptr %7, i64 0, i64 %.val.i.i.i, i32 2
   %.val2.i.i.i.i = load i32, ptr %37, align 4, !noalias !9627, !noundef !4
   %38 = getelementptr i8, ptr %37, i64 4
-  %.val3.i.i.i.i = load i8, ptr %38, align 1, !noalias !9627
+  %.val3.i.i.i.i = load i8, ptr %38, align 4, !noalias !9627
   %39 = icmp eq i32 %.val2.i.i.i.i, %3
   %40 = icmp eq i8 %.val3.i.i.i.i, %4
   %spec.select.i.i.i.i.i.i = select i1 %39, i1 %40, i1 false

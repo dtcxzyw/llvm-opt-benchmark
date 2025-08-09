@@ -1751,7 +1751,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 32
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 80
-  %47 = load i32, ptr %46, align 4
+  %47 = load i32, ptr %46, align 8
   br label %48
 
 48:                                               ; preds = %_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit, %13, %43
@@ -1898,7 +1898,7 @@ _ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EEiEC2ERKS4_.exit: ; preds = %3
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %61 = load i32, ptr %60, align 4
+  %61 = load i32, ptr %60, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #30
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %59, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %61, 1
@@ -3964,7 +3964,7 @@ define linkonce_odr void @_ZNSt6vectorI8MeshFaceSaIS0_EE17_M_default_appendEm(pt
   %21 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 90
   store i8 -1, ptr %21, align 2
   %22 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 192
-  store i32 -1, ptr %22, align 4
+  store i32 -1, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 204
   store i32 -1, ptr %23, align 4
   %24 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 208
@@ -4006,7 +4006,7 @@ _ZNKSt6vectorI8MeshFaceSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %27
   %37 = getelementptr inbounds nuw i8, ptr %.013.i.i.i31, i64 90
   store i8 -1, ptr %37, align 2
   %38 = getelementptr inbounds nuw i8, ptr %.013.i.i.i31, i64 192
-  store i32 -1, ptr %38, align 4
+  store i32 -1, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %.013.i.i.i31, i64 204
   store i32 -1, ptr %39, align 4
   %40 = getelementptr inbounds nuw i8, ptr %.013.i.i.i31, i64 208
@@ -5008,7 +5008,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 32
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 80
-  %47 = load i32, ptr %46, align 4
+  %47 = load i32, ptr %46, align 8
   br label %48
 
 48:                                               ; preds = %_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit, %13, %43
@@ -5599,7 +5599,7 @@ _ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE15TexCoordStorageEC2ERKS4_.ex
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %60 = load i32, ptr %59, align 4
+  %60 = load i32, ptr %59, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #30
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %58, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %60, 1
@@ -7426,7 +7426,7 @@ _ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrI9FaceGroupEESaIS5_ENSt8__detail10_Se
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrI9FaceGroupEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4
+  %16 = load i32, ptr %15, align 8
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds ptr, ptr %.0.i, i64 %18
@@ -9714,7 +9714,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 32
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 80
-  %47 = load i32, ptr %46, align 4
+  %47 = load i32, ptr %46, align 8
   br label %48
 
 48:                                               ; preds = %_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit, %13, %43
@@ -9861,7 +9861,7 @@ _ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE2FFEC2ERKS4_.exit: ; preds = 
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %61 = load i32, ptr %60, align 4
+  %61 = load i32, ptr %60, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #30
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %59, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %61, 1
@@ -12016,8 +12016,8 @@ _ZN3vcg3tri11UpdateFlagsI4MeshE12VertexClearVERS2_.exit90: ; preds = %164, %155
   store double %179, ptr %180, align 8
   %181 = getelementptr inbounds nuw i8, ptr %171, i64 100
   %182 = getelementptr inbounds nuw i8, ptr %.sroa.0184.0267, i64 100
-  %183 = load i32, ptr %181, align 1
-  store i32 %183, ptr %182, align 1
+  %183 = load i32, ptr %181, align 4
+  store i32 %183, ptr %182, align 4
   %184 = getelementptr inbounds nuw i8, ptr %.sroa.0184.0267, i64 48
   %185 = getelementptr inbounds nuw i8, ptr %171, i64 48
   %186 = load double, ptr %185, align 8
@@ -12039,9 +12039,9 @@ _ZN3vcg3tri11UpdateFlagsI4MeshE12VertexClearVERS2_.exit90: ; preds = %164, %155
   %198 = getelementptr inbounds nuw i8, ptr %.sroa.0184.0267, i64 32
   store double %197, ptr %198, align 8
   %199 = getelementptr inbounds nuw i8, ptr %171, i64 40
-  %200 = load i16, ptr %199, align 2
+  %200 = load i16, ptr %199, align 8
   %201 = getelementptr inbounds nuw i8, ptr %.sroa.0184.0267, i64 40
-  store i16 %200, ptr %201, align 2
+  store i16 %200, ptr %201, align 8
   %202 = load double, ptr %171, align 8
   store double %202, ptr %.sroa.0184.0267, align 8
   %203 = getelementptr inbounds nuw i8, ptr %171, i64 8

@@ -483,7 +483,7 @@ define dso_local void @release_task(ptr noundef %0) local_unnamed_addr #1 align 
   %123 = add i64 %122, %120
   store i64 %123, ptr %121, align 8
   %124 = getelementptr inbounds nuw i8, ptr %3, i64 2208
-  %125 = load i64, ptr %124, align 8
+  %125 = load i64, ptr %124, align 32
   %126 = lshr i64 %125, 9
   %127 = getelementptr inbounds nuw i8, ptr %38, i64 568
   %128 = load i64, ptr %127, align 8
@@ -496,7 +496,7 @@ define dso_local void @release_task(ptr noundef %0) local_unnamed_addr #1 align 
   %134 = add i64 %133, %132
   store i64 %134, ptr %130, align 8
   %135 = getelementptr inbounds nuw i8, ptr %3, i64 2176
-  %136 = load i64, ptr %135, align 8
+  %136 = load i64, ptr %135, align 64
   %137 = getelementptr inbounds nuw i8, ptr %38, i64 616
   %138 = load i64, ptr %137, align 8
   %139 = add i64 %138, %136
@@ -508,7 +508,7 @@ define dso_local void @release_task(ptr noundef %0) local_unnamed_addr #1 align 
   %144 = add i64 %143, %141
   store i64 %144, ptr %142, align 8
   %145 = getelementptr inbounds nuw i8, ptr %3, i64 2192
-  %146 = load i64, ptr %145, align 8
+  %146 = load i64, ptr %145, align 16
   %147 = getelementptr inbounds nuw i8, ptr %38, i64 632
   %148 = load i64, ptr %147, align 8
   %149 = add i64 %148, %146
@@ -518,7 +518,7 @@ define dso_local void @release_task(ptr noundef %0) local_unnamed_addr #1 align 
   %152 = load i64, ptr %151, align 8
   %153 = add i64 %152, %150
   store i64 %153, ptr %151, align 8
-  %154 = load i64, ptr %124, align 8
+  %154 = load i64, ptr %124, align 32
   %155 = getelementptr inbounds nuw i8, ptr %38, i64 648
   %156 = load i64, ptr %155, align 8
   %157 = add i64 %156, %154
@@ -1047,7 +1047,7 @@ define dso_local void @do_exit(i64 noundef %0) local_unnamed_addr #3 align 16 {
   %110 = getelementptr inbounds nuw i8, ptr %105, i64 240
   %111 = load i64, ptr %110, align 16
   %112 = getelementptr i8, ptr %105, i64 832
-  %113 = load volatile i64, ptr %112, align 8
+  %113 = load volatile i64, ptr %112, align 16
   %114 = call i64 @llvm.smax.i64(i64 %113, i64 0)
   %115 = getelementptr i8, ptr %105, i64 872
   %116 = load volatile i64, ptr %115, align 8
@@ -1533,7 +1533,7 @@ exit_mm.exit:                                     ; preds = %134, %153, %157
   store ptr %364, ptr %366, align 8
   store ptr %365, ptr %364, align 8
   %367 = getelementptr i8, ptr %310, i64 48
-  store ptr %2, ptr %367, align 8
+  store ptr %2, ptr %367, align 16
   store volatile ptr %364, ptr %2, align 8
   br label %368
 
@@ -1884,7 +1884,7 @@ kill_orphaned_pgrp.exit41:                        ; preds = %529, %556, %563, %.
   store ptr %601, ptr %603, align 8
   store ptr %602, ptr %601, align 8
   %604 = getelementptr inbounds nuw i8, ptr %6, i64 1408
-  store ptr %2, ptr %604, align 8
+  store ptr %2, ptr %604, align 64
   store volatile ptr %601, ptr %2, align 8
   br label %605
 
@@ -4010,7 +4010,7 @@ define internal fastcc i32 @wait_consider_task(ptr noundef captures(none) %0, i3
   %224 = add i64 %221, %223
   store i64 %224, ptr %222, align 8
   %225 = getelementptr inbounds nuw i8, ptr %2, i64 2208
-  %226 = load i64, ptr %225, align 8
+  %226 = load i64, ptr %225, align 16
   %227 = lshr i64 %226, 9
   %228 = getelementptr inbounds nuw i8, ptr %135, i64 568
   %229 = load i64, ptr %228, align 8
@@ -4106,9 +4106,9 @@ define internal fastcc i32 @wait_consider_task(ptr noundef captures(none) %0, i3
   %300 = add i64 %299, %279
   store i64 %300, ptr %277, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !25
-  %301 = load i32, ptr %140, align 4
+  %301 = load i32, ptr %140, align 8
   %302 = add i32 %301, 1
-  store i32 %302, ptr %140, align 4
+  store i32 %302, ptr %140, align 8
   call void @_raw_spin_unlock_irq(ptr noundef nonnull %141) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

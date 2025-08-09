@@ -137,19 +137,19 @@ define dso_local void @_ZN16b3CpuNarrowPhaseC2ERK8b3Config(ptr noundef nonnull w
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i32 0, ptr %15, align 8, !tbaa !34
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  store i32 131072, ptr %16, align 4, !tbaa !35
+  store i32 131072, ptr %16, align 8, !tbaa !35
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 116
   store i32 64, ptr %17, align 4, !tbaa !37
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 120
-  store i32 12, ptr %18, align 4, !tbaa !38
+  store i32 12, ptr %18, align 8, !tbaa !38
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 124
   store i32 8192, ptr %19, align 4, !tbaa !39
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 128
-  store i32 81920, ptr %20, align 4, !tbaa !40
+  store i32 81920, ptr %20, align 8, !tbaa !40
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 132
   store i32 8192, ptr %21, align 4, !tbaa !41
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 136
-  store i32 8192, ptr %22, align 4, !tbaa !42
+  store i32 8192, ptr %22, align 8, !tbaa !42
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 168
   store i8 1, ptr %23, align 8, !tbaa !43
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 160
@@ -2116,29 +2116,29 @@ _ZN20b3AlignedObjectArrayI9b3Vector3E10deallocateEv.exit.i.i: ; preds = %_ZNK20b
 59:                                               ; preds = %._crit_edge
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV15b3ConvexUtility, i64 16), ptr %17, align 16, !tbaa !16
   %60 = getelementptr inbounds nuw i8, ptr %17, i64 112
-  store i8 1, ptr %60, align 8, !tbaa !50
+  store i8 1, ptr %60, align 16, !tbaa !50
   %61 = getelementptr inbounds nuw i8, ptr %17, i64 104
   store ptr null, ptr %61, align 8, !tbaa !54
   %62 = getelementptr inbounds nuw i8, ptr %17, i64 92
   store i32 0, ptr %62, align 4, !tbaa !55
   %63 = getelementptr inbounds nuw i8, ptr %17, i64 96
-  store i32 0, ptr %63, align 8, !tbaa !56
+  store i32 0, ptr %63, align 16, !tbaa !56
   %64 = getelementptr inbounds nuw i8, ptr %17, i64 144
-  store i8 1, ptr %64, align 8, !tbaa !153
+  store i8 1, ptr %64, align 16, !tbaa !153
   %65 = getelementptr inbounds nuw i8, ptr %17, i64 136
   store ptr null, ptr %65, align 8, !tbaa !138
   %66 = getelementptr inbounds nuw i8, ptr %17, i64 124
   store i32 0, ptr %66, align 4, !tbaa !133
   %67 = getelementptr inbounds nuw i8, ptr %17, i64 128
-  store i32 0, ptr %67, align 8, !tbaa !154
+  store i32 0, ptr %67, align 16, !tbaa !154
   %68 = getelementptr inbounds nuw i8, ptr %17, i64 176
-  store i8 1, ptr %68, align 8, !tbaa !50
+  store i8 1, ptr %68, align 16, !tbaa !50
   %69 = getelementptr inbounds nuw i8, ptr %17, i64 168
   store ptr null, ptr %69, align 8, !tbaa !54
   %70 = getelementptr inbounds nuw i8, ptr %17, i64 156
   store i32 0, ptr %70, align 4, !tbaa !55
   %71 = getelementptr inbounds nuw i8, ptr %17, i64 160
-  store i32 0, ptr %71, align 8, !tbaa !56
+  store i32 0, ptr %71, align 16, !tbaa !56
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %78, label %72
 

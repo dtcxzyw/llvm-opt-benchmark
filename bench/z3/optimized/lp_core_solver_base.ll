@@ -4762,8 +4762,8 @@ _ZN2lp11one_of_typeI8rationalEET_v.exit:          ; preds = %44, %48
   %64 = or disjoint i8 %60, %63
   store i8 %64, ptr %29, align 4
   %65 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %66 = load i32, ptr %65, align 4, !tbaa !50
-  store i32 %50, ptr %65, align 4, !tbaa !50
+  %66 = load i32, ptr %65, align 8, !tbaa !50
+  store i32 %50, ptr %65, align 8, !tbaa !50
   store i32 %66, ptr %31, align 8, !tbaa !50
   %67 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %68 = load ptr, ptr %67, align 8, !tbaa !181
@@ -4940,8 +4940,8 @@ _ZN2lp12zero_of_typeI8rationalEET_v.exit:         ; preds = %44, %48
   %64 = or disjoint i8 %60, %63
   store i8 %64, ptr %29, align 4
   %65 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %66 = load i32, ptr %65, align 4, !tbaa !50
-  store i32 %50, ptr %65, align 4, !tbaa !50
+  %66 = load i32, ptr %65, align 8, !tbaa !50
+  store i32 %50, ptr %65, align 8, !tbaa !50
   store i32 %66, ptr %31, align 8, !tbaa !50
   %67 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %68 = load ptr, ptr %67, align 8, !tbaa !181
@@ -5355,8 +5355,8 @@ _ZN2lp11one_of_typeI8rationalEET_v.exit:          ; preds = %44, %48
   %64 = or disjoint i8 %60, %63
   store i8 %64, ptr %29, align 4
   %65 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %66 = load i32, ptr %65, align 4, !tbaa !50
-  store i32 %50, ptr %65, align 4, !tbaa !50
+  %66 = load i32, ptr %65, align 8, !tbaa !50
+  store i32 %50, ptr %65, align 8, !tbaa !50
   store i32 %66, ptr %31, align 8, !tbaa !50
   %67 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %68 = load ptr, ptr %67, align 8, !tbaa !181
@@ -5530,8 +5530,8 @@ _ZN2lp12zero_of_typeI8rationalEET_v.exit:         ; preds = %44, %48
   %64 = or disjoint i8 %60, %63
   store i8 %64, ptr %29, align 4
   %65 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %66 = load i32, ptr %65, align 4, !tbaa !50
-  store i32 %50, ptr %65, align 4, !tbaa !50
+  %66 = load i32, ptr %65, align 8, !tbaa !50
+  store i32 %50, ptr %65, align 8, !tbaa !50
   store i32 %66, ptr %31, align 8, !tbaa !50
   %67 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %68 = load ptr, ptr %67, align 8, !tbaa !181
@@ -8780,10 +8780,10 @@ define linkonce_odr hidden noundef ptr @_ZNSt20__copy_move_backwardILb1ELb0ESt26
   store i8 %35, ptr %20, align 4
   %36 = getelementptr inbounds i8, ptr %.069, i64 -16
   %37 = getelementptr inbounds i8, ptr %.078, i64 -16
-  %38 = load i32, ptr %36, align 4, !tbaa !50
-  %39 = load i32, ptr %37, align 4, !tbaa !50
-  store i32 %39, ptr %36, align 4, !tbaa !50
-  store i32 %38, ptr %37, align 4, !tbaa !50
+  %38 = load i32, ptr %36, align 8, !tbaa !50
+  %39 = load i32, ptr %37, align 8, !tbaa !50
+  store i32 %39, ptr %36, align 8, !tbaa !50
+  store i32 %38, ptr %37, align 8, !tbaa !50
   %40 = getelementptr inbounds i8, ptr %.069, i64 -8
   %41 = getelementptr inbounds i8, ptr %.078, i64 -8
   %42 = load ptr, ptr %40, align 8, !tbaa !181

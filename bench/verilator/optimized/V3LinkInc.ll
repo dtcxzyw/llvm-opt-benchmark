@@ -3361,7 +3361,7 @@ _ZN11AstNodeExpr9cloneTreeEb.exit:                ; preds = %114
   store ptr %118, ptr %117, align 8, !tbaa !37
   %119 = getelementptr inbounds nuw i8, ptr %113, i64 176
   store i64 0, ptr %119, align 8, !tbaa !13
-  store i8 0, ptr %118, align 1, !tbaa !14
+  store i8 0, ptr %118, align 8, !tbaa !14
   %120 = getelementptr inbounds nuw i8, ptr %113, i64 200
   %121 = getelementptr inbounds nuw i8, ptr %113, i64 208
   %.not.i.i.i = icmp eq ptr %115, null
@@ -4546,7 +4546,7 @@ _ZN11AstNodeExpr9cloneTreeEb.exit:                ; preds = %110
   store ptr %114, ptr %113, align 8, !tbaa !37
   %115 = getelementptr inbounds nuw i8, ptr %109, i64 176
   store i64 0, ptr %115, align 8, !tbaa !13
-  store i8 0, ptr %114, align 1, !tbaa !14
+  store i8 0, ptr %114, align 8, !tbaa !14
   %116 = getelementptr inbounds nuw i8, ptr %109, i64 200
   %117 = getelementptr inbounds nuw i8, ptr %109, i64 208
   %.not.i.i.i = icmp eq ptr %111, null

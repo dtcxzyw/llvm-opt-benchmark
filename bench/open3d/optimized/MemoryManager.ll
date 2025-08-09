@@ -759,7 +759,7 @@ _ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19Memor
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %42 = load i64, ptr %41, align 8, !tbaa !51
   %43 = icmp eq i64 %42, %32
-  %44 = load i32, ptr %40, align 4
+  %44 = load i32, ptr %40, align 8
   %45 = icmp eq i32 %25, %44
   %46 = select i1 %43, i1 %45, i1 false
   br i1 %46, label %_ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit.thread22, label %.lr.ph.i.i.i.i
@@ -882,7 +882,7 @@ _ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19Memor
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 32
   %86 = load i64, ptr %85, align 8, !tbaa !51
   %87 = icmp eq i64 %86, %.pre-phi
-  %88 = load i32, ptr %84, align 4
+  %88 = load i32, ptr %84, align 8
   %89 = icmp eq i32 %25, %88
   %90 = select i1 %87, i1 %89, i1 false
   br i1 %90, label %_ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE2atERSC_.exit, label %.lr.ph.i.i.i.i.i
@@ -31803,7 +31803,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIN6open3d4core6Device10DeviceT
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %33 = load i64, ptr %32, align 8, !tbaa !51
   %34 = icmp eq i64 %33, %9
-  %35 = load i32, ptr %31, align 4
+  %35 = load i32, ptr %31, align 8
   %36 = icmp eq i32 %8, %35
   %37 = select i1 %34, i1 %36, i1 false
   br i1 %37, label %_ZNKSt10_HashtableIN6open3d4core6Device10DeviceTypeESt4pairIKS3_St10shared_ptrINS1_19MemoryManagerDeviceEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS3_ENS0_7utility15hash_enum_classENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS3_EEPNSB_10_Hash_nodeIS9_Lb1EEEmRKT_m.exit, label %.lr.ph.i.i

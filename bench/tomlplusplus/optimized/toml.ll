@@ -2384,7 +2384,7 @@ _ZNSolsEPFRSt8ios_baseS0_E.exit.i:                ; preds = %35
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load i32, ptr %41, align 8, !tbaa !56
   %43 = or i32 %42, 260
-  store i32 %43, ptr %41, align 4, !tbaa !57
+  store i32 %43, ptr %41, align 8, !tbaa !57
   br label %44
 
 44:                                               ; preds = %_ZNSolsEPFRSt8ios_baseS0_E.exit.i, %35
@@ -2650,7 +2650,7 @@ _ZNSolsEPFRSt8ios_baseS0_E.exit.i:                ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %41 = load i32, ptr %40, align 8, !tbaa !56
   %42 = or i32 %41, 260
-  store i32 %42, ptr %40, align 4, !tbaa !57
+  store i32 %42, ptr %40, align 8, !tbaa !57
   br label %43
 
 43:                                               ; preds = %_ZNSolsEPFRSt8ios_baseS0_E.exit.i, %34
@@ -46169,7 +46169,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8, !tbaa !11
   store ptr %13, ptr %9, align 8, !tbaa !3
   store i64 0, ptr %24, align 8, !tbaa !11
-  store i8 0, ptr %13, align 1, !tbaa !15
+  store i8 0, ptr %13, align 8, !tbaa !15
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %27, i64 16, i1 false)
@@ -47584,7 +47584,7 @@ define internal fastcc void @_ZZN12_GLOBAL__N_111utf8_readerISt17basic_string_vi
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i64, ptr %4, align 32
   store i64 %9, ptr %8, align 8
-  %10 = load i32, ptr %7, align 4, !tbaa !354
+  %10 = load i32, ptr %7, align 8, !tbaa !354
   %11 = icmp eq i32 %10, 10
   br i1 %11, label %12, label %15
 
@@ -48216,7 +48216,7 @@ define internal fastcc void @_ZZN12_GLOBAL__N_111utf8_readerISiE15read_next_bloc
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i64, ptr %4, align 16
   store i64 %9, ptr %8, align 8
-  %10 = load i32, ptr %7, align 4, !tbaa !354
+  %10 = load i32, ptr %7, align 8, !tbaa !354
   %11 = icmp eq i32 %10, 10
   br i1 %11, label %12, label %15
 

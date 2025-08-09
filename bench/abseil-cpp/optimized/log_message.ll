@@ -1093,7 +1093,7 @@ define dso_local void @_ZN4absl12log_internal10LogMessage14LogMessageDataC2EPKci
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load i32, ptr %32, align 8, !tbaa !78
   %34 = or i32 %33, 513
-  store i32 %34, ptr %32, align 4, !tbaa !79
+  store i32 %34, ptr %32, align 8, !tbaa !79
   %35 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #28
   store i64 %35, ptr %0, align 8, !tbaa !31
   %.sroa.4.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %0, i64 8

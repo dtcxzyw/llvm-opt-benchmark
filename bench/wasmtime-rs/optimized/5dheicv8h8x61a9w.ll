@@ -7717,7 +7717,7 @@ _ZN16wasmtime_environ12module_types18ModuleTypesBuilder23reserve_wasm_signatures
   %.sroa.181431.0..sroa_idx1433 = getelementptr inbounds nuw i8, ptr %544, i64 21
   store i24 %.sroa.181431.sroa.0.1, ptr %.sroa.181431.0..sroa_idx1433, align 1, !noalias !365
   %.sroa.181431.sroa.6.0..sroa.181431.0..sroa_idx1433.sroa_idx = getelementptr inbounds nuw i8, ptr %544, i64 24
-  store i8 %.sroa.181431.sroa.6.1, ptr %.sroa.181431.sroa.6.0..sroa.181431.0..sroa_idx1433.sroa_idx, align 1, !noalias !365
+  store i8 %.sroa.181431.sroa.6.1, ptr %.sroa.181431.sroa.6.0..sroa.181431.0..sroa_idx1433.sroa_idx, align 8, !noalias !365
   %.sroa.181431.sroa.7.0..sroa.181431.0..sroa_idx1433.sroa_idx = getelementptr inbounds nuw i8, ptr %544, i64 25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.181431.sroa.7.0..sroa.181431.0..sroa_idx1433.sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.181431.sroa.7, i64 3, i1 false), !noalias !365
   %.sroa.181435.0..sroa_idx1438 = getelementptr inbounds nuw i8, ptr %544, i64 28
@@ -7773,7 +7773,7 @@ _ZN16wasmtime_environ12module_types18ModuleTypesBuilder23reserve_wasm_signatures
   %.sroa.181431.8..sroa_idx = getelementptr inbounds nuw i8, ptr %557, i64 13
   store i24 %.sroa.181431.sroa.0.1, ptr %.sroa.181431.8..sroa_idx, align 1, !noalias !365
   %.sroa.181431.sroa.6.0..sroa.181431.8..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %557, i64 16
-  store i8 %.sroa.181431.sroa.6.1, ptr %.sroa.181431.sroa.6.0..sroa.181431.8..sroa_idx.sroa_idx, align 1, !noalias !365
+  store i8 %.sroa.181431.sroa.6.1, ptr %.sroa.181431.sroa.6.0..sroa.181431.8..sroa_idx.sroa_idx, align 4, !noalias !365
   %.sroa.181431.sroa.7.0..sroa.181431.8..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %557, i64 17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.181431.sroa.7.0..sroa.181431.8..sroa_idx.sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.181431.sroa.7, i64 3, i1 false), !noalias !365
   %.sroa.181435.8..sroa_idx = getelementptr inbounds nuw i8, ptr %557, i64 20

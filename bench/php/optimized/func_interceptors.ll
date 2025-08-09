@@ -3441,7 +3441,7 @@ define internal fastcc void @phar_fancy_stat(ptr noundef nonnull readonly captur
   %88 = getelementptr inbounds nuw i8, ptr %84, i64 24
   store i32 1802398060, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %84, i64 28
-  store i8 0, ptr %89, align 1, !tbaa !21
+  store i8 0, ptr %89, align 4, !tbaa !21
   store ptr %84, ptr %2, align 8, !tbaa !21
   %90 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 262, ptr %90, align 8, !tbaa !21
@@ -3484,7 +3484,7 @@ define internal fastcc void @phar_fancy_stat(ptr noundef nonnull readonly captur
   %105 = getelementptr inbounds nuw i8, ptr %101, i64 24
   store i32 1701603686, ptr %105, align 8
   %106 = getelementptr inbounds nuw i8, ptr %101, i64 28
-  store i8 0, ptr %106, align 1, !tbaa !21
+  store i8 0, ptr %106, align 4, !tbaa !21
   store ptr %101, ptr %2, align 8, !tbaa !21
   %107 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 262, ptr %107, align 8, !tbaa !21

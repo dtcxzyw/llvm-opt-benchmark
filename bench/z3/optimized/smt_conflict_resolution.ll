@@ -249,7 +249,7 @@ define hidden void @_ZN3smt19conflict_resolutionC2ER11ast_managerRNS_7contextERN
   %54 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i.i27, i64 4
   store i32 0, ptr %54, align 4, !tbaa !109
   %55 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i.i27, i64 8
-  store i32 -2, ptr %55, align 4, !tbaa !110
+  store i32 -2, ptr %55, align 8, !tbaa !110
   %56 = add nsw i32 %.01012.i.i.i.i.i.i.i.i28, -1
   %57 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i.i27, i64 24
   %.not.i.i.i.i.i.i.i.i29 = icmp eq i32 %56, 0
@@ -7861,7 +7861,7 @@ _ZN14core_hashtableI17default_map_entryIN3sat7literalEP3appEN9table2mapIS5_8obj_
   %95 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i18, i64 4
   store i32 0, ptr %95, align 4, !tbaa !109
   %96 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i18, i64 8
-  store i32 -2, ptr %96, align 4, !tbaa !110
+  store i32 -2, ptr %96, align 8, !tbaa !110
   %97 = add nsw i32 %.01012.i.i.i.i.i.i.i19, -1
   %98 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i18, i64 24
   %.not.i.i.i.i.i.i.i20 = icmp eq i32 %97, 0
@@ -12049,7 +12049,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIN3sat7l
   %8 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 4
   store i32 0, ptr %8, align 4, !tbaa !109
   %9 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 8
-  store i32 -2, ptr %9, align 4, !tbaa !110
+  store i32 -2, ptr %9, align 8, !tbaa !110
   %10 = add i32 %.01012.i.i.i.i.i, -1
   %11 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i = icmp eq i32 %10, 0

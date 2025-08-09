@@ -2223,7 +2223,7 @@ define dso_local void @skl_wm_init(ptr noundef %0) local_unnamed_addr #0 align 1
   %150 = trunc nuw i32 %149 to i16
   %151 = and i16 %150, 8191
   %152 = getelementptr i8, ptr %0, i64 6920
-  store i16 %151, ptr %152, align 2
+  store i16 %151, ptr %152, align 8
   %153 = load ptr, ptr %144, align 8
   %154 = call i32 %153(ptr noundef nonnull %143, i32 284548, i1 noundef zeroext true) #15
   %155 = trunc i32 %154 to i16
@@ -2234,7 +2234,7 @@ define dso_local void @skl_wm_init(ptr noundef %0) local_unnamed_addr #0 align 1
   %159 = trunc nuw i32 %158 to i16
   %160 = and i16 %159, 8191
   %161 = getelementptr i8, ptr %0, i64 6924
-  store i16 %160, ptr %161, align 2
+  store i16 %160, ptr %161, align 4
   %162 = load ptr, ptr %144, align 8
   %163 = call i32 %162(ptr noundef nonnull %143, i32 284552, i1 noundef zeroext true) #15
   %164 = trunc i32 %163 to i16
@@ -2245,7 +2245,7 @@ define dso_local void @skl_wm_init(ptr noundef %0) local_unnamed_addr #0 align 1
   %168 = trunc nuw i32 %167 to i16
   %169 = and i16 %168, 8191
   %170 = getelementptr i8, ptr %0, i64 6928
-  store i16 %169, ptr %170, align 2
+  store i16 %169, ptr %170, align 8
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 8912
   %172 = load i8, ptr %171, align 8, !range !9, !noundef !10
   %173 = icmp eq i8 %172, 0

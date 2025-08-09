@@ -471,7 +471,7 @@ _ZN12duckdb_miniz39tdefl_create_comp_flags_from_zip_paramsEiii.exit: ; preds = %
   %narrow53.i = add nuw nsw i16 %65, 1
   %66 = zext nneg i16 %narrow53.i to i32
   %67 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  store i32 %66, ptr %67, align 4, !tbaa !10
+  store i32 %66, ptr %67, align 8, !tbaa !10
   %68 = and i32 %.1.i, 32768
   %.not.i38 = icmp eq i32 %68, 0
   br i1 %.not.i38, label %69, label %71
@@ -612,7 +612,7 @@ define noundef i32 @_ZN12duckdb_miniz10tdefl_initEPNS_16tdefl_compressorEPFiPKvi
   %narrow53 = add nuw nsw i16 %16, 1
   %17 = zext nneg i16 %narrow53 to i32
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %17, ptr %18, align 4, !tbaa !10
+  store i32 %17, ptr %18, align 8, !tbaa !10
   %19 = and i32 %3, 32768
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %20, label %22
@@ -748,7 +748,7 @@ define noundef range(i32 -2, 1) i32 @_ZN12duckdb_miniz15mz_deflateResetEPNS_11mz
   %narrow53.i = add nuw nsw i16 %25, 1
   %26 = zext nneg i16 %narrow53.i to i32
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 %26, ptr %27, align 4, !tbaa !10
+  store i32 %26, ptr %27, align 8, !tbaa !10
   %28 = and i32 %15, 32768
   %.not.i = icmp eq i32 %28, 0
   br i1 %.not.i, label %29, label %31
@@ -1386,7 +1386,7 @@ define noundef range(i32 -10000, 1) i32 @_ZN12duckdb_miniz11mz_compressEPhPmPKhm
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 28
   store i32 1, ptr %26, align 4, !tbaa !32
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store i32 12, ptr %27, align 4, !tbaa !10
+  store i32 12, ptr %27, align 8, !tbaa !10
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 168618
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(65536) %28, i8 0, i64 65536, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 84
@@ -2489,7 +2489,7 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %scevgep1867 = getelementptr i8, ptr %0, i64 328
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %scevgep1867, i8 7, i64 24, i1 false), !tbaa !3
   %scevgep1868 = getelementptr i8, ptr %0, i64 352
-  store i64 578721382704613384, ptr %scevgep1868, align 1
+  store i64 578721382704613384, ptr %scevgep1868, align 4
   br label %.loopexit1721
 
 223:                                              ; preds = %218, %.loopexit2002
@@ -6411,7 +6411,7 @@ define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz28tdefl_compress_mem_to_out
   %narrow53.i = add nuw nsw i16 %24, 1
   %25 = zext nneg i16 %narrow53.i to i32
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store i32 %25, ptr %26, align 4, !tbaa !10
+  store i32 %25, ptr %26, align 8, !tbaa !10
   %27 = and i32 %4, 32768
   %.not.i = icmp eq i32 %27, 0
   br i1 %.not.i, label %28, label %30
@@ -6717,7 +6717,7 @@ _ZN12duckdb_miniz10tdefl_initEPNS_16tdefl_compressorEPFiPKviPvES4_i.exit: ; pred
   %narrow53.i = add nuw nsw i16 %67, 1
   %68 = zext nneg i16 %narrow53.i to i32
   %69 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store i32 %68, ptr %69, align 4, !tbaa !10
+  store i32 %68, ptr %69, align 8, !tbaa !10
   %70 = getelementptr inbounds nuw i8, ptr %14, i64 168618
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(65536) %70, i8 0, i64 65536, i1 false)
   %71 = getelementptr inbounds nuw i8, ptr %14, i64 84

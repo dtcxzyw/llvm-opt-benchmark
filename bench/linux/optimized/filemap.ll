@@ -515,7 +515,7 @@ define internal void @trace_event_raw_event_mm_filemap_op_page_cache(ptr noundef
   %39 = select i1 %35, ptr %37, ptr %38
   %40 = load i32, ptr %39, align 4
   store i32 %40, ptr %36, align 8
-  %41 = load volatile i64, ptr %1, align 8
+  %41 = load volatile i64, ptr %1, align 16
   %42 = and i64 %41, 64
   %43 = icmp eq i64 %42, 0
   br i1 %43, label %48, label %44
@@ -607,7 +607,7 @@ define internal void @perf_trace_mm_filemap_op_page_cache(ptr noundef %0, ptr no
   %50 = select i1 %46, ptr %48, ptr %49
   %51 = load i32, ptr %50, align 4
   store i32 %51, ptr %47, align 8
-  %52 = load volatile i64, ptr %1, align 8
+  %52 = load volatile i64, ptr %1, align 16
   %53 = and i64 %52, 64
   %54 = icmp eq i64 %53, 0
   br i1 %54, label %59, label %55
@@ -3067,7 +3067,7 @@ define dso_local void @replace_page_cache_folio(ptr noundef %0, ptr noundef %1) 
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull %13) #14
   %20 = call ptr @xas_store(ptr noundef nonnull %3, ptr noundef %1) #14
   store ptr null, ptr %4, align 8
-  %21 = load volatile i64, ptr %0, align 8
+  %21 = load volatile i64, ptr %0, align 16
   %22 = and i64 %21, 64
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %29, label %24
@@ -6547,7 +6547,7 @@ define dso_local range(i32 0, 256) i32 @filemap_get_folios_contig(ptr noundef %0
   %129 = load ptr, ptr %128, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 32
   %131 = load i64, ptr %130, align 16
-  %132 = load volatile i64, ptr %129, align 8
+  %132 = load volatile i64, ptr %129, align 16
   %133 = and i64 %132, 64
   %134 = icmp eq i64 %133, 0
   br i1 %134, label %139, label %135
@@ -9396,7 +9396,7 @@ define dso_local range(i32 0, 512) i32 @filemap_map_pages(ptr noundef %0, i64 no
   store ptr %90, ptr %47, align 8
   %91 = getelementptr inbounds nuw i8, ptr %81, i64 32
   %92 = load i64, ptr %91, align 16
-  %93 = load volatile i64, ptr %81, align 8
+  %93 = load volatile i64, ptr %81, align 16
   %94 = and i64 %93, 64
   %95 = icmp eq i64 %94, 0
   br i1 %95, label %100, label %96
@@ -11758,7 +11758,7 @@ define internal fastcc void @filemap_get_read_batch(ptr noundef %0, i64 noundef 
 86:                                               ; preds = %82
   %87 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %88 = load i64, ptr %87, align 16
-  %89 = load volatile i64, ptr %15, align 8
+  %89 = load volatile i64, ptr %15, align 16
   %90 = and i64 %89, 64
   %91 = icmp eq i64 %90, 0
   br i1 %91, label %96, label %92

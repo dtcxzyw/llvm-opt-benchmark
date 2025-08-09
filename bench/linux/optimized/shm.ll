@@ -525,7 +525,7 @@ define internal fastcc void @shm_destroy(ptr noundef captures(none) %0, ptr noun
   store i64 %11, ptr %9, align 8
   tail call void @__rcu_read_lock() #12
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %13 = load volatile ptr, ptr %12, align 8
+  %13 = load volatile ptr, ptr %12, align 16
   %14 = icmp eq ptr %13, %12
   br i1 %14, label %23, label %15
 
@@ -793,7 +793,7 @@ define internal i32 @newseg(ptr noundef %0, ptr noundef readonly captures(none) 
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
   store ptr %111, ptr %114, align 8
-  store ptr %113, ptr %111, align 8
+  store ptr %113, ptr %111, align 16
   %115 = getelementptr inbounds nuw i8, ptr %30, i64 216
   store ptr %112, ptr %115, align 8
   store volatile ptr %111, ptr %112, align 8

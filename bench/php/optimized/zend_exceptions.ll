@@ -3852,7 +3852,7 @@ define hidden void @zim_Exception___toString(ptr noundef readonly captures(none)
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 1 dereferenceable(16) @.str.7, i64 16, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  store i8 0, ptr %18, align 1, !tbaa !16
+  store i8 0, ptr %18, align 8, !tbaa !16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load i8, ptr %19, align 8, !tbaa !16
   %21 = icmp eq i8 %20, 8
@@ -4121,7 +4121,7 @@ zend_string_release_ex.exit:                      ; preds = %138, %133, %128, %1
   %157 = getelementptr inbounds nuw i8, ptr %153, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %157, ptr noundef nonnull align 1 dereferenceable(10) @.str.10, i64 10, i1 false)
   %158 = getelementptr inbounds nuw i8, ptr %153, i64 34
-  store i8 0, ptr %158, align 1, !tbaa !16
+  store i8 0, ptr %158, align 2, !tbaa !16
   br label %zend_string_copy.exit121
 
 zend_string_copy.exit121:                         ; preds = %149, %145, %152

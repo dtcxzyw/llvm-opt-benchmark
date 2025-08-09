@@ -20486,7 +20486,7 @@ switch.early.test:                                ; preds = %79
   %104 = load i32, ptr %103, align 8, !tbaa !273
   %105 = and i32 %104, -75
   %106 = or disjoint i32 %105, 8
-  store i32 %106, ptr %103, align 4, !tbaa !274
+  store i32 %106, ptr %103, align 8, !tbaa !274
   %107 = zext nneg i32 %.1.fr to i64
   %108 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %107)
   br label %_ZNK8seq_util3str9is_lengthEPK4exprRPS1_.exit.thread
@@ -20505,7 +20505,7 @@ switch.early.test:                                ; preds = %79
   %117 = load i32, ptr %116, align 8, !tbaa !273
   %118 = and i32 %117, -75
   %119 = or disjoint i32 %118, 8
-  store i32 %119, ptr %116, align 4, !tbaa !274
+  store i32 %119, ptr %116, align 8, !tbaa !274
   %120 = zext nneg i32 %.1.fr to i64
   %121 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %120)
   br label %_ZNK8seq_util3str9is_lengthEPK4exprRPS1_.exit.thread
@@ -20525,7 +20525,7 @@ switch.early.test:                                ; preds = %79
   %132 = load i32, ptr %131, align 8, !tbaa !273
   %133 = and i32 %132, -75
   %134 = or disjoint i32 %133, 8
-  store i32 %134, ptr %131, align 4, !tbaa !274
+  store i32 %134, ptr %131, align 8, !tbaa !274
   %135 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %124)
   br label %_ZNK8seq_util3str9is_lengthEPK4exprRPS1_.exit.thread
 
@@ -20539,7 +20539,7 @@ switch.early.test:                                ; preds = %79
   %143 = load i32, ptr %142, align 8, !tbaa !273
   %144 = and i32 %143, -75
   %145 = or disjoint i32 %144, 8
-  store i32 %145, ptr %142, align 4, !tbaa !274
+  store i32 %145, ptr %142, align 8, !tbaa !274
   %146 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %124)
   br label %_ZNK8seq_util3str9is_lengthEPK4exprRPS1_.exit.thread
 

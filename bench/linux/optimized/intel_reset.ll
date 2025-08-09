@@ -1513,7 +1513,7 @@ define dso_local i32 @__intel_engine_reset_bh(ptr noundef %0, ptr noundef %1) lo
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 48
   %72 = tail call zeroext i1 @irq_work_queue(ptr noundef nonnull %71) #10
-  %73 = load volatile i32, ptr %9, align 4
+  %73 = load volatile i32, ptr %9, align 8
   %74 = icmp eq i32 %73, 1
   br i1 %74, label %._crit_edge, label %.lr.ph13, !prof !18
 

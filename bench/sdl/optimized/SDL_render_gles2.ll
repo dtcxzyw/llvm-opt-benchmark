@@ -365,11 +365,11 @@ define internal noundef zeroext i1 @GLES2_CreateRenderer(ptr noundef %0, ptr nou
   %129 = getelementptr inbounds nuw i8, ptr %36, i64 652
   store float 1.000000e+00, ptr %129, align 4
   %130 = getelementptr inbounds nuw i8, ptr %36, i64 656
-  store float 1.000000e+00, ptr %130, align 4
+  store float 1.000000e+00, ptr %130, align 8
   %131 = getelementptr inbounds nuw i8, ptr %36, i64 660
   store float 1.000000e+00, ptr %131, align 4
   %132 = getelementptr inbounds nuw i8, ptr %36, i64 664
-  store float 1.000000e+00, ptr %132, align 4
+  store float 1.000000e+00, ptr %132, align 8
   %133 = getelementptr inbounds nuw i8, ptr %36, i64 744
   store float -1.000000e+00, ptr %133, align 8
   %134 = getelementptr inbounds nuw i8, ptr %36, i64 756
@@ -2817,7 +2817,7 @@ define internal noundef zeroext i1 @GLES2_QueueDrawPoints(ptr noundef %0, ptr no
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 36
   %.sroa.10.0.copyload = load float, ptr %.sroa.10.0..sroa_idx, align 4
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.8.0.copyload = load float, ptr %.sroa.8.0..sroa_idx, align 4
+  %.sroa.8.0.copyload = load float, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.0.0.copyload = load float, ptr %20, align 4
   %21 = fmul float %19, %.sroa.0.0.copyload
   %22 = fmul float %19, %.sroa.8.0.copyload
@@ -2894,7 +2894,7 @@ define internal noundef zeroext i1 @GLES2_QueueDrawLines(ptr noundef %0, ptr nou
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 36
   %.sroa.11.0.copyload = load float, ptr %.sroa.11.0..sroa_idx, align 4
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.9.0.copyload = load float, ptr %.sroa.9.0..sroa_idx, align 4
+  %.sroa.9.0.copyload = load float, ptr %.sroa.9.0..sroa_idx, align 8
   %.sroa.0.0.copyload = load float, ptr %20, align 4
   %21 = fmul float %19, %.sroa.0.0.copyload
   %22 = fmul float %19, %.sroa.9.0.copyload
@@ -3479,13 +3479,13 @@ define internal noundef zeroext i1 @GLES2_RunCommandQueue(ptr noundef readonly c
   %85 = load float, ptr %84, align 8
   %86 = fmul float %83, %85
   %87 = getelementptr inbounds nuw i8, ptr %.0142254, i64 24
-  %88 = load float, ptr %87, align 4
+  %88 = load float, ptr %87, align 8
   %89 = fmul float %85, %88
   %.in179 = select i1 %16, ptr %82, ptr %81
   %90 = load float, ptr %.in179, align 4
   %91 = fmul float %85, %90
   %92 = getelementptr inbounds nuw i8, ptr %.0142254, i64 32
-  %93 = load float, ptr %92, align 4
+  %93 = load float, ptr %92, align 8
   %94 = load i8, ptr %52, align 4, !range !5, !noundef !6
   %95 = trunc nuw i8 %94 to i1
   br i1 %95, label %108, label %96
@@ -3514,9 +3514,9 @@ define internal noundef zeroext i1 @GLES2_RunCommandQueue(ptr noundef readonly c
   %109 = load ptr, ptr %57, align 8
   call void %109(float noundef %86, float noundef %89, float noundef %91, float noundef %93) #10
   store float %86, ptr %53, align 4
-  store float %89, ptr %54, align 4
+  store float %89, ptr %54, align 8
   store float %91, ptr %55, align 4
-  store float %93, ptr %56, align 4
+  store float %93, ptr %56, align 8
   store i8 0, ptr %52, align 4
   br label %110
 
@@ -4846,7 +4846,7 @@ define internal fastcc noundef zeroext i1 @SetDrawState(ptr noundef %0, ptr noun
 14:                                               ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %16 = load ptr, ptr %15, align 8
-  %17 = load i32, ptr %10, align 4
+  %17 = load i32, ptr %10, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
@@ -4940,8 +4940,8 @@ define internal fastcc noundef zeroext i1 @SetDrawState(ptr noundef %0, ptr noun
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %74 = load ptr, ptr %73, align 8
-  %75 = load i32, ptr %10, align 4
-  %76 = load i32, ptr %72, align 4
+  %75 = load i32, ptr %10, align 8
+  %76 = load i32, ptr %72, align 8
   %77 = add nsw i32 %76, %75
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %79 = load ptr, ptr %78, align 8
@@ -5454,7 +5454,7 @@ define internal fastcc noundef zeroext i1 @GLES2_SelectProgram(ptr noundef captu
   %125 = load i32, ptr %90, align 8
   call void %124(i32 noundef %125) #10
   %126 = getelementptr inbounds nuw i8, ptr %90, i64 24
-  %127 = load i32, ptr %126, align 4
+  %127 = load i32, ptr %126, align 8
   %.not105.i = icmp eq i32 %127, -1
   br i1 %.not105.i, label %131, label %128
 

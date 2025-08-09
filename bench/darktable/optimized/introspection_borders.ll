@@ -296,10 +296,10 @@ define noundef i32 @distort_transform(ptr noundef readnone captures(none) %0, pt
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 164
   %8 = load i32, ptr %7, align 4, !tbaa !43
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %10 = load i32, ptr %9, align 8, !tbaa !44
+  %10 = load i32, ptr %9, align 16, !tbaa !44
   %11 = sub nsw i32 %8, %10
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %13 = load i32, ptr %12, align 4, !tbaa !45
+  %13 = load i32, ptr %12, align 8, !tbaa !45
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %15 = load i32, ptr %14, align 4, !tbaa !46
   %16 = sub nsw i32 %13, %15
@@ -357,10 +357,10 @@ define noundef i32 @distort_backtransform(ptr noundef readnone captures(none) %0
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 164
   %8 = load i32, ptr %7, align 4, !tbaa !43
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %10 = load i32, ptr %9, align 8, !tbaa !44
+  %10 = load i32, ptr %9, align 16, !tbaa !44
   %11 = sub nsw i32 %8, %10
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %13 = load i32, ptr %12, align 4, !tbaa !45
+  %13 = load i32, ptr %12, align 8, !tbaa !45
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %15 = load i32, ptr %14, align 4, !tbaa !46
   %16 = sub nsw i32 %13, %15
@@ -716,14 +716,14 @@ define void @modify_roi_in(ptr noundef readnone captures(none) %0, ptr noundef r
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 164
   %8 = load i32, ptr %7, align 4, !tbaa !43
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %10 = load i32, ptr %9, align 8, !tbaa !44
+  %10 = load i32, ptr %9, align 16, !tbaa !44
   %11 = sub nsw i32 %8, %10
   %12 = sitofp i32 %11 to float
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = load float, ptr %13, align 4, !tbaa !62
   %15 = fmul reassoc nsz arcp contract afn float %14, %12
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %17 = load i32, ptr %16, align 4, !tbaa !45
+  %17 = load i32, ptr %16, align 8, !tbaa !45
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %19 = load i32, ptr %18, align 4, !tbaa !46
   %20 = sub nsw i32 %17, %19
@@ -777,7 +777,7 @@ define void @modify_roi_in(ptr noundef readnone captures(none) %0, ptr noundef r
   %65 = fsub reassoc nsz arcp contract afn float %64, %61
   %66 = fptosi float %65 to i32
   store i32 %66, ptr %62, align 4, !tbaa !56
-  %67 = load i32, ptr %9, align 8, !tbaa !44
+  %67 = load i32, ptr %9, align 16, !tbaa !44
   %68 = sitofp i32 %67 to float
   %69 = fmul reassoc nsz arcp contract afn float %14, %68
   %70 = load i32, ptr %18, align 4, !tbaa !46

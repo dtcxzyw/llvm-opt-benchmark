@@ -2409,7 +2409,7 @@ _ZN5clang8comments6Parser12consumeTokenEv.exit35.thread: ; preds = %75
   store ptr %96, ptr %.ptr.i.i.i.i, align 8, !tbaa !126
   %97 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
   store i64 0, ptr %97, align 8, !tbaa !128
-  store i8 0, ptr %96, align 1, !tbaa !49
+  store i8 0, ptr %96, align 8, !tbaa !49
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 32
   %98 = icmp eq i64 %.add.i.i.i.i, 416
   br i1 %98, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %95
@@ -3164,7 +3164,7 @@ _ZN5clang8comments6Parser12consumeTokenEv.exit:   ; preds = %14, %16
   store ptr %66, ptr %.ptr.i.i.i.i, align 8, !tbaa !126
   %67 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
   store i64 0, ptr %67, align 8, !tbaa !128
-  store i8 0, ptr %66, align 1, !tbaa !49
+  store i8 0, ptr %66, align 8, !tbaa !49
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 32
   %68 = icmp eq i64 %.add.i.i.i.i, 416
   br i1 %68, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %65
@@ -5921,7 +5921,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic14AddSourceRange
   store ptr %13, ptr %.ptr.i.i.i, align 8, !tbaa !126
   %14 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %14, align 8, !tbaa !128
-  store i8 0, ptr %13, align 1, !tbaa !49
+  store i8 0, ptr %13, align 8, !tbaa !49
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %15 = icmp eq i64 %.add.i.i.i, 416
   br i1 %15, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %12

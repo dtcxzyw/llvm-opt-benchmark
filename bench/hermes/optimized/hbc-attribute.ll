@@ -3813,7 +3813,7 @@ if.end.i.i:                                       ; preds = %if.end3
   %second3.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i2.i.i, i64 16
   store i32 %1, ptr %second3.i.i.i.i, align 8
   %second.i6.i.i.i = getelementptr inbounds nuw i8, ptr %call.i2.i.i, i64 24
-  store i32 0, ptr %second.i6.i.i.i, align 4
+  store i32 0, ptr %second.i6.i.i.i, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit: ; preds = %if.end3, %if.end.i.i
@@ -4433,7 +4433,7 @@ if.then.i:                                        ; preds = %_ZN4llvh12DenseMapI
   %second.i35.i = getelementptr inbounds nuw i8, ptr %7, i64 24
   %second.i36.i = getelementptr inbounds nuw i8, ptr %B.042.i, i64 24
   %9 = load i32, ptr %second.i36.i, align 4
-  store i32 %9, ptr %second.i35.i, align 4
+  store i32 %9, ptr %second.i35.i, align 8
   %10 = load i32, ptr %NumEntries.i.i.i.i, align 8
   %add.i.i = add i32 %10, 1
   store i32 %add.i.i, ptr %NumEntries.i.i.i.i, align 8
@@ -4571,7 +4571,7 @@ if.end.i.i.i73:                                   ; preds = %if.end3.i71
   %second3.i.i.i.i.i75 = getelementptr inbounds nuw i8, ptr %call.i2.i.i.i74, i64 16
   store i32 %8, ptr %second3.i.i.i.i.i75, align 8
   %second.i6.i.i.i.i76 = getelementptr inbounds nuw i8, ptr %call.i2.i.i.i74, i64 24
-  store i32 0, ptr %second.i6.i.i.i.i76, align 4
+  store i32 0, ptr %second.i6.i.i.i.i76, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit.i77
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit.i77: ; preds = %if.end.i.i.i73, %if.end3.i71
@@ -4625,7 +4625,7 @@ if.end.i.i.i55:                                   ; preds = %if.end3.i53
   %second3.i.i.i.i.i57 = getelementptr inbounds nuw i8, ptr %call.i2.i.i.i56, i64 16
   store i32 %15, ptr %second3.i.i.i.i.i57, align 8
   %second.i6.i.i.i.i58 = getelementptr inbounds nuw i8, ptr %call.i2.i.i.i56, i64 24
-  store i32 0, ptr %second.i6.i.i.i.i58, align 4
+  store i32 0, ptr %second.i6.i.i.i.i58, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit.i59
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit.i59: ; preds = %if.end.i.i.i55, %if.end3.i53
@@ -4679,7 +4679,7 @@ if.end.i.i.i37:                                   ; preds = %if.end3.i35
   %second3.i.i.i.i.i39 = getelementptr inbounds nuw i8, ptr %call.i2.i.i.i38, i64 16
   store i32 %22, ptr %second3.i.i.i.i.i39, align 8
   %second.i6.i.i.i.i40 = getelementptr inbounds nuw i8, ptr %call.i2.i.i.i38, i64 24
-  store i32 0, ptr %second.i6.i.i.i.i40, align 4
+  store i32 0, ptr %second.i6.i.i.i.i40, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit.i41
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit.i41: ; preds = %if.end.i.i.i37, %if.end3.i35
@@ -4730,7 +4730,7 @@ if.end.i.i.i19:                                   ; preds = %if.end3.i17
   %second3.i.i.i.i.i21 = getelementptr inbounds nuw i8, ptr %call.i2.i.i.i20, i64 16
   store i32 %29, ptr %second3.i.i.i.i.i21, align 8
   %second.i6.i.i.i.i22 = getelementptr inbounds nuw i8, ptr %call.i2.i.i.i20, i64 24
-  store i32 0, ptr %second.i6.i.i.i.i22, align 4
+  store i32 0, ptr %second.i6.i.i.i.i22, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit.i23
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit.i23: ; preds = %if.end.i.i.i19, %if.end3.i17
@@ -4780,7 +4780,7 @@ if.end.i.i.i:                                     ; preds = %if.end3.i
   %second3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i2.i.i.i, i64 16
   store i32 %36, ptr %second3.i.i.i.i.i, align 8
   %second.i6.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i2.i.i.i, i64 24
-  store i32 0, ptr %second.i6.i.i.i.i, align 4
+  store i32 0, ptr %second.i6.i.i.i.i, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit.i
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit.i: ; preds = %if.end.i.i.i, %if.end3.i

@@ -13169,7 +13169,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK11colvar
   %24 = load i32, ptr %23, align 8, !tbaa !339
   %25 = and i32 %24, -261
   %26 = or disjoint i32 %25, 256
-  store i32 %26, ptr %23, align 4, !tbaa !340
+  store i32 %26, ptr %23, align 8, !tbaa !340
   %27 = load i64, ptr %15, align 8, !tbaa !80
   %.not = icmp eq i64 %27, 0
   br i1 %.not, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.thread, label %.lr.ph
@@ -24615,7 +24615,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK11colvar
   %24 = load i32, ptr %23, align 8, !tbaa !339
   %25 = and i32 %24, -261
   %26 = or disjoint i32 %25, 256
-  store i32 %26, ptr %23, align 4, !tbaa !340
+  store i32 %26, ptr %23, align 8, !tbaa !340
   %27 = load i64, ptr %15, align 8, !tbaa !87
   %.not = icmp eq i64 %27, 0
   br i1 %.not, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.thread, label %.lr.ph

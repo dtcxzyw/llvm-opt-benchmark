@@ -38,7 +38,7 @@ define dso_local void @__i915_active_init(ptr noundef initializes((40, 44), (48,
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr null, ptr %12, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
-  store volatile i32 0, ptr %0, align 4
+  store volatile i32 0, ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @__mutex_init(ptr noundef nonnull %13, ptr noundef nonnull @.str, ptr noundef %4) #8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64

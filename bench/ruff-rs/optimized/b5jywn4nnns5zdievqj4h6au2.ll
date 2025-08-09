@@ -20886,7 +20886,7 @@ define internal fastcc void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$
   %.sroa.514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %97, i64 12
   store i32 %.sroa.13.sroa.0.1, ptr %.sroa.514.0..sroa_idx, align 4, !noalias !2524
   %.sroa.514.sroa.4.0..sroa.514.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %97, i64 16
-  store i64 %.sroa.13.sroa.5.1, ptr %.sroa.514.sroa.4.0..sroa.514.0..sroa_idx.sroa_idx, align 4, !noalias !2524
+  store i64 %.sroa.13.sroa.5.1, ptr %.sroa.514.sroa.4.0..sroa.514.0..sroa_idx.sroa_idx, align 8, !noalias !2524
   %.sroa.615.0..sroa_idx = getelementptr inbounds nuw i8, ptr %97, i64 24
   store i8 %.sroa.137.1, ptr %.sroa.615.0..sroa_idx, align 8, !noalias !2524
   %.sroa.716.0..sroa_idx = getelementptr inbounds nuw i8, ptr %97, i64 25
@@ -22986,7 +22986,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.011.036.i, i64 194
   %38 = load i8, ptr %37, align 2, !range !346, !alias.scope !2870, !noalias !2869, !noundef !29
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.011.036.i, i64 192
-  %.val.i.i = load i8, ptr %39, align 1, !alias.scope !2870, !noalias !2869, !noundef !29
+  %.val.i.i = load i8, ptr %39, align 2, !alias.scope !2870, !noalias !2869, !noundef !29
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.011.036.i, i64 193
   %.val2.i.i = load i8, ptr %40, align 1, !alias.scope !2870, !noalias !2869, !noundef !29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.012.i, ptr noundef nonnull align 8 dereferenceable(96) %5, i64 96, i1 false), !noalias !2858

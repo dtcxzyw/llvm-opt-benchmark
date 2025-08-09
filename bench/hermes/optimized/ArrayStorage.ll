@@ -268,7 +268,7 @@ _ZN6hermes2vm7Runtime13makeAVariableINS0_16ArrayStorageBaseINS0_11HermesValueEEE
   %cond.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i, %cond.true.i.i.i.i.i ], [ %3, %cond.false.i.i.i.i.i ]
   store i64 0, ptr %cond.i.i.i.i.i, align 8
   %bf.set7.i.i.i.i.i.i = or disjoint i32 %div1.i.i.i.i, 234881024
-  store i32 %bf.set7.i.i.i.i.i.i, ptr %cond.i.i.i.i.i, align 4
+  store i32 %bf.set7.i.i.i.i.i.i, ptr %cond.i.i.i.i.i, align 8
   %5 = ptrtoint ptr %cond.i.i.i.i.i to i64
   %or.i.i.i = or i64 %5, -281474976710656
   br label %return
@@ -415,7 +415,7 @@ if.end:                                           ; preds = %entry
   %call.i.i.i.i = call noundef ptr @_ZN6hermes2vm7HadesGC14allocLongLivedEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, i32 noundef %div1.i.i.i.i) #7
   store i64 0, ptr %call.i.i.i.i, align 8
   %bf.set7.i.i.i.i.i.i = or disjoint i32 %div1.i.i.i.i, 234881024
-  store i32 %bf.set7.i.i.i.i.i.i, ptr %call.i.i.i.i, align 4
+  store i32 %bf.set7.i.i.i.i.i.i, ptr %call.i.i.i.i, align 8
   %3 = load ptr, ptr %lk.i.i.i.i, align 8
   %call1.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %lk.i.i.i.i)
@@ -2025,7 +2025,7 @@ _ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i: ; preds = %cond.fals
   %cond.i.i.i.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i.i.i ], [ %8, %cond.false.i.i.i.i.i.i.i.i ]
   %value_.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i.i.i, i64 8
   store i64 %retval.sroa.0.0.copyload.i.i13, ptr %value_.i.i.i.i.i.i.i.i.i, align 8
-  store i32 402653200, ptr %cond.i.i.i.i.i.i.i.i, align 4
+  store i32 402653200, ptr %cond.i.i.i.i.i.i.i.i, align 8
   %10 = ptrtoint ptr %cond.i.i.i.i.i.i.i.i to i64
   %11 = ptrtoint ptr %runtime to i64
   %sub.i.i.i.i.i13.i = sub i64 %10, %11
@@ -2185,7 +2185,7 @@ _ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i: ; preds = %cond.fals
   %cond.i.i.i.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i.i.i ], [ %8, %cond.false.i.i.i.i.i.i.i.i ]
   %value_.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i.i.i, i64 8
   store i64 %retval.sroa.0.0.copyload.i.i.i, ptr %value_.i.i.i.i.i.i.i.i.i, align 8
-  store i32 402653200, ptr %cond.i.i.i.i.i.i.i.i, align 4
+  store i32 402653200, ptr %cond.i.i.i.i.i.i.i.i, align 8
   %10 = ptrtoint ptr %cond.i.i.i.i.i.i.i.i to i64
   %11 = ptrtoint ptr %runtime to i64
   %sub.i.i.i.i.i13.i = sub i64 %10, %11

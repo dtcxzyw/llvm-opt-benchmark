@@ -9121,7 +9121,7 @@ define internal fastcc void @"_ZN11polars_pipe9executors5sinks8group_by9primitiv
   %.val.i.i.i = load i128, ptr %103, align 16, !range !502, !noalias !503, !noundef !7
   %105 = getelementptr i8, ptr %101, i64 -48
   %.val11.i.i.i = load i128, ptr %105, align 16, !noalias !503
-  %.val12.i.i.i = load i32, ptr %104, align 4, !noalias !503, !noundef !7
+  %.val12.i.i.i = load i32, ptr %104, align 16, !noalias !503, !noundef !7
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !504
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !504
   invoke void @_ZN11polars_core13chunked_array7builder14ChunkedBuilder13append_option17h5d64bdf40a1f92ddE(ptr noalias noundef nonnull align 16 dereferenceable(176) %21, i128 noundef %.val.i.i.i, i128 %.val11.i.i.i)
@@ -9683,7 +9683,7 @@ define internal fastcc void @"_ZN11polars_pipe9executors5sinks8group_by9primitiv
   %.val.i.i.i = load i8, ptr %104, align 8, !range !116, !noalias !579, !noundef !7
   %105 = getelementptr i8, ptr %101, i64 -15
   %.val11.i.i.i = load i8, ptr %105, align 1, !noalias !579
-  %.val12.i.i.i = load i32, ptr %103, align 4, !noalias !579, !noundef !7
+  %.val12.i.i.i = load i32, ptr %103, align 8, !noalias !579, !noundef !7
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !580
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !580
   %106 = trunc nuw i8 %.val.i.i.i to i1
@@ -10246,7 +10246,7 @@ define internal fastcc void @"_ZN11polars_pipe9executors5sinks8group_by9primitiv
   %.val.i.i.i = load i8, ptr %104, align 8, !range !116, !noalias !655, !noundef !7
   %105 = getelementptr i8, ptr %101, i64 -15
   %.val11.i.i.i = load i8, ptr %105, align 1, !noalias !655
-  %.val12.i.i.i = load i32, ptr %103, align 4, !noalias !655, !noundef !7
+  %.val12.i.i.i = load i32, ptr %103, align 8, !noalias !655, !noundef !7
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !656
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !656
   %106 = trunc nuw i8 %.val.i.i.i to i1
@@ -10809,7 +10809,7 @@ define internal fastcc void @"_ZN11polars_pipe9executors5sinks8group_by9primitiv
   %.val.i.i.i = load i64, ptr %103, align 8, !range !352, !noalias !731, !noundef !7
   %105 = getelementptr i8, ptr %101, i64 -24
   %.val11.i.i.i = load i64, ptr %105, align 8, !noalias !731
-  %.val12.i.i.i = load i32, ptr %104, align 4, !noalias !731, !noundef !7
+  %.val12.i.i.i = load i32, ptr %104, align 8, !noalias !731, !noundef !7
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !732
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !732
   invoke void @_ZN11polars_core13chunked_array7builder14ChunkedBuilder13append_option17hfd663ff86a92bec4E(ptr noalias noundef nonnull align 16 dereferenceable(176) %21, i64 noundef %.val.i.i.i, i64 %.val11.i.i.i)
@@ -11371,7 +11371,7 @@ define internal fastcc void @"_ZN11polars_pipe9executors5sinks8group_by9primitiv
   %.val.i.i.i = load i64, ptr %103, align 8, !range !352, !noalias !807, !noundef !7
   %105 = getelementptr i8, ptr %101, i64 -24
   %.val11.i.i.i = load i64, ptr %105, align 8, !noalias !807
-  %.val12.i.i.i = load i32, ptr %104, align 4, !noalias !807, !noundef !7
+  %.val12.i.i.i = load i32, ptr %104, align 8, !noalias !807, !noundef !7
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !808
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !808
   invoke void @_ZN11polars_core13chunked_array7builder14ChunkedBuilder13append_option17h930fd7691936413dE(ptr noalias noundef nonnull align 16 dereferenceable(176) %21, i64 noundef %.val.i.i.i, i64 %.val11.i.i.i)
@@ -11933,7 +11933,7 @@ define internal fastcc void @"_ZN11polars_pipe9executors5sinks8group_by9primitiv
   %.val.i.i.i = load i16, ptr %104, align 8, !range !883, !noalias !884, !noundef !7
   %105 = getelementptr i8, ptr %101, i64 -14
   %.val11.i.i.i = load i16, ptr %105, align 2, !noalias !884
-  %.val12.i.i.i = load i32, ptr %103, align 4, !noalias !884, !noundef !7
+  %.val12.i.i.i = load i32, ptr %103, align 8, !noalias !884, !noundef !7
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !885
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !885
   invoke void @_ZN11polars_core13chunked_array7builder14ChunkedBuilder13append_option17he3a17cc5dccd5dc8E(ptr noalias noundef nonnull align 16 dereferenceable(176) %21, i16 noundef %.val.i.i.i, i16 %.val11.i.i.i)
@@ -12495,7 +12495,7 @@ define internal fastcc void @"_ZN11polars_pipe9executors5sinks8group_by9primitiv
   %.val.i.i.i = load i32, ptr %103, align 8, !range !334, !noalias !960, !noundef !7
   %105 = getelementptr i8, ptr %101, i64 -20
   %.val11.i.i.i = load i32, ptr %105, align 4, !noalias !960
-  %.val12.i.i.i = load i32, ptr %104, align 4, !noalias !960, !noundef !7
+  %.val12.i.i.i = load i32, ptr %104, align 8, !noalias !960, !noundef !7
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !961
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !961
   invoke void @_ZN11polars_core13chunked_array7builder14ChunkedBuilder13append_option17h3d1d39d0aced32d9E(ptr noalias noundef nonnull align 16 dereferenceable(176) %21, i32 noundef %.val.i.i.i, i32 %.val11.i.i.i)
@@ -13057,7 +13057,7 @@ define internal fastcc void @"_ZN11polars_pipe9executors5sinks8group_by9primitiv
   %.val.i.i.i = load i16, ptr %104, align 8, !range !883, !noalias !1036, !noundef !7
   %105 = getelementptr i8, ptr %101, i64 -14
   %.val11.i.i.i = load i16, ptr %105, align 2, !noalias !1036
-  %.val12.i.i.i = load i32, ptr %103, align 4, !noalias !1036, !noundef !7
+  %.val12.i.i.i = load i32, ptr %103, align 8, !noalias !1036, !noundef !7
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1037
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1037
   invoke void @_ZN11polars_core13chunked_array7builder14ChunkedBuilder13append_option17h494d93549972d4ddE(ptr noalias noundef nonnull align 16 dereferenceable(176) %21, i16 noundef %.val.i.i.i, i16 %.val11.i.i.i)
@@ -13619,7 +13619,7 @@ define internal fastcc void @"_ZN11polars_pipe9executors5sinks8group_by9primitiv
   %.val.i.i.i = load i32, ptr %103, align 8, !range !334, !noalias !1112, !noundef !7
   %105 = getelementptr i8, ptr %101, i64 -20
   %.val11.i.i.i = load i32, ptr %105, align 4, !noalias !1112
-  %.val12.i.i.i = load i32, ptr %104, align 4, !noalias !1112, !noundef !7
+  %.val12.i.i.i = load i32, ptr %104, align 8, !noalias !1112, !noundef !7
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1113
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1113
   invoke void @_ZN11polars_core13chunked_array7builder14ChunkedBuilder13append_option17h670f138707e6b3b0E(ptr noalias noundef nonnull align 16 dereferenceable(176) %21, i32 noundef %.val.i.i.i, i32 %.val11.i.i.i)

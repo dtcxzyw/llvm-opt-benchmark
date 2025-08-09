@@ -10016,7 +10016,7 @@ _ZNK6Assimp4STEP10LazyObjectptEv.exit305:         ; preds = %_ZNK6Assimp4STEP10L
   %609 = getelementptr inbounds nuw i8, ptr %606, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %609, ptr noundef nonnull align 1 dereferenceable(16) @.str.64, i64 16, i1 false)
   %610 = getelementptr inbounds nuw i8, ptr %606, i64 20
-  store i8 0, ptr %610, align 1
+  store i8 0, ptr %610, align 4
   %611 = getelementptr inbounds nuw i8, ptr %606, i64 1096
   store ptr %79, ptr %611, align 8
   %612 = getelementptr inbounds nuw i8, ptr %606, i64 1028
@@ -10664,7 +10664,7 @@ _ZNK6Assimp4STEP2DB9GetObjectEm.exit:             ; preds = %872, %_ZNKSt3mapImP
   %903 = getelementptr inbounds nuw i8, ptr %900, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %903, ptr noundef nonnull align 1 dereferenceable(14) @.str.65, i64 14, i1 false)
   %904 = getelementptr inbounds nuw i8, ptr %900, i64 18
-  store i8 0, ptr %904, align 1
+  store i8 0, ptr %904, align 2
   %905 = getelementptr inbounds nuw i8, ptr %900, i64 1096
   store ptr %79, ptr %905, align 8
   %906 = getelementptr inbounds nuw i8, ptr %900, i64 1028
@@ -17896,7 +17896,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   store ptr %33, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i64 0, ptr %34, align 8
-  store i8 0, ptr %33, align 1
+  store i8 0, ptr %33, align 8
   ret void
 
 35:                                               ; preds = %25

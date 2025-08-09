@@ -454,13 +454,13 @@ entry:
   %major_.i.i = getelementptr inbounds nuw i8, ptr %version, i64 32
   store i32 4, ptr %major_.i.i, align 8
   %0 = getelementptr inbounds nuw i8, ptr %version, i64 16
-  %1 = load i32, ptr %0, align 4
+  %1 = load i32, ptr %0, align 8
   %minor_.i.i = getelementptr inbounds nuw i8, ptr %version, i64 36
   store i32 26, ptr %minor_.i.i, align 4
   %patch_.i.i = getelementptr inbounds nuw i8, ptr %version, i64 40
   store i32 0, ptr %patch_.i.i, align 8
   %or.i = or i32 %1, 15
-  store i32 %or.i, ptr %0, align 4
+  store i32 %or.i, ptr %0, align 8
   %_internal_metadata_.i = getelementptr inbounds nuw i8, ptr %version, i64 8
   %2 = load i64, ptr %_internal_metadata_.i, align 8
   %and.i.i = and i64 %2, 1

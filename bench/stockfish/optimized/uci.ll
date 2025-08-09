@@ -3445,7 +3445,7 @@ _ZNSt10_HashtableIN9Stockfish4Eval4NNUE7NetSizeESt4pairIKS3_NS1_8EvalFileEESaIS7
   %.02530 = phi i64 [ %.1, %31 ], [ 0, %_ZNSt10_HashtableIN9Stockfish4Eval4NNUE7NetSizeESt4pairIKS3_NS1_8EvalFileEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %16 = load ptr, ptr %.031, align 8
   %17 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %18 = load i32, ptr %17, align 4
+  %18 = load i32, ptr %17, align 8
   %19 = sext i32 %18 to i64
   %20 = urem i64 %19, %1
   %21 = getelementptr inbounds ptr, ptr %.0.i, i64 %20
@@ -4103,7 +4103,7 @@ _ZNSt10_HashtableIN9Stockfish4Eval4NNUE7NetSizeESt4pairIKS3_NS1_8EvalFileEESaIS7
   %36 = load ptr, ptr %0, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load i64, ptr %37, align 8
-  %39 = load i32, ptr %25, align 4
+  %39 = load i32, ptr %25, align 8
   %40 = sext i32 %39 to i64
   %41 = urem i64 %40, %38
   %42 = getelementptr inbounds ptr, ptr %36, i64 %41
@@ -4135,7 +4135,7 @@ _ZNSt10_HashtableIN9Stockfish4Eval4NNUE7NetSizeESt4pairIKS3_NS1_8EvalFileEESaIS7
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %54) #21
   store ptr %44, ptr %.028, align 8
   %55 = load i64, ptr %37, align 8
-  %56 = load i32, ptr %45, align 4
+  %56 = load i32, ptr %45, align 8
   %57 = sext i32 %56 to i64
   %58 = urem i64 %57, %55
   %59 = load ptr, ptr %0, align 8

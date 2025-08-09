@@ -1636,7 +1636,7 @@ define internal void @_ZN7rocksdb12_GLOBAL__N_115HashSkipListRep6InsertEPv(ptr n
   store ptr null, ptr %60, align 8, !tbaa !100
   store ptr %60, ptr %52, align 8, !tbaa !102
   %61 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  store i32 1, ptr %61, align 4, !tbaa !103
+  store i32 1, ptr %61, align 8, !tbaa !103
   %62 = getelementptr inbounds nuw i8, ptr %36, i64 48
   store i32 1, ptr %62, align 8, !tbaa !104
   %63 = load ptr, ptr %51, align 8, !tbaa !99
@@ -1782,7 +1782,7 @@ define internal noundef zeroext i1 @_ZNK7rocksdb12_GLOBAL__N_115HashSkipListRep8
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   %31 = load ptr, ptr %30, align 8, !tbaa !102
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  %33 = load atomic i32, ptr %32 monotonic, align 4
+  %33 = load atomic i32, ptr %32 monotonic, align 8
   %34 = add nsw i32 %33, -1
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
   br label %36
@@ -1899,7 +1899,7 @@ define internal void @_ZN7rocksdb12_GLOBAL__N_115HashSkipListRep3GetERKNS_9Looku
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   %34 = load ptr, ptr %33, align 8, !tbaa !102
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  %36 = load atomic i32, ptr %35 monotonic, align 4
+  %36 = load atomic i32, ptr %35 monotonic, align 8
   %37 = add nsw i32 %36, -1
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
   br label %39
@@ -2049,7 +2049,7 @@ define internal noundef ptr @_ZN7rocksdb12_GLOBAL__N_115HashSkipListRep11GetIter
   store ptr null, ptr %23, align 8, !tbaa !100
   store ptr %23, ptr %19, align 8, !tbaa !102
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store i32 1, ptr %24, align 4, !tbaa !103
+  store i32 1, ptr %24, align 8, !tbaa !103
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store i32 1, ptr %25, align 8, !tbaa !104
   %26 = load ptr, ptr %3, align 8, !tbaa !50
@@ -2172,7 +2172,7 @@ _ZN7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEEC2ES6_PNS_9AllocatorE
   store ptr %77, ptr %76, align 8, !tbaa !65
   %78 = getelementptr inbounds nuw i8, ptr %.sink50, i64 56
   store i64 0, ptr %78, align 8, !tbaa !16
-  store i8 0, ptr %77, align 1, !tbaa !17
+  store i8 0, ptr %77, align 8, !tbaa !17
   ret ptr %.sink50
 
 79:                                               ; preds = %47, %45
@@ -2207,7 +2207,7 @@ define internal noundef ptr @_ZN7rocksdb12_GLOBAL__N_115HashSkipListRep24GetDyna
   store ptr %15, ptr %14, align 8, !tbaa !65
   %16 = getelementptr inbounds nuw i8, ptr %.sink18, i64 56
   store i64 0, ptr %16, align 8, !tbaa !16
-  store i8 0, ptr %15, align 1, !tbaa !17
+  store i8 0, ptr %15, align 8, !tbaa !17
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_115HashSkipListRep15DynamicIteratorE, i64 16), ptr %.sink18, align 8, !tbaa !50
   %17 = getelementptr inbounds nuw i8, ptr %.sink18, i64 80
   store ptr %0, ptr %17, align 8, !tbaa !137
@@ -2649,7 +2649,7 @@ define internal void @_ZN7rocksdb12_GLOBAL__N_115HashSkipListRep8Iterator4PrevEv
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !102
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %9 = load atomic i32, ptr %8 monotonic, align 4
+  %9 = load atomic i32, ptr %8 monotonic, align 8
   %10 = add nsw i32 %9, -1
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %.split.us.i.i.outer
@@ -2743,7 +2743,7 @@ define internal void @_ZN7rocksdb12_GLOBAL__N_115HashSkipListRep8Iterator4SeekER
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !102
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %17 = load atomic i32, ptr %16 monotonic, align 4
+  %17 = load atomic i32, ptr %16 monotonic, align 8
   %18 = add nsw i32 %17, -1
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
   br label %20
@@ -2860,7 +2860,7 @@ define internal void @_ZN7rocksdb12_GLOBAL__N_115HashSkipListRep8Iterator10SeekT
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !102
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %10 = load atomic i32, ptr %9 monotonic, align 4
+  %10 = load atomic i32, ptr %9 monotonic, align 8
   %11 = add nsw i32 %10, -1
   br label %.outer
 
@@ -3093,7 +3093,7 @@ _ZN7rocksdb12_GLOBAL__N_115HashSkipListRep8Iterator5ResetEPNS_8SkipListIPKcRKNS_
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %49 = load ptr, ptr %48, align 8, !tbaa !102
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  %51 = load atomic i32, ptr %50 monotonic, align 4
+  %51 = load atomic i32, ptr %50 monotonic, align 8
   %52 = add nsw i32 %51, -1
   %53 = getelementptr inbounds nuw i8, ptr %46, i64 8
   br label %54

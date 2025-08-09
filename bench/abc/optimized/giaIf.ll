@@ -7874,7 +7874,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %63 = lshr i32 %62, 6
   %64 = and i32 %63, 1
   %spec.select = xor i32 %64, %.041
-  store i32 %spec.select, ptr %6, align 4, !tbaa !48
+  store i32 %spec.select, ptr %6, align 8, !tbaa !48
   br label %.loopexit
 
 65:                                               ; preds = %44, %.preheader

@@ -3660,7 +3660,7 @@ define hidden void @"_ZN77_$LT$indexmap..map..slice..Slice$LT$K$C$V$GT$$u20$as$u
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h4dc7d271764c4790E.llvm.12426178672938875897"(ptr noalias noundef nonnull align 8 dereferenceable(72) %2, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 1), !noalias !877
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !873
   tail call void @llvm.experimental.noalias.scope.decl(metadata !878)
-  %15 = load i32, ptr %10, align 4, !range !215, !alias.scope !878, !noalias !881, !noundef !4
+  %15 = load i32, ptr %10, align 8, !range !215, !alias.scope !878, !noalias !881, !noundef !4
   %16 = icmp ne i32 %15, 23
   %17 = zext i1 %16 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !883

@@ -207,7 +207,7 @@ define void @_ZN13sentencepiece4util6StatusC2ENS0_10StatusCodeESt17basic_string_
   store ptr %9, ptr %8, align 8, !tbaa !19
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %10, align 8, !tbaa !17
-  store i8 0, ptr %9, align 1, !tbaa !18
+  store i8 0, ptr %9, align 8, !tbaa !18
   store ptr %7, ptr %0, align 8, !tbaa !11
   store i32 %1, ptr %7, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -614,7 +614,7 @@ _ZNSt10unique_ptrIN13sentencepiece4util6Status3RepESt14default_deleteIS3_EE5rese
   store ptr %6, ptr %5, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8, !tbaa !17
-  store i8 0, ptr %6, align 1, !tbaa !18
+  store i8 0, ptr %6, align 8, !tbaa !18
   store ptr %4, ptr %0, align 8, !tbaa !11
   br label %8
 

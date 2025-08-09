@@ -384,7 +384,7 @@ _ZN12_GLOBAL__N_116CGRecordLoweringD2Ev.exit:     ; preds = %_ZN4llvm11SmallVect
   %118 = getelementptr inbounds nuw i8, ptr %109, i64 72
   %119 = getelementptr inbounds nuw i8, ptr %5, i64 272
   %120 = load i32, ptr %119, align 8, !tbaa !195
-  store i32 %120, ptr %118, align 4, !tbaa !195
+  store i32 %120, ptr %118, align 8, !tbaa !195
   store i32 0, ptr %119, align 8, !tbaa !195
   %121 = getelementptr inbounds nuw i8, ptr %109, i64 76
   %122 = getelementptr inbounds nuw i8, ptr %5, i64 276
@@ -394,7 +394,7 @@ _ZN12_GLOBAL__N_116CGRecordLoweringD2Ev.exit:     ; preds = %_ZN4llvm11SmallVect
   %124 = getelementptr inbounds nuw i8, ptr %109, i64 80
   %125 = getelementptr inbounds nuw i8, ptr %5, i64 280
   %126 = load i32, ptr %125, align 8, !tbaa !195
-  store i32 %126, ptr %124, align 4, !tbaa !195
+  store i32 %126, ptr %124, align 8, !tbaa !195
   store i32 0, ptr %125, align 8, !tbaa !195
   %127 = load ptr, ptr %31, align 8, !tbaa !194
   store ptr %127, ptr %114, align 8, !tbaa !194
@@ -402,7 +402,7 @@ _ZN12_GLOBAL__N_116CGRecordLoweringD2Ev.exit:     ; preds = %_ZN4llvm11SmallVect
   %128 = getelementptr inbounds nuw i8, ptr %109, i64 96
   %129 = getelementptr inbounds nuw i8, ptr %5, i64 296
   %130 = load i32, ptr %129, align 8, !tbaa !195
-  store i32 %130, ptr %128, align 4, !tbaa !195
+  store i32 %130, ptr %128, align 8, !tbaa !195
   store i32 0, ptr %129, align 8, !tbaa !195
   %131 = getelementptr inbounds nuw i8, ptr %109, i64 100
   %132 = getelementptr inbounds nuw i8, ptr %5, i64 300
@@ -412,7 +412,7 @@ _ZN12_GLOBAL__N_116CGRecordLoweringD2Ev.exit:     ; preds = %_ZN4llvm11SmallVect
   %134 = getelementptr inbounds nuw i8, ptr %109, i64 104
   %135 = getelementptr inbounds nuw i8, ptr %5, i64 304
   %136 = load i32, ptr %135, align 8, !tbaa !195
-  store i32 %136, ptr %134, align 4, !tbaa !195
+  store i32 %136, ptr %134, align 8, !tbaa !195
   store i32 0, ptr %135, align 8, !tbaa !195
   %137 = load ptr, ptr %28, align 8, !tbaa !196
   store ptr %137, ptr %111, align 8, !tbaa !196
@@ -420,7 +420,7 @@ _ZN12_GLOBAL__N_116CGRecordLoweringD2Ev.exit:     ; preds = %_ZN4llvm11SmallVect
   %138 = getelementptr inbounds nuw i8, ptr %109, i64 24
   %139 = getelementptr inbounds nuw i8, ptr %5, i64 224
   %140 = load i32, ptr %139, align 8, !tbaa !195
-  store i32 %140, ptr %138, align 4, !tbaa !195
+  store i32 %140, ptr %138, align 8, !tbaa !195
   store i32 0, ptr %139, align 8, !tbaa !195
   %141 = getelementptr inbounds nuw i8, ptr %109, i64 28
   %142 = getelementptr inbounds nuw i8, ptr %5, i64 228
@@ -430,7 +430,7 @@ _ZN12_GLOBAL__N_116CGRecordLoweringD2Ev.exit:     ; preds = %_ZN4llvm11SmallVect
   %144 = getelementptr inbounds nuw i8, ptr %109, i64 32
   %145 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %146 = load i32, ptr %145, align 8, !tbaa !195
-  store i32 %146, ptr %144, align 4, !tbaa !195
+  store i32 %146, ptr %144, align 8, !tbaa !195
   store i32 0, ptr %145, align 8, !tbaa !195
   %147 = load ptr, ptr %29, align 8, !tbaa !197
   store ptr %147, ptr %112, align 8, !tbaa !197
@@ -438,7 +438,7 @@ _ZN12_GLOBAL__N_116CGRecordLoweringD2Ev.exit:     ; preds = %_ZN4llvm11SmallVect
   %148 = getelementptr inbounds nuw i8, ptr %109, i64 48
   %149 = getelementptr inbounds nuw i8, ptr %5, i64 248
   %150 = load i32, ptr %149, align 8, !tbaa !195
-  store i32 %150, ptr %148, align 4, !tbaa !195
+  store i32 %150, ptr %148, align 8, !tbaa !195
   store i32 0, ptr %149, align 8, !tbaa !195
   %151 = getelementptr inbounds nuw i8, ptr %109, i64 52
   %152 = getelementptr inbounds nuw i8, ptr %5, i64 252
@@ -448,7 +448,7 @@ _ZN12_GLOBAL__N_116CGRecordLoweringD2Ev.exit:     ; preds = %_ZN4llvm11SmallVect
   %154 = getelementptr inbounds nuw i8, ptr %109, i64 56
   %155 = getelementptr inbounds nuw i8, ptr %5, i64 256
   %156 = load i32, ptr %155, align 8, !tbaa !195
-  store i32 %156, ptr %154, align 4, !tbaa !195
+  store i32 %156, ptr %154, align 8, !tbaa !195
   store i32 0, ptr %155, align 8, !tbaa !195
   %157 = load ptr, ptr %8, align 8, !tbaa !29
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 2160
@@ -5838,7 +5838,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9FieldDeclEjNS_12DenseMapInfoIS5_vE
   %57 = load ptr, ptr %1, align 8, !tbaa !550
   store ptr %57, ptr %48, align 8, !tbaa !550
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !195
+  store i32 0, ptr %58, align 8, !tbaa !195
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9FieldDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E16InsertIntoBucketIS5_JEEEPSA_SE_OT_DpOT0_.exit
@@ -6390,7 +6390,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9FieldDeclEjNS_12DenseMapInfoIS5_vE
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !195
-  store i32 %68, ptr %66, align 4, !tbaa !195
+  store i32 %68, ptr %66, align 8, !tbaa !195
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !778
   br label %70
@@ -8867,7 +8867,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclEjNS_12DenseMapInfoI
   %57 = load ptr, ptr %1, align 8, !tbaa !630
   store ptr %57, ptr %48, align 8, !tbaa !630
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !195
+  store i32 0, ptr %58, align 8, !tbaa !195
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E16InsertIntoBucketIRKS5_JEEEPSA_SG_OT_DpOT0_.exit
@@ -9068,7 +9068,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclEjNS_12DenseMapInfoI
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !195
-  store i32 %68, ptr %66, align 4, !tbaa !195
+  store i32 %68, ptr %66, align 8, !tbaa !195
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !839
   br label %70

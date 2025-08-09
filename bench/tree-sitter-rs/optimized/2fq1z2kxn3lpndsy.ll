@@ -9313,9 +9313,9 @@ define internal fastcc void @_ZN10serde_json5value2de11visit_array17h744d80616f8
   %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 9
   %.sroa.6.sroa.4.sroa.0.0.copyload = load i56, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx, align 1, !noalias !2572
   %.sroa.6.sroa.4.sroa.4.0..sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %.sroa.6.sroa.4.sroa.4.0.copyload = load i64, ptr %.sroa.6.sroa.4.sroa.4.0..sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx.sroa_idx, align 1, !noalias !2572
+  %.sroa.6.sroa.4.sroa.4.0.copyload = load i64, ptr %.sroa.6.sroa.4.sroa.4.0..sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx.sroa_idx, align 8, !noalias !2572
   %.sroa.6.sroa.4.sroa.5.0..sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %.sroa.6.sroa.4.sroa.5.sroa.0.0.copyload = load i64, ptr %.sroa.6.sroa.4.sroa.5.0..sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx.sroa_idx, align 1, !noalias !2572
+  %.sroa.6.sroa.4.sroa.5.sroa.0.0.copyload = load i64, ptr %.sroa.6.sroa.4.sroa.5.0..sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx.sroa_idx, align 8, !noalias !2572
   %.sroa.6.sroa.4.sroa.5.sroa.4.0..sroa.6.sroa.4.sroa.5.0..sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 32
   %26 = icmp eq i64 %.sroa.029.0.copyload, -9223372036854775803
   br i1 %26, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf9d98487e1ef92eaE.llvm.11948190557966450743.exit.i._crit_edge", label %27

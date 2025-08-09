@@ -3736,7 +3736,7 @@ define noundef i32 @_ZN12RenderHelper21initializeMeshBuffersEP9MeshModelPFbiPKcE
   store float %51, ptr %52, align 4
   %53 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %54 = getelementptr inbounds nuw %"class.vcg::Color4", ptr %15, i64 %indvars.iv
-  %55 = load i32, ptr %53, align 1
+  %55 = load i32, ptr %53, align 4
   store i32 %55, ptr %54, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

@@ -1050,7 +1050,7 @@ _ZSt11make_sharedIN5folly10WTCallbackINS0_16HHWheelTimerBaseINSt6chrono8duration
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store i8 0, ptr %11, align 8, !tbaa !77, !noalias !74
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  store i32 0, ptr %12, align 4, !tbaa !79, !noalias !74
+  store i32 0, ptr %12, align 8, !tbaa !79, !noalias !74
   store ptr %5, ptr %10, align 8, !tbaa !19, !alias.scope !74
   store ptr %8, ptr %3, align 8, !tbaa !81, !alias.scope !74
   %13 = invoke noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #24
@@ -1065,11 +1065,11 @@ _ZSt11make_sharedIN5folly10WTCallbackINS0_16HHWheelTimerBaseINSt6chrono8duration
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 72
   store ptr null, ptr %18, align 8, !tbaa !84
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 80
-  store i8 1, ptr %19, align 1, !tbaa !85
+  store i8 1, ptr %19, align 16, !tbaa !85
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 81
   store i8 2, ptr %20, align 1, !tbaa !88
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 82
-  store i8 0, ptr %21, align 1, !tbaa !88
+  store i8 0, ptr %21, align 2, !tbaa !88
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 88
   store i32 0, ptr %22, align 8, !tbaa !90
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 96
@@ -3764,8 +3764,8 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   store ptr %35, ptr %7, align 8, !tbaa !93, !alias.scope !194
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %38 = load i8, ptr %37, align 1, !tbaa !119, !range !98, !noalias !194, !noundef !102
-  store i8 0, ptr %37, align 1, !tbaa !119, !noalias !194
+  %38 = load i8, ptr %37, align 8, !tbaa !119, !range !98, !noalias !194, !noundef !102
+  store i8 0, ptr %37, align 8, !tbaa !119, !noalias !194
   store i8 %38, ptr %36, align 8, !tbaa !96, !alias.scope !194
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %25, i64 16

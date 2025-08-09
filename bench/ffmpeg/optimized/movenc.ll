@@ -15880,7 +15880,7 @@ define internal fastcc void @mov_write_dvc1_tag(ptr noundef %0, ptr noundef read
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 356
   %13 = load i32, ptr %12, align 4, !tbaa !163
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 360
-  %15 = load i32, ptr %14, align 4, !tbaa !164
+  %15 = load i32, ptr %14, align 8, !tbaa !164
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 364
   %17 = load i32, ptr %16, align 4, !tbaa !157
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 176
@@ -16526,7 +16526,7 @@ put_bits.exit25:                                  ; preds = %15
   %30 = shl nuw nsw i32 %29, 3
   %31 = or i32 %30, %27
   %32 = getelementptr inbounds nuw i8, ptr %.368.val, i64 16
-  %33 = load i8, ptr %32, align 2, !tbaa !127
+  %33 = load i8, ptr %32, align 4, !tbaa !127
   %34 = zext i8 %33 to i32
   %35 = or i32 %31, %34
   %36 = getelementptr inbounds nuw i8, ptr %.368.val, i64 17

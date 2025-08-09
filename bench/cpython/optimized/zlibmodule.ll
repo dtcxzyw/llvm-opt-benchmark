@@ -2701,7 +2701,7 @@ OutputBuffer_InitAndGrow.exit.i:                  ; preds = %35
   store i64 -1, ptr %46, align 8, !tbaa !36
   %47 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store ptr %47, ptr %31, align 8, !tbaa !37
-  store i32 32768, ptr %32, align 4, !tbaa !31
+  store i32 32768, ptr %32, align 8, !tbaa !31
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %49
 
@@ -2900,7 +2900,7 @@ OutputBuffer_InitAndGrow.exit.i:                  ; preds = %41
   store i64 -1, ptr %52, align 8, !tbaa !36
   %53 = getelementptr inbounds nuw i8, ptr %39, i64 32
   store ptr %53, ptr %37, align 8, !tbaa !37
-  store i32 32768, ptr %38, align 4, !tbaa !31
+  store i32 32768, ptr %38, align 8, !tbaa !31
   br label %58
 
 54:                                               ; preds = %67
@@ -3544,7 +3544,7 @@ OutputBuffer_InitAndGrow.exit.i:                  ; preds = %62
   %74 = getelementptr inbounds nuw i8, ptr %60, i64 32
   store ptr %74, ptr %58, align 8, !tbaa !37
   %75 = trunc nuw nsw i64 %.0.i.i.i to i32
-  store i32 %75, ptr %59, align 4, !tbaa !31
+  store i32 %75, ptr %59, align 8, !tbaa !31
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 152
   br label %78
@@ -3867,7 +3867,7 @@ OutputBuffer_WindowInitWithSize.exit.i:           ; preds = %61
   store ptr %73, ptr %55, align 8, !tbaa !37
   %74 = call i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %.028, i64 4294967295)
   %75 = trunc nuw i64 %74 to i32
-  store i32 %75, ptr %56, align 4, !tbaa !31
+  store i32 %75, ptr %56, align 8, !tbaa !31
   %76 = sub nsw i64 %.028, %74
   %77 = getelementptr i8, ptr %73, i64 %74
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3899,7 +3899,7 @@ OutputBuffer_WindowGrow.exit.thread.i:            ; preds = %85
   %spec.select.i47.i = call i64 @llvm.umin.i64(i64 %.sroa.0.1.i, i64 4294967295)
   store ptr %.sroa.6.1.i, ptr %55, align 8, !tbaa !57
   %87 = trunc nuw i64 %spec.select.i47.i to i32
-  store i32 %87, ptr %56, align 4, !tbaa !31
+  store i32 %87, ptr %56, align 8, !tbaa !31
   %88 = sub nsw i64 %.sroa.0.1.i, %spec.select.i47.i
   %89 = getelementptr i8, ptr %.sroa.6.1.i, i64 %spec.select.i47.i
   br label %93

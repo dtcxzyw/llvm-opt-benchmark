@@ -3133,7 +3133,7 @@ define internal fastcc void @flush_large(ptr noundef nonnull %0, i32 noundef %1)
   %34 = shl nsw i64 %33, 2
   %35 = tail call ptr @Ptngc_warnrealloc_x(ptr noundef %.pre.i.i, i64 noundef %34, ptr noundef nonnull @.str, i32 noundef 234) #12
   store ptr %35, ptr %0, align 8, !tbaa !23
-  %.pre1.i.i = load i32, ptr %6, align 4, !tbaa !3
+  %.pre1.i.i = load i32, ptr %6, align 8, !tbaa !3
   br label %insert_value_in_array.exit.i
 
 insert_value_in_array.exit.i:                     ; preds = %30, %26
@@ -3205,7 +3205,7 @@ large_instruction_change.exit:                    ; preds = %21, %insert_value_i
   %59 = shl nsw i64 %58, 2
   %60 = tail call ptr @Ptngc_warnrealloc_x(ptr noundef %.pre.i, i64 noundef %59, ptr noundef nonnull @.str, i32 noundef 234) #12
   store ptr %60, ptr %0, align 8, !tbaa !23
-  %.pre1.i = load i32, ptr %6, align 4, !tbaa !3
+  %.pre1.i = load i32, ptr %6, align 8, !tbaa !3
   br label %insert_value_in_array.exit
 
 insert_value_in_array.exit:                       ; preds = %.lr.ph123, %55
@@ -3256,7 +3256,7 @@ insert_value_in_array.exit:                       ; preds = %.lr.ph123, %55
   %80 = shl nsw i64 %79, 2
   %81 = tail call ptr @Ptngc_warnrealloc_x(ptr noundef %.pre.i.i66, i64 noundef %80, ptr noundef nonnull @.str, i32 noundef 234) #12
   store ptr %81, ptr %15, align 8, !tbaa !23
-  %.pre1.i.i68 = load i32, ptr %16, align 4, !tbaa !3
+  %.pre1.i.i68 = load i32, ptr %16, align 8, !tbaa !3
   br label %insert_value_in_array.exit.i69
 
 insert_value_in_array.exit.i69:                   ; preds = %76, %69
@@ -3291,7 +3291,7 @@ insert_value_in_array.exit.i69:                   ; preds = %76, %69
   %97 = shl nsw i64 %96, 2
   %98 = tail call ptr @Ptngc_warnrealloc_x(ptr noundef %.pre.i27.i, i64 noundef %97, ptr noundef nonnull @.str, i32 noundef 234) #12
   store ptr %98, ptr %12, align 8, !tbaa !23
-  %.pre1.i28.i = load i32, ptr %13, align 4, !tbaa !3
+  %.pre1.i28.i = load i32, ptr %13, align 8, !tbaa !3
   br label %insert_value_in_array.exit29.i
 
 insert_value_in_array.exit29.i:                   ; preds = %93, %86
@@ -3326,7 +3326,7 @@ insert_value_in_array.exit29.i:                   ; preds = %93, %86
   %114 = shl nsw i64 %113, 2
   %115 = tail call ptr @Ptngc_warnrealloc_x(ptr noundef %.pre.i31.i, i64 noundef %114, ptr noundef nonnull @.str, i32 noundef 234) #12
   store ptr %115, ptr %18, align 8, !tbaa !23
-  %.pre1.i32.i = load i32, ptr %19, align 4, !tbaa !3
+  %.pre1.i32.i = load i32, ptr %19, align 8, !tbaa !3
   br label %insert_value_in_array.exit33.i
 
 insert_value_in_array.exit33.i:                   ; preds = %110, %103
@@ -3362,7 +3362,7 @@ write_three_large.exit:                           ; preds = %insert_value_in_arr
   %128 = shl nsw i64 %127, 2
   %129 = tail call ptr @Ptngc_warnrealloc_x(ptr noundef %.pre.i71, i64 noundef %128, ptr noundef nonnull @.str, i32 noundef 234) #12
   store ptr %129, ptr %0, align 8, !tbaa !23
-  %.pre1.i72 = load i32, ptr %6, align 4, !tbaa !3
+  %.pre1.i72 = load i32, ptr %6, align 8, !tbaa !3
   br label %insert_value_in_array.exit73
 
 insert_value_in_array.exit73:                     ; preds = %120, %124
@@ -3388,7 +3388,7 @@ insert_value_in_array.exit73:                     ; preds = %120, %124
   %142 = shl nsw i64 %141, 2
   %143 = tail call ptr @Ptngc_warnrealloc_x(ptr noundef %.pre.i75, i64 noundef %142, ptr noundef nonnull @.str, i32 noundef 234) #12
   store ptr %143, ptr %8, align 8, !tbaa !23
-  %.pre1.i76 = load i32, ptr %9, align 4, !tbaa !3
+  %.pre1.i76 = load i32, ptr %9, align 8, !tbaa !3
   br label %insert_value_in_array.exit77
 
 insert_value_in_array.exit77:                     ; preds = %insert_value_in_array.exit73, %138
@@ -3444,7 +3444,7 @@ insert_value_in_array.exit77:                     ; preds = %insert_value_in_arr
   %164 = shl nsw i64 %163, 2
   %165 = tail call ptr @Ptngc_warnrealloc_x(ptr noundef %.pre.i.i90, i64 noundef %164, ptr noundef nonnull @.str, i32 noundef 234) #12
   store ptr %165, ptr %15, align 8, !tbaa !23
-  %.pre1.i.i93 = load i32, ptr %16, align 4, !tbaa !3
+  %.pre1.i.i93 = load i32, ptr %16, align 8, !tbaa !3
   br label %insert_value_in_array.exit.i94
 
 insert_value_in_array.exit.i94:                   ; preds = %160, %153
@@ -3479,7 +3479,7 @@ insert_value_in_array.exit.i94:                   ; preds = %160, %153
   %181 = shl nsw i64 %180, 2
   %182 = tail call ptr @Ptngc_warnrealloc_x(ptr noundef %.pre.i27.i80, i64 noundef %181, ptr noundef nonnull @.str, i32 noundef 234) #12
   store ptr %182, ptr %12, align 8, !tbaa !23
-  %.pre1.i28.i83 = load i32, ptr %13, align 4, !tbaa !3
+  %.pre1.i28.i83 = load i32, ptr %13, align 8, !tbaa !3
   br label %insert_value_in_array.exit29.i84
 
 insert_value_in_array.exit29.i84:                 ; preds = %177, %170
@@ -3514,7 +3514,7 @@ insert_value_in_array.exit29.i84:                 ; preds = %177, %170
   %198 = shl nsw i64 %197, 2
   %199 = tail call ptr @Ptngc_warnrealloc_x(ptr noundef %.pre.i31.i100, i64 noundef %198, ptr noundef nonnull @.str, i32 noundef 234) #12
   store ptr %199, ptr %18, align 8, !tbaa !23
-  %.pre1.i32.i103 = load i32, ptr %19, align 4, !tbaa !3
+  %.pre1.i32.i103 = load i32, ptr %19, align 8, !tbaa !3
   br label %insert_value_in_array.exit33.i104
 
 insert_value_in_array.exit33.i104:                ; preds = %194, %187

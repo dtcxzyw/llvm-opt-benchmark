@@ -7824,7 +7824,7 @@ script_80_send_stateless_reset.exit:              ; preds = %4
   %41 = load ptr, ptr %40, align 8, !tbaa !61
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %41, ptr %42, align 8, !tbaa !62
-  store i32 1, ptr %30, align 4, !tbaa !90
+  store i32 1, ptr %30, align 8, !tbaa !90
   br label %s_lock.exit.i
 
 s_lock.exit.i:                                    ; preds = %39, %36

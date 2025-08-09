@@ -827,9 +827,9 @@ entry:
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %4 = load i32, ptr %2, align 8
-  %5 = load i32, ptr %3, align 4
+  %5 = load i32, ptr %3, align 8
   store i32 %5, ptr %2, align 8
-  store i32 %4, ptr %3, align 4
+  store i32 %4, ptr %3, align 8
   %suffix_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %suffix_7 = getelementptr inbounds nuw i8, ptr %other, i64 24
   %__tmp.sroa.0.0.copyload.i = load ptr, ptr %suffix_7, align 8
@@ -2008,9 +2008,9 @@ entry:
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %4 = load i32, ptr %2, align 8
-  %5 = load i32, ptr %3, align 4
+  %5 = load i32, ptr %3, align 8
   store i32 %5, ptr %2, align 8
-  store i32 %4, ptr %3, align 4
+  store i32 %4, ptr %3, align 8
   %file_to_generate_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %file_to_generate_7 = getelementptr inbounds nuw i8, ptr %other, i64 24
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %file_to_generate_, ptr noundef nonnull %file_to_generate_7)
@@ -2840,9 +2840,9 @@ entry:
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %4 = load i32, ptr %2, align 8
-  %5 = load i32, ptr %3, align 4
+  %5 = load i32, ptr %3, align 8
   store i32 %5, ptr %2, align 8
-  store i32 %4, ptr %3, align 4
+  store i32 %4, ptr %3, align 8
   %name_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %name_7 = getelementptr inbounds nuw i8, ptr %other, i64 24
   %__tmp.sroa.0.0.copyload.i = load ptr, ptr %name_7, align 8
@@ -3696,9 +3696,9 @@ entry:
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %4 = load i32, ptr %2, align 8
-  %5 = load i32, ptr %3, align 4
+  %5 = load i32, ptr %3, align 8
   store i32 %5, ptr %2, align 8
-  store i32 %4, ptr %3, align 4
+  store i32 %4, ptr %3, align 8
   %file_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %file_7 = getelementptr inbounds nuw i8, ptr %other, i64 24
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %file_, ptr noundef nonnull %file_7)

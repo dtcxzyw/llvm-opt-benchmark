@@ -466,7 +466,7 @@ define internal fastcc i32 @__query_block(ptr noundef %0, i8 noundef zeroext %1,
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 770
-  %15 = load i8, ptr %14, align 1
+  %15 = load i8, ptr %14, align 2
   %16 = icmp ugt i8 %15, %1
   br i1 %16, label %17, label %64
 
@@ -806,7 +806,7 @@ define dso_local noundef range(i32 0, 22) i32 @wmi_install_notify_handler(ptr no
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 768
-  %29 = load i8, ptr %28, align 1
+  %29 = load i8, ptr %28, align 8
   %30 = zext i8 %29 to i32
   %31 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 5, ptr noundef nonnull @.str.2, i32 noundef %30) #12
   %32 = call i32 @acpi_execute_simple_method(ptr noundef %27, ptr noundef nonnull %4, i64 noundef 1) #12
@@ -886,7 +886,7 @@ define dso_local noundef range(i32 0, 11) i32 @wmi_remove_notify_handler(ptr nou
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 768
-  %26 = load i8, ptr %25, align 1
+  %26 = load i8, ptr %25, align 8
   %27 = zext i8 %26 to i32
   %28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 5, ptr noundef nonnull @.str.2, i32 noundef %27) #12
   %29 = call i32 @acpi_execute_simple_method(ptr noundef %24, ptr noundef nonnull %2, i64 noundef 0) #12
@@ -1236,7 +1236,7 @@ define internal i32 @wmi_dev_probe(ptr noundef %0) #0 align 16 {
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 768
-  %12 = load i8, ptr %11, align 1
+  %12 = load i8, ptr %11, align 8
   %13 = zext i8 %12 to i32
   %14 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 5, ptr noundef nonnull @.str.2, i32 noundef %13) #12
   %15 = call i32 @acpi_execute_simple_method(ptr noundef %10, ptr noundef nonnull %4, i64 noundef 1) #12
@@ -1312,7 +1312,7 @@ define internal i32 @wmi_dev_probe(ptr noundef %0) #0 align 16 {
   %49 = load ptr, ptr %7, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8
-  %52 = load i8, ptr %11, align 1
+  %52 = load i8, ptr %11, align 8
   %53 = zext i8 %52 to i32
   %54 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 5, ptr noundef nonnull @.str.2, i32 noundef %53) #12
   %55 = call i32 @acpi_execute_simple_method(ptr noundef %51, ptr noundef nonnull %2, i64 noundef 0) #12
@@ -1366,7 +1366,7 @@ define internal void @wmi_dev_remove(ptr noundef %0) #0 align 16 {
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 768
-  %17 = load i8, ptr %16, align 1
+  %17 = load i8, ptr %16, align 8
   %18 = zext i8 %17 to i32
   %19 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 5, ptr noundef nonnull @.str.2, i32 noundef %18) #12
   %20 = call i32 @acpi_execute_simple_method(ptr noundef %15, ptr noundef nonnull %2, i64 noundef 0) #12

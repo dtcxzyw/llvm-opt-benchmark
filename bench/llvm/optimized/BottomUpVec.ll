@@ -4922,7 +4922,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9sandboxir5ValueEjNS_12DenseMapInfoIS4_v
   %57 = load ptr, ptr %1, align 8, !tbaa !108
   store ptr %57, ptr %48, align 8, !tbaa !108
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !47
+  store i32 0, ptr %58, align 8, !tbaa !47
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9sandboxir5ValueEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E16InsertIntoBucketIRKS4_JEEEPS9_SF_OT_DpOT0_.exit
@@ -5142,9 +5142,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9sandboxir5ValueENS1_IS4_jNS_12DenseMapI
   store ptr null, ptr %41, align 8, !tbaa !408
   %43 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 16
   %44 = getelementptr inbounds nuw i8, ptr %.022, i64 16
-  %45 = load i32, ptr %44, align 4, !tbaa !47
-  store i32 %45, ptr %43, align 4, !tbaa !47
-  store i32 0, ptr %44, align 4, !tbaa !47
+  %45 = load i32, ptr %44, align 8, !tbaa !47
+  store i32 %45, ptr %43, align 8, !tbaa !47
+  store i32 0, ptr %44, align 8, !tbaa !47
   %46 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 20
   %47 = getelementptr inbounds nuw i8, ptr %.022, i64 20
   %48 = load i32, ptr %46, align 4, !tbaa !47
@@ -5153,10 +5153,10 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9sandboxir5ValueENS1_IS4_jNS_12DenseMapI
   store i32 %48, ptr %47, align 4, !tbaa !47
   %50 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 24
   %51 = getelementptr inbounds nuw i8, ptr %.022, i64 24
-  %52 = load i32, ptr %50, align 4, !tbaa !47
-  %53 = load i32, ptr %51, align 4, !tbaa !47
-  store i32 %53, ptr %50, align 4, !tbaa !47
-  store i32 %52, ptr %51, align 4, !tbaa !47
+  %52 = load i32, ptr %50, align 8, !tbaa !47
+  %53 = load i32, ptr %51, align 8, !tbaa !47
+  store i32 %53, ptr %50, align 8, !tbaa !47
+  store i32 %52, ptr %51, align 8, !tbaa !47
   %54 = load i32, ptr %4, align 8, !tbaa !390
   %55 = add i32 %54, 1
   store i32 %55, ptr %4, align 8, !tbaa !390
@@ -5577,7 +5577,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9sandboxir5ValueEjNS_12DenseMapInfoIS4_v
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !47
-  store i32 %68, ptr %66, align 4, !tbaa !47
+  store i32 %68, ptr %66, align 8, !tbaa !47
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !409
   br label %70

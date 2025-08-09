@@ -6906,7 +6906,7 @@ for.body.i54:                                     ; preds = %for.body.i54.prehea
   tail call void @llvm.assume(i1 %cmp.i.i.i.i)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i4.i.i, ptr align 1 %12, i64 %13, i1 false)
   %add.ptr.i.i10.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i4.i.i, i64 %13
-  %14 = load i32, ptr %age.i.i.i, align 4
+  %14 = load i32, ptr %age.i.i.i, align 8
   store i32 %14, ptr %add.ptr.i.i10.i.i.i, align 1
   %add.ptr.i.i.i5.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i10.i.i.i, i64 4
   %15 = load i64, ptr %salary.i.i.i, align 8
@@ -6964,7 +6964,7 @@ for.body.i67:                                     ; preds = %for.body.i67.prehea
   tail call void @llvm.assume(i1 %cmp.i.i.i.i76)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i10.i.i.i75, ptr align 1 %23, i64 %24, i1 false)
   %add.ptr.i.i.i4.i.i77 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i10.i.i.i75, i64 %24
-  %25 = load i32, ptr %age.i.i.i70, align 4
+  %25 = load i32, ptr %age.i.i.i70, align 8
   store i32 %25, ptr %add.ptr.i.i.i4.i.i77, align 1
   %add.ptr.i.i.i5.i.i78 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i4.i.i77, i64 4
   %26 = load i64, ptr %salary.i.i.i71, align 8
@@ -7022,7 +7022,7 @@ for.body.i91:                                     ; preds = %for.body.i91.prehea
   tail call void @llvm.assume(i1 %cmp.i.i.i.i100)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i10.i.i.i99, ptr align 1 %34, i64 %35, i1 false)
   %add.ptr.i.i.i4.i.i101 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i10.i.i.i99, i64 %35
-  %36 = load i32, ptr %age.i.i.i94, align 4
+  %36 = load i32, ptr %age.i.i.i94, align 8
   store i32 %36, ptr %add.ptr.i.i.i4.i.i101, align 1
   %add.ptr.i.i.i5.i.i102 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i4.i.i101, i64 4
   %37 = load i64, ptr %salary.i.i.i95, align 8
@@ -7078,7 +7078,7 @@ for.body.i114:                                    ; preds = %for.body.i114.prehe
   tail call void @llvm.assume(i1 %cmp.i.i.i.i122)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i10.i.i.i121, ptr align 1 %45, i64 %46, i1 false)
   %add.ptr.i.i.i4.i.i123 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i10.i.i.i121, i64 %46
-  %47 = load i32, ptr %age.i.i.i117, align 4
+  %47 = load i32, ptr %age.i.i.i117, align 8
   store i32 %47, ptr %add.ptr.i.i.i4.i.i123, align 1
   %add.ptr.i.i.i5.i.i124 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i4.i.i123, i64 4
   %48 = load i64, ptr %salary.i.i.i118, align 8
@@ -7288,7 +7288,7 @@ for.body.i177:                                    ; preds = %for.body.i177.prehe
   call void @llvm.assume(i1 %cmp.i.i.i.i186)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i4.i.i185, ptr align 1 %75, i64 %76, i1 false)
   %add.ptr.i.i10.i.i.i187 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i4.i.i185, i64 %76
-  %77 = load i32, ptr %age.i.i.i180, align 4
+  %77 = load i32, ptr %age.i.i.i180, align 8
   store i32 %77, ptr %add.ptr.i.i10.i.i.i187, align 1
   %add.ptr.i.i.i5.i.i188 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i10.i.i.i187, i64 4
   %78 = load i64, ptr %salary.i.i.i181, align 8
@@ -7339,7 +7339,7 @@ for.body.i202:                                    ; preds = %for.body.i202.prehe
   call void @llvm.assume(i1 %cmp.i.i.i.i211)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i10.i.i.i210, ptr align 1 %85, i64 %86, i1 false)
   %add.ptr.i.i.i4.i.i212 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i10.i.i.i210, i64 %86
-  %87 = load i32, ptr %age.i.i.i205, align 4
+  %87 = load i32, ptr %age.i.i.i205, align 8
   store i32 %87, ptr %add.ptr.i.i.i4.i.i212, align 1
   %add.ptr.i.i.i5.i.i213 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i4.i.i212, i64 4
   %88 = load i64, ptr %salary.i.i.i206, align 8
@@ -7390,7 +7390,7 @@ for.body.i227:                                    ; preds = %for.body.i227.prehe
   call void @llvm.assume(i1 %cmp.i.i.i.i236)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i10.i.i.i235, ptr align 1 %95, i64 %96, i1 false)
   %add.ptr.i.i.i4.i.i237 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i10.i.i.i235, i64 %96
-  %97 = load i32, ptr %age.i.i.i230, align 4
+  %97 = load i32, ptr %age.i.i.i230, align 8
   store i32 %97, ptr %add.ptr.i.i.i4.i.i237, align 1
   %add.ptr.i.i.i5.i.i238 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i4.i.i237, i64 4
   %98 = load i64, ptr %salary.i.i.i231, align 8
@@ -7439,7 +7439,7 @@ for.body.i251:                                    ; preds = %for.body.i251.prehe
   call void @llvm.assume(i1 %cmp.i.i.i.i259)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i10.i.i.i258, ptr align 1 %105, i64 %106, i1 false)
   %add.ptr.i.i.i4.i.i260 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i10.i.i.i258, i64 %106
-  %107 = load i32, ptr %age.i.i.i254, align 4
+  %107 = load i32, ptr %age.i.i.i254, align 8
   store i32 %107, ptr %add.ptr.i.i.i4.i.i260, align 1
   %add.ptr.i.i.i5.i.i261 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i4.i.i260, i64 4
   %108 = load i64, ptr %salary.i.i.i255, align 8
@@ -8610,7 +8610,7 @@ for.body.i180:                                    ; preds = %for.body.i180.prehe
   call void @llvm.assume(i1 %cmp.i.i15.i)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i14.i, ptr align 1 %111, i64 %112, i1 false)
   %add.ptr.i.i10.i16.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i14.i, i64 %112
-  %113 = load i8, ptr %color.i.i, align 1
+  %113 = load i8, ptr %color.i.i, align 8
   store i8 %113, ptr %add.ptr.i.i10.i16.i, align 1
   %add.ptr.i.i.i17.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i10.i16.i, i64 1
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %__begin0.sroa.0.08.i181, i64 96
@@ -8643,7 +8643,7 @@ for.body.i.i:                                     ; preds = %for.body.i180, %for
   call void @llvm.assume(i1 %cmp.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i.i, ptr align 1 %119, i64 %120, i1 false)
   %add.ptr.i.i10.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i, i64 %120
-  %121 = load i16, ptr %damage.i.i.i.i, align 2
+  %121 = load i16, ptr %damage.i.i.i.i, align 8
   store i16 %121, ptr %add.ptr.i.i10.i.i.i.i, align 1
   %add.ptr.i.i.i2.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i10.i.i.i.i, i64 2
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__begin0.sroa.0.08.i.i, i64 40
@@ -8666,7 +8666,7 @@ for.body.i.i:                                     ; preds = %for.body.i180, %for
   call void @llvm.assume(i1 %cmp.i.i.i.i244)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i, ptr align 1 %123, i64 %124, i1 false)
   %add.ptr.i.i10.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 %124
-  %125 = load i16, ptr %damage.i.i.i, align 2
+  %125 = load i16, ptr %damage.i.i.i, align 8
   store i16 %125, ptr %add.ptr.i.i10.i.i.i, align 1
   %add.ptr.i.i.i2.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i10.i.i.i, i64 2
   %_M_finish.i.i21.i = getelementptr inbounds nuw i8, ptr %__begin0.sroa.0.08.i181, i64 160
@@ -8753,7 +8753,7 @@ for.body.i195:                                    ; preds = %for.body.i195.prehe
   call void @llvm.assume(i1 %cmp.i.i15.i261)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i10.i14.i, ptr align 1 %140, i64 %141, i1 false)
   %add.ptr.i.i.i16.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i10.i14.i, i64 %141
-  %142 = load i8, ptr %color.i.i249, align 1
+  %142 = load i8, ptr %color.i.i249, align 8
   store i8 %142, ptr %add.ptr.i.i.i16.i, align 1
   %add.ptr.i.i.i17.i262 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i16.i, i64 1
   %_M_finish.i.i.i263 = getelementptr inbounds nuw i8, ptr %__begin0.sroa.0.08.i196, i64 96
@@ -8786,7 +8786,7 @@ for.body.i.i271:                                  ; preds = %for.body.i195, %for
   call void @llvm.assume(i1 %cmp.i.i.i.i.i277)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i10.i.i.i.i276, ptr align 1 %148, i64 %149, i1 false)
   %add.ptr.i.i.i.i.i.i278 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i10.i.i.i.i276, i64 %149
-  %150 = load i16, ptr %damage.i.i.i.i273, align 2
+  %150 = load i16, ptr %damage.i.i.i.i273, align 8
   store i16 %150, ptr %add.ptr.i.i.i.i.i.i278, align 1
   %add.ptr.i.i.i2.i.i.i279 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i278, i64 2
   %incdec.ptr.i.i.i280 = getelementptr inbounds nuw i8, ptr %__begin0.sroa.0.08.i.i272, i64 40
@@ -8809,7 +8809,7 @@ for.body.i.i271:                                  ; preds = %for.body.i195, %for
   call void @llvm.assume(i1 %cmp.i.i.i.i288)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i10.i.i.i287, ptr align 1 %152, i64 %153, i1 false)
   %add.ptr.i.i.i.i.i289 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i10.i.i.i287, i64 %153
-  %154 = load i16, ptr %damage.i.i.i284, align 2
+  %154 = load i16, ptr %damage.i.i.i284, align 8
   store i16 %154, ptr %add.ptr.i.i.i.i.i289, align 1
   %add.ptr.i.i.i2.i.i290 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i289, i64 2
   %_M_finish.i.i21.i291 = getelementptr inbounds nuw i8, ptr %__begin0.sroa.0.08.i196, i64 160
@@ -8896,7 +8896,7 @@ for.body.i210:                                    ; preds = %for.body.i210.prehe
   call void @llvm.assume(i1 %cmp.i.i15.i318)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i10.i14.i317, ptr align 1 %169, i64 %170, i1 false)
   %add.ptr.i.i.i16.i319 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i10.i14.i317, i64 %170
-  %171 = load i8, ptr %color.i.i305, align 1
+  %171 = load i8, ptr %color.i.i305, align 8
   store i8 %171, ptr %add.ptr.i.i.i16.i319, align 1
   %add.ptr.i.i.i17.i320 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i16.i319, i64 1
   %_M_finish.i.i.i321 = getelementptr inbounds nuw i8, ptr %__begin0.sroa.0.08.i211, i64 96
@@ -8929,7 +8929,7 @@ for.body.i.i329:                                  ; preds = %for.body.i210, %for
   call void @llvm.assume(i1 %cmp.i.i.i.i.i335)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i10.i.i.i.i334, ptr align 1 %177, i64 %178, i1 false)
   %add.ptr.i.i.i.i.i.i336 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i10.i.i.i.i334, i64 %178
-  %179 = load i16, ptr %damage.i.i.i.i331, align 2
+  %179 = load i16, ptr %damage.i.i.i.i331, align 8
   store i16 %179, ptr %add.ptr.i.i.i.i.i.i336, align 1
   %add.ptr.i.i.i2.i.i.i337 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i336, i64 2
   %incdec.ptr.i.i.i338 = getelementptr inbounds nuw i8, ptr %__begin0.sroa.0.08.i.i330, i64 40
@@ -8952,7 +8952,7 @@ for.body.i.i329:                                  ; preds = %for.body.i210, %for
   call void @llvm.assume(i1 %cmp.i.i.i.i346)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i10.i.i.i345, ptr align 1 %181, i64 %182, i1 false)
   %add.ptr.i.i.i.i.i347 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i10.i.i.i345, i64 %182
-  %183 = load i16, ptr %damage.i.i.i342, align 2
+  %183 = load i16, ptr %damage.i.i.i342, align 8
   store i16 %183, ptr %add.ptr.i.i.i.i.i347, align 1
   %add.ptr.i.i.i2.i.i348 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i347, i64 2
   %_M_finish.i.i21.i349 = getelementptr inbounds nuw i8, ptr %__begin0.sroa.0.08.i211, i64 160
@@ -9036,7 +9036,7 @@ for.body.i224:                                    ; preds = %for.body.i224.prehe
   call void @llvm.assume(i1 %cmp.i.i14.i)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i10.i13.i, ptr align 1 %198, i64 %199, i1 false)
   %add.ptr.i.i.i15.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i10.i13.i, i64 %199
-  %200 = load i8, ptr %color.i.i365, align 1
+  %200 = load i8, ptr %color.i.i365, align 8
   store i8 %200, ptr %add.ptr.i.i.i15.i, align 1
   %add.ptr.i.i.i16.i375 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i15.i, i64 1
   %_M_finish.i.i.i376 = getelementptr inbounds nuw i8, ptr %__begin0.sroa.0.08.i225, i64 96
@@ -9067,7 +9067,7 @@ for.body.i.i383:                                  ; preds = %for.body.i224, %for
   call void @llvm.assume(i1 %cmp.i.i.i.i.i388)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i10.i.i.i.i387, ptr align 1 %206, i64 %207, i1 false)
   %add.ptr.i.i.i.i.i.i389 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i10.i.i.i.i387, i64 %207
-  %208 = load i16, ptr %damage.i.i.i.i385, align 2
+  %208 = load i16, ptr %damage.i.i.i.i385, align 8
   store i16 %208, ptr %add.ptr.i.i.i.i.i.i389, align 1
   %add.ptr.i.i.i2.i.i.i390 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i389, i64 2
   %incdec.ptr.i.i.i391 = getelementptr inbounds nuw i8, ptr %__begin0.sroa.0.08.i.i384, i64 40
@@ -9089,7 +9089,7 @@ for.body.i.i383:                                  ; preds = %for.body.i224, %for
   call void @llvm.assume(i1 %cmp.i.i.i.i397)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i10.i.i.i396, ptr align 1 %210, i64 %211, i1 false)
   %add.ptr.i.i.i.i.i398 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i10.i.i.i396, i64 %211
-  %212 = load i16, ptr %damage.i.i.i394, align 2
+  %212 = load i16, ptr %damage.i.i.i394, align 8
   store i16 %212, ptr %add.ptr.i.i.i.i.i398, align 1
   %add.ptr.i.i.i2.i.i399 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i398, i64 2
   %_M_finish.i.i19.i = getelementptr inbounds nuw i8, ptr %__begin0.sroa.0.08.i225, i64 160
@@ -10181,7 +10181,7 @@ while.body:                                       ; preds = %_ZNSt10_HashtableI1
   %__bbegin_bkt.021 = phi i64 [ %__bbegin_bkt.1, %if.end22 ], [ 0, %_ZNSt10_HashtableI10SampleTypeSt4pairIKS0_mESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %1 = load ptr, ptr %__p.022, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %__p.022, i64 8
-  %2 = load i32, ptr %add.ptr, align 4
+  %2 = load i32, ptr %add.ptr, align 8
   %conv.i.i.i.i = sext i32 %2 to i64
   %rem.i.i = urem i64 %conv.i.i.i.i, %__bkt_count
   %arrayidx = getelementptr inbounds ptr, ptr %retval.0.i, i64 %rem.i.i
@@ -11742,7 +11742,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   store ptr %add.ptr.i.i10.i.i.i, ptr %44, align 8
   %49 = load ptr, ptr %this, align 8
   %50 = load ptr, ptr %49, align 8
-  %51 = load i16, ptr %damage.i.i.i, align 2
+  %51 = load i16, ptr %damage.i.i.i, align 8
   store i16 %51, ptr %50, align 1
   %52 = load ptr, ptr %49, align 8
   %add.ptr.i.i.i2.i.i = getelementptr inbounds nuw i8, ptr %52, i64 2
@@ -11928,7 +11928,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   store ptr %add.ptr.i.i.i.i.i, ptr %44, align 8
   %49 = load ptr, ptr %this, align 8
   %50 = load ptr, ptr %49, align 8
-  %51 = load i16, ptr %damage.i.i.i, align 2
+  %51 = load i16, ptr %damage.i.i.i, align 8
   store i16 %51, ptr %50, align 1
   %52 = load ptr, ptr %49, align 8
   %add.ptr.i.i.i2.i.i = getelementptr inbounds nuw i8, ptr %52, i64 2
@@ -12114,7 +12114,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   store ptr %add.ptr.i.i.i.i.i, ptr %44, align 8
   %49 = load ptr, ptr %this, align 8
   %50 = load ptr, ptr %49, align 8
-  %51 = load i16, ptr %damage.i.i.i, align 2
+  %51 = load i16, ptr %damage.i.i.i, align 8
   store i16 %51, ptr %50, align 1
   %52 = load ptr, ptr %49, align 8
   %add.ptr.i.i.i2.i.i = getelementptr inbounds nuw i8, ptr %52, i64 2
@@ -12296,7 +12296,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   store ptr %add.ptr.i.i.i.i.i, ptr %44, align 8
   %49 = load ptr, ptr %this, align 8
   %50 = load ptr, ptr %49, align 8
-  %51 = load i16, ptr %damage.i.i.i, align 2
+  %51 = load i16, ptr %damage.i.i.i, align 8
   store i16 %51, ptr %50, align 1
   %52 = load ptr, ptr %49, align 8
   %add.ptr.i.i.i2.i.i = getelementptr inbounds nuw i8, ptr %52, i64 2
@@ -12480,7 +12480,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   store ptr %add.ptr.i.i10.i.i.i, ptr %44, align 8
   %49 = load ptr, ptr %this, align 8
   %50 = load ptr, ptr %49, align 8
-  %51 = load i16, ptr %damage.i.i.i, align 2
+  %51 = load i16, ptr %damage.i.i.i, align 8
   store i16 %51, ptr %50, align 1
   %52 = load ptr, ptr %49, align 8
   %add.ptr.i.i.i2.i.i = getelementptr inbounds nuw i8, ptr %52, i64 2
@@ -12666,7 +12666,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   store ptr %add.ptr.i.i.i.i.i, ptr %44, align 8
   %49 = load ptr, ptr %this, align 8
   %50 = load ptr, ptr %49, align 8
-  %51 = load i16, ptr %damage.i.i.i, align 2
+  %51 = load i16, ptr %damage.i.i.i, align 8
   store i16 %51, ptr %50, align 1
   %52 = load ptr, ptr %49, align 8
   %add.ptr.i.i.i2.i.i = getelementptr inbounds nuw i8, ptr %52, i64 2
@@ -12852,7 +12852,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   store ptr %add.ptr.i.i.i.i.i, ptr %44, align 8
   %49 = load ptr, ptr %this, align 8
   %50 = load ptr, ptr %49, align 8
-  %51 = load i16, ptr %damage.i.i.i, align 2
+  %51 = load i16, ptr %damage.i.i.i, align 8
   store i16 %51, ptr %50, align 1
   %52 = load ptr, ptr %49, align 8
   %add.ptr.i.i.i2.i.i = getelementptr inbounds nuw i8, ptr %52, i64 2
@@ -13034,7 +13034,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   store ptr %add.ptr.i.i.i.i.i, ptr %44, align 8
   %49 = load ptr, ptr %this, align 8
   %50 = load ptr, ptr %49, align 8
-  %51 = load i16, ptr %damage.i.i.i, align 2
+  %51 = load i16, ptr %damage.i.i.i, align 8
   store i16 %51, ptr %50, align 1
   %52 = load ptr, ptr %49, align 8
   %add.ptr.i.i.i2.i.i = getelementptr inbounds nuw i8, ptr %52, i64 2
@@ -15919,7 +15919,7 @@ for.body.i68:                                     ; preds = %for.body.i68.prehea
   tail call void @llvm.assume(i1 %cmp.i.i.i.i)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i4.i.i, ptr align 1 %13, i64 %14, i1 false)
   %add.ptr.i.i10.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i4.i.i, i64 %14
-  %15 = load i32, ptr %age.i.i.i, align 4
+  %15 = load i32, ptr %age.i.i.i, align 8
   store i32 %15, ptr %add.ptr.i.i10.i.i.i, align 1
   %add.ptr.i.i.i5.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i10.i.i.i, i64 4
   %16 = load i64, ptr %salary.i.i.i, align 8
@@ -15977,7 +15977,7 @@ for.body.i81:                                     ; preds = %for.body.i81.prehea
   tail call void @llvm.assume(i1 %cmp.i.i.i.i90)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i10.i.i.i89, ptr align 1 %24, i64 %25, i1 false)
   %add.ptr.i.i.i4.i.i91 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i10.i.i.i89, i64 %25
-  %26 = load i32, ptr %age.i.i.i84, align 4
+  %26 = load i32, ptr %age.i.i.i84, align 8
   store i32 %26, ptr %add.ptr.i.i.i4.i.i91, align 1
   %add.ptr.i.i.i5.i.i92 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i4.i.i91, i64 4
   %27 = load i64, ptr %salary.i.i.i85, align 8
@@ -16035,7 +16035,7 @@ for.body.i105:                                    ; preds = %for.body.i105.prehe
   tail call void @llvm.assume(i1 %cmp.i.i.i.i114)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i10.i.i.i113, ptr align 1 %35, i64 %36, i1 false)
   %add.ptr.i.i.i4.i.i115 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i10.i.i.i113, i64 %36
-  %37 = load i32, ptr %age.i.i.i108, align 4
+  %37 = load i32, ptr %age.i.i.i108, align 8
   store i32 %37, ptr %add.ptr.i.i.i4.i.i115, align 1
   %add.ptr.i.i.i5.i.i116 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i4.i.i115, i64 4
   %38 = load i64, ptr %salary.i.i.i109, align 8
@@ -16091,7 +16091,7 @@ for.body.i128:                                    ; preds = %for.body.i128.prehe
   tail call void @llvm.assume(i1 %cmp.i.i.i.i136)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i10.i.i.i135, ptr align 1 %46, i64 %47, i1 false)
   %add.ptr.i.i.i4.i.i137 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i10.i.i.i135, i64 %47
-  %48 = load i32, ptr %age.i.i.i131, align 4
+  %48 = load i32, ptr %age.i.i.i131, align 8
   store i32 %48, ptr %add.ptr.i.i.i4.i.i137, align 1
   %add.ptr.i.i.i5.i.i138 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i4.i.i137, i64 4
   %49 = load i64, ptr %salary.i.i.i132, align 8
@@ -16600,7 +16600,7 @@ for.body.i68:                                     ; preds = %for.body.i68.prehea
   tail call void @llvm.assume(i1 %cmp.i.i.i.i)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i4.i.i, ptr align 1 %13, i64 %14, i1 false)
   %add.ptr.i.i10.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i4.i.i, i64 %14
-  %15 = load i32, ptr %age.i.i.i, align 4
+  %15 = load i32, ptr %age.i.i.i, align 8
   store i32 %15, ptr %add.ptr.i.i10.i.i.i, align 1
   %add.ptr.i.i.i5.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i10.i.i.i, i64 4
   %16 = load i64, ptr %salary.i.i.i, align 8
@@ -16658,7 +16658,7 @@ for.body.i81:                                     ; preds = %for.body.i81.prehea
   tail call void @llvm.assume(i1 %cmp.i.i.i.i90)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i10.i.i.i89, ptr align 1 %24, i64 %25, i1 false)
   %add.ptr.i.i.i4.i.i91 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i10.i.i.i89, i64 %25
-  %26 = load i32, ptr %age.i.i.i84, align 4
+  %26 = load i32, ptr %age.i.i.i84, align 8
   store i32 %26, ptr %add.ptr.i.i.i4.i.i91, align 1
   %add.ptr.i.i.i5.i.i92 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i4.i.i91, i64 4
   %27 = load i64, ptr %salary.i.i.i85, align 8
@@ -16716,7 +16716,7 @@ for.body.i105:                                    ; preds = %for.body.i105.prehe
   tail call void @llvm.assume(i1 %cmp.i.i.i.i114)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i10.i.i.i113, ptr align 1 %35, i64 %36, i1 false)
   %add.ptr.i.i.i4.i.i115 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i10.i.i.i113, i64 %36
-  %37 = load i32, ptr %age.i.i.i108, align 4
+  %37 = load i32, ptr %age.i.i.i108, align 8
   store i32 %37, ptr %add.ptr.i.i.i4.i.i115, align 1
   %add.ptr.i.i.i5.i.i116 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i4.i.i115, i64 4
   %38 = load i64, ptr %salary.i.i.i109, align 8
@@ -16772,7 +16772,7 @@ for.body.i128:                                    ; preds = %for.body.i128.prehe
   tail call void @llvm.assume(i1 %cmp.i.i.i.i136)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i10.i.i.i135, ptr align 1 %46, i64 %47, i1 false)
   %add.ptr.i.i.i4.i.i137 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i10.i.i.i135, i64 %47
-  %48 = load i32, ptr %age.i.i.i131, align 4
+  %48 = load i32, ptr %age.i.i.i131, align 8
   store i32 %48, ptr %add.ptr.i.i.i4.i.i137, align 1
   %add.ptr.i.i.i5.i.i138 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i4.i.i137, i64 4
   %49 = load i64, ptr %salary.i.i.i132, align 8
@@ -21462,7 +21462,7 @@ _ZSt19__relocate_object_aI6personS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %
   store i64 %14, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i, align 8, !alias.scope !388, !noalias !391
   store ptr %11, ptr %name3.i.i.i.i.i.i.i, align 8, !alias.scope !391, !noalias !388
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i, align 8, !alias.scope !391, !noalias !388
-  store i8 0, ptr %11, align 1, !alias.scope !391, !noalias !388
+  store i8 0, ptr %11, align 8, !alias.scope !391, !noalias !388
   %age.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 40
   %age4.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %age.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %age4.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !393
@@ -22477,7 +22477,7 @@ _ZSt19__relocate_object_aI6personS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %
   store i64 %9, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i, align 8, !alias.scope !396, !noalias !399
   store ptr %6, ptr %name3.i.i.i.i.i.i.i, align 8, !alias.scope !399, !noalias !396
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i, align 8, !alias.scope !399, !noalias !396
-  store i8 0, ptr %6, align 1, !alias.scope !399, !noalias !396
+  store i8 0, ptr %6, align 8, !alias.scope !399, !noalias !396
   %age.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 40
   %age4.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %age.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %age4.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !401
@@ -22600,7 +22600,7 @@ _ZSt19__relocate_object_aI6personS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %
   store i64 %11, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i, align 8, !alias.scope !402, !noalias !405
   store ptr %8, ptr %name3.i.i.i.i.i.i.i, align 8, !alias.scope !405, !noalias !402
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i, align 8, !alias.scope !405, !noalias !402
-  store i8 0, ptr %8, align 1, !alias.scope !405, !noalias !402
+  store i8 0, ptr %8, align 8, !alias.scope !405, !noalias !402
   %age.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 40
   %age4.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %age.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %age4.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !407
@@ -22657,7 +22657,7 @@ _ZSt19__relocate_object_aI6personS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i21: ; preds =
   store i64 %18, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i23, align 8, !alias.scope !408, !noalias !411
   store ptr %15, ptr %name3.i.i.i.i.i.i.i16, align 8, !alias.scope !411, !noalias !408
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i22, align 8, !alias.scope !411, !noalias !408
-  store i8 0, ptr %15, align 1, !alias.scope !411, !noalias !408
+  store i8 0, ptr %15, align 8, !alias.scope !411, !noalias !408
   %age.i.i.i.i.i.i.i24 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i13, i64 40
   %age4.i.i.i.i.i.i.i25 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i14, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %age.i.i.i.i.i.i.i24, ptr noundef nonnull align 8 dereferenceable(16) %age4.i.i.i.i.i.i.i25, i64 16, i1 false), !alias.scope !413
@@ -22851,7 +22851,7 @@ _ZSt10_ConstructI6personJS0_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %if.else.i.i.
   store i64 %6, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i, align 8
   store ptr %3, ptr %name3.i.i.i.i.i.i.i, align 8
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i, align 8
-  store i8 0, ptr %3, align 1
+  store i8 0, ptr %3, align 8
   %age.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i.i, i64 40
   %age4.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.06.i.i.i.i.i, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %age.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %age4.i.i.i.i.i.i.i, i64 16, i1 false)
@@ -25480,7 +25480,7 @@ _ZSt19__relocate_object_aI6WeaponS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %
   store i64 %8, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i, align 8, !alias.scope !443, !noalias !446
   store ptr %5, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !446, !noalias !443
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i, align 8, !alias.scope !446, !noalias !443
-  store i8 0, ptr %5, align 1, !alias.scope !446, !noalias !443
+  store i8 0, ptr %5, align 8, !alias.scope !446, !noalias !443
   %damage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 32
   %damage3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 32
   %9 = load i16, ptr %damage3.i.i.i.i.i.i.i, align 8, !alias.scope !446, !noalias !443
@@ -25679,7 +25679,7 @@ _ZSt19__relocate_object_aI6WeaponS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %
   store i64 %10, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i, align 8, !alias.scope !450, !noalias !453
   store ptr %7, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !453, !noalias !450
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i, align 8, !alias.scope !453, !noalias !450
-  store i8 0, ptr %7, align 1, !alias.scope !453, !noalias !450
+  store i8 0, ptr %7, align 8, !alias.scope !453, !noalias !450
   %damage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 32
   %damage3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 32
   %11 = load i16, ptr %damage3.i.i.i.i.i.i.i, align 8, !alias.scope !453, !noalias !450
@@ -25733,7 +25733,7 @@ _ZSt19__relocate_object_aI6WeaponS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i19: ; preds =
   store i64 %17, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i21, align 8, !alias.scope !456, !noalias !459
   store ptr %14, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !459, !noalias !456
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i20, align 8, !alias.scope !459, !noalias !456
-  store i8 0, ptr %14, align 1, !alias.scope !459, !noalias !456
+  store i8 0, ptr %14, align 8, !alias.scope !459, !noalias !456
   %damage.i.i.i.i.i.i.i22 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i13, i64 32
   %damage3.i.i.i.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i14, i64 32
   %18 = load i16, ptr %damage3.i.i.i.i.i.i.i23, align 8, !alias.scope !459, !noalias !456
@@ -25832,7 +25832,7 @@ _ZSt10_ConstructI6WeaponJS0_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %if.else.i.
   store i64 %7, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i.i, align 8
   store ptr %4, ptr %__first.sroa.0.06.i.i.i.i.i.i, align 8
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i.i, align 8
-  store i8 0, ptr %4, align 1
+  store i8 0, ptr %4, align 8
   %damage.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i.i.i, i64 32
   %damage3.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.06.i.i.i.i.i.i, i64 32
   %8 = load i16, ptr %damage3.i.i.i.i.i.i.i.i, align 8
@@ -32183,7 +32183,7 @@ _ZSt19__relocate_object_aI6personS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %
   store i64 %10, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i, align 8, !alias.scope !543, !noalias !546
   store ptr %7, ptr %name3.i.i.i.i.i.i.i, align 8, !alias.scope !546, !noalias !543
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i, align 8, !alias.scope !546, !noalias !543
-  store i8 0, ptr %7, align 1, !alias.scope !546, !noalias !543
+  store i8 0, ptr %7, align 8, !alias.scope !546, !noalias !543
   %age.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 40
   %age4.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %age.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %age4.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !548
@@ -32240,7 +32240,7 @@ _ZSt19__relocate_object_aI6personS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i28: ; preds =
   store i64 %17, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i30, align 8, !alias.scope !549, !noalias !552
   store ptr %14, ptr %name3.i.i.i.i.i.i.i23, align 8, !alias.scope !552, !noalias !549
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i29, align 8, !alias.scope !552, !noalias !549
-  store i8 0, ptr %14, align 1, !alias.scope !552, !noalias !549
+  store i8 0, ptr %14, align 8, !alias.scope !552, !noalias !549
   %age.i.i.i.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i20, i64 40
   %age4.i.i.i.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i21, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %age.i.i.i.i.i.i.i31, ptr noundef nonnull align 8 dereferenceable(16) %age4.i.i.i.i.i.i.i32, i64 16, i1 false), !alias.scope !554
@@ -38707,7 +38707,7 @@ _ZSt19__relocate_object_aIN16struct_pb_sample6personES1_SaIS1_EEvPT_PT0_RT1_.exi
   store i64 %14, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i, align 8, !alias.scope !579, !noalias !582
   store ptr %11, ptr %name3.i.i.i.i.i.i.i, align 8, !alias.scope !582, !noalias !579
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i, align 8, !alias.scope !582, !noalias !579
-  store i8 0, ptr %11, align 1, !alias.scope !582, !noalias !579
+  store i8 0, ptr %11, align 8, !alias.scope !582, !noalias !579
   %age.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 40
   %age4.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %age.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %age4.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !584
@@ -40999,7 +40999,7 @@ _ZSt19__relocate_object_aIN16struct_pb_sample6personES1_SaIS1_EEvPT_PT0_RT1_.exi
   store i64 %10, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i, align 8, !alias.scope !609, !noalias !612
   store ptr %7, ptr %name3.i.i.i.i.i.i.i, align 8, !alias.scope !612, !noalias !609
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i, align 8, !alias.scope !612, !noalias !609
-  store i8 0, ptr %7, align 1, !alias.scope !612, !noalias !609
+  store i8 0, ptr %7, align 8, !alias.scope !612, !noalias !609
   %age.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 40
   %age4.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %age.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %age4.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !614
@@ -41056,7 +41056,7 @@ _ZSt19__relocate_object_aIN16struct_pb_sample6personES1_SaIS1_EEvPT_PT0_RT1_.exi
   store i64 %17, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i30, align 8, !alias.scope !615, !noalias !618
   store ptr %14, ptr %name3.i.i.i.i.i.i.i23, align 8, !alias.scope !618, !noalias !615
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i29, align 8, !alias.scope !618, !noalias !615
-  store i8 0, ptr %14, align 1, !alias.scope !618, !noalias !615
+  store i8 0, ptr %14, align 8, !alias.scope !618, !noalias !615
   %age.i.i.i.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i20, i64 40
   %age4.i.i.i.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i21, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %age.i.i.i.i.i.i.i31, ptr noundef nonnull align 8 dereferenceable(16) %age4.i.i.i.i.i.i.i32, i64 16, i1 false), !alias.scope !620
@@ -49141,7 +49141,7 @@ while.body:                                       ; preds = %_ZNSt10_HashtableI1
   %__bbegin_bkt.021 = phi i64 [ %__bbegin_bkt.1, %if.end22 ], [ 0, %_ZNSt10_HashtableI10SampleTypeSt4pairIKS0_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %1 = load ptr, ptr %__p.022, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %__p.022, i64 8
-  %2 = load i32, ptr %add.ptr, align 4
+  %2 = load i32, ptr %add.ptr, align 8
   %conv.i.i.i.i = sext i32 %2 to i64
   %rem.i.i = urem i64 %conv.i.i.i.i, %__bkt_count
   %arrayidx = getelementptr inbounds ptr, ptr %retval.0.i, i64 %rem.i.i
@@ -49616,7 +49616,7 @@ while.body:                                       ; preds = %_ZNSt10_HashtableI7
   %__bbegin_bkt.021 = phi i64 [ %__bbegin_bkt.1, %if.end22 ], [ 0, %_ZNSt10_HashtableI7LibTypeSt4pairIKS0_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %1 = load ptr, ptr %__p.022, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %__p.022, i64 8
-  %2 = load i32, ptr %add.ptr, align 4
+  %2 = load i32, ptr %add.ptr, align 8
   %conv.i.i.i.i = sext i32 %2 to i64
   %rem.i.i = urem i64 %conv.i.i.i.i, %__bkt_count
   %arrayidx = getelementptr inbounds ptr, ptr %retval.0.i, i64 %rem.i.i

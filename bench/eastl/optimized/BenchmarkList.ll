@@ -316,7 +316,7 @@ for.body:                                         ; preds = %invoke.cont25, %_ZN
   %22 = load i32, ptr %mMagicValue.i72, align 4
   store i32 32623592, ptr %mMagicValue.i72, align 4
   %mbThrowOnCopy.i73 = getelementptr inbounds nuw i8, ptr %add.ptr.i70, i64 4
-  store i8 0, ptr %mbThrowOnCopy.i73, align 1
+  store i8 0, ptr %mbThrowOnCopy.i73, align 4
   %cmp.not.i75 = icmp eq i32 %22, 32623592
   br i1 %cmp.not.i75, label %_ZN10TestObjectD2Ev.exit, label %if.then.i76
 
@@ -3342,12 +3342,12 @@ if.then.i.i.i.i:                                  ; preds = %for.body
   store i32 %14, ptr %mMagicValue4.i.i.i.i, align 4
   store i32 %13, ptr %mMagicValue3.i.i.i.i, align 4
   %mbThrowOnCopy4.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr2, i64 4
-  %15 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 1
+  %15 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4
   %frombool.i.i.i.i.i = and i8 %15, 1
-  %16 = load i8, ptr %mbThrowOnCopy4.i.i.i.i, align 1
+  %16 = load i8, ptr %mbThrowOnCopy4.i.i.i.i, align 4
   %frombool3.i.i.i.i.i = and i8 %16, 1
-  store i8 %frombool3.i.i.i.i.i, ptr %mbThrowOnCopy3.i.i.i.i, align 1
-  store i8 %frombool.i.i.i.i.i, ptr %mbThrowOnCopy4.i.i.i.i, align 1
+  store i8 %frombool3.i.i.i.i.i, ptr %mbThrowOnCopy3.i.i.i.i, align 4
+  store i8 %frombool.i.i.i.i.i, ptr %mbThrowOnCopy4.i.i.i.i, align 4
   %.pre.i.i.i = load i64, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   br label %_ZN10TestObjectaSEOS_.exit.i.i.i
 
@@ -3360,7 +3360,7 @@ _ZN10TestObjectaSEOS_.exit.i.i.i:                 ; preds = %if.then.i.i.i.i, %f
   %18 = load i32, ptr %mMagicValue.i9.i.i.i, align 4
   store i32 %6, ptr %mMagicValue.i9.i.i.i, align 4
   %mbThrowOnCopy.i11.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr2, i64 4
-  store i8 %frombool.i.i.i.i, ptr %mbThrowOnCopy.i11.i.i.i, align 1
+  store i8 %frombool.i.i.i.i, ptr %mbThrowOnCopy.i11.i.i.i, align 4
   %cmp.not.i17.i.i.i = icmp eq i32 %18, 32623592
   br i1 %cmp.not.i17.i.i.i, label %_ZN5eastl9iter_swapIP10TestObjectS2_EEvT_T0_.exit, label %if.then.i18.i.i.i
 

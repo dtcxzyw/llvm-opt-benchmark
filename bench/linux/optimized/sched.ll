@@ -10416,7 +10416,7 @@ define internal void @trace_event_raw_event_rpc_xdr_overflow(ptr noundef %0, ptr
   %98 = getelementptr inbounds nuw i8, ptr %53, i64 12
   store i32 -1, ptr %98, align 4
   %99 = getelementptr i8, ptr %53, i64 96
-  store i64 31093567915781749, ptr %99, align 1
+  store i64 31093567915781749, ptr %99, align 8
   %100 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store i32 0, ptr %100, align 8
   %101 = and i32 %49, 65535
@@ -10608,7 +10608,7 @@ define internal void @perf_trace_rpc_xdr_overflow(ptr noundef %0, ptr noundef re
   %105 = getelementptr inbounds nuw i8, ptr %53, i64 12
   store i32 -1, ptr %105, align 4
   %106 = getelementptr i8, ptr %53, i64 96
-  store i64 31093567915781749, ptr %106, align 1
+  store i64 31093567915781749, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store i32 0, ptr %107, align 8
   %108 = and i32 %35, 65535
@@ -11064,7 +11064,7 @@ define internal void @trace_event_raw_event_xs_socket_event(ptr noundef %0, ptr 
   %63 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 %62, ptr %63, align 4
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  %65 = load i64, ptr %64, align 8
+  %65 = load i64, ptr %64, align 64
   %66 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 %65, ptr %66, align 8
   call void @trace_event_buffer_commit(ptr noundef nonnull %4) #18
@@ -11188,7 +11188,7 @@ define internal void @perf_trace_xs_socket_event(ptr noundef %0, ptr readnone ca
   %74 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 %73, ptr %74, align 4
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  %76 = load i64, ptr %75, align 8
+  %76 = load i64, ptr %75, align 64
   %77 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 %76, ptr %77, align 8
   %78 = load i32, ptr %5, align 4
@@ -11299,7 +11299,7 @@ define internal void @trace_event_raw_event_xs_socket_event_done(ptr noundef %0,
   %64 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 %63, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  %66 = load i64, ptr %65, align 8
+  %66 = load i64, ptr %65, align 64
   %67 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i64 %66, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -11425,7 +11425,7 @@ define internal void @perf_trace_xs_socket_event_done(ptr noundef %0, ptr readno
   %75 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i32 %74, ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  %77 = load i64, ptr %76, align 8
+  %77 = load i64, ptr %76, align 64
   %78 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store i64 %77, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %18, i64 8

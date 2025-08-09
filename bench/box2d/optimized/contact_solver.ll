@@ -1148,7 +1148,7 @@ define hidden void @b2PrepareContactsTask(i32 noundef %0, i32 noundef %1, ptr no
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %.sroa.0337.0.copyload = load float, ptr %13, align 4, !tbaa !36
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !36
+  %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !36
   %.sroa.5338.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 52
   %.sroa.5338.0.copyload = load float, ptr %.sroa.5338.0..sroa_idx, align 4, !tbaa !36
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 1784

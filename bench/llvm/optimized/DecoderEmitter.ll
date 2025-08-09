@@ -4432,7 +4432,7 @@ _ZSt19__relocate_object_aIN12_GLOBAL__N_111OperandInfoES1_SaIS1_EEvPT_PT0_RT1_.e
   store i64 %1477, ptr %1479, align 8, !tbaa !169, !alias.scope !405, !noalias !408
   store ptr %1469, ptr %1466, align 8, !tbaa !166, !alias.scope !408, !noalias !405
   store i64 0, ptr %1478, align 8, !tbaa !169, !alias.scope !408, !noalias !405
-  store i8 0, ptr %1469, align 1, !tbaa !170, !alias.scope !408, !noalias !405
+  store i8 0, ptr %1469, align 8, !tbaa !170, !alias.scope !408, !noalias !405
   %1480 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i.i.i, i64 56
   %1481 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i.i.i, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1480, ptr noundef nonnull align 8 dereferenceable(16) %1481, i64 16, i1 false), !alias.scope !411
@@ -14023,7 +14023,7 @@ _ZSt19__relocate_object_aIN12_GLOBAL__N_111OperandInfoES1_SaIS1_EEvPT_PT0_RT1_.e
   store i64 %92, ptr %94, align 8, !tbaa !169, !alias.scope !658, !noalias !661
   store ptr %84, ptr %81, align 8, !tbaa !166, !alias.scope !661, !noalias !658
   store i64 0, ptr %93, align 8, !tbaa !169, !alias.scope !661, !noalias !658
-  store i8 0, ptr %84, align 1, !tbaa !170, !alias.scope !661, !noalias !658
+  store i8 0, ptr %84, align 8, !tbaa !170, !alias.scope !661, !noalias !658
   %95 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i, i64 56
   %96 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(16) %96, i64 16, i1 false), !alias.scope !663
@@ -14641,7 +14641,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
   store ptr %134, ptr %133, align 8, !tbaa !171
   %135 = getelementptr inbounds nuw i8, ptr %122, i64 72
   store i64 0, ptr %135, align 8, !tbaa !169
-  store i8 0, ptr %134, align 1, !tbaa !170
+  store i8 0, ptr %134, align 8, !tbaa !170
   %136 = call { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr %.08.lcssa.i.i.i12.i, ptr noundef nonnull align 8 dereferenceable(32) %123)
   %137 = extractvalue { ptr, ptr } %136, 0
   %138 = extractvalue { ptr, ptr } %136, 1
@@ -14927,7 +14927,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
   store ptr %28, ptr %27, align 8, !tbaa !171
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store i64 0, ptr %29, align 8, !tbaa !169
-  store i8 0, ptr %28, align 1, !tbaa !170
+  store i8 0, ptr %28, align 8, !tbaa !170
   %30 = call { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %8)
   %31 = extractvalue { ptr, ptr } %30, 0
   %32 = extractvalue { ptr, ptr } %30, 1
@@ -24471,7 +24471,7 @@ _ZN4llvm16CachedHashStringC2ERKS0_.exit:          ; preds = %_ZN4llvm12DenseMapB
   %44 = load ptr, ptr %22, align 8, !tbaa !47
   store ptr %.sroa.0.0, ptr %22, align 8, !tbaa !47
   %45 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store i32 %37, ptr %45, align 4, !tbaa !266
+  store i32 %37, ptr %45, align 8, !tbaa !266
   store i32 %39, ptr %25, align 4, !tbaa !266
   %magicptr1.i = ptrtoint ptr %44 to i64
   switch i64 %magicptr1.i, label %46 [
@@ -24680,7 +24680,7 @@ _ZN4llvm16CachedHashStringD2Ev.exit14:            ; preds = %_ZN4llvm16CachedHas
   %33 = load ptr, ptr %32, align 8, !tbaa !47
   store ptr %28, ptr %32, align 8, !tbaa !47
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store i32 %30, ptr %34, align 4, !tbaa !266
+  store i32 %30, ptr %34, align 8, !tbaa !266
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 12
   store i32 %31, ptr %35, align 4, !tbaa !266
   %magicptr1.i22 = ptrtoint ptr %33 to i64
@@ -26160,7 +26160,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optI13Supp
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.014, i64 32
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %21 = load i32, ptr %19, align 4, !tbaa !266
+  %21 = load i32, ptr %19, align 8, !tbaa !266
   store ptr %.sroa.01.0.copyload, ptr %3, align 8, !tbaa !47
   store i64 %.sroa.22.0.copyload, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !tbaa !48
   store ptr %.sroa.0.0.copyload, ptr %9, align 8, !tbaa !47

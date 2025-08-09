@@ -11981,7 +11981,7 @@ zend_tmp_string_release.exit390:                  ; preds = %zval_get_tmp_string
   %394 = getelementptr inbounds nuw i8, ptr %.1297, i64 24
   %395 = getelementptr inbounds nuw i8, ptr %.1297, i64 16
   %396 = load i64, ptr %395, align 8, !tbaa !16
-  %397 = load i8, ptr %394, align 1, !tbaa !10
+  %397 = load i8, ptr %394, align 8, !tbaa !10
   %398 = icmp sgt i8 %397, 57
   br i1 %398, label %_zend_handle_numeric_str.exit.thread, label %399, !prof !12
 
@@ -12787,11 +12787,11 @@ php_charmask.exit:                                ; preds = %php_charmask.exit.l
   store ptr %90, ptr %1, align 8, !tbaa !10
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %96, align 8, !tbaa !10
-  %97 = load i8, ptr %94, align 1, !tbaa !10
+  %97 = load i8, ptr %94, align 8, !tbaa !10
   %98 = zext i8 %97 to i64
   %99 = getelementptr inbounds nuw [256 x i8], ptr @zend_toupper_map, i64 0, i64 %98
   %100 = load i8, ptr %99, align 1, !tbaa !10
-  store i8 %100, ptr %94, align 1, !tbaa !10
+  store i8 %100, ptr %94, align 8, !tbaa !10
   %101 = getelementptr i8, ptr %95, i64 -1
   %102 = icmp sgt i64 %85, 1
   br i1 %102, label %.lr.ph, label %.loopexit
@@ -19478,7 +19478,7 @@ zend_string_equals_cstr.exit45.thread.i:          ; preds = %.split.i, %40, %.sp
   %68 = getelementptr inbounds nuw [1 x i8], ptr %67, i64 0, i64 %23
   store i8 0, ptr %68, align 1, !tbaa !10
   store ptr %63, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 72), align 8, !tbaa !128
-  store i32 2, ptr %63, align 4, !tbaa !21
+  store i32 2, ptr %63, align 8, !tbaa !21
   br label %try_setlocale_str.exit
 
 69:                                               ; preds = %22
@@ -21856,7 +21856,7 @@ php_charmask.exit:                                ; preds = %php_charmask.exit.l
   %106 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %107 = load i64, ptr %106, align 8, !tbaa !16
   %108 = getelementptr inbounds nuw i8, ptr %105, i64 %107
-  %109 = load i8, ptr %105, align 1, !tbaa !10
+  %109 = load i8, ptr %105, align 8, !tbaa !10
   switch i8 %109, label %.thread169 [
     i8 39, label %110
     i8 45, label %115

@@ -361,7 +361,7 @@ _ZN5boost6locale4util10try_to_intERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %51 = load i32, ptr %50, align 8, !tbaa !31
   %52 = and i32 %51, -75
   %53 = or disjoint i32 %52, 8
-  store i32 %53, ptr %50, align 4, !tbaa !44
+  store i32 %53, ptr %50, align 8, !tbaa !44
   br label %448
 
 54:                                               ; preds = %43
@@ -375,7 +375,7 @@ _ZN5boost6locale4util10try_to_intERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %60 = load i32, ptr %59, align 8, !tbaa !31
   %61 = and i32 %60, -75
   %62 = or disjoint i32 %61, 64
-  store i32 %62, ptr %59, align 4, !tbaa !44
+  store i32 %62, ptr %59, align 8, !tbaa !44
   br label %448
 
 63:                                               ; preds = %54
@@ -394,7 +394,7 @@ _ZN5boost6locale4util10try_to_intERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %72 = load i32, ptr %71, align 8, !tbaa !31
   %73 = and i32 %72, -261
   %74 = or disjoint i32 %73, 256
-  store i32 %74, ptr %71, align 4, !tbaa !44
+  store i32 %74, ptr %71, align 8, !tbaa !44
   br label %448
 
 75:                                               ; preds = %66
@@ -413,7 +413,7 @@ _ZN5boost6locale4util10try_to_intERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %84 = load i32, ptr %83, align 8, !tbaa !31
   %85 = and i32 %84, -261
   %86 = or disjoint i32 %85, 4
-  store i32 %86, ptr %83, align 4, !tbaa !44
+  store i32 %86, ptr %83, align 8, !tbaa !44
   br label %448
 
 87:                                               ; preds = %40
@@ -753,7 +753,7 @@ _ZN5boost6locale4util10try_to_intERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %280 = load i32, ptr %279, align 8, !tbaa !31
   %281 = and i32 %280, -177
   %282 = or disjoint i32 %281, 32
-  store i32 %282, ptr %279, align 4, !tbaa !44
+  store i32 %282, ptr %279, align 8, !tbaa !44
   br label %448
 
 283:                                              ; preds = %274
@@ -772,7 +772,7 @@ _ZN5boost6locale4util10try_to_intERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %292 = load i32, ptr %291, align 8, !tbaa !31
   %293 = and i32 %292, -177
   %294 = or disjoint i32 %293, 128
-  store i32 %294, ptr %291, align 4, !tbaa !44
+  store i32 %294, ptr %291, align 8, !tbaa !44
   br label %448
 
 295:                                              ; preds = %286

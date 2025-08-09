@@ -3184,27 +3184,27 @@ define void @_ZN2cv10StereoSGBM6createEiiiiiiiiiii(ptr dead_on_unwind noalias wr
 14:                                               ; preds = %12
   store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTVN2cv14StereoSGBMImplE, i64 16), ptr %13, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i32 %1, ptr %15, align 4, !tbaa !40
+  store i32 %1, ptr %15, align 8, !tbaa !40
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 %2, ptr %16, align 4, !tbaa !43
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store i32 %3, ptr %17, align 4, !tbaa !50
+  store i32 %3, ptr %17, align 8, !tbaa !50
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 28
   store i32 %4, ptr %18, align 4, !tbaa !53
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store i32 %5, ptr %19, align 4, !tbaa !55
+  store i32 %5, ptr %19, align 8, !tbaa !55
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 44
   store i32 %6, ptr %20, align 4, !tbaa !59
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i32 %7, ptr %21, align 4, !tbaa !134
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store i32 %8, ptr %22, align 4, !tbaa !57
+  store i32 %8, ptr %22, align 8, !tbaa !57
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 36
   store i32 %9, ptr %23, align 4, !tbaa !135
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  store i32 %10, ptr %24, align 4, !tbaa !136
+  store i32 %10, ptr %24, align 8, !tbaa !136
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  store i32 %11, ptr %25, align 4, !tbaa !137
+  store i32 %11, ptr %25, align 8, !tbaa !137
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 56
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %26) #25
   store ptr %13, ptr %0, align 8, !tbaa !138

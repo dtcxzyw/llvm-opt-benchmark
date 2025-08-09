@@ -399,23 +399,23 @@ define internal void @sctpstat_draw(ptr noundef readonly captures(none) %0) #0 {
   %21 = getelementptr inbounds nuw i8, ptr %.025, i64 60
   %22 = load i32, ptr %21, align 4
   %23 = getelementptr i8, ptr %.025, i64 72
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 8
   %25 = getelementptr i8, ptr %.025, i64 76
   %26 = load i32, ptr %25, align 4
   %27 = getelementptr i8, ptr %.025, i64 80
-  %28 = load i32, ptr %27, align 4
+  %28 = load i32, ptr %27, align 8
   %29 = getelementptr i8, ptr %.025, i64 64
-  %30 = load i32, ptr %29, align 4
+  %30 = load i32, ptr %29, align 8
   %31 = getelementptr i8, ptr %.025, i64 68
   %32 = load i32, ptr %31, align 4
   %33 = getelementptr i8, ptr %.025, i64 100
   %34 = load i32, ptr %33, align 4
   %35 = getelementptr i8, ptr %.025, i64 104
-  %36 = load i32, ptr %35, align 4
+  %36 = load i32, ptr %35, align 8
   %37 = getelementptr i8, ptr %.025, i64 84
   %38 = load i32, ptr %37, align 4
   %39 = getelementptr i8, ptr %.025, i64 96
-  %40 = load i32, ptr %39, align 4
+  %40 = load i32, ptr %39, align 8
   %41 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.9, ptr noundef %12, i32 noundef %17, ptr noundef %14, i32 noundef %20, i32 noundef %22, i32 noundef %24, i32 noundef %26, i32 noundef %28, i32 noundef %30, i32 noundef %32, i32 noundef %34, i32 noundef %36, i32 noundef %38, i32 noundef %40)
   tail call void @wmem_free(ptr noundef null, ptr noundef %12)
   tail call void @wmem_free(ptr noundef null, ptr noundef %14)

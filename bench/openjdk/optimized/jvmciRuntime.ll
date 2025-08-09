@@ -10250,9 +10250,9 @@ _ZN14ArgumentPusher11next_objectEv.exit:          ; preds = %11, %_ZN10HandleAre
   store i8 2, ptr %37, align 1
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %39 = load ptr, ptr %38, align 8
-  %40 = load i32, ptr %34, align 4
+  %40 = load i32, ptr %34, align 8
   %41 = add nsw i32 %40, 1
-  store i32 %41, ptr %34, align 4
+  store i32 %41, ptr %34, align 8
   %42 = sext i32 %40 to i64
   %43 = getelementptr inbounds i64, ptr %39, i64 %42
   store i64 %storemerge.i.i, ptr %43, align 8
@@ -10287,9 +10287,9 @@ _ZN14ArgumentPusher8next_argEv.exit:              ; preds = %44
   store i8 0, ptr %61, align 1
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   %63 = load ptr, ptr %62, align 8
-  %64 = load i32, ptr %58, align 4
+  %64 = load i32, ptr %58, align 8
   %65 = add nsw i32 %64, 1
-  store i32 %65, ptr %58, align 4
+  store i32 %65, ptr %58, align 8
   %66 = sext i32 %64 to i64
   %67 = getelementptr inbounds i64, ptr %63, i64 %66
   store i32 %55, ptr %67, align 4
@@ -10324,9 +10324,9 @@ _ZN14ArgumentPusher8next_argEv.exit2:             ; preds = %68
   store i8 0, ptr %85, align 1
   %86 = getelementptr inbounds nuw i8, ptr %75, i64 88
   %87 = load ptr, ptr %86, align 8
-  %88 = load i32, ptr %82, align 4
+  %88 = load i32, ptr %82, align 8
   %89 = add nsw i32 %88, 1
-  store i32 %89, ptr %82, align 4
+  store i32 %89, ptr %82, align 8
   %90 = sext i32 %88 to i64
   %91 = getelementptr inbounds i64, ptr %87, i64 %90
   store i32 %79, ptr %91, align 4
@@ -10360,9 +10360,9 @@ _ZN14ArgumentPusher8next_argEv.exit3:             ; preds = %92
   store i8 0, ptr %108, align 1
   %109 = getelementptr inbounds nuw i8, ptr %99, i64 88
   %110 = load ptr, ptr %109, align 8
-  %111 = load i32, ptr %105, align 4
+  %111 = load i32, ptr %105, align 8
   %112 = add nsw i32 %111, 1
-  store i32 %112, ptr %105, align 4
+  store i32 %112, ptr %105, align 8
   %113 = sext i32 %111 to i64
   %114 = getelementptr inbounds i64, ptr %110, i64 %113
   store i32 %102, ptr %114, align 4
@@ -10398,9 +10398,9 @@ _ZN14ArgumentPusher8next_argEv.exit4:             ; preds = %115
   store i8 0, ptr %132, align 1
   %133 = getelementptr inbounds nuw i8, ptr %122, i64 88
   %134 = load ptr, ptr %133, align 8
-  %135 = load i32, ptr %129, align 4
+  %135 = load i32, ptr %129, align 8
   %136 = add nsw i32 %135, 1
-  store i32 %136, ptr %129, align 4
+  store i32 %136, ptr %129, align 8
   %137 = sext i32 %135 to i64
   %138 = getelementptr inbounds i64, ptr %134, i64 %137
   store i32 %126, ptr %138, align 4
@@ -10434,9 +10434,9 @@ _ZN14ArgumentPusher8next_argEv.exit5:             ; preds = %139
   store i8 0, ptr %155, align 1
   %156 = getelementptr inbounds nuw i8, ptr %146, i64 88
   %157 = load ptr, ptr %156, align 8
-  %158 = load i32, ptr %152, align 4
+  %158 = load i32, ptr %152, align 8
   %159 = add nsw i32 %158, 1
-  store i32 %159, ptr %152, align 4
+  store i32 %159, ptr %152, align 8
   %160 = sext i32 %158 to i64
   %161 = getelementptr inbounds i64, ptr %157, i64 %160
   store i32 %149, ptr %161, align 4
@@ -10476,13 +10476,13 @@ _ZN14ArgumentPusher8next_argEv.exit6:             ; preds = %162
   %183 = getelementptr inbounds nuw i8, ptr %169, i64 88
   %184 = load ptr, ptr %183, align 8
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 8
-  %186 = load i32, ptr %174, align 4
+  %186 = load i32, ptr %174, align 8
   %187 = sext i32 %186 to i64
   %188 = getelementptr inbounds i64, ptr %185, i64 %187
   store i64 %171, ptr %188, align 8
-  %189 = load i32, ptr %174, align 4
+  %189 = load i32, ptr %174, align 8
   %190 = add nsw i32 %189, 2
-  store i32 %190, ptr %174, align 4
+  store i32 %190, ptr %174, align 8
   br label %246
 
 191:                                              ; preds = %2
@@ -10513,9 +10513,9 @@ _ZN14ArgumentPusher10next_floatEv.exit:           ; preds = %191
   store i8 0, ptr %207, align 1
   %208 = getelementptr inbounds nuw i8, ptr %198, i64 88
   %209 = load ptr, ptr %208, align 8
-  %210 = load i32, ptr %204, align 4
+  %210 = load i32, ptr %204, align 8
   %211 = add nsw i32 %210, 1
-  store i32 %211, ptr %204, align 4
+  store i32 %211, ptr %204, align 8
   %212 = sext i32 %210 to i64
   %213 = getelementptr inbounds i64, ptr %209, i64 %212
   store i32 %201, ptr %213, align 4
@@ -10555,13 +10555,13 @@ _ZN14ArgumentPusher11next_doubleEv.exit:          ; preds = %214
   %235 = getelementptr inbounds nuw i8, ptr %221, i64 88
   %236 = load ptr, ptr %235, align 8
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 8
-  %238 = load i32, ptr %226, align 4
+  %238 = load i32, ptr %226, align 8
   %239 = sext i32 %238 to i64
   %240 = getelementptr inbounds i64, ptr %237, i64 %239
   store double %223, ptr %240, align 8
-  %241 = load i32, ptr %226, align 4
+  %241 = load i32, ptr %226, align 8
   %242 = add nsw i32 %241, 2
-  store i32 %242, ptr %226, align 4
+  store i32 %242, ptr %226, align 8
   br label %246
 
 243:                                              ; preds = %2

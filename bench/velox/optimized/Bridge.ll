@@ -4068,7 +4068,7 @@ call6.i.i.noexc:                                  ; preds = %call3.i.i.noexc
   %capacity_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i246, i64 32
   store i64 %sub.i.i, ptr %capacity_.i.i.i.i, align 8, !noalias !16
   %referenceCount_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i246, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i.i, align 4, !noalias !16
+  store i32 0, ptr %referenceCount_.i.i.i.i, align 8, !noalias !16
   %podType_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i246, i64 44
   store i8 1, ptr %podType_.i.i.i.i, align 4, !noalias !16
   %padding_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i246, i64 48
@@ -5759,7 +5759,7 @@ call6.i.i.noexc551:                               ; preds = %call3.i.i.noexc549
   %capacity_.i.i.i.i305 = getelementptr inbounds nuw i8, ptr %call6.i.i552, i64 32
   store i64 %sub.i.i300, ptr %capacity_.i.i.i.i305, align 8, !noalias !45
   %referenceCount_.i.i.i.i306 = getelementptr inbounds nuw i8, ptr %call6.i.i552, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i.i306, align 4, !noalias !45
+  store i32 0, ptr %referenceCount_.i.i.i.i306, align 8, !noalias !45
   %podType_.i.i.i.i307 = getelementptr inbounds nuw i8, ptr %call6.i.i552, i64 44
   store i8 1, ptr %podType_.i.i.i.i307, align 4, !noalias !45
   %padding_.i.i.i.i308 = getelementptr inbounds nuw i8, ptr %call6.i.i552, i64 48
@@ -6614,7 +6614,7 @@ call6.i.noexc:                                    ; preds = %call3.i.noexc
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i981, i64 32
   store i64 %sub.i965, ptr %capacity_.i.i.i, align 8, !noalias !67
   %referenceCount_.i.i.i969 = getelementptr inbounds nuw i8, ptr %call6.i981, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i969, align 4, !noalias !67
+  store i32 0, ptr %referenceCount_.i.i.i969, align 8, !noalias !67
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i981, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !67
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i981, i64 48
@@ -9099,7 +9099,7 @@ call6.i.noexc1075:                                ; preds = %call3.i.noexc1073
   %capacity_.i.i.i1050 = getelementptr inbounds nuw i8, ptr %call6.i1076, i64 32
   store i64 %sub.i1045, ptr %capacity_.i.i.i1050, align 8, !noalias !88
   %referenceCount_.i.i.i1051 = getelementptr inbounds nuw i8, ptr %call6.i1076, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i1051, align 4, !noalias !88
+  store i32 0, ptr %referenceCount_.i.i.i1051, align 8, !noalias !88
   %podType_.i.i.i1052 = getelementptr inbounds nuw i8, ptr %call6.i1076, i64 44
   store i8 1, ptr %podType_.i.i.i1052, align 4, !noalias !88
   %padding_.i.i.i1053 = getelementptr inbounds nuw i8, ptr %call6.i1076, i64 48
@@ -9435,7 +9435,7 @@ if.end52:                                         ; preds = %if.then42, %invoke.
 invoke.cont57:                                    ; preds = %if.end52
   %16 = getelementptr inbounds nuw i8, ptr %call.i.i103, i64 64
   store i64 0, ptr %16, align 16, !noalias !100
-  store ptr @.str, ptr %call.i.i103, align 8, !noalias !100
+  store ptr @.str, ptr %call.i.i103, align 16, !noalias !100
   %name3.i100 = getelementptr inbounds nuw i8, ptr %call.i.i103, i64 8
   store ptr @.str.3, ptr %name3.i100, align 8, !noalias !100
   %metadata.i101 = getelementptr inbounds nuw i8, ptr %call.i.i103, i64 16
@@ -13815,7 +13815,7 @@ call6.i.i.noexc:                                  ; preds = %call3.i.i.noexc
   %capacity_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i17, i64 32
   store i64 %sub.i.i, ptr %capacity_.i.i.i.i, align 8, !noalias !153
   %referenceCount_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i17, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i.i, align 4, !noalias !153
+  store i32 0, ptr %referenceCount_.i.i.i.i, align 8, !noalias !153
   %podType_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i17, i64 44
   store i8 1, ptr %podType_.i.i.i.i, align 4, !noalias !153
   %padding_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i17, i64 48
@@ -14371,7 +14371,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i.i.i: ; preds =
   %capacity_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i.i, i64 32
   store i64 %sub.i.i.i, ptr %capacity_.i.i.i.i.i, align 8, !noalias !165
   %referenceCount_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i.i.i, align 4, !noalias !165
+  store i32 0, ptr %referenceCount_.i.i.i.i.i, align 8, !noalias !165
   %podType_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i.i, i64 44
   store i8 1, ptr %podType_.i.i.i.i.i, align 4, !noalias !165
   %padding_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i.i, i64 48
@@ -14428,7 +14428,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i.i: ; preds = %
   %capacity_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 32
   store i64 %sub.i.i, ptr %capacity_.i.i.i.i, align 8, !noalias !166
   %referenceCount_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i.i, align 4, !noalias !166
+  store i32 0, ptr %referenceCount_.i.i.i.i, align 8, !noalias !166
   %podType_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 44
   store i8 1, ptr %podType_.i.i.i.i, align 4, !noalias !166
   %padding_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 48
@@ -14732,7 +14732,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i.i10: ; preds =
   %capacity_.i.i.i.i22 = getelementptr inbounds nuw i8, ptr %call6.i.i16, i64 32
   store i64 %sub.i.i17, ptr %capacity_.i.i.i.i22, align 8, !noalias !175
   %referenceCount_.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %call6.i.i16, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i.i23, align 4, !noalias !175
+  store i32 0, ptr %referenceCount_.i.i.i.i23, align 8, !noalias !175
   %podType_.i.i.i.i24 = getelementptr inbounds nuw i8, ptr %call6.i.i16, i64 44
   store i8 1, ptr %podType_.i.i.i.i24, align 4, !noalias !175
   %padding_.i.i.i.i25 = getelementptr inbounds nuw i8, ptr %call6.i.i16, i64 48
@@ -14890,7 +14890,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i28.i: ; preds =
   %capacity_.i.i.i40.i = getelementptr inbounds nuw i8, ptr %call6.i34.i, i64 32
   store i64 %sub.i35.i, ptr %capacity_.i.i.i40.i, align 8, !noalias !178
   %referenceCount_.i.i.i41.i = getelementptr inbounds nuw i8, ptr %call6.i34.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i41.i, align 4, !noalias !178
+  store i32 0, ptr %referenceCount_.i.i.i41.i, align 8, !noalias !178
   %podType_.i.i.i42.i = getelementptr inbounds nuw i8, ptr %call6.i34.i, i64 44
   store i8 1, ptr %podType_.i.i.i42.i, align 4, !noalias !178
   %padding_.i.i.i43.i = getelementptr inbounds nuw i8, ptr %call6.i34.i, i64 48
@@ -32139,7 +32139,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !366
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !366
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !366
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !366
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -32734,7 +32734,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !369
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !369
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !369
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !369
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -33327,7 +33327,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !372
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !372
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !372
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !372
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -33922,7 +33922,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !375
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !375
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !375
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !375
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -34518,7 +34518,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !378
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !378
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !378
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !378
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -35114,7 +35114,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !381
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !381
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !381
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !381
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -35709,7 +35709,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !384
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !384
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !384
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !384
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -36648,7 +36648,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !387
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !387
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !387
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !387
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -40129,7 +40129,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %en
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !432
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !432
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !432
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !432
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -41146,7 +41146,7 @@ call6.i.i.noexc:                                  ; preds = %call3.i.i.noexc
   %capacity_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i6, i64 32
   store i64 %sub.i.i, ptr %capacity_.i.i.i.i, align 8, !noalias !441
   %referenceCount_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i6, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i.i, align 4, !noalias !441
+  store i32 0, ptr %referenceCount_.i.i.i.i, align 8, !noalias !441
   %podType_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i6, i64 44
   store i8 1, ptr %podType_.i.i.i.i, align 4, !noalias !441
   %padding_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i6, i64 48
@@ -49260,7 +49260,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %en
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !529
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !529
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !529
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !529
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -50360,7 +50360,7 @@ call6.i.noexc:                                    ; preds = %call3.i.noexc
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !541
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !541
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !541
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !541
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 48
@@ -55663,7 +55663,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !596
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !596
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !596
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !596
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -55968,7 +55968,7 @@ if.end13:                                         ; preds = %land.lhs.true5, %la
   %pool_.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %pool_.i, align 8
   %referenceCount_.i48 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %13 = load atomic i32, ptr %referenceCount_.i48 seq_cst, align 4
+  %13 = load atomic i32, ptr %referenceCount_.i48 seq_cst, align 8
   %cmp.i49 = icmp eq i32 %13, 1
   br i1 %cmp.i49, label %if.end30, label %_ZN8facebook5velox15checkedMultiplyImEET_RKS2_S4_PKc.exit.i
 
@@ -56002,7 +56002,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %_Z
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !599
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !599
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !599
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !599
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -56335,7 +56335,7 @@ if.end.i204:                                      ; preds = %invoke.cont45
   %capacity_.i.i142 = getelementptr inbounds nuw i8, ptr %call46, i64 32
   store i64 %sub61, ptr %capacity_.i.i142, align 8
   %referenceCount_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 40
-  store i32 0, ptr %referenceCount_.i.i, align 4
+  store i32 0, ptr %referenceCount_.i.i, align 8
   %podType_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 44
   store i8 1, ptr %podType_.i.i, align 4
   %padding_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 48
@@ -56906,7 +56906,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !603
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !603
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !603
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !603
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -62674,7 +62674,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i.i: ; preds = %
   %capacity_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 32
   store i64 %sub.i.i, ptr %capacity_.i.i.i.i, align 8, !noalias !655
   %referenceCount_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i.i, align 4, !noalias !655
+  store i32 0, ptr %referenceCount_.i.i.i.i, align 8, !noalias !655
   %podType_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 44
   store i8 1, ptr %podType_.i.i.i.i, align 4, !noalias !655
   %padding_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 48
@@ -62949,7 +62949,7 @@ if.end13:                                         ; preds = %land.lhs.true5, %la
   %pool_.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %pool_.i, align 8
   %referenceCount_.i48 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %11 = load atomic i32, ptr %referenceCount_.i48 seq_cst, align 4
+  %11 = load atomic i32, ptr %referenceCount_.i48 seq_cst, align 8
   %cmp.i49 = icmp eq i32 %11, 1
   br i1 %cmp.i49, label %if.end30, label %if.then16
 
@@ -62983,7 +62983,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !656
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !656
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !656
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !656
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -63294,7 +63294,7 @@ if.end.i180:                                      ; preds = %invoke.cont45
   %capacity_.i.i126 = getelementptr inbounds nuw i8, ptr %call46, i64 32
   store i64 %sub61, ptr %capacity_.i.i126, align 8
   %referenceCount_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 40
-  store i32 0, ptr %referenceCount_.i.i, align 4
+  store i32 0, ptr %referenceCount_.i.i, align 8
   %podType_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 44
   store i8 1, ptr %podType_.i.i, align 4
   %padding_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 48
@@ -63993,7 +63993,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i.i: ; preds = %
   %capacity_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 32
   store i64 %sub.i.i, ptr %capacity_.i.i.i.i, align 8, !noalias !667
   %referenceCount_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i.i, align 4, !noalias !667
+  store i32 0, ptr %referenceCount_.i.i.i.i, align 8, !noalias !667
   %podType_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 44
   store i8 1, ptr %podType_.i.i.i.i, align 4, !noalias !667
   %padding_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 48
@@ -68448,14 +68448,14 @@ for.body.us154:                                   ; preds = %for.body.lr.ph.spli
   %or.i36.us167 = or i64 %and3.i.us165, %and5.i.us166
   store i64 %or.i36.us167, ptr %10, align 8
   %add.ptr.i.us = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %12 = load i8, ptr %add.ptr.i.us, align 1
+  %12 = load i8, ptr %add.ptr.i.us, align 8
   %conv17.i.us = zext i8 %12 to i64
   %and20.i.us = and i64 %conv17.i.us, %not19.i
   %shr.i38.us = lshr i64 %9, %sub23.i
   %and24.i.us = and i64 %shr.i38.us, %conv18.i
   %or25.i.us = or disjoint i64 %and20.i.us, %and24.i.us
   %conv26.i.us = trunc nuw i64 %or25.i.us to i8
-  store i8 %conv26.i.us, ptr %add.ptr.i.us, align 1
+  store i8 %conv26.i.us, ptr %add.ptr.i.us, align 8
   %add.us168 = add i64 %add153.us155, 64
   %cmp.not.us169 = icmp ugt i64 %add.us168, %numBits
   br i1 %cmp.not.us169, label %for.end, label %for.body.us154, !llvm.loop !701
@@ -68469,7 +68469,7 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
   %13 = inttoptr i64 %add.i to ptr
   %14 = load i64, ptr %13, align 8
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %15 = load i8, ptr %arrayidx.i, align 1
+  %15 = load i8, ptr %arrayidx.i, align 8
   %conv4.i = zext i8 %15 to i64
   %or.i = tail call i64 @llvm.fshr.i64(i64 %conv4.i, i64 %14, i64 %and.i)
   %add2 = add i64 %i.0152, %targetOffset
@@ -68482,14 +68482,14 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
   %or.i36 = or i64 %and3.i, %and5.i
   store i64 %or.i36, ptr %16, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %18 = load i8, ptr %add.ptr.i, align 1
+  %18 = load i8, ptr %add.ptr.i, align 8
   %conv17.i = zext i8 %18 to i64
   %and20.i = and i64 %conv17.i, %not19.i
   %shr.i38 = lshr i64 %or.i, %sub23.i
   %and24.i = and i64 %shr.i38, %conv18.i
   %or25.i = or disjoint i64 %and20.i, %and24.i
   %conv26.i = trunc nuw i64 %or25.i to i8
-  store i8 %conv26.i, ptr %add.ptr.i, align 1
+  store i8 %conv26.i, ptr %add.ptr.i, align 8
   %add = add i64 %add153, 64
   %cmp.not = icmp ugt i64 %add, %numBits
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !702
@@ -69103,7 +69103,7 @@ _ZN8facebook5velox12_GLOBAL__N_118BufferViewReleaserC2ERKS2_.exit: ; preds = %_Z
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   store i64 %size, ptr %capacity_.i.i, align 8
   %referenceCount_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 40
-  store i32 0, ptr %referenceCount_.i.i, align 4
+  store i32 0, ptr %referenceCount_.i.i, align 8
   %podType_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 44
   store i8 1, ptr %podType_.i.i, align 4
   %padding_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 48
@@ -70791,7 +70791,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %en
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !710
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !710
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !710
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !710
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -71890,7 +71890,7 @@ call6.i.noexc:                                    ; preds = %call3.i.noexc
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !722
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !722
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !722
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !722
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 48
@@ -77202,7 +77202,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !783
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !783
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !783
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !783
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -77507,7 +77507,7 @@ if.end13:                                         ; preds = %land.lhs.true5, %la
   %pool_.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %pool_.i, align 8
   %referenceCount_.i48 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %13 = load atomic i32, ptr %referenceCount_.i48 seq_cst, align 4
+  %13 = load atomic i32, ptr %referenceCount_.i48 seq_cst, align 8
   %cmp.i49 = icmp eq i32 %13, 1
   br i1 %cmp.i49, label %if.end30, label %_ZN8facebook5velox15checkedMultiplyImEET_RKS2_S4_PKc.exit.i
 
@@ -77541,7 +77541,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %_Z
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !787
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !787
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !787
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !787
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -77874,7 +77874,7 @@ if.end.i204:                                      ; preds = %invoke.cont45
   %capacity_.i.i142 = getelementptr inbounds nuw i8, ptr %call46, i64 32
   store i64 %sub61, ptr %capacity_.i.i142, align 8
   %referenceCount_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 40
-  store i32 0, ptr %referenceCount_.i.i, align 4
+  store i32 0, ptr %referenceCount_.i.i, align 8
   %podType_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 44
   store i8 1, ptr %podType_.i.i, align 4
   %padding_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 48
@@ -84426,7 +84426,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %en
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !835
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !835
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !835
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !835
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -85525,7 +85525,7 @@ call6.i.noexc:                                    ; preds = %call3.i.noexc
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !847
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !847
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !847
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !847
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 48
@@ -90833,7 +90833,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !908
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !908
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !908
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !908
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -91111,7 +91111,7 @@ if.end13:                                         ; preds = %land.lhs.true5, %la
   %pool_.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %pool_.i, align 8
   %referenceCount_.i48 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %11 = load atomic i32, ptr %referenceCount_.i48 seq_cst, align 4
+  %11 = load atomic i32, ptr %referenceCount_.i48 seq_cst, align 8
   %cmp.i49 = icmp eq i32 %11, 1
   br i1 %cmp.i49, label %if.end30, label %if.then16
 
@@ -91145,7 +91145,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !911
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !911
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !911
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !911
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -91456,7 +91456,7 @@ if.end.i180:                                      ; preds = %invoke.cont45
   %capacity_.i.i126 = getelementptr inbounds nuw i8, ptr %call46, i64 32
   store i64 %sub61, ptr %capacity_.i.i126, align 8
   %referenceCount_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 40
-  store i32 0, ptr %referenceCount_.i.i, align 4
+  store i32 0, ptr %referenceCount_.i.i, align 8
   %podType_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 44
   store i8 1, ptr %podType_.i.i, align 4
   %padding_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 48
@@ -97995,7 +97995,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %en
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !959
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !959
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !959
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !959
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -99095,7 +99095,7 @@ call6.i.noexc:                                    ; preds = %call3.i.noexc
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !971
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !971
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !971
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !971
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 48
@@ -104405,7 +104405,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !1032
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !1032
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !1032
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !1032
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -104710,7 +104710,7 @@ if.end13:                                         ; preds = %land.lhs.true5, %la
   %pool_.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %pool_.i, align 8
   %referenceCount_.i48 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %13 = load atomic i32, ptr %referenceCount_.i48 seq_cst, align 4
+  %13 = load atomic i32, ptr %referenceCount_.i48 seq_cst, align 8
   %cmp.i49 = icmp eq i32 %13, 1
   br i1 %cmp.i49, label %if.end30, label %_ZN8facebook5velox15checkedMultiplyImEET_RKS2_S4_PKc.exit.i
 
@@ -104744,7 +104744,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %_Z
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !1036
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !1036
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !1036
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !1036
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -105077,7 +105077,7 @@ if.end.i204:                                      ; preds = %invoke.cont45
   %capacity_.i.i142 = getelementptr inbounds nuw i8, ptr %call46, i64 32
   store i64 %sub61, ptr %capacity_.i.i142, align 8
   %referenceCount_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 40
-  store i32 0, ptr %referenceCount_.i.i, align 4
+  store i32 0, ptr %referenceCount_.i.i, align 8
   %podType_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 44
   store i8 1, ptr %podType_.i.i, align 4
   %padding_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 48
@@ -111626,7 +111626,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %en
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !1084
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !1084
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !1084
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !1084
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -112726,7 +112726,7 @@ call6.i.noexc:                                    ; preds = %call3.i.noexc
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !1096
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !1096
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !1096
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !1096
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 48
@@ -118023,7 +118023,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !1148
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !1148
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !1148
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !1148
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -118328,7 +118328,7 @@ if.end13:                                         ; preds = %land.lhs.true5, %la
   %pool_.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %pool_.i, align 8
   %referenceCount_.i48 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %13 = load atomic i32, ptr %referenceCount_.i48 seq_cst, align 4
+  %13 = load atomic i32, ptr %referenceCount_.i48 seq_cst, align 8
   %cmp.i49 = icmp eq i32 %13, 1
   br i1 %cmp.i49, label %if.end30, label %_ZN8facebook5velox15checkedMultiplyImEET_RKS2_S4_PKc.exit.i
 
@@ -118362,7 +118362,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %_Z
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !1152
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !1152
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !1152
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !1152
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -118695,7 +118695,7 @@ if.end.i204:                                      ; preds = %invoke.cont45
   %capacity_.i.i142 = getelementptr inbounds nuw i8, ptr %call46, i64 32
   store i64 %sub61, ptr %capacity_.i.i142, align 8
   %referenceCount_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 40
-  store i32 0, ptr %referenceCount_.i.i, align 4
+  store i32 0, ptr %referenceCount_.i.i, align 8
   %podType_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 44
   store i8 1, ptr %podType_.i.i, align 4
   %padding_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 48
@@ -125312,7 +125312,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %en
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !1206
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !1206
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !1206
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !1206
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -126424,7 +126424,7 @@ call6.i.noexc:                                    ; preds = %call3.i.noexc
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !1218
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !1218
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !1218
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !1218
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 48
@@ -131360,7 +131360,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !1273
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !1273
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !1273
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !1273
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -131665,7 +131665,7 @@ if.end13:                                         ; preds = %land.lhs.true5, %la
   %pool_.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %pool_.i, align 8
   %referenceCount_.i48 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %13 = load atomic i32, ptr %referenceCount_.i48 seq_cst, align 4
+  %13 = load atomic i32, ptr %referenceCount_.i48 seq_cst, align 8
   %cmp.i49 = icmp eq i32 %13, 1
   br i1 %cmp.i49, label %if.end30, label %_ZN8facebook5velox15checkedMultiplyImEET_RKS2_S4_PKc.exit.i
 
@@ -131699,7 +131699,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %_Z
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !1277
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !1277
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !1277
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !1277
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -132032,7 +132032,7 @@ if.end.i204:                                      ; preds = %invoke.cont45
   %capacity_.i.i142 = getelementptr inbounds nuw i8, ptr %call46, i64 32
   store i64 %sub61, ptr %capacity_.i.i142, align 8
   %referenceCount_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 40
-  store i32 0, ptr %referenceCount_.i.i, align 4
+  store i32 0, ptr %referenceCount_.i.i, align 8
   %podType_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 44
   store i8 1, ptr %podType_.i.i, align 4
   %padding_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 48
@@ -138418,7 +138418,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %en
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !1325
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !1325
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !1325
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !1325
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -139528,7 +139528,7 @@ call6.i.noexc:                                    ; preds = %call3.i.noexc
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !1337
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !1337
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !1337
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !1337
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 48
@@ -145076,7 +145076,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !1390
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !1390
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !1390
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !1390
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -145381,7 +145381,7 @@ if.end13:                                         ; preds = %land.lhs.true5, %la
   %pool_.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %pool_.i, align 8
   %referenceCount_.i48 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %13 = load atomic i32, ptr %referenceCount_.i48 seq_cst, align 4
+  %13 = load atomic i32, ptr %referenceCount_.i48 seq_cst, align 8
   %cmp.i49 = icmp eq i32 %13, 1
   br i1 %cmp.i49, label %if.end30, label %_ZN8facebook5velox15checkedMultiplyImEET_RKS2_S4_PKc.exit.i
 
@@ -145415,7 +145415,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %_Z
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !1394
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !1394
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !1394
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !1394
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -145748,7 +145748,7 @@ if.end.i204:                                      ; preds = %invoke.cont45
   %capacity_.i.i142 = getelementptr inbounds nuw i8, ptr %call46, i64 32
   store i64 %sub61, ptr %capacity_.i.i142, align 8
   %referenceCount_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 40
-  store i32 0, ptr %referenceCount_.i.i, align 4
+  store i32 0, ptr %referenceCount_.i.i, align 8
   %podType_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 44
   store i8 1, ptr %podType_.i.i, align 4
   %padding_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 48
@@ -152330,7 +152330,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %en
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !1442
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !1442
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !1442
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !1442
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -153439,7 +153439,7 @@ call6.i.noexc:                                    ; preds = %call3.i.noexc
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !1454
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !1454
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !1454
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !1454
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 48
@@ -158987,7 +158987,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !1507
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !1507
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !1507
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !1507
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -159292,7 +159292,7 @@ if.end13:                                         ; preds = %land.lhs.true5, %la
   %pool_.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %pool_.i, align 8
   %referenceCount_.i48 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %13 = load atomic i32, ptr %referenceCount_.i48 seq_cst, align 4
+  %13 = load atomic i32, ptr %referenceCount_.i48 seq_cst, align 8
   %cmp.i49 = icmp eq i32 %13, 1
   br i1 %cmp.i49, label %if.end30, label %_ZN8facebook5velox15checkedMultiplyImEET_RKS2_S4_PKc.exit.i
 
@@ -159326,7 +159326,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %_Z
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !1511
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !1511
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !1511
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !1511
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -159659,7 +159659,7 @@ if.end.i204:                                      ; preds = %invoke.cont45
   %capacity_.i.i142 = getelementptr inbounds nuw i8, ptr %call46, i64 32
   store i64 %sub61, ptr %capacity_.i.i142, align 8
   %referenceCount_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 40
-  store i32 0, ptr %referenceCount_.i.i, align 4
+  store i32 0, ptr %referenceCount_.i.i, align 8
   %podType_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 44
   store i8 1, ptr %podType_.i.i, align 4
   %padding_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 48
@@ -166292,7 +166292,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %en
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !1559
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !1559
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !1559
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !1559
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -167526,7 +167526,7 @@ call6.i.noexc:                                    ; preds = %call3.i.noexc
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !1576
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !1576
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !1576
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !1576
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 48
@@ -174398,7 +174398,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !1643
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !1643
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !1643
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !1643
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -175003,7 +175003,7 @@ if.end13:                                         ; preds = %land.lhs.true5, %la
   %pool_.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load ptr, ptr %pool_.i, align 8
   %referenceCount_.i48 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %12 = load atomic i32, ptr %referenceCount_.i48 seq_cst, align 4
+  %12 = load atomic i32, ptr %referenceCount_.i48 seq_cst, align 8
   %cmp.i49 = icmp eq i32 %12, 1
   br i1 %cmp.i49, label %if.end30, label %_ZN8facebook5velox15checkedMultiplyImEET_RKS2_S4_PKc.exit.i
 
@@ -175037,7 +175037,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %_Z
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !1666
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !1666
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !1666
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !1666
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -175368,7 +175368,7 @@ if.end.i204:                                      ; preds = %invoke.cont45
   %capacity_.i.i142 = getelementptr inbounds nuw i8, ptr %call46, i64 32
   store i64 %sub61, ptr %capacity_.i.i142, align 8
   %referenceCount_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 40
-  store i32 0, ptr %referenceCount_.i.i, align 4
+  store i32 0, ptr %referenceCount_.i.i, align 8
   %podType_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 44
   store i8 1, ptr %podType_.i.i, align 4
   %padding_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 48
@@ -176102,7 +176102,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !1673
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !1673
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !1673
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !1673
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -178121,7 +178121,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %en
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !1685
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !1685
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !1685
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !1685
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -179232,7 +179232,7 @@ call6.i.noexc:                                    ; preds = %call3.i.noexc
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !1697
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !1697
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !1697
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !1697
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i9, i64 48
@@ -184562,7 +184562,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !1753
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !1753
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !1753
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !1753
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -184865,7 +184865,7 @@ if.end13:                                         ; preds = %land.lhs.true5, %la
   %pool_.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load ptr, ptr %pool_.i, align 8
   %referenceCount_.i48 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %12 = load atomic i32, ptr %referenceCount_.i48 seq_cst, align 4
+  %12 = load atomic i32, ptr %referenceCount_.i48 seq_cst, align 8
   %cmp.i49 = icmp eq i32 %12, 1
   br i1 %cmp.i49, label %if.end30, label %_ZN8facebook5velox15checkedMultiplyImEET_RKS2_S4_PKc.exit.i
 
@@ -184899,7 +184899,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %_Z
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !1757
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !1757
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !1757
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !1757
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -185230,7 +185230,7 @@ if.end.i204:                                      ; preds = %invoke.cont45
   %capacity_.i.i142 = getelementptr inbounds nuw i8, ptr %call46, i64 32
   store i64 %sub61, ptr %capacity_.i.i142, align 8
   %referenceCount_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 40
-  store i32 0, ptr %referenceCount_.i.i, align 4
+  store i32 0, ptr %referenceCount_.i.i, align 8
   %podType_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 44
   store i8 1, ptr %podType_.i.i, align 4
   %padding_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 48
@@ -190383,8 +190383,8 @@ invoke.cont2:                                     ; preds = %init
   store i64 0, ptr %2, align 16
   %3 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %kind_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
-  store i8 3, ptr %kind_.i.i.i.i, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox8DateTypeE, i64 16), ptr %call, align 8
+  store i8 3, ptr %kind_.i.i.i.i, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox8DateTypeE, i64 16), ptr %call, align 16
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox8DateTypeE, i64 160), ptr %3, align 8
   invoke void @_ZNSt10shared_ptrIKN8facebook5velox8DateTypeEEC2IS2_vEEPT_(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN8facebook5velox8DateType3getEvE5kType, ptr noundef nonnull %call)
           to label %invoke.cont3 unwind label %lpad
@@ -192440,7 +192440,7 @@ call6.i.i.noexc:                                  ; preds = %call3.i.i.noexc
   %capacity_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i153, i64 32
   store i64 %sub.i.i, ptr %capacity_.i.i.i.i, align 8, !noalias !1822
   %referenceCount_.i.i.i.i128 = getelementptr inbounds nuw i8, ptr %call6.i.i153, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i.i128, align 4, !noalias !1822
+  store i32 0, ptr %referenceCount_.i.i.i.i128, align 8, !noalias !1822
   %podType_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i153, i64 44
   store i8 1, ptr %podType_.i.i.i.i, align 4, !noalias !1822
   %padding_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i153, i64 48
@@ -192995,7 +192995,7 @@ call6.i.i.noexc266:                               ; preds = %call3.i.i.noexc264
   %capacity_.i.i.i.i205 = getelementptr inbounds nuw i8, ptr %call6.i.i267, i64 32
   store i64 %sub.i.i200, ptr %capacity_.i.i.i.i205, align 8, !noalias !1844
   %referenceCount_.i.i.i.i206 = getelementptr inbounds nuw i8, ptr %call6.i.i267, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i.i206, align 4, !noalias !1844
+  store i32 0, ptr %referenceCount_.i.i.i.i206, align 8, !noalias !1844
   %podType_.i.i.i.i207 = getelementptr inbounds nuw i8, ptr %call6.i.i267, i64 44
   store i8 1, ptr %podType_.i.i.i.i207, align 4, !noalias !1844
   %padding_.i.i.i.i208 = getelementptr inbounds nuw i8, ptr %call6.i.i267, i64 48
@@ -194003,7 +194003,7 @@ call6.i.i.noexc.i:                                ; preds = %call3.i.i.noexc.i
   %capacity_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i11.i, i64 32
   store i64 %sub.i.i.i, ptr %capacity_.i.i.i.i.i, align 8, !noalias !1877
   %referenceCount_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i11.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i.i.i, align 4, !noalias !1877
+  store i32 0, ptr %referenceCount_.i.i.i.i.i, align 8, !noalias !1877
   %podType_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i11.i, i64 44
   store i8 1, ptr %podType_.i.i.i.i.i, align 4, !noalias !1877
   %padding_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i11.i, i64 48
@@ -194515,7 +194515,7 @@ call6.i.i.noexc.i920:                             ; preds = %call3.i.i.noexc.i91
   %capacity_.i.i.i.i.i926 = getelementptr inbounds nuw i8, ptr %call6.i.i13.i, i64 32
   store i64 %sub.i.i.i921, ptr %capacity_.i.i.i.i.i926, align 8, !noalias !1896
   %referenceCount_.i.i.i.i.i927 = getelementptr inbounds nuw i8, ptr %call6.i.i13.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i.i.i927, align 4, !noalias !1896
+  store i32 0, ptr %referenceCount_.i.i.i.i.i927, align 8, !noalias !1896
   %podType_.i.i.i.i.i928 = getelementptr inbounds nuw i8, ptr %call6.i.i13.i, i64 44
   store i8 1, ptr %podType_.i.i.i.i.i928, align 4, !noalias !1896
   %padding_.i.i.i.i.i929 = getelementptr inbounds nuw i8, ptr %call6.i.i13.i, i64 48

@@ -3888,7 +3888,7 @@ _ZN5Eigen12SparseMatrixIdLi1EiE7reserveINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvR
   %.sroa.0.030 = phi ptr [ %46, %.lr.ph31 ], [ %72, %56 ]
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.0.030, i64 8
   %58 = load double, ptr %57, align 8, !tbaa !32
-  %59 = load i32, ptr %.sroa.0.030, align 4, !tbaa !19
+  %59 = load i32, ptr %.sroa.0.030, align 8, !tbaa !19
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.0.030, i64 4
   %62 = load i32, ptr %61, align 4, !tbaa !19
@@ -5237,7 +5237,7 @@ _ZN5Eigen12SparseMatrixIdLi0EiE7reserveINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvR
   %.sroa.0.030 = phi ptr [ %47, %.lr.ph31 ], [ %73, %57 ]
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.0.030, i64 8
   %59 = load double, ptr %58, align 8, !tbaa !32
-  %60 = load i32, ptr %.sroa.0.030, align 4, !tbaa !19
+  %60 = load i32, ptr %.sroa.0.030, align 8, !tbaa !19
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.0.030, i64 4
   %62 = load i32, ptr %61, align 4, !tbaa !19
   %63 = sext i32 %62 to i64

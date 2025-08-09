@@ -584,7 +584,7 @@ define void @_ZNK6open3d8geometry10Geometry3D15TransformPointsERKN5Eigen6MatrixI
   %.sroa.4.24.vec.extract = extractelement <2 x double> %45, i64 1
   %46 = shufflevector <2 x double> %45, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %47 = fdiv <2 x double> %34, %46
-  store <2 x double> %47, ptr %.sroa.018.022, align 1, !tbaa !11
+  store <2 x double> %47, ptr %.sroa.018.022, align 8, !tbaa !11
   %.sroa.4.16.vec.extract = extractelement <2 x double> %45, i64 0
   %48 = fdiv double %.sroa.4.16.vec.extract, %.sroa.4.24.vec.extract
   store double %48, ptr %16, align 8, !tbaa !16
@@ -655,7 +655,7 @@ define void @_ZNK6open3d8geometry10Geometry3D16TransformNormalsERKN5Eigen6Matrix
   %37 = load <2 x double>, ptr %12, align 16, !tbaa !11
   %38 = load <2 x double>, ptr %13, align 16, !tbaa !11
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
-  store <2 x double> %34, ptr %.sroa.013.017, align 1, !tbaa !11
+  store <2 x double> %34, ptr %.sroa.013.017, align 8, !tbaa !11
   %39 = extractelement <2 x double> %.sroa.0.16..sroa.0.16..sroa.0.16., i64 1
   %40 = extractelement <2 x double> %38, i64 0
   %41 = fmul double %39, %40
@@ -1140,7 +1140,7 @@ define void @_ZNK6open3d8geometry10Geometry3D12RotatePointsERKN5Eigen6MatrixIdLi
   %42 = fadd double %35, %41
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   %43 = fadd <2 x double> %16, %33
-  store <2 x double> %43, ptr %.sroa.015.020, align 1, !tbaa !11
+  store <2 x double> %43, ptr %.sroa.015.020, align 8, !tbaa !11
   %44 = load double, ptr %8, align 8, !tbaa !16
   %45 = fadd double %42, %44
   store double %45, ptr %18, align 8, !tbaa !16
@@ -1195,7 +1195,7 @@ define void @_ZNK6open3d8geometry10Geometry3D13RotateNormalsERKN5Eigen6MatrixIdL
   %35 = fmul double %34, %33
   %36 = fadd double %32, %35
   %37 = fadd double %29, %36
-  store <2 x double> %26, ptr %.sroa.07.011, align 1, !tbaa !11
+  store <2 x double> %26, ptr %.sroa.07.011, align 8, !tbaa !11
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.07.011, i64 16
   store double %37, ptr %38, align 8, !tbaa !16
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.07.011, i64 24

@@ -8383,7 +8383,7 @@ _ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableIS_ISt10shared_pt
   %.01642 = phi ptr [ %45, %.lr.ph ], [ %43, %.lr.ph45 ]
   %44 = getelementptr inbounds nuw i8, ptr %.01642, i64 32
   %45 = load ptr, ptr %44, align 8
-  %46 = load i32, ptr %.01642, align 4
+  %46 = load i32, ptr %.01642, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.01642, i64 4
   %48 = load i32, ptr %47, align 4
   %49 = zext i32 %46 to i64
@@ -10026,7 +10026,7 @@ _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__13Usd_ClipCache8Lifeboat4D
   store ptr null, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load i32, ptr %1, align 8
-  store i32 %58, ptr %57, align 4
+  store i32 %58, ptr %57, align 8
   store i32 0, ptr %1, align 8
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 12
   %60 = load i32, ptr %12, align 4
@@ -10036,7 +10036,7 @@ _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__13Usd_ClipCache8Lifeboat4D
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %7) #22
   %62 = getelementptr inbounds nuw i8, ptr %56, i64 48
   %63 = load i32, ptr %8, align 8
-  store i32 %63, ptr %62, align 4
+  store i32 %63, ptr %62, align 8
   store i32 0, ptr %8, align 8
   %64 = getelementptr inbounds nuw i8, ptr %56, i64 52
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 44

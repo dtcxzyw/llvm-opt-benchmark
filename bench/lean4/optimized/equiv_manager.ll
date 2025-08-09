@@ -601,7 +601,7 @@ _ZN4lean13equiv_manager4findEj.exit63:            ; preds = %53
   store ptr %70, ptr %69, align 8, !tbaa !61
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 16
   store i64 0, ptr %71, align 8, !tbaa !64
-  store i8 0, ptr %70, align 1, !tbaa !66
+  store i8 0, ptr %70, align 8, !tbaa !66
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %68, align 8, !tbaa !67
   tail call void @__cxa_throw(ptr nonnull %68, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #19
   unreachable

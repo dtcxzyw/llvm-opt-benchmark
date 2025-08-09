@@ -4300,7 +4300,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_
   %16 = zext i32 %15 to i64
   %17 = getelementptr inbounds nuw float, ptr %11, i64 %16
   %18 = tail call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS4_S8_(ptr noundef %11, ptr noundef %17)
-  %19 = load i64, ptr %9, align 4
+  %19 = load i64, ptr %9, align 8
   %20 = add i64 %18, 16
   %21 = tail call i64 @llvm.fshl.i64(i64 %20, i64 %20, i64 48)
   %22 = xor i64 %19, %21
@@ -4537,7 +4537,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %17 = zext i32 %16 to i64
   %18 = getelementptr inbounds nuw float, ptr %12, i64 %17
   %19 = tail call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS4_S8_(ptr noundef %12, ptr noundef %18)
-  %20 = load i64, ptr %10, align 4
+  %20 = load i64, ptr %10, align 8
   %21 = add i64 %19, 16
   %22 = tail call i64 @llvm.fshl.i64(i64 %21, i64 %21, i64 48)
   %23 = xor i64 %20, %22

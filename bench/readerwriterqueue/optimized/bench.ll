@@ -314,7 +314,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readnone captures
   %59 = load i32, ptr %58, align 8, !tbaa !30
   %60 = and i32 %59, -177
   %61 = or disjoint i32 %60, 32
-  store i32 %61, ptr %58, align 4, !tbaa !31
+  store i32 %61, ptr %58, align 8, !tbaa !31
   %62 = load i64, ptr %55, align 8
   %63 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
@@ -707,7 +707,7 @@ _ZSt4sortIPdEvT_S1_.exit266:                      ; preds = %_ZSt25__unguarded_l
   %197 = load i32, ptr %196, align 8, !tbaa !30
   %198 = and i32 %197, -261
   %199 = or disjoint i32 %198, 4
-  store i32 %199, ptr %196, align 4, !tbaa !31
+  store i32 %199, ptr %196, align 8, !tbaa !31
   %200 = load i64, ptr %193, align 8
   %201 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %200
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 8
@@ -724,7 +724,7 @@ _ZSt4sortIPdEvT_S1_.exit266:                      ; preds = %_ZSt25__unguarded_l
   %212 = load i32, ptr %211, align 8, !tbaa !30
   %213 = and i32 %212, -261
   %214 = or disjoint i32 %213, 4
-  store i32 %214, ptr %211, align 4, !tbaa !31
+  store i32 %214, ptr %211, align 8, !tbaa !31
   %215 = load i64, ptr %208, align 8
   %216 = getelementptr inbounds i8, ptr %204, i64 %215
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 8
@@ -741,7 +741,7 @@ _ZSt4sortIPdEvT_S1_.exit266:                      ; preds = %_ZSt25__unguarded_l
   %227 = load i32, ptr %226, align 8, !tbaa !30
   %228 = and i32 %227, -261
   %229 = or disjoint i32 %228, 4
-  store i32 %229, ptr %226, align 4, !tbaa !31
+  store i32 %229, ptr %226, align 8, !tbaa !31
   %230 = load i64, ptr %223, align 8
   %231 = getelementptr inbounds i8, ptr %219, i64 %230
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 8
@@ -758,7 +758,7 @@ _ZSt4sortIPdEvT_S1_.exit266:                      ; preds = %_ZSt25__unguarded_l
   %242 = load i32, ptr %241, align 8, !tbaa !30
   %243 = and i32 %242, -261
   %244 = or disjoint i32 %243, 4
-  store i32 %244, ptr %241, align 4, !tbaa !31
+  store i32 %244, ptr %241, align 8, !tbaa !31
   %245 = load i64, ptr %238, align 8
   %246 = getelementptr inbounds i8, ptr %234, i64 %245
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 8
@@ -1054,7 +1054,7 @@ switch.lookup:                                    ; preds = %355, %_ZSt10accumul
   %364 = load i32, ptr %363, align 8, !tbaa !30
   %365 = and i32 %364, -177
   %366 = or disjoint i32 %365, 32
-  store i32 %366, ptr %363, align 4, !tbaa !31
+  store i32 %366, ptr %363, align 8, !tbaa !31
   %367 = load i64, ptr %360, align 8
   %368 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %367
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 16
@@ -1073,7 +1073,7 @@ switch.lookup:                                    ; preds = %355, %_ZSt10accumul
   %379 = load i32, ptr %378, align 8, !tbaa !30
   %380 = and i32 %379, -261
   %381 = or disjoint i32 %380, 4
-  store i32 %381, ptr %378, align 4, !tbaa !31
+  store i32 %381, ptr %378, align 8, !tbaa !31
   %382 = load i64, ptr %375, align 8
   %383 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %382
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 8
@@ -1088,7 +1088,7 @@ switch.lookup:                                    ; preds = %355, %_ZSt10accumul
   %392 = load i32, ptr %391, align 8, !tbaa !30
   %393 = and i32 %392, -261
   %394 = or disjoint i32 %393, 4
-  store i32 %394, ptr %391, align 4, !tbaa !31
+  store i32 %394, ptr %391, align 8, !tbaa !31
   %395 = load i64, ptr %388, align 8
   %396 = getelementptr inbounds i8, ptr %385, i64 %395
   %397 = getelementptr inbounds nuw i8, ptr %396, i64 8
@@ -1103,7 +1103,7 @@ switch.lookup:                                    ; preds = %355, %_ZSt10accumul
   %405 = load i32, ptr %404, align 8, !tbaa !30
   %406 = and i32 %405, -261
   %407 = or disjoint i32 %406, 4
-  store i32 %407, ptr %404, align 4, !tbaa !31
+  store i32 %407, ptr %404, align 8, !tbaa !31
   %408 = load i64, ptr %401, align 8
   %409 = getelementptr inbounds i8, ptr %398, i64 %408
   %410 = getelementptr inbounds nuw i8, ptr %409, i64 8
@@ -1118,7 +1118,7 @@ switch.lookup:                                    ; preds = %355, %_ZSt10accumul
   %418 = load i32, ptr %417, align 8, !tbaa !30
   %419 = and i32 %418, -261
   %420 = or disjoint i32 %419, 4
-  store i32 %420, ptr %417, align 4, !tbaa !31
+  store i32 %420, ptr %417, align 8, !tbaa !31
   %421 = load i64, ptr %414, align 8
   %422 = getelementptr inbounds i8, ptr %411, i64 %421
   %423 = getelementptr inbounds nuw i8, ptr %422, i64 8
@@ -1133,7 +1133,7 @@ switch.lookup:                                    ; preds = %355, %_ZSt10accumul
   %431 = load i32, ptr %430, align 8, !tbaa !30
   %432 = and i32 %431, -261
   %433 = or disjoint i32 %432, 4
-  store i32 %433, ptr %430, align 4, !tbaa !31
+  store i32 %433, ptr %430, align 8, !tbaa !31
   %434 = load i64, ptr %427, align 8
   %435 = getelementptr inbounds i8, ptr %424, i64 %434
   %436 = getelementptr inbounds nuw i8, ptr %435, i64 8
@@ -1148,7 +1148,7 @@ switch.lookup:                                    ; preds = %355, %_ZSt10accumul
   %444 = load i32, ptr %443, align 8, !tbaa !30
   %445 = and i32 %444, -261
   %446 = or disjoint i32 %445, 4
-  store i32 %446, ptr %443, align 4, !tbaa !31
+  store i32 %446, ptr %443, align 8, !tbaa !31
   %447 = load i64, ptr %440, align 8
   %448 = getelementptr inbounds i8, ptr %437, i64 %447
   %449 = getelementptr inbounds nuw i8, ptr %448, i64 8
@@ -1163,7 +1163,7 @@ switch.lookup:                                    ; preds = %355, %_ZSt10accumul
   %457 = load i32, ptr %456, align 8, !tbaa !30
   %458 = and i32 %457, -261
   %459 = or disjoint i32 %458, 4
-  store i32 %459, ptr %456, align 4, !tbaa !31
+  store i32 %459, ptr %456, align 8, !tbaa !31
   %460 = load i64, ptr %453, align 8
   %461 = getelementptr inbounds i8, ptr %450, i64 %460
   %462 = getelementptr inbounds nuw i8, ptr %461, i64 8
@@ -1178,7 +1178,7 @@ switch.lookup:                                    ; preds = %355, %_ZSt10accumul
   %470 = load i32, ptr %469, align 8, !tbaa !30
   %471 = and i32 %470, -261
   %472 = or disjoint i32 %471, 4
-  store i32 %472, ptr %469, align 4, !tbaa !31
+  store i32 %472, ptr %469, align 8, !tbaa !31
   %473 = load i64, ptr %466, align 8
   %474 = getelementptr inbounds i8, ptr %463, i64 %473
   %475 = getelementptr inbounds nuw i8, ptr %474, i64 8
@@ -1193,7 +1193,7 @@ switch.lookup:                                    ; preds = %355, %_ZSt10accumul
   %483 = load i32, ptr %482, align 8, !tbaa !30
   %484 = and i32 %483, -261
   %485 = or disjoint i32 %484, 4
-  store i32 %485, ptr %482, align 4, !tbaa !31
+  store i32 %485, ptr %482, align 8, !tbaa !31
   %486 = load i64, ptr %479, align 8
   %487 = getelementptr inbounds i8, ptr %476, i64 %486
   %488 = getelementptr inbounds nuw i8, ptr %487, i64 8
@@ -1208,7 +1208,7 @@ switch.lookup:                                    ; preds = %355, %_ZSt10accumul
   %496 = load i32, ptr %495, align 8, !tbaa !30
   %497 = and i32 %496, -261
   %498 = or disjoint i32 %497, 4
-  store i32 %498, ptr %495, align 4, !tbaa !31
+  store i32 %498, ptr %495, align 8, !tbaa !31
   %499 = load i64, ptr %492, align 8
   %500 = getelementptr inbounds i8, ptr %489, i64 %499
   %501 = getelementptr inbounds nuw i8, ptr %500, i64 8
@@ -1223,7 +1223,7 @@ switch.lookup:                                    ; preds = %355, %_ZSt10accumul
   %509 = load i32, ptr %508, align 8, !tbaa !30
   %510 = and i32 %509, -261
   %511 = or disjoint i32 %510, 4
-  store i32 %511, ptr %508, align 4, !tbaa !31
+  store i32 %511, ptr %508, align 8, !tbaa !31
   %512 = load i64, ptr %505, align 8
   %513 = getelementptr inbounds i8, ptr %502, i64 %512
   %514 = getelementptr inbounds nuw i8, ptr %513, i64 8
@@ -1238,7 +1238,7 @@ switch.lookup:                                    ; preds = %355, %_ZSt10accumul
   %522 = load i32, ptr %521, align 8, !tbaa !30
   %523 = and i32 %522, -261
   %524 = or disjoint i32 %523, 4
-  store i32 %524, ptr %521, align 4, !tbaa !31
+  store i32 %524, ptr %521, align 8, !tbaa !31
   %525 = load i64, ptr %518, align 8
   %526 = getelementptr inbounds i8, ptr %515, i64 %525
   %527 = getelementptr inbounds nuw i8, ptr %526, i64 8
@@ -1253,7 +1253,7 @@ switch.lookup:                                    ; preds = %355, %_ZSt10accumul
   %535 = load i32, ptr %534, align 8, !tbaa !30
   %536 = and i32 %535, -261
   %537 = or disjoint i32 %536, 4
-  store i32 %537, ptr %534, align 4, !tbaa !31
+  store i32 %537, ptr %534, align 8, !tbaa !31
   %538 = load i64, ptr %531, align 8
   %539 = getelementptr inbounds i8, ptr %528, i64 %538
   %540 = getelementptr inbounds nuw i8, ptr %539, i64 8
@@ -1268,7 +1268,7 @@ switch.lookup:                                    ; preds = %355, %_ZSt10accumul
   %548 = load i32, ptr %547, align 8, !tbaa !30
   %549 = and i32 %548, -261
   %550 = or disjoint i32 %549, 4
-  store i32 %550, ptr %547, align 4, !tbaa !31
+  store i32 %550, ptr %547, align 8, !tbaa !31
   %551 = load i64, ptr %544, align 8
   %552 = getelementptr inbounds i8, ptr %541, i64 %551
   %553 = getelementptr inbounds nuw i8, ptr %552, i64 8
@@ -10212,7 +10212,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
   %15 = sext i32 %6 to i64
   %16 = getelementptr inbounds i32, ptr %14, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !4
-  store atomic i32 %spec.store.select.i.i.i, ptr %5 release, align 4
+  store atomic i32 %spec.store.select.i.i.i, ptr %5 release, align 8
   %18 = load ptr, ptr %2, align 8, !tbaa !298
   %19 = load i32, ptr %18, align 4, !tbaa !4
   %20 = add nsw i32 %19, %17
@@ -10249,7 +10249,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
   %11 = icmp eq i32 %9, %10
   %spec.store.select.i.i.i = select i1 %11, i32 0, i32 %9
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %13 = load atomic i32, ptr %12 acquire, align 4
+  %13 = load atomic i32, ptr %12 acquire, align 8
   %.not.i.not.i.i = icmp eq i32 %spec.store.select.i.i.i, %13
   br i1 %.not.i.not.i.i, label %_ZN5folly21ProducerConsumerQueueIiE7enqueueIJRiEEEbDpOT_.exit.i.i, label %14
 
@@ -10314,7 +10314,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
   %25 = getelementptr inbounds i32, ptr %23, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !4
   store i32 %26, ptr %13, align 4, !tbaa !4
-  store atomic i32 %spec.store.select.i.i.i, ptr %14 release, align 4
+  store atomic i32 %spec.store.select.i.i.i, ptr %14 release, align 8
   br label %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit.i.i
 
 _ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit.i.i: ; preds = %18, %11
@@ -10348,7 +10348,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
   %8 = icmp eq i32 %6, %7
   %spec.store.select.i.i.i = select i1 %8, i32 0, i32 %6
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %10 = load atomic i32, ptr %9 acquire, align 4
+  %10 = load atomic i32, ptr %9 acquire, align 8
   %.not.i.not.i.i = icmp eq i32 %spec.store.select.i.i.i, %10
   br i1 %.not.i.not.i.i, label %_ZN5folly21ProducerConsumerQueueIiE7enqueueIJRiEEEbDpOT_.exit.i.i, label %11
 
@@ -10399,7 +10399,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
   %17 = getelementptr inbounds i32, ptr %15, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !4
   store i32 %18, ptr %5, align 4, !tbaa !4
-  store atomic i32 %spec.store.select.i.i.i, ptr %6 release, align 4
+  store atomic i32 %spec.store.select.i.i.i, ptr %6 release, align 8
   br label %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit.i.i
 
 _ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit.i.i: ; preds = %10, %3
@@ -10436,7 +10436,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
   %15 = icmp eq i32 %13, %14
   %spec.store.select.i.i.i = select i1 %15, i32 0, i32 %13
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %17 = load atomic i32, ptr %16 acquire, align 4
+  %17 = load atomic i32, ptr %16 acquire, align 8
   %.not.i.not.i.i = icmp eq i32 %spec.store.select.i.i.i, %17
   br i1 %.not.i.not.i.i, label %_ZN5folly21ProducerConsumerQueueIiE7enqueueIJRiEEEbDpOT_.exit.i.i, label %18
 
@@ -10494,7 +10494,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
   %17 = getelementptr inbounds i32, ptr %15, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !4
   store i32 %18, ptr %5, align 4, !tbaa !4
-  store atomic i32 %spec.store.select.i.i.i, ptr %6 release, align 4
+  store atomic i32 %spec.store.select.i.i.i, ptr %6 release, align 8
   br label %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit.i.i
 
 _ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit.i.i: ; preds = %10, %3
@@ -10521,7 +10521,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
   %8 = icmp eq i32 %6, %7
   %spec.store.select.i.i.i = select i1 %8, i32 0, i32 %6
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %10 = load atomic i32, ptr %9 acquire, align 4
+  %10 = load atomic i32, ptr %9 acquire, align 8
   %.not.i.not.i.i = icmp eq i32 %spec.store.select.i.i.i, %10
   br i1 %.not.i.not.i.i, label %_ZN5folly21ProducerConsumerQueueIiE7enqueueIJRiEEEbDpOT_.exit.i.i, label %11
 
@@ -10592,7 +10592,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
   %29 = getelementptr inbounds i32, ptr %27, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !4
   store i32 %30, ptr %17, align 4, !tbaa !4
-  store atomic i32 %spec.store.select.i.i.i, ptr %18 release, align 4
+  store atomic i32 %spec.store.select.i.i.i, ptr %18 release, align 8
   br label %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit.i.i
 
 _ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit.i.i: ; preds = %22, %15
@@ -10650,7 +10650,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
   %21 = icmp eq i32 %19, %20
   %spec.store.select.i.i.i = select i1 %21, i32 0, i32 %19
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %23 = load atomic i32, ptr %22 acquire, align 4
+  %23 = load atomic i32, ptr %22 acquire, align 8
   %.not.i.not.i.i = icmp eq i32 %spec.store.select.i.i.i, %23
   br i1 %.not.i.not.i.i, label %_ZN5folly21ProducerConsumerQueueIiE7enqueueIJRiEEEbDpOT_.exit.i.i, label %24
 

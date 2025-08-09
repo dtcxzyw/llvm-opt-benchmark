@@ -3155,7 +3155,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i131: ; pred
   store i64 %121, ptr %122, align 8, !tbaa !38
   store ptr %112, ptr %109, align 8, !tbaa !86
   store i64 0, ptr %120, align 8, !tbaa !38
-  store i8 0, ptr %112, align 1, !tbaa !87
+  store i8 0, ptr %112, align 8, !tbaa !87
   %123 = getelementptr inbounds nuw i8, ptr %.012.i.i.i109, i64 40
   %124 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i110, i64 40
   %125 = getelementptr inbounds nuw i8, ptr %.012.i.i.i109, i64 56
@@ -3187,7 +3187,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit9.i.i133: ; pre
   store i64 %136, ptr %137, align 8, !tbaa !38
   store ptr %127, ptr %124, align 8, !tbaa !86
   store i64 0, ptr %135, align 8, !tbaa !38
-  store i8 0, ptr %127, align 1, !tbaa !87
+  store i8 0, ptr %127, align 8, !tbaa !87
   %138 = getelementptr inbounds nuw i8, ptr %.012.i.i.i109, i64 72
   %139 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i110, i64 72
   %140 = load ptr, ptr %139, align 8, !tbaa !163
@@ -3241,7 +3241,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i135: ; pr
   store i64 %166, ptr %167, align 8, !tbaa !38
   store ptr %157, ptr %154, align 8, !tbaa !86
   store i64 0, ptr %165, align 8, !tbaa !38
-  store i8 0, ptr %157, align 1, !tbaa !87
+  store i8 0, ptr %157, align 8, !tbaa !87
   %168 = add nuw nsw i64 %152, 1
   %169 = icmp eq i64 %168, 4
   br i1 %169, label %_ZNSt15__new_allocatorI13MoleculePatchE9constructIS0_JS0_EEEvPT_DpOT0_.exit136, label %151

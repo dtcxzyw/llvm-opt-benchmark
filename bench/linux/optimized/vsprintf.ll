@@ -11870,7 +11870,7 @@ define internal fastcc noundef ptr @ip6_compressed_string(ptr noundef writeonly 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef align 1 dereferenceable(16) %1, i64 16, i1 false)
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 8
   %9 = xor i32 %8, -65536
   %10 = zext i32 %9 to i64
   %11 = or i64 %6, %10

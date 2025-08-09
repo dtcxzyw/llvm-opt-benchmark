@@ -436,7 +436,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i61
   store ptr %112, ptr %111, align 8, !tbaa !16
   %113 = getelementptr inbounds nuw i8, ptr %109, i64 16
   store i64 0, ptr %113, align 8, !tbaa !11
-  store i8 0, ptr %112, align 1, !tbaa !18
+  store i8 0, ptr %112, align 8, !tbaa !18
   %114 = getelementptr inbounds nuw i8, ptr %109, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %114, i8 0, i64 24, i1 false)
   %115 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
@@ -2937,7 +2937,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i41
   store ptr %142, ptr %141, align 8, !tbaa !16
   %143 = getelementptr inbounds nuw i8, ptr %139, i64 16
   store i64 0, ptr %143, align 8, !tbaa !11
-  store i8 0, ptr %142, align 1, !tbaa !18
+  store i8 0, ptr %142, align 8, !tbaa !18
   %144 = getelementptr inbounds nuw i8, ptr %139, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %144, i8 0, i64 24, i1 false)
   %145 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29

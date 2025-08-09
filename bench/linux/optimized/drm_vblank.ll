@@ -533,7 +533,7 @@ define internal fastcc void @drm_update_vblank_count(ptr noundef %0, i32 noundef
   %130 = phi i64 [ %.pre, %._crit_edge ], [ 0, %128 ]
   %131 = load ptr, ptr %6, align 8
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %133 = load volatile i32, ptr %132, align 4
+  %133 = load volatile i32, ptr %132, align 8
   %134 = icmp eq i32 %133, 0
   br i1 %134, label %135, label %136, !prof !28
 
@@ -559,9 +559,9 @@ define internal fastcc void @drm_update_vblank_count(ptr noundef %0, i32 noundef
   %145 = getelementptr inbounds nuw i8, ptr %137, i64 80
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %145, i64 %144, ptr nonnull elementtype(i64) %145) #12, !srcloc !32
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !33
-  %146 = load i32, ptr %139, align 4
+  %146 = load i32, ptr %139, align 8
   %147 = add i32 %146, 1
-  store i32 %147, ptr %139, align 4
+  store i32 %147, ptr %139, align 8
   call void @_raw_spin_unlock(ptr noundef nonnull %140) #12
   br label %148
 
@@ -696,7 +696,7 @@ define dso_local i32 @drm_vblank_init(ptr noundef initializes((328, 336)) %0, i3
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 76
   store i32 0, ptr %24, align 4
-  store i32 0, ptr %23, align 4
+  store i32 0, ptr %23, align 8
   %25 = tail call i32 @__drmm_add_action_or_reset(ptr noundef %0, ptr noundef nonnull @drm_vblank_init_release, ptr noundef %18, ptr noundef nonnull @.str.5) #12
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %.thread
@@ -726,7 +726,7 @@ define internal void @vblank_disable_fn(ptr noundef %0) #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 332
   %7 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %6) #12
   %8 = getelementptr i8, ptr %0, i64 64
-  %9 = load volatile i32, ptr %8, align 4
+  %9 = load volatile i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %22
 
@@ -1403,7 +1403,7 @@ define internal fastcc i64 @drm_vblank_count_and_time(ptr noundef readonly captu
   %36 = load i64, ptr %14, align 8
   store i64 %36, ptr %2, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !69
-  %37 = load volatile i32, ptr %12, align 4
+  %37 = load volatile i32, ptr %12, align 8
   %38 = icmp eq i32 %37, %34
   br i1 %38, label %.loopexit2, label %27, !llvm.loop !70
 
@@ -1590,7 +1590,7 @@ define dso_local void @drm_crtc_send_vblank_event(ptr noundef readonly captures(
   %39 = load volatile i64, ptr %17, align 8
   %40 = load i64, ptr %18, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !69
-  %41 = load volatile i32, ptr %16, align 4
+  %41 = load volatile i32, ptr %16, align 8
   %42 = icmp eq i32 %41, %38
   br i1 %42, label %drm_vblank_count_and_time.exit, label %31, !llvm.loop !70
 
@@ -1976,7 +1976,7 @@ define dso_local void @drm_vblank_put(ptr noundef readonly captures(none) %0, i3
   %50 = load i32, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 332
   %52 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %51) #12
-  %53 = load volatile i32, ptr %23, align 4
+  %53 = load volatile i32, ptr %23, align 8
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %55, label %66
 
@@ -2447,7 +2447,7 @@ define dso_local void @drm_crtc_vblank_off(ptr noundef readonly captures(none) %
   %87 = load volatile i64, ptr %65, align 8
   %88 = load i64, ptr %66, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !69
-  %89 = load volatile i32, ptr %64, align 4
+  %89 = load volatile i32, ptr %64, align 8
   %90 = icmp eq i32 %89, %86
   br i1 %90, label %drm_vblank_count_and_time.exit, label %79, !llvm.loop !70
 
@@ -2833,7 +2833,7 @@ define dso_local void @drm_crtc_vblank_on(ptr noundef readonly captures(none) %0
 72:                                               ; preds = %._crit_edge, %71
   %73 = phi i64 [ %.pre, %._crit_edge ], [ 0, %71 ]
   %74 = load ptr, ptr %7, align 8
-  %75 = load volatile i32, ptr %44, align 4
+  %75 = load volatile i32, ptr %44, align 8
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %77, label %78, !prof !28
 
@@ -2858,9 +2858,9 @@ define dso_local void @drm_crtc_vblank_on(ptr noundef readonly captures(none) %0
   %86 = getelementptr inbounds nuw i8, ptr %79, i64 80
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %86, i64 1, ptr nonnull elementtype(i64) %86) #12, !srcloc !32
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !33
-  %87 = load i32, ptr %81, align 4
+  %87 = load i32, ptr %81, align 8
   %88 = add i32 %87, 1
-  store i32 %88, ptr %81, align 4
+  store i32 %88, ptr %81, align 8
   call void @_raw_spin_unlock(ptr noundef nonnull %82) #12
   call void @_raw_spin_unlock(ptr noundef nonnull %44) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -3592,7 +3592,7 @@ define internal fastcc void @drm_wait_vblank_reply(ptr noundef readonly captures
   %35 = load volatile i64, ptr %13, align 8
   %36 = load i64, ptr %14, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !69
-  %37 = load volatile i32, ptr %12, align 4
+  %37 = load volatile i32, ptr %12, align 8
   %38 = icmp eq i32 %37, %34
   br i1 %38, label %drm_vblank_count_and_time.exit.loopexit, label %27, !llvm.loop !70
 
@@ -3732,7 +3732,7 @@ define internal fastcc i32 @drm_queue_vblank_event(ptr noundef %0, i32 noundef %
   %73 = load volatile i64, ptr %51, align 8
   %74 = load i64, ptr %52, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !69
-  %75 = load volatile i32, ptr %50, align 4
+  %75 = load volatile i32, ptr %50, align 8
   %76 = icmp eq i32 %75, %72
   br i1 %76, label %drm_vblank_count_and_time.exit, label %65, !llvm.loop !70
 
@@ -3950,7 +3950,7 @@ define dso_local noundef zeroext i1 @drm_handle_vblank(ptr noundef %0, i32 nound
   %62 = load i32, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 332
   %64 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %63) #12
-  %65 = load volatile i32, ptr %56, align 4
+  %65 = load volatile i32, ptr %56, align 8
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %67, label %77
 
@@ -4061,7 +4061,7 @@ define internal fastcc void @drm_handle_vblank_events(ptr noundef %0, i32 nounde
   %40 = load volatile i64, ptr %18, align 8
   %41 = load i64, ptr %19, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !69
-  %42 = load volatile i32, ptr %17, align 4
+  %42 = load volatile i32, ptr %17, align 8
   %43 = icmp eq i32 %42, %39
   br i1 %43, label %drm_vblank_count_and_time.exit, label %32, !llvm.loop !70
 
@@ -4354,7 +4354,7 @@ define dso_local i32 @drm_crtc_get_sequence_ioctl(ptr noundef %0, ptr noundef ca
   %89 = load volatile i64, ptr %67, align 8
   %90 = load i64, ptr %68, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !69
-  %91 = load volatile i32, ptr %66, align 4
+  %91 = load volatile i32, ptr %66, align 8
   %92 = icmp eq i32 %91, %88
   br i1 %92, label %drm_vblank_count_and_time.exit, label %81, !llvm.loop !70
 
@@ -4507,7 +4507,7 @@ define dso_local i32 @drm_crtc_queue_sequence_ioctl(ptr noundef %0, ptr noundef 
   %79 = load volatile i64, ptr %57, align 8
   %80 = load i64, ptr %58, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !69
-  %81 = load volatile i32, ptr %56, align 4
+  %81 = load volatile i32, ptr %56, align 8
   %82 = icmp eq i32 %81, %78
   br i1 %82, label %drm_vblank_count_and_time.exit, label %71, !llvm.loop !70
 

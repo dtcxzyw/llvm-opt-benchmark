@@ -2691,7 +2691,7 @@ _ZNSt3setIPN3zmq6pipe_tESt4lessIS2_ESaIS2_EE6insertERKS2_.exit: ; preds = %24, %
   store ptr %53, ptr %52, align 8, !tbaa !96
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i64 0, ptr %54, align 8, !tbaa !98
-  store i8 0, ptr %53, align 1, !tbaa !100
+  store i8 0, ptr %53, align 8, !tbaa !100
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %56 = load ptr, ptr %55, align 8, !tbaa !95
   %57 = tail call noundef i32 @_ZNK3zmq9address_t9to_stringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80) %56, ptr noundef nonnull align 8 dereferenceable(32) %52)
@@ -2875,7 +2875,7 @@ define void @_ZN3zmq14session_base_t19process_conn_failedEv(ptr noundef nonnull 
   store ptr %3, ptr %2, align 8, !tbaa !96
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %4, align 8, !tbaa !98
-  store i8 0, ptr %3, align 1, !tbaa !100
+  store i8 0, ptr %3, align 8, !tbaa !100
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %6 = load ptr, ptr %5, align 8, !tbaa !95
   %7 = tail call noundef i32 @_ZNK3zmq9address_t9to_stringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef nonnull align 8 dereferenceable(32) %2)

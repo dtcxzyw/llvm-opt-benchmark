@@ -1014,7 +1014,7 @@ invoke.cont:                                      ; preds = %_ZN15RenderingEngin
   %7 = load i32, ptr %_M_flags.i.i, align 8, !tbaa !107
   %and.i.i.i.i = and i32 %7, -261
   %or.i.i.i.i = or disjoint i32 %and.i.i.i.i, 4
-  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 4, !tbaa !107
+  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 8, !tbaa !107
   %call1.i371 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.21, i64 noundef 9)
           to label %invoke.cont10 unwind label %lpad
 
@@ -1711,7 +1711,7 @@ invoke.cont138:                                   ; preds = %if.end
   %87 = load i32, ptr %_M_flags.i.i940, align 8, !tbaa !107
   %and.i.i.i.i941 = and i32 %87, -261
   %or.i.i.i.i942 = or disjoint i32 %and.i.i.i.i941, 4
-  store i32 %or.i.i.i.i942, ptr %_M_flags.i.i940, align 4, !tbaa !107
+  store i32 %or.i.i.i.i942, ptr %_M_flags.i.i940, align 8, !tbaa !107
   %call1.i533 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %os129, ptr noundef nonnull @.str.30, i64 noundef 6)
           to label %invoke.cont140 unwind label %lpad131
 

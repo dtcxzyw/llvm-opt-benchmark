@@ -530,7 +530,7 @@ define dso_local void @ProcArrayEndTransaction(ptr noundef %0, i32 noundef %1) l
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 0, ptr %15, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 0, ptr %16, align 4
+  store i32 0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -620,7 +620,7 @@ ProcArrayEndTransactionInternal.exit:             ; preds = %48, %53
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 708
   store i32 %1, ptr %70, align 4
   %71 = getelementptr inbounds nuw i8, ptr %62, i64 104
-  %72 = load volatile i32, ptr %71, align 4
+  %72 = load volatile i32, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 704
   br label %74
 
@@ -692,7 +692,7 @@ ProcArrayEndTransactionInternal.exit:             ; preds = %48, %53
   %110 = getelementptr inbounds nuw i8, ptr %100, i64 52
   store i32 0, ptr %110, align 4
   %111 = getelementptr inbounds nuw i8, ptr %100, i64 72
-  store i32 0, ptr %111, align 4
+  store i32 0, ptr %111, align 8
   %112 = getelementptr inbounds nuw i8, ptr %100, i64 56
   store i32 0, ptr %112, align 8
   %113 = getelementptr inbounds nuw i8, ptr %100, i64 144
@@ -863,7 +863,7 @@ define dso_local void @ProcArrayClearTransaction(ptr noundef captures(none) init
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 0, ptr %12, align 4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 0, ptr %13, align 4
+  store i32 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 89
@@ -4620,7 +4620,7 @@ define dso_local ptr @GetConflictingVirtualXIDs(i32 noundef %0, i32 noundef %1) 
   %42 = getelementptr inbounds nuw i8, ptr %32, i64 56
   %43 = load volatile i32, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %32, i64 72
-  %45 = load i32, ptr %44, align 4
+  %45 = load i32, ptr %44, align 8
   %.not27.us = icmp eq i32 %45, 0
   br i1 %.not27.us, label %52, label %46
 

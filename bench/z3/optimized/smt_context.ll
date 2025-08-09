@@ -29964,7 +29964,7 @@ define hidden void @_ZN3smt7context13setup_contextEb(ptr noundef nonnull align 8
   %38 = load i32, ptr %37, align 8, !tbaa !547
   store i32 %38, ptr %35, align 8, !tbaa !548
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 520
-  %40 = load i32, ptr %39, align 4, !tbaa !578
+  %40 = load i32, ptr %39, align 8, !tbaa !578
   %41 = load i32, ptr %33, align 8, !tbaa !578
   %42 = tail call noundef i32 @llvm.umin.i32(i32 %40, i32 %41)
   %.not8.i = icmp eq i32 %42, 0
@@ -30019,7 +30019,7 @@ define hidden void @_ZN3smt7context16setup_componentsEv(ptr noundef nonnull alig
   store i32 %7, ptr %3, align 8, !tbaa !548
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 520
-  %10 = load i32, ptr %9, align 4, !tbaa !578
+  %10 = load i32, ptr %9, align 8, !tbaa !578
   %11 = load i32, ptr %8, align 8, !tbaa !578
   %12 = tail call noundef i32 @llvm.umin.i32(i32 %10, i32 %11)
   %.not8 = icmp eq i32 %12, 0

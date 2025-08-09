@@ -114,7 +114,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 120
   %22 = load ptr, ptr %21, align 8, !tbaa !44
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 64
-  %24 = load i32, ptr %23, align 4, !tbaa !45
+  %24 = load i32, ptr %23, align 8, !tbaa !45
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 68
   %26 = load i32, ptr %25, align 4, !tbaa !45
   %. = tail call i32 @llvm.smin.i32(i32 %24, i32 %26)
@@ -161,11 +161,11 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 68
   store i32 %24, ptr %26, align 4, !tbaa !45
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  store i32 %24, ptr %27, align 4, !tbaa !45
+  store i32 %24, ptr %27, align 8, !tbaa !45
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %29 = load i32, ptr %28, align 4, !tbaa !40
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store i32 %29, ptr %30, align 4, !tbaa !45
+  store i32 %29, ptr %30, align 8, !tbaa !45
   store i32 %29, ptr %25, align 4, !tbaa !45
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %32 = load i32, ptr %31, align 8, !tbaa !39
@@ -179,17 +179,17 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 52
   store i32 %38, ptr %40, align 4, !tbaa !45
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store i32 %38, ptr %41, align 4, !tbaa !45
+  store i32 %38, ptr %41, align 8, !tbaa !45
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %43 = load i32, ptr %42, align 8, !tbaa !39
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  store i32 %43, ptr %44, align 4, !tbaa !45
+  store i32 %43, ptr %44, align 8, !tbaa !45
   store i32 %43, ptr %39, align 4, !tbaa !45
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 76
   store i32 %36, ptr %45, align 4, !tbaa !45
   %46 = zext i8 %18 to i32
   %47 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  store i32 %46, ptr %47, align 4, !tbaa !45
+  store i32 %46, ptr %47, align 8, !tbaa !45
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %49 = load i32, ptr %48, align 8, !tbaa !20
   %.not = icmp eq i32 %49, 0
@@ -216,11 +216,11 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %65 = xor i32 %notmask93, -1
   %66 = uitofp nneg i32 %65 to float
   %67 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %68 = load float, ptr %67, align 4, !tbaa !57
+  %68 = load float, ptr %67, align 8, !tbaa !57
   %69 = fmul nsz float %68, %66
   %70 = fptosi float %69 to i32
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  store i32 %70, ptr %71, align 4, !tbaa !45
+  store i32 %70, ptr %71, align 8, !tbaa !45
   %72 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %73 = load i32, ptr %72, align 8, !tbaa !55
   %notmask94 = shl nsw i32 -1, %73
@@ -238,11 +238,11 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %83 = xor i32 %notmask95, -1
   %84 = uitofp nneg i32 %83 to float
   %85 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %86 = load float, ptr %85, align 4, !tbaa !57
+  %86 = load float, ptr %85, align 8, !tbaa !57
   %87 = fmul nsz float %86, %84
   %88 = fptosi float %87 to i32
   %89 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  store i32 %88, ptr %89, align 4, !tbaa !45
+  store i32 %88, ptr %89, align 8, !tbaa !45
   %90 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %91 = load ptr, ptr %90, align 8, !tbaa !58
   %.not96 = icmp eq ptr %91, null

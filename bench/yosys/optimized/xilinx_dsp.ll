@@ -146952,10 +146952,10 @@ _ZNKSt8functionIFvvEEclEv.exit:                   ; preds = %._crit_edge
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 16
   %229 = load ptr, ptr %228, align 8, !tbaa !39
   %230 = getelementptr inbounds nuw i8, ptr %227, i64 8
-  %231 = load i32, ptr %230, align 4, !tbaa !51
+  %231 = load i32, ptr %230, align 8, !tbaa !51
   %232 = getelementptr inbounds nuw i8, ptr %227, i64 4
   %233 = load i32, ptr %232, align 4, !tbaa !51
-  %234 = load i32, ptr %227, align 4, !tbaa !51
+  %234 = load i32, ptr %227, align 8, !tbaa !51
   %235 = trunc nuw nsw i64 %indvars.iv to i32
   %236 = urem i32 %235, 20
   %.not87 = icmp eq i32 %236, 0
@@ -160670,15 +160670,15 @@ _ZNSt12_Vector_baseISt5tupleIJPN5Yosys5RTLIL4CellEiiiEESaIS5_EE13_M_deallocateEP
   %39 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 16
   store ptr %38, ptr %39, align 8, !tbaa !39
   %40 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 8
-  %41 = load i32, ptr %40, align 4, !tbaa !51
+  %41 = load i32, ptr %40, align 8, !tbaa !51
   %42 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 8
-  store i32 %41, ptr %42, align 4, !tbaa !51
+  store i32 %41, ptr %42, align 8, !tbaa !51
   %43 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 4
   %44 = load i32, ptr %43, align 4, !tbaa !51
   %45 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 4
   store i32 %44, ptr %45, align 4, !tbaa !51
-  %46 = load i32, ptr %.0910.i.i.i.i.i, align 4, !tbaa !51
-  store i32 %46, ptr %.0811.i.i.i.i.i, align 4, !tbaa !51
+  %46 = load i32, ptr %.0910.i.i.i.i.i, align 8, !tbaa !51
+  store i32 %46, ptr %.0811.i.i.i.i.i, align 8, !tbaa !51
   %47 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 24
   %48 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 24
   %49 = add nsw i64 %.012.i.i.i.i.i, -1
@@ -160703,15 +160703,15 @@ _ZNSt12_Vector_baseISt5tupleIJPN5Yosys5RTLIL4CellEiiiEESaIS5_EE13_M_deallocateEP
   %57 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i29, i64 16
   store ptr %56, ptr %57, align 8, !tbaa !39
   %58 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i30, i64 8
-  %59 = load i32, ptr %58, align 4, !tbaa !51
+  %59 = load i32, ptr %58, align 8, !tbaa !51
   %60 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i29, i64 8
-  store i32 %59, ptr %60, align 4, !tbaa !51
+  store i32 %59, ptr %60, align 8, !tbaa !51
   %61 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i30, i64 4
   %62 = load i32, ptr %61, align 4, !tbaa !51
   %63 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i29, i64 4
   store i32 %62, ptr %63, align 4, !tbaa !51
-  %64 = load i32, ptr %.0910.i.i.i.i.i30, align 4, !tbaa !51
-  store i32 %64, ptr %.0811.i.i.i.i.i29, align 4, !tbaa !51
+  %64 = load i32, ptr %.0910.i.i.i.i.i30, align 8, !tbaa !51
+  store i32 %64, ptr %.0811.i.i.i.i.i29, align 8, !tbaa !51
   %65 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i30, i64 24
   %66 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i29, i64 24
   %67 = add nsw i64 %.012.i.i.i.i.i28, -1

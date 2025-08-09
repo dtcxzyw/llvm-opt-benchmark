@@ -3508,11 +3508,11 @@ _ZN7QStringC2ERKS_.exit290:                       ; preds = %625, %632
   %644 = getelementptr inbounds nuw i8, ptr %639, i64 20
   store i32 3211264, ptr %644, align 4
   %645 = getelementptr inbounds nuw i8, ptr %639, i64 24
-  store i32 0, ptr %645, align 4
+  store i32 0, ptr %645, align 8
   %646 = getelementptr inbounds nuw i8, ptr %639, i64 28
   store i32 0, ptr %646, align 4
   %647 = getelementptr inbounds nuw i8, ptr %639, i64 32
-  store i32 -1, ptr %647, align 4
+  store i32 -1, ptr %647, align 8
   %648 = getelementptr inbounds nuw i8, ptr %639, i64 36
   store i32 -1, ptr %648, align 4
   %649 = load ptr, ptr %637, align 8
@@ -3713,11 +3713,11 @@ _ZNK5QHashI7QStringP7QWidgetE5countEv.exit300.thread: ; preds = %575, %_ZN9QtPri
   %723 = getelementptr inbounds nuw i8, ptr %718, i64 20
   store i32 7405568, ptr %723, align 4
   %724 = getelementptr inbounds nuw i8, ptr %718, i64 24
-  store i32 0, ptr %724, align 4
+  store i32 0, ptr %724, align 8
   %725 = getelementptr inbounds nuw i8, ptr %718, i64 28
   store i32 0, ptr %725, align 4
   %726 = getelementptr inbounds nuw i8, ptr %718, i64 32
-  store i32 -1, ptr %726, align 4
+  store i32 -1, ptr %726, align 8
   %727 = getelementptr inbounds nuw i8, ptr %718, i64 36
   store i32 -1, ptr %727, align 4
   invoke void @_ZN10QBoxLayout13addSpacerItemEP11QSpacerItem(ptr noundef align 8 dereferenceable_or_null(28) %717, ptr noundef %718)

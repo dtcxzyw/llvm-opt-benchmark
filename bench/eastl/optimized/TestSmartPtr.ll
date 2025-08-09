@@ -1183,7 +1183,7 @@ invoke.cont279.i:                                 ; preds = %arraydestroy.body.i
   %39 = add i32 %_ZN12SmartPtrTest1A6mCountE.promoted.i, 1
   store i32 %39, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
   store ptr %arrayctor.cur296.ptr.ptr.i, ptr %pT2291.i, align 8
-  store i8 1, ptr %mc.i152.i, align 8
+  store i8 1, ptr %mc.i152.i, align 16
   %call315.i = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i, ptr noundef nonnull @.str, i32 noundef 640, ptr noundef nonnull @.str.40)
           to label %invoke.cont314.i unwind label %lpad305.i
 
@@ -1593,7 +1593,7 @@ if.end532.i:                                      ; preds = %if.end506.i
   %arrayctor.cur511.ptr.i = getelementptr inbounds nuw i8, ptr %call508.i, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arrayctor.cur511.ptr.i, align 8
   %mc.i283.i = getelementptr inbounds nuw i8, ptr %call508.i, i64 16
-  store i8 0, ptr %mc.i283.i, align 8
+  store i8 0, ptr %mc.i283.i, align 16
   %76 = add i32 %_ZN12SmartPtrTest1A6mCountE.promoted725.i, 1
   store i32 %76, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
   store ptr %arrayctor.cur511.ptr.i, ptr %pT4487.i, align 8
@@ -2949,7 +2949,7 @@ cond.true.i.i:                                    ; preds = %call.i.i.i.noexc21.
   store ptr %call.i.i.i22.i, ptr %mpRefCount.i16.i, align 8
   store ptr %call4.i, ptr %pS1.i, align 8
   %189 = atomicrmw volatile add ptr %mWeakRefCount.i.i.i.i18.i, i32 1 monotonic, align 4
-  %190 = load atomic volatile i32, ptr %mRefCount.i.i.i.i17.i monotonic, align 4
+  %190 = load atomic volatile i32, ptr %mRefCount.i.i.i.i17.i monotonic, align 8
   %191 = icmp eq i32 %190, 1
   br label %_ZNK5eastl10shared_ptrIiE9use_countEv.exit.i
 
@@ -3789,7 +3789,7 @@ cond.true.i456.i:                                 ; preds = %call.i.i.i.noexc437
   store ptr %call.i.i.i438.i, ptr %mpRefCount.i432.i, align 8
   store ptr %call151.i, ptr %sp.i, align 8
   %296 = atomicrmw volatile add ptr %mWeakRefCount.i.i.i.i434.i, i32 1 monotonic, align 4
-  %297 = load atomic volatile i32, ptr %mRefCount.i.i.i.i433.i monotonic, align 4
+  %297 = load atomic volatile i32, ptr %mRefCount.i.i.i.i433.i monotonic, align 8
   %298 = icmp eq i32 %297, 1
   br label %_ZNK5eastl8weak_ptrIN12SmartPtrTest10NamedClassEE9use_countEv.exit460.i
 
@@ -5323,7 +5323,7 @@ invoke.cont130.i146:                              ; preds = %invoke.cont128.i145
   %arrayctor.cur134.ptr.i = getelementptr inbounds nuw i8, ptr %call131.i, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arrayctor.cur134.ptr.i, align 8
   %mc.i65.i = getelementptr inbounds nuw i8, ptr %call131.i, i64 16
-  store i8 0, ptr %mc.i65.i, align 8
+  store i8 0, ptr %mc.i65.i, align 16
   %494 = add i32 %_ZN12SmartPtrTest1A6mCountE.promoted280.i, 1
   store i32 %494, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
   %cmp.not.i67.i = icmp eq ptr %call131.i, %call106.i131

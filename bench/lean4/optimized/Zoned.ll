@@ -16273,7 +16273,7 @@ lean_alloc_ctor.exit:                             ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !4
   %16 = getelementptr i8, ptr %1, i64 32
-  %.val = load i8, ptr %16, align 1, !tbaa !19
+  %.val = load i8, ptr %16, align 8, !tbaa !19
   %17 = ptrtoint ptr %13 to i64
   %18 = and i64 %17, 1
   %.not = icmp eq i64 %18, 0
@@ -16359,7 +16359,7 @@ lean_alloc_ctor.exit229:                          ; preds = %lean_inc.exit147
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 32
   store i64 65536, ptr %45, align 8, !tbaa !20
-  store i32 1, ptr %41, align 4, !tbaa !8
+  store i32 1, ptr %41, align 8, !tbaa !8
   store i32 196648, ptr %44, align 4
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr %11, ptr %46, align 8, !tbaa !4
@@ -16367,7 +16367,7 @@ lean_alloc_ctor.exit229:                          ; preds = %lean_inc.exit147
   store ptr %15, ptr %47, align 8, !tbaa !4
   %48 = getelementptr inbounds nuw i8, ptr %41, i64 24
   store ptr %13, ptr %48, align 8, !tbaa !4
-  store i8 %.val, ptr %45, align 1, !tbaa !19
+  store i8 %.val, ptr %45, align 8, !tbaa !19
   %49 = load ptr, ptr @l_Std_Time_ZonedDateTime_ofPlainDateWithZone___closed__1, align 8, !tbaa !4
   %50 = ptrtoint ptr %41 to i64
   %51 = and i64 %50, 1
@@ -21364,7 +21364,7 @@ define ptr @l_Std_Time_PlainDateTime_toTimestampWithZone(ptr noundef %0, ptr nou
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = getelementptr i8, ptr %1, i64 32
-  %.val = load i8, ptr %9, align 1, !tbaa !19
+  %.val = load i8, ptr %9, align 8, !tbaa !19
   %10 = ptrtoint ptr %6 to i64
   %11 = and i64 %10, 1
   %.not = icmp eq i64 %11, 0
@@ -21450,7 +21450,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit122
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 32
   store i64 65536, ptr %38, align 8, !tbaa !20
-  store i32 1, ptr %34, align 4, !tbaa !8
+  store i32 1, ptr %34, align 8, !tbaa !8
   store i32 196648, ptr %37, align 4
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %4, ptr %39, align 8, !tbaa !4
@@ -21458,7 +21458,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit122
   store ptr %8, ptr %40, align 8, !tbaa !4
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store ptr %6, ptr %41, align 8, !tbaa !4
-  store i8 %.val, ptr %38, align 1, !tbaa !19
+  store i8 %.val, ptr %38, align 8, !tbaa !19
   %42 = tail call ptr @l_Std_Time_PlainDateTime_toTimestampAssumingUTC(ptr noundef %0) #3
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !4
@@ -24406,7 +24406,7 @@ lean_alloc_ctor.exit:                             ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !4
   %16 = getelementptr i8, ptr %1, i64 32
-  %.val = load i8, ptr %16, align 1, !tbaa !19
+  %.val = load i8, ptr %16, align 8, !tbaa !19
   %17 = ptrtoint ptr %13 to i64
   %18 = and i64 %17, 1
   %.not = icmp eq i64 %18, 0
@@ -24492,7 +24492,7 @@ lean_alloc_ctor.exit214:                          ; preds = %lean_inc.exit126
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 32
   store i64 65536, ptr %45, align 8, !tbaa !20
-  store i32 1, ptr %41, align 4, !tbaa !8
+  store i32 1, ptr %41, align 8, !tbaa !8
   store i32 196648, ptr %44, align 4
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr %11, ptr %46, align 8, !tbaa !4
@@ -24500,7 +24500,7 @@ lean_alloc_ctor.exit214:                          ; preds = %lean_inc.exit126
   store ptr %15, ptr %47, align 8, !tbaa !4
   %48 = getelementptr inbounds nuw i8, ptr %41, i64 24
   store ptr %13, ptr %48, align 8, !tbaa !4
-  store i8 %.val, ptr %45, align 1, !tbaa !19
+  store i8 %.val, ptr %45, align 8, !tbaa !19
   %49 = tail call ptr @l_Std_Time_PlainDateTime_toTimestampAssumingUTC(ptr noundef nonnull %4) #3
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !4

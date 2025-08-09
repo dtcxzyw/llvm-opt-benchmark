@@ -7646,7 +7646,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2Valu
   %93 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %94 = load double, ptr %93, align 8
   %95 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %96 = load float, ptr %95, align 4
+  %96 = load float, ptr %95, align 8
   %97 = fpext float %96 to double
   %98 = fneg double %94
   %99 = tail call double @llvm.fmuladd.f64(double %98, double %97, double %92)

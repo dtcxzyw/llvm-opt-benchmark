@@ -1758,7 +1758,7 @@ _ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit: ; preds = %_ZN16MutableNUMA
 179:                                              ; preds = %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit
   %180 = getelementptr inbounds nuw i8, ptr %.pre186.pre192, i64 8
   %181 = load ptr, ptr %180, align 8
-  %182 = load i32, ptr %.pre186.pre192, align 4
+  %182 = load i32, ptr %.pre186.pre192, align 8
   %183 = sext i32 %182 to i64
   %184 = getelementptr ptr, ptr %181, i64 %183
   %185 = getelementptr i8, ptr %184, i64 -8
@@ -1872,7 +1872,7 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit85: ; preds = %218, %_ZN16Mutabl
   %252 = lshr i64 %251, 3
   store ptr %246, ptr %8, align 8
   store i64 %252, ptr %18, align 8
-  %253 = load i32, ptr %238, align 4
+  %253 = load i32, ptr %238, align 8
   %254 = add nsw i32 %253, -1
   %255 = sext i32 %254 to i64
   %256 = icmp slt i64 %indvars.iv, %255

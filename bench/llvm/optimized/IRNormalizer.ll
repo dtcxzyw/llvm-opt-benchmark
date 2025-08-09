@@ -1842,7 +1842,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINSt7__cxx1112basic_stringIcSt11char_tr
   store i64 %523, ptr %524, align 8, !tbaa !124
   store ptr %514, ptr %.016.i.i.i.i.i, align 8, !tbaa !122
   store i64 0, ptr %522, align 8, !tbaa !124
-  store i8 0, ptr %514, align 1, !tbaa !125
+  store i8 0, ptr %514, align 8, !tbaa !125
   %525 = getelementptr inbounds nuw i8, ptr %511, i64 32
   %526 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i, i64 32
   %527 = load ptr, ptr %526, align 8, !tbaa !179
@@ -1990,7 +1990,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINSt7__cxx1112basic_stringIcSt11char_tr
   store i64 %581, ptr %582, align 8, !tbaa !124
   store ptr %572, ptr %.016.i.i.i39.i.i, align 8, !tbaa !122
   store i64 0, ptr %580, align 8, !tbaa !124
-  store i8 0, ptr %572, align 1, !tbaa !125
+  store i8 0, ptr %572, align 8, !tbaa !125
   %583 = getelementptr inbounds nuw i8, ptr %569, i64 32
   %584 = getelementptr inbounds nuw i8, ptr %.016.i.i.i39.i.i, i64 32
   %585 = load ptr, ptr %584, align 8, !tbaa !179
@@ -7637,7 +7637,7 @@ _ZSt10_ConstructISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4
   store i64 %22, ptr %23, align 8, !tbaa !124
   store ptr %13, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !122
   store i64 0, ptr %21, align 8, !tbaa !124
-  store i8 0, ptr %13, align 1, !tbaa !125
+  store i8 0, ptr %13, align 8, !tbaa !125
   %24 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 32
   %26 = load ptr, ptr %25, align 8, !tbaa !179
@@ -7817,7 +7817,7 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm5ValueEEC2
   store i64 %39, ptr %8, align 8, !tbaa !124
   store ptr %33, ptr %.021, align 8, !tbaa !122
   store i64 0, ptr %13, align 8, !tbaa !124
-  store i8 0, ptr %33, align 1, !tbaa !125
+  store i8 0, ptr %33, align 8, !tbaa !125
   %40 = getelementptr inbounds nuw i8, ptr %.pn20, i64 72
   %41 = load ptr, ptr %40, align 8, !tbaa !179
   store ptr %41, ptr %9, align 8, !tbaa !179
@@ -8082,7 +8082,7 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm5ValueEEC2
   store i64 %13, ptr %15, align 8, !tbaa !124
   store ptr %5, ptr %0, align 8, !tbaa !122
   store i64 0, ptr %14, align 8, !tbaa !124
-  store i8 0, ptr %5, align 1, !tbaa !125
+  store i8 0, ptr %5, align 8, !tbaa !125
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8, !tbaa !179

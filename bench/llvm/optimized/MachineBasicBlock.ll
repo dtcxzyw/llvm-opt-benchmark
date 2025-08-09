@@ -5134,7 +5134,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm17MachineBasicBlock16R
   %.sroa.5.0..sroa_idx.i.i14.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i.i.i.i.i, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.i.i12.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.0..sroa_idx.i.i14.i.i.i.i.i, i64 12, i1 false), !tbaa.struct !511
   %.sroa.0.09.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.07.i.i.i.i.i.i, i64 -16
-  %.val2.i10.i.i15.i.i.i.i.i = load i32, ptr %.sroa.0.09.i.i.i.i.i.i.i, align 4, !tbaa !505
+  %.val2.i10.i.i15.i.i.i.i.i = load i32, ptr %.sroa.0.09.i.i.i.i.i.i.i, align 8, !tbaa !505
   %21 = icmp ult i32 %.sroa.03.0.copyload.i.i.i.i.i.i.i, %.val2.i10.i.i15.i.i.i.i.i
   br i1 %21, label %.lr.ph.i.i20.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm17MachineBasicBlock16RegisterMaskPairESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS3_17sortUniqueLiveInsEvE3$_0EEEvT_T0_.exit.i16.i.i.i.i.i"
 

@@ -3039,7 +3039,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Ipopt11OptionsLi
   store ptr %196, ptr %195, align 8, !tbaa !35
   %197 = getelementptr inbounds nuw i8, ptr %166, i64 88
   store i64 0, ptr %197, align 8, !tbaa !41
-  store i8 0, ptr %196, align 1, !tbaa !43
+  store i8 0, ptr %196, align 8, !tbaa !43
   %198 = load i32, ptr %167, align 8, !tbaa !3
   %199 = add nsw i32 %198, 1
   store i32 %199, ptr %167, align 8, !tbaa !3

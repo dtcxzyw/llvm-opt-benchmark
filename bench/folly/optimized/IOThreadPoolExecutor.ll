@@ -1030,7 +1030,7 @@ _ZN5folly18ThreadPoolExecutor4TaskC2EOS1_.exit:   ; preds = %_ZNSt10shared_ptrIN
   %114 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %115 = load ptr, ptr %90, align 16, !tbaa !46
   store ptr null, ptr %90, align 16, !tbaa !46
-  store ptr %115, ptr %114, align 8, !tbaa !46
+  store ptr %115, ptr %114, align 16, !tbaa !46
   store ptr null, ptr %88, align 8, !tbaa !82
   %116 = getelementptr inbounds nuw i8, ptr %110, i64 32
   store ptr null, ptr %116, align 16, !tbaa !48
@@ -1064,7 +1064,7 @@ _ZN5folly18ThreadPoolExecutor4TaskC2EOS1_.exit:   ; preds = %_ZNSt10shared_ptrIN
   store ptr %126, ptr %129, align 8, !tbaa !84
   %130 = getelementptr inbounds nuw i8, ptr %110, i64 112
   store ptr null, ptr %103, align 16, !tbaa !46
-  store ptr %125, ptr %130, align 8, !tbaa !46
+  store ptr %125, ptr %130, align 16, !tbaa !46
   store ptr null, ptr %101, align 8, !tbaa !84
   %131 = getelementptr inbounds nuw i8, ptr %110, i64 120
   store i64 %124, ptr %131, align 8, !tbaa !85
@@ -7409,7 +7409,7 @@ define internal void @"_ZN5folly6detail8function5call_IZNS_20IOThreadPoolExecuto
   store ptr %6, ptr %2, align 8, !tbaa !18
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !46
+  %9 = load ptr, ptr %8, align 16, !tbaa !46
   store ptr %9, ptr %7, align 8, !tbaa !46
   %.not.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i, label %_ZNSt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEEC2INS0_20IOThreadPoolExecutor8IOThreadEvEERKS_IT_E.exit.i, label %10

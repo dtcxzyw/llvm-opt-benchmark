@@ -9752,9 +9752,9 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15DWARFDebugNames9NameIndexELb0EE28reserveF
   store ptr null, ptr %.016.i.i, align 8, !tbaa !930
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 8
-  %26 = load i32, ptr %25, align 4, !tbaa !931
-  store i32 %26, ptr %24, align 4, !tbaa !931
-  store i32 0, ptr %25, align 4, !tbaa !931
+  %26 = load i32, ptr %25, align 8, !tbaa !931
+  store i32 %26, ptr %24, align 8, !tbaa !931
+  store i32 0, ptr %25, align 8, !tbaa !931
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 12
   %28 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 12
   %29 = load i32, ptr %27, align 4, !tbaa !931
@@ -9763,10 +9763,10 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15DWARFDebugNames9NameIndexELb0EE28reserveF
   store i32 %29, ptr %28, align 4, !tbaa !931
   %31 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %32 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 16
-  %33 = load i32, ptr %31, align 4, !tbaa !931
-  %34 = load i32, ptr %32, align 4, !tbaa !931
-  store i32 %34, ptr %31, align 4, !tbaa !931
-  store i32 %33, ptr %32, align 4, !tbaa !931
+  %33 = load i32, ptr %31, align 8, !tbaa !931
+  %34 = load i32, ptr %32, align 8, !tbaa !931
+  store i32 %34, ptr %31, align 8, !tbaa !931
+  store i32 %33, ptr %32, align 8, !tbaa !931
   %35 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %36 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %35, ptr noundef nonnull align 8 dereferenceable(72) %36, i64 40, i1 false)
@@ -9967,7 +9967,7 @@ _ZN4llvm15DWARFDebugNames13ValueIteratorC2EOS1_.exit: ; preds = %32, %_ZNKSt7__c
   store i64 %38, ptr %40, align 8, !tbaa !19
   store ptr %30, ptr %27, align 8, !tbaa !16
   store i64 0, ptr %39, align 8, !tbaa !19
-  store i8 0, ptr %30, align 1, !tbaa !18
+  store i8 0, ptr %30, align 8, !tbaa !18
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %43 = load i64, ptr %42, align 8
@@ -10046,7 +10046,7 @@ _ZN4llvm15DWARFDebugNames13ValueIteratorC2EOS1_.exit5: ; preds = %70, %_ZNKSt7__
   store i64 %76, ptr %78, align 8, !tbaa !19
   store ptr %68, ptr %65, align 8, !tbaa !16
   store i64 0, ptr %77, align 8, !tbaa !19
-  store i8 0, ptr %68, align 1, !tbaa !18
+  store i8 0, ptr %68, align 8, !tbaa !18
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 248
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 248
   %81 = load i64, ptr %80, align 8
@@ -14796,9 +14796,9 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseINS_15DWARFDebugNames
   store ptr null, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !930
   %9 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 8
-  %11 = load i32, ptr %10, align 4, !tbaa !931
-  store i32 %11, ptr %9, align 4, !tbaa !931
-  store i32 0, ptr %10, align 4, !tbaa !931
+  %11 = load i32, ptr %10, align 8, !tbaa !931
+  store i32 %11, ptr %9, align 8, !tbaa !931
+  store i32 0, ptr %10, align 8, !tbaa !931
   %12 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 12
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 12
   %14 = load i32, ptr %12, align 4, !tbaa !931
@@ -14807,10 +14807,10 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseINS_15DWARFDebugNames
   store i32 %14, ptr %13, align 4, !tbaa !931
   %16 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 16
-  %18 = load i32, ptr %16, align 4, !tbaa !931
-  %19 = load i32, ptr %17, align 4, !tbaa !931
-  store i32 %19, ptr %16, align 4, !tbaa !931
-  store i32 %18, ptr %17, align 4, !tbaa !931
+  %18 = load i32, ptr %16, align 8, !tbaa !931
+  %19 = load i32, ptr %17, align 8, !tbaa !931
+  store i32 %19, ptr %16, align 8, !tbaa !931
+  store i32 %18, ptr %17, align 8, !tbaa !931
   %20 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull align 8 dereferenceable(72) %21, i64 40, i1 false)
@@ -15097,7 +15097,7 @@ _ZN4llvm15DWARFDebugNames13ValueIteratorC2EOS1_.exit: ; preds = %30, %_ZNKSt7__c
   store i64 %37, ptr %38, align 8, !tbaa !19
   store ptr %28, ptr %25, align 8, !tbaa !16
   store i64 0, ptr %36, align 8, !tbaa !19
-  store i8 0, ptr %28, align 1, !tbaa !18
+  store i8 0, ptr %28, align 8, !tbaa !18
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %41 = load i64, ptr %40, align 8
@@ -15175,7 +15175,7 @@ _ZN4llvm15DWARFDebugNames13ValueIteratorC2EOS1_.exit5: ; preds = %69, %_ZNKSt7__
   store i64 %76, ptr %77, align 8, !tbaa !19
   store ptr %67, ptr %64, align 8, !tbaa !16
   store i64 0, ptr %75, align 8, !tbaa !19
-  store i8 0, ptr %67, align 1, !tbaa !18
+  store i8 0, ptr %67, align 8, !tbaa !18
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %79 = getelementptr inbounds nuw i8, ptr %2, i64 248
   %80 = load i64, ptr %79, align 8

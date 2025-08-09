@@ -621,7 +621,7 @@ _ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit:    ; preds = %45, %41, %40
 48:                                               ; preds = %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit
   %49 = load ptr, ptr %15, align 8, !tbaa !100
   %.not.i.i = icmp ne ptr %49, null
-  %50 = load i32, ptr %14, align 4
+  %50 = load i32, ptr %14, align 8
   %.not6.i = icmp ugt i32 %50, %.sroa.065.0
   %.not.i = select i1 %.not.i.i, i1 %.not6.i, i1 false
   %.pre = load ptr, ptr %16, align 8, !tbaa !101
@@ -2387,7 +2387,7 @@ _ZN10duckdb_re210SparseSetTIvEC2Ei.exit:          ; preds = %14, %.lr.ph.i.i
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %26 = load ptr, ptr %25, align 8, !tbaa !191
   %.not.i.i.i = icmp eq ptr %26, null
-  %27 = load i32, ptr %24, align 4
+  %27 = load i32, ptr %24, align 8
   %.not11.i.i = icmp ule i32 %27, %23
   %.not.i.i.not = select i1 %.not.i.i.i, i1 true, i1 %.not11.i.i
   br i1 %.not.i.i.not, label %_ZN10duckdb_re210SparseSetTIvED2Ev.exit, label %.lr.ph116
@@ -2647,7 +2647,7 @@ _ZN10duckdb_re210SparseSetTIvE6insertEi.exit57:   ; preds = %_ZNK10duckdb_re210S
   %131 = lshr i32 %130, 4
   %132 = load ptr, ptr %25, align 8, !tbaa !191
   %.not.i.i58 = icmp ne ptr %132, null
-  %133 = load i32, ptr %24, align 4
+  %133 = load i32, ptr %24, align 8
   %.not6.i = icmp ugt i32 %133, %131
   %.not.i59 = select i1 %.not.i.i58, i1 %.not6.i, i1 false
   br i1 %.not.i59, label %134, label %_ZN10duckdb_re211SparseArrayIiE7set_newEiRKi.exit64

@@ -129,7 +129,7 @@ define dso_local void @ext4_fc_init_inode(ptr noundef initializes((-120, -112)) 
   %9 = getelementptr i8, ptr %0, i64 -104
   tail call void @__init_waitqueue_head(ptr noundef %9, ptr noundef nonnull @.str, ptr noundef nonnull @ext4_fc_init_inode.__key) #14
   %10 = getelementptr i8, ptr %0, i64 -112
-  store volatile i32 0, ptr %10, align 4
+  store volatile i32 0, ptr %10, align 8
   ret void
 }
 

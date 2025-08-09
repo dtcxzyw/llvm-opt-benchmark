@@ -192,7 +192,7 @@ _ZN23FunctionInvocationUnaryC2E9eUnaryOpsP11SafeOpFlags.exit: ; preds = %55
   store ptr %59, ptr %58, align 8, !tbaa !31
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 72
   store i64 0, ptr %60, align 8, !tbaa !33
-  store i8 0, ptr %59, align 1, !tbaa !35
+  store i8 0, ptr %59, align 8, !tbaa !35
   br label %63
 
 61:                                               ; preds = %55

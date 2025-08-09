@@ -1886,7 +1886,7 @@ _ZN9grpc_core14promise_detail7CurriedIZNS_21promise_filter_detail30InterceptServ
   store ptr null, ptr %6, align 8, !tbaa !149, !noalias !203
   store i64 %4, ptr %2, align 8, !tbaa !144
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i8 %5, ptr %8, align 1, !tbaa !148
+  store i8 %5, ptr %8, align 8, !tbaa !148
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %7, ptr %9, align 8, !tbaa !149
   ret void
@@ -1898,7 +1898,7 @@ define linkonce_odr void @_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_m
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !149
   %.not.i.i.i = icmp ne ptr %5, null
-  %6 = load i8, ptr %3, align 1, !range !26
+  %6 = load i8, ptr %3, align 8, !range !26
   %7 = trunc nuw i8 %6 to i1
   %or.cond.i.i.i = select i1 %.not.i.i.i, i1 %7, i1 false
   br i1 %or.cond.i.i.i, label %8, label %_ZN9grpc_core14promise_detail11PromiseLikeINS0_7CurriedIZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_25ClientLoadReportingFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS3_14FilterCallDataIS6_EERKNS_8CallArgsEEUlSt10unique_ptrIS8_NS_5Arena13PooledDeleterEEE_SL_EEvED2Ev.exit
@@ -2828,7 +2828,7 @@ define linkonce_odr void @_ZN9grpc_core20arena_promise_detail17AllocatedCallable
   %26 = load i16, ptr %25, align 2, !tbaa !16, !noalias !265
   %27 = and i16 %26, 4096
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 14
-  %29 = load i8, ptr %28, align 1, !noalias !265
+  %29 = load i8, ptr %28, align 2, !noalias !265
   %30 = icmp ne i16 %27, 0
   %31 = icmp eq i8 %29, 0
   %32 = select i1 %30, i1 %31, i1 false

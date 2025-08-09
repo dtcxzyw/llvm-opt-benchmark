@@ -390,10 +390,10 @@ entry:
   %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 108
   store float 1.000000e+00, ptr %arrayidx.i.i.i.i, align 4, !tbaa !10
   %arrayidx4.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 88
-  store float 1.000000e+00, ptr %arrayidx4.i.i.i.i, align 4, !tbaa !10
+  store float 1.000000e+00, ptr %arrayidx4.i.i.i.i, align 8, !tbaa !10
   %arrayidx6.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 68
   store float 1.000000e+00, ptr %arrayidx6.i.i.i.i, align 4, !tbaa !10
-  store float 1.000000e+00, ptr %AbsoluteTransformation.i.i, align 4, !tbaa !10
+  store float 1.000000e+00, ptr %AbsoluteTransformation.i.i, align 8, !tbaa !10
   %RelativeTranslation.i.i = getelementptr inbounds nuw i8, ptr %call, i64 112
   %RelativeScale.i.i = getelementptr inbounds nuw i8, ptr %call, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %RelativeTranslation.i.i, i8 0, i64 24, i1 false)
@@ -441,9 +441,9 @@ _ZN3irr5scene15CEmptySceneNodeC1EPNS0_10ISceneNodeEPNS0_13ISceneManagerEi.exit: 
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene15CEmptySceneNodeE, i64 24), ptr %call, align 8, !tbaa !3
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene15CEmptySceneNodeE, i64 336), ptr %3, align 8, !tbaa !3
   %Box.i = getelementptr inbounds nuw i8, ptr %call, i64 224
-  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %Box.i, align 4, !tbaa !10
+  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %Box.i, align 8, !tbaa !10
   %Y.i2.i.i = getelementptr inbounds nuw i8, ptr %call, i64 240
-  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 4, !tbaa !10
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 8, !tbaa !10
   store i32 0, ptr %AutomaticCullingState.i.i, align 4, !tbaa !38
   %Name.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %Name2.i = getelementptr inbounds nuw i8, ptr %call, i64 8

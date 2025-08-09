@@ -7911,11 +7911,11 @@ _ZN11quinn_proto10connection10Connection13can_send_1rtt17h8e433a7c69863eb0E.exit
   %1825 = getelementptr inbounds nuw { i16, [15 x i16] }, ptr %1823, i64 %1820
   %.sroa.0595.0.copyload.i = load i16, ptr %1825, align 4, !noalias !210
   %.sroa.4596.sroa.4.0..sroa.4596.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %1825, i64 20
-  %.sroa.4596.sroa.4.0.copyload.i = load i32, ptr %.sroa.4596.sroa.4.0..sroa.4596.0..sroa_idx.sroa_idx.i, align 2, !noalias !210
+  %.sroa.4596.sroa.4.0.copyload.i = load i32, ptr %.sroa.4596.sroa.4.0..sroa.4596.0..sroa_idx.sroa_idx.i, align 4, !noalias !210
   %.sroa.4596.sroa.5.0..sroa.4596.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %1825, i64 24
-  %.sroa.4596.sroa.5.0.copyload.i = load i32, ptr %.sroa.4596.sroa.5.0..sroa.4596.0..sroa_idx.sroa_idx.i, align 2, !noalias !210
+  %.sroa.4596.sroa.5.0.copyload.i = load i32, ptr %.sroa.4596.sroa.5.0..sroa.4596.0..sroa_idx.sroa_idx.i, align 4, !noalias !210
   %.sroa.4596.sroa.6.0..sroa.4596.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %1825, i64 28
-  %.sroa.4596.sroa.6.0.copyload.i = load i16, ptr %.sroa.4596.sroa.6.0..sroa.4596.0..sroa_idx.sroa_idx.i, align 2, !noalias !210
+  %.sroa.4596.sroa.6.0.copyload.i = load i16, ptr %.sroa.4596.sroa.6.0..sroa.4596.0..sroa_idx.sroa_idx.i, align 4, !noalias !210
   %.sroa.4596.sroa.7.0..sroa.4596.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %1825, i64 30
   %.sroa.4596.sroa.7.0.copyload.i = load i16, ptr %.sroa.4596.sroa.7.0..sroa.4596.0..sroa_idx.sroa_idx.i, align 2, !noalias !210
   %.not699.i = icmp eq i16 %.sroa.0595.0.copyload.i, 2

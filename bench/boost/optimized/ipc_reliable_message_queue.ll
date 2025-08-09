@@ -4496,7 +4496,7 @@ _ZN5boost12interprocess13mapped_regionD2Ev.exit:  ; preds = %3, %30, %32
   %37 = load ptr, ptr %9, align 8, !tbaa !77
   store i32 1668881372, ptr %37, align 8, !tbaa !116
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 64
-  store i32 0, ptr %38, align 4, !tbaa !117
+  store i32 0, ptr %38, align 8, !tbaa !117
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 68
   store i32 %1, ptr %39, align 4, !tbaa !88
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 72
@@ -7552,7 +7552,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5
   store ptr %9, ptr %7, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %10, align 8, !tbaa !13
-  store i8 0, ptr %9, align 1, !tbaa !12
+  store i8 0, ptr %9, align 8, !tbaa !12
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) #32
   store ptr %6, ptr %3, align 8, !tbaa !163
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -7631,7 +7631,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv
   store ptr %38, ptr %37, align 8, !tbaa !3
   %39 = getelementptr inbounds nuw i8, ptr %31, i64 64
   store i64 0, ptr %39, align 8, !tbaa !13
-  store i8 0, ptr %38, align 1, !tbaa !12
+  store i8 0, ptr %38, align 8, !tbaa !12
   %40 = getelementptr inbounds nuw i8, ptr %31, i64 88
   store ptr %31, ptr %28, align 8, !tbaa !66
   store i32 1, ptr %40, align 8, !tbaa !180
@@ -8410,7 +8410,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv
   store ptr %12, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i64 0, ptr %13, align 8, !tbaa !13
-  store i8 0, ptr %12, align 1, !tbaa !12
+  store i8 0, ptr %12, align 8, !tbaa !12
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store ptr %5, ptr %0, align 8, !tbaa !66
   store i32 1, ptr %14, align 8, !tbaa !180
@@ -9650,7 +9650,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN5
   store ptr %9, ptr %7, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %10, align 8, !tbaa !13
-  store i8 0, ptr %9, align 1, !tbaa !12
+  store i8 0, ptr %9, align 8, !tbaa !12
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) #32
   store ptr %6, ptr %3, align 8, !tbaa !163
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -9729,7 +9729,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv
   store ptr %38, ptr %37, align 8, !tbaa !3
   %39 = getelementptr inbounds nuw i8, ptr %31, i64 64
   store i64 0, ptr %39, align 8, !tbaa !13
-  store i8 0, ptr %38, align 1, !tbaa !12
+  store i8 0, ptr %38, align 8, !tbaa !12
   %40 = getelementptr inbounds nuw i8, ptr %31, i64 88
   store ptr %31, ptr %28, align 8, !tbaa !66
   store i32 1, ptr %40, align 8, !tbaa !180

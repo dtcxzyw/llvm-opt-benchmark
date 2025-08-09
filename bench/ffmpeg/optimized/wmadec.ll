@@ -926,7 +926,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @wma_decode_frame(ptr nound
   %115 = load i32, ptr %18, align 4, !tbaa !98
   store i32 %115, ptr %17, align 16, !tbaa !97
   %.pre.i = load i32, ptr %13, align 8, !tbaa !84
-  %.pre726.i = load i32, ptr %14, align 8, !tbaa !82
+  %.pre726.i = load i32, ptr %14, align 16, !tbaa !82
   %.pre728.i = load ptr, ptr %12, align 8, !tbaa !80
   %.pre733.i = sub nsw i32 31, %78
   %.pre = load i32, ptr %15, align 4, !tbaa !52

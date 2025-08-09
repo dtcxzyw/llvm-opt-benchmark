@@ -512,7 +512,7 @@ _ZN6google8protobuf5Arena14InternalHelperINS0_8internal19ImplicitWeakMessageEE3N
   store ptr %66, ptr %65, align 8, !tbaa !25
   %67 = getelementptr inbounds nuw i8, ptr %63, i64 24
   store i64 0, ptr %67, align 8, !tbaa !28
-  store i8 0, ptr %66, align 1, !tbaa !30
+  store i8 0, ptr %66, align 8, !tbaa !30
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalINS0_8internal19ImplicitWeakMessageEEEPT_PS1_.exit
 
 68:                                               ; preds = %61
@@ -531,7 +531,7 @@ _ZN6google8protobuf5Arena14InternalHelperINS0_8internal19ImplicitWeakMessageEE3N
   store ptr %76, ptr %75, align 8, !tbaa !25
   %77 = getelementptr inbounds nuw i8, ptr %70, i64 24
   store i64 0, ptr %77, align 8, !tbaa !28
-  store i8 0, ptr %76, align 1, !tbaa !30
+  store i8 0, ptr %76, align 8, !tbaa !30
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalINS0_8internal19ImplicitWeakMessageEEEPT_PS1_.exit
 
 _ZN6google8protobuf5Arena21CreateMessageInternalINS0_8internal19ImplicitWeakMessageEEEPT_PS1_.exit: ; preds = %68, %_ZN6google8protobuf5Arena14InternalHelperINS0_8internal19ImplicitWeakMessageEE3NewEv.exit, %56

@@ -1568,7 +1568,7 @@ _ZN4llvm9MCContext13allocFragmentINS_13MCLEBFragmentEJRKNS_6MCExprEbEEEPT_DpOT0_
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %42, i8 0, i64 9, i1 false)
   store ptr %1, ptr %43, align 8, !tbaa !352
-  store i8 0, ptr %37, align 1
+  store i8 0, ptr %37, align 8
   store i64 1, ptr %38, align 8, !tbaa !301
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %45 = load ptr, ptr %44, align 8, !tbaa !293
@@ -1664,7 +1664,7 @@ _ZN4llvm9MCContext13allocFragmentINS_13MCLEBFragmentEJRKNS_6MCExprEbEEEPT_DpOT0_
   store i8 1, ptr %41, align 8, !tbaa !361
   %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 96
   store ptr %1, ptr %44, align 8, !tbaa !352
-  store i8 0, ptr %37, align 1
+  store i8 0, ptr %37, align 8
   store i64 1, ptr %38, align 8, !tbaa !301
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %46 = load ptr, ptr %45, align 8, !tbaa !293

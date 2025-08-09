@@ -1179,7 +1179,7 @@ define hidden ptr @timelib_strtotime(ptr noundef %0, i64 noundef %1, ptr noundef
   %46 = select i1 %.not.i.i, i64 24, i64 %45
   %47 = tail call ptr @_erealloc(ptr noundef %.pre.i.i, i64 noundef %46) #23
   store ptr %47, ptr %9, align 8, !tbaa !37
-  %.pre9.i.i = load i32, ptr %11, align 4, !tbaa !4
+  %.pre9.i.i = load i32, ptr %11, align 8, !tbaa !4
   br label %add_error.exit
 
 add_error.exit:                                   ; preds = %42, %37
@@ -1490,7 +1490,7 @@ define internal fastcc void @add_error(ptr noundef nonnull readonly captures(non
   %14 = select i1 %.not.i, i64 24, i64 %13
   %15 = tail call ptr @_erealloc(ptr noundef %.pre.i, i64 noundef %14) #23
   store ptr %15, ptr %5, align 8, !tbaa !37
-  %.pre9.i = load i32, ptr %6, align 4, !tbaa !4
+  %.pre9.i = load i32, ptr %6, align 8, !tbaa !4
   br label %alloc_error_message.exit
 
 alloc_error_message.exit:                         ; preds = %3, %10
@@ -1902,7 +1902,7 @@ define internal fastcc range(i32 7, 1000) i32 @scan(ptr noundef nonnull initiali
   %190 = select i1 %.not.i.i, i64 24, i64 %189
   %191 = tail call ptr @_erealloc(ptr noundef %.pre.i.i, i64 noundef %190) #23
   store ptr %191, ptr %181, align 8, !tbaa !37
-  %.pre9.i.i = load i32, ptr %182, align 4, !tbaa !4
+  %.pre9.i.i = load i32, ptr %182, align 8, !tbaa !4
   br label %alloc_error_message.exit.i
 
 alloc_error_message.exit.i:                       ; preds = %186, %180
@@ -3479,7 +3479,7 @@ add_error.exit:                                   ; preds = %.thread.i, %199
   %784 = select i1 %.not.i.i17505, i64 24, i64 %783
   %785 = tail call ptr @_erealloc(ptr noundef %.pre.i.i17501, i64 noundef %784) #23
   store ptr %785, ptr %775, align 8, !tbaa !37
-  %.pre9.i.i17506 = load i32, ptr %776, align 4, !tbaa !4
+  %.pre9.i.i17506 = load i32, ptr %776, align 8, !tbaa !4
   %.pre37026 = load ptr, ptr %24, align 8, !tbaa !60
   br label %alloc_error_message.exit.i17502
 
@@ -3645,7 +3645,7 @@ timelib_eat_spaces.exit:                          ; preds = %837, %840, %844, %8
   %872 = select i1 %.not.i.i17519, i64 24, i64 %871
   %873 = tail call ptr @_erealloc(ptr noundef %.pre.i.i17515, i64 noundef %872) #23
   store ptr %873, ptr %863, align 8, !tbaa !37
-  %.pre9.i.i17520 = load i32, ptr %864, align 4, !tbaa !4
+  %.pre9.i.i17520 = load i32, ptr %864, align 8, !tbaa !4
   br label %alloc_error_message.exit.i17516
 
 alloc_error_message.exit.i17516:                  ; preds = %868, %862
@@ -6676,7 +6676,7 @@ add_error.exit17521:                              ; preds = %.thread.i17518, %88
   %2182 = select i1 %.not.i.i17526, i64 24, i64 %2181
   %2183 = tail call ptr @_erealloc(ptr noundef %.pre.i.i17522, i64 noundef %2182) #23
   store ptr %2183, ptr %2173, align 8, !tbaa !37
-  %.pre9.i.i17527 = load i32, ptr %2174, align 4, !tbaa !4
+  %.pre9.i.i17527 = load i32, ptr %2174, align 8, !tbaa !4
   %.pre37022 = load ptr, ptr %24, align 8, !tbaa !60
   br label %alloc_error_message.exit.i17523
 
@@ -11282,7 +11282,7 @@ timelib_get_month.exit:                           ; preds = %2265
   %4228 = select i1 %.not.i.i17539, i64 24, i64 %4227
   %4229 = tail call ptr @_erealloc(ptr noundef %.pre.i.i17535, i64 noundef %4228) #23
   store ptr %4229, ptr %4219, align 8, !tbaa !37
-  %.pre9.i.i17540 = load i32, ptr %4220, align 4, !tbaa !4
+  %.pre9.i.i17540 = load i32, ptr %4220, align 8, !tbaa !4
   %.pre37018 = load ptr, ptr %24, align 8, !tbaa !60
   br label %alloc_error_message.exit.i17536
 
@@ -13210,7 +13210,7 @@ timelib_get_nr.exit17557:                         ; preds = %.critedge.i.i17555,
   %5117 = select i1 %.not.i.i17562, i64 24, i64 %5116
   %5118 = tail call ptr @_erealloc(ptr noundef %.pre.i.i17558, i64 noundef %5117) #23
   store ptr %5118, ptr %5108, align 8, !tbaa !37
-  %.pre9.i.i17563 = load i32, ptr %5109, align 4, !tbaa !4
+  %.pre9.i.i17563 = load i32, ptr %5109, align 8, !tbaa !4
   %.pre37014 = load ptr, ptr %24, align 8, !tbaa !60
   br label %alloc_error_message.exit.i17559
 
@@ -15264,7 +15264,7 @@ timelib_eat_spaces.exit17600:                     ; preds = %5486, %5489, %5493,
   %6009 = select i1 %.not.i.i17605, i64 24, i64 %6008
   %6010 = tail call ptr @_erealloc(ptr noundef %.pre.i.i17601, i64 noundef %6009) #23
   store ptr %6010, ptr %6000, align 8, !tbaa !37
-  %.pre9.i.i17606 = load i32, ptr %6001, align 4, !tbaa !4
+  %.pre9.i.i17606 = load i32, ptr %6001, align 8, !tbaa !4
   %.pre37012 = load ptr, ptr %24, align 8, !tbaa !60
   br label %alloc_error_message.exit.i17602
 
@@ -16975,7 +16975,7 @@ timelib_lookup_relunit.exit:                      ; preds = %6558, %6562
   %6823 = select i1 %.not.i.i17615, i64 24, i64 %6822
   %6824 = tail call ptr @_erealloc(ptr noundef %.pre.i.i17611, i64 noundef %6823) #23
   store ptr %6824, ptr %6814, align 8, !tbaa !37
-  %.pre9.i.i17616 = load i32, ptr %6815, align 4, !tbaa !4
+  %.pre9.i.i17616 = load i32, ptr %6815, align 8, !tbaa !4
   %.pre37007 = load ptr, ptr %24, align 8, !tbaa !60
   br label %alloc_error_message.exit.i17612
 
@@ -26578,7 +26578,7 @@ timelib_get_nr.exit17665:                         ; preds = %.critedge.i.i17663,
   %11278 = select i1 %.not.i.i17677, i64 24, i64 %11277
   %11279 = tail call ptr @_erealloc(ptr noundef %.pre.i.i17673, i64 noundef %11278) #23
   store ptr %11279, ptr %11269, align 8, !tbaa !37
-  %.pre9.i.i17678 = load i32, ptr %11270, align 4, !tbaa !4
+  %.pre9.i.i17678 = load i32, ptr %11270, align 8, !tbaa !4
   %.pre37005 = load ptr, ptr %24, align 8, !tbaa !60
   br label %alloc_error_message.exit.i17674
 
@@ -27462,7 +27462,7 @@ add_error.exit17679:                              ; preds = %.thread.i17676, %11
   %11649 = select i1 %.not.i.i17684, i64 24, i64 %11648
   %11650 = tail call ptr @_erealloc(ptr noundef %.pre.i.i17680, i64 noundef %11649) #23
   store ptr %11650, ptr %11640, align 8, !tbaa !37
-  %.pre9.i.i17685 = load i32, ptr %11641, align 4, !tbaa !4
+  %.pre9.i.i17685 = load i32, ptr %11641, align 8, !tbaa !4
   %.pre36995 = load ptr, ptr %24, align 8, !tbaa !60
   br label %alloc_error_message.exit.i17681
 
@@ -31538,7 +31538,7 @@ add_error.exit17686:                              ; preds = %.thread.i17683, %11
   %13548 = select i1 %.not.i.i17691, i64 24, i64 %13547
   %13549 = tail call ptr @_erealloc(ptr noundef %.pre.i.i17687, i64 noundef %13548) #23
   store ptr %13549, ptr %13539, align 8, !tbaa !37
-  %.pre9.i.i17692 = load i32, ptr %13540, align 4, !tbaa !4
+  %.pre9.i.i17692 = load i32, ptr %13540, align 8, !tbaa !4
   %.pre37000 = load ptr, ptr %24, align 8, !tbaa !60
   br label %alloc_error_message.exit.i17688
 
@@ -31841,7 +31841,7 @@ add_error.exit17693:                              ; preds = %.thread.i17690, %13
   %13687 = select i1 %.not.i.i17698, i64 24, i64 %13686
   %13688 = tail call ptr @_erealloc(ptr noundef %.pre.i.i17694, i64 noundef %13687) #23
   store ptr %13688, ptr %13678, align 8, !tbaa !37
-  %.pre9.i.i17699 = load i32, ptr %13679, align 4, !tbaa !4
+  %.pre9.i.i17699 = load i32, ptr %13679, align 8, !tbaa !4
   %.pre37003 = load ptr, ptr %24, align 8, !tbaa !60
   br label %alloc_error_message.exit.i17695
 
@@ -32357,7 +32357,7 @@ add_error.exit17700:                              ; preds = %.thread.i17697, %13
   %13950 = select i1 %.not.i.i17705, i64 24, i64 %13949
   %13951 = tail call ptr @_erealloc(ptr noundef %.pre.i.i17701, i64 noundef %13950) #23
   store ptr %13951, ptr %13941, align 8, !tbaa !37
-  %.pre9.i.i17706 = load i32, ptr %13942, align 4, !tbaa !4
+  %.pre9.i.i17706 = load i32, ptr %13942, align 8, !tbaa !4
   %.pre37001 = load ptr, ptr %24, align 8, !tbaa !60
   br label %alloc_error_message.exit.i17702
 
@@ -34483,7 +34483,7 @@ add_error.exit17707:                              ; preds = %.thread.i17704, %13
   %14933 = select i1 %.not.i.i17712, i64 24, i64 %14932
   %14934 = tail call ptr @_erealloc(ptr noundef %.pre.i.i17708, i64 noundef %14933) #23
   store ptr %14934, ptr %14924, align 8, !tbaa !37
-  %.pre9.i.i17713 = load i32, ptr %14925, align 4, !tbaa !4
+  %.pre9.i.i17713 = load i32, ptr %14925, align 8, !tbaa !4
   %.pre36997 = load ptr, ptr %24, align 8, !tbaa !60
   br label %alloc_error_message.exit.i17709
 
@@ -36288,7 +36288,7 @@ add_error.exit17714:                              ; preds = %.thread.i17711, %14
   %15796 = select i1 %.not.i.i17719, i64 24, i64 %15795
   %15797 = tail call ptr @_erealloc(ptr noundef %.pre.i.i17715, i64 noundef %15796) #23
   store ptr %15797, ptr %15787, align 8, !tbaa !37
-  %.pre9.i.i17720 = load i32, ptr %15788, align 4, !tbaa !4
+  %.pre9.i.i17720 = load i32, ptr %15788, align 8, !tbaa !4
   %.pre36996 = load ptr, ptr %24, align 8, !tbaa !60
   br label %alloc_error_message.exit.i17716
 
@@ -36784,7 +36784,7 @@ add_error.exit17721:                              ; preds = %.thread.i17718, %15
   %16033 = select i1 %.not.i.i17726, i64 24, i64 %16032
   %16034 = tail call ptr @_erealloc(ptr noundef %.pre.i.i17722, i64 noundef %16033) #23
   store ptr %16034, ptr %16024, align 8, !tbaa !37
-  %.pre9.i.i17727 = load i32, ptr %16025, align 4, !tbaa !4
+  %.pre9.i.i17727 = load i32, ptr %16025, align 8, !tbaa !4
   %.pre36994 = load ptr, ptr %24, align 8, !tbaa !60
   br label %alloc_error_message.exit.i17723
 
@@ -38408,7 +38408,7 @@ timelib_eat_spaces.exit17739:                     ; preds = %16471, %16474, %164
   %16792 = select i1 %.not.i.i17744, i64 24, i64 %16791
   %16793 = tail call ptr @_erealloc(ptr noundef %.pre.i.i17740, i64 noundef %16792) #23
   store ptr %16793, ptr %16783, align 8, !tbaa !37
-  %.pre9.i.i17745 = load i32, ptr %16784, align 4, !tbaa !4
+  %.pre9.i.i17745 = load i32, ptr %16784, align 8, !tbaa !4
   %.pre36993 = load ptr, ptr %24, align 8, !tbaa !60
   br label %alloc_error_message.exit.i17741
 
@@ -38859,7 +38859,7 @@ add_error.exit17746:                              ; preds = %.thread.i17743, %16
   %17019 = select i1 %.not.i.i17751, i64 24, i64 %17018
   %17020 = tail call ptr @_erealloc(ptr noundef %.pre.i.i17747, i64 noundef %17019) #23
   store ptr %17020, ptr %17010, align 8, !tbaa !37
-  %.pre9.i.i17752 = load i32, ptr %17011, align 4, !tbaa !4
+  %.pre9.i.i17752 = load i32, ptr %17011, align 8, !tbaa !4
   %.pre36992 = load ptr, ptr %24, align 8, !tbaa !60
   br label %alloc_error_message.exit.i17748
 
@@ -39172,7 +39172,7 @@ add_error.exit17753:                              ; preds = %.thread.i17750, %17
   %17171 = select i1 %.not.i.i17758, i64 24, i64 %17170
   %17172 = tail call ptr @_erealloc(ptr noundef %.pre.i.i17754, i64 noundef %17171) #23
   store ptr %17172, ptr %17162, align 8, !tbaa !37
-  %.pre9.i.i17759 = load i32, ptr %17163, align 4, !tbaa !4
+  %.pre9.i.i17759 = load i32, ptr %17163, align 8, !tbaa !4
   %.pre36991 = load ptr, ptr %24, align 8, !tbaa !60
   br label %alloc_error_message.exit.i17755
 
@@ -44607,7 +44607,7 @@ timelib_eat_spaces.exit17783:                     ; preds = %18303, %18306, %183
   %19739 = select i1 %.not.i.i17788, i64 24, i64 %19738
   %19740 = tail call ptr @_erealloc(ptr noundef %.pre.i.i17784, i64 noundef %19739) #23
   store ptr %19740, ptr %19730, align 8, !tbaa !37
-  %.pre9.i.i17789 = load i32, ptr %19731, align 4, !tbaa !4
+  %.pre9.i.i17789 = load i32, ptr %19731, align 8, !tbaa !4
   %.pre36988 = load ptr, ptr %24, align 8, !tbaa !60
   br label %alloc_error_message.exit.i17785
 
@@ -45375,7 +45375,7 @@ add_error.exit17790:                              ; preds = %.thread.i17787, %19
   %20136 = select i1 %.not.i.i17795, i64 24, i64 %20135
   %20137 = tail call ptr @_erealloc(ptr noundef %.pre.i.i17791, i64 noundef %20136) #23
   store ptr %20137, ptr %20127, align 8, !tbaa !37
-  %.pre9.i.i17796 = load i32, ptr %20128, align 4, !tbaa !4
+  %.pre9.i.i17796 = load i32, ptr %20128, align 8, !tbaa !4
   %.pre = load ptr, ptr %24, align 8, !tbaa !60
   br label %alloc_error_message.exit.i17792
 
@@ -46174,7 +46174,7 @@ define hidden ptr @timelib_parse_from_format_with_map(ptr noundef readonly captu
   %152 = select i1 %.not.i.i, i64 24, i64 %151
   %153 = tail call ptr @_erealloc(ptr noundef %.pre.i.i, i64 noundef %152) #23
   store ptr %153, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i = load i32, ptr %31, align 4, !tbaa !4
+  %.pre9.i.i = load i32, ptr %31, align 8, !tbaa !4
   br label %add_pbf_error.exit
 
 add_pbf_error.exit:                               ; preds = %144, %148
@@ -46345,7 +46345,7 @@ timelib_lookup_format.exit:                       ; preds = %.lr.ph1040
   %205 = select i1 %.not.i.i496, i64 24, i64 %204
   %206 = tail call ptr @_erealloc(ptr noundef %.pre.i.i495, i64 noundef %205) #23
   store ptr %206, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i497 = load i32, ptr %129, align 4, !tbaa !4
+  %.pre9.i.i497 = load i32, ptr %129, align 8, !tbaa !4
   br label %add_pbf_error.exit498
 
 add_pbf_error.exit498:                            ; preds = %197, %201
@@ -46402,7 +46402,7 @@ add_pbf_error.exit498:                            ; preds = %197, %201
   %234 = select i1 %.not.i.i500, i64 24, i64 %233
   %235 = tail call ptr @_erealloc(ptr noundef %.pre.i.i499, i64 noundef %234) #23
   store ptr %235, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i501 = load i32, ptr %124, align 4, !tbaa !4
+  %.pre9.i.i501 = load i32, ptr %124, align 8, !tbaa !4
   br label %add_pbf_error.exit502
 
 add_pbf_error.exit502:                            ; preds = %226, %230
@@ -46498,7 +46498,7 @@ timelib_get_nr.exit:                              ; preds = %.lr.ph.i.i
   %275 = select i1 %.not.i.i505, i64 24, i64 %274
   %276 = tail call ptr @_erealloc(ptr noundef %.pre.i.i504, i64 noundef %275) #23
   store ptr %276, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i506 = load i32, ptr %128, align 4, !tbaa !4
+  %.pre9.i.i506 = load i32, ptr %128, align 8, !tbaa !4
   br label %add_pbf_error.exit507
 
 add_pbf_error.exit507:                            ; preds = %267, %271
@@ -46586,7 +46586,7 @@ add_pbf_error.exit507:                            ; preds = %267, %271
   %320 = select i1 %.not.i.i510, i64 24, i64 %319
   %321 = tail call ptr @_erealloc(ptr noundef %.pre.i.i509, i64 noundef %320) #23
   store ptr %321, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i511 = load i32, ptr %118, align 4, !tbaa !4
+  %.pre9.i.i511 = load i32, ptr %118, align 8, !tbaa !4
   br label %add_pbf_error.exit512
 
 add_pbf_error.exit512:                            ; preds = %312, %316
@@ -46630,7 +46630,7 @@ add_pbf_error.exit512:                            ; preds = %312, %316
   %346 = select i1 %.not.i.i514, i64 24, i64 %345
   %347 = tail call ptr @_erealloc(ptr noundef %.pre.i.i513, i64 noundef %346) #23
   store ptr %347, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i515 = load i32, ptr %119, align 4, !tbaa !4
+  %.pre9.i.i515 = load i32, ptr %119, align 8, !tbaa !4
   br label %add_pbf_error.exit516
 
 add_pbf_error.exit516:                            ; preds = %338, %342
@@ -46726,7 +46726,7 @@ timelib_get_nr.exit532.thread:                    ; preds = %timelib_get_nr.exit
   %387 = select i1 %.not.i.i534, i64 24, i64 %386
   %388 = tail call ptr @_erealloc(ptr noundef %.pre.i.i533, i64 noundef %387) #23
   store ptr %388, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i535 = load i32, ptr %123, align 4, !tbaa !4
+  %.pre9.i.i535 = load i32, ptr %123, align 8, !tbaa !4
   br label %add_pbf_error.exit536
 
 add_pbf_error.exit536:                            ; preds = %timelib_get_nr.exit532.thread, %383
@@ -46787,7 +46787,7 @@ add_pbf_error.exit536:                            ; preds = %timelib_get_nr.exit
   %418 = select i1 %.not.i.i538, i64 24, i64 %417
   %419 = tail call ptr @_erealloc(ptr noundef %.pre.i.i537, i64 noundef %418) #23
   store ptr %419, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i539 = load i32, ptr %113, align 4, !tbaa !4
+  %.pre9.i.i539 = load i32, ptr %113, align 8, !tbaa !4
   br label %add_pbf_error.exit540
 
 add_pbf_error.exit540:                            ; preds = %410, %414
@@ -46883,7 +46883,7 @@ timelib_get_nr.exit556:                           ; preds = %.lr.ph.i.i545
   %459 = select i1 %.not.i.i558, i64 24, i64 %458
   %460 = tail call ptr @_erealloc(ptr noundef %.pre.i.i557, i64 noundef %459) #23
   store ptr %460, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i559 = load i32, ptr %117, align 4, !tbaa !4
+  %.pre9.i.i559 = load i32, ptr %117, align 8, !tbaa !4
   br label %add_pbf_error.exit560
 
 add_pbf_error.exit560:                            ; preds = %451, %455
@@ -46978,7 +46978,7 @@ timelib_lookup_month.exit:                        ; preds = %496
   %507 = select i1 %.not.i.i564, i64 24, i64 %506
   %508 = tail call ptr @_erealloc(ptr noundef %.pre.i.i563, i64 noundef %507) #23
   store ptr %508, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i565 = load i32, ptr %112, align 4, !tbaa !4
+  %.pre9.i.i565 = load i32, ptr %112, align 8, !tbaa !4
   br label %add_pbf_error.exit566
 
 add_pbf_error.exit566:                            ; preds = %499, %503
@@ -47030,7 +47030,7 @@ add_pbf_error.exit566:                            ; preds = %499, %503
   %534 = select i1 %.not.i.i568, i64 24, i64 %533
   %535 = tail call ptr @_erealloc(ptr noundef %.pre.i.i567, i64 noundef %534) #23
   store ptr %535, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i569 = load i32, ptr %107, align 4, !tbaa !4
+  %.pre9.i.i569 = load i32, ptr %107, align 8, !tbaa !4
   br label %add_pbf_error.exit570
 
 add_pbf_error.exit570:                            ; preds = %526, %530
@@ -47126,7 +47126,7 @@ timelib_get_nr_ex.exit:                           ; preds = %.lr.ph.i571
   %575 = select i1 %.not.i.i576, i64 24, i64 %574
   %576 = tail call ptr @_erealloc(ptr noundef %.pre.i.i575, i64 noundef %575) #23
   store ptr %576, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i577 = load i32, ptr %109, align 4, !tbaa !4
+  %.pre9.i.i577 = load i32, ptr %109, align 8, !tbaa !4
   br label %add_pbf_error.exit578
 
 add_pbf_error.exit578:                            ; preds = %567, %571
@@ -47196,7 +47196,7 @@ add_pbf_error.exit578:                            ; preds = %567, %571
   %612 = select i1 %.not.i.i580, i64 24, i64 %611
   %613 = tail call ptr @_erealloc(ptr noundef %.pre.i.i579, i64 noundef %612) #23
   store ptr %613, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i581 = load i32, ptr %104, align 4, !tbaa !4
+  %.pre9.i.i581 = load i32, ptr %104, align 8, !tbaa !4
   br label %add_pbf_error.exit582
 
 add_pbf_error.exit582:                            ; preds = %604, %608
@@ -47294,7 +47294,7 @@ timelib_get_nr.exit598:                           ; preds = %.lr.ph.i.i587
   %654 = select i1 %.not.i.i600, i64 24, i64 %653
   %655 = tail call ptr @_erealloc(ptr noundef %.pre.i.i599, i64 noundef %654) #23
   store ptr %655, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i601 = load i32, ptr %106, align 4, !tbaa !4
+  %.pre9.i.i601 = load i32, ptr %106, align 8, !tbaa !4
   br label %add_pbf_error.exit602
 
 add_pbf_error.exit602:                            ; preds = %646, %650
@@ -47346,7 +47346,7 @@ add_pbf_error.exit602:                            ; preds = %646, %650
   %682 = select i1 %.not.i.i604, i64 24, i64 %681
   %683 = tail call ptr @_erealloc(ptr noundef %.pre.i.i603, i64 noundef %682) #23
   store ptr %683, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i605 = load i32, ptr %101, align 4, !tbaa !4
+  %.pre9.i.i605 = load i32, ptr %101, align 8, !tbaa !4
   br label %add_pbf_error.exit606
 
 add_pbf_error.exit606:                            ; preds = %674, %678
@@ -47391,7 +47391,7 @@ add_pbf_error.exit606:                            ; preds = %674, %678
   %708 = select i1 %.not.i.i608, i64 24, i64 %707
   %709 = tail call ptr @_erealloc(ptr noundef %.pre.i.i607, i64 noundef %708) #23
   store ptr %709, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i609 = load i32, ptr %103, align 4, !tbaa !4
+  %.pre9.i.i609 = load i32, ptr %103, align 8, !tbaa !4
   br label %add_pbf_error.exit610
 
 add_pbf_error.exit610:                            ; preds = %700, %704
@@ -47443,7 +47443,7 @@ add_pbf_error.exit610:                            ; preds = %700, %704
   %736 = select i1 %.not.i.i612, i64 24, i64 %735
   %737 = tail call ptr @_erealloc(ptr noundef %.pre.i.i611, i64 noundef %736) #23
   store ptr %737, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i613 = load i32, ptr %95, align 4, !tbaa !4
+  %.pre9.i.i613 = load i32, ptr %95, align 8, !tbaa !4
   br label %add_pbf_error.exit614
 
 add_pbf_error.exit614:                            ; preds = %728, %732
@@ -47535,7 +47535,7 @@ timelib_get_nr.exit630:                           ; preds = %.lr.ph.i.i619
   %778 = select i1 %.not.i.i632, i64 24, i64 %777
   %779 = tail call ptr @_erealloc(ptr noundef %.pre.i.i631, i64 noundef %778) #23
   store ptr %779, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i633 = load i32, ptr %100, align 4, !tbaa !4
+  %.pre9.i.i633 = load i32, ptr %100, align 8, !tbaa !4
   br label %add_pbf_error.exit634
 
 add_pbf_error.exit634:                            ; preds = %770, %774
@@ -47578,7 +47578,7 @@ add_pbf_error.exit634:                            ; preds = %770, %774
   %803 = select i1 %.not.i.i636, i64 24, i64 %802
   %804 = tail call ptr @_erealloc(ptr noundef %.pre.i.i635, i64 noundef %803) #23
   store ptr %804, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i637 = load i32, ptr %98, align 4, !tbaa !4
+  %.pre9.i.i637 = load i32, ptr %98, align 8, !tbaa !4
   br label %add_pbf_error.exit638
 
 add_pbf_error.exit638:                            ; preds = %795, %799
@@ -47630,7 +47630,7 @@ add_pbf_error.exit638:                            ; preds = %795, %799
   %831 = select i1 %.not.i.i640, i64 24, i64 %830
   %832 = tail call ptr @_erealloc(ptr noundef %.pre.i.i639, i64 noundef %831) #23
   store ptr %832, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i641 = load i32, ptr %90, align 4, !tbaa !4
+  %.pre9.i.i641 = load i32, ptr %90, align 8, !tbaa !4
   br label %add_pbf_error.exit642
 
 add_pbf_error.exit642:                            ; preds = %823, %827
@@ -47722,7 +47722,7 @@ timelib_get_nr.exit658:                           ; preds = %.lr.ph.i.i647
   %873 = select i1 %.not.i.i660, i64 24, i64 %872
   %874 = tail call ptr @_erealloc(ptr noundef %.pre.i.i659, i64 noundef %873) #23
   store ptr %874, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i661 = load i32, ptr %94, align 4, !tbaa !4
+  %.pre9.i.i661 = load i32, ptr %94, align 8, !tbaa !4
   br label %add_pbf_error.exit662
 
 add_pbf_error.exit662:                            ; preds = %865, %869
@@ -47770,7 +47770,7 @@ add_pbf_error.exit662:                            ; preds = %865, %869
   %900 = select i1 %.not.i.i664, i64 24, i64 %899
   %901 = tail call ptr @_erealloc(ptr noundef %.pre.i.i663, i64 noundef %900) #23
   store ptr %901, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i665 = load i32, ptr %87, align 4, !tbaa !4
+  %.pre9.i.i665 = load i32, ptr %87, align 8, !tbaa !4
   br label %add_pbf_error.exit666
 
 add_pbf_error.exit666:                            ; preds = %892, %896
@@ -47875,7 +47875,7 @@ add_pbf_error.exit666:                            ; preds = %892, %896
   %943 = select i1 %.not.i.i673, i64 24, i64 %942
   %944 = tail call ptr @_erealloc(ptr noundef %.pre.i.i672, i64 noundef %943) #23
   store ptr %944, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i674 = load i32, ptr %89, align 4, !tbaa !4
+  %.pre9.i.i674 = load i32, ptr %89, align 8, !tbaa !4
   br label %add_pbf_error.exit675
 
 add_pbf_error.exit675:                            ; preds = %.loopexit967, %939
@@ -47936,7 +47936,7 @@ add_pbf_error.exit675:                            ; preds = %.loopexit967, %939
   %974 = select i1 %.not.i.i677, i64 24, i64 %973
   %975 = tail call ptr @_erealloc(ptr noundef %.pre.i.i676, i64 noundef %974) #23
   store ptr %975, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i678 = load i32, ptr %82, align 4, !tbaa !4
+  %.pre9.i.i678 = load i32, ptr %82, align 8, !tbaa !4
   br label %add_pbf_error.exit679
 
 add_pbf_error.exit679:                            ; preds = %966, %970
@@ -48026,7 +48026,7 @@ timelib_get_nr_ex.exit696.thread:                 ; preds = %.critedge.i694, %ti
   %1017 = select i1 %.not.i.i698, i64 24, i64 %1016
   %1018 = tail call ptr @_erealloc(ptr noundef %.pre.i.i697, i64 noundef %1017) #23
   store ptr %1018, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i699 = load i32, ptr %85, align 4, !tbaa !4
+  %.pre9.i.i699 = load i32, ptr %85, align 8, !tbaa !4
   br label %add_pbf_error.exit700
 
 add_pbf_error.exit700:                            ; preds = %timelib_get_nr_ex.exit696.thread, %1013
@@ -48079,7 +48079,7 @@ add_pbf_error.exit700:                            ; preds = %timelib_get_nr_ex.e
   %1045 = select i1 %.not.i.i702, i64 24, i64 %1044
   %1046 = tail call ptr @_erealloc(ptr noundef %.pre.i.i701, i64 noundef %1045) #23
   store ptr %1046, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i703 = load i32, ptr %78, align 4, !tbaa !4
+  %.pre9.i.i703 = load i32, ptr %78, align 8, !tbaa !4
   br label %add_pbf_error.exit704
 
 add_pbf_error.exit704:                            ; preds = %1037, %1041
@@ -48169,7 +48169,7 @@ timelib_get_nr_ex.exit721.thread:                 ; preds = %.critedge.i719, %ti
   %1088 = select i1 %.not.i.i723, i64 24, i64 %1087
   %1089 = tail call ptr @_erealloc(ptr noundef %.pre.i.i722, i64 noundef %1088) #23
   store ptr %1089, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i724 = load i32, ptr %81, align 4, !tbaa !4
+  %.pre9.i.i724 = load i32, ptr %81, align 8, !tbaa !4
   br label %add_pbf_error.exit725
 
 add_pbf_error.exit725:                            ; preds = %timelib_get_nr_ex.exit721.thread, %1084
@@ -48222,7 +48222,7 @@ add_pbf_error.exit725:                            ; preds = %timelib_get_nr_ex.e
   %1116 = select i1 %.not.i.i727, i64 24, i64 %1115
   %1117 = tail call ptr @_erealloc(ptr noundef %.pre.i.i726, i64 noundef %1116) #23
   store ptr %1117, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i728 = load i32, ptr %75, align 4, !tbaa !4
+  %.pre9.i.i728 = load i32, ptr %75, align 8, !tbaa !4
   br label %add_pbf_error.exit729
 
 add_pbf_error.exit729:                            ; preds = %1108, %1112
@@ -48318,7 +48318,7 @@ timelib_get_nr.exit745.thread:                    ; preds = %.critedge.i.i743, %
   %1163 = select i1 %.not.i.i747, i64 24, i64 %1162
   %1164 = tail call ptr @_erealloc(ptr noundef %.pre.i.i746, i64 noundef %1163) #23
   store ptr %1164, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i748 = load i32, ptr %77, align 4, !tbaa !4
+  %.pre9.i.i748 = load i32, ptr %77, align 8, !tbaa !4
   br label %add_pbf_error.exit749
 
 add_pbf_error.exit749:                            ; preds = %timelib_get_nr.exit745.thread, %1159
@@ -48375,7 +48375,7 @@ add_pbf_error.exit749:                            ; preds = %timelib_get_nr.exit
   %1196 = select i1 %.not.i.i751, i64 24, i64 %1195
   %1197 = tail call ptr @_erealloc(ptr noundef %.pre.i.i750, i64 noundef %1196) #23
   store ptr %1197, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i752 = load i32, ptr %72, align 4, !tbaa !4
+  %.pre9.i.i752 = load i32, ptr %72, align 8, !tbaa !4
   br label %add_pbf_error.exit753
 
 add_pbf_error.exit753:                            ; preds = %1188, %1192
@@ -48471,7 +48471,7 @@ timelib_get_nr.exit769.thread:                    ; preds = %.critedge.i.i767, %
   %1243 = select i1 %.not.i.i771, i64 24, i64 %1242
   %1244 = tail call ptr @_erealloc(ptr noundef %.pre.i.i770, i64 noundef %1243) #23
   store ptr %1244, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i772 = load i32, ptr %74, align 4, !tbaa !4
+  %.pre9.i.i772 = load i32, ptr %74, align 8, !tbaa !4
   br label %add_pbf_error.exit773
 
 add_pbf_error.exit773:                            ; preds = %timelib_get_nr.exit769.thread, %1239
@@ -48564,7 +48564,7 @@ add_pbf_error.exit773:                            ; preds = %timelib_get_nr.exit
   %1293 = select i1 %.not.i.i776, i64 24, i64 %1292
   %1294 = tail call ptr @_erealloc(ptr noundef %.pre.i.i775, i64 noundef %1293) #23
   store ptr %1294, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i777 = load i32, ptr %65, align 4, !tbaa !4
+  %.pre9.i.i777 = load i32, ptr %65, align 8, !tbaa !4
   br label %add_pbf_error.exit778
 
 add_pbf_error.exit778:                            ; preds = %1285, %1289
@@ -48632,7 +48632,7 @@ timelib_lookup_format.exit785.thread:             ; preds = %.lr.ph.i780, %timel
   %1323 = select i1 %.not.i.i787, i64 24, i64 %1322
   %1324 = tail call ptr @_erealloc(ptr noundef %.pre.i.i786, i64 noundef %1323) #23
   store ptr %1324, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i788 = load i32, ptr %64, align 4, !tbaa !4
+  %.pre9.i.i788 = load i32, ptr %64, align 8, !tbaa !4
   br label %add_pbf_error.exit789
 
 add_pbf_error.exit789:                            ; preds = %timelib_lookup_format.exit785.thread, %1319
@@ -48680,7 +48680,7 @@ add_pbf_error.exit789:                            ; preds = %timelib_lookup_form
   %1349 = select i1 %.not.i.i791, i64 24, i64 %1348
   %1350 = tail call ptr @_erealloc(ptr noundef %.pre.i.i790, i64 noundef %1349) #23
   store ptr %1350, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i792 = load i32, ptr %63, align 4, !tbaa !4
+  %.pre9.i.i792 = load i32, ptr %63, align 8, !tbaa !4
   br label %add_pbf_error.exit793
 
 add_pbf_error.exit793:                            ; preds = %1341, %1345
@@ -48806,7 +48806,7 @@ add_pbf_error.exit793:                            ; preds = %1341, %1345
   %1408 = select i1 %.not.i.i795, i64 24, i64 %1407
   %1409 = tail call ptr @_erealloc(ptr noundef %.pre.i.i794, i64 noundef %1408) #23
   store ptr %1409, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i796 = load i32, ptr %52, align 4, !tbaa !4
+  %.pre9.i.i796 = load i32, ptr %52, align 8, !tbaa !4
   br label %add_pbf_error.exit797
 
 add_pbf_error.exit797:                            ; preds = %1400, %1404
@@ -48849,7 +48849,7 @@ add_pbf_error.exit797:                            ; preds = %1400, %1404
   %1432 = select i1 %.not.i.i799, i64 24, i64 %1431
   %1433 = tail call ptr @_erealloc(ptr noundef %.pre.i.i798, i64 noundef %1432) #23
   store ptr %1433, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i800 = load i32, ptr %51, align 4, !tbaa !4
+  %.pre9.i.i800 = load i32, ptr %51, align 8, !tbaa !4
   br label %add_pbf_error.exit801
 
 add_pbf_error.exit801:                            ; preds = %1424, %1428
@@ -48955,7 +48955,7 @@ timelib_get_nr.exit817.thread:                    ; preds = %.critedge.i.i815, %
   %1480 = select i1 %.not.i.i819, i64 24, i64 %1479
   %1481 = tail call ptr @_erealloc(ptr noundef %.pre.i.i818, i64 noundef %1480) #23
   store ptr %1481, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i820 = load i32, ptr %50, align 4, !tbaa !4
+  %.pre9.i.i820 = load i32, ptr %50, align 8, !tbaa !4
   br label %add_pbf_error.exit821
 
 add_pbf_error.exit821:                            ; preds = %timelib_get_nr.exit817.thread, %1476
@@ -49045,7 +49045,7 @@ timelib_get_nr.exit837.thread:                    ; preds = %.critedge.i.i835, %
   %1522 = select i1 %.not.i.i839, i64 24, i64 %1521
   %1523 = tail call ptr @_erealloc(ptr noundef %.pre.i.i838, i64 noundef %1522) #23
   store ptr %1523, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i840 = load i32, ptr %48, align 4, !tbaa !4
+  %.pre9.i.i840 = load i32, ptr %48, align 8, !tbaa !4
   br label %add_pbf_error.exit841
 
 add_pbf_error.exit841:                            ; preds = %timelib_get_nr.exit837.thread, %1518
@@ -49089,7 +49089,7 @@ add_pbf_error.exit841:                            ; preds = %timelib_get_nr.exit
   %1547 = select i1 %.not.i.i843, i64 24, i64 %1546
   %1548 = tail call ptr @_erealloc(ptr noundef %.pre.i.i842, i64 noundef %1547) #23
   store ptr %1548, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i844 = load i32, ptr %47, align 4, !tbaa !4
+  %.pre9.i.i844 = load i32, ptr %47, align 8, !tbaa !4
   br label %add_pbf_error.exit845
 
 add_pbf_error.exit845:                            ; preds = %1539, %1543
@@ -49164,7 +49164,7 @@ timelib_get_nr.exit861.thread:                    ; preds = %.critedge.i.i859, %
   %1585 = select i1 %.not.i.i863, i64 24, i64 %1584
   %1586 = tail call ptr @_erealloc(ptr noundef %.pre.i.i862, i64 noundef %1585) #23
   store ptr %1586, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i864 = load i32, ptr %45, align 4, !tbaa !4
+  %.pre9.i.i864 = load i32, ptr %45, align 8, !tbaa !4
   br label %add_pbf_error.exit865
 
 add_pbf_error.exit865:                            ; preds = %timelib_get_nr.exit861.thread, %1581
@@ -49208,7 +49208,7 @@ add_pbf_error.exit865:                            ; preds = %timelib_get_nr.exit
   %1610 = select i1 %.not.i.i867, i64 24, i64 %1609
   %1611 = tail call ptr @_erealloc(ptr noundef %.pre.i.i866, i64 noundef %1610) #23
   store ptr %1611, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i868 = load i32, ptr %44, align 4, !tbaa !4
+  %.pre9.i.i868 = load i32, ptr %44, align 8, !tbaa !4
   br label %add_pbf_error.exit869
 
 add_pbf_error.exit869:                            ; preds = %1602, %1606
@@ -49260,7 +49260,7 @@ add_pbf_error.exit869:                            ; preds = %1602, %1606
   %1638 = select i1 %.not.i.i871, i64 24, i64 %1637
   %1639 = tail call ptr @_erealloc(ptr noundef %.pre.i.i870, i64 noundef %1638) #23
   store ptr %1639, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i872 = load i32, ptr %41, align 4, !tbaa !4
+  %.pre9.i.i872 = load i32, ptr %41, align 8, !tbaa !4
   br label %add_pbf_error.exit873
 
 add_pbf_error.exit873:                            ; preds = %1630, %1634
@@ -49354,7 +49354,7 @@ timelib_parse_tz_minutes.exit:                    ; preds = %1665, %1666
   %1678 = select i1 %.not.i.i878, i64 24, i64 %1677
   %1679 = tail call ptr @_erealloc(ptr noundef %.pre.i.i877, i64 noundef %1678) #23
   store ptr %1679, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i879 = load i32, ptr %38, align 4, !tbaa !4
+  %.pre9.i.i879 = load i32, ptr %38, align 8, !tbaa !4
   br label %add_pbf_error.exit880
 
 add_pbf_error.exit880:                            ; preds = %timelib_parse_tz_minutes.exit.thread, %1674
@@ -49397,7 +49397,7 @@ timelib_lookup_format.exit.thread:                ; preds = %.lr.ph.i, %.lr.ph.i
   %1701 = select i1 %.not.i.i882, i64 24, i64 %1700
   %1702 = tail call ptr @_erealloc(ptr noundef %.pre.i.i881, i64 noundef %1701) #23
   store ptr %1702, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i883 = load i32, ptr %134, align 4, !tbaa !4
+  %.pre9.i.i883 = load i32, ptr %134, align 8, !tbaa !4
   br label %add_pbf_error.exit884
 
 add_pbf_error.exit884:                            ; preds = %1693, %1697
@@ -49508,7 +49508,7 @@ add_pbf_warning.exit:                             ; preds = %1721, %1727
   %1744 = select i1 %.not.i.i889, i64 24, i64 %1743
   %1745 = tail call ptr @_erealloc(ptr noundef %.pre.i.i888, i64 noundef %1744) #23
   store ptr %1745, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i890 = load i32, ptr %1736, align 4, !tbaa !4
+  %.pre9.i.i890 = load i32, ptr %1736, align 8, !tbaa !4
   br label %add_pbf_error.exit891
 
 add_pbf_error.exit891:                            ; preds = %.thread1196, %1740
@@ -49687,7 +49687,7 @@ timelib_lookup_format.exit898.thread:             ; preds = %.lr.ph.i893.prehead
   %1817 = select i1 %.not.i.i901, i64 24, i64 %1816
   %1818 = tail call ptr @_erealloc(ptr noundef %.pre.i.i900, i64 noundef %1817) #23
   store ptr %1818, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i902 = load i32, ptr %1767, align 4, !tbaa !4
+  %.pre9.i.i902 = load i32, ptr %1767, align 8, !tbaa !4
   br label %timelib_time_reset_unset_fields.exit899.thread
 
 timelib_time_reset_unset_fields.exit899.thread:   ; preds = %1813, %timelib_lookup_format.exit898.thread
@@ -49804,7 +49804,7 @@ timelib_time_reset_unset_fields.exit899:          ; preds = %1809, %1806, %1781,
   %1872 = select i1 %.not.i.i905, i64 24, i64 %1871
   %1873 = tail call ptr @_erealloc(ptr noundef %.pre.i.i904, i64 noundef %1872) #23
   store ptr %1873, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i906 = load i32, ptr %1864, align 4, !tbaa !4
+  %.pre9.i.i906 = load i32, ptr %1864, align 8, !tbaa !4
   br label %add_pbf_error.exit907
 
 add_pbf_error.exit907:                            ; preds = %1863, %1868
@@ -49866,7 +49866,7 @@ add_pbf_error.exit907:                            ; preds = %1863, %1868
   %1906 = select i1 %.not.i.i909, i64 24, i64 %1905
   %1907 = tail call ptr @_erealloc(ptr noundef %.pre.i.i908, i64 noundef %1906) #23
   store ptr %1907, ptr %14, align 8, !tbaa !37
-  %.pre9.i.i910 = load i32, ptr %1898, align 4, !tbaa !4
+  %.pre9.i.i910 = load i32, ptr %1898, align 8, !tbaa !4
   br label %add_pbf_error.exit911
 
 add_pbf_error.exit911:                            ; preds = %1897, %1902
@@ -50301,7 +50301,7 @@ define internal fastcc i64 @timelib_get_signed_nr(ptr noundef nonnull readonly c
   %19 = select i1 %.not.i.i, i64 24, i64 %18
   %20 = tail call ptr @_erealloc(ptr noundef %.pre.i.i, i64 noundef %19) #23
   store ptr %20, ptr %10, align 8, !tbaa !37
-  %.pre9.i.i = load i32, ptr %11, align 4, !tbaa !4
+  %.pre9.i.i = load i32, ptr %11, align 8, !tbaa !4
   br label %alloc_error_message.exit.i
 
 alloc_error_message.exit.i:                       ; preds = %15, %8
@@ -50401,7 +50401,7 @@ alloc_error_message.exit.i:                       ; preds = %15, %8
   %69 = select i1 %.not.i.i57, i64 24, i64 %68
   %70 = tail call ptr @_erealloc(ptr noundef %.pre.i.i53, i64 noundef %69) #23
   store ptr %70, ptr %60, align 8, !tbaa !37
-  %.pre9.i.i58 = load i32, ptr %61, align 4, !tbaa !4
+  %.pre9.i.i58 = load i32, ptr %61, align 8, !tbaa !4
   br label %alloc_error_message.exit.i54
 
 alloc_error_message.exit.i54:                     ; preds = %65, %58
@@ -50491,7 +50491,7 @@ alloc_error_message.exit.i54:                     ; preds = %65, %58
   %114 = select i1 %.not.i.i64, i64 24, i64 %113
   %115 = tail call ptr @_erealloc(ptr noundef %.pre.i.i60, i64 noundef %114) #23
   store ptr %115, ptr %105, align 8, !tbaa !37
-  %.pre9.i.i65 = load i32, ptr %106, align 4, !tbaa !4
+  %.pre9.i.i65 = load i32, ptr %106, align 8, !tbaa !4
   br label %alloc_error_message.exit.i61
 
 alloc_error_message.exit.i61:                     ; preds = %110, %103
@@ -51233,7 +51233,7 @@ timelib_lookup_relunit.exit.thread:               ; preds = %21
   %50 = select i1 %.not.i.i.i, i64 24, i64 %49
   %51 = tail call ptr @_erealloc(ptr noundef %.pre.i.i.i, i64 noundef %50) #23
   store ptr %51, ptr %41, align 8, !tbaa !37
-  %.pre9.i.i.i = load i32, ptr %42, align 4, !tbaa !4
+  %.pre9.i.i.i = load i32, ptr %42, align 8, !tbaa !4
   br label %alloc_error_message.exit.i.i
 
 alloc_error_message.exit.i.i:                     ; preds = %46, %39
@@ -51308,7 +51308,7 @@ add_error.exit.i:                                 ; preds = %60, %.thread.i.i
   %96 = select i1 %.not.i.i.i64, i64 24, i64 %95
   %97 = tail call ptr @_erealloc(ptr noundef %.pre.i.i.i59, i64 noundef %96) #23
   store ptr %97, ptr %87, align 8, !tbaa !37
-  %.pre9.i.i.i65 = load i32, ptr %88, align 4, !tbaa !4
+  %.pre9.i.i.i65 = load i32, ptr %88, align 8, !tbaa !4
   br label %alloc_error_message.exit.i.i60
 
 alloc_error_message.exit.i.i60:                   ; preds = %92, %85
@@ -51383,7 +51383,7 @@ add_error.exit.i62:                               ; preds = %106, %.thread.i.i63
   %142 = select i1 %.not.i.i.i72, i64 24, i64 %141
   %143 = tail call ptr @_erealloc(ptr noundef %.pre.i.i.i67, i64 noundef %142) #23
   store ptr %143, ptr %133, align 8, !tbaa !37
-  %.pre9.i.i.i73 = load i32, ptr %134, align 4, !tbaa !4
+  %.pre9.i.i.i73 = load i32, ptr %134, align 8, !tbaa !4
   br label %alloc_error_message.exit.i.i68
 
 alloc_error_message.exit.i.i68:                   ; preds = %138, %131
@@ -51458,7 +51458,7 @@ add_error.exit.i70:                               ; preds = %152, %.thread.i.i71
   %188 = select i1 %.not.i.i.i80, i64 24, i64 %187
   %189 = tail call ptr @_erealloc(ptr noundef %.pre.i.i.i75, i64 noundef %188) #23
   store ptr %189, ptr %179, align 8, !tbaa !37
-  %.pre9.i.i.i81 = load i32, ptr %180, align 4, !tbaa !4
+  %.pre9.i.i.i81 = load i32, ptr %180, align 8, !tbaa !4
   br label %alloc_error_message.exit.i.i76
 
 alloc_error_message.exit.i.i76:                   ; preds = %184, %177
@@ -51533,7 +51533,7 @@ add_error.exit.i78:                               ; preds = %198, %.thread.i.i79
   %234 = select i1 %.not.i.i.i88, i64 24, i64 %233
   %235 = tail call ptr @_erealloc(ptr noundef %.pre.i.i.i83, i64 noundef %234) #23
   store ptr %235, ptr %225, align 8, !tbaa !37
-  %.pre9.i.i.i89 = load i32, ptr %226, align 4, !tbaa !4
+  %.pre9.i.i.i89 = load i32, ptr %226, align 8, !tbaa !4
   br label %alloc_error_message.exit.i.i84
 
 alloc_error_message.exit.i.i84:                   ; preds = %230, %223
@@ -51608,7 +51608,7 @@ add_error.exit.i86:                               ; preds = %244, %.thread.i.i87
   %280 = select i1 %.not.i.i.i96, i64 24, i64 %279
   %281 = tail call ptr @_erealloc(ptr noundef %.pre.i.i.i91, i64 noundef %280) #23
   store ptr %281, ptr %271, align 8, !tbaa !37
-  %.pre9.i.i.i97 = load i32, ptr %272, align 4, !tbaa !4
+  %.pre9.i.i.i97 = load i32, ptr %272, align 8, !tbaa !4
   br label %alloc_error_message.exit.i.i92
 
 alloc_error_message.exit.i.i92:                   ; preds = %276, %269
@@ -51683,7 +51683,7 @@ add_error.exit.i94:                               ; preds = %290, %.thread.i.i95
   %326 = select i1 %.not.i.i.i104, i64 24, i64 %325
   %327 = tail call ptr @_erealloc(ptr noundef %.pre.i.i.i99, i64 noundef %326) #23
   store ptr %327, ptr %317, align 8, !tbaa !37
-  %.pre9.i.i.i105 = load i32, ptr %318, align 4, !tbaa !4
+  %.pre9.i.i.i105 = load i32, ptr %318, align 8, !tbaa !4
   br label %alloc_error_message.exit.i.i100
 
 alloc_error_message.exit.i.i100:                  ; preds = %322, %315

@@ -45,7 +45,7 @@ define hidden nonnull ptr @hb_unicode_funcs_create(ptr noundef %0) local_unnamed
   store atomic i32 1, ptr %4 monotonic, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store atomic i64 0, ptr %5 monotonic, align 8
-  %6 = load atomic i32, ptr %2 monotonic, align 4
+  %6 = load atomic i32, ptr %2 monotonic, align 8
   %.not13 = icmp eq ptr %0, null
   %spec.select = select i1 %.not13, ptr @_hb_Null_hb_unicode_funcs_t, ptr %0
   %7 = getelementptr inbounds nuw i8, ptr %spec.select, i64 4

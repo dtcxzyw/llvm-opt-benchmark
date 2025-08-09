@@ -338,7 +338,7 @@ define void @dt_control_init(ptr noundef initializes((16, 56)) %0) local_unnamed
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 600
   store ptr null, ptr %35, align 8, !tbaa !91
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 9744
-  store atomic i32 0, ptr %36 seq_cst, align 4
+  store atomic i32 0, ptr %36 seq_cst, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 9748
   store i32 0, ptr %37, align 4, !tbaa !92
   tail call void @dt_action_define_fallback(i32 noundef 4, ptr noundef nonnull @dt_action_def_iop) #13

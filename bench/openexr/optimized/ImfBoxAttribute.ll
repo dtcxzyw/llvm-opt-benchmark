@@ -177,11 +177,11 @@ define weak_odr noundef ptr @_ZN7Imf_3_414TypedAttributeIN9Imath_3_23BoxINS1_4Ve
 2:                                                ; preds = %0
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN7Imf_3_414TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEEE, i64 16), ptr %1, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 2147483647, ptr %3, align 4, !tbaa !6
+  store i32 2147483647, ptr %3, align 8, !tbaa !6
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 2147483647, ptr %4, align 4, !tbaa !10
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 -2147483648, ptr %5, align 4, !tbaa !6
+  store i32 -2147483648, ptr %5, align 8, !tbaa !6
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 -2147483648, ptr %6, align 4, !tbaa !10
   ret ptr %1
@@ -211,11 +211,11 @@ define weak_odr noundef ptr @_ZNK7Imf_3_414TypedAttributeIN9Imath_3_23BoxINS1_4V
 3:                                                ; preds = %1
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN7Imf_3_414TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEEE, i64 16), ptr %2, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 2147483647, ptr %4, align 4, !tbaa !6
+  store i32 2147483647, ptr %4, align 8, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 2147483647, ptr %5, align 4, !tbaa !10
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 -2147483648, ptr %6, align 4, !tbaa !6
+  store i32 -2147483648, ptr %6, align 8, !tbaa !6
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 -2147483648, ptr %7, align 4, !tbaa !10
   %8 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(8) %0, ptr nonnull @_ZTIN7Imf_3_49AttributeE, ptr nonnull @_ZTIN7Imf_3_414TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEEE, i64 0) #15
@@ -510,11 +510,11 @@ define weak_odr noundef ptr @_ZN7Imf_3_414TypedAttributeIN9Imath_3_23BoxINS1_4Ve
 2:                                                ; preds = %0
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN7Imf_3_414TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IfEEEEEE, i64 16), ptr %1, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store float 0x47EFFFFFE0000000, ptr %3, align 4, !tbaa !11
+  store float 0x47EFFFFFE0000000, ptr %3, align 8, !tbaa !11
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store float 0x47EFFFFFE0000000, ptr %4, align 4, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store float 0xC7EFFFFFE0000000, ptr %5, align 4, !tbaa !11
+  store float 0xC7EFFFFFE0000000, ptr %5, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store float 0xC7EFFFFFE0000000, ptr %6, align 4, !tbaa !14
   ret ptr %1
@@ -536,11 +536,11 @@ define weak_odr noundef ptr @_ZNK7Imf_3_414TypedAttributeIN9Imath_3_23BoxINS1_4V
 3:                                                ; preds = %1
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN7Imf_3_414TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IfEEEEEE, i64 16), ptr %2, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store float 0x47EFFFFFE0000000, ptr %4, align 4, !tbaa !11
+  store float 0x47EFFFFFE0000000, ptr %4, align 8, !tbaa !11
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store float 0x47EFFFFFE0000000, ptr %5, align 4, !tbaa !14
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store float 0xC7EFFFFFE0000000, ptr %6, align 4, !tbaa !11
+  store float 0xC7EFFFFFE0000000, ptr %6, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store float 0xC7EFFFFFE0000000, ptr %7, align 4, !tbaa !14
   %8 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(8) %0, ptr nonnull @_ZTIN7Imf_3_49AttributeE, ptr nonnull @_ZTIN7Imf_3_414TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IfEEEEEE, i64 0) #15

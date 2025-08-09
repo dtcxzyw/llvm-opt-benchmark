@@ -6292,7 +6292,7 @@ _ZNSt16allocator_traitsISaIN6Assimp4D3DS4MeshEEE9constructIS2_JNSt7__cxx1112basi
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %27, i8 0, i64 48, i1 false)
-  store float 1.000000e+00, ptr %28, align 4
+  store float 1.000000e+00, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 156
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 172
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %29, i8 0, i64 16, i1 false)
@@ -6300,7 +6300,7 @@ _ZNSt16allocator_traitsISaIN6Assimp4D3DS4MeshEEE9constructIS2_JNSt7__cxx1112basi
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 176
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %32, align 4
+  store float 1.000000e+00, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 196
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 212
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %33, i8 0, i64 16, i1 false)
@@ -15939,7 +15939,7 @@ _ZNKSt6vectorIN6Assimp4D3DS4MeshESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %3
   %40 = getelementptr inbounds nuw i8, ptr %22, i64 104
   %41 = getelementptr inbounds nuw i8, ptr %22, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %40, i8 0, i64 48, i1 false)
-  store float 1.000000e+00, ptr %41, align 4
+  store float 1.000000e+00, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %22, i64 156
   %43 = getelementptr inbounds nuw i8, ptr %22, i64 172
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %42, i8 0, i64 16, i1 false)
@@ -15947,7 +15947,7 @@ _ZNKSt6vectorIN6Assimp4D3DS4MeshESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %3
   %44 = getelementptr inbounds nuw i8, ptr %22, i64 176
   %45 = getelementptr inbounds nuw i8, ptr %22, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %45, align 4
+  store float 1.000000e+00, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %22, i64 196
   %47 = getelementptr inbounds nuw i8, ptr %22, i64 212
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %46, i8 0, i64 16, i1 false)
@@ -16083,7 +16083,7 @@ _ZSt19__relocate_object_aIN6Assimp4D3DS4MeshES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i: ;
   store i64 %42, ptr %44, align 8, !alias.scope !155, !noalias !158
   store ptr %34, ptr %31, align 8, !alias.scope !158, !noalias !155
   store i64 0, ptr %43, align 8, !alias.scope !158, !noalias !155
-  store i8 0, ptr %34, align 1, !alias.scope !158, !noalias !155
+  store i8 0, ptr %34, align 8, !alias.scope !158, !noalias !155
   %45 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 104
   %46 = getelementptr inbounds nuw i8, ptr %.0911.i.i, i64 104
   %47 = load ptr, ptr %46, align 8, !alias.scope !158, !noalias !155

@@ -3925,7 +3925,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %37, ptr %39, align 8, !tbaa !16, !alias.scope !238, !noalias !241
   store ptr %29, ptr %.0911.i.i.i, align 8, !tbaa !11, !alias.scope !241, !noalias !238
   store i64 0, ptr %38, align 8, !tbaa !16, !alias.scope !241, !noalias !238
-  store i8 0, ptr %29, align 1, !tbaa !17, !alias.scope !241, !noalias !238
+  store i8 0, ptr %29, align 8, !tbaa !17, !alias.scope !241, !noalias !238
   %40 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %41 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %42 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 48
@@ -3959,7 +3959,7 @@ _ZSt19__relocate_object_aIN7rocksdb10KeyVersionES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i
   store i64 %52, ptr %54, align 8, !tbaa !16, !alias.scope !238, !noalias !241
   store ptr %44, ptr %41, align 8, !tbaa !11, !alias.scope !241, !noalias !238
   store i64 0, ptr %53, align 8, !tbaa !16, !alias.scope !241, !noalias !238
-  store i8 0, ptr %44, align 1, !tbaa !17, !alias.scope !241, !noalias !238
+  store i8 0, ptr %44, align 8, !tbaa !17, !alias.scope !241, !noalias !238
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 64
   %56 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %55, ptr noundef nonnull align 8 dereferenceable(12) %56, i64 12, i1 false), !alias.scope !243
@@ -4010,7 +4010,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i3
   store i64 %70, ptr %72, align 8, !tbaa !16, !alias.scope !245, !noalias !248
   store ptr %62, ptr %.0911.i.i.i32, align 8, !tbaa !11, !alias.scope !248, !noalias !245
   store i64 0, ptr %71, align 8, !tbaa !16, !alias.scope !248, !noalias !245
-  store i8 0, ptr %62, align 1, !tbaa !17, !alias.scope !248, !noalias !245
+  store i8 0, ptr %62, align 8, !tbaa !17, !alias.scope !248, !noalias !245
   %73 = getelementptr inbounds nuw i8, ptr %.012.i.i.i31, i64 32
   %74 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i32, i64 32
   %75 = getelementptr inbounds nuw i8, ptr %.012.i.i.i31, i64 48
@@ -4044,7 +4044,7 @@ _ZSt19__relocate_object_aIN7rocksdb10KeyVersionES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i
   store i64 %85, ptr %87, align 8, !tbaa !16, !alias.scope !245, !noalias !248
   store ptr %77, ptr %74, align 8, !tbaa !11, !alias.scope !248, !noalias !245
   store i64 0, ptr %86, align 8, !tbaa !16, !alias.scope !248, !noalias !245
-  store i8 0, ptr %77, align 1, !tbaa !17, !alias.scope !248, !noalias !245
+  store i8 0, ptr %77, align 8, !tbaa !17, !alias.scope !248, !noalias !245
   %88 = getelementptr inbounds nuw i8, ptr %.012.i.i.i31, i64 64
   %89 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i32, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %88, ptr noundef nonnull align 8 dereferenceable(12) %89, i64 12, i1 false), !alias.scope !250

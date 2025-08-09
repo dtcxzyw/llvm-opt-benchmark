@@ -1372,9 +1372,9 @@ define void @_ZN3net18SourceAddressToken4SwapEPS0_(ptr noundef nonnull align 8 c
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %19 = load i32, ptr %17, align 8, !tbaa !26
-  %20 = load i32, ptr %18, align 4, !tbaa !26
+  %20 = load i32, ptr %18, align 8, !tbaa !26
   store i32 %20, ptr %17, align 8, !tbaa !26
-  store i32 %19, ptr %18, align 4, !tbaa !26
+  store i32 %19, ptr %18, align 8, !tbaa !26
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %21, align 8, !tbaa !23
@@ -1416,9 +1416,9 @@ define void @_ZN3net18SourceAddressToken12InternalSwapEPS0_(ptr noundef nonnull 
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i32, ptr %15, align 8, !tbaa !26
-  %18 = load i32, ptr %16, align 4, !tbaa !26
+  %18 = load i32, ptr %16, align 8, !tbaa !26
   store i32 %18, ptr %15, align 8, !tbaa !26
-  store i32 %17, ptr %16, align 4, !tbaa !26
+  store i32 %17, ptr %16, align 8, !tbaa !26
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %19, align 8, !tbaa !23
@@ -2281,9 +2281,9 @@ _ZN3net19SourceAddressTokens12InternalSwapEPS0_.exit: ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load i32, ptr %8, align 8, !tbaa !26
-  %11 = load i32, ptr %9, align 4, !tbaa !26
+  %11 = load i32, ptr %9, align 8, !tbaa !26
   store i32 %11, ptr %8, align 8, !tbaa !26
-  store i32 %10, ptr %9, align 4, !tbaa !26
+  store i32 %10, ptr %9, align 8, !tbaa !26
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %14 = load i32, ptr %12, align 4, !tbaa !26
@@ -2293,9 +2293,9 @@ _ZN3net19SourceAddressTokens12InternalSwapEPS0_.exit: ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load i32, ptr %16, align 8, !tbaa !26
-  %19 = load i32, ptr %17, align 4, !tbaa !26
+  %19 = load i32, ptr %17, align 8, !tbaa !26
   store i32 %19, ptr %16, align 8, !tbaa !26
-  store i32 %18, ptr %17, align 4, !tbaa !26
+  store i32 %18, ptr %17, align 8, !tbaa !26
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %20, align 8, !tbaa !23
@@ -2329,9 +2329,9 @@ define void @_ZN3net19SourceAddressTokens12InternalSwapEPS0_(ptr noundef nonnull
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %11 = load i32, ptr %9, align 8, !tbaa !26
-  %12 = load i32, ptr %10, align 4, !tbaa !26
+  %12 = load i32, ptr %10, align 8, !tbaa !26
   store i32 %12, ptr %9, align 8, !tbaa !26
-  store i32 %11, ptr %10, align 4, !tbaa !26
+  store i32 %11, ptr %10, align 8, !tbaa !26
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %15 = load i32, ptr %13, align 4, !tbaa !26

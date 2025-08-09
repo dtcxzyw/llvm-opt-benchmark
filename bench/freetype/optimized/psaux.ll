@@ -4207,7 +4207,7 @@ cf2_computeDarkening.exit.i.i:                    ; preds = %252, %250, %245
   %279 = load ptr, ptr %42, align 8, !tbaa !243
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %278, i8 0, i64 336, i1 false)
   %280 = getelementptr inbounds nuw i8, ptr %.068, i64 56
-  %281 = load i32, ptr %280, align 4, !tbaa !334
+  %281 = load i32, ptr %280, align 8, !tbaa !334
   store i32 %281, ptr %278, align 8, !tbaa !335
   %282 = getelementptr inbounds nuw i8, ptr %.068, i64 324
   %283 = getelementptr inbounds nuw i8, ptr %.068, i64 328
@@ -4224,7 +4224,7 @@ cf2_computeDarkening.exit.i.i:                    ; preds = %252, %250, %245
   %293 = load i64, ptr %292, align 8, !tbaa !337
   %294 = trunc i64 %293 to i32
   %295 = shl i32 %294, 16
-  store i32 %295, ptr %283, align 4, !tbaa !16
+  store i32 %295, ptr %283, align 8, !tbaa !16
   %296 = getelementptr inbounds nuw i8, ptr %291, i64 736
   %297 = load i64, ptr %296, align 8, !tbaa !338
   %298 = trunc i64 %297 to i32
@@ -8219,7 +8219,7 @@ ps_builder_init.exit:                             ; preds = %3
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 130
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 131
   %.sink.i67 = load i8, ptr %81, align 1, !tbaa !37
-  %.sink65.i68 = load i8, ptr %80, align 1, !tbaa !37
+  %.sink65.i68 = load i8, ptr %80, align 2, !tbaa !37
   %.sink66.i69 = load i8, ptr %79, align 1, !tbaa !37
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i8 %78, ptr %82, align 8, !tbaa !99
@@ -9714,7 +9714,7 @@ define internal fastcc void @cf2_interpT2CharString(ptr noundef %0, ptr noundef 
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %0, align 8, !tbaa !211
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %36 = load i32, ptr %35, align 4, !tbaa !334
+  %36 = load i32, ptr %35, align 8, !tbaa !334
   %37 = getelementptr i8, ptr %32, i64 1056
   %.val1251 = load ptr, ptr %37, align 8, !tbaa !206
   %38 = getelementptr i8, ptr %.val1251, i64 1032

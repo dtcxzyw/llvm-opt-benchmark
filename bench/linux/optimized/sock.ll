@@ -476,7 +476,7 @@ define dso_local void @sk_clear_memalloc(ptr noundef %0) #0 align 16 {
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %19 = load i32, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %21 = load volatile i32, ptr %20, align 4
+  %21 = load volatile i32, ptr %20, align 8
   %22 = add i32 %19, %21
   %23 = sub i32 %15, %22
   %24 = tail call i32 @llvm.smax.i32(i32 %23, i32 0)
@@ -1069,7 +1069,7 @@ define dso_local i32 @__sk_receive_skb(ptr noundef %0, ptr noundef %1, i32 %2, i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 244
   %14 = load i32, ptr %13, align 4
-  %15 = load volatile i32, ptr %12, align 4
+  %15 = load volatile i32, ptr %12, align 8
   %16 = add i32 %15, %14
   %17 = icmp ugt i32 %16, %11
   br i1 %17, label %18, label %20
@@ -1094,7 +1094,7 @@ define dso_local i32 @__sk_receive_skb(ptr noundef %0, ptr noundef %1, i32 %2, i
 27:                                               ; preds = %20
   %28 = load volatile i32, ptr %10, align 8
   %29 = load i32, ptr %13, align 4
-  %30 = load volatile i32, ptr %12, align 4
+  %30 = load volatile i32, ptr %12, align 8
   %31 = add i32 %30, %29
   %32 = icmp ugt i32 %31, %28
   br i1 %32, label %84, label %33
@@ -2076,7 +2076,7 @@ define dso_local noundef range(i32 -95, 1) i32 @sock_set_timestamping(ptr nounde
 45:                                               ; preds = %40
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %47 = load i32, ptr %46, align 64
-  store volatile i32 %47, ptr %41, align 4
+  store volatile i32 %47, ptr %41, align 32
   br label %50
 
 48:                                               ; preds = %29, %25, %20
@@ -3669,7 +3669,7 @@ define internal fastcc void @sock_release_reserved_memory(ptr noundef %0, i32 no
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %22 = load i32, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %24 = load volatile i32, ptr %23, align 4
+  %24 = load volatile i32, ptr %23, align 8
   %25 = add i32 %22, %24
   %26 = sub i32 %10, %25
   %27 = tail call i32 @llvm.smax.i32(i32 %26, i32 0)
@@ -4551,7 +4551,7 @@ thread-pre-split:                                 ; preds = %21
   %464 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i32 %463, ptr %464, align 4
   %465 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %466 = load volatile i32, ptr %465, align 4
+  %466 = load volatile i32, ptr %465, align 8
   %467 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i32 %466, ptr %467, align 8
   %468 = getelementptr inbounds nuw i8, ptr %0, i64 244
@@ -4559,7 +4559,7 @@ thread-pre-split:                                 ; preds = %21
   %470 = getelementptr inbounds nuw i8, ptr %13, i64 28
   store i32 %469, ptr %470, align 4
   %471 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %472 = load volatile i32, ptr %471, align 4
+  %472 = load volatile i32, ptr %471, align 8
   %473 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i32 %472, ptr %473, align 16
   %474 = call i32 @llvm.umin.i32(i32 %27, i32 36)
@@ -4972,7 +4972,7 @@ define dso_local void @sk_get_meminfo(ptr noundef %0, ptr noundef writeonly capt
   %20 = getelementptr i8, ptr %1, i64 20
   store i32 %19, ptr %20, align 4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %22 = load volatile i32, ptr %21, align 4
+  %22 = load volatile i32, ptr %21, align 8
   %23 = getelementptr i8, ptr %1, i64 24
   store i32 %22, ptr %23, align 4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 244
@@ -4980,7 +4980,7 @@ define dso_local void @sk_get_meminfo(ptr noundef %0, ptr noundef writeonly capt
   %26 = getelementptr i8, ptr %1, i64 28
   store i32 %25, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %28 = load volatile i32, ptr %27, align 4
+  %28 = load volatile i32, ptr %27, align 8
   %29 = getelementptr i8, ptr %1, i64 32
   store i32 %28, ptr %29, align 4
   ret void
@@ -5634,11 +5634,11 @@ define dso_local noundef ptr @sk_clone_lock(ptr noundef %0, i32 noundef %1) #0 a
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 240
   %52 = getelementptr inbounds nuw i8, ptr %8, i64 244
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %52, i8 0, i64 20, i1 false)
-  store volatile i32 0, ptr %51, align 4
+  store volatile i32 0, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 340
   store volatile i32 1, ptr %53, align 4
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 328
-  store volatile i32 0, ptr %54, align 4
+  store volatile i32 0, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %8, i64 216
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 236
   store i32 0, ptr %56, align 4
@@ -5678,7 +5678,7 @@ define dso_local noundef ptr @sk_clone_lock(ptr noundef %0, i32 noundef %1) #0 a
   %73 = getelementptr inbounds nuw i8, ptr %8, i64 268
   store i32 0, ptr %73, align 4
   %74 = getelementptr inbounds nuw i8, ptr %8, i64 184
-  store volatile i32 0, ptr %74, align 4
+  store volatile i32 0, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %8, i64 352
   store ptr null, ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 512
@@ -5777,7 +5777,7 @@ define dso_local noundef ptr @sk_clone_lock(ptr noundef %0, i32 noundef %1) #0 a
   store i32 %126, ptr %127, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !75
   %128 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  store volatile i32 2, ptr %128, align 4
+  store volatile i32 2, ptr %128, align 8
   %129 = getelementptr inbounds nuw i8, ptr %8, i64 624
   store ptr null, ptr %129, align 8
   %130 = getelementptr inbounds nuw i8, ptr %8, i64 120
@@ -5937,7 +5937,7 @@ define dso_local void @sk_setup_caps(ptr noundef initializes((488, 496)) %0, ptr
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %54 = load i64, ptr %53, align 8
   %55 = getelementptr i8, ptr %0, i64 80
-  %56 = load i32, ptr %55, align 4
+  %56 = load i32, ptr %55, align 8
   %57 = xor i32 %56, -65536
   %58 = zext i32 %57 to i64
   %59 = or i64 %54, %58
@@ -6451,7 +6451,7 @@ define dso_local void @sock_rfree(ptr noundef readonly captures(none) %0) #0 ali
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 336
   %24 = load i32, ptr %23, align 8
-  %25 = load volatile i32, ptr %6, align 4
+  %25 = load volatile i32, ptr %6, align 8
   %26 = add i32 %24, %25
   %27 = sub i32 %20, %26
   %28 = tail call i32 @llvm.smax.i32(i32 %27, i32 0)
@@ -7898,7 +7898,7 @@ define dso_local noundef range(i32 0, 2) i32 @__sk_mem_raise_allocated(ptr nound
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %131 = load i32, ptr %130, align 8
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %133 = load volatile i32, ptr %132, align 4
+  %133 = load volatile i32, ptr %132, align 8
   %134 = add i32 %133, %131
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %136 = load i32, ptr %135, align 8
@@ -8629,9 +8629,9 @@ define dso_local void @sock_init_data_uid(ptr noundef %0, ptr noundef initialize
   store volatile i16 -1, ptr %63, align 2
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !111
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  store volatile i32 1, ptr %64, align 4
+  store volatile i32 1, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  store volatile i32 0, ptr %65, align 4
+  store volatile i32 0, ptr %65, align 8
   ret void
 }
 

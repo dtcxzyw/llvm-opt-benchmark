@@ -1187,7 +1187,7 @@ lbttcp_packet_is_transport_client.exit:           ; preds = %lbttcp_packet_is_tr
   %136 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %136, align 8
   %137 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %.077.in.pre = load i32, ptr %137, align 4
+  %.077.in.pre = load i32, ptr %137, align 8
   br label %158
 
 138:                                              ; preds = %lbttcp_packet_is_transport_client.exit, %113

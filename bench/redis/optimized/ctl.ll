@@ -6561,7 +6561,7 @@ malloc_mutex_lock.exit.i:                         ; preds = %42, %36
   %46 = getelementptr inbounds nuw i8, ptr %30, i64 168
   store i32 1, ptr %46, align 8, !tbaa !204
   %47 = getelementptr inbounds nuw i8, ptr %30, i64 160
-  store atomic i8 0, ptr %47 monotonic, align 1
+  store atomic i8 0, ptr %47 monotonic, align 8
   %48 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %31) #15
   br label %arena_reset_finish_background_thread.exit
 
@@ -6773,7 +6773,7 @@ malloc_mutex_lock.exit.i:                         ; preds = %97, %91
   %101 = getelementptr inbounds nuw i8, ptr %85, i64 168
   store i32 1, ptr %101, align 8, !tbaa !204
   %102 = getelementptr inbounds nuw i8, ptr %85, i64 160
-  store atomic i8 0, ptr %102 monotonic, align 1
+  store atomic i8 0, ptr %102 monotonic, align 8
   %103 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %86) #15
   br label %arena_reset_finish_background_thread.exit
 
@@ -7605,7 +7605,7 @@ malloc_mutex_lock.exit8:                          ; preds = %25, %31
   %35 = getelementptr inbounds nuw i8, ptr %19, i64 168
   store i32 2, ptr %35, align 8, !tbaa !204
   %36 = getelementptr inbounds nuw i8, ptr %19, i64 160
-  store atomic i8 0, ptr %36 monotonic, align 1
+  store atomic i8 0, ptr %36 monotonic, align 8
   %37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %20) #15
   br label %38
 

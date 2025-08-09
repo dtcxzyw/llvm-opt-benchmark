@@ -8888,9 +8888,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -8942,9 +8942,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -8996,9 +8996,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -9050,9 +9050,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -9104,9 +9104,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -9158,9 +9158,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -9212,9 +9212,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -9266,9 +9266,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -9320,9 +9320,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -9374,9 +9374,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -9428,9 +9428,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -9482,9 +9482,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -9536,9 +9536,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -9590,9 +9590,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -9644,9 +9644,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -9698,9 +9698,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -9752,9 +9752,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -9806,9 +9806,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -9860,9 +9860,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -9914,9 +9914,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -9968,9 +9968,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -10022,9 +10022,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -10076,9 +10076,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -10130,9 +10130,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -10184,9 +10184,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -10238,9 +10238,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -10292,9 +10292,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -10346,9 +10346,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -10400,9 +10400,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -10454,9 +10454,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -10508,9 +10508,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -10562,9 +10562,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -10616,9 +10616,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -10670,9 +10670,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -10724,9 +10724,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -10778,9 +10778,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -10832,9 +10832,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -10886,9 +10886,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -10940,9 +10940,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -10994,9 +10994,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -11048,9 +11048,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -11102,9 +11102,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -11156,9 +11156,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -11210,9 +11210,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -11264,9 +11264,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -11318,9 +11318,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -11372,9 +11372,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -11426,9 +11426,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -11480,9 +11480,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -11534,9 +11534,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -11588,9 +11588,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -11642,9 +11642,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -11696,9 +11696,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -11750,9 +11750,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -11804,9 +11804,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -11858,9 +11858,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -11912,9 +11912,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -11966,9 +11966,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -12020,9 +12020,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -12074,9 +12074,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -12128,9 +12128,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -12182,9 +12182,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -12236,9 +12236,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -12290,9 +12290,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -12344,9 +12344,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -12398,9 +12398,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -12452,9 +12452,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -12506,9 +12506,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -12560,9 +12560,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i8 0, ptr %13, align 4
+  store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i8 0, ptr %14, align 4
+  store i8 0, ptr %14, align 8
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
@@ -18538,7 +18538,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = load i32, ptr %18, align 4, !noalias !77
   %20 = load i64, ptr %17, align 8, !noalias !77
-  %21 = load i32, ptr %3, align 4, !noalias !77
+  %21 = load i32, ptr %3, align 8, !noalias !77
   call void @_ZN8WasmEdge4Host16WasiClockTimeGet4bodyERKNS_7Runtime12CallingFrameEjmj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %21, i64 noundef %20, i32 noundef %19), !noalias !74
   %22 = load i8, ptr %7, align 4, !noalias !74
   %23 = trunc i8 %22 to i1
@@ -19153,7 +19153,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12Wa
   %20 = load i32, ptr %19, align 4, !noalias !83
   %21 = load i64, ptr %18, align 8, !noalias !83
   %22 = load i64, ptr %17, align 8, !noalias !83
-  %23 = load i32, ptr %3, align 4, !noalias !83
+  %23 = load i32, ptr %3, align 8, !noalias !83
   call void @_ZN8WasmEdge4Host12WasiFdAdvise4bodyERKNS_7Runtime12CallingFrameEimmj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %23, i64 noundef %22, i64 noundef %21, i32 noundef %20), !noalias !80
   %24 = load i8, ptr %7, align 4, !noalias !80
   %25 = trunc i8 %24 to i1
@@ -19828,7 +19828,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = load i64, ptr %18, align 8, !noalias !89
   %20 = load i64, ptr %17, align 8, !noalias !89
-  %21 = load i32, ptr %3, align 4, !noalias !89
+  %21 = load i32, ptr %3, align 8, !noalias !89
   call void @_ZN8WasmEdge4Host14WasiFdAllocate4bodyERKNS_7Runtime12CallingFrameEimm(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %21, i64 noundef %20, i64 noundef %19), !noalias !86
   %22 = load i8, ptr %7, align 4, !noalias !86
   %23 = trunc i8 %22 to i1
@@ -22493,7 +22493,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21Wa
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = load i64, ptr %18, align 8, !noalias !119
   %20 = load i64, ptr %17, align 8, !noalias !119
-  %21 = load i32, ptr %3, align 4, !noalias !119
+  %21 = load i32, ptr %3, align 8, !noalias !119
   call void @_ZN8WasmEdge4Host21WasiFdFdstatSetRights4bodyERKNS_7Runtime12CallingFrameEimm(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %21, i64 noundef %20, i64 noundef %19), !noalias !116
   %22 = load i8, ptr %7, align 4, !noalias !116
   %23 = trunc i8 %22 to i1
@@ -23653,7 +23653,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21Wa
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load i64, ptr %17, align 8, !noalias !131
-  %19 = load i32, ptr %3, align 4, !noalias !131
+  %19 = load i32, ptr %3, align 8, !noalias !131
   call void @_ZN8WasmEdge4Host21WasiFdFilestatSetSize4bodyERKNS_7Runtime12CallingFrameEim(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %19, i64 noundef %18), !noalias !128
   %20 = load i8, ptr %7, align 4, !noalias !128
   %21 = trunc i8 %20 to i1
@@ -24206,7 +24206,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22Wa
   %20 = load i32, ptr %19, align 4, !noalias !137
   %21 = load i64, ptr %18, align 8, !noalias !137
   %22 = load i64, ptr %17, align 8, !noalias !137
-  %23 = load i32, ptr %3, align 4, !noalias !137
+  %23 = load i32, ptr %3, align 8, !noalias !137
   call void @_ZN8WasmEdge4Host22WasiFdFilestatSetTimes4bodyERKNS_7Runtime12CallingFrameEimmj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %23, i64 noundef %22, i64 noundef %21, i32 noundef %20), !noalias !134
   %24 = load i8, ptr %7, align 4, !noalias !134
   %25 = trunc i8 %24 to i1
@@ -24883,9 +24883,9 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11Wa
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %21 = load i32, ptr %20, align 4, !noalias !143
   %22 = load i64, ptr %19, align 8, !noalias !143
-  %23 = load i32, ptr %18, align 4, !noalias !143
-  %24 = load i32, ptr %17, align 4, !noalias !143
-  %25 = load i32, ptr %3, align 4, !noalias !143
+  %23 = load i32, ptr %18, align 8, !noalias !143
+  %24 = load i32, ptr %17, align 8, !noalias !143
+  %25 = load i32, ptr %3, align 8, !noalias !143
   call void @_ZN8WasmEdge4Host11WasiFdPread4bodyERKNS_7Runtime12CallingFrameEijjmj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %25, i32 noundef %24, i32 noundef %23, i64 noundef %22, i32 noundef %21), !noalias !140
   %26 = load i8, ptr %7, align 4, !noalias !140
   %27 = trunc i8 %26 to i1
@@ -26786,9 +26786,9 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12Wa
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %21 = load i32, ptr %20, align 4, !noalias !161
   %22 = load i64, ptr %19, align 8, !noalias !161
-  %23 = load i32, ptr %18, align 4, !noalias !161
-  %24 = load i32, ptr %17, align 4, !noalias !161
-  %25 = load i32, ptr %3, align 4, !noalias !161
+  %23 = load i32, ptr %18, align 8, !noalias !161
+  %24 = load i32, ptr %17, align 8, !noalias !161
+  %25 = load i32, ptr %3, align 8, !noalias !161
   call void @_ZN8WasmEdge4Host12WasiFdPwrite4bodyERKNS_7Runtime12CallingFrameEijjmj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %25, i32 noundef %24, i32 noundef %23, i64 noundef %22, i32 noundef %21), !noalias !158
   %26 = load i8, ptr %7, align 4, !noalias !158
   %27 = trunc i8 %26 to i1
@@ -28204,9 +28204,9 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13Wa
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %21 = load i32, ptr %20, align 4, !noalias !173
   %22 = load i64, ptr %19, align 8, !noalias !173
-  %23 = load i32, ptr %18, align 4, !noalias !173
-  %24 = load i32, ptr %17, align 4, !noalias !173
-  %25 = load i32, ptr %3, align 4, !noalias !173
+  %23 = load i32, ptr %18, align 8, !noalias !173
+  %24 = load i32, ptr %17, align 8, !noalias !173
+  %25 = load i32, ptr %3, align 8, !noalias !173
   call void @_ZN8WasmEdge4Host13WasiFdReadDir4bodyERKNS_7Runtime12CallingFrameEijjmj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %25, i32 noundef %24, i32 noundef %23, i64 noundef %22, i32 noundef %21), !noalias !170
   %26 = load i8, ptr %7, align 4, !noalias !170
   %27 = trunc i8 %26 to i1
@@ -29494,7 +29494,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10Wa
   %20 = load i32, ptr %19, align 4, !noalias !185
   %21 = load i32, ptr %18, align 4, !noalias !185
   %22 = load i64, ptr %17, align 8, !noalias !185
-  %23 = load i32, ptr %3, align 4, !noalias !185
+  %23 = load i32, ptr %3, align 8, !noalias !185
   call void @_ZN8WasmEdge4Host10WasiFdSeek4bodyERKNS_7Runtime12CallingFrameEiljj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1349") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %23, i64 noundef %22, i32 noundef %21, i32 noundef %20), !noalias !182
   %24 = load i8, ptr %7, align 4, !noalias !182
   %25 = trunc i8 %24 to i1
@@ -33231,10 +33231,10 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host24Wa
   %23 = load i32, ptr %22, align 4, !noalias !221
   %24 = load i64, ptr %21, align 8, !noalias !221
   %25 = load i64, ptr %20, align 8, !noalias !221
-  %26 = load i32, ptr %19, align 4, !noalias !221
-  %27 = load i32, ptr %18, align 4, !noalias !221
-  %28 = load i32, ptr %17, align 4, !noalias !221
-  %29 = load i32, ptr %3, align 4, !noalias !221
+  %26 = load i32, ptr %19, align 8, !noalias !221
+  %27 = load i32, ptr %18, align 8, !noalias !221
+  %28 = load i32, ptr %17, align 8, !noalias !221
+  %29 = load i32, ptr %3, align 8, !noalias !221
   call void @_ZN8WasmEdge4Host24WasiPathFilestatSetTimes4bodyERKNS_7Runtime12CallingFrameEijjjmmj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %29, i32 noundef %28, i32 noundef %27, i32 noundef %26, i64 noundef %25, i64 noundef %24, i32 noundef %23), !noalias !218
   %30 = load i8, ptr %7, align 4, !noalias !218
   %31 = trunc i8 %30 to i1
@@ -34972,11 +34972,11 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12Wa
   %26 = load i32, ptr %23, align 4, !noalias !233
   %27 = load i64, ptr %22, align 8, !noalias !233
   %28 = load i64, ptr %21, align 8, !noalias !233
-  %29 = load i32, ptr %20, align 4, !noalias !233
-  %30 = load i32, ptr %19, align 4, !noalias !233
-  %31 = load i32, ptr %18, align 4, !noalias !233
-  %32 = load i32, ptr %17, align 4, !noalias !233
-  %33 = load i32, ptr %3, align 4, !noalias !233
+  %29 = load i32, ptr %20, align 8, !noalias !233
+  %30 = load i32, ptr %19, align 8, !noalias !233
+  %31 = load i32, ptr %18, align 8, !noalias !233
+  %32 = load i32, ptr %17, align 8, !noalias !233
+  %33 = load i32, ptr %3, align 8, !noalias !233
   call void @_ZN8WasmEdge4Host12WasiPathOpen4bodyERKNS_7Runtime12CallingFrameEijjjjmmjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %33, i32 noundef %32, i32 noundef %31, i32 noundef %30, i32 noundef %29, i64 noundef %28, i64 noundef %27, i32 noundef %26, i32 noundef %25), !noalias !230
   %34 = load i8, ptr %7, align 4, !noalias !230
   %35 = trunc i8 %34 to i1

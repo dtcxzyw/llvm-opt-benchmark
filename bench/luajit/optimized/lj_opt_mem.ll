@@ -14,7 +14,7 @@ define hidden range(i32 0, 2) i32 @lj_opt_fwd_tptr(ptr noundef readonly captures
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %4 = load i16, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %.017.in28 = load i16, ptr %5, align 2, !tbaa !4
+  %.017.in28 = load i16, ptr %5, align 8, !tbaa !4
   %.01729 = zext i16 %.017.in28 to i32
   %6 = icmp ult i32 %1, %.01729
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -678,7 +678,7 @@ define hidden i32 @lj_opt_fwd_hrefk(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load i16, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %.027.in86 = load i16, ptr %4, align 2, !tbaa !4
+  %.027.in86 = load i16, ptr %4, align 8, !tbaa !4
   %5 = icmp ugt i16 %.027.in86, %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !7
@@ -1394,7 +1394,7 @@ define hidden i32 @lj_opt_fwd_alen(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load i16, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %.063.in101 = load i16, ptr %4, align 2, !tbaa !4
+  %.063.in101 = load i16, ptr %4, align 8, !tbaa !4
   %5 = icmp ugt i16 %.063.in101, %3
   br i1 %5, label %.lr.ph, label %.thread
 
@@ -2038,7 +2038,7 @@ define hidden i32 @lj_opt_fwd_fload(ptr noundef %0) local_unnamed_addr #1 {
   %5 = load i16, ptr %4, align 2, !tbaa !4
   %.fr65 = freeze i16 %5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 556
-  %.030.in56 = load i16, ptr %6, align 2, !tbaa !4
+  %.030.in56 = load i16, ptr %6, align 4, !tbaa !4
   %7 = icmp ugt i16 %.030.in56, %3
   br i1 %7, label %.lr.ph, label %._crit_edge
 
@@ -2204,7 +2204,7 @@ define hidden i32 @lj_opt_dse_fstore(ptr noundef %0) local_unnamed_addr #1 {
   %8 = zext i16 %3 to i64
   %9 = getelementptr inbounds nuw %union.IRIns, ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 556
-  %.041.in69 = load i16, ptr %10, align 2, !tbaa !33
+  %.041.in69 = load i16, ptr %10, align 4, !tbaa !33
   %11 = icmp ugt i16 %.041.in69, %3
   br i1 %11, label %.lr.ph, label %.thread55
 
@@ -3190,7 +3190,7 @@ define hidden i32 @lj_opt_dse_xstore(ptr noundef %0) local_unnamed_addr #1 {
   %9 = load i16, ptr %8, align 2, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 558
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  %12 = load i16, ptr %11, align 2, !tbaa !33
+  %12 = load i16, ptr %11, align 8, !tbaa !33
   %spec.select = tail call i16 @llvm.umax.i16(i16 %12, i16 %3)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 582
   %14 = load i16, ptr %13, align 2, !tbaa !33

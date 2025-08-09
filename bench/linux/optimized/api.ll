@@ -935,7 +935,7 @@ define dso_local ptr @crypto_create_tfm_node(ptr noundef %0, ptr noundef readonl
   store ptr %0, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 %2, ptr %18, align 8
-  store volatile i32 1, ptr %16, align 4
+  store volatile i32 1, ptr %16, align 8
   %19 = icmp ugt ptr %12, inttoptr (i64 -4096 to ptr)
   br i1 %19, label %.thread, label %20
 
@@ -1060,7 +1060,7 @@ define dso_local ptr @crypto_clone_tfm(ptr noundef readonly captures(none) %0, p
   store ptr %4, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i32 %22, ptr %37, align 8
-  store volatile i32 1, ptr %35, align 4
+  store volatile i32 1, ptr %35, align 8
   %38 = icmp ugt ptr %31, inttoptr (i64 -4096 to ptr)
   br i1 %38, label %.thread5, label %51
 

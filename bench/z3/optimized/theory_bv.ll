@@ -6053,7 +6053,7 @@ define hidden void @_ZN3smt9theory_bv18internalize_bv2intEP3app(ptr noundef nonn
   tail call void @_ZN3smt7context11internalizeEPKP4exprjb(ptr noundef nonnull align 8 dereferenceable(10544) %4, ptr noundef nonnull %5, i32 noundef %7, i1 noundef zeroext false)
   %8 = load ptr, ptr %3, align 8, !tbaa !31
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8656
-  %10 = load i32, ptr %1, align 4, !tbaa !88
+  %10 = load i32, ptr %1, align 8, !tbaa !88
   %11 = load ptr, ptr %9, align 8, !tbaa !3
   %12 = icmp eq ptr %11, null
   br i1 %12, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread.i, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.i
@@ -7256,7 +7256,7 @@ define hidden void @_ZN3smt9theory_bv18internalize_int2bvEP3app(ptr noundef nonn
   tail call void @_ZN3smt7context11internalizeEPKP4exprjb(ptr noundef nonnull align 8 dereferenceable(10544) %4, ptr noundef nonnull %5, i32 noundef %7, i1 noundef zeroext false)
   %8 = load ptr, ptr %3, align 8, !tbaa !31
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8656
-  %10 = load i32, ptr %1, align 4, !tbaa !88
+  %10 = load i32, ptr %1, align 8, !tbaa !88
   %11 = load ptr, ptr %9, align 8, !tbaa !3
   %12 = icmp eq ptr %11, null
   br i1 %12, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread.i, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.i
@@ -8732,7 +8732,7 @@ define hidden void @_ZN3smt9theory_bv15internalize_subEP3app(ptr noundef nonnull
   tail call void @_ZN3smt7context11internalizeEPKP4exprjb(ptr noundef nonnull align 8 dereferenceable(10544) %8, ptr noundef nonnull %9, i32 noundef %11, i1 noundef zeroext false)
   %12 = load ptr, ptr %7, align 8, !tbaa !31
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8656
-  %14 = load i32, ptr %1, align 4, !tbaa !88
+  %14 = load i32, ptr %1, align 8, !tbaa !88
   %15 = load ptr, ptr %13, align 8, !tbaa !3
   %16 = icmp eq ptr %15, null
   br i1 %16, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread.i, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.i
@@ -9207,7 +9207,7 @@ define hidden void @_ZN3smt9theory_bv15internalize_negEP3app(ptr noundef nonnull
   tail call void @_ZN3smt7context11internalizeEPKP4exprjb(ptr noundef nonnull align 8 dereferenceable(10544) %6, ptr noundef nonnull %7, i32 noundef %9, i1 noundef zeroext false)
   %10 = load ptr, ptr %5, align 8, !tbaa !31
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8656
-  %12 = load i32, ptr %1, align 4, !tbaa !88
+  %12 = load i32, ptr %1, align 8, !tbaa !88
   %13 = load ptr, ptr %11, align 8, !tbaa !3
   %14 = icmp eq ptr %13, null
   br i1 %14, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread.i, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.i
@@ -9433,7 +9433,7 @@ define hidden void @_ZN3smt9theory_bv15internalize_notEP3app(ptr noundef nonnull
   tail call void @_ZN3smt7context11internalizeEPKP4exprjb(ptr noundef nonnull align 8 dereferenceable(10544) %6, ptr noundef nonnull %7, i32 noundef %9, i1 noundef zeroext false)
   %10 = load ptr, ptr %5, align 8, !tbaa !31
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8656
-  %12 = load i32, ptr %1, align 4, !tbaa !88
+  %12 = load i32, ptr %1, align 8, !tbaa !88
   %13 = load ptr, ptr %11, align 8, !tbaa !3
   %14 = icmp eq ptr %13, null
   br i1 %14, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread.i, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.i
@@ -9659,7 +9659,7 @@ define hidden void @_ZN3smt9theory_bv18internalize_redandEP3app(ptr noundef nonn
   tail call void @_ZN3smt7context11internalizeEPKP4exprjb(ptr noundef nonnull align 8 dereferenceable(10544) %6, ptr noundef nonnull %7, i32 noundef %9, i1 noundef zeroext false)
   %10 = load ptr, ptr %5, align 8, !tbaa !31
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8656
-  %12 = load i32, ptr %1, align 4, !tbaa !88
+  %12 = load i32, ptr %1, align 8, !tbaa !88
   %13 = load ptr, ptr %11, align 8, !tbaa !3
   %14 = icmp eq ptr %13, null
   br i1 %14, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread.i, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.i
@@ -9885,7 +9885,7 @@ define hidden void @_ZN3smt9theory_bv17internalize_redorEP3app(ptr noundef nonnu
   tail call void @_ZN3smt7context11internalizeEPKP4exprjb(ptr noundef nonnull align 8 dereferenceable(10544) %6, ptr noundef nonnull %7, i32 noundef %9, i1 noundef zeroext false)
   %10 = load ptr, ptr %5, align 8, !tbaa !31
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8656
-  %12 = load i32, ptr %1, align 4, !tbaa !88
+  %12 = load i32, ptr %1, align 8, !tbaa !88
   %13 = load ptr, ptr %11, align 8, !tbaa !3
   %14 = icmp eq ptr %13, null
   br i1 %14, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread.i, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.i
@@ -10112,7 +10112,7 @@ define hidden void @_ZN3smt9theory_bv15internalize_addEP3app(ptr noundef nonnull
   tail call void @_ZN3smt7context11internalizeEPKP4exprjb(ptr noundef nonnull align 8 dereferenceable(10544) %7, ptr noundef nonnull %8, i32 noundef %10, i1 noundef zeroext false)
   %11 = load ptr, ptr %6, align 8, !tbaa !31
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8656
-  %13 = load i32, ptr %1, align 4, !tbaa !88
+  %13 = load i32, ptr %1, align 8, !tbaa !88
   %14 = load ptr, ptr %12, align 8, !tbaa !3
   %15 = icmp eq ptr %14, null
   br i1 %15, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread.i, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.i
@@ -10550,7 +10550,7 @@ define hidden void @_ZN3smt9theory_bv15internalize_mulEP3app(ptr noundef nonnull
   tail call void @_ZN3smt7context11internalizeEPKP4exprjb(ptr noundef nonnull align 8 dereferenceable(10544) %7, ptr noundef nonnull %8, i32 noundef %10, i1 noundef zeroext false)
   %11 = load ptr, ptr %6, align 8, !tbaa !31
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8656
-  %13 = load i32, ptr %1, align 4, !tbaa !88
+  %13 = load i32, ptr %1, align 8, !tbaa !88
   %14 = load ptr, ptr %12, align 8, !tbaa !3
   %15 = icmp eq ptr %14, null
   br i1 %15, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread.i, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.i
@@ -10988,7 +10988,7 @@ define hidden void @_ZN3smt9theory_bv16internalize_udivEP3app(ptr noundef nonnul
   tail call void @_ZN3smt7context11internalizeEPKP4exprjb(ptr noundef nonnull align 8 dereferenceable(10544) %7, ptr noundef nonnull %8, i32 noundef %10, i1 noundef zeroext false)
   %11 = load ptr, ptr %6, align 8, !tbaa !31
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8656
-  %13 = load i32, ptr %1, align 4, !tbaa !88
+  %13 = load i32, ptr %1, align 8, !tbaa !88
   %14 = load ptr, ptr %12, align 8, !tbaa !3
   %15 = icmp eq ptr %14, null
   br i1 %15, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread.i, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.i
@@ -11290,7 +11290,7 @@ define hidden void @_ZN3smt9theory_bv16internalize_sdivEP3app(ptr noundef nonnul
   tail call void @_ZN3smt7context11internalizeEPKP4exprjb(ptr noundef nonnull align 8 dereferenceable(10544) %7, ptr noundef nonnull %8, i32 noundef %10, i1 noundef zeroext false)
   %11 = load ptr, ptr %6, align 8, !tbaa !31
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8656
-  %13 = load i32, ptr %1, align 4, !tbaa !88
+  %13 = load i32, ptr %1, align 8, !tbaa !88
   %14 = load ptr, ptr %12, align 8, !tbaa !3
   %15 = icmp eq ptr %14, null
   br i1 %15, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread.i, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.i
@@ -11592,7 +11592,7 @@ define hidden void @_ZN3smt9theory_bv16internalize_uremEP3app(ptr noundef nonnul
   tail call void @_ZN3smt7context11internalizeEPKP4exprjb(ptr noundef nonnull align 8 dereferenceable(10544) %7, ptr noundef nonnull %8, i32 noundef %10, i1 noundef zeroext false)
   %11 = load ptr, ptr %6, align 8, !tbaa !31
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8656
-  %13 = load i32, ptr %1, align 4, !tbaa !88
+  %13 = load i32, ptr %1, align 8, !tbaa !88
   %14 = load ptr, ptr %12, align 8, !tbaa !3
   %15 = icmp eq ptr %14, null
   br i1 %15, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread.i, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.i
@@ -11894,7 +11894,7 @@ define hidden void @_ZN3smt9theory_bv16internalize_sremEP3app(ptr noundef nonnul
   tail call void @_ZN3smt7context11internalizeEPKP4exprjb(ptr noundef nonnull align 8 dereferenceable(10544) %7, ptr noundef nonnull %8, i32 noundef %10, i1 noundef zeroext false)
   %11 = load ptr, ptr %6, align 8, !tbaa !31
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8656
-  %13 = load i32, ptr %1, align 4, !tbaa !88
+  %13 = load i32, ptr %1, align 8, !tbaa !88
   %14 = load ptr, ptr %12, align 8, !tbaa !3
   %15 = icmp eq ptr %14, null
   br i1 %15, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread.i, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.i
@@ -12196,7 +12196,7 @@ define hidden void @_ZN3smt9theory_bv16internalize_smodEP3app(ptr noundef nonnul
   tail call void @_ZN3smt7context11internalizeEPKP4exprjb(ptr noundef nonnull align 8 dereferenceable(10544) %7, ptr noundef nonnull %8, i32 noundef %10, i1 noundef zeroext false)
   %11 = load ptr, ptr %6, align 8, !tbaa !31
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8656
-  %13 = load i32, ptr %1, align 4, !tbaa !88
+  %13 = load i32, ptr %1, align 8, !tbaa !88
   %14 = load ptr, ptr %12, align 8, !tbaa !3
   %15 = icmp eq ptr %14, null
   br i1 %15, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread.i, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.i
@@ -12498,7 +12498,7 @@ define hidden void @_ZN3smt9theory_bv15internalize_shlEP3app(ptr noundef nonnull
   tail call void @_ZN3smt7context11internalizeEPKP4exprjb(ptr noundef nonnull align 8 dereferenceable(10544) %7, ptr noundef nonnull %8, i32 noundef %10, i1 noundef zeroext false)
   %11 = load ptr, ptr %6, align 8, !tbaa !31
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8656
-  %13 = load i32, ptr %1, align 4, !tbaa !88
+  %13 = load i32, ptr %1, align 8, !tbaa !88
   %14 = load ptr, ptr %12, align 8, !tbaa !3
   %15 = icmp eq ptr %14, null
   br i1 %15, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread.i, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.i
@@ -12800,7 +12800,7 @@ define hidden void @_ZN3smt9theory_bv16internalize_lshrEP3app(ptr noundef nonnul
   tail call void @_ZN3smt7context11internalizeEPKP4exprjb(ptr noundef nonnull align 8 dereferenceable(10544) %7, ptr noundef nonnull %8, i32 noundef %10, i1 noundef zeroext false)
   %11 = load ptr, ptr %6, align 8, !tbaa !31
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8656
-  %13 = load i32, ptr %1, align 4, !tbaa !88
+  %13 = load i32, ptr %1, align 8, !tbaa !88
   %14 = load ptr, ptr %12, align 8, !tbaa !3
   %15 = icmp eq ptr %14, null
   br i1 %15, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread.i, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.i
@@ -13102,7 +13102,7 @@ define hidden void @_ZN3smt9theory_bv16internalize_ashrEP3app(ptr noundef nonnul
   tail call void @_ZN3smt7context11internalizeEPKP4exprjb(ptr noundef nonnull align 8 dereferenceable(10544) %7, ptr noundef nonnull %8, i32 noundef %10, i1 noundef zeroext false)
   %11 = load ptr, ptr %6, align 8, !tbaa !31
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8656
-  %13 = load i32, ptr %1, align 4, !tbaa !88
+  %13 = load i32, ptr %1, align 8, !tbaa !88
   %14 = load ptr, ptr %12, align 8, !tbaa !3
   %15 = icmp eq ptr %14, null
   br i1 %15, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread.i, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.i
@@ -13404,7 +13404,7 @@ define hidden void @_ZN3smt9theory_bv27internalize_ext_rotate_leftEP3app(ptr nou
   tail call void @_ZN3smt7context11internalizeEPKP4exprjb(ptr noundef nonnull align 8 dereferenceable(10544) %7, ptr noundef nonnull %8, i32 noundef %10, i1 noundef zeroext false)
   %11 = load ptr, ptr %6, align 8, !tbaa !31
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8656
-  %13 = load i32, ptr %1, align 4, !tbaa !88
+  %13 = load i32, ptr %1, align 8, !tbaa !88
   %14 = load ptr, ptr %12, align 8, !tbaa !3
   %15 = icmp eq ptr %14, null
   br i1 %15, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread.i, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.i
@@ -13706,7 +13706,7 @@ define hidden void @_ZN3smt9theory_bv28internalize_ext_rotate_rightEP3app(ptr no
   tail call void @_ZN3smt7context11internalizeEPKP4exprjb(ptr noundef nonnull align 8 dereferenceable(10544) %7, ptr noundef nonnull %8, i32 noundef %10, i1 noundef zeroext false)
   %11 = load ptr, ptr %6, align 8, !tbaa !31
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8656
-  %13 = load i32, ptr %1, align 4, !tbaa !88
+  %13 = load i32, ptr %1, align 8, !tbaa !88
   %14 = load ptr, ptr %12, align 8, !tbaa !3
   %15 = icmp eq ptr %14, null
   br i1 %15, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread.i, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.i
@@ -14008,7 +14008,7 @@ define hidden void @_ZN3smt9theory_bv15internalize_andEP3app(ptr noundef nonnull
   tail call void @_ZN3smt7context11internalizeEPKP4exprjb(ptr noundef nonnull align 8 dereferenceable(10544) %7, ptr noundef nonnull %8, i32 noundef %10, i1 noundef zeroext false)
   %11 = load ptr, ptr %6, align 8, !tbaa !31
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8656
-  %13 = load i32, ptr %1, align 4, !tbaa !88
+  %13 = load i32, ptr %1, align 8, !tbaa !88
   %14 = load ptr, ptr %12, align 8, !tbaa !3
   %15 = icmp eq ptr %14, null
   br i1 %15, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread.i, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.i
@@ -14446,7 +14446,7 @@ define hidden void @_ZN3smt9theory_bv14internalize_orEP3app(ptr noundef nonnull 
   tail call void @_ZN3smt7context11internalizeEPKP4exprjb(ptr noundef nonnull align 8 dereferenceable(10544) %7, ptr noundef nonnull %8, i32 noundef %10, i1 noundef zeroext false)
   %11 = load ptr, ptr %6, align 8, !tbaa !31
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8656
-  %13 = load i32, ptr %1, align 4, !tbaa !88
+  %13 = load i32, ptr %1, align 8, !tbaa !88
   %14 = load ptr, ptr %12, align 8, !tbaa !3
   %15 = icmp eq ptr %14, null
   br i1 %15, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread.i, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.i
@@ -14884,7 +14884,7 @@ define hidden void @_ZN3smt9theory_bv15internalize_xorEP3app(ptr noundef nonnull
   tail call void @_ZN3smt7context11internalizeEPKP4exprjb(ptr noundef nonnull align 8 dereferenceable(10544) %7, ptr noundef nonnull %8, i32 noundef %10, i1 noundef zeroext false)
   %11 = load ptr, ptr %6, align 8, !tbaa !31
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8656
-  %13 = load i32, ptr %1, align 4, !tbaa !88
+  %13 = load i32, ptr %1, align 8, !tbaa !88
   %14 = load ptr, ptr %12, align 8, !tbaa !3
   %15 = icmp eq ptr %14, null
   br i1 %15, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread.i, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.i
@@ -15322,7 +15322,7 @@ define hidden void @_ZN3smt9theory_bv16internalize_nandEP3app(ptr noundef nonnul
   tail call void @_ZN3smt7context11internalizeEPKP4exprjb(ptr noundef nonnull align 8 dereferenceable(10544) %7, ptr noundef nonnull %8, i32 noundef %10, i1 noundef zeroext false)
   %11 = load ptr, ptr %6, align 8, !tbaa !31
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8656
-  %13 = load i32, ptr %1, align 4, !tbaa !88
+  %13 = load i32, ptr %1, align 8, !tbaa !88
   %14 = load ptr, ptr %12, align 8, !tbaa !3
   %15 = icmp eq ptr %14, null
   br i1 %15, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread.i, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.i
@@ -15760,7 +15760,7 @@ define hidden void @_ZN3smt9theory_bv15internalize_norEP3app(ptr noundef nonnull
   tail call void @_ZN3smt7context11internalizeEPKP4exprjb(ptr noundef nonnull align 8 dereferenceable(10544) %7, ptr noundef nonnull %8, i32 noundef %10, i1 noundef zeroext false)
   %11 = load ptr, ptr %6, align 8, !tbaa !31
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8656
-  %13 = load i32, ptr %1, align 4, !tbaa !88
+  %13 = load i32, ptr %1, align 8, !tbaa !88
   %14 = load ptr, ptr %12, align 8, !tbaa !3
   %15 = icmp eq ptr %14, null
   br i1 %15, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread.i, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.i
@@ -16198,7 +16198,7 @@ define hidden void @_ZN3smt9theory_bv16internalize_xnorEP3app(ptr noundef nonnul
   tail call void @_ZN3smt7context11internalizeEPKP4exprjb(ptr noundef nonnull align 8 dereferenceable(10544) %7, ptr noundef nonnull %8, i32 noundef %10, i1 noundef zeroext false)
   %11 = load ptr, ptr %6, align 8, !tbaa !31
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8656
-  %13 = load i32, ptr %1, align 4, !tbaa !88
+  %13 = load i32, ptr %1, align 8, !tbaa !88
   %14 = load ptr, ptr %12, align 8, !tbaa !3
   %15 = icmp eq ptr %14, null
   br i1 %15, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread.i, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.i
@@ -16636,7 +16636,7 @@ define hidden void @_ZN3smt9theory_bv16internalize_compEP3app(ptr noundef nonnul
   tail call void @_ZN3smt7context11internalizeEPKP4exprjb(ptr noundef nonnull align 8 dereferenceable(10544) %7, ptr noundef nonnull %8, i32 noundef %10, i1 noundef zeroext false)
   %11 = load ptr, ptr %6, align 8, !tbaa !31
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8656
-  %13 = load i32, ptr %1, align 4, !tbaa !88
+  %13 = load i32, ptr %1, align 8, !tbaa !88
   %14 = load ptr, ptr %12, align 8, !tbaa !3
   %15 = icmp eq ptr %14, null
   br i1 %15, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread.i, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.i
@@ -16937,7 +16937,7 @@ define hidden void @_ZN3smt9theory_bv23internalize_sign_extendEP3app(ptr noundef
   tail call void @_ZN3smt7context11internalizeEPKP4exprjb(ptr noundef nonnull align 8 dereferenceable(10544) %6, ptr noundef nonnull %7, i32 noundef %9, i1 noundef zeroext false)
   %10 = load ptr, ptr %5, align 8, !tbaa !31
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8656
-  %12 = load i32, ptr %1, align 4, !tbaa !88
+  %12 = load i32, ptr %1, align 8, !tbaa !88
   %13 = load ptr, ptr %11, align 8, !tbaa !3
   %14 = icmp eq ptr %13, null
   br i1 %14, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread.i, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.i
@@ -17196,7 +17196,7 @@ define hidden void @_ZN3smt9theory_bv23internalize_zero_extendEP3app(ptr noundef
   tail call void @_ZN3smt7context11internalizeEPKP4exprjb(ptr noundef nonnull align 8 dereferenceable(10544) %6, ptr noundef nonnull %7, i32 noundef %9, i1 noundef zeroext false)
   %10 = load ptr, ptr %5, align 8, !tbaa !31
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8656
-  %12 = load i32, ptr %1, align 4, !tbaa !88
+  %12 = load i32, ptr %1, align 8, !tbaa !88
   %13 = load ptr, ptr %11, align 8, !tbaa !3
   %14 = icmp eq ptr %13, null
   br i1 %14, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread.i, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.i
@@ -17455,7 +17455,7 @@ define hidden void @_ZN3smt9theory_bv23internalize_rotate_leftEP3app(ptr noundef
   tail call void @_ZN3smt7context11internalizeEPKP4exprjb(ptr noundef nonnull align 8 dereferenceable(10544) %6, ptr noundef nonnull %7, i32 noundef %9, i1 noundef zeroext false)
   %10 = load ptr, ptr %5, align 8, !tbaa !31
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8656
-  %12 = load i32, ptr %1, align 4, !tbaa !88
+  %12 = load i32, ptr %1, align 8, !tbaa !88
   %13 = load ptr, ptr %11, align 8, !tbaa !3
   %14 = icmp eq ptr %13, null
   br i1 %14, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread.i, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.i
@@ -17714,7 +17714,7 @@ define hidden void @_ZN3smt9theory_bv24internalize_rotate_rightEP3app(ptr nounde
   tail call void @_ZN3smt7context11internalizeEPKP4exprjb(ptr noundef nonnull align 8 dereferenceable(10544) %6, ptr noundef nonnull %7, i32 noundef %9, i1 noundef zeroext false)
   %10 = load ptr, ptr %5, align 8, !tbaa !31
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8656
-  %12 = load i32, ptr %1, align 4, !tbaa !88
+  %12 = load i32, ptr %1, align 8, !tbaa !88
   %13 = load ptr, ptr %11, align 8, !tbaa !3
   %14 = icmp eq ptr %13, null
   br i1 %14, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread.i, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.i
@@ -17971,7 +17971,7 @@ define hidden void @_ZN3smt9theory_bv18internalize_concatEP3app(ptr noundef nonn
   tail call void @_ZN3smt7context11internalizeEPKP4exprjb(ptr noundef nonnull align 8 dereferenceable(10544) %4, ptr noundef nonnull %5, i32 noundef %7, i1 noundef zeroext false)
   %8 = load ptr, ptr %3, align 8, !tbaa !31
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8656
-  %10 = load i32, ptr %1, align 4, !tbaa !88
+  %10 = load i32, ptr %1, align 8, !tbaa !88
   %11 = load ptr, ptr %9, align 8, !tbaa !3
   %12 = icmp eq ptr %11, null
   br i1 %12, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread.i, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.i
@@ -18207,7 +18207,7 @@ define hidden void @_ZN3smt9theory_bv19internalize_extractEP3app(ptr noundef non
   tail call void @_ZN3smt7context11internalizeEPKP4exprjb(ptr noundef nonnull align 8 dereferenceable(10544) %4, ptr noundef nonnull %5, i32 noundef %7, i1 noundef zeroext false)
   %8 = load ptr, ptr %3, align 8, !tbaa !31
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8656
-  %10 = load i32, ptr %1, align 4, !tbaa !88
+  %10 = load i32, ptr %1, align 8, !tbaa !88
   %11 = load ptr, ptr %9, align 8, !tbaa !3
   %12 = icmp eq ptr %11, null
   br i1 %12, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread.i, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.i
@@ -27432,7 +27432,7 @@ define hidden void @_ZNK3smt9theory_bv11display_varERSoi(ptr noundef nonnull ali
   %15 = load i32, ptr %14, align 8, !tbaa !852
   %16 = and i32 %15, -177
   %17 = or disjoint i32 %16, 32
-  store i32 %17, ptr %14, align 4, !tbaa !853
+  store i32 %17, ptr %14, align 8, !tbaa !853
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2)
   %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.13, i64 noundef 2)
   %20 = load ptr, ptr %1, align 8, !tbaa !77
@@ -27485,7 +27485,7 @@ _ZNK3smt9theory_bv4findEi.exit:                   ; preds = %42
   %58 = load i32, ptr %57, align 8, !tbaa !852
   %59 = and i32 %58, -177
   %60 = or disjoint i32 %59, 128
-  store i32 %60, ptr %57, align 4, !tbaa !853
+  store i32 %60, ptr %57, align 8, !tbaa !853
   %61 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.15, i64 noundef 7)
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %63 = load ptr, ptr %62, align 8, !tbaa !17
@@ -34857,9 +34857,9 @@ _ZNK14core_hashtableI17default_map_entryISt4pairI8rationaljEiEN9table2mapIS4_9pa
   %172 = or disjoint i8 %171, %166
   store i8 %172, ptr %40, align 4
   %173 = getelementptr inbounds nuw i8, ptr %.043, i64 24
-  %174 = load i32, ptr %173, align 4, !tbaa !10
+  %174 = load i32, ptr %173, align 8, !tbaa !10
   %175 = load i32, ptr %16, align 8, !tbaa !10
-  store i32 %175, ptr %173, align 4, !tbaa !10
+  store i32 %175, ptr %173, align 8, !tbaa !10
   store i32 %174, ptr %16, align 8, !tbaa !10
   %176 = getelementptr inbounds nuw i8, ptr %.043, i64 32
   %177 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -35122,9 +35122,9 @@ _ZNK14core_hashtableI17default_map_entryISt4pairI8rationaljEiEN9table2mapIS4_9pa
   %340 = or disjoint i8 %339, %334
   store i8 %340, ptr %208, align 4
   %341 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  %342 = load i32, ptr %341, align 4, !tbaa !10
+  %342 = load i32, ptr %341, align 8, !tbaa !10
   %343 = load i32, ptr %16, align 8, !tbaa !10
-  store i32 %343, ptr %341, align 4, !tbaa !10
+  store i32 %343, ptr %341, align 8, !tbaa !10
   store i32 %342, ptr %16, align 8, !tbaa !10
   %344 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %345 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -35308,10 +35308,10 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryISt4pair
   store i64 %22, ptr %.034, align 8
   %23 = getelementptr inbounds nuw i8, ptr %.034, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %.02839, i64 8
-  %25 = load i32, ptr %23, align 4, !tbaa !10
-  %26 = load i32, ptr %24, align 4, !tbaa !10
-  store i32 %26, ptr %23, align 4, !tbaa !10
-  store i32 %25, ptr %24, align 4, !tbaa !10
+  %25 = load i32, ptr %23, align 8, !tbaa !10
+  %26 = load i32, ptr %24, align 8, !tbaa !10
+  store i32 %26, ptr %23, align 8, !tbaa !10
+  store i32 %25, ptr %24, align 8, !tbaa !10
   %27 = getelementptr inbounds nuw i8, ptr %.034, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %.02839, i64 16
   %29 = load ptr, ptr %27, align 8, !tbaa !710
@@ -35343,10 +35343,10 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryISt4pair
   store i8 %49, ptr %34, align 4
   %50 = getelementptr inbounds nuw i8, ptr %.034, i64 24
   %51 = getelementptr inbounds nuw i8, ptr %.02839, i64 24
-  %52 = load i32, ptr %50, align 4, !tbaa !10
-  %53 = load i32, ptr %51, align 4, !tbaa !10
-  store i32 %53, ptr %50, align 4, !tbaa !10
-  store i32 %52, ptr %51, align 4, !tbaa !10
+  %52 = load i32, ptr %50, align 8, !tbaa !10
+  %53 = load i32, ptr %51, align 8, !tbaa !10
+  store i32 %53, ptr %50, align 8, !tbaa !10
+  store i32 %52, ptr %51, align 8, !tbaa !10
   %54 = getelementptr inbounds nuw i8, ptr %.034, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.02839, i64 32
   %56 = load ptr, ptr %54, align 8, !tbaa !710
@@ -35377,7 +35377,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryISt4pair
   %76 = or disjoint i8 %75, %70
   store i8 %76, ptr %61, align 4
   %77 = getelementptr inbounds nuw i8, ptr %.02839, i64 40
-  %78 = load i32, ptr %77, align 4, !tbaa !10
+  %78 = load i32, ptr %77, align 8, !tbaa !10
   %79 = getelementptr inbounds nuw i8, ptr %.034, i64 40
   store i32 %78, ptr %79, align 8, !tbaa !700
   %80 = getelementptr inbounds nuw i8, ptr %.02839, i64 48
@@ -35403,10 +35403,10 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryISt4pair
   store i64 %89, ptr %.136, align 8
   %90 = getelementptr inbounds nuw i8, ptr %.136, i64 8
   %91 = getelementptr inbounds nuw i8, ptr %.02839, i64 8
-  %92 = load i32, ptr %90, align 4, !tbaa !10
-  %93 = load i32, ptr %91, align 4, !tbaa !10
-  store i32 %93, ptr %90, align 4, !tbaa !10
-  store i32 %92, ptr %91, align 4, !tbaa !10
+  %92 = load i32, ptr %90, align 8, !tbaa !10
+  %93 = load i32, ptr %91, align 8, !tbaa !10
+  store i32 %93, ptr %90, align 8, !tbaa !10
+  store i32 %92, ptr %91, align 8, !tbaa !10
   %94 = getelementptr inbounds nuw i8, ptr %.136, i64 16
   %95 = getelementptr inbounds nuw i8, ptr %.02839, i64 16
   %96 = load ptr, ptr %94, align 8, !tbaa !710
@@ -35438,10 +35438,10 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryISt4pair
   store i8 %116, ptr %101, align 4
   %117 = getelementptr inbounds nuw i8, ptr %.136, i64 24
   %118 = getelementptr inbounds nuw i8, ptr %.02839, i64 24
-  %119 = load i32, ptr %117, align 4, !tbaa !10
-  %120 = load i32, ptr %118, align 4, !tbaa !10
-  store i32 %120, ptr %117, align 4, !tbaa !10
-  store i32 %119, ptr %118, align 4, !tbaa !10
+  %119 = load i32, ptr %117, align 8, !tbaa !10
+  %120 = load i32, ptr %118, align 8, !tbaa !10
+  store i32 %120, ptr %117, align 8, !tbaa !10
+  store i32 %119, ptr %118, align 8, !tbaa !10
   %121 = getelementptr inbounds nuw i8, ptr %.136, i64 32
   %122 = getelementptr inbounds nuw i8, ptr %.02839, i64 32
   %123 = load ptr, ptr %121, align 8, !tbaa !710
@@ -35472,7 +35472,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryISt4pair
   %143 = or disjoint i8 %142, %137
   store i8 %143, ptr %128, align 4
   %144 = getelementptr inbounds nuw i8, ptr %.02839, i64 40
-  %145 = load i32, ptr %144, align 4, !tbaa !10
+  %145 = load i32, ptr %144, align 8, !tbaa !10
   %146 = getelementptr inbounds nuw i8, ptr %.136, i64 40
   store i32 %145, ptr %146, align 8, !tbaa !700
   %147 = getelementptr inbounds nuw i8, ptr %.02839, i64 48

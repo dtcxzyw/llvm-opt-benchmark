@@ -1598,7 +1598,7 @@ split:                                            ; preds = %208, %_ZNSt6vectorI
   %497 = getelementptr inbounds nuw i8, ptr %495, i64 40
   %498 = load i16, ptr %497, align 2
   %499 = getelementptr inbounds nuw i8, ptr %464, i64 16
-  store i16 %498, ptr %499, align 2
+  store i16 %498, ptr %499, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.loopexit, label %463, !llvm.loop !25
@@ -3689,7 +3689,7 @@ _ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EE2atEm.exit.i.us: ; preds = %145
   %206 = getelementptr inbounds nuw %"class.std::vector.115", ptr %201, i64 %indvars.iv1156
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 8
   %208 = getelementptr inbounds nuw i8, ptr %185, i64 144
-  %209 = load i32, ptr %208, align 4
+  %209 = load i32, ptr %208, align 8
   br i1 %.not.i.i.i.i474.us, label %.lr.ph.split.us.i479.us, label %.lr.ph.split.i475.us
 
 .lr.ph.split.i475.us:                             ; preds = %.lr.ph.i472.us, %215
@@ -3961,7 +3961,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield36emptyC
   %342 = load ptr, ptr %185, align 8
   %invariant.gep.i17.i547.us = getelementptr i32, ptr %342, i64 %indvars.iv1148
   %343 = getelementptr inbounds nuw i8, ptr %185, i64 144
-  %344 = load i32, ptr %343, align 4
+  %344 = load i32, ptr %343, align 8
   br label %345
 
 345:                                              ; preds = %345, %.lr.ph.i16.i546.us
@@ -4363,7 +4363,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield36emptyC
   %576 = load ptr, ptr %429, align 8
   %invariant.gep.i17.i639.us = getelementptr i32, ptr %576, i64 %indvars.iv1148
   %577 = getelementptr inbounds nuw i8, ptr %429, i64 144
-  %578 = load i32, ptr %577, align 4
+  %578 = load i32, ptr %577, align 8
   br label %579
 
 579:                                              ; preds = %579, %.lr.ph.i16.i638.us
@@ -4602,7 +4602,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield36emptyC
   %693 = sext i32 %.0.i763.us to i64
   %694 = load ptr, ptr %1049, align 8
   %invariant.gep.i17.i.us = getelementptr i32, ptr %694, i64 %693
-  %695 = load i32, ptr %1055, align 4
+  %695 = load i32, ptr %1055, align 8
   %696 = trunc nuw nsw i64 %indvars.iv1144 to i32
   br label %697
 
@@ -5008,7 +5008,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield36emptyC
   %904 = sext i32 %.036.i772.us to i64
   %905 = load ptr, ptr %1049, align 8
   %invariant.gep.i17.i396.us = getelementptr i32, ptr %905, i64 %904
-  %906 = load i32, ptr %1055, align 4
+  %906 = load i32, ptr %1055, align 8
   %907 = trunc nuw nsw i64 %indvars.iv1144 to i32
   br label %908
 
@@ -12245,7 +12245,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 32
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 80
-  %47 = load i32, ptr %46, align 4
+  %47 = load i32, ptr %46, align 8
   br label %48
 
 48:                                               ; preds = %_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit, %13, %43
@@ -13241,7 +13241,7 @@ _ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE15TexCoordStorageEC2ERKS4_.ex
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %60 = load i32, ptr %59, align 4
+  %60 = load i32, ptr %59, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #27
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %58, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %60, 1

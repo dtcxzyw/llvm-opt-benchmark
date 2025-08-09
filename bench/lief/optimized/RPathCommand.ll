@@ -77,7 +77,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %13
   store i64 %20, ptr %21, align 8, !tbaa !27
   store ptr %11, ptr %1, align 8, !tbaa !26
   store i64 0, ptr %19, align 8, !tbaa !27
-  store i8 0, ptr %11, align 1, !tbaa !28
+  store i8 0, ptr %11, align 8, !tbaa !28
   %22 = load i64, ptr %21, align 8, !tbaa !27
   %23 = add i64 %22, 13
   %24 = and i64 %23, 7

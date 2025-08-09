@@ -6136,7 +6136,7 @@ _ZNK12_GLOBAL__N_114MLEvictAdvisor22getLIFeatureComponentsERKN4llvm12LiveInterva
   %398 = load i64, ptr %397, align 8, !tbaa !685
   %399 = add nsw i64 %398, %.0170
   %400 = getelementptr inbounds nuw i8, ptr %392, i64 48
-  %401 = load float, ptr %400, align 4, !tbaa !114
+  %401 = load float, ptr %400, align 8, !tbaa !114
   %402 = fcmp olt float %.0112161, %401
   %.sroa.speculated111 = select i1 %402, float %401, float %.0112161
   %403 = load double, ptr %392, align 8, !tbaa !712
@@ -7014,7 +7014,7 @@ _ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4
   %.02530 = phi i64 [ %.1, %31 ], [ 0, %_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %16 = load ptr, ptr %.031, align 8, !tbaa !441
   %17 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %18 = load i32, ptr %17, align 4, !tbaa !67
+  %18 = load i32, ptr %17, align 8, !tbaa !67
   %19 = zext i32 %18 to i64
   %20 = urem i64 %19, %1
   %21 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %20

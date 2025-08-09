@@ -34218,7 +34218,7 @@ _ZN14core_hashtableIN7obj_mapI4sortSt4pairIP9func_decljEE13obj_map_entryE8obj_ha
   %28 = load ptr, ptr %27, align 8, !tbaa !489
   store ptr %28, ptr %26, align 8, !tbaa !485
   %29 = getelementptr inbounds nuw i8, ptr %.02839.i, i64 16
-  %30 = load i32, ptr %29, align 4, !tbaa !25
+  %30 = load i32, ptr %29, align 8, !tbaa !25
   %31 = getelementptr inbounds nuw i8, ptr %.034.i, i64 16
   store i32 %30, ptr %31, align 8, !tbaa !520
   br label %45
@@ -34241,7 +34241,7 @@ _ZN14core_hashtableIN7obj_mapI4sortSt4pairIP9func_decljEE13obj_map_entryE8obj_ha
   %39 = load ptr, ptr %38, align 8, !tbaa !489
   store ptr %39, ptr %37, align 8, !tbaa !485
   %40 = getelementptr inbounds nuw i8, ptr %.02839.i, i64 16
-  %41 = load i32, ptr %40, align 4, !tbaa !25
+  %41 = load i32, ptr %40, align 8, !tbaa !25
   %42 = getelementptr inbounds nuw i8, ptr %.136.i, i64 16
   store i32 %41, ptr %42, align 8, !tbaa !520
   br label %45

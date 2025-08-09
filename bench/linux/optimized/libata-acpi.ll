@@ -484,7 +484,7 @@ define dso_local void @ata_acpi_dissociate(ptr noundef readonly captures(none) %
   %26 = load i32, ptr %25, align 32
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 15896
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 15424
-  %29 = load ptr, ptr %28, align 8
+  %29 = load ptr, ptr %28, align 32
   %30 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %29) #8
   %31 = getelementptr i8, ptr %29, i64 -16
   %32 = icmp ne ptr %31, null
@@ -751,7 +751,7 @@ define dso_local void @ata_acpi_on_resume(ptr noundef %0) local_unnamed_addr #0 
   %6 = load i32, ptr %5, align 32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 15896
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 15424
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 32
   %10 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %9) #8
   %11 = getelementptr i8, ptr %9, i64 -16
   %12 = icmp ne ptr %11, null

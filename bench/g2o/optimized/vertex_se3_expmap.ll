@@ -2089,11 +2089,11 @@ define linkonce_odr void @_ZN3g2o10BaseVertexILi6ENS_7SE3QuatEE3popEv(ptr nounde
   store <2 x double> %9, ptr %7, align 16, !tbaa !46
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %11 = getelementptr inbounds i8, ptr %3, i64 -32
-  %12 = load <2 x double>, ptr %11, align 1, !tbaa !46
+  %12 = load <2 x double>, ptr %11, align 16, !tbaa !46
   store <2 x double> %12, ptr %10, align 16, !tbaa !46
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %14 = getelementptr inbounds i8, ptr %3, i64 -16
-  %15 = load double, ptr %14, align 8, !tbaa !10
+  %15 = load double, ptr %14, align 16, !tbaa !10
   store double %15, ptr %13, align 16, !tbaa !10
   store ptr %4, ptr %2, align 8, !tbaa !134
   %16 = load ptr, ptr %0, align 16, !tbaa !33
@@ -2144,7 +2144,7 @@ define linkonce_odr void @_ZThn64_N3g2o15VertexSE3ExpmapD1Ev(ptr noundef %0) unn
   store ptr getelementptr inbounds nuw inrange(-16, 256) (i8, ptr @_ZTVN3g2o10BaseVertexILi6ENS_7SE3QuatEEE, i64 16), ptr %2, align 16, !tbaa !33
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3g2o10BaseVertexILi6ENS_7SE3QuatEEE, i64 288), ptr %0, align 16, !tbaa !33
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %4 = load ptr, ptr %3, align 8, !tbaa !91
+  %4 = load ptr, ptr %3, align 16, !tbaa !91
   %.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i.i, label %_ZN3g2o10BaseVertexILi6ENS_7SE3QuatEED2Ev.exit, label %5
 
@@ -2168,7 +2168,7 @@ define linkonce_odr void @_ZThn64_N3g2o15VertexSE3ExpmapD0Ev(ptr noundef %0) unn
   store ptr getelementptr inbounds nuw inrange(-16, 256) (i8, ptr @_ZTVN3g2o10BaseVertexILi6ENS_7SE3QuatEEE, i64 16), ptr %2, align 16, !tbaa !33
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3g2o10BaseVertexILi6ENS_7SE3QuatEEE, i64 288), ptr %0, align 16, !tbaa !33
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %4 = load ptr, ptr %3, align 8, !tbaa !91
+  %4 = load ptr, ptr %3, align 16, !tbaa !91
   %.not.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN3g2o15VertexSE3ExpmapD0Ev.exit, label %5
 
@@ -2251,7 +2251,7 @@ define linkonce_odr void @_ZThn64_N3g2o10BaseVertexILi6ENS_7SE3QuatEED1Ev(ptr no
   store ptr getelementptr inbounds nuw inrange(-16, 256) (i8, ptr @_ZTVN3g2o10BaseVertexILi6ENS_7SE3QuatEEE, i64 16), ptr %2, align 16, !tbaa !33
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3g2o10BaseVertexILi6ENS_7SE3QuatEEE, i64 288), ptr %0, align 16, !tbaa !33
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %4 = load ptr, ptr %3, align 8, !tbaa !91
+  %4 = load ptr, ptr %3, align 16, !tbaa !91
   %.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i.i, label %_ZN3g2o10BaseVertexILi6ENS_7SE3QuatEED2Ev.exit, label %5
 

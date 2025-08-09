@@ -226,7 +226,7 @@ define dso_local void @dm_kcopyd_copy(ptr noundef %0, ptr noundef readonly captu
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 176
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %61, ptr nonnull elementtype(i32) %61) #9, !srcloc !8
   %62 = getelementptr inbounds nuw i8, ptr %9, i64 328
-  store volatile i32 8, ptr %62, align 4
+  store volatile i32 8, ptr %62, align 8
   br label %63
 
 63:                                               ; preds = %63, %59

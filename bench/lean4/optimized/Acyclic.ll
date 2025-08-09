@@ -25202,42 +25202,42 @@ _init_l_Lean_MVarId_acyclic_go___closed__14.exit: ; preds = %_init_l_Lean_MVarId
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 4
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 40
   store i64 16843008, ptr %59, align 8, !tbaa !12
-  store i32 1, ptr %55, align 4, !tbaa !4
+  store i32 1, ptr %55, align 8, !tbaa !4
   store i32 131120, ptr %58, align 4
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %54, ptr %60, align 8, !tbaa !10
   %61 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store ptr inttoptr (i64 5 to ptr), ptr %61, align 8, !tbaa !10
   %62 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  store i8 0, ptr %62, align 1, !tbaa !17
+  store i8 0, ptr %62, align 8, !tbaa !17
   %63 = getelementptr inbounds nuw i8, ptr %55, i64 25
   store i8 1, ptr %63, align 1, !tbaa !17
   %64 = getelementptr inbounds nuw i8, ptr %55, i64 26
-  store i8 0, ptr %64, align 1, !tbaa !17
+  store i8 0, ptr %64, align 2, !tbaa !17
   %65 = getelementptr inbounds nuw i8, ptr %55, i64 27
   store i8 1, ptr %65, align 1, !tbaa !17
   %66 = getelementptr inbounds nuw i8, ptr %55, i64 28
-  store i8 1, ptr %66, align 1, !tbaa !17
+  store i8 1, ptr %66, align 4, !tbaa !17
   %67 = getelementptr inbounds nuw i8, ptr %55, i64 29
   store i8 1, ptr %67, align 1, !tbaa !17
   %68 = getelementptr inbounds nuw i8, ptr %55, i64 30
-  store i8 0, ptr %68, align 1, !tbaa !17
+  store i8 0, ptr %68, align 2, !tbaa !17
   %69 = getelementptr inbounds nuw i8, ptr %55, i64 31
   store i8 1, ptr %69, align 1, !tbaa !17
   %70 = getelementptr inbounds nuw i8, ptr %55, i64 32
-  store i8 1, ptr %70, align 1, !tbaa !17
+  store i8 1, ptr %70, align 8, !tbaa !17
   %71 = getelementptr inbounds nuw i8, ptr %55, i64 33
   store i8 0, ptr %71, align 1, !tbaa !17
   %72 = getelementptr inbounds nuw i8, ptr %55, i64 34
-  store i8 1, ptr %72, align 1, !tbaa !17
+  store i8 1, ptr %72, align 2, !tbaa !17
   %73 = getelementptr inbounds nuw i8, ptr %55, i64 35
   store i8 0, ptr %73, align 1, !tbaa !17
   %74 = getelementptr inbounds nuw i8, ptr %55, i64 36
-  store i8 1, ptr %74, align 1, !tbaa !17
+  store i8 1, ptr %74, align 4, !tbaa !17
   %75 = getelementptr inbounds nuw i8, ptr %55, i64 37
   store i8 1, ptr %75, align 1, !tbaa !17
   %76 = getelementptr inbounds nuw i8, ptr %55, i64 38
-  store i8 0, ptr %76, align 1, !tbaa !17
+  store i8 0, ptr %76, align 2, !tbaa !17
   %77 = getelementptr inbounds nuw i8, ptr %55, i64 39
   store i8 0, ptr %77, align 1, !tbaa !17
   store ptr %55, ptr @l_Lean_MVarId_acyclic_go___closed__14, align 8, !tbaa !10
@@ -25305,7 +25305,7 @@ _init_l_Lean_MVarId_acyclic_go___closed__20.exit: ; preds = %_init_l_Lean_MVarId
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 4
   %101 = getelementptr inbounds nuw i8, ptr %97, i64 24
   store i64 1, ptr %101, align 8, !tbaa !12
-  store i32 1, ptr %97, align 4, !tbaa !4
+  store i32 1, ptr %97, align 8, !tbaa !4
   store i32 131104, ptr %100, align 4
   %102 = getelementptr inbounds nuw i8, ptr %97, i64 8
   store ptr %95, ptr %102, align 8, !tbaa !10

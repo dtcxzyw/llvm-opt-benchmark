@@ -5486,7 +5486,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %441, ptr %.08.i.i.i.i.i.i, align 8, !tbaa !34, !noalias !243
   %442 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 8
   store i64 0, ptr %442, align 8, !tbaa !35, !noalias !243
-  store i8 0, ptr %441, align 1, !tbaa !36, !noalias !243
+  store i8 0, ptr %441, align 8, !tbaa !36, !noalias !243
   %443 = add i64 %.057.i.i.i.i.i.i, -1
   %444 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq i64 %443, 0
@@ -17808,7 +17808,7 @@ _ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store i64 %54, ptr %56, align 8, !tbaa !35, !alias.scope !434, !noalias !437
   store ptr %46, ptr %.0911.i.i.i, align 8, !tbaa !39, !alias.scope !437, !noalias !434
   store i64 0, ptr %55, align 8, !tbaa !35, !alias.scope !437, !noalias !434
-  store i8 0, ptr %46, align 1, !tbaa !36, !alias.scope !437, !noalias !434
+  store i8 0, ptr %46, align 8, !tbaa !36, !alias.scope !437, !noalias !434
   %57 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %58 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %59 = load i64, ptr %58, align 8, !tbaa !297, !alias.scope !437, !noalias !434
@@ -17860,7 +17860,7 @@ _ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store i64 %73, ptr %75, align 8, !tbaa !35, !alias.scope !441, !noalias !444
   store ptr %65, ptr %.0911.i.i.i29, align 8, !tbaa !39, !alias.scope !444, !noalias !441
   store i64 0, ptr %74, align 8, !tbaa !35, !alias.scope !444, !noalias !441
-  store i8 0, ptr %65, align 1, !tbaa !36, !alias.scope !444, !noalias !441
+  store i8 0, ptr %65, align 8, !tbaa !36, !alias.scope !444, !noalias !441
   %76 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %77 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   %78 = load i64, ptr %77, align 8, !tbaa !297, !alias.scope !444, !noalias !441
@@ -18517,7 +18517,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIiSt4pairIKiS0_INSt7__cxx1112basic_string
   store ptr %14, ptr %13, align 8, !tbaa !34
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i64 0, ptr %15, align 8, !tbaa !35
-  store i8 0, ptr %14, align 1, !tbaa !36
+  store i8 0, ptr %14, align 8, !tbaa !36
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 72
   store i32 0, ptr %16, align 8, !tbaa !398
   store ptr %8, ptr %7, align 8, !tbaa !471
@@ -19366,7 +19366,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIiSt4pairIKiS0_INSt7__cxx1112basic_string
   store ptr %14, ptr %13, align 8, !tbaa !34
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i64 0, ptr %15, align 8, !tbaa !35
-  store i8 0, ptr %14, align 1, !tbaa !36
+  store i8 0, ptr %14, align 8, !tbaa !36
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 72
   store i32 0, ptr %16, align 8, !tbaa !398
   store ptr %8, ptr %7, align 8, !tbaa !471
@@ -19782,7 +19782,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !tbaa !35, !alias.scope !489, !noalias !492
   store ptr %43, ptr %.0911.i.i.i, align 8, !tbaa !39, !alias.scope !492, !noalias !489
   store i64 0, ptr %52, align 8, !tbaa !35, !alias.scope !492, !noalias !489
-  store i8 0, ptr %43, align 1, !tbaa !36, !alias.scope !492, !noalias !489
+  store i8 0, ptr %43, align 8, !tbaa !36, !alias.scope !492, !noalias !489
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %54, %1
@@ -19830,7 +19830,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !tbaa !35, !alias.scope !496, !noalias !499
   store ptr %59, ptr %.0911.i.i.i29, align 8, !tbaa !39, !alias.scope !499, !noalias !496
   store i64 0, ptr %68, align 8, !tbaa !35, !alias.scope !499, !noalias !496
-  store i8 0, ptr %59, align 1, !tbaa !36, !alias.scope !499, !noalias !496
+  store i8 0, ptr %59, align 8, !tbaa !36, !alias.scope !499, !noalias !496
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %.not.i.i.i34 = icmp eq ptr %70, %6
@@ -20471,7 +20471,7 @@ define linkonce_odr void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11ch
   store ptr %19, ptr %.013.i.i.i, align 8, !tbaa !34
   %20 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 8
   store i64 0, ptr %20, align 8, !tbaa !35
-  store i8 0, ptr %19, align 1, !tbaa !36
+  store i8 0, ptr %19, align 8, !tbaa !36
   %21 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 32
   store i64 0, ptr %21, align 8, !tbaa !297
   %22 = add i64 %.01012.i.i.i, -1
@@ -20507,7 +20507,7 @@ _ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS
   store ptr %32, ptr %.013.i.i.i31, align 8, !tbaa !34
   %33 = getelementptr inbounds nuw i8, ptr %.013.i.i.i31, i64 8
   store i64 0, ptr %33, align 8, !tbaa !35
-  store i8 0, ptr %32, align 1, !tbaa !36
+  store i8 0, ptr %32, align 8, !tbaa !36
   %34 = getelementptr inbounds nuw i8, ptr %.013.i.i.i31, i64 32
   store i64 0, ptr %34, align 8, !tbaa !297
   %35 = add i64 %.01012.i.i.i32, -1
@@ -20555,7 +20555,7 @@ _ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store i64 %47, ptr %49, align 8, !tbaa !35, !alias.scope !515, !noalias !518
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !39, !alias.scope !518, !noalias !515
   store i64 0, ptr %48, align 8, !tbaa !35, !alias.scope !518, !noalias !515
-  store i8 0, ptr %39, align 1, !tbaa !36, !alias.scope !518, !noalias !515
+  store i8 0, ptr %39, align 8, !tbaa !36, !alias.scope !518, !noalias !515
   %50 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %52 = load i64, ptr %51, align 8, !tbaa !297, !alias.scope !518, !noalias !515
@@ -21373,7 +21373,7 @@ _ZNSt10_HashtableIjSt4pairIKjS0_IblEESaIS3_ENSt8__detail10_Select1stESt8equal_to
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIjSt4pairIKjS0_IblEESaIS3_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !166
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !141
+  %16 = load i32, ptr %15, align 8, !tbaa !141
   %17 = zext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -21616,7 +21616,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %23 = load i32, ptr %0, align 4, !tbaa !141
   store i32 %23, ptr %22, align 8, !tbaa !303
   %24 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -16
-  %25 = load i8, ptr %10, align 1, !tbaa !136, !range !42, !noundef !43
+  %25 = load i8, ptr %10, align 4, !tbaa !136, !range !42, !noundef !43
   store i8 %25, ptr %24, align 8, !tbaa !294
   %26 = load i64, ptr %11, align 8, !tbaa !229
   %27 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -8
@@ -21734,7 +21734,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6v
   %73 = load i32, ptr %.sroa.0.1.i.i, align 4, !tbaa !141
   store i32 %73, ptr %.sroa.018.1.i.i, align 4, !tbaa !141
   store i32 %72, ptr %.sroa.0.1.i.i, align 4, !tbaa !141
-  store i8 %.lcssa29.i.i, ptr %56, align 1, !tbaa !136
+  store i8 %.lcssa29.i.i, ptr %56, align 4, !tbaa !136
   store i8 %.lcssa.i.i, ptr %71, align 1, !tbaa !136
   %74 = getelementptr inbounds nuw i8, ptr %.sroa.018.1.i.i, i64 16
   store i64 %.pre8.i.i14.i.lcssa.i, ptr %74, align 8, !tbaa !229
@@ -21849,7 +21849,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6v
   store i32 %54, ptr %53, align 8, !tbaa !303
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %57 = load i8, ptr %55, align 1, !tbaa !136, !range !42, !noundef !43
+  %57 = load i8, ptr %55, align 4, !tbaa !136, !range !42, !noundef !43
   store i8 %57, ptr %56, align 8, !tbaa !294
   %58 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %59 = load i64, ptr %58, align 8, !tbaa !229
@@ -22017,9 +22017,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6v
   store i32 %45, ptr %0, align 4, !tbaa !141
   store i32 %44, ptr %2, align 4, !tbaa !141
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %47 = load i8, ptr %46, align 1, !tbaa !136, !range !42, !noundef !43
-  store i8 %7, ptr %46, align 1, !tbaa !136
-  store i8 %47, ptr %6, align 1, !tbaa !136
+  %47 = load i8, ptr %46, align 4, !tbaa !136, !range !42, !noundef !43
+  store i8 %7, ptr %46, align 4, !tbaa !136
+  store i8 %47, ptr %6, align 4, !tbaa !136
   br label %100
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit33.thread59: ; preds = %_ZStgtIblEbRKSt4pairIT_T0_ES5_.exit.thread6.i.i27, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit33
@@ -22056,9 +22056,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6v
   store i32 %59, ptr %0, align 4, !tbaa !141
   store i32 %58, ptr %3, align 4, !tbaa !141
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %61 = load i8, ptr %60, align 1, !tbaa !136, !range !42, !noundef !43
-  store i8 %26, ptr %60, align 1, !tbaa !136
-  store i8 %61, ptr %25, align 1, !tbaa !136
+  %61 = load i8, ptr %60, align 4, !tbaa !136, !range !42, !noundef !43
+  store i8 %26, ptr %60, align 4, !tbaa !136
+  store i8 %61, ptr %25, align 4, !tbaa !136
   br label %100
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit41.thread60: ; preds = %_ZStgtIblEbRKSt4pairIT_T0_ES5_.exit.thread6.i.i35._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit41.thread60_crit_edge, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit41
@@ -22067,9 +22067,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6v
   store i32 %62, ptr %0, align 4, !tbaa !141
   store i32 %63, ptr %1, align 4, !tbaa !141
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %65 = load i8, ptr %64, align 1, !tbaa !136, !range !42, !noundef !43
-  store i8 %8, ptr %64, align 1, !tbaa !136
-  store i8 %65, ptr %5, align 1, !tbaa !136
+  %65 = load i8, ptr %64, align 4, !tbaa !136, !range !42, !noundef !43
+  store i8 %8, ptr %64, align 4, !tbaa !136
+  store i8 %65, ptr %5, align 4, !tbaa !136
   br label %100
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit.thread58: ; preds = %_ZStgtIblEbRKSt4pairIT_T0_ES5_.exit.thread6.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit
@@ -22104,9 +22104,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6v
   store i32 %79, ptr %0, align 4, !tbaa !141
   store i32 %78, ptr %1, align 4, !tbaa !141
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %81 = load i8, ptr %80, align 1, !tbaa !136, !range !42, !noundef !43
-  store i8 %8, ptr %80, align 1, !tbaa !136
-  store i8 %81, ptr %5, align 1, !tbaa !136
+  %81 = load i8, ptr %80, align 4, !tbaa !136, !range !42, !noundef !43
+  store i8 %8, ptr %80, align 4, !tbaa !136
+  store i8 %81, ptr %5, align 4, !tbaa !136
   br label %100
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit49.thread61: ; preds = %_ZStgtIblEbRKSt4pairIT_T0_ES5_.exit.thread6.i.i43, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit49
@@ -22141,9 +22141,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6v
   store i32 %93, ptr %0, align 4, !tbaa !141
   store i32 %92, ptr %3, align 4, !tbaa !141
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %95 = load i8, ptr %94, align 1, !tbaa !136, !range !42, !noundef !43
-  store i8 %67, ptr %94, align 1, !tbaa !136
-  store i8 %95, ptr %66, align 1, !tbaa !136
+  %95 = load i8, ptr %94, align 4, !tbaa !136, !range !42, !noundef !43
+  store i8 %67, ptr %94, align 4, !tbaa !136
+  store i8 %95, ptr %66, align 4, !tbaa !136
   br label %100
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit57.thread62: ; preds = %_ZStgtIblEbRKSt4pairIT_T0_ES5_.exit.thread6.i.i51._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit57.thread62_crit_edge, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit57
@@ -22152,9 +22152,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6v
   store i32 %96, ptr %0, align 4, !tbaa !141
   store i32 %97, ptr %2, align 4, !tbaa !141
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %99 = load i8, ptr %98, align 1, !tbaa !136, !range !42, !noundef !43
-  store i8 %7, ptr %98, align 1, !tbaa !136
-  store i8 %99, ptr %6, align 1, !tbaa !136
+  %99 = load i8, ptr %98, align 4, !tbaa !136, !range !42, !noundef !43
+  store i8 %7, ptr %98, align 4, !tbaa !136
+  store i8 %99, ptr %6, align 4, !tbaa !136
   br label %100
 
 100:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit49.thread, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit57.thread62, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit57.thread, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit33.thread, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit41.thread60, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6vectorIS4_IT_T0_ESaIS9_EERKSB_EUlRKS4_IjS5_ESG_E_EclINS_17__normal_iteratorIPSE_S6_ISE_SaISE_EEEESO_EEbS7_S8_.exit41.thread
@@ -22258,7 +22258,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjSt4pairIblEEESt6v
   store i32 %31, ptr %30, align 8, !tbaa !303
   %32 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -16
   %33 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -16
-  %34 = load i8, ptr %32, align 1, !tbaa !136, !range !42, !noundef !43
+  %34 = load i8, ptr %32, align 4, !tbaa !136, !range !42, !noundef !43
   store i8 %34, ptr %33, align 8, !tbaa !294
   %35 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -8
   %36 = load i64, ptr %35, align 8, !tbaa !229
@@ -22577,7 +22577,7 @@ _ZNSt10_HashtableIjSt4pairIKjlESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIjSt4pairIKjlESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !166
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !141
+  %16 = load i32, ptr %15, align 8, !tbaa !141
   %17 = zext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -23091,7 +23091,7 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEC2EOS6_.exit: ;
   %33 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %23, ptr %21, align 8, !tbaa !39
   store i64 0, ptr %33, align 8, !tbaa !35
-  store i8 0, ptr %23, align 1, !tbaa !36
+  store i8 0, ptr %23, align 8, !tbaa !36
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %35 = load i64, ptr %34, align 8, !tbaa !297
   store i64 %35, ptr %16, align 8, !tbaa !297
@@ -23241,7 +23241,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3:
   store i64 %17, ptr %19, align 8, !tbaa !35
   store ptr %9, ptr %2, align 8, !tbaa !39
   store i64 0, ptr %18, align 8, !tbaa !35
-  store i8 0, ptr %9, align 1, !tbaa !36
+  store i8 0, ptr %9, align 8, !tbaa !36
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %22 = load i64, ptr %21, align 8, !tbaa !297
@@ -23726,7 +23726,7 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEC2EOS6_.exit: ;
   store i64 %141, ptr %143, align 8, !tbaa !35
   store ptr %133, ptr %3, align 8, !tbaa !39
   store i64 0, ptr %142, align 8, !tbaa !35
-  store i8 0, ptr %133, align 1, !tbaa !36
+  store i8 0, ptr %133, align 8, !tbaa !36
   %144 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %145 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %146 = load i64, ptr %145, align 8, !tbaa !297
@@ -24489,7 +24489,7 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEC2EOS6_.exit: ;
   store i64 %40, ptr %8, align 8, !tbaa !35
   store ptr %30, ptr %.sroa.0.025, align 8, !tbaa !39
   store i64 0, ptr %39, align 8, !tbaa !35
-  store i8 0, ptr %30, align 1, !tbaa !36
+  store i8 0, ptr %30, align 8, !tbaa !36
   store i64 %38, ptr %9, align 8, !tbaa !297
   %41 = ptrtoint ptr %.sroa.0.025 to i64
   %42 = sub i64 %41, %10
@@ -24752,7 +24752,7 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEC2EOS6_.exit: ;
   store i64 %13, ptr %15, align 8, !tbaa !35
   store ptr %5, ptr %0, align 8, !tbaa !39
   store i64 0, ptr %14, align 8, !tbaa !35
-  store i8 0, ptr %5, align 1, !tbaa !36
+  store i8 0, ptr %5, align 8, !tbaa !36
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i64, ptr %17, align 8, !tbaa !297

@@ -200,7 +200,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19show_timeERKN5boost5timer9cpu_tim
   %14 = load i64, ptr %13, align 8, !tbaa !36
   %15 = and i32 %12, -261
   %16 = or disjoint i32 %15, 4
-  store i32 %16, ptr %11, align 4, !tbaa !37
+  store i32 %16, ptr %11, align 8, !tbaa !37
   %17 = load i64, ptr %8, align 8
   %18 = getelementptr inbounds i8, ptr %1, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8

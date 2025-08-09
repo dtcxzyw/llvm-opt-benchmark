@@ -30880,7 +30880,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h5ace0ed6f5e683e5E.exit.thread:
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %.val21.i.i.i.i.i = load i64, ptr %37, align 8, !alias.scope !6775, !noalias !6788, !noundef !4
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %.val22.i.i.i.i.i = load i32, ptr %40, align 4, !alias.scope !6796, !noalias !6799, !noundef !4
+  %.val22.i.i.i.i.i = load i32, ptr %40, align 8, !alias.scope !6796, !noalias !6799, !noundef !4
   %41 = tail call noundef i8 @llvm.scmp.i8.i32(i32 %.val22.i.i.i.i.i, i32 %35)
   %42 = tail call noundef i8 @llvm.ucmp.i8.i64(i64 %.val21.i.i.i.i.i, i64 %33)
   %43 = icmp eq i32 %.val22.i.i.i.i.i, %35
@@ -30896,7 +30896,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h5ace0ed6f5e683e5E.exit.thread:
   %switch.not.not.i.i.i.i.i = icmp eq i8 %47, 0
   %.val19.i.i.i.i.i = load i64, ptr %.sroa.3.0.i.i.i.i.i.i, align 8, !alias.scope !6805, !noalias !6804, !noundef !4
   %48 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %.val20.i.i.i.i.i = load i32, ptr %48, align 4, !alias.scope !6805, !noalias !6804, !noundef !4
+  %.val20.i.i.i.i.i = load i32, ptr %48, align 8, !alias.scope !6805, !noalias !6804, !noundef !4
   br i1 %switch.not.not.i.i.i.i.i, label %49, label %_ZN4core3ops5range11RangeBounds8contains17h9815a256ef924453E.exit.i.i.i.i
 
 49:                                               ; preds = %45

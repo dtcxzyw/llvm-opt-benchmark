@@ -2639,7 +2639,7 @@ _ZN5arrow10WeakFutureINS_8internal5EmptyEEC2ERKNS_6FutureIS2_EE.exit.i.i.i.i.i: 
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5arrow8internal6FnOnceIFvvEE6FnImplISt5_BindIFNS_6detail14ContinueFutureENS_6FutureINS0_5EmptyEEEZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEEEE, i64 16), ptr %206, align 8, !tbaa !57, !noalias !234
   %208 = getelementptr inbounds nuw i8, ptr %206, i64 16
   %209 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
-  store i32 %209, ptr %208, align 4, !tbaa !130, !noalias !234
+  store i32 %209, ptr %208, align 8, !tbaa !130, !noalias !234
   %210 = getelementptr inbounds nuw i8, ptr %206, i64 24
   store i64 %168, ptr %210, align 8, !tbaa !239, !noalias !234
   %211 = getelementptr inbounds nuw i8, ptr %206, i64 32

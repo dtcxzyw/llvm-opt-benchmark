@@ -9737,7 +9737,7 @@ _ZSt19__relocate_object_aIN16struct_pb_sample6WeaponES1_SaIS1_EEvPT_PT0_RT1_.exi
   store i64 %10, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i, align 8, !alias.scope !23, !noalias !26
   store ptr %7, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !26, !noalias !23
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i, align 8, !alias.scope !26, !noalias !23
-  store i8 0, ptr %7, align 1, !alias.scope !26, !noalias !23
+  store i8 0, ptr %7, align 8, !alias.scope !26, !noalias !23
   %damage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 32
   %damage3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 32
   %11 = load i32, ptr %damage3.i.i.i.i.i.i.i, align 8, !alias.scope !26, !noalias !23
@@ -9791,7 +9791,7 @@ _ZSt19__relocate_object_aIN16struct_pb_sample6WeaponES1_SaIS1_EEvPT_PT0_RT1_.exi
   store i64 %17, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i21, align 8, !alias.scope !30, !noalias !33
   store ptr %14, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !33, !noalias !30
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i20, align 8, !alias.scope !33, !noalias !30
-  store i8 0, ptr %14, align 1, !alias.scope !33, !noalias !30
+  store i8 0, ptr %14, align 8, !alias.scope !33, !noalias !30
   %damage.i.i.i.i.i.i.i22 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i13, i64 32
   %damage3.i.i.i.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i14, i64 32
   %18 = load i32, ptr %damage3.i.i.i.i.i.i.i23, align 8, !alias.scope !33, !noalias !30
@@ -10284,7 +10284,7 @@ _ZSt19__relocate_object_aIN16struct_pb_sample6personES1_SaIS1_EEvPT_PT0_RT1_.exi
   store i64 %11, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i, align 8, !alias.scope !38, !noalias !41
   store ptr %8, ptr %name3.i.i.i.i.i.i.i, align 8, !alias.scope !41, !noalias !38
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i, align 8, !alias.scope !41, !noalias !38
-  store i8 0, ptr %8, align 1, !alias.scope !41, !noalias !38
+  store i8 0, ptr %8, align 8, !alias.scope !41, !noalias !38
   %age.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 40
   %age4.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %age.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %age4.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !43
@@ -10341,7 +10341,7 @@ _ZSt19__relocate_object_aIN16struct_pb_sample6personES1_SaIS1_EEvPT_PT0_RT1_.exi
   store i64 %18, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i23, align 8, !alias.scope !45, !noalias !48
   store ptr %15, ptr %name3.i.i.i.i.i.i.i16, align 8, !alias.scope !48, !noalias !45
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i22, align 8, !alias.scope !48, !noalias !45
-  store i8 0, ptr %15, align 1, !alias.scope !48, !noalias !45
+  store i8 0, ptr %15, align 8, !alias.scope !48, !noalias !45
   %age.i.i.i.i.i.i.i24 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i13, i64 40
   %age4.i.i.i.i.i.i.i25 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i14, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %age.i.i.i.i.i.i.i24, ptr noundef nonnull align 8 dereferenceable(16) %age4.i.i.i.i.i.i.i25, i64 16, i1 false), !alias.scope !50

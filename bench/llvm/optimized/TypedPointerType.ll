@@ -113,7 +113,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   %30 = load ptr, ptr %29, align 8, !tbaa !38
   %31 = icmp eq ptr %9, %30
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %33 = load i32, ptr %32, align 4
+  %33 = load i32, ptr %32, align 8
   %34 = icmp eq i32 %16, %33
   %35 = select i1 %31, i1 %34, i1 false
   br i1 %35, label %.loopexit, label %.lr.ph.i, !prof !42
@@ -150,7 +150,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   %54 = load ptr, ptr %53, align 8, !tbaa !38
   %55 = icmp eq ptr %9, %54
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %57 = load i32, ptr %56, align 4
+  %57 = load i32, ptr %56, align 8
   %58 = icmp eq i32 %16, %57
   %59 = select i1 %55, i1 %58, i1 false
   br i1 %59, label %.loopexit, label %.lr.ph.i, !prof !43, !llvm.loop !44
@@ -197,7 +197,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_4TypeEjEPNS_16TypedPointerTypeEN
   %77 = load ptr, ptr %74, align 8, !tbaa !38
   %78 = icmp eq ptr %77, inttoptr (i64 -4096 to ptr)
   %79 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %80 = load i32, ptr %79, align 4
+  %80 = load i32, ptr %79, align 8
   %81 = icmp eq i32 %80, -1
   %82 = select i1 %78, i1 %81, i1 false
   br i1 %82, label %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_4TypeEjEPNS_16TypedPointerTypeENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E16InsertIntoBucketIS5_JEEEPSC_SG_OT_DpOT0_.exit, label %83
@@ -298,7 +298,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %30 = load ptr, ptr %29, align 8, !tbaa !38
   %31 = icmp eq ptr %9, %30
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %33 = load i32, ptr %32, align 4
+  %33 = load i32, ptr %32, align 8
   %34 = icmp eq i32 %16, %33
   %35 = select i1 %31, i1 %34, i1 false
   br i1 %35, label %._crit_edge, label %.lr.ph, !prof !42
@@ -335,7 +335,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %54 = load ptr, ptr %53, align 8, !tbaa !38
   %55 = icmp eq ptr %9, %54
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %57 = load i32, ptr %56, align 4
+  %57 = load i32, ptr %56, align 8
   %58 = icmp eq i32 %16, %57
   %59 = select i1 %55, i1 %58, i1 false
   br i1 %59, label %._crit_edge, label %.lr.ph, !prof !43, !llvm.loop !44
@@ -445,7 +445,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_4TypeEjEPNS_16TypedPointerTypeEN
   %12 = load ptr, ptr %.027, align 8, !tbaa !38
   %13 = icmp eq ptr %12, inttoptr (i64 -4096 to ptr)
   %14 = getelementptr inbounds nuw i8, ptr %.027, i64 8
-  %15 = load i32, ptr %14, align 4
+  %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, -1
   %17 = select i1 %13, i1 %16, i1 false
   br i1 %17, label %80, label %18
@@ -482,7 +482,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_4TypeEjEPNS_16TypedPointerTypeEN
   %44 = load ptr, ptr %43, align 8, !tbaa !38
   %45 = icmp eq ptr %12, %44
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %47 = load i32, ptr %46, align 4
+  %47 = load i32, ptr %46, align 8
   %48 = icmp eq i32 %15, %47
   %49 = select i1 %45, i1 %48, i1 false
   br i1 %49, label %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_4TypeEjEPNS_16TypedPointerTypeENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E15LookupBucketForIS5_EEbRKT_RPSC_.exit, label %.lr.ph.i17, !prof !42
@@ -519,7 +519,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_4TypeEjEPNS_16TypedPointerTypeEN
   %68 = load ptr, ptr %67, align 8, !tbaa !38
   %69 = icmp eq ptr %12, %68
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %71 = load i32, ptr %70, align 4
+  %71 = load i32, ptr %70, align 8
   %72 = icmp eq i32 %15, %71
   %73 = select i1 %69, i1 %72, i1 false
   br i1 %73, label %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_4TypeEjEPNS_16TypedPointerTypeENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E15LookupBucketForIS5_EEbRKT_RPSC_.exit, label %.lr.ph.i17, !prof !43, !llvm.loop !44

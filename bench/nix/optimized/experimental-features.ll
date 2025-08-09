@@ -13587,7 +13587,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %23, ptr %26, align 8
   store ptr %14, ptr %11, align 8
   store i64 0, ptr %25, align 8
-  store i8 0, ptr %14, align 1
+  store i8 0, ptr %14, align 8
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 64
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 80

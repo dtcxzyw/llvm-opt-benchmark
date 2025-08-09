@@ -14626,7 +14626,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_Coun
   store ptr %26, ptr %8, align 8, !noalias !130
   %.pre = load ptr, ptr %0, align 8
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store atomic i32 0, ptr %27 seq_cst, align 4, !noalias !130
+  store atomic i32 0, ptr %27 seq_cst, align 8, !noalias !130
   %28 = atomicrmw add ptr %27, i32 1 monotonic, align 4, !noalias !130
   %.not.i.i = icmp eq ptr %.pre, null
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_7VtValue8_CountedINS_21SdfCopySpecsValueEditEEEED2Ev.exit, label %29
@@ -16912,7 +16912,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_Coun
   store ptr %19, ptr %10, align 8, !noalias !159
   %.pre = load ptr, ptr %0, align 8
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store atomic i32 0, ptr %29 seq_cst, align 4, !noalias !159
+  store atomic i32 0, ptr %29 seq_cst, align 8, !noalias !159
   %30 = atomicrmw add ptr %29, i32 1 monotonic, align 4, !noalias !159
   %.not.i.i = icmp eq ptr %.pre, null
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_7VtValue8_CountedISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EEEEEED2Ev.exit, label %31

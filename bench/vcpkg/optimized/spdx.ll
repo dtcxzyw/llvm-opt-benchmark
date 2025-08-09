@@ -2871,13 +2871,13 @@ _ZNSt10unique_ptrIN5vcpkg17SourceControlFileESt14default_deleteIS1_EED2Ev.exit: 
   store ptr %54, ptr %53, align 8, !tbaa !106, !noalias !114
   %55 = getelementptr inbounds nuw i8, ptr %46, i64 160
   store i64 0, ptr %55, align 8, !tbaa !41, !noalias !114
-  store i8 0, ptr %54, align 1, !tbaa !42, !noalias !114
+  store i8 0, ptr %54, align 8, !tbaa !42, !noalias !114
   %56 = getelementptr inbounds nuw i8, ptr %46, i64 184
   %57 = getelementptr inbounds nuw i8, ptr %46, i64 200
   store ptr %57, ptr %56, align 8, !tbaa !106, !noalias !114
   %58 = getelementptr inbounds nuw i8, ptr %46, i64 192
   store i64 0, ptr %58, align 8, !tbaa !41, !noalias !114
-  store i8 0, ptr %57, align 1, !tbaa !42, !noalias !114
+  store i8 0, ptr %57, align 8, !tbaa !42, !noalias !114
   %59 = getelementptr inbounds nuw i8, ptr %46, i64 216
   %60 = getelementptr inbounds nuw i8, ptr %46, i64 296
   store i8 0, ptr %60, align 8, !tbaa !42, !noalias !114
@@ -4501,13 +4501,13 @@ _ZNSt10unique_ptrIN5vcpkg17SourceControlFileESt14default_deleteIS1_EED2Ev.exit: 
   store ptr %45, ptr %44, align 8, !tbaa !106, !noalias !219
   %46 = getelementptr inbounds nuw i8, ptr %37, i64 160
   store i64 0, ptr %46, align 8, !tbaa !41, !noalias !219
-  store i8 0, ptr %45, align 1, !tbaa !42, !noalias !219
+  store i8 0, ptr %45, align 8, !tbaa !42, !noalias !219
   %47 = getelementptr inbounds nuw i8, ptr %37, i64 184
   %48 = getelementptr inbounds nuw i8, ptr %37, i64 200
   store ptr %48, ptr %47, align 8, !tbaa !106, !noalias !219
   %49 = getelementptr inbounds nuw i8, ptr %37, i64 192
   store i64 0, ptr %49, align 8, !tbaa !41, !noalias !219
-  store i8 0, ptr %48, align 1, !tbaa !42, !noalias !219
+  store i8 0, ptr %48, align 8, !tbaa !42, !noalias !219
   %50 = getelementptr inbounds nuw i8, ptr %37, i64 216
   %51 = getelementptr inbounds nuw i8, ptr %37, i64 296
   store i8 0, ptr %51, align 8, !tbaa !42, !noalias !219
@@ -5905,13 +5905,13 @@ _ZNSt10unique_ptrIN5vcpkg17SourceControlFileESt14default_deleteIS1_EED2Ev.exit: 
   store ptr %46, ptr %45, align 8, !tbaa !106, !noalias !225
   %47 = getelementptr inbounds nuw i8, ptr %38, i64 160
   store i64 0, ptr %47, align 8, !tbaa !41, !noalias !225
-  store i8 0, ptr %46, align 1, !tbaa !42, !noalias !225
+  store i8 0, ptr %46, align 8, !tbaa !42, !noalias !225
   %48 = getelementptr inbounds nuw i8, ptr %38, i64 184
   %49 = getelementptr inbounds nuw i8, ptr %38, i64 200
   store ptr %49, ptr %48, align 8, !tbaa !106, !noalias !225
   %50 = getelementptr inbounds nuw i8, ptr %38, i64 192
   store i64 0, ptr %50, align 8, !tbaa !41, !noalias !225
-  store i8 0, ptr %49, align 1, !tbaa !42, !noalias !225
+  store i8 0, ptr %49, align 8, !tbaa !42, !noalias !225
   %51 = getelementptr inbounds nuw i8, ptr %38, i64 216
   %52 = getelementptr inbounds nuw i8, ptr %38, i64 296
   store i8 0, ptr %52, align 8, !tbaa !42, !noalias !225

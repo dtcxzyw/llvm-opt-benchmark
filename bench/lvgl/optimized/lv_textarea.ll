@@ -1882,12 +1882,12 @@ lv_textarea_get_cursor_pos.exit:                  ; preds = %1
   %89 = add i32 %88, %79
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %91 = load i32, ptr %90, align 4, !tbaa !29
+  %91 = load i32, ptr %90, align 8, !tbaa !29
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %93 = load i32, ptr %92, align 4, !tbaa !30
   %94 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %96 = load i32, ptr %95, align 4, !tbaa !48
+  %96 = load i32, ptr %95, align 8, !tbaa !48
   %97 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %99 = load i32, ptr %98, align 4, !tbaa !49
@@ -1906,9 +1906,9 @@ lv_textarea_get_cursor_pos.exit:                  ; preds = %1
   %109 = add nsw i32 %106, %99
   store i32 %109, ptr %100, align 4, !tbaa !49
   call void @lv_obj_invalidate_area(ptr noundef nonnull %0, ptr noundef nonnull %3) #10
-  store i32 %77, ptr %90, align 4, !tbaa !29
+  store i32 %77, ptr %90, align 8, !tbaa !29
   store i32 %81, ptr %92, align 4, !tbaa !30
-  store i32 %85, ptr %95, align 4, !tbaa !48
+  store i32 %85, ptr %95, align 8, !tbaa !48
   store i32 %89, ptr %98, align 4, !tbaa !49
   %110 = load ptr, ptr %9, align 8, !tbaa !22
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 40

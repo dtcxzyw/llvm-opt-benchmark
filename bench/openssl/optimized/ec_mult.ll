@@ -1259,7 +1259,7 @@ define range(i32 0, 2) i32 @ossl_ec_wNAF_precompute_mult(ptr noundef %0, ptr nou
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 4, ptr %8, align 8, !tbaa !43
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store atomic i32 1, ptr %9 seq_cst, align 4, !tbaa !61
+  store atomic i32 1, ptr %9 seq_cst, align 8, !tbaa !61
   %10 = tail call ptr @EC_GROUP_get0_generator(ptr noundef nonnull %0) #8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %13

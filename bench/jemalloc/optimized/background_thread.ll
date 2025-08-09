@@ -203,7 +203,7 @@ malloc_mutex_lock.exit:                           ; preds = %15, %21
 31:                                               ; preds = %27
   store i32 1, ptr %28, align 8, !tbaa !20
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 172
-  store atomic i8 0, ptr %32 release, align 1
+  store atomic i8 0, ptr %32 release, align 4
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 176
   tail call void @je_nstime_init(ptr noundef nonnull %33, i64 noundef 0) #12
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 184
@@ -214,7 +214,7 @@ malloc_mutex_lock.exit:                           ; preds = %15, %21
   %37 = add i64 %36, 1
   store i64 %37, ptr @je_n_background_threads, align 8, !tbaa !17
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 120
-  store atomic i8 0, ptr %38 monotonic, align 1
+  store atomic i8 0, ptr %38 monotonic, align 8
   %39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %11) #12
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %63, label %42
@@ -361,7 +361,7 @@ malloc_mutex_lock.exit40:                         ; preds = %89, %93
   %97 = load i64, ptr @je_n_background_threads, align 8, !tbaa !17
   %98 = add i64 %97, -1
   store i64 %98, ptr @je_n_background_threads, align 8, !tbaa !17
-  store atomic i8 0, ptr %38 monotonic, align 1
+  store atomic i8 0, ptr %38 monotonic, align 8
   %99 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %11) #12
   br label %100
 
@@ -450,7 +450,7 @@ malloc_mutex_lock.exit:                           ; preds = %24, %30
   %34 = getelementptr inbounds nuw i8, ptr %18, i64 168
   store i32 1, ptr %34, align 8, !tbaa !20
   %35 = getelementptr inbounds nuw i8, ptr %18, i64 172
-  store atomic i8 0, ptr %35 release, align 1
+  store atomic i8 0, ptr %35 release, align 4
   %36 = getelementptr inbounds nuw i8, ptr %18, i64 176
   tail call void @je_nstime_init(ptr noundef nonnull %36, i64 noundef 0) #12
   %37 = getelementptr inbounds nuw i8, ptr %18, i64 184
@@ -461,7 +461,7 @@ malloc_mutex_lock.exit:                           ; preds = %24, %30
   %40 = add i64 %39, 1
   store i64 %40, ptr @je_n_background_threads, align 8, !tbaa !17
   %41 = getelementptr inbounds nuw i8, ptr %18, i64 120
-  store atomic i8 0, ptr %41 monotonic, align 1
+  store atomic i8 0, ptr %41 monotonic, align 8
   %42 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %19) #12
   %43 = load i64, ptr @je_max_background_threads, align 8, !tbaa !17
   %44 = urem i64 %indvars.iv, %43
@@ -613,7 +613,7 @@ malloc_mutex_lock.exit:                           ; preds = %16, %22
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %30) #12
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store atomic i8 0, ptr %32 monotonic, align 1
+  store atomic i8 0, ptr %32 monotonic, align 8
   %33 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %11) #12
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %34 = load i64, ptr %1, align 8, !tbaa !37
@@ -863,7 +863,7 @@ malloc_mutex_lock.exit24:                         ; preds = %32, %38
   %43 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %44 = tail call i32 @pthread_cond_init(ptr noundef nonnull %43, ptr noundef null) #12
   %45 = getelementptr inbounds nuw i8, ptr %26, i64 172
-  store atomic i8 0, ptr %45 release, align 1
+  store atomic i8 0, ptr %45 release, align 4
   %46 = getelementptr inbounds nuw i8, ptr %26, i64 176
   tail call void @je_nstime_init(ptr noundef nonnull %46, i64 noundef 0) #12
   %47 = getelementptr inbounds nuw i8, ptr %26, i64 184
@@ -871,7 +871,7 @@ malloc_mutex_lock.exit24:                         ; preds = %32, %38
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false)
   tail call void @je_nstime_copy(ptr noundef nonnull %48, ptr noundef nonnull @nstime_zero) #12
   %49 = getelementptr inbounds nuw i8, ptr %26, i64 120
-  store atomic i8 0, ptr %49 monotonic, align 1
+  store atomic i8 0, ptr %49 monotonic, align 8
   %50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %27) #12
   %51 = add i32 %.01826, 1
   %52 = zext i32 %51 to i64
@@ -1219,7 +1219,7 @@ malloc_mutex_lock.exit:                           ; preds = %27, %33
   %37 = getelementptr inbounds nuw i8, ptr %17, i64 168
   store i32 0, ptr %37, align 8, !tbaa !20
   %38 = getelementptr inbounds nuw i8, ptr %17, i64 172
-  store atomic i8 0, ptr %38 release, align 1
+  store atomic i8 0, ptr %38 release, align 4
   %39 = getelementptr inbounds nuw i8, ptr %17, i64 176
   tail call void @je_nstime_init(ptr noundef nonnull %39, i64 noundef 0) #12
   %40 = getelementptr inbounds nuw i8, ptr %17, i64 184
@@ -1227,7 +1227,7 @@ malloc_mutex_lock.exit:                           ; preds = %27, %33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
   tail call void @je_nstime_copy(ptr noundef nonnull %41, ptr noundef nonnull @nstime_zero) #12
   %42 = getelementptr inbounds nuw i8, ptr %17, i64 120
-  store atomic i8 0, ptr %42 monotonic, align 1
+  store atomic i8 0, ptr %42 monotonic, align 8
   %43 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %23) #12
   %44 = add i32 %.01823, 1
   %45 = zext i32 %44 to i64
@@ -1638,7 +1638,7 @@ malloc_mutex_lock.exit30.us:                      ; preds = %78, %72
   %83 = load i32, ptr %82, align 8, !tbaa !20
   %.not.i.us = icmp eq i32 %83, 1
   %84 = getelementptr inbounds nuw i8, ptr %66, i64 120
-  store atomic i8 0, ptr %84 monotonic, align 1
+  store atomic i8 0, ptr %84 monotonic, align 8
   %85 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %67) #12
   br i1 %.not.i.us, label %.split.us, label %86
 

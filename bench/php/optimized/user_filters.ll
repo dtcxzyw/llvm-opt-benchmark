@@ -228,7 +228,7 @@ define hidden range(i32 -1, 1) i32 @zm_startup_user_filters(i32 noundef %0, i32 
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %31, ptr noundef nonnull align 1 dereferenceable(10) @.str.10, i64 10, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 34
-  store i8 0, ptr %32, align 1, !tbaa !4
+  store i8 0, ptr %32, align 2, !tbaa !4
   store ptr null, ptr %14, align 8, !tbaa !63
   %33 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 64, ptr %33, align 8, !tbaa !65
@@ -279,7 +279,7 @@ zend_string_release.exit.i:                       ; preds = %46, %45, %38, %2
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %53, ptr noundef nonnull align 1 dereferenceable(6) @.str.11, i64 6, i1 false)
   %54 = getelementptr inbounds nuw i8, ptr %49, i64 30
-  store i8 0, ptr %54, align 1, !tbaa !4
+  store i8 0, ptr %54, align 2, !tbaa !4
   store ptr null, ptr %16, align 8, !tbaa !63
   %55 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 1022, ptr %55, align 8, !tbaa !65
@@ -328,7 +328,7 @@ zend_string_release.exit18.i:                     ; preds = %68, %67, %60, %zend
   %74 = getelementptr inbounds nuw i8, ptr %70, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %74, ptr noundef nonnull align 1 dereferenceable(6) @.str.7, i64 6, i1 false)
   %75 = getelementptr inbounds nuw i8, ptr %70, i64 30
-  store i8 0, ptr %75, align 1, !tbaa !4
+  store i8 0, ptr %75, align 2, !tbaa !4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   %76 = call ptr @zend_declare_typed_property(ptr noundef %24, ptr noundef nonnull %70, ptr noundef nonnull %17, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %18) #12
   %77 = load i32, ptr %71, align 4, !tbaa !4
@@ -396,7 +396,7 @@ register_class_php_user_filter.exit:              ; preds = %zend_string_release
   %99 = getelementptr inbounds nuw i8, ptr %95, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %99, ptr noundef nonnull align 1 dereferenceable(6) @.str.3, i64 6, i1 false)
   %100 = getelementptr inbounds nuw i8, ptr %95, i64 30
-  store i8 0, ptr %100, align 1, !tbaa !4
+  store i8 0, ptr %100, align 2, !tbaa !4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %101 = call ptr @zend_declare_typed_property(ptr noundef %93, ptr noundef nonnull %95, ptr noundef nonnull %4, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %5) #12
   %102 = load i32, ptr %96, align 4, !tbaa !4
@@ -441,7 +441,7 @@ zend_string_release.exit.i5:                      ; preds = %112, %111, %104, %r
   %118 = getelementptr inbounds nuw i8, ptr %114, i64 24
   store i32 1635017060, ptr %118, align 8
   %119 = getelementptr inbounds nuw i8, ptr %114, i64 28
-  store i8 0, ptr %119, align 1, !tbaa !4
+  store i8 0, ptr %119, align 4, !tbaa !4
   store ptr null, ptr %7, align 8, !tbaa !63
   %120 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 64, ptr %120, align 8, !tbaa !65
@@ -539,7 +539,7 @@ zend_string_release.exit18.i7:                    ; preds = %154, %153, %146, %z
   %160 = getelementptr inbounds nuw i8, ptr %156, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %160, ptr noundef nonnull align 1 dereferenceable(10) @.str.6, i64 10, i1 false)
   %161 = getelementptr inbounds nuw i8, ptr %156, i64 34
-  store i8 0, ptr %161, align 1, !tbaa !4
+  store i8 0, ptr %161, align 2, !tbaa !4
   store ptr null, ptr %11, align 8, !tbaa !63
   %162 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 16, ptr %162, align 8, !tbaa !65
@@ -1618,7 +1618,7 @@ zend_hash_str_find_ptr.exit:                      ; preds = %7
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 24
   store i64 7310575183467867759, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  store i8 0, ptr %61, align 1, !tbaa !4
+  store i8 0, ptr %61, align 8, !tbaa !4
   %62 = load ptr, ptr %4, align 8, !tbaa !4
   %63 = call i32 @zend_call_method_if_exists(ptr noundef %62, ptr noundef nonnull %56, ptr noundef nonnull %5, i32 noundef 0, ptr noundef null) #12
   %64 = load i32, ptr %57, align 4, !tbaa !4
@@ -1783,7 +1783,7 @@ zend_hash_str_find_ind.exit.thread:               ; preds = %13, %29, %zend_hash
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %51, ptr noundef nonnull align 1 dereferenceable(6) @.str.12, i64 6, i1 false)
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 30
-  store i8 0, ptr %52, align 1, !tbaa !4
+  store i8 0, ptr %52, align 2, !tbaa !4
   store ptr %47, ptr %7, align 8, !tbaa !4
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 262, ptr %53, align 8, !tbaa !4

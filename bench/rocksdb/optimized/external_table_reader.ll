@@ -1370,7 +1370,7 @@ _ZN7rocksdb12_GLOBAL__N_121ExternalTableIteratorC2EPNS_8IteratorE.exit: ; preds 
   store ptr %29, ptr %28, align 8, !tbaa !44
   %30 = getelementptr inbounds nuw i8, ptr %.sink21, i64 56
   store i64 0, ptr %30, align 8, !tbaa !16
-  store i8 0, ptr %29, align 1, !tbaa !17
+  store i8 0, ptr %29, align 8, !tbaa !17
   %31 = getelementptr inbounds nuw i8, ptr %.sink21, i64 80
   %32 = getelementptr inbounds nuw i8, ptr %.sink21, i64 88
   store ptr null, ptr %32, align 8, !tbaa !142

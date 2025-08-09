@@ -69,7 +69,7 @@ define hidden void @zif_gettype(ptr noundef %0, ptr noundef writeonly captures(n
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %15, ptr noundef nonnull align 1 dereferenceable(12) @.str, i64 12, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 36
-  store i8 0, ptr %16, align 1, !tbaa !4
+  store i8 0, ptr %16, align 4, !tbaa !4
   store ptr %11, ptr %1, align 8, !tbaa !4
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %17, align 8, !tbaa !4
@@ -801,7 +801,7 @@ zval_get_long.exit:                               ; preds = %28, %30
   %39 = load i64, ptr %38, align 8, !tbaa !15
   %40 = tail call ptr @__ctype_b_loc() #12
   %41 = load ptr, ptr %40, align 8, !tbaa !72
-  %42 = load i8, ptr %37, align 1, !tbaa !4
+  %42 = load i8, ptr %37, align 8, !tbaa !4
   %43 = sext i8 %42 to i64
   %44 = getelementptr inbounds i16, ptr %41, i64 %43
   %45 = load i16, ptr %44, align 2, !tbaa !74

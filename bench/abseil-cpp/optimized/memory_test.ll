@@ -3369,7 +3369,7 @@ define internal void @_ZN12_GLOBAL__N_123WeakenPtrTest_Weak_Test8TestBodyEv(ptr 
   store i32 1, ptr %16, align 4, !tbaa !74, !noalias !82
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14, align 8, !tbaa !4, !noalias !82
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i32 0, ptr %17, align 4, !tbaa !20, !noalias !82
+  store i32 0, ptr %17, align 8, !tbaa !20, !noalias !82
   store ptr %14, ptr %13, align 8, !tbaa !71, !alias.scope !82
   store ptr %17, ptr %2, align 8, !tbaa !55, !alias.scope !82
   %18 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !41, !noalias !85

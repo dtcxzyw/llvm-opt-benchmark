@@ -500,7 +500,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN11shared_occs7processEP4exprR1
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i32, ptr %7, align 8, !tbaa !26
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load i32, ptr %9, align 4, !tbaa !17
+  %10 = load i32, ptr %9, align 8, !tbaa !17
   %11 = icmp ugt i32 %10, 1
   br i1 %11, label %12, label %78
 

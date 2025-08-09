@@ -7490,7 +7490,7 @@ _ZNSolsEj.exit16:                                 ; preds = %45
   %59 = load i32, ptr %58, align 8, !tbaa !198
   %60 = and i32 %59, -261
   %61 = or disjoint i32 %60, 4
-  store i32 %61, ptr %58, align 4, !tbaa !199
+  store i32 %61, ptr %58, align 8, !tbaa !199
   %62 = load i64, ptr %55, align 8
   %63 = getelementptr inbounds i8, ptr %51, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
@@ -7535,7 +7535,7 @@ _ZNSolsEd.exit:                                   ; preds = %73
   %87 = load i32, ptr %86, align 8, !tbaa !198
   %88 = and i32 %87, -261
   %89 = or disjoint i32 %88, 4
-  store i32 %89, ptr %86, align 4, !tbaa !199
+  store i32 %89, ptr %86, align 8, !tbaa !199
   %90 = load i64, ptr %83, align 8
   %91 = getelementptr inbounds i8, ptr %79, i64 %90
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
@@ -7558,7 +7558,7 @@ _ZNSolsEd.exit26:                                 ; preds = %81
   %103 = load i32, ptr %102, align 8, !tbaa !198
   %104 = and i32 %103, -261
   %105 = or disjoint i32 %104, 4
-  store i32 %105, ptr %102, align 4, !tbaa !199
+  store i32 %105, ptr %102, align 8, !tbaa !199
   %106 = load i64, ptr %99, align 8
   %107 = getelementptr inbounds i8, ptr %95, i64 %106
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
@@ -7644,7 +7644,7 @@ _ZNSolsEj.exit48:                                 ; preds = %135
   %149 = load i32, ptr %148, align 8, !tbaa !198
   %150 = and i32 %149, -261
   %151 = or disjoint i32 %150, 4
-  store i32 %151, ptr %148, align 4, !tbaa !199
+  store i32 %151, ptr %148, align 8, !tbaa !199
   %152 = load i64, ptr %145, align 8
   %153 = getelementptr inbounds i8, ptr %141, i64 %152
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
@@ -7689,7 +7689,7 @@ _ZNSolsEd.exit57:                                 ; preds = %163
   %177 = load i32, ptr %176, align 8, !tbaa !198
   %178 = and i32 %177, -261
   %179 = or disjoint i32 %178, 4
-  store i32 %179, ptr %176, align 4, !tbaa !199
+  store i32 %179, ptr %176, align 8, !tbaa !199
   %180 = load i64, ptr %173, align 8
   %181 = getelementptr inbounds i8, ptr %169, i64 %180
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 8
@@ -7712,7 +7712,7 @@ _ZNSolsEd.exit63:                                 ; preds = %171
   %193 = load i32, ptr %192, align 8, !tbaa !198
   %194 = and i32 %193, -261
   %195 = or disjoint i32 %194, 4
-  store i32 %195, ptr %192, align 4, !tbaa !199
+  store i32 %195, ptr %192, align 8, !tbaa !199
   %196 = load i64, ptr %189, align 8
   %197 = getelementptr inbounds i8, ptr %185, i64 %196
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 8

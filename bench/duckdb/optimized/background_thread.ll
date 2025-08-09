@@ -186,7 +186,7 @@ malloc_mutex_lock.exit:                           ; preds = %12, %18
 28:                                               ; preds = %24
   store i32 1, ptr %25, align 8, !tbaa !19
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 172
-  store atomic i8 0, ptr %29 release, align 1
+  store atomic i8 0, ptr %29 release, align 4
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 176
   tail call void @duckdb_je_nstime_init(ptr noundef nonnull %30, i64 noundef 0) #12
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 184
@@ -197,7 +197,7 @@ malloc_mutex_lock.exit:                           ; preds = %12, %18
   %34 = add i64 %33, 1
   store i64 %34, ptr @duckdb_je_n_background_threads, align 8, !tbaa !16
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  store atomic i8 0, ptr %35 monotonic, align 1
+  store atomic i8 0, ptr %35 monotonic, align 8
   %36 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %9) #12
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %57, label %38
@@ -309,7 +309,7 @@ malloc_mutex_lock.exit42:                         ; preds = %73, %77
   %81 = load i64, ptr @duckdb_je_n_background_threads, align 8, !tbaa !16
   %82 = add i64 %81, -1
   store i64 %82, ptr @duckdb_je_n_background_threads, align 8, !tbaa !16
-  store atomic i8 0, ptr %35 monotonic, align 1
+  store atomic i8 0, ptr %35 monotonic, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %malloc_mutex_lock.exit37, %.critedge, %malloc_mutex_lock.exit42
@@ -400,7 +400,7 @@ malloc_mutex_lock.exit:                           ; preds = %23, %29
   %33 = getelementptr inbounds nuw i8, ptr %18, i64 168
   store i32 1, ptr %33, align 8, !tbaa !19
   %34 = getelementptr inbounds nuw i8, ptr %18, i64 172
-  store atomic i8 0, ptr %34 release, align 1
+  store atomic i8 0, ptr %34 release, align 4
   %35 = getelementptr inbounds nuw i8, ptr %18, i64 176
   tail call void @duckdb_je_nstime_init(ptr noundef nonnull %35, i64 noundef 0) #12
   %36 = getelementptr inbounds nuw i8, ptr %18, i64 184
@@ -411,7 +411,7 @@ malloc_mutex_lock.exit:                           ; preds = %23, %29
   %39 = add i64 %38, 1
   store i64 %39, ptr @duckdb_je_n_background_threads, align 8, !tbaa !16
   %40 = getelementptr inbounds nuw i8, ptr %18, i64 120
-  store atomic i8 0, ptr %40 monotonic, align 1
+  store atomic i8 0, ptr %40 monotonic, align 8
   %41 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %19) #12
   %42 = load i64, ptr @duckdb_je_max_background_threads, align 8, !tbaa !16
   %43 = urem i64 %indvars.iv, %42
@@ -560,7 +560,7 @@ malloc_mutex_lock.exit:                           ; preds = %15, %21
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %29) #12
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store atomic i8 0, ptr %31 monotonic, align 1
+  store atomic i8 0, ptr %31 monotonic, align 8
   %32 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %11) #12
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %33 = load i64, ptr %1, align 8, !tbaa !28
@@ -804,7 +804,7 @@ malloc_mutex_lock.exit25:                         ; preds = %30, %36
   %41 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %42 = tail call i32 @pthread_cond_init(ptr noundef nonnull %41, ptr noundef null) #12
   %43 = getelementptr inbounds nuw i8, ptr %25, i64 172
-  store atomic i8 0, ptr %43 release, align 1
+  store atomic i8 0, ptr %43 release, align 4
   %44 = getelementptr inbounds nuw i8, ptr %25, i64 176
   tail call void @duckdb_je_nstime_init(ptr noundef nonnull %44, i64 noundef 0) #12
   %45 = getelementptr inbounds nuw i8, ptr %25, i64 184
@@ -812,7 +812,7 @@ malloc_mutex_lock.exit25:                         ; preds = %30, %36
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
   tail call void @duckdb_je_nstime_copy(ptr noundef nonnull %46, ptr noundef nonnull @nstime_zero) #12
   %47 = getelementptr inbounds nuw i8, ptr %25, i64 120
-  store atomic i8 0, ptr %47 monotonic, align 1
+  store atomic i8 0, ptr %47 monotonic, align 8
   %48 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %26) #12
   %49 = add i32 %.01828, 1
   %50 = zext i32 %49 to i64
@@ -1149,7 +1149,7 @@ malloc_mutex_lock.exit:                           ; preds = %26, %32
   %36 = getelementptr inbounds nuw i8, ptr %17, i64 168
   store i32 0, ptr %36, align 8, !tbaa !19
   %37 = getelementptr inbounds nuw i8, ptr %17, i64 172
-  store atomic i8 0, ptr %37 release, align 1
+  store atomic i8 0, ptr %37 release, align 4
   %38 = getelementptr inbounds nuw i8, ptr %17, i64 176
   tail call void @duckdb_je_nstime_init(ptr noundef nonnull %38, i64 noundef 0) #12
   %39 = getelementptr inbounds nuw i8, ptr %17, i64 184
@@ -1157,7 +1157,7 @@ malloc_mutex_lock.exit:                           ; preds = %26, %32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
   tail call void @duckdb_je_nstime_copy(ptr noundef nonnull %40, ptr noundef nonnull @nstime_zero) #12
   %41 = getelementptr inbounds nuw i8, ptr %17, i64 120
-  store atomic i8 0, ptr %41 monotonic, align 1
+  store atomic i8 0, ptr %41 monotonic, align 8
   %42 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %23) #12
   %43 = add i32 %.01924, 1
   %44 = zext i32 %43 to i64
@@ -1517,7 +1517,7 @@ malloc_mutex_lock.exit31.us:                      ; preds = %77, %71
   %82 = load i32, ptr %81, align 8, !tbaa !19
   %.not.i.us = icmp eq i32 %82, 1
   %83 = getelementptr inbounds nuw i8, ptr %66, i64 120
-  store atomic i8 0, ptr %83 monotonic, align 1
+  store atomic i8 0, ptr %83 monotonic, align 8
   %84 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %67) #12
   br i1 %.not.i.us, label %.split.us, label %85
 

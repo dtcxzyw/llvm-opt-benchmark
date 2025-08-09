@@ -90149,11 +90149,11 @@ _ZN5typst11foundations7content7Content7spanned17h23b3ea1c78a1c548E.exit: ; preds
   %.sroa.5.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %66, i64 4
   store i32 3, ptr %.sroa.5.0..sroa_idx26, align 4, !noalias !22701
   %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx26.sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 8
-  store float %58, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx26.sroa_idx, align 4, !noalias !22701
+  store float %58, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx26.sroa_idx, align 8, !noalias !22701
   %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx26.sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 12
   store float %60, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx26.sroa_idx, align 4, !noalias !22701
   %.sroa.5.sroa.7.0..sroa.5.0..sroa_idx26.sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 16
-  store float %62, ptr %.sroa.5.sroa.7.0..sroa.5.0..sroa_idx26.sroa_idx, align 4, !noalias !22701
+  store float %62, ptr %.sroa.5.sroa.7.0..sroa.5.0..sroa_idx26.sroa_idx, align 8, !noalias !22701
   %.sroa.5.sroa.8.0..sroa.5.0..sroa_idx26.sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 20
   store float %64, ptr %.sroa.5.sroa.8.0..sroa.5.0..sroa_idx26.sroa_idx, align 4, !noalias !22701
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !22698
@@ -94165,12 +94165,12 @@ define noundef nonnull ptr @_ZN5typst9visualize7pattern7Pattern13with_relative17
   %19 = getelementptr inbounds nuw i8, ptr %.pn20, i64 56
   %.val.i.i = load double, ptr %19, align 8, !alias.scope !23377, !noalias !23378, !noundef !4
   %20 = getelementptr inbounds nuw i8, ptr %.pn20, i64 64
-  %.val1.i.i = load double, ptr %20, align 8, !alias.scope !23377, !noalias !23378, !noundef !4
-  %21 = load i64, ptr %18, align 8, !range !221, !alias.scope !23377, !noalias !23378, !noundef !4
+  %.val1.i.i = load double, ptr %20, align 16, !alias.scope !23377, !noalias !23378, !noundef !4
+  %21 = load i64, ptr %18, align 16, !range !221, !alias.scope !23377, !noalias !23378, !noundef !4
   %22 = getelementptr inbounds nuw i8, ptr %.pn20, i64 40
   %23 = load double, ptr %22, align 8, !alias.scope !23377, !noalias !23378
   %24 = getelementptr inbounds nuw i8, ptr %.pn20, i64 48
-  %.val2.i.i = load ptr, ptr %24, align 8, !alias.scope !23377, !noalias !23378, !nonnull !4, !noundef !4
+  %.val2.i.i = load ptr, ptr %24, align 16, !alias.scope !23377, !noalias !23378, !nonnull !4, !noundef !4
   %25 = atomicrmw add ptr %.val2.i.i, i64 1 monotonic, align 8, !noalias !23380
   %26 = icmp slt i64 %25, 0
   br i1 %26, label %27, label %29

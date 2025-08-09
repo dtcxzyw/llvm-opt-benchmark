@@ -361,7 +361,7 @@ _ZL21XXH3_len_17to128_128bPKhmS0_mm.exit.i:       ; preds = %178, %116
   %262 = load i32, ptr %261, align 8, !tbaa !8
   %263 = and i32 %262, -75
   %264 = or disjoint i32 %263, 8
-  store i32 %264, ptr %261, align 4, !tbaa !20
+  store i32 %264, ptr %261, align 8, !tbaa !20
   %265 = extractvalue { i64, i64 } %.pn.i.i, 0
   %266 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %256, i64 noundef %265)
           to label %_ZNSolsEm.exit unwind label %317

@@ -1549,13 +1549,13 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   store i32 -8421377, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 262316
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 262328
-  store i32 0, ptr %33, align 4, !tbaa !38
+  store i32 0, ptr %33, align 8, !tbaa !38
   store i32 0, ptr %32, align 4, !tbaa !38
   %34 = sdiv i32 %16, 2
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 262324
   store i32 %34, ptr %35, align 4, !tbaa !38
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 262320
-  store i32 %34, ptr %36, align 4, !tbaa !38
+  store i32 %34, ptr %36, align 8, !tbaa !38
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 262224
   %38 = load i8, ptr %37, align 8, !tbaa !64
   %39 = zext i8 %38 to i32
@@ -1889,11 +1889,11 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   %170 = getelementptr inbounds nuw i8, ptr %5, i64 262308
   store i32 %168, ptr %170, align 4, !tbaa !38
   %171 = getelementptr inbounds nuw i8, ptr %5, i64 262304
-  store i32 %168, ptr %171, align 4, !tbaa !38
+  store i32 %168, ptr %171, align 8, !tbaa !38
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %173 = load i32, ptr %172, align 4, !tbaa !57
   %174 = getelementptr inbounds nuw i8, ptr %5, i64 262312
-  store i32 %173, ptr %174, align 4, !tbaa !38
+  store i32 %173, ptr %174, align 8, !tbaa !38
   store i32 %173, ptr %169, align 4, !tbaa !38
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %176 = load i32, ptr %175, align 8, !tbaa !56
@@ -1907,11 +1907,11 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   %184 = getelementptr inbounds nuw i8, ptr %5, i64 262292
   store i32 %182, ptr %184, align 4, !tbaa !38
   %185 = getelementptr inbounds nuw i8, ptr %5, i64 262288
-  store i32 %182, ptr %185, align 4, !tbaa !38
+  store i32 %182, ptr %185, align 8, !tbaa !38
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %187 = load i32, ptr %186, align 8, !tbaa !56
   %188 = getelementptr inbounds nuw i8, ptr %5, i64 262296
-  store i32 %187, ptr %188, align 4, !tbaa !38
+  store i32 %187, ptr %188, align 8, !tbaa !38
   store i32 %187, ptr %183, align 4, !tbaa !38
   ret i32 0
 

@@ -172,19 +172,19 @@ define void @_ZN19OpenColorIO_v2_5dev4LookC2Ev(ptr noundef nonnull writeonly ali
   store ptr %3, ptr %2, align 8, !tbaa !22
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %4, align 8, !tbaa !25
-  store i8 0, ptr %3, align 1, !tbaa !28
+  store i8 0, ptr %3, align 8, !tbaa !28
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %6, ptr %5, align 8, !tbaa !22
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 0, ptr %7, align 8, !tbaa !25
-  store i8 0, ptr %6, align 1, !tbaa !28
+  store i8 0, ptr %6, align 8, !tbaa !28
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store ptr %9, ptr %8, align 8, !tbaa !22
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store i64 0, ptr %10, align 8, !tbaa !25
-  store i8 0, ptr %9, align 1, !tbaa !28
+  store i8 0, ptr %9, align 8, !tbaa !28
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   store ptr %2, ptr %0, align 8, !tbaa !29

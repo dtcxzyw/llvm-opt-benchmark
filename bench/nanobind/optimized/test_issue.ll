@@ -2982,7 +2982,7 @@ _ZZL28nanobind_init_test_issue_extRN8nanobind7module_EEN7ExampleC2EOS2_.exit: ; 
   store i64 %14, ptr %15, align 8, !tbaa !72
   store ptr %5, ptr %1, align 8, !tbaa !101
   store i64 0, ptr %13, align 8, !tbaa !72
-  store i8 0, ptr %5, align 1, !tbaa !38
+  store i8 0, ptr %5, align 8, !tbaa !38
   ret void
 }
 
@@ -3685,7 +3685,7 @@ _ZSt19__relocate_object_aIZL28nanobind_init_test_issue_extRN8nanobind7module_EE7
   store i64 %14, ptr %16, align 8, !tbaa !72, !alias.scope !171, !noalias !174
   store ptr %6, ptr %.092.i.i, align 8, !tbaa !101, !alias.scope !174, !noalias !171
   store i64 0, ptr %15, align 8, !tbaa !72, !alias.scope !174, !noalias !171
-  store i8 0, ptr %6, align 1, !tbaa !38, !alias.scope !174, !noalias !171
+  store i8 0, ptr %6, align 8, !tbaa !38, !alias.scope !174, !noalias !171
   %17 = getelementptr inbounds nuw i8, ptr %.092.i.i, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %.03.i.i, i64 32
   %.not.i.i = icmp eq ptr %17, %1

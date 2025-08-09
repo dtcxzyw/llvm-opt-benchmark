@@ -845,7 +845,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   store i32 %403, ptr %11, align 4, !tbaa !52
   store i32 %404, ptr %88, align 4, !tbaa !52
   store i32 0, ptr %73, align 4, !tbaa !52
-  store i32 0, ptr %77, align 4, !tbaa !52
+  store i32 0, ptr %77, align 8, !tbaa !52
   store i32 1, ptr %74, align 4, !tbaa !86
   %.not553 = icmp eq i32 %.7633, 0
   br i1 %.not553, label %415, label %405
@@ -861,7 +861,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %412 = getelementptr inbounds nuw i8, ptr %409, i64 %.idx599
   %413 = getelementptr inbounds nuw i8, ptr %412, i64 4
   %414 = load i32, ptr %413, align 4, !tbaa !52
-  store i32 %414, ptr %79, align 4, !tbaa !52
+  store i32 %414, ptr %79, align 8, !tbaa !52
   store i32 2, ptr %74, align 4, !tbaa !86
   br label %415
 
@@ -1137,9 +1137,9 @@ mid_pred.exit569:                                 ; preds = %494, %492, %491, %4
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 %549, ptr %12, align 4, !tbaa !52
   store i32 %550, ptr %72, align 4, !tbaa !52
-  store i32 0, ptr %76, align 4, !tbaa !86
+  store i32 0, ptr %76, align 8, !tbaa !86
   store i32 0, ptr %73, align 4, !tbaa !52
-  store i32 0, ptr %77, align 4, !tbaa !52
+  store i32 0, ptr %77, align 8, !tbaa !52
   store i32 1, ptr %74, align 4, !tbaa !86
   %.not542 = icmp eq i32 %.8628, 0
   br i1 %.not542, label %561, label %551
@@ -1155,7 +1155,7 @@ mid_pred.exit569:                                 ; preds = %494, %492, %491, %4
   %558 = getelementptr inbounds nuw i8, ptr %555, i64 %.idx
   %559 = getelementptr inbounds nuw i8, ptr %558, i64 4
   %560 = load i32, ptr %559, align 4, !tbaa !52
-  store i32 %560, ptr %79, align 4, !tbaa !52
+  store i32 %560, ptr %79, align 8, !tbaa !52
   store i32 2, ptr %74, align 4, !tbaa !86
   br label %561
 
@@ -1343,7 +1343,7 @@ mid_pred.exit586:                                 ; preds = %630, %628, %627, %6
   %653 = load i32, ptr %652, align 4, !tbaa !52
   %factor = shl i32 %649, 1
   %654 = sub i32 %factor, %653
-  %655 = load i32, ptr %76, align 4, !tbaa !86
+  %655 = load i32, ptr %76, align 8, !tbaa !86
   %656 = sext i32 %655 to i64
   %657 = getelementptr inbounds [10 x [2 x i32]], ptr %75, i64 0, i64 %656
   store i32 %654, ptr %657, align 4, !tbaa !52
@@ -1352,14 +1352,14 @@ mid_pred.exit586:                                 ; preds = %630, %628, %627, %6
   %660 = load i32, ptr %659, align 4, !tbaa !52
   %factor601 = shl i32 %658, 1
   %661 = sub i32 %factor601, %660
-  %662 = load i32, ptr %76, align 4, !tbaa !86
+  %662 = load i32, ptr %76, align 8, !tbaa !86
   %663 = sext i32 %662 to i64
   %.idx548 = shl nsw i64 %663, 3
   %664 = getelementptr i8, ptr %75, i64 %.idx548
   %665 = getelementptr i8, ptr %664, i64 4
   store i32 %661, ptr %665, align 4, !tbaa !52
   %666 = add nsw i32 %662, 1
-  store i32 %666, ptr %76, align 4, !tbaa !86
+  store i32 %666, ptr %76, align 8, !tbaa !86
   br i1 %.not542, label %681, label %667
 
 667:                                              ; preds = %mid_pred.exit586

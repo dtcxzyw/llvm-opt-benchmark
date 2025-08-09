@@ -1914,7 +1914,7 @@ define internal fastcc range(i32 -3, 3) i32 @rt6_score_route(ptr noundef readonl
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @nd_tbl, i64 584), align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 12
-  %29 = load i32, ptr %26, align 4
+  %29 = load i32, ptr %26, align 8
   %30 = ptrtoint ptr %25 to i64
   %31 = lshr i64 %30, 32
   %32 = xor i64 %31, %30
@@ -1929,7 +1929,7 @@ define internal fastcc range(i32 -3, 3) i32 @rt6_score_route(ptr noundef readonl
   %41 = mul i32 %40, %38
   %42 = add i32 %41, %36
   %43 = getelementptr i8, ptr %0, i64 32
-  %44 = load i32, ptr %43, align 4
+  %44 = load i32, ptr %43, align 8
   %45 = getelementptr i8, ptr %27, i64 20
   %46 = load i32, ptr %45, align 4
   %47 = mul i32 %46, %44
@@ -3145,7 +3145,7 @@ define internal fastcc void @fib6_nh_age_exceptions(ptr noundef %0, ptr noundef 
   %99 = load i32, ptr %92, align 4
   %100 = mul i32 %98, %99
   %101 = getelementptr i8, ptr %26, i64 192
-  %102 = load i32, ptr %101, align 4
+  %102 = load i32, ptr %101, align 8
   %103 = getelementptr i8, ptr %91, i64 16
   %104 = load i32, ptr %103, align 4
   %105 = mul i32 %104, %102
@@ -3157,7 +3157,7 @@ define internal fastcc void @fib6_nh_age_exceptions(ptr noundef %0, ptr noundef 
   %111 = mul i32 %110, %108
   %112 = add i32 %106, %111
   %113 = getelementptr i8, ptr %26, i64 200
-  %114 = load i32, ptr %113, align 4
+  %114 = load i32, ptr %113, align 8
   %115 = getelementptr i8, ptr %91, i64 24
   %116 = load i32, ptr %115, align 4
   %117 = mul i32 %116, %114
@@ -5085,7 +5085,7 @@ define dso_local void @ip6_sk_update_pmtu(ptr noundef readonly captures(none) %0
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %82 = load i64, ptr %81, align 8
   %83 = getelementptr i8, ptr %1, i64 64
-  %84 = load i32, ptr %83, align 4
+  %84 = load i32, ptr %83, align 8
   %85 = xor i32 %84, -65536
   %86 = zext i32 %85 to i64
   %87 = or i64 %82, %86

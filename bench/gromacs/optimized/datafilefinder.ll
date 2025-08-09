@@ -1528,7 +1528,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i: ;
   store i64 %20, ptr %18, align 8, !tbaa !32, !alias.scope !66, !noalias !69
   store ptr null, ptr %19, align 8, !tbaa !32, !alias.scope !69, !noalias !66
   store i64 0, ptr %16, align 8, !tbaa !7, !alias.scope !69, !noalias !66
-  store i8 0, ptr %7, align 1, !tbaa !31, !alias.scope !69, !noalias !66
+  store i8 0, ptr %7, align 8, !tbaa !31, !alias.scope !69, !noalias !66
   invoke void @_ZNSt10filesystem7__cxx114path14_M_split_cmptsEv(ptr noundef nonnull align 8 dereferenceable(40) %.0912.i.i)
           to label %_ZNSt16allocator_traitsISaINSt10filesystem7__cxx114pathEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i unwind label %21
 
@@ -4067,7 +4067,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i168: ; pr
   store i64 %207, ptr %205, align 8, !tbaa !32
   store ptr null, ptr %206, align 8, !tbaa !32
   store i64 0, ptr %202, align 8, !tbaa !7
-  store i8 0, ptr %194, align 1, !tbaa !31
+  store i8 0, ptr %194, align 8, !tbaa !31
   invoke void @_ZNSt10filesystem7__cxx114path14_M_split_cmptsEv(ptr noundef nonnull align 8 dereferenceable(81) %.0911.i.i.i153)
           to label %_ZNSt10filesystem7__cxx114pathC2EOS1_.exit.i.i169 unwind label %208
 
@@ -4115,7 +4115,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i5.i.i171: ; p
   store i64 %228, ptr %226, align 8, !tbaa !32
   store ptr null, ptr %227, align 8, !tbaa !32
   store i64 0, ptr %223, align 8, !tbaa !7
-  store i8 0, ptr %215, align 1, !tbaa !31
+  store i8 0, ptr %215, align 8, !tbaa !31
   invoke void @_ZNSt10filesystem7__cxx114path14_M_split_cmptsEv(ptr noundef nonnull align 8 dereferenceable(40) %212)
           to label %_ZNSt15__new_allocatorIN3gmx12DataFileInfoEE9constructIS1_JS1_EEEvPT_DpOT0_.exit172 unwind label %229
 

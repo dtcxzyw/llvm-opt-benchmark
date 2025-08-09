@@ -25633,17 +25633,17 @@ _ZL10isLegalUseRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6L
   store ptr %803, ptr %18, align 8, !tbaa !1058
   store ptr null, ptr %422, align 8, !tbaa !1058
   %804 = getelementptr inbounds nuw i8, ptr %422, i64 8
-  %805 = load i32, ptr %804, align 4, !tbaa !87
+  %805 = load i32, ptr %804, align 8, !tbaa !87
   store i32 %805, ptr %404, align 8, !tbaa !87
-  store i32 0, ptr %804, align 4, !tbaa !87
+  store i32 0, ptr %804, align 8, !tbaa !87
   %806 = getelementptr inbounds nuw i8, ptr %422, i64 12
   %807 = load i32, ptr %806, align 4, !tbaa !87
   store i32 %807, ptr %405, align 4, !tbaa !87
   store i32 0, ptr %806, align 4, !tbaa !87
   %808 = getelementptr inbounds nuw i8, ptr %422, i64 16
-  %809 = load i32, ptr %808, align 4, !tbaa !87
+  %809 = load i32, ptr %808, align 8, !tbaa !87
   store i32 %809, ptr %406, align 8, !tbaa !87
-  store i32 0, ptr %808, align 4, !tbaa !87
+  store i32 0, ptr %808, align 8, !tbaa !87
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %407, ptr noundef nonnull align 8 dereferenceable(20) %427, i64 20, i1 false)
   store ptr %409, ptr %408, align 8, !tbaa !25
   store i32 0, ptr %410, align 8, !tbaa !26
@@ -28029,7 +28029,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_4SCEVEfNS_12DenseMapInfoIS4_vEENS_6deta
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_4SCEVEfNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_fEEEES4_fS6_S9_E16InsertIntoBucketIRKS4_JEEEPS9_SF_OT_DpOT0_.exit.i.i: ; preds = %1819, %1811
   store ptr %1732, ptr %1814, align 8, !tbaa !549
   %1822 = getelementptr inbounds nuw i8, ptr %1814, i64 8
-  store float 0.000000e+00, ptr %1822, align 4, !tbaa !1092
+  store float 0.000000e+00, ptr %1822, align 8, !tbaa !1092
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_4SCEVEfNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_fEEEES4_fS6_S9_EixERKS4_.exit.i
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_4SCEVEfNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_fEEEES4_fS6_S9_EixERKS4_.exit.i: ; preds = %1764, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_4SCEVEfNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_fEEEES4_fS6_S9_E16InsertIntoBucketIRKS4_JEEEPS9_SF_OT_DpOT0_.exit.i.i, %1748
@@ -28332,7 +28332,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_4SCEVEfNS_12DenseMapInfoIS4_vEENS_6deta
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_4SCEVEfNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_fEEEES4_fS6_S9_E16InsertIntoBucketIRKS4_JEEEPS9_SF_OT_DpOT0_.exit.i196.i: ; preds = %1960, %1954
   store ptr %1732, ptr %1955, align 8, !tbaa !549
   %1963 = getelementptr inbounds nuw i8, ptr %1955, i64 8
-  store float 0.000000e+00, ptr %1963, align 4, !tbaa !1092
+  store float 0.000000e+00, ptr %1963, align 8, !tbaa !1092
   %.val116.pre.i = load ptr, ptr %1708, align 8, !tbaa !25
   %.val117.pre.i = load i32, ptr %1709, align 8, !tbaa !26
   %.pre560.i = zext i32 %.val117.pre.i to i64
@@ -38393,9 +38393,9 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_16LSRUseELb0EE28reserveForParamA
   store ptr null, ptr %.016.i.i.i, align 8, !tbaa !1058
   %129 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %130 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 8
-  %131 = load i32, ptr %130, align 4, !tbaa !87
-  store i32 %131, ptr %129, align 4, !tbaa !87
-  store i32 0, ptr %130, align 4, !tbaa !87
+  %131 = load i32, ptr %130, align 8, !tbaa !87
+  store i32 %131, ptr %129, align 8, !tbaa !87
+  store i32 0, ptr %130, align 8, !tbaa !87
   %132 = getelementptr inbounds nuw i8, ptr %127, i64 12
   %133 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 12
   %134 = load i32, ptr %132, align 4, !tbaa !87
@@ -38404,10 +38404,10 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_16LSRUseELb0EE28reserveForParamA
   store i32 %134, ptr %133, align 4, !tbaa !87
   %136 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %137 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 16
-  %138 = load i32, ptr %136, align 4, !tbaa !87
-  %139 = load i32, ptr %137, align 4, !tbaa !87
-  store i32 %139, ptr %136, align 4, !tbaa !87
-  store i32 %138, ptr %137, align 4, !tbaa !87
+  %138 = load i32, ptr %136, align 8, !tbaa !87
+  %139 = load i32, ptr %137, align 8, !tbaa !87
+  store i32 %139, ptr %136, align 8, !tbaa !87
+  store i32 %138, ptr %137, align 8, !tbaa !87
   %140 = getelementptr inbounds nuw i8, ptr %127, i64 24
   %141 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %140, ptr noundef nonnull align 8 dereferenceable(20) %141, i64 20, i1 false)
@@ -40312,9 +40312,9 @@ define internal fastcc void @_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_16L
   store ptr null, ptr %.sroa.06.08.i.i.i.i.i.i, align 8, !tbaa !1058
   %10 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i, i64 8
-  %12 = load i32, ptr %11, align 4, !tbaa !87
-  store i32 %12, ptr %10, align 4, !tbaa !87
-  store i32 0, ptr %11, align 4, !tbaa !87
+  %12 = load i32, ptr %11, align 8, !tbaa !87
+  store i32 %12, ptr %10, align 8, !tbaa !87
+  store i32 0, ptr %11, align 8, !tbaa !87
   %13 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 12
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i, i64 12
   %15 = load i32, ptr %13, align 4, !tbaa !87
@@ -40323,10 +40323,10 @@ define internal fastcc void @_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_16L
   store i32 %15, ptr %14, align 4, !tbaa !87
   %17 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i, i64 16
-  %19 = load i32, ptr %17, align 4, !tbaa !87
-  %20 = load i32, ptr %18, align 4, !tbaa !87
-  store i32 %20, ptr %17, align 4, !tbaa !87
-  store i32 %19, ptr %18, align 4, !tbaa !87
+  %19 = load i32, ptr %17, align 8, !tbaa !87
+  %20 = load i32, ptr %18, align 8, !tbaa !87
+  store i32 %20, ptr %17, align 8, !tbaa !87
+  store i32 %19, ptr %18, align 8, !tbaa !87
   %21 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 24
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %21, ptr noundef nonnull align 8 dereferenceable(20) %22, i64 20, i1 false)
@@ -50538,7 +50538,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_4SCEVEfNS_12DenseMapInfoIS4_vEENS_6deta
   %57 = load ptr, ptr %1, align 8, !tbaa !549
   store ptr %57, ptr %48, align 8, !tbaa !549
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store float 0.000000e+00, ptr %58, align 4, !tbaa !1092
+  store float 0.000000e+00, ptr %58, align 8, !tbaa !1092
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_4SCEVEfNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_fEEEES4_fS6_S9_E16InsertIntoBucketIRKS4_JEEEPS9_SF_OT_DpOT0_.exit
@@ -50655,7 +50655,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_4SCEVEfNS_12DenseMapInfoIS4_vEENS_6deta
   store ptr %60, ptr %50, align 8, !tbaa !549
   %61 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %62 = load float, ptr %3, align 4, !tbaa !1092
-  store float %62, ptr %61, align 4, !tbaa !1092
+  store float %62, ptr %61, align 8, !tbaa !1092
   %63 = load ptr, ptr %1, align 8, !tbaa !1085
   %64 = load i32, ptr %7, align 8, !tbaa !1088
   br label %.loopexit
@@ -50868,7 +50868,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_4SCEVEfNS_12DenseMapInfoIS4_vEENS_6deta
   %65 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %66 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %67 = load float, ptr %66, align 4, !tbaa !1092
-  store float %67, ptr %65, align 4, !tbaa !1092
+  store float %67, ptr %65, align 8, !tbaa !1092
   %68 = add i32 %40, 1
   store i32 %68, ptr %32, align 8, !tbaa !1090
   br label %69
@@ -58254,7 +58254,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_19T
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.014, i64 32
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !55
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %21 = load i32, ptr %19, align 4, !tbaa !87
+  %21 = load i32, ptr %19, align 8, !tbaa !87
   store ptr %.sroa.01.0.copyload, ptr %3, align 8, !tbaa !54
   store i64 %.sroa.22.0.copyload, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !tbaa !55
   store ptr %.sroa.0.0.copyload, ptr %9, align 8, !tbaa !54

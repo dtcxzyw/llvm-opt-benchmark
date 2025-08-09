@@ -4310,7 +4310,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %2202, ptr %.sink6.i.i.i.i.i.i, align 8, !tbaa !119
   %2203 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i.i, i64 8
   store i64 0, ptr %2203, align 8, !tbaa !121
-  store i8 0, ptr %2202, align 1, !tbaa !22
+  store i8 0, ptr %2202, align 8, !tbaa !22
   %2204 = load ptr, ptr %2162, align 8, !tbaa !98
   %2205 = getelementptr inbounds nuw i8, ptr %2204, i64 8
   %2206 = getelementptr inbounds nuw i8, ptr %2161, i64 8
@@ -11121,7 +11121,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %2215, ptr %.sink6.i.i.i.i.i.i, align 8, !tbaa !119
   %2216 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i.i, i64 8
   store i64 0, ptr %2216, align 8, !tbaa !121
-  store i8 0, ptr %2215, align 1, !tbaa !22
+  store i8 0, ptr %2215, align 8, !tbaa !22
   %2217 = load ptr, ptr %2175, align 8, !tbaa !98
   %2218 = getelementptr inbounds nuw i8, ptr %2217, i64 8
   %2219 = getelementptr inbounds nuw i8, ptr %2174, i64 8
@@ -17932,7 +17932,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %2215, ptr %.sink6.i.i.i.i.i.i, align 8, !tbaa !119
   %2216 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i.i, i64 8
   store i64 0, ptr %2216, align 8, !tbaa !121
-  store i8 0, ptr %2215, align 1, !tbaa !22
+  store i8 0, ptr %2215, align 8, !tbaa !22
   %2217 = load ptr, ptr %2175, align 8, !tbaa !98
   %2218 = getelementptr inbounds nuw i8, ptr %2217, i64 8
   %2219 = getelementptr inbounds nuw i8, ptr %2174, i64 8
@@ -20830,7 +20830,7 @@ _ZN6google8protobuf5Arena14CreateInternalINS0_8internal16InternalMetadata9Contai
   %25 = getelementptr inbounds nuw i8, ptr %.sink11, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %.sink11, i64 24
   store ptr %26, ptr %25, align 8, !tbaa !119
-  store i8 0, ptr %26, align 1, !tbaa !22
+  store i8 0, ptr %26, align 8, !tbaa !22
   %27 = ptrtoint ptr %.sink11 to i64
   %28 = or i64 %27, 1
   %29 = inttoptr i64 %28 to ptr

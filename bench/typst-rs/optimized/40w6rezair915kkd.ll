@@ -6395,7 +6395,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1168)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1171)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1174)
-  %16 = load ptr, ptr %13, align 8, !alias.scope !1177, !noalias !1178, !nonnull !4, !noundef !4
+  %16 = load ptr, ptr %13, align 16, !alias.scope !1177, !noalias !1178, !nonnull !4, !noundef !4
   %17 = atomicrmw add ptr %16, i64 1 monotonic, align 8, !noalias !1181
   %18 = icmp slt i64 %17, 0
   br i1 %18, label %19, label %20
@@ -57920,7 +57920,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16555)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16558)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16561)
-  %21 = load ptr, ptr %18, align 8, !alias.scope !16564, !noalias !16565, !nonnull !4, !noundef !4
+  %21 = load ptr, ptr %18, align 16, !alias.scope !16564, !noalias !16565, !nonnull !4, !noundef !4
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !16568
   %23 = icmp slt i64 %22, 0
   br i1 %23, label %24, label %25
@@ -67355,9 +67355,9 @@ define hidden void @"_ZN91_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..iter.
   store ptr %25, ptr %13, align 8, !alias.scope !19380, !noalias !19373
   %.sroa.0.0.copyload1.i = load i32, ptr %23, align 8, !noalias !19381
   %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx2.sroa_idx.i = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %.sroa.6.sroa.4.0.copyload.i = load i64, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx2.sroa_idx.i, align 4, !noalias !19381
+  %.sroa.6.sroa.4.0.copyload.i = load i64, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx2.sroa_idx.i, align 8, !noalias !19381
   %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx2.sroa_idx.i = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %.sroa.6.sroa.5.0.copyload.i = load ptr, ptr %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx2.sroa_idx.i, align 4, !noalias !19381
+  %.sroa.6.sroa.5.0.copyload.i = load ptr, ptr %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx2.sroa_idx.i, align 8, !noalias !19381
   switch i32 %.sroa.0.0.copyload1.i, label %default.unreachable1.i.i.i.i.i [
     i32 4, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0d5e7ccf0200d9e2E.exit.loopexit.split.loop.exit33"
     i32 3, label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h8d0b8518f9d2aa17E.exit.i"

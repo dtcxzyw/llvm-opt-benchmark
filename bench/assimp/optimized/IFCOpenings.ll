@@ -6193,7 +6193,7 @@ _ZN6Assimp3IFC21BoundingBoxesAdjacentERKSt4pairI10aiVector2tIdES3_ES6_.exit.thre
 219:                                              ; preds = %213, %208
   store double %184, ptr %198, align 8
   %.sroa.7.i.sroa.4.0..sroa.7.8..sroa_idx11.i.sroa_idx = getelementptr inbounds nuw i8, ptr %198, i64 8
-  store double %185, ptr %.sroa.7.i.sroa.4.0..sroa.7.8..sroa_idx11.i.sroa_idx, align 1
+  store double %185, ptr %.sroa.7.i.sroa.4.0..sroa.7.8..sroa_idx11.i.sroa_idx, align 8
   br label %_ZNSt6vectorI10aiVector2tIdESaIS1_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EERS6_.exit
 
 220:                                              ; preds = %195
@@ -6384,7 +6384,7 @@ _ZNSt6vectorIbSaIbEE6insertESt19_Bit_const_iteratorRKb.exit: ; preds = %.critedg
 305:                                              ; preds = %299, %294
   store double %188, ptr %284, align 8
   %.sroa.7.i69.sroa.4.0..sroa.7.8..sroa_idx11.i74.sroa_idx = getelementptr inbounds nuw i8, ptr %284, i64 8
-  store double %189, ptr %.sroa.7.i69.sroa.4.0..sroa.7.8..sroa_idx11.i74.sroa_idx, align 1
+  store double %189, ptr %.sroa.7.i69.sroa.4.0..sroa.7.8..sroa_idx11.i74.sroa_idx, align 8
   br label %_ZNSt6vectorI10aiVector2tIdESaIS1_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EERS6_.exit94
 
 306:                                              ; preds = %281

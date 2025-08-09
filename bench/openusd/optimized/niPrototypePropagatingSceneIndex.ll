@@ -7721,7 +7721,7 @@ _ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__42UsdImagingNiPrototyp
 
 _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__42UsdImagingNiPrototypePropagatingSceneIndex23_MergingSceneIndexEntryESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__42UsdImagingNiPrototypePropagatingSceneIndex23_MergingSceneIndexEntryEEclEPS2_.exit.i.i.i.i.i.i, %.lr.ph
   store ptr null, ptr %8, align 8
-  %10 = load i32, ptr %7, align 4
+  %10 = load i32, ptr %7, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %10, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_St10unique_ptrINS0_42UsdImagingNiPrototypePropagatingSceneIndex23_MergingSceneIndexEntryESt14default_deleteIS6_EEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit, label %11
 
@@ -9134,7 +9134,7 @@ _ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__42UsdImagingNiPrototyp
 
 _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__42UsdImagingNiPrototypePropagatingSceneIndex23_MergingSceneIndexEntryESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__42UsdImagingNiPrototypePropagatingSceneIndex23_MergingSceneIndexEntryEEclEPS2_.exit.i.i.i.i.i.i.i, %53
   store ptr null, ptr %28, align 8
-  %55 = load i32, ptr %8, align 4
+  %55 = load i32, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %55, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_St10unique_ptrINS0_42UsdImagingNiPrototypePropagatingSceneIndex23_MergingSceneIndexEntryESt14default_deleteIS6_EEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit.i, label %56
 
@@ -9394,7 +9394,7 @@ _ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__42UsdImagingNiPrototyp
 
 _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__42UsdImagingNiPrototypePropagatingSceneIndex23_MergingSceneIndexEntryESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__42UsdImagingNiPrototypePropagatingSceneIndex23_MergingSceneIndexEntryEEclEPS2_.exit.i.i.i.i.i.i, %4
   store ptr null, ptr %6, align 8
-  %8 = load i32, ptr %5, align 4
+  %8 = load i32, ptr %5, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_St10unique_ptrINS0_42UsdImagingNiPrototypePropagatingSceneIndex23_MergingSceneIndexEntryESt14default_deleteIS6_EEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit, label %9
 
@@ -9651,7 +9651,7 @@ _ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__42UsdImagingNiPrototyp
 
 _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__42UsdImagingNiPrototypePropagatingSceneIndex23_MergingSceneIndexEntryESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__42UsdImagingNiPrototypePropagatingSceneIndex23_MergingSceneIndexEntryEEclEPS2_.exit.i.i.i.i.i.i, %2
   store ptr null, ptr %6, align 8
-  %8 = load i32, ptr %5, align 4
+  %8 = load i32, ptr %5, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_St10unique_ptrINS0_42UsdImagingNiPrototypePropagatingSceneIndex23_MergingSceneIndexEntryESt14default_deleteIS6_EEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit, label %9
 

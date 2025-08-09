@@ -1395,27 +1395,27 @@ define linkonce_odr void @_ZN3g2o10BaseVertexILi6ENS_6SBACamEE3popEv(ptr noundef
   store <2 x double> %9, ptr %7, align 16, !tbaa !45
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %11 = getelementptr inbounds i8, ptr %3, i64 -528
-  %12 = load <2 x double>, ptr %11, align 1, !tbaa !45
+  %12 = load <2 x double>, ptr %11, align 16, !tbaa !45
   store <2 x double> %12, ptr %10, align 16, !tbaa !45
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %14 = getelementptr inbounds i8, ptr %3, i64 -512
-  %15 = load double, ptr %14, align 8, !tbaa !46
+  %15 = load double, ptr %14, align 16, !tbaa !46
   store double %15, ptr %13, align 16, !tbaa !46
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %17 = getelementptr inbounds i8, ptr %3, i64 -504
-  %18 = load <2 x double>, ptr %17, align 1, !tbaa !45
+  %18 = load <2 x double>, ptr %17, align 8, !tbaa !45
   store <2 x double> %18, ptr %16, align 8, !tbaa !45
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %20 = getelementptr inbounds i8, ptr %3, i64 -488
-  %21 = load <2 x double>, ptr %20, align 1, !tbaa !45
+  %21 = load <2 x double>, ptr %20, align 8, !tbaa !45
   store <2 x double> %21, ptr %19, align 8, !tbaa !45
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %23 = getelementptr inbounds i8, ptr %3, i64 -472
-  %24 = load <2 x double>, ptr %23, align 1, !tbaa !45
+  %24 = load <2 x double>, ptr %23, align 8, !tbaa !45
   store <2 x double> %24, ptr %22, align 8, !tbaa !45
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %26 = getelementptr inbounds i8, ptr %3, i64 -456
-  %27 = load <2 x double>, ptr %26, align 1, !tbaa !45
+  %27 = load <2 x double>, ptr %26, align 8, !tbaa !45
   store <2 x double> %27, ptr %25, align 8, !tbaa !45
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %29 = getelementptr inbounds i8, ptr %3, i64 -440
@@ -1475,39 +1475,39 @@ define linkonce_odr void @_ZN3g2o10BaseVertexILi6ENS_6SBACamEE3popEv(ptr noundef
   store <2 x double> %69, ptr %67, align 16, !tbaa !45
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %71 = getelementptr inbounds i8, ptr %3, i64 -224
-  %72 = load <2 x double>, ptr %71, align 1, !tbaa !45
+  %72 = load <2 x double>, ptr %71, align 16, !tbaa !45
   store <2 x double> %72, ptr %70, align 16, !tbaa !45
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %74 = getelementptr inbounds i8, ptr %3, i64 -208
-  %75 = load <2 x double>, ptr %74, align 1, !tbaa !45
+  %75 = load <2 x double>, ptr %74, align 16, !tbaa !45
   store <2 x double> %75, ptr %73, align 16, !tbaa !45
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %77 = getelementptr inbounds i8, ptr %3, i64 -192
-  %78 = load <2 x double>, ptr %77, align 1, !tbaa !45
+  %78 = load <2 x double>, ptr %77, align 16, !tbaa !45
   store <2 x double> %78, ptr %76, align 16, !tbaa !45
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %80 = getelementptr inbounds i8, ptr %3, i64 -176
-  %81 = load <2 x double>, ptr %80, align 1, !tbaa !45
+  %81 = load <2 x double>, ptr %80, align 16, !tbaa !45
   store <2 x double> %81, ptr %79, align 16, !tbaa !45
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %83 = getelementptr inbounds i8, ptr %3, i64 -160
-  %84 = load double, ptr %83, align 8, !tbaa !46
+  %84 = load double, ptr %83, align 16, !tbaa !46
   store double %84, ptr %82, align 16, !tbaa !46
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %86 = getelementptr inbounds i8, ptr %3, i64 -152
-  %87 = load <2 x double>, ptr %86, align 1, !tbaa !45
+  %87 = load <2 x double>, ptr %86, align 8, !tbaa !45
   store <2 x double> %87, ptr %85, align 8, !tbaa !45
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %89 = getelementptr inbounds i8, ptr %3, i64 -136
-  %90 = load <2 x double>, ptr %89, align 1, !tbaa !45
+  %90 = load <2 x double>, ptr %89, align 8, !tbaa !45
   store <2 x double> %90, ptr %88, align 8, !tbaa !45
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %92 = getelementptr inbounds i8, ptr %3, i64 -120
-  %93 = load <2 x double>, ptr %92, align 1, !tbaa !45
+  %93 = load <2 x double>, ptr %92, align 8, !tbaa !45
   store <2 x double> %93, ptr %91, align 8, !tbaa !45
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %95 = getelementptr inbounds i8, ptr %3, i64 -104
-  %96 = load <2 x double>, ptr %95, align 1, !tbaa !45
+  %96 = load <2 x double>, ptr %95, align 8, !tbaa !45
   store <2 x double> %96, ptr %94, align 8, !tbaa !45
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %98 = getelementptr inbounds i8, ptr %3, i64 -88
@@ -1515,23 +1515,23 @@ define linkonce_odr void @_ZN3g2o10BaseVertexILi6ENS_6SBACamEE3popEv(ptr noundef
   store double %99, ptr %97, align 8, !tbaa !46
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %101 = getelementptr inbounds i8, ptr %3, i64 -80
-  %102 = load <2 x double>, ptr %101, align 1, !tbaa !45
+  %102 = load <2 x double>, ptr %101, align 16, !tbaa !45
   store <2 x double> %102, ptr %100, align 16, !tbaa !45
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %104 = getelementptr inbounds i8, ptr %3, i64 -64
-  %105 = load <2 x double>, ptr %104, align 1, !tbaa !45
+  %105 = load <2 x double>, ptr %104, align 16, !tbaa !45
   store <2 x double> %105, ptr %103, align 16, !tbaa !45
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %107 = getelementptr inbounds i8, ptr %3, i64 -48
-  %108 = load <2 x double>, ptr %107, align 1, !tbaa !45
+  %108 = load <2 x double>, ptr %107, align 16, !tbaa !45
   store <2 x double> %108, ptr %106, align 16, !tbaa !45
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %110 = getelementptr inbounds i8, ptr %3, i64 -32
-  %111 = load <2 x double>, ptr %110, align 1, !tbaa !45
+  %111 = load <2 x double>, ptr %110, align 16, !tbaa !45
   store <2 x double> %111, ptr %109, align 16, !tbaa !45
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %113 = getelementptr inbounds i8, ptr %3, i64 -16
-  %114 = load double, ptr %113, align 8, !tbaa !46
+  %114 = load double, ptr %113, align 16, !tbaa !46
   store double %114, ptr %112, align 16, !tbaa !46
   store ptr %4, ptr %2, align 8, !tbaa !119
   %115 = load ptr, ptr %0, align 16, !tbaa !3
@@ -2011,7 +2011,7 @@ define linkonce_odr void @_ZThn64_N3g2o9VertexCamD1Ev(ptr noundef %0) unnamed_ad
   store ptr getelementptr inbounds nuw inrange(-16, 256) (i8, ptr @_ZTVN3g2o10BaseVertexILi6ENS_6SBACamEEE, i64 16), ptr %2, align 16, !tbaa !3
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3g2o10BaseVertexILi6ENS_6SBACamEEE, i64 288), ptr %0, align 16, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  %4 = load ptr, ptr %3, align 8, !tbaa !70
+  %4 = load ptr, ptr %3, align 16, !tbaa !70
   %.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i.i, label %_ZN3g2o10BaseVertexILi6ENS_6SBACamEED2Ev.exit, label %5
 
@@ -2035,7 +2035,7 @@ define linkonce_odr void @_ZThn64_N3g2o9VertexCamD0Ev(ptr noundef %0) unnamed_ad
   store ptr getelementptr inbounds nuw inrange(-16, 256) (i8, ptr @_ZTVN3g2o10BaseVertexILi6ENS_6SBACamEEE, i64 16), ptr %2, align 16, !tbaa !3
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3g2o10BaseVertexILi6ENS_6SBACamEEE, i64 288), ptr %0, align 16, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  %4 = load ptr, ptr %3, align 8, !tbaa !70
+  %4 = load ptr, ptr %3, align 16, !tbaa !70
   %.not.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN3g2o9VertexCamD0Ev.exit, label %5
 
@@ -2113,7 +2113,7 @@ define linkonce_odr void @_ZThn64_N3g2o10BaseVertexILi6ENS_6SBACamEED1Ev(ptr nou
   store ptr getelementptr inbounds nuw inrange(-16, 256) (i8, ptr @_ZTVN3g2o10BaseVertexILi6ENS_6SBACamEEE, i64 16), ptr %2, align 16, !tbaa !3
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3g2o10BaseVertexILi6ENS_6SBACamEEE, i64 288), ptr %0, align 16, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  %4 = load ptr, ptr %3, align 8, !tbaa !70
+  %4 = load ptr, ptr %3, align 16, !tbaa !70
   %.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i.i, label %_ZN3g2o10BaseVertexILi6ENS_6SBACamEED2Ev.exit, label %5
 

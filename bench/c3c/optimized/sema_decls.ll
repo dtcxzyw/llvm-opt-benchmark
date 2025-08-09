@@ -2588,7 +2588,7 @@ define dso_local ptr @sema_analyse_parameterized_identifier(ptr noundef %0, ptr 
   %36 = load ptr, ptr %4, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = getelementptr inbounds i8, ptr %4, i64 -8
-  %39 = load i32, ptr %38, align 4
+  %39 = load i32, ptr %38, align 8
   %40 = add i32 %39, -1
   %41 = zext i32 %40 to i64
   %42 = getelementptr inbounds nuw ptr, ptr %4, i64 %41

@@ -649,7 +649,7 @@ define internal void @GPU_UnlockTexture(ptr noundef readonly captures(none) %0, 
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %9 = load i32, ptr %8, align 4
+  %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %11 = load i32, ptr %10, align 8
   %12 = load i32, ptr %5, align 4

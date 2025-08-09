@@ -925,7 +925,7 @@ _ZN7jsonnet8internal13UStringStreamlsEPKDi.exit105: ; preds = %201, %199
   %216 = load i32, ptr %215, align 8, !tbaa !29
   %217 = and i32 %216, -75
   %218 = or disjoint i32 %217, 8
-  store i32 %218, ptr %215, align 4, !tbaa !39
+  store i32 %218, ptr %215, align 8, !tbaa !39
   %219 = load i64, ptr %212, align 8
   %220 = getelementptr inbounds i8, ptr %20, i64 %219
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 225

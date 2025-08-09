@@ -61,9 +61,9 @@ pg_memory_is_all_zeros.exit:                      ; preds = %2
   %22 = add i64 %21, %19
   store i64 %22, ptr %20, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !7
-  %23 = load i32, ptr %6, align 4
+  %23 = load i32, ptr %6, align 8
   %24 = add i32 %23, 1
-  store i32 %24, ptr %6, align 4
+  store i32 %24, ptr %6, align 8
   %25 = load volatile i32, ptr @CritSectionCount, align 4
   %26 = add i32 %25, -1
   store volatile i32 %26, ptr @CritSectionCount, align 4

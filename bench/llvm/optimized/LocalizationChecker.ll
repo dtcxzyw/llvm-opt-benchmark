@@ -5666,11 +5666,11 @@ _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRe
   %90 = getelementptr i8, ptr %84, i64 48
   %.val18.i.i.i.i.i = load ptr, ptr %90, align 8, !tbaa !336, !noalias !1064
   %91 = getelementptr i8, ptr %84, i64 56
-  %.val19.i.i.i.i.i = load i32, ptr %91, align 4, !noalias !1064
+  %.val19.i.i.i.i.i = load i32, ptr %91, align 8, !noalias !1064
   %92 = getelementptr i8, ptr %89, i64 48
   %.val20.i.i.i.i.i = load ptr, ptr %92, align 8, !tbaa !336, !noalias !1064
   %93 = getelementptr i8, ptr %89, i64 56
-  %.val21.i.i.i.i.i = load i32, ptr %93, align 4, !noalias !1064
+  %.val21.i.i.i.i.i = load i32, ptr %93, align 8, !noalias !1064
   %94 = icmp eq ptr %.val18.i.i.i.i.i, %.val20.i.i.i.i.i
   %95 = icmp eq i32 %.val19.i.i.i.i.i, %.val21.i.i.i.i.i
   %spec.select.i.i.i.i.i.i.i = select i1 %94, i1 %95, i1 false
@@ -7169,7 +7169,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang4ento16ObjCStringRegionEKNS2_9MemRegionEEEDaPT
   %298 = lshr i32 %297, 22
   %299 = and i32 %298, 7
   %300 = getelementptr inbounds nuw i8, ptr %291, i64 16
-  %301 = load i32, ptr %300, align 4, !tbaa !457
+  %301 = load i32, ptr %300, align 8, !tbaa !457
   %302 = mul i32 %299, %301
   %303 = zext i32 %302 to i64
   store ptr %296, ptr %10, align 8
@@ -11074,9 +11074,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang14IdentifierInfoENS1_INS2_8Selector
   store ptr null, ptr %41, align 8, !tbaa !1130
   %43 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 16
   %44 = getelementptr inbounds nuw i8, ptr %.022, i64 16
-  %45 = load i32, ptr %44, align 4, !tbaa !457
-  store i32 %45, ptr %43, align 4, !tbaa !457
-  store i32 0, ptr %44, align 4, !tbaa !457
+  %45 = load i32, ptr %44, align 8, !tbaa !457
+  store i32 %45, ptr %43, align 8, !tbaa !457
+  store i32 0, ptr %44, align 8, !tbaa !457
   %46 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 20
   %47 = getelementptr inbounds nuw i8, ptr %.022, i64 20
   %48 = load i32, ptr %46, align 4, !tbaa !457
@@ -11085,10 +11085,10 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang14IdentifierInfoENS1_INS2_8Selector
   store i32 %48, ptr %47, align 4, !tbaa !457
   %50 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 24
   %51 = getelementptr inbounds nuw i8, ptr %.022, i64 24
-  %52 = load i32, ptr %50, align 4, !tbaa !457
-  %53 = load i32, ptr %51, align 4, !tbaa !457
-  store i32 %53, ptr %50, align 4, !tbaa !457
-  store i32 %52, ptr %51, align 4, !tbaa !457
+  %52 = load i32, ptr %50, align 8, !tbaa !457
+  %53 = load i32, ptr %51, align 8, !tbaa !457
+  store i32 %53, ptr %50, align 8, !tbaa !457
+  store i32 %52, ptr %51, align 8, !tbaa !457
   %54 = load i32, ptr %4, align 8, !tbaa !1123
   %55 = add i32 %54, 1
   store i32 %55, ptr %4, align 8, !tbaa !1123
@@ -11210,7 +11210,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang8SelectorEhNS_12DenseMapInfoIS3_vEENS
   store i64 %52, ptr %43, align 8, !tbaa !16
   %53 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %54 = load i8, ptr %3, align 1, !tbaa !16
-  store i8 %54, ptr %53, align 1, !tbaa !16
+  store i8 %54, ptr %53, align 8, !tbaa !16
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %10, %51
@@ -11414,7 +11414,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang8SelectorEhNS_12DenseMapInfoIS3_vEENS
   %59 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %60 = getelementptr inbounds nuw i8, ptr %.025.i, i64 8
   %61 = load i8, ptr %60, align 1, !tbaa !16
-  store i8 %61, ptr %59, align 1, !tbaa !16
+  store i8 %61, ptr %59, align 8, !tbaa !16
   %62 = load i32, ptr %32, align 8, !tbaa !1133
   %63 = add i32 %62, 1
   store i32 %63, ptr %32, align 8, !tbaa !1133

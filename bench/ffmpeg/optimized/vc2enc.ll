@@ -535,7 +535,7 @@ define internal range(i32 -2147483648, 1) i32 @vc2_encode_frame(ptr noundef %0, 
   %23 = load i32, ptr %22, align 4, !tbaa !49
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %26 = load i32, ptr %25, align 4, !tbaa !51
+  %26 = load i32, ptr %25, align 8, !tbaa !51
   %27 = sext i32 %26 to i64
   %28 = tail call i64 @av_rescale(i64 noundef %16, i64 noundef %24, i64 noundef %27) #14
   %29 = lshr i64 %28, 3

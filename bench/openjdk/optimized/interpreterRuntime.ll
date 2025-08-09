@@ -4190,7 +4190,7 @@ _Z11as_TosState9BasicType.exit:                   ; preds = %37, %switch.lookup4
   store i8 %.0.i36, ptr %104, align 8
   %105 = getelementptr inbounds nuw i8, ptr %88, i64 18
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !12
-  store volatile i8 %.034, ptr %105, align 1
+  store volatile i8 %.034, ptr %105, align 2
   %106 = getelementptr inbounds nuw i8, ptr %88, i64 19
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !12
   store volatile i8 %.033, ptr %106, align 1

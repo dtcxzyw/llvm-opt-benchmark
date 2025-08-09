@@ -547,7 +547,7 @@ GifFreeMapObject.exit:                            ; preds = %7
   tail call void @free(ptr noundef %29) #14
   %30 = getelementptr inbounds nuw i8, ptr %.011.i, i64 24
   %31 = load ptr, ptr %23, align 8
-  %32 = load i32, ptr %22, align 4
+  %32 = load i32, ptr %22, align 8
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds %struct.ExtensionBlock, ptr %31, i64 %33
   %35 = icmp ult ptr %30, %34
@@ -557,7 +557,7 @@ GifFreeMapObject.exit:                            ; preds = %7
   %.lcssa.i = phi ptr [ %24, %.preheader.i ], [ %31, %.lr.ph.i ]
   tail call void @free(ptr noundef %.lcssa.i) #14
   store ptr null, ptr %23, align 8
-  store i32 0, ptr %22, align 4
+  store i32 0, ptr %22, align 8
   br label %GifFreeExtensions.exit
 
 GifFreeExtensions.exit:                           ; preds = %._crit_edge.i, %21, %1, %3
@@ -807,7 +807,7 @@ GifFreeMapObject.exit:                            ; preds = %.lr.ph
   tail call void @free(ptr noundef %26) #14
   %27 = getelementptr inbounds nuw i8, ptr %.011.i, i64 24
   %28 = load ptr, ptr %20, align 8
-  %29 = load i32, ptr %19, align 4
+  %29 = load i32, ptr %19, align 8
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds %struct.ExtensionBlock, ptr %28, i64 %30
   %32 = icmp ult ptr %27, %31
@@ -817,7 +817,7 @@ GifFreeMapObject.exit:                            ; preds = %.lr.ph
   %.lcssa.i = phi ptr [ %21, %.preheader.i ], [ %28, %.lr.ph.i ]
   tail call void @free(ptr noundef %.lcssa.i) #14
   store ptr null, ptr %20, align 8
-  store i32 0, ptr %19, align 4
+  store i32 0, ptr %19, align 8
   br label %GifFreeExtensions.exit
 
 GifFreeExtensions.exit:                           ; preds = %18, %._crit_edge.i

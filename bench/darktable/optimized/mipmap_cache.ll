@@ -427,7 +427,7 @@ _nearest_power_of_two.exit:                       ; preds = %76
   %91 = load i32, ptr %50, align 4, !tbaa !77
   %92 = zext i32 %91 to i64
   %93 = shl nuw nsw i64 %92, 4
-  %94 = load i32, ptr %54, align 4, !tbaa !77
+  %94 = load i32, ptr %54, align 8, !tbaa !77
   %95 = zext i32 %94 to i64
   %96 = mul i64 %93, %95
   %97 = add i64 %96, 64
@@ -2774,7 +2774,7 @@ define internal noundef i32 @_write_image(ptr noundef readonly captures(none) %0
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %14 = load ptr, ptr %13, align 8, !tbaa !188
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !196
+  %16 = load i32, ptr %15, align 8, !tbaa !196
   %17 = sext i32 %16 to i64
   %18 = shl nsw i64 %17, 2
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 12

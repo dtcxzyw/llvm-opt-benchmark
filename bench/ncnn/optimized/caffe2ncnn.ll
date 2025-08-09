@@ -4556,7 +4556,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   %1552 = load i32, ptr %1551, align 8, !tbaa !202
   %1553 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %198, ptr noundef nonnull @.str.31, i32 noundef %1552) #25
   %1554 = getelementptr inbounds nuw i8, ptr %1550, i64 16
-  %1555 = load i32, ptr %1554, align 4, !tbaa !35
+  %1555 = load i32, ptr %1554, align 8, !tbaa !35
   %1556 = and i32 %1555, 96
   %or.cond = icmp eq i32 %1556, 96
   br i1 %or.cond, label %1557, label %1564
@@ -4813,7 +4813,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   %1719 = load i32, ptr %1718, align 8, !tbaa !202
   %1720 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %198, ptr noundef nonnull @.str.31, i32 noundef %1719) #25
   %1721 = getelementptr inbounds nuw i8, ptr %1717, i64 16
-  %1722 = load i32, ptr %1721, align 4, !tbaa !35
+  %1722 = load i32, ptr %1721, align 8, !tbaa !35
   %1723 = and i32 %1722, 96
   %or.cond2257 = icmp eq i32 %1723, 96
   br i1 %or.cond2257, label %1724, label %1731
@@ -5638,7 +5638,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   %2284 = load i32, ptr %2283, align 8, !tbaa !292
   %2285 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %198, ptr noundef nonnull @.str.31, i32 noundef %2284) #25
   %2286 = getelementptr inbounds nuw i8, ptr %2282, i64 16
-  %2287 = load i32, ptr %2286, align 4, !tbaa !35
+  %2287 = load i32, ptr %2286, align 8, !tbaa !35
   %2288 = and i32 %2287, 24
   %or.cond2265 = icmp eq i32 %2288, 24
   br i1 %or.cond2265, label %2289, label %2293
@@ -8177,7 +8177,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
   store ptr %33, ptr %32, align 8, !tbaa !53
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i64 0, ptr %34, align 8, !tbaa !57
-  store i8 0, ptr %33, align 1, !tbaa !59
+  store i8 0, ptr %33, align 8, !tbaa !59
   ret void
 
 35:                                               ; preds = %25

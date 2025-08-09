@@ -800,7 +800,7 @@ bias_key.exit668:                                 ; preds = %271
   %411 = load i64, ptr %260, align 1
   store i64 %411, ptr %410, align 8
   %412 = getelementptr inbounds nuw i8, ptr %406, i64 32
-  store i8 0, ptr %412, align 1, !tbaa !41
+  store i8 0, ptr %412, align 8, !tbaa !41
   %413 = call i64 @zend_string_hash_func(ptr noundef nonnull %406) #12
   %414 = add i64 %413, 200
   store i64 %414, ptr %408, align 8, !tbaa !53

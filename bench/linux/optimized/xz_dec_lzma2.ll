@@ -1378,7 +1378,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %371 = icmp ult i32 %101, 7
   %372 = select i1 %371, i32 9, i32 11
   store i32 %372, ptr %69, align 4
-  store i32 1, ptr %81, align 4
+  store i32 1, ptr %81, align 8
   br label %.loopexit84
 
 373:                                              ; preds = %328
@@ -1424,7 +1424,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %401 = trunc i32 %400 to i16
   %402 = add i16 %394, %401
   store i16 %402, ptr %379, align 2
-  %403 = load i32, ptr %78, align 4
+  %403 = load i32, ptr %78, align 8
   br label %444
 
 404:                                              ; preds = %389
@@ -1487,7 +1487,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %442 = phi i32 [ %433, %428 ], [ %439, %434 ]
   store i32 %.sink104, ptr %0, align 8
   store i16 %.sink103, ptr %409, align 2
-  %443 = load i32, ptr %78, align 4
+  %443 = load i32, ptr %78, align 8
   store i32 %443, ptr %77, align 4
   br label %444
 
@@ -1516,13 +1516,13 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %456 = select i1 %455, i32 7, i32 10
   store i32 %456, ptr %69, align 4
   %457 = load i32, ptr %77, align 4
-  store i32 %457, ptr %76, align 4
-  %458 = load i32, ptr %78, align 4
+  store i32 %457, ptr %76, align 8
+  %458 = load i32, ptr %78, align 8
   store i32 %458, ptr %77, align 4
   %459 = load i32, ptr %66, align 4
-  store i32 %459, ptr %78, align 4
+  store i32 %459, ptr %78, align 8
   tail call fastcc void @lzma_len(ptr noundef %0, ptr noundef nonnull %82, i32 noundef %100)
-  %460 = load i32, ptr %81, align 4
+  %460 = load i32, ptr %81, align 8
   %461 = tail call i32 @llvm.umin.i32(i32 %460, i32 5)
   %462 = add nsw i32 %461, -2
   %463 = zext i32 %462 to i64
@@ -1824,12 +1824,12 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %662 = load i64, ptr %5, align 8
   %663 = load i64, ptr %3, align 8
   %664 = sub i64 %662, %663
-  %665 = load i32, ptr %81, align 4
+  %665 = load i32, ptr %81, align 8
   %666 = zext i32 %665 to i64
   %667 = tail call i64 @llvm.umin.i64(i64 %664, i64 %666)
   %668 = trunc nuw i64 %667 to i32
   %669 = sub i32 %665, %668
-  store i32 %669, ptr %81, align 4
+  store i32 %669, ptr %81, align 8
   %670 = xor i64 %655, -1
   %671 = add i64 %663, %670
   %672 = icmp ugt i64 %663, %655

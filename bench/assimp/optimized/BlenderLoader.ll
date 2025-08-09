@@ -2914,7 +2914,7 @@ _ZSt19__relocate_object_aIN6Assimp7Blender13FileBlockHeadES2_SaIS2_EEvPT_PT0_RT1
   store i64 %65, ptr %67, align 8, !alias.scope !15, !noalias !18
   store ptr %57, ptr %54, align 8, !alias.scope !18, !noalias !15
   store i64 0, ptr %66, align 8, !alias.scope !18, !noalias !15
-  store i8 0, ptr %57, align 1, !alias.scope !18, !noalias !15
+  store i8 0, ptr %57, align 8, !alias.scope !18, !noalias !15
   %68 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 40
   %69 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 32, i1 false), !alias.scope !20
@@ -10857,7 +10857,7 @@ _ZNSt12__shared_ptrIN6Assimp7Blender8MaterialELN9__gnu_cxx12_Lock_policyE2EED2Ev
   %551 = load float, ptr %550, align 4
   store float %551, ptr %523, align 4
   %552 = getelementptr inbounds nuw i8, ptr %541, i64 32
-  %553 = load float, ptr %552, align 4
+  %553 = load float, ptr %552, align 8
   %554 = getelementptr inbounds nuw i8, ptr %523, i64 4
   store float %553, ptr %554, align 4
   %555 = getelementptr inbounds nuw i8, ptr %541, i64 36
@@ -10915,7 +10915,7 @@ _ZNSt12__shared_ptrIN6Assimp7Blender8MaterialELN9__gnu_cxx12_Lock_policyE2EED2Ev
   %585 = load float, ptr %584, align 4
   store float %585, ptr %571, align 4
   %586 = getelementptr inbounds nuw i8, ptr %575, i64 32
-  %587 = load float, ptr %586, align 4
+  %587 = load float, ptr %586, align 8
   %588 = getelementptr inbounds nuw i8, ptr %523, i64 16
   store float %587, ptr %588, align 4
   %589 = getelementptr inbounds nuw i8, ptr %575, i64 36
@@ -10969,7 +10969,7 @@ _ZNSt12__shared_ptrIN6Assimp7Blender8MaterialELN9__gnu_cxx12_Lock_policyE2EED2Ev
   %618 = load float, ptr %617, align 4
   store float %618, ptr %604, align 4
   %619 = getelementptr inbounds nuw i8, ptr %608, i64 32
-  %620 = load float, ptr %619, align 4
+  %620 = load float, ptr %619, align 8
   %621 = getelementptr inbounds nuw i8, ptr %523, i64 28
   store float %620, ptr %621, align 4
   %622 = getelementptr inbounds nuw i8, ptr %608, i64 36
@@ -11034,7 +11034,7 @@ _ZNSt12__shared_ptrIN6Assimp7Blender8MaterialELN9__gnu_cxx12_Lock_policyE2EED2Ev
   %652 = load float, ptr %651, align 4
   store float %652, ptr %630, align 4
   %653 = getelementptr inbounds nuw i8, ptr %642, i64 32
-  %654 = load float, ptr %653, align 4
+  %654 = load float, ptr %653, align 8
   %655 = getelementptr inbounds nuw i8, ptr %523, i64 40
   store float %654, ptr %655, align 4
   %656 = getelementptr inbounds nuw i8, ptr %642, i64 36
@@ -11335,7 +11335,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %813 = load float, ptr %812, align 4
   store float %813, ptr %.0408746, align 4
   %814 = getelementptr inbounds nuw i8, ptr %803, i64 32
-  %815 = load float, ptr %814, align 4
+  %815 = load float, ptr %814, align 8
   %816 = getelementptr inbounds nuw i8, ptr %.0408746, i64 4
   store float %815, ptr %816, align 4
   %817 = getelementptr inbounds nuw i8, ptr %803, i64 36
@@ -18658,7 +18658,7 @@ _ZSt19__relocate_object_aIN6Assimp7Blender13FileBlockHeadES2_SaIS2_EEvPT_PT0_RT1
   store i64 %57, ptr %59, align 8, !alias.scope !176, !noalias !179
   store ptr %49, ptr %46, align 8, !alias.scope !179, !noalias !176
   store i64 0, ptr %58, align 8, !alias.scope !179, !noalias !176
-  store i8 0, ptr %49, align 1, !alias.scope !179, !noalias !176
+  store i8 0, ptr %49, align 8, !alias.scope !179, !noalias !176
   %60 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
   %61 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(32) %61, i64 32, i1 false), !alias.scope !181
@@ -18713,7 +18713,7 @@ _ZSt19__relocate_object_aIN6Assimp7Blender13FileBlockHeadES2_SaIS2_EEvPT_PT0_RT1
   store i64 %78, ptr %80, align 8, !alias.scope !182, !noalias !185
   store ptr %70, ptr %67, align 8, !alias.scope !185, !noalias !182
   store i64 0, ptr %79, align 8, !alias.scope !185, !noalias !182
-  store i8 0, ptr %70, align 1, !alias.scope !185, !noalias !182
+  store i8 0, ptr %70, align 8, !alias.scope !185, !noalias !182
   %81 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 40
   %82 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef nonnull align 8 dereferenceable(32) %82, i64 32, i1 false), !alias.scope !187
@@ -19094,7 +19094,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4.
   store i64 %69, ptr %16, align 8
   store ptr %61, ptr %59, align 8
   store i64 0, ptr %70, align 8
-  store i8 0, ptr %61, align 1
+  store i8 0, ptr %61, align 8
   %71 = getelementptr inbounds nuw i8, ptr %.sroa.010.1.i.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %71, i64 32, i1 false)
   %72 = load i64, ptr %.sroa.0.1.i.i, align 8
@@ -19322,7 +19322,7 @@ _ZN6Assimp7Blender13FileBlockHeadC2EOS1_.exit:    ; preds = %29, %_ZNKSt7__cxx11
   %37 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr %27, ptr %25, align 8
   store i64 0, ptr %37, align 8
-  store i8 0, ptr %27, align 1
+  store i8 0, ptr %27, align 8
   %38 = getelementptr inbounds nuw i8, ptr %23, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 32, i1 false)
   store i64 %24, ptr %5, align 8
@@ -19476,7 +19476,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1:
   store i64 %20, ptr %22, align 8
   store ptr %12, ptr %9, align 8
   store i64 0, ptr %21, align 8
-  store i8 0, ptr %12, align 1
+  store i8 0, ptr %12, align 8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %24, i64 32, i1 false)
@@ -19933,7 +19933,7 @@ _ZN6Assimp7Blender13FileBlockHeadC2EOS1_.exit:    ; preds = %126, %_ZNKSt7__cxx1
   store i64 %132, ptr %134, align 8
   store ptr %124, ptr %121, align 8
   store i64 0, ptr %133, align 8
-  store i8 0, ptr %124, align 1
+  store i8 0, ptr %124, align 8
   %135 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %136 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %135, ptr noundef nonnull align 8 dereferenceable(32) %136, i64 32, i1 false)
@@ -20484,7 +20484,7 @@ _ZN6Assimp7Blender13FileBlockHeadC2EOS1_.exit:    ; preds = %26, %_ZNKSt7__cxx11
   store i64 %33, ptr %8, align 8
   store ptr %24, ptr %22, align 8
   store i64 0, ptr %32, align 8
-  store i8 0, ptr %24, align 1
+  store i8 0, ptr %24, align 8
   %34 = getelementptr inbounds nuw i8, ptr %.pn22, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %34, i64 32, i1 false)
   %35 = ptrtoint ptr %.sroa.0.023 to i64
@@ -20760,7 +20760,7 @@ _ZN6Assimp7Blender13FileBlockHeadC2EOS1_.exit:    ; preds = %10, %_ZNKSt7__cxx11
   store i64 %16, ptr %18, align 8
   store ptr %8, ptr %5, align 8
   store i64 0, ptr %17, align 8
-  store i8 0, ptr %8, align 1
+  store i8 0, ptr %8, align 8
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false)

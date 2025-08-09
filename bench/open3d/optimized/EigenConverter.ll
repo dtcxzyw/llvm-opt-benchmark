@@ -36812,7 +36812,7 @@ define internal void @_ZN6open3d4core15ParallelForCPU_IZNS0_15eigen_converterL21
   call void @llvm.assume(i1 %.not.i.i)
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %.val, i64 744
-  %23 = load i8, ptr %22, align 1, !tbaa !110, !range !191, !noundef !192
+  %23 = load i8, ptr %22, align 8, !tbaa !110, !range !191, !noundef !192
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %30, label %.preheader.i.i.i
 
@@ -37333,7 +37333,7 @@ define internal void @_ZN6open3d4core15ParallelForCPU_IZNS0_15eigen_converterL21
   call void @llvm.assume(i1 %.not.i.i)
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %.val, i64 744
-  %23 = load i8, ptr %22, align 1, !tbaa !110, !range !191, !noundef !192
+  %23 = load i8, ptr %22, align 8, !tbaa !110, !range !191, !noundef !192
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %30, label %.preheader.i.i.i
 
@@ -40206,7 +40206,7 @@ define internal void @_ZN6open3d4core15ParallelForCPU_IZNS0_15eigen_converterL21
   call void @llvm.assume(i1 %.not.i.i)
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %.val, i64 744
-  %23 = load i8, ptr %22, align 1, !tbaa !110, !range !191, !noundef !192
+  %23 = load i8, ptr %22, align 8, !tbaa !110, !range !191, !noundef !192
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %30, label %.preheader.i.i.i
 
@@ -40727,7 +40727,7 @@ define internal void @_ZN6open3d4core15ParallelForCPU_IZNS0_15eigen_converterL21
   call void @llvm.assume(i1 %.not.i.i)
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %.val, i64 744
-  %23 = load i8, ptr %22, align 1, !tbaa !110, !range !191, !noundef !192
+  %23 = load i8, ptr %22, align 8, !tbaa !110, !range !191, !noundef !192
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %30, label %.preheader.i.i.i
 
@@ -43603,7 +43603,7 @@ define internal void @_ZN6open3d4core15ParallelForCPU_IZNS0_15eigen_converterL21
   call void @llvm.assume(i1 %.not.i.i)
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %.val, i64 744
-  %23 = load i8, ptr %22, align 1, !tbaa !110, !range !191, !noundef !192
+  %23 = load i8, ptr %22, align 8, !tbaa !110, !range !191, !noundef !192
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %30, label %.preheader.i.i.i
 
@@ -44121,7 +44121,7 @@ define internal void @_ZN6open3d4core15ParallelForCPU_IZNS0_15eigen_converterL21
   call void @llvm.assume(i1 %.not.i.i)
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %.val, i64 744
-  %23 = load i8, ptr %22, align 1, !tbaa !110, !range !191, !noundef !192
+  %23 = load i8, ptr %22, align 8, !tbaa !110, !range !191, !noundef !192
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %30, label %.preheader.i.i.i
 
@@ -46994,7 +46994,7 @@ define internal void @_ZN6open3d4core15ParallelForCPU_IZNS0_15eigen_converterL21
   call void @llvm.assume(i1 %.not.i.i)
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %.val, i64 744
-  %23 = load i8, ptr %22, align 1, !tbaa !110, !range !191, !noundef !192
+  %23 = load i8, ptr %22, align 8, !tbaa !110, !range !191, !noundef !192
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %30, label %.preheader.i.i.i
 
@@ -47512,7 +47512,7 @@ define internal void @_ZN6open3d4core15ParallelForCPU_IZNS0_15eigen_converterL21
   call void @llvm.assume(i1 %.not.i.i)
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %.val, i64 744
-  %23 = load i8, ptr %22, align 1, !tbaa !110, !range !191, !noundef !192
+  %23 = load i8, ptr %22, align 8, !tbaa !110, !range !191, !noundef !192
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %30, label %.preheader.i.i.i
 

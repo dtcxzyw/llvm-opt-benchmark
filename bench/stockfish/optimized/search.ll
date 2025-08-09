@@ -3033,7 +3033,7 @@ define linkonce_odr dso_local noundef i32 @_ZN9Stockfish6Search6Worker6searchILN
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 44
   store i32 %59, ptr %60, align 4
   %61 = getelementptr inbounds i8, ptr %2, i64 -36
-  %62 = load i16, ptr %61, align 2
+  %62 = load i16, ptr %61, align 4
   switch i16 %62, label %63 [
     i16 65, label %66
     i16 0, label %66
@@ -5599,7 +5599,7 @@ _ZN9Stockfish12_GLOBAL__N_113value_from_ttEiii.exit.thread269: ; preds = %_ZNK9S
   %207 = load ptr, ptr %206, align 8
   store ptr %207, ptr %205, align 8
   %208 = getelementptr inbounds i8, ptr %2, i64 -36
-  %209 = load i16, ptr %208, align 2
+  %209 = load i16, ptr %208, align 4
   switch i16 %209, label %210 [
     i16 65, label %213
     i16 0, label %213
@@ -6293,7 +6293,7 @@ _ZN9Stockfish12_GLOBAL__N_113value_from_ttEiii.exit: ; preds = %100, %96, %92, %
   %210 = load ptr, ptr %209, align 8
   store ptr %210, ptr %208, align 8
   %211 = getelementptr inbounds i8, ptr %2, i64 -36
-  %212 = load i16, ptr %211, align 2
+  %212 = load i16, ptr %211, align 4
   switch i16 %212, label %213 [
     i16 65, label %216
     i16 0, label %216
@@ -6705,7 +6705,7 @@ define linkonce_odr dso_local noundef i32 @_ZN9Stockfish6Search6Worker6searchILN
   %97 = getelementptr inbounds nuw i8, ptr %2, i64 44
   store i32 %96, ptr %97, align 4
   %98 = getelementptr inbounds i8, ptr %2, i64 -36
-  %99 = load i16, ptr %98, align 2
+  %99 = load i16, ptr %98, align 4
   switch i16 %99, label %100 [
     i16 65, label %103
     i16 0, label %103
@@ -8273,7 +8273,7 @@ _ZN9Stockfish12_GLOBAL__N_129update_continuation_historiesEPNS_6Search5StackENS_
   %1058 = xor i32 %43, 1
   %1059 = zext i32 %1058 to i64
   %1060 = getelementptr inbounds nuw [2 x %"struct.Stockfish::Stats.6"], ptr %621, i64 0, i64 %1059
-  %1061 = load i16, ptr %98, align 2
+  %1061 = load i16, ptr %98, align 4
   %1062 = and i16 %1061, 4095
   %1063 = zext nneg i16 %1062 to i64
   %1064 = getelementptr inbounds nuw [4096 x %"class.Stockfish::StatsEntry.8"], ptr %1060, i64 0, i64 %1063
@@ -8610,7 +8610,7 @@ define linkonce_odr dso_local noundef i32 @_ZN9Stockfish6Search6Worker6searchILN
   %98 = getelementptr inbounds nuw i8, ptr %2, i64 44
   store i32 %97, ptr %98, align 4
   %99 = getelementptr inbounds i8, ptr %2, i64 -36
-  %100 = load i16, ptr %99, align 2
+  %100 = load i16, ptr %99, align 4
   switch i16 %100, label %101 [
     i16 65, label %104
     i16 0, label %104
@@ -9898,7 +9898,7 @@ _ZN9Stockfish12_GLOBAL__N_19update_pvEPNS_4MoveES1_PKS1_.exit: ; preds = %.lr.ph
   %860 = xor i32 %43, 1
   %861 = zext i32 %860 to i64
   %862 = getelementptr inbounds nuw [2 x %"struct.Stockfish::Stats.6"], ptr %428, i64 0, i64 %861
-  %863 = load i16, ptr %99, align 2
+  %863 = load i16, ptr %99, align 4
   %864 = and i16 %863, 4095
   %865 = zext nneg i16 %864 to i64
   %866 = getelementptr inbounds nuw [4096 x %"class.Stockfish::StatsEntry.8"], ptr %862, i64 0, i64 %865

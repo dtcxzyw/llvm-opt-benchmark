@@ -733,7 +733,7 @@ define void @InitCiphers(ptr noundef writeonly captures(none) initializes((264, 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr null, ptr %3, align 16, !tbaa !86
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  store ptr null, ptr %4, align 8, !tbaa !87
+  store ptr null, ptr %4, align 16, !tbaa !87
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store ptr null, ptr %5, align 8, !tbaa !88
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1208
@@ -743,7 +743,7 @@ define void @InitCiphers(ptr noundef writeonly captures(none) initializes((264, 
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 337
   store i8 0, ptr %8, align 1, !tbaa !91
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1216
-  store i8 0, ptr %9, align 8, !tbaa !92
+  store i8 0, ptr %9, align 16, !tbaa !92
   ret void
 }
 
@@ -2446,7 +2446,7 @@ define i32 @SetSSL_CTX(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unn
   %.not126 = icmp eq i8 %.pre131, 3
   %or.cond137 = select i1 %8, i1 %.not126, i1 false
   %.phi.trans.insert134 = getelementptr inbounds nuw i8, ptr %0, i64 1024
-  %.pre135 = load i64, ptr %.phi.trans.insert134, align 8
+  %.pre135 = load i64, ptr %.phi.trans.insert134, align 16
   br i1 %or.cond137, label %._crit_edge133, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %20
@@ -3087,7 +3087,7 @@ define i32 @InitSSL(ptr noundef initializes((0, 1232)) %0, ptr noundef %1, i32 n
   store i8 0, ptr %21, align 16, !tbaa !179
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   store i32 0, ptr %19, align 8
-  store i64 1125899906842624, ptr %22, align 8
+  store i64 1125899906842624, ptr %22, align 16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %13, ptr %23, align 8, !tbaa !180
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -3102,21 +3102,21 @@ define i32 @InitSSL(ptr noundef initializes((0, 1232)) %0, ptr noundef %1, i32 n
   %30 = zext nneg i8 %29 to i64
   %31 = shl nuw nsw i64 %30, 41
   %32 = or disjoint i64 %31, 1125899906842624
-  store i64 %32, ptr %22, align 8
+  store i64 %32, ptr %22, align 16
   %33 = load i8, ptr %27, align 1
   %34 = lshr i8 %33, 1
   %35 = and i8 %34, 1
   %36 = zext nneg i8 %35 to i64
   %37 = shl nuw nsw i64 %36, 46
   %38 = or disjoint i64 %37, %32
-  store i64 %38, ptr %22, align 8
+  store i64 %38, ptr %22, align 16
   %39 = load i8, ptr %27, align 1
   %40 = lshr i8 %39, 3
   %41 = and i8 %40, 1
   %42 = zext nneg i8 %41 to i64
   %43 = shl nuw nsw i64 %42, 47
   %44 = or disjoint i64 %38, %43
-  store i64 %44, ptr %22, align 8
+  store i64 %44, ptr %22, align 16
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 260
   %46 = load i8, ptr %45, align 4, !tbaa !184
   %.not = icmp eq i8 %46, 0
@@ -3156,7 +3156,7 @@ define i32 @InitSSL(ptr noundef initializes((0, 1232)) %0, ptr noundef %1, i32 n
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr null, ptr %70, align 16, !tbaa !86
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  store ptr null, ptr %71, align 8, !tbaa !87
+  store ptr null, ptr %71, align 16, !tbaa !87
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store ptr null, ptr %72, align 8, !tbaa !88
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 1208
@@ -3166,7 +3166,7 @@ define i32 @InitSSL(ptr noundef initializes((0, 1232)) %0, ptr noundef %1, i32 n
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 337
   store i8 0, ptr %75, align 1, !tbaa !91
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 1216
-  store i8 0, ptr %76, align 8, !tbaa !92
+  store i8 0, ptr %76, align 16, !tbaa !92
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 714
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %77, i8 0, i64 16, i1 false)
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 722
@@ -3848,7 +3848,7 @@ define void @FreeKeyExchange(ptr noundef captures(none) %0) local_unnamed_addr #
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 472
   store i32 0, ptr %16, align 8, !tbaa !203
   %17 = and i64 %15, -1099511627777
-  store i64 %17, ptr %10, align 8
+  store i64 %17, ptr %10, align 16
   br label %18
 
 18:                                               ; preds = %6, %14
@@ -4344,7 +4344,7 @@ ForceZero.exit138.thread:                         ; preds = %ForceZero.exit119, 
   store i8 0, ptr %137, align 16, !tbaa !212
   %138 = tail call i32 @wolfSSL_UnloadCertsKeys(ptr noundef nonnull %0) #27
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 1072
-  %140 = load ptr, ptr %139, align 8, !tbaa !196
+  %140 = load ptr, ptr %139, align 16, !tbaa !196
   %.not.i139 = icmp eq ptr %140, null
   br i1 %.not.i139, label %FreeKey.exit, label %141
 
@@ -7835,7 +7835,7 @@ ProcessPeerCertParse.exit:                        ; preds = %255, %261
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 144
   %296 = load ptr, ptr %295, align 8, !tbaa !69
   %297 = call i32 @DoVerifyCallback(ptr noundef %296, ptr noundef nonnull %0, i32 noundef %.14, ptr noundef nonnull %5)
-  %298 = load i64, ptr %13, align 8
+  %298 = load i64, ptr %13, align 16
   %299 = and i64 %298, 128
   %.not274.not = icmp eq i64 %299, 0
   br i1 %.not274.not, label %301, label %300
@@ -8513,7 +8513,7 @@ ProcessPeerCertParse.exit338.thread:              ; preds = %383, %383, %383, %3
   %610 = getelementptr inbounds nuw i8, ptr %609, i64 144
   %611 = load ptr, ptr %610, align 8, !tbaa !69
   %612 = call i32 @DoVerifyCallback(ptr noundef %611, ptr noundef nonnull %0, i32 noundef %spec.select321, ptr noundef nonnull %5)
-  %613 = load i64, ptr %13, align 8
+  %613 = load i64, ptr %13, align 16
   %614 = and i64 %613, 128
   %.not307 = icmp eq i64 %614, 0
   br i1 %.not307, label %617, label %615
@@ -11940,7 +11940,7 @@ AllocateSuites.exit321:                           ; preds = %97, %112, %75, %72
   %290 = load ptr, ptr %160, align 16, !tbaa !333
   %291 = tail call i32 @MatchSuite(ptr noundef nonnull %0, ptr noundef %290)
   %292 = icmp ne i32 %291, 0
-  %.pre380 = load i64, ptr %7, align 8
+  %.pre380 = load i64, ptr %7, align 16
   %293 = and i64 %.pre380, 9007199254740992
   %.not301 = icmp eq i64 %293, 0
   %or.cond = select i1 %292, i1 true, i1 %.not301
@@ -13216,9 +13216,9 @@ IsEncryptionOn.exit.thread:                       ; preds = %.IsEncryptionOn.exi
   %244 = getelementptr inbounds nuw i8, ptr %0, i64 472
   store i32 0, ptr %244, align 8, !tbaa !203
   %245 = getelementptr inbounds nuw i8, ptr %0, i64 1024
-  %246 = load i64, ptr %245, align 8
+  %246 = load i64, ptr %245, align 16
   %247 = and i64 %246, -1099511627777
-  store i64 %247, ptr %245, align 8
+  store i64 %247, ptr %245, align 16
   call void @FreeKeyExchange(ptr noundef nonnull %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.7
@@ -14933,7 +14933,7 @@ ShrinkInputBuffer.exit.i:                         ; preds = %ShrinkInputBuffer.e
   %72 = zext i32 %71 to i64
   %73 = getelementptr inbounds nuw i8, ptr %66, i64 %72
   %74 = load i8, ptr %73, align 1, !tbaa !45
-  store i8 %74, ptr %.phi.trans.insert.i.i, align 1, !tbaa !368
+  store i8 %74, ptr %.phi.trans.insert.i.i, align 2, !tbaa !368
   %75 = add i32 %67, 2
   %76 = zext i32 %75 to i64
   %77 = getelementptr inbounds nuw i8, ptr %66, i64 %76
@@ -14943,7 +14943,7 @@ ShrinkInputBuffer.exit.i:                         ; preds = %ShrinkInputBuffer.e
   %80 = zext i32 %79 to i64
   %81 = getelementptr inbounds nuw i8, ptr %66, i64 %80
   %82 = load i8, ptr %81, align 1, !tbaa !45
-  store i8 %82, ptr %23, align 1, !tbaa !45
+  store i8 %82, ptr %23, align 8, !tbaa !45
   %83 = add i32 %67, 4
   %84 = zext i32 %83 to i64
   %85 = getelementptr inbounds nuw i8, ptr %66, i64 %84
@@ -14955,7 +14955,7 @@ ShrinkInputBuffer.exit.i:                         ; preds = %ShrinkInputBuffer.e
   %89 = shl nuw i16 %88, 8
   %90 = zext i8 %86 to i16
   %91 = or disjoint i16 %89, %90
-  store i16 %91, ptr %19, align 2, !tbaa !97
+  store i16 %91, ptr %19, align 4, !tbaa !97
   br label %92
 
 92:                                               ; preds = %65, %._crit_edge.i.i
@@ -15122,7 +15122,7 @@ IsEncryptionOn.exit400.i:                         ; preds = %158
   %166 = load i16, ptr %19, align 4, !tbaa !234
   %167 = zext i16 %166 to i32
   %168 = icmp ult i16 %166, 16641
-  %169 = load i16, ptr %31, align 2, !tbaa !355
+  %169 = load i16, ptr %31, align 4, !tbaa !355
   %170 = zext i16 %169 to i32
   %171 = sub nsw i32 %167, %170
   %172 = icmp slt i32 %171, 16386
@@ -15378,7 +15378,7 @@ SanityCheckCipherText.exit.i:                     ; preds = %262
   %286 = getelementptr inbounds nuw i8, ptr %284, i64 %285
   %287 = load i8, ptr %286, align 1, !tbaa !45
   %288 = zext i8 %287 to i32
-  store i32 %288, ptr %32, align 4, !tbaa !232
+  store i32 %288, ptr %32, align 8, !tbaa !232
   %.not653.i = icmp eq i32 %283, 0
   br i1 %.not653.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
@@ -16832,7 +16832,7 @@ IsEncryptionOn.exit46.thread:                     ; preds = %AddRecordHeader.exi
   %86 = add i32 %85, %.133
   store i32 %86, ptr %11, align 16, !tbaa !226
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 1024
-  %88 = load i64, ptr %87, align 8
+  %88 = load i64, ptr %87, align 16
   %89 = and i64 %88, 65536
   %.not40 = icmp eq i64 %89, 0
   br i1 %.not40, label %90, label %98
@@ -17726,7 +17726,7 @@ writeAeadAuthData.exit.i:                         ; preds = %60, %53, %41
   %93 = load ptr, ptr %92, align 8, !tbaa !85
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %95 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %96 = load i16, ptr %44, align 2, !tbaa !355
+  %96 = load i16, ptr %44, align 8, !tbaa !355
   %97 = zext i16 %96 to i32
   %98 = sub nsw i32 %43, %97
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -17912,7 +17912,7 @@ GrowOutputBuffer.exit.i:                          ; preds = %38, %35, %32
   store i32 %20, ptr %8, align 8, !tbaa !174
   %.pre44 = load i32, ptr %12, align 4, !tbaa !227
   %.pre45 = load i32, ptr %10, align 16, !tbaa !226
-  %.pre46 = load i64, ptr %3, align 8
+  %.pre46 = load i64, ptr %3, align 16
   br label %46
 
 46:                                               ; preds = %._crit_edge, %GrowOutputBuffer.exit.i
@@ -18470,7 +18470,7 @@ GrowOutputBuffer.exit.i:                          ; preds = %120, %118, %116
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 %131
   %133 = load i32, ptr %25, align 16, !tbaa !406
   %134 = icmp eq i32 %133, 0
-  %135 = load i64, ptr %2, align 8
+  %135 = load i64, ptr %2, align 16
   %136 = and i64 %135, 131072
   br i1 %134, label %137, label %204
 
@@ -18774,7 +18774,7 @@ IsEncryptionOn.exit272.thread:                    ; preds = %258, %IsEncryptionO
   %278 = load i32, ptr %41, align 16, !tbaa !226
   %279 = add i32 %278, %.4182
   store i32 %279, ptr %41, align 16, !tbaa !226
-  %280 = load i64, ptr %2, align 8
+  %280 = load i64, ptr %2, align 16
   %281 = and i64 %280, 137438953472
   %.not243 = icmp eq i64 %281, 0
   br i1 %.not243, label %282, label %CheckAvailableSize.exit
@@ -18799,7 +18799,7 @@ CheckAvailableSize.exit:                          ; preds = %IsEncryptionOn.exit
   %287 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   store i8 0, ptr %287, align 8, !tbaa !387
   store i32 0, ptr %25, align 16, !tbaa !406
-  %288 = load i64, ptr %2, align 8
+  %288 = load i64, ptr %2, align 16
   %289 = and i64 %288, 48
   %290 = icmp eq i64 %289, 0
   br i1 %290, label %291, label %CheckAvailableSize.exit.thread302
@@ -19185,7 +19185,7 @@ HashOutput.exit:                                  ; preds = %IsEncryptionOn.exit
   %195 = load i32, ptr %63, align 16, !tbaa !226
   %196 = add i32 %195, %.3
   store i32 %196, ptr %63, align 16, !tbaa !226
-  %197 = load i64, ptr %21, align 8
+  %197 = load i64, ptr %21, align 16
   %198 = and i64 %197, 137438953472
   %.not112 = icmp eq i64 %198, 0
   br i1 %.not112, label %199, label %201
@@ -23027,7 +23027,7 @@ define noundef i32 @SendClientKeyExchange(ptr noundef %0) local_unnamed_addr #4 
   %165 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %167 = load ptr, ptr %166, align 16, !tbaa !301
-  %168 = load i32, ptr %165, align 4, !tbaa !49
+  %168 = load i32, ptr %165, align 8, !tbaa !49
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %170 = load ptr, ptr %169, align 8, !tbaa !116
   %171 = tail call i32 @wc_RsaPublicEncrypt(ptr noundef %162, i32 noundef 48, ptr noundef %164, i32 noundef %168, ptr noundef %167, ptr noundef %170) #27
@@ -23477,7 +23477,7 @@ HashOutput.exit._crit_edge:                       ; preds = %HashOutput.exit
   %403 = add i32 %402, %400
   store i32 %403, ptr %401, align 16, !tbaa !226
   %404 = getelementptr inbounds nuw i8, ptr %0, i64 1024
-  %405 = load i64, ptr %404, align 8
+  %405 = load i64, ptr %404, align 16
   %406 = and i64 %405, 137438953472
   %.not278 = icmp eq i64 %406, 0
   br i1 %.not278, label %407, label %.thread343
@@ -24308,9 +24308,9 @@ AddHeaders.exit:                                  ; preds = %294, %314
   %348 = getelementptr inbounds nuw i8, ptr %0, i64 472
   store i32 0, ptr %348, align 8, !tbaa !203
   %349 = getelementptr inbounds nuw i8, ptr %0, i64 1024
-  %350 = load i64, ptr %349, align 8
+  %350 = load i64, ptr %349, align 16
   %351 = and i64 %350, -1099511627777
-  store i64 %351, ptr %349, align 8
+  store i64 %351, ptr %349, align 16
   %352 = load ptr, ptr %2, align 8, !tbaa !197
   %.not.i213 = icmp eq ptr %352, null
   br i1 %.not.i213, label %FreeAsyncCtx.exit, label %353
@@ -24612,7 +24612,7 @@ AddRecordHeader.exit:                             ; preds = %IsEncryptionOn.exit
   %133 = load i32, ptr %23, align 16, !tbaa !406
   %134 = add i32 %133, %spec.select
   store i32 %134, ptr %23, align 16, !tbaa !406
-  %135 = load i64, ptr %37, align 8
+  %135 = load i64, ptr %37, align 16
   %136 = and i64 %135, 137438953472
   %.not103 = icmp eq i64 %136, 0
   br i1 %.not103, label %137, label %139
@@ -25140,7 +25140,7 @@ HashOutput.exit:                                  ; preds = %IsEncryptionOn.exit
   %216 = load i32, ptr %22, align 16, !tbaa !226
   %217 = add i32 %216, %.2146
   store i32 %217, ptr %22, align 16, !tbaa !226
-  %218 = load i64, ptr %4, align 8
+  %218 = load i64, ptr %4, align 16
   %219 = and i64 %218, 137438953472
   %.not170 = icmp eq i64 %219, 0
   br i1 %.not170, label %220, label %CheckAvailableSize.exit
@@ -25914,7 +25914,7 @@ IsEncryptionOn.exit496.thread:                    ; preds = %332, %338, %IsEncry
   %403 = load i32, ptr %287, align 8, !tbaa !449
   %404 = add i32 %403, %402
   store i32 %404, ptr %287, align 8, !tbaa !449
-  %405 = load i64, ptr %301, align 8
+  %405 = load i64, ptr %301, align 16
   %406 = and i64 %405, 8589934592
   %.not455 = icmp eq i64 %406, 0
   br i1 %.not455, label %407, label %HashAlgoToType.exit.thread557
@@ -26290,7 +26290,7 @@ HashAlgoToType.exit.thread557:                    ; preds = %345, %450, %455, %4
   %615 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %616 = load ptr, ptr %615, align 16, !tbaa !341
   %617 = getelementptr inbounds nuw i8, ptr %0, i64 1024
-  %618 = load i64, ptr %617, align 8
+  %618 = load i64, ptr %617, align 16
   %619 = and i64 %618, 8589934592
   %.not476 = icmp eq i64 %619, 0
   br i1 %.not476, label %620, label %.thread573
@@ -26580,7 +26580,7 @@ define internal fastcc i32 @HashSkeData(ptr noundef captures(none) %0, i32 nound
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 472
   store i32 %5, ptr %27, align 8, !tbaa !203
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 1024
-  %29 = load i64, ptr %28, align 8
+  %29 = load i64, ptr %28, align 16
   %30 = and i64 %29, 1099511627776
   %.not = icmp eq i64 %30, 0
   br i1 %.not, label %31, label %34
@@ -27837,7 +27837,7 @@ writeAeadAuthData.exit.i:                         ; preds = %54, %47, %35
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %90 = load ptr, ptr %89, align 16, !tbaa !481
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 976
-  %92 = load i32, ptr %91, align 4
+  %92 = load i32, ptr %91, align 16
   store i32 %92, ptr %90, align 1
   %93 = load ptr, ptr %89, align 16, !tbaa !481
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
@@ -27846,7 +27846,7 @@ writeAeadAuthData.exit.i:                         ; preds = %54, %47, %35
   %96 = load ptr, ptr %88, align 16, !tbaa !86
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %98 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %99 = load i16, ptr %38, align 2, !tbaa !355
+  %99 = load i16, ptr %38, align 16, !tbaa !355
   %100 = zext i16 %99 to i32
   %101 = sub nsw i32 %37, %100
   %102 = load ptr, ptr %89, align 16, !tbaa !481

@@ -168,7 +168,7 @@ define ptr @SSL_SESSION_new() local_unnamed_addr #2 {
   %.sroa.03.0.i.i = tail call i64 @llvm.uadd.sat.i64(i64 %10, i64 304000000000)
   store i64 %.sroa.03.0.i.i, ptr %11, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 920
-  store atomic i32 1, ptr %12 seq_cst, align 4, !tbaa !76
+  store atomic i32 1, ptr %12 seq_cst, align 8, !tbaa !76
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 784
   %14 = tail call i32 @CRYPTO_new_ex_data(i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %13) #11
   %.not16 = icmp eq i32 %14, 0
@@ -226,7 +226,7 @@ define internal fastcc ptr @ssl_session_dup_intern(ptr noundef %0, i32 noundef %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
-  store atomic i32 1, ptr %18 seq_cst, align 4, !tbaa !76
+  store atomic i32 1, ptr %18 seq_cst, align 8, !tbaa !76
   %19 = tail call i32 @CRYPTO_new_ex_data(i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %16) #11
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %.sink.split, label %20
@@ -656,7 +656,7 @@ define range(i32 0, 2) i32 @ssl_get_new_session(ptr noundef %0, i32 noundef %1) 
   %.sroa.03.0.i.i.i = tail call i64 @llvm.uadd.sat.i64(i64 %12, i64 304000000000)
   store i64 %.sroa.03.0.i.i.i, ptr %13, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 920
-  store atomic i32 1, ptr %14 seq_cst, align 4, !tbaa !76
+  store atomic i32 1, ptr %14 seq_cst, align 8, !tbaa !76
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 784
   %16 = tail call i32 @CRYPTO_new_ex_data(i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %15) #11
   %.not16.i = icmp eq i32 %16, 0

@@ -2838,7 +2838,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3sys7unicode21MatchForCodepointNameELb0EE9p
   store i64 %38, ptr %39, align 8, !tbaa !32
   store ptr %29, ptr %.016.i.i.i, align 8, !tbaa !34
   store i64 0, ptr %37, align 8, !tbaa !32
-  store i8 0, ptr %29, align 1, !tbaa !11
+  store i8 0, ptr %29, align 8, !tbaa !11
   %40 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %41 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 32
   %42 = load i64, ptr %41, align 8
@@ -2920,7 +2920,7 @@ _ZN4llvm3sys7unicode21MatchForCodepointNameC2EOS2_.exit: ; preds = %74, %_ZNKSt7
   store i64 %80, ptr %82, align 8, !tbaa !32
   store ptr %72, ptr %69, align 8, !tbaa !34
   store i64 0, ptr %81, align 8, !tbaa !32
-  store i8 0, ptr %72, align 1, !tbaa !11
+  store i8 0, ptr %72, align 8, !tbaa !11
   %83 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %84 = getelementptr inbounds i8, ptr %68, i64 -8
   %85 = load i64, ptr %84, align 8
@@ -3207,7 +3207,7 @@ _ZSt10_ConstructIN4llvm3sys7unicode21MatchForCodepointNameEJS3_EEvPT_DpOT0_.exit
   store i64 %22, ptr %23, align 8, !tbaa !32
   store ptr %13, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !34
   store i64 0, ptr %21, align 8, !tbaa !32
-  store i8 0, ptr %13, align 1, !tbaa !11
+  store i8 0, ptr %13, align 8, !tbaa !11
   %24 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 32
   %26 = load i64, ptr %25, align 8

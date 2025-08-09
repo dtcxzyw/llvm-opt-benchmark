@@ -462,7 +462,7 @@ define internal void @gen6_alloc_va_range(ptr noundef %0, ptr noundef captures(n
   %51 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %52 = load ptr, ptr %51, align 8
   store ptr %52, ptr %1, align 8
-  store volatile i32 0, ptr %51, align 4
+  store volatile i32 0, ptr %51, align 8
   %53 = load ptr, ptr %11, align 8
   %54 = getelementptr ptr, ptr %53, i64 %15
   store ptr %37, ptr %54, align 8

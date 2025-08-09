@@ -1687,7 +1687,7 @@ get_ue_golomb.exit288.i:                          ; preds = %396, %386
   %513 = load i8, ptr %512, align 1, !tbaa !136
   %514 = zext i8 %513 to i32
   %515 = getelementptr inbounds nuw i8, ptr %13, i64 72
-  store i32 %514, ptr %515, align 4, !tbaa !164
+  store i32 %514, ptr %515, align 8, !tbaa !164
   %516 = load i32, ptr %126, align 4, !tbaa !169
   %517 = icmp eq i32 %516, 6
   br i1 %517, label %.thread301.i, label %522
@@ -2588,7 +2588,7 @@ h264_init_ps.exit.i:                              ; preds = %937, %910
   %982 = getelementptr inbounds nuw i8, ptr %.0110, i64 35556
   %983 = load i32, ptr %982, align 4, !tbaa !164
   %984 = getelementptr inbounds nuw i8, ptr %0, i64 734824
-  store i32 %983, ptr %984, align 4, !tbaa !164
+  store i32 %983, ptr %984, align 8, !tbaa !164
   %985 = load i32, ptr %129, align 8, !tbaa !171
   %986 = icmp eq i32 %985, 5
   br i1 %986, label %987, label %990
@@ -6629,7 +6629,7 @@ backup_mb_border.exit:                            ; preds = %305, %326, %351, %3
   %547 = load i32, ptr %546, align 4, !tbaa !164
   %548 = trunc i32 %547 to i8
   store i8 %548, ptr %57, align 1, !tbaa !136
-  store i8 %548, ptr %58, align 1, !tbaa !136
+  store i8 %548, ptr %58, align 4, !tbaa !136
   %549 = load ptr, ptr %56, align 8, !tbaa !159
   %550 = getelementptr i8, ptr %549, i64 %541
   %551 = getelementptr i8, ptr %550, i64 3
@@ -6639,7 +6639,7 @@ backup_mb_border.exit:                            ; preds = %305, %326, %351, %3
   %555 = load i32, ptr %554, align 4, !tbaa !164
   %556 = trunc i32 %555 to i8
   store i8 %556, ptr %59, align 1, !tbaa !136
-  store i8 %556, ptr %60, align 1, !tbaa !136
+  store i8 %556, ptr %60, align 2, !tbaa !136
   br label %558
 
 557:                                              ; preds = %517
@@ -6810,14 +6810,14 @@ backup_mb_border.exit:                            ; preds = %305, %326, %351, %3
   %665 = sext i32 %reass.mul.i to i64
   %666 = getelementptr inbounds [2 x i16], ptr %661, i64 %665
   %667 = load i64, ptr %666, align 8, !tbaa !136
-  store i64 %667, ptr %49, align 8, !tbaa !136
+  store i64 %667, ptr %49, align 16, !tbaa !136
   %668 = getelementptr inbounds nuw i8, ptr %666, i64 8
   %669 = load i64, ptr %668, align 8, !tbaa !136
   store i64 %669, ptr %72, align 8, !tbaa !136
   %670 = sext i32 %515 to i64
   %671 = getelementptr inbounds [2 x i16], ptr %666, i64 %670
   %672 = load i64, ptr %671, align 8, !tbaa !136
-  store i64 %672, ptr %73, align 8, !tbaa !136
+  store i64 %672, ptr %73, align 16, !tbaa !136
   %673 = getelementptr inbounds nuw i8, ptr %671, i64 8
   %674 = load i64, ptr %673, align 8, !tbaa !136
   store i64 %674, ptr %74, align 8, !tbaa !136
@@ -6825,7 +6825,7 @@ backup_mb_border.exit:                            ; preds = %305, %326, %351, %3
   %676 = sext i32 %675 to i64
   %677 = getelementptr inbounds [2 x i16], ptr %666, i64 %676
   %678 = load i64, ptr %677, align 8, !tbaa !136
-  store i64 %678, ptr %75, align 8, !tbaa !136
+  store i64 %678, ptr %75, align 16, !tbaa !136
   %679 = getelementptr inbounds nuw i8, ptr %677, i64 8
   %680 = load i64, ptr %679, align 8, !tbaa !136
   store i64 %680, ptr %76, align 8, !tbaa !136
@@ -6833,7 +6833,7 @@ backup_mb_border.exit:                            ; preds = %305, %326, %351, %3
   %682 = sext i32 %681 to i64
   %683 = getelementptr inbounds [2 x i16], ptr %666, i64 %682
   %684 = load i64, ptr %683, align 8, !tbaa !136
-  store i64 %684, ptr %77, align 8, !tbaa !136
+  store i64 %684, ptr %77, align 16, !tbaa !136
   %685 = getelementptr inbounds nuw i8, ptr %683, i64 8
   %686 = load i64, ptr %685, align 8, !tbaa !136
   store i64 %686, ptr %78, align 8, !tbaa !136
@@ -6892,7 +6892,7 @@ fill_filter_caches_inter.exit.i:                  ; preds = %622, %621
   %726 = load i32, ptr %725, align 4, !tbaa !164
   %727 = trunc i32 %726 to i8
   store i8 %727, ptr %86, align 1, !tbaa !136
-  store i8 %727, ptr %87, align 1, !tbaa !136
+  store i8 %727, ptr %87, align 4, !tbaa !136
   %728 = load ptr, ptr %85, align 8, !tbaa !159
   %729 = getelementptr i8, ptr %728, i64 %720
   %730 = getelementptr i8, ptr %729, i64 3
@@ -6902,7 +6902,7 @@ fill_filter_caches_inter.exit.i:                  ; preds = %622, %621
   %734 = load i32, ptr %733, align 4, !tbaa !164
   %735 = trunc i32 %734 to i8
   store i8 %735, ptr %88, align 1, !tbaa !136
-  store i8 %735, ptr %89, align 1, !tbaa !136
+  store i8 %735, ptr %89, align 2, !tbaa !136
   br label %737
 
 736:                                              ; preds = %691
@@ -7077,14 +7077,14 @@ fill_filter_caches_inter.exit.i:                  ; preds = %622, %621
   %848 = sext i32 %reass.mul220.i to i64
   %849 = getelementptr inbounds [2 x i16], ptr %844, i64 %848
   %850 = load i64, ptr %849, align 8, !tbaa !136
-  store i64 %850, ptr %80, align 8, !tbaa !136
+  store i64 %850, ptr %80, align 16, !tbaa !136
   %851 = getelementptr inbounds nuw i8, ptr %849, i64 8
   %852 = load i64, ptr %851, align 8, !tbaa !136
   store i64 %852, ptr %101, align 8, !tbaa !136
   %853 = sext i32 %690 to i64
   %854 = getelementptr inbounds [2 x i16], ptr %849, i64 %853
   %855 = load i64, ptr %854, align 8, !tbaa !136
-  store i64 %855, ptr %102, align 8, !tbaa !136
+  store i64 %855, ptr %102, align 16, !tbaa !136
   %856 = getelementptr inbounds nuw i8, ptr %854, i64 8
   %857 = load i64, ptr %856, align 8, !tbaa !136
   store i64 %857, ptr %103, align 8, !tbaa !136
@@ -7092,7 +7092,7 @@ fill_filter_caches_inter.exit.i:                  ; preds = %622, %621
   %859 = sext i32 %858 to i64
   %860 = getelementptr inbounds [2 x i16], ptr %849, i64 %859
   %861 = load i64, ptr %860, align 8, !tbaa !136
-  store i64 %861, ptr %104, align 8, !tbaa !136
+  store i64 %861, ptr %104, align 16, !tbaa !136
   %862 = getelementptr inbounds nuw i8, ptr %860, i64 8
   %863 = load i64, ptr %862, align 8, !tbaa !136
   store i64 %863, ptr %105, align 8, !tbaa !136
@@ -7100,7 +7100,7 @@ fill_filter_caches_inter.exit.i:                  ; preds = %622, %621
   %865 = sext i32 %864 to i64
   %866 = getelementptr inbounds [2 x i16], ptr %849, i64 %865
   %867 = load i64, ptr %866, align 8, !tbaa !136
-  store i64 %867, ptr %106, align 8, !tbaa !136
+  store i64 %867, ptr %106, align 16, !tbaa !136
   %868 = getelementptr inbounds nuw i8, ptr %866, i64 8
   %869 = load i64, ptr %868, align 8, !tbaa !136
   store i64 %869, ptr %107, align 8, !tbaa !136
@@ -7323,7 +7323,7 @@ fill_filter_caches.exit:                          ; preds = %477, %474, %463, %9
   %982 = load i8, ptr %981, align 1, !tbaa !136
   %983 = zext i8 %982 to i32
   %984 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i32 %983, ptr %984, align 4, !tbaa !164
+  store i32 %983, ptr %984, align 8, !tbaa !164
   br label %985
 
 985:                                              ; preds = %4, %.loopexit

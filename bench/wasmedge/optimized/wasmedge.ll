@@ -2035,29 +2035,29 @@ define noundef nonnull ptr @WasmEdge_ConfigureCreate() local_unnamed_addr #1 per
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  store i8 3, ptr %9, align 1
+  store i8 3, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 129
   store i8 1, ptr %10, align 1
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 130
-  store i8 0, ptr %11, align 1
+  store i8 0, ptr %11, align 2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 131
   store i8 0, ptr %12, align 1
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  store i8 0, ptr %13, align 1
+  store i8 0, ptr %13, align 4
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  store i32 65536, ptr %14, align 4
+  store i32 65536, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 140
-  store i8 0, ptr %15, align 1
+  store i8 0, ptr %15, align 4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 141
   store i8 0, ptr %16, align 1
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 142
-  store i8 0, ptr %17, align 1
+  store i8 0, ptr %17, align 2
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  store i8 0, ptr %18, align 1
+  store i8 0, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 145
   store i8 0, ptr %19, align 1
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 146
-  store i8 0, ptr %20, align 1
+  store i8 0, ptr %20, align 2
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 152
   store i64 -1, ptr %21, align 8
   store i64 127, ptr %2, align 8
@@ -7074,7 +7074,7 @@ define noundef nonnull ptr @WasmEdge_ExecutorCreate(ptr noundef %0, ptr noundef 
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 96
   tail call void @_ZN8WasmEdge9ConfigureC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(160) %13, ptr noundef nonnull align 8 dereferenceable(160) %0) #38
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 264
-  store i32 0, ptr %14, align 4
+  store i32 0, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 272
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %15, i8 0, i64 136, i1 false)
@@ -7195,7 +7195,7 @@ define noundef nonnull ptr @WasmEdge_ExecutorCreate(ptr noundef %0, ptr noundef 
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 96
   call void @_ZN8WasmEdge9ConfigureC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(160) %74, ptr noundef nonnull align 8 dereferenceable(160) %3) #38
   %75 = getelementptr inbounds nuw i8, ptr %5, i64 264
-  store i32 0, ptr %75, align 4
+  store i32 0, ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %5, i64 272
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %76, i8 0, i64 136, i1 false)
   %77 = load atomic i8, ptr %64 monotonic, align 8
@@ -7311,7 +7311,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
   %128 = getelementptr inbounds nuw i8, ptr %5, i64 96
   call void @_ZN8WasmEdge9ConfigureC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(160) %128, ptr noundef nonnull align 8 dereferenceable(160) %4) #38
   %129 = getelementptr inbounds nuw i8, ptr %5, i64 264
-  store i32 0, ptr %129, align 4
+  store i32 0, ptr %129, align 8
   %130 = getelementptr inbounds nuw i8, ptr %5, i64 272
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %130, i8 0, i64 136, i1 false)
   %131 = load atomic i8, ptr %118 monotonic, align 8
@@ -11293,9 +11293,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i: ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 120
   store i8 1, ptr %18, align 8, !noalias !160
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 136
-  store i8 0, ptr %19, align 4, !noalias !160
+  store i8 0, ptr %19, align 8, !noalias !160
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 144
-  store i8 0, ptr %20, align 4, !noalias !160
+  store i8 0, ptr %20, align 8, !noalias !160
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #38, !noalias !160
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 152
   store i64 %3, ptr %21, align 8, !noalias !160
@@ -11377,9 +11377,9 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i: ; preds = %.noexc
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 120
   store i8 1, ptr %19, align 8, !noalias !163
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 136
-  store i8 0, ptr %20, align 4, !noalias !163
+  store i8 0, ptr %20, align 8, !noalias !163
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 144
-  store i8 0, ptr %21, align 4, !noalias !163
+  store i8 0, ptr %21, align 8, !noalias !163
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #38, !noalias !163
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 152
   store i64 %4, ptr %22, align 8, !noalias !163
@@ -11560,7 +11560,7 @@ _ZN8WasmEdge7Runtime8Instance13TableInstanceC2ERKNS_3AST9TableTypeE.exit: ; pred
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %.0.lcssa.i.i.i.i.i.i.i, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  store i64 %16, ptr %27, align 4
+  store i64 %16, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store i64 0, ptr %28, align 8
   br label %29
@@ -13256,7 +13256,7 @@ _ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit.i.i
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(28) %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load atomic i32, ptr %8 acquire, align 4
+  %9 = load atomic i32, ptr %8 acquire, align 8
   %10 = and i32 %9, 2147483647
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %_ZNK8WasmEdge5AsyncIN5cxx208expectedISt6vectorISt4pairINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEENS_7ValTypeEESaISK_EENS_7ErrCodeEEEE4waitEv.exit, label %.preheader.i.i.i
@@ -60297,7 +60297,7 @@ _ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit: ; 
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(28) %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load atomic i32, ptr %8 acquire, align 4
+  %9 = load atomic i32, ptr %8 acquire, align 8
   %10 = and i32 %9, 2147483647
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %.preheader.i

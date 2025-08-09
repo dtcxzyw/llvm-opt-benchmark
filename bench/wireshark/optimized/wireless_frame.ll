@@ -522,11 +522,11 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i57:    ; preds = %103
   %116 = getelementptr inbounds nuw i8, ptr %112, i64 20
   store i32 1507328, ptr %116, align 4
   %117 = getelementptr inbounds nuw i8, ptr %112, i64 24
-  store i32 0, ptr %117, align 4
+  store i32 0, ptr %117, align 8
   %118 = getelementptr inbounds nuw i8, ptr %112, i64 28
   store i32 0, ptr %118, align 4
   %119 = getelementptr inbounds nuw i8, ptr %112, i64 32
-  store i32 -1, ptr %119, align 4
+  store i32 -1, ptr %119, align 8
   %120 = getelementptr inbounds nuw i8, ptr %112, i64 36
   store i32 -1, ptr %120, align 4
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -718,11 +718,11 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i87:    ; preds = %177
   %188 = getelementptr inbounds nuw i8, ptr %184, i64 20
   store i32 1507328, ptr %188, align 4
   %189 = getelementptr inbounds nuw i8, ptr %184, i64 24
-  store i32 0, ptr %189, align 4
+  store i32 0, ptr %189, align 8
   %190 = getelementptr inbounds nuw i8, ptr %184, i64 28
   store i32 0, ptr %190, align 4
   %191 = getelementptr inbounds nuw i8, ptr %184, i64 32
-  store i32 -1, ptr %191, align 4
+  store i32 -1, ptr %191, align 8
   %192 = getelementptr inbounds nuw i8, ptr %184, i64 36
   store i32 -1, ptr %192, align 4
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1047,11 +1047,11 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i137:   ; preds = %277
   %294 = getelementptr inbounds nuw i8, ptr %290, i64 20
   store i32 1507328, ptr %294, align 4
   %295 = getelementptr inbounds nuw i8, ptr %290, i64 24
-  store i32 0, ptr %295, align 4
+  store i32 0, ptr %295, align 8
   %296 = getelementptr inbounds nuw i8, ptr %290, i64 28
   store i32 0, ptr %296, align 4
   %297 = getelementptr inbounds nuw i8, ptr %290, i64 32
-  store i32 -1, ptr %297, align 4
+  store i32 -1, ptr %297, align 8
   %298 = getelementptr inbounds nuw i8, ptr %290, i64 36
   store i32 -1, ptr %298, align 4
   %299 = getelementptr inbounds nuw i8, ptr %0, i64 144

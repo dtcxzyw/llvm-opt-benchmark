@@ -10277,7 +10277,7 @@ define hidden void @_ZN18VM_RedefineClasses34rewrite_cp_refs_in_stack_map_tableE
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %.0.i.i.i = load i16, ptr %10, align 1
+  %.0.i.i.i = load i16, ptr %10, align 4
   %11 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i)
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 6
   store ptr %12, ptr %3, align 8

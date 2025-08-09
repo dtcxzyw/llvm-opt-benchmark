@@ -3335,7 +3335,7 @@ define internal void @_ZL13cq_init_pluckPvP29grpc_completion_queue_functor(ptr n
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 0, ptr %4, align 8, !tbaa !83
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i8 0, ptr %5, align 1, !tbaa !147
+  store i8 0, ptr %5, align 8, !tbaa !147
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 65
   store i8 0, ptr %6, align 1, !tbaa !149
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 68

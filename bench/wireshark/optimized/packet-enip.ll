@@ -4739,7 +4739,7 @@ enip_calculate_timing_information.exit:           ; preds = %204, %.sink.split.i
   store i32 1, ptr %232, align 8
   %233 = call zeroext i16 @tvb_get_letohs(ptr noundef %2, i32 noundef %.3196)
   %234 = getelementptr inbounds nuw i8, ptr %.0187214, i64 32
-  store i16 %233, ptr %234, align 4
+  store i16 %233, ptr %234, align 8
   %235 = call fastcc ptr @enip_match_request(ptr noundef %3, ptr noundef %4, ptr noundef nonnull %.0187214)
   br label %236
 

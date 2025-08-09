@@ -3102,7 +3102,7 @@ _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyImSt10unique_ptrIvPFvPv
   tail call void @llvm.assume(i1 %59)
   %60 = trunc i64 %5 to i16
   %61 = getelementptr inbounds nuw i8, ptr %41, i64 12
-  store i16 %60, ptr %61, align 1
+  store i16 %60, ptr %61, align 2
   store ptr %41, ptr %19, align 8, !tbaa !63
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %63 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %4, i1 true)

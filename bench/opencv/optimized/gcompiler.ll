@@ -20027,7 +20027,7 @@ _ZNSt10_HashtableIN2cv6GShapeESt4pairIKS1_iESaIS4_ENSt8__detail10_Select1stESt8e
   store ptr null, ptr %22, align 8, !tbaa !73
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %26 = load i64, ptr %24, align 4
-  store i64 %26, ptr %25, align 4
+  store i64 %26, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %29 = load i64, ptr %28, align 8, !tbaa !89
@@ -20054,7 +20054,7 @@ _ZNSt10_HashtableIN2cv6GShapeESt4pairIKS1_iESaIS4_ENSt8__detail10_Select1stESt8e
   store ptr null, ptr %35, align 8, !tbaa !73
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %39 = load i64, ptr %37, align 4
-  store i64 %39, ptr %38, align 4
+  store i64 %39, ptr %38, align 8
   store ptr %35, ptr %.02636, align 8, !tbaa !73
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %41 = getelementptr inbounds nuw i8, ptr %.02837, i64 16
@@ -30147,7 +30147,7 @@ _ZN3ade6detail15PassConceptImplINS_6passes11PassContextENS_15ExecutionEngine11Pa
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %50 = load i8, ptr %49, align 8, !tbaa !724
-  store i8 %50, ptr %48, align 1, !tbaa !724
+  store i8 %50, ptr %48, align 8, !tbaa !724
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !642
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 16

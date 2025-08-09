@@ -37145,15 +37145,15 @@ define hidden { i64, ptr } @"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$G
           cleanup
   store ptr %15, ptr %17, align 8, !noalias !7209
   store ptr %16, ptr %25, align 8, !noalias !7209
-  store atomic i8 0, ptr %18 seq_cst, align 1, !noalias !7212
+  store atomic i8 0, ptr %18 seq_cst, align 8, !noalias !7212
   resume { ptr, i32 } %32
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc1c4b0a67eae7072E.exit.i": ; preds = %24, %22
   store ptr %15, ptr %17, align 8, !noalias !7209
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %16, ptr %33, align 8, !noalias !7209
-  store atomic i8 0, ptr %18 seq_cst, align 1, !noalias !7217
-  %34 = load atomic i8, ptr %5 seq_cst, align 1, !noalias !7209
+  store atomic i8 0, ptr %18 seq_cst, align 8, !noalias !7217
+  %34 = load atomic i8, ptr %5 seq_cst, align 8, !noalias !7209
   %35 = icmp eq i8 %34, 0
   br i1 %35, label %"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17h767c54f752a043bcE.llvm.10208777430531080582.exit", label %36
 
@@ -37169,7 +37169,7 @@ define hidden { i64, ptr } @"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$G
   %42 = load ptr, ptr %41, align 8, !noalias !7209
   store i64 0, ptr %4, align 8, !noalias !7209
   %trunc.i = trunc nuw i64 %40 to i1
-  store atomic i8 0, ptr %37 seq_cst, align 1, !noalias !7209
+  store atomic i8 0, ptr %37 seq_cst, align 8, !noalias !7209
   %..i = select i1 %trunc.i, ptr %42, ptr undef
   %not.trunc.i = xor i64 %40, 1
   br label %"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17h767c54f752a043bcE.llvm.10208777430531080582.exit"
@@ -37233,8 +37233,8 @@ define hidden void @"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$GT$$u20$a
   store ptr %16, ptr %18, align 8, !noalias !7227
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %17, ptr %32, align 8, !noalias !7227
-  store atomic i8 0, ptr %19 seq_cst, align 1, !noalias !7228
-  %33 = load atomic i8, ptr %6 seq_cst, align 1, !noalias !7227
+  store atomic i8 0, ptr %19 seq_cst, align 8, !noalias !7228
+  %33 = load atomic i8, ptr %6 seq_cst, align 8, !noalias !7227
   %34 = icmp eq i8 %33, 0
   br i1 %34, label %40, label %37
 
@@ -37243,7 +37243,7 @@ define hidden void @"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$GT$$u20$a
           cleanup
   store ptr %16, ptr %18, align 8, !noalias !7227
   store ptr %17, ptr %26, align 8, !noalias !7227
-  store atomic i8 0, ptr %19 seq_cst, align 1, !noalias !7233
+  store atomic i8 0, ptr %19 seq_cst, align 8, !noalias !7233
   resume { ptr, i32 } %36
 
 37:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc1c4b0a67eae7072E.exit.i", %29, %3
@@ -37330,8 +37330,8 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN92_$LT$futures_channel..oneshot..Re
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc1c4b0a67eae7072E.exit.i": ; preds = %24, %21
   store ptr %15, ptr %4, align 8, !noalias !7248
   store ptr %16, ptr %22, align 8, !noalias !7248
-  store atomic i8 0, ptr %17 seq_cst, align 1, !noalias !7251
-  %30 = load atomic i8, ptr %5 seq_cst, align 1, !noalias !7248
+  store atomic i8 0, ptr %17 seq_cst, align 8, !noalias !7251
+  %30 = load atomic i8, ptr %5 seq_cst, align 2, !noalias !7248
   %31 = icmp eq i8 %30, 0
   br i1 %31, label %"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17hb0fd440c2ca49bafE.llvm.10208777430531080582.exit", label %34
 
@@ -37340,7 +37340,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN92_$LT$futures_channel..oneshot..Re
           cleanup
   store ptr %15, ptr %4, align 8, !noalias !7248
   store ptr %16, ptr %22, align 8, !noalias !7248
-  store atomic i8 0, ptr %17 seq_cst, align 1, !noalias !7256
+  store atomic i8 0, ptr %17 seq_cst, align 8, !noalias !7256
   resume { ptr, i32 } %33
 
 34:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc1c4b0a67eae7072E.exit.i", %27, %2

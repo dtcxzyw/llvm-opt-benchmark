@@ -307,7 +307,7 @@ define hidden ptr @Curl_str2addr(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 52
   %22 = load i32, ptr %3, align 4
   store i32 %22, ptr %21, align 4
-  store i16 2, ptr %14, align 4, !tbaa !34
+  store i16 2, ptr %14, align 8, !tbaa !34
   %23 = trunc i32 %1 to i16
   %rev.i.i = call noundef i16 @llvm.bswap.i16(i16 %23)
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 50
@@ -345,7 +345,7 @@ define hidden ptr @Curl_str2addr(ptr noundef %0, i32 noundef %1) local_unnamed_a
   store i32 28, ptr %41, align 8, !tbaa !30
   %42 = getelementptr inbounds nuw i8, ptr %32, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %42, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
-  store i16 10, ptr %35, align 4, !tbaa !34
+  store i16 10, ptr %35, align 8, !tbaa !34
   %43 = trunc i32 %1 to i16
   %rev.i.i9 = call noundef i16 @llvm.bswap.i16(i16 %43)
   %44 = getelementptr inbounds nuw i8, ptr %32, i64 50
@@ -378,7 +378,7 @@ define hidden ptr @Curl_unix2addr(ptr noundef readonly captures(none) %0, ptr no
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %7, ptr %8, align 8, !tbaa !31
-  store i16 1, ptr %7, align 2, !tbaa !38
+  store i16 1, ptr %7, align 8, !tbaa !38
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #9
   %10 = add i64 %9, 1
   %11 = icmp ugt i64 %10, 108

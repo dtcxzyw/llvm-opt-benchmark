@@ -603,7 +603,7 @@ define hidden noundef ptr @_ZN9subpaving15mk_mpfx_contextER8reslimitR12mpfx_mana
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 672
   store ptr %1, ptr %10, align 8, !tbaa !96
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 680
-  store i32 0, ptr %11, align 4
+  store i32 0, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 688
   store ptr null, ptr %12, align 8, !tbaa !98
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 696

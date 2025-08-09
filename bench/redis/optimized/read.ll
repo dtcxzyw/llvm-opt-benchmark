@@ -1164,7 +1164,7 @@ __redisReaderSetError.exit141.i.i:                ; preds = %230, %227, %225, %2
   %264 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %264, ptr noundef nonnull align 1 dereferenceable(14) @.str.19, i64 14, i1 false)
   %265 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i8 0, ptr %265, align 1, !tbaa !31
+  store i8 0, ptr %265, align 2, !tbaa !31
   br label %processItem.exit.thread.thread
 
 .lr.ph.i.i:                                       ; preds = %285, %.lr.ph.preheader.i.i
@@ -1215,7 +1215,7 @@ __redisReaderSetError.exit149.i.i:                ; preds = %281, %278, %276, %2
   %283 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %283, ptr noundef nonnull align 1 dereferenceable(16) @.str.20, i64 16, i1 false)
   %284 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 0, ptr %284, align 1, !tbaa !31
+  store i8 0, ptr %284, align 4, !tbaa !31
   br label %processItem.exit.thread.thread
 
 285:                                              ; preds = %270, %267
@@ -1565,7 +1565,7 @@ __redisReaderSetError.exit.i.i:                   ; preds = %413, %410, %408, %.
   %415 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(22) %415, ptr noundef nonnull align 1 dereferenceable(22) @.str.22, i64 22, i1 false)
   %416 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  store i8 0, ptr %416, align 1, !tbaa !31
+  store i8 0, ptr %416, align 2, !tbaa !31
   br label %processItem.exit.thread.thread
 
 string2ll.exit.i49.i:                             ; preds = %403
@@ -2096,7 +2096,7 @@ __redisReaderSetError.exit68.i.i:                 ; preds = %623, %620, %618, %6
   %625 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(30) %625, ptr noundef nonnull align 1 dereferenceable(30) @.str.26, i64 30, i1 false)
   %626 = getelementptr inbounds nuw i8, ptr %0, i64 34
-  store i8 0, ptr %626, align 1, !tbaa !31
+  store i8 0, ptr %626, align 2, !tbaa !31
   br label %processItem.exit.thread.thread
 
 627:                                              ; preds = %string2ll.exit.thread83.i.i

@@ -139,9 +139,9 @@ define dso_local void @pgstat_report_checkpointer() local_unnamed_addr #0 {
   %77 = add i64 %76, %74
   store i64 %77, ptr %75, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !9
-  %78 = load i32, ptr %33, align 4
+  %78 = load i32, ptr %33, align 8
   %79 = add i32 %78, 1
-  store i32 %79, ptr %33, align 4
+  store i32 %79, ptr %33, align 8
   %80 = load volatile i32, ptr @CritSectionCount, align 4
   %81 = add i32 %80, -1
   store volatile i32 %81, ptr @CritSectionCount, align 4

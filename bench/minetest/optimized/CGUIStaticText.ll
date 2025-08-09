@@ -1764,7 +1764,7 @@ if.then.i.i:                                      ; preds = %_ZN3irr4core6string
   store ptr %39, ptr %37, align 8, !tbaa !52
   %_M_string_length.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i, align 8, !tbaa !53
-  store i32 0, ptr %39, align 4, !tbaa !54
+  store i32 0, ptr %39, align 8, !tbaa !54
   %cmp.i.i.i.i.i.i = icmp eq ptr %37, %line
   br i1 %cmp.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN3irr4core6stringIwEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i, label %if.end.i.i.i.i.i.i
 
@@ -1913,7 +1913,7 @@ if.then.i.i.i:                                    ; preds = %_ZNK3irr4core6strin
   store ptr %63, ptr %61, align 8, !tbaa !52
   %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i.i, align 8, !tbaa !53
-  store i32 0, ptr %63, align 4, !tbaa !54
+  store i32 0, ptr %63, align 8, !tbaa !54
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %61, %ref.tmp65
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN3irr4core6stringIwEEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit.i.i.i, label %if.end.i.i.i.i.i.i.i
 
@@ -2022,7 +2022,7 @@ if.then.i.i318:                                   ; preds = %if.then76
   store ptr %77, ptr %75, align 8, !tbaa !52
   %_M_string_length.i.i.i.i.i.i.i.i319 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i319, align 8, !tbaa !53
-  store i32 0, ptr %77, align 4, !tbaa !54
+  store i32 0, ptr %77, align 8, !tbaa !54
   %cmp.i.i.i.i.i.i320 = icmp eq ptr %75, %line
   br i1 %cmp.i.i.i.i.i.i320, label %_ZNSt16allocator_traitsISaIN3irr4core6stringIwEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i323, label %if.end.i.i.i.i.i.i321
 
@@ -2070,7 +2070,7 @@ if.then.i.i331:                                   ; preds = %if.then86
   store ptr %81, ptr %79, align 8, !tbaa !52
   %_M_string_length.i.i.i.i.i.i.i.i332 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i332, align 8, !tbaa !53
-  store i32 0, ptr %81, align 4, !tbaa !54
+  store i32 0, ptr %81, align 8, !tbaa !54
   %cmp.i.i.i.i.i.i333 = icmp eq ptr %79, %line
   br i1 %cmp.i.i.i.i.i.i333, label %_ZNSt16allocator_traitsISaIN3irr4core6stringIwEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i336, label %if.end.i.i.i.i.i.i334
 
@@ -2180,7 +2180,7 @@ if.then.i.i388:                                   ; preds = %_ZN3irr4core6string
   store ptr %98, ptr %96, align 8, !tbaa !52
   %_M_string_length.i.i.i.i.i.i.i.i389 = getelementptr inbounds nuw i8, ptr %96, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i389, align 8, !tbaa !53
-  store i32 0, ptr %98, align 4, !tbaa !54
+  store i32 0, ptr %98, align 8, !tbaa !54
   %cmp.i.i.i.i.i.i390 = icmp eq ptr %96, %line
   br i1 %cmp.i.i.i.i.i.i390, label %_ZNSt16allocator_traitsISaIN3irr4core6stringIwEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i393, label %if.end.i.i.i.i.i.i391
 
@@ -2302,7 +2302,7 @@ if.then.i.i465:                                   ; preds = %_ZN3irr4core6string
   store ptr %115, ptr %113, align 8, !tbaa !52
   %_M_string_length.i.i.i.i.i.i.i.i466 = getelementptr inbounds nuw i8, ptr %113, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i466, align 8, !tbaa !53
-  store i32 0, ptr %115, align 4, !tbaa !54
+  store i32 0, ptr %115, align 8, !tbaa !54
   %cmp.i.i.i.i.i.i467 = icmp eq ptr %113, %line
   br i1 %cmp.i.i.i.i.i.i467, label %_ZNSt16allocator_traitsISaIN3irr4core6stringIwEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i470, label %if.end.i.i.i.i.i.i468
 
@@ -2395,7 +2395,7 @@ if.then.i.i485:                                   ; preds = %if.then172
   store ptr %131, ptr %129, align 8, !tbaa !52
   %_M_string_length.i.i.i.i.i.i.i.i486 = getelementptr inbounds nuw i8, ptr %129, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i486, align 8, !tbaa !53
-  store i32 0, ptr %131, align 4, !tbaa !54
+  store i32 0, ptr %131, align 8, !tbaa !54
   %cmp.i.i.i.i.i.i487 = icmp eq ptr %129, %line
   br i1 %cmp.i.i.i.i.i.i487, label %_ZNSt16allocator_traitsISaIN3irr4core6stringIwEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i490, label %if.end.i.i.i.i.i.i488
 
@@ -2655,7 +2655,7 @@ if.then.i.i606:                                   ; preds = %_ZN3irr4core6string
   store ptr %163, ptr %161, align 8, !tbaa !52
   %_M_string_length.i.i.i.i.i.i.i.i607 = getelementptr inbounds nuw i8, ptr %161, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i607, align 8, !tbaa !53
-  store i32 0, ptr %163, align 4, !tbaa !54
+  store i32 0, ptr %163, align 8, !tbaa !54
   %cmp.i.i.i.i.i.i608 = icmp eq ptr %161, %line
   br i1 %cmp.i.i.i.i.i.i608, label %_ZNSt16allocator_traitsISaIN3irr4core6stringIwEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i611, label %if.end.i.i.i.i.i.i609
 
@@ -5541,7 +5541,7 @@ _ZNKSt6vectorIN3irr4core6stringIwEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %
   store ptr %3, ptr %add.ptr, align 8, !tbaa !52
   %_M_string_length.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !53
-  store i32 0, ptr %3, align 4, !tbaa !54
+  store i32 0, ptr %3, align 8, !tbaa !54
   %cmp.i.i.i.i = icmp eq ptr %add.ptr, %__args
   br i1 %cmp.i.i.i.i, label %_ZNSt16allocator_traitsISaIN3irr4core6stringIwEEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit, label %if.end.i.i.i.i
 
@@ -5560,7 +5560,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt16allocator_tr
   store ptr %4, ptr %__cur.08.i.i.i.i.i, align 8, !tbaa !52
   %_M_string_length.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !53
-  store i32 0, ptr %4, align 4, !tbaa !54
+  store i32 0, ptr %4, align 8, !tbaa !54
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %__cur.08.i.i.i.i.i, %__first.addr.07.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN3irr4core6stringIwEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i
 
@@ -5587,7 +5587,7 @@ for.body.i.i.i.i.i36:                             ; preds = %_ZSt34__uninitializ
   store ptr %5, ptr %__cur.08.i.i.i.i.i37, align 8, !tbaa !52
   %_M_string_length.i.i.i.i.i.i.i.i.i.i39 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i37, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i39, align 8, !tbaa !53
-  store i32 0, ptr %5, align 4, !tbaa !54
+  store i32 0, ptr %5, align 8, !tbaa !54
   %cmp.i.i.i.i.i.i.i.i40 = icmp eq ptr %__cur.08.i.i.i.i.i37, %__first.addr.07.i.i.i.i.i38
   br i1 %cmp.i.i.i.i.i.i.i.i40, label %_ZSt10_ConstructIN3irr4core6stringIwEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i42, label %if.end.i.i.i.i.i.i.i.i41
 
@@ -5680,7 +5680,7 @@ _ZNKSt6vectorIN3irr4core6stringIwEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %
   store ptr %3, ptr %add.ptr, align 8, !tbaa !52
   %_M_string_length.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !53
-  store i32 0, ptr %3, align 4, !tbaa !54
+  store i32 0, ptr %3, align 8, !tbaa !54
   %cmp.i.i.i.i = icmp eq ptr %add.ptr, %__args
   br i1 %cmp.i.i.i.i, label %_ZNSt16allocator_traitsISaIN3irr4core6stringIwEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit, label %if.end.i.i.i.i
 
@@ -5699,7 +5699,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt16allocator_tr
   store ptr %4, ptr %__cur.08.i.i.i.i.i, align 8, !tbaa !52
   %_M_string_length.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !53
-  store i32 0, ptr %4, align 4, !tbaa !54
+  store i32 0, ptr %4, align 8, !tbaa !54
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %__cur.08.i.i.i.i.i, %__first.addr.07.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN3irr4core6stringIwEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i
 
@@ -5726,7 +5726,7 @@ for.body.i.i.i.i.i36:                             ; preds = %_ZSt34__uninitializ
   store ptr %5, ptr %__cur.08.i.i.i.i.i37, align 8, !tbaa !52
   %_M_string_length.i.i.i.i.i.i.i.i.i.i39 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i37, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i39, align 8, !tbaa !53
-  store i32 0, ptr %5, align 4, !tbaa !54
+  store i32 0, ptr %5, align 8, !tbaa !54
   %cmp.i.i.i.i.i.i.i.i40 = icmp eq ptr %__cur.08.i.i.i.i.i37, %__first.addr.07.i.i.i.i.i38
   br i1 %cmp.i.i.i.i.i.i.i.i40, label %_ZSt10_ConstructIN3irr4core6stringIwEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i42, label %if.end.i.i.i.i.i.i.i.i41
 

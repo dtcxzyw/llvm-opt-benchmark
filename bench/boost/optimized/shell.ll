@@ -9517,7 +9517,7 @@ define linkonce_odr hidden void @_ZThn40_N5boost4asio6detail13epoll_reactor9inte
   store ptr %3, ptr %4, align 4, !tbaa !15
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i32, ptr %5, align 8, !tbaa !248
-  %7 = load i32, ptr %3, align 4, !tbaa !261
+  %7 = load i32, ptr %3, align 8, !tbaa !261
   %8 = call i32 @epoll_ctl(i32 noundef %6, i32 noundef 3, i32 noundef %7, ptr noundef nonnull %2) #35
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void

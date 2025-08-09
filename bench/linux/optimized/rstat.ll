@@ -372,7 +372,7 @@ define internal fastcc void @cgroup_rstat_flush_locked(ptr noundef %0) unnamed_a
   %159 = load i64, ptr %135, align 16
   %160 = getelementptr inbounds nuw i8, ptr %104, i64 840
   %161 = getelementptr inbounds nuw i8, ptr %104, i64 848
-  %162 = load i64, ptr %161, align 8
+  %162 = load i64, ptr %161, align 16
   %163 = sub i64 %158, %162
   %164 = load i64, ptr %160, align 8
   %165 = sub i64 %157, %164
@@ -391,9 +391,9 @@ define internal fastcc void @cgroup_rstat_flush_locked(ptr noundef %0) unnamed_a
   %176 = load i64, ptr %175, align 8
   %177 = add i64 %176, %168
   store i64 %177, ptr %175, align 8
-  %178 = load i64, ptr %161, align 8
+  %178 = load i64, ptr %161, align 16
   %179 = add i64 %178, %163
-  store i64 %179, ptr %161, align 8
+  store i64 %179, ptr %161, align 16
   %180 = load i64, ptr %160, align 8
   %181 = add i64 %180, %165
   store i64 %181, ptr %160, align 8

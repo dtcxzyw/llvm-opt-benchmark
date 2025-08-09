@@ -7949,7 +7949,7 @@ _ZNSt10unique_ptrIN3gmx24SelectionParserParameterESt14default_deleteIS1_EED2Ev.e
   store i64 %13, ptr %15, align 8, !tbaa !105
   store ptr %5, ptr %1, align 8, !tbaa !102
   store i64 0, ptr %14, align 8, !tbaa !105
-  store i8 0, ptr %5, align 1, !tbaa !14
+  store i8 0, ptr %5, align 8, !tbaa !14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i64, ptr %17, align 8
@@ -8032,7 +8032,7 @@ _ZN3gmx24SelectionParserParameterC2EOS0_.exit:    ; preds = %8, %_ZNKSt7__cxx111
   store i64 %14, ptr %16, align 8, !tbaa !105
   store ptr %6, ptr %1, align 8, !tbaa !102
   store i64 0, ptr %15, align 8, !tbaa !105
-  store i8 0, ptr %6, align 1, !tbaa !14
+  store i8 0, ptr %6, align 8, !tbaa !14
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %19 = load i64, ptr %18, align 8
@@ -8344,7 +8344,7 @@ _ZN3gmx20SelectionParserValueC2EOS0_.exit:        ; preds = %17, %_ZNKSt7__cxx11
   store i64 %23, ptr %25, align 8, !tbaa !105
   store ptr %15, ptr %12, align 8, !tbaa !102
   store i64 0, ptr %24, align 8, !tbaa !105
-  store i8 0, ptr %15, align 1, !tbaa !14
+  store i8 0, ptr %15, align 8, !tbaa !14
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %26, ptr noundef nonnull align 8 dereferenceable(20) %27, i64 20, i1 false)

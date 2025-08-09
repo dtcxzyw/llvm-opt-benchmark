@@ -4823,29 +4823,29 @@ _ZN20b3AlignedObjectArrayI9b3Vector3E10deallocateEv.exit.i.i: ; preds = %_ZNK20b
 59:                                               ; preds = %._crit_edge
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV15b3ConvexUtility, i64 16), ptr %17, align 16, !tbaa !4
   %60 = getelementptr inbounds nuw i8, ptr %17, i64 112
-  store i8 1, ptr %60, align 8, !tbaa !162
+  store i8 1, ptr %60, align 16, !tbaa !162
   %61 = getelementptr inbounds nuw i8, ptr %17, i64 104
   store ptr null, ptr %61, align 8, !tbaa !159
   %62 = getelementptr inbounds nuw i8, ptr %17, i64 92
   store i32 0, ptr %62, align 4, !tbaa !158
   %63 = getelementptr inbounds nuw i8, ptr %17, i64 96
-  store i32 0, ptr %63, align 8, !tbaa !157
+  store i32 0, ptr %63, align 16, !tbaa !157
   %64 = getelementptr inbounds nuw i8, ptr %17, i64 144
-  store i8 1, ptr %64, align 8, !tbaa !363
+  store i8 1, ptr %64, align 16, !tbaa !363
   %65 = getelementptr inbounds nuw i8, ptr %17, i64 136
   store ptr null, ptr %65, align 8, !tbaa !353
   %66 = getelementptr inbounds nuw i8, ptr %17, i64 124
   store i32 0, ptr %66, align 4, !tbaa !350
   %67 = getelementptr inbounds nuw i8, ptr %17, i64 128
-  store i32 0, ptr %67, align 8, !tbaa !364
+  store i32 0, ptr %67, align 16, !tbaa !364
   %68 = getelementptr inbounds nuw i8, ptr %17, i64 176
-  store i8 1, ptr %68, align 8, !tbaa !162
+  store i8 1, ptr %68, align 16, !tbaa !162
   %69 = getelementptr inbounds nuw i8, ptr %17, i64 168
   store ptr null, ptr %69, align 8, !tbaa !159
   %70 = getelementptr inbounds nuw i8, ptr %17, i64 156
   store i32 0, ptr %70, align 4, !tbaa !158
   %71 = getelementptr inbounds nuw i8, ptr %17, i64 160
-  store i32 0, ptr %71, align 8, !tbaa !157
+  store i32 0, ptr %71, align 16, !tbaa !157
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %78, label %72
 
@@ -6610,7 +6610,7 @@ _Z8b3SetMinIfEvRT_RKS0_.exit.i:                   ; preds = %_Z8b3SetMinIfEvRT_R
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 56
   store i8 1, ptr %78, align 8, !tbaa !397
   %79 = getelementptr inbounds nuw i8, ptr %75, i64 48
-  store ptr null, ptr %79, align 8, !tbaa !401
+  store ptr null, ptr %79, align 16, !tbaa !401
   %80 = getelementptr inbounds nuw i8, ptr %75, i64 36
   store i32 0, ptr %80, align 4, !tbaa !402
   %81 = getelementptr inbounds nuw i8, ptr %75, i64 40

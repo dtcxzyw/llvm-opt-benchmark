@@ -2709,7 +2709,7 @@ select.unfold.i:                                  ; preds = %43, %3
   store ptr %.sroa.7.0.i, ptr %177, align 8, !noalias !509
   %178 = getelementptr inbounds nuw i8, ptr %.sroa.7.0.i, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !602)
-  %.val6.val.i.i = load i32, ptr %178, align 4, !range !126, !noalias !603, !noundef !23
+  %.val6.val.i.i = load i32, ptr %178, align 8, !range !126, !noalias !603, !noundef !23
   %179 = load i64, ptr @_ZN8foldhash4seed6global19GLOBAL_SEED_STORAGE17he26bf862f02d6b07E, align 8, !noalias !607, !noundef !23
   %180 = zext i32 %.val6.val.i.i to i64
   %181 = xor i64 %.val.i10.i, %180
@@ -28482,7 +28482,7 @@ select.unfold:                                    ; preds = %"_ZN5alloc3vec10par
   %149 = load ptr, ptr %148, align 8, !nonnull !23, !noundef !23
   %150 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i44.ph, i64 16
   %151 = load i64, ptr %150, align 8, !noundef !23
-  %.val37 = load i8, ptr %147, align 1
+  %.val37 = load i8, ptr %147, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !4112)
   call void @llvm.experimental.noalias.scope.decl(metadata !4115)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)

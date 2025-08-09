@@ -5615,7 +5615,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11AnalysisKeyEbLj8ENS_12DenseMapIn
   store ptr %66, ptr %54, align 8, !tbaa !84
   %67 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %68 = load i8, ptr %3, align 1, !tbaa !49, !range !50, !noundef !51
-  store i8 %68, ptr %67, align 1, !tbaa !49
+  store i8 %68, ptr %67, align 8, !tbaa !49
   %69 = load i32, ptr %1, align 8
   %70 = and i32 %69, 1
   %.not.i.i.i.i7 = icmp eq i32 %70, 0
@@ -5760,7 +5760,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIPNS_11AnalysisKeyEbLj8E
   %30 = getelementptr inbounds nuw i8, ptr %.02738, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %.028.ptr39, i64 8
   %32 = load i8, ptr %31, align 8, !tbaa !49, !range !50, !noundef !51
-  store i8 %32, ptr %30, align 1, !tbaa !49
+  store i8 %32, ptr %30, align 8, !tbaa !49
   %33 = getelementptr inbounds nuw i8, ptr %.02738, i64 16
   br label %34
 
@@ -5919,7 +5919,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11AnalysisKeyEbLj8ENS_12DenseMapIn
   %48 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %.023, i64 8
   %50 = load i8, ptr %49, align 1, !tbaa !49, !range !50, !noundef !51
-  store i8 %50, ptr %48, align 1, !tbaa !49
+  store i8 %50, ptr %48, align 8, !tbaa !49
   %51 = load i32, ptr %0, align 8
   %52 = and i32 %51, -2
   %53 = add i32 %52, 2

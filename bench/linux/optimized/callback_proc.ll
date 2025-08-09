@@ -162,7 +162,7 @@ define dso_local i32 @nfs4_callback_getattr(ptr noundef %0, ptr noundef captures
   %79 = getelementptr i8, ptr %0, i64 136
   %80 = load i32, ptr %79, align 4
   %81 = and i32 %80, 3145728
-  store i32 %81, ptr %8, align 4
+  store i32 %81, ptr %8, align 8
   store i32 0, ptr %1, align 8
   br label %82
 

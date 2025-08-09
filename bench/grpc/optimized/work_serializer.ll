@@ -929,21 +929,21 @@ define void @_ZN9grpc_core14WorkSerializerC2ESt10shared_ptrIN17grpc_event_engine
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN9grpc_core14WorkSerializer18WorkSerializerImplE, i64 16), ptr %3, align 16, !tbaa !33, !noalias !72
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN9grpc_core14WorkSerializer18WorkSerializerImplE, i64 64), ptr %7, align 8, !tbaa !33, !noalias !72
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 0, ptr %8, align 8, !tbaa !76, !noalias !72
+  store i64 0, ptr %8, align 16, !tbaa !76, !noalias !72
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store ptr %4, ptr %9, align 8, !tbaa !44, !noalias !72
+  store ptr %4, ptr %9, align 16, !tbaa !44, !noalias !72
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store ptr %6, ptr %10, align 8, !tbaa !75, !noalias !72
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i64 0, ptr %11, align 8, !noalias !72
+  store i64 0, ptr %11, align 16, !noalias !72
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 104
   store i8 0, ptr %12, align 8, !tbaa !9, !noalias !72
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 105
   store i8 0, ptr %13, align 1, !tbaa !32, !noalias !72
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  store i64 0, ptr %14, align 8, !tbaa !77, !noalias !72
+  store i64 0, ptr %14, align 16, !tbaa !77, !noalias !72
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 128
-  store i64 0, ptr %15, align 8, !tbaa !76, !noalias !72
+  store i64 0, ptr %15, align 16, !tbaa !76, !noalias !72
   store ptr %3, ptr %0, align 8, !tbaa !78, !alias.scope !72
   ret void
 }

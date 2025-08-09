@@ -5282,7 +5282,7 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %3, %._crit_edge272,
   %63 = load ptr, ptr %62, align 8, !tbaa !374
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load float, ptr %58, align 4, !tbaa !45
-  %66 = load float, ptr %54, align 4, !tbaa !45
+  %66 = load float, ptr %54, align 8, !tbaa !45
   %67 = fmul float %65, %66
   %68 = getelementptr inbounds nuw i8, ptr %57, i64 20
   %69 = load float, ptr %68, align 4, !tbaa !45
@@ -5305,7 +5305,7 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %3, %._crit_edge272,
   %86 = fadd float %73, %83
   %87 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %88 = load float, ptr %64, align 4, !tbaa !45
-  %89 = load float, ptr %87, align 4, !tbaa !45
+  %89 = load float, ptr %87, align 8, !tbaa !45
   %90 = fmul float %88, %89
   %91 = getelementptr inbounds nuw i8, ptr %63, i64 20
   %92 = load float, ptr %91, align 4, !tbaa !45
@@ -5327,13 +5327,13 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %3, %._crit_edge272,
   %108 = fsub float %107, %99
   %109 = getelementptr inbounds nuw i8, ptr %50, i64 64
   %110 = load float, ptr %109, align 8, !tbaa !399
-  %111 = load float, ptr %55, align 4, !tbaa !45
+  %111 = load float, ptr %55, align 8, !tbaa !45
   %112 = getelementptr inbounds nuw i8, ptr %50, i64 52
   %113 = load float, ptr %112, align 4, !tbaa !45
   %114 = fmul float %105, %113
   %115 = tail call float @llvm.fmuladd.f32(float %111, float %102, float %114)
   %116 = getelementptr inbounds nuw i8, ptr %50, i64 56
-  %117 = load float, ptr %116, align 4, !tbaa !45
+  %117 = load float, ptr %116, align 8, !tbaa !45
   %118 = tail call noundef float @llvm.fmuladd.f32(float %117, float %108, float %115)
   %119 = fsub float %110, %118
   %120 = fcmp olt float %119, 0.000000e+00
@@ -5511,15 +5511,15 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %3, %._crit_edge272,
   %254 = fmul float %250, %253
   %255 = load float, ptr %116, align 4, !tbaa !45
   %256 = fmul float %250, %255
-  %257 = load float, ptr %121, align 4, !tbaa !45
+  %257 = load float, ptr %121, align 8, !tbaa !45
   %258 = fsub float %257, %252
-  store float %258, ptr %121, align 4, !tbaa !45
+  store float %258, ptr %121, align 8, !tbaa !45
   %259 = load float, ptr %157, align 4, !tbaa !45
   %260 = fsub float %259, %254
   store float %260, ptr %157, align 4, !tbaa !45
-  %261 = load float, ptr %160, align 4, !tbaa !45
+  %261 = load float, ptr %160, align 8, !tbaa !45
   %262 = fsub float %261, %256
-  store float %262, ptr %160, align 4, !tbaa !45
+  store float %262, ptr %160, align 8, !tbaa !45
   br label %263
 
 263:                                              ; preds = %.loopexit259, %248
@@ -5617,15 +5617,15 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %3, %._crit_edge272,
   %332 = fmul float %.sink7.i, %331
   %333 = fmul float %.sink6.i, %331
   %334 = fmul float %.sink.i, %331
-  %335 = load float, ptr %121, align 4, !tbaa !45
+  %335 = load float, ptr %121, align 8, !tbaa !45
   %336 = fsub float %335, %332
-  store float %336, ptr %121, align 4, !tbaa !45
+  store float %336, ptr %121, align 8, !tbaa !45
   %337 = load float, ptr %157, align 4, !tbaa !45
   %338 = fsub float %337, %333
   store float %338, ptr %157, align 4, !tbaa !45
-  %339 = load float, ptr %160, align 4, !tbaa !45
+  %339 = load float, ptr %160, align 8, !tbaa !45
   %340 = fsub float %339, %334
-  store float %340, ptr %160, align 4, !tbaa !45
+  store float %340, ptr %160, align 8, !tbaa !45
   br label %341
 
 341:                                              ; preds = %263, %329, %.loopexit, %46
@@ -7205,10 +7205,10 @@ _ZNK17btCollisionObject8isActiveEv.exit:          ; preds = %._ZNK17btCollisionO
   %63 = fsub float %61, %62
   store float %63, ptr %60, align 4, !tbaa !45
   %64 = getelementptr inbounds nuw i8, ptr %33, i64 112
-  %65 = load float, ptr %64, align 4, !tbaa !45
+  %65 = load float, ptr %64, align 8, !tbaa !45
   %66 = fmul float %56, %59
   %67 = fsub float %65, %66
-  store float %67, ptr %64, align 4, !tbaa !45
+  store float %67, ptr %64, align 8, !tbaa !45
   %68 = getelementptr inbounds nuw i8, ptr %33, i64 116
   %69 = load float, ptr %68, align 4, !tbaa !45
   %70 = fmul float %57, %59
@@ -11320,14 +11320,14 @@ _Z8btSetMinIfEvRT_RKS0_.exit.i.i:                 ; preds = %11
   %.sroa.6.0.copyload = load float, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !41
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %18 = load float, ptr %17, align 4, !tbaa !45
+  %18 = load float, ptr %17, align 8, !tbaa !45
   %19 = load float, ptr %16, align 8, !tbaa !45
   %20 = fmul float %18, %19
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 52
   %22 = load float, ptr %21, align 4, !tbaa !45
   %23 = fmul float %19, %22
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %25 = load float, ptr %24, align 4, !tbaa !45
+  %25 = load float, ptr %24, align 8, !tbaa !45
   %26 = fmul float %19, %25
   %27 = fadd float %20, %.sroa.0.0.copyload
   %28 = fadd float %23, %.sroa.4.0.copyload

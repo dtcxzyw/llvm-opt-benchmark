@@ -2619,7 +2619,7 @@ _ZNK9stopwatch11get_secondsEv.exit:               ; preds = %266
   %277 = load i32, ptr %276, align 8, !tbaa !343
   %278 = and i32 %277, -261
   %279 = or disjoint i32 %278, 4
-  store i32 %279, ptr %276, align 4, !tbaa !344
+  store i32 %279, ptr %276, align 8, !tbaa !344
   %280 = fdiv double %.sroa.10.0, 1.000000e+03
   %281 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %270, double noundef %280)
   %282 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %281, ptr noundef nonnull @.str.16, i64 noundef 2)
@@ -2639,7 +2639,7 @@ _ZNK9stopwatch11get_secondsEv.exit81:             ; preds = %266
   %292 = load i32, ptr %291, align 8, !tbaa !343
   %293 = and i32 %292, -261
   %294 = or disjoint i32 %293, 4
-  store i32 %294, ptr %291, align 4, !tbaa !344
+  store i32 %294, ptr %291, align 8, !tbaa !344
   %295 = fdiv double %.sroa.10.0, 1.000000e+03
   %296 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %285, double noundef %295)
   %297 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %296, ptr noundef nonnull @.str.16, i64 noundef 2)
@@ -3468,9 +3468,9 @@ _ZN16inf_eps_rationalI12inf_rationalEC2ERKS0_.exit.i: ; preds = %151
   %182 = or disjoint i8 %181, %176
   store i8 %182, ptr %167, align 4
   %183 = getelementptr inbounds nuw i8, ptr %157, i64 16
-  %184 = load i32, ptr %183, align 4, !tbaa !263
+  %184 = load i32, ptr %183, align 8, !tbaa !263
   %185 = load i32, ptr %152, align 8, !tbaa !263
-  store i32 %185, ptr %183, align 4, !tbaa !263
+  store i32 %185, ptr %183, align 8, !tbaa !263
   store i32 %184, ptr %152, align 8, !tbaa !263
   %186 = getelementptr inbounds nuw i8, ptr %157, i64 24
   %187 = load ptr, ptr %186, align 8, !tbaa !420
@@ -3501,9 +3501,9 @@ _ZN16inf_eps_rationalI12inf_rationalEC2ERKS0_.exit.i: ; preds = %151
   %207 = or disjoint i8 %206, %201
   store i8 %207, ptr %192, align 4
   %208 = getelementptr inbounds nuw i8, ptr %157, i64 32
-  %209 = load i32, ptr %208, align 4, !tbaa !263
+  %209 = load i32, ptr %208, align 8, !tbaa !263
   %210 = load i32, ptr %154, align 8, !tbaa !263
-  store i32 %210, ptr %208, align 4, !tbaa !263
+  store i32 %210, ptr %208, align 8, !tbaa !263
   store i32 %209, ptr %154, align 8, !tbaa !263
   %211 = getelementptr inbounds nuw i8, ptr %157, i64 40
   %212 = getelementptr inbounds nuw i8, ptr %8, i64 40
@@ -3536,9 +3536,9 @@ _ZN16inf_eps_rationalI12inf_rationalEC2ERKS0_.exit.i: ; preds = %151
   store i8 %233, ptr %218, align 4
   %234 = getelementptr inbounds nuw i8, ptr %157, i64 48
   %235 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %236 = load i32, ptr %234, align 4, !tbaa !263
+  %236 = load i32, ptr %234, align 8, !tbaa !263
   %237 = load i32, ptr %235, align 8, !tbaa !263
-  store i32 %237, ptr %234, align 4, !tbaa !263
+  store i32 %237, ptr %234, align 8, !tbaa !263
   store i32 %236, ptr %235, align 8, !tbaa !263
   %238 = getelementptr inbounds nuw i8, ptr %157, i64 56
   %239 = getelementptr inbounds nuw i8, ptr %8, i64 56
@@ -3571,9 +3571,9 @@ _ZN16inf_eps_rationalI12inf_rationalEC2ERKS0_.exit.i: ; preds = %151
   store i8 %260, ptr %245, align 4
   %261 = getelementptr inbounds nuw i8, ptr %157, i64 64
   %262 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %263 = load i32, ptr %261, align 4, !tbaa !263
+  %263 = load i32, ptr %261, align 8, !tbaa !263
   %264 = load i32, ptr %262, align 8, !tbaa !263
-  store i32 %264, ptr %261, align 4, !tbaa !263
+  store i32 %264, ptr %261, align 8, !tbaa !263
   store i32 %263, ptr %262, align 8, !tbaa !263
   %265 = getelementptr inbounds nuw i8, ptr %157, i64 72
   %266 = getelementptr inbounds nuw i8, ptr %8, i64 72
@@ -3606,9 +3606,9 @@ _ZN16inf_eps_rationalI12inf_rationalEC2ERKS0_.exit.i: ; preds = %151
   store i8 %287, ptr %272, align 4
   %288 = getelementptr inbounds nuw i8, ptr %157, i64 80
   %289 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  %290 = load i32, ptr %288, align 4, !tbaa !263
+  %290 = load i32, ptr %288, align 8, !tbaa !263
   %291 = load i32, ptr %289, align 8, !tbaa !263
-  store i32 %291, ptr %288, align 4, !tbaa !263
+  store i32 %291, ptr %288, align 8, !tbaa !263
   store i32 %290, ptr %289, align 8, !tbaa !263
   %292 = getelementptr inbounds nuw i8, ptr %157, i64 88
   %293 = getelementptr inbounds nuw i8, ptr %8, i64 88

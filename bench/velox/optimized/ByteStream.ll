@@ -1276,14 +1276,14 @@ for.body.us154:                                   ; preds = %for.body.lr.ph.spli
   %or.i36.us167 = or i64 %and3.i.us165, %and5.i.us166
   store i64 %or.i36.us167, ptr %10, align 8
   %add.ptr.i.us = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %12 = load i8, ptr %add.ptr.i.us, align 1
+  %12 = load i8, ptr %add.ptr.i.us, align 8
   %conv17.i.us = zext i8 %12 to i64
   %and20.i.us = and i64 %conv17.i.us, %not19.i
   %shr.i38.us = lshr i64 %9, %sub23.i
   %and24.i.us = and i64 %shr.i38.us, %conv18.i
   %or25.i.us = or disjoint i64 %and20.i.us, %and24.i.us
   %conv26.i.us = trunc nuw i64 %or25.i.us to i8
-  store i8 %conv26.i.us, ptr %add.ptr.i.us, align 1
+  store i8 %conv26.i.us, ptr %add.ptr.i.us, align 8
   %add.us168 = add i64 %add153.us155, 64
   %cmp.not.us169 = icmp ugt i64 %add.us168, %numBits
   br i1 %cmp.not.us169, label %for.end, label %for.body.us154, !llvm.loop !18
@@ -1297,7 +1297,7 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
   %13 = inttoptr i64 %add.i to ptr
   %14 = load i64, ptr %13, align 8
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %15 = load i8, ptr %arrayidx.i, align 1
+  %15 = load i8, ptr %arrayidx.i, align 8
   %conv4.i = zext i8 %15 to i64
   %or.i = tail call i64 @llvm.fshr.i64(i64 %conv4.i, i64 %14, i64 %and.i)
   %add2 = add i64 %i.0152, %targetOffset
@@ -1310,14 +1310,14 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
   %or.i36 = or i64 %and3.i, %and5.i
   store i64 %or.i36, ptr %16, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %18 = load i8, ptr %add.ptr.i, align 1
+  %18 = load i8, ptr %add.ptr.i, align 8
   %conv17.i = zext i8 %18 to i64
   %and20.i = and i64 %conv17.i, %not19.i
   %shr.i38 = lshr i64 %or.i, %sub23.i
   %and24.i = and i64 %shr.i38, %conv18.i
   %or25.i = or disjoint i64 %and20.i, %and24.i
   %conv26.i = trunc nuw i64 %or25.i to i8
-  store i8 %conv26.i, ptr %add.ptr.i, align 1
+  store i8 %conv26.i, ptr %add.ptr.i, align 8
   %add = add i64 %add153, 64
   %cmp.not = icmp ugt i64 %add, %numBits
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !19

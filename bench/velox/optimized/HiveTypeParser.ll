@@ -7558,8 +7558,8 @@ invoke.cont2:                                     ; preds = %init
   store i64 0, ptr %2, align 16
   %3 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %kind_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
-  store i8 3, ptr %kind_.i.i.i.i, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox8DateTypeE, i64 16), ptr %call, align 8
+  store i8 3, ptr %kind_.i.i.i.i, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox8DateTypeE, i64 16), ptr %call, align 16
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox8DateTypeE, i64 160), ptr %3, align 8
   invoke void @_ZNSt10shared_ptrIKN8facebook5velox8DateTypeEEC2IS2_vEEPT_(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN8facebook5velox8DateType3getEvE5kType, ptr noundef nonnull %call)
           to label %invoke.cont3 unwind label %lpad
@@ -8455,7 +8455,7 @@ if.end25:                                         ; preds = %if.end3.i.i, %if.en
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
   store ptr null, ptr %call5.i.i.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 8
-  store i8 %12, ptr %add.ptr.i.i.i, align 1
+  store i8 %12, ptr %add.ptr.i.i.i, align 8
   %call28 = invoke ptr @_ZNSt10_HashtableIccSaIcENSt8__detail9_IdentityESt8equal_toIcESt4hashIcENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIcLb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %rem.i.i.i27, i64 noundef %conv.i.i25, ptr noundef nonnull %call5.i.i.i.i.i, i64 noundef 1)
           to label %return unwind label %_ZNSt10_HashtableIccSaIcENSt8__detail9_IdentityESt8equal_toIcESt4hashIcENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit17
 
@@ -8624,7 +8624,7 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIc
   %__bbegin_bkt.021 = phi i64 [ %__bbegin_bkt.1, %if.end22 ], [ 0, %_ZNSt10_HashtableIccSaIcENSt8__detail9_IdentityESt8equal_toIcESt4hashIcENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %1 = load ptr, ptr %__p.022, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %__p.022, i64 8
-  %2 = load i8, ptr %add.ptr, align 1
+  %2 = load i8, ptr %add.ptr, align 8
   %conv.i.i.i = sext i8 %2 to i64
   %rem.i.i = urem i64 %conv.i.i.i, %__bkt_count
   %arrayidx = getelementptr inbounds ptr, ptr %retval.0.i, i64 %rem.i.i

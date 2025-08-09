@@ -2868,7 +2868,7 @@ __rust_try.llvm.11057974413330164255.exit:
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !245, !noundef !12
   store i64 0, ptr %.val.i, align 8, !noalias !248
   %1 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
-  store i8 2, ptr %1, align 1, !noalias !248
+  store i8 2, ptr %1, align 8, !noalias !248
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
@@ -2878,7 +2878,7 @@ __rust_try.llvm.11057974413330164255.exit:
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !251, !noundef !12
   store i64 0, ptr %.val.i, align 8, !noalias !254
   %1 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
-  store i8 2, ptr %1, align 1, !noalias !254
+  store i8 2, ptr %1, align 8, !noalias !254
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
@@ -2888,7 +2888,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h6497613b2e812cecE.llvm.11057
   %.val = load ptr, ptr %2, align 8, !alias.scope !257, !noundef !12
   store i64 0, ptr %.val, align 8, !noalias !260
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  store i8 2, ptr %3, align 1, !noalias !260
+  store i8 2, ptr %3, align 8, !noalias !260
   ret void
 }
 
@@ -2898,7 +2898,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h9f5559153256a19cE.llvm.11057
   %.val = load ptr, ptr %2, align 8, !alias.scope !263, !noundef !12
   store i64 0, ptr %.val, align 8, !noalias !266
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  store i8 2, ptr %3, align 1, !noalias !266
+  store i8 2, ptr %3, align 8, !noalias !266
   ret void
 }
 
@@ -29355,7 +29355,7 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h247532d989bb2231E.exit.thr
   call void @llvm.experimental.noalias.scope.decl(metadata !7007)
   %64 = load i128, ptr %63, align 16, !alias.scope !7010, !noalias !7013, !noundef !12
   %65 = getelementptr inbounds i8, ptr %57, i64 -16
-  %.val.i.i.i = load ptr, ptr %65, align 8, !alias.scope !7007, !noalias !7013, !nonnull !12, !noundef !12
+  %.val.i.i.i = load ptr, ptr %65, align 16, !alias.scope !7007, !noalias !7013, !nonnull !12, !noundef !12
   %66 = getelementptr inbounds i8, ptr %57, i64 -8
   %.val1.i.i.i = load i64, ptr %66, align 8, !alias.scope !7007, !noalias !7013
   %.not.i.i.i.i = icmp eq ptr %.val.i.i.i, inttoptr (i64 16 to ptr)
@@ -93749,7 +93749,7 @@ define void @"_ZN80_$LT$typst..foundations..bytes..Bytes$u20$as$u20$core..ops..a
   store i128 0, ptr %91, align 16
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !23426)
-  %93 = load i64, ptr %92, align 8, !range !95, !alias.scope !23426, !noundef !12
+  %93 = load i64, ptr %92, align 16, !range !95, !alias.scope !23426, !noundef !12
   %94 = icmp eq i64 %93, -9223372036854775808
   br i1 %94, label %"_ZN4core3ptr59drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$GT$17hf2c54907da9ec19aE.llvm.16978709814855407318.exit.i", label %105
 
@@ -99104,7 +99104,7 @@ define internal fastcc void @_ZN5typst13introspection12introspector12Introspecto
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.experimental.noalias.scope.decl(metadata !24486)
   %146 = load ptr, ptr %110, align 8, !alias.scope !24486, !noalias !24489, !nonnull !12, !noundef !12
-  %147 = load ptr, ptr %112, align 8, !alias.scope !24486, !noalias !24489, !nonnull !12, !align !35, !noundef !12
+  %147 = load ptr, ptr %112, align 16, !alias.scope !24486, !noalias !24489, !nonnull !12, !align !35, !noundef !12
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 16
   %149 = load i64, ptr %148, align 8, !range !337, !invariant.load !12, !noalias !24491
   %150 = call i64 @llvm.umax.i64(i64 %149, i64 16)
@@ -99425,7 +99425,7 @@ define internal fastcc void @_ZN5typst13introspection12introspector12Introspecto
   %286 = getelementptr inbounds i8, ptr %281, i64 -32
   store i32 %182, ptr %286, align 8, !noalias !24593
   %.sroa.4.i.sroa.4.0..sroa.4.0..sroa_idx.i.sroa_idx.i = getelementptr inbounds i8, ptr %281, i64 -8
-  store i64 0, ptr %.sroa.4.i.sroa.4.0..sroa.4.0..sroa_idx.i.sroa_idx.i, align 4, !noalias !24593
+  store i64 0, ptr %.sroa.4.i.sroa.4.0..sroa.4.0..sroa_idx.i.sroa_idx.i, align 8, !noalias !24593
   %287 = load i64, ptr %34, align 8, !alias.scope !24582, !noalias !24560, !noundef !12
   %288 = add i64 %287, 1
   store i64 %288, ptr %34, align 8, !alias.scope !24582, !noalias !24560

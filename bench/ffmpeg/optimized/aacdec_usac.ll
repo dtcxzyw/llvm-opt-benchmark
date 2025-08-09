@@ -2792,7 +2792,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_usac_core_coder(ptr
   store i32 %spec.select.i, ptr %12, align 8, !tbaa !34
   %32 = trunc i32 %31 to i8
   %33 = lshr i8 %32, 7
-  store i8 %33, ptr %20, align 4, !tbaa !144
+  store i8 %33, ptr %20, align 8, !tbaa !144
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %16, label %18, !llvm.loop !145
@@ -2811,7 +2811,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_usac_core_coder(ptr
   store i8 0, ptr %41, align 1, !tbaa !146
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 88784
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8192) %42, i8 0, i64 8192, i1 false)
-  %43 = load i8, ptr %40, align 4, !tbaa !144
+  %43 = load i8, ptr %40, align 8, !tbaa !144
   %.not.i = icmp eq i8 %43, 0
   br i1 %.not.i, label %44, label %.thread
 

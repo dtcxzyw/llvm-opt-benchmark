@@ -174,7 +174,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IS5_TnNSt9
   store i64 %14, ptr %15, align 8, !tbaa !16
   store ptr %5, ptr %1, align 8, !tbaa !13
   store i64 0, ptr %13, align 8, !tbaa !16
-  store i8 0, ptr %5, align 1, !tbaa !17
+  store i8 0, ptr %5, align 8, !tbaa !17
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 1, ptr %16, align 8, !tbaa !4
   ret void
@@ -222,7 +222,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.thread: ; pred
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.sroa.2, ptr noundef nonnull align 8 dereferenceable(1) %4, i64 %9, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 0, ptr %10, align 8, !tbaa !16
-  store i8 0, ptr %4, align 1, !tbaa !17
+  store i8 0, ptr %4, align 8, !tbaa !17
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %11, ptr %0, align 8, !tbaa !9
   %12 = add nuw nsw i64 %7, 1
@@ -237,7 +237,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %4, ptr %1, align 8, !tbaa !13
   store i64 0, ptr %14, align 8, !tbaa !16
-  store i8 0, ptr %4, align 1, !tbaa !17
+  store i8 0, ptr %4, align 8, !tbaa !17
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %0, align 8, !tbaa !13
   %.sroa.2.0..sroa.2.16. = load i64, ptr %.sroa.2, align 8, !tbaa !17
@@ -5443,7 +5443,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.
   store i64 %39, ptr %41, align 8, !tbaa !16, !alias.scope !186, !noalias !189
   store ptr %31, ptr %.092.i.i.i.i, align 8, !tbaa !13, !alias.scope !189, !noalias !186
   store i64 0, ptr %40, align 8, !tbaa !16, !alias.scope !189, !noalias !186
-  store i8 0, ptr %31, align 1, !tbaa !17, !alias.scope !189, !noalias !186
+  store i8 0, ptr %31, align 8, !tbaa !17, !alias.scope !189, !noalias !186
   %42 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i, i64 32
   %43 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i, i64 32
   %44 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i, i64 48
@@ -5477,7 +5477,7 @@ _ZSt19__relocate_object_aIN12_GLOBAL__N_115TransitiveUsageES1_SaIS1_EEvPT_PT0_RT
   store i64 %54, ptr %56, align 8, !tbaa !16, !alias.scope !186, !noalias !189
   store ptr %46, ptr %43, align 8, !tbaa !13, !alias.scope !189, !noalias !186
   store i64 0, ptr %55, align 8, !tbaa !16, !alias.scope !189, !noalias !186
-  store i8 0, ptr %46, align 1, !tbaa !17, !alias.scope !189, !noalias !186
+  store i8 0, ptr %46, align 8, !tbaa !17, !alias.scope !189, !noalias !186
   %57 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i, i64 64
   %58 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i, i64 64
   %59 = load i32, ptr %58, align 8, !tbaa !175, !alias.scope !189, !noalias !186

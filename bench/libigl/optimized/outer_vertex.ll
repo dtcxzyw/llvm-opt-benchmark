@@ -256,9 +256,9 @@ _ZN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS2_8backends16rational_a
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store <2 x double> <double -0.000000e+00, double 0.000000e+00>, ptr %21, align 16, !tbaa !14
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  store ptr null, ptr %22, align 8, !tbaa !15
+  store ptr null, ptr %22, align 16, !tbaa !15
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  store i32 0, ptr %23, align 4, !tbaa !18
+  store i32 0, ptr %23, align 8, !tbaa !18
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL14Lazy_exact_CstIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEiEE, i64 16), ptr %19, align 16, !tbaa !20
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 44
   store i32 0, ptr %24, align 4, !tbaa !22
@@ -1656,9 +1656,9 @@ _ZN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS2_8backends16rational_a
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store <2 x double> <double -0.000000e+00, double 0.000000e+00>, ptr %21, align 16, !tbaa !14
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  store ptr null, ptr %22, align 8, !tbaa !15
+  store ptr null, ptr %22, align 16, !tbaa !15
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  store i32 0, ptr %23, align 4, !tbaa !18
+  store i32 0, ptr %23, align 8, !tbaa !18
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL14Lazy_exact_CstIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEiEE, i64 16), ptr %19, align 16, !tbaa !20
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 44
   store i32 0, ptr %24, align 4, !tbaa !22
@@ -2770,9 +2770,9 @@ _ZN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS2_8backends16rational_a
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store <2 x double> <double -0.000000e+00, double 0.000000e+00>, ptr %21, align 16, !tbaa !14
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  store ptr null, ptr %22, align 8, !tbaa !15
+  store ptr null, ptr %22, align 16, !tbaa !15
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  store i32 0, ptr %23, align 4, !tbaa !18
+  store i32 0, ptr %23, align 8, !tbaa !18
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL14Lazy_exact_CstIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEiEE, i64 16), ptr %19, align 16, !tbaa !20
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 44
   store i32 0, ptr %24, align 4, !tbaa !22

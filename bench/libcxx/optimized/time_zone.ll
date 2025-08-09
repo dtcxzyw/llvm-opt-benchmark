@@ -23504,7 +23504,7 @@ define linkonce_odr hidden void @_ZNSt3__118basic_stringstreamIcNS_11char_traits
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 136
   store ptr null, ptr %17, align 8, !tbaa !679
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 144
-  store i32 -1, ptr %18, align 1, !tbaa !683
+  store i32 -1, ptr %18, align 8, !tbaa !683
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 32), align 8
   store ptr %19, ptr %4, align 8, !tbaa !69
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 40), align 8
@@ -24892,7 +24892,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !741
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 144
-  %19 = load i32, ptr %18, align 1, !tbaa !683
+  %19 = load i32, ptr %18, align 8, !tbaa !683
   %.not.i = icmp eq i32 %19, -1
   br i1 %.not.i, label %20, label %29
 

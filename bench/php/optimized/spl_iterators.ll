@@ -7284,7 +7284,7 @@ define hidden void @zim_CachingIterator_offsetSet(ptr noundef readonly captures(
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %48 = load i64, ptr %47, align 8, !tbaa !101
-  %49 = load i8, ptr %46, align 1, !tbaa !11
+  %49 = load i8, ptr %46, align 8, !tbaa !11
   %50 = icmp sgt i8 %49, 57
   br i1 %50, label %_zend_handle_numeric_str.exit.thread, label %51, !prof !85
 
@@ -7386,7 +7386,7 @@ define hidden void @zim_CachingIterator_offsetGet(ptr noundef readonly captures(
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %39 = load i64, ptr %38, align 8, !tbaa !101
-  %40 = load i8, ptr %37, align 1, !tbaa !11
+  %40 = load i8, ptr %37, align 8, !tbaa !11
   %41 = icmp sgt i8 %40, 57
   br i1 %41, label %_zend_handle_numeric_str.exit.thread, label %42, !prof !85
 
@@ -7541,7 +7541,7 @@ define hidden void @zim_CachingIterator_offsetUnset(ptr noundef readonly capture
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %40 = load i64, ptr %39, align 8, !tbaa !101
-  %41 = load i8, ptr %38, align 1, !tbaa !11
+  %41 = load i8, ptr %38, align 8, !tbaa !11
   %42 = icmp sgt i8 %41, 57
   br i1 %42, label %_zend_handle_numeric_str.exit.thread, label %43, !prof !85
 
@@ -7642,7 +7642,7 @@ define hidden void @zim_CachingIterator_offsetExists(ptr noundef readonly captur
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %39 = load i64, ptr %38, align 8, !tbaa !101
-  %40 = load i8, ptr %37, align 1, !tbaa !11
+  %40 = load i8, ptr %37, align 8, !tbaa !11
   %41 = icmp sgt i8 %40, 57
   br i1 %41, label %_zend_handle_numeric_str.exit.thread, label %42, !prof !85
 
@@ -12910,7 +12910,7 @@ define internal fastcc noundef nonnull ptr @spl_RecursiveIteratorIterator_new_ex
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i16 8316, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 26
-  store i8 0, ptr %22, align 1, !tbaa !11
+  store i8 0, ptr %22, align 2, !tbaa !11
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 104
   store ptr %17, ptr %23, align 8, !tbaa !100
   %24 = tail call noalias ptr @_emalloc_32() #11
@@ -12924,7 +12924,7 @@ define internal fastcc noundef nonnull ptr @spl_RecursiveIteratorIterator_new_ex
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i16 8224, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 26
-  store i8 0, ptr %29, align 1, !tbaa !11
+  store i8 0, ptr %29, align 2, !tbaa !11
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 112
   store ptr %24, ptr %30, align 8, !tbaa !100
   %31 = tail call noalias ptr @_emalloc_32() #11
@@ -12938,7 +12938,7 @@ define internal fastcc noundef nonnull ptr @spl_RecursiveIteratorIterator_new_ex
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store i16 11644, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 26
-  store i8 0, ptr %36, align 1, !tbaa !11
+  store i8 0, ptr %36, align 2, !tbaa !11
   %37 = getelementptr inbounds nuw i8, ptr %13, i64 120
   store ptr %31, ptr %37, align 8, !tbaa !100
   %38 = tail call noalias ptr @_emalloc_32() #11
@@ -12952,7 +12952,7 @@ define internal fastcc noundef nonnull ptr @spl_RecursiveIteratorIterator_new_ex
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 24
   store i16 11612, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 26
-  store i8 0, ptr %43, align 1, !tbaa !11
+  store i8 0, ptr %43, align 2, !tbaa !11
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 128
   store ptr %38, ptr %44, align 8, !tbaa !100
   %45 = load ptr, ptr @zend_empty_string, align 8, !tbaa !100

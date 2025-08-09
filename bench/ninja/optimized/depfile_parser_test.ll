@@ -40276,7 +40276,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %8, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i64 0, ptr %9, align 8, !tbaa !4
-  store i8 0, ptr %8, align 1, !tbaa !25
+  store i8 0, ptr %8, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV28DepfileParserTest_Basic_Test, i64 16), ptr %2, align 8, !tbaa !12
   ret ptr %2
 
@@ -40342,7 +40342,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %8, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i64 0, ptr %9, align 8, !tbaa !4
-  store i8 0, ptr %8, align 1, !tbaa !25
+  store i8 0, ptr %8, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV48DepfileParserTest_EarlyNewlineAndWhitespace_Test, i64 16), ptr %2, align 8, !tbaa !12
   ret ptr %2
 
@@ -40387,7 +40387,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %8, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i64 0, ptr %9, align 8, !tbaa !4
-  store i8 0, ptr %8, align 1, !tbaa !25
+  store i8 0, ptr %8, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV35DepfileParserTest_Continuation_Test, i64 16), ptr %2, align 8, !tbaa !12
   ret ptr %2
 
@@ -40432,7 +40432,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %8, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i64 0, ptr %9, align 8, !tbaa !4
-  store i8 0, ptr %8, align 1, !tbaa !25
+  store i8 0, ptr %8, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV40DepfileParserTest_WindowsDrivePaths_Test, i64 16), ptr %2, align 8, !tbaa !12
   ret ptr %2
 
@@ -40477,7 +40477,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %8, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i64 0, ptr %9, align 8, !tbaa !4
-  store i8 0, ptr %8, align 1, !tbaa !25
+  store i8 0, ptr %8, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV49DepfileParserTest_CarriageReturnContinuation_Test, i64 16), ptr %2, align 8, !tbaa !12
   ret ptr %2
 
@@ -40522,7 +40522,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %8, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i64 0, ptr %9, align 8, !tbaa !4
-  store i8 0, ptr %8, align 1, !tbaa !25
+  store i8 0, ptr %8, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV34DepfileParserTest_BackSlashes_Test, i64 16), ptr %2, align 8, !tbaa !12
   ret ptr %2
 
@@ -40567,7 +40567,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %8, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i64 0, ptr %9, align 8, !tbaa !4
-  store i8 0, ptr %8, align 1, !tbaa !25
+  store i8 0, ptr %8, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV29DepfileParserTest_Spaces_Test, i64 16), ptr %2, align 8, !tbaa !12
   ret ptr %2
 
@@ -40612,7 +40612,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %8, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i64 0, ptr %9, align 8, !tbaa !4
-  store i8 0, ptr %8, align 1, !tbaa !25
+  store i8 0, ptr %8, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV42DepfileParserTest_MultipleBackslashes_Test, i64 16), ptr %2, align 8, !tbaa !12
   ret ptr %2
 
@@ -40657,7 +40657,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %8, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i64 0, ptr %9, align 8, !tbaa !4
-  store i8 0, ptr %8, align 1, !tbaa !25
+  store i8 0, ptr %8, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV30DepfileParserTest_Escapes_Test, i64 16), ptr %2, align 8, !tbaa !12
   ret ptr %2
 
@@ -40702,7 +40702,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %8, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i64 0, ptr %9, align 8, !tbaa !4
-  store i8 0, ptr %8, align 1, !tbaa !25
+  store i8 0, ptr %8, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV36DepfileParserTest_EscapedColons_Test, i64 16), ptr %2, align 8, !tbaa !12
   ret ptr %2
 
@@ -40747,7 +40747,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %8, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i64 0, ptr %9, align 8, !tbaa !4
-  store i8 0, ptr %8, align 1, !tbaa !25
+  store i8 0, ptr %8, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV41DepfileParserTest_EscapedTargetColon_Test, i64 16), ptr %2, align 8, !tbaa !12
   ret ptr %2
 
@@ -40792,7 +40792,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %8, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i64 0, ptr %9, align 8, !tbaa !4
-  store i8 0, ptr %8, align 1, !tbaa !25
+  store i8 0, ptr %8, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV35DepfileParserTest_SpecialChars_Test, i64 16), ptr %2, align 8, !tbaa !12
   ret ptr %2
 
@@ -40837,7 +40837,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %8, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i64 0, ptr %9, align 8, !tbaa !4
-  store i8 0, ptr %8, align 1, !tbaa !25
+  store i8 0, ptr %8, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV43DepfileParserTest_UnifyMultipleOutputs_Test, i64 16), ptr %2, align 8, !tbaa !12
   ret ptr %2
 
@@ -40882,7 +40882,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %8, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i64 0, ptr %9, align 8, !tbaa !4
-  store i8 0, ptr %8, align 1, !tbaa !25
+  store i8 0, ptr %8, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV47DepfileParserTest_MultipleDifferentOutputs_Test, i64 16), ptr %2, align 8, !tbaa !12
   ret ptr %2
 
@@ -40927,7 +40927,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %8, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i64 0, ptr %9, align 8, !tbaa !4
-  store i8 0, ptr %8, align 1, !tbaa !25
+  store i8 0, ptr %8, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV41DepfileParserTest_MultipleEmptyRules_Test, i64 16), ptr %2, align 8, !tbaa !12
   ret ptr %2
 
@@ -40972,7 +40972,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %8, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i64 0, ptr %9, align 8, !tbaa !4
-  store i8 0, ptr %8, align 1, !tbaa !25
+  store i8 0, ptr %8, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV43DepfileParserTest_UnifyMultipleRulesLF_Test, i64 16), ptr %2, align 8, !tbaa !12
   ret ptr %2
 
@@ -41017,7 +41017,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %8, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i64 0, ptr %9, align 8, !tbaa !4
-  store i8 0, ptr %8, align 1, !tbaa !25
+  store i8 0, ptr %8, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV45DepfileParserTest_UnifyMultipleRulesCRLF_Test, i64 16), ptr %2, align 8, !tbaa !12
   ret ptr %2
 
@@ -41062,7 +41062,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %8, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i64 0, ptr %9, align 8, !tbaa !4
-  store i8 0, ptr %8, align 1, !tbaa !25
+  store i8 0, ptr %8, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV40DepfileParserTest_UnifyMixedRulesLF_Test, i64 16), ptr %2, align 8, !tbaa !12
   ret ptr %2
 
@@ -41107,7 +41107,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %8, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i64 0, ptr %9, align 8, !tbaa !4
-  store i8 0, ptr %8, align 1, !tbaa !25
+  store i8 0, ptr %8, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV42DepfileParserTest_UnifyMixedRulesCRLF_Test, i64 16), ptr %2, align 8, !tbaa !12
   ret ptr %2
 
@@ -41152,7 +41152,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %8, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i64 0, ptr %9, align 8, !tbaa !4
-  store i8 0, ptr %8, align 1, !tbaa !25
+  store i8 0, ptr %8, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV38DepfileParserTest_IndentedRulesLF_Test, i64 16), ptr %2, align 8, !tbaa !12
   ret ptr %2
 
@@ -41197,7 +41197,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %8, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i64 0, ptr %9, align 8, !tbaa !4
-  store i8 0, ptr %8, align 1, !tbaa !25
+  store i8 0, ptr %8, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV40DepfileParserTest_IndentedRulesCRLF_Test, i64 16), ptr %2, align 8, !tbaa !12
   ret ptr %2
 
@@ -41242,7 +41242,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %8, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i64 0, ptr %9, align 8, !tbaa !4
-  store i8 0, ptr %8, align 1, !tbaa !25
+  store i8 0, ptr %8, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV33DepfileParserTest_TolerateMP_Test, i64 16), ptr %2, align 8, !tbaa !12
   ret ptr %2
 
@@ -41287,7 +41287,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %8, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i64 0, ptr %9, align 8, !tbaa !4
-  store i8 0, ptr %8, align 1, !tbaa !25
+  store i8 0, ptr %8, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV46DepfileParserTest_MultipleRulesTolerateMP_Test, i64 16), ptr %2, align 8, !tbaa !12
   ret ptr %2
 
@@ -41332,7 +41332,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %8, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i64 0, ptr %9, align 8, !tbaa !4
-  store i8 0, ptr %8, align 1, !tbaa !25
+  store i8 0, ptr %8, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV52DepfileParserTest_MultipleRulesDifferentOutputs_Test, i64 16), ptr %2, align 8, !tbaa !12
   ret ptr %2
 
@@ -41377,7 +41377,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %8, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i64 0, ptr %9, align 8, !tbaa !4
-  store i8 0, ptr %8, align 1, !tbaa !25
+  store i8 0, ptr %8, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV30DepfileParserTest_BuggyMP_Test, i64 16), ptr %2, align 8, !tbaa !12
   ret ptr %2
 
@@ -41422,7 +41422,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %8, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i64 0, ptr %9, align 8, !tbaa !4
-  store i8 0, ptr %8, align 1, !tbaa !25
+  store i8 0, ptr %8, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV32DepfileParserTest_EmptyFile_Test, i64 16), ptr %2, align 8, !tbaa !12
   ret ptr %2
 
@@ -41467,7 +41467,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %8, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i64 0, ptr %9, align 8, !tbaa !4
-  store i8 0, ptr %8, align 1, !tbaa !25
+  store i8 0, ptr %8, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV33DepfileParserTest_EmptyLines_Test, i64 16), ptr %2, align 8, !tbaa !12
   ret ptr %2
 
@@ -41517,7 +41517,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %8, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i64 0, ptr %9, align 8, !tbaa !4
-  store i8 0, ptr %8, align 1, !tbaa !25
+  store i8 0, ptr %8, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV35DepfileParserTest_MissingColon_Test, i64 16), ptr %2, align 8, !tbaa !12
   ret ptr %2
 

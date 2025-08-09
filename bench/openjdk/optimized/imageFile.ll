@@ -326,7 +326,7 @@ define hidden noundef ptr @_ZN15ImageModuleData17package_to_moduleEPKc(ptr nound
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 56
-  %57 = load i32, ptr %56, align 4
+  %57 = load i32, ptr %56, align 8
   %58 = load ptr, ptr %55, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load ptr, ptr %59, align 8

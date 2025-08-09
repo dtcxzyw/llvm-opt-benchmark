@@ -25586,7 +25586,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %32, ptr %34, align 8, !alias.scope !204, !noalias !207
   store ptr %24, ptr %.0911.i.i.i, align 8, !alias.scope !207, !noalias !204
   store i64 0, ptr %33, align 8, !alias.scope !207, !noalias !204
-  store i8 0, ptr %24, align 1, !alias.scope !207, !noalias !204
+  store i8 0, ptr %24, align 8, !alias.scope !207, !noalias !204
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i) #24
   %35 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %36 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
@@ -25636,7 +25636,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %48, ptr %50, align 8, !alias.scope !211, !noalias !214
   store ptr %40, ptr %.0911.i.i.i29, align 8, !alias.scope !214, !noalias !211
   store i64 0, ptr %49, align 8, !alias.scope !214, !noalias !211
-  store i8 0, ptr %40, align 1, !alias.scope !214, !noalias !211
+  store i8 0, ptr %40, align 8, !alias.scope !214, !noalias !211
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i29) #24
   %51 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
@@ -27357,7 +27357,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i: ; preds
   store i64 %14, ptr %16, align 8
   store ptr %6, ptr %1, align 8
   store i64 0, ptr %15, align 8
-  store i8 0, ptr %6, align 1
+  store i8 0, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -27392,7 +27392,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = 
   store i64 %29, ptr %31, align 8
   store ptr %21, ptr %18, align 8
   store i64 0, ptr %30, align 8
-  store i8 0, ptr %21, align 1
+  store i8 0, ptr %21, align 8
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #24
   %32 = load ptr, ptr %1, align 8
   %33 = icmp eq ptr %32, %6

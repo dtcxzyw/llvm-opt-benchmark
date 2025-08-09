@@ -2300,7 +2300,7 @@ define range(i32 -2147483648, 1) i32 @ff_mpv_encode_init(ptr noundef %0) local_u
   %210 = mul nsw i64 %206, %209
   %211 = sext i32 %204 to i64
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %213 = load i32, ptr %212, align 4, !tbaa !169
+  %213 = load i32, ptr %212, align 8, !tbaa !169
   %214 = sext i32 %213 to i64
   %215 = mul nsw i64 %214, %211
   %216 = icmp sgt i64 %210, %215
@@ -8779,7 +8779,7 @@ ff_speedhq_mb_y_order_to_mb.exit:                 ; preds = %.lr.ph.i, %239
   %258 = load i32, ptr %55, align 8, !tbaa !151
   %259 = shl i32 1024, %258
   store i32 %259, ptr %104, align 4, !tbaa !50
-  store i32 %259, ptr %105, align 4, !tbaa !50
+  store i32 %259, ptr %105, align 8, !tbaa !50
   store i32 %259, ptr %56, align 4, !tbaa !50
   br label %260
 
@@ -8869,21 +8869,21 @@ ff_speedhq_mb_y_order_to_mb.exit:                 ; preds = %.lr.ph.i, %239
   %318 = load i32, ptr %120, align 4, !tbaa !50
   %319 = add nsw i32 %318, 2
   store i32 %319, ptr %120, align 4, !tbaa !50
-  %320 = load i32, ptr %121, align 4, !tbaa !50
+  %320 = load i32, ptr %121, align 8, !tbaa !50
   %321 = add nsw i32 %320, 2
-  store i32 %321, ptr %121, align 4, !tbaa !50
+  store i32 %321, ptr %121, align 8, !tbaa !50
   %322 = load i32, ptr %122, align 4, !tbaa !50
   %323 = add nsw i32 %322, 2
   store i32 %323, ptr %122, align 4, !tbaa !50
-  %324 = load i32, ptr %123, align 4, !tbaa !50
+  %324 = load i32, ptr %123, align 8, !tbaa !50
   %325 = add nsw i32 %324, 2
-  store i32 %325, ptr %123, align 4, !tbaa !50
+  store i32 %325, ptr %123, align 8, !tbaa !50
   %326 = load i32, ptr %124, align 4, !tbaa !50
   %327 = add nsw i32 %326, 1
   store i32 %327, ptr %124, align 4, !tbaa !50
-  %328 = load i32, ptr %125, align 4, !tbaa !50
+  %328 = load i32, ptr %125, align 8, !tbaa !50
   %329 = add nsw i32 %328, 1
-  store i32 %329, ptr %125, align 4, !tbaa !50
+  store i32 %329, ptr %125, align 8, !tbaa !50
   %330 = load ptr, ptr %126, align 8, !tbaa !103
   %331 = getelementptr inbounds nuw i8, ptr %330, i64 16
   store ptr %331, ptr %126, align 8, !tbaa !103

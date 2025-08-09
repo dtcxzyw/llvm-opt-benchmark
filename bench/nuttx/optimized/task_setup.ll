@@ -199,7 +199,7 @@ nxtask_save_parent.exit:                          ; preds = %58, %71, %89, %.thr
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %101, align 8
   %102 = load ptr, ptr @g_inactivetasks, align 8
-  store ptr %102, ptr %0, align 8
+  store ptr %102, ptr %0, align 16
   %.not = icmp eq ptr %102, null
   br i1 %.not, label %103, label %104
 

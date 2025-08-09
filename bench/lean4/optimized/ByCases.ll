@@ -1859,7 +1859,7 @@ _init_l_tacticBy__cases___x3a_____closed__6.exit: ; preds = %lean_dec_ref.exit
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i64 0, ptr %30, align 8, !tbaa !12
-  store i32 1, ptr %26, align 4, !tbaa !8
+  store i32 1, ptr %26, align 8, !tbaa !8
   store i32 100728856, ptr %29, align 4
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %25, ptr %31, align 8, !tbaa !4

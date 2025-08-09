@@ -168,19 +168,19 @@ define dso_local void @_ZN5clang16createInvocationEN4llvm8ArrayRefIPKcEENS_23Cre
   store ptr %29, ptr %28, align 8, !tbaa !15
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 56
   store i64 0, ptr %30, align 8, !tbaa !18
-  store i8 0, ptr %29, align 1, !tbaa !21
+  store i8 0, ptr %29, align 8, !tbaa !21
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 80
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 96
   store ptr %32, ptr %31, align 8, !tbaa !15
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 88
   store i64 0, ptr %33, align 8, !tbaa !18
-  store i8 0, ptr %32, align 1, !tbaa !21
+  store i8 0, ptr %32, align 8, !tbaa !21
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 112
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 128
   store ptr %35, ptr %34, align 8, !tbaa !15
   %36 = getelementptr inbounds nuw i8, ptr %27, i64 120
   store i64 0, ptr %36, align 8, !tbaa !18
-  store i8 0, ptr %35, align 1, !tbaa !21
+  store i8 0, ptr %35, align 8, !tbaa !21
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 144
   %38 = getelementptr inbounds nuw i8, ptr %27, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %37, i8 0, i64 120, i1 false)
@@ -2518,7 +2518,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llv
   store ptr %16, ptr %.ptr.i.i.i, align 8, !tbaa !15
   %17 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %17, align 8, !tbaa !18
-  store i8 0, ptr %16, align 1, !tbaa !21
+  store i8 0, ptr %16, align 8, !tbaa !21
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %18 = icmp eq i64 %.add.i.i.i, 416
   br i1 %18, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %15

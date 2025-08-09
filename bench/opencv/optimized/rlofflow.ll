@@ -7475,23 +7475,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit144: ; preds = %_Z
   store i32 1, ptr %112, align 4, !tbaa !34, !noalias !192
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv7optflow24RLOFOpticalFlowParameterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %110, align 8, !tbaa !35, !noalias !192
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 16
-  store i32 1, ptr %113, align 4, !tbaa !3, !noalias !192
+  store i32 1, ptr %113, align 8, !tbaa !3, !noalias !192
   %114 = getelementptr inbounds nuw i8, ptr %110, i64 20
   store i32 1, ptr %114, align 4, !tbaa !12, !noalias !192
   %115 = getelementptr inbounds nuw i8, ptr %110, i64 24
-  store float 0x47EFFFFFE0000000, ptr %115, align 4, !tbaa !13, !noalias !192
+  store float 0x47EFFFFFE0000000, ptr %115, align 8, !tbaa !13, !noalias !192
   %116 = getelementptr inbounds nuw i8, ptr %110, i64 28
   store float 0x47EFFFFFE0000000, ptr %116, align 4, !tbaa !14, !noalias !192
   %117 = getelementptr inbounds nuw i8, ptr %110, i64 32
-  store i32 9, ptr %117, align 4, !tbaa !15, !noalias !192
+  store i32 9, ptr %117, align 8, !tbaa !15, !noalias !192
   %118 = getelementptr inbounds nuw i8, ptr %110, i64 36
   store i32 21, ptr %118, align 4, !tbaa !16, !noalias !192
   %119 = getelementptr inbounds nuw i8, ptr %110, i64 40
-  store i32 25, ptr %119, align 4, !tbaa !17, !noalias !192
+  store i32 25, ptr %119, align 8, !tbaa !17, !noalias !192
   %120 = getelementptr inbounds nuw i8, ptr %110, i64 44
   store i32 4, ptr %120, align 4, !tbaa !18, !noalias !192
   %121 = getelementptr inbounds nuw i8, ptr %110, i64 48
-  store i8 0, ptr %121, align 4, !tbaa !19, !noalias !192
+  store i8 0, ptr %121, align 8, !tbaa !19, !noalias !192
   %122 = getelementptr inbounds nuw i8, ptr %110, i64 49
   store i8 1, ptr %122, align 1, !tbaa !20, !noalias !192
   %123 = getelementptr inbounds nuw i8, ptr %110, i64 50
@@ -7499,7 +7499,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit144: ; preds = %_Z
   %124 = getelementptr inbounds nuw i8, ptr %110, i64 52
   store i32 30, ptr %124, align 4, !tbaa !22, !noalias !192
   %125 = getelementptr inbounds nuw i8, ptr %110, i64 56
-  store float 0x3F1A36E2E0000000, ptr %125, align 4, !tbaa !23, !noalias !192
+  store float 0x3F1A36E2E0000000, ptr %125, align 8, !tbaa !23, !noalias !192
   %126 = getelementptr inbounds nuw i8, ptr %110, i64 60
   store float 1.000000e+01, ptr %126, align 4, !tbaa !24, !noalias !192
   store ptr %113, ptr %106, align 8, !tbaa !25

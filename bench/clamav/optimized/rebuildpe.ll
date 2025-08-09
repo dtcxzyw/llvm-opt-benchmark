@@ -139,9 +139,9 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr noundef readonly captures(no
   %72 = getelementptr inbounds nuw i8, ptr %61, i64 328
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %72, i8 0, i64 128, i1 false)
   %73 = getelementptr inbounds nuw i8, ptr %61, i64 344
-  store i32 %5, ptr %73, align 1, !tbaa !15
+  store i32 %5, ptr %73, align 4, !tbaa !15
   %74 = getelementptr inbounds nuw i8, ptr %61, i64 348
-  store i32 %6, ptr %74, align 1, !tbaa !15
+  store i32 %6, ptr %74, align 4, !tbaa !15
   %75 = getelementptr inbounds nuw i8, ptr %61, i64 456
   br i1 %23, label %76, label %90
 

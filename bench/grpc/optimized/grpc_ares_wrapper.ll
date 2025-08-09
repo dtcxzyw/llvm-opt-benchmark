@@ -8923,7 +8923,7 @@ _ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE12emplace_backIJR21grpc_reso
   %197 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr @_ZN4absl12lts_2024072219str_format_internal13FormatArgImpl8DispatchIPKcEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %197, align 8, !tbaa !157, !noalias !205
   %198 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %.sroa.0.0.copyload.i.i.i.i = load i8, ptr %191, align 1, !noalias !205
+  %.sroa.0.0.copyload.i.i.i.i = load i8, ptr %191, align 2, !noalias !205
   %.sroa.0.0.insert.ext.i.i.i.i = zext i8 %.sroa.0.0.copyload.i.i.i.i to i64
   %199 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i.i to ptr
   store ptr %199, ptr %198, align 8, !tbaa !62, !noalias !205

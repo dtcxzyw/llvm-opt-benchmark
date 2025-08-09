@@ -230,7 +230,7 @@ parse_layer_rates.exit:                           ; preds = %34, %12, %19
   %63 = getelementptr inbounds nuw i8, ptr %4, i64 124
   store i8 %62, ptr %63, align 4, !tbaa !45
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 120
-  store i8 4, ptr %64, align 4, !tbaa !46
+  store i8 4, ptr %64, align 8, !tbaa !46
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 121
   store i8 4, ptr %65, align 1, !tbaa !47
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 122
@@ -1973,7 +1973,7 @@ reinit.exit:                                      ; preds = %copy_frame_16.exit.
   %688 = load ptr, ptr %25, align 8, !tbaa !34
   %689 = getelementptr inbounds nuw i8, ptr %688, i64 1
   store ptr %689, ptr %25, align 8, !tbaa !34
-  %690 = load i32, ptr %665, align 4, !tbaa !43
+  %690 = load i32, ptr %665, align 8, !tbaa !43
   %691 = trunc i32 %690 to i8
   %692 = add i8 %691, -1
   store i8 %692, ptr %689, align 1, !tbaa !62
@@ -1981,7 +1981,7 @@ reinit.exit:                                      ; preds = %copy_frame_16.exit.
   %694 = getelementptr inbounds nuw i8, ptr %693, i64 1
   store ptr %694, ptr %25, align 8, !tbaa !34
   %695 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  %696 = load i8, ptr %695, align 4, !tbaa !46
+  %696 = load i8, ptr %695, align 8, !tbaa !46
   %697 = add i8 %696, -2
   store i8 %697, ptr %694, align 1, !tbaa !62
   %698 = load ptr, ptr %25, align 8, !tbaa !34
@@ -2010,7 +2010,7 @@ reinit.exit:                                      ; preds = %copy_frame_16.exit.
   %714 = getelementptr inbounds nuw i8, ptr %7, i64 498
   %715 = load i8, ptr %714, align 2, !tbaa !52
   %716 = icmp eq i8 %715, 0
-  %717 = load i32, ptr %665, align 4, !tbaa !43
+  %717 = load i32, ptr %665, align 8, !tbaa !43
   %..i = select i1 %716, i32 3, i32 6
   %.44.i = select i1 %716, i32 1, i32 -1
   %718 = mul i32 %..i, %717
@@ -2046,7 +2046,7 @@ reinit.exit:                                      ; preds = %copy_frame_16.exit.
   store ptr %740, ptr %25, align 8, !tbaa !34
   %741 = load i8, ptr %714, align 2, !tbaa !52
   %742 = icmp eq i8 %741, 0
-  %743 = load i32, ptr %665, align 4, !tbaa !43
+  %743 = load i32, ptr %665, align 8, !tbaa !43
   %744 = icmp sgt i32 %743, 0
   br i1 %742, label %.preheader.i, label %.preheader31.i
 
@@ -2071,7 +2071,7 @@ reinit.exit:                                      ; preds = %copy_frame_16.exit.
   %751 = getelementptr inbounds nuw i8, ptr %750, i64 1
   store ptr %751, ptr %25, align 8, !tbaa !34
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
-  %752 = load i32, ptr %665, align 4, !tbaa !43
+  %752 = load i32, ptr %665, align 8, !tbaa !43
   %753 = mul nsw i32 %752, 3
   %754 = add nsw i32 %753, -2
   %755 = sext i32 %754 to i64
@@ -2094,7 +2094,7 @@ reinit.exit:                                      ; preds = %copy_frame_16.exit.
   %768 = getelementptr inbounds nuw i8, ptr %767, i64 2
   store ptr %768, ptr %25, align 8, !tbaa !34
   %indvars.iv.next.i233 = add nuw nsw i64 %indvars.iv.i232, 1
-  %769 = load i32, ptr %665, align 4, !tbaa !43
+  %769 = load i32, ptr %665, align 8, !tbaa !43
   %770 = mul nsw i32 %769, 3
   %771 = add nsw i32 %770, -2
   %772 = sext i32 %771 to i64
@@ -2221,7 +2221,7 @@ put_com.exit:                                     ; preds = %.loopexit, %786
   %845 = getelementptr inbounds nuw %struct.Jpeg2000Tile, ptr %844, i64 %indvars.iv
   %846 = load ptr, ptr %845, align 8, !tbaa !75
   %847 = getelementptr inbounds nuw %struct.Jpeg2000Component, ptr %846, i64 %indvars.iv336.i
-  %848 = load i8, ptr %695, align 4, !tbaa !46
+  %848 = load i8, ptr %695, align 8, !tbaa !46
   %849 = zext nneg i8 %848 to i32
   %850 = shl nuw i32 1, %849
   %851 = add nuw nsw i32 %850, 2
@@ -2238,7 +2238,7 @@ put_com.exit:                                     ; preds = %.loopexit, %786
 858:                                              ; preds = %.lr.ph304.i
   %859 = load ptr, ptr %775, align 8, !tbaa !28
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %859, i32 noundef 48, ptr noundef nonnull @.str.51) #12
-  %860 = load i32, ptr %665, align 4, !tbaa !43
+  %860 = load i32, ptr %665, align 8, !tbaa !43
   %861 = icmp sgt i32 %860, 0
   br i1 %861, label %.lr.ph300.i, label %._crit_edge301.i
 

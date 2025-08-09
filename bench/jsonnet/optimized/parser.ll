@@ -865,7 +865,7 @@ define void @_ZN7jsonnet8internal22jsonnet_unparse_numberB5cxx11Ed(ptr dead_on_u
   %21 = load i32, ptr %20, align 8, !tbaa !17
   %22 = and i32 %21, -261
   %23 = or disjoint i32 %22, 4
-  store i32 %23, ptr %20, align 4, !tbaa !27
+  store i32 %23, ptr %20, align 8, !tbaa !27
   %24 = load i64, ptr %16, align 8
   br label %.invoke
 
@@ -5572,7 +5572,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8, !tbaa !39
   store ptr %13, ptr %10, align 8, !tbaa !45
   store i64 0, ptr %24, align 8, !tbaa !39
-  store i8 0, ptr %13, align 1, !tbaa !41
+  store i8 0, ptr %13, align 8, !tbaa !41
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i32 0, ptr %26, align 8, !tbaa !232
   store ptr %7, ptr %23, align 8, !tbaa !235
@@ -6186,7 +6186,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8, !tbaa !39
   store ptr %13, ptr %10, align 8, !tbaa !45
   store i64 0, ptr %24, align 8, !tbaa !39
-  store i8 0, ptr %13, align 1, !tbaa !41
+  store i8 0, ptr %13, align 8, !tbaa !41
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i32 0, ptr %26, align 8, !tbaa !246
   store ptr %7, ptr %23, align 8, !tbaa !248

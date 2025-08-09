@@ -544,9 +544,9 @@ define dso_local i32 @intel_guc_init(ptr noundef %0) local_unnamed_addr #0 align
   %50 = add i32 %48, %49
   %51 = and i32 %50, -4096
   %52 = getelementptr i8, ptr %0, i64 448
-  %53 = load i32, ptr %52, align 4
+  %53 = load i32, ptr %52, align 8
   %54 = getelementptr i8, ptr %0, i64 464
-  %55 = load i32, ptr %54, align 4
+  %55 = load i32, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 428
   %57 = load i32, ptr %56, align 4
   %58 = shl i32 %57, 4
@@ -562,7 +562,7 @@ define dso_local i32 @intel_guc_init(ptr noundef %0) local_unnamed_addr #0 align
   %68 = or i32 %67, %61
   %69 = or i32 %68, %64
   %70 = or i32 %69, 3
-  store i32 %70, ptr %42, align 4
+  store i32 %70, ptr %42, align 8
   %71 = icmp sgt i32 %41, 4
   br i1 %71, label %72, label %.thread13
 
@@ -600,7 +600,7 @@ define dso_local i32 @intel_guc_init(ptr noundef %0) local_unnamed_addr #0 align
   %94 = lshr i32 %93, 11
   %95 = and i32 %94, 2097150
   %96 = getelementptr i8, ptr %0, i64 1496
-  store i32 %95, ptr %96, align 4
+  store i32 %95, ptr %96, align 8
   %97 = getelementptr i8, ptr %0, i64 -632
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 7176

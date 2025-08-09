@@ -359,7 +359,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   store ptr %83, ptr %82, align 8, !tbaa !9
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 16
   store i64 0, ptr %84, align 8, !tbaa !17
-  store i8 0, ptr %83, align 1, !tbaa !16
+  store i8 0, ptr %83, align 8, !tbaa !16
   store i8 0, ptr %81, align 8, !tbaa !31
   %85 = load ptr, ptr %9, align 8, !tbaa !14
   %86 = icmp eq ptr %85, %39

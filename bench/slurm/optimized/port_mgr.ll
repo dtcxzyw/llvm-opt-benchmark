@@ -221,7 +221,7 @@ define dso_local range(i32 -1, 1) i32 @reserve_port_config(ptr noundef %0, ptr n
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr inbounds nuw i8, ptr %77, i64 848
   %92 = getelementptr inbounds nuw i8, ptr %77, i64 840
-  %93 = load i16, ptr %91, align 2
+  %93 = load i16, ptr %91, align 8
   %94 = icmp eq i16 %93, 0
   %95 = icmp eq ptr %90, null
   %or.cond.i.i.i = or i1 %95, %94
@@ -321,7 +321,7 @@ _make_job_resv.exit.i:                            ; preds = %120, %127, %104, %9
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr inbounds nuw i8, ptr %134, i64 224
   %144 = getelementptr inbounds nuw i8, ptr %134, i64 216
-  %145 = load i16, ptr %143, align 2
+  %145 = load i16, ptr %143, align 8
   %146 = icmp eq i16 %145, 0
   %147 = icmp eq ptr %142, null
   %or.cond.i.i11.i = or i1 %147, %146
@@ -351,7 +351,7 @@ _make_job_resv.exit.i:                            ; preds = %120, %127, %104, %9
   %159 = zext i16 %158 to i64
   %160 = call ptr @slurm_xcalloc(i64 noundef %159, i64 noundef %159, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.4, i32 noundef 97, ptr noundef nonnull @__func__._rebuild_port_array) #9
   store ptr %160, ptr %144, align 8
-  store i16 0, ptr %143, align 2
+  store i16 0, ptr %143, align 8
   %161 = call ptr @hostlist_shift(ptr noundef nonnull %156) #9
   store ptr %161, ptr %3, align 8
   %.not1617.i.i = icmp eq ptr %161, null
@@ -366,9 +366,9 @@ _make_job_resv.exit.i:                            ; preds = %120, %127, %104, %9
 
 166:                                              ; preds = %.lr.ph.i.i
   %167 = load ptr, ptr %144, align 8
-  %168 = load i16, ptr %143, align 2
+  %168 = load i16, ptr %143, align 8
   %169 = add i16 %168, 1
-  store i16 %169, ptr %143, align 2
+  store i16 %169, ptr %143, align 8
   %170 = zext i16 %168 to i64
   %171 = getelementptr inbounds nuw i32, ptr %167, i64 %170
   store i32 %164, ptr %171, align 4

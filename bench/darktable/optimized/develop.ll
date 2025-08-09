@@ -353,7 +353,7 @@ dt_dev_init_chroma.exit:                          ; preds = %79
   store i32 %93, ptr %94, align 4, !tbaa !123
   %95 = call reassoc nsz arcp contract afn float @dt_conf_get_float(ptr noundef nonnull @.str.5) #24
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 2512
-  store float %95, ptr %96, align 8, !tbaa !124
+  store float %95, ptr %96, align 16, !tbaa !124
   %97 = call reassoc nsz arcp contract afn float @dt_conf_get_float(ptr noundef nonnull @.str.6) #24
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 2516
   store float %97, ptr %98, align 4, !tbaa !125
@@ -362,7 +362,7 @@ dt_dev_init_chroma.exit:                          ; preds = %79
   store i32 %99, ptr %100, align 8, !tbaa !126
   %101 = call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.8) #24
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 2768
-  store i32 %101, ptr %102, align 8, !tbaa !127
+  store i32 %101, ptr %102, align 16, !tbaa !127
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 2772
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 2684
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 2788
@@ -684,7 +684,7 @@ dt_dev_init_chroma.exit:                          ; preds = %20
   %96 = load i32, ptr %95, align 4, !tbaa !123
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.4, i32 noundef %96) #24
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 2512
-  %98 = load float, ptr %97, align 8, !tbaa !124
+  %98 = load float, ptr %97, align 16, !tbaa !124
   tail call void @dt_conf_set_float(ptr noundef nonnull @.str.5, float noundef %98) #24
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 2516
   %100 = load float, ptr %99, align 4, !tbaa !125

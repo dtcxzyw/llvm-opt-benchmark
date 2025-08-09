@@ -587,10 +587,10 @@ define hidden noundef i32 @mbedtls_sha512_finish(ptr noundef %0, ptr noundef wri
   %25 = shl i64 %21, 3
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %27 = tail call i64 @llvm.bswap.i64(i64 %24)
-  store i64 %27, ptr %26, align 1
+  store i64 %27, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %29 = tail call i64 @llvm.bswap.i64(i64 %25)
-  store i64 %29, ptr %28, align 1
+  store i64 %29, ptr %28, align 8
   %30 = tail call i32 @mbedtls_internal_sha512_process(ptr noundef nonnull %0, ptr noundef nonnull %6)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load i64, ptr %31, align 8, !tbaa !9

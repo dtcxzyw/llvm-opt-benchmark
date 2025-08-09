@@ -50579,7 +50579,7 @@ common.resume:                                    ; preds = %.body.i.i, %232, %2
   %265 = getelementptr inbounds nuw i8, ptr %120, i64 120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.05.i.sroa.16.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(40) %265, i64 40, i1 false), !noalias !6393
   %266 = getelementptr inbounds nuw i8, ptr %120, i64 160
-  %267 = load i8, ptr %266, align 8, !range !75, !noalias !6393, !noundef !7
+  %267 = load i8, ptr %266, align 16, !range !75, !noalias !6393, !noundef !7
   br label %259
 
 "_ZN71_$LT$polars_plan..plans..aexpr..AExpr$u20$as$u20$core..clone..Clone$GT$5clone17hd906804038e84e35E.exit.i": ; preds = %259, %243, %239, %220, %217, %214, %205, %187, %185, %180, %163, %159, %153, %146, %144, %127, %117
@@ -111935,7 +111935,7 @@ _ZN11polars_plan5plans9optimizer18predicate_pushdown5utils14combine_by_and17hd07
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !12486
   store i64 %276, ptr %270, align 16, !alias.scope !12494, !noalias !12497
   %289 = getelementptr inbounds i8, ptr %269, i64 -32
-  %290 = load atomic i32, ptr %289 acquire, align 4, !alias.scope !12498, !noalias !12497
+  %290 = load atomic i32, ptr %289 acquire, align 16, !alias.scope !12498, !noalias !12497
   %291 = icmp eq i32 %290, 3
   br i1 %291, label %292, label %298
 

@@ -1776,7 +1776,7 @@ define dso_local noundef zeroext i1 @inet_ehash_insert(ptr noundef %0, ptr nound
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = load i64, ptr %17, align 8
   %19 = getelementptr i8, ptr %0, i64 64
-  %20 = load i32, ptr %19, align 4
+  %20 = load i32, ptr %19, align 8
   %21 = xor i32 %20, -65536
   %22 = zext i32 %21 to i64
   %23 = or i64 %18, %22
@@ -1862,7 +1862,7 @@ define dso_local noundef zeroext i1 @inet_ehash_insert(ptr noundef %0, ptr nound
 76:                                               ; preds = %74, %68
   store volatile ptr null, ptr %66, align 8
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %78 = load volatile i32, ptr %77, align 4
+  %78 = load volatile i32, ptr %77, align 8
   %79 = icmp eq i32 %78, 1
   br i1 %79, label %80, label %81, !prof !7
 
@@ -2633,7 +2633,7 @@ define dso_local zeroext i1 @inet_bind2_bucket_match_addr_any(ptr noundef readon
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %26 = load i64, ptr %25, align 8
   %27 = getelementptr i8, ptr %4, i64 80
-  %28 = load i32, ptr %27, align 4
+  %28 = load i32, ptr %27, align 8
   %29 = xor i32 %28, -65536
   %30 = zext i32 %29 to i64
   %31 = or i64 %26, %30
@@ -2901,7 +2901,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__inet_bhash2_update_saddr
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 0, ptr %40, align 8
   %41 = getelementptr i8, ptr %0, i64 80
-  store i32 -65536, ptr %41, align 4
+  store i32 -65536, ptr %41, align 8
   %42 = getelementptr i8, ptr %0, i64 84
   store i32 %37, ptr %42, align 4
   br label %320
@@ -3113,7 +3113,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__inet_bhash2_update_saddr
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 0, ptr %177, align 8
   %178 = getelementptr i8, ptr %0, i64 80
-  store i32 -65536, ptr %178, align 4
+  store i32 -65536, ptr %178, align 8
   %179 = getelementptr i8, ptr %0, i64 84
   store i32 %174, ptr %179, align 4
   br label %182
@@ -3965,7 +3965,7 @@ define dso_local i32 @__inet_hash_connect(ptr noundef %0, ptr noundef %1, i64 no
 375:                                              ; preds = %373, %367
   store volatile ptr null, ptr %345, align 8
   %376 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %377 = load volatile i32, ptr %376, align 4
+  %377 = load volatile i32, ptr %376, align 8
   %378 = icmp eq i32 %377, 1
   br i1 %378, label %379, label %380, !prof !7
 
@@ -4238,7 +4238,7 @@ define internal noundef range(i32 -99, 1) i32 @__inet_check_established(ptr noun
 115:                                              ; preds = %113, %107
   store volatile ptr null, ptr %104, align 8
   %116 = getelementptr inbounds nuw i8, ptr %84, i64 128
-  %117 = load volatile i32, ptr %116, align 4
+  %117 = load volatile i32, ptr %116, align 8
   %118 = icmp eq i32 %117, 1
   br i1 %118, label %119, label %120, !prof !7
 

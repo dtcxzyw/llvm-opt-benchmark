@@ -4316,7 +4316,7 @@ define dso_local void @init_cgroup_root(ptr noundef readonly captures(none) %0) 
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store volatile ptr %5, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 1160
-  store volatile i32 1, ptr %7, align 4
+  store volatile i32 1, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 552
   store ptr %3, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 96
@@ -4351,7 +4351,7 @@ define dso_local void @init_cgroup_root(ptr noundef readonly captures(none) %0) 
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 824
   store volatile ptr %24, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 832
-  store volatile ptr %24, ptr %25, align 8
+  store volatile ptr %24, ptr %25, align 64
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 952
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %26, i8 0, i64 20, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 576
@@ -7168,7 +7168,7 @@ define dso_local i32 @cgroup_attach_task(ptr noundef %0, ptr noundef %1, i1 noun
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 1488
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %25 = load volatile ptr, ptr %24, align 8
+  %25 = load volatile ptr, ptr %24, align 16
   store ptr %25, ptr %4, align 8
   %26 = icmp eq ptr %25, %23
   br i1 %26, label %.thread.us, label %27, !prof !22
@@ -8673,7 +8673,7 @@ define dso_local i32 @cgroup_mkdir(ptr noundef %0, ptr noundef %1, i16 noundef z
   %89 = getelementptr inbounds nuw i8, ptr %47, i64 760
   store volatile ptr %89, ptr %89, align 8
   %90 = getelementptr inbounds nuw i8, ptr %47, i64 768
-  store volatile ptr %89, ptr %90, align 8
+  store volatile ptr %89, ptr %90, align 64
   %91 = getelementptr inbounds nuw i8, ptr %47, i64 888
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %91, i8 0, i64 20, i1 false)
   %92 = getelementptr inbounds nuw i8, ptr %47, i64 512
@@ -8790,7 +8790,7 @@ define dso_local i32 @cgroup_mkdir(ptr noundef %0, ptr noundef %1, i16 noundef z
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 48
   %156 = getelementptr inbounds nuw i8, ptr %154, i64 56
   %157 = load ptr, ptr %156, align 8
-  store ptr %155, ptr %74, align 8
+  store ptr %155, ptr %74, align 32
   store ptr %157, ptr %75, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #30, !srcloc !75
   store volatile ptr %74, ptr %157, align 8
@@ -11045,7 +11045,7 @@ define dso_local void @cgroup_fork(ptr noundef %0) local_unnamed_addr #14 align 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2280
   store volatile ptr %3, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2288
-  store volatile ptr %3, ptr %4, align 8
+  store volatile ptr %3, ptr %4, align 16
   ret void
 }
 
@@ -11700,7 +11700,7 @@ define dso_local void @cgroup_post_fork(ptr noundef %0, ptr noundef captures(non
   store ptr %20, ptr %58, align 8
   store ptr %57, ptr %20, align 8
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 2288
-  store ptr %59, ptr %60, align 8
+  store ptr %59, ptr %60, align 16
   store volatile ptr %20, ptr %59, align 8
   br label %css_set_move_task.exit
 
@@ -15019,7 +15019,7 @@ define internal fastcc void @init_and_link_css(ptr noundef initializes((0, 200))
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %34, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store volatile i32 0, ptr %37, align 4
+  store volatile i32 0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %39 = load ptr, ptr %38, align 64
   %40 = icmp eq ptr %39, null

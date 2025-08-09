@@ -1130,7 +1130,7 @@ define linkonce_odr { i64, ptr } @_ZNK29grpc_md_only_test_credentials4typeEv(ptr
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 10, ptr %10, align 8, !tbaa !27
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 26
-  store i8 0, ptr %11, align 1, !tbaa !30
+  store i8 0, ptr %11, align 2, !tbaa !30
   store ptr %7, ptr @_ZZN29grpc_md_only_test_credentials4TypeEvE8kFactory, align 8, !tbaa !19
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN29grpc_md_only_test_credentials4TypeEvE8kFactory) #27
   br label %_ZN29grpc_md_only_test_credentials4TypeEv.exit
@@ -1204,11 +1204,11 @@ define linkonce_odr { i64, ptr } @_ZNK29grpc_fake_channel_credentials4typeEv(ptr
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %9, ptr %7, align 8, !tbaa !28
-  store i32 1701536070, ptr %9, align 1
+  store i32 1701536070, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 4, ptr %10, align 8, !tbaa !27
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store i8 0, ptr %11, align 1, !tbaa !30
+  store i8 0, ptr %11, align 4, !tbaa !30
   store ptr %7, ptr @_ZZN29grpc_fake_channel_credentials4TypeEvE8kFactory, align 8, !tbaa !19
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN29grpc_fake_channel_credentials4TypeEvE8kFactory) #27
   br label %_ZN29grpc_fake_channel_credentials4TypeEv.exit
@@ -1306,11 +1306,11 @@ define linkonce_odr { i64, ptr } @_ZNK28grpc_fake_server_credentials4typeEv(ptr 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %9, ptr %7, align 8, !tbaa !28
-  store i32 1701536070, ptr %9, align 1
+  store i32 1701536070, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 4, ptr %10, align 8, !tbaa !27
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store i8 0, ptr %11, align 1, !tbaa !30
+  store i8 0, ptr %11, align 4, !tbaa !30
   store ptr %7, ptr @_ZZN28grpc_fake_server_credentials4TypeEvE8kFactory, align 8, !tbaa !19
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN28grpc_fake_server_credentials4TypeEvE8kFactory) #27
   br label %_ZN28grpc_fake_server_credentials4TypeEv.exit
@@ -2736,7 +2736,7 @@ define linkonce_odr void @_ZN9grpc_core15metadata_detail12AppendHelperI19grpc_me
   %storemerge.i.i.i.i = or i16 %7, 2
   store i16 %storemerge.i.i.i.i, ptr %6, align 2, !tbaa !96
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 10
-  store i8 %5, ptr %8, align 1, !tbaa !127
+  store i8 %5, ptr %8, align 2, !tbaa !127
   ret void
 }
 
@@ -2951,7 +2951,7 @@ define linkonce_odr void @_ZN9grpc_core15metadata_detail12AppendHelperI19grpc_me
   %storemerge.i.i.i.i = or i16 %7, 16384
   store i16 %storemerge.i.i.i.i, ptr %6, align 2, !tbaa !96
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i8 %5, ptr %8, align 1, !tbaa !146
+  store i8 %5, ptr %8, align 2, !tbaa !146
   ret void
 }
 
@@ -3152,7 +3152,7 @@ define linkonce_odr void @_ZN9grpc_core15metadata_detail12AppendHelperI19grpc_me
   %storemerge.i.i.i.i = or i16 %7, 1024
   store i16 %storemerge.i.i.i.i, ptr %6, align 2, !tbaa !96
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i8 %5, ptr %8, align 1, !tbaa !30
+  store i8 %5, ptr %8, align 2, !tbaa !30
   ret void
 }
 
@@ -4515,7 +4515,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %49, ptr %51, align 8, !tbaa !27
   store ptr %40, ptr %37, align 8, !tbaa !22
   store i64 0, ptr %50, align 8, !tbaa !27
-  store i8 0, ptr %40, align 1, !tbaa !30
+  store i8 0, ptr %40, align 8, !tbaa !30
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.023.0, i64 40
   %53 = add nuw nsw i64 %.012.i, 1
   %exitcond.not.i = icmp eq i64 %53, %.sink1.i
@@ -4930,7 +4930,7 @@ define linkonce_odr void @_ZN9grpc_core20arena_promise_detail7InlinedIN4absl12lt
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !39
   %.not.i.i = icmp ne ptr %3, null
-  %4 = load i8, ptr %0, align 1, !range !242
+  %4 = load i8, ptr %0, align 8, !range !242
   %5 = trunc nuw i8 %4 to i1
   %or.cond.i.i = select i1 %.not.i.i, i1 %5, i1 false
   br i1 %or.cond.i.i, label %6, label %_ZN9grpc_core14promise_detail9ImmediateISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit

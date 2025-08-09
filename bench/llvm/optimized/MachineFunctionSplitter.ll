@@ -1727,7 +1727,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEZNS_L19computeEHOnly
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.sroa.0116.0164.i, ptr %167, align 8, !tbaa !375
   %173 = getelementptr inbounds nuw i8, ptr %167, i64 8
-  store i32 0, ptr %173, align 4, !tbaa !378
+  store i32 0, ptr %173, align 8, !tbaa !378
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEZNS_L19computeEHOnlyBlocksINS_15MachineFunctionES2_EEvRT_RNS_8DenseSetIPT0_NS_12DenseMapInfoISA_vEEEEE6StatusNSB_IS3_vEENS_6detail12DenseMapPairIS3_SF_EEEES3_SF_SG_SJ_EixEOS3_.exit.i
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEZNS_L19computeEHOnlyBlocksINS_15MachineFunctionES2_EEvRT_RNS_8DenseSetIPT0_NS_12DenseMapInfoISA_vEEEEE6StatusNSB_IS3_vEENS_6detail12DenseMapPairIS3_SF_EEEES3_SF_SG_SJ_EixEOS3_.exit.i: ; preds = %149, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEZNS_L19computeEHOnlyBlocksINS_15MachineFunctionES2_EEvRT_RNS_8DenseSetIPT0_NS_12DenseMapInfoISA_vEEEEE6StatusNSB_IS3_vEENS_6detail12DenseMapPairIS3_SF_EEEES3_SF_SG_SJ_E16InsertIntoBucketIS3_JEEEPSJ_SN_OS6_DpOT0_.exit.i.i, %133
@@ -2433,7 +2433,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEZNS_L19computeEHOnly
   %49 = load ptr, ptr %1, align 8, !tbaa !375
   store ptr %49, ptr %42, align 8, !tbaa !375
   %50 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store i32 0, ptr %50, align 4, !tbaa !378
+  store i32 0, ptr %50, align 8, !tbaa !378
   br label %.loopexit
 
 .loopexit:                                        ; preds = %22, %6, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEZNS_L19computeEHOnlyBlocksINS_15MachineFunctionES2_EEvRT_RNS_8DenseSetIPT0_NS_12DenseMapInfoISA_vEEEEE6StatusNSB_IS3_vEENS_6detail12DenseMapPairIS3_SF_EEEES3_SF_SG_SJ_E16InsertIntoBucketIRKS3_JEEEPSJ_SP_OS6_DpOT0_.exit
@@ -2628,7 +2628,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEZNS_L19computeEHOnly
   %63 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 8
   %64 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 8
   %65 = load i32, ptr %64, align 4, !tbaa !378
-  store i32 %65, ptr %63, align 4, !tbaa !378
+  store i32 %65, ptr %63, align 8, !tbaa !378
   %.val.i19.i.i = load i32, ptr %32, align 8, !tbaa !402
   %66 = add i32 %.val.i19.i.i, 1
   store i32 %66, ptr %32, align 8, !tbaa !402

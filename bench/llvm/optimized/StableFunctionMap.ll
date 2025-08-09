@@ -1740,7 +1740,7 @@ _ZSt11make_uniqueIN4llvm8DenseMapISt4pairIjjEmNS0_12DenseMapInfoIS3_vEENS0_6deta
   call void @llvm.experimental.noalias.scope.decl(metadata !152)
   %150 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23, !noalias !152
   %151 = load i64, ptr %148, align 8, !tbaa !45, !noalias !152
-  %152 = load i32, ptr %149, align 4, !tbaa !49, !noalias !152
+  %152 = load i32, ptr %149, align 8, !tbaa !49, !noalias !152
   %153 = ptrtoint ptr %115 to i64
   store i64 %151, ptr %150, align 8, !tbaa !107, !noalias !152
   %154 = getelementptr inbounds nuw i8, ptr %150, i64 8
@@ -4769,7 +4769,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %38, ptr %39, align 8, !tbaa !95
   store ptr %29, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !98
   store i64 0, ptr %37, align 8, !tbaa !95
-  store i8 0, ptr %29, align 1, !tbaa !97
+  store i8 0, ptr %29, align 8, !tbaa !97
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 32
   %41 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq ptr %40, %26

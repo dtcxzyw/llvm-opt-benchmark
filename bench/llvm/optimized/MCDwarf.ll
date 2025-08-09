@@ -2635,7 +2635,7 @@ _ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store i64 %230, ptr %231, align 8, !tbaa !354
   store ptr %221, ptr %.016.i.i.i, align 8, !tbaa !353
   store i64 0, ptr %229, align 8, !tbaa !354
-  store i8 0, ptr %221, align 1, !tbaa !47
+  store i8 0, ptr %221, align 8, !tbaa !47
   %232 = load i32, ptr %166, align 8, !tbaa !222
   %233 = add i32 %232, 1
   store i32 %233, ptr %166, align 8, !tbaa !222
@@ -6991,7 +6991,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9MCSectionEjNS_12DenseMapInfoIS3_vEENS_6
   store ptr %60, ptr %50, align 8, !tbaa !268
   %61 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %62 = load i32, ptr %3, align 4, !tbaa !261
-  store i32 %62, ptr %61, align 4, !tbaa !261
+  store i32 %62, ptr %61, align 8, !tbaa !261
   %63 = load ptr, ptr %1, align 8, !tbaa !282
   %64 = load i32, ptr %7, align 8, !tbaa !285
   br label %.loopexit
@@ -7203,7 +7203,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9MCSectionEjNS_12DenseMapInfoIS3_vEENS_6
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !261
-  store i32 %68, ptr %66, align 4, !tbaa !261
+  store i32 %68, ptr %66, align 8, !tbaa !261
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !507
   br label %70
@@ -8289,7 +8289,7 @@ _ZSt10_ConstructIN4llvm11MCDwarfFileEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds 
   store i64 %22, ptr %23, align 8, !tbaa !354
   store ptr %13, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !353
   store i64 0, ptr %21, align 8, !tbaa !354
-  store i8 0, ptr %13, align 1, !tbaa !47
+  store i8 0, ptr %13, align 8, !tbaa !47
   %24 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull align 8 dereferenceable(48) %25, i64 48, i1 false)
@@ -8407,7 +8407,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %22, ptr %23, align 8, !tbaa !354
   store ptr %13, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !353
   store i64 0, ptr %21, align 8, !tbaa !354
-  store i8 0, ptr %13, align 1, !tbaa !47
+  store i8 0, ptr %13, align 8, !tbaa !47
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq ptr %24, %10

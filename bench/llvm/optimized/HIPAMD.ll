@@ -2804,7 +2804,7 @@ _ZNK5clang12LazyDetectorINS_6driver24RocmInstallationDetectorEEptEv.exit26: ; pr
   store ptr %174, ptr %.ptr.i.i.i.i, align 8, !tbaa !164
   %175 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
   store i64 0, ptr %175, align 8, !tbaa !29
-  store i8 0, ptr %174, align 1, !tbaa !10
+  store i8 0, ptr %174, align 8, !tbaa !10
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 32
   %176 = icmp eq i64 %.add.i.i.i.i, 416
   br i1 %176, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %173
@@ -4934,7 +4934,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %22, ptr %23, align 8, !tbaa !29
   store ptr %13, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !26
   store i64 0, ptr %21, align 8, !tbaa !29
-  store i8 0, ptr %13, align 1, !tbaa !10
+  store i8 0, ptr %13, align 8, !tbaa !10
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq ptr %24, %10
@@ -5028,7 +5028,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llv
   store ptr %16, ptr %.ptr.i.i.i, align 8, !tbaa !164
   %17 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %17, align 8, !tbaa !29
-  store i8 0, ptr %16, align 1, !tbaa !10
+  store i8 0, ptr %16, align 8, !tbaa !10
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %18 = icmp eq i64 %.add.i.i.i, 416
   br i1 %18, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %15
@@ -5503,7 +5503,7 @@ _ZSt10_ConstructIN5clang6driver9ToolChain18BitCodeLibraryInfoEJS3_EEvPT_DpOT0_.e
   store i64 %44, ptr %45, align 8, !tbaa !29
   store ptr %35, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !26
   store i64 0, ptr %43, align 8, !tbaa !29
-  store i8 0, ptr %35, align 1, !tbaa !10
+  store i8 0, ptr %35, align 8, !tbaa !10
   %46 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 32
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 32
   %48 = load i8, ptr %47, align 8, !tbaa !357, !range !278, !noundef !279
@@ -5687,7 +5687,7 @@ _ZSt10_ConstructIN5clang6driver9ToolChain18BitCodeLibraryInfoEJS3_EEvPT_DpOT0_.e
   store i64 %44, ptr %45, align 8, !tbaa !29
   store ptr %35, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !26
   store i64 0, ptr %43, align 8, !tbaa !29
-  store i8 0, ptr %35, align 1, !tbaa !10
+  store i8 0, ptr %35, align 8, !tbaa !10
   %46 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 32
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 32
   %48 = load i8, ptr %47, align 8, !tbaa !357, !range !278, !noundef !279
@@ -5859,7 +5859,7 @@ _ZSt10_ConstructIN5clang6driver9ToolChain18BitCodeLibraryInfoEJS3_EEvPT_DpOT0_.e
   store i64 %45, ptr %46, align 8, !tbaa !29
   store ptr %36, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !26
   store i64 0, ptr %44, align 8, !tbaa !29
-  store i8 0, ptr %36, align 1, !tbaa !10
+  store i8 0, ptr %36, align 8, !tbaa !10
   %47 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 32
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 32
   %49 = load i8, ptr %48, align 8, !tbaa !357, !range !278, !noundef !279
@@ -6420,7 +6420,7 @@ _ZSt10_ConstructIN5clang6driver9ToolChain18BitCodeLibraryInfoEJS3_EEvPT_DpOT0_.e
   store i64 %192, ptr %193, align 8, !tbaa !29
   store ptr %183, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !26
   store i64 0, ptr %191, align 8, !tbaa !29
-  store i8 0, ptr %183, align 1, !tbaa !10
+  store i8 0, ptr %183, align 8, !tbaa !10
   %194 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 32
   %195 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 32
   %196 = load i8, ptr %195, align 8, !tbaa !357, !range !278, !noundef !279
@@ -6527,7 +6527,7 @@ _ZSt10_ConstructIN5clang6driver9ToolChain18BitCodeLibraryInfoEJS3_EEvPT_DpOT0_.e
   store i64 %22, ptr %23, align 8, !tbaa !29
   store ptr %13, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !26
   store i64 0, ptr %21, align 8, !tbaa !29
-  store i8 0, ptr %13, align 1, !tbaa !10
+  store i8 0, ptr %13, align 8, !tbaa !10
   %24 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 32
   %26 = load i8, ptr %25, align 8, !tbaa !357, !range !278, !noundef !279

@@ -1570,7 +1570,7 @@ _ZN9grpc_core17MessageSizeParser8RegisterEPNS_17CoreConfiguration7BuilderE.exit:
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i64 12, ptr %30, align 8, !tbaa !89
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 28
-  store i8 0, ptr %31, align 1, !tbaa !25
+  store i8 0, ptr %31, align 4, !tbaa !25
   store ptr %27, ptr @_ZZN9grpc_core17UniqueTypeNameForINS_23ClientMessageSizeFilterEEENS_14UniqueTypeNameEvE7factory, align 8, !tbaa !99
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core17UniqueTypeNameForINS_23ClientMessageSizeFilterEEENS_14UniqueTypeNameEvE7factory) #33
   br label %_ZN9grpc_core11ChannelInit7Builder14RegisterFilterINS_23ClientMessageSizeFilterEEERNS0_18FilterRegistrationE23grpc_channel_stack_typeNS_14SourceLocationE.exit
@@ -1613,7 +1613,7 @@ _ZN9grpc_core11ChannelInit7Builder14RegisterFilterINS_23ClientMessageSizeFilterE
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i64 12, ptr %48, align 8, !tbaa !89
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 28
-  store i8 0, ptr %49, align 1, !tbaa !25
+  store i8 0, ptr %49, align 4, !tbaa !25
   store ptr %45, ptr @_ZZN9grpc_core17UniqueTypeNameForINS_23ClientMessageSizeFilterEEENS_14UniqueTypeNameEvE7factory, align 8, !tbaa !99
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core17UniqueTypeNameForINS_23ClientMessageSizeFilterEEENS_14UniqueTypeNameEvE7factory) #33
   br label %_ZN9grpc_core11ChannelInit7Builder14RegisterFilterINS_23ClientMessageSizeFilterEEERNS0_18FilterRegistrationE23grpc_channel_stack_typeNS_14SourceLocationE.exit10
@@ -1667,7 +1667,7 @@ _ZN9grpc_core11ChannelInit7Builder14RegisterFilterINS_23ClientMessageSizeFilterE
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store i64 12, ptr %71, align 8, !tbaa !89
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 28
-  store i8 0, ptr %72, align 1, !tbaa !25
+  store i8 0, ptr %72, align 4, !tbaa !25
   store ptr %68, ptr @_ZZN9grpc_core17UniqueTypeNameForINS_23ServerMessageSizeFilterEEENS_14UniqueTypeNameEvE7factory, align 8, !tbaa !99
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core17UniqueTypeNameForINS_23ServerMessageSizeFilterEEENS_14UniqueTypeNameEvE7factory) #33
   br label %_ZN9grpc_core11ChannelInit7Builder14RegisterFilterINS_23ServerMessageSizeFilterEEERNS0_18FilterRegistrationE23grpc_channel_stack_typeNS_14SourceLocationE.exit
@@ -4288,7 +4288,7 @@ _ZN9grpc_core14promise_detail7CurriedIZNS_21promise_filter_detail37InterceptClie
   store ptr null, ptr %6, align 8, !tbaa !292, !noalias !289
   store i64 %4, ptr %2, align 8, !tbaa !240
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i8 %5, ptr %8, align 1, !tbaa !246
+  store i8 %5, ptr %8, align 8, !tbaa !246
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %7, ptr %9, align 8, !tbaa !292
   ret void
@@ -4300,7 +4300,7 @@ define linkonce_odr void @_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7Mess
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !292
   %.not.i.i.i = icmp ne ptr %5, null
-  %6 = load i8, ptr %3, align 1, !range !111
+  %6 = load i8, ptr %3, align 8, !range !111
   %7 = trunc nuw i8 %6 to i1
   %or.cond.i.i.i = select i1 %.not.i.i.i, i1 %7, i1 false
   br i1 %or.cond.i.i.i, label %8, label %_ZN9grpc_core14promise_detail11PromiseLikeINS0_7CurriedIZNS_21promise_filter_detail37InterceptClientToServerMessageHandlerINS_23ClientMessageSizeFilterEEEDaMNT_4CallEFSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERKNS_7MessageEEPNS3_14FilterCallDataIS6_EERKNS_8CallArgsEEUlS8_ISD_SB_EE_SO_EEvED2Ev.exit
@@ -4491,7 +4491,7 @@ define linkonce_odr void @_ZZN9grpc_core21promise_filter_detail37InterceptClient
   %26 = load ptr, ptr %25, align 8, !tbaa !247
   store ptr %11, ptr %25, align 8, !tbaa !247
   %.not.i.i.i.i.i = icmp ne ptr %26, null
-  %27 = load i8, ptr %18, align 1, !range !111
+  %27 = load i8, ptr %18, align 8, !range !111
   %28 = trunc nuw i8 %27 to i1
   %or.cond.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %28, i1 false
   br i1 %or.cond.i.i.i.i.i, label %29, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEaSEOS4_.exit.i
@@ -4575,7 +4575,7 @@ _ZN9grpc_core14promise_detail7CurriedIZNS_21promise_filter_detail30InterceptServ
   store ptr null, ptr %6, align 8, !tbaa !292, !noalias !309
   store i64 %4, ptr %2, align 8, !tbaa !240
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i8 %5, ptr %8, align 1, !tbaa !246
+  store i8 %5, ptr %8, align 8, !tbaa !246
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %7, ptr %9, align 8, !tbaa !292
   ret void
@@ -4587,7 +4587,7 @@ define linkonce_odr void @_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7Mess
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !292
   %.not.i.i.i = icmp ne ptr %5, null
-  %6 = load i8, ptr %3, align 1, !range !111
+  %6 = load i8, ptr %3, align 8, !range !111
   %7 = trunc nuw i8 %6 to i1
   %or.cond.i.i.i = select i1 %.not.i.i.i, i1 %7, i1 false
   br i1 %or.cond.i.i.i, label %8, label %_ZN9grpc_core14promise_detail11PromiseLikeINS0_7CurriedIZNS_21promise_filter_detail30InterceptServerToClientMessageINS_23ClientMessageSizeFilterEEEvMNT_4CallEFSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERKNS_7MessageEEPNS3_14FilterCallDataIS6_EERKNS_8CallArgsEEUlS8_ISD_SB_EE_SO_EEvED2Ev.exit
@@ -4746,7 +4746,7 @@ define linkonce_odr void @_ZZN9grpc_core21promise_filter_detail30InterceptServer
   %26 = load ptr, ptr %25, align 8, !tbaa !247
   store ptr %11, ptr %25, align 8, !tbaa !247
   %.not.i.i.i.i.i = icmp ne ptr %26, null
-  %27 = load i8, ptr %18, align 1, !range !111
+  %27 = load i8, ptr %18, align 8, !range !111
   %28 = trunc nuw i8 %27 to i1
   %or.cond.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %28, i1 false
   br i1 %or.cond.i.i.i.i.i, label %29, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEaSEOS4_.exit.i
@@ -5616,7 +5616,7 @@ _ZN9grpc_core14promise_detail7CurriedIZNS_21promise_filter_detail37InterceptClie
   store ptr null, ptr %6, align 8, !tbaa !292, !noalias !346
   store i64 %4, ptr %2, align 8, !tbaa !341
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i8 %5, ptr %8, align 1, !tbaa !246
+  store i8 %5, ptr %8, align 8, !tbaa !246
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %7, ptr %9, align 8, !tbaa !292
   ret void
@@ -5628,7 +5628,7 @@ define linkonce_odr void @_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7Mess
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !292
   %.not.i.i.i = icmp ne ptr %5, null
-  %6 = load i8, ptr %3, align 1, !range !111
+  %6 = load i8, ptr %3, align 8, !range !111
   %7 = trunc nuw i8 %6 to i1
   %or.cond.i.i.i = select i1 %.not.i.i.i, i1 %7, i1 false
   br i1 %or.cond.i.i.i, label %8, label %_ZN9grpc_core14promise_detail11PromiseLikeINS0_7CurriedIZNS_21promise_filter_detail37InterceptClientToServerMessageHandlerINS_23ServerMessageSizeFilterEEEDaMNT_4CallEFSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERKNS_7MessageEPS6_EPNS3_14FilterCallDataIS6_EERKNS_8CallArgsEEUlS8_ISD_SB_EE_SP_EEvED2Ev.exit
@@ -5788,7 +5788,7 @@ define linkonce_odr void @_ZZN9grpc_core21promise_filter_detail37InterceptClient
   %27 = load ptr, ptr %26, align 8, !tbaa !247
   store ptr %13, ptr %26, align 8, !tbaa !247
   %.not.i.i.i.i.i = icmp ne ptr %27, null
-  %28 = load i8, ptr %19, align 1, !range !111
+  %28 = load i8, ptr %19, align 8, !range !111
   %29 = trunc nuw i8 %28 to i1
   %or.cond.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %29, i1 false
   br i1 %or.cond.i.i.i.i.i, label %30, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEaSEOS4_.exit.i
@@ -5872,7 +5872,7 @@ _ZN9grpc_core14promise_detail7CurriedIZNS_21promise_filter_detail30InterceptServ
   store ptr null, ptr %6, align 8, !tbaa !292, !noalias !360
   store i64 %4, ptr %2, align 8, !tbaa !341
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i8 %5, ptr %8, align 1, !tbaa !246
+  store i8 %5, ptr %8, align 8, !tbaa !246
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %7, ptr %9, align 8, !tbaa !292
   ret void
@@ -5884,7 +5884,7 @@ define linkonce_odr void @_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7Mess
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !292
   %.not.i.i.i = icmp ne ptr %5, null
-  %6 = load i8, ptr %3, align 1, !range !111
+  %6 = load i8, ptr %3, align 8, !range !111
   %7 = trunc nuw i8 %6 to i1
   %or.cond.i.i.i = select i1 %.not.i.i.i, i1 %7, i1 false
   br i1 %or.cond.i.i.i, label %8, label %_ZN9grpc_core14promise_detail11PromiseLikeINS0_7CurriedIZNS_21promise_filter_detail30InterceptServerToClientMessageINS_23ServerMessageSizeFilterEEEvMNT_4CallEFSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERKNS_7MessageEPS6_EPNS3_14FilterCallDataIS6_EERKNS_8CallArgsEEUlS8_ISD_SB_EE_SP_EEvED2Ev.exit
@@ -6044,7 +6044,7 @@ define linkonce_odr void @_ZZN9grpc_core21promise_filter_detail30InterceptServer
   %27 = load ptr, ptr %26, align 8, !tbaa !247
   store ptr %13, ptr %26, align 8, !tbaa !247
   %.not.i.i.i.i.i = icmp ne ptr %27, null
-  %28 = load i8, ptr %19, align 1, !range !111
+  %28 = load i8, ptr %19, align 8, !range !111
   %29 = trunc nuw i8 %28 to i1
   %or.cond.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %29, i1 false
   br i1 %or.cond.i.i.i.i.i, label %30, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEaSEOS4_.exit.i
@@ -8156,7 +8156,7 @@ define internal void @_GLOBAL__sub_I_message_size_filter.cc() #13 section ".text
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 12, ptr %10, align 8, !tbaa !89, !noalias !488
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  store i8 0, ptr %11, align 1, !tbaa !25, !noalias !488
+  store i8 0, ptr %11, align 4, !tbaa !25, !noalias !488
   store ptr %7, ptr @_ZZN9grpc_core17UniqueTypeNameForINS_23ClientMessageSizeFilterEEENS_14UniqueTypeNameEvE7factory, align 8, !tbaa !99, !noalias !488
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core17UniqueTypeNameForINS_23ClientMessageSizeFilterEEENS_14UniqueTypeNameEvE7factory) #33, !noalias !488
   br label %__cxx_global_var_init.4.exit
@@ -8212,7 +8212,7 @@ __cxx_global_var_init.4.exit:                     ; preds = %0, %4, %8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 12, ptr %27, align 8, !tbaa !89, !noalias !505
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 28
-  store i8 0, ptr %28, align 1, !tbaa !25, !noalias !505
+  store i8 0, ptr %28, align 4, !tbaa !25, !noalias !505
   store ptr %24, ptr @_ZZN9grpc_core17UniqueTypeNameForINS_23ServerMessageSizeFilterEEENS_14UniqueTypeNameEvE7factory, align 8, !tbaa !99, !noalias !505
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core17UniqueTypeNameForINS_23ServerMessageSizeFilterEEENS_14UniqueTypeNameEvE7factory) #33, !noalias !505
   br label %__cxx_global_var_init.5.exit

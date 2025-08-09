@@ -2492,19 +2492,19 @@ decode_residual_chroma.exit:                      ; preds = %259, %256
   %270 = load i64, ptr @ff_cavs_intra_mv, align 2
   store i64 %270, ptr %269, align 8
   %271 = getelementptr inbounds nuw i8, ptr %0, i64 968
-  store i64 %270, ptr %271, align 2
+  store i64 %270, ptr %271, align 8
   %272 = getelementptr inbounds nuw i8, ptr %0, i64 976
-  store i64 %270, ptr %272, align 2
+  store i64 %270, ptr %272, align 8
   %273 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  store i64 %270, ptr %273, align 2
+  store i64 %270, ptr %273, align 8
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   store i64 %270, ptr %274, align 8
   %275 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  store i64 %270, ptr %275, align 2
+  store i64 %270, ptr %275, align 8
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 1072
-  store i64 %270, ptr %276, align 2
+  store i64 %270, ptr %276, align 8
   %277 = getelementptr inbounds nuw i8, ptr %0, i64 1040
-  store i64 %270, ptr %277, align 2
+  store i64 %270, ptr %277, align 8
   %278 = load ptr, ptr %76, align 8, !tbaa !61
   %279 = getelementptr inbounds nuw i8, ptr %278, i64 120
   %280 = load i32, ptr %279, align 8, !tbaa !62
@@ -2541,19 +2541,19 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_mb_b(ptr noundef %0
   %6 = load i64, ptr @ff_cavs_dir_mv, align 2
   store i64 %6, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 968
-  store i64 %6, ptr %7, align 2
+  store i64 %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 976
-  store i64 %6, ptr %8, align 2
+  store i64 %6, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  store i64 %6, ptr %9, align 2
+  store i64 %6, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   store i64 %6, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  store i64 %6, ptr %11, align 2
+  store i64 %6, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1072
-  store i64 %6, ptr %12, align 2
+  store i64 %6, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1040
-  store i64 %6, ptr %13, align 2
+  store i64 %6, ptr %13, align 8
   switch i32 %1, label %310 [
     i32 6, label %19
     i32 7, label %19
@@ -2694,14 +2694,14 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_mb_b(ptr noundef %0
   %.val = load i32, ptr %106, align 8, !tbaa !30
   %107 = getelementptr i8, ptr %0, i64 1504
   %.val142 = load i32, ptr %107, align 8, !tbaa !71
-  %108 = load i16, ptr %5, align 2, !tbaa !109
+  %108 = load i16, ptr %5, align 8, !tbaa !109
   %109 = sext i16 %108 to i32
   %110 = mul nsw i32 %.val142, %109
   %111 = add nsw i32 %110, 256
   %112 = lshr i32 %111, 9
   %113 = trunc i32 %112 to i16
   %114 = sub i16 0, %113
-  store i16 %114, ptr %10, align 2, !tbaa !109
+  store i16 %114, ptr %10, align 8, !tbaa !109
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 938
   %116 = load i16, ptr %115, align 2, !tbaa !111
   %117 = sext i16 %116 to i32
@@ -2716,11 +2716,11 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_mb_b(ptr noundef %0
   store i16 0, ptr %124, align 2, !tbaa !106
   %125 = trunc i32 %.val to i16
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 1036
-  store i16 %125, ptr %126, align 2, !tbaa !110
-  %127 = load i64, ptr %10, align 2
-  store i64 %127, ptr %11, align 2
-  store i64 %127, ptr %12, align 2
-  store i64 %127, ptr %13, align 2
+  store i16 %125, ptr %126, align 4, !tbaa !110
+  %127 = load i64, ptr %10, align 8
+  store i64 %127, ptr %11, align 8
+  store i64 %127, ptr %12, align 8
+  store i64 %127, ptr %13, align 8
   br label %.loopexit
 
 128:                                              ; preds = %2
@@ -3030,14 +3030,14 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_mb_b(ptr noundef %0
   %.val145 = load i32, ptr %326, align 8, !tbaa !30
   %327 = getelementptr i8, ptr %0, i64 1504
   %.val146 = load i32, ptr %327, align 8, !tbaa !71
-  %328 = load i16, ptr %5, align 2, !tbaa !109
+  %328 = load i16, ptr %5, align 8, !tbaa !109
   %329 = sext i16 %328 to i32
   %330 = mul nsw i32 %.val146, %329
   %331 = add nsw i32 %330, 256
   %332 = lshr i32 %331, 9
   %333 = trunc i32 %332 to i16
   %334 = sub i16 0, %333
-  store i16 %334, ptr %10, align 2, !tbaa !109
+  store i16 %334, ptr %10, align 8, !tbaa !109
   %335 = getelementptr inbounds nuw i8, ptr %0, i64 938
   %336 = load i16, ptr %335, align 2, !tbaa !111
   %337 = sext i16 %336 to i32
@@ -3052,9 +3052,9 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_mb_b(ptr noundef %0
   store i16 0, ptr %344, align 2, !tbaa !106
   %345 = trunc i32 %.val145 to i16
   %346 = getelementptr inbounds nuw i8, ptr %0, i64 1036
-  store i16 %345, ptr %346, align 2, !tbaa !110
-  %.pre.i.i = load i64, ptr %10, align 2
-  store i64 %.pre.i.i, ptr %13, align 2
+  store i16 %345, ptr %346, align 4, !tbaa !110
+  %.pre.i.i = load i64, ptr %10, align 8
+  store i64 %.pre.i.i, ptr %13, align 8
   br label %347
 
 347:                                              ; preds = %325, %323
@@ -3076,14 +3076,14 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_mb_b(ptr noundef %0
   %.val147 = load i32, ptr %353, align 8, !tbaa !30
   %354 = getelementptr i8, ptr %0, i64 1504
   %.val148 = load i32, ptr %354, align 8, !tbaa !71
-  %355 = load i16, ptr %7, align 2, !tbaa !109
+  %355 = load i16, ptr %7, align 8, !tbaa !109
   %356 = sext i16 %355 to i32
   %357 = mul nsw i32 %.val148, %356
   %358 = add nsw i32 %357, 256
   %359 = lshr i32 %358, 9
   %360 = trunc i32 %359 to i16
   %361 = sub i16 0, %360
-  store i16 %361, ptr %11, align 2, !tbaa !109
+  store i16 %361, ptr %11, align 8, !tbaa !109
   %362 = getelementptr inbounds nuw i8, ptr %0, i64 970
   %363 = load i16, ptr %362, align 2, !tbaa !111
   %364 = sext i16 %363 to i32
@@ -3098,9 +3098,9 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_mb_b(ptr noundef %0
   store i16 0, ptr %371, align 2, !tbaa !106
   %372 = trunc i32 %.val147 to i16
   %373 = getelementptr inbounds nuw i8, ptr %0, i64 1068
-  store i16 %372, ptr %373, align 2, !tbaa !110
-  %.pre.i.i155 = load i64, ptr %11, align 2
-  store i64 %.pre.i.i155, ptr %12, align 2
+  store i16 %372, ptr %373, align 4, !tbaa !110
+  %.pre.i.i155 = load i64, ptr %11, align 8
+  store i64 %.pre.i.i155, ptr %12, align 8
   br label %374
 
 374:                                              ; preds = %352, %350
@@ -3138,14 +3138,14 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_mb_b(ptr noundef %0
   %.val149 = load i32, ptr %385, align 8, !tbaa !30
   %386 = getelementptr i8, ptr %0, i64 1504
   %.val150 = load i32, ptr %386, align 8, !tbaa !71
-  %387 = load i16, ptr %5, align 2, !tbaa !109
+  %387 = load i16, ptr %5, align 8, !tbaa !109
   %388 = sext i16 %387 to i32
   %389 = mul nsw i32 %.val150, %388
   %390 = add nsw i32 %389, 256
   %391 = lshr i32 %390, 9
   %392 = trunc i32 %391 to i16
   %393 = sub i16 0, %392
-  store i16 %393, ptr %10, align 2, !tbaa !109
+  store i16 %393, ptr %10, align 8, !tbaa !109
   %394 = getelementptr inbounds nuw i8, ptr %0, i64 938
   %395 = load i16, ptr %394, align 2, !tbaa !111
   %396 = sext i16 %395 to i32
@@ -3160,9 +3160,9 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_mb_b(ptr noundef %0
   store i16 0, ptr %403, align 2, !tbaa !106
   %404 = trunc i32 %.val149 to i16
   %405 = getelementptr inbounds nuw i8, ptr %0, i64 1036
-  store i16 %404, ptr %405, align 2, !tbaa !110
-  %406 = load i64, ptr %10, align 2
-  store i64 %406, ptr %11, align 2
+  store i16 %404, ptr %405, align 4, !tbaa !110
+  %406 = load i64, ptr %10, align 8
+  store i64 %406, ptr %11, align 8
   br label %407
 
 407:                                              ; preds = %384, %382
@@ -3184,14 +3184,14 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_mb_b(ptr noundef %0
   %.val151 = load i32, ptr %413, align 8, !tbaa !30
   %414 = getelementptr i8, ptr %0, i64 1504
   %.val152 = load i32, ptr %414, align 8, !tbaa !71
-  %415 = load i16, ptr %9, align 2, !tbaa !109
+  %415 = load i16, ptr %9, align 8, !tbaa !109
   %416 = sext i16 %415 to i32
   %417 = mul nsw i32 %.val152, %416
   %418 = add nsw i32 %417, 256
   %419 = lshr i32 %418, 9
   %420 = trunc i32 %419 to i16
   %421 = sub i16 0, %420
-  store i16 %421, ptr %13, align 2, !tbaa !109
+  store i16 %421, ptr %13, align 8, !tbaa !109
   %422 = getelementptr inbounds nuw i8, ptr %0, i64 946
   %423 = load i16, ptr %422, align 2, !tbaa !111
   %424 = sext i16 %423 to i32
@@ -3206,9 +3206,9 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_mb_b(ptr noundef %0
   store i16 0, ptr %431, align 2, !tbaa !106
   %432 = trunc i32 %.val151 to i16
   %433 = getelementptr inbounds nuw i8, ptr %0, i64 1044
-  store i16 %432, ptr %433, align 2, !tbaa !110
-  %434 = load i64, ptr %13, align 2
-  store i64 %434, ptr %12, align 2
+  store i16 %432, ptr %433, align 4, !tbaa !110
+  %434 = load i64, ptr %13, align 8
+  store i64 %434, ptr %12, align 8
   br label %435
 
 435:                                              ; preds = %412, %410

@@ -88080,7 +88080,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolINS0_9ModWalker7PortBitENS1_8hash_opsIS4
   %24 = load ptr, ptr %.sroa.08.012.i.i.i.i.i, align 8, !tbaa !932
   store ptr %24, ptr %.013.i.i.i.i.i, align 8, !tbaa !932
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 8
-  %26 = load i32, ptr %25, align 4, !tbaa !37
+  %26 = load i32, ptr %25, align 8, !tbaa !37
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %26, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %32, label %27
 
@@ -88199,7 +88199,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolINS0_9ModWalker7PortBitENS1_8hash_opsIS4
   store ptr %77, ptr %.0811.i.i.i.i.i, align 8, !tbaa !932
   %78 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 8
   %79 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 8
-  %80 = load i32, ptr %78, align 4, !tbaa !37
+  %80 = load i32, ptr %78, align 8, !tbaa !37
   %81 = trunc nuw i8 %76 to i1
   %82 = icmp ne i32 %80, 0
   %or.cond.i.i.i.i.i.i.i.i.i = and i1 %82, %81
@@ -88322,7 +88322,7 @@ _ZSt8_DestroyIN5Yosys7hashlib4poolINS0_9ModWalker7PortBitENS1_8hash_opsIS4_EEE7e
   store ptr %133, ptr %.0811.i.i.i.i.i36, align 8, !tbaa !932
   %134 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i36, i64 8
   %135 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i37, i64 8
-  %136 = load i32, ptr %134, align 4, !tbaa !37
+  %136 = load i32, ptr %134, align 8, !tbaa !37
   %137 = trunc nuw i8 %132 to i1
   %138 = icmp ne i32 %136, 0
   %or.cond.i.i.i.i.i.i.i.i.i38 = and i1 %138, %137
@@ -88403,7 +88403,7 @@ _ZSt4copyIPN5Yosys7hashlib4poolINS0_9ModWalker7PortBitENS1_8hash_opsIS4_EEE7entr
   %171 = load ptr, ptr %.01214.i.i.i.i, align 8, !tbaa !932
   store ptr %171, ptr %.015.i.i.i.i, align 8, !tbaa !932
   %172 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i, i64 8
-  %173 = load i32, ptr %172, align 4, !tbaa !37
+  %173 = load i32, ptr %172, align 8, !tbaa !37
   %.not.i.i.i.i.i.i.i.i.i43 = icmp eq i32 %173, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i43, label %179, label %174
 
@@ -89147,7 +89147,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4poolINS0_9ModWalker7PortBitENS1_8hash_opsIS4_EEE7e
   %41 = load ptr, ptr %.01214.i.i.i.i.i, align 8, !tbaa !932
   store ptr %41, ptr %.015.i.i.i.i.i, align 8, !tbaa !932
   %42 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 8
-  %43 = load i32, ptr %42, align 4, !tbaa !37
+  %43 = load i32, ptr %42, align 8, !tbaa !37
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %43, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %49, label %44
 
@@ -89191,7 +89191,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4poolINS0_9ModWalker7Po
   %62 = load ptr, ptr %.01214.i.i.i.i.i32, align 8, !tbaa !932
   store ptr %62, ptr %.015.i.i.i.i.i31, align 8, !tbaa !932
   %63 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i32, i64 8
-  %64 = load i32, ptr %63, align 4, !tbaa !37
+  %64 = load i32, ptr %63, align 8, !tbaa !37
   %.not.i.i.i.i.i.i.i.i.i.i33 = icmp eq i32 %64, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i33, label %70, label %65
 
@@ -89348,7 +89348,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4poolINS0_9ModWalker7PortBitENS1_8hash_opsIS4_EEE7e
   %41 = load ptr, ptr %.01214.i.i.i.i.i, align 8, !tbaa !932
   store ptr %41, ptr %.015.i.i.i.i.i, align 8, !tbaa !932
   %42 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 8
-  %43 = load i32, ptr %42, align 4, !tbaa !37
+  %43 = load i32, ptr %42, align 8, !tbaa !37
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %43, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %49, label %44
 
@@ -89392,7 +89392,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4poolINS0_9ModWalker7Po
   %62 = load ptr, ptr %.01214.i.i.i.i.i32, align 8, !tbaa !932
   store ptr %62, ptr %.015.i.i.i.i.i31, align 8, !tbaa !932
   %63 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i32, i64 8
-  %64 = load i32, ptr %63, align 4, !tbaa !37
+  %64 = load i32, ptr %63, align 8, !tbaa !37
   %.not.i.i.i.i.i.i.i.i.i.i33 = icmp eq i32 %64, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i33, label %70, label %65
 
@@ -124959,19 +124959,19 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEN12_GLOBAL__N_111XpropWorker10EncodedBi
   %.sroa.9.0..sroa_idx36.i = getelementptr inbounds nuw i8, ptr %354, i64 12
   store i32 %355, ptr %.sroa.9.0..sroa_idx36.i, align 4, !noalias !1218
   %.sroa.9.sroa.7.0..sroa.9.0..sroa_idx36.sroa_idx.i = getelementptr inbounds nuw i8, ptr %354, i64 16
-  store ptr null, ptr %.sroa.9.sroa.7.0..sroa.9.0..sroa_idx36.sroa_idx.i, align 4, !noalias !1218
+  store ptr null, ptr %.sroa.9.sroa.7.0..sroa.9.0..sroa_idx36.sroa_idx.i, align 8, !noalias !1218
   %.sroa.9.sroa.7.i.sroa.8.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx36.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %354, i64 24
-  store i8 5, ptr %.sroa.9.sroa.7.i.sroa.8.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx36.sroa_idx.i.sroa_idx, align 4, !noalias !1218
+  store i8 5, ptr %.sroa.9.sroa.7.i.sroa.8.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx36.sroa_idx.i.sroa_idx, align 8, !noalias !1218
   %.sroa.9.sroa.7.i.sroa.12.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx36.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %354, i64 32
-  store ptr null, ptr %.sroa.9.sroa.7.i.sroa.12.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx36.sroa_idx.i.sroa_idx, align 4, !noalias !1218
+  store ptr null, ptr %.sroa.9.sroa.7.i.sroa.12.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx36.sroa_idx.i.sroa_idx, align 8, !noalias !1218
   %.sroa.9.sroa.7.i.sroa.14.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx36.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %354, i64 40
-  store i8 5, ptr %.sroa.9.sroa.7.i.sroa.14.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx36.sroa_idx.i.sroa_idx, align 4, !noalias !1218
+  store i8 5, ptr %.sroa.9.sroa.7.i.sroa.14.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx36.sroa_idx.i.sroa_idx, align 8, !noalias !1218
   %.sroa.9.sroa.7.i.sroa.18.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx36.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %354, i64 48
-  store ptr null, ptr %.sroa.9.sroa.7.i.sroa.18.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx36.sroa_idx.i.sroa_idx, align 4, !noalias !1218
+  store ptr null, ptr %.sroa.9.sroa.7.i.sroa.18.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx36.sroa_idx.i.sroa_idx, align 8, !noalias !1218
   %.sroa.9.sroa.7.i.sroa.20.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx36.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %354, i64 56
-  store i8 5, ptr %.sroa.9.sroa.7.i.sroa.20.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx36.sroa_idx.i.sroa_idx, align 4, !noalias !1218
+  store i8 5, ptr %.sroa.9.sroa.7.i.sroa.20.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx36.sroa_idx.i.sroa_idx, align 8, !noalias !1218
   %.sroa.9.sroa.7.i.sroa.24.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx36.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %354, i64 64
-  store i8 0, ptr %.sroa.9.sroa.7.i.sroa.24.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx36.sroa_idx.i.sroa_idx, align 4, !noalias !1218
+  store i8 0, ptr %.sroa.9.sroa.7.i.sroa.24.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx36.sroa_idx.i.sroa_idx, align 8, !noalias !1218
   %358 = getelementptr inbounds nuw i8, ptr %354, i64 72
   store i32 -1, ptr %358, align 8, !tbaa !359, !noalias !1218
   %359 = load ptr, ptr %163, align 8, !tbaa !338, !noalias !1218
@@ -125016,19 +125016,19 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEN12_GLOBAL__N_111XpropWorke
   %.sroa.9.0..sroa_idx37.i = getelementptr inbounds nuw i8, ptr %374, i64 12
   store i32 %355, ptr %.sroa.9.0..sroa_idx37.i, align 4, !noalias !1218
   %.sroa.9.sroa.7.0..sroa.9.0..sroa_idx37.sroa_idx.i = getelementptr inbounds nuw i8, ptr %374, i64 16
-  store ptr null, ptr %.sroa.9.sroa.7.0..sroa.9.0..sroa_idx37.sroa_idx.i, align 4, !noalias !1218
+  store ptr null, ptr %.sroa.9.sroa.7.0..sroa.9.0..sroa_idx37.sroa_idx.i, align 8, !noalias !1218
   %.sroa.9.sroa.7.i.sroa.8.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx37.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %374, i64 24
-  store i8 5, ptr %.sroa.9.sroa.7.i.sroa.8.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx37.sroa_idx.i.sroa_idx, align 4, !noalias !1218
+  store i8 5, ptr %.sroa.9.sroa.7.i.sroa.8.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx37.sroa_idx.i.sroa_idx, align 8, !noalias !1218
   %.sroa.9.sroa.7.i.sroa.12.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx37.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %374, i64 32
-  store ptr null, ptr %.sroa.9.sroa.7.i.sroa.12.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx37.sroa_idx.i.sroa_idx, align 4, !noalias !1218
+  store ptr null, ptr %.sroa.9.sroa.7.i.sroa.12.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx37.sroa_idx.i.sroa_idx, align 8, !noalias !1218
   %.sroa.9.sroa.7.i.sroa.14.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx37.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %374, i64 40
-  store i8 5, ptr %.sroa.9.sroa.7.i.sroa.14.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx37.sroa_idx.i.sroa_idx, align 4, !noalias !1218
+  store i8 5, ptr %.sroa.9.sroa.7.i.sroa.14.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx37.sroa_idx.i.sroa_idx, align 8, !noalias !1218
   %.sroa.9.sroa.7.i.sroa.18.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx37.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %374, i64 48
-  store ptr null, ptr %.sroa.9.sroa.7.i.sroa.18.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx37.sroa_idx.i.sroa_idx, align 4, !noalias !1218
+  store ptr null, ptr %.sroa.9.sroa.7.i.sroa.18.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx37.sroa_idx.i.sroa_idx, align 8, !noalias !1218
   %.sroa.9.sroa.7.i.sroa.20.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx37.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %374, i64 56
-  store i8 5, ptr %.sroa.9.sroa.7.i.sroa.20.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx37.sroa_idx.i.sroa_idx, align 4, !noalias !1218
+  store i8 5, ptr %.sroa.9.sroa.7.i.sroa.20.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx37.sroa_idx.i.sroa_idx, align 8, !noalias !1218
   %.sroa.9.sroa.7.i.sroa.24.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx37.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %374, i64 64
-  store i8 0, ptr %.sroa.9.sroa.7.i.sroa.24.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx37.sroa_idx.i.sroa_idx, align 4, !noalias !1218
+  store i8 0, ptr %.sroa.9.sroa.7.i.sroa.24.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx37.sroa_idx.i.sroa_idx, align 8, !noalias !1218
   %375 = getelementptr inbounds nuw i8, ptr %374, i64 72
   store i32 -1, ptr %375, align 8, !tbaa !359, !noalias !1218
   br i1 %367, label %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEN12_GLOBAL__N_111XpropWorker10EncodedBitENS1_8hash_opsIS4_EEE7entry_tESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit38.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
@@ -125075,19 +125075,19 @@ _ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEN12_GLOBAL__N_111XpropWorker
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.pre1814, i64 12
   store i32 %352, ptr %.sroa.9.0..sroa_idx.i, align 4, !noalias !1218
   %.sroa.9.sroa.7.0..sroa.9.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.pre1814, i64 16
-  store ptr null, ptr %.sroa.9.sroa.7.0..sroa.9.0..sroa_idx.sroa_idx.i, align 4, !noalias !1218
+  store ptr null, ptr %.sroa.9.sroa.7.0..sroa.9.0..sroa_idx.sroa_idx.i, align 8, !noalias !1218
   %.sroa.9.sroa.7.i.sroa.8.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.pre1814, i64 24
-  store i8 5, ptr %.sroa.9.sroa.7.i.sroa.8.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx.sroa_idx.i.sroa_idx, align 4, !noalias !1218
+  store i8 5, ptr %.sroa.9.sroa.7.i.sroa.8.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx.sroa_idx.i.sroa_idx, align 8, !noalias !1218
   %.sroa.9.sroa.7.i.sroa.12.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.pre1814, i64 32
-  store ptr null, ptr %.sroa.9.sroa.7.i.sroa.12.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx.sroa_idx.i.sroa_idx, align 4, !noalias !1218
+  store ptr null, ptr %.sroa.9.sroa.7.i.sroa.12.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx.sroa_idx.i.sroa_idx, align 8, !noalias !1218
   %.sroa.9.sroa.7.i.sroa.14.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.pre1814, i64 40
-  store i8 5, ptr %.sroa.9.sroa.7.i.sroa.14.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx.sroa_idx.i.sroa_idx, align 4, !noalias !1218
+  store i8 5, ptr %.sroa.9.sroa.7.i.sroa.14.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx.sroa_idx.i.sroa_idx, align 8, !noalias !1218
   %.sroa.9.sroa.7.i.sroa.18.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.pre1814, i64 48
-  store ptr null, ptr %.sroa.9.sroa.7.i.sroa.18.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx.sroa_idx.i.sroa_idx, align 4, !noalias !1218
+  store ptr null, ptr %.sroa.9.sroa.7.i.sroa.18.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx.sroa_idx.i.sroa_idx, align 8, !noalias !1218
   %.sroa.9.sroa.7.i.sroa.20.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.pre1814, i64 56
-  store i8 5, ptr %.sroa.9.sroa.7.i.sroa.20.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx.sroa_idx.i.sroa_idx, align 4, !noalias !1218
+  store i8 5, ptr %.sroa.9.sroa.7.i.sroa.20.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx.sroa_idx.i.sroa_idx, align 8, !noalias !1218
   %.sroa.9.sroa.7.i.sroa.24.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.pre1814, i64 64
-  store i8 0, ptr %.sroa.9.sroa.7.i.sroa.24.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx.sroa_idx.i.sroa_idx, align 4, !noalias !1218
+  store i8 0, ptr %.sroa.9.sroa.7.i.sroa.24.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx.sroa_idx.i.sroa_idx, align 8, !noalias !1218
   %384 = getelementptr inbounds nuw i8, ptr %.pre1814, i64 72
   store i32 %328, ptr %384, align 8, !tbaa !359, !noalias !1218
   %385 = load ptr, ptr %163, align 8, !tbaa !338, !noalias !1218
@@ -125126,19 +125126,19 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEN12_GLOBAL__N_111XpropWorke
   %.sroa.9.0..sroa_idx35.i = getelementptr inbounds nuw i8, ptr %400, i64 12
   store i32 %352, ptr %.sroa.9.0..sroa_idx35.i, align 4, !noalias !1218
   %.sroa.9.sroa.7.0..sroa.9.0..sroa_idx35.sroa_idx.i = getelementptr inbounds nuw i8, ptr %400, i64 16
-  store ptr null, ptr %.sroa.9.sroa.7.0..sroa.9.0..sroa_idx35.sroa_idx.i, align 4, !noalias !1218
+  store ptr null, ptr %.sroa.9.sroa.7.0..sroa.9.0..sroa_idx35.sroa_idx.i, align 8, !noalias !1218
   %.sroa.71558.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx35.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %400, i64 24
-  store i8 5, ptr %.sroa.71558.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx35.sroa_idx.i.sroa_idx, align 4, !noalias !1218
+  store i8 5, ptr %.sroa.71558.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx35.sroa_idx.i.sroa_idx, align 8, !noalias !1218
   %.sroa.81564.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx35.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %400, i64 32
-  store ptr null, ptr %.sroa.81564.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx35.sroa_idx.i.sroa_idx, align 4, !noalias !1218
+  store ptr null, ptr %.sroa.81564.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx35.sroa_idx.i.sroa_idx, align 8, !noalias !1218
   %.sroa.9.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx35.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %400, i64 40
-  store i8 5, ptr %.sroa.9.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx35.sroa_idx.i.sroa_idx, align 4, !noalias !1218
+  store i8 5, ptr %.sroa.9.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx35.sroa_idx.i.sroa_idx, align 8, !noalias !1218
   %.sroa.101573.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx35.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %400, i64 48
-  store ptr null, ptr %.sroa.101573.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx35.sroa_idx.i.sroa_idx, align 4, !noalias !1218
+  store ptr null, ptr %.sroa.101573.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx35.sroa_idx.i.sroa_idx, align 8, !noalias !1218
   %.sroa.11.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx35.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %400, i64 56
-  store i8 5, ptr %.sroa.11.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx35.sroa_idx.i.sroa_idx, align 4, !noalias !1218
+  store i8 5, ptr %.sroa.11.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx35.sroa_idx.i.sroa_idx, align 8, !noalias !1218
   %.sroa.121581.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx35.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %400, i64 64
-  store i8 0, ptr %.sroa.121581.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx35.sroa_idx.i.sroa_idx, align 4, !noalias !1218
+  store i8 0, ptr %.sroa.121581.0..sroa.9.sroa.7.0..sroa.9.0..sroa_idx35.sroa_idx.i.sroa_idx, align 8, !noalias !1218
   %401 = getelementptr inbounds nuw i8, ptr %400, i64 72
   store i32 %328, ptr %401, align 8, !tbaa !359, !noalias !1218
   br i1 %393, label %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEN12_GLOBAL__N_111XpropWorker10EncodedBitENS1_8hash_opsIS4_EEE7entry_tESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit38.i.i25.i.i, label %.lr.ph.i.i.i.i.i21.i.i

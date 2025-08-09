@@ -886,7 +886,7 @@ aom_read_symbol_.exit.i.i:                        ; preds = %._crit_edge.loopexi
   %275 = getelementptr inbounds nuw i8, ptr %0, i64 73184
   %276 = load i32, ptr %275, align 16
   %277 = load i32, ptr %1, align 16
-  %.val.i120.i = load i32, ptr %274, align 4
+  %.val.i120.i = load i32, ptr %274, align 16
   %278 = sub nsw i32 %277, %276
   %279 = icmp slt i32 %278, %.val.i120.i
   %280 = mul i32 %276, 65504
@@ -6418,7 +6418,7 @@ read_delta_qindex.exit:                           ; preds = %24, %28, %80, %81
   %.val49 = load i8, ptr %10, align 4
   %.val50 = load i32, ptr %11, align 16
   %112 = tail call fastcc i32 @read_delta_lflevel(i8 %.val49, i32 %.val50, ptr noundef %2, ptr noundef nonnull %111, ptr noundef nonnull %9, i32 noundef %98, i32 noundef %97)
-  %113 = load i32, ptr %105, align 4
+  %113 = load i32, ptr %105, align 8
   %114 = mul nsw i32 %113, %112
   %115 = add nsw i32 %114, %110
   %116 = tail call i32 @llvm.smax.i32(i32 %115, i32 -63)
@@ -6440,7 +6440,7 @@ read_delta_qindex.exit:                           ; preds = %24, %28, %80, %81
   %.val52 = load i32, ptr %11, align 16
   %125 = tail call fastcc i32 @read_delta_lflevel(i8 %.val51, i32 %.val52, ptr noundef %2, ptr noundef nonnull %124, ptr noundef nonnull %9, i32 noundef %98, i32 noundef %97)
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 24824
-  %127 = load i32, ptr %126, align 4
+  %127 = load i32, ptr %126, align 8
   %128 = mul nsw i32 %127, %125
   %129 = add nsw i32 %128, %123
   %130 = tail call i32 @llvm.smax.i32(i32 %129, i32 -63)
@@ -8728,7 +8728,7 @@ define internal fastcc i32 @read_inter_segment_id(ptr noundef readonly captures(
   %26 = load i32, ptr %25, align 4
   %27 = sub nsw i32 %26, %9
   %28 = tail call i32 @llvm.smin.i32(i32 %27, i32 %23)
-  %29 = load i8, ptr %5, align 4
+  %29 = load i8, ptr %5, align 8
   %.not = icmp eq i8 %29, 0
   br i1 %.not, label %get_predicted_segment_id.exit, label %30
 

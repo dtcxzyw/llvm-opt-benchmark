@@ -5068,7 +5068,7 @@ _ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread: ; 
   %76 = icmp slt i32 %75, 2
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 104
   %78 = getelementptr inbounds nuw i8, ptr %73, i64 144
-  %79 = load atomic i8, ptr %78 monotonic, align 1
+  %79 = load atomic i8, ptr %78 monotonic, align 4
   %80 = trunc i8 %79 to i1
   %or.cond.i = or i1 %76, %80
   br i1 %or.cond.i, label %91, label %_ZN6spdlog6logger4log_IJRA4_KcRKiEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017basic_string_viewIcEEDpOT_.exit

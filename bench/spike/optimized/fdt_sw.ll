@@ -202,11 +202,11 @@ define range(i32 -13, 1) i32 @fdt_resize(ptr noundef readonly captures(address) 
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %rev.i.i, ptr %111, align 4, !tbaa !10
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %113 = load i8, ptr %112, align 1, !tbaa !14
+  %113 = load i8, ptr %112, align 4, !tbaa !14
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 13
   %115 = load i8, ptr %114, align 1, !tbaa !14
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 14
-  %117 = load i8, ptr %116, align 1, !tbaa !14
+  %117 = load i8, ptr %116, align 2, !tbaa !14
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 15
   %119 = load i8, ptr %118, align 1, !tbaa !14
   %120 = or i8 %115, %113
@@ -418,14 +418,14 @@ fdt_sw_probe_memrsv_.exit.thread.i:               ; preds = %19
   %rev.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %74)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %73, i8 0, i64 16, i1 false)
   store i32 %rev.i.i.i, ptr %33, align 4, !tbaa !12
-  %75 = load i8, ptr %53, align 1, !tbaa !14
+  %75 = load i8, ptr %53, align 4, !tbaa !14
   %76 = zext i8 %75 to i32
   %77 = shl nuw i32 %76, 24
   %78 = load i8, ptr %57, align 1, !tbaa !14
   %79 = zext i8 %78 to i32
   %80 = shl nuw nsw i32 %79, 16
   %81 = or disjoint i32 %80, %77
-  %82 = load i8, ptr %62, align 1, !tbaa !14
+  %82 = load i8, ptr %62, align 2, !tbaa !14
   %83 = zext i8 %82 to i32
   %84 = shl nuw nsw i32 %83, 8
   %85 = or disjoint i32 %81, %84

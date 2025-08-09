@@ -1351,7 +1351,7 @@ define void @_ZN6casadi10Integrator7bdyn_inB5cxx11Ev(ptr dead_on_unwind noalias 
   store ptr %5, ptr %.08.i.i.i.i.i, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 8
   store i64 0, ptr %6, align 8, !tbaa !14
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = add nsw i64 %.057.i.i.i.i.i, -1
   %8 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq i64 %7, 0
@@ -1612,7 +1612,7 @@ define void @_ZN6casadi10Integrator8bdyn_outB5cxx11Ev(ptr dead_on_unwind noalias
   store ptr %5, ptr %.08.i.i.i.i.i, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 8
   store i64 0, ptr %6, align 8, !tbaa !14
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = add nsw i64 %.057.i.i.i.i.i, -1
   %8 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq i64 %7, 0
@@ -6306,7 +6306,7 @@ _ZN6casadi6MatrixINS_6SXElemEED2Ev.exit:          ; preds = %_ZNSt6vectorIN6casa
   store ptr %651, ptr %.08.i.i.i.i.i.i, align 8, !tbaa !3, !noalias !108
   %652 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 8
   store i64 0, ptr %652, align 8, !tbaa !14, !noalias !108
-  store i8 0, ptr %651, align 1, !tbaa !13, !noalias !108
+  store i8 0, ptr %651, align 8, !tbaa !13, !noalias !108
   %653 = add nsw i64 %.057.i.i.i.i.i.i, -1
   %654 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq i64 %653, 0
@@ -9016,7 +9016,7 @@ _ZN6casadi2MXaSERKS0_.exit351:                    ; preds = %_ZN6casadi3vecERKNS
   store ptr %626, ptr %.08.i.i.i.i.i.i, align 8, !tbaa !3, !noalias !165
   %627 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 8
   store i64 0, ptr %627, align 8, !tbaa !14, !noalias !165
-  store i8 0, ptr %626, align 1, !tbaa !13, !noalias !165
+  store i8 0, ptr %626, align 8, !tbaa !13, !noalias !165
   %628 = add nsw i64 %.057.i.i.i.i.i.i, -1
   %629 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq i64 %628, 0
@@ -10864,7 +10864,7 @@ define void @_ZN6casadi13integrator_inB5cxx11Ev(ptr dead_on_unwind noalias writa
   store ptr %5, ptr %.08.i.i.i.i.i, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 8
   store i64 0, ptr %6, align 8, !tbaa !14
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = add nsw i64 %.057.i.i.i.i.i, -1
   %8 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq i64 %7, 0
@@ -11116,7 +11116,7 @@ define void @_ZN6casadi14integrator_outB5cxx11Ev(ptr dead_on_unwind noalias writ
   store ptr %5, ptr %.08.i.i.i.i.i, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 8
   store i64 0, ptr %6, align 8, !tbaa !14
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = add nsw i64 %.057.i.i.i.i.i, -1
   %8 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq i64 %7, 0
@@ -11374,7 +11374,7 @@ define linkonce_odr hidden void @_ZN6casadi10enum_namesINS_5DynInEEESt6vectorINS
   store ptr %5, ptr %.08.i.i.i.i.i, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 8
   store i64 0, ptr %6, align 8, !tbaa !14
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = add nsw i64 %.057.i.i.i.i.i, -1
   %8 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq i64 %7, 0
@@ -11474,7 +11474,7 @@ define linkonce_odr hidden void @_ZN6casadi10enum_namesINS_6DynOutEEESt6vectorIN
   store ptr %5, ptr %.08.i.i.i.i.i, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 8
   store i64 0, ptr %6, align 8, !tbaa !14
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = add nsw i64 %.057.i.i.i.i.i, -1
   %8 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq i64 %7, 0
@@ -11731,7 +11731,7 @@ define linkonce_odr hidden void @_ZN6casadi10enum_namesINS_7EventInEEESt6vectorI
   store ptr %5, ptr %.08.i.i.i.i.i, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 8
   store i64 0, ptr %6, align 8, !tbaa !14
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = add nsw i64 %.057.i.i.i.i.i, -1
   %8 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq i64 %7, 0
@@ -11881,7 +11881,7 @@ define void @_ZN6casadi9event_outB5cxx11Ev(ptr dead_on_unwind noalias writable w
   store ptr %6, ptr %.08.i.i.i.i.i.i, align 8, !tbaa !3, !noalias !234
   %7 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 8
   store i64 0, ptr %7, align 8, !tbaa !14, !noalias !234
-  store i8 0, ptr %6, align 1, !tbaa !13, !noalias !234
+  store i8 0, ptr %6, align 8, !tbaa !13, !noalias !234
   %8 = add nsw i64 %.057.i.i.i.i.i.i, -1
   %9 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq i64 %8, 0
@@ -31283,7 +31283,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1488: ; preds = %_
   store ptr %3144, ptr %.08.i.i.i.i.i.i, align 8, !tbaa !3, !noalias !627
   %3145 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 8
   store i64 0, ptr %3145, align 8, !tbaa !14, !noalias !627
-  store i8 0, ptr %3144, align 1, !tbaa !13, !noalias !627
+  store i8 0, ptr %3144, align 8, !tbaa !13, !noalias !627
   %3146 = add nsw i64 %.057.i.i.i.i.i.i, -1
   %3147 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq i64 %3146, 0
@@ -31562,7 +31562,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1509: ; preds = %_
   store ptr %3242, ptr %.08.i.i.i.i.i.i1765, align 8, !tbaa !3, !noalias !633
   %3243 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i1765, i64 8
   store i64 0, ptr %3243, align 8, !tbaa !14, !noalias !633
-  store i8 0, ptr %3242, align 1, !tbaa !13, !noalias !633
+  store i8 0, ptr %3242, align 8, !tbaa !13, !noalias !633
   %3244 = add nsw i64 %.057.i.i.i.i.i.i1766, -1
   %3245 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i1765, i64 32
   %.not.i.i.i.i.i.i1767 = icmp eq i64 %3244, 0
@@ -39456,7 +39456,7 @@ _ZN6casadi6MatrixINS_6SXElemEED2Ev.exit401:       ; preds = %_ZNSt6vectorIN6casa
   store ptr %886, ptr %.08.i.i.i.i.i.i, align 8, !tbaa !3, !noalias !715
   %887 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 8
   store i64 0, ptr %887, align 8, !tbaa !14, !noalias !715
-  store i8 0, ptr %886, align 1, !tbaa !13, !noalias !715
+  store i8 0, ptr %886, align 8, !tbaa !13, !noalias !715
   %888 = add nsw i64 %.057.i.i.i.i.i.i, -1
   %889 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq i64 %888, 0
@@ -42396,7 +42396,7 @@ _ZN6casadi2MXaSERKS0_.exit385:                    ; preds = %800
   store ptr %812, ptr %.08.i.i.i.i.i.i, align 8, !tbaa !3, !noalias !762
   %813 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 8
   store i64 0, ptr %813, align 8, !tbaa !14, !noalias !762
-  store i8 0, ptr %812, align 1, !tbaa !13, !noalias !762
+  store i8 0, ptr %812, align 8, !tbaa !13, !noalias !762
   %814 = add nsw i64 %.057.i.i.i.i.i.i, -1
   %815 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq i64 %814, 0
@@ -77850,7 +77850,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8, !tbaa !14
   store ptr %13, ptr %10, align 8, !tbaa !11
   store i64 0, ptr %24, align 8, !tbaa !14
-  store i8 0, ptr %13, align 1, !tbaa !13
+  store i8 0, ptr %13, align 8, !tbaa !13
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %26, i8 0, i64 28, i1 false)
@@ -80748,7 +80748,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i: ; pre
   store i64 %20, ptr %21, align 8, !tbaa !14
   store ptr %11, ptr %8, align 8, !tbaa !11
   store i64 0, ptr %19, align 8, !tbaa !14
-  store i8 0, ptr %11, align 1, !tbaa !13
+  store i8 0, ptr %11, align 8, !tbaa !13
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 64
   invoke void @_ZN6casadi11GenericTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %22)
           to label %_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericTypeEEEEE9constructISB_JRKSt21piecewise_construct_tSt5tupleIJOS7_EESJ_IJEEEEEvRSD_PT_DpOT0_.exit unwind label %23

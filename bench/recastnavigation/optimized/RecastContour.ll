@@ -4730,12 +4730,12 @@ define internal fastcc void @_ZL16mergeRegionHolesP9rcContextR15rcContourRegion(
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %14 = load ptr, ptr %10, align 8
   %15 = load i32, ptr %14, align 4
-  store i32 %15, ptr %11, align 4
+  store i32 %15, ptr %11, align 8
   %16 = load ptr, ptr %10, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i32, ptr %17, align 4
   store i32 %18, ptr %12, align 4
-  store i32 0, ptr %13, align 4
+  store i32 0, ptr %13, align 8
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = icmp sgt i32 %20, 1

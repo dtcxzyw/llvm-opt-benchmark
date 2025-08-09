@@ -168,7 +168,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local i32 @intel_bios_encoder_port(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load i8, ptr %3, align 1
+  %4 = load i8, ptr %3, align 8
   %5 = tail call fastcc i32 @dvo_port_to_port(ptr noundef %2, i8 noundef zeroext %4)
   %6 = icmp eq i32 %5, -1
   br i1 %6, label %7, label %16
@@ -2707,7 +2707,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #4 ali
   %1202 = getelementptr i8, ptr %1201, i64 -56
   %1203 = load ptr, ptr %1202, align 8
   %1204 = getelementptr i8, ptr %1201, i64 -32
-  %1205 = load i8, ptr %1204, align 1
+  %1205 = load i8, ptr %1204, align 8
   %1206 = call fastcc i32 @dvo_port_to_port(ptr noundef %1203, i8 noundef zeroext %1205)
   %1207 = icmp eq i32 %1206, -1
   br i1 %1207, label %1208, label %1216
@@ -2847,7 +2847,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #4 ali
   %1284 = getelementptr i8, ptr %1283, i64 -56
   %1285 = load ptr, ptr %1284, align 8
   %1286 = getelementptr i8, ptr %1283, i64 -32
-  %1287 = load i8, ptr %1286, align 1
+  %1287 = load i8, ptr %1286, align 8
   %1288 = call fastcc i32 @dvo_port_to_port(ptr noundef %1285, i8 noundef zeroext %1287)
   %1289 = icmp eq i32 %1288, -1
   br i1 %1289, label %1290, label %.thread130
@@ -6713,7 +6713,7 @@ define dso_local ptr @intel_bios_encoder_data_lookup(ptr noundef readonly captur
 9:                                                ; preds = %4
   %10 = load ptr, ptr %7, align 8
   %11 = getelementptr i8, ptr %6, i64 -32
-  %12 = load i8, ptr %11, align 1
+  %12 = load i8, ptr %11, align 8
   %13 = tail call fastcc i32 @dvo_port_to_port(ptr noundef %10, i8 noundef zeroext %12)
   %14 = icmp eq i32 %13, -1
   br i1 %14, label %15, label %24

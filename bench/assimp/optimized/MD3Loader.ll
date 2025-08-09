@@ -723,7 +723,7 @@ thread-pre-split271:                              ; preds = %104
   store ptr %113, ptr %112, align 8
   %114 = getelementptr inbounds nuw i8, ptr %109, i64 24
   store i64 0, ptr %114, align 8
-  store i8 0, ptr %113, align 1
+  store i8 0, ptr %113, align 8
   %115 = getelementptr inbounds nuw i8, ptr %109, i64 48
   store i32 0, ptr %115, align 8
   %116 = getelementptr inbounds nuw i8, ptr %109, i64 52
@@ -1708,7 +1708,7 @@ _ZN6Assimp11TokenMatchIERPKcS1_j.exit164.thread:  ; preds = %.loopexit, %_ZN6Ass
   store ptr %422, ptr %421, align 8
   %423 = getelementptr inbounds nuw i8, ptr %419, i64 24
   store i64 0, ptr %423, align 8
-  store i8 0, ptr %422, align 1
+  store i8 0, ptr %422, align 8
   %424 = getelementptr inbounds nuw i8, ptr %419, i64 48
   store i32 1, ptr %424, align 8
   %425 = getelementptr inbounds nuw i8, ptr %419, i64 56
@@ -7856,7 +7856,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit153: ; preds = %_Z
   %355 = getelementptr inbounds nuw i8, ptr %351, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %355, ptr noundef nonnull align 1 dereferenceable(12) @.str.68, i64 12, i1 false)
   %356 = getelementptr inbounds nuw i8, ptr %351, i64 16
-  store i8 0, ptr %356, align 1
+  store i8 0, ptr %356, align 4
   %357 = invoke noundef ptr @_ZN6Assimp11BatchLoader9GetImportEj(ptr noundef nonnull align 8 dereferenceable(8) %22, i32 noundef %341)
           to label %358 unwind label %437
 
@@ -8331,7 +8331,7 @@ _ZNSt6vectorIN6Assimp14AttachmentInfoESaIS1_EE12emplace_backIJRP7aiSceneRP6aiNod
   %538 = getelementptr inbounds nuw i8, ptr %537, i64 4
   store i32 1684104552, ptr %538, align 4
   %539 = getelementptr inbounds nuw i8, ptr %537, i64 8
-  store i8 0, ptr %539, align 1
+  store i8 0, ptr %539, align 4
   %540 = load ptr, ptr %464, align 8
   %541 = load ptr, ptr %466, align 8
   %.not.i198 = icmp eq ptr %540, %541
@@ -11807,15 +11807,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit419: ; preds = %_Z
   %975 = load float, ptr %974, align 4
   %976 = getelementptr inbounds nuw i8, ptr %950, i64 1028
   %977 = getelementptr inbounds nuw i8, ptr %950, i64 1040
-  store float %975, ptr %977, align 4
+  store float %975, ptr %977, align 8
   %978 = getelementptr inbounds nuw i8, ptr %.0230751, i64 68
   %979 = load float, ptr %978, align 4
   %980 = getelementptr inbounds nuw i8, ptr %950, i64 1056
-  store float %979, ptr %980, align 4
+  store float %979, ptr %980, align 8
   %981 = getelementptr inbounds nuw i8, ptr %.0230751, i64 72
   %982 = load float, ptr %981, align 4
   %983 = getelementptr inbounds nuw i8, ptr %950, i64 1072
-  store float %982, ptr %983, align 4
+  store float %982, ptr %983, align 8
   %984 = getelementptr inbounds nuw i8, ptr %.0230751, i64 76
   %985 = getelementptr inbounds nuw i8, ptr %950, i64 1060
   %986 = getelementptr inbounds nuw i8, ptr %950, i64 1044

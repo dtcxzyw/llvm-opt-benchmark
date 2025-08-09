@@ -494,7 +494,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %_ZN
   store ptr %74, ptr %73, align 8, !tbaa !21, !noalias !30
   %75 = getelementptr inbounds nuw i8, ptr %66, i64 40
   store i64 0, ptr %75, align 8, !tbaa !28, !noalias !30
-  store i8 0, ptr %74, align 1, !tbaa !27, !noalias !30
+  store i8 0, ptr %74, align 8, !tbaa !27, !noalias !30
   %76 = getelementptr inbounds nuw i8, ptr %66, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %76, i8 0, i64 72, i1 false), !noalias !30
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry12TriangleMeshE, i64 16), ptr %70, align 8, !tbaa !37, !noalias !30
@@ -588,7 +588,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit81: ; preds = %_ZN
   store ptr %112, ptr %111, align 8, !tbaa !21, !noalias !50
   %113 = getelementptr inbounds nuw i8, ptr %104, i64 40
   store i64 0, ptr %113, align 8, !tbaa !28, !noalias !50
-  store i8 0, ptr %112, align 1, !tbaa !27, !noalias !50
+  store i8 0, ptr %112, align 8, !tbaa !27, !noalias !50
   %114 = getelementptr inbounds nuw i8, ptr %104, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %114, i8 0, i64 72, i1 false), !noalias !50
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry12TriangleMeshE, i64 16), ptr %108, align 8, !tbaa !37, !noalias !50
@@ -1489,7 +1489,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIiSt4pairIKijESaIS2_
   %45 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
   store ptr null, ptr %45, align 8, !tbaa !16
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store i32 %43, ptr %46, align 4, !tbaa !78
+  store i32 %43, ptr %46, align 8, !tbaa !78
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %48 = load i32, ptr %44, align 4, !tbaa !62
   store i32 %48, ptr %47, align 4, !tbaa !80
@@ -1658,7 +1658,7 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !16
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !62
+  %16 = load i32, ptr %15, align 8, !tbaa !62
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18

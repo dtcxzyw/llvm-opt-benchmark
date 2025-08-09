@@ -398,7 +398,7 @@ define hidden void @_ZN7nanogui6Widget14perform_layoutEP10NVGcontext(ptr noundef
   %.sroa.220.0.extract.shift = lshr i64 %18, 32
   %.sroa.220.0.extract.trunc = trunc nuw i64 %.sroa.220.0.extract.shift to i32
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 56
-  %20 = load i32, ptr %19, align 4
+  %20 = load i32, ptr %19, align 8
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 60
   %21 = load i32, ptr %.sroa_idx, align 4
   %.not10 = icmp eq i32 %20, 0

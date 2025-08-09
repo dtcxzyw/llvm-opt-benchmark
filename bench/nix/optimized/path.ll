@@ -2456,7 +2456,7 @@ _ZN2rc3GenINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS7_.exit: ; 
   store i64 %19, ptr %21, align 8
   store ptr %11, ptr %8, align 8
   store i64 0, ptr %20, align 8
-  store i8 0, ptr %11, align 1
+  store i8 0, ptr %11, align 8
   store ptr null, ptr %1, align 8
   invoke void @_ZN2rc3gen5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS_3GenISt5tupleIJDpT_EEEEDpNS8_ISA_EE(ptr dead_on_unwind nonnull writable sret(%"class.rc::Gen.182") align 8 %3, ptr noundef nonnull %4)
           to label %22 unwind label %53
@@ -3253,7 +3253,7 @@ _ZN2rc3GenIN3nix4HashEEC2EOS3_.exit:              ; preds = %15, %_ZNKSt7__cxx11
   store i64 %21, ptr %23, align 8
   store ptr %13, ptr %10, align 8
   store i64 0, ptr %22, align 8
-  store i8 0, ptr %13, align 1
+  store i8 0, ptr %13, align 8
   store ptr null, ptr %1, align 8
   %24 = load ptr, ptr %2, align 8
   store ptr %24, ptr %6, align 8
@@ -3291,7 +3291,7 @@ _ZN2rc3GenINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS7_.exit: ; 
   store i64 %37, ptr %39, align 8
   store ptr %29, ptr %26, align 8
   store i64 0, ptr %38, align 8
-  store i8 0, ptr %29, align 1
+  store i8 0, ptr %29, align 8
   store ptr null, ptr %2, align 8
   invoke void @_ZN2rc3gen5tupleIJN3nix4HashENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS_3GenISt5tupleIJDpT_EEEEDpNSA_ISC_EE(ptr dead_on_unwind nonnull writable sret(%"class.rc::Gen.282") align 8 %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
           to label %40 unwind label %84
@@ -3851,7 +3851,7 @@ define linkonce_odr void @_ZZN2rc3gen7inRangeIhEENS_3GenIT_EES3_S3_ENKUlRKNS_6Ra
   %60 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24, !noalias !34
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN2rc10ShrinkableIhE14ShrinkableImplINS_10shrinkable6detail20JustShrinkShrinkableINS_2fn8ConstantIhEEZNS3_11shrinkRecurIRKhZZNS_3gen7inRangeIhEENS_3GenIT_EESF_SF_ENKUlRKNS_6RandomEiE_clESJ_iEUlhE_EENS0_INSt5decayISF_E4typeEEEOSF_RKT0_EUlOhE_EEEE, i64 16), ptr %60, align 8, !noalias !34
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store i8 %59, ptr %61, align 1, !noalias !34
+  store i8 %59, ptr %61, align 8, !noalias !34
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 9
   store i8 %57, ptr %62, align 1, !noalias !34
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 16
@@ -4723,7 +4723,7 @@ define linkonce_odr void @_ZNK2rc10ShrinkableIhE14ShrinkableImplINS_10shrinkable
   %7 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24, !noalias !47
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN2rc3SeqIhE7SeqImplINS_6shrink6detail10TowardsSeqIhEEEE, i64 16), ptr %7, align 8, !noalias !47
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i8 %5, ptr %8, align 1, !noalias !47
+  store i8 %5, ptr %8, align 8, !noalias !47
   %9 = icmp ult i8 %6, %5
   %10 = sub nuw i8 %5, %6
   %11 = sub nuw i8 %6, %5
@@ -4732,7 +4732,7 @@ define linkonce_odr void @_ZNK2rc10ShrinkableIhE14ShrinkableImplINS_10shrinkable
   store i8 %12, ptr %13, align 1, !noalias !47
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 10
   %15 = zext i1 %9 to i8
-  store i8 %15, ptr %14, align 1, !noalias !47
+  store i8 %15, ptr %14, align 2, !noalias !47
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
   %16 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
@@ -4955,7 +4955,7 @@ _ZN2rc10ShrinkableIhED2Ev.exit:                   ; preds = %_ZN2rc3SeqIhE4nextE
   %34 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN2rc10ShrinkableIhE14ShrinkableImplINS_10shrinkable6detail20JustShrinkShrinkableINS_2fn8ConstantIhEEZNS3_11shrinkRecurIhZZNS_3gen7inRangeIhEENS_3GenIT_EESD_SD_ENKUlRKNS_6RandomEiE_clESH_iEUlhE_EENS0_INSt5decayISD_E4typeEEEOSD_RKT0_EUlOhE_EEEE, i64 16), ptr %34, align 8, !noalias !68
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store i8 %32, ptr %35, align 1, !noalias !68
+  store i8 %32, ptr %35, align 8, !noalias !68
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 9
   store i8 %33, ptr %36, align 1, !noalias !68
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -4989,7 +4989,7 @@ define linkonce_odr void @_ZNK2rc10ShrinkableIhE14ShrinkableImplINS_10shrinkable
   %7 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24, !noalias !82
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN2rc3SeqIhE7SeqImplINS_6shrink6detail10TowardsSeqIhEEEE, i64 16), ptr %7, align 8, !noalias !82
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i8 %5, ptr %8, align 1, !noalias !82
+  store i8 %5, ptr %8, align 8, !noalias !82
   %9 = icmp ult i8 %6, %5
   %10 = sub nuw i8 %5, %6
   %11 = sub nuw i8 %6, %5
@@ -4998,7 +4998,7 @@ define linkonce_odr void @_ZNK2rc10ShrinkableIhE14ShrinkableImplINS_10shrinkable
   store i8 %12, ptr %13, align 1, !noalias !82
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 10
   %15 = zext i1 %9 to i8
-  store i8 %15, ptr %14, align 1, !noalias !82
+  store i8 %15, ptr %14, align 2, !noalias !82
   tail call void @llvm.experimental.noalias.scope.decl(metadata !87)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !90)
   %16 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
@@ -5221,7 +5221,7 @@ _ZN2rc10ShrinkableIhED2Ev.exit:                   ; preds = %_ZN2rc3SeqIhE4nextE
   %34 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN2rc10ShrinkableIhE14ShrinkableImplINS_10shrinkable6detail20JustShrinkShrinkableINS_2fn8ConstantIhEEZNS3_11shrinkRecurIhZZNS_3gen7inRangeIhEENS_3GenIT_EESD_SD_ENKUlRKNS_6RandomEiE_clESH_iEUlhE_EENS0_INSt5decayISD_E4typeEEEOSD_RKT0_EUlOhE_EEEE, i64 16), ptr %34, align 8, !noalias !103
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store i8 %32, ptr %35, align 1, !noalias !103
+  store i8 %32, ptr %35, align 8, !noalias !103
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 9
   store i8 %33, ptr %36, align 1, !noalias !103
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -5325,7 +5325,7 @@ _ZN2rc3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0EEEEJhEEC2IJNS_3GenIhEEE
   store i64 %17, ptr %19, align 8
   store ptr %9, ptr %6, align 8
   store i64 0, ptr %18, align 8
-  store i8 0, ptr %9, align 1
+  store i8 0, ptr %9, align 8
   store ptr null, ptr %1, align 8
   invoke void @_ZN2rc3GenISt5tupleIJhEEEC2INS_3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0EEEEJhEEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3)
           to label %20 unwind label %34
@@ -13365,7 +13365,7 @@ _ZN2rc3GenISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEC2EO
   store i64 %19, ptr %21, align 8
   store ptr %11, ptr %8, align 8
   store i64 0, ptr %20, align 8
-  store i8 0, ptr %11, align 1
+  store i8 0, ptr %11, align 8
   store ptr null, ptr %1, align 8
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = load ptr, ptr %5, align 8
@@ -13524,7 +13524,7 @@ _ZN2rc3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0EEEEJNSt7__cxx1112basic_
   store i64 %17, ptr %19, align 8
   store ptr %9, ptr %6, align 8
   store i64 0, ptr %18, align 8
-  store i8 0, ptr %9, align 1
+  store i8 0, ptr %9, align 8
   store ptr null, ptr %1, align 8
   invoke void @_ZN2rc3GenISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEC2INS_3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0EEEEJS7_EEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3)
           to label %20 unwind label %34
@@ -15593,7 +15593,7 @@ _ZN2rc3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0EEEEJN3nix13StorePathNam
   store i64 %17, ptr %19, align 8
   store ptr %9, ptr %6, align 8
   store i64 0, ptr %18, align 8
-  store i8 0, ptr %9, align 1
+  store i8 0, ptr %9, align 8
   store ptr null, ptr %1, align 8
   invoke void @_ZN2rc3GenISt5tupleIJN3nix13StorePathNameEEEEC2INS_3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0EEEEJS3_EEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3)
           to label %20 unwind label %34
@@ -17904,7 +17904,7 @@ _ZN2rc3GenISt5tupleIJN3nix4HashENSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   store i64 %19, ptr %21, align 8
   store ptr %11, ptr %8, align 8
   store i64 0, ptr %20, align 8
-  store i8 0, ptr %11, align 1
+  store i8 0, ptr %11, align 8
   store ptr null, ptr %1, align 8
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = load ptr, ptr %5, align 8
@@ -18063,7 +18063,7 @@ _ZNSt11_Tuple_implILm1EJN2rc3GenINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   store i64 %18, ptr %20, align 8
   store ptr %10, ptr %7, align 8
   store i64 0, ptr %19, align 8
-  store i8 0, ptr %10, align 1
+  store i8 0, ptr %10, align 8
   store ptr null, ptr %2, align 8
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %22 = load ptr, ptr %1, align 8
@@ -18102,7 +18102,7 @@ _ZN2rc3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0ELm1EEEEJN3nix4HashENSt7
   store i64 %35, ptr %37, align 8
   store ptr %27, ptr %24, align 8
   store i64 0, ptr %36, align 8
-  store i8 0, ptr %27, align 1
+  store i8 0, ptr %27, align 8
   store ptr null, ptr %1, align 8
   invoke void @_ZN2rc3GenISt5tupleIJN3nix4HashENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEC2INS_3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0ELm1EEEEJS3_S9_EEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(80) %4)
           to label %38 unwind label %39

@@ -7914,7 +7914,7 @@ _ZN5boost4asio6detail27conditionally_enabled_event10signal_allERNS1_27conditiona
   store ptr %30, ptr %31, align 4, !tbaa !18
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 112
   %33 = load i32, ptr %32, align 8, !tbaa !204
-  %34 = load i32, ptr %30, align 4, !tbaa !211
+  %34 = load i32, ptr %30, align 8, !tbaa !211
   %35 = call i32 @epoll_ctl(i32 noundef %33, i32 noundef 3, i32 noundef %34, ptr noundef nonnull %3) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN5boost4asio6detail9scheduler16stop_all_threadsERNS1_27conditionally_enabled_mutex11scoped_lockE.exit
@@ -8092,7 +8092,7 @@ _ZN5boost4asio6detail27conditionally_enabled_event10signal_allERNS1_27conditiona
   store ptr %30, ptr %31, align 4, !tbaa !18
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 112
   %33 = load i32, ptr %32, align 8, !tbaa !204
-  %34 = load i32, ptr %30, align 4, !tbaa !211
+  %34 = load i32, ptr %30, align 8, !tbaa !211
   %35 = call i32 @epoll_ctl(i32 noundef %33, i32 noundef 3, i32 noundef %34, ptr noundef nonnull %3) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN5boost4asio6detail9scheduler16stop_all_threadsERNS1_27conditionally_enabled_mutex11scoped_lockE.exit
@@ -8412,7 +8412,7 @@ _ZN5boost4asio6detail27conditionally_enabled_event10signal_allERNS1_27conditiona
   store ptr %33, ptr %34, align 4, !tbaa !18
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 112
   %36 = load i32, ptr %35, align 8, !tbaa !204
-  %37 = load i32, ptr %33, align 4, !tbaa !211
+  %37 = load i32, ptr %33, align 8, !tbaa !211
   %38 = call i32 @epoll_ctl(i32 noundef %36, i32 noundef 3, i32 noundef %37, ptr noundef nonnull %4) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN5boost4asio6detail9scheduler16stop_all_threadsERNS1_27conditionally_enabled_mutex11scoped_lockE.exit.i
@@ -8854,7 +8854,7 @@ _ZN5boost4asio6detail27conditionally_enabled_event27maybe_unlock_and_signal_oneE
   store ptr %129, ptr %130, align 4, !tbaa !18
   %131 = getelementptr inbounds nuw i8, ptr %127, i64 112
   %132 = load i32, ptr %131, align 8, !tbaa !204
-  %133 = load i32, ptr %129, align 4, !tbaa !211
+  %133 = load i32, ptr %129, align 8, !tbaa !211
   %134 = call i32 @epoll_ctl(i32 noundef %132, i32 noundef 3, i32 noundef %133, ptr noundef nonnull %7) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %135
@@ -9559,7 +9559,7 @@ _ZN5boost4asio6detail27conditionally_enabled_event10signal_allERNS1_27conditiona
   store ptr %41, ptr %42, align 4, !tbaa !18
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 112
   %44 = load i32, ptr %43, align 8, !tbaa !204
-  %45 = load i32, ptr %41, align 4, !tbaa !211
+  %45 = load i32, ptr %41, align 8, !tbaa !211
   %46 = call i32 @epoll_ctl(i32 noundef %44, i32 noundef 3, i32 noundef %45, ptr noundef nonnull %2) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN5boost4asio6detail9scheduler16stop_all_threadsERNS1_27conditionally_enabled_mutex11scoped_lockE.exit.i.i
@@ -10956,7 +10956,7 @@ _ZN5boost4asio6detail27conditionally_enabled_event27maybe_unlock_and_signal_oneE
   store ptr %56, ptr %57, align 4, !tbaa !18
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 112
   %59 = load i32, ptr %58, align 8, !tbaa !204
-  %60 = load i32, ptr %56, align 4, !tbaa !211
+  %60 = load i32, ptr %56, align 8, !tbaa !211
   %61 = call i32 @epoll_ctl(i32 noundef %59, i32 noundef 3, i32 noundef %60, ptr noundef nonnull %3) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre32 = load i8, ptr %23, align 8, !range !147
@@ -12905,7 +12905,7 @@ _ZN5boost4asio6detail27conditionally_enabled_event27maybe_unlock_and_signal_oneE
   store ptr %53, ptr %54, align 4, !tbaa !18
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 112
   %56 = load i32, ptr %55, align 8, !tbaa !204
-  %57 = load i32, ptr %53, align 4, !tbaa !211
+  %57 = load i32, ptr %53, align 8, !tbaa !211
   %58 = call i32 @epoll_ctl(i32 noundef %56, i32 noundef 3, i32 noundef %57, ptr noundef nonnull %4) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %59
@@ -14545,7 +14545,7 @@ _ZN5boost4asio6detail27conditionally_enabled_event10signal_allERNS1_27conditiona
   store ptr %32, ptr %33, align 4, !tbaa !18
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 112
   %35 = load i32, ptr %34, align 8, !tbaa !204
-  %36 = load i32, ptr %32, align 4, !tbaa !211
+  %36 = load i32, ptr %32, align 8, !tbaa !211
   %37 = call i32 @epoll_ctl(i32 noundef %35, i32 noundef 3, i32 noundef %36, ptr noundef nonnull %2) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN5boost4asio6detail9scheduler16stop_all_threadsERNS1_27conditionally_enabled_mutex11scoped_lockE.exit.i.i
@@ -23606,7 +23606,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIiSt4pairIKiNSt7__cxx1112basic_stringIcSt
   store ptr %14, ptr %13, align 8, !tbaa !9
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i64 0, ptr %15, align 8, !tbaa !19
-  store i8 0, ptr %14, align 1, !tbaa !18
+  store i8 0, ptr %14, align 8, !tbaa !18
   store ptr %8, ptr %7, align 8, !tbaa !982
   %16 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIiESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %9)
           to label %17 unwind label %32
@@ -33450,7 +33450,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 16
   store i32 1, ptr %252, align 8, !tbaa !1148
   %253 = getelementptr inbounds nuw i8, ptr %251, i64 24
-  store i8 %181, ptr %253, align 1, !tbaa !18
+  store i8 %181, ptr %253, align 8, !tbaa !18
   %254 = load ptr, ptr %138, align 8, !tbaa !1042
   %255 = load ptr, ptr %0, align 8, !tbaa !1023
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 352
@@ -40782,7 +40782,7 @@ _ZNSt15basic_streambufIcSt11char_traitsIcEE9pubsetbufEPcl.exit: ; preds = %_ZSt4
   %switch.selectcmp48 = icmp eq i32 %87, 16
   %switch.select49 = select i1 %switch.selectcmp48, i32 8, i32 %switch.select
   %95 = or disjoint i32 %94, %switch.select49
-  store i32 %95, ptr %92, align 4, !tbaa !1292
+  store i32 %95, ptr %92, align 8, !tbaa !1292
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %96 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIlEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %101 unwind label %129

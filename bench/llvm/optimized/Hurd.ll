@@ -4488,7 +4488,7 @@ _ZSt10_ConstructIN5clang6driver11MultilibSet11FlagMatcherEJS3_EEvPT_DpOT0_.exit.
   store i64 %19, ptr %20, align 8, !tbaa !32
   store ptr %10, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !33
   store i64 0, ptr %18, align 8, !tbaa !32
-  store i8 0, ptr %10, align 1, !tbaa !28
+  store i8 0, ptr %10, align 8, !tbaa !28
   %21 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 32
   %23 = load ptr, ptr %22, align 8, !tbaa !97

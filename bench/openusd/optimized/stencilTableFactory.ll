@@ -1192,7 +1192,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15in
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %30 = load i32, ptr %29, align 1
+  %30 = load i32, ptr %29, align 4
   store i32 %30, ptr %5, align 4
   store ptr %26, ptr %6, align 8
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -1480,7 +1480,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15in
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %28 = load i32, ptr %27, align 1
+  %28 = load i32, ptr %27, align 4
   store i32 %28, ptr %5, align 4
   store ptr %24, ptr %6, align 8
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1924,7 +1924,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15in
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %30 = load i32, ptr %29, align 1
+  %30 = load i32, ptr %29, align 4
   store i32 %30, ptr %5, align 4
   store ptr %26, ptr %6, align 8
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -2212,7 +2212,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15in
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %28 = load i32, ptr %27, align 1
+  %28 = load i32, ptr %27, align 4
   store i32 %28, ptr %5, align 4
   store ptr %24, ptr %6, align 8
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -4803,7 +4803,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE19in
   %30 = getelementptr i8, ptr %29, i64 -8
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  %33 = load i32, ptr %32, align 1
+  %33 = load i32, ptr %32, align 4
   store i32 %33, ptr %6, align 4
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %35 = load ptr, ptr %34, align 8
@@ -5254,7 +5254,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE19in
   %34 = getelementptr i8, ptr %33, i64 -8
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  %37 = load i32, ptr %36, align 1
+  %37 = load i32, ptr %36, align 4
   store i32 %37, ptr %6, align 4
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %39 = load ptr, ptr %38, align 8
@@ -5996,7 +5996,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE19in
   %30 = getelementptr i8, ptr %29, i64 -8
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  %33 = load i32, ptr %32, align 1
+  %33 = load i32, ptr %32, align 4
   store i32 %33, ptr %6, align 4
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %35 = load ptr, ptr %34, align 8
@@ -6447,7 +6447,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE19in
   %34 = getelementptr i8, ptr %33, i64 -8
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  %37 = load i32, ptr %36, align 1
+  %37 = load i32, ptr %36, align 4
   store i32 %37, ptr %6, align 4
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %39 = load ptr, ptr %38, align 8
@@ -10092,7 +10092,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15in
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %30 = load i32, ptr %29, align 1
+  %30 = load i32, ptr %29, align 4
   store i32 %30, ptr %5, align 4
   store ptr %26, ptr %6, align 8
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -10380,7 +10380,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15in
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %28 = load i32, ptr %27, align 1
+  %28 = load i32, ptr %27, align 4
   store i32 %28, ptr %5, align 4
   store ptr %24, ptr %6, align 8
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -10824,7 +10824,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15in
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %30 = load i32, ptr %29, align 1
+  %30 = load i32, ptr %29, align 4
   store i32 %30, ptr %5, align 4
   store ptr %26, ptr %6, align 8
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -11112,7 +11112,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15in
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %28 = load i32, ptr %27, align 1
+  %28 = load i32, ptr %27, align 4
   store i32 %28, ptr %5, align 4
   store ptr %24, ptr %6, align 8
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -13593,7 +13593,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE19in
   %30 = getelementptr i8, ptr %29, i64 -8
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  %33 = load i32, ptr %32, align 1
+  %33 = load i32, ptr %32, align 4
   store i32 %33, ptr %6, align 4
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %35 = load ptr, ptr %34, align 8
@@ -14044,7 +14044,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE19in
   %34 = getelementptr i8, ptr %33, i64 -8
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  %37 = load i32, ptr %36, align 1
+  %37 = load i32, ptr %36, align 4
   store i32 %37, ptr %6, align 4
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %39 = load ptr, ptr %38, align 8
@@ -14787,7 +14787,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE19in
   %30 = getelementptr i8, ptr %29, i64 -8
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  %33 = load i32, ptr %32, align 1
+  %33 = load i32, ptr %32, align 4
   store i32 %33, ptr %6, align 4
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %35 = load ptr, ptr %34, align 8
@@ -15238,7 +15238,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE19in
   %34 = getelementptr i8, ptr %33, i64 -8
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  %37 = load i32, ptr %36, align 1
+  %37 = load i32, ptr %36, align 4
   store i32 %37, ptr %6, align 4
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %39 = load ptr, ptr %38, align 8

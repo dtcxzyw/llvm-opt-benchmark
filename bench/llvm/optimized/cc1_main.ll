@@ -528,19 +528,19 @@ _ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticOptionsEEC2EPS2_.exit: ; preds =
   store ptr %116, ptr %115, align 8, !tbaa !68
   %117 = getelementptr inbounds nuw i8, ptr %114, i64 56
   store i64 0, ptr %117, align 8, !tbaa !19
-  store i8 0, ptr %116, align 1, !tbaa !20
+  store i8 0, ptr %116, align 8, !tbaa !20
   %118 = getelementptr inbounds nuw i8, ptr %114, i64 80
   %119 = getelementptr inbounds nuw i8, ptr %114, i64 96
   store ptr %119, ptr %118, align 8, !tbaa !68
   %120 = getelementptr inbounds nuw i8, ptr %114, i64 88
   store i64 0, ptr %120, align 8, !tbaa !19
-  store i8 0, ptr %119, align 1, !tbaa !20
+  store i8 0, ptr %119, align 8, !tbaa !20
   %121 = getelementptr inbounds nuw i8, ptr %114, i64 112
   %122 = getelementptr inbounds nuw i8, ptr %114, i64 128
   store ptr %122, ptr %121, align 8, !tbaa !68
   %123 = getelementptr inbounds nuw i8, ptr %114, i64 120
   store i64 0, ptr %123, align 8, !tbaa !19
-  store i8 0, ptr %122, align 1, !tbaa !20
+  store i8 0, ptr %122, align 8, !tbaa !20
   %124 = getelementptr inbounds nuw i8, ptr %114, i64 144
   %125 = getelementptr inbounds nuw i8, ptr %114, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %124, i8 0, i64 120, i1 false)
@@ -569,7 +569,7 @@ _ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticOptionsEEC2EPS2_.exit: ; preds =
   %136 = add i32 %135, 1
   store i32 %136, ptr %81, align 4, !tbaa !47
   store ptr %114, ptr %33, align 8, !tbaa !75
-  store i32 2, ptr %114, align 4, !tbaa !78
+  store i32 2, ptr %114, align 8, !tbaa !78
   call void @_ZN5clang17DiagnosticsEngineC1EN4llvm18IntrusiveRefCntPtrINS_13DiagnosticIDsEEENS2_INS_17DiagnosticOptionsEEEPNS_18DiagnosticConsumerEb(ptr noundef nonnull align 8 dereferenceable(15248) %31, ptr noundef nonnull %32, ptr noundef nonnull %33, ptr noundef nonnull %131, i1 noundef zeroext true) #23
   %137 = load ptr, ptr %33, align 8, !tbaa !75
   %.not.i.i26 = icmp eq ptr %137, null
@@ -4093,7 +4093,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEm
   store ptr %14, ptr %.ptr.i.i.i, align 8, !tbaa !68
   %15 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %15, align 8, !tbaa !19
-  store i8 0, ptr %14, align 1, !tbaa !20
+  store i8 0, ptr %14, align 8, !tbaa !20
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %16 = icmp eq i64 %.add.i.i.i, 416
   br i1 %16, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %13

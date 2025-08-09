@@ -13766,7 +13766,7 @@ _ZN5clang17DiagnosticsEngine15getCustomDiagIDILj95EEEjNS0_5LevelERAT__Kc.exit: ;
   store ptr %108, ptr %.ptr.i.i.i.i, align 8, !tbaa !865
   %109 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
   store i64 0, ptr %109, align 8, !tbaa !866
-  store i8 0, ptr %108, align 1, !tbaa !383
+  store i8 0, ptr %108, align 8, !tbaa !383
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 32
   %110 = icmp eq i64 %.add.i.i.i.i, 416
   br i1 %110, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %107
@@ -15099,7 +15099,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic14AddSourceRange
   store ptr %13, ptr %.ptr.i.i.i, align 8, !tbaa !865
   %14 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %14, align 8, !tbaa !866
-  store i8 0, ptr %13, align 1, !tbaa !383
+  store i8 0, ptr %13, align 8, !tbaa !383
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %15 = icmp eq i64 %.add.i.i.i, 416
   br i1 %15, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %12
@@ -26534,7 +26534,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang11DeclContextEjNS_12DenseMapInfoIS5
   %57 = load ptr, ptr %1, align 8, !tbaa !1422
   store ptr %57, ptr %48, align 8, !tbaa !1422
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !497
+  store i32 0, ptr %58, align 8, !tbaa !497
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang11DeclContextEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E16InsertIntoBucketIS5_JEEEPSA_SE_OT_DpOT0_.exit
@@ -26953,7 +26953,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang11DeclContextEjNS_12DenseMapInfoIS5
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !497
-  store i32 %68, ptr %66, align 4, !tbaa !497
+  store i32 %68, ptr %66, align 8, !tbaa !497
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !1764
   br label %70

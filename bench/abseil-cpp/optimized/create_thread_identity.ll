@@ -16,7 +16,7 @@ define dso_local void @_ZN4absl24synchronization_internal25OneTimeInitThreadIden
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 332
   store atomic i32 0, ptr %3 monotonic, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  store atomic i8 0, ptr %4 monotonic, align 1
+  store atomic i8 0, ptr %4 monotonic, align 4
   ret void
 }
 
@@ -108,11 +108,11 @@ _ZN4absl24synchronization_internalL17NewThreadIdentityEv.exit: ; preds = %_ZN4ab
   %36 = getelementptr inbounds nuw i8, ptr %.1.i, i64 320
   store ptr null, ptr %36, align 8, !tbaa !32
   %37 = getelementptr inbounds nuw i8, ptr %.1.i, i64 328
-  store atomic i32 0, ptr %37 monotonic, align 4
+  store atomic i32 0, ptr %37 monotonic, align 8
   %38 = getelementptr inbounds nuw i8, ptr %.1.i, i64 332
   store atomic i32 0, ptr %38 monotonic, align 4
   %39 = getelementptr inbounds nuw i8, ptr %.1.i, i64 336
-  store atomic i8 0, ptr %39 monotonic, align 1
+  store atomic i8 0, ptr %39 monotonic, align 8
   %40 = getelementptr inbounds nuw i8, ptr %.1.i, i64 344
   store ptr null, ptr %40, align 8, !tbaa !9
   tail call void @_ZN4absl13base_internal24SetCurrentThreadIdentityEPNS0_14ThreadIdentityEPFvPvE(ptr noundef nonnull %.1.i, ptr noundef nonnull @_ZN4absl24synchronization_internalL21ReclaimThreadIdentityEPv)

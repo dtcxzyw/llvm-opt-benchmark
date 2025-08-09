@@ -534,7 +534,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %9,
   store i64 %15, ptr %17, align 8, !tbaa !34
   store ptr %7, ptr %1, align 8, !tbaa !31
   store i64 0, ptr %16, align 8, !tbaa !34
-  store i8 0, ptr %7, align 1, !tbaa !36
+  store i8 0, ptr %7, align 8, !tbaa !36
   %18 = invoke noundef nonnull align 8 dereferenceable(768) ptr @_ZN2cv4gapi2ov6ParamsINS0_7GenericEE20cfgInputTensorLayoutENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(768) %4, ptr noundef nonnull %3)
           to label %19 unwind label %24
 
@@ -840,7 +840,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %9,
   store i64 %15, ptr %17, align 8, !tbaa !34
   store ptr %7, ptr %1, align 8, !tbaa !31
   store i64 0, ptr %16, align 8, !tbaa !34
-  store i8 0, ptr %7, align 1, !tbaa !36
+  store i8 0, ptr %7, align 8, !tbaa !36
   %18 = invoke noundef nonnull align 8 dereferenceable(768) ptr @_ZN2cv4gapi2ov6ParamsINS0_7GenericEE19cfgInputModelLayoutENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(768) %4, ptr noundef nonnull %3)
           to label %19 unwind label %24
 
@@ -1126,7 +1126,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %9,
   store i64 %15, ptr %17, align 8, !tbaa !34
   store ptr %7, ptr %1, align 8, !tbaa !31
   store i64 0, ptr %16, align 8, !tbaa !34
-  store i8 0, ptr %7, align 1, !tbaa !36
+  store i8 0, ptr %7, align 8, !tbaa !36
   %18 = invoke noundef nonnull align 8 dereferenceable(768) ptr @_ZN2cv4gapi2ov6ParamsINS0_7GenericEE21cfgOutputTensorLayoutENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(768) %4, ptr noundef nonnull %3)
           to label %19 unwind label %24
 
@@ -1412,7 +1412,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %9,
   store i64 %15, ptr %17, align 8, !tbaa !34
   store ptr %7, ptr %1, align 8, !tbaa !31
   store i64 0, ptr %16, align 8, !tbaa !34
-  store i8 0, ptr %7, align 1, !tbaa !36
+  store i8 0, ptr %7, align 8, !tbaa !36
   %18 = invoke noundef nonnull align 8 dereferenceable(768) ptr @_ZN2cv4gapi2ov6ParamsINS0_7GenericEE20cfgOutputModelLayoutENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(768) %4, ptr noundef nonnull %3)
           to label %19 unwind label %24
 
@@ -8410,7 +8410,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %7,
   store i64 %14, ptr %15, align 8, !tbaa !34
   store ptr %5, ptr %1, align 8, !tbaa !31
   store i64 0, ptr %13, align 8, !tbaa !34
-  store i8 0, ptr %5, align 1, !tbaa !36
+  store i8 0, ptr %5, align 8, !tbaa !36
   ret void
 }
 
@@ -8655,7 +8655,7 @@ _ZN2cv4gapi2ov6detail9ParamDesc13CompiledModelC2EOS4_.exit: ; preds = %7, %_ZNKS
   store i64 %14, ptr %15, align 8, !tbaa !34
   store ptr %5, ptr %1, align 8, !tbaa !31
   store i64 0, ptr %13, align 8, !tbaa !34
-  store i8 0, ptr %5, align 1, !tbaa !36
+  store i8 0, ptr %5, align 8, !tbaa !36
   ret void
 }
 

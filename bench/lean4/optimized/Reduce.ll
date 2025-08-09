@@ -9009,7 +9009,7 @@ lean_alloc_ctor.exit411:                          ; preds = %lean_dec.exit254
   %408 = getelementptr inbounds nuw i8, ptr %405, i64 4
   %409 = getelementptr inbounds nuw i8, ptr %405, i64 112
   store i64 0, ptr %409, align 8, !tbaa !4
-  store i32 1, ptr %405, align 4, !tbaa !8
+  store i32 1, ptr %405, align 8, !tbaa !8
   store i32 852088, ptr %408, align 4
   %410 = getelementptr inbounds nuw i8, ptr %405, i64 8
   store ptr %9, ptr %410, align 8, !tbaa !12
@@ -9037,7 +9037,7 @@ lean_alloc_ctor.exit411:                          ; preds = %lean_dec.exit254
   store ptr %121, ptr %421, align 8, !tbaa !12
   %422 = getelementptr inbounds nuw i8, ptr %405, i64 104
   store ptr %133, ptr %422, align 8, !tbaa !12
-  store i8 %119, ptr %409, align 1, !tbaa !19
+  store i8 %119, ptr %409, align 8, !tbaa !19
   %423 = getelementptr inbounds nuw i8, ptr %405, i64 113
   store i8 %131, ptr %423, align 1, !tbaa !19
   %424 = tail call ptr @lean_apply_6(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %405, ptr noundef %5, ptr noundef %6) #4

@@ -12334,11 +12334,11 @@ _ZN4llvh7APFloatC2ERKNS_12fltSemanticsE.exit6:
   store i64 2, ptr %call, align 16
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %U.i = getelementptr inbounds nuw i8, ptr %call, i64 16
-  store ptr @_ZN4llvhL13semIEEEdoubleE, ptr %U.i, align 8
+  store ptr @_ZN4llvhL13semIEEEdoubleE, ptr %U.i, align 16
   %category.i = getelementptr inbounds nuw i8, ptr %call, i64 34
   store i8 3, ptr %category.i, align 2
   %U.i1 = getelementptr inbounds nuw i8, ptr %call, i64 48
-  store ptr @_ZN4llvhL13semIEEEdoubleE, ptr %U.i1, align 8
+  store ptr @_ZN4llvhL13semIEEEdoubleE, ptr %U.i1, align 16
   %category.i7 = getelementptr inbounds nuw i8, ptr %call, i64 66
   store i8 3, ptr %category.i7, align 2
   store ptr %0, ptr %Floats, align 8
@@ -12354,11 +12354,11 @@ entry:
   store i64 2, ptr %call, align 16
   %1 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %U.i = getelementptr inbounds nuw i8, ptr %call, i64 16
-  store ptr @_ZN4llvhL13semIEEEdoubleE, ptr %U.i, align 8
+  store ptr @_ZN4llvhL13semIEEEdoubleE, ptr %U.i, align 16
   %category.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 34
   store i8 3, ptr %category.i.i.i, align 2
   %U.i2 = getelementptr inbounds nuw i8, ptr %call, i64 48
-  store ptr @_ZN4llvhL13semIEEEdoubleE, ptr %U.i2, align 8
+  store ptr @_ZN4llvhL13semIEEEdoubleE, ptr %U.i2, align 16
   %category.i.i.i3 = getelementptr inbounds nuw i8, ptr %call, i64 66
   store i8 3, ptr %category.i.i.i3, align 2
   store ptr %1, ptr %Floats, align 8
@@ -12374,14 +12374,14 @@ entry:
   store i64 2, ptr %call, align 16
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %U.i = getelementptr inbounds nuw i8, ptr %call, i64 16
-  store ptr @_ZN4llvhL13semIEEEdoubleE, ptr %U.i, align 8
+  store ptr @_ZN4llvhL13semIEEEdoubleE, ptr %U.i, align 16
   %significand.i.i.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   %sign.i.i = getelementptr inbounds nuw i8, ptr %call, i64 34
   store i8 2, ptr %sign.i.i, align 2
   tail call void @_ZN4llvh5APInt5tcSetEPmmj(ptr noundef nonnull %significand.i.i.phi.trans.insert.i.i, i64 noundef 0, i32 noundef 1) #26
   %exponent.i.i = getelementptr inbounds nuw i8, ptr %call, i64 32
-  store i16 52, ptr %exponent.i.i, align 8
-  %1 = load ptr, ptr %U.i, align 8
+  store i16 52, ptr %exponent.i.i, align 16
+  %1 = load ptr, ptr %U.i, align 16
   %precision.i.i3.i.i = getelementptr inbounds nuw i8, ptr %1, i64 4
   %2 = load i32, ptr %precision.i.i3.i.i, align 4
   %3 = add i32 %2, -64
@@ -12391,7 +12391,7 @@ entry:
   store i64 %I, ptr %retval.0.i.i.i, align 8
   %call5.i.i = tail call noundef i32 @_ZN4llvh6detail9IEEEFloat9normalizeENS_11APFloatBase12roundingModeENS_12lostFractionE(ptr noundef nonnull align 8 dereferenceable(24) %U.i, i32 noundef 0, i32 noundef 0)
   %U.i1 = getelementptr inbounds nuw i8, ptr %call, i64 48
-  store ptr @_ZN4llvhL13semIEEEdoubleE, ptr %U.i1, align 8
+  store ptr @_ZN4llvhL13semIEEEdoubleE, ptr %U.i1, align 16
   %category.i.i = getelementptr inbounds nuw i8, ptr %call, i64 66
   %bf.load.i.i = load i8, ptr %category.i.i, align 2
   %bf.clear.i.i = and i8 %bf.load.i.i, -16
@@ -12417,7 +12417,7 @@ entry.cont:
   %shr.i55.i = lshr i64 %2, 52
   %and.i56.i = and i64 %shr.i55.i, 2047
   %and2.i57.i = and i64 %2, 4503599627370495
-  store ptr @_ZN4llvhL13semIEEEdoubleE, ptr %U.i, align 8
+  store ptr @_ZN4llvhL13semIEEEdoubleE, ptr %U.i, align 16
   %sign.i58.i = getelementptr inbounds nuw i8, ptr %call, i64 34
   %sh.diff.i60.i = lshr i64 %2, 60
   %tr.sh.diff.i61.i = trunc nuw nsw i64 %sh.diff.i60.i to i8
@@ -19417,11 +19417,11 @@ if.end.i.i:                                       ; preds = %entry
   store i64 2, ptr %call.i.i, align 16
   %4 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   %U.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
-  store ptr @_ZN4llvhL13semIEEEdoubleE, ptr %U.i.i.i, align 8
+  store ptr @_ZN4llvhL13semIEEEdoubleE, ptr %U.i.i.i, align 16
   %category.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 34
   store i8 3, ptr %category.i.i.i, align 2
   %U.i1.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 48
-  store ptr @_ZN4llvhL13semIEEEdoubleE, ptr %U.i1.i.i, align 8
+  store ptr @_ZN4llvhL13semIEEEdoubleE, ptr %U.i1.i.i, align 16
   %category.i7.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 66
   store i8 3, ptr %category.i7.i.i, align 2
   store ptr %4, ptr %Floats.i.i, align 8

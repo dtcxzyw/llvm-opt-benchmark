@@ -1083,7 +1083,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !12, !alias.scope !27, !noalias !30
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !4, !alias.scope !30, !noalias !27
   store i64 0, ptr %48, align 8, !tbaa !12, !alias.scope !30, !noalias !27
-  store i8 0, ptr %39, align 1, !tbaa !18, !alias.scope !30, !noalias !27
+  store i8 0, ptr %39, align 8, !tbaa !18, !alias.scope !30, !noalias !27
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -1131,7 +1131,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !12, !alias.scope !34, !noalias !37
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !4, !alias.scope !37, !noalias !34
   store i64 0, ptr %64, align 8, !tbaa !12, !alias.scope !37, !noalias !34
-  store i8 0, ptr %55, align 1, !tbaa !18, !alias.scope !37, !noalias !34
+  store i8 0, ptr %55, align 8, !tbaa !18, !alias.scope !37, !noalias !34
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5
@@ -1978,7 +1978,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIccSaIcENSt8__detail9_Identity
   %44 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #34
   store ptr null, ptr %44, align 8, !tbaa !67
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store i8 %43, ptr %45, align 1, !tbaa !18
+  store i8 %43, ptr %45, align 8, !tbaa !18
   %46 = invoke ptr @_ZNSt10_HashtableIccSaIcENSt8__detail9_IdentityESt8equal_toIcESt4hashIcENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIcLb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %41, i64 noundef %42, ptr noundef nonnull %44, i64 noundef 1)
           to label %_ZNKSt10_HashtableIccSaIcENSt8__detail9_IdentityESt8equal_toIcESt4hashIcENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIcEEPNS1_10_Hash_nodeIcLb0EEEmRKT_m.exit unwind label %_ZNSt10_HashtableIccSaIcENSt8__detail9_IdentityESt8equal_toIcESt4hashIcENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit20
 
@@ -2144,7 +2144,7 @@ _ZNSt10_HashtableIccSaIcENSt8__detail9_IdentityESt8equal_toIcESt4hashIcENS1_18_M
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIccSaIcENSt8__detail9_IdentityESt8equal_toIcESt4hashIcENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !67
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i8, ptr %15, align 1, !tbaa !18
+  %16 = load i8, ptr %15, align 8, !tbaa !18
   %17 = sext i8 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18

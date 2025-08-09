@@ -1952,11 +1952,11 @@ initScreenSpace.exit.i:                           ; preds = %21
   %100 = getelementptr inbounds nuw i8, ptr %89, i64 4
   %101 = load i32, ptr %100, align 4
   %102 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  %103 = load i32, ptr %102, align 4
+  %103 = load i32, ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %89, i64 12
   %105 = load i32, ptr %104, align 4
   %106 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  %107 = load i32, ptr %106, align 4
+  %107 = load i32, ptr %106, align 8
   %108 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.55, ptr noundef nonnull @__func__.doLoop, i32 noundef 641, i32 noundef %99, i32 noundef %101, i32 noundef %103, i32 noundef %105, i32 noundef %107, i32 noundef %108)
   %109 = load i32, ptr getelementptr inbounds nuw (i8, ptr @screenSpace, i64 8), align 8
@@ -2076,11 +2076,11 @@ checkScreen.exit.i:                               ; preds = %133, %._crit_edge.i
   %170 = getelementptr inbounds nuw i8, ptr %168, i64 4
   %171 = load i32, ptr %170, align 4
   %172 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  %173 = load i32, ptr %172, align 4
+  %173 = load i32, ptr %172, align 8
   %174 = getelementptr inbounds nuw i8, ptr %168, i64 12
   %175 = load i32, ptr %174, align 4
   %176 = getelementptr inbounds nuw i8, ptr %168, i64 16
-  %177 = load i32, ptr %176, align 4
+  %177 = load i32, ptr %176, align 8
   call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.70, ptr noundef nonnull @__func__.connectStream, i32 noundef 469, i32 noundef %169, i32 noundef %171, i32 noundef %173, i32 noundef %175, i32 noundef %177, ptr noundef null)
   %178 = load ptr, ptr @fp_pw_thread_loop_unlock, align 8
   %179 = load ptr, ptr @pw, align 8
@@ -2096,19 +2096,19 @@ checkScreen.exit.i:                               ; preds = %133, %._crit_edge.i
   %185 = getelementptr inbounds nuw i8, ptr %183, i64 4
   %186 = load i32, ptr %185, align 4
   %187 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  %188 = load i32, ptr %187, align 4
+  %188 = load i32, ptr %187, align 8
   %189 = getelementptr inbounds nuw i8, ptr %183, i64 12
   %190 = load i32, ptr %189, align 4
   %191 = getelementptr inbounds nuw i8, ptr %183, i64 16
-  %192 = load i32, ptr %191, align 4
+  %192 = load i32, ptr %191, align 8
   %193 = getelementptr inbounds nuw i8, ptr %183, i64 20
   %194 = load i32, ptr %193, align 4
   %195 = getelementptr inbounds nuw i8, ptr %183, i64 24
-  %196 = load i32, ptr %195, align 4
+  %196 = load i32, ptr %195, align 8
   %197 = getelementptr inbounds nuw i8, ptr %183, i64 28
   %198 = load i32, ptr %197, align 4
   %199 = getelementptr inbounds nuw i8, ptr %183, i64 32
-  %200 = load i32, ptr %199, align 4
+  %200 = load i32, ptr %199, align 8
   %201 = getelementptr inbounds nuw i8, ptr %183, i64 56
   %202 = load volatile i32, ptr %201, align 8
   call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.59, ptr noundef nonnull @__func__.connectStream, i32 noundef 481, i32 noundef %184, i32 noundef %186, i32 noundef %188, i32 noundef %190, i32 noundef %192, i32 noundef %194, i32 noundef %196, i32 noundef %198, i32 noundef %200, i32 noundef %202)
@@ -2173,11 +2173,11 @@ checkScreen.exit.i:                               ; preds = %133, %._crit_edge.i
   %214 = getelementptr inbounds nuw i8, ptr %212, i64 4
   %215 = load i32, ptr %214, align 4
   %216 = getelementptr inbounds nuw i8, ptr %212, i64 8
-  %217 = load i32, ptr %216, align 4
+  %217 = load i32, ptr %216, align 8
   %218 = getelementptr inbounds nuw i8, ptr %212, i64 12
   %219 = load i32, ptr %218, align 4
   %220 = getelementptr inbounds nuw i8, ptr %212, i64 16
-  %221 = load i32, ptr %220, align 4
+  %221 = load i32, ptr %220, align 8
   call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.71, ptr noundef nonnull @__func__.connectStream, i32 noundef 485, i32 noundef %213, i32 noundef %215, i32 noundef %217, i32 noundef %219, i32 noundef %221, ptr noundef null)
   %222 = load ptr, ptr @fp_pw_thread_loop_unlock, align 8
   %223 = load ptr, ptr @pw, align 8
@@ -2211,11 +2211,11 @@ connectStream.exit.thread56.i:                    ; preds = %.preheader.i.i
   %235 = getelementptr inbounds nuw i8, ptr %233, i64 4
   %236 = load i32, ptr %235, align 4
   %237 = getelementptr inbounds nuw i8, ptr %233, i64 8
-  %238 = load i32, ptr %237, align 4
+  %238 = load i32, ptr %237, align 8
   %239 = getelementptr inbounds nuw i8, ptr %233, i64 12
   %240 = load i32, ptr %239, align 4
   %241 = getelementptr inbounds nuw i8, ptr %233, i64 16
-  %242 = load i32, ptr %241, align 4
+  %242 = load i32, ptr %241, align 8
   %243 = getelementptr inbounds nuw i8, ptr %156, i64 72
   %244 = load i32, ptr %243, align 8
   %245 = getelementptr inbounds nuw i8, ptr %156, i64 76
@@ -2238,11 +2238,11 @@ connectStream.exit.i:                             ; preds = %158
   %256 = getelementptr inbounds nuw i8, ptr %254, i64 4
   %257 = load i32, ptr %256, align 4
   %258 = getelementptr inbounds nuw i8, ptr %254, i64 8
-  %259 = load i32, ptr %258, align 4
+  %259 = load i32, ptr %258, align 8
   %260 = getelementptr inbounds nuw i8, ptr %254, i64 12
   %261 = load i32, ptr %260, align 4
   %262 = getelementptr inbounds nuw i8, ptr %254, i64 16
-  %263 = load i32, ptr %262, align 4
+  %263 = load i32, ptr %262, align 8
   %264 = load ptr, ptr %156, align 8
   call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.62, ptr noundef nonnull @__func__.connectStream, i32 noundef 449, i32 noundef %255, i32 noundef %257, i32 noundef %259, i32 noundef %261, i32 noundef %263, ptr noundef %264, i32 noundef %251)
   %.not62.i = icmp eq i32 %251, 0
@@ -2251,9 +2251,9 @@ connectStream.exit.i:                             ; preds = %158
 265:                                              ; preds = %connectStream.exit.i, %connectStream.exit.thread56.i, %checkScreen.exit.i, %checkScreen.exit.thread.i
   %266 = load i32, ptr %89, align 8
   %267 = load i32, ptr %100, align 4
-  %268 = load i32, ptr %102, align 4
+  %268 = load i32, ptr %102, align 8
   %269 = load i32, ptr %104, align 4
-  %270 = load i32, ptr %106, align 4
+  %270 = load i32, ptr %106, align 8
   call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.56, ptr noundef nonnull @__func__.doLoop, i32 noundef 647, i32 noundef %266, i32 noundef %267, i32 noundef %268, i32 noundef %269, i32 noundef %270, i32 noundef %108)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %271 = load i32, ptr getelementptr inbounds nuw (i8, ptr @screenSpace, i64 8), align 8
@@ -2537,11 +2537,11 @@ define internal void @onStreamStateChanged(ptr noundef readonly captures(none) %
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %11 = load i32, ptr %10, align 4
+  %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %13 = load i32, ptr %12, align 4
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %15 = load i32, ptr %14, align 4
+  %15 = load i32, ptr %14, align 8
   %16 = load ptr, ptr @fp_pw_stream_state_as_string, align 8
   %17 = tail call ptr %16(i32 noundef %1) #16
   %18 = load ptr, ptr @fp_pw_stream_state_as_string, align 8
@@ -2576,11 +2576,11 @@ define internal void @onStreamParamChanged(ptr noundef %0, i32 noundef %1, ptr n
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %16 = load i32, ptr %15, align 4
+  %16 = load i32, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %18 = load i32, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %20 = load i32, ptr %19, align 4
+  %20 = load i32, ptr %19, align 8
   tail call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.74, ptr noundef nonnull @__func__.onStreamParamChanged, i32 noundef 195, i32 noundef %12, i32 noundef %14, i32 noundef %16, i32 noundef %18, i32 noundef %20, i32 noundef %1)
   %21 = icmp eq ptr %2, null
   %22 = icmp ne i32 %1, 4
@@ -2809,11 +2809,11 @@ spa_format_video_raw_parse.exit:                  ; preds = %99
   %129 = getelementptr inbounds nuw i8, ptr %127, i64 4
   %130 = load i32, ptr %129, align 4
   %131 = getelementptr inbounds nuw i8, ptr %127, i64 8
-  %132 = load i32, ptr %131, align 4
+  %132 = load i32, ptr %131, align 8
   %133 = getelementptr inbounds nuw i8, ptr %127, i64 12
   %134 = load i32, ptr %133, align 4
   %135 = getelementptr inbounds nuw i8, ptr %127, i64 16
-  %136 = load i32, ptr %135, align 4
+  %136 = load i32, ptr %135, align 8
   %137 = load i32, ptr %53, align 8
   %138 = call fastcc ptr @spa_debug_type_find(ptr noundef nonnull @spa_type_video_format, i32 noundef %137)
   %139 = icmp eq ptr %138, null
@@ -2849,11 +2849,11 @@ define internal void @onStreamProcess(ptr noundef readonly captures(none) %0) #3
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %12 = load i32, ptr %11, align 4
+  %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %14 = load i32, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 60
@@ -2889,9 +2889,9 @@ define internal void @onStreamProcess(ptr noundef readonly captures(none) %0) #3
 30:                                               ; preds = %26, %24
   %31 = load i32, ptr %3, align 8
   %32 = load i32, ptr %5, align 4
-  %33 = load i32, ptr %7, align 4
+  %33 = load i32, ptr %7, align 8
   %34 = load i32, ptr %9, align 4
-  %35 = load i32, ptr %11, align 4
+  %35 = load i32, ptr %11, align 8
   tail call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.703, ptr noundef nonnull @__func__.onStreamProcess, i32 noundef 254, i32 noundef %31, i32 noundef %32, i32 noundef %33, i32 noundef %34, i32 noundef %35, ptr noundef null)
   br label %139
 
@@ -2922,9 +2922,9 @@ define internal void @onStreamProcess(ptr noundef readonly captures(none) %0) #3
   %49 = phi i32 [ %.pre116, %._crit_edge ], [ %40, %42 ], [ 0, %38 ]
   %50 = load i32, ptr %3, align 8
   %51 = load i32, ptr %5, align 4
-  %52 = load i32, ptr %7, align 4
+  %52 = load i32, ptr %7, align 8
   %53 = load i32, ptr %9, align 4
-  %54 = load i32, ptr %11, align 4
+  %54 = load i32, ptr %11, align 8
   tail call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.704, ptr noundef nonnull @__func__.onStreamProcess, i32 noundef 263, i32 noundef %50, i32 noundef %51, i32 noundef %52, i32 noundef %53, i32 noundef %54, i32 noundef %49)
   br label %139
 
@@ -2939,24 +2939,24 @@ define internal void @onStreamProcess(ptr noundef readonly captures(none) %0) #3
   %59 = load i32, ptr %58, align 4
   %60 = load i32, ptr %3, align 8
   %61 = load i32, ptr %5, align 4
-  %62 = load i32, ptr %7, align 4
+  %62 = load i32, ptr %7, align 8
   %63 = load i32, ptr %9, align 4
-  %64 = load i32, ptr %11, align 4
+  %64 = load i32, ptr %11, align 8
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %66 = load i32, ptr %65, align 4
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %68 = load i32, ptr %67, align 4
+  %68 = load i32, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %70 = load i32, ptr %69, align 4
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %72 = load i32, ptr %71, align 4
+  %72 = load i32, ptr %71, align 8
   %73 = load volatile i32, ptr %17, align 8
   tail call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.59, ptr noundef nonnull @__func__.onStreamProcess, i32 noundef 272, i32 noundef %60, i32 noundef %61, i32 noundef %62, i32 noundef %63, i32 noundef %64, i32 noundef %66, i32 noundef %68, i32 noundef %70, i32 noundef %72, i32 noundef %73)
   %74 = load i32, ptr %3, align 8
   %75 = load i32, ptr %5, align 4
-  %76 = load i32, ptr %7, align 4
+  %76 = load i32, ptr %7, align 8
   %77 = load i32, ptr %9, align 4
-  %78 = load i32, ptr %11, align 4
+  %78 = load i32, ptr %11, align 8
   %79 = load ptr, ptr %43, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %81 = load ptr, ptr %80, align 8
@@ -2970,11 +2970,11 @@ define internal void @onStreamProcess(ptr noundef readonly captures(none) %0) #3
   %89 = load volatile i32, ptr %15, align 4
   tail call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.705, ptr noundef nonnull @__func__.onStreamProcess, i32 noundef 284, i32 noundef %74, i32 noundef %75, i32 noundef %76, i32 noundef %77, i32 noundef %78, i32 noundef %83, i32 noundef %84, i32 noundef %86, i32 noundef %88, i64 noundef %.sroa.123.0.copyload, i32 noundef %89, i32 noundef %57, i32 noundef %59)
   %.sroa.09.0.copyload = load i32, ptr %65, align 4
-  %.sroa.210.0.copyload = load i32, ptr %67, align 4
+  %.sroa.210.0.copyload = load i32, ptr %67, align 8
   %.sroa.3.0.copyload = load i32, ptr %69, align 4
-  %.sroa.6.0.copyload = load i32, ptr %71, align 4
+  %.sroa.6.0.copyload = load i32, ptr %71, align 8
   %.sroa.1.0.copyload = load i32, ptr %9, align 4
-  %.sroa.2.0.copyload = load i32, ptr %11, align 4
+  %.sroa.2.0.copyload = load i32, ptr %11, align 8
   %90 = load ptr, ptr @gtk, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 808
   %92 = load ptr, ptr %91, align 8
@@ -2982,7 +2982,7 @@ define internal void @onStreamProcess(ptr noundef readonly captures(none) %0) #3
   %94 = tail call ptr %92(ptr noundef nonnull %46, i32 noundef 0, i32 noundef 1, i32 noundef 8, i32 noundef %57, i32 noundef %59, i32 noundef %93, ptr noundef null, ptr noundef null) #16
   %95 = load i32, ptr %9, align 4
   %.not111 = icmp eq i32 %95, %57
-  %.pre = load i32, ptr %11, align 4
+  %.pre = load i32, ptr %11, align 8
   %.not112 = icmp eq i32 %.pre, %59
   %or.cond117 = select i1 %.not111, i1 %.not112, i1 false
   br i1 %or.cond117, label %109, label %96
@@ -2990,13 +2990,13 @@ define internal void @onStreamProcess(ptr noundef readonly captures(none) %0) #3
 96:                                               ; preds = %55
   %97 = load i32, ptr %3, align 8
   %98 = load i32, ptr %5, align 4
-  %99 = load i32, ptr %7, align 4
+  %99 = load i32, ptr %7, align 8
   tail call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.706, ptr noundef nonnull @__func__.onStreamProcess, i32 noundef 305, i32 noundef %97, i32 noundef %98, i32 noundef %99, i32 noundef %95, i32 noundef %.pre, i32 noundef %57, i32 noundef %59, i32 noundef %95, i32 noundef %.pre)
   %100 = load ptr, ptr @gtk, align 8
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 816
   %102 = load ptr, ptr %101, align 8
   %103 = load i32, ptr %9, align 4
-  %104 = load i32, ptr %11, align 4
+  %104 = load i32, ptr %11, align 8
   %105 = tail call ptr %102(ptr noundef %94, i32 noundef %103, i32 noundef %104, i32 noundef 2) #16
   %106 = load ptr, ptr @gtk, align 8
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 504
@@ -3046,9 +3046,9 @@ define internal void @onStreamProcess(ptr noundef readonly captures(none) %0) #3
   store volatile i32 1, ptr %15, align 4
   %129 = load i32, ptr %3, align 8
   %130 = load i32, ptr %5, align 4
-  %131 = load i32, ptr %7, align 4
+  %131 = load i32, ptr %7, align 8
   %132 = load i32, ptr %9, align 4
-  %133 = load i32, ptr %11, align 4
+  %133 = load i32, ptr %11, align 8
   tail call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.708, ptr noundef nonnull @__func__.onStreamProcess, i32 noundef 347, i32 noundef %129, i32 noundef %130, i32 noundef %131, i32 noundef %132, i32 noundef %133, ptr noundef null)
   %134 = load ptr, ptr @fp_pw_stream_queue_buffer, align 8
   %135 = load ptr, ptr %0, align 8

@@ -139,7 +139,7 @@ define void @_ZNK12colvarmodule7rvector16to_simple_stringB5cxx11Ev(ptr dead_on_u
   %9 = load i32, ptr %8, align 8, !tbaa !7
   %10 = and i32 %9, -261
   %11 = or disjoint i32 %10, 256
-  store i32 %11, ptr %8, align 4, !tbaa !20
+  store i32 %11, ptr %8, align 8, !tbaa !20
   %12 = load i64, ptr %5, align 8
   %13 = getelementptr inbounds i8, ptr %3, i64 %12
   %14 = load i64, ptr @_ZN12colvarmodule7cv_precE, align 8, !tbaa !21
@@ -622,7 +622,7 @@ define void @_ZNK12colvarmodule10quaternion16to_simple_stringB5cxx11Ev(ptr dead_
   %9 = load i32, ptr %8, align 8, !tbaa !7
   %10 = and i32 %9, -261
   %11 = or disjoint i32 %10, 256
-  store i32 %11, ptr %8, align 4, !tbaa !20
+  store i32 %11, ptr %8, align 8, !tbaa !20
   %12 = load i64, ptr %5, align 8
   %13 = getelementptr inbounds i8, ptr %3, i64 %12
   %14 = load i64, ptr @_ZN12colvarmodule7cv_precE, align 8, !tbaa !21

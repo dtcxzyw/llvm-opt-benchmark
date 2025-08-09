@@ -6345,10 +6345,10 @@ _ZNSd4swapERSd.exit:                              ; preds = %12
   store ptr %19, ptr %18, align 8, !tbaa !7
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 224
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 224
-  %23 = load i8, ptr %21, align 1, !tbaa !16
-  %24 = load i8, ptr %22, align 1, !tbaa !16
-  store i8 %24, ptr %21, align 1, !tbaa !16
-  store i8 %23, ptr %22, align 1, !tbaa !16
+  %23 = load i8, ptr %21, align 8, !tbaa !16
+  %24 = load i8, ptr %22, align 8, !tbaa !16
+  store i8 %24, ptr %21, align 8, !tbaa !16
+  store i8 %23, ptr %22, align 8, !tbaa !16
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 225
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 225
   %27 = load i8, ptr %25, align 1, !tbaa !63, !range !66, !noundef !67
@@ -29555,10 +29555,10 @@ _ZN5boost6nowide6detail10buf_holderINS0_13basic_filebufIcSt11char_traitsIcEEEEaS
   store ptr %46, ptr %45, align 8, !tbaa !7
   %48 = getelementptr inbounds nuw i8, ptr %32, i64 224
   %49 = getelementptr inbounds nuw i8, ptr %36, i64 224
-  %50 = load i8, ptr %48, align 1, !tbaa !16
-  %51 = load i8, ptr %49, align 1, !tbaa !16
-  store i8 %51, ptr %48, align 1, !tbaa !16
-  store i8 %50, ptr %49, align 1, !tbaa !16
+  %50 = load i8, ptr %48, align 8, !tbaa !16
+  %51 = load i8, ptr %49, align 8, !tbaa !16
+  store i8 %51, ptr %48, align 8, !tbaa !16
+  store i8 %50, ptr %49, align 8, !tbaa !16
   %52 = getelementptr inbounds nuw i8, ptr %32, i64 225
   %53 = getelementptr inbounds nuw i8, ptr %36, i64 225
   %54 = load i8, ptr %52, align 1, !tbaa !63, !range !66, !noundef !67

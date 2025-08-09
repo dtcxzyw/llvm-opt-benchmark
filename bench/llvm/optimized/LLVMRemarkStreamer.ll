@@ -524,7 +524,7 @@ _ZN4llvm8ExpectedINS_7remarks6FormatEE9takeErrorEv.exit: ; preds = %37
   store ptr %48, ptr %47, align 8, !tbaa !87, !noalias !82
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store i64 0, ptr %49, align 8, !tbaa !60, !noalias !82
-  store i8 0, ptr %48, align 1, !tbaa !88, !noalias !82
+  store i8 0, ptr %48, align 8, !tbaa !88, !noalias !82
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 40
   store i32 0, ptr %50, align 8, !tbaa !89, !noalias !82
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 48
@@ -588,7 +588,7 @@ _ZN4llvm5ErrorD2Ev.exit25:                        ; preds = %._ZN4llvm5ErrorD2Ev
   store ptr %72, ptr %71, align 8, !tbaa !87, !noalias !105
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 16
   store i64 0, ptr %73, align 8, !tbaa !60, !noalias !105
-  store i8 0, ptr %72, align 1, !tbaa !88, !noalias !105
+  store i8 0, ptr %72, align 8, !tbaa !88, !noalias !105
   %74 = getelementptr inbounds nuw i8, ptr %69, i64 40
   store i32 0, ptr %74, align 8, !tbaa !89, !noalias !105
   %75 = getelementptr inbounds nuw i8, ptr %69, i64 48
@@ -664,7 +664,7 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_7remarks16RemarkSerializerESt14default_delet
   store ptr %103, ptr %102, align 8, !tbaa !87, !noalias !131
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 16
   store i64 0, ptr %104, align 8, !tbaa !60, !noalias !131
-  store i8 0, ptr %103, align 1, !tbaa !88, !noalias !131
+  store i8 0, ptr %103, align 8, !tbaa !88, !noalias !131
   %105 = getelementptr inbounds nuw i8, ptr %101, i64 40
   store i32 0, ptr %105, align 8, !tbaa !89, !noalias !131
   %106 = getelementptr inbounds nuw i8, ptr %101, i64 48
@@ -956,7 +956,7 @@ define linkonce_odr void @_ZN4llvm10make_errorINS_27LLVMRemarkSetupPatternErrorE
   store ptr %9, ptr %8, align 8, !tbaa !87, !noalias !159
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %10, align 8, !tbaa !60, !noalias !159
-  store i8 0, ptr %9, align 1, !tbaa !88, !noalias !159
+  store i8 0, ptr %9, align 8, !tbaa !88, !noalias !159
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 0, ptr %11, align 8, !tbaa !89, !noalias !159
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -1057,7 +1057,7 @@ _ZN4llvm8ExpectedINS_7remarks6FormatEE9takeErrorEv.exit: ; preds = %27
   store ptr %36, ptr %35, align 8, !tbaa !87, !noalias !171
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i64 0, ptr %37, align 8, !tbaa !60, !noalias !171
-  store i8 0, ptr %36, align 1, !tbaa !88, !noalias !171
+  store i8 0, ptr %36, align 8, !tbaa !88, !noalias !171
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 40
   store i32 0, ptr %38, align 8, !tbaa !89, !noalias !171
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 48
@@ -1116,7 +1116,7 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_7remarks16RemarkSerializerESt14default_delet
   store ptr %56, ptr %55, align 8, !tbaa !87, !noalias !183
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store i64 0, ptr %57, align 8, !tbaa !60, !noalias !183
-  store i8 0, ptr %56, align 1, !tbaa !88, !noalias !183
+  store i8 0, ptr %56, align 8, !tbaa !88, !noalias !183
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 40
   store i32 0, ptr %58, align 8, !tbaa !89, !noalias !183
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 48
@@ -1276,7 +1276,7 @@ _ZNSt10unique_ptrIN4llvm18LLVMRemarkStreamerESt14default_deleteIS1_EED2Ev.exit: 
   store ptr %109, ptr %108, align 8, !tbaa !87, !noalias !192
   %110 = getelementptr inbounds nuw i8, ptr %107, i64 16
   store i64 0, ptr %110, align 8, !tbaa !60, !noalias !192
-  store i8 0, ptr %109, align 1, !tbaa !88, !noalias !192
+  store i8 0, ptr %109, align 8, !tbaa !88, !noalias !192
   %111 = getelementptr inbounds nuw i8, ptr %107, i64 40
   store i32 0, ptr %111, align 8, !tbaa !89, !noalias !192
   %112 = getelementptr inbounds nuw i8, ptr %107, i64 48

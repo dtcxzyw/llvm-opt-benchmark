@@ -6423,14 +6423,14 @@ cleanup.i:                                        ; preds = %for.end.i134
   store ptr null, ptr %map.i, align 8, !noalias !73
   %NumEntries.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i2.i180.i, i64 24
   %364 = load i32, ptr %NumEntries3.i.i.i.i.i, align 8, !noalias !73
-  store i32 %364, ptr %NumEntries.i.i.i.i.i, align 4, !noalias !73
+  store i32 %364, ptr %NumEntries.i.i.i.i.i, align 8, !noalias !73
   store i32 0, ptr %NumEntries3.i.i.i.i.i, align 8, !noalias !73
   %NumTombstones.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i2.i180.i, i64 28
   %365 = load i32, ptr %NumTombstones4.i.i.i.i.i, align 4, !noalias !73
   store i32 %365, ptr %NumTombstones.i.i.i.i.i, align 4, !noalias !73
   store i32 0, ptr %NumTombstones4.i.i.i.i.i, align 4, !noalias !73
   %366 = load i32, ptr %NumBuckets5.i.i.i.i.i, align 8, !noalias !73
-  store i32 %366, ptr %362, align 4, !noalias !73
+  store i32 %366, ptr %362, align 8, !noalias !73
   store i32 0, ptr %NumBuckets5.i.i.i.i.i, align 8, !noalias !73
   call void @_ZdlPv(ptr noundef null) #25, !noalias !69
   %inc.i195.i = add nuw i64 %__begin1.sroa.3.0233.i, 1
@@ -18052,10 +18052,10 @@ if.then.i:                                        ; preds = %_ZN4llvh12DenseMapI
   store ptr null, ptr %second.i22.i, align 8
   %NumEntries.i.i.i5 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %NumEntries3.i.i.i = getelementptr inbounds nuw i8, ptr %B.027.i, i64 24
-  %7 = load i32, ptr %NumEntries.i.i.i5, align 4
-  %8 = load i32, ptr %NumEntries3.i.i.i, align 4
-  store i32 %8, ptr %NumEntries.i.i.i5, align 4
-  store i32 %7, ptr %NumEntries3.i.i.i, align 4
+  %7 = load i32, ptr %NumEntries.i.i.i5, align 8
+  %8 = load i32, ptr %NumEntries3.i.i.i, align 8
+  store i32 %8, ptr %NumEntries.i.i.i5, align 8
+  store i32 %7, ptr %NumEntries3.i.i.i, align 8
   %NumTombstones.i.i.i6 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %NumTombstones4.i.i.i = getelementptr inbounds nuw i8, ptr %B.027.i, i64 28
   %9 = load i32, ptr %NumTombstones.i.i.i6, align 4
@@ -18064,10 +18064,10 @@ if.then.i:                                        ; preds = %_ZN4llvh12DenseMapI
   store i32 %9, ptr %NumTombstones4.i.i.i, align 4
   %NumBuckets.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
   %NumBuckets5.i.i.i = getelementptr inbounds nuw i8, ptr %B.027.i, i64 32
-  %11 = load i32, ptr %NumBuckets.i.i.i, align 4
-  %12 = load i32, ptr %NumBuckets5.i.i.i, align 4
-  store i32 %12, ptr %NumBuckets.i.i.i, align 4
-  store i32 %11, ptr %NumBuckets5.i.i.i, align 4
+  %11 = load i32, ptr %NumBuckets.i.i.i, align 8
+  %12 = load i32, ptr %NumBuckets5.i.i.i, align 8
+  store i32 %12, ptr %NumBuckets.i.i.i, align 8
+  store i32 %11, ptr %NumBuckets5.i.i.i, align 8
   %13 = load i32, ptr %NumEntries.i.i.i.i, align 8
   %add.i.i = add i32 %13, 1
   store i32 %add.i.i, ptr %NumEntries.i.i.i.i, align 8
@@ -23039,7 +23039,7 @@ _ZNSt10unique_ptrIN6hermes3hbc20BCProviderFromBufferESt14default_deleteIS2_EEaSE
   %second = getelementptr inbounds nuw i8, ptr %cond.sink.i.i.ph.pn.i, i64 8
   %7 = load ptr, ptr %second, align 8
   store ptr null, ptr %second, align 8
-  store i32 -2, ptr %cond.sink.i.i.ph.pn.i, align 4
+  store i32 -2, ptr %cond.sink.i.i.ph.pn.i, align 8
   %NumEntries.i.i.i.i = getelementptr inbounds nuw i8, ptr %baseBytecodeMap, i64 8
   %8 = load i32, ptr %NumEntries.i.i.i.i, align 8
   %sub.i.i = add i32 %8, -1

@@ -7646,11 +7646,11 @@ define void @_ZN8terminal8Terminal14activate_match17h1c9a2799bbff2bbeE(ptr noali
   %9 = getelementptr inbounds { { i64, i32, [1 x i32] }, { i64, i32, [1 x i32] }, i8, [7 x i8] }, ptr %8, i64 %1
   %.val2.i = load i64, ptr %9, align 8, !alias.scope !1499, !noalias !1502, !noundef !4
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.val3.i = load i32, ptr %10, align 4, !alias.scope !1499, !noalias !1502, !noundef !4
+  %.val3.i = load i32, ptr %10, align 8, !alias.scope !1499, !noalias !1502, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.val.i = load i64, ptr %11, align 8, !alias.scope !1499, !noalias !1502, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %.val1.i = load i32, ptr %12, align 4, !alias.scope !1499, !noalias !1502, !noundef !4
+  %.val1.i = load i32, ptr %12, align 8, !alias.scope !1499, !noalias !1502, !noundef !4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8704
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8728
   %15 = load i64, ptr %14, align 8, !alias.scope !1504, !noalias !1509, !noundef !4
@@ -9245,11 +9245,11 @@ define void @_ZN8terminal8Terminal4sync17hb1dfef4b952abaf4E(ptr noalias noundef 
   %.sroa.5.0..sroa_idx102 = getelementptr inbounds nuw i8, ptr %224, i64 40
   %.sroa.5.0.copyload103 = load i8, ptr %.sroa.5.0..sroa_idx102, align 8, !noalias !1785
   %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx104.sroa_idx = getelementptr inbounds nuw i8, ptr %224, i64 48
-  %.sroa.7.sroa.5.0.copyload = load i8, ptr %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx104.sroa_idx, align 1, !noalias !1785
+  %.sroa.7.sroa.5.0.copyload = load i8, ptr %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx104.sroa_idx, align 8, !noalias !1785
   %.sroa.7.sroa.7.0..sroa.7.0..sroa_idx104.sroa_idx = getelementptr inbounds nuw i8, ptr %224, i64 56
-  %.sroa.7.sroa.7.0.copyload = load i64, ptr %.sroa.7.sroa.7.0..sroa.7.0..sroa_idx104.sroa_idx, align 1, !noalias !1785
+  %.sroa.7.sroa.7.0.copyload = load i64, ptr %.sroa.7.sroa.7.0..sroa.7.0..sroa_idx104.sroa_idx, align 8, !noalias !1785
   %.sroa.7.sroa.8.0..sroa.7.0..sroa_idx104.sroa_idx = getelementptr inbounds nuw i8, ptr %224, i64 64
-  %.sroa.7.sroa.8.0.copyload = load i32, ptr %.sroa.7.sroa.8.0..sroa.7.0..sroa_idx104.sroa_idx, align 1, !noalias !1785
+  %.sroa.7.sroa.8.0.copyload = load i32, ptr %.sroa.7.sroa.8.0..sroa.7.0..sroa_idx104.sroa_idx, align 8, !noalias !1785
   %225 = icmp eq i8 %.sroa.5.0.copyload103, 11
   br i1 %225, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17h2c5964b26b9b2e4aE.exit.thread", label %226
 
@@ -10492,7 +10492,7 @@ switch.early.test.i.i.i:                          ; preds = %494
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.011.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0531.i.sroa.8, i64 16, i1 false), !noalias !1801
   store i8 %.sroa.5.0.copyload103, ptr %.sroa.412.0..sroa_idx.i, align 8, !alias.scope !1790, !noalias !1801
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.515.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.sroa.0.i, i64 7, i1 false), !noalias !1801
-  store i8 %.sroa.5.sroa.4.0.i, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx5.sroa_idx.i, align 1, !alias.scope !1790, !noalias !1801
+  store i8 %.sroa.5.sroa.4.0.i, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx5.sroa_idx.i, align 8, !alias.scope !1790, !noalias !1801
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.sroa.0.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %67), !noalias !1792
   invoke void @"_ZN18alacritty_terminal4term13Term$LT$T$GT$19selection_to_string17h46bcb8ebc57ad852E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %67, ptr noalias noundef nonnull readonly align 8 dereferenceable(1736) %100)

@@ -2228,7 +2228,7 @@ define dso_local noalias noundef nonnull ptr @_ZN4llvm21createGlobalMergePassEPK
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 44
   store i32 0, ptr %29, align 4, !tbaa !192
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  store i8 1, ptr %30, align 4, !tbaa !193
+  store i8 1, ptr %30, align 8, !tbaa !193
   %31 = getelementptr inbounds nuw i8, ptr %19, i64 49
   store i8 1, ptr %31, align 1, !tbaa !194
   %32 = getelementptr inbounds nuw i8, ptr %19, i64 50
@@ -2466,7 +2466,7 @@ define internal noalias noundef nonnull ptr @_ZN4llvm15callDefaultCtorIN12_GLOBA
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  store i8 1, ptr %9, align 4, !tbaa !193
+  store i8 1, ptr %9, align 8, !tbaa !193
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 49
   store i8 1, ptr %10, align 1, !tbaa !194
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 50
@@ -5349,7 +5349,7 @@ _ZN4llvm12DenseMapInfoISt4pairIjNS_9StringRefEEvE7isEqualERKS3_S6_.exit.thread.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false), !tbaa.struct !309
   %42 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %43 = load i32, ptr %3, align 4, !tbaa !66
-  store i32 %43, ptr %42, align 4, !tbaa !66
+  store i32 %43, ptr %42, align 8, !tbaa !66
   br label %44
 
 44:                                               ; preds = %38, %9
@@ -5657,7 +5657,7 @@ _ZN4llvm12DenseMapInfoISt4pairIjNS_9StringRefEEvE7isEqualERKS3_S6_.exit23.thread
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %50 = getelementptr inbounds nuw i8, ptr %.030.i, i64 24
   %51 = load i32, ptr %50, align 4, !tbaa !66
-  store i32 %51, ptr %49, align 4, !tbaa !66
+  store i32 %51, ptr %49, align 8, !tbaa !66
   %52 = load i32, ptr %33, align 8, !tbaa !307
   %53 = add i32 %52, 1
   store i32 %53, ptr %33, align 8, !tbaa !307

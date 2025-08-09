@@ -4141,29 +4141,29 @@ define dso_local noundef range(i32 -19, 1) i32 @ata_pci_sff_init_host(ptr nounde
   store ptr %56, ptr %65, align 8
   %66 = getelementptr i8, ptr %56, i64 1
   %67 = getelementptr inbounds nuw i8, ptr %13, i64 64
-  store ptr %66, ptr %67, align 8
+  store ptr %66, ptr %67, align 16
   %68 = getelementptr inbounds nuw i8, ptr %13, i64 72
   store ptr %66, ptr %68, align 8
   %69 = getelementptr i8, ptr %56, i64 2
   %70 = getelementptr inbounds nuw i8, ptr %13, i64 80
-  store ptr %69, ptr %70, align 8
+  store ptr %69, ptr %70, align 16
   %71 = getelementptr i8, ptr %56, i64 3
   %72 = getelementptr inbounds nuw i8, ptr %13, i64 88
   store ptr %71, ptr %72, align 8
   %73 = getelementptr i8, ptr %56, i64 4
   %74 = getelementptr inbounds nuw i8, ptr %13, i64 96
-  store ptr %73, ptr %74, align 8
+  store ptr %73, ptr %74, align 16
   %75 = getelementptr i8, ptr %56, i64 5
   %76 = getelementptr inbounds nuw i8, ptr %13, i64 104
   store ptr %75, ptr %76, align 8
   %77 = getelementptr i8, ptr %56, i64 6
   %78 = getelementptr inbounds nuw i8, ptr %13, i64 112
-  store ptr %77, ptr %78, align 8
+  store ptr %77, ptr %78, align 16
   %79 = getelementptr i8, ptr %56, i64 7
   %80 = getelementptr inbounds nuw i8, ptr %13, i64 120
   store ptr %79, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %13, i64 128
-  store ptr %79, ptr %81, align 8
+  store ptr %79, ptr %81, align 16
   %82 = load i64, ptr %19, align 8
   %83 = load i64, ptr %24, align 8
   tail call void (ptr, ptr, ...) @ata_port_desc(ptr noundef %13, ptr noundef nonnull @.str.13, i64 noundef %82, i64 noundef %83) #13

@@ -286,11 +286,11 @@ define void @_ZN5folly7futures7BarrierC2Ej(ptr noundef nonnull writeonly align 8
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 72
   store ptr null, ptr %18, align 8, !tbaa !37
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 80
-  store i8 1, ptr %19, align 1, !tbaa !38
+  store i8 1, ptr %19, align 16, !tbaa !38
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 81
   store i8 2, ptr %20, align 1, !tbaa !41
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 82
-  store i8 0, ptr %21, align 1, !tbaa !41
+  store i8 0, ptr %21, align 2, !tbaa !41
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 88
   store i32 0, ptr %22, align 8, !tbaa !43
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 96
@@ -362,11 +362,11 @@ define noundef nonnull ptr @_ZN5folly7futures7Barrier20allocateControlBlockEv(pt
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 72
   store ptr null, ptr %18, align 8, !tbaa !37
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 80
-  store i8 1, ptr %19, align 1, !tbaa !38
+  store i8 1, ptr %19, align 16, !tbaa !38
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 81
   store i8 2, ptr %20, align 1, !tbaa !41
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 82
-  store i8 0, ptr %21, align 1, !tbaa !41
+  store i8 0, ptr %21, align 2, !tbaa !41
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 88
   store i32 0, ptr %22, align 8, !tbaa !43
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 96
@@ -1316,11 +1316,11 @@ define void @_ZN5folly7futures7Barrier4waitEv(ptr dead_on_unwind noalias writabl
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 72
   store ptr null, ptr %31, align 8, !tbaa !37
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 80
-  store i8 1, ptr %32, align 1, !tbaa !38
+  store i8 1, ptr %32, align 16, !tbaa !38
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 81
   store i8 2, ptr %33, align 1, !tbaa !41
   %34 = getelementptr inbounds nuw i8, ptr %26, i64 82
-  store i8 0, ptr %34, align 1, !tbaa !41
+  store i8 0, ptr %34, align 2, !tbaa !41
   %35 = getelementptr inbounds nuw i8, ptr %26, i64 88
   store i32 0, ptr %35, align 8, !tbaa !43
   %36 = getelementptr inbounds nuw i8, ptr %26, i64 96

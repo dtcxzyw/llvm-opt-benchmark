@@ -75,7 +75,7 @@ define dso_local void @_ZN5clang4ento26registerTaintTesterCheckerERNS0_14Checker
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i64 12, ptr %14, align 8, !tbaa !12
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  store i8 0, ptr %15, align 1, !tbaa !15
+  store i8 0, ptr %15, align 4, !tbaa !15
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store ptr %17, ptr %16, align 8, !tbaa !9

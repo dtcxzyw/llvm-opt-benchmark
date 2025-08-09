@@ -303,12 +303,12 @@ switch.lookup:                                    ; preds = %73
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store i32 %139, ptr %140, align 8, !tbaa !90
   %141 = getelementptr inbounds nuw i8, ptr %33, i64 580
-  %142 = load i8, ptr %141, align 1, !tbaa !79
+  %142 = load i8, ptr %141, align 4, !tbaa !79
   %143 = zext i8 %142 to i32
   %144 = getelementptr inbounds nuw i8, ptr %1, i64 148
   store i32 %143, ptr %144, align 4, !tbaa !91
   %145 = getelementptr inbounds nuw i8, ptr %33, i64 582
-  %146 = load i8, ptr %145, align 1, !tbaa !92
+  %146 = load i8, ptr %145, align 2, !tbaa !92
   %.not106 = icmp eq i8 %146, 0
   %147 = select i1 %.not106, i32 1, i32 2
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 156

@@ -1302,7 +1302,7 @@ define i32 @sch_add_enc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 44
   store i32 -1, ptr %16, align 4, !tbaa !68
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  store i32 -1, ptr %17, align 4, !tbaa !68
+  store i32 -1, ptr %17, align 8, !tbaa !68
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 72
   store ptr %0, ptr %18, align 8, !tbaa !91
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 80

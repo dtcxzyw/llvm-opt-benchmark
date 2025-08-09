@@ -82,7 +82,7 @@ define dso_local ptr @intel_cursor_plane_create(ptr noundef %0, i32 noundef %1) 
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 1340
   store i32 -1, ptr %29, align 4
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 1344
-  store i32 -1, ptr %30, align 4
+  store i32 -1, ptr %30, align 8
   %31 = load i32, ptr %15, align 4
   %32 = and i32 %31, 160
   %33 = icmp eq i32 %32, 0
@@ -716,9 +716,9 @@ define internal i32 @i845_check_cursor(ptr noundef %0, ptr noundef %1) #0 align 
   %17 = load ptr, ptr %16, align 8
   %18 = sub i32 %14, %15
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %20 = load i32, ptr %19, align 4
+  %20 = load i32, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %22 = load i32, ptr %21, align 4
+  %22 = load i32, ptr %21, align 8
   %23 = sub i32 %20, %22
   %24 = icmp sgt i32 %18, 0
   br i1 %24, label %25, label %.thread
@@ -1755,9 +1755,9 @@ define internal i32 @i9xx_check_cursor(ptr noundef %0, ptr noundef %1) #0 align 
   %19 = load i32, ptr %16, align 4
   %20 = sub i32 %18, %19
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %22 = load i32, ptr %21, align 4
+  %22 = load i32, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 8
   %25 = sub i32 %22, %24
   %26 = icmp sgt i32 %20, 0
   br i1 %26, label %27, label %65

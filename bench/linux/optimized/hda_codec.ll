@@ -1516,7 +1516,7 @@ snd_hda_codec_disconnect_pcms.exit:               ; preds = %43, %10
   %122 = and i32 %121, -2
   store i32 %122, ptr %48, align 8
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 1088
-  store volatile i32 1, ptr %123, align 4
+  store volatile i32 1, ptr %123, align 8
   ret void
 }
 
@@ -2149,7 +2149,7 @@ define internal i32 @codec_exec_verb(ptr noundef %0, i32 noundef %1, i32 noundef
   store i8 %22, ptr %12, align 8
   tail call void @mutex_unlock(ptr noundef nonnull %9) #24
   %23 = tail call i32 @snd_hdac_power_down_pm(ptr noundef %0) #24
-  %24 = load volatile i32, ptr %14, align 4
+  %24 = load volatile i32, ptr %14, align 8
   br label %.split3
 
 .split:                                           ; preds = %8
@@ -2165,7 +2165,7 @@ define internal i32 @codec_exec_verb(ptr noundef %0, i32 noundef %1, i32 noundef
   store i8 %29, ptr %12, align 8
   tail call void @mutex_unlock(ptr noundef nonnull %9) #24
   %30 = tail call i32 @snd_hdac_power_down_pm(ptr noundef %0) #24
-  %31 = load volatile i32, ptr %14, align 4
+  %31 = load volatile i32, ptr %14, align 8
   %32 = icmp eq i32 %31, 0
   %33 = icmp eq i32 %27, -11
   %34 = select i1 %32, i1 %33, i1 false
@@ -2197,7 +2197,7 @@ define internal i32 @codec_exec_verb(ptr noundef %0, i32 noundef %1, i32 noundef
   store i8 %46, ptr %12, align 8
   tail call void @mutex_unlock(ptr noundef nonnull %9) #24
   %47 = tail call i32 @snd_hdac_power_down_pm(ptr noundef %0) #24
-  %48 = load volatile i32, ptr %14, align 4
+  %48 = load volatile i32, ptr %14, align 8
   %49 = icmp eq i32 %48, 0
   %50 = icmp eq i32 %44, -11
   %51 = select i1 %49, i1 %50, i1 false

@@ -634,7 +634,7 @@ _ZN16StackFrameStream7is_doneEv.exit.thread:      ; preds = %_ZN16StackFrameStre
   %69 = load ptr, ptr %68, align 8
   call void @_ZN29jvmtiDeferredLocalVariableSet7oops_doEP10OopClosure(ptr noundef nonnull align 8 dereferenceable(41) %69, ptr noundef nonnull %4) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %70 = load i32, ptr %62, align 4
+  %70 = load i32, ptr %62, align 8
   %71 = sext i32 %70 to i64
   %72 = icmp slt i64 %indvars.iv.next, %71
   br i1 %72, label %66, label %.loopexit.loopexit, !llvm.loop !14

@@ -3739,7 +3739,7 @@ define hidden void @av1_predict_intra_block_facade(ptr noundef readonly captures
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %40 = load i8, ptr %39, align 2
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 150
-  %42 = load i8, ptr %41, align 1
+  %42 = load i8, ptr %41, align 2
   %43 = icmp ne i8 %42, 0
   %44 = zext i1 %43 to i32
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 99

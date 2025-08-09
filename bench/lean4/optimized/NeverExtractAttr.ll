@@ -514,7 +514,7 @@ _init_l_Lean_initFn____x40_Lean_Compiler_NeverExtractAttr___hyg_3____closed__7.e
   %.val20 = load ptr, ptr %53, align 8, !tbaa !9
   store ptr %.val20, ptr @l_Lean_neverExtractAttr, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %.val20) #3
-  %54 = load i32, ptr %49, align 4, !tbaa !4
+  %54 = load i32, ptr %49, align 8, !tbaa !4
   %55 = icmp sgt i32 %54, 1
   br i1 %55, label %56, label %58, !prof !11
 

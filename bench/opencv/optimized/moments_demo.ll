@@ -1408,7 +1408,7 @@ _ZNSolsEm.exit113:                                ; preds = %_ZStlsISt11char_tra
   %259 = load i32, ptr %258, align 8, !tbaa !98
   %260 = and i32 %259, -261
   %261 = or disjoint i32 %260, 4
-  store i32 %261, ptr %258, align 4, !tbaa !99
+  store i32 %261, ptr %258, align 8, !tbaa !99
   %262 = load i64, ptr %255, align 8
   %263 = getelementptr inbounds i8, ptr %251, i64 %262
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 8

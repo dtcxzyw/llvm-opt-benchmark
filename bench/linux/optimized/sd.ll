@@ -1235,14 +1235,14 @@ define internal zeroext i8 @sd_init_command(ptr noundef %0) #2 align 16 {
   store i8 %237, ptr %238, align 1
   %239 = getelementptr i8, ptr %0, i64 176
   %240 = tail call i64 @llvm.bswap.i64(i64 %111)
-  store i64 %240, ptr %239, align 1
+  store i64 %240, ptr %239, align 4
   %241 = trunc i64 %111 to i32
   %242 = getelementptr i8, ptr %0, i64 184
   %243 = tail call i32 @llvm.bswap.i32(i32 %241)
-  store i32 %243, ptr %242, align 1
+  store i32 %243, ptr %242, align 4
   %244 = getelementptr i8, ptr %0, i64 192
   %245 = tail call i32 @llvm.bswap.i32(i32 %169)
-  store i32 %245, ptr %244, align 1
+  store i32 %245, ptr %244, align 4
   br label %.thread8
 
 .thread:                                          ; preds = %217, %224, %221
@@ -1275,10 +1275,10 @@ define internal zeroext i8 @sd_init_command(ptr noundef %0) #2 align 16 {
   store i8 0, ptr %265, align 1
   %266 = getelementptr i8, ptr %0, i64 166
   %267 = tail call i64 @llvm.bswap.i64(i64 %111)
-  store i64 %267, ptr %266, align 1
+  store i64 %267, ptr %266, align 2
   %268 = getelementptr i8, ptr %0, i64 174
   %269 = tail call i32 @llvm.bswap.i32(i32 %169)
-  store i32 %269, ptr %268, align 1
+  store i32 %269, ptr %268, align 2
   br label %.thread8
 
 270:                                              ; preds = %.thread
@@ -1310,7 +1310,7 @@ define internal zeroext i8 @sd_init_command(ptr noundef %0) #2 align 16 {
   %287 = trunc i64 %111 to i32
   %288 = getelementptr i8, ptr %0, i64 166
   %289 = tail call i32 @llvm.bswap.i32(i32 %287)
-  store i32 %289, ptr %288, align 1
+  store i32 %289, ptr %288, align 2
   %290 = trunc nuw i32 %169 to i16
   %291 = getelementptr i8, ptr %0, i64 171
   %292 = tail call i16 @llvm.bswap.i16(i16 %290)

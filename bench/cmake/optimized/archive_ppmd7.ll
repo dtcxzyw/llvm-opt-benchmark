@@ -3514,7 +3514,7 @@ define internal fastcc ptr @CreateSuccessors(ptr noundef captures(none) %0, i32 
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0, i64 3
   store i8 %.sroa.5.0, ptr %.sroa.5.0..sroa_idx, align 1, !tbaa !14
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0, i64 4
-  store i32 %56, ptr %.sroa.7.0..sroa_idx, align 2
+  store i32 %56, ptr %.sroa.7.0..sroa_idx, align 4
   %117 = load ptr, ptr %52, align 8, !tbaa !4
   %118 = ptrtoint ptr %.371125 to i64
   %119 = ptrtoint ptr %117 to i64

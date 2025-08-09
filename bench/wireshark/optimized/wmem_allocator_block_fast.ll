@@ -49,7 +49,7 @@ define internal ptr @wmem_block_fast_alloc(ptr noundef captures(none) %0, i64 no
   store ptr null, ptr %6, align 8
   store ptr %6, ptr %7, align 8
   %12 = getelementptr i8, ptr %6, i64 16
-  store i32 -1, ptr %12, align 4
+  store i32 -1, ptr %12, align 8
   %13 = getelementptr i8, ptr %6, i64 32
   br label %39
 
@@ -153,7 +153,7 @@ define internal noundef ptr @wmem_block_fast_realloc(ptr noundef captures(none) 
   store ptr null, ptr %25, align 8
   store ptr %25, ptr %26, align 8
   %31 = getelementptr i8, ptr %25, i64 16
-  store i32 -1, ptr %31, align 4
+  store i32 -1, ptr %31, align 8
   %32 = getelementptr i8, ptr %25, i64 32
   br label %wmem_block_fast_alloc.exit
 

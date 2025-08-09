@@ -1298,7 +1298,7 @@ _ZNKSt8functionIFvmRKN4llvm5TwineEEEclEmS3_.exit.i.i: ; preds = %576, %574
   %.sroa.10.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %579, i64 56
   store ptr %.sroa.072.0.i, ptr %.sroa.10.0..sroa_idx.i.i, align 8, !tbaa !49
   %.sroa.10.sroa.4.0..sroa.10.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %579, i64 64
-  store i64 %.sroa.11.0.i, ptr %.sroa.10.sroa.4.0..sroa.10.0..sroa_idx.sroa_idx.i.i, align 8, !tbaa !51
+  store i64 %.sroa.11.0.i, ptr %.sroa.10.sroa.4.0..sroa.10.0..sroa_idx.sroa_idx.i.i, align 16, !tbaa !51
   %.sroa.11.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %579, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %.sroa.11.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(34) %8, i64 34, i1 false)
   store ptr %579, ptr %9, align 8

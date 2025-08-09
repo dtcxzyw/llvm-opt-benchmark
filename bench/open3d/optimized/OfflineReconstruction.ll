@@ -2008,7 +2008,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIiSt4pairIKijESaIS2_
   %45 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #43
   store ptr null, ptr %45, align 8, !tbaa !17
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store i32 %43, ptr %46, align 4, !tbaa !34
+  store i32 %43, ptr %46, align 8, !tbaa !34
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %48 = load i32, ptr %44, align 4, !tbaa !29
   store i32 %48, ptr %47, align 4, !tbaa !36
@@ -2192,7 +2192,7 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !17
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !29
+  %16 = load i32, ptr %15, align 8, !tbaa !29
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -67728,7 +67728,7 @@ _ZNSt6vectorIN6open3d9pipelines12registration13PoseGraphNodeESaIS3_EE9push_backE
   %.sroa.7193.8..sroa_idx = getelementptr inbounds nuw i8, ptr %234, i64 12
   store i32 %.061243, ptr %.sroa.7193.8..sroa_idx, align 4
   %.sroa.8196.8..sroa_idx = getelementptr inbounds nuw i8, ptr %234, i64 16
-  store i8 0, ptr %.sroa.8196.8..sroa_idx, align 8
+  store i8 0, ptr %.sroa.8196.8..sroa_idx, align 16
   %238 = getelementptr inbounds nuw i8, ptr %234, i64 32
   store double 1.000000e+00, ptr %238, align 16
   %.sroa.12202.32..sroa_idx = getelementptr inbounds nuw i8, ptr %234, i64 40
@@ -67805,7 +67805,7 @@ _ZNKSt6vectorIN6open3d4apps22offline_reconstruction14MatchingResultESaIS3_EE12_M
   %.sroa.7193.8..sroa_idx194 = getelementptr inbounds nuw i8, ptr %255, i64 12
   store i32 %.061243, ptr %.sroa.7193.8..sroa_idx194, align 4
   %.sroa.8196.8..sroa_idx197 = getelementptr inbounds nuw i8, ptr %255, i64 16
-  store i8 0, ptr %.sroa.8196.8..sroa_idx197, align 8
+  store i8 0, ptr %.sroa.8196.8..sroa_idx197, align 16
   %257 = getelementptr inbounds nuw i8, ptr %255, i64 32
   store double 1.000000e+00, ptr %257, align 16
   %.sroa.12202.32..sroa_idx203 = getelementptr inbounds nuw i8, ptr %255, i64 40
@@ -68128,7 +68128,7 @@ _ZNSt6vectorIN6open3d4apps22offline_reconstruction14MatchingResultESaIS3_EE9push
   %.sroa.36.0.copyload = load <2 x double>, ptr %.sroa.36.0..sroa_idx, align 16
   %.sroa.38.0..sroa_idx = getelementptr inbounds nuw i8, ptr %388, i64 432
   %.sroa.38.0.copyload = load <2 x double>, ptr %.sroa.38.0..sroa_idx, align 16, !tbaa !44
-  %397 = load i32, ptr %394, align 4, !tbaa !29
+  %397 = load i32, ptr %394, align 8, !tbaa !29
   %398 = add nsw i32 %397, 1
   %399 = load i32, ptr %393, align 4, !tbaa !29
   %400 = icmp eq i32 %398, %399
@@ -74837,28 +74837,28 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120: ; preds = %_Z
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %139, i8 0, i64 48, i1 false)
   store double 1.000000e+00, ptr %140, align 8, !tbaa !732
   %213 = getelementptr inbounds nuw i8, ptr %.sroa.0189.0194, i64 16
-  %214 = load <2 x double>, ptr %213, align 1, !tbaa !44
+  %214 = load <2 x double>, ptr %213, align 8, !tbaa !44
   store <2 x double> %214, ptr %123, align 16, !tbaa !44
   %215 = getelementptr inbounds nuw i8, ptr %.sroa.0189.0194, i64 32
-  %216 = load <2 x double>, ptr %215, align 1, !tbaa !44
+  %216 = load <2 x double>, ptr %215, align 8, !tbaa !44
   store <2 x double> %216, ptr %141, align 16, !tbaa !44
   %217 = getelementptr inbounds nuw i8, ptr %.sroa.0189.0194, i64 48
-  %218 = load <2 x double>, ptr %217, align 1, !tbaa !44
+  %218 = load <2 x double>, ptr %217, align 8, !tbaa !44
   store <2 x double> %218, ptr %142, align 16, !tbaa !44
   %219 = getelementptr inbounds nuw i8, ptr %.sroa.0189.0194, i64 64
-  %220 = load <2 x double>, ptr %219, align 1, !tbaa !44
+  %220 = load <2 x double>, ptr %219, align 8, !tbaa !44
   store <2 x double> %220, ptr %126, align 16, !tbaa !44
   %221 = getelementptr inbounds nuw i8, ptr %.sroa.0189.0194, i64 80
-  %222 = load <2 x double>, ptr %221, align 1, !tbaa !44
+  %222 = load <2 x double>, ptr %221, align 8, !tbaa !44
   store <2 x double> %222, ptr %143, align 16, !tbaa !44
   %223 = getelementptr inbounds nuw i8, ptr %.sroa.0189.0194, i64 96
-  %224 = load <2 x double>, ptr %223, align 1, !tbaa !44
+  %224 = load <2 x double>, ptr %223, align 8, !tbaa !44
   store <2 x double> %224, ptr %127, align 16, !tbaa !44
   %225 = getelementptr inbounds nuw i8, ptr %.sroa.0189.0194, i64 112
-  %226 = load <2 x double>, ptr %225, align 1, !tbaa !44
+  %226 = load <2 x double>, ptr %225, align 8, !tbaa !44
   store <2 x double> %226, ptr %144, align 16, !tbaa !44
   %227 = getelementptr inbounds nuw i8, ptr %.sroa.0189.0194, i64 128
-  %228 = load <2 x double>, ptr %227, align 1, !tbaa !44
+  %228 = load <2 x double>, ptr %227, align 8, !tbaa !44
   store <2 x double> %228, ptr %145, align 16, !tbaa !44
   %229 = load ptr, ptr %146, align 8, !tbaa !1273
   %230 = load ptr, ptr %147, align 8, !tbaa !1262
@@ -79463,108 +79463,108 @@ _ZNSt12_Vector_baseIN6open3d9pipelines12registration13PoseGraphEdgeESaIS3_EE13_M
   store i64 %55, ptr %53, align 8
   %56 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 16
   %57 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 16
-  %58 = load <2 x double>, ptr %57, align 1, !tbaa !44
-  store <2 x double> %58, ptr %56, align 1, !tbaa !44
+  %58 = load <2 x double>, ptr %57, align 8, !tbaa !44
+  store <2 x double> %58, ptr %56, align 8, !tbaa !44
   %59 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 32
   %60 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 32
-  %61 = load <2 x double>, ptr %60, align 1, !tbaa !44
-  store <2 x double> %61, ptr %59, align 1, !tbaa !44
+  %61 = load <2 x double>, ptr %60, align 8, !tbaa !44
+  store <2 x double> %61, ptr %59, align 8, !tbaa !44
   %62 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 48
   %63 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 48
-  %64 = load <2 x double>, ptr %63, align 1, !tbaa !44
-  store <2 x double> %64, ptr %62, align 1, !tbaa !44
+  %64 = load <2 x double>, ptr %63, align 8, !tbaa !44
+  store <2 x double> %64, ptr %62, align 8, !tbaa !44
   %65 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 64
   %66 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 64
-  %67 = load <2 x double>, ptr %66, align 1, !tbaa !44
-  store <2 x double> %67, ptr %65, align 1, !tbaa !44
+  %67 = load <2 x double>, ptr %66, align 8, !tbaa !44
+  store <2 x double> %67, ptr %65, align 8, !tbaa !44
   %68 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 80
   %69 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 80
-  %70 = load <2 x double>, ptr %69, align 1, !tbaa !44
-  store <2 x double> %70, ptr %68, align 1, !tbaa !44
+  %70 = load <2 x double>, ptr %69, align 8, !tbaa !44
+  store <2 x double> %70, ptr %68, align 8, !tbaa !44
   %71 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 96
   %72 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 96
-  %73 = load <2 x double>, ptr %72, align 1, !tbaa !44
-  store <2 x double> %73, ptr %71, align 1, !tbaa !44
+  %73 = load <2 x double>, ptr %72, align 8, !tbaa !44
+  store <2 x double> %73, ptr %71, align 8, !tbaa !44
   %74 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 112
   %75 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 112
-  %76 = load <2 x double>, ptr %75, align 1, !tbaa !44
-  store <2 x double> %76, ptr %74, align 1, !tbaa !44
+  %76 = load <2 x double>, ptr %75, align 8, !tbaa !44
+  store <2 x double> %76, ptr %74, align 8, !tbaa !44
   %77 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 128
   %78 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 128
-  %79 = load <2 x double>, ptr %78, align 1, !tbaa !44
-  store <2 x double> %79, ptr %77, align 1, !tbaa !44
+  %79 = load <2 x double>, ptr %78, align 8, !tbaa !44
+  store <2 x double> %79, ptr %77, align 8, !tbaa !44
   %80 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 144
   %81 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 144
-  %82 = load <2 x double>, ptr %81, align 1, !tbaa !44
-  store <2 x double> %82, ptr %80, align 1, !tbaa !44
+  %82 = load <2 x double>, ptr %81, align 8, !tbaa !44
+  store <2 x double> %82, ptr %80, align 8, !tbaa !44
   %83 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 160
   %84 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 160
-  %85 = load <2 x double>, ptr %84, align 1, !tbaa !44
-  store <2 x double> %85, ptr %83, align 1, !tbaa !44
+  %85 = load <2 x double>, ptr %84, align 8, !tbaa !44
+  store <2 x double> %85, ptr %83, align 8, !tbaa !44
   %86 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 176
   %87 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 176
-  %88 = load <2 x double>, ptr %87, align 1, !tbaa !44
-  store <2 x double> %88, ptr %86, align 1, !tbaa !44
+  %88 = load <2 x double>, ptr %87, align 8, !tbaa !44
+  store <2 x double> %88, ptr %86, align 8, !tbaa !44
   %89 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 192
   %90 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 192
-  %91 = load <2 x double>, ptr %90, align 1, !tbaa !44
-  store <2 x double> %91, ptr %89, align 1, !tbaa !44
+  %91 = load <2 x double>, ptr %90, align 8, !tbaa !44
+  store <2 x double> %91, ptr %89, align 8, !tbaa !44
   %92 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 208
   %93 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 208
-  %94 = load <2 x double>, ptr %93, align 1, !tbaa !44
-  store <2 x double> %94, ptr %92, align 1, !tbaa !44
+  %94 = load <2 x double>, ptr %93, align 8, !tbaa !44
+  store <2 x double> %94, ptr %92, align 8, !tbaa !44
   %95 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 224
   %96 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 224
-  %97 = load <2 x double>, ptr %96, align 1, !tbaa !44
-  store <2 x double> %97, ptr %95, align 1, !tbaa !44
+  %97 = load <2 x double>, ptr %96, align 8, !tbaa !44
+  store <2 x double> %97, ptr %95, align 8, !tbaa !44
   %98 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 240
   %99 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 240
-  %100 = load <2 x double>, ptr %99, align 1, !tbaa !44
-  store <2 x double> %100, ptr %98, align 1, !tbaa !44
+  %100 = load <2 x double>, ptr %99, align 8, !tbaa !44
+  store <2 x double> %100, ptr %98, align 8, !tbaa !44
   %101 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 256
   %102 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 256
-  %103 = load <2 x double>, ptr %102, align 1, !tbaa !44
-  store <2 x double> %103, ptr %101, align 1, !tbaa !44
+  %103 = load <2 x double>, ptr %102, align 8, !tbaa !44
+  store <2 x double> %103, ptr %101, align 8, !tbaa !44
   %104 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 272
   %105 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 272
-  %106 = load <2 x double>, ptr %105, align 1, !tbaa !44
-  store <2 x double> %106, ptr %104, align 1, !tbaa !44
+  %106 = load <2 x double>, ptr %105, align 8, !tbaa !44
+  store <2 x double> %106, ptr %104, align 8, !tbaa !44
   %107 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 288
   %108 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 288
-  %109 = load <2 x double>, ptr %108, align 1, !tbaa !44
-  store <2 x double> %109, ptr %107, align 1, !tbaa !44
+  %109 = load <2 x double>, ptr %108, align 8, !tbaa !44
+  store <2 x double> %109, ptr %107, align 8, !tbaa !44
   %110 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 304
   %111 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 304
-  %112 = load <2 x double>, ptr %111, align 1, !tbaa !44
-  store <2 x double> %112, ptr %110, align 1, !tbaa !44
+  %112 = load <2 x double>, ptr %111, align 8, !tbaa !44
+  store <2 x double> %112, ptr %110, align 8, !tbaa !44
   %113 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 320
   %114 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 320
-  %115 = load <2 x double>, ptr %114, align 1, !tbaa !44
-  store <2 x double> %115, ptr %113, align 1, !tbaa !44
+  %115 = load <2 x double>, ptr %114, align 8, !tbaa !44
+  store <2 x double> %115, ptr %113, align 8, !tbaa !44
   %116 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 336
   %117 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 336
-  %118 = load <2 x double>, ptr %117, align 1, !tbaa !44
-  store <2 x double> %118, ptr %116, align 1, !tbaa !44
+  %118 = load <2 x double>, ptr %117, align 8, !tbaa !44
+  store <2 x double> %118, ptr %116, align 8, !tbaa !44
   %119 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 352
   %120 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 352
-  %121 = load <2 x double>, ptr %120, align 1, !tbaa !44
-  store <2 x double> %121, ptr %119, align 1, !tbaa !44
+  %121 = load <2 x double>, ptr %120, align 8, !tbaa !44
+  store <2 x double> %121, ptr %119, align 8, !tbaa !44
   %122 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 368
   %123 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 368
-  %124 = load <2 x double>, ptr %123, align 1, !tbaa !44
-  store <2 x double> %124, ptr %122, align 1, !tbaa !44
+  %124 = load <2 x double>, ptr %123, align 8, !tbaa !44
+  store <2 x double> %124, ptr %122, align 8, !tbaa !44
   %125 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 384
   %126 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 384
-  %127 = load <2 x double>, ptr %126, align 1, !tbaa !44
-  store <2 x double> %127, ptr %125, align 1, !tbaa !44
+  %127 = load <2 x double>, ptr %126, align 8, !tbaa !44
+  store <2 x double> %127, ptr %125, align 8, !tbaa !44
   %128 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 400
   %129 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 400
-  %130 = load <2 x double>, ptr %129, align 1, !tbaa !44
-  store <2 x double> %130, ptr %128, align 1, !tbaa !44
+  %130 = load <2 x double>, ptr %129, align 8, !tbaa !44
+  store <2 x double> %130, ptr %128, align 8, !tbaa !44
   %131 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 416
   %132 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 416
-  %133 = load <2 x double>, ptr %132, align 1, !tbaa !44
-  store <2 x double> %133, ptr %131, align 1, !tbaa !44
+  %133 = load <2 x double>, ptr %132, align 8, !tbaa !44
+  store <2 x double> %133, ptr %131, align 8, !tbaa !44
   %134 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 432
   %135 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 432
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %134, ptr noundef nonnull align 8 dereferenceable(16) %135, i64 16, i1 false)
@@ -79618,108 +79618,108 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN6open3d9pipelines12registration13Pos
   store i64 %151, ptr %149, align 8
   %152 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i34, i64 16
   %153 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i35, i64 16
-  %154 = load <2 x double>, ptr %153, align 1, !tbaa !44
-  store <2 x double> %154, ptr %152, align 1, !tbaa !44
+  %154 = load <2 x double>, ptr %153, align 8, !tbaa !44
+  store <2 x double> %154, ptr %152, align 8, !tbaa !44
   %155 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i34, i64 32
   %156 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i35, i64 32
-  %157 = load <2 x double>, ptr %156, align 1, !tbaa !44
-  store <2 x double> %157, ptr %155, align 1, !tbaa !44
+  %157 = load <2 x double>, ptr %156, align 8, !tbaa !44
+  store <2 x double> %157, ptr %155, align 8, !tbaa !44
   %158 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i34, i64 48
   %159 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i35, i64 48
-  %160 = load <2 x double>, ptr %159, align 1, !tbaa !44
-  store <2 x double> %160, ptr %158, align 1, !tbaa !44
+  %160 = load <2 x double>, ptr %159, align 8, !tbaa !44
+  store <2 x double> %160, ptr %158, align 8, !tbaa !44
   %161 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i34, i64 64
   %162 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i35, i64 64
-  %163 = load <2 x double>, ptr %162, align 1, !tbaa !44
-  store <2 x double> %163, ptr %161, align 1, !tbaa !44
+  %163 = load <2 x double>, ptr %162, align 8, !tbaa !44
+  store <2 x double> %163, ptr %161, align 8, !tbaa !44
   %164 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i34, i64 80
   %165 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i35, i64 80
-  %166 = load <2 x double>, ptr %165, align 1, !tbaa !44
-  store <2 x double> %166, ptr %164, align 1, !tbaa !44
+  %166 = load <2 x double>, ptr %165, align 8, !tbaa !44
+  store <2 x double> %166, ptr %164, align 8, !tbaa !44
   %167 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i34, i64 96
   %168 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i35, i64 96
-  %169 = load <2 x double>, ptr %168, align 1, !tbaa !44
-  store <2 x double> %169, ptr %167, align 1, !tbaa !44
+  %169 = load <2 x double>, ptr %168, align 8, !tbaa !44
+  store <2 x double> %169, ptr %167, align 8, !tbaa !44
   %170 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i34, i64 112
   %171 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i35, i64 112
-  %172 = load <2 x double>, ptr %171, align 1, !tbaa !44
-  store <2 x double> %172, ptr %170, align 1, !tbaa !44
+  %172 = load <2 x double>, ptr %171, align 8, !tbaa !44
+  store <2 x double> %172, ptr %170, align 8, !tbaa !44
   %173 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i34, i64 128
   %174 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i35, i64 128
-  %175 = load <2 x double>, ptr %174, align 1, !tbaa !44
-  store <2 x double> %175, ptr %173, align 1, !tbaa !44
+  %175 = load <2 x double>, ptr %174, align 8, !tbaa !44
+  store <2 x double> %175, ptr %173, align 8, !tbaa !44
   %176 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i34, i64 144
   %177 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i35, i64 144
-  %178 = load <2 x double>, ptr %177, align 1, !tbaa !44
-  store <2 x double> %178, ptr %176, align 1, !tbaa !44
+  %178 = load <2 x double>, ptr %177, align 8, !tbaa !44
+  store <2 x double> %178, ptr %176, align 8, !tbaa !44
   %179 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i34, i64 160
   %180 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i35, i64 160
-  %181 = load <2 x double>, ptr %180, align 1, !tbaa !44
-  store <2 x double> %181, ptr %179, align 1, !tbaa !44
+  %181 = load <2 x double>, ptr %180, align 8, !tbaa !44
+  store <2 x double> %181, ptr %179, align 8, !tbaa !44
   %182 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i34, i64 176
   %183 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i35, i64 176
-  %184 = load <2 x double>, ptr %183, align 1, !tbaa !44
-  store <2 x double> %184, ptr %182, align 1, !tbaa !44
+  %184 = load <2 x double>, ptr %183, align 8, !tbaa !44
+  store <2 x double> %184, ptr %182, align 8, !tbaa !44
   %185 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i34, i64 192
   %186 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i35, i64 192
-  %187 = load <2 x double>, ptr %186, align 1, !tbaa !44
-  store <2 x double> %187, ptr %185, align 1, !tbaa !44
+  %187 = load <2 x double>, ptr %186, align 8, !tbaa !44
+  store <2 x double> %187, ptr %185, align 8, !tbaa !44
   %188 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i34, i64 208
   %189 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i35, i64 208
-  %190 = load <2 x double>, ptr %189, align 1, !tbaa !44
-  store <2 x double> %190, ptr %188, align 1, !tbaa !44
+  %190 = load <2 x double>, ptr %189, align 8, !tbaa !44
+  store <2 x double> %190, ptr %188, align 8, !tbaa !44
   %191 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i34, i64 224
   %192 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i35, i64 224
-  %193 = load <2 x double>, ptr %192, align 1, !tbaa !44
-  store <2 x double> %193, ptr %191, align 1, !tbaa !44
+  %193 = load <2 x double>, ptr %192, align 8, !tbaa !44
+  store <2 x double> %193, ptr %191, align 8, !tbaa !44
   %194 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i34, i64 240
   %195 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i35, i64 240
-  %196 = load <2 x double>, ptr %195, align 1, !tbaa !44
-  store <2 x double> %196, ptr %194, align 1, !tbaa !44
+  %196 = load <2 x double>, ptr %195, align 8, !tbaa !44
+  store <2 x double> %196, ptr %194, align 8, !tbaa !44
   %197 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i34, i64 256
   %198 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i35, i64 256
-  %199 = load <2 x double>, ptr %198, align 1, !tbaa !44
-  store <2 x double> %199, ptr %197, align 1, !tbaa !44
+  %199 = load <2 x double>, ptr %198, align 8, !tbaa !44
+  store <2 x double> %199, ptr %197, align 8, !tbaa !44
   %200 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i34, i64 272
   %201 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i35, i64 272
-  %202 = load <2 x double>, ptr %201, align 1, !tbaa !44
-  store <2 x double> %202, ptr %200, align 1, !tbaa !44
+  %202 = load <2 x double>, ptr %201, align 8, !tbaa !44
+  store <2 x double> %202, ptr %200, align 8, !tbaa !44
   %203 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i34, i64 288
   %204 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i35, i64 288
-  %205 = load <2 x double>, ptr %204, align 1, !tbaa !44
-  store <2 x double> %205, ptr %203, align 1, !tbaa !44
+  %205 = load <2 x double>, ptr %204, align 8, !tbaa !44
+  store <2 x double> %205, ptr %203, align 8, !tbaa !44
   %206 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i34, i64 304
   %207 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i35, i64 304
-  %208 = load <2 x double>, ptr %207, align 1, !tbaa !44
-  store <2 x double> %208, ptr %206, align 1, !tbaa !44
+  %208 = load <2 x double>, ptr %207, align 8, !tbaa !44
+  store <2 x double> %208, ptr %206, align 8, !tbaa !44
   %209 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i34, i64 320
   %210 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i35, i64 320
-  %211 = load <2 x double>, ptr %210, align 1, !tbaa !44
-  store <2 x double> %211, ptr %209, align 1, !tbaa !44
+  %211 = load <2 x double>, ptr %210, align 8, !tbaa !44
+  store <2 x double> %211, ptr %209, align 8, !tbaa !44
   %212 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i34, i64 336
   %213 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i35, i64 336
-  %214 = load <2 x double>, ptr %213, align 1, !tbaa !44
-  store <2 x double> %214, ptr %212, align 1, !tbaa !44
+  %214 = load <2 x double>, ptr %213, align 8, !tbaa !44
+  store <2 x double> %214, ptr %212, align 8, !tbaa !44
   %215 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i34, i64 352
   %216 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i35, i64 352
-  %217 = load <2 x double>, ptr %216, align 1, !tbaa !44
-  store <2 x double> %217, ptr %215, align 1, !tbaa !44
+  %217 = load <2 x double>, ptr %216, align 8, !tbaa !44
+  store <2 x double> %217, ptr %215, align 8, !tbaa !44
   %218 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i34, i64 368
   %219 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i35, i64 368
-  %220 = load <2 x double>, ptr %219, align 1, !tbaa !44
-  store <2 x double> %220, ptr %218, align 1, !tbaa !44
+  %220 = load <2 x double>, ptr %219, align 8, !tbaa !44
+  store <2 x double> %220, ptr %218, align 8, !tbaa !44
   %221 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i34, i64 384
   %222 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i35, i64 384
-  %223 = load <2 x double>, ptr %222, align 1, !tbaa !44
-  store <2 x double> %223, ptr %221, align 1, !tbaa !44
+  %223 = load <2 x double>, ptr %222, align 8, !tbaa !44
+  store <2 x double> %223, ptr %221, align 8, !tbaa !44
   %224 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i34, i64 400
   %225 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i35, i64 400
-  %226 = load <2 x double>, ptr %225, align 1, !tbaa !44
-  store <2 x double> %226, ptr %224, align 1, !tbaa !44
+  %226 = load <2 x double>, ptr %225, align 8, !tbaa !44
+  store <2 x double> %226, ptr %224, align 8, !tbaa !44
   %227 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i34, i64 416
   %228 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i35, i64 416
-  %229 = load <2 x double>, ptr %228, align 1, !tbaa !44
-  store <2 x double> %229, ptr %227, align 1, !tbaa !44
+  %229 = load <2 x double>, ptr %228, align 8, !tbaa !44
+  store <2 x double> %229, ptr %227, align 8, !tbaa !44
   %230 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i34, i64 432
   %231 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i35, i64 432
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %230, ptr noundef nonnull align 8 dereferenceable(16) %231, i64 16, i1 false)
@@ -82806,7 +82806,7 @@ define linkonce_odr dso_local void @_ZN6open3d13visualization9rendering8Material
   %.06.i.i.i.i = phi ptr [ %5, %_ZNSt8__detail16_Hashtable_allocIN5Eigen17aligned_allocatorINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_6MatrixIfLi4ELi1ELi0ELi4ELi1EEEELb1EEEEEE18_M_deallocate_nodeEPSF_.exit.i.i.i.i ], [ %4, %1 ]
   %5 = load ptr, ptr %.06.i.i.i.i, align 16, !tbaa !17
   %6 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !43
+  %7 = load ptr, ptr %6, align 16, !tbaa !43
   %8 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 32
   %9 = icmp eq ptr %7, %8
   br i1 %9, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i

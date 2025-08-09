@@ -762,7 +762,7 @@ browscap_compute_regex_len.exit.i.i:              ; preds = %zend_string_release
   %162 = getelementptr inbounds nuw i8, ptr %160, i64 8
   store i64 0, ptr %162, align 8, !tbaa !48
   %163 = getelementptr inbounds nuw i8, ptr %160, i64 24
-  store i8 126, ptr %163, align 1, !tbaa !4
+  store i8 126, ptr %163, align 8, !tbaa !4
   %164 = getelementptr inbounds nuw i8, ptr %160, i64 25
   store i8 94, ptr %164, align 1, !tbaa !4
   %165 = load i64, ptr %147, align 8, !tbaa !40
@@ -875,7 +875,7 @@ zend_inline_hash_func.exit.i:                     ; preds = %195, %browscap_comp
   %212 = getelementptr inbounds nuw i8, ptr %208, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %212, ptr noundef nonnull align 1 dereferenceable(18) @.str.16, i64 18, i1 false)
   %213 = getelementptr inbounds nuw i8, ptr %208, i64 42
-  store i8 0, ptr %213, align 1, !tbaa !4
+  store i8 0, ptr %213, align 2, !tbaa !4
   store i64 -4609970457933061437, ptr %210, align 8, !tbaa !48
   %214 = call ptr @zend_hash_add_new(ptr noundef %145, ptr noundef nonnull %208, ptr noundef nonnull %5) #13
   %215 = load i32, ptr %209, align 4, !tbaa !4
@@ -924,7 +924,7 @@ zend_inline_hash_func.exit62.i:                   ; preds = %227, %zend_string_r
   %234 = getelementptr inbounds nuw i8, ptr %230, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %234, ptr noundef nonnull align 1 dereferenceable(20) @.str.17, i64 20, i1 false)
   %235 = getelementptr inbounds nuw i8, ptr %230, i64 44
-  store i8 0, ptr %235, align 1, !tbaa !4
+  store i8 0, ptr %235, align 4, !tbaa !4
   store i64 -2743440642829403642, ptr %232, align 8, !tbaa !48
   %236 = call ptr @zend_hash_add_new(ptr noundef %145, ptr noundef nonnull %230, ptr noundef nonnull %5) #13
   %237 = load i32, ptr %231, align 4, !tbaa !4

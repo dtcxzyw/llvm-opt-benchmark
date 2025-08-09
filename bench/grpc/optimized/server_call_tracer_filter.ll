@@ -1694,7 +1694,7 @@ _ZN9grpc_core14promise_detail7CurriedIZNS_21promise_filter_detail30InterceptServ
   store ptr null, ptr %5, align 8, !tbaa !142
   store i64 %.val, ptr %2, align 8, !tbaa !130
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i8 %4, ptr %7, align 1, !tbaa !141
+  store i8 %4, ptr %7, align 8, !tbaa !141
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %6, ptr %8, align 8, !tbaa !142
   ret void
@@ -1706,7 +1706,7 @@ define internal void @_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metad
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !142
   %.not.i.i.i = icmp ne ptr %5, null
-  %6 = load i8, ptr %3, align 1, !range !167
+  %6 = load i8, ptr %3, align 8, !range !167
   %7 = trunc nuw i8 %6 to i1
   %or.cond.i.i.i = select i1 %.not.i.i.i, i1 %7, i1 false
   br i1 %or.cond.i.i.i, label %8, label %_ZN9grpc_core14promise_detail11PromiseLikeINS0_7CurriedIZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS3_14FilterCallDataIS7_EERKNS_8CallArgsEEUlSt10unique_ptrIS9_NS_5Arena13PooledDeleterEEE_SM_EEvED2Ev.exit

@@ -4344,7 +4344,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %_ZN
   store ptr %180, ptr %179, align 8
   %181 = getelementptr inbounds nuw i8, ptr %177, i64 24
   store i64 0, ptr %181, align 8
-  store i8 0, ptr %180, align 1
+  store i8 0, ptr %180, align 8
   %182 = getelementptr inbounds nuw i8, ptr %177, i64 48
   store ptr null, ptr %182, align 8
   %183 = getelementptr inbounds nuw i8, ptr %177, i64 56
@@ -4359,13 +4359,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %_ZN
   store ptr %187, ptr %186, align 8
   %188 = getelementptr inbounds nuw i8, ptr %177, i64 88
   store i64 0, ptr %188, align 8
-  store i8 0, ptr %187, align 1
+  store i8 0, ptr %187, align 8
   %189 = getelementptr inbounds nuw i8, ptr %177, i64 112
   %190 = getelementptr inbounds nuw i8, ptr %177, i64 128
   store ptr %190, ptr %189, align 8
   %191 = getelementptr inbounds nuw i8, ptr %177, i64 120
   store i64 0, ptr %191, align 8
-  store i8 0, ptr %190, align 1
+  store i8 0, ptr %190, align 8
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %177, ptr %192, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %186, ptr noundef nonnull align 8 dereferenceable(32) %67)
@@ -4870,7 +4870,7 @@ _ZNK4pugi13xml_attribute9as_stringEPKc.exit:      ; preds = %26, %9, %2, %_ZNK4p
   store ptr %51, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %45, i64 24
   store i64 0, ptr %52, align 8
-  store i8 0, ptr %51, align 1
+  store i8 0, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 48
   store ptr %48, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %45, i64 56
@@ -5265,7 +5265,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %_ZN
   store ptr %40, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store i64 0, ptr %41, align 8
-  store i8 0, ptr %40, align 1
+  store i8 0, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 48
   store ptr %37, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %34, i64 56
@@ -5652,7 +5652,7 @@ _ZNK4pugi13xml_attribute9as_stringEPKc.exit:      ; preds = %14, %7, %2, %_ZNK4p
   store ptr %43, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 24
   store i64 0, ptr %44, align 8
-  store i8 0, ptr %43, align 1
+  store i8 0, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %37, i64 48
   store ptr %40, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %37, i64 56
@@ -5667,13 +5667,13 @@ _ZNK4pugi13xml_attribute9as_stringEPKc.exit:      ; preds = %14, %7, %2, %_ZNK4p
   store ptr %50, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %37, i64 88
   store i64 0, ptr %51, align 8
-  store i8 0, ptr %50, align 1
+  store i8 0, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %37, i64 112
   %53 = getelementptr inbounds nuw i8, ptr %37, i64 128
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %37, i64 120
   store i64 0, ptr %54, align 8
-  store i8 0, ptr %53, align 1
+  store i8 0, ptr %53, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit unwind label %82
 
@@ -5908,7 +5908,7 @@ _ZNK4pugi13xml_attribute9as_stringEPKc.exit:      ; preds = %15, %8, %2, %_ZNK4p
   store ptr %50, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %44, i64 24
   store i64 0, ptr %51, align 8
-  store i8 0, ptr %50, align 1
+  store i8 0, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %44, i64 48
   store ptr %47, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %44, i64 56
@@ -5923,7 +5923,7 @@ _ZNK4pugi13xml_attribute9as_stringEPKc.exit:      ; preds = %15, %8, %2, %_ZNK4p
   store ptr %57, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %44, i64 88
   store i64 0, ptr %58, align 8
-  store i8 0, ptr %57, align 1
+  store i8 0, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %44, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, i8 0, i64 24, i1 false)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 8 dereferenceable(32) %5)

@@ -93,7 +93,7 @@ _ZN4llvm14array_pod_sortIPNS_26OptimizedStructLayoutFieldEEEvT_S3_PFiPKNSt15iter
   %29 = getelementptr inbounds nuw i8, ptr %.079166, i64 24
   store ptr %28, ptr %29, align 8, !tbaa !14
   %30 = getelementptr inbounds nuw i8, ptr %.079166, i64 32
-  %.sroa.0.0.copyload.i98 = load i8, ptr %30, align 1, !tbaa !10
+  %.sroa.0.0.copyload.i98 = load i8, ptr %30, align 8, !tbaa !10
   %.sroa.speculated = tail call i8 @llvm.umax.i8(i8 %.sroa.0115.1165, i8 %.sroa.0.0.copyload.i98)
   %31 = getelementptr inbounds nuw i8, ptr %.079166, i64 40
   %.not88 = icmp eq ptr %31, %11

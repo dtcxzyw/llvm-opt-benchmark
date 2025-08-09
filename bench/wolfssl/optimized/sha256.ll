@@ -438,10 +438,10 @@ ByteReverseWords.exit:                            ; preds = %.lr.ph.i, %.lr.ph26
 ByteReverseWords.exit47:                          ; preds = %.lr.ph.i38, %.lr.ph26.i43
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %47 = load i32, ptr %36, align 8
-  store i32 %47, ptr %46, align 1
+  store i32 %47, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %49 = load i32, ptr %34, align 4
-  store i32 %49, ptr %48, align 1
+  store i32 %49, ptr %48, align 4
   tail call fastcc void @Transform_Sha256(ptr noundef %0, ptr noundef %6)
   br label %50
 

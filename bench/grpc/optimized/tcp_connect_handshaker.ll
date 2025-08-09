@@ -380,7 +380,7 @@ define internal void @_ZN9grpc_core12_GLOBAL__N_127TCPConnectHandshakerFactory14
   store i64 1, ptr %7, align 8, !tbaa !27, !noalias !24
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_120TCPConnectHandshakerE, i64 16), ptr %6, align 16, !tbaa !6, !noalias !24
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 0, ptr %8, align 8, !tbaa !27, !noalias !24
+  store i64 0, ptr %8, align 16, !tbaa !27, !noalias !24
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i8 0, ptr %9, align 8, !tbaa !30, !noalias !24
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 32

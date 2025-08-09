@@ -127,7 +127,7 @@ lean_alloc_ctor.exit:                             ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 0, ptr %8, align 8, !tbaa !11
-  store i32 1, ptr %4, align 4, !tbaa !8
+  store i32 1, ptr %4, align 8, !tbaa !8
   store i32 262192, ptr %7, align 4
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %9, align 8, !tbaa !4
@@ -371,7 +371,7 @@ l_Lake_instInhabitedFacetConfig.exit:             ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 0, ptr %8, align 8, !tbaa !11
-  store i32 1, ptr %4, align 4, !tbaa !8
+  store i32 1, ptr %4, align 8, !tbaa !8
   store i32 262192, ptr %7, align 4
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %9, align 8, !tbaa !4
@@ -1059,7 +1059,7 @@ lean_alloc_ctor.exit:                             ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i64 0, ptr %14, align 8, !tbaa !11
-  store i32 1, ptr %10, align 4, !tbaa !8
+  store i32 1, ptr %10, align 8, !tbaa !8
   store i32 262192, ptr %13, align 4
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %0, ptr %15, align 8, !tbaa !4
@@ -1069,7 +1069,7 @@ lean_alloc_ctor.exit:                             ; preds = %9
   store ptr %4, ptr %17, align 8, !tbaa !4
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %3, ptr %18, align 8, !tbaa !4
-  store i8 %8, ptr %14, align 1, !tbaa !17
+  store i8 %8, ptr %14, align 8, !tbaa !17
   ret ptr %10
 }
 
@@ -1138,7 +1138,7 @@ l_Lake_mkFacetJobConfig___rarg.exit:              ; preds = %lean_dec.exit12
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store i64 0, ptr %25, align 8, !tbaa !11
-  store i32 1, ptr %21, align 4, !tbaa !8
+  store i32 1, ptr %21, align 8, !tbaa !8
   store i32 262192, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %0, ptr %26, align 8, !tbaa !4
@@ -1148,7 +1148,7 @@ l_Lake_mkFacetJobConfig___rarg.exit:              ; preds = %lean_dec.exit12
   store ptr %4, ptr %28, align 8, !tbaa !4
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr %3, ptr %29, align 8, !tbaa !4
-  store i8 %12, ptr %25, align 1, !tbaa !17
+  store i8 %12, ptr %25, align 8, !tbaa !17
   %30 = ptrtoint ptr %2 to i64
   %31 = and i64 %30, 1
   %.not15 = icmp eq i64 %31, 0
@@ -1278,7 +1278,7 @@ _init_l_Lake_instInhabitedFacetConfig___lambda__1___closed__4.exit: ; preds = %l
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 24
   store i64 0, ptr %43, align 8, !tbaa !11
-  store i32 1, ptr %39, align 4, !tbaa !8
+  store i32 1, ptr %39, align 8, !tbaa !8
   store i32 131104, ptr %42, align 4
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %37, ptr %44, align 8, !tbaa !4
@@ -1328,7 +1328,7 @@ _init_l_Lake_instInhabitedFacetConfig___lambda__1___closed__8.exit: ; preds = %_
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 32
   store i64 0, ptr %62, align 8, !tbaa !11
-  store i32 1, ptr %58, align 4, !tbaa !8
+  store i32 1, ptr %58, align 8, !tbaa !8
   store i32 196648, ptr %61, align 4
   %63 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store ptr %56, ptr %63, align 8, !tbaa !4

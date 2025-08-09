@@ -6270,7 +6270,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i: ; pre
   store i64 %19, ptr %21, align 8, !tbaa !27
   store ptr %11, ptr %8, align 8, !tbaa !23
   store i64 0, ptr %20, align 8, !tbaa !27
-  store i8 0, ptr %11, align 1, !tbaa !42
+  store i8 0, ptr %11, align 8, !tbaa !42
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 40
   invoke void @_ZN2cv4gapi8GBackendC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %22)
           to label %29 unwind label %23

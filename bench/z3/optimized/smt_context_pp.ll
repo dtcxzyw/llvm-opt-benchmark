@@ -3007,7 +3007,7 @@ _ZNK3smt7context17get_num_bool_varsEv.exit:       ; preds = %2
   %31 = load i32, ptr %30, align 8, !tbaa !632
   %32 = and i32 %31, -177
   %33 = or disjoint i32 %32, 32
-  store i32 %33, ptr %30, align 4, !tbaa !633
+  store i32 %33, ptr %30, align 8, !tbaa !633
   %34 = load i32, ptr %21, align 4, !tbaa !620
   %35 = zext i32 %34 to i64
   %36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %35)
@@ -3024,7 +3024,7 @@ _ZNK3smt7context17get_num_bool_varsEv.exit:       ; preds = %2
   %46 = load i32, ptr %45, align 8, !tbaa !632
   %47 = and i32 %46, -177
   %48 = or disjoint i32 %47, 128
-  store i32 %48, ptr %45, align 4, !tbaa !633
+  store i32 %48, ptr %45, align 8, !tbaa !633
   %49 = load ptr, ptr %9, align 8, !tbaa !628
   %50 = getelementptr inbounds nuw double, ptr %49, i64 %indvars.iv
   %51 = load double, ptr %50, align 8, !tbaa !629
@@ -5344,7 +5344,7 @@ _ZNK6vectorIPN3smt5enodeELb0EjE3endEv.exit:       ; preds = %2
   %25 = load i32, ptr %24, align 8, !tbaa !632
   %26 = and i32 %25, -177
   %27 = or disjoint i32 %26, 32
-  store i32 %27, ptr %24, align 4, !tbaa !633
+  store i32 %27, ptr %24, align 8, !tbaa !633
   %28 = load ptr, ptr %15, align 8, !tbaa !558
   %29 = load i32, ptr %28, align 4, !tbaa !620
   %30 = zext i32 %29 to i64
@@ -5371,7 +5371,7 @@ _ZNK6vectorIPN3smt5enodeELb0EjE3endEv.exit:       ; preds = %2
   %50 = load i32, ptr %49, align 8, !tbaa !632
   %51 = and i32 %50, -177
   %52 = or disjoint i32 %51, 128
-  store i32 %52, ptr %49, align 4, !tbaa !633
+  store i32 %52, ptr %49, align 8, !tbaa !633
   %53 = load ptr, ptr %15, align 8, !tbaa !558
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %55 = load i32, ptr %54, align 8, !tbaa !695
@@ -5600,7 +5600,7 @@ _ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit:
   %28 = load i32, ptr %27, align 8, !tbaa !632
   %29 = and i32 %28, -177
   %30 = or disjoint i32 %29, 32
-  store i32 %30, ptr %27, align 4, !tbaa !633
+  store i32 %30, ptr %27, align 8, !tbaa !633
   %31 = load i32, ptr %17, align 4, !tbaa !620
   %32 = zext i32 %31 to i64
   %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %32)
@@ -5656,7 +5656,7 @@ _ZNSolsEb.exit:                                   ; preds = %_ZNK3smt7context11i
   %58 = load i32, ptr %57, align 8, !tbaa !632
   %59 = and i32 %58, -177
   %60 = or disjoint i32 %59, 128
-  store i32 %60, ptr %57, align 4, !tbaa !633
+  store i32 %60, ptr %57, align 8, !tbaa !633
   %61 = load ptr, ptr %8, align 8, !tbaa !527
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 864
   %63 = load ptr, ptr %62, align 8, !tbaa !618
@@ -6863,7 +6863,7 @@ _ZNSolsEj.exit197:                                ; preds = %262
   %296 = load i32, ptr %295, align 8, !tbaa !632
   %297 = and i32 %296, -261
   %298 = or disjoint i32 %297, 4
-  store i32 %298, ptr %295, align 4, !tbaa !633
+  store i32 %298, ptr %295, align 8, !tbaa !633
   %299 = load i64, ptr %292, align 8
   %300 = getelementptr inbounds i8, ptr %.0.i199, i64 %299
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 8

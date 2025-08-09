@@ -942,7 +942,7 @@ _init_l_Lean_initFn____x40_Lean_Util_SafeExponentiation___hyg_5____closed__6.exi
   %.val13 = load ptr, ptr %47, align 8, !tbaa !4
   store ptr %.val13, ptr @l_Lean_exponentiation_threshold, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val13) #4
-  %48 = load i32, ptr %43, align 4, !tbaa !8
+  %48 = load i32, ptr %43, align 8, !tbaa !8
   %49 = icmp sgt i32 %48, 1
   br i1 %49, label %50, label %52, !prof !11
 

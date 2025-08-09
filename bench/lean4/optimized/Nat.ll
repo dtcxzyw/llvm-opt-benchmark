@@ -34208,7 +34208,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit269
   %335 = getelementptr inbounds nuw i8, ptr %332, i64 4
   %336 = getelementptr inbounds nuw i8, ptr %332, i64 112
   store i64 0, ptr %336, align 8, !tbaa !14
-  store i32 1, ptr %332, align 4, !tbaa !8
+  store i32 1, ptr %332, align 8, !tbaa !8
   store i32 852088, ptr %335, align 4
   %337 = getelementptr inbounds nuw i8, ptr %332, i64 8
   store ptr %14, ptr %337, align 8, !tbaa !4
@@ -34236,7 +34236,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit269
   store ptr %126, ptr %348, align 8, !tbaa !4
   %349 = getelementptr inbounds nuw i8, ptr %332, i64 104
   store ptr %138, ptr %349, align 8, !tbaa !4
-  store i8 %124, ptr %336, align 1, !tbaa !16
+  store i8 %124, ptr %336, align 8, !tbaa !16
   %350 = getelementptr inbounds nuw i8, ptr %332, i64 113
   store i8 %136, ptr %350, align 1, !tbaa !16
   %351 = tail call ptr @l_Lean_Meta_Grind_Arith_Cutsat_assertDenoteAsIntNonneg___lambda__1(ptr noundef %0, ptr nonnull poison, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %332, ptr noundef %8, ptr noundef %9)

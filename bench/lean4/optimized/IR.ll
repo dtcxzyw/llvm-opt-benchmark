@@ -5941,7 +5941,7 @@ lean_dec_ref.exit91:                              ; preds = %217, %219, %220
   %.val153 = load ptr, ptr %244, align 8, !tbaa !4
   store ptr %.val153, ptr @l_Lean_IR_compiler_reuse, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val153) #4
-  %245 = load i32, ptr %240, align 4, !tbaa !8
+  %245 = load i32, ptr %240, align 8, !tbaa !8
   %246 = icmp sgt i32 %245, 1
   br i1 %246, label %247, label %249, !prof !11
 

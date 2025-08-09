@@ -66,7 +66,7 @@ define void @_ZN11duckdb_zstd24ZSTD_copyDDictParametersEPNS_11ZSTD_DCtx_sEPKNS_1
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 26680
   %31 = load i32, ptr %30, align 4, !tbaa !44
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 26688
-  store i32 %31, ptr %32, align 4, !tbaa !44
+  store i32 %31, ptr %32, align 8, !tbaa !44
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 26684
   %34 = load i32, ptr %33, align 4, !tbaa !44
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 26692

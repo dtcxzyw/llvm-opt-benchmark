@@ -1119,7 +1119,7 @@ define noundef zeroext i1 @_ZN6open3d13visualization29VisualizerWithCustomAnimat
   store ptr %9, ptr %8, align 8, !tbaa !77
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 0, ptr %10, align 8, !tbaa !76
-  store i8 0, ptr %9, align 1, !tbaa !81
+  store i8 0, ptr %9, align 8, !tbaa !81
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry22AxisAlignedBoundingBoxE, i64 16), ptr %5, align 8, !tbaa !102
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 112
@@ -1137,7 +1137,7 @@ define noundef zeroext i1 @_ZN6open3d13visualization29VisualizerWithCustomAnimat
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 728
   store i32 0, ptr %17, align 8, !tbaa !107
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 736
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6open3d13visualization14ViewTrajectoryE, i64 16), ptr %18, align 8, !tbaa !102
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6open3d13visualization14ViewTrajectoryE, i64 16), ptr %18, align 16, !tbaa !102
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 744
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 772
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %19, i8 0, i64 25, i1 false)
@@ -1821,7 +1821,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__det
   %45 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #33
   store ptr null, ptr %45, align 8, !tbaa !135
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store i32 %43, ptr %46, align 4, !tbaa !149
+  store i32 %43, ptr %46, align 8, !tbaa !149
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %48 = load i32, ptr %44, align 4, !tbaa !122
   store i32 %48, ptr %47, align 4, !tbaa !151
@@ -2005,7 +2005,7 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !135
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !122
+  %16 = load i32, ptr %15, align 8, !tbaa !122
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18

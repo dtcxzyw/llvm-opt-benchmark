@@ -4271,7 +4271,7 @@ define void @_ZN9grpc_core13HealthWatcher13SetSubchannelEPNS_10SubchannelE(ptr n
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 12, ptr %19, align 8, !tbaa !186
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 28
-  store i8 0, ptr %20, align 1, !tbaa !29
+  store i8 0, ptr %20, align 4, !tbaa !29
   store ptr %16, ptr @_ZZN9grpc_core14HealthProducer4TypeEvE8kFactory, align 8, !tbaa !250
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core14HealthProducer4TypeEvE8kFactory) #31
   br label %_ZN9grpc_core14HealthProducer4TypeEv.exit
@@ -5271,7 +5271,7 @@ define linkonce_odr { i64, ptr } @_ZNK9grpc_core14HealthProducer4typeEv(ptr noun
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 12, ptr %10, align 8, !tbaa !186
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  store i8 0, ptr %11, align 1, !tbaa !29
+  store i8 0, ptr %11, align 4, !tbaa !29
   store ptr %7, ptr @_ZZN9grpc_core14HealthProducer4TypeEvE8kFactory, align 8, !tbaa !250
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core14HealthProducer4TypeEvE8kFactory) #31
   br label %_ZN9grpc_core14HealthProducer4TypeEv.exit
@@ -5314,7 +5314,7 @@ define linkonce_odr { i64, ptr } @_ZNK9grpc_core13HealthWatcher4typeEv(ptr nound
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 12, ptr %10, align 8, !tbaa !186
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  store i8 0, ptr %11, align 1, !tbaa !29
+  store i8 0, ptr %11, align 4, !tbaa !29
   store ptr %7, ptr @_ZZN9grpc_core14HealthProducer4TypeEvE8kFactory, align 8, !tbaa !250
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core14HealthProducer4TypeEvE8kFactory) #31
   br label %_ZN9grpc_core14HealthProducer4TypeEv.exit

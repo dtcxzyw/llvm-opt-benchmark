@@ -6034,7 +6034,7 @@ define linkonce_odr hidden void @_ZN9ZMarkTask14resize_workersEj(ptr noundef non
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 384
   tail call void @_ZN14ZMarkStripeSet12set_nstripesEm(ptr noundef nonnull align 64 dereferenceable(2112) %11, i64 noundef %10) #15
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 2496
-  store volatile i32 %1, ptr %12, align 4
+  store volatile i32 %1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 2500
   store volatile i32 %1, ptr %13, align 4
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 2504

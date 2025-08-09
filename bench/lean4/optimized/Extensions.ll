@@ -107,7 +107,7 @@ _init_l_Lake_initFn____x40_Lake_DSL_Extensions___hyg_4____closed__1.exit: ; pred
   %.val21 = load ptr, ptr %32, align 8, !tbaa !4
   store ptr %.val21, ptr @l_Lake_dirExt, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val21) #3
-  %33 = load i32, ptr %28, align 4, !tbaa !8
+  %33 = load i32, ptr %28, align 8, !tbaa !8
   %34 = icmp sgt i32 %33, 1
   br i1 %34, label %35, label %37, !prof !11
 
@@ -138,7 +138,7 @@ lean_dec_ref.exit16:                              ; preds = %38, %37, %35
   %.val22 = load ptr, ptr %44, align 8, !tbaa !4
   store ptr %.val22, ptr @l_Lake_optsExt, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val22) #3
-  %45 = load i32, ptr %40, align 4, !tbaa !8
+  %45 = load i32, ptr %40, align 8, !tbaa !8
   %46 = icmp sgt i32 %45, 1
   br i1 %46, label %47, label %49, !prof !11
 

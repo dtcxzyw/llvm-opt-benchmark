@@ -319,7 +319,7 @@ define void @_ZN3vcg8AxisMode5ApplyEPNS_9TrackballENS_6Point3IfEE(ptr noundef no
   %.fca.0.extract5.i.i = extractvalue { <2 x float>, float } %30, 0
   %.fca.1.extract6.i.i = extractvalue { <2 x float>, float } %30, 1
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 320
-  %32 = load i8, ptr %31, align 4, !noalias !5
+  %32 = load i8, ptr %31, align 8, !noalias !5
   %33 = trunc i8 %32 to i1
   br i1 %33, label %34, label %38
 
@@ -702,7 +702,7 @@ define void @_ZN3vcg9PlaneMode5ApplyEPNS_9TrackballENS_6Point3IfEE(ptr noundef n
   %.fca.0.extract5.i.i = extractvalue { <2 x float>, float } %11, 0
   %.fca.1.extract6.i.i = extractvalue { <2 x float>, float } %11, 1
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 320
-  %13 = load i8, ptr %12, align 4, !noalias !11
+  %13 = load i8, ptr %12, align 8, !noalias !11
   %14 = trunc i8 %13 to i1
   br i1 %14, label %15, label %19
 
@@ -4544,7 +4544,7 @@ define { <2 x float>, float } @_ZN3vcg10trackutils9HitSphereEPNS_9TrackballERKNS
   %.fca.0.extract5.i = extractvalue { <2 x float>, float } %17, 0
   %.fca.1.extract6.i = extractvalue { <2 x float>, float } %17, 1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %19 = load i8, ptr %18, align 4, !noalias !43
+  %19 = load i8, ptr %18, align 8, !noalias !43
   %20 = trunc i8 %19 to i1
   br i1 %20, label %21, label %25
 

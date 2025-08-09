@@ -10571,7 +10571,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %3820, ptr %3822, align 8, !tbaa !22, !alias.scope !241, !noalias !244
   store ptr %3812, ptr %.0911.i.i.i.i, align 8, !tbaa !13, !alias.scope !244, !noalias !241
   store i64 0, ptr %3821, align 8, !tbaa !22, !alias.scope !244, !noalias !241
-  store i8 0, ptr %3812, align 1, !tbaa !23, !alias.scope !244, !noalias !241
+  store i8 0, ptr %3812, align 8, !tbaa !23, !alias.scope !244, !noalias !241
   %3823 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %3824 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i2832, i64 32
   %.not.i.i.i.i2833 = icmp eq ptr %3823, %.sroa.36.223907
@@ -11225,7 +11225,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %4028, ptr %4030, align 8, !tbaa !22, !alias.scope !253, !noalias !256
   store ptr %4020, ptr %.0911.i.i.i.i2847, align 8, !tbaa !13, !alias.scope !256, !noalias !253
   store i64 0, ptr %4029, align 8, !tbaa !22, !alias.scope !256, !noalias !253
-  store i8 0, ptr %4020, align 1, !tbaa !23, !alias.scope !256, !noalias !253
+  store i8 0, ptr %4020, align 8, !tbaa !23, !alias.scope !256, !noalias !253
   %4031 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i2847, i64 32
   %4032 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i2846, i64 32
   %.not.i.i.i.i2852 = icmp eq ptr %4031, %.sroa.36.723924
@@ -11856,7 +11856,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %4235, ptr %4237, align 8, !tbaa !22, !alias.scope !264, !noalias !267
   store ptr %4227, ptr %.0911.i.i.i.i2881, align 8, !tbaa !13, !alias.scope !267, !noalias !264
   store i64 0, ptr %4236, align 8, !tbaa !22, !alias.scope !267, !noalias !264
-  store i8 0, ptr %4227, align 1, !tbaa !23, !alias.scope !267, !noalias !264
+  store i8 0, ptr %4227, align 8, !tbaa !23, !alias.scope !267, !noalias !264
   %4238 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i2881, i64 32
   %4239 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i2880, i64 32
   %.not.i.i.i.i2886 = icmp eq ptr %4238, %.sroa.36.923941
@@ -18802,7 +18802,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8, !tbaa !22
   store ptr %13, ptr %10, align 8, !tbaa !13
   store i64 0, ptr %24, align 8, !tbaa !22
-  store i8 0, ptr %13, align 1, !tbaa !23
+  store i8 0, ptr %13, align 8, !tbaa !23
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i32 0, ptr %26, align 8, !tbaa !101
   store ptr %7, ptr %23, align 8, !tbaa !103
@@ -21342,13 +21342,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8, !tbaa !22
   store ptr %13, ptr %10, align 8, !tbaa !13
   store i64 0, ptr %24, align 8, !tbaa !22
-  store i8 0, ptr %13, align 1, !tbaa !23
+  store i8 0, ptr %13, align 8, !tbaa !23
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store ptr %27, ptr %26, align 8, !tbaa !64
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store i64 0, ptr %28, align 8, !tbaa !22
-  store i8 0, ptr %27, align 1, !tbaa !23
+  store i8 0, ptr %27, align 8, !tbaa !23
   store ptr %7, ptr %23, align 8, !tbaa !221
   %29 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %30 unwind label %51
@@ -21883,7 +21883,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   store ptr %33, ptr %32, align 8, !tbaa !64
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i64 0, ptr %34, align 8, !tbaa !22
-  store i8 0, ptr %33, align 1, !tbaa !23
+  store i8 0, ptr %33, align 8, !tbaa !23
   ret void
 
 35:                                               ; preds = %25

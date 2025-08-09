@@ -806,10 +806,10 @@ _ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit91: ;
   %201 = getelementptr inbounds nuw i8, ptr %199, i64 12
   store i32 %.0154, ptr %201, align 4, !tbaa !88
   %202 = getelementptr inbounds nuw i8, ptr %199, i64 8
-  store i32 %193, ptr %202, align 4, !tbaa !101
+  store i32 %193, ptr %202, align 8, !tbaa !101
   %203 = getelementptr inbounds nuw i8, ptr %199, i64 4
   store i32 %.sroa.speculated, ptr %203, align 4, !tbaa !88
-  store i32 %197, ptr %199, align 4, !tbaa !88
+  store i32 %197, ptr %199, align 8, !tbaa !88
   %204 = add i32 %.0154, %197
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %53, !llvm.loop !102
@@ -1879,10 +1879,10 @@ _ZN5draco30AttributeQuantizationTransformD2Ev.exit260: ; preds = %.critedge.crit
   %275 = getelementptr inbounds nuw i8, ptr %273, i64 12
   store i32 %.0332409, ptr %275, align 4, !tbaa !88
   %276 = getelementptr inbounds nuw i8, ptr %273, i64 8
-  store i32 %258, ptr %276, align 4, !tbaa !101
+  store i32 %258, ptr %276, align 8, !tbaa !101
   %277 = getelementptr inbounds nuw i8, ptr %273, i64 4
   store i32 %.sroa.speculated, ptr %277, align 4, !tbaa !88
-  store i32 %271, ptr %273, align 4, !tbaa !88
+  store i32 %271, ptr %273, align 8, !tbaa !88
   %278 = add i32 %.0332409, %271
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %229

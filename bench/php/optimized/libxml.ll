@@ -376,7 +376,7 @@ zend_string_release.exit.i:                       ; preds = %80, %79, %72, %php_
   %93 = getelementptr inbounds nuw i8, ptr %89, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %93, ptr noundef nonnull align 1 dereferenceable(6) @.str.77, i64 6, i1 false)
   %94 = getelementptr inbounds nuw i8, ptr %89, i64 30
-  store i8 0, ptr %94, align 1, !tbaa !33
+  store i8 0, ptr %94, align 2, !tbaa !33
   store ptr null, ptr %9, align 8, !tbaa !59
   %95 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 16, ptr %95, align 8, !tbaa !61

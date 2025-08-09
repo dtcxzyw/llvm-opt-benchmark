@@ -34853,7 +34853,7 @@ define linkonce_odr dso_local void @_ZN7testing13ContainsRegexIPKcEENS_18Polymor
   store ptr %24, ptr %5, align 8, !tbaa !20
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %25, align 8, !tbaa !23
-  store i8 0, ptr %24, align 1, !tbaa !25
+  store i8 0, ptr %24, align 8, !tbaa !25
   %26 = load ptr, ptr %4, align 8, !tbaa !29
   invoke void @_ZN7testing8internal2RE4InitEPKc(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef %26)
           to label %_ZN7testing8internal2REC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %27

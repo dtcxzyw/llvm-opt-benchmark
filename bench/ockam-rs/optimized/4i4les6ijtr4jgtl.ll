@@ -17098,7 +17098,7 @@ define hidden void @"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_incremen
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 712
   %8 = load atomic i32, ptr %7 acquire, align 4, !noalias !2255
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 716
-  %10 = load atomic i8, ptr %9 acquire, align 1, !noalias !2258
+  %10 = load atomic i8, ptr %9 acquire, align 4, !noalias !2258
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %.lr.ph.i, label %.critedge
 
@@ -18761,7 +18761,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit19.i.i.backedg
   %625 = getelementptr inbounds nuw i8, ptr %624, i64 712
   %626 = load atomic i32, ptr %625 acquire, align 4, !noalias !2463
   %627 = getelementptr inbounds nuw i8, ptr %624, i64 716
-  %628 = load atomic i8, ptr %627 acquire, align 1, !noalias !2466
+  %628 = load atomic i8, ptr %627 acquire, align 4, !noalias !2466
   %629 = icmp eq i8 %628, 0
   br i1 %629, label %.lr.ph.i.i, label %.loopexit
 

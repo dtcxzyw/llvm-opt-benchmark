@@ -10530,7 +10530,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit206: ; preds = %_Z
   store ptr %411, ptr %410, align 8, !tbaa !48
   %412 = getelementptr inbounds nuw i8, ptr %408, i64 160
   store i64 0, ptr %412, align 8, !tbaa !39
-  store i8 0, ptr %411, align 1, !tbaa !40
+  store i8 0, ptr %411, align 8, !tbaa !40
   %413 = getelementptr inbounds nuw i8, ptr %408, i64 184
   store i8 0, ptr %413, align 8, !tbaa !328
   %414 = getelementptr inbounds nuw i8, ptr %408, i64 192
@@ -13748,7 +13748,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit356: ; preds = %_Z
   store ptr %944, ptr %943, align 8, !tbaa !48
   %945 = getelementptr inbounds nuw i8, ptr %941, i64 160
   store i64 0, ptr %945, align 8, !tbaa !39
-  store i8 0, ptr %944, align 1, !tbaa !40
+  store i8 0, ptr %944, align 8, !tbaa !40
   %946 = getelementptr inbounds nuw i8, ptr %941, i64 184
   store i8 0, ptr %946, align 8, !tbaa !328
   %947 = getelementptr inbounds nuw i8, ptr %941, i64 192
@@ -24543,7 +24543,7 @@ _ZNSt10_HashtableIjSt4pairIKjS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_to
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIjSt4pairIKjS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !77
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !47
+  %16 = load i32, ptr %15, align 8, !tbaa !47
   %17 = zext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18

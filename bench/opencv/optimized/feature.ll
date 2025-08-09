@@ -1218,7 +1218,7 @@ define hidden void @_ZN2cv6detail8tracking15contrib_feature18CvFeatureEvaluator6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 0, ptr %5, align 4, !tbaa !89
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 0, ptr %6, align 4, !tbaa !90
+  store i32 0, ptr %6, align 8, !tbaa !90
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #32
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN2cv6detail8tracking15contrib_feature15CvHaarEvaluatorE, i64 16), ptr %4, align 8, !tbaa !3
@@ -1283,7 +1283,7 @@ _ZN2cv3PtrINS_6detail8tracking15contrib_feature18CvFeatureEvaluatorEEC2INS3_15Cv
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 20
   store i32 0, ptr %31, align 4, !tbaa !89
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  store i32 0, ptr %32, align 4, !tbaa !90
+  store i32 0, ptr %32, align 8, !tbaa !90
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 40
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %33) #32
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN2cv6detail8tracking15contrib_feature14CvLBPEvaluatorE, i64 16), ptr %30, align 8, !tbaa !3
@@ -1342,7 +1342,7 @@ _ZN2cv3PtrINS_6detail8tracking15contrib_feature18CvFeatureEvaluatorEEC2INS3_14Cv
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 20
   store i32 0, ptr %56, align 4, !tbaa !89
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  store i32 0, ptr %57, align 4, !tbaa !90
+  store i32 0, ptr %57, align 8, !tbaa !90
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 40
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %58) #32
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN2cv6detail8tracking15contrib_feature14CvHOGEvaluatorE, i64 16), ptr %55, align 8, !tbaa !3

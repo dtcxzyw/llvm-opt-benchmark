@@ -11797,7 +11797,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %91, %93
   %123 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 120
   store ptr null, ptr %123, align 8
   %124 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 128
-  store i32 -1, ptr %124, align 4
+  store i32 -1, ptr %124, align 8
   %125 = load i32, ptr %115, align 8
   %126 = or i32 %125, 258
   store i32 %126, ptr %115, align 8
@@ -20169,7 +20169,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %32, %34
   %78 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 136
   store ptr %4, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 144
-  store i32 -1, ptr %79, align 4
+  store i32 -1, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 148
   store i8 %53, ptr %80, align 4
   %81 = load i32, ptr %65, align 8
@@ -30291,7 +30291,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %25, %27
   store i64 0, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
   %37 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #19
-  store i32 0, ptr %36, align 4
+  store i32 0, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 36
   store i32 2, ptr %38, align 4
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
@@ -30301,7 +30301,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %25, %27
   store i64 0, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   %42 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #19
-  store i32 0, ptr %41, align 4
+  store i32 0, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 60
   store i32 2, ptr %43, align 4
   %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
@@ -30311,7 +30311,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %25, %27
   store i64 0, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 80
   %47 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #19
-  store i32 0, ptr %46, align 4
+  store i32 0, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 84
   store i32 2, ptr %48, align 4
   %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 88
@@ -31366,7 +31366,7 @@ _ZN12GraphBuilder17copy_state_beforeEv.exit:      ; preds = %_ZN22CompilationRes
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 48
   %46 = load i32, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %48 = load i32, ptr %47, align 4
+  %48 = load i32, ptr %47, align 8
   %49 = lshr i32 %48, 3
   %50 = or i32 %49, -2
   %.neg = add nsw i32 %50, 1
@@ -31477,7 +31477,7 @@ _ZN12GraphBuilder17copy_state_beforeEv.exit:      ; preds = %_ZN22CompilationRes
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 48
   %119 = load i32, ptr %118, align 8
   %120 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %121 = load i32, ptr %120, align 4
+  %121 = load i32, ptr %120, align 8
   %122 = lshr i32 %121, 3
   %123 = or i32 %122, -2
   %.neg120 = add nsw i32 %123, 1
@@ -32050,7 +32050,7 @@ _ZN12GraphBuilder12is_profilingEv.exit.thread:    ; preds = %71, %_ZN12GraphBuil
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 48
   %93 = load i32, ptr %92, align 8
-  %94 = load i32, ptr %18, align 4
+  %94 = load i32, ptr %18, align 8
   %95 = lshr i32 %94, 3
   %96 = or i32 %95, -2
   %.neg179 = add nsw i32 %96, 1
@@ -33214,7 +33214,7 @@ define hidden void @_ZN12GraphBuilder25build_graph_for_intrinsicEP8ciMethodb(ptr
   %83 = load ptr, ptr %62, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 48
   %85 = load i32, ptr %84, align 8
-  %86 = load i32, ptr %60, align 4
+  %86 = load i32, ptr %60, align 8
   %87 = lshr i32 %86, 3
   %.lobit.i = and i32 %87, 1
   %88 = xor i32 %.lobit.i, 1
@@ -33337,7 +33337,7 @@ define hidden void @_ZN12GraphBuilder17append_unsafe_getEP8ciMethod9BasicTypeb(p
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load i32, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %12 = load i32, ptr %11, align 4
+  %12 = load i32, ptr %11, align 8
   %13 = lshr i32 %12, 3
   %.lobit.i = and i32 %13, 1
   %14 = xor i32 %.lobit.i, 1
@@ -33466,7 +33466,7 @@ define hidden void @_ZN12GraphBuilder17append_unsafe_putEP8ciMethod9BasicTypeb(p
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load i32, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %12 = load i32, ptr %11, align 4
+  %12 = load i32, ptr %11, align 8
   %13 = lshr i32 %12, 3
   %.lobit.i = and i32 %13, 1
   %14 = xor i32 %.lobit.i, 1
@@ -33836,7 +33836,7 @@ define hidden void @_ZN12GraphBuilder17append_unsafe_CASEP8ciMethod(ptr noundef 
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %26 = load i32, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %28 = load i32, ptr %27, align 4
+  %28 = load i32, ptr %27, align 8
   %29 = lshr i32 %28, 3
   %.lobit.i = and i32 %29, 1
   %30 = xor i32 %.lobit.i, 1
@@ -34057,7 +34057,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %135, %137
   %166 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 120
   store ptr null, ptr %166, align 8
   %167 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 128
-  store i32 -1, ptr %167, align 4
+  store i32 -1, ptr %167, align 8
   %168 = load i32, ptr %158, align 8
   %169 = and i32 %168, -260
   %170 = or disjoint i32 %169, 2
@@ -34095,7 +34095,7 @@ define hidden void @_ZN12GraphBuilder25append_unsafe_get_and_setEP8ciMethodb(ptr
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %11 = load i32, ptr %10, align 4
+  %11 = load i32, ptr %10, align 8
   %12 = lshr i32 %11, 3
   %.lobit.i = and i32 %12, 1
   %13 = xor i32 %.lobit.i, 1
@@ -34249,7 +34249,7 @@ define hidden void @_ZN12GraphBuilder18append_char_accessEP8ciMethodb(ptr nounde
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load i32, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %15 = load i32, ptr %14, align 4
+  %15 = load i32, ptr %14, align 8
   %16 = lshr i32 %15, 3
   %.lobit.i = and i32 %16, 1
   %17 = xor i32 %.lobit.i, 1
@@ -34525,7 +34525,7 @@ define hidden void @_ZN12GraphBuilder23append_alloc_array_copyEP8ciMethod(ptr no
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load i32, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %12 = load i32, ptr %11, align 4
+  %12 = load i32, ptr %11, align 8
   %13 = lshr i32 %12, 3
   %14 = or i32 %13, -2
   %.neg75 = add nsw i32 %14, 1
@@ -35266,7 +35266,7 @@ _ZN11InstructionnwEm.exit62:                      ; preds = %449, %451
   %479 = getelementptr inbounds nuw i8, ptr %.0.i.i.i61, i64 120
   store ptr null, ptr %479, align 8
   %480 = getelementptr inbounds nuw i8, ptr %.0.i.i.i61, i64 128
-  store i32 -1, ptr %480, align 4
+  store i32 -1, ptr %480, align 8
   %481 = load i32, ptr %471, align 8
   %482 = and i32 %481, -259
   %masksel.i = select i1 %454, i32 256, i32 0

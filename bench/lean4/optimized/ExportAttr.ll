@@ -2109,7 +2109,7 @@ _init_l_Lean_initFn____x40_Lean_Compiler_ExportAttr___hyg_94____closed__7.exit: 
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store i64 0, ptr %37, align 8, !tbaa !11
-  store i32 1, ptr %33, align 4, !tbaa !5
+  store i32 1, ptr %33, align 8, !tbaa !5
   store i32 196648, ptr %36, align 4
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %30, ptr %38, align 8, !tbaa !13
@@ -2226,7 +2226,7 @@ _init_l_Lean_initFn____x40_Lean_Compiler_ExportAttr___hyg_94____closed__11.exit:
   %.val13 = load ptr, ptr %80, align 8, !tbaa !13
   store ptr %.val13, ptr @l_Lean_exportAttr, align 8, !tbaa !13
   tail call void @lean_mark_persistent(ptr noundef %.val13) #3
-  %81 = load i32, ptr %76, align 4, !tbaa !5
+  %81 = load i32, ptr %76, align 8, !tbaa !5
   %82 = icmp sgt i32 %81, 1
   br i1 %82, label %83, label %85, !prof !10
 

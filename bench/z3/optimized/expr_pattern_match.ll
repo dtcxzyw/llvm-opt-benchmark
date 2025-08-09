@@ -2755,7 +2755,7 @@ _ZNK9func_decl14is_commutativeEv.exit90.thread:   ; preds = %372, %_ZNK9func_dec
   %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %386, i64 8
   store i32 %.0.i58, ptr %.sroa.17.0..sroa_idx, align 8, !tbaa !12
   %.sroa.19.sroa.5.0..sroa.19.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %386, i64 16
-  store i64 0, ptr %.sroa.19.sroa.5.0..sroa.19.0..sroa_idx.sroa_idx, align 4, !tbaa !70
+  store i64 0, ptr %.sroa.19.sroa.5.0..sroa.19.0..sroa_idx.sroa_idx, align 8, !tbaa !70
   %.sroa.20.0..sroa_idx = getelementptr inbounds nuw i8, ptr %386, i64 24
   store ptr %129, ptr %.sroa.20.0..sroa_idx, align 8, !tbaa !24
   %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %386, i64 32
@@ -3024,7 +3024,7 @@ _ZN6vectorIP3varLb0EjE6resizeEj.exit122:          ; preds = %_ZN6vectorIP3varLb0
   %.sroa.17.0..sroa_idx164 = getelementptr inbounds nuw i8, ptr %471, i64 8
   store i32 %.sroa.17.0.lcssa, ptr %.sroa.17.0..sroa_idx164, align 8, !tbaa !12
   %.sroa.19.sroa.5.0..sroa.19.0..sroa_idx166.sroa_idx = getelementptr inbounds nuw i8, ptr %471, i64 16
-  store i64 0, ptr %.sroa.19.sroa.5.0..sroa.19.0..sroa_idx166.sroa_idx, align 4, !tbaa !70
+  store i64 0, ptr %.sroa.19.sroa.5.0..sroa.19.0..sroa_idx166.sroa_idx, align 8, !tbaa !70
   %.sroa.20.0..sroa_idx167 = getelementptr inbounds nuw i8, ptr %471, i64 24
   store ptr %.sroa.20.0.lcssa, ptr %.sroa.20.0..sroa_idx167, align 8, !tbaa !24
   %.sroa.21.0..sroa_idx169 = getelementptr inbounds nuw i8, ptr %471, i64 32

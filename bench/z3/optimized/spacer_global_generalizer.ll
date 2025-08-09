@@ -2389,9 +2389,9 @@ _Z3absRK8rational.exit:                           ; preds = %_ZN8rationalC2ERKS_
   %167 = or disjoint i8 %166, %161
   store i8 %167, ptr %55, align 4
   %168 = getelementptr inbounds nuw i8, ptr %144, i64 16
-  %169 = load i32, ptr %168, align 4, !tbaa !60
+  %169 = load i32, ptr %168, align 8, !tbaa !60
   %170 = load i32, ptr %57, align 8, !tbaa !60
-  store i32 %170, ptr %168, align 4, !tbaa !60
+  store i32 %170, ptr %168, align 8, !tbaa !60
   store i32 %169, ptr %57, align 8, !tbaa !60
   %171 = getelementptr inbounds nuw i8, ptr %144, i64 24
   %172 = load ptr, ptr %171, align 8, !tbaa !260
@@ -2958,9 +2958,9 @@ _ZN6spacer24lemma_global_generalizer8subsumer10is_numeralEPK4exprR8rational.exit
   %396 = or disjoint i8 %395, %390
   store i8 %396, ptr %242, align 4
   %397 = getelementptr inbounds nuw i8, ptr %373, i64 16
-  %398 = load i32, ptr %397, align 4, !tbaa !60
+  %398 = load i32, ptr %397, align 8, !tbaa !60
   %399 = load i32, ptr %243, align 8, !tbaa !60
-  store i32 %399, ptr %397, align 4, !tbaa !60
+  store i32 %399, ptr %397, align 8, !tbaa !60
   store i32 %398, ptr %243, align 8, !tbaa !60
   %400 = getelementptr inbounds nuw i8, ptr %373, i64 24
   %401 = load ptr, ptr %400, align 8, !tbaa !260

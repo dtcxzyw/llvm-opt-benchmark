@@ -3490,7 +3490,7 @@ av_sha_update.exit26:                             ; preds = %av_sha_update.exit1
   %37 = add i64 %.lcssa27, 8
   store i64 %37, ptr %3, align 8, !tbaa !13
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %6, ptr %38, align 1
+  store i64 %6, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %40 = load ptr, ptr %39, align 8, !tbaa !12
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 80

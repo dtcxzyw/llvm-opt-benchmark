@@ -3918,7 +3918,7 @@ define dso_local void @ilk_de_irq_postinstall(ptr noundef %0) local_unnamed_addr
   %6 = select i1 %5, i32 1207969065, i32 201884033
   %7 = select i1 %5, i32 -1275068416, i32 -2135686140
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 7184
-  %9 = load i32, ptr %8, align 4
+  %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 4194304
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %14, label %12
@@ -4118,7 +4118,7 @@ define dso_local void @gen8_de_irq_postinstall(ptr noundef %0) local_unnamed_add
   %75 = select i1 %73, i32 %74, i32 %68
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pre11 = load i16, ptr %4, align 8
-  %.pre12 = load i32, ptr %63, align 4
+  %.pre12 = load i32, ptr %63, align 8
   %.pre13 = and i32 %.pre12, 335544320
   br label %76
 
@@ -4288,7 +4288,7 @@ define dso_local void @intel_display_irq_init(ptr noundef initializes((312, 313)
   store i8 1, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 7936
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 7184
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 18874368
   %7 = icmp eq i32 %6, 0
   %8 = zext i1 %7 to i8

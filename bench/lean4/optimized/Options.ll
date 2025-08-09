@@ -168,7 +168,7 @@ _init_l_Lean_Compiler_initFn____x40_Lean_Compiler_Options___hyg_5____closed__5.e
   %.val20 = load ptr, ptr %58, align 8, !tbaa !4
   store ptr %.val20, ptr @l_Lean_Compiler_compiler_check, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val20) #3
-  %59 = load i32, ptr %54, align 4, !tbaa !8
+  %59 = load i32, ptr %54, align 8, !tbaa !8
   %60 = icmp sgt i32 %59, 1
   br i1 %60, label %61, label %63, !prof !11
 

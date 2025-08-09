@@ -464,7 +464,7 @@ define dso_local noundef i32 @_ZN4llvm8codeview26DebugStringTableSubsection6inse
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %18 = load i64, ptr %15, align 8, !tbaa !59
-  %19 = load i32, ptr %16, align 4, !tbaa !21
+  %19 = load i32, ptr %16, align 8, !tbaa !21
   store i32 %19, ptr %5, align 8, !tbaa !61
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %17, ptr %20, align 8, !tbaa !44
@@ -553,7 +553,7 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryI
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load i64, ptr %20, align 8, !tbaa !59
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %24 = load i32, ptr %23, align 4, !tbaa !21
+  %24 = load i32, ptr %23, align 8, !tbaa !21
   %25 = add i32 %24, %6
   %26 = zext i32 %25 to i64
   store i64 %26, ptr %4, align 8, !tbaa !66

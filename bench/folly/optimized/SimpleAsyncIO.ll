@@ -2337,7 +2337,7 @@ define internal void @"_ZN5folly6detail8function5call_IZNS_13SimpleAsyncIO8submi
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = load ptr, ptr %6, align 16, !tbaa !152
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %9 = load ptr, ptr %8, align 8, !tbaa !92
+  %9 = load ptr, ptr %8, align 16, !tbaa !92
   %.not.not.i = icmp eq ptr %0, %9
   br i1 %.not.not.i, label %.critedge.i, label %10, !prof !73
 

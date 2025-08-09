@@ -16750,7 +16750,7 @@ _ZNO5clang12ast_matchers8internal18PolymorphicMatcherINS1_31matcher_hasOperatorN
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr %20, ptr %19, align 8, !tbaa !356, !noalias !1373
   %21 = load i8, ptr %14, align 8, !tbaa !38, !noalias !1373
-  store i8 %21, ptr %20, align 1, !tbaa !38, !noalias !1373
+  store i8 %21, ptr %20, align 8, !tbaa !38, !noalias !1373
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i64 1, ptr %22, align 8, !tbaa !355, !noalias !1373
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 33

@@ -4130,7 +4130,7 @@ xchg_mb_border.exit:                              ; preds = %.thread457, %.threa
   %470 = load ptr, ptr %469, align 8, !tbaa !117
   tail call void %470(ptr noundef %.1322, i64 noundef %466) #7
   %471 = load i32, ptr %38, align 8, !tbaa !79
-  %472 = load i32, ptr %19, align 4, !tbaa !72
+  %472 = load i32, ptr %19, align 8, !tbaa !72
   %473 = and i32 %17, 1
   %.not.i = icmp eq i32 %473, 0
   br i1 %.not.i, label %656, label %474
@@ -4468,7 +4468,7 @@ dctcoef_get.exit398:                              ; preds = %643, %646
   %663 = ashr exact i64 %sext498, 32
   tail call void %662(ptr noundef %.1, i64 noundef %663) #7
   %664 = getelementptr inbounds nuw i8, ptr %1, i64 28624
-  %665 = load i8, ptr %664, align 1, !tbaa !91
+  %665 = load i8, ptr %664, align 4, !tbaa !91
   %.not179.i = icmp eq i8 %665, 0
   br i1 %.not179.i, label %hl_decode_mb_predict_luma.exit, label %666
 
@@ -6286,7 +6286,7 @@ xchg_mb_border.exit:                              ; preds = %.xchg_mb_border.exi
   %207 = load ptr, ptr %206, align 8, !tbaa !117
   tail call void %207(ptr noundef %51, i64 noundef %203) #7
   %208 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %209 = load i32, ptr %208, align 4, !tbaa !72
+  %209 = load i32, ptr %208, align 8, !tbaa !72
   %210 = and i32 %16, 1
   %.not.i = icmp eq i32 %210, 0
   br i1 %.not.i, label %302, label %211
@@ -6462,7 +6462,7 @@ xchg_mb_border.exit:                              ; preds = %.xchg_mb_border.exi
   %309 = ashr exact i64 %sext175, 32
   tail call void %308(ptr noundef nonnull %36, i64 noundef %309) #7
   %310 = getelementptr inbounds nuw i8, ptr %1, i64 28624
-  %311 = load i8, ptr %310, align 1, !tbaa !91
+  %311 = load i8, ptr %310, align 4, !tbaa !91
   %.not179.i = icmp eq i8 %311, 0
   br i1 %.not179.i, label %hl_decode_mb_predict_luma.exit, label %312
 
@@ -7684,7 +7684,7 @@ xchg_mb_border.exit:                              ; preds = %.xchg_mb_border.exi
   %178 = load ptr, ptr %177, align 8, !tbaa !117
   tail call void %178(ptr noundef %50, i64 noundef %174) #7
   %179 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %180 = load i32, ptr %179, align 4, !tbaa !72
+  %180 = load i32, ptr %179, align 8, !tbaa !72
   %181 = and i32 %16, 1
   %.not.i = icmp eq i32 %181, 0
   br i1 %.not.i, label %276, label %182
@@ -7867,7 +7867,7 @@ xchg_mb_border.exit:                              ; preds = %.xchg_mb_border.exi
   %283 = ashr exact i64 %sext169, 32
   tail call void %282(ptr noundef nonnull %35, i64 noundef %283) #7
   %284 = getelementptr inbounds nuw i8, ptr %1, i64 28624
-  %285 = load i8, ptr %284, align 1, !tbaa !91
+  %285 = load i8, ptr %284, align 4, !tbaa !91
   %.not179.i = icmp eq i8 %285, 0
   br i1 %.not179.i, label %hl_decode_mb_predict_luma.exit, label %286
 

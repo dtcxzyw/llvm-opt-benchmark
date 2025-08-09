@@ -1693,7 +1693,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %13
   store i64 %20, ptr %22, align 8, !tbaa !50
   store ptr %11, ptr %4, align 8, !tbaa !48
   store i64 0, ptr %21, align 8, !tbaa !50
-  store i8 0, ptr %11, align 1, !tbaa !41
+  store i8 0, ptr %11, align 8, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN9grpc_core16RefCountedString4MakeESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"class.grpc_core::RefCountedPtr.2") align 8 %6, i64 %20, ptr %19)
           to label %.noexc unwind label %51

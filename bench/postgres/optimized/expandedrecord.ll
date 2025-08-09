@@ -2036,11 +2036,11 @@ expanded_record_get_tupdesc.exit:                 ; preds = %20, %23
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %31, ptr %32, align 4
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i16 -1, ptr %33, align 2
+  store i16 -1, ptr %33, align 4
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 14
   store i16 -1, ptr %34, align 2
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 0, ptr %35, align 2
+  store i16 0, ptr %35, align 4
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %37 = load i16, ptr %36, align 2
   %38 = and i16 %37, -2048

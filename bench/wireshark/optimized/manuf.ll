@@ -60954,7 +60954,7 @@ define void @ws_manuf_iter_init(ptr noundef initializes((0, 8)) %0) local_unname
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 14308608, ptr %9, align 1
+  store i32 14308608, ptr %9, align 8
   %10 = getelementptr i8, ptr %0, i64 52
   store i8 0, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 53

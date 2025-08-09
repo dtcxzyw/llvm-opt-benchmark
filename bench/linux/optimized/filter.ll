@@ -5703,7 +5703,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_pop_data(i64 noundef %0,
   %246 = getelementptr inbounds nuw i8, ptr %229, i64 336
   %247 = load i32, ptr %246, align 8
   %248 = getelementptr inbounds nuw i8, ptr %229, i64 240
-  %249 = load volatile i32, ptr %248, align 4
+  %249 = load volatile i32, ptr %248, align 8
   %250 = add i32 %247, %249
   %251 = sub i32 %243, %250
   %252 = tail call i32 @llvm.smax.i32(i32 %251, i32 0)

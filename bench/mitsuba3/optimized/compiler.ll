@@ -122,7 +122,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler11newFuncNodeEPP
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 470
   store i8 -1, ptr %18, align 2, !tbaa !52
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 496
-  store i32 -1, ptr %19, align 4, !tbaa !53
+  store i32 -1, ptr %19, align 8, !tbaa !53
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 568
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
   store i8 16, ptr %11, align 8, !tbaa !44
@@ -206,7 +206,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler11newFuncNodeEPP
   %64 = getelementptr inbounds nuw i8, ptr %8, i64 584
   store ptr null, ptr %64, align 8, !tbaa !61
   %65 = getelementptr inbounds nuw i8, ptr %8, i64 168
-  %66 = load i8, ptr %65, align 4, !tbaa !67
+  %66 = load i8, ptr %65, align 8, !tbaa !67
   %67 = icmp eq i8 %66, 0
   br i1 %67, label %79, label %68
 
@@ -353,11 +353,11 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler14newFuncRetNode
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(30) %20, i8 0, i64 28, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  store i32 -2147483648, ptr %21, align 4, !tbaa !78
+  store i32 -2147483648, ptr %21, align 8, !tbaa !78
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 52
   store i32 0, ptr %22, align 4, !tbaa !80
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  store i64 0, ptr %23, align 4
+  store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 19
   store i8 4, ptr %24, align 1, !tbaa !44
   store i8 17, ptr %15, align 8, !tbaa !44
@@ -436,11 +436,11 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler14addFuncRetNode
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(30) %23, i8 0, i64 28, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  store i32 -2147483648, ptr %24, align 4, !tbaa !78
+  store i32 -2147483648, ptr %24, align 8, !tbaa !78
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 52
   store i32 0, ptr %25, align 4, !tbaa !80
   %26 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  store i64 0, ptr %26, align 4
+  store i64 0, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 19
   store i8 4, ptr %27, align 1, !tbaa !44
   store i8 17, ptr %18, align 8, !tbaa !44
@@ -571,7 +571,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler13newInvokeNodeE
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(30) %17, i8 0, i64 28, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store i32 %2, ptr %18, align 4, !tbaa !78
+  store i32 %2, ptr %18, align 8, !tbaa !78
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 52
   store i32 0, ptr %19, align 4, !tbaa !80
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 56
@@ -1563,11 +1563,11 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler11newJumpNodeEPP
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(30) %20, i8 0, i64 28, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store i32 %2, ptr %21, align 4, !tbaa !78
+  store i32 %2, ptr %21, align 8, !tbaa !78
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 52
   store i32 %3, ptr %22, align 4, !tbaa !80
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  store i64 0, ptr %23, align 4
+  store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 19
   store i8 4, ptr %24, align 1, !tbaa !44
   store i8 1, ptr %19, align 2, !tbaa !44
@@ -1618,11 +1618,11 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler17emitAnnotatedJ
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(30) %25, i8 0, i64 28, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  store i32 %1, ptr %26, align 4, !tbaa !78
+  store i32 %1, ptr %26, align 8, !tbaa !78
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 52
   store i32 %18, ptr %27, align 4, !tbaa !80
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  store i64 0, ptr %28, align 4
+  store i64 0, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %15, i64 19
   store i8 4, ptr %29, align 1, !tbaa !44
   store i8 1, ptr %24, align 2, !tbaa !44

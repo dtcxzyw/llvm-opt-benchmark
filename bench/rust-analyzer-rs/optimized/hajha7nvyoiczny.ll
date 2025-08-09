@@ -14883,7 +14883,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %.val6 = load ptr, ptr %21, align 8, !nonnull !9, !noundef !9
   %23 = getelementptr i8, ptr %17, i64 -16
   %.val7 = load i64, ptr %23, align 8
-  %.val8 = load i32, ptr %22, align 4
+  %.val8 = load i32, ptr %22, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !4127
   %24 = mul i64 %.val7, 5871781006564002453
   store i64 %24, ptr %3, align 8, !alias.scope !4132, !noalias !4143
@@ -15769,7 +15769,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   call void @llvm.experimental.noalias.scope.decl(metadata !4476)
   call void @llvm.experimental.noalias.scope.decl(metadata !4479)
   call void @llvm.experimental.noalias.scope.decl(metadata !4482)
-  %76 = load i32, ptr %72, align 4, !range !2904, !alias.scope !4484, !noalias !4485, !noundef !9
+  %76 = load i32, ptr %72, align 8, !range !2904, !alias.scope !4484, !noalias !4485, !noundef !9
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %76, 15
   %77 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i64 0, i64 5871781006564002453
   store i64 %77, ptr %3, align 8, !alias.scope !4487, !noalias !4492

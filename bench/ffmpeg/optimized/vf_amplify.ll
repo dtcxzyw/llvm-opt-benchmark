@@ -151,7 +151,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %47 = load ptr, ptr %16, align 8, !tbaa !26
   store ptr %47, ptr %3, align 8, !tbaa !49
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  %49 = load i32, ptr %48, align 4, !tbaa !50
+  %49 = load i32, ptr %48, align 8, !tbaa !50
   %50 = tail call i32 @ff_filter_get_nb_threads(ptr noundef nonnull %5) #9
   %. = tail call i32 @llvm.smin.i32(i32 %49, i32 %50)
   %51 = call i32 @ff_filter_execute(ptr noundef nonnull %5, ptr noundef nonnull @amplify_frame, ptr noundef nonnull %3, ptr noundef null, i32 noundef %.) #8
@@ -923,11 +923,11 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef readonl
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 84
   store i32 %36, ptr %38, align 4, !tbaa !50
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i32 %36, ptr %39, align 4, !tbaa !50
+  store i32 %36, ptr %39, align 8, !tbaa !50
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 44
   %41 = load i32, ptr %40, align 4, !tbaa !46
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  store i32 %41, ptr %42, align 4, !tbaa !50
+  store i32 %41, ptr %42, align 8, !tbaa !50
   store i32 %41, ptr %37, align 4, !tbaa !50
   br label %43
 

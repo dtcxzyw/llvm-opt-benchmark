@@ -920,7 +920,7 @@ define internal fastcc noundef align 8 ptr @"_ZN100_$LT$hyper..proto..h1..dispat
   %80 = load ptr, ptr %79, align 8, !noalias !28
   store ptr null, ptr %77, align 8, !noalias !28
   %.not6.i = icmp eq ptr %78, null
-  store atomic i8 0, ptr %74 seq_cst, align 1, !noalias !28
+  store atomic i8 0, ptr %74 seq_cst, align 8, !noalias !28
   br i1 %.not6.i, label %_ZN4want5Taker6signal17ha1811a8ae89d2cfeE.exit, label %81
 
 81:                                               ; preds = %76
@@ -13416,7 +13416,7 @@ define hidden void @"_ZN5hyper6client8dispatch21Receiver$LT$T$C$U$GT$9poll_recv1
   %21 = load ptr, ptr %20, align 8, !noalias !484
   store ptr null, ptr %18, align 8, !noalias !484
   %.not6.i = icmp eq ptr %19, null
-  store atomic i8 0, ptr %15 seq_cst, align 1, !noalias !484
+  store atomic i8 0, ptr %15 seq_cst, align 8, !noalias !484
   br i1 %.not6.i, label %_ZN4want5Taker6signal17ha1811a8ae89d2cfeE.exit, label %22
 
 22:                                               ; preds = %17

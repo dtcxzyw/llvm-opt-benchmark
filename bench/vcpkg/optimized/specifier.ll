@@ -21550,7 +21550,7 @@ _ZN5vcpkg11PackageSpecC2EOS0_.exit.i:             ; preds = %_ZNKSt7__cxx1112bas
   store i64 %38, ptr %15, align 8, !tbaa !18
   store ptr %29, ptr %27, align 8, !tbaa !15
   store i64 0, ptr %39, align 8, !tbaa !18
-  store i8 0, ptr %29, align 1, !tbaa !17
+  store i8 0, ptr %29, align 8, !tbaa !17
   %40 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %41 = load i64, ptr %40, align 8, !tbaa !19
   store i64 %41, ptr %16, align 8, !tbaa !19
@@ -21585,7 +21585,7 @@ _ZN5vcpkg11FeatureSpecC2EOS0_.exit:               ; preds = %46, %_ZNKSt7__cxx11
   store i64 %53, ptr %19, align 8, !tbaa !18
   store ptr %44, ptr %42, align 8, !tbaa !15
   store i64 0, ptr %54, align 8, !tbaa !18
-  store i8 0, ptr %44, align 1, !tbaa !17
+  store i8 0, ptr %44, align 8, !tbaa !17
   store ptr %20, ptr %5, align 8, !tbaa !12
   %55 = icmp eq ptr %37, %14
   br i1 %55, label %56, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i11
@@ -21756,7 +21756,7 @@ _ZN5vcpkg11PackageSpecC2EOS0_.exit.i:             ; preds = %_ZNKSt7__cxx1112bas
   store i64 %17, ptr %19, align 8, !tbaa !18
   store ptr %9, ptr %2, align 8, !tbaa !15
   store i64 0, ptr %18, align 8, !tbaa !18
-  store i8 0, ptr %9, align 1, !tbaa !17
+  store i8 0, ptr %9, align 8, !tbaa !17
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %22 = load i64, ptr %21, align 8, !tbaa !19
@@ -21794,7 +21794,7 @@ _ZN5vcpkg11FeatureSpecC2EOS0_.exit:               ; preds = %29, %_ZNKSt7__cxx11
   store i64 %35, ptr %37, align 8, !tbaa !18
   store ptr %27, ptr %24, align 8, !tbaa !15
   store i64 0, ptr %36, align 8, !tbaa !18
-  store i8 0, ptr %27, align 1, !tbaa !17
+  store i8 0, ptr %27, align 8, !tbaa !17
   %38 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZN5vcpkg11FeatureSpecaSEOS0_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(72) %0) #25
   %39 = ptrtoint ptr %1 to i64
   %40 = ptrtoint ptr %0 to i64
@@ -22020,7 +22020,7 @@ _ZN5vcpkg11PackageSpecC2EOS0_.exit.i:             ; preds = %_ZNKSt7__cxx1112bas
   store i64 %42, ptr %44, align 8, !tbaa !18
   store ptr %34, ptr %3, align 8, !tbaa !15
   store i64 0, ptr %43, align 8, !tbaa !18
-  store i8 0, ptr %34, align 1, !tbaa !17
+  store i8 0, ptr %34, align 8, !tbaa !17
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %47 = load i64, ptr %46, align 8, !tbaa !19
@@ -22058,7 +22058,7 @@ _ZN5vcpkg11FeatureSpecC2EOS0_.exit:               ; preds = %54, %_ZNKSt7__cxx11
   store i64 %60, ptr %62, align 8, !tbaa !18
   store ptr %52, ptr %49, align 8, !tbaa !15
   store i64 0, ptr %61, align 8, !tbaa !18
-  store i8 0, ptr %52, align 1, !tbaa !17
+  store i8 0, ptr %52, align 8, !tbaa !17
   %63 = icmp sgt i64 %.1, %1
   br i1 %63, label %.lr.ph.i, label %.loopexit
 
@@ -22692,7 +22692,7 @@ _ZN5vcpkg11PackageSpecC2EOS0_.exit.i:             ; preds = %_ZNKSt7__cxx1112bas
   store i64 %25, ptr %6, align 8, !tbaa !18
   store ptr %16, ptr %.sroa.0.023, align 8, !tbaa !15
   store i64 0, ptr %24, align 8, !tbaa !18
-  store i8 0, ptr %16, align 1, !tbaa !17
+  store i8 0, ptr %16, align 8, !tbaa !17
   %26 = getelementptr inbounds nuw i8, ptr %.pn22, i64 104
   %27 = load i64, ptr %26, align 8, !tbaa !19
   store i64 %27, ptr %7, align 8, !tbaa !19
@@ -22724,7 +22724,7 @@ _ZN5vcpkg11FeatureSpecC2EOS0_.exit:               ; preds = %32, %_ZNKSt7__cxx11
   store i64 %39, ptr %10, align 8, !tbaa !18
   store ptr %30, ptr %28, align 8, !tbaa !15
   store i64 0, ptr %38, align 8, !tbaa !18
-  store i8 0, ptr %30, align 1, !tbaa !17
+  store i8 0, ptr %30, align 8, !tbaa !17
   %40 = ptrtoint ptr %.sroa.0.023 to i64
   %41 = sub i64 %40, %11
   %42 = icmp sgt i64 %41, 0
@@ -23012,7 +23012,7 @@ _ZN5vcpkg11PackageSpecC2EOS0_.exit.i:             ; preds = %_ZNKSt7__cxx1112bas
   store i64 %13, ptr %15, align 8, !tbaa !18
   store ptr %5, ptr %0, align 8, !tbaa !15
   store i64 0, ptr %14, align 8, !tbaa !18
-  store i8 0, ptr %5, align 1, !tbaa !17
+  store i8 0, ptr %5, align 8, !tbaa !17
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i64, ptr %17, align 8, !tbaa !19
@@ -23050,7 +23050,7 @@ _ZN5vcpkg11FeatureSpecC2EOS0_.exit:               ; preds = %25, %_ZNKSt7__cxx11
   store i64 %31, ptr %33, align 8, !tbaa !18
   store ptr %23, ptr %20, align 8, !tbaa !15
   store i64 0, ptr %32, align 8, !tbaa !18
-  store i8 0, ptr %23, align 1, !tbaa !17
+  store i8 0, ptr %23, align 8, !tbaa !17
   br label %34
 
 34:                                               ; preds = %36, %_ZN5vcpkg11FeatureSpecC2EOS0_.exit

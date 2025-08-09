@@ -1452,9 +1452,9 @@ zend_string_copy.exit.i.i:
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(22) %4, ptr noundef nonnull align 16 dereferenceable(22) @php_output_default_handler_name, i64 22, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 46
-  store i8 0, ptr %5, align 1, !tbaa !8
+  store i8 0, ptr %5, align 2, !tbaa !8
   %6 = tail call noalias dereferenceable_or_null(80) ptr @_ecalloc(i64 noundef 1, i64 noundef 80) #25
-  store i32 2, ptr %0, align 4, !tbaa !20
+  store i32 2, ptr %0, align 8, !tbaa !20
   store ptr %0, ptr %6, align 8, !tbaa !78
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %7, align 8, !tbaa !66
@@ -1708,7 +1708,7 @@ zend_string_copy.exit.i.i:
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 43
   store i8 0, ptr %5, align 1, !tbaa !8
   %6 = tail call noalias dereferenceable_or_null(80) ptr @_ecalloc(i64 noundef 1, i64 noundef 80) #25
-  store i32 2, ptr %0, align 4, !tbaa !20
+  store i32 2, ptr %0, align 8, !tbaa !20
   store ptr %0, ptr %6, align 8, !tbaa !78
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 16384, ptr %7, align 8, !tbaa !66

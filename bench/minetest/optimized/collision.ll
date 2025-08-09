@@ -1578,7 +1578,7 @@ if.then.i1437:                                    ; preds = %for.body307
   %p.sroa.20.0.position.i.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %153, i64 22
   store i16 %storemerge11242174, ptr %p.sroa.20.0.position.i.i.i.i.sroa_idx, align 2, !tbaa !114
   %p.sroa.29.0.position.i.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %153, i64 24
-  store i16 %storemerge11262169, ptr %p.sroa.29.0.position.i.i.i.i.sroa_idx, align 4, !tbaa !114
+  store i16 %storemerge11262169, ptr %p.sroa.29.0.position.i.i.i.i.sroa_idx, align 8, !tbaa !114
   %box4.i.i.i.i = getelementptr inbounds nuw i8, ptr %153, i64 28
   store <4 x float> %156, ptr %box4.i.i.i.i, align 4, !tbaa !12
   %box.sroa.14.0.box4.i.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %153, i64 44
@@ -1629,7 +1629,7 @@ invoke.cont.i:                                    ; preds = %_ZNKSt6vectorI19Nea
   %p.sroa.20.0.position.i.i.i.i1755.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i1751, i64 22
   store i16 %storemerge11242174, ptr %p.sroa.20.0.position.i.i.i.i1755.sroa_idx, align 2, !tbaa !114
   %p.sroa.29.0.position.i.i.i.i1755.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i1751, i64 24
-  store i16 %storemerge11262169, ptr %p.sroa.29.0.position.i.i.i.i1755.sroa_idx, align 4, !tbaa !114
+  store i16 %storemerge11262169, ptr %p.sroa.29.0.position.i.i.i.i1755.sroa_idx, align 8, !tbaa !114
   %box4.i.i.i.i1756 = getelementptr inbounds nuw i8, ptr %add.ptr.i1751, i64 28
   store <4 x float> %156, ptr %box4.i.i.i.i1756, align 4, !tbaa !12
   %box.sroa.14.0.box4.i.i.i.i1756.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i1751, i64 44
@@ -1716,19 +1716,19 @@ if.then.i1451:                                    ; preds = %invoke.cont338
   %p.sroa.20.0.position.i.i.i.i1455.sroa_idx = getelementptr inbounds nuw i8, ptr %165, i64 22
   store i16 %storemerge11242174, ptr %p.sroa.20.0.position.i.i.i.i1455.sroa_idx, align 2, !tbaa !114
   %p.sroa.29.0.position.i.i.i.i1455.sroa_idx = getelementptr inbounds nuw i8, ptr %165, i64 24
-  store i16 %storemerge11262169, ptr %p.sroa.29.0.position.i.i.i.i1455.sroa_idx, align 4, !tbaa !114
+  store i16 %storemerge11262169, ptr %p.sroa.29.0.position.i.i.i.i1455.sroa_idx, align 8, !tbaa !114
   %box4.i.i.i.i1456 = getelementptr inbounds nuw i8, ptr %165, i64 28
   store float %92, ptr %box4.i.i.i.i1456, align 4, !tbaa !12
   %box335.sroa.6.0.box4.i.i.i.i1456.sroa_idx = getelementptr inbounds nuw i8, ptr %165, i64 32
-  store float %95, ptr %box335.sroa.6.0.box4.i.i.i.i1456.sroa_idx, align 4, !tbaa !12
+  store float %95, ptr %box335.sroa.6.0.box4.i.i.i.i1456.sroa_idx, align 8, !tbaa !12
   %box335.sroa.7.0.box4.i.i.i.i1456.sroa_idx = getelementptr inbounds nuw i8, ptr %165, i64 36
   store float %163, ptr %box335.sroa.7.0.box4.i.i.i.i1456.sroa_idx, align 4, !tbaa !12
   %box335.sroa.8.0.box4.i.i.i.i1456.sroa_idx = getelementptr inbounds nuw i8, ptr %165, i64 40
-  store float %93, ptr %box335.sroa.8.0.box4.i.i.i.i1456.sroa_idx, align 4, !tbaa !12
+  store float %93, ptr %box335.sroa.8.0.box4.i.i.i.i1456.sroa_idx, align 8, !tbaa !12
   %box335.sroa.9.0.box4.i.i.i.i1456.sroa_idx = getelementptr inbounds nuw i8, ptr %165, i64 44
   store float %96, ptr %box335.sroa.9.0.box4.i.i.i.i1456.sroa_idx, align 4, !tbaa !12
   %box335.sroa.10.0.box4.i.i.i.i1456.sroa_idx = getelementptr inbounds nuw i8, ptr %165, i64 48
-  store float %164, ptr %box335.sroa.10.0.box4.i.i.i.i1456.sroa_idx, align 4, !tbaa !12
+  store float %164, ptr %box335.sroa.10.0.box4.i.i.i.i1456.sroa_idx, align 8, !tbaa !12
   %incdec.ptr.i1457 = getelementptr inbounds nuw i8, ptr %165, i64 56
   store ptr %incdec.ptr.i1457, ptr %_M_finish.i1436, align 8, !tbaa !124
   br label %cleanup348
@@ -1775,19 +1775,19 @@ invoke.cont.i1781:                                ; preds = %_ZNKSt6vectorI19Nea
   %p.sroa.20.0.position.i.i.i.i1787.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i1783, i64 22
   store i16 %storemerge11242174, ptr %p.sroa.20.0.position.i.i.i.i1787.sroa_idx, align 2, !tbaa !114
   %p.sroa.29.0.position.i.i.i.i1787.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i1783, i64 24
-  store i16 %storemerge11262169, ptr %p.sroa.29.0.position.i.i.i.i1787.sroa_idx, align 4, !tbaa !114
+  store i16 %storemerge11262169, ptr %p.sroa.29.0.position.i.i.i.i1787.sroa_idx, align 8, !tbaa !114
   %box4.i.i.i.i1788 = getelementptr inbounds nuw i8, ptr %add.ptr.i1783, i64 28
   store float %92, ptr %box4.i.i.i.i1788, align 4, !tbaa !12
   %box335.sroa.6.0.box4.i.i.i.i1788.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i1783, i64 32
-  store float %95, ptr %box335.sroa.6.0.box4.i.i.i.i1788.sroa_idx, align 4, !tbaa !12
+  store float %95, ptr %box335.sroa.6.0.box4.i.i.i.i1788.sroa_idx, align 8, !tbaa !12
   %box335.sroa.7.0.box4.i.i.i.i1788.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i1783, i64 36
   store float %163, ptr %box335.sroa.7.0.box4.i.i.i.i1788.sroa_idx, align 4, !tbaa !12
   %box335.sroa.8.0.box4.i.i.i.i1788.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i1783, i64 40
-  store float %93, ptr %box335.sroa.8.0.box4.i.i.i.i1788.sroa_idx, align 4, !tbaa !12
+  store float %93, ptr %box335.sroa.8.0.box4.i.i.i.i1788.sroa_idx, align 8, !tbaa !12
   %box335.sroa.9.0.box4.i.i.i.i1788.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i1783, i64 44
   store float %96, ptr %box335.sroa.9.0.box4.i.i.i.i1788.sroa_idx, align 4, !tbaa !12
   %box335.sroa.10.0.box4.i.i.i.i1788.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i1783, i64 48
-  store float %164, ptr %box335.sroa.10.0.box4.i.i.i.i1788.sroa_idx, align 4, !tbaa !12
+  store float %164, ptr %box335.sroa.10.0.box4.i.i.i.i1788.sroa_idx, align 8, !tbaa !12
   %cmp.not6.i.i.i.i1789 = icmp eq ptr %167, %165
   br i1 %cmp.not6.i.i.i.i1789, label %_ZNSt6vectorI19NearbyCollisionInfoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit62.i1806, label %for.body.i.i.i.i1790
 
@@ -2771,7 +2771,7 @@ invoke.cont703:                                   ; preds = %land.end.thread, %i
   %info.sroa.11.8.position.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i1621, i64 22
   %info.sroa.11.8.copyload = load i16, ptr %info.sroa.11.8.position.sroa_idx, align 2, !tbaa !114
   %info.sroa.12.8.position.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i1621, i64 24
-  %info.sroa.12.8.copyload = load i16, ptr %info.sroa.12.8.position.sroa_idx, align 4, !tbaa !114
+  %info.sroa.12.8.copyload = load i16, ptr %info.sroa.12.8.position.sroa_idx, align 8, !tbaa !114
   %325 = load <2 x float>, ptr %speed_f, align 4
   %info.sroa.18.24.copyload = load float, ptr %Z.i1179, align 4, !tbaa !12
   %326 = extractelement <2 x float> %325, i64 0
@@ -3261,11 +3261,11 @@ if.then:                                          ; preds = %entry
   %bouncy3.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %3, ptr %bouncy3.i.i.i, align 8, !tbaa !123
   %position.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i16 0, ptr %position.i.i.i, align 2, !tbaa !229
+  store i16 0, ptr %position.i.i.i, align 4, !tbaa !229
   %Y.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 22
   store i16 0, ptr %Y.i.i.i.i, align 2, !tbaa !230
   %Z.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i16 0, ptr %Z.i.i.i.i, align 2, !tbaa !231
+  store i16 0, ptr %Z.i.i.i.i, align 8, !tbaa !231
   %box4.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %box4.i.i.i, ptr noundef nonnull align 4 dereferenceable(24) %__args3, i64 24, i1 false), !tbaa.struct !153
   %4 = load ptr, ptr %_M_finish, align 8, !tbaa !124
@@ -3307,11 +3307,11 @@ _ZNKSt6vectorI19NearbyCollisionInfoSaIS0_EE12_M_check_lenEmPKc.exit.i: ; preds =
   %bouncy3.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
   store i32 %8, ptr %bouncy3.i.i.i.i, align 8, !tbaa !123
   %position.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 20
-  store i16 0, ptr %position.i.i.i.i, align 2, !tbaa !229
+  store i16 0, ptr %position.i.i.i.i, align 4, !tbaa !229
   %Y.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 22
   store i16 0, ptr %Y.i.i.i.i.i, align 2, !tbaa !230
   %Z.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 24
-  store i16 0, ptr %Z.i.i.i.i.i, align 2, !tbaa !231
+  store i16 0, ptr %Z.i.i.i.i.i, align 8, !tbaa !231
   %box4.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %box4.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(24) %__args3, i64 24, i1 false), !tbaa.struct !153
   %cmp.not6.i.i.i.i = icmp eq ptr %5, %0

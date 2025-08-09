@@ -3012,9 +3012,9 @@ _ZNSt16allocator_traitsISaISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   store i64 %57, ptr %58, align 8, !tbaa !36
   store ptr %48, ptr %.01418.i.i, align 8, !tbaa !32
   store i64 0, ptr %56, align 8, !tbaa !36
-  store i8 0, ptr %48, align 1, !tbaa !101
+  store i8 0, ptr %48, align 8, !tbaa !101
   %59 = getelementptr inbounds nuw i8, ptr %.01517.i.i, i64 32
-  %60 = load i32, ptr %45, align 4, !tbaa !30
+  %60 = load i32, ptr %45, align 8, !tbaa !30
   store i32 %60, ptr %59, align 8, !tbaa !49
   %61 = add nuw i64 %.019.i.i, 1
   %62 = getelementptr inbounds nuw i8, ptr %.01418.i.i, i64 40
@@ -3043,7 +3043,7 @@ _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyINSt7__cxx1112basic_str
   tail call void @llvm.assume(i1 %68)
   %69 = trunc i64 %5 to i16
   %70 = getelementptr inbounds nuw i8, ptr %41, i64 12
-  store i16 %69, ptr %70, align 1
+  store i16 %69, ptr %70, align 2
   store ptr %41, ptr %19, align 8, !tbaa !8
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %72 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %4, i1 true)
@@ -3655,9 +3655,9 @@ _ZNSt16allocator_traitsISaISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   store i64 %19, ptr %20, align 8, !tbaa !36
   store ptr %10, ptr %.01418.i, align 8, !tbaa !32
   store i64 0, ptr %18, align 8, !tbaa !36
-  store i8 0, ptr %10, align 1, !tbaa !101
+  store i8 0, ptr %10, align 8, !tbaa !101
   %21 = getelementptr inbounds nuw i8, ptr %.01517.i, i64 32
-  %22 = load i32, ptr %7, align 4, !tbaa !30
+  %22 = load i32, ptr %7, align 8, !tbaa !30
   store i32 %22, ptr %21, align 8, !tbaa !49
   %23 = add nuw i64 %.019.i, 1
   %24 = getelementptr inbounds nuw i8, ptr %.01418.i, i64 40
@@ -8227,7 +8227,7 @@ _ZNSt10unique_ptrIA_N5folly24SingleWriterFixedHashMapIPNS0_11RequestDataEiE4Elem
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !323
   %65 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %66 = load atomic i32, ptr %65 monotonic, align 4
+  %66 = load atomic i32, ptr %65 monotonic, align 8
   %67 = invoke noundef zeroext i1 @_ZN5folly24SingleWriterFixedHashMapIPNS_11RequestDataEiE6insertES2_i(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %64, i32 noundef %66)
           to label %70 unwind label %68
 
@@ -8384,7 +8384,7 @@ _ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11write
   %54 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %55 = ptrtoint ptr %2 to i64
   store atomic i64 %55, ptr %54 monotonic, align 8
-  store atomic i8 1, ptr %44 release, align 1
+  store atomic i8 1, ptr %44 release, align 8
   %56 = load atomic i64, ptr %21 acquire, align 8
   %57 = add i64 %56, 1
   store atomic i64 %57, ptr %21 release, align 8
@@ -8555,7 +8555,7 @@ _ZN5folly24SingleWriterFixedHashMapIPNS_11RequestDataEiE11writer_findES2_.exit.t
 .critedge25:                                      ; preds = %49, %.critedge
   %57 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store atomic i32 %2, ptr %57 monotonic, align 4
-  store atomic i8 1, ptr %47 release, align 1
+  store atomic i8 1, ptr %47 release, align 4
   %58 = load atomic i64, ptr %22 acquire, align 8
   %59 = add i64 %58, 1
   store atomic i64 %59, ptr %22 release, align 8

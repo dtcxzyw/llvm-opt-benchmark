@@ -6196,7 +6196,7 @@ define hidden void @"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Arc
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load i8, ptr %21, align 8, !range !9, !alias.scope !931, !noundef !7
-  store i8 %22, ptr %20, align 1, !noalias !931
+  store i8 %22, ptr %20, align 4, !noalias !931
   br label %23
 
 23:                                               ; preds = %7, %6

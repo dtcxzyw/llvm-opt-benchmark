@@ -610,7 +610,7 @@ define dso_local noundef ptr @CreateFakeRelcacheEntry(i64 %0, i32 %1) local_unna
   %9 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.6, i32 noundef %1) #8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 76
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i32 %.sroa.013.sroa.3.0.extract.trunc, ptr %11, align 4
+  store i32 %.sroa.013.sroa.3.0.extract.trunc, ptr %11, align 8
   store i32 %1, ptr %10, align 4
   %12 = tail call ptr @smgropen(i64 %0, i32 %1, i32 noundef -1) #8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16

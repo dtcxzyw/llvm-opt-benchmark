@@ -2773,7 +2773,7 @@ _ZNSt6vectorIjSaIjEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
 
 12:                                               ; preds = %10
   %13 = load i32, ptr %11, align 4, !tbaa !35
-  %14 = load i8, ptr %.017115, align 1, !tbaa !42
+  %14 = load i8, ptr %.017115, align 4, !tbaa !42
   store i32 %13, ptr %.sroa.1264.0113, align 4, !tbaa !248
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.1264.0113, i64 4
   store i8 %14, ptr %15, align 4, !tbaa !250
@@ -2809,7 +2809,7 @@ _ZNKSt6vectorIN8rawspeed18AbstractPrefixCodeINS0_10VC5CodeTagEE10CodeSymbolESaIS
 .noexc25:                                         ; preds = %_ZNKSt6vectorIN8rawspeed18AbstractPrefixCodeINS0_10VC5CodeTagEE10CodeSymbolESaIS4_EE12_M_check_lenEmPKc.exit.i.i
   %29 = getelementptr inbounds i8, ptr %28, i64 %19
   %30 = load i32, ptr %11, align 4, !tbaa !35
-  %31 = load i8, ptr %.017115, align 1, !tbaa !42
+  %31 = load i8, ptr %.017115, align 4, !tbaa !42
   store i32 %30, ptr %29, align 4, !tbaa !248
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i8 %31, ptr %32, align 4, !tbaa !250

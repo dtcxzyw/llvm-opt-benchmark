@@ -219,17 +219,17 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit19:
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 28
   store i32 32, ptr %14, align 4, !tbaa !20, !noalias !13
-  store i64 4, ptr %11, align 1
+  store i64 4, ptr %11, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store i64 6, ptr %15, align 1
+  store i64 6, ptr %15, align 8
   %.sroa.2.0..sroa_idx.i.i11 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i11, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i11, align 8
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  store i64 0, ptr %16, align 1
+  store i64 0, ptr %16, align 8
   %.sroa.2.0..sroa_idx.i.i18 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store i64 10, ptr %.sroa.2.0..sroa_idx.i.i18, align 1
+  store i64 10, ptr %.sroa.2.0..sroa_idx.i.i18, align 8
   store i32 3, ptr %13, align 8, !tbaa !21
   store ptr %10, ptr %3, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1296,7 +1296,7 @@ define dso_local void @_ZN5clang23TestModuleFileExtension21createExtensionReader
   store ptr %38, ptr %.ptr.i.i.i.i, align 8, !tbaa !118
   %39 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
   store i64 0, ptr %39, align 8, !tbaa !59
-  store i8 0, ptr %38, align 1, !tbaa !33
+  store i8 0, ptr %38, align 8, !tbaa !33
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 32
   %40 = icmp eq i64 %.add.i.i.i.i, 416
   br i1 %40, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %37
@@ -5667,7 +5667,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llv
   store ptr %16, ptr %.ptr.i.i.i, align 8, !tbaa !118
   %17 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %17, align 8, !tbaa !59
-  store i8 0, ptr %16, align 1, !tbaa !33
+  store i8 0, ptr %16, align 8, !tbaa !33
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %18 = icmp eq i64 %.add.i.i.i, 416
   br i1 %18, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %15

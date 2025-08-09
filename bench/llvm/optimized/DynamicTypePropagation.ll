@@ -7162,11 +7162,11 @@ define internal fastcc void @_ZNK12_GLOBAL__N_122DynamicTypePropagation17reportG
   %33 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %34 = getelementptr inbounds nuw i8, ptr %25, i64 40
   store ptr %34, ptr %33, align 8, !tbaa !475
-  store i64 8314605277104989511, ptr %34, align 1
+  store i64 8314605277104989511, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store i64 8, ptr %35, align 8, !tbaa !474
   %36 = getelementptr inbounds nuw i8, ptr %25, i64 48
-  store i8 0, ptr %36, align 1, !tbaa !225
+  store i8 0, ptr %36, align 8, !tbaa !225
   %37 = getelementptr inbounds nuw i8, ptr %25, i64 56
   %38 = getelementptr inbounds nuw i8, ptr %25, i64 72
   store ptr %38, ptr %37, align 8, !tbaa !475

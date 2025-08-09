@@ -2873,7 +2873,7 @@ _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %172
   %198 = getelementptr inbounds nuw i8, ptr %171, i64 72
   store i8 0, ptr %198, align 8, !tbaa !253
   %199 = getelementptr inbounds nuw i8, ptr %171, i64 80
-  store i8 0, ptr %199, align 4, !tbaa !260
+  store i8 0, ptr %199, align 8, !tbaa !260
   %200 = getelementptr inbounds nuw i8, ptr %171, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %200, i8 0, i64 40, i1 false)
   %201 = getelementptr inbounds nuw i8, ptr %171, i64 128
@@ -7056,7 +7056,7 @@ _ZN4pstd3pmr21polymorphic_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIc
   store i64 %41, ptr %42, align 8, !tbaa !202
   store ptr %32, ptr %29, align 8, !tbaa !204
   store i64 0, ptr %40, align 8, !tbaa !202
-  store i8 0, ptr %32, align 1, !tbaa !40
+  store i8 0, ptr %32, align 8, !tbaa !40
   %43 = load ptr, ptr %16, align 8, !tbaa !236
   %44 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %43, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8, !tbaa !204

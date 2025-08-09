@@ -1062,7 +1062,7 @@ _ZN5boost11make_uniqueIN3ue217ComponentSequenceEEENS_10enable_if_IXntsr8is_array
   store ptr %20, ptr %19, align 8, !noalias !24
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 64
   store i64 0, ptr %21, align 8, !noalias !24
-  store i8 0, ptr %20, align 1, !noalias !24
+  store i8 0, ptr %20, align 8, !noalias !24
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 32

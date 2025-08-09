@@ -60439,7 +60439,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE6insertISt14_Li
   %.09.i.i.i = phi ptr [ %150, %_ZNSt16allocator_traitsISaISt10_List_nodeIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i ], [ %.pre56, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE6insertISt14_List_iteratorIS1_EvEEN9__gnu_cxx17__normal_iteratorIPS1_S3_EENS8_IPKS1_S3_EET_SE_.exit ]
   %150 = load ptr, ptr %.09.i.i.i, align 8
   %151 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 16
-  %152 = load i32, ptr %151, align 4
+  %152 = load i32, ptr %151, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %152, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10_List_nodeIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i, label %153
 
@@ -61586,7 +61586,7 @@ _ZNSt7__cxx114listIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS2_EE6spliceES
   %.09.i.i.i = phi ptr [ %36, %_ZNSt16allocator_traitsISaISt10_List_nodeIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i ], [ %35, %34 ]
   %36 = load ptr, ptr %.09.i.i.i, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 16
-  %38 = load i32, ptr %37, align 4
+  %38 = load i32, ptr %37, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %38, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10_List_nodeIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i, label %39
 
@@ -62425,7 +62425,7 @@ _ZNSt7__cxx114listIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS2_EE6spliceES
   %.09.i.i.i = phi ptr [ %169, %_ZNSt16allocator_traitsISaISt10_List_nodeIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i ], [ %168, %_ZNSt7__cxx114listIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS2_EE6spliceESt20_List_const_iteratorIS2_ERS4_.exit ]
   %169 = load ptr, ptr %.09.i.i.i, align 8
   %170 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 16
-  %171 = load i32, ptr %170, align 4
+  %171 = load i32, ptr %170, align 8
   %.not.i.i.i.i.i.i.i78 = icmp eq i32 %171, 0
   br i1 %.not.i.i.i.i.i.i.i78, label %_ZNSt16allocator_traitsISaISt10_List_nodeIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i, label %172
 
@@ -62553,7 +62553,7 @@ define linkonce_odr void @_ZNSt7__cxx114listIN32pxrInternal_v0_24__pxrReserved__
   %.09.i.i = phi ptr [ %3, %_ZNSt16allocator_traitsISaISt10_List_nodeIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEE7destroyIS2_EEvRS4_PT_.exit.i.i ], [ %2, %1 ]
   %3 = load ptr, ptr %.09.i.i, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 16
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 8
   %.not.i.i.i.i.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10_List_nodeIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEE7destroyIS2_EEvRS4_PT_.exit.i.i, label %6
 
@@ -65040,7 +65040,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt14_List_iteratorIS1_ENS1
   %.09.i.i.i = phi ptr [ %258, %_ZNSt16allocator_traitsISaISt10_List_nodeIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i ], [ %257, %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt14_List_iteratorIS1_ENS1_12FastLessThanESaISt4pairIKS1_S3_EEED2Ev.exit ]
   %258 = load ptr, ptr %.09.i.i.i, align 8
   %259 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 16
-  %260 = load i32, ptr %259, align 4
+  %260 = load i32, ptr %259, align 8
   %.not.i.i.i.i.i.i.i75 = icmp eq i32 %260, 0
   br i1 %.not.i.i.i.i.i.i.i75, label %_ZNSt16allocator_traitsISaISt10_List_nodeIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i, label %261
 
@@ -73791,7 +73791,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10SdfPayloadESaIS1_EE6insertISt1
   %147 = load ptr, ptr %.09.i.i.i, align 8
   %148 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 16
   %149 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 48
-  %150 = load i32, ptr %149, align 4
+  %150 = load i32, ptr %149, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %150, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10_List_nodeIN32pxrInternal_v0_24__pxrReserved__10SdfPayloadEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i, label %151
 
@@ -74759,7 +74759,7 @@ _ZNSt7__cxx114listIN32pxrInternal_v0_24__pxrReserved__10SdfPayloadESaIS2_EE6spli
   %16 = load ptr, ptr %.09.i.i.i, align 8
   %17 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 48
-  %19 = load i32, ptr %18, align 4
+  %19 = load i32, ptr %18, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10_List_nodeIN32pxrInternal_v0_24__pxrReserved__10SdfPayloadEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i, label %20
 
@@ -75683,7 +75683,7 @@ _ZNSt7__cxx114listIN32pxrInternal_v0_24__pxrReserved__10SdfPayloadESaIS2_EE6spli
   %181 = load ptr, ptr %.09.i.i.i, align 8
   %182 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 16
   %183 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 48
-  %184 = load i32, ptr %183, align 4
+  %184 = load i32, ptr %183, align 8
   %.not.i.i.i.i.i.i.i.i80 = icmp eq i32 %184, 0
   br i1 %.not.i.i.i.i.i.i.i.i80, label %_ZNSt16allocator_traitsISaISt10_List_nodeIN32pxrInternal_v0_24__pxrReserved__10SdfPayloadEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i, label %185
 
@@ -75815,7 +75815,7 @@ define linkonce_odr void @_ZNSt7__cxx114listIN32pxrInternal_v0_24__pxrReserved__
   %3 = load ptr, ptr %.09.i.i, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 48
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10_List_nodeIN32pxrInternal_v0_24__pxrReserved__10SdfPayloadEEEE7destroyIS2_EEvRS4_PT_.exit.i.i, label %7
 
@@ -77943,7 +77943,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__10SdfPayloadESt14_List_iteratorIS1_
   %212 = load ptr, ptr %.09.i.i.i, align 8
   %213 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 16
   %214 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 48
-  %215 = load i32, ptr %214, align 4
+  %215 = load i32, ptr %214, align 8
   %.not.i.i.i.i.i.i.i.i72 = icmp eq i32 %215, 0
   br i1 %.not.i.i.i.i.i.i.i.i72, label %_ZNSt16allocator_traitsISaISt10_List_nodeIN32pxrInternal_v0_24__pxrReserved__10SdfPayloadEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i, label %216
 
@@ -82920,7 +82920,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7Sdf
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_St14_List_iteratorIS1_EESt10_Select1stIS6_ENS1_12FastLessThanESaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit, label %9
 
@@ -83141,7 +83141,7 @@ define linkonce_odr void @_ZNSt7__cxx1110_List_baseIN32pxrInternal_v0_24__pxrRes
   %.09.i = phi ptr [ %3, %_ZNSt16allocator_traitsISaISt10_List_nodeIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEE7destroyIS2_EEvRS4_PT_.exit.i ], [ %2, %1 ]
   %3 = load ptr, ptr %.09.i, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.09.i, i64 16
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 8
   %.not.i.i.i.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10_List_nodeIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEE7destroyIS2_EEvRS4_PT_.exit.i, label %6
 
@@ -83688,7 +83688,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7Sdf
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 8
   %.not.i.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St9_IdentityIS1_ENS1_12FastLessThanESaIS1_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS1_E.exit, label %9
 
@@ -84315,7 +84315,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__10Sd
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 64
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__10SdfPayloadESt4pairIKS1_St14_List_iteratorIS1_EESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit, label %9
 
@@ -84367,7 +84367,7 @@ define linkonce_odr void @_ZNSt7__cxx1110_List_baseIN32pxrInternal_v0_24__pxrRes
   %3 = load ptr, ptr %.09.i, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.09.i, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %.09.i, i64 48
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 8
   %.not.i.i.i.i.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10_List_nodeIN32pxrInternal_v0_24__pxrReserved__10SdfPayloadEEEE7destroyIS2_EEvRS4_PT_.exit.i, label %7
 
@@ -84827,7 +84827,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__10Sd
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 64
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__10SdfPayloadES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS1_E.exit, label %9
 
@@ -85931,7 +85931,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIiSt4pairIKimESaIS2_ENSt8__det
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %36 = load i64, ptr %35, align 8
   %37 = icmp eq i64 %10, %36
-  %38 = load i32, ptr %34, align 4
+  %38 = load i32, ptr %34, align 8
   %39 = icmp eq i32 %7, %38
   %40 = select i1 %37, i1 %39, i1 false
   br i1 %40, label %_ZNKSt10_HashtableIiSt4pairIKimESaIS2_ENSt8__detail10_Select1stESt8equal_toIiEN32pxrInternal_v0_24__pxrReserved__6TfHashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIiEEPNS4_10_Hash_nodeIS2_Lb1EEEmRKT_m.exit, label %.lr.ph.i.i
@@ -86363,7 +86363,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__deta
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %6, %17
-  %19 = load i32, ptr %15, align 4
+  %19 = load i32, ptr %15, align 8
   %20 = icmp eq i32 %3, %19
   %21 = select i1 %18, i1 %20, i1 false
   br i1 %21, label %_ZNKSt10_HashtableIiSt4pairIKimESaIS2_ENSt8__detail10_Select1stESt8equal_toIiEN32pxrInternal_v0_24__pxrReserved__6TfHashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit, label %.lr.ph.i.i
@@ -87393,7 +87393,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjmESaIS2_ENSt8__det
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %36 = load i64, ptr %35, align 8
   %37 = icmp eq i64 %10, %36
-  %38 = load i32, ptr %34, align 4
+  %38 = load i32, ptr %34, align 8
   %39 = icmp eq i32 %7, %38
   %40 = select i1 %37, i1 %39, i1 false
   br i1 %40, label %_ZNKSt10_HashtableIjSt4pairIKjmESaIS2_ENSt8__detail10_Select1stESt8equal_toIjEN32pxrInternal_v0_24__pxrReserved__6TfHashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIjEEPNS4_10_Hash_nodeIS2_Lb1EEEmRKT_m.exit, label %.lr.ph.i.i
@@ -87821,7 +87821,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__deta
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %6, %17
-  %19 = load i32, ptr %15, align 4
+  %19 = load i32, ptr %15, align 8
   %20 = icmp eq i32 %3, %19
   %21 = select i1 %18, i1 %20, i1 false
   br i1 %21, label %_ZNKSt10_HashtableIjSt4pairIKjmESaIS2_ENSt8__detail10_Select1stESt8equal_toIjEN32pxrInternal_v0_24__pxrReserved__6TfHashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit, label %.lr.ph.i.i
@@ -102254,7 +102254,7 @@ define linkonce_odr void @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7
   %.06.i.i = phi ptr [ %4, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathEmELb1EEEEE18_M_deallocate_nodeEPS7_.exit.i.i ], [ %3, %1 ]
   %4 = load ptr, ptr %.06.i.i, align 8
   %5 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 8
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathEmELb1EEEEE18_M_deallocate_nodeEPS7_.exit.i.i, label %7
 
@@ -102449,7 +102449,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrRese
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %40 = load i64, ptr %39, align 8
   %41 = icmp eq i64 %28, %40
-  %.0.copyload.i2.i.i.i.i18.i.i = load i64, ptr %38, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i = load i64, ptr %38, align 8
   %42 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i
   %43 = select i1 %41, i1 %42, i1 false
   br i1 %43, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS1_EEPNS6_10_Hash_nodeIS4_Lb1EEEmRKT_m.exit, label %.lr.ph.i.i
@@ -102482,7 +102482,7 @@ _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_mESaI
   %54 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   store ptr null, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  store i32 %18, ptr %55, align 4
+  store i32 %18, ptr %55, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %18, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKN32pxrInternal_v0_24__pxrReserved__7SdfPathERKSt4pairIS6_mENS_10_AllocNodeISaINS_10_Hash_nodeIS9_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSH_.exit, label %56
 
@@ -102924,7 +102924,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__deta
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %26 = load i64, ptr %25, align 8
   %27 = icmp eq i64 %15, %26
-  %.0.copyload.i2.i.i.i.i18.i.i = load i64, ptr %24, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i = load i64, ptr %24, align 8
   %28 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i
   %29 = select i1 %27, i1 %28, i1 false
   %30 = lshr i64 %.0.copyload.i.i.i.i.i.i.i, 32
@@ -102961,7 +102961,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__deta
   %43 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   store ptr null, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store i32 %4, ptr %44, align 4
+  store i32 %4, ptr %44, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS3_EESM_IJEEEEEPNS6_16_Hashtable_allocISaINS6_10_Hash_nodeIS4_Lb1EEEEEEDpOT_.exit, label %45
 
@@ -109348,7 +109348,7 @@ define linkonce_odr void @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__1
   %.06.i.i = phi ptr [ %4, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__10SdfPayloadEmELb1EEEEE18_M_deallocate_nodeEPS7_.exit.i.i ], [ %3, %1 ]
   %4 = load ptr, ptr %.06.i.i, align 8
   %5 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 40
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__10SdfPayloadEmELb1EEEEE18_M_deallocate_nodeEPS7_.exit.i.i, label %7
 

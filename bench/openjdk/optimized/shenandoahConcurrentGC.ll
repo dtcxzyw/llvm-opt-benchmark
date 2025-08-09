@@ -1563,7 +1563,7 @@ define hidden void @_ZN22ShenandoahConcurrentGC12op_init_markEv(ptr noundef nonn
   %20 = load ptr, ptr %19, align 8
   call void @_ZN28ShenandoahReferenceProcessor19reset_thread_localsEv(ptr noundef nonnull align 8 dereferenceable(80) %20) #14
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %22 = load i8, ptr %21, align 1
+  %22 = load i8, ptr %21, align 8
   %23 = trunc i8 %22 to i1
   call void @_ZN28ShenandoahReferenceProcessor25set_soft_reference_policyEb(ptr noundef nonnull align 8 dereferenceable(80) %20, i1 noundef zeroext %23) #14
   call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !7

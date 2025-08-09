@@ -139,7 +139,7 @@ define dso_local void @_ZN4llvm17ValueTypeByHwModeC2EPKNS_6RecordERKNS_14CodeGen
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.018.023, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !42
   %17 = tail call noundef zeroext i16 @_ZN4llvm12getValueTypeEPKNS_6RecordE(ptr noundef %16) #19
-  %18 = load i32, ptr %.sroa.018.023, align 4, !tbaa !45
+  %18 = load i32, ptr %.sroa.018.023, align 8, !tbaa !45
   %.02022.i.i.i = load ptr, ptr %5, align 8, !tbaa !46
   %.not23.i.i.i = icmp eq ptr %.02022.i.i.i, null
   br i1 %.not23.i.i.i, label %._crit_edge.thread.i.i.i, label %.lr.ph.i.i.i
@@ -431,8 +431,8 @@ _ZNK4llvm12InfoByHwModeINS_3MVTEE8isSimpleEv.exit6: ; preds = %_ZNK4llvm12InfoBy
   %41 = icmp eq i32 %39, %40
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i.i.i.i.i, i64 36
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i.i.i.i.i, i64 36
-  %44 = load i16, ptr %42, align 2
-  %45 = load i16, ptr %43, align 2
+  %44 = load i16, ptr %42, align 4
+  %45 = load i16, ptr %43, align 4
   %46 = icmp eq i16 %44, %45
   %47 = select i1 %41, i1 %46, i1 false
   br i1 %47, label %48, label %_ZSteqIjN4llvm3MVTESt4lessIjESaISt4pairIKjS1_EEEbRKSt3mapIT_T0_T1_T2_ESF_.exit
@@ -1394,7 +1394,7 @@ define dso_local void @_ZN4llvm19RegSizeInfoByHwModeC2EPKNS_6RecordERKNS_14CodeG
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.011.016, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !42
   call void @_ZN4llvm11RegSizeInfoC1EPKNS_6RecordE(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef %15) #19
-  %16 = load i32, ptr %.sroa.011.016, align 4, !tbaa !45
+  %16 = load i32, ptr %.sroa.011.016, align 8, !tbaa !45
   %.02022.i.i.i = load ptr, ptr %6, align 8, !tbaa !46
   %.not23.i.i.i = icmp eq ptr %.02022.i.i.i, null
   br i1 %.not23.i.i.i, label %._crit_edge.thread.i.i.i, label %.lr.ph.i.i.i
@@ -2214,7 +2214,7 @@ define dso_local void @_ZN4llvm19SubRegRangeByHwModeC2EPKNS_6RecordERKNS_14CodeG
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.012.017, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !42
   call void @_ZN4llvm11SubRegRangeC1EPKNS_6RecordE(ptr noundef nonnull align 2 dereferenceable(4) %4, ptr noundef %15) #19
-  %16 = load i32, ptr %.sroa.012.017, align 4, !tbaa !45
+  %16 = load i32, ptr %.sroa.012.017, align 8, !tbaa !45
   %17 = load i32, ptr %4, align 4
   %.02022.i.i.i = load ptr, ptr %6, align 8, !tbaa !46
   %.not23.i.i.i = icmp eq ptr %.02022.i.i.i, null

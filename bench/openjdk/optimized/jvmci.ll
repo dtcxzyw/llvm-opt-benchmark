@@ -493,7 +493,7 @@ define hidden void @_ZN5JVMCI18initialize_globalsEv() local_unnamed_addr #0 alig
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store ptr %26, ptr %25, align 8
-  store i8 0, ptr %26, align 1
+  store i8 0, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 280
   %28 = icmp eq ptr %27, %22
   br i1 %28, label %_ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit, label %23
@@ -556,7 +556,7 @@ _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit: ; preds = %23, %5
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 24
   store ptr %58, ptr %57, align 8
-  store i8 0, ptr %58, align 1
+  store i8 0, ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 280
   %60 = icmp eq ptr %59, %54
   br i1 %60, label %_ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit19, label %55

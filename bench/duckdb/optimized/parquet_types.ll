@@ -3276,7 +3276,7 @@ define noundef i32 @_ZN14duckdb_parquet14SizeStatistics4readEPN13duckdb_apache6t
   store ptr %23, ptr %22, align 8, !tbaa !33
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i64 0, ptr %24, align 8, !tbaa !39
-  store i8 0, ptr %23, align 1, !tbaa !38
+  store i8 0, ptr %23, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %21, align 8, !tbaa !22
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store i32 6, ptr %25, align 8, !tbaa !94
@@ -3878,7 +3878,7 @@ define noundef i32 @_ZNK14duckdb_parquet14SizeStatistics5writeEPN13duckdb_apache
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -5438,7 +5438,7 @@ define noundef i32 @_ZN14duckdb_parquet10Statistics4readEPN13duckdb_apache6thrif
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -5715,7 +5715,7 @@ define noundef i32 @_ZNK14duckdb_parquet10Statistics5writeEPN13duckdb_apache6thr
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -7251,7 +7251,7 @@ define noundef i32 @_ZN14duckdb_parquet10StringType4readEPN13duckdb_apache6thrif
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -7397,7 +7397,7 @@ define noundef i32 @_ZNK14duckdb_parquet10StringType5writeEPN13duckdb_apache6thr
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -7460,7 +7460,7 @@ define noundef i32 @_ZTv0_n40_NK14duckdb_parquet10StringType5writeEPN13duckdb_ap
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -7621,7 +7621,7 @@ define noundef i32 @_ZN14duckdb_parquet8UUIDType4readEPN13duckdb_apache6thrift8p
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -7767,7 +7767,7 @@ define noundef i32 @_ZNK14duckdb_parquet8UUIDType5writeEPN13duckdb_apache6thrift
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -7830,7 +7830,7 @@ define noundef i32 @_ZTv0_n40_NK14duckdb_parquet8UUIDType5writeEPN13duckdb_apach
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -7991,7 +7991,7 @@ define noundef i32 @_ZN14duckdb_parquet7MapType4readEPN13duckdb_apache6thrift8pr
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -8137,7 +8137,7 @@ define noundef i32 @_ZNK14duckdb_parquet7MapType5writeEPN13duckdb_apache6thrift8
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -8200,7 +8200,7 @@ define noundef i32 @_ZTv0_n40_NK14duckdb_parquet7MapType5writeEPN13duckdb_apache
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -8361,7 +8361,7 @@ define noundef i32 @_ZN14duckdb_parquet8ListType4readEPN13duckdb_apache6thrift8p
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -8507,7 +8507,7 @@ define noundef i32 @_ZNK14duckdb_parquet8ListType5writeEPN13duckdb_apache6thrift
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -8570,7 +8570,7 @@ define noundef i32 @_ZTv0_n40_NK14duckdb_parquet8ListType5writeEPN13duckdb_apach
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -8731,7 +8731,7 @@ define noundef i32 @_ZN14duckdb_parquet8EnumType4readEPN13duckdb_apache6thrift8p
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -8877,7 +8877,7 @@ define noundef i32 @_ZNK14duckdb_parquet8EnumType5writeEPN13duckdb_apache6thrift
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -8940,7 +8940,7 @@ define noundef i32 @_ZTv0_n40_NK14duckdb_parquet8EnumType5writeEPN13duckdb_apach
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -9101,7 +9101,7 @@ define noundef i32 @_ZN14duckdb_parquet8DateType4readEPN13duckdb_apache6thrift8p
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -9247,7 +9247,7 @@ define noundef i32 @_ZNK14duckdb_parquet8DateType5writeEPN13duckdb_apache6thrift
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -9310,7 +9310,7 @@ define noundef i32 @_ZTv0_n40_NK14duckdb_parquet8DateType5writeEPN13duckdb_apach
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -9471,7 +9471,7 @@ define noundef i32 @_ZN14duckdb_parquet11Float16Type4readEPN13duckdb_apache6thri
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -9617,7 +9617,7 @@ define noundef i32 @_ZNK14duckdb_parquet11Float16Type5writeEPN13duckdb_apache6th
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -9680,7 +9680,7 @@ define noundef i32 @_ZTv0_n40_NK14duckdb_parquet11Float16Type5writeEPN13duckdb_a
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -9841,7 +9841,7 @@ define noundef i32 @_ZN14duckdb_parquet8NullType4readEPN13duckdb_apache6thrift8p
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -9987,7 +9987,7 @@ define noundef i32 @_ZNK14duckdb_parquet8NullType5writeEPN13duckdb_apache6thrift
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -10050,7 +10050,7 @@ define noundef i32 @_ZTv0_n40_NK14duckdb_parquet8NullType5writeEPN13duckdb_apach
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -10233,7 +10233,7 @@ define noundef i32 @_ZN14duckdb_parquet11DecimalType4readEPN13duckdb_apache6thri
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -10364,7 +10364,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %6
   store ptr %69, ptr %68, align 8, !tbaa !33
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store i64 0, ptr %70, align 8, !tbaa !39
-  store i8 0, ptr %69, align 1, !tbaa !38
+  store i8 0, ptr %69, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %67, align 8, !tbaa !22
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 40
   store i32 1, ptr %71, align 8, !tbaa !94
@@ -10485,7 +10485,7 @@ define noundef i32 @_ZNK14duckdb_parquet11DecimalType5writeEPN13duckdb_apache6th
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -10958,7 +10958,7 @@ define noundef i32 @_ZN14duckdb_parquet12MilliSeconds4readEPN13duckdb_apache6thr
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -11104,7 +11104,7 @@ define noundef i32 @_ZNK14duckdb_parquet12MilliSeconds5writeEPN13duckdb_apache6t
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -11167,7 +11167,7 @@ define noundef i32 @_ZTv0_n40_NK14duckdb_parquet12MilliSeconds5writeEPN13duckdb_
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -11328,7 +11328,7 @@ define noundef i32 @_ZN14duckdb_parquet12MicroSeconds4readEPN13duckdb_apache6thr
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -11474,7 +11474,7 @@ define noundef i32 @_ZNK14duckdb_parquet12MicroSeconds5writeEPN13duckdb_apache6t
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -11537,7 +11537,7 @@ define noundef i32 @_ZTv0_n40_NK14duckdb_parquet12MicroSeconds5writeEPN13duckdb_
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -11698,7 +11698,7 @@ define noundef i32 @_ZN14duckdb_parquet11NanoSeconds4readEPN13duckdb_apache6thri
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -11844,7 +11844,7 @@ define noundef i32 @_ZNK14duckdb_parquet11NanoSeconds5writeEPN13duckdb_apache6th
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -11907,7 +11907,7 @@ define noundef i32 @_ZTv0_n40_NK14duckdb_parquet11NanoSeconds5writeEPN13duckdb_a
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -12115,7 +12115,7 @@ define noundef i32 @_ZN14duckdb_parquet8TimeUnit4readEPN13duckdb_apache6thrift8p
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -12311,7 +12311,7 @@ define noundef i32 @_ZNK14duckdb_parquet8TimeUnit5writeEPN13duckdb_apache6thrift
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -12506,7 +12506,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol15writeFieldBeginEPKcNS1_5TTypeEs.ex
   store ptr %117, ptr %116, align 8, !tbaa !33
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 16
   store i64 0, ptr %118, align 8, !tbaa !39
-  store i8 0, ptr %117, align 1, !tbaa !38
+  store i8 0, ptr %117, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %115, align 8, !tbaa !22
   %119 = getelementptr inbounds nuw i8, ptr %115, i64 40
   store i32 6, ptr %119, align 8, !tbaa !94
@@ -13319,7 +13319,7 @@ define noundef i32 @_ZN14duckdb_parquet13TimestampType4readEPN13duckdb_apache6th
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -13447,7 +13447,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %5
   store ptr %65, ptr %64, align 8, !tbaa !33
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 16
   store i64 0, ptr %66, align 8, !tbaa !39
-  store i8 0, ptr %65, align 1, !tbaa !38
+  store i8 0, ptr %65, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %63, align 8, !tbaa !22
   %67 = getelementptr inbounds nuw i8, ptr %63, i64 40
   store i32 1, ptr %67, align 8, !tbaa !94
@@ -13536,7 +13536,7 @@ define noundef i32 @_ZNK14duckdb_parquet13TimestampType5writeEPN13duckdb_apache6
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -14075,7 +14075,7 @@ define noundef i32 @_ZN14duckdb_parquet8TimeType4readEPN13duckdb_apache6thrift8p
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -14203,7 +14203,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %5
   store ptr %65, ptr %64, align 8, !tbaa !33
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 16
   store i64 0, ptr %66, align 8, !tbaa !39
-  store i8 0, ptr %65, align 1, !tbaa !38
+  store i8 0, ptr %65, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %63, align 8, !tbaa !22
   %67 = getelementptr inbounds nuw i8, ptr %63, i64 40
   store i32 1, ptr %67, align 8, !tbaa !94
@@ -14292,7 +14292,7 @@ define noundef i32 @_ZNK14duckdb_parquet8TimeType5writeEPN13duckdb_apache6thrift
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -14700,7 +14700,7 @@ define noundef i32 @_ZN14duckdb_parquet7IntType4readEPN13duckdb_apache6thrift8pr
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -14831,7 +14831,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %6
   store ptr %69, ptr %68, align 8, !tbaa !33
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store i64 0, ptr %70, align 8, !tbaa !39
-  store i8 0, ptr %69, align 1, !tbaa !38
+  store i8 0, ptr %69, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %67, align 8, !tbaa !22
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 40
   store i32 1, ptr %71, align 8, !tbaa !94
@@ -14920,7 +14920,7 @@ define noundef i32 @_ZNK14duckdb_parquet7IntType5writeEPN13duckdb_apache6thrift8
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -15412,7 +15412,7 @@ define noundef i32 @_ZN14duckdb_parquet8JsonType4readEPN13duckdb_apache6thrift8p
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -15558,7 +15558,7 @@ define noundef i32 @_ZNK14duckdb_parquet8JsonType5writeEPN13duckdb_apache6thrift
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -15621,7 +15621,7 @@ define noundef i32 @_ZTv0_n40_NK14duckdb_parquet8JsonType5writeEPN13duckdb_apach
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -15782,7 +15782,7 @@ define noundef i32 @_ZN14duckdb_parquet8BsonType4readEPN13duckdb_apache6thrift8p
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -15928,7 +15928,7 @@ define noundef i32 @_ZNK14duckdb_parquet8BsonType5writeEPN13duckdb_apache6thrift
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -15991,7 +15991,7 @@ define noundef i32 @_ZTv0_n40_NK14duckdb_parquet8BsonType5writeEPN13duckdb_apach
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -16446,7 +16446,7 @@ define noundef i32 @_ZN14duckdb_parquet11LogicalType4readEPN13duckdb_apache6thri
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -16745,7 +16745,7 @@ define noundef i32 @_ZNK14duckdb_parquet11LogicalType5writeEPN13duckdb_apache6th
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -17562,7 +17562,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol15writeFieldBeginEPKcNS1_5TTypeEs.ex
   store ptr %469, ptr %468, align 8, !tbaa !33
   %470 = getelementptr inbounds nuw i8, ptr %467, i64 16
   store i64 0, ptr %470, align 8, !tbaa !39
-  store i8 0, ptr %469, align 1, !tbaa !38
+  store i8 0, ptr %469, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %467, align 8, !tbaa !22
   %471 = getelementptr inbounds nuw i8, ptr %467, i64 40
   store i32 6, ptr %471, align 8, !tbaa !94
@@ -20913,7 +20913,7 @@ define noundef i32 @_ZN14duckdb_parquet13SchemaElement4readEPN13duckdb_apache6th
   store ptr %18, ptr %17, align 8, !tbaa !33
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 0, ptr %19, align 8, !tbaa !39
-  store i8 0, ptr %18, align 1, !tbaa !38
+  store i8 0, ptr %18, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %16, align 8, !tbaa !22
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 6, ptr %20, align 8, !tbaa !94
@@ -21223,7 +21223,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %1
   store ptr %161, ptr %160, align 8, !tbaa !33
   %162 = getelementptr inbounds nuw i8, ptr %159, i64 16
   store i64 0, ptr %162, align 8, !tbaa !39
-  store i8 0, ptr %161, align 1, !tbaa !38
+  store i8 0, ptr %161, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %159, align 8, !tbaa !22
   %163 = getelementptr inbounds nuw i8, ptr %159, i64 40
   store i32 1, ptr %163, align 8, !tbaa !94
@@ -21312,7 +21312,7 @@ define noundef i32 @_ZNK14duckdb_parquet13SchemaElement5writeEPN13duckdb_apache6
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -23642,7 +23642,7 @@ define noundef i32 @_ZN14duckdb_parquet14DataPageHeader4readEPN13duckdb_apache6t
   store ptr %18, ptr %17, align 8, !tbaa !33
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 0, ptr %19, align 8, !tbaa !39
-  store i8 0, ptr %18, align 1, !tbaa !38
+  store i8 0, ptr %18, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %16, align 8, !tbaa !22
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 6, ptr %20, align 8, !tbaa !94
@@ -23861,7 +23861,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %9
   store ptr %107, ptr %106, align 8, !tbaa !33
   %108 = getelementptr inbounds nuw i8, ptr %105, i64 16
   store i64 0, ptr %108, align 8, !tbaa !39
-  store i8 0, ptr %107, align 1, !tbaa !38
+  store i8 0, ptr %107, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %105, align 8, !tbaa !22
   %109 = getelementptr inbounds nuw i8, ptr %105, i64 40
   store i32 1, ptr %109, align 8, !tbaa !94
@@ -23950,7 +23950,7 @@ define noundef i32 @_ZNK14duckdb_parquet14DataPageHeader5writeEPN13duckdb_apache
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -24964,7 +24964,7 @@ define noundef i32 @_ZN14duckdb_parquet15IndexPageHeader4readEPN13duckdb_apache6
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -25110,7 +25110,7 @@ define noundef i32 @_ZNK14duckdb_parquet15IndexPageHeader5writeEPN13duckdb_apach
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -25173,7 +25173,7 @@ define noundef i32 @_ZTv0_n40_NK14duckdb_parquet15IndexPageHeader5writeEPN13duck
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -25373,7 +25373,7 @@ define noundef i32 @_ZN14duckdb_parquet20DictionaryPageHeader4readEPN13duckdb_ap
   store ptr %16, ptr %15, align 8, !tbaa !33
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 0, ptr %17, align 8, !tbaa !39
-  store i8 0, ptr %16, align 1, !tbaa !38
+  store i8 0, ptr %16, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %14, align 8, !tbaa !22
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store i32 6, ptr %18, align 8, !tbaa !94
@@ -25537,7 +25537,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %7
   store ptr %83, ptr %82, align 8, !tbaa !33
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 16
   store i64 0, ptr %84, align 8, !tbaa !39
-  store i8 0, ptr %83, align 1, !tbaa !38
+  store i8 0, ptr %83, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %81, align 8, !tbaa !22
   %85 = getelementptr inbounds nuw i8, ptr %81, i64 40
   store i32 1, ptr %85, align 8, !tbaa !94
@@ -25626,7 +25626,7 @@ define noundef i32 @_ZNK14duckdb_parquet20DictionaryPageHeader5writeEPN13duckdb_
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -26704,7 +26704,7 @@ define noundef i32 @_ZN14duckdb_parquet16DataPageHeaderV24readEPN13duckdb_apache
   store ptr %16, ptr %15, align 8, !tbaa !33
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 0, ptr %17, align 8, !tbaa !39
-  store i8 0, ptr %16, align 1, !tbaa !38
+  store i8 0, ptr %16, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %14, align 8, !tbaa !22
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store i32 6, ptr %18, align 8, !tbaa !94
@@ -26948,7 +26948,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %1
   store ptr %127, ptr %126, align 8, !tbaa !33
   %128 = getelementptr inbounds nuw i8, ptr %125, i64 16
   store i64 0, ptr %128, align 8, !tbaa !39
-  store i8 0, ptr %127, align 1, !tbaa !38
+  store i8 0, ptr %127, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %125, align 8, !tbaa !22
   %129 = getelementptr inbounds nuw i8, ptr %125, i64 40
   store i32 1, ptr %129, align 8, !tbaa !94
@@ -27037,7 +27037,7 @@ define noundef i32 @_ZNK14duckdb_parquet16DataPageHeaderV25writeEPN13duckdb_apac
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -28257,7 +28257,7 @@ define noundef i32 @_ZN14duckdb_parquet19SplitBlockAlgorithm4readEPN13duckdb_apa
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -28403,7 +28403,7 @@ define noundef i32 @_ZNK14duckdb_parquet19SplitBlockAlgorithm5writeEPN13duckdb_a
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -28466,7 +28466,7 @@ define noundef i32 @_ZTv0_n40_NK14duckdb_parquet19SplitBlockAlgorithm5writeEPN13
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -28648,7 +28648,7 @@ define noundef i32 @_ZN14duckdb_parquet20BloomFilterAlgorithm4readEPN13duckdb_ap
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -28821,7 +28821,7 @@ define noundef i32 @_ZNK14duckdb_parquet20BloomFilterAlgorithm5writeEPN13duckdb_
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -28863,7 +28863,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol15writeFieldBeginEPKcNS1_5TTypeEs.ex
   store ptr %34, ptr %33, align 8, !tbaa !33
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store i64 0, ptr %35, align 8, !tbaa !39
-  store i8 0, ptr %34, align 1, !tbaa !38
+  store i8 0, ptr %34, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %32, align 8, !tbaa !22
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 40
   store i32 6, ptr %36, align 8, !tbaa !94
@@ -29284,7 +29284,7 @@ define noundef i32 @_ZN14duckdb_parquet6XxHash4readEPN13duckdb_apache6thrift8pro
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -29430,7 +29430,7 @@ define noundef i32 @_ZNK14duckdb_parquet6XxHash5writeEPN13duckdb_apache6thrift8p
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -29493,7 +29493,7 @@ define noundef i32 @_ZTv0_n40_NK14duckdb_parquet6XxHash5writeEPN13duckdb_apache6
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -29675,7 +29675,7 @@ define noundef i32 @_ZN14duckdb_parquet15BloomFilterHash4readEPN13duckdb_apache6
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -29848,7 +29848,7 @@ define noundef i32 @_ZNK14duckdb_parquet15BloomFilterHash5writeEPN13duckdb_apach
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -29890,7 +29890,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol15writeFieldBeginEPKcNS1_5TTypeEs.ex
   store ptr %34, ptr %33, align 8, !tbaa !33
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store i64 0, ptr %35, align 8, !tbaa !39
-  store i8 0, ptr %34, align 1, !tbaa !38
+  store i8 0, ptr %34, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %32, align 8, !tbaa !22
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 40
   store i32 6, ptr %36, align 8, !tbaa !94
@@ -30311,7 +30311,7 @@ define noundef i32 @_ZN14duckdb_parquet12Uncompressed4readEPN13duckdb_apache6thr
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -30457,7 +30457,7 @@ define noundef i32 @_ZNK14duckdb_parquet12Uncompressed5writeEPN13duckdb_apache6t
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -30520,7 +30520,7 @@ define noundef i32 @_ZTv0_n40_NK14duckdb_parquet12Uncompressed5writeEPN13duckdb_
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -30702,7 +30702,7 @@ define noundef i32 @_ZN14duckdb_parquet22BloomFilterCompression4readEPN13duckdb_
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -30875,7 +30875,7 @@ define noundef i32 @_ZNK14duckdb_parquet22BloomFilterCompression5writeEPN13duckd
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -30917,7 +30917,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol15writeFieldBeginEPKcNS1_5TTypeEs.ex
   store ptr %34, ptr %33, align 8, !tbaa !33
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store i64 0, ptr %35, align 8, !tbaa !39
-  store i8 0, ptr %34, align 1, !tbaa !38
+  store i8 0, ptr %34, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %32, align 8, !tbaa !22
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 40
   store i32 6, ptr %36, align 8, !tbaa !94
@@ -31424,7 +31424,7 @@ define noundef i32 @_ZN14duckdb_parquet17BloomFilterHeader4readEPN13duckdb_apach
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -31578,7 +31578,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %6
   store ptr %77, ptr %76, align 8, !tbaa !33
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 16
   store i64 0, ptr %78, align 8, !tbaa !39
-  store i8 0, ptr %77, align 1, !tbaa !38
+  store i8 0, ptr %77, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %75, align 8, !tbaa !22
   %79 = getelementptr inbounds nuw i8, ptr %75, i64 40
   store i32 1, ptr %79, align 8, !tbaa !94
@@ -31667,7 +31667,7 @@ define noundef i32 @_ZNK14duckdb_parquet17BloomFilterHeader5writeEPN13duckdb_apa
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -33157,7 +33157,7 @@ define noundef i32 @_ZN14duckdb_parquet10PageHeader4readEPN13duckdb_apache6thrif
   store ptr %16, ptr %15, align 8, !tbaa !33
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 0, ptr %17, align 8, !tbaa !39
-  store i8 0, ptr %16, align 1, !tbaa !38
+  store i8 0, ptr %16, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %14, align 8, !tbaa !22
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store i32 6, ptr %18, align 8, !tbaa !94
@@ -33396,7 +33396,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %1
   store ptr %123, ptr %122, align 8, !tbaa !33
   %124 = getelementptr inbounds nuw i8, ptr %121, i64 16
   store i64 0, ptr %124, align 8, !tbaa !39
-  store i8 0, ptr %123, align 1, !tbaa !38
+  store i8 0, ptr %123, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %121, align 8, !tbaa !22
   %125 = getelementptr inbounds nuw i8, ptr %121, i64 40
   store i32 1, ptr %125, align 8, !tbaa !94
@@ -33485,7 +33485,7 @@ define noundef i32 @_ZNK14duckdb_parquet10PageHeader5writeEPN13duckdb_apache6thr
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -33688,7 +33688,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol15writeFieldBeginEPKcNS1_5TTypeEs.ex
   store ptr %128, ptr %127, align 8, !tbaa !33
   %129 = getelementptr inbounds nuw i8, ptr %126, i64 16
   store i64 0, ptr %129, align 8, !tbaa !39
-  store i8 0, ptr %128, align 1, !tbaa !38
+  store i8 0, ptr %128, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %126, align 8, !tbaa !22
   %130 = getelementptr inbounds nuw i8, ptr %126, i64 40
   store i32 6, ptr %130, align 8, !tbaa !94
@@ -35928,7 +35928,7 @@ define noundef i32 @_ZN14duckdb_parquet8KeyValue4readEPN13duckdb_apache6thrift8p
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -36063,7 +36063,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %6
   store ptr %72, ptr %71, align 8, !tbaa !33
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 16
   store i64 0, ptr %73, align 8, !tbaa !39
-  store i8 0, ptr %72, align 1, !tbaa !38
+  store i8 0, ptr %72, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %70, align 8, !tbaa !22
   %74 = getelementptr inbounds nuw i8, ptr %70, i64 40
   store i32 1, ptr %74, align 8, !tbaa !94
@@ -36152,7 +36152,7 @@ define noundef i32 @_ZNK14duckdb_parquet8KeyValue5writeEPN13duckdb_apache6thrift
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -36688,7 +36688,7 @@ define noundef i32 @_ZN14duckdb_parquet13SortingColumn4readEPN13duckdb_apache6th
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -36835,7 +36835,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %6
   store ptr %78, ptr %77, align 8, !tbaa !33
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 16
   store i64 0, ptr %79, align 8, !tbaa !39
-  store i8 0, ptr %78, align 1, !tbaa !38
+  store i8 0, ptr %78, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %76, align 8, !tbaa !22
   %80 = getelementptr inbounds nuw i8, ptr %76, i64 40
   store i32 1, ptr %80, align 8, !tbaa !94
@@ -36924,7 +36924,7 @@ define noundef i32 @_ZNK14duckdb_parquet13SortingColumn5writeEPN13duckdb_apache6
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -37423,7 +37423,7 @@ define noundef i32 @_ZN14duckdb_parquet17PageEncodingStats4readEPN13duckdb_apach
   store ptr %17, ptr %16, align 8, !tbaa !33
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 0, ptr %18, align 8, !tbaa !39
-  store i8 0, ptr %17, align 1, !tbaa !38
+  store i8 0, ptr %17, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %15, align 8, !tbaa !22
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 6, ptr %19, align 8, !tbaa !94
@@ -37592,7 +37592,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %7
   store ptr %85, ptr %84, align 8, !tbaa !33
   %86 = getelementptr inbounds nuw i8, ptr %83, i64 16
   store i64 0, ptr %86, align 8, !tbaa !39
-  store i8 0, ptr %85, align 1, !tbaa !38
+  store i8 0, ptr %85, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %83, align 8, !tbaa !22
   %87 = getelementptr inbounds nuw i8, ptr %83, i64 40
   store i32 1, ptr %87, align 8, !tbaa !94
@@ -37681,7 +37681,7 @@ define noundef i32 @_ZNK14duckdb_parquet17PageEncodingStats5writeEPN13duckdb_apa
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -38670,7 +38670,7 @@ define noundef i32 @_ZN14duckdb_parquet14ColumnMetaData4readEPN13duckdb_apache6t
   store ptr %26, ptr %25, align 8, !tbaa !33
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i64 0, ptr %27, align 8, !tbaa !39
-  store i8 0, ptr %26, align 1, !tbaa !38
+  store i8 0, ptr %26, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %24, align 8, !tbaa !22
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 40
   store i32 6, ptr %28, align 8, !tbaa !94
@@ -39766,7 +39766,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %4
   store ptr %506, ptr %505, align 8, !tbaa !33
   %507 = getelementptr inbounds nuw i8, ptr %504, i64 16
   store i64 0, ptr %507, align 8, !tbaa !39
-  store i8 0, ptr %506, align 1, !tbaa !38
+  store i8 0, ptr %506, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %504, align 8, !tbaa !22
   %508 = getelementptr inbounds nuw i8, ptr %504, i64 40
   store i32 1, ptr %508, align 8, !tbaa !94
@@ -40163,7 +40163,7 @@ define noundef i32 @_ZNK14duckdb_parquet14ColumnMetaData5writeEPN13duckdb_apache
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -43505,7 +43505,7 @@ define noundef i32 @_ZN14duckdb_parquet23EncryptionWithFooterKey4readEPN13duckdb
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -43651,7 +43651,7 @@ define noundef i32 @_ZNK14duckdb_parquet23EncryptionWithFooterKey5writeEPN13duck
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -43714,7 +43714,7 @@ define noundef i32 @_ZTv0_n40_NK14duckdb_parquet23EncryptionWithFooterKey5writeE
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -44247,7 +44247,7 @@ define noundef i32 @_ZN14duckdb_parquet23EncryptionWithColumnKey4readEPN13duckdb
   store ptr %19, ptr %18, align 8, !tbaa !33
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 0, ptr %20, align 8, !tbaa !39
-  store i8 0, ptr %19, align 1, !tbaa !38
+  store i8 0, ptr %19, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %17, align 8, !tbaa !22
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store i32 6, ptr %21, align 8, !tbaa !94
@@ -44622,7 +44622,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %1
   store ptr %163, ptr %162, align 8, !tbaa !33
   %164 = getelementptr inbounds nuw i8, ptr %161, i64 16
   store i64 0, ptr %164, align 8, !tbaa !39
-  store i8 0, ptr %163, align 1, !tbaa !38
+  store i8 0, ptr %163, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %161, align 8, !tbaa !22
   %165 = getelementptr inbounds nuw i8, ptr %161, i64 40
   store i32 1, ptr %165, align 8, !tbaa !94
@@ -44711,7 +44711,7 @@ define noundef i32 @_ZNK14duckdb_parquet23EncryptionWithColumnKey5writeEPN13duck
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -45649,7 +45649,7 @@ define noundef i32 @_ZN14duckdb_parquet20ColumnCryptoMetaData4readEPN13duckdb_ap
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -45837,7 +45837,7 @@ define noundef i32 @_ZNK14duckdb_parquet20ColumnCryptoMetaData5writeEPN13duckdb_
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -45879,7 +45879,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol15writeFieldBeginEPKcNS1_5TTypeEs.ex
   store ptr %34, ptr %33, align 8, !tbaa !33
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store i64 0, ptr %35, align 8, !tbaa !39
-  store i8 0, ptr %34, align 1, !tbaa !38
+  store i8 0, ptr %34, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %32, align 8, !tbaa !22
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 40
   store i32 6, ptr %36, align 8, !tbaa !94
@@ -47042,7 +47042,7 @@ define noundef i32 @_ZN14duckdb_parquet11ColumnChunk4readEPN13duckdb_apache6thri
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -47264,7 +47264,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %1
   store ptr %121, ptr %120, align 8, !tbaa !33
   %122 = getelementptr inbounds nuw i8, ptr %119, i64 16
   store i64 0, ptr %122, align 8, !tbaa !39
-  store i8 0, ptr %121, align 1, !tbaa !38
+  store i8 0, ptr %121, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %119, align 8, !tbaa !22
   %123 = getelementptr inbounds nuw i8, ptr %119, i64 40
   store i32 1, ptr %123, align 8, !tbaa !94
@@ -47353,7 +47353,7 @@ define noundef i32 @_ZNK14duckdb_parquet11ColumnChunk5writeEPN13duckdb_apache6th
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -49514,7 +49514,7 @@ define noundef i32 @_ZN14duckdb_parquet8RowGroup4readEPN13duckdb_apache6thrift8p
   store ptr %23, ptr %22, align 8, !tbaa !33
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i64 0, ptr %24, align 8, !tbaa !39
-  store i8 0, ptr %23, align 1, !tbaa !38
+  store i8 0, ptr %23, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %21, align 8, !tbaa !22
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store i32 6, ptr %25, align 8, !tbaa !94
@@ -50199,7 +50199,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %2
   store ptr %303, ptr %302, align 8, !tbaa !33
   %304 = getelementptr inbounds nuw i8, ptr %301, i64 16
   store i64 0, ptr %304, align 8, !tbaa !39
-  store i8 0, ptr %303, align 1, !tbaa !38
+  store i8 0, ptr %303, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %301, align 8, !tbaa !22
   %305 = getelementptr inbounds nuw i8, ptr %301, i64 40
   store i32 1, ptr %305, align 8, !tbaa !94
@@ -50288,7 +50288,7 @@ define noundef i32 @_ZNK14duckdb_parquet8RowGroup5writeEPN13duckdb_apache6thrift
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -51872,7 +51872,7 @@ define noundef i32 @_ZN14duckdb_parquet16TypeDefinedOrder4readEPN13duckdb_apache
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -52018,7 +52018,7 @@ define noundef i32 @_ZNK14duckdb_parquet16TypeDefinedOrder5writeEPN13duckdb_apac
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -52081,7 +52081,7 @@ define noundef i32 @_ZTv0_n40_NK14duckdb_parquet16TypeDefinedOrder5writeEPN13duc
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -52263,7 +52263,7 @@ define noundef i32 @_ZN14duckdb_parquet11ColumnOrder4readEPN13duckdb_apache6thri
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -52436,7 +52436,7 @@ define noundef i32 @_ZNK14duckdb_parquet11ColumnOrder5writeEPN13duckdb_apache6th
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -52478,7 +52478,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol15writeFieldBeginEPKcNS1_5TTypeEs.ex
   store ptr %34, ptr %33, align 8, !tbaa !33
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store i64 0, ptr %35, align 8, !tbaa !39
-  store i8 0, ptr %34, align 1, !tbaa !38
+  store i8 0, ptr %34, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %32, align 8, !tbaa !22
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 40
   store i32 6, ptr %36, align 8, !tbaa !94
@@ -52932,7 +52932,7 @@ define noundef i32 @_ZN14duckdb_parquet12PageLocation4readEPN13duckdb_apache6thr
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -53079,7 +53079,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %6
   store ptr %78, ptr %77, align 8, !tbaa !33
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 16
   store i64 0, ptr %79, align 8, !tbaa !39
-  store i8 0, ptr %78, align 1, !tbaa !38
+  store i8 0, ptr %78, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %76, align 8, !tbaa !22
   %80 = getelementptr inbounds nuw i8, ptr %76, i64 40
   store i32 1, ptr %80, align 8, !tbaa !94
@@ -53168,7 +53168,7 @@ define noundef i32 @_ZNK14duckdb_parquet12PageLocation5writeEPN13duckdb_apache6t
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -53884,7 +53884,7 @@ define noundef i32 @_ZN14duckdb_parquet11OffsetIndex4readEPN13duckdb_apache6thri
   store ptr %23, ptr %22, align 8, !tbaa !33
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i64 0, ptr %24, align 8, !tbaa !39
-  store i8 0, ptr %23, align 1, !tbaa !38
+  store i8 0, ptr %23, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %21, align 8, !tbaa !22
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store i32 6, ptr %25, align 8, !tbaa !94
@@ -54405,7 +54405,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %2
   store ptr %221, ptr %220, align 8, !tbaa !33
   %222 = getelementptr inbounds nuw i8, ptr %219, i64 16
   store i64 0, ptr %222, align 8, !tbaa !39
-  store i8 0, ptr %221, align 1, !tbaa !38
+  store i8 0, ptr %221, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %219, align 8, !tbaa !22
   %223 = getelementptr inbounds nuw i8, ptr %219, i64 40
   store i32 1, ptr %223, align 8, !tbaa !94
@@ -54494,7 +54494,7 @@ define noundef i32 @_ZNK14duckdb_parquet11OffsetIndex5writeEPN13duckdb_apache6th
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -55561,7 +55561,7 @@ define noundef i32 @_ZN14duckdb_parquet11ColumnIndex4readEPN13duckdb_apache6thri
   store ptr %40, ptr %39, align 8, !tbaa !33
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store i64 0, ptr %41, align 8, !tbaa !39
-  store i8 0, ptr %40, align 1, !tbaa !38
+  store i8 0, ptr %40, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %38, align 8, !tbaa !22
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 40
   store i32 6, ptr %42, align 8, !tbaa !94
@@ -57008,7 +57008,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %5
   store ptr %587, ptr %586, align 8, !tbaa !33
   %588 = getelementptr inbounds nuw i8, ptr %585, i64 16
   store i64 0, ptr %588, align 8, !tbaa !39
-  store i8 0, ptr %587, align 1, !tbaa !38
+  store i8 0, ptr %587, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %585, align 8, !tbaa !22
   %589 = getelementptr inbounds nuw i8, ptr %585, i64 40
   store i32 1, ptr %589, align 8, !tbaa !94
@@ -57097,7 +57097,7 @@ define noundef i32 @_ZNK14duckdb_parquet11ColumnIndex5writeEPN13duckdb_apache6th
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -59006,7 +59006,7 @@ define noundef i32 @_ZN14duckdb_parquet8AesGcmV14readEPN13duckdb_apache6thrift8p
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -59218,7 +59218,7 @@ define noundef i32 @_ZNK14duckdb_parquet8AesGcmV15writeEPN13duckdb_apache6thrift
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -60130,7 +60130,7 @@ define noundef i32 @_ZN14duckdb_parquet11AesGcmCtrV14readEPN13duckdb_apache6thri
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -60342,7 +60342,7 @@ define noundef i32 @_ZNK14duckdb_parquet11AesGcmCtrV15writeEPN13duckdb_apache6th
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -61518,7 +61518,7 @@ define noundef i32 @_ZN14duckdb_parquet19EncryptionAlgorithm4readEPN13duckdb_apa
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -61707,7 +61707,7 @@ define noundef i32 @_ZNK14duckdb_parquet19EncryptionAlgorithm5writeEPN13duckdb_a
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -63047,7 +63047,7 @@ define noundef i32 @_ZN14duckdb_parquet12FileMetaData4readEPN13duckdb_apache6thr
   store ptr %23, ptr %22, align 8, !tbaa !33
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i64 0, ptr %24, align 8, !tbaa !39
-  store i8 0, ptr %23, align 1, !tbaa !38
+  store i8 0, ptr %23, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %21, align 8, !tbaa !22
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store i32 6, ptr %25, align 8, !tbaa !94
@@ -63894,7 +63894,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %3
   store ptr %381, ptr %380, align 8, !tbaa !33
   %382 = getelementptr inbounds nuw i8, ptr %379, i64 16
   store i64 0, ptr %382, align 8, !tbaa !39
-  store i8 0, ptr %381, align 1, !tbaa !38
+  store i8 0, ptr %381, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %379, align 8, !tbaa !22
   %383 = getelementptr inbounds nuw i8, ptr %379, i64 40
   store i32 1, ptr %383, align 8, !tbaa !94
@@ -64214,7 +64214,7 @@ define noundef i32 @_ZNK14duckdb_parquet12FileMetaData5writeEPN13duckdb_apache6t
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -66897,7 +66897,7 @@ define noundef i32 @_ZN14duckdb_parquet18FileCryptoMetaData4readEPN13duckdb_apac
   store ptr %15, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !39
-  store i8 0, ptr %15, align 1, !tbaa !38
+  store i8 0, ptr %15, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %13, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 6, ptr %17, align 8, !tbaa !94
@@ -67025,7 +67025,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %6
   store ptr %68, ptr %67, align 8, !tbaa !33
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 16
   store i64 0, ptr %69, align 8, !tbaa !39
-  store i8 0, ptr %68, align 1, !tbaa !38
+  store i8 0, ptr %68, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %66, align 8, !tbaa !22
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 40
   store i32 1, ptr %70, align 8, !tbaa !94
@@ -67114,7 +67114,7 @@ define noundef i32 @_ZNK14duckdb_parquet18FileCryptoMetaData5writeEPN13duckdb_ap
   store ptr %12, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %13, align 8, !tbaa !39
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %10, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 6, ptr %14, align 8, !tbaa !94
@@ -68832,17 +68832,17 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_it
   store ptr %5, ptr %4, align 8, !tbaa !33
   %6 = getelementptr inbounds nuw i8, ptr %.023, i64 16
   store i64 0, ptr %6, align 8, !tbaa !39
-  store i8 0, ptr %5, align 1, !tbaa !38
+  store i8 0, ptr %5, align 8, !tbaa !38
   %7 = getelementptr inbounds nuw i8, ptr %.023, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %.023, i64 56
   store ptr %8, ptr %7, align 8, !tbaa !33
   %9 = getelementptr inbounds nuw i8, ptr %.023, i64 48
   store i64 0, ptr %9, align 8, !tbaa !39
-  store i8 0, ptr %8, align 1, !tbaa !38
+  store i8 0, ptr %8, align 8, !tbaa !38
   %10 = getelementptr inbounds nuw i8, ptr %.023, i64 72
-  %11 = load i8, ptr %10, align 1
+  %11 = load i8, ptr %10, align 8
   %12 = and i8 %11, -2
-  store i8 %12, ptr %10, align 1
+  store i8 %12, ptr %10, align 8
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.08.022, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit.i.i unwind label %15
@@ -68954,17 +68954,17 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIPN14duckdb_parquet8KeyVa
   store ptr %5, ptr %4, align 8, !tbaa !33
   %6 = getelementptr inbounds nuw i8, ptr %.025, i64 16
   store i64 0, ptr %6, align 8, !tbaa !39
-  store i8 0, ptr %5, align 1, !tbaa !38
+  store i8 0, ptr %5, align 8, !tbaa !38
   %7 = getelementptr inbounds nuw i8, ptr %.025, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %.025, i64 56
   store ptr %8, ptr %7, align 8, !tbaa !33
   %9 = getelementptr inbounds nuw i8, ptr %.025, i64 48
   store i64 0, ptr %9, align 8, !tbaa !39
-  store i8 0, ptr %8, align 1, !tbaa !38
+  store i8 0, ptr %8, align 8, !tbaa !38
   %10 = getelementptr inbounds nuw i8, ptr %.025, i64 72
-  %11 = load i8, ptr %10, align 1
+  %11 = load i8, ptr %10, align 8
   %12 = and i8 %11, -2
-  store i8 %12, ptr %10, align 1
+  store i8 %12, ptr %10, align 8
   %13 = getelementptr inbounds nuw i8, ptr %.01224, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit.i.i unwind label %15
@@ -71091,9 +71091,9 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_it
   %5 = getelementptr inbounds nuw i8, ptr %.015, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %.015, i64 90
-  %7 = load i8, ptr %6, align 1
+  %7 = load i8, ptr %6, align 2
   %8 = and i8 %7, -16
-  store i8 %8, ptr %6, align 1
+  store i8 %8, ptr %6, align 2
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.08.014, i64 8
   %10 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN14duckdb_parquet11ColumnChunkESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %9)
           to label %_ZN6duckdb6vectorIN14duckdb_parquet11ColumnChunkELb1EEaSERKS3_.exit.i.i unwind label %.body
@@ -71193,9 +71193,9 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIPN14duckdb_parquet8RowGr
   %5 = getelementptr inbounds nuw i8, ptr %.017, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %.017, i64 90
-  %7 = load i8, ptr %6, align 1
+  %7 = load i8, ptr %6, align 2
   %8 = and i8 %7, -16
-  store i8 %8, ptr %6, align 1
+  store i8 %8, ptr %6, align 2
   %9 = getelementptr inbounds nuw i8, ptr %.01216, i64 8
   %10 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN14duckdb_parquet11ColumnChunkESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %9)
           to label %_ZN6duckdb6vectorIN14duckdb_parquet11ColumnChunkELb1EEaSERKS3_.exit.i.i unwind label %.body
@@ -71469,9 +71469,9 @@ _ZSt4copyIPN14duckdb_parquet11ColumnOrderES2_ET0_T_S4_S3_.exit: ; preds = %_ZSt4
   %71 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
   store ptr getelementptr inbounds nuw inrange(-48, 40) (i8, ptr @_ZTVN14duckdb_parquet16TypeDefinedOrderE, i64 48), ptr %71, align 8, !tbaa !22
   %72 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
-  %73 = load i8, ptr %72, align 1
+  %73 = load i8, ptr %72, align 8
   %74 = and i8 %73, -2
-  store i8 %74, ptr %72, align 1
+  store i8 %74, ptr %72, align 8
   %75 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
   %76 = load i8, ptr %75, align 8, !tbaa !38
   store i8 %76, ptr %72, align 8, !tbaa !38
@@ -72180,7 +72180,7 @@ _ZSt19__relocate_object_aIN6duckdb20ExceptionFormatValueES1_SaIS1_EEvPT_PT0_RT1_
   store i64 %49, ptr %51, align 8, !tbaa !39, !alias.scope !926, !noalias !929
   store ptr %41, ptr %38, align 8, !tbaa !36, !alias.scope !929, !noalias !926
   store i64 0, ptr %50, align 8, !tbaa !39, !alias.scope !929, !noalias !926
-  store i8 0, ptr %41, align 1, !tbaa !38, !alias.scope !929, !noalias !926
+  store i8 0, ptr %41, align 8, !tbaa !38, !alias.scope !929, !noalias !926
   %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 56
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 56
   %.not.i.i.i.i = icmp eq ptr %52, %1
@@ -72231,7 +72231,7 @@ _ZSt19__relocate_object_aIN6duckdb20ExceptionFormatValueES1_SaIS1_EEvPT_PT0_RT1_
   store i64 %67, ptr %69, align 8, !tbaa !39, !alias.scope !933, !noalias !936
   store ptr %59, ptr %56, align 8, !tbaa !36, !alias.scope !936, !noalias !933
   store i64 0, ptr %68, align 8, !tbaa !39, !alias.scope !936, !noalias !933
-  store i8 0, ptr %59, align 1, !tbaa !38, !alias.scope !936, !noalias !933
+  store i8 0, ptr %59, align 8, !tbaa !38, !alias.scope !936, !noalias !933
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 56
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 56
   %.not.i.i.i.i24 = icmp eq ptr %70, %5
@@ -72600,7 +72600,7 @@ define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_trait
   store ptr %19, ptr %.08.i.i.i, align 8, !tbaa !33
   %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 8
   store i64 0, ptr %20, align 8, !tbaa !39
-  store i8 0, ptr %19, align 1, !tbaa !38
+  store i8 0, ptr %19, align 8, !tbaa !38
   %21 = add i64 %.057.i.i.i, -1
   %22 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 32
   %.not.i.i.i = icmp eq i64 %21, 0
@@ -72634,7 +72634,7 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
   store ptr %31, ptr %.08.i.i.i31, align 8, !tbaa !33
   %32 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 8
   store i64 0, ptr %32, align 8, !tbaa !39
-  store i8 0, ptr %31, align 1, !tbaa !38
+  store i8 0, ptr %31, align 8, !tbaa !38
   %33 = add i64 %.057.i.i.i32, -1
   %34 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 32
   %.not.i.i.i33 = icmp eq i64 %33, 0
@@ -72680,7 +72680,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %45, ptr %47, align 8, !tbaa !39, !alias.scope !948, !noalias !951
   store ptr %37, ptr %.0911.i.i.i.i, align 8, !tbaa !36, !alias.scope !951, !noalias !948
   store i64 0, ptr %46, align 8, !tbaa !39, !alias.scope !951, !noalias !948
-  store i8 0, ptr %37, align 1, !tbaa !38, !alias.scope !951, !noalias !948
+  store i8 0, ptr %37, align 8, !tbaa !38, !alias.scope !951, !noalias !948
   %48 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %48, %5
@@ -72741,17 +72741,17 @@ define linkonce_odr void @_ZNSt6vectorIN14duckdb_parquet8KeyValueESaIS1_EE17_M_d
   store ptr %20, ptr %19, align 8, !tbaa !33
   %21 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 16
   store i64 0, ptr %21, align 8, !tbaa !39
-  store i8 0, ptr %20, align 1, !tbaa !38
+  store i8 0, ptr %20, align 8, !tbaa !38
   %22 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 40
   %23 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 56
   store ptr %23, ptr %22, align 8, !tbaa !33
   %24 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 48
   store i64 0, ptr %24, align 8, !tbaa !39
-  store i8 0, ptr %23, align 1, !tbaa !38
+  store i8 0, ptr %23, align 8, !tbaa !38
   %25 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 72
-  %26 = load i8, ptr %25, align 1
+  %26 = load i8, ptr %25, align 8
   %27 = and i8 %26, -2
-  store i8 %27, ptr %25, align 1
+  store i8 %27, ptr %25, align 8
   %28 = add i64 %.057.i.i.i, -1
   %29 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 80
   %.not.i.i.i = icmp eq i64 %28, 0
@@ -72787,17 +72787,17 @@ _ZNKSt6vectorIN14duckdb_parquet8KeyValueESaIS1_EE12_M_check_lenEmPKc.exit: ; pre
   store ptr %39, ptr %38, align 8, !tbaa !33
   %40 = getelementptr inbounds nuw i8, ptr %.08.i.i.i41, i64 16
   store i64 0, ptr %40, align 8, !tbaa !39
-  store i8 0, ptr %39, align 1, !tbaa !38
+  store i8 0, ptr %39, align 8, !tbaa !38
   %41 = getelementptr inbounds nuw i8, ptr %.08.i.i.i41, i64 40
   %42 = getelementptr inbounds nuw i8, ptr %.08.i.i.i41, i64 56
   store ptr %42, ptr %41, align 8, !tbaa !33
   %43 = getelementptr inbounds nuw i8, ptr %.08.i.i.i41, i64 48
   store i64 0, ptr %43, align 8, !tbaa !39
-  store i8 0, ptr %42, align 1, !tbaa !38
+  store i8 0, ptr %42, align 8, !tbaa !38
   %44 = getelementptr inbounds nuw i8, ptr %.08.i.i.i41, i64 72
-  %45 = load i8, ptr %44, align 1
+  %45 = load i8, ptr %44, align 8
   %46 = and i8 %45, -2
-  store i8 %46, ptr %44, align 1
+  store i8 %46, ptr %44, align 8
   %47 = add i64 %.057.i.i.i42, -1
   %48 = getelementptr inbounds nuw i8, ptr %.08.i.i.i41, i64 80
   %.not.i.i.i43 = icmp eq i64 %47, 0
@@ -72896,17 +72896,17 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIPKN14duckdb_parquet8KeyV
   store ptr %5, ptr %4, align 8, !tbaa !33
   %6 = getelementptr inbounds nuw i8, ptr %.025, i64 16
   store i64 0, ptr %6, align 8, !tbaa !39
-  store i8 0, ptr %5, align 1, !tbaa !38
+  store i8 0, ptr %5, align 8, !tbaa !38
   %7 = getelementptr inbounds nuw i8, ptr %.025, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %.025, i64 56
   store ptr %8, ptr %7, align 8, !tbaa !33
   %9 = getelementptr inbounds nuw i8, ptr %.025, i64 48
   store i64 0, ptr %9, align 8, !tbaa !39
-  store i8 0, ptr %8, align 1, !tbaa !38
+  store i8 0, ptr %8, align 8, !tbaa !38
   %10 = getelementptr inbounds nuw i8, ptr %.025, i64 72
-  %11 = load i8, ptr %10, align 1
+  %11 = load i8, ptr %10, align 8
   %12 = and i8 %11, -2
-  store i8 %12, ptr %10, align 1
+  store i8 %12, ptr %10, align 8
   %13 = getelementptr inbounds nuw i8, ptr %.01224, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit.i.i unwind label %15
@@ -74397,7 +74397,7 @@ define linkonce_odr noundef ptr @_ZNSt27__uninitialized_default_n_1ILb0EE18__uni
   store ptr %4, ptr %3, align 8, !tbaa !33
   %5 = getelementptr inbounds nuw i8, ptr %.08, i64 16
   store i64 0, ptr %5, align 8, !tbaa !39
-  store i8 0, ptr %4, align 1, !tbaa !38
+  store i8 0, ptr %4, align 8, !tbaa !38
   %6 = getelementptr inbounds nuw i8, ptr %.08, i64 40
   store i64 0, ptr %6, align 8, !tbaa !614
   %7 = getelementptr inbounds nuw i8, ptr %.08, i64 48
@@ -74415,13 +74415,13 @@ define linkonce_odr noundef ptr @_ZNSt27__uninitialized_default_n_1ILb0EE18__uni
   store ptr %13, ptr %12, align 8, !tbaa !33
   %14 = getelementptr inbounds nuw i8, ptr %.08, i64 208
   store i64 0, ptr %14, align 8, !tbaa !39
-  store i8 0, ptr %13, align 1, !tbaa !38
+  store i8 0, ptr %13, align 8, !tbaa !38
   %15 = getelementptr inbounds nuw i8, ptr %.08, i64 232
   %16 = getelementptr inbounds nuw i8, ptr %.08, i64 248
   store ptr %16, ptr %15, align 8, !tbaa !33
   %17 = getelementptr inbounds nuw i8, ptr %.08, i64 240
   store i64 0, ptr %17, align 8, !tbaa !39
-  store i8 0, ptr %16, align 1, !tbaa !38
+  store i8 0, ptr %16, align 8, !tbaa !38
   %18 = getelementptr inbounds nuw i8, ptr %.08, i64 264
   %19 = getelementptr inbounds nuw i8, ptr %.08, i64 280
   %20 = getelementptr inbounds nuw i8, ptr %.08, i64 296
@@ -74429,19 +74429,19 @@ define linkonce_odr noundef ptr @_ZNSt27__uninitialized_default_n_1ILb0EE18__uni
   store ptr %20, ptr %19, align 8, !tbaa !33
   %21 = getelementptr inbounds nuw i8, ptr %.08, i64 288
   store i64 0, ptr %21, align 8, !tbaa !39
-  store i8 0, ptr %20, align 1, !tbaa !38
+  store i8 0, ptr %20, align 8, !tbaa !38
   %22 = getelementptr inbounds nuw i8, ptr %.08, i64 312
   %23 = getelementptr inbounds nuw i8, ptr %.08, i64 328
   store ptr %23, ptr %22, align 8, !tbaa !33
   %24 = getelementptr inbounds nuw i8, ptr %.08, i64 320
   store i64 0, ptr %24, align 8, !tbaa !39
-  store i8 0, ptr %23, align 1, !tbaa !38
+  store i8 0, ptr %23, align 8, !tbaa !38
   %25 = getelementptr inbounds nuw i8, ptr %.08, i64 344
   store i8 0, ptr %25, align 8, !tbaa !130
   %26 = getelementptr inbounds nuw i8, ptr %.08, i64 345
   store i8 0, ptr %26, align 1, !tbaa !133
   %27 = getelementptr inbounds nuw i8, ptr %.08, i64 346
-  store i8 0, ptr %27, align 1
+  store i8 0, ptr %27, align 2
   %28 = getelementptr inbounds nuw i8, ptr %.08, i64 352
   %29 = getelementptr inbounds nuw i8, ptr %.08, i64 392
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %28, i8 0, i64 36, i1 false)
@@ -74449,11 +74449,11 @@ define linkonce_odr noundef ptr @_ZNSt27__uninitialized_default_n_1ILb0EE18__uni
   %30 = getelementptr inbounds nuw i8, ptr %.08, i64 400
   %31 = getelementptr inbounds nuw i8, ptr %.08, i64 456
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %30, i8 0, i64 56, i1 false)
-  %32 = load i8, ptr %31, align 1
+  %32 = load i8, ptr %31, align 8
   %33 = and i8 %32, -8
-  store i8 %33, ptr %31, align 1
+  store i8 %33, ptr %31, align 8
   %34 = getelementptr inbounds nuw i8, ptr %.08, i64 464
-  store i8 0, ptr %34, align 1
+  store i8 0, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.08, i64 472
   store i64 0, ptr %35, align 8, !tbaa !622
   %36 = getelementptr inbounds nuw i8, ptr %.08, i64 480
@@ -74475,23 +74475,23 @@ define linkonce_odr noundef ptr @_ZNSt27__uninitialized_default_n_1ILb0EE18__uni
   store ptr %44, ptr %43, align 8, !tbaa !33
   %45 = getelementptr inbounds nuw i8, ptr %.08, i64 560
   store i64 0, ptr %45, align 8, !tbaa !39
-  store i8 0, ptr %44, align 1, !tbaa !38
+  store i8 0, ptr %44, align 8, !tbaa !38
   %46 = getelementptr inbounds nuw i8, ptr %.08, i64 584
-  %47 = load i8, ptr %46, align 1
+  %47 = load i8, ptr %46, align 8
   %48 = and i8 %47, -2
-  store i8 %48, ptr %46, align 1
+  store i8 %48, ptr %46, align 8
   %49 = getelementptr inbounds nuw i8, ptr %.08, i64 592
-  %50 = load i8, ptr %49, align 1
+  %50 = load i8, ptr %49, align 8
   %51 = and i8 %50, -4
-  store i8 %51, ptr %49, align 1
+  store i8 %51, ptr %49, align 8
   %52 = getelementptr inbounds nuw i8, ptr %.08, i64 600
   %53 = getelementptr inbounds nuw i8, ptr %.08, i64 616
   store ptr %53, ptr %52, align 8, !tbaa !33
   %54 = getelementptr inbounds nuw i8, ptr %.08, i64 608
   store i64 0, ptr %54, align 8, !tbaa !39
-  store i8 0, ptr %53, align 1, !tbaa !38
+  store i8 0, ptr %53, align 8, !tbaa !38
   %55 = getelementptr inbounds nuw i8, ptr %.08, i64 632
-  store i8 0, ptr %55, align 1
+  store i8 0, ptr %55, align 8
   %56 = add i64 %.057, -1
   %57 = getelementptr inbounds nuw i8, ptr %.08, i64 640
   %.not = icmp eq i64 %56, 0
@@ -76475,7 +76475,7 @@ define linkonce_odr void @_ZNSt6vectorIN14duckdb_parquet13SchemaElementESaIS1_EE
   store ptr %23, ptr %22, align 8, !tbaa !33
   %24 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 32
   store i64 0, ptr %24, align 8, !tbaa !39
-  store i8 0, ptr %23, align 1, !tbaa !38
+  store i8 0, ptr %23, align 8, !tbaa !38
   %25 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 56
   %26 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %25, i8 0, i64 20, i1 false)
@@ -76509,9 +76509,9 @@ define linkonce_odr void @_ZNSt6vectorIN14duckdb_parquet13SchemaElementESaIS1_EE
   %40 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 184
   store ptr getelementptr inbounds nuw inrange(-48, 40) (i8, ptr @_ZTVN14duckdb_parquet11NanoSecondsE, i64 48), ptr %40, align 8, !tbaa !22
   %41 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 192
-  %42 = load i8, ptr %41, align 1
+  %42 = load i8, ptr %41, align 8
   %43 = and i8 %42, -8
-  store i8 %43, ptr %41, align 1
+  store i8 %43, ptr %41, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 200
   store ptr getelementptr inbounds nuw inrange(-48, 40) (i8, ptr @_ZTVN14duckdb_parquet13TimestampTypeE, i64 48), ptr %44, align 8, !tbaa !22
   %45 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 208
@@ -76525,9 +76525,9 @@ define linkonce_odr void @_ZNSt6vectorIN14duckdb_parquet13SchemaElementESaIS1_EE
   %49 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 240
   store ptr getelementptr inbounds nuw inrange(-48, 40) (i8, ptr @_ZTVN14duckdb_parquet11NanoSecondsE, i64 48), ptr %49, align 8, !tbaa !22
   %50 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 248
-  %51 = load i8, ptr %50, align 1
+  %51 = load i8, ptr %50, align 8
   %52 = and i8 %51, -8
-  store i8 %52, ptr %50, align 1
+  store i8 %52, ptr %50, align 8
   %53 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 256
   store ptr getelementptr inbounds nuw inrange(-48, 40) (i8, ptr @_ZTVN14duckdb_parquet7IntTypeE, i64 48), ptr %53, align 8, !tbaa !22
   %54 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 264
@@ -76545,13 +76545,13 @@ define linkonce_odr void @_ZNSt6vectorIN14duckdb_parquet13SchemaElementESaIS1_EE
   %60 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 304
   store ptr getelementptr inbounds nuw inrange(-48, 40) (i8, ptr @_ZTVN14duckdb_parquet11Float16TypeE, i64 48), ptr %60, align 8, !tbaa !22
   %61 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 312
-  %62 = load i16, ptr %61, align 1
+  %62 = load i16, ptr %61, align 8
   %63 = and i16 %62, -16384
-  store i16 %63, ptr %61, align 1
+  store i16 %63, ptr %61, align 8
   %64 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 320
-  %65 = load i16, ptr %64, align 1
+  %65 = load i16, ptr %64, align 8
   %66 = and i16 %65, -512
-  store i16 %66, ptr %64, align 1
+  store i16 %66, ptr %64, align 8
   %67 = add i64 %.057.i.i.i, -1
   %68 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 328
   %.not.i.i.i = icmp eq i64 %67, 0
@@ -76593,7 +76593,7 @@ _ZNKSt6vectorIN14duckdb_parquet13SchemaElementESaIS1_EE12_M_check_lenEmPKc.exit:
   store ptr %81, ptr %80, align 8, !tbaa !33
   %82 = getelementptr inbounds nuw i8, ptr %.08.i.i.i41, i64 32
   store i64 0, ptr %82, align 8, !tbaa !39
-  store i8 0, ptr %81, align 1, !tbaa !38
+  store i8 0, ptr %81, align 8, !tbaa !38
   %83 = getelementptr inbounds nuw i8, ptr %.08.i.i.i41, i64 56
   %84 = getelementptr inbounds nuw i8, ptr %.08.i.i.i41, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %83, i8 0, i64 20, i1 false)
@@ -76627,9 +76627,9 @@ _ZNKSt6vectorIN14duckdb_parquet13SchemaElementESaIS1_EE12_M_check_lenEmPKc.exit:
   %98 = getelementptr inbounds nuw i8, ptr %.08.i.i.i41, i64 184
   store ptr getelementptr inbounds nuw inrange(-48, 40) (i8, ptr @_ZTVN14duckdb_parquet11NanoSecondsE, i64 48), ptr %98, align 8, !tbaa !22
   %99 = getelementptr inbounds nuw i8, ptr %.08.i.i.i41, i64 192
-  %100 = load i8, ptr %99, align 1
+  %100 = load i8, ptr %99, align 8
   %101 = and i8 %100, -8
-  store i8 %101, ptr %99, align 1
+  store i8 %101, ptr %99, align 8
   %102 = getelementptr inbounds nuw i8, ptr %.08.i.i.i41, i64 200
   store ptr getelementptr inbounds nuw inrange(-48, 40) (i8, ptr @_ZTVN14duckdb_parquet13TimestampTypeE, i64 48), ptr %102, align 8, !tbaa !22
   %103 = getelementptr inbounds nuw i8, ptr %.08.i.i.i41, i64 208
@@ -76643,9 +76643,9 @@ _ZNKSt6vectorIN14duckdb_parquet13SchemaElementESaIS1_EE12_M_check_lenEmPKc.exit:
   %107 = getelementptr inbounds nuw i8, ptr %.08.i.i.i41, i64 240
   store ptr getelementptr inbounds nuw inrange(-48, 40) (i8, ptr @_ZTVN14duckdb_parquet11NanoSecondsE, i64 48), ptr %107, align 8, !tbaa !22
   %108 = getelementptr inbounds nuw i8, ptr %.08.i.i.i41, i64 248
-  %109 = load i8, ptr %108, align 1
+  %109 = load i8, ptr %108, align 8
   %110 = and i8 %109, -8
-  store i8 %110, ptr %108, align 1
+  store i8 %110, ptr %108, align 8
   %111 = getelementptr inbounds nuw i8, ptr %.08.i.i.i41, i64 256
   store ptr getelementptr inbounds nuw inrange(-48, 40) (i8, ptr @_ZTVN14duckdb_parquet7IntTypeE, i64 48), ptr %111, align 8, !tbaa !22
   %112 = getelementptr inbounds nuw i8, ptr %.08.i.i.i41, i64 264
@@ -76663,13 +76663,13 @@ _ZNKSt6vectorIN14duckdb_parquet13SchemaElementESaIS1_EE12_M_check_lenEmPKc.exit:
   %118 = getelementptr inbounds nuw i8, ptr %.08.i.i.i41, i64 304
   store ptr getelementptr inbounds nuw inrange(-48, 40) (i8, ptr @_ZTVN14duckdb_parquet11Float16TypeE, i64 48), ptr %118, align 8, !tbaa !22
   %119 = getelementptr inbounds nuw i8, ptr %.08.i.i.i41, i64 312
-  %120 = load i16, ptr %119, align 1
+  %120 = load i16, ptr %119, align 8
   %121 = and i16 %120, -16384
-  store i16 %121, ptr %119, align 1
+  store i16 %121, ptr %119, align 8
   %122 = getelementptr inbounds nuw i8, ptr %.08.i.i.i41, i64 320
-  %123 = load i16, ptr %122, align 1
+  %123 = load i16, ptr %122, align 8
   %124 = and i16 %123, -512
-  store i16 %124, ptr %122, align 1
+  store i16 %124, ptr %122, align 8
   %125 = add i64 %.057.i.i.i42, -1
   %126 = getelementptr inbounds nuw i8, ptr %.08.i.i.i41, i64 328
   %.not.i.i.i43 = icmp eq i64 %125, 0
@@ -76830,9 +76830,9 @@ define linkonce_odr void @_ZNSt6vectorIN14duckdb_parquet8RowGroupESaIS1_EE17_M_d
   %19 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 90
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(82) %19, i8 0, i64 82, i1 false)
-  %21 = load i8, ptr %20, align 1
+  %21 = load i8, ptr %20, align 2
   %22 = and i8 %21, -16
-  store i8 %22, ptr %20, align 1
+  store i8 %22, ptr %20, align 2
   %23 = add i64 %.057.i.i.i, -1
   %24 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 96
   %.not.i.i.i = icmp eq i64 %23, 0
@@ -76866,9 +76866,9 @@ _ZNKSt6vectorIN14duckdb_parquet8RowGroupESaIS1_EE12_M_check_lenEmPKc.exit: ; pre
   %33 = getelementptr inbounds nuw i8, ptr %.08.i.i.i41, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %.08.i.i.i41, i64 90
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(82) %33, i8 0, i64 82, i1 false)
-  %35 = load i8, ptr %34, align 1
+  %35 = load i8, ptr %34, align 2
   %36 = and i8 %35, -16
-  store i8 %36, ptr %34, align 1
+  store i8 %36, ptr %34, align 2
   %37 = add i64 %.057.i.i.i42, -1
   %38 = getelementptr inbounds nuw i8, ptr %.08.i.i.i41, i64 96
   %.not.i.i.i43 = icmp eq i64 %37, 0
@@ -76967,9 +76967,9 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIPKN14duckdb_parquet8RowG
   %5 = getelementptr inbounds nuw i8, ptr %.017, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %.017, i64 90
-  %7 = load i8, ptr %6, align 1
+  %7 = load i8, ptr %6, align 2
   %8 = and i8 %7, -16
-  store i8 %8, ptr %6, align 1
+  store i8 %8, ptr %6, align 2
   %9 = getelementptr inbounds nuw i8, ptr %.01216, i64 8
   %10 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN14duckdb_parquet11ColumnChunkESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %9)
           to label %_ZN6duckdb6vectorIN14duckdb_parquet11ColumnChunkELb1EEaSERKS3_.exit.i.i unwind label %.body
@@ -77088,9 +77088,9 @@ define linkonce_odr void @_ZNSt6vectorIN14duckdb_parquet11ColumnOrderESaIS1_EE17
   %19 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 8
   store ptr getelementptr inbounds nuw inrange(-48, 40) (i8, ptr @_ZTVN14duckdb_parquet16TypeDefinedOrderE, i64 48), ptr %19, align 8, !tbaa !22
   %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 16
-  %21 = load i8, ptr %20, align 1
+  %21 = load i8, ptr %20, align 8
   %22 = and i8 %21, -2
-  store i8 %22, ptr %20, align 1
+  store i8 %22, ptr %20, align 8
   %23 = add i64 %.057.i.i.i, -1
   %24 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 24
   %.not.i.i.i = icmp eq i64 %23, 0
@@ -77124,9 +77124,9 @@ _ZNKSt6vectorIN14duckdb_parquet11ColumnOrderESaIS1_EE12_M_check_lenEmPKc.exit: ;
   %33 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 8
   store ptr getelementptr inbounds nuw inrange(-48, 40) (i8, ptr @_ZTVN14duckdb_parquet16TypeDefinedOrderE, i64 48), ptr %33, align 8, !tbaa !22
   %34 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 16
-  %35 = load i8, ptr %34, align 1
+  %35 = load i8, ptr %34, align 8
   %36 = and i8 %35, -2
-  store i8 %36, ptr %34, align 1
+  store i8 %36, ptr %34, align 8
   %37 = add i64 %.057.i.i.i32, -1
   %38 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 24
   %.not.i.i.i33 = icmp eq i64 %37, 0

@@ -7089,7 +7089,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.6717981035442482804.exit.
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %36, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %69 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  store atomic i8 1, ptr %69 release, align 1, !noalias !1551
+  store atomic i8 1, ptr %69 release, align 8, !noalias !1551
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i64 2, ptr %0, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1552)
@@ -7388,7 +7388,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.6717981035442482804.exit.
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %36, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %62 = getelementptr inbounds nuw i8, ptr %36, i64 40
-  store atomic i8 1, ptr %62 release, align 1, !noalias !1632
+  store atomic i8 1, ptr %62 release, align 8, !noalias !1632
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i64 2, ptr %0, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1633)

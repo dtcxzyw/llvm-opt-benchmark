@@ -266,13 +266,13 @@ define hidden void @_ZN15ciInstanceKlassC2EP5Klass(ptr noundef nonnull align 8 d
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 %18, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 308
-  %21 = load i16, ptr %20, align 2
+  %21 = load i16, ptr %20, align 4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %23 = trunc i16 %21 to i8
   %24 = lshr i8 %23, 1
   %25 = and i8 %24, 1
   store i8 %25, ptr %22, align 8
-  %26 = load i16, ptr %20, align 2
+  %26 = load i16, ptr %20, align 4
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 73
   %28 = trunc i16 %26 to i8
   %29 = lshr i8 %28, 4

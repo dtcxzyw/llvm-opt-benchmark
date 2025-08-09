@@ -490,11 +490,11 @@ _ZNSt8optionalIN4llvm20BalancedPartitioning12BPThreadPoolEE7emplaceIJRNS0_13StdT
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %0, ptr %.sroa.4.0..sroa_idx.i, align 8
   %.sroa.5.0..sroa.4.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 16
-  store ptr %22, ptr %.sroa.5.0..sroa.4.0..sroa_idx.i.sroa_idx, align 8
+  store ptr %22, ptr %.sroa.5.0..sroa.4.0..sroa_idx.i.sroa_idx, align 16
   %.sroa.7.0..sroa.4.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 24
   store ptr %21, ptr %.sroa.7.0..sroa.4.0..sroa_idx.i.sroa_idx, align 8
   %.sroa.9.0..sroa.4.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 32
-  store ptr %8, ptr %.sroa.9.0..sroa.4.0..sroa_idx.i.sroa_idx, align 8
+  store ptr %8, ptr %.sroa.9.0..sroa.4.0..sroa_idx.i.sroa_idx, align 16
   store ptr %39, ptr %7, align 8, !tbaa !86, !noalias !81
   store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_3runERSt6vectorINS1_14BPFunctionNodeESaIS6_EEE3$_0EEvOT_EUlvE_E9_M_invokeERKSt9_Any_data", ptr %37, align 8, !tbaa !87, !noalias !81
   store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_3runERSt6vectorINS1_14BPFunctionNodeESaIS6_EEE3$_0EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %36, align 8, !tbaa !90, !noalias !81
@@ -918,17 +918,17 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %92, i64 8
   store ptr %0, ptr %.sroa.4.0..sroa_idx.i, align 8
   %.sroa.569.0..sroa.4.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %92, i64 16
-  store ptr %1, ptr %.sroa.569.0..sroa.4.0..sroa_idx.i.sroa_idx, align 8
+  store ptr %1, ptr %.sroa.569.0..sroa.4.0..sroa_idx.i.sroa_idx, align 16
   %.sroa.770.0..sroa.4.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %92, i64 24
   store ptr %.sroa.014.121.i.i.i, ptr %.sroa.770.0..sroa.4.0..sroa_idx.i.sroa_idx, align 8
   %.sroa.971.0..sroa.4.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %92, i64 32
-  store i32 %3, ptr %.sroa.971.0..sroa.4.0..sroa_idx.i.sroa_idx, align 8
+  store i32 %3, ptr %.sroa.971.0..sroa.4.0..sroa_idx.i.sroa_idx, align 16
   %.sroa.1172.0..sroa.4.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %92, i64 36
   store i32 %49, ptr %.sroa.1172.0..sroa.4.0..sroa_idx.i.sroa_idx, align 4
   %.sroa.1373.0..sroa.4.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %92, i64 40
   store i32 %5, ptr %.sroa.1373.0..sroa.4.0..sroa_idx.i.sroa_idx, align 8
   %.sroa.1575.0..sroa.4.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %92, i64 48
-  store ptr %6, ptr %.sroa.1575.0..sroa.4.0..sroa_idx.i.sroa_idx, align 8
+  store ptr %6, ptr %.sroa.1575.0..sroa.4.0..sroa_idx.i.sroa_idx, align 16
   store ptr %92, ptr %13, align 8, !tbaa !86, !noalias !120
   store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS1_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS1_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_2EEvOT_EUlvE_E9_M_invokeERKSt9_Any_data", ptr %90, align 8, !tbaa !87, !noalias !120
   store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS1_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS1_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_2EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %89, align 8, !tbaa !90, !noalias !120
@@ -1052,17 +1052,17 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %134, %
   %.sroa.4.0..sroa_idx.i53 = getelementptr inbounds nuw i8, ptr %143, i64 8
   store ptr %0, ptr %.sroa.4.0..sroa_idx.i53, align 8
   %.sroa.5.0..sroa.4.0..sroa_idx.i53.sroa_idx = getelementptr inbounds nuw i8, ptr %143, i64 16
-  store ptr %.sroa.014.121.i.i.i, ptr %.sroa.5.0..sroa.4.0..sroa_idx.i53.sroa_idx, align 8
+  store ptr %.sroa.014.121.i.i.i, ptr %.sroa.5.0..sroa.4.0..sroa_idx.i53.sroa_idx, align 16
   %.sroa.7.0..sroa.4.0..sroa_idx.i53.sroa_idx = getelementptr inbounds nuw i8, ptr %143, i64 24
   store ptr %2, ptr %.sroa.7.0..sroa.4.0..sroa_idx.i53.sroa_idx, align 8
   %.sroa.9.0..sroa.4.0..sroa_idx.i53.sroa_idx = getelementptr inbounds nuw i8, ptr %143, i64 32
-  store i32 %3, ptr %.sroa.9.0..sroa.4.0..sroa_idx.i53.sroa_idx, align 8
+  store i32 %3, ptr %.sroa.9.0..sroa.4.0..sroa_idx.i53.sroa_idx, align 16
   %.sroa.11.0..sroa.4.0..sroa_idx.i53.sroa_idx = getelementptr inbounds nuw i8, ptr %143, i64 36
   store i32 %50, ptr %.sroa.11.0..sroa.4.0..sroa_idx.i53.sroa_idx, align 4
   %.sroa.13.0..sroa.4.0..sroa_idx.i53.sroa_idx = getelementptr inbounds nuw i8, ptr %143, i64 40
   store i32 %75, ptr %.sroa.13.0..sroa.4.0..sroa_idx.i53.sroa_idx, align 8
   %.sroa.1567.0..sroa.4.0..sroa_idx.i53.sroa_idx = getelementptr inbounds nuw i8, ptr %143, i64 48
-  store ptr %6, ptr %.sroa.1567.0..sroa.4.0..sroa_idx.i53.sroa_idx, align 8
+  store ptr %6, ptr %.sroa.1567.0..sroa.4.0..sroa_idx.i53.sroa_idx, align 16
   store ptr %143, ptr %10, align 8, !tbaa !86, !noalias !129
   store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS1_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS1_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_3EEvOT_EUlvE_E9_M_invokeERKSt9_Any_data", ptr %141, align 8, !tbaa !87, !noalias !129
   store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS1_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS1_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_3EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %140, align 8, !tbaa !90, !noalias !129
@@ -4406,11 +4406,11 @@ define linkonce_odr void @_ZSt5asyncISt8functionIFvvEEJEESt6futureINSt15__invoke
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr null, ptr %15, align 8, !tbaa !217, !noalias !216
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store i32 0, ptr %16, align 4, !tbaa !220, !noalias !216
+  store i32 0, ptr %16, align 8, !tbaa !220, !noalias !216
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 36
-  store i8 0, ptr %17, align 1, !tbaa !222, !noalias !216
+  store i8 0, ptr %17, align 4, !tbaa !222, !noalias !216
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store i32 0, ptr %18, align 4, !tbaa !224, !noalias !216
+  store i32 0, ptr %18, align 8, !tbaa !224, !noalias !216
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base15_Deferred_stateINSt6thread8_InvokerISt5tupleIJSt8functionIFvvEEEEEEvEE, i64 16), ptr %14, align 8, !tbaa !26, !noalias !216
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %20 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27, !noalias !216
@@ -5624,7 +5624,7 @@ _ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit.i.i
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(28) %3) #25
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load atomic i32, ptr %8 acquire, align 4
+  %9 = load atomic i32, ptr %8 acquire, align 8
   %10 = and i32 %9, 2147483647
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %_ZSt10__invoke_rIvRZN4llvm19ThreadPoolInterface9asyncImplIvEESt13shared_futureIT_ESt8functionIFS4_vEEPNS0_19ThreadPoolTaskGroupEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIS4_T0_DpT1_EES4_E4typeEOSE_DpOSF_.exit, label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit.us.i.i.i.i.i.i

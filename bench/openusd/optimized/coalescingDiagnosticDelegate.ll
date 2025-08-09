@@ -2746,7 +2746,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i.i: ; pred
 
 _ZZN3tbb6detail2d211micro_queueIPN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBaseENS0_2d123cache_aligned_allocatorIS5_EEE12prepare_pageEmRNS1_20concurrent_queue_repIS5_S8_EENS7_INS9_11padded_pageEEERPSD_ENKUlvE0_clEv.exit: ; preds = %32, %33
   store atomic i64 1, ptr %29 monotonic, align 8
-  store atomic i8 0, ptr %14 release, align 1
+  store atomic i8 0, ptr %14 release, align 8
   br label %34
 
 34:                                               ; preds = %_ZZN3tbb6detail2d211micro_queueIPN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBaseENS0_2d123cache_aligned_allocatorIS5_EEE12prepare_pageEmRNS1_20concurrent_queue_repIS5_S8_EENS7_INS9_11padded_pageEEERPSD_ENKUlvE0_clEv.exit, %1

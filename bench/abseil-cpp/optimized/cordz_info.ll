@@ -851,7 +851,7 @@ _ZNK4absl13cord_internal9CordzInfo10RefCordRepEv.exit: ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %30 = load atomic i32, ptr %29 acquire, align 4
+  %30 = load atomic i32, ptr %29 acquire, align 8
   %31 = ashr i32 %30, 1
   %32 = tail call i32 @llvm.umax.i32(i32 %31, i32 2)
   %33 = sext i32 %32 to i64

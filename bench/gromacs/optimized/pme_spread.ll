@@ -530,7 +530,7 @@ define internal void @_Z14spread_on_gridPK9gmx_pme_tP11PmeAtomCommP14PmeAndFftGr
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 476
   %41 = load float, ptr %40, align 4, !tbaa !148
   %42 = getelementptr inbounds nuw i8, ptr %30, i64 480
-  %43 = load float, ptr %42, align 4, !tbaa !148
+  %43 = load float, ptr %42, align 8, !tbaa !148
   %44 = getelementptr inbounds nuw i8, ptr %30, i64 488
   %45 = load float, ptr %44, align 8, !tbaa !148
   %46 = getelementptr inbounds nuw i8, ptr %30, i64 492

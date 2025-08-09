@@ -977,9 +977,9 @@ parse_key.exit:                                   ; preds = %4, %23
   %139 = sub i8 %138, %132
   store i8 %139, ptr %135, align 16, !tbaa !109
   %140 = getelementptr inbounds nuw i8, ptr %135, i64 2
-  %141 = load i8, ptr %140, align 1, !tbaa !30
+  %141 = load i8, ptr %140, align 2, !tbaa !30
   %142 = sub i8 %141, %132
-  store i8 %142, ptr %140, align 1, !tbaa !30
+  store i8 %142, ptr %140, align 2, !tbaa !30
   br label %143
 
 143:                                              ; preds = %137, %134

@@ -501,7 +501,7 @@ define dso_local ptr @find_iova(ptr noundef %0, i64 noundef %1) #1 align 16 {
   %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #9
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = load volatile i32, ptr %0, align 4
+  %6 = load volatile i32, ptr %0, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %9, label %.preheader, !prof !13
 
@@ -633,7 +633,7 @@ define dso_local void @free_iova(ptr noundef %0, i64 noundef %1) #1 align 16 {
   %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #9
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = load volatile i32, ptr %0, align 4
+  %6 = load volatile i32, ptr %0, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %9, label %.preheader, !prof !13
 
@@ -1562,7 +1562,7 @@ define internal fastcc void @iova_magazine_free_pfns(ptr noundef captures(none) 
   %16 = getelementptr [127 x i64], ptr %7, i64 0, i64 %14
   %17 = load i64, ptr %16, align 8
   %18 = load ptr, ptr %8, align 8
-  %19 = load volatile i32, ptr %1, align 4
+  %19 = load volatile i32, ptr %1, align 8
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %22, label %.preheader, !prof !13
 

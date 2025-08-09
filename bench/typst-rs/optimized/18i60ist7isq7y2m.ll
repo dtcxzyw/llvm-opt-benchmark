@@ -2575,15 +2575,15 @@ default.unreachable101:                           ; preds = %178
   %187 = getelementptr inbounds nuw i8, ptr %.sroa.0.072, i64 96
   call void @llvm.experimental.noalias.scope.decl(metadata !466)
   call void @llvm.experimental.noalias.scope.decl(metadata !469)
-  %188 = load double, ptr %187, align 8, !alias.scope !469, !noalias !471, !noundef !37
+  %188 = load double, ptr %187, align 16, !alias.scope !469, !noalias !471, !noundef !37
   %189 = getelementptr inbounds nuw i8, ptr %.sroa.0.072, i64 104
   %190 = load double, ptr %189, align 8, !alias.scope !469, !noalias !471, !noundef !37
   %191 = getelementptr inbounds nuw i8, ptr %.sroa.0.072, i64 112
-  %192 = load double, ptr %191, align 8, !alias.scope !469, !noalias !471, !noundef !37
+  %192 = load double, ptr %191, align 16, !alias.scope !469, !noalias !471, !noundef !37
   %193 = getelementptr inbounds nuw i8, ptr %.sroa.0.072, i64 120
   %194 = load double, ptr %193, align 8, !alias.scope !469, !noalias !471, !noundef !37
   %195 = getelementptr inbounds nuw i8, ptr %.sroa.0.072, i64 128
-  %196 = load double, ptr %195, align 8, !alias.scope !469, !noalias !471, !noundef !37
+  %196 = load double, ptr %195, align 16, !alias.scope !469, !noalias !471, !noundef !37
   %197 = getelementptr inbounds nuw i8, ptr %.sroa.0.072, i64 136
   %198 = load double, ptr %197, align 8, !alias.scope !469, !noalias !471, !noundef !37
   %199 = call noundef double @_ZN5typst6layout5ratio5Ratio3get17h8726a92508d6c43bE(double noundef %188), !noalias !473
@@ -3044,7 +3044,7 @@ _ZN12typst_render12render_group17h1189fe8a8ad27cdcE.exit: ; preds = %319, %"_ZN4
   %340 = getelementptr inbounds nuw i8, ptr %.sroa.0.072, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !592)
   %341 = getelementptr i8, ptr %.sroa.0.072, i64 32
-  %.val.i = load ptr, ptr %341, align 8, !alias.scope !592, !noalias !595, !nonnull !37, !noundef !37
+  %.val.i = load ptr, ptr %341, align 16, !alias.scope !592, !noalias !595, !nonnull !37, !noundef !37
   %342 = getelementptr i8, ptr %.sroa.0.072, i64 40
   %.val4.i = load i64, ptr %342, align 8, !alias.scope !592, !noalias !595, !noundef !37
   %.idx = mul nsw i64 %.val4.i, 40
@@ -3460,7 +3460,7 @@ _ZN12typst_render11render_text17ha928da2c44df9b6cE.exit: ; preds = %"_ZN4core6op
   %500 = getelementptr inbounds nuw i8, ptr %.sroa.0.072, i64 24
   %501 = load double, ptr %500, align 8, !noundef !37
   %502 = getelementptr inbounds nuw i8, ptr %.sroa.0.072, i64 32
-  %503 = load double, ptr %502, align 8, !noundef !37
+  %503 = load double, ptr %502, align 16, !noundef !37
   %504 = call fastcc noundef zeroext i1 @_ZN12typst_render12render_image17h892eddc9ba540d67E(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(80) %57, ptr noalias noundef readonly align 8 dereferenceable(8) %499, double noundef %501, double noundef %503)
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
   br label %505

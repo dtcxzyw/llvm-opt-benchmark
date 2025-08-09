@@ -1467,15 +1467,15 @@ define linkonce_odr void @_ZN5draco34MeshPredictionSchemeEncoderFactoryIiEclINS_
   %53 = getelementptr inbounds nuw i8, ptr %46, i64 128
   store i32 1, ptr %53, align 8, !tbaa !155
   %54 = getelementptr inbounds nuw i8, ptr %46, i64 136
-  store i32 -1, ptr %54, align 4, !tbaa !71
+  store i32 -1, ptr %54, align 8, !tbaa !71
   %55 = getelementptr inbounds nuw i8, ptr %46, i64 140
   store i32 -1, ptr %55, align 4, !tbaa !74
   %56 = getelementptr inbounds nuw i8, ptr %46, i64 144
-  store i32 -1, ptr %56, align 4, !tbaa !75
+  store i32 -1, ptr %56, align 8, !tbaa !75
   %57 = getelementptr inbounds nuw i8, ptr %46, i64 148
   store float 1.000000e+00, ptr %57, align 4, !tbaa !76
   %58 = getelementptr inbounds nuw i8, ptr %46, i64 152
-  store i32 -1, ptr %58, align 4, !tbaa !77
+  store i32 -1, ptr %58, align 8, !tbaa !77
   %59 = getelementptr inbounds nuw i8, ptr %46, i64 160
   invoke void @_ZN5draco14RAnsBitEncoderC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %59)
           to label %_ZN5draco42MeshPredictionSchemeGeometricNormalEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEC2EPKNS_14PointAttributeERKS2_RKS5_.exit unwind label %60
@@ -1615,15 +1615,15 @@ define linkonce_odr void @_ZN5draco34MeshPredictionSchemeEncoderFactoryIiEclINS_
   %53 = getelementptr inbounds nuw i8, ptr %46, i64 128
   store i32 1, ptr %53, align 8, !tbaa !163
   %54 = getelementptr inbounds nuw i8, ptr %46, i64 136
-  store i32 -1, ptr %54, align 4, !tbaa !71
+  store i32 -1, ptr %54, align 8, !tbaa !71
   %55 = getelementptr inbounds nuw i8, ptr %46, i64 140
   store i32 -1, ptr %55, align 4, !tbaa !74
   %56 = getelementptr inbounds nuw i8, ptr %46, i64 144
-  store i32 -1, ptr %56, align 4, !tbaa !75
+  store i32 -1, ptr %56, align 8, !tbaa !75
   %57 = getelementptr inbounds nuw i8, ptr %46, i64 148
   store float 1.000000e+00, ptr %57, align 4, !tbaa !76
   %58 = getelementptr inbounds nuw i8, ptr %46, i64 152
-  store i32 -1, ptr %58, align 4, !tbaa !77
+  store i32 -1, ptr %58, align 8, !tbaa !77
   %59 = getelementptr inbounds nuw i8, ptr %46, i64 160
   invoke void @_ZN5draco14RAnsBitEncoderC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %59)
           to label %_ZN5draco42MeshPredictionSchemeGeometricNormalEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEC2EPKNS_14PointAttributeERKS2_RKS5_.exit unwind label %60

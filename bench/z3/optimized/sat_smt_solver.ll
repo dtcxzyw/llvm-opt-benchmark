@@ -743,7 +743,7 @@ define linkonce_odr hidden void @_ZN14sat_smt_solver22dependency2assumptionsC2ER
   %.01012.i.i.i.i.i.i.i = phi i32 [ %25, %.lr.ph.i.i.i.i.i.i.i ], [ 8, %19 ]
   store ptr null, ptr %.013.i.i.i.i.i.i.i, align 8, !tbaa !233
   %24 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i, i64 8
-  store i32 -2, ptr %24, align 4, !tbaa !235
+  store i32 -2, ptr %24, align 8, !tbaa !235
   %25 = add nsw i32 %.01012.i.i.i.i.i.i.i, -1
   %26 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i.i = icmp eq i32 %25, 0
@@ -12707,7 +12707,7 @@ _ZN14core_hashtableIN7obj_mapI4exprN3sat7literalEE13obj_map_entryE8obj_hashINS4_
   %.01012.i.i.i.i.i.i.i = phi i32 [ %43, %.lr.ph.i.i.i.i.i.i.i ], [ %38, %_ZN14core_hashtableIN7obj_mapI4exprN3sat7literalEE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE12delete_tableEv.exit.i.i ]
   store ptr null, ptr %.013.i.i.i.i.i.i.i, align 8, !tbaa !233
   %42 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i, i64 8
-  store i32 -2, ptr %42, align 4, !tbaa !235
+  store i32 -2, ptr %42, align 8, !tbaa !235
   %43 = add nsw i32 %.01012.i.i.i.i.i.i.i, -1
   %44 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i.i = icmp eq i32 %43, 0
@@ -13099,7 +13099,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4exprN3sat7litera
   %.01012.i.i.i.i.i = phi i32 [ %9, %.lr.ph.i.i.i.i.i ], [ %4, %1 ]
   store ptr null, ptr %.013.i.i.i.i.i, align 8, !tbaa !233
   %8 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 8
-  store i32 -2, ptr %8, align 4, !tbaa !235
+  store i32 -2, ptr %8, align 8, !tbaa !235
   %9 = add i32 %.01012.i.i.i.i.i, -1
   %10 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq i32 %9, 0

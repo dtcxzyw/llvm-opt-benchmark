@@ -485,7 +485,7 @@ _ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i: ; preds = %cond.false.
   %cond.i.i.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i.i ], [ %7, %cond.false.i.i.i.i.i.i.i ]
   %value_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i.i, i64 8
   store double %conv, ptr %value_.i.i.i.i.i.i.i.i, align 8
-  store i32 402653200, ptr %cond.i.i.i.i.i.i.i, align 4
+  store i32 402653200, ptr %cond.i.i.i.i.i.i.i, align 8
   %9 = ptrtoint ptr %cond.i.i.i.i.i.i.i to i64
   %sub.i.i.i.i.i = sub i64 %9, %1
   %conv.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i to i32
@@ -1263,7 +1263,7 @@ _ZN6hermes2vm7Runtime10makeAFixedINS0_8JSNumberELNS0_12HasFinalizerE0ELNS0_9Long
   store i32 0, ptr %propStorage_.i.i.i.i.i.i.i.i, align 4
   %primitiveValue_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i, i64 24
   store double %value, ptr %primitiveValue_.i.i.i.i.i.i, align 8
-  store i32 939524136, ptr %cond.i.i.i.i.i, align 4
+  store i32 939524136, ptr %cond.i.i.i.i.i, align 8
   br label %for.body5.i.i.i
 
 for.body5.i.i.i:                                  ; preds = %for.body5.i.i.i, %_ZN6hermes2vm7Runtime10makeAFixedINS0_8JSNumberELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRS1_RdRNS0_6HandleINS0_8JSObjectEEERNS8_INS0_11HiddenClassEEEEEEPT_DpOT2_.exit

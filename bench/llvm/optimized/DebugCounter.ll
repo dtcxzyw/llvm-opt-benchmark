@@ -4438,7 +4438,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
   store i64 %52, ptr %53, align 8, !tbaa !73
   store ptr %43, ptr %40, align 8, !tbaa !76
   store i64 0, ptr %51, align 8, !tbaa !73
-  store i8 0, ptr %43, align 1, !tbaa !18
+  store i8 0, ptr %43, align 8, !tbaa !18
   %54 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 64
   %55 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 80
   store ptr %55, ptr %54, align 8, !tbaa !23

@@ -5649,7 +5649,7 @@ define void @_ZN19OpenColorIO_v2_5dev12CPUProcessorC2Ev(ptr noundef nonnull writ
   store ptr %9, ptr %8, align 8, !tbaa !286
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i64 0, ptr %10, align 8, !tbaa !279
-  store i8 0, ptr %9, align 1, !tbaa !207
+  store i8 0, ptr %9, align 8, !tbaa !207
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, i8 0, i64 40, i1 false)
   store ptr %2, ptr %0, align 8, !tbaa !305

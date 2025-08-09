@@ -385,7 +385,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefENSt7__cxx1112basic_stringIcSt1
   store ptr %32, ptr %31, align 8, !tbaa !6
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store i64 0, ptr %33, align 8, !tbaa !12
-  store i8 0, ptr %32, align 1, !tbaa !15
+  store i8 0, ptr %32, align 8, !tbaa !15
   br label %34
 
 34:                                               ; preds = %2, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S8_EEEES2_S8_SA_SD_E16InsertIntoBucketIRKS2_JEEEPSD_SJ_OT_DpOT0_.exit
@@ -880,7 +880,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   store i64 %55, ptr %56, align 8, !tbaa !12
   store ptr %46, ptr %43, align 8, !tbaa !17
   store i64 0, ptr %54, align 8, !tbaa !12
-  store i8 0, ptr %46, align 1, !tbaa !15
+  store i8 0, ptr %46, align 8, !tbaa !15
   %57 = load i32, ptr %33, align 8, !tbaa !23
   %58 = add i32 %57, 1
   store i32 %58, ptr %33, align 8, !tbaa !23

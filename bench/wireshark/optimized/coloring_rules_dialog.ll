@@ -2671,11 +2671,11 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i137:   ; preds = %207
   %224 = getelementptr inbounds nuw i8, ptr %220, i64 20
   store i32 1507328, ptr %224, align 4
   %225 = getelementptr inbounds nuw i8, ptr %220, i64 24
-  store i32 0, ptr %225, align 4
+  store i32 0, ptr %225, align 8
   %226 = getelementptr inbounds nuw i8, ptr %220, i64 28
   store i32 0, ptr %226, align 4
   %227 = getelementptr inbounds nuw i8, ptr %220, i64 32
-  store i32 -1, ptr %227, align 4
+  store i32 -1, ptr %227, align 8
   %228 = getelementptr inbounds nuw i8, ptr %220, i64 36
   store i32 -1, ptr %228, align 4
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -6946,7 +6946,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %28, %_ZN17QArrayDat
   %.repack5.i.i.i.i = getelementptr inbounds nuw i8, ptr %34, i64 24
   store i64 0, ptr %.repack5.i.i.i.i, align 8, !noalias !89
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 32
-  store i8 %9, ptr %37, align 1, !noalias !89
+  store i8 %9, ptr %37, align 8, !noalias !89
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 40
   store i64 %33, ptr %38, align 8, !noalias !89
   call void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %8, ptr noundef %23, ptr noundef nonnull %3, ptr noundef %23, ptr noundef null, ptr noundef %34, i32 noundef 1, ptr noundef null, ptr noundef nonnull @_ZN12QColorDialog16staticMetaObjectE)

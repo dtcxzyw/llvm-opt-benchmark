@@ -6699,7 +6699,7 @@ _ZNSt10_HashtableI16__wasi_clockid_tSt4pairIKS0_St6vectorIN8WasmEdge4Host4WASI6P
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableI16__wasi_clockid_tSt4pairIKS0_St6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4
+  %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -7030,7 +7030,7 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4
+  %16 = load i32, ptr %15, align 8
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds ptr, ptr %.0.i, i64 %18

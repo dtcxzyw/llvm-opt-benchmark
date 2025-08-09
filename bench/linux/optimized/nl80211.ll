@@ -10325,7 +10325,7 @@ define internal fastcc range(i32 -90, 1) i32 @nl80211_send_station(ptr noundef %
   %638 = getelementptr inbounds nuw i8, ptr %8, i64 228
   %639 = load i32, ptr %638, align 4
   %640 = getelementptr i8, ptr %8, i64 232
-  %641 = load i16, ptr %640, align 2
+  %641 = load i16, ptr %640, align 4
   %642 = zext i16 %641 to i32
   %643 = or i32 %639, %642
   %644 = icmp eq i32 %643, 0
@@ -14988,7 +14988,7 @@ define dso_local noundef range(i32 -105, 1) i32 @cfg80211_external_auth_request(
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %55 = load i32, ptr %54, align 4
   %56 = getelementptr i8, ptr %1, i64 68
-  %57 = load i16, ptr %56, align 2
+  %57 = load i16, ptr %56, align 4
   %58 = zext i16 %57 to i32
   %59 = or i32 %55, %58
   %60 = icmp eq i32 %59, 0
@@ -15153,7 +15153,7 @@ define dso_local void @cfg80211_update_owe_info_event(ptr noundef %0, ptr nounde
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %72 = load i32, ptr %71, align 4
   %73 = getelementptr i8, ptr %1, i64 32
-  %74 = load i16, ptr %73, align 2
+  %74 = load i16, ptr %73, align 4
   %75 = zext i16 %74 to i32
   %76 = or i32 %72, %75
   %77 = icmp eq i32 %76, 0
@@ -25631,7 +25631,7 @@ define internal i32 @nl80211_dump_scan(ptr noundef %0, ptr noundef captures(none
   %127 = getelementptr inbounds nuw i8, ptr %57, i64 176
   %128 = load i32, ptr %127, align 4
   %129 = getelementptr i8, ptr %57, i64 180
-  %130 = load i16, ptr %129, align 2
+  %130 = load i16, ptr %129, align 4
   %131 = zext i16 %130 to i32
   %132 = or i32 %128, %131
   %133 = icmp eq i32 %132, 0
@@ -39875,9 +39875,9 @@ define internal i32 @nl80211_probe_mesh_link(ptr readnone captures(none) %0, ptr
   %46 = load i32, ptr %38, align 4
   %47 = xor i32 %46, %45
   %48 = getelementptr i8, ptr %26, i64 8
-  %49 = load i16, ptr %48, align 2
+  %49 = load i16, ptr %48, align 4
   %50 = getelementptr i8, ptr %22, i64 8
-  %51 = load i16, ptr %50, align 2
+  %51 = load i16, ptr %50, align 4
   %52 = xor i16 %51, %49
   %53 = zext i16 %52 to i32
   %54 = and i32 %45, 1
@@ -39896,7 +39896,7 @@ define internal i32 @nl80211_probe_mesh_link(ptr readnone captures(none) %0, ptr
   %65 = getelementptr i8, ptr %26, i64 14
   %66 = load i16, ptr %65, align 2
   %67 = getelementptr i8, ptr %61, i64 4
-  %68 = load i16, ptr %67, align 2
+  %68 = load i16, ptr %67, align 4
   %69 = xor i16 %68, %66
   %70 = zext i16 %69 to i32
   %71 = or i32 %64, %70
@@ -41122,9 +41122,9 @@ define internal i32 @nl80211_add_link(ptr readnone captures(none) %0, ptr nounde
   %57 = load i32, ptr %56, align 4
   store i32 %57, ptr %52, align 4
   %58 = getelementptr i8, ptr %55, i64 8
-  %59 = load i16, ptr %58, align 2
+  %59 = load i16, ptr %58, align 4
   %60 = getelementptr i8, ptr %52, i64 4
-  store i16 %59, ptr %60, align 2
+  store i16 %59, ptr %60, align 4
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 960
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_rdev_add_intf_link, i64 8), i32 2) #26
           to label %82 [label %62], !srcloc !87
@@ -50098,7 +50098,7 @@ define internal fastcc noundef range(i32 -95, 1) i32 @nl80211_parse_sched_scan_p
   %41 = zext nneg i16 %36 to i64
   %42 = getelementptr [6 x i32], ptr %7, i64 0, i64 %41
   store i32 %40, ptr %42, align 4
-  %43 = load i16, ptr %28, align 2
+  %43 = load i16, ptr %28, align 4
   %44 = zext i16 %43 to i32
   %45 = add nuw nsw i32 %44, 3
   %46 = and i32 %45, 131068
@@ -54380,7 +54380,7 @@ define internal fastcc range(i32 -105, 1) i32 @nl80211_send_band_rateinfo(ptr no
   %155 = add nuw nsw i8 %152, 3
   %156 = select i1 %154, i8 %152, i8 %155
   %157 = getelementptr inbounds nuw i8, ptr %71, i64 62
-  %158 = load i8, ptr %157, align 1
+  %158 = load i8, ptr %157, align 2
   %159 = and i8 %158, 2
   %160 = icmp eq i8 %159, 0
   %161 = add nuw nsw i8 %156, 3

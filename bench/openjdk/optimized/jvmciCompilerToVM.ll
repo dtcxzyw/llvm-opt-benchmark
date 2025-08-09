@@ -21077,7 +21077,7 @@ _ZNK6HandleclEv.exit168:                          ; preds = %289, %296
   %319 = trunc nuw nsw i64 %indvars.iv225 to i32
   call void @_ZN14compiledVFrame14update_monitorEiP11MonitorInfo(ptr noundef nonnull align 8 dereferenceable(5076) %218, i32 noundef %319, ptr noundef %318) #16
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
-  %320 = load i32, ptr %311, align 4
+  %320 = load i32, ptr %311, align 8
   %321 = sext i32 %320 to i64
   %322 = icmp slt i64 %indvars.iv.next226, %321
   br i1 %322, label %315, label %.loopexit, !llvm.loop !53
@@ -38852,9 +38852,9 @@ _ZN19JavaArgumentUnboxer8next_argE9BasicType.exit: ; preds = %4, %_ZN10HandleAre
   store i8 2, ptr %44, align 1
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %46 = load ptr, ptr %45, align 8
-  %47 = load i32, ptr %41, align 4
+  %47 = load i32, ptr %41, align 8
   %48 = add nsw i32 %47, 1
-  store i32 %48, ptr %41, align 4
+  store i32 %48, ptr %41, align 8
   %49 = sext i32 %47 to i64
   %50 = getelementptr inbounds i64, ptr %46, i64 %49
   store i64 %storemerge.i.i, ptr %50, align 8
@@ -38949,9 +38949,9 @@ _ZN19JavaArgumentUnboxer8next_argE9BasicType.exit18: ; preds = %_Z17is_reference
   store i8 0, ptr %104, align 1
   %105 = getelementptr inbounds nuw i8, ptr %91, i64 88
   %106 = load ptr, ptr %105, align 8
-  %107 = load i32, ptr %101, align 4
+  %107 = load i32, ptr %101, align 8
   %108 = add nsw i32 %107, 1
-  store i32 %108, ptr %101, align 4
+  store i32 %108, ptr %101, align 8
   %109 = sext i32 %107 to i64
   %110 = getelementptr inbounds i64, ptr %106, i64 %109
   store i32 %98, ptr %110, align 4
@@ -38976,9 +38976,9 @@ _ZN19JavaArgumentUnboxer8next_argE9BasicType.exit18: ; preds = %_Z17is_reference
   store i8 0, ptr %126, align 1
   %127 = getelementptr inbounds nuw i8, ptr %113, i64 88
   %128 = load ptr, ptr %127, align 8
-  %129 = load i32, ptr %123, align 4
+  %129 = load i32, ptr %123, align 8
   %130 = add nsw i32 %129, 1
-  store i32 %130, ptr %123, align 4
+  store i32 %130, ptr %123, align 8
   %131 = sext i32 %129 to i64
   %132 = getelementptr inbounds i64, ptr %128, i64 %131
   store i32 %120, ptr %132, align 4
@@ -39003,9 +39003,9 @@ _ZN19JavaArgumentUnboxer8next_argE9BasicType.exit18: ; preds = %_Z17is_reference
   store i8 0, ptr %148, align 1
   %149 = getelementptr inbounds nuw i8, ptr %135, i64 88
   %150 = load ptr, ptr %149, align 8
-  %151 = load i32, ptr %145, align 4
+  %151 = load i32, ptr %145, align 8
   %152 = add nsw i32 %151, 1
-  store i32 %152, ptr %145, align 4
+  store i32 %152, ptr %145, align 8
   %153 = sext i32 %151 to i64
   %154 = getelementptr inbounds i64, ptr %150, i64 %153
   store i32 %142, ptr %154, align 4
@@ -39030,9 +39030,9 @@ _ZN19JavaArgumentUnboxer8next_argE9BasicType.exit18: ; preds = %_Z17is_reference
   store i8 0, ptr %170, align 1
   %171 = getelementptr inbounds nuw i8, ptr %157, i64 88
   %172 = load ptr, ptr %171, align 8
-  %173 = load i32, ptr %167, align 4
+  %173 = load i32, ptr %167, align 8
   %174 = add nsw i32 %173, 1
-  store i32 %174, ptr %167, align 4
+  store i32 %174, ptr %167, align 8
   %175 = sext i32 %173 to i64
   %176 = getelementptr inbounds i64, ptr %172, i64 %175
   store i32 %164, ptr %176, align 4
@@ -39056,9 +39056,9 @@ _ZN19JavaArgumentUnboxer8next_argE9BasicType.exit18: ; preds = %_Z17is_reference
   store i8 0, ptr %191, align 1
   %192 = getelementptr inbounds nuw i8, ptr %179, i64 88
   %193 = load ptr, ptr %192, align 8
-  %194 = load i32, ptr %188, align 4
+  %194 = load i32, ptr %188, align 8
   %195 = add nsw i32 %194, 1
-  store i32 %195, ptr %188, align 4
+  store i32 %195, ptr %188, align 8
   %196 = sext i32 %194 to i64
   %197 = getelementptr inbounds i64, ptr %193, i64 %196
   store i32 %185, ptr %197, align 4
@@ -39089,13 +39089,13 @@ _ZN19JavaArgumentUnboxer8next_argE9BasicType.exit18: ; preds = %_Z17is_reference
   %218 = getelementptr inbounds nuw i8, ptr %200, i64 88
   %219 = load ptr, ptr %218, align 8
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 8
-  %221 = load i32, ptr %209, align 4
+  %221 = load i32, ptr %209, align 8
   %222 = sext i32 %221 to i64
   %223 = getelementptr inbounds i64, ptr %220, i64 %222
   store i64 %206, ptr %223, align 8
-  %224 = load i32, ptr %209, align 4
+  %224 = load i32, ptr %209, align 8
   %225 = add nsw i32 %224, 2
-  store i32 %225, ptr %209, align 4
+  store i32 %225, ptr %209, align 8
   br label %277
 
 226:                                              ; preds = %_ZN19JavaArgumentUnboxer8next_argE9BasicType.exit18
@@ -39116,9 +39116,9 @@ _ZN19JavaArgumentUnboxer8next_argE9BasicType.exit18: ; preds = %_Z17is_reference
   store i8 0, ptr %240, align 1
   %241 = getelementptr inbounds nuw i8, ptr %228, i64 88
   %242 = load ptr, ptr %241, align 8
-  %243 = load i32, ptr %237, align 4
+  %243 = load i32, ptr %237, align 8
   %244 = add nsw i32 %243, 1
-  store i32 %244, ptr %237, align 4
+  store i32 %244, ptr %237, align 8
   %245 = sext i32 %243 to i64
   %246 = getelementptr inbounds i64, ptr %242, i64 %245
   store float %234, ptr %246, align 4
@@ -39149,13 +39149,13 @@ _ZN19JavaArgumentUnboxer8next_argE9BasicType.exit18: ; preds = %_Z17is_reference
   %267 = getelementptr inbounds nuw i8, ptr %249, i64 88
   %268 = load ptr, ptr %267, align 8
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
-  %270 = load i32, ptr %258, align 4
+  %270 = load i32, ptr %258, align 8
   %271 = sext i32 %270 to i64
   %272 = getelementptr inbounds i64, ptr %269, i64 %271
   store double %255, ptr %272, align 8
-  %273 = load i32, ptr %258, align 4
+  %273 = load i32, ptr %258, align 8
   %274 = add nsw i32 %273, 2
-  store i32 %274, ptr %258, align 4
+  store i32 %274, ptr %258, align 8
   br label %277
 
 275:                                              ; preds = %_ZN19JavaArgumentUnboxer8next_argE9BasicType.exit18

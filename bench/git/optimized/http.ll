@@ -3541,7 +3541,7 @@ define dso_local range(i32 0, 7) i32 @run_one_slot(ptr noundef captures(none) in
   call void @run_active_slot(ptr noundef nonnull %0)
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load i64, ptr %18, align 8, !tbaa !103
-  %20 = load i32, ptr %1, align 4, !tbaa !38
+  %20 = load i32, ptr %1, align 8, !tbaa !38
   %21 = icmp eq i32 %20, 0
   %22 = icmp sgt i64 %19, 299
   %or.cond.i.i = and i1 %22, %21

@@ -3744,7 +3744,7 @@ for.body:                                         ; preds = %if.end127, %for.bod
   %77 = load float, ptr %pos21, align 4, !tbaa !191
   %mul.i = fmul nsz float %77, 1.000000e+01
   %Y.i166 = getelementptr inbounds nuw i8, ptr %74, i64 56
-  %78 = load float, ptr %Y.i166, align 4, !tbaa !190
+  %78 = load float, ptr %Y.i166, align 8, !tbaa !190
   %mul2.i = fmul nsz float %78, 1.000000e+01
   %Z.i = getelementptr inbounds nuw i8, ptr %74, i64 60
   %79 = load float, ptr %Z.i, align 4, !tbaa !72
@@ -5326,7 +5326,7 @@ invoke.cont15:                                    ; preds = %if.end5
   store ptr null, ptr %call5.i.i.i.i64, align 8, !tbaa !317
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i64, i64 8
   %4 = load i64, ptr %add.ptr, align 4
-  store i64 %4, ptr %add.ptr.i.i, align 4
+  store i64 %4, ptr %add.ptr.i.i, align 8
   %_M_before_begin.i65 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i.i64, ptr %_M_before_begin.i65, align 8, !tbaa !330
   %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -5351,7 +5351,7 @@ invoke.cont22:                                    ; preds = %for.body
   store ptr null, ptr %call5.i.i.i.i68, align 8, !tbaa !317
   %add.ptr.i.i67 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i68, i64 8
   %6 = load i64, ptr %add.ptr18, align 4
-  store i64 %6, ptr %add.ptr.i.i67, align 4
+  store i64 %6, ptr %add.ptr.i.i67, align 8
   store ptr %call5.i.i.i.i68, ptr %__prev_n.072, align 8, !tbaa !317
   %sext74 = shl i64 %6, 32
   %conv.i.i.i.i = ashr exact i64 %sext74, 32

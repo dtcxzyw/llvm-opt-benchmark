@@ -2844,7 +2844,7 @@ define internal void @end_free_itds(ptr noundef %0) #0 align 16 {
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %20, ptr %21, align 8
   store volatile ptr %17, ptr %20, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %14, align 8
+  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %14, align 32
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %19, align 8
   %22 = load ptr, ptr %11, align 8
   %23 = getelementptr i8, ptr %14, i64 -32
@@ -4146,14 +4146,14 @@ thread-pre-split:                                 ; preds = %71, %95, %96, %99, 
   %378 = getelementptr inbounds nuw i8, ptr %279, i64 32
   %379 = getelementptr inbounds nuw i8, ptr %246, i64 136
   %380 = load ptr, ptr %379, align 8
-  %381 = load ptr, ptr %377, align 8
+  %381 = load ptr, ptr %377, align 16
   %382 = getelementptr inbounds nuw i8, ptr %381, i64 8
   store ptr %380, ptr %382, align 8
   store volatile ptr %381, ptr %380, align 8
   %383 = getelementptr inbounds nuw i8, ptr %279, i64 40
   %384 = load ptr, ptr %383, align 8
   store ptr %377, ptr %383, align 8
-  store ptr %378, ptr %377, align 8
+  store ptr %378, ptr %377, align 16
   store ptr %384, ptr %379, align 8
   store volatile ptr %377, ptr %384, align 8
   %385 = getelementptr inbounds nuw i8, ptr %279, i64 16
@@ -6992,7 +6992,7 @@ define internal fastcc noundef ptr @ehci_qh_alloc(ptr noundef readonly captures(
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 1, ptr %29, align 4
   %30 = getelementptr inbounds nuw i8, ptr %23, i64 64
-  store volatile ptr %30, ptr %30, align 8
+  store volatile ptr %30, ptr %30, align 32
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 72
   store volatile ptr %30, ptr %31, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -8073,7 +8073,7 @@ default.unreachable93:                            ; preds = %3
   %268 = load ptr, ptr %164, align 8
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
   store ptr %267, ptr %269, align 8
-  store ptr %268, ptr %267, align 8
+  store ptr %268, ptr %267, align 32
   %270 = getelementptr inbounds nuw i8, ptr %264, i64 136
   store ptr %164, ptr %270, align 8
   store volatile ptr %267, ptr %164, align 8
@@ -8202,7 +8202,7 @@ default.unreachable93:                            ; preds = %3
   store i32 %345, ptr %346, align 4
   %347 = load i32, ptr %325, align 4
   %348 = getelementptr i8, ptr %336, i64 -88
-  store i32 %347, ptr %348, align 4
+  store i32 %347, ptr %348, align 8
   %349 = load i32, ptr %326, align 8
   %350 = getelementptr i8, ptr %336, i64 -84
   store i32 %349, ptr %350, align 4
@@ -8788,7 +8788,7 @@ default.unreachable93:                            ; preds = %3
   %700 = lshr i64 %699, 32
   %701 = trunc nuw i64 %700 to i32
   %702 = getelementptr i8, ptr %664, i64 -40
-  store i32 %701, ptr %702, align 4
+  store i32 %701, ptr %702, align 8
   %703 = getelementptr i8, ptr %664, i64 20
   store i32 %662, ptr %703, align 4
   %704 = lshr i32 %663, 3
@@ -11075,14 +11075,14 @@ define internal fastcc noundef ptr @qh_urb_transaction(ptr noundef readonly capt
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 1, ptr %17, align 4
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 64
-  store volatile ptr %18, ptr %18, align 8
+  store volatile ptr %18, ptr %18, align 32
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 72
   store volatile ptr %18, ptr %19, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %21 = load ptr, ptr %20, align 8
   store ptr %18, ptr %20, align 8
-  store ptr %2, ptr %18, align 8
+  store ptr %2, ptr %18, align 32
   store ptr %21, ptr %19, align 8
   store volatile ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 80
@@ -11147,7 +11147,7 @@ define internal fastcc noundef ptr @qh_urb_transaction(ptr noundef readonly capt
   %58 = getelementptr inbounds nuw i8, ptr %52, i64 4
   store i32 1, ptr %58, align 4
   %59 = getelementptr inbounds nuw i8, ptr %52, i64 64
-  store volatile ptr %59, ptr %59, align 8
+  store volatile ptr %59, ptr %59, align 32
   %60 = getelementptr inbounds nuw i8, ptr %52, i64 72
   store volatile ptr %59, ptr %60, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -11157,7 +11157,7 @@ define internal fastcc noundef ptr @qh_urb_transaction(ptr noundef readonly capt
   store i32 %62, ptr %11, align 32
   %63 = load ptr, ptr %20, align 8
   store ptr %59, ptr %20, align 8
-  store ptr %2, ptr %59, align 8
+  store ptr %2, ptr %59, align 32
   store ptr %63, ptr %60, align 8
   store volatile ptr %59, ptr %63, align 8
   %64 = icmp eq i32 %24, 0
@@ -11344,7 +11344,7 @@ define internal fastcc noundef ptr @qh_urb_transaction(ptr noundef readonly capt
   %193 = getelementptr inbounds nuw i8, ptr %187, i64 4
   store i32 1, ptr %193, align 4
   %194 = getelementptr inbounds nuw i8, ptr %187, i64 64
-  store volatile ptr %194, ptr %194, align 8
+  store volatile ptr %194, ptr %194, align 32
   %195 = getelementptr inbounds nuw i8, ptr %187, i64 72
   store volatile ptr %194, ptr %195, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -11354,7 +11354,7 @@ define internal fastcc noundef ptr @qh_urb_transaction(ptr noundef readonly capt
   store i32 %197, ptr %106, align 32
   %198 = load ptr, ptr %20, align 8
   store ptr %194, ptr %20, align 8
-  store ptr %2, ptr %194, align 8
+  store ptr %2, ptr %194, align 32
   store ptr %198, ptr %195, align 8
   store volatile ptr %194, ptr %198, align 8
   br label %99
@@ -11427,7 +11427,7 @@ define internal fastcc noundef ptr @qh_urb_transaction(ptr noundef readonly capt
   %235 = getelementptr inbounds nuw i8, ptr %229, i64 4
   store i32 1, ptr %235, align 4
   %236 = getelementptr inbounds nuw i8, ptr %229, i64 64
-  store volatile ptr %236, ptr %236, align 8
+  store volatile ptr %236, ptr %236, align 32
   %237 = getelementptr inbounds nuw i8, ptr %229, i64 72
   store volatile ptr %236, ptr %237, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -11437,7 +11437,7 @@ define internal fastcc noundef ptr @qh_urb_transaction(ptr noundef readonly capt
   store i32 %239, ptr %106, align 32
   %240 = load ptr, ptr %20, align 8
   store ptr %236, ptr %20, align 8
-  store ptr %2, ptr %236, align 8
+  store ptr %2, ptr %236, align 32
   store ptr %240, ptr %237, align 8
   store volatile ptr %236, ptr %240, align 8
   %241 = getelementptr inbounds nuw i8, ptr %229, i64 12
@@ -11634,7 +11634,7 @@ define internal fastcc ptr @qh_append_tds(ptr noundef readonly captures(none) %0
   store i32 1, ptr %15, align 32
   %57 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 1, ptr %57, align 4
-  store volatile ptr %36, ptr %36, align 8
+  store volatile ptr %36, ptr %36, align 32
   store volatile ptr %36, ptr %37, align 8
   store ptr %15, ptr %32, align 8
   %58 = load i64, ptr %55, align 8

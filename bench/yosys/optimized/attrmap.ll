@@ -1631,7 +1631,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   store ptr %62, ptr %61, align 8, !tbaa !85
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 16
   store i64 0, ptr %63, align 8, !tbaa !23
-  store i8 0, ptr %62, align 1, !tbaa !24
+  store i8 0, ptr %62, align 8, !tbaa !24
   store i64 %49, ptr %0, align 8, !tbaa !6
   %64 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %52, i64 %49
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %64)
@@ -1760,13 +1760,13 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_113AttrmapActionESt14default_deleteIS1_EED2Ev.ex
   store ptr %117, ptr %116, align 8, !tbaa !85
   %118 = getelementptr inbounds nuw i8, ptr %114, i64 16
   store i64 0, ptr %118, align 8, !tbaa !23
-  store i8 0, ptr %117, align 1, !tbaa !24
+  store i8 0, ptr %117, align 8, !tbaa !24
   %119 = getelementptr inbounds nuw i8, ptr %114, i64 40
   %120 = getelementptr inbounds nuw i8, ptr %114, i64 56
   store ptr %120, ptr %119, align 8, !tbaa !85
   %121 = getelementptr inbounds nuw i8, ptr %114, i64 48
   store i64 0, ptr %121, align 8, !tbaa !23
-  store i8 0, ptr %120, align 1, !tbaa !24
+  store i8 0, ptr %120, align 8, !tbaa !24
   %122 = add i64 %103, 1
   store i64 %122, ptr %0, align 8, !tbaa !6
   %123 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %107, i64 %122
@@ -2656,25 +2656,25 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit175: ; preds = %_Z
   store ptr %439, ptr %438, align 8, !tbaa !85
   %440 = getelementptr inbounds nuw i8, ptr %436, i64 24
   store i64 0, ptr %440, align 8, !tbaa !23
-  store i8 0, ptr %439, align 1, !tbaa !24
+  store i8 0, ptr %439, align 8, !tbaa !24
   %441 = getelementptr inbounds nuw i8, ptr %436, i64 48
   %442 = getelementptr inbounds nuw i8, ptr %436, i64 64
   store ptr %442, ptr %441, align 8, !tbaa !85
   %443 = getelementptr inbounds nuw i8, ptr %436, i64 56
   store i64 0, ptr %443, align 8, !tbaa !23
-  store i8 0, ptr %442, align 1, !tbaa !24
+  store i8 0, ptr %442, align 8, !tbaa !24
   %444 = getelementptr inbounds nuw i8, ptr %436, i64 80
   %445 = getelementptr inbounds nuw i8, ptr %436, i64 96
   store ptr %445, ptr %444, align 8, !tbaa !85
   %446 = getelementptr inbounds nuw i8, ptr %436, i64 88
   store i64 0, ptr %446, align 8, !tbaa !23
-  store i8 0, ptr %445, align 1, !tbaa !24
+  store i8 0, ptr %445, align 8, !tbaa !24
   %447 = getelementptr inbounds nuw i8, ptr %436, i64 112
   %448 = getelementptr inbounds nuw i8, ptr %436, i64 128
   store ptr %448, ptr %447, align 8, !tbaa !85
   %449 = getelementptr inbounds nuw i8, ptr %436, i64 120
   store i64 0, ptr %449, align 8, !tbaa !23
-  store i8 0, ptr %448, align 1, !tbaa !24
+  store i8 0, ptr %448, align 8, !tbaa !24
   %450 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.34) #26
   %451 = icmp eq i32 %450, 0
   %452 = getelementptr inbounds nuw i8, ptr %436, i64 8
@@ -3342,13 +3342,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit271: ; preds = %_Z
   store ptr %682, ptr %681, align 8, !tbaa !85
   %683 = getelementptr inbounds nuw i8, ptr %679, i64 24
   store i64 0, ptr %683, align 8, !tbaa !23
-  store i8 0, ptr %682, align 1, !tbaa !24
+  store i8 0, ptr %682, align 8, !tbaa !24
   %684 = getelementptr inbounds nuw i8, ptr %679, i64 48
   %685 = getelementptr inbounds nuw i8, ptr %679, i64 64
   store ptr %685, ptr %684, align 8, !tbaa !85
   %686 = getelementptr inbounds nuw i8, ptr %679, i64 56
   store i64 0, ptr %686, align 8, !tbaa !23
-  store i8 0, ptr %685, align 1, !tbaa !24
+  store i8 0, ptr %685, align 8, !tbaa !24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %681, ptr noundef nonnull align 8 dereferenceable(32) %23)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit273 unwind label %729
 

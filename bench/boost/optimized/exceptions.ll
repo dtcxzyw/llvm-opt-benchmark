@@ -10356,7 +10356,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv
   store ptr %37, ptr %36, align 8, !tbaa !9
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 64
   store i64 0, ptr %38, align 8, !tbaa !17
-  store i8 0, ptr %37, align 1, !tbaa !16
+  store i8 0, ptr %37, align 8, !tbaa !16
   %39 = getelementptr inbounds nuw i8, ptr %30, i64 88
   store ptr %30, ptr %27, align 8, !tbaa !26
   store i32 1, ptr %39, align 8, !tbaa !256
@@ -11134,7 +11134,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv
   store ptr %12, ptr %11, align 8, !tbaa !9
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i64 0, ptr %13, align 8, !tbaa !17
-  store i8 0, ptr %12, align 1, !tbaa !16
+  store i8 0, ptr %12, align 8, !tbaa !16
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store ptr %5, ptr %0, align 8, !tbaa !26
   store i32 1, ptr %14, align 8, !tbaa !256
@@ -14611,7 +14611,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv
   store ptr %37, ptr %36, align 8, !tbaa !9
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 64
   store i64 0, ptr %38, align 8, !tbaa !17
-  store i8 0, ptr %37, align 1, !tbaa !16
+  store i8 0, ptr %37, align 8, !tbaa !16
   %39 = getelementptr inbounds nuw i8, ptr %30, i64 88
   store ptr %30, ptr %27, align 8, !tbaa !26
   store i32 1, ptr %39, align 8, !tbaa !256
@@ -15340,7 +15340,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv
   store ptr %37, ptr %36, align 8, !tbaa !9
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 64
   store i64 0, ptr %38, align 8, !tbaa !17
-  store i8 0, ptr %37, align 1, !tbaa !16
+  store i8 0, ptr %37, align 8, !tbaa !16
   %39 = getelementptr inbounds nuw i8, ptr %30, i64 88
   store ptr %30, ptr %27, align 8, !tbaa !26
   store i32 1, ptr %39, align 8, !tbaa !256
@@ -16766,7 +16766,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv
   store ptr %38, ptr %37, align 8, !tbaa !9
   %39 = getelementptr inbounds nuw i8, ptr %31, i64 64
   store i64 0, ptr %39, align 8, !tbaa !17
-  store i8 0, ptr %38, align 1, !tbaa !16
+  store i8 0, ptr %38, align 8, !tbaa !16
   %40 = getelementptr inbounds nuw i8, ptr %31, i64 88
   store ptr %31, ptr %28, align 8, !tbaa !26
   store i32 1, ptr %40, align 8, !tbaa !256
@@ -18717,7 +18717,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv
   store ptr %38, ptr %37, align 8, !tbaa !9
   %39 = getelementptr inbounds nuw i8, ptr %31, i64 64
   store i64 0, ptr %39, align 8, !tbaa !17
-  store i8 0, ptr %38, align 1, !tbaa !16
+  store i8 0, ptr %38, align 8, !tbaa !16
   %40 = getelementptr inbounds nuw i8, ptr %31, i64 88
   store ptr %31, ptr %28, align 8, !tbaa !26
   store i32 1, ptr %40, align 8, !tbaa !256
@@ -19017,7 +19017,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv
   store ptr %37, ptr %36, align 8, !tbaa !9
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 64
   store i64 0, ptr %38, align 8, !tbaa !17
-  store i8 0, ptr %37, align 1, !tbaa !16
+  store i8 0, ptr %37, align 8, !tbaa !16
   %39 = getelementptr inbounds nuw i8, ptr %30, i64 88
   store ptr %30, ptr %27, align 8, !tbaa !26
   store i32 1, ptr %39, align 8, !tbaa !256

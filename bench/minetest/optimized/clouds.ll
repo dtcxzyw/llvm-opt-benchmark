@@ -719,7 +719,7 @@ invoke.cont86:                                    ; preds = %invoke.cont81
   %arrayctor.end.i.i = getelementptr inbounds nuw i8, ptr %call84, i64 160
   store <4 x i32> <i32 0, i32 -1, i32 -1, i32 0>, ptr %arrayctor.end.i.i, align 8, !tbaa !22
   %SpecularColor.i.i = getelementptr inbounds nuw i8, ptr %call84, i64 176
-  store i32 -1, ptr %SpecularColor.i.i, align 4, !tbaa !23
+  store i32 -1, ptr %SpecularColor.i.i, align 8, !tbaa !23
   %Shininess.i.i = getelementptr inbounds nuw i8, ptr %call84, i64 180
   store <2 x float> zeroinitializer, ptr %Shininess.i.i, align 4, !tbaa !7
   %Thickness.i.i = getelementptr inbounds nuw i8, ptr %call84, i64 188
@@ -745,9 +745,9 @@ invoke.cont86:                                    ; preds = %invoke.cont81
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Indices.i, i8 0, i64 24, i1 false)
   store i8 1, ptr %is_sorted.i13.i, align 8, !tbaa !101
   %BoundingBox.i = getelementptr inbounds nuw i8, ptr %call84, i64 280
-  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i, align 4, !tbaa !7
+  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i, align 8, !tbaa !7
   %Y.i2.i.i = getelementptr inbounds nuw i8, ptr %call84, i64 296
-  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 4, !tbaa !7
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 8, !tbaa !7
   %PrimitiveType.i = getelementptr inbounds nuw i8, ptr %call84, i64 304
   store i32 6, ptr %PrimitiveType.i, align 8, !tbaa !102
   %40 = load ptr, ptr %m_meshbuffer, align 8, !tbaa !103
@@ -1826,7 +1826,7 @@ invoke.cont96:                                    ; preds = %invoke.cont91
   %arrayctor.end.i.i = getelementptr inbounds nuw i8, ptr %call94, i64 160
   store <4 x i32> <i32 0, i32 -1, i32 -1, i32 0>, ptr %arrayctor.end.i.i, align 8, !tbaa !22
   %SpecularColor.i.i = getelementptr inbounds nuw i8, ptr %call94, i64 176
-  store i32 -1, ptr %SpecularColor.i.i, align 4, !tbaa !23
+  store i32 -1, ptr %SpecularColor.i.i, align 8, !tbaa !23
   %Shininess.i.i = getelementptr inbounds nuw i8, ptr %call94, i64 180
   store <2 x float> zeroinitializer, ptr %Shininess.i.i, align 4, !tbaa !7
   %Thickness.i.i = getelementptr inbounds nuw i8, ptr %call94, i64 188
@@ -1852,9 +1852,9 @@ invoke.cont96:                                    ; preds = %invoke.cont91
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Indices.i, i8 0, i64 24, i1 false)
   store i8 1, ptr %is_sorted.i13.i, align 8, !tbaa !101
   %BoundingBox.i = getelementptr inbounds nuw i8, ptr %call94, i64 280
-  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i, align 4, !tbaa !7
+  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i, align 8, !tbaa !7
   %Y.i2.i.i = getelementptr inbounds nuw i8, ptr %call94, i64 296
-  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 4, !tbaa !7
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 8, !tbaa !7
   %PrimitiveType.i = getelementptr inbounds nuw i8, ptr %call94, i64 304
   store i32 6, ptr %PrimitiveType.i, align 8, !tbaa !102
   %37 = load ptr, ptr %m_meshbuffer, align 8, !tbaa !103

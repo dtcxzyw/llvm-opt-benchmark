@@ -1121,21 +1121,21 @@ define internal fastcc i32 @decode_slice(ptr noundef %0) unnamed_addr #2 {
   %128 = load i32, ptr %76, align 4, !tbaa !85
   %129 = add nsw i32 %128, 2
   store i32 %129, ptr %76, align 4, !tbaa !85
-  %130 = load i32, ptr %77, align 4, !tbaa !85
+  %130 = load i32, ptr %77, align 8, !tbaa !85
   %131 = add nsw i32 %130, 2
-  store i32 %131, ptr %77, align 4, !tbaa !85
+  store i32 %131, ptr %77, align 8, !tbaa !85
   %132 = load i32, ptr %78, align 4, !tbaa !85
   %133 = add nsw i32 %132, 2
   store i32 %133, ptr %78, align 4, !tbaa !85
-  %134 = load i32, ptr %79, align 4, !tbaa !85
+  %134 = load i32, ptr %79, align 8, !tbaa !85
   %135 = add nsw i32 %134, 2
-  store i32 %135, ptr %79, align 4, !tbaa !85
+  store i32 %135, ptr %79, align 8, !tbaa !85
   %136 = load i32, ptr %80, align 4, !tbaa !85
   %137 = add nsw i32 %136, 1
   store i32 %137, ptr %80, align 4, !tbaa !85
-  %138 = load i32, ptr %81, align 4, !tbaa !85
+  %138 = load i32, ptr %81, align 8, !tbaa !85
   %139 = add nsw i32 %138, 1
-  store i32 %139, ptr %81, align 4, !tbaa !85
+  store i32 %139, ptr %81, align 8, !tbaa !85
   %140 = shl nuw nsw i32 %127, 1
   %141 = load ptr, ptr %82, align 8, !tbaa !135
   %142 = zext nneg i32 %140 to i64

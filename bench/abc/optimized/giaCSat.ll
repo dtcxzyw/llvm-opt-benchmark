@@ -101,13 +101,13 @@ define noalias noundef ptr @Cbs_ManAlloc(ptr noundef %0) local_unnamed_addr #2 {
   store ptr %24, ptr %28, align 8, !tbaa !41
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %0, ptr %29, align 8, !tbaa !42
-  store i32 1000, ptr %2, align 4, !tbaa !3
+  store i32 1000, ptr %2, align 8, !tbaa !3
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 100, ptr %30, align 4, !tbaa !8
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 1, ptr %31, align 4, !tbaa !9
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 1, ptr %32, align 4, !tbaa !12
+  store i32 1, ptr %32, align 8, !tbaa !12
   ret ptr %2
 }
 

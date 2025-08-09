@@ -777,13 +777,13 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   store ptr %214, ptr %213, align 8, !tbaa !90, !noalias !91
   %215 = getelementptr inbounds nuw i8, ptr %197, i64 16
   store i64 0, ptr %215, align 8, !tbaa !41, !noalias !91
-  store i8 0, ptr %214, align 1, !tbaa !60, !noalias !91
+  store i8 0, ptr %214, align 8, !tbaa !60, !noalias !91
   %216 = getelementptr inbounds nuw i8, ptr %197, i64 40
   %217 = getelementptr inbounds nuw i8, ptr %197, i64 56
   store ptr %217, ptr %216, align 8, !tbaa !90, !noalias !91
   %218 = getelementptr inbounds nuw i8, ptr %197, i64 48
   store i64 0, ptr %218, align 8, !tbaa !41, !noalias !91
-  store i8 0, ptr %217, align 1, !tbaa !60, !noalias !91
+  store i8 0, ptr %217, align 8, !tbaa !60, !noalias !91
   %219 = getelementptr inbounds nuw i8, ptr %197, i64 72
   store i64 0, ptr %219, align 8, !tbaa !98, !noalias !91
   %220 = getelementptr inbounds nuw i8, ptr %197, i64 112

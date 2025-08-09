@@ -952,7 +952,7 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE7reserveEm.exit: ; pr
   %60 = fmul double %52, %59
   %61 = fadd double %60, %57
   %62 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  %63 = load <2 x double>, ptr %62, align 1, !tbaa !13
+  %63 = load <2 x double>, ptr %62, align 8, !tbaa !13
   %64 = fmul <2 x double> %50, %63
   %shift72 = shufflevector <2 x double> %64, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %65 = fadd <2 x double> %64, %shift72
@@ -962,7 +962,7 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE7reserveEm.exit: ; pr
   %69 = fmul double %52, %68
   %70 = fadd double %69, %66
   %71 = getelementptr inbounds nuw i8, ptr %53, i64 48
-  %72 = load <2 x double>, ptr %71, align 1, !tbaa !13
+  %72 = load <2 x double>, ptr %71, align 8, !tbaa !13
   %73 = fmul <2 x double> %50, %72
   %shift73 = shufflevector <2 x double> %73, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %74 = fadd <2 x double> %73, %shift73
@@ -3317,7 +3317,7 @@ define dso_local void @_ZN19CurvatureCalculator16getAverageNormalEiRKSt6vectorIi
   store <2 x double> %21, ptr %3, align 8, !tbaa !13
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %23 = getelementptr i8, ptr %20, i64 16
-  %24 = load double, ptr %23, align 8, !tbaa !58
+  %24 = load double, ptr %23, align 16, !tbaa !58
   store double %24, ptr %22, align 8, !tbaa !58
   call void @free(ptr noundef %20) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3390,7 +3390,7 @@ define dso_local void @_ZN19CurvatureCalculator16getAverageNormalEiRKSt6vectorIi
   %61 = fadd <2 x double> %59, %60
   store <2 x double> %61, ptr %3, align 8, !tbaa !13
   %62 = getelementptr i8, ptr %58, i64 16
-  %63 = load double, ptr %62, align 8, !tbaa !58
+  %63 = load double, ptr %62, align 16, !tbaa !58
   %64 = load double, ptr %22, align 8, !tbaa !58
   %65 = fadd double %63, %64
   store double %65, ptr %22, align 8, !tbaa !58
@@ -5034,11 +5034,11 @@ _ZNSt6vectorIiSaIiEE7reserveEm.exit65:            ; preds = %_ZNSt12_Vector_base
   %318 = getelementptr inbounds nuw i8, ptr %248, i64 16
   store double %.sink.i.i, ptr %318, align 8, !tbaa !58
   %319 = getelementptr inbounds nuw i8, ptr %248, i64 24
-  store <2 x double> %.sroa.013.0.i, ptr %319, align 1, !tbaa !13
+  store <2 x double> %.sroa.013.0.i, ptr %319, align 8, !tbaa !13
   %320 = getelementptr inbounds nuw i8, ptr %248, i64 40
   store double %.sroa.5.0.i, ptr %320, align 8, !tbaa !58
   %321 = getelementptr inbounds nuw i8, ptr %248, i64 48
-  store <2 x double> %272, ptr %321, align 1, !tbaa !13
+  store <2 x double> %272, ptr %321, align 8, !tbaa !13
   %322 = getelementptr inbounds nuw i8, ptr %248, i64 64
   store double %277, ptr %322, align 8, !tbaa !58
   call void @llvm.lifetime.start.p0(ptr nonnull %8)

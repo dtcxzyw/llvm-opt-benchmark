@@ -3263,9 +3263,9 @@ _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit18
   %92 = or disjoint i8 %91, %86
   store i8 %92, ptr %19, align 4
   %93 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  %94 = load i32, ptr %93, align 4, !tbaa !14
+  %94 = load i32, ptr %93, align 8, !tbaa !14
   %95 = load i32, ptr %21, align 8, !tbaa !14
-  store i32 %95, ptr %93, align 4, !tbaa !14
+  store i32 %95, ptr %93, align 8, !tbaa !14
   store i32 %94, ptr %21, align 8, !tbaa !14
   %96 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %97 = load ptr, ptr %96, align 8, !tbaa !82
@@ -8071,9 +8071,9 @@ _ZN6vectorI8rationalLb1EjED2Ev.exit121:           ; preds = %349, %_ZN6vectorI8r
   %417 = or disjoint i8 %416, %411
   store i8 %417, ptr %228, align 4
   %418 = getelementptr inbounds nuw i8, ptr %394, i64 16
-  %419 = load i32, ptr %418, align 4, !tbaa !14
+  %419 = load i32, ptr %418, align 8, !tbaa !14
   %420 = load i32, ptr %230, align 8, !tbaa !14
-  store i32 %420, ptr %418, align 4, !tbaa !14
+  store i32 %420, ptr %418, align 8, !tbaa !14
   store i32 %419, ptr %230, align 8, !tbaa !14
   %421 = getelementptr inbounds nuw i8, ptr %394, i64 24
   %422 = load ptr, ptr %421, align 8, !tbaa !82
@@ -8177,9 +8177,9 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
   %482 = or disjoint i8 %481, %476
   store i8 %482, ptr %233, align 4
   %483 = getelementptr inbounds nuw i8, ptr %459, i64 16
-  %484 = load i32, ptr %483, align 4, !tbaa !14
+  %484 = load i32, ptr %483, align 8, !tbaa !14
   %485 = load i32, ptr %235, align 8, !tbaa !14
-  store i32 %485, ptr %483, align 4, !tbaa !14
+  store i32 %485, ptr %483, align 8, !tbaa !14
   store i32 %484, ptr %235, align 8, !tbaa !14
   %486 = getelementptr inbounds nuw i8, ptr %459, i64 24
   %487 = load ptr, ptr %486, align 8, !tbaa !82
@@ -11305,9 +11305,9 @@ _ZNK6vectorIP4sortLb0EjE4sizeEv.exit:             ; preds = %46, %52
   %89 = or disjoint i8 %88, %83
   store i8 %89, ptr %22, align 4
   %90 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  %91 = load i32, ptr %90, align 4, !tbaa !14
+  %91 = load i32, ptr %90, align 8, !tbaa !14
   %92 = load i32, ptr %24, align 8, !tbaa !14
-  store i32 %92, ptr %90, align 4, !tbaa !14
+  store i32 %92, ptr %90, align 8, !tbaa !14
   store i32 %91, ptr %24, align 8, !tbaa !14
   %93 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %94 = load ptr, ptr %93, align 8, !tbaa !82
@@ -11408,9 +11408,9 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
   %151 = or disjoint i8 %150, %145
   store i8 %151, ptr %27, align 4
   %152 = getelementptr inbounds nuw i8, ptr %128, i64 16
-  %153 = load i32, ptr %152, align 4, !tbaa !14
+  %153 = load i32, ptr %152, align 8, !tbaa !14
   %154 = load i32, ptr %29, align 8, !tbaa !14
-  store i32 %154, ptr %152, align 4, !tbaa !14
+  store i32 %154, ptr %152, align 8, !tbaa !14
   store i32 %153, ptr %29, align 8, !tbaa !14
   %155 = getelementptr inbounds nuw i8, ptr %128, i64 24
   %156 = load ptr, ptr %155, align 8, !tbaa !82
@@ -11958,9 +11958,9 @@ _ZNK6vectorIP4sortLb0EjE4sizeEv.exit:             ; preds = %_ZN7datalog13karr_r
   %68 = or disjoint i8 %67, %62
   store i8 %68, ptr %28, align 4
   %69 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %70 = load i32, ptr %69, align 4, !tbaa !14
+  %70 = load i32, ptr %69, align 8, !tbaa !14
   %71 = load i32, ptr %32, align 8, !tbaa !14
-  store i32 %71, ptr %69, align 4, !tbaa !14
+  store i32 %71, ptr %69, align 8, !tbaa !14
   store i32 %70, ptr %32, align 8, !tbaa !14
   %72 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %73 = load ptr, ptr %72, align 8, !tbaa !82
@@ -14375,9 +14375,9 @@ _ZSt4swapI8rationalENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EES
   %1014 = or disjoint i8 %1013, %1008
   store i8 %1014, ptr %109, align 4
   %1015 = getelementptr inbounds nuw i8, ptr %991, i64 16
-  %1016 = load i32, ptr %1015, align 4, !tbaa !14
+  %1016 = load i32, ptr %1015, align 8, !tbaa !14
   %1017 = load i32, ptr %111, align 8, !tbaa !14
-  store i32 %1017, ptr %1015, align 4, !tbaa !14
+  store i32 %1017, ptr %1015, align 8, !tbaa !14
   store i32 %1016, ptr %111, align 8, !tbaa !14
   %1018 = getelementptr inbounds nuw i8, ptr %991, i64 24
   %1019 = load ptr, ptr %1018, align 8, !tbaa !82
@@ -14733,9 +14733,9 @@ _ZN8rationalD2Ev.exit260:                         ; preds = %.noexc.i259
   %1202 = or disjoint i8 %1201, %1196
   store i8 %1202, ptr %119, align 4
   %1203 = getelementptr inbounds nuw i8, ptr %1179, i64 16
-  %1204 = load i32, ptr %1203, align 4, !tbaa !14
+  %1204 = load i32, ptr %1203, align 8, !tbaa !14
   %1205 = load i32, ptr %121, align 8, !tbaa !14
-  store i32 %1205, ptr %1203, align 4, !tbaa !14
+  store i32 %1205, ptr %1203, align 8, !tbaa !14
   store i32 %1204, ptr %121, align 8, !tbaa !14
   %1206 = getelementptr inbounds nuw i8, ptr %1179, i64 24
   %1207 = load ptr, ptr %1206, align 8, !tbaa !82

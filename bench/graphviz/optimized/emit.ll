@@ -2879,7 +2879,7 @@ validpage.exit:                                   ; preds = %.lr.ph196
   %263 = load ptr, ptr %262, align 8, !tbaa !97
   call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %7, ptr noundef nonnull @.str.5, ptr noundef %263)
   %.pre = load i32, ptr %188, align 4, !tbaa !98
-  %.pre.i.i.pre = load i32, ptr %191, align 4, !tbaa !99
+  %.pre.i.i.pre = load i32, ptr %191, align 8, !tbaa !99
   br label %264
 
 264:                                              ; preds = %257, %253
@@ -3216,15 +3216,15 @@ agxbuse.exit.i:                                   ; preds = %357, %agxbclear.exi
   %.sroa.5.8.extract.trunc.i.i.i = trunc i64 %385 to i32
   %.sroa.8.8.extract.shift.i.i.i = lshr i64 %385, 32
   %.sroa.8.8.extract.trunc.i.i.i = trunc nuw i64 %.sroa.8.8.extract.shift.i.i.i to i32
-  %386 = load i32, ptr %204, align 4, !tbaa !230
+  %386 = load i32, ptr %204, align 8, !tbaa !230
   %..sroa.0.0.extract.trunc.i.i.i = call i32 @llvm.smin.i32(i32 %386, i32 %.sroa.0.0.extract.trunc.i.i.i)
-  store i32 %..sroa.0.0.extract.trunc.i.i.i, ptr %204, align 4, !tbaa !230
+  store i32 %..sroa.0.0.extract.trunc.i.i.i, ptr %204, align 8, !tbaa !230
   %387 = load i32, ptr %207, align 4, !tbaa !231
   %388 = call i32 @llvm.smin.i32(i32 %387, i32 %.sroa.3.0.extract.trunc.i.i.i)
   store i32 %388, ptr %207, align 4, !tbaa !231
-  %389 = load i32, ptr %208, align 4, !tbaa !232
+  %389 = load i32, ptr %208, align 8, !tbaa !232
   %390 = call i32 @llvm.smax.i32(i32 %389, i32 %.sroa.5.8.extract.trunc.i.i.i)
-  store i32 %390, ptr %208, align 4, !tbaa !232
+  store i32 %390, ptr %208, align 8, !tbaa !232
   %391 = load i32, ptr %209, align 4, !tbaa !233
   %392 = call i32 @llvm.smax.i32(i32 %391, i32 %.sroa.8.8.extract.trunc.i.i.i)
   store i32 %392, ptr %209, align 4, !tbaa !233

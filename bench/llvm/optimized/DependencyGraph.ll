@@ -188,7 +188,7 @@ define dso_local void @_ZN5clang24AttachDependencyGraphGenERNS_12PreprocessorEN4
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 0, ptr %13, align 8, !tbaa !36, !alias.scope !32, !noalias !3
-  store i8 0, ptr %11, align 1, !tbaa !37, !alias.scope !32, !noalias !3
+  store i8 0, ptr %11, align 8, !tbaa !37, !alias.scope !32, !noalias !3
   br label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit.i.i
 
 14:                                               ; preds = %5
@@ -241,7 +241,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit.i.i:        ; preds = %_ZNSt7__cxx1112basi
 29:                                               ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit.i.i
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store i64 0, ptr %30, align 8, !tbaa !36, !alias.scope !41, !noalias !3
-  store i8 0, ptr %28, align 1, !tbaa !37, !alias.scope !41, !noalias !3
+  store i8 0, ptr %28, align 8, !tbaa !37, !alias.scope !41, !noalias !3
   br label %_ZSt11make_uniqueIN12_GLOBAL__N_123DependencyGraphCallbackEJPN5clang12PreprocessorERN4llvm9StringRefES7_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
 
 31:                                               ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit.i.i
@@ -2952,7 +2952,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llv
   store ptr %16, ptr %.ptr.i.i.i, align 8, !tbaa !35
   %17 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %17, align 8, !tbaa !36
-  store i8 0, ptr %16, align 1, !tbaa !37
+  store i8 0, ptr %16, align 8, !tbaa !37
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %18 = icmp eq i64 %.add.i.i.i, 416
   br i1 %18, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %15

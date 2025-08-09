@@ -548,21 +548,21 @@ define hidden void @_ZN4LIEF2PE3TLSC2ERKNS0_7details8pe32_tlsE(ptr noundef nonnu
   store i64 %10, ptr %8, align 8, !tbaa !12
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = load i32, ptr %12, align 1, !tbaa !13
+  %13 = load i32, ptr %12, align 4, !tbaa !13
   %14 = zext i32 %13 to i64
   store i64 %14, ptr %11, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %17 = load i32, ptr %16, align 1, !tbaa !31
+  %17 = load i32, ptr %16, align 4, !tbaa !31
   %18 = zext i32 %17 to i64
   store i64 %18, ptr %15, align 8, !tbaa !32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %21 = load i32, ptr %20, align 1, !tbaa !33
+  %21 = load i32, ptr %20, align 4, !tbaa !33
   store i32 %21, ptr %19, align 8, !tbaa !34
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %24 = load i32, ptr %23, align 1, !tbaa !35
+  %24 = load i32, ptr %23, align 4, !tbaa !35
   store i32 %24, ptr %22, align 4, !tbaa !36
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %25, i8 0, i64 40, i1 false)
@@ -586,19 +586,19 @@ define hidden void @_ZN4LIEF2PE3TLSC2ERKNS0_7details8pe64_tlsE(ptr noundef nonnu
   store i64 %8, ptr %7, align 8, !tbaa !12
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %11 = load i64, ptr %10, align 1, !tbaa !38
+  %11 = load i64, ptr %10, align 8, !tbaa !38
   store i64 %11, ptr %9, align 8, !tbaa !15
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %14 = load i64, ptr %13, align 1, !tbaa !40
+  %14 = load i64, ptr %13, align 8, !tbaa !40
   store i64 %14, ptr %12, align 8, !tbaa !32
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %17 = load i32, ptr %16, align 1, !tbaa !41
+  %17 = load i32, ptr %16, align 8, !tbaa !41
   store i32 %17, ptr %15, align 8, !tbaa !34
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %20 = load i32, ptr %19, align 1, !tbaa !42
+  %20 = load i32, ptr %19, align 4, !tbaa !42
   store i32 %20, ptr %18, align 4, !tbaa !36
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, i8 0, i64 40, i1 false)

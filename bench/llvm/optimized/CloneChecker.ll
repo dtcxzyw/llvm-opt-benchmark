@@ -212,7 +212,7 @@ define dso_local void @_ZN5clang4ento20registerCloneCheckerERNS0_14CheckerManage
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 328
   store i64 10, ptr %27, align 8, !tbaa !21
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 346
-  store i8 0, ptr %28, align 1, !tbaa !20
+  store i8 0, ptr %28, align 2, !tbaa !20
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 352
   store ptr %7, ptr %29, align 8, !tbaa !22
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 360
@@ -249,7 +249,7 @@ define dso_local void @_ZN5clang4ento20registerCloneCheckerERNS0_14CheckerManage
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 432
   store i64 10, ptr %46, align 8, !tbaa !21
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 450
-  store i8 0, ptr %47, align 1, !tbaa !20
+  store i8 0, ptr %47, align 2, !tbaa !20
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 456
   store ptr %7, ptr %48, align 8, !tbaa !22
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 464
@@ -1381,7 +1381,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_.ex
   store ptr %218, ptr %217, align 8, !tbaa !13, !noalias !638
   %219 = getelementptr inbounds nuw i8, ptr %212, i64 32
   store i64 0, ptr %219, align 8, !tbaa !21, !noalias !638
-  store i8 0, ptr %218, align 1, !tbaa !20, !noalias !638
+  store i8 0, ptr %218, align 8, !tbaa !20, !noalias !638
   %220 = getelementptr inbounds nuw i8, ptr %212, i64 56
   %221 = getelementptr inbounds nuw i8, ptr %212, i64 72
   store ptr %221, ptr %220, align 8, !tbaa !13, !noalias !638
@@ -1763,7 +1763,7 @@ _ZNK12_GLOBAL__N_112CloneChecker22reportSuspiciousClonesERN5clang4ento11BugRepor
   store ptr %373, ptr %372, align 8, !tbaa !13, !noalias !686
   %374 = getelementptr inbounds nuw i8, ptr %369, i64 32
   store i64 0, ptr %374, align 8, !tbaa !21, !noalias !686
-  store i8 0, ptr %373, align 1, !tbaa !20, !noalias !686
+  store i8 0, ptr %373, align 8, !tbaa !20, !noalias !686
   %375 = getelementptr inbounds nuw i8, ptr %369, i64 56
   %376 = getelementptr inbounds nuw i8, ptr %369, i64 72
   store ptr %376, ptr %375, align 8, !tbaa !13, !noalias !686

@@ -1186,37 +1186,37 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit263
   %129 = getelementptr inbounds nuw i8, ptr %126, i64 4
   %130 = getelementptr inbounds nuw i8, ptr %126, i64 40
   store i64 0, ptr %130, align 8, !tbaa !12
-  store i32 1, ptr %126, align 4, !tbaa !4
+  store i32 1, ptr %126, align 8, !tbaa !4
   store i32 131120, ptr %129, align 4
   %131 = getelementptr inbounds nuw i8, ptr %126, i64 8
   store ptr %117, ptr %131, align 8, !tbaa !10
   %132 = getelementptr inbounds nuw i8, ptr %126, i64 16
   store ptr inttoptr (i64 5 to ptr), ptr %132, align 8, !tbaa !10
   %133 = getelementptr inbounds nuw i8, ptr %126, i64 24
-  store i8 0, ptr %133, align 1, !tbaa !16
+  store i8 0, ptr %133, align 8, !tbaa !16
   %134 = getelementptr inbounds nuw i8, ptr %126, i64 25
   %135 = getelementptr inbounds nuw i8, ptr %126, i64 30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %134, i8 1, i64 5, i1 false)
-  store i8 0, ptr %135, align 1, !tbaa !16
+  store i8 0, ptr %135, align 2, !tbaa !16
   %136 = getelementptr inbounds nuw i8, ptr %126, i64 31
   store i8 1, ptr %136, align 1, !tbaa !16
   %137 = getelementptr inbounds nuw i8, ptr %126, i64 32
-  store i8 1, ptr %137, align 1, !tbaa !16
+  store i8 1, ptr %137, align 8, !tbaa !16
   %138 = getelementptr inbounds nuw i8, ptr %126, i64 33
   store i8 0, ptr %138, align 1, !tbaa !16
   %139 = getelementptr inbounds nuw i8, ptr %126, i64 34
-  store i8 0, ptr %139, align 1, !tbaa !16
+  store i8 0, ptr %139, align 2, !tbaa !16
   %140 = getelementptr inbounds nuw i8, ptr %126, i64 35
   store i8 0, ptr %140, align 1, !tbaa !16
   %141 = getelementptr inbounds nuw i8, ptr %126, i64 36
-  store i8 1, ptr %141, align 1, !tbaa !16
+  store i8 1, ptr %141, align 4, !tbaa !16
   %142 = getelementptr inbounds nuw i8, ptr %126, i64 37
   store i8 0, ptr %142, align 1, !tbaa !16
   %143 = getelementptr inbounds nuw i8, ptr %126, i64 38
-  store i8 0, ptr %143, align 1, !tbaa !16
+  store i8 0, ptr %143, align 2, !tbaa !16
   %144 = getelementptr inbounds nuw i8, ptr %126, i64 39
   store i8 0, ptr %144, align 1, !tbaa !16
-  store i32 16843009, ptr %130, align 1
+  store i32 16843009, ptr %130, align 8
   %145 = tail call ptr @l_Lean_Meta_Simp_mkContext(ptr noundef nonnull %126, ptr noundef %60, ptr noundef %88, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %98) #5
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %147 = load ptr, ptr %146, align 8, !tbaa !10
@@ -3030,7 +3030,7 @@ _init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_shortCircuitPass___elambda_
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 16
   store i64 1, ptr %56, align 8, !tbaa !12
-  store i32 1, ptr %52, align 4, !tbaa !4
+  store i32 1, ptr %52, align 8, !tbaa !4
   store i32 65560, ptr %55, align 4
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store ptr %51, ptr %57, align 8, !tbaa !10
@@ -3229,7 +3229,7 @@ _init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_shortCircuitPass___elambda_
   %134 = getelementptr inbounds nuw i8, ptr %131, i64 4
   %135 = getelementptr inbounds nuw i8, ptr %131, i64 16
   store i64 1, ptr %135, align 8, !tbaa !12
-  store i32 1, ptr %131, align 4, !tbaa !4
+  store i32 1, ptr %131, align 8, !tbaa !4
   store i32 65560, ptr %134, align 4
   %136 = getelementptr inbounds nuw i8, ptr %131, i64 8
   store ptr %130, ptr %136, align 8, !tbaa !10

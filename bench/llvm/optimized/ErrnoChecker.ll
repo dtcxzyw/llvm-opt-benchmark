@@ -135,7 +135,7 @@ define dso_local void @_ZN5clang4ento20registerErrnoCheckerERNS0_14CheckerManage
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 104
   store i64 14, ptr %26, align 8, !tbaa !183
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 126
-  store i8 0, ptr %27, align 1, !tbaa !182
+  store i8 0, ptr %27, align 2, !tbaa !182
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 128
   store ptr %9, ptr %28, align 8, !tbaa !184
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 136
@@ -172,7 +172,7 @@ define dso_local void @_ZN5clang4ento20registerErrnoCheckerERNS0_14CheckerManage
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 208
   store i64 14, ptr %45, align 8, !tbaa !183
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 230
-  store i8 0, ptr %46, align 1, !tbaa !182
+  store i8 0, ptr %46, align 2, !tbaa !182
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 232
   store ptr %9, ptr %47, align 8, !tbaa !184
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 240

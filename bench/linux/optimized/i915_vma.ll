@@ -710,7 +710,7 @@ define dso_local i32 @i915_vma_bind(ptr noundef %0, i32 noundef %1, i32 noundef 
   %72 = getelementptr inbounds nuw i8, ptr %4, i64 192
   store ptr %50, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %4, i64 200
-  %74 = load i64, ptr %51, align 4
+  %74 = load i64, ptr %51, align 8
   store i64 %74, ptr %73, align 8
   %75 = icmp eq ptr %53, null
   br i1 %75, label %87, label %76

@@ -1833,7 +1833,7 @@ define internal fastcc noundef zeroext i1 @pdo_do_key_pair_fetch(ptr noundef %0,
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %26 = load i64, ptr %25, align 8, !tbaa !97
-  %27 = load i8, ptr %24, align 1, !tbaa !37
+  %27 = load i8, ptr %24, align 8, !tbaa !37
   %28 = icmp sgt i8 %27, 57
   br i1 %28, label %_zend_handle_numeric_str.exit.thread, label %29, !prof !104
 
@@ -1946,14 +1946,14 @@ define internal fastcc noundef zeroext i1 @do_fetch(ptr noundef %0, ptr noundef 
   tail call void @zend_object_std_init(ptr noundef nonnull %42, ptr noundef %43) #17
   store ptr %42, ptr %25, align 8, !tbaa !108
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %45 = load i32, ptr %44, align 4, !tbaa !38
+  %45 = load i32, ptr %44, align 8, !tbaa !38
   %46 = add i32 %45, 1
-  store i32 %46, ptr %44, align 4, !tbaa !38
-  %47 = load i32, ptr %42, align 4, !tbaa !38
+  store i32 %46, ptr %44, align 8, !tbaa !38
+  %47 = load i32, ptr %42, align 8, !tbaa !38
   %48 = icmp ne i32 %47, 0
   tail call void @llvm.assume(i1 %48)
   %49 = add i32 %47, -1
-  store i32 %49, ptr %42, align 4, !tbaa !38
+  store i32 %49, ptr %42, align 8, !tbaa !38
   br label %pdo_get_lazy_object.exit
 
 pdo_get_lazy_object.exit:                         ; preds = %._crit_edge.i, %29
@@ -2323,7 +2323,7 @@ pdo_get_lazy_object.exit:                         ; preds = %._crit_edge.i, %29
   %196 = getelementptr inbounds nuw i8, ptr %193, i64 24
   %197 = getelementptr inbounds nuw i8, ptr %193, i64 16
   %198 = load i64, ptr %197, align 8, !tbaa !97
-  %199 = load i8, ptr %196, align 1, !tbaa !37
+  %199 = load i8, ptr %196, align 8, !tbaa !37
   %200 = icmp sgt i8 %199, 57
   br i1 %200, label %_zend_handle_numeric_str.exit265.thread, label %201, !prof !104
 
@@ -2365,7 +2365,7 @@ zend_symtable_update.exit:                        ; preds = %209, %_zend_handle_
   %215 = getelementptr inbounds nuw i8, ptr %193, i64 24
   %216 = getelementptr inbounds nuw i8, ptr %193, i64 16
   %217 = load i64, ptr %216, align 8, !tbaa !97
-  %218 = load i8, ptr %215, align 1, !tbaa !37
+  %218 = load i8, ptr %215, align 8, !tbaa !37
   %219 = icmp sgt i8 %218, 57
   br i1 %219, label %_zend_handle_numeric_str.exit.thread, label %220, !prof !104
 
@@ -3857,7 +3857,7 @@ zend_string_release.exit:                         ; preds = %187, %194, %201, %2
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 24
   %233 = getelementptr inbounds nuw i8, ptr %231, i64 16
   %234 = load i64, ptr %233, align 8, !tbaa !97
-  %235 = load i8, ptr %232, align 1, !tbaa !37
+  %235 = load i8, ptr %232, align 8, !tbaa !37
   %236 = icmp sgt i8 %235, 57
   br i1 %236, label %_zend_handle_numeric_str.exit.thread.us, label %237, !prof !104
 
@@ -3906,7 +3906,7 @@ zend_symtable_find.exit.us:                       ; preds = %_zend_handle_numeri
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 24
   %255 = getelementptr inbounds nuw i8, ptr %253, i64 16
   %256 = load i64, ptr %255, align 8, !tbaa !97
-  %257 = load i8, ptr %254, align 1, !tbaa !37
+  %257 = load i8, ptr %254, align 8, !tbaa !37
   %258 = icmp sgt i8 %257, 57
   br i1 %258, label %_zend_handle_numeric_str.exit191.thread.us, label %259, !prof !104
 
@@ -3984,7 +3984,7 @@ zval_ptr_dtor_str.exit.us:                        ; preds = %280, %275, %271
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 24
   %290 = getelementptr inbounds nuw i8, ptr %288, i64 16
   %291 = load i64, ptr %290, align 8, !tbaa !97
-  %292 = load i8, ptr %289, align 1, !tbaa !37
+  %292 = load i8, ptr %289, align 8, !tbaa !37
   %293 = icmp sgt i8 %292, 57
   br i1 %293, label %_zend_handle_numeric_str.exit195.thread, label %294, !prof !104
 
@@ -7191,11 +7191,11 @@ define internal void @pdo_row_free_storage(ptr noundef readonly captures(none) %
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 104
   store ptr null, ptr %5, align 8, !tbaa !108
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 160
-  %7 = load i32, ptr %6, align 4, !tbaa !38
+  %7 = load i32, ptr %6, align 8, !tbaa !38
   %8 = icmp ne i32 %7, 0
   tail call void @llvm.assume(i1 %8)
   %9 = add i32 %7, -1
-  store i32 %9, ptr %6, align 4, !tbaa !38
+  store i32 %9, ptr %6, align 8, !tbaa !38
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %12
 

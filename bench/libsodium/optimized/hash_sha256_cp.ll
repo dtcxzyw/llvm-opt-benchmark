@@ -996,7 +996,7 @@ SHA256_Pad.exit:                                  ; preds = %.preheader28.i, %.l
   %24 = lshr i64 %21, 8
   %25 = trunc i64 %24 to i8
   %26 = getelementptr i8, ptr %0, i64 102
-  store i8 %25, ptr %26, align 1
+  store i8 %25, ptr %26, align 2
   %27 = lshr i64 %21, 16
   %28 = trunc i64 %27 to i8
   %29 = getelementptr i8, ptr %0, i64 101
@@ -1004,7 +1004,7 @@ SHA256_Pad.exit:                                  ; preds = %.preheader28.i, %.l
   %30 = lshr i64 %21, 24
   %31 = trunc i64 %30 to i8
   %32 = getelementptr i8, ptr %0, i64 100
-  store i8 %31, ptr %32, align 1
+  store i8 %31, ptr %32, align 4
   %33 = lshr i64 %21, 32
   %34 = trunc i64 %33 to i8
   %35 = getelementptr i8, ptr %0, i64 99
@@ -1012,14 +1012,14 @@ SHA256_Pad.exit:                                  ; preds = %.preheader28.i, %.l
   %36 = lshr i64 %21, 40
   %37 = trunc i64 %36 to i8
   %38 = getelementptr i8, ptr %0, i64 98
-  store i8 %37, ptr %38, align 1
+  store i8 %37, ptr %38, align 2
   %39 = lshr i64 %21, 48
   %40 = trunc i64 %39 to i8
   %41 = getelementptr i8, ptr %0, i64 97
   store i8 %40, ptr %41, align 1
   %42 = lshr i64 %21, 56
   %43 = trunc nuw i64 %42 to i8
-  store i8 %43, ptr %20, align 1
+  store i8 %43, ptr %20, align 8
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 256
   call fastcc void @SHA256_Transform(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef nonnull %3, ptr noundef nonnull %44)
   br label %45

@@ -15642,7 +15642,7 @@ _remove_name_from_str.exit:                       ; preds = %.loopexit.i, %74, %
   %108 = load i32, ptr %107, align 4
   store i32 %108, ptr %106, align 4
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
-  %109 = load i32, ptr %9, align 4
+  %109 = load i32, ptr %9, align 8
   %110 = sext i32 %109 to i64
   %111 = icmp slt i64 %indvars.iv.next215, %110
   br i1 %111, label %.lr.ph183.split.us, label %.loopexit167, !llvm.loop !99
@@ -15655,7 +15655,7 @@ _remove_name_from_str.exit:                       ; preds = %.loopexit.i, %74, %
   %115 = load ptr, ptr %114, align 8
   store ptr %115, ptr %113, align 8
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
-  %116 = load i32, ptr %10, align 4
+  %116 = load i32, ptr %10, align 8
   %117 = sext i32 %116 to i64
   %118 = icmp slt i64 %indvars.iv.next212, %117
   br i1 %118, label %.lr.ph183.split, label %.loopexit167, !llvm.loop !100
@@ -15772,9 +15772,9 @@ _remove_name_from_str.exit:                       ; preds = %.loopexit.i, %74, %
   %166 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv228
   %167 = load i32, ptr %166, align 4
   %168 = load ptr, ptr %122, align 8
-  %169 = load i32, ptr %9, align 4
+  %169 = load i32, ptr %9, align 8
   %170 = add nsw i32 %169, 1
-  store i32 %170, ptr %9, align 4
+  store i32 %170, ptr %9, align 8
   %171 = sext i32 %169 to i64
   %172 = getelementptr inbounds i32, ptr %168, i64 %171
   store i32 %167, ptr %172, align 4
@@ -15788,9 +15788,9 @@ _remove_name_from_str.exit:                       ; preds = %.loopexit.i, %74, %
   %178 = load ptr, ptr %159, align 8
   %179 = tail call ptr @xstrdup(ptr noundef %178) #19
   %180 = load ptr, ptr %121, align 8
-  %181 = load i32, ptr %10, align 4
+  %181 = load i32, ptr %10, align 8
   %182 = add nsw i32 %181, 1
-  store i32 %182, ptr %10, align 4
+  store i32 %182, ptr %10, align 8
   %183 = sext i32 %181 to i64
   %184 = getelementptr inbounds ptr, ptr %180, i64 %183
   store ptr %179, ptr %184, align 8

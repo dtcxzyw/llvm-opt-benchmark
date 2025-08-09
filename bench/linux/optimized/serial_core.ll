@@ -1695,7 +1695,7 @@ define dso_local i32 @uart_register_driver(ptr noundef %0) #0 align 16 {
   %41 = getelementptr inbounds nuw i8, ptr %18, i64 100
   store i32 9600, ptr %41, align 4
   %42 = getelementptr inbounds nuw i8, ptr %18, i64 96
-  store i32 9600, ptr %42, align 4
+  store i32 9600, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %18, i64 152
   store ptr %0, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %18, i64 160

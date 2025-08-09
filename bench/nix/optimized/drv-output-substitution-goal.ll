@@ -8488,7 +8488,7 @@ _ZSt19__relocate_object_aIN3nix6Logger5FieldES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i:
   store i64 %49, ptr %51, align 8, !alias.scope !50, !noalias !53
   store ptr %41, ptr %38, align 8, !alias.scope !53, !noalias !50
   store i64 0, ptr %50, align 8, !alias.scope !53, !noalias !50
-  store i8 0, ptr %41, align 1, !alias.scope !53, !noalias !50
+  store i8 0, ptr %41, align 8, !alias.scope !53, !noalias !50
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #29
   %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 48
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 48
@@ -8541,7 +8541,7 @@ _ZSt19__relocate_object_aIN3nix6Logger5FieldES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i2
   store i64 %67, ptr %69, align 8, !alias.scope !57, !noalias !60
   store ptr %59, ptr %56, align 8, !alias.scope !60, !noalias !57
   store i64 0, ptr %68, align 8, !alias.scope !60, !noalias !57
-  store i8 0, ptr %59, align 1, !alias.scope !60, !noalias !57
+  store i8 0, ptr %59, align 8, !alias.scope !60, !noalias !57
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #29
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 48
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 48
@@ -16983,11 +16983,11 @@ _ZN3nix4PipeC2Ev.exit:                            ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr null, ptr %11, align 8, !noalias !90
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i32 0, ptr %12, align 4, !noalias !90
+  store i32 0, ptr %12, align 8, !noalias !90
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 36
-  store i8 0, ptr %13, align 1, !noalias !90
+  store i8 0, ptr %13, align 4, !noalias !90
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i32 0, ptr %14, align 4, !noalias !90
+  store i32 0, ptr %14, align 8, !noalias !90
   store ptr %6, ptr %7, align 8, !alias.scope !90
   store ptr %10, ptr %5, align 8, !alias.scope !90
   %15 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #32
@@ -17717,7 +17717,7 @@ _ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit: ; 
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(28) %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load atomic i32, ptr %8 acquire, align 4
+  %9 = load atomic i32, ptr %8 acquire, align 8
   %10 = and i32 %9, 2147483647
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %.preheader.i

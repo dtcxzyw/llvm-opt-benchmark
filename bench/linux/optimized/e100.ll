@@ -363,7 +363,7 @@ define internal i32 @e100_probe(ptr noundef %0, ptr noundef readonly captures(no
   %117 = getelementptr i8, ptr %3, i64 3080
   store volatile ptr %117, ptr %117, align 8
   %118 = getelementptr i8, ptr %3, i64 3088
-  store volatile ptr %117, ptr %118, align 8
+  store volatile ptr %117, ptr %118, align 16
   %119 = getelementptr i8, ptr %3, i64 3096
   store ptr @e100_tx_timeout_task, ptr %119, align 8
   %120 = load ptr, ptr %27, align 16
@@ -3145,7 +3145,7 @@ define internal fastcc void @e100_clean_cbs(ptr noundef captures(none) %0) unnam
   tail call void @consume_skb(ptr noundef %30) #19
   %.pre1 = load ptr, ptr %12, align 64
   %.pre2 = load i32, ptr %6, align 4
-  %.pre3 = load i32, ptr %7, align 4
+  %.pre3 = load i32, ptr %7, align 32
   br label %31
 
 31:                                               ; preds = %21, %14
@@ -3892,7 +3892,7 @@ define internal noundef i32 @e100_configure(ptr noundef readonly captures(none) 
   store i16 2, ptr %7, align 2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(30) %8, i8 0, i64 30, i1 false)
-  store i16 2070, ptr %4, align 1
+  store i16 2070, ptr %4, align 2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 11
   store i80 30903631872, ptr %9, align 1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3901,17 +3901,17 @@ define internal noundef i32 @e100_configure(ptr noundef readonly captures(none) 
   %13 = select i1 %12, i80 453350497004842588831744, i80 453350497005942100459520
   store i80 %13, ptr %9, align 1
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 22
-  store i8 -14, ptr %14, align 1
+  store i8 -14, ptr %14, align 2
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 23
   store i8 72, ptr %15, align 1
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 25
   store i8 64, ptr %16, align 1
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  store i40 88047858, ptr %17, align 1
+  store i40 88047858, ptr %17, align 2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %19 = load i8, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  store i8 %19, ptr %20, align 1
+  store i8 %19, ptr %20, align 2
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %22 = load i32, ptr %21, align 32
   %23 = and i32 %22, 3
@@ -3920,7 +3920,7 @@ define internal noundef i32 @e100_configure(ptr noundef readonly captures(none) 
   %26 = or disjoint i80 %25, %13
   store i80 %26, ptr %9, align 1
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 736
-  %28 = load i8, ptr %27, align 16
+  %28 = load i8, ptr %27, align 32
   %29 = and i8 %28, 3
   %30 = icmp eq i8 %29, 3
   br i1 %30, label %31, label %32

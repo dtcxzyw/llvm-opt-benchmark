@@ -89,7 +89,7 @@ define void @_ZN5ZXing10DataMatrix6DetectERKNS_9BitMatrixEbbb(ptr dead_on_unwind
   %.spill.addr433 = getelementptr inbounds nuw i8, ptr %5, i64 1467
   store i1 %4, ptr %.spill.addr433, align 1
   %.spill.addr430 = getelementptr inbounds nuw i8, ptr %5, i64 1466
-  store i1 %3, ptr %.spill.addr430, align 1
+  store i1 %3, ptr %.spill.addr430, align 2
   %.spill.addr425 = getelementptr inbounds nuw i8, ptr %5, i64 1465
   store i1 %2, ptr %.spill.addr425, align 1
   %.spill.addr = getelementptr inbounds nuw i8, ptr %5, i64 1424
@@ -98,7 +98,7 @@ define void @_ZN5ZXing10DataMatrix6DetectERKNS_9BitMatrixEbbb(ptr dead_on_unwind
   store i8 0, ptr %6, align 8, !tbaa !3
   store ptr %5, ptr %0, align 8, !tbaa !8, !alias.scope !10
   %index.addr469 = getelementptr inbounds nuw i8, ptr %5, i64 1464
-  store i3 0, ptr %index.addr469, align 1
+  store i3 0, ptr %index.addr469, align 8
   ret void
 }
 

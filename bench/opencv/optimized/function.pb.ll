@@ -1608,7 +1608,7 @@ define hidden void @_ZN17opencv_tensorflow18FunctionDefLibrary12InternalSwapEPS0
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !57, !noalias !58
   %13 = load i32, ptr %10, align 4, !tbaa !61, !noalias !58
-  %14 = load i32, ptr %9, align 4, !tbaa !61, !noalias !58
+  %14 = load i32, ptr %9, align 8, !tbaa !61, !noalias !58
   %15 = load ptr, ptr %8, align 8, !tbaa !62, !noalias !58
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -1618,7 +1618,7 @@ define hidden void @_ZN17opencv_tensorflow18FunctionDefLibrary12InternalSwapEPS0
   %21 = load i32, ptr %16, align 8, !tbaa !61, !noalias !63
   %22 = load ptr, ptr %7, align 8, !tbaa !62, !noalias !63
   store ptr %22, ptr %8, align 8, !tbaa !62
-  store i32 %21, ptr %9, align 4, !tbaa !61
+  store i32 %21, ptr %9, align 8, !tbaa !61
   store i32 %20, ptr %10, align 4, !tbaa !61
   store ptr %19, ptr %11, align 8, !tbaa !57
   store ptr %15, ptr %7, align 8, !tbaa !62
@@ -1632,7 +1632,7 @@ define hidden void @_ZN17opencv_tensorflow18FunctionDefLibrary12InternalSwapEPS0
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %28 = load ptr, ptr %27, align 8, !tbaa !57, !noalias !66
   %29 = load i32, ptr %26, align 4, !tbaa !61, !noalias !66
-  %30 = load i32, ptr %25, align 4, !tbaa !61, !noalias !66
+  %30 = load i32, ptr %25, align 8, !tbaa !61, !noalias !66
   %31 = load ptr, ptr %24, align 8, !tbaa !62, !noalias !66
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -1642,7 +1642,7 @@ define hidden void @_ZN17opencv_tensorflow18FunctionDefLibrary12InternalSwapEPS0
   %37 = load i32, ptr %32, align 8, !tbaa !61, !noalias !69
   %38 = load ptr, ptr %23, align 8, !tbaa !62, !noalias !69
   store ptr %38, ptr %24, align 8, !tbaa !62
-  store i32 %37, ptr %25, align 4, !tbaa !61
+  store i32 %37, ptr %25, align 8, !tbaa !61
   store i32 %36, ptr %26, align 4, !tbaa !61
   store ptr %35, ptr %27, align 8, !tbaa !57
   store ptr %31, ptr %23, align 8, !tbaa !62
@@ -2786,7 +2786,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %81, ptr %.sink6.i.i.i.i.i, align 8, !tbaa !128
   %82 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i, i64 8
   store i64 0, ptr %82, align 8, !tbaa !53
-  store i8 0, ptr %81, align 1, !tbaa !39
+  store i8 0, ptr %81, align 8, !tbaa !39
   %83 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull %.sink6.i.i.i.i.i)
   br label %_ZN17opencv_tensorflow16FunctionDef_Node17_internal_add_retB5cxx11Ev.exit
 
@@ -2894,7 +2894,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %139, ptr %.sink6.i.i.i.i.i41, align 8, !tbaa !128
   %140 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i41, i64 8
   store i64 0, ptr %140, align 8, !tbaa !53
-  store i8 0, ptr %139, align 1, !tbaa !39
+  store i8 0, ptr %139, align 8, !tbaa !39
   %141 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull %.sink6.i.i.i.i.i41)
   br label %_ZN17opencv_tensorflow16FunctionDef_Node17_internal_add_argB5cxx11Ev.exit
 
@@ -2974,7 +2974,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %181, ptr %.sink6.i.i.i.i.i45, align 8, !tbaa !128
   %182 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i45, i64 8
   store i64 0, ptr %182, align 8, !tbaa !53
-  store i8 0, ptr %181, align 1, !tbaa !39
+  store i8 0, ptr %181, align 8, !tbaa !39
   %183 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull %.sink6.i.i.i.i.i45)
   br label %_ZN17opencv_tensorflow16FunctionDef_Node17_internal_add_depB5cxx11Ev.exit
 
@@ -4330,7 +4330,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !57, !noalias !176
   %12 = load i32, ptr %9, align 4, !tbaa !61, !noalias !176
-  %13 = load i32, ptr %8, align 4, !tbaa !61, !noalias !176
+  %13 = load i32, ptr %8, align 8, !tbaa !61, !noalias !176
   %14 = load ptr, ptr %7, align 8, !tbaa !62, !noalias !176
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -4340,7 +4340,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %20 = load i32, ptr %15, align 8, !tbaa !61, !noalias !179
   %21 = load ptr, ptr %6, align 8, !tbaa !62, !noalias !179
   store ptr %21, ptr %7, align 8, !tbaa !62
-  store i32 %20, ptr %8, align 4, !tbaa !61
+  store i32 %20, ptr %8, align 8, !tbaa !61
   store i32 %19, ptr %9, align 4, !tbaa !61
   store ptr %18, ptr %10, align 8, !tbaa !57
   store ptr %14, ptr %6, align 8, !tbaa !62
@@ -4354,7 +4354,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %27 = load ptr, ptr %26, align 8, !tbaa !57, !noalias !182
   %28 = load i32, ptr %25, align 4, !tbaa !61, !noalias !182
-  %29 = load i32, ptr %24, align 4, !tbaa !61, !noalias !182
+  %29 = load i32, ptr %24, align 8, !tbaa !61, !noalias !182
   %30 = load ptr, ptr %23, align 8, !tbaa !62, !noalias !182
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -4364,7 +4364,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %36 = load i32, ptr %31, align 8, !tbaa !61, !noalias !185
   %37 = load ptr, ptr %22, align 8, !tbaa !62, !noalias !185
   store ptr %37, ptr %23, align 8, !tbaa !62
-  store i32 %36, ptr %24, align 4, !tbaa !61
+  store i32 %36, ptr %24, align 8, !tbaa !61
   store i32 %35, ptr %25, align 4, !tbaa !61
   store ptr %34, ptr %26, align 8, !tbaa !57
   store ptr %30, ptr %22, align 8, !tbaa !62
@@ -4378,7 +4378,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %43 = load ptr, ptr %42, align 8, !tbaa !57, !noalias !188
   %44 = load i32, ptr %41, align 4, !tbaa !61, !noalias !188
-  %45 = load i32, ptr %40, align 4, !tbaa !61, !noalias !188
+  %45 = load i32, ptr %40, align 8, !tbaa !61, !noalias !188
   %46 = load ptr, ptr %39, align 8, !tbaa !62, !noalias !188
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -4388,7 +4388,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %52 = load i32, ptr %47, align 8, !tbaa !61, !noalias !191
   %53 = load ptr, ptr %38, align 8, !tbaa !62, !noalias !191
   store ptr %53, ptr %39, align 8, !tbaa !62
-  store i32 %52, ptr %40, align 4, !tbaa !61
+  store i32 %52, ptr %40, align 8, !tbaa !61
   store i32 %51, ptr %41, align 4, !tbaa !61
   store ptr %50, ptr %42, align 8, !tbaa !57
   store ptr %46, ptr %38, align 8, !tbaa !62
@@ -5450,7 +5450,7 @@ define hidden void @_ZN17opencv_tensorflow11FunctionDef12InternalSwapEPS0_(ptr n
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !57, !noalias !205
   %13 = load i32, ptr %10, align 4, !tbaa !61, !noalias !205
-  %14 = load i32, ptr %9, align 4, !tbaa !61, !noalias !205
+  %14 = load i32, ptr %9, align 8, !tbaa !61, !noalias !205
   %15 = load ptr, ptr %8, align 8, !tbaa !62, !noalias !205
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -5460,7 +5460,7 @@ define hidden void @_ZN17opencv_tensorflow11FunctionDef12InternalSwapEPS0_(ptr n
   %21 = load i32, ptr %16, align 8, !tbaa !61, !noalias !208
   %22 = load ptr, ptr %7, align 8, !tbaa !62, !noalias !208
   store ptr %22, ptr %8, align 8, !tbaa !62
-  store i32 %21, ptr %9, align 4, !tbaa !61
+  store i32 %21, ptr %9, align 8, !tbaa !61
   store i32 %20, ptr %10, align 4, !tbaa !61
   store ptr %19, ptr %11, align 8, !tbaa !57
   store ptr %15, ptr %7, align 8, !tbaa !62
@@ -6437,7 +6437,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN17opencv_tensorflow35FunctionD
   %10 = getelementptr inbounds nuw i8, ptr %.sink9, i64 24
   store ptr null, ptr %10, align 8, !tbaa !72
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink9, i64 32
-  store i32 0, ptr %.ptr.i.i.i, align 4, !tbaa !61
+  store i32 0, ptr %.ptr.i.i.i, align 8, !tbaa !61
   %11 = getelementptr inbounds nuw i8, ptr %.sink9, i64 40
   store i64 %.sink2, ptr %11, align 8, !tbaa !3
   store ptr getelementptr inbounds nuw inrange(-16, 168) (i8, ptr @_ZTVN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseE, i64 16), ptr %.sink9, align 8, !tbaa !8
@@ -6473,7 +6473,7 @@ _ZN6google8protobuf5Arena14InternalHelperIN17opencv_tensorflow16FunctionDef_Node
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 200
   store ptr null, ptr %13, align 8, !tbaa !97
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 216
-  store i32 0, ptr %14, align 4, !tbaa !23
+  store i32 0, ptr %14, align 8, !tbaa !23
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 208
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %15, align 8, !tbaa !51
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalIN17opencv_tensorflow16FunctionDef_NodeEEEPT_PS1_.exit
@@ -6541,7 +6541,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN17opencv_tensorflow11GradientD
   %.sink = phi ptr [ %3, %_ZN6google8protobuf5Arena14InternalHelperIN17opencv_tensorflow11GradientDefEE3NewEv.exit ], [ %6, %5 ]
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow11GradientDefE, i64 16), ptr %.sink, align 8, !tbaa !8
   %9 = getelementptr inbounds nuw i8, ptr %.sink, i64 32
-  store i32 0, ptr %9, align 4, !tbaa !23
+  store i32 0, ptr %9, align 8, !tbaa !23
   %10 = getelementptr inbounds nuw i8, ptr %.sink, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %10, align 8, !tbaa !51
   %11 = getelementptr inbounds nuw i8, ptr %.sink, i64 24
@@ -8292,7 +8292,7 @@ _ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcS
   store ptr %23, ptr %6, align 8, !tbaa !128
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 0, ptr %24, align 8, !tbaa !53
-  store i8 0, ptr %23, align 1, !tbaa !39
+  store i8 0, ptr %23, align 8, !tbaa !39
   br label %_ZN6google8protobuf6MapKey7SetTypeENS0_15FieldDescriptor7CppTypeE.exit
 
 _ZN6google8protobuf6MapKey7SetTypeENS0_15FieldDescriptor7CppTypeE.exit: ; preds = %3, %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i, %22
@@ -9408,7 +9408,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %12, ptr %11, align 8, !tbaa !128
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %13, align 8, !tbaa !53
-  store i8 0, ptr %12, align 1, !tbaa !39
+  store i8 0, ptr %12, align 8, !tbaa !39
   %14 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv28
   store ptr %11, ptr %14, align 8, !tbaa !25
   %indvars.iv.next29 = add nsw i64 %indvars.iv28, 1
@@ -9427,7 +9427,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %19, ptr %16, align 8, !tbaa !128
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 0, ptr %20, align 8, !tbaa !53
-  store i8 0, ptr %19, align 1, !tbaa !39
+  store i8 0, ptr %19, align 8, !tbaa !39
   %21 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   store ptr %16, ptr %21, align 8, !tbaa !25
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -13525,7 +13525,7 @@ _ZN6google8protobuf6MapKey7SetTypeENS0_15FieldDescriptor7CppTypeE.exit.thread.i:
   store ptr %23, ptr %0, align 8, !tbaa !128
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %24, align 8, !tbaa !53
-  store i8 0, ptr %23, align 1, !tbaa !39
+  store i8 0, ptr %23, align 8, !tbaa !39
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZN6google8protobuf6MapKey7SetTypeENS0_15FieldDescriptor7CppTypeE.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit

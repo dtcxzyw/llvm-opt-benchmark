@@ -10253,7 +10253,7 @@ _ZNK13AstBasicDType11isDpiBitVecEv.exit:          ; preds = %_ZNK6AstVar6basicpE
   %248 = load ptr, ptr %247, align 8, !tbaa !100
   %.not.i.i210 = icmp ne ptr %248, null
   %249 = getelementptr inbounds nuw i8, ptr %244, i64 176
-  %250 = load i8, ptr %249, align 4, !range !158
+  %250 = load i8, ptr %249, align 8, !range !158
   %251 = trunc nuw i8 %250 to i1
   %252 = select i1 %.not.i.i210, i1 true, i1 %251
   br i1 %252, label %_ZNK13AstBasicDType13isDpiLogicVecEv.exit.thread, label %_ZNK13AstBasicDType11isDpiBitVecEv.exit.thread
@@ -10284,7 +10284,7 @@ _ZNK13AstBasicDType13isDpiLogicVecEv.exit:        ; preds = %_ZNK6AstVar6basicpE
   %262 = load ptr, ptr %261, align 8, !tbaa !100
   %.not.i.i215 = icmp ne ptr %262, null
   %263 = getelementptr inbounds nuw i8, ptr %259, i64 176
-  %264 = load i8, ptr %263, align 4, !range !158
+  %264 = load i8, ptr %263, align 8, !range !158
   %265 = trunc nuw i8 %264 to i1
   %266 = select i1 %.not.i.i215, i1 true, i1 %265
   br i1 %266, label %_ZNK13AstBasicDType13isDpiLogicVecEv.exit.thread, label %_ZNK13AstBasicDType13isDpiLogicVecEv.exit.thread896
@@ -10311,7 +10311,7 @@ _ZNK6AstVar6basicpEv.exit218:                     ; preds = %_ZNK13AstBasicDType
   %278 = load ptr, ptr %277, align 8, !tbaa !100
   %.not.i.i220 = icmp ne ptr %278, null
   %279 = getelementptr inbounds nuw i8, ptr %273, i64 176
-  %280 = load i8, ptr %279, align 4, !range !158
+  %280 = load i8, ptr %279, align 8, !range !158
   %281 = trunc nuw i8 %280 to i1
   %282 = select i1 %.not.i.i220, i1 true, i1 %281
   %283 = select i1 %282, ptr @.str.37, ptr @.str.38
@@ -17559,7 +17559,7 @@ _ZNK13AstBasicDType13isDpiLogicVecEv.exit:        ; preds = %_ZNK6AstVar6basicpE
   %681 = load ptr, ptr %680, align 8, !tbaa !100
   %.not.i.i244 = icmp ne ptr %681, null
   %682 = getelementptr inbounds nuw i8, ptr %678, i64 176
-  %683 = load i8, ptr %682, align 4, !range !158
+  %683 = load i8, ptr %682, align 8, !range !158
   %684 = trunc nuw i8 %683 to i1
   %685 = select i1 %.not.i.i244, i1 true, i1 %684
   %cond.fr = freeze i1 %685
@@ -18823,7 +18823,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78: ; preds = %_ZN
   %171 = load ptr, ptr %170, align 8, !tbaa !100
   %.not.i.i2.i = icmp ne ptr %171, null
   %172 = getelementptr inbounds nuw i8, ptr %167, i64 176
-  %173 = load i8, ptr %172, align 4, !range !158
+  %173 = load i8, ptr %172, align 8, !range !158
   %174 = trunc nuw i8 %173 to i1
   %175 = select i1 %.not.i.i2.i, i1 true, i1 %174
   br i1 %175, label %_ZNK13AstBasicDType14isDpiPrimitiveEv.exit.thread229, label %_ZNK13AstBasicDType14isDpiPrimitiveEv.exit.thread
@@ -18833,7 +18833,7 @@ _ZNK13AstBasicDType14isDpiPrimitiveEv.exit:       ; preds = %160
   %177 = load ptr, ptr %176, align 8, !tbaa !100
   %.not.i.i.i = icmp ne ptr %177, null
   %178 = getelementptr inbounds nuw i8, ptr %167, i64 176
-  %179 = load i8, ptr %178, align 4, !range !158
+  %179 = load i8, ptr %178, align 8, !range !158
   %180 = trunc nuw i8 %179 to i1
   %181 = select i1 %.not.i.i.i, i1 true, i1 %180
   br i1 %181, label %_ZNK13AstBasicDType14isDpiPrimitiveEv.exit.thread229, label %_ZNK13AstBasicDType14isDpiPrimitiveEv.exit.thread
@@ -18862,7 +18862,7 @@ _ZNK13AstBasicDType11isDpiBitVecEv.exit:          ; preds = %_ZNK13AstBasicDType
   %192 = load ptr, ptr %191, align 8, !tbaa !100
   %.not.i.i82 = icmp ne ptr %192, null
   %193 = getelementptr inbounds nuw i8, ptr %188, i64 176
-  %194 = load i8, ptr %193, align 4, !range !158
+  %194 = load i8, ptr %193, align 8, !range !158
   %195 = trunc nuw i8 %194 to i1
   %196 = select i1 %.not.i.i82, i1 true, i1 %195
   %cond.fr = freeze i1 %196
@@ -22406,7 +22406,7 @@ define linkonce_odr dso_local void @_ZN9VNDeleter11pushDeletepEP7AstNode(ptr nou
   %12 = load i32, ptr %11, align 8, !tbaa !639
   %13 = and i32 %12, -75
   %14 = or disjoint i32 %13, 2
-  store i32 %14, ptr %11, align 4, !tbaa !640
+  store i32 %14, ptr %11, align 8, !tbaa !640
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i32 noundef 1863)
   %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull @.str.73, i64 noundef 1)
   %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull @.str.74, i64 noundef 26)
@@ -23130,7 +23130,7 @@ _ZSt22__uninitialized_move_aIPSt4pairIP19AstUnpackArrayDTypeiES4_SaIS3_EET0_T_S7
   %31 = load ptr, ptr %29, align 8, !tbaa !532
   store ptr %31, ptr %30, align 8, !tbaa !429
   %32 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -8
-  %33 = load i32, ptr %32, align 4, !tbaa !42
+  %33 = load i32, ptr %32, align 8, !tbaa !42
   %34 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
   store i32 %33, ptr %34, align 8, !tbaa !432
   %35 = add nsw i64 %.010.i.i.i.i.i, -1
@@ -26050,7 +26050,7 @@ define linkonce_odr dso_local void @_ZN15VNUserInUseBase8allocateEiRjRb(i32 noun
   %19 = load i32, ptr %18, align 8, !tbaa !639
   %20 = and i32 %19, -75
   %21 = or disjoint i32 %20, 2
-  store i32 %21, ptr %18, align 4, !tbaa !640
+  store i32 %21, ptr %18, align 8, !tbaa !640
   %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i32 noundef 1776)
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.73, i64 noundef 1)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -26245,7 +26245,7 @@ define linkonce_odr dso_local void @_ZN15VNUserInUseBase8clearcntEiRjRKb(i32 nou
   %19 = load i32, ptr %18, align 8, !tbaa !639
   %20 = and i32 %19, -75
   %21 = or disjoint i32 %20, 2
-  store i32 %21, ptr %18, align 4, !tbaa !640
+  store i32 %21, ptr %18, align 8, !tbaa !640
   %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i32 noundef 1786)
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.73, i64 noundef 1)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -26428,7 +26428,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %_ZN
   %95 = load i32, ptr %94, align 8, !tbaa !639
   %96 = and i32 %95, -75
   %97 = or disjoint i32 %96, 2
-  store i32 %97, ptr %94, align 4, !tbaa !640
+  store i32 %97, ptr %94, align 8, !tbaa !640
   %98 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i32 noundef 1790)
   %99 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %98, ptr noundef nonnull @.str.73, i64 noundef 1)
   %100 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %98, ptr noundef nonnull @.str.96, i64 noundef 19)
@@ -26635,7 +26635,7 @@ define linkonce_odr dso_local void @_ZN15VNUserInUseBase4freeEiRjRb(i32 noundef 
   %19 = load i32, ptr %18, align 8, !tbaa !639
   %20 = and i32 %19, -75
   %21 = or disjoint i32 %20, 2
-  store i32 %21, ptr %18, align 4, !tbaa !640
+  store i32 %21, ptr %18, align 8, !tbaa !640
   %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i32 noundef 1781)
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.73, i64 noundef 1)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -31178,7 +31178,7 @@ _ZN7AstNode9privateAsI6AstVarPS_EEPT_S2_.exit:    ; preds = %46
   %78 = load ptr, ptr %77, align 8, !tbaa !100
   %.not.i.i2.i = icmp ne ptr %78, null
   %79 = getelementptr inbounds nuw i8, ptr %74, i64 176
-  %80 = load i8, ptr %79, align 4, !range !158
+  %80 = load i8, ptr %79, align 8, !range !158
   %81 = trunc nuw i8 %80 to i1
   %82 = select i1 %.not.i.i2.i, i1 true, i1 %81
   br i1 %82, label %_ZNK13AstBasicDType13isDpiLogicVecEv.exit, label %_ZNK13AstBasicDType14isDpiPrimitiveEv.exit.thread
@@ -31188,7 +31188,7 @@ _ZNK13AstBasicDType14isDpiPrimitiveEv.exit:       ; preds = %68
   %84 = load ptr, ptr %83, align 8, !tbaa !100
   %.not.i.i.i = icmp ne ptr %84, null
   %85 = getelementptr inbounds nuw i8, ptr %74, i64 176
-  %86 = load i8, ptr %85, align 4, !range !158
+  %86 = load i8, ptr %85, align 8, !range !158
   %87 = trunc nuw i8 %86 to i1
   %88 = select i1 %.not.i.i.i, i1 true, i1 %87
   br i1 %88, label %_ZNK13AstBasicDType11isDpiBitVecEv.exit, label %_ZNK13AstBasicDType14isDpiPrimitiveEv.exit.thread
@@ -31455,7 +31455,7 @@ _ZNK13AstBasicDType13isDpiLogicVecEv.exit:        ; preds = %76, %_ZNK13AstBasic
   %183 = load ptr, ptr %182, align 8, !tbaa !100
   %.not.i.i393 = icmp ne ptr %183, null
   %184 = getelementptr inbounds nuw i8, ptr %74, i64 176
-  %185 = load i8, ptr %184, align 4, !range !158
+  %185 = load i8, ptr %184, align 8, !range !158
   %186 = trunc nuw i8 %185 to i1
   %187 = select i1 %.not.i.i393, i1 true, i1 %186
   br i1 %187, label %_ZNK13AstBasicDType13isDpiLogicVecEv.exit.thread, label %_ZNK13AstBasicDType14isDpiPrimitiveEv.exit.thread
@@ -38933,7 +38933,7 @@ _ZNK6AstVar6basicpEv.exit:                        ; preds = %622
   %635 = load ptr, ptr %634, align 8, !tbaa !100
   %.not.i.i2.i = icmp ne ptr %635, null
   %636 = getelementptr inbounds nuw i8, ptr %631, i64 176
-  %637 = load i8, ptr %636, align 4, !range !158
+  %637 = load i8, ptr %636, align 8, !range !158
   %638 = trunc nuw i8 %637 to i1
   %639 = select i1 %.not.i.i2.i, i1 true, i1 %638
   br i1 %639, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit386, label %_ZNK13AstBasicDType14isDpiPrimitiveEv.exit.thread
@@ -38943,7 +38943,7 @@ _ZNK13AstBasicDType14isDpiPrimitiveEv.exit:       ; preds = %_ZNK6AstVar6basicpE
   %641 = load ptr, ptr %640, align 8, !tbaa !100
   %.not.i.i.i = icmp ne ptr %641, null
   %642 = getelementptr inbounds nuw i8, ptr %631, i64 176
-  %643 = load i8, ptr %642, align 4, !range !158
+  %643 = load i8, ptr %642, align 8, !range !158
   %644 = trunc nuw i8 %643 to i1
   %645 = select i1 %.not.i.i.i, i1 true, i1 %644
   br i1 %645, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit386, label %_ZNK13AstBasicDType14isDpiPrimitiveEv.exit.thread
@@ -39584,7 +39584,7 @@ _ZNK6AstVar6basicpEv.exit481:                     ; preds = %_ZNSt7__cxx1112basi
   %844 = load ptr, ptr %843, align 8, !tbaa !100
   %.not.i.i2.i484 = icmp ne ptr %844, null
   %845 = getelementptr inbounds nuw i8, ptr %840, i64 176
-  %846 = load i8, ptr %845, align 4, !range !158
+  %846 = load i8, ptr %845, align 8, !range !158
   %847 = trunc nuw i8 %846 to i1
   %848 = select i1 %.not.i.i2.i484, i1 true, i1 %847
   %.fr = freeze i1 %848
@@ -39595,7 +39595,7 @@ _ZNK13AstBasicDType14isDpiPrimitiveEv.exit488:    ; preds = %_ZNK6AstVar6basicpE
   %850 = load ptr, ptr %849, align 8, !tbaa !100
   %.not.i.i.i486 = icmp ne ptr %850, null
   %851 = getelementptr inbounds nuw i8, ptr %840, i64 176
-  %852 = load i8, ptr %851, align 4, !range !158
+  %852 = load i8, ptr %851, align 8, !range !158
   %853 = trunc nuw i8 %852 to i1
   %854 = select i1 %.not.i.i.i486, i1 true, i1 %853
   %.fr609 = freeze i1 %854
@@ -39784,7 +39784,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit506: ; preds = %_Z
   store ptr %915, ptr %914, align 8, !tbaa !66
   %916 = getelementptr inbounds nuw i8, ptr %910, i64 160
   store i64 0, ptr %916, align 8, !tbaa !13
-  store i8 0, ptr %915, align 1, !tbaa !14
+  store i8 0, ptr %915, align 8, !tbaa !14
   %917 = getelementptr inbounds nuw i8, ptr %910, i64 184
   store i8 0, ptr %917, align 8, !tbaa !927
   %918 = getelementptr inbounds nuw i8, ptr %910, i64 192
@@ -43809,7 +43809,7 @@ _ZNK6AstVar6basicpEv.exit:                        ; preds = %843
   %856 = load ptr, ptr %855, align 8, !tbaa !100
   %.not.i.i2.i = icmp ne ptr %856, null
   %857 = getelementptr inbounds nuw i8, ptr %852, i64 176
-  %858 = load i8, ptr %857, align 4, !range !158
+  %858 = load i8, ptr %857, align 8, !range !158
   %859 = trunc nuw i8 %858 to i1
   %860 = select i1 %.not.i.i2.i, i1 true, i1 %859
   br i1 %860, label %_ZNK13AstBasicDType14isDpiPrimitiveEv.exit.thread715, label %_ZNK13AstBasicDType14isDpiPrimitiveEv.exit.thread
@@ -43819,7 +43819,7 @@ _ZNK13AstBasicDType14isDpiPrimitiveEv.exit:       ; preds = %_ZNK6AstVar6basicpE
   %862 = load ptr, ptr %861, align 8, !tbaa !100
   %.not.i.i.i = icmp ne ptr %862, null
   %863 = getelementptr inbounds nuw i8, ptr %852, i64 176
-  %864 = load i8, ptr %863, align 4, !range !158
+  %864 = load i8, ptr %863, align 8, !range !158
   %865 = trunc nuw i8 %864 to i1
   %866 = select i1 %.not.i.i.i, i1 true, i1 %865
   br i1 %866, label %_ZNK13AstBasicDType14isDpiPrimitiveEv.exit.thread715, label %_ZNK13AstBasicDType14isDpiPrimitiveEv.exit.thread
@@ -45066,7 +45066,7 @@ _ZNK6AstVar6basicpEv.exit658:                     ; preds = %_ZNSt7__cxx1112basi
   %1288 = load ptr, ptr %1287, align 8, !tbaa !100
   %.not.i.i2.i661 = icmp ne ptr %1288, null
   %1289 = getelementptr inbounds nuw i8, ptr %1284, i64 176
-  %1290 = load i8, ptr %1289, align 4, !range !158
+  %1290 = load i8, ptr %1289, align 8, !range !158
   %1291 = trunc nuw i8 %1290 to i1
   %1292 = select i1 %.not.i.i2.i661, i1 true, i1 %1291
   %.fr = freeze i1 %1292
@@ -45077,7 +45077,7 @@ _ZNK13AstBasicDType14isDpiPrimitiveEv.exit665:    ; preds = %_ZNK6AstVar6basicpE
   %1294 = load ptr, ptr %1293, align 8, !tbaa !100
   %.not.i.i.i663 = icmp ne ptr %1294, null
   %1295 = getelementptr inbounds nuw i8, ptr %1284, i64 176
-  %1296 = load i8, ptr %1295, align 4, !range !158
+  %1296 = load i8, ptr %1295, align 8, !range !158
   %1297 = trunc nuw i8 %1296 to i1
   %1298 = select i1 %.not.i.i.i663, i1 true, i1 %1297
   %.fr730 = freeze i1 %1298
@@ -46148,7 +46148,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i: ; preds =
   store i64 %25, ptr %26, align 8, !tbaa !13
   store ptr %16, ptr %8, align 8, !tbaa !5
   store i64 0, ptr %24, align 8, !tbaa !13
-  store i8 0, ptr %16, align 1, !tbaa !14
+  store i8 0, ptr %16, align 8, !tbaa !14
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr null, ptr %27, align 8, !tbaa !1034
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -48159,7 +48159,7 @@ _ZNK13AstBasicDType13isDpiLogicVecEv.exit:        ; preds = %_ZNK6AstVar6basicpE
   %583 = load ptr, ptr %582, align 8, !tbaa !100
   %.not.i.i232 = icmp ne ptr %583, null
   %584 = getelementptr inbounds nuw i8, ptr %580, i64 176
-  %585 = load i8, ptr %584, align 4, !range !158
+  %585 = load i8, ptr %584, align 8, !range !158
   %586 = trunc nuw i8 %585 to i1
   %587 = select i1 %.not.i.i232, i1 true, i1 %586
   %cond.fr = freeze i1 %587
@@ -51808,7 +51808,7 @@ _ZN7AstNode9privateIsI6AstNewP15AstNodeFTaskRefEEbPKS_.exit: ; preds = %_ZNKSt7_
   store ptr %153, ptr %152, align 8, !tbaa !66
   %154 = getelementptr inbounds nuw i8, ptr %149, i64 160
   store i64 0, ptr %154, align 8, !tbaa !13
-  store i8 0, ptr %153, align 1, !tbaa !14
+  store i8 0, ptr %153, align 8, !tbaa !14
   %155 = getelementptr inbounds nuw i8, ptr %149, i64 184
   store i8 0, ptr %155, align 8, !tbaa !927
   %156 = getelementptr inbounds nuw i8, ptr %149, i64 192
@@ -51931,7 +51931,7 @@ _ZN11AstNodeExpr12unlinkFrBackEP10VNRelinker.exit: ; preds = %193
   store ptr %200, ptr %199, align 8, !tbaa !66
   %201 = getelementptr inbounds nuw i8, ptr %194, i64 160
   store i64 0, ptr %201, align 8, !tbaa !13
-  store i8 0, ptr %200, align 1, !tbaa !14
+  store i8 0, ptr %200, align 8, !tbaa !14
   %202 = getelementptr inbounds nuw i8, ptr %194, i64 184
   store i8 0, ptr %202, align 8, !tbaa !927
   %203 = getelementptr inbounds nuw i8, ptr %194, i64 192
@@ -52018,7 +52018,7 @@ _ZN11AstNodeExpr8makeStmtEv.exit:                 ; preds = %.noexc.i
   store ptr %230, ptr %229, align 8, !tbaa !66
   %231 = getelementptr inbounds nuw i8, ptr %227, i64 160
   store i64 0, ptr %231, align 8, !tbaa !13
-  store i8 0, ptr %230, align 1, !tbaa !14
+  store i8 0, ptr %230, align 8, !tbaa !14
   %232 = getelementptr inbounds nuw i8, ptr %227, i64 184
   store i8 0, ptr %232, align 8, !tbaa !927
   %233 = getelementptr inbounds nuw i8, ptr %227, i64 192

@@ -928,7 +928,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114CStringCheckerC2Ev(ptr noundef n
   %.repack5.i.i.i.i = getelementptr inbounds nuw i8, ptr %141, i64 8
   store i64 0, ptr %.repack5.i.i.i.i, align 8, !tbaa !83
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 16
-  store i32 0, ptr %142, align 4, !tbaa !91
+  store i32 0, ptr %142, align 8, !tbaa !91
   store ptr %141, ptr %37, align 8, !tbaa !92
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_114CStringCheckerERN5clang4ento14CheckerContextERKNS5_9CallEventEESt5_BindIFMS1_KFvS7_SA_NS0_8CharKindEESt12_PlaceholderILi1EESG_ILi2EESG_ILi3EESD_EEE9_M_invokeERKSt9_Any_dataOS3_S7_SA_, ptr %139, align 8, !tbaa !94
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_114CStringCheckerERN5clang4ento14CheckerContextERKNS5_9CallEventEESt5_BindIFMS1_KFvS7_SA_NS0_8CharKindEESt12_PlaceholderILi1EESG_ILi2EESG_ILi3EESD_EEE10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation, ptr %138, align 8, !tbaa !97
@@ -1067,7 +1067,7 @@ _ZNSt4pairIN5clang4ento15CallDescriptionESt8functionIFvPKN12_GLOBAL__N_114CStrin
   %.repack5.i.i.i.i205 = getelementptr inbounds nuw i8, ptr %197, i64 8
   store i64 0, ptr %.repack5.i.i.i.i205, align 8, !tbaa !83
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 16
-  store i32 1, ptr %198, align 4, !tbaa !91
+  store i32 1, ptr %198, align 8, !tbaa !91
   store ptr %197, ptr %40, align 8, !tbaa !92
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_114CStringCheckerERN5clang4ento14CheckerContextERKNS5_9CallEventEESt5_BindIFMS1_KFvS7_SA_NS0_8CharKindEESt12_PlaceholderILi1EESG_ILi2EESG_ILi3EESD_EEE9_M_invokeERKSt9_Any_dataOS3_S7_SA_, ptr %195, align 8, !tbaa !94
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_114CStringCheckerERN5clang4ento14CheckerContextERKNS5_9CallEventEESt5_BindIFMS1_KFvS7_SA_NS0_8CharKindEESt12_PlaceholderILi1EESG_ILi2EESG_ILi3EESD_EEE10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation, ptr %194, align 8, !tbaa !97
@@ -1206,7 +1206,7 @@ _ZNSt4pairIN5clang4ento15CallDescriptionESt8functionIFvPKN12_GLOBAL__N_114CStrin
   %.repack5.i.i.i.i214 = getelementptr inbounds nuw i8, ptr %253, i64 8
   store i64 0, ptr %.repack5.i.i.i.i214, align 8, !tbaa !83
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 16
-  store i32 0, ptr %254, align 4, !tbaa !91
+  store i32 0, ptr %254, align 8, !tbaa !91
   store ptr %253, ptr %43, align 8, !tbaa !92
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_114CStringCheckerERN5clang4ento14CheckerContextERKNS5_9CallEventEESt5_BindIFMS1_KFvS7_SA_NS0_8CharKindEESt12_PlaceholderILi1EESG_ILi2EESG_ILi3EESD_EEE9_M_invokeERKSt9_Any_dataOS3_S7_SA_, ptr %251, align 8, !tbaa !94
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_114CStringCheckerERN5clang4ento14CheckerContextERKNS5_9CallEventEESt5_BindIFMS1_KFvS7_SA_NS0_8CharKindEESt12_PlaceholderILi1EESG_ILi2EESG_ILi3EESD_EEE10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation, ptr %250, align 8, !tbaa !97
@@ -1345,7 +1345,7 @@ _ZNSt4pairIN5clang4ento15CallDescriptionESt8functionIFvPKN12_GLOBAL__N_114CStrin
   %.repack5.i.i.i.i223 = getelementptr inbounds nuw i8, ptr %309, i64 8
   store i64 0, ptr %.repack5.i.i.i.i223, align 8, !tbaa !83
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 16
-  store i32 1, ptr %310, align 4, !tbaa !91
+  store i32 1, ptr %310, align 8, !tbaa !91
   store ptr %309, ptr %46, align 8, !tbaa !92
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_114CStringCheckerERN5clang4ento14CheckerContextERKNS5_9CallEventEESt5_BindIFMS1_KFvS7_SA_NS0_8CharKindEESt12_PlaceholderILi1EESG_ILi2EESG_ILi3EESD_EEE9_M_invokeERKSt9_Any_dataOS3_S7_SA_, ptr %307, align 8, !tbaa !94
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_114CStringCheckerERN5clang4ento14CheckerContextERKNS5_9CallEventEESt5_BindIFMS1_KFvS7_SA_NS0_8CharKindEESt12_PlaceholderILi1EESG_ILi2EESG_ILi3EESD_EEE10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation, ptr %306, align 8, !tbaa !97
@@ -1484,7 +1484,7 @@ _ZNSt4pairIN5clang4ento15CallDescriptionESt8functionIFvPKN12_GLOBAL__N_114CStrin
   %.repack5.i.i.i.i232 = getelementptr inbounds nuw i8, ptr %365, i64 8
   store i64 0, ptr %.repack5.i.i.i.i232, align 8, !tbaa !83
   %366 = getelementptr inbounds nuw i8, ptr %365, i64 16
-  store i32 0, ptr %366, align 4, !tbaa !91
+  store i32 0, ptr %366, align 8, !tbaa !91
   store ptr %365, ptr %49, align 8, !tbaa !92
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_114CStringCheckerERN5clang4ento14CheckerContextERKNS5_9CallEventEESt5_BindIFMS1_KFvS7_SA_NS0_8CharKindEESt12_PlaceholderILi1EESG_ILi2EESG_ILi3EESD_EEE9_M_invokeERKSt9_Any_dataOS3_S7_SA_, ptr %363, align 8, !tbaa !94
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_114CStringCheckerERN5clang4ento14CheckerContextERKNS5_9CallEventEESt5_BindIFMS1_KFvS7_SA_NS0_8CharKindEESt12_PlaceholderILi1EESG_ILi2EESG_ILi3EESD_EEE10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation, ptr %362, align 8, !tbaa !97
@@ -1623,7 +1623,7 @@ _ZNSt4pairIN5clang4ento15CallDescriptionESt8functionIFvPKN12_GLOBAL__N_114CStrin
   %.repack5.i.i.i.i241 = getelementptr inbounds nuw i8, ptr %421, i64 8
   store i64 0, ptr %.repack5.i.i.i.i241, align 8, !tbaa !83
   %422 = getelementptr inbounds nuw i8, ptr %421, i64 16
-  store i32 1, ptr %422, align 4, !tbaa !91
+  store i32 1, ptr %422, align 8, !tbaa !91
   store ptr %421, ptr %52, align 8, !tbaa !92
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_114CStringCheckerERN5clang4ento14CheckerContextERKNS5_9CallEventEESt5_BindIFMS1_KFvS7_SA_NS0_8CharKindEESt12_PlaceholderILi1EESG_ILi2EESG_ILi3EESD_EEE9_M_invokeERKSt9_Any_dataOS3_S7_SA_, ptr %419, align 8, !tbaa !94
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_114CStringCheckerERN5clang4ento14CheckerContextERKNS5_9CallEventEESt5_BindIFMS1_KFvS7_SA_NS0_8CharKindEESt12_PlaceholderILi1EESG_ILi2EESG_ILi3EESD_EEE10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation, ptr %418, align 8, !tbaa !97
@@ -1762,7 +1762,7 @@ _ZNSt4pairIN5clang4ento15CallDescriptionESt8functionIFvPKN12_GLOBAL__N_114CStrin
   %.repack5.i.i.i.i250 = getelementptr inbounds nuw i8, ptr %477, i64 8
   store i64 0, ptr %.repack5.i.i.i.i250, align 8, !tbaa !83
   %478 = getelementptr inbounds nuw i8, ptr %477, i64 16
-  store i32 0, ptr %478, align 4, !tbaa !91
+  store i32 0, ptr %478, align 8, !tbaa !91
   store ptr %477, ptr %55, align 8, !tbaa !92
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_114CStringCheckerERN5clang4ento14CheckerContextERKNS5_9CallEventEESt5_BindIFMS1_KFvS7_SA_NS0_8CharKindEESt12_PlaceholderILi1EESG_ILi2EESG_ILi3EESD_EEE9_M_invokeERKSt9_Any_dataOS3_S7_SA_, ptr %475, align 8, !tbaa !94
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_114CStringCheckerERN5clang4ento14CheckerContextERKNS5_9CallEventEESt5_BindIFMS1_KFvS7_SA_NS0_8CharKindEESt12_PlaceholderILi1EESG_ILi2EESG_ILi3EESD_EEE10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation, ptr %474, align 8, !tbaa !97
@@ -1901,7 +1901,7 @@ _ZNSt4pairIN5clang4ento15CallDescriptionESt8functionIFvPKN12_GLOBAL__N_114CStrin
   %.repack5.i.i.i.i259 = getelementptr inbounds nuw i8, ptr %533, i64 8
   store i64 0, ptr %.repack5.i.i.i.i259, align 8, !tbaa !83
   %534 = getelementptr inbounds nuw i8, ptr %533, i64 16
-  store i32 1, ptr %534, align 4, !tbaa !91
+  store i32 1, ptr %534, align 8, !tbaa !91
   store ptr %533, ptr %58, align 8, !tbaa !92
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_114CStringCheckerERN5clang4ento14CheckerContextERKNS5_9CallEventEESt5_BindIFMS1_KFvS7_SA_NS0_8CharKindEESt12_PlaceholderILi1EESG_ILi2EESG_ILi3EESD_EEE9_M_invokeERKSt9_Any_dataOS3_S7_SA_, ptr %531, align 8, !tbaa !94
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_114CStringCheckerERN5clang4ento14CheckerContextERKNS5_9CallEventEESt5_BindIFMS1_KFvS7_SA_NS0_8CharKindEESt12_PlaceholderILi1EESG_ILi2EESG_ILi3EESD_EEE10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation, ptr %530, align 8, !tbaa !97
@@ -4567,7 +4567,7 @@ _ZNSt4pairIN5clang4ento15CallDescriptionESt8functionIFvPKN12_GLOBAL__N_114CStrin
   %.repack5.i.i.i.i379 = getelementptr inbounds nuw i8, ptr %1596, i64 8
   store i64 0, ptr %.repack5.i.i.i.i379, align 8, !tbaa !83
   %1597 = getelementptr inbounds nuw i8, ptr %1596, i64 16
-  store i32 0, ptr %1597, align 4, !tbaa !91
+  store i32 0, ptr %1597, align 8, !tbaa !91
   store ptr %1596, ptr %118, align 8, !tbaa !92
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_114CStringCheckerERN5clang4ento14CheckerContextERKNS5_9CallEventEESt5_BindIFMS1_KFvS7_SA_NS0_8CharKindEESt12_PlaceholderILi1EESG_ILi2EESG_ILi3EESD_EEE9_M_invokeERKSt9_Any_dataOS3_S7_SA_, ptr %1594, align 8, !tbaa !94
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_114CStringCheckerERN5clang4ento14CheckerContextERKNS5_9CallEventEESt5_BindIFMS1_KFvS7_SA_NS0_8CharKindEESt12_PlaceholderILi1EESG_ILi2EESG_ILi3EESD_EEE10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation, ptr %1593, align 8, !tbaa !97
@@ -15014,7 +15014,7 @@ define internal void @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_114CStringCheck
   %.val7.i.i.i.i = load i64, ptr %.val, align 8, !tbaa !91
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %.val8.i.i.i.i = load i64, ptr %6, align 8, !tbaa !91
-  %.val10.i.i.i.i = load i32, ptr %5, align 4
+  %.val10.i.i.i.i = load i32, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %.val4, i64 %.val8.i.i.i.i
   %8 = and i64 %.val7.i.i.i.i, 1
   %.not.i.i.i.i.i.i = icmp eq i64 %8, 0
@@ -23257,7 +23257,7 @@ _ZNK12_GLOBAL__N_114CStringChecker17getCStringLiteralERN5clang4ento14CheckerCont
   %160 = lshr i32 %159, 22
   %161 = and i32 %160, 7
   %162 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %163 = load i32, ptr %162, align 4, !tbaa !325
+  %163 = load i32, ptr %162, align 8, !tbaa !325
   %164 = mul i32 %161, %163
   %165 = zext i32 %164 to i64
   store ptr %158, ptr %22, align 8
@@ -23272,7 +23272,7 @@ _ZNK12_GLOBAL__N_114CStringChecker17getCStringLiteralERN5clang4ento14CheckerCont
   %173 = lshr i32 %172, 22
   %174 = and i32 %173, 7
   %175 = getelementptr inbounds nuw i8, ptr %.0.i253, i64 16
-  %176 = load i32, ptr %175, align 4, !tbaa !325
+  %176 = load i32, ptr %175, align 8, !tbaa !325
   %177 = mul i32 %174, %176
   %178 = zext i32 %177 to i64
   br i1 %3, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit259, label %.critedge

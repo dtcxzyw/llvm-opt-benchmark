@@ -3323,7 +3323,7 @@ _ZN4entt8literalsli3_hsEPKcm.exit316:             ; preds = %508, %_ZN4entt16bas
   %514 = getelementptr inbounds nuw i8, ptr %.sroa.0480.0496, i64 8
   %515 = getelementptr inbounds nuw i8, ptr %.sroa.0480.0496, i64 16
   %516 = load ptr, ptr %515, align 8, !tbaa !71
-  %517 = load i32, ptr %514, align 4, !tbaa !45
+  %517 = load i32, ptr %514, align 8, !tbaa !45
   %.not = icmp eq i32 %517, 542584942
   br i1 %.not, label %_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE4pushES1_PKv.exit, label %518
 
@@ -12685,10 +12685,10 @@ define linkonce_odr hidden noundef ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vta
   store ptr %44, ptr %43, align 8, !tbaa !326
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %48 = load i8, ptr %46, align 1, !tbaa !327
-  %49 = load i8, ptr %47, align 1, !tbaa !327
-  store i8 %49, ptr %46, align 1, !tbaa !327
-  store i8 %48, ptr %47, align 1, !tbaa !327
+  %48 = load i8, ptr %46, align 8, !tbaa !327
+  %49 = load i8, ptr %47, align 8, !tbaa !327
+  store i8 %49, ptr %46, align 8, !tbaa !327
+  store i8 %48, ptr %47, align 8, !tbaa !327
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %52 = load i64, ptr %50, align 8, !tbaa !47
@@ -19046,10 +19046,10 @@ define linkonce_odr hidden noundef ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vta
   store ptr %44, ptr %43, align 8, !tbaa !326
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %48 = load i8, ptr %46, align 1, !tbaa !327
-  %49 = load i8, ptr %47, align 1, !tbaa !327
-  store i8 %49, ptr %46, align 1, !tbaa !327
-  store i8 %48, ptr %47, align 1, !tbaa !327
+  %48 = load i8, ptr %46, align 8, !tbaa !327
+  %49 = load i8, ptr %47, align 8, !tbaa !327
+  store i8 %49, ptr %46, align 8, !tbaa !327
+  store i8 %48, ptr %47, align 8, !tbaa !327
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %52 = load i64, ptr %50, align 8, !tbaa !47
@@ -24401,10 +24401,10 @@ define linkonce_odr hidden noundef ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vta
   store ptr %44, ptr %43, align 8, !tbaa !326
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %48 = load i8, ptr %46, align 1, !tbaa !327
-  %49 = load i8, ptr %47, align 1, !tbaa !327
-  store i8 %49, ptr %46, align 1, !tbaa !327
-  store i8 %48, ptr %47, align 1, !tbaa !327
+  %48 = load i8, ptr %46, align 8, !tbaa !327
+  %49 = load i8, ptr %47, align 8, !tbaa !327
+  store i8 %49, ptr %46, align 8, !tbaa !327
+  store i8 %48, ptr %47, align 8, !tbaa !327
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %52 = load i64, ptr %50, align 8, !tbaa !47
@@ -26462,10 +26462,10 @@ define linkonce_odr hidden noundef ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vta
   store ptr %35, ptr %34, align 8, !tbaa !326
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %39 = load i8, ptr %37, align 1, !tbaa !327
-  %40 = load i8, ptr %38, align 1, !tbaa !327
-  store i8 %40, ptr %37, align 1, !tbaa !327
-  store i8 %39, ptr %38, align 1, !tbaa !327
+  %39 = load i8, ptr %37, align 8, !tbaa !327
+  %40 = load i8, ptr %38, align 8, !tbaa !327
+  store i8 %40, ptr %37, align 8, !tbaa !327
+  store i8 %39, ptr %38, align 8, !tbaa !327
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %43 = load i64, ptr %41, align 8, !tbaa !47
@@ -32732,10 +32732,10 @@ define linkonce_odr hidden noundef ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vta
   store ptr %44, ptr %43, align 8, !tbaa !326
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %48 = load i8, ptr %46, align 1, !tbaa !327
-  %49 = load i8, ptr %47, align 1, !tbaa !327
-  store i8 %49, ptr %46, align 1, !tbaa !327
-  store i8 %48, ptr %47, align 1, !tbaa !327
+  %48 = load i8, ptr %46, align 8, !tbaa !327
+  %49 = load i8, ptr %47, align 8, !tbaa !327
+  store i8 %49, ptr %46, align 8, !tbaa !327
+  store i8 %48, ptr %47, align 8, !tbaa !327
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %52 = load i64, ptr %50, align 8, !tbaa !47
@@ -33642,10 +33642,10 @@ define linkonce_odr hidden noundef ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vta
   store ptr %44, ptr %43, align 8, !tbaa !326
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %48 = load i8, ptr %46, align 1, !tbaa !327
-  %49 = load i8, ptr %47, align 1, !tbaa !327
-  store i8 %49, ptr %46, align 1, !tbaa !327
-  store i8 %48, ptr %47, align 1, !tbaa !327
+  %48 = load i8, ptr %46, align 8, !tbaa !327
+  %49 = load i8, ptr %47, align 8, !tbaa !327
+  store i8 %49, ptr %46, align 8, !tbaa !327
+  store i8 %48, ptr %47, align 8, !tbaa !327
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %52 = load i64, ptr %50, align 8, !tbaa !47
@@ -37376,10 +37376,10 @@ define linkonce_odr hidden noundef ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vta
   store ptr %35, ptr %34, align 8, !tbaa !326
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %39 = load i8, ptr %37, align 1, !tbaa !327
-  %40 = load i8, ptr %38, align 1, !tbaa !327
-  store i8 %40, ptr %37, align 1, !tbaa !327
-  store i8 %39, ptr %38, align 1, !tbaa !327
+  %39 = load i8, ptr %37, align 8, !tbaa !327
+  %40 = load i8, ptr %38, align 8, !tbaa !327
+  store i8 %40, ptr %37, align 8, !tbaa !327
+  store i8 %39, ptr %38, align 8, !tbaa !327
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %43 = load i64, ptr %41, align 8, !tbaa !47
@@ -38280,10 +38280,10 @@ define linkonce_odr hidden noundef ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vta
   store ptr %44, ptr %43, align 8, !tbaa !326
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %48 = load i8, ptr %46, align 1, !tbaa !327
-  %49 = load i8, ptr %47, align 1, !tbaa !327
-  store i8 %49, ptr %46, align 1, !tbaa !327
-  store i8 %48, ptr %47, align 1, !tbaa !327
+  %48 = load i8, ptr %46, align 8, !tbaa !327
+  %49 = load i8, ptr %47, align 8, !tbaa !327
+  store i8 %49, ptr %46, align 8, !tbaa !327
+  store i8 %48, ptr %47, align 8, !tbaa !327
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %52 = load i64, ptr %50, align 8, !tbaa !47
@@ -42506,10 +42506,10 @@ define linkonce_odr hidden noundef ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vta
   store ptr %44, ptr %43, align 8, !tbaa !326
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %48 = load i8, ptr %46, align 1, !tbaa !327
-  %49 = load i8, ptr %47, align 1, !tbaa !327
-  store i8 %49, ptr %46, align 1, !tbaa !327
-  store i8 %48, ptr %47, align 1, !tbaa !327
+  %48 = load i8, ptr %46, align 8, !tbaa !327
+  %49 = load i8, ptr %47, align 8, !tbaa !327
+  store i8 %49, ptr %46, align 8, !tbaa !327
+  store i8 %48, ptr %47, align 8, !tbaa !327
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %52 = load i64, ptr %50, align 8, !tbaa !47
@@ -43410,10 +43410,10 @@ define linkonce_odr hidden noundef ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vta
   store ptr %44, ptr %43, align 8, !tbaa !326
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %48 = load i8, ptr %46, align 1, !tbaa !327
-  %49 = load i8, ptr %47, align 1, !tbaa !327
-  store i8 %49, ptr %46, align 1, !tbaa !327
-  store i8 %48, ptr %47, align 1, !tbaa !327
+  %48 = load i8, ptr %46, align 8, !tbaa !327
+  %49 = load i8, ptr %47, align 8, !tbaa !327
+  store i8 %49, ptr %46, align 8, !tbaa !327
+  store i8 %48, ptr %47, align 8, !tbaa !327
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %52 = load i64, ptr %50, align 8, !tbaa !47
@@ -48218,7 +48218,7 @@ _ZN7testing7MessageD2Ev.exit255:                  ; preds = %_ZNKSt14default_del
   %454 = getelementptr inbounds nuw i8, ptr %.sroa.0404.0416, i64 8
   %455 = getelementptr inbounds nuw i8, ptr %.sroa.0404.0416, i64 16
   %456 = load ptr, ptr %455, align 8, !tbaa !71
-  %457 = load i32, ptr %454, align 4, !tbaa !45
+  %457 = load i32, ptr %454, align 8, !tbaa !45
   store i32 %457, ptr %26, align 8
   store ptr %456, ptr %432, align 8
   %458 = getelementptr inbounds nuw i8, ptr %456, i64 8
@@ -50068,7 +50068,7 @@ _ZNK4entt9meta_type4baseEv.exit:                  ; preds = %13, %_ZN4entt8inter
   %57 = load ptr, ptr %42, align 8, !tbaa !229, !noalias !887
   %58 = load ptr, ptr %43, align 8, !tbaa !137, !noalias !887
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !887
-  %59 = load i32, ptr %.sroa.051.072, align 4, !tbaa !45, !noalias !887
+  %59 = load i32, ptr %.sroa.051.072, align 8, !tbaa !45, !noalias !887
   store i32 %59, ptr %9, align 8, !tbaa !888, !alias.scope !887
   store i32 %54, ptr %44, align 8, !tbaa !227, !alias.scope !887
   store ptr %55, ptr %45, align 8, !tbaa !228, !alias.scope !887
@@ -52449,7 +52449,7 @@ _ZN7testing7MessageD2Ev.exit251:                  ; preds = %_ZNKSt14default_del
   %454 = getelementptr inbounds nuw i8, ptr %.sroa.0400.0412, i64 8
   %455 = getelementptr inbounds nuw i8, ptr %.sroa.0400.0412, i64 16
   %456 = load ptr, ptr %455, align 8, !tbaa !71
-  %457 = load i32, ptr %454, align 4, !tbaa !45
+  %457 = load i32, ptr %454, align 8, !tbaa !45
   store i32 %457, ptr %26, align 8
   store ptr %456, ptr %432, align 8
   %458 = getelementptr inbounds nuw i8, ptr %456, i64 8
@@ -54421,7 +54421,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !67, !alias.scope !940, !noalias !943
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !61, !alias.scope !943, !noalias !940
   store i64 0, ptr %48, align 8, !tbaa !67, !alias.scope !943, !noalias !940
-  store i8 0, ptr %39, align 1, !tbaa !46, !alias.scope !943, !noalias !940
+  store i8 0, ptr %39, align 8, !tbaa !46, !alias.scope !943, !noalias !940
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -54469,7 +54469,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !67, !alias.scope !947, !noalias !950
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !61, !alias.scope !950, !noalias !947
   store i64 0, ptr %64, align 8, !tbaa !67, !alias.scope !950, !noalias !947
-  store i8 0, ptr %55, align 1, !tbaa !46, !alias.scope !950, !noalias !947
+  store i8 0, ptr %55, align 8, !tbaa !46, !alias.scope !950, !noalias !947
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5

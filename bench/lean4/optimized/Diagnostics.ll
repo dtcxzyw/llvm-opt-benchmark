@@ -17345,7 +17345,7 @@ _init_l_Array_forIn_x27Unsafe_loop___at_Lean_Meta_Simp_mkSimpDiagSummary___spec_
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 40
   store i64 1, ptr %45, align 8, !tbaa !12
-  store i32 1, ptr %41, align 4, !tbaa !8
+  store i32 1, ptr %41, align 8, !tbaa !8
   store i32 131120, ptr %44, align 4
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr %39, ptr %46, align 8, !tbaa !4
@@ -17526,7 +17526,7 @@ _init_l_Lean_Meta_Simp_reportDiag___closed__1.exit: ; preds = %_init_l_Lean_Meta
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 4
   %114 = getelementptr inbounds nuw i8, ptr %110, i64 40
   store i64 0, ptr %114, align 8, !tbaa !12
-  store i32 1, ptr %110, align 4, !tbaa !8
+  store i32 1, ptr %110, align 8, !tbaa !8
   store i32 131120, ptr %113, align 4
   %115 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store ptr %107, ptr %115, align 8, !tbaa !4

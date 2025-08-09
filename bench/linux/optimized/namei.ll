@@ -2029,7 +2029,7 @@ define dso_local ptr @ext4_init_dot_dotdot(ptr noundef readonly captures(none) %
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i16 12, ptr %15, align 4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i16 46, ptr %16, align 1
+  store i16 46, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 872
@@ -2201,7 +2201,7 @@ define dso_local i32 @ext4_init_new_dir(ptr noundef %0, ptr noundef %1, ptr noun
   %61 = getelementptr inbounds nuw i8, ptr %49, i64 4
   store i16 12, ptr %61, align 4
   %62 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store i16 46, ptr %62, align 1
+  store i16 46, ptr %62, align 4
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 872

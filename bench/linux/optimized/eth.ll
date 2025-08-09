@@ -781,9 +781,9 @@ define dso_local noundef range(i32 -19, 1) i32 @eth_platform_get_mac_address(ptr
   %6 = load i32, ptr %3, align 4
   store i32 %6, ptr %1, align 4
   %7 = getelementptr i8, ptr %3, i64 4
-  %8 = load i16, ptr %7, align 2
+  %8 = load i16, ptr %7, align 4
   %9 = getelementptr i8, ptr %1, i64 4
-  store i16 %8, ptr %9, align 2
+  store i16 %8, ptr %9, align 4
   br label %10
 
 10:                                               ; preds = %5, %2
@@ -803,9 +803,9 @@ define dso_local noundef range(i32 -19, 1) i32 @platform_get_ethdev_address(ptr 
   %7 = load i32, ptr %4, align 4
   store i32 %7, ptr %3, align 4
   %8 = getelementptr i8, ptr %4, i64 4
-  %9 = load i16, ptr %8, align 2
+  %9 = load i16, ptr %8, align 4
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i16 %9, ptr %10, align 2
+  store i16 %9, ptr %10, align 4
   call void @dev_addr_mod(ptr noundef %1, i32 noundef 0, ptr noundef nonnull %3, i64 noundef 6) #12
   br label %.thread
 
@@ -867,7 +867,7 @@ define dso_local i32 @nvmem_get_mac_address(ptr noundef %0, ptr noundef writeonl
   store i32 %19, ptr %1, align 4
   %30 = load i16, ptr %23, align 2
   %31 = getelementptr i8, ptr %1, i64 4
-  store i16 %30, ptr %31, align 2
+  store i16 %30, ptr %31, align 4
   call void @kfree(ptr noundef %10) #12
   br label %32
 

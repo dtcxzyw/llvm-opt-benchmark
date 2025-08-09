@@ -7799,7 +7799,7 @@ define hidden void @lj_record_setup(ptr noundef initializes((176, 180), (402, 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store i32 0, ptr %11, align 8, !tbaa !32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1672
-  %13 = load i32, ptr %12, align 4, !tbaa !37
+  %13 = load i32, ptr %12, align 8, !tbaa !37
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i32 %13, ptr %14, align 8, !tbaa !171
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1676
@@ -7940,7 +7940,7 @@ define hidden void @lj_record_setup(ptr noundef initializes((176, 180), (402, 16
   %102 = load i16, ptr %101, align 4, !tbaa !181
   %103 = zext i16 %102 to i32
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 1648
-  %105 = load i32, ptr %104, align 4, !tbaa !37
+  %105 = load i32, ptr %104, align 8, !tbaa !37
   %.not97 = icmp sgt i32 %105, %103
   br i1 %.not97, label %106, label %119
 

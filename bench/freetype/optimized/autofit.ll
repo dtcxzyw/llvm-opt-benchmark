@@ -3922,19 +3922,19 @@ define internal noundef i32 @af_autofitter_init(ptr noundef writeonly captures(n
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 500, ptr %5, align 4, !tbaa !43
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 400, ptr %6, align 4, !tbaa !43
+  store i32 400, ptr %6, align 8, !tbaa !43
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 1000, ptr %7, align 4, !tbaa !43
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 275, ptr %8, align 4, !tbaa !43
+  store i32 275, ptr %8, align 8, !tbaa !43
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 1667, ptr %9, align 4, !tbaa !43
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 275, ptr %10, align 4, !tbaa !43
+  store i32 275, ptr %10, align 8, !tbaa !43
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 2333, ptr %11, align 4, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 0, ptr %12, align 4, !tbaa !43
+  store i32 0, ptr %12, align 8, !tbaa !43
   ret i32 0
 }
 

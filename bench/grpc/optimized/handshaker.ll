@@ -252,7 +252,7 @@ define void @_ZN9grpc_core10Handshaker21InvokeOnHandshakeDoneEPNS_14HandshakerAr
   store ptr null, ptr %14, align 8, !tbaa !29
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %24 = load i64, ptr %15, align 16, !tbaa !30
-  store i64 %24, ptr %23, align 8, !tbaa !30
+  store i64 %24, ptr %23, align 16, !tbaa !30
   store i64 55, ptr %15, align 16, !tbaa !30
   store ptr %17, ptr %4, align 16, !tbaa !32
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -2246,7 +2246,7 @@ define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_120HandshakerArgsStringB5
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr @_ZN4absl12lts_2024072219str_format_internal13FormatArgImpl8DispatchImEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %15, align 8, !tbaa !131, !noalias !128
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %.sroa.0.0.copyload.i.i.i7.i = load i8, ptr %9, align 1, !noalias !128
+  %.sroa.0.0.copyload.i.i.i7.i = load i8, ptr %9, align 8, !noalias !128
   %.sroa.0.0.insert.ext.i.i.i.i = zext i8 %.sroa.0.0.copyload.i.i.i7.i to i64
   %17 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i.i to ptr
   store ptr %17, ptr %16, align 8, !tbaa !32, !noalias !128

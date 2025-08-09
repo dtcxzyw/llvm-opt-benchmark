@@ -3712,7 +3712,7 @@ define void @_ZN6Assimp12BaseImporter22ConvertUTF8toISO8859_1ERNSt7__cxx1112basi
   %58 = load i32, ptr %57, align 8
   %59 = and i32 %58, -75
   %60 = or disjoint i32 %59, 8
-  store i32 %60, ptr %57, align 4
+  store i32 %60, ptr %57, align 8
   %61 = load ptr, ptr %0, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 %.04870
   %63 = load i8, ptr %62, align 1

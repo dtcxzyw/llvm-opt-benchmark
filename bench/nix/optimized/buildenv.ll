@@ -2728,7 +2728,7 @@ _ZN3nix7PackageC2EOS0_.exit.i.i.i:                ; preds = %_ZNKSt7__cxx1112bas
   store i64 %41, ptr %25, align 8
   store ptr %33, ptr %31, align 8
   store i64 0, ptr %42, align 8
-  store i8 0, ptr %33, align 1
+  store i8 0, ptr %33, align 8
   %43 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %44 = load i64, ptr %43, align 8
   store i64 %44, ptr %26, align 8
@@ -2846,7 +2846,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3.
   store i64 %81, ptr %64, align 8
   store ptr %73, ptr %71, align 8
   store i64 0, ptr %82, align 8
-  store i8 0, ptr %73, align 1
+  store i8 0, ptr %73, align 8
   %83 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -8
   %84 = load i64, ptr %83, align 8
   store i64 %84, ptr %65, align 8
@@ -3589,7 +3589,7 @@ _ZN3nix7PackageC2EOS0_.exit:                      ; preds = %134, %_ZNKSt7__cxx1
   store i64 %140, ptr %142, align 8
   store ptr %132, ptr %3, align 8
   store i64 0, ptr %141, align 8
-  store i8 0, ptr %132, align 1
+  store i8 0, ptr %132, align 8
   %143 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %144 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %145 = load i64, ptr %144, align 8
@@ -4151,7 +4151,7 @@ _ZN3nix7PackageC2EOS0_.exit:                      ; preds = %34, %_ZNKSt7__cxx11
   store i64 %41, ptr %9, align 8
   store ptr %32, ptr %.sroa.0.021, align 8
   store i64 0, ptr %40, align 8
-  store i8 0, ptr %32, align 1
+  store i8 0, ptr %32, align 8
   %42 = getelementptr inbounds nuw i8, ptr %.pn20, i64 72
   %43 = load i64, ptr %42, align 8
   store i64 %43, ptr %10, align 8
@@ -4414,7 +4414,7 @@ _ZN3nix7PackageC2EOS0_.exit:                      ; preds = %7, %_ZNKSt7__cxx111
   store i64 %13, ptr %15, align 8
   store ptr %5, ptr %0, align 8
   store i64 0, ptr %14, align 8
-  store i8 0, ptr %5, align 1
+  store i8 0, ptr %5, align 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i64, ptr %17, align 8
@@ -18193,7 +18193,7 @@ _ZSt19__relocate_object_aIN3nix7PackageES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i: ; pr
   store i64 %42, ptr %44, align 8, !alias.scope !65, !noalias !68
   store ptr %34, ptr %.0911.i.i.i, align 8, !alias.scope !68, !noalias !65
   store i64 0, ptr %43, align 8, !alias.scope !68, !noalias !65
-  store i8 0, ptr %34, align 1, !alias.scope !68, !noalias !65
+  store i8 0, ptr %34, align 8, !alias.scope !68, !noalias !65
   %45 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %46 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %47 = load i64, ptr %46, align 8, !alias.scope !68, !noalias !65
@@ -18247,7 +18247,7 @@ _ZSt19__relocate_object_aIN3nix7PackageES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i35: ; 
   store i64 %61, ptr %63, align 8, !alias.scope !72, !noalias !75
   store ptr %53, ptr %.0911.i.i.i31, align 8, !alias.scope !75, !noalias !72
   store i64 0, ptr %62, align 8, !alias.scope !75, !noalias !72
-  store i8 0, ptr %53, align 1, !alias.scope !75, !noalias !72
+  store i8 0, ptr %53, align 8, !alias.scope !75, !noalias !72
   %64 = getelementptr inbounds nuw i8, ptr %.012.i.i.i30, i64 32
   %65 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i31, i64 32
   %66 = load i64, ptr %65, align 8, !alias.scope !75, !noalias !72

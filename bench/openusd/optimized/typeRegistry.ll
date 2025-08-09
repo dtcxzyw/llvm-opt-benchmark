@@ -5847,11 +5847,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread3.i.i:
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load float, ptr %.0.i.i, align 4
   %26 = load float, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8TsTraitsIfE4zeroE, align 4
-  store float %25, ptr %24, align 4
+  store float %25, ptr %24, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %25, ptr %.sroa.2.0..sroa_idx.i.i.i, align 4
   %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float %26, ptr %.sroa.3.0..sroa_idx.i.i.i, align 4
+  store float %26, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 28
   store float %26, ptr %.sroa.4.0..sroa_idx.i.i.i, align 4
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -8355,7 +8355,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2Valu
   %93 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %94 = load double, ptr %93, align 8
   %95 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %96 = load float, ptr %95, align 4
+  %96 = load float, ptr %95, align 8
   %97 = fpext float %96 to double
   %98 = fneg double %94
   %99 = tail call double @llvm.fmuladd.f64(double %98, double %97, double %92)
@@ -18747,7 +18747,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheINS_7GfVec2dELb1EE4EvalEd.ex
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %44, i64 8
   store double %.pn.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !187
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  store atomic i32 0, ptr %45 seq_cst, align 4, !noalias !187
+  store atomic i32 0, ptr %45 seq_cst, align 8, !noalias !187
   store ptr %44, ptr %0, align 8, !alias.scope !187
   %46 = atomicrmw add ptr %45, i32 1 monotonic, align 4, !noalias !187
   ret void
@@ -18770,7 +18770,7 @@ define linkonce_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIN
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   store double %.sroa.2.0.copyload.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !190
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store atomic i32 0, ptr %10 seq_cst, align 4, !noalias !190
+  store atomic i32 0, ptr %10 seq_cst, align 8, !noalias !190
   store ptr %9, ptr %0, align 8, !alias.scope !190
   %11 = atomicrmw add ptr %10, i32 1 monotonic, align 4, !noalias !190
   ret void
@@ -19894,7 +19894,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit37: ; preds = %69, %.noexc
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %95, i64 8
   store double %91, ptr %.sroa.2.0..sroa_idx, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  store atomic i32 0, ptr %96 seq_cst, align 4
+  store atomic i32 0, ptr %96 seq_cst, align 8
   store ptr %95, ptr %0, align 8
   %97 = atomicrmw add ptr %96, i32 1 monotonic, align 4
   ret void
@@ -20041,7 +20041,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue3GetINS_7GfVec2dEEERKT_v.exit14: 
   %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 8
   store double %53, ptr %.sroa.216.0..sroa_idx, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  store atomic i32 0, ptr %58 seq_cst, align 4
+  store atomic i32 0, ptr %58 seq_cst, align 8
   store ptr %57, ptr %0, align 8
   %59 = atomicrmw add ptr %58, i32 1 monotonic, align 4
   ret void
@@ -20602,7 +20602,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheINS_7GfVec2dELb1EE9TypedEval
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 8
   store double %.pn.i, ptr %.sroa.2.0..sroa_idx, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  store atomic i32 0, ptr %43 seq_cst, align 4
+  store atomic i32 0, ptr %43 seq_cst, align 8
   store ptr %42, ptr %0, align 8
   %44 = atomicrmw add ptr %43, i32 1 monotonic, align 4
   ret void
@@ -20621,7 +20621,7 @@ define linkonce_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheIN
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %.sroa.2.0.copyload.i, ptr %.sroa.2.0..sroa_idx, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store atomic i32 0, ptr %8 seq_cst, align 4
+  store atomic i32 0, ptr %8 seq_cst, align 8
   store ptr %7, ptr %0, align 8
   %9 = atomicrmw add ptr %8, i32 1 monotonic, align 4
   ret void
@@ -21314,13 +21314,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2fEEEbv.exit.t
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load i64, ptr %.0.i.i, align 4
   %26 = load i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8TsTraitsINS_7GfVec2fEE4zeroE, align 4
-  store i64 %25, ptr %24, align 4
+  store i64 %25, ptr %24, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %25, ptr %.sroa.2.0..sroa_idx.i.i.i, align 4
+  store i64 %25, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %26, ptr %.sroa.3.0..sroa_idx.i.i.i, align 4
+  store i64 %26, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %26, ptr %.sroa.4.0..sroa_idx.i.i.i, align 4
+  store i64 %26, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(22) %27, i8 0, i64 22, i1 false)
   ret void
@@ -21422,7 +21422,7 @@ define linkonce_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIN
   %.sroa.0.4.vec.extract.i.i.i.i.i.i = extractelement <2 x float> %.cast.i.i.i.i, i64 1
   %39 = fmul float %.sroa.0.4.vec.extract.i.i.i.i.i.i, 3.000000e+00
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %41 = load <2 x float>, ptr %40, align 4, !noalias !205
+  %41 = load <2 x float>, ptr %40, align 8, !noalias !205
   %.sroa.0.0.vec.extract.i.i3.i.i.i.i = extractelement <2 x float> %41, i64 0
   %42 = fmul float %.sroa.0.0.vec.extract.i.i3.i.i.i.i, 3.000000e+00
   %.sroa.0.4.vec.extract.i.i5.i.i.i.i = extractelement <2 x float> %41, i64 1
@@ -21438,7 +21438,7 @@ define linkonce_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIN
   %49 = fsub float %38, %47
   %50 = fsub float %39, %48
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %52 = load <2 x float>, ptr %51, align 4, !noalias !205
+  %52 = load <2 x float>, ptr %51, align 8, !noalias !205
   %.sroa.0.0.vec.extract.i.i19.i.i.i.i = extractelement <2 x float> %52, i64 0
   %53 = fmul float %.sroa.0.0.vec.extract.i.i19.i.i.i.i, 3.000000e+00
   %.sroa.0.4.vec.extract.i.i21.i.i.i.i = extractelement <2 x float> %52, i64 1
@@ -21454,7 +21454,7 @@ define linkonce_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIN
   %60 = fsub float %58, %53
   %61 = fsub float %59, %54
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %63 = load float, ptr %62, align 4, !noalias !205
+  %63 = load float, ptr %62, align 8, !noalias !205
   %64 = fadd float %63, %60
   %.sroa.0.0.vec.insert.i48.i.i.i.i = insertelement <2 x float> poison, float %64, i64 0
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 132
@@ -23501,7 +23501,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3Time
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %65 = load double, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %67 = load <2 x float>, ptr %66, align 4
+  %67 = load <2 x float>, ptr %66, align 8
   %.sroa.0.0.vec.extract.i.i13.i = extractelement <2 x float> %67, i64 0
   %68 = fpext float %.sroa.0.0.vec.extract.i.i13.i to double
   %69 = fmul double %65, %68
@@ -23510,7 +23510,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3Time
   %71 = fpext float %.sroa.0.4.vec.extract.i.i15.i to double
   %72 = fmul double %65, %71
   %73 = fptrunc double %72 to float
-  %74 = load <2 x float>, ptr %40, align 4
+  %74 = load <2 x float>, ptr %40, align 8
   %.sroa.0.0.vec.extract.i17.i = extractelement <2 x float> %74, i64 0
   %75 = fadd float %.sroa.0.0.vec.extract.i17.i, %70
   %.sroa.0.0.vec.insert.i18.i = insertelement <2 x float> poison, float %75, i64 0
@@ -23587,7 +23587,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2Valu
   %112 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %113 = load double, ptr %112, align 8
   %114 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %115 = load <2 x float>, ptr %114, align 4
+  %115 = load <2 x float>, ptr %114, align 8
   %.sroa.0.0.vec.extract.i.i21.i = extractelement <2 x float> %115, i64 0
   %116 = fpext float %.sroa.0.0.vec.extract.i.i21.i to double
   %117 = fmul double %113, %116
@@ -25296,7 +25296,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit28: ; preds = %68, %.noexc
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %95, i64 16
   store double %91, ptr %.sroa.3.0..sroa_idx, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 24
-  store atomic i32 0, ptr %96 seq_cst, align 4
+  store atomic i32 0, ptr %96 seq_cst, align 8
   store ptr %95, ptr %0, align 8
   %97 = atomicrmw add ptr %96, i32 1 monotonic, align 4
   ret void
@@ -25451,7 +25451,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue3GetINS_7GfVec3dEEERKT_v.exit14: 
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 16
   store double %55, ptr %.sroa.3.0..sroa_idx, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  store atomic i32 0, ptr %60 seq_cst, align 4
+  store atomic i32 0, ptr %60 seq_cst, align 8
   store ptr %59, ptr %0, align 8
   %61 = atomicrmw add ptr %60, i32 1 monotonic, align 4
   ret void
@@ -26055,7 +26055,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheINS_7GfVec3dELb1EE9TypedEval
   %.sroa.4.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store double %.sroa.4.0, ptr %.sroa.4.0..sroa_idx5, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  store atomic i32 0, ptr %55 seq_cst, align 4
+  store atomic i32 0, ptr %55 seq_cst, align 8
   store ptr %54, ptr %0, align 8
   %56 = atomicrmw add ptr %55, i32 1 monotonic, align 4
   ret void
@@ -31324,7 +31324,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit28: ; preds = %68, %.noexc
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %97, i64 24
   store double %93, ptr %.sroa.4.0..sroa_idx, align 8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 32
-  store atomic i32 0, ptr %98 seq_cst, align 4
+  store atomic i32 0, ptr %98 seq_cst, align 8
   store ptr %97, ptr %0, align 8
   %99 = atomicrmw add ptr %98, i32 1 monotonic, align 4
   ret void
@@ -31487,7 +31487,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue3GetINS_7GfVec4dEEERKT_v.exit14: 
   %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 24
   store double %57, ptr %.sroa.417.0..sroa_idx, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
-  store atomic i32 0, ptr %62 seq_cst, align 4
+  store atomic i32 0, ptr %62 seq_cst, align 8
   store ptr %61, ptr %0, align 8
   %63 = atomicrmw add ptr %62, i32 1 monotonic, align 4
   ret void
@@ -32048,7 +32048,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheINS_7GfVec4dELb1EE9TypedEval
   %.sroa.5.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %66, i64 24
   store double %.sroa.5.0, ptr %.sroa.5.0..sroa_idx7, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 32
-  store atomic i32 0, ptr %67 seq_cst, align 4
+  store atomic i32 0, ptr %67 seq_cst, align 8
   store ptr %66, ptr %0, align 8
   %68 = atomicrmw add ptr %67, i32 1 monotonic, align 4
   ret void
@@ -48663,7 +48663,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIbEEbv.exit.thread3.i.i:
   %.sroa.2.0.insert.shift.i.i.i = shl nuw nsw i32 %.sroa.2.0.insert.ext.i.i.i, 8
   %.sroa.2.0.insert.insert.i.i.i = or disjoint i32 %.sroa.3.0.insert.insert.i.i.i, %.sroa.2.0.insert.shift.i.i.i
   %.sroa.0.0.insert.insert.i.i.i = or disjoint i32 %.sroa.2.0.insert.insert.i.i.i, %.sroa.2.0.insert.ext.i.i.i
-  store i32 %.sroa.0.0.insert.insert.i.i.i, ptr %24, align 1
+  store i32 %.sroa.0.0.insert.insert.i.i.i, ptr %24, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(22) %29, i8 0, i64 22, i1 false)
   ret void
@@ -48692,7 +48692,7 @@ define linkonce_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIb
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
-  store i32 %8, ptr %6, align 1
+  store i32 %8, ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(22) %9, ptr noundef nonnull align 8 dereferenceable(22) %10, i64 22, i1 false)
@@ -50322,11 +50322,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIiEEbv.exit.thread3.i.i:
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load i32, ptr %.0.i.i, align 4
   %26 = load i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8TsTraitsIiE4zeroE, align 4
-  store i32 %25, ptr %24, align 4
+  store i32 %25, ptr %24, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %25, ptr %.sroa.2.0..sroa_idx.i.i.i, align 4
   %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %26, ptr %.sroa.3.0..sroa_idx.i.i.i, align 4
+  store i32 %26, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %26, ptr %.sroa.4.0..sroa_idx.i.i.i, align 4
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48

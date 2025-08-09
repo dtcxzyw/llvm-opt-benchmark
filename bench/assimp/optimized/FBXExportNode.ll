@@ -7821,7 +7821,7 @@ _ZNSt16allocator_traitsISaIN6Assimp3FBX4NodeEEE9constructIS2_JS2_EEEvRS3_PT_DpOT
   store i64 %14, ptr %16, align 8
   store ptr %6, ptr %1, align 8
   store i64 0, ptr %15, align 8
-  store i8 0, ptr %6, align 1
+  store i8 0, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %19 = load ptr, ptr %18, align 8

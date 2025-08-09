@@ -2181,7 +2181,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %33 = load i32, ptr %32, align 8, !tbaa !117
   %34 = and i32 %33, -75
   %35 = or disjoint i32 %34, 8
-  store i32 %35, ptr %32, align 4, !tbaa !118
+  store i32 %35, ptr %32, align 8, !tbaa !118
   %36 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull %1)
           to label %_ZNSolsEPKv.exit unwind label %81
 
@@ -20298,7 +20298,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %7,
   store i64 %14, ptr %15, align 8, !tbaa !37
   store ptr %5, ptr %1, align 8, !tbaa !33
   store i64 0, ptr %13, align 8, !tbaa !37
-  store i8 0, ptr %5, align 1, !tbaa !12
+  store i8 0, ptr %5, align 8, !tbaa !12
   ret void
 }
 

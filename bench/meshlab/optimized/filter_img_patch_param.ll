@@ -27387,7 +27387,7 @@ define linkonce_odr void @_ZN7QVectorI5PatchE6appendERKS0_(ptr noundef nonnull a
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 2147483647
   %11 = icmp ule i32 %7, %10
-  %12 = load atomic i32, ptr %4 monotonic, align 4
+  %12 = load atomic i32, ptr %4 monotonic, align 8
   %13 = icmp ult i32 %12, 2
   %or.cond.not = select i1 %13, i1 %11, i1 false
   br i1 %or.cond.not, label %74, label %14
@@ -29435,7 +29435,7 @@ _ZN7QVectorI5PatchE3endEv.exit90:                 ; preds = %79, %87, %89
   %94 = load i32, ptr %93, align 4
   %95 = sext i32 %94 to i64
   %96 = getelementptr inbounds %struct.Patch, ptr %92, i64 %95
-  %97 = load atomic i32, ptr %.pre124129 monotonic, align 4
+  %97 = load atomic i32, ptr %.pre124129 monotonic, align 8
   %98 = icmp ult i32 %97, 2
   br i1 %98, label %_ZN7QVectorI5PatchE5beginEv.exit93, label %99
 
@@ -29668,8 +29668,8 @@ _ZN7QVectorI5PatchE3endEv.exit99:                 ; preds = %172, %179, %181
   %226 = getelementptr inbounds i8, ptr %222, i64 %225
   tail call void @_ZNSt6vectorI10TriangleUVSaIS0_EE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPS0_S2_EEEEvS7_T_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %215, ptr %226, ptr %219, ptr %221)
   %227 = getelementptr inbounds nuw i8, ptr %.071, i64 80
-  %228 = load float, ptr %109, align 4
-  %229 = load float, ptr %111, align 4
+  %228 = load float, ptr %109, align 8
+  %229 = load float, ptr %111, align 8
   %230 = fcmp ogt float %228, %229
   %231 = load float, ptr %110, align 4
   %232 = load float, ptr %112, align 4

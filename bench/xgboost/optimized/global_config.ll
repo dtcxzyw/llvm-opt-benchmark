@@ -1072,19 +1072,19 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(248) ptr @_ZN4dmlc9P
   store ptr %10, ptr %9, align 8, !tbaa !14
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 0, ptr %11, align 8, !tbaa !12
-  store i8 0, ptr %10, align 1, !tbaa !13
+  store i8 0, ptr %10, align 8, !tbaa !13
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store ptr %13, ptr %12, align 8, !tbaa !14
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i64 0, ptr %14, align 8, !tbaa !12
-  store i8 0, ptr %13, align 1, !tbaa !13
+  store i8 0, ptr %13, align 8, !tbaa !13
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 104
   store ptr %16, ptr %15, align 8, !tbaa !14
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store i64 0, ptr %17, align 8, !tbaa !12
-  store i8 0, ptr %16, align 1, !tbaa !13
+  store i8 0, ptr %16, align 8, !tbaa !13
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 132
   store i8 0, ptr %18, align 4, !tbaa !63
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 133
@@ -4176,7 +4176,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit6: ; preds = %_ZNSol
   store ptr %15, ptr %13, align 8, !tbaa !14, !alias.scope !149
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %16, align 8, !tbaa !12, !alias.scope !149
-  store i8 0, ptr %15, align 1, !tbaa !13, !alias.scope !149
+  store i8 0, ptr %15, align 8, !tbaa !13, !alias.scope !149
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %18 = load ptr, ptr %17, align 8, !tbaa !98, !noalias !149
   %.not.i.not.i.i = icmp eq ptr %18, null

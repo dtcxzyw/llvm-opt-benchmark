@@ -378,10 +378,10 @@ define internal i32 @config_output(ptr noundef captures(none) %0) #1 {
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 36
   store i32 %45, ptr %47, align 4, !tbaa !66
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 %45, ptr %48, align 4, !tbaa !66
+  store i32 %45, ptr %48, align 8, !tbaa !66
   %49 = load i32, ptr %23, align 8, !tbaa !63
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i32 %49, ptr %50, align 4, !tbaa !66
+  store i32 %49, ptr %50, align 8, !tbaa !66
   store i32 %49, ptr %46, align 4, !tbaa !66
   %51 = load i32, ptr %26, align 4, !tbaa !64
   %52 = sub nsw i32 0, %51
@@ -394,10 +394,10 @@ define internal i32 @config_output(ptr noundef captures(none) %0) #1 {
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 52
   store i32 %57, ptr %59, align 4, !tbaa !66
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i32 %57, ptr %60, align 4, !tbaa !66
+  store i32 %57, ptr %60, align 8, !tbaa !66
   %61 = load i32, ptr %26, align 4, !tbaa !64
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store i32 %61, ptr %62, align 4, !tbaa !66
+  store i32 %61, ptr %62, align 8, !tbaa !66
   store i32 %61, ptr %58, align 4, !tbaa !66
   %63 = load i32, ptr %10, align 4, !tbaa !34
   %64 = icmp sgt i32 %63, 0

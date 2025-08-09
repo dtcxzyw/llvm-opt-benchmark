@@ -4030,7 +4030,7 @@ define linkonce_odr hidden void @_ZNK3App7timeStrB5cxx11Ev(ptr dead_on_unwind no
   %10 = load i32, ptr %9, align 8, !tbaa !174
   %11 = and i32 %10, -261
   %12 = or disjoint i32 %11, 4
-  store i32 %12, ptr %9, align 4, !tbaa !175
+  store i32 %12, ptr %9, align 8, !tbaa !175
   %13 = load i64, ptr %6, align 8
   %14 = getelementptr inbounds i8, ptr %4, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8

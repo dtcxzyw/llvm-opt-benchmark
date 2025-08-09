@@ -3390,7 +3390,7 @@ define dso_local void @pm_runtime_init(ptr noundef initializes((452, 460)) %0) l
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %5 = load i16, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  store volatile i32 0, ptr %6, align 4
+  store volatile i32 0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 460
   store i32 0, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 436

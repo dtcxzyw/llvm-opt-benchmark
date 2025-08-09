@@ -273,7 +273,7 @@ _ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit.i.i: ; preds =
   store ptr %57, ptr %56, align 8, !tbaa !39, !noalias !3
   %58 = getelementptr inbounds nuw i8, ptr %24, i64 72
   store i64 0, ptr %58, align 8, !tbaa !40, !noalias !3
-  store i8 0, ptr %57, align 1, !tbaa !41, !noalias !3
+  store i8 0, ptr %57, align 8, !tbaa !41, !noalias !3
   %59 = getelementptr inbounds nuw i8, ptr %24, i64 96
   %60 = icmp eq ptr %5, null
   %61 = select i1 %60, ptr @.str.13, ptr %5

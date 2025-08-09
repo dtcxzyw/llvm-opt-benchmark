@@ -1636,7 +1636,7 @@ long_filter_high_3800.exit110:                    ; preds = %157, %long_filter_e
   %173 = load i32, ptr %14, align 8, !tbaa !49
   %174 = icmp eq i32 %173, 1000
   %175 = load i32, ptr %.041129, align 4, !tbaa !61
-  %176 = load i32, ptr %159, align 4, !tbaa !61
+  %176 = load i32, ptr %159, align 8, !tbaa !61
   %177 = getelementptr inbounds nuw i8, ptr %171, i64 200
   store i32 %176, ptr %177, align 4, !tbaa !61
   br i1 %174, label %178, label %194
@@ -1659,13 +1659,13 @@ long_filter_high_3800.exit110:                    ; preds = %157, %long_filter_e
   %188 = mul i32 %186, %187
   %189 = ashr i32 %188, 9
   %190 = add i32 %189, %175
-  store i32 %190, ptr %159, align 4, !tbaa !61
+  store i32 %190, ptr %159, align 8, !tbaa !61
   %191 = xor i32 %186, %175
   %.inv = icmp slt i32 %191, 1
   %storemerge.i.v = select i1 %.inv, i32 -1, i32 1
   %storemerge.i = add i32 %storemerge.i.v, %187
   store i32 %storemerge.i, ptr %162, align 8, !tbaa !61
-  %192 = load i32, ptr %167, align 4, !tbaa !61
+  %192 = load i32, ptr %167, align 8, !tbaa !61
   %193 = add i32 %192, %190
   br label %filter_fast_3320.exit
 
@@ -1728,14 +1728,14 @@ long_filter_high_3800.exit110:                    ; preds = %157, %long_filter_e
   %239 = mul nsw i32 %238, %225
   %240 = add i32 %221, %239
   store i32 %240, ptr %164, align 8, !tbaa !61
-  %241 = load i32, ptr %165, align 4, !tbaa !61
+  %241 = load i32, ptr %165, align 8, !tbaa !61
   %242 = mul i32 %241, %215
   %243 = load i32, ptr %166, align 4, !tbaa !61
   %244 = mul i32 %243, %195
   %245 = sub i32 %242, %244
   %246 = ashr i32 %223, 11
   %247 = add i32 %246, %175
-  store i32 %247, ptr %159, align 4, !tbaa !61
+  store i32 %247, ptr %159, align 8, !tbaa !61
   %.lobit.i111 = lshr i32 %247, 31
   %248 = icmp sgt i32 %247, 0
   %.neg.i112 = sext i1 %248 to i32
@@ -1745,7 +1745,7 @@ long_filter_high_3800.exit110:                    ; preds = %157, %long_filter_e
   %252 = add nsw i32 %251, -2
   %253 = mul nsw i32 %249, %252
   %254 = add i32 %253, %241
-  store i32 %254, ptr %165, align 4, !tbaa !61
+  store i32 %254, ptr %165, align 8, !tbaa !61
   %255 = lshr i32 %195, 30
   %256 = and i32 %255, 2
   %257 = add nsw i32 %256, -1
@@ -1754,8 +1754,8 @@ long_filter_high_3800.exit110:                    ; preds = %157, %long_filter_e
   store i32 %259, ptr %166, align 4, !tbaa !61
   %260 = ashr i32 %245, %.039
   %261 = add i32 %260, %247
-  store i32 %261, ptr %160, align 4, !tbaa !61
-  %262 = load i32, ptr %167, align 4, !tbaa !61
+  store i32 %261, ptr %160, align 8, !tbaa !61
+  %262 = load i32, ptr %167, align 8, !tbaa !61
   %263 = mul i32 %262, 31
   %264 = ashr i32 %263, 5
   %265 = add i32 %264, %261
@@ -2572,7 +2572,7 @@ long_filter_high_3800.exit240:                    ; preds = %302, %long_filter_e
   %327 = load i32, ptr %.067280, align 4, !tbaa !61
   %328 = load i32, ptr %24, align 8, !tbaa !49
   %329 = icmp eq i32 %328, 1000
-  %330 = load i32, ptr %304, align 4, !tbaa !61
+  %330 = load i32, ptr %304, align 8, !tbaa !61
   %331 = getelementptr inbounds nuw i8, ptr %324, i64 200
   store i32 %330, ptr %331, align 4, !tbaa !61
   br i1 %329, label %332, label %365
@@ -2595,13 +2595,13 @@ long_filter_high_3800.exit240:                    ; preds = %302, %long_filter_e
   %342 = mul i32 %340, %341
   %343 = ashr i32 %342, 9
   %344 = add i32 %343, %327
-  store i32 %344, ptr %304, align 4, !tbaa !61
+  store i32 %344, ptr %304, align 8, !tbaa !61
   %345 = xor i32 %340, %327
   %.inv = icmp slt i32 %345, 1
   %storemerge.i.v = select i1 %.inv, i32 -1, i32 1
   %storemerge.i = add i32 %storemerge.i.v, %341
   store i32 %storemerge.i, ptr %307, align 8, !tbaa !61
-  %346 = load i32, ptr %312, align 4, !tbaa !61
+  %346 = load i32, ptr %312, align 8, !tbaa !61
   %347 = add i32 %346, %344
   br label %filter_fast_3320.exit
 
@@ -2698,14 +2698,14 @@ filter_fast_3320.exit:                            ; preds = %335, %336
   %410 = mul nsw i32 %409, %396
   %411 = add i32 %392, %410
   store i32 %411, ptr %309, align 8, !tbaa !61
-  %412 = load i32, ptr %310, align 4, !tbaa !61
+  %412 = load i32, ptr %310, align 8, !tbaa !61
   %413 = mul i32 %412, %386
   %414 = load i32, ptr %311, align 4, !tbaa !61
   %415 = mul i32 %414, %366
   %416 = sub i32 %413, %415
   %417 = ashr i32 %394, 11
   %418 = add i32 %417, %327
-  store i32 %418, ptr %304, align 4, !tbaa !61
+  store i32 %418, ptr %304, align 8, !tbaa !61
   %.lobit.i241 = lshr i32 %418, 31
   %419 = icmp sgt i32 %418, 0
   %.neg.i242 = sext i1 %419 to i32
@@ -2715,7 +2715,7 @@ filter_fast_3320.exit:                            ; preds = %335, %336
   %423 = add nsw i32 %422, -2
   %424 = mul nsw i32 %420, %423
   %425 = add i32 %424, %412
-  store i32 %425, ptr %310, align 4, !tbaa !61
+  store i32 %425, ptr %310, align 8, !tbaa !61
   %426 = lshr i32 %366, 30
   %427 = and i32 %426, 2
   %428 = add nsw i32 %427, -1
@@ -2724,8 +2724,8 @@ filter_fast_3320.exit:                            ; preds = %335, %336
   store i32 %430, ptr %311, align 4, !tbaa !61
   %431 = ashr i32 %416, %.064
   %432 = add i32 %431, %418
-  store i32 %432, ptr %305, align 4, !tbaa !61
-  %433 = load i32, ptr %312, align 4, !tbaa !61
+  store i32 %432, ptr %305, align 8, !tbaa !61
+  %433 = load i32, ptr %312, align 8, !tbaa !61
   %434 = mul i32 %433, 31
   %435 = ashr i32 %434, 5
   %436 = add i32 %435, %432
@@ -2798,7 +2798,7 @@ filter_3800.exit:                                 ; preds = %370, %373
   store i32 %484, ptr %317, align 8, !tbaa !61
   %485 = load i32, ptr %318, align 4, !tbaa !61
   %486 = mul i32 %485, %459
-  %487 = load i32, ptr %319, align 4, !tbaa !61
+  %487 = load i32, ptr %319, align 8, !tbaa !61
   %488 = mul i32 %487, %439
   %489 = sub i32 %486, %488
   %490 = ashr i32 %467, 11
@@ -2819,7 +2819,7 @@ filter_3800.exit:                                 ; preds = %370, %373
   %501 = add nsw i32 %500, -1
   %502 = mul nsw i32 %493, %501
   %503 = sub i32 %487, %502
-  store i32 %503, ptr %319, align 4, !tbaa !61
+  store i32 %503, ptr %319, align 8, !tbaa !61
   %504 = ashr i32 %489, %.064
   %505 = add i32 %504, %491
   store i32 %505, ptr %314, align 4, !tbaa !61
@@ -2937,12 +2937,12 @@ ape_apply_filters.exit:                           ; preds = %.split.us.i, %apply
   %54 = add i32 %51, %53
   %55 = ashr i32 %54, 9
   %56 = add nsw i32 %55, %32
-  store i32 %56, ptr %21, align 4, !tbaa !61
-  %57 = load i32, ptr %26, align 4, !tbaa !61
+  store i32 %56, ptr %21, align 8, !tbaa !61
+  %57 = load i32, ptr %26, align 8, !tbaa !61
   %58 = mul i32 %57, 31
   %59 = ashr i32 %58, 5
   %60 = add nsw i32 %56, %59
-  store i32 %60, ptr %26, align 4, !tbaa !61
+  store i32 %60, ptr %26, align 8, !tbaa !61
   %.lobit.i = lshr i32 %32, 31
   %61 = icmp sgt i32 %32, 0
   %.neg.i = sext i1 %61 to i32
@@ -3054,12 +3054,12 @@ define internal void @predictor_decode_stereo_3930(ptr noundef %0, i32 noundef %
   %48 = add i32 %45, %47
   %49 = ashr i32 %48, 9
   %50 = add nsw i32 %49, %25
-  store i32 %50, ptr %8, align 4, !tbaa !61
-  %51 = load i32, ptr %13, align 4, !tbaa !61
+  store i32 %50, ptr %8, align 8, !tbaa !61
+  %51 = load i32, ptr %13, align 8, !tbaa !61
   %52 = mul i32 %51, 31
   %53 = ashr i32 %52, 5
   %54 = add nsw i32 %50, %53
-  store i32 %54, ptr %13, align 4, !tbaa !61
+  store i32 %54, ptr %13, align 8, !tbaa !61
   %.lobit.i = lshr i32 %25, 31
   %55 = icmp sgt i32 %25, 0
   %.neg.i = sext i1 %55 to i32

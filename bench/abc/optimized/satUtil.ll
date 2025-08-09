@@ -82,7 +82,7 @@ define void @Sat_SolverWriteDimacs(ptr noundef readonly captures(none) %0, ptr n
 
 30:                                               ; preds = %26
   %31 = load i32, ptr %0, align 8, !tbaa !3
-  %32 = load i32, ptr %6, align 4, !tbaa !23
+  %32 = load i32, ptr %6, align 8, !tbaa !23
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %34 = load i32, ptr %33, align 4, !tbaa !23
   %35 = ptrtoint ptr %3 to i64
@@ -422,7 +422,7 @@ define void @Sat_Solver2WriteDimacs(ptr noundef readonly captures(none) %0, ptr 
 
 25:                                               ; preds = %._crit_edge
   %26 = load i32, ptr %0, align 8, !tbaa !39
-  %27 = load i32, ptr %6, align 4, !tbaa !23
+  %27 = load i32, ptr %6, align 8, !tbaa !23
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %29 = load i32, ptr %28, align 4, !tbaa !23
   %30 = ptrtoint ptr %3 to i64

@@ -871,22 +871,22 @@ write_back_motion_list.exit30.i:                  ; preds = %427
   %481 = getelementptr inbounds nuw [2 x i8], ptr %473, i64 %480
   %.phi.trans.insert44.i = getelementptr inbounds nuw i8, ptr %1, i64 29084
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %481, i8 0, i64 16, i1 false)
-  %.pre45.i = load i8, ptr %.phi.trans.insert44.i, align 1, !tbaa !77
+  %.pre45.i = load i8, ptr %.phi.trans.insert44.i, align 4, !tbaa !77
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 729328
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !101
   %482 = sext i32 %438 to i64
   %483 = getelementptr inbounds i8, ptr %.pre.i, i64 %482
   store i8 %.pre45.i, ptr %483, align 1, !tbaa !77
   %484 = getelementptr inbounds nuw i8, ptr %1, i64 29086
-  %485 = load i8, ptr %484, align 1, !tbaa !77
+  %485 = load i8, ptr %484, align 2, !tbaa !77
   %486 = getelementptr inbounds nuw i8, ptr %483, i64 1
   store i8 %485, ptr %486, align 1, !tbaa !77
   %487 = getelementptr inbounds nuw i8, ptr %1, i64 29100
-  %488 = load i8, ptr %487, align 1, !tbaa !77
+  %488 = load i8, ptr %487, align 4, !tbaa !77
   %489 = getelementptr inbounds nuw i8, ptr %483, i64 2
   store i8 %488, ptr %489, align 1, !tbaa !77
   %490 = getelementptr inbounds nuw i8, ptr %1, i64 29102
-  %491 = load i8, ptr %490, align 1, !tbaa !77
+  %491 = load i8, ptr %490, align 2, !tbaa !77
   %492 = getelementptr inbounds nuw i8, ptr %483, i64 3
   store i8 %491, ptr %492, align 1, !tbaa !77
   br label %499
@@ -959,22 +959,22 @@ write_back_motion_list.exit.i:                    ; preds = %499
   %542 = getelementptr inbounds nuw [2 x i8], ptr %534, i64 %541
   %.phi.trans.insert48.i = getelementptr inbounds nuw i8, ptr %1, i64 29124
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %542, i8 0, i64 16, i1 false)
-  %.pre49.i = load i8, ptr %.phi.trans.insert48.i, align 1, !tbaa !77
+  %.pre49.i = load i8, ptr %.phi.trans.insert48.i, align 4, !tbaa !77
   %.phi.trans.insert46.i = getelementptr inbounds nuw i8, ptr %0, i64 729336
   %.pre47.i = load ptr, ptr %.phi.trans.insert46.i, align 8, !tbaa !101
   %543 = sext i32 %438 to i64
   %544 = getelementptr inbounds i8, ptr %.pre47.i, i64 %543
   store i8 %.pre49.i, ptr %544, align 1, !tbaa !77
   %545 = getelementptr inbounds nuw i8, ptr %1, i64 29126
-  %546 = load i8, ptr %545, align 1, !tbaa !77
+  %546 = load i8, ptr %545, align 2, !tbaa !77
   %547 = getelementptr inbounds nuw i8, ptr %544, i64 1
   store i8 %546, ptr %547, align 1, !tbaa !77
   %548 = getelementptr inbounds nuw i8, ptr %1, i64 29140
-  %549 = load i8, ptr %548, align 1, !tbaa !77
+  %549 = load i8, ptr %548, align 4, !tbaa !77
   %550 = getelementptr inbounds nuw i8, ptr %544, i64 2
   store i8 %549, ptr %550, align 1, !tbaa !77
   %551 = getelementptr inbounds nuw i8, ptr %1, i64 29142
-  %552 = load i8, ptr %551, align 1, !tbaa !77
+  %552 = load i8, ptr %551, align 2, !tbaa !77
   %553 = getelementptr inbounds nuw i8, ptr %544, i64 3
   store i8 %552, ptr %553, align 1, !tbaa !77
   br label %554
@@ -1465,7 +1465,7 @@ decode_mb_skip.exit:                              ; preds = %554, %558
   %875 = getelementptr inbounds nuw i8, ptr %1, i64 20911
   %876 = load i8, ptr %875, align 1, !tbaa !77
   %877 = getelementptr inbounds nuw i8, ptr %872, i64 4
-  store i8 %876, ptr %877, align 1, !tbaa !77
+  store i8 %876, ptr %877, align 4, !tbaa !77
   %878 = getelementptr inbounds nuw i8, ptr %1, i64 20903
   %879 = load i8, ptr %878, align 1, !tbaa !77
   %880 = getelementptr inbounds nuw i8, ptr %872, i64 5
@@ -1473,7 +1473,7 @@ decode_mb_skip.exit:                              ; preds = %554, %558
   %881 = getelementptr inbounds nuw i8, ptr %1, i64 20895
   %882 = load i8, ptr %881, align 1, !tbaa !77
   %883 = getelementptr inbounds nuw i8, ptr %872, i64 6
-  store i8 %882, ptr %883, align 1, !tbaa !77
+  store i8 %882, ptr %883, align 2, !tbaa !77
   %884 = getelementptr inbounds nuw i8, ptr %1, i64 20880
   %885 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %886 = load ptr, ptr %885, align 8, !tbaa !134
@@ -4793,7 +4793,7 @@ pred_8x16_motion.exit:                            ; preds = %2810, %2817, %2823,
   %3003 = getelementptr inbounds nuw i8, ptr %1, i64 29182
   %3004 = load i16, ptr %3003, align 2, !tbaa !77
   %3005 = getelementptr inbounds nuw i8, ptr %2997, i64 12
-  store i16 %3004, ptr %3005, align 2, !tbaa !77
+  store i16 %3004, ptr %3005, align 4, !tbaa !77
   %3006 = getelementptr inbounds nuw i8, ptr %1, i64 29198
   %3007 = load i16, ptr %3006, align 2, !tbaa !77
   %3008 = getelementptr inbounds nuw i8, ptr %2997, i64 10
@@ -4801,7 +4801,7 @@ pred_8x16_motion.exit:                            ; preds = %2810, %2817, %2823,
   %3009 = getelementptr inbounds nuw i8, ptr %1, i64 29214
   %3010 = load i16, ptr %3009, align 2, !tbaa !77
   %3011 = getelementptr inbounds nuw i8, ptr %2997, i64 8
-  store i16 %3010, ptr %3011, align 2, !tbaa !77
+  store i16 %3010, ptr %3011, align 8, !tbaa !77
   br label %write_back_motion_list.exit1178
 
 write_back_motion_list.exit1178:                  ; preds = %2999, %3000
@@ -4907,7 +4907,7 @@ write_back_motion_list.exit1178:                  ; preds = %2999, %3000
   %3083 = getelementptr inbounds nuw i8, ptr %1, i64 29262
   %3084 = load i16, ptr %3083, align 2, !tbaa !77
   %3085 = getelementptr inbounds nuw i8, ptr %3077, i64 12
-  store i16 %3084, ptr %3085, align 2, !tbaa !77
+  store i16 %3084, ptr %3085, align 4, !tbaa !77
   %3086 = getelementptr inbounds nuw i8, ptr %1, i64 29278
   %3087 = load i16, ptr %3086, align 2, !tbaa !77
   %3088 = getelementptr inbounds nuw i8, ptr %3077, i64 10
@@ -4915,7 +4915,7 @@ write_back_motion_list.exit1178:                  ; preds = %2999, %3000
   %3089 = getelementptr inbounds nuw i8, ptr %1, i64 29294
   %3090 = load i16, ptr %3089, align 2, !tbaa !77
   %3091 = getelementptr inbounds nuw i8, ptr %3077, i64 8
-  store i16 %3090, ptr %3091, align 2, !tbaa !77
+  store i16 %3090, ptr %3091, align 8, !tbaa !77
   br label %write_back_motion_list.exit
 
 write_back_motion_list.exit:                      ; preds = %3079, %3080
@@ -5324,7 +5324,7 @@ decode_cabac_mb_cbp_chroma.exit:                  ; preds = %3175, %3188
   %3333 = load i8, ptr %3332, align 1, !tbaa !77
   %3334 = zext i8 %3333 to i32
   %3335 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i32 %3334, ptr %3335, align 4, !tbaa !93
+  store i32 %3334, ptr %3335, align 8, !tbaa !93
   br label %3337
 
 3336:                                             ; preds = %3290
@@ -5379,12 +5379,12 @@ decode_cabac_mb_cbp_chroma.exit:                  ; preds = %3175, %3188
   %3366 = zext i8 %3365 to i32
   %3367 = sub nsw i32 %3359, %3366
   %3368 = shl i32 %3367, 17
-  %3369 = load i32, ptr %3291, align 8, !tbaa !139
+  %3369 = load i32, ptr %3291, align 16, !tbaa !139
   %3370 = icmp slt i32 %3368, %3369
   %3371 = sext i1 %3370 to i32
   %3372 = select i1 %3370, i32 %3368, i32 0
   %3373 = sub nsw i32 %3369, %3372
-  store i32 %3373, ptr %3291, align 8, !tbaa !139
+  store i32 %3373, ptr %3291, align 16, !tbaa !139
   %3374 = select i1 %3370, i32 %3366, i32 %3367
   store i32 %3374, ptr %3358, align 4, !tbaa !138
   %3375 = xor i32 %3371, %3357
@@ -5399,7 +5399,7 @@ decode_cabac_mb_cbp_chroma.exit:                  ; preds = %3175, %3188
   %3383 = shl i32 %3374, %3382
   store i32 %3383, ptr %3358, align 4, !tbaa !138
   %3384 = shl i32 %3373, %3382
-  store i32 %3384, ptr %3291, align 8, !tbaa !139
+  store i32 %3384, ptr %3291, align 16, !tbaa !139
   %3385 = and i32 %3384, 65535
   %.not.i.i1296 = icmp eq i32 %3385, 0
   br i1 %.not.i.i1296, label %3386, label %get_cabac.exit
@@ -6809,7 +6809,7 @@ decode_cabac_residual_nondc.exit1085:             ; preds = %decode_cabac_residu
   %4355 = zext i8 %4354 to i32
   %4356 = sub nsw i32 %4348, %4355
   %4357 = shl i32 %4356, 17
-  %4358 = load i32, ptr %3291, align 8, !tbaa !139
+  %4358 = load i32, ptr %3291, align 16, !tbaa !139
   %4359 = icmp slt i32 %4357, %4358
   %4360 = sext i1 %4359 to i32
   %4361 = select i1 %4359, i32 %4357, i32 0
@@ -6827,7 +6827,7 @@ decode_cabac_residual_nondc.exit1085:             ; preds = %decode_cabac_residu
   %4372 = shl i32 %4363, %4371
   store i32 %4372, ptr %4325, align 4, !tbaa !138
   %4373 = shl i32 %4362, %4371
-  store i32 %4373, ptr %3291, align 8, !tbaa !139
+  store i32 %4373, ptr %3291, align 16, !tbaa !139
   %4374 = and i32 %4373, 65535
   %.not.i.i1315 = icmp eq i32 %4374, 0
   br i1 %.not.i.i1315, label %4375, label %get_cabac.exit1316
@@ -7108,7 +7108,7 @@ decode_cabac_residual_nondc.exit1101:             ; preds = %.split22.i1100, %45
   %4556 = zext i8 %4555 to i32
   %4557 = sub nsw i32 %4549, %4556
   %4558 = shl i32 %4557, 17
-  %4559 = load i32, ptr %3291, align 8, !tbaa !139
+  %4559 = load i32, ptr %3291, align 16, !tbaa !139
   %4560 = icmp slt i32 %4558, %4559
   %4561 = sext i1 %4560 to i32
   %4562 = select i1 %4560, i32 %4558, i32 0
@@ -7126,7 +7126,7 @@ decode_cabac_residual_nondc.exit1101:             ; preds = %.split22.i1100, %45
   %4573 = shl i32 %4564, %4572
   store i32 %4573, ptr %4526, align 4, !tbaa !138
   %4574 = shl i32 %4563, %4572
-  store i32 %4574, ptr %3291, align 8, !tbaa !139
+  store i32 %4574, ptr %3291, align 16, !tbaa !139
   %4575 = and i32 %4574, 65535
   %.not.i.i1319 = icmp eq i32 %4575, 0
   br i1 %.not.i.i1319, label %4576, label %get_cabac.exit1320
@@ -7730,7 +7730,7 @@ define internal fastcc void @fill_decode_neighbors(ptr noundef readonly captures
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 20940
   store i32 %.sroa.0.0, ptr %62, align 4, !tbaa !93
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 20944
-  store i32 %.sroa.7.0, ptr %63, align 4, !tbaa !93
+  store i32 %.sroa.7.0, ptr %63, align 16, !tbaa !93
   %64 = sext i32 %.0 to i64
   %65 = getelementptr inbounds i32, ptr %.pre, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !93
@@ -8033,7 +8033,7 @@ define internal fastcc void @fill_decode_caches(ptr noundef readonly captures(no
   %13 = load i32, ptr %12, align 4, !tbaa !93
   store i32 %13, ptr %.sroa.0749, align 4, !tbaa !93
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 20944
-  %15 = load i32, ptr %14, align 4, !tbaa !93
+  %15 = load i32, ptr %14, align 16, !tbaa !93
   store i32 %15, ptr %.sroa.6750, align 4, !tbaa !93
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 20948
   %17 = load i32, ptr %16, align 4, !tbaa !110
@@ -9563,7 +9563,7 @@ define internal fastcc range(i32 0, 128) i32 @decode_cabac_mb_intra4x4_pred_mode
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_h264_cabac_tables, i64 1152), i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !77
-  store i8 %27, ptr %4, align 1, !tbaa !77
+  store i8 %27, ptr %4, align 4, !tbaa !77
   %28 = sext i32 %23 to i64
   %29 = getelementptr inbounds i8, ptr @ff_h264_cabac_tables, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !77

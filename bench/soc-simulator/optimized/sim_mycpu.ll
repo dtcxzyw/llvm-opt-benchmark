@@ -1928,7 +1928,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN14nscscc_confreg8do_traceEj
   %30 = load i32, ptr %29, align 8, !tbaa !281
   %31 = and i32 %30, -75
   %32 = or disjoint i32 %31, 8
-  store i32 %32, ptr %29, align 4, !tbaa !281
+  store i32 %32, ptr %29, align 8, !tbaa !281
   %33 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIjEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 4 dereferenceable(4) %7) #27
   %34 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIjEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 4 dereferenceable(4) %8) #27
   %35 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIjEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 4 dereferenceable(4) %9) #27

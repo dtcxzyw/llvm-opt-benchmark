@@ -1464,7 +1464,7 @@ define internal void @trace_event_raw_event_generic_add_lease(ptr noundef %0, pt
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %24, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 336
-  %27 = load volatile i32, ptr %26, align 4
+  %27 = load volatile i32, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 %27, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 340
@@ -1472,7 +1472,7 @@ define internal void @trace_event_raw_event_generic_add_lease(ptr noundef %0, pt
   %31 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i32 %30, ptr %31, align 4
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 328
-  %33 = load volatile i32, ptr %32, align 4
+  %33 = load volatile i32, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i32 %33, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -1547,7 +1547,7 @@ define internal void @perf_trace_generic_add_lease(ptr noundef %0, ptr noundef %
   %36 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %35, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 336
-  %38 = load volatile i32, ptr %37, align 4
+  %38 = load volatile i32, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 %38, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 340
@@ -1555,7 +1555,7 @@ define internal void @perf_trace_generic_add_lease(ptr noundef %0, ptr noundef %
   %42 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i32 %41, ptr %42, align 4
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 328
-  %44 = load volatile i32, ptr %43, align 4
+  %44 = load volatile i32, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i32 %44, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 72

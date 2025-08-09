@@ -1452,9 +1452,9 @@ entry:
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %4 = load i32, ptr %2, align 8
-  %5 = load i32, ptr %3, align 4
+  %5 = load i32, ptr %3, align 8
   store i32 %5, ptr %2, align 8
-  store i32 %4, ptr %3, align 4
+  store i32 %4, ptr %3, align 8
   %fields_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %fields_7 = getelementptr inbounds nuw i8, ptr %other, i64 24
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %fields_, ptr noundef nonnull %fields_7)
@@ -3836,9 +3836,9 @@ entry:
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %4 = load i32, ptr %2, align 8
-  %5 = load i32, ptr %3, align 4
+  %5 = load i32, ptr %3, align 8
   store i32 %5, ptr %2, align 8
-  store i32 %4, ptr %3, align 4
+  store i32 %4, ptr %3, align 8
   %enumvalue_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %enumvalue_7 = getelementptr inbounds nuw i8, ptr %other, i64 24
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %enumvalue_, ptr noundef nonnull %enumvalue_7)
@@ -4569,9 +4569,9 @@ entry:
   %number_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %number_6 = getelementptr inbounds nuw i8, ptr %other, i64 48
   %5 = load i32, ptr %number_, align 8
-  %6 = load i32, ptr %number_6, align 4
+  %6 = load i32, ptr %number_6, align 8
   store i32 %6, ptr %number_, align 8
-  store i32 %5, ptr %number_6, align 4
+  store i32 %5, ptr %number_6, align 8
   ret void
 }
 
@@ -5108,9 +5108,9 @@ entry:
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %4 = load i32, ptr %2, align 8
-  %5 = load i32, ptr %3, align 4
+  %5 = load i32, ptr %3, align 8
   store i32 %5, ptr %2, align 8
-  store i32 %4, ptr %3, align 4
+  store i32 %4, ptr %3, align 8
   %name_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %name_7 = getelementptr inbounds nuw i8, ptr %other, i64 24
   %__tmp.sroa.0.0.copyload.i = load ptr, ptr %name_7, align 8

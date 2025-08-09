@@ -1320,7 +1320,7 @@ _ZN4LIEF2PE16ResourcesManager13get_node_typeENS1_4TYPEE.exit.thread: ; preds = %
   store ptr %32, ptr %31, align 8, !tbaa !101, !noalias !98
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store i64 0, ptr %33, align 8, !tbaa !102, !noalias !98
-  store i16 0, ptr %32, align 2, !tbaa !103, !noalias !98
+  store i16 0, ptr %32, align 8, !tbaa !103, !noalias !98
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %34, i8 0, i64 28, i1 false), !noalias !98
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4LIEF2PE17ResourceDirectoryE, i64 16), ptr %28, align 8, !tbaa !105, !noalias !98
@@ -1337,7 +1337,7 @@ _ZN4LIEF2PE16ResourcesManager13get_node_typeENS1_4TYPEE.exit.thread: ; preds = %
   store ptr %40, ptr %39, align 8, !tbaa !101, !noalias !107
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store i64 0, ptr %41, align 8, !tbaa !102, !noalias !107
-  store i16 0, ptr %40, align 2, !tbaa !103, !noalias !107
+  store i16 0, ptr %40, align 8, !tbaa !103, !noalias !107
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %42, i8 0, i64 28, i1 false), !noalias !107
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4LIEF2PE17ResourceDirectoryE, i64 16), ptr %36, align 8, !tbaa !105, !noalias !107
@@ -1355,7 +1355,7 @@ _ZN4LIEF2PE16ResourcesManager13get_node_typeENS1_4TYPEE.exit.thread: ; preds = %
   store ptr %48, ptr %47, align 8, !tbaa !101, !noalias !110
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 24
   store i64 0, ptr %49, align 8, !tbaa !102, !noalias !110
-  store i16 0, ptr %48, align 2, !tbaa !103, !noalias !110
+  store i16 0, ptr %48, align 8, !tbaa !103, !noalias !110
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %50, i8 0, i64 28, i1 false), !noalias !110
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4LIEF2PE12ResourceDataE, i64 16), ptr %44, align 8, !tbaa !105, !noalias !110
@@ -2278,7 +2278,7 @@ _ZSt8_DestroyIPN4LIEF2PE12ResourceIconES2_EvT_S4_RSaIT0_E.exit.i77: ; preds = %_
   %236 = icmp slt i32 %235, 4
   %237 = getelementptr inbounds nuw i8, ptr %233, i64 104
   %238 = getelementptr inbounds nuw i8, ptr %233, i64 144
-  %239 = load atomic i8, ptr %238 monotonic, align 1
+  %239 = load atomic i8, ptr %238 monotonic, align 4
   %240 = trunc i8 %239 to i1
   %or.cond.i = or i1 %236, %240
   br i1 %or.cond.i, label %241, label %.thread182
@@ -2848,7 +2848,7 @@ _ZN4LIEF2PE16ResourcesManager13get_node_typeENS1_4TYPEE.exit42: ; preds = %.crit
   store ptr %56, ptr %55, align 8, !tbaa !101, !noalias !293
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 24
   store i64 0, ptr %57, align 8, !tbaa !102, !noalias !293
-  store i16 0, ptr %56, align 2, !tbaa !103, !noalias !293
+  store i16 0, ptr %56, align 8, !tbaa !103, !noalias !293
   %58 = getelementptr inbounds nuw i8, ptr %52, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %58, i8 0, i64 28, i1 false), !noalias !293
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4LIEF2PE17ResourceDirectoryE, i64 16), ptr %52, align 8, !tbaa !105, !noalias !293
@@ -2865,7 +2865,7 @@ _ZN4LIEF2PE16ResourcesManager13get_node_typeENS1_4TYPEE.exit42: ; preds = %.crit
   store ptr %64, ptr %63, align 8, !tbaa !101, !noalias !296
   %65 = getelementptr inbounds nuw i8, ptr %60, i64 24
   store i64 0, ptr %65, align 8, !tbaa !102, !noalias !296
-  store i16 0, ptr %64, align 2, !tbaa !103, !noalias !296
+  store i16 0, ptr %64, align 8, !tbaa !103, !noalias !296
   %66 = getelementptr inbounds nuw i8, ptr %60, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %66, i8 0, i64 28, i1 false), !noalias !296
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4LIEF2PE17ResourceDirectoryE, i64 16), ptr %60, align 8, !tbaa !105, !noalias !296
@@ -3058,7 +3058,7 @@ _ZN4LIEF15vector_iostream4moveERSt6vectorIhSaIhEE.exit: ; preds = %144, %139
   store ptr %157, ptr %156, align 8, !tbaa !101, !noalias !311
   %158 = getelementptr inbounds nuw i8, ptr %153, i64 24
   store i64 0, ptr %158, align 8, !tbaa !102, !noalias !311
-  store i16 0, ptr %157, align 2, !tbaa !103, !noalias !311
+  store i16 0, ptr %157, align 8, !tbaa !103, !noalias !311
   %159 = getelementptr inbounds nuw i8, ptr %153, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %159, i8 0, i64 28, i1 false), !noalias !311
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4LIEF2PE17ResourceDirectoryE, i64 16), ptr %153, align 8, !tbaa !105, !noalias !311
@@ -3075,7 +3075,7 @@ _ZN4LIEF15vector_iostream4moveERSt6vectorIhSaIhEE.exit: ; preds = %144, %139
   store ptr %165, ptr %164, align 8, !tbaa !101, !noalias !314
   %166 = getelementptr inbounds nuw i8, ptr %161, i64 24
   store i64 0, ptr %166, align 8, !tbaa !102, !noalias !314
-  store i16 0, ptr %165, align 2, !tbaa !103, !noalias !314
+  store i16 0, ptr %165, align 8, !tbaa !103, !noalias !314
   %167 = getelementptr inbounds nuw i8, ptr %161, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %167, i8 0, i64 28, i1 false), !noalias !314
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4LIEF2PE17ResourceDirectoryE, i64 16), ptr %161, align 8, !tbaa !105, !noalias !314
@@ -3093,7 +3093,7 @@ _ZN4LIEF15vector_iostream4moveERSt6vectorIhSaIhEE.exit: ; preds = %144, %139
   store ptr %173, ptr %172, align 8, !tbaa !101, !noalias !317
   %174 = getelementptr inbounds nuw i8, ptr %169, i64 24
   store i64 0, ptr %174, align 8, !tbaa !102, !noalias !317
-  store i16 0, ptr %173, align 2, !tbaa !103, !noalias !317
+  store i16 0, ptr %173, align 8, !tbaa !103, !noalias !317
   %175 = getelementptr inbounds nuw i8, ptr %169, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %175, i8 0, i64 28, i1 false), !noalias !317
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4LIEF2PE12ResourceDataE, i64 16), ptr %169, align 8, !tbaa !105, !noalias !317
@@ -3498,7 +3498,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit88:                  ; preds = %376, %_ZNSt6vectorI
   store ptr %383, ptr %382, align 8, !tbaa !101, !noalias !340
   %384 = getelementptr inbounds nuw i8, ptr %379, i64 24
   store i64 0, ptr %384, align 8, !tbaa !102, !noalias !340
-  store i16 0, ptr %383, align 2, !tbaa !103, !noalias !340
+  store i16 0, ptr %383, align 8, !tbaa !103, !noalias !340
   %385 = getelementptr inbounds nuw i8, ptr %379, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %385, i8 0, i64 28, i1 false), !noalias !340
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4LIEF2PE12ResourceDataE, i64 16), ptr %379, align 8, !tbaa !105, !noalias !340
@@ -3831,7 +3831,7 @@ _ZNK4LIEF12BinaryStream4readItEEN2tl8expectedIT_11lief_errorsEEv.exit86: ; preds
   %143 = icmp slt i32 %142, 2
   %144 = getelementptr inbounds nuw i8, ptr %140, i64 104
   %145 = getelementptr inbounds nuw i8, ptr %140, i64 144
-  %146 = load atomic i8, ptr %145 monotonic, align 1
+  %146 = load atomic i8, ptr %145 monotonic, align 4
   %147 = trunc i8 %146 to i1
   %or.cond.i = or i1 %143, %147
   br i1 %or.cond.i, label %148, label %362
@@ -4633,7 +4633,7 @@ _ZN4LIEF12ref_iteratorIRKSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14defau
   %90 = icmp slt i32 %89, 3
   %91 = getelementptr inbounds nuw i8, ptr %87, i64 104
   %92 = getelementptr inbounds nuw i8, ptr %87, i64 144
-  %93 = load atomic i8, ptr %92 monotonic, align 1
+  %93 = load atomic i8, ptr %92 monotonic, align 4
   %94 = trunc i8 %93 to i1
   %or.cond.i = or i1 %90, %94
   br i1 %or.cond.i, label %95, label %_ZN6spdlog6logger4log_IJRKmS3_EEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017basic_string_viewIcEEDpOT_.exit
@@ -5084,7 +5084,7 @@ _ZNK4LIEF2PE16ResourcesManager13get_node_typeENS1_4TYPEE.exit: ; preds = %.crite
   %118 = icmp slt i32 %117, 4
   %119 = getelementptr inbounds nuw i8, ptr %115, i64 104
   %120 = getelementptr inbounds nuw i8, ptr %115, i64 144
-  %121 = load atomic i8, ptr %120 monotonic, align 1
+  %121 = load atomic i8, ptr %120 monotonic, align 4
   %122 = trunc i8 %121 to i1
   %or.cond.i = or i1 %118, %122
   br i1 %or.cond.i, label %123, label %_ZN6spdlog6logger4log_IJRKjEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017basic_string_viewIcEEDpOT_.exit
@@ -5272,7 +5272,7 @@ _ZN6spdlog6logger4log_IJRKjEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017
   %188 = icmp slt i32 %187, 5
   %189 = getelementptr inbounds nuw i8, ptr %185, i64 104
   %190 = getelementptr inbounds nuw i8, ptr %185, i64 144
-  %191 = load atomic i8, ptr %190 monotonic, align 1
+  %191 = load atomic i8, ptr %190 monotonic, align 4
   %192 = trunc i8 %191 to i1
   %or.cond.i32 = or i1 %188, %192
   br i1 %or.cond.i32, label %193, label %_ZN6spdlog6logger4log_IJEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017basic_string_viewIcEEDpOT_.exit
@@ -5730,7 +5730,7 @@ _ZSt19__relocate_object_aIN4LIEF2PE16ResourcesManager14string_entry_tES3_SaIS3_E
   store i64 %364, ptr %366, align 8, !tbaa !102, !alias.scope !481, !noalias !484
   store ptr %355, ptr %.0911.i.i.i.i, align 8, !tbaa !178, !alias.scope !484, !noalias !481
   store i64 0, ptr %365, align 8, !tbaa !102, !alias.scope !484, !noalias !481
-  store i16 0, ptr %355, align 2, !tbaa !103, !alias.scope !484, !noalias !481
+  store i16 0, ptr %355, align 8, !tbaa !103, !alias.scope !484, !noalias !481
   %367 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %368 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %369 = load i32, ptr %368, align 8, !tbaa !475, !alias.scope !484, !noalias !481
@@ -6005,7 +6005,7 @@ _ZNK4LIEF2PE16ResourcesManager13get_node_typeENS1_4TYPEE.exit.thread: ; preds = 
   %112 = icmp slt i32 %111, 5
   %113 = getelementptr inbounds nuw i8, ptr %109, i64 104
   %114 = getelementptr inbounds nuw i8, ptr %109, i64 144
-  %115 = load atomic i8, ptr %114 monotonic, align 1
+  %115 = load atomic i8, ptr %114 monotonic, align 4
   %116 = trunc i8 %115 to i1
   %or.cond.i = or i1 %112, %116
   br i1 %or.cond.i, label %117, label %_ZN6spdlog6logger4log_IJEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017basic_string_viewIcEEDpOT_.exit
@@ -6428,7 +6428,7 @@ _ZN6spdlog6logger4log_IJEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017bas
   %289 = icmp slt i32 %288, 5
   %290 = getelementptr inbounds nuw i8, ptr %286, i64 104
   %291 = getelementptr inbounds nuw i8, ptr %286, i64 144
-  %292 = load atomic i8, ptr %291 monotonic, align 1
+  %292 = load atomic i8, ptr %291 monotonic, align 4
   %293 = trunc i8 %292 to i1
   %or.cond.i16 = or i1 %289, %293
   br i1 %or.cond.i16, label %294, label %_ZN6spdlog6logger4log_IJEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017basic_string_viewIcEEDpOT_.exit26
@@ -7007,7 +7007,7 @@ _ZSt8_DestroyIPN4LIEF2PE19ResourceAcceleratorES2_EvT_S4_RSaIT0_E.exit.i37: ; pre
   %168 = icmp slt i32 %167, 5
   %169 = getelementptr inbounds nuw i8, ptr %165, i64 104
   %170 = getelementptr inbounds nuw i8, ptr %165, i64 144
-  %171 = load atomic i8, ptr %170 monotonic, align 1
+  %171 = load atomic i8, ptr %170 monotonic, align 4
   %172 = trunc i8 %171 to i1
   %or.cond.i = or i1 %168, %172
   br i1 %or.cond.i, label %173, label %_ZN6spdlog6logger4log_IJRKjEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017basic_string_viewIcEEDpOT_.exit
@@ -7195,7 +7195,7 @@ _ZN6spdlog6logger4log_IJRKjEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017
   %238 = icmp slt i32 %237, 3
   %239 = getelementptr inbounds nuw i8, ptr %235, i64 104
   %240 = getelementptr inbounds nuw i8, ptr %235, i64 144
-  %241 = load atomic i8, ptr %240 monotonic, align 1
+  %241 = load atomic i8, ptr %240 monotonic, align 4
   %242 = trunc i8 %241 to i1
   %or.cond.i54 = or i1 %238, %242
   br i1 %or.cond.i54, label %243, label %_ZN6spdlog6logger4log_IJEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017basic_string_viewIcEEDpOT_.exit
@@ -7409,7 +7409,7 @@ _ZN6spdlog6logger4log_IJEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017bas
   %314 = icmp slt i32 %313, 5
   %315 = getelementptr inbounds nuw i8, ptr %311, i64 104
   %316 = getelementptr inbounds nuw i8, ptr %311, i64 144
-  %317 = load atomic i8, ptr %316 monotonic, align 1
+  %317 = load atomic i8, ptr %316 monotonic, align 4
   %318 = trunc i8 %317 to i1
   %or.cond.i64 = or i1 %314, %318
   br i1 %or.cond.i64, label %319, label %_ZNSt6vectorIN4LIEF2PE19ResourceAcceleratorESaIS2_EE12emplace_backIJRNS1_7details27pe_resource_acceltableentryEEEERS2_DpOT_.exit.thread
@@ -42036,7 +42036,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !71, !alias.scope !1448, !noalias !1451
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !84, !alias.scope !1451, !noalias !1448
   store i64 0, ptr %48, align 8, !tbaa !71, !alias.scope !1451, !noalias !1448
-  store i8 0, ptr %39, align 1, !tbaa !73, !alias.scope !1451, !noalias !1448
+  store i8 0, ptr %39, align 8, !tbaa !73, !alias.scope !1451, !noalias !1448
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -42084,7 +42084,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !71, !alias.scope !1455, !noalias !1458
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !84, !alias.scope !1458, !noalias !1455
   store i64 0, ptr %64, align 8, !tbaa !71, !alias.scope !1458, !noalias !1455
-  store i8 0, ptr %55, align 1, !tbaa !73, !alias.scope !1458, !noalias !1455
+  store i8 0, ptr %55, align 8, !tbaa !73, !alias.scope !1458, !noalias !1455
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5

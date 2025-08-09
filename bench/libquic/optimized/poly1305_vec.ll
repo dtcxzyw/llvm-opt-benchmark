@@ -39,7 +39,7 @@ define hidden void @CRYPTO_poly1305_init(ptr noundef %0, ptr noundef readonly ca
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 188
   store i32 %28, ptr %29, align 4, !tbaa !10
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %31 = load i32, ptr %30, align 4, !tbaa !11
+  %31 = load i32, ptr %30, align 8, !tbaa !11
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 196
   store i32 %31, ptr %32, align 4, !tbaa !10
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -47,7 +47,7 @@ define hidden void @CRYPTO_poly1305_init(ptr noundef %0, ptr noundef readonly ca
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 204
   store i32 %34, ptr %35, align 4, !tbaa !10
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %37 = load i32, ptr %36, align 4, !tbaa !11
+  %37 = load i32, ptr %36, align 8, !tbaa !11
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 212
   store i32 %37, ptr %38, align 4, !tbaa !10
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 28

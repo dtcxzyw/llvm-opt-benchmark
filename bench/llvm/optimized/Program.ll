@@ -332,7 +332,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKvjNS_12DenseMapInfoIS3_vEENS_6detail12Dens
   %57 = load ptr, ptr %1, align 8, !tbaa !3
   store ptr %57, ptr %48, align 8, !tbaa !3
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !23
+  store i32 0, ptr %58, align 8, !tbaa !23
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E16InsertIntoBucketIRKS3_JEEEPS8_SE_OT_DpOT0_.exit
@@ -363,7 +363,7 @@ switch.lookup:
   %9 = load ptr, ptr %0, align 8, !tbaa !28
   %10 = tail call noundef i32 @_ZNK5clang6interp7Context10getCharBitEv(ptr noundef nonnull align 8 dereferenceable(40) %9) #17
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %12 = load i32, ptr %11, align 4, !tbaa !23
+  %12 = load i32, ptr %11, align 8, !tbaa !23
   %switch.tableidx = add nsw i32 %8, -1
   %13 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang6interp7Program18createGlobalStringEPKNS_13StringLiteralEPKNS_4ExprE, i64 0, i64 %13
@@ -450,7 +450,7 @@ _ZN5clang6interp7Program6GlobalnwEmRN4llvm20BumpPtrAllocatorImplINS3_15MallocAll
   %64 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store ptr null, ptr %64, align 8, !tbaa !103
   %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store i32 -1, ptr %65, align 4, !tbaa !66
+  store i32 -1, ptr %65, align 8, !tbaa !66
   %66 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
   store i8 1, ptr %66, align 4, !tbaa !104
   %67 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
@@ -1190,7 +1190,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKvjNS_12DenseMapInfoIS3_vEENS_6detail12Dens
   %57 = load ptr, ptr %1, align 8, !tbaa !3
   store ptr %57, ptr %48, align 8, !tbaa !3
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !23
+  store i32 0, ptr %58, align 8, !tbaa !23
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E16InsertIntoBucketIS3_JEEEPS8_SC_OT_DpOT0_.exit
@@ -4354,7 +4354,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKvjNS_12DenseMapInfoIS3_vEENS_6detail12Dens
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !23
-  store i32 %68, ptr %66, align 4, !tbaa !23
+  store i32 %68, ptr %66, align 8, !tbaa !23
   %69 = load i32, ptr %32, align 8, !tbaa !26
   %70 = add i32 %69, 1
   store i32 %70, ptr %32, align 8, !tbaa !26

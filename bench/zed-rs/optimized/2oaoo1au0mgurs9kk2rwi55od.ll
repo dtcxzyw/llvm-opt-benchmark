@@ -8199,11 +8199,11 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.011.041, i64 40
   %.val2.i = load i64, ptr %.sroa.011.041, align 8, !alias.scope !2339, !noalias !2342, !noundef !11
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.011.041, i64 8
-  %.val3.i = load i32, ptr %20, align 4, !alias.scope !2339, !noalias !2342, !noundef !11
+  %.val3.i = load i32, ptr %20, align 8, !alias.scope !2339, !noalias !2342, !noundef !11
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.011.041, i64 16
   %.val.i = load i64, ptr %21, align 8, !alias.scope !2339, !noalias !2342, !noundef !11
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.011.041, i64 24
-  %.val1.i = load i32, ptr %22, align 4, !alias.scope !2339, !noalias !2342, !noundef !11
+  %.val1.i = load i32, ptr %22, align 8, !alias.scope !2339, !noalias !2342, !noundef !11
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.011.041, i64 32
   %24 = load i8, ptr %23, align 8, !range !630, !alias.scope !2339, !noalias !2342, !noundef !11
   %25 = getelementptr inbounds nuw [0 x { [5 x i64] }], ptr %10, i64 0, i64 %.sroa.7.040
@@ -13040,11 +13040,11 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.011.041.i, i64 40
   %.val2.i.i = load i64, ptr %.sroa.011.041.i, align 8, !alias.scope !3863, !noalias !3866, !noundef !11
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.011.041.i, i64 8
-  %.val3.i.i = load i32, ptr %23, align 4, !alias.scope !3863, !noalias !3866, !noundef !11
+  %.val3.i.i = load i32, ptr %23, align 8, !alias.scope !3863, !noalias !3866, !noundef !11
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.011.041.i, i64 16
   %.val.i.i = load i64, ptr %24, align 8, !alias.scope !3863, !noalias !3866, !noundef !11
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.011.041.i, i64 24
-  %.val1.i.i = load i32, ptr %25, align 4, !alias.scope !3863, !noalias !3866, !noundef !11
+  %.val1.i.i = load i32, ptr %25, align 8, !alias.scope !3863, !noalias !3866, !noundef !11
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.011.041.i, i64 32
   %27 = load i8, ptr %26, align 8, !range !630, !alias.scope !3863, !noalias !3866, !noundef !11
   %28 = getelementptr inbounds nuw [0 x { [5 x i64] }], ptr %13, i64 0, i64 %.sroa.7.040.i

@@ -980,7 +980,7 @@ define internal range(i32 -1094995529, 1) i32 @dnxhd_decode_row(ptr noundef read
   %.018.i.i = select i1 %or.cond3.i.i, i32 %31, i32 0
   %.017.i.i = select i1 %or.cond.i.i, ptr %26, ptr null
   %33 = lshr exact i32 %.018.i.i, 3
-  store ptr %.017.i.i, ptr %22, align 8, !tbaa !98
+  store ptr %.017.i.i, ptr %22, align 16, !tbaa !98
   %34 = getelementptr inbounds nuw i8, ptr %14, i64 2068
   store i32 %.018.i.i, ptr %34, align 4, !tbaa !99
   %35 = add nuw nsw i32 %.018.i.i, 8
@@ -991,7 +991,7 @@ define internal range(i32 -1094995529, 1) i32 @dnxhd_decode_row(ptr noundef read
   %39 = getelementptr inbounds nuw i8, ptr %14, i64 2056
   store ptr %38, ptr %39, align 8, !tbaa !101
   %40 = getelementptr inbounds nuw i8, ptr %14, i64 2064
-  store i32 0, ptr %40, align 8, !tbaa !102
+  store i32 0, ptr %40, align 16, !tbaa !102
   br i1 %or.cond3.i.i, label %.preheader, label %.loopexit.sink.split
 
 .preheader:                                       ; preds = %4

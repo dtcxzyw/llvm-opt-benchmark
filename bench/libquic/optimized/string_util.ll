@@ -706,13 +706,13 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN4base11EmptyStringB5c
   store ptr %9, ptr %8, align 8, !tbaa !13
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 0, ptr %10, align 8, !tbaa !17
-  store i8 0, ptr %9, align 1, !tbaa !20
+  store i8 0, ptr %9, align 8, !tbaa !20
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %12, ptr %11, align 8, !tbaa !26
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i64 0, ptr %13, align 8, !tbaa !29
-  store i16 0, ptr %12, align 2, !tbaa !31
+  store i16 0, ptr %12, align 8, !tbaa !31
   %14 = ptrtoint ptr %8 to i64
   store atomic volatile i64 %14, ptr @_ZN4base9SingletonINS_12_GLOBAL__N_112EmptyStringsENS_22DefaultSingletonTraitsIS2_EES2_E9instance_E release, align 8
   tail call void @_ZN4base13AtExitManager16RegisterCallbackEPFvPvES1_(ptr noundef nonnull @_ZN4base9SingletonINS_12_GLOBAL__N_112EmptyStringsENS_22DefaultSingletonTraitsIS2_EES2_E6OnExitEPv, ptr noundef null)
@@ -749,13 +749,13 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN4base13EmptyString16B
   store ptr %9, ptr %8, align 8, !tbaa !13
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 0, ptr %10, align 8, !tbaa !17
-  store i8 0, ptr %9, align 1, !tbaa !20
+  store i8 0, ptr %9, align 8, !tbaa !20
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %12, ptr %11, align 8, !tbaa !26
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i64 0, ptr %13, align 8, !tbaa !29
-  store i16 0, ptr %12, align 2, !tbaa !31
+  store i16 0, ptr %12, align 8, !tbaa !31
   %14 = ptrtoint ptr %8 to i64
   store atomic volatile i64 %14, ptr @_ZN4base9SingletonINS_12_GLOBAL__N_112EmptyStringsENS_22DefaultSingletonTraitsIS2_EES2_E9instance_E release, align 8
   tail call void @_ZN4base13AtExitManager16RegisterCallbackEPFvPvES1_(ptr noundef nonnull @_ZN4base9SingletonINS_12_GLOBAL__N_112EmptyStringsENS_22DefaultSingletonTraitsIS2_EES2_E6OnExitEPv, ptr noundef null)
@@ -5810,7 +5810,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringItN4base20string16_char_trait
   store i64 %61, ptr %62, align 8, !tbaa !29, !alias.scope !166, !noalias !169
   store ptr %48, ptr %.0912.i.i.i.i, align 8, !tbaa !33, !alias.scope !169, !noalias !166
   store i64 0, ptr %60, align 8, !tbaa !29, !alias.scope !169, !noalias !166
-  store i16 0, ptr %48, align 2, !tbaa !31, !alias.scope !169, !noalias !166
+  store i16 0, ptr %48, align 8, !tbaa !31, !alias.scope !169, !noalias !166
   %63 = getelementptr inbounds nuw i8, ptr %.0912.i.i.i.i, i64 32
   %64 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %63, %1
@@ -5863,7 +5863,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringItN4base20string16_char_trait
   store i64 %81, ptr %82, align 8, !tbaa !29, !alias.scope !172, !noalias !175
   store ptr %68, ptr %.0912.i.i.i.i29, align 8, !tbaa !33, !alias.scope !175, !noalias !172
   store i64 0, ptr %80, align 8, !tbaa !29, !alias.scope !175, !noalias !172
-  store i16 0, ptr %68, align 2, !tbaa !31, !alias.scope !175, !noalias !172
+  store i16 0, ptr %68, align 8, !tbaa !31, !alias.scope !175, !noalias !172
   %83 = getelementptr inbounds nuw i8, ptr %.0912.i.i.i.i29, i64 32
   %84 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i28, i64 32
   %.not.i.i.i.i32 = icmp eq ptr %83, %6

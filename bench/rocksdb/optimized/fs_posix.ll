@@ -1439,7 +1439,7 @@ _ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store i64 %54, ptr %56, align 8, !tbaa !12, !alias.scope !91, !noalias !94
   store ptr %46, ptr %.0911.i.i.i, align 8, !tbaa !4, !alias.scope !94, !noalias !91
   store i64 0, ptr %55, align 8, !tbaa !12, !alias.scope !94, !noalias !91
-  store i8 0, ptr %46, align 1, !tbaa !13, !alias.scope !94, !noalias !91
+  store i8 0, ptr %46, align 8, !tbaa !13, !alias.scope !94, !noalias !91
   %57 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %58 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %59 = load i32, ptr %58, align 8, !tbaa !89, !alias.scope !94, !noalias !91
@@ -1491,7 +1491,7 @@ _ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store i64 %73, ptr %75, align 8, !tbaa !12, !alias.scope !98, !noalias !101
   store ptr %65, ptr %.0911.i.i.i30, align 8, !tbaa !4, !alias.scope !101, !noalias !98
   store i64 0, ptr %74, align 8, !tbaa !12, !alias.scope !101, !noalias !98
-  store i8 0, ptr %65, align 1, !tbaa !13, !alias.scope !101, !noalias !98
+  store i8 0, ptr %65, align 8, !tbaa !13, !alias.scope !101, !noalias !98
   %76 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 32
   %77 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 32
   %78 = load i32, ptr %77, align 8, !tbaa !89, !alias.scope !101, !noalias !98
@@ -9685,7 +9685,7 @@ _ZN7rocksdb12_GLOBAL__N_115PosixFileSystem13SetFD_CLOEXECEiPKNS_10EnvOptionsE.ex
   store ptr %550, ptr %549, align 8, !tbaa !85
   %551 = getelementptr inbounds nuw i8, ptr %546, i64 24
   store i64 0, ptr %551, align 8, !tbaa !12
-  store i8 0, ptr %550, align 1, !tbaa !13
+  store i8 0, ptr %550, align 8, !tbaa !13
   store i32 %432, ptr %548, align 8, !tbaa !356
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %549, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit unwind label %552
@@ -12483,7 +12483,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !12, !alias.scope !438, !noalias !441
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !4, !alias.scope !441, !noalias !438
   store i64 0, ptr %48, align 8, !tbaa !12, !alias.scope !441, !noalias !438
-  store i8 0, ptr %39, align 1, !tbaa !13, !alias.scope !441, !noalias !438
+  store i8 0, ptr %39, align 8, !tbaa !13, !alias.scope !441, !noalias !438
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -12531,7 +12531,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !12, !alias.scope !445, !noalias !448
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !4, !alias.scope !448, !noalias !445
   store i64 0, ptr %64, align 8, !tbaa !12, !alias.scope !448, !noalias !445
-  store i8 0, ptr %55, align 1, !tbaa !13, !alias.scope !448, !noalias !445
+  store i8 0, ptr %55, align 8, !tbaa !13, !alias.scope !448, !noalias !445
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5
@@ -12671,7 +12671,7 @@ _ZSt19__relocate_object_aIN7rocksdb3Env14FileAttributesES2_SaIS2_EEvPT_PT0_RT1_.
   store i64 %45, ptr %47, align 8, !tbaa !12, !alias.scope !453, !noalias !456
   store ptr %37, ptr %.0911.i.i.i, align 8, !tbaa !4, !alias.scope !456, !noalias !453
   store i64 0, ptr %46, align 8, !tbaa !12, !alias.scope !456, !noalias !453
-  store i8 0, ptr %37, align 1, !tbaa !13, !alias.scope !456, !noalias !453
+  store i8 0, ptr %37, align 8, !tbaa !13, !alias.scope !456, !noalias !453
   %48 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %49 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %48, ptr noundef nonnull align 8 dereferenceable(9) %49, i64 9, i1 false), !alias.scope !458

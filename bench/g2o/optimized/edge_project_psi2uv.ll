@@ -789,10 +789,10 @@ _ZNK3g2o16OptimizableGraph4Edge9parameterEi.exit: ; preds = %1
   %24 = load <2 x i64>, ptr %23, align 16, !tbaa !56, !noalias !89
   %25 = xor <2 x i64> %24, <i64 -9223372036854775808, i64 0>
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 224
-  %27 = load <2 x double>, ptr %26, align 1, !tbaa !56, !noalias !96
+  %27 = load <2 x double>, ptr %26, align 16, !tbaa !56, !noalias !96
   %28 = fneg <2 x double> %27
   %29 = getelementptr inbounds nuw i8, ptr %13, i64 240
-  %30 = load double, ptr %29, align 8, !tbaa !70, !noalias !96
+  %30 = load double, ptr %29, align 16, !tbaa !70, !noalias !96
   %31 = fneg double %30
   %bc.i = bitcast <2 x i64> %22 to <2 x double>
   %32 = extractelement <2 x double> %bc.i, i64 1
@@ -844,13 +844,13 @@ _ZNK3g2o16OptimizableGraph4Edge9parameterEi.exit: ; preds = %1
   %63 = getelementptr inbounds nuw i8, ptr %15, i64 200
   %64 = load double, ptr %63, align 8, !tbaa !70, !noalias !106
   %65 = getelementptr inbounds nuw i8, ptr %15, i64 208
-  %66 = load double, ptr %65, align 8, !tbaa !70, !noalias !106
+  %66 = load double, ptr %65, align 16, !tbaa !70, !noalias !106
   %.sroa.620.40.vec.extract = extractelement <2 x double> %58, i64 1
   %67 = fneg double %.sroa.620.40.vec.extract
   %68 = fmul double %66, %67
   %69 = tail call double @llvm.fmuladd.f64(double %64, double %61, double %68)
   %.sroa.620.32.vec.extract = extractelement <2 x double> %58, i64 0
-  %70 = load double, ptr %19, align 8, !tbaa !70, !noalias !106
+  %70 = load double, ptr %19, align 16, !tbaa !70, !noalias !106
   %71 = fneg double %61
   %72 = fmul double %70, %71
   %73 = tail call double @llvm.fmuladd.f64(double %66, double %.sroa.620.32.vec.extract, double %72)
@@ -2590,7 +2590,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %52, ptr %53, align 8, !tbaa !58
   store ptr %43, ptr %.sroa.08.012.i.i.i.i.i, align 8, !tbaa !65
   store i64 0, ptr %51, align 8, !tbaa !58
-  store i8 0, ptr %43, align 1, !tbaa !56
+  store i8 0, ptr %43, align 8, !tbaa !56
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq ptr %54, %33
@@ -2810,7 +2810,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %127, ptr %128, align 8, !tbaa !58
   store ptr %118, ptr %.sroa.08.012.i.i.i.i.i73, align 8, !tbaa !65
   store i64 0, ptr %126, align 8, !tbaa !58
-  store i8 0, ptr %118, align 1, !tbaa !56
+  store i8 0, ptr %118, align 8, !tbaa !56
   %129 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i73, i64 32
   %130 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i72, i64 32
   %.not.i.i.i.i.i76 = icmp eq ptr %129, %33
@@ -2924,7 +2924,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %171, ptr %172, align 8, !tbaa !58
   store ptr %162, ptr %.sroa.08.012.i.i.i.i.i93, align 8, !tbaa !65
   store i64 0, ptr %170, align 8, !tbaa !58
-  store i8 0, ptr %162, align 1, !tbaa !56
+  store i8 0, ptr %162, align 8, !tbaa !56
   %173 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i93, i64 32
   %174 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i92, i64 32
   %.not.i.i.i.i.i96 = icmp eq ptr %173, %1
@@ -2968,7 +2968,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %187, ptr %188, align 8, !tbaa !58
   store ptr %178, ptr %.sroa.08.012.i.i.i.i.i101, align 8, !tbaa !65
   store i64 0, ptr %186, align 8, !tbaa !58
-  store i8 0, ptr %178, align 1, !tbaa !56
+  store i8 0, ptr %178, align 8, !tbaa !56
   %189 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i101, i64 32
   %190 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i100, i64 32
   %.not.i.i.i.i.i104 = icmp eq ptr %189, %11

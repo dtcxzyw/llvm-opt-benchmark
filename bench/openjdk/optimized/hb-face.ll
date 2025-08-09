@@ -598,7 +598,7 @@ _ZL16hb_object_createI9hb_face_tJEEPT_DpT0_.exit.thread: ; preds = %4, %3
   store atomic i32 1, ptr %8 monotonic, align 4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store atomic i64 0, ptr %9 monotonic, align 8
-  %10 = load atomic i32, ptr %5 monotonic, align 4
+  %10 = load atomic i32, ptr %5 monotonic, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %0, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -606,7 +606,7 @@ _ZL16hb_object_createI9hb_face_tJEEPT_DpT0_.exit.thread: ; preds = %4, %3
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %2, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store atomic i32 -1, ptr %14 monotonic, align 4
+  store atomic i32 -1, ptr %14 monotonic, align 8
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %5, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 80
@@ -713,7 +713,7 @@ _ZL16hb_object_createI9hb_face_tJEEPT_DpT0_.exit.thread.i: ; preds = %26
   store atomic i32 1, ptr %31 monotonic, align 4
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store atomic i64 0, ptr %32 monotonic, align 8
-  %33 = load atomic i32, ptr %29 monotonic, align 4
+  %33 = load atomic i32, ptr %29 monotonic, align 8
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr @_ZL33_hb_face_for_data_reference_tableP9hb_face_tjPv, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -721,7 +721,7 @@ _ZL16hb_object_createI9hb_face_tJEEPT_DpT0_.exit.thread.i: ; preds = %26
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store ptr @_ZL33_hb_face_for_data_closure_destroyPv, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %29, i64 48
-  store atomic i32 -1, ptr %37 monotonic, align 4
+  store atomic i32 -1, ptr %37 monotonic, align 8
   %38 = getelementptr inbounds nuw i8, ptr %29, i64 56
   store ptr %29, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %29, i64 80

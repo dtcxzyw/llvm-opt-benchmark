@@ -299,7 +299,7 @@ invoke.cont18:                                    ; preds = %invoke.cont18.lr.ph
   %18 = load i32, ptr %mMagicValue.i.i63, align 4
   store i32 32623592, ptr %mMagicValue.i.i63, align 4
   %mbThrowOnCopy.i.i64 = getelementptr inbounds nuw i8, ptr %add.ptr.i60, i64 4
-  store i8 0, ptr %mbThrowOnCopy.i.i64, align 1
+  store i8 0, ptr %mbThrowOnCopy.i.i64, align 4
   %second3.i = getelementptr inbounds nuw i8, ptr %add.ptr.i60, i64 24
   store i32 %conv4.i, ptr %second3.i, align 8
   %cmp.not.i.i67 = icmp eq i32 %18, 32623592
@@ -335,7 +335,7 @@ invoke.cont28:                                    ; preds = %invoke.cont18, %if.
   %26 = load i32, ptr %mMagicValue.i.i94, align 4
   store i32 32623592, ptr %mMagicValue.i.i94, align 4
   %mbThrowOnCopy.i.i96 = getelementptr inbounds nuw i8, ptr %add.ptr.i90, i64 4
-  store i8 0, ptr %mbThrowOnCopy.i.i96, align 1
+  store i8 0, ptr %mbThrowOnCopy.i.i96, align 4
   %second3.i101 = getelementptr inbounds nuw i8, ptr %add.ptr.i90, i64 24
   store i32 %conv4.i, ptr %second3.i101, align 8
   %cmp.not.i.i103 = icmp eq i32 %26, 32623592

@@ -2394,7 +2394,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %146, ptr %.sink6.i.i.i.i.i, align 8, !tbaa !102
   %147 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i, i64 8
   store i64 0, ptr %147, align 8, !tbaa !41
-  store i8 0, ptr %146, align 1, !tbaa !67
+  store i8 0, ptr %146, align 8, !tbaa !67
   %148 = load ptr, ptr %65, align 8, !tbaa !69
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
   %150 = load i32, ptr %66, align 8, !tbaa !68
@@ -2655,7 +2655,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %276, ptr %.sink6.i.i.i.i.i180, align 8, !tbaa !102
   %277 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i180, i64 8
   store i64 0, ptr %277, align 8, !tbaa !41
-  store i8 0, ptr %276, align 1, !tbaa !67
+  store i8 0, ptr %276, align 8, !tbaa !67
   %278 = load ptr, ptr %58, align 8, !tbaa !69
   %279 = getelementptr inbounds nuw i8, ptr %278, i64 8
   %280 = load i32, ptr %59, align 8, !tbaa !68
@@ -3575,7 +3575,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %744, ptr %.sink6.i.i.i.i.i275, align 8, !tbaa !102
   %745 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i275, i64 8
   store i64 0, ptr %745, align 8, !tbaa !41
-  store i8 0, ptr %744, align 1, !tbaa !67
+  store i8 0, ptr %744, align 8, !tbaa !67
   %746 = load ptr, ptr %35, align 8, !tbaa !69
   %747 = getelementptr inbounds nuw i8, ptr %746, i64 8
   %748 = load i32, ptr %36, align 8, !tbaa !68
@@ -3691,7 +3691,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %802, ptr %.sink6.i.i.i.i.i287, align 8, !tbaa !102
   %803 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i287, i64 8
   store i64 0, ptr %803, align 8, !tbaa !41
-  store i8 0, ptr %802, align 1, !tbaa !67
+  store i8 0, ptr %802, align 8, !tbaa !67
   %804 = load ptr, ptr %31, align 8, !tbaa !69
   %805 = getelementptr inbounds nuw i8, ptr %804, i64 8
   %806 = load i32, ptr %32, align 8, !tbaa !68
@@ -8781,22 +8781,22 @@ _ZN6google8protobuf8internal16InternalMetadata4SwapINSt7__cxx1112basic_stringIcS
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.0.copyload.i.i.i.i = load i128, ptr %34, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 1 dereferenceable(16) %35, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i.i, ptr %35, align 1
+  store i128 %.0.copyload.i.i.i.i, ptr %35, align 4
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %.0.copyload.i.i.i.i40 = load i128, ptr %36, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 1 dereferenceable(16) %37, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i.i40, ptr %37, align 1
+  store i128 %.0.copyload.i.i.i.i40, ptr %37, align 4
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %.0.copyload.i.i.i.i41 = load i128, ptr %38, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 1 dereferenceable(16) %39, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i.i41, ptr %39, align 1
+  store i128 %.0.copyload.i.i.i.i41, ptr %39, align 4
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %.0.copyload.i.i.i.i42 = load i128, ptr %40, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 1 dereferenceable(16) %41, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i.i42, ptr %41, align 1
+  store i128 %.0.copyload.i.i.i.i42, ptr %41, align 4
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %.sroa.0.0.copyload.i = load ptr, ptr %42, align 8, !tbaa !75
@@ -8861,23 +8861,23 @@ _ZN6google8protobuf8internal16InternalMetadata4SwapINSt7__cxx1112basic_stringIcS
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %.0.copyload.i.i = load i128, ptr %72, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull align 1 dereferenceable(16) %73, i64 16, i1 false)
-  store i128 %.0.copyload.i.i, ptr %73, align 1
+  store i128 %.0.copyload.i.i, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %.0.copyload.i.i.i = load i128, ptr %74, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef nonnull align 1 dereferenceable(16) %75, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i, ptr %75, align 1
+  store i128 %.0.copyload.i.i.i, ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %.0.copyload.i.i.i.i81 = load i128, ptr %76, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull align 1 dereferenceable(16) %77, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i.i81, ptr %77, align 1
+  store i128 %.0.copyload.i.i.i.i81, ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %80 = load i32, ptr %78, align 8, !tbaa !11
-  %81 = load i32, ptr %79, align 4, !tbaa !11
+  %81 = load i32, ptr %79, align 8, !tbaa !11
   store i32 %81, ptr %78, align 8, !tbaa !11
-  store i32 %80, ptr %79, align 4, !tbaa !11
+  store i32 %80, ptr %79, align 8, !tbaa !11
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %84 = load i32, ptr %82, align 4, !tbaa !11
@@ -8887,9 +8887,9 @@ _ZN6google8protobuf8internal16InternalMetadata4SwapINSt7__cxx1112basic_stringIcS
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %88 = load float, ptr %86, align 8, !tbaa !145
-  %89 = load float, ptr %87, align 4, !tbaa !145
+  %89 = load float, ptr %87, align 8, !tbaa !145
   store float %89, ptr %86, align 8, !tbaa !145
-  store float %88, ptr %87, align 4, !tbaa !145
+  store float %88, ptr %87, align 8, !tbaa !145
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %92 = load i32, ptr %90, align 4, !tbaa !11
@@ -8899,9 +8899,9 @@ _ZN6google8protobuf8internal16InternalMetadata4SwapINSt7__cxx1112basic_stringIcS
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %96 = load float, ptr %94, align 8, !tbaa !145
-  %97 = load float, ptr %95, align 4, !tbaa !145
+  %97 = load float, ptr %95, align 8, !tbaa !145
   store float %97, ptr %94, align 8, !tbaa !145
-  store float %96, ptr %95, align 4, !tbaa !145
+  store float %96, ptr %95, align 8, !tbaa !145
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 300
   %100 = load i32, ptr %98, align 4, !tbaa !11
@@ -8911,9 +8911,9 @@ _ZN6google8protobuf8internal16InternalMetadata4SwapINSt7__cxx1112basic_stringIcS
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %104 = load i32, ptr %102, align 8, !tbaa !11
-  %105 = load i32, ptr %103, align 4, !tbaa !11
+  %105 = load i32, ptr %103, align 8, !tbaa !11
   store i32 %105, ptr %102, align 8, !tbaa !11
-  store i32 %104, ptr %103, align 4, !tbaa !11
+  store i32 %104, ptr %103, align 8, !tbaa !11
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 308
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 308
   %108 = load i32, ptr %106, align 4, !tbaa !11
@@ -8923,15 +8923,15 @@ _ZN6google8protobuf8internal16InternalMetadata4SwapINSt7__cxx1112basic_stringIcS
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %112 = load i32, ptr %110, align 8, !tbaa !11
-  %113 = load i32, ptr %111, align 4, !tbaa !11
+  %113 = load i32, ptr %111, align 8, !tbaa !11
   store i32 %113, ptr %110, align 8, !tbaa !11
-  store i32 %112, ptr %111, align 4, !tbaa !11
+  store i32 %112, ptr %111, align 8, !tbaa !11
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 316
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 316
   %116 = load i8, ptr %114, align 4, !tbaa !35, !range !136, !noundef !137
-  %117 = load i8, ptr %115, align 1, !tbaa !35, !range !136, !noundef !137
+  %117 = load i8, ptr %115, align 4, !tbaa !35, !range !136, !noundef !137
   store i8 %117, ptr %114, align 4, !tbaa !35
-  store i8 %116, ptr %115, align 1, !tbaa !35
+  store i8 %116, ptr %115, align 4, !tbaa !35
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 317
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 317
   %120 = load i8, ptr %118, align 1, !tbaa !35, !range !136, !noundef !137
@@ -8941,9 +8941,9 @@ _ZN6google8protobuf8internal16InternalMetadata4SwapINSt7__cxx1112basic_stringIcS
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 318
   %123 = getelementptr inbounds nuw i8, ptr %1, i64 318
   %124 = load i8, ptr %122, align 2, !tbaa !35, !range !136, !noundef !137
-  %125 = load i8, ptr %123, align 1, !tbaa !35, !range !136, !noundef !137
+  %125 = load i8, ptr %123, align 2, !tbaa !35, !range !136, !noundef !137
   store i8 %125, ptr %122, align 2, !tbaa !35
-  store i8 %124, ptr %123, align 1, !tbaa !35
+  store i8 %124, ptr %123, align 2, !tbaa !35
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 319
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 319
   %128 = load i8, ptr %126, align 1, !tbaa !35, !range !136, !noundef !137
@@ -8953,9 +8953,9 @@ _ZN6google8protobuf8internal16InternalMetadata4SwapINSt7__cxx1112basic_stringIcS
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %132 = load i8, ptr %130, align 8, !tbaa !35, !range !136, !noundef !137
-  %133 = load i8, ptr %131, align 1, !tbaa !35, !range !136, !noundef !137
+  %133 = load i8, ptr %131, align 8, !tbaa !35, !range !136, !noundef !137
   store i8 %133, ptr %130, align 8, !tbaa !35
-  store i8 %132, ptr %131, align 1, !tbaa !35
+  store i8 %132, ptr %131, align 8, !tbaa !35
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 321
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 321
   %136 = load i8, ptr %134, align 1, !tbaa !35, !range !136, !noundef !137
@@ -8971,9 +8971,9 @@ _ZN6google8protobuf8internal16InternalMetadata4SwapINSt7__cxx1112basic_stringIcS
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %143 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %144 = load i32, ptr %142, align 8, !tbaa !11
-  %145 = load i32, ptr %143, align 4, !tbaa !11
+  %145 = load i32, ptr %143, align 8, !tbaa !11
   store i32 %145, ptr %142, align 8, !tbaa !11
-  store i32 %144, ptr %143, align 4, !tbaa !11
+  store i32 %144, ptr %143, align 8, !tbaa !11
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 332
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 332
   %148 = load i32, ptr %146, align 4, !tbaa !11
@@ -10658,9 +10658,9 @@ _ZN6google8protobuf8internal16InternalMetadata4SwapINSt7__cxx1112basic_stringIcS
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %41 = load i8, ptr %39, align 8, !tbaa !35, !range !136, !noundef !137
-  %42 = load i8, ptr %40, align 1, !tbaa !35, !range !136, !noundef !137
+  %42 = load i8, ptr %40, align 8, !tbaa !35, !range !136, !noundef !137
   store i8 %42, ptr %39, align 8, !tbaa !35
-  store i8 %41, ptr %40, align 1, !tbaa !35
+  store i8 %41, ptr %40, align 8, !tbaa !35
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 73
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 73
   %45 = load i8, ptr %43, align 1, !tbaa !35, !range !136, !noundef !137
@@ -10670,9 +10670,9 @@ _ZN6google8protobuf8internal16InternalMetadata4SwapINSt7__cxx1112basic_stringIcS
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 74
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 74
   %49 = load i8, ptr %47, align 2, !tbaa !35, !range !136, !noundef !137
-  %50 = load i8, ptr %48, align 1, !tbaa !35, !range !136, !noundef !137
+  %50 = load i8, ptr %48, align 2, !tbaa !35, !range !136, !noundef !137
   store i8 %50, ptr %47, align 2, !tbaa !35
-  store i8 %49, ptr %48, align 1, !tbaa !35
+  store i8 %49, ptr %48, align 2, !tbaa !35
   ret void
 }
 
@@ -14240,9 +14240,9 @@ _ZN6google8protobuf8internal16InternalMetadata4SwapINSt7__cxx1112basic_stringIcS
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %35 = load float, ptr %33, align 8, !tbaa !145
-  %36 = load float, ptr %34, align 4, !tbaa !145
+  %36 = load float, ptr %34, align 8, !tbaa !145
   store float %36, ptr %33, align 8, !tbaa !145
-  store float %35, ptr %34, align 4, !tbaa !145
+  store float %35, ptr %34, align 8, !tbaa !145
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %39 = load i32, ptr %37, align 4, !tbaa !11
@@ -17167,17 +17167,17 @@ _ZN6google8protobuf8internal16InternalMetadata4SwapINSt7__cxx1112basic_stringIcS
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.0.copyload.i.i.i.i = load i128, ptr %30, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 1 dereferenceable(16) %31, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i.i, ptr %31, align 1
+  store i128 %.0.copyload.i.i.i.i, ptr %31, align 4
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.0.copyload.i.i = load i128, ptr %32, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 1 dereferenceable(16) %33, i64 16, i1 false)
-  store i128 %.0.copyload.i.i, ptr %33, align 1
+  store i128 %.0.copyload.i.i, ptr %33, align 4
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %.0.copyload.i.i.i = load i128, ptr %34, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 1 dereferenceable(16) %35, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i, ptr %35, align 1
+  store i128 %.0.copyload.i.i.i, ptr %35, align 4
   ret void
 }
 
@@ -17344,7 +17344,7 @@ define noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN13sentencepie
   store ptr null, ptr %5, align 8, !tbaa !3
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN13sentencepiece19SelfTestData_SampleE, i64 16), ptr %4, align 8, !tbaa !8
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 0, ptr %.ptr.i.i, align 4, !tbaa !11
+  store i32 0, ptr %.ptr.i.i, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 0, ptr %6, align 4, !tbaa !13
   %7 = load atomic i32, ptr @scc_info_SelfTestData_Sample_sentencepiece_5fmodel_2eproto acquire, align 8
@@ -17861,7 +17861,7 @@ _ZN6google8protobuf5Arena14CreateInternalINS0_8internal16InternalMetadata9Contai
   %25 = getelementptr inbounds nuw i8, ptr %.sink11, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %.sink11, i64 24
   store ptr %26, ptr %25, align 8, !tbaa !102
-  store i8 0, ptr %26, align 1, !tbaa !67
+  store i8 0, ptr %26, align 8, !tbaa !67
   %27 = ptrtoint ptr %.sink11 to i64
   %28 = or i64 %27, 1
   %29 = inttoptr i64 %28 to ptr
@@ -17931,7 +17931,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %16, ptr %15, align 8, !tbaa !102
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 0, ptr %17, align 8, !tbaa !41
-  store i8 0, ptr %16, align 1, !tbaa !67
+  store i8 0, ptr %16, align 8, !tbaa !67
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %14)
   %18 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv36
   store ptr %15, ptr %18, align 8, !tbaa !75
@@ -17978,7 +17978,7 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i: ;
   store ptr %35, ptr %34, align 8, !tbaa !102
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 0, ptr %36, align 8, !tbaa !41
-  store i8 0, ptr %35, align 1, !tbaa !67
+  store i8 0, ptr %35, align 8, !tbaa !67
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %24)
   %37 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv32
   store ptr %34, ptr %37, align 8, !tbaa !75

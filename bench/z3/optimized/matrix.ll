@@ -2213,7 +2213,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %71, ptr %73, align 8, !tbaa !20
   store ptr %63, ptr %.sroa.04.07.i.i.i.i.i.i, align 8, !tbaa !17
   store i64 0, ptr %72, align 8, !tbaa !20
-  store i8 0, ptr %63, align 1, !tbaa !22
+  store i8 0, ptr %63, align 8, !tbaa !22
   %74 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i.i.i, i64 32
   %75 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 32
   %76 = icmp eq ptr %74, %59

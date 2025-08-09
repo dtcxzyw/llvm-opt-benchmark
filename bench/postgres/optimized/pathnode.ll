@@ -3873,7 +3873,7 @@ define dso_local noundef ptr @apply_projection_to_path(ptr noundef %0, ptr nound
   %27 = load double, ptr %26, align 8
   %28 = fadd double %27, %25
   store double %28, ptr %26, align 8
-  %29 = load i32, ptr %2, align 4
+  %29 = load i32, ptr %2, align 8
   %.off = add i32 %29, -295
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %30, label %40

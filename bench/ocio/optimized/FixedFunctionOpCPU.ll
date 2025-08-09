@@ -5286,11 +5286,11 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev26Renderer_DOUBLE_LOG_TO_LINELN9__gnu_
   %380 = getelementptr inbounds nuw i8, ptr %369, i64 28
   %381 = load float, ptr %380, align 4, !tbaa !160
   %382 = getelementptr inbounds nuw i8, ptr %369, i64 48
-  %383 = load float, ptr %382, align 4, !tbaa !171
+  %383 = load float, ptr %382, align 8, !tbaa !171
   %384 = tail call float @llvm.fmuladd.f32(float %379, float %381, float %383)
   %385 = tail call noundef float @logf(float noundef %384) #28, !tbaa !14
   %386 = getelementptr inbounds nuw i8, ptr %369, i64 40
-  %387 = load float, ptr %386, align 4, !tbaa !169
+  %387 = load float, ptr %386, align 8, !tbaa !169
   %388 = tail call float @llvm.fmuladd.f32(float %377, float %385, float %387)
   store float %388, ptr %374, align 4, !tbaa !180
   %389 = getelementptr inbounds nuw i8, ptr %369, i64 52
@@ -5300,11 +5300,11 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev26Renderer_DOUBLE_LOG_TO_LINELN9__gnu_
   %393 = getelementptr inbounds nuw i8, ptr %369, i64 32
   %394 = load float, ptr %393, align 8, !tbaa !161
   %395 = getelementptr inbounds nuw i8, ptr %369, i64 64
-  %396 = load float, ptr %395, align 4, !tbaa !175
+  %396 = load float, ptr %395, align 8, !tbaa !175
   %397 = tail call float @llvm.fmuladd.f32(float %392, float %394, float %396)
   %398 = tail call noundef float @logf(float noundef %397) #28, !tbaa !14
   %399 = getelementptr inbounds nuw i8, ptr %369, i64 56
-  %400 = load float, ptr %399, align 4, !tbaa !173
+  %400 = load float, ptr %399, align 8, !tbaa !173
   %401 = tail call float @llvm.fmuladd.f32(float %390, float %398, float %400)
   store float %401, ptr %375, align 8, !tbaa !182
   store ptr %372, ptr %0, align 8, !tbaa !191

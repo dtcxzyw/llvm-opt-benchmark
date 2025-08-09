@@ -6065,7 +6065,7 @@ define hidden ptr @stbi_zlib_compress(ptr noundef %0, i32 noundef %1, ptr nounde
   %9 = getelementptr inbounds nuw i8, ptr %malloc, i64 8
   store i32 2, ptr %malloc, align 4
   store i32 1, ptr %8, align 4
-  store i8 120, ptr %9, align 1
+  store i8 120, ptr %9, align 4
   %10 = tail call dereferenceable_or_null(13) ptr @realloc(ptr noundef nonnull %malloc, i64 noundef 13) #56
   %.not18.i253 = icmp eq ptr %10, null
   br i1 %.not18.i253, label %stbiw__zlib_flushf.exit.thread, label %11
@@ -27019,7 +27019,7 @@ define internal fastcc ptr @stbi__load_main(ptr noundef nonnull %0, ptr noundef 
 
 51:                                               ; preds = %37
   store i32 0, ptr %19, align 8
-  store i8 0, ptr %22, align 1
+  store i8 0, ptr %22, align 8
   br label %stbi__refill_buffer.exit.i.i.i
 
 52:                                               ; preds = %37
@@ -27554,7 +27554,7 @@ stbi__png_load.exit:                              ; preds = %64, %73, %stbi__con
 
 262:                                              ; preds = %248
   store i32 0, ptr %19, align 8
-  store i8 0, ptr %22, align 1
+  store i8 0, ptr %22, align 8
   br label %stbi__refill_buffer.exit.i.i.i39
 
 263:                                              ; preds = %248
@@ -27612,7 +27612,7 @@ stbi__get8.exit.i.i41:                            ; preds = %stbi__refill_buffer
 
 291:                                              ; preds = %277
   store i32 0, ptr %19, align 8
-  store i8 0, ptr %22, align 1
+  store i8 0, ptr %22, align 8
   br label %stbi__refill_buffer.exit.i22.i.i
 
 292:                                              ; preds = %277
@@ -27942,7 +27942,7 @@ stbi__malloc_mad3.exit.thread.i:                  ; preds = %stbi__malloc_mad3.e
 
 448:                                              ; preds = %434
   store i32 0, ptr %19, align 8
-  store i8 0, ptr %22, align 1
+  store i8 0, ptr %22, align 8
   br label %stbi__refill_buffer.exit.i.i
 
 449:                                              ; preds = %434
@@ -28000,7 +28000,7 @@ stbi__get8.exit.i:                                ; preds = %stbi__refill_buffer
 
 479:                                              ; preds = %465
   store i32 0, ptr %19, align 8
-  store i8 0, ptr %22, align 1
+  store i8 0, ptr %22, align 8
   br label %stbi__refill_buffer.exit.i389.i
 
 480:                                              ; preds = %465
@@ -28057,7 +28057,7 @@ stbi__get8.exit392.i:                             ; preds = %stbi__refill_buffer
 
 509:                                              ; preds = %495
   store i32 0, ptr %19, align 8
-  store i8 0, ptr %22, align 1
+  store i8 0, ptr %22, align 8
   br label %stbi__refill_buffer.exit.i395.i
 
 510:                                              ; preds = %495
@@ -28114,7 +28114,7 @@ stbi__get8.exit398.i:                             ; preds = %stbi__refill_buffer
 
 538:                                              ; preds = %524
   store i32 0, ptr %19, align 8
-  store i8 0, ptr %22, align 1
+  store i8 0, ptr %22, align 8
   br label %stbi__refill_buffer.exit.i401.i
 
 539:                                              ; preds = %524
@@ -28246,7 +28246,7 @@ stbi__get8.exit404.i:                             ; preds = %stbi__get8.exit404.
 
 603:                                              ; preds = %589
   store i32 0, ptr %19, align 8
-  store i8 0, ptr %22, align 1
+  store i8 0, ptr %22, align 8
   br label %stbi__refill_buffer.exit.i407.i
 
 604:                                              ; preds = %589
@@ -28354,7 +28354,7 @@ stbi__get8.exit410.i:                             ; preds = %stbi__refill_buffer
 
 661:                                              ; preds = %647
   store i32 0, ptr %19, align 8
-  store i8 0, ptr %22, align 1
+  store i8 0, ptr %22, align 8
   br label %stbi__refill_buffer.exit.i413.i
 
 662:                                              ; preds = %647
@@ -28479,7 +28479,7 @@ stbi__skip.exit.i:                                ; preds = %.thread.i.i, %683, 
 
 717:                                              ; preds = %703
   store i32 0, ptr %19, align 8
-  store i8 0, ptr %22, align 1
+  store i8 0, ptr %22, align 8
   br label %stbi__refill_buffer.exit.i421.i
 
 718:                                              ; preds = %703
@@ -28574,7 +28574,7 @@ stbi__get8.exit424.i:                             ; preds = %stbi__refill_buffer
 
 771:                                              ; preds = %757
   store i32 0, ptr %19, align 8
-  store i8 0, ptr %22, align 1
+  store i8 0, ptr %22, align 8
   br label %stbi__refill_buffer.exit.i427.i
 
 772:                                              ; preds = %757
@@ -28906,7 +28906,7 @@ stbi__skip.exit442.i:                             ; preds = %.thread.i438.i, %84
 
 943:                                              ; preds = %929
   store i32 0, ptr %19, align 8
-  store i8 0, ptr %22, align 1
+  store i8 0, ptr %22, align 8
   br label %stbi__refill_buffer.exit.i445.i
 
 944:                                              ; preds = %929
@@ -28965,7 +28965,7 @@ stbi__get8.exit448.i:                             ; preds = %stbi__refill_buffer
 
 975:                                              ; preds = %961
   store i32 0, ptr %19, align 8
-  store i8 0, ptr %22, align 1
+  store i8 0, ptr %22, align 8
   br label %stbi__refill_buffer.exit.i451.i
 
 976:                                              ; preds = %961
@@ -29022,7 +29022,7 @@ stbi__get8.exit454.i:                             ; preds = %stbi__refill_buffer
 
 1005:                                             ; preds = %991
   store i32 0, ptr %19, align 8
-  store i8 0, ptr %22, align 1
+  store i8 0, ptr %22, align 8
   br label %stbi__refill_buffer.exit.i457.i
 
 1006:                                             ; preds = %991
@@ -29082,7 +29082,7 @@ stbi__get8.exit460.i:                             ; preds = %stbi__refill_buffer
 
 1036:                                             ; preds = %1022
   store i32 0, ptr %19, align 8
-  store i8 0, ptr %22, align 1
+  store i8 0, ptr %22, align 8
   br label %stbi__refill_buffer.exit.i463.i
 
 1037:                                             ; preds = %1022
@@ -29579,7 +29579,7 @@ stbi__get8.exit.thread.i.i.i.i:                   ; preds = %1254
 1277:                                             ; preds = %1257
   store i32 0, ptr %1255, align 8
   %1278 = getelementptr inbounds nuw i8, ptr %1245, i64 57
-  store i8 0, ptr %1262, align 1
+  store i8 0, ptr %1262, align 8
   br label %stbi__refill_buffer.exit.i.i.i.i.i
 
 1279:                                             ; preds = %1257
@@ -29665,7 +29665,7 @@ stbi__get8.exit.i.i.i.i:                          ; preds = %stbi__refill_buffer
 1326:                                             ; preds = %1306
   store i32 0, ptr %1304, align 8
   %1327 = getelementptr inbounds nuw i8, ptr %1294, i64 57
-  store i8 0, ptr %1311, align 1
+  store i8 0, ptr %1311, align 8
   br label %stbi__refill_buffer.exit.i74.i.i.i.i
 
 1328:                                             ; preds = %1306
@@ -29731,7 +29731,7 @@ stbi__get8.exit77.i.i.i.i:                        ; preds = %stbi__refill_buffer
 1366:                                             ; preds = %1346
   store i32 0, ptr %1344, align 8
   %1367 = getelementptr inbounds nuw i8, ptr %1334, i64 57
-  store i8 0, ptr %1351, align 1
+  store i8 0, ptr %1351, align 8
   br label %stbi__refill_buffer.exit.i80.i.i.i.i
 
 1368:                                             ; preds = %1346
@@ -29853,7 +29853,7 @@ stbi__get8.exit83.i.i.i.i:                        ; preds = %stbi__refill_buffer
 1430:                                             ; preds = %1410
   store i32 0, ptr %1408, align 8
   %1431 = getelementptr inbounds nuw i8, ptr %1374, i64 57
-  store i8 0, ptr %1415, align 1
+  store i8 0, ptr %1415, align 8
   br label %stbi__refill_buffer.exit.i86.i.i.i.i
 
 1432:                                             ; preds = %1410
@@ -29920,7 +29920,7 @@ stbi__get8.exit89.i.i.i.i:                        ; preds = %stbi__refill_buffer
 1470:                                             ; preds = %1450
   store i32 0, ptr %1448, align 8
   %1471 = getelementptr inbounds nuw i8, ptr %1438, i64 57
-  store i8 0, ptr %1455, align 1
+  store i8 0, ptr %1455, align 8
   br label %stbi__refill_buffer.exit.i92.i.i.i.i
 
 1472:                                             ; preds = %1450
@@ -29987,7 +29987,7 @@ stbi__get8.exit95.i.i.i.i:                        ; preds = %stbi__refill_buffer
 1510:                                             ; preds = %1490
   store i32 0, ptr %1488, align 8
   %1511 = getelementptr inbounds nuw i8, ptr %1478, i64 57
-  store i8 0, ptr %1495, align 1
+  store i8 0, ptr %1495, align 8
   br label %stbi__refill_buffer.exit.i98.i.i.i.i
 
 1512:                                             ; preds = %1490
@@ -31333,7 +31333,7 @@ stbi__at_eof.exit.thread.i.i.i.i:                 ; preds = %stbi__at_eof.exit.i
 2162:                                             ; preds = %2142
   store i32 0, ptr %2140, align 8
   %2163 = getelementptr inbounds nuw i8, ptr %2130, i64 57
-  store i8 0, ptr %2147, align 1
+  store i8 0, ptr %2147, align 8
   br label %stbi__refill_buffer.exit.i.i58.i.i.i
 
 2164:                                             ; preds = %2142
@@ -31436,7 +31436,7 @@ stbi__at_eof.exit19.thread.i.i.i.i:               ; preds = %stbi__at_eof.exit19
 2220:                                             ; preds = %2200
   store i32 0, ptr %2198, align 8
   %2221 = getelementptr inbounds nuw i8, ptr %2188, i64 57
-  store i8 0, ptr %2205, align 1
+  store i8 0, ptr %2205, align 8
   br label %stbi__refill_buffer.exit.i22.i.i.i.i
 
 2222:                                             ; preds = %2200
@@ -32667,7 +32667,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__gif_test(ptr noundef nonnull %
 33:                                               ; preds = %13
   store i32 0, ptr %11, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %18, align 1
+  store i8 0, ptr %18, align 8
   br label %stbi__refill_buffer.exit.i.i
 
 35:                                               ; preds = %13
@@ -32733,7 +32733,7 @@ stbi__get8.exit.i:                                ; preds = %stbi__refill_buffer
 70:                                               ; preds = %50
   store i32 0, ptr %48, align 8
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %55, align 1
+  store i8 0, ptr %55, align 8
   br label %stbi__refill_buffer.exit.i15.i
 
 72:                                               ; preds = %50
@@ -32799,7 +32799,7 @@ stbi__get8.exit18.i:                              ; preds = %stbi__refill_buffer
 107:                                              ; preds = %87
   store i32 0, ptr %85, align 8
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %92, align 1
+  store i8 0, ptr %92, align 8
   br label %stbi__refill_buffer.exit.i21.i
 
 109:                                              ; preds = %87
@@ -32865,7 +32865,7 @@ stbi__get8.exit24.i:                              ; preds = %stbi__refill_buffer
 144:                                              ; preds = %124
   store i32 0, ptr %122, align 8
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %129, align 1
+  store i8 0, ptr %129, align 8
   br label %stbi__refill_buffer.exit.i27.i
 
 146:                                              ; preds = %124
@@ -32931,7 +32931,7 @@ stbi__get8.exit30.i:                              ; preds = %stbi__refill_buffer
 181:                                              ; preds = %161
   store i32 0, ptr %159, align 8
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %166, align 1
+  store i8 0, ptr %166, align 8
   br label %stbi__refill_buffer.exit.i33.i
 
 183:                                              ; preds = %161
@@ -32999,7 +32999,7 @@ stbi__get8.exit36.i:                              ; preds = %stbi__refill_buffer
 218:                                              ; preds = %198
   store i32 0, ptr %196, align 8
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %203, align 1
+  store i8 0, ptr %203, align 8
   br label %stbi__refill_buffer.exit.i39.i
 
 220:                                              ; preds = %198
@@ -33081,7 +33081,7 @@ define internal fastcc zeroext i8 @stbi__get8(ptr noundef %0) unnamed_addr #4 {
 33:                                               ; preds = %13
   store i32 0, ptr %11, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %18, align 1
+  store i8 0, ptr %18, align 8
   br label %stbi__refill_buffer.exit
 
 35:                                               ; preds = %13
@@ -33174,7 +33174,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__parse_png_file(ptr noundef non
 
 46:                                               ; preds = %32
   store i32 0, ptr %14, align 8
-  store i8 0, ptr %17, align 1
+  store i8 0, ptr %17, align 8
   br label %stbi__refill_buffer.exit.i.i
 
 47:                                               ; preds = %32
@@ -33372,7 +33372,7 @@ stbi__get8.exit.thread:                           ; preds = %119
 
 135:                                              ; preds = %121
   store i32 0, ptr %14, align 8
-  store i8 0, ptr %17, align 1
+  store i8 0, ptr %17, align 8
   br label %stbi__refill_buffer.exit.i
 
 136:                                              ; preds = %121
@@ -33440,7 +33440,7 @@ stbi__get8.exit:                                  ; preds = %116, %stbi__refill_
 
 164:                                              ; preds = %150
   store i32 0, ptr %14, align 8
-  store i8 0, ptr %17, align 1
+  store i8 0, ptr %17, align 8
   br label %stbi__refill_buffer.exit.i312
 
 165:                                              ; preds = %150
@@ -33529,7 +33529,7 @@ stbi__get8.exit315:                               ; preds = %145, %stbi__refill_
 
 205:                                              ; preds = %191
   store i32 0, ptr %14, align 8
-  store i8 0, ptr %17, align 1
+  store i8 0, ptr %17, align 8
   br label %stbi__refill_buffer.exit.i318
 
 206:                                              ; preds = %191
@@ -33693,7 +33693,7 @@ stbi__get8.exit321.thread:                        ; preds = %189, %stbi__get8.ex
 
 269:                                              ; preds = %255
   store i32 0, ptr %14, align 8
-  store i8 0, ptr %17, align 1
+  store i8 0, ptr %17, align 8
   br label %stbi__refill_buffer.exit.i324
 
 270:                                              ; preds = %255
@@ -33749,7 +33749,7 @@ stbi__get8.exit327:                               ; preds = %250, %253, %stbi__r
 
 298:                                              ; preds = %284
   store i32 0, ptr %14, align 8
-  store i8 0, ptr %17, align 1
+  store i8 0, ptr %17, align 8
   br label %stbi__refill_buffer.exit.i330
 
 299:                                              ; preds = %284
@@ -33805,7 +33805,7 @@ stbi__get8.exit333:                               ; preds = %279, %282, %stbi__r
 
 327:                                              ; preds = %313
   store i32 0, ptr %14, align 8
-  store i8 0, ptr %17, align 1
+  store i8 0, ptr %17, align 8
   br label %stbi__refill_buffer.exit.i336
 
 328:                                              ; preds = %313
@@ -33927,7 +33927,7 @@ stbi__get8.exit339:                               ; preds = %308, %311, %stbi__r
 
 375:                                              ; preds = %361
   store i32 0, ptr %14, align 8
-  store i8 0, ptr %17, align 1
+  store i8 0, ptr %17, align 8
   br label %stbi__refill_buffer.exit.i342
 
 376:                                              ; preds = %361
@@ -35196,7 +35196,7 @@ define internal fastcc range(i32 0, 65536) i32 @stbi__get16be(ptr noundef %0) un
 33:                                               ; preds = %13
   store i32 0, ptr %11, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %18, align 1
+  store i8 0, ptr %18, align 8
   br label %stbi__refill_buffer.exit.i
 
 35:                                               ; preds = %13
@@ -35258,7 +35258,7 @@ stbi__get8.exit:                                  ; preds = %7, %10, %stbi__refi
 69:                                               ; preds = %49
   store i32 0, ptr %47, align 8
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %54, align 1
+  store i8 0, ptr %54, align 8
   br label %stbi__refill_buffer.exit.i4
 
 71:                                               ; preds = %49
@@ -36390,7 +36390,7 @@ define internal fastcc range(i32 0, 65536) i32 @stbi__get16le(ptr noundef nonnul
 33:                                               ; preds = %13
   store i32 0, ptr %11, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %18, align 1
+  store i8 0, ptr %18, align 8
   br label %stbi__refill_buffer.exit.i
 
 35:                                               ; preds = %13
@@ -36452,7 +36452,7 @@ stbi__get8.exit:                                  ; preds = %7, %10, %stbi__refi
 69:                                               ; preds = %49
   store i32 0, ptr %47, align 8
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %54, align 1
+  store i8 0, ptr %54, align 8
   br label %stbi__refill_buffer.exit.i4
 
 71:                                               ; preds = %49
@@ -36525,7 +36525,7 @@ define internal fastcc noundef ptr @stbi__bmp_parse_header(ptr noundef nonnull %
 34:                                               ; preds = %14
   store i32 0, ptr %12, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %19, align 1
+  store i8 0, ptr %19, align 8
   br label %stbi__refill_buffer.exit.i
 
 36:                                               ; preds = %14
@@ -36591,7 +36591,7 @@ stbi__get8.exit:                                  ; preds = %8, %stbi__refill_bu
 71:                                               ; preds = %51
   store i32 0, ptr %49, align 8
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %56, align 1
+  store i8 0, ptr %56, align 8
   br label %stbi__refill_buffer.exit.i122
 
 73:                                               ; preds = %51
@@ -37186,7 +37186,7 @@ stbi__skip.exit225:                               ; preds = %stbi__skip.exit225.
 
 117:                                              ; preds = %103
   store i32 0, ptr %82, align 8
-  store i8 0, ptr %85, align 1
+  store i8 0, ptr %85, align 8
   br label %stbi__refill_buffer.exit.i
 
 118:                                              ; preds = %103
@@ -37290,7 +37290,7 @@ stbi__get8.exit190.thread:                        ; preds = %156
 
 173:                                              ; preds = %159
   store i32 0, ptr %82, align 8
-  store i8 0, ptr %85, align 1
+  store i8 0, ptr %85, align 8
   br label %stbi__refill_buffer.exit.i187
 
 174:                                              ; preds = %159
@@ -37398,7 +37398,7 @@ stbi__get8.exit190:                               ; preds = %153, %stbi__refill_
 
 226:                                              ; preds = %212
   store i32 0, ptr %82, align 8
-  store i8 0, ptr %85, align 1
+  store i8 0, ptr %85, align 8
   br label %stbi__refill_buffer.exit.i.i
 
 227:                                              ; preds = %212
@@ -37506,7 +37506,7 @@ stbi__get8.exit.thread.i:                         ; preds = %stbi__get8.exit.i, 
 
 271:                                              ; preds = %257
   store i32 0, ptr %82, align 8
-  store i8 0, ptr %85, align 1
+  store i8 0, ptr %85, align 8
   br label %stbi__refill_buffer.exit.i122.i
 
 272:                                              ; preds = %257
@@ -37568,7 +37568,7 @@ stbi__get8.exit125.i:                             ; preds = %stbi__refill_buffer
 
 304:                                              ; preds = %290
   store i32 0, ptr %82, align 8
-  store i8 0, ptr %85, align 1
+  store i8 0, ptr %85, align 8
   br label %stbi__refill_buffer.exit.i128.i
 
 305:                                              ; preds = %290
@@ -37696,7 +37696,7 @@ stbi__skip.exit.i:                                ; preds = %stbi__skip.exit.i.b
 
 365:                                              ; preds = %351
   store i32 0, ptr %82, align 8
-  store i8 0, ptr %85, align 1
+  store i8 0, ptr %85, align 8
   br label %stbi__refill_buffer.exit.i136.i
 
 366:                                              ; preds = %351
@@ -37902,7 +37902,7 @@ stbi__process_gif_raster.exit:                    ; preds = %255, %stbi__get8.ex
 
 467:                                              ; preds = %453
   store i32 0, ptr %82, align 8
-  store i8 0, ptr %85, align 1
+  store i8 0, ptr %85, align 8
   br label %stbi__refill_buffer.exit.i196
 
 468:                                              ; preds = %453
@@ -37965,7 +37965,7 @@ stbi__skip.exit225.backedge:                      ; preds = %stbi__get8.exit231,
 
 496:                                              ; preds = %482
   store i32 0, ptr %82, align 8
-  store i8 0, ptr %85, align 1
+  store i8 0, ptr %85, align 8
   br label %stbi__refill_buffer.exit.i202
 
 497:                                              ; preds = %482
@@ -38022,7 +38022,7 @@ stbi__get8.exit205:                               ; preds = %477, %stbi__refill_
 
 525:                                              ; preds = %511
   store i32 0, ptr %82, align 8
-  store i8 0, ptr %85, align 1
+  store i8 0, ptr %85, align 8
   br label %stbi__refill_buffer.exit.i208
 
 526:                                              ; preds = %511
@@ -38098,7 +38098,7 @@ stbi__get8.exit211:                               ; preds = %506, %509, %stbi__r
 
 564:                                              ; preds = %550
   store i32 0, ptr %82, align 8
-  store i8 0, ptr %85, align 1
+  store i8 0, ptr %85, align 8
   br label %stbi__refill_buffer.exit.i214
 
 565:                                              ; preds = %550
@@ -38229,7 +38229,7 @@ stbi__get8.exit199.thread:                        ; preds = %stbi__get8.exit199.
 
 627:                                              ; preds = %613
   store i32 0, ptr %82, align 8
-  store i8 0, ptr %85, align 1
+  store i8 0, ptr %85, align 8
   br label %stbi__refill_buffer.exit.i228
 
 628:                                              ; preds = %613
@@ -38340,7 +38340,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__gif_header(ptr noundef nonnull
 36:                                               ; preds = %16
   store i32 0, ptr %14, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %21, align 1
+  store i8 0, ptr %21, align 8
   br label %stbi__refill_buffer.exit.i
 
 38:                                               ; preds = %16
@@ -38406,7 +38406,7 @@ stbi__get8.exit:                                  ; preds = %10, %stbi__refill_b
 73:                                               ; preds = %53
   store i32 0, ptr %51, align 8
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %58, align 1
+  store i8 0, ptr %58, align 8
   br label %stbi__refill_buffer.exit.i40
 
 75:                                               ; preds = %53
@@ -38472,7 +38472,7 @@ stbi__get8.exit43:                                ; preds = %47, %stbi__refill_b
 110:                                              ; preds = %90
   store i32 0, ptr %88, align 8
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %95, align 1
+  store i8 0, ptr %95, align 8
   br label %stbi__refill_buffer.exit.i46
 
 112:                                              ; preds = %90
@@ -38538,7 +38538,7 @@ stbi__get8.exit49:                                ; preds = %84, %stbi__refill_b
 147:                                              ; preds = %127
   store i32 0, ptr %125, align 8
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %132, align 1
+  store i8 0, ptr %132, align 8
   br label %stbi__refill_buffer.exit.i52
 
 149:                                              ; preds = %127
@@ -38608,7 +38608,7 @@ stbi__get8.exit.thread:                           ; preds = %124, %87, %50, %13,
 184:                                              ; preds = %164
   store i32 0, ptr %162, align 8
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %169, align 1
+  store i8 0, ptr %169, align 8
   br label %stbi__refill_buffer.exit.i58
 
 186:                                              ; preds = %164
@@ -38680,7 +38680,7 @@ stbi__get8.exit61.thread:                         ; preds = %161, %stbi__get8.ex
 221:                                              ; preds = %201
   store i32 0, ptr %199, align 8
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %206, align 1
+  store i8 0, ptr %206, align 8
   br label %stbi__refill_buffer.exit.i64
 
 223:                                              ; preds = %201
@@ -38756,7 +38756,7 @@ stbi__get8.exit67.thread:                         ; preds = %198, %stbi__get8.ex
 261:                                              ; preds = %241
   store i32 0, ptr %239, align 8
   %262 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %246, align 1
+  store i8 0, ptr %246, align 8
   br label %stbi__refill_buffer.exit.i70
 
 263:                                              ; preds = %241
@@ -38821,7 +38821,7 @@ stbi__get8.exit73:                                ; preds = %235, %238, %stbi__r
 299:                                              ; preds = %279
   store i32 0, ptr %277, align 8
   %300 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %284, align 1
+  store i8 0, ptr %284, align 8
   br label %stbi__refill_buffer.exit.i76
 
 301:                                              ; preds = %279
@@ -38886,7 +38886,7 @@ stbi__get8.exit79:                                ; preds = %273, %276, %stbi__r
 337:                                              ; preds = %317
   store i32 0, ptr %315, align 8
   %338 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %322, align 1
+  store i8 0, ptr %322, align 8
   br label %stbi__refill_buffer.exit.i82
 
 339:                                              ; preds = %317
@@ -39010,7 +39010,7 @@ define internal fastcc void @stbi__gif_parse_colortable(ptr noundef nonnull %0, 
 
 39:                                               ; preds = %25
   store i32 0, ptr %7, align 8
-  store i8 0, ptr %10, align 1
+  store i8 0, ptr %10, align 8
   br label %stbi__refill_buffer.exit.i
 
 40:                                               ; preds = %25
@@ -39066,7 +39066,7 @@ stbi__get8.exit:                                  ; preds = %20, %23, %stbi__ref
 
 68:                                               ; preds = %54
   store i32 0, ptr %7, align 8
-  store i8 0, ptr %10, align 1
+  store i8 0, ptr %10, align 8
   br label %stbi__refill_buffer.exit.i17
 
 69:                                               ; preds = %54
@@ -39121,7 +39121,7 @@ stbi__get8.exit20:                                ; preds = %49, %52, %stbi__ref
 
 96:                                               ; preds = %82
   store i32 0, ptr %7, align 8
-  store i8 0, ptr %10, align 1
+  store i8 0, ptr %10, align 8
   br label %stbi__refill_buffer.exit.i23
 
 97:                                               ; preds = %82
@@ -40044,7 +40044,7 @@ define internal fastcc zeroext i8 @stbi__get_marker(ptr noundef nonnull captures
 38:                                               ; preds = %18
   store i32 0, ptr %16, align 8
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 57
-  store i8 0, ptr %23, align 1
+  store i8 0, ptr %23, align 8
   br label %stbi__refill_buffer.exit.i
 
 40:                                               ; preds = %18
@@ -40113,7 +40113,7 @@ stbi__get8.exit:                                  ; preds = %12, %stbi__refill_b
 77:                                               ; preds = %57
   store i32 0, ptr %55, align 8
   %78 = getelementptr inbounds nuw i8, ptr %45, i64 57
-  store i8 0, ptr %62, align 1
+  store i8 0, ptr %62, align 8
   br label %stbi__refill_buffer.exit.i13
 
 79:                                               ; preds = %57
@@ -40231,7 +40231,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__process_marker(ptr noundef non
 52:                                               ; preds = %32
   store i32 0, ptr %30, align 8
   %53 = getelementptr inbounds nuw i8, ptr %20, i64 57
-  store i8 0, ptr %37, align 1
+  store i8 0, ptr %37, align 8
   br label %stbi__refill_buffer.exit.i
 
 54:                                               ; preds = %32
@@ -40341,7 +40341,7 @@ stbi__get8.exit.thread:                           ; preds = %stbi__get8.exit
 108:                                              ; preds = %88
   store i32 0, ptr %86, align 8
   %109 = getelementptr inbounds nuw i8, ptr %76, i64 57
-  store i8 0, ptr %93, align 1
+  store i8 0, ptr %93, align 8
   br label %stbi__refill_buffer.exit.i145
 
 110:                                              ; preds = %88
@@ -40443,7 +40443,7 @@ stbi__get8.exit148:                               ; preds = %82, %85, %stbi__ref
 164:                                              ; preds = %144
   store i32 0, ptr %142, align 8
   %165 = getelementptr inbounds nuw i8, ptr %132, i64 57
-  store i8 0, ptr %149, align 1
+  store i8 0, ptr %149, align 8
   br label %stbi__refill_buffer.exit.i151
 
 166:                                              ; preds = %144
@@ -40517,7 +40517,7 @@ stbi__get8.exit154:                               ; preds = %138, %141, %stbi__r
 206:                                              ; preds = %186
   store i32 0, ptr %184, align 8
   %207 = getelementptr inbounds nuw i8, ptr %174, i64 57
-  store i8 0, ptr %191, align 1
+  store i8 0, ptr %191, align 8
   br label %stbi__refill_buffer.exit.i157
 
 208:                                              ; preds = %186
@@ -40627,7 +40627,7 @@ stbi__get8.exit160:                               ; preds = %180, %183, %stbi__r
 264:                                              ; preds = %244
   store i32 0, ptr %242, align 8
   %265 = getelementptr inbounds nuw i8, ptr %232, i64 57
-  store i8 0, ptr %249, align 1
+  store i8 0, ptr %249, align 8
   br label %stbi__refill_buffer.exit.i163
 
 266:                                              ; preds = %244
@@ -40808,7 +40808,7 @@ stbi__build_fast_ac.exit:                         ; preds = %311, %._crit_edge
 360:                                              ; preds = %340
   store i32 0, ptr %338, align 8
   %361 = getelementptr inbounds nuw i8, ptr %328, i64 57
-  store i8 0, ptr %345, align 1
+  store i8 0, ptr %345, align 8
   br label %stbi__refill_buffer.exit.i170
 
 362:                                              ; preds = %340
@@ -40901,7 +40901,7 @@ stbi__get8.exit173:                               ; preds = %334, %337, %stbi__r
 409:                                              ; preds = %389
   store i32 0, ptr %387, align 8
   %410 = getelementptr inbounds nuw i8, ptr %377, i64 57
-  store i8 0, ptr %394, align 1
+  store i8 0, ptr %394, align 8
   br label %stbi__refill_buffer.exit.i176
 
 411:                                              ; preds = %389
@@ -41081,7 +41081,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__process_frame_header(ptr nound
 39:                                               ; preds = %19
   store i32 0, ptr %17, align 8
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 57
-  store i8 0, ptr %24, align 1
+  store i8 0, ptr %24, align 8
   br label %stbi__refill_buffer.exit.i
 
 41:                                               ; preds = %19
@@ -41181,7 +41181,7 @@ stbi__get8.exit.thread:                           ; preds = %16, %stbi__get8.exi
 89:                                               ; preds = %69
   store i32 0, ptr %67, align 8
   %90 = getelementptr inbounds nuw i8, ptr %3, i64 57
-  store i8 0, ptr %74, align 1
+  store i8 0, ptr %74, align 8
   br label %stbi__refill_buffer.exit.i200
 
 91:                                               ; preds = %69
@@ -41296,7 +41296,7 @@ stbi__get8.exit203.thread:                        ; preds = %66, %stbi__get8.exi
 
 142:                                              ; preds = %128
   store i32 0, ptr %110, align 8
-  store i8 0, ptr %113, align 1
+  store i8 0, ptr %113, align 8
   br label %stbi__refill_buffer.exit.i206
 
 143:                                              ; preds = %128
@@ -41374,7 +41374,7 @@ stbi__get8.exit215.thread:                        ; preds = %165
 
 182:                                              ; preds = %168
   store i32 0, ptr %110, align 8
-  store i8 0, ptr %113, align 1
+  store i8 0, ptr %113, align 8
   br label %stbi__refill_buffer.exit.i212
 
 183:                                              ; preds = %168
@@ -41457,7 +41457,7 @@ stbi__get8.exit221.thread:                        ; preds = %203
 
 220:                                              ; preds = %206
   store i32 0, ptr %110, align 8
-  store i8 0, ptr %113, align 1
+  store i8 0, ptr %113, align 8
   br label %stbi__refill_buffer.exit.i218
 
 221:                                              ; preds = %206
@@ -42558,7 +42558,7 @@ define internal fastcc void @stbi__grow_buffer_unsafe(ptr noundef nonnull captur
 46:                                               ; preds = %26
   store i32 0, ptr %24, align 8
   %47 = getelementptr inbounds nuw i8, ptr %14, i64 57
-  store i8 0, ptr %31, align 1
+  store i8 0, ptr %31, align 8
   br label %stbi__refill_buffer.exit.i
 
 48:                                               ; preds = %26
@@ -42627,7 +42627,7 @@ stbi__refill_buffer.exit.i:                       ; preds = %48, %46
 88:                                               ; preds = %68
   store i32 0, ptr %66, align 8
   %89 = getelementptr inbounds nuw i8, ptr %56, i64 57
-  store i8 0, ptr %73, align 1
+  store i8 0, ptr %73, align 8
   br label %stbi__refill_buffer.exit.i20
 
 90:                                               ; preds = %68
@@ -42706,7 +42706,7 @@ stbi__get8.exit23.backedge:                       ; preds = %102, %105, %stbi__r
 128:                                              ; preds = %108
   store i32 0, ptr %106, align 8
   %129 = getelementptr inbounds nuw i8, ptr %96, i64 57
-  store i8 0, ptr %113, align 1
+  store i8 0, ptr %113, align 8
   br label %stbi__refill_buffer.exit.i26
 
 130:                                              ; preds = %108
@@ -57023,8 +57023,8 @@ stbir__get_extents.exit:                          ; preds = %._crit_edge.thread.
   %500 = getelementptr inbounds nuw i8, ptr %.2.i, i64 8
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %500) #54, !srcloc !357
   %501 = getelementptr inbounds nuw i8, ptr %.2254.i, i64 8
-  %502 = load i32, ptr %501, align 4
-  store i32 %502, ptr %500, align 4
+  %502 = load i32, ptr %501, align 8
+  store i32 %502, ptr %500, align 8
   %503 = getelementptr inbounds nuw i8, ptr %.2.i, i64 12
   %504 = getelementptr inbounds float, ptr %.2254.i, i64 %489
   %505 = icmp ult ptr %503, %488
@@ -57087,8 +57087,8 @@ stbir__get_extents.exit:                          ; preds = %._crit_edge.thread.
   %528 = getelementptr inbounds nuw i8, ptr %.6.i, i64 24
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %528) #54, !srcloc !369
   %529 = getelementptr inbounds nuw i8, ptr %.6258.i, i64 24
-  %530 = load i32, ptr %529, align 4
-  store i32 %530, ptr %528, align 4
+  %530 = load i32, ptr %529, align 8
+  store i32 %530, ptr %528, align 8
   %531 = getelementptr inbounds nuw i8, ptr %.6.i, i64 28
   %532 = getelementptr inbounds float, ptr %.6258.i, i64 %489
   %533 = icmp ult ptr %531, %488
@@ -57171,8 +57171,8 @@ stbir__get_extents.exit:                          ; preds = %._crit_edge.thread.
   %568 = getelementptr inbounds nuw i8, ptr %.10.i, i64 40
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %568) #54, !srcloc !385
   %569 = getelementptr inbounds nuw i8, ptr %.10262.i, i64 40
-  %570 = load i32, ptr %569, align 4
-  store i32 %570, ptr %568, align 4
+  %570 = load i32, ptr %569, align 8
+  store i32 %570, ptr %568, align 8
   %571 = getelementptr inbounds nuw i8, ptr %.10.i, i64 44
   %572 = getelementptr inbounds float, ptr %.10262.i, i64 %489
   %573 = icmp ult ptr %571, %488
@@ -58238,11 +58238,11 @@ define internal void @stbir__simple_flip_3ch(ptr noundef %0, i32 noundef %1) #21
   store <4 x float> %21, ptr %8, align 1
   %29 = getelementptr inbounds nuw i8, ptr %.053, i64 92
   %30 = load float, ptr %29, align 4
-  store <4 x float> %22, ptr %10, align 1
-  store <4 x float> %23, ptr %12, align 1
-  store <4 x float> %24, ptr %14, align 1
-  store <4 x float> %25, ptr %16, align 1
-  store <4 x float> %26, ptr %18, align 1
+  store <4 x float> %22, ptr %10, align 4
+  store <4 x float> %23, ptr %12, align 4
+  store <4 x float> %24, ptr %14, align 4
+  store <4 x float> %25, ptr %16, align 4
+  store <4 x float> %26, ptr %18, align 4
   store float %30, ptr %27, align 4
   store float %28, ptr %29, align 4
   %31 = getelementptr inbounds nuw i8, ptr %.053, i64 96
@@ -58310,7 +58310,7 @@ define internal fastcc void @stbir__calculate_filters(ptr noundef nonnull captur
 
 .lr.ph75.i:                                       ; preds = %22
   %35 = load i32, ptr %25, align 8
-  %36 = load i32, ptr %4, align 4
+  %36 = load i32, ptr %4, align 8
   %37 = icmp eq i32 %35, 2
   %38 = sub nsw i32 0, %36
   %39 = shl nsw i32 %36, 1
@@ -58458,7 +58458,7 @@ stbir__calculate_coefficients_for_gather_upsample.exit: ; preds = %._crit_edge.i
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 %120, ptr %121, align 4
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %123 = load i32, ptr %122, align 4
+  %123 = load i32, ptr %122, align 8
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %123, ptr %124, align 4
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 124

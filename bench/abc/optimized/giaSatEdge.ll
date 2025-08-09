@@ -870,7 +870,7 @@ Abc_Base2Log.exit:                                ; preds = %2, %20, %.lr.ph.pre
   %40 = getelementptr inbounds nuw i8, ptr %27, i64 36
   store i32 %39, ptr %40, align 4, !tbaa !32
   %41 = getelementptr inbounds nuw i8, ptr %27, i64 40
-  %42 = load i32, ptr %41, align 4, !tbaa !32
+  %42 = load i32, ptr %41, align 8, !tbaa !32
   %43 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %44 = load i32, ptr %43, align 8, !tbaa !78
   %45 = shl i32 %42, %44
@@ -981,7 +981,7 @@ Abc_Clock.exit:                                   ; preds = %1, %5
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 36
   store i32 %24, ptr %25, align 4, !tbaa !32
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  %27 = load i32, ptr %26, align 4, !tbaa !32
+  %27 = load i32, ptr %26, align 8, !tbaa !32
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %29 = load i32, ptr %28, align 8, !tbaa !78
   %30 = shl i32 %27, %29

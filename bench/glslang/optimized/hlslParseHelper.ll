@@ -4910,7 +4910,7 @@ define internal fastcc void @"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_
   store ptr %41, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 272
   store i64 0, ptr %44, align 8
-  store i8 0, ptr %41, align 1
+  store i8 0, ptr %41, align 8
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 304
   store ptr null, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 312
@@ -5163,7 +5163,7 @@ define internal fastcc void @"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_
   store ptr %40, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 272
   store i64 0, ptr %43, align 8
-  store i8 0, ptr %40, align 1
+  store i8 0, ptr %40, align 8
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 304
   store ptr null, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 312
@@ -6749,7 +6749,7 @@ _ZNK7glslang8TSampler7isImageEv.exit36.thread:    ; preds = %_ZNK7glslang8TSampl
   store ptr %86, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %48, i64 272
   store i64 0, ptr %89, align 8
-  store i8 0, ptr %86, align 1
+  store i8 0, ptr %86, align 8
   %90 = getelementptr inbounds nuw i8, ptr %48, i64 304
   store ptr null, ptr %90, align 8
   %91 = getelementptr inbounds nuw i8, ptr %48, i64 312
@@ -18367,10 +18367,10 @@ define void @_ZN7glslang16HlslParseContext5splitERKNS_9TVariableE(ptr noundef no
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  %17 = load i32, ptr %16, align 4
+  %17 = load i32, ptr %16, align 8
   %18 = and i32 %17, -2147483648
   %19 = or disjoint i32 %18, 520093696
-  store i32 %19, ptr %16, align 4
+  store i32 %19, ptr %16, align 8
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %22 = load i64, ptr %21, align 8
@@ -21955,10 +21955,10 @@ define void @_ZN7glslang16HlslParseContext17counterBufferTypeERKNS_10TSourceLocE
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  %15 = load i32, ptr %14, align 4
+  %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, -2147483648
   %17 = or disjoint i32 %16, 520093696
-  store i32 %17, ptr %14, align 4
+  store i32 %17, ptr %14, align 8
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %20 = load i64, ptr %19, align 8
@@ -22343,10 +22343,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEaSE
   %110 = getelementptr inbounds nuw i8, ptr %103, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %108, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %109, i8 0, i64 16, i1 false)
-  %111 = load i32, ptr %110, align 4
+  %111 = load i32, ptr %110, align 8
   %112 = and i32 %111, -2147483648
   %113 = or disjoint i32 %112, 520093696
-  store i32 %113, ptr %110, align 4
+  store i32 %113, ptr %110, align 8
   %114 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %115 = getelementptr inbounds nuw i8, ptr %103, i64 24
   %116 = load i64, ptr %115, align 8
@@ -22465,7 +22465,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEaSE
   store ptr %176, ptr %178, align 8
   %179 = getelementptr inbounds nuw i8, ptr %144, i64 272
   store i64 0, ptr %179, align 8
-  store i8 0, ptr %176, align 1
+  store i8 0, ptr %176, align 8
   %180 = getelementptr inbounds nuw i8, ptr %144, i64 296
   store i8 0, ptr %180, align 8
   %181 = getelementptr inbounds nuw i8, ptr %144, i64 304
@@ -23431,7 +23431,7 @@ _ZNSt6vectorIPN7glslang9TVariableENS0_14pool_allocatorIS2_EEE9push_backERKS2_.ex
   store ptr %223, ptr %225, align 8
   %226 = getelementptr inbounds nuw i8, ptr %191, i64 272
   store i64 0, ptr %226, align 8
-  store i8 0, ptr %223, align 1
+  store i8 0, ptr %223, align 8
   %227 = getelementptr inbounds nuw i8, ptr %191, i64 296
   store i8 0, ptr %227, align 8
   %228 = getelementptr inbounds nuw i8, ptr %191, i64 304
@@ -23538,7 +23538,7 @@ _ZNSt6vectorIPN7glslang9TVariableENS0_14pool_allocatorIS2_EEE9push_backERKS2_.ex
   store ptr %289, ptr %291, align 8
   %292 = getelementptr inbounds nuw i8, ptr %257, i64 272
   store i64 0, ptr %292, align 8
-  store i8 0, ptr %289, align 1
+  store i8 0, ptr %289, align 8
   %293 = getelementptr inbounds nuw i8, ptr %257, i64 296
   store i8 0, ptr %293, align 8
   %294 = getelementptr inbounds nuw i8, ptr %257, i64 304
@@ -23894,7 +23894,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   store ptr %498, ptr %500, align 8
   %501 = getelementptr inbounds nuw i8, ptr %466, i64 272
   store i64 0, ptr %501, align 8
-  store i8 0, ptr %498, align 1
+  store i8 0, ptr %498, align 8
   %502 = getelementptr inbounds nuw i8, ptr %466, i64 304
   store ptr null, ptr %502, align 8
   %503 = getelementptr inbounds nuw i8, ptr %466, i64 312
@@ -26556,10 +26556,10 @@ _ZNSt3mapIPKN7glslang7TVectorINS0_8TTypeLocEEENS0_16HlslParseContext8tIoKindsESt
   %203 = getelementptr inbounds nuw i8, ptr %196, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %201, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %202, i8 0, i64 16, i1 false)
-  %204 = load i32, ptr %203, align 4
+  %204 = load i32, ptr %203, align 8
   %205 = and i32 %204, -2147483648
   %206 = or disjoint i32 %205, 520093696
-  store i32 %206, ptr %203, align 4
+  store i32 %206, ptr %203, align 8
   %207 = getelementptr inbounds nuw i8, ptr %196, i64 16
   %208 = getelementptr inbounds nuw i8, ptr %196, i64 24
   %209 = load i64, ptr %208, align 8
@@ -27550,10 +27550,10 @@ define void @_ZN7glslang16HlslParseContext22handleFunctionArgumentEPNS_9TFunctio
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  %16 = load i32, ptr %15, align 4
+  %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, -2147483648
   %18 = or disjoint i32 %17, 520093696
-  store i32 %18, ptr %15, align 4
+  store i32 %18, ptr %15, align 8
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %21 = load i64, ptr %20, align 8
@@ -32725,7 +32725,7 @@ define noundef ptr @_ZN7glslang16HlslParseContext27handleSamplerTextureCombineER
   store ptr %39, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 272
   store i64 0, ptr %42, align 8
-  store i8 0, ptr %39, align 1
+  store i8 0, ptr %39, align 8
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 304
   store ptr null, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 312
@@ -33758,10 +33758,10 @@ _ZNKSt8functionIFbRN7glslang5TTypeES2_EEclES2_S2_.exit.i: ; preds = %38
   %127 = getelementptr inbounds nuw i8, ptr %120, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %125, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %126, i8 0, i64 16, i1 false)
-  %128 = load i32, ptr %127, align 4
+  %128 = load i32, ptr %127, align 8
   %129 = and i32 %128, -2147483648
   %130 = or disjoint i32 %129, 520093696
-  store i32 %130, ptr %127, align 4
+  store i32 %130, ptr %127, align 8
   %131 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %132 = getelementptr inbounds nuw i8, ptr %120, i64 24
   %133 = load i64, ptr %132, align 8
@@ -36577,7 +36577,7 @@ define internal fastcc noundef ptr @"_ZZN7glslang16HlslParseContext28decomposeSt
   store ptr %50, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %18, i64 272
   store i64 0, ptr %53, align 8
-  store i8 0, ptr %50, align 1
+  store i8 0, ptr %50, align 8
   %54 = getelementptr inbounds nuw i8, ptr %18, i64 304
   store ptr null, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %18, i64 312
@@ -40392,7 +40392,7 @@ define internal fastcc noundef ptr @"_ZZN7glslang16HlslParseContext22decomposeSa
   store ptr %109, ptr %111, align 8
   %112 = getelementptr inbounds nuw i8, ptr %77, i64 272
   store i64 0, ptr %112, align 8
-  store i8 0, ptr %109, align 1
+  store i8 0, ptr %109, align 8
   %113 = getelementptr inbounds nuw i8, ptr %77, i64 296
   store i8 0, ptr %113, align 8
   %114 = getelementptr inbounds nuw i8, ptr %77, i64 304
@@ -41114,7 +41114,7 @@ define void @_ZN7glslang16HlslParseContext24decomposeGeometryMethodsERKNS_10TSou
   store ptr %68, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %36, i64 272
   store i64 0, ptr %71, align 8
-  store i8 0, ptr %68, align 1
+  store i8 0, ptr %68, align 8
   %72 = getelementptr inbounds nuw i8, ptr %36, i64 304
   store ptr null, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %36, i64 312
@@ -41406,7 +41406,7 @@ _ZNSt6vectorIN7glslang16HlslParseContext13tGsAppendDataENS0_14pool_allocatorIS2_
   store ptr %236, ptr %238, align 8
   %239 = getelementptr inbounds nuw i8, ptr %204, i64 272
   store i64 0, ptr %239, align 8
-  store i8 0, ptr %236, align 1
+  store i8 0, ptr %236, align 8
   %240 = getelementptr inbounds nuw i8, ptr %204, i64 304
   store ptr null, ptr %240, align 8
   %241 = getelementptr inbounds nuw i8, ptr %204, i64 312
@@ -42433,7 +42433,7 @@ _ZN7glslang16HlslParseContext11mapAtomicOpERKNS_10TSourceLocENS_9TOperatorEb.exi
   store ptr %681, ptr %683, align 8
   %684 = getelementptr inbounds nuw i8, ptr %649, i64 272
   store i64 0, ptr %684, align 8
-  store i8 0, ptr %681, align 1
+  store i8 0, ptr %681, align 8
   %685 = getelementptr inbounds nuw i8, ptr %649, i64 304
   store ptr null, ptr %685, align 8
   %686 = getelementptr inbounds nuw i8, ptr %649, i64 312
@@ -44150,7 +44150,7 @@ switch.lookup640:                                 ; preds = %1588
   store ptr %1774, ptr %1776, align 8
   %1777 = getelementptr inbounds nuw i8, ptr %1742, i64 272
   store i64 0, ptr %1777, align 8
-  store i8 0, ptr %1774, align 1
+  store i8 0, ptr %1774, align 8
   %1778 = getelementptr inbounds nuw i8, ptr %1742, i64 304
   store ptr null, ptr %1778, align 8
   %1779 = getelementptr inbounds nuw i8, ptr %1742, i64 312
@@ -47912,10 +47912,10 @@ _ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_st
   %440 = getelementptr inbounds nuw i8, ptr %433, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %438, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %439, i8 0, i64 16, i1 false)
-  %441 = load i32, ptr %440, align 4
+  %441 = load i32, ptr %440, align 8
   %442 = and i32 %441, -2147483648
   %443 = or disjoint i32 %442, 520093696
-  store i32 %443, ptr %440, align 4
+  store i32 %443, ptr %440, align 8
   %444 = getelementptr inbounds nuw i8, ptr %433, i64 16
   %445 = getelementptr inbounds nuw i8, ptr %433, i64 24
   %446 = load i64, ptr %445, align 8
@@ -55500,10 +55500,10 @@ define internal fastcc void @"_ZZN7glslang16HlslParseContext13declareStructERKNS
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
-  %13 = load i32, ptr %12, align 4
+  %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, -2147483648
   %15 = or disjoint i32 %14, 520093696
-  store i32 %15, ptr %12, align 4
+  store i32 %15, ptr %12, align 8
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %18 = load i64, ptr %17, align 8
@@ -55654,10 +55654,10 @@ define internal fastcc void @"_ZZN7glslang16HlslParseContext13declareStructERKNS
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  %14 = load i32, ptr %13, align 4
+  %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, -2147483648
   %16 = or disjoint i32 %15, 520093696
-  store i32 %16, ptr %13, align 4
+  store i32 %16, ptr %13, align 8
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %19 = load i64, ptr %18, align 8
@@ -61649,7 +61649,7 @@ _ZNSt6vectorIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE9push_backEOS1_.exit:
   store ptr %163, ptr %165, align 8
   %166 = getelementptr inbounds nuw i8, ptr %131, i64 272
   store i64 0, ptr %166, align 8
-  store i8 0, ptr %163, align 1
+  store i8 0, ptr %163, align 8
   %167 = getelementptr inbounds nuw i8, ptr %131, i64 304
   store ptr null, ptr %167, align 8
   %168 = getelementptr inbounds nuw i8, ptr %131, i64 312
@@ -63634,10 +63634,10 @@ _ZNSt3setIN7glslang16HlslParseContext17tInterstageIoDataESt4lessIS2_ESaIS2_EEaSE
   %185 = getelementptr inbounds nuw i8, ptr %178, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %183, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %184, i8 0, i64 16, i1 false)
-  %186 = load i32, ptr %185, align 4
+  %186 = load i32, ptr %185, align 8
   %187 = and i32 %186, -2147483648
   %188 = or disjoint i32 %187, 520093696
-  store i32 %188, ptr %185, align 4
+  store i32 %188, ptr %185, align 8
   %189 = getelementptr inbounds nuw i8, ptr %178, i64 16
   %190 = getelementptr inbounds nuw i8, ptr %178, i64 24
   %191 = load i64, ptr %190, align 8
@@ -65047,7 +65047,7 @@ _ZNSt3mapIPKN7glslang7TVectorINS0_8TTypeLocEEENS0_16HlslParseContext8tIoKindsESt
   store ptr %1007, ptr %1009, align 8
   %1010 = getelementptr inbounds nuw i8, ptr %975, i64 272
   store i64 0, ptr %1010, align 8
-  store i8 0, ptr %1007, align 1
+  store i8 0, ptr %1007, align 8
   %1011 = getelementptr inbounds nuw i8, ptr %975, i64 304
   store ptr null, ptr %1011, align 8
   %1012 = getelementptr inbounds nuw i8, ptr %975, i64 312
@@ -72912,10 +72912,10 @@ _ZNSt3mapIPN7glslang7TVectorINS0_8TTypeLocEEES4_St4lessIS4_ENS0_14pool_allocator
   %213 = getelementptr inbounds nuw i8, ptr %206, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %211, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %212, i8 0, i64 16, i1 false)
-  %214 = load i32, ptr %213, align 4
+  %214 = load i32, ptr %213, align 8
   %215 = and i32 %214, -2147483648
   %216 = or disjoint i32 %215, 520093696
-  store i32 %216, ptr %213, align 4
+  store i32 %216, ptr %213, align 8
   %217 = getelementptr inbounds nuw i8, ptr %206, i64 16
   %218 = getelementptr inbounds nuw i8, ptr %206, i64 24
   %219 = load i64, ptr %218, align 8
@@ -77965,7 +77965,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allo
   store i64 %25, ptr %26, align 8
   store ptr %16, ptr %14, align 8
   store i64 0, ptr %24, align 8
-  store i8 0, ptr %16, align 1
+  store i8 0, ptr %16, align 8
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store i32 0, ptr %27, align 8
   %28 = tail call { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS7_NS4_18TExtensionBehaviorEESt10_Select1stISB_ESt4lessIS7_ENS5_ISB_EEE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERS9_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(40) %8)

@@ -7294,7 +7294,7 @@ _ZNK13hb_bit_page_t8is_emptyEv.exit.thread18.i.i: ; preds = %_ZNK16hb_vector_siz
 2031:                                             ; preds = %1999
   %2032 = load ptr, ptr %1978, align 8, !tbaa !292
   %2033 = lshr i32 %2000, 9
-  %2034 = load atomic i32, ptr %1979 monotonic, align 4
+  %2034 = load atomic i32, ptr %1979 monotonic, align 8
   %2035 = load i32, ptr %1980, align 4, !tbaa !300
   %.not.i629.i = icmp ult i32 %2034, %2035
   br i1 %.not.i629.i, label %2036, label %.critedge.i630.i, !prof !35
@@ -8188,7 +8188,7 @@ _ZNK13hb_bit_page_t8is_emptyEv.exit.thread18.i744.i: ; preds = %_ZNK16hb_vector_
 2419:                                             ; preds = %2387
   %2420 = load ptr, ptr %2372, align 8, !tbaa !292
   %2421 = lshr i32 %2388, 9
-  %2422 = load atomic i32, ptr %2373 monotonic, align 4
+  %2422 = load atomic i32, ptr %2373 monotonic, align 8
   %2423 = load i32, ptr %2374, align 4, !tbaa !300
   %.not.i661.i = icmp ult i32 %2422, %2423
   br i1 %.not.i661.i, label %2424, label %.critedge.i662.i, !prof !35
@@ -8983,7 +8983,7 @@ _ZNK13hb_bit_page_t8is_emptyEv.exit.thread18.i.i.i.i: ; preds = %_ZNK16hb_vector
 2748:                                             ; preds = %2716
   %2749 = load ptr, ptr %2689, align 8, !tbaa !292
   %2750 = lshr i32 %2713, 9
-  %2751 = load atomic i32, ptr %2690 monotonic, align 4
+  %2751 = load atomic i32, ptr %2690 monotonic, align 8
   %2752 = load i32, ptr %2691, align 4, !tbaa !300
   %.not.i.i.i605.i = icmp ult i32 %2751, %2752
   br i1 %.not.i.i.i605.i, label %2753, label %.critedge.i.i.i606.i, !prof !35
@@ -19075,7 +19075,7 @@ define dso_local noundef ptr @hb_subset_plan_create_or_fail(ptr noundef %0, ptr 
   store atomic i32 1, ptr %5 monotonic, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store atomic i64 0, ptr %6 monotonic, align 8
-  %7 = load atomic i32, ptr %3 monotonic, align 4
+  %7 = load atomic i32, ptr %3 monotonic, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load i8, ptr %8, align 8, !tbaa !187, !range !31, !noundef !32
   %10 = trunc nuw i8 %9 to i1
@@ -37352,9 +37352,9 @@ _ZN3CFF15parsed_values_tINS_8op_str_tEED2Ev.exit.i: ; preds = %_ZN3CFF15parsed_v
   %30 = load i32, ptr %29, align 8, !tbaa !790
   store i32 %30, ptr %26, align 8, !tbaa !790
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %32 = load i32, ptr %31, align 4, !tbaa !246
-  store i32 %32, ptr %27, align 4, !tbaa !246
-  store i32 0, ptr %31, align 4, !tbaa !246
+  %32 = load i32, ptr %31, align 8, !tbaa !246
+  store i32 %32, ptr %27, align 8, !tbaa !246
+  store i32 0, ptr %31, align 8, !tbaa !246
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 12
   %35 = load i32, ptr %34, align 4, !tbaa !246
@@ -37484,9 +37484,9 @@ _ZN3CFF15parsed_values_tINS_8op_str_tEED2Ev.exit.i: ; preds = %_ZN3CFF15parsed_v
   %30 = load i32, ptr %29, align 8, !tbaa !790
   store i32 %30, ptr %26, align 8, !tbaa !790
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %32 = load i32, ptr %31, align 4, !tbaa !246
-  store i32 %32, ptr %27, align 4, !tbaa !246
-  store i32 0, ptr %31, align 4, !tbaa !246
+  %32 = load i32, ptr %31, align 8, !tbaa !246
+  store i32 %32, ptr %27, align 8, !tbaa !246
+  store i32 0, ptr %31, align 8, !tbaa !246
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 12
   %35 = load i32, ptr %34, align 4, !tbaa !246
@@ -81399,7 +81399,7 @@ _ZN11hb_vector_tIjLb0EED2Ev.exit.i:               ; preds = %23, %10
   %48 = load ptr, ptr %47, align 8, !tbaa !990
   store ptr %48, ptr %46, align 8, !tbaa !990
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
-  store atomic i32 -57005, ptr %19 monotonic, align 4
+  store atomic i32 -57005, ptr %19 monotonic, align 8
   %49 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %50 = load atomic i64, ptr %49 acquire, align 8
   %.not.i.i.i.i = icmp eq i64 %50, 0
@@ -102386,9 +102386,9 @@ _ZN3CFF15parsed_values_tINS_10dict_val_tEED2Ev.exit.i: ; preds = %_ZN3CFF15parse
   %30 = load i32, ptr %29, align 8, !tbaa !1842
   store i32 %30, ptr %26, align 8, !tbaa !1842
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %32 = load i32, ptr %31, align 4, !tbaa !246
-  store i32 %32, ptr %27, align 4, !tbaa !246
-  store i32 0, ptr %31, align 4, !tbaa !246
+  %32 = load i32, ptr %31, align 8, !tbaa !246
+  store i32 %32, ptr %27, align 8, !tbaa !246
+  store i32 0, ptr %31, align 8, !tbaa !246
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 12
   %35 = load i32, ptr %34, align 4, !tbaa !246
@@ -102518,9 +102518,9 @@ _ZN3CFF15parsed_values_tINS_8op_str_tEED2Ev.exit.i: ; preds = %_ZN3CFF15parsed_v
   %30 = load i32, ptr %29, align 8, !tbaa !790
   store i32 %30, ptr %26, align 8, !tbaa !790
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %32 = load i32, ptr %31, align 4, !tbaa !246
-  store i32 %32, ptr %27, align 4, !tbaa !246
-  store i32 0, ptr %31, align 4, !tbaa !246
+  %32 = load i32, ptr %31, align 8, !tbaa !246
+  store i32 %32, ptr %27, align 8, !tbaa !246
+  store i32 0, ptr %31, align 8, !tbaa !246
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 12
   %35 = load i32, ptr %34, align 4, !tbaa !246
@@ -104244,9 +104244,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIj22contour_p
   %65 = load i32, ptr %1, align 4, !tbaa !246
   store i32 %65, ptr %52, align 8, !tbaa !1890
   %66 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %67 = load i32, ptr %66, align 4, !tbaa !246
+  %67 = load i32, ptr %66, align 8, !tbaa !246
   %68 = load i32, ptr %3, align 8, !tbaa !246
-  store i32 %68, ptr %66, align 4, !tbaa !246
+  store i32 %68, ptr %66, align 8, !tbaa !246
   store i32 %67, ptr %3, align 8, !tbaa !246
   %69 = getelementptr inbounds nuw i8, ptr %52, i64 12
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -105585,9 +105585,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIj11hb_vector
   %65 = load i32, ptr %1, align 4, !tbaa !246
   store i32 %65, ptr %52, align 8, !tbaa !1940
   %66 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %67 = load i32, ptr %66, align 4, !tbaa !246
+  %67 = load i32, ptr %66, align 8, !tbaa !246
   %68 = load i32, ptr %3, align 8, !tbaa !246
-  store i32 %68, ptr %66, align 4, !tbaa !246
+  store i32 %68, ptr %66, align 8, !tbaa !246
   store i32 %67, ptr %3, align 8, !tbaa !246
   %69 = getelementptr inbounds nuw i8, ptr %52, i64 12
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -105877,9 +105877,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIj11hb_vector
   %65 = load i32, ptr %1, align 4, !tbaa !246
   store i32 %65, ptr %52, align 8, !tbaa !1940
   %66 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %67 = load i32, ptr %66, align 4, !tbaa !246
+  %67 = load i32, ptr %66, align 8, !tbaa !246
   %68 = load i32, ptr %3, align 8, !tbaa !246
-  store i32 %68, ptr %66, align 4, !tbaa !246
+  store i32 %68, ptr %66, align 8, !tbaa !246
   store i32 %67, ptr %3, align 8, !tbaa !246
   %69 = getelementptr inbounds nuw i8, ptr %52, i64 12
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 4

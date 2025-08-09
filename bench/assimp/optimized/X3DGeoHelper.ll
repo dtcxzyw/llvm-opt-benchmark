@@ -449,7 +449,7 @@ define hidden void @_ZN6Assimp12X3DGeoHelper22polylineIdx_to_lineIdxERKNSt7__cxx
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.016.034, i64 16
   %8 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = load i32, ptr %7, align 4
+  %10 = load i32, ptr %7, align 8
   store i32 %10, ptr %9, align 4
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(24) %1) #27
   %storemerge.in26 = load i64, ptr %4, align 8

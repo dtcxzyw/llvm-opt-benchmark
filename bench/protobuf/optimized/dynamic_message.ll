@@ -1205,7 +1205,7 @@ for.end131:                                       ; preds = %for.inc129, %for.en
   %type_info_.i = getelementptr inbounds nuw i8, ptr %call133, i64 16
   store ptr %call12, ptr %type_info_.i, align 8
   %cached_byte_size_.i = getelementptr inbounds nuw i8, ptr %call133, i64 24
-  store i32 0, ptr %cached_byte_size_.i, align 4
+  store i32 0, ptr %cached_byte_size_.i, align 8
   %prototype.i = getelementptr inbounds nuw i8, ptr %call12, i64 64
   store ptr %call133, ptr %prototype.i, align 8
   tail call void @_ZN6google8protobuf14DynamicMessage10SharedCtorEb(ptr noundef nonnull align 8 dereferenceable(32) %call133, i1 noundef zeroext false)
@@ -2201,7 +2201,7 @@ return:                                           ; preds = %if.else, %if.else.i
   %type_info_.i10 = getelementptr inbounds nuw i8, ptr %call10.sink14, i64 16
   store ptr %.sink, ptr %type_info_.i10, align 8
   %cached_byte_size_.i11 = getelementptr inbounds nuw i8, ptr %call10.sink14, i64 24
-  store i32 0, ptr %cached_byte_size_.i11, align 4
+  store i32 0, ptr %cached_byte_size_.i11, align 8
   tail call void @_ZN6google8protobuf14DynamicMessage10SharedCtorEb(ptr noundef nonnull align 8 dereferenceable(32) %call10.sink14, i1 noundef zeroext true)
   ret ptr %call10.sink14
 }

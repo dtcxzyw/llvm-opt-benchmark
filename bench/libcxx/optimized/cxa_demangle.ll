@@ -46879,7 +46879,7 @@ define internal fastcc { i32, ptr } @_ZNK12_GLOBAL__N_116itanium_demangle13Refer
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !254
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %.val.i.i = load i32, ptr %17, align 4, !tbaa !210
+  %.val.i.i = load i32, ptr %17, align 8, !tbaa !210
   %spec.select = call i32 @llvm.smin.i32(i32 %.val.i.i, i32 %.sroa.0.0)
   %18 = load ptr, ptr %3, align 8, !tbaa !501
   %19 = load ptr, ptr %4, align 8, !tbaa !502

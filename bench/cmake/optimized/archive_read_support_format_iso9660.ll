@@ -373,7 +373,7 @@ isValid723Integer.exit76.i:                       ; preds = %86
   store i32 %146, ptr %17, align 4, !tbaa !46
   %147 = getelementptr inbounds nuw i8, ptr %.02666, i64 166
   %148 = load i32, ptr %147, align 1
-  store i32 %148, ptr %21, align 4, !tbaa !50
+  store i32 %148, ptr %21, align 8, !tbaa !50
   br label %isPVD.exit
 
 149:                                              ; preds = %30, %31, %34, %37, %isValid733Integer.exit.i, %61, %64, %isValid723Integer.exit.i, %isValid723Integer.exit75.i, %isValid723Integer.exit76.i, %96, %103, %106, %109, %113, %133, %.critedge.i, %137, %51, %45, %39, %66, %76, %86
@@ -436,7 +436,7 @@ isJolietSVD.exit:                                 ; preds = %161, %164, %165
   store i32 %177, ptr %22, align 4, !tbaa !51
   %178 = getelementptr inbounds nuw i8, ptr %.02666, i64 166
   %179 = load i32, ptr %178, align 1
-  store i32 %179, ptr %24, align 4, !tbaa !53
+  store i32 %179, ptr %24, align 8, !tbaa !53
   br label %isPVD.exit
 
 isJolietSVD.exit.thread:                          ; preds = %153, %157, %161, %151, %149
@@ -811,7 +811,7 @@ define internal i32 @archive_read_format_iso9660_read_header(ptr noundef %0, ptr
   %61 = add i64 %60, %57
   store i64 %61, ptr %12, align 8, !tbaa !58
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 200
-  %63 = load i32, ptr %62, align 4, !tbaa !60
+  %63 = load i32, ptr %62, align 8, !tbaa !60
   %64 = zext i32 %63 to i64
   %65 = tail call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef %64, ptr noundef null) #20
   %66 = icmp eq ptr %65, null
@@ -1564,7 +1564,7 @@ define internal i32 @archive_read_format_iso9660_read_data(ptr noundef %0, ptr n
   %130 = load i64, ptr %71, align 8, !tbaa !99
   %.not198.i = icmp eq i64 %130, %129
   %131 = getelementptr inbounds nuw i8, ptr %56, i64 288
-  %132 = load i8, ptr %131, align 4, !tbaa !45
+  %132 = load i8, ptr %131, align 8, !tbaa !45
   %.not199.i = icmp eq i8 %132, 4
   %133 = getelementptr inbounds nuw i8, ptr %56, i64 289
   %134 = load i8, ptr %133, align 1, !tbaa !45

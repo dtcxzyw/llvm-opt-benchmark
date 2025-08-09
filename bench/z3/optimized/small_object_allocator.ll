@@ -368,7 +368,7 @@ _ZNK22small_object_allocator15get_wasted_sizeEv.exit: ; preds = %21
   %29 = load i32, ptr %28, align 8, !tbaa !26
   %30 = and i32 %29, -261
   %31 = or disjoint i32 %30, 4
-  store i32 %31, ptr %28, align 4, !tbaa !36
+  store i32 %31, ptr %28, align 8, !tbaa !36
   %32 = load i64, ptr %25, align 8
   %33 = getelementptr inbounds i8, ptr %22, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -454,7 +454,7 @@ _ZNK22small_object_allocator15get_wasted_sizeEv.exit83: ; preds = %68
   %76 = load i32, ptr %75, align 8, !tbaa !26
   %77 = and i32 %76, -261
   %78 = or disjoint i32 %77, 4
-  store i32 %78, ptr %75, align 4, !tbaa !36
+  store i32 %78, ptr %75, align 8, !tbaa !36
   %79 = load i64, ptr %72, align 8
   %80 = getelementptr inbounds i8, ptr %69, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
@@ -1352,7 +1352,7 @@ _ZNSolsEm.exit:                                   ; preds = %_ZNK22small_object_
   %417 = load i32, ptr %416, align 8, !tbaa !26
   %418 = and i32 %417, -261
   %419 = or disjoint i32 %418, 4
-  store i32 %419, ptr %416, align 4, !tbaa !36
+  store i32 %419, ptr %416, align 8, !tbaa !36
   %420 = load i64, ptr %413, align 8
   %421 = getelementptr inbounds i8, ptr %409, i64 %420
   %422 = getelementptr inbounds nuw i8, ptr %421, i64 8
@@ -1465,7 +1465,7 @@ _ZNSolsEm.exit162:                                ; preds = %_ZNK22small_object_
   %466 = load i32, ptr %465, align 8, !tbaa !26
   %467 = and i32 %466, -261
   %468 = or disjoint i32 %467, 4
-  store i32 %468, ptr %465, align 4, !tbaa !36
+  store i32 %468, ptr %465, align 8, !tbaa !36
   %469 = load i64, ptr %462, align 8
   %470 = getelementptr inbounds i8, ptr %458, i64 %469
   %471 = getelementptr inbounds nuw i8, ptr %470, i64 8

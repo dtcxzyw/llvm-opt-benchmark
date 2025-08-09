@@ -1928,7 +1928,7 @@ lean_alloc_ctor.exit140:                          ; preds = %lean_alloc_ctor.exi
   %169 = getelementptr inbounds nuw i8, ptr %.sink178, i64 4
   %170 = getelementptr inbounds nuw i8, ptr %.sink178, i64 72
   store i64 0, ptr %170, align 8, !tbaa !4
-  store i32 1, ptr %.sink178, align 4, !tbaa !8
+  store i32 1, ptr %.sink178, align 8, !tbaa !8
   store i32 524368, ptr %169, align 4
   %171 = getelementptr inbounds nuw i8, ptr %.sink178, i64 8
   store ptr %4, ptr %171, align 8, !tbaa !12
@@ -1946,7 +1946,7 @@ lean_alloc_ctor.exit140:                          ; preds = %lean_alloc_ctor.exi
   store ptr %.sink159, ptr %177, align 8, !tbaa !12
   %178 = getelementptr inbounds nuw i8, ptr %.sink178, i64 64
   store ptr %.sink156, ptr %178, align 8, !tbaa !12
-  store i8 %24, ptr %170, align 1, !tbaa !16
+  store i8 %24, ptr %170, align 8, !tbaa !16
   %179 = tail call ptr @l_Lean_registerPersistentEnvExtensionUnsafe___rarg(ptr noundef nonnull %.sink178, ptr noundef %1) #6
   ret ptr %179
 }
@@ -3441,7 +3441,7 @@ lean_alloc_ctor.exit:                             ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i64 256, ptr %11, align 8, !tbaa !4
-  store i32 1, ptr %7, align 4, !tbaa !8
+  store i32 1, ptr %7, align 8, !tbaa !8
   store i32 327736, ptr %10, align 4
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %0, ptr %12, align 8, !tbaa !12
@@ -3453,7 +3453,7 @@ lean_alloc_ctor.exit:                             ; preds = %3
   store ptr %6, ptr %15, align 8, !tbaa !12
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr inttoptr (i64 1 to ptr), ptr %16, align 8, !tbaa !12
-  store i8 %1, ptr %11, align 1, !tbaa !16
+  store i8 %1, ptr %11, align 8, !tbaa !16
   %17 = tail call ptr @l_Lean_registerSimplePersistentEnvExtension___rarg(ptr noundef nonnull %7, ptr noundef %2)
   ret ptr %17
 }
@@ -3586,7 +3586,7 @@ l_Lean_mkTagDeclarationExtension.exit:            ; preds = %lean_dec.exit
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 48
   store i64 256, ptr %22, align 8, !tbaa !4
-  store i32 1, ptr %16, align 4, !tbaa !8
+  store i32 1, ptr %16, align 8, !tbaa !8
   store i32 327736, ptr %21, align 4
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %0, ptr %23, align 8, !tbaa !12
@@ -3598,7 +3598,7 @@ l_Lean_mkTagDeclarationExtension.exit:            ; preds = %lean_dec.exit
   store ptr %15, ptr %26, align 8, !tbaa !12
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store ptr inttoptr (i64 1 to ptr), ptr %27, align 8, !tbaa !12
-  store i8 %20, ptr %22, align 1, !tbaa !16
+  store i8 %20, ptr %22, align 8, !tbaa !16
   %28 = tail call ptr @l_Lean_registerSimplePersistentEnvExtension___rarg(ptr noundef nonnull %16, ptr noundef %2)
   ret ptr %28
 }
@@ -5721,7 +5721,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_alloc_closure.
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 72
   store i64 3, ptr %27, align 8, !tbaa !4
-  store i32 1, ptr %23, align 4, !tbaa !8
+  store i32 1, ptr %23, align 8, !tbaa !8
   store i32 524368, ptr %26, align 4
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %0, ptr %28, align 8, !tbaa !12
@@ -9268,7 +9268,7 @@ _init_l_Lean_instInhabitedMapDeclarationExtension___closed__2.exit: ; preds = %_
   %240 = getelementptr inbounds nuw i8, ptr %237, i64 4
   %241 = getelementptr inbounds nuw i8, ptr %237, i64 32
   store i64 0, ptr %241, align 8, !tbaa !4
-  store i32 1, ptr %237, align 4, !tbaa !8
+  store i32 1, ptr %237, align 8, !tbaa !8
   store i32 196648, ptr %240, align 4
   %242 = getelementptr inbounds nuw i8, ptr %237, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %242, align 8, !tbaa !12

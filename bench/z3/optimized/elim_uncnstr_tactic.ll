@@ -1798,19 +1798,19 @@ _ZN3refI23generic_model_converterEC2EPS0_.exit.i.i.i.i: ; preds = %178, %_ZN12re
   %212 = getelementptr inbounds nuw i8, ptr %144, i64 744
   store ptr null, ptr %212, align 8, !tbaa !143
   %213 = getelementptr inbounds nuw i8, ptr %144, i64 752
-  store i32 0, ptr %213, align 4, !tbaa !196
+  store i32 0, ptr %213, align 8, !tbaa !196
   %214 = getelementptr inbounds nuw i8, ptr %144, i64 756
   store i8 0, ptr %214, align 4, !tbaa !197
   %215 = getelementptr inbounds nuw i8, ptr %144, i64 760
-  store i32 0, ptr %215, align 4, !tbaa !198
+  store i32 0, ptr %215, align 8, !tbaa !198
   %216 = getelementptr inbounds nuw i8, ptr %144, i64 764
   store i32 0, ptr %216, align 4, !tbaa !199
   %217 = getelementptr inbounds nuw i8, ptr %144, i64 768
-  store i32 -1, ptr %217, align 4, !tbaa !196
+  store i32 -1, ptr %217, align 8, !tbaa !196
   %218 = getelementptr inbounds nuw i8, ptr %144, i64 772
   store i8 0, ptr %218, align 4, !tbaa !197
   %219 = getelementptr inbounds nuw i8, ptr %144, i64 776
-  store i32 0, ptr %219, align 4, !tbaa !198
+  store i32 0, ptr %219, align 8, !tbaa !198
   %220 = getelementptr inbounds nuw i8, ptr %144, i64 780
   store i32 0, ptr %220, align 4, !tbaa !199
   %221 = getelementptr inbounds nuw i8, ptr %144, i64 784

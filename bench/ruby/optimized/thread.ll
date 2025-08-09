@@ -3615,7 +3615,7 @@ define internal i64 @rb_queue_pop(ptr readnone captures(none) %0, i64 noundef %1
   store ptr %5, ptr %13, align 8, !tbaa !55
   store ptr %5, ptr %5, align 8, !tbaa !54
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 0, ptr %14, align 1, !tbaa !198
+  store i32 0, ptr %14, align 8, !tbaa !198
   br label %queue_ptr.exit
 
 queue_ptr.exit:                                   ; preds = %4, %12
@@ -3646,13 +3646,13 @@ define internal i64 @rb_szqueue_pop(ptr readnone captures(none) %0, i64 noundef 
   store ptr %7, ptr %15, align 8, !tbaa !55
   store ptr %7, ptr %7, align 8, !tbaa !54
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i32 0, ptr %16, align 1, !tbaa !198
+  store i32 0, ptr %16, align 8, !tbaa !198
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %17, ptr %18, align 8, !tbaa !55
   store ptr %17, ptr %17, align 8, !tbaa !54
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  store i32 0, ptr %19, align 1, !tbaa !199
+  store i32 0, ptr %19, align 4, !tbaa !199
   br label %szqueue_ptr.exit.i
 
 szqueue_ptr.exit.i:                               ; preds = %14, %4
@@ -3727,13 +3727,13 @@ define internal noundef i64 @rb_szqueue_push(ptr readnone captures(none) %0, i64
   store ptr %8, ptr %16, align 8, !tbaa !55
   store ptr %8, ptr %8, align 8, !tbaa !54
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i32 0, ptr %17, align 1, !tbaa !198
+  store i32 0, ptr %17, align 8, !tbaa !198
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %18, ptr %19, align 8, !tbaa !55
   store ptr %18, ptr %18, align 8, !tbaa !54
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 36
-  store i32 0, ptr %20, align 1, !tbaa !199
+  store i32 0, ptr %20, align 4, !tbaa !199
   br label %szqueue_ptr.exit
 
 szqueue_ptr.exit:                                 ; preds = %5, %15
@@ -3921,9 +3921,9 @@ queue_length.exit40:                              ; preds = %88, %91
   store ptr %106, ptr %76, align 8, !tbaa !83
   store ptr %72, ptr %106, align 8, !tbaa !84
   store ptr %72, ptr %75, align 8, !tbaa !83
-  %107 = load i32, ptr %77, align 1, !tbaa !199
+  %107 = load i32, ptr %77, align 4, !tbaa !199
   %108 = add i32 %107, 1
-  store i32 %108, ptr %77, align 1, !tbaa !199
+  store i32 %108, ptr %77, align 4, !tbaa !199
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %1, ptr %7, align 8, !tbaa !203
   store i64 %4, ptr %78, align 8, !tbaa !205
@@ -21102,7 +21102,7 @@ define internal noundef i64 @rb_queue_initialize(i32 noundef %0, ptr noundef rea
   store ptr %4, ptr %12, align 8, !tbaa !55
   store ptr %4, ptr %4, align 8, !tbaa !54
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i32 0, ptr %13, align 1, !tbaa !198
+  store i32 0, ptr %13, align 8, !tbaa !198
   br label %14
 
 14:                                               ; preds = %11, %3
@@ -21195,7 +21195,7 @@ define internal noundef i64 @rb_queue_close(i64 noundef returned %0) #0 {
   store ptr %2, ptr %10, align 8, !tbaa !55
   store ptr %2, ptr %2, align 8, !tbaa !54
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 0, ptr %11, align 1, !tbaa !198
+  store i32 0, ptr %11, align 8, !tbaa !198
   br label %queue_ptr.exit
 
 queue_ptr.exit:                                   ; preds = %1, %9
@@ -21255,7 +21255,7 @@ define internal noundef i64 @rb_queue_push(i64 noundef returned %0, i64 noundef 
   store ptr %3, ptr %11, align 8, !tbaa !55
   store ptr %3, ptr %3, align 8, !tbaa !54
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i32 0, ptr %12, align 1, !tbaa !198
+  store i32 0, ptr %12, align 8, !tbaa !198
   br label %queue_ptr.exit
 
 queue_ptr.exit:                                   ; preds = %2, %10
@@ -21313,7 +21313,7 @@ define internal range(i64 0, 21) i64 @rb_queue_empty_p(i64 noundef %0) #0 {
   store ptr %2, ptr %10, align 8, !tbaa !55
   store ptr %2, ptr %2, align 8, !tbaa !54
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 0, ptr %11, align 1, !tbaa !198
+  store i32 0, ptr %11, align 8, !tbaa !198
   br label %queue_ptr.exit
 
 queue_ptr.exit:                                   ; preds = %1, %9
@@ -21376,7 +21376,7 @@ define internal noundef i64 @rb_queue_clear(i64 noundef returned %0) #0 {
   store ptr %2, ptr %10, align 8, !tbaa !55
   store ptr %2, ptr %2, align 8, !tbaa !54
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 0, ptr %11, align 1, !tbaa !198
+  store i32 0, ptr %11, align 8, !tbaa !198
   br label %queue_ptr.exit
 
 queue_ptr.exit:                                   ; preds = %1, %9
@@ -21422,7 +21422,7 @@ define internal i64 @rb_queue_length(i64 noundef %0) #0 {
   store ptr %2, ptr %10, align 8, !tbaa !55
   store ptr %2, ptr %2, align 8, !tbaa !54
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 0, ptr %11, align 1, !tbaa !198
+  store i32 0, ptr %11, align 8, !tbaa !198
   br label %queue_ptr.exit
 
 queue_ptr.exit:                                   ; preds = %1, %9
@@ -21506,7 +21506,7 @@ define internal range(i64 1, 0) i64 @rb_queue_num_waiting(i64 noundef %0) #0 {
   store ptr %2, ptr %13, align 8, !tbaa !55
   store ptr %2, ptr %2, align 8, !tbaa !54
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 0, ptr %14, align 1, !tbaa !198
+  store i32 0, ptr %14, align 8, !tbaa !198
   br label %queue_ptr.exit
 
 queue_ptr.exit:                                   ; preds = %.queue_ptr.exit_crit_edge, %12
@@ -21565,13 +21565,13 @@ define internal noundef i64 @rb_szqueue_initialize(i64 noundef returned %0, i64 
   store ptr %3, ptr %11, align 8, !tbaa !55
   store ptr %3, ptr %3, align 8, !tbaa !54
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i32 0, ptr %12, align 1, !tbaa !198
+  store i32 0, ptr %12, align 8, !tbaa !198
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %13, ptr %14, align 8, !tbaa !55
   store ptr %13, ptr %13, align 8, !tbaa !54
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  store i32 0, ptr %15, align 1, !tbaa !199
+  store i32 0, ptr %15, align 4, !tbaa !199
   br label %szqueue_ptr.exit
 
 szqueue_ptr.exit:                                 ; preds = %2, %10
@@ -21620,7 +21620,7 @@ rb_obj_write.exit:                                ; preds = %24, %31
   store ptr %33, ptr %34, align 8, !tbaa !55
   store ptr %33, ptr %33, align 8, !tbaa !54
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store i64 %.0.i, ptr %35, align 1, !tbaa !202
+  store i64 %.0.i, ptr %35, align 8, !tbaa !202
   ret i64 %0
 }
 
@@ -21648,13 +21648,13 @@ define internal noundef i64 @rb_szqueue_close(i64 noundef returned %0) #0 {
   store ptr %6, ptr %14, align 8, !tbaa !55
   store ptr %6, ptr %6, align 8, !tbaa !54
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i32 0, ptr %15, align 1, !tbaa !198
+  store i32 0, ptr %15, align 8, !tbaa !198
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %16, ptr %17, align 8, !tbaa !55
   store ptr %16, ptr %16, align 8, !tbaa !54
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 36
-  store i32 0, ptr %18, align 1, !tbaa !199
+  store i32 0, ptr %18, align 4, !tbaa !199
   br label %szqueue_ptr.exit
 
 szqueue_ptr.exit:                                 ; preds = %5, %13
@@ -21702,13 +21702,13 @@ define internal i64 @rb_szqueue_max_get(i64 noundef %0) #0 {
   store ptr %2, ptr %10, align 8, !tbaa !55
   store ptr %2, ptr %2, align 8, !tbaa !54
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 0, ptr %11, align 1, !tbaa !198
+  store i32 0, ptr %11, align 8, !tbaa !198
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %12, ptr %13, align 8, !tbaa !55
   store ptr %12, ptr %12, align 8, !tbaa !54
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  store i32 0, ptr %14, align 1, !tbaa !199
+  store i32 0, ptr %14, align 4, !tbaa !199
   br label %szqueue_ptr.exit
 
 szqueue_ptr.exit:                                 ; preds = %1, %9
@@ -21763,13 +21763,13 @@ rb_num2long_inline.exit:                          ; preds = %4, %6
   store ptr %8, ptr %16, align 8, !tbaa !55
   store ptr %8, ptr %8, align 8, !tbaa !54
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i32 0, ptr %17, align 1, !tbaa !198
+  store i32 0, ptr %17, align 8, !tbaa !198
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %18, ptr %19, align 8, !tbaa !55
   store ptr %18, ptr %18, align 8, !tbaa !54
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 36
-  store i32 0, ptr %20, align 1, !tbaa !199
+  store i32 0, ptr %20, align 4, !tbaa !199
   br label %szqueue_ptr.exit
 
 szqueue_ptr.exit:                                 ; preds = %rb_num2long_inline.exit, %15
@@ -21810,13 +21810,13 @@ define internal range(i64 0, 21) i64 @rb_szqueue_empty_p(i64 noundef %0) #0 {
   store ptr %2, ptr %10, align 8, !tbaa !55
   store ptr %2, ptr %2, align 8, !tbaa !54
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 0, ptr %11, align 1, !tbaa !198
+  store i32 0, ptr %11, align 8, !tbaa !198
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %12, ptr %13, align 8, !tbaa !55
   store ptr %12, ptr %12, align 8, !tbaa !54
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  store i32 0, ptr %14, align 1, !tbaa !199
+  store i32 0, ptr %14, align 4, !tbaa !199
   br label %szqueue_ptr.exit
 
 szqueue_ptr.exit:                                 ; preds = %1, %9
@@ -21879,13 +21879,13 @@ define internal noundef i64 @rb_szqueue_clear(i64 noundef returned %0) #0 {
   store ptr %2, ptr %10, align 8, !tbaa !55
   store ptr %2, ptr %2, align 8, !tbaa !54
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 0, ptr %11, align 1, !tbaa !198
+  store i32 0, ptr %11, align 8, !tbaa !198
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %12, ptr %13, align 8, !tbaa !55
   store ptr %12, ptr %12, align 8, !tbaa !54
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  store i32 0, ptr %14, align 1, !tbaa !199
+  store i32 0, ptr %14, align 4, !tbaa !199
   br label %szqueue_ptr.exit
 
 szqueue_ptr.exit:                                 ; preds = %1, %9
@@ -21933,13 +21933,13 @@ define internal i64 @rb_szqueue_length(i64 noundef %0) #0 {
   store ptr %2, ptr %10, align 8, !tbaa !55
   store ptr %2, ptr %2, align 8, !tbaa !54
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 0, ptr %11, align 1, !tbaa !198
+  store i32 0, ptr %11, align 8, !tbaa !198
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %12, ptr %13, align 8, !tbaa !55
   store ptr %12, ptr %12, align 8, !tbaa !54
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  store i32 0, ptr %14, align 1, !tbaa !199
+  store i32 0, ptr %14, align 4, !tbaa !199
   br label %szqueue_ptr.exit
 
 szqueue_ptr.exit:                                 ; preds = %1, %9
@@ -22026,13 +22026,13 @@ define internal range(i64 1, 0) i64 @rb_szqueue_num_waiting(i64 noundef %0) #0 {
   store ptr %2, ptr %14, align 8, !tbaa !55
   store ptr %2, ptr %2, align 8, !tbaa !54
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 0, ptr %15, align 1, !tbaa !198
+  store i32 0, ptr %15, align 8, !tbaa !198
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %16, ptr %17, align 8, !tbaa !55
   store ptr %16, ptr %16, align 8, !tbaa !54
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  store i32 0, ptr %18, align 1, !tbaa !199
+  store i32 0, ptr %18, align 4, !tbaa !199
   br label %szqueue_ptr.exit
 
 szqueue_ptr.exit:                                 ; preds = %.szqueue_ptr.exit_crit_edge, %13

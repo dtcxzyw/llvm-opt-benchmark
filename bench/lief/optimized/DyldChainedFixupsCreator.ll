@@ -1002,7 +1002,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %15
   store i64 %21, ptr %23, align 8, !tbaa !35
   store ptr %13, ptr %3, align 8, !tbaa !53
   store i64 0, ptr %22, align 8, !tbaa !35
-  store i8 0, ptr %13, align 1, !tbaa !3
+  store i8 0, ptr %13, align 8, !tbaa !3
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %25, ptr %24, align 8, !tbaa !52
@@ -1035,7 +1035,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit4: ; preds = %2
   store i64 %35, ptr %37, align 8, !tbaa !35
   store ptr %27, ptr %2, align 8, !tbaa !53
   store i64 0, ptr %36, align 8, !tbaa !35
-  store i8 0, ptr %27, align 1, !tbaa !3
+  store i8 0, ptr %27, align 8, !tbaa !3
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store i8 %8, ptr %38, align 8, !tbaa !69
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 80
@@ -2839,7 +2839,7 @@ _ZNSt13unordered_mapIPN4LIEF5MachO14SegmentCommandESt6vectorINS1_24DyldChainedFi
   %426 = icmp slt i32 %425, 2
   %427 = getelementptr inbounds nuw i8, ptr %423, i64 104
   %428 = getelementptr inbounds nuw i8, ptr %423, i64 144
-  %429 = load atomic i8, ptr %428 monotonic, align 1
+  %429 = load atomic i8, ptr %428 monotonic, align 4
   %430 = trunc i8 %429 to i1
   %or.cond.i = or i1 %426, %430
   br i1 %or.cond.i, label %431, label %_ZN6spdlog6logger4log_IJRKmEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017basic_string_viewIcEEDpOT_.exit
@@ -3015,7 +3015,7 @@ _ZN6spdlog6logger4log_IJRKmEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017
   %489 = icmp slt i32 %488, 2
   %490 = getelementptr inbounds nuw i8, ptr %486, i64 104
   %491 = getelementptr inbounds nuw i8, ptr %486, i64 144
-  %492 = load atomic i8, ptr %491 monotonic, align 1
+  %492 = load atomic i8, ptr %491 monotonic, align 4
   %493 = trunc i8 %492 to i1
   %or.cond.i88 = or i1 %489, %493
   br i1 %or.cond.i88, label %494, label %_ZN6spdlog6logger4log_IJRKmEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017basic_string_viewIcEEDpOT_.exit98
@@ -3191,7 +3191,7 @@ _ZN6spdlog6logger4log_IJRKmEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017
   %552 = icmp slt i32 %551, 2
   %553 = getelementptr inbounds nuw i8, ptr %549, i64 104
   %554 = getelementptr inbounds nuw i8, ptr %549, i64 144
-  %555 = load atomic i8, ptr %554 monotonic, align 1
+  %555 = load atomic i8, ptr %554 monotonic, align 4
   %556 = trunc i8 %555 to i1
   %or.cond.i99 = or i1 %552, %556
   br i1 %or.cond.i99, label %557, label %_ZN6spdlog6logger4log_IJRKmEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017basic_string_viewIcEEDpOT_.exit109
@@ -3371,7 +3371,7 @@ _ZN6spdlog6logger4log_IJRKmEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017
   %619 = icmp slt i32 %618, 2
   %620 = getelementptr inbounds nuw i8, ptr %616, i64 104
   %621 = getelementptr inbounds nuw i8, ptr %616, i64 144
-  %622 = load atomic i8, ptr %621 monotonic, align 1
+  %622 = load atomic i8, ptr %621 monotonic, align 4
   %623 = trunc i8 %622 to i1
   %or.cond.i110 = or i1 %619, %623
   br i1 %or.cond.i110, label %624, label %_ZN6spdlog6logger4log_IJRKjEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017basic_string_viewIcEEDpOT_.exit
@@ -3548,7 +3548,7 @@ _ZN6spdlog6logger4log_IJRKjEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017
   %682 = icmp slt i32 %681, 2
   %683 = getelementptr inbounds nuw i8, ptr %679, i64 104
   %684 = getelementptr inbounds nuw i8, ptr %679, i64 144
-  %685 = load atomic i8, ptr %684 monotonic, align 1
+  %685 = load atomic i8, ptr %684 monotonic, align 4
   %686 = trunc i8 %685 to i1
   %or.cond.i120 = or i1 %682, %686
   br i1 %or.cond.i120, label %687, label %_ZN6spdlog6logger4log_IJRKjEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017basic_string_viewIcEEDpOT_.exit131
@@ -3724,7 +3724,7 @@ _ZN6spdlog6logger4log_IJRKjEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017
   %745 = icmp slt i32 %744, 2
   %746 = getelementptr inbounds nuw i8, ptr %742, i64 104
   %747 = getelementptr inbounds nuw i8, ptr %742, i64 144
-  %748 = load atomic i8, ptr %747 monotonic, align 1
+  %748 = load atomic i8, ptr %747 monotonic, align 4
   %749 = trunc i8 %748 to i1
   %or.cond.i132 = or i1 %745, %749
   br i1 %or.cond.i132, label %750, label %_ZN6spdlog6logger4log_IJRKmEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017basic_string_viewIcEEDpOT_.exit142
@@ -3923,7 +3923,7 @@ _ZN6spdlog6logger4log_IJRKmEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017
   %829 = icmp slt i32 %828, 2
   %830 = getelementptr inbounds nuw i8, ptr %826, i64 104
   %831 = getelementptr inbounds nuw i8, ptr %826, i64 144
-  %832 = load atomic i8, ptr %831 monotonic, align 1
+  %832 = load atomic i8, ptr %831 monotonic, align 4
   %833 = trunc i8 %832 to i1
   %or.cond.i143 = or i1 %829, %833
   br i1 %or.cond.i143, label %834, label %_ZN6spdlog6logger4log_IJRKmEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017basic_string_viewIcEEDpOT_.exit153
@@ -4014,7 +4014,7 @@ _ZN6spdlog6logger4log_IJRKmEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017
   %862 = icmp slt i32 %861, 2
   %863 = getelementptr inbounds nuw i8, ptr %859, i64 104
   %864 = getelementptr inbounds nuw i8, ptr %859, i64 144
-  %865 = load atomic i8, ptr %864 monotonic, align 1
+  %865 = load atomic i8, ptr %864 monotonic, align 4
   %866 = trunc i8 %865 to i1
   %or.cond.i154 = or i1 %862, %866
   br i1 %or.cond.i154, label %867, label %_ZN6spdlog6logger4log_IJRKmEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017basic_string_viewIcEEDpOT_.exit164
@@ -4105,7 +4105,7 @@ _ZN6spdlog6logger4log_IJRKmEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017
   %895 = icmp slt i32 %894, 2
   %896 = getelementptr inbounds nuw i8, ptr %892, i64 104
   %897 = getelementptr inbounds nuw i8, ptr %892, i64 144
-  %898 = load atomic i8, ptr %897 monotonic, align 1
+  %898 = load atomic i8, ptr %897 monotonic, align 4
   %899 = trunc i8 %898 to i1
   %or.cond.i165 = or i1 %895, %899
   br i1 %or.cond.i165, label %900, label %_ZN6spdlog6logger4log_IJRKjEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017basic_string_viewIcEEDpOT_.exit176
@@ -4197,7 +4197,7 @@ _ZN6spdlog6logger4log_IJRKjEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017
   %928 = icmp slt i32 %927, 2
   %929 = getelementptr inbounds nuw i8, ptr %925, i64 104
   %930 = getelementptr inbounds nuw i8, ptr %925, i64 144
-  %931 = load atomic i8, ptr %930 monotonic, align 1
+  %931 = load atomic i8, ptr %930 monotonic, align 4
   %932 = trunc i8 %931 to i1
   %or.cond.i177 = or i1 %928, %932
   br i1 %or.cond.i177, label %933, label %_ZN6spdlog6logger4log_IJRKjEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017basic_string_viewIcEEDpOT_.exit188
@@ -4288,7 +4288,7 @@ _ZN6spdlog6logger4log_IJRKjEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017
   %961 = icmp slt i32 %960, 2
   %962 = getelementptr inbounds nuw i8, ptr %958, i64 104
   %963 = getelementptr inbounds nuw i8, ptr %958, i64 144
-  %964 = load atomic i8, ptr %963 monotonic, align 1
+  %964 = load atomic i8, ptr %963 monotonic, align 4
   %965 = trunc i8 %964 to i1
   %or.cond.i189 = or i1 %961, %965
   br i1 %or.cond.i189, label %966, label %_ZN6spdlog6logger4log_IJRKmEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017basic_string_viewIcEEDpOT_.exit199
@@ -4391,7 +4391,7 @@ _ZN6spdlog6logger4log_IJRKmEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017
   %1001 = icmp slt i32 %1000, 2
   %1002 = getelementptr inbounds nuw i8, ptr %998, i64 104
   %1003 = getelementptr inbounds nuw i8, ptr %998, i64 144
-  %1004 = load atomic i8, ptr %1003 monotonic, align 1
+  %1004 = load atomic i8, ptr %1003 monotonic, align 4
   %1005 = trunc i8 %1004 to i1
   %or.cond.i200 = or i1 %1001, %1005
   br i1 %or.cond.i200, label %1006, label %_ZN6spdlog6logger4log_IJRKjRKmEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017basic_string_viewIcEEDpOT_.exit
@@ -34616,7 +34616,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %68, ptr %70, align 8, !tbaa !35, !alias.scope !925, !noalias !928
   store ptr %60, ptr %57, align 8, !tbaa !53, !alias.scope !928, !noalias !925
   store i64 0, ptr %69, align 8, !tbaa !35, !alias.scope !928, !noalias !925
-  store i8 0, ptr %60, align 1, !tbaa !3, !alias.scope !928, !noalias !925
+  store i8 0, ptr %60, align 8, !tbaa !3, !alias.scope !928, !noalias !925
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
   %72 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
   %73 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 56
@@ -34650,7 +34650,7 @@ _ZSt19__relocate_object_aIN4LIEF5MachO24DyldChainedFixupsCreator14binding_info_t
   store i64 %83, ptr %85, align 8, !tbaa !35, !alias.scope !925, !noalias !928
   store ptr %75, ptr %72, align 8, !tbaa !53, !alias.scope !928, !noalias !925
   store i64 0, ptr %84, align 8, !tbaa !35, !alias.scope !928, !noalias !925
-  store i8 0, ptr %75, align 1, !tbaa !3, !alias.scope !928, !noalias !925
+  store i8 0, ptr %75, align 8, !tbaa !3, !alias.scope !928, !noalias !925
   %86 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 72
   %87 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %87, i64 16, i1 false), !alias.scope !930
@@ -34705,7 +34705,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i2
   store i64 %104, ptr %106, align 8, !tbaa !35, !alias.scope !932, !noalias !935
   store ptr %96, ptr %93, align 8, !tbaa !53, !alias.scope !935, !noalias !932
   store i64 0, ptr %105, align 8, !tbaa !35, !alias.scope !935, !noalias !932
-  store i8 0, ptr %96, align 1, !tbaa !3, !alias.scope !935, !noalias !932
+  store i8 0, ptr %96, align 8, !tbaa !3, !alias.scope !935, !noalias !932
   %107 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 40
   %108 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 40
   %109 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 56
@@ -34739,7 +34739,7 @@ _ZSt19__relocate_object_aIN4LIEF5MachO24DyldChainedFixupsCreator14binding_info_t
   store i64 %119, ptr %121, align 8, !tbaa !35, !alias.scope !932, !noalias !935
   store ptr %111, ptr %108, align 8, !tbaa !53, !alias.scope !935, !noalias !932
   store i64 0, ptr %120, align 8, !tbaa !35, !alias.scope !935, !noalias !932
-  store i8 0, ptr %111, align 1, !tbaa !3, !alias.scope !935, !noalias !932
+  store i8 0, ptr %111, align 8, !tbaa !3, !alias.scope !935, !noalias !932
   %122 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 72
   %123 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %122, ptr noundef nonnull align 8 dereferenceable(16) %123, i64 16, i1 false), !alias.scope !937

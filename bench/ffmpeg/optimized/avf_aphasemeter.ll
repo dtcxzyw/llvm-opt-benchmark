@@ -970,7 +970,7 @@ define internal fastcc void @update_mono_detection(ptr noundef %0, ptr noundef %
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   %43 = load i64, ptr %31, align 8, !tbaa !31
-  %.val53 = load i64, ptr %38, align 4
+  %.val53 = load i64, ptr %38, align 8
   %44 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %8, i64 noundef %43, i64 %.val53) #13
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.38, ptr noundef %44) #13
   store i32 0, ptr %26, align 8, !tbaa !90
@@ -1104,7 +1104,7 @@ define internal fastcc void @update_out_phase_detection(ptr noundef %0, ptr noun
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   %43 = load i64, ptr %31, align 8, !tbaa !31
-  %.val53 = load i64, ptr %38, align 4
+  %.val53 = load i64, ptr %38, align 8
   %44 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %8, i64 noundef %43, i64 %.val53) #13
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.44, ptr noundef %44) #13
   store i32 0, ptr %26, align 4, !tbaa !91

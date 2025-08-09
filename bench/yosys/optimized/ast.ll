@@ -9405,7 +9405,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %14
   store i64 %153, ptr %154, align 8, !tbaa !39
   store ptr %146, ptr %1, align 8, !tbaa !35
   store i64 0, ptr %7, align 8, !tbaa !39
-  store i8 0, ptr %146, align 1, !tbaa !40
+  store i8 0, ptr %146, align 8, !tbaa !40
   ret void
 }
 
@@ -13576,7 +13576,7 @@ define internal fastcc noundef ptr @_ZN5YosysL14process_moduleEPNS_5RTLIL6Design
   %33 = load ptr, ptr %31, align 8, !tbaa !35
   %34 = tail call noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef %33)
   store i32 %34, ptr %11, align 4, !tbaa !49
-  %35 = load i32, ptr %32, align 4, !tbaa !49
+  %35 = load i32, ptr %32, align 8, !tbaa !49
   %36 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !124, !range !111, !noundef !112
   %37 = trunc nuw i8 %36 to i1
   %38 = icmp ne i32 %35, 0
@@ -23725,7 +23725,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %1
   %226 = load ptr, ptr %225, align 8, !tbaa !465
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.experimental.noalias.scope.decl(metadata !484)
-  %227 = load i32, ptr %224, align 4, !tbaa !49, !noalias !484
+  %227 = load i32, ptr %224, align 8, !tbaa !49, !noalias !484
   %228 = sext i32 %227 to i64
   %229 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8, !tbaa !84, !noalias !484
   %230 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8, !tbaa !87, !noalias !484
@@ -29981,7 +29981,7 @@ define noundef nonnull ptr @_ZNK5Yosys3AST9AstModule5cloneEv(ptr noundef nonnull
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5Yosys3AST9AstModuleE, i64 16), ptr %2, align 8, !tbaa !225
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 304
-  %6 = load i32, ptr %5, align 4, !tbaa !49
+  %6 = load i32, ptr %5, align 8, !tbaa !49
   %7 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !124, !range !111, !noundef !112
   %8 = trunc nuw i8 %7 to i1
   %9 = icmp ne i32 %6, 0
@@ -30248,7 +30248,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_PNS0
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !345
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
-  %8 = load i32, ptr %7, align 4, !tbaa !49
+  %8 = load i32, ptr %7, align 8, !tbaa !49
   %9 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !124, !range !111, !noundef !112
   %10 = trunc nuw i8 %9 to i1
   %11 = icmp ne i32 %8, 0
@@ -37455,7 +37455,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !tbaa !39, !alias.scope !683, !noalias !686
   store ptr %43, ptr %.0911.i.i.i, align 8, !tbaa !35, !alias.scope !686, !noalias !683
   store i64 0, ptr %52, align 8, !tbaa !39, !alias.scope !686, !noalias !683
-  store i8 0, ptr %43, align 1, !tbaa !40, !alias.scope !686, !noalias !683
+  store i8 0, ptr %43, align 8, !tbaa !40, !alias.scope !686, !noalias !683
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %54, %1
@@ -37503,7 +37503,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !tbaa !39, !alias.scope !690, !noalias !693
   store ptr %59, ptr %.0911.i.i.i29, align 8, !tbaa !35, !alias.scope !693, !noalias !690
   store i64 0, ptr %68, align 8, !tbaa !39, !alias.scope !693, !noalias !690
-  store i8 0, ptr %59, align 1, !tbaa !40, !alias.scope !693, !noalias !690
+  store i8 0, ptr %59, align 8, !tbaa !40, !alias.scope !693, !noalias !690
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %.not.i.i.i34 = icmp eq ptr %70, %6

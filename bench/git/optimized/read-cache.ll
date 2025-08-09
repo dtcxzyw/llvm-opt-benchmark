@@ -4039,7 +4039,7 @@ _.exit.i:                                         ; preds = %95, %93
   %108 = getelementptr inbounds nuw i8, ptr %106, i64 192
   %109 = load i32, ptr %108, align 4, !tbaa !82
   %110 = getelementptr inbounds nuw i8, ptr %77, i64 32
-  store i32 %109, ptr %110, align 4, !tbaa !82
+  store i32 %109, ptr %110, align 8, !tbaa !82
   %111 = call ptr @oid_to_hex(ptr noundef nonnull %107) #30
   %112 = load ptr, ptr @the_repository, align 8, !tbaa !54
   %113 = call ptr @repo_get_git_dir(ptr noundef %112) #30
@@ -9817,7 +9817,7 @@ create_ce_mode.exit:                              ; preds = %make_empty_cache_en
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %48 = load i32, ptr %47, align 4, !tbaa !82
   %49 = getelementptr inbounds nuw i8, ptr %27, i64 104
-  store i32 %48, ptr %49, align 4, !tbaa !82
+  store i32 %48, ptr %49, align 8, !tbaa !82
   %50 = tail call i32 @add_index_entry(ptr noundef nonnull %0, ptr noundef nonnull %27, i32 noundef %5)
   br label %51
 

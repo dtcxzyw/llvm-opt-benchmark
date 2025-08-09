@@ -201,7 +201,7 @@ _ZNSt10unique_ptrIN4llvm24MCMachObjectTargetWriterESt14default_deleteIS1_EED2Ev.
   store ptr %30, ptr %27, align 8, !tbaa !27, !noalias !20
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store i64 0, ptr %31, align 8, !tbaa !30, !noalias !20
-  store i8 0, ptr %30, align 1, !tbaa !33, !noalias !20
+  store i8 0, ptr %30, align 8, !tbaa !33, !noalias !20
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 88
   %34 = getelementptr inbounds nuw i8, ptr %23, i64 104
@@ -404,7 +404,7 @@ _ZNSt10unique_ptrIN4llvm25MCDXContainerTargetWriterESt14default_deleteIS1_EED2Ev
   store ptr %103, ptr %100, align 8, !tbaa !27, !noalias !107
   %104 = getelementptr inbounds nuw i8, ptr %97, i64 32
   store i64 0, ptr %104, align 8, !tbaa !30, !noalias !107
-  store i8 0, ptr %103, align 1, !tbaa !33, !noalias !107
+  store i8 0, ptr %103, align 8, !tbaa !33, !noalias !107
   %105 = getelementptr inbounds nuw i8, ptr %97, i64 56
   %106 = getelementptr inbounds nuw i8, ptr %97, i64 88
   %107 = getelementptr inbounds nuw i8, ptr %97, i64 104

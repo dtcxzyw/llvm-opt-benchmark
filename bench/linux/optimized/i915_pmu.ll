@@ -2486,7 +2486,7 @@ define internal fastcc i64 @__i915_pmu_event_read(ptr %.152.val, i64 %.224.val) 
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 4952
   %61 = load i32, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 3296
-  %63 = load volatile i32, ptr %62, align 4
+  %63 = load volatile i32, ptr %62, align 8
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %._crit_edge, label %.lr.ph, !prof !27
 

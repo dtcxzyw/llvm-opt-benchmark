@@ -5580,9 +5580,9 @@ define internal fastcc void @cpuset_attach_task(ptr noundef %0, ptr noundef %1) 
   %44 = load i64, ptr @cpuset_attach_nodemask_to, align 8
   store i64 %44, ptr %40, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !112
-  %45 = load i32, ptr %37, align 4
+  %45 = load i32, ptr %37, align 8
   %46 = add i32 %45, 1
-  store i32 %46, ptr %37, align 4
+  store i32 %46, ptr %37, align 8
   tail call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !113
   tail call void @_raw_spin_unlock(ptr noundef nonnull %36) #19
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @cpuset_cgrp_subsys_on_dfl_key, i32 3) #19
@@ -7389,9 +7389,9 @@ define internal fastcc void @update_tasks_nodemask(ptr noundef %0) unnamed_addr 
   %32 = load i64, ptr @update_tasks_nodemask.newmems, align 8
   store i64 %32, ptr %28, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !112
-  %33 = load i32, ptr %25, align 4
+  %33 = load i32, ptr %25, align 8
   %34 = add i32 %33, 1
-  store i32 %34, ptr %25, align 4
+  store i32 %34, ptr %25, align 8
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !113
   call void @_raw_spin_unlock(ptr noundef nonnull %24) #19
   %35 = call ptr @get_task_mm(ptr noundef nonnull %23) #19

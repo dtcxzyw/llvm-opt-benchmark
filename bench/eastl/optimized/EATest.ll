@@ -1340,7 +1340,7 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #31
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN2EA8UnitTest4TestE, i64 16), ptr %call, align 8
   %msTestName.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
-  store i8 0, ptr %msTestName.i.i, align 1
+  store i8 0, ptr %msTestName.i.i, align 8
   %mRemainingSizeField.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 31
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
   %strlen.i.i.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pTestName)

@@ -15,7 +15,7 @@ define hidden void @_ZN20JvmtiDeferredUpdates10create_forEP10JavaThread(ptr noun
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef 1, i32 noundef 8, i8 noundef zeroext 7) #3
-  store i32 0, ptr %3, align 4
+  store i32 0, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 1, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -92,7 +92,7 @@ define hidden void @_ZN20JvmtiDeferredUpdates27inc_relock_count_after_waitEP10Ja
   store i32 0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef 1, i32 noundef 8, i8 noundef zeroext 7) #3
-  store i32 0, ptr %7, align 4
+  store i32 0, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 1, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -122,7 +122,7 @@ define hidden noundef i32 @_ZN20JvmtiDeferredUpdates37get_and_reset_relock_count
   %5 = load i32, ptr %3, align 8
   store i32 0, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %._crit_edge.i, label %13
 

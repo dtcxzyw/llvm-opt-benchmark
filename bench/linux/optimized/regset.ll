@@ -480,7 +480,7 @@ define dso_local void @convert_to_fxsr(ptr noundef writeonly captures(none) init
   %38 = load i32, ptr %37, align 4
   %39 = zext i32 %38 to i64
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %39, ptr %40, align 8
+  store i64 %39, ptr %40, align 16
   br label %41
 
 41:                                               ; preds = %41, %2
@@ -639,7 +639,7 @@ define dso_local noundef range(i32 -22, 1) i32 @fpregs_set(ptr noundef captures(
   %65 = load i32, ptr %64, align 4
   %66 = zext i32 %65 to i64
   %67 = getelementptr inbounds nuw i8, ptr %28, i64 80
-  store i64 %66, ptr %67, align 8
+  store i64 %66, ptr %67, align 16
   br label %68
 
 68:                                               ; preds = %68, %26

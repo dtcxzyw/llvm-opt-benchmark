@@ -29011,7 +29011,7 @@ _ZNRSt8optionalIbE5valueEv.exit:                  ; preds = %entry
   store i128 %3, ptr %max_.i.i, align 16, !noalias !683
   %values_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   %values_4.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %values_.i.i, align 8, !noalias !683
+  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %values_.i.i, align 16, !noalias !683
   %chunkMask_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %chunkMask_.i.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !683
   invoke void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyInvvvvEEE17buildFromF14TableIRKS5_EEvOT_(ptr noundef nonnull align 8 dereferenceable(32) %values_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %values_4.i.i)
@@ -29040,7 +29040,7 @@ if.else:                                          ; preds = %entry
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %min_.i.i6, ptr noundef nonnull align 16 dereferenceable(32) %min_2.i.i7, i64 32, i1 false), !noalias !686
   %values_.i.i8 = getelementptr inbounds nuw i8, ptr %call.i4, i64 48
   %values_3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %values_.i.i8, align 8, !noalias !686
+  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %values_.i.i8, align 16, !noalias !686
   %chunkMask_.i.i.i.i.i.i9 = getelementptr inbounds nuw i8, ptr %call.i4, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %chunkMask_.i.i.i.i.i.i9, i8 0, i64 24, i1 false), !noalias !686
   invoke void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyInvvvvEEE17buildFromF14TableIRKS5_EEvOT_(ptr noundef nonnull align 8 dereferenceable(32) %values_.i.i8, ptr noundef nonnull align 8 dereferenceable(32) %values_3.i.i)
@@ -31994,7 +31994,7 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIN
   %__bbegin_bkt.021 = phi i64 [ %__bbegin_bkt.1, %if.end22 ], [ 0, %_ZNSt10_HashtableIN8facebook5velox6common10FilterKindESt4pairIKS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %1 = load ptr, ptr %__p.022, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %__p.022, i64 8
-  %2 = load i32, ptr %add.ptr, align 4
+  %2 = load i32, ptr %add.ptr, align 8
   %conv.i.i.i.i = sext i32 %2 to i64
   %rem.i.i = urem i64 %conv.i.i.i.i, %__bkt_count
   %arrayidx = getelementptr inbounds ptr, ptr %retval.0.i, i64 %rem.i.i
@@ -36820,7 +36820,7 @@ _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyINSt7__cxx1112basic_str
   tail call void @llvm.assume(i1 %cmp.i.i)
   %conv.i.i.i = trunc i64 %newCapacityScale to i16
   %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i2.i.i7.i, i64 12
-  store i16 %conv.i.i.i, ptr %arrayidx.i.i.i.i.i, align 1
+  store i16 %conv.i.i.i, ptr %arrayidx.i.i.i.i.i, align 2
   store ptr %call5.i.i2.i.i7.i, ptr %chunks_, align 8
   %3 = trunc i64 %newChunkCount to i32
   %conv = add i32 %3, -1
@@ -38138,7 +38138,7 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIjvvvvEEE16initializeChu
   tail call void @llvm.assume(i1 %1)
   %conv.i.i.i = trunc i64 %newCapacityScale to i16
   %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i2.i.i1.i, i64 12
-  store i16 %conv.i.i.i, ptr %arrayidx.i.i.i.i.i, align 1
+  store i16 %conv.i.i.i, ptr %arrayidx.i.i.i.i.i, align 2
   store ptr %call5.i.i2.i.i1.i, ptr %this, align 8
   %chunkMask_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %sub.i28, ptr %chunkMask_, align 8

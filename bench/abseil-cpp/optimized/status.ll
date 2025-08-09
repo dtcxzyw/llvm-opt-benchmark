@@ -604,7 +604,7 @@ _ZNSt10unique_ptrIN4absl13InlinedVectorINS0_15status_internal7PayloadELm1ESaIS3_
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 0, ptr %10, align 8, !tbaa !34
   br label %14

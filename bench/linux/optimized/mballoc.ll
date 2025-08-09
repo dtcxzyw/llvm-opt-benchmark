@@ -1013,13 +1013,13 @@ define dso_local noundef i32 @ext4_seq_mb_stats_show(ptr noundef %0, ptr noundef
   %31 = load volatile i64, ptr %30, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.8, i64 noundef %31) #16
   %32 = getelementptr i8, ptr %6, i64 952
-  %33 = load volatile i32, ptr %32, align 4
+  %33 = load volatile i32, ptr %32, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef %33) #16
   %34 = getelementptr i8, ptr %6, i64 1088
   %35 = load volatile i64, ptr %34, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.10, i64 noundef %35) #16
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 992
-  %37 = load volatile i32, ptr %36, align 4
+  %37 = load volatile i32, ptr %36, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %37) #16
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.13) #16
   %38 = getelementptr i8, ptr %6, i64 1056
@@ -1045,7 +1045,7 @@ define dso_local noundef i32 @ext4_seq_mb_stats_show(ptr noundef %0, ptr noundef
   %51 = load volatile i64, ptr %50, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.8, i64 noundef %51) #16
   %52 = getelementptr i8, ptr %6, i64 960
-  %53 = load volatile i32, ptr %52, align 4
+  %53 = load volatile i32, ptr %52, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef %53) #16
   %54 = getelementptr i8, ptr %6, i64 1104
   %55 = load volatile i64, ptr %54, align 8
@@ -1064,25 +1064,25 @@ define dso_local noundef i32 @ext4_seq_mb_stats_show(ptr noundef %0, ptr noundef
   %63 = load volatile i64, ptr %62, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.10, i64 noundef %63) #16
   %64 = getelementptr inbounds nuw i8, ptr %6, i64 944
-  %65 = load volatile i32, ptr %64, align 4
+  %65 = load volatile i32, ptr %64, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.16, i32 noundef %65) #16
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 972
   %67 = load volatile i32, ptr %66, align 4
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.17, i32 noundef %67) #16
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 976
-  %69 = load volatile i32, ptr %68, align 4
+  %69 = load volatile i32, ptr %68, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.18, i32 noundef %69) #16
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 984
-  %71 = load volatile i32, ptr %70, align 4
+  %71 = load volatile i32, ptr %70, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.19, i32 noundef %71) #16
   %72 = getelementptr inbounds nuw i8, ptr %6, i64 980
   %73 = load volatile i32, ptr %72, align 4
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.20, i32 noundef %73) #16
   %74 = getelementptr inbounds nuw i8, ptr %6, i64 1136
-  %75 = load volatile i32, ptr %74, align 4
+  %75 = load volatile i32, ptr %74, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.21, i32 noundef %75) #16
   %76 = getelementptr inbounds nuw i8, ptr %6, i64 1120
-  %77 = load volatile i32, ptr %76, align 4
+  %77 = load volatile i32, ptr %76, align 8
   %78 = load ptr, ptr %5, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 64
   %80 = load i32, ptr %79, align 64
@@ -1095,7 +1095,7 @@ define dso_local noundef i32 @ext4_seq_mb_stats_show(ptr noundef %0, ptr noundef
   %84 = load volatile i32, ptr %83, align 4
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.24, i32 noundef %84) #16
   %85 = getelementptr inbounds nuw i8, ptr %6, i64 1144
-  %86 = load volatile i32, ptr %85, align 4
+  %86 = load volatile i32, ptr %85, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.25, i32 noundef %86) #16
   br label %87
 
@@ -1820,7 +1820,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ext4_mb_init(ptr noundef %0) loc
   %146 = getelementptr inbounds nuw i8, ptr %3, i64 816
   store ptr @ext4_discard_work, ptr %146, align 8
   %147 = getelementptr inbounds nuw i8, ptr %3, i64 824
-  store volatile i32 0, ptr %147, align 4
+  store volatile i32 0, ptr %147, align 8
   %148 = getelementptr inbounds nuw i8, ptr %3, i64 880
   store i32 200, ptr %148, align 16
   %149 = getelementptr inbounds nuw i8, ptr %3, i64 884
@@ -2581,7 +2581,7 @@ define dso_local void @ext4_mb_release(ptr noundef %0) local_unnamed_addr #0 ali
   %146 = getelementptr inbounds nuw i8, ptr %6, i64 1140
   %147 = load volatile i32, ptr %146, align 4
   %148 = getelementptr inbounds nuw i8, ptr %6, i64 1144
-  %149 = load volatile i32, ptr %148, align 4
+  %149 = load volatile i32, ptr %148, align 8
   tail call void (ptr, ptr, ptr, ...) @__ext4_msg(ptr noundef %0, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.38, i32 noundef %147, i32 noundef %149) #16
   br label %150
 

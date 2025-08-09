@@ -25,7 +25,7 @@ define noalias ptr @av_buffer_create(ptr noundef %0, i64 noundef %1, ptr noundef
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %3, ptr %11, align 8, !tbaa !14
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 1, ptr %12, align 4, !tbaa !15
+  store i32 1, ptr %12, align 8, !tbaa !15
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 %4, ptr %13, align 8, !tbaa !16
   %14 = tail call noalias ptr @av_mallocz(i64 noundef 24) #10
@@ -82,7 +82,7 @@ define noalias ptr @av_buffer_alloc(i64 noundef %0) #0 {
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %9, align 8, !tbaa !14
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 1, ptr %10, align 4, !tbaa !15
+  store i32 1, ptr %10, align 8, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 0, ptr %11, align 8, !tbaa !16
   %12 = tail call noalias ptr @av_mallocz(i64 noundef 24) #10
@@ -138,7 +138,7 @@ define noalias ptr @av_buffer_allocz(i64 noundef %0) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %9, align 8, !tbaa !14
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 1, ptr %10, align 4, !tbaa !15
+  store i32 1, ptr %10, align 8, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 0, ptr %11, align 8, !tbaa !16
   %12 = tail call noalias ptr @av_mallocz(i64 noundef 24) #10
@@ -313,7 +313,7 @@ av_buffer_is_writable.exit.thread:                ; preds = %1, %av_buffer_is_wr
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr null, ptr %19, align 8, !tbaa !14
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store i32 1, ptr %20, align 4, !tbaa !15
+  store i32 1, ptr %20, align 8, !tbaa !15
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 0, ptr %21, align 8, !tbaa !16
   %22 = tail call noalias ptr @av_mallocz(i64 noundef 24) #10
@@ -405,7 +405,7 @@ define range(i32 -12, 1) i32 @av_buffer_realloc(ptr noundef captures(none) %0, i
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr null, ptr %13, align 8, !tbaa !14
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 1, ptr %14, align 4, !tbaa !15
+  store i32 1, ptr %14, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i32 0, ptr %15, align 8, !tbaa !16
   %16 = tail call noalias ptr @av_mallocz(i64 noundef 24) #10
@@ -670,7 +670,7 @@ define ptr @av_buffer_pool_init2(i64 noundef %0, ptr noundef %1, ptr noundef %2,
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store ptr %3, ptr %14, align 8, !tbaa !35
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i32 1, ptr %15, align 4, !tbaa !15
+  store i32 1, ptr %15, align 8, !tbaa !15
   br label %16
 
 16:                                               ; preds = %4, %9, %8
@@ -704,7 +704,7 @@ define ptr @av_buffer_pool_init(i64 noundef %0, ptr noundef %1) local_unnamed_ad
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store ptr %9, ptr %10, align 8, !tbaa !34
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store i32 1, ptr %11, align 4, !tbaa !15
+  store i32 1, ptr %11, align 8, !tbaa !15
   br label %12
 
 12:                                               ; preds = %2, %7, %6
@@ -836,7 +836,7 @@ define ptr @av_buffer_pool_get(ptr noundef %0) local_unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store ptr %5, ptr %13, align 8, !tbaa !14
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store i32 1, ptr %14, align 4, !tbaa !15
+  store i32 1, ptr %14, align 8, !tbaa !15
   %15 = tail call noalias ptr @av_mallocz(i64 noundef 24) #10
   %.not21.i = icmp eq ptr %15, null
   br i1 %.not21.i, label %.thread, label %.thread26

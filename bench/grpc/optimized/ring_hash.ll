@@ -1577,7 +1577,7 @@ _ZN9grpc_core19LoadBalancingPolicy4ArgsD2Ev.exit.i.i: ; preds = %49, %_ZN9__gnu_
   store ptr %61, ptr %60, align 8, !tbaa !16, !noalias !59
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 160
   store i64 0, ptr %62, align 8, !tbaa !15, !noalias !59
-  store i8 0, ptr %61, align 1, !tbaa !18, !noalias !59
+  store i8 0, ptr %61, align 8, !tbaa !18, !noalias !59
   %63 = getelementptr inbounds nuw i8, ptr %7, i64 184
   store i64 1, ptr %63, align 8, !tbaa !84, !noalias !59
   %64 = getelementptr inbounds nuw i8, ptr %7, i64 192
@@ -3296,7 +3296,7 @@ _ZSt19__relocate_object_aIZN9grpc_core12_GLOBAL__N_18RingHash4RingC1EPS2_PNS1_16
   store i64 %345, ptr %347, align 8, !tbaa !15, !alias.scope !179, !noalias !184
   store ptr %337, ptr %.092.i.i.i.i.i.i.i.i, align 8, !tbaa !10, !alias.scope !182, !noalias !185
   store i64 0, ptr %346, align 8, !tbaa !15, !alias.scope !182, !noalias !185
-  store i8 0, ptr %337, align 1, !tbaa !18, !alias.scope !182, !noalias !185
+  store i8 0, ptr %337, align 8, !tbaa !18, !alias.scope !182, !noalias !185
   %348 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i.i.i, i64 32
   %349 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %348, ptr noundef nonnull align 8 dereferenceable(16) %349, i64 16, i1 false), !alias.scope !186, !noalias !167
@@ -13069,7 +13069,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !15, !alias.scope !425, !noalias !428
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !10, !alias.scope !428, !noalias !425
   store i64 0, ptr %48, align 8, !tbaa !15, !alias.scope !428, !noalias !425
-  store i8 0, ptr %39, align 1, !tbaa !18, !alias.scope !428, !noalias !425
+  store i8 0, ptr %39, align 8, !tbaa !18, !alias.scope !428, !noalias !425
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -13117,7 +13117,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !15, !alias.scope !432, !noalias !435
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !10, !alias.scope !435, !noalias !432
   store i64 0, ptr %64, align 8, !tbaa !15, !alias.scope !435, !noalias !432
-  store i8 0, ptr %55, align 1, !tbaa !18, !alias.scope !435, !noalias !432
+  store i8 0, ptr %55, align 8, !tbaa !18, !alias.scope !435, !noalias !432
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5
@@ -14515,7 +14515,7 @@ _ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.thread: ; preds = %
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 12, ptr %37, align 8, !tbaa !15
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 28
-  store i8 0, ptr %38, align 1, !tbaa !18
+  store i8 0, ptr %38, align 4, !tbaa !18
   store ptr %34, ptr @_ZZN9grpc_core20RequestHashAttribute8TypeNameEvE8kFactory, align 8, !tbaa !4
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core20RequestHashAttribute8TypeNameEvE8kFactory) #34
   br label %_ZNK9grpc_core24ClientChannelLbCallState16GetCallAttributeINS_20RequestHashAttributeEEEPT_v.exit

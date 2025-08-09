@@ -7312,7 +7312,7 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17h1068ff02c3c5fb4bE(ptr noali
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1694
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.0.06, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1697)
-  %13 = load i32, ptr %12, align 4, !alias.scope !1700, !noalias !1701, !noundef !9
+  %13 = load i32, ptr %12, align 8, !alias.scope !1700, !noalias !1701, !noundef !9
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1703
   store i32 %13, ptr %4, align 4, !noalias !1703
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h506588d3cd56d317E.llvm.16482350066526367222"(ptr noalias noundef nonnull align 8 dereferenceable(72) %2, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef 4), !noalias !1700
@@ -7670,7 +7670,7 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17ha098d3624445c2cbE(ptr noali
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.06, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1835)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1836)
-  %16 = load i32, ptr %15, align 4, !alias.scope !1822, !noalias !1837, !noundef !9
+  %16 = load i32, ptr %15, align 8, !alias.scope !1822, !noalias !1837, !noundef !9
   %17 = zext i32 %16 to i64
   %18 = tail call i64 @llvm.fshl.i64(i64 %14, i64 %14, i64 5)
   %19 = xor i64 %18, %17

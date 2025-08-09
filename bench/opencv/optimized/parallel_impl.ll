@@ -3057,13 +3057,13 @@ define hidden void @_ZN2cv10ThreadPool3runERKNS_5RangeERKNS_16ParallelLoopBodyEd
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 24
   store i32 %40, ptr %44, align 8, !tbaa !122
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 240
-  store i8 0, ptr %45, align 1, !tbaa !123
+  store i8 0, ptr %45, align 8, !tbaa !123
   %46 = getelementptr inbounds nuw i8, ptr %39, i64 28
   store atomic i32 0, ptr %46 monotonic, align 4
   %47 = getelementptr inbounds nuw i8, ptr %39, i64 96
-  store atomic i32 0, ptr %47 monotonic, align 4
+  store atomic i32 0, ptr %47 monotonic, align 8
   %48 = getelementptr inbounds nuw i8, ptr %39, i64 168
-  store atomic i32 0, ptr %48 monotonic, align 4
+  store atomic i32 0, ptr %48 monotonic, align 8
   %49 = getelementptr inbounds nuw i8, ptr %39, i64 32
   store i64 0, ptr %49, align 8, !tbaa !124
   %50 = getelementptr inbounds nuw i8, ptr %39, i64 104
@@ -3368,7 +3368,7 @@ _ZN2cv3PtrINS_11ParallelJobEEaSERKS2_.exit67:     ; preds = %150, %_ZNSt16_Sp_co
   %189 = load volatile i8, ptr %139, align 8, !tbaa !9, !range !127, !noundef !128
   %190 = trunc nuw i8 %189 to i1
   %191 = getelementptr inbounds nuw i8, ptr %138, i64 26
-  store atomic i8 1, ptr %191 seq_cst, align 1
+  store atomic i8 1, ptr %191 seq_cst, align 2
   %192 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %151) #4
   br i1 %190, label %231, label %.sink.split
 
@@ -3483,7 +3483,7 @@ _ZN2cv3PtrINS_11ParallelJobEEaSERKS2_.exit78:     ; preds = %193, %_ZNSt16_Sp_co
   %243 = shl i32 %241, 1
   %244 = tail call i32 @llvm.umin.i32(i32 %242, i32 100)
   %245 = tail call i32 @llvm.umax.i32(i32 %244, i32 %243)
-  %246 = load i32, ptr %239, align 4, !tbaa !3
+  %246 = load i32, ptr %239, align 8, !tbaa !3
   %247 = tail call i32 @llvm.umin.i32(i32 %245, i32 %246)
   %248 = getelementptr inbounds nuw i8, ptr %233, i64 28
   %249 = load atomic i32, ptr %248 seq_cst, align 4

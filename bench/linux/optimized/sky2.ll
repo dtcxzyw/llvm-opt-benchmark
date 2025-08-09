@@ -4140,7 +4140,7 @@ define internal i32 @sky2_set_ringparam(ptr noundef %0, ptr noundef readonly cap
   %35 = trunc i64 %34 to i16
   %36 = getelementptr i8, ptr %0, i64 2368
   store i16 %35, ptr %36, align 64
-  %37 = load volatile i64, ptr %15, align 8
+  %37 = load volatile i64, ptr %15, align 32
   %38 = and i64 %37, 1
   %39 = icmp eq i64 %38, 0
   br i1 %39, label %45, label %40
@@ -4231,7 +4231,7 @@ define internal noundef i32 @sky2_set_pauseparam(ptr noundef initializes((2528, 
   %21 = getelementptr i8, ptr %0, i64 2528
   store i32 %20, ptr %21, align 32
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %23 = load volatile i64, ptr %22, align 8
+  %23 = load volatile i64, ptr %22, align 32
   %24 = and i64 %23, 1
   %25 = icmp eq i64 %24, 0
   br i1 %25, label %43, label %26
@@ -9575,7 +9575,7 @@ define internal fastcc void @sky2_hw_up(ptr noundef captures(none) initializes((
   tail call void @dql_reset(ptr noundef nonnull %19) #23
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load ptr, ptr %20, align 8
-  %22 = load i16, ptr %11, align 2
+  %22 = load i16, ptr %11, align 4
   %23 = zext i16 %22 to i64
   %24 = getelementptr %struct.sky2_tx_le, ptr %21, i64 %23
   %25 = add i16 %22, 1
@@ -9583,7 +9583,7 @@ define internal fastcc void @sky2_hw_up(ptr noundef captures(none) initializes((
   %27 = load i16, ptr %26, align 64
   %28 = add i16 %27, -1
   %29 = and i16 %28, %25
-  store i16 %29, ptr %11, align 2
+  store i16 %29, ptr %11, align 4
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 6
   store i8 0, ptr %30, align 1
   store i32 0, ptr %24, align 1
@@ -11986,7 +11986,7 @@ define internal noundef range(i32 -110, 1) i32 @sky2_ioctl(ptr noundef %0, ptr n
   %5 = getelementptr i8, ptr %0, i64 2304
   %6 = load ptr, ptr %5, align 64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %8 = load volatile i64, ptr %7, align 8
+  %8 = load volatile i64, ptr %7, align 32
   %9 = and i64 %8, 1
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %114, label %11
@@ -12163,7 +12163,7 @@ define internal noundef range(i32 -12, 1) i32 @sky2_change_mtu(ptr noundef %0, i
   %5 = getelementptr i8, ptr %0, i64 2320
   %6 = load i32, ptr %5, align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %8 = load volatile i64, ptr %7, align 8
+  %8 = load volatile i64, ptr %7, align 32
   %9 = and i64 %8, 1
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %11, label %13

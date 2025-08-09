@@ -173,11 +173,11 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 52
   store i32 %19, ptr %21, align 4, !tbaa !39
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i32 %19, ptr %22, align 4, !tbaa !39
+  store i32 %19, ptr %22, align 8, !tbaa !39
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %24 = load i32, ptr %23, align 4, !tbaa !35
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store i32 %24, ptr %25, align 4, !tbaa !39
+  store i32 %24, ptr %25, align 8, !tbaa !39
   store i32 %24, ptr %20, align 4, !tbaa !39
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load i32, ptr %26, align 8, !tbaa !34
@@ -191,11 +191,11 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 36
   store i32 %33, ptr %35, align 4, !tbaa !39
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 %33, ptr %36, align 4, !tbaa !39
+  store i32 %33, ptr %36, align 8, !tbaa !39
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load i32, ptr %37, align 8, !tbaa !34
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i32 %38, ptr %39, align 4, !tbaa !39
+  store i32 %38, ptr %39, align 8, !tbaa !39
   store i32 %38, ptr %34, align 4, !tbaa !39
   %40 = icmp sgt i32 %10, 0
   br i1 %40, label %.lr.ph, label %._crit_edge

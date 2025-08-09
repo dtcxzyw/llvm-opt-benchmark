@@ -374,7 +374,7 @@ define dso_local void @session_clear_tty(ptr noundef %0) local_unnamed_addr #0 a
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %18, i64 noundef %13) #8
   tail call void @tty_kref_put(ptr noundef %17) #8
   %19 = getelementptr i8, ptr %10, i64 1472
-  %20 = load volatile ptr, ptr %19, align 16
+  %20 = load volatile ptr, ptr %19, align 32
   %21 = icmp eq ptr %20, null
   %22 = getelementptr i8, ptr %20, i64 -1472
   %23 = icmp eq ptr %22, null
@@ -499,7 +499,7 @@ define dso_local i32 @tty_signal_session_leader(ptr noundef %0, i32 noundef %1) 
   %68 = load ptr, ptr %20, align 32
   tail call void @_raw_spin_unlock_irq(ptr noundef %68) #8
   %69 = getelementptr i8, ptr %17, i64 1472
-  %70 = load volatile ptr, ptr %69, align 16
+  %70 = load volatile ptr, ptr %69, align 32
   %71 = icmp eq ptr %70, null
   %72 = getelementptr i8, ptr %70, i64 -1472
   %73 = icmp eq ptr %72, null
@@ -773,7 +773,7 @@ define dso_local void @disassociate_ctty(i32 noundef %0) local_unnamed_addr #0 a
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %124, i64 noundef %119) #8
   tail call void @tty_kref_put(ptr noundef %123) #8
   %125 = getelementptr i8, ptr %116, i64 1472
-  %126 = load volatile ptr, ptr %125, align 16
+  %126 = load volatile ptr, ptr %125, align 32
   %127 = icmp eq ptr %126, null
   %128 = getelementptr i8, ptr %126, i64 -1472
   %129 = icmp eq ptr %128, null
@@ -948,7 +948,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @tty_jobctrl_ioctl(ptr n
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %65, i64 noundef %60) #8
   tail call void @tty_kref_put(ptr noundef %64) #8
   %66 = getelementptr i8, ptr %57, i64 1472
-  %67 = load volatile ptr, ptr %66, align 16
+  %67 = load volatile ptr, ptr %66, align 32
   %68 = icmp eq ptr %67, null
   %69 = getelementptr i8, ptr %67, i64 -1472
   %70 = icmp eq ptr %69, null

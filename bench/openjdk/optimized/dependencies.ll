@@ -4482,7 +4482,7 @@ _ZN12Dependencies8dep_nameENS_7DepTypeE.exit:     ; preds = %._crit_edge, %59
   %71 = getelementptr inbounds nuw i32, ptr %69, i64 %70
   %72 = load i32, ptr %71, align 4
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.25, i32 noundef %72) #19
-  %.pre = load i32, ptr %19, align 4
+  %.pre = load i32, ptr %19, align 8
   br label %73
 
 73:                                               ; preds = %68, %_ZN12Dependencies8dep_nameENS_7DepTypeE.exit

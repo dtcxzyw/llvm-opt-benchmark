@@ -109,11 +109,11 @@ define internal range(i32 -22, 1) i32 @config_input(ptr noundef readonly capture
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 124
   store i32 %24, ptr %26, align 4, !tbaa !45
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 120
-  store i32 %24, ptr %27, align 4, !tbaa !45
+  store i32 %24, ptr %27, align 8, !tbaa !45
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %29 = load i32, ptr %28, align 4, !tbaa !44
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  store i32 %29, ptr %30, align 4, !tbaa !45
+  store i32 %29, ptr %30, align 8, !tbaa !45
   store i32 %29, ptr %25, align 4, !tbaa !45
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 9
   %32 = load i8, ptr %31, align 1, !tbaa !46
@@ -127,11 +127,11 @@ define internal range(i32 -22, 1) i32 @config_input(ptr noundef readonly capture
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 108
   store i32 %38, ptr %40, align 4, !tbaa !45
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 104
-  store i32 %38, ptr %41, align 4, !tbaa !45
+  store i32 %38, ptr %41, align 8, !tbaa !45
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %43 = load i32, ptr %42, align 8, !tbaa !47
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  store i32 %43, ptr %44, align 4, !tbaa !45
+  store i32 %43, ptr %44, align 8, !tbaa !45
   store i32 %43, ptr %39, align 4, !tbaa !45
   %45 = load i32, ptr %42, align 8, !tbaa !47
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 8

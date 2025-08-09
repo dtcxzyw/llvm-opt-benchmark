@@ -1826,7 +1826,7 @@ define hidden noalias noundef nonnull ptr @"_ZN106_$LT$chalk_solve..display..stu
   %.val.i = load i32, ptr %20, align 4, !range !75, !alias.scope !141, !noalias !138, !noundef !26
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 92
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 94
-  %.val1.i = load i8, ptr %22, align 1, !range !143, !alias.scope !141, !noalias !138, !noundef !26
+  %.val1.i = load i8, ptr %22, align 2, !range !143, !alias.scope !141, !noalias !138, !noundef !26
   %23 = load i8, ptr %21, align 4, !range !98, !alias.scope !141, !noalias !138, !noundef !26
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 93
   %25 = load i8, ptr %24, align 1, !range !98, !alias.scope !141, !noalias !138, !noundef !26
@@ -6887,7 +6887,7 @@ common.resume:                                    ; preds = %.body, %.body.threa
   %147 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %148 = load i64, ptr %147, align 8, !alias.scope !1138, !noalias !1135, !noundef !26
   %149 = getelementptr inbounds nuw i8, ptr %51, i64 34
-  %.val.i = load i8, ptr %149, align 1, !range !143, !alias.scope !1138, !noalias !1135, !noundef !26
+  %.val.i = load i8, ptr %149, align 2, !range !143, !alias.scope !1138, !noalias !1135, !noundef !26
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1140)
   %150 = load ptr, ptr %73, align 8, !alias.scope !1143, !noalias !1135, !nonnull !26, !noundef !26
   %151 = atomicrmw add ptr %150, i64 1 monotonic, align 8, !noalias !1144

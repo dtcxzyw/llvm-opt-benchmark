@@ -95434,7 +95434,7 @@ define linkonce_odr hidden ptr @_ZZN8pybind1112cpp_function10initializeIZNOS_6de
   store ptr %8, ptr %7, align 8, !tbaa !147
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %9, align 8, !tbaa !151
-  store i8 0, ptr %8, align 1, !tbaa !152
+  store i8 0, ptr %8, align 8, !tbaa !152
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN6open3d8geometry6OctreeE, i64 16), ptr %4, align 8, !tbaa !776
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6open3d8geometry6OctreeE, i64 168), ptr %10, align 8, !tbaa !776
@@ -97383,7 +97383,7 @@ define internal noundef nonnull ptr @"_ZZN8pybind1112cpp_function10initializeIZN
   store ptr %18, ptr %17, align 8, !tbaa !147
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i64 0, ptr %19, align 8, !tbaa !151
-  store i8 0, ptr %18, align 1, !tbaa !152
+  store i8 0, ptr %18, align 8, !tbaa !152
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 48
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN6open3d8geometry6OctreeE, i64 16), ptr %14, align 8, !tbaa !776
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6open3d8geometry6OctreeE, i64 168), ptr %20, align 8, !tbaa !776
@@ -97472,7 +97472,7 @@ _ZN8pybind116detail15argument_loaderIJRNS0_16value_and_holderEmRKN5Eigen6MatrixI
   store ptr %38, ptr %37, align 8, !tbaa !147
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store i64 0, ptr %39, align 8, !tbaa !151
-  store i8 0, ptr %38, align 1, !tbaa !152
+  store i8 0, ptr %38, align 8, !tbaa !152
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 48
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN6open3d8geometry6OctreeE, i64 16), ptr %34, align 8, !tbaa !776
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6open3d8geometry6OctreeE, i64 168), ptr %40, align 8, !tbaa !776

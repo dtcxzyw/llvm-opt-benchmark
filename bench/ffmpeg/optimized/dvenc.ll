@@ -1200,7 +1200,7 @@ dv_set_class_number_hd.exit:                      ; preds = %177
 
 291:                                              ; preds = %289
   store i32 3, ptr %283, align 4, !tbaa !97
-  %292 = load i8, ptr %235, align 1, !tbaa !60
+  %292 = load i8, ptr %235, align 4, !tbaa !60
   %293 = zext i8 %292 to i32
   br label %294
 
@@ -1494,7 +1494,7 @@ dv_set_class_number_hd.exit527:                   ; preds = %349
 
 459:                                              ; preds = %457
   store i32 3, ptr %451, align 4, !tbaa !97
-  %460 = load i8, ptr %403, align 1, !tbaa !60
+  %460 = load i8, ptr %403, align 4, !tbaa !60
   %461 = zext i8 %460 to i32
   br label %462
 
@@ -1851,7 +1851,7 @@ dv_set_class_number_hd.exit533:                   ; preds = %554
 
 669:                                              ; preds = %667
   store i32 3, ptr %661, align 4, !tbaa !97
-  %670 = load i8, ptr %613, align 1, !tbaa !60
+  %670 = load i8, ptr %613, align 4, !tbaa !60
   %671 = zext i8 %670 to i32
   br label %672
 
@@ -2145,7 +2145,7 @@ dv_set_class_number_hd.exit539:                   ; preds = %727
 
 837:                                              ; preds = %835
   store i32 3, ptr %829, align 4, !tbaa !97
-  %838 = load i8, ptr %781, align 1, !tbaa !60
+  %838 = load i8, ptr %781, align 4, !tbaa !60
   %839 = zext i8 %838 to i32
   br label %840
 
@@ -2518,7 +2518,7 @@ dv_set_class_number_hd.exit545:                   ; preds = %942
 
 1056:                                             ; preds = %1054
   store i32 3, ptr %1048, align 4, !tbaa !97
-  %1057 = load i8, ptr %1000, align 1, !tbaa !60
+  %1057 = load i8, ptr %1000, align 4, !tbaa !60
   %1058 = zext i8 %1057 to i32
   br label %1059
 
@@ -2875,7 +2875,7 @@ dv_set_class_number_hd.exit551:                   ; preds = %1151
 
 1266:                                             ; preds = %1264
   store i32 3, ptr %1258, align 4, !tbaa !97
-  %1267 = load i8, ptr %1210, align 1, !tbaa !60
+  %1267 = load i8, ptr %1210, align 4, !tbaa !60
   %1268 = zext i8 %1267 to i32
   br label %1269
 
@@ -3242,7 +3242,7 @@ dv_set_class_number_hd.exit557:                   ; preds = %1366
 
 1481:                                             ; preds = %1479
   store i32 3, ptr %1473, align 4, !tbaa !97
-  %1482 = load i8, ptr %1425, align 1, !tbaa !60
+  %1482 = load i8, ptr %1425, align 4, !tbaa !60
   %1483 = zext i8 %1482 to i32
   br label %1484
 
@@ -3599,7 +3599,7 @@ dv_set_class_number_hd.exit563:                   ; preds = %1576
 
 1691:                                             ; preds = %1689
   store i32 3, ptr %1683, align 4, !tbaa !97
-  %1692 = load i8, ptr %1635, align 1, !tbaa !60
+  %1692 = load i8, ptr %1635, align 4, !tbaa !60
   %1693 = zext i8 %1692 to i32
   br label %1694
 
@@ -4087,7 +4087,7 @@ dv_set_class_number_hd.exit569:                   ; preds = %1872
 
 1988:                                             ; preds = %1985
   store i32 3, ptr %1979, align 4, !tbaa !97
-  %1989 = load i8, ptr %1931, align 1, !tbaa !60
+  %1989 = load i8, ptr %1931, align 4, !tbaa !60
   %1990 = zext i8 %1989 to i32
   br label %1991
 
@@ -4466,7 +4466,7 @@ dv_set_class_number_hd.exit575:                   ; preds = %2096
 
 2212:                                             ; preds = %2209
   store i32 3, ptr %2203, align 4, !tbaa !97
-  %2213 = load i8, ptr %2155, align 1, !tbaa !60
+  %2213 = load i8, ptr %2155, align 4, !tbaa !60
   %2214 = zext i8 %2213 to i32
   br label %2215
 

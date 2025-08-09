@@ -51125,13 +51125,13 @@ define internal fastcc void @"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$
   %.sroa.634.0..sroa_idx = getelementptr inbounds nuw i8, ptr %111, i64 68
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %.sroa.634.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(92) %.sroa.9.sroa.0, i64 92, i1 false)
   %.sroa.634.sroa.4.0..sroa.634.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %111, i64 160
-  store i64 %.sroa.9.sroa.5.1, ptr %.sroa.634.sroa.4.0..sroa.634.0..sroa_idx.sroa_idx, align 4
+  store i64 %.sroa.9.sroa.5.1, ptr %.sroa.634.sroa.4.0..sroa.634.0..sroa_idx.sroa_idx, align 8
   %.sroa.634.sroa.5.0..sroa.634.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %111, i64 168
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %.sroa.634.sroa.5.0..sroa.634.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.9.sroa.6, i64 40, i1 false)
   %.sroa.634.sroa.6.0..sroa.634.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %111, i64 208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %.sroa.634.sroa.6.0..sroa.634.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.9.sroa.7, i64 48, i1 false)
   %.sroa.634.sroa.7.0..sroa.634.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %111, i64 256
-  store i8 %.sroa.9.sroa.8.1, ptr %.sroa.634.sroa.7.0..sroa.634.0..sroa_idx.sroa_idx, align 4
+  store i8 %.sroa.9.sroa.8.1, ptr %.sroa.634.sroa.7.0..sroa.634.0..sroa_idx.sroa_idx, align 8
   %112 = icmp eq i64 %32, 0
   br i1 %112, label %.thread, label %31
 
@@ -51481,13 +51481,13 @@ define internal fastcc void @"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$
   %.sroa.15.sroa.9.0..sroa.15.0..sroa_idx33.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.020.085, i64 10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.15.sroa.9, ptr noundef nonnull align 1 dereferenceable(6) %.sroa.15.sroa.9.0..sroa.15.0..sroa_idx33.sroa_idx, i64 6, i1 false)
   %.sroa.15.sroa.10.0..sroa.15.0..sroa_idx33.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.020.085, i64 16
-  %.sroa.15.sroa.10.0.copyload51 = load ptr, ptr %.sroa.15.sroa.10.0..sroa.15.0..sroa_idx33.sroa_idx, align 1, !alias.scope !5126
+  %.sroa.15.sroa.10.0.copyload51 = load ptr, ptr %.sroa.15.sroa.10.0..sroa.15.0..sroa_idx33.sroa_idx, align 8, !alias.scope !5126
   %.sroa.15.sroa.11.0..sroa.15.0..sroa_idx33.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.020.085, i64 24
-  %.sroa.15.sroa.11.sroa.0.sroa.0.0.copyload = load i64, ptr %.sroa.15.sroa.11.0..sroa.15.0..sroa_idx33.sroa_idx, align 1, !alias.scope !5126
+  %.sroa.15.sroa.11.sroa.0.sroa.0.0.copyload = load i64, ptr %.sroa.15.sroa.11.0..sroa.15.0..sroa_idx33.sroa_idx, align 8, !alias.scope !5126
   %.sroa.15.sroa.11.sroa.0.sroa.8.0..sroa.15.sroa.11.0..sroa.15.0..sroa_idx33.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.020.085, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %.sroa.15.sroa.11.sroa.0.sroa.8, ptr noundef nonnull align 1 dereferenceable(296) %.sroa.15.sroa.11.sroa.0.sroa.8.0..sroa.15.sroa.11.0..sroa.15.0..sroa_idx33.sroa_idx.sroa_idx, i64 296, i1 false)
   %.sroa.15.sroa.11.sroa.8.0..sroa.15.sroa.11.0..sroa.15.0..sroa_idx33.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.020.085, i64 328
-  %.sroa.15.sroa.11.sroa.8.0.copyload = load i8, ptr %.sroa.15.sroa.11.sroa.8.0..sroa.15.sroa.11.0..sroa.15.0..sroa_idx33.sroa_idx.sroa_idx, align 1, !alias.scope !5126
+  %.sroa.15.sroa.11.sroa.8.0.copyload = load i8, ptr %.sroa.15.sroa.11.sroa.8.0..sroa.15.sroa.11.0..sroa.15.0..sroa_idx33.sroa_idx.sroa_idx, align 8, !alias.scope !5126
   %.sroa.15.sroa.11.sroa.9.0..sroa.15.sroa.11.0..sroa.15.0..sroa_idx33.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.020.085, i64 329
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.15.sroa.11.sroa.9, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.15.sroa.11.sroa.9.0..sroa.15.sroa.11.0..sroa.15.0..sroa_idx33.sroa_idx.sroa_idx, i64 7, i1 false)
   br label %"_ZN77_$LT$sqlparser..ast..FunctionArgumentClause$u20$as$u20$core..clone..Clone$GT$5clone17h6e79f09472315123E.exit"
@@ -51625,13 +51625,13 @@ define internal fastcc void @"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$
   %.sroa.542.sroa.4.0..sroa.542.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %67, i64 10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %.sroa.542.sroa.4.0..sroa.542.0..sroa_idx.sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.15.sroa.9, i64 6, i1 false)
   %.sroa.542.sroa.5.0..sroa.542.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %67, i64 16
-  store ptr %.sroa.15.sroa.10.1, ptr %.sroa.542.sroa.5.0..sroa.542.0..sroa_idx.sroa_idx, align 1
+  store ptr %.sroa.15.sroa.10.1, ptr %.sroa.542.sroa.5.0..sroa.542.0..sroa_idx.sroa_idx, align 8
   %.sroa.542.sroa.6.0..sroa.542.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %67, i64 24
-  store i64 %.sroa.15.sroa.11.sroa.0.sroa.0.1, ptr %.sroa.542.sroa.6.0..sroa.542.0..sroa_idx.sroa_idx, align 1
+  store i64 %.sroa.15.sroa.11.sroa.0.sroa.0.1, ptr %.sroa.542.sroa.6.0..sroa.542.0..sroa_idx.sroa_idx, align 8
   %.sroa.542.sroa.6.sroa.0.sroa.4.0..sroa.542.sroa.6.0..sroa.542.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %67, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(296) %.sroa.542.sroa.6.sroa.0.sroa.4.0..sroa.542.sroa.6.0..sroa.542.0..sroa_idx.sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(296) %.sroa.15.sroa.11.sroa.0.sroa.8, i64 296, i1 false)
   %.sroa.542.sroa.6.sroa.4.0..sroa.542.sroa.6.0..sroa.542.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %67, i64 328
-  store i8 %.sroa.15.sroa.11.sroa.8.1, ptr %.sroa.542.sroa.6.sroa.4.0..sroa.542.sroa.6.0..sroa.542.0..sroa_idx.sroa_idx.sroa_idx, align 1
+  store i8 %.sroa.15.sroa.11.sroa.8.1, ptr %.sroa.542.sroa.6.sroa.4.0..sroa.542.sroa.6.0..sroa.542.0..sroa_idx.sroa_idx.sroa_idx, align 8
   %.sroa.542.sroa.6.sroa.5.0..sroa.542.sroa.6.0..sroa.542.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %67, i64 329
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.542.sroa.6.sroa.5.0..sroa.542.sroa.6.0..sroa.542.0..sroa_idx.sroa_idx.sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.15.sroa.11.sroa.9, i64 7, i1 false)
   %68 = icmp eq i64 %25, 0
@@ -58232,7 +58232,7 @@ default.unreachable1784:                          ; preds = %484, %445, %407, %6
   %.sroa.17603.0..sroa_idx = getelementptr inbounds nuw i8, ptr %919, i64 137
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.17603.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.113.sroa.0, i64 7, i1 false)
   %.sroa.17603.sroa.4.0..sroa.17603.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %919, i64 144
-  store i64 %.sroa.113.sroa.13.1, ptr %.sroa.17603.sroa.4.0..sroa.17603.0..sroa_idx.sroa_idx, align 1
+  store i64 %.sroa.113.sroa.13.1, ptr %.sroa.17603.sroa.4.0..sroa.17603.0..sroa_idx.sroa_idx, align 8
   %.sroa.18604.0..sroa_idx = getelementptr inbounds nuw i8, ptr %919, i64 152
   store i32 %.sroa.113395.1, ptr %.sroa.18604.0..sroa_idx, align 8
   %.sroa.19605.0..sroa_idx = getelementptr inbounds nuw i8, ptr %919, i64 156

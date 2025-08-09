@@ -280,7 +280,7 @@ define internal range(i32 -22, 1) i32 @config_input_ref(ptr noundef readonly cap
   %notmask70 = shl nsw i32 -1, %94
   %95 = xor i32 %notmask70, -1
   %96 = getelementptr inbounds nuw i8, ptr %8, i64 184
-  store i32 %95, ptr %96, align 4, !tbaa !60
+  store i32 %95, ptr %96, align 8, !tbaa !60
   %97 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %98 = load i32, ptr %97, align 8, !tbaa !64
   %notmask71 = shl nsw i32 -1, %98
@@ -292,7 +292,7 @@ define internal range(i32 -22, 1) i32 @config_input_ref(ptr noundef readonly cap
   %notmask72 = shl nsw i32 -1, %102
   %103 = xor i32 %notmask72, -1
   %104 = getelementptr inbounds nuw i8, ptr %8, i64 192
-  store i32 %103, ptr %104, align 4, !tbaa !60
+  store i32 %103, ptr %104, align 8, !tbaa !60
   %105 = load i32, ptr %89, align 8, !tbaa !64
   %106 = icmp sgt i32 %105, 8
   %107 = select i1 %106, ptr @sum_slice16, ptr @sum_slice8
@@ -972,7 +972,7 @@ define internal i32 @do_corr(ptr noundef %0) #0 {
   %28 = load ptr, ptr %27, align 8, !tbaa !66
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 268
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 272
-  %31 = load i32, ptr %30, align 4, !tbaa !60
+  %31 = load i32, ptr %30, align 8, !tbaa !60
   %32 = getelementptr inbounds nuw i8, ptr %14, i64 168
   %33 = load i32, ptr %32, align 8, !tbaa !51
   %. = call i32 @llvm.smin.i32(i32 %31, i32 %33)
@@ -1052,7 +1052,7 @@ define internal i32 @do_corr(ptr noundef %0) #0 {
 ._crit_edge150:                                   ; preds = %.lr.ph149.split, %._crit_edge.us, %23
   %73 = getelementptr inbounds nuw i8, ptr %14, i64 296
   %74 = load ptr, ptr %73, align 8, !tbaa !67
-  %75 = load i32, ptr %30, align 4, !tbaa !60
+  %75 = load i32, ptr %30, align 8, !tbaa !60
   %.140 = call i32 @llvm.smin.i32(i32 %75, i32 %.pre)
   %76 = call i32 @ff_filter_execute(ptr noundef nonnull %12, ptr noundef %74, ptr noundef nonnull %10, ptr noundef null, i32 noundef %.140) #11
   %77 = load i32, ptr %35, align 8, !tbaa !32

@@ -909,7 +909,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %_ZN
 43:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28
   %44 = load ptr, ptr %8, align 8, !tbaa !78
   %.not.i.i.i.i = icmp ne ptr %44, null
-  %45 = load i32, ptr %16, align 4
+  %45 = load i32, ptr %16, align 8
   %.not10.i.i.i = icmp ugt i32 %45, %42
   %.not.i.i.i = select i1 %.not.i.i.i.i, i1 %.not10.i.i.i, i1 false
   br i1 %.not.i.i.i, label %46, label %_ZN10duckdb_re2L10AddToQueueEPNS_10SparseSetTIvEEi.exit
@@ -4103,7 +4103,7 @@ define hidden void @_ZN10duckdb_re24Prog14MarkSuccessorsEPNS_11SparseArrayIiEES3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !170
   %.not.i.i.i = icmp ne ptr %10, null
-  %11 = load i32, ptr %8, align 4
+  %11 = load i32, ptr %8, align 8
   %.not11.i.i = icmp ne i32 %11, 0
   %.not.i.i = select i1 %.not.i.i.i, i1 %.not11.i.i, i1 false
   br i1 %.not.i.i, label %12, label %_ZN10duckdb_re211SparseArrayIiE7set_newEiRKi.exit
@@ -4122,7 +4122,7 @@ define hidden void @_ZN10duckdb_re24Prog14MarkSuccessorsEPNS_11SparseArrayIiEES3
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds nuw %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %10, i64 %20, i32 1
   store i32 %13, ptr %21, align 4, !tbaa !192
-  %.pre = load i32, ptr %8, align 4
+  %.pre = load i32, ptr %8, align 8
   br label %_ZN10duckdb_re211SparseArrayIiE7set_newEiRKi.exit
 
 _ZN10duckdb_re211SparseArrayIiE7set_newEiRKi.exit: ; preds = %6, %12
@@ -4161,7 +4161,7 @@ _ZNK10duckdb_re211SparseArrayIiE9has_indexEi.exit: ; preds = %25
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds nuw %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %10, i64 %41, i32 1
   store i32 %31, ptr %42, align 4, !tbaa !192
-  %.pre135 = load i32, ptr %8, align 4
+  %.pre135 = load i32, ptr %8, align 8
   br label %_ZN10duckdb_re211SparseArrayIiE7set_newEiRKi.exit54
 
 _ZN10duckdb_re211SparseArrayIiE7set_newEiRKi.exit54: ; preds = %_ZN10duckdb_re211SparseArrayIiE7set_newEiRKi.exit, %.thread121, %_ZNK10duckdb_re211SparseArrayIiE9has_indexEi.exit
@@ -4315,7 +4315,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %72, %_ZNSt6vectorIi
   %.0 = phi i32 [ %110, %107 ], [ %.1, %.critedge ]
   %112 = load ptr, ptr %97, align 8, !tbaa !78
   %.not.i.i67 = icmp ne ptr %112, null
-  %113 = load i32, ptr %96, align 4
+  %113 = load i32, ptr %96, align 8
   %.not6.i68 = icmp ugt i32 %113, %.0
   %.not.i69 = select i1 %.not.i.i67, i1 %.not6.i68, i1 false
   %114 = sext i32 %.0 to i64
@@ -4442,7 +4442,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
   %164 = load i32, ptr %.048.ptr, align 4, !tbaa !76
   %165 = load ptr, ptr %103, align 8, !tbaa !170
   %.not.i.i82 = icmp ne ptr %165, null
-  %166 = load i32, ptr %102, align 4
+  %166 = load i32, ptr %102, align 8
   %.not6.i83 = icmp ugt i32 %166, %164
   %.not.i84 = select i1 %.not.i.i82, i1 %.not6.i83, i1 false
   br i1 %.not.i84, label %167, label %179
@@ -4657,7 +4657,7 @@ _ZNSt6vectorIiSaIiEE12emplace_backIJRiEEEvDpOT_.exit: ; preds = %242, %_ZNSt6vec
   %265 = lshr i32 %131, 4
   %266 = load ptr, ptr %9, align 8, !tbaa !170
   %.not.i.i95 = icmp ne ptr %266, null
-  %267 = load i32, ptr %8, align 4
+  %267 = load i32, ptr %8, align 8
   %.not6.i96 = icmp ugt i32 %267, %265
   %.not.i97 = select i1 %.not.i.i95, i1 %.not6.i96, i1 false
   br i1 %.not.i97, label %268, label %.critedge
@@ -4817,7 +4817,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.._crit_edge_crit_edge: ; preds = %_ZNSt6
   %.0 = phi i32 [ %51, %47 ], [ %.1, %118 ]
   %54 = load ptr, ptr %41, align 8, !tbaa !78
   %.not.i.i45 = icmp ne ptr %54, null
-  %55 = load i32, ptr %40, align 4
+  %55 = load i32, ptr %40, align 8
   %.not6.i = icmp ugt i32 %55, %.0
   %.not.i46 = select i1 %.not.i.i45, i1 %.not6.i, i1 false
   br i1 %.not.i46, label %56, label %_ZN10duckdb_re210SparseSetTIvE10insert_newEi.exit
@@ -4855,7 +4855,7 @@ _ZN10duckdb_re210SparseSetTIvE10insert_newEi.exit: ; preds = %52, %.thread81
 71:                                               ; preds = %_ZN10duckdb_re210SparseSetTIvE10insert_newEi.exit
   %72 = load ptr, ptr %44, align 8, !tbaa !170
   %.not.i.i49 = icmp ne ptr %72, null
-  %73 = load i32, ptr %43, align 4
+  %73 = load i32, ptr %43, align 8
   %.not6.i50 = icmp ugt i32 %73, %.0
   %.not.i51 = select i1 %.not.i.i49, i1 %.not6.i50, i1 false
   br i1 %.not.i51, label %74, label %_ZNK10duckdb_re211SparseArrayIiE9has_indexEi.exit.thread
@@ -5062,7 +5062,7 @@ _ZNK10duckdb_re210SparseSetTIvE8containsEi.exit63.us: ; preds = %159
 _ZNK10duckdb_re210SparseSetTIvE8containsEi.exit63.thread.us103: ; preds = %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit63.us, %159, %.lr.ph95.us
   %170 = load ptr, ptr %132, align 8, !tbaa !170
   %.not.i.i64.us104 = icmp ne ptr %170, null
-  %171 = load i32, ptr %131, align 4
+  %171 = load i32, ptr %131, align 8
   %.not6.i65.us105 = icmp ugt i32 %171, %135
   %.not.i66.us106 = select i1 %.not.i.i64.us104, i1 %.not6.i65.us105, i1 false
   br i1 %.not.i66.us106, label %172, label %_ZN10duckdb_re211SparseArrayIiE7set_newEiRKi.exit.us109
@@ -5218,7 +5218,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %14, %_ZNSt6vectorIi
   %.0 = phi i32 [ %50, %47 ], [ %.1, %269 ]
   %52 = load ptr, ptr %39, align 8, !tbaa !78
   %.not.i.i44 = icmp ne ptr %52, null
-  %53 = load i32, ptr %38, align 4
+  %53 = load i32, ptr %38, align 8
   %.not6.i = icmp ugt i32 %53, %.0
   %.not.i45 = select i1 %.not.i.i44, i1 %.not6.i, i1 false
   br i1 %.not.i45, label %54, label %_ZN10duckdb_re210SparseSetTIvE10insert_newEi.exit
@@ -5256,7 +5256,7 @@ _ZN10duckdb_re210SparseSetTIvE10insert_newEi.exit: ; preds = %51, %.thread85
 69:                                               ; preds = %_ZN10duckdb_re210SparseSetTIvE10insert_newEi.exit
   %70 = load ptr, ptr %42, align 8, !tbaa !170
   %.not.i.i48 = icmp ne ptr %70, null
-  %71 = load i32, ptr %41, align 4
+  %71 = load i32, ptr %41, align 8
   %.not6.i49 = icmp ugt i32 %71, %.0
   %.not.i50 = select i1 %.not.i.i48, i1 %.not6.i49, i1 false
   br i1 %.not.i50, label %72, label %_ZNK10duckdb_re211SparseArrayIiE9has_indexEi.exit.thread

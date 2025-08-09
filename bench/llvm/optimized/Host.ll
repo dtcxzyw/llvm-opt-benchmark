@@ -685,7 +685,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %63
   store i64 %68, ptr %69, align 8, !tbaa !14
   store ptr %61, ptr %1, align 8, !tbaa !11
   store i64 0, ptr %47, align 8, !tbaa !14
-  store i8 0, ptr %61, align 1, !tbaa !13
+  store i8 0, ptr %61, align 8, !tbaa !13
   br label %248
 
 70:                                               ; preds = %2
@@ -1129,7 +1129,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit36: ; preds = %
   store i64 %245, ptr %247, align 8, !tbaa !14
   store ptr %237, ptr %1, align 8, !tbaa !11
   store i64 0, ptr %246, align 8, !tbaa !14
-  store i8 0, ptr %237, align 1, !tbaa !13
+  store i8 0, ptr %237, align 8, !tbaa !13
   br label %248
 
 248:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit36, %_ZN4llvm6TripleD2Ev.exit31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit

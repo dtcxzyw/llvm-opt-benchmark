@@ -101,7 +101,7 @@ define noundef zeroext i1 @_Z19dtCreateNavMeshDataP21dtNavMeshCreateParamsPPhPi(
 .lr.ph542:                                        ; preds = %41
   %44 = load ptr, ptr %0, align 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %46 = load float, ptr %45, align 4
+  %46 = load float, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %48 = load float, ptr %47, align 4
   %wide.trip.count643 = zext nneg i32 %42 to i64
@@ -539,7 +539,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   %266 = load float, ptr %265, align 4
   store float %266, ptr %264, align 4
   %267 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %268 = load float, ptr %267, align 4
+  %268 = load float, ptr %267, align 8
   %269 = getelementptr inbounds nuw i8, ptr %230, i64 76
   store float %268, ptr %269, align 4
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 164
@@ -548,14 +548,14 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   store float %271, ptr %272, align 4
   %273 = getelementptr inbounds nuw i8, ptr %230, i64 84
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %275 = load float, ptr %274, align 4
+  %275 = load float, ptr %274, align 8
   store float %275, ptr %273, align 4
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %277 = load float, ptr %276, align 4
   %278 = getelementptr inbounds nuw i8, ptr %230, i64 88
   store float %277, ptr %278, align 4
   %279 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %280 = load float, ptr %279, align 4
+  %280 = load float, ptr %279, align 8
   %281 = getelementptr inbounds nuw i8, ptr %230, i64 92
   store float %280, ptr %281, align 4
   %282 = load i32, ptr %14, align 8
@@ -630,7 +630,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   %325 = load float, ptr %286, align 8
   %326 = tail call float @llvm.fmuladd.f32(float %324, float %325, float %322)
   store float %326, ptr %321, align 4
-  %327 = load float, ptr %267, align 4
+  %327 = load float, ptr %267, align 8
   %328 = getelementptr inbounds nuw i8, ptr %320, i64 2
   %329 = load i16, ptr %328, align 2
   %330 = uitofp i16 %329 to float
@@ -1282,7 +1282,7 @@ define internal fastcc void @_ZL12createBVTreeP21dtNavMeshCreateParamsP8dtBVNode
   %96 = tail call i32 @llvm.umin.i32(i32 %95, i32 65535)
   %97 = trunc nuw i32 %96 to i16
   %98 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store i16 %97, ptr %98, align 2
+  store i16 %97, ptr %98, align 4
   %99 = load float, ptr %18, align 4
   %100 = fsub float %.sroa.8.0.lcssa, %99
   %101 = fmul float %6, %100
@@ -1319,7 +1319,7 @@ define internal fastcc void @_ZL12createBVTreeP21dtNavMeshCreateParamsP8dtBVNode
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 2
   %125 = load i16, ptr %124, align 2
   %126 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store i16 %125, ptr %126, align 2
+  store i16 %125, ptr %126, align 4
   %127 = getelementptr inbounds nuw i8, ptr %23, i64 2
   store i16 %125, ptr %127, align 2
   %128 = load ptr, ptr %0, align 8
@@ -2108,8 +2108,8 @@ define internal fastcc void @_ZL9subdivideP6BVItemiiiRiP8dtBVNode(ptr noundef %0
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 6
   store i16 %24, ptr %25, align 2
   %26 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %27 = load i16, ptr %26, align 2
-  store i16 %27, ptr %12, align 2
+  %27 = load i16, ptr %26, align 4
+  store i16 %27, ptr %12, align 4
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 10
   %29 = load i16, ptr %28, align 2
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 10
@@ -2136,7 +2136,7 @@ define internal fastcc void @_ZL9subdivideP6BVItemiiiRiP8dtBVNode(ptr noundef %0
   %45 = load i16, ptr %44, align 2
   store i16 %45, ptr %34, align 2
   %46 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %47 = load i16, ptr %46, align 2
+  %47 = load i16, ptr %46, align 4
   store i16 %47, ptr %12, align 2
   %48 = getelementptr inbounds nuw i8, ptr %36, i64 10
   %49 = load i16, ptr %48, align 2

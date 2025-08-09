@@ -2854,9 +2854,9 @@ rv_alloc.exit.i:                                  ; preds = %if.end.i.i.i, %if.t
   store i32 0, ptr %wds.i.i.i, align 4
   %sign.i.i.i = getelementptr inbounds nuw i8, ptr %rv.0.i.i.i, i64 16
   store i32 0, ptr %sign.i.i.i, align 8
-  store i32 0, ptr %rv.0.i.i.i, align 4
+  store i32 0, ptr %rv.0.i.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %rv.0.i.i.i, i64 4
-  store i8 73, ptr %add.ptr.i.i, align 1
+  store i8 73, ptr %add.ptr.i.i, align 4
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %rv_alloc.exit.i
@@ -2921,9 +2921,9 @@ rv_alloc.exit.i367:                               ; preds = %if.end.i.i.i393, %i
   store i32 0, ptr %wds.i.i.i369, align 4
   %sign.i.i.i370 = getelementptr inbounds nuw i8, ptr %rv.0.i.i.i368, i64 16
   store i32 0, ptr %sign.i.i.i370, align 8
-  store i32 0, ptr %rv.0.i.i.i368, align 4
+  store i32 0, ptr %rv.0.i.i.i368, align 8
   %add.ptr.i.i371 = getelementptr inbounds nuw i8, ptr %rv.0.i.i.i368, i64 4
-  store i8 78, ptr %add.ptr.i.i371, align 1
+  store i8 78, ptr %add.ptr.i.i371, align 4
   br label %while.body.i372
 
 while.body.i372:                                  ; preds = %while.body.i372, %rv_alloc.exit.i367
@@ -2997,9 +2997,9 @@ rv_alloc.exit.i404:                               ; preds = %if.end.i.i.i430, %i
   store i32 0, ptr %wds.i.i.i406, align 4
   %sign.i.i.i407 = getelementptr inbounds nuw i8, ptr %rv.0.i.i.i405, i64 16
   store i32 0, ptr %sign.i.i.i407, align 8
-  store i32 0, ptr %rv.0.i.i.i405, align 4
+  store i32 0, ptr %rv.0.i.i.i405, align 8
   %add.ptr.i.i408 = getelementptr inbounds nuw i8, ptr %rv.0.i.i.i405, i64 4
-  store i8 48, ptr %add.ptr.i.i408, align 1
+  store i8 48, ptr %add.ptr.i.i408, align 4
   %incdec.ptr1.i413 = getelementptr inbounds nuw i8, ptr %rv.0.i.i.i405, i64 5
   store i8 0, ptr %incdec.ptr1.i413, align 1
   %tobool2.not.i416 = icmp eq ptr %rve, null
@@ -3258,7 +3258,7 @@ rv_alloc.exit:                                    ; preds = %if.then.i.i, %if.en
   store i32 0, ptr %wds.i.i, align 4
   %sign.i.i = getelementptr inbounds nuw i8, ptr %rv.0.i.i, i64 16
   store i32 0, ptr %sign.i.i, align 8
-  store i32 %k.0.lcssa13.i, ptr %rv.0.i.i, align 4
+  store i32 %k.0.lcssa13.i, ptr %rv.0.i.i, align 8
   %add.ptr.i.ptr.ptr = getelementptr inbounds nuw i8, ptr %rv.0.i.i, i64 4
   %or.cond3 = icmp ult i32 %ilim.0692, 15
   %or.cond4 = and i1 %cmp89, %or.cond3
@@ -6175,9 +6175,9 @@ rv_alloc.exit.i:                                  ; preds = %if.end.i.i.i, %if.t
   store i32 0, ptr %wds.i.i.i, align 4
   %sign.i.i.i = getelementptr inbounds nuw i8, ptr %rv.0.i.i.i, i64 16
   store i32 0, ptr %sign.i.i.i, align 8
-  store i32 0, ptr %rv.0.i.i.i, align 4
+  store i32 0, ptr %rv.0.i.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %rv.0.i.i.i, i64 4
-  store i8 73, ptr %add.ptr.i.i, align 1
+  store i8 73, ptr %add.ptr.i.i, align 4
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %rv_alloc.exit.i
@@ -6242,9 +6242,9 @@ rv_alloc.exit.i348:                               ; preds = %if.end.i.i.i374, %i
   store i32 0, ptr %wds.i.i.i350, align 4
   %sign.i.i.i351 = getelementptr inbounds nuw i8, ptr %rv.0.i.i.i349, i64 16
   store i32 0, ptr %sign.i.i.i351, align 8
-  store i32 0, ptr %rv.0.i.i.i349, align 4
+  store i32 0, ptr %rv.0.i.i.i349, align 8
   %add.ptr.i.i352 = getelementptr inbounds nuw i8, ptr %rv.0.i.i.i349, i64 4
-  store i8 78, ptr %add.ptr.i.i352, align 1
+  store i8 78, ptr %add.ptr.i.i352, align 4
   br label %while.body.i353
 
 while.body.i353:                                  ; preds = %while.body.i353, %rv_alloc.exit.i348
@@ -6318,9 +6318,9 @@ rv_alloc.exit.i385:                               ; preds = %if.end.i.i.i411, %i
   store i32 0, ptr %wds.i.i.i387, align 4
   %sign.i.i.i388 = getelementptr inbounds nuw i8, ptr %rv.0.i.i.i386, i64 16
   store i32 0, ptr %sign.i.i.i388, align 8
-  store i32 0, ptr %rv.0.i.i.i386, align 4
+  store i32 0, ptr %rv.0.i.i.i386, align 8
   %add.ptr.i.i389 = getelementptr inbounds nuw i8, ptr %rv.0.i.i.i386, i64 4
-  store i8 48, ptr %add.ptr.i.i389, align 1
+  store i8 48, ptr %add.ptr.i.i389, align 4
   %incdec.ptr1.i394 = getelementptr inbounds nuw i8, ptr %rv.0.i.i.i386, i64 5
   store i8 0, ptr %incdec.ptr1.i394, align 1
   %tobool2.not.i397 = icmp eq ptr %rve, null
@@ -6579,7 +6579,7 @@ rv_alloc.exit:                                    ; preds = %if.then.i.i, %if.en
   store i32 0, ptr %wds.i.i, align 4
   %sign.i.i = getelementptr inbounds nuw i8, ptr %rv.0.i.i, i64 16
   store i32 0, ptr %sign.i.i, align 8
-  store i32 %k.0.lcssa13.i, ptr %rv.0.i.i, align 4
+  store i32 %k.0.lcssa13.i, ptr %rv.0.i.i, align 8
   %add.ptr.i.ptr.ptr = getelementptr inbounds nuw i8, ptr %rv.0.i.i, i64 4
   %or.cond3 = icmp ult i32 %ilim.0673, 15
   %or.cond4 = and i1 %cmp89, %or.cond3

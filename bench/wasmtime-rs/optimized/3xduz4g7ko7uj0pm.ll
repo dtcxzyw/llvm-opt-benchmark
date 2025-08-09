@@ -2945,7 +2945,7 @@ define hidden void @"_ZN75_$LT$$u5b$T$u5d$$u20$as$u20$alloc..slice..SpecCloneInt
   %.val1.i.i = load i32, ptr %22, align 4, !alias.scope !730, !noalias !731
   %.not1.i.i.i = icmp eq i32 %.val.i.i, 23
   %spec.select1.i.i.i = select i1 %.not1.i.i.i, i32 undef, i32 %.val1.i.i
-  store i32 %.val.i.i, ptr %20, align 4, !alias.scope !736, !noalias !734
+  store i32 %.val.i.i, ptr %20, align 8, !alias.scope !736, !noalias !734
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 28
   store i32 %spec.select1.i.i.i, ptr %23, align 4, !alias.scope !736, !noalias !734
   %exitcond.not.i = icmp eq i64 %14, %6

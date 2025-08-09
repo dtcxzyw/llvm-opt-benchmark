@@ -4026,7 +4026,7 @@ _ZNK5Yosys5RTLIL6SigBitneERKS1_.exit.i.i.i:       ; preds = %960
   call void @llvm.lifetime.start.p0(ptr nonnull %39), !noalias !240
   %963 = load ptr, ptr %710, align 8, !tbaa !236
   store ptr %963, ptr %39, align 8, !tbaa !319, !noalias !240
-  %964 = load i32, ptr %746, align 4, !tbaa !231
+  %964 = load i32, ptr %746, align 8, !tbaa !231
   %.not.i.i.i86.i.i.i = icmp eq i32 %964, 0
   br i1 %.not.i.i.i86.i.i.i, label %965, label %.thread.i.i.i
 
@@ -4306,7 +4306,7 @@ _ZNSt4pairIPN5Yosys5RTLIL4CellENS1_8IdStringEEC2ERKS5_.exit.i: ; preds = %1076, 
   %1118 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<std::pair<Yosys::RTLIL::Cell *, Yosys::RTLIL::IdString>, Yosys::RTLIL::SigSpec>::entry_t", ptr %1116, i64 %1117
   %1119 = load ptr, ptr %1118, align 8, !tbaa !319
   %1120 = getelementptr inbounds nuw i8, ptr %1118, i64 8
-  %1121 = load i32, ptr %1120, align 4, !tbaa !231
+  %1121 = load i32, ptr %1120, align 8, !tbaa !231
   %.not.i.i.i.i210.i = icmp eq i32 %1121, 0
   br i1 %.not.i.i.i.i210.i, label %_ZNSt4pairIPN5Yosys5RTLIL4CellENS1_8IdStringEEC2ERKS5_.exit.i.i, label %1122
 
@@ -84405,7 +84405,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolINS0_9ModWalker7PortBitENS1_8hash_opsIS4
   %24 = load ptr, ptr %.sroa.08.012.i.i.i.i.i, align 8, !tbaa !300
   store ptr %24, ptr %.013.i.i.i.i.i, align 8, !tbaa !300
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 8
-  %26 = load i32, ptr %25, align 4, !tbaa !231
+  %26 = load i32, ptr %25, align 8, !tbaa !231
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %26, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %32, label %27
 
@@ -84524,7 +84524,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolINS0_9ModWalker7PortBitENS1_8hash_opsIS4
   store ptr %77, ptr %.0811.i.i.i.i.i, align 8, !tbaa !300
   %78 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 8
   %79 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 8
-  %80 = load i32, ptr %78, align 4, !tbaa !231
+  %80 = load i32, ptr %78, align 8, !tbaa !231
   %81 = trunc nuw i8 %76 to i1
   %82 = icmp ne i32 %80, 0
   %or.cond.i.i.i.i.i.i.i.i.i = and i1 %82, %81
@@ -84647,7 +84647,7 @@ _ZSt8_DestroyIN5Yosys7hashlib4poolINS0_9ModWalker7PortBitENS1_8hash_opsIS4_EEE7e
   store ptr %133, ptr %.0811.i.i.i.i.i36, align 8, !tbaa !300
   %134 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i36, i64 8
   %135 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i37, i64 8
-  %136 = load i32, ptr %134, align 4, !tbaa !231
+  %136 = load i32, ptr %134, align 8, !tbaa !231
   %137 = trunc nuw i8 %132 to i1
   %138 = icmp ne i32 %136, 0
   %or.cond.i.i.i.i.i.i.i.i.i38 = and i1 %138, %137
@@ -84728,7 +84728,7 @@ _ZSt4copyIPN5Yosys7hashlib4poolINS0_9ModWalker7PortBitENS1_8hash_opsIS4_EEE7entr
   %171 = load ptr, ptr %.01214.i.i.i.i, align 8, !tbaa !300
   store ptr %171, ptr %.015.i.i.i.i, align 8, !tbaa !300
   %172 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i, i64 8
-  %173 = load i32, ptr %172, align 4, !tbaa !231
+  %173 = load i32, ptr %172, align 8, !tbaa !231
   %.not.i.i.i.i.i.i.i.i.i43 = icmp eq i32 %173, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i43, label %179, label %174
 
@@ -85472,7 +85472,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4poolINS0_9ModWalker7PortBitENS1_8hash_opsIS4_EEE7e
   %41 = load ptr, ptr %.01214.i.i.i.i.i, align 8, !tbaa !300
   store ptr %41, ptr %.015.i.i.i.i.i, align 8, !tbaa !300
   %42 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 8
-  %43 = load i32, ptr %42, align 4, !tbaa !231
+  %43 = load i32, ptr %42, align 8, !tbaa !231
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %43, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %49, label %44
 
@@ -85516,7 +85516,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4poolINS0_9ModWalker7Po
   %62 = load ptr, ptr %.01214.i.i.i.i.i32, align 8, !tbaa !300
   store ptr %62, ptr %.015.i.i.i.i.i31, align 8, !tbaa !300
   %63 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i32, i64 8
-  %64 = load i32, ptr %63, align 4, !tbaa !231
+  %64 = load i32, ptr %63, align 8, !tbaa !231
   %.not.i.i.i.i.i.i.i.i.i.i33 = icmp eq i32 %64, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i33, label %70, label %65
 
@@ -85673,7 +85673,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4poolINS0_9ModWalker7PortBitENS1_8hash_opsIS4_EEE7e
   %41 = load ptr, ptr %.01214.i.i.i.i.i, align 8, !tbaa !300
   store ptr %41, ptr %.015.i.i.i.i.i, align 8, !tbaa !300
   %42 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 8
-  %43 = load i32, ptr %42, align 4, !tbaa !231
+  %43 = load i32, ptr %42, align 8, !tbaa !231
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %43, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %49, label %44
 
@@ -85717,7 +85717,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4poolINS0_9ModWalker7Po
   %62 = load ptr, ptr %.01214.i.i.i.i.i32, align 8, !tbaa !300
   store ptr %62, ptr %.015.i.i.i.i.i31, align 8, !tbaa !300
   %63 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i32, i64 8
-  %64 = load i32, ptr %63, align 4, !tbaa !231
+  %64 = load i32, ptr %63, align 8, !tbaa !231
   %.not.i.i.i.i.i.i.i.i.i.i33 = icmp eq i32 %64, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i33, label %70, label %65
 
@@ -90210,7 +90210,7 @@ define linkonce_odr noundef i32 @_ZNK5Yosys7hashlib4dictISt4pairIPNS_5RTLIL4Cell
   %36 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<std::pair<Yosys::RTLIL::Cell *, Yosys::RTLIL::IdString>, Yosys::RTLIL::SigSpec>::entry_t", ptr %34, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !319
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %39 = load i32, ptr %38, align 4, !tbaa !231
+  %39 = load i32, ptr %38, align 8, !tbaa !231
   %.not.i.i.i = icmp eq i32 %39, 0
   br i1 %.not.i.i.i, label %_ZNSt4pairIPN5Yosys5RTLIL4CellENS1_8IdStringEEC2ERKS5_.exit, label %40
 
@@ -90323,7 +90323,7 @@ _ZNSt4pairIPN5Yosys5RTLIL4CellENS1_8IdStringEED2Ev.exit: ; preds = %.thread, %._
 define linkonce_odr i32 @_ZN5Yosys7hashlib8hash_opsISt4pairIPNS_5RTLIL4CellENS3_8IdStringEEE4hashES7_(ptr noundef %0) local_unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !319
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 4, !tbaa !231
+  %4 = load i32, ptr %3, align 8, !tbaa !231
   %.not.i.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i.i, label %_ZNSt4pairIPN5Yosys5RTLIL4CellENS1_8IdStringEEC2ERKS5_.exit, label %5
 
@@ -90573,7 +90573,7 @@ _ZNSt4pairIPN5Yosys5RTLIL4CellENS1_8IdStringEEC2ERKS5_.exit: ; preds = %10, %14
   store ptr %11, ptr %22, align 8, !tbaa !319
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %27 = load i32, ptr %12, align 8, !tbaa !231
-  store i32 %27, ptr %26, align 4, !tbaa !231
+  store i32 %27, ptr %26, align 8, !tbaa !231
   store i32 0, ptr %12, align 8, !tbaa !231
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -90705,7 +90705,7 @@ _ZNSt4pairIPN5Yosys5RTLIL4CellENS1_8IdStringEED2Ev.exit: ; preds = %56, %61, %68
   %89 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %91 = load i32, ptr %90, align 8, !tbaa !231
-  store i32 %91, ptr %89, align 4, !tbaa !231
+  store i32 %91, ptr %89, align 8, !tbaa !231
   store i32 0, ptr %90, align 8, !tbaa !231
   %92 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -90902,7 +90902,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictISt4pairIPNS0_5RTLIL4CellENS4_8IdStringEENS4_7
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %27 = load i32, ptr %26, align 8, !tbaa !231
-  store i32 %27, ptr %25, align 4, !tbaa !231
+  store i32 %27, ptr %25, align 8, !tbaa !231
   store i32 0, ptr %26, align 8, !tbaa !231
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -91016,7 +91016,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIPKN5Yosys7hashlib4dictIS
   %4 = load ptr, ptr %.01215, align 8, !tbaa !319
   store ptr %4, ptr %.016, align 8, !tbaa !319
   %5 = getelementptr inbounds nuw i8, ptr %.01215, i64 8
-  %6 = load i32, ptr %5, align 4, !tbaa !231
+  %6 = load i32, ptr %5, align 8, !tbaa !231
   %.not.i.i.i.i.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt4pairIPN5Yosys5RTLIL4CellENS1_8IdStringEEC2ERKS5_.exit.i.i.i, label %7
 
@@ -91323,7 +91323,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictISt4pairIPNS0_5RTLIL4CellENS4_8IdStringEENS4_7
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %27 = load i32, ptr %26, align 8, !tbaa !231
-  store i32 %27, ptr %25, align 4, !tbaa !231
+  store i32 %27, ptr %25, align 8, !tbaa !231
   store i32 0, ptr %26, align 8, !tbaa !231
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -104444,7 +104444,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE7do_hashERKS3_.ex
   %195 = load ptr, ptr %194, align 8, !tbaa !300
   store ptr %195, ptr %21, align 8, !tbaa !300
   %196 = getelementptr inbounds nuw i8, ptr %194, i64 8
-  %197 = load i32, ptr %196, align 4, !tbaa !231
+  %197 = load i32, ptr %196, align 8, !tbaa !231
   %.not.i.i.i47 = icmp eq i32 %197, 0
   br i1 %.not.i.i.i47, label %.noexc26, label %198
 

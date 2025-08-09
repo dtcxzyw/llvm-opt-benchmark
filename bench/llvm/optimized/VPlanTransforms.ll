@@ -1457,7 +1457,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_7VPValueELb1EE9push_backES2_.exit.i.i.i: ;
   store i32 2, ptr %295, align 4, !tbaa !15
   %296 = ptrtoint ptr %291 to i64
   %297 = ptrtoint ptr %281 to i64
-  store i64 %297, ptr %293, align 1
+  store i64 %297, ptr %293, align 8
   store i32 1, ptr %294, align 8, !tbaa !14
   %298 = getelementptr inbounds nuw i8, ptr %281, i64 16
   %299 = getelementptr inbounds nuw i8, ptr %281, i64 24
@@ -15489,7 +15489,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_7VPValueELb1EE9push_backES2_.exit.i.i.i: ;
   store i32 2, ptr %527, align 4, !tbaa !15
   %528 = ptrtoint ptr %523 to i64
   %529 = ptrtoint ptr %438 to i64
-  store i64 %529, ptr %525, align 1
+  store i64 %529, ptr %525, align 8
   store i32 1, ptr %526, align 8, !tbaa !14
   %530 = getelementptr inbounds nuw i8, ptr %438, i64 16
   %531 = getelementptr inbounds nuw i8, ptr %438, i64 24

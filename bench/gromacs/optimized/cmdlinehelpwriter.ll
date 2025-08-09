@@ -353,7 +353,7 @@ define void @_ZN3gmx21CommandLineHelpWriterC2ERKNS_7OptionsE(ptr noundef nonnull
   store ptr %5, ptr %4, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %6, align 8, !tbaa !12
-  store i8 0, ptr %5, align 1, !tbaa !15
+  store i8 0, ptr %5, align 8, !tbaa !15
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store ptr %3, ptr %0, align 8, !tbaa !19

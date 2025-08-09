@@ -88,9 +88,9 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit20
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 0, ptr %35, align 8, !tbaa !11
-  store i32 1, ptr %31, align 4, !tbaa !7
+  store i32 1, ptr %31, align 8, !tbaa !7
   store i32 16, ptr %34, align 4
-  store i8 %22, ptr %35, align 1, !tbaa !4
+  store i8 %22, ptr %35, align 8, !tbaa !4
   br label %38
 
 36:                                               ; preds = %3
@@ -231,9 +231,9 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 0, ptr %35, align 8, !tbaa !11
-  store i32 1, ptr %31, align 4, !tbaa !7
+  store i32 1, ptr %31, align 8, !tbaa !7
   store i32 16, ptr %34, align 4
-  store i8 %22, ptr %35, align 1, !tbaa !4
+  store i8 %22, ptr %35, align 8, !tbaa !4
   br label %38
 
 36:                                               ; preds = %3
@@ -393,7 +393,7 @@ lean_alloc_ctor.exit:                             ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i64 0, ptr %31, align 8, !tbaa !11
-  store i32 1, ptr %27, align 4, !tbaa !7
+  store i32 1, ptr %27, align 8, !tbaa !7
   store i32 16, ptr %30, align 4
   br label %55
 
@@ -412,9 +412,9 @@ lean_alloc_ctor.exit44:                           ; preds = %32
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 256, ptr %38, align 8, !tbaa !11
-  store i32 1, ptr %34, align 4, !tbaa !7
+  store i32 1, ptr %34, align 8, !tbaa !7
   store i32 16, ptr %37, align 4
-  store i8 %33, ptr %38, align 1, !tbaa !4
+  store i8 %33, ptr %38, align 8, !tbaa !4
   br label %55
 
 39:                                               ; preds = %3
@@ -735,9 +735,9 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit186
   %94 = getelementptr inbounds nuw i8, ptr %91, i64 4
   %95 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store i64 0, ptr %95, align 8, !tbaa !11
-  store i32 1, ptr %91, align 4, !tbaa !7
+  store i32 1, ptr %91, align 8, !tbaa !7
   store i32 16, ptr %94, align 4
-  store i8 %82, ptr %95, align 1, !tbaa !4
+  store i8 %82, ptr %95, align 8, !tbaa !4
   br label %.thread
 
 96:                                               ; preds = %lean_obj_tag.exit
@@ -800,9 +800,9 @@ lean_alloc_ctor.exit207:                          ; preds = %lean_dec.exit185
   %123 = getelementptr inbounds nuw i8, ptr %120, i64 4
   %124 = getelementptr inbounds nuw i8, ptr %120, i64 8
   store i64 0, ptr %124, align 8, !tbaa !11
-  store i32 1, ptr %120, align 4, !tbaa !7
+  store i32 1, ptr %120, align 8, !tbaa !7
   store i32 16, ptr %123, align 4
-  store i8 %111, ptr %124, align 1, !tbaa !4
+  store i8 %111, ptr %124, align 8, !tbaa !4
   br label %.thread
 
 125:                                              ; preds = %lean_obj_tag.exit
@@ -865,9 +865,9 @@ lean_alloc_ctor.exit209:                          ; preds = %lean_dec.exit184
   %152 = getelementptr inbounds nuw i8, ptr %149, i64 4
   %153 = getelementptr inbounds nuw i8, ptr %149, i64 8
   store i64 0, ptr %153, align 8, !tbaa !11
-  store i32 1, ptr %149, align 4, !tbaa !7
+  store i32 1, ptr %149, align 8, !tbaa !7
   store i32 16, ptr %152, align 4
-  store i8 %140, ptr %153, align 1, !tbaa !4
+  store i8 %140, ptr %153, align 8, !tbaa !4
   br label %.thread
 
 154:                                              ; preds = %lean_obj_tag.exit
@@ -932,9 +932,9 @@ lean_alloc_ctor.exit211:                          ; preds = %lean_dec.exit183
   %183 = getelementptr inbounds nuw i8, ptr %180, i64 4
   %184 = getelementptr inbounds nuw i8, ptr %180, i64 8
   store i64 0, ptr %184, align 8, !tbaa !11
-  store i32 1, ptr %180, align 4, !tbaa !7
+  store i32 1, ptr %180, align 8, !tbaa !7
   store i32 16, ptr %183, align 4
-  store i8 %171, ptr %184, align 1, !tbaa !4
+  store i8 %171, ptr %184, align 8, !tbaa !4
   br label %.thread
 
 185:                                              ; preds = %154
@@ -993,9 +993,9 @@ lean_alloc_ctor.exit213:                          ; preds = %lean_dec.exit
   %208 = getelementptr inbounds nuw i8, ptr %205, i64 4
   %209 = getelementptr inbounds nuw i8, ptr %205, i64 8
   store i64 0, ptr %209, align 8, !tbaa !11
-  store i32 1, ptr %205, align 4, !tbaa !7
+  store i32 1, ptr %205, align 8, !tbaa !7
   store i32 16, ptr %208, align 4
-  store i8 %196, ptr %209, align 1, !tbaa !4
+  store i8 %196, ptr %209, align 8, !tbaa !4
   br label %.thread
 
 210:                                              ; preds = %lean_obj_tag.exit
@@ -1213,7 +1213,7 @@ _init_l_Lean_Compiler_atMostOnce_visitFVar___closed__1.exit: ; preds = %lean_dec
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 257, ptr %22, align 8, !tbaa !11
-  store i32 1, ptr %18, align 4, !tbaa !7
+  store i32 1, ptr %18, align 8, !tbaa !7
   store i32 16, ptr %21, align 4
   store ptr %18, ptr @l_Lean_Compiler_atMostOnce_visitFVar___closed__1, align 8, !tbaa !14
   tail call void @lean_mark_persistent(ptr noundef nonnull %18) #4
@@ -1230,7 +1230,7 @@ _init_l_Lean_Compiler_atMostOnce_visitFVar___closed__2.exit: ; preds = %_init_l_
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 1, ptr %27, align 8, !tbaa !11
-  store i32 1, ptr %23, align 4, !tbaa !7
+  store i32 1, ptr %23, align 8, !tbaa !7
   store i32 16, ptr %26, align 4
   store ptr %23, ptr @l_Lean_Compiler_atMostOnce_visitFVar___closed__2, align 8, !tbaa !14
   tail call void @lean_mark_persistent(ptr noundef nonnull %23) #4
@@ -1247,7 +1247,7 @@ _init_l_Lean_Compiler_atMostOnce___closed__1.exit: ; preds = %_init_l_Lean_Compi
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 256, ptr %32, align 8, !tbaa !11
-  store i32 1, ptr %28, align 4, !tbaa !7
+  store i32 1, ptr %28, align 8, !tbaa !7
   store i32 16, ptr %31, align 4
   store ptr %28, ptr @l_Lean_Compiler_atMostOnce___closed__1, align 8, !tbaa !14
   tail call void @lean_mark_persistent(ptr noundef nonnull %28) #4

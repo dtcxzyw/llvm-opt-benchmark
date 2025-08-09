@@ -945,11 +945,11 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   store i32 %17, ptr %18, align 4, !tbaa !59
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 388
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 400
-  store i32 0, ptr %20, align 4, !tbaa !44
+  store i32 0, ptr %20, align 8, !tbaa !44
   store i32 0, ptr %19, align 4, !tbaa !44
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 404
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 416
-  store i32 0, ptr %22, align 4, !tbaa !44
+  store i32 0, ptr %22, align 8, !tbaa !44
   store i32 0, ptr %21, align 4, !tbaa !44
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 9
   %24 = load i8, ptr %23, align 1, !tbaa !102
@@ -957,14 +957,14 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 396
   store i32 %25, ptr %26, align 4, !tbaa !44
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 392
-  store i32 %25, ptr %27, align 4, !tbaa !44
+  store i32 %25, ptr %27, align 8, !tbaa !44
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 10
   %29 = load i8, ptr %28, align 2, !tbaa !103
   %30 = zext i8 %29 to i32
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 412
   store i32 %30, ptr %31, align 4, !tbaa !44
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 408
-  store i32 %30, ptr %32, align 4, !tbaa !44
+  store i32 %30, ptr %32, align 8, !tbaa !44
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 472
   store ptr @graticule_none, ptr %33, align 8, !tbaa !95
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 360

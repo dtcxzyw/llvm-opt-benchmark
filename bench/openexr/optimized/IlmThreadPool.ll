@@ -995,7 +995,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN13IlmThread_3_412_GLOBAL_
   %109 = getelementptr inbounds nuw i8, ptr %101, i64 184
   store atomic i32 0, ptr %109 seq_cst, align 4, !noalias !54
   %110 = getelementptr inbounds nuw i8, ptr %101, i64 188
-  store atomic i8 0, ptr %110 seq_cst, align 1, !noalias !54
+  store atomic i8 0, ptr %110 seq_cst, align 4, !noalias !54
   %111 = load ptr, ptr %99, align 8, !tbaa !17, !noalias !54
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 24
   %113 = load ptr, ptr %112, align 8, !noalias !54
@@ -2170,7 +2170,7 @@ _ZN13IlmThread_3_412_GLOBAL__N_125DefaultThreadPoolProvider12lockedFinishEv.exit
   %40 = getelementptr inbounds nuw i8, ptr %.val10.i, i64 168
   store atomic i32 0, ptr %40 seq_cst, align 4
   %41 = getelementptr inbounds nuw i8, ptr %.val10.i, i64 172
-  store atomic i8 0, ptr %41 seq_cst, align 1
+  store atomic i8 0, ptr %41 seq_cst, align 4
   %.val18.pre = load ptr, ptr %5, align 8, !tbaa !60
   %.phi.trans.insert44 = getelementptr inbounds nuw i8, ptr %.val18.pre, i64 152
   %.pre45 = load ptr, ptr %.phi.trans.insert44, align 8, !tbaa !89
@@ -2261,7 +2261,7 @@ _ZNSt6vectorISt6threadSaIS0_EE6resizeEm.exit:     ; preds = %47, %50, %52, %_ZSt
   %66 = lshr exact i64 %65, 3
   %67 = trunc i64 %66 to i32
   %68 = getelementptr inbounds nuw i8, ptr %.val16, i64 168
-  store atomic i32 %67, ptr %68 seq_cst, align 4
+  store atomic i32 %67, ptr %68 seq_cst, align 8
   %69 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %6) #27
   ret void
 
@@ -2564,7 +2564,7 @@ _ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i.i.i: ; preds = %19
   %27 = getelementptr inbounds nuw i8, ptr %.val10.i, i64 168
   store atomic i32 0, ptr %27 seq_cst, align 4
   %28 = getelementptr inbounds nuw i8, ptr %.val10.i, i64 172
-  store atomic i8 0, ptr %28 seq_cst, align 1
+  store atomic i8 0, ptr %28 seq_cst, align 4
   %29 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #27
   ret void
 

@@ -520,7 +520,7 @@ _ZN3tbb6detail2d123cache_aligned_allocatorINS0_2r13rml21padded_private_workerEE8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i64 %.01215, ptr %27, align 8, !tbaa !48
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  store i8 0, ptr %28, align 1, !tbaa !49
+  store i8 0, ptr %28, align 8, !tbaa !49
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 36
   store atomic i32 1, ptr %29 seq_cst, align 4
   %30 = load ptr, ptr @__itt_sync_create_ptr__3_0, align 8, !tbaa !50

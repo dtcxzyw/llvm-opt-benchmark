@@ -1420,7 +1420,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(77) ptr @_ZN4
 19:                                               ; preds = %11
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 0, ptr %20, align 8, !tbaa !54, !alias.scope !182
-  store i8 0, ptr %18, align 1, !tbaa !56, !alias.scope !182
+  store i8 0, ptr %18, align 8, !tbaa !56, !alias.scope !182
   br label %_ZN5clang17FrontendInputFileC2EN4llvm9StringRefENS_9InputKindEb.exit
 
 21:                                               ; preds = %11
@@ -2983,7 +2983,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(77) ptr @_ZN4
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %17, align 8, !tbaa !54, !alias.scope !217
-  store i8 0, ptr %15, align 1, !tbaa !56, !alias.scope !217
+  store i8 0, ptr %15, align 8, !tbaa !56, !alias.scope !217
   br label %_ZN5clang17FrontendInputFileC2EN4llvm9StringRefENS_9InputKindEb.exit
 
 18:                                               ; preds = %3
@@ -3072,7 +3072,7 @@ _ZSt10_ConstructIN5clang17FrontendInputFileEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ;
   store i64 %49, ptr %50, align 8, !tbaa !54
   store ptr %40, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !57
   store i64 0, ptr %48, align 8, !tbaa !54
-  store i8 0, ptr %40, align 1, !tbaa !56
+  store i8 0, ptr %40, align 8, !tbaa !56
   %51 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 32
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(45) %51, ptr noundef nonnull align 8 dereferenceable(45) %52, i64 45, i1 false)

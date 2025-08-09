@@ -228,7 +228,7 @@ BufferGetPage.exit21.i:                           ; preds = %120, %114
   store i32 %128, ptr %133, align 4
   %134 = add i32 %131, 1
   store i32 %134, ptr %130, align 4
-  store i32 %102, ptr %.0.i.i20.i, align 4
+  store i32 %102, ptr %.0.i.i20.i, align 8
   %135 = getelementptr inbounds nuw i8, ptr %.0.i.i20.i, i64 4
   store i32 %103, ptr %135, align 4
   %136 = load i32, ptr %40, align 4
@@ -360,7 +360,7 @@ BufferGetPage.exit14.i:                           ; preds = %195, %189
   store double %203, ptr %201, align 8
   %204 = lshr i64 %146, 32
   %205 = trunc nuw i64 %204 to i32
-  store i32 %205, ptr %.0.i.i13.i, align 4
+  store i32 %205, ptr %.0.i.i13.i, align 8
   %206 = trunc i64 %146 to i32
   %207 = getelementptr inbounds nuw i8, ptr %.0.i.i13.i, i64 4
   store i32 %206, ptr %207, align 4
@@ -1743,7 +1743,7 @@ BufferGetPage.exit100.i:                          ; preds = %952, %946
   store i32 %958, ptr %959, align 8
   %960 = lshr i64 %692, 32
   %961 = trunc nuw i64 %960 to i32
-  store i32 %961, ptr %.0.i.i99.i, align 4
+  store i32 %961, ptr %.0.i.i99.i, align 8
   %962 = trunc i64 %692 to i32
   %963 = getelementptr inbounds nuw i8, ptr %.0.i.i99.i, i64 4
   store i32 %962, ptr %963, align 4
@@ -1990,7 +1990,7 @@ BufferGetPage.exit.i56:                           ; preds = %1080, %1074
   store double %1086, ptr %1087, align 8
   %1088 = lshr i64 %1066, 32
   %1089 = trunc nuw i64 %1088 to i32
-  store i32 %1089, ptr %.0.i.i.i57, align 4
+  store i32 %1089, ptr %.0.i.i.i57, align 8
   %1090 = trunc i64 %1066 to i32
   %1091 = getelementptr inbounds nuw i8, ptr %.0.i.i.i57, i64 4
   store i32 %1090, ptr %1091, align 4
@@ -2133,7 +2133,7 @@ BufferGetPage.exit23.i:                           ; preds = %1157, %1151
   store double %1168, ptr %1166, align 8
   %1169 = lshr i64 %1098, 32
   %1170 = trunc nuw i64 %1169 to i32
-  store i32 %1170, ptr %.0.i.i22.i, align 4
+  store i32 %1170, ptr %.0.i.i22.i, align 8
   %1171 = trunc i64 %1098 to i32
   %1172 = getelementptr inbounds nuw i8, ptr %.0.i.i22.i, i64 4
   store i32 %1171, ptr %1172, align 4

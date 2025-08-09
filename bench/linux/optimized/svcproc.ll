@@ -238,7 +238,7 @@ define internal noundef range(i32 0, 83886081) i32 @nlmsvc_proc_sm_notify(ptr no
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 11296
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load i16, ptr %5, align 2
+  %6 = load i16, ptr %5, align 8
   switch i16 %6, label %.critedge [
     i16 2, label %7
     i16 10, label %16

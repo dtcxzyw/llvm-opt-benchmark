@@ -167,7 +167,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread: ; preds = %_ZNSt10loc
   store ptr %29, ptr %27, align 8, !tbaa !23
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i64 0, ptr %30, align 8, !tbaa !21
-  store i8 0, ptr %29, align 1, !tbaa !3
+  store i8 0, ptr %29, align 8, !tbaa !3
   %31 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   %32 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %27, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %0, i64 noundef %31)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %44
@@ -340,7 +340,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %4
   store ptr %37, ptr %35, align 8, !tbaa !23
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i64 0, ptr %38, align 8, !tbaa !21
-  store i8 0, ptr %37, align 1, !tbaa !3
+  store i8 0, ptr %37, align 8, !tbaa !3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit.i unwind label %43
 

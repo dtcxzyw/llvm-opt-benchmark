@@ -8744,7 +8744,7 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv16VideoInputStreamES
   store ptr %10, ptr %9, align 8, !tbaa !25
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 552
   store i64 0, ptr %11, align 8, !tbaa !26
-  store i8 0, ptr %10, align 1, !tbaa !27
+  store i8 0, ptr %10, align 8, !tbaa !27
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit.i.i.i.i unwind label %13
 

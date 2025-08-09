@@ -4952,7 +4952,7 @@ opj_j2k_get_marker_handler.exit:                  ; preds = %113
 
 364:                                              ; preds = %.critedge.i
   %365 = load ptr, ptr %275, align 8, !tbaa !234
-  %366 = load i32, ptr %276, align 4, !tbaa !125
+  %366 = load i32, ptr %276, align 8, !tbaa !125
   %367 = zext i32 %366 to i64
   %368 = getelementptr inbounds nuw i8, ptr %365, i64 %367
   %369 = load i32, ptr %37, align 4, !tbaa !12
@@ -16540,7 +16540,7 @@ define internal noundef i32 @opj_j2k_init_info(ptr noundef initializes((48, 52))
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %11 = load i32, ptr %10, align 4, !tbaa !35
   %12 = mul i32 %11, %9
-  store i32 0, ptr %5, align 4, !tbaa !125
+  store i32 0, ptr %5, align 8, !tbaa !125
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %.not7.i = icmp eq i32 %12, 0
   br i1 %.not7.i, label %opj_j2k_calculate_tp.exit, label %.lr.ph.i

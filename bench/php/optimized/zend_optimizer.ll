@@ -1931,7 +1931,7 @@ zval_ptr_dtor_nogc.exit163:                       ; preds = %137, %132, %123, %1
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 24
   %262 = getelementptr inbounds nuw i8, ptr %260, i64 16
   %263 = load i64, ptr %262, align 8, !tbaa !25
-  %264 = load i8, ptr %261, align 1, !tbaa !20
+  %264 = load i8, ptr %261, align 8, !tbaa !20
   %265 = icmp sgt i8 %264, 57
   br i1 %265, label %.thread, label %266, !prof !18
 
@@ -2055,7 +2055,7 @@ _zend_handle_numeric_str.exit:                    ; preds = %266, %269
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 24
   %338 = getelementptr inbounds nuw i8, ptr %336, i64 16
   %339 = load i64, ptr %338, align 8, !tbaa !25
-  %340 = load i8, ptr %337, align 1, !tbaa !20
+  %340 = load i8, ptr %337, align 8, !tbaa !20
   %341 = icmp sgt i8 %340, 57
   br i1 %341, label %_zend_handle_numeric_str.exit171.thread, label %342, !prof !18
 

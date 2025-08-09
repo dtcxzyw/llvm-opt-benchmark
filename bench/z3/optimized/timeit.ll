@@ -173,7 +173,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit5: ; preds = %20, %2
   %38 = load i32, ptr %37, align 8, !tbaa !39
   %39 = and i32 %38, -261
   %40 = or disjoint i32 %39, 4
-  store i32 %40, ptr %37, align 4, !tbaa !40
+  store i32 %40, ptr %37, align 8, !tbaa !40
   %41 = load i64, ptr %34, align 8
   %42 = getelementptr inbounds i8, ptr %16, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -218,7 +218,7 @@ _ZNSolsEd.exit:                                   ; preds = %52
   %66 = load i32, ptr %65, align 8, !tbaa !39
   %67 = and i32 %66, -261
   %68 = or disjoint i32 %67, 4
-  store i32 %68, ptr %65, align 4, !tbaa !40
+  store i32 %68, ptr %65, align 8, !tbaa !40
   %69 = load i64, ptr %62, align 8
   %70 = getelementptr inbounds i8, ptr %58, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
@@ -241,7 +241,7 @@ _ZNSolsEd.exit15:                                 ; preds = %60
   %82 = load i32, ptr %81, align 8, !tbaa !39
   %83 = and i32 %82, -261
   %84 = or disjoint i32 %83, 4
-  store i32 %84, ptr %81, align 4, !tbaa !40
+  store i32 %84, ptr %81, align 8, !tbaa !40
   %85 = load i64, ptr %78, align 8
   %86 = getelementptr inbounds i8, ptr %74, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8

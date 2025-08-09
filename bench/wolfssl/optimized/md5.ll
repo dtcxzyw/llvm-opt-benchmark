@@ -16,11 +16,11 @@ define range(i32 -173, 1) i32 @wc_InitMd5_ex(ptr noundef writeonly captures(addr
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1732584193, ptr %7, align 4, !tbaa !9
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 -271733879, ptr %8, align 4, !tbaa !9
+  store i32 -271733879, ptr %8, align 8, !tbaa !9
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 -1732584194, ptr %9, align 4, !tbaa !9
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 271733878, ptr %10, align 4, !tbaa !9
+  store i32 271733878, ptr %10, align 8, !tbaa !9
   store i32 0, ptr %0, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %11, align 4, !tbaa !11
@@ -732,19 +732,19 @@ define range(i32 -173, 1) i32 @wc_Md5Final(ptr noundef captures(address_is_null)
   %32 = shl i32 %28, 3
   store i32 %32, ptr %27, align 4, !tbaa !11
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 %32, ptr %33, align 1
+  store i32 %32, ptr %33, align 4
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 %31, ptr %34, align 1
+  store i32 %31, ptr %34, align 8
   tail call fastcc void @Transform(ptr noundef %0, ptr noundef %6)
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 76
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %35, i64 16, i1 false)
   store i32 1732584193, ptr %35, align 4, !tbaa !9
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 -271733879, ptr %36, align 4, !tbaa !9
+  store i32 -271733879, ptr %36, align 8, !tbaa !9
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 -1732584194, ptr %37, align 4, !tbaa !9
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 271733878, ptr %38, align 4, !tbaa !9
+  store i32 271733878, ptr %38, align 8, !tbaa !9
   store i32 0, ptr %0, align 8, !tbaa !10
   store i32 0, ptr %27, align 4, !tbaa !11
   store i32 0, ptr %29, align 8, !tbaa !12
@@ -769,11 +769,11 @@ wc_InitMd5_ex.exit:                               ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1732584193, ptr %4, align 4, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 -271733879, ptr %5, align 4, !tbaa !9
+  store i32 -271733879, ptr %5, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 -1732584194, ptr %6, align 4, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 271733878, ptr %7, align 4, !tbaa !9
+  store i32 271733878, ptr %7, align 8, !tbaa !9
   store i32 0, ptr %0, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %8, align 4, !tbaa !11

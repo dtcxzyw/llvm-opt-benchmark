@@ -419,7 +419,7 @@ define dso_local void @_ZN5draco10StlEncoder14EncodeInternalEv(ptr dead_on_unwin
   %23 = load i32, ptr %22, align 8, !tbaa !41
   %24 = and i32 %23, -177
   %25 = or disjoint i32 %24, 32
-  store i32 %25, ptr %22, align 4, !tbaa !51
+  store i32 %25, ptr %22, align 8, !tbaa !51
   %26 = load i64, ptr %19, align 8
   %27 = getelementptr inbounds i8, ptr %17, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16

@@ -1425,7 +1425,7 @@ __rust_try.llvm.16910215836284360165.exit:
   %1 = load ptr, ptr %0, align 8, !alias.scope !195, !noalias !196, !noundef !4
   store i64 0, ptr %1, align 8, !noalias !199
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i8 2, ptr %2, align 1, !noalias !199
+  store i8 2, ptr %2, align 8, !noalias !199
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
@@ -1896,7 +1896,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h96c236fdd5fcfaefE(ptr noalia
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !290
   store i64 0, ptr %4, align 8, !noalias !290
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i8 2, ptr %5, align 1, !noalias !290
+  store i8 2, ptr %5, align 8, !noalias !290
   tail call void @llvm.experimental.noalias.scope.decl(metadata !291)
   %6 = load i64, ptr %3, align 8, !range !6, !alias.scope !291, !noalias !290, !noundef !4
   %7 = icmp eq i64 %6, 0
@@ -2223,7 +2223,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hcc74d97aafc7f1eaE(ptr noalia
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !362
   store i64 0, ptr %3, align 8, !noalias !362
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i8 2, ptr %4, align 1, !noalias !362
+  store i8 2, ptr %4, align 8, !noalias !362
   %5 = load i64, ptr %2, align 8, !range !6, !alias.scope !363, !noalias !362, !noundef !4
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %19, label %7
@@ -2344,7 +2344,7 @@ __rust_try.llvm.16910215836284360165.exit:
   %1 = load ptr, ptr %0, align 8, !alias.scope !389, !noalias !390, !noundef !4
   store i64 0, ptr %1, align 8, !noalias !393
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i8 2, ptr %2, align 1, !noalias !393
+  store i8 2, ptr %2, align 8, !noalias !393
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
@@ -2595,7 +2595,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h01d517c4720565abE.llvm.16910
   %3 = load ptr, ptr %2, align 8, !alias.scope !427, !noalias !428, !noundef !4
   store i64 0, ptr %3, align 8, !noalias !431
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i8 2, ptr %4, align 1, !noalias !431
+  store i8 2, ptr %4, align 8, !noalias !431
   ret void
 }
 
@@ -2656,7 +2656,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h0f236c998c17420aE.llvm.16910
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !noalias !450
   store i64 0, ptr %5, align 8, !noalias !450
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i8 2, ptr %6, align 1, !noalias !450
+  store i8 2, ptr %6, align 8, !noalias !450
   tail call void @llvm.experimental.noalias.scope.decl(metadata !451)
   %7 = load i64, ptr %3, align 8, !range !6, !alias.scope !451, !noalias !450, !noundef !4
   %8 = icmp eq i64 %7, 0
@@ -2793,7 +2793,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h229210c1269c42e8E.llvm.16910
   %3 = load ptr, ptr %2, align 8, !alias.scope !520, !noalias !521, !noundef !4
   store i64 0, ptr %3, align 8, !noalias !524
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i8 2, ptr %4, align 1, !noalias !524
+  store i8 2, ptr %4, align 8, !noalias !524
   ret void
 }
 
@@ -2887,7 +2887,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h8c484da9b21c3e49E.llvm.16910
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !571
   store i64 0, ptr %4, align 8, !noalias !571
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i8 2, ptr %5, align 1, !noalias !571
+  store i8 2, ptr %5, align 8, !noalias !571
   %6 = load i64, ptr %2, align 8, !range !6, !alias.scope !572, !noalias !571, !noundef !4
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17habc6abaf007ef247E.exit", label %8

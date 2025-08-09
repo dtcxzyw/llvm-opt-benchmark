@@ -1029,7 +1029,7 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_ma
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %16 = getelementptr i8, ptr %13, i64 16
   %.val7.i.i = load i64, ptr %16, align 8, !alias.scope !423, !noalias !428, !noundef !11
-  %.val8.i.i = load i32, ptr %15, align 4, !range !438, !alias.scope !439, !noalias !442, !noundef !11
+  %.val8.i.i = load i32, ptr %15, align 8, !range !438, !alias.scope !439, !noalias !442, !noundef !11
   %17 = icmp samesign ult i32 %.val8.i.i, 23
   %switch3.i.i.i = icmp eq i32 %.val8.i.i, 26
   %switch.i.i.i = or i1 %17, %switch3.i.i.i
@@ -1369,7 +1369,7 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_ma
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %15 = getelementptr i8, ptr %12, i64 16
   %.val7.i.i = load i64, ptr %15, align 8, !alias.scope !751, !noalias !756, !noundef !11
-  %.val8.i.i = load i32, ptr %14, align 4, !range !766, !alias.scope !767, !noalias !768, !noundef !11
+  %.val8.i.i = load i32, ptr %14, align 8, !range !766, !alias.scope !767, !noalias !768, !noundef !11
   %16 = icmp eq i32 %.val8.i.i, 23
   %switch.i.i.i.i.i.i.i.i.i.i = icmp samesign ult i32 %.val8.i.i, 13
   %17 = select i1 %switch.i.i.i.i.i.i.i.i.i.i, i64 5, i64 9
@@ -1809,7 +1809,7 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_ma
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %15 = getelementptr i8, ptr %12, i64 16
   %.val7.i.i = load i64, ptr %15, align 8, !alias.scope !1204, !noalias !1209, !noundef !11
-  %.val8.i.i = load i32, ptr %14, align 4, !range !766, !alias.scope !1219, !noalias !1220, !noundef !11
+  %.val8.i.i = load i32, ptr %14, align 8, !range !766, !alias.scope !1219, !noalias !1220, !noundef !11
   %16 = icmp eq i32 %.val8.i.i, 23
   %switch.i.i.i.i.i.i.i.i.i.i = icmp samesign ult i32 %.val8.i.i, 13
   %17 = select i1 %switch.i.i.i.i.i.i.i.i.i.i, i64 5, i64 9
@@ -2152,7 +2152,7 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_ma
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %16 = getelementptr i8, ptr %13, i64 16
   %.val7.i.i = load i64, ptr %16, align 8, !alias.scope !1553, !noalias !1558, !noundef !11
-  %.val8.i.i = load i32, ptr %15, align 4, !range !438, !alias.scope !1568, !noalias !1571, !noundef !11
+  %.val8.i.i = load i32, ptr %15, align 8, !range !438, !alias.scope !1568, !noalias !1571, !noundef !11
   %17 = icmp samesign ult i32 %.val8.i.i, 23
   %switch3.i.i.i = icmp eq i32 %.val8.i.i, 26
   %switch.i.i.i = or i1 %17, %switch3.i.i.i
@@ -2876,7 +2876,7 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_se
   %13 = getelementptr i8, ptr %11, i64 16
   %.val6.i.i = load i64, ptr %13, align 8, !alias.scope !2276, !noalias !2281, !noundef !11
   %14 = getelementptr i8, ptr %11, i64 24
-  %.val7.i.i = load i32, ptr %14, align 4, !range !438, !alias.scope !2290, !noalias !2293, !noundef !11
+  %.val7.i.i = load i32, ptr %14, align 8, !range !438, !alias.scope !2290, !noalias !2293, !noundef !11
   %15 = icmp samesign ult i32 %.val7.i.i, 23
   %switch3.i.i.i.i.i.i.i.i = icmp eq i32 %.val7.i.i, 26
   %switch.i.i.i.i.i.i.i.i = or i1 %switch3.i.i.i.i.i.i.i.i, %15
@@ -7952,7 +7952,7 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_se
   %13 = getelementptr i8, ptr %11, i64 16
   %.val6.i.i = load i64, ptr %13, align 8, !alias.scope !5275, !noalias !5280, !noundef !11
   %14 = getelementptr i8, ptr %11, i64 24
-  %.val7.i.i = load i32, ptr %14, align 4, !range !438, !alias.scope !5289, !noalias !5292, !noundef !11
+  %.val7.i.i = load i32, ptr %14, align 8, !range !438, !alias.scope !5289, !noalias !5292, !noundef !11
   %15 = icmp samesign ult i32 %.val7.i.i, 23
   %switch3.i.i.i.i.i.i.i.i = icmp eq i32 %.val7.i.i, 26
   %switch.i.i.i.i.i.i.i.i = or i1 %switch3.i.i.i.i.i.i.i.i, %15

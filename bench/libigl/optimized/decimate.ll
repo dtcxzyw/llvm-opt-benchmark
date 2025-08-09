@@ -2988,7 +2988,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterISt5tupleIJdiiEEEEclINS_17__normal
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 4
   store i32 %45, ptr %48, align 4, !tbaa !25
   %49 = load i32, ptr %31, align 4, !tbaa !25
-  store i32 %49, ptr %46, align 4, !tbaa !25
+  store i32 %49, ptr %46, align 8, !tbaa !25
   %.not.i5 = icmp ult i64 %.0921.in.i.i, 2
   br i1 %.not.i5, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJdiiEESt6vectorIS3_SaIS3_EEEESt7greaterIS3_EEvT_SB_T0_.exit, label %.lr.ph.i.i, !llvm.loop !162
 
@@ -2999,7 +2999,7 @@ _ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJdiiEESt6vectorIS3_SaIS3
   store double %24, ptr %51, align 8, !tbaa !9
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i32 %22, ptr %52, align 4, !tbaa !25
-  store i32 %20, ptr %50, align 4, !tbaa !25
+  store i32 %20, ptr %50, align 8, !tbaa !25
   ret void
 }
 

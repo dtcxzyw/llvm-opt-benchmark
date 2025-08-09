@@ -942,7 +942,7 @@ define void @_ZN13IOGraphDialogC2ER7QWidgetR11CaptureFile7QString20io_graph_item
   store ptr @_ZN15QtSharedPointer33ExternalRefCountWithCustomDeleterI13QCPAxisTickerNS_13NormalDeleterEE7deleterEPNS_20ExternalRefCountDataE, ptr %183, align 8
   %184 = getelementptr inbounds nuw i8, ptr %179, i64 4
   store atomic i32 1, ptr %184 monotonic, align 4
-  store atomic i32 1, ptr %179 monotonic, align 4
+  store atomic i32 1, ptr %179 monotonic, align 8
   br label %185
 
 185:                                              ; preds = %182, %.noexc
@@ -972,7 +972,7 @@ define void @_ZN13IOGraphDialogC2ER7QWidgetR11CaptureFile7QString20io_graph_item
   store ptr @_ZN15QtSharedPointer33ExternalRefCountWithCustomDeleterI21QCPAxisTickerDateTimeNS_13NormalDeleterEE7deleterEPNS_20ExternalRefCountDataE, ptr %195, align 8
   %196 = getelementptr inbounds nuw i8, ptr %191, i64 4
   store atomic i32 1, ptr %196 monotonic, align 4
-  store atomic i32 1, ptr %191 monotonic, align 4
+  store atomic i32 1, ptr %191 monotonic, align 8
   br label %197
 
 197:                                              ; preds = %194, %.noexc294
@@ -7172,11 +7172,11 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i312:   ; preds = %433
   %446 = getelementptr inbounds nuw i8, ptr %442, i64 20
   store i32 1507328, ptr %446, align 4
   %447 = getelementptr inbounds nuw i8, ptr %442, i64 24
-  store i32 0, ptr %447, align 4
+  store i32 0, ptr %447, align 8
   %448 = getelementptr inbounds nuw i8, ptr %442, i64 28
   store i32 0, ptr %448, align 4
   %449 = getelementptr inbounds nuw i8, ptr %442, i64 32
-  store i32 -1, ptr %449, align 4
+  store i32 -1, ptr %449, align 8
   %450 = getelementptr inbounds nuw i8, ptr %442, i64 36
   store i32 -1, ptr %450, align 4
   %451 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -7297,11 +7297,11 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i330:   ; preds = %480
   %493 = getelementptr inbounds nuw i8, ptr %489, i64 20
   store i32 1507328, ptr %493, align 4
   %494 = getelementptr inbounds nuw i8, ptr %489, i64 24
-  store i32 0, ptr %494, align 4
+  store i32 0, ptr %494, align 8
   %495 = getelementptr inbounds nuw i8, ptr %489, i64 28
   store i32 0, ptr %495, align 4
   %496 = getelementptr inbounds nuw i8, ptr %489, i64 32
-  store i32 -1, ptr %496, align 4
+  store i32 -1, ptr %496, align 8
   %497 = getelementptr inbounds nuw i8, ptr %489, i64 36
   store i32 -1, ptr %497, align 4
   %498 = getelementptr inbounds nuw i8, ptr %0, i64 320
@@ -7386,11 +7386,11 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i342:   ; preds = %516
   %528 = getelementptr inbounds nuw i8, ptr %524, i64 20
   store i32 1507328, ptr %528, align 4
   %529 = getelementptr inbounds nuw i8, ptr %524, i64 24
-  store i32 0, ptr %529, align 4
+  store i32 0, ptr %529, align 8
   %530 = getelementptr inbounds nuw i8, ptr %524, i64 28
   store i32 0, ptr %530, align 4
   %531 = getelementptr inbounds nuw i8, ptr %524, i64 32
-  store i32 -1, ptr %531, align 4
+  store i32 -1, ptr %531, align 8
   %532 = getelementptr inbounds nuw i8, ptr %524, i64 36
   store i32 -1, ptr %532, align 4
   %533 = getelementptr inbounds nuw i8, ptr %0, i64 344
@@ -9315,7 +9315,7 @@ _ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit:    ; preds = %_Z25qSharedPointerD
   store ptr @_ZN15QtSharedPointer33ExternalRefCountWithCustomDeleterI16QCPAxisTickerLogNS_13NormalDeleterEE7deleterEPNS_20ExternalRefCountDataE, ptr %84, align 8
   %85 = getelementptr inbounds nuw i8, ptr %80, i64 4
   store atomic i32 1, ptr %85 monotonic, align 4
-  store atomic i32 1, ptr %80 monotonic, align 4
+  store atomic i32 1, ptr %80 monotonic, align 8
   br label %86
 
 86:                                               ; preds = %83, %.noexc
@@ -9452,7 +9452,7 @@ _ZN14QSharedPointerI16QCPAxisTickerLogED2Ev.exit: ; preds = %_ZN14QSharedPointer
   store ptr @_ZN15QtSharedPointer33ExternalRefCountWithCustomDeleterI13QCPAxisTickerNS_13NormalDeleterEE7deleterEPNS_20ExternalRefCountDataE, ptr %132, align 8
   %133 = getelementptr inbounds nuw i8, ptr %128, i64 4
   store atomic i32 1, ptr %133 monotonic, align 4
-  store atomic i32 1, ptr %128 monotonic, align 4
+  store atomic i32 1, ptr %128 monotonic, align 8
   br label %134
 
 134:                                              ; preds = %131, %.noexc27
@@ -13809,7 +13809,7 @@ _ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit:    ; preds = %_Z25qSharedPointerD
   store ptr @_ZN15QtSharedPointer33ExternalRefCountWithCustomDeleterI15QCPAxisTickerSiNS_13NormalDeleterEE7deleterEPNS_20ExternalRefCountDataE, ptr %268, align 8
   %269 = getelementptr inbounds nuw i8, ptr %264, i64 4
   store atomic i32 1, ptr %269 monotonic, align 4
-  store atomic i32 1, ptr %264 monotonic, align 4
+  store atomic i32 1, ptr %264 monotonic, align 8
   br label %270
 
 270:                                              ; preds = %267, %.noexc128
@@ -13991,7 +13991,7 @@ _ZN7QStringD2Ev.exit145:                          ; preds = %308, %_ZN17QArrayDa
   store ptr @_ZN15QtSharedPointer33ExternalRefCountWithCustomDeleterI16QCPAxisTickerLogNS_13NormalDeleterEE7deleterEPNS_20ExternalRefCountDataE, ptr %331, align 8
   %332 = getelementptr inbounds nuw i8, ptr %327, i64 4
   store atomic i32 1, ptr %332 monotonic, align 4
-  store atomic i32 1, ptr %327 monotonic, align 4
+  store atomic i32 1, ptr %327 monotonic, align 8
   br label %333
 
 333:                                              ; preds = %330, %.noexc147
@@ -14120,7 +14120,7 @@ _ZN14QSharedPointerI16QCPAxisTickerLogED2Ev.exit: ; preds = %_ZN14QSharedPointer
   store ptr @_ZN15QtSharedPointer33ExternalRefCountWithCustomDeleterI13QCPAxisTickerNS_13NormalDeleterEE7deleterEPNS_20ExternalRefCountDataE, ptr %376, align 8
   %377 = getelementptr inbounds nuw i8, ptr %372, i64 4
   store atomic i32 1, ptr %377 monotonic, align 4
-  store atomic i32 1, ptr %372 monotonic, align 4
+  store atomic i32 1, ptr %372 monotonic, align 8
   br label %378
 
 378:                                              ; preds = %375, %.noexc157
@@ -41385,7 +41385,7 @@ declare ptr @_ZNK8QVariant8metaTypeEv(ptr noundef align 8 dereferenceable_or_nul
 define linkonce_odr void @_ZZN9QtPrivate16QMetaTypeForTypeI6QColorE13getDefaultCtrEvENUlPKNS_18QMetaTypeInterfaceEPvE_8__invokeES5_S6_(ptr noundef %0, ptr noundef %1) #13 comdat align 2 {
   store i32 0, ptr %1, align 4
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i16 -1, ptr %3, align 2
+  store i16 -1, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 6
   store i64 0, ptr %4, align 2
   ret void

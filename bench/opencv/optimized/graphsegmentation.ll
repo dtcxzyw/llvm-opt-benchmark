@@ -2592,7 +2592,7 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentat
   store ptr %8, ptr %7, align 8, !tbaa !101
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i64 0, ptr %9, align 8, !tbaa !100
-  store i8 0, ptr %8, align 1, !tbaa !97
+  store i8 0, ptr %8, align 8, !tbaa !97
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store double 5.000000e-01, ptr %10, align 8, !tbaa !13
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 32

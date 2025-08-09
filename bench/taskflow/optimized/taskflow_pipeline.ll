@@ -994,7 +994,7 @@ define dso_local void @_Z14make_taskflow1RN2tf8TaskflowE(ptr noundef nonnull rea
   store ptr %10, ptr %9, align 8, !tbaa !56, !noalias !19
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %11, align 8, !tbaa !57, !noalias !19
-  store i8 0, ptr %10, align 1, !tbaa !58, !noalias !19
+  store i8 0, ptr %10, align 8, !tbaa !58, !noalias !19
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 88
@@ -1129,7 +1129,7 @@ common.resume.i:                                  ; preds = %203, %153, %103, %5
   store ptr %60, ptr %59, align 8, !tbaa !56, !noalias !88
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 16
   store i64 0, ptr %61, align 8, !tbaa !57, !noalias !88
-  store i8 0, ptr %60, align 1, !tbaa !58, !noalias !88
+  store i8 0, ptr %60, align 8, !tbaa !58, !noalias !88
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 40
   %63 = getelementptr inbounds nuw i8, ptr %57, i64 64
   %64 = getelementptr inbounds nuw i8, ptr %57, i64 88
@@ -1260,7 +1260,7 @@ _ZNSt6vectorISt10unique_ptrIN2tf4NodeESt14default_deleteIS2_EESaIS5_EE9push_back
   store ptr %110, ptr %109, align 8, !tbaa !56, !noalias !102
   %111 = getelementptr inbounds nuw i8, ptr %107, i64 16
   store i64 0, ptr %111, align 8, !tbaa !57, !noalias !102
-  store i8 0, ptr %110, align 1, !tbaa !58, !noalias !102
+  store i8 0, ptr %110, align 8, !tbaa !58, !noalias !102
   %112 = getelementptr inbounds nuw i8, ptr %107, i64 40
   %113 = getelementptr inbounds nuw i8, ptr %107, i64 64
   %114 = getelementptr inbounds nuw i8, ptr %107, i64 88
@@ -1391,7 +1391,7 @@ _ZNSt6vectorISt10unique_ptrIN2tf4NodeESt14default_deleteIS2_EESaIS5_EE9push_back
   store ptr %160, ptr %159, align 8, !tbaa !56, !noalias !116
   %161 = getelementptr inbounds nuw i8, ptr %157, i64 16
   store i64 0, ptr %161, align 8, !tbaa !57, !noalias !116
-  store i8 0, ptr %160, align 1, !tbaa !58, !noalias !116
+  store i8 0, ptr %160, align 8, !tbaa !58, !noalias !116
   %162 = getelementptr inbounds nuw i8, ptr %157, i64 40
   %163 = getelementptr inbounds nuw i8, ptr %157, i64 64
   %164 = getelementptr inbounds nuw i8, ptr %157, i64 88
@@ -1718,7 +1718,7 @@ define dso_local void @_Z14make_taskflow2RN2tf8TaskflowE(ptr noundef nonnull rea
   store ptr %10, ptr %9, align 8, !tbaa !56, !noalias !139
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %11, align 8, !tbaa !57, !noalias !139
-  store i8 0, ptr %10, align 1, !tbaa !58, !noalias !139
+  store i8 0, ptr %10, align 8, !tbaa !58, !noalias !139
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 88
@@ -1853,7 +1853,7 @@ common.resume.i:                                  ; preds = %203, %153, %103, %5
   store ptr %60, ptr %59, align 8, !tbaa !56, !noalias !153
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 16
   store i64 0, ptr %61, align 8, !tbaa !57, !noalias !153
-  store i8 0, ptr %60, align 1, !tbaa !58, !noalias !153
+  store i8 0, ptr %60, align 8, !tbaa !58, !noalias !153
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 40
   %63 = getelementptr inbounds nuw i8, ptr %57, i64 64
   %64 = getelementptr inbounds nuw i8, ptr %57, i64 88
@@ -1984,7 +1984,7 @@ _ZNSt6vectorISt10unique_ptrIN2tf4NodeESt14default_deleteIS2_EESaIS5_EE9push_back
   store ptr %110, ptr %109, align 8, !tbaa !56, !noalias !167
   %111 = getelementptr inbounds nuw i8, ptr %107, i64 16
   store i64 0, ptr %111, align 8, !tbaa !57, !noalias !167
-  store i8 0, ptr %110, align 1, !tbaa !58, !noalias !167
+  store i8 0, ptr %110, align 8, !tbaa !58, !noalias !167
   %112 = getelementptr inbounds nuw i8, ptr %107, i64 40
   %113 = getelementptr inbounds nuw i8, ptr %107, i64 64
   %114 = getelementptr inbounds nuw i8, ptr %107, i64 88
@@ -2115,7 +2115,7 @@ _ZNSt6vectorISt10unique_ptrIN2tf4NodeESt14default_deleteIS2_EESaIS5_EE9push_back
   store ptr %160, ptr %159, align 8, !tbaa !56, !noalias !181
   %161 = getelementptr inbounds nuw i8, ptr %157, i64 16
   store i64 0, ptr %161, align 8, !tbaa !57, !noalias !181
-  store i8 0, ptr %160, align 1, !tbaa !58, !noalias !181
+  store i8 0, ptr %160, align 8, !tbaa !58, !noalias !181
   %162 = getelementptr inbounds nuw i8, ptr %157, i64 40
   %163 = getelementptr inbounds nuw i8, ptr %157, i64 64
   %164 = getelementptr inbounds nuw i8, ptr %157, i64 88
@@ -2319,7 +2319,7 @@ define dso_local void @_Z14make_taskflow3RN2tf8TaskflowE(ptr noundef nonnull rea
   store ptr %10, ptr %9, align 8, !tbaa !56, !noalias !199
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %11, align 8, !tbaa !57, !noalias !199
-  store i8 0, ptr %10, align 1, !tbaa !58, !noalias !199
+  store i8 0, ptr %10, align 8, !tbaa !58, !noalias !199
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 88
@@ -2454,7 +2454,7 @@ common.resume.i:                                  ; preds = %203, %153, %103, %5
   store ptr %60, ptr %59, align 8, !tbaa !56, !noalias !213
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 16
   store i64 0, ptr %61, align 8, !tbaa !57, !noalias !213
-  store i8 0, ptr %60, align 1, !tbaa !58, !noalias !213
+  store i8 0, ptr %60, align 8, !tbaa !58, !noalias !213
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 40
   %63 = getelementptr inbounds nuw i8, ptr %57, i64 64
   %64 = getelementptr inbounds nuw i8, ptr %57, i64 88
@@ -2585,7 +2585,7 @@ _ZNSt6vectorISt10unique_ptrIN2tf4NodeESt14default_deleteIS2_EESaIS5_EE9push_back
   store ptr %110, ptr %109, align 8, !tbaa !56, !noalias !227
   %111 = getelementptr inbounds nuw i8, ptr %107, i64 16
   store i64 0, ptr %111, align 8, !tbaa !57, !noalias !227
-  store i8 0, ptr %110, align 1, !tbaa !58, !noalias !227
+  store i8 0, ptr %110, align 8, !tbaa !58, !noalias !227
   %112 = getelementptr inbounds nuw i8, ptr %107, i64 40
   %113 = getelementptr inbounds nuw i8, ptr %107, i64 64
   %114 = getelementptr inbounds nuw i8, ptr %107, i64 88
@@ -2716,7 +2716,7 @@ _ZNSt6vectorISt10unique_ptrIN2tf4NodeESt14default_deleteIS2_EESaIS5_EE9push_back
   store ptr %160, ptr %159, align 8, !tbaa !56, !noalias !241
   %161 = getelementptr inbounds nuw i8, ptr %157, i64 16
   store i64 0, ptr %161, align 8, !tbaa !57, !noalias !241
-  store i8 0, ptr %160, align 1, !tbaa !58, !noalias !241
+  store i8 0, ptr %160, align 8, !tbaa !58, !noalias !241
   %162 = getelementptr inbounds nuw i8, ptr %157, i64 40
   %163 = getelementptr inbounds nuw i8, ptr %157, i64 64
   %164 = getelementptr inbounds nuw i8, ptr %157, i64 88
@@ -3637,7 +3637,7 @@ _ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE5clearEv.exit.i.i: ; preds =
   store ptr %265, ptr %264, align 8, !tbaa !56, !noalias !375
   %266 = getelementptr inbounds nuw i8, ptr %261, i64 16
   store i64 0, ptr %266, align 8, !tbaa !57, !noalias !375
-  store i8 0, ptr %265, align 1, !tbaa !58, !noalias !375
+  store i8 0, ptr %265, align 8, !tbaa !58, !noalias !375
   %267 = getelementptr inbounds nuw i8, ptr %261, i64 40
   %268 = getelementptr inbounds nuw i8, ptr %261, i64 64
   %269 = getelementptr inbounds nuw i8, ptr %261, i64 88
@@ -3845,7 +3845,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25.i.i: ; preds = 
   store ptr %344, ptr %343, align 8, !tbaa !56, !noalias !394
   %345 = getelementptr inbounds nuw i8, ptr %341, i64 16
   store i64 0, ptr %345, align 8, !tbaa !57, !noalias !394
-  store i8 0, ptr %344, align 1, !tbaa !58, !noalias !394
+  store i8 0, ptr %344, align 8, !tbaa !58, !noalias !394
   %346 = getelementptr inbounds nuw i8, ptr %341, i64 40
   %347 = getelementptr inbounds nuw i8, ptr %341, i64 64
   %348 = getelementptr inbounds nuw i8, ptr %341, i64 88
@@ -4453,7 +4453,7 @@ _ZNSt6vectorIN2tf4TaskESaIS1_EED2Ev.exit.i:       ; preds = %559, %558, %168
   store ptr %572, ptr %571, align 8, !tbaa !56, !noalias !422
   %573 = getelementptr inbounds nuw i8, ptr %569, i64 16
   store i64 0, ptr %573, align 8, !tbaa !57, !noalias !422
-  store i8 0, ptr %572, align 1, !tbaa !58, !noalias !422
+  store i8 0, ptr %572, align 8, !tbaa !58, !noalias !422
   %574 = getelementptr inbounds nuw i8, ptr %569, i64 40
   %575 = getelementptr inbounds nuw i8, ptr %569, i64 64
   %576 = getelementptr inbounds nuw i8, ptr %569, i64 88
@@ -4627,7 +4627,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70: ; preds = %_ZN
   store ptr %635, ptr %634, align 8, !tbaa !56, !noalias !436
   %636 = getelementptr inbounds nuw i8, ptr %632, i64 16
   store i64 0, ptr %636, align 8, !tbaa !57, !noalias !436
-  store i8 0, ptr %635, align 1, !tbaa !58, !noalias !436
+  store i8 0, ptr %635, align 8, !tbaa !58, !noalias !436
   %637 = getelementptr inbounds nuw i8, ptr %632, i64 40
   %638 = getelementptr inbounds nuw i8, ptr %632, i64 64
   %639 = getelementptr inbounds nuw i8, ptr %632, i64 88
@@ -4788,7 +4788,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit98: ; preds = %_ZN
   store ptr %694, ptr %693, align 8, !tbaa !56, !noalias !450
   %695 = getelementptr inbounds nuw i8, ptr %691, i64 16
   store i64 0, ptr %695, align 8, !tbaa !57, !noalias !450
-  store i8 0, ptr %694, align 1, !tbaa !58, !noalias !450
+  store i8 0, ptr %694, align 8, !tbaa !58, !noalias !450
   %696 = getelementptr inbounds nuw i8, ptr %691, i64 40
   %697 = getelementptr inbounds nuw i8, ptr %691, i64 64
   %698 = getelementptr inbounds nuw i8, ptr %691, i64 88
@@ -16381,7 +16381,7 @@ define linkonce_odr dso_local noundef i64 @_ZN2tf10SerializerISt14basic_ofstream
   %53 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef %51, i64 noundef %52)
   %54 = load i64, ptr %46, align 8, !tbaa !57
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %55 = load i32, ptr %43, align 4, !tbaa !915
+  %55 = load i32, ptr %43, align 8, !tbaa !915
   store i32 %55, ptr %5, align 4, !tbaa !266
   %56 = load ptr, ptr %0, align 8, !tbaa !828
   %57 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef nonnull align 4 dereferenceable(4) %5, i64 noundef 4)
@@ -20054,7 +20054,7 @@ _ZSt19__relocate_object_aIN2tf7SegmentES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i: ; pre
   store i64 %58, ptr %60, align 8, !tbaa !57, !alias.scope !1002, !noalias !1005
   store ptr %50, ptr %.0911.i.i.i, align 8, !tbaa !253, !alias.scope !1005, !noalias !1002
   store i64 0, ptr %59, align 8, !tbaa !57, !alias.scope !1005, !noalias !1002
-  store i8 0, ptr %50, align 1, !tbaa !58, !alias.scope !1005, !noalias !1002
+  store i8 0, ptr %50, align 8, !tbaa !58, !alias.scope !1005, !noalias !1002
   %61 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %62 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) %62, i64 24, i1 false), !alias.scope !1007
@@ -20105,7 +20105,7 @@ _ZSt19__relocate_object_aIN2tf7SegmentES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i36: ; p
   store i64 %76, ptr %78, align 8, !tbaa !57, !alias.scope !1009, !noalias !1012
   store ptr %68, ptr %.0911.i.i.i32, align 8, !tbaa !253, !alias.scope !1012, !noalias !1009
   store i64 0, ptr %77, align 8, !tbaa !57, !alias.scope !1012, !noalias !1009
-  store i8 0, ptr %68, align 1, !tbaa !58, !alias.scope !1012, !noalias !1009
+  store i8 0, ptr %68, align 8, !tbaa !58, !alias.scope !1012, !noalias !1009
   %79 = getelementptr inbounds nuw i8, ptr %.012.i.i.i31, i64 32
   %80 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i32, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, ptr noundef nonnull align 8 dereferenceable(24) %80, i64 24, i1 false), !alias.scope !1014
@@ -23122,11 +23122,11 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %_ZN2tf8Executor19_i
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store ptr null, ptr %39, align 8, !tbaa !770, !noalias !1102
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  store i32 0, ptr %40, align 4, !tbaa !1105, !noalias !1102
+  store i32 0, ptr %40, align 8, !tbaa !1105, !noalias !1102
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 36
-  store i8 0, ptr %41, align 1, !tbaa !1107, !noalias !1102
+  store i8 0, ptr %41, align 4, !tbaa !1107, !noalias !1102
   %42 = getelementptr inbounds nuw i8, ptr %35, i64 40
-  store i32 0, ptr %42, align 4, !tbaa !1109, !noalias !1102
+  store i32 0, ptr %42, align 8, !tbaa !1109, !noalias !1102
   store ptr %35, ptr %34, align 8, !tbaa !258, !alias.scope !1102
   store ptr %38, ptr %9, align 8, !tbaa !738, !alias.scope !1102
   %43 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #36
@@ -24328,11 +24328,11 @@ define linkonce_odr dso_local void @_ZN2tf8TopologyC2IZNS_8Executor5run_nIZNS2_3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr null, ptr %11, align 8, !tbaa !770, !noalias !1137
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i32 0, ptr %12, align 4, !tbaa !1105, !noalias !1137
+  store i32 0, ptr %12, align 8, !tbaa !1105, !noalias !1137
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  store i8 0, ptr %13, align 1, !tbaa !1107, !noalias !1137
+  store i8 0, ptr %13, align 4, !tbaa !1107, !noalias !1137
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store i32 0, ptr %14, align 4, !tbaa !1109, !noalias !1137
+  store i32 0, ptr %14, align 8, !tbaa !1109, !noalias !1137
   store ptr %7, ptr %6, align 8, !tbaa !258, !alias.scope !1137
   store ptr %10, ptr %5, align 8, !tbaa !738, !alias.scope !1137
   %15 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #36

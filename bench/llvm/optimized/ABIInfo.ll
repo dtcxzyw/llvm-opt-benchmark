@@ -1811,7 +1811,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.thread.i.i.i: 
   %62 = add nuw nsw i64 %60, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %50, ptr noundef nonnull align 8 dereferenceable(1) %57, i64 %62, i1 false)
   store i64 0, ptr %59, align 8, !tbaa !600
-  store i8 0, ptr %57, align 1, !tbaa !140
+  store i8 0, ptr %57, align 8, !tbaa !140
   store ptr %52, ptr %22, align 8, !tbaa !636
   br label %65
 
@@ -1822,7 +1822,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i: ; preds
   %.pre.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !600
   store ptr %57, ptr %55, align 8, !tbaa !599
   store i64 0, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !600
-  store i8 0, ptr %57, align 1, !tbaa !140
+  store i8 0, ptr %57, align 8, !tbaa !140
   store ptr %52, ptr %22, align 8, !tbaa !636
   %64 = icmp eq ptr %56, %50
   br i1 %64, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i._crit_edge.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i9.i.i.i
@@ -1937,7 +1937,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i2.i:
   store i64 %98, ptr %84, align 8, !tbaa !600
   store ptr %90, ptr %88, align 8, !tbaa !599
   store i64 0, ptr %99, align 8, !tbaa !600
-  store i8 0, ptr %90, align 1, !tbaa !140
+  store i8 0, ptr %90, align 8, !tbaa !140
   %100 = load ptr, ptr %0, align 8, !tbaa !599
   %101 = icmp eq ptr %100, %85
   br i1 %101, label %102, label %111
@@ -2614,7 +2614,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %13
   store i64 %144, ptr %146, align 8, !tbaa !600
   store ptr %136, ptr %3, align 8, !tbaa !599
   store i64 0, ptr %145, align 8, !tbaa !600
-  store i8 0, ptr %136, align 1, !tbaa !140
+  store i8 0, ptr %136, align 8, !tbaa !140
   %147 = icmp sgt i64 %.1, %1
   br i1 %147, label %.lr.ph.i, label %.critedge.i
 
@@ -2948,7 +2948,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %40
   store i64 %45, ptr %12, align 8, !tbaa !600
   store ptr %38, ptr %.sroa.0.023, align 8, !tbaa !599
   store i64 0, ptr %17, align 8, !tbaa !600
-  store i8 0, ptr %38, align 1, !tbaa !140
+  store i8 0, ptr %38, align 8, !tbaa !140
   %46 = ptrtoint ptr %.sroa.0.023 to i64
   %47 = sub i64 %46, %13
   %48 = ashr exact i64 %47, 5
@@ -3207,7 +3207,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %10
   store i64 %16, ptr %18, align 8, !tbaa !600
   store ptr %8, ptr %0, align 8, !tbaa !599
   store i64 0, ptr %17, align 8, !tbaa !600
-  store i8 0, ptr %8, align 1, !tbaa !140
+  store i8 0, ptr %8, align 8, !tbaa !140
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %21

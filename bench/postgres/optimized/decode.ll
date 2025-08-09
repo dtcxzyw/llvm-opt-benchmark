@@ -970,11 +970,11 @@ FilterByOrigin.exit.thread:                       ; preds = %20, %FilterByOrigin
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 4
-  store i16 -1, ptr %53, align 2
+  store i16 -1, ptr %53, align 4
   %54 = getelementptr inbounds nuw i8, ptr %49, i64 6
   store i16 -1, ptr %54, align 2
   %55 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store i16 0, ptr %55, align 2
+  store i16 0, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %49, i64 12
   store i32 0, ptr %56, align 4
   %57 = zext i16 %46 to i32
@@ -1156,11 +1156,11 @@ FilterByOrigin.exit.thread.i:                     ; preds = %FilterByOrigin.exit
   %77 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %70, i64 4
-  store i16 -1, ptr %79, align 2
+  store i16 -1, ptr %79, align 4
   %80 = getelementptr inbounds nuw i8, ptr %70, i64 6
   store i16 -1, ptr %80, align 2
   %81 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  store i16 0, ptr %81, align 2
+  store i16 0, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %70, i64 12
   store i32 0, ptr %82, align 4
   %.sroa.0.0.copyload.i.i = load i16, ptr %66, align 1
@@ -1211,11 +1211,11 @@ FilterByOrigin.exit.thread.i:                     ; preds = %FilterByOrigin.exit
   %108 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %109 = load ptr, ptr %108, align 8
   %110 = getelementptr inbounds nuw i8, ptr %102, i64 4
-  store i16 -1, ptr %110, align 2
+  store i16 -1, ptr %110, align 4
   %111 = getelementptr inbounds nuw i8, ptr %102, i64 6
   store i16 -1, ptr %111, align 2
   %112 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  store i16 0, ptr %112, align 2
+  store i16 0, ptr %112, align 8
   %113 = getelementptr inbounds nuw i8, ptr %102, i64 12
   store i32 0, ptr %113, align 4
   %.sroa.0.0.copyload.i35.i = load i16, ptr %96, align 1
@@ -1361,11 +1361,11 @@ FilterByOrigin.exit.thread:                       ; preds = %21, %FilterByOrigin
   %52 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %45, i64 4
-  store i16 -1, ptr %54, align 2
+  store i16 -1, ptr %54, align 4
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 6
   store i16 -1, ptr %55, align 2
   %56 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store i16 0, ptr %56, align 2
+  store i16 0, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 12
   store i32 0, ptr %57, align 4
   %.sroa.0.0.copyload.i = load i16, ptr %41, align 1
@@ -1479,11 +1479,11 @@ FilterByOrigin.exit.thread:                       ; preds = %16, %FilterByOrigin
   %52 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %45, i64 4
-  store i16 -1, ptr %54, align 2
+  store i16 -1, ptr %54, align 4
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 6
   store i16 -1, ptr %55, align 2
   %56 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store i16 0, ptr %56, align 2
+  store i16 0, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 12
   store i32 0, ptr %57, align 4
   %.sroa.0.0.copyload.i = load i16, ptr %47, align 1

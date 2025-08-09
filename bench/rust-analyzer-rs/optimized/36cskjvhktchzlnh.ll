@@ -13319,7 +13319,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %99 = mul i64 %98, 5871781006564002453
   %storemerge.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i, i64 %95, i64 %99
   %100 = getelementptr inbounds i8, ptr %84, i64 -8
-  %101 = load i8, ptr %100, align 1, !range !516, !alias.scope !3293, !noalias !3296, !noundef !4
+  %101 = load i8, ptr %100, align 4, !range !516, !alias.scope !3293, !noalias !3296, !noundef !4
   %102 = zext nneg i8 %101 to i64
   %103 = call i64 @llvm.fshl.i64(i64 %storemerge.i.i.i.i.i.i, i64 %storemerge.i.i.i.i.i.i, i64 5)
   %104 = xor i64 %103, %102
@@ -15047,7 +15047,7 @@ define internal noundef i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_
   %21 = mul i64 %20, 5871781006564002453
   %storemerge.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i64 %17, i64 %21
   %22 = getelementptr inbounds i8, ptr %6, i64 -8
-  %23 = load i8, ptr %22, align 1, !range !516, !alias.scope !3839, !noalias !3842, !noundef !4
+  %23 = load i8, ptr %22, align 4, !range !516, !alias.scope !3839, !noalias !3842, !noundef !4
   %24 = zext nneg i8 %23 to i64
   %25 = tail call i64 @llvm.fshl.i64(i64 %storemerge.i.i.i.i.i, i64 %storemerge.i.i.i.i.i, i64 5)
   %26 = xor i64 %25, %24

@@ -2988,7 +2988,7 @@ _ZN3nix9CanonPathC2EOS0_.exit:                    ; preds = %143, %_ZNKSt7__cxx1
   store i64 %149, ptr %151, align 8
   store ptr %141, ptr %2, align 8
   store i64 0, ptr %150, align 8
-  store i8 0, ptr %141, align 1
+  store i8 0, ptr %141, align 8
   ret void
 
 152:                                              ; preds = %_ZSt6get_ifIN3nix20MemorySourceAccessor4File7RegularEJS3_NS2_9DirectoryENS2_7SymlinkEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit

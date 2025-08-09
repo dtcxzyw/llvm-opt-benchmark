@@ -6207,7 +6207,7 @@ _ZN4llvm12StringSwitchIiiE5CasesENS_13StringLiteralES2_S2_i.exit: ; preds = %74,
   %108 = lshr i32 %107, 22
   %109 = and i32 %108, 7
   %110 = getelementptr inbounds nuw i8, ptr %98, i64 16
-  %111 = load i32, ptr %110, align 4, !tbaa !563
+  %111 = load i32, ptr %110, align 8, !tbaa !563
   %112 = mul i32 %109, %111
   %113 = zext i32 %112 to i64
   store ptr %106, ptr %20, align 8
@@ -6224,7 +6224,7 @@ _ZN4llvm12StringSwitchIiiE5CasesENS_13StringLiteralES2_S2_i.exit: ; preds = %74,
   %120 = load i32, ptr %98, align 8
   %121 = lshr i32 %120, 22
   %122 = and i32 %121, 7
-  %123 = load i32, ptr %110, align 4, !tbaa !563
+  %123 = load i32, ptr %110, align 8, !tbaa !563
   %124 = mul i32 %122, %123
   %125 = zext i32 %124 to i64
   store ptr %119, ptr %21, align 8

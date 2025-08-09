@@ -14708,7 +14708,7 @@ lean_alloc_ctor.exit279:                          ; preds = %lean_dec_ref.exit22
   %348 = getelementptr inbounds nuw i8, ptr %345, i64 4
   %349 = getelementptr inbounds nuw i8, ptr %345, i64 64
   store i64 0, ptr %349, align 8, !tbaa !12
-  store i32 1, ptr %345, align 4, !tbaa !4
+  store i32 1, ptr %345, align 8, !tbaa !4
   store i32 458824, ptr %348, align 4
   %350 = getelementptr inbounds nuw i8, ptr %345, i64 8
   store ptr %9, ptr %350, align 8, !tbaa !10
@@ -14724,7 +14724,7 @@ lean_alloc_ctor.exit279:                          ; preds = %lean_dec_ref.exit22
   store ptr %295, ptr %355, align 8, !tbaa !10
   %356 = getelementptr inbounds nuw i8, ptr %345, i64 56
   store ptr %60, ptr %356, align 8, !tbaa !10
-  store i8 %.val230, ptr %349, align 1, !tbaa !18
+  store i8 %.val230, ptr %349, align 8, !tbaa !18
   %357 = ptrtoint ptr %.0150 to i64
   %358 = and i64 %357, 1
   %.not308 = icmp eq i64 %358, 0
@@ -16510,7 +16510,7 @@ _init_l_Lean_Elab_Structural_addSmartUnfoldingDefAux___closed__2.exit: ; preds =
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 4
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 32
   store i64 0, ptr %68, align 8, !tbaa !12
-  store i32 1, ptr %64, align 4, !tbaa !4
+  store i32 1, ptr %64, align 8, !tbaa !4
   store i32 196648, ptr %67, align 4
   %69 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %69, align 8, !tbaa !10

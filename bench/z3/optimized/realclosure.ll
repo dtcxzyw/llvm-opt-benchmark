@@ -913,10 +913,10 @@ _ZN11realclosure7manager3imp7inc_refEPNS_5valueE.exit: ; preds = %26
   %69 = load i8, ptr %68, align 4
   %70 = and i8 %69, -4
   %71 = getelementptr inbounds nuw i8, ptr %46, i64 96
-  store i32 1, ptr %62, align 4, !tbaa !3
+  store i32 1, ptr %62, align 8, !tbaa !3
   store ptr null, ptr %66, align 8, !tbaa !7
   store i8 %65, ptr %63, align 4
-  store i32 1, ptr %67, align 4, !tbaa !3
+  store i32 1, ptr %67, align 8, !tbaa !3
   store ptr null, ptr %71, align 8, !tbaa !7
   store i8 %70, ptr %68, align 4
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 1352
@@ -17948,14 +17948,14 @@ _ZN11realclosure7manager3imp7inc_refEPNS_5valueE.exit.i27: ; preds = %86
   %118 = or disjoint i8 %117, %112
   store i8 %118, ptr %24, align 4
   %119 = getelementptr inbounds nuw i8, ptr %85, i64 24
-  %120 = load i32, ptr %119, align 4, !tbaa !3
+  %120 = load i32, ptr %119, align 8, !tbaa !3
   %121 = load i32, ptr %26, align 8, !tbaa !3
-  store i32 %121, ptr %119, align 4, !tbaa !3
+  store i32 %121, ptr %119, align 8, !tbaa !3
   store i32 %120, ptr %26, align 8, !tbaa !3
   %122 = getelementptr inbounds nuw i8, ptr %85, i64 32
-  %123 = load i32, ptr %122, align 4, !tbaa !3
+  %123 = load i32, ptr %122, align 8, !tbaa !3
   %124 = load i32, ptr %27, align 8, !tbaa !3
-  store i32 %124, ptr %122, align 4, !tbaa !3
+  store i32 %124, ptr %122, align 8, !tbaa !3
   store i32 %123, ptr %27, align 8, !tbaa !3
   %125 = getelementptr inbounds nuw i8, ptr %85, i64 40
   %126 = load ptr, ptr %125, align 8, !tbaa !7
@@ -17985,14 +17985,14 @@ _ZN11realclosure7manager3imp7inc_refEPNS_5valueE.exit.i27: ; preds = %86
   %145 = or disjoint i8 %144, %139
   store i8 %145, ptr %28, align 4
   %146 = getelementptr inbounds nuw i8, ptr %85, i64 48
-  %147 = load i32, ptr %146, align 4, !tbaa !3
+  %147 = load i32, ptr %146, align 8, !tbaa !3
   %148 = load i32, ptr %30, align 8, !tbaa !3
-  store i32 %148, ptr %146, align 4, !tbaa !3
+  store i32 %148, ptr %146, align 8, !tbaa !3
   store i32 %147, ptr %30, align 8, !tbaa !3
   %149 = getelementptr inbounds nuw i8, ptr %85, i64 56
-  %150 = load i8, ptr %149, align 1, !tbaa !10
+  %150 = load i8, ptr %149, align 8, !tbaa !10
   %151 = load i8, ptr %31, align 8, !tbaa !10
-  store i8 %151, ptr %149, align 1, !tbaa !10
+  store i8 %151, ptr %149, align 8, !tbaa !10
   store i8 %150, ptr %31, align 8, !tbaa !10
   %152 = getelementptr inbounds nuw i8, ptr %85, i64 57
   %153 = getelementptr inbounds nuw i8, ptr %9, i64 57
@@ -18002,9 +18002,9 @@ _ZN11realclosure7manager3imp7inc_refEPNS_5valueE.exit.i27: ; preds = %86
   store i8 %154, ptr %153, align 1, !tbaa !10
   %156 = getelementptr inbounds nuw i8, ptr %85, i64 58
   %157 = getelementptr inbounds nuw i8, ptr %9, i64 58
-  %158 = load i8, ptr %156, align 1, !tbaa !10
+  %158 = load i8, ptr %156, align 2, !tbaa !10
   %159 = load i8, ptr %157, align 2, !tbaa !10
-  store i8 %159, ptr %156, align 1, !tbaa !10
+  store i8 %159, ptr %156, align 2, !tbaa !10
   store i8 %158, ptr %157, align 2, !tbaa !10
   %160 = getelementptr inbounds nuw i8, ptr %85, i64 59
   %161 = getelementptr inbounds nuw i8, ptr %9, i64 59
@@ -20605,14 +20605,14 @@ _ZN11realclosure7manager3imp7inc_refEPNS_5valueE.exit.i: ; preds = %80
   %112 = or disjoint i8 %111, %106
   store i8 %112, ptr %19, align 4
   %113 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  %114 = load i32, ptr %113, align 4, !tbaa !3
+  %114 = load i32, ptr %113, align 8, !tbaa !3
   %115 = load i32, ptr %21, align 8, !tbaa !3
-  store i32 %115, ptr %113, align 4, !tbaa !3
+  store i32 %115, ptr %113, align 8, !tbaa !3
   store i32 %114, ptr %21, align 8, !tbaa !3
   %116 = getelementptr inbounds nuw i8, ptr %79, i64 32
-  %117 = load i32, ptr %116, align 4, !tbaa !3
+  %117 = load i32, ptr %116, align 8, !tbaa !3
   %118 = load i32, ptr %22, align 8, !tbaa !3
-  store i32 %118, ptr %116, align 4, !tbaa !3
+  store i32 %118, ptr %116, align 8, !tbaa !3
   store i32 %117, ptr %22, align 8, !tbaa !3
   %119 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %120 = load ptr, ptr %119, align 8, !tbaa !7
@@ -20642,14 +20642,14 @@ _ZN11realclosure7manager3imp7inc_refEPNS_5valueE.exit.i: ; preds = %80
   %139 = or disjoint i8 %138, %133
   store i8 %139, ptr %23, align 4
   %140 = getelementptr inbounds nuw i8, ptr %79, i64 48
-  %141 = load i32, ptr %140, align 4, !tbaa !3
+  %141 = load i32, ptr %140, align 8, !tbaa !3
   %142 = load i32, ptr %25, align 8, !tbaa !3
-  store i32 %142, ptr %140, align 4, !tbaa !3
+  store i32 %142, ptr %140, align 8, !tbaa !3
   store i32 %141, ptr %25, align 8, !tbaa !3
   %143 = getelementptr inbounds nuw i8, ptr %79, i64 56
-  %144 = load i8, ptr %143, align 1, !tbaa !10
+  %144 = load i8, ptr %143, align 8, !tbaa !10
   %145 = load i8, ptr %26, align 8, !tbaa !10
-  store i8 %145, ptr %143, align 1, !tbaa !10
+  store i8 %145, ptr %143, align 8, !tbaa !10
   store i8 %144, ptr %26, align 8, !tbaa !10
   %146 = getelementptr inbounds nuw i8, ptr %79, i64 57
   %147 = getelementptr inbounds nuw i8, ptr %4, i64 57
@@ -20659,9 +20659,9 @@ _ZN11realclosure7manager3imp7inc_refEPNS_5valueE.exit.i: ; preds = %80
   store i8 %148, ptr %147, align 1, !tbaa !10
   %150 = getelementptr inbounds nuw i8, ptr %79, i64 58
   %151 = getelementptr inbounds nuw i8, ptr %4, i64 58
-  %152 = load i8, ptr %150, align 1, !tbaa !10
+  %152 = load i8, ptr %150, align 2, !tbaa !10
   %153 = load i8, ptr %151, align 2, !tbaa !10
-  store i8 %153, ptr %150, align 1, !tbaa !10
+  store i8 %153, ptr %150, align 2, !tbaa !10
   store i8 %152, ptr %151, align 2, !tbaa !10
   %154 = getelementptr inbounds nuw i8, ptr %79, i64 59
   %155 = getelementptr inbounds nuw i8, ptr %4, i64 59
@@ -21090,14 +21090,14 @@ _ZN11realclosure7manager3imp7inc_refEPNS_5valueE.exit.i86: ; preds = %_ZN11realc
   %144 = or disjoint i8 %143, %138
   store i8 %144, ptr %18, align 4
   %145 = getelementptr inbounds nuw i8, ptr %112, i64 24
-  %146 = load i32, ptr %145, align 4, !tbaa !3
+  %146 = load i32, ptr %145, align 8, !tbaa !3
   %147 = load i32, ptr %20, align 8, !tbaa !3
-  store i32 %147, ptr %145, align 4, !tbaa !3
+  store i32 %147, ptr %145, align 8, !tbaa !3
   store i32 %146, ptr %20, align 8, !tbaa !3
   %148 = getelementptr inbounds nuw i8, ptr %112, i64 32
-  %149 = load i32, ptr %148, align 4, !tbaa !3
+  %149 = load i32, ptr %148, align 8, !tbaa !3
   %150 = load i32, ptr %21, align 8, !tbaa !3
-  store i32 %150, ptr %148, align 4, !tbaa !3
+  store i32 %150, ptr %148, align 8, !tbaa !3
   store i32 %149, ptr %21, align 8, !tbaa !3
   %151 = getelementptr inbounds nuw i8, ptr %112, i64 40
   %152 = load ptr, ptr %151, align 8, !tbaa !7
@@ -21127,14 +21127,14 @@ _ZN11realclosure7manager3imp7inc_refEPNS_5valueE.exit.i86: ; preds = %_ZN11realc
   %171 = or disjoint i8 %170, %165
   store i8 %171, ptr %22, align 4
   %172 = getelementptr inbounds nuw i8, ptr %112, i64 48
-  %173 = load i32, ptr %172, align 4, !tbaa !3
+  %173 = load i32, ptr %172, align 8, !tbaa !3
   %174 = load i32, ptr %24, align 8, !tbaa !3
-  store i32 %174, ptr %172, align 4, !tbaa !3
+  store i32 %174, ptr %172, align 8, !tbaa !3
   store i32 %173, ptr %24, align 8, !tbaa !3
   %175 = getelementptr inbounds nuw i8, ptr %112, i64 56
-  %176 = load i8, ptr %175, align 1, !tbaa !10
+  %176 = load i8, ptr %175, align 8, !tbaa !10
   %177 = load i8, ptr %25, align 8, !tbaa !10
-  store i8 %177, ptr %175, align 1, !tbaa !10
+  store i8 %177, ptr %175, align 8, !tbaa !10
   store i8 %176, ptr %25, align 8, !tbaa !10
   %178 = getelementptr inbounds nuw i8, ptr %112, i64 57
   %179 = getelementptr inbounds nuw i8, ptr %5, i64 57
@@ -21144,9 +21144,9 @@ _ZN11realclosure7manager3imp7inc_refEPNS_5valueE.exit.i86: ; preds = %_ZN11realc
   store i8 %180, ptr %179, align 1, !tbaa !10
   %182 = getelementptr inbounds nuw i8, ptr %112, i64 58
   %183 = getelementptr inbounds nuw i8, ptr %5, i64 58
-  %184 = load i8, ptr %182, align 1, !tbaa !10
+  %184 = load i8, ptr %182, align 2, !tbaa !10
   %185 = load i8, ptr %183, align 2, !tbaa !10
-  store i8 %185, ptr %182, align 1, !tbaa !10
+  store i8 %185, ptr %182, align 2, !tbaa !10
   store i8 %184, ptr %183, align 2, !tbaa !10
   %186 = getelementptr inbounds nuw i8, ptr %112, i64 59
   %187 = getelementptr inbounds nuw i8, ptr %5, i64 59
@@ -31000,10 +31000,10 @@ _ZN15ref_buffer_coreIN11realclosure5valueE19ref_manager_wrapperIS1_NS0_7manager3
   %59 = and i8 %58, -4
   %60 = getelementptr inbounds nuw i8, ptr %34, i64 96
   %61 = trunc nuw i64 %indvars.iv to i32
-  store i32 %61, ptr %51, align 4, !tbaa !3
+  store i32 %61, ptr %51, align 8, !tbaa !3
   store ptr null, ptr %55, align 8, !tbaa !7
   store i8 %54, ptr %52, align 4
-  store i32 1, ptr %56, align 4, !tbaa !3
+  store i32 1, ptr %56, align 8, !tbaa !3
   store ptr null, ptr %60, align 8, !tbaa !7
   store i8 %59, ptr %57, align 4
   store i32 1, ptr %34, align 8, !tbaa !66
@@ -43071,7 +43071,7 @@ define linkonce_odr hidden noundef ptr @_ZN11realclosure7manager3imp11mk_sign_de
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 48, i1 false)
   %11 = load i32, ptr %1, align 8, !tbaa !3
-  store i32 %11, ptr %10, align 4, !tbaa !3
+  store i32 %11, ptr %10, align 8, !tbaa !3
   store i32 0, ptr %1, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -45032,14 +45032,14 @@ _ZN11realclosure7manager3imp7inc_refEPNS_5valueE.exit.i27: ; preds = %86
   store i8 %118, ptr %103, align 4
   %119 = getelementptr inbounds nuw i8, ptr %85, i64 24
   %120 = load i32, ptr %26, align 8, !tbaa !3
-  %121 = load i32, ptr %119, align 4, !tbaa !3
+  %121 = load i32, ptr %119, align 8, !tbaa !3
   store i32 %121, ptr %26, align 8, !tbaa !3
-  store i32 %120, ptr %119, align 4, !tbaa !3
+  store i32 %120, ptr %119, align 8, !tbaa !3
   %122 = getelementptr inbounds nuw i8, ptr %85, i64 32
   %123 = load i32, ptr %27, align 8, !tbaa !3
-  %124 = load i32, ptr %122, align 4, !tbaa !3
+  %124 = load i32, ptr %122, align 8, !tbaa !3
   store i32 %124, ptr %27, align 8, !tbaa !3
-  store i32 %123, ptr %122, align 4, !tbaa !3
+  store i32 %123, ptr %122, align 8, !tbaa !3
   %125 = getelementptr inbounds nuw i8, ptr %85, i64 40
   %126 = load ptr, ptr %29, align 8, !tbaa !7
   %127 = load ptr, ptr %125, align 8, !tbaa !7
@@ -45069,14 +45069,14 @@ _ZN11realclosure7manager3imp7inc_refEPNS_5valueE.exit.i27: ; preds = %86
   store i8 %145, ptr %130, align 4
   %146 = getelementptr inbounds nuw i8, ptr %85, i64 48
   %147 = load i32, ptr %30, align 8, !tbaa !3
-  %148 = load i32, ptr %146, align 4, !tbaa !3
+  %148 = load i32, ptr %146, align 8, !tbaa !3
   store i32 %148, ptr %30, align 8, !tbaa !3
-  store i32 %147, ptr %146, align 4, !tbaa !3
+  store i32 %147, ptr %146, align 8, !tbaa !3
   %149 = getelementptr inbounds nuw i8, ptr %85, i64 56
   %150 = load i8, ptr %31, align 8, !tbaa !10
-  %151 = load i8, ptr %149, align 1, !tbaa !10
+  %151 = load i8, ptr %149, align 8, !tbaa !10
   store i8 %151, ptr %31, align 8, !tbaa !10
-  store i8 %150, ptr %149, align 1, !tbaa !10
+  store i8 %150, ptr %149, align 8, !tbaa !10
   %152 = getelementptr inbounds nuw i8, ptr %9, i64 57
   %153 = getelementptr inbounds nuw i8, ptr %85, i64 57
   %154 = load i8, ptr %152, align 1, !tbaa !10
@@ -45086,9 +45086,9 @@ _ZN11realclosure7manager3imp7inc_refEPNS_5valueE.exit.i27: ; preds = %86
   %156 = getelementptr inbounds nuw i8, ptr %9, i64 58
   %157 = getelementptr inbounds nuw i8, ptr %85, i64 58
   %158 = load i8, ptr %156, align 2, !tbaa !10
-  %159 = load i8, ptr %157, align 1, !tbaa !10
+  %159 = load i8, ptr %157, align 2, !tbaa !10
   store i8 %159, ptr %156, align 2, !tbaa !10
-  store i8 %158, ptr %157, align 1, !tbaa !10
+  store i8 %158, ptr %157, align 2, !tbaa !10
   %160 = getelementptr inbounds nuw i8, ptr %9, i64 59
   %161 = getelementptr inbounds nuw i8, ptr %85, i64 59
   %162 = load i8, ptr %160, align 1, !tbaa !10
@@ -49420,14 +49420,14 @@ _ZN11realclosure7manager3imp7inc_refEPNS_5valueE.exit.i: ; preds = %66
   %98 = or disjoint i8 %97, %92
   store i8 %98, ptr %22, align 4
   %99 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  %100 = load i32, ptr %99, align 4, !tbaa !3
+  %100 = load i32, ptr %99, align 8, !tbaa !3
   %101 = load i32, ptr %24, align 8, !tbaa !3
-  store i32 %101, ptr %99, align 4, !tbaa !3
+  store i32 %101, ptr %99, align 8, !tbaa !3
   store i32 %100, ptr %24, align 8, !tbaa !3
   %102 = getelementptr inbounds nuw i8, ptr %65, i64 32
-  %103 = load i32, ptr %102, align 4, !tbaa !3
+  %103 = load i32, ptr %102, align 8, !tbaa !3
   %104 = load i32, ptr %25, align 8, !tbaa !3
-  store i32 %104, ptr %102, align 4, !tbaa !3
+  store i32 %104, ptr %102, align 8, !tbaa !3
   store i32 %103, ptr %25, align 8, !tbaa !3
   %105 = getelementptr inbounds nuw i8, ptr %65, i64 40
   %106 = load ptr, ptr %105, align 8, !tbaa !7
@@ -49457,14 +49457,14 @@ _ZN11realclosure7manager3imp7inc_refEPNS_5valueE.exit.i: ; preds = %66
   %125 = or disjoint i8 %124, %119
   store i8 %125, ptr %26, align 4
   %126 = getelementptr inbounds nuw i8, ptr %65, i64 48
-  %127 = load i32, ptr %126, align 4, !tbaa !3
+  %127 = load i32, ptr %126, align 8, !tbaa !3
   %128 = load i32, ptr %28, align 8, !tbaa !3
-  store i32 %128, ptr %126, align 4, !tbaa !3
+  store i32 %128, ptr %126, align 8, !tbaa !3
   store i32 %127, ptr %28, align 8, !tbaa !3
   %129 = getelementptr inbounds nuw i8, ptr %65, i64 56
-  %130 = load i8, ptr %129, align 1, !tbaa !10
+  %130 = load i8, ptr %129, align 8, !tbaa !10
   %131 = load i8, ptr %29, align 8, !tbaa !10
-  store i8 %131, ptr %129, align 1, !tbaa !10
+  store i8 %131, ptr %129, align 8, !tbaa !10
   store i8 %130, ptr %29, align 8, !tbaa !10
   %132 = getelementptr inbounds nuw i8, ptr %65, i64 57
   %133 = getelementptr inbounds nuw i8, ptr %5, i64 57
@@ -49474,9 +49474,9 @@ _ZN11realclosure7manager3imp7inc_refEPNS_5valueE.exit.i: ; preds = %66
   store i8 %134, ptr %133, align 1, !tbaa !10
   %136 = getelementptr inbounds nuw i8, ptr %65, i64 58
   %137 = getelementptr inbounds nuw i8, ptr %5, i64 58
-  %138 = load i8, ptr %136, align 1, !tbaa !10
+  %138 = load i8, ptr %136, align 2, !tbaa !10
   %139 = load i8, ptr %137, align 2, !tbaa !10
-  store i8 %139, ptr %136, align 1, !tbaa !10
+  store i8 %139, ptr %136, align 2, !tbaa !10
   store i8 %138, ptr %137, align 2, !tbaa !10
   %140 = getelementptr inbounds nuw i8, ptr %65, i64 59
   %141 = getelementptr inbounds nuw i8, ptr %5, i64 59

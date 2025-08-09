@@ -24428,7 +24428,7 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
   %24 = getelementptr inbounds i8, ptr %23, i64 -32
   %.val3.i.i = load i32, ptr %24, align 4, !range !1048, !noalias !2678, !noundef !9
   %25 = getelementptr i8, ptr %23, i64 -28
-  %.val4.i.i = load i8, ptr %25, align 1, !noalias !2678
+  %.val4.i.i = load i8, ptr %25, align 4, !noalias !2678
   %26 = icmp eq i32 %.val3.i.i, %2
   %27 = icmp eq i8 %.val4.i.i, %3
   %spec.select.i.i.i.i = select i1 %26, i1 %27, i1 false
@@ -26152,7 +26152,7 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
   %24 = getelementptr inbounds i8, ptr %23, i64 -32
   %.val3.i.i = load i32, ptr %24, align 4, !range !1048, !noalias !2947, !noundef !9
   %25 = getelementptr i8, ptr %23, i64 -28
-  %.val4.i.i = load i8, ptr %25, align 1, !noalias !2947
+  %.val4.i.i = load i8, ptr %25, align 4, !noalias !2947
   %26 = icmp eq i32 %.val3.i.i, %2
   %27 = icmp eq i8 %.val4.i.i, %3
   %spec.select.i.i.i.i = select i1 %26, i1 %27, i1 false

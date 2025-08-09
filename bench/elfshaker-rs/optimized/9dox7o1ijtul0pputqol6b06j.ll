@@ -1579,17 +1579,17 @@ define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11me
   %.sroa.0.0 = phi ptr [ %12, %6 ], [ %0, %4 ]
   %.sroa.0.0.val17 = load i64, ptr %.sroa.0.0, align 8, !noundef !3
   %20 = getelementptr i8, ptr %.sroa.0.0, i64 8
-  %.sroa.0.0.val18 = load i32, ptr %20, align 4
+  %.sroa.0.0.val18 = load i32, ptr %20, align 8
   %.sroa.04.0.val19 = load i64, ptr %.sroa.04.0, align 8, !noundef !3
   %21 = getelementptr i8, ptr %.sroa.04.0, i64 8
-  %.sroa.04.0.val20 = load i32, ptr %21, align 4
+  %.sroa.04.0.val20 = load i32, ptr %21, align 8
   %22 = icmp eq i64 %.sroa.0.0.val17, %.sroa.04.0.val19
   %23 = icmp ult i64 %.sroa.0.0.val17, %.sroa.04.0.val19
   %24 = icmp ult i32 %.sroa.0.0.val18, %.sroa.04.0.val20
   %.sroa.0.0.i.i = select i1 %22, i1 %24, i1 %23
   %.sroa.08.0.val15 = load i64, ptr %.sroa.08.0, align 8, !noundef !3
   %25 = getelementptr i8, ptr %.sroa.08.0, i64 8
-  %.sroa.08.0.val16 = load i32, ptr %25, align 4
+  %.sroa.08.0.val16 = load i32, ptr %25, align 8
   %26 = icmp eq i64 %.sroa.0.0.val17, %.sroa.08.0.val15
   %27 = icmp ult i64 %.sroa.0.0.val17, %.sroa.08.0.val15
   %28 = icmp ult i32 %.sroa.0.0.val18, %.sroa.08.0.val16
@@ -4566,17 +4566,17 @@ define hidden void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h9f2248a5a
 21:                                               ; preds = %13
   %.val9.i = load i64, ptr %.sroa.0.073, align 8, !alias.scope !975, !noundef !3
   %22 = getelementptr i8, ptr %.sroa.0.073, i64 8
-  %.val10.i = load i32, ptr %22, align 4, !alias.scope !975
+  %.val10.i = load i32, ptr %22, align 8, !alias.scope !975
   %.val11.i = load i64, ptr %16, align 8, !alias.scope !975, !noundef !3
   %23 = getelementptr i8, ptr %16, i64 8
-  %.val12.i = load i32, ptr %23, align 4, !alias.scope !975
+  %.val12.i = load i32, ptr %23, align 8, !alias.scope !975
   %24 = icmp eq i64 %.val9.i, %.val11.i
   %25 = icmp ult i64 %.val9.i, %.val11.i
   %26 = icmp ult i32 %.val10.i, %.val12.i
   %.sroa.0.0.i.i.i = select i1 %24, i1 %26, i1 %25
   %.val7.i = load i64, ptr %17, align 8, !alias.scope !975, !noundef !3
   %27 = getelementptr i8, ptr %17, i64 8
-  %.val8.i = load i32, ptr %27, align 4, !alias.scope !975
+  %.val8.i = load i32, ptr %27, align 8, !alias.scope !975
   %28 = icmp eq i64 %.val9.i, %.val7.i
   %29 = icmp ult i64 %.val9.i, %.val7.i
   %30 = icmp ult i32 %.val10.i, %.val8.i
@@ -4611,10 +4611,10 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17hdeb254eae4066e17E.exit: ; preds
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.0.073, i64 %39
   %.sroa.017.0.val = load i64, ptr %.sroa.017.071, align 8, !noundef !3
   %44 = getelementptr i8, ptr %.sroa.017.071, i64 8
-  %.sroa.017.0.val27 = load i32, ptr %44, align 4
+  %.sroa.017.0.val27 = load i32, ptr %44, align 8
   %.val = load i64, ptr %43, align 8, !noundef !3
   %45 = getelementptr i8, ptr %43, i64 8
-  %.val28 = load i32, ptr %45, align 4
+  %.val28 = load i32, ptr %45, align 8
   %46 = icmp eq i64 %.sroa.017.0.val, %.val
   %47 = icmp ult i64 %.sroa.017.0.val, %.val
   %48 = icmp ult i32 %.sroa.017.0.val27, %.val28
@@ -4648,7 +4648,7 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17hdeb254eae4066e17E.exit: ; preds
   %60 = icmp ult ptr %57, %59
   %.val2.i19.pre.pre.i.i = load i64, ptr %.sroa.0.073, align 8, !alias.scope !989, !noalias !990
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.0.073, i64 8
-  %.val3.i25.i.i = load i32, ptr %61, align 4, !alias.scope !989, !noalias !983
+  %.val3.i25.i.i = load i32, ptr %61, align 8, !alias.scope !989, !noalias !983
   br i1 %60, label %.lr.ph.i.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %51
@@ -4664,7 +4664,7 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17hdeb254eae4066e17E.exit: ; preds
   %65 = phi ptr [ %63, %.lr.ph50.i.i ], [ %.lcssa41.i.i, %.preheader.i.i ]
   %.val.i.i.i = load i64, ptr %63, align 8, !alias.scope !988, !noalias !993, !noundef !3
   %66 = getelementptr i8, ptr %63, i64 8
-  %.val1.i.i.i = load i32, ptr %66, align 4, !alias.scope !988, !noalias !993
+  %.val1.i.i.i = load i32, ptr %66, align 8, !alias.scope !988, !noalias !993
   %67 = icmp eq i64 %.val.i.i.i, %.val2.i19.pre.pre.i.i
   %68 = icmp ult i64 %.val.i.i.i, %.val2.i19.pre.pre.i.i
   %69 = icmp ult i32 %.val1.i.i.i, %.val3.i25.i.i
@@ -4684,7 +4684,7 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17hdeb254eae4066e17E.exit: ; preds
   %77 = phi ptr [ %85, %.lr.ph.i.i ], [ %53, %51 ]
   %.val.i22.i.i = load i64, ptr %75, align 8, !alias.scope !988, !noalias !996, !noundef !3
   %78 = getelementptr i8, ptr %75, i64 8
-  %.val1.i23.i.i = load i32, ptr %78, align 4, !alias.scope !988, !noalias !996
+  %.val1.i23.i.i = load i32, ptr %78, align 8, !alias.scope !988, !noalias !996
   %79 = icmp eq i64 %.val.i22.i.i, %.val2.i19.pre.pre.i.i
   %80 = icmp ult i64 %.val.i22.i.i, %.val2.i19.pre.pre.i.i
   %81 = icmp ult i32 %.val1.i23.i.i, %.val3.i25.i.i
@@ -4697,7 +4697,7 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17hdeb254eae4066e17E.exit: ; preds
   %85 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %.val.i27.i.i = load i64, ptr %85, align 8, !alias.scope !988, !noalias !999, !noundef !3
   %86 = getelementptr i8, ptr %75, i64 24
-  %.val1.i28.i.i = load i32, ptr %86, align 4, !alias.scope !988, !noalias !999
+  %.val1.i28.i.i = load i32, ptr %86, align 8, !alias.scope !988, !noalias !999
   %87 = icmp eq i64 %.val.i27.i.i, %.val2.i19.pre.pre.i.i
   %88 = icmp ult i64 %.val.i27.i.i, %.val2.i19.pre.pre.i.i
   %89 = icmp ult i32 %.val1.i28.i.i, %.val3.i25.i.i
@@ -4763,7 +4763,7 @@ _ZN4core5slice4sort8unstable9quicksort9partition17h9d88decb058ac1c3E.exit: ; pre
   %114 = icmp ult ptr %111, %113
   %.val2.i19.pre.pre.i.i30 = load i64, ptr %.sroa.0.073, align 8, !alias.scope !1017, !noalias !1018
   %115 = getelementptr inbounds nuw i8, ptr %.sroa.0.073, i64 8
-  %.val3.i25.i.i31 = load i32, ptr %115, align 4, !alias.scope !1017, !noalias !1011
+  %.val3.i25.i.i31 = load i32, ptr %115, align 8, !alias.scope !1017, !noalias !1011
   br i1 %114, label %.lr.ph.i.i43, label %.preheader.i.i32
 
 .preheader.i.i32:                                 ; preds = %.lr.ph.i.i43, %106
@@ -4779,7 +4779,7 @@ _ZN4core5slice4sort8unstable9quicksort9partition17h9d88decb058ac1c3E.exit: ; pre
   %119 = phi ptr [ %117, %.lr.ph50.i.i36 ], [ %.lcssa41.i.i33, %.preheader.i.i32 ]
   %.val.i.i.i37 = load i64, ptr %117, align 8, !alias.scope !1016, !noalias !1021, !noundef !3
   %120 = getelementptr i8, ptr %117, i64 8
-  %.val1.i.i.i38 = load i32, ptr %120, align 4, !alias.scope !1016, !noalias !1021
+  %.val1.i.i.i38 = load i32, ptr %120, align 8, !alias.scope !1016, !noalias !1021
   %121 = icmp eq i64 %.val2.i19.pre.pre.i.i30, %.val.i.i.i37
   %122 = icmp uge i64 %.val2.i19.pre.pre.i.i30, %.val.i.i.i37
   %123 = icmp uge i32 %.val3.i25.i.i31, %.val1.i.i.i38
@@ -4799,7 +4799,7 @@ _ZN4core5slice4sort8unstable9quicksort9partition17h9d88decb058ac1c3E.exit: ; pre
   %131 = phi ptr [ %139, %.lr.ph.i.i43 ], [ %107, %106 ]
   %.val.i22.i.i44 = load i64, ptr %129, align 8, !alias.scope !1016, !noalias !1024, !noundef !3
   %132 = getelementptr i8, ptr %129, i64 8
-  %.val1.i23.i.i45 = load i32, ptr %132, align 4, !alias.scope !1016, !noalias !1024
+  %.val1.i23.i.i45 = load i32, ptr %132, align 8, !alias.scope !1016, !noalias !1024
   %133 = icmp eq i64 %.val2.i19.pre.pre.i.i30, %.val.i22.i.i44
   %134 = icmp uge i64 %.val2.i19.pre.pre.i.i30, %.val.i22.i.i44
   %135 = icmp uge i32 %.val3.i25.i.i31, %.val1.i23.i.i45
@@ -4812,7 +4812,7 @@ _ZN4core5slice4sort8unstable9quicksort9partition17h9d88decb058ac1c3E.exit: ; pre
   %139 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %.val.i27.i.i46 = load i64, ptr %139, align 8, !alias.scope !1016, !noalias !1027, !noundef !3
   %140 = getelementptr i8, ptr %129, i64 24
-  %.val1.i28.i.i47 = load i32, ptr %140, align 4, !alias.scope !1016, !noalias !1027
+  %.val1.i28.i.i47 = load i32, ptr %140, align 8, !alias.scope !1016, !noalias !1027
   %141 = icmp eq i64 %.val2.i19.pre.pre.i.i30, %.val.i27.i.i46
   %142 = icmp uge i64 %.val2.i19.pre.pre.i.i30, %.val.i27.i.i46
   %143 = icmp uge i32 %.val3.i25.i.i31, %.val1.i28.i.i47

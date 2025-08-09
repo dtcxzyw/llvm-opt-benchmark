@@ -44105,7 +44105,7 @@ lean_alloc_ctor.exit3609:                         ; preds = %lean_inc.exit2817
   %724 = getelementptr inbounds nuw i8, ptr %721, i64 4
   %725 = getelementptr inbounds nuw i8, ptr %721, i64 80
   store i64 0, ptr %725, align 8, !tbaa !11
-  store i32 1, ptr %721, align 4, !tbaa !8
+  store i32 1, ptr %721, align 8, !tbaa !8
   store i32 589912, ptr %724, align 4
   %726 = getelementptr inbounds nuw i8, ptr %721, i64 8
   store ptr %640, ptr %726, align 8, !tbaa !4
@@ -44125,7 +44125,7 @@ lean_alloc_ctor.exit3609:                         ; preds = %lean_inc.exit2817
   store ptr inttoptr (i64 1 to ptr), ptr %733, align 8, !tbaa !4
   %734 = getelementptr inbounds nuw i8, ptr %721, i64 72
   store ptr %710, ptr %734, align 8, !tbaa !4
-  store i8 %720, ptr %725, align 1, !tbaa !14
+  store i8 %720, ptr %725, align 8, !tbaa !14
   br i1 %.not4422, label %735, label %lean_inc.exit2816
 
 735:                                              ; preds = %lean_alloc_ctor.exit3609
@@ -53876,7 +53876,7 @@ lean_alloc_ctor.exit4131:                         ; preds = %lean_inc.exit2653
   %4562 = getelementptr inbounds nuw i8, ptr %4559, i64 4
   %4563 = getelementptr inbounds nuw i8, ptr %4559, i64 80
   store i64 0, ptr %4563, align 8, !tbaa !11
-  store i32 1, ptr %4559, align 4, !tbaa !8
+  store i32 1, ptr %4559, align 8, !tbaa !8
   store i32 589912, ptr %4562, align 4
   %4564 = getelementptr inbounds nuw i8, ptr %4559, i64 8
   store ptr %4478, ptr %4564, align 8, !tbaa !4
@@ -53896,7 +53896,7 @@ lean_alloc_ctor.exit4131:                         ; preds = %lean_inc.exit2653
   store ptr inttoptr (i64 1 to ptr), ptr %4571, align 8, !tbaa !4
   %4572 = getelementptr inbounds nuw i8, ptr %4559, i64 72
   store ptr %4548, ptr %4572, align 8, !tbaa !4
-  store i8 %4558, ptr %4563, align 1, !tbaa !14
+  store i8 %4558, ptr %4563, align 8, !tbaa !14
   br i1 %.not4422, label %4573, label %lean_inc.exit2652
 
 4573:                                             ; preds = %lean_alloc_ctor.exit4131
@@ -74506,7 +74506,7 @@ _init_l_initFn____x40_Lean_Elab_GuardMsgs___hyg_6____closed__6.exit: ; preds = %
   %.val48 = load ptr, ptr %64, align 8, !tbaa !4
   store ptr %.val48, ptr @l_guard__msgs_diff, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val48) #7
-  %65 = load i32, ptr %60, align 4, !tbaa !8
+  %65 = load i32, ptr %60, align 8, !tbaa !8
   %66 = icmp sgt i32 %65, 1
   br i1 %66, label %67, label %69, !prof !13
 

@@ -453,7 +453,7 @@ define void @_ZN3g2o17EdgeSE3ProjectXYZ12computeErrorEv(ptr noundef nonnull alig
   %.sroa.0.0.vec.insert.i.i.i.i = insertelement <2 x double> poison, double %35, i64 0
   %.sroa.0.8.vec.insert.i.i.i.i = insertelement <2 x double> %.sroa.0.0.vec.insert.i.i.i.i, double %38, i64 1
   %.sroa.615.32.vec.insert.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %32, i64 0
-  %42 = load <2 x double>, ptr %9, align 1, !tbaa !115, !noalias !130
+  %42 = load <2 x double>, ptr %9, align 8, !tbaa !115, !noalias !130
   %43 = shufflevector <2 x double> %.sroa.615.32.vec.insert.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %44 = fmul <2 x double> %43, %29
   %45 = fadd <2 x double> %42, %44
@@ -462,7 +462,7 @@ define void @_ZN3g2o17EdgeSE3ProjectXYZ12computeErrorEv(ptr noundef nonnull alig
   %48 = fadd double %13, %47
   %49 = fadd double %48, %41
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 224
-  %51 = load <2 x double>, ptr %50, align 1, !tbaa !115, !noalias !131
+  %51 = load <2 x double>, ptr %50, align 8, !tbaa !115, !noalias !131
   %52 = fadd <2 x double> %51, %46
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 240
   %54 = load double, ptr %53, align 8, !tbaa !111, !noalias !131

@@ -27,7 +27,7 @@ define void @av_bprint_init(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
   store i32 %7, ptr %8, align 4, !tbaa !12
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %spec.select, ptr %9, align 8, !tbaa !13
-  store i8 0, ptr %4, align 1, !tbaa !14
+  store i8 0, ptr %4, align 4, !tbaa !14
   %10 = icmp ugt i32 %1, %7
   %11 = icmp ugt i32 %spec.select, 1004
   %or.cond = and i1 %11, %10

@@ -656,7 +656,7 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit172: ; preds = %_ZN4cvc58internal
   %129 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ColumnVector", ptr %128, i64 %127
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %131 = load ptr, ptr %130, align 8, !tbaa !98
-  %.sroa.0335.0427 = load i32, ptr %129, align 4, !tbaa !54
+  %.sroa.0335.0427 = load i32, ptr %129, align 8, !tbaa !54
   %132 = icmp eq i32 %.sroa.0335.0427, -1
   br i1 %132, label %._crit_edge433, label %.lr.ph432.preheader
 

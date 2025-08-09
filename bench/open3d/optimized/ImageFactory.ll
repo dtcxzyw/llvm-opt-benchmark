@@ -110,7 +110,7 @@ define weak_odr void @_ZNK6open3d8geometry5Image25CreateImageFromFloatImageIhEES
   store ptr %11, ptr %10, align 8, !tbaa !24, !noalias !4
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 0, ptr %12, align 8, !tbaa !25, !noalias !4
-  store i8 0, ptr %11, align 1, !tbaa !26, !noalias !4
+  store i8 0, ptr %11, align 8, !tbaa !26, !noalias !4
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6open3d8geometry5ImageE, i64 16), ptr %7, align 8, !tbaa !13, !noalias !4
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, i8 0, i64 40, i1 false), !noalias !4
@@ -591,7 +591,7 @@ define weak_odr void @_ZNK6open3d8geometry5Image25CreateImageFromFloatImageItEES
   store ptr %11, ptr %10, align 8, !tbaa !24, !noalias !55
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 0, ptr %12, align 8, !tbaa !25, !noalias !55
-  store i8 0, ptr %11, align 1, !tbaa !26, !noalias !55
+  store i8 0, ptr %11, align 8, !tbaa !26, !noalias !55
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6open3d8geometry5ImageE, i64 16), ptr %7, align 8, !tbaa !13, !noalias !55
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, i8 0, i64 40, i1 false), !noalias !55
@@ -689,7 +689,7 @@ define void @_ZN6open3d8geometry5Image47CreateDepthToCameraDistanceMultiplierFlo
   store ptr %11, ptr %10, align 8, !tbaa !24, !noalias !61
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 0, ptr %12, align 8, !tbaa !25, !noalias !61
-  store i8 0, ptr %11, align 1, !tbaa !26, !noalias !61
+  store i8 0, ptr %11, align 8, !tbaa !26, !noalias !61
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6open3d8geometry5ImageE, i64 16), ptr %7, align 8, !tbaa !13, !noalias !61
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 80
@@ -964,7 +964,7 @@ define void @_ZNK6open3d8geometry5Image16CreateFloatImageENS1_30ColorToIntensity
   store ptr %12, ptr %11, align 8, !tbaa !24, !noalias !79
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 0, ptr %13, align 8, !tbaa !25, !noalias !79
-  store i8 0, ptr %12, align 1, !tbaa !26, !noalias !79
+  store i8 0, ptr %12, align 8, !tbaa !26, !noalias !79
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6open3d8geometry5ImageE, i64 16), ptr %8, align 8, !tbaa !13, !noalias !79
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, i8 0, i64 40, i1 false), !noalias !79
@@ -1269,7 +1269,7 @@ _ZNSt6vectorISt10shared_ptrIN6open3d8geometry5ImageEESaIS4_EE5clearEv.exit:
   store ptr %36, ptr %35, align 8, !tbaa !24, !noalias !84
   %37 = getelementptr inbounds nuw i8, ptr %29, i64 40
   store i64 0, ptr %37, align 8, !tbaa !25, !noalias !84
-  store i8 0, ptr %36, align 1, !tbaa !26, !noalias !84
+  store i8 0, ptr %36, align 8, !tbaa !26, !noalias !84
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6open3d8geometry5ImageE, i64 16), ptr %33, align 8, !tbaa !13, !noalias !84
   %38 = getelementptr inbounds nuw i8, ptr %29, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %38, i8 0, i64 40, i1 false), !noalias !84

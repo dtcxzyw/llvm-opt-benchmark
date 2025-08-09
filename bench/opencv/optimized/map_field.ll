@@ -670,17 +670,17 @@ define hidden void @_ZN6google8protobuf8internal12MapFieldBase4SwapEPS2_(ptr nou
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !33, !noalias !41
   %32 = load i32, ptr %29, align 4, !tbaa !37, !noalias !41
-  %33 = load i32, ptr %28, align 4, !tbaa !37, !noalias !41
+  %33 = load i32, ptr %28, align 8, !tbaa !37, !noalias !41
   %34 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %36 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !33, !noalias !44
   %38 = load i32, ptr %35, align 4, !tbaa !37, !noalias !44
-  %39 = load i32, ptr %34, align 4, !tbaa !37, !noalias !44
-  store i32 %39, ptr %28, align 4, !tbaa !37
+  %39 = load i32, ptr %34, align 8, !tbaa !37, !noalias !44
+  store i32 %39, ptr %28, align 8, !tbaa !37
   store i32 %38, ptr %29, align 4, !tbaa !37
   store ptr %37, ptr %30, align 8, !tbaa !33
-  store i32 %33, ptr %34, align 4, !tbaa !37
+  store i32 %33, ptr %34, align 8, !tbaa !37
   store i32 %32, ptr %35, align 4, !tbaa !37
   store ptr %31, ptr %36, align 8, !tbaa !33
   br label %_ZN6google8protobuf16RepeatedPtrFieldINS0_7MessageEE4SwapEPS3_.exit
@@ -714,10 +714,10 @@ define hidden void @_ZN6google8protobuf8internal12MapFieldBase12InternalSwapEPS2
   store ptr %10, ptr %7, align 8, !tbaa !25
   store ptr %9, ptr %8, align 8, !tbaa !25
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %12 = load atomic i32, ptr %11 monotonic, align 4
+  %12 = load atomic i32, ptr %11 monotonic, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load atomic i32, ptr %13 monotonic, align 8
-  store atomic i32 %14, ptr %11 monotonic, align 4
+  store atomic i32 %14, ptr %11 monotonic, align 8
   store atomic i32 %12, ptr %13 monotonic, align 8
   ret void
 }
@@ -737,10 +737,10 @@ define hidden void @_ZN6google8protobuf8internal12MapFieldBase17UnsafeShallowSwa
   store ptr %10, ptr %7, align 8, !tbaa !25
   store ptr %9, ptr %8, align 8, !tbaa !25
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %12 = load atomic i32, ptr %11 monotonic, align 4
+  %12 = load atomic i32, ptr %11 monotonic, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load atomic i32, ptr %13 monotonic, align 8
-  store atomic i32 %14, ptr %11 monotonic, align 4
+  store atomic i32 %14, ptr %11 monotonic, align 8
   store atomic i32 %12, ptr %13 monotonic, align 8
   ret void
 }
@@ -1771,7 +1771,7 @@ _ZN6google8protobuf5Arena14CreateInternalINSt7__cxx1112basic_stringIcSt11char_tr
   store ptr %117, ptr %.sink64, align 8, !tbaa !130
   %118 = getelementptr inbounds nuw i8, ptr %.sink64, i64 8
   store i64 0, ptr %118, align 8, !tbaa !96
-  store i8 0, ptr %117, align 1, !tbaa !131
+  store i8 0, ptr %117, align 8, !tbaa !131
   br label %.sink.split
 
 119:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit40
@@ -4171,10 +4171,10 @@ define hidden void @_ZN6google8protobuf8internal15DynamicMapField4SwapEPNS1_12Ma
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %8)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %10 = load atomic i32, ptr %9 monotonic, align 4
+  %10 = load atomic i32, ptr %9 monotonic, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load atomic i32, ptr %11 monotonic, align 8
-  store atomic i32 %12, ptr %9 monotonic, align 4
+  store atomic i32 %12, ptr %9 monotonic, align 8
   store atomic i32 %10, ptr %11 monotonic, align 8
   ret void
 }
@@ -6434,7 +6434,7 @@ _ZN6google8protobuf5Arena6CreateINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   store ptr %339, ptr %.sink317, align 8, !tbaa !130
   %340 = getelementptr inbounds nuw i8, ptr %.sink317, i64 8
   store i64 0, ptr %340, align 8, !tbaa !96
-  store i8 0, ptr %339, align 1, !tbaa !131
+  store i8 0, ptr %339, align 8, !tbaa !131
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %341 = load ptr, ptr %.sroa.0198.0274, align 8, !tbaa !28
   invoke void @_ZNK6google8protobuf10Reflection9GetStringB5cxx11ERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %18, ptr noundef nonnull align 8 dereferenceable(96) %26, ptr noundef nonnull align 8 dereferenceable(16) %341, ptr noundef nonnull %40)
@@ -7176,7 +7176,7 @@ _ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcS
   store ptr %23, ptr %6, align 8, !tbaa !130
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 0, ptr %24, align 8, !tbaa !96
-  store i8 0, ptr %23, align 1, !tbaa !131
+  store i8 0, ptr %23, align 8, !tbaa !131
   br label %_ZN6google8protobuf6MapKey7SetTypeENS0_15FieldDescriptor7CppTypeE.exit
 
 _ZN6google8protobuf6MapKey7SetTypeENS0_15FieldDescriptor7CppTypeE.exit: ; preds = %3, %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i, %22
@@ -7453,14 +7453,14 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldI
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %61 = load ptr, ptr %60, align 8, !tbaa !33, !noalias !223
   %62 = load i32, ptr %59, align 4, !tbaa !37, !noalias !223
-  %63 = load i32, ptr %34, align 4, !tbaa !37, !noalias !223
+  %63 = load i32, ptr %34, align 8, !tbaa !37, !noalias !223
   %64 = load ptr, ptr %1, align 8, !tbaa !47, !noalias !223
   store ptr %64, ptr %3, align 8, !tbaa !47
   store i32 %63, ptr %5, align 8, !tbaa !37
   store i32 %62, ptr %53, align 4, !tbaa !37
   store ptr %61, ptr %54, align 8, !tbaa !33
   store ptr %58, ptr %1, align 8, !tbaa !47
-  store i32 %57, ptr %34, align 4, !tbaa !37
+  store i32 %57, ptr %34, align 8, !tbaa !37
   store i32 %56, ptr %59, align 4, !tbaa !37
   store ptr %55, ptr %60, align 8, !tbaa !33
   %.not.i = icmp ne ptr %61, null

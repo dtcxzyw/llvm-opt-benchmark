@@ -20624,7 +20624,7 @@ define linkonce_odr hidden void @_ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEE
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 136
   store ptr null, ptr %18, align 8, !tbaa !473
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 144
-  store i32 -1, ptr %19, align 1, !tbaa !477
+  store i32 -1, ptr %19, align 8, !tbaa !477
   store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEE, i64 24), ptr %0, align 8, !tbaa !127
   store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEE, i64 64), ptr %4, align 8, !tbaa !127
   invoke void @_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC1Ev(ptr noundef nonnull align 8 dereferenceable(163) %6)

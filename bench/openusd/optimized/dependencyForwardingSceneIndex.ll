@@ -1850,7 +1850,7 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_trai
   %94 = getelementptr inbounds nuw i8, ptr %.sroa.051.073, i64 16
   %95 = getelementptr inbounds nuw i8, ptr %.sroa.051.073, i64 616
   store i8 1, ptr %95, align 8
-  %.0.copyload.i.i = load i64, ptr %94, align 4
+  %.0.copyload.i.i = load i64, ptr %94, align 8
   %.0.copyload.i2.i = load i64, ptr %.076, align 4
   %96 = icmp eq i64 %.0.copyload.i.i, %.0.copyload.i2.i
   br i1 %96, label %.loopexit, label %97
@@ -6119,7 +6119,7 @@ _ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocat
   %.sroa.04.08.i.i = phi ptr [ %.0.lcssa.i.i.i.i, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex34_AffectedPrimToDependsOnPathsEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE12unsafe_eraseENS1_15solist_iteratorISH_SE_EE.exit.i.i ], [ %354, %.noexc80 ]
   %356 = load atomic i64, ptr %.sroa.04.08.i.i acquire, align 8
   %357 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i, i64 16
-  %358 = load i32, ptr %357, align 4
+  %358 = load i32, ptr %357, align 8
   %359 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i, i64 20
   %360 = load i32, ptr %359, align 4
   %361 = zext i32 %358 to i64
@@ -6511,7 +6511,7 @@ _ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocat
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEED2Ev.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocatorIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEENS1_25concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsISA_NSA_4HashESt8equal_toISA_ESB_Lb0EEEE23unordered_segment_tableELm63EE14clear_segmentsEv.exit.i.i.i.i
   store atomic i64 0, ptr %491 monotonic, align 8
   store atomic i64 0, ptr %492 monotonic, align 8
-  %517 = load i32, ptr %357, align 4
+  %517 = load i32, ptr %357, align 8
   %.not.i.i.i.i.i.i.i.i222 = icmp eq i32 %517, 0
   br i1 %.not.i.i.i.i.i.i.i.i222, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex34_AffectedPrimToDependsOnPathsEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE12destroy_nodeEPNS1_9list_nodeImEE.exit.i, label %518
 
@@ -6627,7 +6627,7 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEE9constr
   %.sroa.04.08.i.i90 = phi ptr [ %.0.lcssa.i.i.i.i94, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE12unsafe_eraseENS1_15solist_iteratorISC_S5_EE.exit.i.i ], [ %564, %.noexc99 ]
   %566 = load atomic i64, ptr %.sroa.04.08.i.i90 acquire, align 8
   %567 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i90, i64 16
-  %568 = load i32, ptr %567, align 4
+  %568 = load i32, ptr %567, align 8
   %569 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i90, i64 20
   %570 = load i32, ptr %569, align 4
   %571 = zext i32 %568 to i64
@@ -6915,7 +6915,7 @@ _ZN3tbb6detail2d115solist_iteratorINS1_25concurrent_unordered_baseINS1_31concurr
   %.sroa.04.08.i.i105 = phi ptr [ %.0.lcssa.i.i.i.i109, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_24concurrent_unordered_mapIS5_NS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S8_EEEEES9_SB_NSC_ISD_ISE_SH_EEELb0EEEE12unsafe_eraseENS1_15solist_iteratorISL_SI_EE.exit.i.i ], [ %693, %.noexc114 ]
   %695 = load atomic i64, ptr %.sroa.04.08.i.i105 acquire, align 8
   %696 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i105, i64 16
-  %697 = load i32, ptr %696, align 4
+  %697 = load i32, ptr %696, align 8
   %698 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i105, i64 20
   %699 = load i32, ptr %698, align 4
   %700 = zext i32 %697 to i64
@@ -7404,7 +7404,7 @@ _ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocat
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS4_32HdDependencyForwardingSceneIndex14_LocatorsEntryENS5_11HashFunctorESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEED2Ev.exit487: ; preds = %.lr.ph.i.i.i.i.i.i484, %_ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__7TfTokenENSA_32HdDependencyForwardingSceneIndex14_LocatorsEntryEEEENS1_25concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsISB_SE_NSB_11HashFunctorESt8equal_toISB_ESG_Lb0EEEE23unordered_segment_tableELm63EE14clear_segmentsEv.exit.i.i.i.i477
   store atomic i64 0, ptr %871 monotonic, align 8
   store atomic i64 0, ptr %872 monotonic, align 8
-  %897 = load i32, ptr %787, align 4
+  %897 = load i32, ptr %787, align 8
   %.not.i.i.i.i.i.i.i.i427 = icmp eq i32 %897, 0
   br i1 %.not.i.i.i.i.i.i.i.i427, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE12destroy_nodeEPNS1_9list_nodeImEE.exit.i428, label %898
 
@@ -7610,7 +7610,7 @@ _ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocat
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEED2Ev.exit: ; preds = %.lr.ph.i.i.i.i.i.i338, %_ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathENSA_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryEEEENS1_25concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsISB_SE_NSB_4HashESt8equal_toISB_ESG_Lb0EEEE23unordered_segment_tableELm63EE14clear_segmentsEv.exit.i.i.i.i
   store atomic i64 0, ptr %939 monotonic, align 8
   store atomic i64 0, ptr %940 monotonic, align 8
-  %965 = load i32, ptr %696, align 4
+  %965 = load i32, ptr %696, align 8
   %.not.i.i.i.i.i.i.i.i252 = icmp eq i32 %965, 0
   br i1 %.not.i.i.i.i.i.i.i.i252, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_24concurrent_unordered_mapIS5_NS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S8_EEEEES9_SB_NSC_ISD_ISE_SH_EEELb0EEEE12destroy_nodeEPNS1_9list_nodeImEE.exit.i, label %966
 
@@ -7924,7 +7924,7 @@ _ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocat
   %.sroa.04.08.i.i124 = phi ptr [ %.0.lcssa.i.i.i.i128, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE12unsafe_eraseENS1_15solist_iteratorISH_SE_EE.exit.i.i ], [ %.022.i, %.noexc133 ]
   %1108 = load atomic i64, ptr %.sroa.04.08.i.i124 acquire, align 8
   %1109 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i124, i64 16
-  %1110 = load i32, ptr %1109, align 4
+  %1110 = load i32, ptr %1109, align 8
   %1111 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i124, i64 20
   %1112 = load i32, ptr %1111, align 4
   %1113 = zext i32 %1110 to i64
@@ -8394,7 +8394,7 @@ _ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocat
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS4_32HdDependencyForwardingSceneIndex14_LocatorsEntryENS5_11HashFunctorESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEED2Ev.exit: ; preds = %.lr.ph.i.i.i.i.i.i372, %_ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__7TfTokenENSA_32HdDependencyForwardingSceneIndex14_LocatorsEntryEEEENS1_25concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsISB_SE_NSB_11HashFunctorESt8equal_toISB_ESG_Lb0EEEE23unordered_segment_tableELm63EE14clear_segmentsEv.exit.i.i.i.i
   store atomic i64 0, ptr %1274 monotonic, align 8
   store atomic i64 0, ptr %1275 monotonic, align 8
-  %1300 = load i32, ptr %1109, align 4
+  %1300 = load i32, ptr %1109, align 8
   %.not.i.i.i.i.i.i.i.i267 = icmp eq i32 %1300, 0
   br i1 %.not.i.i.i.i.i.i.i.i267, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE12destroy_nodeEPNS1_9list_nodeImEE.exit.i, label %1301
 
@@ -11967,7 +11967,7 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_trai
   store i64 %29, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %48 = load i32, ptr %3, align 4
-  store i32 %48, ptr %47, align 4
+  store i32 %48, ptr %47, align 8
   %.not.i.i.i.i.i.i = icmp eq i32 %48, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE21internal_insert_valueIRKS5_EESt4pairINS1_15solist_iteratorISC_S5_EEbEOT_ENKUlmE_clEm.exit, label %49
 
@@ -14293,7 +14293,7 @@ define linkonce_odr noundef ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %1, align 8
-  store i32 %6, ptr %5, align 4
+  store i32 %6, ptr %5, align 8
   %.not.i.i.i.i.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i, label %7
 
@@ -15230,7 +15230,7 @@ define linkonce_odr noundef ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_
   %7 = load i64, ptr %2, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = load i32, ptr %8, align 4
-  store i32 %9, ptr %6, align 4
+  store i32 %9, ptr %6, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %9, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i, label %10
 
@@ -15905,7 +15905,7 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   %57 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %58 = getelementptr inbounds nuw i8, ptr %44, i64 24
   call void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(593) %58) #18
-  %59 = load i32, ptr %57, align 4
+  %59 = load i32, ptr %57, align 8
   %.not.i.i.i.i.i.i.i5 = icmp eq i32 %59, 0
   br i1 %.not.i.i.i.i.i.i.i5, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex34_AffectedPrimToDependsOnPathsEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE12destroy_nodeEPNS1_9list_nodeImEE.exit, label %60
 
@@ -16223,7 +16223,7 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   %56 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %57 = getelementptr inbounds nuw i8, ptr %43, i64 24
   call void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(592) %57) #18
-  %58 = load i32, ptr %56, align 4
+  %58 = load i32, ptr %56, align 8
   %.not.i.i.i.i.i.i.i5 = icmp eq i32 %58, 0
   br i1 %.not.i.i.i.i.i.i.i5, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_24concurrent_unordered_mapIS5_NS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S8_EEEEES9_SB_NSC_ISD_ISE_SH_EEELb0EEEE12destroy_nodeEPNS1_9list_nodeImEE.exit, label %59
 
@@ -16543,7 +16543,7 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   %57 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %58 = getelementptr inbounds nuw i8, ptr %44, i64 24
   call void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS4_32HdDependencyForwardingSceneIndex14_LocatorsEntryENS5_11HashFunctorESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(593) %58) #18
-  %59 = load i32, ptr %57, align 4
+  %59 = load i32, ptr %57, align 8
   %.not.i.i.i.i.i.i.i5 = icmp eq i32 %59, 0
   br i1 %.not.i.i.i.i.i.i.i5, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE12destroy_nodeEPNS1_9list_nodeImEE.exit, label %60
 
@@ -17908,7 +17908,7 @@ _ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_tra
 define linkonce_odr noundef ptr @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex34_AffectedPrimToDependsOnPathsEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE14internal_eraseEPNS1_10value_nodeISE_mEE(ptr noundef nonnull align 8 dereferenceable(592) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load atomic i64, ptr %1 acquire, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = zext i32 %5 to i64

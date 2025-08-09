@@ -1849,7 +1849,7 @@ zend_string_init.exit494:                         ; preds = %zend_string_init_fa
   %186 = getelementptr inbounds nuw i8, ptr %.0423, i64 24
   %187 = getelementptr inbounds nuw i8, ptr %.0423, i64 16
   %188 = load i64, ptr %187, align 8, !tbaa !9
-  %189 = load i8, ptr %186, align 1, !tbaa !4
+  %189 = load i8, ptr %186, align 8, !tbaa !4
   %190 = icmp sgt i8 %189, 57
   br i1 %190, label %_zend_handle_numeric_str.exit567.thread, label %191, !prof !8
 
@@ -1938,7 +1938,7 @@ zend_symtable_update.exit:                        ; preds = %199, %_zend_handle_
   %225 = getelementptr inbounds nuw i8, ptr %.0423, i64 24
   %226 = getelementptr inbounds nuw i8, ptr %.0423, i64 16
   %227 = load i64, ptr %226, align 8, !tbaa !9
-  %228 = load i8, ptr %225, align 1, !tbaa !4
+  %228 = load i8, ptr %225, align 8, !tbaa !4
   %229 = icmp sgt i8 %228, 57
   br i1 %229, label %_zend_handle_numeric_str.exit563.thread, label %230, !prof !8
 
@@ -2018,7 +2018,7 @@ zend_symtable_update.exit499:                     ; preds = %238, %_zend_handle_
   %262 = getelementptr inbounds nuw i8, ptr %.0423, i64 24
   %263 = getelementptr inbounds nuw i8, ptr %.0423, i64 16
   %264 = load i64, ptr %263, align 8, !tbaa !9
-  %265 = load i8, ptr %262, align 1, !tbaa !4
+  %265 = load i8, ptr %262, align 8, !tbaa !4
   %266 = icmp sgt i8 %265, 57
   br i1 %266, label %_zend_handle_numeric_str.exit559.thread, label %267, !prof !8
 
@@ -2166,7 +2166,7 @@ zend_string_alloc.exit:                           ; preds = %279
   %334 = getelementptr inbounds nuw i8, ptr %.0423, i64 24
   %335 = getelementptr inbounds nuw i8, ptr %.0423, i64 16
   %336 = load i64, ptr %335, align 8, !tbaa !9
-  %337 = load i8, ptr %334, align 1, !tbaa !4
+  %337 = load i8, ptr %334, align 8, !tbaa !4
   %338 = icmp sgt i8 %337, 57
   br i1 %338, label %_zend_handle_numeric_str.exit555.thread, label %339, !prof !8
 
@@ -2215,7 +2215,7 @@ _zend_handle_numeric_str.exit555.thread:          ; preds = %342, %341, %._crit_
   %359 = getelementptr inbounds nuw i8, ptr %.0423, i64 24
   %360 = getelementptr inbounds nuw i8, ptr %.0423, i64 16
   %361 = load i64, ptr %360, align 8, !tbaa !9
-  %362 = load i8, ptr %359, align 1, !tbaa !4
+  %362 = load i8, ptr %359, align 8, !tbaa !4
   %363 = icmp sgt i8 %362, 57
   br i1 %363, label %_zend_handle_numeric_str.exit551.thread, label %364, !prof !8
 
@@ -2281,7 +2281,7 @@ zend_symtable_update.exit505:                     ; preds = %372, %_zend_handle_
   %387 = getelementptr inbounds nuw i8, ptr %.0423, i64 24
   %388 = getelementptr inbounds nuw i8, ptr %.0423, i64 16
   %389 = load i64, ptr %388, align 8, !tbaa !9
-  %390 = load i8, ptr %387, align 1, !tbaa !4
+  %390 = load i8, ptr %387, align 8, !tbaa !4
   %391 = icmp sgt i8 %390, 57
   br i1 %391, label %_zend_handle_numeric_str.exit547.thread, label %392, !prof !8
 
@@ -2338,7 +2338,7 @@ zend_symtable_update.exit507:                     ; preds = %400, %_zend_handle_
   %414 = getelementptr inbounds nuw i8, ptr %.0423, i64 24
   %415 = getelementptr inbounds nuw i8, ptr %.0423, i64 16
   %416 = load i64, ptr %415, align 8, !tbaa !9
-  %417 = load i8, ptr %414, align 1, !tbaa !4
+  %417 = load i8, ptr %414, align 8, !tbaa !4
   %418 = icmp sgt i8 %417, 57
   br i1 %418, label %_zend_handle_numeric_str.exit543.thread, label %419, !prof !8
 
@@ -2404,7 +2404,7 @@ zend_symtable_update.exit509:                     ; preds = %427, %_zend_handle_
   %443 = getelementptr inbounds nuw i8, ptr %.0423, i64 24
   %444 = getelementptr inbounds nuw i8, ptr %.0423, i64 16
   %445 = load i64, ptr %444, align 8, !tbaa !9
-  %446 = load i8, ptr %443, align 1, !tbaa !4
+  %446 = load i8, ptr %443, align 8, !tbaa !4
   %447 = icmp sgt i8 %446, 57
   br i1 %447, label %_zend_handle_numeric_str.exit539.thread, label %448, !prof !8
 
@@ -2452,7 +2452,7 @@ zend_symtable_update.exit511:                     ; preds = %456, %_zend_handle_
   %464 = getelementptr inbounds nuw i8, ptr %.0423, i64 24
   %465 = getelementptr inbounds nuw i8, ptr %.0423, i64 16
   %466 = load i64, ptr %465, align 8, !tbaa !9
-  %467 = load i8, ptr %464, align 1, !tbaa !4
+  %467 = load i8, ptr %464, align 8, !tbaa !4
   %468 = icmp sgt i8 %467, 57
   br i1 %468, label %_zend_handle_numeric_str.exit535.thread, label %469, !prof !8
 
@@ -2515,7 +2515,7 @@ zend_symtable_update.exit513:                     ; preds = %477, %_zend_handle_
   %492 = getelementptr inbounds nuw i8, ptr %.0423, i64 24
   %493 = getelementptr inbounds nuw i8, ptr %.0423, i64 16
   %494 = load i64, ptr %493, align 8, !tbaa !9
-  %495 = load i8, ptr %492, align 1, !tbaa !4
+  %495 = load i8, ptr %492, align 8, !tbaa !4
   %496 = icmp sgt i8 %495, 57
   br i1 %496, label %_zend_handle_numeric_str.exit531.thread, label %497, !prof !8
 
@@ -2577,7 +2577,7 @@ zend_symtable_update.exit515:                     ; preds = %505, %_zend_handle_
   %518 = getelementptr inbounds nuw i8, ptr %.0423, i64 24
   %519 = getelementptr inbounds nuw i8, ptr %.0423, i64 16
   %520 = load i64, ptr %519, align 8, !tbaa !9
-  %521 = load i8, ptr %518, align 1, !tbaa !4
+  %521 = load i8, ptr %518, align 8, !tbaa !4
   %522 = icmp sgt i8 %521, 57
   br i1 %522, label %_zend_handle_numeric_str.exit.thread, label %523, !prof !8
 

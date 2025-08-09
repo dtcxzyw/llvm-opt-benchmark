@@ -921,7 +921,7 @@ _ZNSt10unique_ptrIN6duckdb17ZstdStreamWrapperESt14default_deleteIS1_EED2Ev.exit:
   %2 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18, !noalias !62
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 0, ptr %3, align 16, !noalias !62
-  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6duckdb17ZstdStreamWrapperE, i64 16), ptr %2, align 8, !tbaa !3, !noalias !62
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6duckdb17ZstdStreamWrapperE, i64 16), ptr %2, align 16, !tbaa !3, !noalias !62
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %4, i8 0, i64 25, i1 false), !noalias !62
   store ptr %2, ptr %0, align 8, !tbaa !65

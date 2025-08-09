@@ -5017,7 +5017,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !tbaa !24, !alias.scope !195, !noalias !198
   store ptr %43, ptr %.0911.i.i.i.i, align 8, !tbaa !21, !alias.scope !198, !noalias !195
   store i64 0, ptr %52, align 8, !tbaa !24, !alias.scope !198, !noalias !195
-  store i8 0, ptr %43, align 1, !tbaa !23, !alias.scope !198, !noalias !195
+  store i8 0, ptr %43, align 8, !tbaa !23, !alias.scope !198, !noalias !195
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %54, %1
@@ -5065,7 +5065,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !tbaa !24, !alias.scope !202, !noalias !205
   store ptr %59, ptr %.0911.i.i.i.i29, align 8, !tbaa !21, !alias.scope !205, !noalias !202
   store i64 0, ptr %68, align 8, !tbaa !24, !alias.scope !205, !noalias !202
-  store i8 0, ptr %59, align 1, !tbaa !23, !alias.scope !205, !noalias !202
+  store i8 0, ptr %59, align 8, !tbaa !23, !alias.scope !205, !noalias !202
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 32
   %.not.i.i.i.i34 = icmp eq ptr %70, %6
@@ -5612,7 +5612,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i: ; preds =
   store i64 %15, ptr %16, align 8, !tbaa !24
   store ptr %6, ptr %.sroa.08.015, align 8, !tbaa !21
   store i64 0, ptr %14, align 8, !tbaa !24
-  store i8 0, ptr %6, align 1, !tbaa !23
+  store i8 0, ptr %6, align 8, !tbaa !23
   %17 = getelementptr inbounds nuw i8, ptr %.016, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.08.015, i64 32
   invoke void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEEC1EOS2_(ptr noundef nonnull align 8 dereferenceable(256) %17, ptr noundef nonnull align 8 dereferenceable(256) %18)
@@ -5719,7 +5719,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZ27lean_read_module_data_par
   store ptr %7, ptr %6, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %8, align 8, !tbaa !24
-  store i8 0, ptr %7, align 1, !tbaa !23
+  store i8 0, ptr %7, align 8, !tbaa !23
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %5, align 8, !tbaa !66
   tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #29
   unreachable

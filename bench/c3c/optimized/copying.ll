@@ -2437,7 +2437,7 @@ fixup.exit:                                       ; preds = %202
   %.0425 = phi i32 [ %263, %253 ], [ 0, %250 ]
   store i32 %.0425, ptr %251, align 8
   %265 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %266 = load i32, ptr %265, align 4
+  %266 = load i32, ptr %265, align 8
   %.not.i502 = icmp eq i32 %266, 0
   br i1 %.not.i502, label %278, label %267
 

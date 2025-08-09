@@ -670,7 +670,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionENS_16RISCVELFStreamer16ElfMa
   %57 = load ptr, ptr %1, align 8, !tbaa !147
   store ptr %57, ptr %48, align 8, !tbaa !147
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !155
+  store i32 0, ptr %58, align 8, !tbaa !155
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionENS_16RISCVELFStreamer16ElfMappingSymbolENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E16InsertIntoBucketIS4_JEEEPSB_SF_OT_DpOT0_.exit
@@ -1621,7 +1621,7 @@ _ZSt10_ConstructIN4llvm13MCELFStreamer13AttributeItemEJS2_EEvPT_DpOT0_.exit.i.i.
   store i64 %24, ptr %25, align 8, !tbaa !167
   store ptr %15, ptr %12, align 8, !tbaa !173
   store i64 0, ptr %23, align 8, !tbaa !167
-  store i8 0, ptr %15, align 1, !tbaa !41
+  store i8 0, ptr %15, align 8, !tbaa !41
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 48
   %27 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 48
   %.not.i.i.i.i.i.i = icmp eq ptr %26, %10
@@ -1981,7 +1981,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionENS_16RISCVELFStreamer16ElfMa
   %65 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %66 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %67 = load i32, ptr %66, align 4, !tbaa !155
-  store i32 %67, ptr %65, align 4, !tbaa !155
+  store i32 %67, ptr %65, align 8, !tbaa !155
   %68 = add i32 %40, 1
   store i32 %68, ptr %32, align 8, !tbaa !141
   br label %69

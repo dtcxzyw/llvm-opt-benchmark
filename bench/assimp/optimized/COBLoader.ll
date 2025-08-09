@@ -1691,9 +1691,9 @@ _ZNSt15_Deque_iteratorISt10shared_ptrIN6Assimp3COB4NodeEERS4_PS4_EppEv.exit131: 
   store ptr %404, ptr %403, align 8
   %405 = getelementptr inbounds nuw i8, ptr %394, i64 120
   store i64 0, ptr %405, align 8
-  store i8 0, ptr %404, align 1
+  store i8 0, ptr %404, align 8
   %406 = getelementptr inbounds nuw i8, ptr %394, i64 144
-  store float 1.000000e+00, ptr %406, align 4
+  store float 1.000000e+00, ptr %406, align 8
   %407 = getelementptr inbounds nuw i8, ptr %394, i64 148
   %408 = getelementptr inbounds nuw i8, ptr %394, i64 164
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %407, i8 0, i64 16, i1 false)
@@ -1701,7 +1701,7 @@ _ZNSt15_Deque_iteratorISt10shared_ptrIN6Assimp3COB4NodeEERS4_PS4_EppEv.exit131: 
   %409 = getelementptr inbounds nuw i8, ptr %394, i64 168
   %410 = getelementptr inbounds nuw i8, ptr %394, i64 184
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %409, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %410, align 4
+  store float 1.000000e+00, ptr %410, align 8
   %411 = getelementptr inbounds nuw i8, ptr %394, i64 188
   %412 = getelementptr inbounds nuw i8, ptr %394, i64 204
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %411, i8 0, i64 16, i1 false)
@@ -3902,7 +3902,7 @@ _ZNSt15_Deque_iteratorIPN6Assimp3COB4FaceERKS3_PS4_EppEv.exit192: ; preds = %.lo
   store ptr %297, ptr %296, align 8
   %298 = getelementptr inbounds nuw i8, ptr %291, i64 24
   store i64 0, ptr %298, align 8
-  store i8 0, ptr %297, align 1
+  store i8 0, ptr %297, align 8
   %299 = getelementptr inbounds nuw i8, ptr %291, i64 48
   %300 = getelementptr inbounds nuw i8, ptr %291, i64 76
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %299, i8 0, i64 28, i1 false)
@@ -5230,9 +5230,9 @@ define hidden void @_ZN6Assimp11COBImporter14ReadPolH_AsciiERNS_3COB5SceneERNS_1
   store ptr %36, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 120
   store i64 0, ptr %37, align 8
-  store i8 0, ptr %36, align 1
+  store i8 0, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %27, i64 144
-  store float 1.000000e+00, ptr %38, align 4
+  store float 1.000000e+00, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %27, i64 148
   %40 = getelementptr inbounds nuw i8, ptr %27, i64 164
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %39, i8 0, i64 16, i1 false)
@@ -5240,7 +5240,7 @@ define hidden void @_ZN6Assimp11COBImporter14ReadPolH_AsciiERNS_3COB5SceneERNS_1
   %41 = getelementptr inbounds nuw i8, ptr %27, i64 168
   %42 = getelementptr inbounds nuw i8, ptr %27, i64 184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %42, align 4
+  store float 1.000000e+00, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %27, i64 188
   %44 = getelementptr inbounds nuw i8, ptr %27, i64 204
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %43, i8 0, i64 16, i1 false)
@@ -7338,7 +7338,7 @@ _ZN6Assimp12LineSplitter11match_startEPKc.exit.thread: ; preds = %_ZN6Assimp12Li
   store ptr %36, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store i64 0, ptr %37, align 8
-  store i8 0, ptr %36, align 1
+  store i8 0, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %39 = getelementptr inbounds nuw i8, ptr %28, i64 76
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %38, i8 0, i64 28, i1 false)
@@ -8324,9 +8324,9 @@ define hidden void @_ZN6Assimp11COBImporter14ReadGrou_AsciiERNS_3COB5SceneERNS_1
   store ptr %21, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 120
   store i64 0, ptr %22, align 8
-  store i8 0, ptr %21, align 1
+  store i8 0, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 144
-  store float 1.000000e+00, ptr %23, align 4
+  store float 1.000000e+00, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 148
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 164
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %24, i8 0, i64 16, i1 false)
@@ -8334,7 +8334,7 @@ define hidden void @_ZN6Assimp11COBImporter14ReadGrou_AsciiERNS_3COB5SceneERNS_1
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 168
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %27, align 4
+  store float 1.000000e+00, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 188
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 204
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %28, i8 0, i64 16, i1 false)
@@ -8606,9 +8606,9 @@ define hidden void @_ZN6Assimp11COBImporter14ReadLght_AsciiERNS_3COB5SceneERNS_1
   store ptr %26, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %17, i64 120
   store i64 0, ptr %27, align 8
-  store i8 0, ptr %26, align 1
+  store i8 0, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %17, i64 144
-  store float 1.000000e+00, ptr %28, align 4
+  store float 1.000000e+00, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %17, i64 148
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 164
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %29, i8 0, i64 16, i1 false)
@@ -8616,7 +8616,7 @@ define hidden void @_ZN6Assimp11COBImporter14ReadLght_AsciiERNS_3COB5SceneERNS_1
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 168
   %32 = getelementptr inbounds nuw i8, ptr %17, i64 184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %32, align 4
+  store float 1.000000e+00, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %17, i64 188
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 204
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %33, i8 0, i64 16, i1 false)
@@ -9333,9 +9333,9 @@ define hidden void @_ZN6Assimp11COBImporter14ReadCame_AsciiERNS_3COB5SceneERNS_1
   store ptr %21, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 120
   store i64 0, ptr %22, align 8
-  store i8 0, ptr %21, align 1
+  store i8 0, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 144
-  store float 1.000000e+00, ptr %23, align 4
+  store float 1.000000e+00, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 148
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 164
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %24, i8 0, i64 16, i1 false)
@@ -9343,7 +9343,7 @@ define hidden void @_ZN6Assimp11COBImporter14ReadCame_AsciiERNS_3COB5SceneERNS_1
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 168
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %27, align 4
+  store float 1.000000e+00, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 188
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 204
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %28, i8 0, i64 16, i1 false)
@@ -9611,9 +9611,9 @@ define hidden void @_ZN6Assimp11COBImporter14ReadBone_AsciiERNS_3COB5SceneERNS_1
   store ptr %21, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 120
   store i64 0, ptr %22, align 8
-  store i8 0, ptr %21, align 1
+  store i8 0, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 144
-  store float 1.000000e+00, ptr %23, align 4
+  store float 1.000000e+00, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 148
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 164
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %24, i8 0, i64 16, i1 false)
@@ -9621,7 +9621,7 @@ define hidden void @_ZN6Assimp11COBImporter14ReadBone_AsciiERNS_3COB5SceneERNS_1
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 168
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %27, align 4
+  store float 1.000000e+00, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 188
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 204
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %28, i8 0, i64 16, i1 false)
@@ -13715,9 +13715,9 @@ define hidden void @_ZN6Assimp11COBImporter15ReadPolH_BinaryERNS_3COB5SceneERNS_
   store ptr %35, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %25, i64 120
   store i64 0, ptr %36, align 8
-  store i8 0, ptr %35, align 1
+  store i8 0, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %25, i64 144
-  store float 1.000000e+00, ptr %37, align 4
+  store float 1.000000e+00, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %25, i64 148
   %39 = getelementptr inbounds nuw i8, ptr %25, i64 164
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %38, i8 0, i64 16, i1 false)
@@ -13725,7 +13725,7 @@ define hidden void @_ZN6Assimp11COBImporter15ReadPolH_BinaryERNS_3COB5SceneERNS_
   %40 = getelementptr inbounds nuw i8, ptr %25, i64 168
   %41 = getelementptr inbounds nuw i8, ptr %25, i64 184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %41, align 4
+  store float 1.000000e+00, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %25, i64 188
   %43 = getelementptr inbounds nuw i8, ptr %25, i64 204
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %42, i8 0, i64 16, i1 false)
@@ -15052,11 +15052,11 @@ define hidden void @_ZN6Assimp11COBImporter15ReadGrou_BinaryERNS_3COB5SceneERNS_
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6Assimp3COB5GroupESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23, align 8, !noalias !180
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store i32 0, ptr %27, align 4, !noalias !180
+  store i32 0, ptr %27, align 8, !noalias !180
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 28
   store i32 0, ptr %28, align 4, !noalias !180
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  store i32 0, ptr %29, align 4, !noalias !180
+  store i32 0, ptr %29, align 8, !noalias !180
   %30 = getelementptr inbounds nuw i8, ptr %23, i64 36
   store i32 -1, ptr %30, align 4, !noalias !180
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6Assimp3COB4NodeE, i64 16), ptr %26, align 8, !noalias !180
@@ -15080,9 +15080,9 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6Assimp3COB5GroupESaIvELN
   store ptr %37, ptr %36, align 8, !noalias !180
   %38 = getelementptr inbounds nuw i8, ptr %23, i64 136
   store i64 0, ptr %38, align 8, !noalias !180
-  store i8 0, ptr %37, align 1, !noalias !180
+  store i8 0, ptr %37, align 8, !noalias !180
   %39 = getelementptr inbounds nuw i8, ptr %23, i64 160
-  store float 1.000000e+00, ptr %39, align 4, !noalias !180
+  store float 1.000000e+00, ptr %39, align 8, !noalias !180
   %40 = getelementptr inbounds nuw i8, ptr %23, i64 164
   %41 = getelementptr inbounds nuw i8, ptr %23, i64 180
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %40, i8 0, i64 16, i1 false), !noalias !180
@@ -15090,7 +15090,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6Assimp3COB5GroupESaIvELN
   %42 = getelementptr inbounds nuw i8, ptr %23, i64 184
   %43 = getelementptr inbounds nuw i8, ptr %23, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false), !noalias !180
-  store float 1.000000e+00, ptr %43, align 4, !noalias !180
+  store float 1.000000e+00, ptr %43, align 8, !noalias !180
   %44 = getelementptr inbounds nuw i8, ptr %23, i64 204
   %45 = getelementptr inbounds nuw i8, ptr %23, i64 220
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %44, i8 0, i64 16, i1 false), !noalias !180
@@ -15346,9 +15346,9 @@ define hidden void @_ZN6Assimp11COBImporter15ReadLght_BinaryERNS_3COB5SceneERNS_
   store ptr %33, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %23, i64 120
   store i64 0, ptr %34, align 8
-  store i8 0, ptr %33, align 1
+  store i8 0, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %23, i64 144
-  store float 1.000000e+00, ptr %35, align 4
+  store float 1.000000e+00, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %23, i64 148
   %37 = getelementptr inbounds nuw i8, ptr %23, i64 164
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %36, i8 0, i64 16, i1 false)
@@ -15356,7 +15356,7 @@ define hidden void @_ZN6Assimp11COBImporter15ReadLght_BinaryERNS_3COB5SceneERNS_
   %38 = getelementptr inbounds nuw i8, ptr %23, i64 168
   %39 = getelementptr inbounds nuw i8, ptr %23, i64 184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %39, align 4
+  store float 1.000000e+00, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %23, i64 188
   %41 = getelementptr inbounds nuw i8, ptr %23, i64 204
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %40, i8 0, i64 16, i1 false)
@@ -15660,9 +15660,9 @@ define hidden void @_ZN6Assimp11COBImporter15ReadCame_BinaryERNS_3COB5SceneERNS_
   store ptr %33, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %23, i64 120
   store i64 0, ptr %34, align 8
-  store i8 0, ptr %33, align 1
+  store i8 0, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %23, i64 144
-  store float 1.000000e+00, ptr %35, align 4
+  store float 1.000000e+00, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %23, i64 148
   %37 = getelementptr inbounds nuw i8, ptr %23, i64 164
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %36, i8 0, i64 16, i1 false)
@@ -15670,7 +15670,7 @@ define hidden void @_ZN6Assimp11COBImporter15ReadCame_BinaryERNS_3COB5SceneERNS_
   %38 = getelementptr inbounds nuw i8, ptr %23, i64 168
   %39 = getelementptr inbounds nuw i8, ptr %23, i64 184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %39, align 4
+  store float 1.000000e+00, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %23, i64 188
   %41 = getelementptr inbounds nuw i8, ptr %23, i64 204
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %40, i8 0, i64 16, i1 false)
@@ -16019,7 +16019,7 @@ define hidden void @_ZN6Assimp11COBImporter15ReadMat1_BinaryERNS_3COB5SceneERNS_
   store ptr %30, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store i64 0, ptr %31, align 8
-  store i8 0, ptr %30, align 1
+  store i8 0, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %33 = getelementptr inbounds nuw i8, ptr %22, i64 76
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %32, i8 0, i64 28, i1 false)
@@ -16440,7 +16440,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEc.exit: ; preds = %.invo
   %224 = getelementptr inbounds nuw i8, ptr %218, i64 24
   store i64 0, ptr %224, align 8, !noalias !192
   %225 = getelementptr inbounds nuw i8, ptr %218, i64 56
-  store float 1.000000e+00, ptr %225, align 4, !noalias !192
+  store float 1.000000e+00, ptr %225, align 8, !noalias !192
   %226 = getelementptr inbounds nuw i8, ptr %218, i64 60
   store float 1.000000e+00, ptr %226, align 4, !noalias !192
   %227 = getelementptr inbounds i8, ptr %40, i64 -48
@@ -16597,7 +16597,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE5GetI1Ev.exit170: ; preds = %270
   %295 = getelementptr inbounds nuw i8, ptr %289, i64 24
   store i64 0, ptr %295, align 8, !noalias !195
   %296 = getelementptr inbounds nuw i8, ptr %289, i64 56
-  store float 1.000000e+00, ptr %296, align 4, !noalias !195
+  store float 1.000000e+00, ptr %296, align 8, !noalias !195
   %297 = getelementptr inbounds nuw i8, ptr %289, i64 60
   store float 1.000000e+00, ptr %297, align 4, !noalias !195
   %298 = getelementptr inbounds i8, ptr %40, i64 -16
@@ -16841,7 +16841,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE5GetI1Ev.exit210: ; preds = %389
   %412 = getelementptr inbounds nuw i8, ptr %406, i64 24
   store i64 0, ptr %412, align 8, !noalias !198
   %413 = getelementptr inbounds nuw i8, ptr %406, i64 56
-  store float 1.000000e+00, ptr %413, align 4, !noalias !198
+  store float 1.000000e+00, ptr %413, align 8, !noalias !198
   %414 = getelementptr inbounds nuw i8, ptr %406, i64 60
   store float 1.000000e+00, ptr %414, align 4, !noalias !198
   %415 = getelementptr inbounds i8, ptr %40, i64 -32
@@ -22428,7 +22428,7 @@ _ZNKSt6vectorIN6Assimp3COB8MaterialESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = 
   store ptr %25, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i64 0, ptr %26, align 8
-  store i8 0, ptr %25, align 1
+  store i8 0, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 76
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %27, i8 0, i64 28, i1 false)

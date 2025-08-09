@@ -1073,7 +1073,7 @@ findDontCares.exit:                               ; preds = %265, %._crit_edge.i
 271:                                              ; preds = %findDontCares.exit
   %272 = load ptr, ptr %3, align 8
   %273 = load ptr, ptr %210, align 8
-  %274 = load i32, ptr %44, align 4
+  %274 = load i32, ptr %44, align 8
   %275 = icmp sgt i32 %274, 0
   br i1 %275, label %.lr.ph.preheader.i, label %removeDontCares.exit
 
@@ -1111,7 +1111,7 @@ findDontCares.exit:                               ; preds = %265, %._crit_edge.i
 
 removeDontCares.exit.loopexit:                    ; preds = %286
   %.pre143 = load ptr, ptr %210, align 8
-  %.pre144 = load i32, ptr %249, align 4
+  %.pre144 = load i32, ptr %249, align 8
   br label %removeDontCares.exit
 
 removeDontCares.exit:                             ; preds = %removeDontCares.exit.loopexit, %271

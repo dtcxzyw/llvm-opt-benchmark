@@ -1230,7 +1230,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i: ; preds = %_ZNK4llvm9StringR
   %162 = trunc nuw i8 %161 to i1
   %163 = load i32, ptr %31, align 4, !tbaa !31
   %164 = icmp eq i32 %163, 0
-  %165 = load i32, ptr %34, align 4
+  %165 = load i32, ptr %34, align 8
   %166 = icmp eq i32 %165, 1
   br i1 %162, label %167, label %171
 

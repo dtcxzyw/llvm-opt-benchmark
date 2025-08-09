@@ -4146,7 +4146,7 @@ _init_l_Lean_Meta_Grind_initFn____x40_Lean_Meta_Tactic_Grind_ExtAttr___hyg_9____
   %.val13 = load ptr, ptr %59, align 8, !tbaa !4
   store ptr %.val13, ptr @l_Lean_Meta_Grind_extTheoremsExt, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val13) #3
-  %60 = load i32, ptr %55, align 4, !tbaa !8
+  %60 = load i32, ptr %55, align 8, !tbaa !8
   %61 = icmp sgt i32 %60, 1
   br i1 %61, label %62, label %64, !prof !11
 

@@ -191,7 +191,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %54
   store i64 %59, ptr %60, align 8, !tbaa !11
   store ptr %52, ptr %1, align 8, !tbaa !3
   store i64 0, ptr %5, align 8, !tbaa !11
-  store i8 0, ptr %52, align 1, !tbaa !12
+  store i8 0, ptr %52, align 8, !tbaa !12
   br label %61
 
 61:                                               ; preds = %43, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit

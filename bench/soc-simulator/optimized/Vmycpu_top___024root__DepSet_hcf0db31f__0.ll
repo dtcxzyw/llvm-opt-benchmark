@@ -218,7 +218,7 @@ define dso_local void @_Z42Vmycpu_top___024root___ico_sequent__TOP__0P20Vmycpu_t
   %132 = and i32 %128, %131
   %133 = lshr i32 %127, 16
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 816
-  %135 = load i32, ptr %134, align 4
+  %135 = load i32, ptr %134, align 8
   %136 = lshr i32 %135, 16
   %137 = and i32 %136, 31
   %138 = zext i8 %125 to i32
@@ -4305,7 +4305,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %1333 = getelementptr inbounds nuw i8, ptr %0, i64 113
   store i8 %1332, ptr %1333, align 1
   %1334 = getelementptr inbounds nuw i8, ptr %0, i64 816
-  %1335 = load i32, ptr %1334, align 4
+  %1335 = load i32, ptr %1334, align 8
   %or.cond6500 = icmp ult i32 %1335, 268435456
   br i1 %or.cond6500, label %1336, label %1355
 
@@ -7667,13 +7667,13 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   store i8 %.7, ptr %50, align 2
   %3327 = load i32, ptr %502, align 8
   %3328 = getelementptr inbounds nuw i8, ptr %0, i64 10456
-  store i32 %3327, ptr %3328, align 4
+  store i32 %3327, ptr %3328, align 8
   %3329 = load i32, ptr %498, align 8
   %3330 = getelementptr inbounds nuw i8, ptr %0, i64 10460
   store i32 %3329, ptr %3330, align 4
   %3331 = load i32, ptr %581, align 4
   %3332 = getelementptr inbounds nuw i8, ptr %0, i64 10464
-  store i32 %3331, ptr %3332, align 4
+  store i32 %3331, ptr %3332, align 8
   %3333 = load i32, ptr %585, align 4
   %3334 = getelementptr inbounds nuw i8, ptr %0, i64 10468
   store i32 %3333, ptr %3334, align 4
@@ -8419,7 +8419,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %3740 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3741 = load i32, ptr %3740, align 8
   %3742 = getelementptr inbounds nuw i8, ptr %0, i64 1464
-  store i32 %3741, ptr %3742, align 4
+  store i32 %3741, ptr %3742, align 8
   %3743 = getelementptr inbounds nuw i8, ptr %0, i64 127
   %3744 = load i8, ptr %3743, align 1
   %3745 = or i8 %3744, %308
@@ -8703,8 +8703,8 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   store i8 %.sink6662, ptr %3897, align 2
   %3898 = getelementptr inbounds nuw i8, ptr %0, i64 1456
   %3899 = getelementptr inbounds nuw i8, ptr %0, i64 1368
-  %3900 = load i32, ptr %3899, align 4
-  %3901 = load i32, ptr %145, align 4
+  %3900 = load i32, ptr %3899, align 8
+  %3901 = load i32, ptr %145, align 8
   %3902 = load i32, ptr %38, align 8
   %3903 = xor i32 %3902, %3901
   %3904 = and i32 %3903, 255
@@ -8737,9 +8737,9 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %3928 = or disjoint i8 %3911, %3927
   %3929 = getelementptr inbounds nuw i8, ptr %0, i64 1384
   %3930 = getelementptr inbounds nuw i8, ptr %0, i64 1392
-  %3931 = load i32, ptr %3930, align 4
+  %3931 = load i32, ptr %3930, align 8
   %3932 = lshr i32 %3931, 7
-  %3933 = load i32, ptr %3929, align 4
+  %3933 = load i32, ptr %3929, align 8
   %3934 = xor i32 %3933, %3902
   %3935 = and i32 %3934, 255
   %3936 = icmp eq i32 %3935, 0
@@ -8770,9 +8770,9 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %3961 = trunc nuw nsw i32 %3960 to i8
   %3962 = getelementptr inbounds nuw i8, ptr %0, i64 1408
   %3963 = getelementptr inbounds nuw i8, ptr %0, i64 1416
-  %3964 = load i32, ptr %3963, align 4
+  %3964 = load i32, ptr %3963, align 8
   %3965 = lshr i32 %3964, 5
-  %3966 = load i32, ptr %3962, align 4
+  %3966 = load i32, ptr %3962, align 8
   %3967 = xor i32 %3966, %3902
   %3968 = and i32 %3967, 255
   %3969 = icmp eq i32 %3968, 0
@@ -8802,9 +8802,9 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %3993 = trunc nuw nsw i32 %3992 to i8
   %3994 = getelementptr inbounds nuw i8, ptr %0, i64 1432
   %3995 = getelementptr inbounds nuw i8, ptr %0, i64 1440
-  %3996 = load i32, ptr %3995, align 4
+  %3996 = load i32, ptr %3995, align 8
   %3997 = lshr i32 %3996, 3
-  %3998 = load i32, ptr %3994, align 4
+  %3998 = load i32, ptr %3994, align 8
   %3999 = xor i32 %3998, %3902
   %4000 = and i32 %3999, 255
   %4001 = icmp eq i32 %4000, 0
@@ -8837,9 +8837,9 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %4025 = and i32 %4020, %4024
   %4026 = trunc nuw i32 %4025 to i8
   %4027 = or disjoint i8 %4010, %4026
-  store i8 %4027, ptr %3898, align 1
+  store i8 %4027, ptr %3898, align 8
   %4028 = getelementptr inbounds nuw i8, ptr %0, i64 1457
-  %4029 = load i32, ptr %3742, align 4
+  %4029 = load i32, ptr %3742, align 8
   %4030 = icmp eq i32 %3907, %4029
   %narrow5665 = select i1 %4030, i1 %.narrow5661, i1 false
   %4031 = zext i1 %narrow5665 to i8
@@ -8919,7 +8919,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %4097 = and i32 %4096, %4020
   %4098 = trunc nuw i32 %4097 to i8
   %4099 = or disjoint i8 %4094, %4098
-  store i8 %4099, ptr %4064, align 1
+  store i8 %4099, ptr %4064, align 2
   %4100 = getelementptr inbounds nuw i8, ptr %0, i64 154
   %4101 = load i8, ptr %4100, align 2
   %.not5669 = icmp eq i8 %4101, 0
@@ -9116,7 +9116,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %4225 = select i1 %4223, i8 %4224, i8 0
   %4226 = getelementptr inbounds nuw i8, ptr %0, i64 188
   store i8 %4225, ptr %4226, align 4
-  %4227 = load i8, ptr %3898, align 1
+  %4227 = load i8, ptr %3898, align 4
   %4228 = lshr i8 %4227, 1
   %.mask5676 = and i8 %4227, 8
   %isneg.not5677 = icmp eq i8 %.mask5676, 0
@@ -9138,7 +9138,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %.masked5685 = or i8 %.masked5686, %4231
   %4234 = or i8 %.masked5685, %4229
   %4235 = getelementptr inbounds nuw i8, ptr %0, i64 1472
-  store i8 %4234, ptr %4235, align 1
+  store i8 %4234, ptr %4235, align 4
   %4236 = load i8, ptr %4028, align 1
   %4237 = lshr i8 %4236, 1
   %.mask5693 = and i8 %4236, 8
@@ -9160,7 +9160,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %.masked5702 = or i8 %.masked5703, %4241
   %.masked5701 = or i8 %.masked5702, %4240
   %4243 = or i8 %.masked5701, %4238
-  %4244 = load i8, ptr %4064, align 1
+  %4244 = load i8, ptr %4064, align 2
   %4245 = lshr i8 %4244, 1
   %.mask5710 = and i8 %4244, 8
   %isneg5709.not = icmp eq i8 %.mask5710, 0
@@ -11158,7 +11158,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %5084 = getelementptr inbounds nuw [8 x %struct.VlWide], ptr %145, i64 0, i64 %5083
   %5085 = load i32, ptr %5084, align 4
   %5086 = getelementptr inbounds nuw i8, ptr %0, i64 792
-  store i32 %5085, ptr %5086, align 4
+  store i32 %5085, ptr %5086, align 8
   %5087 = getelementptr inbounds nuw i8, ptr %5084, i64 4
   %5088 = load i32, ptr %5087, align 4
   %5089 = getelementptr inbounds nuw i8, ptr %0, i64 796
@@ -11166,7 +11166,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %5090 = getelementptr inbounds nuw i8, ptr %5084, i64 8
   %5091 = load i32, ptr %5090, align 4
   %5092 = getelementptr inbounds nuw i8, ptr %0, i64 800
-  store i32 %5091, ptr %5092, align 4
+  store i32 %5091, ptr %5092, align 8
   %5093 = getelementptr inbounds nuw i8, ptr %0, i64 1473
   store i8 %4243, ptr %5093, align 1
   %5094 = zext nneg i8 %4251 to i64
@@ -11177,13 +11177,13 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %5098 = getelementptr inbounds nuw i8, ptr %5095, i64 4
   %5099 = load i32, ptr %5098, align 4
   %5100 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  store i32 %5099, ptr %5100, align 4
+  store i32 %5099, ptr %5100, align 8
   %5101 = getelementptr inbounds nuw i8, ptr %5095, i64 8
   %5102 = load i32, ptr %5101, align 4
   %5103 = getelementptr inbounds nuw i8, ptr %0, i64 812
   store i32 %5102, ptr %5103, align 4
   %5104 = getelementptr inbounds nuw i8, ptr %0, i64 1474
-  store i8 %4251, ptr %5104, align 1
+  store i8 %4251, ptr %5104, align 2
   %5105 = load i32, ptr %4279, align 8
   %5106 = shl i32 %5105, 12
   %5107 = load i32, ptr %4252, align 4
@@ -11578,7 +11578,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %5377 = getelementptr inbounds nuw i8, ptr %0, i64 632
   store i32 %5373, ptr %5377, align 8
   %5378 = getelementptr inbounds nuw i8, ptr %0, i64 10452
-  store i8 %.in61986199, ptr %5378, align 1
+  store i8 %.in61986199, ptr %5378, align 4
   %5379 = getelementptr inbounds nuw i8, ptr %0, i64 10453
   store i8 %.in62016202, ptr %5379, align 1
   %5380 = load i8, ptr %3532, align 2
@@ -11814,7 +11814,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %5555 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 %5554, ptr %5555, align 8
   %5556 = getelementptr inbounds nuw i8, ptr %0, i64 840
-  store i32 %.05092, ptr %5556, align 4
+  store i32 %.05092, ptr %5556, align 8
   %5557 = getelementptr inbounds nuw i8, ptr %0, i64 844
   store i32 %5107, ptr %5557, align 4
   %5558 = getelementptr inbounds nuw i8, ptr %0, i64 51
@@ -11826,7 +11826,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %5564 = zext i8 %5563 to i32
   %5565 = or i32 %5561, %5564
   %5566 = getelementptr inbounds nuw i8, ptr %0, i64 848
-  store i32 %5565, ptr %5566, align 4
+  store i32 %5565, ptr %5566, align 8
   %5567 = load i8, ptr %3488, align 1
   %5568 = getelementptr inbounds nuw i8, ptr %0, i64 182
   %.in6244.in = select i1 %5354, ptr %5352, ptr %5568

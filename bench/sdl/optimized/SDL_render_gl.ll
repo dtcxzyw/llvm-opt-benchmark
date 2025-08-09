@@ -1102,11 +1102,11 @@ thread-pre-split:                                 ; preds = %437
   %468 = getelementptr inbounds nuw i8, ptr %33, i64 620
   store float 1.000000e+00, ptr %468, align 4
   %469 = getelementptr inbounds nuw i8, ptr %33, i64 624
-  store float 1.000000e+00, ptr %469, align 4
+  store float 1.000000e+00, ptr %469, align 8
   %470 = getelementptr inbounds nuw i8, ptr %33, i64 628
   store float 1.000000e+00, ptr %470, align 4
   %471 = getelementptr inbounds nuw i8, ptr %33, i64 632
-  store float 1.000000e+00, ptr %471, align 4
+  store float 1.000000e+00, ptr %471, align 8
   %472 = getelementptr inbounds nuw i8, ptr %33, i64 640
   store float 1.000000e+00, ptr %472, align 8
   %473 = getelementptr inbounds nuw i8, ptr %33, i64 644
@@ -1680,12 +1680,12 @@ GL_GetFBO.exit:                                   ; preds = %81, %.critedge, %86
   %246 = load i32, ptr %245, align 8
   %247 = sitofp i32 %246 to float
   %248 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  store float %247, ptr %248, align 4
+  store float %247, ptr %248, align 8
   %249 = fdiv float 1.000000e+00, %242
   store float %249, ptr %243, align 4
   %250 = fdiv float 1.000000e+00, %247
   %251 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  store float %250, ptr %251, align 4
+  store float %250, ptr %251, align 8
   %252 = getelementptr inbounds nuw i8, ptr %26, i64 84
   %253 = load i8, ptr %252, align 4, !range !3, !noundef !4
   %254 = trunc nuw i8 %253 to i1
@@ -2122,7 +2122,7 @@ define internal void @GL_UnlockTexture(ptr noundef readonly captures(none) %0, p
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %9 = load i32, ptr %8, align 4
+  %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %11 = load i32, ptr %10, align 8
   %12 = load i32, ptr %5, align 4
@@ -2658,13 +2658,13 @@ define internal noundef zeroext i1 @GL_RunCommandQueue(ptr noundef readonly capt
   %65 = load float, ptr %64, align 8
   %66 = fmul float %63, %65
   %67 = getelementptr inbounds nuw i8, ptr %.0201314, i64 24
-  %68 = load float, ptr %67, align 4
+  %68 = load float, ptr %67, align 8
   %69 = fmul float %65, %68
   %70 = getelementptr inbounds nuw i8, ptr %.0201314, i64 28
   %71 = load float, ptr %70, align 4
   %72 = fmul float %65, %71
   %73 = getelementptr inbounds nuw i8, ptr %.0201314, i64 32
-  %74 = load float, ptr %73, align 4
+  %74 = load float, ptr %73, align 8
   %75 = load i8, ptr %58, align 1, !range !3, !noundef !4
   %76 = trunc nuw i8 %75 to i1
   br i1 %76, label %89, label %77
@@ -2693,9 +2693,9 @@ define internal noundef zeroext i1 @GL_RunCommandQueue(ptr noundef readonly capt
   %90 = load ptr, ptr %44, align 8
   call void %90(float noundef %66, float noundef %69, float noundef %72, float noundef %74) #6
   store float %66, ptr %40, align 4
-  store float %69, ptr %41, align 4
+  store float %69, ptr %41, align 8
   store float %72, ptr %42, align 4
-  store float %74, ptr %43, align 4
+  store float %74, ptr %43, align 8
   store i8 0, ptr %58, align 1
   br label %SetCopyState.exit.thread
 
@@ -2741,13 +2741,13 @@ define internal noundef zeroext i1 @GL_RunCommandQueue(ptr noundef readonly capt
   %108 = load float, ptr %107, align 8
   %109 = fmul float %106, %108
   %110 = getelementptr inbounds nuw i8, ptr %.0201314, i64 24
-  %111 = load float, ptr %110, align 4
+  %111 = load float, ptr %110, align 8
   %112 = fmul float %108, %111
   %113 = getelementptr inbounds nuw i8, ptr %.0201314, i64 28
   %114 = load float, ptr %113, align 4
   %115 = fmul float %108, %114
   %116 = getelementptr inbounds nuw i8, ptr %.0201314, i64 32
-  %117 = load float, ptr %116, align 4
+  %117 = load float, ptr %116, align 8
   %118 = load i8, ptr %45, align 4, !range !3, !noundef !4
   %119 = trunc nuw i8 %118 to i1
   br i1 %119, label %132, label %120
@@ -3260,9 +3260,9 @@ SetCopyState.exit.thread259:                      ; preds = %.thread252
   %347 = trunc i64 %.0213.lcssa to i32
   call void %346(i32 noundef 4, i32 noundef 0, i32 noundef %347) #6
   %348 = load float, ptr %40, align 4
-  %349 = load float, ptr %41, align 4
+  %349 = load float, ptr %41, align 8
   %350 = load float, ptr %42, align 4
-  %351 = load float, ptr %43, align 4
+  %351 = load float, ptr %43, align 8
   %352 = load ptr, ptr %44, align 8
   call void %352(float noundef %348, float noundef %349, float noundef %350, float noundef %351) #6
   br label %SetCopyState.exit.thread

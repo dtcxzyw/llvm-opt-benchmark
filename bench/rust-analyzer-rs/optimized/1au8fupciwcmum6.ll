@@ -19467,7 +19467,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h2c1b4971b09c8d25E(ptr noalia
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %.val.i, i64 48, i1 false), !noalias !1443
   store i64 0, ptr %.val.i, align 8, !noalias !1443
   %3 = getelementptr inbounds nuw i8, ptr %.val.i, i64 48
-  store i8 2, ptr %3, align 1, !noalias !1443
+  store i8 2, ptr %3, align 8, !noalias !1443
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1446)
   %4 = load i64, ptr %2, align 8, !range !384, !alias.scope !1446, !noalias !1443, !noundef !4
   %5 = icmp eq i64 %4, 0
@@ -20079,7 +20079,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h3ef437fb2c19da55E(ptr noalia
   %4 = load ptr, ptr %3, align 8, !noalias !1503
   store i64 0, ptr %.val.i, align 8, !noalias !1503
   %5 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
-  store i8 2, ptr %5, align 1, !noalias !1503
+  store i8 2, ptr %5, align 8, !noalias !1503
   %6 = icmp eq i64 %2, 0
   br i1 %6, label %26, label %7
 
@@ -20927,7 +20927,7 @@ __rust_try.llvm.3466590722360702098.exit:
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !1554, !noundef !4
   store i64 0, ptr %.val.i, align 8, !noalias !1557
   %1 = getelementptr inbounds nuw i8, ptr %.val.i, i64 32
-  store i8 2, ptr %1, align 1, !noalias !1557
+  store i8 2, ptr %1, align 8, !noalias !1557
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
@@ -23133,7 +23133,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h9cb675dd120d7a11E(ptr noalia
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %.val.i, i64 48, i1 false), !noalias !1679
   store i64 0, ptr %.val.i, align 8, !noalias !1679
   %3 = getelementptr inbounds nuw i8, ptr %.val.i, i64 48
-  store i8 2, ptr %3, align 1, !noalias !1679
+  store i8 2, ptr %3, align 8, !noalias !1679
   %4 = load i64, ptr %2, align 8, !range !384, !alias.scope !1682, !noalias !1679, !noundef !4
   %5 = icmp eq i64 %4, 0
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -24175,7 +24175,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hc7b56c70eef07702E(ptr noalia
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %.val.i, i64 24, i1 false), !noalias !1743
   store i64 0, ptr %.val.i, align 8, !noalias !1743
   %3 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
-  store i8 2, ptr %3, align 1, !noalias !1743
+  store i8 2, ptr %3, align 8, !noalias !1743
   %4 = load i64, ptr %2, align 8, !range !384, !alias.scope !1746, !noalias !1743, !noundef !4
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %18, label %6
@@ -24489,7 +24489,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hd040b7e96f831630E(ptr noalia
   %5 = load ptr, ptr %4, align 8, !noalias !1764
   store i64 0, ptr %.val.i, align 8, !noalias !1764
   %6 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
-  store i8 2, ptr %6, align 1, !noalias !1764
+  store i8 2, ptr %6, align 8, !noalias !1764
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !1764
   store i64 %3, ptr %2, align 8, !noalias !1764
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -25065,7 +25065,7 @@ __rust_try.llvm.3466590722360702098.exit:
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !1806, !noundef !4
   store i64 0, ptr %.val.i, align 8, !noalias !1809
   %1 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
-  store i8 2, ptr %1, align 1, !noalias !1809
+  store i8 2, ptr %1, align 8, !noalias !1809
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
@@ -25075,7 +25075,7 @@ __rust_try.llvm.3466590722360702098.exit:
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !1812, !noundef !4
   store i64 0, ptr %.val.i, align 8, !noalias !1815
   %1 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
-  store i8 2, ptr %1, align 1, !noalias !1815
+  store i8 2, ptr %1, align 8, !noalias !1815
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
@@ -25255,7 +25255,7 @@ __rust_try.llvm.3466590722360702098.exit:
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !1824, !noundef !4
   store i32 0, ptr %.val.i, align 4, !noalias !1827
   %1 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
-  store i8 2, ptr %1, align 1, !noalias !1827
+  store i8 2, ptr %1, align 4, !noalias !1827
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
@@ -25912,7 +25912,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h09e3336344c32791E.llvm.34665
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %.val, i64 48, i1 false), !noalias !1901
   store i64 0, ptr %.val, align 8, !noalias !1901
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 48
-  store i8 2, ptr %4, align 1, !noalias !1901
+  store i8 2, ptr %4, align 8, !noalias !1901
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1904)
   %5 = load i64, ptr %2, align 8, !range !384, !alias.scope !1904, !noalias !1901, !noundef !4
   %6 = icmp eq i64 %5, 0
@@ -27300,7 +27300,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h58ea95fb2e1240deE.llvm.34665
   %.val = load ptr, ptr %2, align 8, !alias.scope !2064, !noundef !4
   store i64 0, ptr %.val, align 8, !noalias !2067
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  store i8 2, ptr %3, align 1, !noalias !2067
+  store i8 2, ptr %3, align 8, !noalias !2067
   ret void
 }
 
@@ -27310,7 +27310,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h58ef600441fe45d2E.llvm.34665
   %.val = load ptr, ptr %2, align 8, !alias.scope !2070, !noundef !4
   store i64 0, ptr %.val, align 8, !noalias !2073
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 32
-  store i8 2, ptr %3, align 1, !noalias !2073
+  store i8 2, ptr %3, align 8, !noalias !2073
   ret void
 }
 
@@ -27771,7 +27771,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h8a35914414994c63E.llvm.34665
   %6 = load ptr, ptr %5, align 8, !noalias !2124
   store i64 0, ptr %.val, align 8, !noalias !2124
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  store i8 2, ptr %7, align 1, !noalias !2124
+  store i8 2, ptr %7, align 8, !noalias !2124
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !2124
   store i64 %4, ptr %2, align 8, !noalias !2124
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -29605,7 +29605,7 @@ define hidden void @_ZN3std9panicking3try7do_call17ha90e95ee797b5109E.llvm.34665
   %5 = load ptr, ptr %4, align 8, !noalias !2417
   store i64 0, ptr %.val, align 8, !noalias !2417
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  store i8 2, ptr %6, align 1, !noalias !2417
+  store i8 2, ptr %6, align 8, !noalias !2417
   %7 = icmp eq i64 %3, 0
   br i1 %7, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h1a1ff0d18af42085E.exit", label %8
 
@@ -30180,7 +30180,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hbfee2cc7ab1c368dE.llvm.34665
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %.val, i64 24, i1 false), !noalias !2490
   store i64 0, ptr %.val, align 8, !noalias !2490
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  store i8 2, ptr %4, align 1, !noalias !2490
+  store i8 2, ptr %4, align 8, !noalias !2490
   %5 = load i64, ptr %2, align 8, !range !384, !alias.scope !2493, !noalias !2490, !noundef !4
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hfa2bcb2b20203a28E.exit", label %7
@@ -30201,7 +30201,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hca6e1ebdad021701E.llvm.34665
   %.val = load ptr, ptr %2, align 8, !alias.scope !2496, !noundef !4
   store i64 0, ptr %.val, align 8, !noalias !2499
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  store i8 2, ptr %3, align 1, !noalias !2499
+  store i8 2, ptr %3, align 8, !noalias !2499
   ret void
 }
 
@@ -30566,7 +30566,7 @@ define hidden void @_ZN3std9panicking3try7do_call17he1704a78a3238f1aE.llvm.34665
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %.val, i64 48, i1 false), !noalias !2573
   store i64 0, ptr %.val, align 8, !noalias !2573
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 48
-  store i8 2, ptr %4, align 1, !noalias !2573
+  store i8 2, ptr %4, align 8, !noalias !2573
   %5 = load i64, ptr %2, align 8, !range !384, !alias.scope !2576, !noalias !2573, !noundef !4
   %6 = icmp eq i64 %5, 0
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -31223,7 +31223,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hfc665cf709933e6cE.llvm.34665
   %.val = load ptr, ptr %2, align 8, !alias.scope !2636, !noundef !4
   store i32 0, ptr %.val, align 4, !noalias !2639
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  store i8 2, ptr %3, align 1, !noalias !2639
+  store i8 2, ptr %3, align 4, !noalias !2639
   ret void
 }
 
@@ -47993,13 +47993,13 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %445
 761:                                              ; preds = %737
   store i64 1, ptr %692, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.531.0..sroa_idx32, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.0..sroa_idx, i64 24, i1 false)
-  store i8 1, ptr %691, align 1
+  store i8 1, ptr %691, align 8
   br label %763
 
 762:                                              ; preds = %737
   store i64 0, ptr %692, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.531.0..sroa_idx32, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.0..sroa_idx, i64 24, i1 false)
-  store i8 1, ptr %691, align 1
+  store i8 1, ptr %691, align 8
   br label %763
 
 763:                                              ; preds = %"_ZN4core3ptr32drop_in_place$LT$vfs..Change$GT$17h667e91a888794211E.exit", %740, %757, %760, %761, %762, %767

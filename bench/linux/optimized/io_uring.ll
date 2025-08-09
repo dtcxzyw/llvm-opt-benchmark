@@ -4298,7 +4298,7 @@ define dso_local noundef zeroext i1 @io_post_aux_cqe(ptr noundef %0, i64 noundef
   tail call void @_raw_spin_unlock(ptr noundef nonnull %5) #24
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !66
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %17 = load volatile ptr, ptr %16, align 8
+  %17 = load volatile ptr, ptr %16, align 16
   %18 = icmp eq ptr %17, %16
   br i1 %18, label %22, label %19
 
@@ -4344,7 +4344,7 @@ define dso_local noundef zeroext i1 @io_fill_cqe_req_aux(ptr noundef readonly ca
   tail call void @_raw_spin_unlock(ptr noundef nonnull %10) #24
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !66
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 480
-  %18 = load volatile ptr, ptr %17, align 8
+  %18 = load volatile ptr, ptr %17, align 16
   %19 = icmp eq ptr %18, %17
   br i1 %19, label %23, label %20
 
@@ -4982,7 +4982,7 @@ define internal fastcc void @__io_req_complete_post(ptr noundef %0, i32 noundef 
   tail call void @_raw_spin_unlock(ptr noundef nonnull %5) #24
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !66
   %194 = getelementptr inbounds nuw i8, ptr %4, i64 480
-  %195 = load volatile ptr, ptr %194, align 8
+  %195 = load volatile ptr, ptr %194, align 16
   %196 = icmp eq ptr %195, %194
   br i1 %196, label %200, label %197
 
@@ -7644,9 +7644,9 @@ define dso_local i32 @io_submit_sqes(ptr noundef %0, i32 noundef %1) local_unnam
   %73 = load volatile i32, ptr %72, align 32
   %74 = add i32 %73, 1
   store volatile i32 %74, ptr %72, align 32
-  %75 = load ptr, ptr %25, align 8
+  %75 = load ptr, ptr %25, align 16
   store ptr %75, ptr %51, align 8
-  store ptr %51, ptr %25, align 8
+  store ptr %51, ptr %25, align 16
   br label %.thread28
 
 76:                                               ; preds = %50, %62
@@ -9403,7 +9403,7 @@ define internal fastcc range(i64 -2147483648, 4294967296) i64 @__se_sys_io_uring
   %195 = load i32, ptr %169, align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i8 1, ptr %12, align 1
-  %196 = load volatile ptr, ptr %179, align 8
+  %196 = load volatile ptr, ptr %179, align 16
   %197 = icmp eq ptr %196, null
   br i1 %197, label %203, label %198
 
@@ -9863,7 +9863,7 @@ define internal fastcc range(i64 -2147483648, 4294967296) i64 @__se_sys_io_uring
   %458 = getelementptr inbounds nuw i8, ptr %457, i64 12
   %459 = load volatile i32, ptr %458, align 4
   %460 = sub i32 %456, %459
-  store volatile i32 %460, ptr %443, align 4
+  store volatile i32 %460, ptr %443, align 16
   %461 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %444, i32 1, ptr nonnull elementtype(i32) %444) #24, !srcloc !168
   br label %464
 
@@ -12840,7 +12840,7 @@ define internal fastcc void @__io_cqring_overflow_flush(ptr noundef %0) unnamed_
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 832
   tail call void @_raw_spin_lock(ptr noundef nonnull %17) #24
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 880
-  %19 = load volatile ptr, ptr %18, align 8
+  %19 = load volatile ptr, ptr %18, align 16
   %20 = icmp eq ptr %19, %18
   br i1 %20, label %.critedge, label %21
 
@@ -12893,7 +12893,7 @@ define internal fastcc void @__io_cqring_overflow_flush(ptr noundef %0) unnamed_
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %41, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %43, align 8
   tail call void @kfree(ptr noundef %41) #24
-  %47 = load volatile ptr, ptr %18, align 8
+  %47 = load volatile ptr, ptr %18, align 16
   %48 = icmp eq ptr %47, %18
   br i1 %48, label %.critedge, label %24
 
@@ -12919,7 +12919,7 @@ define internal fastcc void @__io_cqring_overflow_flush(ptr noundef %0) unnamed_
   tail call void @_raw_spin_unlock(ptr noundef nonnull %17) #24
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !66
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %60 = load volatile ptr, ptr %59, align 8
+  %60 = load volatile ptr, ptr %59, align 16
   %61 = icmp eq ptr %60, %59
   br i1 %61, label %65, label %62
 
@@ -13340,7 +13340,7 @@ define internal fastcc void @io_ring_ctx_wait_and_kill(ptr noundef %0) unnamed_a
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   store volatile ptr %27, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 1344
-  store volatile ptr %27, ptr %28, align 8
+  store volatile ptr %27, ptr %28, align 16
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 1352
   store ptr @io_ring_exit_work, ptr %29, align 8
   %30 = load ptr, ptr @system_unbound_wq, align 8
@@ -14715,50 +14715,50 @@ define internal fastcc noundef ptr @io_ring_ctx_alloc(ptr noundef readonly captu
   store i32 %27, ptr %3, align 64
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 448
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 464
-  store volatile i32 -1, ptr %29, align 8
+  store volatile i32 -1, ptr %29, align 16
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 968
   tail call void @__init_waitqueue_head(ptr noundef nonnull %30, ptr noundef nonnull @.str.84, ptr noundef nonnull @io_ring_ctx_alloc.__key) #24
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 992
-  store volatile ptr %31, ptr %31, align 8
+  store volatile ptr %31, ptr %31, align 32
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 1000
   store volatile ptr %31, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 880
-  store volatile ptr %33, ptr %33, align 8
+  store volatile ptr %33, ptr %33, align 16
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 888
   store volatile ptr %33, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 1040
-  store volatile ptr %35, ptr %35, align 8
+  store volatile ptr %35, ptr %35, align 16
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 1048
   store volatile ptr %35, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 1056
   store ptr null, ptr %37, align 32
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 1152
-  store ptr null, ptr %38, align 8
+  store ptr null, ptr %38, align 64
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 1160
   store i32 0, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 1164
   store i32 32, ptr %40, align 4
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 1168
-  store i64 48, ptr %41, align 8
+  store i64 48, ptr %41, align 16
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 304
-  store ptr null, ptr %42, align 8
+  store ptr null, ptr %42, align 16
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 312
   store i32 0, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 316
   store i32 512, ptr %44, align 4
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 320
-  store i64 72, ptr %45, align 8
+  store i64 72, ptr %45, align 64
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 328
   store ptr null, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 336
-  store i32 0, ptr %47, align 8
+  store i32 0, ptr %47, align 16
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 340
   store i32 512, ptr %48, align 4
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 344
   store i64 376, ptr %49, align 8
   tail call void @io_futex_cache_init(ptr noundef nonnull %3) #24
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 1376
-  store i32 0, ptr %50, align 8
+  store i32 0, ptr %50, align 32
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 1384
   tail call void @__init_swait_queue_head(ptr noundef nonnull %51, ptr noundef nonnull @.str.83, ptr noundef nonnull @init_completion.__key) #24
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 1016
@@ -14766,7 +14766,7 @@ define internal fastcc noundef ptr @io_ring_ctx_alloc(ptr noundef readonly captu
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 1020
   store i32 12, ptr %53, align 4
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 1024
-  store ptr null, ptr %54, align 8
+  store ptr null, ptr %54, align 64
   tail call void @__mutex_init(ptr noundef nonnull %6, ptr noundef nonnull @.str.86, ptr noundef nonnull @io_ring_ctx_alloc.__key.85) #24
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 472
   tail call void @__init_waitqueue_head(ptr noundef nonnull %55, ptr noundef nonnull @.str.88, ptr noundef nonnull @io_ring_ctx_alloc.__key.87) #24
@@ -14781,28 +14781,28 @@ define internal fastcc noundef ptr @io_ring_ctx_alloc(ptr noundef readonly captu
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 352
   store ptr null, ptr %60, align 32
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 864
-  store volatile ptr %61, ptr %61, align 8
+  store volatile ptr %61, ptr %61, align 32
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 872
   store volatile ptr %61, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 1440
-  store volatile ptr %63, ptr %63, align 8
+  store volatile ptr %63, ptr %63, align 32
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 1448
   store volatile ptr %63, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 520
   store volatile ptr %65, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 528
-  store volatile ptr %65, ptr %66, align 8
+  store volatile ptr %65, ptr %66, align 16
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 536
   store volatile ptr %67, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 544
-  store volatile ptr %67, ptr %68, align 8
+  store volatile ptr %67, ptr %68, align 32
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 1136
-  store volatile ptr %69, ptr %69, align 8
+  store volatile ptr %69, ptr %69, align 16
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 1144
   store volatile ptr %69, ptr %70, align 8
-  store ptr null, ptr %28, align 8
+  store ptr null, ptr %28, align 64
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 1360
-  store volatile ptr %71, ptr %71, align 8
+  store volatile ptr %71, ptr %71, align 16
   %72 = getelementptr inbounds nuw i8, ptr %3, i64 1368
   store volatile ptr %71, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %3, i64 176
@@ -14814,11 +14814,11 @@ define internal fastcc noundef ptr @io_ring_ctx_alloc(ptr noundef readonly captu
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %75, i8 0, i64 16, i1 false)
   store i64 68719476704, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %3, i64 1248
-  store volatile ptr %77, ptr %77, align 8
+  store volatile ptr %77, ptr %77, align 32
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 1256
   store volatile ptr %77, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 1264
-  store ptr @io_fallback_req_func, ptr %79, align 8
+  store ptr @io_fallback_req_func, ptr %79, align 16
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 1272
   tail call void @init_timer_key(ptr noundef nonnull %80, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #24
   %81 = getelementptr inbounds nuw i8, ptr %3, i64 184

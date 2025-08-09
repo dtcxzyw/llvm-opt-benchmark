@@ -5590,7 +5590,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm14object_creatorINS_12TimerGloba
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 776
   call void @_ZN4llvm15SignpostEmitterC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #21
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 784
-  store i32 0, ptr %23, align 4, !tbaa !225
+  store i32 0, ptr %23, align 8, !tbaa !225
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 816
   store i8 0, ptr %24, align 8, !tbaa !194
   ret ptr %11

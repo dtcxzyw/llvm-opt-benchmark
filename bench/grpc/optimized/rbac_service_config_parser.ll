@@ -15333,7 +15333,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.
   store i64 %49, ptr %51, align 8, !tbaa !38, !alias.scope !443, !noalias !446
   store ptr %41, ptr %.092.i.i.i.i.i, align 8, !tbaa !50, !alias.scope !446, !noalias !443
   store i64 0, ptr %50, align 8, !tbaa !38, !alias.scope !446, !noalias !443
-  store i8 0, ptr %41, align 1, !tbaa !41, !alias.scope !446, !noalias !443
+  store i8 0, ptr %41, align 8, !tbaa !41, !alias.scope !446, !noalias !443
   %52 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i, i64 40
   %53 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i, i64 48
   %54 = load ptr, ptr %53, align 8, !tbaa !49, !alias.scope !446, !noalias !443

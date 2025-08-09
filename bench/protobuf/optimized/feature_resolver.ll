@@ -728,11 +728,11 @@ if.then.i220:                                     ; preds = %for.end58
 call5.i.i2.i.i.i.i.noexc:                         ; preds = %if.then.i220
   store ptr %call5.i.i2.i.i.i.i222, ptr %call5.i.i2.i.i.i.i222, align 8, !noalias !19
   %add.ptr.i.i.i.i.i.i221 = getelementptr inbounds nuw i8, ptr %call5.i.i2.i.i.i.i222, i64 8
-  store i8 0, ptr %add.ptr.i.i.i.i.i.i221, align 1, !noalias !19
+  store i8 0, ptr %add.ptr.i.i.i.i.i.i221, align 8, !noalias !19
   %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i2.i.i.i.i222, i64 9
   store i8 0, ptr %arrayidx.i.i.i.i, align 1, !noalias !19
   %arrayidx.i2.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i2.i.i.i.i222, i64 10
-  store i8 0, ptr %arrayidx.i2.i.i.i, align 1, !noalias !19
+  store i8 0, ptr %arrayidx.i2.i.i.i, align 2, !noalias !19
   %arrayidx.i3.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i2.i.i.i.i222, i64 11
   store i8 1, ptr %arrayidx.i3.i.i.i, align 1, !noalias !19
   store ptr %call5.i.i2.i.i.i.i222, ptr %rightmost_.i.i.i.i, align 8, !noalias !19
@@ -1043,9 +1043,9 @@ invoke.cont145:                                   ; preds = %invoke.cont141
   %edition_.i.i = getelementptr inbounds nuw i8, ptr %call2.i.i171, i64 32
   store i32 %110, ptr %edition_.i.i, align 8
   %111 = getelementptr inbounds nuw i8, ptr %call2.i.i171, i64 16
-  %112 = load i32, ptr %111, align 4
+  %112 = load i32, ptr %111, align 8
   %or.i173 = or i32 %112, 3
-  store i32 %or.i173, ptr %111, align 4
+  store i32 %or.i173, ptr %111, align 8
   %features_.i.i = getelementptr inbounds nuw i8, ptr %call2.i.i171, i64 24
   %113 = load ptr, ptr %features_.i.i, align 8
   %cmp.i.i174 = icmp eq ptr %113, null
@@ -1638,11 +1638,11 @@ if.then.i:                                        ; preds = %if.end
   %call5.i.i2.i.i.i.i = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21, !noalias !38
   store ptr %call5.i.i2.i.i.i.i, ptr %call5.i.i2.i.i.i.i, align 8, !noalias !38
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i2.i.i.i.i, i64 8
-  store i8 0, ptr %add.ptr.i.i.i.i.i.i, align 1, !noalias !38
+  store i8 0, ptr %add.ptr.i.i.i.i.i.i, align 8, !noalias !38
   %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i2.i.i.i.i, i64 9
   store i8 0, ptr %arrayidx.i.i.i.i, align 1, !noalias !38
   %arrayidx.i2.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i2.i.i.i.i, i64 10
-  store i8 0, ptr %arrayidx.i2.i.i.i, align 1, !noalias !38
+  store i8 0, ptr %arrayidx.i2.i.i.i, align 2, !noalias !38
   %arrayidx.i3.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i2.i.i.i.i, i64 11
   store i8 1, ptr %arrayidx.i3.i.i.i, align 1, !noalias !38
   store ptr %call5.i.i2.i.i.i.i, ptr %rightmost_.i.i, align 8, !noalias !38
@@ -1794,7 +1794,7 @@ if.then12.i:                                      ; preds = %if.then9.i
   %call5.i.i2.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %div1.i.i.i.i.i) #21, !noalias !38
   store ptr %call5.i.i2.i.i.i.i.i, ptr %call5.i.i2.i.i.i.i.i, align 8, !noalias !38
   %add.ptr.i.i.i.i.i.i5.i = getelementptr i8, ptr %call5.i.i2.i.i.i.i.i, i64 8
-  store i8 0, ptr %add.ptr.i.i.i.i.i.i5.i, align 1, !noalias !38
+  store i8 0, ptr %add.ptr.i.i.i.i.i.i5.i, align 8, !noalias !38
   %arrayidx.i.i.i.i.i25 = getelementptr i8, ptr %call5.i.i2.i.i.i.i.i, i64 9
   store i8 0, ptr %arrayidx.i.i.i.i.i25, align 1, !noalias !38
   %arrayidx.i3.i.i.i.i = getelementptr i8, ptr %call5.i.i2.i.i.i.i.i, i64 11
@@ -3832,7 +3832,7 @@ if.else:                                          ; preds = %entry
   store ptr %1, ptr %call5.i.i2.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i2.i.i.i, i64 8
   %add.ptr.i.i.i.i.i.i93 = getelementptr inbounds nuw i8, ptr %call5.i.i2.i.i.i, i64 256
-  store i32 0, ptr %add.ptr.i.i.i.i.i.i, align 1
+  store i32 0, ptr %add.ptr.i.i.i.i.i.i, align 8
   store ptr %0, ptr %add.ptr.i.i.i.i.i.i93, align 8
   %add.ptr.i.i.i.i.i = getelementptr i8, ptr %0, i64 8
   store i8 0, ptr %add.ptr.i.i.i.i.i, align 1
@@ -3857,11 +3857,11 @@ if.then124:                                       ; preds = %if.end122
   %call5.i.i2.i.i.i97 = call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #21
   store ptr %parent.0, ptr %call5.i.i2.i.i.i97, align 8
   %add.ptr.i.i.i.i.i98 = getelementptr inbounds nuw i8, ptr %call5.i.i2.i.i.i97, i64 8
-  store i8 %add139, ptr %add.ptr.i.i.i.i.i98, align 1
+  store i8 %add139, ptr %add.ptr.i.i.i.i.i98, align 8
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i2.i.i.i97, i64 9
   store i8 0, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i2.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i2.i.i.i97, i64 10
-  store i8 0, ptr %arrayidx.i2.i.i, align 1
+  store i8 0, ptr %arrayidx.i2.i.i, align 2
   %arrayidx.i3.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i2.i.i.i97, i64 11
   store i8 61, ptr %arrayidx.i3.i.i, align 1
   %25 = load i32, ptr %position_, align 4
@@ -3879,11 +3879,11 @@ if.else136:                                       ; preds = %if.end122
   %call5.i.i2.i.i.i103 = call noalias noundef nonnull dereferenceable(752) ptr @_Znwm(i64 noundef 752) #21
   store ptr %parent.0, ptr %call5.i.i2.i.i.i103, align 8
   %add.ptr.i.i.i.i.i.i104 = getelementptr inbounds nuw i8, ptr %call5.i.i2.i.i.i103, i64 8
-  store i8 %add139, ptr %add.ptr.i.i.i.i.i.i104, align 1
+  store i8 %add139, ptr %add.ptr.i.i.i.i.i.i104, align 8
   %arrayidx.i.i.i.i105 = getelementptr inbounds nuw i8, ptr %call5.i.i2.i.i.i103, i64 9
   store i8 0, ptr %arrayidx.i.i.i.i105, align 1
   %arrayidx.i2.i.i.i106 = getelementptr inbounds nuw i8, ptr %call5.i.i2.i.i.i103, i64 10
-  store i8 0, ptr %arrayidx.i2.i.i.i106, align 1
+  store i8 0, ptr %arrayidx.i2.i.i.i106, align 2
   %arrayidx.i3.i.i.i107 = getelementptr inbounds nuw i8, ptr %call5.i.i2.i.i.i103, i64 11
   store i8 0, ptr %arrayidx.i3.i.i.i107, align 1
   %28 = load i32, ptr %position_, align 4
@@ -3956,7 +3956,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 
 _ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10set_paramsIN6google8protobuf7EditionESt4lessIS6_ESaIS6_ELi256ELb0EEEE10transfer_nEmmmPSB_PS9_.exit.loopexit: ; preds = %for.body.i
   %.pre = load ptr, ptr %this, align 8
-  %.pre83 = load i8, ptr %add.ptr.i.i.i, align 1
+  %.pre83 = load i8, ptr %add.ptr.i.i.i, align 8
   %.pre84 = zext i8 %.pre83 to i64
   br label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10set_paramsIN6google8protobuf7EditionESt4lessIS6_ESaIS6_ELi256ELb0EEEE10transfer_nEmmmPSB_PS9_.exit
 
@@ -4103,7 +4103,7 @@ _ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10set_paramsIN6google
   %5 = load i32, ptr %arrayidx.i2.i, align 4
   store i32 %5, ptr %arrayidx.i.i40, align 1
   %arrayidx.i = getelementptr i8, ptr %this, i64 10
-  %6 = load i8, ptr %arrayidx.i, align 1
+  %6 = load i8, ptr %arrayidx.i, align 2
   %conv22 = zext i8 %6 to i32
   %sub25 = sub nsw i32 %conv22, %sub
   %conv26 = sext i32 %sub25 to i64
@@ -4132,7 +4132,7 @@ _ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10set_paramsIN6google
 _ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10set_paramsIN6google8protobuf7EditionESt4lessIS6_ESaIS6_ELi256ELb0EEEE10transfer_nEmmmPSB_PS9_.exit: ; preds = %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10set_paramsIN6google8protobuf7EditionESt4lessIS6_ESaIS6_ELi256ELb0EEEE10transfer_nEmmmPSB_PS9_.exit.loopexit, %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10set_paramsIN6google8protobuf7EditionESt4lessIS6_ESaIS6_ELi256ELb0EEEE19transfer_n_backwardEmmmPSB_PS9_.exit
   %conv31.pre-phi = phi i32 [ %.pre81, %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10set_paramsIN6google8protobuf7EditionESt4lessIS6_ESaIS6_ELi256ELb0EEEE10transfer_nEmmmPSB_PS9_.exit.loopexit ], [ %conv22, %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10set_paramsIN6google8protobuf7EditionESt4lessIS6_ESaIS6_ELi256ELb0EEEE19transfer_n_backwardEmmmPSB_PS9_.exit ]
   %8 = load ptr, ptr %this, align 8
-  %9 = load i8, ptr %add.ptr.i.i.i, align 1
+  %9 = load i8, ptr %add.ptr.i.i.i, align 8
   %conv29 = zext i8 %9 to i64
   %sub33 = sub nsw i32 %conv31.pre-phi, %conv4
   %conv34 = sext i32 %sub33 to i64
@@ -4280,7 +4280,7 @@ _ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10set_paramsIN6google
   store i8 %dec, ptr %arrayidx.i24, align 1
   %7 = load ptr, ptr %this, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %this, i64 8
-  %8 = load i8, ptr %add.ptr.i.i.i, align 1
+  %8 = load i8, ptr %add.ptr.i.i.i, align 8
   %conv.i = zext i8 %dec to i64
   %arrayidx.i1.i = getelementptr inbounds nuw i32, ptr %add.ptr.i.i.i.i, i64 %conv.i
   %conv.i33 = zext i8 %8 to i32
@@ -4355,7 +4355,7 @@ for.body.i36:                                     ; preds = %for.body.i36, %for.
 
 _ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10set_paramsIN6google8protobuf7EditionESt4lessIS6_ESaIS6_ELi256ELb0EEEE13emplace_valueIJPS6_EEEvhPS9_DpOT_.exit: ; preds = %for.body.i36, %if.end.i, %land.lhs.true.i
   %17 = load ptr, ptr %this, align 8
-  %18 = load i8, ptr %add.ptr.i.i.i, align 1
+  %18 = load i8, ptr %add.ptr.i.i.i, align 8
   %add39 = add i8 %18, 1
   %add.ptr.i.i.i.i39 = getelementptr inbounds nuw i8, ptr %17, i64 256
   %idxprom.i.i40 = zext i8 %add39 to i64
@@ -6522,7 +6522,7 @@ if.then12:                                        ; preds = %if.then9
   %call5.i.i2.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %div1.i.i.i.i) #21
   store ptr %call5.i.i2.i.i.i.i, ptr %call5.i.i2.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i5 = getelementptr i8, ptr %call5.i.i2.i.i.i.i, i64 8
-  store i8 0, ptr %add.ptr.i.i.i.i.i.i5, align 1
+  store i8 0, ptr %add.ptr.i.i.i.i.i.i5, align 8
   %arrayidx.i.i.i.i = getelementptr i8, ptr %call5.i.i2.i.i.i.i, i64 9
   store i8 0, ptr %arrayidx.i.i.i.i, align 1
   %arrayidx.i3.i.i.i = getelementptr i8, ptr %call5.i.i2.i.i.i.i, i64 11

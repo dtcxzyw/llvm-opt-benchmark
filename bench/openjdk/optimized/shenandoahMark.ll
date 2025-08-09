@@ -932,7 +932,7 @@ _ZN14ShenandoahHeap28check_cancelled_gc_and_yieldEb.exit.us: ; preds = %40, %37,
   %58 = getelementptr inbounds nuw %class.ShenandoahMarkTask, ptr %56, i64 %57
   %59 = load i64, ptr %58, align 8
   store i64 %59, ptr %7, align 8
-  %60 = load volatile i32, ptr %459, align 4
+  %60 = load volatile i32, ptr %459, align 8
   %61 = sub i32 %54, %60
   %62 = and i32 %61, 131071
   switch i32 %62, label %99 [
@@ -957,7 +957,7 @@ _ZN14ShenandoahHeap28check_cancelled_gc_and_yieldEb.exit.us: ; preds = %40, %37,
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.i.us: ; preds = %67, %63
   store volatile i64 %.sroa.08.0.insert.insert11.i.i.i.us, ptr %459, align 8
-  %70 = load volatile i32, ptr %459, align 4
+  %70 = load volatile i32, ptr %459, align 8
   br label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread6.i.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread8.i.us: ; preds = %67
@@ -1069,8 +1069,8 @@ _ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE3popEv.exit.i.i.us: ; preds = %_ZN5St
 
 129:                                              ; preds = %118
   %.sroa.0.0.copyload.i.i.us = load i64, ptr %457, align 8
-  %130 = load volatile i32, ptr %458, align 4
-  %131 = load volatile i32, ptr %459, align 4
+  %130 = load volatile i32, ptr %458, align 8
+  %131 = load volatile i32, ptr %459, align 8
   %132 = sub i32 %130, %131
   %133 = and i32 %132, 131070
   %.not.i.i.i.us = icmp eq i32 %133, 131070
@@ -1084,7 +1084,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.t
   %137 = add i32 %130, 1
   %138 = and i32 %137, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  store volatile i32 %138, ptr %458, align 4
+  store volatile i32 %138, ptr %458, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i.us: ; preds = %129
@@ -1359,9 +1359,9 @@ _ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i.us: ; preds = %289, %25
 300:                                              ; preds = %_ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i.us
   %.sroa.0.0.copyload.i.i123.us = load i64, ptr %299, align 8
   %301 = getelementptr inbounds nuw i8, ptr %293, i64 128
-  %302 = load volatile i32, ptr %301, align 4
+  %302 = load volatile i32, ptr %301, align 8
   %303 = getelementptr inbounds nuw i8, ptr %293, i64 256
-  %304 = load volatile i32, ptr %303, align 4
+  %304 = load volatile i32, ptr %303, align 8
   %305 = sub i32 %302, %304
   %306 = and i32 %305, 131070
   %.not.i.i12.i.us = icmp eq i32 %306, 131070
@@ -1376,7 +1376,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.t
   %311 = add i32 %302, 1
   %312 = and i32 %311, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  store volatile i32 %312, ptr %301, align 4
+  store volatile i32 %312, ptr %301, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i125.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i126.us: ; preds = %300
@@ -1793,7 +1793,7 @@ _ZN14ShenandoahHeap28check_cancelled_gc_and_yieldEb.exit46.us: ; preds = %522, %
   %541 = getelementptr inbounds nuw %class.ShenandoahMarkTask, ptr %539, i64 %540
   %542 = load i64, ptr %541, align 8
   store i64 %542, ptr %7, align 8
-  %543 = load volatile i32, ptr %499, align 4
+  %543 = load volatile i32, ptr %499, align 8
   %544 = sub i32 %537, %543
   %545 = and i32 %544, 131071
   switch i32 %545, label %_ZN19GenericTaskQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE5stealEjRS2_.exit.us [
@@ -1818,7 +1818,7 @@ _ZN14ShenandoahHeap28check_cancelled_gc_and_yieldEb.exit46.us: ; preds = %522, %
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.i52.us: ; preds = %550, %546
   store volatile i64 %.sroa.08.0.insert.insert11.i.i.i51.us, ptr %499, align 8
-  %553 = load volatile i32, ptr %499, align 4
+  %553 = load volatile i32, ptr %499, align 8
   br label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread6.i53.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread8.i59.us: ; preds = %550
@@ -1951,8 +1951,8 @@ _ZN19GenericTaskQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTas
 
 617:                                              ; preds = %606
   %.sroa.0.0.copyload.i.i81.us = load i64, ptr %497, align 8
-  %618 = load volatile i32, ptr %498, align 4
-  %619 = load volatile i32, ptr %499, align 4
+  %618 = load volatile i32, ptr %498, align 8
+  %619 = load volatile i32, ptr %499, align 8
   %620 = sub i32 %618, %619
   %621 = and i32 %620, 131070
   %.not.i.i.i82.us = icmp eq i32 %621, 131070
@@ -1966,7 +1966,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.t
   %625 = add i32 %618, 1
   %626 = and i32 %625, 131071
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  store volatile i32 %626, ptr %498, align 4
+  store volatile i32 %626, ptr %498, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i84.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i86.us: ; preds = %617
@@ -2241,9 +2241,9 @@ _ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i144.us: ; preds = %777, 
 788:                                              ; preds = %_ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i144.us
   %.sroa.0.0.copyload.i.i148.us = load i64, ptr %787, align 8
   %789 = getelementptr inbounds nuw i8, ptr %781, i64 128
-  %790 = load volatile i32, ptr %789, align 4
+  %790 = load volatile i32, ptr %789, align 8
   %791 = getelementptr inbounds nuw i8, ptr %781, i64 256
-  %792 = load volatile i32, ptr %791, align 4
+  %792 = load volatile i32, ptr %791, align 8
   %793 = sub i32 %790, %792
   %794 = and i32 %793, 131070
   %.not.i.i12.i149.us = icmp eq i32 %794, 131070
@@ -2258,7 +2258,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.t
   %799 = add i32 %790, 1
   %800 = and i32 %799, 131071
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  store volatile i32 %800, ptr %789, align 4
+  store volatile i32 %800, ptr %789, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i151.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i152.us: ; preds = %788
@@ -2672,7 +2672,7 @@ _ZN14ShenandoahHeap28check_cancelled_gc_and_yieldEb.exit.us: ; preds = %37, %34,
   %55 = getelementptr inbounds nuw %class.ShenandoahMarkTask, ptr %53, i64 %54
   %56 = load i64, ptr %55, align 8
   store i64 %56, ptr %7, align 8
-  %57 = load volatile i32, ptr %174, align 4
+  %57 = load volatile i32, ptr %174, align 8
   %58 = sub i32 %51, %57
   %59 = and i32 %58, 131071
   switch i32 %59, label %96 [
@@ -2697,7 +2697,7 @@ _ZN14ShenandoahHeap28check_cancelled_gc_and_yieldEb.exit.us: ; preds = %37, %34,
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.i.us: ; preds = %64, %60
   store volatile i64 %.sroa.08.0.insert.insert11.i.i.i.us, ptr %174, align 8
-  %67 = load volatile i32, ptr %174, align 4
+  %67 = load volatile i32, ptr %174, align 8
   br label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread6.i.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread8.i.us: ; preds = %64
@@ -3045,7 +3045,7 @@ _ZN14ShenandoahHeap28check_cancelled_gc_and_yieldEb.exit46.us: ; preds = %234, %
   %253 = getelementptr inbounds nuw %class.ShenandoahMarkTask, ptr %251, i64 %252
   %254 = load i64, ptr %253, align 8
   store i64 %254, ptr %7, align 8
-  %255 = load volatile i32, ptr %214, align 4
+  %255 = load volatile i32, ptr %214, align 8
   %256 = sub i32 %249, %255
   %257 = and i32 %256, 131071
   switch i32 %257, label %_ZN19GenericTaskQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE5stealEjRS2_.exit.us [
@@ -3070,7 +3070,7 @@ _ZN14ShenandoahHeap28check_cancelled_gc_and_yieldEb.exit46.us: ; preds = %234, %
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.i52.us: ; preds = %262, %258
   store volatile i64 %.sroa.08.0.insert.insert11.i.i.i51.us, ptr %214, align 8
-  %265 = load volatile i32, ptr %214, align 4
+  %265 = load volatile i32, ptr %214, align 8
   br label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread6.i53.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread8.i59.us: ; preds = %262
@@ -3557,9 +3557,9 @@ _ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit: ; preds = %39, %66
 75:                                               ; preds = %_ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit
   %.sroa.0.0.copyload.i = load i64, ptr %73, align 8
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %77 = load volatile i32, ptr %76, align 4
+  %77 = load volatile i32, ptr %76, align 8
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %79 = load volatile i32, ptr %78, align 4
+  %79 = load volatile i32, ptr %78, align 8
   %80 = sub i32 %77, %79
   %81 = and i32 %80, 131070
   %.not.i.i12 = icmp eq i32 %81, 131070
@@ -3574,7 +3574,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.t
   %86 = add i32 %77, 1
   %87 = and i32 %86, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  store volatile i32 %87, ptr %76, align 4
+  store volatile i32 %87, ptr %76, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i: ; preds = %75
@@ -3773,9 +3773,9 @@ _ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit: ; preds = %46, %73
 82:                                               ; preds = %_ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit
   %.sroa.0.0.copyload.i = load i64, ptr %80, align 8
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %84 = load volatile i32, ptr %83, align 4
+  %84 = load volatile i32, ptr %83, align 8
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %86 = load volatile i32, ptr %85, align 4
+  %86 = load volatile i32, ptr %85, align 8
   %87 = sub i32 %84, %86
   %88 = and i32 %87, 131070
   %.not.i.i12 = icmp eq i32 %88, 131070
@@ -3790,7 +3790,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.t
   %93 = add i32 %84, 1
   %94 = and i32 %93, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  store volatile i32 %94, ptr %83, align 4
+  store volatile i32 %94, ptr %83, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i: ; preds = %82
@@ -3945,9 +3945,9 @@ define linkonce_odr hidden void @_ZN14ShenandoahMark22do_chunked_array_startI31S
 47:                                               ; preds = %35
   %.sroa.0.0.copyload.i = load i64, ptr %45, align 8
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %49 = load volatile i32, ptr %48, align 4
+  %49 = load volatile i32, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %51 = load volatile i32, ptr %50, align 4
+  %51 = load volatile i32, ptr %50, align 8
   %52 = sub i32 %49, %51
   %53 = and i32 %52, 131070
   %.not.i.i = icmp eq i32 %53, 131070
@@ -3962,7 +3962,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.t
   %58 = add i32 %49, 1
   %59 = and i32 %58, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  store volatile i32 %59, ptr %48, align 4
+  store volatile i32 %59, ptr %48, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i: ; preds = %47
@@ -4090,8 +4090,8 @@ _ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.
 
 123:                                              ; preds = %113
   %.sroa.0.0.copyload.i57 = load i64, ptr %95, align 8
-  %124 = load volatile i32, ptr %96, align 4
-  %125 = load volatile i32, ptr %97, align 4
+  %124 = load volatile i32, ptr %96, align 8
+  %125 = load volatile i32, ptr %97, align 8
   %126 = sub i32 %124, %125
   %127 = and i32 %126, 131070
   %.not.i.i58 = icmp eq i32 %127, 131070
@@ -4105,7 +4105,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.t
   %131 = add i32 %124, 1
   %132 = and i32 %131, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  store volatile i32 %132, ptr %96, align 4
+  store volatile i32 %132, ptr %96, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i60
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i61: ; preds = %123
@@ -4486,8 +4486,8 @@ define linkonce_odr hidden void @_ZN14ShenandoahMark16do_chunked_arrayI31Shenand
 
 37:                                               ; preds = %25
   %.sroa.0.0.copyload.i = load i64, ptr %12, align 8
-  %38 = load volatile i32, ptr %13, align 4
-  %39 = load volatile i32, ptr %14, align 4
+  %38 = load volatile i32, ptr %13, align 8
+  %39 = load volatile i32, ptr %14, align 8
   %40 = sub i32 %38, %39
   %41 = and i32 %40, 131070
   %.not.i.i = icmp eq i32 %41, 131070
@@ -4501,7 +4501,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.t
   %45 = add i32 %38, 1
   %46 = and i32 %45, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  store volatile i32 %46, ptr %13, align 4
+  store volatile i32 %46, ptr %13, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i: ; preds = %37
@@ -4858,7 +4858,7 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI6PaddedI25Buffe
   %66 = load volatile i64, ptr %58, align 8
   %.sroa.010.0.extract.trunc.i = trunc i64 %66 to i32
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  %67 = load volatile i32, ptr %56, align 4
+  %67 = load volatile i32, ptr %56, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
   %68 = sub i32 %67, %.sroa.010.0.extract.trunc.i
   %69 = and i32 %68, 131071
@@ -4894,7 +4894,7 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI6PaddedI25Buffe
   %84 = load volatile i64, ptr %47, align 8
   %.sroa.010.0.extract.trunc.i42 = trunc i64 %84 to i32
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  %85 = load volatile i32, ptr %45, align 4
+  %85 = load volatile i32, ptr %45, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
   %86 = sub i32 %85, %.sroa.010.0.extract.trunc.i42
   %87 = and i32 %86, 131071
@@ -4947,7 +4947,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0
   %.sroa.010.0.extract.trunc.i49 = trunc i64 %110 to i32
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
   %111 = getelementptr inbounds nuw i8, ptr %108, i64 128
-  %112 = load volatile i32, ptr %111, align 4
+  %112 = load volatile i32, ptr %111, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
   %113 = sub i32 %112, %.sroa.010.0.extract.trunc.i49
   %114 = and i32 %113, 131071
@@ -5149,9 +5149,9 @@ _ZNK7oopDesc5klassEv.exit7.i:                     ; preds = %29
 89:                                               ; preds = %77
   %.sroa.0.0.copyload.i = load i64, ptr %87, align 8
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %91 = load volatile i32, ptr %90, align 4
+  %91 = load volatile i32, ptr %90, align 8
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %93 = load volatile i32, ptr %92, align 4
+  %93 = load volatile i32, ptr %92, align 8
   %94 = sub i32 %91, %93
   %95 = and i32 %94, 131070
   %.not.i.i = icmp eq i32 %95, 131070
@@ -5166,7 +5166,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.t
   %100 = add i32 %91, 1
   %101 = and i32 %100, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  store volatile i32 %101, ptr %90, align 4
+  store volatile i32 %101, ptr %90, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i: ; preds = %89
@@ -5294,8 +5294,8 @@ _ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.
 
 165:                                              ; preds = %155
   %.sroa.0.0.copyload.i58 = load i64, ptr %137, align 8
-  %166 = load volatile i32, ptr %138, align 4
-  %167 = load volatile i32, ptr %139, align 4
+  %166 = load volatile i32, ptr %138, align 8
+  %167 = load volatile i32, ptr %139, align 8
   %168 = sub i32 %166, %167
   %169 = and i32 %168, 131070
   %.not.i.i59 = icmp eq i32 %169, 131070
@@ -5309,7 +5309,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.t
   %173 = add i32 %166, 1
   %174 = and i32 %173, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  store volatile i32 %174, ptr %138, align 4
+  store volatile i32 %174, ptr %138, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i61
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i62: ; preds = %165
@@ -5518,8 +5518,8 @@ define linkonce_odr hidden void @_ZN14ShenandoahMark16do_chunked_arrayI25Shenand
 
 38:                                               ; preds = %25
   %.sroa.0.0.copyload.i = load i64, ptr %12, align 8
-  %39 = load volatile i32, ptr %13, align 4
-  %40 = load volatile i32, ptr %14, align 4
+  %39 = load volatile i32, ptr %13, align 8
+  %40 = load volatile i32, ptr %14, align 8
   %41 = sub i32 %39, %40
   %42 = and i32 %41, 131070
   %.not.i.i = icmp eq i32 %42, 131070
@@ -5533,7 +5533,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.t
   %46 = add i32 %39, 1
   %47 = and i32 %46, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  store volatile i32 %47, ptr %13, align 4
+  store volatile i32 %47, ptr %13, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i: ; preds = %38
@@ -6023,9 +6023,9 @@ _ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i: ; preds = %105, %135
 147:                                              ; preds = %_ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i
   %.sroa.0.0.copyload.i.i = load i64, ptr %145, align 8
   %148 = getelementptr inbounds nuw i8, ptr %139, i64 128
-  %149 = load volatile i32, ptr %148, align 4
+  %149 = load volatile i32, ptr %148, align 8
   %150 = getelementptr inbounds nuw i8, ptr %139, i64 256
-  %151 = load volatile i32, ptr %150, align 4
+  %151 = load volatile i32, ptr %150, align 8
   %152 = sub i32 %149, %151
   %153 = and i32 %152, 131070
   %.not.i.i12.i = icmp eq i32 %153, 131070
@@ -6040,7 +6040,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.t
   %158 = add i32 %149, 1
   %159 = and i32 %158, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  store volatile i32 %159, ptr %148, align 4
+  store volatile i32 %159, ptr %148, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i: ; preds = %147
@@ -8301,9 +8301,9 @@ _ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i: ; preds = %106, %136
 148:                                              ; preds = %_ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i
   %.sroa.0.0.copyload.i.i = load i64, ptr %146, align 8
   %149 = getelementptr inbounds nuw i8, ptr %140, i64 128
-  %150 = load volatile i32, ptr %149, align 4
+  %150 = load volatile i32, ptr %149, align 8
   %151 = getelementptr inbounds nuw i8, ptr %140, i64 256
-  %152 = load volatile i32, ptr %151, align 4
+  %152 = load volatile i32, ptr %151, align 8
   %153 = sub i32 %150, %152
   %154 = and i32 %153, 131070
   %.not.i.i12.i = icmp eq i32 %154, 131070
@@ -8318,7 +8318,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.t
   %159 = add i32 %150, 1
   %160 = and i32 %159, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  store volatile i32 %160, ptr %149, align 4
+  store volatile i32 %160, ptr %149, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i: ; preds = %148
@@ -9156,9 +9156,9 @@ _ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i: ; preds = %105, %135
 147:                                              ; preds = %_ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i
   %.sroa.0.0.copyload.i.i = load i64, ptr %145, align 8
   %148 = getelementptr inbounds nuw i8, ptr %139, i64 128
-  %149 = load volatile i32, ptr %148, align 4
+  %149 = load volatile i32, ptr %148, align 8
   %150 = getelementptr inbounds nuw i8, ptr %139, i64 256
-  %151 = load volatile i32, ptr %150, align 4
+  %151 = load volatile i32, ptr %150, align 8
   %152 = sub i32 %149, %151
   %153 = and i32 %152, 131070
   %.not.i.i12.i = icmp eq i32 %153, 131070
@@ -9173,7 +9173,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.t
   %158 = add i32 %149, 1
   %159 = and i32 %158, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  store volatile i32 %159, ptr %148, align 4
+  store volatile i32 %159, ptr %148, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i: ; preds = %147
@@ -9700,9 +9700,9 @@ _ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i: ; preds = %105, %135
 147:                                              ; preds = %_ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i
   %.sroa.0.0.copyload.i.i = load i64, ptr %145, align 8
   %148 = getelementptr inbounds nuw i8, ptr %139, i64 128
-  %149 = load volatile i32, ptr %148, align 4
+  %149 = load volatile i32, ptr %148, align 8
   %150 = getelementptr inbounds nuw i8, ptr %139, i64 256
-  %151 = load volatile i32, ptr %150, align 4
+  %151 = load volatile i32, ptr %150, align 8
   %152 = sub i32 %149, %151
   %153 = and i32 %152, 131070
   %.not.i.i12.i = icmp eq i32 %153, 131070
@@ -9717,7 +9717,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.t
   %158 = add i32 %149, 1
   %159 = and i32 %158, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  store volatile i32 %159, ptr %148, align 4
+  store volatile i32 %159, ptr %148, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i: ; preds = %147
@@ -11144,9 +11144,9 @@ _ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i: ; preds = %71, %98
 107:                                              ; preds = %_ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i
   %.sroa.0.0.copyload.i.i = load i64, ptr %105, align 8
   %108 = getelementptr inbounds nuw i8, ptr %33, i64 128
-  %109 = load volatile i32, ptr %108, align 4
+  %109 = load volatile i32, ptr %108, align 8
   %110 = getelementptr inbounds nuw i8, ptr %33, i64 256
-  %111 = load volatile i32, ptr %110, align 4
+  %111 = load volatile i32, ptr %110, align 8
   %112 = sub i32 %109, %111
   %113 = and i32 %112, 131070
   %.not.i.i12.i = icmp eq i32 %113, 131070
@@ -11161,7 +11161,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.t
   %118 = add i32 %109, 1
   %119 = and i32 %118, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  store volatile i32 %119, ptr %108, align 4
+  store volatile i32 %119, ptr %108, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i: ; preds = %107
@@ -11625,9 +11625,9 @@ _ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i: ; preds = %72, %99
 108:                                              ; preds = %_ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i
   %.sroa.0.0.copyload.i.i = load i64, ptr %106, align 8
   %109 = getelementptr inbounds nuw i8, ptr %34, i64 128
-  %110 = load volatile i32, ptr %109, align 4
+  %110 = load volatile i32, ptr %109, align 8
   %111 = getelementptr inbounds nuw i8, ptr %34, i64 256
-  %112 = load volatile i32, ptr %111, align 4
+  %112 = load volatile i32, ptr %111, align 8
   %113 = sub i32 %110, %112
   %114 = and i32 %113, 131070
   %.not.i.i12.i = icmp eq i32 %114, 131070
@@ -11642,7 +11642,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.t
   %119 = add i32 %110, 1
   %120 = and i32 %119, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  store volatile i32 %120, ptr %109, align 4
+  store volatile i32 %120, ptr %109, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i: ; preds = %108
@@ -12157,9 +12157,9 @@ _ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i: ; preds = %71, %98
 107:                                              ; preds = %_ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i
   %.sroa.0.0.copyload.i.i = load i64, ptr %105, align 8
   %108 = getelementptr inbounds nuw i8, ptr %33, i64 128
-  %109 = load volatile i32, ptr %108, align 4
+  %109 = load volatile i32, ptr %108, align 8
   %110 = getelementptr inbounds nuw i8, ptr %33, i64 256
-  %111 = load volatile i32, ptr %110, align 4
+  %111 = load volatile i32, ptr %110, align 8
   %112 = sub i32 %109, %111
   %113 = and i32 %112, 131070
   %.not.i.i12.i = icmp eq i32 %113, 131070
@@ -12174,7 +12174,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.t
   %118 = add i32 %109, 1
   %119 = and i32 %118, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  store volatile i32 %119, ptr %108, align 4
+  store volatile i32 %119, ptr %108, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i: ; preds = %107
@@ -12569,9 +12569,9 @@ _ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i: ; preds = %71, %98
 107:                                              ; preds = %_ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i
   %.sroa.0.0.copyload.i.i = load i64, ptr %105, align 8
   %108 = getelementptr inbounds nuw i8, ptr %33, i64 128
-  %109 = load volatile i32, ptr %108, align 4
+  %109 = load volatile i32, ptr %108, align 8
   %110 = getelementptr inbounds nuw i8, ptr %33, i64 256
-  %111 = load volatile i32, ptr %110, align 4
+  %111 = load volatile i32, ptr %110, align 8
   %112 = sub i32 %109, %111
   %113 = and i32 %112, 131070
   %.not.i.i12.i = icmp eq i32 %113, 131070
@@ -12586,7 +12586,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.t
   %118 = add i32 %109, 1
   %119 = and i32 %118, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  store volatile i32 %119, ptr %108, align 4
+  store volatile i32 %119, ptr %108, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i: ; preds = %107
@@ -13542,7 +13542,7 @@ _ZN14ShenandoahHeap28check_cancelled_gc_and_yieldEb.exit.us: ; preds = %40, %37,
   %58 = getelementptr inbounds nuw %class.ShenandoahMarkTask, ptr %56, i64 %57
   %59 = load i64, ptr %58, align 8
   store i64 %59, ptr %7, align 8
-  %60 = load volatile i32, ptr %460, align 4
+  %60 = load volatile i32, ptr %460, align 8
   %61 = sub i32 %54, %60
   %62 = and i32 %61, 131071
   switch i32 %62, label %99 [
@@ -13567,7 +13567,7 @@ _ZN14ShenandoahHeap28check_cancelled_gc_and_yieldEb.exit.us: ; preds = %40, %37,
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.i.us: ; preds = %67, %63
   store volatile i64 %.sroa.08.0.insert.insert11.i.i.i.us, ptr %460, align 8
-  %70 = load volatile i32, ptr %460, align 4
+  %70 = load volatile i32, ptr %460, align 8
   br label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread6.i.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread8.i.us: ; preds = %67
@@ -13679,8 +13679,8 @@ _ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE3popEv.exit.i.i.us: ; preds = %_ZN5St
 
 129:                                              ; preds = %118
   %.sroa.0.0.copyload.i.i.us = load i64, ptr %458, align 8
-  %130 = load volatile i32, ptr %459, align 4
-  %131 = load volatile i32, ptr %460, align 4
+  %130 = load volatile i32, ptr %459, align 8
+  %131 = load volatile i32, ptr %460, align 8
   %132 = sub i32 %130, %131
   %133 = and i32 %132, 131070
   %.not.i.i.i.us = icmp eq i32 %133, 131070
@@ -13694,7 +13694,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.t
   %137 = add i32 %130, 1
   %138 = and i32 %137, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  store volatile i32 %138, ptr %459, align 4
+  store volatile i32 %138, ptr %459, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i.us: ; preds = %129
@@ -13969,9 +13969,9 @@ _ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i.us: ; preds = %289, %25
 300:                                              ; preds = %_ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i.us
   %.sroa.0.0.copyload.i.i124.us = load i64, ptr %299, align 8
   %301 = getelementptr inbounds nuw i8, ptr %293, i64 128
-  %302 = load volatile i32, ptr %301, align 4
+  %302 = load volatile i32, ptr %301, align 8
   %303 = getelementptr inbounds nuw i8, ptr %293, i64 256
-  %304 = load volatile i32, ptr %303, align 4
+  %304 = load volatile i32, ptr %303, align 8
   %305 = sub i32 %302, %304
   %306 = and i32 %305, 131070
   %.not.i.i12.i.us = icmp eq i32 %306, 131070
@@ -13986,7 +13986,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.t
   %311 = add i32 %302, 1
   %312 = and i32 %311, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  store volatile i32 %312, ptr %301, align 4
+  store volatile i32 %312, ptr %301, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i126.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i127.us: ; preds = %300
@@ -14408,7 +14408,7 @@ _ZN14ShenandoahHeap28check_cancelled_gc_and_yieldEb.exit46.us: ; preds = %523, %
   %542 = getelementptr inbounds nuw %class.ShenandoahMarkTask, ptr %540, i64 %541
   %543 = load i64, ptr %542, align 8
   store i64 %543, ptr %7, align 8
-  %544 = load volatile i32, ptr %500, align 4
+  %544 = load volatile i32, ptr %500, align 8
   %545 = sub i32 %538, %544
   %546 = and i32 %545, 131071
   switch i32 %546, label %_ZN19GenericTaskQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE5stealEjRS2_.exit.us [
@@ -14433,7 +14433,7 @@ _ZN14ShenandoahHeap28check_cancelled_gc_and_yieldEb.exit46.us: ; preds = %523, %
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.i52.us: ; preds = %551, %547
   store volatile i64 %.sroa.08.0.insert.insert11.i.i.i51.us, ptr %500, align 8
-  %554 = load volatile i32, ptr %500, align 4
+  %554 = load volatile i32, ptr %500, align 8
   br label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread6.i53.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread8.i59.us: ; preds = %551
@@ -14566,8 +14566,8 @@ _ZN19GenericTaskQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTas
 
 618:                                              ; preds = %607
   %.sroa.0.0.copyload.i.i82.us = load i64, ptr %498, align 8
-  %619 = load volatile i32, ptr %499, align 4
-  %620 = load volatile i32, ptr %500, align 4
+  %619 = load volatile i32, ptr %499, align 8
+  %620 = load volatile i32, ptr %500, align 8
   %621 = sub i32 %619, %620
   %622 = and i32 %621, 131070
   %.not.i.i.i83.us = icmp eq i32 %622, 131070
@@ -14581,7 +14581,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.t
   %626 = add i32 %619, 1
   %627 = and i32 %626, 131071
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  store volatile i32 %627, ptr %499, align 4
+  store volatile i32 %627, ptr %499, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i85.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i87.us: ; preds = %618
@@ -14856,9 +14856,9 @@ _ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i145.us: ; preds = %778, 
 789:                                              ; preds = %_ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i145.us
   %.sroa.0.0.copyload.i.i149.us = load i64, ptr %788, align 8
   %790 = getelementptr inbounds nuw i8, ptr %782, i64 128
-  %791 = load volatile i32, ptr %790, align 4
+  %791 = load volatile i32, ptr %790, align 8
   %792 = getelementptr inbounds nuw i8, ptr %782, i64 256
-  %793 = load volatile i32, ptr %792, align 4
+  %793 = load volatile i32, ptr %792, align 8
   %794 = sub i32 %791, %793
   %795 = and i32 %794, 131070
   %.not.i.i12.i150.us = icmp eq i32 %795, 131070
@@ -14873,7 +14873,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.t
   %800 = add i32 %791, 1
   %801 = and i32 %800, 131071
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  store volatile i32 %801, ptr %790, align 4
+  store volatile i32 %801, ptr %790, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i152.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i153.us: ; preds = %789
@@ -15292,7 +15292,7 @@ _ZN14ShenandoahHeap28check_cancelled_gc_and_yieldEb.exit.us: ; preds = %37, %34,
   %55 = getelementptr inbounds nuw %class.ShenandoahMarkTask, ptr %53, i64 %54
   %56 = load i64, ptr %55, align 8
   store i64 %56, ptr %7, align 8
-  %57 = load volatile i32, ptr %175, align 4
+  %57 = load volatile i32, ptr %175, align 8
   %58 = sub i32 %51, %57
   %59 = and i32 %58, 131071
   switch i32 %59, label %96 [
@@ -15317,7 +15317,7 @@ _ZN14ShenandoahHeap28check_cancelled_gc_and_yieldEb.exit.us: ; preds = %37, %34,
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.i.us: ; preds = %64, %60
   store volatile i64 %.sroa.08.0.insert.insert11.i.i.i.us, ptr %175, align 8
-  %67 = load volatile i32, ptr %175, align 4
+  %67 = load volatile i32, ptr %175, align 8
   br label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread6.i.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread8.i.us: ; preds = %64
@@ -15670,7 +15670,7 @@ _ZN14ShenandoahHeap28check_cancelled_gc_and_yieldEb.exit46.us: ; preds = %235, %
   %254 = getelementptr inbounds nuw %class.ShenandoahMarkTask, ptr %252, i64 %253
   %255 = load i64, ptr %254, align 8
   store i64 %255, ptr %7, align 8
-  %256 = load volatile i32, ptr %215, align 4
+  %256 = load volatile i32, ptr %215, align 8
   %257 = sub i32 %250, %256
   %258 = and i32 %257, 131071
   switch i32 %258, label %_ZN19GenericTaskQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE5stealEjRS2_.exit.us [
@@ -15695,7 +15695,7 @@ _ZN14ShenandoahHeap28check_cancelled_gc_and_yieldEb.exit46.us: ; preds = %235, %
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.i52.us: ; preds = %263, %259
   store volatile i64 %.sroa.08.0.insert.insert11.i.i.i51.us, ptr %215, align 8
-  %266 = load volatile i32, ptr %215, align 4
+  %266 = load volatile i32, ptr %215, align 8
   br label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread6.i53.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread8.i59.us: ; preds = %263
@@ -16549,7 +16549,7 @@ _ZN14ShenandoahHeap28check_cancelled_gc_and_yieldEb.exit.us: ; preds = %36, %33,
   %54 = getelementptr inbounds nuw %class.ShenandoahMarkTask, ptr %52, i64 %53
   %55 = load i64, ptr %54, align 8
   store i64 %55, ptr %7, align 8
-  %56 = load volatile i32, ptr %111, align 4
+  %56 = load volatile i32, ptr %111, align 8
   %57 = sub i32 %50, %56
   %58 = and i32 %57, 131071
   switch i32 %58, label %95 [
@@ -16574,7 +16574,7 @@ _ZN14ShenandoahHeap28check_cancelled_gc_and_yieldEb.exit.us: ; preds = %36, %33,
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.i.us: ; preds = %63, %59
   store volatile i64 %.sroa.08.0.insert.insert11.i.i.i.us, ptr %111, align 8
-  %66 = load volatile i32, ptr %111, align 4
+  %66 = load volatile i32, ptr %111, align 8
   br label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread6.i.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread8.i.us: ; preds = %63
@@ -16813,7 +16813,7 @@ _ZN14ShenandoahHeap28check_cancelled_gc_and_yieldEb.exit46.us: ; preds = %170, %
   %189 = getelementptr inbounds nuw %class.ShenandoahMarkTask, ptr %187, i64 %188
   %190 = load i64, ptr %189, align 8
   store i64 %190, ptr %7, align 8
-  %191 = load volatile i32, ptr %151, align 4
+  %191 = load volatile i32, ptr %151, align 8
   %192 = sub i32 %185, %191
   %193 = and i32 %192, 131071
   switch i32 %193, label %_ZN19GenericTaskQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE5stealEjRS2_.exit.us [
@@ -16838,7 +16838,7 @@ _ZN14ShenandoahHeap28check_cancelled_gc_and_yieldEb.exit46.us: ; preds = %170, %
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.i52.us: ; preds = %198, %194
   store volatile i64 %.sroa.08.0.insert.insert11.i.i.i51.us, ptr %151, align 8
-  %201 = load volatile i32, ptr %151, align 4
+  %201 = load volatile i32, ptr %151, align 8
   br label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread6.i53.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread8.i59.us: ; preds = %198
@@ -17093,7 +17093,7 @@ _ZN14ShenandoahHeap28check_cancelled_gc_and_yieldEb.exit.us: ; preds = %36, %33,
   %54 = getelementptr inbounds nuw %class.ShenandoahMarkTask, ptr %52, i64 %53
   %55 = load i64, ptr %54, align 8
   store i64 %55, ptr %7, align 8
-  %56 = load volatile i32, ptr %111, align 4
+  %56 = load volatile i32, ptr %111, align 8
   %57 = sub i32 %50, %56
   %58 = and i32 %57, 131071
   switch i32 %58, label %95 [
@@ -17118,7 +17118,7 @@ _ZN14ShenandoahHeap28check_cancelled_gc_and_yieldEb.exit.us: ; preds = %36, %33,
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.i.us: ; preds = %63, %59
   store volatile i64 %.sroa.08.0.insert.insert11.i.i.i.us, ptr %111, align 8
-  %66 = load volatile i32, ptr %111, align 4
+  %66 = load volatile i32, ptr %111, align 8
   br label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread6.i.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread8.i.us: ; preds = %63
@@ -17357,7 +17357,7 @@ _ZN14ShenandoahHeap28check_cancelled_gc_and_yieldEb.exit46.us: ; preds = %170, %
   %189 = getelementptr inbounds nuw %class.ShenandoahMarkTask, ptr %187, i64 %188
   %190 = load i64, ptr %189, align 8
   store i64 %190, ptr %7, align 8
-  %191 = load volatile i32, ptr %151, align 4
+  %191 = load volatile i32, ptr %151, align 8
   %192 = sub i32 %185, %191
   %193 = and i32 %192, 131071
   switch i32 %193, label %_ZN19GenericTaskQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE5stealEjRS2_.exit.us [
@@ -17382,7 +17382,7 @@ _ZN14ShenandoahHeap28check_cancelled_gc_and_yieldEb.exit46.us: ; preds = %170, %
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.i52.us: ; preds = %198, %194
   store volatile i64 %.sroa.08.0.insert.insert11.i.i.i51.us, ptr %151, align 8
-  %201 = load volatile i32, ptr %151, align 4
+  %201 = load volatile i32, ptr %151, align 8
   br label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread6.i53.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread8.i59.us: ; preds = %198
@@ -18007,7 +18007,7 @@ _ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahM
   %59 = getelementptr inbounds nuw %class.ShenandoahMarkTask, ptr %57, i64 %58
   %60 = load i64, ptr %59, align 8
   store i64 %60, ptr %7, align 8
-  %61 = load volatile i32, ptr %34, align 4
+  %61 = load volatile i32, ptr %34, align 8
   %62 = sub i32 %55, %61
   %63 = and i32 %62, 131071
   switch i32 %63, label %100 [
@@ -18032,7 +18032,7 @@ _ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahM
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.i.us: ; preds = %68, %64
   store volatile i64 %.sroa.08.0.insert.insert11.i.i.i.us, ptr %34, align 8
-  %71 = load volatile i32, ptr %34, align 4
+  %71 = load volatile i32, ptr %34, align 8
   br label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread6.i.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread8.i.us: ; preds = %68
@@ -18144,8 +18144,8 @@ _ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE3popEv.exit.i.i.us: ; preds = %_ZN5St
 
 130:                                              ; preds = %119
   %.sroa.0.0.copyload.i.i.us = load i64, ptr %32, align 8
-  %131 = load volatile i32, ptr %33, align 4
-  %132 = load volatile i32, ptr %34, align 4
+  %131 = load volatile i32, ptr %33, align 8
+  %132 = load volatile i32, ptr %34, align 8
   %133 = sub i32 %131, %132
   %134 = and i32 %133, 131070
   %.not.i.i.i.us = icmp eq i32 %134, 131070
@@ -18159,7 +18159,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.t
   %138 = add i32 %131, 1
   %139 = and i32 %138, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  store volatile i32 %139, ptr %33, align 4
+  store volatile i32 %139, ptr %33, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i.us: ; preds = %130
@@ -18434,9 +18434,9 @@ _ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i.us: ; preds = %290, %26
 301:                                              ; preds = %_ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i.us
   %.sroa.0.0.copyload.i.i120.us = load i64, ptr %300, align 8
   %302 = getelementptr inbounds nuw i8, ptr %294, i64 128
-  %303 = load volatile i32, ptr %302, align 4
+  %303 = load volatile i32, ptr %302, align 8
   %304 = getelementptr inbounds nuw i8, ptr %294, i64 256
-  %305 = load volatile i32, ptr %304, align 4
+  %305 = load volatile i32, ptr %304, align 8
   %306 = sub i32 %303, %305
   %307 = and i32 %306, 131070
   %.not.i.i12.i.us = icmp eq i32 %307, 131070
@@ -18451,7 +18451,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.t
   %312 = add i32 %303, 1
   %313 = and i32 %312, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  store volatile i32 %313, ptr %302, align 4
+  store volatile i32 %313, ptr %302, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i122.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i123.us: ; preds = %301
@@ -18804,7 +18804,7 @@ _ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahM
   %507 = getelementptr inbounds nuw %class.ShenandoahMarkTask, ptr %505, i64 %506
   %508 = load i64, ptr %507, align 8
   store i64 %508, ptr %7, align 8
-  %509 = load volatile i32, ptr %475, align 4
+  %509 = load volatile i32, ptr %475, align 8
   %510 = sub i32 %503, %509
   %511 = and i32 %510, 131071
   switch i32 %511, label %_ZN19GenericTaskQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE5stealEjRS2_.exit.us [
@@ -18829,7 +18829,7 @@ _ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahM
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.i49.us: ; preds = %516, %512
   store volatile i64 %.sroa.08.0.insert.insert11.i.i.i48.us, ptr %475, align 8
-  %519 = load volatile i32, ptr %475, align 4
+  %519 = load volatile i32, ptr %475, align 8
   br label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread6.i50.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread8.i56.us: ; preds = %516
@@ -18962,8 +18962,8 @@ _ZN19GenericTaskQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTas
 
 583:                                              ; preds = %572
   %.sroa.0.0.copyload.i.i78.us = load i64, ptr %473, align 8
-  %584 = load volatile i32, ptr %474, align 4
-  %585 = load volatile i32, ptr %475, align 4
+  %584 = load volatile i32, ptr %474, align 8
+  %585 = load volatile i32, ptr %475, align 8
   %586 = sub i32 %584, %585
   %587 = and i32 %586, 131070
   %.not.i.i.i79.us = icmp eq i32 %587, 131070
@@ -18977,7 +18977,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.t
   %591 = add i32 %584, 1
   %592 = and i32 %591, 131071
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  store volatile i32 %592, ptr %474, align 4
+  store volatile i32 %592, ptr %474, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i81.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i83.us: ; preds = %583
@@ -19252,9 +19252,9 @@ _ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i141.us: ; preds = %743, 
 754:                                              ; preds = %_ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i141.us
   %.sroa.0.0.copyload.i.i145.us = load i64, ptr %753, align 8
   %755 = getelementptr inbounds nuw i8, ptr %747, i64 128
-  %756 = load volatile i32, ptr %755, align 4
+  %756 = load volatile i32, ptr %755, align 8
   %757 = getelementptr inbounds nuw i8, ptr %747, i64 256
-  %758 = load volatile i32, ptr %757, align 4
+  %758 = load volatile i32, ptr %757, align 8
   %759 = sub i32 %756, %758
   %760 = and i32 %759, 131070
   %.not.i.i12.i146.us = icmp eq i32 %760, 131070
@@ -19269,7 +19269,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.t
   %765 = add i32 %756, 1
   %766 = and i32 %765, 131071
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  store volatile i32 %766, ptr %755, align 4
+  store volatile i32 %766, ptr %755, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i148.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i149.us: ; preds = %754
@@ -19638,7 +19638,7 @@ _ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahM
   %56 = getelementptr inbounds nuw %class.ShenandoahMarkTask, ptr %54, i64 %55
   %57 = load i64, ptr %56, align 8
   store i64 %57, ptr %7, align 8
-  %58 = load volatile i32, ptr %31, align 4
+  %58 = load volatile i32, ptr %31, align 8
   %59 = sub i32 %52, %58
   %60 = and i32 %59, 131071
   switch i32 %60, label %97 [
@@ -19663,7 +19663,7 @@ _ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahM
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.i.us: ; preds = %65, %61
   store volatile i64 %.sroa.08.0.insert.insert11.i.i.i.us, ptr %31, align 8
-  %68 = load volatile i32, ptr %31, align 4
+  %68 = load volatile i32, ptr %31, align 8
   br label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread6.i.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread8.i.us: ; preds = %65
@@ -19947,7 +19947,7 @@ _ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahM
   %219 = getelementptr inbounds nuw %class.ShenandoahMarkTask, ptr %217, i64 %218
   %220 = load i64, ptr %219, align 8
   store i64 %220, ptr %7, align 8
-  %221 = load volatile i32, ptr %190, align 4
+  %221 = load volatile i32, ptr %190, align 8
   %222 = sub i32 %215, %221
   %223 = and i32 %222, 131071
   switch i32 %223, label %_ZN19GenericTaskQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE5stealEjRS2_.exit.us [
@@ -19972,7 +19972,7 @@ _ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahM
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.i49.us: ; preds = %228, %224
   store volatile i64 %.sroa.08.0.insert.insert11.i.i.i48.us, ptr %190, align 8
-  %231 = load volatile i32, ptr %190, align 4
+  %231 = load volatile i32, ptr %190, align 8
   br label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread6.i50.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread8.i56.us: ; preds = %228
@@ -20361,7 +20361,7 @@ _ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahM
   %59 = getelementptr inbounds nuw %class.ShenandoahMarkTask, ptr %57, i64 %58
   %60 = load i64, ptr %59, align 8
   store i64 %60, ptr %7, align 8
-  %61 = load volatile i32, ptr %34, align 4
+  %61 = load volatile i32, ptr %34, align 8
   %62 = sub i32 %55, %61
   %63 = and i32 %62, 131071
   switch i32 %63, label %100 [
@@ -20386,7 +20386,7 @@ _ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahM
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.i.us: ; preds = %68, %64
   store volatile i64 %.sroa.08.0.insert.insert11.i.i.i.us, ptr %34, align 8
-  %71 = load volatile i32, ptr %34, align 4
+  %71 = load volatile i32, ptr %34, align 8
   br label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread6.i.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread8.i.us: ; preds = %68
@@ -20498,8 +20498,8 @@ _ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE3popEv.exit.i.i.us: ; preds = %_ZN5St
 
 130:                                              ; preds = %119
   %.sroa.0.0.copyload.i.i.us = load i64, ptr %32, align 8
-  %131 = load volatile i32, ptr %33, align 4
-  %132 = load volatile i32, ptr %34, align 4
+  %131 = load volatile i32, ptr %33, align 8
+  %132 = load volatile i32, ptr %34, align 8
   %133 = sub i32 %131, %132
   %134 = and i32 %133, 131070
   %.not.i.i.i.us = icmp eq i32 %134, 131070
@@ -20513,7 +20513,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.t
   %138 = add i32 %131, 1
   %139 = and i32 %138, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  store volatile i32 %139, ptr %33, align 4
+  store volatile i32 %139, ptr %33, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i.us: ; preds = %130
@@ -20788,9 +20788,9 @@ _ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i.us: ; preds = %290, %26
 301:                                              ; preds = %_ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i.us
   %.sroa.0.0.copyload.i.i134.us = load i64, ptr %300, align 8
   %302 = getelementptr inbounds nuw i8, ptr %294, i64 128
-  %303 = load volatile i32, ptr %302, align 4
+  %303 = load volatile i32, ptr %302, align 8
   %304 = getelementptr inbounds nuw i8, ptr %294, i64 256
-  %305 = load volatile i32, ptr %304, align 4
+  %305 = load volatile i32, ptr %304, align 8
   %306 = sub i32 %303, %305
   %307 = and i32 %306, 131070
   %.not.i.i12.i.us = icmp eq i32 %307, 131070
@@ -20805,7 +20805,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.t
   %312 = add i32 %303, 1
   %313 = and i32 %312, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  store volatile i32 %313, ptr %302, align 4
+  store volatile i32 %313, ptr %302, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i136.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i137.us: ; preds = %301
@@ -21248,7 +21248,7 @@ _ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahM
   %563 = getelementptr inbounds nuw %class.ShenandoahMarkTask, ptr %561, i64 %562
   %564 = load i64, ptr %563, align 8
   store i64 %564, ptr %7, align 8
-  %565 = load volatile i32, ptr %531, align 4
+  %565 = load volatile i32, ptr %531, align 8
   %566 = sub i32 %559, %565
   %567 = and i32 %566, 131071
   switch i32 %567, label %_ZN19GenericTaskQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE5stealEjRS2_.exit.us [
@@ -21273,7 +21273,7 @@ _ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahM
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.i49.us: ; preds = %572, %568
   store volatile i64 %.sroa.08.0.insert.insert11.i.i.i48.us, ptr %531, align 8
-  %575 = load volatile i32, ptr %531, align 4
+  %575 = load volatile i32, ptr %531, align 8
   br label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread6.i50.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread8.i56.us: ; preds = %572
@@ -21406,8 +21406,8 @@ _ZN19GenericTaskQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTas
 
 639:                                              ; preds = %628
   %.sroa.0.0.copyload.i.i83.us = load i64, ptr %529, align 8
-  %640 = load volatile i32, ptr %530, align 4
-  %641 = load volatile i32, ptr %531, align 4
+  %640 = load volatile i32, ptr %530, align 8
+  %641 = load volatile i32, ptr %531, align 8
   %642 = sub i32 %640, %641
   %643 = and i32 %642, 131070
   %.not.i.i.i84.us = icmp eq i32 %643, 131070
@@ -21421,7 +21421,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.t
   %647 = add i32 %640, 1
   %648 = and i32 %647, 131071
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  store volatile i32 %648, ptr %530, align 4
+  store volatile i32 %648, ptr %530, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i86.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i88.us: ; preds = %639
@@ -21696,9 +21696,9 @@ _ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i155.us: ; preds = %799, 
 810:                                              ; preds = %_ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit.i155.us
   %.sroa.0.0.copyload.i.i159.us = load i64, ptr %809, align 8
   %811 = getelementptr inbounds nuw i8, ptr %803, i64 128
-  %812 = load volatile i32, ptr %811, align 4
+  %812 = load volatile i32, ptr %811, align 8
   %813 = getelementptr inbounds nuw i8, ptr %803, i64 256
-  %814 = load volatile i32, ptr %813, align 4
+  %814 = load volatile i32, ptr %813, align 8
   %815 = sub i32 %812, %814
   %816 = and i32 %815, 131070
   %.not.i.i12.i160.us = icmp eq i32 %816, 131070
@@ -21713,7 +21713,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.t
   %821 = add i32 %812, 1
   %822 = and i32 %821, 131071
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  store volatile i32 %822, ptr %811, align 4
+  store volatile i32 %822, ptr %811, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i162.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i163.us: ; preds = %810
@@ -22172,7 +22172,7 @@ _ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahM
   %56 = getelementptr inbounds nuw %class.ShenandoahMarkTask, ptr %54, i64 %55
   %57 = load i64, ptr %56, align 8
   store i64 %57, ptr %7, align 8
-  %58 = load volatile i32, ptr %31, align 4
+  %58 = load volatile i32, ptr %31, align 8
   %59 = sub i32 %52, %58
   %60 = and i32 %59, 131071
   switch i32 %60, label %97 [
@@ -22197,7 +22197,7 @@ _ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahM
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.i.us: ; preds = %65, %61
   store volatile i64 %.sroa.08.0.insert.insert11.i.i.i.us, ptr %31, align 8
-  %68 = load volatile i32, ptr %31, align 4
+  %68 = load volatile i32, ptr %31, align 8
   br label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread6.i.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread8.i.us: ; preds = %65
@@ -22571,7 +22571,7 @@ _ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahM
   %275 = getelementptr inbounds nuw %class.ShenandoahMarkTask, ptr %273, i64 %274
   %276 = load i64, ptr %275, align 8
   store i64 %276, ptr %7, align 8
-  %277 = load volatile i32, ptr %246, align 4
+  %277 = load volatile i32, ptr %246, align 8
   %278 = sub i32 %271, %277
   %279 = and i32 %278, 131071
   switch i32 %279, label %_ZN19GenericTaskQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE5stealEjRS2_.exit.us [
@@ -22596,7 +22596,7 @@ _ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahM
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.i49.us: ; preds = %284, %280
   store volatile i64 %.sroa.08.0.insert.insert11.i.i.i48.us, ptr %246, align 8
-  %287 = load volatile i32, ptr %246, align 4
+  %287 = load volatile i32, ptr %246, align 8
   br label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread6.i50.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread8.i56.us: ; preds = %284
@@ -23071,7 +23071,7 @@ _ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahM
   %55 = getelementptr inbounds nuw %class.ShenandoahMarkTask, ptr %53, i64 %54
   %56 = load i64, ptr %55, align 8
   store i64 %56, ptr %7, align 8
-  %57 = load volatile i32, ptr %30, align 4
+  %57 = load volatile i32, ptr %30, align 8
   %58 = sub i32 %51, %57
   %59 = and i32 %58, 131071
   switch i32 %59, label %96 [
@@ -23096,7 +23096,7 @@ _ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahM
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.i.us: ; preds = %64, %60
   store volatile i64 %.sroa.08.0.insert.insert11.i.i.i.us, ptr %30, align 8
-  %67 = load volatile i32, ptr %30, align 4
+  %67 = load volatile i32, ptr %30, align 8
   br label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread6.i.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread8.i.us: ; preds = %64
@@ -23271,7 +23271,7 @@ _ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahM
   %155 = getelementptr inbounds nuw %class.ShenandoahMarkTask, ptr %153, i64 %154
   %156 = load i64, ptr %155, align 8
   store i64 %156, ptr %7, align 8
-  %157 = load volatile i32, ptr %127, align 4
+  %157 = load volatile i32, ptr %127, align 8
   %158 = sub i32 %151, %157
   %159 = and i32 %158, 131071
   switch i32 %159, label %_ZN19GenericTaskQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE5stealEjRS2_.exit.us [
@@ -23296,7 +23296,7 @@ _ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahM
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.i49.us: ; preds = %164, %160
   store volatile i64 %.sroa.08.0.insert.insert11.i.i.i48.us, ptr %127, align 8
-  %167 = load volatile i32, ptr %127, align 4
+  %167 = load volatile i32, ptr %127, align 8
   br label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread6.i50.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread8.i56.us: ; preds = %164
@@ -23506,7 +23506,7 @@ _ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahM
   %55 = getelementptr inbounds nuw %class.ShenandoahMarkTask, ptr %53, i64 %54
   %56 = load i64, ptr %55, align 8
   store i64 %56, ptr %7, align 8
-  %57 = load volatile i32, ptr %30, align 4
+  %57 = load volatile i32, ptr %30, align 8
   %58 = sub i32 %51, %57
   %59 = and i32 %58, 131071
   switch i32 %59, label %96 [
@@ -23531,7 +23531,7 @@ _ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahM
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.i.us: ; preds = %64, %60
   store volatile i64 %.sroa.08.0.insert.insert11.i.i.i.us, ptr %30, align 8
-  %67 = load volatile i32, ptr %30, align 4
+  %67 = load volatile i32, ptr %30, align 8
   br label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread6.i.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread8.i.us: ; preds = %64
@@ -23706,7 +23706,7 @@ _ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahM
   %155 = getelementptr inbounds nuw %class.ShenandoahMarkTask, ptr %153, i64 %154
   %156 = load i64, ptr %155, align 8
   store i64 %156, ptr %7, align 8
-  %157 = load volatile i32, ptr %127, align 4
+  %157 = load volatile i32, ptr %127, align 8
   %158 = sub i32 %151, %157
   %159 = and i32 %158, 131071
   switch i32 %159, label %_ZN19GenericTaskQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE5stealEjRS2_.exit.us [
@@ -23731,7 +23731,7 @@ _ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahM
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.i49.us: ; preds = %164, %160
   store volatile i64 %.sroa.08.0.insert.insert11.i.i.i48.us, ptr %127, align 8
-  %167 = load volatile i32, ptr %127, align 4
+  %167 = load volatile i32, ptr %127, align 8
   br label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread6.i50.us
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread8.i56.us: ; preds = %164

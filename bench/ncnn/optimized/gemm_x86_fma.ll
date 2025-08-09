@@ -5716,7 +5716,7 @@ define internal fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii(ptr nound
   store <4 x float> %74, ptr %.5117, align 16, !tbaa !86
   %75 = getelementptr inbounds nuw i8, ptr %.5117, i64 16
   %76 = load <8 x float>, ptr %.2756115, align 32, !tbaa !86
-  store <8 x float> %76, ptr %75, align 1, !tbaa !86
+  store <8 x float> %76, ptr %75, align 16, !tbaa !86
   %77 = getelementptr inbounds nuw i8, ptr %.5117, i64 48
   %78 = getelementptr inbounds nuw i8, ptr %.2753116, i64 32
   %79 = getelementptr inbounds nuw i8, ptr %.2756115, i64 32

@@ -2742,7 +2742,7 @@ _ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %236 = getelementptr inbounds nuw i8, ptr %.sroa.013.021.i, i64 40
-  store i32 %235, ptr %236, align 1
+  store i32 %235, ptr %236, align 4
   %.pre549 = load ptr, ptr %56, align 8
   br label %237
 
@@ -3026,7 +3026,7 @@ _ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %355 = getelementptr inbounds nuw i8, ptr %.sroa.013.021.i163, i64 40
-  store i32 %354, ptr %355, align 1
+  store i32 %354, ptr %355, align 4
   %.pre546 = load ptr, ptr %243, align 8
   br label %356
 
@@ -5099,7 +5099,7 @@ define linkonce_odr void @_ZN3vcg3tri12GeodesicHeatI6CMeshOE10BuildCacheERS2_f(p
   store i32 1, ptr %11, align 4, !noalias !59
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5Eigen14SimplicialLDLTINS0_12SparseMatrixIdLi0EiEELi1ENS0_11AMDOrderingIiEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9, align 8, !noalias !59
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i8 0, ptr %12, align 1, !noalias !59
+  store i8 0, ptr %12, align 8, !noalias !59
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i32 0, ptr %13, align 4, !noalias !59
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -5107,7 +5107,7 @@ define linkonce_odr void @_ZN3vcg3tri12GeodesicHeatI6CMeshOE10BuildCacheERS2_f(p
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %15, align 1, !noalias !59
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i8 0, ptr %16, align 1, !noalias !59
+  store i8 0, ptr %16, align 8, !noalias !59
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i64 -1, ptr %17, align 8, !noalias !59
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 48
@@ -5145,7 +5145,7 @@ _ZSt11make_sharedIN5Eigen14SimplicialLDLTINS0_12SparseMatrixIdLi0EiEELi1ENS0_11A
   store i32 1, ptr %26, align 4, !noalias !62
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5Eigen14SimplicialLDLTINS0_12SparseMatrixIdLi0EiEELi1ENS0_11AMDOrderingIiEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24, align 8, !noalias !62
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store i8 0, ptr %27, align 1, !noalias !62
+  store i8 0, ptr %27, align 8, !noalias !62
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 20
   store i32 0, ptr %28, align 4, !noalias !62
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 24
@@ -5153,7 +5153,7 @@ _ZSt11make_sharedIN5Eigen14SimplicialLDLTINS0_12SparseMatrixIdLi0EiEELi1ENS0_11A
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 25
   store i8 0, ptr %30, align 1, !noalias !62
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  store i8 0, ptr %31, align 1, !noalias !62
+  store i8 0, ptr %31, align 8, !noalias !62
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 40
   store i64 -1, ptr %32, align 8, !noalias !62
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 48
@@ -18380,7 +18380,7 @@ _ZN5Eigen12SparseMatrixIdLi1EiE7reserveINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvR
   %.sroa.0.027 = phi ptr [ %52, %.lr.ph28 ], [ %76, %56 ]
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.0.027, i64 8
   %58 = load double, ptr %57, align 8
-  %59 = load i32, ptr %.sroa.0.027, align 4
+  %59 = load i32, ptr %.sroa.0.027, align 8
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.0.027, i64 4
   %62 = load i32, ptr %61, align 4
@@ -26191,7 +26191,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %66 = getelementptr inbounds nuw i8, ptr %.sroa.015.0, i64 32
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %.sroa.015.0, i64 80
-  %69 = load i32, ptr %68, align 4
+  %69 = load i32, ptr %68, align 8
   br label %70
 
 70:                                               ; preds = %_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit, %13, %65
@@ -26282,7 +26282,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %37 = load i32, ptr %36, align 4
+  %37 = load i32, ptr %36, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #32
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %35, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %37, 1
@@ -27064,7 +27064,7 @@ _ZN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEC2IiiEERKT_RKT0_.exit: ; preds = %.lr.p
   %38 = load float, ptr %37, align 4, !noalias !418
   %39 = fpext float %38 to double
   %40 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %41 = load float, ptr %40, align 4, !noalias !418
+  %41 = load float, ptr %40, align 8, !noalias !418
   %42 = fpext float %41 to double
   %43 = getelementptr inbounds nuw i8, ptr %16, i64 44
   %44 = load float, ptr %43, align 4, !noalias !418

@@ -3768,9 +3768,9 @@ roseCheckShufti32x16.exit:                        ; preds = %getData256.exit.thr
   %1862 = zext i32 %1845 to i64
   %1863 = getelementptr inbounds nuw %struct.mq, ptr %1861, i64 %1862
   %1864 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %1865 = load ptr, ptr %1864, align 8
+  %1865 = load ptr, ptr %1864, align 16
   %1866 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %1867 = load i32, ptr %1866, align 4
+  %1867 = load i32, ptr %1866, align 8
   %1868 = zext i32 %1867 to i64
   %1869 = getelementptr inbounds nuw i8, ptr %1865, i64 %1868
   %1870 = getelementptr inbounds nuw i8, ptr %0, i64 156
@@ -4059,11 +4059,11 @@ mmbit_set_i.exit1602.thread:                      ; preds = %.lr.ph5278, %2006, 
   %2065 = getelementptr inbounds nuw i8, ptr %2041, i64 24
   store ptr %2064, ptr %2065, align 8
   %2066 = getelementptr inbounds nuw i8, ptr %1, i64 320
-  %2067 = load i64, ptr %2066, align 8
+  %2067 = load i64, ptr %2066, align 16
   %2068 = getelementptr inbounds nuw i8, ptr %2041, i64 32
   store i64 %2067, ptr %2068, align 8
   %2069 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %2070 = load ptr, ptr %2069, align 8
+  %2070 = load ptr, ptr %2069, align 16
   %2071 = getelementptr inbounds nuw i8, ptr %2041, i64 40
   store ptr %2070, ptr %2071, align 8
   %2072 = getelementptr inbounds nuw i8, ptr %1, i64 296
@@ -4071,7 +4071,7 @@ mmbit_set_i.exit1602.thread:                      ; preds = %.lr.ph5278, %2006, 
   %2074 = getelementptr inbounds nuw i8, ptr %2041, i64 48
   store i64 %2073, ptr %2074, align 8
   %2075 = getelementptr inbounds nuw i8, ptr %1, i64 304
-  %2076 = load ptr, ptr %2075, align 8
+  %2076 = load ptr, ptr %2075, align 16
   %2077 = getelementptr inbounds nuw i8, ptr %2041, i64 56
   store ptr %2076, ptr %2077, align 8
   %2078 = getelementptr inbounds nuw i8, ptr %1, i64 312
@@ -4082,7 +4082,7 @@ mmbit_set_i.exit1602.thread:                      ; preds = %.lr.ph5278, %2006, 
   %2082 = getelementptr inbounds nuw i8, ptr %2041, i64 80
   store i8 0, ptr %2082, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2081, i8 0, i64 16, i1 false)
-  %2083 = load i64, ptr %2066, align 8
+  %2083 = load i64, ptr %2066, align 16
   %.not128.i1197 = icmp eq i64 %2083, 0
   br i1 %.not128.i1197, label %2119, label %2084
 
@@ -4712,9 +4712,9 @@ roseTestLeftfix.exit1201.thread3073:              ; preds = %2331, %isZombie.exi
   %2426 = zext i32 %2409 to i64
   %2427 = getelementptr inbounds nuw %struct.mq, ptr %2425, i64 %2426
   %2428 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %2429 = load ptr, ptr %2428, align 8
+  %2429 = load ptr, ptr %2428, align 16
   %2430 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %2431 = load i32, ptr %2430, align 4
+  %2431 = load i32, ptr %2430, align 8
   %2432 = zext i32 %2431 to i64
   %2433 = getelementptr inbounds nuw i8, ptr %2429, i64 %2432
   %2434 = getelementptr inbounds nuw i8, ptr %0, i64 156
@@ -5003,11 +5003,11 @@ mmbit_set_i.exit1605.thread:                      ; preds = %.lr.ph5261, %2570, 
   %2629 = getelementptr inbounds nuw i8, ptr %2605, i64 24
   store ptr %2628, ptr %2629, align 8
   %2630 = getelementptr inbounds nuw i8, ptr %1, i64 320
-  %2631 = load i64, ptr %2630, align 8
+  %2631 = load i64, ptr %2630, align 16
   %2632 = getelementptr inbounds nuw i8, ptr %2605, i64 32
   store i64 %2631, ptr %2632, align 8
   %2633 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %2634 = load ptr, ptr %2633, align 8
+  %2634 = load ptr, ptr %2633, align 16
   %2635 = getelementptr inbounds nuw i8, ptr %2605, i64 40
   store ptr %2634, ptr %2635, align 8
   %2636 = getelementptr inbounds nuw i8, ptr %1, i64 296
@@ -5015,7 +5015,7 @@ mmbit_set_i.exit1605.thread:                      ; preds = %.lr.ph5261, %2570, 
   %2638 = getelementptr inbounds nuw i8, ptr %2605, i64 48
   store i64 %2637, ptr %2638, align 8
   %2639 = getelementptr inbounds nuw i8, ptr %1, i64 304
-  %2640 = load ptr, ptr %2639, align 8
+  %2640 = load ptr, ptr %2639, align 16
   %2641 = getelementptr inbounds nuw i8, ptr %2605, i64 56
   store ptr %2640, ptr %2641, align 8
   %2642 = getelementptr inbounds nuw i8, ptr %1, i64 312
@@ -5026,7 +5026,7 @@ mmbit_set_i.exit1605.thread:                      ; preds = %.lr.ph5261, %2570, 
   %2646 = getelementptr inbounds nuw i8, ptr %2605, i64 80
   store i8 0, ptr %2646, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2645, i8 0, i64 16, i1 false)
-  %2647 = load i64, ptr %2630, align 8
+  %2647 = load i64, ptr %2630, align 16
   %.not128.i = icmp eq i64 %2647, 0
   br i1 %.not128.i, label %2709, label %2648
 
@@ -5540,7 +5540,7 @@ roseTestLeftfix.exit.thread3108:                  ; preds = %2846, %isZombie.exi
   %2940 = getelementptr inbounds nuw ptr, ptr %2938, i64 %2939
   %2941 = load ptr, ptr %2940, align 8
   %2942 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %2943 = load i32, ptr %2942, align 8
+  %2943 = load i32, ptr %2942, align 16
   %2944 = shl nuw i32 1, %2934
   %2945 = and i32 %2943, %2944
   %.not18.i = icmp eq i32 %2945, 0
@@ -6056,9 +6056,9 @@ roseCatchUpMPV.exit957:                           ; preds = %3158, %canSkipCatch
   %3225 = getelementptr inbounds nuw i8, ptr %0, i64 %3224
   %3226 = getelementptr inbounds nuw %struct.NfaInfo, ptr %3225, i64 %3220
   %3227 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %3228 = load ptr, ptr %3227, align 8
+  %3228 = load ptr, ptr %3227, align 16
   %3229 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %3230 = load i32, ptr %3229, align 4
+  %3230 = load i32, ptr %3229, align 8
   %3231 = zext i32 %3230 to i64
   %3232 = getelementptr inbounds nuw i8, ptr %3228, i64 %3231
   %3233 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -6380,11 +6380,11 @@ mmbit_set_i.exit1632:                             ; preds = %.thread3163, %.lr.p
   %3446 = getelementptr inbounds nuw i8, ptr %.sink7099, i64 %3445
   %3447 = getelementptr inbounds nuw i8, ptr %3423, i64 24
   store ptr %3446, ptr %3447, align 8
-  %3448 = load i64, ptr %3206, align 8
+  %3448 = load i64, ptr %3206, align 16
   %3449 = getelementptr inbounds nuw i8, ptr %3423, i64 32
   store i64 %3448, ptr %3449, align 8
   %3450 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %3451 = load ptr, ptr %3450, align 8
+  %3451 = load ptr, ptr %3450, align 16
   %3452 = getelementptr inbounds nuw i8, ptr %3423, i64 40
   store ptr %3451, ptr %3452, align 8
   %3453 = getelementptr inbounds nuw i8, ptr %1, i64 296
@@ -6392,7 +6392,7 @@ mmbit_set_i.exit1632:                             ; preds = %.thread3163, %.lr.p
   %3455 = getelementptr inbounds nuw i8, ptr %3423, i64 48
   store i64 %3454, ptr %3455, align 8
   %3456 = getelementptr inbounds nuw i8, ptr %1, i64 304
-  %3457 = load ptr, ptr %3456, align 8
+  %3457 = load ptr, ptr %3456, align 16
   %3458 = getelementptr inbounds nuw i8, ptr %3423, i64 56
   store ptr %3457, ptr %3458, align 8
   %3459 = getelementptr inbounds nuw i8, ptr %1, i64 312
@@ -6538,11 +6538,11 @@ mmbit_set_i.exit1635.thread:                      ; preds = %.lr.ph5245, %3497, 
   %3554 = getelementptr inbounds nuw i8, ptr %.sink7103, i64 %3553
   %3555 = getelementptr inbounds nuw i8, ptr %3531, i64 24
   store ptr %3554, ptr %3555, align 8
-  %3556 = load i64, ptr %3206, align 8
+  %3556 = load i64, ptr %3206, align 16
   %3557 = getelementptr inbounds nuw i8, ptr %3531, i64 32
   store i64 %3556, ptr %3557, align 8
   %3558 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %3559 = load ptr, ptr %3558, align 8
+  %3559 = load ptr, ptr %3558, align 16
   %3560 = getelementptr inbounds nuw i8, ptr %3531, i64 40
   store ptr %3559, ptr %3560, align 8
   %3561 = getelementptr inbounds nuw i8, ptr %1, i64 296
@@ -6550,7 +6550,7 @@ mmbit_set_i.exit1635.thread:                      ; preds = %.lr.ph5245, %3497, 
   %3563 = getelementptr inbounds nuw i8, ptr %3531, i64 48
   store i64 %3562, ptr %3563, align 8
   %3564 = getelementptr inbounds nuw i8, ptr %1, i64 304
-  %3565 = load ptr, ptr %3564, align 8
+  %3565 = load ptr, ptr %3564, align 16
   %3566 = getelementptr inbounds nuw i8, ptr %3531, i64 56
   store ptr %3565, ptr %3566, align 8
   %3567 = getelementptr inbounds nuw i8, ptr %1, i64 312
@@ -6920,7 +6920,7 @@ roseTriggerInfix.exit:                            ; preds = %.thread3180, %3731,
   %3766 = zext i32 %3765 to i64
   %3767 = getelementptr inbounds nuw i8, ptr %0, i64 %3766
   %3768 = getelementptr inbounds nuw i8, ptr %1, i64 320
-  %3769 = load i64, ptr %3768, align 8
+  %3769 = load i64, ptr %3768, align 16
   %3770 = sub i64 %4, %3769
   %3771 = icmp ugt i32 %3753, 256
   br i1 %3771, label %3772, label %mmbit_set_i.exit1638
@@ -22766,7 +22766,7 @@ roseCheckMask32.exit.thread:                      ; preds = %365, %roseCheckMask
   %624 = and i64 %617, 31
   %625 = getelementptr inbounds nuw ptr, ptr %623, i64 %624
   %626 = load ptr, ptr %625, align 8
-  %627 = load i32, ptr %71, align 8
+  %627 = load i32, ptr %71, align 16
   %628 = shl nuw i32 1, %621
   %629 = and i32 %627, %628
   %.not18.i = icmp eq i32 %629, 0
@@ -23193,7 +23193,7 @@ roseCatchUpMPV.exit487:                           ; preds = %821, %canSkipCatchU
   %856 = load i32, ptr %855, align 4
   %857 = zext i32 %856 to i64
   %858 = getelementptr inbounds nuw i8, ptr %0, i64 %857
-  %859 = load i64, ptr %33, align 8
+  %859 = load i64, ptr %33, align 16
   %860 = sub i64 %4, %859
   %861 = icmp ugt i32 %847, 256
   br i1 %861, label %862, label %mmbit_set_i.exit803

@@ -4243,19 +4243,19 @@ define linkonce_odr void @_ZN7rocksdb19SuperVersionContextC2Eb(ptr noundef nonnu
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 280
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 312
-  store i32 1, ptr %14, align 4, !tbaa !622
+  store i32 1, ptr %14, align 8, !tbaa !622
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 316
   store i32 2, ptr %15, align 4, !tbaa !623
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 320
-  store i32 -1, ptr %16, align 4, !tbaa !624
+  store i32 -1, ptr %16, align 8, !tbaa !624
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 324
   store i32 200, ptr %17, align 4, !tbaa !625
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 328
-  store i32 -1, ptr %18, align 4, !tbaa !626
+  store i32 -1, ptr %18, align 8, !tbaa !626
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 332
   store i32 -1, ptr %19, align 4, !tbaa !627
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 336
-  store i32 1, ptr %20, align 4, !tbaa !628
+  store i32 1, ptr %20, align 8, !tbaa !628
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 341
   store i8 0, ptr %21, align 1, !tbaa !629
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 344
@@ -4311,7 +4311,7 @@ define linkonce_odr void @_ZN7rocksdb19SuperVersionContextC2Eb(ptr noundef nonnu
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 656
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 672
   store ptr %48, ptr %47, align 8, !tbaa !20
-  store i8 0, ptr %48, align 1, !tbaa !17
+  store i8 0, ptr %48, align 8, !tbaa !17
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 688
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false)
   %50 = getelementptr inbounds nuw i8, ptr %10, i64 784

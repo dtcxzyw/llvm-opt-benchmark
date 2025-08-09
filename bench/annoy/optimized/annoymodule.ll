@@ -3961,7 +3961,7 @@ _ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %10
   store i64 %19, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = trunc nuw nsw i64 %indvars.iv51 to i32
-  store i32 %23, ptr %22, align 4, !tbaa !135
+  store i32 %23, ptr %22, align 8, !tbaa !135
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i32 -1, ptr %24, align 4, !tbaa !137
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 24
@@ -4030,7 +4030,7 @@ _ZNSt6threadD2Ev.exit.us:                         ; preds = %32
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i64 %19, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  store i32 %38, ptr %42, align 4, !tbaa !135
+  store i32 %38, ptr %42, align 8, !tbaa !135
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 20
   store i32 %40, ptr %43, align 4, !tbaa !137
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 24
@@ -10433,7 +10433,7 @@ _ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %10
   store i64 %19, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = trunc nuw nsw i64 %indvars.iv51 to i32
-  store i32 %23, ptr %22, align 4, !tbaa !135
+  store i32 %23, ptr %22, align 8, !tbaa !135
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i32 -1, ptr %24, align 4, !tbaa !137
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 24
@@ -10502,7 +10502,7 @@ _ZNSt6threadD2Ev.exit.us:                         ; preds = %32
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i64 %19, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  store i32 %38, ptr %42, align 4, !tbaa !135
+  store i32 %38, ptr %42, align 8, !tbaa !135
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 20
   store i32 %40, ptr %43, align 4, !tbaa !137
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 24
@@ -14614,7 +14614,7 @@ _ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %10
   store i64 %19, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = trunc nuw nsw i64 %indvars.iv51 to i32
-  store i32 %23, ptr %22, align 4, !tbaa !135
+  store i32 %23, ptr %22, align 8, !tbaa !135
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i32 -1, ptr %24, align 4, !tbaa !137
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 24
@@ -14683,7 +14683,7 @@ _ZNSt6threadD2Ev.exit.us:                         ; preds = %32
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i64 %19, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  store i32 %38, ptr %42, align 4, !tbaa !135
+  store i32 %38, ptr %42, align 8, !tbaa !135
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 20
   store i32 %40, ptr %43, align 4, !tbaa !137
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 24
@@ -19453,7 +19453,7 @@ _ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %10
   store i64 %19, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = trunc nuw nsw i64 %indvars.iv51 to i32
-  store i32 %23, ptr %22, align 4, !tbaa !135
+  store i32 %23, ptr %22, align 8, !tbaa !135
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i32 -1, ptr %24, align 4, !tbaa !137
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 24
@@ -19522,7 +19522,7 @@ _ZNSt6threadD2Ev.exit.us:                         ; preds = %32
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i64 %19, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  store i32 %38, ptr %42, align 4, !tbaa !135
+  store i32 %38, ptr %42, align 8, !tbaa !135
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 20
   store i32 %40, ptr %43, align 4, !tbaa !137
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 24
@@ -21391,7 +21391,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %.neg.i = sext i1 %144 to i64
   %145 = add i64 %68, %.neg.i
   %146 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %147 = load i32, ptr %146, align 4, !tbaa !10
+  %147 = load i32, ptr %146, align 8, !tbaa !10
   store i64 %145, ptr %10, align 8
   store i32 %147, ptr %.sroa.224.0..sroa_idx, align 8
   invoke void @_ZNSt14priority_queueISt4pairImiESt6vectorIS1_SaIS1_EESt4lessIS1_EE4pushEOS1_(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull align 8 dereferenceable(12) %10)
@@ -22213,7 +22213,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessISt4pairImiEEEclINS_17__normal_itera
   %42 = load i64, ptr %40, align 8, !tbaa !146
   store i64 %42, ptr %41, align 8, !tbaa !358
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %44 = load i32, ptr %43, align 4, !tbaa !10
+  %44 = load i32, ptr %43, align 8, !tbaa !10
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i32 %44, ptr %45, align 8, !tbaa !360
   br label %46
@@ -22352,7 +22352,7 @@ _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS3_SaIS
   %.sroa.4.0.copyload.i.i11 = load i32, ptr %.sroa.4.0..sroa_idx.i.i10, align 8
   %34 = load i64, ptr %0, align 8, !tbaa !146
   store i64 %34, ptr %33, align 8, !tbaa !358
-  %35 = load i32, ptr %31, align 4, !tbaa !10
+  %35 = load i32, ptr %31, align 8, !tbaa !10
   store i32 %35, ptr %.sroa.4.0..sroa_idx.i.i10, align 8, !tbaa !360
   %36 = ptrtoint ptr %33 to i64
   %37 = sub i64 %36, %5
@@ -22432,7 +22432,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairImiESt6ve
   %42 = load i64, ptr %40, align 8, !tbaa !146
   store i64 %42, ptr %41, align 8, !tbaa !358
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %44 = load i32, ptr %43, align 4, !tbaa !10
+  %44 = load i32, ptr %43, align 8, !tbaa !10
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i32 %44, ptr %45, align 8, !tbaa !360
   br label %46
@@ -24100,7 +24100,7 @@ _ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %10
   store i64 %19, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = trunc nuw nsw i64 %indvars.iv51 to i32
-  store i32 %23, ptr %22, align 4, !tbaa !135
+  store i32 %23, ptr %22, align 8, !tbaa !135
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i32 -1, ptr %24, align 4, !tbaa !137
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 24
@@ -24169,7 +24169,7 @@ _ZNSt6threadD2Ev.exit.us:                         ; preds = %32
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i64 %19, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  store i32 %38, ptr %42, align 4, !tbaa !135
+  store i32 %38, ptr %42, align 8, !tbaa !135
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 20
   store i32 %40, ptr %43, align 4, !tbaa !137
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 24

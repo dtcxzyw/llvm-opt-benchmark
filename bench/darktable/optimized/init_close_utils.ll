@@ -153,7 +153,7 @@ _ZL8cleargpsP17libraw_gps_info_t.exit:            ; preds = %7
   %64 = getelementptr inbounds nuw i8, ptr %58, i64 24
   store i32 0, ptr %64, align 8, !tbaa !120
   %65 = getelementptr inbounds nuw i8, ptr %58, i64 16936
-  store i32 0, ptr %65, align 4, !tbaa !121
+  store i32 0, ptr %65, align 8, !tbaa !121
   %66 = getelementptr inbounds nuw i8, ptr %58, i64 21040
   store float -2.000000e+00, ptr %66, align 8, !tbaa !15
   ret void
@@ -635,7 +635,7 @@ _ZN13libraw_memmgr7cleanupEv.exit:                ; preds = %149
   %159 = getelementptr inbounds nuw i8, ptr %155, i64 24
   store i32 0, ptr %159, align 8, !tbaa !120
   %160 = getelementptr inbounds nuw i8, ptr %155, i64 16936
-  store i32 0, ptr %160, align 4, !tbaa !121
+  store i32 0, ptr %160, align 8, !tbaa !121
   %161 = getelementptr inbounds nuw i8, ptr %155, i64 21040
   store float -2.000000e+00, ptr %161, align 8, !tbaa !15
   ret void

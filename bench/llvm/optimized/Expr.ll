@@ -12519,7 +12519,7 @@ _ZN5clang14CStyleCastExprC2ENS_4Stmt10EmptyShellEjb.exit: ; preds = %27, %33
   %39 = or disjoint i32 %38, %37
   store i32 %39, ptr %.0.i.i.i6, align 8
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i6, i64 32
-  store i32 0, ptr %40, align 4, !tbaa !113
+  store i32 0, ptr %40, align 8, !tbaa !113
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i6, i64 36
   store i32 0, ptr %41, align 4, !tbaa !113
   br label %42
@@ -28580,7 +28580,7 @@ define dso_local void @_ZNK5clang20ExtVectorElementExpr23getEncodedElementAccess
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i64, ptr %6, align 8, !tbaa !223
   %9 = and i64 %8, 4294967295
-  %10 = load i8, ptr %7, align 1, !tbaa !25
+  %10 = load i8, ptr %7, align 8, !tbaa !25
   switch i8 %10, label %15 [
     i8 115, label %11
     i8 83, label %11
@@ -30143,7 +30143,7 @@ _ZN5clang18DesignatedInitExprC2Ej.exit:           ; preds = %25, %31
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i4, i64 8
   store i64 0, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i4, i64 16
-  store i32 0, ptr %33, align 4, !tbaa !113
+  store i32 0, ptr %33, align 8, !tbaa !113
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i4, i64 20
   %35 = load i32, ptr %34, align 4
   %36 = shl i32 %3, 16

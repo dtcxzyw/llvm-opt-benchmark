@@ -613,7 +613,7 @@ _stop_cursor.exit:                                ; preds = %62, %58, %54
   %73 = sitofp i32 %24 to float
   %74 = sitofp i32 %65 to float
   %75 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %76 = load i16, ptr %75, align 2, !tbaa !113
+  %76 = load i16, ptr %75, align 4, !tbaa !113
   %77 = sitofp i16 %76 to float
   %78 = fadd reassoc nsz arcp contract afn float %73, %74
   %79 = fsub reassoc nsz arcp contract afn float %72, %78
@@ -900,7 +900,7 @@ define internal noundef i32 @_popup_draw(ptr noundef %0, ptr noundef %1, ptr rea
   %12 = load ptr, ptr %11, align 8, !tbaa !94
   %13 = tail call i32 @gtk_widget_get_allocated_width(ptr noundef %0) #20
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %15 = load i16, ptr %14, align 2, !tbaa !110
+  %15 = load i16, ptr %14, align 8, !tbaa !110
   %16 = sext i16 %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 26
   %18 = load i16, ptr %17, align 2, !tbaa !115
@@ -910,7 +910,7 @@ define internal noundef i32 @_popup_draw(ptr noundef %0, ptr noundef %1, ptr rea
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 44
   %23 = load i32, ptr %22, align 4, !tbaa !104
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 28
-  %25 = load i16, ptr %24, align 2, !tbaa !113
+  %25 = load i16, ptr %24, align 4, !tbaa !113
   %26 = sext i16 %25 to i32
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 30
   %28 = load i16, ptr %27, align 2, !tbaa !138
@@ -948,9 +948,9 @@ define internal noundef i32 @_popup_draw(ptr noundef %0, ptr noundef %1, ptr rea
   %45 = load i32, ptr %22, align 4, !tbaa !104
   %46 = sitofp i32 %45 to double
   call void @gtk_render_frame(ptr noundef %32, ptr noundef %1, double noundef 0.000000e+00, double noundef %44, double noundef %39, double noundef %46) #20
-  %47 = load i16, ptr %14, align 2, !tbaa !110
+  %47 = load i16, ptr %14, align 8, !tbaa !110
   %48 = sitofp i16 %47 to double
-  %49 = load i16, ptr %24, align 2, !tbaa !113
+  %49 = load i16, ptr %24, align 4, !tbaa !113
   %50 = sext i16 %49 to i32
   %51 = load i32, ptr %35, align 4, !tbaa !103
   %52 = sub nsw i32 %50, %51
@@ -10802,7 +10802,7 @@ _start_cursor.exit:                               ; preds = %169, %179
   %245 = load i16, ptr %51, align 8, !tbaa !291
   %246 = sext i16 %245 to i32
   %247 = sub nsw i32 %234, %246
-  store i32 %247, ptr %52, align 4, !tbaa !100
+  store i32 %247, ptr %52, align 8, !tbaa !100
   %248 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %249 = load i16, ptr %248, align 4, !tbaa !292
   %250 = sext i16 %249 to i32
@@ -10812,9 +10812,9 @@ _start_cursor.exit:                               ; preds = %169, %179
   %253 = load i16, ptr %252, align 2, !tbaa !293
   %254 = sext i16 %253 to i32
   %255 = add nsw i32 %254, %246
-  %256 = load i32, ptr %73, align 4, !tbaa !102
+  %256 = load i32, ptr %73, align 8, !tbaa !102
   %257 = add nsw i32 %255, %256
-  store i32 %257, ptr %73, align 4, !tbaa !102
+  store i32 %257, ptr %73, align 8, !tbaa !102
   %258 = getelementptr inbounds nuw i8, ptr %12, i64 30
   %259 = load i16, ptr %258, align 2, !tbaa !294
   %260 = sext i16 %259 to i32

@@ -385,7 +385,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %11
   store i64 %17, ptr %19, align 8, !tbaa !37
   store ptr %9, ptr %1, align 8, !tbaa !35
   store i64 0, ptr %18, align 8, !tbaa !37
-  store i8 0, ptr %9, align 1, !tbaa !38
+  store i8 0, ptr %9, align 8, !tbaa !38
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %20, align 16, !tbaa !38
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 80
@@ -628,7 +628,7 @@ define internal fastcc void @"_ZNSt16allocator_traitsISaISt6threadEE9constructIS
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5folly31ThreadedRepeatingFunctionRunner3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEESG_E3$_0EEEEEE", i64 16), ptr %4, align 16, !tbaa !54
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %6, ptr %5, align 8, !tbaa !32
+  store ptr %6, ptr %5, align 16, !tbaa !32
   %7 = load ptr, ptr %1, align 16, !tbaa !35
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = icmp eq ptr %7, %8

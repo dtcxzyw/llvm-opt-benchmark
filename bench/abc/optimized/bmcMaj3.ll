@@ -5130,7 +5130,7 @@ Zyx_ManIsUsed3.exit.thread:                       ; preds = %192
   %239 = shl nsw i32 %238, 1
   %240 = or disjoint i32 %239, %.1116162
   store i32 1, ptr %13, align 8, !tbaa !29
-  store i32 %240, ptr %18, align 4, !tbaa !29
+  store i32 %240, ptr %18, align 8, !tbaa !29
   %241 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %242 = load i32, ptr %241, align 8, !tbaa !108
   %243 = icmp sgt i32 %242, 0
@@ -5317,7 +5317,7 @@ define range(i32 0, 2) i32 @Zyx_ManAddCnfLazyFunc(ptr noundef %0, i32 noundef %1
   %42 = shl nsw i32 %41, 1
   %43 = or disjoint i32 %42, %.0130182
   store i32 1, ptr %18, align 8, !tbaa !29
-  store i32 %43, ptr %19, align 4, !tbaa !29
+  store i32 %43, ptr %19, align 8, !tbaa !29
   %44 = getelementptr inbounds nuw i8, ptr %.val144, i64 8
   %45 = load i32, ptr %44, align 8, !tbaa !108
   %46 = icmp sgt i32 %45, 0
@@ -5506,7 +5506,7 @@ define range(i32 0, 2) i32 @Zyx_ManAddCnfLazyFunc(ptr noundef %0, i32 noundef %1
   %133 = shl nsw i32 %132, 1
   %134 = or disjoint i32 %133, %.1131164
   store i32 1, ptr %106, align 8, !tbaa !29
-  store i32 %134, ptr %107, align 4, !tbaa !29
+  store i32 %134, ptr %107, align 8, !tbaa !29
   %135 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %136 = load i32, ptr %135, align 8, !tbaa !108
   %137 = icmp sgt i32 %136, 0

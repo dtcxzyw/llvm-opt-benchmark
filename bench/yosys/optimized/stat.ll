@@ -3344,7 +3344,7 @@ _ZNSt3mapIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_110statdata_tESt4lessIS2_ESaISt4p
   store ptr %1008, ptr %1007, align 8, !tbaa !19
   %1010 = getelementptr inbounds nuw i8, ptr %997, i64 104
   store i64 0, ptr %1010, align 8, !tbaa !22
-  store i8 0, ptr %1008, align 1, !tbaa !24
+  store i8 0, ptr %1008, align 8, !tbaa !24
   %1011 = getelementptr inbounds nuw i8, ptr %997, i64 136
   store i32 0, ptr %1011, align 8, !tbaa !6
   %1012 = getelementptr inbounds nuw i8, ptr %997, i64 144
@@ -16879,7 +16879,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringES2_St9_IdentityI
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !486
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
-  %8 = load i32, ptr %7, align 4, !tbaa !54
+  %8 = load i32, ptr %7, align 8, !tbaa !54
   %9 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !60, !range !62, !noundef !63
   %10 = trunc nuw i8 %9 to i1
   %11 = icmp ne i32 %8, 0
@@ -16929,7 +16929,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_jESt
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !486
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
-  %8 = load i32, ptr %7, align 4, !tbaa !54
+  %8 = load i32, ptr %7, align 8, !tbaa !54
   %9 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !60, !range !62, !noundef !63
   %10 = trunc nuw i8 %9 to i1
   %11 = icmp ne i32 %8, 0

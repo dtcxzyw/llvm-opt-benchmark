@@ -16348,7 +16348,7 @@ define dso_local { ptr, i64 } @_ZNK5clang7AsmStmt19getOutputConstraintEj(ptr nou
   %17 = lshr i32 %16, 22
   %18 = and i32 %17, 7
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %20 = load i32, ptr %19, align 4, !tbaa !1055
+  %20 = load i32, ptr %19, align 8, !tbaa !1055
   %21 = mul i32 %18, %20
   %22 = zext i32 %21 to i64
   br label %28
@@ -16387,7 +16387,7 @@ define dso_local { ptr, i64 } @_ZNK5clang10GCCAsmStmt19getOutputConstraintEj(ptr
   %14 = lshr i32 %13, 22
   %15 = and i32 %14, 7
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %17 = load i32, ptr %16, align 4, !tbaa !1055
+  %17 = load i32, ptr %16, align 8, !tbaa !1055
   %18 = mul i32 %15, %17
   %19 = zext i32 %18 to i64
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %12, 0
@@ -16443,7 +16443,7 @@ define dso_local { ptr, i64 } @_ZNK5clang7AsmStmt18getInputConstraintEj(ptr noun
   %20 = lshr i32 %19, 22
   %21 = and i32 %20, 7
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %23 = load i32, ptr %22, align 4, !tbaa !1055
+  %23 = load i32, ptr %22, align 8, !tbaa !1055
   %24 = mul i32 %21, %23
   %25 = zext i32 %24 to i64
   br label %34
@@ -16488,7 +16488,7 @@ define dso_local { ptr, i64 } @_ZNK5clang10GCCAsmStmt18getInputConstraintEj(ptr 
   %17 = lshr i32 %16, 22
   %18 = and i32 %17, 7
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %20 = load i32, ptr %19, align 4, !tbaa !1055
+  %20 = load i32, ptr %19, align 8, !tbaa !1055
   %21 = mul i32 %18, %20
   %22 = zext i32 %21 to i64
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %15, 0
@@ -16544,7 +16544,7 @@ define dso_local { ptr, i64 } @_ZNK5clang7AsmStmt10getClobberEj(ptr noundef nonn
   %17 = lshr i32 %16, 22
   %18 = and i32 %17, 7
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %20 = load i32, ptr %19, align 4, !tbaa !1055
+  %20 = load i32, ptr %19, align 8, !tbaa !1055
   %21 = mul i32 %18, %20
   %22 = zext i32 %21 to i64
   br label %28
@@ -16583,7 +16583,7 @@ define dso_local { ptr, i64 } @_ZNK5clang10GCCAsmStmt10getClobberEj(ptr noundef 
   %14 = lshr i32 %13, 22
   %15 = and i32 %14, 7
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %17 = load i32, ptr %16, align 4, !tbaa !1055
+  %17 = load i32, ptr %16, align 8, !tbaa !1055
   %18 = mul i32 %15, %17
   %19 = zext i32 %18 to i64
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %12, 0
@@ -17201,7 +17201,7 @@ define dso_local noundef i32 @_ZNK5clang10GCCAsmStmt16AnalyzeAsmStringERN4llvm15
   %34 = lshr i32 %33, 22
   %35 = and i32 %34, 7
   %36 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %37 = load i32, ptr %36, align 4, !tbaa !1055
+  %37 = load i32, ptr %36, align 8, !tbaa !1055
   %38 = mul i32 %35, %37
   %39 = zext i32 %38 to i64
   %40 = getelementptr inbounds nuw i8, ptr %32, i64 %39
@@ -17405,7 +17405,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang10GCCAsmStmt14AsmStringPieceELb0EE9push
   store i64 %123, ptr %124, align 8, !tbaa !1185
   store ptr %114, ptr %111, align 8, !tbaa !1191
   store i64 0, ptr %122, align 8, !tbaa !1185
-  store i8 0, ptr %114, align 1, !tbaa !57
+  store i8 0, ptr %114, align 8, !tbaa !57
   %125 = getelementptr inbounds nuw i8, ptr %108, i64 40
   %126 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %125, ptr noundef nonnull align 8 dereferenceable(13) %126, i64 13, i1 false)
@@ -17617,7 +17617,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang10GCCAsmStmt14AsmStringPieceELb0EE9push
   store i64 %227, ptr %228, align 8, !tbaa !1185
   store ptr %218, ptr %215, align 8, !tbaa !1191
   store i64 0, ptr %226, align 8, !tbaa !1185
-  store i8 0, ptr %218, align 1, !tbaa !57
+  store i8 0, ptr %218, align 8, !tbaa !57
   %229 = getelementptr inbounds nuw i8, ptr %212, i64 40
   %230 = getelementptr inbounds nuw i8, ptr %.016.i.i.i141, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %229, ptr noundef nonnull align 8 dereferenceable(13) %230, i64 13, i1 false)
@@ -17979,7 +17979,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang10GCCAsmStmt14AsmStringPieceELb0EE9push
   store i64 %379, ptr %380, align 8, !tbaa !1185
   store ptr %370, ptr %367, align 8, !tbaa !1191
   store i64 0, ptr %378, align 8, !tbaa !1185
-  store i8 0, ptr %370, align 1, !tbaa !57
+  store i8 0, ptr %370, align 8, !tbaa !57
   %381 = getelementptr inbounds nuw i8, ptr %364, i64 40
   %382 = getelementptr inbounds nuw i8, ptr %.016.i.i.i166, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %381, ptr noundef nonnull align 8 dereferenceable(13) %382, i64 13, i1 false)
@@ -21711,7 +21711,7 @@ _ZSt10_ConstructIN5clang10GCCAsmStmt14AsmStringPieceEJS2_EEvPT_DpOT0_.exit.i.i.i
   store i64 %25, ptr %26, align 8, !tbaa !1185
   store ptr %16, ptr %13, align 8, !tbaa !1191
   store i64 0, ptr %24, align 8, !tbaa !1185
-  store i8 0, ptr %16, align 1, !tbaa !57
+  store i8 0, ptr %16, align 8, !tbaa !57
   %27 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 40
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %27, ptr noundef nonnull align 8 dereferenceable(13) %28, i64 13, i1 false)
@@ -21897,7 +21897,7 @@ _ZSt10_ConstructIN5clang10GCCAsmStmt14AsmStringPieceEJS2_EEvPT_DpOT0_.exit.i.i.i
   store i64 %52, ptr %53, align 8, !tbaa !1185
   store ptr %43, ptr %40, align 8, !tbaa !1191
   store i64 0, ptr %51, align 8, !tbaa !1185
-  store i8 0, ptr %43, align 1, !tbaa !57
+  store i8 0, ptr %43, align 8, !tbaa !57
   %54 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 40
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %54, ptr noundef nonnull align 8 dereferenceable(13) %55, i64 13, i1 false)
@@ -22084,7 +22084,7 @@ _ZSt10_ConstructIN5clang10GCCAsmStmt14AsmStringPieceEJS2_EEvPT_DpOT0_.exit.i.i.i
   store i64 %52, ptr %53, align 8, !tbaa !1185
   store ptr %43, ptr %40, align 8, !tbaa !1191
   store i64 0, ptr %51, align 8, !tbaa !1185
-  store i8 0, ptr %43, align 1, !tbaa !57
+  store i8 0, ptr %43, align 8, !tbaa !57
   %54 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 40
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %54, ptr noundef nonnull align 8 dereferenceable(13) %55, i64 13, i1 false)

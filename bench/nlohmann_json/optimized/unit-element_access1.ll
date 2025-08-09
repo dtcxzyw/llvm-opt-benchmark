@@ -4722,7 +4722,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr %2207, ptr %2205, align 8, !tbaa !42
   %2208 = getelementptr inbounds nuw i8, ptr %2205, i64 8
   store i64 0, ptr %2208, align 8, !tbaa !44
-  store i8 0, ptr %2207, align 1, !tbaa !10
+  store i8 0, ptr %2207, align 8, !tbaa !10
   store ptr %2205, ptr %2204, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(ptr nonnull %133)
   invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2ERKSD_(ptr noundef nonnull align 8 dereferenceable(16) %133, ptr noundef nonnull align 8 dereferenceable(16) %132)
@@ -9741,7 +9741,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr %3823, ptr %3821, align 8, !tbaa !42
   %3824 = getelementptr inbounds nuw i8, ptr %3821, i64 8
   store i64 0, ptr %3824, align 8, !tbaa !44
-  store i8 0, ptr %3823, align 1, !tbaa !10
+  store i8 0, ptr %3823, align 8, !tbaa !10
   store ptr %3821, ptr %3820, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(ptr nonnull %292)
   invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2ERKSD_(ptr noundef nonnull align 8 dereferenceable(16) %292, ptr noundef nonnull align 8 dereferenceable(16) %291)
@@ -25231,7 +25231,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr %9300, ptr %9298, align 8, !tbaa !42
   %9301 = getelementptr inbounds nuw i8, ptr %9298, i64 8
   store i64 0, ptr %9301, align 8, !tbaa !44
-  store i8 0, ptr %9300, align 1, !tbaa !10
+  store i8 0, ptr %9300, align 8, !tbaa !10
   store ptr %9298, ptr %9297, align 8, !tbaa !10
   %9302 = invoke noundef ptr @_ZN7doctest17getContextOptionsEv()
           to label %9303 unwind label %9320

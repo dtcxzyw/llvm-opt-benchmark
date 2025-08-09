@@ -18287,7 +18287,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
   store i64 %20, ptr %22, align 8
   store ptr %12, ptr %9, align 8
   store i64 0, ptr %21, align 8
-  store i8 0, ptr %12, align 1
+  store i8 0, ptr %12, align 8
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %23, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

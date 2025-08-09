@@ -570,7 +570,7 @@ define dso_local i32 @tcp_v4_connect(ptr noundef %0, ptr noundef readonly captur
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 0, ptr %114, align 8
   %115 = getelementptr i8, ptr %0, i64 80
-  store i32 -65536, ptr %115, align 4
+  store i32 -65536, ptr %115, align 8
   %116 = getelementptr i8, ptr %0, i64 84
   store i32 %106, ptr %116, align 4
   br label %117
@@ -609,7 +609,7 @@ define dso_local i32 @tcp_v4_connect(ptr noundef %0, ptr noundef readonly captur
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 0, ptr %135, align 8
   %136 = getelementptr i8, ptr %0, i64 64
-  store i32 -65536, ptr %136, align 4
+  store i32 -65536, ptr %136, align 8
   %137 = getelementptr i8, ptr %0, i64 68
   store i32 %103, ptr %137, align 4
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 1214
@@ -3303,7 +3303,7 @@ define internal ptr @tcp_v4_route_req(ptr noundef %0, ptr noundef %1, ptr nounde
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i64 0, ptr %16, align 8
   %17 = getelementptr i8, ptr %3, i64 80
-  store i32 -65536, ptr %17, align 4
+  store i32 -65536, ptr %17, align 8
   %18 = getelementptr i8, ptr %3, i64 84
   store i32 %14, ptr %18, align 4
   %19 = load ptr, ptr %7, align 8
@@ -3316,7 +3316,7 @@ define internal ptr @tcp_v4_route_req(ptr noundef %0, ptr noundef %1, ptr nounde
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 0, ptr %25, align 8
   %26 = getelementptr i8, ptr %3, i64 64
-  store i32 -65536, ptr %26, align 4
+  store i32 -65536, ptr %26, align 8
   %27 = getelementptr i8, ptr %3, i64 68
   store i32 %24, ptr %27, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 68
@@ -3582,7 +3582,7 @@ define dso_local ptr @tcp_v4_syn_recv_sock(ptr noundef %0, ptr noundef %1, ptr n
   %37 = getelementptr inbounds nuw i8, ptr %14, i64 56
   store i64 0, ptr %37, align 8
   %38 = getelementptr i8, ptr %14, i64 64
-  store i32 -65536, ptr %38, align 4
+  store i32 -65536, ptr %38, align 8
   %39 = getelementptr i8, ptr %14, i64 68
   store i32 %36, ptr %39, align 4
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -3592,7 +3592,7 @@ define dso_local ptr @tcp_v4_syn_recv_sock(ptr noundef %0, ptr noundef %1, ptr n
   %43 = getelementptr inbounds nuw i8, ptr %14, i64 72
   store i64 0, ptr %43, align 8
   %44 = getelementptr i8, ptr %14, i64 80
-  store i32 -65536, ptr %44, align 4
+  store i32 -65536, ptr %44, align 8
   %45 = getelementptr i8, ptr %14, i64 84
   store i32 %41, ptr %45, align 4
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -4875,7 +4875,7 @@ define dso_local noundef zeroext i1 @tcp_add_backlog(ptr noundef %0, ptr noundef
   %231 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 244
   %233 = load i32, ptr %232, align 4
-  %234 = load volatile i32, ptr %231, align 4
+  %234 = load volatile i32, ptr %231, align 8
   %235 = add i32 %234, %233
   %236 = icmp ugt i32 %235, %230
   br i1 %236, label %286, label %237
@@ -8557,7 +8557,7 @@ define internal noundef i32 @tcp4_seq_show(ptr noundef initializes((32, 40)) %0,
   %37 = tail call i64 @llvm.smax.i64(i64 %22, i64 0)
   %38 = tail call i64 @jiffies_to_clock_t(i64 noundef %37) #21
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %40 = load volatile i32, ptr %39, align 4
+  %40 = load volatile i32, ptr %39, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.24, i32 noundef %18, i32 noundef %25, i32 noundef %32, i32 noundef %23, i32 noundef %33, i32 noundef %36, i32 noundef 0, i32 noundef 0, i32 noundef 3, i64 noundef %38, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %40, ptr noundef %1) #21
   br label %176
 
@@ -8685,7 +8685,7 @@ define internal noundef i32 @tcp4_seq_show(ptr noundef initializes((32, 40)) %0,
   %128 = load i8, ptr %127, align 1
   %129 = tail call i64 @sock_i_ino(ptr noundef %1) #21
   %130 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %131 = load volatile i32, ptr %130, align 4
+  %131 = load volatile i32, ptr %130, align 64
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 1144
   %133 = load i32, ptr %132, align 8
   %134 = zext i32 %133 to i64
@@ -8700,7 +8700,7 @@ define internal noundef i32 @tcp4_seq_show(ptr noundef initializes((32, 40)) %0,
   %143 = getelementptr inbounds nuw i8, ptr %1, i64 1218
   %144 = load i8, ptr %143, align 2
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %146 = load ptr, ptr %145, align 8
+  %146 = load ptr, ptr %145, align 16
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 1155
   %148 = load volatile i8, ptr %147, align 1
   %149 = getelementptr inbounds nuw i8, ptr %1, i64 1420
@@ -8998,7 +8998,7 @@ define internal noundef i32 @tcp_sk_init(ptr noundef initializes((708, 716), (74
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1188
   store i8 1, ptr %23, align 4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 768
-  store volatile i32 1, ptr %24, align 4
+  store volatile i32 1, ptr %24, align 16
   %25 = icmp eq ptr %0, @init_net
   br i1 %25, label %48, label %26
 

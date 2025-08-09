@@ -1445,7 +1445,7 @@ get_alpha_data.exit:                              ; preds = %.lr.ph.i186, %.preh
   %.val.i = load i32, ptr %278, align 8, !tbaa !43
   %notmask.i.i = shl nsw i32 -1, %.val.i
   %443 = xor i32 %notmask.i.i, -1
-  %444 = load i16, ptr %277, align 2, !tbaa !71
+  %444 = load i16, ptr %277, align 8, !tbaa !71
   %445 = zext i16 %444 to i32
   call fastcc void @put_alpha_diff(ptr noundef nonnull %5, i32 noundef %445, i32 noundef %443, i32 noundef %.val.i)
   br label %.outer

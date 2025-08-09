@@ -3183,7 +3183,7 @@ _ZSt19__relocate_object_aIN13TextureBuffer17TextureDefinitionES1_SaIS1_EEvPT_PT0
   store i64 %31, ptr %_M_string_length.i24.i.i.i.i.i.i.i.i, align 8, !tbaa !11, !alias.scope !124, !noalias !127
   store ptr %28, ptr %name3.i.i.i.i.i.i.i, align 8, !tbaa !4, !alias.scope !127, !noalias !124
   store i64 0, ptr %_M_string_length.i23.i.i.i.i.i.i.i.i, align 8, !tbaa !11, !alias.scope !127, !noalias !124
-  store i8 0, ptr %28, align 1, !tbaa !72, !alias.scope !127, !noalias !124
+  store i8 0, ptr %28, align 8, !tbaa !72, !alias.scope !127, !noalias !124
   %format.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 56
   %format4.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 56
   %32 = load i32, ptr %format4.i.i.i.i.i.i.i, align 8, !tbaa !47, !alias.scope !127, !noalias !124

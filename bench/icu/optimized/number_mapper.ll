@@ -1427,7 +1427,7 @@ _ZN6icu_776number4implL19scaleFromPropertiesERKNS1_23DecimalFormatPropertiesE.ex
   %356 = getelementptr inbounds nuw i8, ptr %4, i64 744
   %357 = getelementptr inbounds nuw i8, ptr %4, i64 748
   store i32 %115, ptr %357, align 4, !tbaa !104
-  store i8 0, ptr %356, align 4, !tbaa !83
+  store i8 0, ptr %356, align 8, !tbaa !83
   %358 = getelementptr inbounds nuw i8, ptr %4, i64 112
   store i32 %.1219, ptr %358, align 8, !tbaa !77
   %359 = icmp eq i32 %.1216, -1

@@ -3220,7 +3220,7 @@ define internal fastcc void @__d_instantiate(ptr noundef %0, ptr noundef nonnull
   %68 = load i32, ptr %61, align 4
   %69 = add i32 %68, 1
   store i32 %69, ptr %61, align 4
-  %70 = load volatile i32, ptr %47, align 4
+  %70 = load volatile i32, ptr %47, align 8
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %73, !prof !10
 
@@ -5551,7 +5551,7 @@ define internal fastcc void @__d_add(ptr noundef %0, ptr noundef %1) unnamed_add
   %85 = load i32, ptr %78, align 4
   %86 = add i32 %85, 1
   store i32 %86, ptr %78, align 4
-  %87 = load volatile i32, ptr %3, align 4
+  %87 = load volatile i32, ptr %3, align 8
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %89, label %90, !prof !10
 
@@ -6119,7 +6119,7 @@ define internal fastcc void @__d_move(ptr noundef %0, ptr noundef %1, i1 noundef
   store volatile ptr %177, ptr %188, align 8
   store volatile ptr %188, ptr %178, align 8
   tail call fastcc void @__d_rehash(ptr noundef %1)
-  %194 = load volatile i32, ptr %57, align 4
+  %194 = load volatile i32, ptr %57, align 8
   %195 = icmp eq i32 %194, 0
   br i1 %195, label %196, label %197, !prof !10
 
@@ -6181,7 +6181,7 @@ define internal fastcc void @__d_move(ptr noundef %0, ptr noundef %1, i1 noundef
   store volatile ptr %213, ptr %224, align 8
   store volatile ptr %224, ptr %214, align 8
   tail call fastcc void @__d_rehash(ptr noundef %0)
-  %230 = load volatile i32, ptr %56, align 4
+  %230 = load volatile i32, ptr %56, align 8
   %231 = icmp eq i32 %230, 0
   br i1 %231, label %232, label %233, !prof !10
 

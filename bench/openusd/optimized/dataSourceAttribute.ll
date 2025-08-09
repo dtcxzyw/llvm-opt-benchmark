@@ -9198,7 +9198,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__29UsdImagingDataS
   %19 = atomicrmw add ptr %.sink.i.i.i.i.i.i, i64 1 monotonic, align 8
   %.pre = load ptr, ptr %11, align 8
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store atomic i32 0, ptr %20 seq_cst, align 4
+  store atomic i32 0, ptr %20 seq_cst, align 8
   store ptr %9, ptr %0, align 8
   %21 = atomicrmw add ptr %20, i32 1 monotonic, align 4
   %.not.i.i = icmp eq ptr %.pre, null
@@ -9909,7 +9909,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_Coun
   %16 = atomicrmw add ptr %.sink.i.i.i.i.i, i64 1 monotonic, align 8, !noalias !28
   %.pre.i.i = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store atomic i32 0, ptr %17 seq_cst, align 4, !noalias !28
+  store atomic i32 0, ptr %17 seq_cst, align 8, !noalias !28
   %18 = atomicrmw add ptr %17, i32 1 monotonic, align 4, !noalias !28
   %.not.i.i.i.i = icmp eq ptr %.pre.i.i, null
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_7VtValue8_CountedINS_7VtArrayINS_12SdfAssetPathEEEEEED2Ev.exit.i.i, label %19
@@ -15467,7 +15467,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__29UsdImagingDataS
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   store double %9, ptr %.sroa.2.0..sroa_idx, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store atomic i32 0, ptr %14 seq_cst, align 4
+  store atomic i32 0, ptr %14 seq_cst, align 8
   store ptr %13, ptr %0, align 8
   %15 = atomicrmw add ptr %14, i32 1 monotonic, align 4
   ret void

@@ -1966,7 +1966,7 @@ select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
   %462 = load i64, ptr %.0.lcssa.i.i.i.i.i, align 8, !tbaa !87
   store i64 %462, ptr %.sroa.0231.4, align 8, !tbaa !98
   %463 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
-  %464 = load i32, ptr %463, align 4, !tbaa !80
+  %464 = load i32, ptr %463, align 8, !tbaa !80
   %465 = getelementptr inbounds nuw i8, ptr %.sroa.0231.4, i64 8
   store i32 %464, ptr %465, align 8, !tbaa !100
   invoke void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS3_SaIS3_EEEES4_lNS0_5__ops15_Iter_less_iterEEvT_SB_T0_T1_T2_(ptr nonnull %.sroa.0231.4, ptr nonnull %.sroa.11.4, ptr noundef nonnull %458, i64 noundef %.010.i.i.i.i)
@@ -5334,7 +5334,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !tbaa !54, !alias.scope !184, !noalias !187
   store ptr %43, ptr %.0911.i.i.i.i, align 8, !tbaa !53, !alias.scope !187, !noalias !184
   store i64 0, ptr %52, align 8, !tbaa !54, !alias.scope !187, !noalias !184
-  store i8 0, ptr %43, align 1, !tbaa !88, !alias.scope !187, !noalias !184
+  store i8 0, ptr %43, align 8, !tbaa !88, !alias.scope !187, !noalias !184
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %54, %1
@@ -5382,7 +5382,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !tbaa !54, !alias.scope !191, !noalias !194
   store ptr %59, ptr %.0911.i.i.i.i29, align 8, !tbaa !53, !alias.scope !194, !noalias !191
   store i64 0, ptr %68, align 8, !tbaa !54, !alias.scope !194, !noalias !191
-  store i8 0, ptr %59, align 1, !tbaa !88, !alias.scope !194, !noalias !191
+  store i8 0, ptr %59, align 8, !tbaa !88, !alias.scope !194, !noalias !191
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 32
   %.not.i.i.i.i34 = icmp eq ptr %70, %6
@@ -5620,7 +5620,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairImiESt6ve
   %26 = load i64, ptr %24, align 8, !tbaa !87
   store i64 %26, ptr %25, align 8, !tbaa !98
   %27 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -8
-  %28 = load i32, ptr %27, align 4, !tbaa !80
+  %28 = load i32, ptr %27, align 8, !tbaa !80
   %29 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -8
   store i32 %28, ptr %29, align 8, !tbaa !100
   %30 = add nsw i64 %.010.i.i.i.i.i.i, -1
@@ -5802,8 +5802,8 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairImiESt6ve
   store i64 %14, ptr %.tr6775, align 8, !tbaa !87
   %25 = getelementptr inbounds nuw i8, ptr %.tr74, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %.tr6775, i64 8
-  store i32 %23, ptr %25, align 4, !tbaa !80
-  store i32 %24, ptr %26, align 4, !tbaa !80
+  store i32 %23, ptr %25, align 8, !tbaa !80
+  store i32 %24, ptr %26, align 8, !tbaa !80
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairImiESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread64
 
 27:                                               ; preds = %9
@@ -5972,10 +5972,10 @@ define linkonce_odr ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPSt4p
   store i64 %17, ptr %.sroa.0.08.i, align 8, !tbaa !87
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i, i64 8
-  %21 = load i32, ptr %19, align 4, !tbaa !80
-  %22 = load i32, ptr %20, align 4, !tbaa !80
-  store i32 %22, ptr %19, align 4, !tbaa !80
-  store i32 %21, ptr %20, align 4, !tbaa !80
+  %21 = load i32, ptr %19, align 8, !tbaa !80
+  %22 = load i32, ptr %20, align 8, !tbaa !80
+  store i32 %22, ptr %19, align 8, !tbaa !80
+  store i32 %21, ptr %20, align 8, !tbaa !80
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i, i64 16
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i, i64 16
   %.not.i = icmp eq ptr %23, %1
@@ -6018,10 +6018,10 @@ define linkonce_odr ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPSt4p
   store i64 %35, ptr %.sroa.025.063, align 8, !tbaa !87
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.026.162, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.025.063, i64 8
-  %39 = load i32, ptr %37, align 4, !tbaa !80
-  %40 = load i32, ptr %38, align 4, !tbaa !80
-  store i32 %40, ptr %37, align 4, !tbaa !80
-  store i32 %39, ptr %38, align 4, !tbaa !80
+  %39 = load i32, ptr %37, align 8, !tbaa !80
+  %40 = load i32, ptr %38, align 8, !tbaa !80
+  store i32 %40, ptr %37, align 8, !tbaa !80
+  store i32 %39, ptr %38, align 8, !tbaa !80
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.026.162, i64 16
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.025.063, i64 16
   %43 = add nuw nsw i64 %.01964, 1
@@ -6063,10 +6063,10 @@ define linkonce_odr ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPSt4p
   store i64 %54, ptr %53, align 8, !tbaa !87
   %56 = getelementptr inbounds i8, ptr %.sroa.026.359, i64 -8
   %57 = getelementptr inbounds i8, ptr %.sroa.0.060, i64 -8
-  %58 = load i32, ptr %56, align 4, !tbaa !80
-  %59 = load i32, ptr %57, align 4, !tbaa !80
-  store i32 %59, ptr %56, align 4, !tbaa !80
-  store i32 %58, ptr %57, align 4, !tbaa !80
+  %58 = load i32, ptr %56, align 8, !tbaa !80
+  %59 = load i32, ptr %57, align 8, !tbaa !80
+  store i32 %59, ptr %56, align 8, !tbaa !80
+  store i32 %58, ptr %57, align 8, !tbaa !80
   %60 = add nuw nsw i64 %.01861, 1
   %exitcond.not = icmp eq i64 %60, %.0
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !213
@@ -6104,7 +6104,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %14 = load i64, ptr %.0910.i.i.i.i.i, align 8, !tbaa !87
   store i64 %14, ptr %.0811.i.i.i.i.i, align 8, !tbaa !98
   %15 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !80
+  %16 = load i32, ptr %15, align 8, !tbaa !80
   %17 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 8
   store i32 %16, ptr %17, align 8, !tbaa !100
   %18 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 16
@@ -6186,7 +6186,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairImiESt6ve
   %46 = load i64, ptr %.0910.i.i.i.i.i.i, align 8, !tbaa !87
   store i64 %46, ptr %.0811.i.i.i.i.i.i, align 8, !tbaa !98
   %47 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i, i64 8
-  %48 = load i32, ptr %47, align 4, !tbaa !80
+  %48 = load i32, ptr %47, align 8, !tbaa !80
   %49 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 8
   store i32 %48, ptr %49, align 8, !tbaa !100
   %50 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i, i64 16
@@ -6218,7 +6218,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairImiESt6ve
   %60 = load i64, ptr %.0910.i.i.i.i.i74, align 8, !tbaa !87
   store i64 %60, ptr %.0811.i.i.i.i.i73, align 8, !tbaa !98
   %61 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i74, i64 8
-  %62 = load i32, ptr %61, align 4, !tbaa !80
+  %62 = load i32, ptr %61, align 8, !tbaa !80
   %63 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i73, i64 8
   store i32 %62, ptr %63, align 8, !tbaa !100
   %64 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i74, i64 16
@@ -6249,7 +6249,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS3_SaIS3_EEEES4_E
   %77 = load i64, ptr %75, align 8, !tbaa !87
   store i64 %77, ptr %76, align 8, !tbaa !98
   %78 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -8
-  %79 = load i32, ptr %78, align 4, !tbaa !80
+  %79 = load i32, ptr %78, align 8, !tbaa !80
   %80 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -8
   store i32 %79, ptr %80, align 8, !tbaa !100
   %81 = add nsw i64 %.010.i.i.i.i.i.i, -1
@@ -6327,7 +6327,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImiENS_17__normal_iteratorIS5_St
   %110 = load i64, ptr %108, align 8, !tbaa !87
   store i64 %110, ptr %109, align 8, !tbaa !98
   %111 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i22.i, i64 -8
-  %112 = load i32, ptr %111, align 4, !tbaa !80
+  %112 = load i32, ptr %111, align 8, !tbaa !80
   %113 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i21.i, i64 -8
   store i32 %112, ptr %113, align 8, !tbaa !100
   %114 = add nsw i64 %.010.i.i.i.i.i20.i, -1
@@ -6560,7 +6560,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairImiESt6ve
   %30 = load i64, ptr %28, align 8, !tbaa !87
   store i64 %30, ptr %29, align 8, !tbaa !98
   %31 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -8
-  %32 = load i32, ptr %31, align 4, !tbaa !80
+  %32 = load i32, ptr %31, align 8, !tbaa !80
   %33 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -8
   store i32 %32, ptr %33, align 8, !tbaa !100
   %34 = add nsw i64 %.010.i.i.i.i.i.i, -1
@@ -6682,7 +6682,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairImiESt6ve
   %67 = load i64, ptr %65, align 8, !tbaa !87
   store i64 %67, ptr %66, align 8, !tbaa !98
   %68 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i33, i64 -8
-  %69 = load i32, ptr %68, align 4, !tbaa !80
+  %69 = load i32, ptr %68, align 8, !tbaa !80
   %70 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i32, i64 -8
   store i32 %69, ptr %70, align 8, !tbaa !100
   %71 = add nsw i64 %.010.i.i.i.i.i.i31, -1
@@ -6835,7 +6835,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairImiESt6ve
   %38 = load i64, ptr %.0910.i.i.i.i.i.i, align 8, !tbaa !87
   store i64 %38, ptr %.0811.i.i.i.i.i.i, align 8, !tbaa !98
   %39 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i, i64 8
-  %40 = load i32, ptr %39, align 4, !tbaa !80
+  %40 = load i32, ptr %39, align 8, !tbaa !80
   %41 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 8
   store i32 %40, ptr %41, align 8, !tbaa !100
   %42 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i, i64 16
@@ -6860,7 +6860,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS3_SaIS3_EEEES4_E
   %51 = load i64, ptr %.0910.i.i.i.i.i13.i, align 8, !tbaa !87
   store i64 %51, ptr %.0811.i.i.i.i.i12.i, align 8, !tbaa !98
   %52 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i13.i, i64 8
-  %53 = load i32, ptr %52, align 4, !tbaa !80
+  %53 = load i32, ptr %52, align 8, !tbaa !80
   %54 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i12.i, i64 8
   store i32 %53, ptr %54, align 8, !tbaa !100
   %55 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i13.i, i64 16
@@ -6962,7 +6962,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairImiESt6ve
   %89 = load i64, ptr %.0910.i.i.i.i.i.i27, align 8, !tbaa !87
   store i64 %89, ptr %.0811.i.i.i.i.i.i26, align 8, !tbaa !98
   %90 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i27, i64 8
-  %91 = load i32, ptr %90, align 4, !tbaa !80
+  %91 = load i32, ptr %90, align 8, !tbaa !80
   %92 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i26, i64 8
   store i32 %91, ptr %92, align 8, !tbaa !100
   %93 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i27, i64 16
@@ -6986,7 +6986,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS3_SaIS3_EEEES4_E
   %101 = load i64, ptr %.0910.i.i.i.i.i13.i23, align 8, !tbaa !87
   store i64 %101, ptr %.0811.i.i.i.i.i12.i22, align 8, !tbaa !98
   %102 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i13.i23, i64 8
-  %103 = load i32, ptr %102, align 4, !tbaa !80
+  %103 = load i32, ptr %102, align 8, !tbaa !80
   %104 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i12.i22, i64 8
   store i32 %103, ptr %104, align 8, !tbaa !100
   %105 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i13.i23, i64 16
@@ -7096,7 +7096,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImiES5_EEbT_T0_.exit.thread26.i:
   %39 = load i64, ptr %.0910.i.i.i.i.i.i, align 8, !tbaa !87
   store i64 %39, ptr %.0811.i.i.i.i.i.i, align 8, !tbaa !98
   %40 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i, i64 8
-  %41 = load i32, ptr %40, align 4, !tbaa !80
+  %41 = load i32, ptr %40, align 8, !tbaa !80
   %42 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 8
   store i32 %41, ptr %42, align 8, !tbaa !100
   %43 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i, i64 16
@@ -7125,7 +7125,7 @@ _ZSt4moveIPSt4pairImiEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEE
   %56 = load i64, ptr %.0910.i.i.i.i.i22.i, align 8, !tbaa !87
   store i64 %56, ptr %.0811.i.i.i.i.i21.i, align 8, !tbaa !98
   %57 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i22.i, i64 8
-  %58 = load i32, ptr %57, align 4, !tbaa !80
+  %58 = load i32, ptr %57, align 8, !tbaa !80
   %59 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i21.i, i64 8
   store i32 %58, ptr %59, align 8, !tbaa !100
   %60 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i22.i, i64 16
@@ -7233,7 +7233,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImiES5_EEbT_T0_.exit.thread26.i4
   %99 = load i64, ptr %.0910.i.i.i.i.i.i36, align 8, !tbaa !87
   store i64 %99, ptr %.0811.i.i.i.i.i.i35, align 8, !tbaa !98
   %100 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i36, i64 8
-  %101 = load i32, ptr %100, align 4, !tbaa !80
+  %101 = load i32, ptr %100, align 8, !tbaa !80
   %102 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i35, i64 8
   store i32 %101, ptr %102, align 8, !tbaa !100
   %103 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i36, i64 16
@@ -7264,7 +7264,7 @@ _ZSt4moveIPSt4pairImiEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEE
   %115 = load i64, ptr %.0910.i.i.i.i.i22.i31, align 8, !tbaa !87
   store i64 %115, ptr %.0811.i.i.i.i.i21.i30, align 8, !tbaa !98
   %116 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i22.i31, i64 8
-  %117 = load i32, ptr %116, align 4, !tbaa !80
+  %117 = load i32, ptr %116, align 8, !tbaa !80
   %118 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i21.i30, i64 8
   store i32 %117, ptr %118, align 8, !tbaa !100
   %119 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i22.i31, i64 16
@@ -7303,7 +7303,7 @@ define linkonce_odr ptr @_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorI
   %16 = load i64, ptr %.0910.i.i.i.i.i, align 8, !tbaa !87
   store i64 %16, ptr %.0811.i.i.i.i.i, align 8, !tbaa !98
   %17 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 8
-  %18 = load i32, ptr %17, align 4, !tbaa !80
+  %18 = load i32, ptr %17, align 8, !tbaa !80
   %19 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 8
   store i32 %18, ptr %19, align 8, !tbaa !100
   %20 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 16
@@ -7329,7 +7329,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS3_SaIS3_EEEES4_E
   %30 = load i64, ptr %28, align 8, !tbaa !87
   store i64 %30, ptr %29, align 8, !tbaa !98
   %31 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -8
-  %32 = load i32, ptr %31, align 4, !tbaa !80
+  %32 = load i32, ptr %31, align 8, !tbaa !80
   %33 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
   store i32 %32, ptr %33, align 8, !tbaa !100
   %34 = add nsw i64 %.010.i.i.i.i.i, -1
@@ -7351,7 +7351,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS3_SaIS
   %41 = load i64, ptr %.0910.i.i.i.i.i42, align 8, !tbaa !87
   store i64 %41, ptr %.0811.i.i.i.i.i41, align 8, !tbaa !98
   %42 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i42, i64 8
-  %43 = load i32, ptr %42, align 4, !tbaa !80
+  %43 = load i32, ptr %42, align 8, !tbaa !80
   %44 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i41, i64 8
   store i32 %43, ptr %44, align 8, !tbaa !100
   %45 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i42, i64 16
@@ -7393,7 +7393,7 @@ _ZSt4moveIPSt4pairImiEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEE
   %59 = load i64, ptr %.0910.i.i.i.i.i47, align 8, !tbaa !87
   store i64 %59, ptr %.0811.i.i.i.i.i46, align 8, !tbaa !98
   %60 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i47, i64 8
-  %61 = load i32, ptr %60, align 4, !tbaa !80
+  %61 = load i32, ptr %60, align 8, !tbaa !80
   %62 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i46, i64 8
   store i32 %61, ptr %62, align 8, !tbaa !100
   %63 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i47, i64 16
@@ -7417,7 +7417,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS3_SaIS3_EEEES4_E
   %71 = load i64, ptr %.0910.i.i.i.i.i53, align 8, !tbaa !87
   store i64 %71, ptr %.0811.i.i.i.i.i52, align 8, !tbaa !98
   %72 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i53, i64 8
-  %73 = load i32, ptr %72, align 4, !tbaa !80
+  %73 = load i32, ptr %72, align 8, !tbaa !80
   %74 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i52, i64 8
   store i32 %73, ptr %74, align 8, !tbaa !100
   %75 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i53, i64 16
@@ -7443,7 +7443,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS3_SaIS3_EEEES8_E
   %86 = load i64, ptr %84, align 8, !tbaa !87
   store i64 %86, ptr %85, align 8, !tbaa !98
   %87 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i58, i64 -8
-  %88 = load i32, ptr %87, align 4, !tbaa !80
+  %88 = load i32, ptr %87, align 8, !tbaa !80
   %89 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i57, i64 -8
   store i32 %88, ptr %89, align 8, !tbaa !100
   %90 = add nsw i64 %.010.i.i.i.i.i56, -1

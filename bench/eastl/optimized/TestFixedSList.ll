@@ -2604,7 +2604,7 @@ invoke.cont137:                                   ; preds = %if.else.i.i.i.i.i.i
   %result.0.i.i.i.i = phi ptr [ %105, %if.then.i.i7.i.i.i.i ], [ %107, %if.then4.i.i13.i.i.i.i ], [ %call1.i.i.i.i.i.i.i178, %if.else.i.i.i.i.i.i.i177.invoke.cont137_crit_edge ]
   %mValue.i.i = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i, i64 64
   store i32 0, ptr %mValue.i.i, align 64
-  store ptr %111, ptr %result.0.i.i.i.i, align 8
+  store ptr %111, ptr %result.0.i.i.i.i, align 64
   store ptr %result.0.i.i.i.i, ptr %fsl, align 8
   %112 = load i64, ptr %mSize.i.i.i175, align 8
   %inc.i = add i64 %112, 1
@@ -2649,7 +2649,7 @@ invoke.cont138:                                   ; preds = %if.else.i.i.i.i.i.i
   %result.0.i.i.i.i182 = phi ptr [ %113, %if.then.i.i7.i.i.i.i181 ], [ %115, %if.then4.i.i13.i.i.i.i190 ], [ %call1.i.i.i.i.i.i.i197, %if.else.i.i.i.i.i.i.i193.invoke.cont138_crit_edge ]
   %mValue.i.i183 = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i182, i64 64
   store i32 0, ptr %mValue.i.i183, align 64
-  store ptr %119, ptr %result.0.i.i.i.i182, align 8
+  store ptr %119, ptr %result.0.i.i.i.i182, align 64
   store ptr %result.0.i.i.i.i182, ptr %fsl, align 8
   %120 = load i64, ptr %mSize.i.i.i175, align 8
   %inc.i185 = add i64 %120, 1
@@ -2694,7 +2694,7 @@ invoke.cont139:                                   ; preds = %if.else.i.i.i.i.i.i
   %result.0.i.i.i.i202 = phi ptr [ %121, %if.then.i.i7.i.i.i.i201 ], [ %123, %if.then4.i.i13.i.i.i.i210 ], [ %call1.i.i.i.i.i.i.i217, %if.else.i.i.i.i.i.i.i213.invoke.cont139_crit_edge ]
   %mValue.i.i203 = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i202, i64 64
   store i32 0, ptr %mValue.i.i203, align 64
-  store ptr %127, ptr %result.0.i.i.i.i202, align 8
+  store ptr %127, ptr %result.0.i.i.i.i202, align 64
   store ptr %result.0.i.i.i.i202, ptr %fsl, align 8
   %128 = load i64, ptr %mSize.i.i.i175, align 8
   %inc.i205 = add i64 %128, 1
@@ -2739,7 +2739,7 @@ invoke.cont140:                                   ; preds = %if.else.i.i.i.i.i.i
   %result.0.i.i.i.i222 = phi ptr [ %129, %if.then.i.i7.i.i.i.i221 ], [ %131, %if.then4.i.i13.i.i.i.i230 ], [ %call1.i.i.i.i.i.i.i237, %if.else.i.i.i.i.i.i.i233.invoke.cont140_crit_edge ]
   %mValue.i.i223 = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i222, i64 64
   store i32 0, ptr %mValue.i.i223, align 64
-  store ptr %135, ptr %result.0.i.i.i.i222, align 8
+  store ptr %135, ptr %result.0.i.i.i.i222, align 64
   store ptr %result.0.i.i.i.i222, ptr %fsl, align 8
   %136 = load i64, ptr %mSize.i.i.i175, align 8
   %inc.i225 = add i64 %136, 1
@@ -2784,7 +2784,7 @@ invoke.cont141:                                   ; preds = %if.else.i.i.i.i.i.i
   %result.0.i.i.i.i242 = phi ptr [ %137, %if.then.i.i7.i.i.i.i241 ], [ %139, %if.then4.i.i13.i.i.i.i250 ], [ %call1.i.i.i.i.i.i.i257, %if.else.i.i.i.i.i.i.i253.invoke.cont141_crit_edge ]
   %mValue.i.i243 = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i242, i64 64
   store i32 0, ptr %mValue.i.i243, align 64
-  store ptr %143, ptr %result.0.i.i.i.i242, align 8
+  store ptr %143, ptr %result.0.i.i.i.i242, align 64
   store ptr %result.0.i.i.i.i242, ptr %fsl, align 8
   %144 = load i64, ptr %mSize.i.i.i175, align 8
   %inc.i245 = add i64 %144, 1

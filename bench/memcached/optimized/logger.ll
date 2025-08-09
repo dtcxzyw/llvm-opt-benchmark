@@ -1248,7 +1248,7 @@ define internal noundef i32 @_logger_parse_ee(ptr noundef %0, ptr noundef writeo
   %17 = load i16, ptr %16, align 8, !tbaa !33
   %18 = load i64, ptr %4, align 8, !tbaa !96
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %20 = load i32, ptr %19, align 4, !tbaa !9
+  %20 = load i32, ptr %19, align 8, !tbaa !9
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 55
   %22 = load i8, ptr %21, align 1, !tbaa !31
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1452,7 +1452,7 @@ define internal noundef i32 @_logger_parse_ige(ptr noundef %0, ptr noundef write
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %23 = load i32, ptr %22, align 4, !tbaa !9
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %25 = load i32, ptr %24, align 4, !tbaa !9
+  %25 = load i32, ptr %24, align 8, !tbaa !9
   %26 = icmp sgt i32 %25, 0
   %27 = add nsw i32 %25, -2
   %spec.select = select i1 %26, i32 %27, i32 0
@@ -1684,7 +1684,7 @@ define internal noundef i32 @_logger_parse_ise(ptr noundef %0, ptr noundef write
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 49
   %31 = load i8, ptr %30, align 1, !tbaa !31
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %33 = load i32, ptr %32, align 4, !tbaa !9
+  %33 = load i32, ptr %32, align 8, !tbaa !9
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %35 = load i32, ptr %34, align 4, !tbaa !9
   %36 = icmp sgt i32 %35, 0
@@ -1932,7 +1932,7 @@ _logger_util_addr_endpoint.exit:                  ; preds = %2, %6, %11, %16
   %28 = getelementptr inbounds [3 x ptr], ptr @__const._logger_parse_cce.transport_map, i64 0, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !98
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %31 = load i32, ptr %30, align 4, !tbaa !104
+  %31 = load i32, ptr %30, align 8, !tbaa !104
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds [4 x ptr], ptr @__const._logger_parse_cce.reason_map, i64 0, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !98
@@ -2141,7 +2141,7 @@ define internal noundef i32 @_logger_parse_extw(ptr noundef %0, ptr noundef writ
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %18 = load i16, ptr %17, align 4, !tbaa !33
+  %18 = load i16, ptr %17, align 8, !tbaa !33
   %19 = and i16 %18, 8
   %.not = icmp eq i16 %19, 0
   %20 = select i1 %.not, ptr @.str.24, ptr @.str.23

@@ -54094,11 +54094,11 @@ common.resume:                                    ; preds = %.body.i.i.i.i, %176
   %.sroa.6.0..sroa_idx5.i.i = getelementptr inbounds nuw i8, ptr %166, i64 2
   store i8 %.sroa.4.0.extract.trunc.i, ptr %.sroa.6.0..sroa_idx5.i.i, align 2, !noalias !21050
   %.sroa.7.i.i.sroa.4.0..sroa.7.0..sroa_idx7.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %166, i64 8
-  store i64 %.sroa.085.0.i, ptr %.sroa.7.i.i.sroa.4.0..sroa.7.0..sroa_idx7.i.i.sroa_idx, align 1, !noalias !21050
+  store i64 %.sroa.085.0.i, ptr %.sroa.7.i.i.sroa.4.0..sroa.7.0..sroa_idx7.i.i.sroa_idx, align 8, !noalias !21050
   %.sroa.7.i.i.sroa.5.0..sroa.7.0..sroa_idx7.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %166, i64 16
-  store ptr %.sroa.663.sroa.6.0153.i, ptr %.sroa.7.i.i.sroa.5.0..sroa.7.0..sroa_idx7.i.i.sroa_idx, align 1, !noalias !21050
+  store ptr %.sroa.663.sroa.6.0153.i, ptr %.sroa.7.i.i.sroa.5.0..sroa.7.0..sroa_idx7.i.i.sroa_idx, align 8, !noalias !21050
   %.sroa.7.i.i.sroa.6.0..sroa.7.0..sroa_idx7.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %166, i64 24
-  store i64 %.sroa.3.0.i, ptr %.sroa.7.i.i.sroa.6.0..sroa.7.0..sroa_idx7.i.i.sroa_idx, align 1, !noalias !21050
+  store i64 %.sroa.3.0.i, ptr %.sroa.7.i.i.sroa.6.0..sroa.7.0..sroa_idx7.i.i.sroa_idx, align 8, !noalias !21050
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !21051
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !21042
   store i8 4, ptr %0, align 8, !alias.scope !21039, !noalias !21065

@@ -12219,7 +12219,7 @@ define dso_local noundef nonnull ptr @LLVMCreateBuilderInContext(ptr noundef %0)
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store ptr null, ptr %11, align 8, !tbaa !393
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  store i32 0, ptr %12, align 4, !tbaa !394
+  store i32 0, ptr %12, align 8, !tbaa !394
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 108
   store i8 0, ptr %13, align 4, !tbaa !395
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 109
@@ -12274,7 +12274,7 @@ LLVMGetGlobalContext.exit:                        ; preds = %0, %3, %5
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store ptr null, ptr %16, align 8, !tbaa !393
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 104
-  store i32 0, ptr %17, align 4, !tbaa !394
+  store i32 0, ptr %17, align 8, !tbaa !394
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 108
   store i8 0, ptr %18, align 4, !tbaa !395
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 109
@@ -22461,7 +22461,7 @@ _ZSt10_ConstructIN4llvm17OperandBundleDefTIPNS0_5ValueEEEJS4_EEvPT_DpOT0_.exit.i
   store i64 %19, ptr %20, align 8, !tbaa !15
   store ptr %10, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !33
   store i64 0, ptr %18, align 8, !tbaa !15
-  store i8 0, ptr %10, align 1, !tbaa !10
+  store i8 0, ptr %10, align 8, !tbaa !10
   %21 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 32
   %23 = load ptr, ptr %22, align 8, !tbaa !323

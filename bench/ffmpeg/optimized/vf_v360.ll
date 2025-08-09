@@ -1279,7 +1279,7 @@ set_dimensions.exit:                              ; preds = %83, %77, %72
   %170 = fdiv nsz double %169, 3.600000e+02
   %171 = fptrunc nsz double %170 to float
   %172 = getelementptr inbounds nuw i8, ptr %.val, i64 296
-  store float %171, ptr %172, align 4, !tbaa !49
+  store float %171, ptr %172, align 8, !tbaa !49
   %173 = sitofp i32 %.0444 to float
   %174 = sitofp i32 %.0446 to float
   br label %.thread517
@@ -1372,7 +1372,7 @@ set_dimensions.exit:                              ; preds = %83, %77, %72
   %232 = fptrunc nsz double %231 to float
   %233 = tail call nsz float @llvm.tan.f32(float %232)
   %234 = getelementptr inbounds nuw i8, ptr %.val483, i64 296
-  store float %233, ptr %234, align 4, !tbaa !49
+  store float %233, ptr %234, align 8, !tbaa !49
   %235 = sitofp i32 %.0444 to float
   %236 = sitofp i32 %.0446 to float
   br label %.thread517
@@ -1394,7 +1394,7 @@ set_dimensions.exit:                              ; preds = %83, %77, %72
   %245 = load float, ptr %244, align 4, !tbaa !101
   %246 = fdiv nsz float %245, 3.600000e+02
   %247 = getelementptr inbounds nuw i8, ptr %.val484, i64 296
-  store float %246, ptr %247, align 4, !tbaa !49
+  store float %246, ptr %247, align 8, !tbaa !49
   %248 = sitofp i32 %.0444 to float
   %249 = sitofp i32 %.0446 to float
   br label %.thread517
@@ -1433,7 +1433,7 @@ set_dimensions.exit:                              ; preds = %83, %77, %72
   %275 = select i1 %270, float 0x3FF9101C00000000, float %274
   %276 = tail call nsz float @llvm.tan.f32(float %275)
   %277 = getelementptr inbounds nuw i8, ptr %.val485, i64 296
-  store float %276, ptr %277, align 4, !tbaa !49
+  store float %276, ptr %277, align 8, !tbaa !49
   %278 = sitofp i32 %.0444 to float
   %279 = sitofp i32 %.0446 to float
   %280 = fmul nsz float %279, 5.000000e-01
@@ -1482,7 +1482,7 @@ set_dimensions.exit:                              ; preds = %83, %77, %72
   %306 = load float, ptr %305, align 4, !tbaa !101
   %307 = fdiv nsz float %306, 1.800000e+02
   %308 = getelementptr inbounds nuw i8, ptr %.val486, i64 296
-  store float %307, ptr %308, align 4, !tbaa !49
+  store float %307, ptr %308, align 8, !tbaa !49
   %309 = shl nsw i32 %.0444, 1
   %310 = sitofp i32 %309 to float
   %311 = sitofp i32 %.0446 to float
@@ -1516,7 +1516,7 @@ set_dimensions.exit:                              ; preds = %83, %77, %72
   %331 = fptrunc nsz double %330 to float
   %332 = tail call nsz float @llvm.tan.f32(float %331)
   %333 = getelementptr inbounds nuw i8, ptr %.val487, i64 296
-  store float %332, ptr %333, align 4, !tbaa !49
+  store float %332, ptr %333, align 8, !tbaa !49
   %334 = sitofp i32 %.0444 to float
   %335 = sitofp i32 %.0446 to float
   %336 = fmul nsz float %335, 2.000000e+00
@@ -1538,7 +1538,7 @@ set_dimensions.exit:                              ; preds = %83, %77, %72
   %347 = load float, ptr %346, align 4, !tbaa !101
   %348 = fdiv nsz float %347, 1.800000e+02
   %349 = getelementptr inbounds nuw i8, ptr %.val488, i64 296
-  store float %348, ptr %349, align 4, !tbaa !49
+  store float %348, ptr %349, align 8, !tbaa !49
   %350 = sitofp i32 %.0444 to float
   %351 = sitofp i32 %.0446 to float
   br label %.thread517
@@ -1599,7 +1599,7 @@ set_dimensions.exit:                              ; preds = %83, %77, %72
   %390 = tail call nsz float @llvm.sin.f32(float %389)
   %391 = select i1 %385, float 0x3FEFFFEC00000000, float %390
   %392 = getelementptr inbounds nuw i8, ptr %.val489, i64 296
-  store float %391, ptr %392, align 4, !tbaa !49
+  store float %391, ptr %392, align 8, !tbaa !49
   %393 = sitofp i32 %.0444 to float
   %394 = sitofp i32 %.0446 to float
   %395 = fmul nsz float %394, 5.000000e-01
@@ -1630,7 +1630,7 @@ set_dimensions.exit:                              ; preds = %83, %77, %72
   %415 = tail call nsz float @llvm.sin.f32(float %414)
   %416 = select i1 %410, float 1.000000e+00, float %415
   %417 = getelementptr inbounds nuw i8, ptr %.val490, i64 296
-  store float %416, ptr %417, align 4, !tbaa !49
+  store float %416, ptr %417, align 8, !tbaa !49
   %418 = sitofp i32 %.0444 to float
   %419 = sitofp i32 %.0446 to float
   %420 = fmul nsz float %419, 5.000000e-01
@@ -2409,13 +2409,13 @@ allocate_plane.exit:                              ; preds = %allocate_plane.exit
   store float 0.000000e+00, ptr %822, align 8, !tbaa !49
   %823 = getelementptr inbounds nuw i8, ptr %2, i64 44
   store float %811, ptr %823, align 4, !tbaa !49
-  %824 = load i32, ptr %58, align 4, !tbaa !90
+  %824 = load i32, ptr %58, align 8, !tbaa !90
   %825 = sext i32 %824 to i64
   %826 = getelementptr inbounds [3 x [4 x float]], ptr %2, i64 0, i64 %825
   %827 = load float, ptr %791, align 4, !tbaa !49
   %828 = load float, ptr %826, align 16, !tbaa !49
   %829 = getelementptr inbounds nuw i8, ptr %8, i64 304
-  %830 = load float, ptr %829, align 4, !tbaa !49
+  %830 = load float, ptr %829, align 8, !tbaa !49
   %831 = getelementptr inbounds nuw i8, ptr %826, i64 4
   %832 = load float, ptr %831, align 4, !tbaa !49
   %833 = fneg nsz float %832
@@ -2428,7 +2428,7 @@ allocate_plane.exit:                              ; preds = %allocate_plane.exit
   %840 = fneg nsz float %837
   %841 = tail call nsz float @llvm.fmuladd.f32(float %840, float %839, float %835)
   %842 = getelementptr inbounds nuw i8, ptr %8, i64 312
-  %843 = load float, ptr %842, align 4, !tbaa !49
+  %843 = load float, ptr %842, align 8, !tbaa !49
   %844 = getelementptr inbounds nuw i8, ptr %826, i64 12
   %845 = load float, ptr %844, align 4, !tbaa !49
   %846 = fneg nsz float %843
@@ -2478,7 +2478,7 @@ allocate_plane.exit:                              ; preds = %allocate_plane.exit
   %890 = tail call nsz float @llvm.fmuladd.f32(float %851, float %872, float %889)
   %891 = tail call nsz float @llvm.fmuladd.f32(float %873, float %867, float %890)
   %892 = getelementptr inbounds nuw i8, ptr %8, i64 184
-  %893 = load i32, ptr %892, align 4, !tbaa !90
+  %893 = load i32, ptr %892, align 8, !tbaa !90
   %894 = sext i32 %893 to i64
   %895 = getelementptr inbounds [3 x [4 x float]], ptr %2, i64 0, i64 %894
   %896 = load float, ptr %895, align 16, !tbaa !49
@@ -2500,7 +2500,7 @@ allocate_plane.exit:                              ; preds = %allocate_plane.exit
   %911 = tail call nsz float @llvm.fmuladd.f32(float %882, float %896, float %910)
   %912 = tail call nsz float @llvm.fmuladd.f32(float %887, float %907, float %911)
   %913 = tail call nsz float @llvm.fmuladd.f32(float %908, float %903, float %912)
-  store float %913, ptr %829, align 4, !tbaa !49
+  store float %913, ptr %829, align 8, !tbaa !49
   %914 = fmul nsz float %878, %903
   %915 = tail call nsz float @llvm.fmuladd.f32(float %887, float %896, float %914)
   %916 = tail call nsz float @llvm.fmuladd.f32(float %891, float %898, float %915)
@@ -2511,18 +2511,18 @@ allocate_plane.exit:                              ; preds = %allocate_plane.exit
   %920 = tail call nsz float @llvm.fmuladd.f32(float %891, float %896, float %919)
   %921 = tail call nsz float @llvm.fmuladd.f32(float %882, float %903, float %920)
   %922 = tail call nsz float @llvm.fmuladd.f32(float %904, float %898, float %921)
-  store float %922, ptr %842, align 4, !tbaa !49
+  store float %922, ptr %842, align 8, !tbaa !49
   %923 = getelementptr inbounds nuw i8, ptr %8, i64 316
   store float %909, ptr %923, align 4, !tbaa !49
   %924 = fneg nsz float %913
   %925 = getelementptr inbounds nuw i8, ptr %8, i64 320
-  store float %924, ptr %925, align 4, !tbaa !49
+  store float %924, ptr %925, align 8, !tbaa !49
   %926 = fneg nsz float %918
   %927 = getelementptr inbounds nuw i8, ptr %8, i64 324
   store float %926, ptr %927, align 4, !tbaa !49
   %928 = fneg nsz float %922
   %929 = getelementptr inbounds nuw i8, ptr %8, i64 328
-  store float %928, ptr %929, align 4, !tbaa !49
+  store float %928, ptr %929, align 8, !tbaa !49
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %930 = getelementptr inbounds nuw i8, ptr %8, i64 240
   %931 = load i32, ptr %930, align 8, !tbaa !124
@@ -2537,7 +2537,7 @@ allocate_plane.exit:                              ; preds = %allocate_plane.exit
   %.not5.i = icmp eq i32 %933, 0
   %938 = select nsz i1 %.not5.i, float 1.000000e+00, float -1.000000e+00
   %939 = getelementptr inbounds nuw i8, ptr %8, i64 336
-  store float %938, ptr %939, align 4, !tbaa !49
+  store float %938, ptr %939, align 8, !tbaa !49
   %.not6.i = icmp eq i32 %935, 0
   %940 = select nsz i1 %.not6.i, float 1.000000e+00, float -1.000000e+00
   %941 = getelementptr inbounds nuw i8, ptr %8, i64 340
@@ -8532,7 +8532,7 @@ define internal noundef i32 @prepare_equirect_out(ptr noundef readonly captures(
   %15 = fdiv nsz double %14, 3.600000e+02
   %16 = fptrunc nsz double %15 to float
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 288
-  store float %16, ptr %17, align 4, !tbaa !49
+  store float %16, ptr %17, align 8, !tbaa !49
   ret i32 0
 }
 
@@ -9051,7 +9051,7 @@ define internal noundef i32 @prepare_flat_out(ptr noundef readonly captures(none
   %19 = fptrunc nsz double %18 to float
   %20 = tail call nsz float @llvm.tan.f32(float %19)
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 288
-  store float %20, ptr %21, align 4, !tbaa !49
+  store float %20, ptr %21, align 8, !tbaa !49
   ret i32 0
 }
 
@@ -9117,7 +9117,7 @@ define internal noundef i32 @prepare_fisheye_out(ptr noundef readonly captures(n
   %9 = load float, ptr %8, align 8, !tbaa !110
   %10 = fdiv nsz float %9, 1.800000e+02
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 288
-  store float %10, ptr %11, align 4, !tbaa !49
+  store float %10, ptr %11, align 8, !tbaa !49
   ret i32 0
 }
 
@@ -9249,7 +9249,7 @@ define internal noundef i32 @prepare_stereographic_out(ptr noundef readonly capt
   %21 = select i1 %16, float 0x3FF9101C00000000, float %20
   %22 = tail call nsz float @llvm.tan.f32(float %21)
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 288
-  store float %22, ptr %23, align 4, !tbaa !49
+  store float %22, ptr %23, align 8, !tbaa !49
   ret i32 0
 }
 
@@ -9565,7 +9565,7 @@ define internal noundef i32 @prepare_cylindrical_out(ptr noundef readonly captur
   %17 = fptrunc nsz double %16 to float
   %18 = tail call nsz float @llvm.tan.f32(float %17)
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 288
-  store float %18, ptr %19, align 4, !tbaa !49
+  store float %18, ptr %19, align 8, !tbaa !49
   ret i32 0
 }
 
@@ -9618,7 +9618,7 @@ define internal noundef i32 @prepare_cylindricalea_out(ptr noundef readonly capt
   %12 = load float, ptr %11, align 8, !tbaa !110
   %13 = fdiv nsz float %12, 1.800000e+02
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 288
-  store float %13, ptr %14, align 4, !tbaa !49
+  store float %13, ptr %14, align 8, !tbaa !49
   ret i32 0
 }
 
@@ -10162,7 +10162,7 @@ define internal noundef i32 @prepare_equisolid_out(ptr noundef readonly captures
   %17 = fptrunc nsz double %16 to float
   %18 = tail call nsz float @llvm.sin.f32(float %17)
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 288
-  store float %18, ptr %19, align 4, !tbaa !49
+  store float %18, ptr %19, align 8, !tbaa !49
   ret i32 0
 }
 
@@ -10231,7 +10231,7 @@ define internal noundef i32 @prepare_orthographic_out(ptr noundef readonly captu
   %21 = tail call nsz float @llvm.sin.f32(float %20)
   %22 = select i1 %16, float 1.000000e+00, float %21
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 288
-  store float %22, ptr %23, align 4, !tbaa !49
+  store float %22, ptr %23, align 8, !tbaa !49
   ret i32 0
 }
 
@@ -10459,14 +10459,14 @@ define internal noundef i32 @v360_slice(ptr noundef readonly captures(none) %0, 
   %128 = fdiv nsz float %121, %126
   %129 = fdiv nsz float %124, %126
   %130 = load float, ptr %35, align 4, !tbaa !49
-  %131 = load float, ptr %36, align 4, !tbaa !49
+  %131 = load float, ptr %36, align 8, !tbaa !49
   %132 = fneg nsz float %127
   %133 = fmul nsz float %131, %132
   %134 = call nsz float @llvm.fmuladd.f32(float %130, float 0.000000e+00, float %133)
   %135 = load float, ptr %37, align 4, !tbaa !49
   %136 = fneg nsz float %135
   %137 = call nsz float @llvm.fmuladd.f32(float %136, float %128, float %134)
-  %138 = load float, ptr %38, align 4, !tbaa !49
+  %138 = load float, ptr %38, align 8, !tbaa !49
   %139 = fneg nsz float %138
   %140 = call nsz float @llvm.fmuladd.f32(float %139, float %129, float %137)
   %141 = fmul nsz float %127, %130
@@ -10483,10 +10483,10 @@ define internal noundef i32 @v360_slice(ptr noundef readonly captures(none) %0, 
   %152 = call nsz float @llvm.fmuladd.f32(float %131, float %128, float %151)
   %153 = call nsz float @llvm.fmuladd.f32(float %136, float %127, float %152)
   %154 = load float, ptr %39, align 4, !tbaa !49
-  %155 = load float, ptr %40, align 4, !tbaa !49
+  %155 = load float, ptr %40, align 8, !tbaa !49
   %156 = load float, ptr %41, align 4, !tbaa !49
   %157 = fneg nsz float %149
-  %158 = load float, ptr %42, align 4, !tbaa !49
+  %158 = load float, ptr %42, align 8, !tbaa !49
   %159 = fneg nsz float %153
   %160 = fmul nsz float %140, %155
   %161 = call nsz float @llvm.fmuladd.f32(float %144, float %154, float %160)
@@ -10511,7 +10511,7 @@ define internal noundef i32 @v360_slice(ptr noundef readonly captures(none) %0, 
   %180 = load float, ptr %43, align 4, !tbaa !49
   %181 = fmul nsz float %180, %177
   store float %181, ptr %7, align 4, !tbaa !49
-  %182 = load float, ptr %44, align 4, !tbaa !49
+  %182 = load float, ptr %44, align 8, !tbaa !49
   %183 = fmul nsz float %178, %182
   store float %183, ptr %33, align 4, !tbaa !49
   %184 = load float, ptr %45, align 4, !tbaa !49

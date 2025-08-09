@@ -3082,7 +3082,7 @@ define dso_local noundef range(i32 0, 2) i32 @alloc_fair_sched_group(ptr noundef
   store i32 %75, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %45, i64 160
   store ptr %37, ptr %77, align 32
-  store i64 1048576, ptr %45, align 8
+  store i64 1048576, ptr %45, align 32
   %78 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i32 0, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %45, i64 144
@@ -3151,7 +3151,7 @@ define dso_local void @init_tg_cfs_entry(ptr noundef %0, ptr noundef initializes
   store i32 %33, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 160
   store ptr %1, ptr %35, align 32
-  store i64 1048576, ptr %2, align 8
+  store i64 1048576, ptr %2, align 32
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 144
@@ -8186,7 +8186,7 @@ define internal fastcc void @__enqueue_entity(ptr noundef %0, ptr noundef initia
   store i64 %20, ptr %21, align 16
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %24 = load ptr, ptr %23, align 8
+  %24 = load ptr, ptr %23, align 32
   %25 = icmp eq ptr %24, null
   br i1 %25, label %.critedge.thread, label %26
 
@@ -8760,9 +8760,9 @@ define internal fastcc void @update_load_avg(ptr noundef %0, ptr noundef %1, i32
   store i32 0, ptr %20, align 4
   tail call void @_raw_spin_unlock(ptr noundef nonnull %24) #27
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %35 = load volatile i64, ptr %34, align 8
+  %35 = load volatile i64, ptr %34, align 16
   %36 = tail call i64 @llvm.usub.sat.i64(i64 %35, i64 %31)
-  store volatile i64 %36, ptr %34, align 8
+  store volatile i64 %36, ptr %34, align 16
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %38 = zext i32 %27 to i64
   %39 = mul i64 %31, %38
@@ -8776,15 +8776,15 @@ define internal fastcc void @update_load_avg(ptr noundef %0, ptr noundef %1, i32
   %46 = zext i32 %45 to i64
   store i64 %46, ptr %37, align 8
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %48 = load volatile i64, ptr %47, align 8
+  %48 = load volatile i64, ptr %47, align 16
   %49 = tail call i64 @llvm.usub.sat.i64(i64 %48, i64 %29)
-  store volatile i64 %49, ptr %47, align 8
+  store volatile i64 %49, ptr %47, align 16
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %51 = trunc i64 %29 to i32
   %52 = mul i32 %27, %51
-  %53 = load volatile i32, ptr %50, align 4
+  %53 = load volatile i32, ptr %50, align 8
   %54 = tail call i32 @llvm.usub.sat.i32(i32 %53, i32 %52)
-  store volatile i32 %54, ptr %50, align 4
+  store volatile i32 %54, ptr %50, align 8
   %55 = trunc i64 %49 to i32
   %56 = mul i32 %55, 46718
   %57 = tail call i32 @llvm.umax.i32(i32 %54, i32 %56)
@@ -8795,9 +8795,9 @@ define internal fastcc void @update_load_avg(ptr noundef %0, ptr noundef %1, i32
   store volatile i64 %60, ptr %58, align 8
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %62 = mul i64 %33, %38
-  %63 = load volatile i64, ptr %61, align 8
+  %63 = load volatile i64, ptr %61, align 16
   %64 = tail call i64 @llvm.usub.sat.i64(i64 %63, i64 %62)
-  store volatile i64 %64, ptr %61, align 8
+  store volatile i64 %64, ptr %61, align 16
   %65 = trunc i64 %64 to i32
   %66 = trunc i64 %60 to i32
   %67 = mul i32 %66, 46718
@@ -8871,14 +8871,14 @@ define internal fastcc void @update_load_avg(ptr noundef %0, ptr noundef %1, i32
   %119 = select i1 %118, i64 0, i64 %115
   store volatile i64 %119, ptr %113, align 8
   %120 = getelementptr inbounds nuw i8, ptr %89, i64 152
-  %121 = load volatile i32, ptr %120, align 4
+  %121 = load volatile i32, ptr %120, align 8
   %122 = trunc i64 %112 to i32
   %123 = add i32 %121, %122
   %124 = icmp slt i64 %112, 0
   %125 = icmp ugt i32 %123, %121
   %126 = select i1 %124, i1 %125, i1 false
   %127 = select i1 %126, i32 0, i32 %123
-  store volatile i32 %127, ptr %120, align 4
+  store volatile i32 %127, ptr %120, align 8
   %128 = trunc i64 %119 to i32
   %129 = mul i32 %128, 46718
   %130 = tail call i32 @llvm.umax.i32(i32 %127, i32 %129)
@@ -9499,9 +9499,9 @@ define internal fastcc void @detach_entity_load_avg(ptr noundef %0, ptr noundef 
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %31 = load i32, ptr %30, align 8
-  %32 = load volatile i32, ptr %29, align 4
+  %32 = load volatile i32, ptr %29, align 8
   %33 = tail call i32 @llvm.usub.sat.i32(i32 %32, i32 %31)
-  store volatile i32 %33, ptr %29, align 4
+  store volatile i32 %33, ptr %29, align 8
   %34 = trunc i64 %28 to i32
   %35 = mul i32 %34, 46718
   %36 = tail call i32 @llvm.umax.i32(i32 %33, i32 %35)
@@ -9999,9 +9999,9 @@ define internal fastcc void @update_blocked_averages(i32 noundef %0) unnamed_add
   %89 = getelementptr i8, ptr %48, i64 -176
   %90 = trunc i64 %68 to i32
   %91 = mul i32 %66, %90
-  %92 = load volatile i32, ptr %89, align 4
+  %92 = load volatile i32, ptr %89, align 8
   %93 = call i32 @llvm.usub.sat.i32(i32 %92, i32 %91)
-  store volatile i32 %93, ptr %89, align 4
+  store volatile i32 %93, ptr %89, align 8
   %94 = trunc i64 %88 to i32
   %95 = mul i32 %94, 46718
   %96 = call i32 @llvm.umax.i32(i32 %93, i32 %95)

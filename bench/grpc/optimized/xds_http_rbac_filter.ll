@@ -5805,7 +5805,7 @@ upb_Message_HasBaseField.exit.then.i136:          ; preds = %3
   %176 = icmp eq i32 %175, 7
   call void @llvm.assume(i1 %176)
   %177 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.0.in.then.val.i137 = load i64, ptr %177, align 1
+  %.0.in.then.val.i137 = load i64, ptr %177, align 4
   %178 = inttoptr i64 %.0.in.then.val.i137 to ptr
   %179 = getelementptr i8, ptr %178, i64 9
   %.val = load i8, ptr %179, align 1
@@ -6998,7 +6998,7 @@ upb_Message_HasBaseField.exit.then.i187:          ; preds = %3
   %283 = icmp eq i32 %282, 7
   call void @llvm.assume(i1 %283)
   %284 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.0.in.then.val.i188 = load i64, ptr %284, align 1
+  %.0.in.then.val.i188 = load i64, ptr %284, align 4
   %285 = inttoptr i64 %.0.in.then.val.i188 to ptr
   %286 = getelementptr i8, ptr %285, i64 9
   %.val = load i8, ptr %286, align 1
@@ -7945,7 +7945,7 @@ upb_Message_HasBaseField.exit.then.i:             ; preds = %99
   %157 = icmp eq i32 %156, 11
   call void @llvm.assume(i1 %157)
   %158 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.0.in.then.val.i = load i64, ptr %158, align 1
+  %.0.in.then.val.i = load i64, ptr %158, align 4
   %159 = inttoptr i64 %.0.in.then.val.i to ptr
   %160 = getelementptr i8, ptr %159, i64 16
   %.val = load ptr, ptr %160, align 1
@@ -9929,7 +9929,7 @@ upb_Message_HasBaseField.exit.then.i:             ; preds = %3
   %162 = icmp eq i32 %161, 5
   call void @llvm.assume(i1 %162)
   %163 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.0.in.then.val.i = load i64, ptr %163, align 1
+  %.0.in.then.val.i = load i64, ptr %163, align 4
   %164 = inttoptr i64 %.0.in.then.val.i to ptr
   %165 = getelementptr i8, ptr %164, i64 16
   %.val = load ptr, ptr %165, align 1
@@ -14861,7 +14861,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %23, ptr %26, align 8, !tbaa !44
   store ptr %14, ptr %11, align 8, !tbaa !42
   store i64 0, ptr %25, align 8, !tbaa !44
-  store i8 0, ptr %14, align 1, !tbaa !45
+  store i8 0, ptr %14, align 8, !tbaa !45
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %27, i8 0, i64 56, i1 false)
   store ptr %8, ptr %24, align 8, !tbaa !250

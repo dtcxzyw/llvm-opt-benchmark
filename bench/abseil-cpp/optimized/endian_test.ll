@@ -515,7 +515,7 @@ _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integra
   %60 = load i32, ptr %59, align 8, !tbaa !42
   %61 = and i32 %60, -75
   %62 = or disjoint i32 %61, 8
-  store i32 %62, ptr %59, align 4, !tbaa !43
+  store i32 %62, ptr %59, align 8, !tbaa !43
   %63 = zext i16 %39 to i64
   %64 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %54, i64 noundef %63)
           to label %_ZN7testing7MessagelsItEERS0_RKT_.exit.i unwind label %109
@@ -1459,7 +1459,7 @@ _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integra
   %75 = load i32, ptr %74, align 8, !tbaa !42
   %76 = and i32 %75, -75
   %77 = or disjoint i32 %76, 8
-  store i32 %77, ptr %74, align 4, !tbaa !43
+  store i32 %77, ptr %74, align 8, !tbaa !43
   %78 = zext i32 %54 to i64
   %79 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %69, i64 noundef %78)
           to label %_ZN7testing7MessagelsIjEERS0_RKT_.exit.i unwind label %124
@@ -2008,7 +2008,7 @@ _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integra
   %74 = load i32, ptr %73, align 8, !tbaa !42
   %75 = and i32 %74, -75
   %76 = or disjoint i32 %75, 8
-  store i32 %76, ptr %73, align 4, !tbaa !43
+  store i32 %76, ptr %73, align 8, !tbaa !43
   %77 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %68, i64 noundef %53)
           to label %_ZN7testing7MessagelsImEERS0_RKT_.exit.i unwind label %120
 

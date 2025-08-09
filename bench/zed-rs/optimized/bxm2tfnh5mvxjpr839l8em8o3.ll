@@ -1164,13 +1164,13 @@ define internal fastcc noundef nonnull align 8 dereferenceable(1512) ptr @"_ZN5a
   %57 = getelementptr inbounds nuw i8, ptr %13, i64 268
   %58 = load i32, ptr %57, align 4, !range !545, !alias.scope !546, !noalias !549, !noundef !19
   %59 = getelementptr inbounds nuw i8, ptr %13, i64 272
-  %.val.i.i.i = load i32, ptr %59, align 4, !alias.scope !546, !noalias !549
+  %.val.i.i.i = load i32, ptr %59, align 8, !alias.scope !546, !noalias !549
   %60 = getelementptr inbounds nuw i8, ptr %13, i64 276
   %.val1.i.i.i = load i16, ptr %60, align 4, !alias.scope !546, !noalias !549
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.613.i.i)
   %61 = getelementptr inbounds nuw i8, ptr %13, i64 120
   call void @llvm.experimental.noalias.scope.decl(metadata !551)
-  %62 = load i32, ptr %61, align 4, !alias.scope !554, !noalias !555, !noundef !19
+  %62 = load i32, ptr %61, align 8, !alias.scope !554, !noalias !555, !noundef !19
   %63 = zext i32 %62 to i64
   %64 = getelementptr inbounds nuw i8, ptr %13, i64 124
   %65 = getelementptr inbounds nuw { { i32, [2 x i32] } }, ptr %64, i64 %63

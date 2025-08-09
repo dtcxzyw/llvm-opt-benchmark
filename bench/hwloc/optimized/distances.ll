@@ -67,11 +67,11 @@ thread-pre-split:                                 ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 788
   store float 0.000000e+00, ptr %14, align 4, !tbaa !33
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 792
-  store float 0x3F847AE140000000, ptr %15, align 4, !tbaa !33
+  store float 0x3F847AE140000000, ptr %15, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 796
   store float 0x3F947AE140000000, ptr %16, align 4, !tbaa !33
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 800
-  store float 0x3FA99999A0000000, ptr %17, align 4, !tbaa !33
+  store float 0x3FA99999A0000000, ptr %17, align 8, !tbaa !33
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 804
   store float 0x3FB99999A0000000, ptr %18, align 4, !tbaa !33
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 784

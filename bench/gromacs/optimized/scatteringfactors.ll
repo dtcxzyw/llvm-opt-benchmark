@@ -747,7 +747,7 @@ _ZSt19__relocate_object_aIN3gmx21AtomicStructureFactorES1_SaIS1_EEvPT_PT0_RT1_.e
   store i64 %53, ptr %55, align 8, !tbaa !14, !alias.scope !37, !noalias !40
   store ptr %45, ptr %.0911.i.i.i, align 8, !tbaa !9, !alias.scope !40, !noalias !37
   store i64 0, ptr %54, align 8, !tbaa !14, !alias.scope !40, !noalias !37
-  store i8 0, ptr %45, align 1, !tbaa !15, !alias.scope !40, !noalias !37
+  store i8 0, ptr %45, align 8, !tbaa !15, !alias.scope !40, !noalias !37
   %56 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %57 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %56, ptr noundef nonnull align 8 dereferenceable(88) %57, i64 88, i1 false), !alias.scope !42
@@ -798,7 +798,7 @@ _ZSt19__relocate_object_aIN3gmx21AtomicStructureFactorES1_SaIS1_EEvPT_PT0_RT1_.e
   store i64 %71, ptr %73, align 8, !tbaa !14, !alias.scope !44, !noalias !47
   store ptr %63, ptr %.0911.i.i.i29, align 8, !tbaa !9, !alias.scope !47, !noalias !44
   store i64 0, ptr %72, align 8, !tbaa !14, !alias.scope !47, !noalias !44
-  store i8 0, ptr %63, align 1, !tbaa !15, !alias.scope !47, !noalias !44
+  store i8 0, ptr %63, align 8, !tbaa !15, !alias.scope !47, !noalias !44
   %74 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %75 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %74, ptr noundef nonnull align 8 dereferenceable(88) %75, i64 88, i1 false), !alias.scope !49

@@ -4063,7 +4063,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17h808f62e12454b
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !246
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !180, !noundef !6
+  %85 = load i32, ptr %84, align 8, !range !180, !noundef !6
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -4262,7 +4262,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17hdeaad4b0290bb
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !282
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !180, !noundef !6
+  %85 = load i32, ptr %84, align 8, !range !180, !noundef !6
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -4461,7 +4461,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17he099b6fcadb21
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !317
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !180, !noundef !6
+  %85 = load i32, ptr %84, align 8, !range !180, !noundef !6
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64

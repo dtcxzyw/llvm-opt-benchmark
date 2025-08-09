@@ -9,7 +9,7 @@ define dso_local void @ZSTD_fillHashTable(ptr noundef readonly captures(none) %0
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %9 = load i32, ptr %8, align 4, !tbaa !17
+  %9 = load i32, ptr %8, align 8, !tbaa !17
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !18
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -516,7 +516,7 @@ define dso_local i64 @ZSTD_compressBlock_fast(ptr noundef readonly captures(none
   %21 = add i64 %4, %19
   %22 = sub i64 %21, %20
   %23 = trunc i64 %22 to i32
-  %24 = load i32, ptr %11, align 4, !tbaa !41
+  %24 = load i32, ptr %11, align 8, !tbaa !41
   %25 = getelementptr i8, ptr %0, i64 24
   %.val19.i = load i32, ptr %25, align 8, !tbaa !42
   %26 = getelementptr i8, ptr %0, i64 40
@@ -3477,7 +3477,7 @@ ZSTD_compressBlock_fast_noDict_7_1.exit:          ; preds = %.critedge3.i.i549, 
   %1358 = add i64 %4, %1356
   %1359 = sub i64 %1358, %1357
   %1360 = trunc i64 %1359 to i32
-  %1361 = load i32, ptr %11, align 4, !tbaa !41
+  %1361 = load i32, ptr %11, align 8, !tbaa !41
   %1362 = getelementptr i8, ptr %0, i64 24
   %.val19.i665 = load i32, ptr %1362, align 8, !tbaa !42
   %1363 = getelementptr i8, ptr %0, i64 40
@@ -6446,7 +6446,7 @@ define dso_local i64 @ZSTD_compressBlock_fast_dictMatchState(ptr noundef readonl
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %11 = load i32, ptr %10, align 4, !tbaa !20
+  %11 = load i32, ptr %10, align 8, !tbaa !20
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %13 = load i32, ptr %12, align 4, !tbaa !70
   %14 = tail call i32 @llvm.umax.i32(i32 %13, i32 1)
@@ -6486,7 +6486,7 @@ define dso_local i64 @ZSTD_compressBlock_fast_dictMatchState(ptr noundef readonl
   %46 = ptrtoint ptr %36 to i64
   %47 = sub i64 %45, %46
   %48 = getelementptr inbounds nuw i8, ptr %28, i64 264
-  %49 = load i32, ptr %48, align 4, !tbaa !20
+  %49 = load i32, ptr %48, align 8, !tbaa !20
   %50 = ptrtoint ptr %16 to i64
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %52 = load i32, ptr %51, align 8, !tbaa !73
@@ -10091,7 +10091,7 @@ define internal fastcc i64 @ZSTD_compressBlock_fast_extDict_generic(ptr noundef 
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %11 = load i32, ptr %10, align 4, !tbaa !20
+  %11 = load i32, ptr %10, align 8, !tbaa !20
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %13 = load i32, ptr %12, align 4, !tbaa !70
   %14 = tail call i32 @llvm.umax.i32(i32 %13, i32 1)
@@ -10106,7 +10106,7 @@ define internal fastcc i64 @ZSTD_compressBlock_fast_extDict_generic(ptr noundef 
   %23 = sub i64 %21, %22
   %24 = add i64 %23, %4
   %25 = trunc i64 %24 to i32
-  %26 = load i32, ptr %7, align 4, !tbaa !41
+  %26 = load i32, ptr %7, align 8, !tbaa !41
   %27 = getelementptr i8, ptr %0, i64 28
   %.val422 = load i32, ptr %27, align 4, !tbaa !78
   %28 = getelementptr i8, ptr %0, i64 40

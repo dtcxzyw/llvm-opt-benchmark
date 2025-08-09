@@ -1632,7 +1632,7 @@ define linkonce_odr hidden void @_ZN5osgeo4proj9operation18PROJBasedOperation14n
   store ptr %13, ptr %12, align 8, !tbaa !24
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %14, align 8, !tbaa !23
-  store i8 0, ptr %13, align 1, !tbaa !15
+  store i8 0, ptr %13, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %15, i8 0, i64 17, i1 false)
   %16 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28

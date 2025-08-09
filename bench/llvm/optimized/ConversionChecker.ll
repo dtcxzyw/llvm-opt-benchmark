@@ -87,7 +87,7 @@ define dso_local void @_ZN5clang4ento25registerConversionCheckerERNS0_14CheckerM
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i64 10, ptr %20, align 8, !tbaa !13
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 82
-  store i8 0, ptr %21, align 1, !tbaa !16
+  store i8 0, ptr %21, align 2, !tbaa !16
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 104
   store ptr %23, ptr %22, align 8, !tbaa !11

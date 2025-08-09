@@ -140,7 +140,7 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
   %58 = load i32, ptr %4, align 4
   store i32 %58, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %53, i64 28
-  store i8 0, ptr %59, align 1, !tbaa !4
+  store i8 0, ptr %59, align 4, !tbaa !4
   store ptr %53, ptr %1, align 8, !tbaa !4
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %60, align 8, !tbaa !4

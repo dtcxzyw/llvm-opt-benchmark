@@ -16,11 +16,11 @@ define range(i32 -173, 1) i32 @wc_InitSha_ex(ptr noundef writeonly captures(addr
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1732584193, ptr %7, align 4, !tbaa !9
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 -271733879, ptr %8, align 4, !tbaa !9
+  store i32 -271733879, ptr %8, align 8, !tbaa !9
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 -1732584194, ptr %9, align 4, !tbaa !9
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 271733878, ptr %10, align 4, !tbaa !9
+  store i32 271733878, ptr %10, align 8, !tbaa !9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 -1009589776, ptr %11, align 4, !tbaa !9
   store i32 0, ptr %0, align 8, !tbaa !10
@@ -1371,9 +1371,9 @@ ByteReverseWords.exit59:                          ; preds = %.lr.ph.i50, %.lr.ph
   %46 = shl i32 %42, 3
   store i32 %46, ptr %41, align 4, !tbaa !11
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 %45, ptr %47, align 1
+  store i32 %45, ptr %47, align 4
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 %46, ptr %48, align 1
+  store i32 %46, ptr %48, align 8
   tail call fastcc void @Transform(ptr noundef %0, ptr noundef %6)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %50 = ptrtoint ptr %49 to i64
@@ -1436,11 +1436,11 @@ define range(i32 -173, 1) i32 @wc_InitSha(ptr noundef writeonly captures(address
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1732584193, ptr %5, align 4, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 -271733879, ptr %6, align 4, !tbaa !9
+  store i32 -271733879, ptr %6, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 -1732584194, ptr %7, align 4, !tbaa !9
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 271733878, ptr %8, align 4, !tbaa !9
+  store i32 271733878, ptr %8, align 8, !tbaa !9
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 -1009589776, ptr %9, align 4, !tbaa !9
   store i32 0, ptr %0, align 8, !tbaa !10

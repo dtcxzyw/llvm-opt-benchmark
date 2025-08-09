@@ -21906,7 +21906,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %30, ptr %31, align 8
   store ptr %14, ptr %10, align 8
   store i64 0, ptr %29, align 8
-  store i8 0, ptr %14, align 1
+  store i8 0, ptr %14, align 8
   ret void
 
 32:                                               ; preds = %26

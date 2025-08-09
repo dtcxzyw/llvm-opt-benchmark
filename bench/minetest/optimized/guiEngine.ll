@@ -2184,7 +2184,7 @@ invoke.cont15:                                    ; preds = %invoke.cont7
   store ptr %10, ptr %m_formname.i.i.i, align 8, !tbaa !58, !noalias !150
   %_M_string_length.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i240, i64 16
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !11, !noalias !150
-  store i8 0, ptr %10, align 1, !tbaa !53, !noalias !150
+  store i8 0, ptr %10, align 8, !tbaa !53, !noalias !150
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17TextDestGuiEngine, i64 16), ptr %call.i240, align 8, !tbaa !20, !noalias !150
   %m_engine.i.i = getelementptr inbounds nuw i8, ptr %call.i240, i64 40
   store ptr %this, ptr %m_engine.i.i, align 8, !tbaa !12, !noalias !150

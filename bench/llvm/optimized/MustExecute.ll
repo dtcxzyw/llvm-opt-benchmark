@@ -8368,7 +8368,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionESt8optionalIbENS_12DenseMapIn
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i16, ptr %67, align 1
-  store i16 %68, ptr %66, align 1
+  store i16 %68, ptr %66, align 8
   %69 = load i32, ptr %32, align 8, !tbaa !423
   %70 = add i32 %69, 1
   store i32 %70, ptr %32, align 8, !tbaa !423
@@ -8695,7 +8695,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt8optionalIbENS_12DenseMa
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i16, ptr %67, align 1
-  store i16 %68, ptr %66, align 1
+  store i16 %68, ptr %66, align 8
   %69 = load i32, ptr %32, align 8, !tbaa !429
   %70 = add i32 %69, 1
   store i32 %70, ptr %32, align 8, !tbaa !429

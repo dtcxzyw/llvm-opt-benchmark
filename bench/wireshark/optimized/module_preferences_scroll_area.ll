@@ -1628,11 +1628,11 @@ _ZN17QArrayDataPointerIP11QPushButtonE5derefEv.exit.i.i.i434: ; preds = %440
   %447 = getelementptr inbounds nuw i8, ptr %400, i64 20
   store i32 7405568, ptr %447, align 4
   %448 = getelementptr inbounds nuw i8, ptr %400, i64 24
-  store i32 0, ptr %448, align 4
+  store i32 0, ptr %448, align 8
   %449 = getelementptr inbounds nuw i8, ptr %400, i64 28
   store i32 0, ptr %449, align 4
   %450 = getelementptr inbounds nuw i8, ptr %400, i64 32
-  store i32 -1, ptr %450, align 4
+  store i32 -1, ptr %450, align 8
   %451 = getelementptr inbounds nuw i8, ptr %400, i64 36
   store i32 -1, ptr %451, align 4
   invoke void @_ZN10QBoxLayout13addSpacerItemEP11QSpacerItem(ptr noundef align 8 dereferenceable_or_null(28) %399, ptr noundef %400)
@@ -2664,11 +2664,11 @@ _ZNK7QWidget11fontMetricsEv.exit:                 ; preds = %239
   %253 = getelementptr inbounds nuw i8, ptr %248, i64 20
   store i32 1507328, ptr %253, align 4
   %254 = getelementptr inbounds nuw i8, ptr %248, i64 24
-  store i32 0, ptr %254, align 4
+  store i32 0, ptr %254, align 8
   %255 = getelementptr inbounds nuw i8, ptr %248, i64 28
   store i32 0, ptr %255, align 4
   %256 = getelementptr inbounds nuw i8, ptr %248, i64 32
-  store i32 -1, ptr %256, align 4
+  store i32 -1, ptr %256, align 8
   %257 = getelementptr inbounds nuw i8, ptr %248, i64 36
   store i32 -1, ptr %257, align 4
   invoke void @_ZN10QBoxLayout13addSpacerItemEP11QSpacerItem(ptr noundef align 8 dereferenceable_or_null(28) %209, ptr noundef %248)
@@ -3505,11 +3505,11 @@ _ZN7QStringD2Ev.exit657:                          ; preds = %502, %_ZN17QArrayDa
   %515 = getelementptr inbounds nuw i8, ptr %510, i64 20
   store i32 1507328, ptr %515, align 4
   %516 = getelementptr inbounds nuw i8, ptr %510, i64 24
-  store i32 0, ptr %516, align 4
+  store i32 0, ptr %516, align 8
   %517 = getelementptr inbounds nuw i8, ptr %510, i64 28
   store i32 0, ptr %517, align 4
   %518 = getelementptr inbounds nuw i8, ptr %510, i64 32
-  store i32 -1, ptr %518, align 4
+  store i32 -1, ptr %518, align 8
   %519 = getelementptr inbounds nuw i8, ptr %510, i64 36
   store i32 -1, ptr %519, align 4
   invoke void @_ZN10QBoxLayout13addSpacerItemEP11QSpacerItem(ptr noundef align 8 dereferenceable_or_null(28) %437, ptr noundef %510)
@@ -3687,11 +3687,11 @@ _ZNK7QWidget11fontMetricsEv.exit675:              ; preds = %562
   %576 = getelementptr inbounds nuw i8, ptr %571, i64 20
   store i32 1507328, ptr %576, align 4
   %577 = getelementptr inbounds nuw i8, ptr %571, i64 24
-  store i32 0, ptr %577, align 4
+  store i32 0, ptr %577, align 8
   %578 = getelementptr inbounds nuw i8, ptr %571, i64 28
   store i32 0, ptr %578, align 4
   %579 = getelementptr inbounds nuw i8, ptr %571, i64 32
-  store i32 -1, ptr %579, align 4
+  store i32 -1, ptr %579, align 8
   %580 = getelementptr inbounds nuw i8, ptr %571, i64 36
   store i32 -1, ptr %580, align 4
   invoke void @_ZN10QBoxLayout13addSpacerItemEP11QSpacerItem(ptr noundef align 8 dereferenceable_or_null(28) %532, ptr noundef %571)
@@ -3927,11 +3927,11 @@ _ZNK7QWidget11fontMetricsEv.exit693:              ; preds = %641
   %656 = getelementptr inbounds nuw i8, ptr %651, i64 20
   store i32 1507328, ptr %656, align 4
   %657 = getelementptr inbounds nuw i8, ptr %651, i64 24
-  store i32 0, ptr %657, align 4
+  store i32 0, ptr %657, align 8
   %658 = getelementptr inbounds nuw i8, ptr %651, i64 28
   store i32 0, ptr %658, align 4
   %659 = getelementptr inbounds nuw i8, ptr %651, i64 32
-  store i32 -1, ptr %659, align 4
+  store i32 -1, ptr %659, align 8
   %660 = getelementptr inbounds nuw i8, ptr %651, i64 36
   store i32 -1, ptr %660, align 4
   invoke void @_ZN10QBoxLayout13addSpacerItemEP11QSpacerItem(ptr noundef align 8 dereferenceable_or_null(28) %611, ptr noundef %651)
@@ -4163,11 +4163,11 @@ _ZNK7QWidget11fontMetricsEv.exit711:              ; preds = %721
   %735 = getelementptr inbounds nuw i8, ptr %730, i64 20
   store i32 1507328, ptr %735, align 4
   %736 = getelementptr inbounds nuw i8, ptr %730, i64 24
-  store i32 0, ptr %736, align 4
+  store i32 0, ptr %736, align 8
   %737 = getelementptr inbounds nuw i8, ptr %730, i64 28
   store i32 0, ptr %737, align 4
   %738 = getelementptr inbounds nuw i8, ptr %730, i64 32
-  store i32 -1, ptr %738, align 4
+  store i32 -1, ptr %738, align 8
   %739 = getelementptr inbounds nuw i8, ptr %730, i64 36
   store i32 -1, ptr %739, align 4
   invoke void @_ZN10QBoxLayout13addSpacerItemEP11QSpacerItem(ptr noundef align 8 dereferenceable_or_null(28) %691, ptr noundef %730)
@@ -4399,11 +4399,11 @@ _ZNK7QWidget11fontMetricsEv.exit729:              ; preds = %800
   %814 = getelementptr inbounds nuw i8, ptr %809, i64 20
   store i32 1507328, ptr %814, align 4
   %815 = getelementptr inbounds nuw i8, ptr %809, i64 24
-  store i32 0, ptr %815, align 4
+  store i32 0, ptr %815, align 8
   %816 = getelementptr inbounds nuw i8, ptr %809, i64 28
   store i32 0, ptr %816, align 4
   %817 = getelementptr inbounds nuw i8, ptr %809, i64 32
-  store i32 -1, ptr %817, align 4
+  store i32 -1, ptr %817, align 8
   %818 = getelementptr inbounds nuw i8, ptr %809, i64 36
   store i32 -1, ptr %818, align 4
   invoke void @_ZN10QBoxLayout13addSpacerItemEP11QSpacerItem(ptr noundef align 8 dereferenceable_or_null(28) %770, ptr noundef %809)
@@ -4736,11 +4736,11 @@ _ZN7QStringD2Ev.exit762:                          ; preds = %905, %_ZN17QArrayDa
   %921 = getelementptr inbounds nuw i8, ptr %916, i64 20
   store i32 1507328, ptr %921, align 4
   %922 = getelementptr inbounds nuw i8, ptr %916, i64 24
-  store i32 0, ptr %922, align 4
+  store i32 0, ptr %922, align 8
   %923 = getelementptr inbounds nuw i8, ptr %916, i64 28
   store i32 0, ptr %923, align 4
   %924 = getelementptr inbounds nuw i8, ptr %916, i64 32
-  store i32 -1, ptr %924, align 4
+  store i32 -1, ptr %924, align 8
   %925 = getelementptr inbounds nuw i8, ptr %916, i64 36
   store i32 -1, ptr %925, align 4
   invoke void @_ZN10QBoxLayout13addSpacerItemEP11QSpacerItem(ptr noundef align 8 dereferenceable_or_null(28) %880, ptr noundef %916)
@@ -5092,11 +5092,11 @@ _ZN7QStringD2Ev.exit806:                          ; preds = %1019, %_ZN17QArrayD
   %1034 = getelementptr inbounds nuw i8, ptr %1029, i64 20
   store i32 1507328, ptr %1034, align 4
   %1035 = getelementptr inbounds nuw i8, ptr %1029, i64 24
-  store i32 0, ptr %1035, align 4
+  store i32 0, ptr %1035, align 8
   %1036 = getelementptr inbounds nuw i8, ptr %1029, i64 28
   store i32 0, ptr %1036, align 4
   %1037 = getelementptr inbounds nuw i8, ptr %1029, i64 32
-  store i32 -1, ptr %1037, align 4
+  store i32 -1, ptr %1037, align 8
   %1038 = getelementptr inbounds nuw i8, ptr %1029, i64 36
   store i32 -1, ptr %1038, align 4
   invoke void @_ZN10QBoxLayout13addSpacerItemEP11QSpacerItem(ptr noundef align 8 dereferenceable_or_null(28) %977, ptr noundef %1029)
@@ -5945,11 +5945,11 @@ _ZN7QStringD2Ev.exit896:                          ; preds = %1286, %_ZN17QArrayD
   %1299 = getelementptr inbounds nuw i8, ptr %1294, i64 20
   store i32 1507328, ptr %1299, align 4
   %1300 = getelementptr inbounds nuw i8, ptr %1294, i64 24
-  store i32 0, ptr %1300, align 4
+  store i32 0, ptr %1300, align 8
   %1301 = getelementptr inbounds nuw i8, ptr %1294, i64 28
   store i32 0, ptr %1301, align 4
   %1302 = getelementptr inbounds nuw i8, ptr %1294, i64 32
-  store i32 -1, ptr %1302, align 4
+  store i32 -1, ptr %1302, align 8
   %1303 = getelementptr inbounds nuw i8, ptr %1294, i64 36
   store i32 -1, ptr %1303, align 4
   invoke void @_ZN10QBoxLayout13addSpacerItemEP11QSpacerItem(ptr noundef align 8 dereferenceable_or_null(28) %1221, ptr noundef %1294)

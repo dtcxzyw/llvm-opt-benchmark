@@ -7642,7 +7642,7 @@ define internal fastcc void @vfio_intx_update(ptr noundef initializes((2996, 300
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2996
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 3000
-  %9 = load i32, ptr %8, align 4
+  %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = load i32, ptr @trace_events_enabled_count, align 4

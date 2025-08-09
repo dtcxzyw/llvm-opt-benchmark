@@ -10670,7 +10670,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjN5clang4ento17ConditionTruthValENS_12DenseM
   %53 = load i32, ptr %1, align 4, !tbaa !45
   store i32 %53, ptr %44, align 4, !tbaa !45
   %54 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  store i16 0, ptr %54, align 1
+  store i16 0, ptr %54, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjN5clang4ento17ConditionTruthValENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E16InsertIntoBucketIRKjJEEEPS9_SF_OT_DpOT0_.exit
@@ -11013,7 +11013,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjN5clang4ento17ConditionTruthValENS_12DenseM
   %63 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 4
   %64 = getelementptr inbounds nuw i8, ptr %.021.i, i64 4
   %65 = load i16, ptr %64, align 1
-  store i16 %65, ptr %63, align 1
+  store i16 %65, ptr %63, align 4
   %66 = load i32, ptr %32, align 8, !tbaa !721
   %67 = add i32 %66, 1
   store i32 %67, ptr %32, align 8, !tbaa !721

@@ -2914,7 +2914,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_ReadContextC2ERNS_14Plug_T
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_17Plug_ReadPlugInfoERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEbRKSt8functionIFbRKSC_EERKSH_IFvRKNS3_25Plug_RegistrationMetadataEEEPNS3_14Plug_TaskArenaEE3$_0EEEE", i64 16), ptr %114, align 64
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 64
   %117 = load ptr, ptr %10, align 8
-  store ptr %117, ptr %116, align 8
+  store ptr %117, ptr %116, align 64
   %118 = getelementptr inbounds nuw i8, ptr %114, i64 72
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %118, ptr noundef nonnull align 8 dereferenceable(32) %86)
           to label %.noexc4.i.i.i unwind label %133
@@ -3055,7 +3055,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_17Plug_ReadPlugInfoERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEbRKSt8functionIFbRKSC_EERKSH_IFvRKNS3_25Plug_RegistrationMetadataEEEPNS3_14Plug_TaskArenaEE3$_1EEEE", i64 16), ptr %156, align 64
   %158 = getelementptr inbounds nuw i8, ptr %156, i64 64
   %159 = load ptr, ptr %7, align 8
-  store ptr %159, ptr %158, align 8
+  store ptr %159, ptr %158, align 64
   %160 = getelementptr inbounds nuw i8, ptr %156, i64 72
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %160, ptr noundef nonnull align 8 dereferenceable(32) %82)
           to label %.noexc4.i.i.i30 unwind label %172
@@ -4290,7 +4290,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_126_ReadPlugInfoWithWildcardsEPNS6_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEEE", i64 16), ptr %82, align 64
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 64
   %85 = load ptr, ptr %8, align 8
-  store ptr %85, ptr %84, align 8
+  store ptr %85, ptr %84, align 64
   %86 = getelementptr inbounds nuw i8, ptr %82, i64 72
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(32) %60)
           to label %.noexc4.i.i unwind label %98
@@ -4873,7 +4873,7 @@ _ZN3tbb6detail2d112wait_context7reserveEj.exit.i.i.i.i: ; preds = %281, %"_ZN32p
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_126_ReadPlugInfoWithWildcardsEPNS6_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_1EEEE", i64 16), ptr %283, align 64
   %285 = getelementptr inbounds nuw i8, ptr %283, i64 64
   %286 = load ptr, ptr %6, align 8
-  store ptr %286, ptr %285, align 8
+  store ptr %286, ptr %285, align 64
   %287 = getelementptr inbounds nuw i8, ptr %283, i64 72
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %287, ptr noundef nonnull align 8 dereferenceable(32) %265)
           to label %.noexc4.i.i91 unwind label %346
@@ -5935,7 +5935,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_110_AddPluginEPNS6_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESG_mRKNS3_7JsValueEE3$_0EEEE", i64 16), ptr %294, align 64
   %296 = getelementptr inbounds nuw i8, ptr %294, i64 64
   %297 = load ptr, ptr %6, align 8
-  store ptr %297, ptr %296, align 8
+  store ptr %297, ptr %296, align 64
   %298 = getelementptr inbounds nuw i8, ptr %294, i64 72
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__25Plug_RegistrationMetadataC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(184) %298, ptr noundef nonnull align 8 dereferenceable(184) %256)
           to label %.noexc4.i.i.i.i unwind label %314
@@ -6281,7 +6281,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_113_ReadPlugInfoEPNS6_12_ReadContextENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEEE", i64 16), ptr %419, align 64
   %421 = getelementptr inbounds nuw i8, ptr %419, i64 64
   %422 = load ptr, ptr %4, align 8
-  store ptr %422, ptr %421, align 8
+  store ptr %422, ptr %421, align 64
   %423 = getelementptr inbounds nuw i8, ptr %419, i64 72
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %423, ptr noundef nonnull align 8 dereferenceable(32) %392)
           to label %.noexc4.i.i unwind label %435
@@ -29973,7 +29973,7 @@ _ZSt11regex_matchIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_118_TraverseDirectoryEPNS6_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS9_11basic_regexIcNS9_12regex_traitsIcEEEEEE3$_0EEEE", i64 16), ptr %58, align 64
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 64
   %61 = load ptr, ptr %7, align 8
-  store ptr %61, ptr %60, align 8
+  store ptr %61, ptr %60, align 64
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 72
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull align 8 dereferenceable(32) %51)
           to label %.noexc4.i.i unwind label %74
@@ -30191,7 +30191,7 @@ _ZN3tbb6detail2d112wait_context7reserveEj.exit.i.i.i.i: ; preds = %128, %"_ZN32p
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_118_TraverseDirectoryEPNS6_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS9_11basic_regexIcNS9_12regex_traitsIcEEEEEE3$_1EEEE", i64 16), ptr %130, align 64
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 64
   %133 = load ptr, ptr %5, align 8
-  store ptr %133, ptr %132, align 8
+  store ptr %133, ptr %132, align 64
   %134 = getelementptr inbounds nuw i8, ptr %130, i64 72
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %134, ptr noundef nonnull align 8 dereferenceable(32) %93)
           to label %.noexc4.i.i49 unwind label %193

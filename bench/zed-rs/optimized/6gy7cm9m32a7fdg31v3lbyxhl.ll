@@ -1879,8 +1879,8 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   store ptr %.sroa.7.0.copyload, ptr %.sroa.7.0..sroa_idx5, align 8, !noalias !410
   %.sroa.9.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 %.sroa.9.0.copyload, ptr %.sroa.9.0..sroa_idx7, align 8, !noalias !410
-  store atomic i8 0, ptr %10 seq_cst, align 1, !noalias !411
-  %18 = load atomic i8, ptr %6 seq_cst, align 1, !noalias !406
+  store atomic i8 0, ptr %10 seq_cst, align 8, !noalias !411
+  %18 = load atomic i8, ptr %6 seq_cst, align 8, !noalias !406
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %"_ZN15futures_channel7oneshot15Sender$LT$T$GT$4send17h7a8c0ee0f58f0258E.exit.thread.i", label %20
 
@@ -1895,7 +1895,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   %.sroa.8.0.copyload.i.i.i = load ptr, ptr %.sroa.7.0..sroa_idx5, align 8, !noalias !406
   store i64 2, ptr %5, align 8, !noalias !406
   %23 = icmp eq i64 %.sroa.025.0.copyload.i.i.i, 2
-  store atomic i8 0, ptr %10 seq_cst, align 1, !noalias !406
+  store atomic i8 0, ptr %10 seq_cst, align 8, !noalias !406
   br i1 %23, label %"_ZN15futures_channel7oneshot15Sender$LT$T$GT$4send17h7a8c0ee0f58f0258E.exit.thread.i", label %"_ZN15futures_channel7oneshot15Sender$LT$T$GT$4send17h7a8c0ee0f58f0258E.exit.thread11.i"
 
 "_ZN15futures_channel7oneshot15Sender$LT$T$GT$4send17h7a8c0ee0f58f0258E.exit.thread11.i": ; preds = %22
@@ -7080,15 +7080,15 @@ define hidden void @"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$GT$$u20$a
           cleanup
   store ptr %16, ptr %18, align 8, !noalias !1391
   store ptr %17, ptr %26, align 8, !noalias !1391
-  store atomic i8 0, ptr %19 seq_cst, align 1, !noalias !1392
+  store atomic i8 0, ptr %19 seq_cst, align 8, !noalias !1392
   resume { ptr, i32 } %33
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h6f2a53a73288e8efE.exit.i": ; preds = %25, %23
   store ptr %16, ptr %18, align 8, !noalias !1391
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr %17, ptr %34, align 8, !noalias !1391
-  store atomic i8 0, ptr %19 seq_cst, align 1, !noalias !1397
-  %35 = load atomic i8, ptr %6 seq_cst, align 1, !noalias !1391
+  store atomic i8 0, ptr %19 seq_cst, align 8, !noalias !1397
+  %35 = load atomic i8, ptr %6 seq_cst, align 8, !noalias !1391
   %36 = icmp eq i8 %35, 0
   br i1 %36, label %40, label %37
 

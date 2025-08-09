@@ -2057,15 +2057,15 @@ call5.i.i.i.i.i.i.i.noexc.i:                      ; preds = %while.body
   %_M_result.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i8.i, i64 24
   store ptr null, ptr %_M_result.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !23
   %_M_status.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i8.i, i64 32
-  store i32 0, ptr %_M_status.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !23
+  store i32 0, ptr %_M_status.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !23
   %_M_retrieved.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i8.i, i64 36
-  store i8 0, ptr %_M_retrieved.i.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !23
+  store i8 0, ptr %_M_retrieved.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !23
   %_M_once.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i8.i, i64 40
-  store i32 0, ptr %_M_once.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !23
+  store i32 0, ptr %_M_once.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !23
   %_M_thread.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i8.i, i64 48
   store i64 0, ptr %_M_thread.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !23
   %_M_once.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i8.i, i64 56
-  store i32 0, ptr %_M_once.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !23
+  store i32 0, ptr %_M_once.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !23
   store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iS7_mmEEEElEE", i64 16), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !noalias !23
   %_M_result.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i8.i, i64 64
   %call.i.i.i.i.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #33
@@ -2094,7 +2094,7 @@ _ZNSt13__future_base7_ResultIlEC2Ev.exit.i.i.i.i.i.i.i.i.i: ; preds = %invoke.co
   %3 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i8.i, i64 88
   store ptr %buf, ptr %3, align 8, !noalias !23
   %4 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i8.i, i64 96
-  store i32 %fd, ptr %4, align 4, !noalias !23
+  store i32 %fd, ptr %4, align 8, !noalias !23
   call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i.i.i.i.i.i.i.i.i), !noalias !23
   store i64 0, ptr %ref.tmp.i.i.i.i.i.i.i.i.i, align 8, !noalias !23
   %call.i3.i.i.i.i.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #33
@@ -5292,7 +5292,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %14, ptr %_M_string_length.i13.i.i.i.i.i.i.i, align 8, !alias.scope !35, !noalias !38
   store ptr %11, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !38, !noalias !35
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i, align 8, !alias.scope !38, !noalias !35
-  store i8 0, ptr %11, align 1, !alias.scope !38, !noalias !35
+  store i8 0, ptr %11, align 8, !alias.scope !38, !noalias !35
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #31
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 32
   %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 32
@@ -5342,7 +5342,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %20, ptr %_M_string_length.i13.i.i.i.i.i.i.i21, align 8, !alias.scope !42, !noalias !45
   store ptr %17, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !45, !noalias !42
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i20, align 8, !alias.scope !45, !noalias !42
-  store i8 0, ptr %17, align 1, !alias.scope !45, !noalias !42
+  store i8 0, ptr %17, align 8, !alias.scope !45, !noalias !42
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #31
   %incdec.ptr.i.i.i22 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i14, i64 32
   %incdec.ptr1.i.i.i23 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i13, i64 32
@@ -6795,7 +6795,7 @@ _ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit: ; 
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(28) %0)
   %_M_status.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %2 = load atomic i32, ptr %_M_status.i acquire, align 4
+  %2 = load atomic i32, ptr %_M_status.i acquire, align 8
   %and.i.i.i = and i32 %2, 2147483647
   %cmp.i.i = icmp eq i32 %and.i.i.i, 1
   br i1 %cmp.i.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %for.cond.us.i.i

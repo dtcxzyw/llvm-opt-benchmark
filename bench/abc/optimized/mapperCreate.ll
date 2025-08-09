@@ -730,7 +730,7 @@ Map_TableCreate.exit:                             ; preds = %.preheader.i.i, %22
   %44 = getelementptr inbounds nuw i8, ptr %38, i64 140
   store float 0x47B9999980000000, ptr %44, align 4, !tbaa !93
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 136
-  store float 0x47B9999980000000, ptr %45, align 4, !tbaa !94
+  store float 0x47B9999980000000, ptr %45, align 8, !tbaa !94
   store float 0x47B9999980000000, ptr %43, align 4, !tbaa !95
   %46 = getelementptr inbounds nuw i8, ptr %38, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false)
@@ -802,7 +802,7 @@ Map_NodeCreate.exit:                              ; preds = %51, %54
   %80 = getelementptr inbounds nuw i8, ptr %74, i64 140
   store float 0x47B9999980000000, ptr %80, align 4, !tbaa !93
   %81 = getelementptr inbounds nuw i8, ptr %74, i64 136
-  store float 0x47B9999980000000, ptr %81, align 4, !tbaa !94
+  store float 0x47B9999980000000, ptr %81, align 8, !tbaa !94
   store float 0x47B9999980000000, ptr %79, align 4, !tbaa !95
   %82 = getelementptr inbounds nuw i8, ptr %74, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, i8 0, i64 16, i1 false)
@@ -890,7 +890,7 @@ define noundef ptr @Map_NodeCreate(ptr noundef %0, ptr noundef %1, ptr noundef %
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 140
   store float 0x47B9999980000000, ptr %12, align 4, !tbaa !93
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 136
-  store float 0x47B9999980000000, ptr %13, align 4, !tbaa !94
+  store float 0x47B9999980000000, ptr %13, align 8, !tbaa !94
   store float 0x47B9999980000000, ptr %11, align 4, !tbaa !95
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store ptr %1, ptr %14, align 8, !tbaa !27

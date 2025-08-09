@@ -845,7 +845,7 @@ define hidden void @"_ZN2ui10components16right_click_menu23RightClickMenu$LT$M$G
   %72 = add nuw nsw i64 %67, 1
   store i64 %72, ptr %66, align 8, !noalias !76
   %73 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %74 = load float, ptr %73, align 4, !noalias !76, !noundef !7
+  %74 = load float, ptr %73, align 8, !noalias !76, !noundef !7
   %75 = getelementptr inbounds nuw i8, ptr %42, i64 28
   %76 = load float, ptr %75, align 4, !noalias !76, !noundef !7
   invoke void @_ZN4gpui8elements8anchored8Anchored8position17h4f767000569dd3a6E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %17, float noundef %74, float noundef %76)
@@ -97083,7 +97083,7 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %62, i64 4
   %.sroa.7.sroa.0.0.copyload.i = load i32, ptr %.sroa.7.0..sroa_idx.i, align 4, !noalias !21489
   %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %.sroa.7.sroa.5.0.copyload.i = load ptr, ptr %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx.i, align 4, !noalias !21489
+  %.sroa.7.sroa.5.0.copyload.i = load ptr, ptr %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx.i, align 8, !noalias !21489
   %.sroa.731.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %62, i64 32
   %.sroa.731.0.copyload.i = load ptr, ptr %.sroa.731.0..sroa_idx.i, align 8, !noalias !21489
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %62, i64 40

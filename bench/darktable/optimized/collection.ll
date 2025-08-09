@@ -1213,7 +1213,7 @@ _dt_collection_store.exit:                        ; preds = %132, %149
   store i32 %166, ptr %167, align 4, !tbaa !19
   call void @dt_collection_hint_message(ptr noundef nonnull %0)
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %169 = load i32, ptr %168, align 4, !tbaa !81
+  %169 = load i32, ptr %168, align 8, !tbaa !81
   %.not.i60 = icmp eq i32 %169, 0
   br i1 %.not.i60, label %_collection_update_aspect_ratio.exit, label %170
 
@@ -2032,9 +2032,9 @@ define void @dt_collection_update_query(ptr noundef captures(address) %0, i32 no
   %120 = or i32 %119, 4
   store i32 %120, ptr %118, align 4, !tbaa !21
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %122 = load i32, ptr %121, align 4, !tbaa !70
+  %122 = load i32, ptr %121, align 8, !tbaa !70
   %123 = and i32 %122, -2
-  store i32 %123, ptr %121, align 4, !tbaa !23
+  store i32 %123, ptr %121, align 8, !tbaa !23
   %124 = call i32 @dt_collection_update(ptr noundef nonnull %0)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8, !tbaa !67

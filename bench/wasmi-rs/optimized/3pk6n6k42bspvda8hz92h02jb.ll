@@ -7360,7 +7360,7 @@ common.resume:                                    ; preds = %11622, %3162, %3065
   %2570 = getelementptr inbounds nuw i8, ptr %2566, i64 10
   %2571 = load i16, ptr %2570, align 2, !noundef !3
   %2572 = getelementptr inbounds nuw i8, ptr %2566, i64 12
-  %2573 = load i16, ptr %2572, align 2, !noundef !3
+  %2573 = load i16, ptr %2572, align 4, !noundef !3
   store i16 %2571, ptr %609, align 2, !noalias !766
   store i16 %2573, ptr %805, align 2, !noalias !766
   %2574 = call noundef i16 @_ZN8wasmi_ir4span14BoundedRegSpan3len17h5f174b2d9a3f9c7aE(ptr noalias noundef nonnull readonly align 2 dereferenceable(4) %609)
@@ -9161,7 +9161,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %3357 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %3358 = load i16, ptr %3357, align 2, !noalias !1179, !noundef !3
   %3359 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %3360 = load i16, ptr %3359, align 2, !noalias !1179, !noundef !3
+  %3360 = load i16, ptr %3359, align 4, !noalias !1179, !noundef !3
   %3361 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3351)
   %3362 = call noundef i32 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i32$GT$$GT$7read_as17h0dffb431935727bdE"(ptr noalias noundef readonly align 8 dereferenceable(16) %3361)
   %3363 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3353)
@@ -9193,7 +9193,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %3381 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %3382 = load i16, ptr %3381, align 2, !noalias !1185, !noundef !3
   %3383 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %3384 = load i16, ptr %3383, align 2, !noalias !1185, !noundef !3
+  %3384 = load i16, ptr %3383, align 4, !noalias !1185, !noundef !3
   %3385 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3375)
   %3386 = call noundef i32 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i32$GT$$GT$7read_as17h0dffb431935727bdE"(ptr noalias noundef readonly align 8 dereferenceable(16) %3385)
   %3387 = call noundef i32 @"_ZN8wasmi_ir10immeditate101_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..Const16$LT$i32$GT$$GT$$u20$for$u20$i32$GT$4from17h115daf7f8fa63c9eE"(i16 noundef %3377)
@@ -9224,7 +9224,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %3404 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %3405 = load i16, ptr %3404, align 2, !noalias !1191, !noundef !3
   %3406 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %3407 = load i16, ptr %3406, align 2, !noalias !1191, !noundef !3
+  %3407 = load i16, ptr %3406, align 4, !noalias !1191, !noundef !3
   %3408 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3398)
   %3409 = call noundef i32 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i32$GT$$GT$7read_as17h0dffb431935727bdE"(ptr noalias noundef readonly align 8 dereferenceable(16) %3408)
   %3410 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3400)
@@ -9256,7 +9256,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %3428 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %3429 = load i16, ptr %3428, align 2, !noalias !1197, !noundef !3
   %3430 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %3431 = load i16, ptr %3430, align 2, !noalias !1197, !noundef !3
+  %3431 = load i16, ptr %3430, align 4, !noalias !1197, !noundef !3
   %3432 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3422)
   %3433 = call noundef i32 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i32$GT$$GT$7read_as17h0dffb431935727bdE"(ptr noalias noundef readonly align 8 dereferenceable(16) %3432)
   %3434 = call noundef i32 @"_ZN8wasmi_ir10immeditate101_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..Const16$LT$i32$GT$$GT$$u20$for$u20$i32$GT$4from17h115daf7f8fa63c9eE"(i16 noundef %3424)
@@ -9287,7 +9287,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %3451 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %3452 = load i16, ptr %3451, align 2, !noalias !1203, !noundef !3
   %3453 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %3454 = load i16, ptr %3453, align 2, !noalias !1203, !noundef !3
+  %3454 = load i16, ptr %3453, align 4, !noalias !1203, !noundef !3
   %3455 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3445)
   %3456 = call noundef i32 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i32$GT$$GT$7read_as17h0dffb431935727bdE"(ptr noalias noundef readonly align 8 dereferenceable(16) %3455)
   %3457 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3447)
@@ -9319,7 +9319,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %3475 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %3476 = load i16, ptr %3475, align 2, !noalias !1209, !noundef !3
   %3477 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %3478 = load i16, ptr %3477, align 2, !noalias !1209, !noundef !3
+  %3478 = load i16, ptr %3477, align 4, !noalias !1209, !noundef !3
   %3479 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3469)
   %3480 = call noundef i32 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i32$GT$$GT$7read_as17h0dffb431935727bdE"(ptr noalias noundef readonly align 8 dereferenceable(16) %3479)
   %3481 = call noundef i32 @"_ZN8wasmi_ir10immeditate101_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..Const16$LT$i32$GT$$GT$$u20$for$u20$i32$GT$4from17h115daf7f8fa63c9eE"(i16 noundef %3471)
@@ -9350,7 +9350,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %3498 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %3499 = load i16, ptr %3498, align 2, !noalias !1215, !noundef !3
   %3500 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %3501 = load i16, ptr %3500, align 2, !noalias !1215, !noundef !3
+  %3501 = load i16, ptr %3500, align 4, !noalias !1215, !noundef !3
   %3502 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3492)
   %3503 = call noundef i32 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i32$GT$$GT$7read_as17h0dffb431935727bdE"(ptr noalias noundef readonly align 8 dereferenceable(16) %3502)
   %3504 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3494)
@@ -9381,7 +9381,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %3522 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %3523 = load i16, ptr %3522, align 2, !noalias !1221, !noundef !3
   %3524 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %3525 = load i16, ptr %3524, align 2, !noalias !1221, !noundef !3
+  %3525 = load i16, ptr %3524, align 4, !noalias !1221, !noundef !3
   %3526 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3516)
   %3527 = call noundef i32 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i32$GT$$GT$7read_as17h0dffb431935727bdE"(ptr noalias noundef readonly align 8 dereferenceable(16) %3526)
   %3528 = call noundef i32 @"_ZN8wasmi_ir10immeditate101_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..Const16$LT$i32$GT$$GT$$u20$for$u20$i32$GT$4from17h115daf7f8fa63c9eE"(i16 noundef %3518)
@@ -9411,7 +9411,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %3545 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %3546 = load i16, ptr %3545, align 2, !noalias !1227, !noundef !3
   %3547 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %3548 = load i16, ptr %3547, align 2, !noalias !1227, !noundef !3
+  %3548 = load i16, ptr %3547, align 4, !noalias !1227, !noundef !3
   %3549 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3539)
   %3550 = call noundef i32 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i32$GT$$GT$7read_as17h0dffb431935727bdE"(ptr noalias noundef readonly align 8 dereferenceable(16) %3549)
   %3551 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3541)
@@ -9442,7 +9442,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %3569 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %3570 = load i16, ptr %3569, align 2, !noalias !1233, !noundef !3
   %3571 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %3572 = load i16, ptr %3571, align 2, !noalias !1233, !noundef !3
+  %3572 = load i16, ptr %3571, align 4, !noalias !1233, !noundef !3
   %3573 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3563)
   %3574 = call noundef i32 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i32$GT$$GT$7read_as17h0dffb431935727bdE"(ptr noalias noundef readonly align 8 dereferenceable(16) %3573)
   %3575 = call noundef i32 @"_ZN8wasmi_ir10immeditate101_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..Const16$LT$i32$GT$$GT$$u20$for$u20$i32$GT$4from17h115daf7f8fa63c9eE"(i16 noundef %3565)
@@ -9472,7 +9472,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %3592 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %3593 = load i16, ptr %3592, align 2, !noalias !1239, !noundef !3
   %3594 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %3595 = load i16, ptr %3594, align 2, !noalias !1239, !noundef !3
+  %3595 = load i16, ptr %3594, align 4, !noalias !1239, !noundef !3
   %3596 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3586)
   %3597 = call noundef i32 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i32$GT$$GT$7read_as17h0dffb431935727bdE"(ptr noalias noundef readonly align 8 dereferenceable(16) %3596)
   %3598 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3588)
@@ -9503,7 +9503,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %3616 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %3617 = load i16, ptr %3616, align 2, !noalias !1245, !noundef !3
   %3618 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %3619 = load i16, ptr %3618, align 2, !noalias !1245, !noundef !3
+  %3619 = load i16, ptr %3618, align 4, !noalias !1245, !noundef !3
   %3620 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3610)
   %3621 = call noundef i32 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i32$GT$$GT$7read_as17h0dffb431935727bdE"(ptr noalias noundef readonly align 8 dereferenceable(16) %3620)
   %3622 = call noundef i32 @"_ZN8wasmi_ir10immeditate101_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..Const16$LT$i32$GT$$GT$$u20$for$u20$i32$GT$4from17h115daf7f8fa63c9eE"(i16 noundef %3612)
@@ -9533,7 +9533,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %3639 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %3640 = load i16, ptr %3639, align 2, !noalias !1251, !noundef !3
   %3641 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %3642 = load i16, ptr %3641, align 2, !noalias !1251, !noundef !3
+  %3642 = load i16, ptr %3641, align 4, !noalias !1251, !noundef !3
   %3643 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3633)
   %3644 = call noundef i32 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i32$GT$$GT$7read_as17h0dffb431935727bdE"(ptr noalias noundef readonly align 8 dereferenceable(16) %3643)
   %3645 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3635)
@@ -9564,7 +9564,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %3663 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %3664 = load i16, ptr %3663, align 2, !noalias !1257, !noundef !3
   %3665 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %3666 = load i16, ptr %3665, align 2, !noalias !1257, !noundef !3
+  %3666 = load i16, ptr %3665, align 4, !noalias !1257, !noundef !3
   %3667 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3657)
   %3668 = call noundef i32 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i32$GT$$GT$7read_as17h0dffb431935727bdE"(ptr noalias noundef readonly align 8 dereferenceable(16) %3667)
   %3669 = call noundef i32 @"_ZN8wasmi_ir10immeditate101_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..Const16$LT$i32$GT$$GT$$u20$for$u20$i32$GT$4from17h115daf7f8fa63c9eE"(i16 noundef %3659)
@@ -9594,7 +9594,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %3686 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %3687 = load i16, ptr %3686, align 2, !noalias !1263, !noundef !3
   %3688 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %3689 = load i16, ptr %3688, align 2, !noalias !1263, !noundef !3
+  %3689 = load i16, ptr %3688, align 4, !noalias !1263, !noundef !3
   %3690 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3680)
   %3691 = call noundef i32 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i32$GT$$GT$7read_as17h0dffb431935727bdE"(ptr noalias noundef readonly align 8 dereferenceable(16) %3690)
   %3692 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3682)
@@ -9625,7 +9625,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %3710 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %3711 = load i16, ptr %3710, align 2, !noalias !1269, !noundef !3
   %3712 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %3713 = load i16, ptr %3712, align 2, !noalias !1269, !noundef !3
+  %3713 = load i16, ptr %3712, align 4, !noalias !1269, !noundef !3
   %3714 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3704)
   %3715 = call noundef i32 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i32$GT$$GT$7read_as17h0dffb431935727bdE"(ptr noalias noundef readonly align 8 dereferenceable(16) %3714)
   %3716 = call noundef i32 @"_ZN8wasmi_ir10immeditate101_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..Const16$LT$i32$GT$$GT$$u20$for$u20$i32$GT$4from17h115daf7f8fa63c9eE"(i16 noundef %3706)
@@ -9655,7 +9655,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %3733 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %3734 = load i16, ptr %3733, align 2, !noalias !1275, !noundef !3
   %3735 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %3736 = load i16, ptr %3735, align 2, !noalias !1275, !noundef !3
+  %3736 = load i16, ptr %3735, align 4, !noalias !1275, !noundef !3
   %3737 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3727)
   %3738 = call noundef i32 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i32$GT$$GT$7read_as17h0dffb431935727bdE"(ptr noalias noundef readonly align 8 dereferenceable(16) %3737)
   %3739 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3729)
@@ -9686,7 +9686,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %3757 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %3758 = load i16, ptr %3757, align 2, !noalias !1281, !noundef !3
   %3759 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %3760 = load i16, ptr %3759, align 2, !noalias !1281, !noundef !3
+  %3760 = load i16, ptr %3759, align 4, !noalias !1281, !noundef !3
   %3761 = call noundef i32 @"_ZN8wasmi_ir10immeditate101_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..Const16$LT$i32$GT$$GT$$u20$for$u20$i32$GT$4from17h115daf7f8fa63c9eE"(i16 noundef %3751), !noalias !1281
   %3762 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3753)
   %3763 = call noundef i32 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i32$GT$$GT$7read_as17h0dffb431935727bdE"(ptr noalias noundef readonly align 8 dereferenceable(16) %3762)
@@ -9716,7 +9716,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %3780 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %3781 = load i16, ptr %3780, align 2, !noalias !1288, !noundef !3
   %3782 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %3783 = load i16, ptr %3782, align 2, !noalias !1288, !noundef !3
+  %3783 = load i16, ptr %3782, align 4, !noalias !1288, !noundef !3
   %3784 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3774)
   %3785 = call noundef i32 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i32$GT$$GT$7read_as17h0dffb431935727bdE"(ptr noalias noundef readonly align 8 dereferenceable(16) %3784)
   %3786 = call noundef i32 @"_ZN8wasmi_ir10immeditate101_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..Const16$LT$i32$GT$$GT$$u20$for$u20$i32$GT$4from17h115daf7f8fa63c9eE"(i16 noundef %3776)
@@ -9746,7 +9746,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %3803 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %3804 = load i16, ptr %3803, align 2, !noalias !1294, !noundef !3
   %3805 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %3806 = load i16, ptr %3805, align 2, !noalias !1294, !noundef !3
+  %3806 = load i16, ptr %3805, align 4, !noalias !1294, !noundef !3
   %3807 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3797)
   %3808 = call noundef i32 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$u32$GT$$GT$7read_as17h4a9e5a5c264815fdE"(ptr noalias noundef readonly align 8 dereferenceable(16) %3807)
   %3809 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3799)
@@ -9777,7 +9777,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %3827 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %3828 = load i16, ptr %3827, align 2, !noalias !1301, !noundef !3
   %3829 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %3830 = load i16, ptr %3829, align 2, !noalias !1301, !noundef !3
+  %3830 = load i16, ptr %3829, align 4, !noalias !1301, !noundef !3
   %3831 = call noundef i32 @"_ZN8wasmi_ir10immeditate101_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..Const16$LT$u32$GT$$GT$$u20$for$u20$u32$GT$4from17h52e999dd2b8c0c1cE"(i16 noundef %3821), !noalias !1301
   %3832 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3823)
   %3833 = call noundef i32 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$u32$GT$$GT$7read_as17h4a9e5a5c264815fdE"(ptr noalias noundef readonly align 8 dereferenceable(16) %3832)
@@ -9807,7 +9807,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %3850 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %3851 = load i16, ptr %3850, align 2, !noalias !1307, !noundef !3
   %3852 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %3853 = load i16, ptr %3852, align 2, !noalias !1307, !noundef !3
+  %3853 = load i16, ptr %3852, align 4, !noalias !1307, !noundef !3
   %3854 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3844)
   %3855 = call noundef i32 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$u32$GT$$GT$7read_as17h4a9e5a5c264815fdE"(ptr noalias noundef readonly align 8 dereferenceable(16) %3854)
   %3856 = call noundef i32 @"_ZN8wasmi_ir10immeditate101_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..Const16$LT$u32$GT$$GT$$u20$for$u20$u32$GT$4from17h52e999dd2b8c0c1cE"(i16 noundef %3846)
@@ -9837,7 +9837,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %3873 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %3874 = load i16, ptr %3873, align 2, !noalias !1313, !noundef !3
   %3875 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %3876 = load i16, ptr %3875, align 2, !noalias !1313, !noundef !3
+  %3876 = load i16, ptr %3875, align 4, !noalias !1313, !noundef !3
   %3877 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3867)
   %3878 = call noundef i32 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i32$GT$$GT$7read_as17h0dffb431935727bdE"(ptr noalias noundef readonly align 8 dereferenceable(16) %3877)
   %3879 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3869)
@@ -9868,7 +9868,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %3897 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %3898 = load i16, ptr %3897, align 2, !noalias !1319, !noundef !3
   %3899 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %3900 = load i16, ptr %3899, align 2, !noalias !1319, !noundef !3
+  %3900 = load i16, ptr %3899, align 4, !noalias !1319, !noundef !3
   %3901 = call noundef i32 @"_ZN8wasmi_ir10immeditate101_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..Const16$LT$i32$GT$$GT$$u20$for$u20$i32$GT$4from17h115daf7f8fa63c9eE"(i16 noundef %3891), !noalias !1319
   %3902 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3893)
   %3903 = call noundef i32 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i32$GT$$GT$7read_as17h0dffb431935727bdE"(ptr noalias noundef readonly align 8 dereferenceable(16) %3902)
@@ -9898,7 +9898,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %3920 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %3921 = load i16, ptr %3920, align 2, !noalias !1325, !noundef !3
   %3922 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %3923 = load i16, ptr %3922, align 2, !noalias !1325, !noundef !3
+  %3923 = load i16, ptr %3922, align 4, !noalias !1325, !noundef !3
   %3924 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3914)
   %3925 = call noundef i32 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i32$GT$$GT$7read_as17h0dffb431935727bdE"(ptr noalias noundef readonly align 8 dereferenceable(16) %3924)
   %3926 = call noundef i32 @"_ZN8wasmi_ir10immeditate101_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..Const16$LT$i32$GT$$GT$$u20$for$u20$i32$GT$4from17h115daf7f8fa63c9eE"(i16 noundef %3916)
@@ -9928,7 +9928,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %3943 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %3944 = load i16, ptr %3943, align 2, !noalias !1331, !noundef !3
   %3945 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %3946 = load i16, ptr %3945, align 2, !noalias !1331, !noundef !3
+  %3946 = load i16, ptr %3945, align 4, !noalias !1331, !noundef !3
   %3947 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3937)
   %3948 = call noundef i32 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$u32$GT$$GT$7read_as17h4a9e5a5c264815fdE"(ptr noalias noundef readonly align 8 dereferenceable(16) %3947)
   %3949 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3939)
@@ -9959,7 +9959,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %3967 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %3968 = load i16, ptr %3967, align 2, !noalias !1337, !noundef !3
   %3969 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %3970 = load i16, ptr %3969, align 2, !noalias !1337, !noundef !3
+  %3970 = load i16, ptr %3969, align 4, !noalias !1337, !noundef !3
   %3971 = call noundef i32 @"_ZN8wasmi_ir10immeditate101_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..Const16$LT$u32$GT$$GT$$u20$for$u20$u32$GT$4from17h52e999dd2b8c0c1cE"(i16 noundef %3961), !noalias !1337
   %3972 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3963)
   %3973 = call noundef i32 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$u32$GT$$GT$7read_as17h4a9e5a5c264815fdE"(ptr noalias noundef readonly align 8 dereferenceable(16) %3972)
@@ -9989,7 +9989,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %3990 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %3991 = load i16, ptr %3990, align 2, !noalias !1343, !noundef !3
   %3992 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %3993 = load i16, ptr %3992, align 2, !noalias !1343, !noundef !3
+  %3993 = load i16, ptr %3992, align 4, !noalias !1343, !noundef !3
   %3994 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %3984)
   %3995 = call noundef i32 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$u32$GT$$GT$7read_as17h4a9e5a5c264815fdE"(ptr noalias noundef readonly align 8 dereferenceable(16) %3994)
   %3996 = call noundef i32 @"_ZN8wasmi_ir10immeditate101_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..Const16$LT$u32$GT$$GT$$u20$for$u20$u32$GT$4from17h52e999dd2b8c0c1cE"(i16 noundef %3986)
@@ -10019,7 +10019,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4013 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4014 = load i16, ptr %4013, align 2, !noalias !1349, !noundef !3
   %4015 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4016 = load i16, ptr %4015, align 2, !noalias !1349, !noundef !3
+  %4016 = load i16, ptr %4015, align 4, !noalias !1349, !noundef !3
   %4017 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4007)
   %4018 = call noundef i64 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i64$GT$$GT$7read_as17hb27170f03ba28203E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4017)
   %4019 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4009)
@@ -10051,7 +10051,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4037 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4038 = load i16, ptr %4037, align 2, !noalias !1355, !noundef !3
   %4039 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4040 = load i16, ptr %4039, align 2, !noalias !1355, !noundef !3
+  %4040 = load i16, ptr %4039, align 4, !noalias !1355, !noundef !3
   %4041 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4031)
   %4042 = call noundef i64 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i64$GT$$GT$7read_as17hb27170f03ba28203E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4041)
   %4043 = call noundef i64 @"_ZN8wasmi_ir10immeditate101_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..Const16$LT$i64$GT$$GT$$u20$for$u20$i64$GT$4from17hfa629657311f33f8E"(i16 noundef %4033)
@@ -10082,7 +10082,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4060 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4061 = load i16, ptr %4060, align 2, !noalias !1361, !noundef !3
   %4062 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4063 = load i16, ptr %4062, align 2, !noalias !1361, !noundef !3
+  %4063 = load i16, ptr %4062, align 4, !noalias !1361, !noundef !3
   %4064 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4054)
   %4065 = call noundef i64 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i64$GT$$GT$7read_as17hb27170f03ba28203E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4064)
   %4066 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4056)
@@ -10114,7 +10114,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4084 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4085 = load i16, ptr %4084, align 2, !noalias !1367, !noundef !3
   %4086 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4087 = load i16, ptr %4086, align 2, !noalias !1367, !noundef !3
+  %4087 = load i16, ptr %4086, align 4, !noalias !1367, !noundef !3
   %4088 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4078)
   %4089 = call noundef i64 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i64$GT$$GT$7read_as17hb27170f03ba28203E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4088)
   %4090 = call noundef i64 @"_ZN8wasmi_ir10immeditate101_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..Const16$LT$i64$GT$$GT$$u20$for$u20$i64$GT$4from17hfa629657311f33f8E"(i16 noundef %4080)
@@ -10145,7 +10145,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4107 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4108 = load i16, ptr %4107, align 2, !noalias !1373, !noundef !3
   %4109 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4110 = load i16, ptr %4109, align 2, !noalias !1373, !noundef !3
+  %4110 = load i16, ptr %4109, align 4, !noalias !1373, !noundef !3
   %4111 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4101)
   %4112 = call noundef i64 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i64$GT$$GT$7read_as17hb27170f03ba28203E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4111)
   %4113 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4103)
@@ -10177,7 +10177,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4131 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4132 = load i16, ptr %4131, align 2, !noalias !1379, !noundef !3
   %4133 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4134 = load i16, ptr %4133, align 2, !noalias !1379, !noundef !3
+  %4134 = load i16, ptr %4133, align 4, !noalias !1379, !noundef !3
   %4135 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4125)
   %4136 = call noundef i64 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i64$GT$$GT$7read_as17hb27170f03ba28203E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4135)
   %4137 = call noundef i64 @"_ZN8wasmi_ir10immeditate101_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..Const16$LT$i64$GT$$GT$$u20$for$u20$i64$GT$4from17hfa629657311f33f8E"(i16 noundef %4127)
@@ -10208,7 +10208,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4154 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4155 = load i16, ptr %4154, align 2, !noalias !1385, !noundef !3
   %4156 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4157 = load i16, ptr %4156, align 2, !noalias !1385, !noundef !3
+  %4157 = load i16, ptr %4156, align 4, !noalias !1385, !noundef !3
   %4158 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4148)
   %4159 = call noundef i64 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i64$GT$$GT$7read_as17hb27170f03ba28203E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4158)
   %4160 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4150)
@@ -10239,7 +10239,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4178 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4179 = load i16, ptr %4178, align 2, !noalias !1391, !noundef !3
   %4180 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4181 = load i16, ptr %4180, align 2, !noalias !1391, !noundef !3
+  %4181 = load i16, ptr %4180, align 4, !noalias !1391, !noundef !3
   %4182 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4172)
   %4183 = call noundef i64 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i64$GT$$GT$7read_as17hb27170f03ba28203E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4182)
   %4184 = call noundef i64 @"_ZN8wasmi_ir10immeditate101_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..Const16$LT$i64$GT$$GT$$u20$for$u20$i64$GT$4from17hfa629657311f33f8E"(i16 noundef %4174)
@@ -10269,7 +10269,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4201 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4202 = load i16, ptr %4201, align 2, !noalias !1397, !noundef !3
   %4203 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4204 = load i16, ptr %4203, align 2, !noalias !1397, !noundef !3
+  %4204 = load i16, ptr %4203, align 4, !noalias !1397, !noundef !3
   %4205 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4195)
   %4206 = call noundef i64 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i64$GT$$GT$7read_as17hb27170f03ba28203E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4205)
   %4207 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4197)
@@ -10300,7 +10300,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4225 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4226 = load i16, ptr %4225, align 2, !noalias !1403, !noundef !3
   %4227 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4228 = load i16, ptr %4227, align 2, !noalias !1403, !noundef !3
+  %4228 = load i16, ptr %4227, align 4, !noalias !1403, !noundef !3
   %4229 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4219)
   %4230 = call noundef i64 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i64$GT$$GT$7read_as17hb27170f03ba28203E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4229)
   %4231 = call noundef i64 @"_ZN8wasmi_ir10immeditate101_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..Const16$LT$i64$GT$$GT$$u20$for$u20$i64$GT$4from17hfa629657311f33f8E"(i16 noundef %4221)
@@ -10330,7 +10330,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4248 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4249 = load i16, ptr %4248, align 2, !noalias !1409, !noundef !3
   %4250 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4251 = load i16, ptr %4250, align 2, !noalias !1409, !noundef !3
+  %4251 = load i16, ptr %4250, align 4, !noalias !1409, !noundef !3
   %4252 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4242)
   %4253 = call noundef i64 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i64$GT$$GT$7read_as17hb27170f03ba28203E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4252)
   %4254 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4244)
@@ -10361,7 +10361,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4272 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4273 = load i16, ptr %4272, align 2, !noalias !1415, !noundef !3
   %4274 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4275 = load i16, ptr %4274, align 2, !noalias !1415, !noundef !3
+  %4275 = load i16, ptr %4274, align 4, !noalias !1415, !noundef !3
   %4276 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4266)
   %4277 = call noundef i64 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i64$GT$$GT$7read_as17hb27170f03ba28203E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4276)
   %4278 = call noundef i64 @"_ZN8wasmi_ir10immeditate101_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..Const16$LT$i64$GT$$GT$$u20$for$u20$i64$GT$4from17hfa629657311f33f8E"(i16 noundef %4268)
@@ -10391,7 +10391,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4295 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4296 = load i16, ptr %4295, align 2, !noalias !1421, !noundef !3
   %4297 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4298 = load i16, ptr %4297, align 2, !noalias !1421, !noundef !3
+  %4298 = load i16, ptr %4297, align 4, !noalias !1421, !noundef !3
   %4299 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4289)
   %4300 = call noundef i64 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i64$GT$$GT$7read_as17hb27170f03ba28203E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4299)
   %4301 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4291)
@@ -10422,7 +10422,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4319 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4320 = load i16, ptr %4319, align 2, !noalias !1427, !noundef !3
   %4321 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4322 = load i16, ptr %4321, align 2, !noalias !1427, !noundef !3
+  %4322 = load i16, ptr %4321, align 4, !noalias !1427, !noundef !3
   %4323 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4313)
   %4324 = call noundef i64 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i64$GT$$GT$7read_as17hb27170f03ba28203E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4323)
   %4325 = call noundef i64 @"_ZN8wasmi_ir10immeditate101_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..Const16$LT$i64$GT$$GT$$u20$for$u20$i64$GT$4from17hfa629657311f33f8E"(i16 noundef %4315)
@@ -10452,7 +10452,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4342 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4343 = load i16, ptr %4342, align 2, !noalias !1433, !noundef !3
   %4344 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4345 = load i16, ptr %4344, align 2, !noalias !1433, !noundef !3
+  %4345 = load i16, ptr %4344, align 4, !noalias !1433, !noundef !3
   %4346 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4336)
   %4347 = call noundef i64 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i64$GT$$GT$7read_as17hb27170f03ba28203E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4346)
   %4348 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4338)
@@ -10483,7 +10483,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4366 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4367 = load i16, ptr %4366, align 2, !noalias !1439, !noundef !3
   %4368 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4369 = load i16, ptr %4368, align 2, !noalias !1439, !noundef !3
+  %4369 = load i16, ptr %4368, align 4, !noalias !1439, !noundef !3
   %4370 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4360)
   %4371 = call noundef i64 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i64$GT$$GT$7read_as17hb27170f03ba28203E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4370)
   %4372 = call noundef i64 @"_ZN8wasmi_ir10immeditate101_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..Const16$LT$i64$GT$$GT$$u20$for$u20$i64$GT$4from17hfa629657311f33f8E"(i16 noundef %4362)
@@ -10513,7 +10513,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4389 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4390 = load i16, ptr %4389, align 2, !noalias !1445, !noundef !3
   %4391 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4392 = load i16, ptr %4391, align 2, !noalias !1445, !noundef !3
+  %4392 = load i16, ptr %4391, align 4, !noalias !1445, !noundef !3
   %4393 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4383)
   %4394 = call noundef i64 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i64$GT$$GT$7read_as17hb27170f03ba28203E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4393)
   %4395 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4385)
@@ -10544,7 +10544,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4413 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4414 = load i16, ptr %4413, align 2, !noalias !1451, !noundef !3
   %4415 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4416 = load i16, ptr %4415, align 2, !noalias !1451, !noundef !3
+  %4416 = load i16, ptr %4415, align 4, !noalias !1451, !noundef !3
   %4417 = call noundef i64 @"_ZN8wasmi_ir10immeditate101_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..Const16$LT$i64$GT$$GT$$u20$for$u20$i64$GT$4from17hfa629657311f33f8E"(i16 noundef %4407), !noalias !1451
   %4418 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4409)
   %4419 = call noundef i64 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i64$GT$$GT$7read_as17hb27170f03ba28203E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4418)
@@ -10574,7 +10574,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4436 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4437 = load i16, ptr %4436, align 2, !noalias !1458, !noundef !3
   %4438 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4439 = load i16, ptr %4438, align 2, !noalias !1458, !noundef !3
+  %4439 = load i16, ptr %4438, align 4, !noalias !1458, !noundef !3
   %4440 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4430)
   %4441 = call noundef i64 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i64$GT$$GT$7read_as17hb27170f03ba28203E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4440)
   %4442 = call noundef i64 @"_ZN8wasmi_ir10immeditate101_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..Const16$LT$i64$GT$$GT$$u20$for$u20$i64$GT$4from17hfa629657311f33f8E"(i16 noundef %4432)
@@ -10604,7 +10604,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4459 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4460 = load i16, ptr %4459, align 2, !noalias !1464, !noundef !3
   %4461 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4462 = load i16, ptr %4461, align 2, !noalias !1464, !noundef !3
+  %4462 = load i16, ptr %4461, align 4, !noalias !1464, !noundef !3
   %4463 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4453)
   %4464 = call noundef i64 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$u64$GT$$GT$7read_as17h7049510205978d62E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4463)
   %4465 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4455)
@@ -10635,7 +10635,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4483 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4484 = load i16, ptr %4483, align 2, !noalias !1471, !noundef !3
   %4485 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4486 = load i16, ptr %4485, align 2, !noalias !1471, !noundef !3
+  %4486 = load i16, ptr %4485, align 4, !noalias !1471, !noundef !3
   %4487 = call noundef i64 @"_ZN8wasmi_ir10immeditate101_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..Const16$LT$u64$GT$$GT$$u20$for$u20$u64$GT$4from17h98a2bda7f4009a2dE"(i16 noundef %4477), !noalias !1471
   %4488 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4479)
   %4489 = call noundef i64 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$u64$GT$$GT$7read_as17h7049510205978d62E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4488)
@@ -10665,7 +10665,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4506 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4507 = load i16, ptr %4506, align 2, !noalias !1477, !noundef !3
   %4508 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4509 = load i16, ptr %4508, align 2, !noalias !1477, !noundef !3
+  %4509 = load i16, ptr %4508, align 4, !noalias !1477, !noundef !3
   %4510 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4500)
   %4511 = call noundef i64 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$u64$GT$$GT$7read_as17h7049510205978d62E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4510)
   %4512 = call noundef i64 @"_ZN8wasmi_ir10immeditate101_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..Const16$LT$u64$GT$$GT$$u20$for$u20$u64$GT$4from17h98a2bda7f4009a2dE"(i16 noundef %4502)
@@ -10695,7 +10695,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4529 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4530 = load i16, ptr %4529, align 2, !noalias !1483, !noundef !3
   %4531 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4532 = load i16, ptr %4531, align 2, !noalias !1483, !noundef !3
+  %4532 = load i16, ptr %4531, align 4, !noalias !1483, !noundef !3
   %4533 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4523)
   %4534 = call noundef i64 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i64$GT$$GT$7read_as17hb27170f03ba28203E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4533)
   %4535 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4525)
@@ -10726,7 +10726,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4553 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4554 = load i16, ptr %4553, align 2, !noalias !1489, !noundef !3
   %4555 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4556 = load i16, ptr %4555, align 2, !noalias !1489, !noundef !3
+  %4556 = load i16, ptr %4555, align 4, !noalias !1489, !noundef !3
   %4557 = call noundef i64 @"_ZN8wasmi_ir10immeditate101_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..Const16$LT$i64$GT$$GT$$u20$for$u20$i64$GT$4from17hfa629657311f33f8E"(i16 noundef %4547), !noalias !1489
   %4558 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4549)
   %4559 = call noundef i64 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i64$GT$$GT$7read_as17hb27170f03ba28203E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4558)
@@ -10756,7 +10756,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4576 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4577 = load i16, ptr %4576, align 2, !noalias !1495, !noundef !3
   %4578 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4579 = load i16, ptr %4578, align 2, !noalias !1495, !noundef !3
+  %4579 = load i16, ptr %4578, align 4, !noalias !1495, !noundef !3
   %4580 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4570)
   %4581 = call noundef i64 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$i64$GT$$GT$7read_as17hb27170f03ba28203E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4580)
   %4582 = call noundef i64 @"_ZN8wasmi_ir10immeditate101_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..Const16$LT$i64$GT$$GT$$u20$for$u20$i64$GT$4from17hfa629657311f33f8E"(i16 noundef %4572)
@@ -10786,7 +10786,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4599 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4600 = load i16, ptr %4599, align 2, !noalias !1501, !noundef !3
   %4601 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4602 = load i16, ptr %4601, align 2, !noalias !1501, !noundef !3
+  %4602 = load i16, ptr %4601, align 4, !noalias !1501, !noundef !3
   %4603 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4593)
   %4604 = call noundef i64 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$u64$GT$$GT$7read_as17h7049510205978d62E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4603)
   %4605 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4595)
@@ -10817,7 +10817,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4623 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4624 = load i16, ptr %4623, align 2, !noalias !1507, !noundef !3
   %4625 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4626 = load i16, ptr %4625, align 2, !noalias !1507, !noundef !3
+  %4626 = load i16, ptr %4625, align 4, !noalias !1507, !noundef !3
   %4627 = call noundef i64 @"_ZN8wasmi_ir10immeditate101_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..Const16$LT$u64$GT$$GT$$u20$for$u20$u64$GT$4from17h98a2bda7f4009a2dE"(i16 noundef %4617), !noalias !1507
   %4628 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4619)
   %4629 = call noundef i64 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$u64$GT$$GT$7read_as17h7049510205978d62E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4628)
@@ -10847,7 +10847,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4646 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4647 = load i16, ptr %4646, align 2, !noalias !1513, !noundef !3
   %4648 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4649 = load i16, ptr %4648, align 2, !noalias !1513, !noundef !3
+  %4649 = load i16, ptr %4648, align 4, !noalias !1513, !noundef !3
   %4650 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4640)
   %4651 = call noundef i64 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$u64$GT$$GT$7read_as17h7049510205978d62E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4650)
   %4652 = call noundef i64 @"_ZN8wasmi_ir10immeditate101_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..Const16$LT$u64$GT$$GT$$u20$for$u20$u64$GT$4from17h98a2bda7f4009a2dE"(i16 noundef %4642)
@@ -10877,7 +10877,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4669 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4670 = load i16, ptr %4669, align 2, !noalias !1519, !noundef !3
   %4671 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4672 = load i16, ptr %4671, align 2, !noalias !1519, !noundef !3
+  %4672 = load i16, ptr %4671, align 4, !noalias !1519, !noundef !3
   %4673 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4663)
   %4674 = call noundef float @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$f32$GT$$GT$7read_as17h9f9035dd00c9f741E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4673)
   %4675 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4665)
@@ -10908,7 +10908,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4693 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4694 = load i16, ptr %4693, align 2, !noalias !1525, !noundef !3
   %4695 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4696 = load i16, ptr %4695, align 2, !noalias !1525, !noundef !3
+  %4696 = load i16, ptr %4695, align 4, !noalias !1525, !noundef !3
   %4697 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4687)
   %4698 = call noundef float @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$f32$GT$$GT$7read_as17h9f9035dd00c9f741E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4697)
   %4699 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4689)
@@ -10939,7 +10939,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4717 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4718 = load i16, ptr %4717, align 2, !noalias !1531, !noundef !3
   %4719 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4720 = load i16, ptr %4719, align 2, !noalias !1531, !noundef !3
+  %4720 = load i16, ptr %4719, align 4, !noalias !1531, !noundef !3
   %4721 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4711)
   %4722 = call noundef float @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$f32$GT$$GT$7read_as17h9f9035dd00c9f741E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4721)
   %4723 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4713)
@@ -10970,7 +10970,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4741 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4742 = load i16, ptr %4741, align 2, !noalias !1537, !noundef !3
   %4743 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4744 = load i16, ptr %4743, align 2, !noalias !1537, !noundef !3
+  %4744 = load i16, ptr %4743, align 4, !noalias !1537, !noundef !3
   %4745 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4735)
   %4746 = call noundef float @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$f32$GT$$GT$7read_as17h9f9035dd00c9f741E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4745)
   %4747 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4737)
@@ -11001,7 +11001,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4765 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4766 = load i16, ptr %4765, align 2, !noalias !1543, !noundef !3
   %4767 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4768 = load i16, ptr %4767, align 2, !noalias !1543, !noundef !3
+  %4768 = load i16, ptr %4767, align 4, !noalias !1543, !noundef !3
   %4769 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4759)
   %4770 = call noundef float @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$f32$GT$$GT$7read_as17h9f9035dd00c9f741E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4769)
   %4771 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4761)
@@ -11032,7 +11032,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4789 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4790 = load i16, ptr %4789, align 2, !noalias !1549, !noundef !3
   %4791 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4792 = load i16, ptr %4791, align 2, !noalias !1549, !noundef !3
+  %4792 = load i16, ptr %4791, align 4, !noalias !1549, !noundef !3
   %4793 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4783)
   %4794 = call noundef float @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$f32$GT$$GT$7read_as17h9f9035dd00c9f741E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4793)
   %4795 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4785)
@@ -11063,7 +11063,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4813 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4814 = load i16, ptr %4813, align 2, !noalias !1555, !noundef !3
   %4815 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4816 = load i16, ptr %4815, align 2, !noalias !1555, !noundef !3
+  %4816 = load i16, ptr %4815, align 4, !noalias !1555, !noundef !3
   %4817 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4807)
   %4818 = call noundef double @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$f64$GT$$GT$7read_as17h26f660f0610bcf10E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4817)
   %4819 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4809)
@@ -11094,7 +11094,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4837 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4838 = load i16, ptr %4837, align 2, !noalias !1561, !noundef !3
   %4839 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4840 = load i16, ptr %4839, align 2, !noalias !1561, !noundef !3
+  %4840 = load i16, ptr %4839, align 4, !noalias !1561, !noundef !3
   %4841 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4831)
   %4842 = call noundef double @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$f64$GT$$GT$7read_as17h26f660f0610bcf10E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4841)
   %4843 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4833)
@@ -11125,7 +11125,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4861 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4862 = load i16, ptr %4861, align 2, !noalias !1567, !noundef !3
   %4863 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4864 = load i16, ptr %4863, align 2, !noalias !1567, !noundef !3
+  %4864 = load i16, ptr %4863, align 4, !noalias !1567, !noundef !3
   %4865 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4855)
   %4866 = call noundef double @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$f64$GT$$GT$7read_as17h26f660f0610bcf10E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4865)
   %4867 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4857)
@@ -11156,7 +11156,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4885 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4886 = load i16, ptr %4885, align 2, !noalias !1573, !noundef !3
   %4887 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4888 = load i16, ptr %4887, align 2, !noalias !1573, !noundef !3
+  %4888 = load i16, ptr %4887, align 4, !noalias !1573, !noundef !3
   %4889 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4879)
   %4890 = call noundef double @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$f64$GT$$GT$7read_as17h26f660f0610bcf10E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4889)
   %4891 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4881)
@@ -11187,7 +11187,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4909 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4910 = load i16, ptr %4909, align 2, !noalias !1579, !noundef !3
   %4911 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4912 = load i16, ptr %4911, align 2, !noalias !1579, !noundef !3
+  %4912 = load i16, ptr %4911, align 4, !noalias !1579, !noundef !3
   %4913 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4903)
   %4914 = call noundef double @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$f64$GT$$GT$7read_as17h26f660f0610bcf10E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4913)
   %4915 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4905)
@@ -11218,7 +11218,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %4933 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %4934 = load i16, ptr %4933, align 2, !noalias !1585, !noundef !3
   %4935 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %4936 = load i16, ptr %4935, align 2, !noalias !1585, !noundef !3
+  %4936 = load i16, ptr %4935, align 4, !noalias !1585, !noundef !3
   %4937 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4927)
   %4938 = call noundef double @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$f64$GT$$GT$7read_as17h26f660f0610bcf10E"(ptr noalias noundef readonly align 8 dereferenceable(16) %4937)
   %4939 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %703, i16 noundef %4929)
@@ -15396,7 +15396,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %7785 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %.sroa.01.0.copyload.i.i.i = load i16, ptr %7785, align 2, !noalias !2537
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %.sroa.4.0.copyload.i.i.i = load i32, ptr %.sroa.4.0..sroa_idx.i.i.i, align 2, !noalias !2537
+  %.sroa.4.0.copyload.i.i.i = load i32, ptr %.sroa.4.0..sroa_idx.i.i.i, align 4, !noalias !2537
   %.sroa.04.2.extract.trunc.i.i = trunc i32 %.sroa.4.0.copyload.i.i.i to i16
   %7786 = lshr i32 %.sroa.4.0.copyload.i.i.i, 16
   %.sroa.04.4.extract.trunc.i.i = trunc nuw i32 %7786 to i16
@@ -15441,7 +15441,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %7813 = getelementptr inbounds nuw i8, ptr %810, i64 10
   %.sroa.01.0.copyload.i.i.i324 = load i16, ptr %7813, align 2, !noalias !2545
   %.sroa.4.0..sroa_idx.i.i.i325 = getelementptr inbounds nuw i8, ptr %810, i64 12
-  %.sroa.4.0.copyload.i.i.i326 = load i32, ptr %.sroa.4.0..sroa_idx.i.i.i325, align 2, !noalias !2545
+  %.sroa.4.0.copyload.i.i.i326 = load i32, ptr %.sroa.4.0..sroa_idx.i.i.i325, align 4, !noalias !2545
   %.sroa.04.2.extract.trunc.i.i327 = trunc i32 %.sroa.4.0.copyload.i.i.i326 to i16
   %7814 = lshr i32 %.sroa.4.0.copyload.i.i.i326, 16
   %.sroa.04.4.extract.trunc.i.i328 = trunc nuw i32 %7814 to i16

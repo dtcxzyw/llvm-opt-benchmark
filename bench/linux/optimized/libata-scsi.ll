@@ -2657,7 +2657,7 @@ define dso_local void @ata_scsi_simulate(ptr noundef %0, ptr noundef %1) local_u
   %140 = getelementptr i8, ptr %81, i64 2
   tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(10) %140, i8 0, i64 10, i1 false)
   %141 = getelementptr i8, ptr %81, i64 12
-  store i16 4616, ptr %141, align 1
+  store i16 4616, ptr %141, align 4
   %142 = getelementptr i8, ptr %81, i64 14
   tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(18) %142, i8 0, i64 18, i1 false)
   br label %168
@@ -3733,7 +3733,7 @@ define internal fastcc void @ata_scsiop_read_cap(ptr noundef readonly captures(n
   %4 = load i64, ptr %3, align 16
   %5 = add i64 %4, -1
   %6 = getelementptr i8, ptr %2, i64 1108
-  %7 = load i16, ptr %6, align 2
+  %7 = load i16, ptr %6, align 4
   %8 = and i16 %7, -12288
   %9 = icmp eq i16 %8, 20480
   br i1 %9, label %10, label %14
@@ -4694,7 +4694,7 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_rw_xlat(ptr noundef %0) un
   %6 = load i16, ptr %5, align 4
   %7 = lshr i16 %6, 13
   %8 = zext nneg i16 %7 to i32
-  %9 = load i8, ptr %4, align 1
+  %9 = load i8, ptr %4, align 4
   switch i8 %9, label %11 [
     i8 10, label %10
     i8 42, label %10

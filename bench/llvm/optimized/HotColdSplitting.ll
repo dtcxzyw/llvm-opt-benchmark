@@ -5270,7 +5270,7 @@ _ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIPNS_10BasicBlockEjELj0EEEZN12_GLOBA
   %916 = load ptr, ptr %.0910.i.i.i.i.i.i.i, align 8, !tbaa !113
   store ptr %916, ptr %.0811.i.i.i.i.i.i.i, align 8, !tbaa !319
   %917 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 8
-  %918 = load i32, ptr %917, align 4, !tbaa !64
+  %918 = load i32, ptr %917, align 8, !tbaa !64
   %919 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 8
   store i32 %918, ptr %919, align 8, !tbaa !321
   %920 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 16
@@ -7340,7 +7340,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_10BasicBlockEjEE12assignRemoteEOS5_.exit: 
   %30 = load ptr, ptr %.0910.i.i.i.i.i, align 8, !tbaa !113
   store ptr %30, ptr %.0811.i.i.i.i.i, align 8, !tbaa !319
   %31 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 8
-  %32 = load i32, ptr %31, align 4, !tbaa !64
+  %32 = load i32, ptr %31, align 8, !tbaa !64
   %33 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 8
   store i32 %32, ptr %33, align 8, !tbaa !321
   %34 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 16
@@ -7383,7 +7383,7 @@ _ZSt4moveIPSt4pairIPN4llvm10BasicBlockEjES5_ET0_T_S7_S6_.exit: ; preds = %.lr.ph
   %47 = load ptr, ptr %.0910.i.i.i.i.i38, align 8, !tbaa !113
   store ptr %47, ptr %.0811.i.i.i.i.i37, align 8, !tbaa !319
   %48 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i38, i64 8
-  %49 = load i32, ptr %48, align 4, !tbaa !64
+  %49 = load i32, ptr %48, align 8, !tbaa !64
   %50 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i37, i64 8
   store i32 %49, ptr %50, align 8, !tbaa !321
   %51 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i38, i64 16
@@ -9021,7 +9021,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %19, ptr %20, align 8, !tbaa !71
   store ptr %10, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !78
   store i64 0, ptr %18, align 8, !tbaa !71
-  store i8 0, ptr %10, align 1, !tbaa !73
+  store i8 0, ptr %10, align 8, !tbaa !73
   %21 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 48
@@ -9053,7 +9053,7 @@ _ZSt10_ConstructIN4llvm30DiagnosticInfoOptimizationBase8ArgumentEJS2_EEvPT_DpOT0
   store i64 %34, ptr %35, align 8, !tbaa !71
   store ptr %25, ptr %22, align 8, !tbaa !78
   store i64 0, ptr %33, align 8, !tbaa !71
-  store i8 0, ptr %25, align 1, !tbaa !73
+  store i8 0, ptr %25, align 8, !tbaa !73
   %36 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 64
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 16, i1 false), !tbaa.struct !486

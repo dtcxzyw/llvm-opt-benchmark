@@ -377,7 +377,7 @@ BReadDeviceInfo.exit:                             ; preds = %73, %32, %Calculate
   %118 = load i8, ptr %117, align 1
   %119 = zext i8 %118 to i32
   %120 = getelementptr inbounds nuw i8, ptr %80, i64 40
-  %121 = load i8, ptr %120, align 2
+  %121 = load i8, ptr %120, align 8
   %122 = zext i8 %121 to i32
   %123 = getelementptr inbounds nuw i8, ptr %80, i64 41
   %124 = load i8, ptr %123, align 1
@@ -726,7 +726,7 @@ define internal zeroext i1 @HIDAPI_DriverSwitch_UpdateDevice(ptr noundef %0) #0 
 191:                                              ; preds = %183
   store i64 %24, ptr %42, align 8
   %192 = call i64 @SDL_GetTicksNS_REAL() #9
-  %193 = load i8, ptr %39, align 1
+  %193 = load i8, ptr %39, align 8
   %194 = load i8, ptr %153, align 1
   %.not.i67 = icmp eq i8 %193, %194
   br i1 %.not.i67, label %208, label %RemapButton.exit.i
@@ -3896,19 +3896,19 @@ GetInitialInputMode.exit:                         ; preds = %22, %25, %30, %37, 
   %46 = getelementptr inbounds nuw i8, ptr %16, i64 37
   store i8 %45, ptr %46, align 1
   %47 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  store i8 0, ptr %47, align 1
+  store i8 0, ptr %47, align 4
   %48 = getelementptr inbounds nuw i8, ptr %16, i64 57
   store i8 1, ptr %48, align 1
   %49 = getelementptr inbounds nuw i8, ptr %16, i64 58
-  store i8 64, ptr %49, align 1
+  store i8 64, ptr %49, align 2
   %50 = getelementptr inbounds nuw i8, ptr %16, i64 59
   store i8 64, ptr %50, align 1
   %51 = getelementptr inbounds nuw i8, ptr %16, i64 60
-  store i8 0, ptr %51, align 1
+  store i8 0, ptr %51, align 4
   %52 = getelementptr inbounds nuw i8, ptr %16, i64 61
   store i8 1, ptr %52, align 1
   %53 = getelementptr inbounds nuw i8, ptr %16, i64 62
-  store i8 64, ptr %53, align 1
+  store i8 64, ptr %53, align 2
   %54 = getelementptr inbounds nuw i8, ptr %16, i64 63
   store i8 64, ptr %54, align 1
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -4147,7 +4147,7 @@ BTrySetupUSB.exit:                                ; preds = %WritePacket.exit.us
   %184 = zext nneg i8 %183 to i16
   %185 = or disjoint i16 %181, %184
   %186 = getelementptr inbounds nuw i8, ptr %16, i64 284
-  store i16 %185, ptr %186, align 2
+  store i16 %185, ptr %186, align 4
   %187 = getelementptr inbounds nuw i8, ptr %.0102.i, i64 1
   %188 = load i8, ptr %187, align 1
   %189 = zext i8 %188 to i16
@@ -4188,7 +4188,7 @@ BTrySetupUSB.exit:                                ; preds = %WritePacket.exit.us
   %221 = zext nneg i8 %220 to i16
   %222 = or disjoint i16 %218, %221
   %223 = getelementptr inbounds nuw i8, ptr %16, i64 296
-  store i16 %222, ptr %223, align 2
+  store i16 %222, ptr %223, align 4
   %224 = getelementptr inbounds nuw i8, ptr %.0102.i, i64 7
   %225 = load i8, ptr %224, align 1
   %226 = zext i8 %225 to i16
@@ -5522,7 +5522,7 @@ define internal fastcc noundef zeroext i1 @WriteSubcommand(ptr noundef %0, i32 n
   store i8 1, ptr %7, align 1
   %27 = load i8, ptr %10, align 4
   store i8 %27, ptr %9, align 1
-  %28 = load i64, ptr %12, align 2
+  %28 = load i64, ptr %12, align 4
   store i64 %28, ptr %11, align 1
   store i8 %13, ptr %14, align 1
   br i1 %.not.i, label %ConstructSubcommand.exit, label %29

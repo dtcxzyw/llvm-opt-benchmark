@@ -7163,9 +7163,9 @@ _ZN4llvm11SmallVectorISt4pairIjjELj4EED2Ev.exit.i.i10.i: ; preds = %62, %_ZN4llv
   store ptr %.1.val.i.i, ptr %.114.i.i, align 8, !tbaa !72
   %146 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
   %147 = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -40
-  %148 = load i32, ptr %146, align 4, !tbaa !82
+  %148 = load i32, ptr %146, align 8, !tbaa !82
   %149 = load i32, ptr %147, align 4, !tbaa !82
-  store i32 %149, ptr %146, align 4, !tbaa !82
+  store i32 %149, ptr %146, align 8, !tbaa !82
   store i32 %148, ptr %147, align 4, !tbaa !82
   %150 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 12
   %151 = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -36

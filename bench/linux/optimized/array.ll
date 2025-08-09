@@ -1361,7 +1361,7 @@ define internal fastcc void @do_task_stat(ptr noundef %0, ptr noundef %1, ptr no
   %261 = getelementptr i8, ptr %251, i64 64
   %262 = load i64, ptr %261, align 16
   %263 = add i64 %262, %252
-  %264 = load volatile ptr, ptr %251, align 8
+  %264 = load volatile ptr, ptr %251, align 16
   %265 = icmp eq ptr %264, %197
   br i1 %265, label %.loopexit, label %.preheader, !llvm.loop !27
 

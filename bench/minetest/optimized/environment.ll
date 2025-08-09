@@ -1369,18 +1369,18 @@ while.body:                                       ; preds = %cleanup365, %while.
   %new_nodes.sroa.36.0.copyload = load i16, ptr %new_nodes.sroa.36.0.m_search_range43.sroa_idx, align 2, !tbaa !44
   %26 = load i16, ptr %m_current_node_pos, align 2, !tbaa !90
   %add.i506 = add i16 %26, %new_nodes.sroa.0.0.copyload
-  %27 = load i16, ptr %Y.i507, align 2, !tbaa !91
+  %27 = load i16, ptr %Y.i507, align 8, !tbaa !91
   %add8.i = add i16 %27, %new_nodes.sroa.10.0.copyload
   %28 = load i16, ptr %Z.i508, align 2, !tbaa !92
   %add13.i509 = add i16 %28, %new_nodes.sroa.16.0.copyload
   %add.i510 = add i16 %26, %new_nodes.sroa.22.0.copyload
   %add8.i513 = add i16 %27, %new_nodes.sroa.29.0.copyload
   %add13.i516 = add i16 %28, %new_nodes.sroa.36.0.copyload
-  %29 = load i16, ptr %m_previous_node, align 2, !tbaa !90
+  %29 = load i16, ptr %m_previous_node, align 8, !tbaa !90
   %sub.i517 = sub i16 %26, %29
   %30 = load i16, ptr %Y6.i519, align 2, !tbaa !91
   %sub8.i = sub i16 %27, %30
-  %31 = load i16, ptr %Z11.i521, align 2, !tbaa !92
+  %31 = load i16, ptr %Z11.i521, align 4, !tbaa !92
   %sub13.i = sub i16 %28, %31
   %cmp56 = icmp sgt i16 %sub.i517, 0
   br i1 %cmp56, label %if.end109, label %if.else
@@ -1744,11 +1744,11 @@ lpad252.loopexit.split-lp.loopexit.split-lp:      ; preds = %if.then.i.i.i.i
 if.then.i.i:                                      ; preds = %if.end249
   store i8 1, ptr %79, align 4, !tbaa !137
   %result.sroa.7.sroa.5.0.result.sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 2
-  store i16 %x.01169, ptr %result.sroa.7.sroa.5.0.result.sroa.7.0..sroa_idx.sroa_idx, align 1, !tbaa !44
+  store i16 %x.01169, ptr %result.sroa.7.sroa.5.0.result.sroa.7.0..sroa_idx.sroa_idx, align 2, !tbaa !44
   %result.sroa.7.sroa.7.0.result.sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 4
-  store i16 %y.01126, ptr %result.sroa.7.sroa.7.0.result.sroa.7.0..sroa_idx.sroa_idx, align 1, !tbaa !44
+  store i16 %y.01126, ptr %result.sroa.7.sroa.7.0.result.sroa.7.0..sroa_idx.sroa_idx, align 4, !tbaa !44
   %result.sroa.7.sroa.8.0.result.sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 6
-  store i16 %z.01095, ptr %result.sroa.7.sroa.8.0.result.sroa.7.0..sroa_idx.sroa_idx, align 1, !tbaa !44
+  store i16 %z.01095, ptr %result.sroa.7.sroa.8.0.result.sroa.7.0..sroa_idx.sroa_idx, align 2, !tbaa !44
   %result.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 8
   store i48 %retval.sroa.0.0.insert.insert.i641, ptr %result.sroa.9.0..sroa_idx, align 4, !tbaa.struct !139
   %result.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 14
@@ -1816,11 +1816,11 @@ _ZNSt12_Vector_baseI12PointedThingSaIS0_EE11_M_allocateEm.exit.i.i.i: ; preds = 
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i645, i64 %sub.ptr.sub.i.i.i.i.i
   store i8 1, ptr %add.ptr.i.i.i, align 4, !tbaa !137
   %result.sroa.7.sroa.5.0.result.sroa.7.0.add.ptr.i.i.i.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 2
-  store i16 %x.01169, ptr %result.sroa.7.sroa.5.0.result.sroa.7.0.add.ptr.i.i.i.sroa_idx.sroa_idx, align 1, !tbaa !44
+  store i16 %x.01169, ptr %result.sroa.7.sroa.5.0.result.sroa.7.0.add.ptr.i.i.i.sroa_idx.sroa_idx, align 2, !tbaa !44
   %result.sroa.7.sroa.7.0.result.sroa.7.0.add.ptr.i.i.i.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 4
-  store i16 %y.01126, ptr %result.sroa.7.sroa.7.0.result.sroa.7.0.add.ptr.i.i.i.sroa_idx.sroa_idx, align 1, !tbaa !44
+  store i16 %y.01126, ptr %result.sroa.7.sroa.7.0.result.sroa.7.0.add.ptr.i.i.i.sroa_idx.sroa_idx, align 4, !tbaa !44
   %result.sroa.7.sroa.8.0.result.sroa.7.0.add.ptr.i.i.i.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 6
-  store i16 %z.01095, ptr %result.sroa.7.sroa.8.0.result.sroa.7.0.add.ptr.i.i.i.sroa_idx.sroa_idx, align 1, !tbaa !44
+  store i16 %z.01095, ptr %result.sroa.7.sroa.8.0.result.sroa.7.0.add.ptr.i.i.i.sroa_idx.sroa_idx, align 2, !tbaa !44
   %result.sroa.9.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
   store i48 %retval.sroa.0.0.insert.insert.i641, ptr %result.sroa.9.0.add.ptr.i.i.i.sroa_idx, align 4, !tbaa.struct !139
   %result.sroa.10.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 14

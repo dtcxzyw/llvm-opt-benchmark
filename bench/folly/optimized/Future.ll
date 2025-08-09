@@ -1829,11 +1829,11 @@ _ZN5folly17exception_wrapperD2Ev.exit:            ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 72
   store ptr null, ptr %12, align 8, !tbaa !88, !noalias !83
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  store i8 2, ptr %13, align 1, !tbaa !89, !noalias !83
+  store i8 2, ptr %13, align 16, !tbaa !89, !noalias !83
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 81
   store i8 1, ptr %14, align 1, !tbaa !92, !noalias !83
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 82
-  store i8 0, ptr %15, align 1, !tbaa !92, !noalias !83
+  store i8 0, ptr %15, align 2, !tbaa !92, !noalias !83
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 88
   store i32 0, ptr %16, align 8, !tbaa !94, !noalias !83
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 96
@@ -1841,7 +1841,7 @@ _ZN5folly17exception_wrapperD2Ev.exit:            ; preds = %2
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5folly7futures6detail4CoreINS_4UnitEEE, i64 16), ptr %8, align 16, !tbaa !29, !noalias !83
   store i32 1, ptr %9, align 8, !tbaa !34, !noalias !83
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 144
-  store i64 %7, ptr %18, align 8, !alias.scope !97, !noalias !83
+  store i64 %7, ptr %18, align 16, !alias.scope !97, !noalias !83
   store ptr %8, ptr %0, align 8, !tbaa !58, !alias.scope !83
   ret void
 
@@ -2472,11 +2472,11 @@ define void @_ZN5folly7futures4waitESt10unique_ptrINS_6fibers5BatonESt14default_
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store ptr null, ptr %9, align 8, !tbaa !88
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store i8 1, ptr %10, align 1, !tbaa !89
+  store i8 1, ptr %10, align 16, !tbaa !89
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 81
   store i8 2, ptr %11, align 1, !tbaa !92
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 82
-  store i8 0, ptr %12, align 1, !tbaa !92
+  store i8 0, ptr %12, align 2, !tbaa !92
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 88
   store i32 0, ptr %13, align 8, !tbaa !94
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 96
@@ -3126,11 +3126,11 @@ define void @_ZN5folly7futures4waitESt10shared_ptrINS_6fibers5BatonEE(ptr dead_o
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store ptr null, ptr %10, align 8, !tbaa !88
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i8 1, ptr %11, align 1, !tbaa !89
+  store i8 1, ptr %11, align 16, !tbaa !89
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 81
   store i8 2, ptr %12, align 1, !tbaa !92
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 82
-  store i8 0, ptr %13, align 1, !tbaa !92
+  store i8 0, ptr %13, align 2, !tbaa !92
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 88
   store i32 0, ptr %14, align 8, !tbaa !94
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 96
@@ -4796,7 +4796,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   store i32 1, ptr %203, align 4, !tbaa !28, !noalias !298
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly5BatonILb1ESt6atomicEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %200, align 8, !tbaa !29, !noalias !298
   %204 = getelementptr inbounds nuw i8, ptr %200, i64 16
-  store i32 0, ptr %204, align 4, !tbaa !301, !noalias !298
+  store i32 0, ptr %204, align 8, !tbaa !301, !noalias !298
   store ptr %200, ptr %199, align 8, !tbaa !16, !alias.scope !298
   store ptr %204, ptr %23, align 8, !tbaa !302, !alias.scope !298
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
@@ -4812,7 +4812,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   store i32 1, ptr %209, align 4, !tbaa !28, !noalias !303
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6atomicIbESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %206, align 8, !tbaa !29, !noalias !303
   %210 = getelementptr inbounds nuw i8, ptr %206, i64 16
-  store i8 0, ptr %210, align 1, !tbaa !306, !noalias !303
+  store i8 0, ptr %210, align 8, !tbaa !306, !noalias !303
   store ptr %206, ptr %205, align 8, !tbaa !16, !alias.scope !303
   store ptr %210, ptr %24, align 8, !tbaa !307, !alias.scope !303
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
@@ -6768,7 +6768,7 @@ _ZNK5folly11ThreadLocalINS_10TLRefCount13LocalRefCountES1_vEdeEv.exit: ; preds =
   %22 = load atomic i64, ptr %17 monotonic, align 8
   %23 = add nsw i64 %22, -1
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store atomic i8 1, ptr %24 monotonic, align 1
+  store atomic i8 1, ptr %24 monotonic, align 8
   store atomic i64 %23, ptr %17 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !383
   %25 = load ptr, ptr %18, align 8, !tbaa !376
@@ -10871,7 +10871,7 @@ _ZNK5folly11ThreadLocalINS_10TLRefCount13LocalRefCountES1_vEdeEv.exit: ; preds =
   %22 = load atomic i64, ptr %17 monotonic, align 8
   %23 = add nsw i64 %22, 1
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store atomic i8 1, ptr %24 monotonic, align 1
+  store atomic i8 1, ptr %24 monotonic, align 8
   store atomic i64 %23, ptr %17 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !383
   %25 = load ptr, ptr %18, align 8, !tbaa !376

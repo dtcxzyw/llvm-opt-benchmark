@@ -109,7 +109,7 @@ define dso_local void @dst_init(ptr noundef initializes((0, 56), (58, 64), (96, 
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr null, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store volatile i32 0, ptr %24, align 4
+  store volatile i32 0, ptr %24, align 8
   store volatile ptr %6, ptr %6, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store volatile ptr %6, ptr %25, align 8
@@ -798,7 +798,7 @@ define dso_local ptr @metadata_dst_alloc_percpu(i8 noundef zeroext %0, i32 nound
   %38 = getelementptr inbounds nuw i8, ptr %27, i64 128
   store ptr null, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %27, i64 64
-  store volatile i32 0, ptr %39, align 4
+  store volatile i32 0, ptr %39, align 8
   store volatile ptr %28, ptr %28, align 8
   %40 = getelementptr inbounds nuw i8, ptr %27, i64 112
   store volatile ptr %28, ptr %40, align 8

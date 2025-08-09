@@ -2322,7 +2322,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_16CodeGenProcModelEjNS_12DenseMapInfoIS
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_16CodeGenProcModelEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E16InsertIntoBucketIRKS4_JEEEPS9_SF_OT_DpOT0_.exit.i63: ; preds = %801, %795
   store ptr %723, ptr %796, align 8, !tbaa !110
   %804 = getelementptr inbounds nuw i8, ptr %796, i64 8
-  store i32 0, ptr %804, align 4, !tbaa !160
+  store i32 0, ptr %804, align 8, !tbaa !160
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_16CodeGenProcModelEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit67
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_16CodeGenProcModelEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit67: ; preds = %748, %732, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_16CodeGenProcModelEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E16InsertIntoBucketIRKS4_JEEEPS9_SF_OT_DpOT0_.exit.i63
@@ -3511,7 +3511,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_16CodeGenProcModelEjNS_12DenseMapInfoIS
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_16CodeGenProcModelEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E16InsertIntoBucketIRKS4_JEEEPS9_SF_OT_DpOT0_.exit.i: ; preds = %1276, %1270
   store ptr %1192, ptr %1271, align 8, !tbaa !110
   %1279 = getelementptr inbounds nuw i8, ptr %1271, i64 8
-  store i32 0, ptr %1279, align 4, !tbaa !160
+  store i32 0, ptr %1279, align 8, !tbaa !160
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_16CodeGenProcModelEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_16CodeGenProcModelEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit: ; preds = %1223, %1207, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_16CodeGenProcModelEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E16InsertIntoBucketIRKS4_JEEEPS9_SF_OT_DpOT0_.exit.i
@@ -6325,7 +6325,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_16CodeGenProcModelEjNS_12DenseMapInfoIS
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !160
-  store i32 %68, ptr %66, align 4, !tbaa !160
+  store i32 %68, ptr %66, align 8, !tbaa !160
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !176
   br label %70

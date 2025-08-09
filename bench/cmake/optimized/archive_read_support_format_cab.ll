@@ -2376,7 +2376,7 @@ define internal fastcc i64 @cab_minimum_consume_cfdata(ptr noundef %0, i64 nound
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 44
   %69 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %70 = load i32, ptr %69, align 8, !tbaa !134
-  %71 = load i32, ptr %68, align 1
+  %71 = load i32, ptr %68, align 4
   %72 = xor i32 %71, %70
   store i32 %72, ptr %69, align 8, !tbaa !134
   store i32 0, ptr %52, align 8, !tbaa !135

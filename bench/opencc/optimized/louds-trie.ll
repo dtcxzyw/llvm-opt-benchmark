@@ -10097,7 +10097,7 @@ _ZN6marisa8grimoire6vector6VectorImE6resizeEmRKm.exit.i202: ; preds = %.lr.ph.i.
   %624 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 %615, ptr %624, align 8, !tbaa !29
   %625 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i8 0, ptr %625, align 1, !tbaa !93
+  store i8 0, ptr %625, align 8, !tbaa !93
   %626 = icmp eq ptr %620, null
   br i1 %626, label %_ZNK6marisa8grimoire4trie9LoudsTrie15build_terminalsINS1_3KeyEEEvRKNS0_6vector6VectorIT_EEPNS6_IjEE.exit, label %627
 
@@ -14996,7 +14996,7 @@ _ZN6marisa8grimoire6vector6VectorImE6resizeEmRKm.exit.i202: ; preds = %.lr.ph.i.
   %625 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 %616, ptr %625, align 8, !tbaa !29
   %626 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i8 0, ptr %626, align 1, !tbaa !93
+  store i8 0, ptr %626, align 8, !tbaa !93
   %627 = icmp eq ptr %621, null
   br i1 %627, label %_ZNK6marisa8grimoire4trie9LoudsTrie15build_terminalsINS1_10ReverseKeyEEEvRKNS0_6vector6VectorIT_EEPNS6_IjEE.exit, label %628
 

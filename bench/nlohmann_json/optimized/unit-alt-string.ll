@@ -15221,7 +15221,7 @@ define linkonce_odr dso_local void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonIS
   store ptr %12, ptr %11, align 8, !tbaa !9
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %13, align 8, !tbaa !18
-  store i8 0, ptr %12, align 1, !tbaa !19
+  store i8 0, ptr %12, align 8, !tbaa !19
   store ptr %11, ptr %0, align 8, !tbaa !19
   br label %22
 
@@ -34949,7 +34949,7 @@ define linkonce_odr dso_local { i8, ptr } @_ZN8nlohmann16json_abi_v3_11_36detail
   store ptr %32, ptr %31, align 8, !tbaa !9
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 0, ptr %33, align 8, !tbaa !18
-  store i8 0, ptr %32, align 1, !tbaa !19
+  store i8 0, ptr %32, align 8, !tbaa !19
   store ptr %31, ptr %22, align 8, !tbaa !19
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_valueC2ENS0_6detail7value_tE.exit
 
@@ -40367,7 +40367,7 @@ define linkonce_odr dso_local noundef nonnull ptr @_ZN8nlohmann16json_abi_v3_11_
   store ptr %24, ptr %23, align 8, !tbaa !9
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %25, align 8, !tbaa !18
-  store i8 0, ptr %24, align 1, !tbaa !19
+  store i8 0, ptr %24, align 8, !tbaa !19
   %26 = ptrtoint ptr %23 to i64
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_valueC2ENS0_6detail7value_tE.exit
 
@@ -40484,7 +40484,7 @@ _ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_10alt_stringblmdSa
   store ptr %79, ptr %78, align 8, !tbaa !9
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store i64 0, ptr %80, align 8, !tbaa !18
-  store i8 0, ptr %79, align 1, !tbaa !19
+  store i8 0, ptr %79, align 8, !tbaa !19
   %81 = ptrtoint ptr %78 to i64
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_valueC2ENS0_6detail7value_tE.exit8
 
@@ -46748,7 +46748,7 @@ _ZSt19__relocate_object_aI10alt_stringS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i.i: ; pr
   store i64 %51, ptr %53, align 8, !tbaa !18, !alias.scope !663, !noalias !666
   store ptr %43, ptr %.0911.i.i.i.i, align 8, !tbaa !15, !alias.scope !666, !noalias !663
   store i64 0, ptr %52, align 8, !tbaa !18, !alias.scope !666, !noalias !663
-  store i8 0, ptr %43, align 1, !tbaa !19, !alias.scope !666, !noalias !663
+  store i8 0, ptr %43, align 8, !tbaa !19, !alias.scope !666, !noalias !663
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %54, %1
@@ -46796,7 +46796,7 @@ _ZSt19__relocate_object_aI10alt_stringS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i.i33: ; 
   store i64 %67, ptr %69, align 8, !tbaa !18, !alias.scope !670, !noalias !673
   store ptr %59, ptr %.0911.i.i.i.i29, align 8, !tbaa !15, !alias.scope !673, !noalias !670
   store i64 0, ptr %68, align 8, !tbaa !18, !alias.scope !673, !noalias !670
-  store i8 0, ptr %59, align 1, !tbaa !19, !alias.scope !673, !noalias !670
+  store i8 0, ptr %59, align 8, !tbaa !19, !alias.scope !673, !noalias !670
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 32
   %.not.i.i.i.i34 = icmp eq ptr %70, %6
@@ -54080,7 +54080,7 @@ _ZN10alt_stringC2EOS_.exit:                       ; preds = %70, %_ZNKSt7__cxx11
   store i64 %76, ptr %78, align 8, !tbaa !18
   store ptr %68, ptr %1, align 8, !tbaa !15
   store i64 0, ptr %77, align 8, !tbaa !18
-  store i8 0, ptr %68, align 1, !tbaa !19
+  store i8 0, ptr %68, align 8, !tbaa !19
   ret void
 
 .loopexit50:                                      ; preds = %_ZN10alt_string7replaceEmmRKS_.exit.i

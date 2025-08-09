@@ -415,7 +415,7 @@ define internal i32 @tonemap_vaapi_filter_frame(ptr noundef readonly captures(no
   %117 = load i16, ptr %116, align 2, !tbaa !76
   %118 = zext i16 %117 to i32
   %119 = getelementptr inbounds nuw i8, ptr %29, i64 216
-  %120 = load i16, ptr %119, align 2, !tbaa !76
+  %120 = load i16, ptr %119, align 8, !tbaa !76
   %121 = zext i16 %120 to i32
   %122 = getelementptr inbounds nuw i8, ptr %29, i64 212
   %123 = load i16, ptr %122, align 4, !tbaa !76
@@ -671,7 +671,7 @@ tonemap_vaapi_set_filter_params.exit.thread:      ; preds = %160, %172
   %264 = load i16, ptr %263, align 2, !tbaa !76
   %265 = zext i16 %264 to i32
   %266 = getelementptr inbounds nuw i8, ptr %217, i64 276
-  %267 = load i16, ptr %266, align 2, !tbaa !76
+  %267 = load i16, ptr %266, align 4, !tbaa !76
   %268 = zext i16 %267 to i32
   %269 = getelementptr inbounds nuw i8, ptr %217, i64 272
   %270 = load i16, ptr %269, align 4, !tbaa !76

@@ -7885,7 +7885,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsI
   store ptr %55, ptr %54, align 8, !tbaa !75
   %56 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store i64 0, ptr %56, align 8, !tbaa !80
-  store i8 0, ptr %55, align 1, !tbaa !79
+  store i8 0, ptr %55, align 8, !tbaa !79
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E16InsertIntoBucketIjJEEEPSC_SG_OT_DpOT0_.exit
@@ -8118,7 +8118,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %43, %
   store i64 %50, ptr %51, align 8, !tbaa !80
   store ptr %41, ptr %38, align 8, !tbaa !77
   store i64 0, ptr %49, align 8, !tbaa !80
-  store i8 0, ptr %41, align 1, !tbaa !79
+  store i8 0, ptr %41, align 8, !tbaa !79
   %52 = load i32, ptr %4, align 8, !tbaa !340
   %53 = add i32 %52, 1
   store i32 %53, ptr %4, align 8, !tbaa !340
@@ -8657,7 +8657,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_21T
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.014, i64 32
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %21 = load i32, ptr %19, align 4, !tbaa !151
+  %21 = load i32, ptr %19, align 8, !tbaa !151
   store ptr %.sroa.01.0.copyload, ptr %3, align 8, !tbaa !49
   store i64 %.sroa.22.0.copyload, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !tbaa !50
   store ptr %.sroa.0.0.copyload, ptr %9, align 8, !tbaa !49

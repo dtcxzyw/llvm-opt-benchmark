@@ -11579,7 +11579,7 @@ define noundef zeroext i1 @_ZN12pingora_core10connectors4http2v213ConnectionRef2
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %4 = load atomic i64, ptr %3 monotonic, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 148
-  %6 = load atomic i8, ptr %5 monotonic, align 1, !noalias !660
+  %6 = load atomic i8, ptr %5 monotonic, align 4, !noalias !660
   %.not = icmp eq i8 %6, 0
   br i1 %.not, label %7, label %15
 

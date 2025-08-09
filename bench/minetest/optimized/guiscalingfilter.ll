@@ -2318,7 +2318,7 @@ entry:
   store ptr %2, ptr %_M_storage.i, align 8, !tbaa !13
   %_M_string_length.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__node, i64 40
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i, align 8, !tbaa !19
-  store i8 0, ptr %2, align 1, !tbaa !18
+  store i8 0, ptr %2, align 8, !tbaa !18
   %cmp.i.i.i.i.i.i = icmp eq ptr %_M_storage.i, %1
   br i1 %cmp.i.i.i.i.i.i, label %try.cont, label %if.end.i.i.i.i.i.i
 
@@ -2855,7 +2855,7 @@ entry:
   store ptr %2, ptr %_M_storage.i, align 8, !tbaa !13
   %_M_string_length.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__node, i64 40
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i, align 8, !tbaa !19
-  store i8 0, ptr %2, align 1, !tbaa !18
+  store i8 0, ptr %2, align 8, !tbaa !18
   %cmp.i.i.i.i.i.i = icmp eq ptr %_M_storage.i, %1
   br i1 %cmp.i.i.i.i.i.i, label %try.cont, label %if.end.i.i.i.i.i.i
 

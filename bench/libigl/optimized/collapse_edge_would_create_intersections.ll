@@ -542,7 +542,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKd.exit.i.
   %202 = select i1 %201, double %199, double %200
   store double %202, ptr %197, align 16, !tbaa !23
   %203 = load <2 x double>, ptr %191, align 8, !tbaa !29
-  %204 = load <2 x double>, ptr %193, align 1, !tbaa !29
+  %204 = load <2 x double>, ptr %193, align 8, !tbaa !29
   %205 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %203, <2 x double> %204) #15, !srcloc !31
   store <2 x double> %205, ptr %191, align 8, !tbaa !29
   %206 = getelementptr inbounds nuw i8, ptr %18, i64 40
@@ -704,7 +704,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit245:                 ; preds = %_ZNSt6vectorIiSaIiE
   %297 = load <2 x double>, ptr %193, align 16, !tbaa !29
   store <2 x double> %297, ptr %296, align 8, !tbaa !29
   %298 = getelementptr inbounds nuw i8, ptr %296, i64 16
-  %299 = load double, ptr %198, align 8, !tbaa !23
+  %299 = load double, ptr %198, align 16, !tbaa !23
   store double %299, ptr %298, align 8, !tbaa !23
   br label %330
 

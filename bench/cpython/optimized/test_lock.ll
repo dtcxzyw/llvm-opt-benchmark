@@ -1073,7 +1073,7 @@ define internal void @thread_benchmark_locks(ptr noundef %0) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !42
   %.fr54 = freeze i32 %6
-  %7 = load atomic i32, ptr %2 monotonic, align 4
+  %7 = load atomic i32, ptr %2 monotonic, align 8
   %.not41 = icmp eq i32 %7, 0
   br i1 %.not41, label %.lr.ph45, label %._crit_edge46
 
@@ -1097,7 +1097,7 @@ _PyMutex_Unlock.exit.us:                          ; preds = %._crit_edge37.us, %
   %14 = load ptr, ptr %10, align 8, !tbaa !43
   tail call void @PyThread_release_lock(ptr noundef %14) #6
   %15 = add i64 %.02843.us, 1
-  %16 = load atomic i32, ptr %2 monotonic, align 4
+  %16 = load atomic i32, ptr %2 monotonic, align 8
   %.not.us = icmp eq i32 %16, 0
   br i1 %.not.us, label %.lr.ph45.split.us, label %._crit_edge46, !llvm.loop !68
 

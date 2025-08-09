@@ -10905,7 +10905,7 @@ invoke.cont221:                                   ; preds = %invoke.cont217
   %126 = load i32, ptr %_M_flags.i.i, align 8, !tbaa !226
   %and.i.i.i.i = and i32 %126, -261
   %or.i.i.i.i = or disjoint i32 %and.i.i.i.i, 256
-  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 4, !tbaa !232
+  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 8, !tbaa !232
   %127 = load double, ptr %fxMin_, align 8, !tbaa !223
   %call.i221 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i214, double noundef %127)
           to label %invoke.cont224 unwind label %lpad208

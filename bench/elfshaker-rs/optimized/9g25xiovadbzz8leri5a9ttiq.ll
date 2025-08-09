@@ -2043,10 +2043,10 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val20.i = load i64, ptr %4, align 8, !noundef !3
   %5 = getelementptr i8, ptr %0, i64 24
-  %.val21.i = load i32, ptr %5, align 4
+  %.val21.i = load i32, ptr %5, align 8
   %.val22.i = load i64, ptr %0, align 8, !noundef !3
   %6 = getelementptr i8, ptr %0, i64 8
-  %.val23.i = load i32, ptr %6, align 4
+  %.val23.i = load i32, ptr %6, align 8
   %7 = icmp eq i64 %.val20.i, %.val22.i
   %8 = icmp ult i64 %.val20.i, %.val22.i
   %9 = icmp ult i32 %.val21.i, %.val23.i
@@ -2055,10 +2055,10 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.val16.i = load i64, ptr %10, align 8, !noundef !3
   %12 = getelementptr i8, ptr %0, i64 56
-  %.val17.i = load i32, ptr %12, align 4
+  %.val17.i = load i32, ptr %12, align 8
   %.val18.i = load i64, ptr %11, align 8, !noundef !3
   %13 = getelementptr i8, ptr %0, i64 40
-  %.val19.i = load i32, ptr %13, align 4
+  %.val19.i = load i32, ptr %13, align 8
   %14 = icmp eq i64 %.val16.i, %.val18.i
   %15 = icmp ult i64 %.val16.i, %.val18.i
   %16 = icmp ult i32 %.val17.i, %.val19.i
@@ -2074,20 +2074,20 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   %25 = getelementptr inbounds nuw { i64, i32, [1 x i32] }, ptr %0, i64 %24
   %.val12.i = load i64, ptr %23, align 8, !noundef !3
   %26 = getelementptr i8, ptr %23, i64 8
-  %.val13.i = load i32, ptr %26, align 4
+  %.val13.i = load i32, ptr %26, align 8
   %.val14.i = load i64, ptr %18, align 8, !noundef !3
   %27 = getelementptr i8, ptr %18, i64 8
-  %.val15.i = load i32, ptr %27, align 4
+  %.val15.i = load i32, ptr %27, align 8
   %28 = icmp eq i64 %.val12.i, %.val14.i
   %29 = icmp ult i64 %.val12.i, %.val14.i
   %30 = icmp ult i32 %.val13.i, %.val15.i
   %.sroa.0.0.i.i25.i = select i1 %28, i1 %30, i1 %29
   %.val8.i = load i64, ptr %25, align 8, !noundef !3
   %31 = getelementptr i8, ptr %25, i64 8
-  %.val9.i = load i32, ptr %31, align 4
+  %.val9.i = load i32, ptr %31, align 8
   %.val10.i = load i64, ptr %21, align 8, !noundef !3
   %32 = getelementptr i8, ptr %21, i64 8
-  %.val11.i = load i32, ptr %32, align 4
+  %.val11.i = load i32, ptr %32, align 8
   %33 = icmp eq i64 %.val8.i, %.val10.i
   %34 = icmp ult i64 %.val8.i, %.val10.i
   %35 = icmp ult i32 %.val9.i, %.val11.i
@@ -2100,10 +2100,10 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   %41 = select i1 %.sroa.0.0.i.i26.i, ptr %25, ptr %40, !unpredictable !3
   %.val.i = load i64, ptr %41, align 8, !noundef !3
   %42 = getelementptr i8, ptr %41, i64 8
-  %.val5.i = load i32, ptr %42, align 4
+  %.val5.i = load i32, ptr %42, align 8
   %.val6.i = load i64, ptr %39, align 8, !noundef !3
   %43 = getelementptr i8, ptr %39, i64 8
-  %.val7.i = load i32, ptr %43, align 4
+  %.val7.i = load i32, ptr %43, align 8
   %44 = icmp eq i64 %.val.i, %.val6.i
   %45 = icmp ult i64 %.val.i, %.val6.i
   %46 = icmp ult i32 %.val5.i, %.val7.i
@@ -2122,10 +2122,10 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val20.i1 = load i64, ptr %54, align 8, !noundef !3
   %55 = getelementptr i8, ptr %0, i64 88
-  %.val21.i2 = load i32, ptr %55, align 4
+  %.val21.i2 = load i32, ptr %55, align 8
   %.val22.i3 = load i64, ptr %52, align 8, !noundef !3
   %56 = getelementptr i8, ptr %0, i64 72
-  %.val23.i4 = load i32, ptr %56, align 4
+  %.val23.i4 = load i32, ptr %56, align 8
   %57 = icmp eq i64 %.val20.i1, %.val22.i3
   %58 = icmp ult i64 %.val20.i1, %.val22.i3
   %59 = icmp ult i32 %.val21.i2, %.val23.i4
@@ -2134,10 +2134,10 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.val16.i6 = load i64, ptr %60, align 8, !noundef !3
   %62 = getelementptr i8, ptr %0, i64 120
-  %.val17.i7 = load i32, ptr %62, align 4
+  %.val17.i7 = load i32, ptr %62, align 8
   %.val18.i8 = load i64, ptr %61, align 8, !noundef !3
   %63 = getelementptr i8, ptr %0, i64 104
-  %.val19.i9 = load i32, ptr %63, align 4
+  %.val19.i9 = load i32, ptr %63, align 8
   %64 = icmp eq i64 %.val16.i6, %.val18.i8
   %65 = icmp ult i64 %.val16.i6, %.val18.i8
   %66 = icmp ult i32 %.val17.i7, %.val19.i9
@@ -2153,20 +2153,20 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   %75 = getelementptr inbounds nuw { i64, i32, [1 x i32] }, ptr %52, i64 %74
   %.val12.i11 = load i64, ptr %73, align 8, !noundef !3
   %76 = getelementptr i8, ptr %73, i64 8
-  %.val13.i12 = load i32, ptr %76, align 4
+  %.val13.i12 = load i32, ptr %76, align 8
   %.val14.i13 = load i64, ptr %68, align 8, !noundef !3
   %77 = getelementptr i8, ptr %68, i64 8
-  %.val15.i14 = load i32, ptr %77, align 4
+  %.val15.i14 = load i32, ptr %77, align 8
   %78 = icmp eq i64 %.val12.i11, %.val14.i13
   %79 = icmp ult i64 %.val12.i11, %.val14.i13
   %80 = icmp ult i32 %.val13.i12, %.val15.i14
   %.sroa.0.0.i.i25.i15 = select i1 %78, i1 %80, i1 %79
   %.val8.i16 = load i64, ptr %75, align 8, !noundef !3
   %81 = getelementptr i8, ptr %75, i64 8
-  %.val9.i17 = load i32, ptr %81, align 4
+  %.val9.i17 = load i32, ptr %81, align 8
   %.val10.i18 = load i64, ptr %71, align 8, !noundef !3
   %82 = getelementptr i8, ptr %71, i64 8
-  %.val11.i19 = load i32, ptr %82, align 4
+  %.val11.i19 = load i32, ptr %82, align 8
   %83 = icmp eq i64 %.val8.i16, %.val10.i18
   %84 = icmp ult i64 %.val8.i16, %.val10.i18
   %85 = icmp ult i32 %.val9.i17, %.val11.i19
@@ -2179,10 +2179,10 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   %91 = select i1 %.sroa.0.0.i.i26.i20, ptr %75, ptr %90, !unpredictable !3
   %.val.i21 = load i64, ptr %91, align 8, !noundef !3
   %92 = getelementptr i8, ptr %91, i64 8
-  %.val5.i22 = load i32, ptr %92, align 4
+  %.val5.i22 = load i32, ptr %92, align 8
   %.val6.i23 = load i64, ptr %89, align 8, !noundef !3
   %93 = getelementptr i8, ptr %89, i64 8
-  %.val7.i24 = load i32, ptr %93, align 4
+  %.val7.i24 = load i32, ptr %93, align 8
   %94 = icmp eq i64 %.val.i21, %.val6.i23
   %95 = icmp ult i64 %.val.i21, %.val6.i23
   %96 = icmp ult i32 %.val5.i22, %.val7.i24
@@ -2219,10 +2219,10 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   %107 = add nuw nsw i64 %.sroa.018.04.i, 1
   %.sroa.06.0.val.i = load i64, ptr %.sroa.06.09.i, align 8, !alias.scope !421, !noundef !3
   %108 = getelementptr i8, ptr %.sroa.06.09.i, i64 8
-  %.sroa.06.0.val24.i = load i32, ptr %108, align 4, !alias.scope !421
+  %.sroa.06.0.val24.i = load i32, ptr %108, align 8, !alias.scope !421
   %.sroa.0.0.val.i = load i64, ptr %.sroa.0.010.i, align 8, !alias.scope !421, !noundef !3
   %109 = getelementptr i8, ptr %.sroa.0.010.i, i64 8
-  %.sroa.0.0.val25.i = load i32, ptr %109, align 4, !alias.scope !421
+  %.sroa.0.0.val25.i = load i32, ptr %109, align 8, !alias.scope !421
   %110 = icmp eq i64 %.sroa.06.0.val.i, %.sroa.0.0.val.i
   %111 = icmp ult i64 %.sroa.06.0.val.i, %.sroa.0.0.val.i
   %112 = icmp ult i32 %.sroa.06.0.val24.i, %.sroa.0.0.val25.i
@@ -2237,10 +2237,10 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   %118 = getelementptr inbounds nuw i8, ptr %.sroa.010.08.i, i64 16
   %.sroa.015.0.val.i = load i64, ptr %.sroa.015.06.i, align 8, !alias.scope !421, !noundef !3
   %119 = getelementptr i8, ptr %.sroa.015.06.i, i64 8
-  %.sroa.015.0.val26.i = load i32, ptr %119, align 4, !alias.scope !421
+  %.sroa.015.0.val26.i = load i32, ptr %119, align 8, !alias.scope !421
   %.sroa.013.0.val.i = load i64, ptr %.sroa.013.07.i, align 8, !alias.scope !421, !noundef !3
   %120 = getelementptr i8, ptr %.sroa.013.07.i, i64 8
-  %.sroa.013.0.val27.i = load i32, ptr %120, align 4, !alias.scope !421
+  %.sroa.013.0.val27.i = load i32, ptr %120, align 8, !alias.scope !421
   %121 = icmp eq i64 %.sroa.015.0.val.i, %.sroa.013.0.val.i
   %122 = icmp ult i64 %.sroa.015.0.val.i, %.sroa.013.0.val.i
   %123 = icmp ult i32 %.sroa.015.0.val26.i, %.sroa.013.0.val27.i
@@ -2993,7 +2993,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_general17he
   %166 = getelementptr inbounds i8, ptr %.sroa.0.0.i54.i, i64 -16
   %.val9.i57.i = load i64, ptr %166, align 8, !alias.scope !538, !noalias !535, !noundef !3
   %167 = getelementptr i8, ptr %.sroa.0.0.i54.i, i64 -8
-  %.val10.i58.i = load i32, ptr %167, align 4, !alias.scope !538, !noalias !535
+  %.val10.i58.i = load i32, ptr %167, align 8, !alias.scope !538, !noalias !535
   %168 = icmp eq i64 %.val11.i49.i, %.val9.i57.i
   %169 = icmp ult i64 %.val11.i49.i, %.val9.i57.i
   %170 = icmp ult i32 %.val12.i50.i, %.val10.i58.i
@@ -3064,10 +3064,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.01.0, i64 192
   %.val.i.i = load i64, ptr %24, align 8, !alias.scope !551, !noundef !3
   %25 = getelementptr i8, ptr %.sroa.01.0, i64 200
-  %.val1.i.i = load i32, ptr %25, align 4, !alias.scope !551
+  %.val1.i.i = load i32, ptr %25, align 8, !alias.scope !551
   %.val2.i.i = load i64, ptr %.sroa.01.0, align 8, !alias.scope !551, !noundef !3
   %26 = getelementptr i8, ptr %.sroa.01.0, i64 8
-  %.val3.i.i = load i32, ptr %26, align 4, !alias.scope !551
+  %.val3.i.i = load i32, ptr %26, align 8, !alias.scope !551
   %27 = icmp eq i64 %.val.i.i, %.val2.i.i
   %28 = icmp ult i64 %.val.i.i, %.val2.i.i
   %29 = icmp ult i32 %.val1.i.i, %.val3.i.i
@@ -3084,10 +3084,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.01.0, i64 160
   %.val.i1.i = load i64, ptr %36, align 8, !alias.scope !551, !noundef !3
   %37 = getelementptr i8, ptr %.sroa.01.0, i64 168
-  %.val1.i2.i = load i32, ptr %37, align 4, !alias.scope !551
+  %.val1.i2.i = load i32, ptr %37, align 8, !alias.scope !551
   %.val2.i3.i = load i64, ptr %35, align 8, !alias.scope !551, !noundef !3
   %38 = getelementptr i8, ptr %.sroa.01.0, i64 24
-  %.val3.i4.i = load i32, ptr %38, align 4, !alias.scope !551
+  %.val3.i4.i = load i32, ptr %38, align 8, !alias.scope !551
   %39 = icmp eq i64 %.val.i1.i, %.val2.i3.i
   %40 = icmp ult i64 %.val.i1.i, %.val2.i3.i
   %41 = icmp ult i32 %.val1.i2.i, %.val3.i4.i
@@ -3104,10 +3104,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.01.0, i64 144
   %.val.i6.i = load i64, ptr %48, align 8, !alias.scope !551, !noundef !3
   %49 = getelementptr i8, ptr %.sroa.01.0, i64 152
-  %.val1.i7.i = load i32, ptr %49, align 4, !alias.scope !551
+  %.val1.i7.i = load i32, ptr %49, align 8, !alias.scope !551
   %.val2.i8.i = load i64, ptr %47, align 8, !alias.scope !551, !noundef !3
   %50 = getelementptr i8, ptr %.sroa.01.0, i64 40
-  %.val3.i9.i = load i32, ptr %50, align 4, !alias.scope !551
+  %.val3.i9.i = load i32, ptr %50, align 8, !alias.scope !551
   %51 = icmp eq i64 %.val.i6.i, %.val2.i8.i
   %52 = icmp ult i64 %.val.i6.i, %.val2.i8.i
   %53 = icmp ult i32 %.val1.i7.i, %.val3.i9.i
@@ -3124,10 +3124,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.01.0, i64 112
   %.val.i11.i = load i64, ptr %60, align 8, !alias.scope !551, !noundef !3
   %61 = getelementptr i8, ptr %.sroa.01.0, i64 120
-  %.val1.i12.i = load i32, ptr %61, align 4, !alias.scope !551
+  %.val1.i12.i = load i32, ptr %61, align 8, !alias.scope !551
   %.val2.i13.i = load i64, ptr %59, align 8, !alias.scope !551, !noundef !3
   %62 = getelementptr i8, ptr %.sroa.01.0, i64 56
-  %.val3.i14.i = load i32, ptr %62, align 4, !alias.scope !551
+  %.val3.i14.i = load i32, ptr %62, align 8, !alias.scope !551
   %63 = icmp eq i64 %.val.i11.i, %.val2.i13.i
   %64 = icmp ult i64 %.val.i11.i, %.val2.i13.i
   %65 = icmp ult i32 %.val1.i12.i, %.val3.i14.i
@@ -3144,10 +3144,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   %72 = getelementptr inbounds nuw i8, ptr %.sroa.01.0, i64 176
   %.val.i16.i = load i64, ptr %72, align 8, !alias.scope !551, !noundef !3
   %73 = getelementptr i8, ptr %.sroa.01.0, i64 184
-  %.val1.i17.i = load i32, ptr %73, align 4, !alias.scope !551
+  %.val1.i17.i = load i32, ptr %73, align 8, !alias.scope !551
   %.val2.i18.i = load i64, ptr %71, align 8, !alias.scope !551, !noundef !3
   %74 = getelementptr i8, ptr %.sroa.01.0, i64 88
-  %.val3.i19.i = load i32, ptr %74, align 4, !alias.scope !551
+  %.val3.i19.i = load i32, ptr %74, align 8, !alias.scope !551
   %75 = icmp eq i64 %.val.i16.i, %.val2.i18.i
   %76 = icmp ult i64 %.val.i16.i, %.val2.i18.i
   %77 = icmp ult i32 %.val1.i17.i, %.val3.i19.i
@@ -3164,10 +3164,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   %84 = getelementptr inbounds nuw i8, ptr %.sroa.01.0, i64 128
   %.val.i21.i = load i64, ptr %84, align 8, !alias.scope !551, !noundef !3
   %85 = getelementptr i8, ptr %.sroa.01.0, i64 136
-  %.val1.i22.i = load i32, ptr %85, align 4, !alias.scope !551
+  %.val1.i22.i = load i32, ptr %85, align 8, !alias.scope !551
   %.val2.i23.i = load i64, ptr %83, align 8, !alias.scope !551, !noundef !3
   %86 = getelementptr i8, ptr %.sroa.01.0, i64 104
-  %.val3.i24.i = load i32, ptr %86, align 4, !alias.scope !551
+  %.val3.i24.i = load i32, ptr %86, align 8, !alias.scope !551
   %87 = icmp eq i64 %.val.i21.i, %.val2.i23.i
   %88 = icmp ult i64 %.val.i21.i, %.val2.i23.i
   %89 = icmp ult i32 %.val1.i22.i, %.val3.i24.i
@@ -3181,9 +3181,9 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   store i64 %91, ptr %84, align 8, !alias.scope !551
   store i32 %94, ptr %85, align 8, !alias.scope !551
   %.val.i26.i = load i64, ptr %83, align 8, !alias.scope !551, !noundef !3
-  %.val1.i27.i = load i32, ptr %86, align 4, !alias.scope !551
+  %.val1.i27.i = load i32, ptr %86, align 8, !alias.scope !551
   %.val2.i28.i = load i64, ptr %35, align 8, !alias.scope !551, !noundef !3
-  %.val3.i29.i = load i32, ptr %38, align 4, !alias.scope !551
+  %.val3.i29.i = load i32, ptr %38, align 8, !alias.scope !551
   %95 = icmp eq i64 %.val.i26.i, %.val2.i28.i
   %96 = icmp ult i64 %.val.i26.i, %.val2.i28.i
   %97 = icmp ult i32 %.val1.i27.i, %.val3.i29.i
@@ -3197,9 +3197,9 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   store i64 %99, ptr %83, align 8, !alias.scope !551
   store i32 %102, ptr %86, align 8, !alias.scope !551
   %.val.i31.i = load i64, ptr %59, align 8, !alias.scope !551, !noundef !3
-  %.val1.i32.i = load i32, ptr %62, align 4, !alias.scope !551
+  %.val1.i32.i = load i32, ptr %62, align 8, !alias.scope !551
   %.val2.i33.i = load i64, ptr %47, align 8, !alias.scope !551, !noundef !3
-  %.val3.i34.i = load i32, ptr %50, align 4, !alias.scope !551
+  %.val3.i34.i = load i32, ptr %50, align 8, !alias.scope !551
   %103 = icmp eq i64 %.val.i31.i, %.val2.i33.i
   %104 = icmp ult i64 %.val.i31.i, %.val2.i33.i
   %105 = icmp ult i32 %.val1.i32.i, %.val3.i34.i
@@ -3215,7 +3215,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   %111 = getelementptr inbounds nuw i8, ptr %.sroa.01.0, i64 64
   %.val2.i38.i = load i64, ptr %111, align 8, !alias.scope !551, !noundef !3
   %112 = getelementptr i8, ptr %.sroa.01.0, i64 72
-  %.val3.i39.i = load i32, ptr %112, align 4, !alias.scope !551
+  %.val3.i39.i = load i32, ptr %112, align 8, !alias.scope !551
   %113 = icmp eq i64 %79, %.val2.i38.i
   %114 = icmp ult i64 %79, %.val2.i38.i
   %115 = icmp ult i32 %82, %.val3.i39.i
@@ -3253,9 +3253,9 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   store i64 %133, ptr %36, align 8, !alias.scope !551
   store i32 %136, ptr %37, align 8, !alias.scope !551
   %.val.i51.i = load i64, ptr %111, align 8, !alias.scope !551, !noundef !3
-  %.val1.i52.i = load i32, ptr %112, align 4, !alias.scope !551
+  %.val1.i52.i = load i32, ptr %112, align 8, !alias.scope !551
   %.val2.i53.i = load i64, ptr %.sroa.01.0, align 8, !alias.scope !551, !noundef !3
-  %.val3.i54.i = load i32, ptr %26, align 4, !alias.scope !551
+  %.val3.i54.i = load i32, ptr %26, align 8, !alias.scope !551
   %137 = icmp eq i64 %.val.i51.i, %.val2.i53.i
   %138 = icmp ult i64 %.val.i51.i, %.val2.i53.i
   %139 = icmp ult i32 %.val1.i52.i, %.val3.i54.i
@@ -3269,9 +3269,9 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   store i64 %141, ptr %111, align 8, !alias.scope !551
   store i32 %144, ptr %112, align 8, !alias.scope !551
   %.val.i56.i = load i64, ptr %47, align 8, !alias.scope !551, !noundef !3
-  %.val1.i57.i = load i32, ptr %50, align 4, !alias.scope !551
+  %.val1.i57.i = load i32, ptr %50, align 8, !alias.scope !551
   %.val2.i58.i = load i64, ptr %35, align 8, !alias.scope !551, !noundef !3
-  %.val3.i59.i = load i32, ptr %38, align 4, !alias.scope !551
+  %.val3.i59.i = load i32, ptr %38, align 8, !alias.scope !551
   %145 = icmp eq i64 %.val.i56.i, %.val2.i58.i
   %146 = icmp ult i64 %.val.i56.i, %.val2.i58.i
   %147 = icmp ult i32 %.val1.i57.i, %.val3.i59.i
@@ -3297,9 +3297,9 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   store i64 %157, ptr %83, align 8, !alias.scope !551
   store i32 %160, ptr %86, align 8, !alias.scope !551
   %.val.i66.i = load i64, ptr %84, align 8, !alias.scope !551, !noundef !3
-  %.val1.i67.i = load i32, ptr %85, align 4, !alias.scope !551
+  %.val1.i67.i = load i32, ptr %85, align 8, !alias.scope !551
   %.val2.i68.i = load i64, ptr %60, align 8, !alias.scope !551, !noundef !3
-  %.val3.i69.i = load i32, ptr %61, align 4, !alias.scope !551
+  %.val3.i69.i = load i32, ptr %61, align 8, !alias.scope !551
   %161 = icmp eq i64 %.val.i66.i, %.val2.i68.i
   %162 = icmp ult i64 %.val.i66.i, %.val2.i68.i
   %163 = icmp ult i32 %.val1.i67.i, %.val3.i69.i
@@ -3349,9 +3349,9 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   store i64 %189, ptr %83, align 8, !alias.scope !551
   store i32 %192, ptr %86, align 8, !alias.scope !551
   %.val.i86.i = load i64, ptr %48, align 8, !alias.scope !551, !noundef !3
-  %.val1.i87.i = load i32, ptr %49, align 4, !alias.scope !551
+  %.val1.i87.i = load i32, ptr %49, align 8, !alias.scope !551
   %.val2.i88.i = load i64, ptr %71, align 8, !alias.scope !551, !noundef !3
-  %.val3.i89.i = load i32, ptr %74, align 4, !alias.scope !551
+  %.val3.i89.i = load i32, ptr %74, align 8, !alias.scope !551
   %193 = icmp eq i64 %.val.i86.i, %.val2.i88.i
   %194 = icmp ult i64 %.val.i86.i, %.val2.i88.i
   %195 = icmp ult i32 %.val1.i87.i, %.val3.i89.i
@@ -3365,7 +3365,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   store i64 %197, ptr %48, align 8, !alias.scope !551
   store i32 %200, ptr %49, align 8, !alias.scope !551
   %.val.i91.i = load i64, ptr %72, align 8, !alias.scope !551, !noundef !3
-  %.val1.i92.i = load i32, ptr %73, align 4, !alias.scope !551
+  %.val1.i92.i = load i32, ptr %73, align 8, !alias.scope !551
   %201 = icmp eq i64 %.val.i91.i, %165
   %202 = icmp ult i64 %.val.i91.i, %165
   %203 = icmp ult i32 %.val1.i92.i, %168
@@ -3391,9 +3391,9 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   store i64 %213, ptr %24, align 8, !alias.scope !551
   store i32 %216, ptr %25, align 8, !alias.scope !551
   %.val.i101.i = load i64, ptr %71, align 8, !alias.scope !551, !noundef !3
-  %.val1.i102.i = load i32, ptr %74, align 4, !alias.scope !551
+  %.val1.i102.i = load i32, ptr %74, align 8, !alias.scope !551
   %.val2.i103.i = load i64, ptr %.sroa.01.0, align 8, !alias.scope !551, !noundef !3
-  %.val3.i104.i = load i32, ptr %26, align 4, !alias.scope !551
+  %.val3.i104.i = load i32, ptr %26, align 8, !alias.scope !551
   %217 = icmp eq i64 %.val.i101.i, %.val2.i103.i
   %218 = icmp ult i64 %.val.i101.i, %.val2.i103.i
   %219 = icmp ult i32 %.val1.i102.i, %.val3.i104.i
@@ -3407,9 +3407,9 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   store i64 %221, ptr %71, align 8, !alias.scope !551
   store i32 %224, ptr %74, align 8, !alias.scope !551
   %.val.i106.i = load i64, ptr %84, align 8, !alias.scope !551, !noundef !3
-  %.val1.i107.i = load i32, ptr %85, align 4, !alias.scope !551
+  %.val1.i107.i = load i32, ptr %85, align 8, !alias.scope !551
   %.val2.i108.i = load i64, ptr %59, align 8, !alias.scope !551, !noundef !3
-  %.val3.i109.i = load i32, ptr %62, align 4, !alias.scope !551
+  %.val3.i109.i = load i32, ptr %62, align 8, !alias.scope !551
   %225 = icmp eq i64 %.val.i106.i, %.val2.i108.i
   %226 = icmp ult i64 %.val.i106.i, %.val2.i108.i
   %227 = icmp ult i32 %.val1.i107.i, %.val3.i109.i
@@ -3423,9 +3423,9 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   store i64 %229, ptr %84, align 8, !alias.scope !551
   store i32 %232, ptr %85, align 8, !alias.scope !551
   %.val.i111.i = load i64, ptr %60, align 8, !alias.scope !551, !noundef !3
-  %.val1.i112.i = load i32, ptr %61, align 4, !alias.scope !551
+  %.val1.i112.i = load i32, ptr %61, align 8, !alias.scope !551
   %.val2.i113.i = load i64, ptr %111, align 8, !alias.scope !551, !noundef !3
-  %.val3.i114.i = load i32, ptr %112, align 4, !alias.scope !551
+  %.val3.i114.i = load i32, ptr %112, align 8, !alias.scope !551
   %233 = icmp eq i64 %.val.i111.i, %.val2.i113.i
   %234 = icmp ult i64 %.val.i111.i, %.val2.i113.i
   %235 = icmp ult i32 %.val1.i112.i, %.val3.i114.i
@@ -3451,7 +3451,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   store i64 %245, ptr %72, align 8, !alias.scope !551
   store i32 %248, ptr %73, align 8, !alias.scope !551
   %.val.i121.i = load i64, ptr %36, align 8, !alias.scope !551, !noundef !3
-  %.val1.i122.i = load i32, ptr %37, align 4, !alias.scope !551
+  %.val1.i122.i = load i32, ptr %37, align 8, !alias.scope !551
   %249 = icmp eq i64 %.val.i121.i, %197
   %250 = icmp ult i64 %.val.i121.i, %197
   %251 = icmp ult i32 %.val1.i122.i, %200
@@ -3465,9 +3465,9 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   store i64 %253, ptr %36, align 8, !alias.scope !551
   store i32 %256, ptr %37, align 8, !alias.scope !551
   %.val.i126.i = load i64, ptr %35, align 8, !alias.scope !551, !noundef !3
-  %.val1.i127.i = load i32, ptr %38, align 4, !alias.scope !551
+  %.val1.i127.i = load i32, ptr %38, align 8, !alias.scope !551
   %.val2.i128.i = load i64, ptr %.sroa.01.0, align 8, !alias.scope !551, !noundef !3
-  %.val3.i129.i = load i32, ptr %26, align 4, !alias.scope !551
+  %.val3.i129.i = load i32, ptr %26, align 8, !alias.scope !551
   %257 = icmp eq i64 %.val.i126.i, %.val2.i128.i
   %258 = icmp ult i64 %.val.i126.i, %.val2.i128.i
   %259 = icmp ult i32 %.val1.i127.i, %.val3.i129.i
@@ -3493,9 +3493,9 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   store i64 %269, ptr %71, align 8, !alias.scope !551
   store i32 %272, ptr %74, align 8, !alias.scope !551
   %.val.i136.i = load i64, ptr %48, align 8, !alias.scope !551, !noundef !3
-  %.val1.i137.i = load i32, ptr %49, align 4, !alias.scope !551
+  %.val1.i137.i = load i32, ptr %49, align 8, !alias.scope !551
   %.val2.i138.i = load i64, ptr %83, align 8, !alias.scope !551, !noundef !3
-  %.val3.i139.i = load i32, ptr %86, align 4, !alias.scope !551
+  %.val3.i139.i = load i32, ptr %86, align 8, !alias.scope !551
   %273 = icmp eq i64 %.val.i136.i, %.val2.i138.i
   %274 = icmp ult i64 %.val.i136.i, %.val2.i138.i
   %275 = icmp ult i32 %.val1.i137.i, %.val3.i139.i
@@ -3533,7 +3533,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   store i64 %293, ptr %72, align 8, !alias.scope !551
   store i32 %296, ptr %73, align 8, !alias.scope !551
   %.val.i151.i = load i64, ptr %59, align 8, !alias.scope !551, !noundef !3
-  %.val1.i152.i = load i32, ptr %62, align 4, !alias.scope !551
+  %.val1.i152.i = load i32, ptr %62, align 8, !alias.scope !551
   %297 = icmp eq i64 %.val.i151.i, %261
   %298 = icmp ult i64 %.val.i151.i, %261
   %299 = icmp ult i32 %.val1.i152.i, %264
@@ -3547,9 +3547,9 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   store i64 %301, ptr %59, align 8, !alias.scope !551
   store i32 %304, ptr %62, align 8, !alias.scope !551
   %.val.i156.i = load i64, ptr %111, align 8, !alias.scope !551, !noundef !3
-  %.val1.i157.i = load i32, ptr %112, align 4, !alias.scope !551
+  %.val1.i157.i = load i32, ptr %112, align 8, !alias.scope !551
   %.val2.i158.i = load i64, ptr %47, align 8, !alias.scope !551, !noundef !3
-  %.val3.i159.i = load i32, ptr %50, align 4, !alias.scope !551
+  %.val3.i159.i = load i32, ptr %50, align 8, !alias.scope !551
   %305 = icmp eq i64 %.val.i156.i, %.val2.i158.i
   %306 = icmp ult i64 %.val.i156.i, %.val2.i158.i
   %307 = icmp ult i32 %.val1.i157.i, %.val3.i159.i
@@ -3563,7 +3563,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   store i64 %309, ptr %111, align 8, !alias.scope !551
   store i32 %312, ptr %112, align 8, !alias.scope !551
   %.val.i161.i = load i64, ptr %83, align 8, !alias.scope !551, !noundef !3
-  %.val1.i162.i = load i32, ptr %86, align 4, !alias.scope !551
+  %.val1.i162.i = load i32, ptr %86, align 8, !alias.scope !551
   %313 = icmp eq i64 %.val.i161.i, %269
   %314 = icmp ult i64 %.val.i161.i, %269
   %315 = icmp ult i32 %.val1.i162.i, %272
@@ -3577,7 +3577,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   store i64 %317, ptr %83, align 8, !alias.scope !551
   store i32 %320, ptr %86, align 8, !alias.scope !551
   %.val.i166.i = load i64, ptr %36, align 8, !alias.scope !551, !noundef !3
-  %.val1.i167.i = load i32, ptr %37, align 4, !alias.scope !551
+  %.val1.i167.i = load i32, ptr %37, align 8, !alias.scope !551
   %321 = icmp eq i64 %.val.i166.i, %277
   %322 = icmp ult i64 %.val.i166.i, %277
   %323 = icmp ult i32 %.val1.i167.i, %280
@@ -3591,9 +3591,9 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   store i64 %325, ptr %36, align 8, !alias.scope !551
   store i32 %328, ptr %37, align 8, !alias.scope !551
   %.val.i171.i = load i64, ptr %47, align 8, !alias.scope !551, !noundef !3
-  %.val1.i172.i = load i32, ptr %50, align 4, !alias.scope !551
+  %.val1.i172.i = load i32, ptr %50, align 8, !alias.scope !551
   %.val2.i173.i = load i64, ptr %35, align 8, !alias.scope !551, !noundef !3
-  %.val3.i174.i = load i32, ptr %38, align 4, !alias.scope !551
+  %.val3.i174.i = load i32, ptr %38, align 8, !alias.scope !551
   %329 = icmp eq i64 %.val.i171.i, %.val2.i173.i
   %330 = icmp ult i64 %.val.i171.i, %.val2.i173.i
   %331 = icmp ult i32 %.val1.i172.i, %.val3.i174.i
@@ -3619,9 +3619,9 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   store i64 %341, ptr %111, align 8, !alias.scope !551
   store i32 %344, ptr %112, align 8, !alias.scope !551
   %.val.i181.i = load i64, ptr %60, align 8, !alias.scope !551, !noundef !3
-  %.val1.i182.i = load i32, ptr %61, align 4, !alias.scope !551
+  %.val1.i182.i = load i32, ptr %61, align 8, !alias.scope !551
   %.val2.i183.i = load i64, ptr %71, align 8, !alias.scope !551, !noundef !3
-  %.val3.i184.i = load i32, ptr %74, align 4, !alias.scope !551
+  %.val3.i184.i = load i32, ptr %74, align 8, !alias.scope !551
   %345 = icmp eq i64 %.val.i181.i, %.val2.i183.i
   %346 = icmp ult i64 %.val.i181.i, %.val2.i183.i
   %347 = icmp ult i32 %.val1.i182.i, %.val3.i184.i
@@ -3647,7 +3647,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   store i64 %357, ptr %84, align 8, !alias.scope !551
   store i32 %360, ptr %85, align 8, !alias.scope !551
   %.val.i191.i = load i64, ptr %59, align 8, !alias.scope !551, !noundef !3
-  %.val1.i192.i = load i32, ptr %62, align 4, !alias.scope !551
+  %.val1.i192.i = load i32, ptr %62, align 8, !alias.scope !551
   %361 = icmp eq i64 %.val.i191.i, %333
   %362 = icmp ult i64 %.val.i191.i, %333
   %363 = icmp ult i32 %.val1.i192.i, %336
@@ -3661,7 +3661,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   store i64 %365, ptr %59, align 8, !alias.scope !551
   store i32 %368, ptr %62, align 8, !alias.scope !551
   %.val.i196.i = load i64, ptr %71, align 8, !alias.scope !551, !noundef !3
-  %.val1.i197.i = load i32, ptr %74, align 4, !alias.scope !551
+  %.val1.i197.i = load i32, ptr %74, align 8, !alias.scope !551
   %369 = icmp eq i64 %.val.i196.i, %341
   %370 = icmp ult i64 %.val.i196.i, %341
   %371 = icmp ult i32 %.val1.i197.i, %344
@@ -3675,7 +3675,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   store i64 %373, ptr %71, align 8, !alias.scope !551
   store i32 %376, ptr %74, align 8, !alias.scope !551
   %.val2.i203.i = load i64, ptr %83, align 8, !alias.scope !551, !noundef !3
-  %.val3.i204.i = load i32, ptr %86, align 4, !alias.scope !551
+  %.val3.i204.i = load i32, ptr %86, align 8, !alias.scope !551
   %377 = icmp eq i64 %349, %.val2.i203.i
   %378 = icmp ult i64 %349, %.val2.i203.i
   %379 = icmp ult i32 %352, %.val3.i204.i
@@ -3689,7 +3689,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   store i64 %381, ptr %60, align 8, !alias.scope !551
   store i32 %384, ptr %61, align 8, !alias.scope !551
   %.val.i206.i = load i64, ptr %48, align 8, !alias.scope !551, !noundef !3
-  %.val1.i207.i = load i32, ptr %49, align 4, !alias.scope !551
+  %.val1.i207.i = load i32, ptr %49, align 8, !alias.scope !551
   %385 = icmp eq i64 %.val.i206.i, %357
   %386 = icmp ult i64 %.val.i206.i, %357
   %387 = icmp ult i32 %.val1.i207.i, %360
@@ -3703,7 +3703,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   store i64 %389, ptr %48, align 8, !alias.scope !551
   store i32 %392, ptr %49, align 8, !alias.scope !551
   %.val.i211.i = load i64, ptr %111, align 8, !alias.scope !551, !noundef !3
-  %.val1.i212.i = load i32, ptr %112, align 4, !alias.scope !551
+  %.val1.i212.i = load i32, ptr %112, align 8, !alias.scope !551
   %393 = icmp eq i64 %.val.i211.i, %365
   %394 = icmp ult i64 %.val.i211.i, %365
   %395 = icmp ult i32 %.val1.i212.i, %368
@@ -3717,7 +3717,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   store i64 %397, ptr %111, align 8, !alias.scope !551
   store i32 %400, ptr %112, align 8, !alias.scope !551
   %.val.i216.i = load i64, ptr %83, align 8, !alias.scope !551, !noundef !3
-  %.val1.i217.i = load i32, ptr %86, align 4, !alias.scope !551
+  %.val1.i217.i = load i32, ptr %86, align 8, !alias.scope !551
   %401 = icmp eq i64 %.val.i216.i, %373
   %402 = icmp ult i64 %.val.i216.i, %373
   %403 = icmp ult i32 %.val1.i217.i, %376
@@ -3736,10 +3736,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   %410 = getelementptr inbounds nuw i8, ptr %.sroa.01.0, i64 48
   %.val.i.i11 = load i64, ptr %410, align 8, !alias.scope !554, !noundef !3
   %411 = getelementptr i8, ptr %.sroa.01.0, i64 56
-  %.val1.i.i12 = load i32, ptr %411, align 4, !alias.scope !554
+  %.val1.i.i12 = load i32, ptr %411, align 8, !alias.scope !554
   %.val2.i.i13 = load i64, ptr %.sroa.01.0, align 8, !alias.scope !554, !noundef !3
   %412 = getelementptr i8, ptr %.sroa.01.0, i64 8
-  %.val3.i.i14 = load i32, ptr %412, align 4, !alias.scope !554
+  %.val3.i.i14 = load i32, ptr %412, align 8, !alias.scope !554
   %413 = icmp eq i64 %.val.i.i11, %.val2.i.i13
   %414 = icmp ult i64 %.val.i.i11, %.val2.i.i13
   %415 = icmp ult i32 %.val1.i.i12, %.val3.i.i14
@@ -3756,10 +3756,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   %422 = getelementptr inbounds nuw i8, ptr %.sroa.01.0, i64 112
   %.val.i1.i16 = load i64, ptr %422, align 8, !alias.scope !554, !noundef !3
   %423 = getelementptr i8, ptr %.sroa.01.0, i64 120
-  %.val1.i2.i17 = load i32, ptr %423, align 4, !alias.scope !554
+  %.val1.i2.i17 = load i32, ptr %423, align 8, !alias.scope !554
   %.val2.i3.i18 = load i64, ptr %421, align 8, !alias.scope !554, !noundef !3
   %424 = getelementptr i8, ptr %.sroa.01.0, i64 24
-  %.val3.i4.i19 = load i32, ptr %424, align 4, !alias.scope !554
+  %.val3.i4.i19 = load i32, ptr %424, align 8, !alias.scope !554
   %425 = icmp eq i64 %.val.i1.i16, %.val2.i3.i18
   %426 = icmp ult i64 %.val.i1.i16, %.val2.i3.i18
   %427 = icmp ult i32 %.val1.i2.i17, %.val3.i4.i19
@@ -3776,10 +3776,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   %434 = getelementptr inbounds nuw i8, ptr %.sroa.01.0, i64 80
   %.val.i6.i21 = load i64, ptr %434, align 8, !alias.scope !554, !noundef !3
   %435 = getelementptr i8, ptr %.sroa.01.0, i64 88
-  %.val1.i7.i22 = load i32, ptr %435, align 4, !alias.scope !554
+  %.val1.i7.i22 = load i32, ptr %435, align 8, !alias.scope !554
   %.val2.i8.i23 = load i64, ptr %433, align 8, !alias.scope !554, !noundef !3
   %436 = getelementptr i8, ptr %.sroa.01.0, i64 40
-  %.val3.i9.i24 = load i32, ptr %436, align 4, !alias.scope !554
+  %.val3.i9.i24 = load i32, ptr %436, align 8, !alias.scope !554
   %437 = icmp eq i64 %.val.i6.i21, %.val2.i8.i23
   %438 = icmp ult i64 %.val.i6.i21, %.val2.i8.i23
   %439 = icmp ult i32 %.val1.i7.i22, %.val3.i9.i24
@@ -3796,10 +3796,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   %446 = getelementptr inbounds nuw i8, ptr %.sroa.01.0, i64 128
   %.val.i11.i26 = load i64, ptr %446, align 8, !alias.scope !554, !noundef !3
   %447 = getelementptr i8, ptr %.sroa.01.0, i64 136
-  %.val1.i12.i27 = load i32, ptr %447, align 4, !alias.scope !554
+  %.val1.i12.i27 = load i32, ptr %447, align 8, !alias.scope !554
   %.val2.i13.i28 = load i64, ptr %445, align 8, !alias.scope !554, !noundef !3
   %448 = getelementptr i8, ptr %.sroa.01.0, i64 72
-  %.val3.i14.i29 = load i32, ptr %448, align 4, !alias.scope !554
+  %.val3.i14.i29 = load i32, ptr %448, align 8, !alias.scope !554
   %449 = icmp eq i64 %.val.i11.i26, %.val2.i13.i28
   %450 = icmp ult i64 %.val.i11.i26, %.val2.i13.i28
   %451 = icmp ult i32 %.val1.i12.i27, %.val3.i14.i29
@@ -3813,7 +3813,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   store i64 %453, ptr %446, align 8, !alias.scope !554
   store i32 %456, ptr %447, align 8, !alias.scope !554
   %.val2.i18.i31 = load i64, ptr %.sroa.01.0, align 8, !alias.scope !554, !noundef !3
-  %.val3.i19.i32 = load i32, ptr %412, align 4, !alias.scope !554
+  %.val3.i19.i32 = load i32, ptr %412, align 8, !alias.scope !554
   %457 = icmp eq i64 %429, %.val2.i18.i31
   %458 = icmp ult i64 %429, %.val2.i18.i31
   %459 = icmp ult i32 %432, %.val3.i19.i32
@@ -3827,9 +3827,9 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   store i64 %461, ptr %422, align 8, !alias.scope !554
   store i32 %464, ptr %423, align 8, !alias.scope !554
   %.val.i21.i34 = load i64, ptr %445, align 8, !alias.scope !554, !noundef !3
-  %.val1.i22.i35 = load i32, ptr %448, align 4, !alias.scope !554
+  %.val1.i22.i35 = load i32, ptr %448, align 8, !alias.scope !554
   %.val2.i23.i36 = load i64, ptr %433, align 8, !alias.scope !554, !noundef !3
-  %.val3.i24.i37 = load i32, ptr %436, align 4, !alias.scope !554
+  %.val3.i24.i37 = load i32, ptr %436, align 8, !alias.scope !554
   %465 = icmp eq i64 %.val.i21.i34, %.val2.i23.i36
   %466 = icmp ult i64 %.val.i21.i34, %.val2.i23.i36
   %467 = icmp ult i32 %.val1.i22.i35, %.val3.i24.i37
@@ -3857,7 +3857,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   %481 = getelementptr inbounds nuw i8, ptr %.sroa.01.0, i64 96
   %.val.i31.i40 = load i64, ptr %481, align 8, !alias.scope !554, !noundef !3
   %482 = getelementptr i8, ptr %.sroa.01.0, i64 104
-  %.val1.i32.i41 = load i32, ptr %482, align 4, !alias.scope !554
+  %.val1.i32.i41 = load i32, ptr %482, align 8, !alias.scope !554
   %483 = icmp eq i64 %.val.i31.i40, %441
   %484 = icmp ult i64 %.val.i31.i40, %441
   %485 = icmp ult i32 %.val1.i32.i41, %444
@@ -3871,9 +3871,9 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   store i64 %487, ptr %481, align 8, !alias.scope !554
   store i32 %490, ptr %482, align 8, !alias.scope !554
   %.val.i36.i = load i64, ptr %433, align 8, !alias.scope !554, !noundef !3
-  %.val1.i37.i = load i32, ptr %436, align 4, !alias.scope !554
+  %.val1.i37.i = load i32, ptr %436, align 8, !alias.scope !554
   %.val2.i38.i43 = load i64, ptr %.sroa.01.0, align 8, !alias.scope !554, !noundef !3
-  %.val3.i39.i44 = load i32, ptr %412, align 4, !alias.scope !554
+  %.val3.i39.i44 = load i32, ptr %412, align 8, !alias.scope !554
   %491 = icmp eq i64 %.val.i36.i, %.val2.i38.i43
   %492 = icmp ult i64 %.val.i36.i, %.val2.i38.i43
   %493 = icmp ult i32 %.val1.i37.i, %.val3.i39.i44
@@ -3887,9 +3887,9 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   store i64 %495, ptr %433, align 8, !alias.scope !554
   store i32 %498, ptr %436, align 8, !alias.scope !554
   %.val.i41.i = load i64, ptr %410, align 8, !alias.scope !554, !noundef !3
-  %.val1.i42.i = load i32, ptr %411, align 4, !alias.scope !554
+  %.val1.i42.i = load i32, ptr %411, align 8, !alias.scope !554
   %.val2.i43.i = load i64, ptr %421, align 8, !alias.scope !554, !noundef !3
-  %.val3.i44.i = load i32, ptr %424, align 4, !alias.scope !554
+  %.val3.i44.i = load i32, ptr %424, align 8, !alias.scope !554
   %499 = icmp eq i64 %.val.i41.i, %.val2.i43.i
   %500 = icmp ult i64 %.val.i41.i, %.val2.i43.i
   %501 = icmp ult i32 %.val1.i42.i, %.val3.i44.i
@@ -3903,7 +3903,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   store i64 %503, ptr %410, align 8, !alias.scope !554
   store i32 %506, ptr %411, align 8, !alias.scope !554
   %.val.i46.i = load i64, ptr %434, align 8, !alias.scope !554, !noundef !3
-  %.val1.i47.i = load i32, ptr %435, align 4, !alias.scope !554
+  %.val1.i47.i = load i32, ptr %435, align 8, !alias.scope !554
   %507 = icmp eq i64 %.val.i46.i, %469
   %508 = icmp ult i64 %.val.i46.i, %469
   %509 = icmp ult i32 %.val1.i47.i, %472
@@ -3929,9 +3929,9 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   store i64 %519, ptr %446, align 8, !alias.scope !554
   store i32 %522, ptr %447, align 8, !alias.scope !554
   %.val.i56.i49 = load i64, ptr %445, align 8, !alias.scope !554, !noundef !3
-  %.val1.i57.i50 = load i32, ptr %448, align 4, !alias.scope !554
+  %.val1.i57.i50 = load i32, ptr %448, align 8, !alias.scope !554
   %.val2.i58.i51 = load i64, ptr %421, align 8, !alias.scope !554, !noundef !3
-  %.val3.i59.i52 = load i32, ptr %424, align 4, !alias.scope !554
+  %.val3.i59.i52 = load i32, ptr %424, align 8, !alias.scope !554
   %523 = icmp eq i64 %.val.i56.i49, %.val2.i58.i51
   %524 = icmp ult i64 %.val.i56.i49, %.val2.i58.i51
   %525 = icmp ult i32 %.val1.i57.i50, %.val3.i59.i52
@@ -3957,7 +3957,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   store i64 %535, ptr %481, align 8, !alias.scope !554
   store i32 %538, ptr %482, align 8, !alias.scope !554
   %.val.i66.i55 = load i64, ptr %422, align 8, !alias.scope !554, !noundef !3
-  %.val1.i67.i56 = load i32, ptr %423, align 4, !alias.scope !554
+  %.val1.i67.i56 = load i32, ptr %423, align 8, !alias.scope !554
   %539 = icmp eq i64 %.val.i66.i55, %511
   %540 = icmp ult i64 %.val.i66.i55, %511
   %541 = icmp ult i32 %.val1.i67.i56, %514
@@ -3971,9 +3971,9 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   store i64 %543, ptr %422, align 8, !alias.scope !554
   store i32 %546, ptr %423, align 8, !alias.scope !554
   %.val.i71.i = load i64, ptr %421, align 8, !alias.scope !554, !noundef !3
-  %.val1.i72.i = load i32, ptr %424, align 4, !alias.scope !554
+  %.val1.i72.i = load i32, ptr %424, align 8, !alias.scope !554
   %.val2.i73.i = load i64, ptr %.sroa.01.0, align 8, !alias.scope !554, !noundef !3
-  %.val3.i74.i = load i32, ptr %412, align 4, !alias.scope !554
+  %.val3.i74.i = load i32, ptr %412, align 8, !alias.scope !554
   %547 = icmp eq i64 %.val.i71.i, %.val2.i73.i
   %548 = icmp ult i64 %.val.i71.i, %.val2.i73.i
   %549 = icmp ult i32 %.val1.i72.i, %.val3.i74.i
@@ -3999,9 +3999,9 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   store i64 %559, ptr %445, align 8, !alias.scope !554
   store i32 %562, ptr %448, align 8, !alias.scope !554
   %.val.i81.i = load i64, ptr %434, align 8, !alias.scope !554, !noundef !3
-  %.val1.i82.i = load i32, ptr %435, align 4, !alias.scope !554
+  %.val1.i82.i = load i32, ptr %435, align 8, !alias.scope !554
   %.val2.i83.i = load i64, ptr %410, align 8, !alias.scope !554, !noundef !3
-  %.val3.i84.i = load i32, ptr %411, align 4, !alias.scope !554
+  %.val3.i84.i = load i32, ptr %411, align 8, !alias.scope !554
   %563 = icmp eq i64 %.val.i81.i, %.val2.i83.i
   %564 = icmp ult i64 %.val.i81.i, %.val2.i83.i
   %565 = icmp ult i32 %.val1.i82.i, %.val3.i84.i
@@ -4027,9 +4027,9 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   store i64 %575, ptr %446, align 8, !alias.scope !554
   store i32 %578, ptr %447, align 8, !alias.scope !554
   %.val.i91.i62 = load i64, ptr %410, align 8, !alias.scope !554, !noundef !3
-  %.val1.i92.i63 = load i32, ptr %411, align 4, !alias.scope !554
+  %.val1.i92.i63 = load i32, ptr %411, align 8, !alias.scope !554
   %.val2.i93.i = load i64, ptr %433, align 8, !alias.scope !554, !noundef !3
-  %.val3.i94.i = load i32, ptr %436, align 4, !alias.scope !554
+  %.val3.i94.i = load i32, ptr %436, align 8, !alias.scope !554
   %579 = icmp eq i64 %.val.i91.i62, %.val2.i93.i
   %580 = icmp ult i64 %.val.i91.i62, %.val2.i93.i
   %581 = icmp ult i32 %.val1.i92.i63, %.val3.i94.i
@@ -4055,7 +4055,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   store i64 %591, ptr %434, align 8, !alias.scope !554
   store i32 %594, ptr %435, align 8, !alias.scope !554
   %.val2.i103.i66 = load i64, ptr %481, align 8, !alias.scope !554, !noundef !3
-  %.val3.i104.i67 = load i32, ptr %482, align 4, !alias.scope !554
+  %.val3.i104.i67 = load i32, ptr %482, align 8, !alias.scope !554
   %595 = icmp eq i64 %543, %.val2.i103.i66
   %596 = icmp ult i64 %543, %.val2.i103.i66
   %597 = icmp ult i32 %546, %.val3.i104.i67
@@ -4069,7 +4069,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   store i64 %599, ptr %422, align 8, !alias.scope !554
   store i32 %602, ptr %423, align 8, !alias.scope !554
   %.val.i106.i69 = load i64, ptr %433, align 8, !alias.scope !554, !noundef !3
-  %.val1.i107.i70 = load i32, ptr %436, align 4, !alias.scope !554
+  %.val1.i107.i70 = load i32, ptr %436, align 8, !alias.scope !554
   %603 = icmp eq i64 %.val.i106.i69, %551
   %604 = icmp ult i64 %.val.i106.i69, %551
   %605 = icmp ult i32 %.val1.i107.i70, %554
@@ -4083,7 +4083,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   store i64 %607, ptr %433, align 8, !alias.scope !554
   store i32 %610, ptr %436, align 8, !alias.scope !554
   %.val.i111.i72 = load i64, ptr %445, align 8, !alias.scope !554, !noundef !3
-  %.val1.i112.i73 = load i32, ptr %448, align 4, !alias.scope !554
+  %.val1.i112.i73 = load i32, ptr %448, align 8, !alias.scope !554
   %611 = icmp eq i64 %.val.i111.i72, %583
   %612 = icmp ult i64 %.val.i111.i72, %583
   %613 = icmp ult i32 %.val1.i112.i73, %586
@@ -4097,7 +4097,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   store i64 %615, ptr %445, align 8, !alias.scope !554
   store i32 %618, ptr %448, align 8, !alias.scope !554
   %.val.i116.i = load i64, ptr %481, align 8, !alias.scope !554, !noundef !3
-  %.val1.i117.i = load i32, ptr %482, align 4, !alias.scope !554
+  %.val1.i117.i = load i32, ptr %482, align 8, !alias.scope !554
   %619 = icmp eq i64 %.val.i116.i, %591
   %620 = icmp ult i64 %.val.i116.i, %591
   %621 = icmp ult i32 %.val1.i117.i, %594
@@ -4137,10 +4137,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   %634 = getelementptr inbounds i8, ptr %.sroa.0.05.i, i64 -16
   %.val11.i.i = load i64, ptr %.sroa.0.05.i, align 8, !alias.scope !557, !noundef !3
   %635 = getelementptr i8, ptr %.sroa.0.05.i, i64 8
-  %.val12.i.i = load i32, ptr %635, align 4, !alias.scope !557
+  %.val12.i.i = load i32, ptr %635, align 8, !alias.scope !557
   %.val13.i.i = load i64, ptr %634, align 8, !alias.scope !557, !noundef !3
   %636 = getelementptr i8, ptr %.sroa.0.05.i, i64 -8
-  %.val14.i.i = load i32, ptr %636, align 4, !alias.scope !557
+  %.val14.i.i = load i32, ptr %636, align 8, !alias.scope !557
   %637 = icmp eq i64 %.val11.i.i, %.val13.i.i
   %638 = icmp ult i64 %.val11.i.i, %.val13.i.i
   %639 = icmp ult i32 %.val12.i.i, %.val14.i.i
@@ -4167,7 +4167,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   %645 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 -16
   %.val9.i.i = load i64, ptr %645, align 8, !alias.scope !557, !noundef !3
   %646 = getelementptr i8, ptr %.sroa.0.0.i.i, i64 -8
-  %.val10.i.i = load i32, ptr %646, align 4, !alias.scope !557
+  %.val10.i.i = load i32, ptr %646, align 8, !alias.scope !557
   %647 = icmp eq i64 %.val11.i.i, %.val9.i.i
   %648 = icmp ult i64 %.val11.i.i, %.val9.i.i
   %649 = icmp ult i32 %.val12.i.i, %.val10.i.i
@@ -4237,10 +4237,10 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
   %13 = add nuw nsw i64 %.sroa.018.04, 1
   %.sroa.06.0.val = load i64, ptr %.sroa.06.09, align 8, !noundef !3
   %14 = getelementptr i8, ptr %.sroa.06.09, i64 8
-  %.sroa.06.0.val24 = load i32, ptr %14, align 4
+  %.sroa.06.0.val24 = load i32, ptr %14, align 8
   %.sroa.0.0.val = load i64, ptr %.sroa.0.010, align 8, !noundef !3
   %15 = getelementptr i8, ptr %.sroa.0.010, i64 8
-  %.sroa.0.0.val25 = load i32, ptr %15, align 4
+  %.sroa.0.0.val25 = load i32, ptr %15, align 8
   %16 = icmp eq i64 %.sroa.06.0.val, %.sroa.0.0.val
   %17 = icmp ult i64 %.sroa.06.0.val, %.sroa.0.0.val
   %18 = icmp ult i32 %.sroa.06.0.val24, %.sroa.0.0.val25
@@ -4255,10 +4255,10 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.010.08, i64 16
   %.sroa.015.0.val = load i64, ptr %.sroa.015.06, align 8, !noundef !3
   %25 = getelementptr i8, ptr %.sroa.015.06, i64 8
-  %.sroa.015.0.val26 = load i32, ptr %25, align 4
+  %.sroa.015.0.val26 = load i32, ptr %25, align 8
   %.sroa.013.0.val = load i64, ptr %.sroa.013.07, align 8, !noundef !3
   %26 = getelementptr i8, ptr %.sroa.013.07, i64 8
-  %.sroa.013.0.val27 = load i32, ptr %26, align 4
+  %.sroa.013.0.val27 = load i32, ptr %26, align 8
   %27 = icmp eq i64 %.sroa.015.0.val, %.sroa.013.0.val
   %28 = icmp ult i64 %.sroa.015.0.val, %.sroa.013.0.val
   %29 = icmp ult i32 %.sroa.015.0.val26, %.sroa.013.0.val27
@@ -4571,10 +4571,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_l
   %16 = getelementptr inbounds i8, ptr %.sroa.0.05, i64 -16
   %.val11.i = load i64, ptr %.sroa.0.05, align 8, !noundef !3
   %17 = getelementptr i8, ptr %.sroa.0.05, i64 8
-  %.val12.i = load i32, ptr %17, align 4
+  %.val12.i = load i32, ptr %17, align 8
   %.val13.i = load i64, ptr %16, align 8, !noundef !3
   %18 = getelementptr i8, ptr %.sroa.0.05, i64 -8
-  %.val14.i = load i32, ptr %18, align 4
+  %.val14.i = load i32, ptr %18, align 8
   %19 = icmp eq i64 %.val11.i, %.val13.i
   %20 = icmp ult i64 %.val11.i, %.val13.i
   %21 = icmp ult i32 %.val12.i, %.val14.i
@@ -4604,7 +4604,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_l
   %.val8.i = load i32, ptr %12, align 8
   %.val9.i = load i64, ptr %27, align 8, !noundef !3
   %28 = getelementptr i8, ptr %.sroa.0.0.i, i64 -8
-  %.val10.i = load i32, ptr %28, align 4
+  %.val10.i = load i32, ptr %28, align 8
   %29 = icmp eq i64 %.val.i, %.val9.i
   %30 = icmp ult i64 %.val.i, %.val9.i
   %31 = icmp ult i32 %.val8.i, %.val10.i

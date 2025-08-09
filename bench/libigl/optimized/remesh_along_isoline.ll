@@ -1272,7 +1272,7 @@ _ZNSt10_HashtableIiSt4pairIKiSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaIS0_I
 .noexc230:                                        ; preds = %.loopexit.i.i229
   store ptr null, ptr %493, align 8, !tbaa !67
   %494 = getelementptr inbounds nuw i8, ptr %493, i64 8
-  store i32 %472, ptr %494, align 4, !tbaa !93
+  store i32 %472, ptr %494, align 8, !tbaa !93
   %495 = getelementptr inbounds nuw i8, ptr %493, i64 12
   store i32 0, ptr %495, align 4, !tbaa !95
   %496 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS4_10_Hash_nodeIS2_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %.1.i, i64 noundef %476, i64 noundef %473, ptr noundef nonnull %493, i64 noundef 1)
@@ -1430,7 +1430,7 @@ _ZNSt10_HashtableIiSt4pairIKiSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaIS0_I
 .noexc243:                                        ; preds = %.loopexit.i.i239
   store ptr null, ptr %559, align 8, !tbaa !67
   %560 = getelementptr inbounds nuw i8, ptr %559, i64 8
-  store i32 %538, ptr %560, align 4, !tbaa !93
+  store i32 %538, ptr %560, align 8, !tbaa !93
   %561 = getelementptr inbounds nuw i8, ptr %559, i64 12
   store i32 0, ptr %561, align 4, !tbaa !95
   %562 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS4_10_Hash_nodeIS2_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %.1.i415, i64 noundef %542, i64 noundef %539, ptr noundef nonnull %559, i64 noundef 1)
@@ -1630,7 +1630,7 @@ _ZNSt10_HashtableIiSt4pairIKiSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaIS0_I
 .noexc259:                                        ; preds = %.loopexit.i.i255
   store ptr null, ptr %640, align 8, !tbaa !67
   %641 = getelementptr inbounds nuw i8, ptr %640, i64 8
-  store i32 %583, ptr %641, align 4, !tbaa !93
+  store i32 %583, ptr %641, align 8, !tbaa !93
   %642 = getelementptr inbounds nuw i8, ptr %640, i64 12
   store i32 0, ptr %642, align 4, !tbaa !95
   %643 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS4_10_Hash_nodeIS2_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %.1.i429, i64 noundef %623, i64 noundef %620, ptr noundef nonnull %640, i64 noundef 1)
@@ -1767,7 +1767,7 @@ _ZNSt10_HashtableIiSt4pairIKiSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaIS0_I
 .noexc275:                                        ; preds = %.loopexit.i.i271
   store ptr null, ptr %695, align 8, !tbaa !67
   %696 = getelementptr inbounds nuw i8, ptr %695, i64 8
-  store i32 %589, ptr %696, align 4, !tbaa !93
+  store i32 %589, ptr %696, align 8, !tbaa !93
   %697 = getelementptr inbounds nuw i8, ptr %695, i64 12
   store i32 0, ptr %697, align 4, !tbaa !95
   %698 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS4_10_Hash_nodeIS2_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %.1.i443, i64 noundef %678, i64 noundef %675, ptr noundef nonnull %695, i64 noundef 1)
@@ -3401,7 +3401,7 @@ _ZNSt10_HashtableIiSt4pairIKiSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaIS0_I
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaIS0_IS1_iEEEESaISA_ENSt8__detail10_Select1stES6_S4_NSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !67
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !40
+  %16 = load i32, ptr %15, align 8, !tbaa !40
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -3597,7 +3597,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !67
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !40
+  %16 = load i32, ptr %15, align 8, !tbaa !40
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -3813,7 +3813,7 @@ _ZN5Eigen12SparseMatrixIdLi1EiE7reserveINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvR
   %.sroa.0.030 = phi ptr [ %46, %.lr.ph31 ], [ %72, %56 ]
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.0.030, i64 8
   %58 = load double, ptr %57, align 8, !tbaa !41
-  %59 = load i32, ptr %.sroa.0.030, align 4, !tbaa !40
+  %59 = load i32, ptr %.sroa.0.030, align 8, !tbaa !40
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.0.030, i64 4
   %62 = load i32, ptr %61, align 4, !tbaa !40

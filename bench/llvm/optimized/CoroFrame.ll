@@ -6333,7 +6333,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEjNS_12DenseMapInfoIS3_vEENS_6deta
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E16InsertIntoBucketIRKS3_JEEEPS8_SE_OT_DpOT0_.exit.i.i.i.i.i: ; preds = %1090, %1083
   store ptr %1017, ptr %1085, align 8, !tbaa !289
   %1093 = getelementptr inbounds nuw i8, ptr %1085, i64 8
-  store i32 0, ptr %1093, align 4, !tbaa !370
+  store i32 0, ptr %1093, align 8, !tbaa !370
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixERKS3_.exit.i.i.i.i
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixERKS3_.exit.i.i.i.i: ; preds = %1036, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E16InsertIntoBucketIRKS3_JEEEPS8_SE_OT_DpOT0_.exit.i.i.i.i.i, %1020
@@ -6668,7 +6668,7 @@ _ZN4llvm15SmallVectorImplIPNS_4TypeEE7reserveEm.exit.i._ZN4llvm15SmallVectorImpl
   %1213 = getelementptr inbounds nuw i8, ptr %.069.i.i.i, i64 32
   %1214 = getelementptr inbounds nuw i8, ptr %.069.i.i.i, i64 8
   %.0.val.i.i.i = load i64, ptr %.069.i.i.i, align 8
-  %.val54.i.i.i = load i8, ptr %1213, align 1
+  %.val54.i.i.i = load i8, ptr %1213, align 8
   %.val55.i.i.i = load i64, ptr %1214, align 8
   %1215 = load i32, ptr %1179, align 8, !tbaa !58
   %1216 = load i32, ptr %1180, align 4, !tbaa !59
@@ -7233,7 +7233,7 @@ _ZNK4llvm12DISubprogram7getUnitEv.exit135.i:      ; preds = %1489, %1486
   %1507 = load i64, ptr %1506, align 8, !tbaa !433
   %1508 = shl i64 %1507, 3
   %1509 = getelementptr inbounds nuw i8, ptr %1432, i64 296
-  %1510 = load i8, ptr %1509, align 1, !tbaa !363
+  %1510 = load i8, ptr %1509, align 8, !tbaa !363
   %1511 = zext nneg i8 %1510 to i64
   %1512 = shl nuw i64 1, %1511
   %.tr.i = trunc i64 %1512 to i32
@@ -14995,7 +14995,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEjNS_12DenseMapInfoIS3_vEENS_6deta
   %57 = load ptr, ptr %1, align 8, !tbaa !289
   store ptr %57, ptr %48, align 8, !tbaa !289
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !370
+  store i32 0, ptr %58, align 8, !tbaa !370
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E16InsertIntoBucketIRKS3_JEEEPS8_SE_OT_DpOT0_.exit
@@ -15196,7 +15196,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEjNS_12DenseMapInfoIS3_vEENS_6deta
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !370
-  store i32 %68, ptr %66, align 4, !tbaa !370
+  store i32 %68, ptr %66, align 8, !tbaa !370
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !400
   br label %70
@@ -15800,14 +15800,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm4coro10AllocaInfoElN
   %42 = load ptr, ptr %41, align 8, !tbaa !750
   store ptr null, ptr %41, align 8, !tbaa !750
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %44 = load i32, ptr %43, align 4, !tbaa !370
-  store i32 0, ptr %43, align 4, !tbaa !370
+  %44 = load i32, ptr %43, align 8, !tbaa !370
+  store i32 0, ptr %43, align 8, !tbaa !370
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 20
   %46 = load i32, ptr %45, align 4, !tbaa !370
   store i32 0, ptr %45, align 4, !tbaa !370
   %47 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %48 = load i32, ptr %47, align 4, !tbaa !370
-  store i32 0, ptr %47, align 4, !tbaa !370
+  %48 = load i32, ptr %47, align 8, !tbaa !370
+  store i32 0, ptr %47, align 8, !tbaa !370
   %49 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %50 = load i8, ptr %49, align 8, !tbaa !404, !range !29, !noundef !12
   store ptr %40, ptr %20, align 8, !tbaa !372
@@ -15896,14 +15896,14 @@ _ZN4llvm4coro10AllocaInfoD2Ev.exit26.i.i.i:       ; preds = %_ZNSt14_Optional_ba
   %85 = load ptr, ptr %84, align 8, !tbaa !750
   store ptr null, ptr %84, align 8, !tbaa !750
   %86 = getelementptr inbounds i8, ptr %.07.i.i, i64 -24
-  %87 = load i32, ptr %86, align 4, !tbaa !370
-  store i32 0, ptr %86, align 4, !tbaa !370
+  %87 = load i32, ptr %86, align 8, !tbaa !370
+  store i32 0, ptr %86, align 8, !tbaa !370
   %88 = getelementptr inbounds i8, ptr %.07.i.i, i64 -20
   %89 = load i32, ptr %88, align 4, !tbaa !370
   store i32 0, ptr %88, align 4, !tbaa !370
   %90 = getelementptr inbounds i8, ptr %.07.i.i, i64 -16
-  %91 = load i32, ptr %90, align 4, !tbaa !370
-  store i32 0, ptr %90, align 4, !tbaa !370
+  %91 = load i32, ptr %90, align 8, !tbaa !370
+  store i32 0, ptr %90, align 8, !tbaa !370
   %92 = getelementptr inbounds i8, ptr %.07.i.i, i64 -8
   %93 = load i8, ptr %92, align 8, !tbaa !404, !range !29, !noundef !12
   %94 = load ptr, ptr %0, align 8, !tbaa !372
@@ -15913,17 +15913,17 @@ _ZN4llvm4coro10AllocaInfoD2Ev.exit26.i.i.i:       ; preds = %_ZNSt14_Optional_ba
   %95 = load ptr, ptr %72, align 8, !tbaa !750
   store ptr %95, ptr %84, align 8, !tbaa !750
   store ptr null, ptr %72, align 8, !tbaa !750
-  %96 = load i32, ptr %73, align 4, !tbaa !370
-  store i32 %96, ptr %86, align 4, !tbaa !370
-  store i32 0, ptr %73, align 4, !tbaa !370
+  %96 = load i32, ptr %73, align 8, !tbaa !370
+  store i32 %96, ptr %86, align 8, !tbaa !370
+  store i32 0, ptr %73, align 8, !tbaa !370
   %97 = load i32, ptr %88, align 4, !tbaa !370
   %98 = load i32, ptr %74, align 4, !tbaa !370
   store i32 %98, ptr %88, align 4, !tbaa !370
   store i32 %97, ptr %74, align 4, !tbaa !370
-  %99 = load i32, ptr %90, align 4, !tbaa !370
-  %100 = load i32, ptr %75, align 4, !tbaa !370
-  store i32 %100, ptr %90, align 4, !tbaa !370
-  store i32 %99, ptr %75, align 4, !tbaa !370
+  %99 = load i32, ptr %90, align 8, !tbaa !370
+  %100 = load i32, ptr %75, align 8, !tbaa !370
+  store i32 %100, ptr %90, align 8, !tbaa !370
+  store i32 %99, ptr %75, align 8, !tbaa !370
   %101 = load i8, ptr %76, align 8, !tbaa !404, !range !29, !noundef !12
   store i8 %101, ptr %92, align 8, !tbaa !404
   %102 = ptrtoint ptr %82 to i64
@@ -16146,14 +16146,14 @@ _ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit.i.i.i12.i: ; preds = %122,
   %164 = load ptr, ptr %163, align 8, !tbaa !750
   store ptr null, ptr %163, align 8, !tbaa !750
   %165 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
-  %166 = load i32, ptr %165, align 4, !tbaa !370
-  store i32 0, ptr %165, align 4, !tbaa !370
+  %166 = load i32, ptr %165, align 8, !tbaa !370
+  store i32 0, ptr %165, align 8, !tbaa !370
   %167 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 20
   %168 = load i32, ptr %167, align 4, !tbaa !370
   store i32 0, ptr %167, align 4, !tbaa !370
   %169 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
-  %170 = load i32, ptr %169, align 4, !tbaa !370
-  store i32 0, ptr %169, align 4, !tbaa !370
+  %170 = load i32, ptr %169, align 8, !tbaa !370
+  store i32 0, ptr %169, align 8, !tbaa !370
   %171 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
   %172 = load i8, ptr %171, align 8, !tbaa !404, !range !29, !noundef !12
   %173 = load ptr, ptr %.114.i.i, align 8, !tbaa !372
@@ -16165,19 +16165,19 @@ _ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit.i.i.i12.i: ; preds = %122,
   store ptr %175, ptr %163, align 8, !tbaa !750
   store ptr null, ptr %174, align 8, !tbaa !750
   %176 = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -24
-  %177 = load i32, ptr %176, align 4, !tbaa !370
-  store i32 %177, ptr %165, align 4, !tbaa !370
-  store i32 0, ptr %176, align 4, !tbaa !370
+  %177 = load i32, ptr %176, align 8, !tbaa !370
+  store i32 %177, ptr %165, align 8, !tbaa !370
+  store i32 0, ptr %176, align 8, !tbaa !370
   %178 = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -20
   %179 = load i32, ptr %167, align 4, !tbaa !370
   %180 = load i32, ptr %178, align 4, !tbaa !370
   store i32 %180, ptr %167, align 4, !tbaa !370
   store i32 %179, ptr %178, align 4, !tbaa !370
   %181 = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -16
-  %182 = load i32, ptr %169, align 4, !tbaa !370
-  %183 = load i32, ptr %181, align 4, !tbaa !370
-  store i32 %183, ptr %169, align 4, !tbaa !370
-  store i32 %182, ptr %181, align 4, !tbaa !370
+  %182 = load i32, ptr %169, align 8, !tbaa !370
+  %183 = load i32, ptr %181, align 8, !tbaa !370
+  store i32 %183, ptr %169, align 8, !tbaa !370
+  store i32 %182, ptr %181, align 8, !tbaa !370
   %184 = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -8
   %185 = load i8, ptr %184, align 8, !tbaa !404, !range !29, !noundef !12
   store i8 %185, ptr %171, align 8, !tbaa !404
@@ -16240,9 +16240,9 @@ _ZSt4swapIN4llvm4coro10AllocaInfoEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_t
   %207 = phi ptr [ %.pre.i.i13.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionESt8optionalINS_5APIntEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E10destroyAllEv.exit.loopexit.i.i12.i ], [ null, %161 ]
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %207, i64 noundef %206, i64 noundef 8) #17
   store ptr %164, ptr %174, align 8, !tbaa !750
-  store i32 %166, ptr %176, align 4, !tbaa !370
+  store i32 %166, ptr %176, align 8, !tbaa !370
   store i32 %168, ptr %178, align 4, !tbaa !370
-  store i32 %170, ptr %181, align 4, !tbaa !370
+  store i32 %170, ptr %181, align 8, !tbaa !370
   store i8 %172, ptr %184, align 8, !tbaa !404
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 8) #17
   br label %150, !llvm.loop !757
@@ -16365,18 +16365,18 @@ _ZN4llvm4coro10AllocaInfoaSEOS1_.exit:            ; preds = %.lr.ph, %_ZN4llvm12
   store ptr null, ptr %50, align 8, !tbaa !750
   %52 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %53 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %54 = load i32, ptr %53, align 4, !tbaa !370
-  store i32 %54, ptr %52, align 4, !tbaa !370
-  store i32 0, ptr %53, align 4, !tbaa !370
+  %54 = load i32, ptr %53, align 8, !tbaa !370
+  store i32 %54, ptr %52, align 8, !tbaa !370
+  store i32 0, ptr %53, align 8, !tbaa !370
   %55 = getelementptr inbounds nuw i8, ptr %23, i64 20
   %56 = getelementptr inbounds nuw i8, ptr %22, i64 20
   %57 = load i32, ptr %56, align 4, !tbaa !370
   store i32 %57, ptr %55, align 4, !tbaa !370
   store i32 0, ptr %56, align 4, !tbaa !370
   %58 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %59 = load i32, ptr %58, align 4, !tbaa !370
-  store i32 %59, ptr %26, align 4, !tbaa !370
-  store i32 0, ptr %58, align 4, !tbaa !370
+  %59 = load i32, ptr %58, align 8, !tbaa !370
+  store i32 %59, ptr %26, align 8, !tbaa !370
+  store i32 0, ptr %58, align 8, !tbaa !370
   %60 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %61 = load i8, ptr %60, align 8, !tbaa !404, !range !29, !noundef !12
   %62 = getelementptr inbounds nuw i8, ptr %23, i64 32
@@ -16471,19 +16471,19 @@ _ZN4llvm4coro10AllocaInfoaSEOS1_.exit41:          ; preds = %70, %_ZN4llvm12Dens
   store ptr null, ptr %101, align 8, !tbaa !750
   %103 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %104 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  %105 = load i32, ptr %104, align 4, !tbaa !370
-  store i32 %105, ptr %103, align 4, !tbaa !370
-  store i32 0, ptr %104, align 4, !tbaa !370
+  %105 = load i32, ptr %104, align 8, !tbaa !370
+  store i32 %105, ptr %103, align 8, !tbaa !370
+  store i32 0, ptr %104, align 8, !tbaa !370
   %106 = getelementptr inbounds nuw i8, ptr %74, i64 20
   %107 = getelementptr inbounds nuw i8, ptr %73, i64 20
   %108 = load i32, ptr %107, align 4, !tbaa !370
   store i32 %108, ptr %106, align 4, !tbaa !370
   store i32 0, ptr %107, align 4, !tbaa !370
   %109 = getelementptr inbounds nuw i8, ptr %73, i64 24
-  %110 = load i32, ptr %77, align 4, !tbaa !370
-  %111 = load i32, ptr %109, align 4, !tbaa !370
-  store i32 %111, ptr %77, align 4, !tbaa !370
-  store i32 %110, ptr %109, align 4, !tbaa !370
+  %110 = load i32, ptr %77, align 8, !tbaa !370
+  %111 = load i32, ptr %109, align 8, !tbaa !370
+  store i32 %111, ptr %77, align 8, !tbaa !370
+  store i32 %110, ptr %109, align 8, !tbaa !370
   %112 = getelementptr inbounds nuw i8, ptr %73, i64 32
   %113 = load i8, ptr %112, align 8, !tbaa !404, !range !29, !noundef !12
   %114 = getelementptr inbounds nuw i8, ptr %74, i64 32
@@ -16497,14 +16497,14 @@ _ZN4llvm4coro10AllocaInfoaSEOS1_.exit41:          ; preds = %70, %_ZN4llvm12Dens
   %118 = load ptr, ptr %117, align 8, !tbaa !750
   store ptr null, ptr %117, align 8, !tbaa !750
   %119 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %120 = load i32, ptr %119, align 4, !tbaa !370
-  store i32 0, ptr %119, align 4, !tbaa !370
+  %120 = load i32, ptr %119, align 8, !tbaa !370
+  store i32 0, ptr %119, align 8, !tbaa !370
   %121 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %122 = load i32, ptr %121, align 4, !tbaa !370
   store i32 0, ptr %121, align 4, !tbaa !370
   %123 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %124 = load i32, ptr %123, align 4, !tbaa !370
-  store i32 0, ptr %123, align 4, !tbaa !370
+  %124 = load i32, ptr %123, align 8, !tbaa !370
+  store i32 0, ptr %123, align 8, !tbaa !370
   %125 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %126 = load i8, ptr %125, align 8, !tbaa !404, !range !29, !noundef !12
   %127 = icmp samesign ugt i64 %.127, %1
@@ -16603,18 +16603,18 @@ _ZN4llvm4coro10AllocaInfoaSEOS1_.exit.i:          ; preds = %_ZN4llvm12DenseMapB
   store ptr null, ptr %160, align 8, !tbaa !750
   %162 = getelementptr inbounds nuw i8, ptr %133, i64 16
   %163 = getelementptr inbounds nuw i8, ptr %128, i64 16
-  %164 = load i32, ptr %163, align 4, !tbaa !370
-  store i32 %164, ptr %162, align 4, !tbaa !370
-  store i32 0, ptr %163, align 4, !tbaa !370
+  %164 = load i32, ptr %163, align 8, !tbaa !370
+  store i32 %164, ptr %162, align 8, !tbaa !370
+  store i32 0, ptr %163, align 8, !tbaa !370
   %165 = getelementptr inbounds nuw i8, ptr %133, i64 20
   %166 = getelementptr inbounds nuw i8, ptr %128, i64 20
   %167 = load i32, ptr %166, align 4, !tbaa !370
   store i32 %167, ptr %165, align 4, !tbaa !370
   store i32 0, ptr %166, align 4, !tbaa !370
   %168 = getelementptr inbounds nuw i8, ptr %128, i64 24
-  %169 = load i32, ptr %168, align 4, !tbaa !370
-  store i32 %169, ptr %136, align 4, !tbaa !370
-  store i32 0, ptr %168, align 4, !tbaa !370
+  %169 = load i32, ptr %168, align 8, !tbaa !370
+  store i32 %169, ptr %136, align 8, !tbaa !370
+  store i32 0, ptr %168, align 8, !tbaa !370
   %170 = getelementptr inbounds nuw i8, ptr %128, i64 32
   %171 = load i8, ptr %170, align 8, !tbaa !404, !range !29, !noundef !12
   %172 = getelementptr inbounds nuw i8, ptr %133, i64 32
@@ -16689,10 +16689,10 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionESt8optionalINS_5APIntEENS_
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %199, i64 noundef %198, i64 noundef 8) #17
   store ptr %118, ptr %175, align 8, !tbaa !750
   %200 = getelementptr inbounds nuw i8, ptr %174, i64 16
-  store i32 %120, ptr %200, align 4, !tbaa !370
+  store i32 %120, ptr %200, align 8, !tbaa !370
   %201 = getelementptr inbounds nuw i8, ptr %174, i64 20
   store i32 %122, ptr %201, align 4, !tbaa !370
-  store i32 %124, ptr %176, align 4, !tbaa !370
+  store i32 %124, ptr %176, align 8, !tbaa !370
   %202 = getelementptr inbounds nuw i8, ptr %174, i64 32
   store i8 %126, ptr %202, align 8, !tbaa !404
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 8) #17
@@ -16860,14 +16860,14 @@ define internal fastcc void @"_ZSt16__insertion_sortIPN4llvm4coro10AllocaInfoEN9
   %19 = load ptr, ptr %18, align 8, !tbaa !750
   store ptr null, ptr %18, align 8, !tbaa !750
   %20 = getelementptr inbounds nuw i8, ptr %.pn37, i64 56
-  %21 = load i32, ptr %20, align 4, !tbaa !370
-  store i32 0, ptr %20, align 4, !tbaa !370
+  %21 = load i32, ptr %20, align 8, !tbaa !370
+  store i32 0, ptr %20, align 8, !tbaa !370
   %22 = getelementptr inbounds nuw i8, ptr %.pn37, i64 60
   %23 = load i32, ptr %22, align 4, !tbaa !370
   store i32 0, ptr %22, align 4, !tbaa !370
   %24 = getelementptr inbounds nuw i8, ptr %.pn37, i64 64
-  %25 = load i32, ptr %24, align 4, !tbaa !370
-  store i32 0, ptr %24, align 4, !tbaa !370
+  %25 = load i32, ptr %24, align 8, !tbaa !370
+  store i32 0, ptr %24, align 8, !tbaa !370
   %26 = getelementptr inbounds nuw i8, ptr %.pn37, i64 72
   %27 = load i8, ptr %26, align 8, !tbaa !404, !range !29, !noundef !12
   %28 = getelementptr inbounds nuw i8, ptr %.pn37, i64 80
@@ -16933,9 +16933,9 @@ _ZN4llvm4coro10AllocaInfoaSEOS1_.exit:            ; preds = %16, %_ZN4llvm12Dens
   %52 = phi ptr [ %.pre.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionESt8optionalINS_5APIntEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E10destroyAllEv.exit.loopexit.i.i ], [ %.pre2.i.i, %16 ]
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %52, i64 noundef %51, i64 noundef 8) #17
   store ptr %19, ptr %7, align 8, !tbaa !750
-  store i32 %21, ptr %9, align 4, !tbaa !370
+  store i32 %21, ptr %9, align 8, !tbaa !370
   store i32 %23, ptr %10, align 4, !tbaa !370
-  store i32 %25, ptr %8, align 4, !tbaa !370
+  store i32 %25, ptr %8, align 8, !tbaa !370
   store i8 %27, ptr %11, align 8, !tbaa !404
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 8) #17
   br label %54
@@ -16962,14 +16962,14 @@ define internal fastcc void @"_ZSt25__unguarded_linear_insertIPN4llvm4coro10Allo
   %7 = load ptr, ptr %6, align 8, !tbaa !750
   store ptr null, ptr %6, align 8, !tbaa !750
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load i32, ptr %8, align 4, !tbaa !370
-  store i32 0, ptr %8, align 4, !tbaa !370
+  %9 = load i32, ptr %8, align 8, !tbaa !370
+  store i32 0, ptr %8, align 8, !tbaa !370
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %11 = load i32, ptr %10, align 4, !tbaa !370
   store i32 0, ptr %10, align 4, !tbaa !370
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load i32, ptr %12, align 4, !tbaa !370
-  store i32 0, ptr %12, align 4, !tbaa !370
+  %13 = load i32, ptr %12, align 8, !tbaa !370
+  store i32 0, ptr %12, align 8, !tbaa !370
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load i8, ptr %14, align 8, !tbaa !404, !range !29, !noundef !12
   br label %16
@@ -17063,18 +17063,18 @@ _ZN4llvm4coro10AllocaInfoaSEOS1_.exit:            ; preds = %20, %_ZN4llvm12Dens
   store ptr null, ptr %47, align 8, !tbaa !750
   %49 = getelementptr inbounds nuw i8, ptr %.09, i64 16
   %50 = getelementptr inbounds i8, ptr %.09, i64 -24
-  %51 = load i32, ptr %50, align 4, !tbaa !370
-  store i32 %51, ptr %49, align 4, !tbaa !370
-  store i32 0, ptr %50, align 4, !tbaa !370
+  %51 = load i32, ptr %50, align 8, !tbaa !370
+  store i32 %51, ptr %49, align 8, !tbaa !370
+  store i32 0, ptr %50, align 8, !tbaa !370
   %52 = getelementptr inbounds nuw i8, ptr %.09, i64 20
   %53 = getelementptr inbounds i8, ptr %.09, i64 -20
   %54 = load i32, ptr %53, align 4, !tbaa !370
   store i32 %54, ptr %52, align 4, !tbaa !370
   store i32 0, ptr %53, align 4, !tbaa !370
   %55 = getelementptr inbounds i8, ptr %.09, i64 -16
-  %56 = load i32, ptr %55, align 4, !tbaa !370
-  store i32 %56, ptr %23, align 4, !tbaa !370
-  store i32 0, ptr %55, align 4, !tbaa !370
+  %56 = load i32, ptr %55, align 8, !tbaa !370
+  store i32 %56, ptr %23, align 8, !tbaa !370
+  store i32 0, ptr %55, align 8, !tbaa !370
   %57 = getelementptr inbounds i8, ptr %.09, i64 -8
   %58 = load i8, ptr %57, align 8, !tbaa !404, !range !29, !noundef !12
   %59 = getelementptr inbounds nuw i8, ptr %.09, i64 32
@@ -17146,10 +17146,10 @@ _ZN4llvm4coro10AllocaInfoaSEOS1_.exit22:          ; preds = %60, %_ZN4llvm12Dens
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %85, i64 noundef %84, i64 noundef 8) #17
   store ptr %7, ptr %61, align 8, !tbaa !750
   %86 = getelementptr inbounds nuw i8, ptr %.09, i64 16
-  store i32 %9, ptr %86, align 4, !tbaa !370
+  store i32 %9, ptr %86, align 8, !tbaa !370
   %87 = getelementptr inbounds nuw i8, ptr %.09, i64 20
   store i32 %11, ptr %87, align 4, !tbaa !370
-  store i32 %13, ptr %62, align 4, !tbaa !370
+  store i32 %13, ptr %62, align 8, !tbaa !370
   %88 = getelementptr inbounds nuw i8, ptr %.09, i64 32
   store i8 %15, ptr %88, align 8, !tbaa !404
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 8) #17
@@ -17244,9 +17244,9 @@ _ZN4llvm4coro10AllocaInfoaSEOS1_.exit:            ; preds = %.lr.ph, %_ZN4llvm12
   store ptr null, ptr %37, align 8, !tbaa !750
   %39 = getelementptr inbounds i8, ptr %.069, i64 -24
   %40 = getelementptr inbounds i8, ptr %.078, i64 -24
-  %41 = load i32, ptr %40, align 4, !tbaa !370
-  store i32 %41, ptr %39, align 4, !tbaa !370
-  store i32 0, ptr %40, align 4, !tbaa !370
+  %41 = load i32, ptr %40, align 8, !tbaa !370
+  store i32 %41, ptr %39, align 8, !tbaa !370
+  store i32 0, ptr %40, align 8, !tbaa !370
   %42 = getelementptr inbounds i8, ptr %.069, i64 -20
   %43 = getelementptr inbounds i8, ptr %.078, i64 -20
   %44 = load i32, ptr %42, align 4, !tbaa !370
@@ -17254,10 +17254,10 @@ _ZN4llvm4coro10AllocaInfoaSEOS1_.exit:            ; preds = %.lr.ph, %_ZN4llvm12
   store i32 %45, ptr %42, align 4, !tbaa !370
   store i32 %44, ptr %43, align 4, !tbaa !370
   %46 = getelementptr inbounds i8, ptr %.078, i64 -16
-  %47 = load i32, ptr %13, align 4, !tbaa !370
-  %48 = load i32, ptr %46, align 4, !tbaa !370
-  store i32 %48, ptr %13, align 4, !tbaa !370
-  store i32 %47, ptr %46, align 4, !tbaa !370
+  %47 = load i32, ptr %13, align 8, !tbaa !370
+  %48 = load i32, ptr %46, align 8, !tbaa !370
+  store i32 %48, ptr %13, align 8, !tbaa !370
+  store i32 %47, ptr %46, align 8, !tbaa !370
   %49 = getelementptr inbounds i8, ptr %.078, i64 -8
   %50 = load i8, ptr %49, align 8, !tbaa !404, !range !29, !noundef !12
   %51 = getelementptr inbounds i8, ptr %.069, i64 -8
@@ -17387,11 +17387,11 @@ _ZN4llvm8DenseMapIPNS_11InstructionESt8optionalINS_5APIntEENS_12DenseMapInfoIS2_
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %12, ptr %20, align 8, !tbaa !750
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i32 %14, ptr %21, align 4, !tbaa !370
+  store i32 %14, ptr %21, align 8, !tbaa !370
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i32 %16, ptr %22, align 4, !tbaa !370
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i32 %18, ptr %23, align 4, !tbaa !370
+  store i32 %18, ptr %23, align 8, !tbaa !370
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i8 %19, ptr %24, align 8, !tbaa !404
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 8) #17
@@ -17444,9 +17444,9 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseINS_4coro10AllocaInfo
   store ptr null, ptr %10, align 8, !tbaa !750
   %12 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 16
-  %14 = load i32, ptr %13, align 4, !tbaa !370
-  store i32 %14, ptr %12, align 4, !tbaa !370
-  store i32 0, ptr %13, align 4, !tbaa !370
+  %14 = load i32, ptr %13, align 8, !tbaa !370
+  store i32 %14, ptr %12, align 8, !tbaa !370
+  store i32 0, ptr %13, align 8, !tbaa !370
   %15 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 20
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 20
   %17 = load i32, ptr %15, align 4, !tbaa !370
@@ -17455,10 +17455,10 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseINS_4coro10AllocaInfo
   store i32 %17, ptr %16, align 4, !tbaa !370
   %19 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 24
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 24
-  %21 = load i32, ptr %19, align 4, !tbaa !370
-  %22 = load i32, ptr %20, align 4, !tbaa !370
-  store i32 %22, ptr %19, align 4, !tbaa !370
-  store i32 %21, ptr %20, align 4, !tbaa !370
+  %21 = load i32, ptr %19, align 8, !tbaa !370
+  %22 = load i32, ptr %20, align 8, !tbaa !370
+  store i32 %22, ptr %19, align 8, !tbaa !370
+  store i32 %21, ptr %20, align 8, !tbaa !370
   %23 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 32
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 32
   %25 = load i8, ptr %24, align 8, !tbaa !404, !range !29, !noundef !12
@@ -17832,7 +17832,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueENS_5AlignENS_12DenseMapInfoIS3_vE
   store ptr %60, ptr %50, align 8, !tbaa !289
   %61 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %62 = load i8, ptr %3, align 1, !tbaa !115
-  store i8 %62, ptr %61, align 1, !tbaa !115
+  store i8 %62, ptr %61, align 8, !tbaa !115
   %63 = load ptr, ptr %1, align 8, !tbaa !544
   %64 = load i32, ptr %7, align 8, !tbaa !545
   br label %.loopexit
@@ -18044,7 +18044,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueENS_5AlignENS_12DenseMapInfoIS3_vE
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i8, ptr %67, align 1, !tbaa !115
-  store i8 %68, ptr %66, align 1, !tbaa !115
+  store i8 %68, ptr %66, align 8, !tbaa !115
   %69 = load i32, ptr %32, align 8, !tbaa !775
   %70 = add i32 %69, 1
   store i32 %70, ptr %32, align 8, !tbaa !775

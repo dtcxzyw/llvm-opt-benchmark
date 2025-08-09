@@ -45699,7 +45699,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111reintegrateEPN5Yosys5RTLIL6Modul
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %211 = load i32, ptr %210, align 4, !tbaa !42
+  %211 = load i32, ptr %210, align 8, !tbaa !42
   %212 = sext i32 %211 to i64
   %213 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8, !tbaa !238
   %214 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8, !tbaa !241
@@ -98380,7 +98380,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_iESt
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !1056
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
-  %8 = load i32, ptr %7, align 4, !tbaa !42
+  %8 = load i32, ptr %7, align 8, !tbaa !42
   %9 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !45, !range !47, !noundef !48
   %10 = trunc nuw i8 %9 to i1
   %11 = icmp ne i32 %8, 0
@@ -106776,7 +106776,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_iESt
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !1056
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
-  %8 = load i32, ptr %7, align 4, !tbaa !42
+  %8 = load i32, ptr %7, align 8, !tbaa !42
   %9 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !45, !range !47, !noundef !48
   %10 = trunc nuw i8 %9 to i1
   %11 = icmp ne i32 %8, 0

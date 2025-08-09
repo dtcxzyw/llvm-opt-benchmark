@@ -11138,8 +11138,8 @@ define noundef nonnull ptr @_ZN5boost4json6object11insert_implENS0_8pilferedINS0
   store ptr %16, ptr %14, align 8, !tbaa !112
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %19 = load i32, ptr %18, align 4, !tbaa !116
-  store i32 0, ptr %18, align 4, !tbaa !116
+  %19 = load i32, ptr %18, align 8, !tbaa !116
+  store i32 0, ptr %18, align 8, !tbaa !116
   store i32 %19, ptr %17, align 8, !tbaa !107
   %20 = load ptr, ptr %4, align 8, !tbaa !102
   %21 = load i32, ptr %20, align 8, !tbaa !106
@@ -11163,8 +11163,8 @@ define noundef nonnull ptr @_ZN5boost4json6object11insert_implENS0_8pilferedINS0
   store ptr %33, ptr %31, align 8, !tbaa !112
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %36 = load i32, ptr %35, align 4, !tbaa !116
-  store i32 0, ptr %35, align 4, !tbaa !116
+  %36 = load i32, ptr %35, align 8, !tbaa !116
+  store i32 0, ptr %35, align 8, !tbaa !116
   store i32 %36, ptr %34, align 8, !tbaa !107
   %37 = load i32, ptr %27, align 4, !tbaa !116
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 36

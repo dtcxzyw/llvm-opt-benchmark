@@ -346,7 +346,7 @@ define internal range(i32 -2147483648, 1) i32 @write_packet(ptr noundef %0, ptr 
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %70, i64 8
   store i64 %45, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !62
   store ptr %66, ptr %61, align 8, !tbaa !60
-  store i32 %63, ptr %47, align 4, !tbaa !61
+  store i32 %63, ptr %47, align 8, !tbaa !61
   br label %add_serial_pair.exit
 
 add_serial_pair.exit:                             ; preds = %67, %60, %56
@@ -848,7 +848,7 @@ define internal fastcc void @write_sync(ptr noundef readonly captures(none) %0) 
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 584
   %19 = load i64, ptr %11, align 8, !tbaa !31
   %20 = load i64, ptr %6, align 8, !tbaa !32
-  %21 = load i32, ptr %18, align 4, !tbaa !61
+  %21 = load i32, ptr %18, align 8, !tbaa !61
   %22 = add nsw i32 %21, 1
   %23 = load ptr, ptr %17, align 8, !tbaa !60
   %24 = sext i32 %22 to i64
@@ -864,7 +864,7 @@ define internal fastcc void @write_sync(ptr noundef readonly captures(none) %0) 
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 %20, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !62
   store ptr %25, ptr %17, align 8, !tbaa !60
-  store i32 %22, ptr %18, align 4, !tbaa !61
+  store i32 %22, ptr %18, align 8, !tbaa !61
   br label %add_serial_pair.exit
 
 add_serial_pair.exit:                             ; preds = %1, %26

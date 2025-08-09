@@ -9131,7 +9131,7 @@ define internal fastcc void @exec_save_simple_expr(ptr noundef writeonly capture
   %7 = load ptr, ptr %.val, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = load i32, ptr %.0, align 4
+  %10 = load i32, ptr %.0, align 8
   switch i32 %10, label %16 [
     i32 330, label %20
     i32 367, label %11

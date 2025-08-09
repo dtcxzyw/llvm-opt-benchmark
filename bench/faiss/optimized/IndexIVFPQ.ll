@@ -6000,7 +6000,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %844 = getelementptr inbounds nuw i8, ptr %842, i64 8
   %845 = load i64, ptr %844, align 8, !tbaa !16
   %846 = getelementptr inbounds nuw i8, ptr %842, i64 16
-  %847 = load i32, ptr %846, align 4, !tbaa !146
+  %847 = load i32, ptr %846, align 8, !tbaa !146
   %848 = and i64 %1, -4
   %.not.i.i165.i.i = icmp eq i64 %848, 0
   br i1 %.not.i.i165.i.i, label %.preheader.i.i187.i.i, label %.lr.ph.i.i166.i.i
@@ -6054,7 +6054,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %881 = trunc nuw nsw i64 %880 to i32
   %882 = add nuw nsw i32 %881, %876
   %883 = getelementptr inbounds nuw i8, ptr %866, i64 16
-  %884 = load i32, ptr %883, align 4, !tbaa !146
+  %884 = load i32, ptr %883, align 8, !tbaa !146
   %885 = xor i32 %884, %847
   %886 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %885)
   %887 = add nuw nsw i32 %882, %886
@@ -6083,7 +6083,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %906 = trunc nuw nsw i64 %905 to i32
   %907 = add nuw nsw i32 %906, %901
   %908 = getelementptr inbounds nuw i8, ptr %897, i64 16
-  %909 = load i32, ptr %908, align 4, !tbaa !146
+  %909 = load i32, ptr %908, align 8, !tbaa !146
   %910 = xor i32 %909, %847
   %911 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %910)
   %912 = add nuw nsw i32 %907, %911
@@ -6112,7 +6112,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %931 = trunc nuw nsw i64 %930 to i32
   %932 = add nuw nsw i32 %931, %926
   %933 = getelementptr inbounds nuw i8, ptr %922, i64 16
-  %934 = load i32, ptr %933, align 4, !tbaa !146
+  %934 = load i32, ptr %933, align 8, !tbaa !146
   %935 = xor i32 %934, %847
   %936 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %935)
   %937 = add nuw nsw i32 %932, %936
@@ -6141,7 +6141,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %956 = trunc nuw nsw i64 %955 to i32
   %957 = add nuw nsw i32 %956, %951
   %958 = getelementptr inbounds nuw i8, ptr %947, i64 16
-  %959 = load i32, ptr %958, align 4, !tbaa !146
+  %959 = load i32, ptr %958, align 8, !tbaa !146
   %960 = xor i32 %959, %847
   %961 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %960)
   %962 = add nuw nsw i32 %957, %961
@@ -6426,7 +6426,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit116.i.
   %1120 = trunc nuw nsw i64 %1119 to i32
   %1121 = add nuw nsw i32 %1120, %1115
   %1122 = getelementptr inbounds nuw i8, ptr %1111, i64 16
-  %1123 = load i32, ptr %1122, align 4, !tbaa !146
+  %1123 = load i32, ptr %1122, align 8, !tbaa !146
   %1124 = xor i32 %1123, %847
   %1125 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1124)
   %1126 = add nuw nsw i32 %1121, %1125
@@ -13358,7 +13358,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %1658 = getelementptr inbounds nuw i8, ptr %1656, i64 8
   %1659 = load i64, ptr %1658, align 8, !tbaa !16
   %1660 = getelementptr inbounds nuw i8, ptr %1656, i64 16
-  %1661 = load i32, ptr %1660, align 4, !tbaa !146
+  %1661 = load i32, ptr %1660, align 8, !tbaa !146
   %1662 = and i64 %2, -4
   %.not.i.i372 = icmp eq i64 %1662, 0
   br i1 %.not.i.i372, label %.preheader.i.i400, label %.lr.ph.i.i373
@@ -13491,7 +13491,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit177.i.us
   %1734 = trunc nuw nsw i64 %1733 to i32
   %1735 = add nuw nsw i32 %1734, %1729
   %1736 = getelementptr inbounds nuw i8, ptr %1719, i64 16
-  %1737 = load i32, ptr %1736, align 4, !tbaa !146
+  %1737 = load i32, ptr %1736, align 8, !tbaa !146
   %1738 = xor i32 %1737, %1661
   %1739 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1738)
   %1740 = add nuw nsw i32 %1735, %1739
@@ -13520,7 +13520,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit177.i.us
   %1759 = trunc nuw nsw i64 %1758 to i32
   %1760 = add nuw nsw i32 %1759, %1754
   %1761 = getelementptr inbounds nuw i8, ptr %1750, i64 16
-  %1762 = load i32, ptr %1761, align 4, !tbaa !146
+  %1762 = load i32, ptr %1761, align 8, !tbaa !146
   %1763 = xor i32 %1762, %1661
   %1764 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1763)
   %1765 = add nuw nsw i32 %1760, %1764
@@ -13549,7 +13549,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit177.i.us
   %1784 = trunc nuw nsw i64 %1783 to i32
   %1785 = add nuw nsw i32 %1784, %1779
   %1786 = getelementptr inbounds nuw i8, ptr %1775, i64 16
-  %1787 = load i32, ptr %1786, align 4, !tbaa !146
+  %1787 = load i32, ptr %1786, align 8, !tbaa !146
   %1788 = xor i32 %1787, %1661
   %1789 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1788)
   %1790 = add nuw nsw i32 %1785, %1789
@@ -13578,7 +13578,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit177.i.us
   %1809 = trunc nuw nsw i64 %1808 to i32
   %1810 = add nuw nsw i32 %1809, %1804
   %1811 = getelementptr inbounds nuw i8, ptr %1800, i64 16
-  %1812 = load i32, ptr %1811, align 4, !tbaa !146
+  %1812 = load i32, ptr %1811, align 8, !tbaa !146
   %1813 = xor i32 %1812, %1661
   %1814 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1813)
   %1815 = add nuw nsw i32 %1810, %1814
@@ -14274,7 +14274,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit177.i.i3
   %2175 = trunc nuw nsw i64 %2174 to i32
   %2176 = add nuw nsw i32 %2175, %2170
   %2177 = getelementptr inbounds nuw i8, ptr %2166, i64 16
-  %2178 = load i32, ptr %2177, align 4, !tbaa !146
+  %2178 = load i32, ptr %2177, align 8, !tbaa !146
   %2179 = xor i32 %2178, %1661
   %2180 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2179)
   %2181 = add nuw nsw i32 %2176, %2180
@@ -20886,7 +20886,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %844 = getelementptr inbounds nuw i8, ptr %842, i64 8
   %845 = load i64, ptr %844, align 8, !tbaa !16
   %846 = getelementptr inbounds nuw i8, ptr %842, i64 16
-  %847 = load i32, ptr %846, align 4, !tbaa !146
+  %847 = load i32, ptr %846, align 8, !tbaa !146
   %848 = and i64 %1, -4
   %.not.i.i165.i.i = icmp eq i64 %848, 0
   br i1 %.not.i.i165.i.i, label %.preheader.i.i187.i.i, label %.lr.ph.i.i166.i.i
@@ -20940,7 +20940,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %881 = trunc nuw nsw i64 %880 to i32
   %882 = add nuw nsw i32 %881, %876
   %883 = getelementptr inbounds nuw i8, ptr %866, i64 16
-  %884 = load i32, ptr %883, align 4, !tbaa !146
+  %884 = load i32, ptr %883, align 8, !tbaa !146
   %885 = xor i32 %884, %847
   %886 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %885)
   %887 = add nuw nsw i32 %882, %886
@@ -20969,7 +20969,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %906 = trunc nuw nsw i64 %905 to i32
   %907 = add nuw nsw i32 %906, %901
   %908 = getelementptr inbounds nuw i8, ptr %897, i64 16
-  %909 = load i32, ptr %908, align 4, !tbaa !146
+  %909 = load i32, ptr %908, align 8, !tbaa !146
   %910 = xor i32 %909, %847
   %911 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %910)
   %912 = add nuw nsw i32 %907, %911
@@ -20998,7 +20998,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %931 = trunc nuw nsw i64 %930 to i32
   %932 = add nuw nsw i32 %931, %926
   %933 = getelementptr inbounds nuw i8, ptr %922, i64 16
-  %934 = load i32, ptr %933, align 4, !tbaa !146
+  %934 = load i32, ptr %933, align 8, !tbaa !146
   %935 = xor i32 %934, %847
   %936 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %935)
   %937 = add nuw nsw i32 %932, %936
@@ -21027,7 +21027,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %956 = trunc nuw nsw i64 %955 to i32
   %957 = add nuw nsw i32 %956, %951
   %958 = getelementptr inbounds nuw i8, ptr %947, i64 16
-  %959 = load i32, ptr %958, align 4, !tbaa !146
+  %959 = load i32, ptr %958, align 8, !tbaa !146
   %960 = xor i32 %959, %847
   %961 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %960)
   %962 = add nuw nsw i32 %957, %961
@@ -21312,7 +21312,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit116.i.
   %1120 = trunc nuw nsw i64 %1119 to i32
   %1121 = add nuw nsw i32 %1120, %1115
   %1122 = getelementptr inbounds nuw i8, ptr %1111, i64 16
-  %1123 = load i32, ptr %1122, align 4, !tbaa !146
+  %1123 = load i32, ptr %1122, align 8, !tbaa !146
   %1124 = xor i32 %1123, %847
   %1125 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1124)
   %1126 = add nuw nsw i32 %1121, %1125
@@ -26823,7 +26823,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %1658 = getelementptr inbounds nuw i8, ptr %1656, i64 8
   %1659 = load i64, ptr %1658, align 8, !tbaa !16
   %1660 = getelementptr inbounds nuw i8, ptr %1656, i64 16
-  %1661 = load i32, ptr %1660, align 4, !tbaa !146
+  %1661 = load i32, ptr %1660, align 8, !tbaa !146
   %1662 = and i64 %2, -4
   %.not.i.i372 = icmp eq i64 %1662, 0
   br i1 %.not.i.i372, label %.preheader.i.i400, label %.lr.ph.i.i373
@@ -26956,7 +26956,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit177.i.us
   %1734 = trunc nuw nsw i64 %1733 to i32
   %1735 = add nuw nsw i32 %1734, %1729
   %1736 = getelementptr inbounds nuw i8, ptr %1719, i64 16
-  %1737 = load i32, ptr %1736, align 4, !tbaa !146
+  %1737 = load i32, ptr %1736, align 8, !tbaa !146
   %1738 = xor i32 %1737, %1661
   %1739 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1738)
   %1740 = add nuw nsw i32 %1735, %1739
@@ -26985,7 +26985,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit177.i.us
   %1759 = trunc nuw nsw i64 %1758 to i32
   %1760 = add nuw nsw i32 %1759, %1754
   %1761 = getelementptr inbounds nuw i8, ptr %1750, i64 16
-  %1762 = load i32, ptr %1761, align 4, !tbaa !146
+  %1762 = load i32, ptr %1761, align 8, !tbaa !146
   %1763 = xor i32 %1762, %1661
   %1764 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1763)
   %1765 = add nuw nsw i32 %1760, %1764
@@ -27014,7 +27014,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit177.i.us
   %1784 = trunc nuw nsw i64 %1783 to i32
   %1785 = add nuw nsw i32 %1784, %1779
   %1786 = getelementptr inbounds nuw i8, ptr %1775, i64 16
-  %1787 = load i32, ptr %1786, align 4, !tbaa !146
+  %1787 = load i32, ptr %1786, align 8, !tbaa !146
   %1788 = xor i32 %1787, %1661
   %1789 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1788)
   %1790 = add nuw nsw i32 %1785, %1789
@@ -27043,7 +27043,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit177.i.us
   %1809 = trunc nuw nsw i64 %1808 to i32
   %1810 = add nuw nsw i32 %1809, %1804
   %1811 = getelementptr inbounds nuw i8, ptr %1800, i64 16
-  %1812 = load i32, ptr %1811, align 4, !tbaa !146
+  %1812 = load i32, ptr %1811, align 8, !tbaa !146
   %1813 = xor i32 %1812, %1661
   %1814 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1813)
   %1815 = add nuw nsw i32 %1810, %1814
@@ -27739,7 +27739,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit177.i.i3
   %2175 = trunc nuw nsw i64 %2174 to i32
   %2176 = add nuw nsw i32 %2175, %2170
   %2177 = getelementptr inbounds nuw i8, ptr %2166, i64 16
-  %2178 = load i32, ptr %2177, align 4, !tbaa !146
+  %2178 = load i32, ptr %2177, align 8, !tbaa !146
   %2179 = xor i32 %2178, %1661
   %2180 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2179)
   %2181 = add nuw nsw i32 %2176, %2180
@@ -34065,7 +34065,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %844 = getelementptr inbounds nuw i8, ptr %842, i64 8
   %845 = load i64, ptr %844, align 8, !tbaa !16
   %846 = getelementptr inbounds nuw i8, ptr %842, i64 16
-  %847 = load i32, ptr %846, align 4, !tbaa !146
+  %847 = load i32, ptr %846, align 8, !tbaa !146
   %848 = and i64 %1, -4
   %.not.i.i166.i.i = icmp eq i64 %848, 0
   br i1 %.not.i.i166.i.i, label %.preheader.i.i188.i.i, label %.lr.ph.i.i167.i.i
@@ -34119,7 +34119,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %881 = trunc nuw nsw i64 %880 to i32
   %882 = add nuw nsw i32 %881, %876
   %883 = getelementptr inbounds nuw i8, ptr %866, i64 16
-  %884 = load i32, ptr %883, align 4, !tbaa !146
+  %884 = load i32, ptr %883, align 8, !tbaa !146
   %885 = xor i32 %884, %847
   %886 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %885)
   %887 = add nuw nsw i32 %882, %886
@@ -34148,7 +34148,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %906 = trunc nuw nsw i64 %905 to i32
   %907 = add nuw nsw i32 %906, %901
   %908 = getelementptr inbounds nuw i8, ptr %897, i64 16
-  %909 = load i32, ptr %908, align 4, !tbaa !146
+  %909 = load i32, ptr %908, align 8, !tbaa !146
   %910 = xor i32 %909, %847
   %911 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %910)
   %912 = add nuw nsw i32 %907, %911
@@ -34177,7 +34177,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %931 = trunc nuw nsw i64 %930 to i32
   %932 = add nuw nsw i32 %931, %926
   %933 = getelementptr inbounds nuw i8, ptr %922, i64 16
-  %934 = load i32, ptr %933, align 4, !tbaa !146
+  %934 = load i32, ptr %933, align 8, !tbaa !146
   %935 = xor i32 %934, %847
   %936 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %935)
   %937 = add nuw nsw i32 %932, %936
@@ -34206,7 +34206,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %956 = trunc nuw nsw i64 %955 to i32
   %957 = add nuw nsw i32 %956, %951
   %958 = getelementptr inbounds nuw i8, ptr %947, i64 16
-  %959 = load i32, ptr %958, align 4, !tbaa !146
+  %959 = load i32, ptr %958, align 8, !tbaa !146
   %960 = xor i32 %959, %847
   %961 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %960)
   %962 = add nuw nsw i32 %957, %961
@@ -34491,7 +34491,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit116.i.
   %1120 = trunc nuw nsw i64 %1119 to i32
   %1121 = add nuw nsw i32 %1120, %1115
   %1122 = getelementptr inbounds nuw i8, ptr %1111, i64 16
-  %1123 = load i32, ptr %1122, align 4, !tbaa !146
+  %1123 = load i32, ptr %1122, align 8, !tbaa !146
   %1124 = xor i32 %1123, %847
   %1125 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1124)
   %1126 = add nuw nsw i32 %1121, %1125
@@ -40005,7 +40005,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %1658 = getelementptr inbounds nuw i8, ptr %1656, i64 8
   %1659 = load i64, ptr %1658, align 8, !tbaa !16
   %1660 = getelementptr inbounds nuw i8, ptr %1656, i64 16
-  %1661 = load i32, ptr %1660, align 4, !tbaa !146
+  %1661 = load i32, ptr %1660, align 8, !tbaa !146
   %1662 = and i64 %2, -4
   %.not.i.i372 = icmp eq i64 %1662, 0
   br i1 %.not.i.i372, label %.preheader.i.i400, label %.lr.ph.i.i373
@@ -40138,7 +40138,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit177.i.us
   %1734 = trunc nuw nsw i64 %1733 to i32
   %1735 = add nuw nsw i32 %1734, %1729
   %1736 = getelementptr inbounds nuw i8, ptr %1719, i64 16
-  %1737 = load i32, ptr %1736, align 4, !tbaa !146
+  %1737 = load i32, ptr %1736, align 8, !tbaa !146
   %1738 = xor i32 %1737, %1661
   %1739 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1738)
   %1740 = add nuw nsw i32 %1735, %1739
@@ -40167,7 +40167,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit177.i.us
   %1759 = trunc nuw nsw i64 %1758 to i32
   %1760 = add nuw nsw i32 %1759, %1754
   %1761 = getelementptr inbounds nuw i8, ptr %1750, i64 16
-  %1762 = load i32, ptr %1761, align 4, !tbaa !146
+  %1762 = load i32, ptr %1761, align 8, !tbaa !146
   %1763 = xor i32 %1762, %1661
   %1764 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1763)
   %1765 = add nuw nsw i32 %1760, %1764
@@ -40196,7 +40196,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit177.i.us
   %1784 = trunc nuw nsw i64 %1783 to i32
   %1785 = add nuw nsw i32 %1784, %1779
   %1786 = getelementptr inbounds nuw i8, ptr %1775, i64 16
-  %1787 = load i32, ptr %1786, align 4, !tbaa !146
+  %1787 = load i32, ptr %1786, align 8, !tbaa !146
   %1788 = xor i32 %1787, %1661
   %1789 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1788)
   %1790 = add nuw nsw i32 %1785, %1789
@@ -40225,7 +40225,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit177.i.us
   %1809 = trunc nuw nsw i64 %1808 to i32
   %1810 = add nuw nsw i32 %1809, %1804
   %1811 = getelementptr inbounds nuw i8, ptr %1800, i64 16
-  %1812 = load i32, ptr %1811, align 4, !tbaa !146
+  %1812 = load i32, ptr %1811, align 8, !tbaa !146
   %1813 = xor i32 %1812, %1661
   %1814 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1813)
   %1815 = add nuw nsw i32 %1810, %1814
@@ -40921,7 +40921,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit177.i.i3
   %2175 = trunc nuw nsw i64 %2174 to i32
   %2176 = add nuw nsw i32 %2175, %2170
   %2177 = getelementptr inbounds nuw i8, ptr %2166, i64 16
-  %2178 = load i32, ptr %2177, align 4, !tbaa !146
+  %2178 = load i32, ptr %2177, align 8, !tbaa !146
   %2179 = xor i32 %2178, %1661
   %2180 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2179)
   %2181 = add nuw nsw i32 %2176, %2180
@@ -47242,7 +47242,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %844 = getelementptr inbounds nuw i8, ptr %842, i64 8
   %845 = load i64, ptr %844, align 8, !tbaa !16
   %846 = getelementptr inbounds nuw i8, ptr %842, i64 16
-  %847 = load i32, ptr %846, align 4, !tbaa !146
+  %847 = load i32, ptr %846, align 8, !tbaa !146
   %848 = and i64 %1, -4
   %.not.i.i166.i.i = icmp eq i64 %848, 0
   br i1 %.not.i.i166.i.i, label %.preheader.i.i188.i.i, label %.lr.ph.i.i167.i.i
@@ -47296,7 +47296,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %881 = trunc nuw nsw i64 %880 to i32
   %882 = add nuw nsw i32 %881, %876
   %883 = getelementptr inbounds nuw i8, ptr %866, i64 16
-  %884 = load i32, ptr %883, align 4, !tbaa !146
+  %884 = load i32, ptr %883, align 8, !tbaa !146
   %885 = xor i32 %884, %847
   %886 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %885)
   %887 = add nuw nsw i32 %882, %886
@@ -47325,7 +47325,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %906 = trunc nuw nsw i64 %905 to i32
   %907 = add nuw nsw i32 %906, %901
   %908 = getelementptr inbounds nuw i8, ptr %897, i64 16
-  %909 = load i32, ptr %908, align 4, !tbaa !146
+  %909 = load i32, ptr %908, align 8, !tbaa !146
   %910 = xor i32 %909, %847
   %911 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %910)
   %912 = add nuw nsw i32 %907, %911
@@ -47354,7 +47354,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %931 = trunc nuw nsw i64 %930 to i32
   %932 = add nuw nsw i32 %931, %926
   %933 = getelementptr inbounds nuw i8, ptr %922, i64 16
-  %934 = load i32, ptr %933, align 4, !tbaa !146
+  %934 = load i32, ptr %933, align 8, !tbaa !146
   %935 = xor i32 %934, %847
   %936 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %935)
   %937 = add nuw nsw i32 %932, %936
@@ -47383,7 +47383,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %956 = trunc nuw nsw i64 %955 to i32
   %957 = add nuw nsw i32 %956, %951
   %958 = getelementptr inbounds nuw i8, ptr %947, i64 16
-  %959 = load i32, ptr %958, align 4, !tbaa !146
+  %959 = load i32, ptr %958, align 8, !tbaa !146
   %960 = xor i32 %959, %847
   %961 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %960)
   %962 = add nuw nsw i32 %957, %961
@@ -47668,7 +47668,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit116.i.
   %1120 = trunc nuw nsw i64 %1119 to i32
   %1121 = add nuw nsw i32 %1120, %1115
   %1122 = getelementptr inbounds nuw i8, ptr %1111, i64 16
-  %1123 = load i32, ptr %1122, align 4, !tbaa !146
+  %1123 = load i32, ptr %1122, align 8, !tbaa !146
   %1124 = xor i32 %1123, %847
   %1125 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1124)
   %1126 = add nuw nsw i32 %1121, %1125
@@ -53179,7 +53179,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %1658 = getelementptr inbounds nuw i8, ptr %1656, i64 8
   %1659 = load i64, ptr %1658, align 8, !tbaa !16
   %1660 = getelementptr inbounds nuw i8, ptr %1656, i64 16
-  %1661 = load i32, ptr %1660, align 4, !tbaa !146
+  %1661 = load i32, ptr %1660, align 8, !tbaa !146
   %1662 = and i64 %2, -4
   %.not.i.i372 = icmp eq i64 %1662, 0
   br i1 %.not.i.i372, label %.preheader.i.i400, label %.lr.ph.i.i373
@@ -53312,7 +53312,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit177.i.us
   %1734 = trunc nuw nsw i64 %1733 to i32
   %1735 = add nuw nsw i32 %1734, %1729
   %1736 = getelementptr inbounds nuw i8, ptr %1719, i64 16
-  %1737 = load i32, ptr %1736, align 4, !tbaa !146
+  %1737 = load i32, ptr %1736, align 8, !tbaa !146
   %1738 = xor i32 %1737, %1661
   %1739 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1738)
   %1740 = add nuw nsw i32 %1735, %1739
@@ -53341,7 +53341,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit177.i.us
   %1759 = trunc nuw nsw i64 %1758 to i32
   %1760 = add nuw nsw i32 %1759, %1754
   %1761 = getelementptr inbounds nuw i8, ptr %1750, i64 16
-  %1762 = load i32, ptr %1761, align 4, !tbaa !146
+  %1762 = load i32, ptr %1761, align 8, !tbaa !146
   %1763 = xor i32 %1762, %1661
   %1764 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1763)
   %1765 = add nuw nsw i32 %1760, %1764
@@ -53370,7 +53370,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit177.i.us
   %1784 = trunc nuw nsw i64 %1783 to i32
   %1785 = add nuw nsw i32 %1784, %1779
   %1786 = getelementptr inbounds nuw i8, ptr %1775, i64 16
-  %1787 = load i32, ptr %1786, align 4, !tbaa !146
+  %1787 = load i32, ptr %1786, align 8, !tbaa !146
   %1788 = xor i32 %1787, %1661
   %1789 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1788)
   %1790 = add nuw nsw i32 %1785, %1789
@@ -53399,7 +53399,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit177.i.us
   %1809 = trunc nuw nsw i64 %1808 to i32
   %1810 = add nuw nsw i32 %1809, %1804
   %1811 = getelementptr inbounds nuw i8, ptr %1800, i64 16
-  %1812 = load i32, ptr %1811, align 4, !tbaa !146
+  %1812 = load i32, ptr %1811, align 8, !tbaa !146
   %1813 = xor i32 %1812, %1661
   %1814 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1813)
   %1815 = add nuw nsw i32 %1810, %1814
@@ -54095,7 +54095,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit177.i.i3
   %2175 = trunc nuw nsw i64 %2174 to i32
   %2176 = add nuw nsw i32 %2175, %2170
   %2177 = getelementptr inbounds nuw i8, ptr %2166, i64 16
-  %2178 = load i32, ptr %2177, align 4, !tbaa !146
+  %2178 = load i32, ptr %2177, align 8, !tbaa !146
   %2179 = xor i32 %2178, %1661
   %2180 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2179)
   %2181 = add nuw nsw i32 %2176, %2180
@@ -61208,7 +61208,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %1044 = getelementptr inbounds nuw i8, ptr %1042, i64 8
   %1045 = load i64, ptr %1044, align 8, !tbaa !16
   %1046 = getelementptr inbounds nuw i8, ptr %1042, i64 16
-  %1047 = load i32, ptr %1046, align 4, !tbaa !146
+  %1047 = load i32, ptr %1046, align 8, !tbaa !146
   %1048 = and i64 %1, -4
   %.not.i.i220.i.i = icmp eq i64 %1048, 0
   br i1 %.not.i.i220.i.i, label %.preheader.i.i250.i.i, label %.lr.ph.i.i221.i.i
@@ -61262,7 +61262,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %1081 = trunc nuw nsw i64 %1080 to i32
   %1082 = add nuw nsw i32 %1081, %1076
   %1083 = getelementptr inbounds nuw i8, ptr %1066, i64 16
-  %1084 = load i32, ptr %1083, align 4, !tbaa !146
+  %1084 = load i32, ptr %1083, align 8, !tbaa !146
   %1085 = xor i32 %1084, %1047
   %1086 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1085)
   %1087 = add nuw nsw i32 %1082, %1086
@@ -61291,7 +61291,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %1106 = trunc nuw nsw i64 %1105 to i32
   %1107 = add nuw nsw i32 %1106, %1101
   %1108 = getelementptr inbounds nuw i8, ptr %1097, i64 16
-  %1109 = load i32, ptr %1108, align 4, !tbaa !146
+  %1109 = load i32, ptr %1108, align 8, !tbaa !146
   %1110 = xor i32 %1109, %1047
   %1111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1110)
   %1112 = add nuw nsw i32 %1107, %1111
@@ -61320,7 +61320,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %1131 = trunc nuw nsw i64 %1130 to i32
   %1132 = add nuw nsw i32 %1131, %1126
   %1133 = getelementptr inbounds nuw i8, ptr %1122, i64 16
-  %1134 = load i32, ptr %1133, align 4, !tbaa !146
+  %1134 = load i32, ptr %1133, align 8, !tbaa !146
   %1135 = xor i32 %1134, %1047
   %1136 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1135)
   %1137 = add nuw nsw i32 %1132, %1136
@@ -61349,7 +61349,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %1156 = trunc nuw nsw i64 %1155 to i32
   %1157 = add nuw nsw i32 %1156, %1151
   %1158 = getelementptr inbounds nuw i8, ptr %1147, i64 16
-  %1159 = load i32, ptr %1158, align 4, !tbaa !146
+  %1159 = load i32, ptr %1158, align 8, !tbaa !146
   %1160 = xor i32 %1159, %1047
   %1161 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1160)
   %1162 = add nuw nsw i32 %1157, %1161
@@ -61669,7 +61669,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit113.i.
   %1334 = trunc nuw nsw i64 %1333 to i32
   %1335 = add nuw nsw i32 %1334, %1329
   %1336 = getelementptr inbounds nuw i8, ptr %1325, i64 16
-  %1337 = load i32, ptr %1336, align 4, !tbaa !146
+  %1337 = load i32, ptr %1336, align 8, !tbaa !146
   %1338 = xor i32 %1337, %1047
   %1339 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1338)
   %1340 = add nuw nsw i32 %1335, %1339
@@ -68113,7 +68113,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %1770 = getelementptr inbounds nuw i8, ptr %1768, i64 8
   %1771 = load i64, ptr %1770, align 8, !tbaa !16
   %1772 = getelementptr inbounds nuw i8, ptr %1768, i64 16
-  %1773 = load i32, ptr %1772, align 4, !tbaa !146
+  %1773 = load i32, ptr %1772, align 8, !tbaa !146
   %1774 = and i64 %2, -4
   %.not.i.i391 = icmp eq i64 %1774, 0
   br i1 %.not.i.i391, label %.preheader.i.i425, label %.lr.ph.i.i392
@@ -68181,7 +68181,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %1816 = trunc nuw nsw i64 %1815 to i32
   %1817 = add nuw nsw i32 %1816, %1811
   %1818 = getelementptr inbounds nuw i8, ptr %1801, i64 16
-  %1819 = load i32, ptr %1818, align 4, !tbaa !146
+  %1819 = load i32, ptr %1818, align 8, !tbaa !146
   %1820 = xor i32 %1819, %1773
   %1821 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1820)
   %1822 = add nuw nsw i32 %1817, %1821
@@ -68210,7 +68210,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %1841 = trunc nuw nsw i64 %1840 to i32
   %1842 = add nuw nsw i32 %1841, %1836
   %1843 = getelementptr inbounds nuw i8, ptr %1832, i64 16
-  %1844 = load i32, ptr %1843, align 4, !tbaa !146
+  %1844 = load i32, ptr %1843, align 8, !tbaa !146
   %1845 = xor i32 %1844, %1773
   %1846 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1845)
   %1847 = add nuw nsw i32 %1842, %1846
@@ -68239,7 +68239,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %1866 = trunc nuw nsw i64 %1865 to i32
   %1867 = add nuw nsw i32 %1866, %1861
   %1868 = getelementptr inbounds nuw i8, ptr %1857, i64 16
-  %1869 = load i32, ptr %1868, align 4, !tbaa !146
+  %1869 = load i32, ptr %1868, align 8, !tbaa !146
   %1870 = xor i32 %1869, %1773
   %1871 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1870)
   %1872 = add nuw nsw i32 %1867, %1871
@@ -68268,7 +68268,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %1891 = trunc nuw nsw i64 %1890 to i32
   %1892 = add nuw nsw i32 %1891, %1886
   %1893 = getelementptr inbounds nuw i8, ptr %1882, i64 16
-  %1894 = load i32, ptr %1893, align 4, !tbaa !146
+  %1894 = load i32, ptr %1893, align 8, !tbaa !146
   %1895 = xor i32 %1894, %1773
   %1896 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1895)
   %1897 = add nuw nsw i32 %1892, %1896
@@ -68999,7 +68999,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit174.i.i4
   %2273 = trunc nuw nsw i64 %2272 to i32
   %2274 = add nuw nsw i32 %2273, %2268
   %2275 = getelementptr inbounds nuw i8, ptr %2264, i64 16
-  %2276 = load i32, ptr %2275, align 4, !tbaa !146
+  %2276 = load i32, ptr %2275, align 8, !tbaa !146
   %2277 = xor i32 %2276, %1773
   %2278 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2277)
   %2279 = add nuw nsw i32 %2274, %2278
@@ -76730,7 +76730,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %1044 = getelementptr inbounds nuw i8, ptr %1042, i64 8
   %1045 = load i64, ptr %1044, align 8, !tbaa !16
   %1046 = getelementptr inbounds nuw i8, ptr %1042, i64 16
-  %1047 = load i32, ptr %1046, align 4, !tbaa !146
+  %1047 = load i32, ptr %1046, align 8, !tbaa !146
   %1048 = and i64 %1, -4
   %.not.i.i220.i.i = icmp eq i64 %1048, 0
   br i1 %.not.i.i220.i.i, label %.preheader.i.i250.i.i, label %.lr.ph.i.i221.i.i
@@ -76784,7 +76784,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %1081 = trunc nuw nsw i64 %1080 to i32
   %1082 = add nuw nsw i32 %1081, %1076
   %1083 = getelementptr inbounds nuw i8, ptr %1066, i64 16
-  %1084 = load i32, ptr %1083, align 4, !tbaa !146
+  %1084 = load i32, ptr %1083, align 8, !tbaa !146
   %1085 = xor i32 %1084, %1047
   %1086 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1085)
   %1087 = add nuw nsw i32 %1082, %1086
@@ -76813,7 +76813,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %1106 = trunc nuw nsw i64 %1105 to i32
   %1107 = add nuw nsw i32 %1106, %1101
   %1108 = getelementptr inbounds nuw i8, ptr %1097, i64 16
-  %1109 = load i32, ptr %1108, align 4, !tbaa !146
+  %1109 = load i32, ptr %1108, align 8, !tbaa !146
   %1110 = xor i32 %1109, %1047
   %1111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1110)
   %1112 = add nuw nsw i32 %1107, %1111
@@ -76842,7 +76842,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %1131 = trunc nuw nsw i64 %1130 to i32
   %1132 = add nuw nsw i32 %1131, %1126
   %1133 = getelementptr inbounds nuw i8, ptr %1122, i64 16
-  %1134 = load i32, ptr %1133, align 4, !tbaa !146
+  %1134 = load i32, ptr %1133, align 8, !tbaa !146
   %1135 = xor i32 %1134, %1047
   %1136 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1135)
   %1137 = add nuw nsw i32 %1132, %1136
@@ -76871,7 +76871,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %1156 = trunc nuw nsw i64 %1155 to i32
   %1157 = add nuw nsw i32 %1156, %1151
   %1158 = getelementptr inbounds nuw i8, ptr %1147, i64 16
-  %1159 = load i32, ptr %1158, align 4, !tbaa !146
+  %1159 = load i32, ptr %1158, align 8, !tbaa !146
   %1160 = xor i32 %1159, %1047
   %1161 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1160)
   %1162 = add nuw nsw i32 %1157, %1161
@@ -77191,7 +77191,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit113.i.
   %1334 = trunc nuw nsw i64 %1333 to i32
   %1335 = add nuw nsw i32 %1334, %1329
   %1336 = getelementptr inbounds nuw i8, ptr %1325, i64 16
-  %1337 = load i32, ptr %1336, align 4, !tbaa !146
+  %1337 = load i32, ptr %1336, align 8, !tbaa !146
   %1338 = xor i32 %1337, %1047
   %1339 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1338)
   %1340 = add nuw nsw i32 %1335, %1339
@@ -83632,7 +83632,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %1770 = getelementptr inbounds nuw i8, ptr %1768, i64 8
   %1771 = load i64, ptr %1770, align 8, !tbaa !16
   %1772 = getelementptr inbounds nuw i8, ptr %1768, i64 16
-  %1773 = load i32, ptr %1772, align 4, !tbaa !146
+  %1773 = load i32, ptr %1772, align 8, !tbaa !146
   %1774 = and i64 %2, -4
   %.not.i.i391 = icmp eq i64 %1774, 0
   br i1 %.not.i.i391, label %.preheader.i.i425, label %.lr.ph.i.i392
@@ -83700,7 +83700,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %1816 = trunc nuw nsw i64 %1815 to i32
   %1817 = add nuw nsw i32 %1816, %1811
   %1818 = getelementptr inbounds nuw i8, ptr %1801, i64 16
-  %1819 = load i32, ptr %1818, align 4, !tbaa !146
+  %1819 = load i32, ptr %1818, align 8, !tbaa !146
   %1820 = xor i32 %1819, %1773
   %1821 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1820)
   %1822 = add nuw nsw i32 %1817, %1821
@@ -83729,7 +83729,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %1841 = trunc nuw nsw i64 %1840 to i32
   %1842 = add nuw nsw i32 %1841, %1836
   %1843 = getelementptr inbounds nuw i8, ptr %1832, i64 16
-  %1844 = load i32, ptr %1843, align 4, !tbaa !146
+  %1844 = load i32, ptr %1843, align 8, !tbaa !146
   %1845 = xor i32 %1844, %1773
   %1846 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1845)
   %1847 = add nuw nsw i32 %1842, %1846
@@ -83758,7 +83758,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %1866 = trunc nuw nsw i64 %1865 to i32
   %1867 = add nuw nsw i32 %1866, %1861
   %1868 = getelementptr inbounds nuw i8, ptr %1857, i64 16
-  %1869 = load i32, ptr %1868, align 4, !tbaa !146
+  %1869 = load i32, ptr %1868, align 8, !tbaa !146
   %1870 = xor i32 %1869, %1773
   %1871 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1870)
   %1872 = add nuw nsw i32 %1867, %1871
@@ -83787,7 +83787,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %1891 = trunc nuw nsw i64 %1890 to i32
   %1892 = add nuw nsw i32 %1891, %1886
   %1893 = getelementptr inbounds nuw i8, ptr %1882, i64 16
-  %1894 = load i32, ptr %1893, align 4, !tbaa !146
+  %1894 = load i32, ptr %1893, align 8, !tbaa !146
   %1895 = xor i32 %1894, %1773
   %1896 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1895)
   %1897 = add nuw nsw i32 %1892, %1896
@@ -84518,7 +84518,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit174.i.i4
   %2273 = trunc nuw nsw i64 %2272 to i32
   %2274 = add nuw nsw i32 %2273, %2268
   %2275 = getelementptr inbounds nuw i8, ptr %2264, i64 16
-  %2276 = load i32, ptr %2275, align 4, !tbaa !146
+  %2276 = load i32, ptr %2275, align 8, !tbaa !146
   %2277 = xor i32 %2276, %1773
   %2278 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2277)
   %2279 = add nuw nsw i32 %2274, %2278
@@ -91298,7 +91298,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %899 = getelementptr inbounds nuw i8, ptr %897, i64 8
   %900 = load i64, ptr %899, align 8, !tbaa !16
   %901 = getelementptr inbounds nuw i8, ptr %897, i64 16
-  %902 = load i32, ptr %901, align 4, !tbaa !146
+  %902 = load i32, ptr %901, align 8, !tbaa !146
   %903 = and i64 %1, -4
   %.not.i.i190.i.i = icmp eq i64 %903, 0
   br i1 %.not.i.i190.i.i, label %.preheader.i.i212.i.i, label %.lr.ph.i.i191.i.i
@@ -91405,7 +91405,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit107.i.
   %960 = trunc nuw nsw i64 %959 to i32
   %961 = add nuw nsw i32 %960, %955
   %962 = getelementptr inbounds nuw i8, ptr %951, i64 16
-  %963 = load i32, ptr %962, align 4, !tbaa !146
+  %963 = load i32, ptr %962, align 8, !tbaa !146
   %964 = xor i32 %963, %902
   %965 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %964)
   %966 = add nuw nsw i32 %961, %965
@@ -91422,7 +91422,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit107.i.
   %977 = trunc nuw nsw i64 %976 to i32
   %978 = add nuw nsw i32 %977, %972
   %979 = getelementptr inbounds nuw i8, ptr %968, i64 16
-  %980 = load i32, ptr %979, align 4, !tbaa !146
+  %980 = load i32, ptr %979, align 8, !tbaa !146
   %981 = xor i32 %980, %902
   %982 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %981)
   %983 = add nuw nsw i32 %978, %982
@@ -91439,7 +91439,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit107.i.
   %994 = trunc nuw nsw i64 %993 to i32
   %995 = add nuw nsw i32 %994, %989
   %996 = getelementptr inbounds nuw i8, ptr %985, i64 16
-  %997 = load i32, ptr %996, align 4, !tbaa !146
+  %997 = load i32, ptr %996, align 8, !tbaa !146
   %998 = xor i32 %997, %902
   %999 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %998)
   %1000 = add nuw nsw i32 %995, %999
@@ -91456,7 +91456,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit107.i.
   %1011 = trunc nuw nsw i64 %1010 to i32
   %1012 = add nuw nsw i32 %1011, %1006
   %1013 = getelementptr inbounds nuw i8, ptr %1002, i64 16
-  %1014 = load i32, ptr %1013, align 4, !tbaa !146
+  %1014 = load i32, ptr %1013, align 8, !tbaa !146
   %1015 = xor i32 %1014, %902
   %1016 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1015)
   %1017 = add nuw nsw i32 %1012, %1016
@@ -91775,7 +91775,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit107.i.
   %1188 = trunc nuw nsw i64 %1187 to i32
   %1189 = add nuw nsw i32 %1188, %1183
   %1190 = getelementptr inbounds nuw i8, ptr %1179, i64 16
-  %1191 = load i32, ptr %1190, align 4, !tbaa !146
+  %1191 = load i32, ptr %1190, align 8, !tbaa !146
   %1192 = xor i32 %1191, %902
   %1193 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1192)
   %1194 = add nuw nsw i32 %1189, %1193
@@ -97388,7 +97388,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %1556 = getelementptr inbounds nuw i8, ptr %1554, i64 8
   %1557 = load i64, ptr %1556, align 8, !tbaa !16
   %1558 = getelementptr inbounds nuw i8, ptr %1554, i64 16
-  %1559 = load i32, ptr %1558, align 4, !tbaa !146
+  %1559 = load i32, ptr %1558, align 8, !tbaa !146
   %1560 = and i64 %2, -4
   %.not.i.i364 = icmp eq i64 %1560, 0
   br i1 %.not.i.i364, label %.preheader.i.i390, label %.lr.ph.i.i365
@@ -97511,7 +97511,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit168.i.us
   %1624 = trunc nuw nsw i64 %1623 to i32
   %1625 = add nuw nsw i32 %1624, %1619
   %1626 = getelementptr inbounds nuw i8, ptr %1615, i64 16
-  %1627 = load i32, ptr %1626, align 4, !tbaa !146
+  %1627 = load i32, ptr %1626, align 8, !tbaa !146
   %1628 = xor i32 %1627, %1559
   %1629 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1628)
   %1630 = add nuw nsw i32 %1625, %1629
@@ -97528,7 +97528,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit168.i.us
   %1641 = trunc nuw nsw i64 %1640 to i32
   %1642 = add nuw nsw i32 %1641, %1636
   %1643 = getelementptr inbounds nuw i8, ptr %1632, i64 16
-  %1644 = load i32, ptr %1643, align 4, !tbaa !146
+  %1644 = load i32, ptr %1643, align 8, !tbaa !146
   %1645 = xor i32 %1644, %1559
   %1646 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1645)
   %1647 = add nuw nsw i32 %1642, %1646
@@ -97545,7 +97545,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit168.i.us
   %1658 = trunc nuw nsw i64 %1657 to i32
   %1659 = add nuw nsw i32 %1658, %1653
   %1660 = getelementptr inbounds nuw i8, ptr %1649, i64 16
-  %1661 = load i32, ptr %1660, align 4, !tbaa !146
+  %1661 = load i32, ptr %1660, align 8, !tbaa !146
   %1662 = xor i32 %1661, %1559
   %1663 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1662)
   %1664 = add nuw nsw i32 %1659, %1663
@@ -97562,7 +97562,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit168.i.us
   %1675 = trunc nuw nsw i64 %1674 to i32
   %1676 = add nuw nsw i32 %1675, %1670
   %1677 = getelementptr inbounds nuw i8, ptr %1666, i64 16
-  %1678 = load i32, ptr %1677, align 4, !tbaa !146
+  %1678 = load i32, ptr %1677, align 8, !tbaa !146
   %1679 = xor i32 %1678, %1559
   %1680 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1679)
   %1681 = add nuw nsw i32 %1676, %1680
@@ -98257,7 +98257,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit168.i.i3
   %2037 = trunc nuw nsw i64 %2036 to i32
   %2038 = add nuw nsw i32 %2037, %2032
   %2039 = getelementptr inbounds nuw i8, ptr %2028, i64 16
-  %2040 = load i32, ptr %2039, align 4, !tbaa !146
+  %2040 = load i32, ptr %2039, align 8, !tbaa !146
   %2041 = xor i32 %2040, %1559
   %2042 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2041)
   %2043 = add nuw nsw i32 %2038, %2042
@@ -104662,7 +104662,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %899 = getelementptr inbounds nuw i8, ptr %897, i64 8
   %900 = load i64, ptr %899, align 8, !tbaa !16
   %901 = getelementptr inbounds nuw i8, ptr %897, i64 16
-  %902 = load i32, ptr %901, align 4, !tbaa !146
+  %902 = load i32, ptr %901, align 8, !tbaa !146
   %903 = and i64 %1, -4
   %.not.i.i190.i.i = icmp eq i64 %903, 0
   br i1 %.not.i.i190.i.i, label %.preheader.i.i212.i.i, label %.lr.ph.i.i191.i.i
@@ -104769,7 +104769,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit107.i.
   %960 = trunc nuw nsw i64 %959 to i32
   %961 = add nuw nsw i32 %960, %955
   %962 = getelementptr inbounds nuw i8, ptr %951, i64 16
-  %963 = load i32, ptr %962, align 4, !tbaa !146
+  %963 = load i32, ptr %962, align 8, !tbaa !146
   %964 = xor i32 %963, %902
   %965 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %964)
   %966 = add nuw nsw i32 %961, %965
@@ -104786,7 +104786,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit107.i.
   %977 = trunc nuw nsw i64 %976 to i32
   %978 = add nuw nsw i32 %977, %972
   %979 = getelementptr inbounds nuw i8, ptr %968, i64 16
-  %980 = load i32, ptr %979, align 4, !tbaa !146
+  %980 = load i32, ptr %979, align 8, !tbaa !146
   %981 = xor i32 %980, %902
   %982 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %981)
   %983 = add nuw nsw i32 %978, %982
@@ -104803,7 +104803,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit107.i.
   %994 = trunc nuw nsw i64 %993 to i32
   %995 = add nuw nsw i32 %994, %989
   %996 = getelementptr inbounds nuw i8, ptr %985, i64 16
-  %997 = load i32, ptr %996, align 4, !tbaa !146
+  %997 = load i32, ptr %996, align 8, !tbaa !146
   %998 = xor i32 %997, %902
   %999 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %998)
   %1000 = add nuw nsw i32 %995, %999
@@ -104820,7 +104820,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit107.i.
   %1011 = trunc nuw nsw i64 %1010 to i32
   %1012 = add nuw nsw i32 %1011, %1006
   %1013 = getelementptr inbounds nuw i8, ptr %1002, i64 16
-  %1014 = load i32, ptr %1013, align 4, !tbaa !146
+  %1014 = load i32, ptr %1013, align 8, !tbaa !146
   %1015 = xor i32 %1014, %902
   %1016 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1015)
   %1017 = add nuw nsw i32 %1012, %1016
@@ -105139,7 +105139,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit107.i.
   %1188 = trunc nuw nsw i64 %1187 to i32
   %1189 = add nuw nsw i32 %1188, %1183
   %1190 = getelementptr inbounds nuw i8, ptr %1179, i64 16
-  %1191 = load i32, ptr %1190, align 4, !tbaa !146
+  %1191 = load i32, ptr %1190, align 8, !tbaa !146
   %1192 = xor i32 %1191, %902
   %1193 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1192)
   %1194 = add nuw nsw i32 %1189, %1193
@@ -110749,7 +110749,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %1556 = getelementptr inbounds nuw i8, ptr %1554, i64 8
   %1557 = load i64, ptr %1556, align 8, !tbaa !16
   %1558 = getelementptr inbounds nuw i8, ptr %1554, i64 16
-  %1559 = load i32, ptr %1558, align 4, !tbaa !146
+  %1559 = load i32, ptr %1558, align 8, !tbaa !146
   %1560 = and i64 %2, -4
   %.not.i.i364 = icmp eq i64 %1560, 0
   br i1 %.not.i.i364, label %.preheader.i.i390, label %.lr.ph.i.i365
@@ -110872,7 +110872,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit168.i.us
   %1624 = trunc nuw nsw i64 %1623 to i32
   %1625 = add nuw nsw i32 %1624, %1619
   %1626 = getelementptr inbounds nuw i8, ptr %1615, i64 16
-  %1627 = load i32, ptr %1626, align 4, !tbaa !146
+  %1627 = load i32, ptr %1626, align 8, !tbaa !146
   %1628 = xor i32 %1627, %1559
   %1629 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1628)
   %1630 = add nuw nsw i32 %1625, %1629
@@ -110889,7 +110889,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit168.i.us
   %1641 = trunc nuw nsw i64 %1640 to i32
   %1642 = add nuw nsw i32 %1641, %1636
   %1643 = getelementptr inbounds nuw i8, ptr %1632, i64 16
-  %1644 = load i32, ptr %1643, align 4, !tbaa !146
+  %1644 = load i32, ptr %1643, align 8, !tbaa !146
   %1645 = xor i32 %1644, %1559
   %1646 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1645)
   %1647 = add nuw nsw i32 %1642, %1646
@@ -110906,7 +110906,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit168.i.us
   %1658 = trunc nuw nsw i64 %1657 to i32
   %1659 = add nuw nsw i32 %1658, %1653
   %1660 = getelementptr inbounds nuw i8, ptr %1649, i64 16
-  %1661 = load i32, ptr %1660, align 4, !tbaa !146
+  %1661 = load i32, ptr %1660, align 8, !tbaa !146
   %1662 = xor i32 %1661, %1559
   %1663 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1662)
   %1664 = add nuw nsw i32 %1659, %1663
@@ -110923,7 +110923,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit168.i.us
   %1675 = trunc nuw nsw i64 %1674 to i32
   %1676 = add nuw nsw i32 %1675, %1670
   %1677 = getelementptr inbounds nuw i8, ptr %1666, i64 16
-  %1678 = load i32, ptr %1677, align 4, !tbaa !146
+  %1678 = load i32, ptr %1677, align 8, !tbaa !146
   %1679 = xor i32 %1678, %1559
   %1680 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1679)
   %1681 = add nuw nsw i32 %1676, %1680
@@ -111618,7 +111618,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit168.i.i3
   %2037 = trunc nuw nsw i64 %2036 to i32
   %2038 = add nuw nsw i32 %2037, %2032
   %2039 = getelementptr inbounds nuw i8, ptr %2028, i64 16
-  %2040 = load i32, ptr %2039, align 4, !tbaa !146
+  %2040 = load i32, ptr %2039, align 8, !tbaa !146
   %2041 = xor i32 %2040, %1559
   %2042 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2041)
   %2043 = add nuw nsw i32 %2038, %2042
@@ -118026,7 +118026,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %899 = getelementptr inbounds nuw i8, ptr %897, i64 8
   %900 = load i64, ptr %899, align 8, !tbaa !16
   %901 = getelementptr inbounds nuw i8, ptr %897, i64 16
-  %902 = load i32, ptr %901, align 4, !tbaa !146
+  %902 = load i32, ptr %901, align 8, !tbaa !146
   %903 = and i64 %1, -4
   %.not.i.i190.i.i = icmp eq i64 %903, 0
   br i1 %.not.i.i190.i.i, label %.preheader.i.i212.i.i, label %.lr.ph.i.i191.i.i
@@ -118133,7 +118133,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit107.i.
   %960 = trunc nuw nsw i64 %959 to i32
   %961 = add nuw nsw i32 %960, %955
   %962 = getelementptr inbounds nuw i8, ptr %951, i64 16
-  %963 = load i32, ptr %962, align 4, !tbaa !146
+  %963 = load i32, ptr %962, align 8, !tbaa !146
   %964 = xor i32 %963, %902
   %965 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %964)
   %966 = add nuw nsw i32 %961, %965
@@ -118150,7 +118150,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit107.i.
   %977 = trunc nuw nsw i64 %976 to i32
   %978 = add nuw nsw i32 %977, %972
   %979 = getelementptr inbounds nuw i8, ptr %968, i64 16
-  %980 = load i32, ptr %979, align 4, !tbaa !146
+  %980 = load i32, ptr %979, align 8, !tbaa !146
   %981 = xor i32 %980, %902
   %982 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %981)
   %983 = add nuw nsw i32 %978, %982
@@ -118167,7 +118167,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit107.i.
   %994 = trunc nuw nsw i64 %993 to i32
   %995 = add nuw nsw i32 %994, %989
   %996 = getelementptr inbounds nuw i8, ptr %985, i64 16
-  %997 = load i32, ptr %996, align 4, !tbaa !146
+  %997 = load i32, ptr %996, align 8, !tbaa !146
   %998 = xor i32 %997, %902
   %999 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %998)
   %1000 = add nuw nsw i32 %995, %999
@@ -118184,7 +118184,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit107.i.
   %1011 = trunc nuw nsw i64 %1010 to i32
   %1012 = add nuw nsw i32 %1011, %1006
   %1013 = getelementptr inbounds nuw i8, ptr %1002, i64 16
-  %1014 = load i32, ptr %1013, align 4, !tbaa !146
+  %1014 = load i32, ptr %1013, align 8, !tbaa !146
   %1015 = xor i32 %1014, %902
   %1016 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1015)
   %1017 = add nuw nsw i32 %1012, %1016
@@ -118503,7 +118503,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit107.i.
   %1188 = trunc nuw nsw i64 %1187 to i32
   %1189 = add nuw nsw i32 %1188, %1183
   %1190 = getelementptr inbounds nuw i8, ptr %1179, i64 16
-  %1191 = load i32, ptr %1190, align 4, !tbaa !146
+  %1191 = load i32, ptr %1190, align 8, !tbaa !146
   %1192 = xor i32 %1191, %902
   %1193 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1192)
   %1194 = add nuw nsw i32 %1189, %1193
@@ -124116,7 +124116,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %1556 = getelementptr inbounds nuw i8, ptr %1554, i64 8
   %1557 = load i64, ptr %1556, align 8, !tbaa !16
   %1558 = getelementptr inbounds nuw i8, ptr %1554, i64 16
-  %1559 = load i32, ptr %1558, align 4, !tbaa !146
+  %1559 = load i32, ptr %1558, align 8, !tbaa !146
   %1560 = and i64 %2, -4
   %.not.i.i364 = icmp eq i64 %1560, 0
   br i1 %.not.i.i364, label %.preheader.i.i390, label %.lr.ph.i.i365
@@ -124239,7 +124239,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit168.i.us
   %1624 = trunc nuw nsw i64 %1623 to i32
   %1625 = add nuw nsw i32 %1624, %1619
   %1626 = getelementptr inbounds nuw i8, ptr %1615, i64 16
-  %1627 = load i32, ptr %1626, align 4, !tbaa !146
+  %1627 = load i32, ptr %1626, align 8, !tbaa !146
   %1628 = xor i32 %1627, %1559
   %1629 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1628)
   %1630 = add nuw nsw i32 %1625, %1629
@@ -124256,7 +124256,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit168.i.us
   %1641 = trunc nuw nsw i64 %1640 to i32
   %1642 = add nuw nsw i32 %1641, %1636
   %1643 = getelementptr inbounds nuw i8, ptr %1632, i64 16
-  %1644 = load i32, ptr %1643, align 4, !tbaa !146
+  %1644 = load i32, ptr %1643, align 8, !tbaa !146
   %1645 = xor i32 %1644, %1559
   %1646 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1645)
   %1647 = add nuw nsw i32 %1642, %1646
@@ -124273,7 +124273,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit168.i.us
   %1658 = trunc nuw nsw i64 %1657 to i32
   %1659 = add nuw nsw i32 %1658, %1653
   %1660 = getelementptr inbounds nuw i8, ptr %1649, i64 16
-  %1661 = load i32, ptr %1660, align 4, !tbaa !146
+  %1661 = load i32, ptr %1660, align 8, !tbaa !146
   %1662 = xor i32 %1661, %1559
   %1663 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1662)
   %1664 = add nuw nsw i32 %1659, %1663
@@ -124290,7 +124290,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit168.i.us
   %1675 = trunc nuw nsw i64 %1674 to i32
   %1676 = add nuw nsw i32 %1675, %1670
   %1677 = getelementptr inbounds nuw i8, ptr %1666, i64 16
-  %1678 = load i32, ptr %1677, align 4, !tbaa !146
+  %1678 = load i32, ptr %1677, align 8, !tbaa !146
   %1679 = xor i32 %1678, %1559
   %1680 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1679)
   %1681 = add nuw nsw i32 %1676, %1680
@@ -124985,7 +124985,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit168.i.i3
   %2037 = trunc nuw nsw i64 %2036 to i32
   %2038 = add nuw nsw i32 %2037, %2032
   %2039 = getelementptr inbounds nuw i8, ptr %2028, i64 16
-  %2040 = load i32, ptr %2039, align 4, !tbaa !146
+  %2040 = load i32, ptr %2039, align 8, !tbaa !146
   %2041 = xor i32 %2040, %1559
   %2042 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2041)
   %2043 = add nuw nsw i32 %2038, %2042
@@ -131390,7 +131390,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %899 = getelementptr inbounds nuw i8, ptr %897, i64 8
   %900 = load i64, ptr %899, align 8, !tbaa !16
   %901 = getelementptr inbounds nuw i8, ptr %897, i64 16
-  %902 = load i32, ptr %901, align 4, !tbaa !146
+  %902 = load i32, ptr %901, align 8, !tbaa !146
   %903 = and i64 %1, -4
   %.not.i.i190.i.i = icmp eq i64 %903, 0
   br i1 %.not.i.i190.i.i, label %.preheader.i.i212.i.i, label %.lr.ph.i.i191.i.i
@@ -131497,7 +131497,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit107.i.
   %960 = trunc nuw nsw i64 %959 to i32
   %961 = add nuw nsw i32 %960, %955
   %962 = getelementptr inbounds nuw i8, ptr %951, i64 16
-  %963 = load i32, ptr %962, align 4, !tbaa !146
+  %963 = load i32, ptr %962, align 8, !tbaa !146
   %964 = xor i32 %963, %902
   %965 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %964)
   %966 = add nuw nsw i32 %961, %965
@@ -131514,7 +131514,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit107.i.
   %977 = trunc nuw nsw i64 %976 to i32
   %978 = add nuw nsw i32 %977, %972
   %979 = getelementptr inbounds nuw i8, ptr %968, i64 16
-  %980 = load i32, ptr %979, align 4, !tbaa !146
+  %980 = load i32, ptr %979, align 8, !tbaa !146
   %981 = xor i32 %980, %902
   %982 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %981)
   %983 = add nuw nsw i32 %978, %982
@@ -131531,7 +131531,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit107.i.
   %994 = trunc nuw nsw i64 %993 to i32
   %995 = add nuw nsw i32 %994, %989
   %996 = getelementptr inbounds nuw i8, ptr %985, i64 16
-  %997 = load i32, ptr %996, align 4, !tbaa !146
+  %997 = load i32, ptr %996, align 8, !tbaa !146
   %998 = xor i32 %997, %902
   %999 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %998)
   %1000 = add nuw nsw i32 %995, %999
@@ -131548,7 +131548,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit107.i.
   %1011 = trunc nuw nsw i64 %1010 to i32
   %1012 = add nuw nsw i32 %1011, %1006
   %1013 = getelementptr inbounds nuw i8, ptr %1002, i64 16
-  %1014 = load i32, ptr %1013, align 4, !tbaa !146
+  %1014 = load i32, ptr %1013, align 8, !tbaa !146
   %1015 = xor i32 %1014, %902
   %1016 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1015)
   %1017 = add nuw nsw i32 %1012, %1016
@@ -131867,7 +131867,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit107.i.
   %1188 = trunc nuw nsw i64 %1187 to i32
   %1189 = add nuw nsw i32 %1188, %1183
   %1190 = getelementptr inbounds nuw i8, ptr %1179, i64 16
-  %1191 = load i32, ptr %1190, align 4, !tbaa !146
+  %1191 = load i32, ptr %1190, align 8, !tbaa !146
   %1192 = xor i32 %1191, %902
   %1193 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1192)
   %1194 = add nuw nsw i32 %1189, %1193
@@ -137477,7 +137477,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %1556 = getelementptr inbounds nuw i8, ptr %1554, i64 8
   %1557 = load i64, ptr %1556, align 8, !tbaa !16
   %1558 = getelementptr inbounds nuw i8, ptr %1554, i64 16
-  %1559 = load i32, ptr %1558, align 4, !tbaa !146
+  %1559 = load i32, ptr %1558, align 8, !tbaa !146
   %1560 = and i64 %2, -4
   %.not.i.i364 = icmp eq i64 %1560, 0
   br i1 %.not.i.i364, label %.preheader.i.i390, label %.lr.ph.i.i365
@@ -137600,7 +137600,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit168.i.us
   %1624 = trunc nuw nsw i64 %1623 to i32
   %1625 = add nuw nsw i32 %1624, %1619
   %1626 = getelementptr inbounds nuw i8, ptr %1615, i64 16
-  %1627 = load i32, ptr %1626, align 4, !tbaa !146
+  %1627 = load i32, ptr %1626, align 8, !tbaa !146
   %1628 = xor i32 %1627, %1559
   %1629 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1628)
   %1630 = add nuw nsw i32 %1625, %1629
@@ -137617,7 +137617,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit168.i.us
   %1641 = trunc nuw nsw i64 %1640 to i32
   %1642 = add nuw nsw i32 %1641, %1636
   %1643 = getelementptr inbounds nuw i8, ptr %1632, i64 16
-  %1644 = load i32, ptr %1643, align 4, !tbaa !146
+  %1644 = load i32, ptr %1643, align 8, !tbaa !146
   %1645 = xor i32 %1644, %1559
   %1646 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1645)
   %1647 = add nuw nsw i32 %1642, %1646
@@ -137634,7 +137634,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit168.i.us
   %1658 = trunc nuw nsw i64 %1657 to i32
   %1659 = add nuw nsw i32 %1658, %1653
   %1660 = getelementptr inbounds nuw i8, ptr %1649, i64 16
-  %1661 = load i32, ptr %1660, align 4, !tbaa !146
+  %1661 = load i32, ptr %1660, align 8, !tbaa !146
   %1662 = xor i32 %1661, %1559
   %1663 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1662)
   %1664 = add nuw nsw i32 %1659, %1663
@@ -137651,7 +137651,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit168.i.us
   %1675 = trunc nuw nsw i64 %1674 to i32
   %1676 = add nuw nsw i32 %1675, %1670
   %1677 = getelementptr inbounds nuw i8, ptr %1666, i64 16
-  %1678 = load i32, ptr %1677, align 4, !tbaa !146
+  %1678 = load i32, ptr %1677, align 8, !tbaa !146
   %1679 = xor i32 %1678, %1559
   %1680 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1679)
   %1681 = add nuw nsw i32 %1676, %1680
@@ -138346,7 +138346,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit168.i.i3
   %2037 = trunc nuw nsw i64 %2036 to i32
   %2038 = add nuw nsw i32 %2037, %2032
   %2039 = getelementptr inbounds nuw i8, ptr %2028, i64 16
-  %2040 = load i32, ptr %2039, align 4, !tbaa !146
+  %2040 = load i32, ptr %2039, align 8, !tbaa !146
   %2041 = xor i32 %2040, %1559
   %2042 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2041)
   %2043 = add nuw nsw i32 %2038, %2042
@@ -145345,7 +145345,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %1009 = getelementptr inbounds nuw i8, ptr %1007, i64 8
   %1010 = load i64, ptr %1009, align 8, !tbaa !16
   %1011 = getelementptr inbounds nuw i8, ptr %1007, i64 16
-  %1012 = load i32, ptr %1011, align 4, !tbaa !146
+  %1012 = load i32, ptr %1011, align 8, !tbaa !146
   %1013 = and i64 %1, -4
   %.not.i.i213.i.i = icmp eq i64 %1013, 0
   br i1 %.not.i.i213.i.i, label %.preheader.i.i242.i.i, label %.lr.ph.i.i214.i.i
@@ -145393,7 +145393,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %1041 = trunc nuw nsw i64 %1040 to i32
   %1042 = add nuw nsw i32 %1041, %1036
   %1043 = getelementptr inbounds nuw i8, ptr %1032, i64 16
-  %1044 = load i32, ptr %1043, align 4, !tbaa !146
+  %1044 = load i32, ptr %1043, align 8, !tbaa !146
   %1045 = xor i32 %1044, %1012
   %1046 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1045)
   %1047 = add nuw nsw i32 %1042, %1046
@@ -145410,7 +145410,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %1058 = trunc nuw nsw i64 %1057 to i32
   %1059 = add nuw nsw i32 %1058, %1053
   %1060 = getelementptr inbounds nuw i8, ptr %1049, i64 16
-  %1061 = load i32, ptr %1060, align 4, !tbaa !146
+  %1061 = load i32, ptr %1060, align 8, !tbaa !146
   %1062 = xor i32 %1061, %1012
   %1063 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1062)
   %1064 = add nuw nsw i32 %1059, %1063
@@ -145427,7 +145427,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %1075 = trunc nuw nsw i64 %1074 to i32
   %1076 = add nuw nsw i32 %1075, %1070
   %1077 = getelementptr inbounds nuw i8, ptr %1066, i64 16
-  %1078 = load i32, ptr %1077, align 4, !tbaa !146
+  %1078 = load i32, ptr %1077, align 8, !tbaa !146
   %1079 = xor i32 %1078, %1012
   %1080 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1079)
   %1081 = add nuw nsw i32 %1076, %1080
@@ -145444,7 +145444,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %1092 = trunc nuw nsw i64 %1091 to i32
   %1093 = add nuw nsw i32 %1092, %1087
   %1094 = getelementptr inbounds nuw i8, ptr %1083, i64 16
-  %1095 = load i32, ptr %1094, align 4, !tbaa !146
+  %1095 = load i32, ptr %1094, align 8, !tbaa !146
   %1096 = xor i32 %1095, %1012
   %1097 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1096)
   %1098 = add nuw nsw i32 %1093, %1097
@@ -145807,7 +145807,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit104.i.
   %1287 = trunc nuw nsw i64 %1286 to i32
   %1288 = add nuw nsw i32 %1287, %1282
   %1289 = getelementptr inbounds nuw i8, ptr %1278, i64 16
-  %1290 = load i32, ptr %1289, align 4, !tbaa !146
+  %1290 = load i32, ptr %1289, align 8, !tbaa !146
   %1291 = xor i32 %1290, %1012
   %1292 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1291)
   %1293 = add nuw nsw i32 %1288, %1292
@@ -152154,7 +152154,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %1674 = getelementptr inbounds nuw i8, ptr %1672, i64 8
   %1675 = load i64, ptr %1674, align 8, !tbaa !16
   %1676 = getelementptr inbounds nuw i8, ptr %1672, i64 16
-  %1677 = load i32, ptr %1676, align 4, !tbaa !146
+  %1677 = load i32, ptr %1676, align 8, !tbaa !146
   %1678 = and i64 %2, -4
   %.not.i.i383 = icmp eq i64 %1678, 0
   br i1 %.not.i.i383, label %.preheader.i.i415, label %.lr.ph.i.i384
@@ -152214,7 +152214,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %1714 = trunc nuw nsw i64 %1713 to i32
   %1715 = add nuw nsw i32 %1714, %1709
   %1716 = getelementptr inbounds nuw i8, ptr %1705, i64 16
-  %1717 = load i32, ptr %1716, align 4, !tbaa !146
+  %1717 = load i32, ptr %1716, align 8, !tbaa !146
   %1718 = xor i32 %1717, %1677
   %1719 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1718)
   %1720 = add nuw nsw i32 %1715, %1719
@@ -152231,7 +152231,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %1731 = trunc nuw nsw i64 %1730 to i32
   %1732 = add nuw nsw i32 %1731, %1726
   %1733 = getelementptr inbounds nuw i8, ptr %1722, i64 16
-  %1734 = load i32, ptr %1733, align 4, !tbaa !146
+  %1734 = load i32, ptr %1733, align 8, !tbaa !146
   %1735 = xor i32 %1734, %1677
   %1736 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1735)
   %1737 = add nuw nsw i32 %1732, %1736
@@ -152248,7 +152248,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %1748 = trunc nuw nsw i64 %1747 to i32
   %1749 = add nuw nsw i32 %1748, %1743
   %1750 = getelementptr inbounds nuw i8, ptr %1739, i64 16
-  %1751 = load i32, ptr %1750, align 4, !tbaa !146
+  %1751 = load i32, ptr %1750, align 8, !tbaa !146
   %1752 = xor i32 %1751, %1677
   %1753 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1752)
   %1754 = add nuw nsw i32 %1749, %1753
@@ -152265,7 +152265,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %1765 = trunc nuw nsw i64 %1764 to i32
   %1766 = add nuw nsw i32 %1765, %1760
   %1767 = getelementptr inbounds nuw i8, ptr %1756, i64 16
-  %1768 = load i32, ptr %1767, align 4, !tbaa !146
+  %1768 = load i32, ptr %1767, align 8, !tbaa !146
   %1769 = xor i32 %1768, %1677
   %1770 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1769)
   %1771 = add nuw nsw i32 %1766, %1770
@@ -152999,7 +152999,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit165.i.i4
   %2148 = trunc nuw nsw i64 %2147 to i32
   %2149 = add nuw nsw i32 %2148, %2143
   %2150 = getelementptr inbounds nuw i8, ptr %2139, i64 16
-  %2151 = load i32, ptr %2150, align 4, !tbaa !146
+  %2151 = load i32, ptr %2150, align 8, !tbaa !146
   %2152 = xor i32 %2151, %1677
   %2153 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2152)
   %2154 = add nuw nsw i32 %2149, %2153
@@ -160232,7 +160232,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %1009 = getelementptr inbounds nuw i8, ptr %1007, i64 8
   %1010 = load i64, ptr %1009, align 8, !tbaa !16
   %1011 = getelementptr inbounds nuw i8, ptr %1007, i64 16
-  %1012 = load i32, ptr %1011, align 4, !tbaa !146
+  %1012 = load i32, ptr %1011, align 8, !tbaa !146
   %1013 = and i64 %1, -4
   %.not.i.i213.i.i = icmp eq i64 %1013, 0
   br i1 %.not.i.i213.i.i, label %.preheader.i.i242.i.i, label %.lr.ph.i.i214.i.i
@@ -160280,7 +160280,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %1041 = trunc nuw nsw i64 %1040 to i32
   %1042 = add nuw nsw i32 %1041, %1036
   %1043 = getelementptr inbounds nuw i8, ptr %1032, i64 16
-  %1044 = load i32, ptr %1043, align 4, !tbaa !146
+  %1044 = load i32, ptr %1043, align 8, !tbaa !146
   %1045 = xor i32 %1044, %1012
   %1046 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1045)
   %1047 = add nuw nsw i32 %1042, %1046
@@ -160297,7 +160297,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %1058 = trunc nuw nsw i64 %1057 to i32
   %1059 = add nuw nsw i32 %1058, %1053
   %1060 = getelementptr inbounds nuw i8, ptr %1049, i64 16
-  %1061 = load i32, ptr %1060, align 4, !tbaa !146
+  %1061 = load i32, ptr %1060, align 8, !tbaa !146
   %1062 = xor i32 %1061, %1012
   %1063 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1062)
   %1064 = add nuw nsw i32 %1059, %1063
@@ -160314,7 +160314,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %1075 = trunc nuw nsw i64 %1074 to i32
   %1076 = add nuw nsw i32 %1075, %1070
   %1077 = getelementptr inbounds nuw i8, ptr %1066, i64 16
-  %1078 = load i32, ptr %1077, align 4, !tbaa !146
+  %1078 = load i32, ptr %1077, align 8, !tbaa !146
   %1079 = xor i32 %1078, %1012
   %1080 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1079)
   %1081 = add nuw nsw i32 %1076, %1080
@@ -160331,7 +160331,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %1092 = trunc nuw nsw i64 %1091 to i32
   %1093 = add nuw nsw i32 %1092, %1087
   %1094 = getelementptr inbounds nuw i8, ptr %1083, i64 16
-  %1095 = load i32, ptr %1094, align 4, !tbaa !146
+  %1095 = load i32, ptr %1094, align 8, !tbaa !146
   %1096 = xor i32 %1095, %1012
   %1097 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1096)
   %1098 = add nuw nsw i32 %1093, %1097
@@ -160694,7 +160694,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit104.i.
   %1287 = trunc nuw nsw i64 %1286 to i32
   %1288 = add nuw nsw i32 %1287, %1282
   %1289 = getelementptr inbounds nuw i8, ptr %1278, i64 16
-  %1290 = load i32, ptr %1289, align 4, !tbaa !146
+  %1290 = load i32, ptr %1289, align 8, !tbaa !146
   %1291 = xor i32 %1290, %1012
   %1292 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1291)
   %1293 = add nuw nsw i32 %1288, %1292
@@ -167038,7 +167038,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %1674 = getelementptr inbounds nuw i8, ptr %1672, i64 8
   %1675 = load i64, ptr %1674, align 8, !tbaa !16
   %1676 = getelementptr inbounds nuw i8, ptr %1672, i64 16
-  %1677 = load i32, ptr %1676, align 4, !tbaa !146
+  %1677 = load i32, ptr %1676, align 8, !tbaa !146
   %1678 = and i64 %2, -4
   %.not.i.i383 = icmp eq i64 %1678, 0
   br i1 %.not.i.i383, label %.preheader.i.i415, label %.lr.ph.i.i384
@@ -167098,7 +167098,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %1714 = trunc nuw nsw i64 %1713 to i32
   %1715 = add nuw nsw i32 %1714, %1709
   %1716 = getelementptr inbounds nuw i8, ptr %1705, i64 16
-  %1717 = load i32, ptr %1716, align 4, !tbaa !146
+  %1717 = load i32, ptr %1716, align 8, !tbaa !146
   %1718 = xor i32 %1717, %1677
   %1719 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1718)
   %1720 = add nuw nsw i32 %1715, %1719
@@ -167115,7 +167115,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %1731 = trunc nuw nsw i64 %1730 to i32
   %1732 = add nuw nsw i32 %1731, %1726
   %1733 = getelementptr inbounds nuw i8, ptr %1722, i64 16
-  %1734 = load i32, ptr %1733, align 4, !tbaa !146
+  %1734 = load i32, ptr %1733, align 8, !tbaa !146
   %1735 = xor i32 %1734, %1677
   %1736 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1735)
   %1737 = add nuw nsw i32 %1732, %1736
@@ -167132,7 +167132,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %1748 = trunc nuw nsw i64 %1747 to i32
   %1749 = add nuw nsw i32 %1748, %1743
   %1750 = getelementptr inbounds nuw i8, ptr %1739, i64 16
-  %1751 = load i32, ptr %1750, align 4, !tbaa !146
+  %1751 = load i32, ptr %1750, align 8, !tbaa !146
   %1752 = xor i32 %1751, %1677
   %1753 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1752)
   %1754 = add nuw nsw i32 %1749, %1753
@@ -167149,7 +167149,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %1765 = trunc nuw nsw i64 %1764 to i32
   %1766 = add nuw nsw i32 %1765, %1760
   %1767 = getelementptr inbounds nuw i8, ptr %1756, i64 16
-  %1768 = load i32, ptr %1767, align 4, !tbaa !146
+  %1768 = load i32, ptr %1767, align 8, !tbaa !146
   %1769 = xor i32 %1768, %1677
   %1770 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1769)
   %1771 = add nuw nsw i32 %1766, %1770
@@ -167883,7 +167883,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit165.i.i4
   %2148 = trunc nuw nsw i64 %2147 to i32
   %2149 = add nuw nsw i32 %2148, %2143
   %2150 = getelementptr inbounds nuw i8, ptr %2139, i64 16
-  %2151 = load i32, ptr %2150, align 4, !tbaa !146
+  %2151 = load i32, ptr %2150, align 8, !tbaa !146
   %2152 = xor i32 %2151, %1677
   %2153 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2152)
   %2154 = add nuw nsw i32 %2149, %2153

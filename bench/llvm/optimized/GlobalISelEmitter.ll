@@ -11689,7 +11689,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImiNS_12DenseMapInfoImvEENS_6detail12DenseMap
   %58 = load i64, ptr %1, align 8, !tbaa !45
   store i64 %58, ptr %49, align 8, !tbaa !45
   %59 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store i32 0, ptr %59, align 4, !tbaa !226
+  store i32 0, ptr %59, align 8, !tbaa !226
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapImiNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImiEEEEmiS3_S6_E16InsertIntoBucketImJEEEPS6_SA_OT_DpOT0_.exit
@@ -12606,7 +12606,7 @@ _ZNK4llvm13CodeGenTarget14getInstructionEPKNS_6RecordE.exit: ; preds = %177, %16
   %197 = getelementptr inbounds nuw i8, ptr %190, i64 36
   store i32 2, ptr %197, align 4, !tbaa !27, !noalias !955
   %198 = ptrtoint ptr %187 to i64
-  store i64 %198, ptr %195, align 1, !noalias !955
+  store i64 %198, ptr %195, align 8, !noalias !955
   store i32 1, ptr %196, align 8, !tbaa !26, !noalias !955
   store ptr %190, ptr %88, align 8, !tbaa !960, !alias.scope !955
   %199 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -13394,7 +13394,7 @@ _ZNK12_GLOBAL__N_117GlobalISelEmitter12getEquivNodeERKN4llvm6RecordERKNS1_15Tree
   %593 = getelementptr inbounds nuw i8, ptr %586, i64 36
   store i32 2, ptr %593, align 4, !tbaa !27, !noalias !1047
   %594 = ptrtoint ptr %.0.i to i64
-  store i64 %594, ptr %591, align 1, !noalias !1047
+  store i64 %594, ptr %591, align 8, !noalias !1047
   store i32 1, ptr %592, align 8, !tbaa !26, !noalias !1047
   store ptr %586, ptr %77, align 8, !tbaa !960, !alias.scope !1047
   %595 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -18936,7 +18936,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImiNS_12DenseMapInfoImvEENS_6detail12DenseMap
   %68 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %69 = getelementptr inbounds nuw i8, ptr %.021.i, i64 8
   %70 = load i32, ptr %69, align 4, !tbaa !226
-  store i32 %70, ptr %68, align 4, !tbaa !226
+  store i32 %70, ptr %68, align 8, !tbaa !226
   %71 = add i32 %38, 1
   store i32 %71, ptr %32, align 8, !tbaa !879
   br label %72
@@ -19667,7 +19667,7 @@ _ZSt19__relocate_object_aIN4llvm2gi16MatchTableRecordES2_SaIS2_EEvPT_PT0_RT1_.ex
   store i64 %58, ptr %60, align 8, !tbaa !59, !alias.scope !1570, !noalias !1573
   store ptr %50, ptr %47, align 8, !tbaa !66, !alias.scope !1573, !noalias !1570
   store i64 0, ptr %59, align 8, !tbaa !59, !alias.scope !1573, !noalias !1570
-  store i8 0, ptr %50, align 1, !tbaa !61, !alias.scope !1573, !noalias !1570
+  store i8 0, ptr %50, align 8, !tbaa !61, !alias.scope !1573, !noalias !1570
   %61 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
   %62 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
   %63 = load i64, ptr %62, align 8, !alias.scope !1573, !noalias !1570
@@ -19723,7 +19723,7 @@ _ZSt19__relocate_object_aIN4llvm2gi16MatchTableRecordES2_SaIS2_EEvPT_PT0_RT1_.ex
   store i64 %80, ptr %82, align 8, !tbaa !59, !alias.scope !1577, !noalias !1580
   store ptr %72, ptr %69, align 8, !tbaa !66, !alias.scope !1580, !noalias !1577
   store i64 0, ptr %81, align 8, !tbaa !59, !alias.scope !1580, !noalias !1577
-  store i8 0, ptr %72, align 1, !tbaa !61, !alias.scope !1580, !noalias !1577
+  store i8 0, ptr %72, align 8, !tbaa !61, !alias.scope !1580, !noalias !1577
   %83 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 40
   %84 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 40
   %85 = load i64, ptr %84, align 8, !alias.scope !1580, !noalias !1577
@@ -37991,7 +37991,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImiNS_12DenseMapInfoImvEENS_6detail12DenseMap
 _ZN4llvm12DenseMapBaseINS_8DenseMapImiNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImiEEEEmiS3_S6_E16InsertIntoBucketImJEEEPS6_SA_OT_DpOT0_.exit.i25: ; preds = %119, %112
   store i64 %40, ptr %114, align 8, !tbaa !45
   %122 = getelementptr inbounds nuw i8, ptr %114, i64 8
-  store i32 0, ptr %122, align 4, !tbaa !226
+  store i32 0, ptr %122, align 8, !tbaa !226
   %.pre = load i32, ptr %12, align 8, !tbaa !779
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapImiNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImiEEEEmiS3_S6_EixEOm.exit29
 
@@ -38148,7 +38148,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImiNS_12DenseMapInfoImvEENS_6detail12DenseMap
 _ZN4llvm12DenseMapBaseINS_8DenseMapImiNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImiEEEEmiS3_S6_E16InsertIntoBucketImJEEEPS6_SA_OT_DpOT0_.exit.i: ; preds = %207, %201
   store i64 %159, ptr %202, align 8, !tbaa !45
   %210 = getelementptr inbounds nuw i8, ptr %202, i64 8
-  store i32 0, ptr %210, align 4, !tbaa !226
+  store i32 0, ptr %210, align 8, !tbaa !226
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapImiNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImiEEEEmiS3_S6_EixEOm.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapImiNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImiEEEEmiS3_S6_EixEOm.exit: ; preds = %149, %129, %_ZN4llvm12DenseMapBaseINS_8DenseMapImiNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImiEEEEmiS3_S6_E16InsertIntoBucketImJEEEPS6_SA_OT_DpOT0_.exit.i
@@ -38731,7 +38731,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImiNS_12DenseMapInfoImvEENS_6detail12DenseMap
 _ZN4llvm12DenseMapBaseINS_8DenseMapImiNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImiEEEEmiS3_S6_E16InsertIntoBucketImJEEEPS6_SA_OT_DpOT0_.exit.i53: ; preds = %107, %100
   store i64 %28, ptr %102, align 8, !tbaa !45
   %110 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  store i32 0, ptr %110, align 4, !tbaa !226
+  store i32 0, ptr %110, align 8, !tbaa !226
   %.pre = load i32, ptr %17, align 8, !tbaa !779
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapImiNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImiEEEEmiS3_S6_EixEOm.exit57
 
@@ -38888,7 +38888,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImiNS_12DenseMapInfoImvEENS_6detail12DenseMap
 _ZN4llvm12DenseMapBaseINS_8DenseMapImiNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImiEEEEmiS3_S6_E16InsertIntoBucketImJEEEPS6_SA_OT_DpOT0_.exit.i: ; preds = %195, %189
   store i64 %147, ptr %190, align 8, !tbaa !45
   %198 = getelementptr inbounds nuw i8, ptr %190, i64 8
-  store i32 0, ptr %198, align 4, !tbaa !226
+  store i32 0, ptr %198, align 8, !tbaa !226
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapImiNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImiEEEEmiS3_S6_EixEOm.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapImiNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImiEEEEmiS3_S6_EixEOm.exit: ; preds = %137, %117, %_ZN4llvm12DenseMapBaseINS_8DenseMapImiNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImiEEEEmiS3_S6_E16InsertIntoBucketImJEEEPS6_SA_OT_DpOT0_.exit.i
@@ -39155,7 +39155,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImiNS_12DenseMapInfoImvEENS_6detail12DenseMap
 _ZN4llvm12DenseMapBaseINS_8DenseMapImiNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImiEEEEmiS3_S6_E16InsertIntoBucketImJEEEPS6_SA_OT_DpOT0_.exit.i95: ; preds = %320, %313
   store i64 %241, ptr %315, align 8, !tbaa !45
   %323 = getelementptr inbounds nuw i8, ptr %315, i64 8
-  store i32 0, ptr %323, align 4, !tbaa !226
+  store i32 0, ptr %323, align 8, !tbaa !226
   %.pre242 = load i32, ptr %17, align 8, !tbaa !779
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapImiNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImiEEEEmiS3_S6_EixEOm.exit99
 
@@ -39312,7 +39312,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImiNS_12DenseMapInfoImvEENS_6detail12DenseMap
 _ZN4llvm12DenseMapBaseINS_8DenseMapImiNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImiEEEEmiS3_S6_E16InsertIntoBucketImJEEEPS6_SA_OT_DpOT0_.exit.i74: ; preds = %408, %402
   store i64 %360, ptr %403, align 8, !tbaa !45
   %411 = getelementptr inbounds nuw i8, ptr %403, i64 8
-  store i32 0, ptr %411, align 4, !tbaa !226
+  store i32 0, ptr %411, align 8, !tbaa !226
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapImiNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImiEEEEmiS3_S6_EixEOm.exit78
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapImiNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImiEEEEmiS3_S6_EixEOm.exit78: ; preds = %350, %330, %_ZN4llvm12DenseMapBaseINS_8DenseMapImiNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImiEEEEmiS3_S6_E16InsertIntoBucketImJEEEPS6_SA_OT_DpOT0_.exit.i74

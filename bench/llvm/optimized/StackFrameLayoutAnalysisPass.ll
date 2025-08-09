@@ -3078,7 +3078,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   %44 = load i64, ptr %18, align 8, !tbaa !267
   %45 = load i64, ptr %19, align 8, !tbaa !266
   %46 = add nsw i64 %45, %44
-  %47 = load i32, ptr %16, align 4, !tbaa !209, !noalias !435
+  %47 = load i32, ptr %16, align 8, !tbaa !209, !noalias !435
   %48 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %.val5.i.i.i.i = load i32, ptr %48, align 8, !tbaa !263
   %49 = icmp eq i32 %.val5.i.i.i.i, 2
@@ -3087,7 +3087,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   %52 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %53 = load i64, ptr %52, align 8, !tbaa !266
   %54 = add nsw i64 %53, %51
-  %55 = load i32, ptr %41, align 4, !tbaa !209, !noalias !438
+  %55 = load i32, ptr %41, align 8, !tbaa !209, !noalias !438
   %56 = and i1 %43, %49
   br i1 %56, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_128StackFrameLayoutAnalysisPass8SlotDataESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.thread.i.i, label %57
 
@@ -3115,7 +3115,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_12
   %67 = getelementptr inbounds i8, ptr %storemerge18, i64 -16
   %68 = load i64, ptr %67, align 8, !tbaa !266
   %69 = add nsw i64 %68, %66
-  %70 = load i32, ptr %42, align 4, !tbaa !209, !noalias !441
+  %70 = load i32, ptr %42, align 8, !tbaa !209, !noalias !441
   %71 = and i1 %62, %64
   br i1 %71, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_128StackFrameLayoutAnalysisPass8SlotDataESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit30.thread.i.i, label %72
 
@@ -3184,7 +3184,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_12
   %87 = getelementptr inbounds i8, ptr %storemerge18, i64 -16
   %88 = load i64, ptr %87, align 8, !tbaa !266
   %89 = add nsw i64 %88, %86
-  %90 = load i32, ptr %42, align 4, !tbaa !209, !noalias !444
+  %90 = load i32, ptr %42, align 8, !tbaa !209, !noalias !444
   %91 = and i1 %43, %84
   br i1 %91, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_128StackFrameLayoutAnalysisPass8SlotDataESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit40.thread.i.i, label %92
 
@@ -3262,7 +3262,7 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_128St
   %108 = load i64, ptr %21, align 8, !tbaa !267
   %109 = load i64, ptr %22, align 8, !tbaa !266
   %110 = add nsw i64 %109, %108
-  %111 = load i32, ptr %0, align 4, !tbaa !209, !noalias !447
+  %111 = load i32, ptr %0, align 8, !tbaa !209, !noalias !447
   br i1 %107, label %.split.i.i, label %.split.us.i.i
 
 .split.us.i.i:                                    ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_128StackFrameLayoutAnalysisPass8SlotDataESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_SC_T0_.exit.i
@@ -3345,7 +3345,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_12
   %147 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -16
   %148 = load i64, ptr %147, align 8, !tbaa !266
   %149 = add nsw i64 %148, %146
-  %150 = load i32, ptr %.sroa.0.1.i.i, align 4, !tbaa !209, !noalias !455
+  %150 = load i32, ptr %.sroa.0.1.i.i, align 8, !tbaa !209, !noalias !455
   %151 = and i1 %142, %144
   br i1 %151, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_128StackFrameLayoutAnalysisPass8SlotDataESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit13.thread.i.i.backedge, label %152
 
@@ -3412,7 +3412,7 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %18 = load i64, ptr %17, align 8, !tbaa !266
   %19 = add nsw i64 %18, %16
-  %20 = load i32, ptr %10, align 4, !tbaa !209, !noalias !461
+  %20 = load i32, ptr %10, align 8, !tbaa !209, !noalias !461
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %.val5.i.i = load i32, ptr %21, align 8, !tbaa !263
   %22 = icmp eq i32 %.val5.i.i, 2
@@ -3421,7 +3421,7 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %26 = load i64, ptr %25, align 8, !tbaa !266
   %27 = add nsw i64 %26, %24
-  %28 = load i32, ptr %12, align 4, !tbaa !209, !noalias !464
+  %28 = load i32, ptr %12, align 8, !tbaa !209, !noalias !464
   %29 = and i1 %14, %22
   br i1 %29, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_128StackFrameLayoutAnalysisPass8SlotDataESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.thread, label %30
 
@@ -3505,7 +3505,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_12
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %60 = load i64, ptr %59, align 8, !tbaa !266
   %61 = add nsw i64 %60, %58
-  %62 = load i32, ptr %55, align 4, !tbaa !209, !noalias !468
+  %62 = load i32, ptr %55, align 8, !tbaa !209, !noalias !468
   br i1 %.not.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_128StackFrameLayoutAnalysisPass8SlotDataESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_less_valEEvT_T0_SD_T1_RT2_.exit, label %63
 
 63:                                               ; preds = %.lr.ph.split.us.i
@@ -3616,7 +3616,7 @@ define internal fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iterat
   %19 = load i64, ptr %6, align 8, !tbaa !267
   %20 = load i64, ptr %7, align 8, !tbaa !266
   %21 = add nsw i64 %20, %19
-  %22 = load i32, ptr %0, align 4, !tbaa !209, !noalias !476
+  %22 = load i32, ptr %0, align 8, !tbaa !209, !noalias !476
   %23 = and i1 %11, %18
   br i1 %23, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_128StackFrameLayoutAnalysisPass8SlotDataESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, label %24
 
@@ -4019,7 +4019,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIiNS_9SetVectorIPKNS_15D
   %33 = getelementptr inbounds nuw i8, ptr %.02538, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %.026.ptr39, i64 16
   %35 = load i32, ptr %34, align 8, !tbaa !209
-  store i32 %35, ptr %33, align 4, !tbaa !209
+  store i32 %35, ptr %33, align 8, !tbaa !209
   store i32 0, ptr %34, align 8, !tbaa !209
   %36 = getelementptr inbounds nuw i8, ptr %.02538, i64 20
   %37 = getelementptr inbounds nuw i8, ptr %.026.ptr39, i64 20
@@ -4029,9 +4029,9 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIiNS_9SetVectorIPKNS_15D
   store i32 %38, ptr %37, align 4, !tbaa !209
   %40 = getelementptr inbounds nuw i8, ptr %.02538, i64 24
   %41 = getelementptr inbounds nuw i8, ptr %.026.ptr39, i64 24
-  %42 = load i32, ptr %40, align 4, !tbaa !209
+  %42 = load i32, ptr %40, align 8, !tbaa !209
   %43 = load i32, ptr %41, align 8, !tbaa !209
-  store i32 %43, ptr %40, align 4, !tbaa !209
+  store i32 %43, ptr %40, align 8, !tbaa !209
   store i32 %42, ptr %41, align 8, !tbaa !209
   %44 = getelementptr inbounds nuw i8, ptr %.02538, i64 32
   %45 = getelementptr inbounds nuw i8, ptr %.02538, i64 48
@@ -4224,9 +4224,9 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIiNS_9SetVectorIPKNS_15DILocalVariableE
   store ptr null, ptr %46, align 8, !tbaa !483
   %48 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 16
   %49 = getelementptr inbounds nuw i8, ptr %.022, i64 16
-  %50 = load i32, ptr %49, align 4, !tbaa !209
-  store i32 %50, ptr %48, align 4, !tbaa !209
-  store i32 0, ptr %49, align 4, !tbaa !209
+  %50 = load i32, ptr %49, align 8, !tbaa !209
+  store i32 %50, ptr %48, align 8, !tbaa !209
+  store i32 0, ptr %49, align 8, !tbaa !209
   %51 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 20
   %52 = getelementptr inbounds nuw i8, ptr %.022, i64 20
   %53 = load i32, ptr %51, align 4, !tbaa !209
@@ -4235,10 +4235,10 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIiNS_9SetVectorIPKNS_15DILocalVariableE
   store i32 %53, ptr %52, align 4, !tbaa !209
   %55 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 24
   %56 = getelementptr inbounds nuw i8, ptr %.022, i64 24
-  %57 = load i32, ptr %55, align 4, !tbaa !209
-  %58 = load i32, ptr %56, align 4, !tbaa !209
-  store i32 %58, ptr %55, align 4, !tbaa !209
-  store i32 %57, ptr %56, align 4, !tbaa !209
+  %57 = load i32, ptr %55, align 8, !tbaa !209
+  %58 = load i32, ptr %56, align 8, !tbaa !209
+  store i32 %58, ptr %55, align 8, !tbaa !209
+  store i32 %57, ptr %56, align 8, !tbaa !209
   %59 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 32
   %60 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 48
   store ptr %60, ptr %59, align 8, !tbaa !220

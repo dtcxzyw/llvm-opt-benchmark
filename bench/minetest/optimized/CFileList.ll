@@ -2086,7 +2086,7 @@ if.then.i.i57:                                    ; preds = %if.end31
   store ptr %90, ptr %88, align 8, !tbaa !24
   %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %88, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i.i, align 8, !tbaa !10
-  store i8 0, ptr %90, align 1, !tbaa !25
+  store i8 0, ptr %90, align 8, !tbaa !25
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %88, %entry2
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZN3irr4core6stringIcEC2ERKS2_.exit.thread.i.i.i.i.i, label %if.end.i.i9.i.i.i.i.i
 
@@ -2103,7 +2103,7 @@ if.end.i.i9.i.i.i.i.i:                            ; preds = %if.then.i.i57
   store ptr %91, ptr %FullName.i.i.i.i.i, align 8, !tbaa !24
   %_M_string_length.i.i.i.i7.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %88, i64 40
   store i64 0, ptr %_M_string_length.i.i.i.i7.i.i.i.i.i, align 8, !tbaa !10
-  store i8 0, ptr %91, align 1, !tbaa !25
+  store i8 0, ptr %91, align 8, !tbaa !25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %FullName.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %FullName.i) #21
   br label %_ZNSt16allocator_traitsISaIN3irr2io14SFileListEntryEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i
 
@@ -3295,7 +3295,7 @@ _ZN3irr4core6stringIcEC2ERKS2_.exit.thread.i:     ; preds = %entry
   store ptr %1, ptr %FullName11.i, align 8, !tbaa !24
   %_M_string_length.i.i.i.i712.i = getelementptr inbounds nuw i8, ptr %__result.coerce, i64 40
   store i64 0, ptr %_M_string_length.i.i.i.i712.i, align 8, !tbaa !10
-  store i8 0, ptr %1, align 1, !tbaa !25
+  store i8 0, ptr %1, align 8, !tbaa !25
   br label %_ZN3irr2io14SFileListEntryC2EOS1_.exit
 
 if.end.i.i9.i:                                    ; preds = %entry
@@ -3571,7 +3571,7 @@ _ZN3irr4core6stringIcEC2ERKS2_.exit.thread.i:     ; preds = %if.end35
   store ptr %13, ptr %FullName11.i, align 8, !tbaa !24
   %_M_string_length.i.i.i.i712.i = getelementptr inbounds nuw i8, ptr %__value, i64 40
   store i64 0, ptr %_M_string_length.i.i.i.i712.i, align 8, !tbaa !10
-  store i8 0, ptr %13, align 1, !tbaa !25
+  store i8 0, ptr %13, align 8, !tbaa !25
   br label %_ZN3irr2io14SFileListEntryC2EOS1_.exit
 
 if.end.i.i9.i:                                    ; preds = %if.end35
@@ -4604,7 +4604,7 @@ _ZN3irr4core6stringIcEC2ERKS2_.exit.thread.i:     ; preds = %entry
   store ptr %1, ptr %FullName11.i, align 8, !tbaa !24
   %_M_string_length.i.i.i.i712.i = getelementptr inbounds nuw i8, ptr %__last.coerce, i64 40
   store i64 0, ptr %_M_string_length.i.i.i.i712.i, align 8, !tbaa !10
-  store i8 0, ptr %1, align 1, !tbaa !25
+  store i8 0, ptr %1, align 8, !tbaa !25
   br label %_ZN3irr2io14SFileListEntryC2EOS1_.exit
 
 if.end.i.i9.i:                                    ; preds = %entry
@@ -4788,7 +4788,7 @@ _ZNKSt6vectorIN3irr2io14SFileListEntryESaIS2_EE12_M_check_lenEmPKc.exit: ; preds
   store ptr %3, ptr %add.ptr, align 8, !tbaa !24
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !10
-  store i8 0, ptr %3, align 1, !tbaa !25
+  store i8 0, ptr %3, align 8, !tbaa !25
   %cmp.i.i.i.i.i = icmp eq ptr %add.ptr, %__args
   br i1 %cmp.i.i.i.i.i, label %_ZN3irr4core6stringIcEC2ERKS2_.exit.thread.i.i.i, label %if.end.i.i9.i.i.i
 
@@ -4808,7 +4808,7 @@ if.end.i.i9.i.i.i:                                ; preds = %_ZNKSt6vectorIN3irr
   store ptr %5, ptr %FullName.i.i.i, align 8, !tbaa !24
   %_M_string_length.i.i.i.i7.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 40
   store i64 0, ptr %_M_string_length.i.i.i.i7.i.i.i, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !25
+  store i8 0, ptr %5, align 8, !tbaa !25
   %FullName3.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %FullName.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %FullName3.i.i.i) #21
   br label %_ZNSt16allocator_traitsISaIN3irr2io14SFileListEntryEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit
@@ -4827,7 +4827,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt16allocator_tr
   store ptr %6, ptr %__cur.08.i.i.i.i.i, align 8, !tbaa !24
   %_M_string_length.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !10
-  store i8 0, ptr %6, align 1, !tbaa !25
+  store i8 0, ptr %6, align 8, !tbaa !25
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %__cur.08.i.i.i.i.i, %__first.addr.07.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZN3irr4core6stringIcEC2ERKS2_.exit.thread.i.i.i.i.i.i.i, label %if.end.i.i9.i.i.i.i.i.i.i
 
@@ -4837,7 +4837,7 @@ _ZN3irr4core6stringIcEC2ERKS2_.exit.thread.i.i.i.i.i.i.i: ; preds = %for.body.i.
   store ptr %7, ptr %FullName11.i.i.i.i.i.i.i, align 8, !tbaa !24
   %_M_string_length.i.i.i.i712.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 40
   store i64 0, ptr %_M_string_length.i.i.i.i712.i.i.i.i.i.i.i, align 8, !tbaa !10
-  store i8 0, ptr %7, align 1, !tbaa !25
+  store i8 0, ptr %7, align 8, !tbaa !25
   br label %_ZSt10_ConstructIN3irr2io14SFileListEntryEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i
 
 if.end.i.i9.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i.i
@@ -4847,7 +4847,7 @@ if.end.i.i9.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i.i
   store ptr %8, ptr %FullName.i.i.i.i.i.i.i, align 8, !tbaa !24
   %_M_string_length.i.i.i.i7.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 40
   store i64 0, ptr %_M_string_length.i.i.i.i7.i.i.i.i.i.i.i, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !25
+  store i8 0, ptr %8, align 8, !tbaa !25
   %FullName3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %FullName.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %FullName3.i.i.i.i.i.i.i) #21
   br label %_ZSt10_ConstructIN3irr2io14SFileListEntryEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i
@@ -4874,7 +4874,7 @@ for.body.i.i.i.i.i36:                             ; preds = %_ZSt34__uninitializ
   store ptr %9, ptr %__cur.08.i.i.i.i.i37, align 8, !tbaa !24
   %_M_string_length.i.i.i.i.i.i.i.i.i.i.i39 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i37, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i39, align 8, !tbaa !10
-  store i8 0, ptr %9, align 1, !tbaa !25
+  store i8 0, ptr %9, align 8, !tbaa !25
   %cmp.i.i.i.i.i.i.i.i.i40 = icmp eq ptr %__cur.08.i.i.i.i.i37, %__first.addr.07.i.i.i.i.i38
   br i1 %cmp.i.i.i.i.i.i.i.i.i40, label %_ZN3irr4core6stringIcEC2ERKS2_.exit.thread.i.i.i.i.i.i.i52, label %if.end.i.i9.i.i.i.i.i.i.i41
 
@@ -4884,7 +4884,7 @@ _ZN3irr4core6stringIcEC2ERKS2_.exit.thread.i.i.i.i.i.i.i52: ; preds = %for.body.
   store ptr %10, ptr %FullName11.i.i.i.i.i.i.i53, align 8, !tbaa !24
   %_M_string_length.i.i.i.i712.i.i.i.i.i.i.i54 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i37, i64 40
   store i64 0, ptr %_M_string_length.i.i.i.i712.i.i.i.i.i.i.i54, align 8, !tbaa !10
-  store i8 0, ptr %10, align 1, !tbaa !25
+  store i8 0, ptr %10, align 8, !tbaa !25
   br label %_ZSt10_ConstructIN3irr2io14SFileListEntryEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i45
 
 if.end.i.i9.i.i.i.i.i.i.i41:                      ; preds = %for.body.i.i.i.i.i36
@@ -4894,7 +4894,7 @@ if.end.i.i9.i.i.i.i.i.i.i41:                      ; preds = %for.body.i.i.i.i.i3
   store ptr %11, ptr %FullName.i.i.i.i.i.i.i42, align 8, !tbaa !24
   %_M_string_length.i.i.i.i7.i.i.i.i.i.i.i43 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i37, i64 40
   store i64 0, ptr %_M_string_length.i.i.i.i7.i.i.i.i.i.i.i43, align 8, !tbaa !10
-  store i8 0, ptr %11, align 1, !tbaa !25
+  store i8 0, ptr %11, align 8, !tbaa !25
   %FullName3.i.i.i.i.i.i.i44 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i38, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %FullName.i.i.i.i.i.i.i42, ptr noundef nonnull align 8 dereferenceable(32) %FullName3.i.i.i.i.i.i.i44) #21
   br label %_ZSt10_ConstructIN3irr2io14SFileListEntryEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i45

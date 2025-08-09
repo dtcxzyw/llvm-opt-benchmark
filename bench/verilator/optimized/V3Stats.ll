@@ -1428,7 +1428,7 @@ _ZN14VNVisitorConst12iterateConstEP7AstNode.exit.preheader: ; preds = %82
   %160 = load i32, ptr %159, align 8, !tbaa !80
   %161 = and i32 %160, -75
   %162 = or disjoint i32 %161, 2
-  store i32 %162, ptr %159, align 4, !tbaa !81
+  store i32 %162, ptr %159, align 8, !tbaa !81
   %163 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %89, i64 noundef %145)
           to label %_ZNSolsEj.exit unwind label %199
 

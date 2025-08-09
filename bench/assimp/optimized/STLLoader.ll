@@ -919,7 +919,7 @@ define hidden noundef zeroext i1 @_ZN6Assimp11STLImporter14LoadBinaryFileEv(ptr 
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %76, ptr noundef nonnull align 1 dereferenceable(12) @.str.27, i64 12, i1 false)
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  store i8 0, ptr %77, align 1
+  store i8 0, ptr %77, align 4
   %78 = load i32, ptr %72, align 4
   store i32 %78, ptr %10, align 8
   %79 = getelementptr inbounds nuw i8, ptr %70, i64 84
@@ -1112,7 +1112,7 @@ _ZN6Assimp14addFacesToMeshEP6aiMesh.exit:         ; preds = %127, %.loopexit.thr
   store float %.sroa.17.0.copyload159, ptr %156, align 4
   %157 = getelementptr inbounds nuw i8, ptr %.0119172, i64 48
   %158 = getelementptr inbounds nuw i8, ptr %.0121170, i64 36
-  %159 = load i16, ptr %157, align 2
+  %159 = load i16, ptr %157, align 4
   %160 = getelementptr inbounds nuw i8, ptr %.0119172, i64 50
   %161 = zext i16 %159 to i32
   %.not136 = icmp sgt i16 %159, -1

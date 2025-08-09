@@ -869,7 +869,7 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   %220 = tail call ptr @dt_colorspaces_get_name(i32 noundef %219, ptr noundef nonnull %202) #17
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.109, ptr noundef %220) #17
   store i32 4, ptr %201, align 4, !tbaa !96
-  store i8 0, ptr %202, align 1, !tbaa !36
+  store i8 0, ptr %202, align 4, !tbaa !36
   br label %.sink.split
 
 221:                                              ; preds = %6
@@ -917,7 +917,7 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   %240 = tail call ptr @dt_colorspaces_get_name(i32 noundef %239, ptr noundef nonnull %224) #17
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.109, ptr noundef %240) #17
   store i32 4, ptr %223, align 4, !tbaa !96
-  store i8 0, ptr %224, align 1, !tbaa !36
+  store i8 0, ptr %224, align 4, !tbaa !36
   br label %.sink.split
 
 .sink.split:                                      ; preds = %235, %234, %215, %214, %._crit_edge.i233, %._crit_edge.i, %51, %103, %157, %169
@@ -1735,14 +1735,14 @@ process_cmatrix_fastpath.exit.i:                  ; preds = %_cmatrix_fastpath_s
   %.not.i35.i = icmp eq ptr %472, null
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %473 = getelementptr inbounds nuw i8, ptr %.val.i.pre, i64 786496
-  %474 = load float, ptr %473, align 4, !tbaa !121
+  %474 = load float, ptr %473, align 16, !tbaa !121
   store float %474, ptr %35, align 64, !tbaa !121
   %475 = getelementptr inbounds nuw i8, ptr %.val.i.pre, i64 786512
-  %476 = load float, ptr %475, align 4, !tbaa !121
+  %476 = load float, ptr %475, align 16, !tbaa !121
   %477 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store float %476, ptr %477, align 4, !tbaa !121
   %478 = getelementptr inbounds nuw i8, ptr %.val.i.pre, i64 786528
-  %479 = load float, ptr %478, align 4, !tbaa !121
+  %479 = load float, ptr %478, align 16, !tbaa !121
   %480 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store float %479, ptr %480, align 8, !tbaa !121
   %481 = getelementptr inbounds nuw i8, ptr %35, i64 12
@@ -1762,29 +1762,29 @@ process_cmatrix_fastpath.exit.i:                  ; preds = %_cmatrix_fastpath_s
   %491 = getelementptr inbounds nuw i8, ptr %35, i64 28
   store float 0.000000e+00, ptr %491, align 4, !tbaa !121
   %492 = getelementptr inbounds nuw i8, ptr %.val.i.pre, i64 786504
-  %493 = load float, ptr %492, align 4, !tbaa !121
+  %493 = load float, ptr %492, align 8, !tbaa !121
   %494 = getelementptr inbounds nuw i8, ptr %35, i64 32
   store float %493, ptr %494, align 32, !tbaa !121
   %495 = getelementptr inbounds nuw i8, ptr %.val.i.pre, i64 786520
-  %496 = load float, ptr %495, align 4, !tbaa !121
+  %496 = load float, ptr %495, align 8, !tbaa !121
   %497 = getelementptr inbounds nuw i8, ptr %35, i64 36
   store float %496, ptr %497, align 4, !tbaa !121
   %498 = getelementptr inbounds nuw i8, ptr %.val.i.pre, i64 786536
-  %499 = load float, ptr %498, align 4, !tbaa !121
+  %499 = load float, ptr %498, align 8, !tbaa !121
   %500 = getelementptr inbounds nuw i8, ptr %35, i64 40
   store float %499, ptr %500, align 8, !tbaa !121
   %501 = getelementptr inbounds nuw i8, ptr %35, i64 44
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %501, i8 0, i64 20, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %502 = getelementptr inbounds nuw i8, ptr %.val.i.pre, i64 786560
-  %503 = load float, ptr %502, align 4, !tbaa !121
+  %503 = load float, ptr %502, align 16, !tbaa !121
   store float %503, ptr %36, align 64, !tbaa !121
   %504 = getelementptr inbounds nuw i8, ptr %.val.i.pre, i64 786576
-  %505 = load float, ptr %504, align 4, !tbaa !121
+  %505 = load float, ptr %504, align 16, !tbaa !121
   %506 = getelementptr inbounds nuw i8, ptr %36, i64 4
   store float %505, ptr %506, align 4, !tbaa !121
   %507 = getelementptr inbounds nuw i8, ptr %.val.i.pre, i64 786592
-  %508 = load float, ptr %507, align 4, !tbaa !121
+  %508 = load float, ptr %507, align 16, !tbaa !121
   %509 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store float %508, ptr %509, align 8, !tbaa !121
   %510 = getelementptr inbounds nuw i8, ptr %36, i64 12
@@ -1804,29 +1804,29 @@ process_cmatrix_fastpath.exit.i:                  ; preds = %_cmatrix_fastpath_s
   %520 = getelementptr inbounds nuw i8, ptr %36, i64 28
   store float 0.000000e+00, ptr %520, align 4, !tbaa !121
   %521 = getelementptr inbounds nuw i8, ptr %.val.i.pre, i64 786568
-  %522 = load float, ptr %521, align 4, !tbaa !121
+  %522 = load float, ptr %521, align 8, !tbaa !121
   %523 = getelementptr inbounds nuw i8, ptr %36, i64 32
   store float %522, ptr %523, align 32, !tbaa !121
   %524 = getelementptr inbounds nuw i8, ptr %.val.i.pre, i64 786584
-  %525 = load float, ptr %524, align 4, !tbaa !121
+  %525 = load float, ptr %524, align 8, !tbaa !121
   %526 = getelementptr inbounds nuw i8, ptr %36, i64 36
   store float %525, ptr %526, align 4, !tbaa !121
   %527 = getelementptr inbounds nuw i8, ptr %.val.i.pre, i64 786600
-  %528 = load float, ptr %527, align 4, !tbaa !121
+  %528 = load float, ptr %527, align 8, !tbaa !121
   %529 = getelementptr inbounds nuw i8, ptr %36, i64 40
   store float %528, ptr %529, align 8, !tbaa !121
   %530 = getelementptr inbounds nuw i8, ptr %36, i64 44
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %530, i8 0, i64 20, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %531 = getelementptr inbounds nuw i8, ptr %.val.i.pre, i64 786624
-  %532 = load float, ptr %531, align 4, !tbaa !121
+  %532 = load float, ptr %531, align 16, !tbaa !121
   store float %532, ptr %37, align 64, !tbaa !121
   %533 = getelementptr inbounds nuw i8, ptr %.val.i.pre, i64 786640
-  %534 = load float, ptr %533, align 4, !tbaa !121
+  %534 = load float, ptr %533, align 16, !tbaa !121
   %535 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store float %534, ptr %535, align 4, !tbaa !121
   %536 = getelementptr inbounds nuw i8, ptr %.val.i.pre, i64 786656
-  %537 = load float, ptr %536, align 4, !tbaa !121
+  %537 = load float, ptr %536, align 16, !tbaa !121
   %538 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store float %537, ptr %538, align 8, !tbaa !121
   %539 = getelementptr inbounds nuw i8, ptr %37, i64 12
@@ -1846,15 +1846,15 @@ process_cmatrix_fastpath.exit.i:                  ; preds = %_cmatrix_fastpath_s
   %549 = getelementptr inbounds nuw i8, ptr %37, i64 28
   store float 0.000000e+00, ptr %549, align 4, !tbaa !121
   %550 = getelementptr inbounds nuw i8, ptr %.val.i.pre, i64 786632
-  %551 = load float, ptr %550, align 4, !tbaa !121
+  %551 = load float, ptr %550, align 8, !tbaa !121
   %552 = getelementptr inbounds nuw i8, ptr %37, i64 32
   store float %551, ptr %552, align 32, !tbaa !121
   %553 = getelementptr inbounds nuw i8, ptr %.val.i.pre, i64 786648
-  %554 = load float, ptr %553, align 4, !tbaa !121
+  %554 = load float, ptr %553, align 8, !tbaa !121
   %555 = getelementptr inbounds nuw i8, ptr %37, i64 36
   store float %554, ptr %555, align 4, !tbaa !121
   %556 = getelementptr inbounds nuw i8, ptr %.val.i.pre, i64 786664
-  %557 = load float, ptr %556, align 4, !tbaa !121
+  %557 = load float, ptr %556, align 8, !tbaa !121
   %558 = getelementptr inbounds nuw i8, ptr %37, i64 40
   store float %557, ptr %558, align 8, !tbaa !121
   %559 = getelementptr inbounds nuw i8, ptr %37, i64 44

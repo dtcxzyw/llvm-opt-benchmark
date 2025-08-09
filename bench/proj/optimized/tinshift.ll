@@ -762,53 +762,53 @@ define hidden void @_ZN8TINShift12TINShiftFile5parseERKNSt7__cxx1112basic_string
   %131 = getelementptr inbounds nuw i8, ptr %127, i64 32
   %132 = getelementptr inbounds nuw i8, ptr %127, i64 48
   store ptr %132, ptr %131, align 8, !tbaa !11
-  store i8 0, ptr %132, align 1, !tbaa !13
+  store i8 0, ptr %132, align 8, !tbaa !13
   %133 = getelementptr inbounds nuw i8, ptr %127, i64 64
   %134 = getelementptr inbounds nuw i8, ptr %127, i64 80
   store ptr %134, ptr %133, align 8, !tbaa !11
-  store i8 0, ptr %134, align 1, !tbaa !13
+  store i8 0, ptr %134, align 8, !tbaa !13
   %135 = getelementptr inbounds nuw i8, ptr %127, i64 96
   %136 = getelementptr inbounds nuw i8, ptr %127, i64 112
   store ptr %136, ptr %135, align 8, !tbaa !11
-  store i8 0, ptr %136, align 1, !tbaa !13
+  store i8 0, ptr %136, align 8, !tbaa !13
   %137 = getelementptr inbounds nuw i8, ptr %127, i64 128
   %138 = getelementptr inbounds nuw i8, ptr %127, i64 144
   store ptr %138, ptr %137, align 8, !tbaa !11
-  store i8 0, ptr %138, align 1, !tbaa !13
+  store i8 0, ptr %138, align 8, !tbaa !13
   %139 = getelementptr inbounds nuw i8, ptr %127, i64 160
   %140 = getelementptr inbounds nuw i8, ptr %127, i64 176
   store ptr %140, ptr %139, align 8, !tbaa !11
-  store i8 0, ptr %140, align 1, !tbaa !13
+  store i8 0, ptr %140, align 8, !tbaa !13
   %141 = getelementptr inbounds nuw i8, ptr %127, i64 192
   %142 = getelementptr inbounds nuw i8, ptr %127, i64 208
   store ptr %142, ptr %141, align 8, !tbaa !11
-  store i8 0, ptr %142, align 1, !tbaa !13
+  store i8 0, ptr %142, align 8, !tbaa !13
   %143 = getelementptr inbounds nuw i8, ptr %127, i64 232
   %144 = getelementptr inbounds nuw i8, ptr %127, i64 248
   store ptr %144, ptr %143, align 8, !tbaa !11
-  store i8 0, ptr %144, align 1, !tbaa !13
+  store i8 0, ptr %144, align 8, !tbaa !13
   %145 = getelementptr inbounds nuw i8, ptr %127, i64 264
   %146 = getelementptr inbounds nuw i8, ptr %127, i64 280
   store ptr %146, ptr %145, align 8, !tbaa !11
-  store i8 0, ptr %146, align 1, !tbaa !13
+  store i8 0, ptr %146, align 8, !tbaa !13
   %147 = getelementptr inbounds nuw i8, ptr %127, i64 296
   %148 = getelementptr inbounds nuw i8, ptr %127, i64 312
   store ptr %148, ptr %147, align 8, !tbaa !11
-  store i8 0, ptr %148, align 1, !tbaa !13
+  store i8 0, ptr %148, align 8, !tbaa !13
   %149 = getelementptr inbounds nuw i8, ptr %127, i64 328
   %150 = getelementptr inbounds nuw i8, ptr %127, i64 344
   store ptr %150, ptr %149, align 8, !tbaa !11
-  store i8 0, ptr %150, align 1, !tbaa !13
+  store i8 0, ptr %150, align 8, !tbaa !13
   %151 = getelementptr inbounds nuw i8, ptr %127, i64 360
   %152 = getelementptr inbounds nuw i8, ptr %127, i64 384
   %153 = getelementptr inbounds nuw i8, ptr %127, i64 400
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %151, i8 0, i64 24, i1 false)
   store ptr %153, ptr %152, align 8, !tbaa !11
-  store i8 0, ptr %153, align 1, !tbaa !13
+  store i8 0, ptr %153, align 8, !tbaa !13
   %154 = getelementptr inbounds nuw i8, ptr %127, i64 416
   %155 = getelementptr inbounds nuw i8, ptr %127, i64 432
   store ptr %155, ptr %154, align 8, !tbaa !11
-  store i8 0, ptr %155, align 1, !tbaa !13
+  store i8 0, ptr %155, align 8, !tbaa !13
   %156 = getelementptr inbounds nuw i8, ptr %127, i64 449
   store i8 0, ptr %156, align 1, !tbaa !14
   %157 = getelementptr inbounds nuw i8, ptr %127, i64 452
@@ -16496,7 +16496,7 @@ define linkonce_odr hidden void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__c
   store ptr %12, ptr %11, align 8, !tbaa !11
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %13, align 8, !tbaa !12
-  store i8 0, ptr %12, align 1, !tbaa !13
+  store i8 0, ptr %12, align 8, !tbaa !13
   store ptr %11, ptr %0, align 8, !tbaa !13
   br label %22
 
@@ -29610,7 +29610,7 @@ define linkonce_odr hidden { i8, ptr } @_ZN8nlohmann6detail28json_sax_dom_callba
   store ptr %32, ptr %31, align 8, !tbaa !11
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 0, ptr %33, align 8, !tbaa !12
-  store i8 0, ptr %32, align 1, !tbaa !13
+  store i8 0, ptr %32, align 8, !tbaa !13
   store ptr %31, ptr %22, align 8, !tbaa !13
   br label %_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEE10json_valueC2ENS_6detail7value_tE.exit
 
@@ -34303,7 +34303,7 @@ define linkonce_odr hidden noundef nonnull ptr @_ZN8nlohmann6detail19json_sax_do
   store ptr %24, ptr %23, align 8, !tbaa !11
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %25, align 8, !tbaa !12
-  store i8 0, ptr %24, align 1, !tbaa !13
+  store i8 0, ptr %24, align 8, !tbaa !13
   %26 = ptrtoint ptr %23 to i64
   br label %_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEE10json_valueC2ENS_6detail7value_tE.exit
 
@@ -34420,7 +34420,7 @@ _ZNSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_
   store ptr %79, ptr %78, align 8, !tbaa !11
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store i64 0, ptr %80, align 8, !tbaa !12
-  store i8 0, ptr %79, align 1, !tbaa !13
+  store i8 0, ptr %79, align 8, !tbaa !13
   %81 = ptrtoint ptr %78 to i64
   br label %_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEE10json_valueC2ENS_6detail7value_tE.exit8
 
@@ -36022,7 +36022,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8, !tbaa !12
   store ptr %13, ptr %10, align 8, !tbaa !3
   store i64 0, ptr %24, align 8, !tbaa !12
-  store i8 0, ptr %13, align 1, !tbaa !13
+  store i8 0, ptr %13, align 8, !tbaa !13
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i8 0, ptr %26, align 8, !tbaa !37
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 72

@@ -3179,7 +3179,7 @@ _ZN4fish4proc3Job14is_constructed17h4e21495adbc5f83aE.exit.i: ; preds = %3
   store ptr %10, ptr %2, align 8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %5, ptr %11, align 8
-  %12 = load i8, ptr %10, align 1, !range !207, !noundef !17
+  %12 = load i8, ptr %10, align 8, !range !207, !noundef !17
   %13 = trunc nuw i8 %12 to i1
   call void @"_ZN4core3ptr64drop_in_place$LT$core..cell..Ref$LT$fish..proc..JobFlags$GT$$GT$17h5b677c18e05ea3b0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -11494,7 +11494,7 @@ _ZN4fish4proc3Job5flags17hbc2fe9841af5d5acE.exit.i: ; preds = %113
   %120 = getelementptr inbounds nuw i8, ptr %114, i64 88
   store ptr %120, ptr %6, align 8
   store ptr %115, ptr %112, align 8
-  %121 = load i8, ptr %120, align 1, !range !207, !noundef !17
+  %121 = load i8, ptr %120, align 8, !range !207, !noundef !17
   invoke void @"_ZN4core3ptr64drop_in_place$LT$core..cell..Ref$LT$fish..proc..JobFlags$GT$$GT$17h5b677c18e05ea3b0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
           to label %123 unwind label %.loopexit108
 
@@ -12752,7 +12752,7 @@ _ZN4fish4proc3Job14is_constructed17h4e21495adbc5f83aE.exit.i.i.i.i: ; preds = %3
   %392 = getelementptr inbounds nuw i8, ptr %386, i64 88
   store ptr %392, ptr %9, align 8, !noalias !873
   store ptr %387, ptr %381, align 8, !noalias !873
-  %393 = load i8, ptr %392, align 1, !range !207, !noalias !873, !noundef !17
+  %393 = load i8, ptr %392, align 8, !range !207, !noalias !873, !noundef !17
   invoke void @"_ZN4core3ptr64drop_in_place$LT$core..cell..Ref$LT$fish..proc..JobFlags$GT$$GT$17h5b677c18e05ea3b0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
           to label %.noexc182 unwind label %.loopexit
 
@@ -15858,7 +15858,7 @@ _ZN4fish4proc3Job14is_constructed17h4e21495adbc5f83aE.exit.i.i: ; preds = %_ZN4f
   %255 = getelementptr inbounds nuw i8, ptr %.sroa.034.0, i64 88
   store ptr %255, ptr %6, align 8, !noalias !1088
   store ptr %250, ptr %140, align 8, !noalias !1088
-  %256 = load i8, ptr %255, align 1, !range !207, !noalias !1088, !noundef !17
+  %256 = load i8, ptr %255, align 8, !range !207, !noalias !1088, !noundef !17
   invoke void @"_ZN4core3ptr64drop_in_place$LT$core..cell..Ref$LT$fish..proc..JobFlags$GT$$GT$17h5b677c18e05ea3b0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
           to label %"_ZN4fish8builtins4jobs4jobs28_$u7b$$u7b$closure$u7d$$u7d$17ha3b3e73c3da05bd6E.exit.i" unwind label %.loopexit141
 
@@ -43363,7 +43363,7 @@ _ZN4fish4proc3Job5flags17hbc2fe9841af5d5acE.exit.i: ; preds = %34
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 88
   store ptr %41, ptr %4, align 8
   store ptr %36, ptr %25, align 8
-  %42 = load i8, ptr %41, align 1, !range !207, !noundef !17
+  %42 = load i8, ptr %41, align 8, !range !207, !noundef !17
   invoke void @"_ZN4core3ptr64drop_in_place$LT$core..cell..Ref$LT$fish..proc..JobFlags$GT$$GT$17h5b677c18e05ea3b0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
           to label %44 unwind label %.loopexit
 
@@ -45826,7 +45826,7 @@ _ZN4fish4proc3Job14is_constructed17h4e21495adbc5f83aE.exit.i: ; preds = %218
   %223 = getelementptr inbounds nuw i8, ptr %214, i64 88
   store ptr %223, ptr %23, align 8, !noalias !3709
   store ptr %219, ptr %163, align 8, !noalias !3709
-  %224 = load i8, ptr %223, align 1, !range !207, !noalias !3709, !noundef !17
+  %224 = load i8, ptr %223, align 8, !range !207, !noalias !3709, !noundef !17
   invoke void @"_ZN4core3ptr64drop_in_place$LT$core..cell..Ref$LT$fish..proc..JobFlags$GT$$GT$17h5b677c18e05ea3b0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %23)
           to label %.noexc158 unwind label %.loopexit331
 
@@ -46483,7 +46483,7 @@ _ZN4fish4proc3Job14is_constructed17h4e21495adbc5f83aE.exit.i178: ; preds = %418
   %424 = getelementptr inbounds nuw i8, ptr %414, i64 88
   store ptr %424, ptr %14, align 8, !noalias !3762
   store ptr %419, ptr %122, align 8, !noalias !3762
-  %425 = load i8, ptr %424, align 1, !range !207, !noalias !3762, !noundef !17
+  %425 = load i8, ptr %424, align 8, !range !207, !noalias !3762, !noundef !17
   invoke void @"_ZN4core3ptr64drop_in_place$LT$core..cell..Ref$LT$fish..proc..JobFlags$GT$$GT$17h5b677c18e05ea3b0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14)
           to label %.noexc184 unwind label %.loopexit.split-lp348.loopexit
 
@@ -47597,7 +47597,7 @@ _ZN4fish4proc3Job14is_constructed17h4e21495adbc5f83aE.exit.i272: ; preds = %763
   %768 = getelementptr inbounds nuw i8, ptr %759, i64 88
   store ptr %768, ptr %4, align 8, !noalias !3847
   store ptr %764, ptr %105, align 8, !noalias !3847
-  %769 = load i8, ptr %768, align 1, !range !207, !noalias !3847, !noundef !17
+  %769 = load i8, ptr %768, align 8, !range !207, !noalias !3847, !noundef !17
   invoke void @"_ZN4core3ptr64drop_in_place$LT$core..cell..Ref$LT$fish..proc..JobFlags$GT$$GT$17h5b677c18e05ea3b0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
           to label %.noexc278 unwind label %.loopexit383
 
@@ -50577,7 +50577,7 @@ _ZN4fish4proc3Job5flags17hbc2fe9841af5d5acE.exit.i: ; preds = %461
   %468 = getelementptr inbounds nuw i8, ptr %462, i64 88
   store ptr %468, ptr %4, align 8
   store ptr %464, ptr %82, align 8
-  %469 = load i8, ptr %468, align 1, !range !207, !noundef !17
+  %469 = load i8, ptr %468, align 8, !range !207, !noundef !17
   invoke void @"_ZN4core3ptr64drop_in_place$LT$core..cell..Ref$LT$fish..proc..JobFlags$GT$$GT$17h5b677c18e05ea3b0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
           to label %470 unwind label %.loopexit.split-lp179.loopexit
 

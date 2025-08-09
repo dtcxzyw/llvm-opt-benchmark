@@ -117,7 +117,7 @@ define weak_odr dso_local void @_ZN3igl14edge_crossingsIN5Eigen6MatrixIiLin1ELin
   store ptr null, ptr %63, align 8, !tbaa !29
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %65, ptr %64, align 4, !tbaa !32
+  store i32 %65, ptr %64, align 8, !tbaa !32
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 12
   store i32 0, ptr %66, align 4, !tbaa !34
   %67 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS4_10_Hash_nodeIS2_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %3, i64 noundef %44, i64 noundef %indvars.iv, ptr noundef nonnull %63, i64 noundef 1)
@@ -432,7 +432,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !29
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !12
+  %16 = load i32, ptr %15, align 8, !tbaa !12
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18

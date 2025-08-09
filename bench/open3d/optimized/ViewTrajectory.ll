@@ -923,25 +923,25 @@ _ZNSt6vectorIN6open3d13visualization14ViewParametersESaIS2_EE6resizeEm.exit: ; p
   store double %139, ptr %138, align 8, !tbaa !41
   %140 = getelementptr inbounds nuw i8, ptr %134, i64 48
   %141 = load <2 x double>, ptr %120, align 8, !tbaa !40
-  store <2 x double> %141, ptr %140, align 1, !tbaa !40
+  store <2 x double> %141, ptr %140, align 8, !tbaa !40
   %142 = getelementptr inbounds nuw i8, ptr %134, i64 64
   %143 = load double, ptr %121, align 8, !tbaa !41
   store double %143, ptr %142, align 8, !tbaa !41
   %144 = getelementptr inbounds nuw i8, ptr %134, i64 72
   %145 = load <2 x double>, ptr %122, align 8, !tbaa !40
-  store <2 x double> %145, ptr %144, align 1, !tbaa !40
+  store <2 x double> %145, ptr %144, align 8, !tbaa !40
   %146 = getelementptr inbounds nuw i8, ptr %134, i64 88
   %147 = load double, ptr %123, align 8, !tbaa !41
   store double %147, ptr %146, align 8, !tbaa !41
   %148 = getelementptr inbounds nuw i8, ptr %134, i64 96
   %149 = load <2 x double>, ptr %124, align 8, !tbaa !40
-  store <2 x double> %149, ptr %148, align 1, !tbaa !40
+  store <2 x double> %149, ptr %148, align 8, !tbaa !40
   %150 = getelementptr inbounds nuw i8, ptr %134, i64 112
   %151 = load double, ptr %125, align 8, !tbaa !41
   store double %151, ptr %150, align 8, !tbaa !41
   %152 = getelementptr inbounds nuw i8, ptr %134, i64 120
   %153 = load <2 x double>, ptr %126, align 8, !tbaa !40
-  store <2 x double> %153, ptr %152, align 1, !tbaa !40
+  store <2 x double> %153, ptr %152, align 8, !tbaa !40
   %154 = getelementptr inbounds nuw i8, ptr %134, i64 136
   %155 = load double, ptr %127, align 8, !tbaa !41
   store double %155, ptr %154, align 8, !tbaa !41

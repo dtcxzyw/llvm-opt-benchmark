@@ -1188,7 +1188,7 @@ EmitLiterals.exit:                                ; preds = %403, %EmitInsertLen
   store i64 %661, ptr %656, align 1, !noalias !215
   %662 = add i64 %653, 24
   store i64 %662, ptr %5, align 8, !tbaa !3, !alias.scope !215, !noalias !218
-  %663 = load i8, ptr %97, align 1, !tbaa !7
+  %663 = load i8, ptr %97, align 2, !tbaa !7
   %664 = zext i8 %663 to i64
   %665 = load i16, ptr %98, align 2, !tbaa !87
   %666 = zext i16 %665 to i64
@@ -3196,7 +3196,7 @@ EmitLiterals.exit:                                ; preds = %403, %EmitInsertLen
   store i64 %661, ptr %656, align 1, !noalias !526
   %662 = add i64 %653, 24
   store i64 %662, ptr %5, align 8, !tbaa !3, !alias.scope !526, !noalias !529
-  %663 = load i8, ptr %97, align 1, !tbaa !7
+  %663 = load i8, ptr %97, align 2, !tbaa !7
   %664 = zext i8 %663 to i64
   %665 = load i16, ptr %98, align 2, !tbaa !87
   %666 = zext i16 %665 to i64
@@ -5204,7 +5204,7 @@ EmitLiterals.exit:                                ; preds = %403, %EmitInsertLen
   store i64 %661, ptr %656, align 1, !noalias !833
   %662 = add i64 %653, 24
   store i64 %662, ptr %5, align 8, !tbaa !3, !alias.scope !833, !noalias !836
-  %663 = load i8, ptr %97, align 1, !tbaa !7
+  %663 = load i8, ptr %97, align 2, !tbaa !7
   %664 = zext i8 %663 to i64
   %665 = load i16, ptr %98, align 2, !tbaa !87
   %666 = zext i16 %665 to i64
@@ -7212,7 +7212,7 @@ EmitLiterals.exit:                                ; preds = %403, %EmitInsertLen
   store i64 %661, ptr %656, align 1, !noalias !1140
   %662 = add i64 %653, 24
   store i64 %662, ptr %5, align 8, !tbaa !3, !alias.scope !1140, !noalias !1143
-  %663 = load i8, ptr %97, align 1, !tbaa !7
+  %663 = load i8, ptr %97, align 2, !tbaa !7
   %664 = zext i8 %663 to i64
   %665 = load i16, ptr %98, align 2, !tbaa !87
   %666 = zext i16 %665 to i64

@@ -2948,7 +2948,7 @@ _ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS0_20HdRetained
   %.01642 = phi ptr [ %45, %.lr.ph ], [ %43, %.lr.ph45 ]
   %44 = getelementptr inbounds nuw i8, ptr %.01642, i64 32
   %45 = load ptr, ptr %44, align 8
-  %46 = load i32, ptr %.01642, align 4
+  %46 = load i32, ptr %.01642, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.01642, i64 4
   %48 = load i32, ptr %47, align 4
   %49 = zext i32 %46 to i64

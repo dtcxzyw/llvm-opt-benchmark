@@ -183,7 +183,7 @@ define internal noundef i32 @vibrance_slice8(ptr noundef readonly captures(none)
   %23 = load float, ptr %22, align 4, !tbaa !56
   %24 = fmul nsz float %21, %23
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %26 = load float, ptr %25, align 4, !tbaa !56
+  %26 = load float, ptr %25, align 8, !tbaa !56
   %27 = fmul nsz float %21, %26
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %29 = load float, ptr %28, align 4, !tbaa !56
@@ -421,7 +421,7 @@ define internal noundef i32 @vibrance_slice16(ptr noundef readonly captures(none
   %28 = load float, ptr %27, align 4, !tbaa !56
   %29 = fmul nsz float %26, %28
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %31 = load float, ptr %30, align 4, !tbaa !56
+  %31 = load float, ptr %30, align 8, !tbaa !56
   %32 = fmul nsz float %26, %31
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %34 = load float, ptr %33, align 4, !tbaa !56
@@ -671,7 +671,7 @@ define internal noundef i32 @vibrance_slice8p(ptr noundef readonly captures(none
   %25 = load float, ptr %24, align 4, !tbaa !56
   %26 = fmul nsz float %23, %25
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %28 = load float, ptr %27, align 4, !tbaa !56
+  %28 = load float, ptr %27, align 8, !tbaa !56
   %29 = fmul nsz float %23, %28
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %31 = load float, ptr %30, align 4, !tbaa !56
@@ -861,7 +861,7 @@ define internal noundef i32 @vibrance_slice16p(ptr noundef readonly captures(non
   %30 = load float, ptr %29, align 4, !tbaa !56
   %31 = fmul nsz float %28, %30
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %33 = load float, ptr %32, align 4, !tbaa !56
+  %33 = load float, ptr %32, align 8, !tbaa !56
   %34 = fmul nsz float %28, %33
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %36 = load float, ptr %35, align 4, !tbaa !56

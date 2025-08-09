@@ -487,7 +487,7 @@ _ZN4absl12NoDestructorISt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   store ptr %13, ptr %9, align 8, !tbaa !11
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %14, align 8, !tbaa !15
-  store i8 0, ptr %13, align 1, !tbaa !6
+  store i8 0, ptr %13, align 8, !tbaa !6
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZNK4absl18container_internal13hash_internal9GeneratorISt17basic_string_viewIcSt11char_traitsIcEEvEclEvE5arenaB5cxx11, i64 48), align 8, !tbaa !30
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %16, ptr getelementptr inbounds nuw (i8, ptr @_ZZNK4absl18container_internal13hash_internal9GeneratorISt17basic_string_viewIcSt11char_traitsIcEEvEclEvE5arenaB5cxx11, i64 48), align 8, !tbaa !30
@@ -1036,7 +1036,7 @@ _ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE22_M_res
   store ptr %47, ptr %46, align 8, !tbaa !11
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i64 0, ptr %48, align 8, !tbaa !15
-  store i8 0, ptr %47, align 1, !tbaa !6
+  store i8 0, ptr %47, align 8, !tbaa !6
   %49 = load ptr, ptr %4, align 8, !tbaa !54
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %50, ptr %4, align 8, !tbaa !44

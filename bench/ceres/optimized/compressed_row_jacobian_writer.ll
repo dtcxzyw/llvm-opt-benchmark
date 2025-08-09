@@ -1017,17 +1017,17 @@ _ZSt13adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7
   %248 = load ptr, ptr %241, align 8, !tbaa !123, !noalias !116
   store ptr %248, ptr %219, align 8, !tbaa !115, !noalias !116
   store ptr @_ZN4absl12lts_2024011619str_format_internal13FormatArgImpl8DispatchINS1_7VoidPtrEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %220, align 8, !tbaa !121, !noalias !116
-  %.sroa.0.0.copyload.i.i.i.i.i = load i32, ptr %242, align 4, !noalias !116
+  %.sroa.0.0.copyload.i.i.i.i.i = load i32, ptr %242, align 8, !noalias !116
   %.sroa.0.0.insert.ext.i.i.i.i.i = zext i32 %.sroa.0.0.copyload.i.i.i.i.i to i64
   %249 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i.i.i to ptr
   store ptr %249, ptr %221, align 8, !tbaa !115, !noalias !116
   store ptr @_ZN4absl12lts_2024011619str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %222, align 8, !tbaa !121, !noalias !116
-  %.sroa.0.0.copyload.i.i.i11.i.i = load i8, ptr %243, align 1, !noalias !116
+  %.sroa.0.0.copyload.i.i.i11.i.i = load i8, ptr %243, align 4, !noalias !116
   %.sroa.0.0.insert.ext.i.i.i12.i.i = zext i8 %.sroa.0.0.copyload.i.i.i11.i.i to i64
   %250 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i12.i.i to ptr
   store ptr %250, ptr %223, align 8, !tbaa !115, !noalias !116
   store ptr @_ZN4absl12lts_2024011619str_format_internal13FormatArgImpl8DispatchIbEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %224, align 8, !tbaa !121, !noalias !116
-  %.sroa.0.0.copyload.i.i.i13.i.i = load i32, ptr %244, align 4, !noalias !116
+  %.sroa.0.0.copyload.i.i.i13.i.i = load i32, ptr %244, align 8, !noalias !116
   %.sroa.0.0.insert.ext.i.i.i14.i.i = zext i32 %.sroa.0.0.copyload.i.i.i13.i.i to i64
   %251 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i14.i.i to ptr
   store ptr %251, ptr %225, align 8, !tbaa !115, !noalias !116
@@ -1037,7 +1037,7 @@ _ZSt13adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7
   %252 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i16.i.i to ptr
   store ptr %252, ptr %227, align 8, !tbaa !115, !noalias !116
   store ptr @_ZN4absl12lts_2024011619str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %228, align 8, !tbaa !121, !noalias !116
-  %.sroa.0.0.copyload.i.i.i17.i.i = load i32, ptr %246, align 4, !noalias !116
+  %.sroa.0.0.copyload.i.i.i17.i.i = load i32, ptr %246, align 8, !noalias !116
   %.sroa.0.0.insert.ext.i.i.i18.i.i = zext i32 %.sroa.0.0.copyload.i.i.i17.i.i to i64
   %253 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i18.i.i to ptr
   store ptr %253, ptr %229, align 8, !tbaa !115, !noalias !116

@@ -3203,7 +3203,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_2
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__26UsdImaging_DrawModeStandinE, i64 16), ptr %33, align 8, !noalias !7
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %35 = load i32, ptr %2, align 4, !noalias !7
-  store i32 %35, ptr %34, align 4, !noalias !7
+  store i32 %35, ptr %34, align 8, !noalias !7
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %35, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i.i.i.i, label %36
 
@@ -3310,7 +3310,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_2
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__26UsdImaging_DrawModeStandinE, i64 16), ptr %89, align 8, !noalias !10
   %90 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %91 = load i32, ptr %2, align 4, !noalias !10
-  store i32 %91, ptr %90, align 4, !noalias !10
+  store i32 %91, ptr %90, align 8, !noalias !10
   %.not.i.i.i.i.i.i.i.i.i.i.i15 = icmp eq i32 %91, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i15, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i.i.i.i16, label %92
 
@@ -3417,7 +3417,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_2
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__26UsdImaging_DrawModeStandinE, i64 16), ptr %145, align 8, !noalias !13
   %146 = getelementptr inbounds nuw i8, ptr %142, i64 24
   %147 = load i32, ptr %2, align 4, !noalias !13
-  store i32 %147, ptr %146, align 4, !noalias !13
+  store i32 %147, ptr %146, align 8, !noalias !13
   %.not.i.i.i.i.i.i.i.i.i.i.i28 = icmp eq i32 %147, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i28, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i.i.i.i29, label %148
 
@@ -3483,7 +3483,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__26UsdImaging_DrawModeStandinC2ERKNS_7SdfPat
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %179, i8 0, i64 16, i1 false), !noalias !19
   %180 = getelementptr inbounds nuw i8, ptr %176, i64 32
   %181 = load i32, ptr %2, align 4, !noalias !19
-  store i32 %181, ptr %180, align 4, !noalias !19
+  store i32 %181, ptr %180, align 8, !noalias !19
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %181, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %182
 
@@ -27614,7 +27614,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceC2ERKSt10sha
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawMode20_CardsPrimDataSourceE, i64 16), ptr %31, align 8, !noalias !109
   %42 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %43 = load i32, ptr %27, align 8, !noalias !109
-  store i32 %43, ptr %42, align 4, !noalias !109
+  store i32 %43, ptr %42, align 8, !noalias !109
   %.not.i.i.i.i = icmp eq i32 %43, 0
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i, label %44
 
@@ -46890,7 +46890,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__32HdRetainedTyped
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS_7SdfPathEEE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %1, align 4
-  store i32 %5, ptr %4, align 4
+  store i32 %5, ptr %4, align 8
   %.not.i.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS_7SdfPathEEC2ERKS1_.exit, label %6
 

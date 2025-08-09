@@ -3377,7 +3377,7 @@ _ZN5clang4ento14ObjCMethodCallC2EPKNS_15ObjCMessageExprEN4llvm18IntrusiveRefCntP
   %45 = getelementptr inbounds nuw i8, ptr %.0.i, i64 49
   store i8 0, ptr %45, align 1, !tbaa !360
   %46 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
-  store i32 0, ptr %46, align 4, !tbaa !361
+  store i32 0, ptr %46, align 8, !tbaa !361
   %47 = getelementptr inbounds nuw i8, ptr %.0.i, i64 68
   store i32 0, ptr %47, align 4, !tbaa !273
   store ptr getelementptr inbounds nuw inrange(-16, 160) (i8, ptr @_ZTVN5clang4ento14ObjCMethodCallE, i64 16), ptr %.0.i, align 8, !tbaa !39

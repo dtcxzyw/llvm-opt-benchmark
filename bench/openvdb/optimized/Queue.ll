@@ -296,7 +296,7 @@ invoke.cont:                                      ; preds = %for.body6.i.i.i.i
   %mNotifierMutex.i = getelementptr inbounds nuw i8, ptr %call, i64 648
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %mNotifierMutex.i, i8 0, i64 40, i1 false)
   %mNumTasks2.i = getelementptr inbounds nuw i8, ptr %call, i64 8
-  store atomic i32 0, ptr %mNumTasks2.i seq_cst, align 4
+  store atomic i32 0, ptr %mNumTasks2.i seq_cst, align 8
   store ptr %call, ptr %this, align 8
   store i32 %capacity, ptr %mCapacity.i, align 4
   ret void
@@ -4359,7 +4359,7 @@ entry:
   store i64 0, ptr %mutex.i.i.i.i.i, align 8
   %1 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   %2 = load i32, ptr %key, align 4
-  store i32 %2, ptr %1, align 4
+  store i32 %2, ptr %1, align 8
   %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 20
   store i32 0, ptr %second.i.i.i.i.i, align 4
   ret ptr %call.i.i.i

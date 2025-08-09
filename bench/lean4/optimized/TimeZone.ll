@@ -90,7 +90,7 @@ lean_alloc_ctor.exit126:                          ; preds = %lean_alloc_ctor.exi
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %17, align 8, !tbaa !11
-  store i32 1, ptr %13, align 4, !tbaa !8
+  store i32 1, ptr %13, align 8, !tbaa !8
   store i32 100728856, ptr %16, align 4
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %7, ptr %18, align 8, !tbaa !4
@@ -232,7 +232,7 @@ lean_alloc_ctor.exit135:                          ; preds = %lean_alloc_ctor.exi
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 16
   store i64 0, ptr %72, align 8, !tbaa !11
-  store i32 1, ptr %68, align 4, !tbaa !8
+  store i32 1, ptr %68, align 8, !tbaa !8
   store i32 100728856, ptr %71, align 4
   %73 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store ptr %62, ptr %73, align 8, !tbaa !4
@@ -371,7 +371,7 @@ lean_alloc_ctor.exit144:                          ; preds = %lean_alloc_ctor.exi
   %123 = getelementptr inbounds nuw i8, ptr %120, i64 4
   %124 = getelementptr inbounds nuw i8, ptr %120, i64 16
   store i64 0, ptr %124, align 8, !tbaa !11
-  store i32 1, ptr %120, align 4, !tbaa !8
+  store i32 1, ptr %120, align 8, !tbaa !8
   store i32 100728856, ptr %123, align 4
   %125 = getelementptr inbounds nuw i8, ptr %120, i64 8
   store ptr %114, ptr %125, align 8, !tbaa !4
@@ -495,7 +495,7 @@ lean_alloc_ctor.exit152:                          ; preds = %lean_alloc_ctor.exi
   %169 = getelementptr inbounds nuw i8, ptr %166, i64 4
   %170 = getelementptr inbounds nuw i8, ptr %166, i64 16
   store i64 0, ptr %170, align 8, !tbaa !11
-  store i32 1, ptr %166, align 4, !tbaa !8
+  store i32 1, ptr %166, align 8, !tbaa !8
   store i32 100728856, ptr %169, align 4
   %171 = getelementptr inbounds nuw i8, ptr %166, i64 8
   store ptr %160, ptr %171, align 8, !tbaa !4
@@ -583,7 +583,7 @@ lean_alloc_ctor.exit158:                          ; preds = %lean_alloc_ctor.exi
   %202 = getelementptr inbounds nuw i8, ptr %199, i64 4
   %203 = getelementptr inbounds nuw i8, ptr %199, i64 16
   store i64 0, ptr %203, align 8, !tbaa !11
-  store i32 1, ptr %199, align 4, !tbaa !8
+  store i32 1, ptr %199, align 8, !tbaa !8
   store i32 100728856, ptr %202, align 4
   %204 = getelementptr inbounds nuw i8, ptr %199, i64 8
   store ptr %193, ptr %204, align 8, !tbaa !4
@@ -659,7 +659,7 @@ define zeroext i8 @l___private_Std_Time_Zoned_TimeZone_0__Std_Time_decEqTimeZone
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = getelementptr i8, ptr %0, i64 32
-  %.val25 = load i8, ptr %9, align 1, !tbaa !13
+  %.val25 = load i8, ptr %9, align 8, !tbaa !13
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -667,7 +667,7 @@ define zeroext i8 @l___private_Std_Time_Zoned_TimeZone_0__Std_Time_decEqTimeZone
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !4
   %16 = getelementptr i8, ptr %1, i64 32
-  %.val = load i8, ptr %16, align 1, !tbaa !13
+  %.val = load i8, ptr %16, align 8, !tbaa !13
   %17 = ptrtoint ptr %4 to i64
   %18 = ptrtoint ptr %11 to i64
   %19 = and i64 %17, 1
@@ -738,7 +738,7 @@ define nonnull ptr @l___private_Std_Time_Zoned_TimeZone_0__Std_Time_decEqTimeZon
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = getelementptr i8, ptr %0, i64 32
-  %.val25.i = load i8, ptr %9, align 1, !tbaa !13
+  %.val25.i = load i8, ptr %9, align 8, !tbaa !13
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -746,7 +746,7 @@ define nonnull ptr @l___private_Std_Time_Zoned_TimeZone_0__Std_Time_decEqTimeZon
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !4
   %16 = getelementptr i8, ptr %1, i64 32
-  %.val.i = load i8, ptr %16, align 1, !tbaa !13
+  %.val.i = load i8, ptr %16, align 8, !tbaa !13
   %17 = ptrtoint ptr %4 to i64
   %18 = ptrtoint ptr %11 to i64
   %19 = and i64 %17, 1
@@ -869,7 +869,7 @@ define zeroext i8 @l_Std_Time_instDecidableEqTimeZone(ptr noundef readonly captu
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = getelementptr i8, ptr %0, i64 32
-  %.val25.i = load i8, ptr %9, align 1, !tbaa !13
+  %.val25.i = load i8, ptr %9, align 8, !tbaa !13
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -877,7 +877,7 @@ define zeroext i8 @l_Std_Time_instDecidableEqTimeZone(ptr noundef readonly captu
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !4
   %16 = getelementptr i8, ptr %1, i64 32
-  %.val.i = load i8, ptr %16, align 1, !tbaa !13
+  %.val.i = load i8, ptr %16, align 8, !tbaa !13
   %17 = ptrtoint ptr %4 to i64
   %18 = ptrtoint ptr %11 to i64
   %19 = and i64 %17, 1
@@ -948,7 +948,7 @@ define nonnull ptr @l_Std_Time_instDecidableEqTimeZone___boxed(ptr noundef %0, p
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = getelementptr i8, ptr %0, i64 32
-  %.val25.i.i = load i8, ptr %9, align 1, !tbaa !13
+  %.val25.i.i = load i8, ptr %9, align 8, !tbaa !13
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -956,7 +956,7 @@ define nonnull ptr @l_Std_Time_instDecidableEqTimeZone___boxed(ptr noundef %0, p
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !4
   %16 = getelementptr i8, ptr %1, i64 32
-  %.val.i.i = load i8, ptr %16, align 1, !tbaa !13
+  %.val.i.i = load i8, ptr %16, align 8, !tbaa !13
   %17 = ptrtoint ptr %4 to i64
   %18 = ptrtoint ptr %11 to i64
   %19 = and i64 %17, 1
@@ -1086,7 +1086,7 @@ lean_alloc_ctor.exit:                             ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 0, ptr %10, align 8, !tbaa !11
-  store i32 1, ptr %6, align 4, !tbaa !8
+  store i32 1, ptr %6, align 8, !tbaa !8
   store i32 196648, ptr %9, align 4
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %5, ptr %11, align 8, !tbaa !4
@@ -1094,7 +1094,7 @@ lean_alloc_ctor.exit:                             ; preds = %4
   store ptr %0, ptr %12, align 8, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %1, ptr %13, align 8, !tbaa !4
-  store i8 %3, ptr %10, align 1, !tbaa !13
+  store i8 %3, ptr %10, align 8, !tbaa !13
   ret ptr %6
 }
 
@@ -1142,7 +1142,7 @@ l_Std_Time_TimeZone_ofHours.exit:                 ; preds = %lean_dec.exit7
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store i64 0, ptr %21, align 8, !tbaa !11
-  store i32 1, ptr %17, align 4, !tbaa !8
+  store i32 1, ptr %17, align 8, !tbaa !8
   store i32 196648, ptr %20, align 4
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %16, ptr %22, align 8, !tbaa !4
@@ -1150,7 +1150,7 @@ l_Std_Time_TimeZone_ofHours.exit:                 ; preds = %lean_dec.exit7
   store ptr %0, ptr %23, align 8, !tbaa !4
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr %1, ptr %24, align 8, !tbaa !4
-  store i8 %7, ptr %21, align 1, !tbaa !13
+  store i8 %7, ptr %21, align 8, !tbaa !13
   %25 = ptrtoint ptr %2 to i64
   %26 = and i64 %25, 1
   %.not10 = icmp eq i64 %26, 0
@@ -1193,7 +1193,7 @@ lean_alloc_ctor.exit:                             ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 0, ptr %9, align 8, !tbaa !11
-  store i32 1, ptr %5, align 4, !tbaa !8
+  store i32 1, ptr %5, align 8, !tbaa !8
   store i32 196648, ptr %8, align 4
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %2, ptr %10, align 8, !tbaa !4
@@ -1201,7 +1201,7 @@ lean_alloc_ctor.exit:                             ; preds = %4
   store ptr %0, ptr %11, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %1, ptr %12, align 8, !tbaa !4
-  store i8 %3, ptr %9, align 1, !tbaa !13
+  store i8 %3, ptr %9, align 8, !tbaa !13
   ret ptr %5
 }
 
@@ -1246,7 +1246,7 @@ l_Std_Time_TimeZone_ofSeconds.exit:               ; preds = %lean_dec.exit
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i64 0, ptr %20, align 8, !tbaa !11
-  store i32 1, ptr %14, align 4, !tbaa !8
+  store i32 1, ptr %14, align 8, !tbaa !8
   store i32 196648, ptr %19, align 4
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %2, ptr %21, align 8, !tbaa !4
@@ -1254,7 +1254,7 @@ l_Std_Time_TimeZone_ofSeconds.exit:               ; preds = %lean_dec.exit
   store ptr %0, ptr %22, align 8, !tbaa !4
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %1, ptr %23, align 8, !tbaa !4
-  store i8 %18, ptr %20, align 1, !tbaa !13
+  store i8 %18, ptr %20, align 8, !tbaa !13
   ret ptr %14
 }
 
@@ -1405,7 +1405,7 @@ _init_l_Std_Time_instInhabitedTimeZone___closed__3.exit: ; preds = %lean_dec_ref
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store i64 0, ptr %24, align 8, !tbaa !11
-  store i32 1, ptr %20, align 4, !tbaa !8
+  store i32 1, ptr %20, align 8, !tbaa !8
   store i32 196648, ptr %23, align 4
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %25, align 8, !tbaa !4
@@ -1702,7 +1702,7 @@ _init_l_Std_Time_TimeZone_UTC___closed__2.exit:   ; preds = %_init_l_Std_Time_in
   %126 = getelementptr inbounds nuw i8, ptr %123, i64 4
   %127 = getelementptr inbounds nuw i8, ptr %123, i64 32
   store i64 0, ptr %127, align 8, !tbaa !11
-  store i32 1, ptr %123, align 4, !tbaa !8
+  store i32 1, ptr %123, align 8, !tbaa !8
   store i32 196648, ptr %126, align 4
   %128 = getelementptr inbounds nuw i8, ptr %123, i64 8
   store ptr %121, ptr %128, align 8, !tbaa !4
@@ -1737,7 +1737,7 @@ _init_l_Std_Time_TimeZone_GMT___closed__3.exit:   ; preds = %_init_l_Std_Time_Ti
   %140 = getelementptr inbounds nuw i8, ptr %137, i64 4
   %141 = getelementptr inbounds nuw i8, ptr %137, i64 32
   store i64 0, ptr %141, align 8, !tbaa !11
-  store i32 1, ptr %137, align 4, !tbaa !8
+  store i32 1, ptr %137, align 8, !tbaa !8
   store i32 196648, ptr %140, align 4
   %142 = getelementptr inbounds nuw i8, ptr %137, i64 8
   store ptr %134, ptr %142, align 8, !tbaa !4

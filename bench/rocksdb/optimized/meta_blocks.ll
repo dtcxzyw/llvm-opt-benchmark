@@ -4889,73 +4889,73 @@ _ZN7rocksdb11ReadOptionsD2Ev.exit343:             ; preds = %.critedge259, %697
   store ptr %714, ptr %713, align 8, !tbaa !32
   %715 = getelementptr inbounds nuw i8, ptr %707, i64 240
   store i64 0, ptr %715, align 8, !tbaa !16
-  store i8 0, ptr %714, align 1, !tbaa !17
+  store i8 0, ptr %714, align 8, !tbaa !17
   %716 = getelementptr inbounds nuw i8, ptr %707, i64 264
   %717 = getelementptr inbounds nuw i8, ptr %707, i64 280
   store ptr %717, ptr %716, align 8, !tbaa !32
   %718 = getelementptr inbounds nuw i8, ptr %707, i64 272
   store i64 0, ptr %718, align 8, !tbaa !16
-  store i8 0, ptr %717, align 1, !tbaa !17
+  store i8 0, ptr %717, align 8, !tbaa !17
   %719 = getelementptr inbounds nuw i8, ptr %707, i64 296
   %720 = getelementptr inbounds nuw i8, ptr %707, i64 312
   store ptr %720, ptr %719, align 8, !tbaa !32
   %721 = getelementptr inbounds nuw i8, ptr %707, i64 304
   store i64 0, ptr %721, align 8, !tbaa !16
-  store i8 0, ptr %720, align 1, !tbaa !17
+  store i8 0, ptr %720, align 8, !tbaa !17
   %722 = getelementptr inbounds nuw i8, ptr %707, i64 328
   %723 = getelementptr inbounds nuw i8, ptr %707, i64 344
   store ptr %723, ptr %722, align 8, !tbaa !32
   %724 = getelementptr inbounds nuw i8, ptr %707, i64 336
   store i64 0, ptr %724, align 8, !tbaa !16
-  store i8 0, ptr %723, align 1, !tbaa !17
+  store i8 0, ptr %723, align 8, !tbaa !17
   %725 = getelementptr inbounds nuw i8, ptr %707, i64 360
   %726 = getelementptr inbounds nuw i8, ptr %707, i64 376
   store ptr %726, ptr %725, align 8, !tbaa !32
   %727 = getelementptr inbounds nuw i8, ptr %707, i64 368
   store i64 0, ptr %727, align 8, !tbaa !16
-  store i8 0, ptr %726, align 1, !tbaa !17
+  store i8 0, ptr %726, align 8, !tbaa !17
   %728 = getelementptr inbounds nuw i8, ptr %707, i64 392
   %729 = getelementptr inbounds nuw i8, ptr %707, i64 408
   store ptr %729, ptr %728, align 8, !tbaa !32
   %730 = getelementptr inbounds nuw i8, ptr %707, i64 400
   store i64 0, ptr %730, align 8, !tbaa !16
-  store i8 0, ptr %729, align 1, !tbaa !17
+  store i8 0, ptr %729, align 8, !tbaa !17
   %731 = getelementptr inbounds nuw i8, ptr %707, i64 424
   %732 = getelementptr inbounds nuw i8, ptr %707, i64 440
   store ptr %732, ptr %731, align 8, !tbaa !32
   %733 = getelementptr inbounds nuw i8, ptr %707, i64 432
   store i64 0, ptr %733, align 8, !tbaa !16
-  store i8 0, ptr %732, align 1, !tbaa !17
+  store i8 0, ptr %732, align 8, !tbaa !17
   %734 = getelementptr inbounds nuw i8, ptr %707, i64 456
   %735 = getelementptr inbounds nuw i8, ptr %707, i64 472
   store ptr %735, ptr %734, align 8, !tbaa !32
   %736 = getelementptr inbounds nuw i8, ptr %707, i64 464
   store i64 0, ptr %736, align 8, !tbaa !16
-  store i8 0, ptr %735, align 1, !tbaa !17
+  store i8 0, ptr %735, align 8, !tbaa !17
   %737 = getelementptr inbounds nuw i8, ptr %707, i64 488
   %738 = getelementptr inbounds nuw i8, ptr %707, i64 504
   store ptr %738, ptr %737, align 8, !tbaa !32
   %739 = getelementptr inbounds nuw i8, ptr %707, i64 496
   store i64 0, ptr %739, align 8, !tbaa !16
-  store i8 0, ptr %738, align 1, !tbaa !17
+  store i8 0, ptr %738, align 8, !tbaa !17
   %740 = getelementptr inbounds nuw i8, ptr %707, i64 520
   %741 = getelementptr inbounds nuw i8, ptr %707, i64 536
   store ptr %741, ptr %740, align 8, !tbaa !32
   %742 = getelementptr inbounds nuw i8, ptr %707, i64 528
   store i64 0, ptr %742, align 8, !tbaa !16
-  store i8 0, ptr %741, align 1, !tbaa !17
+  store i8 0, ptr %741, align 8, !tbaa !17
   %743 = getelementptr inbounds nuw i8, ptr %707, i64 552
   %744 = getelementptr inbounds nuw i8, ptr %707, i64 568
   store ptr %744, ptr %743, align 8, !tbaa !32
   %745 = getelementptr inbounds nuw i8, ptr %707, i64 560
   store i64 0, ptr %745, align 8, !tbaa !16
-  store i8 0, ptr %744, align 1, !tbaa !17
+  store i8 0, ptr %744, align 8, !tbaa !17
   %746 = getelementptr inbounds nuw i8, ptr %707, i64 584
   %747 = getelementptr inbounds nuw i8, ptr %707, i64 600
   store ptr %747, ptr %746, align 8, !tbaa !32
   %748 = getelementptr inbounds nuw i8, ptr %707, i64 592
   store i64 0, ptr %748, align 8, !tbaa !16
-  store i8 0, ptr %747, align 1, !tbaa !17
+  store i8 0, ptr %747, align 8, !tbaa !17
   %749 = getelementptr inbounds nuw i8, ptr %707, i64 624
   store i32 0, ptr %749, align 8, !tbaa !21
   %750 = getelementptr inbounds nuw i8, ptr %707, i64 632

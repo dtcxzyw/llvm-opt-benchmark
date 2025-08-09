@@ -5276,7 +5276,7 @@ define internal fastcc i32 @hdmi_port_clock_valid(ptr noundef %0, i32 noundef ra
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %38 = load i32, ptr %37, align 4
+  %38 = load i32, ptr %37, align 8
   %39 = icmp eq i32 %38, 0
   %40 = tail call i32 @llvm.smin.i32(i32 %33, i32 %38)
   %41 = select i1 %39, i32 %33, i32 %40

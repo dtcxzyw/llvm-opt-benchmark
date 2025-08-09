@@ -9585,7 +9585,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %14
   store i64 %20, ptr %22, align 8, !tbaa !82
   store ptr %12, ptr %4, align 8, !tbaa !78
   store i64 0, ptr %21, align 8, !tbaa !82
-  store i8 0, ptr %12, align 1, !tbaa !83
+  store i8 0, ptr %12, align 8, !tbaa !83
   invoke void @_ZNK9grpc_core11ChannelArgs3SetESt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS3_SaIcEEE(ptr dead_on_unwind writable sret(%"class.grpc_core::ChannelArgs") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 %2, ptr %3, ptr noundef nonnull %6)
           to label %23 unwind label %30
 

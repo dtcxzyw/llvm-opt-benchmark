@@ -6625,7 +6625,7 @@ define linkonce_odr void @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7
   %.06.i.i = phi ptr [ %4, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathEmELb1EEEEE18_M_deallocate_nodeEPS7_.exit.i.i ], [ %3, %1 ]
   %4 = load ptr, ptr %.06.i.i, align 8
   %5 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 8
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathEmELb1EEEEE18_M_deallocate_nodeEPS7_.exit.i.i, label %7
 
@@ -8496,9 +8496,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase14_MoveConstructISt4pair
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %62, i8 0, i64 24, i1 false)
   %70 = getelementptr inbounds nuw i8, ptr %48, i64 160
   %71 = getelementptr inbounds nuw i8, ptr %52, i64 160
-  %72 = load i32, ptr %71, align 4
-  store i32 %72, ptr %70, align 4
-  store i32 0, ptr %71, align 4
+  %72 = load i32, ptr %71, align 8
+  store i32 %72, ptr %70, align 8
+  store i32 0, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %48, i64 164
   %74 = getelementptr inbounds nuw i8, ptr %52, i64 164
   %75 = load i32, ptr %74, align 4
@@ -8641,9 +8641,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase14_MoveConstructISt4pair
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %140, i8 0, i64 24, i1 false)
   %148 = getelementptr inbounds nuw i8, ptr %126, i64 160
   %149 = getelementptr inbounds nuw i8, ptr %130, i64 160
-  %150 = load i32, ptr %149, align 4
+  %150 = load i32, ptr %149, align 8
   store i32 %150, ptr %148, align 8
-  store i32 0, ptr %149, align 4
+  store i32 0, ptr %149, align 8
   %151 = getelementptr inbounds nuw i8, ptr %126, i64 164
   %152 = getelementptr inbounds nuw i8, ptr %130, i64 164
   %153 = load i32, ptr %152, align 4

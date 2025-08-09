@@ -11412,7 +11412,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_14AllocationTypeENS_12DenseMapInfoIjvEEN
   %378 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i490, i64 4
   %379 = getelementptr inbounds nuw i8, ptr %.021.i.i479, i64 4
   %380 = load i8, ptr %379, align 1, !tbaa !765
-  store i8 %380, ptr %378, align 1, !tbaa !765
+  store i8 %380, ptr %378, align 4, !tbaa !765
   %381 = add i32 %356, 1
   store i32 %381, ptr %65, align 8, !tbaa !762
   br label %382
@@ -11495,7 +11495,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_14AllocationTypeENS_12DenseMapInfoIjvEEN
   %417 = load i32, ptr %62, align 8, !tbaa !76
   store i32 %417, ptr %409, align 4, !tbaa !76
   %418 = getelementptr inbounds nuw i8, ptr %409, i64 4
-  store i8 0, ptr %418, align 1, !tbaa !765
+  store i8 0, ptr %418, align 4, !tbaa !765
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_14AllocationTypeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEEEjS2_S4_S7_EixERKj.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_14AllocationTypeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEEEjS2_S4_S7_EixERKj.exit: ; preds = %306, %294, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_14AllocationTypeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEEEjS2_S4_S7_E16InsertIntoBucketIRKjJEEEPS7_SD_OT_DpOT0_.exit.i
@@ -12824,11 +12824,11 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfo
   %997 = getelementptr inbounds nuw i8, ptr %991, i64 40
   store ptr %972, ptr %997, align 8, !tbaa !827, !noalias !824
   %998 = getelementptr inbounds nuw i8, ptr %991, i64 48
-  store i32 %.sroa.11.0, ptr %998, align 4, !tbaa !76, !noalias !824
+  store i32 %.sroa.11.0, ptr %998, align 8, !tbaa !76, !noalias !824
   %999 = getelementptr inbounds nuw i8, ptr %991, i64 52
   store i32 %.sroa.20.2, ptr %999, align 4, !tbaa !76, !noalias !824
   %1000 = getelementptr inbounds nuw i8, ptr %991, i64 56
-  store i32 4, ptr %1000, align 4, !tbaa !76, !noalias !824
+  store i32 4, ptr %1000, align 8, !tbaa !76, !noalias !824
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #28, !noalias !824
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #28
   %1001 = load ptr, ptr %833, align 8, !tbaa !828
@@ -13626,7 +13626,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImSt6vectorIN12_GLOBAL__N_120CallsiteContextG
   %.val151.i = load i32, ptr %1262, align 8, !tbaa !696
   %.val152.i = load ptr, ptr %.sroa.0577.0738.i, align 8
   %1309 = getelementptr i8, ptr %.sroa.0577.0738.i, i64 8
-  %.val153.i = load i32, ptr %1309, align 4
+  %.val153.i = load i32, ptr %1309, align 8
   %1310 = icmp eq i32 %.val151.i, 0
   br i1 %1310, label %.loopexit.i.i.i.i, label %1311
 
@@ -13652,7 +13652,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImSt6vectorIN12_GLOBAL__N_120CallsiteContextG
   %1330 = load ptr, ptr %1329, align 8, !tbaa !656
   %1331 = icmp eq ptr %.val152.i, %1330
   %1332 = getelementptr inbounds nuw i8, ptr %1329, i64 8
-  %1333 = load i32, ptr %1332, align 4
+  %1333 = load i32, ptr %1332, align 8
   %1334 = icmp eq i32 %.val153.i, %1333
   %1335 = select i1 %1331, i1 %1334, i1 false
   br i1 %1335, label %_ZNK4llvm9MapVectorIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE8CallInfoEPNS7_11ContextNodeENS_8DenseMapIS8_jNS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_jEEEENS_11SmallVectorISt4pairIS8_SA_ELj0EEEE5countERKS8_.exit.i, label %.lr.ph.i.i.i.i.i.i149, !prof !328
@@ -13676,7 +13676,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImSt6vectorIN12_GLOBAL__N_120CallsiteContextG
   %1347 = load ptr, ptr %1346, align 8, !tbaa !656
   %1348 = icmp eq ptr %.val152.i, %1347
   %1349 = getelementptr inbounds nuw i8, ptr %1346, i64 8
-  %1350 = load i32, ptr %1349, align 4
+  %1350 = load i32, ptr %1349, align 8
   %1351 = icmp eq i32 %.val153.i, %1350
   %1352 = select i1 %1348, i1 %1351, i1 false
   br i1 %1352, label %_ZNK4llvm9MapVectorIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE8CallInfoEPNS7_11ContextNodeENS_8DenseMapIS8_jNS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_jEEEENS_11SmallVectorISt4pairIS8_SA_ELj0EEEE5countERKS8_.exit.i, label %.lr.ph.i.i.i.i.i.i149, !prof !329, !llvm.loop !875
@@ -14398,9 +14398,9 @@ select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i161
   store ptr null, ptr %1661, align 8, !tbaa !827
   %1663 = getelementptr inbounds nuw i8, ptr %1644, i64 48
   %1664 = getelementptr inbounds nuw i8, ptr %.val161.i, i64 48
-  %1665 = load i32, ptr %1664, align 4, !tbaa !76
-  store i32 %1665, ptr %1663, align 4, !tbaa !76
-  store i32 0, ptr %1664, align 4, !tbaa !76
+  %1665 = load i32, ptr %1664, align 8, !tbaa !76
+  store i32 %1665, ptr %1663, align 8, !tbaa !76
+  store i32 0, ptr %1664, align 8, !tbaa !76
   %1666 = getelementptr inbounds nuw i8, ptr %1644, i64 52
   %1667 = getelementptr inbounds nuw i8, ptr %.val161.i, i64 52
   %1668 = load i32, ptr %1667, align 4, !tbaa !76
@@ -14408,9 +14408,9 @@ select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i161
   store i32 0, ptr %1667, align 4, !tbaa !76
   %1669 = getelementptr inbounds nuw i8, ptr %1644, i64 56
   %1670 = getelementptr inbounds nuw i8, ptr %.val161.i, i64 56
-  %1671 = load i32, ptr %1670, align 4, !tbaa !76
-  store i32 %1671, ptr %1669, align 4, !tbaa !76
-  store i32 0, ptr %1670, align 4, !tbaa !76
+  %1671 = load i32, ptr %1670, align 8, !tbaa !76
+  store i32 %1671, ptr %1669, align 8, !tbaa !76
+  store i32 0, ptr %1670, align 8, !tbaa !76
   %.not18.i.i.i.i.i.i = icmp eq i64 %.012.i.i.i.i.i, 1
   br i1 %.not18.i.i.i.i.i.i, label %1698, label %.lr.ph.i.i.preheader.i.i.i.i
 
@@ -14447,9 +14447,9 @@ select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i161
   store ptr null, ptr %1686, align 8, !tbaa !827
   %1688 = getelementptr inbounds nuw i8, ptr %.020.i.i.i.i.i.i, i64 112
   %1689 = getelementptr inbounds nuw i8, ptr %.020.i.i.i.i.i.i, i64 48
-  %1690 = load i32, ptr %1689, align 4, !tbaa !76
-  store i32 %1690, ptr %1688, align 4, !tbaa !76
-  store i32 0, ptr %1689, align 4, !tbaa !76
+  %1690 = load i32, ptr %1689, align 8, !tbaa !76
+  store i32 %1690, ptr %1688, align 8, !tbaa !76
+  store i32 0, ptr %1689, align 8, !tbaa !76
   %1691 = getelementptr inbounds nuw i8, ptr %.020.i.i.i.i.i.i, i64 116
   %1692 = getelementptr inbounds nuw i8, ptr %.020.i.i.i.i.i.i, i64 52
   %1693 = load i32, ptr %1692, align 4, !tbaa !76
@@ -14457,9 +14457,9 @@ select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i161
   store i32 0, ptr %1692, align 4, !tbaa !76
   %1694 = getelementptr inbounds nuw i8, ptr %.020.i.i.i.i.i.i, i64 120
   %1695 = getelementptr inbounds nuw i8, ptr %.020.i.i.i.i.i.i, i64 56
-  %1696 = load i32, ptr %1695, align 4, !tbaa !76
-  store i32 %1696, ptr %1694, align 4, !tbaa !76
-  store i32 0, ptr %1695, align 4, !tbaa !76
+  %1696 = load i32, ptr %1695, align 8, !tbaa !76
+  store i32 %1696, ptr %1694, align 8, !tbaa !76
+  store i32 0, ptr %1695, align 8, !tbaa !76
   %1697 = getelementptr inbounds nuw i8, ptr %.020.i.i.i.i.i.i, i64 64
   %.013.i.i.i.i.i.i162 = getelementptr inbounds nuw i8, ptr %.01321.i.i.i.i.i.i, i64 64
   %.not.i.i.i.i.i.i163 = icmp eq ptr %.013.i.i.i.i.i.i162, %1646
@@ -14498,19 +14498,19 @@ select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i161
   store ptr %1707, ptr %1661, align 8, !tbaa !827
   store ptr null, ptr %1704, align 8, !tbaa !827
   %1708 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i164, i64 48
-  %1709 = load i32, ptr %1708, align 4, !tbaa !76
-  store i32 %1709, ptr %1664, align 4, !tbaa !76
-  store i32 0, ptr %1708, align 4, !tbaa !76
+  %1709 = load i32, ptr %1708, align 8, !tbaa !76
+  store i32 %1709, ptr %1664, align 8, !tbaa !76
+  store i32 0, ptr %1708, align 8, !tbaa !76
   %1710 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i164, i64 52
   %1711 = load i32, ptr %1667, align 4, !tbaa !76
   %1712 = load i32, ptr %1710, align 4, !tbaa !76
   store i32 %1712, ptr %1667, align 4, !tbaa !76
   store i32 %1711, ptr %1710, align 4, !tbaa !76
   %1713 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i164, i64 56
-  %1714 = load i32, ptr %1670, align 4, !tbaa !76
-  %1715 = load i32, ptr %1713, align 4, !tbaa !76
-  store i32 %1715, ptr %1670, align 4, !tbaa !76
-  store i32 %1714, ptr %1713, align 4, !tbaa !76
+  %1714 = load i32, ptr %1670, align 8, !tbaa !76
+  %1715 = load i32, ptr %1713, align 8, !tbaa !76
+  store i32 %1715, ptr %1670, align 8, !tbaa !76
+  store i32 %1714, ptr %1713, align 8, !tbaa !76
   call fastcc void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS5_11InstructionEE15CallContextInfoESt6vectorISA_SaISA_EEEESB_lNS0_5__ops15_Iter_comp_iterIZNS9_16updateStackNodesEvEUlRKSA_SJ_E_EEEvT_SM_T0_T1_T2_(ptr nonnull %.val161.i, ptr %.val154.i, ptr noundef nonnull %1644, i64 noundef %.012.i.i.i.i.i, ptr nonnull %22)
   br label %.lr.ph.i.i.i16.i.i.i
 
@@ -14762,7 +14762,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEjNS_12DenseMapInfoIS4_vEENS_6
 1843:                                             ; preds = %1840, %1833
   store ptr %1768, ptr %1835, align 8, !tbaa !242, !noalias !911
   %1844 = getelementptr inbounds nuw i8, ptr %1835, i64 8
-  store i32 %.sroa.7.0746.i, ptr %1844, align 4, !tbaa !76, !noalias !911
+  store i32 %.sroa.7.0746.i, ptr %1844, align 8, !tbaa !76, !noalias !911
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E11try_emplaceIJjEEESt4pairINS_16DenseMapIteratorIS4_jS6_S9_Lb0EEEbEOS4_DpOT_.exit.i
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E11try_emplaceIJjEEESt4pairINS_16DenseMapIteratorIS4_jS6_S9_Lb0EEEbEOS4_DpOT_.exit.i: ; preds = %1786, %1843, %1770
@@ -15406,7 +15406,7 @@ _ZStneImSaImEEbRKSt6vectorIT_T0_ES6_.exit.thread629.i: ; preds = %_ZStneImSaImEE
   %2137 = load ptr, ptr %2136, align 8, !tbaa !656
   %2138 = icmp eq ptr %2124, %2137
   %2139 = getelementptr inbounds nuw i8, ptr %2136, i64 8
-  %2140 = load i32, ptr %2139, align 4
+  %2140 = load i32, ptr %2139, align 8
   %2141 = icmp eq i32 %2140, 0
   %2142 = select i1 %2138, i1 %2141, i1 false
   br i1 %2142, label %.loopexit.i, label %.lr.ph.i.i250.i, !prof !328
@@ -15443,7 +15443,7 @@ _ZStneImSaImEEbRKSt6vectorIT_T0_ES6_.exit.thread629.i: ; preds = %_ZStneImSaImEE
   %2161 = load ptr, ptr %2160, align 8, !tbaa !656
   %2162 = icmp eq ptr %2124, %2161
   %2163 = getelementptr inbounds nuw i8, ptr %2160, i64 8
-  %2164 = load i32, ptr %2163, align 4
+  %2164 = load i32, ptr %2163, align 8
   %2165 = icmp eq i32 %2164, 0
   %2166 = select i1 %2162, i1 %2165, i1 false
   br i1 %2166, label %.loopexit.i, label %.lr.ph.i.i250.i, !prof !329, !llvm.loop !939
@@ -15492,7 +15492,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_26
   %2187 = load ptr, ptr %2186, align 8, !tbaa !656
   %2188 = icmp eq ptr %2124, %2187
   %2189 = getelementptr inbounds nuw i8, ptr %2186, i64 8
-  %2190 = load i32, ptr %2189, align 4
+  %2190 = load i32, ptr %2189, align 8
   %2191 = icmp eq i32 %2190, 0
   %2192 = select i1 %2188, i1 %2191, i1 false
   br i1 %2192, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE8CallInfoES9_NS_12DenseMapInfoIS9_vEENS_6detail12DenseMapPairIS9_S9_EEEES9_S9_SB_SE_E15LookupBucketForIS9_EEbRKT_RPSE_.exit.i, label %.lr.ph.i333.i, !prof !328
@@ -15529,7 +15529,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_26
   %2211 = load ptr, ptr %2210, align 8, !tbaa !656
   %2212 = icmp eq ptr %2124, %2211
   %2213 = getelementptr inbounds nuw i8, ptr %2210, i64 8
-  %2214 = load i32, ptr %2213, align 4
+  %2214 = load i32, ptr %2213, align 8
   %2215 = icmp eq i32 %2214, 0
   %2216 = select i1 %2212, i1 %2215, i1 false
   br i1 %2216, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE8CallInfoES9_NS_12DenseMapInfoIS9_vEENS_6detail12DenseMapPairIS9_S9_EEEES9_S9_SB_SE_E15LookupBucketForIS9_EEbRKT_RPSE_.exit.i, label %.lr.ph.i333.i, !prof !329, !llvm.loop !939
@@ -15547,7 +15547,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_26
   %2220 = load ptr, ptr %2218, align 8, !tbaa !656
   %2221 = icmp eq ptr %2220, inttoptr (i64 -4096 to ptr)
   %2222 = getelementptr inbounds nuw i8, ptr %2218, i64 8
-  %2223 = load i32, ptr %2222, align 4
+  %2223 = load i32, ptr %2222, align 8
   %2224 = icmp eq i32 %2223, -1
   %2225 = select i1 %2221, i1 %2224, i1 false
   br i1 %2225, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE8CallInfoES9_NS_12DenseMapInfoIS9_vEENS_6detail12DenseMapPairIS9_S9_EEEES9_S9_SB_SE_E16InsertIntoBucketIS9_JEEEPSE_SI_OT_DpOT0_.exit.i.i, label %2226
@@ -16327,7 +16327,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_14AllocationTypeENS_12DenseMapInfoIjvEEN
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_14AllocationTypeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEEEjS2_S4_S7_E16InsertIntoBucketIRKjJEEEPS7_SD_OT_DpOT0_.exit.i372.i: ; preds = %2602, %2595
   store i32 %2297, ptr %2597, align 4, !tbaa !76
   %2605 = getelementptr inbounds nuw i8, ptr %2597, i64 4
-  store i8 0, ptr %2605, align 1, !tbaa !765
+  store i8 0, ptr %2605, align 4, !tbaa !765
   %.pre883.i = load i32, ptr %1302, align 8, !tbaa !667
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_14AllocationTypeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEEEjS2_S4_S7_EixERKj.exit376.i
 
@@ -16485,7 +16485,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_14AllocationTypeENS_12DenseMapInfoIjvEEN
   %2680 = load i32, ptr %1300, align 8, !tbaa !76
   store i32 %2680, ptr %2672, align 4, !tbaa !76
   %2681 = getelementptr inbounds nuw i8, ptr %2672, i64 4
-  store i8 0, ptr %2681, align 1, !tbaa !765
+  store i8 0, ptr %2681, align 4, !tbaa !765
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_14AllocationTypeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEEEjS2_S4_S7_EixERKj.exit.i
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_14AllocationTypeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEEEjS2_S4_S7_EixERKj.exit.i: ; preds = %2625, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_14AllocationTypeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEEEjS2_S4_S7_E16InsertIntoBucketIRKjJEEEPS7_SD_OT_DpOT0_.exit.i.i, %2610
@@ -16556,16 +16556,16 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store ptr null, ptr %25, align 8, !tbaa !827
   %2707 = getelementptr inbounds nuw i8, ptr %1852, i64 48
   %2708 = load i32, ptr %1298, align 8, !tbaa !76
-  store i32 %2708, ptr %2707, align 4, !tbaa !76
+  store i32 %2708, ptr %2707, align 8, !tbaa !76
   store i32 0, ptr %1298, align 8, !tbaa !76
   %2709 = getelementptr inbounds nuw i8, ptr %1852, i64 52
   %2710 = load i32, ptr %2709, align 4, !tbaa !76
   %2711 = load i32, ptr %1299, align 4, !tbaa !76
   store i32 %2711, ptr %2709, align 4, !tbaa !76
   store i32 %2710, ptr %1299, align 4, !tbaa !76
-  %2712 = load i32, ptr %2702, align 4, !tbaa !76
+  %2712 = load i32, ptr %2702, align 8, !tbaa !76
   %2713 = load i32, ptr %1297, align 8, !tbaa !76
-  store i32 %2713, ptr %2702, align 4, !tbaa !76
+  store i32 %2713, ptr %2702, align 8, !tbaa !76
   store i32 %2712, ptr %1297, align 8, !tbaa !76
   %2714 = zext i32 %2712 to i64
   %2715 = shl nuw nsw i64 %2714, 2
@@ -19471,7 +19471,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_14AllocationTypeENS_12DenseMapInfoIjvEEN
   %306 = load i32, ptr %64, align 8, !tbaa !76
   store i32 %306, ptr %298, align 4, !tbaa !76
   %307 = getelementptr inbounds nuw i8, ptr %298, i64 4
-  store i8 0, ptr %307, align 1, !tbaa !765
+  store i8 0, ptr %307, align 4, !tbaa !765
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_14AllocationTypeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEEEjS2_S4_S7_EixERKj.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_14AllocationTypeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEEEjS2_S4_S7_EixERKj.exit: ; preds = %253, %241, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_14AllocationTypeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEEEjS2_S4_S7_E16InsertIntoBucketIRKjJEEEPS7_SD_OT_DpOT0_.exit.i
@@ -20631,11 +20631,11 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfo
   %826 = getelementptr inbounds nuw i8, ptr %820, i64 40
   store ptr %801, ptr %826, align 8, !tbaa !827, !noalias !1194
   %827 = getelementptr inbounds nuw i8, ptr %820, i64 48
-  store i32 %.sroa.11.0, ptr %827, align 4, !tbaa !76, !noalias !1194
+  store i32 %.sroa.11.0, ptr %827, align 8, !tbaa !76, !noalias !1194
   %828 = getelementptr inbounds nuw i8, ptr %820, i64 52
   store i32 %.sroa.20.2, ptr %828, align 4, !tbaa !76, !noalias !1194
   %829 = getelementptr inbounds nuw i8, ptr %820, i64 56
-  store i32 4, ptr %829, align 4, !tbaa !76, !noalias !1194
+  store i32 4, ptr %829, align 8, !tbaa !76, !noalias !1194
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #28, !noalias !1194
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #28
   %830 = load ptr, ptr %662, align 8, !tbaa !1196
@@ -21191,7 +21191,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_15FunctionSummaryEjNS_12DenseMapInfoIS3_
 1062:                                             ; preds = %1057, %1051
   store ptr %115, ptr %1052, align 8, !tbaa !1115, !noalias !1215
   %1063 = getelementptr inbounds nuw i8, ptr %1052, i64 8
-  store i32 0, ptr %1063, align 4, !tbaa !76, !noalias !1215
+  store i32 0, ptr %1063, align 8, !tbaa !76, !noalias !1215
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr %115, ptr %19, align 8, !tbaa !1221, !alias.scope !1226
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %88, i8 0, i64 24, i1 false)
@@ -21691,7 +21691,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImSt6vectorIN12_GLOBAL__N_120CallsiteContextG
   %.val153.i = load i32, ptr %1218, align 8, !tbaa !1064
   %.val154.i = load i64, ptr %.sroa.0581.0738.i, align 8
   %1264 = getelementptr i8, ptr %.sroa.0581.0738.i, i64 8
-  %.val155.i = load i32, ptr %1264, align 4
+  %.val155.i = load i32, ptr %1264, align 8
   %1265 = icmp eq i32 %.val153.i, 0
   br i1 %1265, label %.loopexit.i.i.i.i, label %1266
 
@@ -21710,7 +21710,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImSt6vectorIN12_GLOBAL__N_120CallsiteContextG
   %1278 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1008", ptr %.val152.i, i64 %1277
   %.val308.i.i.i.i.i.i = load i64, ptr %1278, align 8
   %1279 = getelementptr i8, ptr %1278, i64 8
-  %.val319.i.i.i.i.i.i = load i32, ptr %1279, align 4
+  %.val319.i.i.i.i.i.i = load i32, ptr %1279, align 8
   %1280 = icmp eq i64 %.val154.i, %.val308.i.i.i.i.i.i
   %1281 = icmp eq i32 %.val155.i, %.val319.i.i.i.i.i.i
   %spec.select.i10.i.i.i.i.i.i = select i1 %1280, i1 %1281, i1 false
@@ -21734,7 +21734,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImSt6vectorIN12_GLOBAL__N_120CallsiteContextG
   %1289 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1008", ptr %.val152.i, i64 %1288
   %.val30.i.i.i.i.i.i = load i64, ptr %1289, align 8
   %1290 = getelementptr i8, ptr %1289, i64 8
-  %.val31.i.i.i.i.i.i = load i32, ptr %1290, align 4
+  %.val31.i.i.i.i.i.i = load i32, ptr %1290, align 8
   %1291 = icmp eq i64 %.val154.i, %.val30.i.i.i.i.i.i
   %1292 = icmp eq i32 %.val155.i, %.val31.i.i.i.i.i.i
   %spec.select.i.i.i.i.i.i.i = select i1 %1291, i1 %1292, i1 false
@@ -22458,9 +22458,9 @@ select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i125
   store ptr null, ptr %1609, align 8, !tbaa !827
   %1611 = getelementptr inbounds nuw i8, ptr %1592, i64 48
   %1612 = getelementptr inbounds nuw i8, ptr %.val163.i, i64 48
-  %1613 = load i32, ptr %1612, align 4, !tbaa !76
-  store i32 %1613, ptr %1611, align 4, !tbaa !76
-  store i32 0, ptr %1612, align 4, !tbaa !76
+  %1613 = load i32, ptr %1612, align 8, !tbaa !76
+  store i32 %1613, ptr %1611, align 8, !tbaa !76
+  store i32 0, ptr %1612, align 8, !tbaa !76
   %1614 = getelementptr inbounds nuw i8, ptr %1592, i64 52
   %1615 = getelementptr inbounds nuw i8, ptr %.val163.i, i64 52
   %1616 = load i32, ptr %1615, align 4, !tbaa !76
@@ -22468,9 +22468,9 @@ select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i125
   store i32 0, ptr %1615, align 4, !tbaa !76
   %1617 = getelementptr inbounds nuw i8, ptr %1592, i64 56
   %1618 = getelementptr inbounds nuw i8, ptr %.val163.i, i64 56
-  %1619 = load i32, ptr %1618, align 4, !tbaa !76
-  store i32 %1619, ptr %1617, align 4, !tbaa !76
-  store i32 0, ptr %1618, align 4, !tbaa !76
+  %1619 = load i32, ptr %1618, align 8, !tbaa !76
+  store i32 %1619, ptr %1617, align 8, !tbaa !76
+  store i32 0, ptr %1618, align 8, !tbaa !76
   %.not18.i.i.i.i.i.i = icmp eq i64 %.012.i.i.i.i.i, 1
   br i1 %.not18.i.i.i.i.i.i, label %1646, label %.lr.ph.i.i.preheader.i.i.i.i
 
@@ -22507,9 +22507,9 @@ select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i125
   store ptr null, ptr %1634, align 8, !tbaa !827
   %1636 = getelementptr inbounds nuw i8, ptr %.020.i.i.i.i.i.i, i64 112
   %1637 = getelementptr inbounds nuw i8, ptr %.020.i.i.i.i.i.i, i64 48
-  %1638 = load i32, ptr %1637, align 4, !tbaa !76
-  store i32 %1638, ptr %1636, align 4, !tbaa !76
-  store i32 0, ptr %1637, align 4, !tbaa !76
+  %1638 = load i32, ptr %1637, align 8, !tbaa !76
+  store i32 %1638, ptr %1636, align 8, !tbaa !76
+  store i32 0, ptr %1637, align 8, !tbaa !76
   %1639 = getelementptr inbounds nuw i8, ptr %.020.i.i.i.i.i.i, i64 116
   %1640 = getelementptr inbounds nuw i8, ptr %.020.i.i.i.i.i.i, i64 52
   %1641 = load i32, ptr %1640, align 4, !tbaa !76
@@ -22517,9 +22517,9 @@ select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i125
   store i32 0, ptr %1640, align 4, !tbaa !76
   %1642 = getelementptr inbounds nuw i8, ptr %.020.i.i.i.i.i.i, i64 120
   %1643 = getelementptr inbounds nuw i8, ptr %.020.i.i.i.i.i.i, i64 56
-  %1644 = load i32, ptr %1643, align 4, !tbaa !76
-  store i32 %1644, ptr %1642, align 4, !tbaa !76
-  store i32 0, ptr %1643, align 4, !tbaa !76
+  %1644 = load i32, ptr %1643, align 8, !tbaa !76
+  store i32 %1644, ptr %1642, align 8, !tbaa !76
+  store i32 0, ptr %1643, align 8, !tbaa !76
   %1645 = getelementptr inbounds nuw i8, ptr %.020.i.i.i.i.i.i, i64 64
   %.013.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.01321.i.i.i.i.i.i, i64 64
   %.not.i.i.i.i.i209.i = icmp eq ptr %.013.i.i.i.i.i.i, %1594
@@ -22561,19 +22561,19 @@ select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i125
   store ptr %1657, ptr %1609, align 8, !tbaa !827
   store ptr null, ptr %1654, align 8, !tbaa !827
   %1658 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i126, i64 48
-  %1659 = load i32, ptr %1658, align 4, !tbaa !76
-  store i32 %1659, ptr %1612, align 4, !tbaa !76
-  store i32 0, ptr %1658, align 4, !tbaa !76
+  %1659 = load i32, ptr %1658, align 8, !tbaa !76
+  store i32 %1659, ptr %1612, align 8, !tbaa !76
+  store i32 0, ptr %1658, align 8, !tbaa !76
   %1660 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i126, i64 52
   %1661 = load i32, ptr %1615, align 4, !tbaa !76
   %1662 = load i32, ptr %1660, align 4, !tbaa !76
   store i32 %1662, ptr %1615, align 4, !tbaa !76
   store i32 %1661, ptr %1660, align 4, !tbaa !76
   %1663 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i126, i64 56
-  %1664 = load i32, ptr %1618, align 4, !tbaa !76
-  %1665 = load i32, ptr %1663, align 4, !tbaa !76
-  store i32 %1665, ptr %1618, align 4, !tbaa !76
-  store i32 %1664, ptr %1663, align 4, !tbaa !76
+  %1664 = load i32, ptr %1618, align 8, !tbaa !76
+  %1665 = load i32, ptr %1663, align 8, !tbaa !76
+  store i32 %1665, ptr %1618, align 8, !tbaa !76
+  store i32 %1664, ptr %1663, align 8, !tbaa !76
   call fastcc void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS2_9IndexCallEE15CallContextInfoESt6vectorIS9_SaIS9_EEEESA_lNS0_5__ops15_Iter_comp_iterIZNS8_16updateStackNodesEvEUlRKS9_SI_E_EEEvT_SL_T0_T1_T2_(ptr nonnull %.val163.i, ptr %.val156.i, ptr noundef nonnull %1592, i64 noundef %.012.i.i.i.i.i, ptr nonnull %14)
   br label %.lr.ph.i.i.i16.i.i.i
 
@@ -22825,7 +22825,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15FunctionSummaryEjNS_12DenseMapInfoIS4
 1793:                                             ; preds = %1790, %1783
   store ptr %1718, ptr %1785, align 8, !tbaa !1115, !noalias !1275
   %1794 = getelementptr inbounds nuw i8, ptr %1785, i64 8
-  store i32 %.sroa.7.0746.i, ptr %1794, align 4, !tbaa !76, !noalias !1275
+  store i32 %.sroa.7.0746.i, ptr %1794, align 8, !tbaa !76, !noalias !1275
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15FunctionSummaryEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E11try_emplaceIJjEEESt4pairINS_16DenseMapIteratorIS4_jS6_S9_Lb0EEEbEOS4_DpOT_.exit.i
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15FunctionSummaryEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E11try_emplaceIJjEEESt4pairINS_16DenseMapIteratorIS4_jS6_S9_Lb0EEEbEOS4_DpOT_.exit.i: ; preds = %1736, %1793, %1720
@@ -23462,7 +23462,7 @@ _ZStneImSaImEEbRKSt6vectorIT_T0_ES6_.exit.thread633.i: ; preds = %_ZStneImSaImEE
   %2087 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1149", ptr %.val.i251.i, i64 %2086
   %.val4812.i.i.i = load i64, ptr %2087, align 8
   %2088 = getelementptr i8, ptr %2087, i64 8
-  %.val4913.i.i.i = load i32, ptr %2088, align 4
+  %.val4913.i.i.i = load i32, ptr %2088, align 8
   %2089 = icmp eq i64 %.sroa.0.0.copyload.i, %.val4812.i.i.i
   %2090 = icmp eq i32 %.val4913.i.i.i, 0
   %spec.select.i14.i.i.i = select i1 %2089, i1 %2090, i1 false
@@ -23499,7 +23499,7 @@ _ZStneImSaImEEbRKSt6vectorIT_T0_ES6_.exit.thread633.i: ; preds = %_ZStneImSaImEE
   %2104 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1149", ptr %.val.i251.i, i64 %2103
   %.val48.i.i.i = load i64, ptr %2104, align 8
   %2105 = getelementptr i8, ptr %2104, i64 8
-  %.val49.i.i.i = load i32, ptr %2105, align 4
+  %.val49.i.i.i = load i32, ptr %2105, align 8
   %2106 = icmp eq i64 %.sroa.0.0.copyload.i, %.val48.i.i.i
   %2107 = icmp eq i32 %.val49.i.i.i, 0
   %spec.select.i.i.i.i = select i1 %2106, i1 %2107, i1 false
@@ -23544,7 +23544,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_25
   %2123 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1149", ptr %.val15.i.i.i.i, i64 %2122
   %.val4812.i.i = load i64, ptr %2123, align 8
   %2124 = getelementptr i8, ptr %2123, i64 8
-  %.val4913.i.i = load i32, ptr %2124, align 4
+  %.val4913.i.i = load i32, ptr %2124, align 8
   %2125 = icmp eq i64 %.sroa.0.0.copyload.i, %.val4812.i.i
   %2126 = icmp eq i32 %.val4913.i.i, 0
   %spec.select.i14.i.i = select i1 %2125, i1 %2126, i1 false
@@ -23581,7 +23581,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_25
   %2140 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1149", ptr %.val15.i.i.i.i, i64 %2139
   %.val48.i.i = load i64, ptr %2140, align 8
   %2141 = getelementptr i8, ptr %2140, i64 8
-  %.val49.i.i = load i32, ptr %2141, align 4
+  %.val49.i.i = load i32, ptr %2141, align 8
   %2142 = icmp eq i64 %.sroa.0.0.copyload.i, %.val48.i.i
   %2143 = icmp eq i32 %.val49.i.i, 0
   %spec.select.i.i337.i = select i1 %2142, i1 %2143, i1 false
@@ -23599,7 +23599,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_25
   store i32 %2146, ptr %1247, align 8, !tbaa !1295
   %.val.i.i.i266.i = load i64, ptr %2145, align 8
   %2147 = getelementptr i8, ptr %2145, i64 8
-  %.val10.i.i.i267.i = load i32, ptr %2147, align 4
+  %.val10.i.i.i267.i = load i32, ptr %2147, align 8
   %2148 = icmp eq i64 %.val.i.i.i266.i, -4096
   %2149 = icmp eq i32 %.val10.i.i.i267.i, -1
   %spec.select.i.i.i.i.i = select i1 %2148, i1 %2149, i1 false
@@ -24384,7 +24384,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_14AllocationTypeENS_12DenseMapInfoIjvEEN
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_14AllocationTypeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEEEjS2_S4_S7_E16InsertIntoBucketIRKjJEEEPS7_SD_OT_DpOT0_.exit.i374.i: ; preds = %2526, %2519
   store i32 %2221, ptr %2521, align 4, !tbaa !76
   %2529 = getelementptr inbounds nuw i8, ptr %2521, i64 4
-  store i8 0, ptr %2529, align 1, !tbaa !765
+  store i8 0, ptr %2529, align 4, !tbaa !765
   %.pre894.i = load i32, ptr %1257, align 8, !tbaa !667
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_14AllocationTypeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEEEjS2_S4_S7_EixERKj.exit378.i
 
@@ -24542,7 +24542,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_14AllocationTypeENS_12DenseMapInfoIjvEEN
   %2604 = load i32, ptr %1255, align 8, !tbaa !76
   store i32 %2604, ptr %2596, align 4, !tbaa !76
   %2605 = getelementptr inbounds nuw i8, ptr %2596, i64 4
-  store i8 0, ptr %2605, align 1, !tbaa !765
+  store i8 0, ptr %2605, align 4, !tbaa !765
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_14AllocationTypeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEEEjS2_S4_S7_EixERKj.exit.i
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_14AllocationTypeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEEEjS2_S4_S7_EixERKj.exit.i: ; preds = %2549, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_14AllocationTypeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEEEjS2_S4_S7_E16InsertIntoBucketIRKjJEEEPS7_SD_OT_DpOT0_.exit.i.i, %2534
@@ -24613,16 +24613,16 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store ptr null, ptr %17, align 8, !tbaa !827
   %2631 = getelementptr inbounds nuw i8, ptr %1802, i64 48
   %2632 = load i32, ptr %1253, align 8, !tbaa !76
-  store i32 %2632, ptr %2631, align 4, !tbaa !76
+  store i32 %2632, ptr %2631, align 8, !tbaa !76
   store i32 0, ptr %1253, align 8, !tbaa !76
   %2633 = getelementptr inbounds nuw i8, ptr %1802, i64 52
   %2634 = load i32, ptr %2633, align 4, !tbaa !76
   %2635 = load i32, ptr %1254, align 4, !tbaa !76
   store i32 %2635, ptr %2633, align 4, !tbaa !76
   store i32 %2634, ptr %1254, align 4, !tbaa !76
-  %2636 = load i32, ptr %2626, align 4, !tbaa !76
+  %2636 = load i32, ptr %2626, align 8, !tbaa !76
   %2637 = load i32, ptr %1252, align 8, !tbaa !76
-  store i32 %2637, ptr %2626, align 4, !tbaa !76
+  store i32 %2637, ptr %2626, align 8, !tbaa !76
   store i32 %2636, ptr %1252, align 8, !tbaa !76
   %2638 = zext i32 %2636 to i64
   %2639 = shl nuw nsw i64 %2638, 2
@@ -32161,7 +32161,7 @@ _ZN4llvm11GraphWriterIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsi
   %543 = load i32, ptr %542, align 8, !tbaa !1503, !noalias !1479
   %544 = and i32 %543, -75
   %545 = or disjoint i32 %544, 8
-  store i32 %545, ptr %542, align 4, !tbaa !1504, !noalias !1479
+  store i32 %545, ptr %542, align 8, !tbaa !1504, !noalias !1479
   %546 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %455, ptr noundef nonnull @.str.183, i64 noundef 3) #28, !noalias !1479
   %547 = ptrtoint ptr %.val.i28.i.i.i.i to i64
   %548 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIyEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %455, i64 noundef %547) #28, !noalias !1479
@@ -33388,7 +33388,7 @@ _ZZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8
   %92 = load ptr, ptr %91, align 8, !tbaa !656
   %93 = icmp eq ptr %.015.val.pre.i, %92
   %94 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %95 = load i32, ptr %94, align 4
+  %95 = load i32, ptr %94, align 8
   %96 = icmp eq i32 %.015.val22.i, %95
   %97 = select i1 %93, i1 %96, i1 false
   br i1 %97, label %.loopexit.i.i, label %.lr.ph.i.i.i, !prof !328
@@ -33412,7 +33412,7 @@ _ZZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8
   %109 = load ptr, ptr %108, align 8, !tbaa !656
   %110 = icmp eq ptr %.015.val.pre.i, %109
   %111 = getelementptr inbounds nuw i8, ptr %108, i64 8
-  %112 = load i32, ptr %111, align 4
+  %112 = load i32, ptr %111, align 8
   %113 = icmp eq i32 %.015.val22.i, %112
   %114 = select i1 %110, i1 %113, i1 false
   br i1 %114, label %.loopexit.i.i, label %.lr.ph.i.i.i, !prof !329, !llvm.loop !875
@@ -33473,7 +33473,7 @@ _ZZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8
   %147 = load ptr, ptr %146, align 8, !tbaa !656
   %148 = icmp eq ptr %.val.i.i, %147
   %149 = getelementptr inbounds nuw i8, ptr %146, i64 8
-  %150 = load i32, ptr %149, align 4
+  %150 = load i32, ptr %149, align 8
   %151 = icmp eq i32 %68, %150
   %152 = select i1 %148, i1 %151, i1 false
   br i1 %152, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE8CallInfoEjNS_12DenseMapInfoIS9_vEENS_6detail12DenseMapPairIS9_jEEEES9_jSB_SE_EixERKS9_.exit.i, label %.lr.ph.i.i25.i, !prof !328
@@ -33510,7 +33510,7 @@ _ZZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8
   %171 = load ptr, ptr %170, align 8, !tbaa !656
   %172 = icmp eq ptr %.val.i.i, %171
   %173 = getelementptr inbounds nuw i8, ptr %170, i64 8
-  %174 = load i32, ptr %173, align 4
+  %174 = load i32, ptr %173, align 8
   %175 = icmp eq i32 %68, %174
   %176 = select i1 %172, i1 %175, i1 false
   br i1 %176, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE8CallInfoEjNS_12DenseMapInfoIS9_vEENS_6detail12DenseMapPairIS9_jEEEES9_jSB_SE_EixERKS9_.exit.i, label %.lr.ph.i.i25.i, !prof !329, !llvm.loop !1574
@@ -33557,7 +33557,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_26
   %188 = load ptr, ptr %186, align 8, !tbaa !656
   %189 = icmp eq ptr %188, inttoptr (i64 -4096 to ptr)
   %190 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %191 = load i32, ptr %190, align 4
+  %191 = load i32, ptr %190, align 8
   %192 = icmp eq i32 %191, -1
   %193 = select i1 %189, i1 %192, i1 false
   br i1 %193, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE8CallInfoEjNS_12DenseMapInfoIS9_vEENS_6detail12DenseMapPairIS9_jEEEES9_jSB_SE_E16InsertIntoBucketIRKS9_JEEEPSE_SK_OT_DpOT0_.exit.i.i, label %194
@@ -33575,7 +33575,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_26
   store ptr %.val.i.i27.i, ptr %186, align 8, !tbaa !656
   store i32 %.val7.i.i.i, ptr %190, align 8, !tbaa !863
   %196 = getelementptr inbounds nuw i8, ptr %186, i64 16
-  store i32 0, ptr %196, align 4, !tbaa !76
+  store i32 0, ptr %196, align 8, !tbaa !76
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE8CallInfoEjNS_12DenseMapInfoIS9_vEENS_6detail12DenseMapPairIS9_jEEEES9_jSB_SE_EixERKS9_.exit.i
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE8CallInfoEjNS_12DenseMapInfoIS9_vEENS_6detail12DenseMapPairIS9_jEEEES9_jSB_SE_EixERKS9_.exit.i: ; preds = %161, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE8CallInfoEjNS_12DenseMapInfoIS9_vEENS_6detail12DenseMapPairIS9_jEEEES9_jSB_SE_E16InsertIntoBucketIRKS9_JEEEPSE_SK_OT_DpOT0_.exit.i.i, %128
@@ -36638,11 +36638,11 @@ _ZSt11make_sharedIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteCont
   %1410 = getelementptr inbounds nuw i8, ptr %1396, i64 40
   store ptr %.sroa.0.0.i.i.i.i.i.i.i.i.i, ptr %1410, align 8, !tbaa !827, !noalias !1647
   %1411 = getelementptr inbounds nuw i8, ptr %1396, i64 48
-  store i32 %.sroa.6.0.i.i.i.i.i.i.i.i.i, ptr %1411, align 4, !tbaa !76, !noalias !1647
+  store i32 %.sroa.6.0.i.i.i.i.i.i.i.i.i, ptr %1411, align 8, !tbaa !76, !noalias !1647
   %1412 = getelementptr inbounds nuw i8, ptr %1396, i64 52
   store i32 %.sroa.9.0.i.i.i.i.i.i.i.i.i, ptr %1412, align 4, !tbaa !76, !noalias !1647
   %1413 = getelementptr inbounds nuw i8, ptr %1396, i64 56
-  store i32 %1399, ptr %1413, align 4, !tbaa !76, !noalias !1647
+  store i32 %1399, ptr %1413, align 8, !tbaa !76, !noalias !1647
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #28, !noalias !1647
   %1414 = load ptr, ptr %841, align 8, !tbaa !828
   %1415 = load ptr, ptr %842, align 8, !tbaa !829
@@ -38295,7 +38295,7 @@ _ZZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8
   %2078 = load ptr, ptr %2077, align 8, !tbaa !656
   %2079 = icmp eq ptr %2065, %2078
   %2080 = getelementptr inbounds nuw i8, ptr %2077, i64 8
-  %2081 = load i32, ptr %2080, align 4
+  %2081 = load i32, ptr %2080, align 8
   %2082 = icmp eq i32 %2081, 0
   %2083 = select i1 %2079, i1 %2082, i1 false
   br i1 %2083, label %_ZNK4llvm9MapVectorIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE8CallInfoEPNS7_11ContextNodeENS_8DenseMapIS8_jNS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_jEEEENS_11SmallVectorISt4pairIS8_SA_ELj0EEEE5countERKS8_.exit.i, label %.lr.ph.i.i.i.i.i.i127, !prof !328
@@ -38319,7 +38319,7 @@ _ZZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8
   %2095 = load ptr, ptr %2094, align 8, !tbaa !656
   %2096 = icmp eq ptr %2065, %2095
   %2097 = getelementptr inbounds nuw i8, ptr %2094, i64 8
-  %2098 = load i32, ptr %2097, align 4
+  %2098 = load i32, ptr %2097, align 8
   %2099 = icmp eq i32 %2098, 0
   %2100 = select i1 %2096, i1 %2099, i1 false
   br i1 %2100, label %_ZNK4llvm9MapVectorIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE8CallInfoEPNS7_11ContextNodeENS_8DenseMapIS8_jNS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_jEEEENS_11SmallVectorISt4pairIS8_SA_ELj0EEEE5countERKS8_.exit.i, label %.lr.ph.i.i.i.i.i.i127, !prof !329, !llvm.loop !875
@@ -38500,7 +38500,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionEjNS_12DenseMapInfoIS3_vEENS_6d
 2191:                                             ; preds = %2186, %2180
   store ptr %2113, ptr %2181, align 8, !tbaa !242, !noalias !1673
   %2192 = getelementptr inbounds nuw i8, ptr %2181, i64 8
-  store i32 0, ptr %2192, align 4, !tbaa !76, !noalias !1673
+  store i32 0, ptr %2192, align 8, !tbaa !76, !noalias !1673
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.val.i340 = load ptr, ptr %2064, align 8, !tbaa !242
   store ptr %.val.i340, ptr %2, align 8, !tbaa !854, !alias.scope !1679
@@ -39351,7 +39351,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm9
   %29 = load ptr, ptr %28, align 8, !tbaa !656, !noalias !1712
   %30 = icmp eq ptr %.val40.i.i.i, %29
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %32 = load i32, ptr %31, align 4, !noalias !1712
+  %32 = load i32, ptr %31, align 8, !noalias !1712
   %33 = icmp eq i32 %.val41.i.i.i, %32
   %34 = select i1 %30, i1 %33, i1 false
   br i1 %34, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE8CallInfoEjNS_12DenseMapInfoIS9_vEENS_6detail12DenseMapPairIS9_jEEEES9_jSB_SE_E6insertERKSt4pairIS9_jE.exit.thread, label %.lr.ph.i.i.i, !prof !328
@@ -39388,7 +39388,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm9
   %53 = load ptr, ptr %52, align 8, !tbaa !656, !noalias !1712
   %54 = icmp eq ptr %.val40.i.i.i, %53
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %56 = load i32, ptr %55, align 4, !noalias !1712
+  %56 = load i32, ptr %55, align 8, !noalias !1712
   %57 = icmp eq i32 %.val41.i.i.i, %56
   %58 = select i1 %54, i1 %57, i1 false
   br i1 %58, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE8CallInfoEjNS_12DenseMapInfoIS9_vEENS_6detail12DenseMapPairIS9_jEEEES9_jSB_SE_E6insertERKSt4pairIS9_jE.exit.thread, label %.lr.ph.i.i.i, !prof !329, !llvm.loop !1574
@@ -39437,7 +39437,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_26
   %72 = load ptr, ptr %70, align 8, !tbaa !656, !noalias !1712
   %73 = icmp eq ptr %72, inttoptr (i64 -4096 to ptr)
   %74 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %75 = load i32, ptr %74, align 4, !noalias !1712
+  %75 = load i32, ptr %74, align 8, !noalias !1712
   %76 = icmp eq i32 %75, -1
   %77 = select i1 %73, i1 %76, i1 false
   br i1 %77, label %83, label %78
@@ -39463,7 +39463,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_26
   store ptr %.val.i.i.i, ptr %70, align 8, !tbaa !656, !noalias !1712
   store i32 %.val8.i.i.i, ptr %74, align 8, !tbaa !863, !noalias !1712
   %85 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  store i32 0, ptr %85, align 4, !tbaa !76, !noalias !1712
+  store i32 0, ptr %85, align 8, !tbaa !76, !noalias !1712
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
@@ -40046,7 +40046,7 @@ define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_1
   %24 = load ptr, ptr %23, align 8, !tbaa !656
   %25 = icmp eq ptr %.val40, %24
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %27 = load i32, ptr %26, align 4
+  %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %.val41, %27
   %29 = select i1 %25, i1 %28, i1 false
   br i1 %29, label %._crit_edge, label %.lr.ph, !prof !328
@@ -40083,7 +40083,7 @@ define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_1
   %48 = load ptr, ptr %47, align 8, !tbaa !656
   %49 = icmp eq ptr %.val40, %48
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %51 = load i32, ptr %50, align 4
+  %51 = load i32, ptr %50, align 8
   %52 = icmp eq i32 %.val41, %51
   %53 = select i1 %49, i1 %52, i1 false
   br i1 %53, label %._crit_edge, label %.lr.ph, !prof !329, !llvm.loop !1574
@@ -40182,7 +40182,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_26
   %39 = load ptr, ptr %.031.i.i, align 8, !tbaa !656
   %40 = icmp eq ptr %39, inttoptr (i64 -4096 to ptr)
   %41 = getelementptr inbounds nuw i8, ptr %.031.i.i, i64 8
-  %42 = load i32, ptr %41, align 4
+  %42 = load i32, ptr %41, align 8
   %43 = icmp eq i32 %42, -1
   %44 = select i1 %40, i1 %43, i1 false
   br i1 %44, label %102, label %45
@@ -40215,7 +40215,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_26
   %67 = load ptr, ptr %66, align 8, !tbaa !656
   %68 = icmp eq ptr %39, %67
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %70 = load i32, ptr %69, align 4
+  %70 = load i32, ptr %69, align 8
   %71 = icmp eq i32 %42, %70
   %72 = select i1 %68, i1 %71, i1 false
   br i1 %72, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE8CallInfoEjNS_12DenseMapInfoIS9_vEENS_6detail12DenseMapPairIS9_jEEEES9_jSB_SE_E15LookupBucketForIS9_EEbRKT_RPSE_.exit.i.i, label %.lr.ph.i20.i.i, !prof !328
@@ -40252,7 +40252,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_26
   %91 = load ptr, ptr %90, align 8, !tbaa !656
   %92 = icmp eq ptr %39, %91
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %94 = load i32, ptr %93, align 4
+  %94 = load i32, ptr %93, align 8
   %95 = icmp eq i32 %42, %94
   %96 = select i1 %92, i1 %95, i1 false
   br i1 %96, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE8CallInfoEjNS_12DenseMapInfoIS9_vEENS_6detail12DenseMapPairIS9_jEEEES9_jSB_SE_E15LookupBucketForIS9_EEbRKT_RPSE_.exit.i.i, label %.lr.ph.i20.i.i, !prof !329, !llvm.loop !1574
@@ -40265,7 +40265,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_26
   %98 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 16
   %99 = getelementptr inbounds nuw i8, ptr %.031.i.i, i64 16
   %100 = load i32, ptr %99, align 4, !tbaa !76
-  store i32 %100, ptr %98, align 4, !tbaa !76
+  store i32 %100, ptr %98, align 8, !tbaa !76
   %101 = add i32 %.val.i22.i.i, 1
   store i32 %101, ptr %32, align 8, !tbaa !1572
   br label %102
@@ -40414,7 +40414,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_14AllocationTypeENS_12DenseMapInfoIjvEEN
   %62 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 4
   %63 = getelementptr inbounds nuw i8, ptr %.021.i, i64 4
   %64 = load i8, ptr %63, align 1, !tbaa !765
-  store i8 %64, ptr %62, align 1, !tbaa !765
+  store i8 %64, ptr %62, align 4, !tbaa !765
   %65 = add i32 %40, 1
   store i32 %65, ptr %32, align 8, !tbaa !762
   br label %66
@@ -41499,7 +41499,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionEjNS_12DenseMapInfoIS3_vEENS_6d
   store ptr %60, ptr %50, align 8, !tbaa !242
   %61 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %62 = load i32, ptr %3, align 4, !tbaa !76
-  store i32 %62, ptr %61, align 4, !tbaa !76
+  store i32 %62, ptr %61, align 8, !tbaa !76
   %63 = load ptr, ptr %1, align 8, !tbaa !711
   %64 = load i32, ptr %7, align 8, !tbaa !714
   br label %.loopexit
@@ -41711,7 +41711,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionEjNS_12DenseMapInfoIS3_vEENS_6d
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !76
-  store i32 %68, ptr %66, align 4, !tbaa !76
+  store i32 %68, ptr %66, align 8, !tbaa !76
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !1677
   br label %70
@@ -44222,7 +44222,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm
   %26 = load ptr, ptr %25, align 8, !tbaa !656
   %27 = icmp eq ptr %.val40.i, %26
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %29 = load i32, ptr %28, align 4
+  %29 = load i32, ptr %28, align 8
   %30 = icmp eq i32 %.val41.i, %29
   %31 = select i1 %27, i1 %30, i1 false
   br i1 %31, label %.loopexit, label %.lr.ph.i, !prof !328
@@ -44259,7 +44259,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm
   %50 = load ptr, ptr %49, align 8, !tbaa !656
   %51 = icmp eq ptr %.val40.i, %50
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %53 = load i32, ptr %52, align 4
+  %53 = load i32, ptr %52, align 8
   %54 = icmp eq i32 %.val41.i, %53
   %55 = select i1 %51, i1 %54, i1 false
   br i1 %55, label %.loopexit, label %.lr.ph.i, !prof !329, !llvm.loop !939
@@ -44308,7 +44308,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_26
   %69 = load ptr, ptr %67, align 8, !tbaa !656
   %70 = icmp eq ptr %69, inttoptr (i64 -4096 to ptr)
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %72 = load i32, ptr %71, align 4
+  %72 = load i32, ptr %71, align 8
   %73 = icmp eq i32 %72, -1
   %74 = select i1 %70, i1 %73, i1 false
   br i1 %74, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE8CallInfoES9_NS_12DenseMapInfoIS9_vEENS_6detail12DenseMapPairIS9_S9_EEEES9_S9_SB_SE_E16InsertIntoBucketIS9_JEEEPSE_SI_OT_DpOT0_.exit, label %75
@@ -44609,7 +44609,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapImSt6vectorIN12_GLOBAL__N_120CallsiteContext
   %146 = load ptr, ptr %145, align 8, !tbaa !656
   %147 = icmp eq ptr %133, %146
   %148 = getelementptr inbounds nuw i8, ptr %145, i64 8
-  %149 = load i32, ptr %148, align 4
+  %149 = load i32, ptr %148, align 8
   %150 = icmp eq i32 %149, 0
   %151 = select i1 %147, i1 %150, i1 false
   br i1 %151, label %.loopexit274, label %.lr.ph.i.i.i, !prof !328
@@ -44633,7 +44633,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapImSt6vectorIN12_GLOBAL__N_120CallsiteContext
   %162 = load ptr, ptr %161, align 8, !tbaa !656
   %163 = icmp eq ptr %133, %162
   %164 = getelementptr inbounds nuw i8, ptr %161, i64 8
-  %165 = load i32, ptr %164, align 4
+  %165 = load i32, ptr %164, align 8
   %166 = icmp eq i32 %165, 0
   %167 = select i1 %163, i1 %166, i1 false
   br i1 %167, label %.loopexit274, label %.lr.ph.i.i.i, !prof !329, !llvm.loop !1849
@@ -44675,7 +44675,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapImSt6vectorIN12_GLOBAL__N_120CallsiteContext
   %189 = load ptr, ptr %188, align 8, !tbaa !656
   %190 = icmp eq ptr %.val110, %189
   %191 = getelementptr inbounds nuw i8, ptr %188, i64 8
-  %192 = load i32, ptr %191, align 4
+  %192 = load i32, ptr %191, align 8
   %193 = icmp eq i32 %.val111, %192
   %194 = select i1 %190, i1 %193, i1 false
   br i1 %194, label %_ZNK4llvm9MapVectorIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE8CallInfoEPNS7_11ContextNodeENS_8DenseMapIS8_jNS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_jEEEENS_11SmallVectorISt4pairIS8_SA_ELj0EEEE8containsERKS8_.exit, label %.lr.ph.i.i.i.i133, !prof !328
@@ -44699,7 +44699,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapImSt6vectorIN12_GLOBAL__N_120CallsiteContext
   %206 = load ptr, ptr %205, align 8, !tbaa !656
   %207 = icmp eq ptr %.val110, %206
   %208 = getelementptr inbounds nuw i8, ptr %205, i64 8
-  %209 = load i32, ptr %208, align 4
+  %209 = load i32, ptr %208, align 8
   %210 = icmp eq i32 %.val111, %209
   %211 = select i1 %207, i1 %210, i1 false
   br i1 %211, label %_ZNK4llvm9MapVectorIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE8CallInfoEPNS7_11ContextNodeENS_8DenseMapIS8_jNS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_jEEEENS_11SmallVectorISt4pairIS8_SA_ELj0EEEE8containsERKS8_.exit, label %.lr.ph.i.i.i.i133, !prof !329, !llvm.loop !875
@@ -46007,7 +46007,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEjNS_12DenseMapInfoIS4_vEENS_6
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !76
-  store i32 %68, ptr %66, align 4, !tbaa !76
+  store i32 %68, ptr %66, align 8, !tbaa !76
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !915
   br label %70
@@ -46140,14 +46140,14 @@ define internal fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iterat
   %36 = load ptr, ptr %35, align 8, !tbaa !827
   store ptr null, ptr %35, align 8, !tbaa !827
   %37 = getelementptr inbounds nuw i8, ptr %.pn36, i64 112
-  %38 = load i32, ptr %37, align 4, !tbaa !76
-  store i32 0, ptr %37, align 4, !tbaa !76
+  %38 = load i32, ptr %37, align 8, !tbaa !76
+  store i32 0, ptr %37, align 8, !tbaa !76
   %39 = getelementptr inbounds nuw i8, ptr %.pn36, i64 116
   %40 = load i32, ptr %39, align 4, !tbaa !76
   store i32 0, ptr %39, align 4, !tbaa !76
   %41 = getelementptr inbounds nuw i8, ptr %.pn36, i64 120
-  %42 = load i32, ptr %41, align 4, !tbaa !76
-  store i32 0, ptr %41, align 4, !tbaa !76
+  %42 = load i32, ptr %41, align 8, !tbaa !76
+  store i32 0, ptr %41, align 8, !tbaa !76
   %43 = ptrtoint ptr %.sroa.024.037 to i64
   %44 = sub i64 %43, %14
   %45 = ashr exact i64 %44, 6
@@ -46210,9 +46210,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store ptr null, ptr %70, align 8, !tbaa !827
   %77 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -16
   %78 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -16
-  %79 = load i32, ptr %78, align 4, !tbaa !76
-  store i32 %79, ptr %77, align 4, !tbaa !76
-  store i32 0, ptr %78, align 4, !tbaa !76
+  %79 = load i32, ptr %78, align 8, !tbaa !76
+  store i32 %79, ptr %77, align 8, !tbaa !76
+  store i32 0, ptr %78, align 8, !tbaa !76
   %80 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -12
   %81 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -12
   %82 = load i32, ptr %80, align 4, !tbaa !76
@@ -46220,10 +46220,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store i32 %83, ptr %80, align 4, !tbaa !76
   store i32 %82, ptr %81, align 4, !tbaa !76
   %84 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -8
-  %85 = load i32, ptr %72, align 4, !tbaa !76
-  %86 = load i32, ptr %84, align 4, !tbaa !76
-  store i32 %86, ptr %72, align 4, !tbaa !76
-  store i32 %85, ptr %84, align 4, !tbaa !76
+  %85 = load i32, ptr %72, align 8, !tbaa !76
+  %86 = load i32, ptr %84, align 8, !tbaa !76
+  store i32 %86, ptr %72, align 8, !tbaa !76
+  store i32 %85, ptr %84, align 8, !tbaa !76
   %87 = add nsw i64 %.010.i.i.i.i.i, -1
   %88 = icmp sgt i64 %.010.i.i.i.i.i, 1
   br i1 %88, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS5_11InstructionEE15CallContextInfoESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit, !llvm.loop !1863
@@ -46253,9 +46253,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   %98 = shl nuw nsw i64 %97, 2
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %95, i64 noundef %98, i64 noundef 4) #28
   store ptr %36, ptr %19, align 8, !tbaa !827
-  store i32 %38, ptr %21, align 4, !tbaa !76
+  store i32 %38, ptr %21, align 8, !tbaa !76
   store i32 %40, ptr %22, align 4, !tbaa !76
-  store i32 %42, ptr %20, align 4, !tbaa !76
+  store i32 %42, ptr %20, align 8, !tbaa !76
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #28
   br label %221
 
@@ -46281,17 +46281,17 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store ptr %110, ptr %10, align 8, !tbaa !827
   store ptr null, ptr %109, align 8, !tbaa !827
   %111 = getelementptr inbounds nuw i8, ptr %.pn36, i64 112
-  %112 = load i32, ptr %111, align 4, !tbaa !76
+  %112 = load i32, ptr %111, align 8, !tbaa !76
   store i32 %112, ptr %11, align 8, !tbaa !76
-  store i32 0, ptr %111, align 4, !tbaa !76
+  store i32 0, ptr %111, align 8, !tbaa !76
   %113 = getelementptr inbounds nuw i8, ptr %.pn36, i64 116
   %114 = load i32, ptr %113, align 4, !tbaa !76
   store i32 %114, ptr %12, align 4, !tbaa !76
   store i32 0, ptr %113, align 4, !tbaa !76
   %115 = getelementptr inbounds nuw i8, ptr %.pn36, i64 120
-  %116 = load i32, ptr %115, align 4, !tbaa !76
+  %116 = load i32, ptr %115, align 8, !tbaa !76
   store i32 %116, ptr %13, align 8, !tbaa !76
-  store i32 0, ptr %115, align 4, !tbaa !76
+  store i32 0, ptr %115, align 8, !tbaa !76
   br label %117
 
 117:                                              ; preds = %_ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE15CallContextInfoaSEOS7_.exit.i, %99
@@ -46424,18 +46424,18 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store ptr null, ptr %173, align 8, !tbaa !827
   %180 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 48
   %181 = getelementptr inbounds i8, ptr %.sroa.09.0.i, i64 -16
-  %182 = load i32, ptr %181, align 4, !tbaa !76
-  store i32 %182, ptr %180, align 4, !tbaa !76
-  store i32 0, ptr %181, align 4, !tbaa !76
+  %182 = load i32, ptr %181, align 8, !tbaa !76
+  store i32 %182, ptr %180, align 8, !tbaa !76
+  store i32 0, ptr %181, align 8, !tbaa !76
   %183 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 52
   %184 = getelementptr inbounds i8, ptr %.sroa.09.0.i, i64 -12
   %185 = load i32, ptr %184, align 4, !tbaa !76
   store i32 %185, ptr %183, align 4, !tbaa !76
   store i32 0, ptr %184, align 4, !tbaa !76
   %186 = getelementptr inbounds i8, ptr %.sroa.09.0.i, i64 -8
-  %187 = load i32, ptr %186, align 4, !tbaa !76
-  store i32 %187, ptr %175, align 4, !tbaa !76
-  store i32 0, ptr %186, align 4, !tbaa !76
+  %187 = load i32, ptr %186, align 8, !tbaa !76
+  store i32 %187, ptr %175, align 8, !tbaa !76
+  store i32 0, ptr %186, align 8, !tbaa !76
   %.pre.i = load ptr, ptr %7, align 8, !tbaa !893
   %.pre12.i = load ptr, ptr %6, align 8, !tbaa !892
   br label %117, !llvm.loop !1865
@@ -46481,14 +46481,14 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store ptr null, ptr %10, align 8, !tbaa !827
   %210 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 48
   %211 = load i32, ptr %11, align 8, !tbaa !76
-  store i32 %211, ptr %210, align 4, !tbaa !76
+  store i32 %211, ptr %210, align 8, !tbaa !76
   store i32 0, ptr %11, align 8, !tbaa !76
   %212 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 52
   %213 = load i32, ptr %12, align 4, !tbaa !76
   store i32 %213, ptr %212, align 4, !tbaa !76
   store i32 0, ptr %12, align 4, !tbaa !76
   %214 = load i32, ptr %13, align 8, !tbaa !76
-  store i32 %214, ptr %205, align 4, !tbaa !76
+  store i32 %214, ptr %205, align 8, !tbaa !76
   store i32 0, ptr %13, align 8, !tbaa !76
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #28
   %215 = load ptr, ptr %6, align 8, !tbaa !892
@@ -46772,7 +46772,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEjNS_12DenseMapInfoIS4_vEENS_6
   %57 = load ptr, ptr %1, align 8, !tbaa !242
   store ptr %57, ptr %48, align 8, !tbaa !242
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !76
+  store i32 0, ptr %58, align 8, !tbaa !76
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E16InsertIntoBucketIRKS4_JEEEPS9_SF_OT_DpOT0_.exit
@@ -46797,14 +46797,14 @@ define internal fastcc void @_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN12_
   %13 = load ptr, ptr %12, align 8, !tbaa !827
   store ptr null, ptr %12, align 8, !tbaa !827
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %15 = load i32, ptr %14, align 4, !tbaa !76
-  store i32 0, ptr %14, align 4, !tbaa !76
+  %15 = load i32, ptr %14, align 8, !tbaa !76
+  store i32 0, ptr %14, align 8, !tbaa !76
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %17 = load i32, ptr %16, align 4, !tbaa !76
   store i32 0, ptr %16, align 4, !tbaa !76
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %19 = load i32, ptr %18, align 4, !tbaa !76
-  store i32 0, ptr %18, align 4, !tbaa !76
+  %19 = load i32, ptr %18, align 8, !tbaa !76
+  store i32 0, ptr %18, align 8, !tbaa !76
   %20 = load ptr, ptr %1, align 8, !tbaa !890
   store ptr %20, ptr %0, align 8, !tbaa !890
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -46831,19 +46831,19 @@ define internal fastcc void @_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN12_
   store ptr %30, ptr %12, align 8, !tbaa !827
   store ptr null, ptr %27, align 8, !tbaa !827
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %32 = load i32, ptr %31, align 4, !tbaa !76
-  store i32 %32, ptr %14, align 4, !tbaa !76
-  store i32 0, ptr %31, align 4, !tbaa !76
+  %32 = load i32, ptr %31, align 8, !tbaa !76
+  store i32 %32, ptr %14, align 8, !tbaa !76
+  store i32 0, ptr %31, align 8, !tbaa !76
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %34 = load i32, ptr %16, align 4, !tbaa !76
   %35 = load i32, ptr %33, align 4, !tbaa !76
   store i32 %35, ptr %16, align 4, !tbaa !76
   store i32 %34, ptr %33, align 4, !tbaa !76
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %37 = load i32, ptr %18, align 4, !tbaa !76
-  %38 = load i32, ptr %36, align 4, !tbaa !76
-  store i32 %38, ptr %18, align 4, !tbaa !76
-  store i32 %37, ptr %36, align 4, !tbaa !76
+  %37 = load i32, ptr %18, align 8, !tbaa !76
+  %38 = load i32, ptr %36, align 8, !tbaa !76
+  store i32 %38, ptr %18, align 8, !tbaa !76
+  store i32 %37, ptr %36, align 8, !tbaa !76
   store ptr %3, ptr %1, align 8, !tbaa !890
   %39 = load ptr, ptr %21, align 8, !tbaa !892
   %40 = load ptr, ptr %25, align 8, !tbaa !894
@@ -46870,9 +46870,9 @@ _ZSt4swapIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraph
   %48 = shl nuw nsw i64 %47, 2
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %46, i64 noundef %48, i64 noundef 4) #28
   store ptr %13, ptr %27, align 8, !tbaa !827
-  store i32 %15, ptr %31, align 4, !tbaa !76
+  store i32 %15, ptr %31, align 8, !tbaa !76
   store i32 %17, ptr %33, align 4, !tbaa !76
-  store i32 %19, ptr %36, align 4, !tbaa !76
+  store i32 %19, ptr %36, align 8, !tbaa !76
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #28
   ret void
 }
@@ -47172,14 +47172,14 @@ define internal fastcc ptr @_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN12
   %39 = load ptr, ptr %38, align 8, !tbaa !827
   store ptr null, ptr %38, align 8, !tbaa !827
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.046.172.i, i64 48
-  %41 = load i32, ptr %40, align 4, !tbaa !76
-  store i32 0, ptr %40, align 4, !tbaa !76
+  %41 = load i32, ptr %40, align 8, !tbaa !76
+  store i32 0, ptr %40, align 8, !tbaa !76
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.046.172.i, i64 52
   %43 = load i32, ptr %42, align 4, !tbaa !76
   store i32 0, ptr %42, align 4, !tbaa !76
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.046.172.i, i64 56
-  %45 = load i32, ptr %44, align 4, !tbaa !76
-  store i32 0, ptr %44, align 4, !tbaa !76
+  %45 = load i32, ptr %44, align 8, !tbaa !76
+  store i32 0, ptr %44, align 8, !tbaa !76
   %46 = load ptr, ptr %.sroa.045.073.i, align 8, !tbaa !890
   store ptr %46, ptr %.sroa.046.172.i, align 8, !tbaa !890
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.045.073.i, i64 8
@@ -47206,19 +47206,19 @@ define internal fastcc ptr @_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN12
   store ptr %56, ptr %38, align 8, !tbaa !827
   store ptr null, ptr %53, align 8, !tbaa !827
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.045.073.i, i64 48
-  %58 = load i32, ptr %57, align 4, !tbaa !76
-  store i32 %58, ptr %40, align 4, !tbaa !76
-  store i32 0, ptr %57, align 4, !tbaa !76
+  %58 = load i32, ptr %57, align 8, !tbaa !76
+  store i32 %58, ptr %40, align 8, !tbaa !76
+  store i32 0, ptr %57, align 8, !tbaa !76
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.045.073.i, i64 52
   %60 = load i32, ptr %42, align 4, !tbaa !76
   %61 = load i32, ptr %59, align 4, !tbaa !76
   store i32 %61, ptr %42, align 4, !tbaa !76
   store i32 %60, ptr %59, align 4, !tbaa !76
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.045.073.i, i64 56
-  %63 = load i32, ptr %44, align 4, !tbaa !76
-  %64 = load i32, ptr %62, align 4, !tbaa !76
-  store i32 %64, ptr %44, align 4, !tbaa !76
-  store i32 %63, ptr %62, align 4, !tbaa !76
+  %63 = load i32, ptr %44, align 8, !tbaa !76
+  %64 = load i32, ptr %62, align 8, !tbaa !76
+  store i32 %64, ptr %44, align 8, !tbaa !76
+  store i32 %63, ptr %62, align 8, !tbaa !76
   store ptr %29, ptr %.sroa.045.073.i, align 8, !tbaa !890
   %65 = load ptr, ptr %47, align 8, !tbaa !892
   %66 = load ptr, ptr %51, align 8, !tbaa !894
@@ -47245,9 +47245,9 @@ _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_120CallsiteContextG
   %74 = shl nuw nsw i64 %73, 2
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %72, i64 noundef %74, i64 noundef 4) #28
   store ptr %39, ptr %53, align 8, !tbaa !827
-  store i32 %41, ptr %57, align 4, !tbaa !76
+  store i32 %41, ptr %57, align 8, !tbaa !76
   store i32 %43, ptr %59, align 4, !tbaa !76
-  store i32 %45, ptr %62, align 4, !tbaa !76
+  store i32 %45, ptr %62, align 8, !tbaa !76
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #28
   %75 = getelementptr inbounds nuw i8, ptr %.sroa.046.172.i, i64 64
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.045.073.i, i64 64
@@ -47298,14 +47298,14 @@ _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_120CallsiteContextG
   %98 = load ptr, ptr %97, align 8, !tbaa !827
   store ptr null, ptr %97, align 8, !tbaa !827
   %99 = getelementptr inbounds i8, ptr %.sroa.046.369.i, i64 -16
-  %100 = load i32, ptr %99, align 4, !tbaa !76
-  store i32 0, ptr %99, align 4, !tbaa !76
+  %100 = load i32, ptr %99, align 8, !tbaa !76
+  store i32 0, ptr %99, align 8, !tbaa !76
   %101 = getelementptr inbounds i8, ptr %.sroa.046.369.i, i64 -12
   %102 = load i32, ptr %101, align 4, !tbaa !76
   store i32 0, ptr %101, align 4, !tbaa !76
   %103 = getelementptr inbounds i8, ptr %.sroa.046.369.i, i64 -8
-  %104 = load i32, ptr %103, align 4, !tbaa !76
-  store i32 0, ptr %103, align 4, !tbaa !76
+  %104 = load i32, ptr %103, align 8, !tbaa !76
+  store i32 0, ptr %103, align 8, !tbaa !76
   %105 = load ptr, ptr %87, align 8, !tbaa !890
   store ptr %105, ptr %86, align 8, !tbaa !890
   %106 = getelementptr inbounds i8, ptr %.sroa.0.070.i, i64 -56
@@ -47332,19 +47332,19 @@ _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_120CallsiteContextG
   store ptr %115, ptr %97, align 8, !tbaa !827
   store ptr null, ptr %112, align 8, !tbaa !827
   %116 = getelementptr inbounds i8, ptr %.sroa.0.070.i, i64 -16
-  %117 = load i32, ptr %116, align 4, !tbaa !76
-  store i32 %117, ptr %99, align 4, !tbaa !76
-  store i32 0, ptr %116, align 4, !tbaa !76
+  %117 = load i32, ptr %116, align 8, !tbaa !76
+  store i32 %117, ptr %99, align 8, !tbaa !76
+  store i32 0, ptr %116, align 8, !tbaa !76
   %118 = getelementptr inbounds i8, ptr %.sroa.0.070.i, i64 -12
   %119 = load i32, ptr %101, align 4, !tbaa !76
   %120 = load i32, ptr %118, align 4, !tbaa !76
   store i32 %120, ptr %101, align 4, !tbaa !76
   store i32 %119, ptr %118, align 4, !tbaa !76
   %121 = getelementptr inbounds i8, ptr %.sroa.0.070.i, i64 -8
-  %122 = load i32, ptr %103, align 4, !tbaa !76
-  %123 = load i32, ptr %121, align 4, !tbaa !76
-  store i32 %123, ptr %103, align 4, !tbaa !76
-  store i32 %122, ptr %121, align 4, !tbaa !76
+  %122 = load i32, ptr %103, align 8, !tbaa !76
+  %123 = load i32, ptr %121, align 8, !tbaa !76
+  store i32 %123, ptr %103, align 8, !tbaa !76
+  store i32 %122, ptr %121, align 8, !tbaa !76
   store ptr %88, ptr %87, align 8, !tbaa !890
   %124 = load ptr, ptr %106, align 8, !tbaa !892
   %125 = load ptr, ptr %110, align 8, !tbaa !894
@@ -47371,9 +47371,9 @@ _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_120CallsiteContextG
   %133 = shl nuw nsw i64 %132, 2
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %131, i64 noundef %133, i64 noundef 4) #28
   store ptr %98, ptr %112, align 8, !tbaa !827
-  store i32 %100, ptr %116, align 4, !tbaa !76
+  store i32 %100, ptr %116, align 8, !tbaa !76
   store i32 %102, ptr %118, align 4, !tbaa !76
-  store i32 %104, ptr %121, align 4, !tbaa !76
+  store i32 %104, ptr %121, align 8, !tbaa !76
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #28
   %134 = add nuw nsw i64 %.01871.i, 1
   %exitcond.not.i = icmp eq i64 %134, %.0.i
@@ -47540,9 +47540,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store ptr null, ptr %36, align 8, !tbaa !827
   %43 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 48
   %44 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 48
-  %45 = load i32, ptr %44, align 4, !tbaa !76
-  store i32 %45, ptr %43, align 4, !tbaa !76
-  store i32 0, ptr %44, align 4, !tbaa !76
+  %45 = load i32, ptr %44, align 8, !tbaa !76
+  store i32 %45, ptr %43, align 8, !tbaa !76
+  store i32 0, ptr %44, align 8, !tbaa !76
   %46 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 52
   %47 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 52
   %48 = load i32, ptr %46, align 4, !tbaa !76
@@ -47550,10 +47550,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store i32 %49, ptr %46, align 4, !tbaa !76
   store i32 %48, ptr %47, align 4, !tbaa !76
   %50 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 56
-  %51 = load i32, ptr %38, align 4, !tbaa !76
-  %52 = load i32, ptr %50, align 4, !tbaa !76
-  store i32 %52, ptr %38, align 4, !tbaa !76
-  store i32 %51, ptr %50, align 4, !tbaa !76
+  %51 = load i32, ptr %38, align 8, !tbaa !76
+  %52 = load i32, ptr %50, align 8, !tbaa !76
+  store i32 %52, ptr %38, align 8, !tbaa !76
+  store i32 %51, ptr %50, align 8, !tbaa !76
   %53 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 64
   %54 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 64
   %55 = add nsw i64 %.012.i.i.i.i.i, -1
@@ -47699,9 +47699,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store ptr null, ptr %116, align 8, !tbaa !827
   %123 = getelementptr inbounds nuw i8, ptr %.sroa.020.030.i, i64 48
   %124 = getelementptr inbounds nuw i8, ptr %.sroa.022.032.i, i64 48
-  %125 = load i32, ptr %124, align 4, !tbaa !76
-  store i32 %125, ptr %123, align 4, !tbaa !76
-  store i32 0, ptr %124, align 4, !tbaa !76
+  %125 = load i32, ptr %124, align 8, !tbaa !76
+  store i32 %125, ptr %123, align 8, !tbaa !76
+  store i32 0, ptr %124, align 8, !tbaa !76
   %126 = getelementptr inbounds nuw i8, ptr %.sroa.020.030.i, i64 52
   %127 = getelementptr inbounds nuw i8, ptr %.sroa.022.032.i, i64 52
   %128 = load i32, ptr %126, align 4, !tbaa !76
@@ -47709,10 +47709,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store i32 %129, ptr %126, align 4, !tbaa !76
   store i32 %128, ptr %127, align 4, !tbaa !76
   %130 = getelementptr inbounds nuw i8, ptr %.sroa.022.032.i, i64 56
-  %131 = load i32, ptr %118, align 4, !tbaa !76
-  %132 = load i32, ptr %130, align 4, !tbaa !76
-  store i32 %132, ptr %118, align 4, !tbaa !76
-  store i32 %131, ptr %130, align 4, !tbaa !76
+  %131 = load i32, ptr %118, align 8, !tbaa !76
+  %132 = load i32, ptr %130, align 8, !tbaa !76
+  store i32 %132, ptr %118, align 8, !tbaa !76
+  store i32 %131, ptr %130, align 8, !tbaa !76
   %133 = getelementptr inbounds nuw i8, ptr %.sroa.022.032.i, i64 64
   br label %170
 
@@ -47761,9 +47761,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store ptr null, ptr %152, align 8, !tbaa !827
   %159 = getelementptr inbounds nuw i8, ptr %.sroa.020.030.i, i64 48
   %160 = getelementptr inbounds nuw i8, ptr %.033.i, i64 48
-  %161 = load i32, ptr %160, align 4, !tbaa !76
-  store i32 %161, ptr %159, align 4, !tbaa !76
-  store i32 0, ptr %160, align 4, !tbaa !76
+  %161 = load i32, ptr %160, align 8, !tbaa !76
+  store i32 %161, ptr %159, align 8, !tbaa !76
+  store i32 0, ptr %160, align 8, !tbaa !76
   %162 = getelementptr inbounds nuw i8, ptr %.sroa.020.030.i, i64 52
   %163 = getelementptr inbounds nuw i8, ptr %.033.i, i64 52
   %164 = load i32, ptr %162, align 4, !tbaa !76
@@ -47771,10 +47771,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store i32 %165, ptr %162, align 4, !tbaa !76
   store i32 %164, ptr %163, align 4, !tbaa !76
   %166 = getelementptr inbounds nuw i8, ptr %.033.i, i64 56
-  %167 = load i32, ptr %154, align 4, !tbaa !76
-  %168 = load i32, ptr %166, align 4, !tbaa !76
-  store i32 %168, ptr %154, align 4, !tbaa !76
-  store i32 %167, ptr %166, align 4, !tbaa !76
+  %167 = load i32, ptr %154, align 8, !tbaa !76
+  %168 = load i32, ptr %166, align 8, !tbaa !76
+  store i32 %168, ptr %154, align 8, !tbaa !76
+  store i32 %167, ptr %166, align 8, !tbaa !76
   %169 = getelementptr inbounds nuw i8, ptr %.033.i, i64 64
   br label %170
 
@@ -47843,9 +47843,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store ptr null, ptr %197, align 8, !tbaa !827
   %204 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 48
   %205 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i, i64 48
-  %206 = load i32, ptr %205, align 4, !tbaa !76
-  store i32 %206, ptr %204, align 4, !tbaa !76
-  store i32 0, ptr %205, align 4, !tbaa !76
+  %206 = load i32, ptr %205, align 8, !tbaa !76
+  store i32 %206, ptr %204, align 8, !tbaa !76
+  store i32 0, ptr %205, align 8, !tbaa !76
   %207 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 52
   %208 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i, i64 52
   %209 = load i32, ptr %207, align 4, !tbaa !76
@@ -47853,10 +47853,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store i32 %210, ptr %207, align 4, !tbaa !76
   store i32 %209, ptr %208, align 4, !tbaa !76
   %211 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i, i64 56
-  %212 = load i32, ptr %199, align 4, !tbaa !76
-  %213 = load i32, ptr %211, align 4, !tbaa !76
-  store i32 %213, ptr %199, align 4, !tbaa !76
-  store i32 %212, ptr %211, align 4, !tbaa !76
+  %212 = load i32, ptr %199, align 8, !tbaa !76
+  %213 = load i32, ptr %211, align 8, !tbaa !76
+  store i32 %213, ptr %199, align 8, !tbaa !76
+  store i32 %212, ptr %211, align 8, !tbaa !76
   %214 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i, i64 64
   %215 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 64
   %216 = add nsw i64 %.012.i.i.i.i.i.i, -1
@@ -47930,9 +47930,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store ptr null, ptr %245, align 8, !tbaa !827
   %252 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i83, i64 48
   %253 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i84, i64 48
-  %254 = load i32, ptr %253, align 4, !tbaa !76
-  store i32 %254, ptr %252, align 4, !tbaa !76
-  store i32 0, ptr %253, align 4, !tbaa !76
+  %254 = load i32, ptr %253, align 8, !tbaa !76
+  store i32 %254, ptr %252, align 8, !tbaa !76
+  store i32 0, ptr %253, align 8, !tbaa !76
   %255 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i83, i64 52
   %256 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i84, i64 52
   %257 = load i32, ptr %255, align 4, !tbaa !76
@@ -47940,10 +47940,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store i32 %258, ptr %255, align 4, !tbaa !76
   store i32 %257, ptr %256, align 4, !tbaa !76
   %259 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i84, i64 56
-  %260 = load i32, ptr %247, align 4, !tbaa !76
-  %261 = load i32, ptr %259, align 4, !tbaa !76
-  store i32 %261, ptr %247, align 4, !tbaa !76
-  store i32 %260, ptr %259, align 4, !tbaa !76
+  %260 = load i32, ptr %247, align 8, !tbaa !76
+  %261 = load i32, ptr %259, align 8, !tbaa !76
+  store i32 %261, ptr %247, align 8, !tbaa !76
+  store i32 %260, ptr %259, align 8, !tbaa !76
   %262 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i84, i64 64
   %263 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i83, i64 64
   %264 = add nsw i64 %.012.i.i.i.i.i82, -1
@@ -48014,9 +48014,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store ptr null, ptr %294, align 8, !tbaa !827
   %301 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -16
   %302 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -16
-  %303 = load i32, ptr %302, align 4, !tbaa !76
-  store i32 %303, ptr %301, align 4, !tbaa !76
-  store i32 0, ptr %302, align 4, !tbaa !76
+  %303 = load i32, ptr %302, align 8, !tbaa !76
+  store i32 %303, ptr %301, align 8, !tbaa !76
+  store i32 0, ptr %302, align 8, !tbaa !76
   %304 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -12
   %305 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -12
   %306 = load i32, ptr %304, align 4, !tbaa !76
@@ -48024,10 +48024,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store i32 %307, ptr %304, align 4, !tbaa !76
   store i32 %306, ptr %305, align 4, !tbaa !76
   %308 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -8
-  %309 = load i32, ptr %296, align 4, !tbaa !76
-  %310 = load i32, ptr %308, align 4, !tbaa !76
-  store i32 %310, ptr %296, align 4, !tbaa !76
-  store i32 %309, ptr %308, align 4, !tbaa !76
+  %309 = load i32, ptr %296, align 8, !tbaa !76
+  %310 = load i32, ptr %308, align 8, !tbaa !76
+  store i32 %310, ptr %296, align 8, !tbaa !76
+  store i32 %309, ptr %308, align 8, !tbaa !76
   %311 = add nsw i64 %.010.i.i.i.i.i.i, -1
   %312 = icmp sgt i64 %.010.i.i.i.i.i.i, 1
   br i1 %312, label %.lr.ph.i.i.i.i.i.i105, label %_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE15CallContextInfoEN9__gnu_cxx17__normal_iteratorIS9_St6vectorIS8_SaIS8_EEEESF_NSA_5__ops15_Iter_comp_iterIZNS7_16updateStackNodesEvEUlRKS8_SJ_E_EEEvT_SM_T0_SN_T1_T2_.exit, !llvm.loop !1863
@@ -48193,9 +48193,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store ptr null, ptr %382, align 8, !tbaa !827
   %389 = getelementptr inbounds i8, ptr %.sroa.035.0.i, i64 -16
   %390 = getelementptr inbounds i8, ptr %.sroa.037.0.i.ph.pn, i64 -16
-  %391 = load i32, ptr %390, align 4, !tbaa !76
-  store i32 %391, ptr %389, align 4, !tbaa !76
-  store i32 0, ptr %390, align 4, !tbaa !76
+  %391 = load i32, ptr %390, align 8, !tbaa !76
+  store i32 %391, ptr %389, align 8, !tbaa !76
+  store i32 0, ptr %390, align 8, !tbaa !76
   %392 = getelementptr inbounds i8, ptr %.sroa.035.0.i, i64 -12
   %393 = getelementptr inbounds i8, ptr %.sroa.037.0.i.ph.pn, i64 -12
   %394 = load i32, ptr %392, align 4, !tbaa !76
@@ -48203,10 +48203,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store i32 %395, ptr %392, align 4, !tbaa !76
   store i32 %394, ptr %393, align 4, !tbaa !76
   %396 = getelementptr inbounds i8, ptr %.sroa.037.0.i.ph.pn, i64 -8
-  %397 = load i32, ptr %384, align 4, !tbaa !76
-  %398 = load i32, ptr %396, align 4, !tbaa !76
-  store i32 %398, ptr %384, align 4, !tbaa !76
-  store i32 %397, ptr %396, align 4, !tbaa !76
+  %397 = load i32, ptr %384, align 8, !tbaa !76
+  %398 = load i32, ptr %396, align 8, !tbaa !76
+  store i32 %398, ptr %384, align 8, !tbaa !76
+  store i32 %397, ptr %396, align 8, !tbaa !76
   %399 = icmp eq ptr %.tr159, %.sroa.037.0.i.ph
   br i1 %399, label %400, label %.outer, !llvm.loop !1879
 
@@ -48270,9 +48270,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store ptr null, ptr %428, align 8, !tbaa !827
   %435 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i27.i, i64 -16
   %436 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i28.i, i64 -16
-  %437 = load i32, ptr %436, align 4, !tbaa !76
-  store i32 %437, ptr %435, align 4, !tbaa !76
-  store i32 0, ptr %436, align 4, !tbaa !76
+  %437 = load i32, ptr %436, align 8, !tbaa !76
+  store i32 %437, ptr %435, align 8, !tbaa !76
+  store i32 0, ptr %436, align 8, !tbaa !76
   %438 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i27.i, i64 -12
   %439 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i28.i, i64 -12
   %440 = load i32, ptr %438, align 4, !tbaa !76
@@ -48280,10 +48280,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store i32 %441, ptr %438, align 4, !tbaa !76
   store i32 %440, ptr %439, align 4, !tbaa !76
   %442 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i28.i, i64 -8
-  %443 = load i32, ptr %430, align 4, !tbaa !76
-  %444 = load i32, ptr %442, align 4, !tbaa !76
-  store i32 %444, ptr %430, align 4, !tbaa !76
-  store i32 %443, ptr %442, align 4, !tbaa !76
+  %443 = load i32, ptr %430, align 8, !tbaa !76
+  %444 = load i32, ptr %442, align 8, !tbaa !76
+  store i32 %444, ptr %430, align 8, !tbaa !76
+  store i32 %443, ptr %442, align 8, !tbaa !76
   %445 = add nsw i64 %.010.i.i.i.i.i26.i, -1
   %446 = icmp sgt i64 %.010.i.i.i.i.i26.i, 1
   br i1 %446, label %.lr.ph.i.i.i.i.i25.i, label %_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE15CallContextInfoEN9__gnu_cxx17__normal_iteratorIS9_St6vectorIS8_SaIS8_EEEESF_NSA_5__ops15_Iter_comp_iterIZNS7_16updateStackNodesEvEUlRKS8_SJ_E_EEEvT_SM_T0_SN_T1_T2_.exit, !llvm.loop !1863
@@ -48334,9 +48334,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store ptr null, ptr %466, align 8, !tbaa !827
   %473 = getelementptr inbounds i8, ptr %.sroa.035.0.i, i64 -16
   %474 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
-  %475 = load i32, ptr %474, align 4, !tbaa !76
-  store i32 %475, ptr %473, align 4, !tbaa !76
-  store i32 0, ptr %474, align 4, !tbaa !76
+  %475 = load i32, ptr %474, align 8, !tbaa !76
+  store i32 %475, ptr %473, align 8, !tbaa !76
+  store i32 0, ptr %474, align 8, !tbaa !76
   %476 = getelementptr inbounds i8, ptr %.sroa.035.0.i, i64 -12
   %477 = getelementptr inbounds nuw i8, ptr %.0.i, i64 52
   %478 = load i32, ptr %476, align 4, !tbaa !76
@@ -48344,10 +48344,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store i32 %479, ptr %476, align 4, !tbaa !76
   store i32 %478, ptr %477, align 4, !tbaa !76
   %480 = getelementptr inbounds nuw i8, ptr %.0.i, i64 56
-  %481 = load i32, ptr %468, align 4, !tbaa !76
-  %482 = load i32, ptr %480, align 4, !tbaa !76
-  store i32 %482, ptr %468, align 4, !tbaa !76
-  store i32 %481, ptr %480, align 4, !tbaa !76
+  %481 = load i32, ptr %468, align 8, !tbaa !76
+  %482 = load i32, ptr %480, align 8, !tbaa !76
+  store i32 %482, ptr %468, align 8, !tbaa !76
+  store i32 %481, ptr %480, align 8, !tbaa !76
   %483 = icmp eq ptr %5, %.0.i
   br i1 %483, label %_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE15CallContextInfoEN9__gnu_cxx17__normal_iteratorIS9_St6vectorIS8_SaIS8_EEEESF_NSA_5__ops15_Iter_comp_iterIZNS7_16updateStackNodesEvEUlRKS8_SJ_E_EEEvT_SM_T0_SN_T1_T2_.exit, label %484
 
@@ -48451,9 +48451,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store ptr null, ptr %531, align 8, !tbaa !827
   %538 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i118, i64 48
   %539 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i119, i64 48
-  %540 = load i32, ptr %539, align 4, !tbaa !76
-  store i32 %540, ptr %538, align 4, !tbaa !76
-  store i32 0, ptr %539, align 4, !tbaa !76
+  %540 = load i32, ptr %539, align 8, !tbaa !76
+  store i32 %540, ptr %538, align 8, !tbaa !76
+  store i32 0, ptr %539, align 8, !tbaa !76
   %541 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i118, i64 52
   %542 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i119, i64 52
   %543 = load i32, ptr %541, align 4, !tbaa !76
@@ -48461,10 +48461,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store i32 %544, ptr %541, align 4, !tbaa !76
   store i32 %543, ptr %542, align 4, !tbaa !76
   %545 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i119, i64 56
-  %546 = load i32, ptr %533, align 4, !tbaa !76
-  %547 = load i32, ptr %545, align 4, !tbaa !76
-  store i32 %547, ptr %533, align 4, !tbaa !76
-  store i32 %546, ptr %545, align 4, !tbaa !76
+  %546 = load i32, ptr %533, align 8, !tbaa !76
+  %547 = load i32, ptr %545, align 8, !tbaa !76
+  store i32 %547, ptr %533, align 8, !tbaa !76
+  store i32 %546, ptr %545, align 8, !tbaa !76
   %548 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i119, i64 64
   %549 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i118, i64 64
   %550 = add nsw i64 %.012.i.i.i.i.i.i117, -1
@@ -48531,9 +48531,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store ptr null, ptr %578, align 8, !tbaa !827
   %585 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i114, i64 -16
   %586 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i115, i64 -16
-  %587 = load i32, ptr %586, align 4, !tbaa !76
-  store i32 %587, ptr %585, align 4, !tbaa !76
-  store i32 0, ptr %586, align 4, !tbaa !76
+  %587 = load i32, ptr %586, align 8, !tbaa !76
+  store i32 %587, ptr %585, align 8, !tbaa !76
+  store i32 0, ptr %586, align 8, !tbaa !76
   %588 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i114, i64 -12
   %589 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i115, i64 -12
   %590 = load i32, ptr %588, align 4, !tbaa !76
@@ -48541,10 +48541,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store i32 %591, ptr %588, align 4, !tbaa !76
   store i32 %590, ptr %589, align 4, !tbaa !76
   %592 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i115, i64 -8
-  %593 = load i32, ptr %580, align 4, !tbaa !76
-  %594 = load i32, ptr %592, align 4, !tbaa !76
-  store i32 %594, ptr %580, align 4, !tbaa !76
-  store i32 %593, ptr %592, align 4, !tbaa !76
+  %593 = load i32, ptr %580, align 8, !tbaa !76
+  %594 = load i32, ptr %592, align 8, !tbaa !76
+  store i32 %594, ptr %580, align 8, !tbaa !76
+  store i32 %593, ptr %592, align 8, !tbaa !76
   %595 = add nsw i64 %.010.i.i.i.i.i.i113, -1
   %596 = icmp sgt i64 %.010.i.i.i.i.i.i113, 1
   br i1 %596, label %.lr.ph.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS5_11InstructionEE15CallContextInfoESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit.i, !llvm.loop !1863
@@ -48606,9 +48606,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store ptr null, ptr %621, align 8, !tbaa !827
   %628 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i43.i, i64 48
   %629 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i44.i, i64 48
-  %630 = load i32, ptr %629, align 4, !tbaa !76
-  store i32 %630, ptr %628, align 4, !tbaa !76
-  store i32 0, ptr %629, align 4, !tbaa !76
+  %630 = load i32, ptr %629, align 8, !tbaa !76
+  store i32 %630, ptr %628, align 8, !tbaa !76
+  store i32 0, ptr %629, align 8, !tbaa !76
   %631 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i43.i, i64 52
   %632 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i44.i, i64 52
   %633 = load i32, ptr %631, align 4, !tbaa !76
@@ -48616,10 +48616,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store i32 %634, ptr %631, align 4, !tbaa !76
   store i32 %633, ptr %632, align 4, !tbaa !76
   %635 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i44.i, i64 56
-  %636 = load i32, ptr %623, align 4, !tbaa !76
-  %637 = load i32, ptr %635, align 4, !tbaa !76
-  store i32 %637, ptr %623, align 4, !tbaa !76
-  store i32 %636, ptr %635, align 4, !tbaa !76
+  %636 = load i32, ptr %623, align 8, !tbaa !76
+  %637 = load i32, ptr %635, align 8, !tbaa !76
+  store i32 %637, ptr %623, align 8, !tbaa !76
+  store i32 %636, ptr %635, align 8, !tbaa !76
   %638 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i44.i, i64 64
   %639 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i43.i, i64 64
   %640 = add nsw i64 %.012.i.i.i.i.i42.i, -1
@@ -48702,9 +48702,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store ptr null, ptr %672, align 8, !tbaa !827
   %679 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i50.i, i64 48
   %680 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i51.i, i64 48
-  %681 = load i32, ptr %680, align 4, !tbaa !76
-  store i32 %681, ptr %679, align 4, !tbaa !76
-  store i32 0, ptr %680, align 4, !tbaa !76
+  %681 = load i32, ptr %680, align 8, !tbaa !76
+  store i32 %681, ptr %679, align 8, !tbaa !76
+  store i32 0, ptr %680, align 8, !tbaa !76
   %682 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i50.i, i64 52
   %683 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i51.i, i64 52
   %684 = load i32, ptr %682, align 4, !tbaa !76
@@ -48712,10 +48712,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store i32 %685, ptr %682, align 4, !tbaa !76
   store i32 %684, ptr %683, align 4, !tbaa !76
   %686 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i51.i, i64 56
-  %687 = load i32, ptr %674, align 4, !tbaa !76
-  %688 = load i32, ptr %686, align 4, !tbaa !76
-  store i32 %688, ptr %674, align 4, !tbaa !76
-  store i32 %687, ptr %686, align 4, !tbaa !76
+  %687 = load i32, ptr %674, align 8, !tbaa !76
+  %688 = load i32, ptr %686, align 8, !tbaa !76
+  store i32 %688, ptr %674, align 8, !tbaa !76
+  store i32 %687, ptr %686, align 8, !tbaa !76
   %689 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i51.i, i64 64
   %690 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i50.i, i64 64
   %691 = add nsw i64 %.012.i.i.i.i.i49.i, -1
@@ -48780,9 +48780,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store ptr null, ptr %717, align 8, !tbaa !827
   %724 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i58.i, i64 48
   %725 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i59.i, i64 48
-  %726 = load i32, ptr %725, align 4, !tbaa !76
-  store i32 %726, ptr %724, align 4, !tbaa !76
-  store i32 0, ptr %725, align 4, !tbaa !76
+  %726 = load i32, ptr %725, align 8, !tbaa !76
+  store i32 %726, ptr %724, align 8, !tbaa !76
+  store i32 0, ptr %725, align 8, !tbaa !76
   %727 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i58.i, i64 52
   %728 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i59.i, i64 52
   %729 = load i32, ptr %727, align 4, !tbaa !76
@@ -48790,10 +48790,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store i32 %730, ptr %727, align 4, !tbaa !76
   store i32 %729, ptr %728, align 4, !tbaa !76
   %731 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i59.i, i64 56
-  %732 = load i32, ptr %719, align 4, !tbaa !76
-  %733 = load i32, ptr %731, align 4, !tbaa !76
-  store i32 %733, ptr %719, align 4, !tbaa !76
-  store i32 %732, ptr %731, align 4, !tbaa !76
+  %732 = load i32, ptr %719, align 8, !tbaa !76
+  %733 = load i32, ptr %731, align 8, !tbaa !76
+  store i32 %733, ptr %719, align 8, !tbaa !76
+  store i32 %732, ptr %731, align 8, !tbaa !76
   %734 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i59.i, i64 64
   %735 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i58.i, i64 64
   %736 = add nsw i64 %.012.i.i.i.i.i57.i, -1
@@ -48859,9 +48859,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store ptr null, ptr %764, align 8, !tbaa !827
   %771 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i65.i, i64 -16
   %772 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i66.i, i64 -16
-  %773 = load i32, ptr %772, align 4, !tbaa !76
-  store i32 %773, ptr %771, align 4, !tbaa !76
-  store i32 0, ptr %772, align 4, !tbaa !76
+  %773 = load i32, ptr %772, align 8, !tbaa !76
+  store i32 %773, ptr %771, align 8, !tbaa !76
+  store i32 0, ptr %772, align 8, !tbaa !76
   %774 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i65.i, i64 -12
   %775 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i66.i, i64 -12
   %776 = load i32, ptr %774, align 4, !tbaa !76
@@ -48869,10 +48869,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store i32 %777, ptr %774, align 4, !tbaa !76
   store i32 %776, ptr %775, align 4, !tbaa !76
   %778 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i66.i, i64 -8
-  %779 = load i32, ptr %766, align 4, !tbaa !76
-  %780 = load i32, ptr %778, align 4, !tbaa !76
-  store i32 %780, ptr %766, align 4, !tbaa !76
-  store i32 %779, ptr %778, align 4, !tbaa !76
+  %779 = load i32, ptr %766, align 8, !tbaa !76
+  %780 = load i32, ptr %778, align 8, !tbaa !76
+  store i32 %780, ptr %766, align 8, !tbaa !76
+  store i32 %779, ptr %778, align 8, !tbaa !76
   %781 = add nsw i64 %.010.i.i.i.i.i64.i, -1
   %782 = icmp sgt i64 %.010.i.i.i.i.i64.i, 1
   br i1 %782, label %.lr.ph.i.i.i.i.i63.i, label %_ZSt13move_backwardIPN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE15CallContextInfoEN9__gnu_cxx17__normal_iteratorIS9_St6vectorIS8_SaIS8_EEEEET0_T_SH_SG_.exit.loopexit.i, !llvm.loop !1863
@@ -48965,9 +48965,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store ptr null, ptr %31, align 8, !tbaa !827
   %38 = getelementptr inbounds nuw i8, ptr %.033, i64 48
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.026.031, i64 48
-  %40 = load i32, ptr %39, align 4, !tbaa !76
-  store i32 %40, ptr %38, align 4, !tbaa !76
-  store i32 0, ptr %39, align 4, !tbaa !76
+  %40 = load i32, ptr %39, align 8, !tbaa !76
+  store i32 %40, ptr %38, align 8, !tbaa !76
+  store i32 0, ptr %39, align 8, !tbaa !76
   %41 = getelementptr inbounds nuw i8, ptr %.033, i64 52
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.026.031, i64 52
   %43 = load i32, ptr %41, align 4, !tbaa !76
@@ -48975,10 +48975,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store i32 %44, ptr %41, align 4, !tbaa !76
   store i32 %43, ptr %42, align 4, !tbaa !76
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.026.031, i64 56
-  %46 = load i32, ptr %33, align 4, !tbaa !76
-  %47 = load i32, ptr %45, align 4, !tbaa !76
-  store i32 %47, ptr %33, align 4, !tbaa !76
-  store i32 %46, ptr %45, align 4, !tbaa !76
+  %46 = load i32, ptr %33, align 8, !tbaa !76
+  %47 = load i32, ptr %45, align 8, !tbaa !76
+  store i32 %47, ptr %33, align 8, !tbaa !76
+  store i32 %46, ptr %45, align 8, !tbaa !76
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.026.031, i64 64
   br label %85
 
@@ -49026,9 +49026,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store ptr null, ptr %67, align 8, !tbaa !827
   %74 = getelementptr inbounds nuw i8, ptr %.033, i64 48
   %75 = getelementptr inbounds nuw i8, ptr %.sroa.028.032, i64 48
-  %76 = load i32, ptr %75, align 4, !tbaa !76
-  store i32 %76, ptr %74, align 4, !tbaa !76
-  store i32 0, ptr %75, align 4, !tbaa !76
+  %76 = load i32, ptr %75, align 8, !tbaa !76
+  store i32 %76, ptr %74, align 8, !tbaa !76
+  store i32 0, ptr %75, align 8, !tbaa !76
   %77 = getelementptr inbounds nuw i8, ptr %.033, i64 52
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.028.032, i64 52
   %79 = load i32, ptr %77, align 4, !tbaa !76
@@ -49036,10 +49036,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store i32 %80, ptr %77, align 4, !tbaa !76
   store i32 %79, ptr %78, align 4, !tbaa !76
   %81 = getelementptr inbounds nuw i8, ptr %.sroa.028.032, i64 56
-  %82 = load i32, ptr %69, align 4, !tbaa !76
-  %83 = load i32, ptr %81, align 4, !tbaa !76
-  store i32 %83, ptr %69, align 4, !tbaa !76
-  store i32 %82, ptr %81, align 4, !tbaa !76
+  %82 = load i32, ptr %69, align 8, !tbaa !76
+  %83 = load i32, ptr %81, align 8, !tbaa !76
+  store i32 %83, ptr %69, align 8, !tbaa !76
+  store i32 %82, ptr %81, align 8, !tbaa !76
   %84 = getelementptr inbounds nuw i8, ptr %.sroa.028.032, i64 64
   br label %85
 
@@ -49113,9 +49113,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store ptr null, ptr %114, align 8, !tbaa !827
   %121 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 48
   %122 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 48
-  %123 = load i32, ptr %122, align 4, !tbaa !76
-  store i32 %123, ptr %121, align 4, !tbaa !76
-  store i32 0, ptr %122, align 4, !tbaa !76
+  %123 = load i32, ptr %122, align 8, !tbaa !76
+  store i32 %123, ptr %121, align 8, !tbaa !76
+  store i32 0, ptr %122, align 8, !tbaa !76
   %124 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 52
   %125 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 52
   %126 = load i32, ptr %124, align 4, !tbaa !76
@@ -49123,10 +49123,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store i32 %127, ptr %124, align 4, !tbaa !76
   store i32 %126, ptr %125, align 4, !tbaa !76
   %128 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 56
-  %129 = load i32, ptr %116, align 4, !tbaa !76
-  %130 = load i32, ptr %128, align 4, !tbaa !76
-  store i32 %130, ptr %116, align 4, !tbaa !76
-  store i32 %129, ptr %128, align 4, !tbaa !76
+  %129 = load i32, ptr %116, align 8, !tbaa !76
+  %130 = load i32, ptr %128, align 8, !tbaa !76
+  store i32 %130, ptr %116, align 8, !tbaa !76
+  store i32 %129, ptr %128, align 8, !tbaa !76
   %131 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 64
   %132 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 64
   %133 = add nsw i64 %.012.i.i.i.i.i, -1
@@ -49192,9 +49192,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store ptr null, ptr %160, align 8, !tbaa !827
   %167 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i20, i64 48
   %168 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i21, i64 48
-  %169 = load i32, ptr %168, align 4, !tbaa !76
-  store i32 %169, ptr %167, align 4, !tbaa !76
-  store i32 0, ptr %168, align 4, !tbaa !76
+  %169 = load i32, ptr %168, align 8, !tbaa !76
+  store i32 %169, ptr %167, align 8, !tbaa !76
+  store i32 0, ptr %168, align 8, !tbaa !76
   %170 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i20, i64 52
   %171 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i21, i64 52
   %172 = load i32, ptr %170, align 4, !tbaa !76
@@ -49202,10 +49202,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store i32 %173, ptr %170, align 4, !tbaa !76
   store i32 %172, ptr %171, align 4, !tbaa !76
   %174 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i21, i64 56
-  %175 = load i32, ptr %162, align 4, !tbaa !76
-  %176 = load i32, ptr %174, align 4, !tbaa !76
-  store i32 %176, ptr %162, align 4, !tbaa !76
-  store i32 %175, ptr %174, align 4, !tbaa !76
+  %175 = load i32, ptr %162, align 8, !tbaa !76
+  %176 = load i32, ptr %174, align 8, !tbaa !76
+  store i32 %176, ptr %162, align 8, !tbaa !76
+  store i32 %175, ptr %174, align 8, !tbaa !76
   %177 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i21, i64 64
   %178 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i20, i64 64
   %179 = add nsw i64 %.012.i.i.i.i.i19, -1
@@ -49359,9 +49359,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store ptr null, ptr %68, align 8, !tbaa !827
   %75 = getelementptr inbounds nuw i8, ptr %.sroa.030.035, i64 48
   %76 = getelementptr inbounds nuw i8, ptr %.01637, i64 48
-  %77 = load i32, ptr %76, align 4, !tbaa !76
-  store i32 %77, ptr %75, align 4, !tbaa !76
-  store i32 0, ptr %76, align 4, !tbaa !76
+  %77 = load i32, ptr %76, align 8, !tbaa !76
+  store i32 %77, ptr %75, align 8, !tbaa !76
+  store i32 0, ptr %76, align 8, !tbaa !76
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.030.035, i64 52
   %79 = getelementptr inbounds nuw i8, ptr %.01637, i64 52
   %80 = load i32, ptr %78, align 4, !tbaa !76
@@ -49369,10 +49369,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store i32 %81, ptr %78, align 4, !tbaa !76
   store i32 %80, ptr %79, align 4, !tbaa !76
   %82 = getelementptr inbounds nuw i8, ptr %.01637, i64 56
-  %83 = load i32, ptr %70, align 4, !tbaa !76
-  %84 = load i32, ptr %82, align 4, !tbaa !76
-  store i32 %84, ptr %70, align 4, !tbaa !76
-  store i32 %83, ptr %82, align 4, !tbaa !76
+  %83 = load i32, ptr %70, align 8, !tbaa !76
+  %84 = load i32, ptr %82, align 8, !tbaa !76
+  store i32 %84, ptr %70, align 8, !tbaa !76
+  store i32 %83, ptr %82, align 8, !tbaa !76
   %85 = getelementptr inbounds nuw i8, ptr %.01637, i64 64
   br label %122
 
@@ -49421,9 +49421,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store ptr null, ptr %104, align 8, !tbaa !827
   %111 = getelementptr inbounds nuw i8, ptr %.sroa.030.035, i64 48
   %112 = getelementptr inbounds nuw i8, ptr %.038, i64 48
-  %113 = load i32, ptr %112, align 4, !tbaa !76
-  store i32 %113, ptr %111, align 4, !tbaa !76
-  store i32 0, ptr %112, align 4, !tbaa !76
+  %113 = load i32, ptr %112, align 8, !tbaa !76
+  store i32 %113, ptr %111, align 8, !tbaa !76
+  store i32 0, ptr %112, align 8, !tbaa !76
   %114 = getelementptr inbounds nuw i8, ptr %.sroa.030.035, i64 52
   %115 = getelementptr inbounds nuw i8, ptr %.038, i64 52
   %116 = load i32, ptr %114, align 4, !tbaa !76
@@ -49431,10 +49431,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store i32 %117, ptr %114, align 4, !tbaa !76
   store i32 %116, ptr %115, align 4, !tbaa !76
   %118 = getelementptr inbounds nuw i8, ptr %.038, i64 56
-  %119 = load i32, ptr %106, align 4, !tbaa !76
-  %120 = load i32, ptr %118, align 4, !tbaa !76
-  store i32 %120, ptr %106, align 4, !tbaa !76
-  store i32 %119, ptr %118, align 4, !tbaa !76
+  %119 = load i32, ptr %106, align 8, !tbaa !76
+  %120 = load i32, ptr %118, align 8, !tbaa !76
+  store i32 %120, ptr %106, align 8, !tbaa !76
+  store i32 %119, ptr %118, align 8, !tbaa !76
   %121 = getelementptr inbounds nuw i8, ptr %.038, i64 64
   br label %122
 
@@ -49508,9 +49508,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store ptr null, ptr %152, align 8, !tbaa !827
   %159 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 48
   %160 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 48
-  %161 = load i32, ptr %160, align 4, !tbaa !76
-  store i32 %161, ptr %159, align 4, !tbaa !76
-  store i32 0, ptr %160, align 4, !tbaa !76
+  %161 = load i32, ptr %160, align 8, !tbaa !76
+  store i32 %161, ptr %159, align 8, !tbaa !76
+  store i32 0, ptr %160, align 8, !tbaa !76
   %162 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 52
   %163 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 52
   %164 = load i32, ptr %162, align 4, !tbaa !76
@@ -49518,10 +49518,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store i32 %165, ptr %162, align 4, !tbaa !76
   store i32 %164, ptr %163, align 4, !tbaa !76
   %166 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 56
-  %167 = load i32, ptr %154, align 4, !tbaa !76
-  %168 = load i32, ptr %166, align 4, !tbaa !76
-  store i32 %168, ptr %154, align 4, !tbaa !76
-  store i32 %167, ptr %166, align 4, !tbaa !76
+  %167 = load i32, ptr %154, align 8, !tbaa !76
+  %168 = load i32, ptr %166, align 8, !tbaa !76
+  store i32 %168, ptr %154, align 8, !tbaa !76
+  store i32 %167, ptr %166, align 8, !tbaa !76
   %169 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 64
   %170 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 64
   %171 = add nsw i64 %.012.i.i.i.i.i, -1
@@ -49591,9 +49591,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store ptr null, ptr %202, align 8, !tbaa !827
   %209 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i24, i64 48
   %210 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i25, i64 48
-  %211 = load i32, ptr %210, align 4, !tbaa !76
-  store i32 %211, ptr %209, align 4, !tbaa !76
-  store i32 0, ptr %210, align 4, !tbaa !76
+  %211 = load i32, ptr %210, align 8, !tbaa !76
+  store i32 %211, ptr %209, align 8, !tbaa !76
+  store i32 0, ptr %210, align 8, !tbaa !76
   %212 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i24, i64 52
   %213 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i25, i64 52
   %214 = load i32, ptr %212, align 4, !tbaa !76
@@ -49601,10 +49601,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   store i32 %215, ptr %212, align 4, !tbaa !76
   store i32 %214, ptr %213, align 4, !tbaa !76
   %216 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i25, i64 56
-  %217 = load i32, ptr %204, align 4, !tbaa !76
-  %218 = load i32, ptr %216, align 4, !tbaa !76
-  store i32 %218, ptr %204, align 4, !tbaa !76
-  store i32 %217, ptr %216, align 4, !tbaa !76
+  %217 = load i32, ptr %204, align 8, !tbaa !76
+  %218 = load i32, ptr %216, align 8, !tbaa !76
+  store i32 %218, ptr %204, align 8, !tbaa !76
+  store i32 %217, ptr %216, align 8, !tbaa !76
   %219 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i25, i64 64
   %220 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i24, i64 64
   %221 = add nsw i64 %.012.i.i.i.i.i23, -1
@@ -49654,7 +49654,7 @@ define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_1
   %24 = load ptr, ptr %23, align 8, !tbaa !656
   %25 = icmp eq ptr %.val40, %24
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %27 = load i32, ptr %26, align 4
+  %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %.val41, %27
   %29 = select i1 %25, i1 %28, i1 false
   br i1 %29, label %._crit_edge, label %.lr.ph, !prof !328
@@ -49691,7 +49691,7 @@ define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_1
   %48 = load ptr, ptr %47, align 8, !tbaa !656
   %49 = icmp eq ptr %.val40, %48
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %51 = load i32, ptr %50, align 4
+  %51 = load i32, ptr %50, align 8
   %52 = icmp eq i32 %.val41, %51
   %53 = select i1 %49, i1 %52, i1 false
   br i1 %53, label %._crit_edge, label %.lr.ph, !prof !329, !llvm.loop !939
@@ -49784,7 +49784,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_26
   %37 = load ptr, ptr %.031.i.i, align 8, !tbaa !656
   %38 = icmp eq ptr %37, inttoptr (i64 -4096 to ptr)
   %39 = getelementptr inbounds nuw i8, ptr %.031.i.i, i64 8
-  %40 = load i32, ptr %39, align 4
+  %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, -1
   %42 = select i1 %38, i1 %41, i1 false
   br i1 %42, label %101, label %43
@@ -49821,7 +49821,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_26
   %67 = load ptr, ptr %66, align 8, !tbaa !656
   %68 = icmp eq ptr %37, %67
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %70 = load i32, ptr %69, align 4
+  %70 = load i32, ptr %69, align 8
   %71 = icmp eq i32 %40, %70
   %72 = select i1 %68, i1 %71, i1 false
   br i1 %72, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE8CallInfoES9_NS_12DenseMapInfoIS9_vEENS_6detail12DenseMapPairIS9_S9_EEEES9_S9_SB_SE_E15LookupBucketForIS9_EEbRKT_RPSE_.exit.i.i, label %.lr.ph.i20.i.i, !prof !328
@@ -49858,7 +49858,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_26
   %91 = load ptr, ptr %90, align 8, !tbaa !656
   %92 = icmp eq ptr %37, %91
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %94 = load i32, ptr %93, align 4
+  %94 = load i32, ptr %93, align 8
   %95 = icmp eq i32 %40, %94
   %96 = select i1 %92, i1 %95, i1 false
   br i1 %96, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE8CallInfoES9_NS_12DenseMapInfoIS9_vEENS_6detail12DenseMapPairIS9_S9_EEEES9_S9_SB_SE_E15LookupBucketForIS9_EEbRKT_RPSE_.exit.i.i, label %.lr.ph.i20.i.i, !prof !329, !llvm.loop !939
@@ -49977,9 +49977,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_8DenseSetIjNS_12DenseMapInfoIjvEEEES4_NS
   store ptr null, ptr %38, align 8, !tbaa !827
   %40 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 16
   %41 = getelementptr inbounds nuw i8, ptr %.021, i64 16
-  %42 = load i32, ptr %41, align 4, !tbaa !76
-  store i32 %42, ptr %40, align 4, !tbaa !76
-  store i32 0, ptr %41, align 4, !tbaa !76
+  %42 = load i32, ptr %41, align 8, !tbaa !76
+  store i32 %42, ptr %40, align 8, !tbaa !76
+  store i32 0, ptr %41, align 8, !tbaa !76
   %43 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 20
   %44 = getelementptr inbounds nuw i8, ptr %.021, i64 20
   %45 = load i32, ptr %43, align 4, !tbaa !76
@@ -49988,10 +49988,10 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_8DenseSetIjNS_12DenseMapInfoIjvEEEES4_NS
   store i32 %45, ptr %44, align 4, !tbaa !76
   %47 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 24
   %48 = getelementptr inbounds nuw i8, ptr %.021, i64 24
-  %49 = load i32, ptr %47, align 4, !tbaa !76
-  %50 = load i32, ptr %48, align 4, !tbaa !76
-  store i32 %50, ptr %47, align 4, !tbaa !76
-  store i32 %49, ptr %48, align 4, !tbaa !76
+  %49 = load i32, ptr %47, align 8, !tbaa !76
+  %50 = load i32, ptr %48, align 8, !tbaa !76
+  store i32 %50, ptr %47, align 8, !tbaa !76
+  store i32 %49, ptr %48, align 8, !tbaa !76
   %51 = load i32, ptr %4, align 8, !tbaa !942
   %52 = add i32 %51, 1
   store i32 %52, ptr %4, align 8, !tbaa !942
@@ -51659,17 +51659,17 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteCont
   %40 = load ptr, ptr %8, align 8, !tbaa !827
   store ptr %40, ptr %4, align 8, !tbaa !827
   store ptr %39, ptr %8, align 8, !tbaa !827
-  %41 = load i32, ptr %11, align 4, !tbaa !76
+  %41 = load i32, ptr %11, align 8, !tbaa !76
   %42 = load i32, ptr %12, align 8, !tbaa !76
-  store i32 %42, ptr %11, align 4, !tbaa !76
+  store i32 %42, ptr %11, align 8, !tbaa !76
   store i32 %41, ptr %12, align 8, !tbaa !76
   %43 = load i32, ptr %13, align 4, !tbaa !76
   %44 = load i32, ptr %14, align 4, !tbaa !76
   store i32 %44, ptr %13, align 4, !tbaa !76
   store i32 %43, ptr %14, align 4, !tbaa !76
-  %45 = load i32, ptr %15, align 4, !tbaa !76
+  %45 = load i32, ptr %15, align 8, !tbaa !76
   %46 = load i32, ptr %16, align 8, !tbaa !76
-  store i32 %46, ptr %15, align 4, !tbaa !76
+  store i32 %46, ptr %15, align 8, !tbaa !76
   store i32 %45, ptr %16, align 8, !tbaa !76
   %47 = load i32, ptr %17, align 8, !tbaa !657
   %48 = icmp eq i32 %47, 0
@@ -51804,11 +51804,11 @@ _ZNK12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8
   %95 = getelementptr inbounds nuw i8, ptr %88, i64 40
   store ptr %53, ptr %95, align 8, !tbaa !827, !noalias !1940
   %96 = getelementptr inbounds nuw i8, ptr %88, i64 48
-  store i32 %47, ptr %96, align 4, !tbaa !76, !noalias !1940
+  store i32 %47, ptr %96, align 8, !tbaa !76, !noalias !1940
   %97 = getelementptr inbounds nuw i8, ptr %88, i64 52
   store i32 %92, ptr %97, align 4, !tbaa !76, !noalias !1940
   %98 = getelementptr inbounds nuw i8, ptr %88, i64 56
-  store i32 %54, ptr %98, align 4, !tbaa !76, !noalias !1940
+  store i32 %54, ptr %98, align 8, !tbaa !76, !noalias !1940
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #28, !noalias !1940
   %99 = load ptr, ptr %25, align 8, !tbaa !828
   %100 = load ptr, ptr %26, align 8, !tbaa !829
@@ -52038,11 +52038,11 @@ _ZNK12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8
   %186 = getelementptr inbounds nuw i8, ptr %179, i64 40
   store ptr %53, ptr %186, align 8, !tbaa !827, !noalias !1946
   %187 = getelementptr inbounds nuw i8, ptr %179, i64 48
-  store i32 %47, ptr %187, align 4, !tbaa !76, !noalias !1946
+  store i32 %47, ptr %187, align 8, !tbaa !76, !noalias !1946
   %188 = getelementptr inbounds nuw i8, ptr %179, i64 52
   store i32 %183, ptr %188, align 4, !tbaa !76, !noalias !1946
   %189 = getelementptr inbounds nuw i8, ptr %179, i64 56
-  store i32 %54, ptr %189, align 4, !tbaa !76, !noalias !1946
+  store i32 %54, ptr %189, align 8, !tbaa !76, !noalias !1946
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #28, !noalias !1946
   %190 = load ptr, ptr %22, align 8, !tbaa !828
   %191 = load ptr, ptr %23, align 8, !tbaa !829
@@ -54269,11 +54269,11 @@ _ZSt11make_sharedIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteCont
   %55 = getelementptr inbounds nuw i8, ptr %37, i64 40
   store ptr %.sroa.0.0.i.i.i.i.i.i.i, ptr %55, align 8, !tbaa !827, !noalias !1971
   %56 = getelementptr inbounds nuw i8, ptr %37, i64 48
-  store i32 %.sroa.6.0.i.i.i.i.i.i.i, ptr %56, align 4, !tbaa !76, !noalias !1971
+  store i32 %.sroa.6.0.i.i.i.i.i.i.i, ptr %56, align 8, !tbaa !76, !noalias !1971
   %57 = getelementptr inbounds nuw i8, ptr %37, i64 52
   store i32 %.sroa.9.0.i.i.i.i.i.i.i, ptr %57, align 4, !tbaa !76, !noalias !1971
   %58 = getelementptr inbounds nuw i8, ptr %37, i64 56
-  store i32 %41, ptr %58, align 4, !tbaa !76, !noalias !1971
+  store i32 %41, ptr %58, align 8, !tbaa !76, !noalias !1971
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #28, !noalias !1971
   %59 = load ptr, ptr %7, align 8, !tbaa !828
   %60 = getelementptr i8, ptr %2, i64 88
@@ -57555,7 +57555,7 @@ _ZN4llvm11GraphWriterIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsit
   %543 = load i32, ptr %542, align 8, !tbaa !1503, !noalias !2040
   %544 = and i32 %543, -75
   %545 = or disjoint i32 %544, 8
-  store i32 %545, ptr %542, align 4, !tbaa !1504, !noalias !2040
+  store i32 %545, ptr %542, align 8, !tbaa !1504, !noalias !2040
   %546 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %455, ptr noundef nonnull @.str.183, i64 noundef 3) #28, !noalias !2040
   %547 = ptrtoint ptr %.val.i28.i.i.i.i to i64
   %548 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIyEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %455, i64 noundef %547) #28, !noalias !2040
@@ -58781,7 +58781,7 @@ _ZZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15
   %87 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1008", ptr %.val.i24.i, i64 %86
   %.val308.i.i.i = load i64, ptr %87, align 8
   %88 = getelementptr i8, ptr %87, i64 8
-  %.val319.i.i.i = load i32, ptr %88, align 4
+  %.val319.i.i.i = load i32, ptr %88, align 8
   %89 = icmp eq i64 %.015.val.pre.i, %.val308.i.i.i
   %90 = icmp eq i32 %.015.val22.i, %.val319.i.i.i
   %spec.select.i10.i.i.i = select i1 %89, i1 %90, i1 false
@@ -58805,7 +58805,7 @@ _ZZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15
   %98 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1008", ptr %.val.i24.i, i64 %97
   %.val30.i.i.i = load i64, ptr %98, align 8
   %99 = getelementptr i8, ptr %98, i64 8
-  %.val31.i.i.i = load i32, ptr %99, align 4
+  %.val31.i.i.i = load i32, ptr %99, align 8
   %100 = icmp eq i64 %.015.val.pre.i, %.val30.i.i.i
   %101 = icmp eq i32 %.015.val22.i, %.val31.i.i.i
   %spec.select.i.i.i.i = select i1 %100, i1 %101, i1 false
@@ -58862,7 +58862,7 @@ _ZZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15
   %129 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1008", ptr %.val.i25.i, i64 %128
   %.val4412.i.i.i = load i64, ptr %129, align 8
   %130 = getelementptr i8, ptr %129, i64 8
-  %.val4513.i.i.i = load i32, ptr %130, align 4
+  %.val4513.i.i.i = load i32, ptr %130, align 8
   %131 = icmp eq i64 %.val.i23.i, %.val4412.i.i.i
   %132 = icmp eq i32 %107, %.val4513.i.i.i
   %spec.select.i14.i.i.i = select i1 %131, i1 %132, i1 false
@@ -58899,7 +58899,7 @@ _ZZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15
   %146 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1008", ptr %.val.i25.i, i64 %145
   %.val44.i.i.i = load i64, ptr %146, align 8
   %147 = getelementptr i8, ptr %146, i64 8
-  %.val45.i.i.i = load i32, ptr %147, align 4
+  %.val45.i.i.i = load i32, ptr %147, align 8
   %148 = icmp eq i64 %.val.i23.i, %.val44.i.i.i
   %149 = icmp eq i32 %107, %.val45.i.i.i
   %spec.select.i.i.i28.i = select i1 %148, i1 %149, i1 false
@@ -58946,7 +58946,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_25
   store i32 %160, ptr %64, align 8, !tbaa !2100
   %.val11.i.i.i.i = load i64, ptr %159, align 8
   %161 = getelementptr i8, ptr %159, i64 8
-  %.val12.i.i.i.i = load i32, ptr %161, align 4
+  %.val12.i.i.i.i = load i32, ptr %161, align 8
   %162 = icmp eq i64 %.val11.i.i.i.i, -4096
   %163 = icmp eq i32 %.val12.i.i.i.i, -1
   %spec.select.i.i.i.i.i = select i1 %162, i1 %163, i1 false
@@ -58965,7 +58965,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_25
   %167 = load i32, ptr %108, align 8, !tbaa !1038
   store i32 %167, ptr %161, align 8, !tbaa !1038
   %168 = getelementptr inbounds nuw i8, ptr %159, i64 16
-  store i32 0, ptr %168, align 4, !tbaa !76
+  store i32 0, ptr %168, align 8, !tbaa !76
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphENS_15FunctionSummaryENS2_9IndexCallEE8CallInfoEjNS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_jEEEES8_jSA_SD_EixERKS8_.exit.i
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphENS_15FunctionSummaryENS2_9IndexCallEE8CallInfoEjNS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_jEEEES8_jSA_SD_EixERKS8_.exit.i: ; preds = %138, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphENS_15FunctionSummaryENS2_9IndexCallEE8CallInfoEjNS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_jEEEES8_jSA_SD_E16InsertIntoBucketIRKS8_JEEEPSD_SJ_OT_DpOT0_.exit.i.i, %117
@@ -62022,11 +62022,11 @@ _ZSt11make_sharedIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteConte
   %1387 = getelementptr inbounds nuw i8, ptr %1373, i64 40
   store ptr %.sroa.0.0.i.i.i.i.i.i.i.i.i, ptr %1387, align 8, !tbaa !827, !noalias !2175
   %1388 = getelementptr inbounds nuw i8, ptr %1373, i64 48
-  store i32 %.sroa.6.0.i.i.i.i.i.i.i.i.i, ptr %1388, align 4, !tbaa !76, !noalias !2175
+  store i32 %.sroa.6.0.i.i.i.i.i.i.i.i.i, ptr %1388, align 8, !tbaa !76, !noalias !2175
   %1389 = getelementptr inbounds nuw i8, ptr %1373, i64 52
   store i32 %.sroa.9.0.i.i.i.i.i.i.i.i.i, ptr %1389, align 4, !tbaa !76, !noalias !2175
   %1390 = getelementptr inbounds nuw i8, ptr %1373, i64 56
-  store i32 %1376, ptr %1390, align 4, !tbaa !76, !noalias !2175
+  store i32 %1376, ptr %1390, align 8, !tbaa !76, !noalias !2175
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #28, !noalias !2175
   %1391 = load ptr, ptr %818, align 8, !tbaa !1196
   %1392 = load ptr, ptr %819, align 8, !tbaa !1197
@@ -63811,7 +63811,7 @@ _ZZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15
   %2123 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1008", ptr %.val49.i, i64 %2122
   %.val308.i.i.i.i.i.i = load i64, ptr %2123, align 8
   %2124 = getelementptr i8, ptr %2123, i64 8
-  %.val319.i.i.i.i.i.i = load i32, ptr %2124, align 4
+  %.val319.i.i.i.i.i.i = load i32, ptr %2124, align 8
   %2125 = icmp eq i64 %.sroa.04.0.copyload.i135, %.val308.i.i.i.i.i.i
   %2126 = icmp eq i32 %.val319.i.i.i.i.i.i, 0
   %spec.select.i10.i.i.i.i.i.i = select i1 %2125, i1 %2126, i1 false
@@ -63835,7 +63835,7 @@ _ZZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15
   %2134 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1008", ptr %.val49.i, i64 %2133
   %.val30.i.i.i.i.i.i = load i64, ptr %2134, align 8
   %2135 = getelementptr i8, ptr %2134, i64 8
-  %.val31.i.i.i.i.i.i = load i32, ptr %2135, align 4
+  %.val31.i.i.i.i.i.i = load i32, ptr %2135, align 8
   %2136 = icmp eq i64 %.sroa.04.0.copyload.i135, %.val30.i.i.i.i.i.i
   %2137 = icmp eq i32 %.val31.i.i.i.i.i.i, 0
   %spec.select.i.i.i.i.i.i.i137 = select i1 %2136, i1 %2137, i1 false
@@ -64017,7 +64017,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_15FunctionSummaryEjNS_12DenseMapInfoIS3_
 2228:                                             ; preds = %2223, %2217
   store ptr %2150, ptr %2218, align 8, !tbaa !1115, !noalias !2199
   %2229 = getelementptr inbounds nuw i8, ptr %2218, i64 8
-  store i32 0, ptr %2229, align 4, !tbaa !76, !noalias !2199
+  store i32 0, ptr %2229, align 8, !tbaa !76, !noalias !2199
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.val.i346 = load ptr, ptr %2115, align 8, !tbaa !1115
   store ptr %.val.i346, ptr %2, align 8, !tbaa !1221, !alias.scope !2202
@@ -64840,7 +64840,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm9
   %22 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1008", ptr %.val7.i.i, i64 %21
   %.val4412.i.i.i = load i64, ptr %22, align 8, !noalias !2237
   %23 = getelementptr i8, ptr %22, i64 8
-  %.val4513.i.i.i = load i32, ptr %23, align 4, !noalias !2237
+  %.val4513.i.i.i = load i32, ptr %23, align 8, !noalias !2237
   %24 = icmp eq i64 %.val40.i.i.i, %.val4412.i.i.i
   %25 = icmp eq i32 %.val41.i.i.i, %.val4513.i.i.i
   %spec.select.i14.i.i.i = select i1 %24, i1 %25, i1 false
@@ -64877,7 +64877,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm9
   %39 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1008", ptr %.val7.i.i, i64 %38
   %.val44.i.i.i = load i64, ptr %39, align 8, !noalias !2237
   %40 = getelementptr i8, ptr %39, i64 8
-  %.val45.i.i.i = load i32, ptr %40, align 4, !noalias !2237
+  %.val45.i.i.i = load i32, ptr %40, align 8, !noalias !2237
   %41 = icmp eq i64 %.val40.i.i.i, %.val44.i.i.i
   %42 = icmp eq i32 %.val41.i.i.i, %.val45.i.i.i
   %spec.select.i.i.i.i = select i1 %41, i1 %42, i1 false
@@ -64926,7 +64926,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_25
   store i32 %55, ptr %43, align 8, !tbaa !2100, !noalias !2237
   %.val11.i.i.i.i = load i64, ptr %54, align 8, !noalias !2237
   %56 = getelementptr i8, ptr %54, i64 8
-  %.val12.i.i.i.i = load i32, ptr %56, align 4, !noalias !2237
+  %.val12.i.i.i.i = load i32, ptr %56, align 8, !noalias !2237
   %57 = icmp eq i64 %.val11.i.i.i.i, -4096
   %58 = icmp eq i32 %.val12.i.i.i.i, -1
   %spec.select.i.i.i.i.i = select i1 %57, i1 %58, i1 false
@@ -64953,7 +64953,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_25
   %67 = load i32, ptr %66, align 8, !tbaa !1038, !noalias !2237
   store i32 %67, ptr %56, align 8, !tbaa !1038, !noalias !2237
   %68 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  store i32 0, ptr %68, align 4, !tbaa !76, !noalias !2237
+  store i32 0, ptr %68, align 8, !tbaa !76, !noalias !2237
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
@@ -65492,7 +65492,7 @@ define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_1
   %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1008", ptr %.0.val, i64 %16
   %.val4412 = load i64, ptr %17, align 8
   %18 = getelementptr i8, ptr %17, i64 8
-  %.val4513 = load i32, ptr %18, align 4
+  %.val4513 = load i32, ptr %18, align 8
   %19 = icmp eq i64 %.val40, %.val4412
   %20 = icmp eq i32 %.val41, %.val4513
   %spec.select.i14 = select i1 %19, i1 %20, i1 false
@@ -65529,7 +65529,7 @@ define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_1
   %34 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1008", ptr %.0.val, i64 %33
   %.val44 = load i64, ptr %34, align 8
   %35 = getelementptr i8, ptr %34, i64 8
-  %.val45 = load i32, ptr %35, align 4
+  %.val45 = load i32, ptr %35, align 8
   %36 = icmp eq i64 %.val40, %.val44
   %37 = icmp eq i32 %.val41, %.val45
   %spec.select.i = select i1 %36, i1 %37, i1 false
@@ -65622,7 +65622,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_25
   %.039.i.i = phi ptr [ %84, %83 ], [ %5, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphENS_15FunctionSummaryENS2_9IndexCallEE8CallInfoEjNS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_jEEEES8_jSA_SD_E9initEmptyEv.exit.i.i ]
   %.val20.i.i = load i64, ptr %.039.i.i, align 8
   %37 = getelementptr i8, ptr %.039.i.i, i64 8
-  %.val21.i.i = load i32, ptr %37, align 4
+  %.val21.i.i = load i32, ptr %37, align 8
   %38 = icmp eq i64 %.val20.i.i, -4096
   %39 = icmp eq i32 %.val21.i.i, -1
   %spec.select.i.i.i = select i1 %38, i1 %39, i1 false
@@ -65653,7 +65653,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_25
   %56 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1008", ptr %.val24.i.i, i64 %55
   %.val4412.i.i.i = load i64, ptr %56, align 8
   %57 = getelementptr i8, ptr %56, i64 8
-  %.val4513.i.i.i = load i32, ptr %57, align 4
+  %.val4513.i.i.i = load i32, ptr %57, align 8
   %58 = icmp eq i64 %.val20.i.i, %.val4412.i.i.i
   %59 = icmp eq i32 %.val21.i.i, %.val4513.i.i.i
   %spec.select.i14.i.i.i = select i1 %58, i1 %59, i1 false
@@ -65690,7 +65690,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_25
   %73 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1008", ptr %.val24.i.i, i64 %72
   %.val44.i.i.i = load i64, ptr %73, align 8
   %74 = getelementptr i8, ptr %73, i64 8
-  %.val45.i.i.i = load i32, ptr %74, align 4
+  %.val45.i.i.i = load i32, ptr %74, align 8
   %75 = icmp eq i64 %.val20.i.i, %.val44.i.i.i
   %76 = icmp eq i32 %.val21.i.i, %.val45.i.i.i
   %spec.select.i.i.i.i = select i1 %75, i1 %76, i1 false
@@ -65705,7 +65705,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_25
   %79 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 16
   %80 = getelementptr inbounds nuw i8, ptr %.039.i.i, i64 16
   %81 = load i32, ptr %80, align 4, !tbaa !76
-  store i32 %81, ptr %79, align 4, !tbaa !76
+  store i32 %81, ptr %79, align 8, !tbaa !76
   %.val.i30.i.i = load i32, ptr %32, align 8, !tbaa !2100
   %82 = add i32 %.val.i30.i.i, 1
   store i32 %82, ptr %32, align 8, !tbaa !2100
@@ -66023,7 +66023,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_15FunctionSummaryEjNS_12DenseMapInfoIS3_
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !76
-  store i32 %68, ptr %66, align 4, !tbaa !76
+  store i32 %68, ptr %66, align 8, !tbaa !76
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !1219
   br label %70
@@ -69063,7 +69063,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm
   %19 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1149", ptr %.val, i64 %18
   %.val4812.i = load i64, ptr %19, align 8
   %20 = getelementptr i8, ptr %19, i64 8
-  %.val4913.i = load i32, ptr %20, align 4
+  %.val4913.i = load i32, ptr %20, align 8
   %21 = icmp eq i64 %.val52.i, %.val4812.i
   %22 = icmp eq i32 %.val53.i, %.val4913.i
   %spec.select.i14.i = select i1 %21, i1 %22, i1 false
@@ -69100,7 +69100,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm
   %36 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1149", ptr %.val, i64 %35
   %.val48.i = load i64, ptr %36, align 8
   %37 = getelementptr i8, ptr %36, i64 8
-  %.val49.i = load i32, ptr %37, align 4
+  %.val49.i = load i32, ptr %37, align 8
   %38 = icmp eq i64 %.val52.i, %.val48.i
   %39 = icmp eq i32 %.val53.i, %.val49.i
   %spec.select.i.i = select i1 %38, i1 %39, i1 false
@@ -69149,7 +69149,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_25
   store i32 %52, ptr %40, align 8, !tbaa !1295
   %.val.i.i = load i64, ptr %51, align 8
   %53 = getelementptr i8, ptr %51, i64 8
-  %.val10.i.i = load i32, ptr %53, align 4
+  %.val10.i.i = load i32, ptr %53, align 8
   %54 = icmp eq i64 %.val.i.i, -4096
   %55 = icmp eq i32 %.val10.i.i, -1
   %spec.select.i.i.i = select i1 %54, i1 %55, i1 false
@@ -69447,7 +69447,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapImSt6vectorIN12_GLOBAL__N_120CallsiteContext
   %139 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1149", ptr %.val131, i64 %138
   %.val268.i.i.i = load i64, ptr %139, align 8
   %140 = getelementptr i8, ptr %139, i64 8
-  %.val279.i.i.i = load i32, ptr %140, align 4
+  %.val279.i.i.i = load i32, ptr %140, align 8
   %141 = icmp eq i64 %.sroa.033.0.copyload, %.val268.i.i.i
   %142 = icmp eq i32 %.val279.i.i.i, 0
   %spec.select.i10.i.i.i = select i1 %141, i1 %142, i1 false
@@ -69471,7 +69471,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapImSt6vectorIN12_GLOBAL__N_120CallsiteContext
   %150 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1149", ptr %.val131, i64 %149
   %.val26.i.i.i = load i64, ptr %150, align 8
   %151 = getelementptr i8, ptr %150, i64 8
-  %.val27.i.i.i = load i32, ptr %151, align 4
+  %.val27.i.i.i = load i32, ptr %151, align 8
   %152 = icmp eq i64 %.sroa.033.0.copyload, %.val26.i.i.i
   %153 = icmp eq i32 %.val27.i.i.i, 0
   %spec.select.i.i.i.i = select i1 %152, i1 %153, i1 false
@@ -69507,7 +69507,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapImSt6vectorIN12_GLOBAL__N_120CallsiteContext
   %168 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1008", ptr %.val114, i64 %167
   %.val308.i.i.i.i = load i64, ptr %168, align 8
   %169 = getelementptr i8, ptr %168, i64 8
-  %.val319.i.i.i.i = load i32, ptr %169, align 4
+  %.val319.i.i.i.i = load i32, ptr %169, align 8
   %170 = icmp eq i64 %.val116, %.val308.i.i.i.i
   %171 = icmp eq i32 %.val117, %.val319.i.i.i.i
   %spec.select.i10.i.i.i.i = select i1 %170, i1 %171, i1 false
@@ -69531,7 +69531,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapImSt6vectorIN12_GLOBAL__N_120CallsiteContext
   %179 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1008", ptr %.val114, i64 %178
   %.val30.i.i.i.i = load i64, ptr %179, align 8
   %180 = getelementptr i8, ptr %179, i64 8
-  %.val31.i.i.i.i = load i32, ptr %180, align 4
+  %.val31.i.i.i.i = load i32, ptr %180, align 8
   %181 = icmp eq i64 %.val116, %.val30.i.i.i.i
   %182 = icmp eq i32 %.val117, %.val31.i.i.i.i
   %spec.select.i.i.i.i.i = select i1 %181, i1 %182, i1 false
@@ -70838,7 +70838,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15FunctionSummaryEjNS_12DenseMapInfoIS4
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !76
-  store i32 %68, ptr %66, align 4, !tbaa !76
+  store i32 %68, ptr %66, align 8, !tbaa !76
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !1279
   br label %70
@@ -70968,14 +70968,14 @@ define internal fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iterat
   %36 = load ptr, ptr %35, align 8, !tbaa !827
   store ptr null, ptr %35, align 8, !tbaa !827
   %37 = getelementptr inbounds nuw i8, ptr %.pn36, i64 112
-  %38 = load i32, ptr %37, align 4, !tbaa !76
-  store i32 0, ptr %37, align 4, !tbaa !76
+  %38 = load i32, ptr %37, align 8, !tbaa !76
+  store i32 0, ptr %37, align 8, !tbaa !76
   %39 = getelementptr inbounds nuw i8, ptr %.pn36, i64 116
   %40 = load i32, ptr %39, align 4, !tbaa !76
   store i32 0, ptr %39, align 4, !tbaa !76
   %41 = getelementptr inbounds nuw i8, ptr %.pn36, i64 120
-  %42 = load i32, ptr %41, align 4, !tbaa !76
-  store i32 0, ptr %41, align 4, !tbaa !76
+  %42 = load i32, ptr %41, align 8, !tbaa !76
+  store i32 0, ptr %41, align 8, !tbaa !76
   %43 = ptrtoint ptr %.sroa.024.037 to i64
   %44 = sub i64 %43, %14
   %45 = ashr exact i64 %44, 6
@@ -71038,9 +71038,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store ptr null, ptr %70, align 8, !tbaa !827
   %77 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -16
   %78 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -16
-  %79 = load i32, ptr %78, align 4, !tbaa !76
-  store i32 %79, ptr %77, align 4, !tbaa !76
-  store i32 0, ptr %78, align 4, !tbaa !76
+  %79 = load i32, ptr %78, align 8, !tbaa !76
+  store i32 %79, ptr %77, align 8, !tbaa !76
+  store i32 0, ptr %78, align 8, !tbaa !76
   %80 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -12
   %81 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -12
   %82 = load i32, ptr %80, align 4, !tbaa !76
@@ -71048,10 +71048,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store i32 %83, ptr %80, align 4, !tbaa !76
   store i32 %82, ptr %81, align 4, !tbaa !76
   %84 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -8
-  %85 = load i32, ptr %72, align 4, !tbaa !76
-  %86 = load i32, ptr %84, align 4, !tbaa !76
-  store i32 %86, ptr %72, align 4, !tbaa !76
-  store i32 %85, ptr %84, align 4, !tbaa !76
+  %85 = load i32, ptr %72, align 8, !tbaa !76
+  %86 = load i32, ptr %84, align 8, !tbaa !76
+  store i32 %86, ptr %72, align 8, !tbaa !76
+  store i32 %85, ptr %84, align 8, !tbaa !76
   %87 = add nsw i64 %.010.i.i.i.i.i, -1
   %88 = icmp sgt i64 %.010.i.i.i.i.i, 1
   br i1 %88, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS2_9IndexCallEE15CallContextInfoESt6vectorIS9_SaIS9_EEEESE_ET0_T_SG_SF_.exit, !llvm.loop !2385
@@ -71081,9 +71081,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   %98 = shl nuw nsw i64 %97, 2
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %95, i64 noundef %98, i64 noundef 4) #28
   store ptr %36, ptr %19, align 8, !tbaa !827
-  store i32 %38, ptr %21, align 4, !tbaa !76
+  store i32 %38, ptr %21, align 8, !tbaa !76
   store i32 %40, ptr %22, align 4, !tbaa !76
-  store i32 %42, ptr %20, align 4, !tbaa !76
+  store i32 %42, ptr %20, align 8, !tbaa !76
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #28
   br label %221
 
@@ -71109,17 +71109,17 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store ptr %110, ptr %10, align 8, !tbaa !827
   store ptr null, ptr %109, align 8, !tbaa !827
   %111 = getelementptr inbounds nuw i8, ptr %.pn36, i64 112
-  %112 = load i32, ptr %111, align 4, !tbaa !76
+  %112 = load i32, ptr %111, align 8, !tbaa !76
   store i32 %112, ptr %11, align 8, !tbaa !76
-  store i32 0, ptr %111, align 4, !tbaa !76
+  store i32 0, ptr %111, align 8, !tbaa !76
   %113 = getelementptr inbounds nuw i8, ptr %.pn36, i64 116
   %114 = load i32, ptr %113, align 4, !tbaa !76
   store i32 %114, ptr %12, align 4, !tbaa !76
   store i32 0, ptr %113, align 4, !tbaa !76
   %115 = getelementptr inbounds nuw i8, ptr %.pn36, i64 120
-  %116 = load i32, ptr %115, align 4, !tbaa !76
+  %116 = load i32, ptr %115, align 8, !tbaa !76
   store i32 %116, ptr %13, align 8, !tbaa !76
-  store i32 0, ptr %115, align 4, !tbaa !76
+  store i32 0, ptr %115, align 8, !tbaa !76
   br label %117
 
 117:                                              ; preds = %_ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE15CallContextInfoaSEOS6_.exit.i, %99
@@ -71252,18 +71252,18 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store ptr null, ptr %173, align 8, !tbaa !827
   %180 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 48
   %181 = getelementptr inbounds i8, ptr %.sroa.09.0.i, i64 -16
-  %182 = load i32, ptr %181, align 4, !tbaa !76
-  store i32 %182, ptr %180, align 4, !tbaa !76
-  store i32 0, ptr %181, align 4, !tbaa !76
+  %182 = load i32, ptr %181, align 8, !tbaa !76
+  store i32 %182, ptr %180, align 8, !tbaa !76
+  store i32 0, ptr %181, align 8, !tbaa !76
   %183 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 52
   %184 = getelementptr inbounds i8, ptr %.sroa.09.0.i, i64 -12
   %185 = load i32, ptr %184, align 4, !tbaa !76
   store i32 %185, ptr %183, align 4, !tbaa !76
   store i32 0, ptr %184, align 4, !tbaa !76
   %186 = getelementptr inbounds i8, ptr %.sroa.09.0.i, i64 -8
-  %187 = load i32, ptr %186, align 4, !tbaa !76
-  store i32 %187, ptr %175, align 4, !tbaa !76
-  store i32 0, ptr %186, align 4, !tbaa !76
+  %187 = load i32, ptr %186, align 8, !tbaa !76
+  store i32 %187, ptr %175, align 8, !tbaa !76
+  store i32 0, ptr %186, align 8, !tbaa !76
   %.pre.i = load ptr, ptr %7, align 8, !tbaa !893
   %.pre12.i = load ptr, ptr %6, align 8, !tbaa !892
   br label %117, !llvm.loop !2386
@@ -71309,14 +71309,14 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store ptr null, ptr %10, align 8, !tbaa !827
   %210 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 48
   %211 = load i32, ptr %11, align 8, !tbaa !76
-  store i32 %211, ptr %210, align 4, !tbaa !76
+  store i32 %211, ptr %210, align 8, !tbaa !76
   store i32 0, ptr %11, align 8, !tbaa !76
   %212 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 52
   %213 = load i32, ptr %12, align 4, !tbaa !76
   store i32 %213, ptr %212, align 4, !tbaa !76
   store i32 0, ptr %12, align 4, !tbaa !76
   %214 = load i32, ptr %13, align 8, !tbaa !76
-  store i32 %214, ptr %205, align 4, !tbaa !76
+  store i32 %214, ptr %205, align 8, !tbaa !76
   store i32 0, ptr %13, align 8, !tbaa !76
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #28
   %215 = load ptr, ptr %6, align 8, !tbaa !892
@@ -71600,7 +71600,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15FunctionSummaryEjNS_12DenseMapInfoIS4
   %57 = load ptr, ptr %1, align 8, !tbaa !1115
   store ptr %57, ptr %48, align 8, !tbaa !1115
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !76
+  store i32 0, ptr %58, align 8, !tbaa !76
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15FunctionSummaryEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E16InsertIntoBucketIRKS4_JEEEPS9_SF_OT_DpOT0_.exit
@@ -71625,14 +71625,14 @@ define internal fastcc void @_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN12_
   %13 = load ptr, ptr %12, align 8, !tbaa !827
   store ptr null, ptr %12, align 8, !tbaa !827
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %15 = load i32, ptr %14, align 4, !tbaa !76
-  store i32 0, ptr %14, align 4, !tbaa !76
+  %15 = load i32, ptr %14, align 8, !tbaa !76
+  store i32 0, ptr %14, align 8, !tbaa !76
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %17 = load i32, ptr %16, align 4, !tbaa !76
   store i32 0, ptr %16, align 4, !tbaa !76
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %19 = load i32, ptr %18, align 4, !tbaa !76
-  store i32 0, ptr %18, align 4, !tbaa !76
+  %19 = load i32, ptr %18, align 8, !tbaa !76
+  store i32 0, ptr %18, align 8, !tbaa !76
   %20 = load i64, ptr %1, align 8
   store i64 %20, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -71659,19 +71659,19 @@ define internal fastcc void @_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN12_
   store ptr %30, ptr %12, align 8, !tbaa !827
   store ptr null, ptr %27, align 8, !tbaa !827
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %32 = load i32, ptr %31, align 4, !tbaa !76
-  store i32 %32, ptr %14, align 4, !tbaa !76
-  store i32 0, ptr %31, align 4, !tbaa !76
+  %32 = load i32, ptr %31, align 8, !tbaa !76
+  store i32 %32, ptr %14, align 8, !tbaa !76
+  store i32 0, ptr %31, align 8, !tbaa !76
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %34 = load i32, ptr %16, align 4, !tbaa !76
   %35 = load i32, ptr %33, align 4, !tbaa !76
   store i32 %35, ptr %16, align 4, !tbaa !76
   store i32 %34, ptr %33, align 4, !tbaa !76
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %37 = load i32, ptr %18, align 4, !tbaa !76
-  %38 = load i32, ptr %36, align 4, !tbaa !76
-  store i32 %38, ptr %18, align 4, !tbaa !76
-  store i32 %37, ptr %36, align 4, !tbaa !76
+  %37 = load i32, ptr %18, align 8, !tbaa !76
+  %38 = load i32, ptr %36, align 8, !tbaa !76
+  store i32 %38, ptr %18, align 8, !tbaa !76
+  store i32 %37, ptr %36, align 8, !tbaa !76
   store i64 %3, ptr %1, align 8
   %39 = load ptr, ptr %21, align 8, !tbaa !892
   %40 = load ptr, ptr %25, align 8, !tbaa !894
@@ -71698,9 +71698,9 @@ _ZSt4swapIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphE
   %48 = shl nuw nsw i64 %47, 2
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %46, i64 noundef %48, i64 noundef 4) #28
   store ptr %13, ptr %27, align 8, !tbaa !827
-  store i32 %15, ptr %31, align 4, !tbaa !76
+  store i32 %15, ptr %31, align 8, !tbaa !76
   store i32 %17, ptr %33, align 4, !tbaa !76
-  store i32 %19, ptr %36, align 4, !tbaa !76
+  store i32 %19, ptr %36, align 8, !tbaa !76
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #28
   ret void
 }
@@ -72000,14 +72000,14 @@ define internal fastcc ptr @_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN12
   %39 = load ptr, ptr %38, align 8, !tbaa !827
   store ptr null, ptr %38, align 8, !tbaa !827
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.046.172.i, i64 48
-  %41 = load i32, ptr %40, align 4, !tbaa !76
-  store i32 0, ptr %40, align 4, !tbaa !76
+  %41 = load i32, ptr %40, align 8, !tbaa !76
+  store i32 0, ptr %40, align 8, !tbaa !76
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.046.172.i, i64 52
   %43 = load i32, ptr %42, align 4, !tbaa !76
   store i32 0, ptr %42, align 4, !tbaa !76
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.046.172.i, i64 56
-  %45 = load i32, ptr %44, align 4, !tbaa !76
-  store i32 0, ptr %44, align 4, !tbaa !76
+  %45 = load i32, ptr %44, align 8, !tbaa !76
+  store i32 0, ptr %44, align 8, !tbaa !76
   %46 = load i64, ptr %.sroa.045.073.i, align 8
   store i64 %46, ptr %.sroa.046.172.i, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.045.073.i, i64 8
@@ -72034,19 +72034,19 @@ define internal fastcc ptr @_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN12
   store ptr %56, ptr %38, align 8, !tbaa !827
   store ptr null, ptr %53, align 8, !tbaa !827
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.045.073.i, i64 48
-  %58 = load i32, ptr %57, align 4, !tbaa !76
-  store i32 %58, ptr %40, align 4, !tbaa !76
-  store i32 0, ptr %57, align 4, !tbaa !76
+  %58 = load i32, ptr %57, align 8, !tbaa !76
+  store i32 %58, ptr %40, align 8, !tbaa !76
+  store i32 0, ptr %57, align 8, !tbaa !76
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.045.073.i, i64 52
   %60 = load i32, ptr %42, align 4, !tbaa !76
   %61 = load i32, ptr %59, align 4, !tbaa !76
   store i32 %61, ptr %42, align 4, !tbaa !76
   store i32 %60, ptr %59, align 4, !tbaa !76
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.045.073.i, i64 56
-  %63 = load i32, ptr %44, align 4, !tbaa !76
-  %64 = load i32, ptr %62, align 4, !tbaa !76
-  store i32 %64, ptr %44, align 4, !tbaa !76
-  store i32 %63, ptr %62, align 4, !tbaa !76
+  %63 = load i32, ptr %44, align 8, !tbaa !76
+  %64 = load i32, ptr %62, align 8, !tbaa !76
+  store i32 %64, ptr %44, align 8, !tbaa !76
+  store i32 %63, ptr %62, align 8, !tbaa !76
   store i64 %29, ptr %.sroa.045.073.i, align 8
   %65 = load ptr, ptr %47, align 8, !tbaa !892
   %66 = load ptr, ptr %51, align 8, !tbaa !894
@@ -72073,9 +72073,9 @@ _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_120CallsiteContextG
   %74 = shl nuw nsw i64 %73, 2
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %72, i64 noundef %74, i64 noundef 4) #28
   store ptr %39, ptr %53, align 8, !tbaa !827
-  store i32 %41, ptr %57, align 4, !tbaa !76
+  store i32 %41, ptr %57, align 8, !tbaa !76
   store i32 %43, ptr %59, align 4, !tbaa !76
-  store i32 %45, ptr %62, align 4, !tbaa !76
+  store i32 %45, ptr %62, align 8, !tbaa !76
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #28
   %75 = getelementptr inbounds nuw i8, ptr %.sroa.046.172.i, i64 64
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.045.073.i, i64 64
@@ -72126,14 +72126,14 @@ _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_120CallsiteContextG
   %98 = load ptr, ptr %97, align 8, !tbaa !827
   store ptr null, ptr %97, align 8, !tbaa !827
   %99 = getelementptr inbounds i8, ptr %.sroa.046.369.i, i64 -16
-  %100 = load i32, ptr %99, align 4, !tbaa !76
-  store i32 0, ptr %99, align 4, !tbaa !76
+  %100 = load i32, ptr %99, align 8, !tbaa !76
+  store i32 0, ptr %99, align 8, !tbaa !76
   %101 = getelementptr inbounds i8, ptr %.sroa.046.369.i, i64 -12
   %102 = load i32, ptr %101, align 4, !tbaa !76
   store i32 0, ptr %101, align 4, !tbaa !76
   %103 = getelementptr inbounds i8, ptr %.sroa.046.369.i, i64 -8
-  %104 = load i32, ptr %103, align 4, !tbaa !76
-  store i32 0, ptr %103, align 4, !tbaa !76
+  %104 = load i32, ptr %103, align 8, !tbaa !76
+  store i32 0, ptr %103, align 8, !tbaa !76
   %105 = load i64, ptr %87, align 8
   store i64 %105, ptr %86, align 8
   %106 = getelementptr inbounds i8, ptr %.sroa.0.070.i, i64 -56
@@ -72160,19 +72160,19 @@ _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_120CallsiteContextG
   store ptr %115, ptr %97, align 8, !tbaa !827
   store ptr null, ptr %112, align 8, !tbaa !827
   %116 = getelementptr inbounds i8, ptr %.sroa.0.070.i, i64 -16
-  %117 = load i32, ptr %116, align 4, !tbaa !76
-  store i32 %117, ptr %99, align 4, !tbaa !76
-  store i32 0, ptr %116, align 4, !tbaa !76
+  %117 = load i32, ptr %116, align 8, !tbaa !76
+  store i32 %117, ptr %99, align 8, !tbaa !76
+  store i32 0, ptr %116, align 8, !tbaa !76
   %118 = getelementptr inbounds i8, ptr %.sroa.0.070.i, i64 -12
   %119 = load i32, ptr %101, align 4, !tbaa !76
   %120 = load i32, ptr %118, align 4, !tbaa !76
   store i32 %120, ptr %101, align 4, !tbaa !76
   store i32 %119, ptr %118, align 4, !tbaa !76
   %121 = getelementptr inbounds i8, ptr %.sroa.0.070.i, i64 -8
-  %122 = load i32, ptr %103, align 4, !tbaa !76
-  %123 = load i32, ptr %121, align 4, !tbaa !76
-  store i32 %123, ptr %103, align 4, !tbaa !76
-  store i32 %122, ptr %121, align 4, !tbaa !76
+  %122 = load i32, ptr %103, align 8, !tbaa !76
+  %123 = load i32, ptr %121, align 8, !tbaa !76
+  store i32 %123, ptr %103, align 8, !tbaa !76
+  store i32 %122, ptr %121, align 8, !tbaa !76
   store i64 %88, ptr %87, align 8
   %124 = load ptr, ptr %106, align 8, !tbaa !892
   %125 = load ptr, ptr %110, align 8, !tbaa !894
@@ -72199,9 +72199,9 @@ _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_120CallsiteContextG
   %133 = shl nuw nsw i64 %132, 2
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %131, i64 noundef %133, i64 noundef 4) #28
   store ptr %98, ptr %112, align 8, !tbaa !827
-  store i32 %100, ptr %116, align 4, !tbaa !76
+  store i32 %100, ptr %116, align 8, !tbaa !76
   store i32 %102, ptr %118, align 4, !tbaa !76
-  store i32 %104, ptr %121, align 4, !tbaa !76
+  store i32 %104, ptr %121, align 8, !tbaa !76
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #28
   %134 = add nuw nsw i64 %.01871.i, 1
   %exitcond.not.i = icmp eq i64 %134, %.0.i
@@ -72368,9 +72368,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store ptr null, ptr %36, align 8, !tbaa !827
   %43 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 48
   %44 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 48
-  %45 = load i32, ptr %44, align 4, !tbaa !76
-  store i32 %45, ptr %43, align 4, !tbaa !76
-  store i32 0, ptr %44, align 4, !tbaa !76
+  %45 = load i32, ptr %44, align 8, !tbaa !76
+  store i32 %45, ptr %43, align 8, !tbaa !76
+  store i32 0, ptr %44, align 8, !tbaa !76
   %46 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 52
   %47 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 52
   %48 = load i32, ptr %46, align 4, !tbaa !76
@@ -72378,10 +72378,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store i32 %49, ptr %46, align 4, !tbaa !76
   store i32 %48, ptr %47, align 4, !tbaa !76
   %50 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 56
-  %51 = load i32, ptr %38, align 4, !tbaa !76
-  %52 = load i32, ptr %50, align 4, !tbaa !76
-  store i32 %52, ptr %38, align 4, !tbaa !76
-  store i32 %51, ptr %50, align 4, !tbaa !76
+  %51 = load i32, ptr %38, align 8, !tbaa !76
+  %52 = load i32, ptr %50, align 8, !tbaa !76
+  store i32 %52, ptr %38, align 8, !tbaa !76
+  store i32 %51, ptr %50, align 8, !tbaa !76
   %53 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 64
   %54 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 64
   %55 = add nsw i64 %.012.i.i.i.i.i, -1
@@ -72517,9 +72517,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store ptr null, ptr %116, align 8, !tbaa !827
   %123 = getelementptr inbounds nuw i8, ptr %.sroa.020.030.i, i64 48
   %124 = getelementptr inbounds nuw i8, ptr %.sroa.022.032.i, i64 48
-  %125 = load i32, ptr %124, align 4, !tbaa !76
-  store i32 %125, ptr %123, align 4, !tbaa !76
-  store i32 0, ptr %124, align 4, !tbaa !76
+  %125 = load i32, ptr %124, align 8, !tbaa !76
+  store i32 %125, ptr %123, align 8, !tbaa !76
+  store i32 0, ptr %124, align 8, !tbaa !76
   %126 = getelementptr inbounds nuw i8, ptr %.sroa.020.030.i, i64 52
   %127 = getelementptr inbounds nuw i8, ptr %.sroa.022.032.i, i64 52
   %128 = load i32, ptr %126, align 4, !tbaa !76
@@ -72527,10 +72527,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store i32 %129, ptr %126, align 4, !tbaa !76
   store i32 %128, ptr %127, align 4, !tbaa !76
   %130 = getelementptr inbounds nuw i8, ptr %.sroa.022.032.i, i64 56
-  %131 = load i32, ptr %118, align 4, !tbaa !76
-  %132 = load i32, ptr %130, align 4, !tbaa !76
-  store i32 %132, ptr %118, align 4, !tbaa !76
-  store i32 %131, ptr %130, align 4, !tbaa !76
+  %131 = load i32, ptr %118, align 8, !tbaa !76
+  %132 = load i32, ptr %130, align 8, !tbaa !76
+  store i32 %132, ptr %118, align 8, !tbaa !76
+  store i32 %131, ptr %130, align 8, !tbaa !76
   %133 = getelementptr inbounds nuw i8, ptr %.sroa.022.032.i, i64 64
   br label %170
 
@@ -72579,9 +72579,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store ptr null, ptr %152, align 8, !tbaa !827
   %159 = getelementptr inbounds nuw i8, ptr %.sroa.020.030.i, i64 48
   %160 = getelementptr inbounds nuw i8, ptr %.033.i, i64 48
-  %161 = load i32, ptr %160, align 4, !tbaa !76
-  store i32 %161, ptr %159, align 4, !tbaa !76
-  store i32 0, ptr %160, align 4, !tbaa !76
+  %161 = load i32, ptr %160, align 8, !tbaa !76
+  store i32 %161, ptr %159, align 8, !tbaa !76
+  store i32 0, ptr %160, align 8, !tbaa !76
   %162 = getelementptr inbounds nuw i8, ptr %.sroa.020.030.i, i64 52
   %163 = getelementptr inbounds nuw i8, ptr %.033.i, i64 52
   %164 = load i32, ptr %162, align 4, !tbaa !76
@@ -72589,10 +72589,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store i32 %165, ptr %162, align 4, !tbaa !76
   store i32 %164, ptr %163, align 4, !tbaa !76
   %166 = getelementptr inbounds nuw i8, ptr %.033.i, i64 56
-  %167 = load i32, ptr %154, align 4, !tbaa !76
-  %168 = load i32, ptr %166, align 4, !tbaa !76
-  store i32 %168, ptr %154, align 4, !tbaa !76
-  store i32 %167, ptr %166, align 4, !tbaa !76
+  %167 = load i32, ptr %154, align 8, !tbaa !76
+  %168 = load i32, ptr %166, align 8, !tbaa !76
+  store i32 %168, ptr %154, align 8, !tbaa !76
+  store i32 %167, ptr %166, align 8, !tbaa !76
   %169 = getelementptr inbounds nuw i8, ptr %.033.i, i64 64
   br label %170
 
@@ -72661,9 +72661,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store ptr null, ptr %197, align 8, !tbaa !827
   %204 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 48
   %205 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i, i64 48
-  %206 = load i32, ptr %205, align 4, !tbaa !76
-  store i32 %206, ptr %204, align 4, !tbaa !76
-  store i32 0, ptr %205, align 4, !tbaa !76
+  %206 = load i32, ptr %205, align 8, !tbaa !76
+  store i32 %206, ptr %204, align 8, !tbaa !76
+  store i32 0, ptr %205, align 8, !tbaa !76
   %207 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 52
   %208 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i, i64 52
   %209 = load i32, ptr %207, align 4, !tbaa !76
@@ -72671,10 +72671,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store i32 %210, ptr %207, align 4, !tbaa !76
   store i32 %209, ptr %208, align 4, !tbaa !76
   %211 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i, i64 56
-  %212 = load i32, ptr %199, align 4, !tbaa !76
-  %213 = load i32, ptr %211, align 4, !tbaa !76
-  store i32 %213, ptr %199, align 4, !tbaa !76
-  store i32 %212, ptr %211, align 4, !tbaa !76
+  %212 = load i32, ptr %199, align 8, !tbaa !76
+  %213 = load i32, ptr %211, align 8, !tbaa !76
+  store i32 %213, ptr %199, align 8, !tbaa !76
+  store i32 %212, ptr %211, align 8, !tbaa !76
   %214 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i, i64 64
   %215 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 64
   %216 = add nsw i64 %.012.i.i.i.i.i.i, -1
@@ -72748,9 +72748,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store ptr null, ptr %245, align 8, !tbaa !827
   %252 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i83, i64 48
   %253 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i84, i64 48
-  %254 = load i32, ptr %253, align 4, !tbaa !76
-  store i32 %254, ptr %252, align 4, !tbaa !76
-  store i32 0, ptr %253, align 4, !tbaa !76
+  %254 = load i32, ptr %253, align 8, !tbaa !76
+  store i32 %254, ptr %252, align 8, !tbaa !76
+  store i32 0, ptr %253, align 8, !tbaa !76
   %255 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i83, i64 52
   %256 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i84, i64 52
   %257 = load i32, ptr %255, align 4, !tbaa !76
@@ -72758,10 +72758,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store i32 %258, ptr %255, align 4, !tbaa !76
   store i32 %257, ptr %256, align 4, !tbaa !76
   %259 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i84, i64 56
-  %260 = load i32, ptr %247, align 4, !tbaa !76
-  %261 = load i32, ptr %259, align 4, !tbaa !76
-  store i32 %261, ptr %247, align 4, !tbaa !76
-  store i32 %260, ptr %259, align 4, !tbaa !76
+  %260 = load i32, ptr %247, align 8, !tbaa !76
+  %261 = load i32, ptr %259, align 8, !tbaa !76
+  store i32 %261, ptr %247, align 8, !tbaa !76
+  store i32 %260, ptr %259, align 8, !tbaa !76
   %262 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i84, i64 64
   %263 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i83, i64 64
   %264 = add nsw i64 %.012.i.i.i.i.i82, -1
@@ -72832,9 +72832,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store ptr null, ptr %294, align 8, !tbaa !827
   %301 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -16
   %302 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -16
-  %303 = load i32, ptr %302, align 4, !tbaa !76
-  store i32 %303, ptr %301, align 4, !tbaa !76
-  store i32 0, ptr %302, align 4, !tbaa !76
+  %303 = load i32, ptr %302, align 8, !tbaa !76
+  store i32 %303, ptr %301, align 8, !tbaa !76
+  store i32 0, ptr %302, align 8, !tbaa !76
   %304 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -12
   %305 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -12
   %306 = load i32, ptr %304, align 4, !tbaa !76
@@ -72842,10 +72842,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store i32 %307, ptr %304, align 4, !tbaa !76
   store i32 %306, ptr %305, align 4, !tbaa !76
   %308 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -8
-  %309 = load i32, ptr %296, align 4, !tbaa !76
-  %310 = load i32, ptr %308, align 4, !tbaa !76
-  store i32 %310, ptr %296, align 4, !tbaa !76
-  store i32 %309, ptr %308, align 4, !tbaa !76
+  %309 = load i32, ptr %296, align 8, !tbaa !76
+  %310 = load i32, ptr %308, align 8, !tbaa !76
+  store i32 %310, ptr %296, align 8, !tbaa !76
+  store i32 %309, ptr %308, align 8, !tbaa !76
   %311 = add nsw i64 %.010.i.i.i.i.i.i, -1
   %312 = icmp sgt i64 %.010.i.i.i.i.i.i, 1
   br i1 %312, label %.lr.ph.i.i.i.i.i.i104, label %_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE15CallContextInfoEN9__gnu_cxx17__normal_iteratorIS8_St6vectorIS7_SaIS7_EEEESE_NS9_5__ops15_Iter_comp_iterIZNS6_16updateStackNodesEvEUlRKS7_SI_E_EEEvT_SL_T0_SM_T1_T2_.exit, !llvm.loop !2385
@@ -73002,9 +73002,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store ptr null, ptr %383, align 8, !tbaa !827
   %390 = getelementptr inbounds i8, ptr %.sroa.035.0.i, i64 -16
   %391 = getelementptr inbounds i8, ptr %.sroa.037.0.i.ph.pn, i64 -16
-  %392 = load i32, ptr %391, align 4, !tbaa !76
-  store i32 %392, ptr %390, align 4, !tbaa !76
-  store i32 0, ptr %391, align 4, !tbaa !76
+  %392 = load i32, ptr %391, align 8, !tbaa !76
+  store i32 %392, ptr %390, align 8, !tbaa !76
+  store i32 0, ptr %391, align 8, !tbaa !76
   %393 = getelementptr inbounds i8, ptr %.sroa.035.0.i, i64 -12
   %394 = getelementptr inbounds i8, ptr %.sroa.037.0.i.ph.pn, i64 -12
   %395 = load i32, ptr %393, align 4, !tbaa !76
@@ -73012,10 +73012,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store i32 %396, ptr %393, align 4, !tbaa !76
   store i32 %395, ptr %394, align 4, !tbaa !76
   %397 = getelementptr inbounds i8, ptr %.sroa.037.0.i.ph.pn, i64 -8
-  %398 = load i32, ptr %385, align 4, !tbaa !76
-  %399 = load i32, ptr %397, align 4, !tbaa !76
-  store i32 %399, ptr %385, align 4, !tbaa !76
-  store i32 %398, ptr %397, align 4, !tbaa !76
+  %398 = load i32, ptr %385, align 8, !tbaa !76
+  %399 = load i32, ptr %397, align 8, !tbaa !76
+  store i32 %399, ptr %385, align 8, !tbaa !76
+  store i32 %398, ptr %397, align 8, !tbaa !76
   %400 = icmp eq ptr %.tr157, %.sroa.037.0.i.ph
   br i1 %400, label %401, label %.outer, !llvm.loop !2400
 
@@ -73079,9 +73079,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store ptr null, ptr %429, align 8, !tbaa !827
   %436 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i27.i, i64 -16
   %437 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i28.i, i64 -16
-  %438 = load i32, ptr %437, align 4, !tbaa !76
-  store i32 %438, ptr %436, align 4, !tbaa !76
-  store i32 0, ptr %437, align 4, !tbaa !76
+  %438 = load i32, ptr %437, align 8, !tbaa !76
+  store i32 %438, ptr %436, align 8, !tbaa !76
+  store i32 0, ptr %437, align 8, !tbaa !76
   %439 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i27.i, i64 -12
   %440 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i28.i, i64 -12
   %441 = load i32, ptr %439, align 4, !tbaa !76
@@ -73089,10 +73089,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store i32 %442, ptr %439, align 4, !tbaa !76
   store i32 %441, ptr %440, align 4, !tbaa !76
   %443 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i28.i, i64 -8
-  %444 = load i32, ptr %431, align 4, !tbaa !76
-  %445 = load i32, ptr %443, align 4, !tbaa !76
-  store i32 %445, ptr %431, align 4, !tbaa !76
-  store i32 %444, ptr %443, align 4, !tbaa !76
+  %444 = load i32, ptr %431, align 8, !tbaa !76
+  %445 = load i32, ptr %443, align 8, !tbaa !76
+  store i32 %445, ptr %431, align 8, !tbaa !76
+  store i32 %444, ptr %443, align 8, !tbaa !76
   %446 = add nsw i64 %.010.i.i.i.i.i26.i, -1
   %447 = icmp sgt i64 %.010.i.i.i.i.i26.i, 1
   br i1 %447, label %.lr.ph.i.i.i.i.i25.i, label %_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE15CallContextInfoEN9__gnu_cxx17__normal_iteratorIS8_St6vectorIS7_SaIS7_EEEESE_NS9_5__ops15_Iter_comp_iterIZNS6_16updateStackNodesEvEUlRKS7_SI_E_EEEvT_SL_T0_SM_T1_T2_.exit, !llvm.loop !2385
@@ -73143,9 +73143,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store ptr null, ptr %467, align 8, !tbaa !827
   %474 = getelementptr inbounds i8, ptr %.sroa.035.0.i, i64 -16
   %475 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
-  %476 = load i32, ptr %475, align 4, !tbaa !76
-  store i32 %476, ptr %474, align 4, !tbaa !76
-  store i32 0, ptr %475, align 4, !tbaa !76
+  %476 = load i32, ptr %475, align 8, !tbaa !76
+  store i32 %476, ptr %474, align 8, !tbaa !76
+  store i32 0, ptr %475, align 8, !tbaa !76
   %477 = getelementptr inbounds i8, ptr %.sroa.035.0.i, i64 -12
   %478 = getelementptr inbounds nuw i8, ptr %.0.i, i64 52
   %479 = load i32, ptr %477, align 4, !tbaa !76
@@ -73153,10 +73153,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store i32 %480, ptr %477, align 4, !tbaa !76
   store i32 %479, ptr %478, align 4, !tbaa !76
   %481 = getelementptr inbounds nuw i8, ptr %.0.i, i64 56
-  %482 = load i32, ptr %469, align 4, !tbaa !76
-  %483 = load i32, ptr %481, align 4, !tbaa !76
-  store i32 %483, ptr %469, align 4, !tbaa !76
-  store i32 %482, ptr %481, align 4, !tbaa !76
+  %482 = load i32, ptr %469, align 8, !tbaa !76
+  %483 = load i32, ptr %481, align 8, !tbaa !76
+  store i32 %483, ptr %469, align 8, !tbaa !76
+  store i32 %482, ptr %481, align 8, !tbaa !76
   %484 = icmp eq ptr %5, %.0.i
   br i1 %484, label %_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE15CallContextInfoEN9__gnu_cxx17__normal_iteratorIS8_St6vectorIS7_SaIS7_EEEESE_NS9_5__ops15_Iter_comp_iterIZNS6_16updateStackNodesEvEUlRKS7_SI_E_EEEvT_SL_T0_SM_T1_T2_.exit, label %485
 
@@ -73260,9 +73260,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store ptr null, ptr %532, align 8, !tbaa !827
   %539 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i117, i64 48
   %540 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i118, i64 48
-  %541 = load i32, ptr %540, align 4, !tbaa !76
-  store i32 %541, ptr %539, align 4, !tbaa !76
-  store i32 0, ptr %540, align 4, !tbaa !76
+  %541 = load i32, ptr %540, align 8, !tbaa !76
+  store i32 %541, ptr %539, align 8, !tbaa !76
+  store i32 0, ptr %540, align 8, !tbaa !76
   %542 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i117, i64 52
   %543 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i118, i64 52
   %544 = load i32, ptr %542, align 4, !tbaa !76
@@ -73270,10 +73270,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store i32 %545, ptr %542, align 4, !tbaa !76
   store i32 %544, ptr %543, align 4, !tbaa !76
   %546 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i118, i64 56
-  %547 = load i32, ptr %534, align 4, !tbaa !76
-  %548 = load i32, ptr %546, align 4, !tbaa !76
-  store i32 %548, ptr %534, align 4, !tbaa !76
-  store i32 %547, ptr %546, align 4, !tbaa !76
+  %547 = load i32, ptr %534, align 8, !tbaa !76
+  %548 = load i32, ptr %546, align 8, !tbaa !76
+  store i32 %548, ptr %534, align 8, !tbaa !76
+  store i32 %547, ptr %546, align 8, !tbaa !76
   %549 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i118, i64 64
   %550 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i117, i64 64
   %551 = add nsw i64 %.012.i.i.i.i.i.i116, -1
@@ -73340,9 +73340,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store ptr null, ptr %579, align 8, !tbaa !827
   %586 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i113, i64 -16
   %587 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i114, i64 -16
-  %588 = load i32, ptr %587, align 4, !tbaa !76
-  store i32 %588, ptr %586, align 4, !tbaa !76
-  store i32 0, ptr %587, align 4, !tbaa !76
+  %588 = load i32, ptr %587, align 8, !tbaa !76
+  store i32 %588, ptr %586, align 8, !tbaa !76
+  store i32 0, ptr %587, align 8, !tbaa !76
   %589 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i113, i64 -12
   %590 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i114, i64 -12
   %591 = load i32, ptr %589, align 4, !tbaa !76
@@ -73350,10 +73350,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store i32 %592, ptr %589, align 4, !tbaa !76
   store i32 %591, ptr %590, align 4, !tbaa !76
   %593 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i114, i64 -8
-  %594 = load i32, ptr %581, align 4, !tbaa !76
-  %595 = load i32, ptr %593, align 4, !tbaa !76
-  store i32 %595, ptr %581, align 4, !tbaa !76
-  store i32 %594, ptr %593, align 4, !tbaa !76
+  %594 = load i32, ptr %581, align 8, !tbaa !76
+  %595 = load i32, ptr %593, align 8, !tbaa !76
+  store i32 %595, ptr %581, align 8, !tbaa !76
+  store i32 %594, ptr %593, align 8, !tbaa !76
   %596 = add nsw i64 %.010.i.i.i.i.i.i112, -1
   %597 = icmp sgt i64 %.010.i.i.i.i.i.i112, 1
   br i1 %597, label %.lr.ph.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS2_9IndexCallEE15CallContextInfoESt6vectorIS9_SaIS9_EEEESE_ET0_T_SG_SF_.exit.i, !llvm.loop !2385
@@ -73415,9 +73415,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store ptr null, ptr %622, align 8, !tbaa !827
   %629 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i43.i, i64 48
   %630 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i44.i, i64 48
-  %631 = load i32, ptr %630, align 4, !tbaa !76
-  store i32 %631, ptr %629, align 4, !tbaa !76
-  store i32 0, ptr %630, align 4, !tbaa !76
+  %631 = load i32, ptr %630, align 8, !tbaa !76
+  store i32 %631, ptr %629, align 8, !tbaa !76
+  store i32 0, ptr %630, align 8, !tbaa !76
   %632 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i43.i, i64 52
   %633 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i44.i, i64 52
   %634 = load i32, ptr %632, align 4, !tbaa !76
@@ -73425,10 +73425,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store i32 %635, ptr %632, align 4, !tbaa !76
   store i32 %634, ptr %633, align 4, !tbaa !76
   %636 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i44.i, i64 56
-  %637 = load i32, ptr %624, align 4, !tbaa !76
-  %638 = load i32, ptr %636, align 4, !tbaa !76
-  store i32 %638, ptr %624, align 4, !tbaa !76
-  store i32 %637, ptr %636, align 4, !tbaa !76
+  %637 = load i32, ptr %624, align 8, !tbaa !76
+  %638 = load i32, ptr %636, align 8, !tbaa !76
+  store i32 %638, ptr %624, align 8, !tbaa !76
+  store i32 %637, ptr %636, align 8, !tbaa !76
   %639 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i44.i, i64 64
   %640 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i43.i, i64 64
   %641 = add nsw i64 %.012.i.i.i.i.i42.i, -1
@@ -73511,9 +73511,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store ptr null, ptr %673, align 8, !tbaa !827
   %680 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i50.i, i64 48
   %681 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i51.i, i64 48
-  %682 = load i32, ptr %681, align 4, !tbaa !76
-  store i32 %682, ptr %680, align 4, !tbaa !76
-  store i32 0, ptr %681, align 4, !tbaa !76
+  %682 = load i32, ptr %681, align 8, !tbaa !76
+  store i32 %682, ptr %680, align 8, !tbaa !76
+  store i32 0, ptr %681, align 8, !tbaa !76
   %683 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i50.i, i64 52
   %684 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i51.i, i64 52
   %685 = load i32, ptr %683, align 4, !tbaa !76
@@ -73521,10 +73521,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store i32 %686, ptr %683, align 4, !tbaa !76
   store i32 %685, ptr %684, align 4, !tbaa !76
   %687 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i51.i, i64 56
-  %688 = load i32, ptr %675, align 4, !tbaa !76
-  %689 = load i32, ptr %687, align 4, !tbaa !76
-  store i32 %689, ptr %675, align 4, !tbaa !76
-  store i32 %688, ptr %687, align 4, !tbaa !76
+  %688 = load i32, ptr %675, align 8, !tbaa !76
+  %689 = load i32, ptr %687, align 8, !tbaa !76
+  store i32 %689, ptr %675, align 8, !tbaa !76
+  store i32 %688, ptr %687, align 8, !tbaa !76
   %690 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i51.i, i64 64
   %691 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i50.i, i64 64
   %692 = add nsw i64 %.012.i.i.i.i.i49.i, -1
@@ -73589,9 +73589,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store ptr null, ptr %718, align 8, !tbaa !827
   %725 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i58.i, i64 48
   %726 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i59.i, i64 48
-  %727 = load i32, ptr %726, align 4, !tbaa !76
-  store i32 %727, ptr %725, align 4, !tbaa !76
-  store i32 0, ptr %726, align 4, !tbaa !76
+  %727 = load i32, ptr %726, align 8, !tbaa !76
+  store i32 %727, ptr %725, align 8, !tbaa !76
+  store i32 0, ptr %726, align 8, !tbaa !76
   %728 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i58.i, i64 52
   %729 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i59.i, i64 52
   %730 = load i32, ptr %728, align 4, !tbaa !76
@@ -73599,10 +73599,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store i32 %731, ptr %728, align 4, !tbaa !76
   store i32 %730, ptr %729, align 4, !tbaa !76
   %732 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i59.i, i64 56
-  %733 = load i32, ptr %720, align 4, !tbaa !76
-  %734 = load i32, ptr %732, align 4, !tbaa !76
-  store i32 %734, ptr %720, align 4, !tbaa !76
-  store i32 %733, ptr %732, align 4, !tbaa !76
+  %733 = load i32, ptr %720, align 8, !tbaa !76
+  %734 = load i32, ptr %732, align 8, !tbaa !76
+  store i32 %734, ptr %720, align 8, !tbaa !76
+  store i32 %733, ptr %732, align 8, !tbaa !76
   %735 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i59.i, i64 64
   %736 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i58.i, i64 64
   %737 = add nsw i64 %.012.i.i.i.i.i57.i, -1
@@ -73668,9 +73668,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store ptr null, ptr %765, align 8, !tbaa !827
   %772 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i65.i, i64 -16
   %773 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i66.i, i64 -16
-  %774 = load i32, ptr %773, align 4, !tbaa !76
-  store i32 %774, ptr %772, align 4, !tbaa !76
-  store i32 0, ptr %773, align 4, !tbaa !76
+  %774 = load i32, ptr %773, align 8, !tbaa !76
+  store i32 %774, ptr %772, align 8, !tbaa !76
+  store i32 0, ptr %773, align 8, !tbaa !76
   %775 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i65.i, i64 -12
   %776 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i66.i, i64 -12
   %777 = load i32, ptr %775, align 4, !tbaa !76
@@ -73678,10 +73678,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store i32 %778, ptr %775, align 4, !tbaa !76
   store i32 %777, ptr %776, align 4, !tbaa !76
   %779 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i66.i, i64 -8
-  %780 = load i32, ptr %767, align 4, !tbaa !76
-  %781 = load i32, ptr %779, align 4, !tbaa !76
-  store i32 %781, ptr %767, align 4, !tbaa !76
-  store i32 %780, ptr %779, align 4, !tbaa !76
+  %780 = load i32, ptr %767, align 8, !tbaa !76
+  %781 = load i32, ptr %779, align 8, !tbaa !76
+  store i32 %781, ptr %767, align 8, !tbaa !76
+  store i32 %780, ptr %779, align 8, !tbaa !76
   %782 = add nsw i64 %.010.i.i.i.i.i64.i, -1
   %783 = icmp sgt i64 %.010.i.i.i.i.i64.i, 1
   br i1 %783, label %.lr.ph.i.i.i.i.i63.i, label %_ZSt13move_backwardIPN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE15CallContextInfoEN9__gnu_cxx17__normal_iteratorIS8_St6vectorIS7_SaIS7_EEEEET0_T_SG_SF_.exit.loopexit.i, !llvm.loop !2385
@@ -73774,9 +73774,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store ptr null, ptr %31, align 8, !tbaa !827
   %38 = getelementptr inbounds nuw i8, ptr %.033, i64 48
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.026.031, i64 48
-  %40 = load i32, ptr %39, align 4, !tbaa !76
-  store i32 %40, ptr %38, align 4, !tbaa !76
-  store i32 0, ptr %39, align 4, !tbaa !76
+  %40 = load i32, ptr %39, align 8, !tbaa !76
+  store i32 %40, ptr %38, align 8, !tbaa !76
+  store i32 0, ptr %39, align 8, !tbaa !76
   %41 = getelementptr inbounds nuw i8, ptr %.033, i64 52
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.026.031, i64 52
   %43 = load i32, ptr %41, align 4, !tbaa !76
@@ -73784,10 +73784,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store i32 %44, ptr %41, align 4, !tbaa !76
   store i32 %43, ptr %42, align 4, !tbaa !76
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.026.031, i64 56
-  %46 = load i32, ptr %33, align 4, !tbaa !76
-  %47 = load i32, ptr %45, align 4, !tbaa !76
-  store i32 %47, ptr %33, align 4, !tbaa !76
-  store i32 %46, ptr %45, align 4, !tbaa !76
+  %46 = load i32, ptr %33, align 8, !tbaa !76
+  %47 = load i32, ptr %45, align 8, !tbaa !76
+  store i32 %47, ptr %33, align 8, !tbaa !76
+  store i32 %46, ptr %45, align 8, !tbaa !76
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.026.031, i64 64
   br label %85
 
@@ -73835,9 +73835,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store ptr null, ptr %67, align 8, !tbaa !827
   %74 = getelementptr inbounds nuw i8, ptr %.033, i64 48
   %75 = getelementptr inbounds nuw i8, ptr %.sroa.028.032, i64 48
-  %76 = load i32, ptr %75, align 4, !tbaa !76
-  store i32 %76, ptr %74, align 4, !tbaa !76
-  store i32 0, ptr %75, align 4, !tbaa !76
+  %76 = load i32, ptr %75, align 8, !tbaa !76
+  store i32 %76, ptr %74, align 8, !tbaa !76
+  store i32 0, ptr %75, align 8, !tbaa !76
   %77 = getelementptr inbounds nuw i8, ptr %.033, i64 52
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.028.032, i64 52
   %79 = load i32, ptr %77, align 4, !tbaa !76
@@ -73845,10 +73845,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store i32 %80, ptr %77, align 4, !tbaa !76
   store i32 %79, ptr %78, align 4, !tbaa !76
   %81 = getelementptr inbounds nuw i8, ptr %.sroa.028.032, i64 56
-  %82 = load i32, ptr %69, align 4, !tbaa !76
-  %83 = load i32, ptr %81, align 4, !tbaa !76
-  store i32 %83, ptr %69, align 4, !tbaa !76
-  store i32 %82, ptr %81, align 4, !tbaa !76
+  %82 = load i32, ptr %69, align 8, !tbaa !76
+  %83 = load i32, ptr %81, align 8, !tbaa !76
+  store i32 %83, ptr %69, align 8, !tbaa !76
+  store i32 %82, ptr %81, align 8, !tbaa !76
   %84 = getelementptr inbounds nuw i8, ptr %.sroa.028.032, i64 64
   br label %85
 
@@ -73922,9 +73922,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store ptr null, ptr %114, align 8, !tbaa !827
   %121 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 48
   %122 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 48
-  %123 = load i32, ptr %122, align 4, !tbaa !76
-  store i32 %123, ptr %121, align 4, !tbaa !76
-  store i32 0, ptr %122, align 4, !tbaa !76
+  %123 = load i32, ptr %122, align 8, !tbaa !76
+  store i32 %123, ptr %121, align 8, !tbaa !76
+  store i32 0, ptr %122, align 8, !tbaa !76
   %124 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 52
   %125 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 52
   %126 = load i32, ptr %124, align 4, !tbaa !76
@@ -73932,10 +73932,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store i32 %127, ptr %124, align 4, !tbaa !76
   store i32 %126, ptr %125, align 4, !tbaa !76
   %128 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 56
-  %129 = load i32, ptr %116, align 4, !tbaa !76
-  %130 = load i32, ptr %128, align 4, !tbaa !76
-  store i32 %130, ptr %116, align 4, !tbaa !76
-  store i32 %129, ptr %128, align 4, !tbaa !76
+  %129 = load i32, ptr %116, align 8, !tbaa !76
+  %130 = load i32, ptr %128, align 8, !tbaa !76
+  store i32 %130, ptr %116, align 8, !tbaa !76
+  store i32 %129, ptr %128, align 8, !tbaa !76
   %131 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 64
   %132 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 64
   %133 = add nsw i64 %.012.i.i.i.i.i, -1
@@ -74001,9 +74001,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store ptr null, ptr %160, align 8, !tbaa !827
   %167 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i20, i64 48
   %168 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i21, i64 48
-  %169 = load i32, ptr %168, align 4, !tbaa !76
-  store i32 %169, ptr %167, align 4, !tbaa !76
-  store i32 0, ptr %168, align 4, !tbaa !76
+  %169 = load i32, ptr %168, align 8, !tbaa !76
+  store i32 %169, ptr %167, align 8, !tbaa !76
+  store i32 0, ptr %168, align 8, !tbaa !76
   %170 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i20, i64 52
   %171 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i21, i64 52
   %172 = load i32, ptr %170, align 4, !tbaa !76
@@ -74011,10 +74011,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store i32 %173, ptr %170, align 4, !tbaa !76
   store i32 %172, ptr %171, align 4, !tbaa !76
   %174 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i21, i64 56
-  %175 = load i32, ptr %162, align 4, !tbaa !76
-  %176 = load i32, ptr %174, align 4, !tbaa !76
-  store i32 %176, ptr %162, align 4, !tbaa !76
-  store i32 %175, ptr %174, align 4, !tbaa !76
+  %175 = load i32, ptr %162, align 8, !tbaa !76
+  %176 = load i32, ptr %174, align 8, !tbaa !76
+  store i32 %176, ptr %162, align 8, !tbaa !76
+  store i32 %175, ptr %174, align 8, !tbaa !76
   %177 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i21, i64 64
   %178 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i20, i64 64
   %179 = add nsw i64 %.012.i.i.i.i.i19, -1
@@ -74158,9 +74158,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store ptr null, ptr %68, align 8, !tbaa !827
   %75 = getelementptr inbounds nuw i8, ptr %.sroa.030.035, i64 48
   %76 = getelementptr inbounds nuw i8, ptr %.01637, i64 48
-  %77 = load i32, ptr %76, align 4, !tbaa !76
-  store i32 %77, ptr %75, align 4, !tbaa !76
-  store i32 0, ptr %76, align 4, !tbaa !76
+  %77 = load i32, ptr %76, align 8, !tbaa !76
+  store i32 %77, ptr %75, align 8, !tbaa !76
+  store i32 0, ptr %76, align 8, !tbaa !76
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.030.035, i64 52
   %79 = getelementptr inbounds nuw i8, ptr %.01637, i64 52
   %80 = load i32, ptr %78, align 4, !tbaa !76
@@ -74168,10 +74168,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store i32 %81, ptr %78, align 4, !tbaa !76
   store i32 %80, ptr %79, align 4, !tbaa !76
   %82 = getelementptr inbounds nuw i8, ptr %.01637, i64 56
-  %83 = load i32, ptr %70, align 4, !tbaa !76
-  %84 = load i32, ptr %82, align 4, !tbaa !76
-  store i32 %84, ptr %70, align 4, !tbaa !76
-  store i32 %83, ptr %82, align 4, !tbaa !76
+  %83 = load i32, ptr %70, align 8, !tbaa !76
+  %84 = load i32, ptr %82, align 8, !tbaa !76
+  store i32 %84, ptr %70, align 8, !tbaa !76
+  store i32 %83, ptr %82, align 8, !tbaa !76
   %85 = getelementptr inbounds nuw i8, ptr %.01637, i64 64
   br label %122
 
@@ -74220,9 +74220,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store ptr null, ptr %104, align 8, !tbaa !827
   %111 = getelementptr inbounds nuw i8, ptr %.sroa.030.035, i64 48
   %112 = getelementptr inbounds nuw i8, ptr %.038, i64 48
-  %113 = load i32, ptr %112, align 4, !tbaa !76
-  store i32 %113, ptr %111, align 4, !tbaa !76
-  store i32 0, ptr %112, align 4, !tbaa !76
+  %113 = load i32, ptr %112, align 8, !tbaa !76
+  store i32 %113, ptr %111, align 8, !tbaa !76
+  store i32 0, ptr %112, align 8, !tbaa !76
   %114 = getelementptr inbounds nuw i8, ptr %.sroa.030.035, i64 52
   %115 = getelementptr inbounds nuw i8, ptr %.038, i64 52
   %116 = load i32, ptr %114, align 4, !tbaa !76
@@ -74230,10 +74230,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store i32 %117, ptr %114, align 4, !tbaa !76
   store i32 %116, ptr %115, align 4, !tbaa !76
   %118 = getelementptr inbounds nuw i8, ptr %.038, i64 56
-  %119 = load i32, ptr %106, align 4, !tbaa !76
-  %120 = load i32, ptr %118, align 4, !tbaa !76
-  store i32 %120, ptr %106, align 4, !tbaa !76
-  store i32 %119, ptr %118, align 4, !tbaa !76
+  %119 = load i32, ptr %106, align 8, !tbaa !76
+  %120 = load i32, ptr %118, align 8, !tbaa !76
+  store i32 %120, ptr %106, align 8, !tbaa !76
+  store i32 %119, ptr %118, align 8, !tbaa !76
   %121 = getelementptr inbounds nuw i8, ptr %.038, i64 64
   br label %122
 
@@ -74307,9 +74307,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store ptr null, ptr %152, align 8, !tbaa !827
   %159 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 48
   %160 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 48
-  %161 = load i32, ptr %160, align 4, !tbaa !76
-  store i32 %161, ptr %159, align 4, !tbaa !76
-  store i32 0, ptr %160, align 4, !tbaa !76
+  %161 = load i32, ptr %160, align 8, !tbaa !76
+  store i32 %161, ptr %159, align 8, !tbaa !76
+  store i32 0, ptr %160, align 8, !tbaa !76
   %162 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 52
   %163 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 52
   %164 = load i32, ptr %162, align 4, !tbaa !76
@@ -74317,10 +74317,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store i32 %165, ptr %162, align 4, !tbaa !76
   store i32 %164, ptr %163, align 4, !tbaa !76
   %166 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 56
-  %167 = load i32, ptr %154, align 4, !tbaa !76
-  %168 = load i32, ptr %166, align 4, !tbaa !76
-  store i32 %168, ptr %154, align 4, !tbaa !76
-  store i32 %167, ptr %166, align 4, !tbaa !76
+  %167 = load i32, ptr %154, align 8, !tbaa !76
+  %168 = load i32, ptr %166, align 8, !tbaa !76
+  store i32 %168, ptr %154, align 8, !tbaa !76
+  store i32 %167, ptr %166, align 8, !tbaa !76
   %169 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 64
   %170 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 64
   %171 = add nsw i64 %.012.i.i.i.i.i, -1
@@ -74390,9 +74390,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store ptr null, ptr %202, align 8, !tbaa !827
   %209 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i24, i64 48
   %210 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i25, i64 48
-  %211 = load i32, ptr %210, align 4, !tbaa !76
-  store i32 %211, ptr %209, align 4, !tbaa !76
-  store i32 0, ptr %210, align 4, !tbaa !76
+  %211 = load i32, ptr %210, align 8, !tbaa !76
+  store i32 %211, ptr %209, align 8, !tbaa !76
+  store i32 0, ptr %210, align 8, !tbaa !76
   %212 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i24, i64 52
   %213 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i25, i64 52
   %214 = load i32, ptr %212, align 4, !tbaa !76
@@ -74400,10 +74400,10 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   store i32 %215, ptr %212, align 4, !tbaa !76
   store i32 %214, ptr %213, align 4, !tbaa !76
   %216 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i25, i64 56
-  %217 = load i32, ptr %204, align 4, !tbaa !76
-  %218 = load i32, ptr %216, align 4, !tbaa !76
-  store i32 %218, ptr %204, align 4, !tbaa !76
-  store i32 %217, ptr %216, align 4, !tbaa !76
+  %217 = load i32, ptr %204, align 8, !tbaa !76
+  %218 = load i32, ptr %216, align 8, !tbaa !76
+  store i32 %218, ptr %204, align 8, !tbaa !76
+  store i32 %217, ptr %216, align 8, !tbaa !76
   %219 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i25, i64 64
   %220 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i24, i64 64
   %221 = add nsw i64 %.012.i.i.i.i.i23, -1
@@ -74444,7 +74444,7 @@ define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_1
   %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1149", ptr %.0.val, i64 %16
   %.val4812 = load i64, ptr %17, align 8
   %18 = getelementptr i8, ptr %17, i64 8
-  %.val4913 = load i32, ptr %18, align 4
+  %.val4913 = load i32, ptr %18, align 8
   %19 = icmp eq i64 %.val52, %.val4812
   %20 = icmp eq i32 %.val53, %.val4913
   %spec.select.i14 = select i1 %19, i1 %20, i1 false
@@ -74481,7 +74481,7 @@ define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_1
   %34 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1149", ptr %.0.val, i64 %33
   %.val48 = load i64, ptr %34, align 8
   %35 = getelementptr i8, ptr %34, i64 8
-  %.val49 = load i32, ptr %35, align 4
+  %.val49 = load i32, ptr %35, align 8
   %36 = icmp eq i64 %.val52, %.val48
   %37 = icmp eq i32 %.val53, %.val49
   %spec.select.i = select i1 %36, i1 %37, i1 false
@@ -74574,7 +74574,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_25
   %.039.i.i = phi ptr [ %83, %82 ], [ %5, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphENS_15FunctionSummaryENS2_9IndexCallEE8CallInfoES8_NS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_S8_EEEES8_S8_SA_SD_E9initEmptyEv.exit.i.i ]
   %.val20.i.i = load i64, ptr %.039.i.i, align 8
   %37 = getelementptr i8, ptr %.039.i.i, i64 8
-  %.val21.i.i = load i32, ptr %37, align 4
+  %.val21.i.i = load i32, ptr %37, align 8
   %38 = icmp eq i64 %.val20.i.i, -4096
   %39 = icmp eq i32 %.val21.i.i, -1
   %spec.select.i.i.i = select i1 %38, i1 %39, i1 false
@@ -74605,7 +74605,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_25
   %56 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1149", ptr %.val24.i.i, i64 %55
   %.val4812.i.i.i = load i64, ptr %56, align 8
   %57 = getelementptr i8, ptr %56, i64 8
-  %.val4913.i.i.i = load i32, ptr %57, align 4
+  %.val4913.i.i.i = load i32, ptr %57, align 8
   %58 = icmp eq i64 %.val20.i.i, %.val4812.i.i.i
   %59 = icmp eq i32 %.val21.i.i, %.val4913.i.i.i
   %spec.select.i14.i.i.i = select i1 %58, i1 %59, i1 false
@@ -74642,7 +74642,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_25
   %73 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1149", ptr %.val24.i.i, i64 %72
   %.val48.i.i.i = load i64, ptr %73, align 8
   %74 = getelementptr i8, ptr %73, i64 8
-  %.val49.i.i.i = load i32, ptr %74, align 4
+  %.val49.i.i.i = load i32, ptr %74, align 8
   %75 = icmp eq i64 %.val20.i.i, %.val48.i.i.i
   %76 = icmp eq i32 %.val21.i.i, %.val49.i.i.i
   %spec.select.i.i.i.i = select i1 %75, i1 %76, i1 false
@@ -76328,17 +76328,17 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteConte
   %40 = load ptr, ptr %8, align 8, !tbaa !827
   store ptr %40, ptr %4, align 8, !tbaa !827
   store ptr %39, ptr %8, align 8, !tbaa !827
-  %41 = load i32, ptr %11, align 4, !tbaa !76
+  %41 = load i32, ptr %11, align 8, !tbaa !76
   %42 = load i32, ptr %12, align 8, !tbaa !76
-  store i32 %42, ptr %11, align 4, !tbaa !76
+  store i32 %42, ptr %11, align 8, !tbaa !76
   store i32 %41, ptr %12, align 8, !tbaa !76
   %43 = load i32, ptr %13, align 4, !tbaa !76
   %44 = load i32, ptr %14, align 4, !tbaa !76
   store i32 %44, ptr %13, align 4, !tbaa !76
   store i32 %43, ptr %14, align 4, !tbaa !76
-  %45 = load i32, ptr %15, align 4, !tbaa !76
+  %45 = load i32, ptr %15, align 8, !tbaa !76
   %46 = load i32, ptr %16, align 8, !tbaa !76
-  store i32 %46, ptr %15, align 4, !tbaa !76
+  store i32 %46, ptr %15, align 8, !tbaa !76
   store i32 %45, ptr %16, align 8, !tbaa !76
   %47 = load i32, ptr %17, align 8, !tbaa !657
   %48 = icmp eq i32 %47, 0
@@ -76473,11 +76473,11 @@ _ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15
   %95 = getelementptr inbounds nuw i8, ptr %88, i64 40
   store ptr %53, ptr %95, align 8, !tbaa !827, !noalias !2458
   %96 = getelementptr inbounds nuw i8, ptr %88, i64 48
-  store i32 %47, ptr %96, align 4, !tbaa !76, !noalias !2458
+  store i32 %47, ptr %96, align 8, !tbaa !76, !noalias !2458
   %97 = getelementptr inbounds nuw i8, ptr %88, i64 52
   store i32 %92, ptr %97, align 4, !tbaa !76, !noalias !2458
   %98 = getelementptr inbounds nuw i8, ptr %88, i64 56
-  store i32 %54, ptr %98, align 4, !tbaa !76, !noalias !2458
+  store i32 %54, ptr %98, align 8, !tbaa !76, !noalias !2458
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #28, !noalias !2458
   %99 = load ptr, ptr %25, align 8, !tbaa !1196
   %100 = load ptr, ptr %26, align 8, !tbaa !1197
@@ -76707,11 +76707,11 @@ _ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15
   %186 = getelementptr inbounds nuw i8, ptr %179, i64 40
   store ptr %53, ptr %186, align 8, !tbaa !827, !noalias !2464
   %187 = getelementptr inbounds nuw i8, ptr %179, i64 48
-  store i32 %47, ptr %187, align 4, !tbaa !76, !noalias !2464
+  store i32 %47, ptr %187, align 8, !tbaa !76, !noalias !2464
   %188 = getelementptr inbounds nuw i8, ptr %179, i64 52
   store i32 %183, ptr %188, align 4, !tbaa !76, !noalias !2464
   %189 = getelementptr inbounds nuw i8, ptr %179, i64 56
-  store i32 %54, ptr %189, align 4, !tbaa !76, !noalias !2464
+  store i32 %54, ptr %189, align 8, !tbaa !76, !noalias !2464
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #28, !noalias !2464
   %190 = load ptr, ptr %22, align 8, !tbaa !1196
   %191 = load ptr, ptr %23, align 8, !tbaa !1197
@@ -78592,11 +78592,11 @@ _ZSt11make_sharedIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteConte
   %55 = getelementptr inbounds nuw i8, ptr %37, i64 40
   store ptr %.sroa.0.0.i.i.i.i.i.i.i, ptr %55, align 8, !tbaa !827, !noalias !2480
   %56 = getelementptr inbounds nuw i8, ptr %37, i64 48
-  store i32 %.sroa.6.0.i.i.i.i.i.i.i, ptr %56, align 4, !tbaa !76, !noalias !2480
+  store i32 %.sroa.6.0.i.i.i.i.i.i.i, ptr %56, align 8, !tbaa !76, !noalias !2480
   %57 = getelementptr inbounds nuw i8, ptr %37, i64 52
   store i32 %.sroa.9.0.i.i.i.i.i.i.i, ptr %57, align 4, !tbaa !76, !noalias !2480
   %58 = getelementptr inbounds nuw i8, ptr %37, i64 56
-  store i32 %41, ptr %58, align 4, !tbaa !76, !noalias !2480
+  store i32 %41, ptr %58, align 8, !tbaa !76, !noalias !2480
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #28, !noalias !2480
   %59 = load ptr, ptr %7, align 8, !tbaa !1196
   %60 = getelementptr i8, ptr %2, i64 88
@@ -79241,7 +79241,7 @@ _ZN4llvm12CallsiteInfoC2ENS_9ValueInfoENS_11SmallVectorIjLj12EEE.exit.i: ; preds
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %66 = getelementptr inbounds nuw i8, ptr %62, i64 20
   store i32 12, ptr %66, align 4, !tbaa !27, !noalias !2491
-  store i32 0, ptr %64, align 1, !noalias !2491
+  store i32 0, ptr %64, align 8, !noalias !2491
   store i32 1, ptr %65, align 8, !tbaa !26, !noalias !2491
   %67 = getelementptr inbounds nuw i8, ptr %62, i64 72
   %68 = getelementptr inbounds nuw i8, ptr %62, i64 88
@@ -81669,7 +81669,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %19, ptr %20, align 8, !tbaa !36
   store ptr %10, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !50
   store i64 0, ptr %18, align 8, !tbaa !36
-  store i8 0, ptr %10, align 1, !tbaa !38
+  store i8 0, ptr %10, align 8, !tbaa !38
   %21 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 48
@@ -81701,7 +81701,7 @@ _ZSt10_ConstructIN4llvm30DiagnosticInfoOptimizationBase8ArgumentEJS2_EEvPT_DpOT0
   store i64 %34, ptr %35, align 8, !tbaa !36
   store ptr %25, ptr %22, align 8, !tbaa !50
   store i64 0, ptr %33, align 8, !tbaa !36
-  store i8 0, ptr %25, align 1, !tbaa !38
+  store i8 0, ptr %25, align 8, !tbaa !38
   %36 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 64
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 16, i1 false), !tbaa.struct !403
@@ -82074,7 +82074,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120CallsiteContextGra
   %.sroa.01941.02269 = phi ptr [ %3705, %_ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE14getNodeForInstERKNS6_8CallInfoE.exit.thread ], [ %.val149, %125 ]
   %.val278 = load ptr, ptr %.sroa.01941.02269, align 8
   %130 = getelementptr i8, ptr %.sroa.01941.02269, i64 8
-  %.val279 = load i32, ptr %130, align 4
+  %.val279 = load i32, ptr %130, align 8
   %.val3.i.i.i = load ptr, ptr %43, align 8, !tbaa !874
   %.val4.i.i.i = load i32, ptr %44, align 8, !tbaa !696
   %131 = icmp eq i32 %.val4.i.i.i, 0
@@ -82102,7 +82102,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120CallsiteContextGra
   %151 = load ptr, ptr %150, align 8, !tbaa !656
   %152 = icmp eq ptr %.val278, %151
   %153 = getelementptr inbounds nuw i8, ptr %150, i64 8
-  %154 = load i32, ptr %153, align 4
+  %154 = load i32, ptr %153, align 8
   %155 = icmp eq i32 %.val279, %154
   %156 = select i1 %152, i1 %155, i1 false
   br i1 %156, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE8CallInfoEjNS_12DenseMapInfoIS9_vEENS_6detail12DenseMapPairIS9_jEEEES9_jSB_SE_E4findERKS9_.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !328
@@ -82126,7 +82126,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120CallsiteContextGra
   %168 = load ptr, ptr %167, align 8, !tbaa !656
   %169 = icmp eq ptr %.val278, %168
   %170 = getelementptr inbounds nuw i8, ptr %167, i64 8
-  %171 = load i32, ptr %170, align 4
+  %171 = load i32, ptr %170, align 8
   %172 = icmp eq i32 %.val279, %171
   %173 = select i1 %169, i1 %172, i1 false
   br i1 %173, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE8CallInfoEjNS_12DenseMapInfoIS9_vEENS_6detail12DenseMapPairIS9_jEEEES9_jSB_SE_E4findERKS9_.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !329, !llvm.loop !875
@@ -82181,7 +82181,7 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   %204 = load ptr, ptr %203, align 8, !tbaa !656
   %205 = icmp eq ptr %.val278, %204
   %206 = getelementptr inbounds nuw i8, ptr %203, i64 8
-  %207 = load i32, ptr %206, align 4
+  %207 = load i32, ptr %206, align 8
   %208 = icmp eq i32 %.val279, %207
   %209 = select i1 %205, i1 %208, i1 false
   br i1 %209, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE8CallInfoEjNS_12DenseMapInfoIS9_vEENS_6detail12DenseMapPairIS9_jEEEES9_jSB_SE_E4findERKS9_.exit.i.i, label %.lr.ph.i.i.i.i.i, !prof !328
@@ -82205,7 +82205,7 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   %221 = load ptr, ptr %220, align 8, !tbaa !656
   %222 = icmp eq ptr %.val278, %221
   %223 = getelementptr inbounds nuw i8, ptr %220, i64 8
-  %224 = load i32, ptr %223, align 4
+  %224 = load i32, ptr %223, align 8
   %225 = icmp eq i32 %.val279, %224
   %226 = select i1 %222, i1 %225, i1 false
   br i1 %226, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE8CallInfoEjNS_12DenseMapInfoIS9_vEENS_6detail12DenseMapPairIS9_jEEEES9_jSB_SE_E4findERKS9_.exit.i.i, label %.lr.ph.i.i.i.i.i, !prof !329, !llvm.loop !875
@@ -92448,7 +92448,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN12_GLOBAL__N_120CallsiteContextGraphINS2_
   %575 = load ptr, ptr %.val23.i, align 8, !tbaa !625
   store ptr %575, ptr %569, align 8, !tbaa !625
   %576 = getelementptr inbounds nuw i8, ptr %569, i64 8
-  store i8 0, ptr %576, align 1, !tbaa !38
+  store i8 0, ptr %576, align 8, !tbaa !38
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE11ContextNodeEhNS_12DenseMapInfoISB_vEENS_6detail12DenseMapPairISB_hEEEESB_hSD_SG_EixERKSB_.exit.i
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE11ContextNodeEhNS_12DenseMapInfoISB_vEENS_6detail12DenseMapPairISB_hEEEESB_hSD_SG_EixERKSB_.exit.i: ; preds = %551, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE11ContextNodeEhNS_12DenseMapInfoISB_vEENS_6detail12DenseMapPairISB_hEEEESB_hSD_SG_E16InsertIntoBucketIRKSB_JEEEPSG_SM_OT_DpOT0_.exit.i.i, %535
@@ -93456,11 +93456,11 @@ _ZSt11make_sharedIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteCont
   %204 = getelementptr inbounds nuw i8, ptr %189, i64 40
   store ptr %.sroa.0.0.i.i.i.i.i.i.i, ptr %204, align 8, !tbaa !827, !noalias !2671
   %205 = getelementptr inbounds nuw i8, ptr %189, i64 48
-  store i32 %.sroa.6.0.i.i.i.i.i.i.i, ptr %205, align 4, !tbaa !76, !noalias !2671
+  store i32 %.sroa.6.0.i.i.i.i.i.i.i, ptr %205, align 8, !tbaa !76, !noalias !2671
   %206 = getelementptr inbounds nuw i8, ptr %189, i64 52
   store i32 %.sroa.9.0.i.i.i.i.i.i.i, ptr %206, align 4, !tbaa !76, !noalias !2671
   %207 = getelementptr inbounds nuw i8, ptr %189, i64 56
-  store i32 %192, ptr %207, align 4, !tbaa !76, !noalias !2671
+  store i32 %192, ptr %207, align 8, !tbaa !76, !noalias !2671
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #28, !noalias !2671
   %.val93 = load ptr, ptr %1, align 8, !tbaa !794
   %208 = getelementptr inbounds nuw i8, ptr %.val93, i64 8
@@ -94402,11 +94402,11 @@ _ZSt11make_sharedIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteCont
   %573 = getelementptr inbounds nuw i8, ptr %559, i64 40
   store ptr %.sroa.0.0.i.i.i.i.i.i.i412, ptr %573, align 8, !tbaa !827, !noalias !2685
   %574 = getelementptr inbounds nuw i8, ptr %559, i64 48
-  store i32 %.sroa.6.0.i.i.i.i.i.i.i413, ptr %574, align 4, !tbaa !76, !noalias !2685
+  store i32 %.sroa.6.0.i.i.i.i.i.i.i413, ptr %574, align 8, !tbaa !76, !noalias !2685
   %575 = getelementptr inbounds nuw i8, ptr %559, i64 52
   store i32 %.sroa.9.0.i.i.i.i.i.i.i414, ptr %575, align 4, !tbaa !76, !noalias !2685
   %576 = getelementptr inbounds nuw i8, ptr %559, i64 56
-  store i32 %562, ptr %576, align 4, !tbaa !76, !noalias !2685
+  store i32 %562, ptr %576, align 8, !tbaa !76, !noalias !2685
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #28, !noalias !2685
   %577 = load ptr, ptr %311, align 8, !tbaa !828
   %578 = load ptr, ptr %315, align 8, !tbaa !829
@@ -98640,7 +98640,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN12_GLOBAL__N_120CallsiteContextGraphINS2_
   %63 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 8
   %64 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 8
   %65 = load i8, ptr %64, align 1, !tbaa !38
-  store i8 %65, ptr %63, align 1, !tbaa !38
+  store i8 %65, ptr %63, align 8, !tbaa !38
   %.val.i19.i.i = load i32, ptr %32, align 8, !tbaa !2653
   %66 = add i32 %.val.i19.i.i, 1
   store i32 %66, ptr %32, align 8, !tbaa !2653
@@ -101480,7 +101480,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexC
   %.sroa.01922.02231 = phi ptr [ %3436, %_ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE14getNodeForInstERKNS5_8CallInfoE.exit.thread ], [ %.val149, %76 ]
   %.val276 = load i64, ptr %.sroa.01922.02231, align 8
   %81 = getelementptr i8, ptr %.sroa.01922.02231, i64 8
-  %.val277 = load i32, ptr %81, align 4
+  %.val277 = load i32, ptr %81, align 8
   %.val3.i.i.i = load ptr, ptr %31, align 8, !tbaa !1241
   %.val4.i.i.i = load i32, ptr %32, align 8, !tbaa !1064
   %82 = icmp eq i32 %.val4.i.i.i, 0
@@ -101501,7 +101501,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexC
   %95 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1008", ptr %.val3.i.i.i, i64 %94
   %.val308.i.i.i.i.i.i = load i64, ptr %95, align 8
   %96 = getelementptr i8, ptr %95, i64 8
-  %.val319.i.i.i.i.i.i = load i32, ptr %96, align 4
+  %.val319.i.i.i.i.i.i = load i32, ptr %96, align 8
   %97 = icmp eq i64 %.val276, %.val308.i.i.i.i.i.i
   %98 = icmp eq i32 %.val277, %.val319.i.i.i.i.i.i
   %spec.select.i10.i.i.i.i.i.i = select i1 %97, i1 %98, i1 false
@@ -101525,7 +101525,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexC
   %106 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1008", ptr %.val3.i.i.i, i64 %105
   %.val30.i.i.i.i.i.i = load i64, ptr %106, align 8
   %107 = getelementptr i8, ptr %106, i64 8
-  %.val31.i.i.i.i.i.i = load i32, ptr %107, align 4
+  %.val31.i.i.i.i.i.i = load i32, ptr %107, align 8
   %108 = icmp eq i64 %.val276, %.val30.i.i.i.i.i.i
   %109 = icmp eq i32 %.val277, %.val31.i.i.i.i.i.i
   %spec.select.i.i.i.i.i.i.i = select i1 %108, i1 %109, i1 false
@@ -101574,7 +101574,7 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   %133 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1008", ptr %.val3.i.i, i64 %132
   %.val308.i.i.i.i.i = load i64, ptr %133, align 8
   %134 = getelementptr i8, ptr %133, i64 8
-  %.val319.i.i.i.i.i = load i32, ptr %134, align 4
+  %.val319.i.i.i.i.i = load i32, ptr %134, align 8
   %135 = icmp eq i64 %.val276, %.val308.i.i.i.i.i
   %136 = icmp eq i32 %.val277, %.val319.i.i.i.i.i
   %spec.select.i10.i.i.i.i.i = select i1 %135, i1 %136, i1 false
@@ -101598,7 +101598,7 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   %144 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1008", ptr %.val3.i.i, i64 %143
   %.val30.i.i.i.i.i = load i64, ptr %144, align 8
   %145 = getelementptr i8, ptr %144, i64 8
-  %.val31.i.i.i.i.i = load i32, ptr %145, align 4
+  %.val31.i.i.i.i.i = load i32, ptr %145, align 8
   %146 = icmp eq i64 %.val276, %.val30.i.i.i.i.i
   %147 = icmp eq i32 %.val277, %.val31.i.i.i.i.i
   %spec.select.i.i.i.i.i.i = select i1 %146, i1 %147, i1 false
@@ -111193,7 +111193,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN12_GLOBAL__N_120CallsiteContextGraphINS2_
   %575 = load ptr, ptr %.val23.i, align 8, !tbaa !1005
   store ptr %575, ptr %569, align 8, !tbaa !1005
   %576 = getelementptr inbounds nuw i8, ptr %569, i64 8
-  store i8 0, ptr %576, align 1, !tbaa !38
+  store i8 0, ptr %576, align 8, !tbaa !38
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphENS_15FunctionSummaryENS2_9IndexCallEE11ContextNodeEhNS_12DenseMapInfoISA_vEENS_6detail12DenseMapPairISA_hEEEESA_hSC_SF_EixERKSA_.exit.i
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphENS_15FunctionSummaryENS2_9IndexCallEE11ContextNodeEhNS_12DenseMapInfoISA_vEENS_6detail12DenseMapPairISA_hEEEESA_hSC_SF_EixERKSA_.exit.i: ; preds = %551, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphENS_15FunctionSummaryENS2_9IndexCallEE11ContextNodeEhNS_12DenseMapInfoISA_vEENS_6detail12DenseMapPairISA_hEEEESA_hSC_SF_E16InsertIntoBucketIRKSA_JEEEPSF_SL_OT_DpOT0_.exit.i.i, %535
@@ -112199,11 +112199,11 @@ _ZSt11make_sharedIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteConte
   %204 = getelementptr inbounds nuw i8, ptr %189, i64 40
   store ptr %.sroa.0.0.i.i.i.i.i.i.i, ptr %204, align 8, !tbaa !827, !noalias !2853
   %205 = getelementptr inbounds nuw i8, ptr %189, i64 48
-  store i32 %.sroa.6.0.i.i.i.i.i.i.i, ptr %205, align 4, !tbaa !76, !noalias !2853
+  store i32 %.sroa.6.0.i.i.i.i.i.i.i, ptr %205, align 8, !tbaa !76, !noalias !2853
   %206 = getelementptr inbounds nuw i8, ptr %189, i64 52
   store i32 %.sroa.9.0.i.i.i.i.i.i.i, ptr %206, align 4, !tbaa !76, !noalias !2853
   %207 = getelementptr inbounds nuw i8, ptr %189, i64 56
-  store i32 %192, ptr %207, align 4, !tbaa !76, !noalias !2853
+  store i32 %192, ptr %207, align 8, !tbaa !76, !noalias !2853
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #28, !noalias !2853
   %.val93 = load ptr, ptr %1, align 8, !tbaa !1173
   %208 = getelementptr inbounds nuw i8, ptr %.val93, i64 8
@@ -113145,11 +113145,11 @@ _ZSt11make_sharedIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteConte
   %573 = getelementptr inbounds nuw i8, ptr %559, i64 40
   store ptr %.sroa.0.0.i.i.i.i.i.i.i412, ptr %573, align 8, !tbaa !827, !noalias !2867
   %574 = getelementptr inbounds nuw i8, ptr %559, i64 48
-  store i32 %.sroa.6.0.i.i.i.i.i.i.i413, ptr %574, align 4, !tbaa !76, !noalias !2867
+  store i32 %.sroa.6.0.i.i.i.i.i.i.i413, ptr %574, align 8, !tbaa !76, !noalias !2867
   %575 = getelementptr inbounds nuw i8, ptr %559, i64 52
   store i32 %.sroa.9.0.i.i.i.i.i.i.i414, ptr %575, align 4, !tbaa !76, !noalias !2867
   %576 = getelementptr inbounds nuw i8, ptr %559, i64 56
-  store i32 %562, ptr %576, align 4, !tbaa !76, !noalias !2867
+  store i32 %562, ptr %576, align 8, !tbaa !76, !noalias !2867
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #28, !noalias !2867
   %577 = load ptr, ptr %311, align 8, !tbaa !1196
   %578 = load ptr, ptr %315, align 8, !tbaa !1197
@@ -117382,7 +117382,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN12_GLOBAL__N_120CallsiteContextGraphINS2_
   %63 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 8
   %64 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 8
   %65 = load i8, ptr %64, align 1, !tbaa !38
-  store i8 %65, ptr %63, align 1, !tbaa !38
+  store i8 %65, ptr %63, align 8, !tbaa !38
   %.val.i19.i.i = load i32, ptr %32, align 8, !tbaa !2835
   %66 = add i32 %.val.i19.i.i, 1
   store i32 %66, ptr %32, align 8, !tbaa !2835

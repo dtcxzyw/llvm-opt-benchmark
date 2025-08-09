@@ -146,7 +146,7 @@ define dso_local noundef zeroext i1 @_ZN5clang8SemaWasm22BuiltinWasmRefNullFuncE
   store ptr %29, ptr %.ptr.i.i.i.i, align 8, !tbaa !42
   %30 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
   store i64 0, ptr %30, align 8, !tbaa !45
-  store i8 0, ptr %29, align 1, !tbaa !15
+  store i8 0, ptr %29, align 8, !tbaa !15
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 32
   %31 = icmp eq i64 %.add.i.i.i.i, 416
   br i1 %31, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %28
@@ -308,7 +308,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit: ; preds = %_ZNK5
   store ptr %108, ptr %.ptr.i.i.i.i48, align 8, !tbaa !42
   %109 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i48, i64 8
   store i64 0, ptr %109, align 8, !tbaa !45
-  store i8 0, ptr %108, align 1, !tbaa !15
+  store i8 0, ptr %108, align 8, !tbaa !15
   %.add.i.i.i.i49 = add nuw nsw i64 %.idx.i.i.i.i47, 32
   %110 = icmp eq i64 %.add.i.i.i.i49, 416
   br i1 %110, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i50, label %107
@@ -472,7 +472,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit28: ; preds = %_ZN
   store ptr %189, ptr %.ptr.i.i.i.i66, align 8, !tbaa !42
   %190 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i66, i64 8
   store i64 0, ptr %190, align 8, !tbaa !45
-  store i8 0, ptr %189, align 1, !tbaa !15
+  store i8 0, ptr %189, align 8, !tbaa !15
   %.add.i.i.i.i67 = add nuw nsw i64 %.idx.i.i.i.i65, 32
   %191 = icmp eq i64 %.add.i.i.i.i67, 416
   br i1 %191, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i68, label %188
@@ -635,7 +635,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIjvEERKS1_OT_.exit: ; preds = %_ZNK5
   store ptr %269, ptr %.ptr.i.i.i.i84, align 8, !tbaa !42
   %270 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i84, i64 8
   store i64 0, ptr %270, align 8, !tbaa !45
-  store i8 0, ptr %269, align 1, !tbaa !15
+  store i8 0, ptr %269, align 8, !tbaa !15
   %.add.i.i.i.i85 = add nuw nsw i64 %.idx.i.i.i.i83, 32
   %271 = icmp eq i64 %.add.i.i.i.i85, 416
   br i1 %271, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i86, label %268
@@ -943,7 +943,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clangL26CheckWasmBuiltinArgIsTabl
   store ptr %53, ptr %.ptr.i.i.i.i, align 8, !tbaa !42
   %54 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
   store i64 0, ptr %54, align 8, !tbaa !45
-  store i8 0, ptr %53, align 1, !tbaa !15
+  store i8 0, ptr %53, align 8, !tbaa !15
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 32
   %55 = icmp eq i64 %.add.i.i.i.i, 416
   br i1 %55, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %52
@@ -1257,7 +1257,7 @@ _ZNK5clang4Type13isIntegerTypeEv.exit.thread:     ; preds = %34, %42, %47, %_ZNK
   store ptr %72, ptr %.ptr.i.i.i.i, align 8, !tbaa !42
   %73 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
   store i64 0, ptr %73, align 8, !tbaa !45
-  store i8 0, ptr %72, align 1, !tbaa !15
+  store i8 0, ptr %72, align 8, !tbaa !15
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 32
   %74 = icmp eq i64 %.add.i.i.i.i, 416
   br i1 %74, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %71
@@ -1621,7 +1621,7 @@ define dso_local noundef zeroext i1 @_ZN5clang8SemaWasm20BuiltinWasmTableGrowEPN
   store ptr %59, ptr %.ptr.i.i.i.i, align 8, !tbaa !42
   %60 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
   store i64 0, ptr %60, align 8, !tbaa !45
-  store i8 0, ptr %59, align 1, !tbaa !15
+  store i8 0, ptr %59, align 8, !tbaa !15
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 32
   %61 = icmp eq i64 %.add.i.i.i.i, 416
   br i1 %61, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %58
@@ -1783,7 +1783,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit: ; preds = %_ZNK5
   store ptr %138, ptr %.ptr.i.i.i.i30, align 8, !tbaa !42
   %139 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i30, i64 8
   store i64 0, ptr %139, align 8, !tbaa !45
-  store i8 0, ptr %138, align 1, !tbaa !15
+  store i8 0, ptr %138, align 8, !tbaa !15
   %.add.i.i.i.i31 = add nuw nsw i64 %.idx.i.i.i.i29, 32
   %140 = icmp eq i64 %.add.i.i.i.i31, 416
   br i1 %140, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i32, label %137
@@ -2088,7 +2088,7 @@ define dso_local noundef zeroext i1 @_ZN5clang8SemaWasm20BuiltinWasmTableFillEPN
   store ptr %62, ptr %.ptr.i.i.i.i, align 8, !tbaa !42
   %63 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
   store i64 0, ptr %63, align 8, !tbaa !45
-  store i8 0, ptr %62, align 1, !tbaa !15
+  store i8 0, ptr %62, align 8, !tbaa !15
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 32
   %64 = icmp eq i64 %.add.i.i.i.i, 416
   br i1 %64, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %61
@@ -2250,7 +2250,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit: ; preds = %_ZNK5
   store ptr %141, ptr %.ptr.i.i.i.i31, align 8, !tbaa !42
   %142 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i31, i64 8
   store i64 0, ptr %142, align 8, !tbaa !45
-  store i8 0, ptr %141, align 1, !tbaa !15
+  store i8 0, ptr %141, align 8, !tbaa !15
   %.add.i.i.i.i32 = add nuw nsw i64 %.idx.i.i.i.i30, 32
   %143 = icmp eq i64 %.add.i.i.i.i32, 416
   br i1 %143, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i33, label %140
@@ -2551,7 +2551,7 @@ define dso_local noundef zeroext i1 @_ZN5clang8SemaWasm20BuiltinWasmTableCopyEPN
   store ptr %62, ptr %.ptr.i.i.i.i, align 8, !tbaa !42
   %63 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
   store i64 0, ptr %63, align 8, !tbaa !45
-  store i8 0, ptr %62, align 1, !tbaa !15
+  store i8 0, ptr %62, align 8, !tbaa !15
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 32
   %64 = icmp eq i64 %.add.i.i.i.i, 416
   br i1 %64, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %61
@@ -2713,7 +2713,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit: ; preds = %_ZNK5
   store ptr %141, ptr %.ptr.i.i.i.i35, align 8, !tbaa !42
   %142 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i35, i64 8
   store i64 0, ptr %142, align 8, !tbaa !45
-  store i8 0, ptr %141, align 1, !tbaa !15
+  store i8 0, ptr %141, align 8, !tbaa !15
   %.add.i.i.i.i36 = add nuw nsw i64 %.idx.i.i.i.i34, 32
   %143 = icmp eq i64 %.add.i.i.i.i36, 416
   br i1 %143, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i37, label %140
@@ -3142,7 +3142,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread80:       ; preds = %_ZNK5clang4Decl7get
   store ptr %67, ptr %.ptr.i.i.i.i, align 8, !tbaa !42
   %68 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
   store i64 0, ptr %68, align 8, !tbaa !45
-  store i8 0, ptr %67, align 1, !tbaa !15
+  store i8 0, ptr %67, align 8, !tbaa !15
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 32
   %69 = icmp eq i64 %.add.i.i.i.i, 416
   br i1 %69, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %66
@@ -3419,7 +3419,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIN4llvm9StringRefEvEERKS1_OT_.exit42
   store ptr %208, ptr %.ptr.i.i.i.i67, align 8, !tbaa !42
   %209 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i67, i64 8
   store i64 0, ptr %209, align 8, !tbaa !45
-  store i8 0, ptr %208, align 1, !tbaa !15
+  store i8 0, ptr %208, align 8, !tbaa !15
   %.add.i.i.i.i68 = add nuw nsw i64 %.idx.i.i.i.i66, 32
   %210 = icmp eq i64 %.add.i.i.i.i68, 416
   br i1 %210, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i69, label %207
@@ -3722,7 +3722,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread80:       ; preds = %_ZNK5clang4Decl7get
   store ptr %67, ptr %.ptr.i.i.i.i, align 8, !tbaa !42
   %68 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
   store i64 0, ptr %68, align 8, !tbaa !45
-  store i8 0, ptr %67, align 1, !tbaa !15
+  store i8 0, ptr %67, align 8, !tbaa !15
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 32
   %69 = icmp eq i64 %.add.i.i.i.i, 416
   br i1 %69, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %66
@@ -3999,7 +3999,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIN4llvm9StringRefEvEERKS1_OT_.exit42
   store ptr %208, ptr %.ptr.i.i.i.i67, align 8, !tbaa !42
   %209 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i67, i64 8
   store i64 0, ptr %209, align 8, !tbaa !45
-  store i8 0, ptr %208, align 1, !tbaa !15
+  store i8 0, ptr %208, align 8, !tbaa !15
   %.add.i.i.i.i68 = add nuw nsw i64 %.idx.i.i.i.i66, 32
   %210 = icmp eq i64 %.add.i.i.i.i68, 416
   br i1 %210, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i69, label %207
@@ -4240,7 +4240,7 @@ define dso_local void @_ZN5clang8SemaWasm33handleWebAssemblyImportModuleAttrEPNS
   store ptr %32, ptr %.ptr.i.i.i.i, align 8, !tbaa !42
   %33 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
   store i64 0, ptr %33, align 8, !tbaa !45
-  store i8 0, ptr %32, align 1, !tbaa !15
+  store i8 0, ptr %32, align 8, !tbaa !15
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 32
   %34 = icmp eq i64 %.add.i.i.i.i, 416
   br i1 %34, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %31
@@ -4483,7 +4483,7 @@ define dso_local void @_ZN5clang8SemaWasm31handleWebAssemblyImportNameAttrEPNS_4
   store ptr %32, ptr %.ptr.i.i.i.i, align 8, !tbaa !42
   %33 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
   store i64 0, ptr %33, align 8, !tbaa !45
-  store i8 0, ptr %32, align 1, !tbaa !15
+  store i8 0, ptr %32, align 8, !tbaa !15
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 32
   %34 = icmp eq i64 %.add.i.i.i.i, 416
   br i1 %34, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %31
@@ -4726,7 +4726,7 @@ _ZN5clang28isFuncOrMethodForAttrSubjectEPKNS_4DeclE.exit: ; preds = %3
   store ptr %38, ptr %.ptr.i.i.i.i, align 8, !tbaa !42
   %39 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
   store i64 0, ptr %39, align 8, !tbaa !45
-  store i8 0, ptr %38, align 1, !tbaa !15
+  store i8 0, ptr %38, align 8, !tbaa !15
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 32
   %40 = icmp eq i64 %.add.i.i.i.i, 416
   br i1 %40, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %37
@@ -4896,7 +4896,7 @@ _ZN5clanglsINS_10ParsedAttrEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit
   store ptr %125, ptr %.ptr.i.i.i.i41, align 8, !tbaa !42
   %126 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i41, i64 8
   store i64 0, ptr %126, align 8, !tbaa !45
-  store i8 0, ptr %125, align 1, !tbaa !15
+  store i8 0, ptr %125, align 8, !tbaa !15
   %.add.i.i.i.i42 = add nuw nsw i64 %.idx.i.i.i.i40, 32
   %127 = icmp eq i64 %.add.i.i.i.i42, 416
   br i1 %127, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i43, label %124
@@ -5059,7 +5059,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_.exit: ; preds = %_ZNK5
   store ptr %205, ptr %.ptr.i.i.i.i59, align 8, !tbaa !42
   %206 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i59, i64 8
   store i64 0, ptr %206, align 8, !tbaa !45
-  store i8 0, ptr %205, align 1, !tbaa !15
+  store i8 0, ptr %205, align 8, !tbaa !15
   %.add.i.i.i.i60 = add nuw nsw i64 %.idx.i.i.i.i58, 32
   %207 = icmp eq i64 %.add.i.i.i.i60, 416
   br i1 %207, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i61, label %204
@@ -5274,7 +5274,7 @@ _ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread: ; preds = 
   store ptr %308, ptr %.ptr.i.i.i.i77, align 8, !tbaa !42
   %309 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i77, i64 8
   store i64 0, ptr %309, align 8, !tbaa !45
-  store i8 0, ptr %308, align 1, !tbaa !15
+  store i8 0, ptr %308, align 8, !tbaa !15
   %.add.i.i.i.i78 = add nuw nsw i64 %.idx.i.i.i.i76, 32
   %310 = icmp eq i64 %.add.i.i.i.i78, 416
   br i1 %310, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i79, label %307
@@ -5437,7 +5437,7 @@ _ZN5clanglsIPNS_12FunctionDeclEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.e
   store ptr %388, ptr %.ptr.i.i.i.i95, align 8, !tbaa !42
   %389 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i95, i64 8
   store i64 0, ptr %389, align 8, !tbaa !45
-  store i8 0, ptr %388, align 1, !tbaa !15
+  store i8 0, ptr %388, align 8, !tbaa !15
   %.add.i.i.i.i96 = add nuw nsw i64 %.idx.i.i.i.i94, 32
   %390 = icmp eq i64 %.add.i.i.i.i96, 416
   br i1 %390, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i97, label %387
@@ -5887,7 +5887,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEm
   store ptr %14, ptr %.ptr.i.i.i, align 8, !tbaa !42
   %15 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %15, align 8, !tbaa !45
-  store i8 0, ptr %14, align 1, !tbaa !15
+  store i8 0, ptr %14, align 8, !tbaa !15
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %16 = icmp eq i64 %.add.i.i.i, 416
   br i1 %16, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %13
@@ -6240,7 +6240,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic14AddSourceRange
   store ptr %13, ptr %.ptr.i.i.i, align 8, !tbaa !42
   %14 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %14, align 8, !tbaa !45
-  store i8 0, ptr %13, align 1, !tbaa !15
+  store i8 0, ptr %13, align 8, !tbaa !15
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %15 = icmp eq i64 %.add.i.i.i, 416
   br i1 %15, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %12
@@ -6385,7 +6385,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llv
   store ptr %16, ptr %.ptr.i.i.i, align 8, !tbaa !42
   %17 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %17, align 8, !tbaa !45
-  store i8 0, ptr %16, align 1, !tbaa !15
+  store i8 0, ptr %16, align 8, !tbaa !15
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %18 = icmp eq i64 %.add.i.i.i, 416
   br i1 %18, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %15

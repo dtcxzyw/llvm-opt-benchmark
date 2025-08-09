@@ -4208,7 +4208,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %44, ptr %.sink6.i.i.i.i, align 8, !tbaa !33
   %45 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i, i64 8
   store i64 0, ptr %45, align 8, !tbaa !23
-  store i8 0, ptr %44, align 1, !tbaa !24
+  store i8 0, ptr %44, align 8, !tbaa !24
   %46 = load ptr, ptr %4, align 8, !tbaa !120
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -4743,7 +4743,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %44, ptr %.sink6.i.i.i.i, align 8, !tbaa !33
   %45 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i, i64 8
   store i64 0, ptr %45, align 8, !tbaa !23
-  store i8 0, ptr %44, align 1, !tbaa !24
+  store i8 0, ptr %44, align 8, !tbaa !24
   %46 = load ptr, ptr %4, align 8, !tbaa !120
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -5210,7 +5210,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %44, ptr %.sink6.i.i.i.i, align 8, !tbaa !33
   %45 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i, i64 8
   store i64 0, ptr %45, align 8, !tbaa !23
-  store i8 0, ptr %44, align 1, !tbaa !24
+  store i8 0, ptr %44, align 8, !tbaa !24
   %46 = load ptr, ptr %4, align 8, !tbaa !120
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -5312,7 +5312,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %44, ptr %.sink6.i.i.i.i, align 8, !tbaa !33
   %45 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i, i64 8
   store i64 0, ptr %45, align 8, !tbaa !23
-  store i8 0, ptr %44, align 1, !tbaa !24
+  store i8 0, ptr %44, align 8, !tbaa !24
   %46 = load ptr, ptr %4, align 8, !tbaa !120
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -7324,9 +7324,9 @@ _ZNSt3mapISt6vectorIjSaIjEES2_St4lessIS2_ESaISt4pairIKS2_S2_EEED2Ev.exit: ; pred
   %145 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %146 = load i64, ptr %145, align 8, !tbaa !23
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %148 = load i32, ptr %147, align 4, !tbaa !35
+  %148 = load i32, ptr %147, align 8, !tbaa !35
   %149 = or i32 %148, 2
-  store i32 %149, ptr %147, align 4, !tbaa !35
+  store i32 %149, ptr %147, align 8, !tbaa !35
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %151 = load ptr, ptr %150, align 8, !tbaa !37
   %152 = ptrtoint ptr %151 to i64
@@ -11239,7 +11239,7 @@ _ZN13sentencepiece14NormalizerSpec26set_normalization_rule_tsvERKNSt7__cxx1112ba
   store i8 0, ptr %126, align 8, !tbaa !157
   store i8 0, ptr %127, align 1, !tbaa !160
   %161 = or i32 %160, 56
-  store i32 %161, ptr %123, align 4, !tbaa !35
+  store i32 %161, ptr %123, align 8, !tbaa !35
   store i8 0, ptr %128, align 2, !tbaa !161
   br label %.thread
 

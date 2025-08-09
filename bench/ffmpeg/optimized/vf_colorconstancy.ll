@@ -78,9 +78,9 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %16 = load i32, ptr %15, align 8, !tbaa !20
   %17 = getelementptr i8, ptr %12, i64 88
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %19 = load i32, ptr %18, align 4, !tbaa !40
+  %19 = load i32, ptr %18, align 8, !tbaa !40
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %21 = load i32, ptr %20, align 4, !tbaa !40
+  %21 = load i32, ptr %20, align 8, !tbaa !40
   %..i.i = tail call i32 @llvm.smin.i32(i32 %19, i32 %21)
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %23 = load i32, ptr %22, align 8, !tbaa !41
@@ -172,9 +172,9 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = load i32, ptr %51, align 8, !tbaa !41
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 32
-  %54 = load i32, ptr %53, align 4, !tbaa !40
+  %54 = load i32, ptr %53, align 8, !tbaa !40
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 48
-  %56 = load i32, ptr %55, align 4, !tbaa !40
+  %56 = load i32, ptr %55, align 8, !tbaa !40
   %57 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %58 = load i32, ptr %57, align 8, !tbaa !20
   switch i32 %58, label %101 [
@@ -782,11 +782,11 @@ define internal range(i32 -22, 1) i32 @config_props(ptr noundef readonly capture
   %128 = getelementptr inbounds nuw i8, ptr %5, i64 52
   store i32 %126, ptr %128, align 4, !tbaa !40
   %129 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i32 %126, ptr %129, align 4, !tbaa !40
+  store i32 %126, ptr %129, align 8, !tbaa !40
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %131 = load i32, ptr %130, align 8, !tbaa !59
   %132 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store i32 %131, ptr %132, align 4, !tbaa !40
+  store i32 %131, ptr %132, align 8, !tbaa !40
   store i32 %131, ptr %127, align 4, !tbaa !40
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %134 = load i32, ptr %133, align 4, !tbaa !60
@@ -800,11 +800,11 @@ define internal range(i32 -22, 1) i32 @config_props(ptr noundef readonly capture
   %142 = getelementptr inbounds nuw i8, ptr %5, i64 36
   store i32 %140, ptr %142, align 4, !tbaa !40
   %143 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 %140, ptr %143, align 4, !tbaa !40
+  store i32 %140, ptr %143, align 8, !tbaa !40
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %145 = load i32, ptr %144, align 4, !tbaa !60
   %146 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i32 %145, ptr %146, align 4, !tbaa !40
+  store i32 %145, ptr %146, align 8, !tbaa !40
   store i32 %145, ptr %141, align 4, !tbaa !40
   br label %set_gauss.exit
 

@@ -1611,7 +1611,7 @@ invoke.cont5:
   %1 = load i32, ptr %_M_flags.i.i, align 8, !tbaa !55
   %and.i.i.i.i = and i32 %1, -75
   %or.i.i.i.i = or disjoint i32 %and.i.i.i.i, 8
-  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 4, !tbaa !55
+  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 8, !tbaa !55
   %vbase.offset.i36 = load i64, ptr %vbase.offset.ptr.i, align 8
   %add.ptr.i37 = getelementptr inbounds i8, ptr %oss, i64 %vbase.offset.i36
   %_M_width.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i37, i64 16
@@ -2031,7 +2031,7 @@ invoke.cont23:                                    ; preds = %if.then.i.i75, %_ZN
   %23 = load i32, ptr %_M_flags.i.i, align 8, !tbaa !55
   %and.i.i.i.i = and i32 %23, -75
   %or.i.i.i.i = or disjoint i32 %and.i.i.i.i, 8
-  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 4, !tbaa !55
+  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 8, !tbaa !55
   %call.i8283 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractImEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %s_state_0, ptr noundef nonnull align 8 dereferenceable(8) %state)
           to label %invoke.cont27 unwind label %lpad22
 
@@ -2044,7 +2044,7 @@ invoke.cont27:                                    ; preds = %invoke.cont23
   %24 = load i32, ptr %_M_flags.i.i136, align 8, !tbaa !55
   %and.i.i.i.i137 = and i32 %24, -75
   %or.i.i.i.i138 = or disjoint i32 %and.i.i.i.i137, 8
-  store i32 %or.i.i.i.i138, ptr %_M_flags.i.i136, align 4, !tbaa !55
+  store i32 %or.i.i.i.i138, ptr %_M_flags.i.i136, align 8, !tbaa !55
   %arrayidx29 = getelementptr inbounds nuw i8, ptr %state, i64 8
   %call.i9192 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractImEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %s_state_1, ptr noundef nonnull align 8 dereferenceable(8) %arrayidx29)
           to label %invoke.cont30 unwind label %lpad22

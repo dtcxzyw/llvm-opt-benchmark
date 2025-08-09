@@ -129,7 +129,7 @@ define hidden noundef nonnull ptr @_ZN6google8protobuf8internal14ArenaStringPtr2
   store ptr %3, ptr %2, align 8, !tbaa !10
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %4, align 8, !tbaa !15
-  store i8 0, ptr %3, align 1, !tbaa !14
+  store i8 0, ptr %3, align 8, !tbaa !14
   store ptr %2, ptr %0, align 8, !tbaa !16
   ret ptr %2
 }
@@ -536,7 +536,7 @@ _ZN6google8protobuf8internal14ArenaStringPtr11MutableSlowIJEEEPNSt7__cxx1112basi
   store ptr %14, ptr %.sink9.i, align 8, !tbaa !10
   %15 = getelementptr inbounds nuw i8, ptr %.sink9.i, i64 8
   store i64 0, ptr %15, align 8, !tbaa !15
-  store i8 0, ptr %14, align 1, !tbaa !14
+  store i8 0, ptr %14, align 8, !tbaa !14
   store ptr %.sink9.i, ptr %0, align 8, !tbaa !16
   br label %16
 
@@ -718,7 +718,7 @@ _ZN6google8protobuf5Arena14CreateInternalINSt7__cxx1112basic_stringIcSt11char_tr
   store ptr %15, ptr %.sink11, align 8, !tbaa !10
   %16 = getelementptr inbounds nuw i8, ptr %.sink11, i64 8
   store i64 0, ptr %16, align 8, !tbaa !15
-  store i8 0, ptr %15, align 1, !tbaa !14
+  store i8 0, ptr %15, align 8, !tbaa !14
   store ptr %.sink11, ptr %0, align 8, !tbaa !16
   br label %17
 
@@ -743,7 +743,7 @@ define hidden noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr7ReleaseE
   store ptr %9, ptr %8, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 0, ptr %10, align 8, !tbaa !15
-  store i8 0, ptr %9, align 1, !tbaa !14
+  store i8 0, ptr %9, align 8, !tbaa !14
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %4) #13
   br label %_ZN6google8protobuf8internal14ArenaStringPtr17ReleaseNonDefaultEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit
 
@@ -768,7 +768,7 @@ define hidden noundef nonnull ptr @_ZN6google8protobuf8internal14ArenaStringPtr1
   store ptr %6, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %7, align 8, !tbaa !15
-  store i8 0, ptr %6, align 1, !tbaa !14
+  store i8 0, ptr %6, align 8, !tbaa !14
   %8 = load ptr, ptr %0, align 8, !tbaa !16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %8) #13
   br label %11
@@ -1036,7 +1036,7 @@ _ZN6google8protobuf5Arena14CreateInternalINSt7__cxx1112basic_stringIcSt11char_tr
   store ptr %19, ptr %.sink25, align 8, !tbaa !10
   %20 = getelementptr inbounds nuw i8, ptr %.sink25, i64 8
   store i64 0, ptr %20, align 8, !tbaa !15
-  store i8 0, ptr %19, align 1, !tbaa !14
+  store i8 0, ptr %19, align 8, !tbaa !14
   %21 = sext i32 %.0.i817 to i64
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !22

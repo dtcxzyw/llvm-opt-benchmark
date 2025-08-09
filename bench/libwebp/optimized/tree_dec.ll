@@ -51,7 +51,7 @@ define hidden range(i32 0, 2) i32 @VP8ParseIntraModeRow(ptr noundef %0, ptr noun
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 %21
   %23 = load ptr, ptr %8, align 8, !tbaa !24
   %24 = getelementptr inbounds nuw %struct.VP8MBData, ptr %23, i64 %indvars.iv
-  %25 = load i32, ptr %9, align 4, !tbaa !25
+  %25 = load i32, ptr %9, align 8, !tbaa !25
   %.not.i = icmp eq i32 %25, 0
   br i1 %.not.i, label %136, label %26
 

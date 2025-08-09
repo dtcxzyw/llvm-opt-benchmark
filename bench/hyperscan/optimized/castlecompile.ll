@@ -6252,7 +6252,7 @@ _ZN5boost11make_uniqueIN3ue28NGHolderEJRKNS1_8nfa_kindEEEENS_10enable_if_IXntsr8
   %.sroa.16.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %36, i64 80
   %.sroa.16.0.copyload.i = load i64, ptr %.sroa.16.0..sroa_idx.i, align 8
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.0171.0277, i64 72
-  %41 = load i32, ptr %40, align 4
+  %41 = load i32, ptr %40, align 8
   %42 = icmp ult i32 %41, 2147483647
   br i1 %42, label %_ZNK3ue25depthcvjEv.exit.i, label %43
 
@@ -11184,7 +11184,7 @@ _ZNSt10_HashtableIjSt4pairIKjN3ue28flat_setIjSt4lessIjESaIjEEEESaIS8_ENSt8__deta
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIjSt4pairIKjN3ue28flat_setIjSt4lessIjESaIjEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4
+  %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18

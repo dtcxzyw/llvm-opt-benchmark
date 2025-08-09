@@ -3889,7 +3889,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL7readSIBPN4llvm15X86Disa
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 %9
   call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 1) ]
   %.0.copyload.i.i = load i8, ptr %14, align 1
-  store i8 %.0.copyload.i.i, ptr %13, align 1, !tbaa !60
+  store i8 %.0.copyload.i.i, ptr %13, align 2, !tbaa !60
   %15 = add i64 %6, 1
   store i64 %15, ptr %5, align 8, !tbaa !58
   %16 = lshr i8 %.0.copyload.i.i, 3
@@ -4363,7 +4363,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL8fixupRegPN4llvm15X86Dis
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %45 = load i32, ptr %44, align 4, !tbaa !96
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 50
-  %47 = load i8, ptr %46, align 1, !tbaa !60
+  %47 = load i8, ptr %46, align 2, !tbaa !60
   %48 = lshr i8 %47, 2
   %49 = and i8 %48, 16
   %50 = xor i8 %49, 16

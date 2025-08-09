@@ -420,7 +420,7 @@ _ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_.exit.i.
   store i64 %34, ptr %36, align 8, !tbaa !39, !alias.scope !43, !noalias !46
   store ptr %26, ptr %.0911.i.i.i, align 8, !tbaa !38, !alias.scope !46, !noalias !43
   store i64 0, ptr %35, align 8, !tbaa !39, !alias.scope !46, !noalias !43
-  store i8 0, ptr %26, align 1, !tbaa !40, !alias.scope !46, !noalias !43
+  store i8 0, ptr %26, align 8, !tbaa !40, !alias.scope !46, !noalias !43
   %37 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %38 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %37, %1
@@ -468,7 +468,7 @@ _ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_.exit.i.
   store i64 %50, ptr %52, align 8, !tbaa !39, !alias.scope !51, !noalias !54
   store ptr %42, ptr %.0911.i.i.i30, align 8, !tbaa !38, !alias.scope !54, !noalias !51
   store i64 0, ptr %51, align 8, !tbaa !39, !alias.scope !54, !noalias !51
-  store i8 0, ptr %42, align 1, !tbaa !40, !alias.scope !54, !noalias !51
+  store i8 0, ptr %42, align 8, !tbaa !40, !alias.scope !54, !noalias !51
   %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 32
   %54 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 32
   %.not.i.i.i35 = icmp eq ptr %53, %6
@@ -611,7 +611,7 @@ _ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_.exit.i.
   store i64 %34, ptr %36, align 8, !tbaa !39, !alias.scope !57, !noalias !60
   store ptr %26, ptr %.0911.i.i.i, align 8, !tbaa !38, !alias.scope !60, !noalias !57
   store i64 0, ptr %35, align 8, !tbaa !39, !alias.scope !60, !noalias !57
-  store i8 0, ptr %26, align 1, !tbaa !40, !alias.scope !60, !noalias !57
+  store i8 0, ptr %26, align 8, !tbaa !40, !alias.scope !60, !noalias !57
   %37 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %38 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %37, %1
@@ -659,7 +659,7 @@ _ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_.exit.i.
   store i64 %50, ptr %52, align 8, !tbaa !39, !alias.scope !63, !noalias !66
   store ptr %42, ptr %.0911.i.i.i30, align 8, !tbaa !38, !alias.scope !66, !noalias !63
   store i64 0, ptr %51, align 8, !tbaa !39, !alias.scope !66, !noalias !63
-  store i8 0, ptr %42, align 1, !tbaa !40, !alias.scope !66, !noalias !63
+  store i8 0, ptr %42, align 8, !tbaa !40, !alias.scope !66, !noalias !63
   %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 32
   %54 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 32
   %.not.i.i.i35 = icmp eq ptr %53, %6
@@ -787,7 +787,7 @@ _ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_.exit.i.
   store i64 %34, ptr %36, align 8, !tbaa !39, !alias.scope !69, !noalias !72
   store ptr %26, ptr %.0911.i.i.i, align 8, !tbaa !38, !alias.scope !72, !noalias !69
   store i64 0, ptr %35, align 8, !tbaa !39, !alias.scope !72, !noalias !69
-  store i8 0, ptr %26, align 1, !tbaa !40, !alias.scope !72, !noalias !69
+  store i8 0, ptr %26, align 8, !tbaa !40, !alias.scope !72, !noalias !69
   %37 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %38 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %37, %1
@@ -835,7 +835,7 @@ _ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_.exit.i.
   store i64 %50, ptr %52, align 8, !tbaa !39, !alias.scope !75, !noalias !78
   store ptr %42, ptr %.0911.i.i.i30, align 8, !tbaa !38, !alias.scope !78, !noalias !75
   store i64 0, ptr %51, align 8, !tbaa !39, !alias.scope !78, !noalias !75
-  store i8 0, ptr %42, align 1, !tbaa !40, !alias.scope !78, !noalias !75
+  store i8 0, ptr %42, align 8, !tbaa !40, !alias.scope !78, !noalias !75
   %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 32
   %54 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 32
   %.not.i.i.i35 = icmp eq ptr %53, %6
@@ -963,7 +963,7 @@ _ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_.exit.i.
   store i64 %34, ptr %36, align 8, !tbaa !39, !alias.scope !81, !noalias !84
   store ptr %26, ptr %.0911.i.i.i, align 8, !tbaa !38, !alias.scope !84, !noalias !81
   store i64 0, ptr %35, align 8, !tbaa !39, !alias.scope !84, !noalias !81
-  store i8 0, ptr %26, align 1, !tbaa !40, !alias.scope !84, !noalias !81
+  store i8 0, ptr %26, align 8, !tbaa !40, !alias.scope !84, !noalias !81
   %37 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %38 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %37, %1
@@ -1011,7 +1011,7 @@ _ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_.exit.i.
   store i64 %50, ptr %52, align 8, !tbaa !39, !alias.scope !87, !noalias !90
   store ptr %42, ptr %.0911.i.i.i30, align 8, !tbaa !38, !alias.scope !90, !noalias !87
   store i64 0, ptr %51, align 8, !tbaa !39, !alias.scope !90, !noalias !87
-  store i8 0, ptr %42, align 1, !tbaa !40, !alias.scope !90, !noalias !87
+  store i8 0, ptr %42, align 8, !tbaa !40, !alias.scope !90, !noalias !87
   %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 32
   %54 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 32
   %.not.i.i.i35 = icmp eq ptr %53, %6
@@ -1139,7 +1139,7 @@ _ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_.exit.i.
   store i64 %34, ptr %36, align 8, !tbaa !39, !alias.scope !93, !noalias !96
   store ptr %26, ptr %.0911.i.i.i, align 8, !tbaa !38, !alias.scope !96, !noalias !93
   store i64 0, ptr %35, align 8, !tbaa !39, !alias.scope !96, !noalias !93
-  store i8 0, ptr %26, align 1, !tbaa !40, !alias.scope !96, !noalias !93
+  store i8 0, ptr %26, align 8, !tbaa !40, !alias.scope !96, !noalias !93
   %37 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %38 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %37, %1
@@ -1187,7 +1187,7 @@ _ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_.exit.i.
   store i64 %50, ptr %52, align 8, !tbaa !39, !alias.scope !99, !noalias !102
   store ptr %42, ptr %.0911.i.i.i30, align 8, !tbaa !38, !alias.scope !102, !noalias !99
   store i64 0, ptr %51, align 8, !tbaa !39, !alias.scope !102, !noalias !99
-  store i8 0, ptr %42, align 1, !tbaa !40, !alias.scope !102, !noalias !99
+  store i8 0, ptr %42, align 8, !tbaa !40, !alias.scope !102, !noalias !99
   %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 32
   %54 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 32
   %.not.i.i.i35 = icmp eq ptr %53, %6

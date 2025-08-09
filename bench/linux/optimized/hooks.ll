@@ -3064,7 +3064,7 @@ define internal void @selinux_bprm_committed_creds(ptr readnone captures(none) %
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 1888
   %20 = load ptr, ptr %19, align 32
   tail call void @_raw_spin_lock_irq(ptr noundef %20) #24
-  %21 = load volatile i64, ptr %3, align 8
+  %21 = load volatile i64, ptr %3, align 32
   %22 = and i64 %21, 4
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %29, label %24

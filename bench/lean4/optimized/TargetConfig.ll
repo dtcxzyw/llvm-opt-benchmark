@@ -2238,7 +2238,7 @@ _init_l_Lake_instInhabitedTargetConfig___lambda__1___closed__4.exit: ; preds = %
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 24
   store i64 0, ptr %43, align 8, !tbaa !15
-  store i32 1, ptr %39, align 4, !tbaa !8
+  store i32 1, ptr %39, align 8, !tbaa !8
   store i32 131104, ptr %42, align 4
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %37, ptr %44, align 8, !tbaa !4
@@ -2288,7 +2288,7 @@ _init_l_Lake_instInhabitedTargetConfig___lambda__1___closed__8.exit: ; preds = %
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 32
   store i64 0, ptr %62, align 8, !tbaa !15
-  store i32 1, ptr %58, align 4, !tbaa !8
+  store i32 1, ptr %58, align 8, !tbaa !8
   store i32 196648, ptr %61, align 4
   %63 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store ptr %56, ptr %63, align 8, !tbaa !4

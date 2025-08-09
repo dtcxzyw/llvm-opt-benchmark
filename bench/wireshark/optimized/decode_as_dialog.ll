@@ -1560,11 +1560,11 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i110:   ; preds = %126
   %139 = getelementptr inbounds nuw i8, ptr %135, i64 20
   store i32 1507328, ptr %139, align 4
   %140 = getelementptr inbounds nuw i8, ptr %135, i64 24
-  store i32 0, ptr %140, align 4
+  store i32 0, ptr %140, align 8
   %141 = getelementptr inbounds nuw i8, ptr %135, i64 28
   store i32 0, ptr %141, align 4
   %142 = getelementptr inbounds nuw i8, ptr %135, i64 32
-  store i32 -1, ptr %142, align 4
+  store i32 -1, ptr %142, align 8
   %143 = getelementptr inbounds nuw i8, ptr %135, i64 36
   store i32 -1, ptr %143, align 4
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 56

@@ -1969,7 +1969,7 @@ _ZN8AstScope10addBlockspEP7AstNode.exit:          ; preds = %124, %139
   store ptr %144, ptr %143, align 8, !tbaa !39
   %145 = getelementptr inbounds nuw i8, ptr %140, i64 160
   store i64 0, ptr %145, align 8, !tbaa !13
-  store i8 0, ptr %144, align 1, !tbaa !14
+  store i8 0, ptr %144, align 8, !tbaa !14
   %146 = getelementptr inbounds nuw i8, ptr %140, i64 184
   store i8 0, ptr %146, align 8, !tbaa !186
   %147 = getelementptr inbounds nuw i8, ptr %140, i64 192
@@ -3835,7 +3835,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %25, ptr %28, align 8, !tbaa !13
   store ptr %16, ptr %13, align 8, !tbaa !5
   store i64 0, ptr %27, align 8, !tbaa !13
-  store i8 0, ptr %16, align 1, !tbaa !14
+  store i8 0, ptr %16, align 8, !tbaa !14
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store i32 0, ptr %29, align 8, !tbaa !234
   store ptr %7, ptr %26, align 8, !tbaa !236

@@ -371,7 +371,7 @@ define internal fastcc i64 @getreg(ptr noundef %0, i64 noundef range(i64 -171798
   %64 = inttoptr i64 %63 to ptr
   %65 = getelementptr i8, ptr %64, i64 -24
   %66 = load i64, ptr %65, align 8
-  %67 = load volatile i64, ptr %0, align 8
+  %67 = load volatile i64, ptr %0, align 32
   %68 = and i64 %67, 16777216
   %69 = icmp eq i64 %68, 0
   %70 = and i64 %66, -257

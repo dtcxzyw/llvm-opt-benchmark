@@ -513,7 +513,7 @@ define internal fastcc void @"_ZZN5folly6detail15EventBasePoller3getEvENK3$_0clE
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 72
   store i64 -9223372036854775808, ptr %22, align 8, !noalias !39
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 80
-  store i32 0, ptr %23, align 4, !tbaa !46, !noalias !39
+  store i32 0, ptr %23, align 8, !tbaa !46, !noalias !39
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5folly6detail12_GLOBAL__N_119EventBasePollerImplE, i64 16), ptr %13, align 8, !tbaa !31, !noalias !39
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 88
   store i8 %14, ptr %24, align 8, !tbaa !48, !noalias !39
@@ -2695,7 +2695,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_order.exit.i.i.i.
   %298 = trunc i64 %297 to i32
   %299 = sub nsw i64 %99, %.sroa.013.0.ph.i.i.i.i.i.i
   %300 = sub nsw i64 %283, %99
-  %301 = load i32, ptr %80, align 4, !tbaa !22
+  %301 = load i32, ptr %80, align 8, !tbaa !22
   %.sroa.speculated10.i.i.i.i.i.i.i = call i32 @llvm.smin.i32(i32 %298, i32 %301)
   store i32 %.sroa.speculated10.i.i.i.i.i.i.i, ptr %80, align 8, !tbaa !24
   %302 = load i32, ptr %81, align 4, !tbaa !22

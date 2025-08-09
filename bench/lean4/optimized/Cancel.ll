@@ -2277,7 +2277,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit762
   %160 = getelementptr inbounds nuw i8, ptr %157, i64 4
   %161 = getelementptr inbounds nuw i8, ptr %157, i64 40
   store i64 0, ptr %161, align 8, !tbaa !12
-  store i32 1, ptr %157, align 4, !tbaa !4
+  store i32 1, ptr %157, align 8, !tbaa !4
   store i32 262192, ptr %160, align 4
   %162 = getelementptr inbounds nuw i8, ptr %157, i64 8
   store ptr %155, ptr %162, align 8, !tbaa !9
@@ -10766,7 +10766,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit776
   %147 = getelementptr inbounds nuw i8, ptr %144, i64 4
   %148 = getelementptr inbounds nuw i8, ptr %144, i64 40
   store i64 0, ptr %148, align 8, !tbaa !12
-  store i32 1, ptr %144, align 4, !tbaa !4
+  store i32 1, ptr %144, align 8, !tbaa !4
   store i32 262192, ptr %147, align 4
   %149 = getelementptr inbounds nuw i8, ptr %144, i64 8
   store ptr %142, ptr %149, align 8, !tbaa !9
@@ -14096,7 +14096,7 @@ lean_alloc_ctor.exit1237:                         ; preds = %lean_dec.exit693
   %1348 = getelementptr inbounds nuw i8, ptr %1345, i64 4
   %1349 = getelementptr inbounds nuw i8, ptr %1345, i64 40
   store i64 0, ptr %1349, align 8, !tbaa !12
-  store i32 1, ptr %1345, align 4, !tbaa !4
+  store i32 1, ptr %1345, align 8, !tbaa !4
   store i32 262192, ptr %1348, align 4
   %1350 = getelementptr inbounds nuw i8, ptr %1345, i64 8
   store ptr %1343, ptr %1350, align 8, !tbaa !9
@@ -32726,7 +32726,7 @@ lean_dec_ref.exit16:                              ; preds = %14, %16, %17
   %.val19 = load ptr, ptr %22, align 8, !tbaa !9
   store ptr %.val19, ptr @l_Lean_Server_Test_Cancel_onceRef, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %.val19) #6
-  %23 = load i32, ptr %18, align 4, !tbaa !4
+  %23 = load i32, ptr %18, align 8, !tbaa !4
   %24 = icmp sgt i32 %23, 1
   br i1 %24, label %25, label %27, !prof !11
 
@@ -32784,7 +32784,7 @@ _init_l_Lean_Server_Test_Cancel_tacticWait__for__cancel__once___closed__8.exit: 
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store i64 0, ptr %46, align 8, !tbaa !12
-  store i32 1, ptr %42, align 4, !tbaa !4
+  store i32 1, ptr %42, align 8, !tbaa !4
   store i32 100728856, ptr %45, align 4
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %41, ptr %47, align 8, !tbaa !9
@@ -33193,7 +33193,7 @@ _init_l_Lean_Server_Test_Cancel___aux__Lean__Server__Test__Cancel______elabRules
   %203 = getelementptr inbounds nuw i8, ptr %200, i64 4
   %204 = getelementptr inbounds nuw i8, ptr %200, i64 40
   store i64 0, ptr %204, align 8, !tbaa !12
-  store i32 1, ptr %200, align 4, !tbaa !4
+  store i32 1, ptr %200, align 8, !tbaa !4
   store i32 262192, ptr %203, align 4
   %205 = getelementptr inbounds nuw i8, ptr %200, i64 8
   store ptr %197, ptr %205, align 8, !tbaa !9
@@ -33311,7 +33311,7 @@ _init_l_Lean_Server_Test_Cancel___aux__Lean__Server__Test__Cancel______elabRules
   %.val20 = load ptr, ptr %250, align 8, !tbaa !9
   store ptr %.val20, ptr @l_Lean_Server_Test_Cancel_unblockedCancelTk, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %.val20) #6
-  %251 = load i32, ptr %246, align 4, !tbaa !4
+  %251 = load i32, ptr %246, align 8, !tbaa !4
   %252 = icmp sgt i32 %251, 1
   br i1 %252, label %253, label %255, !prof !11
 
@@ -33357,7 +33357,7 @@ _init_l_Lean_Server_Test_Cancel_tacticWait__for__unblock___closed__4.exit: ; pre
   %269 = getelementptr inbounds nuw i8, ptr %266, i64 4
   %270 = getelementptr inbounds nuw i8, ptr %266, i64 16
   store i64 0, ptr %270, align 8, !tbaa !12
-  store i32 1, ptr %266, align 4, !tbaa !4
+  store i32 1, ptr %266, align 8, !tbaa !4
   store i32 100728856, ptr %269, align 4
   %271 = getelementptr inbounds nuw i8, ptr %266, i64 8
   store ptr %265, ptr %271, align 8, !tbaa !9
@@ -33451,7 +33451,7 @@ _init_l_Lean_Server_Test_Cancel_tacticWait__for__unblock__async___closed__4.exit
   %314 = getelementptr inbounds nuw i8, ptr %311, i64 4
   %315 = getelementptr inbounds nuw i8, ptr %311, i64 16
   store i64 0, ptr %315, align 8, !tbaa !12
-  store i32 1, ptr %311, align 4, !tbaa !4
+  store i32 1, ptr %311, align 8, !tbaa !4
   store i32 100728856, ptr %314, align 4
   %316 = getelementptr inbounds nuw i8, ptr %311, i64 8
   store ptr %310, ptr %316, align 8, !tbaa !9
@@ -33584,7 +33584,7 @@ _init_l_Lean_Server_Test_Cancel_tacticUnblock___closed__4.exit: ; preds = %_init
   %370 = getelementptr inbounds nuw i8, ptr %367, i64 4
   %371 = getelementptr inbounds nuw i8, ptr %367, i64 16
   store i64 0, ptr %371, align 8, !tbaa !12
-  store i32 1, ptr %367, align 4, !tbaa !4
+  store i32 1, ptr %367, align 8, !tbaa !4
   store i32 100728856, ptr %370, align 4
   %372 = getelementptr inbounds nuw i8, ptr %367, i64 8
   store ptr %366, ptr %372, align 8, !tbaa !9
@@ -33668,7 +33668,7 @@ _init_l_Lean_Server_Test_Cancel_tacticWait__for__cancel__once__async___closed__4
   %403 = getelementptr inbounds nuw i8, ptr %400, i64 4
   %404 = getelementptr inbounds nuw i8, ptr %400, i64 16
   store i64 0, ptr %404, align 8, !tbaa !12
-  store i32 1, ptr %400, align 4, !tbaa !4
+  store i32 1, ptr %400, align 8, !tbaa !4
   store i32 100728856, ptr %403, align 4
   %405 = getelementptr inbounds nuw i8, ptr %400, i64 8
   store ptr %399, ptr %405, align 8, !tbaa !9
@@ -33774,7 +33774,7 @@ _init_l_Lean_Server_Test_Cancel_tacticWait__for__main__cancel__once__async___clo
   %450 = getelementptr inbounds nuw i8, ptr %447, i64 4
   %451 = getelementptr inbounds nuw i8, ptr %447, i64 16
   store i64 0, ptr %451, align 8, !tbaa !12
-  store i32 1, ptr %447, align 4, !tbaa !4
+  store i32 1, ptr %447, align 8, !tbaa !4
   store i32 100728856, ptr %450, align 4
   %452 = getelementptr inbounds nuw i8, ptr %447, i64 8
   store ptr %446, ptr %452, align 8, !tbaa !9

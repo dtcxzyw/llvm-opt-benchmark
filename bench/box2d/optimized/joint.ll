@@ -610,7 +610,7 @@ b2JointArray_Push.exit:                           ; preds = %.b2JointArray_Reser
   %60 = getelementptr inbounds nuw i8, ptr %45, i64 20
   store i32 %10, ptr %60, align 4, !tbaa !143
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  store i32 -1, ptr %61, align 4, !tbaa !145
+  store i32 -1, ptr %61, align 8, !tbaa !145
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %63 = load i32, ptr %62, align 4, !tbaa !146
   %64 = getelementptr inbounds nuw i8, ptr %45, i64 28

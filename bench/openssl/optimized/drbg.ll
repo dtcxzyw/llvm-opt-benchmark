@@ -1389,7 +1389,7 @@ find_call.exit123.thread:                         ; preds = %69, %.preheader.i, 
   %78 = getelementptr inbounds nuw i8, ptr %13, i64 184
   store i32 1, ptr %78, align 8, !tbaa !23
   %79 = getelementptr inbounds nuw i8, ptr %13, i64 208
-  store atomic i32 1, ptr %79 seq_cst, align 4, !tbaa !55
+  store atomic i32 1, ptr %79 seq_cst, align 8, !tbaa !55
   %80 = getelementptr inbounds nuw i8, ptr %13, i64 188
   store i32 256, ptr %80, align 4, !tbaa !22
   %81 = getelementptr inbounds nuw i8, ptr %13, i64 200

@@ -1034,7 +1034,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.sroa.718.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 20
   store i32 %.sroa.0.sroa.8.0.copyload.i, ptr %.sroa.718.0..sroa_idx.i.i, align 4, !noalias !207
   %.sroa.8.20..sroa.718.0..sroa_idx.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store i32 %.sroa.5.0.copyload4.i, ptr %.sroa.8.20..sroa.718.0..sroa_idx.i.sroa_idx.i, align 4, !noalias !207
+  store i32 %.sroa.5.0.copyload4.i, ptr %.sroa.8.20..sroa.718.0..sroa_idx.i.sroa_idx.i, align 8, !noalias !207
   %.sroa.9.20..sroa.718.0..sroa_idx.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.9.20..sroa.718.0..sroa_idx.i.sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.9.i, i64 12, i1 false), !noalias !207
   %19 = add i64 %10, 1
@@ -1785,7 +1785,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.sroa.718.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 20
   store i32 %.sroa.0.sroa.8.0.copyload.i, ptr %.sroa.718.0..sroa_idx.i.i, align 4, !noalias !470
   %.sroa.8.20..sroa.718.0..sroa_idx.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store i32 %.sroa.5.0.copyload4.i, ptr %.sroa.8.20..sroa.718.0..sroa_idx.i.sroa_idx.i, align 4, !noalias !470
+  store i32 %.sroa.5.0.copyload4.i, ptr %.sroa.8.20..sroa.718.0..sroa_idx.i.sroa_idx.i, align 8, !noalias !470
   %.sroa.9.20..sroa.718.0..sroa_idx.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.9.20..sroa.718.0..sroa_idx.i.sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.9.i, i64 12, i1 false), !noalias !470
   %19 = add i64 %10, 1
@@ -41627,7 +41627,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h0db8035267c161
   %.sroa.718.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i32 %.sroa.0.sroa.8.0.copyload, ptr %.sroa.718.0..sroa_idx.i, align 4, !noalias !13448
   %.sroa.8.20..sroa.718.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store i32 %.sroa.5.0.copyload4, ptr %.sroa.8.20..sroa.718.0..sroa_idx.i.sroa_idx, align 4, !noalias !13448
+  store i32 %.sroa.5.0.copyload4, ptr %.sroa.8.20..sroa.718.0..sroa_idx.i.sroa_idx, align 8, !noalias !13448
   %.sroa.9.20..sroa.718.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.9.20..sroa.718.0..sroa_idx.i.sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.9, i64 12, i1 false), !noalias !13448
   %21 = add i64 %12, 1
@@ -42666,7 +42666,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h6e8195c28c7b97
   %.sroa.718.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i32 %.sroa.0.sroa.8.0.copyload, ptr %.sroa.718.0..sroa_idx.i, align 4, !noalias !13938
   %.sroa.8.20..sroa.718.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store i32 %.sroa.5.0.copyload4, ptr %.sroa.8.20..sroa.718.0..sroa_idx.i.sroa_idx, align 4, !noalias !13938
+  store i32 %.sroa.5.0.copyload4, ptr %.sroa.8.20..sroa.718.0..sroa_idx.i.sroa_idx, align 8, !noalias !13938
   %.sroa.9.20..sroa.718.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.9.20..sroa.718.0..sroa_idx.i.sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.9, i64 12, i1 false), !noalias !13938
   %21 = add i64 %12, 1

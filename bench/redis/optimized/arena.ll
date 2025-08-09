@@ -659,7 +659,7 @@ bin_stats_merge.exit:                             ; preds = %256, %269
   %316 = add i64 %315, %314
   store i64 %316, ptr %230, align 8, !tbaa !135
   %317 = getelementptr inbounds nuw i8, ptr %237, i64 104
-  store atomic i8 0, ptr %317 monotonic, align 1
+  store atomic i8 0, ptr %317 monotonic, align 8
   %318 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %238) #16
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
   %319 = load i32, ptr %210, align 4, !tbaa !107
@@ -1549,7 +1549,7 @@ malloc_mutex_lock.exit.i:                         ; preds = %122, %116
 128:                                              ; preds = %malloc_mutex_lock.exit.i
   store ptr null, ptr %126, align 8, !tbaa !161
   %129 = getelementptr inbounds nuw i8, ptr %111, i64 104
-  store atomic i8 0, ptr %129 monotonic, align 1
+  store atomic i8 0, ptr %129 monotonic, align 8
   %130 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %112) #16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1, !tbaa !141
@@ -1912,7 +1912,7 @@ arena_bin_reset.exit:                             ; preds = %malloc_mutex_lock.e
   %282 = getelementptr inbounds nuw i8, ptr %111, i64 176
   store i64 0, ptr %282, align 8, !tbaa !132
   %283 = getelementptr inbounds nuw i8, ptr %111, i64 104
-  store atomic i8 0, ptr %283 monotonic, align 1
+  store atomic i8 0, ptr %283 monotonic, align 8
   %284 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %112) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %285 = load i32, ptr %102, align 4, !tbaa !107
@@ -2388,7 +2388,7 @@ arena_bin_refill_slabcur_no_fresh_slab.exit:      ; preds = %arena_bin_slabs_ful
   %160 = add i64 %159, 1
   store i64 %160, ptr %158, align 8, !tbaa !124
   store i64 0, ptr %150, align 8, !tbaa !179
-  store atomic i8 0, ptr %40 monotonic, align 1
+  store atomic i8 0, ptr %40 monotonic, align 8
   %161 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %39) #16
   %.not79 = icmp eq ptr %.266123, null
   br i1 %.not79, label %169, label %164
@@ -2468,7 +2468,7 @@ cache_bin_finish_fill.exit:                       ; preds = %169, %180
   %202 = mul nsw i64 %201, %198
   %203 = udiv i64 %202, 61
   %204 = trunc i64 %203 to i32
-  store i32 %204, ptr %186, align 4, !tbaa !180
+  store i32 %204, ptr %186, align 8, !tbaa !180
   call void @je_arena_decay(ptr noundef nonnull %0, ptr noundef %1, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %arena_decay_ticks.exit
 
@@ -2837,7 +2837,7 @@ edata_list_active_concat.exit:                    ; preds = %117, %119, %116, %1
   %150 = add i64 %149, %.059.lcssa
   store i64 %150, ptr %148, align 8, !tbaa !122
   %151 = getelementptr inbounds nuw i8, ptr %33, i64 104
-  store atomic i8 0, ptr %151 monotonic, align 1
+  store atomic i8 0, ptr %151 monotonic, align 8
   %152 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %96) #16
   br i1 %16, label %arena_decay_ticks.exit, label %153, !prof !144
 
@@ -2865,7 +2865,7 @@ edata_list_active_concat.exit:                    ; preds = %117, %119, %116, %1
   %170 = mul nsw i64 %169, %166
   %171 = udiv i64 %170, 61
   %172 = trunc i64 %171 to i32
-  store i32 %172, ptr %154, align 4, !tbaa !180
+  store i32 %172, ptr %154, align 8, !tbaa !180
   tail call void @je_arena_decay(ptr noundef nonnull %0, ptr noundef %1, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %arena_decay_ticks.exit
 
@@ -3220,7 +3220,7 @@ arena_bin_malloc_with_fresh_slab.exit.i:          ; preds = %._crit_edge.loopexi
   %133 = add i64 %132, 1
   store i64 %133, ptr %131, align 8, !tbaa !122
   %134 = getelementptr inbounds nuw i8, ptr %53, i64 104
-  store atomic i8 0, ptr %134 monotonic, align 1
+  store atomic i8 0, ptr %134 monotonic, align 8
   %135 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %54) #16
   %.not.i16 = icmp eq ptr %.048.i, null
   br i1 %.not.i16, label %141, label %136
@@ -3276,7 +3276,7 @@ je_arena_slab_dalloc.exit.i:                      ; preds = %140, %136
   %161 = mul nsw i64 %160, %157
   %162 = udiv i64 %161, 61
   %163 = trunc i64 %162 to i32
-  store i32 %163, ptr %145, align 4, !tbaa !180
+  store i32 %163, ptr %145, align 8, !tbaa !180
   call void @je_arena_decay(ptr noundef nonnull %0, ptr noundef nonnull %.014212529, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %arena_malloc_small.exit
 
@@ -3921,7 +3921,7 @@ arena_dalloc_bin_locked_step.exit.i:              ; preds = %je_arena_dalloc_bin
   %200 = add i64 %199, -1
   store i64 %200, ptr %198, align 8, !tbaa !122
   %201 = getelementptr inbounds nuw i8, ptr %71, i64 104
-  store atomic i8 0, ptr %201 monotonic, align 1
+  store atomic i8 0, ptr %201 monotonic, align 8
   %202 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %72) #16
   br i1 %108, label %203, label %arena_dalloc_bin.exit
 
@@ -3969,7 +3969,7 @@ arena_dalloc_bin.exit:                            ; preds = %arena_dalloc_bin_lo
   %225 = mul nsw i64 %224, %221
   %226 = udiv i64 %225, 61
   %227 = trunc i64 %226 to i32
-  store i32 %227, ptr %209, align 4, !tbaa !180
+  store i32 %227, ptr %209, align 8, !tbaa !180
   call void @je_arena_decay(ptr noundef nonnull %0, ptr noundef %.0.i.i9, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %arena_decay_ticks.exit
 
@@ -4258,7 +4258,7 @@ sz_size2index.exit:                               ; preds = %130, %sz_size2index
   %173 = mul nsw i64 %172, %169
   %174 = udiv i64 %173, 61
   %175 = trunc i64 %174 to i32
-  store i32 %175, ptr %157, align 4, !tbaa !180
+  store i32 %175, ptr %157, align 8, !tbaa !180
   call void @je_arena_decay(ptr noundef nonnull %0, ptr noundef %.0.i.i46, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %arena_decay_ticks.exit
 

@@ -687,7 +687,7 @@ _ZNSt10unique_ptrI10RenderStepSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNK
   %size.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   store i32 0, ptr %size.i.i.i, align 4, !tbaa !54, !noalias !51
   %Height.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
-  store i32 0, ptr %Height.i.i.i.i, align 4, !tbaa !56, !noalias !51
+  store i32 0, ptr %Height.i.i.i.i, align 8, !tbaa !56, !noalias !51
   store ptr %call.i.i, ptr %ref.tmp.i, align 8, !tbaa !50, !alias.scope !51
   %call.i = invoke noundef ptr @_ZN14RenderPipeline3ownI12ScreenTargetEEPT_OSt10unique_ptrIS2_St14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(104) %pipeline, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i

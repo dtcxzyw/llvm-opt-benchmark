@@ -116,7 +116,7 @@ lean_dec_ref.exit:                                ; preds = %14, %16, %17
   %.val13 = load ptr, ptr %37, align 8, !tbaa !4
   store ptr %.val13, ptr @l_treeTacExt, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val13) #3
-  %38 = load i32, ptr %33, align 4, !tbaa !8
+  %38 = load i32, ptr %33, align 8, !tbaa !8
   %39 = icmp sgt i32 %38, 1
   br i1 %39, label %40, label %42, !prof !11
 

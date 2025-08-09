@@ -16612,9 +16612,9 @@ default.unreachable:                              ; preds = %25
   %.sroa.532.0..sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %.sroa.532.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(47) %.sroa.13.sroa.0, i64 47, i1 false)
   %.sroa.532.sroa.4.0..sroa.532.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 56
-  store i64 %.sroa.13.sroa.7.1, ptr %.sroa.532.sroa.4.0..sroa.532.0..sroa_idx.sroa_idx, align 1
+  store i64 %.sroa.13.sroa.7.1, ptr %.sroa.532.sroa.4.0..sroa.532.0..sroa_idx.sroa_idx, align 8
   %.sroa.532.sroa.5.0..sroa.532.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 64
-  store i64 %.sroa.13.sroa.8.1, ptr %.sroa.532.sroa.5.0..sroa.532.0..sroa_idx.sroa_idx, align 1
+  store i64 %.sroa.13.sroa.8.1, ptr %.sroa.532.sroa.5.0..sroa.532.0..sroa_idx.sroa_idx, align 8
   %63 = icmp eq i64 %23, 0
   br i1 %63, label %.thread, label %22
 

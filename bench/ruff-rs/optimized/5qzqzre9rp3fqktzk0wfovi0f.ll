@@ -1248,7 +1248,7 @@ default.unreachable23.i:                          ; preds = %258
   %295 = getelementptr inbounds nuw i8, ptr %.sroa.020.0237, i64 12
   %296 = load i32, ptr %295, align 4, !noalias !108, !noundef !10
   %297 = getelementptr inbounds nuw i8, ptr %.sroa.020.0237, i64 16
-  %298 = load i8, ptr %297, align 1, !range !111, !noalias !108, !noundef !10
+  %298 = load i8, ptr %297, align 4, !range !111, !noalias !108, !noundef !10
   %.sroa.14.8.insert.ext15.i = zext nneg i8 %298 to i64
   br label %"_ZN79_$LT$ruff_formatter..format_element..tag..Tag$u20$as$u20$core..clone..Clone$GT$5clone17h821775493f0fd8b0E.exit.i"
 

@@ -1816,9 +1816,9 @@ _ZN12gjkepa2_impl3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit: ; preds = %_ZN12gjke
   store ptr %43, ptr %61, align 8, !tbaa !28
   %100 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %101 = getelementptr inbounds nuw i8, ptr %6, i64 36
-  %102 = load float, ptr %100, align 4, !tbaa !23
+  %102 = load float, ptr %100, align 8, !tbaa !23
   %103 = load float, ptr %101, align 4, !tbaa !23
-  store float %103, ptr %100, align 4, !tbaa !23
+  store float %103, ptr %100, align 8, !tbaa !23
   store float %102, ptr %101, align 4, !tbaa !23
   br label %104
 
@@ -1905,7 +1905,7 @@ _ZN12gjkepa2_impl3EPA8findbestEv.exit:            ; preds = %.lr.ph.i, %122
   %138 = getelementptr inbounds nuw i8, ptr %115, i64 48
   store ptr %107, ptr %138, align 8, !tbaa !61
   %139 = getelementptr inbounds nuw i8, ptr %107, i64 90
-  store i8 0, ptr %139, align 1, !tbaa !24
+  store i8 0, ptr %139, align 2, !tbaa !24
   %140 = getelementptr inbounds nuw i8, ptr %107, i64 64
   store ptr %119, ptr %140, align 8, !tbaa !61
   %141 = getelementptr inbounds nuw i8, ptr %119, i64 88
@@ -1917,11 +1917,11 @@ _ZN12gjkepa2_impl3EPA8findbestEv.exit:            ; preds = %.lr.ph.i, %122
   %144 = getelementptr inbounds nuw i8, ptr %111, i64 56
   store ptr %119, ptr %144, align 8, !tbaa !61
   %145 = getelementptr inbounds nuw i8, ptr %119, i64 90
-  store i8 1, ptr %145, align 1, !tbaa !24
+  store i8 1, ptr %145, align 2, !tbaa !24
   %146 = getelementptr inbounds nuw i8, ptr %119, i64 64
   store ptr %111, ptr %146, align 8, !tbaa !61
   %147 = getelementptr inbounds nuw i8, ptr %111, i64 90
-  store i8 1, ptr %147, align 1, !tbaa !24
+  store i8 1, ptr %147, align 2, !tbaa !24
   %148 = getelementptr inbounds nuw i8, ptr %111, i64 64
   store ptr %115, ptr %148, align 8, !tbaa !61
   %149 = getelementptr inbounds nuw i8, ptr %115, i64 89
@@ -1929,7 +1929,7 @@ _ZN12gjkepa2_impl3EPA8findbestEv.exit:            ; preds = %.lr.ph.i, %122
   %150 = getelementptr inbounds nuw i8, ptr %115, i64 56
   store ptr %111, ptr %150, align 8, !tbaa !61
   %151 = getelementptr inbounds nuw i8, ptr %115, i64 90
-  store i8 1, ptr %151, align 1, !tbaa !24
+  store i8 1, ptr %151, align 2, !tbaa !24
   %152 = getelementptr inbounds nuw i8, ptr %115, i64 64
   store ptr %119, ptr %152, align 8, !tbaa !61
   %153 = getelementptr inbounds nuw i8, ptr %119, i64 89

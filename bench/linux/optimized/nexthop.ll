@@ -479,7 +479,7 @@ define dso_local ptr @nexthop_select_path(ptr noundef %0, i32 noundef %1) #0 ali
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 584
   %98 = load volatile ptr, ptr %97, align 8
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 12
-  %100 = load i32, ptr %93, align 4
+  %100 = load i32, ptr %93, align 8
   %101 = ptrtoint ptr %92 to i64
   %102 = lshr i64 %101, 32
   %103 = xor i64 %102, %101
@@ -494,7 +494,7 @@ define dso_local ptr @nexthop_select_path(ptr noundef %0, i32 noundef %1) #0 ali
   %112 = mul i32 %111, %109
   %113 = add i32 %112, %107
   %114 = getelementptr i8, ptr %48, i64 64
-  %115 = load i32, ptr %114, align 4
+  %115 = load i32, ptr %114, align 8
   %116 = getelementptr i8, ptr %98, i64 20
   %117 = load i32, ptr %116, align 4
   %118 = mul i32 %117, %115
@@ -5969,7 +5969,7 @@ define internal fastcc void @remove_nexthop_from_groups(ptr noundef %0, ptr noun
   %121 = trunc i64 %120 to i32
   %122 = add i32 %121, -1
   %123 = getelementptr inbounds nuw i8, ptr %112, i64 16
-  store volatile i32 %122, ptr %123, align 4
+  store volatile i32 %122, ptr %123, align 8
   %124 = add nuw nsw i64 %110, 1
   %125 = icmp eq i64 %124, %94
   br i1 %125, label %.critedge, label %109, !llvm.loop !47
@@ -7512,7 +7512,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtm_to_nh_config_grp_res(p
 
 53:                                               ; preds = %47
   store i64 0, ptr %50, align 8
-  store i8 0, ptr %51, align 1
+  store i8 0, ptr %51, align 2
   br label %.thread
 
 54:                                               ; preds = %47
@@ -7534,7 +7534,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtm_to_nh_config_grp_res(p
 
 63:                                               ; preds = %54
   store i64 %58, ptr %50, align 8
-  store i8 1, ptr %51, align 1
+  store i8 1, ptr %51, align 2
   br label %.thread
 
 .thread:                                          ; preds = %10, %12, %44, %46, %63, %62, %60, %53, %32, %30, %15

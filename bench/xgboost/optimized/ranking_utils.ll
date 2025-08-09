@@ -5850,7 +5850,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit7: ; preds = %_ZNSol
   store ptr %14, ptr %12, align 8, !tbaa !142, !alias.scope !264
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 0, ptr %15, align 8, !tbaa !81, !alias.scope !264
-  store i8 0, ptr %14, align 1, !tbaa !82, !alias.scope !264
+  store i8 0, ptr %14, align 8, !tbaa !82, !alias.scope !264
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %17 = load ptr, ptr %16, align 8, !tbaa !196, !noalias !264
   %.not.i.not.i.i = icmp eq ptr %17, null
@@ -15603,7 +15603,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit6: ; preds = %12
   store ptr %16, ptr %14, align 8, !tbaa !142, !alias.scope !459
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 0, ptr %17, align 8, !tbaa !81, !alias.scope !459
-  store i8 0, ptr %16, align 1, !tbaa !82, !alias.scope !459
+  store i8 0, ptr %16, align 8, !tbaa !82, !alias.scope !459
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %19 = load ptr, ptr %18, align 8, !tbaa !196, !noalias !459
   %.not.i.not.i.i = icmp eq ptr %19, null
@@ -27803,19 +27803,19 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(248) ptr @_ZN4dmlc9P
   store ptr %10, ptr %9, align 8, !tbaa !142
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 0, ptr %11, align 8, !tbaa !81
-  store i8 0, ptr %10, align 1, !tbaa !82
+  store i8 0, ptr %10, align 8, !tbaa !82
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store ptr %13, ptr %12, align 8, !tbaa !142
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i64 0, ptr %14, align 8, !tbaa !81
-  store i8 0, ptr %13, align 1, !tbaa !82
+  store i8 0, ptr %13, align 8, !tbaa !82
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 104
   store ptr %16, ptr %15, align 8, !tbaa !142
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store i64 0, ptr %17, align 8, !tbaa !81
-  store i8 0, ptr %16, align 1, !tbaa !82
+  store i8 0, ptr %16, align 8, !tbaa !82
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 132
   store i8 0, ptr %18, align 4, !tbaa !634
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 133
@@ -30728,7 +30728,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit6: ; preds = %_ZNSol
   store ptr %15, ptr %13, align 8, !tbaa !142, !alias.scope !701
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %16, align 8, !tbaa !81, !alias.scope !701
-  store i8 0, ptr %15, align 1, !tbaa !82, !alias.scope !701
+  store i8 0, ptr %15, align 8, !tbaa !82, !alias.scope !701
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %18 = load ptr, ptr %17, align 8, !tbaa !196, !noalias !701
   %.not.i.not.i.i = icmp eq ptr %18, null
@@ -32400,7 +32400,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIiSt4pairIKiNSt7__cxx1112basic_stringIcSt
   store ptr %14, ptr %13, align 8, !tbaa !142
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i64 0, ptr %15, align 8, !tbaa !81
-  store i8 0, ptr %14, align 1, !tbaa !82
+  store i8 0, ptr %14, align 8, !tbaa !82
   store ptr %8, ptr %7, align 8, !tbaa !724
   %16 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIiESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %9)
           to label %17 unwind label %32
@@ -37348,7 +37348,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit14: ; preds = %32
   store ptr %36, ptr %34, align 8, !tbaa !142, !alias.scope !803
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 0, ptr %37, align 8, !tbaa !81, !alias.scope !803
-  store i8 0, ptr %36, align 1, !tbaa !82, !alias.scope !803
+  store i8 0, ptr %36, align 8, !tbaa !82, !alias.scope !803
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %39 = load ptr, ptr %38, align 8, !tbaa !196, !noalias !803
   %.not.i.not.i.i = icmp eq ptr %39, null

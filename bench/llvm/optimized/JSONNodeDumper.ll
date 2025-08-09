@@ -6455,7 +6455,7 @@ _ZN4llvm4json5Value6createINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJ
   store i64 %31, ptr %32, align 8, !tbaa !15
   store ptr %24, ptr %1, align 8, !tbaa !9
   store i64 0, ptr %5, align 8, !tbaa !15
-  store i8 0, ptr %24, align 1, !tbaa !17
+  store i8 0, ptr %24, align 8, !tbaa !17
   ret void
 }
 
@@ -23252,7 +23252,7 @@ _ZNK5clang12FunctionDecl17getDeletedMessageEv.exit: ; preds = %83
   %101 = lshr i32 %100, 22
   %102 = and i32 %101, 7
   %103 = getelementptr inbounds nuw i8, ptr %93, i64 16
-  %104 = load i32, ptr %103, align 4, !tbaa !32
+  %104 = load i32, ptr %103, align 8, !tbaa !32
   %105 = mul i32 %102, %104
   %106 = zext i32 %105 to i64
   call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr nonnull %99, i64 %106)
@@ -24621,7 +24621,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper22VisitObjCTypeParamDeclEPKNS_17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %29 = load i32, ptr %28, align 4, !tbaa !128
+  %29 = load i32, ptr %28, align 8, !tbaa !128
   %.not = icmp eq i32 %29, 0
   br i1 %.not, label %_ZN5clang14JSONNodeDumper19attributeOnlyIfTrueEN4llvm9StringRefEb.exit, label %30
 
@@ -34865,7 +34865,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %9,
   store i64 %16, ptr %18, align 8, !tbaa !15
   store ptr %7, ptr %1, align 8, !tbaa !9
   store i64 0, ptr %17, align 8, !tbaa !15
-  store i8 0, ptr %7, align 1, !tbaa !17
+  store i8 0, ptr %7, align 8, !tbaa !17
   store ptr %4, ptr %0, align 8, !tbaa !48
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)

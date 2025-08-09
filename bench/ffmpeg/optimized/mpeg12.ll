@@ -105,7 +105,7 @@ define void @ff_mpeg1_clean_buffers(ptr noundef captures(none) initializes((1284
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1284
   store i32 %5, ptr %6, align 4, !tbaa !39
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1288
-  store i32 %5, ptr %7, align 4, !tbaa !39
+  store i32 %5, ptr %7, align 8, !tbaa !39
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1292
   store i32 %5, ptr %8, align 4, !tbaa !39
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 3056

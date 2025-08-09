@@ -984,7 +984,7 @@ entry:
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8, !noalias !64
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 %vbase.offset.i.i.i.i
   store ptr %2, ptr %add.ptr.i.i.i.i, align 8, !tbaa !12, !noalias !64
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13TextureBuffer, i64 40), ptr %call.i.i, align 8, !tbaa !12, !noalias !64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13TextureBuffer, i64 40), ptr %call.i.i, align 16, !tbaa !12, !noalias !64
   %m_driver.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %m_driver.i.i.i, i8 0, i64 56, i1 false), !noalias !64
   store ptr %call.i.i, ptr %ref.tmp.i, align 8, !tbaa !33, !alias.scope !64

@@ -3542,7 +3542,7 @@ llvm_emit_rethrow_expr.exit:                      ; preds = %llvm_emit_rethrow_e
   %1664 = getelementptr inbounds nuw %struct.Expr_, ptr %1662, i64 %1663
   %1665 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %1666 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1667 = load i32, ptr %1666, align 4
+  %1667 = load i32, ptr %1666, align 8
   %1668 = zext i32 %1667 to i64
   %1669 = getelementptr inbounds nuw %struct.Expr_, ptr %1662, i64 %1668
   %1670 = load ptr, ptr %1664, align 8
@@ -16519,7 +16519,7 @@ define internal fastcc void @llvm_emit_slice_values(ptr noundef %0, ptr noundef 
   %17 = getelementptr inbounds nuw %struct.Expr_, ptr %15, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %20 = load i32, ptr %19, align 4
+  %20 = load i32, ptr %19, align 8
   %21 = zext i32 %20 to i64
   %22 = getelementptr inbounds nuw %struct.Expr_, ptr %15, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -17660,7 +17660,7 @@ define internal fastcc void @llvm_emit_pre_post_inc_dec_vector(ptr noundef %0, p
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %21 = load i32, ptr %20, align 4
+  %21 = load i32, ptr %20, align 8
   %22 = load ptr, ptr @expr_arena, align 8
   %23 = zext i32 %21 to i64
   %24 = getelementptr inbounds nuw %struct.Expr_, ptr %22, i64 %23
@@ -20543,7 +20543,7 @@ define internal fastcc void @llvm_emit_vector_assign_expr(ptr noundef %0, ptr no
   call void @llvm_value_addr(ptr noundef %0, ptr noundef nonnull %4) #10
   %18 = call ptr @llvm_load_value_store(ptr noundef %0, ptr noundef nonnull %4) #10
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %20 = load i32, ptr %19, align 4
+  %20 = load i32, ptr %19, align 8
   %21 = load ptr, ptr @expr_arena, align 8
   %22 = zext i32 %20 to i64
   %23 = getelementptr inbounds nuw %struct.Expr_, ptr %21, i64 %22
@@ -20606,7 +20606,7 @@ define internal fastcc void @llvm_emit_vector_subscript(ptr noundef %0, ptr noun
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %17 = load i32, ptr %16, align 4
+  %17 = load i32, ptr %16, align 8
   %18 = load ptr, ptr @expr_arena, align 8
   %19 = zext i32 %17 to i64
   %20 = getelementptr inbounds nuw %struct.Expr_, ptr %18, i64 %19

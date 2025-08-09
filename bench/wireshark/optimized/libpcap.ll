@@ -1861,7 +1861,7 @@ define internal zeroext i1 @libpcap_dump_pcap_nokia(ptr noundef %0, ptr noundef 
   store i32 %14, ptr %15, align 4
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  %18 = load i32, ptr %17, align 1
+  %18 = load i32, ptr %17, align 4
   store i32 %18, ptr %16, align 4
   %19 = call fastcc zeroext i1 @libpcap_dump_write_packet(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %6, i64 noundef 20, ptr noundef %2, ptr noundef %3)
   br label %20

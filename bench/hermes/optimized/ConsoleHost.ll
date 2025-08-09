@@ -2759,7 +2759,7 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIj
   %__bbegin_bkt.021 = phi i64 [ %__bbegin_bkt.1, %if.end22 ], [ 0, %_ZNSt10_HashtableIjSt4pairIKjSt14_List_iteratorIS0_IjPN6hermes2vm8CallableEEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %1 = load ptr, ptr %__p.022, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %__p.022, i64 8
-  %2 = load i32, ptr %add.ptr, align 4
+  %2 = load i32, ptr %add.ptr, align 8
   %conv.i.i.i = zext i32 %2 to i64
   %rem.i.i = urem i64 %conv.i.i.i, %__bkt_count
   %arrayidx = getelementptr inbounds nuw ptr, ptr %retval.0.i, i64 %rem.i.i
@@ -2887,7 +2887,7 @@ if.then:                                          ; preds = %for.cond.i.i.i.i, %
   tail call void @_ZdlPv(ptr noundef nonnull %9) #20
   %_M_bucket_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %11 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
-  %12 = load i32, ptr %add.ptr.i, align 4
+  %12 = load i32, ptr %add.ptr.i, align 8
   %conv.i.i.i.i.i.i.i = zext i32 %12 to i64
   %rem.i.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i.i, %11
   %13 = load ptr, ptr %taskMap_, align 8

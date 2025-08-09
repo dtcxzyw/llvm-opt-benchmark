@@ -5370,7 +5370,7 @@ _ZN4Luau15GenericTypePackC2EOS0_.exit:            ; preds = %9, %_ZNKSt7__cxx111
   store i64 %16, ptr %17, align 8, !tbaa !36
   store ptr %7, ptr %4, align 8, !tbaa !30
   store i64 0, ptr %15, align 8, !tbaa !36
-  store i8 0, ptr %7, align 1, !tbaa !31
+  store i8 0, ptr %7, align 8, !tbaa !31
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %20 = load i8, ptr %19, align 8, !tbaa !37, !range !74, !noundef !75

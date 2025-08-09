@@ -431,9 +431,9 @@ _ZN20btAlignedObjectArrayI16btBvhSubtreeInfoE6expandERKS0_.exit: ; preds = %._ZN
   %148 = getelementptr inbounds nuw i8, ptr %135, i64 6
   store i16 %147, ptr %148, align 2, !tbaa !60
   %149 = getelementptr inbounds nuw i8, ptr %138, i64 8
-  %150 = load i16, ptr %149, align 2, !tbaa !60
+  %150 = load i16, ptr %149, align 4, !tbaa !60
   %151 = getelementptr inbounds nuw i8, ptr %135, i64 8
-  store i16 %150, ptr %151, align 2, !tbaa !60
+  store i16 %150, ptr %151, align 4, !tbaa !60
   %152 = getelementptr inbounds nuw i8, ptr %138, i64 10
   %153 = load i16, ptr %152, align 2, !tbaa !60
   %154 = getelementptr inbounds nuw i8, ptr %135, i64 10
@@ -559,9 +559,9 @@ define dso_local void @_ZN14btOptimizedBvh5refitEP23btStridingMeshInterfaceRK9bt
   %33 = getelementptr inbounds nuw i8, ptr %19, i64 6
   store i16 %32, ptr %33, align 2, !tbaa !60
   %34 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %35 = load i16, ptr %34, align 2, !tbaa !60
+  %35 = load i16, ptr %34, align 4, !tbaa !60
   %36 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store i16 %35, ptr %36, align 2, !tbaa !60
+  store i16 %35, ptr %36, align 4, !tbaa !60
   %37 = getelementptr inbounds nuw i8, ptr %23, i64 10
   %38 = load i16, ptr %37, align 2, !tbaa !60
   %39 = getelementptr inbounds nuw i8, ptr %19, i64 10
@@ -1070,8 +1070,8 @@ define dso_local void @_ZN14btOptimizedBvh12refitPartialEP23btStridingMeshInterf
   %96 = load i16, ptr %95, align 2, !tbaa !60
   store i16 %96, ptr %63, align 2, !tbaa !60
   %97 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  %98 = load i16, ptr %97, align 2, !tbaa !60
-  store i16 %98, ptr %74, align 2, !tbaa !60
+  %98 = load i16, ptr %97, align 4, !tbaa !60
+  store i16 %98, ptr %74, align 4, !tbaa !60
   %99 = getelementptr inbounds nuw i8, ptr %89, i64 10
   %100 = load i16, ptr %99, align 2, !tbaa !60
   store i16 %100, ptr %68, align 2, !tbaa !60

@@ -96914,7 +96914,7 @@ _init_l_Std_DTreeMap_Internal_Impl_tacticTree__tac___closed__8.exit: ; preds = %
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store i64 0, ptr %45, align 8, !tbaa !12
-  store i32 1, ptr %41, align 4, !tbaa !8
+  store i32 1, ptr %41, align 8, !tbaa !8
   store i32 100728856, ptr %44, align 4
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr %40, ptr %46, align 8, !tbaa !4

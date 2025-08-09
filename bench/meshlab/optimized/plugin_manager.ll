@@ -3106,7 +3106,7 @@ _ZL18fileNamePluginDLLsv.exit:                    ; preds = %_ZN5QListI7QStringE
   %42 = load i32, ptr %41, align 8, !noalias !24
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds ptr, ptr %40, i64 %43
-  %45 = load atomic i32, ptr %39 monotonic, align 4, !noalias !27
+  %45 = load atomic i32, ptr %39 monotonic, align 8, !noalias !27
   %46 = icmp ugt i32 %45, 1
   br i1 %46, label %47, label %_ZN5QListI7QStringE3endEv.exit
 

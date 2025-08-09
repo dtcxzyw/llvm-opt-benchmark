@@ -3861,7 +3861,7 @@ if.end476:                                        ; preds = %_ZN4llvh9StringRefC
   %parens_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call478, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i, i8 0, i64 28, i1 false)
   %281 = getelementptr inbounds nuw i8, ptr %call478, i64 48
-  store i32 -1, ptr %281, align 4
+  store i32 -1, ptr %281, align 8
   %_body.i = getelementptr inbounds nuw i8, ptr %call478, i64 56
   store ptr %279, ptr %_body.i, align 8
   %_test.i = getelementptr inbounds nuw i8, ptr %call478, i64 64
@@ -3921,7 +3921,7 @@ if.end502:                                        ; preds = %_ZN4llvh9StringRefC
   %parens_.i.i.i.i3246 = getelementptr inbounds nuw i8, ptr %call504, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i3246, i8 0, i64 28, i1 false)
   %289 = getelementptr inbounds nuw i8, ptr %call504, i64 48
-  store i32 -1, ptr %289, align 4
+  store i32 -1, ptr %289, align 8
   %_body.i3247 = getelementptr inbounds nuw i8, ptr %call504, i64 56
   store ptr %287, ptr %_body.i3247, align 8
   %_test.i3248 = getelementptr inbounds nuw i8, ptr %call504, i64 64
@@ -3998,7 +3998,7 @@ if.end537:                                        ; preds = %_ZN4llvh9StringRefC
   %parens_.i.i.i.i3268 = getelementptr inbounds nuw i8, ptr %call539, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i3268, i8 0, i64 28, i1 false)
   %299 = getelementptr inbounds nuw i8, ptr %call539, i64 48
-  store i32 -1, ptr %299, align 4
+  store i32 -1, ptr %299, align 8
   %_left.i = getelementptr inbounds nuw i8, ptr %call539, i64 56
   store ptr %296, ptr %_left.i, align 8
   %_right.i = getelementptr inbounds nuw i8, ptr %call539, i64 64
@@ -4095,7 +4095,7 @@ if.end581:                                        ; preds = %_ZN4llvh9StringRefC
   %parens_.i.i.i.i3294 = getelementptr inbounds nuw i8, ptr %call583, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i3294, i8 0, i64 28, i1 false)
   %311 = getelementptr inbounds nuw i8, ptr %call583, i64 48
-  store i32 -1, ptr %311, align 4
+  store i32 -1, ptr %311, align 8
   %_left.i3295 = getelementptr inbounds nuw i8, ptr %call583, i64 56
   store ptr %307, ptr %_left.i3295, align 8
   %_right.i3296 = getelementptr inbounds nuw i8, ptr %call583, i64 64
@@ -4152,7 +4152,7 @@ if.end629:                                        ; preds = %if.then590
   %parens_.i.i.i.i3307 = getelementptr inbounds nuw i8, ptr %call631, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i3307, i8 0, i64 28, i1 false)
   %320 = getelementptr inbounds nuw i8, ptr %call631, i64 48
-  store i32 -1, ptr %320, align 4
+  store i32 -1, ptr %320, align 8
   %_init.i = getelementptr inbounds nuw i8, ptr %call631, i64 56
   store ptr %316, ptr %_init.i, align 8
   %_test.i3308 = getelementptr inbounds nuw i8, ptr %call631, i64 64
@@ -4259,7 +4259,7 @@ if.then670:                                       ; preds = %if.end.i.i15273
   %parens_.i.i.i3333 = getelementptr inbounds nuw i8, ptr %call682, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i3333, i8 0, i64 28, i1 false)
   %335 = getelementptr inbounds nuw i8, ptr %call682, i64 48
-  store i32 -1, ptr %335, align 4
+  store i32 -1, ptr %335, align 8
   %_label.i = getelementptr inbounds nuw i8, ptr %call682, i64 56
   store ptr %334, ptr %_label.i, align 8
   %sourceRange_.i3334 = getelementptr inbounds nuw i8, ptr %call682, i64 24
@@ -4286,7 +4286,7 @@ if.then688:                                       ; preds = %if.end.i.i15292
   %parens_.i.i.i3338 = getelementptr inbounds nuw i8, ptr %call700, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i3338, i8 0, i64 28, i1 false)
   %340 = getelementptr inbounds nuw i8, ptr %call700, i64 48
-  store i32 -1, ptr %340, align 4
+  store i32 -1, ptr %340, align 8
   %_label.i3339 = getelementptr inbounds nuw i8, ptr %call700, i64 56
   store ptr %339, ptr %_label.i3339, align 8
   %sourceRange_.i3340 = getelementptr inbounds nuw i8, ptr %call700, i64 24
@@ -4517,7 +4517,7 @@ if.end811:                                        ; preds = %_ZN4llvh9StringRefC
   %parens_.i.i.i3400 = getelementptr inbounds nuw i8, ptr %call813, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i3400, i8 0, i64 28, i1 false)
   %370 = getelementptr inbounds nuw i8, ptr %call813, i64 48
-  store i32 -1, ptr %370, align 4
+  store i32 -1, ptr %370, align 8
   %_label.i3401 = getelementptr inbounds nuw i8, ptr %call813, i64 56
   store ptr %368, ptr %_label.i3401, align 8
   %_body.i3402 = getelementptr inbounds nuw i8, ptr %call813, i64 64

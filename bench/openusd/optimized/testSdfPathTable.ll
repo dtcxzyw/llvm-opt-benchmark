@@ -941,7 +941,7 @@ _ZN16HashAndSetDriverD2Ev.exit:                   ; preds = %231
   %.06.i.i.i = phi ptr [ %239, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathEiELb1EEEEE18_M_deallocate_nodeEPS7_.exit.i.i.i ], [ %238, %_ZN16HashAndSetDriverD2Ev.exit ]
   %239 = load ptr, ptr %.06.i.i.i, align 8
   %240 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 8
-  %241 = load i32, ptr %240, align 4
+  %241 = load i32, ptr %240, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %241, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathEiELb1EEEEE18_M_deallocate_nodeEPS7_.exit.i.i.i, label %242
 
@@ -2473,7 +2473,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit461: ; preds = %_ZN32pxrIn
   %483 = load ptr, ptr %482, align 8
   %484 = getelementptr inbounds nuw i8, ptr %.0912.i1653, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %484) #20
-  %485 = load i32, ptr %.0912.i1653, align 4
+  %485 = load i32, ptr %.0912.i1653, align 8
   %.not.i.i.i.i.i1654 = icmp eq i32 %485, 0
   br i1 %.not.i.i.i.i.i1654, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6_EntryD2Ev.exit.i1655, label %486
 
@@ -2596,7 +2596,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcS
   %537 = load ptr, ptr %536, align 8
   %538 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %538) #20
-  %539 = load i32, ptr %.0912.i, align 4
+  %539 = load i32, ptr %.0912.i, align 8
   %.not.i.i.i.i.i = icmp eq i32 %539, 0
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6_EntryD2Ev.exit.i, label %540
 
@@ -2672,7 +2672,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcS
   %570 = load ptr, ptr %569, align 8
   %571 = getelementptr inbounds nuw i8, ptr %.0912.i485, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %571) #20
-  %572 = load i32, ptr %.0912.i485, align 4
+  %572 = load i32, ptr %.0912.i485, align 8
   %.not.i.i.i.i.i486 = icmp eq i32 %572, 0
   br i1 %.not.i.i.i.i.i486, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6_EntryD2Ev.exit.i487, label %573
 
@@ -2774,7 +2774,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcS
   %607 = load ptr, ptr %606, align 8
   %608 = getelementptr inbounds nuw i8, ptr %.0912.i1667, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %608) #20
-  %609 = load i32, ptr %.0912.i1667, align 4
+  %609 = load i32, ptr %.0912.i1667, align 8
   %.not.i.i.i.i.i1668 = icmp eq i32 %609, 0
   br i1 %.not.i.i.i.i.i1668, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6_EntryD2Ev.exit.i1669, label %610
 
@@ -2863,7 +2863,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcS
   %646 = load ptr, ptr %645, align 8
   %647 = getelementptr inbounds nuw i8, ptr %.0912.i1681, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %647) #20
-  %648 = load i32, ptr %.0912.i1681, align 4
+  %648 = load i32, ptr %.0912.i1681, align 8
   %.not.i.i.i.i.i1682 = icmp eq i32 %648, 0
   br i1 %.not.i.i.i.i.i1682, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6_EntryD2Ev.exit.i1683, label %649
 
@@ -2952,7 +2952,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcS
   %685 = load ptr, ptr %684, align 8
   %686 = getelementptr inbounds nuw i8, ptr %.0912.i1695, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %686) #20
-  %687 = load i32, ptr %.0912.i1695, align 4
+  %687 = load i32, ptr %.0912.i1695, align 8
   %.not.i.i.i.i.i1696 = icmp eq i32 %687, 0
   br i1 %.not.i.i.i.i.i1696, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6_EntryD2Ev.exit.i1697, label %688
 
@@ -8836,7 +8836,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENSt7__cxx1112basic_stringI
   %2780 = load ptr, ptr %2779, align 8
   %2781 = getelementptr inbounds nuw i8, ptr %.0912.i1709, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2781) #20
-  %2782 = load i32, ptr %.0912.i1709, align 4
+  %2782 = load i32, ptr %.0912.i1709, align 8
   %.not.i.i.i.i.i1710 = icmp eq i32 %2782, 0
   br i1 %.not.i.i.i.i.i1710, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6_EntryD2Ev.exit.i1711, label %2783
 
@@ -10993,7 +10993,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcS
   %3629 = load ptr, ptr %3628, align 8
   %3630 = getelementptr inbounds nuw i8, ptr %.0912.i1764, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3630) #20
-  %3631 = load i32, ptr %.0912.i1764, align 4
+  %3631 = load i32, ptr %.0912.i1764, align 8
   %.not.i.i.i.i.i1765 = icmp eq i32 %3631, 0
   br i1 %.not.i.i.i.i.i1765, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6_EntryD2Ev.exit.i1766, label %3632
 
@@ -11662,7 +11662,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(40) ptr @_
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #20
-  %33 = load i32, ptr %.0912.i, align 4
+  %33 = load i32, ptr %.0912.i, align 8
   %.not.i.i.i.i.i = icmp eq i32 %33, 0
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6_EntryD2Ev.exit.i, label %34
 
@@ -11780,7 +11780,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(40) ptr @_
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #20
-  %29 = load i32, ptr %.0912.i, align 4
+  %29 = load i32, ptr %.0912.i, align 8
   %.not.i.i.i.i.i = icmp eq i32 %29, 0
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6_EntryD2Ev.exit.i, label %30
 
@@ -11881,7 +11881,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__12SdfPa
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #20
-  %15 = load i32, ptr %.0912, align 4
+  %15 = load i32, ptr %.0912, align 8
   %.not.i.i.i.i = icmp eq i32 %15, 0
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6_EntryD2Ev.exit, label %16
 
@@ -12591,7 +12591,7 @@ _ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112bas
   %.01642 = phi ptr [ %45, %.lr.ph ], [ %43, %.lr.ph45 ]
   %44 = getelementptr inbounds nuw i8, ptr %.01642, i64 40
   %45 = load ptr, ptr %44, align 8
-  %46 = load i32, ptr %.01642, align 4
+  %46 = load i32, ptr %.01642, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.01642, i64 4
   %48 = load i32, ptr %47, align 4
   %49 = zext i32 %46 to i64
@@ -13337,7 +13337,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__12SdfPa
   store ptr %29, ptr %.0, align 8
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #20
-  %31 = load i32, ptr %27, align 4
+  %31 = load i32, ptr %27, align 8
   %.not.i.i.i.i = icmp eq i32 %31, 0
   br i1 %.not.i.i.i.i, label %49, label %32
 
@@ -13735,7 +13735,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrRese
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %.07, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #20
-  %9 = load i32, ptr %7, align 4
+  %9 = load i32, ptr %7, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %9, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit, label %10
 
@@ -13974,7 +13974,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__13TfFun
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #20
-  %7 = load i32, ptr %.07.i, align 4
+  %7 = load i32, ptr %.07.i, align 8
   %.not.i.i.i.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6_EntryD2Ev.exit.i, label %8
 
@@ -14167,7 +14167,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrRese
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 8
   %.not.i.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS1_E.exit, label %9
 
@@ -14217,7 +14217,7 @@ define linkonce_odr dso_local void @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrR
   %.06.i.i = phi ptr [ %4, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathEiELb1EEEEE18_M_deallocate_nodeEPS7_.exit.i.i ], [ %3, %1 ]
   %4 = load ptr, ptr %.06.i.i, align 8
   %5 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 8
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathEiELb1EEEEE18_M_deallocate_nodeEPS7_.exit.i.i, label %7
 
@@ -14334,7 +14334,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__12SdfPa
   %.0912.i = phi ptr [ %13, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableIiE6_EntryD2Ev.exit.i ], [ %11, %.lr.ph16.i ]
   %12 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = load i32, ptr %.0912.i, align 4
+  %14 = load i32, ptr %.0912.i, align 8
   %.not.i.i.i.i.i = icmp eq i32 %14, 0
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableIiE6_EntryD2Ev.exit.i, label %15
 
@@ -14788,7 +14788,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_iESaIS
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %61 = load i64, ptr %60, align 8
   %62 = icmp eq i64 %51, %61
-  %.0.copyload.i2.i.i.i.i18.i.i = load i64, ptr %59, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i = load i64, ptr %59, align 8
   %63 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i
   %64 = select i1 %62, i1 %63, i1 false
   br i1 %64, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_iESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_4HashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS3_m.exit.i, label %.lr.ph.i.i
@@ -14935,7 +14935,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIN32pxrInternal_v0_2
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %40 = load i64, ptr %39, align 8
   %41 = icmp eq i64 %28, %40
-  %.0.copyload.i2.i.i.i.i18.i.i = load i64, ptr %38, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i = load i64, ptr %38, align 8
   %42 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i
   %43 = select i1 %41, i1 %42, i1 false
   br i1 %43, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_iESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_4HashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS1_EEPNS6_10_Hash_nodeIS4_Lb1EEEmRKT_m.exit, label %.lr.ph.i.i
@@ -14968,7 +14968,7 @@ _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_iESaI
   %54 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #25
   store ptr null, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  store i32 %18, ptr %55, align 4
+  store i32 %18, ptr %55, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %18, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKN32pxrInternal_v0_24__pxrReserved__7SdfPathERKSt4pairIS6_iENS_10_AllocNodeISaINS_10_Hash_nodeIS9_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSH_.exit, label %56
 
@@ -15509,7 +15509,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_iESaIS
   %35 = load ptr, ptr %3, align 8
   store ptr %35, ptr %2, align 8
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %37 = load i32, ptr %36, align 4
+  %37 = load i32, ptr %36, align 8
   %.not.i.i.i.i.i.i = icmp eq i32 %37, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathEiELb1EEEEE18_M_deallocate_nodeEPS7_.exit, label %38
 
@@ -16023,7 +16023,7 @@ _ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableIiE6_EntryESaIS4_
   %.01642 = phi ptr [ %45, %.lr.ph ], [ %43, %.lr.ph45 ]
   %44 = getelementptr inbounds nuw i8, ptr %.01642, i64 16
   %45 = load ptr, ptr %44, align 8
-  %46 = load i32, ptr %.01642, align 4
+  %46 = load i32, ptr %.01642, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.01642, i64 4
   %48 = load i32, ptr %47, align 4
   %49 = zext i32 %46 to i64
@@ -16163,7 +16163,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__12SdfPa
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %.0.i, align 8
-  %31 = load i32, ptr %28, align 4
+  %31 = load i32, ptr %28, align 8
   %.not.i.i.i.i.i = icmp eq i32 %31, 0
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableIiE15_EraseFromTableEPNS1_6_EntryE.exit, label %32
 
@@ -16268,7 +16268,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__12SdfPa
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
   store ptr %46, ptr %.0.i8, align 8
-  %47 = load i32, ptr %44, align 4
+  %47 = load i32, ptr %44, align 8
   %.not.i.i.i.i.i10 = icmp eq i32 %47, 0
   br i1 %.not.i.i.i.i.i10, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableIiE15_EraseFromTableEPNS1_6_EntryE.exit11, label %48
 
@@ -16350,7 +16350,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableIiE24_EraseSubtreeAndSiblings
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %99 = load ptr, ptr %98, align 8
   store ptr %99, ptr %.0.i5, align 8
-  %100 = load i32, ptr %97, align 4
+  %100 = load i32, ptr %97, align 8
   %.not.i.i.i.i.i = icmp eq i32 %100, 0
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableIiE15_EraseFromTableEPNS1_6_EntryE.exit, label %101
 

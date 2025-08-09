@@ -909,7 +909,7 @@ invoke.cont12:                                    ; preds = %if.end.i.i.i.i.i.i,
   store ptr %17, ptr %sender.i, align 8, !tbaa !47
   %_M_string_length.i.i.i.i6.i = getelementptr inbounds nuw i8, ptr %call6, i64 48
   store i64 0, ptr %_M_string_length.i.i.i.i6.i, align 8, !tbaa !49
-  store i32 0, ptr %17, align 4, !tbaa !50
+  store i32 0, ptr %17, align 8, !tbaa !50
   %timestamp.i = getelementptr inbounds nuw i8, ptr %call6, i64 72
   %call.i = call i64 @time(ptr noundef null) #25
   store i64 %call.i, ptr %timestamp.i, align 8, !tbaa !52

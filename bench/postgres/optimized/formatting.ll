@@ -5204,7 +5204,7 @@ suff_search.exit134.thread:                       ; preds = %262, %251, %suff_se
   %292 = getelementptr inbounds nuw i8, ptr %.091207, i64 1
   store i8 %291, ptr %292, align 1
   %293 = getelementptr inbounds nuw i8, ptr %.091207, i64 2
-  store i8 0, ptr %293, align 1
+  store i8 0, ptr %293, align 2
   store ptr null, ptr %276, align 8
   %294 = getelementptr inbounds nuw i8, ptr %.091207, i64 6
   store i8 0, ptr %294, align 2

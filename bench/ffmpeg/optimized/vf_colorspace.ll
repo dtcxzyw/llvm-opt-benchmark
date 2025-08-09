@@ -484,41 +484,41 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %130 = sext i32 %129 to i64
   %131 = shl nsw i64 %130, 2
   %132 = tail call noalias ptr @av_malloc(i64 noundef %131) #9
-  store ptr %132, ptr %114, align 8, !tbaa !72
+  store ptr %132, ptr %114, align 16, !tbaa !72
   %133 = add nsw i32 %109, 4
   %134 = sext i32 %133 to i64
   %135 = shl nsw i64 %134, 2
   %136 = tail call noalias ptr @av_malloc(i64 noundef %135) #9
   store ptr %136, ptr %115, align 8, !tbaa !72
   %137 = tail call noalias ptr @av_malloc(i64 noundef %135) #9
-  store ptr %137, ptr %116, align 8, !tbaa !72
+  store ptr %137, ptr %116, align 16, !tbaa !72
   %138 = tail call noalias ptr @av_malloc(i64 noundef %135) #9
   store ptr %138, ptr %117, align 8, !tbaa !72
   %139 = tail call noalias ptr @av_malloc(i64 noundef %135) #9
-  store ptr %139, ptr %118, align 8, !tbaa !72
+  store ptr %139, ptr %118, align 16, !tbaa !72
   %140 = load ptr, ptr %113, align 8, !tbaa !72
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 4
   %142 = getelementptr inbounds nuw i8, ptr %21, i64 584
   store ptr %141, ptr %142, align 8, !tbaa !72
-  %143 = load ptr, ptr %114, align 8, !tbaa !72
+  %143 = load ptr, ptr %114, align 16, !tbaa !72
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 4
   %145 = getelementptr inbounds nuw i8, ptr %21, i64 592
-  store ptr %144, ptr %145, align 8, !tbaa !72
+  store ptr %144, ptr %145, align 16, !tbaa !72
   %146 = load ptr, ptr %115, align 8, !tbaa !72
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 4
   %148 = getelementptr inbounds nuw i8, ptr %21, i64 600
   store ptr %147, ptr %148, align 8, !tbaa !72
-  %149 = load ptr, ptr %116, align 8, !tbaa !72
+  %149 = load ptr, ptr %116, align 16, !tbaa !72
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 4
   %151 = getelementptr inbounds nuw i8, ptr %21, i64 608
-  store ptr %150, ptr %151, align 8, !tbaa !72
+  store ptr %150, ptr %151, align 16, !tbaa !72
   %152 = load ptr, ptr %117, align 8, !tbaa !72
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 4
   %154 = getelementptr inbounds nuw i8, ptr %21, i64 616
   store ptr %153, ptr %154, align 8, !tbaa !72
   %155 = getelementptr inbounds nuw i8, ptr %139, i64 4
   %156 = getelementptr inbounds nuw i8, ptr %21, i64 624
-  store ptr %155, ptr %156, align 8, !tbaa !72
+  store ptr %155, ptr %156, align 16, !tbaa !72
   %157 = load ptr, ptr %110, align 16, !tbaa !71
   %.not106 = icmp eq ptr %157, null
   br i1 %.not106, label %162, label %158
@@ -1402,7 +1402,7 @@ get_transfer_characteristics.exit435.i:           ; preds = %394
   %567 = load i32, ptr %225, align 8, !tbaa !67
   %568 = sub nsw i32 29, %567
   %569 = getelementptr inbounds nuw i8, ptr %176, i64 1056
-  %.0361473.i = load i32, ptr %551, align 4, !tbaa !29
+  %.0361473.i = load i32, ptr %551, align 8, !tbaa !29
   %.0361.i = load i32, ptr %552, align 4, !tbaa !29
   br label %.preheader.i
 

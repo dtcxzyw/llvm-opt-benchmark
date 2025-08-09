@@ -345,11 +345,11 @@ define void @color_picker_apply(ptr noundef %0, ptr noundef readnone captures(no
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %7 = load ptr, ptr %6, align 8, !tbaa !73
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %9 = load float, ptr %8, align 4, !tbaa !74
+  %9 = load float, ptr %8, align 16, !tbaa !74
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 516
   %11 = load float, ptr %10, align 4, !tbaa !74
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %13 = load float, ptr %12, align 4, !tbaa !74
+  %13 = load float, ptr %12, align 8, !tbaa !74
   %14 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %11, float %13)
   %15 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %9, float %14)
   %16 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %11, float %13)
@@ -1698,7 +1698,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %24 = load i32, ptr %23, align 4, !tbaa !141
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %26 = load i32, ptr %25, align 8, !tbaa !142
+  %26 = load i32, ptr %25, align 16, !tbaa !142
   %27 = sitofp i32 %26 to float
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %29 = load float, ptr %28, align 4, !tbaa !143

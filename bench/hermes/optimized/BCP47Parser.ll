@@ -6061,7 +6061,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE
   store i64 %11, ptr %_M_string_length.i13.i.i.i.i.i.i.i, align 8, !alias.scope !28, !noalias !31
   store ptr %8, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !31, !noalias !28
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i, align 8, !alias.scope !31, !noalias !28
-  store i16 0, ptr %8, align 2, !alias.scope !31, !noalias !28
+  store i16 0, ptr %8, align 8, !alias.scope !31, !noalias !28
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 32
   %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
@@ -6110,7 +6110,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE
   store i64 %17, ptr %_M_string_length.i13.i.i.i.i.i.i.i22, align 8, !alias.scope !35, !noalias !38
   store ptr %14, ptr %__first.addr.06.i.i.i15, align 8, !alias.scope !38, !noalias !35
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i21, align 8, !alias.scope !38, !noalias !35
-  store i16 0, ptr %14, align 2, !alias.scope !38, !noalias !35
+  store i16 0, ptr %14, align 8, !alias.scope !38, !noalias !35
   %incdec.ptr.i.i.i23 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i15, i64 32
   %incdec.ptr1.i.i.i24 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i14, i64 32
   %cmp.not.i.i.i25 = icmp eq ptr %incdec.ptr.i.i.i23, %0

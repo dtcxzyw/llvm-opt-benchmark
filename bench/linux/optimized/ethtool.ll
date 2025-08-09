@@ -124,60 +124,60 @@ define internal void @e1000_get_regs(ptr noundef %0, ptr noundef writeonly captu
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %19, ptr %20, align 4
   %21 = getelementptr i8, ptr %0, i64 3776
-  %22 = load ptr, ptr %21, align 8
+  %22 = load ptr, ptr %21, align 16
   %23 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %22) #15, !srcloc !6
   store i32 %23, ptr %2, align 4
-  %24 = load ptr, ptr %21, align 8
+  %24 = load ptr, ptr %21, align 16
   %25 = getelementptr i8, ptr %24, i64 8
   %26 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %25) #15, !srcloc !6
   %27 = getelementptr i8, ptr %2, i64 4
   store i32 %26, ptr %27, align 4
-  %28 = load ptr, ptr %21, align 8
+  %28 = load ptr, ptr %21, align 16
   %29 = getelementptr i8, ptr %28, i64 256
   %30 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %29) #15, !srcloc !6
   %31 = getelementptr i8, ptr %2, i64 8
   store i32 %30, ptr %31, align 4
-  %32 = load ptr, ptr %21, align 8
+  %32 = load ptr, ptr %21, align 16
   %33 = getelementptr i8, ptr %32, i64 10248
   %34 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %33) #15, !srcloc !6
   %35 = getelementptr i8, ptr %2, i64 12
   store i32 %34, ptr %35, align 4
-  %36 = load ptr, ptr %21, align 8
+  %36 = load ptr, ptr %21, align 16
   %37 = getelementptr i8, ptr %36, i64 10256
   %38 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %37) #15, !srcloc !6
   %39 = getelementptr i8, ptr %2, i64 16
   store i32 %38, ptr %39, align 4
-  %40 = load ptr, ptr %21, align 8
+  %40 = load ptr, ptr %21, align 16
   %41 = getelementptr i8, ptr %40, i64 10264
   %42 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %41) #15, !srcloc !6
   %43 = getelementptr i8, ptr %2, i64 20
   store i32 %42, ptr %43, align 4
-  %44 = load ptr, ptr %21, align 8
+  %44 = load ptr, ptr %21, align 16
   %45 = getelementptr i8, ptr %44, i64 10272
   %46 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %45) #15, !srcloc !6
   %47 = getelementptr i8, ptr %2, i64 24
   store i32 %46, ptr %47, align 4
-  %48 = load ptr, ptr %21, align 8
+  %48 = load ptr, ptr %21, align 16
   %49 = getelementptr i8, ptr %48, i64 1024
   %50 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %49) #15, !srcloc !6
   %51 = getelementptr i8, ptr %2, i64 28
   store i32 %50, ptr %51, align 4
-  %52 = load ptr, ptr %21, align 8
+  %52 = load ptr, ptr %21, align 16
   %53 = getelementptr i8, ptr %52, i64 14344
   %54 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %53) #15, !srcloc !6
   %55 = getelementptr i8, ptr %2, i64 32
   store i32 %54, ptr %55, align 4
-  %56 = load ptr, ptr %21, align 8
+  %56 = load ptr, ptr %21, align 16
   %57 = getelementptr i8, ptr %56, i64 14352
   %58 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %57) #15, !srcloc !6
   %59 = getelementptr i8, ptr %2, i64 36
   store i32 %58, ptr %59, align 4
-  %60 = load ptr, ptr %21, align 8
+  %60 = load ptr, ptr %21, align 16
   %61 = getelementptr i8, ptr %60, i64 14360
   %62 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %61) #15, !srcloc !6
   %63 = getelementptr i8, ptr %2, i64 40
   store i32 %62, ptr %63, align 4
-  %64 = load ptr, ptr %21, align 8
+  %64 = load ptr, ptr %21, align 16
   %65 = getelementptr i8, ptr %64, i64 14368
   %66 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %65) #15, !srcloc !6
   %67 = getelementptr i8, ptr %2, i64 44
@@ -4395,7 +4395,7 @@ define internal fastcc void @e1000_free_desc_rings(ptr noundef captures(none) %0
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1456
   %3 = load ptr, ptr %2, align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 11632
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 16
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit6, label %7
 

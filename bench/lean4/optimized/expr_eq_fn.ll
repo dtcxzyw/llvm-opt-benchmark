@@ -469,7 +469,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4lean10expr_eq_fnILb0EE5applyE
   store ptr %75, ptr %74, align 8, !tbaa !38
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 16
   store i64 0, ptr %76, align 8, !tbaa !41
-  store i8 0, ptr %75, align 1, !tbaa !43
+  store i8 0, ptr %75, align 8, !tbaa !43
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %73, align 8, !tbaa !44
   tail call void @__cxa_throw(ptr nonnull %73, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #18
   unreachable
@@ -639,7 +639,7 @@ tailrecurse.backedge:                             ; preds = %.preheader, %tailre
   store ptr %175, ptr %174, align 8, !tbaa !38
   %176 = getelementptr inbounds nuw i8, ptr %173, i64 16
   store i64 0, ptr %176, align 8, !tbaa !41
-  store i8 0, ptr %175, align 1, !tbaa !43
+  store i8 0, ptr %175, align 8, !tbaa !43
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %173, align 8, !tbaa !44
   tail call void @__cxa_throw(ptr nonnull %173, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #18
   unreachable
@@ -1492,7 +1492,7 @@ tailrecurse.loopexit:                             ; preds = %.preheader
   store ptr %75, ptr %74, align 8, !tbaa !38
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 16
   store i64 0, ptr %76, align 8, !tbaa !41
-  store i8 0, ptr %75, align 1, !tbaa !43
+  store i8 0, ptr %75, align 8, !tbaa !43
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %73, align 8, !tbaa !44
   tail call void @__cxa_throw(ptr nonnull %73, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #18
   unreachable
@@ -1690,7 +1690,7 @@ tailrecurse.loopexit:                             ; preds = %.preheader
   store ptr %201, ptr %200, align 8, !tbaa !38
   %202 = getelementptr inbounds nuw i8, ptr %199, i64 16
   store i64 0, ptr %202, align 8, !tbaa !41
-  store i8 0, ptr %201, align 1, !tbaa !43
+  store i8 0, ptr %201, align 8, !tbaa !43
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %199, align 8, !tbaa !44
   tail call void @__cxa_throw(ptr nonnull %199, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #18
   unreachable

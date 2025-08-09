@@ -7548,7 +7548,7 @@ _ZN4llvm23SmallVectorTemplateBaseIZNS_2cl16ExpansionContext19expandResponseFiles
   store i64 %349, ptr %350, align 8, !tbaa !112
   store ptr %340, ptr %.016.i.i.i257, align 8, !tbaa !116
   store i64 0, ptr %348, align 8, !tbaa !112
-  store i8 0, ptr %340, align 1, !tbaa !16
+  store i8 0, ptr %340, align 8, !tbaa !16
   %351 = getelementptr inbounds nuw i8, ptr %337, i64 32
   %352 = getelementptr inbounds nuw i8, ptr %.016.i.i.i257, i64 32
   %353 = load i64, ptr %352, align 8, !tbaa !308
@@ -26474,7 +26474,7 @@ define internal noundef nonnull ptr @_ZN4llvm14object_creatorIN12_GLOBAL__N_117C
   store ptr %2, ptr %1, align 8, !tbaa !110
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 0, ptr %3, align 8, !tbaa !112
-  store i8 0, ptr %2, align 1, !tbaa !16
+  store i8 0, ptr %2, align 8, !tbaa !16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -26935,7 +26935,7 @@ _ZSt10_ConstructIZN4llvm2cl16ExpansionContext19expandResponseFilesERNS0_15SmallV
   store i64 %20, ptr %21, align 8, !tbaa !112
   store ptr %11, ptr %.sroa.06.08.i.i.i.i.i.i, align 8, !tbaa !116
   store i64 0, ptr %19, align 8, !tbaa !112
-  store i8 0, ptr %11, align 1, !tbaa !16
+  store i8 0, ptr %11, align 8, !tbaa !16
   %22 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i, i64 32
   %24 = load i64, ptr %23, align 8, !tbaa !308

@@ -1817,7 +1817,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %14 = load i8, ptr %eof_.i, align 8
   %tobool.i = trunc i8 %14 to i1
   %hasValue.i.i.i = getelementptr inbounds nuw i8, ptr %ingressStreamIt.sroa.0.052, i64 168
-  %15 = load i8, ptr %hasValue.i.i.i, align 4
+  %15 = load i8, ptr %hasValue.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %15 to i1
   %16 = select i1 %tobool.i, i1 true, i1 %tobool.i.i.i
   br i1 %16, label %if.else, label %if.then38
@@ -18228,11 +18228,11 @@ invoke.cont18:                                    ; preds = %_ZNR5folly8Optional
   %exec_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1.i, i64 72
   store ptr null, ptr %exec_.i.i.i.i.i.i, align 8, !noalias !137
   %state_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1.i, i64 80
-  store i8 2, ptr %state_.i.i.i.i.i, align 1, !noalias !137
+  store i8 2, ptr %state_.i.i.i.i.i, align 16, !noalias !137
   %attached_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1.i, i64 81
   store i8 1, ptr %attached_.i.i.i.i.i, align 1, !noalias !137
   %callbackReferences_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1.i, i64 82
-  store i8 0, ptr %callbackReferences_.i.i.i.i.i, align 1, !noalias !137
+  store i8 0, ptr %callbackReferences_.i.i.i.i.i, align 2, !noalias !137
   %executor_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1.i, i64 88
   store i32 0, ptr %executor_.i.i.i.i.i, align 8, !noalias !137
   %7 = getelementptr inbounds nuw i8, ptr %call.i.i1.i, i64 96
@@ -18240,7 +18240,7 @@ invoke.cont18:                                    ; preds = %_ZNR5folly8Optional
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly7futures6detail4CoreINS_4UnitEEE, i64 16), ptr %call.i.i1.i, align 16, !noalias !137
   store i32 1, ptr %6, align 8, !noalias !137
   %8 = getelementptr inbounds nuw i8, ptr %call.i.i1.i, i64 144
-  store i64 %3, ptr %8, align 8, !alias.scope !140, !noalias !137
+  store i64 %3, ptr %8, align 16, !alias.scope !140, !noalias !137
   call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   store ptr %call.i.i1.i, ptr %agg.result, align 8
   %which_.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -18336,11 +18336,11 @@ if.then31:                                        ; preds = %_ZNR5folly8Expected
   %exec_.i.i.i.i.i.i13 = getelementptr inbounds nuw i8, ptr %call.i.i1.i10, i64 72
   store ptr null, ptr %exec_.i.i.i.i.i.i13, align 8, !noalias !144
   %state_.i.i.i.i.i14 = getelementptr inbounds nuw i8, ptr %call.i.i1.i10, i64 80
-  store i8 2, ptr %state_.i.i.i.i.i14, align 1, !noalias !144
+  store i8 2, ptr %state_.i.i.i.i.i14, align 16, !noalias !144
   %attached_.i.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %call.i.i1.i10, i64 81
   store i8 1, ptr %attached_.i.i.i.i.i15, align 1, !noalias !144
   %callbackReferences_.i.i.i.i.i16 = getelementptr inbounds nuw i8, ptr %call.i.i1.i10, i64 82
-  store i8 0, ptr %callbackReferences_.i.i.i.i.i16, align 1, !noalias !144
+  store i8 0, ptr %callbackReferences_.i.i.i.i.i16, align 2, !noalias !144
   %executor_.i.i.i.i.i17 = getelementptr inbounds nuw i8, ptr %call.i.i1.i10, i64 88
   store i32 0, ptr %executor_.i.i.i.i.i17, align 8, !noalias !144
   %19 = getelementptr inbounds nuw i8, ptr %call.i.i1.i10, i64 96
@@ -18368,11 +18368,11 @@ _ZN5folly19makePromiseContractINS_4UnitEEESt4pairINS_7PromiseIT_EENS_10SemiFutur
   %exec_.i.i.i.i.i.i26 = getelementptr inbounds nuw i8, ptr %call.i.i1.i10, i64 72
   store ptr null, ptr %exec_.i.i.i.i.i.i26, align 8, !noalias !149
   %state_.i.i.i.i.i27 = getelementptr inbounds nuw i8, ptr %call.i.i1.i10, i64 80
-  store i8 1, ptr %state_.i.i.i.i.i27, align 1, !noalias !149
+  store i8 1, ptr %state_.i.i.i.i.i27, align 16, !noalias !149
   %attached_.i.i.i.i.i28 = getelementptr inbounds nuw i8, ptr %call.i.i1.i10, i64 81
   store i8 2, ptr %attached_.i.i.i.i.i28, align 1, !noalias !149
   %callbackReferences_.i.i.i.i.i29 = getelementptr inbounds nuw i8, ptr %call.i.i1.i10, i64 82
-  store i8 0, ptr %callbackReferences_.i.i.i.i.i29, align 1, !noalias !149
+  store i8 0, ptr %callbackReferences_.i.i.i.i.i29, align 2, !noalias !149
   %executor_.i.i.i.i.i30 = getelementptr inbounds nuw i8, ptr %call.i.i1.i10, i64 88
   store i32 0, ptr %executor_.i.i.i.i.i30, align 8, !noalias !149
   %22 = getelementptr inbounds nuw i8, ptr %call.i.i1.i10, i64 96
@@ -19331,11 +19331,11 @@ _ZN5folly17exception_wrapperD2Ev.exit:            ; preds = %invoke.cont20
   %exec_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1.i, i64 72
   store ptr null, ptr %exec_.i.i.i.i.i.i, align 8, !noalias !180
   %state_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1.i, i64 80
-  store i8 2, ptr %state_.i.i.i.i.i, align 1, !noalias !180
+  store i8 2, ptr %state_.i.i.i.i.i, align 16, !noalias !180
   %attached_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1.i, i64 81
   store i8 1, ptr %attached_.i.i.i.i.i, align 1, !noalias !180
   %callbackReferences_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1.i, i64 82
-  store i8 0, ptr %callbackReferences_.i.i.i.i.i, align 1, !noalias !180
+  store i8 0, ptr %callbackReferences_.i.i.i.i.i, align 2, !noalias !180
   %executor_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1.i, i64 88
   store i32 0, ptr %executor_.i.i.i.i.i, align 8, !noalias !180
   %8 = getelementptr inbounds nuw i8, ptr %call.i.i1.i, i64 96
@@ -19343,7 +19343,7 @@ _ZN5folly17exception_wrapperD2Ev.exit:            ; preds = %invoke.cont20
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly7futures6detail4CoreIN8proxygen12WebTransport10StreamDataEEE, i64 16), ptr %call.i.i1.i, align 16, !noalias !180
   store i32 1, ptr %7, align 8, !noalias !180
   %9 = getelementptr inbounds nuw i8, ptr %call.i.i1.i, i64 144
-  store i64 %5, ptr %9, align 8, !alias.scope !181, !noalias !180
+  store i64 %5, ptr %9, align 16, !alias.scope !181, !noalias !180
   store ptr %call.i.i1.i, ptr %agg.result, align 8, !alias.scope !180
   call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   br label %return
@@ -19416,11 +19416,11 @@ _ZN5folly19makePromiseContractIN8proxygen12WebTransport10StreamDataEEESt4pairINS
   %exec_.i.i.i.i.i.i17 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 72
   store ptr null, ptr %exec_.i.i.i.i.i.i17, align 8, !noalias !184
   %state_.i.i.i.i.i18 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 80
-  store i8 1, ptr %state_.i.i.i.i.i18, align 1, !noalias !184
+  store i8 1, ptr %state_.i.i.i.i.i18, align 16, !noalias !184
   %attached_.i.i.i.i.i19 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 81
   store i8 2, ptr %attached_.i.i.i.i.i19, align 1, !noalias !184
   %callbackReferences_.i.i.i.i.i20 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 82
-  store i8 0, ptr %callbackReferences_.i.i.i.i.i20, align 1, !noalias !184
+  store i8 0, ptr %callbackReferences_.i.i.i.i.i20, align 2, !noalias !184
   %executor_.i.i.i.i.i21 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 88
   store i32 0, ptr %executor_.i.i.i.i.i21, align 8, !noalias !184
   %18 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 96
@@ -19619,11 +19619,11 @@ _ZN8proxygen12WebTransport10StreamDataD2Ev.exit:  ; preds = %if.end61
   %exec_.i.i.i.i.i.i42 = getelementptr inbounds nuw i8, ptr %call.i.i1.i37, i64 72
   store ptr null, ptr %exec_.i.i.i.i.i.i42, align 8, !noalias !196
   %state_.i.i.i.i.i43 = getelementptr inbounds nuw i8, ptr %call.i.i1.i37, i64 80
-  store i8 2, ptr %state_.i.i.i.i.i43, align 1, !noalias !196
+  store i8 2, ptr %state_.i.i.i.i.i43, align 16, !noalias !196
   %attached_.i.i.i.i.i44 = getelementptr inbounds nuw i8, ptr %call.i.i1.i37, i64 81
   store i8 1, ptr %attached_.i.i.i.i.i44, align 1, !noalias !196
   %callbackReferences_.i.i.i.i.i45 = getelementptr inbounds nuw i8, ptr %call.i.i1.i37, i64 82
-  store i8 0, ptr %callbackReferences_.i.i.i.i.i45, align 1, !noalias !196
+  store i8 0, ptr %callbackReferences_.i.i.i.i.i45, align 2, !noalias !196
   %executor_.i.i.i.i.i46 = getelementptr inbounds nuw i8, ptr %call.i.i1.i37, i64 88
   store i32 0, ptr %executor_.i.i.i.i.i46, align 8, !noalias !196
   %49 = getelementptr inbounds nuw i8, ptr %call.i.i1.i37, i64 96
@@ -19631,7 +19631,7 @@ _ZN8proxygen12WebTransport10StreamDataD2Ev.exit:  ; preds = %if.end61
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly7futures6detail4CoreIN8proxygen12WebTransport10StreamDataEEE, i64 16), ptr %call.i.i1.i37, align 16, !noalias !196
   store i32 0, ptr %48, align 8, !noalias !196
   %50 = getelementptr inbounds nuw i8, ptr %call.i.i1.i37, i64 144
-  store i64 %37, ptr %50, align 8, !noalias !196
+  store i64 %37, ptr %50, align 16, !noalias !196
   %fin.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1.i37, i64 152
   store i8 %frombool, ptr %fin.i.i.i.i.i.i.i, align 8, !noalias !196
   call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i36)
@@ -20769,11 +20769,11 @@ _ZN5folly6FutureINS_4UnitEED2Ev.exit:
   %exec_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1.i, i64 72
   store ptr null, ptr %exec_.i.i.i.i.i.i, align 8, !noalias !220
   %state_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1.i, i64 80
-  store i8 2, ptr %state_.i.i.i.i.i, align 1, !noalias !220
+  store i8 2, ptr %state_.i.i.i.i.i, align 16, !noalias !220
   %attached_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1.i, i64 81
   store i8 1, ptr %attached_.i.i.i.i.i, align 1, !noalias !220
   %callbackReferences_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1.i, i64 82
-  store i8 0, ptr %callbackReferences_.i.i.i.i.i, align 1, !noalias !220
+  store i8 0, ptr %callbackReferences_.i.i.i.i.i, align 2, !noalias !220
   %executor_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1.i, i64 88
   store i32 0, ptr %executor_.i.i.i.i.i, align 8, !noalias !220
   %1 = getelementptr inbounds nuw i8, ptr %call.i.i1.i, i64 96
@@ -20804,11 +20804,11 @@ _ZN5folly6FutureINS_4UnitEED2Ev.exit:
   %exec_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1.i, i64 72
   store ptr null, ptr %exec_.i.i.i.i.i.i, align 8, !noalias !226
   %state_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1.i, i64 80
-  store i8 2, ptr %state_.i.i.i.i.i, align 1, !noalias !226
+  store i8 2, ptr %state_.i.i.i.i.i, align 16, !noalias !226
   %attached_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1.i, i64 81
   store i8 1, ptr %attached_.i.i.i.i.i, align 1, !noalias !226
   %callbackReferences_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1.i, i64 82
-  store i8 0, ptr %callbackReferences_.i.i.i.i.i, align 1, !noalias !226
+  store i8 0, ptr %callbackReferences_.i.i.i.i.i, align 2, !noalias !226
   %executor_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1.i, i64 88
   store i32 0, ptr %executor_.i.i.i.i.i, align 8, !noalias !226
   %1 = getelementptr inbounds nuw i8, ptr %call.i.i1.i, i64 96
@@ -25520,7 +25520,7 @@ invoke.cont2.i.i.i.i.i:                           ; preds = %entry
   %error_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__node, i64 164
   store i8 0, ptr %error_.i.i.i.i.i, align 4
   %hasValue.i.i2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__node, i64 168
-  store i8 0, ptr %hasValue.i.i2.i.i.i.i.i, align 4
+  store i8 0, ptr %hasValue.i.i2.i.i.i.i.i, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !280)
   %call.i.i3.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #33
           to label %try.cont unwind label %lpad3.i.i.i.i.i
@@ -25678,7 +25678,7 @@ entry:
   %second.i.i.i.i = getelementptr inbounds nuw i8, ptr %__node, i64 40
   %7 = load i64, ptr %3, align 8
   %stopSendingErrorCode_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__node, i64 48
-  store i8 0, ptr %stopSendingErrorCode_.i.i.i.i.i.i, align 4
+  store i8 0, ptr %stopSendingErrorCode_.i.i.i.i.i.i, align 8
   %hasValue.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__node, i64 52
   store i8 0, ptr %hasValue.i.i.i.i.i.i.i.i, align 4
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen15HTTPTransaction20TxnStreamWriteHandleE, i64 16), ptr %second.i.i.i.i, align 8

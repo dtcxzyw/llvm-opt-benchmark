@@ -1291,7 +1291,7 @@ define hidden noundef double @"_ZN118_$LT$rand..distributions..uniform..UniformF
 "_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17h32020c59638abbf8E.exit.i.i.i": ; preds = %40, %38
   store i64 1, ptr %11, align 16, !alias.scope !154, !noalias !138
   %41 = zext i32 %30 to i64
-  %42 = load i32, ptr %10, align 4, !alias.scope !135, !noalias !138, !noundef !4
+  %42 = load i32, ptr %10, align 16, !alias.scope !135, !noalias !138, !noundef !4
   %43 = zext i32 %42 to i64
   %44 = shl nuw i64 %43, 32
   %45 = or disjoint i64 %44, %41
@@ -1323,7 +1323,7 @@ define hidden noundef double @"_ZN118_$LT$rand..distributions..uniform..UniformF
 
 "_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17h32020c59638abbf8E.exit8.i.i.i": ; preds = %56, %54
   store i64 2, ptr %11, align 16, !alias.scope !165, !noalias !138
-  %57 = load i64, ptr %10, align 4, !alias.scope !166, !noalias !138
+  %57 = load i64, ptr %10, align 16, !alias.scope !166, !noalias !138
   br label %_ZN4rand3rng3Rng3gen17h1419ece8dcb1da44E.exit
 
 _ZN4rand3rng3Rng3gen17h1419ece8dcb1da44E.exit:    ; preds = %25, %"_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17h32020c59638abbf8E.exit.i.i.i", %"_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17h32020c59638abbf8E.exit8.i.i.i"

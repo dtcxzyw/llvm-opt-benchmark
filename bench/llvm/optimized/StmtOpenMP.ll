@@ -27226,7 +27226,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_20OMPDispatchDirectiv
   store i32 0, ptr %37, align 8, !tbaa !45
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 0, ptr %39, align 4, !tbaa !157
+  store i32 0, ptr %39, align 8, !tbaa !157
   store ptr %25, ptr %38, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }

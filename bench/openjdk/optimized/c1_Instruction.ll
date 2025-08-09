@@ -3662,7 +3662,7 @@ _ZN10ValueStack4copyENS_4KindEi.exit:             ; preds = %_ZN22CompilationRes
   %99 = load ptr, ptr %.0.i.i.i.i, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 80
   %101 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %102 = load i32, ptr %101, align 4
+  %102 = load i32, ptr %101, align 8
   %103 = icmp sgt i32 %102, 0
   br i1 %103, label %.lr.ph198, label %.critedge4
 

@@ -1964,7 +1964,7 @@ define internal void @_ZN12_GLOBAL__N_126OStringStream_Destroy_Test8TestBodyEv(p
   store ptr %5, ptr %4, align 8, !tbaa !59
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %6, align 8, !tbaa !51
-  store i8 0, ptr %5, align 1, !tbaa !52
+  store i8 0, ptr %5, align 8, !tbaa !52
   store ptr %4, ptr %2, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -2127,7 +2127,7 @@ define internal void @_ZN12_GLOBAL__N_132OStringStream_MoveConstruct_Test8TestBo
   %37 = load i32, ptr %36, align 8, !tbaa !94
   %38 = and i32 %37, -75
   %39 = or disjoint i32 %38, 8
-  store i32 %39, ptr %36, align 4, !tbaa !95
+  store i32 %39, ptr %36, align 8, !tbaa !95
   %40 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef 16)
           to label %41 unwind label %48
 
@@ -2968,7 +2968,7 @@ define internal void @_ZN12_GLOBAL__N_129OStringStream_MoveAssign_Test8TestBodyE
   %37 = load i32, ptr %36, align 8, !tbaa !94
   %38 = and i32 %37, -75
   %39 = or disjoint i32 %38, 8
-  store i32 %39, ptr %36, align 4, !tbaa !95
+  store i32 %39, ptr %36, align 8, !tbaa !95
   %40 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef 16)
           to label %41 unwind label %48
 
@@ -3565,10 +3565,10 @@ _ZNSoaSEOSo.exit:                                 ; preds = %12
   store ptr %19, ptr %18, align 8, !tbaa !115
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 224
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 224
-  %23 = load i8, ptr %21, align 1, !tbaa !52
-  %24 = load i8, ptr %22, align 1, !tbaa !52
-  store i8 %24, ptr %21, align 1, !tbaa !52
-  store i8 %23, ptr %22, align 1, !tbaa !52
+  %23 = load i8, ptr %21, align 8, !tbaa !52
+  %24 = load i8, ptr %22, align 8, !tbaa !52
+  store i8 %24, ptr %21, align 8, !tbaa !52
+  store i8 %23, ptr %22, align 8, !tbaa !52
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 225
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 225
   %27 = load i8, ptr %25, align 1, !tbaa !116, !range !43, !noundef !44

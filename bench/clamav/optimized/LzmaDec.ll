@@ -1296,9 +1296,9 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr noundef capt
   %33 = load ptr, ptr %5, align 8, !tbaa !29
   %34 = load i32, ptr %6, align 8, !tbaa !32
   %35 = load i32, ptr %7, align 4, !tbaa !22
-  %36 = load i32, ptr %8, align 4, !tbaa !22
+  %36 = load i32, ptr %8, align 8, !tbaa !22
   %37 = load i32, ptr %9, align 4, !tbaa !22
-  %38 = load i32, ptr %10, align 4, !tbaa !22
+  %38 = load i32, ptr %10, align 8, !tbaa !22
   %39 = load i32, ptr %11, align 8, !tbaa !34
   %notmask.i = shl nsw i32 -1, %39
   %40 = xor i32 %notmask.i, -1
@@ -2691,9 +2691,9 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr noundef capt
   store i64 %838, ptr %15, align 8, !tbaa !18
   store i32 %.18491092.i, ptr %16, align 8, !tbaa !15
   store i32 %837, ptr %7, align 4, !tbaa !22
-  store i32 %.17951100.i, ptr %8, align 4, !tbaa !22
+  store i32 %.17951100.i, ptr %8, align 8, !tbaa !22
   store i32 %.18061098.i, ptr %9, align 4, !tbaa !22
-  store i32 %.18291096.i, ptr %10, align 4, !tbaa !22
+  store i32 %.18291096.i, ptr %10, align 8, !tbaa !22
   store i32 %.27791104.i, ptr %6, align 8, !tbaa !32
   %849 = load i32, ptr %20, align 4, !tbaa !23
   %.not36 = icmp ult i32 %.18491092.i, %849

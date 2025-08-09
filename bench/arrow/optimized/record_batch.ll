@@ -1237,7 +1237,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %14
   store i64 %20, ptr %22, align 8, !tbaa !38
   store ptr %12, ptr %3, align 8, !tbaa !36
   store i64 0, ptr %21, align 8, !tbaa !38
-  store i8 0, ptr %12, align 1, !tbaa !39
+  store i8 0, ptr %12, align 8, !tbaa !39
   %23 = load ptr, ptr %4, align 8, !tbaa !40
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !45
@@ -6790,7 +6790,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %12, ptr %.08.i.i.i.i.i, align 8, !tbaa !32
   %13 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 8
   store i64 0, ptr %13, align 8, !tbaa !38
-  store i8 0, ptr %12, align 1, !tbaa !39
+  store i8 0, ptr %12, align 8, !tbaa !39
   %14 = add nsw i64 %.057.i.i.i.i.i, -1
   %15 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq i64 %14, 0

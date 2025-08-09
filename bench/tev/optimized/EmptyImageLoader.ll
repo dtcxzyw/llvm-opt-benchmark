@@ -940,7 +940,7 @@ define dso_local void @_ZNK3tev16EmptyImageLoader4loadERNSt3__113basic_istreamIc
   store ptr %2, ptr %21, align 8
   store ptr %3, ptr %22, align 8
   store ptr %4, ptr %23, align 8
-  store i32 %5, ptr %24, align 4
+  store i32 %5, ptr %24, align 8
   %27 = invoke noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #25
           to label %.noexc unwind label %32
 
@@ -973,7 +973,7 @@ define dso_local void @_ZNK3tev16EmptyImageLoader4loadERNSt3__113basic_istreamIc
   %37 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %38 = getelementptr inbounds nuw i8, ptr %29, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false), !noalias !11
-  store i32 2, ptr %38, align 4, !noalias !11
+  store i32 2, ptr %38, align 8, !noalias !11
   store ptr %37, ptr %35, align 8, !alias.scope !12
   %39 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr %29, ptr %39, align 8, !alias.scope !12
@@ -1504,7 +1504,7 @@ _ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS_9ImageDataENS2_9allocatorIS4_EEE
 220:                                              ; preds = %_ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS_9ImageDataENS2_9allocatorIS4_EEEEEES7_E13final_suspendEv.exit
   store ptr null, ptr %19, align 8
   %221 = getelementptr inbounds nuw i8, ptr %19, i64 76
-  store i1 true, ptr %221, align 1
+  store i1 true, ptr %221, align 4
   %222 = load ptr, ptr %219, align 8
   call fastcc void %222(ptr nonnull %219)
   br label %237

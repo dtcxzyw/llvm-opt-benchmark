@@ -1787,7 +1787,7 @@ define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_trait
   store ptr %19, ptr %.08.i.i.i, align 8, !tbaa !64
   %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 8
   store i64 0, ptr %20, align 8, !tbaa !26
-  store i8 0, ptr %19, align 1, !tbaa !27
+  store i8 0, ptr %19, align 8, !tbaa !27
   %21 = add i64 %.057.i.i.i, -1
   %22 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 32
   %.not.i.i.i = icmp eq i64 %21, 0
@@ -1821,7 +1821,7 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
   store ptr %31, ptr %.08.i.i.i26, align 8, !tbaa !64
   %32 = getelementptr inbounds nuw i8, ptr %.08.i.i.i26, i64 8
   store i64 0, ptr %32, align 8, !tbaa !26
-  store i8 0, ptr %31, align 1, !tbaa !27
+  store i8 0, ptr %31, align 8, !tbaa !27
   %33 = add i64 %.057.i.i.i27, -1
   %34 = getelementptr inbounds nuw i8, ptr %.08.i.i.i26, i64 32
   %.not.i.i.i28 = icmp eq i64 %33, 0
@@ -1867,7 +1867,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %45, ptr %47, align 8, !tbaa !26, !alias.scope !70, !noalias !73
   store ptr %37, ptr %.0911.i.i.i, align 8, !tbaa !22, !alias.scope !73, !noalias !70
   store i64 0, ptr %46, align 8, !tbaa !26, !alias.scope !73, !noalias !70
-  store i8 0, ptr %37, align 1, !tbaa !27, !alias.scope !73, !noalias !70
+  store i8 0, ptr %37, align 8, !tbaa !27, !alias.scope !73, !noalias !70
   %48 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i32 = icmp eq ptr %48, %5
@@ -4426,7 +4426,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %57, ptr %59, align 8, !tbaa !26, !alias.scope !112, !noalias !115
   store ptr %49, ptr %.0911.i.i.i, align 8, !tbaa !22, !alias.scope !115, !noalias !112
   store i64 0, ptr %58, align 8, !tbaa !26, !alias.scope !115, !noalias !112
-  store i8 0, ptr %49, align 1, !tbaa !27, !alias.scope !115, !noalias !112
+  store i8 0, ptr %49, align 8, !tbaa !27, !alias.scope !115, !noalias !112
   %60 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %61 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %62 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 48
@@ -4460,7 +4460,7 @@ _ZSt19__relocate_object_aIN4llvm6AMDGPU5HSAMD6Kernel3Arg8MetadataES5_SaIS5_EEvPT
   store i64 %72, ptr %74, align 8, !tbaa !26, !alias.scope !112, !noalias !115
   store ptr %64, ptr %61, align 8, !tbaa !22, !alias.scope !115, !noalias !112
   store i64 0, ptr %73, align 8, !tbaa !26, !alias.scope !115, !noalias !112
-  store i8 0, ptr %64, align 1, !tbaa !27, !alias.scope !115, !noalias !112
+  store i8 0, ptr %64, align 8, !tbaa !27, !alias.scope !115, !noalias !112
   %75 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 64
   %76 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %75, ptr noundef nonnull align 8 dereferenceable(27) %76, i64 27, i1 false), !alias.scope !117

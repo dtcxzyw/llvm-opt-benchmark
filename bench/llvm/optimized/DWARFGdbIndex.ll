@@ -432,7 +432,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %19, %21
   call void @llvm.experimental.noalias.scope.decl(metadata !69)
   store ptr @.str.5, ptr %27, align 8, !tbaa !12, !alias.scope !69
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmmmjEEE, i64 16), ptr %4, align 8, !tbaa !15, !alias.scope !69
-  %38 = load i32, ptr %37, align 4, !tbaa !20, !noalias !69
+  %38 = load i32, ptr %37, align 8, !tbaa !20, !noalias !69
   store i32 %38, ptr %28, align 8, !tbaa !72, !alias.scope !69
   store i64 %36, ptr %29, align 8, !tbaa !35, !alias.scope !69
   store i64 %34, ptr %30, align 8, !tbaa !17, !alias.scope !69
@@ -1083,7 +1083,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i16:               ; preds = %138, %136
   call void @llvm.experimental.noalias.scope.decl(metadata !160)
   store ptr @.str.5, ptr %144, align 8, !tbaa !12, !alias.scope !160
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmmmjEEE, i64 16), ptr %4, align 8, !tbaa !15, !alias.scope !160
-  %155 = load i32, ptr %154, align 4, !tbaa !20, !noalias !160
+  %155 = load i32, ptr %154, align 8, !tbaa !20, !noalias !160
   store i32 %155, ptr %145, align 8, !tbaa !72, !alias.scope !160
   store i64 %153, ptr %146, align 8, !tbaa !35, !alias.scope !160
   store i64 %151, ptr %147, align 8, !tbaa !17, !alias.scope !160

@@ -6629,7 +6629,7 @@ define internal fastcc void @_ZN6open3d9pipelines8odometryL15PreprocessDepthERKN
   store ptr %11, ptr %10, align 8, !tbaa !23, !noalias !181
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 0, ptr %12, align 8, !tbaa !24, !noalias !181
-  store i8 0, ptr %11, align 1, !tbaa !4, !noalias !181
+  store i8 0, ptr %11, align 8, !tbaa !4, !noalias !181
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6open3d8geometry5ImageE, i64 16), ptr %8, align 8, !tbaa !25, !noalias !181
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, i8 0, i64 40, i1 false), !noalias !181
@@ -7433,7 +7433,7 @@ define internal fastcc void @_ZN6open3d9pipelines8odometryL27ConvertDepthImageTo
   store ptr %12, ptr %11, align 8, !tbaa !23, !noalias !196
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 0, ptr %13, align 8, !tbaa !24, !noalias !196
-  store i8 0, ptr %12, align 1, !tbaa !4, !noalias !196
+  store i8 0, ptr %12, align 8, !tbaa !4, !noalias !196
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6open3d8geometry5ImageE, i64 16), ptr %8, align 8, !tbaa !25, !noalias !196
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, i8 0, i64 40, i1 false), !noalias !196

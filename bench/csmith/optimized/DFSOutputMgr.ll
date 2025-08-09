@@ -142,7 +142,7 @@ define dso_local noundef ptr @_ZN12DFSOutputMgr14CreateInstanceEv() local_unname
   store ptr %7, ptr %6, align 8, !tbaa !7
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %8, align 8, !tbaa !12
-  store i8 0, ptr %7, align 1, !tbaa !15
+  store i8 0, ptr %7, align 8, !tbaa !15
   store ptr %4, ptr @_ZN12DFSOutputMgr9instance_E, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @_ZN9CGOptions13struct_outputB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %1)

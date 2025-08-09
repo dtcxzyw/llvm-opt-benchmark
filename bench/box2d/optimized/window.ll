@@ -321,21 +321,21 @@ define noundef ptr @glfwCreateWindow(i32 noundef %0, i32 noundef %1, ptr noundef
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 52
   store i32 %0, ptr %24, align 4, !tbaa !152
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 56
-  store i32 %1, ptr %25, align 4, !tbaa !153
+  store i32 %1, ptr %25, align 8, !tbaa !153
   %26 = load i32, ptr %6, align 8, !tbaa !154
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 60
   store i32 %26, ptr %27, align 4, !tbaa !155
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !156
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 64
-  store i32 %29, ptr %30, align 4, !tbaa !157
+  store i32 %29, ptr %30, align 8, !tbaa !157
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %32 = load i32, ptr %31, align 8, !tbaa !158
   %33 = getelementptr inbounds nuw i8, ptr %22, i64 68
   store i32 %32, ptr %33, align 4, !tbaa !159
   %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1888), align 8, !tbaa !160
   %35 = getelementptr inbounds nuw i8, ptr %22, i64 72
-  store i32 %34, ptr %35, align 4, !tbaa !161
+  store i32 %34, ptr %35, align 8, !tbaa !161
   %36 = getelementptr inbounds nuw i8, ptr %22, i64 80
   store ptr %3, ptr %36, align 8, !tbaa !137
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 24

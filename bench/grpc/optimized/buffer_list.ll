@@ -71,15 +71,15 @@ define void @_ZN9grpc_core16TracedBufferList11AddNewEntryEiiPv(ptr noundef nonnu
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 73
   store i8 0, ptr %10, align 1, !tbaa !38
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store i8 0, ptr %11, align 4, !tbaa !39
+  store i8 0, ptr %11, align 8, !tbaa !39
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  store i8 0, ptr %12, align 4, !tbaa !39
+  store i8 0, ptr %12, align 8, !tbaa !39
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  store i8 0, ptr %13, align 4, !tbaa !39
+  store i8 0, ptr %13, align 8, !tbaa !39
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  store i8 0, ptr %14, align 4, !tbaa !39
+  store i8 0, ptr %14, align 8, !tbaa !39
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  store i8 0, ptr %15, align 4, !tbaa !39
+  store i8 0, ptr %15, align 8, !tbaa !39
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 128
   store i8 0, ptr %16, align 8, !tbaa !37
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 144
@@ -111,15 +111,15 @@ define void @_ZN9grpc_core16TracedBufferList11AddNewEntryEiiPv(ptr noundef nonnu
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 313
   store i8 0, ptr %30, align 1, !tbaa !38
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 320
-  store i8 0, ptr %31, align 4, !tbaa !39
+  store i8 0, ptr %31, align 8, !tbaa !39
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 328
-  store i8 0, ptr %32, align 4, !tbaa !39
+  store i8 0, ptr %32, align 8, !tbaa !39
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 336
-  store i8 0, ptr %33, align 4, !tbaa !39
+  store i8 0, ptr %33, align 8, !tbaa !39
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 344
-  store i8 0, ptr %34, align 4, !tbaa !39
+  store i8 0, ptr %34, align 8, !tbaa !39
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 352
-  store i8 0, ptr %35, align 4, !tbaa !39
+  store i8 0, ptr %35, align 8, !tbaa !39
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 368
   store i8 0, ptr %36, align 8, !tbaa !37
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 384
@@ -151,15 +151,15 @@ define void @_ZN9grpc_core16TracedBufferList11AddNewEntryEiiPv(ptr noundef nonnu
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 553
   store i8 0, ptr %50, align 1, !tbaa !38
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 560
-  store i8 0, ptr %51, align 4, !tbaa !39
+  store i8 0, ptr %51, align 8, !tbaa !39
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 568
-  store i8 0, ptr %52, align 4, !tbaa !39
+  store i8 0, ptr %52, align 8, !tbaa !39
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 576
-  store i8 0, ptr %53, align 4, !tbaa !39
+  store i8 0, ptr %53, align 8, !tbaa !39
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 584
-  store i8 0, ptr %54, align 4, !tbaa !39
+  store i8 0, ptr %54, align 8, !tbaa !39
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 592
-  store i8 0, ptr %55, align 4, !tbaa !39
+  store i8 0, ptr %55, align 8, !tbaa !39
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 608
   store i8 0, ptr %56, align 8, !tbaa !37
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 624
@@ -191,15 +191,15 @@ define void @_ZN9grpc_core16TracedBufferList11AddNewEntryEiiPv(ptr noundef nonnu
   %70 = getelementptr inbounds nuw i8, ptr %5, i64 793
   store i8 0, ptr %70, align 1, !tbaa !38
   %71 = getelementptr inbounds nuw i8, ptr %5, i64 800
-  store i8 0, ptr %71, align 4, !tbaa !39
+  store i8 0, ptr %71, align 8, !tbaa !39
   %72 = getelementptr inbounds nuw i8, ptr %5, i64 808
-  store i8 0, ptr %72, align 4, !tbaa !39
+  store i8 0, ptr %72, align 8, !tbaa !39
   %73 = getelementptr inbounds nuw i8, ptr %5, i64 816
-  store i8 0, ptr %73, align 4, !tbaa !39
+  store i8 0, ptr %73, align 8, !tbaa !39
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 824
-  store i8 0, ptr %74, align 4, !tbaa !39
+  store i8 0, ptr %74, align 8, !tbaa !39
   %75 = getelementptr inbounds nuw i8, ptr %5, i64 832
-  store i8 0, ptr %75, align 4, !tbaa !39
+  store i8 0, ptr %75, align 8, !tbaa !39
   %76 = getelementptr inbounds nuw i8, ptr %5, i64 848
   store i8 0, ptr %76, align 8, !tbaa !37
   %77 = getelementptr inbounds nuw i8, ptr %5, i64 864
@@ -298,7 +298,7 @@ _ZNSt8optionalIbEaSIRKhEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9rem
   %.sroa.069.0.insert.insert.i = or disjoint i64 %.sroa.069.0.insert.ext.i, 4294967296
   store i64 %.sroa.069.0.insert.insert.i, ptr %127, align 8
   %128 = getelementptr inbounds nuw i8, ptr %5, i64 1096
-  %129 = load i32, ptr %128, align 4, !tbaa !46
+  %129 = load i32, ptr %128, align 8, !tbaa !46
   %130 = getelementptr inbounds nuw i8, ptr %5, i64 216
   %.sroa.066.0.insert.ext.i = zext i32 %129 to i64
   %.sroa.066.0.insert.insert.i = or disjoint i64 %.sroa.066.0.insert.ext.i, 4294967296
@@ -318,7 +318,7 @@ _ZNSt8optionalIbEaSIRKhEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9rem
   %138 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %139 = load i8, ptr %18, align 8, !tbaa !37, !range !43, !noundef !44
   %140 = trunc nuw i8 %139 to i1
-  %141 = load i32, ptr %137, align 4, !tbaa !46
+  %141 = load i32, ptr %137, align 8, !tbaa !46
   br i1 %140, label %_ZNSt8optionalImEaSIRKjEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarImES6_ImNSt5decayIS9_E4typeEEEEESt16is_constructibleImJS9_EESt13is_assignableIRmS9_EEERS0_E4typeEOS9_.exit.i, label %142
 
 142:                                              ; preds = %_ZNSt8optionalIbEaSIRKhEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIbES6_IbNSt5decayIS9_E4typeEEEEESt16is_constructibleIbJS9_EESt13is_assignableIRbS9_EEERS0_E4typeEOS9_.exit.i
@@ -381,7 +381,7 @@ _ZNSt8optionalImEaSIRKjEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9rem
   store i64 %168, ptr %169, align 8
   store i8 1, ptr %16, align 8
   %170 = getelementptr inbounds nuw i8, ptr %5, i64 1224
-  %171 = load i32, ptr %170, align 4, !tbaa !46
+  %171 = load i32, ptr %170, align 8, !tbaa !46
   %172 = getelementptr inbounds nuw i8, ptr %5, i64 84
   %.sroa.0.0.insert.ext.i = zext i32 %171 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.0.0.insert.ext.i, 4294967296

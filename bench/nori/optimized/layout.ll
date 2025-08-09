@@ -199,7 +199,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:
   %.sroa.236.0.extract.shift = lshr i64 %57, 32
   %.sroa.236.0.extract.trunc = trunc nuw i64 %.sroa.236.0.extract.shift to i32
   %58 = getelementptr inbounds nuw i8, ptr %44, i64 56
-  %59 = load i32, ptr %58, align 4
+  %59 = load i32, ptr %58, align 8
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 60
   %60 = load i32, ptr %.sroa_idx, align 4
   %.not23 = icmp eq i32 %59, 0
@@ -367,7 +367,7 @@ define hidden void @_ZNK7nanogui9BoxLayout14perform_layoutEP10NVGcontextPNS_6Wid
   %72 = tail call i64 %71(ptr noundef nonnull align 8 dereferenceable(140) %62, ptr noundef %1)
   %.sroa.0.0.extract.trunc = trunc i64 %72 to i32
   %73 = getelementptr inbounds nuw i8, ptr %62, i64 56
-  %74 = load i64, ptr %73, align 4
+  %74 = load i64, ptr %73, align 8
   store i64 %74, ptr %5, align 8
   %75 = trunc i64 %74 to i32
   %.not47 = icmp eq i32 %75, 0
@@ -540,7 +540,7 @@ define hidden i64 @_ZNK7nanogui11GroupLayout14preferred_sizeEP10NVGcontextPKNS_6
   %.sroa.244.0.extract.shift = lshr i64 %41, 32
   %.sroa.244.0.extract.trunc = trunc nuw i64 %.sroa.244.0.extract.shift to i32
   %42 = getelementptr inbounds nuw i8, ptr %27, i64 56
-  %43 = load i32, ptr %42, align 4
+  %43 = load i32, ptr %42, align 8
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 60
   %44 = load i32, ptr %.sroa_idx, align 4
   %.not31 = icmp eq i32 %43, 0
@@ -674,7 +674,7 @@ define hidden void @_ZNK7nanogui11GroupLayout14perform_layoutEP10NVGcontextPNS_6
   %.sroa.1.0.extract.shift = lshr i64 %53, 32
   %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   %54 = getelementptr inbounds nuw i8, ptr %33, i64 56
-  %55 = load i32, ptr %54, align 4
+  %55 = load i32, ptr %54, align 8
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 60
   %56 = load i32, ptr %.sroa_idx, align 4
   %.not39 = icmp eq i32 %55, 0
@@ -1047,7 +1047,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit58:          ; preds = %71, %73, %75, %77
   %.sroa.2.0.extract.shift.us = lshr i64 %97, 32
   %.sroa.2.0.extract.trunc.us = trunc nuw i64 %.sroa.2.0.extract.shift.us to i32
   %98 = getelementptr inbounds nuw i8, ptr %89, i64 56
-  %99 = load i32, ptr %98, align 4
+  %99 = load i32, ptr %98, align 8
   %.sroa_idx.us = getelementptr inbounds nuw i8, ptr %89, i64 60
   %100 = load i32, ptr %.sroa_idx.us, align 4
   %.not51.us = icmp eq i32 %99, 0

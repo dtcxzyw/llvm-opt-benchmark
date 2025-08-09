@@ -55,7 +55,7 @@ define hidden range(i64 -1, 1) i64 @roseHandleChainMatch(ptr noundef %0, ptr nou
   %23 = zext i32 %22 to i64
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 320
-  %26 = load i64, ptr %25, align 8
+  %26 = load i64, ptr %25, align 16
   %27 = sub i64 %4, %26
   %28 = icmp ugt i32 %14, 256
   br i1 %28, label %29, label %mmbit_set_i.exit82

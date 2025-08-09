@@ -1364,7 +1364,7 @@ define dso_local noundef range(i32 -22, 1) i32 @rhashtable_init(ptr noundef %0, 
   %90 = getelementptr inbounds nuw i8, ptr %86, i64 40
   store ptr inttoptr (i64 -1 to ptr), ptr %90, align 8
   %91 = getelementptr inbounds nuw i8, ptr %86, i64 16
-  store volatile ptr %91, ptr %91, align 8
+  store volatile ptr %91, ptr %91, align 16
   %92 = getelementptr inbounds nuw i8, ptr %86, i64 24
   store volatile ptr %91, ptr %92, align 8
   %93 = tail call i32 @get_random_u32() #15
@@ -1821,7 +1821,7 @@ define internal fastcc noundef ptr @bucket_table_alloc(i64 noundef range(i64 0, 
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 40
   store ptr inttoptr (i64 -1 to ptr), ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  store volatile ptr %50, ptr %50, align 8
+  store volatile ptr %50, ptr %50, align 16
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store volatile ptr %50, ptr %51, align 8
   %52 = tail call i32 @get_random_u32() #15
@@ -2841,7 +2841,7 @@ define internal fastcc noundef range(i32 -17, 1) i32 @rhashtable_rehash_alloc(pt
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr inttoptr (i64 -1 to ptr), ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store volatile ptr %10, ptr %10, align 8
+  store volatile ptr %10, ptr %10, align 16
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store volatile ptr %10, ptr %11, align 8
   %12 = tail call i32 @get_random_u32() #15

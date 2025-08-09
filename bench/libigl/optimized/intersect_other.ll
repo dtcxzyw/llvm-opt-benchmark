@@ -50360,7 +50360,7 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit: ; preds = %1
   %104 = getelementptr inbounds i32, ptr %100, i64 %103
   %105 = load <4 x i32>, ptr %104, align 1, !tbaa !21
   %106 = getelementptr inbounds nuw i8, ptr %97, i64 24
-  %107 = load i32, ptr %106, align 4, !tbaa !45
+  %107 = load i32, ptr %106, align 8, !tbaa !45
   %108 = insertelement <4 x i32> poison, i32 %107, i64 0
   %109 = shufflevector <4 x i32> %108, <4 x i32> poison, <4 x i32> zeroinitializer
   %110 = add <4 x i32> %109, %105
@@ -67087,7 +67087,7 @@ define linkonce_odr dso_local ptr @_ZNSt7__cxx114listIN4CGAL13Intersections8inte
   %10 = load i64, ptr %9, align 16, !tbaa !1061
   store ptr null, ptr %7, align 8, !tbaa !1062
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i64 %10, ptr %11, align 8, !tbaa !1063
+  store i64 %10, ptr %11, align 16, !tbaa !1063
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 0, ptr %12, align 8, !tbaa !837
   %.not.i.i.i.i.i = icmp eq i64 %10, 0
@@ -71849,11 +71849,11 @@ _ZNK4CGAL8internal12Variant_castINS_7Point_3INS_16Simple_cartesianINS_11Interval
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr null, ptr %17, align 8, !tbaa !2572
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store i32 0, ptr %18, align 4, !tbaa !2107
+  store i32 0, ptr %18, align 8, !tbaa !2107
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL10Lazy_rep_nINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS_8internal12Variant_castIS6_EENSN_ISL_EENS_19Cartesian_converterISK_S5_NS_12NT_converterISJ_S4_EEEELb0EJNS_4LazyISt8optionalISt7variantIJS6_NS_9Segment_3IS5_EENS_10Triangle_3IS5_EESt6vectorIS6_SaIS6_EEEEESV_ISW_IJSL_NSX_ISK_EENSZ_ISK_EES11_ISL_SaISL_EEEEEST_EEEEE, i64 16), ptr %4, align 16, !tbaa !49
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %20 = load ptr, ptr %6, align 8, !tbaa !200
-  store ptr %20, ptr %19, align 8, !tbaa !200
+  store ptr %20, ptr %19, align 16, !tbaa !200
   %21 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !21
   %.not.i.i.i.i.i.i.i = icmp eq i8 %21, 0
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -72767,11 +72767,11 @@ _ZNK4CGAL8internal12Variant_castINS_9Segment_3INS_16Simple_cartesianINS_11Interv
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 112
   store ptr %16, ptr %17, align 8, !tbaa !2585
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 120
-  store i32 0, ptr %18, align 4, !tbaa !2107
+  store i32 0, ptr %18, align 8, !tbaa !2107
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL10Lazy_rep_nINS_9Segment_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS_8internal12Variant_castIS6_EENSN_ISL_EENS_19Cartesian_converterISK_S5_NS_12NT_converterISJ_S4_EEEELb0EJNS_4LazyISt8optionalISt7variantIJNS_7Point_3IS5_EES6_NS_10Triangle_3IS5_EESt6vectorISY_SaISY_EEEEESV_ISW_IJNSX_ISK_EESL_NSZ_ISK_EES11_IS16_SaIS16_EEEEEST_EEEEE, i64 16), ptr %4, align 16, !tbaa !49
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %20 = load ptr, ptr %6, align 8, !tbaa !200
-  store ptr %20, ptr %19, align 8, !tbaa !200
+  store ptr %20, ptr %19, align 16, !tbaa !200
   %21 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !21
   %.not.i.i.i.i.i.i.i = icmp eq i8 %21, 0
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -73484,11 +73484,11 @@ _ZNK4CGAL8internal12Variant_castINS_10Triangle_3INS_16Simple_cartesianINS_11Inte
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %16, ptr %17, align 8, !tbaa !2596
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 168
-  store i32 0, ptr %18, align 4, !tbaa !2107
+  store i32 0, ptr %18, align 8, !tbaa !2107
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL10Lazy_rep_nINS_10Triangle_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS_8internal12Variant_castIS6_EENSN_ISL_EENS_19Cartesian_converterISK_S5_NS_12NT_converterISJ_S4_EEEELb0EJNS_4LazyISt8optionalISt7variantIJNS_7Point_3IS5_EENS_9Segment_3IS5_EES6_St6vectorISY_SaISY_EEEEESV_ISW_IJNSX_ISK_EENSZ_ISK_EESL_S11_IS16_SaIS16_EEEEEST_EEEEE, i64 16), ptr %4, align 16, !tbaa !49
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %20 = load ptr, ptr %6, align 8, !tbaa !200
-  store ptr %20, ptr %19, align 8, !tbaa !200
+  store ptr %20, ptr %19, align 16, !tbaa !200
   %21 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !21
   %.not.i.i.i.i.i.i.i = icmp eq i8 %21, 0
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -74847,7 +74847,7 @@ define linkonce_odr dso_local noundef ptr @_ZNSt27__uninitialized_default_n_1ILb
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store ptr null, ptr %10, align 8, !tbaa !2572
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store i32 0, ptr %11, align 4, !tbaa !2107
+  store i32 0, ptr %11, align 8, !tbaa !2107
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL10Lazy_rep_0INS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISK_S5_NS_12NT_converterISJ_S4_EEEEEE, i64 16), ptr %8, align 16, !tbaa !49
   store ptr %8, ptr @_ZZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISK_S5_NS_12NT_converterISJ_S4_EEEEE4zeroEvE1z, align 8, !tbaa !200
   %12 = tail call i32 @__cxa_thread_atexit(ptr nonnull @_ZN4CGAL6HandleD2Ev, ptr nonnull @_ZZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISK_S5_NS_12NT_converterISJ_S4_EEEEE4zeroEvE1z, ptr nonnull @__dso_handle) #23
@@ -81049,7 +81049,7 @@ _ZN4CGAL13Intersections8internal17Point_on_triangleINS_16Simple_cartesianIN5boos
   %104 = getelementptr inbounds nuw i8, ptr %99, i64 32
   %105 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %106 = load i64, ptr %105, align 16, !tbaa !1063
-  store i64 %106, ptr %104, align 8, !tbaa !1063
+  store i64 %106, ptr %104, align 16, !tbaa !1063
   %107 = getelementptr inbounds nuw i8, ptr %99, i64 40
   %108 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %109 = load i64, ptr %108, align 8, !tbaa !837
@@ -81259,7 +81259,7 @@ _ZN4CGAL13Intersections8internal17Point_on_triangleINS_16Simple_cartesianIN5boos
   %211 = getelementptr inbounds nuw i8, ptr %206, i64 32
   %212 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %213 = load i64, ptr %212, align 16, !tbaa !1063
-  store i64 %213, ptr %211, align 8, !tbaa !1063
+  store i64 %213, ptr %211, align 16, !tbaa !1063
   %214 = getelementptr inbounds nuw i8, ptr %206, i64 40
   %215 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %216 = load i64, ptr %215, align 8, !tbaa !837
@@ -81469,7 +81469,7 @@ _ZN4CGAL13Intersections8internal17Point_on_triangleINS_16Simple_cartesianIN5boos
   %318 = getelementptr inbounds nuw i8, ptr %313, i64 32
   %319 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %320 = load i64, ptr %319, align 16, !tbaa !1063
-  store i64 %320, ptr %318, align 8, !tbaa !1063
+  store i64 %320, ptr %318, align 16, !tbaa !1063
   %321 = getelementptr inbounds nuw i8, ptr %313, i64 40
   %322 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %323 = load i64, ptr %322, align 8, !tbaa !837
@@ -94535,7 +94535,7 @@ define linkonce_odr dso_local noundef ptr @_ZNSt7__cxx114listIN4CGAL13Intersecti
   %9 = load i64, ptr %8, align 16, !tbaa !1061
   store ptr null, ptr %6, align 8, !tbaa !1062
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i64 %9, ptr %10, align 8, !tbaa !1063
+  store i64 %9, ptr %10, align 16, !tbaa !1063
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 0, ptr %11, align 8, !tbaa !837
   %.not.i.i.i.i = icmp eq i64 %9, 0
@@ -105594,7 +105594,7 @@ define linkonce_odr dso_local noundef ptr @_ZN5Eigen8internal27construct_element
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr null, ptr %11, align 8, !tbaa !3400
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store i32 0, ptr %12, align 4, !tbaa !2107
+  store i32 0, ptr %12, align 8, !tbaa !2107
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL10Lazy_rep_0INS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEEE, i64 16), ptr %9, align 16, !tbaa !49
   store ptr %9, ptr @_ZZN4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE4zeroEvE1z, align 8, !tbaa !200
   %13 = tail call i32 @__cxa_thread_atexit(ptr nonnull @_ZN4CGAL6HandleD2Ev, ptr nonnull @_ZZN4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE4zeroEvE1z, ptr nonnull @__dso_handle) #23

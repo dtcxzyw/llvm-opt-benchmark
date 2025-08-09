@@ -4509,7 +4509,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %_ZNSt16allocator_tr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %310, i8 0, i64 16, i1 false), !noalias !11
   store ptr %314, ptr %313, align 8, !noalias !11
   %316 = getelementptr inbounds nuw i8, ptr %309, i64 24
-  store atomic i32 0, ptr %316 seq_cst, align 4, !noalias !11
+  store atomic i32 0, ptr %316 seq_cst, align 8, !noalias !11
   store ptr %309, ptr %37, align 8, !alias.scope !11
   %317 = atomicrmw add ptr %316, i32 1 monotonic, align 4, !noalias !11
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2ERKS0_.exit.i
@@ -4585,7 +4585,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit135.i:               ; preds = %_ZNSt16allocator_tr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %338, i8 0, i64 16, i1 false), !noalias !11
   store ptr %342, ptr %341, align 8, !noalias !11
   %344 = getelementptr inbounds nuw i8, ptr %337, i64 24
-  store atomic i32 0, ptr %344 seq_cst, align 4, !noalias !11
+  store atomic i32 0, ptr %344 seq_cst, align 8, !noalias !11
   store ptr %337, ptr %37, align 8, !alias.scope !11
   %345 = atomicrmw add ptr %344, i32 1 monotonic, align 4, !noalias !11
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2ERKS0_.exit.i
@@ -4965,7 +4965,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit157.i:               ; preds = %_ZNSt16allocator_tr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %444, i8 0, i64 16, i1 false), !noalias !11
   store ptr %448, ptr %447, align 8, !noalias !11
   %450 = getelementptr inbounds nuw i8, ptr %443, i64 24
-  store atomic i32 0, ptr %450 seq_cst, align 4, !noalias !11
+  store atomic i32 0, ptr %450 seq_cst, align 8, !noalias !11
   store ptr %443, ptr %37, align 8, !alias.scope !11
   %451 = atomicrmw add ptr %450, i32 1 monotonic, align 4, !noalias !11
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2ERKS0_.exit.i

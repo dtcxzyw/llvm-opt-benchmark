@@ -1167,7 +1167,7 @@ define void @_ZN9grpc_core11ChannelInit16BuildStackConfigERKSt6vectorISt10unique
   %76 = getelementptr inbounds nuw i8, ptr %29, i64 96
   %77 = load ptr, ptr %76, align 8, !tbaa !29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %66, i8 0, i64 24, i1 false)
-  %78 = load i8, ptr %67, align 1, !tbaa !109
+  %78 = load i8, ptr %67, align 2, !tbaa !109
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %68, i64 16, i1 false)
   store i64 %.sroa.0.0.copyload.i.i.i, ptr %69, align 8, !tbaa !12
@@ -1681,7 +1681,7 @@ _ZNSt6vectorIN9grpc_core11ChannelInit6FilterESaIS2_EE12emplace_backIJRKNS0_14Uni
   %281 = getelementptr inbounds nuw i8, ptr %262, i64 96
   %282 = load ptr, ptr %281, align 8, !tbaa !29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %269, i8 0, i64 24, i1 false)
-  %283 = load i8, ptr %270, align 1, !tbaa !109
+  %283 = load i8, ptr %270, align 2, !tbaa !109
   %284 = load i8, ptr %271, align 1, !tbaa !101
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %272, i64 16, i1 false)
@@ -3440,7 +3440,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi3EEERS2_RAT__Kc.exit: ; pre
   store ptr %341, ptr %340, align 8, !tbaa !205
   %342 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i.i.i, i64 24
   store i64 0, ptr %342, align 8, !tbaa !120
-  store i8 0, ptr %341, align 1, !tbaa !33
+  store i8 0, ptr %341, align 8, !tbaa !33
   br label %343
 
 343:                                              ; preds = %339, %.noexc
@@ -3592,7 +3592,7 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %_ZN4absl12lts_20240
   store ptr %387, ptr %386, align 8, !tbaa !205
   %388 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i.i.i157, i64 24
   store i64 0, ptr %388, align 8, !tbaa !120
-  store i8 0, ptr %387, align 1, !tbaa !33
+  store i8 0, ptr %387, align 8, !tbaa !33
   br label %389
 
 389:                                              ; preds = %385, %.noexc158
@@ -7614,7 +7614,7 @@ _ZN4absl12lts_2024072218container_internal20common_policy_traitsINS1_17FlatHashM
   store i64 %43, ptr %44, align 8, !tbaa !120
   store ptr %34, ptr %31, align 8, !tbaa !117
   store i64 0, ptr %42, align 8, !tbaa !120
-  store i8 0, ptr %34, align 1, !tbaa !33
+  store i8 0, ptr %34, align 8, !tbaa !33
   %.pre.i = load i64, ptr %5, align 8, !tbaa !299
   br label %45
 
@@ -7736,7 +7736,7 @@ _ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolic
   store i64 %117, ptr %118, align 8, !tbaa !120
   store ptr %108, ptr %105, align 8, !tbaa !117
   store i64 0, ptr %116, align 8, !tbaa !120
-  store i8 0, ptr %108, align 1, !tbaa !33
+  store i8 0, ptr %108, align 8, !tbaa !33
   %.pre = load i64, ptr %5, align 8, !tbaa !299
   br label %119
 
@@ -7858,7 +7858,7 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   store i64 %17, ptr %18, align 8, !tbaa !120
   store ptr %8, ptr %5, align 8, !tbaa !117
   store i64 0, ptr %16, align 8, !tbaa !120
-  store i8 0, ptr %8, align 1, !tbaa !33
+  store i8 0, ptr %8, align 8, !tbaa !33
   ret void
 }
 
@@ -8277,7 +8277,7 @@ define internal noundef zeroext i1 @"_ZN4absl12lts_2024072222internal_any_invoca
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = and i16 %5, 256
   %.not.i.i.i.i.i = icmp eq i16 %7, 0
-  %.val3.i.i.i.i.i.i = load i8, ptr %6, align 1, !range !95
+  %.val3.i.i.i.i.i.i = load i8, ptr %6, align 8, !range !95
   %.0.in.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i8 %.val3.i.i.i.i.i.i, i8 %.sroa.02.0.extract.trunc.i.i.i.i.i
   %.0.i.i.i.i.i.i = trunc nuw i8 %.0.in.i.i.i.i.i.i to i1
   ret i1 %.0.i.i.i.i.i.i

@@ -2634,7 +2634,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
   %.val.i.i = load ptr, ptr %3, align 8, !alias.scope !607, !noalias !615, !nonnull !17, !align !483, !noundef !17
   %.val4.i.i = load i64, ptr %9, align 8, !noalias !616, !noundef !17
   %10 = getelementptr i8, ptr %8, i64 -32
-  %.val5.i.i = load i8, ptr %10, align 1, !noalias !616
+  %.val5.i.i = load i8, ptr %10, align 8, !noalias !616
   %.val2.i.i.i = load i64, ptr %.val.i.i, align 8, !noalias !616, !noundef !17
   %11 = getelementptr i8, ptr %.val.i.i, i64 8
   %.val3.i.i.i = load i8, ptr %11, align 8, !noalias !616
@@ -8466,7 +8466,7 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
   %61 = getelementptr inbounds i8, ptr %60, i64 -40
   %.val4.i.i = load i64, ptr %61, align 8, !noalias !2105, !noundef !17
   %62 = getelementptr i8, ptr %60, i64 -32
-  %.val5.i.i = load i8, ptr %62, align 1, !noalias !2105
+  %.val5.i.i = load i8, ptr %62, align 8, !noalias !2105
   %63 = icmp eq i64 %.val4.i.i, %2
   %64 = icmp eq i8 %.val5.i.i, %3
   %spec.select.i.i.i.i = select i1 %63, i1 %64, i1 false
@@ -18463,7 +18463,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hf082
   %27 = getelementptr inbounds i8, ptr %26, i64 -40
   %.val4.i = load i64, ptr %27, align 8, !noalias !5138, !noundef !17
   %28 = getelementptr i8, ptr %26, i64 -32
-  %.val5.i = load i8, ptr %28, align 1, !noalias !5138
+  %.val5.i = load i8, ptr %28, align 8, !noalias !5138
   %29 = icmp eq i64 %.val4.i, %.val2.i.i
   %30 = icmp eq i8 %.val5.i, %.val3.i.i
   %spec.select.i.i.i = select i1 %29, i1 %30, i1 false
@@ -18945,7 +18945,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %.val = load ptr, ptr %3, align 8, !nonnull !17, !align !483, !noundef !17
   %.val4 = load i64, ptr %9, align 8, !noundef !17
   %10 = getelementptr i8, ptr %8, i64 -32
-  %.val5 = load i8, ptr %10, align 1
+  %.val5 = load i8, ptr %10, align 8
   %.val2.i = load i64, ptr %.val, align 8, !noundef !17
   %11 = getelementptr i8, ptr %.val, i64 8
   %.val3.i = load i8, ptr %11, align 8

@@ -25313,7 +25313,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %23, ptr %26, align 8
   store ptr %14, ptr %11, align 8
   store i64 0, ptr %25, align 8
-  store i8 0, ptr %14, align 1
+  store i8 0, ptr %14, align 8
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 64
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 80
@@ -55229,7 +55229,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %32, ptr %34, align 8, !alias.scope !364, !noalias !367
   store ptr %24, ptr %.0911.i.i.i, align 8, !alias.scope !367, !noalias !364
   store i64 0, ptr %33, align 8, !alias.scope !367, !noalias !364
-  store i8 0, ptr %24, align 1, !alias.scope !367, !noalias !364
+  store i8 0, ptr %24, align 8, !alias.scope !367, !noalias !364
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i) #27
   %35 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %36 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
@@ -55279,7 +55279,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %48, ptr %50, align 8, !alias.scope !371, !noalias !374
   store ptr %40, ptr %.0911.i.i.i29, align 8, !alias.scope !374, !noalias !371
   store i64 0, ptr %49, align 8, !alias.scope !374, !noalias !371
-  store i8 0, ptr %40, align 1, !alias.scope !374, !noalias !371
+  store i8 0, ptr %40, align 8, !alias.scope !374, !noalias !371
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i29) #27
   %51 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
@@ -57000,7 +57000,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i: ; preds
   store i64 %14, ptr %16, align 8
   store ptr %6, ptr %1, align 8
   store i64 0, ptr %15, align 8
-  store i8 0, ptr %6, align 1
+  store i8 0, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -57035,7 +57035,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = 
   store i64 %29, ptr %31, align 8
   store ptr %21, ptr %18, align 8
   store i64 0, ptr %30, align 8
-  store i8 0, ptr %21, align 1
+  store i8 0, ptr %21, align 8
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #27
   %32 = load ptr, ptr %1, align 8
   %33 = icmp eq ptr %32, %6
@@ -61810,7 +61810,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %26, ptr %27, align 8
   store ptr %17, ptr %1, align 8
-  store i8 0, ptr %17, align 1
+  store i8 0, ptr %17, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = load i64, ptr %29, align 8
@@ -67746,7 +67746,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %28
   store i64 %34, ptr %36, align 8
   store ptr %26, ptr %1, align 8
   store i64 0, ptr %35, align 8
-  store i8 0, ptr %26, align 1
+  store i8 0, ptr %26, align 8
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %38 = load ptr, ptr %3, align 8
   store ptr %38, ptr %37, align 8
@@ -68735,7 +68735,7 @@ _ZSt19__relocate_object_aIN3nix27GitFileSystemObjectSinkImpl10PendingDirES2_SaIS
   store i64 %50, ptr %52, align 8, !alias.scope !446, !noalias !449
   store ptr %42, ptr %.0911.i.i.i, align 8, !alias.scope !449, !noalias !446
   store i64 0, ptr %51, align 8, !alias.scope !449, !noalias !446
-  store i8 0, ptr %42, align 1, !alias.scope !449, !noalias !446
+  store i8 0, ptr %42, align 8, !alias.scope !449, !noalias !446
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %55 = load i64, ptr %54, align 8, !alias.scope !449, !noalias !446
@@ -68790,7 +68790,7 @@ _ZSt19__relocate_object_aIN3nix27GitFileSystemObjectSinkImpl10PendingDirES2_SaIS
   store i64 %69, ptr %71, align 8, !alias.scope !453, !noalias !456
   store ptr %61, ptr %.0911.i.i.i19, align 8, !alias.scope !456, !noalias !453
   store i64 0, ptr %70, align 8, !alias.scope !456, !noalias !453
-  store i8 0, ptr %61, align 1, !alias.scope !456, !noalias !453
+  store i8 0, ptr %61, align 8, !alias.scope !456, !noalias !453
   %72 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %73 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %74 = load i64, ptr %73, align 8, !alias.scope !456, !noalias !453
@@ -69023,7 +69023,7 @@ _ZN3nix27GitFileSystemObjectSinkImpl10PendingDirC2EOS1_.exit: ; preds = %14, %_Z
   store i64 %20, ptr %22, align 8
   store ptr %12, ptr %9, align 8
   store i64 0, ptr %21, align 8
-  store i8 0, ptr %12, align 1
+  store i8 0, ptr %12, align 8
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %24 = getelementptr inbounds i8, ptr %8, i64 -8
   %25 = load i64, ptr %24, align 8

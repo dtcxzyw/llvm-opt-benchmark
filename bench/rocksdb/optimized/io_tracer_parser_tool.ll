@@ -397,7 +397,7 @@ define void @_ZN7rocksdb19IOTraceRecordParser31PrintHumanReadableIOTraceRecordER
   %16 = load i32, ptr %15, align 8, !tbaa !49
   %17 = and i32 %16, -177
   %18 = or disjoint i32 %17, 32
-  store i32 %18, ptr %15, align 4, !tbaa !50
+  store i32 %18, ptr %15, align 8, !tbaa !50
   %19 = load i64, ptr %1, align 8, !tbaa !51
   %20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %19)
           to label %_ZNSolsEm.exit unwind label %110
@@ -419,7 +419,7 @@ _ZNSolsEm.exit:                                   ; preds = %7
   %31 = load i32, ptr %30, align 8, !tbaa !49
   %32 = and i32 %31, -177
   %33 = or disjoint i32 %32, 32
-  store i32 %33, ptr %30, align 4, !tbaa !50
+  store i32 %33, ptr %30, align 8, !tbaa !50
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %35 = load ptr, ptr %34, align 8, !tbaa !9
   %.not.i = icmp eq ptr %35, null
@@ -456,7 +456,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit40: ; preds = %36, %
   %55 = load i32, ptr %54, align 8, !tbaa !49
   %56 = and i32 %55, -177
   %57 = or disjoint i32 %56, 32
-  store i32 %57, ptr %54, align 4, !tbaa !50
+  store i32 %57, ptr %54, align 8, !tbaa !50
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %59 = load ptr, ptr %58, align 8, !tbaa !9
   %.not.i45 = icmp eq ptr %59, null
@@ -493,7 +493,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit48: ; preds = %60, %
   %79 = load i32, ptr %78, align 8, !tbaa !49
   %80 = and i32 %79, -177
   %81 = or disjoint i32 %80, 32
-  store i32 %81, ptr %78, align 4, !tbaa !50
+  store i32 %81, ptr %78, align 8, !tbaa !50
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %83 = load i64, ptr %82, align 8, !tbaa !55
   %84 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %20, i64 noundef %83)

@@ -103198,7 +103198,7 @@ common.resume.i:                                  ; preds = %_ZNSt7__cxx1112basi
   %27 = getelementptr i8, ptr %.val.i, i64 16
   %.val.i.i.i = load i64, ptr %27, align 8, !tbaa !2806, !noalias !2868
   %28 = getelementptr i8, ptr %.val.i, i64 24
-  %.val2.i.i.i = load i32, ptr %28, align 4, !tbaa !443, !noalias !2868
+  %.val2.i.i.i = load i32, ptr %28, align 8, !tbaa !443, !noalias !2868
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !2873
   %.sroa.05.0.insert.ext.i.i.i.i.i = zext i32 %.val2.i.i.i to i64
   store i64 %.val.i.i.i, ptr %3, align 16, !alias.scope !2878, !noalias !2873
@@ -103260,7 +103260,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   %49 = getelementptr i8, ptr %.val17.i, i64 16
   %.val.i.i19.i = load i64, ptr %49, align 8, !tbaa !2806, !noalias !2886
   %50 = getelementptr i8, ptr %.val17.i, i64 24
-  %.val2.i.i20.i = load i32, ptr %50, align 4, !tbaa !443, !noalias !2886
+  %.val2.i.i20.i = load i32, ptr %50, align 8, !tbaa !443, !noalias !2886
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !2891
   %.sroa.05.0.insert.ext.i.i.i.i21.i = zext i32 %.val2.i.i20.i to i64
   store i64 %.val.i.i19.i, ptr %2, align 16, !alias.scope !2896, !noalias !2891

@@ -19692,7 +19692,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit223: 
 
 "_ZZN3mbp10term_graph5dcertER5modelRK10ref_vectorI4expr11ast_managerEENK3$_2clEPS4_SA_.exit.thread440": ; preds = %430, %"_ZZN3mbp10term_graph5dcertER5modelRK10ref_vectorI4expr11ast_managerEENK3$_2clEPS4_SA_.exit"
   %436 = load i32, ptr %385, align 8, !tbaa !181
-  %437 = load i32, ptr %374, align 4, !tbaa !94
+  %437 = load i32, ptr %374, align 8, !tbaa !94
   %438 = load i32, ptr %416, align 4, !tbaa !94
   %439 = icmp ugt i32 %437, %438
   %spec.select = select i1 %439, ptr %374, ptr %416

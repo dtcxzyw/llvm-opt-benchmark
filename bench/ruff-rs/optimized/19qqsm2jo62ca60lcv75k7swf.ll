@@ -6953,7 +6953,7 @@ define hidden void @_ZN5salsa5views5Views3add17h48dca298c5fc3da1E(ptr noundef no
   %.sroa.7.0..sroa_idx = getelementptr i8, ptr %57, i64 1568
   store i64 7469766667972927328, ptr %.sroa.7.0..sroa_idx, align 8
   %59 = getelementptr i8, ptr %57, i64 1576
-  store atomic i8 1, ptr %59 release, align 1, !noalias !332
+  store atomic i8 1, ptr %59 release, align 8, !noalias !332
   %60 = atomicrmw add ptr %5, i64 1 release, align 8, !noalias !332
   br label %.loopexit16
 
@@ -7084,7 +7084,7 @@ define hidden void @_ZN5salsa5views5Views3add17h62136662c2601201E(ptr noundef no
   %.sroa.7.0..sroa_idx = getelementptr i8, ptr %57, i64 1568
   store i64 760515197786833164, ptr %.sroa.7.0..sroa_idx, align 8
   %59 = getelementptr i8, ptr %57, i64 1576
-  store atomic i8 1, ptr %59 release, align 1, !noalias !350
+  store atomic i8 1, ptr %59 release, align 8, !noalias !350
   %60 = atomicrmw add ptr %5, i64 1 release, align 8, !noalias !350
   br label %.loopexit16
 
@@ -7215,7 +7215,7 @@ define hidden void @_ZN5salsa5views5Views3add17hbc1696452a0bd749E(ptr noundef no
   %.sroa.7.0..sroa_idx = getelementptr i8, ptr %57, i64 1568
   store i64 637409720492316309, ptr %.sroa.7.0..sroa_idx, align 8
   %59 = getelementptr i8, ptr %57, i64 1576
-  store atomic i8 1, ptr %59 release, align 1, !noalias !368
+  store atomic i8 1, ptr %59 release, align 8, !noalias !368
   %60 = atomicrmw add ptr %5, i64 1 release, align 8, !noalias !368
   br label %.loopexit16
 
@@ -7346,7 +7346,7 @@ define hidden void @_ZN5salsa5views5Views3add17hd8949126989bd589E(ptr noundef no
   %.sroa.7.0..sroa_idx = getelementptr i8, ptr %57, i64 1568
   store i64 3822131886838487033, ptr %.sroa.7.0..sroa_idx, align 8
   %59 = getelementptr i8, ptr %57, i64 1576
-  store atomic i8 1, ptr %59 release, align 1, !noalias !386
+  store atomic i8 1, ptr %59 release, align 8, !noalias !386
   %60 = atomicrmw add ptr %5, i64 1 release, align 8, !noalias !386
   br label %.loopexit16
 
@@ -7434,7 +7434,7 @@ define hidden void @_ZN5salsa5views5Views3new17hf4bca1c20ecf7197E(ptr dead_on_un
   %.sroa.7.0..sroa_idx = getelementptr i8, ptr %36, i64 1568
   store i64 760515197786833164, ptr %.sroa.7.0..sroa_idx, align 8
   %38 = getelementptr i8, ptr %36, i64 1576
-  store atomic i8 1, ptr %38 release, align 1, !noalias !392
+  store atomic i8 1, ptr %38 release, align 8, !noalias !392
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 480
   %40 = atomicrmw add ptr %39, i64 1 release, align 8, !noalias !392
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16

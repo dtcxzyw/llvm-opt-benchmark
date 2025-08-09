@@ -2721,7 +2721,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
   store i64 %11, ptr %_M_string_length.i30.i.i, align 8, !tbaa !14
   store ptr %8, ptr %6, align 8, !tbaa !11
   store i64 0, ptr %_M_string_length.i29.i.i, align 8, !tbaa !14
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   %params3.i = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %3, ptr %params.i, align 8, !tbaa !4
   %12 = load ptr, ptr %params3.i, align 8, !tbaa !11
@@ -2750,7 +2750,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit23.i: ; preds =
   store i64 %16, ptr %_M_string_length.i30.i18.i, align 8, !tbaa !14
   store ptr %13, ptr %params3.i, align 8, !tbaa !11
   store i64 0, ptr %_M_string_length.i29.i17.i, align 8, !tbaa !14
-  store i8 0, ptr %13, align 1, !tbaa !13
+  store i8 0, ptr %13, align 8, !tbaa !13
   %params_ext4.i = getelementptr inbounds nuw i8, ptr %6, i64 64
   %17 = load i64, ptr %params_ext4.i, align 8, !tbaa !15
   store i64 %17, ptr %params_ext.i, align 8, !tbaa !15
@@ -2783,7 +2783,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit32.i: ; preds =
   store i64 %22, ptr %_M_string_length.i30.i27.i, align 8, !tbaa !14
   store ptr %19, ptr %result5.i, align 8, !tbaa !11
   store i64 0, ptr %_M_string_length.i29.i26.i, align 8, !tbaa !14
-  store i8 0, ptr %19, align 1, !tbaa !13
+  store i8 0, ptr %19, align 8, !tbaa !13
   %result_ext6.i = getelementptr inbounds nuw i8, ptr %6, i64 104
   %23 = load i64, ptr %result_ext6.i, align 8, !tbaa !15
   store i64 %23, ptr %result_ext.i, align 8, !tbaa !15
@@ -2816,7 +2816,7 @@ _ZN10LuaJobInfoC2EOS_.exit:                       ; preds = %if.else.i34.i, %if.
   store i64 %28, ptr %_M_string_length.i30.i36.i, align 8, !tbaa !14
   store ptr %25, ptr %mod_origin7.i, align 8, !tbaa !11
   store i64 0, ptr %_M_string_length.i29.i35.i, align 8, !tbaa !14
-  store i8 0, ptr %25, align 1, !tbaa !13
+  store i8 0, ptr %25, align 8, !tbaa !13
   %id8.i = getelementptr inbounds nuw i8, ptr %6, i64 144
   %29 = load i32, ptr %id8.i, align 8, !tbaa !139
   store i32 %29, ptr %id.i, align 8, !tbaa !139
@@ -4501,7 +4501,7 @@ entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17AsyncWorkerThread, i64 112), ptr %add.ptr.i.i, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17AsyncWorkerThread, i64 72), ptr %this, align 8, !tbaa !16
   %m_running.i.i.i = getelementptr inbounds i8, ptr %this, i64 -94
-  %1 = load atomic i8, ptr %m_running.i.i.i seq_cst, align 1
+  %1 = load atomic i8, ptr %m_running.i.i.i seq_cst, align 2
   %2 = and i8 %1, 1
   %tobool.i.i.i.not.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.i.not.i.i, label %_ZN17AsyncWorkerThreadD1Ev.exit, label %cond.false.i.i
@@ -4539,7 +4539,7 @@ entry:
   %add.ptr3.i.i = getelementptr inbounds nuw i8, ptr %3, i64 144
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17AsyncWorkerThread, i64 72), ptr %add.ptr3.i.i, align 8, !tbaa !16
   %m_running.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 50
-  %4 = load atomic i8, ptr %m_running.i.i.i seq_cst, align 1
+  %4 = load atomic i8, ptr %m_running.i.i.i seq_cst, align 2
   %5 = and i8 %4, 1
   %tobool.i.i.i.not.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.i.i.not.i.i, label %_ZN17AsyncWorkerThreadD1Ev.exit, label %cond.false.i.i
@@ -4608,7 +4608,7 @@ entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17AsyncWorkerThread, i64 112), ptr %add.ptr.i.i.i, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17AsyncWorkerThread, i64 72), ptr %this, align 8, !tbaa !16
   %m_running.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -94
-  %1 = load atomic i8, ptr %m_running.i.i.i.i seq_cst, align 1
+  %1 = load atomic i8, ptr %m_running.i.i.i.i seq_cst, align 2
   %2 = and i8 %1, 1
   %tobool.i.i.i.not.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.i.not.i.i.i, label %_ZN17AsyncWorkerThreadD0Ev.exit, label %cond.false.i.i.i
@@ -4647,7 +4647,7 @@ entry:
   %add.ptr3.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 144
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17AsyncWorkerThread, i64 72), ptr %add.ptr3.i.i.i, align 8, !tbaa !16
   %m_running.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 50
-  %4 = load atomic i8, ptr %m_running.i.i.i.i seq_cst, align 1
+  %4 = load atomic i8, ptr %m_running.i.i.i.i seq_cst, align 2
   %5 = and i8 %4, 1
   %tobool.i.i.i.not.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.i.i.not.i.i.i, label %_ZN17AsyncWorkerThreadD0Ev.exit, label %cond.false.i.i.i
@@ -6502,7 +6502,7 @@ entry:
   store ptr null, ptr %call5.i.i.i.i, align 8, !tbaa !57
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 8
   %0 = load i32, ptr %__args, align 4, !tbaa !94
-  store i32 %0, ptr %add.ptr.i.i, align 4, !tbaa !94
+  store i32 %0, ptr %add.ptr.i.i, align 8, !tbaa !94
   %_M_element_count.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i64, ptr %_M_element_count.i, align 8, !tbaa !165
   %cmp.not.not = icmp eq i64 %1, 0
@@ -6744,7 +6744,7 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIj
   %__bbegin_bkt.043 = phi i64 [ %__bbegin_bkt.1, %if.end22 ], [ 0, %_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %1 = load ptr, ptr %__p.044, align 8, !tbaa !57
   %add.ptr = getelementptr inbounds nuw i8, ptr %__p.044, i64 8
-  %2 = load i32, ptr %add.ptr, align 4, !tbaa !94
+  %2 = load i32, ptr %add.ptr, align 8, !tbaa !94
   %conv.i.i.i = zext i32 %2 to i64
   %rem.i.i = urem i64 %conv.i.i.i, %__bkt_count
   %arrayidx = getelementptr inbounds nuw ptr, ptr %retval.0.i, i64 %rem.i.i

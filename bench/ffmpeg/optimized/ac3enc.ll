@@ -5220,11 +5220,11 @@ define internal fastcc range(i32 -22, 1) i32 @ac3_validate_metadata(ptr noundef 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %4, align 4, !tbaa !111
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 0, ptr %5, align 4, !tbaa !116
+  store i32 0, ptr %5, align 16, !tbaa !116
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 0, ptr %6, align 4, !tbaa !117
+  store i32 0, ptr %6, align 8, !tbaa !117
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 0, ptr %7, align 4, !tbaa !106
+  store i32 0, ptr %7, align 8, !tbaa !106
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 0, ptr %8, align 4, !tbaa !110
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 5024
@@ -8088,7 +8088,7 @@ define internal fastcc void @set_bandwidth(ptr noundef captures(none) initialize
   store i32 %104, ptr %105, align 8, !tbaa !121
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 5116
   store i32 1, ptr %106, align 4, !tbaa !122
-  store i8 12, ptr %97, align 1, !tbaa !26
+  store i8 12, ptr %97, align 8, !tbaa !26
   %107 = add nsw i32 %99, 2
   %108 = icmp slt i32 %spec.select, %107
   br i1 %108, label %.lr.ph107.preheader, label %._crit_edge108
@@ -8201,7 +8201,7 @@ define internal fastcc void @bit_alloc_init(ptr noundef captures(none) initializ
   %17 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ff_ac3_slow_decay_tab, i64 2), align 1, !tbaa !26
   %18 = zext i8 %17 to i32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 5176
-  store i32 %18, ptr %19, align 4, !tbaa !234
+  store i32 %18, ptr %19, align 8, !tbaa !234
   %20 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ff_ac3_fast_decay_tab, i64 1), align 1, !tbaa !26
   %21 = zext i8 %20 to i32
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 5180
@@ -8215,13 +8215,13 @@ define internal fastcc void @bit_alloc_init(ptr noundef captures(none) initializ
   %28 = load i16, ptr %27, align 2, !tbaa !130
   %29 = zext i16 %28 to i32
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 5184
-  store i32 %29, ptr %30, align 4, !tbaa !237
+  store i32 %29, ptr %30, align 16, !tbaa !237
   %31 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ff_ac3_floor_tab, i64 14), align 2, !tbaa !130
   %32 = sext i16 %31 to i32
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 5188
   store i32 %32, ptr %33, align 4, !tbaa !238
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 5192
-  store i32 0, ptr %34, align 4, !tbaa !176
+  store i32 0, ptr %34, align 8, !tbaa !176
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 5196
   store i32 0, ptr %35, align 4, !tbaa !177
   br i1 %.not, label %57, label %36

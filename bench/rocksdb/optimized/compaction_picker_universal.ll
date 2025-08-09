@@ -747,7 +747,7 @@ _ZNSt8_Rb_treeImSt4pairIKmmESt10_Select1stIS2_ESt4lessImESaIS2_EE10_Auto_nodeD2E
 145:                                              ; preds = %136, %128
   %146 = phi i8 [ 0, %128 ], [ %144, %136 ]
   %.val41.i = load i64, ptr %131, align 8, !noalias !163
-  %.val42.i = load i8, ptr %132, align 1, !noalias !163
+  %.val42.i = load i8, ptr %132, align 4, !noalias !163
   %.not.i.i = icmp eq ptr %82, %81
   br i1 %.not.i.i, label %154, label %147
 

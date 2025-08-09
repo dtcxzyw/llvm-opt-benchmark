@@ -7039,11 +7039,11 @@ _ZNK6Assimp4Ogre8Skeleton10BoneByNameERKNSt7__cxx1112basic_stringIcSt11char_trai
   %78 = phi ptr [ %70, %75 ], [ %84, %77 ]
   store double 0.000000e+00, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  store float 1.000000e+00, ptr %79, align 4
+  store float 1.000000e+00, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 12
   store float 0.000000e+00, ptr %80, align 4
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 16
-  store float 0.000000e+00, ptr %81, align 4
+  store float 0.000000e+00, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %78, i64 20
   store float 0.000000e+00, ptr %82, align 4
   %83 = getelementptr inbounds nuw i8, ptr %78, i64 24

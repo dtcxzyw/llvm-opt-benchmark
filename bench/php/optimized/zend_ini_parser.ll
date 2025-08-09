@@ -677,7 +677,7 @@ zend_ini_init_string.exit:                        ; preds = %222, %226
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %239 = load i8, ptr %236, align 1, !tbaa !35
+  %239 = load i8, ptr %236, align 8, !tbaa !35
   %240 = icmp sgt i8 %239, 57
   br i1 %240, label %convert_to_number.exit.thread.i, label %is_numeric_string_ex.exit.i.i
 

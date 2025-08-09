@@ -145,7 +145,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %54 = load <2 x double>, ptr %53, align 16, !tbaa !25
   store <2 x double> %54, ptr %6, align 16, !tbaa !25
   %55 = getelementptr i8, ptr %53, i64 16
-  %56 = load double, ptr %55, align 8, !tbaa !26
+  %56 = load double, ptr %55, align 16, !tbaa !26
   store double %56, ptr %31, align 16, !tbaa !26
   call void @free(ptr noundef %53) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

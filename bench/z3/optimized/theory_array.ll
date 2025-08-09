@@ -2934,7 +2934,7 @@ _ZNK3smt7context14e_internalizedEPK4expr.exit.thread: ; preds = %_ZNK6vectorIPN3
   %42 = tail call noundef i32 @_ZNK3smt5enode10get_th_varEi(ptr noundef nonnull align 8 dereferenceable(112) %41, i32 noundef %34)
   %43 = load ptr, ptr %3, align 8, !tbaa !612
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8656
-  %45 = load i32, ptr %1, align 4, !tbaa !625
+  %45 = load i32, ptr %1, align 8, !tbaa !625
   %46 = load ptr, ptr %44, align 8, !tbaa !550
   %47 = zext i32 %45 to i64
   %48 = getelementptr inbounds nuw ptr, ptr %46, i64 %47
@@ -3745,7 +3745,7 @@ define hidden void @_ZNK3smt12theory_array11display_varERSoi(ptr noundef nonnull
   %18 = load i32, ptr %17, align 8, !tbaa !649
   %19 = and i32 %18, -177
   %20 = or disjoint i32 %19, 32
-  store i32 %20, ptr %17, align 4, !tbaa !650
+  store i32 %20, ptr %17, align 8, !tbaa !650
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2)
   %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.10, i64 noundef 2)
   %23 = load ptr, ptr %1, align 8, !tbaa !3
@@ -3797,7 +3797,7 @@ _ZNK3smt12theory_array4findEi.exit:               ; preds = %44
   %60 = load i32, ptr %59, align 8, !tbaa !649
   %61 = and i32 %60, -177
   %62 = or disjoint i32 %61, 128
-  store i32 %62, ptr %59, align 4, !tbaa !650
+  store i32 %62, ptr %59, align 8, !tbaa !650
   %63 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.12, i64 noundef 11)
   %64 = getelementptr inbounds nuw i8, ptr %8, i64 25
   %65 = load i8, ptr %64, align 1, !tbaa !605, !range !568, !noundef !569

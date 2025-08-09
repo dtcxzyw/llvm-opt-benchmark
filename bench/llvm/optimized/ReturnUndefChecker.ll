@@ -176,7 +176,7 @@ _ZN4llvm9StringRefC2EPKc.exit2.critedge.i.i:      ; preds = %1
   store ptr %55, ptr %54, align 8, !tbaa !11
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store i64 0, ptr %56, align 8, !tbaa !18
-  store i8 0, ptr %55, align 1, !tbaa !17
+  store i8 0, ptr %55, align 8, !tbaa !17
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 120
   store ptr %8, ptr %57, align 8, !tbaa !19
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 128

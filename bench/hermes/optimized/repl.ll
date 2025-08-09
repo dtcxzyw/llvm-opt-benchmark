@@ -2865,7 +2865,7 @@ if.then:                                          ; preds = %for.cond.i.i.i.i, %
   tail call void @_ZdlPv(ptr noundef nonnull %9) #25
   %_M_bucket_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %11 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
-  %12 = load i32, ptr %add.ptr.i, align 4
+  %12 = load i32, ptr %add.ptr.i, align 8
   %conv.i.i.i.i.i.i.i = zext i32 %12 to i64
   %rem.i.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i.i, %11
   %13 = load ptr, ptr %taskMap_, align 8

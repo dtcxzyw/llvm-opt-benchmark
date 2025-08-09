@@ -708,7 +708,7 @@ define dso_local void @irq_shutdown(ptr noundef %0) local_unnamed_addr #0 align 
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 1, ptr %9, align 64
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 64
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
@@ -1071,7 +1071,7 @@ define dso_local void @handle_nested_irq(i32 noundef %0) #0 align 16 {
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 216
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %25, ptr nonnull elementtype(i32) %25) #8, !srcloc !31
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %4) #8
-  %26 = load ptr, ptr %8, align 8
+  %26 = load ptr, ptr %8, align 16
   %27 = icmp eq ptr %26, null
   br i1 %27, label %.loopexit, label %.preheader
 
@@ -1899,7 +1899,7 @@ define dso_local void @handle_edge_irq(ptr noundef %0) #0 align 16 {
   %94 = add i32 %93, 1
   store i32 %94, ptr %92, align 8
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %96 = load ptr, ptr %95, align 8
+  %96 = load ptr, ptr %95, align 32
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 40
   %98 = load ptr, ptr %97, align 8
   tail call void %98(ptr noundef nonnull %52) #8

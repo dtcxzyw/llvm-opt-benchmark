@@ -9367,11 +9367,11 @@ zend_string_init.exit98.i:                        ; preds = %103
   %114 = getelementptr inbounds nuw [1 x i8], ptr %113, i64 0, i64 %106
   store i8 0, ptr %114, align 1, !tbaa !4
   store ptr %109, ptr %.058.ph, align 8, !tbaa !4
-  %115 = load i32, ptr %52, align 4, !tbaa !7
+  %115 = load i32, ptr %52, align 8, !tbaa !7
   %116 = icmp ne i32 %115, 0
   call void @llvm.assume(i1 %116)
   %117 = add i32 %115, -1
-  store i32 %117, ptr %52, align 4, !tbaa !7
+  store i32 %117, ptr %52, align 8, !tbaa !7
   br label %123
 
 118:                                              ; preds = %103

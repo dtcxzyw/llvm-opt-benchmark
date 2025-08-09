@@ -636,7 +636,7 @@ lean_dec.exit161:                                 ; preds = %111, %110, %108, %l
   %130 = getelementptr inbounds nuw i8, ptr %2, i64 73
   %131 = load i8, ptr %130, align 1, !tbaa !17
   %132 = getelementptr inbounds nuw i8, ptr %2, i64 74
-  %133 = load i8, ptr %132, align 1, !tbaa !17
+  %133 = load i8, ptr %132, align 2, !tbaa !17
   %134 = ptrtoint ptr %129 to i64
   %135 = and i64 %134, 1
   %.not264 = icmp eq i64 %135, 0
@@ -818,7 +818,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit160
   %194 = getelementptr inbounds nuw i8, ptr %191, i64 4
   %195 = getelementptr inbounds nuw i8, ptr %191, i64 72
   store i64 0, ptr %195, align 8, !tbaa !15
-  store i32 1, ptr %191, align 4, !tbaa !4
+  store i32 1, ptr %191, align 8, !tbaa !4
   store i32 458832, ptr %194, align 4
   %196 = getelementptr inbounds nuw i8, ptr %191, i64 8
   store ptr %16, ptr %196, align 8, !tbaa !10
@@ -836,11 +836,11 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit160
   store ptr %129, ptr %202, align 8, !tbaa !10
   %203 = getelementptr inbounds nuw i8, ptr %191, i64 64
   store i64 %.val, ptr %203, align 8, !tbaa !15
-  store i8 %117, ptr %195, align 1, !tbaa !17
+  store i8 %117, ptr %195, align 8, !tbaa !17
   %204 = getelementptr inbounds nuw i8, ptr %191, i64 73
   store i8 %131, ptr %204, align 1, !tbaa !17
   %205 = getelementptr inbounds nuw i8, ptr %191, i64 74
-  store i8 %133, ptr %205, align 1, !tbaa !17
+  store i8 %133, ptr %205, align 2, !tbaa !17
   %206 = tail call ptr @l_Lean_Meta_DiscrTree_reduce(ptr noundef %1, ptr noundef nonnull %191, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #8
   %207 = ptrtoint ptr %206 to i64
   %208 = and i64 %207, 1
@@ -28395,30 +28395,30 @@ _init_l___private_Lean_Meta_ACLt_0__Lean_Meta_ACLt_config___closed__1.exit: ; pr
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 24
   store i64 257, ptr %49, align 8, !tbaa !15
-  store i32 1, ptr %45, align 4, !tbaa !4
+  store i32 1, ptr %45, align 8, !tbaa !4
   store i32 32, ptr %48, align 4
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %51 = getelementptr inbounds nuw i8, ptr %45, i64 13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %50, i8 0, i64 5, i1 false)
   store i8 1, ptr %51, align 1, !tbaa !17
   %52 = getelementptr inbounds nuw i8, ptr %45, i64 14
-  store i8 1, ptr %52, align 1, !tbaa !17
+  store i8 1, ptr %52, align 2, !tbaa !17
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 15
   store i8 0, ptr %53, align 1, !tbaa !17
   %54 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  store i8 1, ptr %54, align 1, !tbaa !17
+  store i8 1, ptr %54, align 8, !tbaa !17
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 17
   store i8 2, ptr %55, align 1, !tbaa !17
   %56 = getelementptr inbounds nuw i8, ptr %45, i64 18
-  store i8 0, ptr %56, align 1, !tbaa !17
+  store i8 0, ptr %56, align 2, !tbaa !17
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 19
   store i8 1, ptr %57, align 1, !tbaa !17
   %58 = getelementptr inbounds nuw i8, ptr %45, i64 20
-  store i8 0, ptr %58, align 1, !tbaa !17
+  store i8 0, ptr %58, align 4, !tbaa !17
   %59 = getelementptr inbounds nuw i8, ptr %45, i64 21
   store i8 1, ptr %59, align 1, !tbaa !17
   %60 = getelementptr inbounds nuw i8, ptr %45, i64 22
-  store i8 0, ptr %60, align 1, !tbaa !17
+  store i8 0, ptr %60, align 2, !tbaa !17
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 23
   store i8 1, ptr %61, align 1, !tbaa !17
   store ptr %45, ptr @l___private_Lean_Meta_ACLt_0__Lean_Meta_ACLt_config___closed__1, align 8, !tbaa !10

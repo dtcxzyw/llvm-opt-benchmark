@@ -1401,7 +1401,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE9push_b
   store i64 %85, ptr %86, align 8, !tbaa !61
   store ptr %76, ptr %73, align 8, !tbaa !58
   store i64 0, ptr %84, align 8, !tbaa !61
-  store i8 0, ptr %76, align 1, !tbaa !62
+  store i8 0, ptr %76, align 8, !tbaa !62
   %87 = load i32, ptr %35, align 8, !tbaa !26
   %88 = add i32 %87, 1
   store i32 %88, ptr %35, align 8, !tbaa !26
@@ -1604,7 +1604,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE9push_b
   store i64 %170, ptr %171, align 8, !tbaa !61
   store ptr %161, ptr %158, align 8, !tbaa !58
   store i64 0, ptr %169, align 8, !tbaa !61
-  store i8 0, ptr %161, align 1, !tbaa !62
+  store i8 0, ptr %161, align 8, !tbaa !62
   %172 = load i32, ptr %35, align 8, !tbaa !26
   %173 = add i32 %172, 1
   store i32 %173, ptr %35, align 8, !tbaa !26
@@ -2659,7 +2659,7 @@ _ZSt10_ConstructIN4llvm13MCELFStreamer13AttributeItemEJS2_EEvPT_DpOT0_.exit.i.i.
   store i64 %196, ptr %197, align 8, !tbaa !61
   store ptr %187, ptr %184, align 8, !tbaa !58
   store i64 0, ptr %195, align 8, !tbaa !61
-  store i8 0, ptr %187, align 1, !tbaa !62
+  store i8 0, ptr %187, align 8, !tbaa !62
   %198 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 48
   %199 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 48
   %.not.i.i.i.i.i = icmp eq ptr %198, %179
@@ -2766,7 +2766,7 @@ _ZSt10_ConstructIN4llvm13MCELFStreamer13AttributeItemEJS2_EEvPT_DpOT0_.exit.i.i.
   store i64 %24, ptr %25, align 8, !tbaa !61
   store ptr %15, ptr %12, align 8, !tbaa !58
   store i64 0, ptr %23, align 8, !tbaa !61
-  store i8 0, ptr %15, align 1, !tbaa !62
+  store i8 0, ptr %15, align 8, !tbaa !62
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 48
   %27 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 48
   %.not.i.i.i.i.i.i = icmp eq ptr %26, %10

@@ -4744,7 +4744,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %21
   store i64 %224, ptr %225, align 8, !tbaa !181
   store ptr %217, ptr %5, align 8, !tbaa !184
   store i64 0, ptr %15, align 8, !tbaa !181
-  store i8 0, ptr %217, align 1, !tbaa !173
+  store i8 0, ptr %217, align 8, !tbaa !173
   br label %226
 
 226:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit27
@@ -6301,9 +6301,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockENS_14SmallSetVectorIS4_Lj4
   store ptr null, ptr %41, align 8, !tbaa !236
   %43 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 16
   %44 = getelementptr inbounds nuw i8, ptr %.022, i64 16
-  %45 = load i32, ptr %44, align 4, !tbaa !185
-  store i32 %45, ptr %43, align 4, !tbaa !185
-  store i32 0, ptr %44, align 4, !tbaa !185
+  %45 = load i32, ptr %44, align 8, !tbaa !185
+  store i32 %45, ptr %43, align 8, !tbaa !185
+  store i32 0, ptr %44, align 8, !tbaa !185
   %46 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 20
   %47 = getelementptr inbounds nuw i8, ptr %.022, i64 20
   %48 = load i32, ptr %46, align 4, !tbaa !185
@@ -6312,10 +6312,10 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockENS_14SmallSetVectorIS4_Lj4
   store i32 %48, ptr %47, align 4, !tbaa !185
   %50 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 24
   %51 = getelementptr inbounds nuw i8, ptr %.022, i64 24
-  %52 = load i32, ptr %50, align 4, !tbaa !185
-  %53 = load i32, ptr %51, align 4, !tbaa !185
-  store i32 %53, ptr %50, align 4, !tbaa !185
-  store i32 %52, ptr %51, align 4, !tbaa !185
+  %52 = load i32, ptr %50, align 8, !tbaa !185
+  %53 = load i32, ptr %51, align 8, !tbaa !185
+  store i32 %53, ptr %50, align 8, !tbaa !185
+  store i32 %52, ptr %51, align 8, !tbaa !185
   %54 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 48
   store ptr %55, ptr %54, align 8, !tbaa !18

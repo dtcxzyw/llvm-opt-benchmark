@@ -3044,7 +3044,7 @@ define internal i32 @inet_dump_ifaddr(ptr noundef %0, ptr noundef captures(none)
   %166 = load ptr, ptr %154, align 16
   %167 = getelementptr %struct.hlist_head, ptr %166, i64 %163
   call void @__rcu_read_lock() #18
-  %168 = load volatile i32, ptr %155, align 4
+  %168 = load volatile i32, ptr %155, align 16
   %169 = load i32, ptr %156, align 4
   %170 = add i32 %169, %168
   %171 = icmp eq i32 %170, 0
@@ -3529,7 +3529,7 @@ define internal i32 @inet_netconf_dump_devconf(ptr noundef %0, ptr noundef captu
   %46 = load ptr, ptr %34, align 16
   %47 = getelementptr %struct.hlist_head, ptr %46, i64 %44
   tail call void @__rcu_read_lock() #18
-  %48 = load volatile i32, ptr %35, align 4
+  %48 = load volatile i32, ptr %35, align 16
   %49 = load i32, ptr %36, align 4
   %50 = add i32 %49, %48
   %51 = icmp eq i32 %50, 0
@@ -5045,7 +5045,7 @@ define internal i32 @devinet_sysctl_forward(ptr noundef %0, i32 noundef %1, ptr 
   %46 = load ptr, ptr %23, align 8
   tail call void @inet_netconf_notify_devconf(ptr noundef %11, i32 noundef 80, i32 noundef 2, i32 noundef -2, ptr noundef %46)
   %47 = getelementptr inbounds nuw i8, ptr %11, i64 144
-  %48 = load ptr, ptr %47, align 8
+  %48 = load ptr, ptr %47, align 16
   %49 = icmp eq ptr %48, %47
   br i1 %49, label %.loopexit, label %.preheader
 
@@ -6433,7 +6433,7 @@ define internal noundef range(i32 -97, 1) i32 @inet_set_link_af(ptr noundef read
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %22, i64 %39) #18, !srcloc !129
   %40 = getelementptr [33 x i32], ptr %23, i64 0, i64 %39
   store i32 %38, ptr %40, align 4
-  %41 = load i16, ptr %27, align 2
+  %41 = load i16, ptr %27, align 4
   %42 = zext i16 %41 to i32
   %43 = add nuw nsw i32 %42, 3
   %44 = and i32 %43, 131068

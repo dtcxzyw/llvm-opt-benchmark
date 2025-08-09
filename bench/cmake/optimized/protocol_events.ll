@@ -12501,7 +12501,7 @@ define linkonce_odr dso_local void @_ZNK3dap13BasicTypeInfoINS_15BreakpointEvent
   store ptr %4, ptr %3, align 8, !tbaa !8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 544
   store i64 0, ptr %5, align 8, !tbaa !11
-  store i8 0, ptr %4, align 1, !tbaa !14
+  store i8 0, ptr %4, align 8, !tbaa !14
   ret void
 }
 
@@ -21271,7 +21271,7 @@ define linkonce_odr dso_local void @_ZNK3dap13BasicTypeInfoINS_11MemoryEventEE9c
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, i8 0, i64 40, i1 false)
   store ptr %4, ptr %3, align 8, !tbaa !8
-  store i8 0, ptr %4, align 1, !tbaa !14
+  store i8 0, ptr %4, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 0, ptr %5, align 8, !tbaa !50
   ret void
@@ -21647,7 +21647,7 @@ define linkonce_odr dso_local void @_ZNK3dap13BasicTypeInfoINS_11ModuleEventEE9c
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr %9, ptr %8, align 8, !tbaa !8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store i8 0, ptr %9, align 1, !tbaa !14
+  store i8 0, ptr %9, align 8, !tbaa !14
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 80
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !50
@@ -21703,13 +21703,13 @@ _ZN3dap11ModuleEventC2Ev.exit:                    ; preds = %2
   store ptr %29, ptr %28, align 8, !tbaa !8
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 152
   store i64 0, ptr %30, align 8, !tbaa !11
-  store i8 0, ptr %29, align 1, !tbaa !14
+  store i8 0, ptr %29, align 8, !tbaa !14
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 192
   store ptr %32, ptr %31, align 8, !tbaa !8
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 184
   store i64 0, ptr %33, align 8, !tbaa !11
-  store i8 0, ptr %32, align 1, !tbaa !14
+  store i8 0, ptr %32, align 8, !tbaa !14
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 208
   store i8 0, ptr %34, align 8, !tbaa !55
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 216
@@ -21717,7 +21717,7 @@ _ZN3dap11ModuleEventC2Ev.exit:                    ; preds = %2
   store ptr %36, ptr %35, align 8, !tbaa !8
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 224
   store i64 0, ptr %37, align 8, !tbaa !11
-  store i8 0, ptr %36, align 1, !tbaa !14
+  store i8 0, ptr %36, align 8, !tbaa !14
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store i8 0, ptr %38, align 8, !tbaa !55
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 256
@@ -21725,7 +21725,7 @@ _ZN3dap11ModuleEventC2Ev.exit:                    ; preds = %2
   store ptr %40, ptr %39, align 8, !tbaa !8
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 264
   store i64 0, ptr %41, align 8, !tbaa !11
-  store i8 0, ptr %40, align 1, !tbaa !14
+  store i8 0, ptr %40, align 8, !tbaa !14
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 288
   store i8 0, ptr %42, align 8, !tbaa !55
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 296
@@ -21733,7 +21733,7 @@ _ZN3dap11ModuleEventC2Ev.exit:                    ; preds = %2
   store ptr %44, ptr %43, align 8, !tbaa !8
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 304
   store i64 0, ptr %45, align 8, !tbaa !11
-  store i8 0, ptr %44, align 1, !tbaa !14
+  store i8 0, ptr %44, align 8, !tbaa !14
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 328
   store i8 0, ptr %46, align 8, !tbaa !55
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 336
@@ -23918,13 +23918,13 @@ define linkonce_odr dso_local void @_ZNK3dap13BasicTypeInfoINS_12ProcessEventEE9
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(112) %1, i8 0, i64 112, i1 false)
   store ptr %4, ptr %3, align 8, !tbaa !8
-  store i8 0, ptr %4, align 1, !tbaa !14
+  store i8 0, ptr %4, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 0, ptr %5, align 8, !tbaa !52
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store ptr %7, ptr %6, align 8, !tbaa !8
-  store i8 0, ptr %7, align 1, !tbaa !14
+  store i8 0, ptr %7, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store i64 0, ptr %8, align 8, !tbaa !50
   ret void
@@ -24411,7 +24411,7 @@ define linkonce_odr dso_local void @_ZNK3dap13BasicTypeInfoINS_16ProgressEndEven
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr %8, ptr %7, align 8, !tbaa !8
-  store i8 0, ptr %8, align 1, !tbaa !14
+  store i8 0, ptr %8, align 8, !tbaa !14
   ret void
 }
 
@@ -24866,19 +24866,19 @@ define linkonce_odr dso_local void @_ZNK3dap13BasicTypeInfoINS_18ProgressStartEv
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(144) %1, i8 0, i64 144, i1 false)
   store ptr %4, ptr %3, align 8, !tbaa !8
-  store i8 0, ptr %4, align 1, !tbaa !14
+  store i8 0, ptr %4, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store double 0.000000e+00, ptr %5, align 8, !tbaa !221
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %7, ptr %6, align 8, !tbaa !8
-  store i8 0, ptr %7, align 1, !tbaa !14
+  store i8 0, ptr %7, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store i8 0, ptr %8, align 8, !tbaa !52
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr %10, ptr %9, align 8, !tbaa !8
-  store i8 0, ptr %10, align 1, !tbaa !14
+  store i8 0, ptr %10, align 8, !tbaa !14
   ret void
 }
 
@@ -25457,7 +25457,7 @@ define linkonce_odr dso_local void @_ZNK3dap13BasicTypeInfoINS_19ProgressUpdateE
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store ptr %9, ptr %8, align 8, !tbaa !8
-  store i8 0, ptr %9, align 1, !tbaa !14
+  store i8 0, ptr %9, align 8, !tbaa !14
   ret void
 }
 
@@ -25920,7 +25920,7 @@ define linkonce_odr dso_local void @_ZNK3dap13BasicTypeInfoINS_12StoppedEventEE9
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(176) %1, i8 0, i64 176, i1 false)
   store ptr %4, ptr %3, align 8, !tbaa !8
-  store i8 0, ptr %4, align 1, !tbaa !14
+  store i8 0, ptr %4, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %5, i8 0, i64 25, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 81
@@ -25928,11 +25928,11 @@ define linkonce_odr dso_local void @_ZNK3dap13BasicTypeInfoINS_12StoppedEventEE9
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr %8, ptr %7, align 8, !tbaa !8
-  store i8 0, ptr %8, align 1, !tbaa !14
+  store i8 0, ptr %8, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 136
   store ptr %10, ptr %9, align 8, !tbaa !8
-  store i8 0, ptr %10, align 1, !tbaa !14
+  store i8 0, ptr %10, align 8, !tbaa !14
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store i64 0, ptr %11, align 8, !tbaa !50
   ret void
@@ -28730,7 +28730,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11
   store ptr %19, ptr %.08.i.i.i, align 8, !tbaa !8
   %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 8
   store i64 0, ptr %20, align 8, !tbaa !11
-  store i8 0, ptr %19, align 1, !tbaa !14
+  store i8 0, ptr %19, align 8, !tbaa !14
   %21 = add i64 %.057.i.i.i, -1
   %22 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 32
   %.not.i.i.i = icmp eq i64 %21, 0
@@ -28764,7 +28764,7 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
   store ptr %31, ptr %.08.i.i.i31, align 8, !tbaa !8
   %32 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 8
   store i64 0, ptr %32, align 8, !tbaa !11
-  store i8 0, ptr %31, align 1, !tbaa !14
+  store i8 0, ptr %31, align 8, !tbaa !14
   %33 = add i64 %.057.i.i.i32, -1
   %34 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 32
   %.not.i.i.i33 = icmp eq i64 %33, 0
@@ -28810,7 +28810,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %45, ptr %47, align 8, !tbaa !11, !alias.scope !283, !noalias !286
   store ptr %37, ptr %.0911.i.i.i, align 8, !tbaa !19, !alias.scope !286, !noalias !283
   store i64 0, ptr %46, align 8, !tbaa !11, !alias.scope !286, !noalias !283
-  store i8 0, ptr %37, align 1, !tbaa !14, !alias.scope !286, !noalias !283
+  store i8 0, ptr %37, align 8, !tbaa !14, !alias.scope !286, !noalias !283
   %48 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i38 = icmp eq ptr %48, %5

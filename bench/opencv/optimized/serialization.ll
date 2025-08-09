@@ -11914,7 +11914,7 @@ _ZNSt13unordered_mapIN2cv6GShapeEiSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_iEE
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %38 = load i64, ptr %37, align 8, !tbaa !338
   %39 = icmp eq i64 %38, %28
-  %40 = load i32, ptr %36, align 4
+  %40 = load i32, ptr %36, align 8
   %41 = icmp eq i32 %22, %40
   %42 = select i1 %39, i1 %41, i1 false
   br i1 %42, label %_ZNSt13unordered_mapIN2cv6GShapeEiSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_iEEEixERS7_.exit, label %.lr.ph.i.i.i.i
@@ -11947,7 +11947,7 @@ _ZNSt13unordered_mapIN2cv6GShapeEiSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_iEE
   %54 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #34
   store ptr null, ptr %54, align 8, !tbaa !329
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  store i32 %22, ptr %55, align 4, !tbaa !330
+  store i32 %22, ptr %55, align 8, !tbaa !330
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 12
   store i32 0, ptr %56, align 4, !tbaa !332
   %57 = invoke ptr @_ZNSt10_HashtableIN2cv6GShapeESt4pairIKS1_iESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS6_10_Hash_nodeIS4_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %30, i64 noundef %28, ptr noundef nonnull %54, i64 noundef 1)
@@ -27354,7 +27354,7 @@ _ZNSt10_HashtableIN2cv6GShapeESt4pairIKS1_iESaIS4_ENSt8__detail10_Select1stESt8e
   store ptr null, ptr %.sink12.i, align 8, !tbaa !329
   %28 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 8
   %29 = load i64, ptr %21, align 4
-  store i64 %29, ptr %28, align 4
+  store i64 %29, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %32 = load i64, ptr %31, align 8, !tbaa !338
@@ -27393,7 +27393,7 @@ _ZNSt10_HashtableIN2cv6GShapeESt4pairIKS1_iESaIS4_ENSt8__detail10_Select1stESt8e
   store ptr null, ptr %.sink12.i34, align 8, !tbaa !329
   %46 = getelementptr inbounds nuw i8, ptr %.sink12.i34, i64 8
   %47 = load i64, ptr %39, align 4
-  store i64 %47, ptr %46, align 4
+  store i64 %47, ptr %46, align 8
   store ptr %.sink12.i34, ptr %.02639, align 8, !tbaa !329
   %48 = getelementptr inbounds nuw i8, ptr %.sink12.i34, i64 16
   %49 = getelementptr inbounds nuw i8, ptr %.02840, i64 16
@@ -49520,7 +49520,7 @@ _ZN2cv4gapi3wip4draw4TextC2EOS3_.exit:            ; preds = %7, %_ZNKSt7__cxx111
   store i64 %14, ptr %15, align 8, !tbaa !44
   store ptr %5, ptr %1, align 8, !tbaa !39
   store i64 0, ptr %13, align 8, !tbaa !44
-  store i8 0, ptr %5, align 1, !tbaa !56
+  store i8 0, ptr %5, align 8, !tbaa !56
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
@@ -49578,7 +49578,7 @@ _ZN2cv4gapi3wip4draw5FTextC2EOS3_.exit:           ; preds = %7, %_ZNKSt7__cxx111
   store i64 %15, ptr %16, align 8, !tbaa !962
   store ptr %5, ptr %1, align 8, !tbaa !958
   store i64 0, ptr %14, align 8, !tbaa !962
-  store i32 0, ptr %5, align 4, !tbaa !973
+  store i32 0, ptr %5, align 8, !tbaa !973
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %17, ptr noundef nonnull align 8 dereferenceable(12) %18, i64 12, i1 false)
@@ -65493,7 +65493,7 @@ _ZNSt10_HashtableIN2cv6GShapeESt4pairIKS1_iESaIS4_ENSt8__detail10_Select1stESt8e
   store ptr null, ptr %22, align 8, !tbaa !329
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %26 = load i64, ptr %24, align 4
-  store i64 %26, ptr %25, align 4
+  store i64 %26, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %29 = load i64, ptr %28, align 8, !tbaa !338
@@ -65520,7 +65520,7 @@ _ZNSt10_HashtableIN2cv6GShapeESt4pairIKS1_iESaIS4_ENSt8__detail10_Select1stESt8e
   store ptr null, ptr %35, align 8, !tbaa !329
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %39 = load i64, ptr %37, align 4
-  store i64 %39, ptr %38, align 4
+  store i64 %39, ptr %38, align 8
   store ptr %35, ptr %.02636, align 8, !tbaa !329
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %41 = getelementptr inbounds nuw i8, ptr %.02837, i64 16
@@ -66299,7 +66299,7 @@ define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_trait
   store ptr %19, ptr %.08.i.i.i, align 8, !tbaa !87
   %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 8
   store i64 0, ptr %20, align 8, !tbaa !44
-  store i8 0, ptr %19, align 1, !tbaa !56
+  store i8 0, ptr %19, align 8, !tbaa !56
   %21 = add i64 %.057.i.i.i, -1
   %22 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 32
   %.not.i.i.i = icmp eq i64 %21, 0
@@ -66333,7 +66333,7 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
   store ptr %31, ptr %.08.i.i.i31, align 8, !tbaa !87
   %32 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 8
   store i64 0, ptr %32, align 8, !tbaa !44
-  store i8 0, ptr %31, align 1, !tbaa !56
+  store i8 0, ptr %31, align 8, !tbaa !56
   %33 = add i64 %.057.i.i.i32, -1
   %34 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 32
   %.not.i.i.i33 = icmp eq i64 %33, 0
@@ -66379,7 +66379,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %45, ptr %47, align 8, !tbaa !44, !alias.scope !1061, !noalias !1064
   store ptr %37, ptr %.0911.i.i.i.i, align 8, !tbaa !39, !alias.scope !1064, !noalias !1061
   store i64 0, ptr %46, align 8, !tbaa !44, !alias.scope !1064, !noalias !1061
-  store i8 0, ptr %37, align 1, !tbaa !56, !alias.scope !1064, !noalias !1061
+  store i8 0, ptr %37, align 8, !tbaa !56, !alias.scope !1064, !noalias !1061
   %48 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %48, %5

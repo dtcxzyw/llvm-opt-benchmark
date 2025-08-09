@@ -360,14 +360,14 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %37 = load float, ptr %36, align 4, !tbaa !9
   %38 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %37
   %39 = getelementptr inbounds nuw i8, ptr %29, i64 786504
-  %40 = load float, ptr %39, align 4, !tbaa !9
+  %40 = load float, ptr %39, align 8, !tbaa !9
   %41 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %40
   %42 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %41
   %43 = getelementptr inbounds nuw i8, ptr %29, i64 786516
   %44 = load float, ptr %43, align 4, !tbaa !9
   %45 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %44
   %46 = getelementptr inbounds nuw i8, ptr %29, i64 786528
-  %47 = load float, ptr %46, align 4, !tbaa !9
+  %47 = load float, ptr %46, align 8, !tbaa !9
   %48 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %47
   %49 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %48
   %50 = getelementptr inbounds nuw i8, ptr %29, i64 48

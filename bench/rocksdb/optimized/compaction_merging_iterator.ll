@@ -3664,7 +3664,7 @@ _ZSt19__relocate_object_aIN7rocksdb25CompactionMergingIterator8HeapItemES2_SaIS2
   store i64 %51, ptr %53, align 8, !tbaa !16, !alias.scope !229, !noalias !232
   store ptr %43, ptr %40, align 8, !tbaa !11, !alias.scope !232, !noalias !229
   store i64 0, ptr %52, align 8, !tbaa !16, !alias.scope !232, !noalias !229
-  store i8 0, ptr %43, align 1, !tbaa !17, !alias.scope !232, !noalias !229
+  store i8 0, ptr %43, align 8, !tbaa !17, !alias.scope !232, !noalias !229
   %54 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 80
   %55 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 80
   %56 = load i32, ptr %55, align 8, !tbaa !138, !alias.scope !232, !noalias !229

@@ -309,7 +309,7 @@ __rust_try.llvm.13576623291743085369.exit:
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !52, !noundef !7
   store i64 0, ptr %.val.i, align 8, !noalias !55
   %1 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
-  store i8 2, ptr %1, align 1, !noalias !55
+  store i8 2, ptr %1, align 8, !noalias !55
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
@@ -319,7 +319,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h7ed0e1eb48075feaE.llvm.13576
   %.val = load ptr, ptr %2, align 8, !alias.scope !58, !noundef !7
   store i64 0, ptr %.val, align 8, !noalias !61
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  store i8 2, ptr %3, align 1, !noalias !61
+  store i8 2, ptr %3, align 8, !noalias !61
   ret void
 }
 
@@ -1401,17 +1401,17 @@ default.unreachable25.i:                          ; preds = %20
   %.sroa.06.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 4
   store i32 %.sroa.519.sroa.0.1, ptr %.sroa.06.sroa.4.0..sroa_idx, align 4
   %.sroa.06.sroa.4.sroa.4.0..sroa.06.sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 8
-  store i32 %.sroa.519.sroa.4.0, ptr %.sroa.06.sroa.4.sroa.4.0..sroa.06.sroa.4.0..sroa_idx.sroa_idx, align 4
+  store i32 %.sroa.519.sroa.4.0, ptr %.sroa.06.sroa.4.sroa.4.0..sroa.06.sroa.4.0..sroa_idx.sroa_idx, align 8
   %.sroa.06.sroa.4.sroa.5.0..sroa.06.sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 12
   store i8 %.sroa.519.sroa.6.0, ptr %.sroa.06.sroa.4.sroa.5.0..sroa.06.sroa.4.0..sroa_idx.sroa_idx, align 4
   %.sroa.06.sroa.4.sroa.6.0..sroa.06.sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 13
   store i24 %.sroa.519.sroa.7.sroa.0.0, ptr %.sroa.06.sroa.4.sroa.6.0..sroa.06.sroa.4.0..sroa_idx.sroa_idx, align 1
   %.sroa.06.sroa.4.sroa.7.0..sroa.06.sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 16
-  store ptr %.sroa.519.sroa.8.0, ptr %.sroa.06.sroa.4.sroa.7.0..sroa.06.sroa.4.0..sroa_idx.sroa_idx, align 4
+  store ptr %.sroa.519.sroa.8.0, ptr %.sroa.06.sroa.4.sroa.7.0..sroa.06.sroa.4.0..sroa_idx.sroa_idx, align 8
   %.sroa.06.sroa.4.sroa.8.0..sroa.06.sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 24
-  store i64 %.sroa.519.sroa.9.0, ptr %.sroa.06.sroa.4.sroa.8.0..sroa.06.sroa.4.0..sroa_idx.sroa_idx, align 4
+  store i64 %.sroa.519.sroa.9.0, ptr %.sroa.06.sroa.4.sroa.8.0..sroa.06.sroa.4.0..sroa_idx.sroa_idx, align 8
   %.sroa.06.sroa.4.sroa.9.0..sroa.06.sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 32
-  store i32 %.sroa.519.sroa.10.0, ptr %.sroa.06.sroa.4.sroa.9.0..sroa.06.sroa.4.0..sroa_idx.sroa_idx, align 4
+  store i32 %.sroa.519.sroa.10.0, ptr %.sroa.06.sroa.4.sroa.9.0..sroa.06.sroa.4.0..sroa_idx.sroa_idx, align 8
   %77 = icmp eq i64 %13, 0
   br i1 %77, label %.thread, label %.lr.ph
 

@@ -41,7 +41,7 @@ sub_0.critedge:
   %19 = sext i32 %17 to i64
   %20 = getelementptr inbounds [8 x i8], ptr %6, i64 0, i64 %19
   store i8 %16, ptr %20, align 1, !tbaa !19
-  %21 = load i8, ptr %6, align 1
+  %21 = load i8, ptr %6, align 8
   %.not35 = icmp eq i8 %21, -1
   br i1 %.not35, label %.tail.thread, label %sub_027
 
@@ -77,7 +77,7 @@ sub_031:                                          ; preds = %.tail.thread, %.tai
   %34 = sext i32 %32 to i64
   %35 = getelementptr inbounds [8 x i8], ptr %6, i64 0, i64 %34
   store i8 %31, ptr %35, align 1, !tbaa !19
-  %36 = load i8, ptr %6, align 1
+  %36 = load i8, ptr %6, align 8
   %37 = zext i8 %36 to i32
   %38 = sub nsw i32 239, %37
   %.not37 = icmp eq i8 %36, -17
@@ -247,7 +247,7 @@ define i32 @ff_text_r8(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %45 = trunc nuw nsw i32 %.258 to i8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 1, ptr %4, align 4, !tbaa !16
-  store i8 %45, ptr %46, align 1, !tbaa !19
+  store i8 %45, ptr %46, align 4, !tbaa !19
   br label %.loopexit
 
 47:                                               ; preds = %.thread72, %42
@@ -278,7 +278,7 @@ define i32 @ff_text_r8(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %63 = trunc i32 %62 to i8
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 1, ptr %4, align 4, !tbaa !16
-  store i8 %63, ptr %64, align 1, !tbaa !19
+  store i8 %63, ptr %64, align 4, !tbaa !19
   %65 = icmp samesign ugt i16 %.lhs.trunc, 9
   br i1 %65, label %.lr.ph, label %.loopexit
 

@@ -396,7 +396,7 @@ define hidden range(i32 0, 2) i32 @SHA512_Final(ptr noundef writeonly captures(a
   %20 = lshr i64 %17, 8
   %21 = trunc i64 %20 to i8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 206
-  store i8 %21, ptr %22, align 1, !tbaa !16
+  store i8 %21, ptr %22, align 2, !tbaa !16
   %23 = lshr i64 %17, 16
   %24 = trunc i64 %23 to i8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 205
@@ -404,7 +404,7 @@ define hidden range(i32 0, 2) i32 @SHA512_Final(ptr noundef writeonly captures(a
   %26 = lshr i64 %17, 24
   %27 = trunc i64 %26 to i8
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 204
-  store i8 %27, ptr %28, align 1, !tbaa !16
+  store i8 %27, ptr %28, align 4, !tbaa !16
   %29 = lshr i64 %17, 32
   %30 = trunc i64 %29 to i8
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 203
@@ -412,7 +412,7 @@ define hidden range(i32 0, 2) i32 @SHA512_Final(ptr noundef writeonly captures(a
   %32 = lshr i64 %17, 40
   %33 = trunc i64 %32 to i8
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 202
-  store i8 %33, ptr %34, align 1, !tbaa !16
+  store i8 %33, ptr %34, align 2, !tbaa !16
   %35 = lshr i64 %17, 48
   %36 = trunc i64 %35 to i8
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 201
@@ -420,7 +420,7 @@ define hidden range(i32 0, 2) i32 @SHA512_Final(ptr noundef writeonly captures(a
   %38 = lshr i64 %17, 56
   %39 = trunc nuw i64 %38 to i8
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 200
-  store i8 %39, ptr %40, align 1, !tbaa !16
+  store i8 %39, ptr %40, align 8, !tbaa !16
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %42 = load i64, ptr %41, align 8, !tbaa !14
   %43 = trunc i64 %42 to i8
@@ -429,7 +429,7 @@ define hidden range(i32 0, 2) i32 @SHA512_Final(ptr noundef writeonly captures(a
   %45 = lshr i64 %42, 8
   %46 = trunc i64 %45 to i8
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 198
-  store i8 %46, ptr %47, align 1, !tbaa !16
+  store i8 %46, ptr %47, align 2, !tbaa !16
   %48 = lshr i64 %42, 16
   %49 = trunc i64 %48 to i8
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 197
@@ -437,7 +437,7 @@ define hidden range(i32 0, 2) i32 @SHA512_Final(ptr noundef writeonly captures(a
   %51 = lshr i64 %42, 24
   %52 = trunc i64 %51 to i8
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 196
-  store i8 %52, ptr %53, align 1, !tbaa !16
+  store i8 %52, ptr %53, align 4, !tbaa !16
   %54 = lshr i64 %42, 32
   %55 = trunc i64 %54 to i8
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 195
@@ -445,7 +445,7 @@ define hidden range(i32 0, 2) i32 @SHA512_Final(ptr noundef writeonly captures(a
   %57 = lshr i64 %42, 40
   %58 = trunc i64 %57 to i8
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 194
-  store i8 %58, ptr %59, align 1, !tbaa !16
+  store i8 %58, ptr %59, align 2, !tbaa !16
   %60 = lshr i64 %42, 48
   %61 = trunc i64 %60 to i8
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 193
@@ -453,7 +453,7 @@ define hidden range(i32 0, 2) i32 @SHA512_Final(ptr noundef writeonly captures(a
   %63 = lshr i64 %42, 56
   %64 = trunc nuw i64 %63 to i8
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  store i8 %64, ptr %65, align 1, !tbaa !16
+  store i8 %64, ptr %65, align 8, !tbaa !16
   tail call void @sha512_block_data_order(ptr noundef nonnull %1, ptr noundef nonnull %3, i64 noundef 1) #6
   %66 = icmp eq ptr %0, null
   br i1 %66, label %.loopexit, label %67

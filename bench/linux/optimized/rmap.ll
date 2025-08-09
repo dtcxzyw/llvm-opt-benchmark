@@ -3047,7 +3047,7 @@ define dso_local void @folio_add_new_anon_rmap(ptr noundef %0, ptr noundef reado
   %24 = add i64 %21, %23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %24, ptr %25, align 16
-  %26 = load volatile i64, ptr %0, align 8
+  %26 = load volatile i64, ptr %0, align 16
   %27 = and i64 %26, 64
   %28 = icmp eq i64 %27, 0
   br i1 %28, label %33, label %29, !prof !9
@@ -3262,7 +3262,7 @@ define dso_local void @folio_remove_rmap_ptes(ptr noundef %0, ptr noundef %1, i3
   %41 = load ptr, ptr %40, align 8
   %42 = sext i32 %37 to i64
   tail call void @__mod_node_page_state(ptr noundef %41, i32 noundef %36, i64 noundef %42) #17
-  %43 = load volatile i64, ptr %0, align 8
+  %43 = load volatile i64, ptr %0, align 16
   br label %44
 
 44:                                               ; preds = %30, %28
@@ -5357,7 +5357,7 @@ define internal fastcc void @rmap_walk_anon(ptr noundef %0, ptr noundef %1, i1 n
   %32 = phi ptr [ %30, %29 ], [ %13, %15 ], [ %13, %26 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load i64, ptr %33, align 16
-  %35 = load volatile i64, ptr %0, align 8
+  %35 = load volatile i64, ptr %0, align 16
   %36 = and i64 %35, 64
   %37 = icmp eq i64 %36, 0
   br i1 %37, label %42, label %38
@@ -5487,7 +5487,7 @@ define internal fastcc void @rmap_walk_file(ptr noundef %0, ptr noundef captures
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i64, ptr %7, align 16
-  %9 = load volatile i64, ptr %0, align 8
+  %9 = load volatile i64, ptr %0, align 16
   %10 = and i64 %9, 64
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %16, label %12

@@ -52,7 +52,7 @@ define internal range(i32 -2147483648, 1) i32 @apv_decode_init(ptr noundef %0) #
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @ff_apv_dsp_init(ptr noundef nonnull %11) #6
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 160
-  store i32 0, ptr %12, align 4, !tbaa !40
+  store i32 0, ptr %12, align 8, !tbaa !40
   br label %13
 
 13:                                               ; preds = %1, %7

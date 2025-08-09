@@ -85,14 +85,14 @@ thread-pre-split:                                 ; preds = %19
   %.146.lcssa = phi ptr [ %1, %.preheader ], [ %17, %thread-pre-split ]
   store i32 0, ptr %12, align 8, !tbaa !12
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val = load i64, ptr %27, align 1, !tbaa !13
+  %.val = load i64, ptr %27, align 8, !tbaa !13
   %28 = mul i64 %.val, -8663945395140668459
   %29 = mul i64 %.val, -8601547726154366976
   %30 = lshr i64 %28, 33
   %31 = or disjoint i64 %30, %29
   %32 = mul i64 %31, 5545529020109919103
   %33 = getelementptr i8, ptr %0, i64 24
-  %.val53 = load i64, ptr %33, align 1, !tbaa !13
+  %.val53 = load i64, ptr %33, align 8, !tbaa !13
   %34 = mul i64 %.val53, 5545529020109919103
   %35 = mul i64 %.val53, 5659660229084708864
   %36 = lshr i64 %34, 31
@@ -187,7 +187,7 @@ define void @av_murmur3_final(ptr noundef captures(none) %0, ptr noundef writeon
   %10 = getelementptr inbounds i8, ptr %6, i64 %9
   %11 = sub nsw i64 16, %9
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %10, i8 0, i64 %11, i1 false)
-  %.val = load i64, ptr %6, align 1, !tbaa !13
+  %.val = load i64, ptr %6, align 8, !tbaa !13
   %12 = mul i64 %.val, -8663945395140668459
   %13 = mul i64 %.val, -8601547726154366976
   %14 = lshr i64 %12, 33
@@ -198,7 +198,7 @@ define void @av_murmur3_final(ptr noundef captures(none) %0, ptr noundef writeon
   %19 = xor i64 %3, %16
   %20 = xor i64 %19, %18
   %21 = getelementptr i8, ptr %0, i64 24
-  %.val24 = load i64, ptr %21, align 1, !tbaa !13
+  %.val24 = load i64, ptr %21, align 8, !tbaa !13
   %22 = mul i64 %.val24, 5545529020109919103
   %23 = mul i64 %.val24, 5659660229084708864
   %24 = lshr i64 %22, 31

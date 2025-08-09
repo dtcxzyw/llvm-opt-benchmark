@@ -1011,7 +1011,7 @@ _ZNSt10unique_ptrIN4llvm24IndexedCodeGenDataReaderESt14default_deleteIS1_EED2Ev.
   store ptr %30, ptr %29, align 8, !tbaa !85, !noalias !180
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store i64 0, ptr %31, align 8, !tbaa !46, !noalias !180
-  store i8 0, ptr %30, align 1, !tbaa !39, !noalias !180
+  store i8 0, ptr %30, align 8, !tbaa !39, !noalias !180
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %33 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #18, !noalias !183
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
@@ -1059,7 +1059,7 @@ _ZNSt10unique_ptrIN4llvm21TextCodeGenDataReaderESt14default_deleteIS1_EED2Ev.exi
   store ptr %52, ptr %51, align 8, !tbaa !85, !noalias !189
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 24
   store i64 0, ptr %53, align 8, !tbaa !46, !noalias !189
-  store i8 0, ptr %52, align 1, !tbaa !39, !noalias !189
+  store i8 0, ptr %52, align 8, !tbaa !39, !noalias !189
   %54 = getelementptr inbounds nuw i8, ptr %49, i64 48
   %55 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #18, !noalias !192
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16

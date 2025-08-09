@@ -18367,7 +18367,7 @@ define hidden noundef zeroext i1 @"_ZN4rkyv5impls4core128_$LT$impl$u20$rkyv..tra
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 %.sroa.66.0.ph, ptr %.sroa.2.0..sroa_idx, align 1
   %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %.sroa.87.0.ph, ptr %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx, align 1
+  store ptr %.sroa.87.0.ph, ptr %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx, align 8
   br label %13
 
 13:                                               ; preds = %8, %12

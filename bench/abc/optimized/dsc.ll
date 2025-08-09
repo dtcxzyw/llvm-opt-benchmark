@@ -452,7 +452,7 @@ define void @dsc_xor_group(ptr noundef captures(none) initializes((160, 161)) %0
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 161
   store i8 91, ptr %14, align 1, !tbaa !3
-  %18 = load i8, ptr %15, align 1, !tbaa !3
+  %18 = load i8, ptr %15, align 4, !tbaa !3
   %.not1619.i = icmp eq i8 %18, 0
   br i1 %.not1619.i, label %._crit_edge.i, label %.lr.ph.i
 

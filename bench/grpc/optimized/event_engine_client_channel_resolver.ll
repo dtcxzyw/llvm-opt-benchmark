@@ -9183,7 +9183,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i: ; preds
   store i64 %46, ptr %48, align 8, !tbaa !3
   store ptr %38, ptr %35, align 8, !tbaa !11
   store i64 0, ptr %47, align 8, !tbaa !3
-  store i8 0, ptr %38, align 1, !tbaa !53
+  store i8 0, ptr %38, align 8, !tbaa !53
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %50 = getelementptr inbounds nuw i8, ptr %.val1, i64 80
   call void @_ZN9grpc_core11ChannelArgsC1EOS0_(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull align 8 dereferenceable(8) %50) #33
@@ -9377,7 +9377,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i: ; p
   store i64 %69, ptr %71, align 8, !tbaa !3
   store ptr %61, ptr %19, align 8, !tbaa !11
   store i64 0, ptr %70, align 8, !tbaa !3
-  store i8 0, ptr %61, align 1, !tbaa !53
+  store i8 0, ptr %61, align 8, !tbaa !53
   br i1 %21, label %72, label %77
 
 72:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i
@@ -10232,7 +10232,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i: ; preds
   store i64 %46, ptr %48, align 8, !tbaa !3
   store ptr %38, ptr %35, align 8, !tbaa !11
   store i64 0, ptr %47, align 8, !tbaa !3
-  store i8 0, ptr %38, align 1, !tbaa !53
+  store i8 0, ptr %38, align 8, !tbaa !53
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %50 = getelementptr inbounds nuw i8, ptr %.val1, i64 80
   call void @_ZN9grpc_core11ChannelArgsC1EOS0_(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull align 8 dereferenceable(8) %50) #33

@@ -522,7 +522,7 @@ define linkonce_odr hidden void @_ZN7dparserC2ERN7datalog7contextER11ast_manager
   store ptr %16, ptr %15, align 8, !tbaa !42
   %17 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i.i.i, i64 16
   store i64 0, ptr %17, align 8, !tbaa !43
-  store i8 0, ptr %16, align 1, !tbaa !44
+  store i8 0, ptr %16, align 8, !tbaa !44
   %18 = add nsw i32 %.057.i.i.i.i.i.i.i.i, -1
   %19 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i.i.i, i64 48
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %18, 0
@@ -558,7 +558,7 @@ define linkonce_odr hidden void @_ZN7dparserC2ERN7datalog7contextER11ast_manager
   store ptr %31, ptr %30, align 8, !tbaa !42
   %32 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i.i.i11, i64 16
   store i64 0, ptr %32, align 8, !tbaa !43
-  store i8 0, ptr %31, align 1, !tbaa !44
+  store i8 0, ptr %31, align 8, !tbaa !44
   %33 = add nsw i32 %.057.i.i.i.i.i.i.i.i12, -1
   %34 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i.i.i11, i64 48
   %.not.i.i.i.i.i.i.i.i13 = icmp eq i32 %33, 0
@@ -1633,7 +1633,7 @@ _ZN14core_hashtableI17default_map_entryINSt7__cxx1112basic_stringIcSt11char_trai
   store ptr %46, ptr %45, align 8, !tbaa !42
   %47 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 16
   store i64 0, ptr %47, align 8, !tbaa !43
-  store i8 0, ptr %46, align 1, !tbaa !44
+  store i8 0, ptr %46, align 8, !tbaa !44
   %48 = add nsw i32 %.057.i.i.i.i.i, -1
   %49 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 48
   %.not.i.i.i.i.i12 = icmp eq i32 %48, 0
@@ -1762,7 +1762,7 @@ _ZN14core_hashtableI17default_map_entryINSt7__cxx1112basic_stringIcSt11char_trai
   store ptr %46, ptr %45, align 8, !tbaa !42
   %47 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 16
   store i64 0, ptr %47, align 8, !tbaa !43
-  store i8 0, ptr %46, align 1, !tbaa !44
+  store i8 0, ptr %46, align 8, !tbaa !44
   %48 = add nsw i32 %.057.i.i.i.i.i, -1
   %49 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 48
   %.not.i.i.i.i.i12 = icmp eq i32 %48, 0
@@ -2217,7 +2217,7 @@ _ZNK6vectorIcLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIcLb0EjE
 26:                                               ; preds = %_ZNK6vectorIcLb0EjE8capacityEv.exit.i.i
   %27 = getelementptr inbounds i8, ptr %21, i64 -4
   store i32 1, ptr %27, align 4, !tbaa !324
-  store i8 0, ptr %21, align 1
+  store i8 0, ptr %21, align 4
   %.pre.i = load ptr, ptr %2, align 8, !tbaa !291
   br label %28
 
@@ -8905,7 +8905,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryINSt7__c
   store ptr %10, ptr %9, align 8, !tbaa !42
   %11 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 16
   store i64 0, ptr %11, align 8, !tbaa !43
-  store i8 0, ptr %10, align 1, !tbaa !44
+  store i8 0, ptr %10, align 8, !tbaa !44
   %12 = add i32 %.057.i.i.i.i.i, -1
   %13 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 48
   %.not.i.i.i.i.i = icmp eq i32 %12, 0
@@ -13834,7 +13834,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryINSt7__c
   store ptr %10, ptr %9, align 8, !tbaa !42
   %11 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 16
   store i64 0, ptr %11, align 8, !tbaa !43
-  store i8 0, ptr %10, align 1, !tbaa !44
+  store i8 0, ptr %10, align 8, !tbaa !44
   %12 = add i32 %.057.i.i.i.i.i, -1
   %13 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 48
   %.not.i.i.i.i.i = icmp eq i32 %12, 0

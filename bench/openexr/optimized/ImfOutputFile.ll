@@ -807,7 +807,7 @@ define void @_ZN7Imf_3_410OutputFile10initializeERKNS_6HeaderE(ptr noundef nonnu
   store ptr %70, ptr %69, align 8, !tbaa !113
   %71 = getelementptr inbounds nuw i8, ptr %59, i64 80
   store i64 0, ptr %71, align 8, !tbaa !73
-  store i8 0, ptr %70, align 1, !tbaa !74
+  store i8 0, ptr %70, align 8, !tbaa !74
   %72 = getelementptr inbounds nuw i8, ptr %59, i64 104
   invoke void @_ZN13IlmThread_3_49SemaphoreC1Ej(ptr noundef nonnull align 8 dereferenceable(40) %72, i32 noundef 1)
           to label %_ZN7Imf_3_412_GLOBAL__N_110LineBufferC2EPNS_10CompressorE.exit unwind label %73
@@ -2664,7 +2664,7 @@ _ZN7Imf_3_412_GLOBAL__N_110LineBuffer4waitEv.exit._crit_edge.i: ; preds = %_ZN7I
   %97 = add i32 %92, -1
   %98 = add i32 %97, %95
   %99 = getelementptr inbounds nuw i8, ptr %88, i64 144
-  %100 = load i32, ptr %99, align 4, !tbaa !92
+  %100 = load i32, ptr %99, align 8, !tbaa !92
   %.sroa.speculated.i = call i32 @llvm.smin.i32(i32 %100, i32 %98)
   %101 = getelementptr inbounds nuw i8, ptr %80, i64 44
   store i32 %.sroa.speculated.i, ptr %101, align 4, !tbaa !169
@@ -2807,7 +2807,7 @@ _ZN7Imf_3_412_GLOBAL__N_110LineBuffer4waitEv.exit._crit_edge.i144: ; preds = %_Z
   %170 = add i32 %165, -1
   %171 = add i32 %170, %168
   %172 = getelementptr inbounds nuw i8, ptr %161, i64 144
-  %173 = load i32, ptr %172, align 4, !tbaa !92
+  %173 = load i32, ptr %172, align 8, !tbaa !92
   %.sroa.speculated.i141 = call i32 @llvm.smin.i32(i32 %173, i32 %171)
   %174 = getelementptr inbounds nuw i8, ptr %153, i64 44
   store i32 %.sroa.speculated.i141, ptr %174, align 4, !tbaa !169
@@ -3056,7 +3056,7 @@ _ZN7Imf_3_412_GLOBAL__N_110LineBuffer4waitEv.exit._crit_edge.i164: ; preds = %_Z
   %282 = add i32 %278, -1
   %283 = add i32 %282, %280
   %284 = getelementptr inbounds nuw i8, ptr %274, i64 144
-  %285 = load i32, ptr %284, align 4, !tbaa !92
+  %285 = load i32, ptr %284, align 8, !tbaa !92
   %.sroa.speculated.i161 = call i32 @llvm.smin.i32(i32 %285, i32 %283)
   %286 = getelementptr inbounds nuw i8, ptr %266, i64 44
   store i32 %.sroa.speculated.i161, ptr %286, align 4, !tbaa !169

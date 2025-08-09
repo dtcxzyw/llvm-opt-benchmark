@@ -186,7 +186,7 @@ hsl2rgb.exit:                                     ; preds = %71, %75, %77, %79, 
   %102 = fadd nsz double %101, 5.000000e-01
   %103 = fmul nsz double %102, %96
   %104 = fptosi double %103 to i32
-  store i32 %104, ptr %85, align 4, !tbaa !35
+  store i32 %104, ptr %85, align 8, !tbaa !35
   %105 = fmul nsz double %90, 0xBFD98839FE30FB53
   %106 = tail call nsz double @llvm.fmuladd.f64(double %89, double 0x3FDC1C1C1C1C1C1C, double %105)
   %107 = tail call nsz double @llvm.fmuladd.f64(double %93, double 0xBFA49F10EF590649, double %106)

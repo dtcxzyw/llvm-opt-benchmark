@@ -216,7 +216,7 @@ _ZNSt12__shared_ptrIN12_GLOBAL__N_127GeneralizedHoughBallardImplELN9__gnu_cxx12_
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 264
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #32, !noalias !3
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 360
-  store i32 0, ptr %12, align 4, !tbaa !16, !noalias !3
+  store i32 0, ptr %12, align 8, !tbaa !16, !noalias !3
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 364
   store i32 0, ptr %13, align 4, !tbaa !18, !noalias !3
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 368
@@ -282,7 +282,7 @@ _ZNSt12__shared_ptrIN12_GLOBAL__N_124GeneralizedHoughGuilImplELN9__gnu_cxx12_Loc
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 264
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #32, !noalias !62
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 360
-  store i32 0, ptr %12, align 4, !tbaa !16, !noalias !62
+  store i32 0, ptr %12, align 8, !tbaa !16, !noalias !62
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 364
   store i32 0, ptr %13, align 4, !tbaa !18, !noalias !62
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 368

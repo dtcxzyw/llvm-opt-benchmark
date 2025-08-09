@@ -151,9 +151,9 @@ define internal noundef i32 @vp9_decode_update_thread_context(ptr noundef readon
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 49
   store i8 %55, ptr %56, align 1, !tbaa !65
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %58 = load i8, ptr %57, align 2, !tbaa !66
+  %58 = load i8, ptr %57, align 8, !tbaa !66
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store i8 %58, ptr %59, align 2, !tbaa !66
+  store i8 %58, ptr %59, align 8, !tbaa !66
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 3224
   %61 = load i8, ptr %60, align 8, !tbaa !67
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 3224
@@ -786,7 +786,7 @@ vp9_frame_alloc.exit:                             ; preds = %123
   %338 = sext i32 %337 to i64
   %339 = getelementptr inbounds i8, ptr %335, i64 %338
   %340 = getelementptr inbounds nuw i8, ptr %268, i64 77104
-  store ptr %339, ptr %340, align 8, !tbaa !115
+  store ptr %339, ptr %340, align 16, !tbaa !115
   %341 = getelementptr inbounds nuw i8, ptr %0, i64 788
   %342 = load i32, ptr %341, align 4, !tbaa !134
   %343 = and i32 %342, 4
@@ -1074,7 +1074,7 @@ update_block_buffers.exit:                        ; preds = %.critedge.i, %274
   %481 = getelementptr inbounds nuw i8, ptr %463, i64 77120
   store ptr %480, ptr %481, align 16, !tbaa !115
   %482 = getelementptr inbounds nuw i8, ptr %463, i64 77104
-  %483 = load ptr, ptr %482, align 8, !tbaa !115
+  %483 = load ptr, ptr %482, align 16, !tbaa !115
   %484 = getelementptr inbounds nuw i8, ptr %463, i64 77128
   store ptr %483, ptr %484, align 8, !tbaa !115
   %485 = getelementptr inbounds nuw %struct.VP9TileData, ptr %461, i64 %indvars.iv533, i32 40
@@ -1256,7 +1256,7 @@ vpx_rac_get_prob_branchy.exit:                    ; preds = %vpx_rac_renorm.exit
   %576 = sext i32 %575 to i64
   %577 = getelementptr inbounds nuw i8, ptr %569, i64 276
   %578 = getelementptr inbounds nuw i8, ptr %569, i64 288
-  %579 = load i32, ptr %578, align 4, !tbaa !154
+  %579 = load i32, ptr %578, align 8, !tbaa !154
   %.not257.i = icmp eq i32 %579, 0
   br i1 %.not257.i, label %decode_tiles.exit, label %.lr.ph256.i
 
@@ -2403,7 +2403,7 @@ define internal fastcc i32 @decode_frame_header(ptr noundef %0, ptr noundef %1, 
   store i32 %289, ptr %18, align 8, !tbaa !192
   %290 = trunc nuw nsw i32 %287 to i8
   %291 = getelementptr inbounds nuw i8, ptr %6, i64 22
-  store i8 %290, ptr %291, align 1, !tbaa !146
+  store i8 %290, ptr %291, align 2, !tbaa !146
   %292 = lshr i32 %289, 3
   %293 = zext nneg i32 %292 to i64
   %294 = getelementptr inbounds nuw i8, ptr %1, i64 %293
@@ -3435,7 +3435,7 @@ define internal fastcc i32 @decode_frame_header(ptr noundef %0, ptr noundef %1, 
   %979 = trunc i32 %978 to i8
   %980 = lshr i8 %979, 7
   %981 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store i8 %980, ptr %981, align 2, !tbaa !66
+  store i8 %980, ptr %981, align 8, !tbaa !66
   %982 = getelementptr inbounds nuw i8, ptr %6, i64 60
   br label %983
 
@@ -6763,7 +6763,7 @@ define internal noundef i32 @decode_tiles_mt(ptr noundef readonly captures(none)
   %40 = sext i32 %37 to i64
   %41 = getelementptr inbounds %struct.VP9Filter, ptr %39, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 288
-  %43 = load i32, ptr %42, align 4, !tbaa !154
+  %43 = load i32, ptr %42, align 8, !tbaa !154
   %.not124 = icmp eq i32 %43, 0
   br i1 %.not124, label %._crit_edge123, label %.lr.ph122
 

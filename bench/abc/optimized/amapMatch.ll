@@ -404,7 +404,7 @@ define void @Amap_ManMatchNode(ptr noundef readonly captures(none) %0, ptr nound
   %18 = getelementptr i8, ptr %1, i64 52
   %.val = load i32, ptr %18, align 4, !tbaa !25
   %19 = getelementptr i8, ptr %1, i64 56
-  %.val114 = load i32, ptr %19, align 4, !tbaa !25
+  %.val114 = load i32, ptr %19, align 8, !tbaa !25
   %20 = add nsw i32 %.val114, %.val
   %21 = sitofp i32 %20 to double
   %22 = tail call double @llvm.fmuladd.f64(double %17, double 2.000000e+00, double %21)
@@ -527,7 +527,7 @@ define void @Amap_ManMatchNode(ptr noundef readonly captures(none) %0, ptr nound
   %96 = getelementptr i8, ptr %89, i64 52
   %.val36.i = load i32, ptr %96, align 4, !tbaa !25
   %97 = getelementptr i8, ptr %89, i64 56
-  %.val37.i = load i32, ptr %97, align 4, !tbaa !25
+  %.val37.i = load i32, ptr %97, align 8, !tbaa !25
   %98 = add nsw i32 %.val37.i, %.val36.i
   %99 = sitofp i32 %98 to float
   %100 = fadd float %78, %99
@@ -607,7 +607,7 @@ Amap_ManMatchGetFlows.exit:                       ; preds = %68, %.critedge.loop
   %146 = getelementptr i8, ptr %139, i64 52
   %.val24.i = load i32, ptr %146, align 4, !tbaa !25
   %147 = getelementptr i8, ptr %139, i64 56
-  %.val25.i = load i32, ptr %147, align 4, !tbaa !25
+  %.val25.i = load i32, ptr %147, align 8, !tbaa !25
   %148 = add nsw i32 %.val25.i, %.val24.i
   %149 = sitofp i32 %148 to float
   %150 = fadd float %128, %149

@@ -947,7 +947,7 @@ tailrecurse.outer._crit_edge:                     ; preds = %_ZNK4toku3omtImmLb0
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 -1, ptr %18, align 4, !tbaa !16
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i32 -1, ptr %19, align 4, !tbaa !16
+  store i32 -1, ptr %19, align 8, !tbaa !16
   %20 = load i64, ptr %2, align 8, !tbaa !4
   store i64 %20, ptr %16, align 8, !tbaa !26
   store i32 %11, ptr %.tr40.lcssa, align 4, !tbaa !16

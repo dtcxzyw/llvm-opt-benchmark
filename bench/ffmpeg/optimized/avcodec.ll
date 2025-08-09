@@ -637,7 +637,7 @@ define range(i32 -2147483648, 1) i32 @avcodec_open2(ptr noundef %0, ptr noundef 
   store i32 1, ptr %227, align 4, !tbaa !80
   %233 = load i32, ptr %155, align 8, !tbaa !73
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %233, ptr %234, align 4, !tbaa !81
+  store i32 %233, ptr %234, align 8, !tbaa !81
   br label %235
 
 235:                                              ; preds = %232, %229, %223

@@ -19131,9 +19131,9 @@ define internal fastcc i32 @JS_ToBoolFree(ptr noundef readonly captures(none) %0
   %26 = add i64 %25, 9223372036854775807
   %narrow47 = icmp ult i64 %26, -2
   %27 = zext i1 %narrow47 to i32
-  %28 = load i32, ptr %5, align 4, !tbaa !107
+  %28 = load i32, ptr %5, align 8, !tbaa !107
   %29 = add i32 %28, -1
-  store i32 %29, ptr %5, align 4, !tbaa !107
+  store i32 %29, ptr %5, align 8, !tbaa !107
   %30 = icmp slt i32 %29, 1
   br i1 %30, label %31, label %JS_FreeValue.exit
 
@@ -19149,9 +19149,9 @@ define internal fastcc i32 @JS_ToBoolFree(ptr noundef readonly captures(none) %0
   %37 = add i64 %36, 9223372036854775807
   %narrow = icmp ult i64 %37, -2
   %38 = zext i1 %narrow to i32
-  %39 = load i32, ptr %5, align 4, !tbaa !107
+  %39 = load i32, ptr %5, align 8, !tbaa !107
   %40 = add i32 %39, -1
-  store i32 %40, ptr %5, align 4, !tbaa !107
+  store i32 %40, ptr %5, align 8, !tbaa !107
   %41 = icmp slt i32 %40, 1
   br i1 %41, label %42, label %JS_FreeValue.exit
 
@@ -131543,7 +131543,7 @@ define internal fastcc ptr @js_new_function_def(ptr noundef %0, ptr noundef %1, 
   store i32 1, ptr %46, align 4, !tbaa !1000
   %47 = getelementptr inbounds nuw i8, ptr %11, i64 252
   store i32 -1, ptr %47, align 4, !tbaa !1001
-  store i32 -1, ptr %43, align 4, !tbaa !1003
+  store i32 -1, ptr %43, align 8, !tbaa !1003
   %48 = getelementptr inbounds nuw i8, ptr %11, i64 224
   store i32 0, ptr %48, align 8, !tbaa !662
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 228
@@ -165354,7 +165354,7 @@ define internal fastcc range(i32 -1, 1) i32 @js_parse_for_in_of(ptr noundef nonn
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 380
   %26 = load i32, ptr %25, align 4, !tbaa !1075
   %27 = add i32 %26, 1
-  %28 = load i32, ptr %24, align 4, !tbaa !67
+  %28 = load i32, ptr %24, align 8, !tbaa !67
   %29 = icmp sgt i32 %27, %28
   br i1 %29, label %js_resize_array.exit.i.i, label %js_resize_array.exit.thread.i.i, !prof !44
 

@@ -1298,7 +1298,7 @@ define void @_Z25applyColorByVertexQualityR9MeshModelP16TransferFunctionffff(ptr
   %17 = load float, ptr %16, align 4
   %18 = tail call i32 @_ZN16TransferFunction17getColorByQualityEfffff(ptr noundef nonnull align 8 dereferenceable(16492) %1, float noundef %17, float noundef %2, float noundef %3, float noundef %4, float noundef %5)
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.08.015, i64 40
-  store i32 %18, ptr %19, align 1
+  store i32 %18, ptr %19, align 4
   %.pre = load ptr, ptr %9, align 8
   br label %20
 

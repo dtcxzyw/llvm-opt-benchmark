@@ -11087,7 +11087,7 @@ define linkonce_odr void @_ZNK12colvarmodule8vector1dIdE16to_simple_stringB5cxx1
   %16 = load i32, ptr %15, align 8, !tbaa !236
   %17 = and i32 %16, -261
   %18 = or disjoint i32 %17, 256
-  store i32 %18, ptr %15, align 4, !tbaa !245
+  store i32 %18, ptr %15, align 8, !tbaa !245
   %19 = load i64, ptr %12, align 8
   %20 = getelementptr inbounds i8, ptr %3, i64 %19
   %21 = load i64, ptr @_ZN12colvarmodule7cv_precE, align 8, !tbaa !56

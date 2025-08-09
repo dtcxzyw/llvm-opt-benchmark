@@ -6743,7 +6743,7 @@ define internal noundef zeroext i1 @put_nrb_option(ptr readnone captures(none) %
   %29 = load ptr, ptr %4, align 8
   %30 = getelementptr i8, ptr %29, i64 4
   store ptr %30, ptr %4, align 8
-  %31 = load i32, ptr %3, align 1
+  %31 = load i32, ptr %3, align 8
   store i32 %31, ptr %30, align 1
   %32 = load ptr, ptr %4, align 8
   %33 = getelementptr i8, ptr %32, i64 4

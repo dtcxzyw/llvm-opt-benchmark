@@ -11497,15 +11497,15 @@ _ZN5arrow6StatusD2Ev.exit81._crit_edge.i:         ; preds = %_ZN5arrow6StatusD2E
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %185, i64 8
   store ptr %78, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !407, !noalias !373
   %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %185, i64 16
-  store ptr %84, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i, align 8, !tbaa !76, !noalias !373
+  store ptr %84, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i, align 16, !tbaa !76, !noalias !373
   %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %185, i64 24
   store ptr %81, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i, align 8, !tbaa !409, !noalias !373
   %.sroa.5.sroa.7.0..sroa.5.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %185, i64 32
-  store ptr %79, ptr %.sroa.5.sroa.7.0..sroa.5.0..sroa_idx.sroa_idx.i, align 8, !tbaa !411, !noalias !373
+  store ptr %79, ptr %.sroa.5.sroa.7.0..sroa.5.0..sroa_idx.sroa_idx.i, align 16, !tbaa !411, !noalias !373
   %.sroa.5.sroa.8.0..sroa.5.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %185, i64 40
   store ptr %80, ptr %.sroa.5.sroa.8.0..sroa.5.0..sroa_idx.sroa_idx.i, align 8, !tbaa !413, !noalias !373
   %.sroa.5.sroa.9.0..sroa.5.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %185, i64 48
-  store ptr %85, ptr %.sroa.5.sroa.9.0..sroa.5.0..sroa_idx.sroa_idx.i, align 8, !tbaa !376, !noalias !373
+  store ptr %85, ptr %.sroa.5.sroa.9.0..sroa.5.0..sroa_idx.sroa_idx.i, align 16, !tbaa !376, !noalias !373
   store ptr %185, ptr %87, align 8, !tbaa !415, !noalias !373
   store ptr @_ZNSt17_Function_handlerIFbllbEZN5arrow7compute8internal12_GLOBAL__N_123BinaryFilterNonNullImplINS1_10BinaryTypeEEENS1_6StatusEPNS2_13KernelContextERKNS1_9ArraySpanESC_lNS2_13FilterOptions21NullSelectionBehaviorEPNS1_9ArrayDataEEUlllbE_E9_M_invokeERKSt9_Any_dataOlSM_Ob, ptr %187, align 8, !tbaa !78, !noalias !373
   store ptr @_ZNSt17_Function_handlerIFbllbEZN5arrow7compute8internal12_GLOBAL__N_123BinaryFilterNonNullImplINS1_10BinaryTypeEEENS1_6StatusEPNS2_13KernelContextERKNS1_9ArraySpanESC_lNS2_13FilterOptions21NullSelectionBehaviorEPNS1_9ArrayDataEEUlllbE_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation, ptr %183, align 8, !tbaa !81, !noalias !373
@@ -12146,15 +12146,15 @@ _ZN5arrow6StatusD2Ev.exit81._crit_edge.i168:      ; preds = %_ZN5arrow6StatusD2E
   %.sroa.5.0..sroa_idx.i154 = getelementptr inbounds nuw i8, ptr %438, i64 8
   store ptr %64, ptr %.sroa.5.0..sroa_idx.i154, align 8, !tbaa !472, !noalias !452
   %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i155 = getelementptr inbounds nuw i8, ptr %438, i64 16
-  store ptr %70, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i155, align 8, !tbaa !76, !noalias !452
+  store ptr %70, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i155, align 16, !tbaa !76, !noalias !452
   %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i156 = getelementptr inbounds nuw i8, ptr %438, i64 24
   store ptr %67, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i156, align 8, !tbaa !409, !noalias !452
   %.sroa.5.sroa.7.0..sroa.5.0..sroa_idx.sroa_idx.i157 = getelementptr inbounds nuw i8, ptr %438, i64 32
-  store ptr %65, ptr %.sroa.5.sroa.7.0..sroa.5.0..sroa_idx.sroa_idx.i157, align 8, !tbaa !411, !noalias !452
+  store ptr %65, ptr %.sroa.5.sroa.7.0..sroa.5.0..sroa_idx.sroa_idx.i157, align 16, !tbaa !411, !noalias !452
   %.sroa.5.sroa.8.0..sroa.5.0..sroa_idx.sroa_idx.i158 = getelementptr inbounds nuw i8, ptr %438, i64 40
   store ptr %66, ptr %.sroa.5.sroa.8.0..sroa.5.0..sroa_idx.sroa_idx.i158, align 8, !tbaa !474, !noalias !452
   %.sroa.5.sroa.9.0..sroa.5.0..sroa_idx.sroa_idx.i159 = getelementptr inbounds nuw i8, ptr %438, i64 48
-  store ptr %71, ptr %.sroa.5.sroa.9.0..sroa.5.0..sroa_idx.sroa_idx.i159, align 8, !tbaa !76, !noalias !452
+  store ptr %71, ptr %.sroa.5.sroa.9.0..sroa.5.0..sroa_idx.sroa_idx.i159, align 16, !tbaa !76, !noalias !452
   store ptr %438, ptr %73, align 8, !tbaa !415, !noalias !452
   store ptr @_ZNSt17_Function_handlerIFbllbEZN5arrow7compute8internal12_GLOBAL__N_123BinaryFilterNonNullImplINS1_15LargeBinaryTypeEEENS1_6StatusEPNS2_13KernelContextERKNS1_9ArraySpanESC_lNS2_13FilterOptions21NullSelectionBehaviorEPNS1_9ArrayDataEEUlllbE_E9_M_invokeERKSt9_Any_dataOlSM_Ob, ptr %440, align 8, !tbaa !78, !noalias !452
   store ptr @_ZNSt17_Function_handlerIFbllbEZN5arrow7compute8internal12_GLOBAL__N_123BinaryFilterNonNullImplINS1_15LargeBinaryTypeEEENS1_6StatusEPNS2_13KernelContextERKNS1_9ArraySpanESC_lNS2_13FilterOptions21NullSelectionBehaviorEPNS1_9ArrayDataEEUlllbE_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation, ptr %436, align 8, !tbaa !81, !noalias !452
@@ -26086,7 +26086,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %12
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %10, ptr %1, align 8, !tbaa !337
   store i64 0, ptr %20, align 8, !tbaa !339
-  store i8 0, ptr %10, align 1, !tbaa !170
+  store i8 0, ptr %10, align 8, !tbaa !170
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %22 = load ptr, ptr %3, align 8, !tbaa !337
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -26115,7 +26115,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %23, ptr %3, align 8, !tbaa !337
   store i64 0, ptr %33, align 8, !tbaa !339
-  store i8 0, ptr %23, align 1, !tbaa !170
+  store i8 0, ptr %23, align 8, !tbaa !170
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 48
@@ -26150,7 +26150,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit7.i: ; preds = 
   store i64 %47, ptr %49, align 8, !tbaa !339
   store ptr %38, ptr %35, align 8, !tbaa !337
   store i64 0, ptr %48, align 8, !tbaa !339
-  store i8 0, ptr %38, align 1, !tbaa !170
+  store i8 0, ptr %38, align 8, !tbaa !170
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %52 = load ptr, ptr %51, align 8, !tbaa !340
@@ -26198,7 +26198,7 @@ _ZN5arrow7compute11FunctionDocC2EOS1_.exit:       ; preds = %65, %_ZNKSt7__cxx11
   store i64 %72, ptr %74, align 8, !tbaa !339
   store ptr %63, ptr %60, align 8, !tbaa !337
   store i64 0, ptr %73, align 8, !tbaa !339
-  store i8 0, ptr %63, align 1, !tbaa !170
+  store i8 0, ptr %63, align 8, !tbaa !170
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %76 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %77 = load i8, ptr %76, align 8, !tbaa !950, !range !137, !noundef !138

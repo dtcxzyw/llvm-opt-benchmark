@@ -299,7 +299,7 @@ define void @_ZN6gmxapi13SignalManagerC2EPN3gmx18StopHandlerBuilderE(ptr noundef
   store i32 1, ptr %9, align 4, !tbaa !12, !noalias !4
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3gmx10StopSignalESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8, !tbaa !13, !noalias !4
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 0, ptr %10, align 4, !tbaa !15, !noalias !4
+  store i32 0, ptr %10, align 8, !tbaa !15, !noalias !4
   store ptr %7, ptr %6, align 8, !tbaa !17, !alias.scope !4
   store ptr %10, ptr %5, align 8, !tbaa !21, !alias.scope !4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -5111,7 +5111,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %9,
   store i64 %16, ptr %17, align 8, !tbaa !51
   store ptr %7, ptr %2, align 8, !tbaa !48
   store i64 0, ptr %15, align 8, !tbaa !51
-  store i8 0, ptr %7, align 1, !tbaa !34
+  store i8 0, ptr %7, align 8, !tbaa !34
   ret void
 }
 

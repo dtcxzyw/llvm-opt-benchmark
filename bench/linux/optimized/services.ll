@@ -5447,7 +5447,7 @@ define dso_local range(i32 -115, -116) i32 @security_fs_use(ptr noundef readonly
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !annotation !13
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 184
-  %33 = load volatile i32, ptr %32, align 4
+  %33 = load volatile i32, ptr %32, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !70
   store i32 %33, ptr %2, align 4
   %34 = icmp eq i32 %33, 0

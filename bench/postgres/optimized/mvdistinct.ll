@@ -704,14 +704,14 @@ define dso_local noundef ptr @statext_ndistinct_serialize(ptr noundef readonly c
   store i32 %16, ptr %14, align 4
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %18 = load i32, ptr %0, align 8
-  store i32 %18, ptr %17, align 1
+  store i32 %18, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %21 = load i32, ptr %20, align 4
-  store i32 %21, ptr %19, align 1
+  store i32 %21, ptr %19, align 4
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %23 = load i32, ptr %2, align 8
-  store i32 %23, ptr %22, align 1
+  store i32 %23, ptr %22, align 4
   %24 = load i32, ptr %2, align 8
   %.not44 = icmp eq i32 %24, 0
   br i1 %.not44, label %._crit_edge43, label %.lr.ph42

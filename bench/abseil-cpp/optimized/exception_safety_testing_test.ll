@@ -3306,7 +3306,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %11
   store i64 %120, ptr %122, align 8, !tbaa !31
   store ptr %111, ptr %1, align 8, !tbaa !27
   store i64 0, ptr %121, align 8, !tbaa !31
-  store i8 0, ptr %111, align 1, !tbaa !32
+  store i8 0, ptr %111, align 8, !tbaa !32
   store i8 1, ptr %.1.i.i, align 8, !tbaa !70
   %123 = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 24
   %124 = load ptr, ptr %123, align 8, !tbaa !27
@@ -4203,7 +4203,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %35
   store i64 %41, ptr %43, align 8, !tbaa !31
   store ptr %33, ptr %1, align 8, !tbaa !27
   store i64 0, ptr %42, align 8, !tbaa !31
-  store i8 0, ptr %33, align 1, !tbaa !32
+  store i8 0, ptr %33, align 8, !tbaa !32
   ret void
 }
 
@@ -9329,7 +9329,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %7, ptr %6, align 8, !tbaa !33, !noalias !107
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %8, align 8, !tbaa !31, !noalias !107
-  store i8 0, ptr %7, align 1, !tbaa !32, !noalias !107
+  store i8 0, ptr %7, align 8, !tbaa !32, !noalias !107
   store ptr %6, ptr %4, align 8, !tbaa !25
   br label %9
 
@@ -34760,7 +34760,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store i32 1, ptr %46, align 4, !tbaa !274, !noalias !275
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIKiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %43, align 8, !tbaa !4, !noalias !275
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  store i32 %41, ptr %47, align 4, !tbaa !24, !noalias !275
+  store i32 %41, ptr %47, align 8, !tbaa !24, !noalias !275
   store ptr %47, ptr %0, align 8, !tbaa !278
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !271
@@ -34975,7 +34975,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store i32 1, ptr %46, align 4, !tbaa !274, !noalias !279
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIKiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %43, align 8, !tbaa !4, !noalias !279
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  store i32 %41, ptr %47, align 4, !tbaa !24, !noalias !279
+  store i32 %41, ptr %47, align 8, !tbaa !24, !noalias !279
   store ptr %47, ptr %0, align 8, !tbaa !278
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !271
@@ -35964,7 +35964,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store i32 1, ptr %46, align 4, !tbaa !274, !noalias !294
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIKiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %43, align 8, !tbaa !4, !noalias !294
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  store i32 %41, ptr %47, align 4, !tbaa !24, !noalias !294
+  store i32 %41, ptr %47, align 8, !tbaa !24, !noalias !294
   store ptr %47, ptr %0, align 8, !tbaa !278
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !271
@@ -38819,7 +38819,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store i32 1, ptr %46, align 4, !tbaa !274, !noalias !322
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIKiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %43, align 8, !tbaa !4, !noalias !322
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  store i32 %41, ptr %47, align 4, !tbaa !24, !noalias !322
+  store i32 %41, ptr %47, align 8, !tbaa !24, !noalias !322
   store ptr %47, ptr %0, align 8, !tbaa !278
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !271
@@ -43815,7 +43815,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store i32 1, ptr %46, align 4, !tbaa !274, !noalias !385
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIKiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %43, align 8, !tbaa !4, !noalias !385
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  store i32 %41, ptr %47, align 4, !tbaa !24, !noalias !385
+  store i32 %41, ptr %47, align 8, !tbaa !24, !noalias !385
   store ptr %47, ptr %0, align 8, !tbaa !278
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !271

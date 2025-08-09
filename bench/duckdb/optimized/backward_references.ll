@@ -7243,7 +7243,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1091, %_ZN13duckdb_
   %1123 = getelementptr inbounds nuw i8, ptr %1122, i64 131072
   %1124 = getelementptr inbounds nuw i8, ptr %1122, i64 196608
   %1125 = load ptr, ptr %42, align 8, !tbaa !285, !alias.scope !358, !noalias !361
-  %.promoted898 = load i16, ptr %13, align 2, !tbaa !68, !alias.scope !358, !noalias !361
+  %.promoted898 = load i16, ptr %13, align 8, !tbaa !68, !alias.scope !358, !noalias !361
   br label %1126
 
 1126:                                             ; preds = %.lr.ph897, %1126
@@ -7303,7 +7303,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1091, %_ZN13duckdb_
   %1161 = getelementptr inbounds nuw i8, ptr %1160, i64 131072
   %1162 = getelementptr inbounds nuw i8, ptr %1160, i64 196608
   %1163 = load ptr, ptr %42, align 8, !tbaa !285, !alias.scope !367, !noalias !370
-  %.promoted756 = load i16, ptr %13, align 2, !tbaa !68, !alias.scope !367, !noalias !370
+  %.promoted756 = load i16, ptr %13, align 8, !tbaa !68, !alias.scope !367, !noalias !370
   br label %1164
 
 1164:                                             ; preds = %.lr.ph753, %1164
@@ -7354,7 +7354,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1091, %_ZN13duckdb_
   %1194 = getelementptr inbounds nuw i8, ptr %1193, i64 131072
   %1195 = getelementptr inbounds nuw i8, ptr %1193, i64 196608
   %1196 = load ptr, ptr %42, align 8, !tbaa !285, !alias.scope !376, !noalias !379
-  %.promoted750 = load i16, ptr %13, align 2, !tbaa !68, !alias.scope !376, !noalias !379
+  %.promoted750 = load i16, ptr %13, align 8, !tbaa !68, !alias.scope !376, !noalias !379
   br label %1197
 
 1197:                                             ; preds = %.lr.ph747, %1197
@@ -9655,7 +9655,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1110, %_ZN13duckdb_
   %1142 = getelementptr inbounds nuw i8, ptr %1141, i64 131072
   %1143 = getelementptr inbounds nuw i8, ptr %1141, i64 196608
   %1144 = load ptr, ptr %55, align 8, !tbaa !285, !alias.scope !476, !noalias !479
-  %.promoted898 = load i16, ptr %13, align 2, !tbaa !68, !alias.scope !476, !noalias !479
+  %.promoted898 = load i16, ptr %13, align 8, !tbaa !68, !alias.scope !476, !noalias !479
   br label %1145
 
 1145:                                             ; preds = %.lr.ph897, %1145
@@ -9715,7 +9715,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1110, %_ZN13duckdb_
   %1180 = getelementptr inbounds nuw i8, ptr %1179, i64 131072
   %1181 = getelementptr inbounds nuw i8, ptr %1179, i64 196608
   %1182 = load ptr, ptr %55, align 8, !tbaa !285, !alias.scope !485, !noalias !488
-  %.promoted756 = load i16, ptr %13, align 2, !tbaa !68, !alias.scope !485, !noalias !488
+  %.promoted756 = load i16, ptr %13, align 8, !tbaa !68, !alias.scope !485, !noalias !488
   br label %1183
 
 1183:                                             ; preds = %.lr.ph753, %1183
@@ -9766,7 +9766,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1110, %_ZN13duckdb_
   %1213 = getelementptr inbounds nuw i8, ptr %1212, i64 131072
   %1214 = getelementptr inbounds nuw i8, ptr %1212, i64 196608
   %1215 = load ptr, ptr %55, align 8, !tbaa !285, !alias.scope !494, !noalias !497
-  %.promoted750 = load i16, ptr %13, align 2, !tbaa !68, !alias.scope !494, !noalias !497
+  %.promoted750 = load i16, ptr %13, align 8, !tbaa !68, !alias.scope !494, !noalias !497
   br label %1216
 
 1216:                                             ; preds = %.lr.ph747, %1216
@@ -25861,7 +25861,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %758, %_ZN13duckdb_b
   %790 = getelementptr inbounds nuw i8, ptr %789, i64 131072
   %791 = getelementptr inbounds nuw i8, ptr %789, i64 196608
   %792 = load ptr, ptr %41, align 8, !tbaa !285, !alias.scope !1179, !noalias !1182
-  %.promoted614 = load i16, ptr %13, align 2, !tbaa !68, !alias.scope !1179, !noalias !1182
+  %.promoted614 = load i16, ptr %13, align 8, !tbaa !68, !alias.scope !1179, !noalias !1182
   br label %793
 
 793:                                              ; preds = %.lr.ph613, %793
@@ -25921,7 +25921,7 @@ _ZN13duckdb_brotliL19FindLongestMatchH40EPNS_3H40EPKNS_23BrotliEncoderDictionary
   %827 = getelementptr inbounds nuw i8, ptr %826, i64 131072
   %828 = getelementptr inbounds nuw i8, ptr %826, i64 196608
   %829 = load ptr, ptr %41, align 8, !tbaa !285, !alias.scope !1187, !noalias !1190
-  %.promoted627 = load i16, ptr %13, align 2, !tbaa !68, !alias.scope !1187, !noalias !1190
+  %.promoted627 = load i16, ptr %13, align 8, !tbaa !68, !alias.scope !1187, !noalias !1190
   br label %830
 
 830:                                              ; preds = %.lr.ph624, %830
@@ -25972,7 +25972,7 @@ _ZN13duckdb_brotliL19FindLongestMatchH40EPNS_3H40EPKNS_23BrotliEncoderDictionary
   %860 = getelementptr inbounds nuw i8, ptr %859, i64 131072
   %861 = getelementptr inbounds nuw i8, ptr %859, i64 196608
   %862 = load ptr, ptr %41, align 8, !tbaa !285, !alias.scope !1196, !noalias !1199
-  %.promoted620 = load i16, ptr %13, align 2, !tbaa !68, !alias.scope !1196, !noalias !1199
+  %.promoted620 = load i16, ptr %13, align 8, !tbaa !68, !alias.scope !1196, !noalias !1199
   br label %863
 
 863:                                              ; preds = %.lr.ph617, %863
@@ -27560,7 +27560,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %777, %_ZN13duckdb_b
   %809 = getelementptr inbounds nuw i8, ptr %808, i64 131072
   %810 = getelementptr inbounds nuw i8, ptr %808, i64 196608
   %811 = load ptr, ptr %54, align 8, !tbaa !285, !alias.scope !1261, !noalias !1264
-  %.promoted614 = load i16, ptr %13, align 2, !tbaa !68, !alias.scope !1261, !noalias !1264
+  %.promoted614 = load i16, ptr %13, align 8, !tbaa !68, !alias.scope !1261, !noalias !1264
   br label %812
 
 812:                                              ; preds = %.lr.ph613, %812
@@ -27620,7 +27620,7 @@ _ZN13duckdb_brotliL19FindLongestMatchH41EPNS_3H41EPKNS_23BrotliEncoderDictionary
   %846 = getelementptr inbounds nuw i8, ptr %845, i64 131072
   %847 = getelementptr inbounds nuw i8, ptr %845, i64 196608
   %848 = load ptr, ptr %54, align 8, !tbaa !285, !alias.scope !1269, !noalias !1272
-  %.promoted627 = load i16, ptr %13, align 2, !tbaa !68, !alias.scope !1269, !noalias !1272
+  %.promoted627 = load i16, ptr %13, align 8, !tbaa !68, !alias.scope !1269, !noalias !1272
   br label %849
 
 849:                                              ; preds = %.lr.ph624, %849
@@ -27671,7 +27671,7 @@ _ZN13duckdb_brotliL19FindLongestMatchH41EPNS_3H41EPKNS_23BrotliEncoderDictionary
   %879 = getelementptr inbounds nuw i8, ptr %878, i64 131072
   %880 = getelementptr inbounds nuw i8, ptr %878, i64 196608
   %881 = load ptr, ptr %54, align 8, !tbaa !285, !alias.scope !1278, !noalias !1281
-  %.promoted620 = load i16, ptr %13, align 2, !tbaa !68, !alias.scope !1278, !noalias !1281
+  %.promoted620 = load i16, ptr %13, align 8, !tbaa !68, !alias.scope !1278, !noalias !1281
   br label %882
 
 882:                                              ; preds = %.lr.ph617, %882

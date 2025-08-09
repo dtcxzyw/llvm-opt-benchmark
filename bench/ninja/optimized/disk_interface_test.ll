@@ -623,13 +623,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
   store ptr %4, ptr %3, align 8, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %5, align 8, !tbaa !12
-  store i8 0, ptr %4, align 1, !tbaa !15
+  store i8 0, ptr %4, align 8, !tbaa !15
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %7, ptr %6, align 8, !tbaa !7
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %8, align 8, !tbaa !12
-  store i8 0, ptr %7, align 1, !tbaa !15
+  store i8 0, ptr %7, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   invoke void @_ZN17RealDiskInterfaceC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %12 unwind label %10
@@ -3073,13 +3073,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
   store ptr %4, ptr %3, align 8, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %5, align 8, !tbaa !12
-  store i8 0, ptr %4, align 1, !tbaa !15
+  store i8 0, ptr %4, align 8, !tbaa !15
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %7, ptr %6, align 8, !tbaa !7
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %8, align 8, !tbaa !12
-  store i8 0, ptr %7, align 1, !tbaa !15
+  store i8 0, ptr %7, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   invoke void @_ZN17RealDiskInterfaceC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %12 unwind label %10
@@ -3770,13 +3770,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
   store ptr %4, ptr %3, align 8, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %5, align 8, !tbaa !12
-  store i8 0, ptr %4, align 1, !tbaa !15
+  store i8 0, ptr %4, align 8, !tbaa !15
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %7, ptr %6, align 8, !tbaa !7
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %8, align 8, !tbaa !12
-  store i8 0, ptr %7, align 1, !tbaa !15
+  store i8 0, ptr %7, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   invoke void @_ZN17RealDiskInterfaceC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %12 unwind label %10
@@ -4956,7 +4956,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %8, ptr %7, align 8, !tbaa !7
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %9, align 8, !tbaa !12
-  store i8 0, ptr %8, align 1, !tbaa !15
+  store i8 0, ptr %8, align 8, !tbaa !15
   store ptr %7, ptr %4, align 8, !tbaa !32
   br label %10
 
@@ -5058,13 +5058,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
   store ptr %4, ptr %3, align 8, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %5, align 8, !tbaa !12
-  store i8 0, ptr %4, align 1, !tbaa !15
+  store i8 0, ptr %4, align 8, !tbaa !15
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %7, ptr %6, align 8, !tbaa !7
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %8, align 8, !tbaa !12
-  store i8 0, ptr %7, align 1, !tbaa !15
+  store i8 0, ptr %7, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   invoke void @_ZN17RealDiskInterfaceC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %12 unwind label %10
@@ -6420,13 +6420,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
   store ptr %4, ptr %3, align 8, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %5, align 8, !tbaa !12
-  store i8 0, ptr %4, align 1, !tbaa !15
+  store i8 0, ptr %4, align 8, !tbaa !15
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %7, ptr %6, align 8, !tbaa !7
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %8, align 8, !tbaa !12
-  store i8 0, ptr %7, align 1, !tbaa !15
+  store i8 0, ptr %7, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   invoke void @_ZN17RealDiskInterfaceC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %12 unwind label %10
@@ -9446,13 +9446,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
   store ptr %4, ptr %3, align 8, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %5, align 8, !tbaa !12
-  store i8 0, ptr %4, align 1, !tbaa !15
+  store i8 0, ptr %4, align 8, !tbaa !15
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %7, ptr %6, align 8, !tbaa !7
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %8, align 8, !tbaa !12
-  store i8 0, ptr %7, align 1, !tbaa !15
+  store i8 0, ptr %7, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   invoke void @_ZN17RealDiskInterfaceC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %12 unwind label %10
@@ -11487,13 +11487,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
   store ptr %4, ptr %3, align 8, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %5, align 8, !tbaa !12
-  store i8 0, ptr %4, align 1, !tbaa !15
+  store i8 0, ptr %4, align 8, !tbaa !15
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %7, ptr %6, align 8, !tbaa !7
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %8, align 8, !tbaa !12
-  store i8 0, ptr %7, align 1, !tbaa !15
+  store i8 0, ptr %7, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   invoke void @_ZN17RealDiskInterfaceC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %12 unwind label %10
@@ -12251,13 +12251,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
   store ptr %4, ptr %3, align 8, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %5, align 8, !tbaa !12
-  store i8 0, ptr %4, align 1, !tbaa !15
+  store i8 0, ptr %4, align 8, !tbaa !15
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %7, ptr %6, align 8, !tbaa !7
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %8, align 8, !tbaa !12
-  store i8 0, ptr %7, align 1, !tbaa !15
+  store i8 0, ptr %7, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   invoke void @_ZN17RealDiskInterfaceC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %12 unwind label %10
@@ -13144,13 +13144,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
   store ptr %4, ptr %3, align 8, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %5, align 8, !tbaa !12
-  store i8 0, ptr %4, align 1, !tbaa !15
+  store i8 0, ptr %4, align 8, !tbaa !15
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %7, ptr %6, align 8, !tbaa !7
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %8, align 8, !tbaa !12
-  store i8 0, ptr %7, align 1, !tbaa !15
+  store i8 0, ptr %7, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   invoke void @_ZN17RealDiskInterfaceC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %12 unwind label %10
@@ -17051,7 +17051,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !tbaa !12, !alias.scope !366, !noalias !369
   store ptr %43, ptr %.0911.i.i.i, align 8, !tbaa !16, !alias.scope !369, !noalias !366
   store i64 0, ptr %52, align 8, !tbaa !12, !alias.scope !369, !noalias !366
-  store i8 0, ptr %43, align 1, !tbaa !15, !alias.scope !369, !noalias !366
+  store i8 0, ptr %43, align 8, !tbaa !15, !alias.scope !369, !noalias !366
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %54, %1
@@ -17099,7 +17099,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !tbaa !12, !alias.scope !373, !noalias !376
   store ptr %59, ptr %.0911.i.i.i29, align 8, !tbaa !16, !alias.scope !376, !noalias !373
   store i64 0, ptr %68, align 8, !tbaa !12, !alias.scope !376, !noalias !373
-  store i8 0, ptr %59, align 1, !tbaa !15, !alias.scope !376, !noalias !373
+  store i8 0, ptr %59, align 8, !tbaa !15, !alias.scope !376, !noalias !373
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %.not.i.i.i34 = icmp eq ptr %70, %6
@@ -23131,7 +23131,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8, !tbaa !12
   store ptr %13, ptr %10, align 8, !tbaa !16
   store i64 0, ptr %24, align 8, !tbaa !12
-  store i8 0, ptr %13, align 1, !tbaa !15
+  store i8 0, ptr %13, align 8, !tbaa !15
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i64 0, ptr %26, align 8, !tbaa !303
   store ptr %7, ptr %23, align 8, !tbaa !440

@@ -128,11 +128,11 @@ define noundef i32 @MD5_Final(ptr noundef writeonly captures(none) initializes((
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load i32, ptr %17, align 4, !tbaa !3
-  store i32 %18, ptr %16, align 1
+  store i32 %18, ptr %16, align 4
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %21 = load i32, ptr %20, align 4, !tbaa !8
-  store i32 %21, ptr %19, align 1
+  store i32 %21, ptr %19, align 4
   tail call void @ossl_md5_block_asm_data_order(ptr noundef nonnull %1, ptr noundef nonnull %3, i64 noundef 1) #5
   store i32 0, ptr %4, align 4, !tbaa !9
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %3, i64 noundef 64) #5

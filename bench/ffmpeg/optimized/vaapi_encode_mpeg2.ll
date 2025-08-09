@@ -347,7 +347,7 @@ switch.lookup:                                    ; preds = %22
   store i32 %.sink257, ptr %36, align 4, !tbaa !84
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 2016
   store i32 %.sink, ptr %37, align 8, !tbaa !85
-  store i8 -77, ptr %7, align 4, !tbaa !86
+  store i8 -77, ptr %7, align 8, !tbaa !86
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %39 = load i32, ptr %38, align 8, !tbaa !62
   %40 = trunc i32 %39 to i16
@@ -487,7 +487,7 @@ av_cmp_q.exit.thread232:                          ; preds = %35, %50, %71, %67, 
   %104 = getelementptr inbounds nuw i8, ptr %6, i64 2047
   store i8 0, ptr %104, align 1, !tbaa !99
   %105 = getelementptr inbounds nuw i8, ptr %6, i64 2112
-  store i8 0, ptr %105, align 4, !tbaa !100
+  store i8 0, ptr %105, align 8, !tbaa !100
   store i8 -75, ptr %91, align 4, !tbaa !101
   %106 = getelementptr inbounds nuw i8, ptr %6, i64 2181
   store i8 1, ptr %106, align 1, !tbaa !102
@@ -501,7 +501,7 @@ av_cmp_q.exit.thread232:                          ; preds = %35, %50, %71, %67, 
   %113 = getelementptr inbounds nuw i8, ptr %6, i64 2183
   store i8 1, ptr %113, align 1, !tbaa !105
   %114 = getelementptr inbounds nuw i8, ptr %6, i64 2184
-  store i8 1, ptr %114, align 2, !tbaa !106
+  store i8 1, ptr %114, align 8, !tbaa !106
   %115 = load i32, ptr %38, align 8, !tbaa !62
   %116 = lshr i32 %115, 12
   %117 = trunc i32 %116 to i8
@@ -515,7 +515,7 @@ av_cmp_q.exit.thread232:                          ; preds = %35, %50, %71, %67, 
   %123 = lshr i32 %96, 18
   %124 = trunc nuw nsw i32 %123 to i16
   %125 = getelementptr inbounds nuw i8, ptr %6, i64 2188
-  store i16 %124, ptr %125, align 2, !tbaa !109
+  store i16 %124, ptr %125, align 4, !tbaa !109
   %126 = lshr i32 %99, 10
   %127 = trunc i32 %126 to i8
   %128 = getelementptr inbounds nuw i8, ptr %6, i64 2190
@@ -529,7 +529,7 @@ av_cmp_q.exit.thread232:                          ; preds = %35, %50, %71, %67, 
   %134 = load i32, ptr %3, align 4, !tbaa !94
   %135 = trunc i32 %134 to i8
   %136 = getelementptr inbounds nuw i8, ptr %6, i64 2192
-  store i8 %135, ptr %136, align 2, !tbaa !113
+  store i8 %135, ptr %136, align 8, !tbaa !113
   %137 = load i32, ptr %4, align 4, !tbaa !94
   %138 = trunc i32 %137 to i8
   %139 = getelementptr inbounds nuw i8, ptr %6, i64 2193
@@ -537,7 +537,7 @@ av_cmp_q.exit.thread232:                          ; preds = %35, %50, %71, %67, 
   store i8 -75, ptr %90, align 2, !tbaa !115
   %140 = getelementptr inbounds nuw i8, ptr %6, i64 2443
   store i8 2, ptr %140, align 1, !tbaa !116
-  store i8 5, ptr %9, align 2, !tbaa !117
+  store i8 5, ptr %9, align 4, !tbaa !117
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %142 = load i32, ptr %141, align 8, !tbaa !119
   %143 = trunc i32 %142 to i8
@@ -552,7 +552,7 @@ av_cmp_q.exit.thread232:                          ; preds = %35, %50, %71, %67, 
   %150 = load i32, ptr %149, align 8, !tbaa !123
   %151 = trunc i32 %150 to i8
   %152 = getelementptr inbounds nuw i8, ptr %6, i64 2448
-  store i8 %151, ptr %152, align 2, !tbaa !124
+  store i8 %151, ptr %152, align 8, !tbaa !124
   %.not210 = icmp ne i32 %142, 2
   %.not211 = icmp ne i32 %146, 2
   %or.cond250.not = select i1 %.not210, i1 true, i1 %.not211
@@ -567,12 +567,12 @@ av_cmp_q.exit.thread232:                          ; preds = %35, %50, %71, %67, 
   store i16 %157, ptr %158, align 2, !tbaa !126
   %159 = trunc i32 %119 to i16
   %160 = getelementptr inbounds nuw i8, ptr %6, i64 2452
-  store i16 %159, ptr %160, align 2, !tbaa !127
-  store i8 -72, ptr %10, align 4, !tbaa !128
+  store i16 %159, ptr %160, align 4, !tbaa !127
+  store i8 -72, ptr %10, align 8, !tbaa !128
   %161 = getelementptr inbounds nuw i8, ptr %6, i64 2708
   store i32 4096, ptr %161, align 4, !tbaa !129
   %162 = getelementptr inbounds nuw i8, ptr %6, i64 2712
-  store i8 1, ptr %162, align 4, !tbaa !130
+  store i8 1, ptr %162, align 8, !tbaa !130
   %163 = getelementptr inbounds nuw i8, ptr %6, i64 2713
   store i8 0, ptr %163, align 1, !tbaa !131
   store i8 0, ptr %11, align 8, !tbaa !132
@@ -588,11 +588,11 @@ av_cmp_q.exit.thread232:                          ; preds = %35, %50, %71, %67, 
   %168 = getelementptr inbounds nuw i8, ptr %6, i64 2761
   store i8 8, ptr %168, align 1, !tbaa !138
   %169 = getelementptr inbounds nuw i8, ptr %6, i64 2766
-  store i8 0, ptr %169, align 1, !tbaa !139
+  store i8 0, ptr %169, align 2, !tbaa !139
   %170 = getelementptr inbounds nuw i8, ptr %6, i64 2767
   store i8 3, ptr %170, align 1, !tbaa !141
   %171 = getelementptr inbounds nuw i8, ptr %6, i64 2768
-  store i8 0, ptr %171, align 1, !tbaa !142
+  store i8 0, ptr %171, align 8, !tbaa !142
   %172 = getelementptr inbounds nuw i8, ptr %6, i64 2769
   store i8 1, ptr %172, align 1, !tbaa !143
   %173 = getelementptr inbounds nuw i8, ptr %6, i64 2770
@@ -602,7 +602,7 @@ av_cmp_q.exit.thread232:                          ; preds = %35, %50, %71, %67, 
   %177 = getelementptr inbounds nuw i8, ptr %6, i64 2774
   %178 = getelementptr inbounds nuw i8, ptr %6, i64 2776
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %173, i8 0, i64 5, i1 false)
-  store i8 1, ptr %178, align 1, !tbaa !144
+  store i8 1, ptr %178, align 8, !tbaa !144
   %179 = getelementptr inbounds nuw i8, ptr %6, i64 2777
   store i8 0, ptr %179, align 1, !tbaa !145
   %180 = getelementptr inbounds nuw i8, ptr %6, i64 1088
@@ -655,13 +655,13 @@ av_cmp_q.exit.thread232:                          ; preds = %35, %50, %71, %67, 
   store i32 33558528, ptr %.sroa.24.0..sroa_idx, align 4, !tbaa !149
   %.sroa.31.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.31.0..sroa_idx, i8 0, i64 16, i1 false)
-  %202 = load i8, ptr %169, align 1, !tbaa !139
+  %202 = load i8, ptr %169, align 2, !tbaa !139
   %203 = and i8 %202, 3
   %204 = load i8, ptr %170, align 1, !tbaa !141
   %205 = shl i8 %204, 2
   %206 = and i8 %205, 12
   %207 = or disjoint i8 %206, %203
-  %208 = load i8, ptr %171, align 1, !tbaa !142
+  %208 = load i8, ptr %171, align 8, !tbaa !142
   %209 = shl i8 %208, 4
   %210 = and i8 %209, 16
   %211 = or disjoint i8 %207, %210
@@ -669,7 +669,7 @@ av_cmp_q.exit.thread232:                          ; preds = %35, %50, %71, %67, 
   %213 = shl i8 %212, 5
   %214 = and i8 %213, 32
   %215 = or disjoint i8 %211, %214
-  %216 = load i8, ptr %173, align 1, !tbaa !150
+  %216 = load i8, ptr %173, align 2, !tbaa !150
   %217 = shl i8 %216, 6
   %218 = load i8, ptr %174, align 1, !tbaa !151
   %219 = shl i8 %218, 7
@@ -677,7 +677,7 @@ av_cmp_q.exit.thread232:                          ; preds = %35, %50, %71, %67, 
   %220 = or disjoint i8 %215, %.masked
   %221 = or disjoint i8 %220, %219
   %222 = zext i8 %221 to i16
-  %223 = load i8, ptr %175, align 1, !tbaa !152
+  %223 = load i8, ptr %175, align 4, !tbaa !152
   %224 = and i8 %223, 1
   %225 = zext nneg i8 %224 to i16
   %226 = shl nuw nsw i16 %225, 8
@@ -687,11 +687,11 @@ av_cmp_q.exit.thread232:                          ; preds = %35, %50, %71, %67, 
   %230 = zext nneg i8 %229 to i16
   %231 = shl nuw nsw i16 %230, 9
   %232 = or disjoint i16 %227, %231
-  %233 = load i8, ptr %177, align 1, !tbaa !154
+  %233 = load i8, ptr %177, align 2, !tbaa !154
   %234 = and i8 %233, 1
   %235 = zext nneg i8 %234 to i16
   %236 = shl nuw nsw i16 %235, 10
-  %237 = load i8, ptr %178, align 1, !tbaa !144
+  %237 = load i8, ptr %178, align 8, !tbaa !144
   %238 = and i8 %237, 1
   %239 = zext nneg i8 %238 to i16
   %240 = shl nuw nsw i16 %239, 11
@@ -703,7 +703,7 @@ av_cmp_q.exit.thread232:                          ; preds = %35, %50, %71, %67, 
   %246 = or disjoint i16 %241, %240
   %247 = or i16 %246, %245
   %248 = getelementptr inbounds nuw i8, ptr %6, i64 2778
-  %249 = load i8, ptr %248, align 1, !tbaa !155
+  %249 = load i8, ptr %248, align 2, !tbaa !155
   %250 = and i8 %249, 1
   %251 = getelementptr inbounds nuw i8, ptr %6, i64 2779
   %252 = load i8, ptr %251, align 1, !tbaa !156
@@ -711,7 +711,7 @@ av_cmp_q.exit.thread232:                          ; preds = %35, %50, %71, %67, 
   %254 = and i8 %253, 14
   %255 = or disjoint i8 %254, %250
   %256 = getelementptr inbounds nuw i8, ptr %6, i64 2780
-  %257 = load i8, ptr %256, align 1, !tbaa !157
+  %257 = load i8, ptr %256, align 4, !tbaa !157
   %258 = shl i8 %257, 4
   %259 = getelementptr inbounds nuw i8, ptr %6, i64 2781
   %260 = load i8, ptr %259, align 1, !tbaa !158
@@ -721,7 +721,7 @@ av_cmp_q.exit.thread232:                          ; preds = %35, %50, %71, %67, 
   %263 = or disjoint i8 %255, %.masked214
   %264 = zext nneg i8 %263 to i32
   %265 = getelementptr inbounds nuw i8, ptr %6, i64 2782
-  %266 = load i8, ptr %265, align 1, !tbaa !159
+  %266 = load i8, ptr %265, align 2, !tbaa !159
   %267 = zext i8 %266 to i32
   %268 = shl nuw nsw i32 %267, 12
   %.masked215 = and i32 %262, 4064
@@ -793,7 +793,7 @@ define internal noundef i32 @vaapi_encode_mpeg2_init_picture_params(ptr noundef 
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 2012
   %30 = load i32, ptr %29, align 4, !tbaa !84
   %31 = trunc i32 %30 to i8
-  store i8 %31, ptr %6, align 1, !tbaa !149
+  store i8 %31, ptr %6, align 2, !tbaa !149
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 2016
   %33 = load i32, ptr %32, align 8, !tbaa !85
   %34 = trunc i32 %33 to i8

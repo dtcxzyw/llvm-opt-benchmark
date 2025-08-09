@@ -3559,7 +3559,7 @@ parse_mail_rebase.exit:                           ; preds = %180
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %73, ptr noundef nonnull readonly align 4 dereferenceable(32) %29, i64 32, i1 false)
   %203 = load i32, ptr %74, align 4, !tbaa !133
-  store i32 %203, ptr %75, align 4, !tbaa !133
+  store i32 %203, ptr %75, align 8, !tbaa !133
   %204 = call ptr @oid_to_hex(ptr noundef nonnull %29) #21
   %.val.i = load ptr, ptr %0, align 8, !tbaa !23
   %205 = call ptr (ptr, ...) @mkpath(ptr noundef nonnull @.str.83, ptr noundef %.val.i, ptr noundef nonnull @.str.112) #21

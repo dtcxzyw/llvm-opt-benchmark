@@ -58,7 +58,7 @@ define zeroext i1 @nxsched_remove_readytorun(ptr noundef captures(none) %0, i1 n
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
   store i8 3, ptr %29, align 16
   %.pr.pre = load ptr, ptr %20, align 8
-  %30 = load ptr, ptr %0, align 8
+  %30 = load ptr, ptr %0, align 16
   %.not30 = icmp eq ptr %.pr.pre, null
   br i1 %.not30, label %31, label %33
 

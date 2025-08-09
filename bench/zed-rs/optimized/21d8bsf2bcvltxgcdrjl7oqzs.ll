@@ -13875,9 +13875,9 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.6079290144281833942.ex
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %300, i64 4
   store i32 %.sroa.578.0.copyload.i.i, ptr %.sroa.2.0..sroa_idx.i.i, align 4, !noalias !3883
   %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %300, i64 8
-  store ptr %.sroa.679.0.copyload.i.i, ptr %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i.i, align 4, !noalias !3883
+  store ptr %.sroa.679.0.copyload.i.i, ptr %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i.i, align 8, !noalias !3883
   %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %300, i64 16
-  store i64 %.sroa.780.0.copyload.i.i, ptr %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx.i.i, align 4, !noalias !3883
+  store i64 %.sroa.780.0.copyload.i.i, ptr %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx.i.i, align 8, !noalias !3883
   %301 = add i64 %294, 1
   store i64 %301, ptr %293, align 8, !alias.scope !4013, !noalias !4016
   br label %.backedge.i.i

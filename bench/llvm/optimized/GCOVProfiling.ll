@@ -3880,7 +3880,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEjNS_12DenseMapInfoIS3_vEENS
 828:                                              ; preds = %825, %819
   store ptr %751, ptr %820, align 8, !tbaa !285, !noalias !464
   %829 = getelementptr inbounds nuw i8, ptr %820, i64 8
-  store i32 0, ptr %829, align 4, !tbaa !471, !noalias !464
+  store i32 0, ptr %829, align 8, !tbaa !471, !noalias !464
   %830 = load i32, ptr %660, align 8, !tbaa !26, !noalias !417
   store i32 %830, ptr %829, align 8, !tbaa !472, !noalias !417
   %831 = load i32, ptr %661, align 4, !tbaa !27, !noalias !417
@@ -13027,7 +13027,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEjNS_12DenseMapInfoIS3_vEENS
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !471
-  store i32 %68, ptr %66, align 4, !tbaa !471
+  store i32 %68, ptr %66, align 8, !tbaa !471
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !469
   br label %70

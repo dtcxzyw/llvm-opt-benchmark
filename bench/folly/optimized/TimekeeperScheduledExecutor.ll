@@ -2458,11 +2458,11 @@ define linkonce_odr void @_ZN5folly7futures6detail16FutureBaseHelper26makePromis
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store ptr null, ptr %10, align 8, !tbaa !77
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i8 1, ptr %11, align 1, !tbaa !113
+  store i8 1, ptr %11, align 16, !tbaa !113
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 81
   store i8 2, ptr %12, align 1, !tbaa !116
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 82
-  store i8 0, ptr %13, align 1, !tbaa !116
+  store i8 0, ptr %13, align 2, !tbaa !116
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 88
   store i32 0, ptr %14, align 8, !tbaa !55
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 96

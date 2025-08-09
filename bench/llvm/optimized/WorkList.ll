@@ -2096,7 +2096,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIjPKN5clang17StackFrameContextEEiNS_1
   %89 = load ptr, ptr %88, align 8, !tbaa !97
   store ptr %89, ptr %79, align 8, !tbaa !97
   %90 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  store i32 0, ptr %90, align 4, !tbaa !55
+  store i32 0, ptr %90, align 8, !tbaa !55
   br label %.loopexit
 
 .loopexit:                                        ; preds = %44, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIjPKN5clang17StackFrameContextEEiNS_12DenseMapInfoIS7_vEENS_6detail12DenseMapPairIS7_iEEEES7_iS9_SC_E16InsertIntoBucketIRKS7_JEEEPSC_SI_OT_DpOT0_.exit
@@ -2510,7 +2510,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIjPKN5clang17StackFrameContextEEiNS_1
   %75 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 16
   %76 = getelementptr inbounds nuw i8, ptr %.024, i64 16
   %77 = load i32, ptr %76, align 4, !tbaa !55
-  store i32 %77, ptr %75, align 4, !tbaa !55
+  store i32 %77, ptr %75, align 8, !tbaa !55
   %78 = load i32, ptr %4, align 8, !tbaa !136
   %79 = add i32 %78, 1
   store i32 %79, ptr %4, align 8, !tbaa !136
@@ -2936,7 +2936,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang8CFGBlockEiNS_12DenseMapInfoIS5_vEE
   %57 = load ptr, ptr %1, align 8, !tbaa !53
   store ptr %57, ptr %48, align 8, !tbaa !53
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !55
+  store i32 0, ptr %58, align 8, !tbaa !55
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang8CFGBlockEiNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_iEEEES5_iS7_SA_E16InsertIntoBucketIS5_JEEEPSA_SE_OT_DpOT0_.exit
@@ -3137,7 +3137,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang8CFGBlockEiNS_12DenseMapInfoIS5_vEE
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !55
-  store i32 %68, ptr %66, align 4, !tbaa !55
+  store i32 %68, ptr %66, align 8, !tbaa !55
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !156
   br label %70

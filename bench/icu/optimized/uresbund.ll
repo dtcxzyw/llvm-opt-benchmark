@@ -703,7 +703,7 @@ _ZL18ures_isStackObjectPK15UResourceBundle.exit:  ; preds = %13, %17
   %27 = load i32, ptr %26, align 8, !tbaa !29
   %28 = getelementptr inbounds nuw i8, ptr %.1, i64 40
   store ptr %28, ptr %21, align 8, !tbaa !28
-  store i8 0, ptr %28, align 1, !tbaa !32
+  store i8 0, ptr %28, align 8, !tbaa !32
   store i32 %27, ptr %22, align 8, !tbaa !29
   %29 = icmp sgt i32 %27, 62
   br i1 %29, label %30, label %38
@@ -791,7 +791,7 @@ define internal fastcc void @_ZL18ures_appendResPathP15UResourceBundlePKciP10UEr
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %11, ptr %7, align 8, !tbaa !28
-  store i8 0, ptr %11, align 1, !tbaa !32
+  store i8 0, ptr %11, align 8, !tbaa !32
   br label %12
 
 12:                                               ; preds = %10, %4
@@ -6063,7 +6063,7 @@ _ZL13entryIncreaseP18UResourceDataEntry.exit:     ; preds = %._crit_edge.i
 85:                                               ; preds = %79
   %86 = getelementptr inbounds nuw i8, ptr %.079, i64 40
   store ptr %86, ptr %77, align 8, !tbaa !28
-  store i8 0, ptr %86, align 1, !tbaa !32
+  store i8 0, ptr %86, align 8, !tbaa !32
   br label %87
 
 87:                                               ; preds = %85, %79
@@ -6131,7 +6131,7 @@ _ZL18ures_appendResPathP15UResourceBundlePKciP10UErrorCode.exit: ; preds = %106,
 118:                                              ; preds = %111
   %119 = getelementptr inbounds nuw i8, ptr %.079, i64 40
   store ptr %119, ptr %77, align 8, !tbaa !28
-  store i8 0, ptr %119, align 1, !tbaa !32
+  store i8 0, ptr %119, align 8, !tbaa !32
   br label %120
 
 120:                                              ; preds = %118, %111
@@ -6255,7 +6255,7 @@ _ZL18ures_appendResPathP15UResourceBundlePKciP10UErrorCode.exit101: ; preds = %1
 178:                                              ; preds = %172
   %179 = getelementptr inbounds nuw i8, ptr %.079, i64 40
   store ptr %179, ptr %77, align 8, !tbaa !28
-  store i8 0, ptr %179, align 1, !tbaa !32
+  store i8 0, ptr %179, align 8, !tbaa !32
   br label %180
 
 180:                                              ; preds = %178, %172
@@ -6791,7 +6791,7 @@ _ZN6icu_7710CharStringC2ENS_11StringPieceER10UErrorCode.exit: ; preds = %.noexc1
   %187 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1130216) #28
   %188 = trunc i64 %187 to i32
   store ptr %183, ptr %181, align 8, !tbaa !28
-  store i8 0, ptr %183, align 1, !tbaa !32
+  store i8 0, ptr %183, align 8, !tbaa !32
   store i32 %188, ptr %186, align 8, !tbaa !29
   %189 = icmp sgt i32 %188, 62
   br i1 %189, label %190, label %_ZL18ures_appendResPathP15UResourceBundlePKciP10UErrorCode.exit

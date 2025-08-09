@@ -1765,7 +1765,7 @@ define hidden void @"_ZN15crossbeam_queue9seg_queue17SegQueue$LT$T$GT$4push17hf8
   store atomic ptr %.sroa.042.1, ptr %43 release, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.011.1, i64 480
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.011.1, i64 488
-  store i32 %1, ptr %45, align 4
+  store i32 %1, ptr %45, align 8
   %46 = atomicrmw or ptr %44, i64 1 release, align 8
   br label %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$crossbeam_queue..seg_queue..Block$LT$salsa..id..Id$GT$$GT$$GT$$GT$17h08286fec59db3f87E.exit34"
 

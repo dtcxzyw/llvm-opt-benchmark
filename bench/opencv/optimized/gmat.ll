@@ -1636,7 +1636,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cvlsERSoRKNS_8GMatDes
   %25 = load i32, ptr %24, align 8, !tbaa !121
   %26 = and i32 %25, -75
   %27 = or disjoint i32 %26, 8
-  store i32 %27, ptr %24, align 4, !tbaa !130
+  store i32 %27, ptr %24, align 8, !tbaa !130
   %28 = load i32, ptr %1, align 8, !tbaa !61
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %28)
   %30 = load ptr, ptr %29, align 8, !tbaa !19
@@ -1647,7 +1647,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cvlsERSoRKNS_8GMatDes
   %35 = load i32, ptr %34, align 8, !tbaa !121
   %36 = and i32 %35, -75
   %37 = or disjoint i32 %36, 2
-  store i32 %37, ptr %34, align 4, !tbaa !130
+  store i32 %37, ptr %34, align 8, !tbaa !130
   %38 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull @.str.11, i64 noundef 1)
   br label %39
 

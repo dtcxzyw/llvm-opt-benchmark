@@ -467,7 +467,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
 53:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %13, ptr noundef nonnull readonly align 1 dereferenceable(13) %47, i64 13, i1 false)
   store i64 13, ptr %14, align 8, !tbaa !15
-  %54 = load i8, ptr %15, align 1, !tbaa !32
+  %54 = load i8, ptr %15, align 8, !tbaa !32
   %55 = zext i8 %54 to i64
   %56 = shl nuw nsw i64 %55, 8
   %57 = load i8, ptr %16, align 1, !tbaa !32

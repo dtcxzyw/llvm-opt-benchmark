@@ -1122,7 +1122,7 @@ define dso_local i32 @udpv6_recvmsg(ptr noundef %0, ptr noundef %1, i64 noundef 
   %205 = getelementptr inbounds nuw i8, ptr %185, i64 8
   store i64 0, ptr %205, align 8
   %206 = getelementptr i8, ptr %185, i64 16
-  store i32 -65536, ptr %206, align 4
+  store i32 -65536, ptr %206, align 8
   %207 = getelementptr i8, ptr %185, i64 20
   store i32 %204, ptr %207, align 4
   br label %225
@@ -2953,7 +2953,7 @@ define dso_local i32 @udpv6_sendmsg(ptr noundef %0, ptr noundef %1, i64 noundef 
 66:                                               ; preds = %59
   %67 = load i64, ptr %19, align 8
   %68 = getelementptr i8, ptr %19, i64 8
-  %69 = load i32, ptr %68, align 4
+  %69 = load i32, ptr %68, align 8
   %70 = xor i32 %69, -65536
   %71 = zext i32 %70 to i64
   %72 = or i64 %67, %71

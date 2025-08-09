@@ -2873,8 +2873,8 @@ define dso_local noundef float @_ZN37btDeformableMultiBodyConstraintSolver30solv
   %66 = load ptr, ptr %65, align 8, !tbaa !115
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 192
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 80
-  %69 = load float, ptr %67, align 4, !tbaa !45
-  %70 = load float, ptr %68, align 4, !tbaa !45
+  %69 = load float, ptr %67, align 8, !tbaa !45
+  %70 = load float, ptr %68, align 8, !tbaa !45
   %71 = fadd float %69, %70
   %72 = getelementptr inbounds nuw i8, ptr %64, i64 196
   %73 = load float, ptr %72, align 4, !tbaa !45
@@ -2882,9 +2882,9 @@ define dso_local noundef float @_ZN37btDeformableMultiBodyConstraintSolver30solv
   %75 = load float, ptr %74, align 4, !tbaa !45
   %76 = fadd float %73, %75
   %77 = getelementptr inbounds nuw i8, ptr %64, i64 200
-  %78 = load float, ptr %77, align 4, !tbaa !45
+  %78 = load float, ptr %77, align 8, !tbaa !45
   %79 = getelementptr inbounds nuw i8, ptr %64, i64 88
-  %80 = load float, ptr %79, align 4, !tbaa !45
+  %80 = load float, ptr %79, align 8, !tbaa !45
   %81 = fadd float %78, %80
   %.sroa.0.0.vec.insert.i10.i = insertelement <2 x float> poison, float %71, i64 0
   %.sroa.0.4.vec.insert.i11.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i10.i, float %76, i64 1
@@ -3117,8 +3117,8 @@ define dso_local void @_ZN37btDeformableMultiBodyConstraintSolver19solverBodyWri
   %42 = load ptr, ptr %41, align 8, !tbaa !115
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 192
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 80
-  %45 = load float, ptr %43, align 4, !tbaa !45
-  %46 = load float, ptr %44, align 4, !tbaa !45
+  %45 = load float, ptr %43, align 8, !tbaa !45
+  %46 = load float, ptr %44, align 8, !tbaa !45
   %47 = fadd float %45, %46
   %48 = getelementptr inbounds nuw i8, ptr %40, i64 196
   %49 = load float, ptr %48, align 4, !tbaa !45
@@ -3126,9 +3126,9 @@ define dso_local void @_ZN37btDeformableMultiBodyConstraintSolver19solverBodyWri
   %51 = load float, ptr %50, align 4, !tbaa !45
   %52 = fadd float %49, %51
   %53 = getelementptr inbounds nuw i8, ptr %40, i64 200
-  %54 = load float, ptr %53, align 4, !tbaa !45
+  %54 = load float, ptr %53, align 8, !tbaa !45
   %55 = getelementptr inbounds nuw i8, ptr %40, i64 88
-  %56 = load float, ptr %55, align 4, !tbaa !45
+  %56 = load float, ptr %55, align 8, !tbaa !45
   %57 = fadd float %54, %56
   %.sroa.0.0.vec.insert.i10 = insertelement <2 x float> poison, float %47, i64 0
   %.sroa.0.4.vec.insert.i11 = insertelement <2 x float> %.sroa.0.0.vec.insert.i10, float %52, i64 1
@@ -3223,7 +3223,7 @@ define dso_local void @_ZN37btDeformableMultiBodyConstraintSolver17writeToSolver
   %47 = getelementptr inbounds nuw i8, ptr %19, i64 436
   %48 = getelementptr inbounds nuw i8, ptr %30, i64 80
   %49 = load float, ptr %47, align 4, !tbaa !45
-  %50 = load float, ptr %48, align 4, !tbaa !45
+  %50 = load float, ptr %48, align 8, !tbaa !45
   %51 = fsub float %49, %50
   %52 = getelementptr inbounds nuw i8, ptr %19, i64 440
   %53 = load float, ptr %52, align 4, !tbaa !45
@@ -3233,7 +3233,7 @@ define dso_local void @_ZN37btDeformableMultiBodyConstraintSolver17writeToSolver
   %57 = getelementptr inbounds nuw i8, ptr %19, i64 444
   %58 = load float, ptr %57, align 4, !tbaa !45
   %59 = getelementptr inbounds nuw i8, ptr %30, i64 88
-  %60 = load float, ptr %59, align 4, !tbaa !45
+  %60 = load float, ptr %59, align 8, !tbaa !45
   %61 = fsub float %58, %60
   %.sroa.0.0.vec.insert.i20 = insertelement <2 x float> poison, float %51, i64 0
   %.sroa.0.4.vec.insert.i21 = insertelement <2 x float> %.sroa.0.0.vec.insert.i20, float %56, i64 1

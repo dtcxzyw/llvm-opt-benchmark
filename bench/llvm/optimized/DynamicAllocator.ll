@@ -516,7 +516,7 @@ define dso_local noundef nonnull ptr @_ZN5clang6interp16DynamicAllocator8allocat
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr null, ptr %13, align 8, !tbaa !46
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i32 -1, ptr %14, align 4, !tbaa !51
+  store i32 -1, ptr %14, align 8, !tbaa !51
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i8 1, ptr %15, align 4, !tbaa !79
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 24

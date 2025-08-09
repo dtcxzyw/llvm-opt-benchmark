@@ -325,31 +325,31 @@ getBytes.exit139:                                 ; preds = %73
   %119 = getelementptr inbounds nuw i8, ptr %26, i64 48
   store i32 %118, ptr %119, align 8
   %120 = load i32, ptr %14, align 4
-  store i32 %120, ptr %26, align 4
+  store i32 %120, ptr %26, align 8
   %121 = load i32, ptr %23, align 4
   %122 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store i32 %121, ptr %122, align 4
   %123 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %124 = load i32, ptr %15, align 4
-  store i32 %124, ptr %123, align 4
+  store i32 %124, ptr %123, align 8
   %125 = load i32, ptr %22, align 4
   %126 = getelementptr inbounds nuw i8, ptr %26, i64 12
   store i32 %125, ptr %126, align 4
   %127 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %128 = load i32, ptr %16, align 4
-  store i32 %128, ptr %127, align 4
+  store i32 %128, ptr %127, align 8
   %129 = load i32, ptr %21, align 4
   %130 = getelementptr inbounds nuw i8, ptr %26, i64 20
   store i32 %129, ptr %130, align 4
   %131 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %132 = load i32, ptr %17, align 4
-  store i32 %132, ptr %131, align 4
+  store i32 %132, ptr %131, align 8
   %133 = load i32, ptr %20, align 4
   %134 = getelementptr inbounds nuw i8, ptr %26, i64 28
   store i32 %133, ptr %134, align 4
   %135 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %136 = load i32, ptr %18, align 4
-  store i32 %136, ptr %135, align 4
+  store i32 %136, ptr %135, align 8
   %137 = load i32, ptr %24, align 4
   %138 = getelementptr inbounds nuw i8, ptr %26, i64 36
   store i32 %137, ptr %138, align 4

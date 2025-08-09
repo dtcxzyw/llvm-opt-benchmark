@@ -966,7 +966,7 @@ _ZN15ClassListWriterC2Ev.exit:                    ; preds = %17, %31
   %53 = load ptr, ptr %52, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %50, ptr noundef nonnull @.str.14, ptr noundef %53) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %54 = load i32, ptr %45, align 4
+  %54 = load i32, ptr %45, align 8
   %55 = sext i32 %54 to i64
   %56 = icmp slt i64 %indvars.iv.next, %55
   br i1 %56, label %49, label %._crit_edge, !llvm.loop !11

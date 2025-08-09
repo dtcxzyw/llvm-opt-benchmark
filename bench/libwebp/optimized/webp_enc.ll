@@ -524,19 +524,19 @@ MapConfigToTools.exit:                            ; preds = %141, %146, %148
   %150 = load ptr, ptr %50, align 8, !tbaa !59
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 24
   %152 = load i32, ptr %151, align 4, !tbaa !75
-  store i32 %152, ptr %149, align 4, !tbaa !76
+  store i32 %152, ptr %149, align 8, !tbaa !76
   %153 = icmp sgt i32 %152, 1
   %154 = zext i1 %153 to i32
   %155 = getelementptr inbounds nuw i8, ptr %50, i64 36
   store i32 %154, ptr %155, align 4, !tbaa !77
   %156 = getelementptr inbounds nuw i8, ptr %50, i64 40
-  store i32 0, ptr %156, align 4, !tbaa !78
+  store i32 0, ptr %156, align 8, !tbaa !78
   %157 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  store i32 1, ptr %157, align 4, !tbaa !79
+  store i32 1, ptr %157, align 8, !tbaa !79
   %158 = getelementptr inbounds nuw i8, ptr %50, i64 20
   store i32 0, ptr %158, align 4, !tbaa !80
   %159 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  store i32 0, ptr %159, align 4, !tbaa !81
+  store i32 0, ptr %159, align 8, !tbaa !81
   %160 = getelementptr inbounds nuw i8, ptr %50, i64 28
   store i32 0, ptr %160, align 4, !tbaa !82
   %161 = load ptr, ptr %75, align 8, !tbaa !53

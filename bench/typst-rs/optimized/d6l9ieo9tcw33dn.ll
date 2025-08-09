@@ -193107,7 +193107,7 @@ _ZN5typst11foundations4args4Args9remaining17h724589ff92846b89E.exit: ; preds = %
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %203 = add nuw i64 %176, 1
   store i64 %203, ptr %175, align 8, !noalias !40717
-  %204 = load i8, ptr %202, align 1, !range !23, !noalias !40717, !noundef !4
+  %204 = load i8, ptr %202, align 8, !range !23, !noalias !40717, !noundef !4
   %205 = trunc nuw i8 %204 to i1
   %206 = load ptr, ptr %.sroa.0126.0161, align 8, !noalias !40717, !nonnull !4, !noundef !4
   br i1 %205, label %212, label %207

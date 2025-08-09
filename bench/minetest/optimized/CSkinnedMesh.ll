@@ -1534,7 +1534,7 @@ if.then:                                          ; preds = %lor.lhs.false10, %l
   store i8 0, ptr %GlobalSkinningSpace, align 8, !tbaa !126
   %Animatedrotation = getelementptr inbounds nuw i8, ptr %4, i64 512
   %LocalAnimatedMatrix = getelementptr inbounds nuw i8, ptr %4, i64 424
-  %q.sroa.0.0.copyload.i = load float, ptr %Animatedrotation, align 4, !tbaa !27
+  %q.sroa.0.0.copyload.i = load float, ptr %Animatedrotation, align 8, !tbaa !27
   %q.sroa.6.0.this.sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 516
   %q.sroa.12.0.this.sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 524
   %q.sroa.12.0.copyload.i = load float, ptr %q.sroa.12.0.this.sroa_idx.i, align 4, !tbaa !27
@@ -1554,7 +1554,7 @@ if.then:                                          ; preds = %lor.lhs.false10, %l
   %arrayidx.i126.i = getelementptr inbounds nuw i8, ptr %4, i64 484
   store float 1.000000e+00, ptr %arrayidx.i126.i, align 4, !tbaa !27
   %Animatedposition = getelementptr inbounds nuw i8, ptr %4, i64 488
-  %15 = load float, ptr %Animatedposition, align 4, !tbaa !127
+  %15 = load float, ptr %Animatedposition, align 8, !tbaa !127
   %Y = getelementptr inbounds nuw i8, ptr %4, i64 492
   %16 = load <2 x float>, ptr %q.sroa.6.0.this.sroa_idx.i, align 4, !tbaa !27
   %17 = fmul <2 x float> %16, %16
@@ -1597,12 +1597,12 @@ if.then:                                          ; preds = %lor.lhs.false10, %l
   %36 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %33, <2 x float> %24, <2 x float> %35)
   %neg51.i = fneg float %mul39.i
   %37 = tail call float @llvm.fmuladd.f32(float %15, float 0.000000e+00, float %28)
-  store float %37, ptr %LocalAnimatedMatrix, align 4, !tbaa !27
+  store float %37, ptr %LocalAnimatedMatrix, align 8, !tbaa !27
   %38 = load <2 x float>, ptr %Y, align 4, !tbaa !27
   %39 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %38, <2 x float> zeroinitializer, <2 x float> %36)
   store <2 x float> %39, ptr %arrayidx.i115.i, align 4, !tbaa !27
   %40 = tail call float @llvm.fmuladd.f32(float %15, float 0.000000e+00, float %29)
-  store float %40, ptr %arrayidx.i.i, align 4, !tbaa !27
+  store float %40, ptr %arrayidx.i.i, align 8, !tbaa !27
   %41 = insertelement <2 x float> poison, float %mul7.i, i64 0
   %42 = insertelement <2 x float> %41, float %neg9.i, i64 1
   %43 = insertelement <2 x float> poison, float %neg51.i, i64 0
@@ -1612,7 +1612,7 @@ if.then:                                          ; preds = %lor.lhs.false10, %l
   %47 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %38, <2 x float> zeroinitializer, <2 x float> %46)
   store <2 x float> %47, ptr %arrayidx.i116.i, align 4, !tbaa !27
   %48 = tail call float @llvm.fmuladd.f32(float %15, float 0.000000e+00, float %30)
-  store float %48, ptr %arrayidx.i113.i, align 4, !tbaa !27
+  store float %48, ptr %arrayidx.i113.i, align 8, !tbaa !27
   %49 = insertelement <2 x float> %41, float %neg.i, i64 1
   %50 = shufflevector <2 x float> %24, <2 x float> poison, <2 x i32> zeroinitializer
   %51 = insertelement <2 x float> poison, float %mul39.i, i64 0
@@ -1621,7 +1621,7 @@ if.then:                                          ; preds = %lor.lhs.false10, %l
   %54 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %38, <2 x float> zeroinitializer, <2 x float> %53)
   store <2 x float> %54, ptr %arrayidx.i117.i, align 4, !tbaa !27
   %55 = fadd float %15, 0.000000e+00
-  store float %55, ptr %arrayidx.i114.i, align 4, !tbaa !27
+  store float %55, ptr %arrayidx.i114.i, align 8, !tbaa !27
   %56 = fadd <2 x float> %38, zeroinitializer
   store <2 x float> %56, ptr %arrayidx.i118.i, align 4, !tbaa !27
   %ScaleKeys48 = getelementptr inbounds nuw i8, ptr %4, i64 200
@@ -7538,10 +7538,10 @@ entry:
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 100
   store float 1.000000e+00, ptr %arrayidx.i.i.i, align 4, !tbaa !27
   %arrayidx4.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 80
-  store float 1.000000e+00, ptr %arrayidx4.i.i.i, align 4, !tbaa !27
+  store float 1.000000e+00, ptr %arrayidx4.i.i.i, align 8, !tbaa !27
   %arrayidx6.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 60
   store float 1.000000e+00, ptr %arrayidx6.i.i.i, align 4, !tbaa !27
-  store float 1.000000e+00, ptr %LocalMatrix.i, align 4, !tbaa !27
+  store float 1.000000e+00, ptr %LocalMatrix.i, align 8, !tbaa !27
   %Children.i = getelementptr inbounds nuw i8, ptr %call, i64 104
   %is_sorted.i.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Children.i, i8 0, i64 24, i1 false)
@@ -7571,15 +7571,15 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %1, i8 0, i64 56, i1 false)
   %arrayidx.i.i7.i = getelementptr inbounds nuw i8, ptr %call, i64 356
   %arrayidx4.i.i8.i = getelementptr inbounds nuw i8, ptr %call, i64 336
-  store float 1.000000e+00, ptr %arrayidx4.i.i8.i, align 4, !tbaa !27
+  store float 1.000000e+00, ptr %arrayidx4.i.i8.i, align 8, !tbaa !27
   %arrayidx6.i.i9.i = getelementptr inbounds nuw i8, ptr %call, i64 316
   store float 1.000000e+00, ptr %arrayidx6.i.i9.i, align 4, !tbaa !27
-  store float 1.000000e+00, ptr %GlobalMatrix.i, align 4, !tbaa !27
+  store float 1.000000e+00, ptr %GlobalMatrix.i, align 8, !tbaa !27
   %2 = getelementptr inbounds nuw i8, ptr %call, i64 364
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %2, i8 0, i64 56, i1 false)
   %arrayidx.i.i10.i = getelementptr inbounds nuw i8, ptr %call, i64 420
   %arrayidx4.i.i11.i = getelementptr inbounds nuw i8, ptr %call, i64 400
-  store float 1.000000e+00, ptr %arrayidx4.i.i11.i, align 4, !tbaa !27
+  store float 1.000000e+00, ptr %arrayidx4.i.i11.i, align 8, !tbaa !27
   %arrayidx6.i.i12.i = getelementptr inbounds nuw i8, ptr %call, i64 380
   store float 1.000000e+00, ptr %arrayidx6.i.i12.i, align 4, !tbaa !27
   store <2 x float> splat (float 1.000000e+00), ptr %arrayidx.i.i7.i, align 4, !tbaa !27
@@ -7588,7 +7588,7 @@ entry:
   %arrayidx.i.i13.i = getelementptr inbounds nuw i8, ptr %call, i64 484
   store float 1.000000e+00, ptr %arrayidx.i.i13.i, align 4, !tbaa !27
   %arrayidx4.i.i14.i = getelementptr inbounds nuw i8, ptr %call, i64 464
-  store float 1.000000e+00, ptr %arrayidx4.i.i14.i, align 4, !tbaa !27
+  store float 1.000000e+00, ptr %arrayidx4.i.i14.i, align 8, !tbaa !27
   %arrayidx6.i.i15.i = getelementptr inbounds nuw i8, ptr %call, i64 444
   store float 1.000000e+00, ptr %arrayidx6.i.i15.i, align 4, !tbaa !27
   store <2 x float> splat (float 1.000000e+00), ptr %arrayidx.i.i10.i, align 4, !tbaa !27
@@ -7600,7 +7600,7 @@ entry:
   %arrayidx.i.i20.i = getelementptr inbounds nuw i8, ptr %call, i64 588
   store float 1.000000e+00, ptr %arrayidx.i.i20.i, align 4, !tbaa !27
   %arrayidx4.i.i21.i = getelementptr inbounds nuw i8, ptr %call, i64 568
-  store float 1.000000e+00, ptr %arrayidx4.i.i21.i, align 4, !tbaa !27
+  store float 1.000000e+00, ptr %arrayidx4.i.i21.i, align 8, !tbaa !27
   %arrayidx6.i.i22.i = getelementptr inbounds nuw i8, ptr %call, i64 548
   store float 1.000000e+00, ptr %arrayidx6.i.i22.i, align 4, !tbaa !27
   store <2 x float> splat (float 1.000000e+00), ptr %W.i.i, align 4, !tbaa !27

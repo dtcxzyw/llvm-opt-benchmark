@@ -16422,7 +16422,7 @@ define hidden void @_ZN52MetaPointerLike_DereferenceOperatorSmartPointer_Test8Te
   store i32 1, ptr %49, align 4, !tbaa !65, !noalias !310
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %47, align 8, !tbaa !4, !noalias !310
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  store i32 0, ptr %50, align 4, !tbaa !33, !noalias !310
+  store i32 0, ptr %50, align 8, !tbaa !33, !noalias !310
   store ptr %47, ptr %46, align 8, !tbaa !51, !alias.scope !310
   store ptr %50, ptr %4, align 8, !tbaa !108, !alias.scope !310
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -58521,7 +58521,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %8, ptr %7, align 8, !tbaa !851
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %9, align 8, !tbaa !73
-  store i8 0, ptr %8, align 1, !tbaa !25
+  store i8 0, ptr %8, align 8, !tbaa !25
   store ptr %7, ptr %4, align 8, !tbaa !76
   br label %10
 

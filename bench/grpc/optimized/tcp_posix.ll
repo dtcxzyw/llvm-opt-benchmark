@@ -507,13 +507,13 @@ define noundef nonnull ptr @_Z15grpc_tcp_createP7grpc_fdRKN9grpc_core15PosixTcpO
   store ptr %31, ptr %30, align 8, !tbaa !78
   %32 = getelementptr inbounds nuw i8, ptr %21, i64 464
   store i64 0, ptr %32, align 8, !tbaa !79
-  store i8 0, ptr %31, align 1, !tbaa !25
+  store i8 0, ptr %31, align 8, !tbaa !25
   %33 = getelementptr inbounds nuw i8, ptr %21, i64 488
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 504
   store ptr %34, ptr %33, align 8, !tbaa !78
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 496
   store i64 0, ptr %35, align 8, !tbaa !79
-  store i8 0, ptr %34, align 1, !tbaa !25
+  store i8 0, ptr %34, align 8, !tbaa !25
   %36 = getelementptr inbounds nuw i8, ptr %21, i64 520
   %37 = getelementptr inbounds nuw i8, ptr %21, i64 608
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -9500,7 +9500,7 @@ _ZNSt10_HashtableIjSt4pairIKjPN9grpc_core21TcpZerocopySendRecordEESaIS5_ENSt8__d
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIjSt4pairIKjPN9grpc_core21TcpZerocopySendRecordEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !249
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !3
+  %16 = load i32, ptr %15, align 8, !tbaa !3
   %17 = zext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18

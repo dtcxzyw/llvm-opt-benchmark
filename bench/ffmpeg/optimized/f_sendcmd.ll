@@ -144,7 +144,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %27, ptr %6, align 8, !tbaa !26
   store ptr null, ptr %32, align 8, !tbaa !28
-  store i32 0, ptr %33, align 4, !tbaa !29
+  store i32 0, ptr %33, align 8, !tbaa !29
   br label %.preheader.i
 
 34:                                               ; preds = %20
@@ -153,7 +153,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %17, ptr %6, align 8, !tbaa !26
   store ptr null, ptr %35, align 8, !tbaa !28
-  store i32 0, ptr %36, align 4, !tbaa !29
+  store i32 0, ptr %36, align 8, !tbaa !29
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %.thread61, label %.preheader.i
 

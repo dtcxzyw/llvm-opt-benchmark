@@ -1509,7 +1509,7 @@ parse_numeric_port.exit:                          ; preds = %17, %7
   store i16 2, ptr %130, align 4, !tbaa !39
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 4
   %133 = load i32, ptr %5, align 4
-  store i32 %133, ptr %132, align 1
+  store i32 %133, ptr %132, align 4
   %134 = getelementptr inbounds nuw i8, ptr %130, i64 2
   store i16 %.0, ptr %134, align 2, !tbaa !93
   %135 = getelementptr inbounds nuw i8, ptr %129, i64 4

@@ -863,7 +863,7 @@ _ZN17GrowableArrayViewIP14LayoutRawBlockE4sortEPFiPS1_S3_E.exit: ; preds = %._cr
   store ptr %133, ptr %134, align 8
   store ptr %132, ptr %126, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %135 = load i32, ptr %4, align 4
+  %135 = load i32, ptr %4, align 8
   %136 = sext i32 %135 to i64
   %137 = icmp slt i64 %indvars.iv.next, %136
   br i1 %137, label %.lr.ph36, label %._crit_edge37.loopexit, !llvm.loop !12
@@ -1612,7 +1612,7 @@ define hidden void @_ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14Layou
   %44 = load ptr, ptr %43, align 8
   %45 = tail call noundef ptr @_ZN11FieldLayout18insert_field_blockEP14LayoutRawBlockS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %.026, ptr noundef %44)
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
-  %46 = load i32, ptr %1, align 4
+  %46 = load i32, ptr %1, align 8
   %47 = sext i32 %46 to i64
   %48 = icmp slt i64 %indvars.iv.next39, %47
   br i1 %48, label %41, label %.loopexit, !llvm.loop !20
@@ -3483,7 +3483,7 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit102: ; p
   %507 = load ptr, ptr %506, align 8
   %508 = tail call noundef ptr @_ZN11FieldLayout18insert_field_blockEP14LayoutRawBlockS1_(ptr noundef nonnull align 8 dereferenceable(40) %463, ptr noundef %.026.i, ptr noundef %507)
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
-  %509 = load i32, ptr %467, align 4
+  %509 = load i32, ptr %467, align 8
   %510 = sext i32 %509 to i64
   %511 = icmp slt i64 %indvars.iv.next39.i, %510
   br i1 %511, label %504, label %_ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14LayoutRawBlockES2_.exit.loopexit, !llvm.loop !20

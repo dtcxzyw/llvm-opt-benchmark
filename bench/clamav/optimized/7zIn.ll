@@ -2952,7 +2952,7 @@ select.unfold.i:                                  ; preds = %select.unfold141.i,
   %287 = getelementptr inbounds nuw i32, ptr %286, i64 %indvars.iv283.i
   store i32 0, ptr %287, align 4, !tbaa !45
   %indvars.iv.next284.i = add nuw nsw i64 %indvars.iv283.i, 1
-  %288 = load i32, ptr %22, align 4, !tbaa !45
+  %288 = load i32, ptr %22, align 8, !tbaa !45
   %289 = zext i32 %288 to i64
   %290 = icmp samesign ult i64 %indvars.iv.next284.i, %289
   br i1 %290, label %.lr.ph221.i, label %SzReadPackInfo.exit

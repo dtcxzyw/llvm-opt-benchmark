@@ -560,7 +560,7 @@ define dso_local void @__ieee80211_start_rx_ba_session(ptr noundef %0, i8 nounde
   %199 = getelementptr inbounds nuw i8, ptr %182, i64 25
   store i8 1, ptr %199, align 1
   %200 = getelementptr inbounds nuw i8, ptr %182, i64 26
-  store i8 %1, ptr %200, align 1
+  store i8 %1, ptr %200, align 2
   %201 = shl i16 %5, 2
   %202 = and i16 %201, 60
   %203 = lshr i64 %167, 30

@@ -8957,9 +8957,9 @@ default.unreachable:                              ; preds = %25
   %.sroa.529.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %.sroa.529.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(47) %.sroa.13.sroa.0, i64 47, i1 false)
   %.sroa.529.sroa.4.0..sroa.529.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 56
-  store i64 %.sroa.13.sroa.7.1, ptr %.sroa.529.sroa.4.0..sroa.529.0..sroa_idx.sroa_idx, align 1
+  store i64 %.sroa.13.sroa.7.1, ptr %.sroa.529.sroa.4.0..sroa.529.0..sroa_idx.sroa_idx, align 8
   %.sroa.529.sroa.5.0..sroa.529.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 64
-  store i64 %.sroa.13.sroa.8.1, ptr %.sroa.529.sroa.5.0..sroa.529.0..sroa_idx.sroa_idx, align 1
+  store i64 %.sroa.13.sroa.8.1, ptr %.sroa.529.sroa.5.0..sroa.529.0..sroa_idx.sroa_idx, align 8
   %53 = icmp eq i64 %23, 0
   br i1 %53, label %.thread, label %22
 
@@ -15023,7 +15023,7 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_fu
   %34 = getelementptr inbounds [0 x { { i64, [11 x i64] }, { i64, i8, [7 x i8] }, i64 }], ptr %10, i64 0, i64 %.val.i.i.i.i, i32 1
   %.val3.i.i.i.i.i = load i64, ptr %34, align 8, !noalias !3549, !noundef !11
   %35 = getelementptr i8, ptr %34, i64 8
-  %.val4.i.i.i.i.i = load i8, ptr %35, align 1, !noalias !3549
+  %.val4.i.i.i.i.i = load i8, ptr %35, align 8, !noalias !3549
   %36 = icmp eq i64 %3, %.val3.i.i.i.i.i
   %37 = icmp eq i8 %.val4.i.i.i.i.i, %8
   %spec.select.i.i.i.i.i.i.i = select i1 %36, i1 %37, i1 false
@@ -15135,7 +15135,7 @@ define hidden { i64, i64 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$12g
   %30 = getelementptr inbounds [0 x { { i64, [11 x i64] }, { i64, i8, [7 x i8] }, i64 }], ptr %5, i64 0, i64 %.val.i.i.i, i32 1
   %.val3.i.i.i.i = load i64, ptr %30, align 8, !noalias !3563, !noundef !11
   %31 = getelementptr i8, ptr %30, i64 8
-  %.val4.i.i.i.i = load i8, ptr %31, align 1, !noalias !3563
+  %.val4.i.i.i.i = load i8, ptr %31, align 8, !noalias !3563
   %32 = icmp eq i64 %.val.i.i.i.i, %.val3.i.i.i.i
   %33 = icmp eq i8 %.val2.i.i.i.i, %.val4.i.i.i.i
   %spec.select.i.i.i.i.i.i = select i1 %32, i1 %33, i1 false

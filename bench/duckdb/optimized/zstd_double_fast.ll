@@ -9,7 +9,7 @@ define void @_ZN11duckdb_zstd24ZSTD_fillDoubleHashTableEPNS_17ZSTD_matchState_tE
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %9 = load i32, ptr %8, align 4, !tbaa !19
+  %9 = load i32, ptr %8, align 8, !tbaa !19
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %11 = load ptr, ptr %10, align 8, !tbaa !20
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -323,7 +323,7 @@ define noundef i64 @_ZN11duckdb_zstd29ZSTD_compressBlock_doubleFastEPNS_17ZSTD_m
   %17 = add i64 %4, %15
   %18 = sub i64 %17, %16
   %19 = trunc i64 %18 to i32
-  %20 = load i32, ptr %8, align 4, !tbaa !35
+  %20 = load i32, ptr %8, align 8, !tbaa !35
   %21 = getelementptr i8, ptr %0, i64 24
   %.val27.i = load i32, ptr %21, align 8, !tbaa !36
   %22 = getelementptr i8, ptr %0, i64 40
@@ -5185,7 +5185,7 @@ define noundef i64 @_ZN11duckdb_zstd44ZSTD_compressBlock_doubleFast_dictMatchSta
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = load ptr, ptr %9, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %12 = load i32, ptr %11, align 4, !tbaa !24
+  %12 = load i32, ptr %11, align 8, !tbaa !24
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %14 = load ptr, ptr %13, align 8, !tbaa !20
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 260
@@ -5197,7 +5197,7 @@ define noundef i64 @_ZN11duckdb_zstd44ZSTD_compressBlock_doubleFast_dictMatchSta
   %21 = add i64 %4, %19
   %22 = sub i64 %21, %20
   %23 = trunc i64 %22 to i32
-  %24 = load i32, ptr %8, align 4, !tbaa !35
+  %24 = load i32, ptr %8, align 8, !tbaa !35
   %25 = getelementptr i8, ptr %0, i64 24
   %.val28.i = load i32, ptr %25, align 8, !tbaa !36
   %26 = getelementptr i8, ptr %0, i64 40
@@ -5235,7 +5235,7 @@ define noundef i64 @_ZN11duckdb_zstd44ZSTD_compressBlock_doubleFast_dictMatchSta
   %.neg448.i.i = trunc i64 %.neg.i.i to i32
   %55 = add i32 %32, %.neg448.i.i
   %56 = getelementptr inbounds nuw i8, ptr %41, i64 264
-  %57 = load i32, ptr %56, align 4, !tbaa !24
+  %57 = load i32, ptr %56, align 8, !tbaa !24
   %58 = getelementptr inbounds nuw i8, ptr %41, i64 260
   %59 = load i32, ptr %58, align 4, !tbaa !23
   %60 = ptrtoint ptr %34 to i64
@@ -9904,7 +9904,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL45ZSTD_compressBlock_double
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %11 = load i32, ptr %10, align 4, !tbaa !24
+  %11 = load i32, ptr %10, align 8, !tbaa !24
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %13 = load ptr, ptr %12, align 8, !tbaa !20
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 260
@@ -9918,7 +9918,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL45ZSTD_compressBlock_double
   %22 = add i64 %4, %20
   %23 = sub i64 %22, %21
   %24 = trunc i64 %23 to i32
-  %25 = load i32, ptr %7, align 4, !tbaa !35
+  %25 = load i32, ptr %7, align 8, !tbaa !35
   %26 = getelementptr i8, ptr %0, i64 28
   %.val407 = load i32, ptr %26, align 4, !tbaa !76
   %27 = getelementptr i8, ptr %0, i64 40

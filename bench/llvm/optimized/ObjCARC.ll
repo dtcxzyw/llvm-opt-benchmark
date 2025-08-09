@@ -1507,7 +1507,7 @@ _ZSt10_ConstructIN4llvm17OperandBundleDefTIPNS0_5ValueEEEJS4_EEvPT_DpOT0_.exit.i
   store i64 %19, ptr %20, align 8, !tbaa !51
   store ptr %10, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !46
   store i64 0, ptr %18, align 8, !tbaa !51
-  store i8 0, ptr %10, align 1, !tbaa !52
+  store i8 0, ptr %10, align 8, !tbaa !52
   %21 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 32
   %23 = load ptr, ptr %22, align 8, !tbaa !35

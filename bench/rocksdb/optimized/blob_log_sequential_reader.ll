@@ -168,7 +168,7 @@ define void @_ZN7rocksdb23BlobLogSequentialReader9ReadSliceEmPNS_5SliceEPc(ptr d
   store i8 1, ptr %32, align 8, !tbaa !35
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 33
   %34 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %35 = load atomic i8, ptr %34 monotonic, align 1
+  %35 = load atomic i8, ptr %34 monotonic, align 8
   %36 = icmp ugt i8 %35, 2
   %or.cond.not = and i1 %36, %25
   br i1 %or.cond.not, label %.thread21.i, label %43

@@ -8086,7 +8086,7 @@ _ZN3sls12bv_lookahead7is_rootEP4expr.exit.thread..critedge.loopexit_crit_edge: ;
 100:                                              ; preds = %96
   %101 = tail call noundef nonnull align 8 dereferenceable(184) ptr @_ZNK3sls7bv_eval4evalEP3app(ptr noundef nonnull align 8 dereferenceable(865) %99, ptr noundef %95)
   %.pre82 = load ptr, ptr %93, align 8, !tbaa !309
-  %.pre83 = load i8, ptr %94, align 1, !tbaa !97, !range !94
+  %.pre83 = load i8, ptr %94, align 8, !tbaa !97, !range !94
   %102 = trunc nuw i8 %.pre83 to i1
   %103 = load ptr, ptr %10, align 8, !tbaa !96
   br i1 %102, label %104, label %.thread
@@ -9297,7 +9297,7 @@ _ZN6vectorISt4pairIP4exprbELb0EjE5resetEv.exit:   ; preds = %_ZN6vectorIP4exprLb
   %64 = getelementptr inbounds nuw i8, ptr %.02135, i64 8
   %65 = load ptr, ptr %42, align 8, !tbaa !96
   %66 = load ptr, ptr %.02135, align 8, !tbaa !134
-  %67 = load i8, ptr %64, align 1, !tbaa !97, !range !94, !noundef !95
+  %67 = load i8, ptr %64, align 8, !tbaa !97, !range !94, !noundef !95
   %68 = trunc nuw i8 %67 to i1
   tail call void @_ZN3sls7bv_eval21set_bool_value_no_logEP4exprb(ptr noundef nonnull align 8 dereferenceable(865) %65, ptr noundef %66, i1 noundef zeroext %68)
   %69 = getelementptr inbounds nuw i8, ptr %.02135, i64 16

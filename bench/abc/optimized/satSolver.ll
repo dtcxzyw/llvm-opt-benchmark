@@ -1502,7 +1502,7 @@ clause_read.exit:
   store i32 -1, ptr %12, align 8, !tbaa !44
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 4096, ptr %13, align 4
-  store i32 1, ptr %1, align 4, !tbaa !30
+  store i32 1, ptr %1, align 8, !tbaa !30
   store i32 6, ptr %8, align 4, !tbaa !30
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 2, ptr %14, align 4, !tbaa !62
@@ -1605,7 +1605,7 @@ clause_read.exit:
   store i32 -1, ptr %13, align 8, !tbaa !44
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 4096, ptr %14, align 4
-  store i32 1, ptr %2, align 4, !tbaa !30
+  store i32 1, ptr %2, align 8, !tbaa !30
   store i32 6, ptr %9, align 4, !tbaa !30
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 76
   store i32 2, ptr %15, align 4, !tbaa !62
@@ -2639,7 +2639,7 @@ define void @sat_solver_restart(ptr noundef captures(none) initializes((16, 24),
   store i32 2, ptr %10, align 4, !tbaa !30
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 -1, ptr %11, align 8, !tbaa !44
-  %12 = load i32, ptr %4, align 4, !tbaa !30
+  %12 = load i32, ptr %4, align 8, !tbaa !30
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds ptr, ptr %7, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !48
@@ -2672,7 +2672,7 @@ define void @sat_solver_restart(ptr noundef captures(none) initializes((16, 24),
   tail call void @llvm.memset.p0.i64(ptr align 8 %31, i8 0, i64 %32, i1 false)
   %33 = shl nsw i32 %29, 1
   store i32 %33, ptr %22, align 4, !tbaa !54
-  %.pre.i = load i32, ptr %4, align 4, !tbaa !30
+  %.pre.i = load i32, ptr %4, align 8, !tbaa !30
   br label %34
 
 34:                                               ; preds = %24, %20
@@ -2832,7 +2832,7 @@ define void @zsat_solver_restart_seed(ptr noundef captures(none) initializes((16
   store i32 2, ptr %11, align 4, !tbaa !30
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 -1, ptr %12, align 8, !tbaa !44
-  %13 = load i32, ptr %5, align 4, !tbaa !30
+  %13 = load i32, ptr %5, align 8, !tbaa !30
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds ptr, ptr %8, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !48
@@ -2865,7 +2865,7 @@ define void @zsat_solver_restart_seed(ptr noundef captures(none) initializes((16
   tail call void @llvm.memset.p0.i64(ptr align 8 %32, i8 0, i64 %33, i1 false)
   %34 = shl nsw i32 %30, 1
   store i32 %34, ptr %23, align 4, !tbaa !54
-  %.pre.i = load i32, ptr %5, align 4, !tbaa !30
+  %.pre.i = load i32, ptr %5, align 8, !tbaa !30
   br label %35
 
 35:                                               ; preds = %25, %21

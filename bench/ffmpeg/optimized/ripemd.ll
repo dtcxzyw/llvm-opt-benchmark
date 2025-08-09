@@ -4901,7 +4901,7 @@ av_ripemd_update.exit26:                          ; preds = %av_ripemd_update.ex
   %36 = add i64 %.lcssa27, 8
   store i64 %36, ptr %3, align 8, !tbaa !13
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %5, ptr %37, align 1
+  store i64 %5, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %39 = load ptr, ptr %38, align 8, !tbaa !12
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 80

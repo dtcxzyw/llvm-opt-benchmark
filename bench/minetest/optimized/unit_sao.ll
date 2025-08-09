@@ -7100,7 +7100,7 @@ invoke.cont10:                                    ; preds = %if.end.i.i.i.i.i.i.
   %Z.i3.i6.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i, i64 132
   store float 1.000000e+00, ptr %Z.i3.i6.i.i.i.i.i, align 4, !tbaa !134
   %dtime_passed.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i, i64 144
-  store float 0.000000e+00, ptr %dtime_passed.i.i.i.i.i, align 4, !tbaa !329
+  store float 0.000000e+00, ptr %dtime_passed.i.i.i.i.i, align 8, !tbaa !329
   ret ptr %call5.i.i
 
 invoke.cont14:                                    ; preds = %if.then.i.i.i.i.i.i
@@ -7457,7 +7457,7 @@ if.end27:                                         ; preds = %lor.lhs.false.i.i, 
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #38
   store ptr null, ptr %call5.i.i.i.i.i, align 8, !tbaa !72
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 8
-  store i32 %12, ptr %add.ptr.i.i.i, align 4, !tbaa !68
+  store i32 %12, ptr %add.ptr.i.i.i, align 8, !tbaa !68
   %call30 = invoke ptr @_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIiLb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %rem.i.i.i75, i64 noundef %conv.i.i73, ptr noundef nonnull %call5.i.i.i.i.i, i64 noundef 1)
           to label %return unwind label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit62
 
@@ -7623,7 +7623,7 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIi
   %__bbegin_bkt.043 = phi i64 [ %__bbegin_bkt.1, %if.end22 ], [ 0, %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %1 = load ptr, ptr %__p.044, align 8, !tbaa !72
   %add.ptr = getelementptr inbounds nuw i8, ptr %__p.044, i64 8
-  %2 = load i32, ptr %add.ptr, align 4, !tbaa !68
+  %2 = load i32, ptr %add.ptr, align 8, !tbaa !68
   %conv.i.i.i = sext i32 %2 to i64
   %rem.i.i = urem i64 %conv.i.i.i, %__bkt_count
   %arrayidx = getelementptr inbounds ptr, ptr %retval.0.i, i64 %rem.i.i

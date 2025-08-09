@@ -2952,7 +2952,7 @@ _ZNSt3__14__fs10filesystem6detail12_GLOBAL__N_123copy_file_impl_sendfileERNS2_14
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 136
   store ptr null, ptr %60, align 8, !tbaa !128
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 144
-  store i32 -1, ptr %61, align 1, !tbaa !132
+  store i32 -1, ptr %61, align 8, !tbaa !132
   store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEE, i64 24), ptr %5, align 8, !tbaa !82
   store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEE, i64 64), ptr %46, align 8, !tbaa !82
   invoke void @_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC1Ev(ptr noundef nonnull align 8 dereferenceable(163) %48)
@@ -3072,7 +3072,7 @@ _ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEC1Ev.exit.i: ; preds = %59
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 136
   store ptr null, ptr %116, align 8, !tbaa !128
   %117 = getelementptr inbounds nuw i8, ptr %114, i64 144
-  store i32 -1, ptr %117, align 1, !tbaa !132
+  store i32 -1, ptr %117, align 8, !tbaa !132
   store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVNSt3__114basic_ofstreamIcNS_11char_traitsIcEEEE, i64 24), ptr %6, align 8, !tbaa !82
   store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVNSt3__114basic_ofstreamIcNS_11char_traitsIcEEEE, i64 64), ptr %103, align 8, !tbaa !82
   invoke void @_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC1Ev(ptr noundef nonnull align 8 dereferenceable(163) %105)

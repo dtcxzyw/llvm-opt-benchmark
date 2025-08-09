@@ -425,7 +425,7 @@ thread-pre-split:                                 ; preds = %57, %64, %90
   %112 = getelementptr inbounds nuw i8, ptr %.0162, i64 4
   %113 = load i8, ptr %112, align 1, !tbaa !4
   %114 = getelementptr inbounds nuw i8, ptr %43, i64 42
-  store i8 %113, ptr %114, align 1, !tbaa !4
+  store i8 %113, ptr %114, align 2, !tbaa !4
   %115 = getelementptr inbounds nuw i8, ptr %.0162, i64 5
   %116 = load i8, ptr %115, align 1, !tbaa !4
   %117 = getelementptr inbounds nuw i8, ptr %43, i64 43

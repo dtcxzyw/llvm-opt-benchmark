@@ -870,7 +870,7 @@ lean_dec.exit294:                                 ; preds = %84, %83, %81, %74
 lean_dec.exit293:                                 ; preds = %97, %96, %94, %86
   store ptr %0, ptr %87, align 8, !tbaa !4
   %98 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  store i8 %2, ptr %98, align 1, !tbaa !14
+  store i8 %2, ptr %98, align 8, !tbaa !14
   %99 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %100 = load ptr, ptr %99, align 8, !tbaa !4
   %101 = ptrtoint ptr %100 to i64
@@ -1223,7 +1223,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit287
   %231 = getelementptr inbounds nuw i8, ptr %228, i64 4
   %232 = getelementptr inbounds nuw i8, ptr %228, i64 32
   store i64 0, ptr %232, align 8, !tbaa !12
-  store i32 1, ptr %228, align 4, !tbaa !8
+  store i32 1, ptr %228, align 8, !tbaa !8
   store i32 196648, ptr %231, align 4
   %233 = getelementptr inbounds nuw i8, ptr %228, i64 8
   store ptr %202, ptr %233, align 8, !tbaa !4
@@ -1231,7 +1231,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit287
   store ptr %204, ptr %234, align 8, !tbaa !4
   %235 = getelementptr inbounds nuw i8, ptr %228, i64 24
   store ptr %0, ptr %235, align 8, !tbaa !4
-  store i8 %2, ptr %232, align 1, !tbaa !14
+  store i8 %2, ptr %232, align 8, !tbaa !14
   %236 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %237 = load ptr, ptr %236, align 8, !tbaa !4
   %238 = ptrtoint ptr %237 to i64
@@ -1687,7 +1687,7 @@ lean_alloc_ctor.exit428:                          ; preds = %401
   %405 = getelementptr inbounds nuw i8, ptr %402, i64 4
   %406 = getelementptr inbounds nuw i8, ptr %402, i64 32
   store i64 0, ptr %406, align 8, !tbaa !12
-  store i32 1, ptr %402, align 4, !tbaa !8
+  store i32 1, ptr %402, align 8, !tbaa !8
   store i32 196648, ptr %405, align 4
   br label %407
 
@@ -1700,7 +1700,7 @@ lean_alloc_ctor.exit428:                          ; preds = %401
   %410 = getelementptr inbounds nuw i8, ptr %.0240, i64 24
   store ptr %0, ptr %410, align 8, !tbaa !4
   %411 = getelementptr inbounds nuw i8, ptr %.0240, i64 32
-  store i8 %2, ptr %411, align 1, !tbaa !14
+  store i8 %2, ptr %411, align 8, !tbaa !14
   %412 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %413 = load ptr, ptr %412, align 8, !tbaa !4
   %414 = ptrtoint ptr %413 to i64
@@ -3748,7 +3748,7 @@ lean_dec.exit2592:                                ; preds = %404, %403, %401, %l
   %407 = getelementptr inbounds nuw i8, ptr %406, i64 8
   store ptr %405, ptr %407, align 8, !tbaa !4
   %408 = getelementptr inbounds nuw i8, ptr %406, i64 16
-  store i8 3, ptr %408, align 1, !tbaa !14
+  store i8 3, ptr %408, align 8, !tbaa !14
   %409 = tail call ptr @l_Lake_OutStream_logEntry(ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %406, i8 noundef zeroext 1, i8 noundef zeroext 0, ptr noundef %389) #5
   %410 = ptrtoint ptr %406 to i64
   %411 = and i64 %410, 1
@@ -3952,7 +3952,7 @@ lean_dec.exit2588:                                ; preds = %488, %487, %485, %l
   %491 = getelementptr inbounds nuw i8, ptr %490, i64 8
   store ptr %489, ptr %491, align 8, !tbaa !4
   %492 = getelementptr inbounds nuw i8, ptr %490, i64 16
-  store i8 3, ptr %492, align 1, !tbaa !14
+  store i8 3, ptr %492, align 8, !tbaa !14
   %493 = tail call ptr @l_Lake_OutStream_logEntry(ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %490, i8 noundef zeroext 1, i8 noundef zeroext 0, ptr noundef %473) #5
   %494 = ptrtoint ptr %490 to i64
   %495 = and i64 %494, 1
@@ -4587,7 +4587,7 @@ lean_alloc_ctor.exit3408:                         ; preds = %lean_dec.exit2576
   %741 = getelementptr inbounds nuw i8, ptr %738, i64 4
   %742 = getelementptr inbounds nuw i8, ptr %738, i64 16
   store i64 3, ptr %742, align 8, !tbaa !12
-  store i32 1, ptr %738, align 4, !tbaa !8
+  store i32 1, ptr %738, align 8, !tbaa !8
   store i32 65560, ptr %741, align 4
   %743 = getelementptr inbounds nuw i8, ptr %738, i64 8
   store ptr %737, ptr %743, align 8, !tbaa !4
@@ -5846,7 +5846,7 @@ lean_dec.exit2552:                                ; preds = %1236, %1235, %1233,
   %1239 = getelementptr inbounds nuw i8, ptr %1238, i64 8
   store ptr %1237, ptr %1239, align 8, !tbaa !4
   %1240 = getelementptr inbounds nuw i8, ptr %1238, i64 16
-  store i8 3, ptr %1240, align 1, !tbaa !14
+  store i8 3, ptr %1240, align 8, !tbaa !14
   %1241 = tail call ptr @l_Lake_OutStream_logEntry(ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %1238, i8 noundef zeroext 1, i8 noundef zeroext 0, ptr noundef %1221) #5
   %1242 = ptrtoint ptr %1238 to i64
   %1243 = and i64 %1242, 1
@@ -6031,7 +6031,7 @@ lean_dec.exit2550:                                ; preds = %1309, %1308, %1306,
   %1312 = getelementptr inbounds nuw i8, ptr %1311, i64 8
   store ptr %1310, ptr %1312, align 8, !tbaa !4
   %1313 = getelementptr inbounds nuw i8, ptr %1311, i64 16
-  store i8 3, ptr %1313, align 1, !tbaa !14
+  store i8 3, ptr %1313, align 8, !tbaa !14
   %1314 = tail call ptr @l_Lake_OutStream_logEntry(ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %1311, i8 noundef zeroext 1, i8 noundef zeroext 0, ptr noundef %1294) #5
   %1315 = ptrtoint ptr %1311 to i64
   %1316 = and i64 %1315, 1
@@ -6654,7 +6654,7 @@ lean_alloc_ctor.exit3528:                         ; preds = %lean_dec.exit2541
   %1550 = getelementptr inbounds nuw i8, ptr %1547, i64 4
   %1551 = getelementptr inbounds nuw i8, ptr %1547, i64 16
   store i64 3, ptr %1551, align 8, !tbaa !12
-  store i32 1, ptr %1547, align 4, !tbaa !8
+  store i32 1, ptr %1547, align 8, !tbaa !8
   store i32 65560, ptr %1550, align 4
   %1552 = getelementptr inbounds nuw i8, ptr %1547, i64 8
   store ptr %1546, ptr %1552, align 8, !tbaa !4
@@ -7730,7 +7730,7 @@ lean_dec.exit2522:                                ; preds = %1968, %1967, %1965,
   %1971 = getelementptr inbounds nuw i8, ptr %1970, i64 8
   store ptr %1969, ptr %1971, align 8, !tbaa !4
   %1972 = getelementptr inbounds nuw i8, ptr %1970, i64 16
-  store i8 3, ptr %1972, align 1, !tbaa !14
+  store i8 3, ptr %1972, align 8, !tbaa !14
   %1973 = tail call ptr @l_Lake_OutStream_logEntry(ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %1970, i8 noundef zeroext 1, i8 noundef zeroext 0, ptr noundef %1953) #5
   %1974 = ptrtoint ptr %1970 to i64
   %1975 = and i64 %1974, 1
@@ -8124,7 +8124,7 @@ lean_dec.exit2516:                                ; preds = %2123, %2122, %2120,
   %2126 = getelementptr inbounds nuw i8, ptr %2125, i64 8
   store ptr %2124, ptr %2126, align 8, !tbaa !4
   %2127 = getelementptr inbounds nuw i8, ptr %2125, i64 16
-  store i8 3, ptr %2127, align 1, !tbaa !14
+  store i8 3, ptr %2127, align 8, !tbaa !14
   %2128 = tail call ptr @l_Lake_OutStream_logEntry(ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2125, i8 noundef zeroext 1, i8 noundef zeroext 0, ptr noundef %2108) #5
   %2129 = ptrtoint ptr %2125 to i64
   %2130 = and i64 %2129, 1
@@ -9881,7 +9881,7 @@ lean_dec.exit2475:                                ; preds = %2800, %2799, %2797,
   %2803 = getelementptr inbounds nuw i8, ptr %2802, i64 8
   store ptr %2801, ptr %2803, align 8, !tbaa !4
   %2804 = getelementptr inbounds nuw i8, ptr %2802, i64 16
-  store i8 3, ptr %2804, align 1, !tbaa !14
+  store i8 3, ptr %2804, align 8, !tbaa !14
   %2805 = tail call ptr @l_Lake_OutStream_logEntry(ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2802, i8 noundef zeroext 1, i8 noundef zeroext 0, ptr noundef %2785) #5
   %2806 = ptrtoint ptr %2802 to i64
   %2807 = and i64 %2806, 1
@@ -11706,7 +11706,7 @@ lean_dec.exit2432:                                ; preds = %3496, %3495, %3493,
   %3499 = getelementptr inbounds nuw i8, ptr %3498, i64 8
   store ptr %3497, ptr %3499, align 8, !tbaa !4
   %3500 = getelementptr inbounds nuw i8, ptr %3498, i64 16
-  store i8 3, ptr %3500, align 1, !tbaa !14
+  store i8 3, ptr %3500, align 8, !tbaa !14
   %3501 = tail call ptr @l_Lake_OutStream_logEntry(ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %3498, i8 noundef zeroext 1, i8 noundef zeroext 0, ptr noundef %3481) #5
   %3502 = ptrtoint ptr %3498 to i64
   %3503 = and i64 %3502, 1
@@ -13238,7 +13238,7 @@ lean_dec.exit2407:                                ; preds = %4086, %4085, %4083,
   %4089 = getelementptr inbounds nuw i8, ptr %4088, i64 8
   store ptr %4087, ptr %4089, align 8, !tbaa !4
   %4090 = getelementptr inbounds nuw i8, ptr %4088, i64 16
-  store i8 3, ptr %4090, align 1, !tbaa !14
+  store i8 3, ptr %4090, align 8, !tbaa !14
   %4091 = tail call ptr @l_Lake_OutStream_logEntry(ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %4088, i8 noundef zeroext 1, i8 noundef zeroext 0, ptr noundef %4071) #5
   %4092 = ptrtoint ptr %4088 to i64
   %4093 = and i64 %4092, 1
@@ -13432,7 +13432,7 @@ lean_alloc_ctor.exit3930:                         ; preds = %lean_dec.exit2405
   %4164 = getelementptr inbounds nuw i8, ptr %4161, i64 4
   %4165 = getelementptr inbounds nuw i8, ptr %4161, i64 16
   store i64 3, ptr %4165, align 8, !tbaa !12
-  store i32 1, ptr %4161, align 4, !tbaa !8
+  store i32 1, ptr %4161, align 8, !tbaa !8
   store i32 65560, ptr %4164, align 4
   %4166 = getelementptr inbounds nuw i8, ptr %4161, i64 8
   store ptr %4160, ptr %4166, align 8, !tbaa !4
@@ -14127,7 +14127,7 @@ lean_alloc_ctor.exit3973:                         ; preds = %lean_dec.exit2396
   %4426 = getelementptr inbounds nuw i8, ptr %4423, i64 4
   %4427 = getelementptr inbounds nuw i8, ptr %4423, i64 16
   store i64 3, ptr %4427, align 8, !tbaa !12
-  store i32 1, ptr %4423, align 4, !tbaa !8
+  store i32 1, ptr %4423, align 8, !tbaa !8
   store i32 65560, ptr %4426, align 4
   %4428 = getelementptr inbounds nuw i8, ptr %4423, i64 8
   store ptr %4422, ptr %4428, align 8, !tbaa !4
@@ -15284,7 +15284,7 @@ lean_dec.exit2381:                                ; preds = %4867, %4866, %4864,
   %4870 = getelementptr inbounds nuw i8, ptr %4869, i64 8
   store ptr %4868, ptr %4870, align 8, !tbaa !4
   %4871 = getelementptr inbounds nuw i8, ptr %4869, i64 16
-  store i8 3, ptr %4871, align 1, !tbaa !14
+  store i8 3, ptr %4871, align 8, !tbaa !14
   %4872 = tail call ptr @l_Lake_OutStream_logEntry(ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %4869, i8 noundef zeroext 1, i8 noundef zeroext 0, ptr noundef %4852) #5
   %4873 = ptrtoint ptr %4869 to i64
   %4874 = and i64 %4873, 1
@@ -17106,7 +17106,7 @@ lean_dec.exit2341:                                ; preds = %5562, %5561, %5559,
   %5565 = getelementptr inbounds nuw i8, ptr %5564, i64 8
   store ptr %5563, ptr %5565, align 8, !tbaa !4
   %5566 = getelementptr inbounds nuw i8, ptr %5564, i64 16
-  store i8 3, ptr %5566, align 1, !tbaa !14
+  store i8 3, ptr %5566, align 8, !tbaa !14
   %5567 = tail call ptr @l_Lake_OutStream_logEntry(ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %5564, i8 noundef zeroext 1, i8 noundef zeroext 0, ptr noundef %5547) #5
   %5568 = ptrtoint ptr %5564 to i64
   %5569 = and i64 %5568, 1
@@ -17458,7 +17458,7 @@ lean_alloc_ctor.exit4165:                         ; preds = %.thread4194
   %5694 = getelementptr inbounds nuw i8, ptr %5691, i64 4
   %5695 = getelementptr inbounds nuw i8, ptr %5691, i64 16
   store i64 3, ptr %5695, align 8, !tbaa !12
-  store i32 1, ptr %5691, align 4, !tbaa !8
+  store i32 1, ptr %5691, align 8, !tbaa !8
   store i32 65560, ptr %5694, align 4
   %5696 = getelementptr inbounds nuw i8, ptr %5691, i64 8
   store ptr %5690, ptr %5696, align 8, !tbaa !4
@@ -18209,7 +18209,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit54
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 48
   store i64 1, ptr %39, align 8, !tbaa !12
-  store i32 1, ptr %35, align 4, !tbaa !8
+  store i32 1, ptr %35, align 8, !tbaa !8
   store i32 327736, ptr %38, align 4
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %18, ptr %40, align 8, !tbaa !4
@@ -23928,7 +23928,7 @@ _init_l_Lake_setupFile___closed__2.exit:          ; preds = %lean_dec_ref.exit
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 16
   store i64 3, ptr %56, align 8, !tbaa !12
-  store i32 1, ptr %52, align 4, !tbaa !8
+  store i32 1, ptr %52, align 8, !tbaa !8
   store i32 65560, ptr %55, align 4
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store ptr %51, ptr %57, align 8, !tbaa !4
@@ -24010,7 +24010,7 @@ _init_l_Lake_serve___lambda__1___closed__1.exit:  ; preds = %_init_l_Lake_setupF
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 4
   %85 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store i64 65793, ptr %85, align 8, !tbaa !12
-  store i32 1, ptr %81, align 4, !tbaa !8
+  store i32 1, ptr %81, align 8, !tbaa !8
   store i32 16, ptr %84, align 4
   store ptr %81, ptr @l_Lake_serve___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %81) #5

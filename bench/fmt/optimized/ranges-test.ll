@@ -63152,7 +63152,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %29 = load double, ptr %28, align 8, !tbaa !1041, !noalias !1726
   store double %29, ptr %4, align 8, !tbaa !1043, !alias.scope !1726
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %31 = load i32, ptr %0, align 4, !tbaa !295, !noalias !1726
+  %31 = load i32, ptr %0, align 8, !tbaa !295, !noalias !1726
   store i32 %31, ptr %30, align 8, !tbaa !357, !alias.scope !1726
   %32 = call ptr @_ZNK3fmt3v119formatterISt5tupleIJidEEcvE6formatINS0_7contextEEEDTcldtfp0_3outEERKS3_RT_(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

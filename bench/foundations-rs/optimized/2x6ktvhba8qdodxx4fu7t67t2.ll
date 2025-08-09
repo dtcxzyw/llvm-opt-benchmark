@@ -19803,7 +19803,7 @@ define hidden void @"_ZN94_$LT$hyper..proto..h2..client..ClientTask$LT$B$GT$$u20
   store ptr %118, ptr %124, align 8, !noalias !1133
   call void @"_ZN4core3ptr110drop_in_place$LT$futures_channel..lock..TryLock$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17hd40af30cd17e3c72E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5), !noalias !1133
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1133
-  %135 = load atomic i8, ptr %107 seq_cst, align 1, !noalias !1133
+  %135 = load atomic i8, ptr %107 seq_cst, align 8, !noalias !1133
   %136 = icmp eq i8 %135, 0
   br i1 %136, label %"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17hab52e5a3d2f50021E.exit", label %139
 

@@ -134,25 +134,25 @@ define void @_ZN3gmx15analysismodules14TrajectoryInfo6createEv(ptr dead_on_unwin
   store ptr %5, ptr %4, align 8, !tbaa !7
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i64 0, ptr %6, align 8, !tbaa !12
-  store i8 0, ptr %5, align 1, !tbaa !15
+  store i8 0, ptr %5, align 8, !tbaa !15
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store ptr %8, ptr %7, align 8, !tbaa !7
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i64 0, ptr %9, align 8, !tbaa !12
-  store i8 0, ptr %8, align 1, !tbaa !15
+  store i8 0, ptr %8, align 8, !tbaa !15
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 120
   store ptr %11, ptr %10, align 8, !tbaa !7
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store i64 0, ptr %12, align 8, !tbaa !12
-  store i8 0, ptr %11, align 1, !tbaa !15
+  store i8 0, ptr %11, align 8, !tbaa !15
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 136
-  store i8 1, ptr %13, align 1, !tbaa !16
+  store i8 1, ptr %13, align 8, !tbaa !16
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 137
   store i8 1, ptr %14, align 1, !tbaa !16
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 138
-  store i8 1, ptr %15, align 1, !tbaa !16
+  store i8 1, ptr %15, align 2, !tbaa !16
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 139
   store i8 0, ptr %16, align 1, !tbaa !16
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 140

@@ -153033,9 +153033,9 @@ lean_alloc_ctor.exit:                             ; preds = %lean_uint8_of_nat.e
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %14, align 8, !tbaa !12
-  store i32 1, ptr %10, align 4, !tbaa !4
+  store i32 1, ptr %10, align 8, !tbaa !4
   store i32 33554448, ptr %13, align 4
-  store i8 %9, ptr %14, align 1, !tbaa !18
+  store i8 %9, ptr %14, align 8, !tbaa !18
   ret ptr %10
 }
 
@@ -153070,9 +153070,9 @@ lean_alloc_ctor.exit:                             ; preds = %lean_uint16_of_nat.
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %14, align 8, !tbaa !12
-  store i32 1, ptr %10, align 4, !tbaa !4
+  store i32 1, ptr %10, align 8, !tbaa !4
   store i32 50331664, ptr %13, align 4
-  store i16 %9, ptr %14, align 2, !tbaa !14
+  store i16 %9, ptr %14, align 8, !tbaa !14
   ret ptr %10
 }
 
@@ -153107,9 +153107,9 @@ lean_alloc_ctor.exit:                             ; preds = %lean_uint32_of_nat.
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %14, align 8, !tbaa !12
-  store i32 1, ptr %10, align 4, !tbaa !4
+  store i32 1, ptr %10, align 8, !tbaa !4
   store i32 67108880, ptr %13, align 4
-  store i32 %9, ptr %14, align 4, !tbaa !19
+  store i32 %9, ptr %14, align 8, !tbaa !19
   ret ptr %10
 }
 
@@ -153179,9 +153179,9 @@ l_Lean_Compiler_LCNF_Simp_ConstantFold_conversionFolders___lambda__1.exit: ; pre
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %14, align 8, !tbaa !12
-  store i32 1, ptr %10, align 4, !tbaa !4
+  store i32 1, ptr %10, align 8, !tbaa !4
   store i32 33554448, ptr %13, align 4
-  store i8 %9, ptr %14, align 1, !tbaa !18
+  store i8 %9, ptr %14, align 8, !tbaa !18
   br i1 %.not.i.i, label %15, label %lean_dec.exit
 
 15:                                               ; preds = %l_Lean_Compiler_LCNF_Simp_ConstantFold_conversionFolders___lambda__1.exit
@@ -153237,9 +153237,9 @@ l_Lean_Compiler_LCNF_Simp_ConstantFold_conversionFolders___lambda__2.exit: ; pre
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %14, align 8, !tbaa !12
-  store i32 1, ptr %10, align 4, !tbaa !4
+  store i32 1, ptr %10, align 8, !tbaa !4
   store i32 50331664, ptr %13, align 4
-  store i16 %9, ptr %14, align 2, !tbaa !14
+  store i16 %9, ptr %14, align 8, !tbaa !14
   br i1 %.not.i.i, label %15, label %lean_dec.exit
 
 15:                                               ; preds = %l_Lean_Compiler_LCNF_Simp_ConstantFold_conversionFolders___lambda__2.exit
@@ -153295,9 +153295,9 @@ l_Lean_Compiler_LCNF_Simp_ConstantFold_conversionFolders___lambda__3.exit: ; pre
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %14, align 8, !tbaa !12
-  store i32 1, ptr %10, align 4, !tbaa !4
+  store i32 1, ptr %10, align 8, !tbaa !4
   store i32 67108880, ptr %13, align 4
-  store i32 %9, ptr %14, align 4, !tbaa !19
+  store i32 %9, ptr %14, align 8, !tbaa !19
   br i1 %.not.i.i, label %15, label %lean_dec.exit
 
 15:                                               ; preds = %l_Lean_Compiler_LCNF_Simp_ConstantFold_conversionFolders___lambda__3.exit
@@ -168827,7 +168827,7 @@ define ptr @l_Lean_SMap_insert___at_Lean_Compiler_LCNF_Simp_ConstantFold_builtin
   %13 = tail call i64 @l_Lean_Name_hash___override(ptr noundef %1) #6
   %14 = tail call ptr @l_Lean_PersistentHashMap_insertAux___at_Lean_Compiler_LCNF_Simp_ConstantFold_builtinFolders___spec__3(ptr noundef %12, i64 noundef %13, i64 noundef 1, ptr noundef %1, ptr noundef %2)
   store ptr %14, ptr %11, align 8, !tbaa !9
-  store i8 0, ptr %5, align 1, !tbaa !18
+  store i8 0, ptr %5, align 8, !tbaa !18
   br label %738
 
 15:                                               ; preds = %9
@@ -168921,7 +168921,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit350
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 24
   store i64 0, ptr %50, align 8, !tbaa !12
-  store i32 1, ptr %46, align 4, !tbaa !4
+  store i32 1, ptr %46, align 8, !tbaa !4
   store i32 131104, ptr %49, align 4
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %16, ptr %51, align 8, !tbaa !9
@@ -169726,7 +169726,7 @@ lean_alloc_ctor.exit469:                          ; preds = %l_Std_DHashMap_Inte
   %398 = getelementptr inbounds nuw i8, ptr %393, i64 16
   store ptr %392, ptr %398, align 8, !tbaa !9
   store ptr %393, ptr %4, align 8, !tbaa !9
-  store i8 1, ptr %5, align 1, !tbaa !18
+  store i8 1, ptr %5, align 8, !tbaa !18
   br label %738
 
 399:                                              ; preds = %376, %373, %lean_dec.exit340.thread, %lean_dec.exit339
@@ -169748,7 +169748,7 @@ lean_alloc_ctor.exit470:                          ; preds = %399
   %405 = getelementptr inbounds nuw i8, ptr %400, i64 16
   store ptr %.0.i.i457, ptr %405, align 8, !tbaa !9
   store ptr %400, ptr %4, align 8, !tbaa !9
-  store i8 1, ptr %5, align 1, !tbaa !18
+  store i8 1, ptr %5, align 8, !tbaa !18
   br label %738
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_Simp_ConstantFold_builtinFolders___spec__6.exit451: ; preds = %286
@@ -169847,7 +169847,7 @@ lean_alloc_ctor.exit483:                          ; preds = %lean_array_uset.exi
   %442 = getelementptr inbounds nuw i8, ptr %437, i64 16
   store ptr %.0.i.i479, ptr %442, align 8, !tbaa !9
   store ptr %437, ptr %4, align 8, !tbaa !9
-  store i8 1, ptr %5, align 1, !tbaa !18
+  store i8 1, ptr %5, align 8, !tbaa !18
   br label %738
 
 443:                                              ; preds = %53
@@ -170393,7 +170393,7 @@ lean_alloc_ctor.exit532:                          ; preds = %662
   %668 = getelementptr inbounds nuw i8, ptr %665, i64 4
   %669 = getelementptr inbounds nuw i8, ptr %665, i64 24
   store i64 1, ptr %669, align 8, !tbaa !12
-  store i32 1, ptr %665, align 4, !tbaa !4
+  store i32 1, ptr %665, align 8, !tbaa !4
   store i32 131104, ptr %668, align 4
   %670 = getelementptr inbounds nuw i8, ptr %665, i64 8
   store ptr %.0306, ptr %670, align 8, !tbaa !9
@@ -170442,7 +170442,7 @@ lean_alloc_ctor.exit535:                          ; preds = %680
   %686 = getelementptr inbounds nuw i8, ptr %683, i64 4
   %687 = getelementptr inbounds nuw i8, ptr %683, i64 24
   store i64 1, ptr %687, align 8, !tbaa !12
-  store i32 1, ptr %683, align 4, !tbaa !4
+  store i32 1, ptr %683, align 8, !tbaa !4
   store i32 131104, ptr %686, align 4
   %688 = getelementptr inbounds nuw i8, ptr %683, i64 8
   store ptr %.0307, ptr %688, align 8, !tbaa !9
@@ -170568,7 +170568,7 @@ lean_alloc_ctor.exit550:                          ; preds = %728
   %734 = getelementptr inbounds nuw i8, ptr %731, i64 4
   %735 = getelementptr inbounds nuw i8, ptr %731, i64 24
   store i64 1, ptr %735, align 8, !tbaa !12
-  store i32 1, ptr %731, align 4, !tbaa !4
+  store i32 1, ptr %731, align 8, !tbaa !4
   store i32 131104, ptr %734, align 4
   %736 = getelementptr inbounds nuw i8, ptr %731, i64 8
   store ptr %.0304, ptr %736, align 8, !tbaa !9
@@ -172140,7 +172140,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 24
   store i64 0, ptr %42, align 8, !tbaa !12
-  store i32 1, ptr %38, align 4, !tbaa !4
+  store i32 1, ptr %38, align 8, !tbaa !4
   store i32 131104, ptr %41, align 4
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %10, ptr %43, align 8, !tbaa !9
@@ -173883,7 +173883,7 @@ lean_alloc_ctor.exit27:                           ; preds = %lean_alloc_ctor.exi
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 72
   store i64 0, ptr %32, align 8, !tbaa !12
-  store i32 1, ptr %28, align 4, !tbaa !4
+  store i32 1, ptr %28, align 8, !tbaa !4
   store i32 524368, ptr %31, align 4
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %23, ptr %33, align 8, !tbaa !9
@@ -180678,7 +180678,7 @@ _init_l_Lean_Compiler_LCNF_Simp_ConstantFold_builtinFolders___closed__6.exit: ; 
   %1510 = getelementptr inbounds nuw i8, ptr %1507, i64 4
   %1511 = getelementptr inbounds nuw i8, ptr %1507, i64 24
   store i64 1, ptr %1511, align 8, !tbaa !12
-  store i32 1, ptr %1507, align 4, !tbaa !4
+  store i32 1, ptr %1507, align 8, !tbaa !4
   store i32 131104, ptr %1510, align 4
   %1512 = getelementptr inbounds nuw i8, ptr %1507, i64 8
   store ptr %1505, ptr %1512, align 8, !tbaa !9
@@ -180914,7 +180914,7 @@ _init_l_Lean_Compiler_LCNF_Simp_ConstantFold_initFn____x40_Lean_Compiler_LCNF_Si
   %.val34 = load ptr, ptr %1606, align 8, !tbaa !9
   store ptr %.val34, ptr @l_Lean_Compiler_LCNF_Simp_ConstantFold_folderExt, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %.val34) #6
-  %1607 = load i32, ptr %1602, align 4, !tbaa !4
+  %1607 = load i32, ptr %1602, align 8, !tbaa !4
   %1608 = icmp sgt i32 %1607, 1
   br i1 %1608, label %1609, label %1611, !prof !11
 

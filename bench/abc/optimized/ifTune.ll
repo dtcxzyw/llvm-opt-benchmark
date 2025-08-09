@@ -5263,7 +5263,7 @@ define range(i32 0, 2) i32 @Ifn_NtkAddClauses(ptr noundef captures(none) %0, ptr
   %160 = lshr i32 %159, 15
   %161 = or i32 %160, 1
   store i32 %161, ptr %29, align 4, !tbaa !22
-  %162 = load i32, ptr %144, align 4, !tbaa !22
+  %162 = load i32, ptr %144, align 8, !tbaa !22
   %163 = sext i32 %162 to i64
   %164 = getelementptr inbounds [22 x %struct.Ifn_Obj_t_], ptr %28, i64 0, i64 %163
   %165 = load i32, ptr %164, align 8

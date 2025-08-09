@@ -1208,13 +1208,13 @@ proto_item_set_generated.exit:                    ; preds = %27, %30, %33
   %129 = zext i8 %128 to i32
   %130 = or disjoint i32 %126, %129
   %131 = getelementptr inbounds nuw i8, ptr %75, i64 32
-  store i32 %130, ptr %131, align 4
+  store i32 %130, ptr %131, align 8
   %132 = getelementptr i8, ptr %93, i64 13
   %133 = load i8, ptr %132, align 1
   %134 = getelementptr inbounds nuw i8, ptr %75, i64 40
   %135 = lshr i8 %133, 3
   %.lobit = and i8 %135, 1
-  store i8 %.lobit, ptr %134, align 4
+  store i8 %.lobit, ptr %134, align 8
   %136 = getelementptr i8, ptr %93, i64 14
   %.val90 = load i8, ptr %136, align 1
   %137 = getelementptr i8, ptr %93, i64 15
@@ -1224,7 +1224,7 @@ proto_item_set_generated.exit:                    ; preds = %27, %30, %33
   %140 = zext i8 %.val91 to i16
   %141 = or disjoint i16 %139, %140
   %142 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  store i16 %141, ptr %142, align 4
+  store i16 %141, ptr %142, align 8
   %143 = getelementptr i8, ptr %93, i64 16
   %.val92 = load i8, ptr %143, align 1
   %144 = getelementptr i8, ptr %93, i64 17

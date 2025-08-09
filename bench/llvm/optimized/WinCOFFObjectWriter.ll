@@ -4205,7 +4205,7 @@ _ZNSt6vectorIN12_GLOBAL__N_114COFFRelocationESaIS1_EE9push_backERKS1_.exit: ; pr
   %.sroa.5.0..sroa_idx204 = getelementptr inbounds nuw i8, ptr %241, i64 8
   store i16 37, ptr %.sroa.5.0..sroa_idx204, align 8, !tbaa !274
   %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx208.sroa_idx = getelementptr inbounds nuw i8, ptr %241, i64 16
-  store ptr %.sroa.15.1, ptr %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx208.sroa_idx, align 2, !tbaa !155
+  store ptr %.sroa.15.1, ptr %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx208.sroa_idx, align 8, !tbaa !155
   %247 = getelementptr inbounds nuw i8, ptr %241, i64 24
   store ptr %247, ptr %214, align 8, !tbaa !288
   br label %_ZNSt6vectorIN12_GLOBAL__N_114COFFRelocationESaIS1_EE9push_backERKS1_.exit203
@@ -4241,7 +4241,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_114COFFRelocationESaIS1_EE12_M_check_lenEmPKc.exit.i
   %.sroa.5.0..sroa_idx206 = getelementptr inbounds nuw i8, ptr %262, i64 8
   store i16 37, ptr %.sroa.5.0..sroa_idx206, align 8, !tbaa !274
   %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx209.sroa_idx = getelementptr inbounds nuw i8, ptr %262, i64 16
-  store ptr %.sroa.15.1, ptr %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx209.sroa_idx, align 2, !tbaa !155
+  store ptr %.sroa.15.1, ptr %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx209.sroa_idx, align 8, !tbaa !155
   br i1 %255, label %_ZNSt6vectorIN12_GLOBAL__N_114COFFRelocationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i199, label %.lr.ph.i.i.i.i.i195
 
 .lr.ph.i.i.i.i.i195:                              ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_114COFFRelocationESaIS1_EE12_M_check_lenEmPKc.exit.i.i192, %.lr.ph.i.i.i.i.i195
@@ -4650,10 +4650,10 @@ _ZN4llvm13WinCOFFWriter14SetSectionNameERN12_GLOBAL__N_111COFFSectionE.exit: ; p
   %115 = tail call noundef i64 @_ZNK4llvm18StringTableBuilder9getOffsetENS_19CachedHashStringRefE(ptr noundef nonnull align 8 dereferenceable(38) %84, ptr %113, i64 %.sroa.2.8.insert.insert.i.i167) #24
   %116 = trunc i64 %115 to i32
   call void @llvm.assume(i1 true) [ "align"(ptr %.val150, i64 1) ]
-  store i32 0, ptr %.val150, align 1
+  store i32 0, ptr %.val150, align 8
   %117 = getelementptr inbounds nuw i8, ptr %.val150, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %117, i64 1) ]
-  store i32 %116, ptr %117, align 1
+  store i32 %116, ptr %117, align 4
   br label %_ZN4llvm13WinCOFFWriter13SetSymbolNameERN12_GLOBAL__N_110COFFSymbolE.exit
 
 118:                                              ; preds = %.lr.ph298

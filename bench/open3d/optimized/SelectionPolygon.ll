@@ -775,7 +775,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__det
   %45 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
   store ptr null, ptr %45, align 8, !tbaa !56
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store i32 %43, ptr %46, align 4, !tbaa !71
+  store i32 %43, ptr %46, align 8, !tbaa !71
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %48 = load i32, ptr %44, align 4, !tbaa !67
   store i32 %48, ptr %47, align 4, !tbaa !73
@@ -959,7 +959,7 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !56
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !67
+  %16 = load i32, ptr %15, align 8, !tbaa !67
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -2025,7 +2025,7 @@ define void @_ZN6open3d13visualization16SelectionPolygon14CropPointCloudERKNS_8g
   store ptr %20, ptr %19, align 8, !tbaa !108, !noalias !100
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i64 0, ptr %21, align 8, !tbaa !17, !noalias !100
-  store i8 0, ptr %20, align 1, !tbaa !18, !noalias !100
+  store i8 0, ptr %20, align 8, !tbaa !18, !noalias !100
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry10PointCloudE, i64 16), ptr %16, align 8, !tbaa !4, !noalias !100
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %22, i8 0, i64 96, i1 false), !noalias !100
@@ -2335,7 +2335,7 @@ define void @_ZN6open3d13visualization16SelectionPolygon16CropTriangleMeshERKNS_
   store ptr %20, ptr %19, align 8, !tbaa !108, !noalias !126
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i64 0, ptr %21, align 8, !tbaa !17, !noalias !126
-  store i8 0, ptr %20, align 1, !tbaa !18, !noalias !126
+  store i8 0, ptr %20, align 8, !tbaa !18, !noalias !126
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %22, i8 0, i64 72, i1 false), !noalias !126
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry12TriangleMeshE, i64 16), ptr %16, align 8, !tbaa !4, !noalias !126
@@ -2381,7 +2381,7 @@ define void @_ZN6open3d13visualization16SelectionPolygon16CropTriangleMeshERKNS_
   store ptr %43, ptr %42, align 8, !tbaa !108, !noalias !135
   %44 = getelementptr inbounds nuw i8, ptr %36, i64 40
   store i64 0, ptr %44, align 8, !tbaa !17, !noalias !135
-  store i8 0, ptr %43, align 1, !tbaa !18, !noalias !135
+  store i8 0, ptr %43, align 8, !tbaa !18, !noalias !135
   %45 = getelementptr inbounds nuw i8, ptr %36, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %45, i8 0, i64 72, i1 false), !noalias !135
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry12TriangleMeshE, i64 16), ptr %39, align 8, !tbaa !4, !noalias !135

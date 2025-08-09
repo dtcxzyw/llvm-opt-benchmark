@@ -70,7 +70,7 @@ define hidden void @"_ZN101_$LT$object..read..macho..file..MachOFile$LT$Mach$C$R
   %.sroa.8.0..sroa_idx4.us.i = getelementptr inbounds nuw i8, ptr %14, i64 4
   %.sroa.8.sroa.0.0.copyload.us.i = load i32, ptr %.sroa.8.0..sroa_idx4.us.i, align 4, !noalias !5
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx4.sroa_idx.us.i = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sroa.8.sroa.6.0.copyload.us.i = load ptr, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx4.sroa_idx.us.i, align 4, !noalias !5
+  %.sroa.8.sroa.6.0.copyload.us.i = load ptr, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx4.sroa_idx.us.i, align 8, !noalias !5
   %.not.us.i = icmp eq i32 %.sroa.02.0.copyload3.us.i, 18
   br i1 %.not.us.i, label %.loopexit, label %16
 
@@ -119,7 +119,7 @@ define hidden void @"_ZN101_$LT$object..read..macho..file..MachOFile$LT$Mach$C$R
   %.sroa.8.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %32, i64 4
   %.sroa.8.sroa.0.0.copyload.i = load i32, ptr %.sroa.8.0..sroa_idx4.i, align 4, !noalias !5
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx4.sroa_idx.i = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %.sroa.8.sroa.6.0.copyload.i = load ptr, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx4.sroa_idx.i, align 4, !noalias !5
+  %.sroa.8.sroa.6.0.copyload.i = load ptr, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx4.sroa_idx.i, align 8, !noalias !5
   %.not.i13 = icmp eq i32 %.sroa.02.0.copyload3.i, 18
   br i1 %.not.i13, label %.loopexit, label %34
 
@@ -261,7 +261,7 @@ define hidden void @"_ZN101_$LT$object..read..macho..file..MachOFile$LT$Mach$C$R
   %.sroa.8.0..sroa_idx4.us.i = getelementptr inbounds nuw i8, ptr %14, i64 4
   %.sroa.8.sroa.0.0.copyload.us.i = load i32, ptr %.sroa.8.0..sroa_idx4.us.i, align 4, !noalias !42
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx4.sroa_idx.us.i = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sroa.8.sroa.6.0.copyload.us.i = load ptr, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx4.sroa_idx.us.i, align 4, !noalias !42
+  %.sroa.8.sroa.6.0.copyload.us.i = load ptr, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx4.sroa_idx.us.i, align 8, !noalias !42
   %.not.us.i = icmp eq i32 %.sroa.02.0.copyload3.us.i, 18
   br i1 %.not.us.i, label %.loopexit, label %16
 
@@ -310,7 +310,7 @@ define hidden void @"_ZN101_$LT$object..read..macho..file..MachOFile$LT$Mach$C$R
   %.sroa.8.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %32, i64 4
   %.sroa.8.sroa.0.0.copyload.i = load i32, ptr %.sroa.8.0..sroa_idx4.i, align 4, !noalias !42
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx4.sroa_idx.i = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %.sroa.8.sroa.6.0.copyload.i = load ptr, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx4.sroa_idx.i, align 4, !noalias !42
+  %.sroa.8.sroa.6.0.copyload.i = load ptr, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx4.sroa_idx.i, align 8, !noalias !42
   %.not.i13 = icmp eq i32 %.sroa.02.0.copyload3.i, 18
   br i1 %.not.i13, label %.loopexit, label %34
 

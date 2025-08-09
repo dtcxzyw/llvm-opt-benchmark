@@ -2801,7 +2801,7 @@ define hidden noundef nonnull ptr @_ZN3euf10th_explain9propagateERNS_13th_euf_so
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr %23, ptr %24, align 8, !tbaa !484
-  store i32 %1, ptr %23, align 4, !tbaa !9
+  store i32 %1, ptr %23, align 8, !tbaa !9
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 68
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store ptr %25, ptr %26, align 8, !tbaa !486
@@ -3075,7 +3075,7 @@ define hidden noundef nonnull ptr @_ZN3euf10th_explain8conflictERNS_13th_euf_sol
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %12, ptr %13, align 8, !tbaa !484
-  store i32 %1, ptr %12, align 4, !tbaa !9
+  store i32 %1, ptr %12, align 8, !tbaa !9
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 68
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store ptr %14, ptr %15, align 8, !tbaa !486
@@ -3103,7 +3103,7 @@ define hidden noundef nonnull ptr @_ZN3euf10th_explain8conflictERNS_13th_euf_sol
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %14, ptr %15, align 8, !tbaa !484
-  store i32 %1, ptr %14, align 4, !tbaa !9
+  store i32 %1, ptr %14, align 8, !tbaa !9
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 68
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store ptr %16, ptr %17, align 8, !tbaa !486

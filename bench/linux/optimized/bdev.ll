@@ -1706,7 +1706,7 @@ define dso_local void @bdev_release(ptr noundef %0) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %6 = load volatile i32, ptr %5, align 4
+  %6 = load volatile i32, ptr %5, align 8
   %7 = icmp ne i32 %6, 1
   %8 = icmp eq ptr %2, null
   %9 = or i1 %8, %7
@@ -2037,7 +2037,7 @@ define dso_local void @sync_bdevs(i1 noundef zeroext %0) local_unnamed_addr #1 a
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 360
   tail call void @mutex_lock(ptr noundef nonnull %27) #12
   %28 = getelementptr i8, ptr %8, i64 -1128
-  %29 = load volatile i32, ptr %28, align 4
+  %29 = load volatile i32, ptr %28, align 8
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %34, label %31
 
@@ -2103,7 +2103,7 @@ define dso_local void @sync_bdevs(i1 noundef zeroext %0) local_unnamed_addr #1 a
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 360
   tail call void @mutex_lock(ptr noundef nonnull %66) #12
   %67 = getelementptr i8, ptr %46, i64 -1128
-  %68 = load volatile i32, ptr %67, align 4
+  %68 = load volatile i32, ptr %67, align 8
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %73, label %70
 

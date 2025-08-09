@@ -329,7 +329,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %27
   store i64 %33, ptr %35, align 8, !tbaa !33
   store ptr %25, ptr %2, align 8, !tbaa !30
   store i64 0, ptr %34, align 8, !tbaa !33
-  store i8 0, ptr %25, align 1, !tbaa !34
+  store i8 0, ptr %25, align 8, !tbaa !34
   invoke void @_ZN5folly15debugger_detail24GlobalThreadPoolListImpl18registerThreadPoolEPNS_18ThreadPoolListHookENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef %1, ptr noundef nonnull %8)
           to label %36 unwind label %50
 
@@ -4977,7 +4977,7 @@ _ZSt19__relocate_object_aIN5folly15debugger_detail24GlobalThreadPoolListImpl8Poo
   store i64 %69, ptr %71, align 8, !tbaa !33, !alias.scope !256, !noalias !259
   store ptr %61, ptr %58, align 8, !tbaa !30, !alias.scope !259, !noalias !256
   store i64 0, ptr %70, align 8, !tbaa !33, !alias.scope !259, !noalias !256
-  store i8 0, ptr %61, align 1, !tbaa !34, !alias.scope !259, !noalias !256
+  store i8 0, ptr %61, align 8, !tbaa !34, !alias.scope !259, !noalias !256
   %72 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
   %73 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
   %74 = load ptr, ptr %73, align 8, !tbaa !53, !alias.scope !259, !noalias !256
@@ -5055,7 +5055,7 @@ _ZSt19__relocate_object_aIN5folly15debugger_detail24GlobalThreadPoolListImpl8Poo
   store i64 %106, ptr %108, align 8, !tbaa !33, !alias.scope !263, !noalias !266
   store ptr %98, ptr %95, align 8, !tbaa !30, !alias.scope !266, !noalias !263
   store i64 0, ptr %107, align 8, !tbaa !33, !alias.scope !266, !noalias !263
-  store i8 0, ptr %98, align 1, !tbaa !34, !alias.scope !266, !noalias !263
+  store i8 0, ptr %98, align 8, !tbaa !34, !alias.scope !266, !noalias !263
   %109 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 40
   %110 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 40
   %111 = load ptr, ptr %110, align 8, !tbaa !53, !alias.scope !266, !noalias !263
@@ -5472,7 +5472,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %13
   store i64 %19, ptr %21, align 8, !tbaa !33
   store ptr %11, ptr %1, align 8, !tbaa !30
   store i64 0, ptr %20, align 8, !tbaa !33
-  store i8 0, ptr %11, align 1, !tbaa !34
+  store i8 0, ptr %11, align 8, !tbaa !34
   invoke void @_ZN5folly15debugger_detail20GlobalThreadPoolList18registerThreadPoolEPNS_18ThreadPoolListHookENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(36) @_ZZN5folly15debugger_detail20GlobalThreadPoolList8instanceEvE3ret, ptr noundef nonnull %0, ptr noundef nonnull %3)
           to label %22 unwind label %29
 

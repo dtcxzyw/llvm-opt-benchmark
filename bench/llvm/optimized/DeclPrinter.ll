@@ -16768,7 +16768,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit22:               ; preds = %83, %81, %68, %66, 
   %.sroa.0.0.copyload.i = load i64, ptr %87, align 8, !tbaa !102
   %88 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clanglsERN4llvm11raw_ostreamENS_15DeclarationNameE(ptr noundef nonnull align 8 dereferenceable(48) %86, i64 %.sroa.0.0.copyload.i) #17
   %89 = getelementptr inbounds nuw i8, ptr %36, i64 96
-  %90 = load i32, ptr %89, align 4, !tbaa !251
+  %90 = load i32, ptr %89, align 8, !tbaa !251
   %.not29 = icmp eq i32 %90, 0
   br i1 %.not29, label %119, label %91
 

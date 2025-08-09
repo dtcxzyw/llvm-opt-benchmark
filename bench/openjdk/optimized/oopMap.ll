@@ -185,7 +185,7 @@ define hidden void @_ZN12OopMapStream9find_nextEv(ptr noundef nonnull align 8 de
 define linkonce_odr hidden void @_ZN11OopMapValue9read_fromEP20CompressedReadStream(ptr noundef nonnull align 2 dereferenceable(4) %0, ptr noundef %1) local_unnamed_addr #2 comdat align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds i8, ptr %3, i64 %6
   %8 = load i8, ptr %7, align 1
@@ -241,7 +241,7 @@ _ZN20CompressedReadStream8read_intEv.exit:        ; preds = %2, %.preheader.i.i,
 
 35:                                               ; preds = %_ZN20CompressedReadStream8read_intEv.exit
   %36 = load ptr, ptr %1, align 8
-  %37 = load i32, ptr %4, align 4
+  %37 = load i32, ptr %4, align 8
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds i8, ptr %36, i64 %38
   %40 = load i8, ptr %39, align 1

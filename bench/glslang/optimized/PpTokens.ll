@@ -274,7 +274,7 @@ define noundef i32 @_ZN7glslang10TPpContext11TokenStream8getTokenERNS_17TParseCo
   %44 = load i32, ptr %43, align 4
   %45 = xor i32 %44, -1
   %46 = add i32 %42, %45
-  %47 = load i32, ptr %40, align 4
+  %47 = load i32, ptr %40, align 8
   %48 = tail call i32 @llvm.smin.i32(i32 %46, i32 %47)
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %48, i32 0)
   %49 = zext nneg i32 %.sroa.speculated.i.i to i64

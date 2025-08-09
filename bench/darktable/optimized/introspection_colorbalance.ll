@@ -2038,11 +2038,11 @@ define void @color_picker_apply(ptr noundef %0, ptr noundef readnone captures(ad
   %65 = load float, ptr %64, align 4, !tbaa !6
   store float %65, ptr %46, align 16, !tbaa !6
   %66 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  %67 = load float, ptr %63, align 4, !tbaa !6
+  %67 = load float, ptr %63, align 8, !tbaa !6
   store float %67, ptr %66, align 4, !tbaa !6
   %68 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %70 = load float, ptr %69, align 4, !tbaa !6
+  %70 = load float, ptr %69, align 8, !tbaa !6
   store float %70, ptr %68, align 8, !tbaa !6
   %71 = getelementptr inbounds nuw i8, ptr %46, i64 12
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 524
@@ -2272,11 +2272,11 @@ dt_XYZ_to_prophotorgb.exit40.i:                   ; preds = %.preheader.i, %dt_X
   %214 = load float, ptr %213, align 4, !tbaa !6
   store float %214, ptr %41, align 16, !tbaa !6
   %215 = getelementptr inbounds nuw i8, ptr %41, i64 4
-  %216 = load float, ptr %212, align 4, !tbaa !6
+  %216 = load float, ptr %212, align 8, !tbaa !6
   store float %216, ptr %215, align 4, !tbaa !6
   %217 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %219 = load float, ptr %218, align 4, !tbaa !6
+  %219 = load float, ptr %218, align 8, !tbaa !6
   store float %219, ptr %217, align 8, !tbaa !6
   %220 = getelementptr inbounds nuw i8, ptr %41, i64 12
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 524
@@ -2528,11 +2528,11 @@ dt_XYZ_to_prophotorgb.exit43.i:                   ; preds = %dt_XYZ_to_prophotor
   %382 = load float, ptr %381, align 4, !tbaa !6
   store float %382, ptr %36, align 16, !tbaa !6
   %383 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  %384 = load float, ptr %380, align 4, !tbaa !6
+  %384 = load float, ptr %380, align 8, !tbaa !6
   store float %384, ptr %383, align 4, !tbaa !6
   %385 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %386 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %387 = load float, ptr %386, align 4, !tbaa !6
+  %387 = load float, ptr %386, align 8, !tbaa !6
   store float %387, ptr %385, align 8, !tbaa !6
   %388 = getelementptr inbounds nuw i8, ptr %36, i64 12
   %389 = getelementptr inbounds nuw i8, ptr %0, i64 524
@@ -2762,11 +2762,11 @@ dt_XYZ_to_prophotorgb.exit42.i:                   ; preds = %.preheader.i60, %dt
   %531 = load float, ptr %530, align 4, !tbaa !6
   store float %531, ptr %32, align 16, !tbaa !6
   %532 = getelementptr inbounds nuw i8, ptr %32, i64 4
-  %533 = load float, ptr %529, align 4, !tbaa !6
+  %533 = load float, ptr %529, align 8, !tbaa !6
   store float %533, ptr %532, align 4, !tbaa !6
   %534 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %535 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %536 = load float, ptr %535, align 4, !tbaa !6
+  %536 = load float, ptr %535, align 8, !tbaa !6
   store float %536, ptr %534, align 8, !tbaa !6
   %537 = getelementptr inbounds nuw i8, ptr %32, i64 12
   %538 = getelementptr inbounds nuw i8, ptr %0, i64 540
@@ -2884,11 +2884,11 @@ dt_Lab_to_XYZ.exit.i69:                           ; preds = %.preheader.i.i66
   %605 = load float, ptr %604, align 4, !tbaa !6
   store float %605, ptr %28, align 16, !tbaa !6
   %606 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  %607 = load float, ptr %603, align 4, !tbaa !6
+  %607 = load float, ptr %603, align 8, !tbaa !6
   store float %607, ptr %606, align 4, !tbaa !6
   %608 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %609 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %610 = load float, ptr %609, align 4, !tbaa !6
+  %610 = load float, ptr %609, align 8, !tbaa !6
   store float %610, ptr %608, align 8, !tbaa !6
   %611 = getelementptr inbounds nuw i8, ptr %28, i64 12
   %612 = getelementptr inbounds nuw i8, ptr %0, i64 524
@@ -3014,11 +3014,11 @@ dt_Lab_to_XYZ.exit.i78:                           ; preds = %.preheader.i.i75
   %687 = load float, ptr %686, align 4, !tbaa !6
   store float %687, ptr %24, align 16, !tbaa !6
   %688 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  %689 = load float, ptr %685, align 4, !tbaa !6
+  %689 = load float, ptr %685, align 8, !tbaa !6
   store float %689, ptr %688, align 4, !tbaa !6
   %690 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %691 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %692 = load float, ptr %691, align 4, !tbaa !6
+  %692 = load float, ptr %691, align 8, !tbaa !6
   store float %692, ptr %690, align 8, !tbaa !6
   %693 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %694 = getelementptr inbounds nuw i8, ptr %0, i64 556
@@ -3137,11 +3137,11 @@ dt_Lab_to_XYZ.exit.i87:                           ; preds = %.preheader.i.i84
   %760 = load float, ptr %759, align 4, !tbaa !6
   store float %760, ptr %16, align 16, !tbaa !6
   %761 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %762 = load float, ptr %758, align 4, !tbaa !6
+  %762 = load float, ptr %758, align 8, !tbaa !6
   store float %762, ptr %761, align 4, !tbaa !6
   %763 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %764 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %765 = load float, ptr %764, align 4, !tbaa !6
+  %765 = load float, ptr %764, align 8, !tbaa !6
   store float %765, ptr %763, align 8, !tbaa !6
   %766 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %767 = getelementptr inbounds nuw i8, ptr %0, i64 524

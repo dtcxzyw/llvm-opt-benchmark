@@ -13324,7 +13324,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3dnn14dnn4_v20
   store ptr %36, ptr %.ptr.i.i, align 8, !tbaa !46
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store i64 0, ptr %37, align 8, !tbaa !40
-  store i8 0, ptr %36, align 1, !tbaa !48
+  store i8 0, ptr %36, align 8, !tbaa !48
   store ptr %.ptr.i.i, ptr %35, align 8, !tbaa !394
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i64 1, ptr %38, align 8, !tbaa !396
@@ -13358,7 +13358,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3dnn14dnn4_v20
   store ptr %48, ptr %.ptr.i.i12, align 8, !tbaa !46
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store i64 0, ptr %49, align 8, !tbaa !40
-  store i8 0, ptr %48, align 1, !tbaa !48
+  store i8 0, ptr %48, align 8, !tbaa !48
   store ptr %.ptr.i.i12, ptr %47, align 8, !tbaa !394
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 1, ptr %50, align 8, !tbaa !396
@@ -13574,7 +13574,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3dnn14dnn4_v20
   store ptr %36, ptr %.ptr.i.i, align 8, !tbaa !46
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store i64 0, ptr %37, align 8, !tbaa !40
-  store i8 0, ptr %36, align 1, !tbaa !48
+  store i8 0, ptr %36, align 8, !tbaa !48
   store ptr %.ptr.i.i, ptr %35, align 8, !tbaa !394
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i64 1, ptr %38, align 8, !tbaa !396
@@ -13608,7 +13608,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3dnn14dnn4_v20
   store ptr %48, ptr %.ptr.i.i12, align 8, !tbaa !46
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store i64 0, ptr %49, align 8, !tbaa !40
-  store i8 0, ptr %48, align 1, !tbaa !48
+  store i8 0, ptr %48, align 8, !tbaa !48
   store ptr %.ptr.i.i12, ptr %47, align 8, !tbaa !394
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 1, ptr %50, align 8, !tbaa !396
@@ -14296,7 +14296,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3dnn14dnn4_v20
   store ptr %36, ptr %.ptr.i.i, align 8, !tbaa !46
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store i64 0, ptr %37, align 8, !tbaa !40
-  store i8 0, ptr %36, align 1, !tbaa !48
+  store i8 0, ptr %36, align 8, !tbaa !48
   store ptr %.ptr.i.i, ptr %35, align 8, !tbaa !394
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i64 1, ptr %38, align 8, !tbaa !396
@@ -14329,7 +14329,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3dnn14dnn4_v20
   store ptr %46, ptr %.ptr.i.i12, align 8, !tbaa !46
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 24
   store i64 0, ptr %47, align 8, !tbaa !40
-  store i8 0, ptr %46, align 1, !tbaa !48
+  store i8 0, ptr %46, align 8, !tbaa !48
   store ptr %.ptr.i.i12, ptr %45, align 8, !tbaa !394
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i64 1, ptr %48, align 8, !tbaa !396
@@ -30425,7 +30425,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3dnn14dnn4_v20
   store ptr %36, ptr %.ptr.i.i, align 8, !tbaa !46
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store i64 0, ptr %37, align 8, !tbaa !40
-  store i8 0, ptr %36, align 1, !tbaa !48
+  store i8 0, ptr %36, align 8, !tbaa !48
   store ptr %.ptr.i.i, ptr %35, align 8, !tbaa !394
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i64 1, ptr %38, align 8, !tbaa !396
@@ -30459,7 +30459,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3dnn14dnn4_v20
   store ptr %48, ptr %.ptr.i.i12, align 8, !tbaa !46
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store i64 0, ptr %49, align 8, !tbaa !40
-  store i8 0, ptr %48, align 1, !tbaa !48
+  store i8 0, ptr %48, align 8, !tbaa !48
   store ptr %.ptr.i.i12, ptr %47, align 8, !tbaa !394
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 1, ptr %50, align 8, !tbaa !396
@@ -32179,7 +32179,7 @@ _ZN2cv10AutoBufferIlLm1EE8allocateEm.exit.i:      ; preds = %5
   store ptr %32, ptr %.ptr.i, align 8, !tbaa !46
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store i64 0, ptr %33, align 8, !tbaa !40
-  store i8 0, ptr %32, align 1, !tbaa !48
+  store i8 0, ptr %32, align 8, !tbaa !48
   store ptr %.ptr.i, ptr %29, align 8, !tbaa !394
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -32208,7 +32208,7 @@ _ZN2cv10AutoBufferIlLm1EE8allocateEm.exit.i:      ; preds = %5
   store ptr %47, ptr %46, align 8, !tbaa !46
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i64 0, ptr %48, align 8, !tbaa !40
-  store i8 0, ptr %47, align 1, !tbaa !48
+  store i8 0, ptr %47, align 8, !tbaa !48
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %50 = icmp eq ptr %49, %44
   br i1 %50, label %_ZN2cv10AutoBufferINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm1EE8allocateEm.exit.thread.i, label %45
@@ -37739,7 +37739,7 @@ _ZN2cv10AutoBufferIlLm1EE8allocateEm.exit.i:      ; preds = %6
   store ptr %33, ptr %.ptr.i, align 8, !tbaa !46
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store i64 0, ptr %34, align 8, !tbaa !40
-  store i8 0, ptr %33, align 1, !tbaa !48
+  store i8 0, ptr %33, align 8, !tbaa !48
   store ptr %.ptr.i, ptr %30, align 8, !tbaa !394
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -37768,7 +37768,7 @@ _ZN2cv10AutoBufferIlLm1EE8allocateEm.exit.i:      ; preds = %6
   store ptr %48, ptr %47, align 8, !tbaa !46
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 0, ptr %49, align 8, !tbaa !40
-  store i8 0, ptr %48, align 1, !tbaa !48
+  store i8 0, ptr %48, align 8, !tbaa !48
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %51 = icmp eq ptr %50, %45
   br i1 %51, label %_ZN2cv10AutoBufferINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm1EE8allocateEm.exit.thread.i, label %46
@@ -42242,7 +42242,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %160, ptr %.sink6.i.i.i.i.i, align 8, !tbaa !46
   %161 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i, i64 8
   store i64 0, ptr %161, align 8, !tbaa !40
-  store i8 0, ptr %160, align 1, !tbaa !48
+  store i8 0, ptr %160, align 8, !tbaa !48
   %162 = invoke noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %136, ptr noundef nonnull %.sink6.i.i.i.i.i)
           to label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i unwind label %220
 
@@ -42301,7 +42301,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %187, ptr %.sink6.i.i.i.i.i36, align 8, !tbaa !46
   %188 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i36, i64 8
   store i64 0, ptr %188, align 8, !tbaa !40
-  store i8 0, ptr %187, align 1, !tbaa !48
+  store i8 0, ptr %187, align 8, !tbaa !48
   %189 = invoke noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %163, ptr noundef nonnull %.sink6.i.i.i.i.i36)
           to label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i37 unwind label %220
 
@@ -42978,7 +42978,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %202, ptr %.sink6.i.i.i.i.i, align 8, !tbaa !46
   %203 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i, i64 8
   store i64 0, ptr %203, align 8, !tbaa !40
-  store i8 0, ptr %202, align 1, !tbaa !48
+  store i8 0, ptr %202, align 8, !tbaa !48
   %204 = invoke noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %178, ptr noundef nonnull %.sink6.i.i.i.i.i)
           to label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i unwind label %295
 
@@ -43037,7 +43037,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %229, ptr %.sink6.i.i.i.i.i73, align 8, !tbaa !46
   %230 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i73, i64 8
   store i64 0, ptr %230, align 8, !tbaa !40
-  store i8 0, ptr %229, align 1, !tbaa !48
+  store i8 0, ptr %229, align 8, !tbaa !48
   %231 = invoke noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %205, ptr noundef nonnull %.sink6.i.i.i.i.i73)
           to label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i74 unwind label %295
 
@@ -43781,7 +43781,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %194, ptr %.sink6.i.i.i.i.i, align 8, !tbaa !46
   %195 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i, i64 8
   store i64 0, ptr %195, align 8, !tbaa !40
-  store i8 0, ptr %194, align 1, !tbaa !48
+  store i8 0, ptr %194, align 8, !tbaa !48
   %196 = invoke noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %170, ptr noundef nonnull %.sink6.i.i.i.i.i)
           to label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i unwind label %316
 
@@ -43937,7 +43937,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %253, ptr %.sink6.i.i.i.i.i62, align 8, !tbaa !46
   %254 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i62, i64 8
   store i64 0, ptr %254, align 8, !tbaa !40
-  store i8 0, ptr %253, align 1, !tbaa !48
+  store i8 0, ptr %253, align 8, !tbaa !48
   %255 = invoke noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %229, ptr noundef nonnull %.sink6.i.i.i.i.i62)
           to label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i63 unwind label %320
 
@@ -44678,7 +44678,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %176, ptr %.sink6.i.i.i.i.i, align 8, !tbaa !46
   %177 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i, i64 8
   store i64 0, ptr %177, align 8, !tbaa !40
-  store i8 0, ptr %176, align 1, !tbaa !48
+  store i8 0, ptr %176, align 8, !tbaa !48
   %178 = invoke noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %152, ptr noundef nonnull %.sink6.i.i.i.i.i)
           to label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i unwind label %277
 
@@ -44735,7 +44735,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %201, ptr %.sink6.i.i.i.i.i51, align 8, !tbaa !46
   %202 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i51, i64 8
   store i64 0, ptr %202, align 8, !tbaa !40
-  store i8 0, ptr %201, align 1, !tbaa !48
+  store i8 0, ptr %201, align 8, !tbaa !48
   %203 = invoke noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %152, ptr noundef nonnull %.sink6.i.i.i.i.i51)
           to label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i52 unwind label %277
 
@@ -44794,7 +44794,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %228, ptr %.sink6.i.i.i.i.i61, align 8, !tbaa !46
   %229 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i61, i64 8
   store i64 0, ptr %229, align 8, !tbaa !40
-  store i8 0, ptr %228, align 1, !tbaa !48
+  store i8 0, ptr %228, align 8, !tbaa !48
   %230 = invoke noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %204, ptr noundef nonnull %.sink6.i.i.i.i.i61)
           to label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i62 unwind label %277
 
@@ -46996,7 +46996,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %699, ptr %.sink6.i.i.i.i.i, align 8, !tbaa !46
   %700 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i, i64 8
   store i64 0, ptr %700, align 8, !tbaa !40
-  store i8 0, ptr %699, align 1, !tbaa !48
+  store i8 0, ptr %699, align 8, !tbaa !48
   %701 = invoke noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %676, ptr noundef nonnull %.sink6.i.i.i.i.i)
           to label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i unwind label %660
 
@@ -51935,7 +51935,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %77, ptr %.sink6.i.i.i.i.i, align 8, !tbaa !46
   %78 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i, i64 8
   store i64 0, ptr %78, align 8, !tbaa !40
-  store i8 0, ptr %77, align 1, !tbaa !48
+  store i8 0, ptr %77, align 8, !tbaa !48
   %79 = invoke noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef nonnull %.sink6.i.i.i.i.i)
           to label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i unwind label %106
 
@@ -53685,7 +53685,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %270, ptr %.sink6.i.i.i.i.i, align 8, !tbaa !46
   %271 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i, i64 8
   store i64 0, ptr %271, align 8, !tbaa !40
-  store i8 0, ptr %270, align 1, !tbaa !48
+  store i8 0, ptr %270, align 8, !tbaa !48
   %272 = invoke noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr noundef nonnull %.sink6.i.i.i.i.i)
           to label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i unwind label %300
 
@@ -54252,7 +54252,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %114, ptr %.sink6.i.i.i.i.i, align 8, !tbaa !46
   %115 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i, i64 8
   store i64 0, ptr %115, align 8, !tbaa !40
-  store i8 0, ptr %114, align 1, !tbaa !48
+  store i8 0, ptr %114, align 8, !tbaa !48
   %116 = invoke noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull %.sink6.i.i.i.i.i)
           to label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i unwind label %143
 
@@ -60937,7 +60937,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %529, ptr %.sink6.i.i.i.i.i, align 8, !tbaa !46
   %530 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i, i64 8
   store i64 0, ptr %530, align 8, !tbaa !40
-  store i8 0, ptr %529, align 1, !tbaa !48
+  store i8 0, ptr %529, align 8, !tbaa !48
   %531 = invoke noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %505, ptr noundef nonnull %.sink6.i.i.i.i.i)
           to label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i unwind label %595
 
@@ -60996,7 +60996,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %556, ptr %.sink6.i.i.i.i.i255, align 8, !tbaa !46
   %557 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i255, i64 8
   store i64 0, ptr %557, align 8, !tbaa !40
-  store i8 0, ptr %556, align 1, !tbaa !48
+  store i8 0, ptr %556, align 8, !tbaa !48
   %558 = invoke noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %532, ptr noundef nonnull %.sink6.i.i.i.i.i255)
           to label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i256 unwind label %595
 
@@ -61605,7 +61605,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %756, ptr %.sink6.i.i.i.i.i348, align 8, !tbaa !46
   %757 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i348, i64 8
   store i64 0, ptr %757, align 8, !tbaa !40
-  store i8 0, ptr %756, align 1, !tbaa !48
+  store i8 0, ptr %756, align 8, !tbaa !48
   %758 = invoke noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %732, ptr noundef nonnull %.sink6.i.i.i.i.i348)
           to label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i349 unwind label %835
 
@@ -61664,7 +61664,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %783, ptr %.sink6.i.i.i.i.i358, align 8, !tbaa !46
   %784 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i358, i64 8
   store i64 0, ptr %784, align 8, !tbaa !40
-  store i8 0, ptr %783, align 1, !tbaa !48
+  store i8 0, ptr %783, align 8, !tbaa !48
   %785 = invoke noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %759, ptr noundef nonnull %.sink6.i.i.i.i.i358)
           to label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i359 unwind label %835
 
@@ -69276,7 +69276,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %311, ptr %.sink6.i.i.i.i.i, align 8, !tbaa !46
   %312 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i, i64 8
   store i64 0, ptr %312, align 8, !tbaa !40
-  store i8 0, ptr %311, align 1, !tbaa !48
+  store i8 0, ptr %311, align 8, !tbaa !48
   %313 = invoke noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %223, ptr noundef nonnull %.sink6.i.i.i.i.i)
           to label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i unwind label %336
 
@@ -70088,7 +70088,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %239, ptr %.sink6.i.i.i.i.i, align 8, !tbaa !46
   %240 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i, i64 8
   store i64 0, ptr %240, align 8, !tbaa !40
-  store i8 0, ptr %239, align 1, !tbaa !48
+  store i8 0, ptr %239, align 8, !tbaa !48
   %241 = invoke noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %155, ptr noundef nonnull %.sink6.i.i.i.i.i)
           to label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i unwind label %264
 
@@ -71696,7 +71696,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %489, ptr %.sink6.i.i.i.i.i, align 8, !tbaa !46
   %490 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i, i64 8
   store i64 0, ptr %490, align 8, !tbaa !40
-  store i8 0, ptr %489, align 1, !tbaa !48
+  store i8 0, ptr %489, align 8, !tbaa !48
   %491 = invoke noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %148, ptr noundef nonnull %.sink6.i.i.i.i.i)
           to label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i unwind label %516
 
@@ -73922,7 +73922,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3dnn14dnn4_v20
   store ptr %37, ptr %.ptr.i.i, align 8, !tbaa !46
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store i64 0, ptr %38, align 8, !tbaa !40
-  store i8 0, ptr %37, align 1, !tbaa !48
+  store i8 0, ptr %37, align 8, !tbaa !48
   store ptr %.ptr.i.i, ptr %36, align 8, !tbaa !394
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i64 1, ptr %39, align 8, !tbaa !396
@@ -73957,7 +73957,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3dnn14dnn4_v20
   store ptr %50, ptr %.ptr.i.i12, align 8, !tbaa !46
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 24
   store i64 0, ptr %51, align 8, !tbaa !40
-  store i8 0, ptr %50, align 1, !tbaa !48
+  store i8 0, ptr %50, align 8, !tbaa !48
   store ptr %.ptr.i.i12, ptr %49, align 8, !tbaa !394
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i64 1, ptr %52, align 8, !tbaa !396
@@ -74173,7 +74173,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3dnn14dnn4_v20
   store ptr %36, ptr %.ptr.i.i, align 8, !tbaa !46
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store i64 0, ptr %37, align 8, !tbaa !40
-  store i8 0, ptr %36, align 1, !tbaa !48
+  store i8 0, ptr %36, align 8, !tbaa !48
   store ptr %.ptr.i.i, ptr %35, align 8, !tbaa !394
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i64 1, ptr %38, align 8, !tbaa !396
@@ -74207,7 +74207,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3dnn14dnn4_v20
   store ptr %48, ptr %.ptr.i.i12, align 8, !tbaa !46
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store i64 0, ptr %49, align 8, !tbaa !40
-  store i8 0, ptr %48, align 1, !tbaa !48
+  store i8 0, ptr %48, align 8, !tbaa !48
   store ptr %.ptr.i.i12, ptr %47, align 8, !tbaa !394
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 1, ptr %50, align 8, !tbaa !396
@@ -77059,7 +77059,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %151, ptr %.sink6.i.i.i.i.i, align 8, !tbaa !46
   %152 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i, i64 8
   store i64 0, ptr %152, align 8, !tbaa !40
-  store i8 0, ptr %151, align 1, !tbaa !48
+  store i8 0, ptr %151, align 8, !tbaa !48
   %153 = invoke noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %127, ptr noundef nonnull %.sink6.i.i.i.i.i)
           to label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i unwind label %183
 
@@ -78698,7 +78698,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %449, ptr %.sink6.i.i.i.i.i, align 8, !tbaa !46
   %450 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i, i64 8
   store i64 0, ptr %450, align 8, !tbaa !40
-  store i8 0, ptr %449, align 1, !tbaa !48
+  store i8 0, ptr %449, align 8, !tbaa !48
   %451 = invoke noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %316, ptr noundef nonnull %.sink6.i.i.i.i.i)
           to label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i unwind label %474
 
@@ -80529,7 +80529,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %263, ptr %.sink6.i.i.i.i.i, align 8, !tbaa !46
   %264 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i, i64 8
   store i64 0, ptr %264, align 8, !tbaa !40
-  store i8 0, ptr %263, align 1, !tbaa !48
+  store i8 0, ptr %263, align 8, !tbaa !48
   %265 = invoke noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %178, ptr noundef nonnull %.sink6.i.i.i.i.i)
           to label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i unwind label %288
 
@@ -83354,7 +83354,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %118, ptr %.sink6.i.i.i.i.i, align 8, !tbaa !46
   %119 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i, i64 8
   store i64 0, ptr %119, align 8, !tbaa !40
-  store i8 0, ptr %118, align 1, !tbaa !48
+  store i8 0, ptr %118, align 8, !tbaa !48
   %120 = invoke noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull %.sink6.i.i.i.i.i)
           to label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i unwind label %.loopexit
 
@@ -87582,7 +87582,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %449, ptr %.sink6.i.i.i.i.i, align 8, !tbaa !46
   %450 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i, i64 8
   store i64 0, ptr %450, align 8, !tbaa !40
-  store i8 0, ptr %449, align 1, !tbaa !48
+  store i8 0, ptr %449, align 8, !tbaa !48
   %451 = invoke noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %425, ptr noundef nonnull %.sink6.i.i.i.i.i)
           to label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i unwind label %529
 
@@ -87641,7 +87641,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %476, ptr %.sink6.i.i.i.i.i289, align 8, !tbaa !46
   %477 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i289, i64 8
   store i64 0, ptr %477, align 8, !tbaa !40
-  store i8 0, ptr %476, align 1, !tbaa !48
+  store i8 0, ptr %476, align 8, !tbaa !48
   %478 = invoke noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %452, ptr noundef nonnull %.sink6.i.i.i.i.i289)
           to label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i290 unwind label %529
 
@@ -101150,7 +101150,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %426, ptr %.sink6.i.i.i.i.i, align 8, !tbaa !46
   %427 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i, i64 8
   store i64 0, ptr %427, align 8, !tbaa !40
-  store i8 0, ptr %426, align 1, !tbaa !48
+  store i8 0, ptr %426, align 8, !tbaa !48
   %428 = invoke noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %158, ptr noundef nonnull %.sink6.i.i.i.i.i)
           to label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i unwind label %505
 
@@ -101206,7 +101206,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %450, ptr %.sink6.i.i.i.i.i269, align 8, !tbaa !46
   %451 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i269, i64 8
   store i64 0, ptr %451, align 8, !tbaa !40
-  store i8 0, ptr %450, align 1, !tbaa !48
+  store i8 0, ptr %450, align 8, !tbaa !48
   %452 = invoke noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %161, ptr noundef nonnull %.sink6.i.i.i.i.i269)
           to label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i270 unwind label %505
 
@@ -102615,7 +102615,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %878, ptr %.sink6.i.i.i.i.i475, align 8, !tbaa !46
   %879 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i475, i64 8
   store i64 0, ptr %879, align 8, !tbaa !40
-  store i8 0, ptr %878, align 1, !tbaa !48
+  store i8 0, ptr %878, align 8, !tbaa !48
   %880 = invoke noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %556, ptr noundef nonnull %.sink6.i.i.i.i.i475)
           to label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i476 unwind label %911
 
@@ -105909,7 +105909,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v202412239DictValue11arrayStri
   store ptr %6, ptr %.ptr.i, align 8, !tbaa !46
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %7, align 8, !tbaa !40
-  store i8 0, ptr %6, align 1, !tbaa !48
+  store i8 0, ptr %6, align 8, !tbaa !48
   store ptr %.ptr.i, ptr %4, align 8, !tbaa !394
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.not.i.i = icmp ugt i32 %2, 1
@@ -105936,7 +105936,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v202412239DictValue11arrayStri
   store ptr %18, ptr %17, align 8, !tbaa !46
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 0, ptr %19, align 8, !tbaa !40
-  store i8 0, ptr %18, align 1, !tbaa !48
+  store i8 0, ptr %18, align 8, !tbaa !48
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %21 = icmp eq ptr %20, %15
   br i1 %21, label %22, label %16
@@ -112440,7 +112440,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !tbaa !40, !alias.scope !1391, !noalias !1394
   store ptr %43, ptr %.0911.i.i.i.i, align 8, !tbaa !36, !alias.scope !1394, !noalias !1391
   store i64 0, ptr %52, align 8, !tbaa !40, !alias.scope !1394, !noalias !1391
-  store i8 0, ptr %43, align 1, !tbaa !48, !alias.scope !1394, !noalias !1391
+  store i8 0, ptr %43, align 8, !tbaa !48, !alias.scope !1394, !noalias !1391
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %54, %1
@@ -112488,7 +112488,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !tbaa !40, !alias.scope !1398, !noalias !1401
   store ptr %59, ptr %.0911.i.i.i.i29, align 8, !tbaa !36, !alias.scope !1401, !noalias !1398
   store i64 0, ptr %68, align 8, !tbaa !40, !alias.scope !1401, !noalias !1398
-  store i8 0, ptr %59, align 1, !tbaa !48, !alias.scope !1401, !noalias !1398
+  store i8 0, ptr %59, align 8, !tbaa !48, !alias.scope !1401, !noalias !1398
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 32
   %.not.i.i.i.i34 = icmp eq ptr %70, %6
@@ -113784,7 +113784,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8, !tbaa !40
   store ptr %13, ptr %10, align 8, !tbaa !36
   store i64 0, ptr %24, align 8, !tbaa !40
-  store i8 0, ptr %13, align 1, !tbaa !48
+  store i8 0, ptr %13, align 8, !tbaa !48
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   store ptr %7, ptr %23, align 8, !tbaa !1418
@@ -114979,7 +114979,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8, !tbaa !40
   store ptr %13, ptr %10, align 8, !tbaa !36
   store i64 0, ptr %24, align 8, !tbaa !40
-  store i8 0, ptr %13, align 1, !tbaa !48
+  store i8 0, ptr %13, align 8, !tbaa !48
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 88

@@ -1832,7 +1832,7 @@ define internal fastcc ptr @ioctx_alloc(i32 noundef range(i32 1, 0) %0) unnamed_
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 264
   store volatile ptr %29, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %21, i64 272
-  store volatile ptr %29, ptr %30, align 8
+  store volatile ptr %29, ptr %30, align 16
   %31 = tail call i32 @percpu_ref_init(ptr noundef nonnull %21, ptr noundef nonnull @free_ioctx_users, i32 noundef 0, i32 noundef 3264) #14
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %83
@@ -1860,7 +1860,7 @@ define internal fastcc ptr @ioctx_alloc(i32 noundef range(i32 1, 0) %0) unnamed_
   %46 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %47 = load i32, ptr %46, align 64
   %48 = add i32 %47, -1
-  store volatile i32 %48, ptr %45, align 8
+  store volatile i32 %48, ptr %45, align 64
   %49 = load i64, ptr @__cpu_possible_mask, align 8
   %50 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %49) #16, !srcloc !42
   %51 = trunc i64 %50 to i32

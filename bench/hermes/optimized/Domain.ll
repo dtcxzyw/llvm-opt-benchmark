@@ -348,7 +348,7 @@ _ZN6hermes2vm16ArrayStorageBaseINS0_11HermesValueEE6createERNS0_7RuntimeEj.exit.
   %cond.i.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i ], [ %8, %cond.false.i.i.i.i.i.i ]
   store i64 0, ptr %cond.i.i.i.i.i.i, align 8
   %bf.set7.i.i.i.i.i.i.i = or disjoint i32 %div1.i.i.i.i.i, 234881024
-  store i32 %bf.set7.i.i.i.i.i.i.i, ptr %cond.i.i.i.i.i.i, align 4
+  store i32 %bf.set7.i.i.i.i.i.i.i, ptr %cond.i.i.i.i.i.i, align 8
   %10 = ptrtoint ptr %cond.i.i.i.i.i.i to i64
   %11 = or i64 %10, -281474976710656
   %.pre = load ptr, ptr %cjsModules, align 8

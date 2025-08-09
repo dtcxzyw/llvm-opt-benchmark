@@ -29636,7 +29636,7 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBreakEPNS_12Unique
   %parens_.i.i.i3.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i103, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i3.i, i8 0, i64 28, i1 false)
   %67 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i103, i64 48
-  store i32 -1, ptr %67, align 4
+  store i32 -1, ptr %67, align 8
   %_label.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i103, i64 56
   store ptr %labelNode.0.i, ptr %_label.i.i, align 8
   %68 = load ptr, ptr %_body.i.i, align 8
@@ -29904,7 +29904,7 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeLabelEPNS_12Unique
   %parens_.i.i.i2.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i192, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i2.i, i8 0, i64 28, i1 false)
   %123 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i192, i64 48
-  store i32 -1, ptr %123, align 4
+  store i32 -1, ptr %123, align 8
   %_label.i.i213 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i192, i64 56
   store ptr %retval.0.i.i.i.i.i207, ptr %_label.i.i213, align 8
   %_body.i.i214 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i192, i64 64
@@ -30949,7 +30949,7 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations7makeForEPNS_6ESTree4No
   %parens_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i198, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i.i, i8 0, i64 28, i1 false)
   %92 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i198, i64 48
-  store i32 -1, ptr %92, align 4
+  store i32 -1, ptr %92, align 8
   %_init.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i198, i64 56
   %_body.i.i199 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i198, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_init.i.i, i8 0, i64 24, i1 false)
@@ -31453,7 +31453,7 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBreakEPNS_12Unique
   %parens_.i.i.i3.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i422, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i3.i, i8 0, i64 28, i1 false)
   %205 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i422, i64 48
-  store i32 -1, ptr %205, align 4
+  store i32 -1, ptr %205, align 8
   %_label.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i422, i64 56
   store ptr null, ptr %_label.i.i, align 8
   %this.val60 = load ptr, ptr %this, align 8
@@ -31992,7 +31992,7 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBreakEPNS_12Unique
   %parens_.i.i.i3.i684 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i682, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i3.i684, i8 0, i64 28, i1 false)
   %327 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i682, i64 48
-  store i32 -1, ptr %327, align 4
+  store i32 -1, ptr %327, align 8
   %_label.i.i685 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i682, i64 56
   store ptr null, ptr %_label.i.i685, align 8
   %this.val61 = load ptr, ptr %this, align 8

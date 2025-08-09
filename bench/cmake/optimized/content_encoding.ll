@@ -606,7 +606,7 @@ define internal void @deflate_do_close(ptr noundef %0, ptr noundef %1) #0 {
   %9 = load ptr, ptr %3, align 8, !tbaa !101
   tail call void %8(ptr noundef %9) #8
   store ptr null, ptr %3, align 8, !tbaa !101
-  %.pr.i = load i32, ptr %4, align 4, !tbaa !103
+  %.pr.i = load i32, ptr %4, align 8, !tbaa !103
   br label %10
 
 10:                                               ; preds = %7, %2
@@ -690,7 +690,7 @@ define internal fastcc range(i32 0, 62) i32 @process_trailer(ptr noundef %0, ptr
   %17 = load ptr, ptr @Curl_cfree, align 8, !tbaa !104
   tail call void %17(ptr noundef %12) #8
   store ptr null, ptr %3, align 8, !tbaa !101
-  %.pr.i = load i32, ptr %13, align 4, !tbaa !103
+  %.pr.i = load i32, ptr %13, align 8, !tbaa !103
   br label %18
 
 18:                                               ; preds = %16, %.split
@@ -717,7 +717,7 @@ process_zlib_error.exit.i:                        ; preds = %18
   %26 = load ptr, ptr @Curl_cfree, align 8, !tbaa !104
   tail call void %26(ptr noundef %12) #8
   store ptr null, ptr %3, align 8, !tbaa !101
-  %.pr.i31 = load i32, ptr %22, align 4, !tbaa !103
+  %.pr.i31 = load i32, ptr %22, align 8, !tbaa !103
   br label %27
 
 27:                                               ; preds = %25, %.split19
@@ -778,7 +778,7 @@ define internal fastcc i32 @inflate_stream(ptr noundef %0, ptr noundef %1, i32 n
   %12 = load ptr, ptr @Curl_cfree, align 8, !tbaa !104
   tail call void %12(ptr noundef %8) #8
   store ptr null, ptr %5, align 8, !tbaa !101
-  %.pr.i = load i32, ptr %9, align 4, !tbaa !103
+  %.pr.i = load i32, ptr %9, align 8, !tbaa !103
   br label %13
 
 13:                                               ; preds = %4, %11
@@ -815,7 +815,7 @@ define internal fastcc i32 @inflate_stream(ptr noundef %0, ptr noundef %1, i32 n
   %30 = load ptr, ptr %5, align 8, !tbaa !101
   tail call void %29(ptr noundef %30) #8
   store ptr null, ptr %5, align 8, !tbaa !101
-  %.pr.i85 = load i32, ptr %9, align 4, !tbaa !103
+  %.pr.i85 = load i32, ptr %9, align 8, !tbaa !103
   br label %31
 
 31:                                               ; preds = %28, %25
@@ -857,7 +857,7 @@ exit_zlib.exit90:                                 ; preds = %exit_zlib.exit90.ba
   %47 = load ptr, ptr %5, align 8, !tbaa !101
   tail call void %46(ptr noundef %47) #8
   store ptr null, ptr %5, align 8, !tbaa !101
-  %.pr.i89 = load i32, ptr %9, align 4, !tbaa !103
+  %.pr.i89 = load i32, ptr %9, align 8, !tbaa !103
   br label %48
 
 48:                                               ; preds = %45, %42
@@ -930,7 +930,7 @@ process_zlib_error.exit:                          ; preds = %63, %64
   %69 = load ptr, ptr %5, align 8, !tbaa !101
   tail call void %68(ptr noundef %69) #8
   store ptr null, ptr %5, align 8, !tbaa !101
-  %.pr.i99 = load i32, ptr %9, align 4, !tbaa !103
+  %.pr.i99 = load i32, ptr %9, align 8, !tbaa !103
   br label %70
 
 70:                                               ; preds = %67, %process_zlib_error.exit
@@ -966,7 +966,7 @@ process_zlib_error.exit102:                       ; preds = %75, %76
   %81 = load ptr, ptr %5, align 8, !tbaa !101
   tail call void %80(ptr noundef %81) #8
   store ptr null, ptr %5, align 8, !tbaa !101
-  %.pr.i110 = load i32, ptr %9, align 4, !tbaa !103
+  %.pr.i110 = load i32, ptr %9, align 8, !tbaa !103
   br label %82
 
 82:                                               ; preds = %79, %process_zlib_error.exit102
@@ -1312,7 +1312,7 @@ process_zlib_error.exit:                          ; preds = %75, %76
   %81 = load ptr, ptr %6, align 8, !tbaa !101
   tail call void %80(ptr noundef %81) #8
   store ptr null, ptr %6, align 8, !tbaa !101
-  %.pr.i = load i32, ptr %15, align 4, !tbaa !103
+  %.pr.i = load i32, ptr %15, align 8, !tbaa !103
   br label %82
 
 82:                                               ; preds = %79, %process_zlib_error.exit
@@ -1358,7 +1358,7 @@ exit_zlib.exit:                                   ; preds = %.critedge2.i, %61
   %102 = load ptr, ptr @Curl_cfree, align 8, !tbaa !104
   tail call void %102(ptr noundef null) #8
   store ptr null, ptr %6, align 8, !tbaa !101
-  %.pr.i104 = load i32, ptr %15, align 4, !tbaa !103
+  %.pr.i104 = load i32, ptr %15, align 8, !tbaa !103
   br label %103
 
 103:                                              ; preds = %101, %98
@@ -1514,7 +1514,7 @@ process_zlib_error.exit140:                       ; preds = %159, %160
   %165 = load ptr, ptr %6, align 8, !tbaa !101
   tail call void %164(ptr noundef %165) #8
   store ptr null, ptr %6, align 8, !tbaa !101
-  %.pr.i144 = load i32, ptr %15, align 4, !tbaa !103
+  %.pr.i144 = load i32, ptr %15, align 8, !tbaa !103
   br label %166
 
 166:                                              ; preds = %163, %process_zlib_error.exit140
@@ -1587,7 +1587,7 @@ define internal void @gzip_do_close(ptr noundef %0, ptr noundef %1) #0 {
   %9 = load ptr, ptr %3, align 8, !tbaa !101
   tail call void %8(ptr noundef %9) #8
   store ptr null, ptr %3, align 8, !tbaa !101
-  %.pr.i = load i32, ptr %4, align 4, !tbaa !103
+  %.pr.i = load i32, ptr %4, align 8, !tbaa !103
   br label %10
 
 10:                                               ; preds = %7, %2

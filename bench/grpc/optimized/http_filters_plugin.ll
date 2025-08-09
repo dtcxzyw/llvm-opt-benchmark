@@ -510,7 +510,7 @@ _ZN9grpc_core17UniqueTypeNameForINS_16HttpClientFilterEEENS_14UniqueTypeNameEv.e
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i64 12, ptr %72, align 8, !tbaa !10
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 28
-  store i8 0, ptr %73, align 1, !tbaa !13
+  store i8 0, ptr %73, align 4, !tbaa !13
   store ptr %69, ptr @_ZZN9grpc_core17UniqueTypeNameForINS_23ClientMessageSizeFilterEEENS_14UniqueTypeNameEvE7factory, align 8, !tbaa !14
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core17UniqueTypeNameForINS_23ClientMessageSizeFilterEEENS_14UniqueTypeNameEvE7factory) #27
   br label %_ZN9grpc_core17UniqueTypeNameForINS_23ClientMessageSizeFilterEEENS_14UniqueTypeNameEv.exit.i
@@ -653,7 +653,7 @@ _ZN9grpc_core17UniqueTypeNameForINS_16HttpClientFilterEEENS_14UniqueTypeNameEv.e
   %132 = getelementptr inbounds nuw i8, ptr %129, i64 8
   store i64 12, ptr %132, align 8, !tbaa !10
   %133 = getelementptr inbounds nuw i8, ptr %129, i64 28
-  store i8 0, ptr %133, align 1, !tbaa !13
+  store i8 0, ptr %133, align 4, !tbaa !13
   store ptr %129, ptr @_ZZN9grpc_core17UniqueTypeNameForINS_23ClientMessageSizeFilterEEENS_14UniqueTypeNameEvE7factory, align 8, !tbaa !14
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core17UniqueTypeNameForINS_23ClientMessageSizeFilterEEENS_14UniqueTypeNameEvE7factory) #27
   br label %_ZN9grpc_core17UniqueTypeNameForINS_23ClientMessageSizeFilterEEENS_14UniqueTypeNameEv.exit.i21
@@ -796,7 +796,7 @@ _ZN9grpc_core17UniqueTypeNameForINS_16HttpServerFilterEEENS_14UniqueTypeNameEv.e
   %192 = getelementptr inbounds nuw i8, ptr %189, i64 8
   store i64 12, ptr %192, align 8, !tbaa !10
   %193 = getelementptr inbounds nuw i8, ptr %189, i64 28
-  store i8 0, ptr %193, align 1, !tbaa !13
+  store i8 0, ptr %193, align 4, !tbaa !13
   store ptr %189, ptr @_ZZN9grpc_core17UniqueTypeNameForINS_23ServerMessageSizeFilterEEENS_14UniqueTypeNameEvE7factory, align 8, !tbaa !14
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core17UniqueTypeNameForINS_23ServerMessageSizeFilterEEENS_14UniqueTypeNameEvE7factory) #27
   br label %_ZN9grpc_core17UniqueTypeNameForINS_23ServerMessageSizeFilterEEENS_14UniqueTypeNameEv.exit.i
@@ -894,7 +894,7 @@ _ZN9grpc_core11ChannelInit7Builder14RegisterFilterINS_16HttpClientFilterEEERNS0_
   %233 = getelementptr inbounds nuw i8, ptr %230, i64 8
   store i64 12, ptr %233, align 8, !tbaa !10
   %234 = getelementptr inbounds nuw i8, ptr %230, i64 28
-  store i8 0, ptr %234, align 1, !tbaa !13
+  store i8 0, ptr %234, align 4, !tbaa !13
   store ptr %230, ptr @_ZZN9grpc_core17UniqueTypeNameForINS_23ClientMessageSizeFilterEEENS_14UniqueTypeNameEvE7factory, align 8, !tbaa !14
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core17UniqueTypeNameForINS_23ClientMessageSizeFilterEEENS_14UniqueTypeNameEvE7factory) #27
   br label %_ZN9grpc_core17UniqueTypeNameForINS_23ClientMessageSizeFilterEEENS_14UniqueTypeNameEv.exit.i37
@@ -992,7 +992,7 @@ _ZN9grpc_core11ChannelInit7Builder14RegisterFilterINS_16HttpClientFilterEEERNS0_
   %274 = getelementptr inbounds nuw i8, ptr %271, i64 8
   store i64 12, ptr %274, align 8, !tbaa !10
   %275 = getelementptr inbounds nuw i8, ptr %271, i64 28
-  store i8 0, ptr %275, align 1, !tbaa !13
+  store i8 0, ptr %275, align 4, !tbaa !13
   store ptr %271, ptr @_ZZN9grpc_core17UniqueTypeNameForINS_23ClientMessageSizeFilterEEENS_14UniqueTypeNameEvE7factory, align 8, !tbaa !14
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core17UniqueTypeNameForINS_23ClientMessageSizeFilterEEENS_14UniqueTypeNameEvE7factory) #27
   br label %_ZN9grpc_core17UniqueTypeNameForINS_23ClientMessageSizeFilterEEENS_14UniqueTypeNameEv.exit.i46
@@ -1090,7 +1090,7 @@ _ZN9grpc_core11ChannelInit7Builder14RegisterFilterINS_16HttpServerFilterEEERNS0_
   %315 = getelementptr inbounds nuw i8, ptr %312, i64 8
   store i64 12, ptr %315, align 8, !tbaa !10
   %316 = getelementptr inbounds nuw i8, ptr %312, i64 28
-  store i8 0, ptr %316, align 1, !tbaa !13
+  store i8 0, ptr %316, align 4, !tbaa !13
   store ptr %312, ptr @_ZZN9grpc_core17UniqueTypeNameForINS_23ServerMessageSizeFilterEEENS_14UniqueTypeNameEvE7factory, align 8, !tbaa !14
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core17UniqueTypeNameForINS_23ServerMessageSizeFilterEEENS_14UniqueTypeNameEvE7factory) #27
   br label %_ZN9grpc_core17UniqueTypeNameForINS_23ServerMessageSizeFilterEEENS_14UniqueTypeNameEv.exit.i54
@@ -2540,7 +2540,7 @@ define linkonce_odr void @_ZZN9grpc_core14filters_detail9AddOpImplINS_23ClientCo
   %12 = load ptr, ptr %11, align 8, !tbaa !155
   tail call void @_ZN9grpc_core23ClientCompressionFilter4Call23OnClientInitialMetadataER19grpc_metadata_batchPS0_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(600) %12, ptr noundef %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %13 = load i8, ptr %5, align 1, !tbaa !157
+  %13 = load i8, ptr %5, align 8, !tbaa !157
   store i8 %13, ptr %9, align 8, !tbaa !157
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %15 = load i64, ptr %11, align 8, !tbaa !155
@@ -3305,7 +3305,7 @@ define linkonce_odr void @_ZZN9grpc_core14filters_detail9AddOpImplINS_23ClientCo
   %12 = load ptr, ptr %11, align 8, !tbaa !155
   tail call void @_ZN9grpc_core23ClientCompressionFilter4Call23OnServerInitialMetadataER19grpc_metadata_batchPS0_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(600) %12, ptr noundef %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %13 = load i8, ptr %5, align 1, !tbaa !157
+  %13 = load i8, ptr %5, align 8, !tbaa !157
   store i8 %13, ptr %9, align 8, !tbaa !157
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %15 = load i64, ptr %11, align 8, !tbaa !155
@@ -4699,7 +4699,7 @@ define linkonce_odr void @_ZZN9grpc_core14filters_detail9AddOpImplINS_23ServerCo
   %12 = load ptr, ptr %11, align 8, !tbaa !155
   tail call void @_ZN9grpc_core23ServerCompressionFilter4Call23OnClientInitialMetadataER19grpc_metadata_batchPS0_(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(600) %12, ptr noundef %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %13 = load i8, ptr %5, align 1, !tbaa !157
+  %13 = load i8, ptr %5, align 8, !tbaa !157
   store i8 %13, ptr %9, align 8, !tbaa !157
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %15 = load i64, ptr %11, align 8, !tbaa !155
@@ -4771,7 +4771,7 @@ define linkonce_odr void @_ZZN9grpc_core14filters_detail9AddOpImplINS_23ServerCo
   %12 = load ptr, ptr %11, align 8, !tbaa !155
   tail call void @_ZN9grpc_core23ServerCompressionFilter4Call23OnServerInitialMetadataER19grpc_metadata_batchPS0_(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(600) %12, ptr noundef %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %13 = load i8, ptr %5, align 1, !tbaa !157
+  %13 = load i8, ptr %5, align 8, !tbaa !157
   store i8 %13, ptr %9, align 8, !tbaa !157
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %15 = load i64, ptr %11, align 8, !tbaa !155
@@ -5870,7 +5870,7 @@ define linkonce_odr void @_ZZN9grpc_core14filters_detail9AddOpImplINS_16HttpClie
   %12 = load ptr, ptr %11, align 8, !tbaa !155
   tail call void @_ZN9grpc_core16HttpClientFilter4Call23OnClientInitialMetadataER19grpc_metadata_batchPS0_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(600) %12, ptr noundef %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %13 = load i8, ptr %5, align 1, !tbaa !157
+  %13 = load i8, ptr %5, align 8, !tbaa !157
   store i8 %13, ptr %9, align 8, !tbaa !157
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %15 = load i64, ptr %11, align 8, !tbaa !155
@@ -6910,7 +6910,7 @@ define linkonce_odr void @_ZZN9grpc_core14filters_detail9AddOpImplINS_16HttpServ
   %12 = load ptr, ptr %11, align 8, !tbaa !155
   tail call void @_ZN9grpc_core16HttpServerFilter4Call23OnServerInitialMetadataER19grpc_metadata_batch(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(600) %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %13 = load i8, ptr %5, align 1, !tbaa !157
+  %13 = load i8, ptr %5, align 8, !tbaa !157
   store i8 %13, ptr %9, align 8, !tbaa !157
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %15 = load i64, ptr %11, align 8, !tbaa !155
@@ -6973,7 +6973,7 @@ define linkonce_odr void @_ZZN9grpc_core14filters_detail25AddServerTrailingMetad
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !155, !noalias !203
   tail call void @_ZN9grpc_core16HttpServerFilter4Call24OnServerTrailingMetadataER19grpc_metadata_batch(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(600) %6), !noalias !203
-  %7 = load i8, ptr %3, align 1, !tbaa !157, !noalias !203
+  %7 = load i8, ptr %3, align 8, !tbaa !157, !noalias !203
   store i8 %7, ptr %0, align 8, !tbaa !157, !alias.scope !203
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %5, align 8, !tbaa !155, !noalias !203

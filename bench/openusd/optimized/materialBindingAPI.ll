@@ -3593,7 +3593,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipESaIS1_EE9push_
   store ptr null, ptr %74, align 8
   %112 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %113 = load i32, ptr %77, align 8
-  store i32 %113, ptr %112, align 4
+  store i32 %113, ptr %112, align 8
   store i32 0, ptr %77, align 8
   %114 = getelementptr inbounds nuw i8, ptr %107, i64 20
   %115 = load i32, ptr %78, align 4
@@ -5302,9 +5302,9 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__26UsdShadeMaterialBinding
   store ptr null, ptr %34, align 8, !alias.scope !17, !noalias !14
   %36 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %37 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
-  %38 = load i32, ptr %37, align 4, !alias.scope !17, !noalias !14
-  store i32 %38, ptr %36, align 4, !alias.scope !14, !noalias !17
-  store i32 0, ptr %37, align 4, !alias.scope !17, !noalias !14
+  %38 = load i32, ptr %37, align 8, !alias.scope !17, !noalias !14
+  store i32 %38, ptr %36, align 8, !alias.scope !14, !noalias !17
+  store i32 0, ptr %37, align 8, !alias.scope !17, !noalias !14
   %39 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 36
   %40 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 36
   %41 = load i32, ptr %40, align 4, !alias.scope !17, !noalias !14
@@ -13292,7 +13292,7 @@ _ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__26UsdShadeMaterialBind
 
 _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26UsdShadeMaterialBindingAPI14BindingsAtPrimESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__26UsdShadeMaterialBindingAPI14BindingsAtPrimEEclEPS2_.exit.i.i.i.i.i.i.i, %641
   store ptr null, ptr %646, align 8, !noalias !62
-  %648 = load i32, ptr %645, align 4, !noalias !62
+  %648 = load i32, ptr %645, align 8, !noalias !62
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %648, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt10unique_ptrINS4_26UsdShadeMaterialBindingAPI14BindingsAtPrimESt14default_deleteIS8_EENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_SB_EEELb0EEEE12destroy_nodeEPNS1_9list_nodeImEE.exit.i, label %649
 
@@ -15077,7 +15077,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__29Usd_CollectionMembershipQueryINS_38UsdObj
 
 _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__29Usd_CollectionMembershipQueryINS0_38UsdObjectCollectionExpressionEvaluatorEEESt14default_deleteIS3_EED2Ev.exit.i.i.i.i.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__29Usd_CollectionMembershipQueryINS_38UsdObjectCollectionExpressionEvaluatorEED2Ev.exit546, %1306
   store ptr null, ptr %1311, align 8, !noalias !73
-  %1492 = load i32, ptr %1310, align 4, !noalias !73
+  %1492 = load i32, ptr %1310, align 8, !noalias !73
   %.not.i.i.i.i.i.i.i.i423 = icmp eq i32 %1492, 0
   br i1 %.not.i.i.i.i.i.i.i.i423, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt10unique_ptrINS4_29Usd_CollectionMembershipQueryINS4_38UsdObjectCollectionExpressionEvaluatorEEESt14default_deleteIS9_EENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_SC_EEELb0EEEE12destroy_nodeEPNS1_9list_nodeImEE.exit.i, label %1493
 
@@ -20509,7 +20509,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7Sdf
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 8
   %.not.i.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS1_E.exit, label %9
 
@@ -20957,7 +20957,7 @@ _ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__29Usd_CollectionMember
 
 _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__29Usd_CollectionMembershipQueryINS0_38UsdObjectCollectionExpressionEvaluatorEEESt14default_deleteIS3_EED2Ev.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__29Usd_CollectionMembershipQueryINS0_38UsdObjectCollectionExpressionEvaluatorEEEEclEPS3_.exit.i.i.i.i.i.i, %9
   store ptr null, ptr %11, align 8
-  %13 = load i32, ptr %10, align 4
+  %13 = load i32, ptr %10, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %13, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt10unique_ptrINS4_29Usd_CollectionMembershipQueryINS4_38UsdObjectCollectionExpressionEvaluatorEEESt14default_deleteIS9_EENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_SC_EEELb0EEEE12destroy_nodeEPNS1_9list_nodeImEE.exit, label %14
 
@@ -21194,7 +21194,7 @@ _ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__26UsdShadeMaterialBind
 
 _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26UsdShadeMaterialBindingAPI14BindingsAtPrimESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__26UsdShadeMaterialBindingAPI14BindingsAtPrimEEclEPS2_.exit.i.i.i.i.i.i, %9
   store ptr null, ptr %11, align 8
-  %13 = load i32, ptr %10, align 4
+  %13 = load i32, ptr %10, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %13, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt10unique_ptrINS4_26UsdShadeMaterialBindingAPI14BindingsAtPrimESt14default_deleteIS8_EENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_SB_EEELb0EEEE12destroy_nodeEPNS1_9list_nodeImEE.exit, label %14
 
@@ -22589,7 +22589,7 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipESaIS1_EE12_M_
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %28 = load i32, ptr %27, align 8
-  store i32 %28, ptr %26, align 4
+  store i32 %28, ptr %26, align 8
   store i32 0, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 20
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -22618,9 +22618,9 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipESaIS1_EE12_M_
   store ptr null, ptr %37, align 8, !alias.scope !108, !noalias !105
   %39 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
-  %41 = load i32, ptr %40, align 4, !alias.scope !108, !noalias !105
-  store i32 %41, ptr %39, align 4, !alias.scope !105, !noalias !108
-  store i32 0, ptr %40, align 4, !alias.scope !108, !noalias !105
+  %41 = load i32, ptr %40, align 8, !alias.scope !108, !noalias !105
+  store i32 %41, ptr %39, align 8, !alias.scope !105, !noalias !108
+  store i32 0, ptr %40, align 8, !alias.scope !108, !noalias !105
   %42 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 20
   %43 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 20
   %44 = load i32, ptr %43, align 4, !alias.scope !108, !noalias !105
@@ -22656,9 +22656,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipESaIS1_EE11_S_r
   store ptr null, ptr %53, align 8, !alias.scope !114, !noalias !111
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 16
   %56 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 16
-  %57 = load i32, ptr %56, align 4, !alias.scope !114, !noalias !111
-  store i32 %57, ptr %55, align 4, !alias.scope !111, !noalias !114
-  store i32 0, ptr %56, align 4, !alias.scope !114, !noalias !111
+  %57 = load i32, ptr %56, align 8, !alias.scope !114, !noalias !111
+  store i32 %57, ptr %55, align 8, !alias.scope !111, !noalias !114
+  store i32 0, ptr %56, align 8, !alias.scope !114, !noalias !111
   %58 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 20
   %59 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 20
   %60 = load i32, ptr %59, align 4, !alias.scope !114, !noalias !111
@@ -23096,9 +23096,9 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__26UsdShadeMaterial
   store ptr null, ptr %36, align 8, !alias.scope !119, !noalias !116
   %38 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %39 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
-  %40 = load i32, ptr %39, align 4, !alias.scope !119, !noalias !116
-  store i32 %40, ptr %38, align 4, !alias.scope !116, !noalias !119
-  store i32 0, ptr %39, align 4, !alias.scope !119, !noalias !116
+  %40 = load i32, ptr %39, align 8, !alias.scope !119, !noalias !116
+  store i32 %40, ptr %38, align 8, !alias.scope !116, !noalias !119
+  store i32 0, ptr %39, align 8, !alias.scope !119, !noalias !116
   %41 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 36
   %42 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 36
   %43 = load i32, ptr %42, align 4, !alias.scope !119, !noalias !116
@@ -23155,9 +23155,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26UsdShadeMaterialBindingAPI17Co
   store ptr null, ptr %64, align 8, !alias.scope !124, !noalias !121
   %66 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
-  %68 = load i32, ptr %67, align 4, !alias.scope !124, !noalias !121
-  store i32 %68, ptr %66, align 4, !alias.scope !121, !noalias !124
-  store i32 0, ptr %67, align 4, !alias.scope !124, !noalias !121
+  %68 = load i32, ptr %67, align 8, !alias.scope !124, !noalias !121
+  store i32 %68, ptr %66, align 8, !alias.scope !121, !noalias !124
+  store i32 0, ptr %67, align 8, !alias.scope !124, !noalias !121
   %69 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 36
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 36
   %71 = load i32, ptr %70, align 4, !alias.scope !124, !noalias !121
@@ -23293,9 +23293,9 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__26UsdShadeMaterial
   store ptr null, ptr %36, align 8, !alias.scope !129, !noalias !126
   %38 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %39 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
-  %40 = load i32, ptr %39, align 4, !alias.scope !129, !noalias !126
-  store i32 %40, ptr %38, align 4, !alias.scope !126, !noalias !129
-  store i32 0, ptr %39, align 4, !alias.scope !129, !noalias !126
+  %40 = load i32, ptr %39, align 8, !alias.scope !129, !noalias !126
+  store i32 %40, ptr %38, align 8, !alias.scope !126, !noalias !129
+  store i32 0, ptr %39, align 8, !alias.scope !129, !noalias !126
   %41 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 36
   %42 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 36
   %43 = load i32, ptr %42, align 4, !alias.scope !129, !noalias !126
@@ -23352,9 +23352,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26UsdShadeMaterialBindingAPI17Co
   store ptr null, ptr %64, align 8, !alias.scope !134, !noalias !131
   %66 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
-  %68 = load i32, ptr %67, align 4, !alias.scope !134, !noalias !131
-  store i32 %68, ptr %66, align 4, !alias.scope !131, !noalias !134
-  store i32 0, ptr %67, align 4, !alias.scope !134, !noalias !131
+  %68 = load i32, ptr %67, align 8, !alias.scope !134, !noalias !131
+  store i32 %68, ptr %66, align 8, !alias.scope !131, !noalias !134
+  store i32 0, ptr %67, align 8, !alias.scope !134, !noalias !131
   %69 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 36
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 36
   %71 = load i32, ptr %70, align 4, !alias.scope !134, !noalias !131
@@ -24008,9 +24008,9 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__11UsdPropertyEEE9c
   store ptr null, ptr %58, align 8, !alias.scope !142, !noalias !139
   %60 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %61 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
-  %62 = load i32, ptr %61, align 4, !alias.scope !142, !noalias !139
-  store i32 %62, ptr %60, align 4, !alias.scope !139, !noalias !142
-  store i32 0, ptr %61, align 4, !alias.scope !142, !noalias !139
+  %62 = load i32, ptr %61, align 8, !alias.scope !142, !noalias !139
+  store i32 %62, ptr %60, align 8, !alias.scope !139, !noalias !142
+  store i32 0, ptr %61, align 8, !alias.scope !142, !noalias !139
   %63 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 20
   %64 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 20
   %65 = load i32, ptr %64, align 4, !alias.scope !142, !noalias !139
@@ -24046,9 +24046,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__11UsdPropertyESaIS1_EE11_S_reloc
   store ptr null, ptr %74, align 8, !alias.scope !148, !noalias !145
   %76 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 16
   %77 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 16
-  %78 = load i32, ptr %77, align 4, !alias.scope !148, !noalias !145
-  store i32 %78, ptr %76, align 4, !alias.scope !145, !noalias !148
-  store i32 0, ptr %77, align 4, !alias.scope !148, !noalias !145
+  %78 = load i32, ptr %77, align 8, !alias.scope !148, !noalias !145
+  store i32 %78, ptr %76, align 8, !alias.scope !145, !noalias !148
+  store i32 0, ptr %77, align 8, !alias.scope !148, !noalias !145
   %79 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 20
   %80 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 20
   %81 = load i32, ptr %80, align 4, !alias.scope !148, !noalias !145
@@ -24841,7 +24841,7 @@ _ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__26UsdShadeMaterialBind
 
 _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26UsdShadeMaterialBindingAPI14BindingsAtPrimESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__26UsdShadeMaterialBindingAPI14BindingsAtPrimEEclEPS2_.exit.i.i.i.i.i.i, %22
   store ptr null, ptr %24, align 8
-  %26 = load i32, ptr %23, align 4
+  %26 = load i32, ptr %23, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %26, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt10unique_ptrINS4_26UsdShadeMaterialBindingAPI14BindingsAtPrimESt14default_deleteIS8_EENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_SB_EEELb0EEEE12destroy_nodeEPNS1_9list_nodeImEE.exit, label %27
 
@@ -25576,7 +25576,7 @@ _ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__29Usd_CollectionMember
 
 _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__29Usd_CollectionMembershipQueryINS0_38UsdObjectCollectionExpressionEvaluatorEEESt14default_deleteIS3_EED2Ev.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__29Usd_CollectionMembershipQueryINS0_38UsdObjectCollectionExpressionEvaluatorEEEEclEPS3_.exit.i.i.i.i.i.i, %22
   store ptr null, ptr %24, align 8
-  %26 = load i32, ptr %23, align 4
+  %26 = load i32, ptr %23, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %26, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt10unique_ptrINS4_29Usd_CollectionMembershipQueryINS4_38UsdObjectCollectionExpressionEvaluatorEEESt14default_deleteIS9_EENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_SC_EEELb0EEEE12destroy_nodeEPNS1_9list_nodeImEE.exit, label %27
 
@@ -26316,9 +26316,9 @@ _ZSt27__uninitialized_default_n_aIPN32pxrInternal_v0_24__pxrReserved__15UsdRelat
   store ptr null, ptr %35, align 8, !alias.scope !173, !noalias !170
   %37 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
-  %39 = load i32, ptr %38, align 4, !alias.scope !173, !noalias !170
-  store i32 %39, ptr %37, align 4, !alias.scope !170, !noalias !173
-  store i32 0, ptr %38, align 4, !alias.scope !173, !noalias !170
+  %39 = load i32, ptr %38, align 8, !alias.scope !173, !noalias !170
+  store i32 %39, ptr %37, align 8, !alias.scope !170, !noalias !173
+  store i32 0, ptr %38, align 8, !alias.scope !173, !noalias !170
   %40 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 20
   %41 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 20
   %42 = load i32, ptr %41, align 4, !alias.scope !173, !noalias !170
@@ -26495,7 +26495,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZNS5_26UsdShadeMaterialBindingAPI21ComputeBoundMaterialsERKSt6vectorINS5_7UsdPrimESaIS9_EERKNS5_7TfTokenEPS8_INS5_15UsdRelationshipESaISH_EEbE3$_0EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEEE", i64 16), ptr %51, align 64
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64
-  store i64 %54, ptr %53, align 8
+  store i64 %54, ptr %53, align 64
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8
   %57 = sub i64 %54, %56
@@ -26505,7 +26505,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16
-  store i64 %61, ptr %60, align 8
+  store i64 %61, ptr %60, align 16
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   %63 = load i64, ptr %49, align 8
   store i64 %63, ptr %62, align 8
@@ -26515,7 +26515,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %66, ptr %13, align 8
   store i64 %66, ptr %64, align 8
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 112
-  store i32 2, ptr %67, align 8
+  store i32 2, ptr %67, align 16
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 116
   %69 = load i8, ptr %48, align 4
   store i8 %69, ptr %68, align 4
@@ -26526,12 +26526,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 32
   store ptr %73, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4
+  store i32 2, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8
   store i64 %76, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1
+  store i8 0, ptr %77, align 8
   store ptr %72, ptr %50, align 32
   %78 = getelementptr inbounds nuw i8, ptr %51, i64 96
   store ptr %72, ptr %78, align 32
@@ -26721,7 +26721,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   store i64 %166, ptr %13, align 8
   store i64 %166, ptr %164, align 8
   %167 = getelementptr inbounds nuw i8, ptr %158, i64 112
-  store i32 2, ptr %167, align 8
+  store i32 2, ptr %167, align 16
   %168 = getelementptr inbounds nuw i8, ptr %158, i64 116
   %169 = load i8, ptr %97, align 4
   %170 = getelementptr inbounds nuw i8, ptr %158, i64 120
@@ -26733,12 +26733,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %174 = load ptr, ptr %106, align 32
   store ptr %174, ptr %173, align 8
   %175 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  store i32 2, ptr %175, align 4
+  store i32 2, ptr %175, align 8
   %176 = getelementptr inbounds nuw i8, ptr %173, i64 16
   %177 = load i64, ptr %3, align 8
   store i64 %177, ptr %176, align 8
   %178 = getelementptr inbounds nuw i8, ptr %173, i64 24
-  store i8 0, ptr %178, align 1
+  store i8 0, ptr %178, align 8
   store ptr %173, ptr %106, align 32
   %179 = getelementptr inbounds nuw i8, ptr %158, i64 96
   store ptr %173, ptr %179, align 32

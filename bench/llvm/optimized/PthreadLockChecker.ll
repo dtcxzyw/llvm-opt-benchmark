@@ -9509,7 +9509,7 @@ _ZN5clang4ento7BugTypeC2ENS0_14CheckerNameRefEN4llvm9StringRefES4_b.exit24: ; pr
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store i64 14, ptr %34, align 8, !tbaa !55
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 54
-  store i8 0, ptr %35, align 1, !tbaa !56
+  store i8 0, ptr %35, align 2, !tbaa !56
   %36 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 72
   store ptr %37, ptr %36, align 8, !tbaa !51
@@ -9517,7 +9517,7 @@ _ZN5clang4ento7BugTypeC2ENS0_14CheckerNameRefEN4llvm9StringRefES4_b.exit24: ; pr
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 64
   store i64 12, ptr %38, align 8, !tbaa !55
   %39 = getelementptr inbounds nuw i8, ptr %28, i64 84
-  store i8 0, ptr %39, align 1, !tbaa !56
+  store i8 0, ptr %39, align 4, !tbaa !56
   %40 = getelementptr inbounds nuw i8, ptr %28, i64 88
   store ptr null, ptr %40, align 8, !tbaa !225
   %41 = getelementptr inbounds nuw i8, ptr %28, i64 96
@@ -9554,7 +9554,7 @@ _ZN5clang4ento7BugTypeC2ENS0_14CheckerNameRefEN4llvm9StringRefES4_b.exit24: ; pr
   %55 = getelementptr inbounds nuw i8, ptr %44, i64 64
   store i64 12, ptr %55, align 8, !tbaa !55
   %56 = getelementptr inbounds nuw i8, ptr %44, i64 84
-  store i8 0, ptr %56, align 1, !tbaa !56
+  store i8 0, ptr %56, align 4, !tbaa !56
   %57 = getelementptr inbounds nuw i8, ptr %44, i64 88
   store ptr null, ptr %57, align 8, !tbaa !225
   %58 = getelementptr inbounds nuw i8, ptr %44, i64 96
@@ -9605,7 +9605,7 @@ _ZN5clang4ento7BugTypeC2ENS0_14CheckerNameRefEN4llvm9StringRefES4_b.exit20: ; pr
   %76 = getelementptr inbounds nuw i8, ptr %65, i64 64
   store i64 12, ptr %76, align 8, !tbaa !55
   %77 = getelementptr inbounds nuw i8, ptr %65, i64 84
-  store i8 0, ptr %77, align 1, !tbaa !56
+  store i8 0, ptr %77, align 4, !tbaa !56
   %78 = getelementptr inbounds nuw i8, ptr %65, i64 88
   store ptr null, ptr %78, align 8, !tbaa !225
   %79 = getelementptr inbounds nuw i8, ptr %65, i64 96
@@ -9656,7 +9656,7 @@ _ZN5clang4ento7BugTypeC2ENS0_14CheckerNameRefEN4llvm9StringRefES4_b.exit16: ; pr
   %97 = getelementptr inbounds nuw i8, ptr %86, i64 64
   store i64 12, ptr %97, align 8, !tbaa !55
   %98 = getelementptr inbounds nuw i8, ptr %86, i64 84
-  store i8 0, ptr %98, align 1, !tbaa !56
+  store i8 0, ptr %98, align 4, !tbaa !56
   %99 = getelementptr inbounds nuw i8, ptr %86, i64 88
   store ptr null, ptr %99, align 8, !tbaa !225
   %100 = getelementptr inbounds nuw i8, ptr %86, i64 96
@@ -9707,7 +9707,7 @@ _ZN5clang4ento7BugTypeC2ENS0_14CheckerNameRefEN4llvm9StringRefES4_b.exit: ; pred
   %118 = getelementptr inbounds nuw i8, ptr %107, i64 64
   store i64 12, ptr %118, align 8, !tbaa !55
   %119 = getelementptr inbounds nuw i8, ptr %107, i64 84
-  store i8 0, ptr %119, align 1, !tbaa !56
+  store i8 0, ptr %119, align 4, !tbaa !56
   %120 = getelementptr inbounds nuw i8, ptr %107, i64 88
   store ptr null, ptr %120, align 8, !tbaa !225
   %121 = getelementptr inbounds nuw i8, ptr %107, i64 96
@@ -11345,11 +11345,11 @@ _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRe
   %50 = getelementptr i8, ptr %44, i64 48
   %.val18.i = load ptr, ptr %50, align 8, !tbaa !111
   %51 = getelementptr i8, ptr %44, i64 56
-  %.val19.i = load i32, ptr %51, align 4
+  %.val19.i = load i32, ptr %51, align 8
   %52 = getelementptr i8, ptr %49, i64 48
   %.val20.i = load ptr, ptr %52, align 8, !tbaa !111
   %53 = getelementptr i8, ptr %49, i64 56
-  %.val21.i = load i32, ptr %53, align 4
+  %.val21.i = load i32, ptr %53, align 8
   %54 = icmp eq ptr %.val18.i, %.val20.i
   %55 = icmp eq i32 %.val19.i, %.val21.i
   %spec.select.i.i.i = select i1 %54, i1 %55, i1 false

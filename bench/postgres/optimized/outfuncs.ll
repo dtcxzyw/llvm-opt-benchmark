@@ -2038,7 +2038,7 @@ switch.lookup:                                    ; preds = %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
   %15 = load ptr, ptr %13, align 8
   %16 = getelementptr inbounds nuw %union.ListCell, ptr %15, i64 %indvars.iv
-  %17 = load i32, ptr %1, align 4
+  %17 = load i32, ptr %1, align 8
   switch i32 %17, label %30 [
     i32 1, label %18
     i32 470, label %24

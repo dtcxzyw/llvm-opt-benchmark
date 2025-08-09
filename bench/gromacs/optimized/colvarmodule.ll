@@ -24687,7 +24687,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !tbaa !60, !alias.scope !467, !noalias !470
   store ptr %43, ptr %.0911.i.i.i, align 8, !tbaa !74, !alias.scope !470, !noalias !467
   store i64 0, ptr %52, align 8, !tbaa !60, !alias.scope !470, !noalias !467
-  store i8 0, ptr %43, align 1, !tbaa !61, !alias.scope !470, !noalias !467
+  store i8 0, ptr %43, align 8, !tbaa !61, !alias.scope !470, !noalias !467
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %54, %1
@@ -24735,7 +24735,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !tbaa !60, !alias.scope !474, !noalias !477
   store ptr %59, ptr %.0911.i.i.i29, align 8, !tbaa !74, !alias.scope !477, !noalias !474
   store i64 0, ptr %68, align 8, !tbaa !60, !alias.scope !477, !noalias !474
-  store i8 0, ptr %59, align 1, !tbaa !61, !alias.scope !477, !noalias !474
+  store i8 0, ptr %59, align 8, !tbaa !61, !alias.scope !477, !noalias !474
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %.not.i.i.i34 = icmp eq ptr %70, %6
@@ -28774,7 +28774,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN12colvarmodule16write_
   %9 = load i32, ptr %8, align 8, !tbaa !610
   %10 = and i32 %9, -261
   %11 = or disjoint i32 %10, 256
-  store i32 %11, ptr %8, align 4, !tbaa !611
+  store i32 %11, ptr %8, align 8, !tbaa !611
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.173, i64 noundef 2)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -28938,7 +28938,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN12colvarmodule10write_
   %8 = load i32, ptr %7, align 8, !tbaa !610
   %9 = and i32 %8, -261
   %10 = or disjoint i32 %9, 256
-  store i32 %10, ptr %7, align 4, !tbaa !611
+  store i32 %10, ptr %7, align 8, !tbaa !611
   %11 = load i64, ptr %4, align 8
   %12 = getelementptr inbounds i8, ptr %1, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -42645,7 +42645,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN12colvarm
   %12 = load i32, ptr %11, align 8, !tbaa !610
   %13 = and i32 %12, -261
   %14 = or disjoint i32 %13, 256
-  store i32 %14, ptr %11, align 4, !tbaa !611
+  store i32 %14, ptr %11, align 8, !tbaa !611
   %15 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.167, i64 noundef 7)
           to label %16 unwind label %56
 
@@ -43061,7 +43061,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(72) ptr @_ZN12colvar
   %12 = load i32, ptr %11, align 8, !tbaa !610
   %13 = and i32 %12, -261
   %14 = or disjoint i32 %13, 256
-  store i32 %14, ptr %11, align 4, !tbaa !611
+  store i32 %14, ptr %11, align 8, !tbaa !611
   %15 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.167, i64 noundef 7)
           to label %16 unwind label %56
 
@@ -44126,7 +44126,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !60, !alias.scope !866, !noalias !869
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !74, !alias.scope !869, !noalias !866
   store i64 0, ptr %48, align 8, !tbaa !60, !alias.scope !869, !noalias !866
-  store i8 0, ptr %39, align 1, !tbaa !61, !alias.scope !869, !noalias !866
+  store i8 0, ptr %39, align 8, !tbaa !61, !alias.scope !869, !noalias !866
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -44174,7 +44174,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !60, !alias.scope !872, !noalias !875
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !74, !alias.scope !875, !noalias !872
   store i64 0, ptr %64, align 8, !tbaa !60, !alias.scope !875, !noalias !872
-  store i8 0, ptr %55, align 1, !tbaa !61, !alias.scope !875, !noalias !872
+  store i8 0, ptr %55, align 8, !tbaa !61, !alias.scope !875, !noalias !872
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5
@@ -49322,7 +49322,7 @@ define linkonce_odr void @_Z7_to_strIiENSt7__cxx1112basic_stringIcSt11char_trait
   %19 = load i32, ptr %18, align 8, !tbaa !610
   %20 = and i32 %19, -261
   %21 = or disjoint i32 %20, 256
-  store i32 %21, ptr %18, align 4, !tbaa !611
+  store i32 %21, ptr %18, align 8, !tbaa !611
   %22 = load i64, ptr %15, align 8
   %23 = getelementptr inbounds i8, ptr %5, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -49468,7 +49468,7 @@ define linkonce_odr void @_Z7_to_strImENSt7__cxx1112basic_stringIcSt11char_trait
   %19 = load i32, ptr %18, align 8, !tbaa !610
   %20 = and i32 %19, -261
   %21 = or disjoint i32 %20, 256
-  store i32 %21, ptr %18, align 4, !tbaa !611
+  store i32 %21, ptr %18, align 8, !tbaa !611
   %22 = load i64, ptr %15, align 8
   %23 = getelementptr inbounds i8, ptr %5, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -49614,7 +49614,7 @@ define linkonce_odr void @_Z7_to_strIlENSt7__cxx1112basic_stringIcSt11char_trait
   %19 = load i32, ptr %18, align 8, !tbaa !610
   %20 = and i32 %19, -261
   %21 = or disjoint i32 %20, 256
-  store i32 %21, ptr %18, align 4, !tbaa !611
+  store i32 %21, ptr %18, align 8, !tbaa !611
   %22 = load i64, ptr %15, align 8
   %23 = getelementptr inbounds i8, ptr %5, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -49760,7 +49760,7 @@ define linkonce_odr void @_Z7_to_strIxENSt7__cxx1112basic_stringIcSt11char_trait
   %19 = load i32, ptr %18, align 8, !tbaa !610
   %20 = and i32 %19, -261
   %21 = or disjoint i32 %20, 256
-  store i32 %21, ptr %18, align 4, !tbaa !611
+  store i32 %21, ptr %18, align 8, !tbaa !611
   %22 = load i64, ptr %15, align 8
   %23 = getelementptr inbounds i8, ptr %5, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -49904,7 +49904,7 @@ define linkonce_odr void @_Z7_to_strIdENSt7__cxx1112basic_stringIcSt11char_trait
   %19 = load i32, ptr %18, align 8, !tbaa !610
   %20 = and i32 %19, -261
   %21 = or disjoint i32 %20, 256
-  store i32 %21, ptr %18, align 4, !tbaa !611
+  store i32 %21, ptr %18, align 8, !tbaa !611
   %22 = load i64, ptr %15, align 8
   %23 = getelementptr inbounds i8, ptr %5, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -50054,7 +50054,7 @@ define linkonce_odr void @_Z7_to_strIN12colvarmodule7rvectorEENSt7__cxx1112basic
   %19 = load i32, ptr %18, align 8, !tbaa !610
   %20 = and i32 %19, -261
   %21 = or disjoint i32 %20, 256
-  store i32 %21, ptr %18, align 4, !tbaa !611
+  store i32 %21, ptr %18, align 8, !tbaa !611
   %22 = load i64, ptr %15, align 8
   %23 = getelementptr inbounds i8, ptr %5, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -50205,7 +50205,7 @@ define linkonce_odr void @_Z7_to_strIN12colvarmodule10quaternionEENSt7__cxx1112b
   %19 = load i32, ptr %18, align 8, !tbaa !610
   %20 = and i32 %19, -261
   %21 = or disjoint i32 %20, 256
-  store i32 %21, ptr %18, align 4, !tbaa !611
+  store i32 %21, ptr %18, align 8, !tbaa !611
   %22 = load i64, ptr %15, align 8
   %23 = getelementptr inbounds i8, ptr %5, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -50356,7 +50356,7 @@ define linkonce_odr void @_Z7_to_strI11colvarvalueENSt7__cxx1112basic_stringIcSt
   %19 = load i32, ptr %18, align 8, !tbaa !610
   %20 = and i32 %19, -261
   %21 = or disjoint i32 %20, 256
-  store i32 %21, ptr %18, align 4, !tbaa !611
+  store i32 %21, ptr %18, align 8, !tbaa !611
   %22 = load i64, ptr %15, align 8
   %23 = getelementptr inbounds i8, ptr %5, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -50505,7 +50505,7 @@ define linkonce_odr void @_Z7_to_strIN12colvarmodule8vector1dIdEEENSt7__cxx1112b
   %19 = load i32, ptr %18, align 8, !tbaa !610
   %20 = and i32 %19, -261
   %21 = or disjoint i32 %20, 256
-  store i32 %21, ptr %18, align 4, !tbaa !611
+  store i32 %21, ptr %18, align 8, !tbaa !611
   %22 = load i64, ptr %15, align 8
   %23 = getelementptr inbounds i8, ptr %5, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -50723,7 +50723,7 @@ define linkonce_odr void @_Z7_to_strIN12colvarmodule8matrix2dIdEEENSt7__cxx1112b
   %19 = load i32, ptr %18, align 8, !tbaa !610
   %20 = and i32 %19, -261
   %21 = or disjoint i32 %20, 256
-  store i32 %21, ptr %18, align 4, !tbaa !611
+  store i32 %21, ptr %18, align 8, !tbaa !611
   %22 = load i64, ptr %15, align 8
   %23 = getelementptr inbounds i8, ptr %5, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -50956,7 +50956,7 @@ define linkonce_odr void @_Z14_to_str_vectorIiENSt7__cxx1112basic_stringIcSt11ch
   %18 = load i32, ptr %17, align 8, !tbaa !610
   %19 = and i32 %18, -261
   %20 = or disjoint i32 %19, 256
-  store i32 %20, ptr %17, align 4, !tbaa !611
+  store i32 %20, ptr %17, align 8, !tbaa !611
   br label %23
 
 21:                                               ; preds = %._crit_edge, %23, %38
@@ -51268,7 +51268,7 @@ define linkonce_odr void @_Z14_to_str_vectorImENSt7__cxx1112basic_stringIcSt11ch
   %18 = load i32, ptr %17, align 8, !tbaa !610
   %19 = and i32 %18, -261
   %20 = or disjoint i32 %19, 256
-  store i32 %20, ptr %17, align 4, !tbaa !611
+  store i32 %20, ptr %17, align 8, !tbaa !611
   br label %23
 
 21:                                               ; preds = %_ZNSolsEm.exit._crit_edge, %38, %23
@@ -51580,7 +51580,7 @@ define linkonce_odr void @_Z14_to_str_vectorIlENSt7__cxx1112basic_stringIcSt11ch
   %18 = load i32, ptr %17, align 8, !tbaa !610
   %19 = and i32 %18, -261
   %20 = or disjoint i32 %19, 256
-  store i32 %20, ptr %17, align 4, !tbaa !611
+  store i32 %20, ptr %17, align 8, !tbaa !611
   br label %23
 
 21:                                               ; preds = %_ZNSolsEl.exit._crit_edge, %38, %23
@@ -51892,7 +51892,7 @@ define linkonce_odr void @_Z14_to_str_vectorIdENSt7__cxx1112basic_stringIcSt11ch
   %18 = load i32, ptr %17, align 8, !tbaa !610
   %19 = and i32 %18, -261
   %20 = or disjoint i32 %19, 256
-  store i32 %20, ptr %17, align 4, !tbaa !611
+  store i32 %20, ptr %17, align 8, !tbaa !611
   br label %23
 
 21:                                               ; preds = %_ZNSolsEd.exit._crit_edge, %38, %23
@@ -52204,7 +52204,7 @@ define linkonce_odr void @_Z14_to_str_vectorIN12colvarmodule7rvectorEENSt7__cxx1
   %18 = load i32, ptr %17, align 8, !tbaa !610
   %19 = and i32 %18, -261
   %20 = or disjoint i32 %19, 256
-  store i32 %20, ptr %17, align 4, !tbaa !611
+  store i32 %20, ptr %17, align 8, !tbaa !611
   br label %23
 
 21:                                               ; preds = %._crit_edge, %23, %38
@@ -52513,7 +52513,7 @@ define linkonce_odr void @_Z14_to_str_vectorIN12colvarmodule10quaternionEENSt7__
   %18 = load i32, ptr %17, align 8, !tbaa !610
   %19 = and i32 %18, -261
   %20 = or disjoint i32 %19, 256
-  store i32 %20, ptr %17, align 4, !tbaa !611
+  store i32 %20, ptr %17, align 8, !tbaa !611
   br label %23
 
 21:                                               ; preds = %._crit_edge, %23, %38
@@ -52821,7 +52821,7 @@ define linkonce_odr void @_Z14_to_str_vectorI11colvarvalueENSt7__cxx1112basic_st
   %18 = load i32, ptr %17, align 8, !tbaa !610
   %19 = and i32 %18, -261
   %20 = or disjoint i32 %19, 256
-  store i32 %20, ptr %17, align 4, !tbaa !611
+  store i32 %20, ptr %17, align 8, !tbaa !611
   br label %23
 
 21:                                               ; preds = %._crit_edge, %23, %38
@@ -53124,7 +53124,7 @@ define linkonce_odr void @_Z14_to_str_vectorINSt7__cxx1112basic_stringIcSt11char
   %18 = load i32, ptr %17, align 8, !tbaa !610
   %19 = and i32 %18, -261
   %20 = or disjoint i32 %19, 256
-  store i32 %20, ptr %17, align 4, !tbaa !611
+  store i32 %20, ptr %17, align 8, !tbaa !611
   br label %23
 
 21:                                               ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit._crit_edge, %38, %23
@@ -72067,7 +72067,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8, !tbaa !60
   store ptr %13, ptr %10, align 8, !tbaa !74
   store i64 0, ptr %24, align 8, !tbaa !60
-  store i8 0, ptr %13, align 1, !tbaa !61
+  store i8 0, ptr %13, align 8, !tbaa !61
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i32 0, ptr %26, align 8, !tbaa !461
   store ptr %7, ptr %23, align 8, !tbaa !457
@@ -72199,13 +72199,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8, !tbaa !60
   store ptr %13, ptr %10, align 8, !tbaa !74
   store i64 0, ptr %24, align 8, !tbaa !60
-  store i8 0, ptr %13, align 1, !tbaa !61
+  store i8 0, ptr %13, align 8, !tbaa !61
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store ptr %27, ptr %26, align 8, !tbaa !59
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store i64 0, ptr %28, align 8, !tbaa !60
-  store i8 0, ptr %27, align 1, !tbaa !61
+  store i8 0, ptr %27, align 8, !tbaa !61
   store ptr %7, ptr %23, align 8, !tbaa !1169
   %29 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %30 unwind label %51
@@ -73189,7 +73189,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   store ptr %33, ptr %32, align 8, !tbaa !59
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i64 0, ptr %34, align 8, !tbaa !60
-  store i8 0, ptr %33, align 1, !tbaa !61
+  store i8 0, ptr %33, align 8, !tbaa !61
   ret void
 
 35:                                               ; preds = %25

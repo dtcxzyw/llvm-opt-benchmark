@@ -574,7 +574,7 @@ _ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_speci
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load i64, ptr %57, align 8, !tbaa !33
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %61 = load i32, ptr %60, align 4, !tbaa !9
+  %61 = load i32, ptr %60, align 8, !tbaa !9
   %62 = call noundef i32 @_ZN4llvm3pdb12hashStringV1ENS_9StringRefE(ptr nonnull %58, i64 %59) #13
   br label %.critedge31
 

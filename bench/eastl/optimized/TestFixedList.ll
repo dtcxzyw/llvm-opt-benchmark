@@ -3328,7 +3328,7 @@ invoke.cont221:                                   ; preds = %if.then4.i.i13.i.i.
   %result.0.i.i.i.i.i = phi ptr [ %183, %if.then.i.i7.i.i.i.i.i ], [ %185, %if.then4.i.i13.i.i.i.i.i ], [ %call1.i.i.i.i.i.i.i.i340, %if.else.i.i.i.i.i.i.i.i339 ]
   %mValue.i.i.i = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i, i64 64
   store i32 0, ptr %mValue.i.i.i, align 64
-  store ptr %fl, ptr %result.0.i.i.i.i.i, align 8
+  store ptr %fl, ptr %result.0.i.i.i.i.i, align 64
   %189 = load ptr, ptr %mpPrev.i.i.i.i335, align 8
   %mpPrev2.i.i.i = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i, i64 8
   store ptr %189, ptr %mpPrev2.i.i.i, align 8
@@ -3372,7 +3372,7 @@ invoke.cont222:                                   ; preds = %if.then4.i.i13.i.i.
   %result.0.i.i.i.i.i344 = phi ptr [ %191, %if.then.i.i7.i.i.i.i.i343 ], [ %193, %if.then4.i.i13.i.i.i.i.i354 ], [ %call1.i.i.i.i.i.i.i.i361, %if.else.i.i.i.i.i.i.i.i357 ]
   %mValue.i.i.i345 = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i344, i64 64
   store i32 0, ptr %mValue.i.i.i345, align 64
-  store ptr %fl, ptr %result.0.i.i.i.i.i344, align 8
+  store ptr %fl, ptr %result.0.i.i.i.i.i344, align 64
   %197 = load ptr, ptr %mpPrev.i.i.i.i335, align 8
   %mpPrev2.i.i.i347 = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i344, i64 8
   store ptr %197, ptr %mpPrev2.i.i.i347, align 8
@@ -3416,7 +3416,7 @@ invoke.cont223:                                   ; preds = %if.then4.i.i13.i.i.
   %result.0.i.i.i.i.i366 = phi ptr [ %199, %if.then.i.i7.i.i.i.i.i365 ], [ %201, %if.then4.i.i13.i.i.i.i.i376 ], [ %call1.i.i.i.i.i.i.i.i383, %if.else.i.i.i.i.i.i.i.i379 ]
   %mValue.i.i.i367 = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i366, i64 64
   store i32 0, ptr %mValue.i.i.i367, align 64
-  store ptr %fl, ptr %result.0.i.i.i.i.i366, align 8
+  store ptr %fl, ptr %result.0.i.i.i.i.i366, align 64
   %205 = load ptr, ptr %mpPrev.i.i.i.i335, align 8
   %mpPrev2.i.i.i369 = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i366, i64 8
   store ptr %205, ptr %mpPrev2.i.i.i369, align 8
@@ -3460,7 +3460,7 @@ invoke.cont224:                                   ; preds = %if.then4.i.i13.i.i.
   %result.0.i.i.i.i.i388 = phi ptr [ %207, %if.then.i.i7.i.i.i.i.i387 ], [ %209, %if.then4.i.i13.i.i.i.i.i398 ], [ %call1.i.i.i.i.i.i.i.i405, %if.else.i.i.i.i.i.i.i.i401 ]
   %mValue.i.i.i389 = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i388, i64 64
   store i32 0, ptr %mValue.i.i.i389, align 64
-  store ptr %fl, ptr %result.0.i.i.i.i.i388, align 8
+  store ptr %fl, ptr %result.0.i.i.i.i.i388, align 64
   %213 = load ptr, ptr %mpPrev.i.i.i.i335, align 8
   %mpPrev2.i.i.i391 = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i388, i64 8
   store ptr %213, ptr %mpPrev2.i.i.i391, align 8
@@ -3504,7 +3504,7 @@ invoke.cont225:                                   ; preds = %if.then4.i.i13.i.i.
   %result.0.i.i.i.i.i410 = phi ptr [ %215, %if.then.i.i7.i.i.i.i.i409 ], [ %217, %if.then4.i.i13.i.i.i.i.i420 ], [ %call1.i.i.i.i.i.i.i.i427, %if.else.i.i.i.i.i.i.i.i423 ]
   %mValue.i.i.i411 = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i410, i64 64
   store i32 0, ptr %mValue.i.i.i411, align 64
-  store ptr %fl, ptr %result.0.i.i.i.i.i410, align 8
+  store ptr %fl, ptr %result.0.i.i.i.i.i410, align 64
   %221 = load ptr, ptr %mpPrev.i.i.i.i335, align 8
   %mpPrev2.i.i.i413 = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i410, i64 8
   store ptr %221, ptr %mpPrev2.i.i.i413, align 8

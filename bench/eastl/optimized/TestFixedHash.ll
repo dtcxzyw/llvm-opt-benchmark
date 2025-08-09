@@ -99686,7 +99686,7 @@ _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8
   store i64 %inc5.i.i.i, ptr %mId.i.i.i, align 8
   %mpNext.i = getelementptr inbounds nuw i8, ptr %result.0.i.i, i64 32
   store ptr null, ptr %mpNext.i, align 8
-  %12 = load i32, ptr %result.0.i.i, align 4
+  %12 = load i32, ptr %result.0.i.i, align 8
   %conv.i.i = sext i32 %12 to i64
   %mnBucketCount = getelementptr inbounds nuw i8, ptr %this, i64 16
   %13 = load i64, ptr %mnBucketCount, align 8
@@ -99857,7 +99857,7 @@ _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8
   store i64 %inc5.i.i.i, ptr %mId.i.i.i, align 8
   %mpNext.i = getelementptr inbounds nuw i8, ptr %result.0.i.i, i64 32
   store ptr null, ptr %mpNext.i, align 8
-  %12 = load i32, ptr %result.0.i.i, align 4
+  %12 = load i32, ptr %result.0.i.i, align 8
   %conv.i.i = sext i32 %12 to i64
   %mnBucketCount = getelementptr inbounds nuw i8, ptr %this, i64 16
   %13 = load i64, ptr %mnBucketCount, align 8
@@ -100029,7 +100029,7 @@ _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8
   store i32 0, ptr %args1, align 8
   %mpNext.i = getelementptr inbounds nuw i8, ptr %result.0.i.i, i64 32
   store ptr null, ptr %mpNext.i, align 8
-  %12 = load i32, ptr %result.0.i.i, align 4
+  %12 = load i32, ptr %result.0.i.i, align 8
   %conv.i.i = sext i32 %12 to i64
   %mnBucketCount = getelementptr inbounds nuw i8, ptr %this, i64 16
   %13 = load i64, ptr %mnBucketCount, align 8
@@ -100204,7 +100204,7 @@ _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8
   store i64 %inc4.i.i.i.i, ptr %mId.i.i.i.i, align 8
   %mpNext.i = getelementptr inbounds nuw i8, ptr %result.0.i.i, i64 32
   store ptr null, ptr %mpNext.i, align 8
-  %12 = load i32, ptr %result.0.i.i, align 4
+  %12 = load i32, ptr %result.0.i.i, align 8
   %conv.i.i = sext i32 %12 to i64
   %mnBucketCount = getelementptr inbounds nuw i8, ptr %this, i64 16
   %13 = load i64, ptr %mnBucketCount, align 8
@@ -101078,7 +101078,7 @@ _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8
   store i64 %inc5.i.i.i, ptr %mId.i.i.i, align 8
   %mpNext.i = getelementptr inbounds nuw i8, ptr %result.0.i.i, i64 32
   store ptr null, ptr %mpNext.i, align 8
-  %12 = load i32, ptr %result.0.i.i, align 4
+  %12 = load i32, ptr %result.0.i.i, align 8
   %conv.i.i = sext i32 %12 to i64
   %mnBucketCount = getelementptr inbounds nuw i8, ptr %this, i64 16
   %13 = load i64, ptr %mnBucketCount, align 8
@@ -101249,7 +101249,7 @@ _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8
   store i64 %inc5.i.i.i, ptr %mId.i.i.i, align 8
   %mpNext.i = getelementptr inbounds nuw i8, ptr %result.0.i.i, i64 32
   store ptr null, ptr %mpNext.i, align 8
-  %12 = load i32, ptr %result.0.i.i, align 4
+  %12 = load i32, ptr %result.0.i.i, align 8
   %conv.i.i = sext i32 %12 to i64
   %mnBucketCount = getelementptr inbounds nuw i8, ptr %this, i64 16
   %13 = load i64, ptr %mnBucketCount, align 8
@@ -101421,7 +101421,7 @@ _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8
   store i32 0, ptr %args1, align 8
   %mpNext.i = getelementptr inbounds nuw i8, ptr %result.0.i.i, i64 32
   store ptr null, ptr %mpNext.i, align 8
-  %12 = load i32, ptr %result.0.i.i, align 4
+  %12 = load i32, ptr %result.0.i.i, align 8
   %conv.i.i = sext i32 %12 to i64
   %mnBucketCount = getelementptr inbounds nuw i8, ptr %this, i64 16
   %13 = load i64, ptr %mnBucketCount, align 8
@@ -101596,7 +101596,7 @@ _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8
   store i64 %inc4.i.i.i.i, ptr %mId.i.i.i.i, align 8
   %mpNext.i = getelementptr inbounds nuw i8, ptr %result.0.i.i, i64 32
   store ptr null, ptr %mpNext.i, align 8
-  %12 = load i32, ptr %result.0.i.i, align 4
+  %12 = load i32, ptr %result.0.i.i, align 8
   %conv.i.i = sext i32 %12 to i64
   %mnBucketCount = getelementptr inbounds nuw i8, ptr %this, i64 16
   %13 = load i64, ptr %mnBucketCount, align 8
@@ -104212,7 +104212,7 @@ _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8
   store i64 %inc5.i.i.i, ptr %mId.i.i.i, align 8
   %mpNext.i = getelementptr inbounds nuw i8, ptr %result.0.i.i, i64 32
   store ptr null, ptr %mpNext.i, align 8
-  %14 = load i32, ptr %result.0.i.i, align 4
+  %14 = load i32, ptr %result.0.i.i, align 8
   %conv.i.i = sext i32 %14 to i64
   %15 = load i64, ptr %mnBucketCount, align 8
   %conv.i.i17 = and i64 %15, 4294967295
@@ -104339,7 +104339,7 @@ _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8
   store i64 %inc5.i.i.i, ptr %mId.i.i.i, align 8
   %mpNext.i = getelementptr inbounds nuw i8, ptr %result.0.i.i, i64 32
   store ptr null, ptr %mpNext.i, align 8
-  %14 = load i32, ptr %result.0.i.i, align 4
+  %14 = load i32, ptr %result.0.i.i, align 8
   %conv.i.i = sext i32 %14 to i64
   %15 = load i64, ptr %mnBucketCount, align 8
   %conv.i.i17 = and i64 %15, 4294967295
@@ -104467,7 +104467,7 @@ _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8
   store i32 0, ptr %args1, align 8
   %mpNext.i = getelementptr inbounds nuw i8, ptr %result.0.i.i, i64 32
   store ptr null, ptr %mpNext.i, align 8
-  %14 = load i32, ptr %result.0.i.i, align 4
+  %14 = load i32, ptr %result.0.i.i, align 8
   %conv.i.i = sext i32 %14 to i64
   %15 = load i64, ptr %mnBucketCount, align 8
   %conv.i.i17 = and i64 %15, 4294967295
@@ -104595,7 +104595,7 @@ _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8
   store i64 %inc4.i.i.i.i, ptr %mId.i.i.i.i, align 8
   %mpNext.i = getelementptr inbounds nuw i8, ptr %result.0.i.i, i64 32
   store ptr null, ptr %mpNext.i, align 8
-  %14 = load i32, ptr %result.0.i.i, align 4
+  %14 = load i32, ptr %result.0.i.i, align 8
   %conv.i.i = sext i32 %14 to i64
   %15 = load i64, ptr %mnBucketCount, align 8
   %conv.i.i17 = and i64 %15, 4294967295
@@ -105377,7 +105377,7 @@ _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8
   store i64 %inc5.i.i.i, ptr %mId.i.i.i, align 8
   %mpNext.i = getelementptr inbounds nuw i8, ptr %result.0.i.i, i64 32
   store ptr null, ptr %mpNext.i, align 8
-  %14 = load i32, ptr %result.0.i.i, align 4
+  %14 = load i32, ptr %result.0.i.i, align 8
   %conv.i.i = sext i32 %14 to i64
   %15 = load i64, ptr %mnBucketCount, align 8
   %conv.i.i17 = and i64 %15, 4294967295
@@ -105504,7 +105504,7 @@ _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8
   store i64 %inc5.i.i.i, ptr %mId.i.i.i, align 8
   %mpNext.i = getelementptr inbounds nuw i8, ptr %result.0.i.i, i64 32
   store ptr null, ptr %mpNext.i, align 8
-  %14 = load i32, ptr %result.0.i.i, align 4
+  %14 = load i32, ptr %result.0.i.i, align 8
   %conv.i.i = sext i32 %14 to i64
   %15 = load i64, ptr %mnBucketCount, align 8
   %conv.i.i17 = and i64 %15, 4294967295
@@ -105632,7 +105632,7 @@ _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8
   store i32 0, ptr %args1, align 8
   %mpNext.i = getelementptr inbounds nuw i8, ptr %result.0.i.i, i64 32
   store ptr null, ptr %mpNext.i, align 8
-  %14 = load i32, ptr %result.0.i.i, align 4
+  %14 = load i32, ptr %result.0.i.i, align 8
   %conv.i.i = sext i32 %14 to i64
   %15 = load i64, ptr %mnBucketCount, align 8
   %conv.i.i17 = and i64 %15, 4294967295
@@ -105760,7 +105760,7 @@ _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8
   store i64 %inc4.i.i.i.i, ptr %mId.i.i.i.i, align 8
   %mpNext.i = getelementptr inbounds nuw i8, ptr %result.0.i.i, i64 32
   store ptr null, ptr %mpNext.i, align 8
-  %14 = load i32, ptr %result.0.i.i, align 4
+  %14 = load i32, ptr %result.0.i.i, align 8
   %conv.i.i = sext i32 %14 to i64
   %15 = load i64, ptr %mnBucketCount, align 8
   %conv.i.i17 = and i64 %15, 4294967295
@@ -107303,11 +107303,11 @@ if.then.i:                                        ; preds = %if.else
   store i32 %25, ptr %mMagicValue3.i, align 8
   %mbThrowOnCopy.i = getelementptr inbounds nuw i8, ptr %pNode.addr.05.i.i, i64 12
   %mbThrowOnCopy4.i = getelementptr inbounds nuw i8, ptr %obj, i64 4
-  %27 = load i8, ptr %mbThrowOnCopy.i, align 1
+  %27 = load i8, ptr %mbThrowOnCopy.i, align 4
   %frombool.i.i = and i8 %27, 1
   %28 = load i8, ptr %mbThrowOnCopy4.i, align 4
   %frombool3.i.i = and i8 %28, 1
-  store i8 %frombool3.i.i, ptr %mbThrowOnCopy.i, align 1
+  store i8 %frombool3.i.i, ptr %mbThrowOnCopy.i, align 4
   store i8 %frombool.i.i, ptr %mbThrowOnCopy4.i, align 4
   br label %_ZN10TestObjectaSEOS_.exit
 
@@ -107847,11 +107847,11 @@ if.then.i:                                        ; preds = %if.else
   store i32 %25, ptr %mMagicValue3.i, align 8
   %mbThrowOnCopy.i = getelementptr inbounds nuw i8, ptr %pNode.addr.05.i.i, i64 12
   %mbThrowOnCopy4.i = getelementptr inbounds nuw i8, ptr %obj, i64 4
-  %27 = load i8, ptr %mbThrowOnCopy.i, align 1
+  %27 = load i8, ptr %mbThrowOnCopy.i, align 4
   %frombool.i.i = and i8 %27, 1
   %28 = load i8, ptr %mbThrowOnCopy4.i, align 4
   %frombool3.i.i = and i8 %28, 1
-  store i8 %frombool3.i.i, ptr %mbThrowOnCopy.i, align 1
+  store i8 %frombool3.i.i, ptr %mbThrowOnCopy.i, align 4
   store i8 %frombool.i.i, ptr %mbThrowOnCopy4.i, align 4
   br label %_ZN10TestObjectaSEOS_.exit
 

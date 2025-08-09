@@ -9549,7 +9549,7 @@ _ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i: ; preds = %cond.fals
   %cond.i.i.i.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i.i.i ], [ %45, %cond.false.i.i.i.i.i.i.i.i ]
   %value_.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i.i.i, i64 8
   store i64 %42, ptr %value_.i.i.i.i.i.i.i.i.i, align 8
-  store i32 402653200, ptr %cond.i.i.i.i.i.i.i.i, align 4
+  store i32 402653200, ptr %cond.i.i.i.i.i.i.i.i, align 8
   %47 = ptrtoint ptr %cond.i.i.i.i.i.i.i.i to i64
   %sub.i.i.i.i.i13.i = sub i64 %47, %2
   %conv.i.i.i.i.i14.i = trunc i64 %sub.i.i.i.i.i13.i to i32

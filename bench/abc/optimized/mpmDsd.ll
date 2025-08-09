@@ -1934,7 +1934,7 @@ define range(i32 0, 2) i32 @Mpm_CutComputeDsd6(ptr noundef captures(none) %0, pt
   %40 = getelementptr inbounds i64, ptr %.val152, i64 %39
   %41 = load i64, ptr %40, align 8, !tbaa !17
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 11320
-  %43 = load i32, ptr %42, align 4, !tbaa !20
+  %43 = load i32, ptr %42, align 8, !tbaa !20
   %.not144 = icmp eq i32 %43, 0
   br i1 %.not144, label %.loopexit, label %.preheader156
 
@@ -2030,7 +2030,7 @@ define range(i32 0, 2) i32 @Mpm_CutComputeDsd6(ptr noundef captures(none) %0, pt
   %105 = getelementptr inbounds i64, ptr %.val153, i64 %104
   %106 = load i64, ptr %105, align 8, !tbaa !17
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 11320
-  %108 = load i32, ptr %107, align 4, !tbaa !20
+  %108 = load i32, ptr %107, align 8, !tbaa !20
   %.not = icmp eq i32 %108, 0
   br i1 %.not, label %.loopexit160, label %.preheader159
 

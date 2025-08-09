@@ -1449,7 +1449,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_alloc_closure.
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i64 0, ptr %17, align 8, !tbaa !12
-  store i32 1, ptr %13, align 4, !tbaa !4
+  store i32 1, ptr %13, align 8, !tbaa !4
   store i32 196648, ptr %16, align 4
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %3, ptr %18, align 8, !tbaa !10
@@ -1457,7 +1457,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_alloc_closure.
   store ptr %0, ptr %19, align 8, !tbaa !10
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %5, ptr %20, align 8, !tbaa !10
-  store i8 %2, ptr %17, align 1, !tbaa !16
+  store i8 %2, ptr %17, align 8, !tbaa !16
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 33
   store i8 %2, ptr %21, align 1, !tbaa !16
   ret ptr %13
@@ -1583,7 +1583,7 @@ l_Lean_Compiler_LCNF_Pass_mkPerDeclaration.exit:  ; preds = %lean_alloc_closure.
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store i64 0, ptr %28, align 8, !tbaa !12
-  store i32 1, ptr %22, align 4, !tbaa !4
+  store i32 1, ptr %22, align 8, !tbaa !4
   store i32 196648, ptr %27, align 4
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %3, ptr %29, align 8, !tbaa !10
@@ -1591,7 +1591,7 @@ l_Lean_Compiler_LCNF_Pass_mkPerDeclaration.exit:  ; preds = %lean_alloc_closure.
   store ptr %0, ptr %30, align 8, !tbaa !10
   %31 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store ptr %14, ptr %31, align 8, !tbaa !10
-  store i8 %26, ptr %28, align 1, !tbaa !16
+  store i8 %26, ptr %28, align 8, !tbaa !16
   %32 = getelementptr inbounds nuw i8, ptr %22, i64 33
   store i8 %26, ptr %32, align 1, !tbaa !16
   ret ptr %22
@@ -10461,7 +10461,7 @@ _init_l_Lean_Compiler_LCNF_instInhabitedPass___closed__2.exit: ; preds = %_init_
   %327 = getelementptr inbounds nuw i8, ptr %324, i64 4
   %328 = getelementptr inbounds nuw i8, ptr %324, i64 32
   store i64 0, ptr %328, align 8, !tbaa !12
-  store i32 1, ptr %324, align 4, !tbaa !4
+  store i32 1, ptr %324, align 8, !tbaa !4
   store i32 196648, ptr %327, align 4
   %329 = getelementptr inbounds nuw i8, ptr %324, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %329, align 8, !tbaa !10

@@ -668,7 +668,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr %45, ptr %46, align 8, !tbaa !10
   %.6.i.i.ptr16.i.i = getelementptr inbounds nuw i8, ptr %43, i64 16
-  store i8 1, ptr %.6.i.i.ptr16.i.i, align 1, !tbaa !11
+  store i8 1, ptr %.6.i.i.ptr16.i.i, align 8, !tbaa !11
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i8 0, ptr %47, align 8, !tbaa !31
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 156
@@ -692,7 +692,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store ptr %55, ptr %56, align 8, !tbaa !10
   %.6.i.i.ptr16.i.i.i = getelementptr inbounds nuw i8, ptr %52, i64 16
-  store i8 1, ptr %.6.i.i.ptr16.i.i.i, align 1, !tbaa !11
+  store i8 1, ptr %.6.i.i.ptr16.i.i.i, align 8, !tbaa !11
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i32 0, ptr %57, align 8, !tbaa !47
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -2019,7 +2019,7 @@ _ZNSt12_Vector_baseIN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS2_9
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %14, ptr %15, align 8, !tbaa !10
   %.6.i.i.ptr16.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i8 1, ptr %.6.i.i.ptr16.i.i.i.i.i.i.i, align 1, !tbaa !11
+  store i8 1, ptr %.6.i.i.ptr16.i.i.i.i.i.i.i, align 8, !tbaa !11
   %16 = add i64 %.01013.i.i.i.i, -1
   %17 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq i64 %16, 0
@@ -5513,7 +5513,7 @@ define linkonce_odr noundef i32 @_ZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cx
   %314 = getelementptr inbounds nuw i8, ptr %312, i64 8
   store ptr %313, ptr %314, align 8, !tbaa !10
   %.6.i.i.ptr16.i.i = getelementptr inbounds nuw i8, ptr %312, i64 16
-  store i8 1, ptr %.6.i.i.ptr16.i.i, align 1, !tbaa !11
+  store i8 1, ptr %.6.i.i.ptr16.i.i, align 8, !tbaa !11
   %315 = invoke noundef i64 @_ZN5boost4wave8cpplexer7re2clexmiERKNS2_13uchar_wrapperES5_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %316 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -37851,7 +37851,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
   %14867 = getelementptr inbounds nuw i8, ptr %14859, i64 8
   store ptr %14866, ptr %14867, align 8, !tbaa !10
   %.6.i.i.ptr16.i.i6226 = getelementptr inbounds nuw i8, ptr %14859, i64 16
-  store i8 1, ptr %.6.i.i.ptr16.i.i6226, align 1, !tbaa !11
+  store i8 1, ptr %.6.i.i.ptr16.i.i6226, align 8, !tbaa !11
   invoke void @_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE11ReplaceImplIS9_EEvS9_S9_T_SD_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(8) %298, ptr noundef nonnull %14866, ptr noundef nonnull %14866, ptr noundef nonnull %14865, ptr noundef nonnull %14860)
           to label %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEC2IS9_EET_SD_RKS5_.exit unwind label %14868
 
@@ -39207,7 +39207,7 @@ define linkonce_odr hidden void @_ZN5boost4wave8cpplexer4impl17convert_trigraphs
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %11, ptr %12, align 8, !tbaa !10
   %.6.i.i.ptr16.i.i = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i8 1, ptr %.6.i.i.ptr16.i.i, align 1, !tbaa !11
+  store i8 1, ptr %.6.i.i.ptr16.i.i, align 8, !tbaa !11
   %13 = load ptr, ptr %1, align 8, !tbaa !28
   %14 = load ptr, ptr %13, align 8, !tbaa !6
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 17
@@ -41067,7 +41067,7 @@ define linkonce_odr hidden void @_ZN5boost4wave4utilplIcSt11char_traitsIcESaIcEN
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %5, ptr %6, align 8, !tbaa !10
   %.6.i.i.ptr16.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i8 1, ptr %.6.i.i.ptr16.i.i, align 1, !tbaa !11
+  store i8 1, ptr %.6.i.i.ptr16.i.i, align 8, !tbaa !11
   %7 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #34
   %8 = load ptr, ptr %2, align 8, !tbaa !28
   %9 = load ptr, ptr %8, align 8, !tbaa !6
@@ -41922,7 +41922,7 @@ define linkonce_odr hidden void @_ZN5boost4wave4util11flex_stringIcSt11char_trai
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %16, ptr %17, align 8, !tbaa !10
   %.6.i.i.ptr16.i.i = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store i8 1, ptr %.6.i.i.ptr16.i.i, align 1, !tbaa !11
+  store i8 1, ptr %.6.i.i.ptr16.i.i, align 8, !tbaa !11
   %18 = load ptr, ptr %0, align 8, !tbaa !28
   %19 = load ptr, ptr %18, align 8, !tbaa !6
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -42501,7 +42501,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   %9 = sub i64 %6, %1
   %10 = add i64 %9, %8
   %spec.select = tail call i64 @llvm.umin.i64(i64 %2, i64 %10)
-  %11 = load i8, ptr %5, align 1, !tbaa !11
+  %11 = load i8, ptr %5, align 8, !tbaa !11
   %12 = icmp eq i8 %11, 1
   br i1 %12, label %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit.thread, label %16
 
@@ -42667,7 +42667,7 @@ _ZSt4copyIPcS0_ET0_T_S2_S1_.exit:                 ; preds = %_ZN5boost4wave4util
   %85 = phi ptr [ %78, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit14 ], [ %.pre19, %79 ]
   %86 = load ptr, ptr %85, align 8, !tbaa !6
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  %88 = load i8, ptr %87, align 1, !tbaa !11
+  %88 = load i8, ptr %87, align 8, !tbaa !11
   %89 = icmp eq i8 %88, 1
   br i1 %89, label %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE6resizeEm.exit, label %90
 
@@ -42737,7 +42737,7 @@ define linkonce_odr hidden void @_ZN5boost4wave4util11flex_stringIcSt11char_trai
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %10, ptr %11, align 8, !tbaa !10
   %.6.i.i.ptr16.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i8 1, ptr %.6.i.i.ptr16.i.i, align 1, !tbaa !11
+  store i8 1, ptr %.6.i.i.ptr16.i.i, align 8, !tbaa !11
   invoke void @_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE11ReplaceImplIS9_EEvS9_S9_T_SD_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %10, ptr noundef nonnull %10, ptr noundef %2, ptr noundef %3)
           to label %14 unwind label %12
 
@@ -42977,7 +42977,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   %.pre.i.i54 = load ptr, ptr %0, align 8, !tbaa !28
   %.pre91 = load ptr, ptr %.pre.i.i54, align 8, !tbaa !6
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre.i.i54, i64 16
-  %.pre92 = load i8, ptr %.phi.trans.insert, align 1, !tbaa !11
+  %.pre92 = load i8, ptr %.phi.trans.insert, align 8, !tbaa !11
   %130 = sub i64 0, %62
   %131 = getelementptr inbounds i8, ptr %.pre91, i64 %130
   %132 = icmp eq i8 %.pre92, 1
@@ -43174,7 +43174,7 @@ define linkonce_odr hidden void @_ZN5boost4wave4util11flex_stringIcSt11char_trai
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %10, ptr %11, align 8, !tbaa !10
   %.6.i.i.ptr16.i = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i8 1, ptr %.6.i.i.ptr16.i, align 1, !tbaa !11
+  store i8 1, ptr %.6.i.i.ptr16.i, align 8, !tbaa !11
   %12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE6assignIPKcSE_EERSB_T_T0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %2, ptr noundef %3)
           to label %15 unwind label %13
 
@@ -43414,7 +43414,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   %.pre.i.i54 = load ptr, ptr %0, align 8, !tbaa !28
   %.pre75 = load ptr, ptr %.pre.i.i54, align 8, !tbaa !6
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre.i.i54, i64 16
-  %.pre76 = load i8, ptr %.phi.trans.insert, align 1, !tbaa !11
+  %.pre76 = load i8, ptr %.phi.trans.insert, align 8, !tbaa !11
   %131 = sub i64 0, %63
   %132 = getelementptr inbounds i8, ptr %.pre75, i64 %131
   %133 = icmp eq i8 %.pre76, 1
@@ -43712,7 +43712,7 @@ define linkonce_odr hidden void @_ZN5boost4wave4util11flex_stringIcSt11char_trai
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %16, ptr %17, align 8, !tbaa !10
   %.6.i.i.ptr16.i.i = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store i8 1, ptr %.6.i.i.ptr16.i.i, align 1, !tbaa !11
+  store i8 1, ptr %.6.i.i.ptr16.i.i, align 8, !tbaa !11
   %18 = load ptr, ptr %0, align 8, !tbaa !28
   %19 = load ptr, ptr %18, align 8, !tbaa !6
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -45433,7 +45433,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr %45, ptr %46, align 8, !tbaa !10
   %.6.i.i.ptr16.i.i = getelementptr inbounds nuw i8, ptr %43, i64 16
-  store i8 1, ptr %.6.i.i.ptr16.i.i, align 1, !tbaa !11
+  store i8 1, ptr %.6.i.i.ptr16.i.i, align 8, !tbaa !11
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i8 0, ptr %47, align 8, !tbaa !187
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 156
@@ -45457,7 +45457,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store ptr %55, ptr %56, align 8, !tbaa !10
   %.6.i.i.ptr16.i.i.i = getelementptr inbounds nuw i8, ptr %52, i64 16
-  store i8 1, ptr %.6.i.i.ptr16.i.i.i, align 1, !tbaa !11
+  store i8 1, ptr %.6.i.i.ptr16.i.i.i, align 8, !tbaa !11
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i32 0, ptr %57, align 8, !tbaa !47
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -47994,7 +47994,7 @@ define linkonce_odr noundef i32 @_ZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cx
   %314 = getelementptr inbounds nuw i8, ptr %312, i64 8
   store ptr %313, ptr %314, align 8, !tbaa !10
   %.6.i.i.ptr16.i.i = getelementptr inbounds nuw i8, ptr %312, i64 16
-  store i8 1, ptr %.6.i.i.ptr16.i.i, align 1, !tbaa !11
+  store i8 1, ptr %.6.i.i.ptr16.i.i, align 8, !tbaa !11
   %315 = invoke noundef i64 @_ZN5boost4wave8cpplexer7re2clexmiERKNS2_13uchar_wrapperES5_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %316 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -80332,7 +80332,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
   %14867 = getelementptr inbounds nuw i8, ptr %14859, i64 8
   store ptr %14866, ptr %14867, align 8, !tbaa !10
   %.6.i.i.ptr16.i.i6226 = getelementptr inbounds nuw i8, ptr %14859, i64 16
-  store i8 1, ptr %.6.i.i.ptr16.i.i6226, align 1, !tbaa !11
+  store i8 1, ptr %.6.i.i.ptr16.i.i6226, align 8, !tbaa !11
   invoke void @_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE11ReplaceImplIS9_EEvS9_S9_T_SD_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(8) %298, ptr noundef nonnull %14866, ptr noundef nonnull %14866, ptr noundef nonnull %14865, ptr noundef nonnull %14860)
           to label %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEC2IS9_EET_SD_RKS5_.exit unwind label %14868
 

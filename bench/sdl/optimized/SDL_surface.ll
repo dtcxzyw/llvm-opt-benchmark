@@ -6438,11 +6438,11 @@ SDL_SetSurfaceClipRect_REAL.exit:                 ; preds = %SDL_SurfaceValid.ex
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 0, ptr %17, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i32 0, ptr %.sroa.4.0..sroa_idx, align 4
+  store i32 0, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 %14, ptr %.sroa.5.0..sroa_idx, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 %16, ptr %.sroa.6.0..sroa_idx, align 4
+  store i32 %16, ptr %.sroa.6.0..sroa_idx, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %19 = load i32, ptr %18, align 4
   %.not = icmp eq i32 %19, 0

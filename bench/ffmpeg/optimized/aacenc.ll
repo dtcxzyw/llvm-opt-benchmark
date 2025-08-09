@@ -448,7 +448,7 @@ thread-pre-split:                                 ; preds = %22
   %167 = getelementptr inbounds nuw i8, ptr %7, i64 567256
   store ptr @abs_pow34_v, ptr %167, align 8, !tbaa !86
   %168 = getelementptr inbounds nuw i8, ptr %7, i64 567264
-  store ptr @quantize_bands, ptr %168, align 8, !tbaa !87
+  store ptr @quantize_bands, ptr %168, align 16, !tbaa !87
   %169 = getelementptr inbounds nuw i8, ptr %7, i64 38448
   call void @ff_af_queue_init(ptr noundef nonnull %0, ptr noundef nonnull %169) #11
   br label %170
@@ -1434,7 +1434,7 @@ put_bits.exit557:                                 ; preds = %417, %425, %407
   %503 = trunc i64 %indvars.iv815 to i32
   %504 = add i32 %.2460725, %503
   store i32 %504, ptr %297, align 16, !tbaa !102
-  %505 = load i32, ptr %300, align 8, !tbaa !168
+  %505 = load i32, ptr %300, align 16, !tbaa !168
   %.not527 = icmp eq i32 %505, 0
   br i1 %.not527, label %.thread629, label %506
 
@@ -2213,7 +2213,7 @@ adjust_frame_information.exit.thread636:          ; preds = %encode_ms_info.exit
   %853 = load i32, ptr %376, align 16, !tbaa !155
   %854 = getelementptr inbounds nuw i8, ptr %852, i64 6668
   %855 = load i32, ptr %854, align 4, !tbaa !65
-  %856 = load i32, ptr %280, align 8, !tbaa !153
+  %856 = load i32, ptr %280, align 16, !tbaa !153
   %857 = load i32, ptr %286, align 4, !tbaa !152
   %858 = icmp sgt i32 %857, 8
   br i1 %858, label %859, label %862
@@ -3472,7 +3472,7 @@ put_bits.exit58.i:                                ; preds = %put_bits.exit20
   %39 = or i32 %37, %38
   %40 = or i32 %36, %39
   %41 = getelementptr inbounds nuw i8, ptr %30, i64 128
-  %42 = load i32, ptr %41, align 8, !tbaa !65
+  %42 = load i32, ptr %41, align 16, !tbaa !65
   %43 = getelementptr inbounds nuw i8, ptr %30, i64 132
   %44 = load i32, ptr %43, align 4, !tbaa !65
   %45 = shl i32 %40, 6

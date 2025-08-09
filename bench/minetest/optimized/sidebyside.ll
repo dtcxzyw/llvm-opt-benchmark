@@ -523,7 +523,7 @@ entry:
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8, !noalias !30
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 %vbase.offset.i.i.i.i
   store ptr %3, ptr %add.ptr.i.i.i.i, align 8, !tbaa !12, !noalias !30
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13TextureBuffer, i64 40), ptr %call.i.i, align 8, !tbaa !12, !noalias !30
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13TextureBuffer, i64 40), ptr %call.i.i, align 16, !tbaa !12, !noalias !30
   %m_driver.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %m_driver.i.i.i, i8 0, i64 56, i1 false), !noalias !30
   store ptr %call.i.i, ptr %ref.tmp.i, align 8, !tbaa !33, !alias.scope !30
@@ -980,7 +980,7 @@ _ZN14RenderPipeline7addStepEP10RenderStep.exit.1: ; preds = %_ZNSt6vectorIP10Ren
   %size.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i152, i64 12
   store i32 0, ptr %size.i.i.i, align 4, !tbaa !51, !noalias !46
   %Height.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i152, i64 16
-  store i32 0, ptr %Height.i.i.i.i, align 4, !tbaa !53, !noalias !46
+  store i32 0, ptr %Height.i.i.i.i, align 8, !tbaa !53, !noalias !46
   store ptr %call.i.i152, ptr %ref.tmp.i151, align 8, !tbaa !33, !alias.scope !46
   %call.i156 = invoke noundef ptr @_ZN14RenderPipeline3ownI12ScreenTargetEEPT_OSt10unique_ptrIS2_St14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(104) %pipeline, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i151)
           to label %invoke.cont.i161 unwind label %lpad.i157

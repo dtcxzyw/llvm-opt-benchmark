@@ -2230,7 +2230,7 @@ _ZSt19__relocate_object_aISt4pairIPKN11OpenImageIO6v3_1_012_GLOBAL__N_16XMPtagEN
   store i64 %190, ptr %192, align 8, !tbaa !67, !alias.scope !123, !noalias !126
   store ptr %182, ptr %179, align 8, !tbaa !78, !alias.scope !126, !noalias !123
   store i64 0, ptr %191, align 8, !tbaa !67, !alias.scope !126, !noalias !123
-  store i8 0, ptr %182, align 1, !tbaa !69, !alias.scope !126, !noalias !123
+  store i8 0, ptr %182, align 8, !tbaa !69, !alias.scope !126, !noalias !123
   %193 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i, i64 40
   %194 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i, i64 40
   %.not.i.i.i.i.i.i = icmp eq ptr %193, %130
@@ -16079,7 +16079,7 @@ _ZN3tsl17detail_robin_hash12bucket_entryISt4pairINSt7__cxx1112basic_stringIcSt11
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %125 = getelementptr inbounds nuw i8, ptr %105, i64 40
   store ptr null, ptr %125, align 8, !tbaa !371
-  store i32 %108, ptr %105, align 4, !tbaa !405
+  store i32 %108, ptr %105, align 8, !tbaa !405
   store i16 %.135.i.i.i.i, ptr %106, align 4, !tbaa !363
   br label %188
 
@@ -16137,10 +16137,10 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN11OpenImageIO6
   store ptr %144, ptr %17, align 8, !tbaa !177
   store ptr %143, ptr %142, align 8, !tbaa !177
   %145 = getelementptr inbounds nuw i8, ptr %140, i64 4
-  %146 = load i16, ptr %145, align 2, !tbaa !210
-  store i16 %.135.i.i.i.i, ptr %145, align 2, !tbaa !210
-  %147 = load i32, ptr %140, align 4, !tbaa !405
-  store i32 %108, ptr %140, align 4, !tbaa !405
+  %146 = load i16, ptr %145, align 4, !tbaa !210
+  store i16 %.135.i.i.i.i, ptr %145, align 4, !tbaa !210
+  %147 = load i32, ptr %140, align 8, !tbaa !405
+  store i32 %108, ptr %140, align 8, !tbaa !405
   %_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_114xmp_tagmap_refEvE1T.val11.i.i.i.i.i.i = load i64, ptr @_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_114xmp_tagmap_refEvE1T, align 8, !tbaa !354
   %148 = add i64 %.1.i.i.i.i, 1
   %149 = and i64 %_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_114xmp_tagmap_refEvE1T.val11.i.i.i.i.i.i, %148
@@ -16182,8 +16182,8 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN11OpenImageIO6
   store ptr %164, ptr %163, align 8, !tbaa !177
   %166 = load i16, ptr %155, align 2, !tbaa !210
   store i16 %storemerge17.i.i.i.i.i.i, ptr %155, align 2, !tbaa !210
-  %167 = load i32, ptr %156, align 4, !tbaa !405
-  store i32 %.0915.i.i.i.i.i.i, ptr %156, align 4, !tbaa !405
+  %167 = load i32, ptr %156, align 8, !tbaa !405
+  store i32 %.0915.i.i.i.i.i.i, ptr %156, align 8, !tbaa !405
   %_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_114xmp_tagmap_refEvE1T.val.pre.i.i.i.i.i.i = load i64, ptr @_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_114xmp_tagmap_refEvE1T, align 8, !tbaa !354
   %.pre.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 32), align 8, !tbaa !356
   br label %168
@@ -16236,7 +16236,7 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11ch
   %186 = getelementptr inbounds nuw i8, ptr %.lcssa12.i.i.i.i.i.i, i64 40
   %187 = load ptr, ptr %17, align 8, !tbaa !371
   store ptr %187, ptr %186, align 8, !tbaa !371
-  store i32 %.09.lcssa.i.i.i.i.i.i, ptr %.lcssa12.i.i.i.i.i.i, align 4, !tbaa !405
+  store i32 %.09.lcssa.i.i.i.i.i.i, ptr %.lcssa12.i.i.i.i.i.i, align 8, !tbaa !405
   store i16 %storemerge.lcssa.i.i.i.i.i.i, ptr %.lcssa.i.i.i.i.i.i, align 4, !tbaa !363
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %188
@@ -16842,10 +16842,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %120 = load ptr, ptr %118, align 8, !tbaa !177
   store ptr %120, ptr %98, align 8, !tbaa !177
   store ptr %119, ptr %118, align 8, !tbaa !177
-  %121 = load i16, ptr %101, align 2, !tbaa !210
-  store i16 %.015.i, ptr %101, align 2, !tbaa !210
-  %122 = load i32, ptr %100, align 4, !tbaa !405
-  store i32 %.014.i, ptr %100, align 4, !tbaa !405
+  %121 = load i16, ptr %101, align 4, !tbaa !210
+  store i16 %.015.i, ptr %101, align 4, !tbaa !210
+  %122 = load i32, ptr %100, align 8, !tbaa !405
+  store i32 %.014.i, ptr %100, align 8, !tbaa !405
   br label %123
 
 123:                                              ; preds = %117, %99
@@ -16862,11 +16862,11 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11ch
   store i64 %127, ptr %128, align 8, !tbaa !67
   store ptr %109, ptr %97, align 8, !tbaa !78
   store i64 0, ptr %126, align 8, !tbaa !67
-  store i8 0, ptr %109, align 1, !tbaa !69
+  store i8 0, ptr %109, align 8, !tbaa !69
   %129 = getelementptr inbounds nuw i8, ptr %100, i64 40
   %130 = load ptr, ptr %98, align 8, !tbaa !371
   store ptr %130, ptr %129, align 8, !tbaa !371
-  store i32 %.014.i, ptr %100, align 4, !tbaa !405
+  store i32 %.014.i, ptr %100, align 8, !tbaa !405
   store i16 %.015.i, ptr %101, align 4, !tbaa !363
   br label %131
 

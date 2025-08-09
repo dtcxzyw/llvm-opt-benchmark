@@ -2112,7 +2112,7 @@ _ZNSt10_HashtableIiSt4pairIKiSt13unordered_mapINSt7__cxx1112basic_stringIcSt11ch
   %.02530.i = phi i64 [ %.1.i122, %143 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_IS8_iSt4hashIS8_ESt8equal_toIS8_ESaIS0_IKS8_iEEESA_SC_SaIS0_ISD_SG_EEEESaISK_ENSt8__detail10_Select1stESB_IiES9_IiENSM_18_Mod_range_hashingENSM_20_Default_ranged_hashENSM_20_Prime_rehash_policyENSM_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i ]
   %128 = load ptr, ptr %.031.i, align 8, !tbaa !27
   %129 = getelementptr inbounds nuw i8, ptr %.031.i, i64 8
-  %130 = load i32, ptr %129, align 4, !tbaa !28
+  %130 = load i32, ptr %129, align 8, !tbaa !28
   %131 = sext i32 %130 to i64
   %132 = urem i64 %131, %118
   %133 = getelementptr inbounds nuw ptr, ptr %.0.i.i, i64 %132

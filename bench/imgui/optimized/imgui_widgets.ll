@@ -1154,7 +1154,7 @@ define void @_ZN5ImGui11BulletTextVEPKcP13__va_list_tag(ptr noundef %0, ptr noun
   %.sroa.0.4.vec.insert.i30 = insertelement <2 x float> %.sroa.0.0.vec.insert.i29, float %50, i64 1
   call void @_ZN5ImGui12RenderBulletEP10ImDrawList6ImVec2j(ptr noundef %43, <2 x float> %.sroa.0.4.vec.insert.i30, i32 noundef %41)
   %51 = load float, ptr %18, align 8, !tbaa !176
-  %52 = load float, ptr %44, align 4, !tbaa !177
+  %52 = load float, ptr %44, align 8, !tbaa !177
   %53 = call float @llvm.fmuladd.f32(float %52, float 2.000000e+00, float %51)
   %.val = load float, ptr %6, align 4, !tbaa !159
   %.val18 = load float, ptr %.sroa_idx36, align 4, !tbaa !160
@@ -5643,7 +5643,7 @@ define void @_ZN5ImGui15SeparatorTextExEjPKcS1_f(i32 noundef %0, ptr noundef %1,
   %23 = bitcast i32 %21 to float
   %24 = bitcast i32 %22 to float
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 3304
-  %.sroa.0.0.copyload = load float, ptr %25, align 4, !tbaa !194
+  %.sroa.0.0.copyload = load float, ptr %25, align 8, !tbaa !194
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 3308
   %.sroa.6.0.copyload = load float, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !194
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 3292
@@ -6937,7 +6937,7 @@ define void @_ZN5ImGui15EndComboPreviewEv() local_unnamed_addr #0 {
   %32 = load i64, ptr %31, align 4
   store i64 %32, ptr %30, align 8
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 9388
-  %.val = load float, ptr %6, align 4, !tbaa !159
+  %.val = load float, ptr %6, align 8, !tbaa !159
   %34 = getelementptr i8, ptr %3, i64 308
   %.val27 = load float, ptr %34, align 4, !tbaa !160
   %.val28 = load float, ptr %33, align 4, !tbaa !159
@@ -20405,11 +20405,11 @@ define noundef zeroext i1 @_ZN5ImGui11InputTextExEPKcS1_PciRK6ImVec2iPFiP26ImGui
   %130 = trunc i32 %127 to i16
   %131 = or i16 %129, %130
   store i16 %131, ptr %128, align 2, !tbaa !376
-  %.val1280 = load float, ptr %59, align 4, !tbaa !159
+  %.val1280 = load float, ptr %59, align 8, !tbaa !159
   %.val1281 = load float, ptr %60, align 4, !tbaa !160
-  %132 = load float, ptr %124, align 4, !tbaa !159
+  %132 = load float, ptr %124, align 8, !tbaa !159
   %133 = fadd float %.val1280, %132
-  store float %133, ptr %124, align 4, !tbaa !159
+  store float %133, ptr %124, align 8, !tbaa !159
   %134 = getelementptr inbounds nuw i8, ptr %123, i64 284
   %135 = load float, ptr %134, align 4, !tbaa !160
   %136 = fadd float %.val1281, %135
@@ -21291,7 +21291,7 @@ _ZN8ImVectorIcE6resizeEi.exit1304:                ; preds = %._ZN8ImVectorIcE6re
   %553 = load float, ptr %552, align 8, !tbaa !430
   %554 = load float, ptr %15, align 8, !tbaa !219
   %555 = fsub float %553, %554
-  %556 = load float, ptr %59, align 4, !tbaa !177
+  %556 = load float, ptr %59, align 8, !tbaa !177
   %557 = fsub float %555, %556
   %558 = getelementptr inbounds nuw i8, ptr %.010461721, i64 92
   %559 = load float, ptr %558, align 4, !tbaa !402
@@ -23720,7 +23720,7 @@ _ZNK6ImRect8OverlapsERKS_.exit.thread:            ; preds = %1667, %1686
   %1759 = getelementptr inbounds nuw i8, ptr %36, i64 9612
   store float %1756, ptr %1759, align 4
   %.sroa_idx1399 = getelementptr inbounds nuw i8, ptr %36, i64 9616
-  store float %1758, ptr %.sroa_idx1399, align 4
+  store float %1758, ptr %.sroa_idx1399, align 8
   %1760 = getelementptr inbounds nuw i8, ptr %36, i64 9620
   store float %1757, ptr %1760, align 4, !tbaa !479
   br label %1761
@@ -33186,7 +33186,7 @@ _ZN5ImGui21MultiSelectItemHeaderEjPbPi.exit:      ; preds = %337, %340
 
 453:                                              ; preds = %451
   %454 = load float, ptr %39, align 8, !tbaa !176
-  %455 = load float, ptr %.sroa.0312.0.in, align 4, !tbaa !177
+  %455 = load float, ptr %.sroa.0312.0.in, align 8, !tbaa !177
   %456 = fadd float %454, %455
   %457 = load float, ptr %97, align 8, !tbaa !175
   %458 = fsub float %457, %456
@@ -33972,7 +33972,7 @@ define noundef zeroext i1 @_ZN5ImGui16CollapsingHeaderEPKcPbi(ptr noundef %0, pt
   %33 = fcmp oge float %26, %32
   %34 = select i1 %33, float %26, float %32
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 7544
-  %36 = load float, ptr %35, align 4, !tbaa !571
+  %36 = load float, ptr %35, align 8, !tbaa !571
   %37 = getelementptr inbounds nuw i8, ptr %21, i64 3164
   %38 = load float, ptr %37, align 4, !tbaa !216
   %39 = fadd float %36, %38
@@ -34956,7 +34956,7 @@ define void @_ZN5ImGui12EndBoxSelectERK6ImRecti(ptr noundef nonnull readonly ali
   store i8 0, ptr %8, align 8, !tbaa !593
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val = load float, ptr %9, align 4, !tbaa !159
+  %.val = load float, ptr %9, align 8, !tbaa !159
   %11 = getelementptr i8, ptr %5, i64 236
   %.val19 = load float, ptr %11, align 4
   %.val20 = load float, ptr %0, align 4, !tbaa !159
@@ -35042,7 +35042,7 @@ define void @_ZN5ImGui12EndBoxSelectERK6ImRecti(ptr noundef nonnull readonly ali
   %50 = load float, ptr %49, align 4, !tbaa !168
   %51 = fsub float %50, %41
   store float %51, ptr %49, align 4, !tbaa !168
-  %52 = load float, ptr %9, align 4, !tbaa !159
+  %52 = load float, ptr %9, align 8, !tbaa !159
   %53 = fcmp ult float %52, %43
   br i1 %53, label %_ZNK6ImRect8ContainsERK6ImVec2.exit.thread, label %54
 
@@ -36523,7 +36523,7 @@ define internal fastcc void @_ZL21BoxSelectPreStartDragjx(i32 noundef %0, i64 no
   %.sroa.0.0.copyload.i = load float, ptr %17, align 8, !tbaa !194
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 300
   %.sroa.4.0.copyload.i = load float, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !194
-  %18 = load float, ptr %16, align 4, !tbaa !159
+  %18 = load float, ptr %16, align 8, !tbaa !159
   %19 = fsub float %18, %.sroa.0.0.copyload.i
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 236
   %21 = load float, ptr %20, align 4, !tbaa !160
@@ -36537,7 +36537,7 @@ define internal fastcc void @_ZL21BoxSelectPreStartDragjx(i32 noundef %0, i64 no
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 8852
   store i32 0, ptr %25, align 4
   %.sroa_idx14 = getelementptr inbounds nuw i8, ptr %3, i64 8856
-  store i32 0, ptr %.sroa_idx14, align 4
+  store i32 0, ptr %.sroa_idx14, align 8
   ret void
 }
 
@@ -38657,7 +38657,7 @@ define noundef zeroext i1 @_ZN5ImGui12BeginMenuBarEv() local_unnamed_addr #0 {
   %54 = sitofp i32 %53 to float
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 520
-  %.val5.i = load float, ptr %56, align 4, !tbaa !159
+  %.val5.i = load float, ptr %56, align 8, !tbaa !159
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 524
   %.val6.i = load float, ptr %57, align 4, !tbaa !160
   %.inv.i.i = fcmp ole float %.val5.i, %36
@@ -38668,7 +38668,7 @@ define noundef zeroext i1 @_ZN5ImGui12BeginMenuBarEv() local_unnamed_addr #0 {
   %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %58, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %1, align 8
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 528
-  %.val9.i = load float, ptr %59, align 4, !tbaa !159
+  %.val9.i = load float, ptr %59, align 8, !tbaa !159
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 532
   %.val10.i = load float, ptr %60, align 4, !tbaa !160
   %61 = fcmp ogt float %.val9.i, %51
@@ -38684,7 +38684,7 @@ define noundef zeroext i1 @_ZN5ImGui12BeginMenuBarEv() local_unnamed_addr #0 {
   %66 = load float, ptr %65, align 4, !tbaa !700
   %67 = fadd float %26, %66
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 384
-  %69 = load float, ptr %68, align 4, !tbaa !701
+  %69 = load float, ptr %68, align 8, !tbaa !701
   %70 = fadd float %25, %69
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 304
   store float %67, ptr %71, align 8
@@ -38908,7 +38908,7 @@ define noundef zeroext i1 @_ZN5ImGui20BeginViewportSideBarEPKcP13ImGuiViewport8I
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 192
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load float, ptr %22, align 8, !tbaa !717
-  %24 = load float, ptr %21, align 4, !tbaa !159
+  %24 = load float, ptr %21, align 8, !tbaa !159
   %25 = fadd float %23, %24
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %27 = load float, ptr %26, align 4, !tbaa !719
@@ -38919,7 +38919,7 @@ define noundef zeroext i1 @_ZN5ImGui20BeginViewportSideBarEPKcP13ImGuiViewport8I
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %33 = load float, ptr %32, align 8, !tbaa !720
   %34 = fsub float %33, %24
-  %35 = load float, ptr %31, align 4, !tbaa !159
+  %35 = load float, ptr %31, align 8, !tbaa !159
   %36 = fsub float %34, %35
   %37 = fcmp ole float %36, 0.000000e+00
   %38 = select i1 %37, float 0.000000e+00, float %36
@@ -39027,11 +39027,11 @@ define noundef zeroext i1 @_ZN5ImGui16BeginMainMenuBarEv() local_unnamed_addr #5
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 7716
   store i32 %4, ptr %12, align 4
   %.sroa_idx13 = getelementptr inbounds nuw i8, ptr %1, i64 7720
-  store float %11, ptr %.sroa_idx13, align 4
+  store float %11, ptr %.sroa_idx13, align 8
   %13 = tail call noundef float @_ZN5ImGui14GetFrameHeightEv()
   %14 = tail call noundef zeroext i1 @_ZN5ImGui20BeginViewportSideBarEPKcP13ImGuiViewport8ImGuiDirfi(ptr noundef nonnull @.str.123, ptr noundef %2, i32 noundef 2, float noundef %13, i32 noundef 1288)
   store i32 0, ptr %12, align 4
-  store i32 0, ptr %.sroa_idx13, align 4
+  store i32 0, ptr %.sroa_idx13, align 8
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %0
@@ -39319,7 +39319,7 @@ _ZL19IsRootOfOpenMenuSetv.exit.thread:            ; preds = %87, %90, %78, %_ZN8
   %.sroa.084.0.vec.extract = extractelement <2 x float> %66, i64 0
   %124 = load float, ptr %97, align 8, !tbaa !155
   %125 = getelementptr inbounds nuw i8, ptr %14, i64 400
-  %126 = load i16, ptr %125, align 4, !tbaa !692
+  %126 = load i16, ptr %125, align 8, !tbaa !692
   %127 = uitofp i16 %126 to float
   %128 = fadd float %124, %127
   %129 = load float, ptr %.sroa_idx, align 4, !tbaa !156
@@ -39422,7 +39422,7 @@ _ZN16ImGuiMenuColumns11DeclColumnsEffff.exit:     ; preds = %.split.i.i
   %183 = select i1 %182, float 0.000000e+00, float %181
   %184 = load float, ptr %97, align 8, !tbaa !155
   %185 = getelementptr inbounds nuw i8, ptr %14, i64 400
-  %186 = load i16, ptr %185, align 4, !tbaa !692
+  %186 = load i16, ptr %185, align 8, !tbaa !692
   %187 = uitofp i16 %186 to float
   %188 = fadd float %184, %187
   %189 = load float, ptr %.sroa_idx, align 4, !tbaa !156
@@ -39563,12 +39563,12 @@ _ZN16ImGuiMenuColumns11DeclColumnsEffff.exit._crit_edge: ; preds = %_ZN16ImGuiMe
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %266 = getelementptr inbounds nuw i8, ptr %12, i64 232
   %267 = getelementptr inbounds nuw i8, ptr %12, i64 212
-  %.val225 = load float, ptr %266, align 4, !tbaa !159
+  %.val225 = load float, ptr %266, align 8, !tbaa !159
   %268 = getelementptr i8, ptr %12, i64 236
   %.val226 = load float, ptr %268, align 4, !tbaa !160
   %.val227 = load float, ptr %267, align 4, !tbaa !159
   %269 = getelementptr i8, ptr %12, i64 216
-  %.val228 = load float, ptr %269, align 4, !tbaa !160
+  %.val228 = load float, ptr %269, align 8, !tbaa !160
   %270 = fsub float %.val225, %.val227
   %271 = fsub float %.val226, %.val228
   %.sroa.0.0.vec.insert.i233 = insertelement <2 x float> poison, float %270, i64 0
@@ -40030,7 +40030,7 @@ _ZL19IsRootOfOpenMenuSetv.exit.thread:            ; preds = %40, %43, %31, %15, 
   %62 = fadd float %61, %60
   store float %62, ptr %16, align 8, !tbaa !155
   %63 = getelementptr inbounds nuw i8, ptr %10, i64 400
-  %64 = load i16, ptr %63, align 4, !tbaa !692
+  %64 = load i16, ptr %63, align 8, !tbaa !692
   %65 = load float, ptr %.sroa_idx, align 4, !tbaa !156
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 336
   %67 = load float, ptr %66, align 8, !tbaa !157
@@ -40668,7 +40668,7 @@ _ZL7ImQsortPvmmPFiPKvS1_E.exit:                   ; preds = %96, %92, %88
   store i8 1, ptr %120, align 2, !tbaa !764
   %121 = load i32, ptr %105, align 4, !tbaa !746
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %123 = load float, ptr %122, align 4, !tbaa !762
+  %123 = load float, ptr %122, align 8, !tbaa !762
   %124 = fadd float %113, %123
   store i32 %121, ptr %64, align 8
   %.sroa_idx66 = getelementptr inbounds nuw i8, ptr %8, i64 284
@@ -42241,9 +42241,9 @@ _ZN5ImGuiL17TabBarScrollToTabEP11ImGuiTabBarjP18ImGuiTabBarSection.exit: ; preds
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %768 = load float, ptr %523, align 4, !tbaa !816
   %769 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %770 = load float, ptr %769, align 4, !tbaa !168
+  %770 = load float, ptr %769, align 8, !tbaa !168
   %771 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %772 = load float, ptr %771, align 4, !tbaa !167
+  %772 = load float, ptr %771, align 8, !tbaa !167
   %773 = fsub float %770, %772
   store float %768, ptr %9, align 4, !tbaa !159
   %774 = getelementptr inbounds nuw i8, ptr %9, i64 4

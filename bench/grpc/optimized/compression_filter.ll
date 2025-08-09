@@ -4373,7 +4373,7 @@ _ZN9grpc_core14promise_detail7CurriedIZNS_21promise_filter_detail37InterceptClie
   store ptr null, ptr %6, align 8, !tbaa !40, !noalias !264
   store i64 %4, ptr %2, align 8, !tbaa !203
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i8 %5, ptr %8, align 1, !tbaa !52
+  store i8 %5, ptr %8, align 8, !tbaa !52
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %7, ptr %9, align 8, !tbaa !40
   ret void
@@ -4385,7 +4385,7 @@ define linkonce_odr void @_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7Mess
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !40
   %.not.i.i.i = icmp ne ptr %5, null
-  %6 = load i8, ptr %3, align 1, !range !51
+  %6 = load i8, ptr %3, align 8, !range !51
   %7 = trunc nuw i8 %6 to i1
   %or.cond.i.i.i = select i1 %.not.i.i.i, i1 %7, i1 false
   br i1 %or.cond.i.i.i, label %8, label %_ZN9grpc_core14promise_detail11PromiseLikeINS0_7CurriedIZNS_21promise_filter_detail37InterceptClientToServerMessageHandlerINS_23ClientCompressionFilterEEEDaMNT_4CallEFSt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEESC_PS6_EPNS3_14FilterCallDataIS6_EERKNS_8CallArgsEEUlSC_E_SC_EEvED2Ev.exit
@@ -4548,7 +4548,7 @@ _ZN9grpc_core14promise_detail7CurriedIZNS_21promise_filter_detail30InterceptServ
   store ptr null, ptr %6, align 8, !tbaa !220, !noalias !282
   store i64 %4, ptr %2, align 8, !tbaa !203
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i8 %5, ptr %8, align 1, !tbaa !52
+  store i8 %5, ptr %8, align 8, !tbaa !52
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %7, ptr %9, align 8, !tbaa !220
   ret void
@@ -4560,7 +4560,7 @@ define linkonce_odr void @_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_m
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !220
   %.not.i.i.i = icmp ne ptr %5, null
-  %6 = load i8, ptr %3, align 1, !range !51
+  %6 = load i8, ptr %3, align 8, !range !51
   %7 = trunc nuw i8 %6 to i1
   %or.cond.i.i.i = select i1 %.not.i.i.i, i1 %7, i1 false
   br i1 %or.cond.i.i.i, label %8, label %_ZN9grpc_core14promise_detail11PromiseLikeINS0_7CurriedIZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_23ClientCompressionFilterEEEvMNT_4CallEFvR19grpc_metadata_batchPS6_EPNS3_14FilterCallDataIS6_EERKNS_8CallArgsEEUlSt10unique_ptrIS8_NS_5Arena13PooledDeleterEEE_SM_EEvED2Ev.exit
@@ -4678,7 +4678,7 @@ _ZN9grpc_core14promise_detail7CurriedIZNS_21promise_filter_detail30InterceptServ
   store ptr null, ptr %6, align 8, !tbaa !40, !noalias !299
   store i64 %4, ptr %2, align 8, !tbaa !203
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i8 %5, ptr %8, align 1, !tbaa !52
+  store i8 %5, ptr %8, align 8, !tbaa !52
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %7, ptr %9, align 8, !tbaa !40
   ret void
@@ -4690,7 +4690,7 @@ define linkonce_odr void @_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7Mess
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !40
   %.not.i.i.i = icmp ne ptr %5, null
-  %6 = load i8, ptr %3, align 1, !range !51
+  %6 = load i8, ptr %3, align 8, !range !51
   %7 = trunc nuw i8 %6 to i1
   %or.cond.i.i.i = select i1 %.not.i.i.i, i1 %7, i1 false
   br i1 %or.cond.i.i.i, label %8, label %_ZN9grpc_core14promise_detail11PromiseLikeINS0_7CurriedIZNS_21promise_filter_detail30InterceptServerToClientMessageINS_23ClientCompressionFilterEEEvMNT_4CallEFN4absl12lts_202407228StatusOrISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEESF_PS6_EPNS3_14FilterCallDataIS6_EERKNS_8CallArgsEEUlSF_E_SF_EEvED2Ev.exit
@@ -4914,7 +4914,7 @@ _ZNSt10unique_ptrIN9grpc_core7MessageENS0_5Arena13PooledDeleterEED2Ev.exit: ; pr
   %50 = load ptr, ptr %49, align 8, !tbaa !220
   store ptr %48, ptr %49, align 8, !tbaa !220
   %.not.i.i.i.i.i = icmp ne ptr %50, null
-  %51 = load i8, ptr %40, align 1, !range !51
+  %51 = load i8, ptr %40, align 8, !range !51
   %52 = trunc nuw i8 %51 to i1
   %or.cond.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %52, i1 false
   br i1 %or.cond.i.i.i.i.i, label %53, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEaSEOS4_.exit.i
@@ -5240,7 +5240,7 @@ _ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21Http
   %storemerge.i.i.i.i.i.i = or i16 %17, 1024
   store i16 %storemerge.i.i.i.i.i.i, ptr %10, align 2, !tbaa !70
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i8 %.sroa.0.0.copyload.i.i.i, ptr %21, align 1, !tbaa !56
+  store i8 %.sroa.0.0.copyload.i.i.i, ptr %21, align 2, !tbaa !56
   %.not.i.i = icmp eq i32 %.0.i.i.i, 0
   br i1 %.not.i.i, label %_ZN9grpc_core23ClientCompressionFilter4Call23OnClientInitialMetadataER19grpc_metadata_batchPS0_.exit, label %22
 
@@ -5921,7 +5921,7 @@ _ZN9grpc_core14promise_detail7CurriedIZNS_21promise_filter_detail37InterceptClie
   store ptr null, ptr %6, align 8, !tbaa !40, !noalias !338
   store i64 %4, ptr %2, align 8, !tbaa !333
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i8 %5, ptr %8, align 1, !tbaa !52
+  store i8 %5, ptr %8, align 8, !tbaa !52
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %7, ptr %9, align 8, !tbaa !40
   ret void
@@ -5933,7 +5933,7 @@ define linkonce_odr void @_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7Mess
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !40
   %.not.i.i.i = icmp ne ptr %5, null
-  %6 = load i8, ptr %3, align 1, !range !51
+  %6 = load i8, ptr %3, align 8, !range !51
   %7 = trunc nuw i8 %6 to i1
   %or.cond.i.i.i = select i1 %.not.i.i.i, i1 %7, i1 false
   br i1 %or.cond.i.i.i, label %8, label %_ZN9grpc_core14promise_detail11PromiseLikeINS0_7CurriedIZNS_21promise_filter_detail37InterceptClientToServerMessageHandlerINS_23ServerCompressionFilterEEEDaMNT_4CallEFN4absl12lts_202407228StatusOrISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEESF_PS6_EPNS3_14FilterCallDataIS6_EERKNS_8CallArgsEEUlSF_E_SF_EEvED2Ev.exit
@@ -6068,9 +6068,9 @@ define linkonce_odr void @_ZZN9grpc_core21promise_filter_detail37InterceptClient
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %12, ptr %15, align 8, !tbaa !40, !noalias !349
   store ptr null, ptr %10, align 8, !tbaa !40, !noalias !349
-  %.sroa.01.0.copyload.i = load i64, ptr %8, align 4, !noalias !349
+  %.sroa.01.0.copyload.i = load i64, ptr %8, align 8, !noalias !349
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sroa.22.0.copyload.i = load i8, ptr %.sroa.22.0..sroa_idx.i, align 4, !noalias !349
+  %.sroa.22.0.copyload.i = load i8, ptr %.sroa.22.0..sroa_idx.i, align 8, !noalias !349
   %16 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core14promise_detail18ThreadLocalContextINS_5ArenaEE8current_E)
   %17 = load ptr, ptr %16, align 8, !tbaa !74, !noalias !349
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 56
@@ -6161,7 +6161,7 @@ _ZNSt10unique_ptrIN9grpc_core7MessageENS0_5Arena13PooledDeleterEED2Ev.exit: ; pr
   %54 = load ptr, ptr %53, align 8, !tbaa !220
   store ptr %52, ptr %53, align 8, !tbaa !220
   %.not.i.i.i.i.i = icmp ne ptr %54, null
-  %55 = load i8, ptr %44, align 1, !range !51
+  %55 = load i8, ptr %44, align 8, !range !51
   %56 = trunc nuw i8 %55 to i1
   %or.cond.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %56, i1 false
   br i1 %or.cond.i.i.i.i.i, label %57, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEaSEOS4_.exit.i
@@ -6303,7 +6303,7 @@ _ZN9grpc_core14promise_detail7CurriedIZNS_21promise_filter_detail30InterceptServ
   store ptr null, ptr %6, align 8, !tbaa !220, !noalias !352
   store i64 %4, ptr %2, align 8, !tbaa !333
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i8 %5, ptr %8, align 1, !tbaa !52
+  store i8 %5, ptr %8, align 8, !tbaa !52
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %7, ptr %9, align 8, !tbaa !220
   ret void
@@ -6315,7 +6315,7 @@ define linkonce_odr void @_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_m
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !220
   %.not.i.i.i = icmp ne ptr %5, null
-  %6 = load i8, ptr %3, align 1, !range !51
+  %6 = load i8, ptr %3, align 8, !range !51
   %7 = trunc nuw i8 %6 to i1
   %or.cond.i.i.i = select i1 %.not.i.i.i, i1 %7, i1 false
   br i1 %or.cond.i.i.i, label %8, label %_ZN9grpc_core14promise_detail11PromiseLikeINS0_7CurriedIZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_23ServerCompressionFilterEEEvMNT_4CallEFvR19grpc_metadata_batchPS6_EPNS3_14FilterCallDataIS6_EERKNS_8CallArgsEEUlSt10unique_ptrIS8_NS_5Arena13PooledDeleterEEE_SM_EEvED2Ev.exit
@@ -6365,7 +6365,7 @@ _ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21Http
   %storemerge.i.i.i.i.i.i.i.i = or i16 %19, 1024
   store i16 %storemerge.i.i.i.i.i.i.i.i, ptr %12, align 2, !tbaa !70, !noalias !362
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i8 %.sroa.0.0.copyload.i.i.i.i.i, ptr %23, align 1, !tbaa !56, !noalias !362
+  store i8 %.sroa.0.0.copyload.i.i.i.i.i, ptr %23, align 2, !tbaa !56, !noalias !362
   %.not.i.i.i.i = icmp eq i32 %.0.i.i.i.i.i, 0
   br i1 %.not.i.i.i.i, label %_ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit2, label %24
 
@@ -6411,7 +6411,7 @@ _ZN9grpc_core14promise_detail7CurriedIZNS_21promise_filter_detail30InterceptServ
   store ptr null, ptr %6, align 8, !tbaa !40, !noalias !365
   store i64 %4, ptr %2, align 8, !tbaa !333
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i8 %5, ptr %8, align 1, !tbaa !52
+  store i8 %5, ptr %8, align 8, !tbaa !52
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %7, ptr %9, align 8, !tbaa !40
   ret void
@@ -6423,7 +6423,7 @@ define linkonce_odr void @_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7Mess
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !40
   %.not.i.i.i = icmp ne ptr %5, null
-  %6 = load i8, ptr %3, align 1, !range !51
+  %6 = load i8, ptr %3, align 8, !range !51
   %7 = trunc nuw i8 %6 to i1
   %or.cond.i.i.i = select i1 %.not.i.i.i, i1 %7, i1 false
   br i1 %or.cond.i.i.i, label %8, label %_ZN9grpc_core14promise_detail11PromiseLikeINS0_7CurriedIZNS_21promise_filter_detail30InterceptServerToClientMessageINS_23ServerCompressionFilterEEEvMNT_4CallEFSt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEESC_PS6_EPNS3_14FilterCallDataIS6_EERKNS_8CallArgsEEUlSC_E_SC_EEvED2Ev.exit

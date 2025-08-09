@@ -316,15 +316,15 @@ define dso_local noundef nonnull ptr @LLVMCreateTargetMachineOptions() local_unn
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %6, ptr %5, align 8, !tbaa !16
-  store i8 0, ptr %6, align 1, !tbaa !21
+  store i8 0, ptr %6, align 8, !tbaa !21
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %8, ptr %7, align 8, !tbaa !16
-  store i8 0, ptr %8, align 1, !tbaa !21
+  store i8 0, ptr %8, align 8, !tbaa !21
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store i32 2, ptr %9, align 8, !tbaa !32
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  store i8 0, ptr %10, align 4, !tbaa !43
+  store i8 0, ptr %10, align 8, !tbaa !43
   ret ptr %1
 }
 
@@ -761,7 +761,7 @@ LLVMTargetMachineOptionsSetCodeGenOptLevel.exit:
   %.sroa.041.0.insert.insert.i = or disjoint i64 %spec.select16, %spec.select15
   store i64 %.sroa.041.0.insert.insert.i, ptr %23, align 4
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 116
-  store i8 0, ptr %24, align 1, !tbaa !44
+  store i8 0, ptr %24, align 4, !tbaa !44
   switch i32 %6, label %30 [
     i32 1, label %25
     i32 0, label %LLVMTargetMachineOptionsSetCodeModel.exit
@@ -1217,7 +1217,7 @@ define dso_local noundef nonnull ptr @LLVMCreateTargetDataLayout(ptr noundef %0)
   store ptr %30, ptr %29, align 8, !tbaa !16, !alias.scope !181
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 456
   store i64 0, ptr %31, align 8, !tbaa !18, !alias.scope !181
-  store i8 0, ptr %30, align 1, !tbaa !21, !alias.scope !181
+  store i8 0, ptr %30, align 8, !tbaa !21, !alias.scope !181
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 480
   store i8 0, ptr %32, align 8, !alias.scope !181
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 481
@@ -1737,7 +1737,7 @@ _ZN4llvm17SubtargetFeaturesD2Ev.exit:             ; preds = %_ZSt8_DestroyIPNSt7
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load i64, ptr %54, align 8, !tbaa !228
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %58 = load i8, ptr %57, align 1, !tbaa !44, !range !28, !noundef !29
+  %58 = load i8, ptr %57, align 8, !tbaa !44, !range !28, !noundef !29
   %59 = trunc nuw i8 %58 to i1
   call void @_ZN4llvm17SubtargetFeatures10AddFeatureENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull %55, i64 %56, i1 noundef zeroext %59) #20
   br label %.critedge.i.i

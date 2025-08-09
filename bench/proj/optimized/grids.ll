@@ -7275,13 +7275,13 @@ define hidden void @_ZN5osgeo4proj18GTiffVGridShiftSet4openEP6pj_ctxSt10unique_p
   store ptr %17, ptr %16, align 8, !tbaa !21
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 0, ptr %18, align 8, !tbaa !28
-  store i8 0, ptr %17, align 1, !tbaa !30
+  store i8 0, ptr %17, align 8, !tbaa !30
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 56
   store ptr %20, ptr %19, align 8, !tbaa !21
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 48
   store i64 0, ptr %21, align 8, !tbaa !28
-  store i8 0, ptr %20, align 1, !tbaa !30
+  store i8 0, ptr %20, align 8, !tbaa !30
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5osgeo4proj18GTiffVGridShiftSetE, i64 16), ptr %15, align 8, !tbaa !19
@@ -7316,7 +7316,7 @@ define hidden void @_ZN5osgeo4proj18GTiffVGridShiftSet4openEP6pj_ctxSt10unique_p
   store ptr %34, ptr %33, align 8, !tbaa !21
   %35 = getelementptr inbounds nuw i8, ptr %23, i64 56
   store i64 0, ptr %35, align 8, !tbaa !28
-  store i8 0, ptr %34, align 1, !tbaa !30
+  store i8 0, ptr %34, align 8, !tbaa !30
   %36 = getelementptr inbounds nuw i8, ptr %23, i64 80
   %37 = getelementptr inbounds nuw i8, ptr %23, i64 88
   store i64 0, ptr %37, align 8
@@ -8610,7 +8610,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %_ZN
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i64 4, ptr %26, align 8, !tbaa !28
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 28
-  store i8 0, ptr %27, align 1, !tbaa !30
+  store i8 0, ptr %27, align 4, !tbaa !30
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 40
   store i32 3, ptr %28, align 8, !tbaa !31
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 44
@@ -11306,13 +11306,13 @@ define hidden void @_ZN5osgeo4proj11NTv2GridSet4openEP6pj_ctxSt10unique_ptrINS0_
   store ptr %16, ptr %15, align 8, !tbaa !21
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 0, ptr %17, align 8, !tbaa !28
-  store i8 0, ptr %16, align 1, !tbaa !30
+  store i8 0, ptr %16, align 8, !tbaa !30
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 56
   store ptr %19, ptr %18, align 8, !tbaa !21
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 48
   store i64 0, ptr %20, align 8, !tbaa !28
-  store i8 0, ptr %19, align 1, !tbaa !30
+  store i8 0, ptr %19, align 8, !tbaa !30
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5osgeo4proj11NTv2GridSetE, i64 16), ptr %14, align 8, !tbaa !19
@@ -12953,13 +12953,13 @@ define hidden void @_ZN5osgeo4proj18GTiffHGridShiftSet4openEP6pj_ctxSt10unique_p
   store ptr %20, ptr %19, align 8, !tbaa !21
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i64 0, ptr %21, align 8, !tbaa !28
-  store i8 0, ptr %20, align 1, !tbaa !30
+  store i8 0, ptr %20, align 8, !tbaa !30
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 56
   store ptr %23, ptr %22, align 8, !tbaa !21
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 48
   store i64 0, ptr %24, align 8, !tbaa !28
-  store i8 0, ptr %23, align 1, !tbaa !30
+  store i8 0, ptr %23, align 8, !tbaa !30
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5osgeo4proj18GTiffHGridShiftSetE, i64 16), ptr %18, align 8, !tbaa !19
@@ -12994,7 +12994,7 @@ define hidden void @_ZN5osgeo4proj18GTiffHGridShiftSet4openEP6pj_ctxSt10unique_p
   store ptr %37, ptr %36, align 8, !tbaa !21
   %38 = getelementptr inbounds nuw i8, ptr %26, i64 56
   store i64 0, ptr %38, align 8, !tbaa !28
-  store i8 0, ptr %37, align 1, !tbaa !30
+  store i8 0, ptr %37, align 8, !tbaa !30
   %39 = getelementptr inbounds nuw i8, ptr %26, i64 80
   %40 = getelementptr inbounds nuw i8, ptr %26, i64 88
   store i64 0, ptr %40, align 8
@@ -14444,7 +14444,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %_ZN
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i64 4, ptr %29, align 8, !tbaa !28
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 28
-  store i8 0, ptr %30, align 1, !tbaa !30
+  store i8 0, ptr %30, align 4, !tbaa !30
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 40
   store i32 3, ptr %31, align 8, !tbaa !31
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 44
@@ -16240,13 +16240,13 @@ define hidden void @_ZN5osgeo4proj24GTiffGenericGridShiftSet4openEP6pj_ctxSt10un
   store ptr %18, ptr %17, align 8, !tbaa !21
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 0, ptr %19, align 8, !tbaa !28
-  store i8 0, ptr %18, align 1, !tbaa !30
+  store i8 0, ptr %18, align 8, !tbaa !30
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 56
   store ptr %21, ptr %20, align 8, !tbaa !21
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 48
   store i64 0, ptr %22, align 8, !tbaa !28
-  store i8 0, ptr %21, align 1, !tbaa !30
+  store i8 0, ptr %21, align 8, !tbaa !30
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5osgeo4proj24GTiffGenericGridShiftSetE, i64 16), ptr %16, align 8, !tbaa !19
@@ -16281,7 +16281,7 @@ define hidden void @_ZN5osgeo4proj24GTiffGenericGridShiftSet4openEP6pj_ctxSt10un
   store ptr %35, ptr %34, align 8, !tbaa !21
   %36 = getelementptr inbounds nuw i8, ptr %24, i64 56
   store i64 0, ptr %36, align 8, !tbaa !28
-  store i8 0, ptr %35, align 1, !tbaa !30
+  store i8 0, ptr %35, align 8, !tbaa !30
   %37 = getelementptr inbounds nuw i8, ptr %24, i64 80
   %38 = getelementptr inbounds nuw i8, ptr %24, i64 88
   store i64 0, ptr %38, align 8
@@ -16595,7 +16595,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87: ; preds = %_ZN
   store ptr %163, ptr %162, align 8, !tbaa !21, !noalias !411
   %164 = getelementptr inbounds nuw i8, ptr %130, i64 168
   store i64 0, ptr %164, align 8, !tbaa !28, !noalias !411
-  store i8 0, ptr %163, align 1, !tbaa !30, !noalias !411
+  store i8 0, ptr %163, align 8, !tbaa !30, !noalias !411
   %165 = getelementptr inbounds nuw i8, ptr %130, i64 192
   store i8 0, ptr %165, align 8, !tbaa !401, !noalias !411
   store ptr %130, ptr %13, align 8, !tbaa !403, !alias.scope !411
@@ -17756,7 +17756,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %_ZN
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i64 4, ptr %25, align 8, !tbaa !28
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 28
-  store i8 0, ptr %26, align 1, !tbaa !30
+  store i8 0, ptr %26, align 4, !tbaa !30
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store i32 3, ptr %27, align 8, !tbaa !31
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 44
@@ -26701,13 +26701,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %25, ptr %28, align 8, !tbaa !28
   store ptr %16, ptr %13, align 8, !tbaa !25
   store i64 0, ptr %27, align 8, !tbaa !28
-  store i8 0, ptr %16, align 1, !tbaa !30
+  store i8 0, ptr %16, align 8, !tbaa !30
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 88
   store ptr %30, ptr %29, align 8, !tbaa !21
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store i64 0, ptr %31, align 8, !tbaa !28
-  store i8 0, ptr %30, align 1, !tbaa !30
+  store i8 0, ptr %30, align 8, !tbaa !30
   store ptr %7, ptr %26, align 8, !tbaa !554
   %32 = invoke { ptr, ptr } @_ZNSt8_Rb_treeISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES0_IKS7_S6_ESt10_Select1stIS9_ESt4lessIS7_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS8_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(40) %8)
           to label %33 unwind label %61

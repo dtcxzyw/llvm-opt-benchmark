@@ -5038,7 +5038,7 @@ _ZN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implD2Ev.exit22: ; 
   store ptr %122, ptr %121, align 8, !tbaa !87
   %123 = getelementptr inbounds nuw i8, ptr %107, i64 120
   store i64 0, ptr %123, align 8, !tbaa !55
-  store i8 0, ptr %122, align 1, !tbaa !64
+  store i8 0, ptr %122, align 8, !tbaa !64
   %124 = getelementptr inbounds nuw i8, ptr %107, i64 144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %124, i8 0, i64 25, i1 false)
   %125 = getelementptr inbounds nuw i8, ptr %107, i64 176

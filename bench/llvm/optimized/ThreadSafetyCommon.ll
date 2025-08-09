@@ -252,7 +252,7 @@ _ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.e
   %58 = lshr i32 %57, 22
   %59 = and i32 %58, 7
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %61 = load i32, ptr %60, align 4, !tbaa !38
+  %61 = load i32, ptr %60, align 8, !tbaa !38
   %62 = mul i32 %59, %61
   %63 = zext i32 %62 to i64
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -1677,7 +1677,7 @@ define dso_local void @_ZN5clang12threadSafety12SExprBuilder17translateAttrExprE
   %11 = lshr i32 %10, 22
   %12 = and i32 %11, 7
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %14 = load i32, ptr %13, align 4, !tbaa !38
+  %14 = load i32, ptr %13, align 8, !tbaa !38
   %15 = mul i32 %12, %14
   %.not.i = icmp eq i32 %15, 1
   br i1 %.not.i, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread53
@@ -9908,7 +9908,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEjNS_12DenseMapInfoIS5_vE
   store ptr %60, ptr %50, align 8, !tbaa !271
   %61 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %62 = load i32, ptr %3, align 4, !tbaa !38
-  store i32 %62, ptr %61, align 4, !tbaa !38
+  store i32 %62, ptr %61, align 8, !tbaa !38
   %63 = load ptr, ptr %1, align 8, !tbaa !264
   %64 = load i32, ptr %7, align 8, !tbaa !265
   br label %.loopexit
@@ -10120,7 +10120,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEjNS_12DenseMapInfoIS5_vE
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !38
-  store i32 %68, ptr %66, align 4, !tbaa !38
+  store i32 %68, ptr %66, align 8, !tbaa !38
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !558
   br label %70

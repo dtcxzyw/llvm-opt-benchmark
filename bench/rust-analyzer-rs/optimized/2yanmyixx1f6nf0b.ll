@@ -180,7 +180,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h03dab3bdccd23ffaE(ptr noalia
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %.val.i, i64 48, i1 false), !noalias !31
   store i64 0, ptr %.val.i, align 8, !noalias !31
   %3 = getelementptr inbounds nuw i8, ptr %.val.i, i64 48
-  store i8 2, ptr %3, align 1, !noalias !31
+  store i8 2, ptr %3, align 8, !noalias !31
   %4 = load i64, ptr %2, align 8, !range !13, !alias.scope !34, !noalias !31, !noundef !17
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %21, label %6
@@ -238,7 +238,7 @@ __rust_try.llvm.12770805382643999604.exit:
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !46, !noundef !17
   store i64 0, ptr %.val.i, align 8, !noalias !49
   %1 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
-  store i8 2, ptr %1, align 1, !noalias !49
+  store i8 2, ptr %1, align 8, !noalias !49
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
@@ -248,7 +248,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h478d18daa501de20E.llvm.12770
   %.val = load ptr, ptr %2, align 8, !alias.scope !53, !noundef !17
   store i64 0, ptr %.val, align 8, !noalias !56
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  store i8 2, ptr %3, align 1, !noalias !56
+  store i8 2, ptr %3, align 8, !noalias !56
   ret void
 }
 
@@ -261,7 +261,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h719bd58704780acfE.llvm.12770
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %.val, i64 48, i1 false), !noalias !62
   store i64 0, ptr %.val, align 8, !noalias !62
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 48
-  store i8 2, ptr %4, align 1, !noalias !62
+  store i8 2, ptr %4, align 8, !noalias !62
   %5 = load i64, ptr %2, align 8, !range !13, !alias.scope !65, !noalias !62, !noundef !17
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h4035f48b49a3ad8eE.exit", label %7

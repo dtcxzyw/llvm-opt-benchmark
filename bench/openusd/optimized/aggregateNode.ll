@@ -1469,7 +1469,7 @@ define noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__18TraceAggregateNod
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %30 = load i64, ptr %29, align 8
   %31 = icmp eq i64 %19, %30
-  %32 = load i32, ptr %28, align 4
+  %32 = load i32, ptr %28, align 8
   %33 = icmp eq i32 %1, %32
   %34 = select i1 %31, i1 %33, i1 false
   br i1 %34, label %_ZNSt13unordered_mapIimN32pxrInternal_v0_24__pxrReserved__6TfHashESt8equal_toIiESaISt4pairIKimEEE4findERS5_.exit.i, label %.lr.ph.i.i.i.i.i
@@ -1609,7 +1609,7 @@ define noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__18TraceAggregateNod
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %30 = load i64, ptr %29, align 8
   %31 = icmp eq i64 %19, %30
-  %32 = load i32, ptr %28, align 4
+  %32 = load i32, ptr %28, align 8
   %33 = icmp eq i32 %1, %32
   %34 = select i1 %31, i1 %33, i1 false
   br i1 %34, label %_ZNSt13unordered_mapIimN32pxrInternal_v0_24__pxrReserved__6TfHashESt8equal_toIiESaISt4pairIKimEEE4findERS5_.exit.i, label %.lr.ph.i.i.i.i.i
@@ -4279,7 +4279,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_18TraceAggregateNodeEEptEv.ex
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 24
   %80 = load i64, ptr %79, align 8
   %81 = icmp eq i64 %55, %80
-  %82 = load i32, ptr %78, align 4
+  %82 = load i32, ptr %78, align 8
   %83 = icmp eq i32 %42, %82
   %84 = select i1 %81, i1 %83, i1 false
   br i1 %84, label %.loopexit, label %.lr.ph.i.i.i
@@ -6858,7 +6858,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIiSt4pairIKimESaIS2_ENSt8__det
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %36 = load i64, ptr %35, align 8
   %37 = icmp eq i64 %10, %36
-  %38 = load i32, ptr %34, align 4
+  %38 = load i32, ptr %34, align 8
   %39 = icmp eq i32 %7, %38
   %40 = select i1 %37, i1 %39, i1 false
   br i1 %40, label %_ZNKSt10_HashtableIiSt4pairIKimESaIS2_ENSt8__detail10_Select1stESt8equal_toIiEN32pxrInternal_v0_24__pxrReserved__6TfHashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIiEEPNS4_10_Hash_nodeIS2_Lb1EEEmRKT_m.exit, label %.lr.ph.i.i

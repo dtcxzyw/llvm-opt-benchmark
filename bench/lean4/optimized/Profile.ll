@@ -47,12 +47,12 @@ lean_alloc_ctor.exit:                             ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %15, align 8, !tbaa !8
-  store i32 1, ptr %11, align 4, !tbaa !10
+  store i32 1, ptr %11, align 8, !tbaa !10
   store i32 16777232, ptr %14, align 4
   %16 = ptrtoint ptr %6 to i64
   %17 = lshr i64 %16, 1
   %18 = trunc i64 %17 to i8
-  store i8 %18, ptr %15, align 1, !tbaa !13
+  store i8 %18, ptr %15, align 8, !tbaa !13
   %19 = ptrtoint ptr %10 to i64
   %20 = and i64 %19, 1
   %.not = icmp eq i64 %20, 0
@@ -2412,7 +2412,7 @@ _init_l_Lean_initFn____x40_Lean_Util_Profile___hyg_5____closed__4.exit: ; preds 
   %.val28 = load ptr, ptr %53, align 8, !tbaa !4
   store ptr %.val28, ptr @l_Lean_profiler, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val28) #3
-  %54 = load i32, ptr %49, align 4, !tbaa !10
+  %54 = load i32, ptr %49, align 8, !tbaa !10
   %55 = icmp sgt i32 %54, 1
   br i1 %55, label %56, label %58, !prof !14
 
@@ -2488,7 +2488,7 @@ _init_l_Lean_initFn____x40_Lean_Util_Profile___hyg_40____closed__4.exit: ; preds
   %.val29 = load ptr, ptr %86, align 8, !tbaa !4
   store ptr %.val29, ptr @l_Lean_profiler_threshold, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val29) #3
-  %87 = load i32, ptr %82, align 4, !tbaa !10
+  %87 = load i32, ptr %82, align 8, !tbaa !10
   %88 = icmp sgt i32 %87, 1
   br i1 %88, label %89, label %91, !prof !14
 

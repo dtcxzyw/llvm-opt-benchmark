@@ -7578,7 +7578,7 @@ define noundef i64 @"_ZN127_$LT$pingora_load_balancing..selection..algorithms..R
 .noexc:                                           ; preds = %15
   store i64 1, ptr %7, align 16, !alias.scope !539
   %19 = zext i32 %17 to i64
-  %20 = load i32, ptr %6, align 4, !alias.scope !533, !noundef !22
+  %20 = load i32, ptr %6, align 16, !alias.scope !533, !noundef !22
   %21 = zext i32 %20 to i64
   %22 = shl nuw i64 %21, 32
   %23 = or disjoint i64 %22, %19
@@ -7591,7 +7591,7 @@ define noundef i64 @"_ZN127_$LT$pingora_load_balancing..selection..algorithms..R
 
 .noexc1:                                          ; preds = %24
   store i64 2, ptr %7, align 16, !alias.scope !542
-  %26 = load i64, ptr %6, align 4, !alias.scope !545
+  %26 = load i64, ptr %6, align 16, !alias.scope !545
   br label %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417hbacb140cc8745b92E.exit"
 
 27:                                               ; preds = %24, %15

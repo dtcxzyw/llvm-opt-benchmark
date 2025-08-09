@@ -284,11 +284,11 @@ check_flag.exit84:                                ; preds = %38
   store i32 2, ptr %99, align 8, !tbaa !37
   %100 = getelementptr inbounds nuw i8, ptr %46, i64 104
   %101 = getelementptr inbounds nuw i8, ptr %46, i64 128
-  store i32 0, ptr %100, align 4, !tbaa !38
+  store i32 0, ptr %100, align 8, !tbaa !38
   %102 = getelementptr inbounds nuw i8, ptr %46, i64 108
   store i32 3, ptr %102, align 4, !tbaa !38
   %103 = getelementptr inbounds nuw i8, ptr %46, i64 112
-  store i32 6, ptr %103, align 4, !tbaa !38
+  store i32 6, ptr %103, align 8, !tbaa !38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %101, i8 0, i64 12, i1 false), !tbaa !38
   br label %.preheader.i.i
 

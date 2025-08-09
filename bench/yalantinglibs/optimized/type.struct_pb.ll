@@ -11154,7 +11154,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %14, ptr %_M_string_length.i13.i.i.i.i.i.i.i, align 8, !alias.scope !25, !noalias !28
   store ptr %11, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !28, !noalias !25
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i, align 8, !alias.scope !28, !noalias !25
-  store i8 0, ptr %11, align 1, !alias.scope !28, !noalias !25
+  store i8 0, ptr %11, align 8, !alias.scope !28, !noalias !25
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #15
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 32
   %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 32
@@ -11204,7 +11204,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %20, ptr %_M_string_length.i13.i.i.i.i.i.i.i21, align 8, !alias.scope !32, !noalias !35
   store ptr %17, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !35, !noalias !32
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i20, align 8, !alias.scope !35, !noalias !32
-  store i8 0, ptr %17, align 1, !alias.scope !35, !noalias !32
+  store i8 0, ptr %17, align 8, !alias.scope !35, !noalias !32
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #15
   %incdec.ptr.i.i.i22 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i14, i64 32
   %incdec.ptr1.i.i.i23 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i13, i64 32
@@ -11317,7 +11317,7 @@ _ZSt19__relocate_object_aIN6google8protobuf6OptionES2_SaIS2_EEvPT_PT0_RT1_.exit.
   store i64 %10, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i, align 8, !alias.scope !38, !noalias !41
   store ptr %7, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !41, !noalias !38
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i, align 8, !alias.scope !41, !noalias !38
-  store i8 0, ptr %7, align 1, !alias.scope !41, !noalias !38
+  store i8 0, ptr %7, align 8, !alias.scope !41, !noalias !38
   %value.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 32
   %value3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 32
   %11 = load i64, ptr %value3.i.i.i.i.i.i.i, align 8, !alias.scope !41, !noalias !38
@@ -11372,7 +11372,7 @@ _ZSt19__relocate_object_aIN6google8protobuf6OptionES2_SaIS2_EEvPT_PT0_RT1_.exit.
   store i64 %17, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i21, align 8, !alias.scope !45, !noalias !48
   store ptr %14, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !48, !noalias !45
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i20, align 8, !alias.scope !48, !noalias !45
-  store i8 0, ptr %14, align 1, !alias.scope !48, !noalias !45
+  store i8 0, ptr %14, align 8, !alias.scope !48, !noalias !45
   %value.i.i.i.i.i.i.i22 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i13, i64 32
   %value3.i.i.i.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i14, i64 32
   %18 = load i64, ptr %value3.i.i.i.i.i.i.i23, align 8, !alias.scope !48, !noalias !45
@@ -11487,7 +11487,7 @@ _ZSt19__relocate_object_aIN6google8protobuf9EnumValueES2_SaIS2_EEvPT_PT0_RT1_.ex
   store i64 %10, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i, align 8, !alias.scope !51, !noalias !54
   store ptr %7, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !54, !noalias !51
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i, align 8, !alias.scope !54, !noalias !51
-  store i8 0, ptr %7, align 1, !alias.scope !54, !noalias !51
+  store i8 0, ptr %7, align 8, !alias.scope !54, !noalias !51
   %number.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 32
   %number3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 32
   %11 = load i32, ptr %number3.i.i.i.i.i.i.i, align 8, !alias.scope !54, !noalias !51
@@ -11554,7 +11554,7 @@ _ZSt19__relocate_object_aIN6google8protobuf9EnumValueES2_SaIS2_EEvPT_PT0_RT1_.ex
   store i64 %20, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i21, align 8, !alias.scope !58, !noalias !61
   store ptr %17, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !61, !noalias !58
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i20, align 8, !alias.scope !61, !noalias !58
-  store i8 0, ptr %17, align 1, !alias.scope !61, !noalias !58
+  store i8 0, ptr %17, align 8, !alias.scope !61, !noalias !58
   %number.i.i.i.i.i.i.i22 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i13, i64 32
   %number3.i.i.i.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i14, i64 32
   %21 = load i32, ptr %number3.i.i.i.i.i.i.i23, align 8, !alias.scope !61, !noalias !58

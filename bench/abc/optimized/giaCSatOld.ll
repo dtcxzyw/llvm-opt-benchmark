@@ -66,11 +66,11 @@ define noalias noundef ptr @Cbs0_ManAlloc() local_unnamed_addr #2 {
   store ptr %10, ptr %11, align 8, !tbaa !28
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store ptr %8, ptr %12, align 8, !tbaa !29
-  store i32 1000, ptr %1, align 4, !tbaa !3
+  store i32 1000, ptr %1, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 100, ptr %13, align 4, !tbaa !8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 1, ptr %14, align 4, !tbaa !9
+  store i32 1, ptr %14, align 8, !tbaa !9
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i32 1, ptr %15, align 4, !tbaa !12
   ret ptr %1
@@ -1717,7 +1717,7 @@ Abc_Clock.exit:                                   ; preds = %4, %13
   %29 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 100, ptr %29, align 4, !tbaa !8
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store i32 1, ptr %30, align 4, !tbaa !9
+  store i32 1, ptr %30, align 8, !tbaa !9
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 36
   store i32 1, ptr %31, align 4, !tbaa !12
   store i32 %1, ptr %17, align 8, !tbaa !46

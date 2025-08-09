@@ -1508,7 +1508,7 @@ define dso_local void @_ZN10ThreadPoolC2Ei(ptr noundef nonnull align 8 dereferen
 .noexc:                                           ; preds = %11
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJM10ThreadPoolFviEPS3_iEEEEEE, i64 16), ptr %13, align 8, !tbaa !47
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i32 %12, ptr %14, align 4, !tbaa !49
+  store i32 %12, ptr %14, align 8, !tbaa !49
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %0, ptr %15, align 8, !tbaa !51
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 24

@@ -1600,7 +1600,7 @@ lean_alloc_ctor.exit128:                          ; preds = %160
   %164 = getelementptr inbounds nuw i8, ptr %161, i64 4
   %165 = getelementptr inbounds nuw i8, ptr %161, i64 16
   store i64 0, ptr %165, align 8, !tbaa !16
-  store i32 1, ptr %161, align 4, !tbaa !4
+  store i32 1, ptr %161, align 8, !tbaa !4
   store i32 65560, ptr %164, align 4
   %166 = getelementptr inbounds nuw i8, ptr %161, i64 8
   store ptr %76, ptr %166, align 8, !tbaa !10
@@ -1693,7 +1693,7 @@ lean_alloc_ctor.exit133:                          ; preds = %lean_dec.exit72
   %197 = getelementptr inbounds nuw i8, ptr %194, i64 4
   %198 = getelementptr inbounds nuw i8, ptr %194, i64 16
   store i64 0, ptr %198, align 8, !tbaa !16
-  store i32 1, ptr %194, align 4, !tbaa !4
+  store i32 1, ptr %194, align 8, !tbaa !4
   store i32 65560, ptr %197, align 4
   %199 = getelementptr inbounds nuw i8, ptr %194, i64 8
   store ptr %76, ptr %199, align 8, !tbaa !10
@@ -6504,9 +6504,9 @@ lean_alloc_ctor.exit:                             ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %6, align 8, !tbaa !16
-  store i32 1, ptr %2, align 4, !tbaa !4
+  store i32 1, ptr %2, align 8, !tbaa !4
   store i32 16777232, ptr %5, align 4
-  store i8 %0, ptr %6, align 1, !tbaa !18
+  store i8 %0, ptr %6, align 8, !tbaa !18
   %7 = load ptr, ptr @l___private_Lean_Data_Lsp_TextSync_0__Lean_Lsp_toJsonSaveOptions____x40_Lean_Data_Lsp_TextSync___hyg_872____closed__1, align 8, !tbaa !10
   tail call void @lean_inc_heartbeat() #5
   %8 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #5
@@ -7335,9 +7335,9 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 0, ptr %33, align 8, !tbaa !16
-  store i32 1, ptr %29, align 4, !tbaa !4
+  store i32 1, ptr %29, align 8, !tbaa !4
   store i32 16777232, ptr %32, align 4
-  store i8 %4, ptr %33, align 1, !tbaa !18
+  store i8 %4, ptr %33, align 8, !tbaa !18
   %34 = load ptr, ptr @l___private_Lean_Data_Lsp_TextSync_0__Lean_Lsp_toJsonTextDocumentSyncOptions____x40_Lean_Data_Lsp_TextSync___hyg_1139____closed__1, align 8, !tbaa !10
   tail call void @lean_inc_heartbeat() #5
   %35 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #5
@@ -7386,9 +7386,9 @@ lean_alloc_ctor.exit92:                           ; preds = %lean_alloc_ctor.exi
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 0, ptr %51, align 8, !tbaa !16
-  store i32 1, ptr %47, align 4, !tbaa !4
+  store i32 1, ptr %47, align 8, !tbaa !4
   store i32 16777232, ptr %50, align 4
-  store i8 %8, ptr %51, align 1, !tbaa !18
+  store i8 %8, ptr %51, align 8, !tbaa !18
   %52 = load ptr, ptr @l___private_Lean_Data_Lsp_TextSync_0__Lean_Lsp_toJsonTextDocumentSyncOptions____x40_Lean_Data_Lsp_TextSync___hyg_1139____closed__2, align 8, !tbaa !10
   tail call void @lean_inc_heartbeat() #5
   %53 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #5
@@ -7437,9 +7437,9 @@ lean_alloc_ctor.exit96:                           ; preds = %lean_alloc_ctor.exi
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i64 0, ptr %69, align 8, !tbaa !16
-  store i32 1, ptr %65, align 4, !tbaa !4
+  store i32 1, ptr %65, align 8, !tbaa !4
   store i32 16777232, ptr %68, align 4
-  store i8 %10, ptr %69, align 1, !tbaa !18
+  store i8 %10, ptr %69, align 8, !tbaa !18
   %70 = load ptr, ptr @l___private_Lean_Data_Lsp_TextSync_0__Lean_Lsp_toJsonTextDocumentSyncOptions____x40_Lean_Data_Lsp_TextSync___hyg_1139____closed__3, align 8, !tbaa !10
   tail call void @lean_inc_heartbeat() #5
   %71 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #5
@@ -9697,7 +9697,7 @@ lean_alloc_ctor.exit383:                          ; preds = %488
   %492 = getelementptr inbounds nuw i8, ptr %489, i64 4
   %493 = getelementptr inbounds nuw i8, ptr %489, i64 16
   store i64 0, ptr %493, align 8, !tbaa !16
-  store i32 1, ptr %489, align 4, !tbaa !4
+  store i32 1, ptr %489, align 8, !tbaa !4
   store i32 65560, ptr %492, align 4
   %494 = getelementptr inbounds nuw i8, ptr %489, i64 8
   store ptr %487, ptr %494, align 8, !tbaa !10
@@ -9862,7 +9862,7 @@ lean_alloc_ctor.exit388:                          ; preds = %lean_dec.exit186
   %553 = getelementptr inbounds nuw i8, ptr %550, i64 4
   %554 = getelementptr inbounds nuw i8, ptr %550, i64 16
   store i64 0, ptr %554, align 8, !tbaa !16
-  store i32 1, ptr %550, align 4, !tbaa !4
+  store i32 1, ptr %550, align 8, !tbaa !4
   store i32 65560, ptr %553, align 4
   %555 = getelementptr inbounds nuw i8, ptr %550, i64 8
   store ptr %487, ptr %555, align 8, !tbaa !10

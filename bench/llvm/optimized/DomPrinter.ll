@@ -6130,7 +6130,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %21
   store i64 %224, ptr %225, align 8, !tbaa !19
   store ptr %217, ptr %5, align 8, !tbaa !15
   store i64 0, ptr %15, align 8, !tbaa !19
-  store i8 0, ptr %217, align 1, !tbaa !20
+  store i8 0, ptr %217, align 8, !tbaa !20
   br label %226
 
 226:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit27
@@ -9917,7 +9917,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %21
   store i64 %224, ptr %225, align 8, !tbaa !19
   store ptr %217, ptr %5, align 8, !tbaa !15
   store i64 0, ptr %15, align 8, !tbaa !19
-  store i8 0, ptr %217, align 1, !tbaa !20
+  store i8 0, ptr %217, align 8, !tbaa !20
   br label %226
 
 226:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit27

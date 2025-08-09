@@ -214,7 +214,7 @@ sz_psz2ind.exit:                                  ; preds = %23, %25
   %56 = mul i64 %54, %55
   %57 = lshr i64 %56, 32
   %58 = trunc i64 %57 to i8
-  store i8 %58, ptr %46, align 1, !tbaa !47
+  store i8 %58, ptr %46, align 8, !tbaa !47
   br label %59
 
 59:                                               ; preds = %49, %45
@@ -353,7 +353,7 @@ malloc_mutex_lock.exit:                           ; preds = %72, %78
   %133 = sub i64 %132, %130
   store i64 %133, ptr %131, align 8, !tbaa !24
   %134 = getelementptr inbounds nuw i8, ptr %.0.i53, i64 64
-  store atomic i8 0, ptr %134 monotonic, align 1
+  store atomic i8 0, ptr %134 monotonic, align 8
   %135 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %68) #9
   br label %136
 
@@ -434,7 +434,7 @@ define internal void @sec_dalloc(ptr noundef %0, ptr noundef readonly captures(n
   %35 = mul i64 %33, %34
   %36 = lshr i64 %35, 32
   %37 = trunc i64 %36 to i8
-  store i8 %37, ptr %25, align 1, !tbaa !47
+  store i8 %37, ptr %25, align 8, !tbaa !47
   br label %38
 
 38:                                               ; preds = %28, %24
@@ -961,7 +961,7 @@ malloc_mutex_lock.exit:                           ; preds = %16, %22
   %29 = load i64, ptr %28, align 8, !tbaa !24
   %30 = add i64 %29, %.01314
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 64
-  store atomic i8 0, ptr %31 monotonic, align 1
+  store atomic i8 0, ptr %31 monotonic, align 8
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 72
   %33 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %32) #9
   %34 = add nuw i64 %.015, 1

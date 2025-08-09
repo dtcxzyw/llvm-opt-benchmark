@@ -110252,7 +110252,7 @@ define hidden void @"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_incremen
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 712
   %8 = load atomic i32, ptr %7 acquire, align 4, !noalias !15979
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 716
-  %10 = load atomic i8, ptr %9 acquire, align 1, !noalias !15982
+  %10 = load atomic i8, ptr %9 acquire, align 4, !noalias !15982
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %.lr.ph.i, label %.critedge
 
@@ -110542,7 +110542,7 @@ common.ret:                                       ; preds = %59, %34
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 712
   %72 = load atomic i32, ptr %71 acquire, align 4, !noalias !15994
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 716
-  %74 = load atomic i8, ptr %73 acquire, align 1, !noalias !15997
+  %74 = load atomic i8, ptr %73 acquire, align 4, !noalias !15997
   %75 = icmp eq i8 %74, 0
   br i1 %75, label %.lr.ph.i.i, label %"_ZN4core3ptr170drop_in_place$LT$core..result..Result$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$sqlx_sqlite..database..Sqlite$GT$$C$sqlx_core..sync..AsyncSemaphoreReleaser$GT$$GT$17h3aac9108e96b5415E.exit.i"
 
@@ -112290,7 +112290,7 @@ common.ret:                                       ; preds = %1137, %1124, %966, 
   %495 = getelementptr inbounds nuw i8, ptr %494, i64 712
   %496 = load atomic i32, ptr %495 acquire, align 4, !noalias !16202
   %497 = getelementptr inbounds nuw i8, ptr %494, i64 716
-  %498 = load atomic i8, ptr %497 acquire, align 1, !noalias !16205
+  %498 = load atomic i8, ptr %497 acquire, align 4, !noalias !16205
   %499 = icmp eq i8 %498, 0
   br i1 %499, label %.lr.ph.i.i, label %.loopexit
 

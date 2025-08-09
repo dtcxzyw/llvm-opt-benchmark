@@ -2910,7 +2910,7 @@ fastgetattr.exit.i:                               ; preds = %195
   %297 = call { i16, i1 } @llvm.sadd.with.overflow.i16(i16 %296, i16 1)
   %298 = extractvalue { i16, i1 } %297, 1
   %299 = extractvalue { i16, i1 } %297, 0
-  store i16 %299, ptr %295, align 2
+  store i16 %299, ptr %295, align 4
   br i1 %298, label %300, label %305
 
 300:                                              ; preds = %294

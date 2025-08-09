@@ -1437,13 +1437,13 @@ _ZNSt10unique_ptrIN4llvm10TimerGroupESt14default_deleteIS1_EED2Ev.exit.i.i: ; pr
   store ptr %581, ptr %580, align 8, !tbaa !276, !noalias !451
   %582 = getelementptr inbounds nuw i8, ptr %579, i64 88
   store i64 0, ptr %582, align 8, !tbaa !280, !noalias !451
-  store i8 0, ptr %581, align 1, !tbaa !279, !noalias !451
+  store i8 0, ptr %581, align 8, !tbaa !279, !noalias !451
   %583 = getelementptr inbounds nuw i8, ptr %579, i64 112
   %584 = getelementptr inbounds nuw i8, ptr %579, i64 128
   store ptr %584, ptr %583, align 8, !tbaa !276, !noalias !451
   %585 = getelementptr inbounds nuw i8, ptr %579, i64 120
   store i64 0, ptr %585, align 8, !tbaa !280, !noalias !451
-  store i8 0, ptr %584, align 1, !tbaa !279, !noalias !451
+  store i8 0, ptr %584, align 8, !tbaa !279, !noalias !451
   %586 = getelementptr inbounds nuw i8, ptr %579, i64 144
   store i8 0, ptr %586, align 8, !tbaa !454, !noalias !451
   %587 = getelementptr inbounds nuw i8, ptr %579, i64 145
@@ -1470,13 +1470,13 @@ _ZNSt10unique_ptrIN4llvm5TimerESt14default_deleteIS1_EED2Ev.exit.i.i: ; preds = 
   store ptr %593, ptr %592, align 8, !tbaa !276, !noalias !461
   %594 = getelementptr inbounds nuw i8, ptr %591, i64 88
   store i64 0, ptr %594, align 8, !tbaa !280, !noalias !461
-  store i8 0, ptr %593, align 1, !tbaa !279, !noalias !461
+  store i8 0, ptr %593, align 8, !tbaa !279, !noalias !461
   %595 = getelementptr inbounds nuw i8, ptr %591, i64 112
   %596 = getelementptr inbounds nuw i8, ptr %591, i64 128
   store ptr %596, ptr %595, align 8, !tbaa !276, !noalias !461
   %597 = getelementptr inbounds nuw i8, ptr %591, i64 120
   store i64 0, ptr %597, align 8, !tbaa !280, !noalias !461
-  store i8 0, ptr %596, align 1, !tbaa !279, !noalias !461
+  store i8 0, ptr %596, align 8, !tbaa !279, !noalias !461
   %598 = getelementptr inbounds nuw i8, ptr %591, i64 144
   store i8 0, ptr %598, align 8, !tbaa !454, !noalias !461
   %599 = getelementptr inbounds nuw i8, ptr %591, i64 145
@@ -1503,13 +1503,13 @@ _ZNSt10unique_ptrIN4llvm5TimerESt14default_deleteIS1_EED2Ev.exit16.i.i: ; preds 
   store ptr %605, ptr %604, align 8, !tbaa !276, !noalias !464
   %606 = getelementptr inbounds nuw i8, ptr %603, i64 88
   store i64 0, ptr %606, align 8, !tbaa !280, !noalias !464
-  store i8 0, ptr %605, align 1, !tbaa !279, !noalias !464
+  store i8 0, ptr %605, align 8, !tbaa !279, !noalias !464
   %607 = getelementptr inbounds nuw i8, ptr %603, i64 112
   %608 = getelementptr inbounds nuw i8, ptr %603, i64 128
   store ptr %608, ptr %607, align 8, !tbaa !276, !noalias !464
   %609 = getelementptr inbounds nuw i8, ptr %603, i64 120
   store i64 0, ptr %609, align 8, !tbaa !280, !noalias !464
-  store i8 0, ptr %608, align 1, !tbaa !279, !noalias !464
+  store i8 0, ptr %608, align 8, !tbaa !279, !noalias !464
   %610 = getelementptr inbounds nuw i8, ptr %603, i64 144
   store i8 0, ptr %610, align 8, !tbaa !454, !noalias !464
   %611 = getelementptr inbounds nuw i8, ptr %603, i64 145

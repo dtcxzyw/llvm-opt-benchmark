@@ -4292,7 +4292,7 @@ fs_prep_var.exit:                                 ; preds = %._crit_edge64.i, %1
   %233 = zext i8 %212 to i32
   %234 = shl nuw nsw i32 %233, 8
   %235 = or disjoint i32 %.0.i, %234
-  store i32 %235, ptr %223, align 4, !tbaa !82
+  store i32 %235, ptr %223, align 8, !tbaa !82
   %236 = icmp ugt i32 %224, 1
   br i1 %236, label %.lr.ph.preheader.i, label %fs_fixup_bc.exit
 
@@ -5200,7 +5200,7 @@ define internal fastcc void @bcemit_branch_t(ptr noundef captures(none) %0, ptr 
   %10 = load i32, ptr %9, align 4, !tbaa !82
   %11 = trunc i32 %10 to i8
   %12 = xor i8 %11, 1
-  store i8 %12, ptr %9, align 1, !tbaa !25
+  store i8 %12, ptr %9, align 4, !tbaa !25
   %13 = load i32, ptr %1, align 8, !tbaa !25
   br label %bcemit_jmp.exit
 
@@ -5758,7 +5758,7 @@ jmp_dropval.exit67.i:                             ; preds = %jmp_patchtestreg.ex
   %161 = load i32, ptr %160, align 4, !tbaa !82
   %162 = trunc i32 %161 to i8
   %163 = xor i8 %162, 1
-  store i8 %163, ptr %160, align 1, !tbaa !25
+  store i8 %163, ptr %160, align 4, !tbaa !25
   br label %expr_unop.exit
 
 .thread.i:                                        ; preds = %154

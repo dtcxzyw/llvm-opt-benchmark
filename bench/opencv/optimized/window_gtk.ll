@@ -15809,7 +15809,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56.i: ; preds = %_
   store i32 1, ptr %174, align 4, !tbaa !56, !noalias !368
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI10CvTrackbarSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %172, align 8, !tbaa !57, !noalias !368
   %175 = getelementptr inbounds nuw i8, ptr %172, i64 16
-  store i32 4325443, ptr %175, align 4, !tbaa !219, !noalias !368
+  store i32 4325443, ptr %175, align 8, !tbaa !219, !noalias !368
   %176 = getelementptr inbounds nuw i8, ptr %172, i64 24
   store ptr null, ptr %176, align 8, !tbaa !146, !noalias !368
   %177 = getelementptr inbounds nuw i8, ptr %172, i64 32

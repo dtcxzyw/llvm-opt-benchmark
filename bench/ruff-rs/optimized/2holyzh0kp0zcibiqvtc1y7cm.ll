@@ -4146,7 +4146,7 @@ _ZN22ruff_annotate_snippets8renderer12display_list20get_annotation_style17h3665f
   %.sroa.0203.0771 = phi ptr [ %1119, %.lr.ph774 ], [ %.sroa.0203.1772, %.loopexit645 ]
   %1124 = load i64, ptr %.sroa.0203.0771, align 8, !noundef !3
   %1125 = getelementptr inbounds nuw i8, ptr %.sroa.0203.0771, i64 8
-  %.val252 = load i8, ptr %1125, align 1, !range !107, !noundef !3
+  %.val252 = load i8, ptr %1125, align 8, !range !107, !noundef !3
   switch i8 %.val252, label %default.unreachable851 [
     i8 0, label %1126
     i8 1, label %1128

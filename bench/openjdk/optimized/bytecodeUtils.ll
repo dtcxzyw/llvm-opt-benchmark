@@ -1427,7 +1427,7 @@ _ZN21SimulatedOperandStack22set_local_slot_writtenEi.exit: ; preds = %158, %160
   %255 = getelementptr inbounds %class.StackSlotAnalysisData, ptr %253, i64 %254
   %.sroa.0.0.copyload.i369 = load i32, ptr %255, align 4
   tail call void @_ZN21SimulatedOperandStack8push_rawE21StackSlotAnalysisData(ptr noundef nonnull align 8 dereferenceable(32) %37, i32 %.sroa.0.0.copyload.i369)
-  %256 = load i32, ptr %37, align 4
+  %256 = load i32, ptr %37, align 8
   %257 = add i32 %256, -2
   %258 = load ptr, ptr %252, align 8
   %259 = sext i32 %257 to i64

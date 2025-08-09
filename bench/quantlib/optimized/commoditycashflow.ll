@@ -557,14 +557,14 @@ invoke.cont46:                                    ; preds = %invoke.cont27
   %16 = load i32, ptr %_M_flags.i.i, align 8, !tbaa !61
   %and.i.i.i.i = and i32 %16, -177
   %or.i.i.i.i = or disjoint i32 %and.i.i.i.i, 128
-  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 4, !tbaa !62
+  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 8, !tbaa !62
   %vbase.offset.i35 = load i64, ptr %vbase.offset.ptr.i, align 8
   %add.ptr.i36 = getelementptr inbounds i8, ptr %call28, i64 %vbase.offset.i35
   %_M_flags.i.i214 = getelementptr inbounds nuw i8, ptr %add.ptr.i36, i64 24
   %17 = load i32, ptr %_M_flags.i.i214, align 8, !tbaa !61
   %and.i.i.i.i215 = and i32 %17, -261
   %or.i.i.i.i216 = or disjoint i32 %and.i.i.i.i215, 4
-  store i32 %or.i.i.i.i216, ptr %_M_flags.i.i214, align 4, !tbaa !62
+  store i32 %or.i.i.i.i216, ptr %_M_flags.i.i214, align 8, !tbaa !62
   %vbase.offset.i42 = load i64, ptr %vbase.offset.ptr.i, align 8
   %add.ptr.i43 = getelementptr inbounds i8, ptr %call28, i64 %vbase.offset.i42
   %_M_precision.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i43, i64 8
@@ -606,14 +606,14 @@ invoke.cont78:                                    ; preds = %invoke.cont56
   %22 = load i32, ptr %_M_flags.i.i217, align 8, !tbaa !61
   %and.i.i.i.i218 = and i32 %22, -177
   %or.i.i.i.i219 = or disjoint i32 %and.i.i.i.i218, 128
-  store i32 %or.i.i.i.i219, ptr %_M_flags.i.i217, align 4, !tbaa !62
+  store i32 %or.i.i.i.i219, ptr %_M_flags.i.i217, align 8, !tbaa !62
   %vbase.offset.i71 = load i64, ptr %vbase.offset.ptr.i58, align 8
   %add.ptr.i72 = getelementptr inbounds i8, ptr %call2.i56, i64 %vbase.offset.i71
   %_M_flags.i.i220 = getelementptr inbounds nuw i8, ptr %add.ptr.i72, i64 24
   %23 = load i32, ptr %_M_flags.i.i220, align 8, !tbaa !61
   %and.i.i.i.i221 = and i32 %23, -261
   %or.i.i.i.i222 = or disjoint i32 %and.i.i.i.i221, 4
-  store i32 %or.i.i.i.i222, ptr %_M_flags.i.i220, align 4, !tbaa !62
+  store i32 %or.i.i.i.i222, ptr %_M_flags.i.i220, align 8, !tbaa !62
   %vbase.offset.i78 = load i64, ptr %vbase.offset.ptr.i58, align 8
   %add.ptr.i79 = getelementptr inbounds i8, ptr %call2.i56, i64 %vbase.offset.i78
   %_M_precision.i.i80 = getelementptr inbounds nuw i8, ptr %add.ptr.i79, i64 8
@@ -763,14 +763,14 @@ invoke.cont117:                                   ; preds = %for.cond.cleanup
   %38 = load i32, ptr %_M_flags.i.i248, align 8, !tbaa !61
   %and.i.i.i.i249 = and i32 %38, -177
   %or.i.i.i.i250 = or disjoint i32 %and.i.i.i.i249, 128
-  store i32 %or.i.i.i.i250, ptr %_M_flags.i.i248, align 4, !tbaa !62
+  store i32 %or.i.i.i.i250, ptr %_M_flags.i.i248, align 8, !tbaa !62
   %vbase.offset.i118 = load i64, ptr %vbase.offset.ptr.i105, align 8
   %add.ptr.i119 = getelementptr inbounds i8, ptr %out, i64 %vbase.offset.i118
   %_M_flags.i.i251 = getelementptr inbounds nuw i8, ptr %add.ptr.i119, i64 24
   %39 = load i32, ptr %_M_flags.i.i251, align 8, !tbaa !61
   %and.i.i.i.i252 = and i32 %39, -261
   %or.i.i.i.i253 = or disjoint i32 %and.i.i.i.i252, 4
-  store i32 %or.i.i.i.i253, ptr %_M_flags.i.i251, align 4, !tbaa !62
+  store i32 %or.i.i.i.i253, ptr %_M_flags.i.i251, align 8, !tbaa !62
   %vbase.offset.i125 = load i64, ptr %vbase.offset.ptr.i105, align 8
   %add.ptr.i126 = getelementptr inbounds i8, ptr %out, i64 %vbase.offset.i125
   %_M_precision.i.i127 = getelementptr inbounds nuw i8, ptr %add.ptr.i126, i64 8
@@ -801,14 +801,14 @@ invoke.cont141:                                   ; preds = %invoke.cont121
   %42 = load i32, ptr %_M_flags.i.i254, align 8, !tbaa !61
   %and.i.i.i.i255 = and i32 %42, -177
   %or.i.i.i.i256 = or disjoint i32 %and.i.i.i.i255, 128
-  store i32 %or.i.i.i.i256, ptr %_M_flags.i.i254, align 4, !tbaa !62
+  store i32 %or.i.i.i.i256, ptr %_M_flags.i.i254, align 8, !tbaa !62
   %vbase.offset.i152 = load i64, ptr %vbase.offset.ptr.i139, align 8
   %add.ptr.i153 = getelementptr inbounds i8, ptr %call2.i136, i64 %vbase.offset.i152
   %_M_flags.i.i257 = getelementptr inbounds nuw i8, ptr %add.ptr.i153, i64 24
   %43 = load i32, ptr %_M_flags.i.i257, align 8, !tbaa !61
   %and.i.i.i.i258 = and i32 %43, -261
   %or.i.i.i.i259 = or disjoint i32 %and.i.i.i.i258, 4
-  store i32 %or.i.i.i.i259, ptr %_M_flags.i.i257, align 4, !tbaa !62
+  store i32 %or.i.i.i.i259, ptr %_M_flags.i.i257, align 8, !tbaa !62
   %vbase.offset.i159 = load i64, ptr %vbase.offset.ptr.i139, align 8
   %add.ptr.i160 = getelementptr inbounds i8, ptr %call2.i136, i64 %vbase.offset.i159
   %_M_precision.i.i161 = getelementptr inbounds nuw i8, ptr %add.ptr.i160, i64 8

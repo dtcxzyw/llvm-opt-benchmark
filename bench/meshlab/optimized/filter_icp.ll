@@ -5372,9 +5372,9 @@ _ZNSt7__cxx114listIdSaIdEEC2EmRKS1_.exit279:      ; preds = %.noexc.i275, %_ZNSt
   %602 = load double, ptr %595, align 8
   %603 = load double, ptr %601, align 8
   %604 = load i32, ptr %600, align 4
-  %605 = load i32, ptr %599, align 4
-  %606 = load i32, ptr %598, align 4
-  %607 = load i32, ptr %597, align 4
+  %605 = load i32, ptr %599, align 8
+  %606 = load i32, ptr %598, align 8
+  %607 = load i32, ptr %597, align 8
   %608 = load i32, ptr %596, align 4
   %609 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %13, i64 noundef 4096, ptr noundef nonnull @.str.119, i64 noundef %storemerge473, double noundef %602, double noundef %603, i32 noundef %604, i32 noundef %605, i32 noundef %606, i32 noundef %607, i32 noundef %608) #22
   invoke void @_ZN11GLLogStream3logEiPKc(ptr noundef nonnull align 8 dereferenceable(40) %592, i32 noundef 2, ptr noundef nonnull %13)
@@ -55720,7 +55720,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit63: ; preds = %63, %66
   %101 = getelementptr inbounds nuw i8, ptr %.sroa.079.083, i64 32
   store float %100, ptr %101, align 4
   %102 = getelementptr inbounds nuw i8, ptr %.sroa.079.083, i64 40
-  store i32 -16711936, ptr %102, align 1
+  store i32 -16711936, ptr %102, align 4
   %103 = add nuw i64 %.03684, 1
   %104 = getelementptr inbounds nuw i8, ptr %.sroa.079.083, i64 48
   %105 = load ptr, ptr %38, align 8
@@ -55800,7 +55800,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit63: ; preds = %63, %66
   %147 = getelementptr inbounds nuw i8, ptr %.sroa.075.085, i64 32
   store float %146, ptr %147, align 4
   %148 = getelementptr inbounds nuw i8, ptr %.sroa.075.085, i64 40
-  store i32 -16776961, ptr %148, align 1
+  store i32 -16776961, ptr %148, align 4
   %149 = add nuw i64 %.03286, 1
   %150 = getelementptr inbounds nuw i8, ptr %.sroa.075.085, i64 48
   %151 = load ptr, ptr %55, align 8

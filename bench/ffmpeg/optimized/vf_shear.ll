@@ -138,7 +138,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %34 = getelementptr inbounds [2 x ptr], ptr %30, i64 0, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !47
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 272
-  %37 = load i32, ptr %36, align 4, !tbaa !48
+  %37 = load i32, ptr %36, align 8, !tbaa !48
   %38 = tail call i32 @ff_filter_get_nb_threads(ptr noundef nonnull %6) #9
   %. = tail call i32 @llvm.smin.i32(i32 %37, i32 %38)
   %39 = call i32 @ff_filter_execute(ptr noundef nonnull %6, ptr noundef %35, ptr noundef nonnull %4, ptr noundef null, i32 noundef %.) #10
@@ -207,11 +207,11 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef readonl
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 260
   store i32 %31, ptr %33, align 4, !tbaa !48
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 256
-  store i32 %31, ptr %34, align 4, !tbaa !48
+  store i32 %31, ptr %34, align 8, !tbaa !48
   %35 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %36 = load i32, ptr %35, align 8, !tbaa !41
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 264
-  store i32 %36, ptr %37, align 4, !tbaa !48
+  store i32 %36, ptr %37, align 8, !tbaa !48
   store i32 %36, ptr %32, align 4, !tbaa !48
   %38 = getelementptr inbounds nuw i8, ptr %26, i64 44
   %39 = load i32, ptr %38, align 4, !tbaa !42
@@ -222,11 +222,11 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef readonl
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 276
   store i32 %42, ptr %44, align 4, !tbaa !48
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 272
-  store i32 %42, ptr %45, align 4, !tbaa !48
+  store i32 %42, ptr %45, align 8, !tbaa !48
   %46 = getelementptr inbounds nuw i8, ptr %26, i64 44
   %47 = load i32, ptr %46, align 4, !tbaa !42
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 280
-  store i32 %47, ptr %48, align 4, !tbaa !48
+  store i32 %47, ptr %48, align 8, !tbaa !48
   store i32 %47, ptr %43, align 4, !tbaa !48
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %50 = load i32, ptr %5, align 4, !tbaa !50

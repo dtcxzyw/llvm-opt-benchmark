@@ -6186,7 +6186,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %22, ptr %21, align 8, !tbaa !6, !noalias !208
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store i64 0, ptr %23, align 8, !tbaa !11, !noalias !208
-  store i8 0, ptr %22, align 1, !tbaa !14, !noalias !208
+  store i8 0, ptr %22, align 8, !tbaa !14, !noalias !208
   store ptr %5, ptr %19, align 8, !tbaa !211, !alias.scope !208
   ret void
 

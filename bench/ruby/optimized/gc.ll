@@ -3660,7 +3660,7 @@ gc_exit.exit.i:                                   ; preds = %99, %rb_gc_event_ho
   %100 = load ptr, ptr %14, align 8, !tbaa !165
   call void @rb_st_free_table(ptr noundef %100) #6
   store ptr null, ptr %14, align 8, !tbaa !165
-  store atomic volatile i32 0, ptr %12 seq_cst, align 4
+  store atomic volatile i32 0, ptr %12 seq_cst, align 8
   br label %rb_gc_impl_shutdown_call_finalizer.exit
 
 101:                                              ; preds = %rb_darray_size.exit.i

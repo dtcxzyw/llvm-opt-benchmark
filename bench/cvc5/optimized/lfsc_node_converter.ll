@@ -33942,7 +33942,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit: ; preds = %_
   %76 = load i32, ptr %75, align 8, !tbaa !300
   %77 = and i32 %76, -75
   %78 = or disjoint i32 %77, 8
-  store i32 %78, ptr %75, align 4, !tbaa !307
+  store i32 %78, ptr %75, align 8, !tbaa !307
   %79 = load i64, ptr %72, align 8
   %80 = getelementptr inbounds i8, ptr %46, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 225

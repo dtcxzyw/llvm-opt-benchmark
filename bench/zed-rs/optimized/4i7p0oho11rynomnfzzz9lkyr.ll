@@ -123984,7 +123984,7 @@ _ZN6editor21selections_collection20SelectionsCollection14pending_anchor17h1b6f05
   %.sroa.551.0..sroa.047.0.48.sroa_idx = getelementptr inbounds nuw i8, ptr %160, i64 28
   %.sroa.551.sroa.0.0.copyload = load i32, ptr %.sroa.551.0..sroa.047.0.48.sroa_idx, align 4
   %.sroa.551.sroa.4.0..sroa.551.0..sroa.047.0.48.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %160, i64 32
-  %.sroa.551.sroa.4.0.copyload = load float, ptr %.sroa.551.sroa.4.0..sroa.551.0..sroa.047.0.48.sroa_idx.sroa_idx, align 4
+  %.sroa.551.sroa.4.0.copyload = load float, ptr %.sroa.551.sroa.4.0..sroa.551.0..sroa.047.0.48.sroa_idx.sroa_idx, align 8
   %.sroa.551.sroa.5.0..sroa.551.0..sroa.047.0.48.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %160, i64 36
   %.sroa.551.sroa.5.0.copyload = load i8, ptr %.sroa.551.sroa.5.0..sroa.551.0..sroa.047.0.48.sroa_idx.sroa_idx, align 4
   %.sroa.551.sroa.6.0..sroa.551.0..sroa.047.0.48.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %160, i64 37

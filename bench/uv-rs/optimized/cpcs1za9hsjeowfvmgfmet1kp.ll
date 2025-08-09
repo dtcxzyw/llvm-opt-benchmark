@@ -3656,7 +3656,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN3std6thread5local17LocalKey$LT$T$GT
   %62 = load i64, ptr %4, align 8, !noalias !1106, !noundef !10
   %63 = add i64 %62, -1
   store i64 %63, ptr %4, align 8, !noalias !1106
-  store i8 1, ptr %7, align 1, !noalias !1078
+  store i8 1, ptr %7, align 8, !noalias !1078
   br label %"_ZN12tracing_core10dispatcher11get_default28_$u7b$$u7b$closure$u7d$$u7d$17h588fe4cb966e714dE.llvm.9835181522389544895.exit"
 
 64:                                               ; preds = %57, %36

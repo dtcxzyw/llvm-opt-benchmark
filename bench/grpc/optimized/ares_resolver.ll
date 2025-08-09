@@ -1731,7 +1731,7 @@ define void @_ZN17grpc_event_engine12experimental12AresResolver14LookupHostnameE
   store ptr null, ptr %54, align 8, !tbaa !110
   %69 = getelementptr inbounds nuw i8, ptr %62, i64 32
   %70 = load i64, ptr %55, align 16, !tbaa !18
-  store i64 %70, ptr %69, align 8, !tbaa !18
+  store i64 %70, ptr %69, align 16, !tbaa !18
   store i64 55, ptr %55, align 16, !tbaa !18
   store ptr %62, ptr %16, align 16, !tbaa !21
   %71 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -1926,7 +1926,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   store ptr null, ptr %131, align 8, !tbaa !110
   %146 = getelementptr inbounds nuw i8, ptr %139, i64 32
   %147 = load i64, ptr %132, align 16, !tbaa !18
-  store i64 %147, ptr %146, align 8, !tbaa !18
+  store i64 %147, ptr %146, align 16, !tbaa !18
   store i64 55, ptr %132, align 16, !tbaa !18
   store ptr %139, ptr %21, align 16, !tbaa !21
   %148 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -2127,7 +2127,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   store ptr null, ptr %210, align 8, !tbaa !110
   %225 = getelementptr inbounds nuw i8, ptr %218, i64 32
   %226 = load i64, ptr %211, align 16, !tbaa !18
-  store i64 %226, ptr %225, align 8, !tbaa !18
+  store i64 %226, ptr %225, align 16, !tbaa !18
   store i64 55, ptr %211, align 16, !tbaa !18
   store ptr %218, ptr %26, align 16, !tbaa !21
   %227 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -2344,7 +2344,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i128: ; preds = %275
   store ptr null, ptr %290, align 8, !tbaa !110
   %305 = getelementptr inbounds nuw i8, ptr %298, i64 32
   %306 = load i64, ptr %291, align 16, !tbaa !18
-  store i64 %306, ptr %305, align 8, !tbaa !18
+  store i64 %306, ptr %305, align 16, !tbaa !18
   store i64 55, ptr %291, align 16, !tbaa !18
   store ptr %298, ptr %29, align 16, !tbaa !21
   %307 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -2559,13 +2559,13 @@ _ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESa
   store ptr null, ptr %376, align 8, !tbaa !110
   %389 = getelementptr inbounds nuw i8, ptr %383, i64 32
   %390 = load ptr, ptr %377, align 16, !tbaa !123
-  store ptr %390, ptr %389, align 8, !tbaa !123
+  store ptr %390, ptr %389, align 16, !tbaa !123
   %391 = getelementptr inbounds nuw i8, ptr %383, i64 40
   %392 = load ptr, ptr %379, align 8, !tbaa !126
   store ptr %392, ptr %391, align 8, !tbaa !126
   %393 = getelementptr inbounds nuw i8, ptr %383, i64 48
   %394 = load ptr, ptr %381, align 16, !tbaa !127
-  store ptr %394, ptr %393, align 8, !tbaa !127
+  store ptr %394, ptr %393, align 16, !tbaa !127
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %377, i8 0, i64 24, i1 false)
   store ptr %383, ptr %38, align 16, !tbaa !21
   %395 = getelementptr inbounds nuw i8, ptr %38, i64 16
@@ -4376,14 +4376,14 @@ _ZN17grpc_event_engine12experimental12_GLOBAL__N_113SortAddressesERKSt6vectorINS
   store ptr null, ptr %269, align 8, !tbaa !110
   %371 = getelementptr inbounds nuw i8, ptr %364, i64 32
   %372 = load ptr, ptr %270, align 16, !tbaa !123
-  store ptr %372, ptr %371, align 8, !tbaa !123
+  store ptr %372, ptr %371, align 16, !tbaa !123
   %373 = getelementptr inbounds nuw i8, ptr %364, i64 40
   %374 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %375 = load ptr, ptr %374, align 8, !tbaa !126
   store ptr %375, ptr %373, align 8, !tbaa !126
   %376 = getelementptr inbounds nuw i8, ptr %364, i64 48
   %377 = load ptr, ptr %290, align 16, !tbaa !127
-  store ptr %377, ptr %376, align 8, !tbaa !127
+  store ptr %377, ptr %376, align 16, !tbaa !127
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %270, i8 0, i64 24, i1 false)
   store ptr %364, ptr %32, align 16, !tbaa !21
   %378 = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -4493,7 +4493,7 @@ _ZN17grpc_event_engine12experimental12_GLOBAL__N_113SortAddressesERKSt6vectorINS
   store ptr null, ptr %409, align 8, !tbaa !110
   %418 = getelementptr inbounds nuw i8, ptr %412, i64 32
   %419 = load i64, ptr %410, align 16, !tbaa !18
-  store i64 %419, ptr %418, align 8, !tbaa !18
+  store i64 %419, ptr %418, align 16, !tbaa !18
   store i64 55, ptr %410, align 16, !tbaa !18
   store ptr %412, ptr %34, align 16, !tbaa !21
   %420 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -5822,7 +5822,7 @@ define void @_ZN17grpc_event_engine12experimental12AresResolver9LookupSRVEN4absl
   store ptr null, ptr %32, align 8, !tbaa !249
   %47 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %48 = load i64, ptr %33, align 16, !tbaa !18
-  store i64 %48, ptr %47, align 8, !tbaa !18
+  store i64 %48, ptr %47, align 16, !tbaa !18
   store i64 55, ptr %33, align 16, !tbaa !18
   store ptr %40, ptr %9, align 16, !tbaa !21
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -6017,7 +6017,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   store ptr null, ptr %109, align 8, !tbaa !249
   %124 = getelementptr inbounds nuw i8, ptr %117, i64 32
   %125 = load i64, ptr %110, align 16, !tbaa !18
-  store i64 %125, ptr %124, align 8, !tbaa !18
+  store i64 %125, ptr %124, align 16, !tbaa !18
   store i64 55, ptr %110, align 16, !tbaa !18
   store ptr %117, ptr %14, align 16, !tbaa !21
   %126 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -7141,13 +7141,13 @@ _ZN17grpc_event_engine12experimental11EventEngine11DNSResolver9SRVRecordD2Ev.exi
   store ptr null, ptr %182, align 8, !tbaa !249
   %197 = getelementptr inbounds nuw i8, ptr %191, i64 32
   %198 = load ptr, ptr %183, align 16, !tbaa !281
-  store ptr %198, ptr %197, align 8, !tbaa !281
+  store ptr %198, ptr %197, align 16, !tbaa !281
   %199 = getelementptr inbounds nuw i8, ptr %191, i64 40
   %200 = load ptr, ptr %185, align 8, !tbaa !278
   store ptr %200, ptr %199, align 8, !tbaa !278
   %201 = getelementptr inbounds nuw i8, ptr %191, i64 48
   %202 = load ptr, ptr %188, align 16, !tbaa !291
-  store ptr %202, ptr %201, align 8, !tbaa !291
+  store ptr %202, ptr %201, align 16, !tbaa !291
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %183, i8 0, i64 24, i1 false)
   store ptr %191, ptr %21, align 16, !tbaa !21
   %203 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -7467,7 +7467,7 @@ define void @_ZN17grpc_event_engine12experimental12AresResolver9LookupTXTEN4absl
   store ptr null, ptr %32, align 8, !tbaa !296
   %47 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %48 = load i64, ptr %33, align 16, !tbaa !18
-  store i64 %48, ptr %47, align 8, !tbaa !18
+  store i64 %48, ptr %47, align 16, !tbaa !18
   store i64 55, ptr %33, align 16, !tbaa !18
   store ptr %40, ptr %9, align 16, !tbaa !21
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -7662,7 +7662,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   store ptr null, ptr %109, align 8, !tbaa !296
   %124 = getelementptr inbounds nuw i8, ptr %117, i64 32
   %125 = load i64, ptr %110, align 16, !tbaa !18
-  store i64 %125, ptr %124, align 8, !tbaa !18
+  store i64 %125, ptr %124, align 16, !tbaa !18
   store i64 55, ptr %110, align 16, !tbaa !18
   store ptr %117, ptr %14, align 16, !tbaa !21
   %126 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -8831,13 +8831,13 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi6EEERS2_RAT__Kc.exit: ; pre
   store ptr null, ptr %198, align 8, !tbaa !296
   %213 = getelementptr inbounds nuw i8, ptr %207, i64 32
   %214 = load ptr, ptr %199, align 16, !tbaa !326
-  store ptr %214, ptr %213, align 8, !tbaa !326
+  store ptr %214, ptr %213, align 16, !tbaa !326
   %215 = getelementptr inbounds nuw i8, ptr %207, i64 40
   %216 = load ptr, ptr %201, align 8, !tbaa !324
   store ptr %216, ptr %215, align 8, !tbaa !324
   %217 = getelementptr inbounds nuw i8, ptr %207, i64 48
   %218 = load ptr, ptr %204, align 16, !tbaa !327
-  store ptr %218, ptr %217, align 8, !tbaa !327
+  store ptr %218, ptr %217, align 16, !tbaa !327
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %199, i8 0, i64 24, i1 false)
   store ptr %207, ptr %24, align 16, !tbaa !21
   %219 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -10130,7 +10130,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi53EEERS2_RAT__Kc.exit: ; pr
   store ptr null, ptr %40, align 8, !tbaa !249
   %55 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %56 = load i64, ptr %41, align 16, !tbaa !18
-  store i64 %56, ptr %55, align 8, !tbaa !18
+  store i64 %56, ptr %55, align 16, !tbaa !18
   store i64 55, ptr %41, align 16, !tbaa !18
   store ptr %48, ptr %8, align 16, !tbaa !21
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -10523,7 +10523,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi19EEERS2_RAT__Kc.exit: ; pr
   store ptr null, ptr %44, align 8, !tbaa !296
   %59 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %60 = load i64, ptr %45, align 16, !tbaa !18
-  store i64 %60, ptr %59, align 8, !tbaa !18
+  store i64 %60, ptr %59, align 16, !tbaa !18
   store i64 55, ptr %45, align 16, !tbaa !18
   store ptr %52, ptr %8, align 16, !tbaa !21
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -14710,7 +14710,7 @@ _ZSt19__relocate_object_aIN17grpc_event_engine12experimental11EventEngine11DNSRe
   store i64 %49, ptr %51, align 8, !tbaa !17, !alias.scope !400, !noalias !403
   store ptr %41, ptr %.0911.i.i.i, align 8, !tbaa !11, !alias.scope !403, !noalias !400
   store i64 0, ptr %50, align 8, !tbaa !17, !alias.scope !403, !noalias !400
-  store i8 0, ptr %41, align 1, !tbaa !21, !alias.scope !403, !noalias !400
+  store i8 0, ptr %41, align 8, !tbaa !21, !alias.scope !403, !noalias !400
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %52, ptr noundef nonnull align 8 dereferenceable(12) %53, i64 12, i1 false), !alias.scope !405
@@ -14761,7 +14761,7 @@ _ZSt19__relocate_object_aIN17grpc_event_engine12experimental11EventEngine11DNSRe
   store i64 %67, ptr %69, align 8, !tbaa !17, !alias.scope !407, !noalias !410
   store ptr %59, ptr %.0911.i.i.i19, align 8, !tbaa !11, !alias.scope !410, !noalias !407
   store i64 0, ptr %68, align 8, !tbaa !17, !alias.scope !410, !noalias !407
-  store i8 0, ptr %59, align 1, !tbaa !21, !alias.scope !410, !noalias !407
+  store i8 0, ptr %59, align 8, !tbaa !21, !alias.scope !410, !noalias !407
   %70 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %70, ptr noundef nonnull align 8 dereferenceable(12) %71, i64 12, i1 false), !alias.scope !412
@@ -15102,7 +15102,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %54, ptr %56, align 8, !tbaa !17, !alias.scope !413, !noalias !416
   store ptr %46, ptr %.0911.i.i.i, align 8, !tbaa !11, !alias.scope !416, !noalias !413
   store i64 0, ptr %55, align 8, !tbaa !17, !alias.scope !416, !noalias !413
-  store i8 0, ptr %46, align 1, !tbaa !21, !alias.scope !416, !noalias !413
+  store i8 0, ptr %46, align 8, !tbaa !21, !alias.scope !416, !noalias !413
   %57 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %58 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %57, %1
@@ -15150,7 +15150,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %70, ptr %72, align 8, !tbaa !17, !alias.scope !420, !noalias !423
   store ptr %62, ptr %.0911.i.i.i31, align 8, !tbaa !11, !alias.scope !423, !noalias !420
   store i64 0, ptr %71, align 8, !tbaa !17, !alias.scope !423, !noalias !420
-  store i8 0, ptr %62, align 1, !tbaa !21, !alias.scope !423, !noalias !420
+  store i8 0, ptr %62, align 8, !tbaa !21, !alias.scope !423, !noalias !420
   %73 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i31, i64 32
   %74 = getelementptr inbounds nuw i8, ptr %.012.i.i.i30, i64 32
   %.not.i.i.i36 = icmp eq ptr %73, %7

@@ -730,7 +730,7 @@ zend_dval_to_lval.exit:                           ; preds = %13, %20, %22
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %31 = load i64, ptr %30, align 8, !tbaa !65
-  %32 = load i8, ptr %29, align 1, !tbaa !36
+  %32 = load i8, ptr %29, align 8, !tbaa !36
   %33 = icmp sgt i8 %32, 57
   br i1 %33, label %_zend_handle_numeric_str.exit.thread, label %34, !prof !60
 

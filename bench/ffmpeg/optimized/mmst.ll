@@ -264,23 +264,23 @@ define internal noundef i32 @mms_close(ptr noundef readonly captures(none) %0) #
   %14 = load i32, ptr %13, align 8, !tbaa !37
   %15 = add nsw i32 %14, 1
   store i32 %15, ptr %13, align 8, !tbaa !37
-  store i32 %14, ptr %12, align 1, !tbaa !36
+  store i32 %14, ptr %12, align 4, !tbaa !36
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store i64 0, ptr %16, align 1, !tbaa !36
+  store i64 0, ptr %16, align 8, !tbaa !36
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 60
-  store i16 13, ptr %18, align 1, !tbaa !36
+  store i16 13, ptr %18, align 4, !tbaa !36
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 62
-  store i16 3, ptr %19, align 1, !tbaa !36
+  store i16 3, ptr %19, align 2, !tbaa !36
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store i32 1, ptr %20, align 1, !tbaa !36
+  store i32 1, ptr %20, align 8, !tbaa !36
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 68
-  store i32 1, ptr %21, align 1, !tbaa !36
+  store i32 1, ptr %21, align 4, !tbaa !36
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store ptr %22, ptr %7, align 8, !tbaa !38
-  store i32 32, ptr %9, align 1, !tbaa !36
-  store i32 4, ptr %11, align 1, !tbaa !36
-  store i32 2, ptr %17, align 1, !tbaa !36
+  store i32 32, ptr %9, align 8, !tbaa !36
+  store i32 4, ptr %11, align 8, !tbaa !36
+  store i32 2, ptr %17, align 8, !tbaa !36
   %23 = tail call i32 @ffurl_write2(ptr noundef nonnull %4, ptr noundef nonnull %6, i32 noundef range(i32 0, -7) 48) #7
   %.not.i.i = icmp eq i32 %23, 48
   br i1 %.not.i.i, label %send_close_packet.exit, label %24
@@ -584,16 +584,16 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mms_safe_send_recv(ptr nou
   %146 = load i32, ptr %33, align 8, !tbaa !37
   %147 = add nsw i32 %146, 1
   store i32 %147, ptr %33, align 8, !tbaa !37
-  store i32 %146, ptr %32, align 1, !tbaa !36
-  store i64 0, ptr %34, align 1, !tbaa !36
-  store i16 27, ptr %36, align 1, !tbaa !36
-  store i16 3, ptr %37, align 1, !tbaa !36
-  store i32 1, ptr %38, align 1, !tbaa !36
-  store i32 16842751, ptr %39, align 1, !tbaa !36
+  store i32 %146, ptr %32, align 4, !tbaa !36
+  store i64 0, ptr %34, align 8, !tbaa !36
+  store i16 27, ptr %36, align 4, !tbaa !36
+  store i16 3, ptr %37, align 2, !tbaa !36
+  store i32 1, ptr %38, align 8, !tbaa !36
+  store i32 16842751, ptr %39, align 4, !tbaa !36
   store ptr %40, ptr %27, align 8, !tbaa !38
-  store i32 32, ptr %29, align 1, !tbaa !36
-  store i32 4, ptr %31, align 1, !tbaa !36
-  store i32 2, ptr %35, align 1, !tbaa !36
+  store i32 32, ptr %29, align 8, !tbaa !36
+  store i32 4, ptr %31, align 8, !tbaa !36
+  store i32 2, ptr %35, align 8, !tbaa !36
   %148 = load ptr, ptr %0, align 8, !tbaa !31
   %149 = tail call i32 @ffurl_write2(ptr noundef %148, ptr noundef nonnull %26, i32 noundef range(i32 0, -7) 48) #7
   %.not.i.i.i = icmp eq i32 %149, 48
@@ -684,21 +684,21 @@ define internal range(i32 -2147483648, 1) i32 @send_startup_packet(ptr noundef %
   %14 = load i32, ptr %13, align 8, !tbaa !37
   %15 = add nsw i32 %14, 1
   store i32 %15, ptr %13, align 8, !tbaa !37
-  store i32 %14, ptr %12, align 1, !tbaa !36
+  store i32 %14, ptr %12, align 4, !tbaa !36
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 0, ptr %16, align 1, !tbaa !36
+  store i64 0, ptr %16, align 8, !tbaa !36
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %17, align 1, !tbaa !36
+  store i32 0, ptr %17, align 8, !tbaa !36
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i16 1, ptr %18, align 1, !tbaa !36
+  store i16 1, ptr %18, align 4, !tbaa !36
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 62
-  store i16 3, ptr %19, align 1, !tbaa !36
+  store i16 3, ptr %19, align 2, !tbaa !36
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 0, ptr %20, align 1, !tbaa !36
+  store i32 0, ptr %20, align 8, !tbaa !36
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 262155, ptr %21, align 1, !tbaa !36
+  store i32 262155, ptr %21, align 4, !tbaa !36
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 196636, ptr %22, align 1, !tbaa !36
+  store i32 196636, ptr %22, align 8, !tbaa !36
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store ptr %23, ptr %7, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -725,10 +725,10 @@ mms_put_utf16.exit.thread:                        ; preds = %1
   %35 = and i32 %34, -8
   %36 = add nsw i32 %35, -16
   %37 = ashr exact i32 %36, 3
-  store i32 %36, ptr %9, align 1, !tbaa !36
-  store i32 %37, ptr %11, align 1, !tbaa !36
+  store i32 %36, ptr %9, align 8, !tbaa !36
+  store i32 %37, ptr %11, align 8, !tbaa !36
   %38 = add nsw i32 %37, -2
-  store i32 %38, ptr %17, align 1, !tbaa !36
+  store i32 %38, ptr %17, align 8, !tbaa !36
   %39 = sub nsw i32 %35, %33
   %40 = sext i32 %39 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %30, i8 0, i64 %40, i1 false)
@@ -774,23 +774,23 @@ define internal range(i32 -5, 1) i32 @send_time_test_data(ptr noundef initialize
   %10 = load i32, ptr %9, align 8, !tbaa !37
   %11 = add nsw i32 %10, 1
   store i32 %11, ptr %9, align 8, !tbaa !37
-  store i32 %10, ptr %8, align 1, !tbaa !36
+  store i32 %10, ptr %8, align 4, !tbaa !36
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 0, ptr %12, align 1, !tbaa !36
+  store i64 0, ptr %12, align 8, !tbaa !36
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i16 24, ptr %14, align 1, !tbaa !36
+  store i16 24, ptr %14, align 4, !tbaa !36
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 62
-  store i16 3, ptr %15, align 1, !tbaa !36
+  store i16 3, ptr %15, align 2, !tbaa !36
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 15790320, ptr %16, align 1, !tbaa !36
+  store i32 15790320, ptr %16, align 8, !tbaa !36
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 262155, ptr %17, align 1, !tbaa !36
+  store i32 262155, ptr %17, align 4, !tbaa !36
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %18, ptr %3, align 8, !tbaa !38
-  store i32 32, ptr %5, align 1, !tbaa !36
-  store i32 4, ptr %7, align 1, !tbaa !36
-  store i32 2, ptr %13, align 1, !tbaa !36
+  store i32 32, ptr %5, align 8, !tbaa !36
+  store i32 4, ptr %7, align 8, !tbaa !36
+  store i32 2, ptr %13, align 8, !tbaa !36
   %19 = load ptr, ptr %0, align 8, !tbaa !31
   %20 = tail call i32 @ffurl_write2(ptr noundef %19, ptr noundef nonnull %2, i32 noundef range(i32 0, -7) 48) #7
   %.not.i = icmp eq i32 %20, 48
@@ -837,25 +837,25 @@ define internal range(i32 -2147483648, 1) i32 @send_protocol_select(ptr noundef 
   %12 = load i32, ptr %11, align 8, !tbaa !37
   %13 = add nsw i32 %12, 1
   store i32 %13, ptr %11, align 8, !tbaa !37
-  store i32 %12, ptr %10, align 1, !tbaa !36
+  store i32 %12, ptr %10, align 4, !tbaa !36
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 0, ptr %14, align 1, !tbaa !36
+  store i64 0, ptr %14, align 8, !tbaa !36
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %15, align 1, !tbaa !36
+  store i32 0, ptr %15, align 8, !tbaa !36
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i16 2, ptr %16, align 1, !tbaa !36
+  store i16 2, ptr %16, align 4, !tbaa !36
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 62
-  store i16 3, ptr %17, align 1, !tbaa !36
+  store i16 3, ptr %17, align 2, !tbaa !36
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 0, ptr %18, align 1, !tbaa !36
+  store i32 0, ptr %18, align 8, !tbaa !36
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 -1, ptr %19, align 1, !tbaa !36
+  store i32 -1, ptr %19, align 4, !tbaa !36
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 0, ptr %20, align 1, !tbaa !36
+  store i32 0, ptr %20, align 8, !tbaa !36
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  store i32 10000000, ptr %21, align 1, !tbaa !36
+  store i32 10000000, ptr %21, align 4, !tbaa !36
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 2, ptr %22, align 1, !tbaa !36
+  store i32 2, ptr %22, align 8, !tbaa !36
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store ptr %23, ptr %5, align 8, !tbaa !38
   %24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 256, ptr noundef nonnull @.str.24, i32 noundef 192, i32 noundef 168, i32 noundef 0, i32 noundef 129, ptr noundef nonnull @.str.25, i32 noundef 1037) #7
@@ -888,10 +888,10 @@ mms_put_utf16.exit.thread:                        ; preds = %1
   %40 = and i32 %39, -8
   %41 = add nsw i32 %40, -16
   %42 = ashr exact i32 %41, 3
-  store i32 %41, ptr %7, align 1, !tbaa !36
-  store i32 %42, ptr %9, align 1, !tbaa !36
+  store i32 %41, ptr %7, align 8, !tbaa !36
+  store i32 %42, ptr %9, align 8, !tbaa !36
   %43 = add nsw i32 %42, -2
-  store i32 %43, ptr %15, align 1, !tbaa !36
+  store i32 %43, ptr %15, align 8, !tbaa !36
   %44 = sub nsw i32 %40, %38
   %45 = sext i32 %44 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %35, i8 0, i64 %45, i1 false)
@@ -940,23 +940,23 @@ define internal range(i32 -2147483648, 1) i32 @send_media_file_request(ptr nound
   %11 = load i32, ptr %10, align 8, !tbaa !37
   %12 = add nsw i32 %11, 1
   store i32 %12, ptr %10, align 8, !tbaa !37
-  store i32 %11, ptr %9, align 1, !tbaa !36
+  store i32 %11, ptr %9, align 4, !tbaa !36
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 0, ptr %13, align 1, !tbaa !36
+  store i64 0, ptr %13, align 8, !tbaa !36
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %14, align 1, !tbaa !36
+  store i32 0, ptr %14, align 8, !tbaa !36
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i16 5, ptr %15, align 1, !tbaa !36
+  store i16 5, ptr %15, align 4, !tbaa !36
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 62
-  store i16 3, ptr %16, align 1, !tbaa !36
+  store i16 3, ptr %16, align 2, !tbaa !36
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 1, ptr %17, align 1, !tbaa !36
+  store i32 1, ptr %17, align 8, !tbaa !36
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 -1, ptr %18, align 1, !tbaa !36
+  store i32 -1, ptr %18, align 4, !tbaa !36
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 0, ptr %19, align 1, !tbaa !36
+  store i32 0, ptr %19, align 8, !tbaa !36
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  store i32 0, ptr %20, align 1, !tbaa !36
+  store i32 0, ptr %20, align 4, !tbaa !36
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %21, ptr %4, align 8, !tbaa !38
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 66125
@@ -984,10 +984,10 @@ mms_put_utf16.exit.thread:                        ; preds = %1
   %34 = and i32 %33, -8
   %35 = add nsw i32 %34, -16
   %36 = ashr exact i32 %35, 3
-  store i32 %35, ptr %6, align 1, !tbaa !36
-  store i32 %36, ptr %8, align 1, !tbaa !36
+  store i32 %35, ptr %6, align 8, !tbaa !36
+  store i32 %36, ptr %8, align 8, !tbaa !36
   %37 = add nsw i32 %36, -2
-  store i32 %37, ptr %14, align 1, !tbaa !36
+  store i32 %37, ptr %14, align 8, !tbaa !36
   %38 = sub nsw i32 %34, %32
   %39 = sext i32 %38 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %29, i8 0, i64 %39, i1 false)
@@ -1032,43 +1032,43 @@ define internal range(i32 -5, 1) i32 @send_media_header_request(ptr noundef init
   %10 = load i32, ptr %9, align 8, !tbaa !37
   %11 = add nsw i32 %10, 1
   store i32 %11, ptr %9, align 8, !tbaa !37
-  store i32 %10, ptr %8, align 1, !tbaa !36
+  store i32 %10, ptr %8, align 4, !tbaa !36
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 0, ptr %12, align 1, !tbaa !36
+  store i64 0, ptr %12, align 8, !tbaa !36
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i16 21, ptr %14, align 1, !tbaa !36
+  store i16 21, ptr %14, align 4, !tbaa !36
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 62
-  store i16 3, ptr %15, align 1, !tbaa !36
+  store i16 3, ptr %15, align 2, !tbaa !36
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 1, ptr %16, align 1, !tbaa !36
+  store i32 1, ptr %16, align 8, !tbaa !36
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 0, ptr %17, align 1, !tbaa !36
+  store i32 0, ptr %17, align 4, !tbaa !36
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 0, ptr %18, align 1, !tbaa !36
+  store i32 0, ptr %18, align 8, !tbaa !36
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  store i32 8388608, ptr %19, align 1, !tbaa !36
+  store i32 8388608, ptr %19, align 4, !tbaa !36
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 -1, ptr %20, align 1, !tbaa !36
+  store i32 -1, ptr %20, align 8, !tbaa !36
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  store i32 0, ptr %21, align 1, !tbaa !36
+  store i32 0, ptr %21, align 4, !tbaa !36
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 0, ptr %22, align 1, !tbaa !36
+  store i32 0, ptr %22, align 8, !tbaa !36
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  store i32 0, ptr %23, align 1, !tbaa !36
+  store i32 0, ptr %23, align 4, !tbaa !36
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i32 0, ptr %24, align 1, !tbaa !36
+  store i32 0, ptr %24, align 8, !tbaa !36
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  store i32 1085022208, ptr %25, align 1, !tbaa !36
+  store i32 1085022208, ptr %25, align 4, !tbaa !36
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i32 2, ptr %26, align 1, !tbaa !36
+  store i32 2, ptr %26, align 8, !tbaa !36
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  store i32 0, ptr %27, align 1, !tbaa !36
+  store i32 0, ptr %27, align 4, !tbaa !36
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %28, ptr %3, align 8, !tbaa !38
-  store i32 72, ptr %5, align 1, !tbaa !36
-  store i32 9, ptr %7, align 1, !tbaa !36
-  store i32 7, ptr %13, align 1, !tbaa !36
+  store i32 72, ptr %5, align 8, !tbaa !36
+  store i32 9, ptr %7, align 8, !tbaa !36
+  store i32 7, ptr %13, align 8, !tbaa !36
   %29 = load ptr, ptr %0, align 8, !tbaa !31
   %30 = tail call i32 @ffurl_write2(ptr noundef %29, ptr noundef nonnull %2, i32 noundef range(i32 0, -7) 88) #7
   %.not.i = icmp eq i32 %30, 88
@@ -1116,19 +1116,19 @@ define internal range(i32 -5, 1) i32 @send_stream_selection_request(ptr noundef 
   %10 = load i32, ptr %9, align 8, !tbaa !37
   %11 = add nsw i32 %10, 1
   store i32 %11, ptr %9, align 8, !tbaa !37
-  store i32 %10, ptr %8, align 1, !tbaa !36
+  store i32 %10, ptr %8, align 4, !tbaa !36
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 0, ptr %12, align 1, !tbaa !36
+  store i64 0, ptr %12, align 8, !tbaa !36
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %13, align 1, !tbaa !36
+  store i32 0, ptr %13, align 8, !tbaa !36
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i16 51, ptr %14, align 1, !tbaa !36
+  store i16 51, ptr %14, align 4, !tbaa !36
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 62
-  store i16 3, ptr %15, align 1, !tbaa !36
+  store i16 3, ptr %15, align 2, !tbaa !36
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 66112
   %18 = load i32, ptr %17, align 8, !tbaa !28
-  store i32 %18, ptr %16, align 1, !tbaa !36
+  store i32 %18, ptr %16, align 8, !tbaa !36
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store ptr %19, ptr %3, align 8, !tbaa !38
   %20 = icmp sgt i32 %18, 0
@@ -1221,30 +1221,30 @@ define internal range(i32 -5, 1) i32 @send_media_packet_request(ptr noundef init
   %10 = load i32, ptr %9, align 8, !tbaa !37
   %11 = add nsw i32 %10, 1
   store i32 %11, ptr %9, align 8, !tbaa !37
-  store i32 %10, ptr %8, align 1, !tbaa !36
+  store i32 %10, ptr %8, align 4, !tbaa !36
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 0, ptr %12, align 1, !tbaa !36
+  store i64 0, ptr %12, align 8, !tbaa !36
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i16 7, ptr %14, align 1, !tbaa !36
+  store i16 7, ptr %14, align 4, !tbaa !36
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 62
-  store i16 3, ptr %15, align 1, !tbaa !36
+  store i16 3, ptr %15, align 2, !tbaa !36
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 1, ptr %16, align 1, !tbaa !36
+  store i32 1, ptr %16, align 8, !tbaa !36
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 131071, ptr %17, align 1, !tbaa !36
+  store i32 131071, ptr %17, align 4, !tbaa !36
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 0, ptr %18, align 1, !tbaa !36
+  store i64 0, ptr %18, align 8, !tbaa !36
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 -1, ptr %19, align 1, !tbaa !36
+  store i32 -1, ptr %19, align 8, !tbaa !36
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  store i32 -1, ptr %20, align 1, !tbaa !36
+  store i32 -1, ptr %20, align 4, !tbaa !36
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i8 -1, ptr %21, align 1, !tbaa !36
+  store i8 -1, ptr %21, align 8, !tbaa !36
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 89
   store i8 -1, ptr %22, align 1, !tbaa !36
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 90
-  store i8 -1, ptr %23, align 1, !tbaa !36
+  store i8 -1, ptr %23, align 2, !tbaa !36
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 91
   store i8 0, ptr %24, align 1, !tbaa !36
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 92
@@ -1252,12 +1252,12 @@ define internal range(i32 -5, 1) i32 @send_media_packet_request(ptr noundef init
   %27 = load i32, ptr %26, align 4, !tbaa !19
   %28 = add nsw i32 %27, 1
   store i32 %28, ptr %26, align 4, !tbaa !19
-  store i32 %28, ptr %25, align 1, !tbaa !36
+  store i32 %28, ptr %25, align 4, !tbaa !36
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %29, ptr %3, align 8, !tbaa !38
-  store i32 56, ptr %5, align 1, !tbaa !36
-  store i32 7, ptr %7, align 1, !tbaa !36
-  store i32 5, ptr %13, align 1, !tbaa !36
+  store i32 56, ptr %5, align 8, !tbaa !36
+  store i32 7, ptr %7, align 8, !tbaa !36
+  store i32 5, ptr %13, align 8, !tbaa !36
   %30 = load ptr, ptr %0, align 8, !tbaa !31
   %31 = tail call i32 @ffurl_write2(ptr noundef %30, ptr noundef nonnull %2, i32 noundef range(i32 0, -7) 72) #7
   %.not.i = icmp eq i32 %31, 72

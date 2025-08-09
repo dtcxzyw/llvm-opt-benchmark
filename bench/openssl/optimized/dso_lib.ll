@@ -47,7 +47,7 @@ define internal fastcc ptr @DSO_new_method() unnamed_addr #0 {
   %9 = tail call ptr @DSO_METHOD_openssl() #3
   store ptr %9, ptr %1, align 8, !tbaa !15
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store atomic i32 1, ptr %10 seq_cst, align 4, !tbaa !16
+  store atomic i32 1, ptr %10 seq_cst, align 8, !tbaa !16
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %12 = load ptr, ptr %11, align 8, !tbaa !17
   %.not = icmp eq ptr %12, null

@@ -3554,7 +3554,7 @@ _ZNK4llvm19MachineRegisterInfo20getRegAllocationHintENS_8RegisterE.exit.i: ; pre
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %66 = load ptr, ptr %65, align 8, !tbaa !25
   %67 = load i32, ptr %66, align 4, !tbaa !68
-  %68 = load i32, ptr %62, align 4, !tbaa !68
+  %68 = load i32, ptr %62, align 8, !tbaa !68
   %.not.i = icmp eq i32 %68, 0
   %69 = add i32 %67, -1
   %70 = icmp ult i32 %69, 1073741823
@@ -13834,7 +13834,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPKNS_12LiveIntervalENS_10MCRegisterEEE7reserve
   %.012.i.i = phi ptr [ %354, %.lr.ph.i.i120 ], [ %352, %.lr.ph.preheader.i.i ]
   store ptr null, ptr %.012.i.i, align 8, !tbaa !899
   %353 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 8
-  store i32 0, ptr %353, align 4, !tbaa !123
+  store i32 0, ptr %353, align 8, !tbaa !123
   %354 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 16
   %.not.i.i121 = icmp eq ptr %354, %351
   br i1 %.not.i.i121, label %.sink.split.i.i, label %.lr.ph.i.i120, !llvm.loop !902
@@ -14601,7 +14601,7 @@ _ZNK4llvm19MachineRegisterInfo20getRegAllocationHintENS_8RegisterE.exit.i: ; pre
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %88 = load ptr, ptr %87, align 8, !tbaa !25
   %89 = load i32, ptr %88, align 4, !tbaa !68
-  %90 = load i32, ptr %84, align 4, !tbaa !68
+  %90 = load i32, ptr %84, align 8, !tbaa !68
   %.not.i93 = icmp eq i32 %90, 0
   %.not80 = icmp ne i32 %89, 0
   %91 = icmp ne i32 %89, %72
@@ -22600,7 +22600,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_11S
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.014, i64 32
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %21 = load i32, ptr %19, align 4, !tbaa !68
+  %21 = load i32, ptr %19, align 8, !tbaa !68
   store ptr %.sroa.01.0.copyload, ptr %3, align 8, !tbaa !49
   store i64 %.sroa.22.0.copyload, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !tbaa !50
   store ptr %.sroa.0.0.copyload, ptr %9, align 8, !tbaa !49

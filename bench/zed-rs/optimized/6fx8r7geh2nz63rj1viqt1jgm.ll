@@ -15762,7 +15762,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %25 = getelementptr inbounds i8, ptr %20, i64 -16
   %26 = getelementptr inbounds i8, ptr %20, i64 -8
   %.val6 = load i64, ptr %25, align 8
-  %.val7 = load i32, ptr %26, align 4
+  %.val7 = load i32, ptr %26, align 8
   %27 = mul i64 %.val6, 5871781006564002453
   %28 = lshr i64 %27, 57
   %29 = trunc nuw nsw i64 %28 to i8
@@ -43208,7 +43208,7 @@ define hidden noundef zeroext i1 @"_ZN94_$LT$std..collections..hash..map..HashMa
   %31 = getelementptr inbounds i8, ptr %26, i64 -16
   %32 = getelementptr inbounds i8, ptr %26, i64 -8
   %.val6.i = load i64, ptr %31, align 8, !noalias !8924
-  %.val7.i = load i32, ptr %32, align 4, !noalias !8924
+  %.val7.i = load i32, ptr %32, align 8, !noalias !8924
   %33 = mul i64 %.val6.i, 5871781006564002453
   %34 = lshr i64 %33, 57
   %35 = trunc nuw nsw i64 %34 to i8

@@ -4531,7 +4531,7 @@ _ZNK4cvc58internal6theory5arith6linear6MatrixINS0_8RationalEE11findEntryIDEjj.ex
   %55 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ColumnVector", ptr %17, i64 %16
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !443
-  %.sroa.0214.0251 = load i32, ptr %55, align 4, !tbaa !13
+  %.sroa.0214.0251 = load i32, ptr %55, align 8, !tbaa !13
   %58 = icmp eq i32 %.sroa.0214.0251, -1
   br i1 %58, label %131, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit130.lr.ph
 

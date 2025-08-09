@@ -8854,10 +8854,10 @@ _ZNSi4swapERSi.exit:                              ; preds = %12
   store ptr %19, ptr %18, align 8, !tbaa !7
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 224
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 224
-  %23 = load i8, ptr %21, align 1, !tbaa !16
-  %24 = load i8, ptr %22, align 1, !tbaa !16
-  store i8 %24, ptr %21, align 1, !tbaa !16
-  store i8 %23, ptr %22, align 1, !tbaa !16
+  %23 = load i8, ptr %21, align 8, !tbaa !16
+  %24 = load i8, ptr %22, align 8, !tbaa !16
+  store i8 %24, ptr %21, align 8, !tbaa !16
+  store i8 %23, ptr %22, align 8, !tbaa !16
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 225
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 225
   %27 = load i8, ptr %25, align 1, !tbaa !113, !range !50, !noundef !51

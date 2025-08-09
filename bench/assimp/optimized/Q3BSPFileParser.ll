@@ -130,7 +130,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %39, %42
   store ptr %52, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 200
   store i64 0, ptr %53, align 8
-  store i8 0, ptr %52, align 1
+  store i8 0, ptr %52, align 8
   store ptr %49, ptr %5, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit unwind label %39

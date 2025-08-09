@@ -3207,11 +3207,11 @@ _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymEx
   %50 = getelementptr i8, ptr %44, i64 48
   %.val18.i = load ptr, ptr %50, align 8, !tbaa !550
   %51 = getelementptr i8, ptr %44, i64 56
-  %.val19.i = load i32, ptr %51, align 4
+  %.val19.i = load i32, ptr %51, align 8
   %52 = getelementptr i8, ptr %49, i64 48
   %.val20.i = load ptr, ptr %52, align 8, !tbaa !550
   %53 = getelementptr i8, ptr %49, i64 56
-  %.val21.i = load i32, ptr %53, align 4
+  %.val21.i = load i32, ptr %53, align 8
   %54 = getelementptr i8, ptr %.val18.i, i64 20
   %.val18.val.i = load i32, ptr %54, align 4, !tbaa !547
   %55 = getelementptr i8, ptr %.val20.i, i64 20

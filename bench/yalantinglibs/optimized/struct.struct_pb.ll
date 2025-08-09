@@ -5840,7 +5840,7 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant
   store i64 %8, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   store ptr %5, ptr %__orig, align 8
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  store i8 0, ptr %5, align 1
+  store i8 0, ptr %5, align 8
   %.pre3 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZNSt16allocator_traitsISaIN6google8protobuf5ValueEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit
 

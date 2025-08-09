@@ -8155,7 +8155,7 @@ _ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i.i: ; preds = %1
   %168 = getelementptr inbounds nuw i8, ptr %135, i64 136
   store ptr %5, ptr %168, align 8, !tbaa !414
   %169 = getelementptr inbounds nuw i8, ptr %135, i64 144
-  store i8 0, ptr %169, align 1, !tbaa !74
+  store i8 0, ptr %169, align 8, !tbaa !74
   %170 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #36
           to label %_ZNSt12__shared_ptrIN7rocksdb6LoggerELN9__gnu_cxx12_Lock_policyE2EEC2INS0_12_GLOBAL__N_113TestMemLoggerEvEEPT_.exit.i unwind label %171
 
@@ -22133,7 +22133,7 @@ _ZSt19__relocate_object_aIN7rocksdb3Env14FileAttributesES2_SaIS2_EEvPT_PT0_RT1_.
   store i64 %45, ptr %47, align 8, !tbaa !31, !alias.scope !679, !noalias !682
   store ptr %37, ptr %.0911.i.i.i, align 8, !tbaa !26, !alias.scope !682, !noalias !679
   store i64 0, ptr %46, align 8, !tbaa !31, !alias.scope !682, !noalias !679
-  store i8 0, ptr %37, align 1, !tbaa !32, !alias.scope !682, !noalias !679
+  store i8 0, ptr %37, align 8, !tbaa !32, !alias.scope !682, !noalias !679
   %48 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %49 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %48, ptr noundef nonnull align 8 dereferenceable(9) %49, i64 9, i1 false), !alias.scope !684
@@ -23692,7 +23692,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !31, !alias.scope !763, !noalias !766
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !26, !alias.scope !766, !noalias !763
   store i64 0, ptr %48, align 8, !tbaa !31, !alias.scope !766, !noalias !763
-  store i8 0, ptr %39, align 1, !tbaa !32, !alias.scope !766, !noalias !763
+  store i8 0, ptr %39, align 8, !tbaa !32, !alias.scope !766, !noalias !763
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -23740,7 +23740,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !31, !alias.scope !770, !noalias !773
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !26, !alias.scope !773, !noalias !770
   store i64 0, ptr %64, align 8, !tbaa !31, !alias.scope !773, !noalias !770
-  store i8 0, ptr %55, align 1, !tbaa !32, !alias.scope !773, !noalias !770
+  store i8 0, ptr %55, align 8, !tbaa !32, !alias.scope !773, !noalias !770
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5

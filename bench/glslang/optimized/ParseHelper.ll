@@ -3185,7 +3185,7 @@ define void @_ZN7glslang13TParseContext11parserErrorEPKc(ptr noundef nonnull ali
   %24 = load i32, ptr %23, align 4
   %25 = xor i32 %24, -1
   %26 = add i32 %22, %25
-  %27 = load i32, ptr %20, align 4
+  %27 = load i32, ptr %20, align 8
   %28 = tail call i32 @llvm.smin.i32(i32 %26, i32 %27)
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %28, i32 0)
   %29 = zext nneg i32 %.sroa.speculated.i.i to i64
@@ -3217,7 +3217,7 @@ _ZNK7glslang14TParseVersions13getCurrentLocEv.exit: ; preds = %15, %17
   %44 = load i32, ptr %43, align 4
   %45 = xor i32 %44, -1
   %46 = add i32 %42, %45
-  %47 = load i32, ptr %40, align 4
+  %47 = load i32, ptr %40, align 8
   %48 = tail call i32 @llvm.smin.i32(i32 %46, i32 %47)
   %.sroa.speculated.i.i4 = tail call i32 @llvm.smax.i32(i32 %48, i32 0)
   %49 = zext nneg i32 %.sroa.speculated.i.i4 to i64
@@ -19432,10 +19432,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEaSE
   %105 = getelementptr inbounds nuw i8, ptr %98, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %103, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %104, i8 0, i64 16, i1 false)
-  %106 = load i32, ptr %105, align 4
+  %106 = load i32, ptr %105, align 8
   %107 = and i32 %106, -2147483648
   %108 = or disjoint i32 %107, 520093696
-  store i32 %108, ptr %105, align 4
+  store i32 %108, ptr %105, align 8
   %109 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %110 = getelementptr inbounds nuw i8, ptr %98, i64 24
   %111 = load i64, ptr %110, align 8
@@ -19672,7 +19672,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   store ptr %249, ptr %251, align 8
   %252 = getelementptr inbounds nuw i8, ptr %217, i64 272
   store i64 0, ptr %252, align 8
-  store i8 0, ptr %249, align 1
+  store i8 0, ptr %249, align 8
   %253 = getelementptr inbounds nuw i8, ptr %217, i64 296
   store i8 0, ptr %253, align 8
   %254 = getelementptr inbounds nuw i8, ptr %217, i64 304
@@ -45582,7 +45582,7 @@ define void @_ZN7glslang13TParseContext6finishEv(ptr noundef nonnull align 8 der
   %44 = load i32, ptr %43, align 4
   %45 = xor i32 %44, -1
   %46 = add i32 %42, %45
-  %47 = load i32, ptr %40, align 4
+  %47 = load i32, ptr %40, align 8
   %48 = tail call i32 @llvm.smin.i32(i32 %46, i32 %47)
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %48, i32 0)
   %49 = zext nneg i32 %.sroa.speculated.i.i to i64
@@ -45629,7 +45629,7 @@ _ZNK7glslang14TParseVersions13getCurrentLocEv.exit: ; preds = %35, %37
   %76 = load i32, ptr %75, align 4
   %77 = xor i32 %76, -1
   %78 = add i32 %74, %77
-  %79 = load i32, ptr %72, align 4
+  %79 = load i32, ptr %72, align 8
   %80 = tail call i32 @llvm.smin.i32(i32 %78, i32 %79)
   %.sroa.speculated.i.i15 = tail call i32 @llvm.smax.i32(i32 %80, i32 0)
   %81 = zext nneg i32 %.sroa.speculated.i.i15 to i64
@@ -45671,7 +45671,7 @@ _ZNK7glslang14TParseVersions13getCurrentLocEv.exit17: ; preds = %67, %69
   %103 = load i32, ptr %102, align 4
   %104 = xor i32 %103, -1
   %105 = add i32 %101, %104
-  %106 = load i32, ptr %99, align 4
+  %106 = load i32, ptr %99, align 8
   %107 = tail call i32 @llvm.smin.i32(i32 %105, i32 %106)
   %.sroa.speculated.i.i18 = tail call i32 @llvm.smax.i32(i32 %107, i32 0)
   %108 = zext nneg i32 %.sroa.speculated.i.i18 to i64
@@ -45718,7 +45718,7 @@ _ZNK7glslang14TParseVersions13getCurrentLocEv.exit20: ; preds = %94, %96
   %135 = load i32, ptr %134, align 4
   %136 = xor i32 %135, -1
   %137 = add i32 %133, %136
-  %138 = load i32, ptr %131, align 4
+  %138 = load i32, ptr %131, align 8
   %139 = tail call i32 @llvm.smin.i32(i32 %137, i32 %138)
   %.sroa.speculated.i.i21 = tail call i32 @llvm.smax.i32(i32 %139, i32 0)
   %140 = zext nneg i32 %.sroa.speculated.i.i21 to i64
@@ -45755,7 +45755,7 @@ _ZNK7glslang14TParseVersions13getCurrentLocEv.exit23: ; preds = %126, %128
   %160 = load i32, ptr %159, align 4
   %161 = xor i32 %160, -1
   %162 = add i32 %158, %161
-  %163 = load i32, ptr %156, align 4
+  %163 = load i32, ptr %156, align 8
   %164 = tail call i32 @llvm.smin.i32(i32 %162, i32 %163)
   %.sroa.speculated.i.i24 = tail call i32 @llvm.smax.i32(i32 %164, i32 0)
   %165 = zext nneg i32 %.sroa.speculated.i.i24 to i64
@@ -45792,7 +45792,7 @@ _ZNK7glslang14TParseVersions13getCurrentLocEv.exit26: ; preds = %151, %153
   %185 = load i32, ptr %184, align 4
   %186 = xor i32 %185, -1
   %187 = add i32 %183, %186
-  %188 = load i32, ptr %181, align 4
+  %188 = load i32, ptr %181, align 8
   %189 = tail call i32 @llvm.smin.i32(i32 %187, i32 %188)
   %.sroa.speculated.i.i27 = tail call i32 @llvm.smax.i32(i32 %189, i32 0)
   %190 = zext nneg i32 %.sroa.speculated.i.i27 to i64
@@ -50803,10 +50803,10 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN7glslang
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
-  %21 = load i32, ptr %20, align 4
+  %21 = load i32, ptr %20, align 8
   %22 = and i32 %21, -2147483648
   %23 = or disjoint i32 %22, 520093696
-  store i32 %23, ptr %20, align 4
+  store i32 %23, ptr %20, align 8
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %26 = load i64, ptr %25, align 8
@@ -51708,10 +51708,10 @@ define noundef ptr @_ZN7glslang13TParseContext30vkRelaxedRemapFunctionArgumentER
   %39 = getelementptr inbounds nuw i8, ptr %32, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
-  %40 = load i32, ptr %39, align 4
+  %40 = load i32, ptr %39, align 8
   %41 = and i32 %40, -2147483648
   %42 = or disjoint i32 %41, 520093696
-  store i32 %42, ptr %39, align 4
+  store i32 %42, ptr %39, align 8
   %43 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %44 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %45 = load i64, ptr %44, align 8
@@ -51861,10 +51861,10 @@ define noundef ptr @_ZN7glslang13TParseContext30vkRelaxedRemapFunctionArgumentER
   %145 = getelementptr inbounds nuw i8, ptr %138, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %143, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %144, i8 0, i64 16, i1 false)
-  %146 = load i32, ptr %145, align 4
+  %146 = load i32, ptr %145, align 8
   %147 = and i32 %146, -2147483648
   %148 = or disjoint i32 %147, 520093696
-  store i32 %148, ptr %145, align 4
+  store i32 %148, ptr %145, align 8
   %149 = getelementptr inbounds nuw i8, ptr %138, i64 16
   %150 = getelementptr inbounds nuw i8, ptr %138, i64 24
   %151 = load i64, ptr %150, align 8
@@ -60191,10 +60191,10 @@ define void @_ZN7glslang13TParseContext27fixBlockUniformLayoutMatrixERNS_10TQual
   %135 = getelementptr inbounds nuw i8, ptr %128, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %133, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %134, i8 0, i64 16, i1 false)
-  %136 = load i32, ptr %135, align 4
+  %136 = load i32, ptr %135, align 8
   %137 = and i32 %136, -2147483648
   %138 = or disjoint i32 %137, 520093696
-  store i32 %138, ptr %135, align 4
+  store i32 %138, ptr %135, align 8
   %139 = getelementptr inbounds nuw i8, ptr %128, i64 16
   %140 = getelementptr inbounds nuw i8, ptr %128, i64 24
   %141 = load i64, ptr %140, align 8
@@ -60422,10 +60422,10 @@ define void @_ZN7glslang13TParseContext28fixBlockUniformLayoutPackingERNS_10TQua
   %96 = getelementptr inbounds nuw i8, ptr %89, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %94, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %95, i8 0, i64 16, i1 false)
-  %97 = load i32, ptr %96, align 4
+  %97 = load i32, ptr %96, align 8
   %98 = and i32 %97, -2147483648
   %99 = or disjoint i32 %98, 520093696
-  store i32 %99, ptr %96, align 4
+  store i32 %99, ptr %96, align 8
   %100 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %101 = getelementptr inbounds nuw i8, ptr %89, i64 24
   %102 = load i64, ptr %101, align 8
@@ -60606,10 +60606,10 @@ define linkonce_odr void @_ZN7glslang5TTypeC2ENS_10TBasicTypeERKS0_RKNSt7__cxx11
   %59 = getelementptr inbounds nuw i8, ptr %52, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %57, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, i8 0, i64 16, i1 false)
-  %60 = load i32, ptr %59, align 4
+  %60 = load i32, ptr %59, align 8
   %61 = and i32 %60, -2147483648
   %62 = or disjoint i32 %61, 520093696
-  store i32 %62, ptr %59, align 4
+  store i32 %62, ptr %59, align 8
   %63 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %64 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %65 = load i64, ptr %64, align 8
@@ -63774,7 +63774,7 @@ _ZNSt6vectorIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE9push_backEOS1_.exit:
   store ptr %144, ptr %146, align 8
   %147 = getelementptr inbounds nuw i8, ptr %112, i64 272
   store i64 0, ptr %147, align 8
-  store i8 0, ptr %144, align 1
+  store i8 0, ptr %144, align 8
   %148 = getelementptr inbounds nuw i8, ptr %112, i64 304
   store ptr null, ptr %148, align 8
   %149 = getelementptr inbounds nuw i8, ptr %112, i64 312
@@ -73830,10 +73830,10 @@ _ZNSt3mapIPN7glslang7TVectorINS0_8TTypeLocEEES4_St4lessIS4_ENS0_14pool_allocator
   %213 = getelementptr inbounds nuw i8, ptr %206, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %211, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %212, i8 0, i64 16, i1 false)
-  %214 = load i32, ptr %213, align 4
+  %214 = load i32, ptr %213, align 8
   %215 = and i32 %214, -2147483648
   %216 = or disjoint i32 %215, 520093696
-  store i32 %216, ptr %213, align 4
+  store i32 %216, ptr %213, align 8
   %217 = getelementptr inbounds nuw i8, ptr %206, i64 16
   %218 = getelementptr inbounds nuw i8, ptr %206, i64 24
   %219 = load i64, ptr %218, align 8
@@ -78898,10 +78898,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   %385 = getelementptr inbounds nuw i8, ptr %378, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %383, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %384, i8 0, i64 16, i1 false)
-  %386 = load i32, ptr %385, align 4
+  %386 = load i32, ptr %385, align 8
   %387 = and i32 %386, -2147483648
   %388 = or disjoint i32 %387, 520093696
-  store i32 %388, ptr %385, align 4
+  store i32 %388, ptr %385, align 8
   %389 = getelementptr inbounds nuw i8, ptr %378, i64 16
   %390 = getelementptr inbounds nuw i8, ptr %378, i64 24
   %391 = load i64, ptr %390, align 8

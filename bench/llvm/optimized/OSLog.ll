@@ -134,7 +134,7 @@ define dso_local noundef zeroext i1 @_ZN5clang14analyze_os_log24computeOSLogBuff
   %54 = lshr i32 %53, 22
   %55 = and i32 %54, 7
   %56 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %57 = load i32, ptr %56, align 4, !tbaa !19
+  %57 = load i32, ptr %56, align 8, !tbaa !19
   %58 = mul i32 %55, %57
   %59 = zext i32 %58 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
@@ -485,7 +485,7 @@ _ZN4llvm15SmallVectorImplIN5clang14analyze_os_log15OSLogBufferItemEE12emplace_ba
   %221 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %220, i64 %219
   %222 = load i32, ptr %201, align 4, !tbaa !388
   %223 = load ptr, ptr %.078.i, align 8, !tbaa !15
-  %224 = load i8, ptr %213, align 1, !tbaa !18
+  %224 = load i8, ptr %213, align 8, !tbaa !18
   %225 = zext i8 %224 to i32
   store i32 %222, ptr %221, align 8, !tbaa !393
   %226 = getelementptr inbounds nuw i8, ptr %221, i64 8
@@ -531,7 +531,7 @@ _ZN4llvm15SmallVectorImplIN5clang14analyze_os_log15OSLogBufferItemEE12emplace_ba
   %244 = load ptr, ptr %2, align 8, !tbaa !22
   %245 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %244, i64 %243
   %246 = load ptr, ptr %.078.i, align 8, !tbaa !15
-  %247 = load i8, ptr %237, align 1, !tbaa !18
+  %247 = load i8, ptr %237, align 8, !tbaa !18
   %248 = zext i8 %247 to i32
   store i32 0, ptr %245, align 8, !tbaa !393
   %249 = getelementptr inbounds nuw i8, ptr %245, i64 8

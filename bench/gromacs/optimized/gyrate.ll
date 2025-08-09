@@ -156,7 +156,7 @@ define void @_ZN3gmx15analysismodules10GyrateInfo6createEv(ptr dead_on_unwind no
   store ptr %4, ptr %3, align 8, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %5, align 8, !tbaa !12
-  store i8 0, ptr %4, align 1, !tbaa !15
+  store i8 0, ptr %4, align 8, !tbaa !15
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr null, ptr %6, align 8, !tbaa !16
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 56

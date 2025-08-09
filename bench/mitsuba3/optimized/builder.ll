@@ -158,11 +158,11 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder11newInstNodeEPPN
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(30) %24, i8 0, i64 28, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  store i32 %2, ptr %25, align 4, !tbaa !43
+  store i32 %2, ptr %25, align 8, !tbaa !43
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 52
   store i32 %3, ptr %26, align 4, !tbaa !45
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  store i64 0, ptr %27, align 4
+  store i64 0, ptr %27, align 8
   %28 = trunc nuw nsw i32 %8 to i8
   %29 = getelementptr inbounds nuw i8, ptr %13, i64 19
   store i8 %28, ptr %29, align 1, !tbaa !16
@@ -2042,11 +2042,11 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder5_emitEjRKNS0_8Op
   %100 = getelementptr inbounds nuw i8, ptr %85, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(30) %100, i8 0, i64 28, i1 false)
   %101 = getelementptr inbounds nuw i8, ptr %85, i64 48
-  store i32 %1, ptr %101, align 4, !tbaa !43
+  store i32 %1, ptr %101, align 8, !tbaa !43
   %102 = getelementptr inbounds nuw i8, ptr %85, i64 52
   store i32 %78, ptr %102, align 4, !tbaa !45
   %103 = getelementptr inbounds nuw i8, ptr %85, i64 56
-  store i64 0, ptr %103, align 4
+  store i64 0, ptr %103, align 8
   %104 = trunc nuw nsw i32 %80 to i8
   %105 = getelementptr inbounds nuw i8, ptr %85, i64 19
   store i8 %104, ptr %105, align 1, !tbaa !16
@@ -2055,7 +2055,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder5_emitEjRKNS0_8Op
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %109 = load <2 x i32>, ptr %107, align 8, !tbaa !81
-  store <2 x i32> %109, ptr %103, align 4, !tbaa !81
+  store <2 x i32> %109, ptr %103, align 8, !tbaa !81
   %110 = getelementptr inbounds nuw i8, ptr %85, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
   %111 = getelementptr inbounds nuw i8, ptr %85, i64 80

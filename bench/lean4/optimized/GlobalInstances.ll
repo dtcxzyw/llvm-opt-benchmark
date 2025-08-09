@@ -2139,7 +2139,7 @@ _init_l_Lean_Meta_initFn____x40_Lean_Meta_GlobalInstances___hyg_3____closed__9.e
   %.val20 = load ptr, ptr %74, align 8, !tbaa !4
   store ptr %.val20, ptr @l_Lean_Meta_globalInstanceExtension, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val20) #3
-  %75 = load i32, ptr %70, align 4, !tbaa !8
+  %75 = load i32, ptr %70, align 8, !tbaa !8
   %76 = icmp sgt i32 %75, 1
   br i1 %76, label %77, label %79, !prof !11
 

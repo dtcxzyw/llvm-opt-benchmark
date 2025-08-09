@@ -444,11 +444,11 @@ define dso_local void @__init_single_page(ptr noundef initializes((0, 8), (24, 6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store volatile i32 1, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store volatile i32 -1, ptr %12, align 4
+  store volatile i32 -1, ptr %12, align 16
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store volatile ptr %13, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store volatile ptr %13, ptr %14, align 8
+  store volatile ptr %13, ptr %14, align 16
   ret void
 }
 
@@ -721,11 +721,11 @@ define dso_local void @memmap_init_range(i64 noundef %0, i32 noundef %1, i64 nou
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 52
   store volatile i32 1, ptr %34, align 4
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 48
-  store volatile i32 -1, ptr %35, align 4
+  store volatile i32 -1, ptr %35, align 16
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store volatile ptr %36, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  store volatile ptr %36, ptr %37, align 8
+  store volatile ptr %36, ptr %37, align 16
   br i1 %24, label %38, label %39
 
 38:                                               ; preds = %._crit_edge
@@ -3095,11 +3095,11 @@ define internal fastcc void @init_unavailable_range(i64 noundef %0, i64 noundef 
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 52
   store volatile i32 1, ptr %85, align 4
   %86 = getelementptr inbounds nuw i8, ptr %83, i64 48
-  store volatile i32 -1, ptr %86, align 4
+  store volatile i32 -1, ptr %86, align 16
   %87 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store volatile ptr %87, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  store volatile ptr %87, ptr %88, align 8
+  store volatile ptr %87, ptr %88, align 16
   %89 = load i64, ptr @vmemmap_base, align 8
   %90 = inttoptr i64 %89 to ptr
   %91 = getelementptr %struct.page, ptr %90, i64 %14

@@ -408,7 +408,7 @@ _ZN20b3AlignedObjectArrayI18b3OptimizedBvhNodeE10deallocateEv.exit.i.i: ; preds 
   %128 = getelementptr inbounds nuw i8, ptr %116, i64 6
   store i16 %127, ptr %128, align 2, !tbaa !51
   %129 = getelementptr inbounds nuw i8, ptr %118, i64 8
-  %130 = load i16, ptr %129, align 2, !tbaa !51
+  %130 = load i16, ptr %129, align 8, !tbaa !51
   %131 = getelementptr inbounds nuw i8, ptr %116, i64 8
   store i16 %130, ptr %131, align 8, !tbaa !51
   %132 = getelementptr inbounds nuw i8, ptr %118, i64 10
@@ -627,9 +627,9 @@ define dso_local void @_ZN14b3OptimizedBvh5refitEP23b3StridingMeshInterfaceRK9b3
   %33 = getelementptr inbounds nuw i8, ptr %19, i64 6
   store i16 %32, ptr %33, align 2, !tbaa !51
   %34 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %35 = load i16, ptr %34, align 2, !tbaa !51
+  %35 = load i16, ptr %34, align 8, !tbaa !51
   %36 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store i16 %35, ptr %36, align 2, !tbaa !51
+  store i16 %35, ptr %36, align 8, !tbaa !51
   %37 = getelementptr inbounds nuw i8, ptr %23, i64 10
   %38 = load i16, ptr %37, align 2, !tbaa !51
   %39 = getelementptr inbounds nuw i8, ptr %19, i64 10
@@ -1142,8 +1142,8 @@ define dso_local void @_ZN14b3OptimizedBvh12refitPartialEP23b3StridingMeshInterf
   %96 = load i16, ptr %95, align 2, !tbaa !51
   store i16 %96, ptr %63, align 2, !tbaa !51
   %97 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  %98 = load i16, ptr %97, align 2, !tbaa !51
-  store i16 %98, ptr %74, align 2, !tbaa !51
+  %98 = load i16, ptr %97, align 8, !tbaa !51
+  store i16 %98, ptr %74, align 8, !tbaa !51
   %99 = getelementptr inbounds nuw i8, ptr %89, i64 10
   %100 = load i16, ptr %99, align 2, !tbaa !51
   store i16 %100, ptr %68, align 2, !tbaa !51

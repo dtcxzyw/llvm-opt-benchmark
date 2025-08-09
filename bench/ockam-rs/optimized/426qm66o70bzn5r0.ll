@@ -767,7 +767,7 @@ define hidden void @"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$
   %2 = load ptr, ptr %0, align 8, !alias.scope !163, !noalias !166, !noundef !4
   store i64 0, ptr %2, align 8, !noalias !169
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i8 2, ptr %3, align 1, !noalias !169
+  store i8 2, ptr %3, align 8, !noalias !169
   ret void
 }
 
@@ -1522,7 +1522,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17h2a1d9dfe0447e80eE.l
   %2 = load ptr, ptr %0, align 8, !noalias !309, !noundef !4
   store i64 0, ptr %2, align 8, !noalias !309
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i8 2, ptr %3, align 1, !noalias !309
+  store i8 2, ptr %3, align 8, !noalias !309
   ret void
 }
 

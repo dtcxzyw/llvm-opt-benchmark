@@ -121,7 +121,7 @@ lean_dec_ref.exit:                                ; preds = %14, %16, %17
   %.val13 = load ptr, ptr %29, align 8, !tbaa !4
   store ptr %.val13, ptr @l_Lean_noncomputableExt, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val13) #3
-  %30 = load i32, ptr %25, align 4, !tbaa !8
+  %30 = load i32, ptr %25, align 8, !tbaa !8
   %31 = icmp sgt i32 %30, 1
   br i1 %31, label %32, label %34, !prof !11
 

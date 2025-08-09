@@ -3729,7 +3729,7 @@ _ZN12_GLOBAL__N_121X86DomainReassignment12buildClosureERNS_7ClosureEN4llvm8Regis
   store ptr null, ptr %94, align 8, !tbaa !743
   %1336 = getelementptr inbounds nuw i8, ptr %.sroa.8.0121, i64 8
   %1337 = load i32, ptr %1057, align 8, !tbaa !74
-  store i32 %1337, ptr %1336, align 4, !tbaa !74
+  store i32 %1337, ptr %1336, align 8, !tbaa !74
   store i32 0, ptr %1057, align 8, !tbaa !74
   %1338 = getelementptr inbounds nuw i8, ptr %.sroa.8.0121, i64 12
   %1339 = load i32, ptr %1058, align 4, !tbaa !74
@@ -3737,7 +3737,7 @@ _ZN12_GLOBAL__N_121X86DomainReassignment12buildClosureERNS_7ClosureEN4llvm8Regis
   store i32 0, ptr %1058, align 4, !tbaa !74
   %1340 = getelementptr inbounds nuw i8, ptr %.sroa.8.0121, i64 16
   %1341 = load i32, ptr %1059, align 8, !tbaa !74
-  store i32 %1341, ptr %1340, align 4, !tbaa !74
+  store i32 %1341, ptr %1340, align 8, !tbaa !74
   store i32 0, ptr %1059, align 8, !tbaa !74
   %1342 = getelementptr inbounds nuw i8, ptr %.sroa.8.0121, i64 24
   %1343 = getelementptr inbounds nuw i8, ptr %.sroa.8.0121, i64 40
@@ -3828,7 +3828,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_17ClosureESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; 
   store ptr %1374, ptr %1373, align 8, !tbaa !743
   store ptr null, ptr %94, align 8, !tbaa !743
   %1375 = getelementptr inbounds nuw i8, ptr %1373, i64 8
-  store i32 %.val22, ptr %1375, align 4, !tbaa !74
+  store i32 %.val22, ptr %1375, align 8, !tbaa !74
   store i32 0, ptr %1057, align 8, !tbaa !74
   %1376 = getelementptr inbounds nuw i8, ptr %1373, i64 12
   %1377 = load i32, ptr %1058, align 4, !tbaa !74
@@ -3836,7 +3836,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_17ClosureESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; 
   store i32 0, ptr %1058, align 4, !tbaa !74
   %1378 = getelementptr inbounds nuw i8, ptr %1373, i64 16
   %1379 = load i32, ptr %1059, align 8, !tbaa !74
-  store i32 %1379, ptr %1378, align 4, !tbaa !74
+  store i32 %1379, ptr %1378, align 8, !tbaa !74
   store i32 0, ptr %1059, align 8, !tbaa !74
   %1380 = getelementptr inbounds nuw i8, ptr %1373, i64 24
   %1381 = getelementptr inbounds nuw i8, ptr %1373, i64 40
@@ -7380,7 +7380,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEjNS_12DenseMapInfoIS3_vEE
   %57 = load ptr, ptr %1, align 8, !tbaa !612
   store ptr %57, ptr %48, align 8, !tbaa !612
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !74
+  store i32 0, ptr %58, align 8, !tbaa !74
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E16InsertIntoBucketIRKS3_JEEEPS8_SE_OT_DpOT0_.exit
@@ -7581,7 +7581,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEjNS_12DenseMapInfoIS3_vEE
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !74
-  store i32 %68, ptr %66, align 4, !tbaa !74
+  store i32 %68, ptr %66, align 8, !tbaa !74
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !610
   br label %70

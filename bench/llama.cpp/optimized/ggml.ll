@@ -7532,11 +7532,11 @@ ggml_set_op_params.exit:                          ; preds = %36
   %106 = getelementptr inbounds nuw i8, ptr %31, i64 84
   store i32 %2, ptr %106, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 88
-  store i32 %3, ptr %.sroa.4.0..sroa_idx, align 4
+  store i32 %3, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 92
   store i32 %4, ptr %.sroa.5.0..sroa_idx, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 96
-  store i32 %5, ptr %.sroa.6.0..sroa_idx, align 4
+  store i32 %5, ptr %.sroa.6.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %31
@@ -8110,7 +8110,7 @@ define noundef ptr @ggml_soft_max_ext_back(ptr noundef captures(none) %0, ptr no
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 84
   store float %3, ptr %12, align 4
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  store float %4, ptr %13, align 4
+  store float %4, ptr %13, align 8
   ret ptr %8
 }
 
@@ -8145,7 +8145,7 @@ ggml_soft_max_ext_back_impl.exit:                 ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 84
   store float %3, ptr %20, align 4
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  store float %4, ptr %21, align 4
+  store float %4, ptr %21, align 8
   ret ptr %8
 }
 
@@ -14933,7 +14933,7 @@ ggml_diag_mask_zero_impl.exit:                    ; preds = %1098
   %1118 = getelementptr inbounds nuw i8, ptr %1114, i64 84
   store float %.0.copyload53.i, ptr %1118, align 4
   %1119 = getelementptr inbounds nuw i8, ptr %1114, i64 88
-  store float %.0.copyload51.i, ptr %1119, align 4
+  store float %.0.copyload51.i, ptr %1119, align 8
   tail call fastcc void @ggml_add_or_set(ptr noundef %1, ptr noundef %2, i64 noundef %235, ptr noundef %1114)
   br label %1120
 

@@ -955,7 +955,7 @@ define dso_local ptr @php_escape_shell_arg(ptr noundef %0) local_unnamed_addr #0
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 %18, ptr %19, align 8, !tbaa !22
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store i8 39, ptr %20, align 1, !tbaa !8
+  store i8 39, ptr %20, align 8, !tbaa !8
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

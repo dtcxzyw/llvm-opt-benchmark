@@ -1160,7 +1160,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optI16Ptra
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.014, i64 32
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %21 = load i32, ptr %19, align 4, !tbaa !89
+  %21 = load i32, ptr %19, align 8, !tbaa !89
   store ptr %.sroa.01.0.copyload, ptr %3, align 8, !tbaa !49
   store i64 %.sroa.22.0.copyload, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !tbaa !50
   store ptr %.sroa.0.0.copyload, ptr %9, align 8, !tbaa !49
@@ -2598,12 +2598,12 @@ _ZNKSt14default_deleteIN4llvm15MCSubtargetInfoEEclEPS1_.exit.i.i: ; preds = %._c
   %264 = getelementptr inbounds nuw i8, ptr %.sroa.053.069.i, i64 52
   %265 = load i32, ptr %264, align 4, !tbaa !89
   %266 = getelementptr inbounds nuw i8, ptr %.sroa.053.069.i, i64 48
-  %267 = load i8, ptr %266, align 1, !tbaa !636, !range !56, !noundef !57
+  %267 = load i8, ptr %266, align 4, !tbaa !636, !range !56, !noundef !57
   %268 = trunc nuw i8 %267 to i1
   %269 = getelementptr inbounds nuw i8, ptr %.sroa.053.069.i, i64 44
   %270 = load i32, ptr %269, align 4, !tbaa !89
   %271 = getelementptr inbounds nuw i8, ptr %.sroa.053.069.i, i64 40
-  %272 = load i8, ptr %271, align 1, !tbaa !636, !range !56, !noundef !57
+  %272 = load i8, ptr %271, align 4, !tbaa !636, !range !56, !noundef !57
   %273 = trunc nuw i8 %272 to i1
   %274 = load i64, ptr %263, align 8, !tbaa !50
   %275 = select i1 %268, ptr %84, ptr %82

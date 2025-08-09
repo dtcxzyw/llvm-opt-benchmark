@@ -16173,19 +16173,19 @@ default.unreachable31.i:                          ; preds = %"_ZN68_$LT$core..op
   %.sroa.518.0..0.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.023.i, i64 1
   store i8 %.sroa.4.1, ptr %.sroa.518.0..0.sroa_idx.i, align 1, !noalias !2715
   %.sroa.518.i.sroa.6.0..sroa.518.0..0.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.023.i, i64 2
-  store i16 %.sroa.8.1, ptr %.sroa.518.i.sroa.6.0..sroa.518.0..0.sroa_idx.i.sroa_idx, align 1, !noalias !2715
+  store i16 %.sroa.8.1, ptr %.sroa.518.i.sroa.6.0..sroa.518.0..0.sroa_idx.i.sroa_idx, align 2, !noalias !2715
   %.sroa.518.i.sroa.7.0..sroa.518.0..0.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.023.i, i64 4
-  store i32 %.sroa.10.1, ptr %.sroa.518.i.sroa.7.0..sroa.518.0..0.sroa_idx.i.sroa_idx, align 1, !noalias !2715
+  store i32 %.sroa.10.1, ptr %.sroa.518.i.sroa.7.0..sroa.518.0..0.sroa_idx.i.sroa_idx, align 4, !noalias !2715
   %.sroa.518.i.sroa.8.0..sroa.518.0..0.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.023.i, i64 8
-  store i64 %.sroa.13.sroa.0.0.insert.insert, ptr %.sroa.518.i.sroa.8.0..sroa.518.0..0.sroa_idx.i.sroa_idx, align 1, !noalias !2715
+  store i64 %.sroa.13.sroa.0.0.insert.insert, ptr %.sroa.518.i.sroa.8.0..sroa.518.0..0.sroa_idx.i.sroa_idx, align 8, !noalias !2715
   %.sroa.518.i.sroa.9.0..sroa.518.0..0.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.023.i, i64 16
-  store i64 %.sroa.21.1, ptr %.sroa.518.i.sroa.9.0..sroa.518.0..0.sroa_idx.i.sroa_idx, align 1, !noalias !2715
+  store i64 %.sroa.21.1, ptr %.sroa.518.i.sroa.9.0..sroa.518.0..0.sroa_idx.i.sroa_idx, align 8, !noalias !2715
   %.sroa.518.i.sroa.10.0..sroa.518.0..0.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.023.i, i64 24
-  store i32 %.sroa.26.1, ptr %.sroa.518.i.sroa.10.0..sroa.518.0..0.sroa_idx.i.sroa_idx, align 1, !noalias !2715
+  store i32 %.sroa.26.1, ptr %.sroa.518.i.sroa.10.0..sroa.518.0..0.sroa_idx.i.sroa_idx, align 8, !noalias !2715
   %.sroa.518.i.sroa.11.0..sroa.518.0..0.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.023.i, i64 28
-  store i32 %.sroa.29.1, ptr %.sroa.518.i.sroa.11.0..sroa.518.0..0.sroa_idx.i.sroa_idx, align 1, !noalias !2715
+  store i32 %.sroa.29.1, ptr %.sroa.518.i.sroa.11.0..sroa.518.0..0.sroa_idx.i.sroa_idx, align 4, !noalias !2715
   %.sroa.518.i.sroa.12.0..sroa.518.0..0.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.023.i, i64 32
-  store i64 %.sroa.32.1, ptr %.sroa.518.i.sroa.12.0..sroa.518.0..0.sroa_idx.i.sroa_idx, align 1, !noalias !2715
+  store i64 %.sroa.32.1, ptr %.sroa.518.i.sroa.12.0..sroa.518.0..0.sroa_idx.i.sroa_idx, align 8, !noalias !2715
   %29 = getelementptr inbounds nuw i8, ptr %.023.i, i64 40
   %exitcond.not.i = icmp eq i64 %25, %8
   br i1 %exitcond.not.i, label %._crit_edge.loopexit26.i, label %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h959a7ca0012833f2E.llvm.14502953478370073462.exit.i"
@@ -26118,7 +26118,7 @@ switch.lookup:                                    ; preds = %"_ZN124_$LT$craneli
   %166 = getelementptr inbounds nuw i8, ptr %105, i64 12
   %167 = load i32, ptr %166, align 4, !noundef !4
   %168 = getelementptr inbounds nuw i8, ptr %105, i64 16
-  %169 = load i8, ptr %168, align 4, !range !1640, !noundef !4
+  %169 = load i8, ptr %168, align 8, !range !1640, !noundef !4
   %170 = icmp eq i8 %169, 6
   br i1 %170, label %switch.lookup1388, label %switch.lookup1393
 

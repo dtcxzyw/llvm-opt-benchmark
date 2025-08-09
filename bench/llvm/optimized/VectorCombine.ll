@@ -15688,7 +15688,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEEN
 176:                                              ; preds = %173, %167
   store ptr %100, ptr %168, align 8, !tbaa !162, !noalias !506
   %177 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  store i32 %98, ptr %177, align 4, !tbaa !66, !noalias !506
+  store i32 %98, ptr %177, align 8, !tbaa !66, !noalias !506
   %178 = load i32, ptr %82, align 8, !tbaa !26
   %179 = load i32, ptr %83, align 4, !tbaa !27
   %.not.i.i.not.i.i.i = icmp ult i32 %178, %179
@@ -19628,7 +19628,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEEN
   store ptr %60, ptr %50, align 8, !tbaa !162
   %61 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %62 = load i32, ptr %3, align 4, !tbaa !66
-  store i32 %62, ptr %61, align 4, !tbaa !66
+  store i32 %62, ptr %61, align 8, !tbaa !66
   %63 = load ptr, ptr %1, align 8, !tbaa !164
   %64 = load i32, ptr %7, align 8, !tbaa !165
   br label %.loopexit
@@ -19840,7 +19840,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEEN
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !66
-  store i32 %68, ptr %66, align 4, !tbaa !66
+  store i32 %68, ptr %66, align 8, !tbaa !66
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !170
   br label %70
@@ -32536,7 +32536,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_3UseEiEE12assignRemoteEOS5_.exit: ; preds 
   %30 = load ptr, ptr %.0910.i.i.i.i.i, align 8, !tbaa !193
   store ptr %30, ptr %.0811.i.i.i.i.i, align 8, !tbaa !331
   %31 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 8
-  %32 = load i32, ptr %31, align 4, !tbaa !66
+  %32 = load i32, ptr %31, align 8, !tbaa !66
   %33 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 8
   store i32 %32, ptr %33, align 8, !tbaa !333
   %34 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 16
@@ -32579,7 +32579,7 @@ _ZSt4moveIPSt4pairIPN4llvm3UseEiES5_ET0_T_S7_S6_.exit: ; preds = %.lr.ph.i.i.i.i
   %47 = load ptr, ptr %.0910.i.i.i.i.i38, align 8, !tbaa !193
   store ptr %47, ptr %.0811.i.i.i.i.i37, align 8, !tbaa !331
   %48 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i38, i64 8
-  %49 = load i32, ptr %48, align 4, !tbaa !66
+  %49 = load i32, ptr %48, align 8, !tbaa !66
   %50 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i37, i64 8
   store i32 %49, ptr %50, align 8, !tbaa !333
   %51 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i38, i64 16

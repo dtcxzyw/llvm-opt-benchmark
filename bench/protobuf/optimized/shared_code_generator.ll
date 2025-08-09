@@ -2660,12 +2660,12 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit: ; preds = %if.then.i.i8, %if.
   %conv6 = trunc i64 %begin_offset to i32
   %begin_.i.i = getelementptr inbounds nuw i8, ptr %call2.i.i.i, i64 56
   store i32 %conv6, ptr %begin_.i.i, align 8
-  %21 = load i32, ptr %15, align 4
+  %21 = load i32, ptr %15, align 8
   %conv7 = trunc i64 %end_offset to i32
   %end_.i.i = getelementptr inbounds nuw i8, ptr %call2.i.i.i, i64 60
   store i32 %conv7, ptr %end_.i.i, align 4
   %or.i10 = or i32 %21, 6
-  store i32 %or.i10, ptr %15, align 4
+  store i32 %or.i10, ptr %15, align 8
   %22 = and i64 %semantic.coerce, 4294967296
   %tobool.i.i.not = icmp eq i64 %22, 0
   br i1 %tobool.i.i.not, label %if.end, label %if.then
@@ -2674,7 +2674,7 @@ if.then:                                          ; preds = %_ZNK6google8protobu
   %semantic_.i.i.i = getelementptr inbounds nuw i8, ptr %call2.i.i.i, i64 64
   store i32 %semantic.sroa.0.0.extract.trunc, ptr %semantic_.i.i.i, align 8
   %or.i.i = or i32 %21, 14
-  store i32 %or.i.i, ptr %15, align 4
+  store i32 %or.i.i, ptr %15, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit
@@ -2698,16 +2698,16 @@ entry:
   %begin_.i.i = getelementptr inbounds nuw i8, ptr %call2.i.i.i, i64 56
   store i32 %conv, ptr %begin_.i.i, align 8
   %5 = getelementptr inbounds nuw i8, ptr %call2.i.i.i, i64 16
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 8
   %or.i = or i32 %6, 2
-  store i32 %or.i, ptr %5, align 4
+  store i32 %or.i, ptr %5, align 8
   %second6 = getelementptr inbounds nuw i8, ptr %a, i64 8
   %7 = load i64, ptr %second6, align 8
   %conv7 = trunc i64 %7 to i32
   %end_.i.i = getelementptr inbounds nuw i8, ptr %call2.i.i.i, i64 60
   store i32 %conv7, ptr %end_.i.i, align 4
   %or.i5 = or i32 %6, 6
-  store i32 %or.i5, ptr %5, align 4
+  store i32 %or.i5, ptr %5, align 8
   ret void
 }
 

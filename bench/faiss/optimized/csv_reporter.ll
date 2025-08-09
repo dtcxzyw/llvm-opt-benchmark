@@ -986,7 +986,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit90: ; preds = %_ZN
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %67 = load i32, ptr %66, align 8, !tbaa !71
   %68 = or i32 %67, 1
-  store i32 %68, ptr %66, align 4, !tbaa !81
+  store i32 %68, ptr %66, align 8, !tbaa !81
   %69 = load i32, ptr %41, align 8, !tbaa !55
   %70 = icmp eq i32 %69, 2
   %71 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIbEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %19, i1 noundef zeroext %70)

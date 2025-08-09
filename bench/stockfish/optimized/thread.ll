@@ -2625,7 +2625,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %6, %17
-  %19 = load i16, ptr %15, align 2
+  %19 = load i16, ptr %15, align 8
   %20 = icmp eq i16 %3, %19
   %21 = select i1 %18, i1 %20, i1 false
   br i1 %21, label %_ZNKSt10_HashtableIN9Stockfish4MoveESt4pairIKS1_lESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_8MoveHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %.lr.ph.i.i

@@ -2695,7 +2695,7 @@ invoke.cont:                                      ; preds = %if.else.i.i.i.i.i.i
   store i64 %7, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i, align 8, !tbaa !14
   store ptr %4, ptr %1, align 8, !tbaa !11
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i, align 8, !tbaa !14
-  store i8 0, ptr %4, align 1, !tbaa !15
+  store i8 0, ptr %4, align 8, !tbaa !15
   %second.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 64
   %8 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 72
   %_M_left.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 88
@@ -3204,7 +3204,7 @@ invoke.cont:                                      ; preds = %if.else.i.i.i.i.i.i
   store i64 %7, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i, align 8, !tbaa !14
   store ptr %4, ptr %1, align 8, !tbaa !11
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i, align 8, !tbaa !14
-  store i8 0, ptr %4, align 1, !tbaa !15
+  store i8 0, ptr %4, align 8, !tbaa !15
   %second.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 64
   %8 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 72
   %_M_left.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 88

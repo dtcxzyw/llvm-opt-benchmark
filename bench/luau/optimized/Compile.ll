@@ -5973,7 +5973,7 @@ _ZSt10_ConstructIN4Luau7CodeGen13FunctionStatsEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i: 
   store i64 %35, ptr %36, align 8, !tbaa !68
   store ptr %26, ptr %.sroa.08.012.i.i.i.i.i, align 8, !tbaa !8
   store i64 0, ptr %34, align 8, !tbaa !68
-  store i8 0, ptr %26, align 1, !tbaa !69
+  store i8 0, ptr %26, align 8, !tbaa !69
   %37 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 32
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %37, ptr noundef nonnull align 8 dereferenceable(20) %38, i64 20, i1 false)
@@ -6137,7 +6137,7 @@ _ZSt10_ConstructIN4Luau7CodeGen13FunctionStatsEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i59
   store i64 %100, ptr %101, align 8, !tbaa !68
   store ptr %91, ptr %.sroa.08.012.i.i.i.i.i57, align 8, !tbaa !8
   store i64 0, ptr %99, align 8, !tbaa !68
-  store i8 0, ptr %91, align 1, !tbaa !69
+  store i8 0, ptr %91, align 8, !tbaa !69
   %102 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i56, i64 32
   %103 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i57, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %102, ptr noundef nonnull align 8 dereferenceable(20) %103, i64 20, i1 false)
@@ -6255,7 +6255,7 @@ _ZSt10_ConstructIN4Luau7CodeGen13FunctionStatsEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i75
   store i64 %155, ptr %156, align 8, !tbaa !68
   store ptr %146, ptr %.sroa.08.012.i.i.i.i.i73, align 8, !tbaa !8
   store i64 0, ptr %154, align 8, !tbaa !68
-  store i8 0, ptr %146, align 1, !tbaa !69
+  store i8 0, ptr %146, align 8, !tbaa !69
   %157 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i72, i64 32
   %158 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i73, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %157, ptr noundef nonnull align 8 dereferenceable(20) %158, i64 20, i1 false)
@@ -6357,7 +6357,7 @@ _ZSt10_ConstructIN4Luau7CodeGen13FunctionStatsEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i91
   store i64 %194, ptr %195, align 8, !tbaa !68
   store ptr %185, ptr %.sroa.08.012.i.i.i.i.i89, align 8, !tbaa !8
   store i64 0, ptr %193, align 8, !tbaa !68
-  store i8 0, ptr %185, align 1, !tbaa !69
+  store i8 0, ptr %185, align 8, !tbaa !69
   %196 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i88, i64 32
   %197 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i89, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %196, ptr noundef nonnull align 8 dereferenceable(20) %197, i64 20, i1 false)

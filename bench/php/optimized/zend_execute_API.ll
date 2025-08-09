@@ -1793,7 +1793,7 @@ zend_active_function.exit:                        ; preds = %10, %5, %0
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 24
   store i32 1852399981, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 28
-  store i8 0, ptr %37, align 1, !tbaa !4
+  store i8 0, ptr %37, align 4, !tbaa !4
   br label %get_function_or_method_name.exit
 
 get_function_or_method_name.exit:                 ; preds = %20, %25, %29, %.thread.i
@@ -1848,7 +1848,7 @@ define dso_local ptr @get_function_or_method_name(ptr noundef readonly captures(
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i32 1852399981, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 28
-  store i8 0, ptr %22, align 1, !tbaa !4
+  store i8 0, ptr %22, align 4, !tbaa !4
   br label %zend_string_copy.exit
 
 zend_string_copy.exit:                            ; preds = %14, %10, %.thread, %5

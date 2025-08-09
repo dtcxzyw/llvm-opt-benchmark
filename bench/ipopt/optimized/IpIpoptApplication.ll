@@ -404,7 +404,7 @@ define void @_ZN5Ipopt16IpoptApplicationC2Ebb(ptr noundef nonnull align 8 derefe
   store ptr %47, ptr %46, align 8, !tbaa !42
   %48 = getelementptr inbounds nuw i8, ptr %38, i64 88
   store i64 0, ptr %48, align 8, !tbaa !45
-  store i8 0, ptr %47, align 1, !tbaa !47
+  store i8 0, ptr %47, align 8, !tbaa !47
   store i32 1, ptr %40, align 8, !tbaa !3
   store ptr %38, ptr %37, align 8, !tbaa !48
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 40

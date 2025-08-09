@@ -955,10 +955,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_init(ptr noundef %0
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32872
   store ptr %18, ptr %19, align 8, !tbaa !92
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32864
-  store ptr %16, ptr %20, align 8, !tbaa !93
+  store ptr %16, ptr %20, align 16, !tbaa !93
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32852
   store i32 32, ptr %21, align 4, !tbaa !94
-  store i32 0, ptr %15, align 8, !tbaa !95
+  store i32 0, ptr %15, align 16, !tbaa !95
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 348
   store i32 8, ptr %22, align 4, !tbaa !59
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %1, i32 noundef 48, ptr noundef nonnull @.str.9) #11
@@ -1844,7 +1844,7 @@ define internal fastcc range(i32 -1094995529, 268435456) i32 @decode_packet(ptr 
   %.018.i.i = select i1 %or.cond3.i.i, i32 %59, i32 0
   %.017.i.i = select i1 %or.cond.i.i, ptr %8, ptr null
   %61 = lshr exact i32 %.018.i.i, 3
-  store ptr %.017.i.i, ptr %6, align 8, !tbaa !136
+  store ptr %.017.i.i, ptr %6, align 16, !tbaa !136
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 68228
   store i32 %.018.i.i, ptr %62, align 4, !tbaa !137
   %63 = add nuw nsw i32 %.018.i.i, 8
@@ -1855,7 +1855,7 @@ define internal fastcc range(i32 -1094995529, 268435456) i32 @decode_packet(ptr 
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 68216
   store ptr %66, ptr %67, align 8, !tbaa !139
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 68224
-  store i32 0, ptr %68, align 8, !tbaa !140
+  store i32 0, ptr %68, align 16, !tbaa !140
   br i1 %or.cond3.i.i, label %69, label %253
 
 69:                                               ; preds = %54
@@ -1934,7 +1934,7 @@ define internal fastcc range(i32 -1094995529, 268435456) i32 @decode_packet(ptr 
 
 115:                                              ; preds = %111
   %116 = load i32, ptr %58, align 16, !tbaa !135
-  %.val = load i32, ptr %68, align 8, !tbaa !140
+  %.val = load i32, ptr %68, align 16, !tbaa !140
   %117 = sub nsw i32 %116, %.val
   %.not207 = icmp slt i32 %82, %117
   br i1 %.not207, label %119, label %118
@@ -1991,7 +1991,7 @@ define internal fastcc range(i32 -1094995529, 268435456) i32 @decode_packet(ptr 
   %.018.i.i235 = select i1 %or.cond3.i.i234, i32 %139, i32 0
   %.017.i.i236 = select i1 %or.cond.i.i233, ptr %8, ptr null
   %141 = lshr exact i32 %.018.i.i235, 3
-  store ptr %.017.i.i236, ptr %6, align 8, !tbaa !136
+  store ptr %.017.i.i236, ptr %6, align 16, !tbaa !136
   %142 = getelementptr inbounds nuw i8, ptr %1, i64 68228
   store i32 %.018.i.i235, ptr %142, align 4, !tbaa !137
   %143 = add nuw nsw i32 %.018.i.i235, 8
@@ -2002,7 +2002,7 @@ define internal fastcc range(i32 -1094995529, 268435456) i32 @decode_packet(ptr 
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 68216
   store ptr %146, ptr %147, align 8, !tbaa !139
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 68224
-  store i32 0, ptr %148, align 8, !tbaa !140
+  store i32 0, ptr %148, align 16, !tbaa !140
   br i1 %or.cond3.i.i234, label %149, label %253
 
 149:                                              ; preds = %135
@@ -2075,7 +2075,7 @@ define internal fastcc range(i32 -1094995529, 268435456) i32 @decode_packet(ptr 
   %187 = getelementptr i8, ptr %1, i64 68304
   %.val222 = load i32, ptr %187, align 16, !tbaa !135
   %188 = getelementptr i8, ptr %1, i64 68224
-  %.val223 = load i32, ptr %188, align 8, !tbaa !140
+  %.val223 = load i32, ptr %188, align 16, !tbaa !140
   %189 = sub nsw i32 %.val222, %.val223
   %190 = icmp slt i32 %189, 0
   br i1 %190, label %191, label %194
@@ -2100,7 +2100,7 @@ define internal fastcc range(i32 -1094995529, 268435456) i32 @decode_packet(ptr 
 
 199:                                              ; preds = %196
   %.val226 = load i32, ptr %187, align 16, !tbaa !135
-  %.val227 = load i32, ptr %188, align 8, !tbaa !140
+  %.val227 = load i32, ptr %188, align 16, !tbaa !140
   %200 = sub nsw i32 %.val226, %.val227
   %201 = icmp sgt i32 %200, 0
   br i1 %201, label %202, label %203

@@ -738,7 +738,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %13
   store i64 %19, ptr %21, align 8, !tbaa !12
   store ptr %11, ptr %3, align 8, !tbaa !9
   store i64 0, ptr %20, align 8, !tbaa !12
-  store i8 0, ptr %11, align 1, !tbaa !13
+  store i8 0, ptr %11, align 8, !tbaa !13
   %22 = load ptr, ptr %5, align 8, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !16
@@ -32258,7 +32258,7 @@ _ZSt19__relocate_object_aIN4LIEF3ELF8CoreFile7entry_tES3_SaIS3_EEvPT_PT0_RT1_.ex
   store i64 %47, ptr %49, align 8, !tbaa !12, !alias.scope !730, !noalias !733
   store ptr %39, ptr %36, align 8, !tbaa !9, !alias.scope !733, !noalias !730
   store i64 0, ptr %48, align 8, !tbaa !12, !alias.scope !733, !noalias !730
-  store i8 0, ptr %39, align 1, !tbaa !13, !alias.scope !733, !noalias !730
+  store i8 0, ptr %39, align 8, !tbaa !13, !alias.scope !733, !noalias !730
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 56
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 56
   %.not.i.i.i32 = icmp eq ptr %50, %5

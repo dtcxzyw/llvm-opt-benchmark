@@ -1905,7 +1905,7 @@ define hidden void @"_ZN83_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$
   %76 = getelementptr inbounds i8, ptr %63, i64 -36
   %77 = load i32, ptr %76, align 4, !alias.scope !190, !noalias !191
   %78 = getelementptr inbounds i8, ptr %63, i64 -32
-  %79 = load i32, ptr %78, align 4, !alias.scope !190, !noalias !191
+  %79 = load i32, ptr %78, align 8, !alias.scope !190, !noalias !191
   %.sroa.6.0.i.i.i.i.i = select i1 %75, i32 %79, i32 undef
   %.sroa.5.0.i.i.i.i.i = select i1 %75, i32 %77, i32 undef
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !193
@@ -1913,7 +1913,7 @@ define hidden void @"_ZN83_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$
   %80 = getelementptr inbounds i8, ptr %63, i64 -24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !194)
   %81 = getelementptr inbounds i8, ptr %63, i64 -4
-  %.val.i.i.i.i.i = load i8, ptr %81, align 1, !range !197, !alias.scope !198, !noalias !199, !noundef !3
+  %.val.i.i.i.i.i = load i8, ptr %81, align 4, !range !197, !alias.scope !198, !noalias !199, !noundef !3
   %82 = load ptr, ptr %80, align 8, !alias.scope !198, !noalias !199, !noundef !3
   %83 = icmp eq ptr %82, null
   br i1 %83, label %88, label %84
@@ -1934,7 +1934,7 @@ define hidden void @"_ZN83_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$
   %92 = getelementptr inbounds i8, ptr %63, i64 -12
   %93 = load i32, ptr %92, align 4, !alias.scope !198, !noalias !199
   %94 = getelementptr inbounds i8, ptr %63, i64 -8
-  %95 = load i32, ptr %94, align 4, !alias.scope !198, !noalias !199
+  %95 = load i32, ptr %94, align 8, !alias.scope !198, !noalias !199
   %.sroa.6.0.i1.i.i.i.i = select i1 %91, i32 %95, i32 undef
   %.sroa.5.0.i2.i.i.i.i = select i1 %91, i32 %93, i32 undef
   %96 = ptrtoint ptr %63 to i64
@@ -4211,7 +4211,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h9f
   %42 = getelementptr inbounds i8, ptr %40, i64 -8
   %43 = getelementptr i8, ptr %40, i64 -16
   %.val5 = load i32, ptr %43, align 8, !noundef !3
-  %.val6 = load i32, ptr %42, align 4, !range !118, !noundef !3
+  %.val6 = load i32, ptr %42, align 8, !range !118, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val5, ptr %15, align 4
   store i32 %.val6, ptr %3, align 4

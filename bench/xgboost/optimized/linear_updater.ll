@@ -4344,19 +4344,19 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(248) ptr @_ZN4dmlc9P
   store ptr %10, ptr %9, align 8, !tbaa !48
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 0, ptr %11, align 8, !tbaa !31
-  store i8 0, ptr %10, align 1, !tbaa !32
+  store i8 0, ptr %10, align 8, !tbaa !32
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store ptr %13, ptr %12, align 8, !tbaa !48
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i64 0, ptr %14, align 8, !tbaa !31
-  store i8 0, ptr %13, align 1, !tbaa !32
+  store i8 0, ptr %13, align 8, !tbaa !32
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 104
   store ptr %16, ptr %15, align 8, !tbaa !48
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store i64 0, ptr %17, align 8, !tbaa !31
-  store i8 0, ptr %16, align 1, !tbaa !32
+  store i8 0, ptr %16, align 8, !tbaa !32
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 132
   store i8 0, ptr %18, align 4, !tbaa !145
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 133
@@ -7529,7 +7529,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit14: ; preds = %32
   store ptr %36, ptr %34, align 8, !tbaa !48, !alias.scope !217
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 0, ptr %37, align 8, !tbaa !31, !alias.scope !217
-  store i8 0, ptr %36, align 1, !tbaa !32, !alias.scope !217
+  store i8 0, ptr %36, align 8, !tbaa !32, !alias.scope !217
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %39 = load ptr, ptr %38, align 8, !tbaa !84, !noalias !217
   %.not.i.not.i.i = icmp eq ptr %39, null
@@ -7666,7 +7666,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit7: ; preds = %_ZNSol
   store ptr %14, ptr %12, align 8, !tbaa !48, !alias.scope !224
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 0, ptr %15, align 8, !tbaa !31, !alias.scope !224
-  store i8 0, ptr %14, align 1, !tbaa !32, !alias.scope !224
+  store i8 0, ptr %14, align 8, !tbaa !32, !alias.scope !224
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %17 = load ptr, ptr %16, align 8, !tbaa !84, !noalias !224
   %.not.i.not.i.i = icmp eq ptr %17, null
@@ -10950,7 +10950,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit6: ; preds = %_ZNSol
   store ptr %15, ptr %13, align 8, !tbaa !48, !alias.scope !275
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %16, align 8, !tbaa !31, !alias.scope !275
-  store i8 0, ptr %15, align 1, !tbaa !32, !alias.scope !275
+  store i8 0, ptr %15, align 8, !tbaa !32, !alias.scope !275
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %18 = load ptr, ptr %17, align 8, !tbaa !84, !noalias !275
   %.not.i.not.i.i = icmp eq ptr %18, null
@@ -11684,7 +11684,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIiSt4pairIKiNSt7__cxx1112basic_stringIcSt
   store ptr %14, ptr %13, align 8, !tbaa !48
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i64 0, ptr %15, align 8, !tbaa !31
-  store i8 0, ptr %14, align 1, !tbaa !32
+  store i8 0, ptr %14, align 8, !tbaa !32
   store ptr %8, ptr %7, align 8, !tbaa !287
   %16 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIiESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %9)
           to label %17 unwind label %32

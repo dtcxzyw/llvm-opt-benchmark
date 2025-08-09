@@ -7434,7 +7434,7 @@ thread-pre-split2648:                             ; preds = %1506, %1516
   %2022 = load i32, ptr %11, align 4
   %2023 = call ptr @tvb_get_string_enc(ptr noundef %2020, ptr noundef %0, i32 noundef %2021, i32 noundef 8, i32 noundef %2022)
   %2024 = load i64, ptr %2023, align 1
-  store i64 %2024, ptr %2019, align 1
+  store i64 %2024, ptr %2019, align 4
   %2025 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.26)
   %2026 = load ptr, ptr @mq_heur_subdissector_list, align 8
   %2027 = call zeroext i1 @dissector_try_heuristic(ptr noundef %2026, ptr noundef %2025, ptr noundef %1, ptr noundef %.02409, ptr noundef nonnull %5, ptr noundef %8)

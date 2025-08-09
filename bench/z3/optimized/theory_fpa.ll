@@ -3592,7 +3592,7 @@ define hidden noundef zeroext i1 @_ZN3smt10theory_fpa16internalize_termEP3app(pt
   tail call void @_ZN3smt7context11internalizeEPKP4exprjb(ptr noundef nonnull align 8 dereferenceable(10544) %7, ptr noundef nonnull %8, i32 noundef %10, i1 noundef zeroext false)
   %11 = load ptr, ptr %6, align 8, !tbaa !680
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8656
-  %13 = load i32, ptr %1, align 4, !tbaa !689
+  %13 = load i32, ptr %1, align 8, !tbaa !689
   %14 = load ptr, ptr %12, align 8, !tbaa !592
   %15 = icmp eq ptr %14, null
   br i1 %15, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i
@@ -3943,7 +3943,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %57
   %65 = load ptr, ptr %6, align 8, !tbaa !677
   %66 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %67 = load ptr, ptr %66, align 8, !tbaa !714
-  %68 = load i32, ptr %62, align 4, !tbaa !715
+  %68 = load i32, ptr %62, align 8, !tbaa !715
   %69 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %67, i32 noundef %68, i32 noundef 22, ptr noundef %65, ptr noundef %56)
           to label %_ZN7bv_util6mk_uleEP4exprS1_.exit unwind label %109
 
@@ -5967,7 +5967,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i58:          ; preds = %_ZN7obj_refI4expr11
   %150 = load ptr, ptr %149, align 8, !tbaa !713
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
   %152 = load ptr, ptr %151, align 8, !tbaa !714
-  %153 = load i32, ptr %150, align 4, !tbaa !715
+  %153 = load i32, ptr %150, align 8, !tbaa !715
   %154 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPKP4expr(ptr noundef nonnull align 8 dereferenceable(976) %152, i32 noundef %153, i32 noundef 37, i32 noundef 3, ptr noundef nonnull %13)
           to label %_ZN7bv_util9mk_concatEjPKP4expr.exit unwind label %212
 
@@ -6617,7 +6617,7 @@ _ZNK11ast_manager6is_iteEPK4expr.exit.i:          ; preds = %10
   %23 = load ptr, ptr %22, align 8, !tbaa !636
   %24 = getelementptr inbounds nuw i8, ptr %.014, i64 48
   %25 = load ptr, ptr %24, align 8, !tbaa !636
-  %26 = load i32, ptr %.014, align 4, !tbaa !689
+  %26 = load i32, ptr %.014, align 8, !tbaa !689
   %27 = load ptr, ptr %9, align 8, !tbaa !592
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.critedge, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i
@@ -6721,7 +6721,7 @@ _ZNK11ast_manager6is_iteEPK4expr.exit.i.i:        ; preds = %22
   %35 = load ptr, ptr %34, align 8, !tbaa !636
   %36 = getelementptr inbounds nuw i8, ptr %.014.i, i64 48
   %37 = load ptr, ptr %36, align 8, !tbaa !636
-  %38 = load i32, ptr %.014.i, align 4, !tbaa !689
+  %38 = load i32, ptr %.014.i, align 8, !tbaa !689
   %39 = load ptr, ptr %21, align 8, !tbaa !592
   %40 = icmp eq ptr %39, null
   br i1 %40, label %.loopexit, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.i

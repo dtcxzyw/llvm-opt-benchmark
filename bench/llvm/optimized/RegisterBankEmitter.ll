@@ -3907,7 +3907,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.
   store i64 %1784, ptr %1785, align 8, !tbaa !176
   store ptr %1775, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !173
   store i64 0, ptr %1783, align 8, !tbaa !176
-  store i8 0, ptr %1775, align 1, !tbaa !117
+  store i8 0, ptr %1775, align 8, !tbaa !117
   %1786 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i.i.i.i, i64 32
   %1787 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i.i, i64 32
   %1788 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i.i.i.i, i64 48
@@ -3939,7 +3939,7 @@ _ZSt10_ConstructIZN12_GLOBAL__N_119RegisterBankEmitter27emitBaseClassImplementat
   store i64 %1799, ptr %1800, align 8, !tbaa !176
   store ptr %1790, ptr %1787, align 8, !tbaa !173
   store i64 0, ptr %1798, align 8, !tbaa !176
-  store i8 0, ptr %1790, align 1, !tbaa !117
+  store i8 0, ptr %1790, align 8, !tbaa !117
   %1801 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i.i, i64 64
   %1802 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i.i.i.i, i64 64
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %1801, %1772

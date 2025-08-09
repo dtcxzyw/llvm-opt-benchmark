@@ -649,7 +649,7 @@ define hidden void @_ZN7datalog17execution_contextC2ERNS_7contextE(ptr noundef n
   store ptr %7, ptr %6, align 8, !tbaa !22
   %8 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i.i.i.i, i64 24
   store i64 0, ptr %8, align 8, !tbaa !23
-  store i8 0, ptr %7, align 1, !tbaa !24
+  store i8 0, ptr %7, align 8, !tbaa !24
   %9 = add nsw i32 %.057.i.i.i.i.i.i.i.i.i, -1
   %10 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i.i.i.i, i64 48
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %9, 0
@@ -6720,7 +6720,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIjNSt7__
   store ptr %10, ptr %9, align 8, !tbaa !22
   %11 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 24
   store i64 0, ptr %11, align 8, !tbaa !23
-  store i8 0, ptr %10, align 1, !tbaa !24
+  store i8 0, ptr %10, align 8, !tbaa !24
   %12 = add i32 %.057.i.i.i.i.i, -1
   %13 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 48
   %.not.i.i.i.i.i = icmp eq i32 %12, 0
@@ -19874,7 +19874,7 @@ _ZN14core_hashtableI17default_map_entryIjNSt7__cxx1112basic_stringIcSt11char_tra
   store ptr %46, ptr %45, align 8, !tbaa !22
   %47 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 24
   store i64 0, ptr %47, align 8, !tbaa !23
-  store i8 0, ptr %46, align 1, !tbaa !24
+  store i8 0, ptr %46, align 8, !tbaa !24
   %48 = add nsw i32 %.057.i.i.i.i.i, -1
   %49 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 48
   %.not.i.i.i.i.i12 = icmp eq i32 %48, 0

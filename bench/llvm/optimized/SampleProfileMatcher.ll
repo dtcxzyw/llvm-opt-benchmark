@@ -3115,9 +3115,9 @@ _ZNKSt13unordered_mapIN4llvm10sampleprof12LineLocationES2_NS1_16LineLocationHash
   %97 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #21
   store ptr null, ptr %97, align 8, !tbaa !143
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  store i64 %96, ptr %98, align 4
+  store i64 %96, ptr %98, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %97, i64 16
-  store i64 %.sroa.038.0.insert.insert, ptr %.sroa.4.0..sroa_idx, align 4
+  store i64 %.sroa.038.0.insert.insert, ptr %.sroa.4.0..sroa_idx, align 8
   %99 = load i64, ptr %18, align 8, !tbaa !223
   %.not.not.i = icmp eq i64 %99, 0
   %100 = trunc i64 %96 to i32
@@ -14981,10 +14981,10 @@ _ZNKSt8__detail15_Hashtable_baseIN4llvm10sampleprof12LineLocationESt4pairIKS3_S3
   %33 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #21
   store ptr null, ptr %33, align 8, !tbaa !143
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store i64 %5, ptr %34, align 4
+  store i64 %5, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %36 = load i64, ptr %3, align 4
-  store i64 %36, ptr %35, align 4
+  store i64 %36, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %39 = load i64, ptr %38, align 8, !tbaa !223
@@ -15185,10 +15185,10 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIN4llvm10sampleprof12LineLocat
   store ptr null, ptr %4, align 8, !tbaa !143
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %1, align 4
-  store i64 %6, ptr %5, align 4
+  store i64 %6, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load i32, ptr %2, align 4, !tbaa !315
-  store i32 %8, ptr %7, align 4, !tbaa !317
+  store i32 %8, ptr %7, align 8, !tbaa !317
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i64, ptr %9, align 8, !tbaa !309
   %.not.not = icmp eq i64 %10, 0

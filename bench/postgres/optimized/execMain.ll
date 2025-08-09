@@ -544,7 +544,7 @@ CheckValidRowMarkRel.exit.i:                      ; preds = %210, %201, %175, %1
   %248 = getelementptr inbounds nuw i8, ptr %229, i64 38
   store i16 -1, ptr %248, align 2
   %249 = getelementptr inbounds nuw i8, ptr %229, i64 40
-  store i16 -1, ptr %249, align 2
+  store i16 -1, ptr %249, align 8
   %250 = getelementptr inbounds nuw i8, ptr %229, i64 42
   store i16 0, ptr %250, align 2
   %251 = getelementptr inbounds nuw i8, ptr %229, i64 48

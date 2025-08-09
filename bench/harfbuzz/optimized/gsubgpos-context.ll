@@ -1696,7 +1696,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11hb_vector_tIN5graph7graph_t8vert
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %11, ptr noundef nonnull align 8 dereferenceable(136) %22, i64 16, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load i32, ptr %23, align 4, !tbaa !96
-  store i32 %24, ptr %12, align 4, !tbaa !96
+  store i32 %24, ptr %12, align 8, !tbaa !96
   store i32 0, ptr %23, align 4, !tbaa !96
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 20
@@ -1710,9 +1710,9 @@ define linkonce_odr dso_local noundef ptr @_ZN11hb_vector_tIN5graph7graph_t8vert
   store ptr null, ptr %29, align 8, !tbaa !133
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %32 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %33 = load i32, ptr %32, align 4, !tbaa !96
-  store i32 %33, ptr %31, align 4, !tbaa !96
-  store i32 0, ptr %32, align 4, !tbaa !96
+  %33 = load i32, ptr %32, align 8, !tbaa !96
+  store i32 %33, ptr %31, align 8, !tbaa !96
+  store i32 0, ptr %32, align 8, !tbaa !96
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 36
   %35 = getelementptr inbounds nuw i8, ptr %22, i64 36
   %36 = load i32, ptr %35, align 4, !tbaa !96

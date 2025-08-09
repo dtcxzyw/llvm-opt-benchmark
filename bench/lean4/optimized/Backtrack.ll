@@ -3903,7 +3903,7 @@ lean_alloc_ctor.exit:                             ; preds = %22, %17
   %26 = getelementptr inbounds nuw i8, ptr %.sink62, i64 4
   %27 = getelementptr inbounds nuw i8, ptr %.sink62, i64 40
   store i64 0, ptr %27, align 8, !tbaa !12
-  store i32 1, ptr %.sink62, align 4, !tbaa !4
+  store i32 1, ptr %.sink62, align 8, !tbaa !4
   store i32 131120, ptr %26, align 4
   %28 = getelementptr inbounds nuw i8, ptr %.sink62, i64 8
   store ptr %0, ptr %28, align 8, !tbaa !10
@@ -3913,7 +3913,7 @@ lean_alloc_ctor.exit:                             ; preds = %22, %17
   store double %.sink51, ptr %30, align 8, !tbaa !16
   %31 = getelementptr inbounds nuw i8, ptr %.sink62, i64 32
   store double %.sink48, ptr %31, align 8, !tbaa !16
-  store i8 %1, ptr %27, align 1, !tbaa !18
+  store i8 %1, ptr %27, align 8, !tbaa !18
   %32 = tail call ptr @l_Lean_withTraceNode___at___private_Lean_Meta_Tactic_Backtrack_0__Lean_Meta_Tactic_Backtrack_Backtrack_run___spec__3___lambda__1(ptr noundef %3, ptr noundef %4, ptr noundef %9, ptr noundef %5, ptr noundef nonnull %.sink62, ptr nonnull poison, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
   ret ptr %32
 }
@@ -4193,7 +4193,7 @@ l_Lean_withTraceNode___at___private_Lean_Meta_Tactic_Backtrack_0__Lean_Meta_Tact
   %114 = getelementptr inbounds nuw i8, ptr %.sink62.i, i64 4
   %115 = getelementptr inbounds nuw i8, ptr %.sink62.i, i64 40
   store i64 0, ptr %115, align 8, !tbaa !12
-  store i32 1, ptr %.sink62.i, align 4, !tbaa !4
+  store i32 1, ptr %.sink62.i, align 8, !tbaa !4
   store i32 131120, ptr %114, align 4
   %116 = getelementptr inbounds nuw i8, ptr %.sink62.i, i64 8
   store ptr %0, ptr %116, align 8, !tbaa !10
@@ -4203,7 +4203,7 @@ l_Lean_withTraceNode___at___private_Lean_Meta_Tactic_Backtrack_0__Lean_Meta_Tact
   store double %.sink51.i, ptr %118, align 8, !tbaa !16
   %119 = getelementptr inbounds nuw i8, ptr %.sink62.i, i64 32
   store double %.sink48.i, ptr %119, align 8, !tbaa !16
-  store i8 %1, ptr %115, align 1, !tbaa !18
+  store i8 %1, ptr %115, align 8, !tbaa !18
   %120 = tail call noalias noundef nonnull ptr @l_Lean_withTraceNode___at___private_Lean_Meta_Tactic_Backtrack_0__Lean_Meta_Tactic_Backtrack_Backtrack_run___spec__3___lambda__1(ptr noundef %3, ptr noundef %17, ptr noundef %78, ptr noundef %4, ptr noundef nonnull %.sink62.i, ptr nonnull poison, ptr noundef %10, ptr noundef %11, ptr noundef nonnull %12, ptr noundef %13, ptr noundef %88)
   br i1 %.not129, label %121, label %lean_dec.exit78
 
@@ -4368,7 +4368,7 @@ l_Lean_withTraceNode___at___private_Lean_Meta_Tactic_Backtrack_0__Lean_Meta_Tact
   %178 = getelementptr inbounds nuw i8, ptr %.sink62.i125, i64 4
   %179 = getelementptr inbounds nuw i8, ptr %.sink62.i125, i64 40
   store i64 0, ptr %179, align 8, !tbaa !12
-  store i32 1, ptr %.sink62.i125, align 4, !tbaa !4
+  store i32 1, ptr %.sink62.i125, align 8, !tbaa !4
   store i32 131120, ptr %178, align 4
   %180 = getelementptr inbounds nuw i8, ptr %.sink62.i125, i64 8
   store ptr %0, ptr %180, align 8, !tbaa !10
@@ -4378,7 +4378,7 @@ l_Lean_withTraceNode___at___private_Lean_Meta_Tactic_Backtrack_0__Lean_Meta_Tact
   store double %.sink51.i126, ptr %182, align 8, !tbaa !16
   %183 = getelementptr inbounds nuw i8, ptr %.sink62.i125, i64 32
   store double %.sink48.i127, ptr %183, align 8, !tbaa !16
-  store i8 %1, ptr %179, align 1, !tbaa !18
+  store i8 %1, ptr %179, align 8, !tbaa !18
   %184 = tail call noalias noundef nonnull ptr @l_Lean_withTraceNode___at___private_Lean_Meta_Tactic_Backtrack_0__Lean_Meta_Tactic_Backtrack_Backtrack_run___spec__3___lambda__1(ptr noundef %3, ptr noundef %17, ptr noundef %167, ptr noundef %4, ptr noundef nonnull %.sink62.i125, ptr nonnull poison, ptr noundef %10, ptr noundef %11, ptr noundef nonnull %12, ptr noundef %13, ptr noundef %151)
   br i1 %.not129, label %185, label %lean_dec.exit73
 
@@ -14281,7 +14281,7 @@ lean_alloc_ctor.exit:                             ; preds = %22, %17
   %26 = getelementptr inbounds nuw i8, ptr %.sink62, i64 4
   %27 = getelementptr inbounds nuw i8, ptr %.sink62, i64 40
   store i64 0, ptr %27, align 8, !tbaa !12
-  store i32 1, ptr %.sink62, align 4, !tbaa !4
+  store i32 1, ptr %.sink62, align 8, !tbaa !4
   store i32 131120, ptr %26, align 4
   %28 = getelementptr inbounds nuw i8, ptr %.sink62, i64 8
   store ptr %0, ptr %28, align 8, !tbaa !10
@@ -14291,7 +14291,7 @@ lean_alloc_ctor.exit:                             ; preds = %22, %17
   store double %.sink51, ptr %30, align 8, !tbaa !16
   %31 = getelementptr inbounds nuw i8, ptr %.sink62, i64 32
   store double %.sink48, ptr %31, align 8, !tbaa !16
-  store i8 %1, ptr %27, align 1, !tbaa !18
+  store i8 %1, ptr %27, align 8, !tbaa !18
   %32 = tail call ptr @l_Lean_withTraceNode___at___private_Lean_Meta_Tactic_Backtrack_0__Lean_Meta_Tactic_Backtrack_Backtrack_run___spec__6___lambda__1(ptr noundef %3, ptr noundef %4, ptr noundef %9, ptr noundef %5, ptr noundef nonnull %.sink62, ptr nonnull poison, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
   ret ptr %32
 }
@@ -14571,7 +14571,7 @@ l_Lean_withTraceNode___at___private_Lean_Meta_Tactic_Backtrack_0__Lean_Meta_Tact
   %114 = getelementptr inbounds nuw i8, ptr %.sink62.i, i64 4
   %115 = getelementptr inbounds nuw i8, ptr %.sink62.i, i64 40
   store i64 0, ptr %115, align 8, !tbaa !12
-  store i32 1, ptr %.sink62.i, align 4, !tbaa !4
+  store i32 1, ptr %.sink62.i, align 8, !tbaa !4
   store i32 131120, ptr %114, align 4
   %116 = getelementptr inbounds nuw i8, ptr %.sink62.i, i64 8
   store ptr %0, ptr %116, align 8, !tbaa !10
@@ -14581,7 +14581,7 @@ l_Lean_withTraceNode___at___private_Lean_Meta_Tactic_Backtrack_0__Lean_Meta_Tact
   store double %.sink51.i, ptr %118, align 8, !tbaa !16
   %119 = getelementptr inbounds nuw i8, ptr %.sink62.i, i64 32
   store double %.sink48.i, ptr %119, align 8, !tbaa !16
-  store i8 %1, ptr %115, align 1, !tbaa !18
+  store i8 %1, ptr %115, align 8, !tbaa !18
   %120 = tail call noalias noundef nonnull ptr @l_Lean_withTraceNode___at___private_Lean_Meta_Tactic_Backtrack_0__Lean_Meta_Tactic_Backtrack_Backtrack_run___spec__6___lambda__1(ptr noundef %3, ptr noundef %17, ptr noundef %78, ptr noundef %4, ptr noundef nonnull %.sink62.i, ptr nonnull poison, ptr noundef %10, ptr noundef %11, ptr noundef nonnull %12, ptr noundef %13, ptr noundef %88)
   br i1 %.not129, label %121, label %lean_dec.exit78
 
@@ -14746,7 +14746,7 @@ l_Lean_withTraceNode___at___private_Lean_Meta_Tactic_Backtrack_0__Lean_Meta_Tact
   %178 = getelementptr inbounds nuw i8, ptr %.sink62.i125, i64 4
   %179 = getelementptr inbounds nuw i8, ptr %.sink62.i125, i64 40
   store i64 0, ptr %179, align 8, !tbaa !12
-  store i32 1, ptr %.sink62.i125, align 4, !tbaa !4
+  store i32 1, ptr %.sink62.i125, align 8, !tbaa !4
   store i32 131120, ptr %178, align 4
   %180 = getelementptr inbounds nuw i8, ptr %.sink62.i125, i64 8
   store ptr %0, ptr %180, align 8, !tbaa !10
@@ -14756,7 +14756,7 @@ l_Lean_withTraceNode___at___private_Lean_Meta_Tactic_Backtrack_0__Lean_Meta_Tact
   store double %.sink51.i126, ptr %182, align 8, !tbaa !16
   %183 = getelementptr inbounds nuw i8, ptr %.sink62.i125, i64 32
   store double %.sink48.i127, ptr %183, align 8, !tbaa !16
-  store i8 %1, ptr %179, align 1, !tbaa !18
+  store i8 %1, ptr %179, align 8, !tbaa !18
   %184 = tail call noalias noundef nonnull ptr @l_Lean_withTraceNode___at___private_Lean_Meta_Tactic_Backtrack_0__Lean_Meta_Tactic_Backtrack_Backtrack_run___spec__6___lambda__1(ptr noundef %3, ptr noundef %17, ptr noundef %167, ptr noundef %4, ptr noundef nonnull %.sink62.i125, ptr nonnull poison, ptr noundef %10, ptr noundef %11, ptr noundef nonnull %12, ptr noundef %13, ptr noundef %151)
   br i1 %.not129, label %185, label %lean_dec.exit73
 
@@ -32496,7 +32496,7 @@ l_Lean_withTraceNode___at___private_Lean_Meta_Tactic_Backtrack_0__Lean_Meta_Tact
   %67 = getelementptr inbounds nuw i8, ptr %.sink62.i, i64 4
   %68 = getelementptr inbounds nuw i8, ptr %.sink62.i, i64 40
   store i64 0, ptr %68, align 8, !tbaa !12
-  store i32 1, ptr %.sink62.i, align 4, !tbaa !4
+  store i32 1, ptr %.sink62.i, align 8, !tbaa !4
   store i32 131120, ptr %67, align 4
   %69 = getelementptr inbounds nuw i8, ptr %.sink62.i, i64 8
   store ptr %0, ptr %69, align 8, !tbaa !10
@@ -32506,7 +32506,7 @@ l_Lean_withTraceNode___at___private_Lean_Meta_Tactic_Backtrack_0__Lean_Meta_Tact
   store double %.sink51.i, ptr %71, align 8, !tbaa !16
   %72 = getelementptr inbounds nuw i8, ptr %.sink62.i, i64 32
   store double %.sink48.i, ptr %72, align 8, !tbaa !16
-  store i8 %18, ptr %68, align 1, !tbaa !18
+  store i8 %18, ptr %68, align 8, !tbaa !18
   %73 = tail call noalias noundef nonnull ptr @l_Lean_withTraceNode___at___private_Lean_Meta_Tactic_Backtrack_0__Lean_Meta_Tactic_Backtrack_Backtrack_run___spec__3___lambda__1(ptr noundef %3, ptr noundef %4, ptr noundef %9, ptr noundef %5, ptr noundef nonnull %.sink62.i, ptr nonnull poison, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
   %74 = ptrtoint ptr %13 to i64
   %75 = and i64 %74, 1
@@ -33267,7 +33267,7 @@ l_Lean_withTraceNode___at___private_Lean_Meta_Tactic_Backtrack_0__Lean_Meta_Tact
   %67 = getelementptr inbounds nuw i8, ptr %.sink62.i, i64 4
   %68 = getelementptr inbounds nuw i8, ptr %.sink62.i, i64 40
   store i64 0, ptr %68, align 8, !tbaa !12
-  store i32 1, ptr %.sink62.i, align 4, !tbaa !4
+  store i32 1, ptr %.sink62.i, align 8, !tbaa !4
   store i32 131120, ptr %67, align 4
   %69 = getelementptr inbounds nuw i8, ptr %.sink62.i, i64 8
   store ptr %0, ptr %69, align 8, !tbaa !10
@@ -33277,7 +33277,7 @@ l_Lean_withTraceNode___at___private_Lean_Meta_Tactic_Backtrack_0__Lean_Meta_Tact
   store double %.sink51.i, ptr %71, align 8, !tbaa !16
   %72 = getelementptr inbounds nuw i8, ptr %.sink62.i, i64 32
   store double %.sink48.i, ptr %72, align 8, !tbaa !16
-  store i8 %18, ptr %68, align 1, !tbaa !18
+  store i8 %18, ptr %68, align 8, !tbaa !18
   %73 = tail call noalias noundef nonnull ptr @l_Lean_withTraceNode___at___private_Lean_Meta_Tactic_Backtrack_0__Lean_Meta_Tactic_Backtrack_Backtrack_run___spec__6___lambda__1(ptr noundef %3, ptr noundef %4, ptr noundef %9, ptr noundef %5, ptr noundef nonnull %.sink62.i, ptr nonnull poison, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
   %74 = ptrtoint ptr %13 to i64
   %75 = and i64 %74, 1

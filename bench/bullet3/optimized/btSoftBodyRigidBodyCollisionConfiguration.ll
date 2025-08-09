@@ -174,7 +174,7 @@ _ZN15btPoolAllocatorD2Ev.exit:                    ; preds = %32
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 4
   store i32 %43, ptr %44, align 4, !tbaa !35
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  store i32 0, ptr %45, align 4, !tbaa !36
+  store i32 0, ptr %45, align 8, !tbaa !36
   %46 = mul nsw i32 %43, 248
   %47 = zext i32 %46 to i64
   %48 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %47, i32 noundef 16)

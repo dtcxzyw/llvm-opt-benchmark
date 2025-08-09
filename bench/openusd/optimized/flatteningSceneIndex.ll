@@ -4529,7 +4529,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__27HdFlatteningSce
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load i32, ptr %2, align 4
-  store i32 %8, ptr %7, align 4
+  store i32 %8, ptr %7, align 8
   %.not.i.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i, label %9
 
@@ -6519,7 +6519,7 @@ _ZN3tbb6detail2d115task_group_base12prepare_taskIN32pxrInternal_v0_24__pxrReserv
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS3_17Work_DetachedTaskINS3_27Work_AsyncSwapDestroyHelperISt10shared_ptrINS3_21HdContainerDataSourceEEEEEEEEEE, i64 16), ptr %122, align 64
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 64
   %125 = load ptr, ptr %5, align 8
-  store ptr %125, ptr %124, align 8
+  store ptr %125, ptr %124, align 64
   store ptr null, ptr %5, align 8
   %126 = getelementptr inbounds nuw i8, ptr %122, i64 72
   %127 = load ptr, ptr %37, align 8
@@ -6527,7 +6527,7 @@ _ZN3tbb6detail2d115task_group_base12prepare_taskIN32pxrInternal_v0_24__pxrReserv
   store ptr %127, ptr %126, align 8
   %128 = getelementptr inbounds nuw i8, ptr %122, i64 80
   %129 = load ptr, ptr %38, align 8
-  store ptr %129, ptr %128, align 8
+  store ptr %129, ptr %128, align 16
   %130 = getelementptr inbounds nuw i8, ptr %122, i64 88
   store ptr %116, ptr %130, align 8
   %131 = getelementptr inbounds nuw i8, ptr %122, i64 96
@@ -12912,7 +12912,7 @@ define linkonce_odr noundef ptr @_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrIn
   store i64 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load i32, ptr %1, align 4
-  store i32 %7, ptr %6, align 4
+  store i32 %7, ptr %6, align 8
   %.not.i.i.i.i.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_16HdSceneIndexPrimENS3_22HdFlatteningSceneIndex16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S5_EEEE11create_nodeIJRSB_S5_EEEPNSE_4nodeERNS9_INS1_13hash_map_baseISD_NS8_13spin_rw_mutexEE6bucketEEEDpOT_.exit, label %8
 
@@ -13309,7 +13309,7 @@ _ZN3tbb6detail2d115task_group_base12prepare_taskIN32pxrInternal_v0_24__pxrReserv
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS3_17Work_DetachedTaskINS3_27Work_AsyncSwapDestroyHelperISt10shared_ptrINS3_21HdContainerDataSourceEEEEEEEEEE, i64 16), ptr %16, align 64
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %19 = load ptr, ptr %4, align 8
-  store ptr %19, ptr %18, align 8
+  store ptr %19, ptr %18, align 64
   store ptr null, ptr %4, align 8
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 72
   %21 = load ptr, ptr %8, align 8
@@ -13317,7 +13317,7 @@ _ZN3tbb6detail2d115task_group_base12prepare_taskIN32pxrInternal_v0_24__pxrReserv
   store ptr %21, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 80
   %23 = load ptr, ptr %11, align 8
-  store ptr %23, ptr %22, align 8
+  store ptr %23, ptr %22, align 16
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 88
   store ptr %5, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 96
@@ -14704,7 +14704,7 @@ _ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS0_16HdSceneInd
   %.01642 = phi ptr [ %45, %.lr.ph ], [ %43, %.lr.ph45 ]
   %44 = getelementptr inbounds nuw i8, ptr %.01642, i64 32
   %45 = load ptr, ptr %44, align 8
-  %46 = load i32, ptr %.01642, align 4
+  %46 = load i32, ptr %.01642, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.01642, i64 4
   %48 = load i32, ptr %47, align 4
   %49 = zext i32 %46 to i64

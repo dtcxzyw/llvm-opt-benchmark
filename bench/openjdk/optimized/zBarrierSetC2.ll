@@ -1452,7 +1452,7 @@ _ZN11CodeSection32maybe_expand_to_ensure_remainingEi.exit: ; preds = %32, %40
   %52 = load ptr, ptr %51, align 8
   call void %52(ptr noundef nonnull align 8 dereferenceable(192) %50, ptr noundef nonnull align 8 dereferenceable(40) %3) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %53 = load i32, ptr %13, align 4
+  %53 = load i32, ptr %13, align 8
   %54 = sext i32 %53 to i64
   %55 = icmp slt i64 %indvars.iv.next, %54
   br i1 %55, label %32, label %._crit_edge, !llvm.loop !10
@@ -1579,7 +1579,7 @@ define hidden noundef i32 @_ZNK13ZBarrierSetC218estimate_stub_sizeEv(ptr nonnull
   %69 = add nsw i32 %.01011, %68
   call void @_ZN10CodeBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(448) %2) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %70 = load i32, ptr %17, align 4
+  %70 = load i32, ptr %17, align 8
   %71 = sext i32 %70 to i64
   %72 = icmp slt i64 %indvars.iv.next, %71
   br i1 %72, label %45, label %._crit_edge, !llvm.loop !11

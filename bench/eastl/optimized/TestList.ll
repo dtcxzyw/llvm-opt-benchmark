@@ -6104,7 +6104,7 @@ for.body.i:                                       ; preds = %entry, %call.i6.i.i
 call.i6.i.i.i.i.i.noexc:                          ; preds = %for.body.i
   %mValue.i.i.i = getelementptr inbounds nuw i8, ptr %call.i6.i.i.i.i.i1, i64 64
   store i32 0, ptr %mValue.i.i.i, align 64
-  store ptr %this, ptr %call.i6.i.i.i.i.i1, align 8
+  store ptr %this, ptr %call.i6.i.i.i.i.i1, align 64
   %1 = load ptr, ptr %mpPrev.i.i, align 8
   %mpPrev2.i.i.i = getelementptr inbounds nuw i8, ptr %call.i6.i.i.i.i.i1, i64 8
   store ptr %1, ptr %mpPrev2.i.i.i, align 8
@@ -6586,8 +6586,8 @@ for.body.i:                                       ; preds = %land.rhs.i
   %mValue.i = getelementptr inbounds nuw i8, ptr %pNode.017.i, i64 64
   %1 = load i32, ptr %mValue.i.i, align 64
   store i32 %1, ptr %mValue.i, align 64
-  %2 = load ptr, ptr %first.sroa.0.016.i, align 8
-  %pNode.0.i = load ptr, ptr %pNode.017.i, align 8
+  %2 = load ptr, ptr %first.sroa.0.016.i, align 64
+  %pNode.0.i = load ptr, ptr %pNode.017.i, align 64
   %cmp.not.i = icmp eq ptr %pNode.0.i, %this
   br i1 %cmp.not.i, label %for.end.i, label %land.rhs.i, !llvm.loop !201
 
@@ -6707,7 +6707,7 @@ for.body:                                         ; preds = %entry, %for.body
   %1 = load i32, ptr %first.addr.014, align 64
   store i32 %1, ptr %mValue, align 64
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %first.addr.014, i64 64
-  %pNode.0 = load ptr, ptr %pNode.015, align 8
+  %pNode.0 = load ptr, ptr %pNode.015, align 64
   %cmp = icmp ne ptr %pNode.0, %this
   %cmp3 = icmp ne ptr %incdec.ptr, %last
   %2 = select i1 %cmp, i1 %cmp3, i1 false
@@ -6933,7 +6933,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %mValue = getelementptr inbounds nuw i8, ptr %pNode.013, i64 64
   store i32 %.pre, ptr %mValue, align 64
   %dec = add i64 %n.addr.012, -1
-  %pNode.0 = load ptr, ptr %pNode.013, align 8
+  %pNode.0 = load ptr, ptr %pNode.013, align 64
   %cmp = icmp ne ptr %pNode.0, %this
   %cmp3 = icmp ne i64 %dec, 0
   %1 = select i1 %cmp, i1 %cmp3, i1 false
@@ -7298,7 +7298,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
   %call.i6.i.i.i.i.i.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 128, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0), !noalias !237
   %mValue.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i6.i.i.i.i.i.i.i, i64 64
   store i32 0, ptr %mValue.i.i.i.i.i, align 64, !noalias !237
-  store ptr %this, ptr %call.i6.i.i.i.i.i.i.i, align 8, !noalias !237
+  store ptr %this, ptr %call.i6.i.i.i.i.i.i.i, align 64, !noalias !237
   %7 = load ptr, ptr %mpPrev.i.i6.i, align 8, !noalias !237
   %mpPrev2.i.i.i.i8.i = getelementptr inbounds nuw i8, ptr %call.i6.i.i.i.i.i.i.i, i64 8
   store ptr %7, ptr %mpPrev2.i.i.i.i8.i, align 8, !noalias !237
@@ -7398,7 +7398,7 @@ entry:
   %mValue.i = getelementptr inbounds nuw i8, ptr %call.i6.i.i.i, i64 64
   store i32 0, ptr %mValue.i, align 64
   %0 = load ptr, ptr %this, align 8
-  store ptr %0, ptr %call.i6.i.i.i, align 8
+  store ptr %0, ptr %call.i6.i.i.i, align 64
   %mpPrev.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i, align 8
   %mpPrev2.i = getelementptr inbounds nuw i8, ptr %call.i6.i.i.i, i64 8
@@ -7489,7 +7489,7 @@ entry:
   %call.i6.i.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 128, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %mValue.i = getelementptr inbounds nuw i8, ptr %call.i6.i.i.i, i64 64
   store i32 0, ptr %mValue.i, align 64
-  store ptr %this, ptr %call.i6.i.i.i, align 8
+  store ptr %this, ptr %call.i6.i.i.i, align 64
   %mpPrev.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mpPrev.i, align 8
   %mpPrev2.i = getelementptr inbounds nuw i8, ptr %call.i6.i.i.i, i64 8
@@ -7585,7 +7585,7 @@ entry:
   %call.i6.i.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 128, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %mValue.i = getelementptr inbounds nuw i8, ptr %call.i6.i.i.i, i64 64
   store i32 0, ptr %mValue.i, align 64
-  store ptr %position.coerce, ptr %call.i6.i.i.i, align 8
+  store ptr %position.coerce, ptr %call.i6.i.i.i, align 64
   %mpPrev.i = getelementptr inbounds nuw i8, ptr %position.coerce, i64 8
   %0 = load ptr, ptr %mpPrev.i, align 8
   %mpPrev2.i = getelementptr inbounds nuw i8, ptr %call.i6.i.i.i, i64 8
@@ -7801,7 +7801,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %1 = load i32, ptr %mValue.i, align 64
   %2 = load i32, ptr %value, align 64
   %cmp.i = icmp eq i32 %1, %2
-  %3 = load ptr, ptr %current.sroa.0.07, align 8
+  %3 = load ptr, ptr %current.sroa.0.07, align 64
   br i1 %cmp.i, label %if.else, label %if.end
 
 if.else:                                          ; preds = %while.body
@@ -14295,7 +14295,7 @@ while.cond:                                       ; preds = %while.body, %_ZN5ea
 while.body:                                       ; preds = %while.cond
   %269 = load ptr, ptr %iter.sroa.0.0, align 8, !noalias !436
   %mValue.i = getelementptr inbounds nuw i8, ptr %iter.sroa.0.0, i64 16
-  %270 = load i32, ptr %mValue.i, align 4
+  %270 = load i32, ptr %mValue.i, align 8
   %271 = load i32, ptr @_ZZ8TestListvE3inc, align 4
   %inc = add nsw i32 %271, 1
   store i32 %inc, ptr @_ZZ8TestListvE3inc, align 4
@@ -14761,7 +14761,7 @@ while.cond531:                                    ; preds = %while.body536, %whi
 while.body536:                                    ; preds = %while.cond531
   %345 = load ptr, ptr %iter528.sroa.0.0, align 8
   %mValue.i962 = getelementptr inbounds nuw i8, ptr %iter528.sroa.0.0, i64 16
-  %346 = load i32, ptr %mValue.i962, align 4
+  %346 = load i32, ptr %mValue.i962, align 8
   %347 = load i32, ptr @_ZZ8TestListvE3inc_0, align 4
   %inc541 = add nsw i32 %347, 1
   store i32 %inc541, ptr @_ZZ8TestListvE3inc_0, align 4
@@ -16785,7 +16785,7 @@ invoke.cont1009:                                  ; preds = %_ZN5eastl4listIiNS_
   %633 = load i64, ptr %631, align 8, !noalias !485
   %inc.i.i.i1678 = add i64 %633, 1
   store i64 %inc.i.i.i1678, ptr %631, align 8, !noalias !485
-  %634 = load i32, ptr %mValue.i.i.i.i1674, align 4
+  %634 = load i32, ptr %mValue.i.i.i.i1674, align 8
   %cmp1013 = icmp eq i32 %634, 42
   %call1015 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp1013, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 543, ptr noundef nonnull @.str.73)
           to label %invoke.cont1014 unwind label %lpad1008
@@ -16820,7 +16820,7 @@ invoke.cont1019:                                  ; preds = %_ZN5eastl4listIZ8Te
   %inc.i1688 = add i64 %638, 1
   store i64 %inc.i1688, ptr %mSize.i1687, align 8
   %mValue.i1689 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i1690, i64 16
-  store i32 42, ptr %mValue.i1689, align 4
+  store i32 42, ptr %mValue.i1689, align 8
   %call1024 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 552, ptr noundef nonnull @.str.65)
           to label %invoke.cont1023 unwind label %lpad1018
 
@@ -17631,7 +17631,7 @@ invoke.cont1317:                                  ; preds = %while.body.i.i.i199
   %dec.i.i2005 = add i64 %766, -1
   store i64 %dec.i.i2005, ptr %mSize.i.i2004, align 8, !noalias !530
   %mValue.i2006 = getelementptr inbounds nuw i8, ptr %761, i64 16
-  %767 = load i32, ptr %mValue.i2006, align 4
+  %767 = load i32, ptr %mValue.i2006, align 8
   %cmp1319 = icmp eq i32 %767, 5
   %call1321 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp1319, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 663, ptr noundef nonnull @.str.93)
           to label %invoke.cont1320 unwind label %lpad1313

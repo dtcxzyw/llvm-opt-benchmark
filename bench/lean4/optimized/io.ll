@@ -3564,7 +3564,7 @@ _ZN4lean11alloc_cnstrEjjj.exit:                   ; preds = %.tail30.thread
   store ptr %65, ptr %64, align 8, !tbaa !46
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 16
   store i64 0, ptr %66, align 8, !tbaa !49
-  store i8 0, ptr %65, align 1, !tbaa !36
+  store i8 0, ptr %65, align 8, !tbaa !36
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %63, align 8, !tbaa !11
   tail call void @__cxa_throw(ptr nonnull %63, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #28
   unreachable
@@ -3653,7 +3653,7 @@ _ZN4lean11alloc_cnstrEjjj.exit:                   ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i64 0, ptr %18, align 8, !tbaa !45
-  store i32 1, ptr %14, align 4, !tbaa !7
+  store i32 1, ptr %14, align 8, !tbaa !7
   store i32 131112, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %.val = load i64, ptr %19, align 8
@@ -3672,7 +3672,7 @@ _ZN4lean11alloc_cnstrEjjj.exit.i:                 ; preds = %_ZN4lean11alloc_cns
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i64 0, ptr %25, align 8, !tbaa !45
-  store i32 1, ptr %21, align 4, !tbaa !7
+  store i32 1, ptr %21, align 8, !tbaa !7
   store i32 65560, ptr %24, align 4
   %26 = add i64 %.val, 2147483648
   %27 = icmp ult i64 %26, 4294967296
@@ -3694,7 +3694,7 @@ _ZN4leanL15timespec_to_objERK8timespec.exit:      ; preds = %28, %33
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %.0.i.i, ptr %35, align 8, !tbaa !3
   %36 = trunc i64 %.val9 to i32
-  store i32 %36, ptr %25, align 4, !tbaa !44
+  store i32 %36, ptr %25, align 8, !tbaa !44
   %37 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %21, ptr %37, align 8, !tbaa !3
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 88
@@ -3714,7 +3714,7 @@ _ZN4lean11alloc_cnstrEjjj.exit.i12:               ; preds = %_ZN4leanL15timespec
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store i64 0, ptr %44, align 8, !tbaa !45
-  store i32 1, ptr %40, align 4, !tbaa !7
+  store i32 1, ptr %40, align 8, !tbaa !7
   store i32 65560, ptr %43, align 4
   %45 = add i64 %.val10, 2147483648
   %46 = icmp ult i64 %45, 4294967296
@@ -3736,7 +3736,7 @@ _ZN4leanL15timespec_to_objERK8timespec.exit14:    ; preds = %47, %52
   %54 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %.0.i.i13, ptr %54, align 8, !tbaa !3
   %55 = trunc i64 %.val11 to i32
-  store i32 %55, ptr %44, align 4, !tbaa !44
+  store i32 %55, ptr %44, align 8, !tbaa !44
   %56 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %40, ptr %56, align 8, !tbaa !3
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -3752,7 +3752,7 @@ _ZN4leanL15timespec_to_objERK8timespec.exit14:    ; preds = %47, %52
   %66 = select i1 %65, i8 2, i8 3
   %67 = select i1 %64, i8 1, i8 %66
   %68 = select i1 %63, i8 0, i8 %67
-  store i8 %68, ptr %18, align 1, !tbaa !36
+  store i8 %68, ptr %18, align 8, !tbaa !36
   tail call void @lean_inc_heartbeat()
   %69 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #27
   %70 = icmp eq ptr %69, null
@@ -4253,7 +4253,7 @@ _ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %lean_decode_uv_erro
   store ptr %46, ptr %45, align 8, !tbaa !46
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store i64 0, ptr %47, align 8, !tbaa !49
-  store i8 0, ptr %46, align 1, !tbaa !36
+  store i8 0, ptr %46, align 8, !tbaa !36
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %44, align 8, !tbaa !11
   call void @__cxa_throw(ptr nonnull %44, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #28
   unreachable
@@ -4278,7 +4278,7 @@ _ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %lean_decode_uv_erro
   store ptr %56, ptr %55, align 8, !tbaa !46
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store i64 0, ptr %57, align 8, !tbaa !49
-  store i8 0, ptr %56, align 1, !tbaa !36
+  store i8 0, ptr %56, align 8, !tbaa !36
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %54, align 8, !tbaa !11
   call void @__cxa_throw(ptr nonnull %54, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #28
   unreachable
@@ -4540,7 +4540,7 @@ _ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %lean_decode_uv_erro
   store ptr %44, ptr %43, align 8, !tbaa !46
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store i64 0, ptr %45, align 8, !tbaa !49
-  store i8 0, ptr %44, align 1, !tbaa !36
+  store i8 0, ptr %44, align 8, !tbaa !36
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %42, align 8, !tbaa !11
   call void @__cxa_throw(ptr nonnull %42, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #28
   unreachable
@@ -4565,7 +4565,7 @@ _ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %lean_decode_uv_erro
   store ptr %54, ptr %53, align 8, !tbaa !46
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 16
   store i64 0, ptr %55, align 8, !tbaa !49
-  store i8 0, ptr %54, align 1, !tbaa !36
+  store i8 0, ptr %54, align 8, !tbaa !36
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %52, align 8, !tbaa !11
   call void @__cxa_throw(ptr nonnull %52, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #28
   unreachable
@@ -6075,7 +6075,7 @@ _ZN4lean14io_wrap_handleEP8_IO_FILE.exit7:        ; preds = %_ZN4lean14io_wrap_h
   store ptr %50, ptr %49, align 8, !tbaa !46
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store i64 0, ptr %51, align 8, !tbaa !49
-  store i8 0, ptr %50, align 1, !tbaa !36
+  store i8 0, ptr %50, align 8, !tbaa !36
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %48, align 8, !tbaa !11
   call void @__cxa_throw(ptr nonnull %48, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #28
   unreachable

@@ -1797,7 +1797,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEjNS_12DenseMapInfoIS3_vEE
 483:                                              ; preds = %480, %473
   store ptr %.sroa.01.07.i, ptr %475, align 8, !tbaa !281, !noalias !277
   %484 = getelementptr inbounds nuw i8, ptr %475, i64 8
-  store i32 %407, ptr %484, align 4, !tbaa !47, !noalias !277
+  store i32 %407, ptr %484, align 8, !tbaa !47, !noalias !277
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E11try_emplaceIJjEEESt4pairINS_16DenseMapIteratorIS3_jS5_S8_Lb0EEEbEOS3_DpOT_.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E11try_emplaceIJjEEESt4pairINS_16DenseMapIteratorIS3_jS5_S8_Lb0EEEbEOS3_DpOT_.exit: ; preds = %426, %410, %483
@@ -5513,7 +5513,7 @@ _ZNSt10_HashtableIjSt4pairIKjSt13unordered_setIS0_IjN4llvm11LaneBitmaskEESt4hash
   %.02530.i = phi i64 [ %.1.i754, %433 ], [ 0, %_ZNSt10_HashtableIjSt4pairIKjSt13unordered_setIS0_IjN4llvm11LaneBitmaskEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EEESaISC_ENSt8__detail10_Select1stES8_IjES6_IjENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i ]
   %418 = load ptr, ptr %.031.i, align 8, !tbaa !66
   %419 = getelementptr inbounds nuw i8, ptr %.031.i, i64 8
-  %420 = load i32, ptr %419, align 4, !tbaa !47
+  %420 = load i32, ptr %419, align 8, !tbaa !47
   %421 = zext i32 %420 to i64
   %422 = urem i64 %421, %406
   %423 = getelementptr inbounds nuw ptr, ptr %.0.i.i752, i64 %422
@@ -9875,7 +9875,7 @@ _ZNSt10_HashtableIjSt4pairIKjSt13unordered_setIS0_IjN4llvm11LaneBitmaskEESt4hash
   %.02530.i943 = phi i64 [ %.1.i945, %2177 ], [ 0, %_ZNSt10_HashtableIjSt4pairIKjSt13unordered_setIS0_IjN4llvm11LaneBitmaskEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EEESaISC_ENSt8__detail10_Select1stES8_IjES6_IjENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i938 ]
   %2162 = load ptr, ptr %.031.i942, align 8, !tbaa !66
   %2163 = getelementptr inbounds nuw i8, ptr %.031.i942, i64 8
-  %2164 = load i32, ptr %2163, align 4, !tbaa !47
+  %2164 = load i32, ptr %2163, align 8, !tbaa !47
   %2165 = zext i32 %2164 to i64
   %2166 = urem i64 %2165, %2148
   %2167 = getelementptr inbounds nuw ptr, ptr %.0.i.i939, i64 %2166
@@ -12725,7 +12725,7 @@ _ZNSt10_HashtableIjSt4pairIKjSt13unordered_setIS0_IjN4llvm11LaneBitmaskEESt4hash
   %.02530.i = phi i64 [ %.1.i679, %891 ], [ 0, %_ZNSt10_HashtableIjSt4pairIKjSt13unordered_setIS0_IjN4llvm11LaneBitmaskEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EEESaISC_ENSt8__detail10_Select1stES8_IjES6_IjENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i ]
   %876 = load ptr, ptr %.031.i, align 8, !tbaa !66
   %877 = getelementptr inbounds nuw i8, ptr %.031.i, i64 8
-  %878 = load i32, ptr %877, align 4, !tbaa !47
+  %878 = load i32, ptr %877, align 8, !tbaa !47
   %879 = zext i32 %878 to i64
   %880 = urem i64 %879, %864
   %881 = getelementptr inbounds nuw ptr, ptr %.0.i.i677, i64 %880
@@ -14068,7 +14068,7 @@ _ZNSt10_HashtableIjSt4pairIKjSt13unordered_setIS0_IjN4llvm11LaneBitmaskEESt4hash
   %.02530.i702 = phi i64 [ %.1.i704, %1487 ], [ 0, %_ZNSt10_HashtableIjSt4pairIKjSt13unordered_setIS0_IjN4llvm11LaneBitmaskEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EEESaISC_ENSt8__detail10_Select1stES8_IjES6_IjENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i697 ]
   %1472 = load ptr, ptr %.031.i701, align 8, !tbaa !66
   %1473 = getelementptr inbounds nuw i8, ptr %.031.i701, i64 8
-  %1474 = load i32, ptr %1473, align 4, !tbaa !47
+  %1474 = load i32, ptr %1473, align 8, !tbaa !47
   %1475 = zext i32 %1474 to i64
   %1476 = urem i64 %1475, %1460
   %1477 = getelementptr inbounds nuw ptr, ptr %.0.i.i698, i64 %1476
@@ -15925,7 +15925,7 @@ _ZNSt10_HashtableIjSt4pairIKjSt13unordered_setIS0_IjN4llvm11LaneBitmaskEESt4hash
   %.02530.i = phi i64 [ %.1.i526, %181 ], [ 0, %_ZNSt10_HashtableIjSt4pairIKjSt13unordered_setIS0_IjN4llvm11LaneBitmaskEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EEESaISC_ENSt8__detail10_Select1stES8_IjES6_IjENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i ]
   %166 = load ptr, ptr %.031.i, align 8, !tbaa !66
   %167 = getelementptr inbounds nuw i8, ptr %.031.i, i64 8
-  %168 = load i32, ptr %167, align 4, !tbaa !47
+  %168 = load i32, ptr %167, align 8, !tbaa !47
   %169 = zext i32 %168 to i64
   %170 = urem i64 %169, %154
   %171 = getelementptr inbounds nuw ptr, ptr %.0.i.i524, i64 %170
@@ -18333,7 +18333,7 @@ _ZNSt10_HashtableIjSt4pairIKjSt13unordered_setIS0_IjN4llvm11LaneBitmaskEESt4hash
   %.02530.i572 = phi i64 [ %.1.i574, %1266 ], [ 0, %_ZNSt10_HashtableIjSt4pairIKjSt13unordered_setIS0_IjN4llvm11LaneBitmaskEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EEESaISC_ENSt8__detail10_Select1stES8_IjES6_IjENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i567 ]
   %1251 = load ptr, ptr %.031.i571, align 8, !tbaa !66
   %1252 = getelementptr inbounds nuw i8, ptr %.031.i571, i64 8
-  %1253 = load i32, ptr %1252, align 4, !tbaa !47
+  %1253 = load i32, ptr %1252, align 8, !tbaa !47
   %1254 = zext i32 %1253 to i64
   %1255 = urem i64 %1254, %1239
   %1256 = getelementptr inbounds nuw ptr, ptr %.0.i.i568, i64 %1255
@@ -20832,7 +20832,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEjNS_12DenseMapInfoIS3_vEE
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !47
-  store i32 %68, ptr %66, align 4, !tbaa !47
+  store i32 %68, ptr %66, align 8, !tbaa !47
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !284
   br label %70
@@ -21999,7 +21999,7 @@ _ZNSt10_HashtableIjSt4pairIKjSt13unordered_setIS0_IjN4llvm11LaneBitmaskEESt4hash
   %42 = load ptr, ptr %0, align 8, !tbaa !455
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load i64, ptr %43, align 8, !tbaa !454
-  %45 = load i32, ptr %27, align 4, !tbaa !47
+  %45 = load i32, ptr %27, align 8, !tbaa !47
   %46 = zext i32 %45 to i64
   %47 = urem i64 %46, %44
   %48 = getelementptr inbounds nuw ptr, ptr %42, i64 %47
@@ -22041,7 +22041,7 @@ _ZNSt10_HashtableIjSt4pairIKjSt13unordered_setIS0_IjN4llvm11LaneBitmaskEESt4hash
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %50, ptr %.028, align 8, !tbaa !66
   %65 = load i64, ptr %43, align 8, !tbaa !454
-  %66 = load i32, ptr %51, align 4, !tbaa !47
+  %66 = load i32, ptr %51, align 8, !tbaa !47
   %67 = zext i32 %66 to i64
   %68 = urem i64 %67, %65
   %69 = load ptr, ptr %0, align 8, !tbaa !455
@@ -26649,7 +26649,7 @@ _ZNSt10_HashtableIjSt4pairIKjN4llvm3rdf12RegisterAggrEESaIS5_ENSt8__detail10_Sel
   %.02530 = phi i64 [ %.1, %31 ], [ 0, %_ZNSt10_HashtableIjSt4pairIKjN4llvm3rdf12RegisterAggrEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %16 = load ptr, ptr %.031, align 8, !tbaa !66
   %17 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %18 = load i32, ptr %17, align 4, !tbaa !47
+  %18 = load i32, ptr %17, align 8, !tbaa !47
   %19 = zext i32 %18 to i64
   %20 = urem i64 %19, %1
   %21 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %20
@@ -26870,7 +26870,7 @@ _ZNSt10_HashtableIjSt4pairIKjSt13unordered_setIS0_IjN4llvm11LaneBitmaskEESt4hash
   %.02530 = phi i64 [ %.1, %31 ], [ 0, %_ZNSt10_HashtableIjSt4pairIKjSt13unordered_setIS0_IjN4llvm11LaneBitmaskEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EEESaISC_ENSt8__detail10_Select1stES8_IjES6_IjENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %16 = load ptr, ptr %.031, align 8, !tbaa !66
   %17 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %18 = load i32, ptr %17, align 4, !tbaa !47
+  %18 = load i32, ptr %17, align 8, !tbaa !47
   %19 = zext i32 %18 to i64
   %20 = urem i64 %19, %1
   %21 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %20

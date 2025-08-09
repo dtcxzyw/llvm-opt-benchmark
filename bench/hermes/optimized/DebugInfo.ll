@@ -210,7 +210,7 @@ if.then:                                          ; preds = %if.then12.i.i.i, %e
   store ptr %8, ptr %call.i.i, align 8, !noalias !4
   %second.i.i2.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   %conv.i.i = trunc i64 %sub.ptr.sub.i to i32
-  store i32 %conv.i.i, ptr %second.i.i2.i, align 4, !noalias !4
+  store i32 %conv.i.i, ptr %second.i.i2.i, align 8, !noalias !4
   %Length.i = getelementptr inbounds nuw i8, ptr %str.coerce, i64 8
   %9 = load i64, ptr %Length.i, align 8
   call void @_ZN6hermes18appendSignedLEB128ERSt6vectorIhSaIhEEl(ptr noundef nonnull align 8 dereferenceable(24) %stringTable_, i64 noundef %9) #16
@@ -3988,7 +3988,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringEjNS_12DenseMapInfoIS
   %second.i.i = getelementptr inbounds nuw i8, ptr %cond.sink.i.i.i, i64 8
   %second.i13.i = getelementptr inbounds nuw i8, ptr %B.020.i, i64 8
   %11 = load i32, ptr %second.i13.i, align 4
-  store i32 %11, ptr %second.i.i, align 4
+  store i32 %11, ptr %second.i.i, align 8
   %12 = load i32, ptr %NumEntries.i.i.i.i, align 8
   %add.i.i = add i32 %12, 1
   store i32 %add.i.i, ptr %NumEntries.i.i.i.i, align 8

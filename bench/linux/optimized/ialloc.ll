@@ -172,7 +172,7 @@ define dso_local void @ext4_free_inode(ptr noundef %0, ptr noundef %1) local_unn
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %15 = load i64, ptr %14, align 8
-  %16 = load volatile i32, ptr %10, align 4
+  %16 = load volatile i32, ptr %10, align 8
   tail call void (ptr, ptr, ptr, ...) @__ext4_msg(ptr noundef nonnull %5, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.ext4_free_inode, i32 noundef 258, i64 noundef %15, i32 noundef %16) #10
   br label %174
 
@@ -2615,7 +2615,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @find_group_orlov(ptr nounde
   %24 = select i1 %20, i32 %12, i32 %23
   %25 = select i1 %20, i32 0, i32 %18
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 272
-  %27 = load volatile i64, ptr %26, align 8
+  %27 = load volatile i64, ptr %26, align 16
   %28 = tail call i64 @llvm.smax.i64(i64 %27, i64 0)
   %29 = trunc i64 %28 to i32
   %30 = udiv i32 %29, %24

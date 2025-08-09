@@ -1761,7 +1761,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %11
   store i64 %120, ptr %122, align 8, !tbaa !55
   store ptr %111, ptr %1, align 8, !tbaa !53
   store i64 0, ptr %121, align 8, !tbaa !55
-  store i8 0, ptr %111, align 1, !tbaa !56
+  store i8 0, ptr %111, align 8, !tbaa !56
   store i8 1, ptr %.1.i.i, align 8, !tbaa !78
   %123 = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 24
   %124 = load ptr, ptr %123, align 8, !tbaa !53
@@ -3507,7 +3507,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store i32 1, ptr %46, align 4, !tbaa !111, !noalias !114
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIKiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %43, align 8, !tbaa !4, !noalias !114
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  store i32 %41, ptr %47, align 4, !tbaa !48, !noalias !114
+  store i32 %41, ptr %47, align 8, !tbaa !48, !noalias !114
   store ptr %47, ptr %0, align 8, !tbaa !117
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !108
@@ -7227,7 +7227,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store i32 1, ptr %46, align 4, !tbaa !111, !noalias !160
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIKiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %43, align 8, !tbaa !4, !noalias !160
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  store i32 %41, ptr %47, align 4, !tbaa !48, !noalias !160
+  store i32 %41, ptr %47, align 8, !tbaa !48, !noalias !160
   store ptr %47, ptr %0, align 8, !tbaa !117
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !108
@@ -13104,7 +13104,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %7, ptr %6, align 8, !tbaa !50, !noalias !235
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %8, align 8, !tbaa !55, !noalias !235
-  store i8 0, ptr %7, align 1, !tbaa !56, !noalias !235
+  store i8 0, ptr %7, align 8, !tbaa !56, !noalias !235
   store ptr %6, ptr %4, align 8, !tbaa !212
   br label %9
 

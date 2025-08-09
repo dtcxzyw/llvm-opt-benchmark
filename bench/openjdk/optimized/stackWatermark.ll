@@ -573,7 +573,7 @@ _ZN28StackWatermarkFramesIterator13set_watermarkEm.exit: ; preds = %_ZN14StackWa
   %96 = call noundef i32 %95(ptr noundef nonnull align 8 dereferenceable(176) %82) #17
   %97 = shl i32 %96, 1
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !9
-  store volatile i32 %97, ptr %93, align 4
+  store volatile i32 %97, ptr %93, align 8
   br label %_ZN14StackWatermark16yield_processingEv.exit
 
 98:                                               ; preds = %85, %81
@@ -587,7 +587,7 @@ _ZN28StackWatermarkFramesIterator13set_watermarkEm.exit: ; preds = %_ZN14StackWa
   %104 = shl i32 %103, 1
   %105 = or disjoint i32 %104, 1
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !9
-  store volatile i32 %105, ptr %100, align 4
+  store volatile i32 %105, ptr %100, align 8
   %106 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE138ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not1.i.i = icmp eq ptr %106, null
   br i1 %.not1.i.i, label %_ZN14StackWatermark16yield_processingEv.exit, label %107

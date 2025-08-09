@@ -41910,7 +41910,7 @@ _ZN7hir_def4body5scope10ExprScopes9set_scope17h050861fd46dde519E.exit: ; preds =
   %57 = getelementptr inbounds nuw i8, ptr %47, i64 12
   %58 = load i32, ptr %57, align 4, !range !6102, !noundef !118
   %59 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %60 = load i32, ptr %59, align 4
+  %60 = load i32, ptr %59, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %61 = load i32, ptr %3, align 4, !noundef !118
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6260)
@@ -42697,7 +42697,7 @@ _ZN7hir_def4body5scope10ExprScopes9set_scope17h050861fd46dde519E.exit66: ; preds
   %380 = load ptr, ptr %.010, align 8, !nonnull !118, !align !1206, !noundef !118
   %381 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %382 = load i64, ptr %381, align 8, !noundef !118
-  %383 = load i32, ptr %.0, align 4, !range !6102, !noundef !118
+  %383 = load i32, ptr %.0, align 8, !range !6102, !noundef !118
   %384 = getelementptr inbounds nuw i8, ptr %47, i64 28
   %385 = load i32, ptr %384, align 4
   call fastcc void @_ZN7hir_def4body5scope20compute_block_scopes17hc0e5f114f407ef21E(ptr noalias noundef nonnull readonly align 8 %380, i64 noundef %382, i32 noundef %383, i32 %385, ptr noalias noundef readonly align 8 dereferenceable(184) %1, ptr noalias noundef align 8 dereferenceable(72) %2, ptr noalias noundef align 4 dereferenceable(4) %24)

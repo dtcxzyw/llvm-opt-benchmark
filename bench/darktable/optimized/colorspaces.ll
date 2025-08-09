@@ -678,7 +678,7 @@ define ptr @dt_colorspaces_create_alternate_profile(ptr noundef %0) local_unname
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %31 = load i32, ptr %30, align 4, !tbaa !19
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %33 = load i32, ptr %32, align 4, !tbaa !19
+  %33 = load i32, ptr %32, align 8, !tbaa !19
   %34 = add nsw i32 %33, %31
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 28
   %36 = load i32, ptr %35, align 4, !tbaa !19
@@ -847,7 +847,7 @@ define ptr @dt_colorspaces_create_vendor_profile(ptr noundef %0) local_unnamed_a
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %29 = load i32, ptr %28, align 4, !tbaa !19
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %31 = load i32, ptr %30, align 4, !tbaa !19
+  %31 = load i32, ptr %30, align 8, !tbaa !19
   %32 = add nsw i32 %31, %29
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 28
   %34 = load i32, ptr %33, align 4, !tbaa !19
@@ -995,7 +995,7 @@ define ptr @dt_colorspaces_create_darktable_profile(ptr noundef %0) local_unname
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %31 = load i32, ptr %30, align 4, !tbaa !19
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %33 = load i32, ptr %32, align 4, !tbaa !19
+  %33 = load i32, ptr %32, align 8, !tbaa !19
   %34 = add nsw i32 %33, %31
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 28
   %36 = load i32, ptr %35, align 4, !tbaa !19

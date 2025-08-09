@@ -2025,13 +2025,13 @@ invoke.cont159:                                   ; preds = %_ZNSt7__cxx1112basi
   store ptr %57, ptr %label.i.i, align 8, !tbaa !137
   %_M_string_length.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call157, i64 16
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !11
-  store i8 0, ptr %57, align 1, !tbaa !92
+  store i8 0, ptr %57, align 8, !tbaa !92
   %texture.i.i = getelementptr inbounds nuw i8, ptr %call157, i64 48
   %58 = getelementptr inbounds nuw i8, ptr %call157, i64 64
   store ptr %58, ptr %texture.i.i, align 8, !tbaa !137
   %_M_string_length.i.i.i2.i.i = getelementptr inbounds nuw i8, ptr %call157, i64 56
   store i64 0, ptr %_M_string_length.i.i.i2.i.i, align 8, !tbaa !11
-  store i8 0, ptr %58, align 1, !tbaa !92
+  store i8 0, ptr %58, align 8, !tbaa !92
   %pos.i = getelementptr inbounds nuw i8, ptr %call157, i64 88
   %minimap_mask_round.i = getelementptr inbounds nuw i8, ptr %call157, i64 2097256
   %minimap_overlay_round.i = getelementptr inbounds nuw i8, ptr %call157, i64 2097296
@@ -2898,7 +2898,7 @@ _ZN3irr4core5arrayINS_5video9S3DVertexEE8set_usedEj.exit:
   %arrayctor.end.i.i = getelementptr inbounds nuw i8, ptr %call, i64 160
   store <4 x i32> <i32 0, i32 -1, i32 -1, i32 0>, ptr %arrayctor.end.i.i, align 8, !tbaa !92
   %SpecularColor.i.i = getelementptr inbounds nuw i8, ptr %call, i64 176
-  store i32 -1, ptr %SpecularColor.i.i, align 4, !tbaa !187
+  store i32 -1, ptr %SpecularColor.i.i, align 8, !tbaa !187
   %Shininess.i.i = getelementptr inbounds nuw i8, ptr %call, i64 180
   store <2 x float> zeroinitializer, ptr %Shininess.i.i, align 4, !tbaa !188
   %Thickness.i.i = getelementptr inbounds nuw i8, ptr %call, i64 188
@@ -2924,9 +2924,9 @@ _ZN3irr4core5arrayINS_5video9S3DVertexEE8set_usedEj.exit:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Indices.i, i8 0, i64 24, i1 false)
   store i8 1, ptr %is_sorted.i13.i, align 8, !tbaa !194
   %BoundingBox.i = getelementptr inbounds nuw i8, ptr %call, i64 280
-  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i, align 4, !tbaa !188
+  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i, align 8, !tbaa !188
   %Y.i2.i.i = getelementptr inbounds nuw i8, ptr %call, i64 296
-  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 4, !tbaa !188
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 8, !tbaa !188
   %PrimitiveType.i = getelementptr inbounds nuw i8, ptr %call, i64 304
   store i32 6, ptr %PrimitiveType.i, align 8, !tbaa !195
   tail call void @_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %Vertices.i, i64 noundef 4)
@@ -6348,13 +6348,13 @@ _ZNSt7__cxx114listIN3irr4core8vector2dIfEESaIS4_EE5clearEv.exit: ; preds = %whil
   %scan_height = getelementptr inbounds nuw i8, ptr %4, i64 40
   %7 = load i16, ptr %scan_height, align 8, !tbaa !86
   %8 = lshr i16 %7, 1
-  %9 = load i16, ptr %pos, align 2, !tbaa !45
+  %9 = load i16, ptr %pos, align 8, !tbaa !45
   %sub.i.neg = sub i16 %6, %9
   %Y.i136 = getelementptr inbounds nuw i8, ptr %4, i64 90
   %10 = load i16, ptr %Y.i136, align 2, !tbaa !46
   %sub8.i.neg = sub i16 %8, %10
   %Z.i137 = getelementptr inbounds nuw i8, ptr %4, i64 92
-  %11 = load i16, ptr %Z.i137, align 2, !tbaa !47
+  %11 = load i16, ptr %Z.i137, align 4, !tbaa !47
   %sub13.i.neg = sub i16 %6, %11
   %m_markers = getelementptr inbounds nuw i8, ptr %this, i64 152
   %__begin1.sroa.0.0172 = load ptr, ptr %m_markers, align 8, !tbaa !120
@@ -6657,13 +6657,13 @@ for.body13:                                       ; preds = %for.body13.outer, %
   %7 = load ptr, ptr %m_flags.i, align 8, !tbaa !374
   %p.sroa.0.0.extract.trunc.i.i = trunc nuw i48 %6 to i32
   %conv.i.i.i = sext i16 %add13.i to i32
-  %8 = load i16, ptr %Z.i.i.i, align 2, !tbaa !377
+  %8 = load i16, ptr %Z.i.i.i, align 4, !tbaa !377
   %conv2.i.i.i = sext i16 %8 to i32
   %sub.i.i.i = sub nsw i32 %conv.i.i.i, %conv2.i.i.i
   %9 = load i16, ptr %Y.i.i.i, align 2, !tbaa !378
   %conv3.i.i.i = sext i16 %9 to i32
   %mul.i.i.i = mul nsw i32 %sub.i.i.i, %conv3.i.i.i
-  %10 = load i16, ptr %m_cache_extent.i.i.i, align 2, !tbaa !379
+  %10 = load i16, ptr %m_cache_extent.i.i.i, align 4, !tbaa !379
   %conv5.i.i.i = sext i16 %10 to i32
   %conv7.i.i.i = ashr i32 %p.sroa.0.0.extract.trunc.i.i, 16
   %11 = load i16, ptr %Y9.i.i.i, align 2, !tbaa !380
@@ -6673,7 +6673,7 @@ for.body13:                                       ; preds = %for.body13.outer, %
   %add.i.i.i = mul i32 %mul622.i.i.i, %conv5.i.i.i
   %sext.i.i = shl i32 %p.sroa.0.0.extract.trunc.i.i, 16
   %conv16.i.i.i = ashr exact i32 %sext.i.i, 16
-  %12 = load i16, ptr %m_area.i, align 2, !tbaa !381
+  %12 = load i16, ptr %m_area.i, align 8, !tbaa !381
   %conv19.i.i.i = sext i16 %12 to i32
   %sub20.i.i.i = sub nsw i32 %conv16.i.i.i, %conv19.i.i.i
   %add21.i.i.i = add nsw i32 %sub20.i.i.i, %add.i.i.i
@@ -8214,7 +8214,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %9, ptr %_M_string_length.i24.i.i.i.i.i.i.i.i, align 8, !tbaa !11, !alias.scope !407, !noalias !410
   store ptr %6, ptr %label3.i.i.i.i.i.i.i, align 8, !tbaa !4, !alias.scope !410, !noalias !407
   store i64 0, ptr %_M_string_length.i23.i.i.i.i.i.i.i.i, align 8, !tbaa !11, !alias.scope !410, !noalias !407
-  store i8 0, ptr %6, align 1, !tbaa !92, !alias.scope !410, !noalias !407
+  store i8 0, ptr %6, align 8, !tbaa !92, !alias.scope !410, !noalias !407
   %scan_height.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 40
   %scan_height4.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 40
   %10 = load i32, ptr %scan_height4.i.i.i.i.i.i.i, align 8, !alias.scope !410, !noalias !407
@@ -8252,7 +8252,7 @@ _ZSt19__relocate_object_aI14MinimapModeDefS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i: ; 
   store i64 %16, ptr %_M_string_length.i24.i14.i.i.i.i.i.i.i, align 8, !tbaa !11, !alias.scope !407, !noalias !410
   store ptr %13, ptr %texture5.i.i.i.i.i.i.i, align 8, !tbaa !4, !alias.scope !410, !noalias !407
   store i64 0, ptr %_M_string_length.i23.i13.i.i.i.i.i.i.i, align 8, !tbaa !11, !alias.scope !410, !noalias !407
-  store i8 0, ptr %13, align 1, !tbaa !92, !alias.scope !410, !noalias !407
+  store i8 0, ptr %13, align 8, !tbaa !92, !alias.scope !410, !noalias !407
   %scale.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 80
   %scale6.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 80
   %17 = load i16, ptr %scale6.i.i.i.i.i.i.i, align 8, !tbaa !148, !alias.scope !410, !noalias !407
@@ -8308,7 +8308,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i5
   store i64 %24, ptr %_M_string_length.i24.i.i.i.i.i.i.i.i60, align 8, !tbaa !11, !alias.scope !413, !noalias !416
   store ptr %21, ptr %label3.i.i.i.i.i.i.i53, align 8, !tbaa !4, !alias.scope !416, !noalias !413
   store i64 0, ptr %_M_string_length.i23.i.i.i.i.i.i.i.i59, align 8, !tbaa !11, !alias.scope !416, !noalias !413
-  store i8 0, ptr %21, align 1, !tbaa !92, !alias.scope !416, !noalias !413
+  store i8 0, ptr %21, align 8, !tbaa !92, !alias.scope !416, !noalias !413
   %scan_height.i.i.i.i.i.i.i61 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i50, i64 40
   %scan_height4.i.i.i.i.i.i.i62 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i51, i64 40
   %25 = load i32, ptr %scan_height4.i.i.i.i.i.i.i62, align 8, !alias.scope !416, !noalias !413
@@ -8346,7 +8346,7 @@ _ZSt19__relocate_object_aI14MinimapModeDefS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i69: 
   store i64 %31, ptr %_M_string_length.i24.i14.i.i.i.i.i.i.i71, align 8, !tbaa !11, !alias.scope !413, !noalias !416
   store ptr %28, ptr %texture5.i.i.i.i.i.i.i64, align 8, !tbaa !4, !alias.scope !416, !noalias !413
   store i64 0, ptr %_M_string_length.i23.i13.i.i.i.i.i.i.i70, align 8, !tbaa !11, !alias.scope !416, !noalias !413
-  store i8 0, ptr %28, align 1, !tbaa !92, !alias.scope !416, !noalias !413
+  store i8 0, ptr %28, align 8, !tbaa !92, !alias.scope !416, !noalias !413
   %scale.i.i.i.i.i.i.i72 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i50, i64 80
   %scale6.i.i.i.i.i.i.i73 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i51, i64 80
   %32 = load i16, ptr %scale6.i.i.i.i.i.i.i73, align 8, !tbaa !148, !alias.scope !416, !noalias !413

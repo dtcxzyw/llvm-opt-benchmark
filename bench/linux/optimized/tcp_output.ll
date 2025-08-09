@@ -2903,8 +2903,8 @@ define internal fastcc zeroext i1 @tcp_write_xmit(ptr noundef initializes((1600,
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 8
   store ptr %367, ptr %369, align 8
   store volatile ptr %368, ptr %367, align 8
-  %370 = load ptr, ptr %307, align 8
-  store ptr %365, ptr %307, align 8
+  %370 = load ptr, ptr %307, align 32
+  store ptr %365, ptr %307, align 32
   store ptr %306, ptr %365, align 8
   store ptr %370, ptr %366, align 8
   store volatile ptr %365, ptr %370, align 8
@@ -4907,7 +4907,7 @@ define dso_local range(i32 -65534, -2147450881) i32 @__tcp_select_window(ptr nou
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 244
   %10 = load volatile i32, ptr %9, align 4
-  %11 = load volatile i32, ptr %8, align 4
+  %11 = load volatile i32, ptr %8, align 8
   %12 = add i32 %10, %11
   %13 = sub i32 %7, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1438
@@ -4987,7 +4987,7 @@ define dso_local range(i32 -65534, -2147450881) i32 @__tcp_select_window(ptr nou
 63:                                               ; preds = %52
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %65 = load i32, ptr %64, align 8
-  %66 = load volatile i32, ptr %8, align 4
+  %66 = load volatile i32, ptr %8, align 8
   %67 = add i32 %65, %66
   %68 = sub i32 %58, %67
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 1372
@@ -5095,7 +5095,7 @@ define dso_local range(i32 -65534, -2147450881) i32 @__tcp_select_window(ptr nou
 140:                                              ; preds = %129
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %142 = load i32, ptr %141, align 8
-  %143 = load volatile i32, ptr %8, align 4
+  %143 = load volatile i32, ptr %8, align 8
   %144 = add i32 %142, %143
   %145 = sub i32 %135, %144
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 1372
@@ -7565,9 +7565,9 @@ define dso_local noundef range(i32 -113, 1) i32 @tcp_connect(ptr noundef %0) #0 
   %366 = getelementptr inbounds nuw i8, ptr %329, i64 208
   %367 = load i32, ptr %366, align 8
   %368 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %369 = load i32, ptr %368, align 8
+  %369 = load i32, ptr %368, align 16
   %370 = add i32 %369, %367
-  store volatile i32 %370, ptr %368, align 8
+  store volatile i32 %370, ptr %368, align 16
   %371 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %372 = load ptr, ptr %371, align 8
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 248
@@ -8668,7 +8668,7 @@ define internal fastcc i32 @__tcp_transmit_skb(ptr noundef %0, ptr noundef %1, i
   %108 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %107, ptr %108, align 8
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 1704
-  %110 = load i32, ptr %109, align 4
+  %110 = load i32, ptr %109, align 8
   %111 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 %110, ptr %111, align 4
   %112 = add nuw nsw i32 %90, 12
@@ -8829,7 +8829,7 @@ define internal fastcc i32 @__tcp_transmit_skb(ptr noundef %0, ptr noundef %1, i
   %221 = trunc nuw i32 %220 to i16
   %222 = tail call i16 @llvm.bswap.i16(i16 %221)
   %223 = getelementptr i8, ptr %205, i64 12
-  store i16 %222, ptr %223, align 2
+  store i16 %222, ptr %223, align 4
   %224 = getelementptr inbounds nuw i8, ptr %205, i64 16
   store i16 0, ptr %224, align 4
   %225 = getelementptr inbounds nuw i8, ptr %205, i64 18
@@ -8895,7 +8895,7 @@ define internal fastcc i32 @__tcp_transmit_skb(ptr noundef %0, ptr noundef %1, i
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 1696
   %267 = load i32, ptr %266, align 32
   %268 = getelementptr inbounds nuw i8, ptr %0, i64 1216
-  %269 = load i8, ptr %268, align 8
+  %269 = load i8, ptr %268, align 32
   %270 = and i8 %269, 32
   %271 = icmp eq i8 %270, 0
   br i1 %271, label %272, label %342, !prof !27
@@ -9590,7 +9590,7 @@ define dso_local void @tcp_send_window_probe(ptr noundef %0) local_unnamed_addr 
   %36 = getelementptr inbounds nuw i8, ptr %18, i64 44
   store i32 %29, ptr %36, align 4
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %38 = load ptr, ptr %37, align 8
+  %38 = load ptr, ptr %37, align 16
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 432
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr i8, ptr %40, i64 872
@@ -9747,7 +9747,7 @@ define dso_local i32 @tcp_write_wakeup(ptr noundef %0, i32 noundef %1) local_unn
   %95 = getelementptr inbounds nuw i8, ptr %79, i64 44
   store i32 %88, ptr %95, align 4
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %97 = load ptr, ptr %96, align 8
+  %97 = load ptr, ptr %96, align 16
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 432
   %99 = load ptr, ptr %98, align 8
   %100 = sext i32 %1 to i64
@@ -9791,7 +9791,7 @@ define dso_local i32 @tcp_write_wakeup(ptr noundef %0, i32 noundef %1) local_unn
   %127 = getelementptr inbounds nuw i8, ptr %110, i64 44
   store i32 %120, ptr %127, align 4
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %129 = load ptr, ptr %128, align 8
+  %129 = load ptr, ptr %128, align 16
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 432
   %131 = load ptr, ptr %130, align 8
   %132 = sext i32 %1 to i64
@@ -10838,7 +10838,7 @@ define internal fastcc range(i32 4, 41) i32 @tcp_syn_options(ptr noundef %0, ptr
   %88 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %87, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 1704
-  %90 = load i32, ptr %89, align 4
+  %90 = load i32, ptr %89, align 8
   %91 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %90, ptr %91, align 4
   br label %92

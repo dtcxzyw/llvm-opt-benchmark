@@ -1031,7 +1031,7 @@ define dso_local noundef zeroext i1 @AdjustNotNullInheritance(i32 noundef %0, i1
   %26 = tail call { i16, i1 } @llvm.sadd.with.overflow.i16(i16 %25, i16 1)
   %27 = extractvalue { i16, i1 } %26, 1
   %28 = extractvalue { i16, i1 } %26, 0
-  store i16 %28, ptr %24, align 2
+  store i16 %28, ptr %24, align 4
   br i1 %27, label %29, label %38
 
 29:                                               ; preds = %23
@@ -1692,7 +1692,7 @@ define dso_local void @ConstraintSetParentConstraint(i32 noundef %0, i32 noundef
   %29 = tail call { i16, i1 } @llvm.sadd.with.overflow.i16(i16 %28, i16 1)
   %30 = extractvalue { i16, i1 } %29, 1
   %31 = extractvalue { i16, i1 } %29, 0
-  store i16 %31, ptr %27, align 2
+  store i16 %31, ptr %27, align 4
   br i1 %30, label %32, label %36
 
 32:                                               ; preds = %25

@@ -1525,11 +1525,11 @@ define dso_local void @vlv_enable_pll(ptr noundef readonly captures(none) %0) lo
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 884
   %33 = load i32, ptr %32, align 4
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 888
-  %35 = load i32, ptr %34, align 4
+  %35 = load i32, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 892
   %37 = load i32, ptr %36, align 4
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  %39 = load i32, ptr %38, align 4
+  %39 = load i32, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 900
   %41 = load i32, ptr %40, align 4
   %42 = icmp eq i32 %31, 1
@@ -1745,7 +1745,7 @@ define dso_local void @chv_enable_pll(ptr noundef readonly captures(none) %0) lo
   %35 = and i32 %34, 4194303
   %36 = ashr i32 %34, 22
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  %38 = load i32, ptr %37, align 4
+  %38 = load i32, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 900
   %40 = load i32, ptr %39, align 4
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 908
@@ -2612,7 +2612,7 @@ define internal i32 @ilk_crtc_compute_clock(ptr noundef %0, ptr noundef %1) #1 a
   %156 = icmp eq i64 %155, 0
   %157 = select i1 %156, i32 %149, i32 %145
   %158 = select i1 %154, i32 %157, i32 %149
-  %159 = load i32, ptr %61, align 4
+  %159 = load i32, ptr %61, align 8
   %160 = add i32 %159, -1
   %161 = shl i32 65537, %160
   %162 = or i32 %158, %161

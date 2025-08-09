@@ -15784,7 +15784,7 @@ _ZNSt10_HashtableIjSt4pairIKjN4llvm3rdf13DataFlowGraph8DefStackEESaIS6_ENSt8__de
   %.02530.i = phi i64 [ %.1.i294, %811 ], [ 0, %_ZNSt10_HashtableIjSt4pairIKjN4llvm3rdf13DataFlowGraph8DefStackEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i ]
   %796 = load ptr, ptr %.031.i, align 8, !tbaa !710
   %797 = getelementptr inbounds nuw i8, ptr %.031.i, i64 8
-  %798 = load i32, ptr %797, align 4, !tbaa !11
+  %798 = load i32, ptr %797, align 8, !tbaa !11
   %799 = zext i32 %798 to i64
   %800 = urem i64 %799, %784
   %801 = getelementptr inbounds nuw ptr, ptr %.0.i.i292, i64 %800
@@ -22437,7 +22437,7 @@ _ZNSt10_HashtableIjSt4pairIKjN4llvm3rdf13DataFlowGraph8DefStackEESaIS6_ENSt8__de
   %.02530 = phi i64 [ %.1, %31 ], [ 0, %_ZNSt10_HashtableIjSt4pairIKjN4llvm3rdf13DataFlowGraph8DefStackEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %16 = load ptr, ptr %.031, align 8, !tbaa !710
   %17 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %18 = load i32, ptr %17, align 4, !tbaa !11
+  %18 = load i32, ptr %17, align 8, !tbaa !11
   %19 = zext i32 %18 to i64
   %20 = urem i64 %19, %1
   %21 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %20

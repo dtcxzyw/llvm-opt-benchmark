@@ -880,7 +880,7 @@ vaapi_vpp_frame_is_rgb.exit74.i:                  ; preds = %128
   %.sroa.44.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 135
   store i8 %155, ptr %.sroa.44.0..sroa_idx.i, align 1, !tbaa !117
   %.sroa.55.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 136
-  store i8 %157, ptr %.sroa.55.0..sroa_idx.i, align 4, !tbaa !117
+  store i8 %157, ptr %.sroa.55.0..sroa_idx.i, align 8, !tbaa !117
   %.sroa.66.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 137
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.66.0..sroa_idx.i, i8 0, i64 3, i1 false)
   %158 = getelementptr inbounds nuw i8, ptr %1, i64 140
@@ -900,7 +900,7 @@ vaapi_vpp_frame_is_rgb.exit74.i:                  ; preds = %128
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 143
   store i8 %164, ptr %.sroa.4.0..sroa_idx.i, align 1, !tbaa !117
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 144
-  store i8 %166, ptr %.sroa.5.0..sroa_idx.i, align 4, !tbaa !117
+  store i8 %166, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !117
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 145
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6.0..sroa_idx.i, i8 0, i64 3, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

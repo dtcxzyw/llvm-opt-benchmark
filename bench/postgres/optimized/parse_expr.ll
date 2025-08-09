@@ -1902,7 +1902,7 @@ define internal fastcc ptr @transformAExprNullIf(ptr noundef %0, ptr noundef non
   %38 = load ptr, ptr %.val, align 8
   %39 = tail call i32 @exprType(ptr noundef %38) #9
   store i32 %39, ptr %16, align 4
-  store i32 19, ptr %15, align 4
+  store i32 19, ptr %15, align 8
   ret ptr %15
 }
 

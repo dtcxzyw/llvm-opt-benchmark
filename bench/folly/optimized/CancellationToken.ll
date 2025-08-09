@@ -715,7 +715,7 @@ _ZN5folly20CancellationCallback14invokeCallbackEv.exit: ; preds = %44
 56:                                               ; preds = %_ZN5folly20CancellationCallback14invokeCallbackEv.exit
   store ptr null, ptr %47, align 16, !tbaa !45
   %57 = getelementptr inbounds nuw i8, ptr %40, i64 104
-  store atomic i8 1, ptr %57 release, align 1
+  store atomic i8 1, ptr %57 release, align 8
   br label %58
 
 58:                                               ; preds = %56, %_ZN5folly20CancellationCallback14invokeCallbackEv.exit
@@ -943,7 +943,7 @@ define void @_ZN5folly6detail24MergingCancellationStateC2ENS1_7CopyTagEmPPKNS_17
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store ptr null, ptr %15, align 16, !tbaa !45
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 104
-  store i8 0, ptr %16, align 1, !tbaa !57
+  store i8 0, ptr %16, align 8, !tbaa !57
   %17 = load ptr, ptr %10, align 8, !tbaa !58
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %"_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_7CopyTagEmPPKNS_17CancellationTokenEE3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEERS6_OSE_.exit", label %18
@@ -1064,7 +1064,7 @@ define void @_ZN5folly6detail24MergingCancellationStateC2ENS1_7MoveTagEmPPNS_17C
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store ptr null, ptr %15, align 16, !tbaa !45
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 104
-  store i8 0, ptr %16, align 1, !tbaa !57
+  store i8 0, ptr %16, align 8, !tbaa !57
   %17 = load ptr, ptr %10, align 8, !tbaa !58
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %"_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_7MoveTagEmPPNS_17CancellationTokenEE3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEEOS5_OSD_.exit", label %18
@@ -1124,7 +1124,7 @@ define void @_ZN5folly6detail24MergingCancellationStateC2ENS1_11CopyMoveTagEmPPK
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 96
   store ptr null, ptr %17, align 16, !tbaa !45
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 104
-  store i8 0, ptr %18, align 1, !tbaa !57
+  store i8 0, ptr %18, align 8, !tbaa !57
   %19 = load ptr, ptr %12, align 8, !tbaa !58
   %.not.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i, label %"_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_7CopyTagEmPPKNS_17CancellationTokenEE3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEERS6_OSE_.exit.i", label %20
@@ -1170,7 +1170,7 @@ _ZN5folly6detail24MergingCancellationStateC2ENS1_7CopyTagEmPPKNS_17CancellationT
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 96
   store ptr null, ptr %35, align 16, !tbaa !45
   %36 = getelementptr inbounds nuw i8, ptr %28, i64 104
-  store i8 0, ptr %36, align 1, !tbaa !57
+  store i8 0, ptr %36, align 8, !tbaa !57
   %37 = load ptr, ptr %30, align 8, !tbaa !58
   %.not.i7 = icmp eq ptr %37, null
   br i1 %.not.i7, label %"_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_11CopyMoveTagEmPPKNS_17CancellationTokenEmPPS5_E3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEEOS5_OSG_.exit", label %38

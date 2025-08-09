@@ -1680,7 +1680,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11: ; preds = %_ZN3tb
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNISt5_BindIFPFvmmPSt6vectorIiSaIiEEESt12_PlaceholderILi1EESE_ILi2EESB_EEEEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEEE, i64 16), ptr %30, align 64
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 64
   %33 = load i64, ptr %23, align 64
-  store i64 %33, ptr %32, align 8
+  store i64 %33, ptr %32, align 64
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 72
   %35 = load i64, ptr %24, align 8
   %36 = sub i64 %33, %35
@@ -1690,7 +1690,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11: ; preds = %_ZN3tb
   store i64 %38, ptr %34, align 8
   %39 = getelementptr inbounds nuw i8, ptr %30, i64 80
   %40 = load i64, ptr %25, align 16
-  store i64 %40, ptr %39, align 8
+  store i64 %40, ptr %39, align 16
   %41 = getelementptr inbounds nuw i8, ptr %30, i64 88
   %42 = load i64, ptr %26, align 8
   store i64 %42, ptr %41, align 8
@@ -1700,7 +1700,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11: ; preds = %_ZN3tb
   store i64 %45, ptr %27, align 8
   store i64 %45, ptr %43, align 8
   %46 = getelementptr inbounds nuw i8, ptr %30, i64 112
-  store i32 2, ptr %46, align 8
+  store i32 2, ptr %46, align 16
   %47 = getelementptr inbounds nuw i8, ptr %30, i64 116
   %48 = load i8, ptr %28, align 4
   store i8 %48, ptr %47, align 4
@@ -1711,12 +1711,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11: ; preds = %_ZN3tb
   %52 = load ptr, ptr %29, align 32
   store ptr %52, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store i32 2, ptr %53, align 4
+  store i32 2, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %55 = load i64, ptr %5, align 8
   store i64 %55, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  store i8 0, ptr %56, align 1
+  store i8 0, ptr %56, align 8
   store ptr %51, ptr %29, align 32
   %57 = getelementptr inbounds nuw i8, ptr %30, i64 96
   store ptr %51, ptr %57, align 32
@@ -1922,7 +1922,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   store i64 %90, ptr %30, align 8
   store i64 %90, ptr %88, align 8
   %91 = getelementptr inbounds nuw i8, ptr %82, i64 112
-  store i32 2, ptr %91, align 8
+  store i32 2, ptr %91, align 16
   %92 = getelementptr inbounds nuw i8, ptr %82, i64 116
   %93 = load i8, ptr %31, align 4
   %94 = getelementptr inbounds nuw i8, ptr %82, i64 120
@@ -1934,12 +1934,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %98 = load ptr, ptr %28, align 32
   store ptr %98, ptr %97, align 8
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  store i32 2, ptr %99, align 4
+  store i32 2, ptr %99, align 8
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %101 = load i64, ptr %5, align 8
   store i64 %101, ptr %100, align 8
   %102 = getelementptr inbounds nuw i8, ptr %97, i64 24
-  store i8 0, ptr %102, align 1
+  store i8 0, ptr %102, align 8
   store ptr %97, ptr %28, align 32
   %103 = getelementptr inbounds nuw i8, ptr %82, i64 96
   store ptr %97, ptr %103, align 32
@@ -2075,14 +2075,14 @@ define linkonce_odr dso_local noundef ptr @_ZN3tbb6detail2d218for_each_root_task
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 88
   store ptr %.sroa.02.0.copyload, ptr %19, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 96
-  store ptr %8, ptr %.sroa.2.0..sroa_idx, align 8
+  store ptr %8, ptr %.sroa.2.0..sroa_idx, align 32
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 104
   store ptr null, ptr %.sroa.3.0..sroa_idx, align 8
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 120
   %21 = call noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 128
-  store i32 0, ptr %23, align 8
+  store i32 0, ptr %23, align 64
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 132
   store i8 5, ptr %24, align 4
   %25 = shl nsw i64 %22, 1
@@ -2365,7 +2365,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11: ; preds = %_ZN3tb
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPSt6vectorIiSaIiEES9_ISB_SaISB_EEEEFvRSB_ESB_EEKNS1_16auto_partitionerEEE, i64 16), ptr %30, align 64
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 64
   %33 = load i64, ptr %23, align 64
-  store i64 %33, ptr %32, align 8
+  store i64 %33, ptr %32, align 64
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 72
   %35 = load i64, ptr %24, align 8
   %36 = sub i64 %33, %35
@@ -2375,7 +2375,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11: ; preds = %_ZN3tb
   store i64 %38, ptr %34, align 8
   %39 = getelementptr inbounds nuw i8, ptr %30, i64 80
   %40 = load i64, ptr %25, align 16
-  store i64 %40, ptr %39, align 8
+  store i64 %40, ptr %39, align 16
   %41 = getelementptr inbounds nuw i8, ptr %30, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
   %42 = getelementptr inbounds nuw i8, ptr %30, i64 120
@@ -2384,7 +2384,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11: ; preds = %_ZN3tb
   store i64 %44, ptr %27, align 8
   store i64 %44, ptr %42, align 8
   %45 = getelementptr inbounds nuw i8, ptr %30, i64 128
-  store i32 2, ptr %45, align 8
+  store i32 2, ptr %45, align 64
   %46 = getelementptr inbounds nuw i8, ptr %30, i64 132
   %47 = load i8, ptr %28, align 4
   store i8 %47, ptr %46, align 4
@@ -2395,12 +2395,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11: ; preds = %_ZN3tb
   %51 = load ptr, ptr %29, align 16
   store ptr %51, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store i32 2, ptr %52, align 4
+  store i32 2, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %54 = load i64, ptr %5, align 8
   store i64 %54, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  store i8 0, ptr %55, align 1
+  store i8 0, ptr %55, align 8
   store ptr %50, ptr %29, align 16
   %56 = getelementptr inbounds nuw i8, ptr %30, i64 112
   store ptr %50, ptr %56, align 16
@@ -2614,7 +2614,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   store i64 %92, ptr %33, align 8
   store i64 %92, ptr %90, align 8
   %93 = getelementptr inbounds nuw i8, ptr %85, i64 128
-  store i32 2, ptr %93, align 8
+  store i32 2, ptr %93, align 64
   %94 = getelementptr inbounds nuw i8, ptr %85, i64 132
   %95 = load i8, ptr %34, align 4
   %96 = getelementptr inbounds nuw i8, ptr %85, i64 136
@@ -2626,12 +2626,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %100 = load ptr, ptr %30, align 16
   store ptr %100, ptr %99, align 8
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  store i32 2, ptr %101, align 4
+  store i32 2, ptr %101, align 8
   %102 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %103 = load i64, ptr %5, align 8
   store i64 %103, ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %99, i64 24
-  store i8 0, ptr %104, align 1
+  store i8 0, ptr %104, align 8
   store ptr %99, ptr %30, align 16
   %105 = getelementptr inbounds nuw i8, ptr %85, i64 112
   store ptr %99, ptr %105, align 16
@@ -2825,7 +2825,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIRZ16_DoSignatureTestvE1FEEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64
-  store i64 %54, ptr %53, align 8
+  store i64 %54, ptr %53, align 64
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8
   %57 = sub i64 %54, %56
@@ -2835,7 +2835,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16
-  store i64 %61, ptr %60, align 8
+  store i64 %61, ptr %60, align 16
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   %63 = load i64, ptr %49, align 8
   store i64 %63, ptr %62, align 8
@@ -2845,7 +2845,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %66, ptr %13, align 8
   store i64 %66, ptr %64, align 8
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 112
-  store i32 2, ptr %67, align 8
+  store i32 2, ptr %67, align 16
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 116
   %69 = load i8, ptr %48, align 4
   store i8 %69, ptr %68, align 4
@@ -2856,12 +2856,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 32
   store ptr %73, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4
+  store i32 2, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8
   store i64 %76, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1
+  store i8 0, ptr %77, align 8
   store ptr %72, ptr %50, align 32
   %78 = getelementptr inbounds nuw i8, ptr %51, i64 96
   store ptr %72, ptr %78, align 32
@@ -3039,7 +3039,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   store i64 %162, ptr %13, align 8
   store i64 %162, ptr %160, align 8
   %163 = getelementptr inbounds nuw i8, ptr %154, i64 112
-  store i32 2, ptr %163, align 8
+  store i32 2, ptr %163, align 16
   %164 = getelementptr inbounds nuw i8, ptr %154, i64 116
   %165 = load i8, ptr %95, align 4
   %166 = getelementptr inbounds nuw i8, ptr %154, i64 120
@@ -3051,12 +3051,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %170 = load ptr, ptr %102, align 32
   store ptr %170, ptr %169, align 8
   %171 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  store i32 2, ptr %171, align 4
+  store i32 2, ptr %171, align 8
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %173 = load i64, ptr %3, align 8
   store i64 %173, ptr %172, align 8
   %174 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  store i8 0, ptr %174, align 1
+  store i8 0, ptr %174, align 8
   store ptr %169, ptr %102, align 32
   %175 = getelementptr inbounds nuw i8, ptr %154, i64 96
   store ptr %169, ptr %175, align 32
@@ -3327,7 +3327,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZ16_DoSignatureTestvE1FEEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64
-  store i64 %54, ptr %53, align 8
+  store i64 %54, ptr %53, align 64
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8
   %57 = sub i64 %54, %56
@@ -3337,7 +3337,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16
-  store i64 %61, ptr %60, align 8
+  store i64 %61, ptr %60, align 16
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   %63 = load i64, ptr %49, align 8
   store i64 %63, ptr %62, align 8
@@ -3347,7 +3347,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %66, ptr %13, align 8
   store i64 %66, ptr %64, align 8
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 112
-  store i32 2, ptr %67, align 8
+  store i32 2, ptr %67, align 16
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 116
   %69 = load i8, ptr %48, align 4
   store i8 %69, ptr %68, align 4
@@ -3358,12 +3358,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 32
   store ptr %73, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4
+  store i32 2, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8
   store i64 %76, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1
+  store i8 0, ptr %77, align 8
   store ptr %72, ptr %50, align 32
   %78 = getelementptr inbounds nuw i8, ptr %51, i64 96
   store ptr %72, ptr %78, align 32
@@ -3541,7 +3541,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   store i64 %162, ptr %13, align 8
   store i64 %162, ptr %160, align 8
   %163 = getelementptr inbounds nuw i8, ptr %154, i64 112
-  store i32 2, ptr %163, align 8
+  store i32 2, ptr %163, align 16
   %164 = getelementptr inbounds nuw i8, ptr %154, i64 116
   %165 = load i8, ptr %95, align 4
   %166 = getelementptr inbounds nuw i8, ptr %154, i64 120
@@ -3553,12 +3553,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %170 = load ptr, ptr %102, align 32
   store ptr %170, ptr %169, align 8
   %171 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  store i32 2, ptr %171, align 4
+  store i32 2, ptr %171, align 8
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %173 = load i64, ptr %3, align 8
   store i64 %173, ptr %172, align 8
   %174 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  store i8 0, ptr %174, align 1
+  store i8 0, ptr %174, align 8
   store ptr %169, ptr %102, align 32
   %175 = getelementptr inbounds nuw i8, ptr %154, i64 96
   store ptr %169, ptr %175, align 32

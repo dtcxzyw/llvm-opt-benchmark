@@ -131,7 +131,7 @@ get_layer_opa.exit:                               ; preds = %6, %9
   %76 = ptrtoint ptr %75 to i64
   %77 = trunc i64 %76 to i8
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store i8 %77, ptr %78, align 1, !tbaa !31
+  store i8 %77, ptr %78, align 8, !tbaa !31
   br label %79
 
 79:                                               ; preds = %41, %54, %44, %26, %20

@@ -7054,7 +7054,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase7GetPrimEv.exit: ; preds = 
   store i32 0, ptr %136, align 4
   %329 = getelementptr inbounds nuw i8, ptr %323, i64 8
   %330 = load i32, ptr %137, align 8
-  store i32 %330, ptr %329, align 4
+  store i32 %330, ptr %329, align 8
   store i32 0, ptr %137, align 8
   %331 = getelementptr inbounds nuw i8, ptr %323, i64 12
   %332 = load i32, ptr %138, align 4
@@ -7062,7 +7062,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase7GetPrimEv.exit: ; preds = 
   store i32 0, ptr %138, align 4
   %333 = getelementptr inbounds nuw i8, ptr %323, i64 16
   %334 = load i32, ptr %142, align 8
-  store i32 %334, ptr %333, align 4
+  store i32 %334, ptr %333, align 8
   store i32 0, ptr %142, align 8
   %335 = getelementptr inbounds nuw i8, ptr %323, i64 24
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEC1EOS1_(ptr noundef nonnull align 8 dereferenceable(40) %335, ptr noundef nonnull align 8 dereferenceable(40) %139)
@@ -15478,7 +15478,7 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdGeomSubsetESaIS1_EE12_M_che
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %28 = load i32, ptr %27, align 8
-  store i32 %28, ptr %26, align 4
+  store i32 %28, ptr %26, align 8
   store i32 0, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -15488,7 +15488,7 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdGeomSubsetESaIS1_EE12_M_che
   %32 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %34 = load i32, ptr %33, align 8
-  store i32 %34, ptr %32, align 4
+  store i32 %34, ptr %32, align 8
   store i32 0, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 24

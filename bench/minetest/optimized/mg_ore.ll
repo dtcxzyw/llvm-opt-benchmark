@@ -676,7 +676,7 @@ entry:
   store ptr %0, ptr %name.i.i.i, align 8, !tbaa !59
   %_M_string_length.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !60
-  store i8 0, ptr %0, align 1, !tbaa !61
+  store i8 0, ptr %0, align 8, !tbaa !61
   %1 = getelementptr inbounds nuw i8, ptr %call, i64 56
   invoke void @_ZN12NodeResolverC2Ev(ptr noundef nonnull align 8 dereferenceable(73) %1)
           to label %invoke.cont unwind label %lpad.i.i
@@ -707,13 +707,13 @@ invoke.cont:                                      ; preds = %entry
   %flags.i.i = getelementptr inbounds nuw i8, ptr %call, i64 176
   store i32 0, ptr %flags.i.i, align 8, !tbaa !67
   %np.i.i = getelementptr inbounds nuw i8, ptr %call, i64 184
-  store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 2.500000e+02, float 2.500000e+02>, ptr %np.i.i, align 4, !tbaa !70
+  store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 2.500000e+02, float 2.500000e+02>, ptr %np.i.i, align 8, !tbaa !70
   %Z.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 200
-  store float 2.500000e+02, ptr %Z.i.i.i.i, align 4, !tbaa !78
+  store float 2.500000e+02, ptr %Z.i.i.i.i, align 8, !tbaa !78
   %seed.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 204
   store i32 12345, ptr %seed.i.i.i, align 4, !tbaa !79
   %octaves.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 208
-  store i16 3, ptr %octaves.i.i.i, align 4, !tbaa !80
+  store i16 3, ptr %octaves.i.i.i, align 8, !tbaa !80
   %persist.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 212
   store <2 x float> <float 0x3FE3333340000000, float 2.000000e+00>, ptr %persist.i.i.i, align 4, !tbaa !70
   %flags.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 220
@@ -1119,7 +1119,7 @@ entry:
   store ptr %0, ptr %name.i.i.i, align 8, !tbaa !59
   %_M_string_length.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !60
-  store i8 0, ptr %0, align 1, !tbaa !61
+  store i8 0, ptr %0, align 8, !tbaa !61
   %1 = getelementptr inbounds nuw i8, ptr %call, i64 56
   invoke void @_ZN12NodeResolverC2Ev(ptr noundef nonnull align 8 dereferenceable(73) %1)
           to label %invoke.cont unwind label %lpad.i.i
@@ -1150,13 +1150,13 @@ invoke.cont:                                      ; preds = %entry
   %flags.i.i = getelementptr inbounds nuw i8, ptr %call, i64 176
   store i32 0, ptr %flags.i.i, align 8, !tbaa !67
   %np.i.i = getelementptr inbounds nuw i8, ptr %call, i64 184
-  store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 2.500000e+02, float 2.500000e+02>, ptr %np.i.i, align 4, !tbaa !70
+  store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 2.500000e+02, float 2.500000e+02>, ptr %np.i.i, align 8, !tbaa !70
   %Z.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 200
-  store float 2.500000e+02, ptr %Z.i.i.i.i, align 4, !tbaa !78
+  store float 2.500000e+02, ptr %Z.i.i.i.i, align 8, !tbaa !78
   %seed.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 204
   store i32 12345, ptr %seed.i.i.i, align 4, !tbaa !79
   %octaves.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 208
-  store i16 3, ptr %octaves.i.i.i, align 4, !tbaa !80
+  store i16 3, ptr %octaves.i.i.i, align 8, !tbaa !80
   %persist.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 212
   store <2 x float> <float 0x3FE3333340000000, float 2.000000e+00>, ptr %persist.i.i.i, align 4, !tbaa !70
   %flags.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 220
@@ -2333,7 +2333,7 @@ entry:
   store ptr %0, ptr %name.i.i.i, align 8, !tbaa !59
   %_M_string_length.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !60
-  store i8 0, ptr %0, align 1, !tbaa !61
+  store i8 0, ptr %0, align 8, !tbaa !61
   %1 = getelementptr inbounds nuw i8, ptr %call, i64 56
   invoke void @_ZN12NodeResolverC2Ev(ptr noundef nonnull align 8 dereferenceable(73) %1)
           to label %invoke.cont unwind label %lpad.i.i
@@ -2364,13 +2364,13 @@ invoke.cont:                                      ; preds = %entry
   %flags.i.i = getelementptr inbounds nuw i8, ptr %call, i64 176
   store i32 0, ptr %flags.i.i, align 8, !tbaa !67
   %np.i.i = getelementptr inbounds nuw i8, ptr %call, i64 184
-  store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 2.500000e+02, float 2.500000e+02>, ptr %np.i.i, align 4, !tbaa !70
+  store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 2.500000e+02, float 2.500000e+02>, ptr %np.i.i, align 8, !tbaa !70
   %Z.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 200
-  store float 2.500000e+02, ptr %Z.i.i.i.i, align 4, !tbaa !78
+  store float 2.500000e+02, ptr %Z.i.i.i.i, align 8, !tbaa !78
   %seed.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 204
   store i32 12345, ptr %seed.i.i.i, align 4, !tbaa !79
   %octaves.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 208
-  store i16 3, ptr %octaves.i.i.i, align 4, !tbaa !80
+  store i16 3, ptr %octaves.i.i.i, align 8, !tbaa !80
   %persist.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 212
   store <2 x float> <float 0x3FE3333340000000, float 2.000000e+00>, ptr %persist.i.i.i, align 4, !tbaa !70
   %flags.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 220
@@ -2915,7 +2915,7 @@ entry:
   store ptr %0, ptr %name.i.i.i, align 8, !tbaa !59
   %_M_string_length.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !60
-  store i8 0, ptr %0, align 1, !tbaa !61
+  store i8 0, ptr %0, align 8, !tbaa !61
   %1 = getelementptr inbounds nuw i8, ptr %call, i64 56
   invoke void @_ZN12NodeResolverC2Ev(ptr noundef nonnull align 8 dereferenceable(73) %1)
           to label %invoke.cont unwind label %lpad.i.i
@@ -2946,13 +2946,13 @@ invoke.cont:                                      ; preds = %entry
   %flags.i.i = getelementptr inbounds nuw i8, ptr %call, i64 176
   store i32 0, ptr %flags.i.i, align 8, !tbaa !67
   %np.i.i = getelementptr inbounds nuw i8, ptr %call, i64 184
-  store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 2.500000e+02, float 2.500000e+02>, ptr %np.i.i, align 4, !tbaa !70
+  store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 2.500000e+02, float 2.500000e+02>, ptr %np.i.i, align 8, !tbaa !70
   %Z.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 200
-  store float 2.500000e+02, ptr %Z.i.i.i.i, align 4, !tbaa !78
+  store float 2.500000e+02, ptr %Z.i.i.i.i, align 8, !tbaa !78
   %seed.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 204
   store i32 12345, ptr %seed.i.i.i, align 4, !tbaa !79
   %octaves.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 208
-  store i16 3, ptr %octaves.i.i.i, align 4, !tbaa !80
+  store i16 3, ptr %octaves.i.i.i, align 8, !tbaa !80
   %persist.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 212
   store <2 x float> <float 0x3FE3333340000000, float 2.000000e+00>, ptr %persist.i.i.i, align 4, !tbaa !70
   %flags.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 220
@@ -3545,7 +3545,7 @@ entry:
   store ptr %0, ptr %name.i.i.i, align 8, !tbaa !59
   %_M_string_length.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !60
-  store i8 0, ptr %0, align 1, !tbaa !61
+  store i8 0, ptr %0, align 8, !tbaa !61
   %1 = getelementptr inbounds nuw i8, ptr %call, i64 56
   invoke void @_ZN12NodeResolverC2Ev(ptr noundef nonnull align 8 dereferenceable(73) %1)
           to label %invoke.cont unwind label %lpad.i.i
@@ -3576,13 +3576,13 @@ invoke.cont:                                      ; preds = %entry
   %flags.i.i = getelementptr inbounds nuw i8, ptr %call, i64 176
   store i32 0, ptr %flags.i.i, align 8, !tbaa !67
   %np.i.i = getelementptr inbounds nuw i8, ptr %call, i64 184
-  store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 2.500000e+02, float 2.500000e+02>, ptr %np.i.i, align 4, !tbaa !70
+  store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 2.500000e+02, float 2.500000e+02>, ptr %np.i.i, align 8, !tbaa !70
   %Z.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 200
-  store float 2.500000e+02, ptr %Z.i.i.i.i, align 4, !tbaa !78
+  store float 2.500000e+02, ptr %Z.i.i.i.i, align 8, !tbaa !78
   %seed.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 204
   store i32 12345, ptr %seed.i.i.i, align 4, !tbaa !79
   %octaves.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 208
-  store i16 3, ptr %octaves.i.i.i, align 4, !tbaa !80
+  store i16 3, ptr %octaves.i.i.i, align 8, !tbaa !80
   %persist.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 212
   store <2 x float> <float 0x3FE3333340000000, float 2.000000e+00>, ptr %persist.i.i.i, align 4, !tbaa !70
   %flags.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 220
@@ -3603,13 +3603,13 @@ invoke.cont:                                      ; preds = %entry
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10OreStratum, i64 16), ptr %call, align 8, !tbaa !4
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10OreStratum, i64 72), ptr %1, align 8, !tbaa !4
   %np_stratum_thickness.i = getelementptr inbounds nuw i8, ptr %call, i64 288
-  store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 2.500000e+02, float 2.500000e+02>, ptr %np_stratum_thickness.i, align 4, !tbaa !70
+  store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 2.500000e+02, float 2.500000e+02>, ptr %np_stratum_thickness.i, align 8, !tbaa !70
   %Z.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 304
-  store float 2.500000e+02, ptr %Z.i.i.i, align 4, !tbaa !78
+  store float 2.500000e+02, ptr %Z.i.i.i, align 8, !tbaa !78
   %seed.i.i = getelementptr inbounds nuw i8, ptr %call, i64 308
   store i32 12345, ptr %seed.i.i, align 4, !tbaa !79
   %octaves.i.i = getelementptr inbounds nuw i8, ptr %call, i64 312
-  store i16 3, ptr %octaves.i.i, align 4, !tbaa !80
+  store i16 3, ptr %octaves.i.i, align 8, !tbaa !80
   %persist.i.i = getelementptr inbounds nuw i8, ptr %call, i64 316
   store <2 x float> <float 0x3FE3333340000000, float 2.000000e+00>, ptr %persist.i.i, align 4, !tbaa !70
   %flags.i3.i = getelementptr inbounds nuw i8, ptr %call, i64 324
@@ -4609,7 +4609,7 @@ invoke.cont13:                                    ; preds = %if.end.i63, %if.the
   store ptr null, ptr %call5.i.i.i.sink16.i, align 8, !tbaa !85
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.sink16.i, i64 8
   %6 = load i16, ptr %add.ptr, align 2, !tbaa !65
-  store i16 %6, ptr %add.ptr.i.i, align 2, !tbaa !65
+  store i16 %6, ptr %add.ptr.i.i, align 8, !tbaa !65
   %_M_before_begin.i65 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i.sink16.i, ptr %_M_before_begin.i65, align 8, !tbaa !138
   %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -4644,7 +4644,7 @@ invoke.cont20:                                    ; preds = %if.end.i71, %if.the
   store ptr null, ptr %call5.i.i.i.sink16.i69, align 8, !tbaa !85
   %add.ptr.i.i70 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.sink16.i69, i64 8
   %10 = load i16, ptr %add.ptr16, align 2, !tbaa !65
-  store i16 %10, ptr %add.ptr.i.i70, align 2, !tbaa !65
+  store i16 %10, ptr %add.ptr.i.i70, align 8, !tbaa !65
   store ptr %call5.i.i.i.sink16.i69, ptr %__prev_n.077, align 8, !tbaa !85
   %conv.i.i.i.i = zext i16 %10 to i64
   %rem.i.i.i = urem i64 %conv.i.i.i.i, %7

@@ -386,7 +386,7 @@ _ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit: ; preds = %_ZNK4base25P
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 32
   %98 = load atomic volatile i32, ptr %97 monotonic, align 4
   %99 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  %100 = load i32, ptr %99, align 4, !tbaa !27
+  %100 = load i32, ptr %99, align 8, !tbaa !27
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %100, i32 %98)
   %101 = udiv i32 %.sroa.speculated, 24
   %102 = icmp ugt i32 %6, %101
@@ -820,7 +820,7 @@ _ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit75: ; preds = %_ZNVSt13__
   %127 = getelementptr inbounds nuw i8, ptr %121, i64 16
   store i64 %4, ptr %127, align 8, !tbaa !39
   %128 = getelementptr inbounds nuw i8, ptr %121, i64 32
-  store atomic volatile i32 56, ptr %128 release, align 4
+  store atomic volatile i32 56, ptr %128 release, align 8
   %129 = load ptr, ptr %14, align 8, !tbaa !20
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 40
   store volatile i32 16, ptr %130, align 8, !tbaa !43

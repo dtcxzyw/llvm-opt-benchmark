@@ -2160,9 +2160,9 @@ lean_alloc_ctor.exit:                             ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 0, ptr %12, align 8, !tbaa !12
-  store i32 1, ptr %8, align 4, !tbaa !8
+  store i32 1, ptr %8, align 8, !tbaa !8
   store i32 16777232, ptr %11, align 4
-  store i8 %0, ptr %12, align 1, !tbaa !16
+  store i8 %0, ptr %12, align 8, !tbaa !16
   %13 = icmp eq i8 %0, 0
   %14 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_ReifiedBVLogical_mkBoolConst___closed__4, align 8, !tbaa !4
   br i1 %13, label %15, label %29
@@ -5387,13 +5387,13 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit113
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store i64 0, ptr %39, align 8, !tbaa !12
-  store i32 1, ptr %35, align 4, !tbaa !8
+  store i32 1, ptr %35, align 8, !tbaa !8
   store i32 50462752, ptr %38, align 4
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %16, ptr %40, align 8, !tbaa !4
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr %26, ptr %41, align 8, !tbaa !4
-  store i8 %4, ptr %39, align 1, !tbaa !16
+  store i8 %4, ptr %39, align 8, !tbaa !16
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %43 = load ptr, ptr %42, align 8, !tbaa !4
   %44 = ptrtoint ptr %43 to i64

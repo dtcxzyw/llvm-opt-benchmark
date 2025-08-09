@@ -71729,7 +71729,7 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZNSt
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %.pre, ptr %31, align 8, !tbaa !29
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  store i32 0, ptr %32, align 4, !tbaa !2041
+  store i32 0, ptr %32, align 8, !tbaa !2041
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 20
   store i32 0, ptr %33, align 4, !tbaa !2039
   %34 = invoke ptr @_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_NS1_6theory2bv5CountEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSB_10_Hash_nodeIS9_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %6, i64 noundef %3, ptr noundef nonnull %30, i64 noundef 1)

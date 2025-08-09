@@ -239,7 +239,7 @@ define void @pmix_ptl_base_post_recv(i32 noundef %0, i16 noundef signext %1, ptr
   %.02852 = load ptr, ptr %.028.in51, align 8, !tbaa !49
   %34 = getelementptr inbounds nuw i8, ptr %.050, i64 284
   %35 = getelementptr inbounds nuw i8, ptr %.050, i64 288
-  %36 = load i32, ptr %35, align 4, !tbaa !56
+  %36 = load i32, ptr %35, align 8, !tbaa !56
   %37 = load i32, ptr %22, align 8, !tbaa !41
   %38 = icmp eq i32 %36, %37
   %39 = icmp eq i32 %37, -1

@@ -1227,7 +1227,7 @@ _ZN12_GLOBAL__N_129BlockInCriticalSectionCheckerC2Ev.exit.i: ; preds = %_ZN5clan
   %440 = getelementptr inbounds nuw i8, ptr %39, i64 1208
   store i64 14, ptr %440, align 8, !tbaa !41
   %441 = getelementptr inbounds nuw i8, ptr %39, i64 1230
-  store i8 0, ptr %441, align 1, !tbaa !10
+  store i8 0, ptr %441, align 2, !tbaa !10
   %442 = getelementptr inbounds nuw i8, ptr %39, i64 1232
   store ptr %39, ptr %442, align 8, !tbaa !50
   %443 = getelementptr inbounds nuw i8, ptr %39, i64 1240

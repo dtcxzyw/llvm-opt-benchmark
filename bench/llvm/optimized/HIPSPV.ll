@@ -2799,7 +2799,7 @@ _ZN4llvm11SmallVectorIcLj128EED2Ev.exit51:        ; preds = %.critedge, %365
   store ptr %380, ptr %.ptr.i.i.i.i, align 8, !tbaa !6
   %381 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
   store i64 0, ptr %381, align 8, !tbaa !14
-  store i8 0, ptr %380, align 1, !tbaa !3
+  store i8 0, ptr %380, align 8, !tbaa !3
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 32
   %382 = icmp eq i64 %.add.i.i.i.i, 416
   br i1 %382, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %379
@@ -4180,7 +4180,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llv
   store ptr %16, ptr %.ptr.i.i.i, align 8, !tbaa !6
   %17 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %17, align 8, !tbaa !14
-  store i8 0, ptr %16, align 1, !tbaa !3
+  store i8 0, ptr %16, align 8, !tbaa !3
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %18 = icmp eq i64 %.add.i.i.i, 416
   br i1 %18, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %15
@@ -4628,7 +4628,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %22, ptr %23, align 8, !tbaa !14
   store ptr %13, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !12
   store i64 0, ptr %21, align 8, !tbaa !14
-  store i8 0, ptr %13, align 1, !tbaa !3
+  store i8 0, ptr %13, align 8, !tbaa !3
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq ptr %24, %10
@@ -5039,7 +5039,7 @@ _ZSt10_ConstructIN5clang6driver9ToolChain18BitCodeLibraryInfoEJS3_EEvPT_DpOT0_.e
   store i64 %47, ptr %48, align 8, !tbaa !14
   store ptr %38, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !12
   store i64 0, ptr %46, align 8, !tbaa !14
-  store i8 0, ptr %38, align 1, !tbaa !3
+  store i8 0, ptr %38, align 8, !tbaa !3
   %49 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 32
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 32
   %51 = load i8, ptr %50, align 8, !tbaa !328, !range !160, !noundef !161
@@ -5602,7 +5602,7 @@ _ZSt10_ConstructIN5clang6driver9ToolChain18BitCodeLibraryInfoEJS3_EEvPT_DpOT0_.e
   store i64 %192, ptr %193, align 8, !tbaa !14
   store ptr %183, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !12
   store i64 0, ptr %191, align 8, !tbaa !14
-  store i8 0, ptr %183, align 1, !tbaa !3
+  store i8 0, ptr %183, align 8, !tbaa !3
   %194 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 32
   %195 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 32
   %196 = load i8, ptr %195, align 8, !tbaa !328, !range !160, !noundef !161
@@ -5709,7 +5709,7 @@ _ZSt10_ConstructIN5clang6driver9ToolChain18BitCodeLibraryInfoEJS3_EEvPT_DpOT0_.e
   store i64 %22, ptr %23, align 8, !tbaa !14
   store ptr %13, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !12
   store i64 0, ptr %21, align 8, !tbaa !14
-  store i8 0, ptr %13, align 1, !tbaa !3
+  store i8 0, ptr %13, align 8, !tbaa !3
   %24 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 32
   %26 = load i8, ptr %25, align 8, !tbaa !328, !range !160, !noundef !161

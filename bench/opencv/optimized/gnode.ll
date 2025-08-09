@@ -189,7 +189,7 @@ define hidden void @_ZN2cv5GNodeC2Ev(ptr noundef nonnull writeonly align 8 captu
   store ptr %5, ptr %4, align 8, !tbaa !15
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 0, ptr %6, align 8, !tbaa !16
-  store i8 0, ptr %5, align 1, !tbaa !17
+  store i8 0, ptr %5, align 8, !tbaa !17
   store ptr %2, ptr %0, align 8, !tbaa !26
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %7, align 8, !tbaa !23
@@ -320,7 +320,7 @@ _ZN2cv5GCallC2ERKS0_.exit:                        ; preds = %12
   store ptr %31, ptr %30, align 8, !tbaa !15
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 0, ptr %32, align 8, !tbaa !16
-  store i8 0, ptr %31, align 1, !tbaa !17
+  store i8 0, ptr %31, align 8, !tbaa !17
   store ptr %4, ptr %0, align 8, !tbaa !26
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %33, align 8, !tbaa !23
@@ -384,7 +384,7 @@ define hidden void @_ZN2cv5GNodeC2ENS0_8ParamTagE(ptr noundef nonnull writeonly 
   store ptr %5, ptr %4, align 8, !tbaa !15
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 0, ptr %6, align 8, !tbaa !16
-  store i8 0, ptr %5, align 1, !tbaa !17
+  store i8 0, ptr %5, align 8, !tbaa !17
   store ptr %2, ptr %0, align 8, !tbaa !26
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %7, align 8, !tbaa !23
@@ -443,7 +443,7 @@ define hidden void @_ZN2cv5GNodeC2ENS0_8ConstTagE(ptr noundef nonnull writeonly 
   store ptr %5, ptr %4, align 8, !tbaa !15
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 0, ptr %6, align 8, !tbaa !16
-  store i8 0, ptr %5, align 1, !tbaa !17
+  store i8 0, ptr %5, align 8, !tbaa !17
   store ptr %2, ptr %0, align 8, !tbaa !26
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %7, align 8, !tbaa !23

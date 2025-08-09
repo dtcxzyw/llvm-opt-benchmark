@@ -12882,7 +12882,7 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i.i: ; preds = %100, %.
   %109 = getelementptr inbounds nuw i8, ptr %.val17.i, i64 8
   store ptr %106, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %.val17.i, i64 16
-  store atomic i8 1, ptr %110 release, align 1
+  store atomic i8 1, ptr %110 release, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @"_ZN4core3ptr50drop_in_place$LT$std..sync..mpmc..waker..Entry$GT$17h31adda9bac76ddadE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)

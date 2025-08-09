@@ -4867,7 +4867,7 @@ _init_l_Array_tacticArray__get__dec___closed__5.exit: ; preds = %lean_dec_ref.ex
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store i64 0, ptr %49, align 8, !tbaa !12
-  store i32 1, ptr %45, align 4, !tbaa !8
+  store i32 1, ptr %45, align 8, !tbaa !8
   store i32 100728856, ptr %48, align 4
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %44, ptr %50, align 8, !tbaa !4
@@ -5297,7 +5297,7 @@ _init_l_Array_tacticArray__mem__dec___closed__4.exit: ; preds = %_init_l_Array__
   %244 = getelementptr inbounds nuw i8, ptr %241, i64 4
   %245 = getelementptr inbounds nuw i8, ptr %241, i64 16
   store i64 0, ptr %245, align 8, !tbaa !12
-  store i32 1, ptr %241, align 4, !tbaa !8
+  store i32 1, ptr %241, align 8, !tbaa !8
   store i32 100728856, ptr %244, align 4
   %246 = getelementptr inbounds nuw i8, ptr %241, i64 8
   store ptr %240, ptr %246, align 8, !tbaa !4

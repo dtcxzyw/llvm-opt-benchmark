@@ -29,14 +29,14 @@ define void @lv_draw_sw_mask_rect(ptr noundef %0, ptr noundef %1) local_unnamed_
   %14 = load ptr, ptr %12, align 8, !tbaa !13
   %15 = load i32, ptr %8, align 4, !tbaa !17
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %17 = load i32, ptr %16, align 4, !tbaa !18
+  %17 = load i32, ptr %16, align 8, !tbaa !18
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %19 = load i32, ptr %18, align 4, !tbaa !19
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %21 = load i32, ptr %20, align 4, !tbaa !20
   %22 = add nsw i32 %21, -1
   call void @lv_area_set(ptr noundef nonnull %4, i32 noundef %15, i32 noundef %17, i32 noundef %19, i32 noundef %22) #4
-  %23 = load i32, ptr %13, align 4, !tbaa !25
+  %23 = load i32, ptr %13, align 8, !tbaa !25
   %24 = sub nsw i32 0, %23
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %26 = load i32, ptr %25, align 4, !tbaa !26
@@ -49,9 +49,9 @@ define void @lv_draw_sw_mask_rect(ptr noundef %0, ptr noundef %1) local_unnamed_
   %31 = add nsw i32 %30, 1
   %32 = load i32, ptr %18, align 4, !tbaa !19
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %34 = load i32, ptr %33, align 4, !tbaa !28
+  %34 = load i32, ptr %33, align 8, !tbaa !28
   call void @lv_area_set(ptr noundef nonnull %4, i32 noundef %28, i32 noundef %31, i32 noundef %32, i32 noundef %34) #4
-  %35 = load i32, ptr %13, align 4, !tbaa !25
+  %35 = load i32, ptr %13, align 8, !tbaa !25
   %36 = sub nsw i32 0, %35
   %37 = load i32, ptr %25, align 4, !tbaa !26
   %38 = sub nsw i32 0, %37
@@ -63,7 +63,7 @@ define void @lv_draw_sw_mask_rect(ptr noundef %0, ptr noundef %1) local_unnamed_
   %42 = add nsw i32 %41, -1
   %43 = load i32, ptr %29, align 4, !tbaa !27
   call void @lv_area_set(ptr noundef nonnull %4, i32 noundef %39, i32 noundef %40, i32 noundef %42, i32 noundef %43) #4
-  %44 = load i32, ptr %13, align 4, !tbaa !25
+  %44 = load i32, ptr %13, align 8, !tbaa !25
   %45 = sub nsw i32 0, %44
   %46 = load i32, ptr %25, align 4, !tbaa !26
   %47 = sub nsw i32 0, %46
@@ -76,7 +76,7 @@ define void @lv_draw_sw_mask_rect(ptr noundef %0, ptr noundef %1) local_unnamed_
   %52 = load i32, ptr %18, align 4, !tbaa !19
   %53 = load i32, ptr %29, align 4, !tbaa !27
   call void @lv_area_set(ptr noundef nonnull %4, i32 noundef %50, i32 noundef %51, i32 noundef %52, i32 noundef %53) #4
-  %54 = load i32, ptr %13, align 4, !tbaa !25
+  %54 = load i32, ptr %13, align 8, !tbaa !25
   %55 = sub nsw i32 0, %54
   %56 = load i32, ptr %25, align 4, !tbaa !26
   %57 = sub nsw i32 0, %56

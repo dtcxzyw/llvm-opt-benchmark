@@ -1374,7 +1374,7 @@ _ZN7testing8internal12CodeLocationC2EOS1_.exit:   ; preds = %52, %_ZNKSt7__cxx11
   store i64 %59, ptr %61, align 8, !tbaa !32
   store ptr %50, ptr %2, align 8, !tbaa !30
   store i64 0, ptr %60, align 8, !tbaa !32
-  store i8 0, ptr %50, align 1, !tbaa !34
+  store i8 0, ptr %50, align 8, !tbaa !34
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %64 = load i32, ptr %63, align 8, !tbaa !35
@@ -1793,7 +1793,7 @@ _ZN7testing8internal12CodeLocationC2EOS1_.exit:   ; preds = %52, %_ZNKSt7__cxx11
   store i64 %59, ptr %61, align 8, !tbaa !32
   store ptr %50, ptr %2, align 8, !tbaa !30
   store i64 0, ptr %60, align 8, !tbaa !32
-  store i8 0, ptr %50, align 1, !tbaa !34
+  store i8 0, ptr %50, align 8, !tbaa !34
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %64 = load i32, ptr %63, align 8, !tbaa !35
@@ -2399,7 +2399,7 @@ _ZN7testing8internal12CodeLocationC2EOS1_.exit:   ; preds = %52, %_ZNKSt7__cxx11
   store i64 %59, ptr %61, align 8, !tbaa !32
   store ptr %50, ptr %2, align 8, !tbaa !30
   store i64 0, ptr %60, align 8, !tbaa !32
-  store i8 0, ptr %50, align 1, !tbaa !34
+  store i8 0, ptr %50, align 8, !tbaa !34
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %64 = load i32, ptr %63, align 8, !tbaa !35
@@ -17315,7 +17315,7 @@ _ZN7testing8internal12CodeLocationC2EOS1_.exit:   ; preds = %12, %_ZNKSt7__cxx11
   store i64 %18, ptr %20, align 8, !tbaa !32
   store ptr %10, ptr %3, align 8, !tbaa !30
   store i64 0, ptr %19, align 8, !tbaa !32
-  store i8 0, ptr %10, align 1, !tbaa !34
+  store i8 0, ptr %10, align 8, !tbaa !34
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %23 = load i32, ptr %22, align 8, !tbaa !35
@@ -22604,7 +22604,7 @@ _ZN7testing8internal12CodeLocationC2EOS1_.exit:   ; preds = %12, %_ZNKSt7__cxx11
   store i64 %18, ptr %20, align 8, !tbaa !32
   store ptr %10, ptr %3, align 8, !tbaa !30
   store i64 0, ptr %19, align 8, !tbaa !32
-  store i8 0, ptr %10, align 1, !tbaa !34
+  store i8 0, ptr %10, align 8, !tbaa !34
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %23 = load i32, ptr %22, align 8, !tbaa !35
@@ -30987,7 +30987,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %7, ptr %6, align 8, !tbaa !31, !noalias !788
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %8, align 8, !tbaa !32, !noalias !788
-  store i8 0, ptr %7, align 1, !tbaa !34, !noalias !788
+  store i8 0, ptr %7, align 8, !tbaa !34, !noalias !788
   store ptr %6, ptr %4, align 8, !tbaa !190
   br label %9
 
@@ -40234,7 +40234,7 @@ _ZN7testing8internal12CodeLocationC2EOS1_.exit.i.i.i: ; preds = %_ZNKSt7__cxx111
   %498 = getelementptr inbounds nuw i8, ptr %487, i64 8
   store i64 4, ptr %498, align 8, !tbaa !32
   %499 = getelementptr inbounds nuw i8, ptr %487, i64 20
-  store i8 0, ptr %499, align 1, !tbaa !34
+  store i8 0, ptr %499, align 4, !tbaa !34
   %500 = getelementptr inbounds nuw i8, ptr %487, i64 32
   store ptr %469, ptr %500, align 8, !tbaa !219
   %501 = getelementptr inbounds nuw i8, ptr %487, i64 40
@@ -40891,7 +40891,7 @@ _ZSt19__relocate_object_aIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLO
   store i64 %738, ptr %740, align 8, !tbaa !32, !alias.scope !951, !noalias !954
   store ptr %730, ptr %.092.i.i.i.i.i.i.i, align 8, !tbaa !30, !alias.scope !954, !noalias !951
   store i64 0, ptr %739, align 8, !tbaa !32, !alias.scope !954, !noalias !951
-  store i8 0, ptr %730, align 1, !tbaa !34, !alias.scope !954, !noalias !951
+  store i8 0, ptr %730, align 8, !tbaa !34, !alias.scope !954, !noalias !951
   %741 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i.i, i64 32
   %742 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %741, ptr noundef nonnull align 8 dereferenceable(28) %742, i64 28, i1 false), !alias.scope !956
@@ -44551,7 +44551,7 @@ _ZSt19__relocate_object_aIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLO
   store i64 %2070, ptr %2072, align 8, !tbaa !32, !alias.scope !958, !noalias !961
   store ptr %2062, ptr %.092.i.i.i.i.i.i.i453, align 8, !tbaa !30, !alias.scope !961, !noalias !958
   store i64 0, ptr %2071, align 8, !tbaa !32, !alias.scope !961, !noalias !958
-  store i8 0, ptr %2062, align 1, !tbaa !34, !alias.scope !961, !noalias !958
+  store i8 0, ptr %2062, align 8, !tbaa !34, !alias.scope !961, !noalias !958
   %2073 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i.i452, i64 32
   %2074 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i.i453, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2073, ptr noundef nonnull align 8 dereferenceable(28) %2074, i64 28, i1 false), !alias.scope !963
@@ -46966,7 +46966,7 @@ _ZSt19__relocate_object_aIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLO
   store i64 %2927, ptr %2929, align 8, !tbaa !32, !alias.scope !965, !noalias !968
   store ptr %2919, ptr %.092.i.i.i.i.i.i.i727, align 8, !tbaa !30, !alias.scope !968, !noalias !965
   store i64 0, ptr %2928, align 8, !tbaa !32, !alias.scope !968, !noalias !965
-  store i8 0, ptr %2919, align 1, !tbaa !34, !alias.scope !968, !noalias !965
+  store i8 0, ptr %2919, align 8, !tbaa !34, !alias.scope !968, !noalias !965
   %2930 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i.i726, i64 32
   %2931 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i.i727, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2930, ptr noundef nonnull align 8 dereferenceable(28) %2931, i64 28, i1 false), !alias.scope !970

@@ -8375,7 +8375,7 @@ _ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_20RGBUnboundedSpectrumEEEDaS1_.exit: ; p
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %129 = load float, ptr %128, align 4, !tbaa !186
   %130 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %131 = load float, ptr %130, align 4, !tbaa !187
+  %131 = load float, ptr %130, align 8, !tbaa !187
   %132 = load float, ptr %127, align 4, !tbaa !188
   %133 = tail call noundef float @llvm.fma.f32(float %122, float %132, float %131)
   %134 = tail call noundef float @llvm.fma.f32(float %122, float %133, float %129)

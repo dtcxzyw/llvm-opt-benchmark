@@ -263,7 +263,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIN6open3d4core6kernel15Reducti
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %32 = load i64, ptr %31, align 8, !tbaa !32
   %33 = icmp eq i64 %32, %8
-  %34 = load i32, ptr %30, align 4
+  %34 = load i32, ptr %30, align 8
   %35 = icmp eq i32 %7, %34
   %36 = select i1 %33, i1 %35, i1 false
   br i1 %36, label %_ZNKSt10_HashtableIN6open3d4core6kernel15ReductionOpCodeES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ENS0_7utility15hash_enum_classENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS3_EEPNS5_10_Hash_nodeIS3_Lb1EEEmRKT_m.exit, label %.lr.ph.i.i
@@ -299,7 +299,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIN6open3d4core6kernel15Reducti
   %51 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
   store ptr null, ptr %51, align 8, !tbaa !16
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store i32 %50, ptr %52, align 4, !tbaa !28
+  store i32 %50, ptr %52, align 8, !tbaa !28
   %53 = invoke ptr @_ZNSt10_HashtableIN6open3d4core6kernel15ReductionOpCodeES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ENS0_7utility15hash_enum_classENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS5_10_Hash_nodeIS3_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %48, i64 noundef %49, ptr noundef nonnull %51, i64 noundef 1)
           to label %_ZNKSt10_HashtableIN6open3d4core6kernel15ReductionOpCodeES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ENS0_7utility15hash_enum_classENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS3_EEPNS5_10_Hash_nodeIS3_Lb1EEEmRKT_m.exit unwind label %_ZNSt10_HashtableIN6open3d4core6kernel15ReductionOpCodeES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ENS0_7utility15hash_enum_classENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit20
 

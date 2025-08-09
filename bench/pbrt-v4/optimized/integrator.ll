@@ -2506,7 +2506,7 @@ _ZN4pstd5arrayIbLi2EE4fillERKb.exit.critedge:     ; preds = %.noexc234
   %914 = getelementptr inbounds nuw i8, ptr %834, i64 200
   store ptr %913, ptr %914, align 8, !tbaa !246
   %915 = load atomic i32, ptr %841 seq_cst, align 8
-  store atomic i32 %915, ptr %839 seq_cst, align 4
+  store atomic i32 %915, ptr %839 seq_cst, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %834, ptr %46, align 8, !tbaa !247
   br label %922
@@ -26370,7 +26370,7 @@ define internal void @"_ZNSt17_Function_handlerIFvlEZN4pbrt23WavefrontPathIntegr
   %8 = sdiv i32 %3, %6
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %10 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %11 = load i32, ptr %10, align 4, !tbaa !937
+  %11 = load i32, ptr %10, align 8, !tbaa !937
   %12 = add nsw i32 %11, %7
   %13 = getelementptr inbounds nuw i8, ptr %.val, i64 20
   %14 = load i32, ptr %13, align 4, !tbaa !938

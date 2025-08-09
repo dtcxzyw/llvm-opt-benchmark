@@ -1705,7 +1705,7 @@ define hidden void @_ZN5salsa5views5Views3add17h011371848fe1fef6E(ptr noundef no
   %.sroa.7.0..sroa_idx = getelementptr i8, ptr %57, i64 1568
   store i64 760515197786833164, ptr %.sroa.7.0..sroa_idx, align 8
   %59 = getelementptr i8, ptr %57, i64 1576
-  store atomic i8 1, ptr %59 release, align 1, !noalias !81
+  store atomic i8 1, ptr %59 release, align 8, !noalias !81
   %60 = atomicrmw add ptr %5, i64 1 release, align 8, !noalias !81
   br label %.loopexit16
 
@@ -1836,7 +1836,7 @@ define hidden void @_ZN5salsa5views5Views3add17h1727d2fe6f978f79E(ptr noundef no
   %.sroa.7.0..sroa_idx = getelementptr i8, ptr %57, i64 1568
   store i64 637409720492316309, ptr %.sroa.7.0..sroa_idx, align 8
   %59 = getelementptr i8, ptr %57, i64 1576
-  store atomic i8 1, ptr %59 release, align 1, !noalias !99
+  store atomic i8 1, ptr %59 release, align 8, !noalias !99
   %60 = atomicrmw add ptr %5, i64 1 release, align 8, !noalias !99
   br label %.loopexit16
 
@@ -1967,7 +1967,7 @@ define hidden void @_ZN5salsa5views5Views3add17h6f80cbb52aeab33eE(ptr noundef no
   %.sroa.7.0..sroa_idx = getelementptr i8, ptr %57, i64 1568
   store i64 7469766667972927328, ptr %.sroa.7.0..sroa_idx, align 8
   %59 = getelementptr i8, ptr %57, i64 1576
-  store atomic i8 1, ptr %59 release, align 1, !noalias !117
+  store atomic i8 1, ptr %59 release, align 8, !noalias !117
   %60 = atomicrmw add ptr %5, i64 1 release, align 8, !noalias !117
   br label %.loopexit16
 
@@ -2055,7 +2055,7 @@ define hidden void @_ZN5salsa5views5Views3new17hbc88b14141e3d45aE(ptr dead_on_un
   %.sroa.7.0..sroa_idx = getelementptr i8, ptr %36, i64 1568
   store i64 760515197786833164, ptr %.sroa.7.0..sroa_idx, align 8
   %38 = getelementptr i8, ptr %36, i64 1576
-  store atomic i8 1, ptr %38 release, align 1, !noalias !123
+  store atomic i8 1, ptr %38 release, align 8, !noalias !123
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 480
   %40 = atomicrmw add ptr %39, i64 1 release, align 8, !noalias !123
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16

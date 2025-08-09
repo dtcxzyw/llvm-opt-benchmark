@@ -2215,7 +2215,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 32
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 80
-  %47 = load i32, ptr %46, align 4
+  %47 = load i32, ptr %46, align 8
   br label %48
 
 48:                                               ; preds = %_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit, %13, %43
@@ -2361,7 +2361,7 @@ _ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEE8ParticleI6CMeshOEEC2E
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %60 = load i32, ptr %59, align 4
+  %60 = load i32, ptr %59, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #29
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %58, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %60, 1
@@ -6192,7 +6192,7 @@ _ZN3vcg14SimpleTempDataINS_4face10vector_ocfI6CFaceOEEfEC2ERKS4_.exit: ; preds =
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %61 = load i32, ptr %60, align 4
+  %61 = load i32, ptr %60, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #29
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %59, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %61, 1
@@ -8728,7 +8728,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg11RayIteratorINS_13GridStaticPtrI
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 36
   %20 = load i32, ptr %19, align 4
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %22 = load i32, ptr %21, align 4
+  %22 = load i32, ptr %21, align 8
   %23 = mul nsw i32 %22, %16
   %24 = add nsw i32 %23, %14
   %25 = mul nsw i32 %24, %20
@@ -11285,7 +11285,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 32
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 80
-  %47 = load i32, ptr %46, align 4
+  %47 = load i32, ptr %46, align 8
   br label %48
 
 48:                                               ; preds = %_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit, %13, %43
@@ -11547,7 +11547,7 @@ define void @_Z18associateParticlesP9MeshModelS0_RfS1_N3vcg6Point3IfEE(ptr nound
   %59 = getelementptr inbounds nuw i8, ptr %42, i64 36
   %.sroa.020.0.copyload.i = load float, ptr %59, align 4
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %42, i64 40
-  %.sroa.3.0.copyload.i = load float, ptr %.sroa.3.0..sroa_idx.i, align 4
+  %.sroa.3.0.copyload.i = load float, ptr %.sroa.3.0..sroa_idx.i, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %42, i64 44
   %.sroa.5.0.copyload.i = load float, ptr %.sroa.5.0..sroa_idx.i, align 4
   %60 = fmul float %.sroa.024.4.vec.extract.i, %.sroa.3.0.copyload.i
@@ -25492,7 +25492,7 @@ _ZNK3vcg4Box3IiE6IsNullEv.exit.thread:            ; preds = %.lr.ph70, %39, %47,
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 36
   %59 = load i32, ptr %58, align 4
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 40
-  %61 = load i32, ptr %60, align 4
+  %61 = load i32, ptr %60, align 8
   %62 = mul nsw i32 %61, %.02777
   %63 = add nsw i32 %62, %.02672
   %64 = mul nsw i32 %63, %59

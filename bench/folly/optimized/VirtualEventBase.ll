@@ -627,11 +627,11 @@ define void @_ZN5folly16VirtualEventBaseC2ERNS_9EventBaseE(ptr noundef nonnull a
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store ptr null, ptr %39, align 8, !tbaa !36, !noalias !29
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  store i32 0, ptr %40, align 4, !tbaa !39, !noalias !29
+  store i32 0, ptr %40, align 8, !tbaa !39, !noalias !29
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 36
-  store i8 0, ptr %41, align 1, !tbaa !41, !noalias !29
+  store i8 0, ptr %41, align 4, !tbaa !41, !noalias !29
   %42 = getelementptr inbounds nuw i8, ptr %35, i64 40
-  store i32 0, ptr %42, align 4, !tbaa !44, !noalias !29
+  store i32 0, ptr %42, align 8, !tbaa !44, !noalias !29
   store ptr %35, ptr %34, align 8, !tbaa !46, !alias.scope !29
   store ptr %38, ptr %33, align 8, !tbaa !49, !alias.scope !29
   %43 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
@@ -1408,11 +1408,11 @@ define void @_ZN5folly16VirtualEventBaseC1ERNS_9EventBaseE(ptr noundef nonnull a
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr null, ptr %23, align 8, !tbaa !36, !noalias !104
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  store i32 0, ptr %24, align 4, !tbaa !39, !noalias !104
+  store i32 0, ptr %24, align 8, !tbaa !39, !noalias !104
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 36
-  store i8 0, ptr %25, align 1, !tbaa !41, !noalias !104
+  store i8 0, ptr %25, align 4, !tbaa !41, !noalias !104
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  store i32 0, ptr %26, align 4, !tbaa !44, !noalias !104
+  store i32 0, ptr %26, align 8, !tbaa !44, !noalias !104
   store ptr %19, ptr %18, align 8, !tbaa !46, !alias.scope !104
   store ptr %22, ptr %17, align 8, !tbaa !49, !alias.scope !104
   %27 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
@@ -3699,7 +3699,7 @@ _ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit: ; 
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(28) %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load atomic i32, ptr %8 acquire, align 4
+  %9 = load atomic i32, ptr %8 acquire, align 8
   %10 = and i32 %9, 2147483647
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %_ZNSt23__atomic_futex_unsignedILj2147483648EE7_M_loadESt12memory_order.exit.us.i.i
@@ -4182,7 +4182,7 @@ _ZN5folly8FunctionIFvvEEC2EOS2_.exit:             ; preds = %2, %13
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 88
   store ptr null, ptr %19, align 8, !tbaa !214
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  store i8 0, ptr %20, align 4, !tbaa !230
+  store i8 0, ptr %20, align 16, !tbaa !230
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 100
   store i32 0, ptr %21, align 4, !tbaa !39
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5folly9EventBase29FunctionOnDestructionCallbackE, i64 16), ptr %6, align 16, !tbaa !18

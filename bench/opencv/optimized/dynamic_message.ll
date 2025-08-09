@@ -1896,7 +1896,7 @@ _ZNK6google8protobuf15OneofDescriptor12is_syntheticEv.exit121.thread: ; preds = 
   %287 = getelementptr inbounds nuw i8, ptr %285, i64 16
   store ptr %63, ptr %287, align 8, !tbaa !10
   %288 = getelementptr inbounds nuw i8, ptr %285, i64 24
-  store i32 0, ptr %288, align 4, !tbaa !19
+  store i32 0, ptr %288, align 8, !tbaa !19
   %289 = getelementptr inbounds nuw i8, ptr %63, i64 64
   store ptr %285, ptr %289, align 8, !tbaa !139
   invoke void @_ZN6google8protobuf14DynamicMessage10SharedCtorEb(ptr noundef nonnull align 8 dereferenceable(28) %285, i1 noundef zeroext false)
@@ -3278,7 +3278,7 @@ _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit: ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %13, ptr %16, align 8, !tbaa !10
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i32 0, ptr %17, align 4, !tbaa !19
+  store i32 0, ptr %17, align 8, !tbaa !19
   invoke void @_ZN6google8protobuf14DynamicMessage10SharedCtorEb(ptr noundef nonnull align 8 dereferenceable(28) %9, i1 noundef zeroext true)
           to label %_ZN6google8protobuf14DynamicMessageC2EPKNS0_21DynamicMessageFactory8TypeInfoEPNS0_5ArenaE.exit unwind label %18
 
@@ -3305,7 +3305,7 @@ common.resume:                                    ; preds = %28, %18
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %22, ptr %26, align 8, !tbaa !10
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store i32 0, ptr %27, align 4, !tbaa !19
+  store i32 0, ptr %27, align 8, !tbaa !19
   invoke void @_ZN6google8protobuf14DynamicMessage10SharedCtorEb(ptr noundef nonnull align 8 dereferenceable(28) %21, i1 noundef zeroext true)
           to label %_ZN6google8protobuf14DynamicMessageC2EPKNS0_21DynamicMessageFactory8TypeInfoEPNS0_5ArenaE.exit unwind label %28
 

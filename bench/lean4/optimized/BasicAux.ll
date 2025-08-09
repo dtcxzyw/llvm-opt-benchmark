@@ -6348,7 +6348,7 @@ _init_l_List_tacticSizeOf__list__dec___closed__5.exit: ; preds = %lean_dec_ref.e
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store i64 0, ptr %53, align 8, !tbaa !15
-  store i32 1, ptr %49, align 4, !tbaa !4
+  store i32 1, ptr %49, align 8, !tbaa !4
   store i32 100728856, ptr %52, align 4
   %54 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %48, ptr %54, align 8, !tbaa !10

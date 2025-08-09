@@ -3419,9 +3419,9 @@ invoke.cont13:                                    ; preds = %invoke.cont2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %MeshBuffers.i, i8 0, i64 24, i1 false)
   store i8 1, ptr %is_sorted.i.i, align 8, !tbaa !156
   %BoundingBox.i = getelementptr inbounds nuw i8, ptr %call11, i64 40
-  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i, align 4, !tbaa !37
+  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i, align 8, !tbaa !37
   %Y.i2.i.i = getelementptr inbounds nuw i8, ptr %call11, i64 56
-  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 4, !tbaa !37
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 8, !tbaa !37
   store ptr %call11, ptr %this, align 8, !tbaa !32
   %call11.1 = invoke noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #34
           to label %invoke.cont13.1 unwind label %lpad9
@@ -3440,9 +3440,9 @@ invoke.cont13.1:                                  ; preds = %invoke.cont13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %MeshBuffers.i.1, i8 0, i64 24, i1 false)
   store i8 1, ptr %is_sorted.i.i.1, align 8, !tbaa !156
   %BoundingBox.i.1 = getelementptr inbounds nuw i8, ptr %call11.1, i64 40
-  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i.1, align 4, !tbaa !37
+  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i.1, align 8, !tbaa !37
   %Y.i2.i.i.1 = getelementptr inbounds nuw i8, ptr %call11.1, i64 56
-  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i.1, align 4, !tbaa !37
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i.1, align 8, !tbaa !37
   store ptr %call11.1, ptr %__begin1.0.ptr1490.1, align 8, !tbaa !32
   %m_use_shaders = getelementptr inbounds nuw i8, ptr %data, i64 72
   %9 = load i8, ptr %m_use_shaders, align 8, !tbaa !30, !range !34, !noundef !35
@@ -3589,13 +3589,13 @@ invoke.cont60:                                    ; preds = %if.end, %for.cond48
   %sh.diff.i.i = lshr i48 %agg.tmp.sroa.0.0.copyload.i, 16
   %tr.sh.diff.i.i = trunc nuw i48 %sh.diff.i.i to i32
   %conv.i.i.i = ashr i32 %tr.sh.diff.i.i, 16
-  %21 = load i16, ptr %Z.i.i.i648, align 2, !tbaa !276
+  %21 = load i16, ptr %Z.i.i.i648, align 4, !tbaa !276
   %conv2.i.i.i = sext i16 %21 to i32
   %sub.i.i.i = sub nsw i32 %conv.i.i.i, %conv2.i.i.i
   %22 = load i16, ptr %Y.i.i.i649, align 2, !tbaa !277
   %conv3.i.i.i = sext i16 %22 to i32
   %mul.i.i.i = mul nsw i32 %sub.i.i.i, %conv3.i.i.i
-  %23 = load i16, ptr %m_cache_extent.i.i.i, align 2, !tbaa !278
+  %23 = load i16, ptr %m_cache_extent.i.i.i, align 4, !tbaa !278
   %conv5.i.i.i = sext i16 %23 to i32
   %conv7.i.i.i = ashr i32 %p.sroa.0.0.extract.trunc.i.i, 16
   %24 = load i16, ptr %Y9.i.i.i, align 2, !tbaa !279
@@ -3605,7 +3605,7 @@ invoke.cont60:                                    ; preds = %if.end, %for.cond48
   %add.i.i.i = mul i32 %mul622.i.i.i, %conv5.i.i.i
   %sext.i.i = shl i32 %p.sroa.0.0.extract.trunc.i.i, 16
   %conv16.i.i.i = ashr exact i32 %sext.i.i, 16
-  %25 = load i16, ptr %m_area.i, align 2, !tbaa !280
+  %25 = load i16, ptr %m_area.i, align 8, !tbaa !280
   %conv19.i.i.i = sext i16 %25 to i32
   %sub20.i.i.i = sub nsw i32 %conv16.i.i.i, %conv19.i.i.i
   %add21.i.i.i = add nsw i32 %sub20.i.i.i, %add.i.i.i
@@ -5616,7 +5616,7 @@ invoke.cont395:                                   ; preds = %if.end390
   %arrayctor.end.i.i = getelementptr inbounds nuw i8, ptr %call393, i64 160
   store <4 x i32> <i32 0, i32 -1, i32 -1, i32 0>, ptr %arrayctor.end.i.i, align 8, !tbaa !13
   %SpecularColor.i.i = getelementptr inbounds nuw i8, ptr %call393, i64 176
-  store i32 -1, ptr %SpecularColor.i.i, align 4, !tbaa !47
+  store i32 -1, ptr %SpecularColor.i.i, align 8, !tbaa !47
   %Shininess.i.i = getelementptr inbounds nuw i8, ptr %call393, i64 180
   store <2 x float> zeroinitializer, ptr %Shininess.i.i, align 4, !tbaa !37
   %Thickness.i.i = getelementptr inbounds nuw i8, ptr %call393, i64 188
@@ -5642,9 +5642,9 @@ invoke.cont395:                                   ; preds = %if.end390
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Indices.i, i8 0, i64 24, i1 false)
   store i8 1, ptr %is_sorted.i13.i, align 8, !tbaa !112
   %BoundingBox.i1018 = getelementptr inbounds nuw i8, ptr %call393, i64 280
-  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i1018, align 4, !tbaa !37
+  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i1018, align 8, !tbaa !37
   %Y.i2.i.i1022 = getelementptr inbounds nuw i8, ptr %call393, i64 296
-  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i1022, align 4, !tbaa !37
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i1022, align 8, !tbaa !37
   %PrimitiveType.i = getelementptr inbounds nuw i8, ptr %call393, i64 304
   store i32 6, ptr %PrimitiveType.i, align 8, !tbaa !406
   %Material = getelementptr inbounds nuw i8, ptr %call393, i64 32
@@ -8605,15 +8605,15 @@ for.cond6.preheader.lr.ph:                        ; preds = %invoke.cont2
   %Y9.i.i.i = getelementptr inbounds nuw i8, ptr %data, i64 10
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load ptr, ptr %m_data.i, align 8, !tbaa !281
-  %6 = load i16, ptr %Z.i.i.i, align 2, !tbaa !276
+  %6 = load i16, ptr %Z.i.i.i, align 4, !tbaa !276
   %conv2.i.i.i.us = sext i16 %6 to i64
   %7 = load i16, ptr %Y.i.i.i, align 2, !tbaa !277
   %conv3.i.i.i.us = sext i16 %7 to i64
-  %8 = load i16, ptr %m_cache_extent.i.i.i, align 2, !tbaa !278
+  %8 = load i16, ptr %m_cache_extent.i.i.i, align 4, !tbaa !278
   %conv5.i.i.i.us = sext i16 %8 to i64
   %9 = load i16, ptr %Y9.i.i.i, align 2, !tbaa !279
   %conv10.i.i.i.us = sext i16 %9 to i64
-  %10 = load i16, ptr %m_area.i, align 2, !tbaa !280
+  %10 = load i16, ptr %m_area.i, align 8, !tbaa !280
   %conv19.i.i.i.us = sext i16 %10 to i64
   %11 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !49
   %12 = load ptr, ptr %4, align 8, !tbaa !51
@@ -8962,7 +8962,7 @@ if.end.i:                                         ; preds = %land.lhs.true22.i.i
   %22 = load i16, ptr %Y.i.i.i, align 2, !tbaa !277
   %conv3.i.i.i = sext i16 %22 to i64
   %mul.i.i.i = mul nsw i64 %sub.i.i.i, %conv3.i.i.i
-  %23 = load i16, ptr %m_cache_extent.i.i.i, align 2, !tbaa !278
+  %23 = load i16, ptr %m_cache_extent.i.i.i, align 4, !tbaa !278
   %conv5.i.i.i = sext i16 %23 to i64
   %sub11.i.i.i = sub nsw i64 %conv10.i.i, %conv13.i.i
   %mul622.i.i.i = add nsw i64 %sub11.i.i.i, %mul.i.i.i

@@ -2785,7 +2785,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i: ; preds = %_ZN9QtPrivate8Re
   %91 = load i32, ptr %90, align 8, !noalias !25
   %92 = sext i32 %91 to i64
   %93 = getelementptr inbounds ptr, ptr %89, i64 %92
-  %94 = load atomic i32, ptr %88 monotonic, align 4, !noalias !28
+  %94 = load atomic i32, ptr %88 monotonic, align 8, !noalias !28
   %95 = icmp ugt i32 %94, 1
   br i1 %95, label %96, label %_ZN5QListIP7QActionE3endEv.exit
 
@@ -10458,7 +10458,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i: ; preds = %_ZN9QtPrivate8Re
   %134 = load i32, ptr %133, align 8, !noalias !83
   %135 = sext i32 %134 to i64
   %136 = getelementptr inbounds ptr, ptr %132, i64 %135
-  %137 = load atomic i32, ptr %131 monotonic, align 4, !noalias !86
+  %137 = load atomic i32, ptr %131 monotonic, align 8, !noalias !86
   %138 = icmp ugt i32 %137, 1
   br i1 %138, label %139, label %_ZN5QListIP7QActionE3endEv.exit
 
@@ -14968,7 +14968,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i: ; preds = %_ZN9QtPrivate8Re
   %83 = load i32, ptr %82, align 8, !noalias !110
   %84 = sext i32 %83 to i64
   %85 = getelementptr inbounds ptr, ptr %81, i64 %84
-  %86 = load atomic i32, ptr %80 monotonic, align 4, !noalias !113
+  %86 = load atomic i32, ptr %80 monotonic, align 8, !noalias !113
   %87 = icmp ugt i32 %86, 1
   br i1 %87, label %88, label %_ZN5QListIP7QActionE3endEv.exit
 
@@ -15517,7 +15517,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i: ; preds = %_ZN9QtPrivate8Re
   %161 = load i32, ptr %160, align 8, !noalias !116
   %162 = sext i32 %161 to i64
   %163 = getelementptr inbounds ptr, ptr %159, i64 %162
-  %164 = load atomic i32, ptr %158 monotonic, align 4, !noalias !119
+  %164 = load atomic i32, ptr %158 monotonic, align 8, !noalias !119
   %165 = icmp ugt i32 %164, 1
   br i1 %165, label %166, label %_ZN5QListIP7QActionE3endEv.exit
 
@@ -15790,7 +15790,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i68: ; preds = %_ZN9QtPrivate8
   %287 = load i32, ptr %286, align 8, !noalias !126
   %288 = sext i32 %287 to i64
   %289 = getelementptr inbounds ptr, ptr %285, i64 %288
-  %290 = load atomic i32, ptr %284 monotonic, align 4, !noalias !129
+  %290 = load atomic i32, ptr %284 monotonic, align 8, !noalias !129
   %291 = icmp ugt i32 %290, 1
   br i1 %291, label %292, label %_ZN5QListIP7QActionE3endEv.exit84
 
@@ -16055,7 +16055,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i: ; preds = %_ZN9QtPrivate8Re
   %41 = load i32, ptr %40, align 8, !noalias !135
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds ptr, ptr %39, i64 %42
-  %44 = load atomic i32, ptr %38 monotonic, align 4, !noalias !138
+  %44 = load atomic i32, ptr %38 monotonic, align 8, !noalias !138
   %45 = icmp ugt i32 %44, 1
   br i1 %45, label %46, label %_ZN5QListIP5QMenuE3endEv.exit
 
@@ -16361,7 +16361,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i: ; preds = %_ZN9QtPrivate8Re
   %35 = load i32, ptr %34, align 8, !noalias !144
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds ptr, ptr %33, i64 %36
-  %38 = load atomic i32, ptr %32 monotonic, align 4, !noalias !147
+  %38 = load atomic i32, ptr %32 monotonic, align 8, !noalias !147
   %39 = icmp ugt i32 %38, 1
   br i1 %39, label %40, label %_ZN5QListIP7QActionE3endEv.exit
 
@@ -17336,7 +17336,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i: ; preds = %_ZN9QtPrivate8Re
   %78 = load i32, ptr %77, align 8, !noalias !167
   %79 = sext i32 %78 to i64
   %80 = getelementptr inbounds ptr, ptr %76, i64 %79
-  %81 = load atomic i32, ptr %75 monotonic, align 4, !noalias !170
+  %81 = load atomic i32, ptr %75 monotonic, align 8, !noalias !170
   %82 = icmp ugt i32 %81, 1
   br i1 %82, label %83, label %_ZN5QListIP7QActionE3endEv.exit
 
@@ -20370,7 +20370,7 @@ _ZN5QListI7QStringE3endEv.exit:                   ; preds = %1, %5
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %19 = load i32, ptr %18, align 8, !noalias !219
   %20 = sext i32 %19 to i64
-  %21 = load atomic i32, ptr %8 monotonic, align 4, !noalias !222
+  %21 = load atomic i32, ptr %8 monotonic, align 8, !noalias !222
   %22 = icmp ugt i32 %21, 1
   br i1 %22, label %23, label %_ZN5QListI7QStringE5beginEv.exit.i
 

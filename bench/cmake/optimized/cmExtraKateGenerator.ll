@@ -6027,7 +6027,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %10
   store i64 %16, ptr %18, align 8, !tbaa !10
   store ptr %8, ptr %1, align 8, !tbaa !17
   store i64 0, ptr %17, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   invoke void @_ZN11cmCMakePath10FormatPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6formatE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull %5, i8 noundef zeroext %2)
           to label %19 unwind label %60
 
@@ -7038,14 +7038,14 @@ define linkonce_odr dso_local void @_ZNK47cmExternalMakefileProjectGeneratorSimp
   store ptr %7, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i64 0, ptr %8, align 8, !tbaa !10
-  store i8 0, ptr %7, align 1, !tbaa !13
+  store i8 0, ptr %7, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV20cmExtraKateGenerator, i64 16), ptr %4, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store ptr %10, ptr %9, align 8, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store i64 0, ptr %11, align 8, !tbaa !10
-  store i8 0, ptr %10, align 1, !tbaa !13
+  store i8 0, ptr %10, align 8, !tbaa !13
   store ptr %4, ptr %0, align 8, !tbaa !237
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZNK41cmExternalMakefileProjectGeneratorFactory7GetNameB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(120) %1)

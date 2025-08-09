@@ -3760,7 +3760,7 @@ _ZN14core_hashtableI17default_map_entryISt4pairIP9func_decljEjEN9table2mapIS5_N3
   %31 = load ptr, ptr %30, align 8, !tbaa !194
   store ptr %31, ptr %29, align 8, !tbaa !131
   %32 = getelementptr inbounds nuw i8, ptr %.02839.i, i64 16
-  %33 = load i32, ptr %32, align 4, !tbaa !48
+  %33 = load i32, ptr %32, align 8, !tbaa !48
   %34 = getelementptr inbounds nuw i8, ptr %.034.i, i64 16
   store i32 %33, ptr %34, align 8, !tbaa !191
   %35 = getelementptr inbounds nuw i8, ptr %.02839.i, i64 24
@@ -3789,7 +3789,7 @@ _ZN14core_hashtableI17default_map_entryISt4pairIP9func_decljEjEN9table2mapIS5_N3
   %47 = load ptr, ptr %46, align 8, !tbaa !194
   store ptr %47, ptr %45, align 8, !tbaa !131
   %48 = getelementptr inbounds nuw i8, ptr %.02839.i, i64 16
-  %49 = load i32, ptr %48, align 4, !tbaa !48
+  %49 = load i32, ptr %48, align 8, !tbaa !48
   %50 = getelementptr inbounds nuw i8, ptr %.136.i, i64 16
   store i32 %49, ptr %50, align 8, !tbaa !191
   %51 = getelementptr inbounds nuw i8, ptr %.02839.i, i64 24

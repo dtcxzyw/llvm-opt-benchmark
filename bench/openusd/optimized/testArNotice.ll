@@ -658,7 +658,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17ArResolverContextD2Ev.exit69.i: ; preds =
   %177 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store ptr @_ZN32pxrInternal_v0_24__pxrReserved__19Ar_ContextIsHoldingI19TestResolverContextIiEEEbRKT_RKNS_17ArResolverContextE, ptr %172, align 8
   %178 = getelementptr inbounds nuw i8, ptr %172, i64 8
-  store i32 0, ptr %178, align 4
+  store i32 0, ptr %178, align 8
   store ptr %172, ptr %171, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN32pxrInternal_v0_24__pxrReserved__17ArResolverContextEESt5_BindIFPFbRK19TestResolverContextIiES3_ES7_St12_PlaceholderILi1EEEEE9_M_invokeERKSt9_Any_dataS3_, ptr %176, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN32pxrInternal_v0_24__pxrReserved__17ArResolverContextEESt5_BindIFPFbRK19TestResolverContextIiES3_ES7_St12_PlaceholderILi1EEEEE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %177, align 8

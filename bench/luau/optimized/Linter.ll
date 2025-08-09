@@ -7376,7 +7376,7 @@ _ZSt19__relocate_object_aIN4Luau11LintWarningES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
   store i64 %53, ptr %55, align 8, !tbaa !86, !alias.scope !345, !noalias !348
   store ptr %45, ptr %42, align 8, !tbaa !81, !alias.scope !348, !noalias !345
   store i64 0, ptr %54, align 8, !tbaa !86, !alias.scope !348, !noalias !345
-  store i8 0, ptr %45, align 1, !tbaa !36, !alias.scope !348, !noalias !345
+  store i8 0, ptr %45, align 8, !tbaa !36, !alias.scope !348, !noalias !345
   %56 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 56
   %57 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 56
   %.not.i.i.i = icmp eq ptr %56, %1
@@ -7427,7 +7427,7 @@ _ZSt19__relocate_object_aIN4Luau11LintWarningES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
   store i64 %71, ptr %73, align 8, !tbaa !86, !alias.scope !352, !noalias !355
   store ptr %63, ptr %60, align 8, !tbaa !81, !alias.scope !355, !noalias !352
   store i64 0, ptr %72, align 8, !tbaa !86, !alias.scope !355, !noalias !352
-  store i8 0, ptr %63, align 1, !tbaa !36, !alias.scope !355, !noalias !352
+  store i8 0, ptr %63, align 8, !tbaa !36, !alias.scope !355, !noalias !352
   %74 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 56
   %75 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 56
   %.not.i.i.i34 = icmp eq ptr %74, %6
@@ -13720,7 +13720,7 @@ _ZNK4Luau16LintTableLiteral17AstArrayPredicateclEPKNS_8AstArrayIcEES5_.exit.thre
   %45 = load ptr, ptr %44, align 8, !tbaa !537
   store ptr %45, ptr %41, align 8, !tbaa !573
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %47 = load i32, ptr %46, align 4, !tbaa !4
+  %47 = load i32, ptr %46, align 8, !tbaa !4
   %48 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i32 %47, ptr %48, align 8, !tbaa !581
   %.pre18 = load i64, ptr %3, align 8, !tbaa !539
@@ -19990,7 +19990,7 @@ _ZN4Luau11LintWarningC2EOS0_.exit:                ; preds = %26, %_ZNKSt7__cxx11
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr %24, ptr %22, align 8, !tbaa !81
   store i64 0, ptr %34, align 8, !tbaa !86
-  store i8 0, ptr %24, align 1, !tbaa !36
+  store i8 0, ptr %24, align 8, !tbaa !36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(20) %21, i64 20, i1 false)
   store ptr %18, ptr %17, align 8, !tbaa !231
   %35 = icmp eq ptr %32, %15
@@ -20140,7 +20140,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3:
   store i64 %19, ptr %21, align 8, !tbaa !86
   store ptr %11, ptr %8, align 8, !tbaa !81
   store i64 0, ptr %20, align 8, !tbaa !86
-  store i8 0, ptr %11, align 1, !tbaa !36
+  store i8 0, ptr %11, align 8, !tbaa !36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %0, i64 20, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load ptr, ptr %22, align 8, !tbaa !81
@@ -20631,7 +20631,7 @@ _ZN4Luau11LintWarningC2EOS0_.exit:                ; preds = %147, %_ZNKSt7__cxx1
   store i64 %153, ptr %155, align 8, !tbaa !86
   store ptr %145, ptr %142, align 8, !tbaa !81
   store i64 0, ptr %154, align 8, !tbaa !86
-  store i8 0, ptr %145, align 1, !tbaa !36
+  store i8 0, ptr %145, align 8, !tbaa !36
   invoke void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau11LintWarningESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valINS2_17WarningComparatorEEEEvT_T0_SE_T1_RT2_(ptr %0, i64 noundef %.1, i64 noundef %1, ptr noundef nonnull %6, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %156 unwind label %163
 
@@ -21660,7 +21660,7 @@ _ZN4Luau11LintWarningC2EOS0_.exit:                ; preds = %48, %_ZNKSt7__cxx11
   store i64 %55, ptr %11, align 8, !tbaa !86
   store ptr %46, ptr %44, align 8, !tbaa !81
   store i64 0, ptr %54, align 8, !tbaa !86
-  store i8 0, ptr %46, align 1, !tbaa !36
+  store i8 0, ptr %46, align 8, !tbaa !36
   %56 = ptrtoint ptr %.sroa.0.024 to i64
   %57 = sub i64 %56, %12
   %58 = icmp sgt i64 %57, 0
@@ -21923,7 +21923,7 @@ _ZN4Luau11LintWarningC2EOS0_.exit:                ; preds = %9, %_ZNKSt7__cxx111
   store i64 %15, ptr %17, align 8, !tbaa !86
   store ptr %7, ptr %4, align 8, !tbaa !81
   store i64 0, ptr %16, align 8, !tbaa !86
-  store i8 0, ptr %7, align 1, !tbaa !36
+  store i8 0, ptr %7, align 8, !tbaa !36
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 12

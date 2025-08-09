@@ -5215,7 +5215,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @parse_ts(ptr noundef captu
 ensure_bits.exit:                                 ; preds = %46
   %48 = load i32, ptr %13, align 16, !tbaa !38
   %49 = add nsw i32 %48, 3
-  %50 = load i32, ptr %14, align 8, !tbaa !91
+  %50 = load i32, ptr %14, align 16, !tbaa !91
   %51 = load ptr, ptr %10, align 8, !tbaa !89
   %52 = lshr i32 %.val.i, 3
   %53 = zext nneg i32 %52 to i64

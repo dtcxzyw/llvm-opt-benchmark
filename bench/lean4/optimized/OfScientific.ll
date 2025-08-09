@@ -1721,9 +1721,9 @@ lean_box_float32.exit:                            ; preds = %lean_dec.exit
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 0, ptr %26, align 8, !tbaa !15
-  store i32 1, ptr %22, align 4, !tbaa !5
+  store i32 1, ptr %22, align 8, !tbaa !5
   store i32 16, ptr %25, align 4
-  store float %3, ptr %26, align 4, !tbaa !17
+  store float %3, ptr %26, align 8, !tbaa !17
   ret ptr %22
 }
 
@@ -2376,9 +2376,9 @@ lean_box_float32.exit:                            ; preds = %lean_dec.exit
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 0, ptr %29, align 8, !tbaa !15
-  store i32 1, ptr %25, align 4, !tbaa !5
+  store i32 1, ptr %25, align 8, !tbaa !5
   store i32 16, ptr %28, align 4
-  store float %15, ptr %29, align 4, !tbaa !17
+  store float %15, ptr %29, align 8, !tbaa !17
   ret ptr %25
 }
 
@@ -2452,9 +2452,9 @@ lean_box_float32.exit:                            ; preds = %lean_float32_of_nat
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 0, ptr %16, align 8, !tbaa !15
-  store i32 1, ptr %12, align 4, !tbaa !5
+  store i32 1, ptr %12, align 8, !tbaa !5
   store i32 16, ptr %15, align 4
-  store float %2, ptr %16, align 4, !tbaa !17
+  store float %2, ptr %16, align 8, !tbaa !17
   ret ptr %12
 }
 
@@ -2789,9 +2789,9 @@ lean_box_float32.exit:                            ; preds = %lean_dec.exit
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 0, ptr %16, align 8, !tbaa !15
-  store i32 1, ptr %12, align 4, !tbaa !5
+  store i32 1, ptr %12, align 8, !tbaa !5
   store i32 16, ptr %15, align 4
-  store float %2, ptr %16, align 4, !tbaa !17
+  store float %2, ptr %16, align 8, !tbaa !17
   ret ptr %12
 }
 
@@ -2841,9 +2841,9 @@ lean_box_float32.exit:                            ; preds = %lean_dec.exit
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 0, ptr %16, align 8, !tbaa !15
-  store i32 1, ptr %12, align 4, !tbaa !5
+  store i32 1, ptr %12, align 8, !tbaa !5
   store i32 16, ptr %15, align 4
-  store float %2, ptr %16, align 4, !tbaa !17
+  store float %2, ptr %16, align 8, !tbaa !17
   ret ptr %12
 }
 
@@ -2893,9 +2893,9 @@ lean_box_float32.exit:                            ; preds = %lean_dec.exit
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 0, ptr %16, align 8, !tbaa !15
-  store i32 1, ptr %12, align 4, !tbaa !5
+  store i32 1, ptr %12, align 8, !tbaa !5
   store i32 16, ptr %15, align 4
-  store float %2, ptr %16, align 4, !tbaa !17
+  store float %2, ptr %16, align 8, !tbaa !17
   ret ptr %12
 }
 

@@ -7569,9 +7569,9 @@ _ZN11ast_manager7inc_refEP3ast.exit:              ; preds = %.lr.ph.i.i.i, %.lr.
   %41 = call noundef ptr @_ZN11ast_manager18mk_fresh_func_declERK6symbolS2_jPKP4sortS4_b(ptr noundef nonnull align 8 dereferenceable(976) %38, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) @_ZN6symbol4nullE, i32 noundef %40, ptr noundef %2, ptr noundef %3, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %43 = load i32, ptr %42, align 4, !tbaa !125
+  %43 = load i32, ptr %42, align 8, !tbaa !125
   %44 = add i32 %43, 1
-  store i32 %44, ptr %42, align 4, !tbaa !125
+  store i32 %44, ptr %42, align 8, !tbaa !125
   %.not.i7 = icmp eq ptr %41, null
   br i1 %.not.i7, label %_ZN11ast_manager7inc_refEP3ast.exit8, label %45
 

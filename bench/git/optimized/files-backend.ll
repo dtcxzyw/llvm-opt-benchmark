@@ -6487,7 +6487,7 @@ define internal noundef i32 @expire_reflog_ent(ptr noundef %0, ptr noundef %1, p
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %26 = load i32, ptr %25, align 4, !tbaa !57
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store i32 %26, ptr %27, align 4, !tbaa !57
+  store i32 %26, ptr %27, align 8, !tbaa !57
   br label %28
 
 28:                                               ; preds = %16, %7, %19

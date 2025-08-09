@@ -2826,7 +2826,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i78: ; preds = %203, %_ZN3t
 .loopexit122:                                     ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i78, %194
   %207 = getelementptr inbounds nuw i8, ptr %183, i64 8
   %208 = load ptr, ptr %207, align 8
-  store atomic i8 0, ptr %183 release, align 1
+  store atomic i8 0, ptr %183 release, align 8
   store ptr %207, ptr %11, align 8
   store ptr %208, ptr %133, align 8
   %209 = invoke noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__17Tf_NoticeRegistry8_DeliverERKNS_8TfNoticeERKNS_6TfTypeEPKNS_10TfWeakBaseEPKvRKSt9type_infoRKSt6vectorINS_9TfWeakPtrINS1_5ProbeEEESaISI_EERKSt4pairIPNSt7__cxx114listIPNS1_14_DelivererBaseESaISR_EEESt14_List_iteratorISR_EE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(16) %11)

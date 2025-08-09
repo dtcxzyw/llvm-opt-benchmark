@@ -2753,7 +2753,7 @@ _init_l_Lean_Parser_grindPropagatorBuiltinAttr___closed__4.exit: ; preds = %_ini
   %290 = getelementptr inbounds nuw i8, ptr %287, i64 4
   %291 = getelementptr inbounds nuw i8, ptr %287, i64 16
   store i64 0, ptr %291, align 8, !tbaa !12
-  store i32 1, ptr %287, align 4, !tbaa !8
+  store i32 1, ptr %287, align 8, !tbaa !8
   store i32 100728856, ptr %290, align 4
   %292 = getelementptr inbounds nuw i8, ptr %287, i64 8
   store ptr %286, ptr %292, align 8, !tbaa !4

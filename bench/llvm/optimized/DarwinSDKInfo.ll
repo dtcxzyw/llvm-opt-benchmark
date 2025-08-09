@@ -2200,7 +2200,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %9,
   store i64 %16, ptr %18, align 8, !tbaa !82
   store ptr %7, ptr %1, align 8, !tbaa !79
   store i64 0, ptr %17, align 8, !tbaa !82
-  store i8 0, ptr %7, align 1, !tbaa !4
+  store i8 0, ptr %7, align 8, !tbaa !4
   store ptr %4, ptr %0, align 8, !tbaa !137
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
@@ -2819,9 +2819,9 @@ _ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEEC2EOS3_.exit
   store ptr null, ptr %51, align 8, !tbaa !44
   %53 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 80
   %54 = getelementptr inbounds nuw i8, ptr %.021, i64 80
-  %55 = load i32, ptr %54, align 4, !tbaa !45
-  store i32 %55, ptr %53, align 4, !tbaa !45
-  store i32 0, ptr %54, align 4, !tbaa !45
+  %55 = load i32, ptr %54, align 8, !tbaa !45
+  store i32 %55, ptr %53, align 8, !tbaa !45
+  store i32 0, ptr %54, align 8, !tbaa !45
   %56 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 84
   %57 = getelementptr inbounds nuw i8, ptr %.021, i64 84
   %58 = load i32, ptr %56, align 4, !tbaa !45
@@ -2830,10 +2830,10 @@ _ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEEC2EOS3_.exit
   store i32 %58, ptr %57, align 4, !tbaa !45
   %60 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 88
   %61 = getelementptr inbounds nuw i8, ptr %.021, i64 88
-  %62 = load i32, ptr %60, align 4, !tbaa !45
-  %63 = load i32, ptr %61, align 4, !tbaa !45
-  store i32 %63, ptr %60, align 4, !tbaa !45
-  store i32 %62, ptr %61, align 4, !tbaa !45
+  %62 = load i32, ptr %60, align 8, !tbaa !45
+  %63 = load i32, ptr %61, align 8, !tbaa !45
+  store i32 %63, ptr %60, align 8, !tbaa !45
+  store i32 %62, ptr %61, align 8, !tbaa !45
   store i8 1, ptr %43, align 8, !tbaa !41
   %.pre = load i8, ptr %42, align 8, !tbaa !41, !range !53
   %64 = trunc nuw i8 %.pre to i1

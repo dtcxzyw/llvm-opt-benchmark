@@ -483,7 +483,7 @@ _ZN13CallGenerator34is_inlined_method_handle_intrinsicEP8JVMStateP8ciMethod.exit
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 48
   %72 = load i32, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  %74 = load i32, ptr %73, align 4
+  %74 = load i32, ptr %73, align 8
   %75 = lshr i32 %74, 3
   %.lobit.i.i = and i32 %75, 1
   %76 = xor i32 %.lobit.i.i, 1
@@ -945,7 +945,7 @@ define hidden noundef ptr @_ZN20VirtualCallGenerator8generateEP8JVMState(ptr nou
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 48
   %98 = load i32, ptr %97, align 8
   %99 = getelementptr inbounds nuw i8, ptr %94, i64 24
-  %100 = load i32, ptr %99, align 4
+  %100 = load i32, ptr %99, align 8
   %101 = lshr i32 %100, 3
   %.lobit.i.i = and i32 %101, 1
   %102 = xor i32 %.lobit.i.i, 1
@@ -1476,7 +1476,7 @@ _ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit118: ; p
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 48
   %103 = load i32, ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %105 = load i32, ptr %104, align 4
+  %105 = load i32, ptr %104, align 8
   %106 = lshr i32 %105, 3
   %.lobit.i = and i32 %106, 1
   %107 = xor i32 %.lobit.i, 1
@@ -2295,7 +2295,7 @@ define hidden void @_ZN13CallGenerator21do_late_inline_helperEv(ptr noundef nonn
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %29 = load i32, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %31 = load i32, ptr %30, align 4
+  %31 = load i32, ptr %30, align 8
   %32 = lshr i32 %31, 3
   %.lobit.i = and i32 %32, 1
   %33 = xor i32 %.lobit.i, 1
@@ -2531,7 +2531,7 @@ define hidden void @_ZN13CallGenerator21do_late_inline_helperEv(ptr noundef nonn
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 48
   %172 = load i32, ptr %171, align 8
   %173 = getelementptr inbounds nuw i8, ptr %168, i64 24
-  %174 = load i32, ptr %173, align 4
+  %174 = load i32, ptr %173, align 8
   %175 = lshr i32 %174, 3
   %.lobit.i127 = and i32 %175, 1
   %176 = xor i32 %.lobit.i127, 1
@@ -3414,7 +3414,7 @@ define hidden noundef ptr @_ZN22PredictedCallGenerator8generateEP8JVMState(ptr n
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 48
   %36 = load i32, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  %38 = load i32, ptr %37, align 4
+  %38 = load i32, ptr %37, align 8
   %39 = lshr i32 %38, 3
   %.lobit.i.i = and i32 %39, 1
   %40 = xor i32 %.lobit.i.i, 1
@@ -4686,7 +4686,7 @@ define hidden noundef ptr @_ZN28PredicatedIntrinsicGenerator8generateEP8JVMState
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %34 = load i32, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %36 = load i32, ptr %35, align 4
+  %36 = load i32, ptr %35, align 8
   %37 = lshr i32 %36, 3
   %.lobit.i.i = and i32 %37, 1
   %38 = xor i32 %.lobit.i.i, 1
@@ -5995,7 +5995,7 @@ define hidden noundef ptr @_ZN25UncommonTrapCallGenerator8generateEP8JVMState(pt
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load i32, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %18 = load i32, ptr %17, align 4
+  %18 = load i32, ptr %17, align 8
   %19 = lshr i32 %18, 3
   %.lobit.i = and i32 %19, 1
   %20 = xor i32 %.lobit.i, 1

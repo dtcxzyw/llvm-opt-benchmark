@@ -12462,7 +12462,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i:           ; preds = %4740, %4738, %_ZNSt
   %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %.ph, i64 -16
   %.sroa.8.0.copyload.i.i = load ptr, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !tbaa !144
   %4750 = getelementptr inbounds i8, ptr %.ph, i64 -8
-  %4751 = load i32, ptr %4750, align 4, !tbaa !117
+  %4751 = load i32, ptr %4750, align 8, !tbaa !117
   %.sroa.speculated59.i.i = call i32 @llvm.smin.i32(i32 %4751, i32 %.077.i.i)
   store ptr %4747, ptr %376, align 8, !tbaa !408
   br label %.outer, !llvm.loop !409

@@ -928,9 +928,9 @@ _ZN5graph7graph_t13check_successEb.exit:          ; preds = %_ZN11hb_vector_tIN5
   store ptr %88, ptr %86, align 8, !tbaa !61
   store ptr %87, ptr %51, align 8, !tbaa !61
   %89 = getelementptr inbounds nuw i8, ptr %.0.i37, i64 32
-  %90 = load i32, ptr %89, align 4, !tbaa !56
+  %90 = load i32, ptr %89, align 8, !tbaa !56
   %91 = load i32, ptr %52, align 8, !tbaa !56
-  store i32 %91, ptr %89, align 4, !tbaa !56
+  store i32 %91, ptr %89, align 8, !tbaa !56
   store i32 %90, ptr %52, align 8, !tbaa !56
   %92 = getelementptr inbounds nuw i8, ptr %.0.i37, i64 36
   %93 = load i32, ptr %53, align 4, !tbaa !56
@@ -4875,7 +4875,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11hb_vector_tIN5graph7graph_t8vert
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %11, ptr noundef nonnull align 8 dereferenceable(136) %22, i64 16, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load i32, ptr %23, align 4, !tbaa !56
-  store i32 %24, ptr %12, align 4, !tbaa !56
+  store i32 %24, ptr %12, align 8, !tbaa !56
   store i32 0, ptr %23, align 4, !tbaa !56
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 20
@@ -4889,9 +4889,9 @@ define linkonce_odr dso_local noundef ptr @_ZN11hb_vector_tIN5graph7graph_t8vert
   store ptr null, ptr %29, align 8, !tbaa !61
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %32 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %33 = load i32, ptr %32, align 4, !tbaa !56
-  store i32 %33, ptr %31, align 4, !tbaa !56
-  store i32 0, ptr %32, align 4, !tbaa !56
+  %33 = load i32, ptr %32, align 8, !tbaa !56
+  store i32 %33, ptr %31, align 8, !tbaa !56
+  store i32 0, ptr %32, align 8, !tbaa !56
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 36
   %35 = getelementptr inbounds nuw i8, ptr %22, i64 36
   %36 = load i32, ptr %35, align 4, !tbaa !56
@@ -8525,10 +8525,10 @@ _ZN11hb_vector_tI9hb_pair_tIljELb0EE6resizeEibb.exit.thread: ; preds = %108, %_Z
   store i64 %.pre, ptr %131, align 8, !tbaa !137
   %132 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %133 = getelementptr inbounds nuw i8, ptr %131, i64 8
-  %134 = load i32, ptr %132, align 4, !tbaa !56
-  %135 = load i32, ptr %133, align 4, !tbaa !56
-  store i32 %135, ptr %132, align 4, !tbaa !56
-  store i32 %134, ptr %133, align 4, !tbaa !56
+  %134 = load i32, ptr %132, align 8, !tbaa !56
+  %135 = load i32, ptr %133, align 8, !tbaa !56
+  store i32 %135, ptr %132, align 8, !tbaa !56
+  store i32 %134, ptr %133, align 8, !tbaa !56
   %136 = shl i32 %.0.i38, 1
   %137 = or disjoint i32 %136, 1
   %138 = add nuw i32 %136, 2
@@ -8592,10 +8592,10 @@ _ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EEixEi.exit96: ; preds = %147, %148
   store ptr %162, ptr %161, align 8, !tbaa !61
   %164 = getelementptr inbounds nuw i8, ptr %.0.i95, i64 32
   %165 = getelementptr inbounds nuw i8, ptr %.0.i93, i64 32
-  %166 = load i32, ptr %164, align 4, !tbaa !56
-  %167 = load i32, ptr %165, align 4, !tbaa !56
-  store i32 %167, ptr %164, align 4, !tbaa !56
-  store i32 %166, ptr %165, align 4, !tbaa !56
+  %166 = load i32, ptr %164, align 8, !tbaa !56
+  %167 = load i32, ptr %165, align 8, !tbaa !56
+  store i32 %167, ptr %164, align 8, !tbaa !56
+  store i32 %166, ptr %165, align 8, !tbaa !56
   %168 = getelementptr inbounds nuw i8, ptr %.0.i95, i64 36
   %169 = getelementptr inbounds nuw i8, ptr %.0.i93, i64 36
   %170 = load i32, ptr %168, align 4, !tbaa !56
@@ -8958,10 +8958,10 @@ _ZN11hb_vector_tI9hb_pair_tIljELb0EE4pushIJS1_EEEPS1_DpOT_.exit139: ; preds = %_
   store i64 %292, ptr %316, align 8, !tbaa !137
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 8
   %322 = getelementptr inbounds nuw i8, ptr %316, i64 8
-  %323 = load i32, ptr %321, align 4, !tbaa !56
-  %324 = load i32, ptr %322, align 4, !tbaa !56
-  store i32 %324, ptr %321, align 4, !tbaa !56
-  store i32 %323, ptr %322, align 4, !tbaa !56
+  %323 = load i32, ptr %321, align 8, !tbaa !56
+  %324 = load i32, ptr %322, align 8, !tbaa !56
+  store i32 %324, ptr %321, align 8, !tbaa !56
+  store i32 %323, ptr %322, align 8, !tbaa !56
   %325 = icmp ult i32 %313, 2
   br i1 %325, label %_ZN19hb_priority_queue_tIlE6insertElj.exit27, label %.lr.ph379
 
@@ -10014,7 +10014,7 @@ _ZNK12hb_bit_set_t7get_minEv.exit:                ; preds = %.thread.i39, %159, 
 190:                                              ; preds = %157
   %191 = load ptr, ptr %135, align 8, !tbaa !177
   %192 = lshr i32 %.sroa.5.8.extract.trunc114, 9
-  %193 = load atomic i32, ptr %136 monotonic, align 4
+  %193 = load atomic i32, ptr %136 monotonic, align 8
   %194 = load i32, ptr %137, align 4, !tbaa !166
   %.not.i34 = icmp ult i32 %193, %194
   br i1 %.not.i34, label %195, label %.critedge.i35, !prof !51
@@ -10628,10 +10628,10 @@ _ZN11hb_vector_tI9hb_pair_tIljELb0EE6resizeEibb.exit.thread: ; preds = %57, %_ZN
   store i64 %.pre312, ptr %80, align 8, !tbaa !137
   %81 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %83 = load i32, ptr %81, align 4, !tbaa !56
-  %84 = load i32, ptr %82, align 4, !tbaa !56
-  store i32 %84, ptr %81, align 4, !tbaa !56
-  store i32 %83, ptr %82, align 4, !tbaa !56
+  %83 = load i32, ptr %81, align 8, !tbaa !56
+  %84 = load i32, ptr %82, align 8, !tbaa !56
+  store i32 %84, ptr %81, align 8, !tbaa !56
+  store i32 %83, ptr %82, align 8, !tbaa !56
   %85 = shl i32 %.0.i43, 1
   %86 = or disjoint i32 %85, 1
   %87 = add nuw i32 %85, 2
@@ -10888,10 +10888,10 @@ _ZN11hb_vector_tI9hb_pair_tIljELb0EE4pushIJS1_EEEPS1_DpOT_.exit101: ; preds = %1
   store i64 %149, ptr %176, align 8, !tbaa !137
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
   %182 = getelementptr inbounds nuw i8, ptr %176, i64 8
-  %183 = load i32, ptr %181, align 4, !tbaa !56
-  %184 = load i32, ptr %182, align 4, !tbaa !56
-  store i32 %184, ptr %181, align 4, !tbaa !56
-  store i32 %183, ptr %182, align 4, !tbaa !56
+  %183 = load i32, ptr %181, align 8, !tbaa !56
+  %184 = load i32, ptr %182, align 8, !tbaa !56
+  store i32 %184, ptr %181, align 8, !tbaa !56
+  store i32 %183, ptr %182, align 8, !tbaa !56
   %185 = icmp ult i32 %173, 2
   br i1 %185, label %_ZN19hb_priority_queue_tIlE6insertElj.exit32, label %.lr.ph296
 
@@ -12100,9 +12100,9 @@ _ZN9hb_pair_tIj11hb_vector_tIjLb0EEED2Ev.exit.i.i: ; preds = %_ZN9hb_pair_tIj11h
   %156 = load i32, ptr %155, align 8, !tbaa !403
   store i32 %156, ptr %153, align 8, !tbaa !403
   %157 = getelementptr inbounds nuw i8, ptr %155, i64 8
-  %158 = load i32, ptr %157, align 4, !tbaa !56
-  store i32 %158, ptr %154, align 4, !tbaa !56
-  store i32 0, ptr %157, align 4, !tbaa !56
+  %158 = load i32, ptr %157, align 8, !tbaa !56
+  store i32 %158, ptr %154, align 8, !tbaa !56
+  store i32 0, ptr %157, align 8, !tbaa !56
   %159 = getelementptr inbounds nuw i8, ptr %153, i64 12
   %160 = getelementptr inbounds nuw i8, ptr %155, i64 12
   %161 = load i32, ptr %160, align 4, !tbaa !56
@@ -12202,8 +12202,8 @@ _ZN11hb_vector_tI9hb_pair_tIjS_IjLb0EEELb0EE4pushEv.exit: ; preds = %_ZN11hb_vec
   %190 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %190, ptr %.0.i80, align 8, !tbaa !403
   %191 = getelementptr inbounds nuw i8, ptr %.0.i80, i64 8
-  %192 = load i32, ptr %191, align 4, !tbaa !56
-  store i32 %.sroa.0.2, ptr %191, align 4, !tbaa !56
+  %192 = load i32, ptr %191, align 8, !tbaa !56
+  store i32 %.sroa.0.2, ptr %191, align 8, !tbaa !56
   %193 = getelementptr inbounds nuw i8, ptr %.0.i80, i64 12
   store i32 %.sroa.12.2, ptr %193, align 4, !tbaa !56
   %194 = getelementptr inbounds nuw i8, ptr %.0.i80, i64 16
@@ -25251,7 +25251,7 @@ _ZNK13hb_bit_page_t8is_emptyEv.exit.thread18.i109: ; preds = %_ZNK16hb_vector_si
 274:                                              ; preds = %242
   %275 = load ptr, ptr %234, align 8, !tbaa !177
   %276 = lshr i32 %243, 9
-  %277 = load atomic i32, ptr %235 monotonic, align 4
+  %277 = load atomic i32, ptr %235 monotonic, align 8
   %278 = load i32, ptr %236, align 4, !tbaa !166
   %.not.i37 = icmp ult i32 %277, %278
   br i1 %.not.i37, label %279, label %.critedge.i38, !prof !51
@@ -25521,7 +25521,7 @@ _ZNK13hb_bit_page_t8is_emptyEv.exit.thread18.i:   ; preds = %_ZNK16hb_vector_siz
 381:                                              ; preds = %_ZNK12hb_bit_set_t4nextEPj.exit86.thread152
   %382 = load ptr, ptr %234, align 8, !tbaa !177
   %383 = lshr i32 %.0, 9
-  %384 = load atomic i32, ptr %235 monotonic, align 4
+  %384 = load atomic i32, ptr %235 monotonic, align 8
   %385 = load i32, ptr %236, align 4, !tbaa !166
   %.not.i32 = icmp ult i32 %384, %385
   br i1 %.not.i32, label %386, label %.critedge.i, !prof !51
@@ -27297,14 +27297,14 @@ _ZN12hb_hashmap_tIj8hb_set_tLb0EE9prime_forEj.exit: ; preds = %._crit_edge, %32
   %41 = getelementptr inbounds nuw i8, ptr %.03650, i64 28
   %42 = getelementptr inbounds nuw i8, ptr %.03650, i64 32
   %43 = getelementptr inbounds nuw i8, ptr %.03650, i64 40
-  store atomic i32 1, ptr %39 monotonic, align 4
+  store atomic i32 1, ptr %39 monotonic, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.03650, i64 12
   store atomic i32 1, ptr %44 monotonic, align 4
   %45 = getelementptr inbounds nuw i8, ptr %.03650, i64 16
   store atomic i64 0, ptr %45 monotonic, align 8
   store i8 1, ptr %40, align 8, !tbaa !89
   store i32 0, ptr %41, align 4, !tbaa !95
-  store atomic i32 0, ptr %42 monotonic, align 4
+  store atomic i32 0, ptr %42 monotonic, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %43, i8 0, i64 33, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %.03650, i64 80
   %.not40 = icmp eq ptr %46, %23
@@ -40936,7 +40936,7 @@ _ZN11hb_vector_tIN5graph18MarkBasePosFormat112class_info_tELb0EE5allocEjb.exit.t
   store atomic i64 0, ptr %41 monotonic, align 8
   store i8 1, ptr %36, align 8, !tbaa !89
   store i32 0, ptr %37, align 4, !tbaa !95
-  store atomic i32 0, ptr %38 monotonic, align 4
+  store atomic i32 0, ptr %38 monotonic, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %39, i8 0, i64 33, i1 false)
   %42 = getelementptr inbounds nuw i8, ptr %35, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
@@ -41030,7 +41030,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11hb_vector_tIN5graph18MarkBasePos
   store atomic i64 0, ptr %18 monotonic, align 8
   store i8 1, ptr %13, align 8, !tbaa !89
   store i32 0, ptr %14, align 4, !tbaa !95
-  store atomic i32 0, ptr %15 monotonic, align 4
+  store atomic i32 0, ptr %15 monotonic, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %16, i8 0, i64 33, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
@@ -44539,7 +44539,7 @@ _ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjEN2OT6Layout6Common8Coverage6i
 
 15:                                               ; preds = %_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjEN2OT6Layout6Common8Coverage6iter_tEE9hb_pair_tIjjEEcvbEv.exit.i
   %16 = load ptr, ptr %5, align 8, !tbaa !1329
-  %.val.i.i.i.i5.i = load i32, ptr %0, align 4, !tbaa !56
+  %.val.i.i.i.i5.i = load i32, ptr %0, align 8, !tbaa !56
   %switch.i = icmp eq i32 %7, 1
   br i1 %switch.i, label %17, label %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjEN2OT6Layout6Common8Coverage6iter_tEE9hb_pair_tIjjEEdeEv.exit.i
 
@@ -47606,7 +47606,7 @@ _ZNK12hb_bit_set_t7get_minEv.exit:                ; preds = %.thread.i82, %282, 
 313:                                              ; preds = %280
   %314 = load ptr, ptr %121, align 8, !tbaa !177
   %315 = lshr i32 %.sroa.5.8.extract.trunc172, 9
-  %316 = load atomic i32, ptr %122 monotonic, align 4
+  %316 = load atomic i32, ptr %122 monotonic, align 8
   %317 = load i32, ptr %123, align 4, !tbaa !166
   %.not.i44 = icmp ult i32 %316, %317
   br i1 %.not.i44, label %318, label %.critedge.i, !prof !51

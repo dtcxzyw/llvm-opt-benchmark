@@ -4758,7 +4758,7 @@ _ZSt10_ConstructIN4llvm7SMFixItEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %_Z
   store i64 %24, ptr %25, align 8, !tbaa !26
   store ptr %15, ptr %12, align 8, !tbaa !22
   store i64 0, ptr %23, align 8, !tbaa !26
-  store i8 0, ptr %15, align 1, !tbaa !21
+  store i8 0, ptr %15, align 8, !tbaa !21
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 48
   %27 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 48
   %.not.i.i.i.i.i.i = icmp eq ptr %26, %10
@@ -4941,7 +4941,7 @@ _ZN4llvm7SMFixItC2EOS0_.exit:                     ; preds = %26, %_ZNKSt7__cxx11
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store ptr %24, ptr %22, align 8, !tbaa !22
   store i64 0, ptr %34, align 8, !tbaa !26
-  store i8 0, ptr %24, align 1, !tbaa !21
+  store i8 0, ptr %24, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false)
   store ptr %18, ptr %17, align 8, !tbaa !44
   %35 = icmp eq ptr %32, %15
@@ -5048,7 +5048,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i6:
   store i64 %19, ptr %21, align 8, !tbaa !26
   store ptr %11, ptr %8, align 8, !tbaa !22
   store i64 0, ptr %20, align 8, !tbaa !26
-  store i8 0, ptr %11, align 1, !tbaa !21
+  store i8 0, ptr %11, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 16, i1 false), !tbaa.struct !180
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !22
@@ -5495,7 +5495,7 @@ _ZN4llvm7SMFixItC2EOS0_.exit:                     ; preds = %141, %_ZNKSt7__cxx1
   store i64 %147, ptr %149, align 8, !tbaa !26
   store ptr %139, ptr %136, align 8, !tbaa !22
   store i64 0, ptr %148, align 8, !tbaa !26
-  store i8 0, ptr %139, align 1, !tbaa !21
+  store i8 0, ptr %139, align 8, !tbaa !21
   call void @_ZSt11__push_heapIPN4llvm7SMFixItElS1_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_S7_T1_RT2_(ptr noundef %0, i64 noundef %.127, i64 noundef %1, ptr noundef nonnull %6, ptr noundef nonnull align 1 dereferenceable(1) %5)
   %150 = load ptr, ptr %135, align 8, !tbaa !22
   %151 = icmp eq ptr %150, %137
@@ -6488,7 +6488,7 @@ _ZN4llvm7SMFixItC2EOS0_.exit:                     ; preds = %40, %_ZNKSt7__cxx11
   store i64 %47, ptr %10, align 8, !tbaa !26
   store ptr %38, ptr %36, align 8, !tbaa !22
   store i64 0, ptr %46, align 8, !tbaa !26
-  store i8 0, ptr %38, align 1, !tbaa !21
+  store i8 0, ptr %38, align 8, !tbaa !21
   %48 = ptrtoint ptr %.021 to i64
   %49 = sub i64 %48, %11
   %50 = icmp sgt i64 %49, 0
@@ -6751,7 +6751,7 @@ _ZN4llvm7SMFixItC2EOS0_.exit:                     ; preds = %9, %_ZNKSt7__cxx111
   store i64 %15, ptr %17, align 8, !tbaa !26
   store ptr %7, ptr %4, align 8, !tbaa !22
   store i64 0, ptr %16, align 8, !tbaa !26
-  store i8 0, ptr %7, align 1, !tbaa !21
+  store i8 0, ptr %7, align 8, !tbaa !21
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %19
 

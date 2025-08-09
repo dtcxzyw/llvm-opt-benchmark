@@ -2810,7 +2810,7 @@ define dso_local void @intel_rps_init_early(ptr noundef %0) local_unnamed_addr #
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @init_timer_key(ptr noundef nonnull %7, ptr noundef nonnull @rps_timer, i32 noundef 0, ptr noundef null, ptr noundef null) #11
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store volatile i32 0, ptr %8, align 4
+  store volatile i32 0, ptr %8, align 8
   ret void
 }
 
@@ -2832,7 +2832,7 @@ define internal void @rps_work(ptr noundef %0) #0 align 16 {
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, %8
   %12 = getelementptr i8, ptr %0, i64 136
-  %13 = load volatile i32, ptr %12, align 4
+  %13 = load volatile i32, ptr %12, align 8
   %14 = icmp ne i32 %13, 0
   %15 = load ptr, ptr %5, align 8
   tail call void @_raw_spin_unlock_irq(ptr noundef %15) #11

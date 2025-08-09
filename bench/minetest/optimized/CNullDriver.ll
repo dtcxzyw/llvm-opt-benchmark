@@ -9193,7 +9193,7 @@ if.then.i.i:                                      ; preds = %if.end9
   store ptr %34, ptr %32, align 8, !tbaa !187
   %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i.i, align 8, !tbaa !138
-  store i8 0, ptr %34, align 1, !tbaa !101
+  store i8 0, ptr %34, align 8, !tbaa !101
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %32, %r
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN3irr5video11CNullDriver17SMaterialRendererEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i, label %if.end.i.i.i.i.i.i.i
 
@@ -12974,7 +12974,7 @@ _ZNKSt6vectorIN3irr5video11CNullDriver17SMaterialRendererESaIS3_EE12_M_check_len
   store ptr %3, ptr %add.ptr, align 8, !tbaa !187
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !138
-  store i8 0, ptr %3, align 1, !tbaa !101
+  store i8 0, ptr %3, align 8, !tbaa !101
   %cmp.i.i.i.i.i = icmp eq ptr %add.ptr, %__args
   br i1 %cmp.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN3irr5video11CNullDriver17SMaterialRendererEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit, label %if.end.i.i.i.i.i
 
@@ -12997,7 +12997,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt16allocator_tr
   store ptr %5, ptr %__cur.08.i.i.i.i.i, align 8, !tbaa !187
   %_M_string_length.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !138
-  store i8 0, ptr %5, align 1, !tbaa !101
+  store i8 0, ptr %5, align 8, !tbaa !101
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %__cur.08.i.i.i.i.i, %__first.addr.07.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN3irr5video11CNullDriver17SMaterialRendererEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i
 
@@ -13028,7 +13028,7 @@ for.body.i.i.i.i.i36:                             ; preds = %_ZSt34__uninitializ
   store ptr %7, ptr %__cur.08.i.i.i.i.i37, align 8, !tbaa !187
   %_M_string_length.i.i.i.i.i.i.i.i.i.i.i39 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i37, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i39, align 8, !tbaa !138
-  store i8 0, ptr %7, align 1, !tbaa !101
+  store i8 0, ptr %7, align 8, !tbaa !101
   %cmp.i.i.i.i.i.i.i.i.i40 = icmp eq ptr %__cur.08.i.i.i.i.i37, %__first.addr.07.i.i.i.i.i38
   br i1 %cmp.i.i.i.i.i.i.i.i.i40, label %_ZSt10_ConstructIN3irr5video11CNullDriver17SMaterialRendererEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i42, label %if.end.i.i.i.i.i.i.i.i.i41
 

@@ -745,9 +745,9 @@ _ZNSt10_HashtableImSt4pairIKmN6open3d2ml7contrib11SampledDataEESaIS6_ENSt8__deta
   store float %322, ptr %320, align 4, !tbaa !37
   %.sroa.0.4.vec.extract.i = extractelement <2 x float> %.sroa.044.0.copyload, i64 1
   %323 = getelementptr inbounds nuw i8, ptr %.pn.i.i219, i64 24
-  %324 = load float, ptr %323, align 4, !tbaa !39
+  %324 = load float, ptr %323, align 8, !tbaa !39
   %325 = fadd float %.sroa.0.4.vec.extract.i, %324
-  store float %325, ptr %323, align 4, !tbaa !39
+  store float %325, ptr %323, align 8, !tbaa !39
   %326 = getelementptr inbounds nuw i8, ptr %.pn.i.i219, i64 28
   %327 = load float, ptr %326, align 4, !tbaa !40
   %328 = fadd float %.sroa.245.0.copyload, %327
@@ -924,9 +924,9 @@ _ZNSt10_HashtableImSt4pairIKmN6open3d2ml7contrib11SampledDataEESaIS6_ENSt8__deta
   store float %388, ptr %386, align 4, !tbaa !37
   %.sroa.0.4.vec.extract.i255 = extractelement <2 x float> %.sroa.034.0.copyload, i64 1
   %389 = getelementptr inbounds nuw i8, ptr %.pn.i.i248, i64 24
-  %390 = load float, ptr %389, align 4, !tbaa !39
+  %390 = load float, ptr %389, align 8, !tbaa !39
   %391 = fadd float %.sroa.0.4.vec.extract.i255, %390
-  store float %391, ptr %389, align 4, !tbaa !39
+  store float %391, ptr %389, align 8, !tbaa !39
   %392 = getelementptr inbounds nuw i8, ptr %.pn.i.i248, i64 28
   %393 = load float, ptr %392, align 4, !tbaa !40
   %394 = fadd float %.sroa.235.0.copyload, %393
@@ -1744,7 +1744,7 @@ _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_S6_St4plus
   %54 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #17
   store ptr null, ptr %54, align 8, !tbaa !42
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  store i32 %33, ptr %55, align 4, !tbaa !101
+  store i32 %33, ptr %55, align 8, !tbaa !101
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 12
   store i32 0, ptr %56, align 4, !tbaa !94
   %57 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS4_10_Hash_nodeIS2_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %32, i64 noundef %37, i64 noundef %34, ptr noundef nonnull %54, i64 noundef 1)
@@ -1858,7 +1858,7 @@ define linkonce_odr void @_ZN6open3d2ml7contrib11SampledData14update_classesENS1
   %44 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #17
   store ptr null, ptr %44, align 8, !tbaa !42
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store i32 %23, ptr %45, align 4, !tbaa !101
+  store i32 %23, ptr %45, align 8, !tbaa !101
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 12
   store i32 0, ptr %46, align 4, !tbaa !94
   %47 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS4_10_Hash_nodeIS2_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %27, i64 noundef %24, ptr noundef nonnull %44, i64 noundef 1)
@@ -2631,7 +2631,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !42
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !97
+  %16 = load i32, ptr %15, align 8, !tbaa !97
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18

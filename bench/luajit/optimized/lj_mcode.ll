@@ -84,7 +84,7 @@ select.unfold.preheader:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 3048
   %2 = load ptr, ptr %1, align 8, !tbaa !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1688
-  %4 = load i32, ptr %3, align 4, !tbaa !39
+  %4 = load i32, ptr %3, align 8, !tbaa !39
   %5 = sext i32 %4 to i64
   %6 = shl nsw i64 %5, 10
   %7 = add nsw i64 %6, 4095

@@ -305,7 +305,7 @@ _ZN8QuantLib8ScheduleC2EOS0_.exit:                ; preds = %if.then, %invoke.co
   store ptr null, ptr %ref.tmp.sroa.72.0.this.sroa_idx.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib12ActualActual9ISMA_ImplE, i64 16), ptr %call1, align 8, !tbaa !21
   %schedule_.i = getelementptr inbounds nuw i8, ptr %call1, i64 8
-  store i8 0, ptr %schedule_.i, align 4, !tbaa !7
+  store i8 0, ptr %schedule_.i, align 8, !tbaa !7
   br i1 %loadedv.i.i.i.i, label %invoke.cont.i.i.i.i, label %_ZN8QuantLib12ActualActual9ISMA_ImplC2ENS_8ScheduleE.exit
 
 invoke.cont.i.i.i.i:                              ; preds = %_ZN8QuantLib8ScheduleC2EOS0_.exit

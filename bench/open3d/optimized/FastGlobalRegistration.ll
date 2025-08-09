@@ -1158,7 +1158,7 @@ _ZN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEC2INS_14CwiseNullaryOpINS_8internal18scal
   %180 = shufflevector <2 x double> %.sroa.2.64.vec.insert, <2 x double> poison, <2 x i32> zeroinitializer
   %181 = fmul <2 x double> %180, %131
   %182 = fadd <2 x double> %181, %165
-  %183 = load <2 x double>, ptr %27, align 1, !tbaa !42, !noalias !44
+  %183 = load <2 x double>, ptr %27, align 8, !tbaa !42, !noalias !44
   %184 = fadd <2 x double> %183, %182
   store <2 x double> %184, ptr %143, align 16, !tbaa !42, !alias.scope !44
   %185 = getelementptr inbounds nuw i8, ptr %16, i64 112
@@ -36054,7 +36054,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %80, %77
   %87 = getelementptr inbounds nuw %"struct.Eigen::internal::GemmParallelInfo", ptr %85, i64 %.06.i.i
   store i64 -1, ptr %87, align 8, !tbaa !836
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  store i32 0, ptr %88, align 4, !tbaa !838
+  store i32 0, ptr %88, align 8, !tbaa !838
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %89, i8 0, i64 16, i1 false)
   %90 = add nuw i64 %.06.i.i, 1
@@ -40605,7 +40605,7 @@ _ZN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEC2INS_14CwiseNullaryOpINS_8internal18scal
   %190 = shufflevector <2 x double> %.sroa.2.64.vec.insert, <2 x double> poison, <2 x i32> zeroinitializer
   %191 = fmul <2 x double> %190, %141
   %192 = fadd <2 x double> %191, %175
-  %193 = load <2 x double>, ptr %32, align 1, !tbaa !42, !noalias !1022
+  %193 = load <2 x double>, ptr %32, align 8, !tbaa !42, !noalias !1022
   %194 = fadd <2 x double> %193, %192
   store <2 x double> %194, ptr %153, align 16, !tbaa !42, !alias.scope !1022
   %195 = getelementptr inbounds nuw i8, ptr %21, i64 112

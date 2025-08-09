@@ -526,14 +526,14 @@ VP8SetError.exit130:                              ; preds = %40, %43, %VP8CheckS
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i32 0, ptr %95, align 4, !tbaa !57
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 0, ptr %96, align 4, !tbaa !58
+  store i32 0, ptr %96, align 8, !tbaa !58
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 1, ptr %97, align 4, !tbaa !59
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i32 0, ptr %98, align 4
+  store i32 0, ptr %98, align 8
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 0, ptr %99, align 4
-  %.pre = load i32, ptr %31, align 4, !tbaa !38
+  %.pre = load i32, ptr %31, align 8, !tbaa !38
   br label %100
 
 100:                                              ; preds = %49, %34

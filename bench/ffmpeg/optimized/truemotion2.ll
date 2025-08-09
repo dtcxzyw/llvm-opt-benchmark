@@ -927,7 +927,7 @@ GET_TOK.exit.us.i:                                ; preds = %371
   %409 = load ptr, ptr %.in185.i.us.i, align 8, !tbaa !77
   %410 = getelementptr inbounds i32, ptr %409, i64 %392
   %411 = getelementptr inbounds nuw i32, ptr %410, i64 %394
-  %412 = load i32, ptr %331, align 4, !tbaa !56
+  %412 = load i32, ptr %331, align 8, !tbaa !56
   %413 = load i32, ptr %332, align 4, !tbaa !56
   %.not.i.i335.us.i = icmp slt i32 %412, %413
   br i1 %.not.i.i335.us.i, label %416, label %414
@@ -1097,7 +1097,7 @@ GET_TOK.exit194.i.us.i:                           ; preds = %446, %440, %432
   %517 = getelementptr inbounds nuw i8, ptr %402, i64 12
   %518 = load i32, ptr %517, align 4, !tbaa !56
   %519 = sub i32 %515, %518
-  store i32 %519, ptr %336, align 4, !tbaa !56
+  store i32 %519, ptr %336, align 8, !tbaa !56
   %520 = getelementptr inbounds i32, ptr %499, i64 %506
   %521 = load i32, ptr %520, align 4, !tbaa !56
   %522 = load i32, ptr %514, align 4, !tbaa !56
@@ -1279,7 +1279,7 @@ GET_TOK.exit194.i.us.i:                           ; preds = %446, %440, %432
   %638 = getelementptr inbounds nuw i8, ptr %613, i64 12
   %639 = load i32, ptr %638, align 4, !tbaa !56
   %640 = sub i32 %636, %639
-  store i32 %640, ptr %336, align 4, !tbaa !56
+  store i32 %640, ptr %336, align 8, !tbaa !56
   %641 = getelementptr inbounds i32, ptr %620, i64 %627
   %642 = load i32, ptr %641, align 4, !tbaa !56
   %643 = load i32, ptr %635, align 4, !tbaa !56
@@ -1518,7 +1518,7 @@ GET_TOK.exit156.i.us.i:                           ; preds = %749, %743, %735
   %790 = getelementptr inbounds nuw i8, ptr %765, i64 12
   %791 = load i32, ptr %790, align 4, !tbaa !56
   %792 = sub i32 %788, %791
-  store i32 %792, ptr %336, align 4, !tbaa !56
+  store i32 %792, ptr %336, align 8, !tbaa !56
   %793 = getelementptr inbounds i32, ptr %772, i64 %779
   %794 = load i32, ptr %793, align 4, !tbaa !56
   %795 = load i32, ptr %787, align 4, !tbaa !56
@@ -1881,7 +1881,7 @@ tm2_null_res_block.exit.us.i:                     ; preds = %976
   %994 = getelementptr inbounds nuw i32, ptr %993, i64 %983
   %995 = load ptr, ptr %314, align 8, !tbaa !38
   %996 = getelementptr inbounds nuw i32, ptr %995, i64 %983
-  %997 = load i32, ptr %345, align 4, !tbaa !56
+  %997 = load i32, ptr %345, align 8, !tbaa !56
   %998 = load i32, ptr %346, align 4, !tbaa !56
   %.not.i.i269.us.i = icmp slt i32 %997, %998
   br i1 %.not.i.i269.us.i, label %1001, label %999
@@ -2341,7 +2341,7 @@ tm2_low_res_block.exit.us.i:                      ; preds = %1216
   %1233 = load ptr, ptr %309, align 8, !tbaa !37
   %1234 = load ptr, ptr %314, align 8, !tbaa !38
   %1235 = getelementptr inbounds nuw i32, ptr %1234, i64 %1223
-  %1236 = load i32, ptr %345, align 4, !tbaa !56
+  %1236 = load i32, ptr %345, align 8, !tbaa !56
   %1237 = load i32, ptr %346, align 4, !tbaa !56
   %.not.i.i243.us.i = icmp slt i32 %1236, %1237
   br i1 %.not.i.i243.us.i, label %1240, label %1238

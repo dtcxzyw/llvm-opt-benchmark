@@ -978,7 +978,7 @@ define internal void @X11SD_GetRasInfo(ptr readnone captures(none) %0, ptr nound
   %49 = trunc i32 %11 to i8
   %50 = and i8 %49, 65
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %52 = load i32, ptr %51, align 4
+  %52 = load i32, ptr %51, align 8
   %53 = sub nsw i32 %52, %41
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %55 = load i32, ptr %54, align 4

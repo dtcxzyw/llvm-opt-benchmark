@@ -1087,7 +1087,7 @@ rock_check_overflow.exit:                         ; preds = %92
   %361 = load i8, ptr %360, align 1
   store i8 %361, ptr %50, align 1
   %362 = load i8, ptr %353, align 1
-  store i8 %362, ptr %51, align 1
+  store i8 %362, ptr %51, align 2
   %363 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %364 = load i32, ptr %363, align 1
   %365 = zext i32 %364 to i64

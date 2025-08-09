@@ -4675,7 +4675,7 @@ define internal i32 @fib6_net_init(ptr noundef %0) #0 align 16 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1960
   store volatile ptr %9, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1968
-  store volatile ptr %9, ptr %10, align 8
+  store volatile ptr %9, ptr %10, align 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   tail call void @init_timer_key(ptr noundef nonnull %11, ptr noundef nonnull @fib6_gc_timer_cb, i32 noundef 0, ptr noundef null, ptr noundef null) #13
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8

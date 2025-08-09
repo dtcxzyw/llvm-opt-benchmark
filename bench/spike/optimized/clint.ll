@@ -965,7 +965,7 @@ define void @_Z18clint_generate_dtsPK5sim_tRKSt6vectorINSt7__cxx1112basic_string
   %11 = load i32, ptr %10, align 8, !tbaa !80
   %12 = and i32 %11, -75
   %13 = or disjoint i32 %12, 8
-  store i32 %13, ptr %10, align 4, !tbaa !90
+  store i32 %13, ptr %10, align 8, !tbaa !90
   %14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str.2, i64 noundef 10)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %41
 
@@ -986,7 +986,7 @@ _ZNSolsEPFRSt8ios_baseS0_E.exit14:                ; preds = %16
   %23 = load i32, ptr %22, align 8, !tbaa !80
   %24 = and i32 %23, -75
   %25 = or disjoint i32 %24, 2
-  store i32 %25, ptr %22, align 4, !tbaa !90
+  store i32 %25, ptr %22, align 8, !tbaa !90
   br label %26
 
 26:                                               ; preds = %_ZNSolsEPFRSt8ios_baseS0_E.exit14, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit19
@@ -1052,7 +1052,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit19: ; preds = %_ZNSo
   %58 = load i32, ptr %57, align 8, !tbaa !80
   %59 = and i32 %58, -75
   %60 = or disjoint i32 %59, 8
-  store i32 %60, ptr %57, align 4, !tbaa !90
+  store i32 %60, ptr %57, align 8, !tbaa !90
   %61 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str.7, i64 noundef 18)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit20 unwind label %118
 

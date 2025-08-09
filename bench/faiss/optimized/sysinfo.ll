@@ -4487,7 +4487,7 @@ _ZSt19__relocate_object_aIN9benchmark7CPUInfo9CacheInfoES2_SaIS2_EEvPT_PT0_RT1_.
   store i64 %53, ptr %55, align 8, !tbaa !29, !alias.scope !155, !noalias !158
   store ptr %45, ptr %.0911.i.i.i, align 8, !tbaa !33, !alias.scope !158, !noalias !155
   store i64 0, ptr %54, align 8, !tbaa !29, !alias.scope !158, !noalias !155
-  store i8 0, ptr %45, align 1, !tbaa !32, !alias.scope !158, !noalias !155
+  store i8 0, ptr %45, align 8, !tbaa !32, !alias.scope !158, !noalias !155
   %56 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %57 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %56, ptr noundef nonnull align 8 dereferenceable(12) %57, i64 12, i1 false), !alias.scope !160
@@ -4538,7 +4538,7 @@ _ZSt19__relocate_object_aIN9benchmark7CPUInfo9CacheInfoES2_SaIS2_EEvPT_PT0_RT1_.
   store i64 %71, ptr %73, align 8, !tbaa !29, !alias.scope !162, !noalias !165
   store ptr %63, ptr %.0911.i.i.i29, align 8, !tbaa !33, !alias.scope !165, !noalias !162
   store i64 0, ptr %72, align 8, !tbaa !29, !alias.scope !165, !noalias !162
-  store i8 0, ptr %63, align 1, !tbaa !32, !alias.scope !165, !noalias !162
+  store i8 0, ptr %63, align 8, !tbaa !32, !alias.scope !165, !noalias !162
   %74 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %75 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %74, ptr noundef nonnull align 8 dereferenceable(12) %75, i64 12, i1 false), !alias.scope !167

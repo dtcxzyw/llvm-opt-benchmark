@@ -16312,7 +16312,7 @@ _ZNSt10_HashtableIbSt4pairIKbPN4cvc57context11CDOhash_mapIbSt10shared_ptrINS2_8i
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIbSt4pairIKbPN4cvc57context11CDOhash_mapIbSt10shared_ptrINS2_8internal9ProofNodeEESt4hashIbEEEESaISD_ENSt8__detail10_Select1stESt8equal_toIbESA_NSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !148
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i8, ptr %15, align 1, !tbaa !126, !range !142, !noundef !143
+  %16 = load i8, ptr %15, align 8, !tbaa !126, !range !142, !noundef !143
   %17 = zext nneg i8 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18

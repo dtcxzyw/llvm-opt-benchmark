@@ -3330,7 +3330,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %9, align 8, !tbaa !15
-  store i8 0, ptr %8, align 1, !tbaa !14
+  store i8 0, ptr %8, align 8, !tbaa !14
   store ptr %7, ptr %4, align 8, !tbaa !47
   br label %10
 
@@ -4916,7 +4916,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED
   store ptr %504, ptr %503, align 8, !tbaa !4
   %505 = getelementptr inbounds nuw i8, ptr %501, i64 16
   store i64 0, ptr %505, align 8, !tbaa !15
-  store i8 0, ptr %504, align 1, !tbaa !14
+  store i8 0, ptr %504, align 8, !tbaa !14
   %506 = getelementptr inbounds nuw i8, ptr %501, i64 40
   store ptr null, ptr %506, align 8, !tbaa !79
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN12_GLOBAL__N_110CloseEventE, i64 16), ptr %501, align 8, !tbaa !16
@@ -11982,7 +11982,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED
   store ptr %459, ptr %458, align 8, !tbaa !4
   %460 = getelementptr inbounds nuw i8, ptr %456, i64 16
   store i64 0, ptr %460, align 8, !tbaa !15
-  store i8 0, ptr %459, align 1, !tbaa !14
+  store i8 0, ptr %459, align 8, !tbaa !14
   %461 = getelementptr inbounds nuw i8, ptr %456, i64 40
   store ptr null, ptr %461, align 8, !tbaa !79
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN12_GLOBAL__N_110CloseEventE, i64 16), ptr %456, align 8, !tbaa !16
@@ -15125,7 +15125,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED
   store ptr %484, ptr %483, align 8, !tbaa !4
   %485 = getelementptr inbounds nuw i8, ptr %481, i64 16
   store i64 0, ptr %485, align 8, !tbaa !15
-  store i8 0, ptr %484, align 1, !tbaa !14
+  store i8 0, ptr %484, align 8, !tbaa !14
   %486 = getelementptr inbounds nuw i8, ptr %481, i64 40
   store ptr null, ptr %486, align 8, !tbaa !79
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN12_GLOBAL__N_110CloseEventE, i64 16), ptr %481, align 8, !tbaa !16
@@ -18838,7 +18838,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED
   store ptr %486, ptr %485, align 8, !tbaa !4
   %487 = getelementptr inbounds nuw i8, ptr %483, i64 16
   store i64 0, ptr %487, align 8, !tbaa !15
-  store i8 0, ptr %486, align 1, !tbaa !14
+  store i8 0, ptr %486, align 8, !tbaa !14
   %488 = getelementptr inbounds nuw i8, ptr %483, i64 40
   store ptr null, ptr %488, align 8, !tbaa !79
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN12_GLOBAL__N_110CloseEventE, i64 16), ptr %483, align 8, !tbaa !16
@@ -19862,7 +19862,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED
   store ptr %848, ptr %847, align 8, !tbaa !4
   %849 = getelementptr inbounds nuw i8, ptr %845, i64 16
   store i64 0, ptr %849, align 8, !tbaa !15
-  store i8 0, ptr %848, align 1, !tbaa !14
+  store i8 0, ptr %848, align 8, !tbaa !14
   %850 = getelementptr inbounds nuw i8, ptr %845, i64 40
   store ptr null, ptr %850, align 8, !tbaa !79
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN12_GLOBAL__N_110CloseEventE, i64 16), ptr %845, align 8, !tbaa !16
@@ -21663,7 +21663,7 @@ _ZN7testing7MessageD2Ev.exit943:                  ; preds = %_ZNKSt14default_del
   store ptr %1467, ptr %1466, align 8, !tbaa !4
   %1468 = getelementptr inbounds nuw i8, ptr %1464, i64 16
   store i64 0, ptr %1468, align 8, !tbaa !15
-  store i8 0, ptr %1467, align 1, !tbaa !14
+  store i8 0, ptr %1467, align 8, !tbaa !14
   %1469 = getelementptr inbounds nuw i8, ptr %1464, i64 40
   store ptr null, ptr %1469, align 8, !tbaa !79
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN12_GLOBAL__N_110CloseEventE, i64 16), ptr %1464, align 8, !tbaa !16

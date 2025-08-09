@@ -462,7 +462,7 @@ define noundef zeroext i1 @_ZNK3g2o10RobotLaser5writeERSo(ptr noundef nonnull re
   %108 = load i32, ptr %107, align 8, !tbaa !84
   %109 = and i32 %108, -261
   %110 = or disjoint i32 %109, 4
-  store i32 %110, ptr %107, align 4, !tbaa !93
+  store i32 %110, ptr %107, align 8, !tbaa !93
   %111 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str, i64 noundef 1)
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %113 = load double, ptr %112, align 16, !tbaa !94
@@ -490,7 +490,7 @@ define noundef zeroext i1 @_ZNK3g2o10RobotLaser5writeERSo(ptr noundef nonnull re
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 24
   %136 = load i32, ptr %135, align 8, !tbaa !84
   %137 = and i32 %136, -5
-  store i32 %137, ptr %135, align 4, !tbaa !93
+  store i32 %137, ptr %135, align 8, !tbaa !93
   %138 = load ptr, ptr %1, align 8, !tbaa !3
   %139 = getelementptr i8, ptr %138, i64 -24
   %140 = load i64, ptr %139, align 8
@@ -499,7 +499,7 @@ define noundef zeroext i1 @_ZNK3g2o10RobotLaser5writeERSo(ptr noundef nonnull re
   %143 = load i32, ptr %142, align 8, !tbaa !84
   %144 = and i32 %143, -261
   %145 = or disjoint i32 %144, 4
-  store i32 %145, ptr %142, align 4, !tbaa !93
+  store i32 %145, ptr %142, align 8, !tbaa !93
   %146 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str, i64 noundef 1)
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %148 = load double, ptr %147, align 8, !tbaa !100
@@ -521,7 +521,7 @@ define noundef zeroext i1 @_ZNK3g2o10RobotLaser5writeERSo(ptr noundef nonnull re
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 24
   %165 = load i32, ptr %164, align 8, !tbaa !84
   %166 = and i32 %165, -5
-  store i32 %166, ptr %164, align 4, !tbaa !93
+  store i32 %166, ptr %164, align 8, !tbaa !93
   %167 = load ptr, ptr %1, align 8, !tbaa !3
   %168 = getelementptr i8, ptr %167, i64 -24
   %169 = load i64, ptr %168, align 8

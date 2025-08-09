@@ -6491,7 +6491,7 @@ define hidden noundef ptr @_ZN8PhaseCFG16create_loop_treeEv(ptr noundef nonnull 
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %7 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #14
-  store i32 0, ptr %6, align 4
+  store i32 0, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 52
   store i32 2, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -6501,7 +6501,7 @@ define hidden noundef ptr @_ZN8PhaseCFG16create_loop_treeEv(ptr noundef nonnull 
   store i64 0, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %12 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 16) #14
-  store i32 0, ptr %11, align 4
+  store i32 0, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 76
   store i32 2, ptr %13, align 4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -6625,7 +6625,7 @@ _ZNK5Block4headEv.exit:                           ; preds = %_ZNK5Block4headEv.e
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %76, i8 0, i64 28, i1 false)
   %78 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #14
-  store i32 0, ptr %77, align 4
+  store i32 0, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %72, i64 52
   store i32 2, ptr %79, align 4
   %80 = getelementptr inbounds nuw i8, ptr %72, i64 56
@@ -6635,7 +6635,7 @@ _ZNK5Block4headEv.exit:                           ; preds = %_ZNK5Block4headEv.e
   store i64 0, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %72, i64 72
   %83 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 16) #14
-  store i32 0, ptr %82, align 4
+  store i32 0, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %72, i64 76
   store i32 2, ptr %84, align 4
   %85 = getelementptr inbounds nuw i8, ptr %72, i64 80

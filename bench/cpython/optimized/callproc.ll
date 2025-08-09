@@ -1852,7 +1852,7 @@ PyStgInfo_FromObject.exit:                        ; preds = %11
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %29 = load ptr, ptr %28, align 16, !tbaa !15
   store ptr %29, ptr %3, align 16, !tbaa !39
-  %30 = load i32, ptr %1, align 8, !tbaa !11
+  %30 = load i32, ptr %1, align 16, !tbaa !11
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %_Py_NewRef.exit, label %32
 

@@ -86,7 +86,7 @@ define internal range(i32 0, 2) i32 @aesni_cbc_hmac_sha1_cipher(ptr noundef %0, 
   %8 = load i64, ptr %7, align 8, !tbaa !9
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 436
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 528
-  %11 = load i32, ptr %10, align 4, !tbaa !14
+  %11 = load i32, ptr %10, align 8, !tbaa !14
   %12 = sub i32 64, %11
   %13 = zext i32 %12 to i64
   store i64 -1, ptr %7, align 8, !tbaa !9

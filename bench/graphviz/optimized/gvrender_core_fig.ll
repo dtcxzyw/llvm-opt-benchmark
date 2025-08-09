@@ -83,7 +83,7 @@ define internal void @fig_begin_graph(ptr noundef %0) #0 {
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %17 = load i32, ptr %16, align 4, !tbaa !36
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %19 = load i32, ptr %18, align 4, !tbaa !37
+  %19 = load i32, ptr %18, align 8, !tbaa !37
   %20 = mul nsw i32 %19, %17
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.5, i32 noundef %20) #18
   %21 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.6) #18

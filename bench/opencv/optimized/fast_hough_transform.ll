@@ -8889,9 +8889,9 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
   store double %29, ptr %.sroa.09.1.i.i, align 8, !tbaa !49
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.012.1.i.i, i64 8
   %32 = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i.i, i64 -8
-  %33 = load i64, ptr %31, align 4
+  %33 = load i64, ptr %31, align 8
   %34 = load i64, ptr %32, align 4
-  store i64 %34, ptr %31, align 4
+  store i64 %34, ptr %31, align 8
   store i64 %33, ptr %32, align 4
   br label %21, !llvm.loop !267
 
@@ -9176,10 +9176,10 @@ define linkonce_odr hidden void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__nor
   store double %10, ptr %2, align 8, !tbaa !49
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %14 = load i64, ptr %12, align 4
-  %15 = load i64, ptr %13, align 4
-  store i64 %15, ptr %12, align 4
-  store i64 %14, ptr %13, align 4
+  %14 = load i64, ptr %12, align 8
+  %15 = load i64, ptr %13, align 8
+  store i64 %15, ptr %12, align 8
+  store i64 %14, ptr %13, align 8
   br label %53
 
 16:                                               ; preds = %7
@@ -9193,10 +9193,10 @@ define linkonce_odr hidden void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__nor
   store double %21, ptr %0, align 8, !tbaa !49
   store double %18, ptr %3, align 8, !tbaa !49
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %23 = load i64, ptr %19, align 4
-  %24 = load i64, ptr %22, align 4
-  store i64 %24, ptr %19, align 4
-  store i64 %23, ptr %22, align 4
+  %23 = load i64, ptr %19, align 8
+  %24 = load i64, ptr %22, align 8
+  store i64 %24, ptr %19, align 8
+  store i64 %23, ptr %22, align 8
   br label %53
 
 25:                                               ; preds = %16
@@ -9204,10 +9204,10 @@ define linkonce_odr hidden void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__nor
   store double %26, ptr %0, align 8, !tbaa !49
   store double %18, ptr %1, align 8, !tbaa !49
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %28 = load i64, ptr %19, align 4
-  %29 = load i64, ptr %27, align 4
-  store i64 %29, ptr %19, align 4
-  store i64 %28, ptr %27, align 4
+  %28 = load i64, ptr %19, align 8
+  %29 = load i64, ptr %27, align 8
+  store i64 %29, ptr %19, align 8
+  store i64 %28, ptr %27, align 8
   br label %53
 
 30:                                               ; preds = %5
@@ -9221,10 +9221,10 @@ define linkonce_odr hidden void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__nor
   store double %33, ptr %1, align 8, !tbaa !49
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %37 = load i64, ptr %35, align 4
-  %38 = load i64, ptr %36, align 4
-  store i64 %38, ptr %35, align 4
-  store i64 %37, ptr %36, align 4
+  %37 = load i64, ptr %35, align 8
+  %38 = load i64, ptr %36, align 8
+  store i64 %38, ptr %35, align 8
+  store i64 %37, ptr %36, align 8
   br label %53
 
 39:                                               ; preds = %30
@@ -9238,10 +9238,10 @@ define linkonce_odr hidden void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__nor
   store double %44, ptr %0, align 8, !tbaa !49
   store double %41, ptr %3, align 8, !tbaa !49
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %46 = load i64, ptr %42, align 4
-  %47 = load i64, ptr %45, align 4
-  store i64 %47, ptr %42, align 4
-  store i64 %46, ptr %45, align 4
+  %46 = load i64, ptr %42, align 8
+  %47 = load i64, ptr %45, align 8
+  store i64 %47, ptr %42, align 8
+  store i64 %46, ptr %45, align 8
   br label %53
 
 48:                                               ; preds = %39
@@ -9249,10 +9249,10 @@ define linkonce_odr hidden void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__nor
   store double %49, ptr %0, align 8, !tbaa !49
   store double %41, ptr %2, align 8, !tbaa !49
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %51 = load i64, ptr %42, align 4
-  %52 = load i64, ptr %50, align 4
-  store i64 %52, ptr %42, align 4
-  store i64 %51, ptr %50, align 4
+  %51 = load i64, ptr %42, align 8
+  %52 = load i64, ptr %50, align 8
+  store i64 %52, ptr %42, align 8
+  store i64 %51, ptr %50, align 8
   br label %53
 
 53:                                               ; preds = %32, %48, %43, %9, %25, %20

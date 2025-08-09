@@ -2283,7 +2283,7 @@ define void @_Z29mde_delta_h_coll_handle_blockP18t_mde_delta_h_collP10t_enxframe
   %84 = getelementptr inbounds nuw i8, ptr %79, i64 152
   %85 = load i32, ptr %84, align 8, !tbaa !179
   %86 = getelementptr inbounds nuw i8, ptr %79, i64 256
-  store i32 %85, ptr %86, align 4, !tbaa !145
+  store i32 %85, ptr %86, align 8, !tbaa !145
   %87 = getelementptr inbounds nuw i8, ptr %79, i64 156
   %88 = load i32, ptr %87, align 4, !tbaa !186
   %89 = getelementptr inbounds nuw i8, ptr %79, i64 260

@@ -211,11 +211,11 @@ define internal fastcc void @poly1305_init_ext(ptr noundef initializes((0, 60)) 
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %35 = getelementptr i8, ptr %1, i64 16
   %36 = load i64, ptr %35, align 1
-  store i64 %36, ptr %34, align 1
+  store i64 %36, ptr %34, align 4
   %37 = getelementptr i8, ptr %0, i64 112
   %38 = getelementptr i8, ptr %1, i64 24
   %39 = load i64, ptr %38, align 1
-  store i64 %39, ptr %37, align 1
+  store i64 %39, ptr %37, align 4
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %42 = icmp ult i64 %spec.store.select, 96

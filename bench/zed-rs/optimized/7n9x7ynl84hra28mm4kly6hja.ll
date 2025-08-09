@@ -860,7 +860,7 @@ define hidden void @"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I
 
 69:                                               ; preds = %67
   %.val.i.i.i.i = load i64, ptr %.sroa.435.0.copyload, align 8, !alias.scope !117, !noalias !122, !noundef !16
-  %.val1.i.i.i.i = load i32, ptr %47, align 4, !alias.scope !130, !noalias !133, !noundef !16
+  %.val1.i.i.i.i = load i32, ptr %47, align 8, !alias.scope !130, !noalias !133, !noundef !16
   %70 = icmp eq i32 %.sroa.0.i.sroa.4.0.copyload.i, %.val1.i.i.i.i
   %switch5.i.i.i.i.i.i = icmp ule i64 %.sroa.0.i.sroa.0.0.copyload.i, %.val.i.i.i.i
   %switch6.i.i.i.i.i.i = icmp sle i32 %.sroa.0.i.sroa.4.0.copyload.i, %.val1.i.i.i.i
@@ -9587,7 +9587,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1994)
   %.val.i.i.i.i.i = load i64, ptr %15, align 8, !alias.scope !1995, !noalias !1996
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %.val1.i.i.i.i.i = load i32, ptr %17, align 4, !alias.scope !1995, !noalias !1996, !noundef !16
+  %.val1.i.i.i.i.i = load i32, ptr %17, align 8, !alias.scope !1995, !noalias !1996, !noundef !16
   %18 = icmp eq i32 %.val1.i.i.i.i.i, %.val3.i.i.i.i.i
   %19 = icmp eq i64 %.val.i.i.i.i.i, %.val2.i.i.i.i.i
   %spec.select.i.i.i.i.i.i = select i1 %18, i1 %19, i1 false
@@ -9597,7 +9597,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %.val4.i.i.i.i.i = load i64, ptr %21, align 8, !alias.scope !1995, !noalias !1996
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %.val5.i.i.i.i.i = load i32, ptr %22, align 4, !alias.scope !1995, !noalias !1996, !noundef !16
+  %.val5.i.i.i.i.i = load i32, ptr %22, align 8, !alias.scope !1995, !noalias !1996, !noundef !16
   %23 = icmp eq i32 %.val5.i.i.i.i.i, %.val7.i.i.i.i.i
   %24 = icmp eq i64 %.val4.i.i.i.i.i, %.val6.i.i.i.i.i
   %spec.select.i8.i.i.i.i.i = select i1 %23, i1 %24, i1 false
@@ -10503,7 +10503,7 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..Slic
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2301)
   %.val.i.i.i = load i64, ptr %11, align 8, !alias.scope !2302, !noalias !2303
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.val1.i.i.i = load i32, ptr %13, align 4, !alias.scope !2302, !noalias !2303, !noundef !16
+  %.val1.i.i.i = load i32, ptr %13, align 8, !alias.scope !2302, !noalias !2303, !noundef !16
   %14 = icmp eq i32 %.val1.i.i.i, %.val3.i.i.i
   %15 = icmp eq i64 %.val.i.i.i, %.val2.i.i.i
   %spec.select.i.i.i.i = select i1 %14, i1 %15, i1 false
@@ -10513,7 +10513,7 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..Slic
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.val4.i.i.i = load i64, ptr %17, align 8, !alias.scope !2302, !noalias !2303
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %.val5.i.i.i = load i32, ptr %18, align 4, !alias.scope !2302, !noalias !2303, !noundef !16
+  %.val5.i.i.i = load i32, ptr %18, align 8, !alias.scope !2302, !noalias !2303, !noundef !16
   %19 = icmp eq i32 %.val5.i.i.i, %.val7.i.i.i
   %20 = icmp eq i64 %.val4.i.i.i, %.val6.i.i.i
   %spec.select.i8.i.i.i = select i1 %19, i1 %20, i1 false
@@ -14282,7 +14282,7 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3223)
   %.val.i.i = load i64, ptr %11, align 8, !alias.scope !3226, !noalias !3223
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.val1.i.i = load i32, ptr %13, align 4, !alias.scope !3226, !noalias !3223, !noundef !16
+  %.val1.i.i = load i32, ptr %13, align 8, !alias.scope !3226, !noalias !3223, !noundef !16
   %14 = icmp eq i32 %.val1.i.i, %.val3.i.i
   %15 = icmp eq i64 %.val.i.i, %.val2.i.i
   %spec.select.i.i.i = select i1 %14, i1 %15, i1 false
@@ -14292,7 +14292,7 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.val4.i.i = load i64, ptr %17, align 8, !alias.scope !3226, !noalias !3223
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %.val5.i.i = load i32, ptr %18, align 4, !alias.scope !3226, !noalias !3223, !noundef !16
+  %.val5.i.i = load i32, ptr %18, align 8, !alias.scope !3226, !noalias !3223, !noundef !16
   %19 = icmp eq i32 %.val5.i.i, %.val7.i.i
   %20 = icmp eq i64 %.val4.i.i, %.val6.i.i
   %spec.select.i8.i.i = select i1 %19, i1 %20, i1 false
@@ -15510,7 +15510,7 @@ define hidden noundef zeroext i1 @"_ZN8terminal8Terminal14select_matches28_$u7b$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3462)
   %.val.i.i.i.i = load i64, ptr %14, align 8, !alias.scope !3463, !noalias !3464
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.val1.i.i.i.i = load i32, ptr %16, align 4, !alias.scope !3463, !noalias !3464, !noundef !16
+  %.val1.i.i.i.i = load i32, ptr %16, align 8, !alias.scope !3463, !noalias !3464, !noundef !16
   %17 = icmp eq i32 %.val1.i.i.i.i, %.val3.i.i.i.i
   %18 = icmp eq i64 %.val.i.i.i.i, %.val2.i.i.i.i
   %spec.select.i.i.i.i.i = select i1 %17, i1 %18, i1 false
@@ -15520,7 +15520,7 @@ define hidden noundef zeroext i1 @"_ZN8terminal8Terminal14select_matches28_$u7b$
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %.val4.i.i.i.i = load i64, ptr %20, align 8, !alias.scope !3463, !noalias !3464
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %.val5.i.i.i.i = load i32, ptr %21, align 4, !alias.scope !3463, !noalias !3464, !noundef !16
+  %.val5.i.i.i.i = load i32, ptr %21, align 8, !alias.scope !3463, !noalias !3464, !noundef !16
   %22 = icmp eq i32 %.val5.i.i.i.i, %.val7.i.i.i.i
   %23 = icmp eq i64 %.val4.i.i.i.i, %.val6.i.i.i.i
   %spec.select.i8.i.i.i.i = select i1 %22, i1 %23, i1 false

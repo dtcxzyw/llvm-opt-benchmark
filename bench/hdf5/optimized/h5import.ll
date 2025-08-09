@@ -780,7 +780,7 @@ sub_2:                                            ; preds = %sub_1
   store i32 0, ptr %133, align 4, !tbaa !27
   %134 = getelementptr inbounds nuw i8, ptr %125, i64 516
   %135 = getelementptr inbounds nuw i8, ptr %125, i64 5616
-  store i32 1, ptr %135, align 4, !tbaa !28
+  store i32 1, ptr %135, align 8, !tbaa !28
   store i64 32762643529097572, ptr %41, align 16
   %136 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %42, i64 noundef 255, ptr noundef nonnull @.str.14, i32 noundef %123) #18
   %137 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(1) %42) #18
@@ -3228,7 +3228,7 @@ define dso_local void @setDefaultValues(ptr noundef initializes((0, 4), (5104, 5
   store i32 0, ptr %10, align 4, !tbaa !27
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 5104
-  store i32 1, ptr %12, align 4, !tbaa !28
+  store i32 1, ptr %12, align 8, !tbaa !28
   store i64 32762643529097572, ptr %3, align 16
   %13 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 255, ptr noundef nonnull @.str.14, i32 noundef %1) #18
   %14 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %4) #18

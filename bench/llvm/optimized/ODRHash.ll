@@ -3796,7 +3796,7 @@ _ZN5clang7ODRHash10AddBooleanEb.exit132:          ; preds = %_ZNK5clang12Functio
   %290 = lshr i32 %289, 22
   %291 = and i32 %290, 7
   %292 = getelementptr inbounds nuw i8, ptr %271, i64 16
-  %293 = load i32, ptr %292, align 4, !tbaa !211
+  %293 = load i32, ptr %292, align 8, !tbaa !211
   %294 = mul i32 %291, %293
   %295 = zext i32 %294 to i64
   tail call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %47, ptr nonnull %288, i64 %295) #15
@@ -11866,7 +11866,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang15DeclarationNameEjNS_12DenseMapInfoI
   store i64 %54, ptr %45, align 8, !tbaa !50
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %56 = load i32, ptr %3, align 4, !tbaa !211
-  store i32 %56, ptr %55, align 4, !tbaa !211
+  store i32 %56, ptr %55, align 8, !tbaa !211
   %57 = load ptr, ptr %1, align 8, !tbaa !161
   %58 = load i32, ptr %7, align 8, !tbaa !160
   br label %.loopexit
@@ -12074,7 +12074,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang15DeclarationNameEjNS_12DenseMapInfoI
   %62 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %.025.i, i64 8
   %64 = load i32, ptr %63, align 4, !tbaa !211
-  store i32 %64, ptr %62, align 4, !tbaa !211
+  store i32 %64, ptr %62, align 8, !tbaa !211
   %65 = add i32 %38, 1
   store i32 %65, ptr %32, align 8, !tbaa !18
   br label %66

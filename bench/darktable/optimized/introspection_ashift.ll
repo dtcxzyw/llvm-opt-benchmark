@@ -592,7 +592,7 @@ isneutral.exit.thread:                            ; preds = %4, %17, %22, %27, %
   %70 = load float, ptr %69, align 4, !tbaa !93
   %71 = fsub reassoc nsz arcp contract afn float %68, %70
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %73 = load i32, ptr %72, align 4, !tbaa !102
+  %73 = load i32, ptr %72, align 8, !tbaa !102
   %74 = sitofp i32 %73 to float
   %75 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %76 = load float, ptr %75, align 4, !tbaa !96
@@ -1464,7 +1464,7 @@ isneutral.exit.thread:                            ; preds = %4, %17, %22, %27, %
   %70 = load float, ptr %69, align 4, !tbaa !93
   %71 = fsub reassoc nsz arcp contract afn float %68, %70
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %73 = load i32, ptr %72, align 4, !tbaa !102
+  %73 = load i32, ptr %72, align 8, !tbaa !102
   %74 = sitofp i32 %73 to float
   %75 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %76 = load float, ptr %75, align 4, !tbaa !96
@@ -1660,7 +1660,7 @@ isneutral.exit.thread:                            ; preds = %6, %15, %20, %25, %
   %85 = load float, ptr %84, align 4, !tbaa !93
   %86 = fsub reassoc nsz arcp contract afn float %83, %85
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %88 = load i32, ptr %87, align 4, !tbaa !102
+  %88 = load i32, ptr %87, align 8, !tbaa !102
   %89 = sitofp i32 %88 to float
   %90 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %91 = load float, ptr %90, align 4, !tbaa !96
@@ -2221,7 +2221,7 @@ isneutral.exit.thread:                            ; preds = %4, %17, %22, %27, %
   %78 = load float, ptr %77, align 4, !tbaa !93
   %79 = fsub reassoc nsz arcp contract afn float %76, %78
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %81 = load i32, ptr %80, align 4, !tbaa !102
+  %81 = load i32, ptr %80, align 8, !tbaa !102
   %82 = sitofp i32 %81 to float
   %83 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %84 = load float, ptr %83, align 4, !tbaa !96
@@ -2684,7 +2684,7 @@ isneutral.exit.thread:                            ; preds = %132, %136, %141, %1
   %208 = load float, ptr %207, align 4, !tbaa !93
   %209 = fsub reassoc nsz arcp contract afn float %206, %208
   %210 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %211 = load i32, ptr %210, align 4, !tbaa !102
+  %211 = load i32, ptr %210, align 8, !tbaa !102
   %212 = sitofp i32 %211 to float
   %213 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %214 = load float, ptr %213, align 4, !tbaa !96
@@ -3745,7 +3745,7 @@ _get_lines_hash.exit:                             ; preds = %dt_hash.exit.i, %36
 556:                                              ; preds = %._crit_edge283.i
   store ptr %444, ptr %400, align 8, !tbaa !411
   store ptr %437, ptr %420, align 8, !tbaa !412
-  store i32 %426, ptr %424, align 4, !tbaa !71
+  store i32 %426, ptr %424, align 8, !tbaa !71
   store ptr %446, ptr %422, align 8, !tbaa !411
   %557 = load i32, ptr %427, align 4, !tbaa !392
   %558 = getelementptr inbounds nuw i8, ptr %19, i64 260

@@ -13442,7 +13442,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEtNS_12DenseMapInfoIS2_vEENS_6de
   %53 = load i32, ptr %1, align 4, !tbaa !300
   store i32 %53, ptr %44, align 4, !tbaa !300
   %54 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  store i16 0, ptr %54, align 2, !tbaa !314
+  store i16 0, ptr %54, align 4, !tbaa !314
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEtNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_tEEEES2_tS4_S7_E16InsertIntoBucketIRKS2_JEEEPS7_SD_OT_DpOT0_.exit
@@ -14855,7 +14855,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_12MachineInstrEjLj2ENS_12DenseMapI
   store ptr %66, ptr %54, align 8, !tbaa !634
   %67 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %68 = load i32, ptr %3, align 4, !tbaa !300
-  store i32 %68, ptr %67, align 4, !tbaa !300
+  store i32 %68, ptr %67, align 8, !tbaa !300
   %69 = load i32, ptr %1, align 8
   %70 = and i32 %69, 1
   %.not.i.i.i.i7 = icmp eq i32 %70, 0
@@ -15000,7 +15000,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIPNS_12MachineInstrEjLj2
   %30 = getelementptr inbounds nuw i8, ptr %.02738, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %.028.ptr39, i64 8
   %32 = load i32, ptr %31, align 8, !tbaa !300
-  store i32 %32, ptr %30, align 4, !tbaa !300
+  store i32 %32, ptr %30, align 8, !tbaa !300
   %33 = getelementptr inbounds nuw i8, ptr %.02738, i64 16
   br label %34
 
@@ -15159,7 +15159,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_12MachineInstrEjLj2ENS_12DenseMapI
   %48 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %.023, i64 8
   %50 = load i32, ptr %49, align 4, !tbaa !300
-  store i32 %50, ptr %48, align 4, !tbaa !300
+  store i32 %50, ptr %48, align 8, !tbaa !300
   %51 = load i32, ptr %0, align 8
   %52 = and i32 %51, -2
   %53 = add i32 %52, 2
@@ -15567,7 +15567,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEtNS_12DenseMapInfoIS2_vEENS_6de
   %62 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 4
   %63 = getelementptr inbounds nuw i8, ptr %.021.i, i64 4
   %64 = load i16, ptr %63, align 2, !tbaa !314
-  store i16 %64, ptr %62, align 2, !tbaa !314
+  store i16 %64, ptr %62, align 4, !tbaa !314
   %65 = add i32 %40, 1
   store i32 %65, ptr %32, align 8, !tbaa !471
   br label %66

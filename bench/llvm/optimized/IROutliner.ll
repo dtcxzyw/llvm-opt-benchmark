@@ -10465,7 +10465,7 @@ _Z16replaceConstantsRN4llvm16OutlinableRegionE.exit.i: ; preds = %_ZN4llvm16Dens
   store ptr null, ptr %18, align 8, !tbaa !616
   %182 = getelementptr inbounds nuw i8, ptr %178, i64 8
   %183 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i32 0, ptr %182, align 4, !tbaa !88
+  store i32 0, ptr %182, align 8, !tbaa !88
   store i32 0, ptr %183, align 8, !tbaa !88
   %184 = getelementptr inbounds nuw i8, ptr %178, i64 12
   %185 = getelementptr inbounds nuw i8, ptr %18, i64 12
@@ -10475,7 +10475,7 @@ _Z16replaceConstantsRN4llvm16OutlinableRegionE.exit.i: ; preds = %_ZN4llvm16Dens
   %187 = getelementptr inbounds nuw i8, ptr %178, i64 16
   %188 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %189 = load i32, ptr %188, align 8, !tbaa !88
-  store i32 %189, ptr %187, align 4, !tbaa !88
+  store i32 %189, ptr %187, align 8, !tbaa !88
   store i32 0, ptr %188, align 8, !tbaa !88
   %190 = getelementptr inbounds nuw i8, ptr %178, i64 24
   store ptr %190, ptr %177, align 8, !tbaa !588
@@ -10892,13 +10892,13 @@ _ZN4llvm16DenseMapIteratorIPNS_5ValueEPNS_10BasicBlockENS_12DenseMapInfoIS2_vEEN
   store i64 0, ptr %356, align 8
   store ptr null, ptr %6, align 8, !tbaa !616
   %366 = getelementptr inbounds nuw i8, ptr %356, i64 8
-  store i32 0, ptr %366, align 4, !tbaa !88
+  store i32 0, ptr %366, align 8, !tbaa !88
   store i32 0, ptr %300, align 8, !tbaa !88
   %367 = getelementptr inbounds nuw i8, ptr %356, i64 12
   store i32 0, ptr %367, align 4, !tbaa !88
   store i32 0, ptr %301, align 4, !tbaa !88
   %368 = getelementptr inbounds nuw i8, ptr %356, i64 16
-  store i32 0, ptr %368, align 4, !tbaa !88
+  store i32 0, ptr %368, align 8, !tbaa !88
   store i32 0, ptr %302, align 8, !tbaa !88
   %369 = load ptr, ptr %298, align 8, !tbaa !588
   %370 = getelementptr inbounds nuw i8, ptr %369, i64 24
@@ -23017,7 +23017,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_9hash_codeEjNS_12DenseMapInfoIS2_vEENS_6d
   store i64 %53, ptr %44, align 8, !tbaa !47
   %54 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %55 = load i32, ptr %3, align 4, !tbaa !88
-  store i32 %55, ptr %54, align 4, !tbaa !88
+  store i32 %55, ptr %54, align 8, !tbaa !88
   %56 = load ptr, ptr %1, align 8, !tbaa !532
   %57 = load i32, ptr %7, align 8, !tbaa !533
   br label %.loopexit
@@ -23219,7 +23219,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_9hash_codeEjNS_12DenseMapInfoIS2_vEENS_6d
   %61 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %62 = getelementptr inbounds nuw i8, ptr %.025.i, i64 8
   %63 = load i32, ptr %62, align 4, !tbaa !88
-  store i32 %63, ptr %61, align 4, !tbaa !88
+  store i32 %63, ptr %61, align 8, !tbaa !88
   %64 = add i32 %38, 1
   store i32 %64, ptr %32, align 8, !tbaa !896
   br label %65
@@ -26581,7 +26581,7 @@ _ZNKSt6vectorIN4llvm8DenseMapIPNS0_5ValueEPNS0_10BasicBlockENS0_12DenseMapInfoIS
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %25 = load i32, ptr %24, align 8, !tbaa !88
-  store i32 %25, ptr %23, align 4, !tbaa !88
+  store i32 %25, ptr %23, align 8, !tbaa !88
   store i32 0, ptr %24, align 8, !tbaa !88
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -26591,7 +26591,7 @@ _ZNKSt6vectorIN4llvm8DenseMapIPNS0_5ValueEPNS0_10BasicBlockENS0_12DenseMapInfoIS
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %31 = load i32, ptr %30, align 8, !tbaa !88
-  store i32 %31, ptr %29, align 4, !tbaa !88
+  store i32 %31, ptr %29, align 8, !tbaa !88
   store i32 0, ptr %30, align 8, !tbaa !88
   %.not9.i.i.i.i.i = icmp eq ptr %6, %1
   br i1 %.not9.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvm8DenseMapIPNS0_5ValueEPNS0_10BasicBlockENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_S5_EEEESC_SaISB_EET0_T_SF_SE_RT1_.exit, label %.lr.ph.i.i.i.i.i
@@ -30284,9 +30284,9 @@ define linkonce_odr hidden void @_ZNSt38__uninitialized_construct_buf_dispatchIL
   store ptr null, ptr %7, align 8, !tbaa !1007
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %11 = load i32, ptr %10, align 4, !tbaa !88
-  store i32 %11, ptr %9, align 4, !tbaa !88
-  store i32 0, ptr %10, align 4, !tbaa !88
+  %11 = load i32, ptr %10, align 8, !tbaa !88
+  store i32 %11, ptr %9, align 8, !tbaa !88
+  store i32 0, ptr %10, align 8, !tbaa !88
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %14 = load i32, ptr %12, align 4, !tbaa !88
@@ -30295,10 +30295,10 @@ define linkonce_odr hidden void @_ZNSt38__uninitialized_construct_buf_dispatchIL
   store i32 %14, ptr %13, align 4, !tbaa !88
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %18 = load i32, ptr %16, align 4, !tbaa !88
-  %19 = load i32, ptr %17, align 4, !tbaa !88
-  store i32 %19, ptr %16, align 4, !tbaa !88
-  store i32 %18, ptr %17, align 4, !tbaa !88
+  %18 = load i32, ptr %16, align 8, !tbaa !88
+  %19 = load i32, ptr %17, align 8, !tbaa !88
+  store i32 %19, ptr %16, align 8, !tbaa !88
+  store i32 %18, ptr %17, align 8, !tbaa !88
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %20, i8 0, i64 20, i1 false)
@@ -30307,9 +30307,9 @@ define linkonce_odr hidden void @_ZNSt38__uninitialized_construct_buf_dispatchIL
   store ptr null, ptr %21, align 8, !tbaa !1008
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %25 = load i32, ptr %24, align 4, !tbaa !88
-  store i32 %25, ptr %23, align 4, !tbaa !88
-  store i32 0, ptr %24, align 4, !tbaa !88
+  %25 = load i32, ptr %24, align 8, !tbaa !88
+  store i32 %25, ptr %23, align 8, !tbaa !88
+  store i32 0, ptr %24, align 8, !tbaa !88
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 60
   %28 = load i32, ptr %26, align 4, !tbaa !88
@@ -30318,10 +30318,10 @@ define linkonce_odr hidden void @_ZNSt38__uninitialized_construct_buf_dispatchIL
   store i32 %28, ptr %27, align 4, !tbaa !88
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %32 = load i32, ptr %30, align 4, !tbaa !88
-  %33 = load i32, ptr %31, align 4, !tbaa !88
-  store i32 %33, ptr %30, align 4, !tbaa !88
-  store i32 %32, ptr %31, align 4, !tbaa !88
+  %32 = load i32, ptr %30, align 8, !tbaa !88
+  %33 = load i32, ptr %31, align 8, !tbaa !88
+  store i32 %33, ptr %30, align 8, !tbaa !88
+  store i32 %32, ptr %31, align 8, !tbaa !88
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %34, i8 0, i64 20, i1 false)
@@ -30330,9 +30330,9 @@ define linkonce_odr hidden void @_ZNSt38__uninitialized_construct_buf_dispatchIL
   store ptr null, ptr %35, align 8, !tbaa !877
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %39 = load i32, ptr %38, align 4, !tbaa !88
-  store i32 %39, ptr %37, align 4, !tbaa !88
-  store i32 0, ptr %38, align 4, !tbaa !88
+  %39 = load i32, ptr %38, align 8, !tbaa !88
+  store i32 %39, ptr %37, align 8, !tbaa !88
+  store i32 0, ptr %38, align 8, !tbaa !88
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 84
   %42 = load i32, ptr %40, align 4, !tbaa !88
@@ -30341,10 +30341,10 @@ define linkonce_odr hidden void @_ZNSt38__uninitialized_construct_buf_dispatchIL
   store i32 %42, ptr %41, align 4, !tbaa !88
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %46 = load i32, ptr %44, align 4, !tbaa !88
-  %47 = load i32, ptr %45, align 4, !tbaa !88
-  store i32 %47, ptr %44, align 4, !tbaa !88
-  store i32 %46, ptr %45, align 4, !tbaa !88
+  %46 = load i32, ptr %44, align 8, !tbaa !88
+  %47 = load i32, ptr %45, align 8, !tbaa !88
+  store i32 %47, ptr %44, align 8, !tbaa !88
+  store i32 %46, ptr %45, align 8, !tbaa !88
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %48, i8 0, i64 20, i1 false)
@@ -30353,9 +30353,9 @@ define linkonce_odr hidden void @_ZNSt38__uninitialized_construct_buf_dispatchIL
   store ptr null, ptr %49, align 8, !tbaa !877
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  %53 = load i32, ptr %52, align 4, !tbaa !88
-  store i32 %53, ptr %51, align 4, !tbaa !88
-  store i32 0, ptr %52, align 4, !tbaa !88
+  %53 = load i32, ptr %52, align 8, !tbaa !88
+  store i32 %53, ptr %51, align 8, !tbaa !88
+  store i32 0, ptr %52, align 8, !tbaa !88
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %56 = load i32, ptr %54, align 4, !tbaa !88
@@ -30364,10 +30364,10 @@ define linkonce_odr hidden void @_ZNSt38__uninitialized_construct_buf_dispatchIL
   store i32 %56, ptr %55, align 4, !tbaa !88
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %60 = load i32, ptr %58, align 4, !tbaa !88
-  %61 = load i32, ptr %59, align 4, !tbaa !88
-  store i32 %61, ptr %58, align 4, !tbaa !88
-  store i32 %60, ptr %59, align 4, !tbaa !88
+  %60 = load i32, ptr %58, align 8, !tbaa !88
+  %61 = load i32, ptr %59, align 8, !tbaa !88
+  store i32 %61, ptr %58, align 8, !tbaa !88
+  store i32 %60, ptr %59, align 8, !tbaa !88
   %.01317 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %.not18 = icmp eq ptr %.01317, %1
   br i1 %.not18, label %._crit_edge, label %.lr.ph
@@ -30383,9 +30383,9 @@ define linkonce_odr hidden void @_ZNSt38__uninitialized_construct_buf_dispatchIL
   store ptr null, ptr %63, align 8, !tbaa !1007
   %65 = getelementptr inbounds nuw i8, ptr %.020, i64 152
   %66 = getelementptr inbounds nuw i8, ptr %.020, i64 32
-  %67 = load i32, ptr %66, align 4, !tbaa !88
-  store i32 %67, ptr %65, align 4, !tbaa !88
-  store i32 0, ptr %66, align 4, !tbaa !88
+  %67 = load i32, ptr %66, align 8, !tbaa !88
+  store i32 %67, ptr %65, align 8, !tbaa !88
+  store i32 0, ptr %66, align 8, !tbaa !88
   %68 = getelementptr inbounds nuw i8, ptr %.020, i64 156
   %69 = getelementptr inbounds nuw i8, ptr %.020, i64 36
   %70 = load i32, ptr %69, align 4, !tbaa !88
@@ -30393,9 +30393,9 @@ define linkonce_odr hidden void @_ZNSt38__uninitialized_construct_buf_dispatchIL
   store i32 0, ptr %69, align 4, !tbaa !88
   %71 = getelementptr inbounds nuw i8, ptr %.020, i64 160
   %72 = getelementptr inbounds nuw i8, ptr %.020, i64 40
-  %73 = load i32, ptr %72, align 4, !tbaa !88
-  store i32 %73, ptr %71, align 4, !tbaa !88
-  store i32 0, ptr %72, align 4, !tbaa !88
+  %73 = load i32, ptr %72, align 8, !tbaa !88
+  store i32 %73, ptr %71, align 8, !tbaa !88
+  store i32 0, ptr %72, align 8, !tbaa !88
   %74 = getelementptr inbounds nuw i8, ptr %.020, i64 168
   %75 = getelementptr inbounds nuw i8, ptr %.020, i64 48
   %76 = load ptr, ptr %75, align 8, !tbaa !1008
@@ -30403,9 +30403,9 @@ define linkonce_odr hidden void @_ZNSt38__uninitialized_construct_buf_dispatchIL
   store ptr null, ptr %75, align 8, !tbaa !1008
   %77 = getelementptr inbounds nuw i8, ptr %.020, i64 176
   %78 = getelementptr inbounds nuw i8, ptr %.020, i64 56
-  %79 = load i32, ptr %78, align 4, !tbaa !88
-  store i32 %79, ptr %77, align 4, !tbaa !88
-  store i32 0, ptr %78, align 4, !tbaa !88
+  %79 = load i32, ptr %78, align 8, !tbaa !88
+  store i32 %79, ptr %77, align 8, !tbaa !88
+  store i32 0, ptr %78, align 8, !tbaa !88
   %80 = getelementptr inbounds nuw i8, ptr %.020, i64 180
   %81 = getelementptr inbounds nuw i8, ptr %.020, i64 60
   %82 = load i32, ptr %81, align 4, !tbaa !88
@@ -30413,9 +30413,9 @@ define linkonce_odr hidden void @_ZNSt38__uninitialized_construct_buf_dispatchIL
   store i32 0, ptr %81, align 4, !tbaa !88
   %83 = getelementptr inbounds nuw i8, ptr %.020, i64 184
   %84 = getelementptr inbounds nuw i8, ptr %.020, i64 64
-  %85 = load i32, ptr %84, align 4, !tbaa !88
-  store i32 %85, ptr %83, align 4, !tbaa !88
-  store i32 0, ptr %84, align 4, !tbaa !88
+  %85 = load i32, ptr %84, align 8, !tbaa !88
+  store i32 %85, ptr %83, align 8, !tbaa !88
+  store i32 0, ptr %84, align 8, !tbaa !88
   %86 = getelementptr inbounds nuw i8, ptr %.020, i64 192
   %87 = getelementptr inbounds nuw i8, ptr %.020, i64 72
   %88 = load ptr, ptr %87, align 8, !tbaa !877
@@ -30423,9 +30423,9 @@ define linkonce_odr hidden void @_ZNSt38__uninitialized_construct_buf_dispatchIL
   store ptr null, ptr %87, align 8, !tbaa !877
   %89 = getelementptr inbounds nuw i8, ptr %.020, i64 200
   %90 = getelementptr inbounds nuw i8, ptr %.020, i64 80
-  %91 = load i32, ptr %90, align 4, !tbaa !88
-  store i32 %91, ptr %89, align 4, !tbaa !88
-  store i32 0, ptr %90, align 4, !tbaa !88
+  %91 = load i32, ptr %90, align 8, !tbaa !88
+  store i32 %91, ptr %89, align 8, !tbaa !88
+  store i32 0, ptr %90, align 8, !tbaa !88
   %92 = getelementptr inbounds nuw i8, ptr %.020, i64 204
   %93 = getelementptr inbounds nuw i8, ptr %.020, i64 84
   %94 = load i32, ptr %93, align 4, !tbaa !88
@@ -30433,9 +30433,9 @@ define linkonce_odr hidden void @_ZNSt38__uninitialized_construct_buf_dispatchIL
   store i32 0, ptr %93, align 4, !tbaa !88
   %95 = getelementptr inbounds nuw i8, ptr %.020, i64 208
   %96 = getelementptr inbounds nuw i8, ptr %.020, i64 88
-  %97 = load i32, ptr %96, align 4, !tbaa !88
-  store i32 %97, ptr %95, align 4, !tbaa !88
-  store i32 0, ptr %96, align 4, !tbaa !88
+  %97 = load i32, ptr %96, align 8, !tbaa !88
+  store i32 %97, ptr %95, align 8, !tbaa !88
+  store i32 0, ptr %96, align 8, !tbaa !88
   %98 = getelementptr inbounds nuw i8, ptr %.020, i64 216
   %99 = getelementptr inbounds nuw i8, ptr %.020, i64 96
   %100 = load ptr, ptr %99, align 8, !tbaa !877
@@ -30443,9 +30443,9 @@ define linkonce_odr hidden void @_ZNSt38__uninitialized_construct_buf_dispatchIL
   store ptr null, ptr %99, align 8, !tbaa !877
   %101 = getelementptr inbounds nuw i8, ptr %.020, i64 224
   %102 = getelementptr inbounds nuw i8, ptr %.020, i64 104
-  %103 = load i32, ptr %102, align 4, !tbaa !88
-  store i32 %103, ptr %101, align 4, !tbaa !88
-  store i32 0, ptr %102, align 4, !tbaa !88
+  %103 = load i32, ptr %102, align 8, !tbaa !88
+  store i32 %103, ptr %101, align 8, !tbaa !88
+  store i32 0, ptr %102, align 8, !tbaa !88
   %104 = getelementptr inbounds nuw i8, ptr %.020, i64 228
   %105 = getelementptr inbounds nuw i8, ptr %.020, i64 108
   %106 = load i32, ptr %105, align 4, !tbaa !88
@@ -30453,9 +30453,9 @@ define linkonce_odr hidden void @_ZNSt38__uninitialized_construct_buf_dispatchIL
   store i32 0, ptr %105, align 4, !tbaa !88
   %107 = getelementptr inbounds nuw i8, ptr %.020, i64 232
   %108 = getelementptr inbounds nuw i8, ptr %.020, i64 112
-  %109 = load i32, ptr %108, align 4, !tbaa !88
-  store i32 %109, ptr %107, align 4, !tbaa !88
-  store i32 0, ptr %108, align 4, !tbaa !88
+  %109 = load i32, ptr %108, align 8, !tbaa !88
+  store i32 %109, ptr %107, align 8, !tbaa !88
+  store i32 0, ptr %108, align 8, !tbaa !88
   %110 = getelementptr inbounds nuw i8, ptr %.020, i64 120
   %.013 = getelementptr inbounds nuw i8, ptr %.01321, i64 120
   %.not = icmp eq ptr %.013, %1
@@ -30635,50 +30635,50 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   %25 = load ptr, ptr %24, align 8, !tbaa !1007
   store ptr null, ptr %24, align 8, !tbaa !1007
   %26 = getelementptr inbounds nuw i8, ptr %.pn45, i64 152
-  %27 = load i32, ptr %26, align 4, !tbaa !88
-  store i32 0, ptr %26, align 4, !tbaa !88
+  %27 = load i32, ptr %26, align 8, !tbaa !88
+  store i32 0, ptr %26, align 8, !tbaa !88
   %28 = getelementptr inbounds nuw i8, ptr %.pn45, i64 156
   %29 = load i32, ptr %28, align 4, !tbaa !88
   store i32 0, ptr %28, align 4, !tbaa !88
   %30 = getelementptr inbounds nuw i8, ptr %.pn45, i64 160
-  %31 = load i32, ptr %30, align 4, !tbaa !88
-  store i32 0, ptr %30, align 4, !tbaa !88
+  %31 = load i32, ptr %30, align 8, !tbaa !88
+  store i32 0, ptr %30, align 8, !tbaa !88
   %32 = getelementptr inbounds nuw i8, ptr %.pn45, i64 168
   %33 = load ptr, ptr %32, align 8, !tbaa !1008
   store ptr null, ptr %32, align 8, !tbaa !1008
   %34 = getelementptr inbounds nuw i8, ptr %.pn45, i64 176
-  %35 = load i32, ptr %34, align 4, !tbaa !88
-  store i32 0, ptr %34, align 4, !tbaa !88
+  %35 = load i32, ptr %34, align 8, !tbaa !88
+  store i32 0, ptr %34, align 8, !tbaa !88
   %36 = getelementptr inbounds nuw i8, ptr %.pn45, i64 180
   %37 = load i32, ptr %36, align 4, !tbaa !88
   store i32 0, ptr %36, align 4, !tbaa !88
   %38 = getelementptr inbounds nuw i8, ptr %.pn45, i64 184
-  %39 = load i32, ptr %38, align 4, !tbaa !88
-  store i32 0, ptr %38, align 4, !tbaa !88
+  %39 = load i32, ptr %38, align 8, !tbaa !88
+  store i32 0, ptr %38, align 8, !tbaa !88
   %40 = getelementptr inbounds nuw i8, ptr %.pn45, i64 192
   %41 = load ptr, ptr %40, align 8, !tbaa !877
   store ptr null, ptr %40, align 8, !tbaa !877
   %42 = getelementptr inbounds nuw i8, ptr %.pn45, i64 200
-  %43 = load i32, ptr %42, align 4, !tbaa !88
-  store i32 0, ptr %42, align 4, !tbaa !88
+  %43 = load i32, ptr %42, align 8, !tbaa !88
+  store i32 0, ptr %42, align 8, !tbaa !88
   %44 = getelementptr inbounds nuw i8, ptr %.pn45, i64 204
   %45 = load i32, ptr %44, align 4, !tbaa !88
   store i32 0, ptr %44, align 4, !tbaa !88
   %46 = getelementptr inbounds nuw i8, ptr %.pn45, i64 208
-  %47 = load i32, ptr %46, align 4, !tbaa !88
-  store i32 0, ptr %46, align 4, !tbaa !88
+  %47 = load i32, ptr %46, align 8, !tbaa !88
+  store i32 0, ptr %46, align 8, !tbaa !88
   %48 = getelementptr inbounds nuw i8, ptr %.pn45, i64 216
   %49 = load ptr, ptr %48, align 8, !tbaa !877
   store ptr null, ptr %48, align 8, !tbaa !877
   %50 = getelementptr inbounds nuw i8, ptr %.pn45, i64 224
-  %51 = load i32, ptr %50, align 4, !tbaa !88
-  store i32 0, ptr %50, align 4, !tbaa !88
+  %51 = load i32, ptr %50, align 8, !tbaa !88
+  store i32 0, ptr %50, align 8, !tbaa !88
   %52 = getelementptr inbounds nuw i8, ptr %.pn45, i64 228
   %53 = load i32, ptr %52, align 4, !tbaa !88
   store i32 0, ptr %52, align 4, !tbaa !88
   %54 = getelementptr inbounds nuw i8, ptr %.pn45, i64 232
-  %55 = load i32, ptr %54, align 4, !tbaa !88
-  store i32 0, ptr %54, align 4, !tbaa !88
+  %55 = load i32, ptr %54, align 8, !tbaa !88
+  store i32 0, ptr %54, align 8, !tbaa !88
   %56 = ptrtoint ptr %.sroa.031.046 to i64
   %57 = sub i64 %56, %4
   %58 = icmp sgt i64 %57, 0
@@ -30710,9 +30710,9 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   store ptr null, ptr %64, align 8, !tbaa !1007
   %71 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -88
   %72 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -88
-  %73 = load i32, ptr %72, align 4, !tbaa !88
-  store i32 %73, ptr %71, align 4, !tbaa !88
-  store i32 0, ptr %72, align 4, !tbaa !88
+  %73 = load i32, ptr %72, align 8, !tbaa !88
+  store i32 %73, ptr %71, align 8, !tbaa !88
+  store i32 0, ptr %72, align 8, !tbaa !88
   %74 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -84
   %75 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -84
   %76 = load i32, ptr %74, align 4, !tbaa !88
@@ -30720,10 +30720,10 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   store i32 %77, ptr %74, align 4, !tbaa !88
   store i32 %76, ptr %75, align 4, !tbaa !88
   %78 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -80
-  %79 = load i32, ptr %66, align 4, !tbaa !88
-  %80 = load i32, ptr %78, align 4, !tbaa !88
-  store i32 %80, ptr %66, align 4, !tbaa !88
-  store i32 %79, ptr %78, align 4, !tbaa !88
+  %79 = load i32, ptr %66, align 8, !tbaa !88
+  %80 = load i32, ptr %78, align 8, !tbaa !88
+  store i32 %80, ptr %66, align 8, !tbaa !88
+  store i32 %79, ptr %78, align 8, !tbaa !88
   %81 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -72
   %82 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -72
   %83 = load ptr, ptr %81, align 8, !tbaa !92
@@ -30738,9 +30738,9 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   store ptr null, ptr %82, align 8, !tbaa !1008
   %89 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -64
   %90 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -64
-  %91 = load i32, ptr %90, align 4, !tbaa !88
-  store i32 %91, ptr %89, align 4, !tbaa !88
-  store i32 0, ptr %90, align 4, !tbaa !88
+  %91 = load i32, ptr %90, align 8, !tbaa !88
+  store i32 %91, ptr %89, align 8, !tbaa !88
+  store i32 0, ptr %90, align 8, !tbaa !88
   %92 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -60
   %93 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -60
   %94 = load i32, ptr %92, align 4, !tbaa !88
@@ -30748,10 +30748,10 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   store i32 %95, ptr %92, align 4, !tbaa !88
   store i32 %94, ptr %93, align 4, !tbaa !88
   %96 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -56
-  %97 = load i32, ptr %84, align 4, !tbaa !88
-  %98 = load i32, ptr %96, align 4, !tbaa !88
-  store i32 %98, ptr %84, align 4, !tbaa !88
-  store i32 %97, ptr %96, align 4, !tbaa !88
+  %97 = load i32, ptr %84, align 8, !tbaa !88
+  %98 = load i32, ptr %96, align 8, !tbaa !88
+  store i32 %98, ptr %84, align 8, !tbaa !88
+  store i32 %97, ptr %96, align 8, !tbaa !88
   %99 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -48
   %100 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -48
   %101 = load ptr, ptr %99, align 8, !tbaa !89
@@ -30766,9 +30766,9 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   store ptr null, ptr %100, align 8, !tbaa !877
   %107 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -40
   %108 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -40
-  %109 = load i32, ptr %108, align 4, !tbaa !88
-  store i32 %109, ptr %107, align 4, !tbaa !88
-  store i32 0, ptr %108, align 4, !tbaa !88
+  %109 = load i32, ptr %108, align 8, !tbaa !88
+  store i32 %109, ptr %107, align 8, !tbaa !88
+  store i32 0, ptr %108, align 8, !tbaa !88
   %110 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -36
   %111 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -36
   %112 = load i32, ptr %110, align 4, !tbaa !88
@@ -30776,10 +30776,10 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   store i32 %113, ptr %110, align 4, !tbaa !88
   store i32 %112, ptr %111, align 4, !tbaa !88
   %114 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -32
-  %115 = load i32, ptr %102, align 4, !tbaa !88
-  %116 = load i32, ptr %114, align 4, !tbaa !88
-  store i32 %116, ptr %102, align 4, !tbaa !88
-  store i32 %115, ptr %114, align 4, !tbaa !88
+  %115 = load i32, ptr %102, align 8, !tbaa !88
+  %116 = load i32, ptr %114, align 8, !tbaa !88
+  store i32 %116, ptr %102, align 8, !tbaa !88
+  store i32 %115, ptr %114, align 8, !tbaa !88
   %117 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -24
   %118 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -24
   %119 = load ptr, ptr %117, align 8, !tbaa !89
@@ -30794,9 +30794,9 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   store ptr null, ptr %118, align 8, !tbaa !877
   %125 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -16
   %126 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -16
-  %127 = load i32, ptr %126, align 4, !tbaa !88
-  store i32 %127, ptr %125, align 4, !tbaa !88
-  store i32 0, ptr %126, align 4, !tbaa !88
+  %127 = load i32, ptr %126, align 8, !tbaa !88
+  store i32 %127, ptr %125, align 8, !tbaa !88
+  store i32 0, ptr %126, align 8, !tbaa !88
   %128 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -12
   %129 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -12
   %130 = load i32, ptr %128, align 4, !tbaa !88
@@ -30804,10 +30804,10 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   store i32 %131, ptr %128, align 4, !tbaa !88
   store i32 %130, ptr %129, align 4, !tbaa !88
   %132 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -8
-  %133 = load i32, ptr %120, align 4, !tbaa !88
-  %134 = load i32, ptr %132, align 4, !tbaa !88
-  store i32 %134, ptr %120, align 4, !tbaa !88
-  store i32 %133, ptr %132, align 4, !tbaa !88
+  %133 = load i32, ptr %120, align 8, !tbaa !88
+  %134 = load i32, ptr %132, align 8, !tbaa !88
+  store i32 %134, ptr %120, align 8, !tbaa !88
+  store i32 %133, ptr %132, align 8, !tbaa !88
   %135 = add nsw i64 %.010.i.i.i.i.i, -1
   %136 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %136, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCandidateESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, !llvm.loop !1010
@@ -30820,36 +30820,36 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimi
   %140 = shl nuw nsw i64 %139, 4
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %137, i64 noundef %140, i64 noundef 8) #27
   store ptr %25, ptr %5, align 8, !tbaa !1007
-  store i32 %27, ptr %7, align 4, !tbaa !88
+  store i32 %27, ptr %7, align 8, !tbaa !88
   store i32 %29, ptr %8, align 4, !tbaa !88
-  store i32 %31, ptr %6, align 4, !tbaa !88
+  store i32 %31, ptr %6, align 8, !tbaa !88
   %141 = load ptr, ptr %9, align 8, !tbaa !92
   %142 = load i32, ptr %10, align 8, !tbaa !95
   %143 = zext i32 %142 to i64
   %144 = shl nuw nsw i64 %143, 4
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %141, i64 noundef %144, i64 noundef 8) #27
   store ptr %33, ptr %9, align 8, !tbaa !1008
-  store i32 %35, ptr %11, align 4, !tbaa !88
+  store i32 %35, ptr %11, align 8, !tbaa !88
   store i32 %37, ptr %12, align 4, !tbaa !88
-  store i32 %39, ptr %10, align 4, !tbaa !88
+  store i32 %39, ptr %10, align 8, !tbaa !88
   %145 = load ptr, ptr %13, align 8, !tbaa !89
   %146 = load i32, ptr %14, align 8, !tbaa !90
   %147 = zext i32 %146 to i64
   %148 = shl nuw nsw i64 %147, 3
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %145, i64 noundef %148, i64 noundef 4) #27
   store ptr %41, ptr %13, align 8, !tbaa !877
-  store i32 %43, ptr %15, align 4, !tbaa !88
+  store i32 %43, ptr %15, align 8, !tbaa !88
   store i32 %45, ptr %16, align 4, !tbaa !88
-  store i32 %47, ptr %14, align 4, !tbaa !88
+  store i32 %47, ptr %14, align 8, !tbaa !88
   %149 = load ptr, ptr %17, align 8, !tbaa !89
   %150 = load i32, ptr %18, align 8, !tbaa !90
   %151 = zext i32 %150 to i64
   %152 = shl nuw nsw i64 %151, 3
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %149, i64 noundef %152, i64 noundef 4) #27
   store ptr %49, ptr %17, align 8, !tbaa !877
-  store i32 %51, ptr %19, align 4, !tbaa !88
+  store i32 %51, ptr %19, align 8, !tbaa !88
   store i32 %53, ptr %20, align 4, !tbaa !88
-  store i32 %55, ptr %18, align 4, !tbaa !88
+  store i32 %55, ptr %18, align 8, !tbaa !88
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #27
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #27
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 8) #27
@@ -30865,50 +30865,50 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimi
   %155 = load ptr, ptr %154, align 8, !tbaa !1007
   store ptr null, ptr %154, align 8, !tbaa !1007
   %156 = getelementptr inbounds nuw i8, ptr %.pn45, i64 152
-  %157 = load i32, ptr %156, align 4, !tbaa !88
-  store i32 0, ptr %156, align 4, !tbaa !88
+  %157 = load i32, ptr %156, align 8, !tbaa !88
+  store i32 0, ptr %156, align 8, !tbaa !88
   %158 = getelementptr inbounds nuw i8, ptr %.pn45, i64 156
   %159 = load i32, ptr %158, align 4, !tbaa !88
   store i32 0, ptr %158, align 4, !tbaa !88
   %160 = getelementptr inbounds nuw i8, ptr %.pn45, i64 160
-  %161 = load i32, ptr %160, align 4, !tbaa !88
-  store i32 0, ptr %160, align 4, !tbaa !88
+  %161 = load i32, ptr %160, align 8, !tbaa !88
+  store i32 0, ptr %160, align 8, !tbaa !88
   %162 = getelementptr inbounds nuw i8, ptr %.pn45, i64 168
   %163 = load ptr, ptr %162, align 8, !tbaa !1008
   store ptr null, ptr %162, align 8, !tbaa !1008
   %164 = getelementptr inbounds nuw i8, ptr %.pn45, i64 176
-  %165 = load i32, ptr %164, align 4, !tbaa !88
-  store i32 0, ptr %164, align 4, !tbaa !88
+  %165 = load i32, ptr %164, align 8, !tbaa !88
+  store i32 0, ptr %164, align 8, !tbaa !88
   %166 = getelementptr inbounds nuw i8, ptr %.pn45, i64 180
   %167 = load i32, ptr %166, align 4, !tbaa !88
   store i32 0, ptr %166, align 4, !tbaa !88
   %168 = getelementptr inbounds nuw i8, ptr %.pn45, i64 184
-  %169 = load i32, ptr %168, align 4, !tbaa !88
-  store i32 0, ptr %168, align 4, !tbaa !88
+  %169 = load i32, ptr %168, align 8, !tbaa !88
+  store i32 0, ptr %168, align 8, !tbaa !88
   %170 = getelementptr inbounds nuw i8, ptr %.pn45, i64 192
   %171 = load ptr, ptr %170, align 8, !tbaa !877
   store ptr null, ptr %170, align 8, !tbaa !877
   %172 = getelementptr inbounds nuw i8, ptr %.pn45, i64 200
-  %173 = load i32, ptr %172, align 4, !tbaa !88
-  store i32 0, ptr %172, align 4, !tbaa !88
+  %173 = load i32, ptr %172, align 8, !tbaa !88
+  store i32 0, ptr %172, align 8, !tbaa !88
   %174 = getelementptr inbounds nuw i8, ptr %.pn45, i64 204
   %175 = load i32, ptr %174, align 4, !tbaa !88
   store i32 0, ptr %174, align 4, !tbaa !88
   %176 = getelementptr inbounds nuw i8, ptr %.pn45, i64 208
-  %177 = load i32, ptr %176, align 4, !tbaa !88
-  store i32 0, ptr %176, align 4, !tbaa !88
+  %177 = load i32, ptr %176, align 8, !tbaa !88
+  store i32 0, ptr %176, align 8, !tbaa !88
   %178 = getelementptr inbounds nuw i8, ptr %.pn45, i64 216
   %179 = load ptr, ptr %178, align 8, !tbaa !877
   store ptr null, ptr %178, align 8, !tbaa !877
   %180 = getelementptr inbounds nuw i8, ptr %.pn45, i64 224
-  %181 = load i32, ptr %180, align 4, !tbaa !88
-  store i32 0, ptr %180, align 4, !tbaa !88
+  %181 = load i32, ptr %180, align 8, !tbaa !88
+  store i32 0, ptr %180, align 8, !tbaa !88
   %182 = getelementptr inbounds nuw i8, ptr %.pn45, i64 228
   %183 = load i32, ptr %182, align 4, !tbaa !88
   store i32 0, ptr %182, align 4, !tbaa !88
   %184 = getelementptr inbounds nuw i8, ptr %.pn45, i64 232
-  %185 = load i32, ptr %184, align 4, !tbaa !88
-  store i32 0, ptr %184, align 4, !tbaa !88
+  %185 = load i32, ptr %184, align 8, !tbaa !88
+  store i32 0, ptr %184, align 8, !tbaa !88
   %.val2.i35.i = load i32, ptr %.pn45, align 8, !tbaa !673
   %186 = icmp ult i32 %.val.i, %.val2.i35.i
   br i1 %186, label %.lr.ph.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCandidateESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_10IROutliner24pruneIncompatibleRegionsERS8_R15OutlinableGroupE3$_0EEEvT_T0_.exit"
@@ -30932,9 +30932,9 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimi
   store ptr null, ptr %188, align 8, !tbaa !1007
   %196 = getelementptr inbounds nuw i8, ptr %.sroa.031.036.i, i64 32
   %197 = getelementptr inbounds nuw i8, ptr %.sroa.0.037.i, i64 32
-  %198 = load i32, ptr %197, align 4, !tbaa !88
-  store i32 %198, ptr %196, align 4, !tbaa !88
-  store i32 0, ptr %197, align 4, !tbaa !88
+  %198 = load i32, ptr %197, align 8, !tbaa !88
+  store i32 %198, ptr %196, align 8, !tbaa !88
+  store i32 0, ptr %197, align 8, !tbaa !88
   %199 = getelementptr inbounds nuw i8, ptr %.sroa.031.036.i, i64 36
   %200 = getelementptr inbounds nuw i8, ptr %.sroa.0.037.i, i64 36
   %201 = load i32, ptr %199, align 4, !tbaa !88
@@ -30942,10 +30942,10 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimi
   store i32 %202, ptr %199, align 4, !tbaa !88
   store i32 %201, ptr %200, align 4, !tbaa !88
   %203 = getelementptr inbounds nuw i8, ptr %.sroa.0.037.i, i64 40
-  %204 = load i32, ptr %190, align 4, !tbaa !88
-  %205 = load i32, ptr %203, align 4, !tbaa !88
-  store i32 %205, ptr %190, align 4, !tbaa !88
-  store i32 %204, ptr %203, align 4, !tbaa !88
+  %204 = load i32, ptr %190, align 8, !tbaa !88
+  %205 = load i32, ptr %203, align 8, !tbaa !88
+  store i32 %205, ptr %190, align 8, !tbaa !88
+  store i32 %204, ptr %203, align 8, !tbaa !88
   %206 = getelementptr inbounds nuw i8, ptr %.sroa.031.036.i, i64 48
   %207 = getelementptr inbounds nuw i8, ptr %.sroa.0.037.i, i64 48
   %208 = load ptr, ptr %206, align 8, !tbaa !92
@@ -30961,9 +30961,9 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimi
   store ptr null, ptr %207, align 8, !tbaa !1008
   %215 = getelementptr inbounds nuw i8, ptr %.sroa.031.036.i, i64 56
   %216 = getelementptr inbounds nuw i8, ptr %.sroa.0.037.i, i64 56
-  %217 = load i32, ptr %216, align 4, !tbaa !88
-  store i32 %217, ptr %215, align 4, !tbaa !88
-  store i32 0, ptr %216, align 4, !tbaa !88
+  %217 = load i32, ptr %216, align 8, !tbaa !88
+  store i32 %217, ptr %215, align 8, !tbaa !88
+  store i32 0, ptr %216, align 8, !tbaa !88
   %218 = getelementptr inbounds nuw i8, ptr %.sroa.031.036.i, i64 60
   %219 = getelementptr inbounds nuw i8, ptr %.sroa.0.037.i, i64 60
   %220 = load i32, ptr %218, align 4, !tbaa !88
@@ -30971,10 +30971,10 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimi
   store i32 %221, ptr %218, align 4, !tbaa !88
   store i32 %220, ptr %219, align 4, !tbaa !88
   %222 = getelementptr inbounds nuw i8, ptr %.sroa.0.037.i, i64 64
-  %223 = load i32, ptr %209, align 4, !tbaa !88
-  %224 = load i32, ptr %222, align 4, !tbaa !88
-  store i32 %224, ptr %209, align 4, !tbaa !88
-  store i32 %223, ptr %222, align 4, !tbaa !88
+  %223 = load i32, ptr %209, align 8, !tbaa !88
+  %224 = load i32, ptr %222, align 8, !tbaa !88
+  store i32 %224, ptr %209, align 8, !tbaa !88
+  store i32 %223, ptr %222, align 8, !tbaa !88
   %225 = getelementptr inbounds nuw i8, ptr %.sroa.031.036.i, i64 72
   %226 = getelementptr inbounds nuw i8, ptr %.sroa.0.037.i, i64 72
   %227 = load ptr, ptr %225, align 8, !tbaa !89
@@ -30990,9 +30990,9 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimi
   store ptr null, ptr %226, align 8, !tbaa !877
   %234 = getelementptr inbounds nuw i8, ptr %.sroa.031.036.i, i64 80
   %235 = getelementptr inbounds nuw i8, ptr %.sroa.0.037.i, i64 80
-  %236 = load i32, ptr %235, align 4, !tbaa !88
-  store i32 %236, ptr %234, align 4, !tbaa !88
-  store i32 0, ptr %235, align 4, !tbaa !88
+  %236 = load i32, ptr %235, align 8, !tbaa !88
+  store i32 %236, ptr %234, align 8, !tbaa !88
+  store i32 0, ptr %235, align 8, !tbaa !88
   %237 = getelementptr inbounds nuw i8, ptr %.sroa.031.036.i, i64 84
   %238 = getelementptr inbounds nuw i8, ptr %.sroa.0.037.i, i64 84
   %239 = load i32, ptr %237, align 4, !tbaa !88
@@ -31000,10 +31000,10 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimi
   store i32 %240, ptr %237, align 4, !tbaa !88
   store i32 %239, ptr %238, align 4, !tbaa !88
   %241 = getelementptr inbounds nuw i8, ptr %.sroa.0.037.i, i64 88
-  %242 = load i32, ptr %228, align 4, !tbaa !88
-  %243 = load i32, ptr %241, align 4, !tbaa !88
-  store i32 %243, ptr %228, align 4, !tbaa !88
-  store i32 %242, ptr %241, align 4, !tbaa !88
+  %242 = load i32, ptr %228, align 8, !tbaa !88
+  %243 = load i32, ptr %241, align 8, !tbaa !88
+  store i32 %243, ptr %228, align 8, !tbaa !88
+  store i32 %242, ptr %241, align 8, !tbaa !88
   %244 = getelementptr inbounds nuw i8, ptr %.sroa.031.036.i, i64 96
   %245 = getelementptr inbounds nuw i8, ptr %.sroa.0.037.i, i64 96
   %246 = load ptr, ptr %244, align 8, !tbaa !89
@@ -31019,9 +31019,9 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimi
   store ptr null, ptr %245, align 8, !tbaa !877
   %253 = getelementptr inbounds nuw i8, ptr %.sroa.031.036.i, i64 104
   %254 = getelementptr inbounds nuw i8, ptr %.sroa.0.037.i, i64 104
-  %255 = load i32, ptr %254, align 4, !tbaa !88
-  store i32 %255, ptr %253, align 4, !tbaa !88
-  store i32 0, ptr %254, align 4, !tbaa !88
+  %255 = load i32, ptr %254, align 8, !tbaa !88
+  store i32 %255, ptr %253, align 8, !tbaa !88
+  store i32 0, ptr %254, align 8, !tbaa !88
   %256 = getelementptr inbounds nuw i8, ptr %.sroa.031.036.i, i64 108
   %257 = getelementptr inbounds nuw i8, ptr %.sroa.0.037.i, i64 108
   %258 = load i32, ptr %256, align 4, !tbaa !88
@@ -31029,10 +31029,10 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimi
   store i32 %259, ptr %256, align 4, !tbaa !88
   store i32 %258, ptr %257, align 4, !tbaa !88
   %260 = getelementptr inbounds nuw i8, ptr %.sroa.0.037.i, i64 112
-  %261 = load i32, ptr %247, align 4, !tbaa !88
-  %262 = load i32, ptr %260, align 4, !tbaa !88
-  store i32 %262, ptr %247, align 4, !tbaa !88
-  store i32 %261, ptr %260, align 4, !tbaa !88
+  %261 = load i32, ptr %247, align 8, !tbaa !88
+  %262 = load i32, ptr %260, align 8, !tbaa !88
+  store i32 %262, ptr %247, align 8, !tbaa !88
+  store i32 %261, ptr %260, align 8, !tbaa !88
   %.sroa.0.0.i = getelementptr inbounds i8, ptr %.sroa.0.037.i, i64 -120
   %.val2.i.i = load i32, ptr %.sroa.0.0.i, align 8, !tbaa !673
   %263 = icmp ult i32 %.val.i, %.val2.i.i
@@ -31059,10 +31059,10 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimi
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %269, i64 noundef %268, i64 noundef 8) #27
   store ptr %155, ptr %270, align 8, !tbaa !1007
   %272 = getelementptr inbounds nuw i8, ptr %.sroa.031.0.lcssa.i, i64 32
-  store i32 %157, ptr %272, align 4, !tbaa !88
+  store i32 %157, ptr %272, align 8, !tbaa !88
   %273 = getelementptr inbounds nuw i8, ptr %.sroa.031.0.lcssa.i, i64 36
   store i32 %159, ptr %273, align 4, !tbaa !88
-  store i32 %161, ptr %271, align 4, !tbaa !88
+  store i32 %161, ptr %271, align 8, !tbaa !88
   %274 = getelementptr inbounds nuw i8, ptr %.sroa.031.0.lcssa.i, i64 48
   %275 = load ptr, ptr %274, align 8, !tbaa !92
   %276 = getelementptr inbounds nuw i8, ptr %.sroa.031.0.lcssa.i, i64 64
@@ -31072,10 +31072,10 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimi
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %275, i64 noundef %279, i64 noundef 8) #27
   store ptr %163, ptr %274, align 8, !tbaa !1008
   %280 = getelementptr inbounds nuw i8, ptr %.sroa.031.0.lcssa.i, i64 56
-  store i32 %165, ptr %280, align 4, !tbaa !88
+  store i32 %165, ptr %280, align 8, !tbaa !88
   %281 = getelementptr inbounds nuw i8, ptr %.sroa.031.0.lcssa.i, i64 60
   store i32 %167, ptr %281, align 4, !tbaa !88
-  store i32 %169, ptr %276, align 4, !tbaa !88
+  store i32 %169, ptr %276, align 8, !tbaa !88
   %282 = getelementptr inbounds nuw i8, ptr %.sroa.031.0.lcssa.i, i64 72
   %283 = load ptr, ptr %282, align 8, !tbaa !89
   %284 = getelementptr inbounds nuw i8, ptr %.sroa.031.0.lcssa.i, i64 88
@@ -31085,10 +31085,10 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimi
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %283, i64 noundef %287, i64 noundef 4) #27
   store ptr %171, ptr %282, align 8, !tbaa !877
   %288 = getelementptr inbounds nuw i8, ptr %.sroa.031.0.lcssa.i, i64 80
-  store i32 %173, ptr %288, align 4, !tbaa !88
+  store i32 %173, ptr %288, align 8, !tbaa !88
   %289 = getelementptr inbounds nuw i8, ptr %.sroa.031.0.lcssa.i, i64 84
   store i32 %175, ptr %289, align 4, !tbaa !88
-  store i32 %177, ptr %284, align 4, !tbaa !88
+  store i32 %177, ptr %284, align 8, !tbaa !88
   %290 = getelementptr inbounds nuw i8, ptr %.sroa.031.0.lcssa.i, i64 96
   %291 = load ptr, ptr %290, align 8, !tbaa !89
   %292 = getelementptr inbounds nuw i8, ptr %.sroa.031.0.lcssa.i, i64 112
@@ -31098,10 +31098,10 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimi
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %291, i64 noundef %295, i64 noundef 4) #27
   store ptr %179, ptr %290, align 8, !tbaa !877
   %296 = getelementptr inbounds nuw i8, ptr %.sroa.031.0.lcssa.i, i64 104
-  store i32 %181, ptr %296, align 4, !tbaa !88
+  store i32 %181, ptr %296, align 8, !tbaa !88
   %297 = getelementptr inbounds nuw i8, ptr %.sroa.031.0.lcssa.i, i64 108
   store i32 %183, ptr %297, align 4, !tbaa !88
-  store i32 %185, ptr %292, align 4, !tbaa !88
+  store i32 %185, ptr %292, align 8, !tbaa !88
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #27
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #27
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 8) #27
@@ -31432,50 +31432,50 @@ define linkonce_odr ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPN4ll
   %30 = load ptr, ptr %29, align 8, !tbaa !1007
   store ptr null, ptr %29, align 8, !tbaa !1007
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.027.163, i64 32
-  %32 = load i32, ptr %31, align 4, !tbaa !88
-  store i32 0, ptr %31, align 4, !tbaa !88
+  %32 = load i32, ptr %31, align 8, !tbaa !88
+  store i32 0, ptr %31, align 8, !tbaa !88
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.027.163, i64 36
   %34 = load i32, ptr %33, align 4, !tbaa !88
   store i32 0, ptr %33, align 4, !tbaa !88
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.027.163, i64 40
-  %36 = load i32, ptr %35, align 4, !tbaa !88
-  store i32 0, ptr %35, align 4, !tbaa !88
+  %36 = load i32, ptr %35, align 8, !tbaa !88
+  store i32 0, ptr %35, align 8, !tbaa !88
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.027.163, i64 48
   %38 = load ptr, ptr %37, align 8, !tbaa !1008
   store ptr null, ptr %37, align 8, !tbaa !1008
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.027.163, i64 56
-  %40 = load i32, ptr %39, align 4, !tbaa !88
-  store i32 0, ptr %39, align 4, !tbaa !88
+  %40 = load i32, ptr %39, align 8, !tbaa !88
+  store i32 0, ptr %39, align 8, !tbaa !88
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.027.163, i64 60
   %42 = load i32, ptr %41, align 4, !tbaa !88
   store i32 0, ptr %41, align 4, !tbaa !88
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.027.163, i64 64
-  %44 = load i32, ptr %43, align 4, !tbaa !88
-  store i32 0, ptr %43, align 4, !tbaa !88
+  %44 = load i32, ptr %43, align 8, !tbaa !88
+  store i32 0, ptr %43, align 8, !tbaa !88
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.027.163, i64 72
   %46 = load ptr, ptr %45, align 8, !tbaa !877
   store ptr null, ptr %45, align 8, !tbaa !877
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.027.163, i64 80
-  %48 = load i32, ptr %47, align 4, !tbaa !88
-  store i32 0, ptr %47, align 4, !tbaa !88
+  %48 = load i32, ptr %47, align 8, !tbaa !88
+  store i32 0, ptr %47, align 8, !tbaa !88
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.027.163, i64 84
   %50 = load i32, ptr %49, align 4, !tbaa !88
   store i32 0, ptr %49, align 4, !tbaa !88
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.027.163, i64 88
-  %52 = load i32, ptr %51, align 4, !tbaa !88
-  store i32 0, ptr %51, align 4, !tbaa !88
+  %52 = load i32, ptr %51, align 8, !tbaa !88
+  store i32 0, ptr %51, align 8, !tbaa !88
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.027.163, i64 96
   %54 = load ptr, ptr %53, align 8, !tbaa !877
   store ptr null, ptr %53, align 8, !tbaa !877
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.027.163, i64 104
-  %56 = load i32, ptr %55, align 4, !tbaa !88
-  store i32 0, ptr %55, align 4, !tbaa !88
+  %56 = load i32, ptr %55, align 8, !tbaa !88
+  store i32 0, ptr %55, align 8, !tbaa !88
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.027.163, i64 108
   %58 = load i32, ptr %57, align 4, !tbaa !88
   store i32 0, ptr %57, align 4, !tbaa !88
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.027.163, i64 112
-  %60 = load i32, ptr %59, align 4, !tbaa !88
-  store i32 0, ptr %59, align 4, !tbaa !88
+  %60 = load i32, ptr %59, align 8, !tbaa !88
+  store i32 0, ptr %59, align 8, !tbaa !88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %.sroa.027.163, ptr noundef nonnull align 8 dereferenceable(120) %.sroa.026.064, i64 24, i1 false)
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.026.064, i64 24
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 8) #27
@@ -31484,19 +31484,19 @@ define linkonce_odr ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPN4ll
   store ptr %62, ptr %29, align 8, !tbaa !1007
   store ptr null, ptr %61, align 8, !tbaa !1007
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.026.064, i64 32
-  %64 = load i32, ptr %63, align 4, !tbaa !88
-  store i32 %64, ptr %31, align 4, !tbaa !88
-  store i32 0, ptr %63, align 4, !tbaa !88
+  %64 = load i32, ptr %63, align 8, !tbaa !88
+  store i32 %64, ptr %31, align 8, !tbaa !88
+  store i32 0, ptr %63, align 8, !tbaa !88
   %65 = getelementptr inbounds nuw i8, ptr %.sroa.026.064, i64 36
   %66 = load i32, ptr %33, align 4, !tbaa !88
   %67 = load i32, ptr %65, align 4, !tbaa !88
   store i32 %67, ptr %33, align 4, !tbaa !88
   store i32 %66, ptr %65, align 4, !tbaa !88
   %68 = getelementptr inbounds nuw i8, ptr %.sroa.026.064, i64 40
-  %69 = load i32, ptr %35, align 4, !tbaa !88
-  %70 = load i32, ptr %68, align 4, !tbaa !88
-  store i32 %70, ptr %35, align 4, !tbaa !88
-  store i32 %69, ptr %68, align 4, !tbaa !88
+  %69 = load i32, ptr %35, align 8, !tbaa !88
+  %70 = load i32, ptr %68, align 8, !tbaa !88
+  store i32 %70, ptr %35, align 8, !tbaa !88
+  store i32 %69, ptr %68, align 8, !tbaa !88
   %71 = getelementptr inbounds nuw i8, ptr %.sroa.026.064, i64 48
   %72 = load ptr, ptr %37, align 8, !tbaa !92
   %73 = load i32, ptr %43, align 8, !tbaa !95
@@ -31508,19 +31508,19 @@ define linkonce_odr ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPN4ll
   store ptr %76, ptr %37, align 8, !tbaa !1008
   store ptr null, ptr %71, align 8, !tbaa !1008
   %77 = getelementptr inbounds nuw i8, ptr %.sroa.026.064, i64 56
-  %78 = load i32, ptr %77, align 4, !tbaa !88
-  store i32 %78, ptr %39, align 4, !tbaa !88
-  store i32 0, ptr %77, align 4, !tbaa !88
+  %78 = load i32, ptr %77, align 8, !tbaa !88
+  store i32 %78, ptr %39, align 8, !tbaa !88
+  store i32 0, ptr %77, align 8, !tbaa !88
   %79 = getelementptr inbounds nuw i8, ptr %.sroa.026.064, i64 60
   %80 = load i32, ptr %41, align 4, !tbaa !88
   %81 = load i32, ptr %79, align 4, !tbaa !88
   store i32 %81, ptr %41, align 4, !tbaa !88
   store i32 %80, ptr %79, align 4, !tbaa !88
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.026.064, i64 64
-  %83 = load i32, ptr %43, align 4, !tbaa !88
-  %84 = load i32, ptr %82, align 4, !tbaa !88
-  store i32 %84, ptr %43, align 4, !tbaa !88
-  store i32 %83, ptr %82, align 4, !tbaa !88
+  %83 = load i32, ptr %43, align 8, !tbaa !88
+  %84 = load i32, ptr %82, align 8, !tbaa !88
+  store i32 %84, ptr %43, align 8, !tbaa !88
+  store i32 %83, ptr %82, align 8, !tbaa !88
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.026.064, i64 72
   %86 = load ptr, ptr %45, align 8, !tbaa !89
   %87 = load i32, ptr %51, align 8, !tbaa !90
@@ -31532,19 +31532,19 @@ define linkonce_odr ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPN4ll
   store ptr %90, ptr %45, align 8, !tbaa !877
   store ptr null, ptr %85, align 8, !tbaa !877
   %91 = getelementptr inbounds nuw i8, ptr %.sroa.026.064, i64 80
-  %92 = load i32, ptr %91, align 4, !tbaa !88
-  store i32 %92, ptr %47, align 4, !tbaa !88
-  store i32 0, ptr %91, align 4, !tbaa !88
+  %92 = load i32, ptr %91, align 8, !tbaa !88
+  store i32 %92, ptr %47, align 8, !tbaa !88
+  store i32 0, ptr %91, align 8, !tbaa !88
   %93 = getelementptr inbounds nuw i8, ptr %.sroa.026.064, i64 84
   %94 = load i32, ptr %49, align 4, !tbaa !88
   %95 = load i32, ptr %93, align 4, !tbaa !88
   store i32 %95, ptr %49, align 4, !tbaa !88
   store i32 %94, ptr %93, align 4, !tbaa !88
   %96 = getelementptr inbounds nuw i8, ptr %.sroa.026.064, i64 88
-  %97 = load i32, ptr %51, align 4, !tbaa !88
-  %98 = load i32, ptr %96, align 4, !tbaa !88
-  store i32 %98, ptr %51, align 4, !tbaa !88
-  store i32 %97, ptr %96, align 4, !tbaa !88
+  %97 = load i32, ptr %51, align 8, !tbaa !88
+  %98 = load i32, ptr %96, align 8, !tbaa !88
+  store i32 %98, ptr %51, align 8, !tbaa !88
+  store i32 %97, ptr %96, align 8, !tbaa !88
   %99 = getelementptr inbounds nuw i8, ptr %.sroa.026.064, i64 96
   %100 = load ptr, ptr %53, align 8, !tbaa !89
   %101 = load i32, ptr %59, align 8, !tbaa !90
@@ -31556,19 +31556,19 @@ define linkonce_odr ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPN4ll
   store ptr %104, ptr %53, align 8, !tbaa !877
   store ptr null, ptr %99, align 8, !tbaa !877
   %105 = getelementptr inbounds nuw i8, ptr %.sroa.026.064, i64 104
-  %106 = load i32, ptr %105, align 4, !tbaa !88
-  store i32 %106, ptr %55, align 4, !tbaa !88
-  store i32 0, ptr %105, align 4, !tbaa !88
+  %106 = load i32, ptr %105, align 8, !tbaa !88
+  store i32 %106, ptr %55, align 8, !tbaa !88
+  store i32 0, ptr %105, align 8, !tbaa !88
   %107 = getelementptr inbounds nuw i8, ptr %.sroa.026.064, i64 108
   %108 = load i32, ptr %57, align 4, !tbaa !88
   %109 = load i32, ptr %107, align 4, !tbaa !88
   store i32 %109, ptr %57, align 4, !tbaa !88
   store i32 %108, ptr %107, align 4, !tbaa !88
   %110 = getelementptr inbounds nuw i8, ptr %.sroa.026.064, i64 112
-  %111 = load i32, ptr %59, align 4, !tbaa !88
-  %112 = load i32, ptr %110, align 4, !tbaa !88
-  store i32 %112, ptr %59, align 4, !tbaa !88
-  store i32 %111, ptr %110, align 4, !tbaa !88
+  %111 = load i32, ptr %59, align 8, !tbaa !88
+  %112 = load i32, ptr %110, align 8, !tbaa !88
+  store i32 %112, ptr %59, align 8, !tbaa !88
+  store i32 %111, ptr %110, align 8, !tbaa !88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %.sroa.026.064, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false)
   %113 = load ptr, ptr %61, align 8, !tbaa !78
   %114 = load i32, ptr %68, align 8, !tbaa !81
@@ -31576,36 +31576,36 @@ define linkonce_odr ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPN4ll
   %116 = shl nuw nsw i64 %115, 4
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %113, i64 noundef %116, i64 noundef 8) #27
   store ptr %30, ptr %61, align 8, !tbaa !1007
-  store i32 %32, ptr %63, align 4, !tbaa !88
+  store i32 %32, ptr %63, align 8, !tbaa !88
   store i32 %34, ptr %65, align 4, !tbaa !88
-  store i32 %36, ptr %68, align 4, !tbaa !88
+  store i32 %36, ptr %68, align 8, !tbaa !88
   %117 = load ptr, ptr %71, align 8, !tbaa !92
   %118 = load i32, ptr %82, align 8, !tbaa !95
   %119 = zext i32 %118 to i64
   %120 = shl nuw nsw i64 %119, 4
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %117, i64 noundef %120, i64 noundef 8) #27
   store ptr %38, ptr %71, align 8, !tbaa !1008
-  store i32 %40, ptr %77, align 4, !tbaa !88
+  store i32 %40, ptr %77, align 8, !tbaa !88
   store i32 %42, ptr %79, align 4, !tbaa !88
-  store i32 %44, ptr %82, align 4, !tbaa !88
+  store i32 %44, ptr %82, align 8, !tbaa !88
   %121 = load ptr, ptr %85, align 8, !tbaa !89
   %122 = load i32, ptr %96, align 8, !tbaa !90
   %123 = zext i32 %122 to i64
   %124 = shl nuw nsw i64 %123, 3
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %121, i64 noundef %124, i64 noundef 4) #27
   store ptr %46, ptr %85, align 8, !tbaa !877
-  store i32 %48, ptr %91, align 4, !tbaa !88
+  store i32 %48, ptr %91, align 8, !tbaa !88
   store i32 %50, ptr %93, align 4, !tbaa !88
-  store i32 %52, ptr %96, align 4, !tbaa !88
+  store i32 %52, ptr %96, align 8, !tbaa !88
   %125 = load ptr, ptr %99, align 8, !tbaa !89
   %126 = load i32, ptr %110, align 8, !tbaa !90
   %127 = zext i32 %126 to i64
   %128 = shl nuw nsw i64 %127, 3
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %125, i64 noundef %128, i64 noundef 4) #27
   store ptr %54, ptr %99, align 8, !tbaa !877
-  store i32 %56, ptr %105, align 4, !tbaa !88
+  store i32 %56, ptr %105, align 8, !tbaa !88
   store i32 %58, ptr %107, align 4, !tbaa !88
-  store i32 %60, ptr %110, align 4, !tbaa !88
+  store i32 %60, ptr %110, align 8, !tbaa !88
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #27
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #27
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 8) #27
@@ -31652,50 +31652,50 @@ define linkonce_odr ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPN4ll
   %143 = load ptr, ptr %142, align 8, !tbaa !1007
   store ptr null, ptr %142, align 8, !tbaa !1007
   %144 = getelementptr inbounds i8, ptr %.sroa.027.360, i64 -88
-  %145 = load i32, ptr %144, align 4, !tbaa !88
-  store i32 0, ptr %144, align 4, !tbaa !88
+  %145 = load i32, ptr %144, align 8, !tbaa !88
+  store i32 0, ptr %144, align 8, !tbaa !88
   %146 = getelementptr inbounds i8, ptr %.sroa.027.360, i64 -84
   %147 = load i32, ptr %146, align 4, !tbaa !88
   store i32 0, ptr %146, align 4, !tbaa !88
   %148 = getelementptr inbounds i8, ptr %.sroa.027.360, i64 -80
-  %149 = load i32, ptr %148, align 4, !tbaa !88
-  store i32 0, ptr %148, align 4, !tbaa !88
+  %149 = load i32, ptr %148, align 8, !tbaa !88
+  store i32 0, ptr %148, align 8, !tbaa !88
   %150 = getelementptr inbounds i8, ptr %.sroa.027.360, i64 -72
   %151 = load ptr, ptr %150, align 8, !tbaa !1008
   store ptr null, ptr %150, align 8, !tbaa !1008
   %152 = getelementptr inbounds i8, ptr %.sroa.027.360, i64 -64
-  %153 = load i32, ptr %152, align 4, !tbaa !88
-  store i32 0, ptr %152, align 4, !tbaa !88
+  %153 = load i32, ptr %152, align 8, !tbaa !88
+  store i32 0, ptr %152, align 8, !tbaa !88
   %154 = getelementptr inbounds i8, ptr %.sroa.027.360, i64 -60
   %155 = load i32, ptr %154, align 4, !tbaa !88
   store i32 0, ptr %154, align 4, !tbaa !88
   %156 = getelementptr inbounds i8, ptr %.sroa.027.360, i64 -56
-  %157 = load i32, ptr %156, align 4, !tbaa !88
-  store i32 0, ptr %156, align 4, !tbaa !88
+  %157 = load i32, ptr %156, align 8, !tbaa !88
+  store i32 0, ptr %156, align 8, !tbaa !88
   %158 = getelementptr inbounds i8, ptr %.sroa.027.360, i64 -48
   %159 = load ptr, ptr %158, align 8, !tbaa !877
   store ptr null, ptr %158, align 8, !tbaa !877
   %160 = getelementptr inbounds i8, ptr %.sroa.027.360, i64 -40
-  %161 = load i32, ptr %160, align 4, !tbaa !88
-  store i32 0, ptr %160, align 4, !tbaa !88
+  %161 = load i32, ptr %160, align 8, !tbaa !88
+  store i32 0, ptr %160, align 8, !tbaa !88
   %162 = getelementptr inbounds i8, ptr %.sroa.027.360, i64 -36
   %163 = load i32, ptr %162, align 4, !tbaa !88
   store i32 0, ptr %162, align 4, !tbaa !88
   %164 = getelementptr inbounds i8, ptr %.sroa.027.360, i64 -32
-  %165 = load i32, ptr %164, align 4, !tbaa !88
-  store i32 0, ptr %164, align 4, !tbaa !88
+  %165 = load i32, ptr %164, align 8, !tbaa !88
+  store i32 0, ptr %164, align 8, !tbaa !88
   %166 = getelementptr inbounds i8, ptr %.sroa.027.360, i64 -24
   %167 = load ptr, ptr %166, align 8, !tbaa !877
   store ptr null, ptr %166, align 8, !tbaa !877
   %168 = getelementptr inbounds i8, ptr %.sroa.027.360, i64 -16
-  %169 = load i32, ptr %168, align 4, !tbaa !88
-  store i32 0, ptr %168, align 4, !tbaa !88
+  %169 = load i32, ptr %168, align 8, !tbaa !88
+  store i32 0, ptr %168, align 8, !tbaa !88
   %170 = getelementptr inbounds i8, ptr %.sroa.027.360, i64 -12
   %171 = load i32, ptr %170, align 4, !tbaa !88
   store i32 0, ptr %170, align 4, !tbaa !88
   %172 = getelementptr inbounds i8, ptr %.sroa.027.360, i64 -8
-  %173 = load i32, ptr %172, align 4, !tbaa !88
-  store i32 0, ptr %172, align 4, !tbaa !88
+  %173 = load i32, ptr %172, align 8, !tbaa !88
+  store i32 0, ptr %172, align 8, !tbaa !88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %140, ptr noundef nonnull align 8 dereferenceable(120) %141, i64 24, i1 false)
   %174 = getelementptr inbounds i8, ptr %.sroa.0.061, i64 -96
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 8) #27
@@ -31704,19 +31704,19 @@ define linkonce_odr ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPN4ll
   store ptr %175, ptr %142, align 8, !tbaa !1007
   store ptr null, ptr %174, align 8, !tbaa !1007
   %176 = getelementptr inbounds i8, ptr %.sroa.0.061, i64 -88
-  %177 = load i32, ptr %176, align 4, !tbaa !88
-  store i32 %177, ptr %144, align 4, !tbaa !88
-  store i32 0, ptr %176, align 4, !tbaa !88
+  %177 = load i32, ptr %176, align 8, !tbaa !88
+  store i32 %177, ptr %144, align 8, !tbaa !88
+  store i32 0, ptr %176, align 8, !tbaa !88
   %178 = getelementptr inbounds i8, ptr %.sroa.0.061, i64 -84
   %179 = load i32, ptr %146, align 4, !tbaa !88
   %180 = load i32, ptr %178, align 4, !tbaa !88
   store i32 %180, ptr %146, align 4, !tbaa !88
   store i32 %179, ptr %178, align 4, !tbaa !88
   %181 = getelementptr inbounds i8, ptr %.sroa.0.061, i64 -80
-  %182 = load i32, ptr %148, align 4, !tbaa !88
-  %183 = load i32, ptr %181, align 4, !tbaa !88
-  store i32 %183, ptr %148, align 4, !tbaa !88
-  store i32 %182, ptr %181, align 4, !tbaa !88
+  %182 = load i32, ptr %148, align 8, !tbaa !88
+  %183 = load i32, ptr %181, align 8, !tbaa !88
+  store i32 %183, ptr %148, align 8, !tbaa !88
+  store i32 %182, ptr %181, align 8, !tbaa !88
   %184 = getelementptr inbounds i8, ptr %.sroa.0.061, i64 -72
   %185 = load ptr, ptr %150, align 8, !tbaa !92
   %186 = load i32, ptr %156, align 8, !tbaa !95
@@ -31728,19 +31728,19 @@ define linkonce_odr ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPN4ll
   store ptr %189, ptr %150, align 8, !tbaa !1008
   store ptr null, ptr %184, align 8, !tbaa !1008
   %190 = getelementptr inbounds i8, ptr %.sroa.0.061, i64 -64
-  %191 = load i32, ptr %190, align 4, !tbaa !88
-  store i32 %191, ptr %152, align 4, !tbaa !88
-  store i32 0, ptr %190, align 4, !tbaa !88
+  %191 = load i32, ptr %190, align 8, !tbaa !88
+  store i32 %191, ptr %152, align 8, !tbaa !88
+  store i32 0, ptr %190, align 8, !tbaa !88
   %192 = getelementptr inbounds i8, ptr %.sroa.0.061, i64 -60
   %193 = load i32, ptr %154, align 4, !tbaa !88
   %194 = load i32, ptr %192, align 4, !tbaa !88
   store i32 %194, ptr %154, align 4, !tbaa !88
   store i32 %193, ptr %192, align 4, !tbaa !88
   %195 = getelementptr inbounds i8, ptr %.sroa.0.061, i64 -56
-  %196 = load i32, ptr %156, align 4, !tbaa !88
-  %197 = load i32, ptr %195, align 4, !tbaa !88
-  store i32 %197, ptr %156, align 4, !tbaa !88
-  store i32 %196, ptr %195, align 4, !tbaa !88
+  %196 = load i32, ptr %156, align 8, !tbaa !88
+  %197 = load i32, ptr %195, align 8, !tbaa !88
+  store i32 %197, ptr %156, align 8, !tbaa !88
+  store i32 %196, ptr %195, align 8, !tbaa !88
   %198 = getelementptr inbounds i8, ptr %.sroa.0.061, i64 -48
   %199 = load ptr, ptr %158, align 8, !tbaa !89
   %200 = load i32, ptr %164, align 8, !tbaa !90
@@ -31752,19 +31752,19 @@ define linkonce_odr ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPN4ll
   store ptr %203, ptr %158, align 8, !tbaa !877
   store ptr null, ptr %198, align 8, !tbaa !877
   %204 = getelementptr inbounds i8, ptr %.sroa.0.061, i64 -40
-  %205 = load i32, ptr %204, align 4, !tbaa !88
-  store i32 %205, ptr %160, align 4, !tbaa !88
-  store i32 0, ptr %204, align 4, !tbaa !88
+  %205 = load i32, ptr %204, align 8, !tbaa !88
+  store i32 %205, ptr %160, align 8, !tbaa !88
+  store i32 0, ptr %204, align 8, !tbaa !88
   %206 = getelementptr inbounds i8, ptr %.sroa.0.061, i64 -36
   %207 = load i32, ptr %162, align 4, !tbaa !88
   %208 = load i32, ptr %206, align 4, !tbaa !88
   store i32 %208, ptr %162, align 4, !tbaa !88
   store i32 %207, ptr %206, align 4, !tbaa !88
   %209 = getelementptr inbounds i8, ptr %.sroa.0.061, i64 -32
-  %210 = load i32, ptr %164, align 4, !tbaa !88
-  %211 = load i32, ptr %209, align 4, !tbaa !88
-  store i32 %211, ptr %164, align 4, !tbaa !88
-  store i32 %210, ptr %209, align 4, !tbaa !88
+  %210 = load i32, ptr %164, align 8, !tbaa !88
+  %211 = load i32, ptr %209, align 8, !tbaa !88
+  store i32 %211, ptr %164, align 8, !tbaa !88
+  store i32 %210, ptr %209, align 8, !tbaa !88
   %212 = getelementptr inbounds i8, ptr %.sroa.0.061, i64 -24
   %213 = load ptr, ptr %166, align 8, !tbaa !89
   %214 = load i32, ptr %172, align 8, !tbaa !90
@@ -31776,19 +31776,19 @@ define linkonce_odr ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPN4ll
   store ptr %217, ptr %166, align 8, !tbaa !877
   store ptr null, ptr %212, align 8, !tbaa !877
   %218 = getelementptr inbounds i8, ptr %.sroa.0.061, i64 -16
-  %219 = load i32, ptr %218, align 4, !tbaa !88
-  store i32 %219, ptr %168, align 4, !tbaa !88
-  store i32 0, ptr %218, align 4, !tbaa !88
+  %219 = load i32, ptr %218, align 8, !tbaa !88
+  store i32 %219, ptr %168, align 8, !tbaa !88
+  store i32 0, ptr %218, align 8, !tbaa !88
   %220 = getelementptr inbounds i8, ptr %.sroa.0.061, i64 -12
   %221 = load i32, ptr %170, align 4, !tbaa !88
   %222 = load i32, ptr %220, align 4, !tbaa !88
   store i32 %222, ptr %170, align 4, !tbaa !88
   store i32 %221, ptr %220, align 4, !tbaa !88
   %223 = getelementptr inbounds i8, ptr %.sroa.0.061, i64 -8
-  %224 = load i32, ptr %172, align 4, !tbaa !88
-  %225 = load i32, ptr %223, align 4, !tbaa !88
-  store i32 %225, ptr %172, align 4, !tbaa !88
-  store i32 %224, ptr %223, align 4, !tbaa !88
+  %224 = load i32, ptr %172, align 8, !tbaa !88
+  %225 = load i32, ptr %223, align 8, !tbaa !88
+  store i32 %225, ptr %172, align 8, !tbaa !88
+  store i32 %224, ptr %223, align 8, !tbaa !88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %141, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i24, i64 24, i1 false)
   %226 = load ptr, ptr %174, align 8, !tbaa !78
   %227 = load i32, ptr %181, align 8, !tbaa !81
@@ -31796,36 +31796,36 @@ define linkonce_odr ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPN4ll
   %229 = shl nuw nsw i64 %228, 4
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %226, i64 noundef %229, i64 noundef 8) #27
   store ptr %143, ptr %174, align 8, !tbaa !1007
-  store i32 %145, ptr %176, align 4, !tbaa !88
+  store i32 %145, ptr %176, align 8, !tbaa !88
   store i32 %147, ptr %178, align 4, !tbaa !88
-  store i32 %149, ptr %181, align 4, !tbaa !88
+  store i32 %149, ptr %181, align 8, !tbaa !88
   %230 = load ptr, ptr %184, align 8, !tbaa !92
   %231 = load i32, ptr %195, align 8, !tbaa !95
   %232 = zext i32 %231 to i64
   %233 = shl nuw nsw i64 %232, 4
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %230, i64 noundef %233, i64 noundef 8) #27
   store ptr %151, ptr %184, align 8, !tbaa !1008
-  store i32 %153, ptr %190, align 4, !tbaa !88
+  store i32 %153, ptr %190, align 8, !tbaa !88
   store i32 %155, ptr %192, align 4, !tbaa !88
-  store i32 %157, ptr %195, align 4, !tbaa !88
+  store i32 %157, ptr %195, align 8, !tbaa !88
   %234 = load ptr, ptr %198, align 8, !tbaa !89
   %235 = load i32, ptr %209, align 8, !tbaa !90
   %236 = zext i32 %235 to i64
   %237 = shl nuw nsw i64 %236, 3
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %234, i64 noundef %237, i64 noundef 4) #27
   store ptr %159, ptr %198, align 8, !tbaa !877
-  store i32 %161, ptr %204, align 4, !tbaa !88
+  store i32 %161, ptr %204, align 8, !tbaa !88
   store i32 %163, ptr %206, align 4, !tbaa !88
-  store i32 %165, ptr %209, align 4, !tbaa !88
+  store i32 %165, ptr %209, align 8, !tbaa !88
   %238 = load ptr, ptr %212, align 8, !tbaa !89
   %239 = load i32, ptr %223, align 8, !tbaa !90
   %240 = zext i32 %239 to i64
   %241 = shl nuw nsw i64 %240, 3
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %238, i64 noundef %241, i64 noundef 4) #27
   store ptr %167, ptr %212, align 8, !tbaa !877
-  store i32 %169, ptr %218, align 4, !tbaa !88
+  store i32 %169, ptr %218, align 8, !tbaa !88
   store i32 %171, ptr %220, align 4, !tbaa !88
-  store i32 %173, ptr %223, align 4, !tbaa !88
+  store i32 %173, ptr %223, align 8, !tbaa !88
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #27
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #27
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 8) #27
@@ -31917,19 +31917,19 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norm
   store ptr %33, ptr %23, align 8, !tbaa !1007
   store ptr null, ptr %28, align 8, !tbaa !1007
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.016.025.i.i, i64 32
-  %35 = load i32, ptr %34, align 4, !tbaa !88
-  store i32 %35, ptr %25, align 4, !tbaa !88
-  store i32 0, ptr %34, align 4, !tbaa !88
+  %35 = load i32, ptr %34, align 8, !tbaa !88
+  store i32 %35, ptr %25, align 8, !tbaa !88
+  store i32 0, ptr %34, align 8, !tbaa !88
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.016.025.i.i, i64 36
   %37 = load i32, ptr %26, align 4, !tbaa !88
   %38 = load i32, ptr %36, align 4, !tbaa !88
   store i32 %38, ptr %26, align 4, !tbaa !88
   store i32 %37, ptr %36, align 4, !tbaa !88
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.016.025.i.i, i64 40
-  %40 = load i32, ptr %24, align 4, !tbaa !88
-  %41 = load i32, ptr %39, align 4, !tbaa !88
-  store i32 %41, ptr %24, align 4, !tbaa !88
-  store i32 %40, ptr %39, align 4, !tbaa !88
+  %40 = load i32, ptr %24, align 8, !tbaa !88
+  %41 = load i32, ptr %39, align 8, !tbaa !88
+  store i32 %41, ptr %24, align 8, !tbaa !88
+  store i32 %40, ptr %39, align 8, !tbaa !88
   %42 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 48
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.016.025.i.i, i64 48
   %44 = load ptr, ptr %42, align 8, !tbaa !92
@@ -31944,9 +31944,9 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norm
   store ptr null, ptr %43, align 8, !tbaa !1008
   %50 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 56
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.016.025.i.i, i64 56
-  %52 = load i32, ptr %51, align 4, !tbaa !88
-  store i32 %52, ptr %50, align 4, !tbaa !88
-  store i32 0, ptr %51, align 4, !tbaa !88
+  %52 = load i32, ptr %51, align 8, !tbaa !88
+  store i32 %52, ptr %50, align 8, !tbaa !88
+  store i32 0, ptr %51, align 8, !tbaa !88
   %53 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 60
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.016.025.i.i, i64 60
   %55 = load i32, ptr %53, align 4, !tbaa !88
@@ -31954,10 +31954,10 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norm
   store i32 %56, ptr %53, align 4, !tbaa !88
   store i32 %55, ptr %54, align 4, !tbaa !88
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.016.025.i.i, i64 64
-  %58 = load i32, ptr %45, align 4, !tbaa !88
-  %59 = load i32, ptr %57, align 4, !tbaa !88
-  store i32 %59, ptr %45, align 4, !tbaa !88
-  store i32 %58, ptr %57, align 4, !tbaa !88
+  %58 = load i32, ptr %45, align 8, !tbaa !88
+  %59 = load i32, ptr %57, align 8, !tbaa !88
+  store i32 %59, ptr %45, align 8, !tbaa !88
+  store i32 %58, ptr %57, align 8, !tbaa !88
   %60 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 72
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.016.025.i.i, i64 72
   %62 = load ptr, ptr %60, align 8, !tbaa !89
@@ -31972,9 +31972,9 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norm
   store ptr null, ptr %61, align 8, !tbaa !877
   %68 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 80
   %69 = getelementptr inbounds nuw i8, ptr %.sroa.016.025.i.i, i64 80
-  %70 = load i32, ptr %69, align 4, !tbaa !88
-  store i32 %70, ptr %68, align 4, !tbaa !88
-  store i32 0, ptr %69, align 4, !tbaa !88
+  %70 = load i32, ptr %69, align 8, !tbaa !88
+  store i32 %70, ptr %68, align 8, !tbaa !88
+  store i32 0, ptr %69, align 8, !tbaa !88
   %71 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 84
   %72 = getelementptr inbounds nuw i8, ptr %.sroa.016.025.i.i, i64 84
   %73 = load i32, ptr %71, align 4, !tbaa !88
@@ -31982,10 +31982,10 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norm
   store i32 %74, ptr %71, align 4, !tbaa !88
   store i32 %73, ptr %72, align 4, !tbaa !88
   %75 = getelementptr inbounds nuw i8, ptr %.sroa.016.025.i.i, i64 88
-  %76 = load i32, ptr %63, align 4, !tbaa !88
-  %77 = load i32, ptr %75, align 4, !tbaa !88
-  store i32 %77, ptr %63, align 4, !tbaa !88
-  store i32 %76, ptr %75, align 4, !tbaa !88
+  %76 = load i32, ptr %63, align 8, !tbaa !88
+  %77 = load i32, ptr %75, align 8, !tbaa !88
+  store i32 %77, ptr %63, align 8, !tbaa !88
+  store i32 %76, ptr %75, align 8, !tbaa !88
   %78 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 96
   %79 = getelementptr inbounds nuw i8, ptr %.sroa.016.025.i.i, i64 96
   %80 = load ptr, ptr %78, align 8, !tbaa !89
@@ -32000,9 +32000,9 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norm
   store ptr null, ptr %79, align 8, !tbaa !877
   %86 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 104
   %87 = getelementptr inbounds nuw i8, ptr %.sroa.016.025.i.i, i64 104
-  %88 = load i32, ptr %87, align 4, !tbaa !88
-  store i32 %88, ptr %86, align 4, !tbaa !88
-  store i32 0, ptr %87, align 4, !tbaa !88
+  %88 = load i32, ptr %87, align 8, !tbaa !88
+  store i32 %88, ptr %86, align 8, !tbaa !88
+  store i32 0, ptr %87, align 8, !tbaa !88
   %89 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 108
   %90 = getelementptr inbounds nuw i8, ptr %.sroa.016.025.i.i, i64 108
   %91 = load i32, ptr %89, align 4, !tbaa !88
@@ -32010,10 +32010,10 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norm
   store i32 %92, ptr %89, align 4, !tbaa !88
   store i32 %91, ptr %90, align 4, !tbaa !88
   %93 = getelementptr inbounds nuw i8, ptr %.sroa.016.025.i.i, i64 112
-  %94 = load i32, ptr %81, align 4, !tbaa !88
-  %95 = load i32, ptr %93, align 4, !tbaa !88
-  store i32 %95, ptr %81, align 4, !tbaa !88
-  store i32 %94, ptr %93, align 4, !tbaa !88
+  %94 = load i32, ptr %81, align 8, !tbaa !88
+  %95 = load i32, ptr %93, align 8, !tbaa !88
+  store i32 %95, ptr %81, align 8, !tbaa !88
+  store i32 %94, ptr %93, align 8, !tbaa !88
   %96 = getelementptr inbounds nuw i8, ptr %.sroa.016.025.i.i, i64 120
   br label %167
 
@@ -32030,19 +32030,19 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norm
   store ptr %103, ptr %23, align 8, !tbaa !1007
   store ptr null, ptr %98, align 8, !tbaa !1007
   %104 = getelementptr inbounds nuw i8, ptr %.sroa.020.026.i.i, i64 32
-  %105 = load i32, ptr %104, align 4, !tbaa !88
-  store i32 %105, ptr %25, align 4, !tbaa !88
-  store i32 0, ptr %104, align 4, !tbaa !88
+  %105 = load i32, ptr %104, align 8, !tbaa !88
+  store i32 %105, ptr %25, align 8, !tbaa !88
+  store i32 0, ptr %104, align 8, !tbaa !88
   %106 = getelementptr inbounds nuw i8, ptr %.sroa.020.026.i.i, i64 36
   %107 = load i32, ptr %26, align 4, !tbaa !88
   %108 = load i32, ptr %106, align 4, !tbaa !88
   store i32 %108, ptr %26, align 4, !tbaa !88
   store i32 %107, ptr %106, align 4, !tbaa !88
   %109 = getelementptr inbounds nuw i8, ptr %.sroa.020.026.i.i, i64 40
-  %110 = load i32, ptr %24, align 4, !tbaa !88
-  %111 = load i32, ptr %109, align 4, !tbaa !88
-  store i32 %111, ptr %24, align 4, !tbaa !88
-  store i32 %110, ptr %109, align 4, !tbaa !88
+  %110 = load i32, ptr %24, align 8, !tbaa !88
+  %111 = load i32, ptr %109, align 8, !tbaa !88
+  store i32 %111, ptr %24, align 8, !tbaa !88
+  store i32 %110, ptr %109, align 8, !tbaa !88
   %112 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 48
   %113 = getelementptr inbounds nuw i8, ptr %.sroa.020.026.i.i, i64 48
   %114 = load ptr, ptr %112, align 8, !tbaa !92
@@ -32057,9 +32057,9 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norm
   store ptr null, ptr %113, align 8, !tbaa !1008
   %120 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 56
   %121 = getelementptr inbounds nuw i8, ptr %.sroa.020.026.i.i, i64 56
-  %122 = load i32, ptr %121, align 4, !tbaa !88
-  store i32 %122, ptr %120, align 4, !tbaa !88
-  store i32 0, ptr %121, align 4, !tbaa !88
+  %122 = load i32, ptr %121, align 8, !tbaa !88
+  store i32 %122, ptr %120, align 8, !tbaa !88
+  store i32 0, ptr %121, align 8, !tbaa !88
   %123 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 60
   %124 = getelementptr inbounds nuw i8, ptr %.sroa.020.026.i.i, i64 60
   %125 = load i32, ptr %123, align 4, !tbaa !88
@@ -32067,10 +32067,10 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norm
   store i32 %126, ptr %123, align 4, !tbaa !88
   store i32 %125, ptr %124, align 4, !tbaa !88
   %127 = getelementptr inbounds nuw i8, ptr %.sroa.020.026.i.i, i64 64
-  %128 = load i32, ptr %115, align 4, !tbaa !88
-  %129 = load i32, ptr %127, align 4, !tbaa !88
-  store i32 %129, ptr %115, align 4, !tbaa !88
-  store i32 %128, ptr %127, align 4, !tbaa !88
+  %128 = load i32, ptr %115, align 8, !tbaa !88
+  %129 = load i32, ptr %127, align 8, !tbaa !88
+  store i32 %129, ptr %115, align 8, !tbaa !88
+  store i32 %128, ptr %127, align 8, !tbaa !88
   %130 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 72
   %131 = getelementptr inbounds nuw i8, ptr %.sroa.020.026.i.i, i64 72
   %132 = load ptr, ptr %130, align 8, !tbaa !89
@@ -32085,9 +32085,9 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norm
   store ptr null, ptr %131, align 8, !tbaa !877
   %138 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 80
   %139 = getelementptr inbounds nuw i8, ptr %.sroa.020.026.i.i, i64 80
-  %140 = load i32, ptr %139, align 4, !tbaa !88
-  store i32 %140, ptr %138, align 4, !tbaa !88
-  store i32 0, ptr %139, align 4, !tbaa !88
+  %140 = load i32, ptr %139, align 8, !tbaa !88
+  store i32 %140, ptr %138, align 8, !tbaa !88
+  store i32 0, ptr %139, align 8, !tbaa !88
   %141 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 84
   %142 = getelementptr inbounds nuw i8, ptr %.sroa.020.026.i.i, i64 84
   %143 = load i32, ptr %141, align 4, !tbaa !88
@@ -32095,10 +32095,10 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norm
   store i32 %144, ptr %141, align 4, !tbaa !88
   store i32 %143, ptr %142, align 4, !tbaa !88
   %145 = getelementptr inbounds nuw i8, ptr %.sroa.020.026.i.i, i64 88
-  %146 = load i32, ptr %133, align 4, !tbaa !88
-  %147 = load i32, ptr %145, align 4, !tbaa !88
-  store i32 %147, ptr %133, align 4, !tbaa !88
-  store i32 %146, ptr %145, align 4, !tbaa !88
+  %146 = load i32, ptr %133, align 8, !tbaa !88
+  %147 = load i32, ptr %145, align 8, !tbaa !88
+  store i32 %147, ptr %133, align 8, !tbaa !88
+  store i32 %146, ptr %145, align 8, !tbaa !88
   %148 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 96
   %149 = getelementptr inbounds nuw i8, ptr %.sroa.020.026.i.i, i64 96
   %150 = load ptr, ptr %148, align 8, !tbaa !89
@@ -32113,9 +32113,9 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norm
   store ptr null, ptr %149, align 8, !tbaa !877
   %156 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 104
   %157 = getelementptr inbounds nuw i8, ptr %.sroa.020.026.i.i, i64 104
-  %158 = load i32, ptr %157, align 4, !tbaa !88
-  store i32 %158, ptr %156, align 4, !tbaa !88
-  store i32 0, ptr %157, align 4, !tbaa !88
+  %158 = load i32, ptr %157, align 8, !tbaa !88
+  store i32 %158, ptr %156, align 8, !tbaa !88
+  store i32 0, ptr %157, align 8, !tbaa !88
   %159 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 108
   %160 = getelementptr inbounds nuw i8, ptr %.sroa.020.026.i.i, i64 108
   %161 = load i32, ptr %159, align 4, !tbaa !88
@@ -32123,10 +32123,10 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norm
   store i32 %162, ptr %159, align 4, !tbaa !88
   store i32 %161, ptr %160, align 4, !tbaa !88
   %163 = getelementptr inbounds nuw i8, ptr %.sroa.020.026.i.i, i64 112
-  %164 = load i32, ptr %151, align 4, !tbaa !88
-  %165 = load i32, ptr %163, align 4, !tbaa !88
-  store i32 %165, ptr %151, align 4, !tbaa !88
-  store i32 %164, ptr %163, align 4, !tbaa !88
+  %164 = load i32, ptr %151, align 8, !tbaa !88
+  %165 = load i32, ptr %163, align 8, !tbaa !88
+  store i32 %165, ptr %151, align 8, !tbaa !88
+  store i32 %164, ptr %163, align 8, !tbaa !88
   %166 = getelementptr inbounds nuw i8, ptr %.sroa.020.026.i.i, i64 120
   br label %167
 
@@ -32169,9 +32169,9 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norm
   store ptr null, ptr %177, align 8, !tbaa !1007
   %184 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 32
   %185 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 32
-  %186 = load i32, ptr %185, align 4, !tbaa !88
-  store i32 %186, ptr %184, align 4, !tbaa !88
-  store i32 0, ptr %185, align 4, !tbaa !88
+  %186 = load i32, ptr %185, align 8, !tbaa !88
+  store i32 %186, ptr %184, align 8, !tbaa !88
+  store i32 0, ptr %185, align 8, !tbaa !88
   %187 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 36
   %188 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 36
   %189 = load i32, ptr %187, align 4, !tbaa !88
@@ -32179,10 +32179,10 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norm
   store i32 %190, ptr %187, align 4, !tbaa !88
   store i32 %189, ptr %188, align 4, !tbaa !88
   %191 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 40
-  %192 = load i32, ptr %179, align 4, !tbaa !88
-  %193 = load i32, ptr %191, align 4, !tbaa !88
-  store i32 %193, ptr %179, align 4, !tbaa !88
-  store i32 %192, ptr %191, align 4, !tbaa !88
+  %192 = load i32, ptr %179, align 8, !tbaa !88
+  %193 = load i32, ptr %191, align 8, !tbaa !88
+  store i32 %193, ptr %179, align 8, !tbaa !88
+  store i32 %192, ptr %191, align 8, !tbaa !88
   %194 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 48
   %195 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 48
   %196 = load ptr, ptr %194, align 8, !tbaa !92
@@ -32197,9 +32197,9 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norm
   store ptr null, ptr %195, align 8, !tbaa !1008
   %202 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 56
   %203 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 56
-  %204 = load i32, ptr %203, align 4, !tbaa !88
-  store i32 %204, ptr %202, align 4, !tbaa !88
-  store i32 0, ptr %203, align 4, !tbaa !88
+  %204 = load i32, ptr %203, align 8, !tbaa !88
+  store i32 %204, ptr %202, align 8, !tbaa !88
+  store i32 0, ptr %203, align 8, !tbaa !88
   %205 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 60
   %206 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 60
   %207 = load i32, ptr %205, align 4, !tbaa !88
@@ -32207,10 +32207,10 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norm
   store i32 %208, ptr %205, align 4, !tbaa !88
   store i32 %207, ptr %206, align 4, !tbaa !88
   %209 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 64
-  %210 = load i32, ptr %197, align 4, !tbaa !88
-  %211 = load i32, ptr %209, align 4, !tbaa !88
-  store i32 %211, ptr %197, align 4, !tbaa !88
-  store i32 %210, ptr %209, align 4, !tbaa !88
+  %210 = load i32, ptr %197, align 8, !tbaa !88
+  %211 = load i32, ptr %209, align 8, !tbaa !88
+  store i32 %211, ptr %197, align 8, !tbaa !88
+  store i32 %210, ptr %209, align 8, !tbaa !88
   %212 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 72
   %213 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 72
   %214 = load ptr, ptr %212, align 8, !tbaa !89
@@ -32225,9 +32225,9 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norm
   store ptr null, ptr %213, align 8, !tbaa !877
   %220 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 80
   %221 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 80
-  %222 = load i32, ptr %221, align 4, !tbaa !88
-  store i32 %222, ptr %220, align 4, !tbaa !88
-  store i32 0, ptr %221, align 4, !tbaa !88
+  %222 = load i32, ptr %221, align 8, !tbaa !88
+  store i32 %222, ptr %220, align 8, !tbaa !88
+  store i32 0, ptr %221, align 8, !tbaa !88
   %223 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 84
   %224 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 84
   %225 = load i32, ptr %223, align 4, !tbaa !88
@@ -32235,10 +32235,10 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norm
   store i32 %226, ptr %223, align 4, !tbaa !88
   store i32 %225, ptr %224, align 4, !tbaa !88
   %227 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 88
-  %228 = load i32, ptr %215, align 4, !tbaa !88
-  %229 = load i32, ptr %227, align 4, !tbaa !88
-  store i32 %229, ptr %215, align 4, !tbaa !88
-  store i32 %228, ptr %227, align 4, !tbaa !88
+  %228 = load i32, ptr %215, align 8, !tbaa !88
+  %229 = load i32, ptr %227, align 8, !tbaa !88
+  store i32 %229, ptr %215, align 8, !tbaa !88
+  store i32 %228, ptr %227, align 8, !tbaa !88
   %230 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 96
   %231 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 96
   %232 = load ptr, ptr %230, align 8, !tbaa !89
@@ -32253,9 +32253,9 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norm
   store ptr null, ptr %231, align 8, !tbaa !877
   %238 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 104
   %239 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 104
-  %240 = load i32, ptr %239, align 4, !tbaa !88
-  store i32 %240, ptr %238, align 4, !tbaa !88
-  store i32 0, ptr %239, align 4, !tbaa !88
+  %240 = load i32, ptr %239, align 8, !tbaa !88
+  store i32 %240, ptr %238, align 8, !tbaa !88
+  store i32 0, ptr %239, align 8, !tbaa !88
   %241 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 108
   %242 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 108
   %243 = load i32, ptr %241, align 4, !tbaa !88
@@ -32263,10 +32263,10 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norm
   store i32 %244, ptr %241, align 4, !tbaa !88
   store i32 %243, ptr %242, align 4, !tbaa !88
   %245 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 112
-  %246 = load i32, ptr %233, align 4, !tbaa !88
-  %247 = load i32, ptr %245, align 4, !tbaa !88
-  store i32 %247, ptr %233, align 4, !tbaa !88
-  store i32 %246, ptr %245, align 4, !tbaa !88
+  %246 = load i32, ptr %233, align 8, !tbaa !88
+  %247 = load i32, ptr %245, align 8, !tbaa !88
+  store i32 %247, ptr %233, align 8, !tbaa !88
+  store i32 %246, ptr %245, align 8, !tbaa !88
   %248 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 120
   %249 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 120
   %250 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
@@ -32304,9 +32304,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store ptr null, ptr %258, align 8, !tbaa !1007
   %265 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i13.i.i, i64 32
   %266 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i14.i.i, i64 32
-  %267 = load i32, ptr %266, align 4, !tbaa !88
-  store i32 %267, ptr %265, align 4, !tbaa !88
-  store i32 0, ptr %266, align 4, !tbaa !88
+  %267 = load i32, ptr %266, align 8, !tbaa !88
+  store i32 %267, ptr %265, align 8, !tbaa !88
+  store i32 0, ptr %266, align 8, !tbaa !88
   %268 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i13.i.i, i64 36
   %269 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i14.i.i, i64 36
   %270 = load i32, ptr %268, align 4, !tbaa !88
@@ -32314,10 +32314,10 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store i32 %271, ptr %268, align 4, !tbaa !88
   store i32 %270, ptr %269, align 4, !tbaa !88
   %272 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i14.i.i, i64 40
-  %273 = load i32, ptr %260, align 4, !tbaa !88
-  %274 = load i32, ptr %272, align 4, !tbaa !88
-  store i32 %274, ptr %260, align 4, !tbaa !88
-  store i32 %273, ptr %272, align 4, !tbaa !88
+  %273 = load i32, ptr %260, align 8, !tbaa !88
+  %274 = load i32, ptr %272, align 8, !tbaa !88
+  store i32 %274, ptr %260, align 8, !tbaa !88
+  store i32 %273, ptr %272, align 8, !tbaa !88
   %275 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i13.i.i, i64 48
   %276 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i14.i.i, i64 48
   %277 = load ptr, ptr %275, align 8, !tbaa !92
@@ -32332,9 +32332,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store ptr null, ptr %276, align 8, !tbaa !1008
   %283 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i13.i.i, i64 56
   %284 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i14.i.i, i64 56
-  %285 = load i32, ptr %284, align 4, !tbaa !88
-  store i32 %285, ptr %283, align 4, !tbaa !88
-  store i32 0, ptr %284, align 4, !tbaa !88
+  %285 = load i32, ptr %284, align 8, !tbaa !88
+  store i32 %285, ptr %283, align 8, !tbaa !88
+  store i32 0, ptr %284, align 8, !tbaa !88
   %286 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i13.i.i, i64 60
   %287 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i14.i.i, i64 60
   %288 = load i32, ptr %286, align 4, !tbaa !88
@@ -32342,10 +32342,10 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store i32 %289, ptr %286, align 4, !tbaa !88
   store i32 %288, ptr %287, align 4, !tbaa !88
   %290 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i14.i.i, i64 64
-  %291 = load i32, ptr %278, align 4, !tbaa !88
-  %292 = load i32, ptr %290, align 4, !tbaa !88
-  store i32 %292, ptr %278, align 4, !tbaa !88
-  store i32 %291, ptr %290, align 4, !tbaa !88
+  %291 = load i32, ptr %278, align 8, !tbaa !88
+  %292 = load i32, ptr %290, align 8, !tbaa !88
+  store i32 %292, ptr %278, align 8, !tbaa !88
+  store i32 %291, ptr %290, align 8, !tbaa !88
   %293 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i13.i.i, i64 72
   %294 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i14.i.i, i64 72
   %295 = load ptr, ptr %293, align 8, !tbaa !89
@@ -32360,9 +32360,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store ptr null, ptr %294, align 8, !tbaa !877
   %301 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i13.i.i, i64 80
   %302 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i14.i.i, i64 80
-  %303 = load i32, ptr %302, align 4, !tbaa !88
-  store i32 %303, ptr %301, align 4, !tbaa !88
-  store i32 0, ptr %302, align 4, !tbaa !88
+  %303 = load i32, ptr %302, align 8, !tbaa !88
+  store i32 %303, ptr %301, align 8, !tbaa !88
+  store i32 0, ptr %302, align 8, !tbaa !88
   %304 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i13.i.i, i64 84
   %305 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i14.i.i, i64 84
   %306 = load i32, ptr %304, align 4, !tbaa !88
@@ -32370,10 +32370,10 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store i32 %307, ptr %304, align 4, !tbaa !88
   store i32 %306, ptr %305, align 4, !tbaa !88
   %308 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i14.i.i, i64 88
-  %309 = load i32, ptr %296, align 4, !tbaa !88
-  %310 = load i32, ptr %308, align 4, !tbaa !88
-  store i32 %310, ptr %296, align 4, !tbaa !88
-  store i32 %309, ptr %308, align 4, !tbaa !88
+  %309 = load i32, ptr %296, align 8, !tbaa !88
+  %310 = load i32, ptr %308, align 8, !tbaa !88
+  store i32 %310, ptr %296, align 8, !tbaa !88
+  store i32 %309, ptr %308, align 8, !tbaa !88
   %311 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i13.i.i, i64 96
   %312 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i14.i.i, i64 96
   %313 = load ptr, ptr %311, align 8, !tbaa !89
@@ -32388,9 +32388,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store ptr null, ptr %312, align 8, !tbaa !877
   %319 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i13.i.i, i64 104
   %320 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i14.i.i, i64 104
-  %321 = load i32, ptr %320, align 4, !tbaa !88
-  store i32 %321, ptr %319, align 4, !tbaa !88
-  store i32 0, ptr %320, align 4, !tbaa !88
+  %321 = load i32, ptr %320, align 8, !tbaa !88
+  store i32 %321, ptr %319, align 8, !tbaa !88
+  store i32 0, ptr %320, align 8, !tbaa !88
   %322 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i13.i.i, i64 108
   %323 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i14.i.i, i64 108
   %324 = load i32, ptr %322, align 4, !tbaa !88
@@ -32398,10 +32398,10 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store i32 %325, ptr %322, align 4, !tbaa !88
   store i32 %324, ptr %323, align 4, !tbaa !88
   %326 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i14.i.i, i64 112
-  %327 = load i32, ptr %314, align 4, !tbaa !88
-  %328 = load i32, ptr %326, align 4, !tbaa !88
-  store i32 %328, ptr %314, align 4, !tbaa !88
-  store i32 %327, ptr %326, align 4, !tbaa !88
+  %327 = load i32, ptr %314, align 8, !tbaa !88
+  %328 = load i32, ptr %326, align 8, !tbaa !88
+  store i32 %328, ptr %314, align 8, !tbaa !88
+  store i32 %327, ptr %326, align 8, !tbaa !88
   %329 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i14.i.i, i64 120
   %330 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i13.i.i, i64 120
   %331 = add nsw i64 %.012.i.i.i.i.i12.i.i, -1
@@ -32453,19 +32453,19 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store ptr %349, ptr %339, align 8, !tbaa !1007
   store ptr null, ptr %344, align 8, !tbaa !1007
   %350 = getelementptr inbounds nuw i8, ptr %.sroa.016.025.i37.i, i64 32
-  %351 = load i32, ptr %350, align 4, !tbaa !88
-  store i32 %351, ptr %341, align 4, !tbaa !88
-  store i32 0, ptr %350, align 4, !tbaa !88
+  %351 = load i32, ptr %350, align 8, !tbaa !88
+  store i32 %351, ptr %341, align 8, !tbaa !88
+  store i32 0, ptr %350, align 8, !tbaa !88
   %352 = getelementptr inbounds nuw i8, ptr %.sroa.016.025.i37.i, i64 36
   %353 = load i32, ptr %342, align 4, !tbaa !88
   %354 = load i32, ptr %352, align 4, !tbaa !88
   store i32 %354, ptr %342, align 4, !tbaa !88
   store i32 %353, ptr %352, align 4, !tbaa !88
   %355 = getelementptr inbounds nuw i8, ptr %.sroa.016.025.i37.i, i64 40
-  %356 = load i32, ptr %340, align 4, !tbaa !88
-  %357 = load i32, ptr %355, align 4, !tbaa !88
-  store i32 %357, ptr %340, align 4, !tbaa !88
-  store i32 %356, ptr %355, align 4, !tbaa !88
+  %356 = load i32, ptr %340, align 8, !tbaa !88
+  %357 = load i32, ptr %355, align 8, !tbaa !88
+  store i32 %357, ptr %340, align 8, !tbaa !88
+  store i32 %356, ptr %355, align 8, !tbaa !88
   %358 = getelementptr inbounds nuw i8, ptr %.027.i35.i, i64 48
   %359 = getelementptr inbounds nuw i8, ptr %.sroa.016.025.i37.i, i64 48
   %360 = load ptr, ptr %358, align 8, !tbaa !92
@@ -32480,9 +32480,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store ptr null, ptr %359, align 8, !tbaa !1008
   %366 = getelementptr inbounds nuw i8, ptr %.027.i35.i, i64 56
   %367 = getelementptr inbounds nuw i8, ptr %.sroa.016.025.i37.i, i64 56
-  %368 = load i32, ptr %367, align 4, !tbaa !88
-  store i32 %368, ptr %366, align 4, !tbaa !88
-  store i32 0, ptr %367, align 4, !tbaa !88
+  %368 = load i32, ptr %367, align 8, !tbaa !88
+  store i32 %368, ptr %366, align 8, !tbaa !88
+  store i32 0, ptr %367, align 8, !tbaa !88
   %369 = getelementptr inbounds nuw i8, ptr %.027.i35.i, i64 60
   %370 = getelementptr inbounds nuw i8, ptr %.sroa.016.025.i37.i, i64 60
   %371 = load i32, ptr %369, align 4, !tbaa !88
@@ -32490,10 +32490,10 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store i32 %372, ptr %369, align 4, !tbaa !88
   store i32 %371, ptr %370, align 4, !tbaa !88
   %373 = getelementptr inbounds nuw i8, ptr %.sroa.016.025.i37.i, i64 64
-  %374 = load i32, ptr %361, align 4, !tbaa !88
-  %375 = load i32, ptr %373, align 4, !tbaa !88
-  store i32 %375, ptr %361, align 4, !tbaa !88
-  store i32 %374, ptr %373, align 4, !tbaa !88
+  %374 = load i32, ptr %361, align 8, !tbaa !88
+  %375 = load i32, ptr %373, align 8, !tbaa !88
+  store i32 %375, ptr %361, align 8, !tbaa !88
+  store i32 %374, ptr %373, align 8, !tbaa !88
   %376 = getelementptr inbounds nuw i8, ptr %.027.i35.i, i64 72
   %377 = getelementptr inbounds nuw i8, ptr %.sroa.016.025.i37.i, i64 72
   %378 = load ptr, ptr %376, align 8, !tbaa !89
@@ -32508,9 +32508,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store ptr null, ptr %377, align 8, !tbaa !877
   %384 = getelementptr inbounds nuw i8, ptr %.027.i35.i, i64 80
   %385 = getelementptr inbounds nuw i8, ptr %.sroa.016.025.i37.i, i64 80
-  %386 = load i32, ptr %385, align 4, !tbaa !88
-  store i32 %386, ptr %384, align 4, !tbaa !88
-  store i32 0, ptr %385, align 4, !tbaa !88
+  %386 = load i32, ptr %385, align 8, !tbaa !88
+  store i32 %386, ptr %384, align 8, !tbaa !88
+  store i32 0, ptr %385, align 8, !tbaa !88
   %387 = getelementptr inbounds nuw i8, ptr %.027.i35.i, i64 84
   %388 = getelementptr inbounds nuw i8, ptr %.sroa.016.025.i37.i, i64 84
   %389 = load i32, ptr %387, align 4, !tbaa !88
@@ -32518,10 +32518,10 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store i32 %390, ptr %387, align 4, !tbaa !88
   store i32 %389, ptr %388, align 4, !tbaa !88
   %391 = getelementptr inbounds nuw i8, ptr %.sroa.016.025.i37.i, i64 88
-  %392 = load i32, ptr %379, align 4, !tbaa !88
-  %393 = load i32, ptr %391, align 4, !tbaa !88
-  store i32 %393, ptr %379, align 4, !tbaa !88
-  store i32 %392, ptr %391, align 4, !tbaa !88
+  %392 = load i32, ptr %379, align 8, !tbaa !88
+  %393 = load i32, ptr %391, align 8, !tbaa !88
+  store i32 %393, ptr %379, align 8, !tbaa !88
+  store i32 %392, ptr %391, align 8, !tbaa !88
   %394 = getelementptr inbounds nuw i8, ptr %.027.i35.i, i64 96
   %395 = getelementptr inbounds nuw i8, ptr %.sroa.016.025.i37.i, i64 96
   %396 = load ptr, ptr %394, align 8, !tbaa !89
@@ -32536,9 +32536,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store ptr null, ptr %395, align 8, !tbaa !877
   %402 = getelementptr inbounds nuw i8, ptr %.027.i35.i, i64 104
   %403 = getelementptr inbounds nuw i8, ptr %.sroa.016.025.i37.i, i64 104
-  %404 = load i32, ptr %403, align 4, !tbaa !88
-  store i32 %404, ptr %402, align 4, !tbaa !88
-  store i32 0, ptr %403, align 4, !tbaa !88
+  %404 = load i32, ptr %403, align 8, !tbaa !88
+  store i32 %404, ptr %402, align 8, !tbaa !88
+  store i32 0, ptr %403, align 8, !tbaa !88
   %405 = getelementptr inbounds nuw i8, ptr %.027.i35.i, i64 108
   %406 = getelementptr inbounds nuw i8, ptr %.sroa.016.025.i37.i, i64 108
   %407 = load i32, ptr %405, align 4, !tbaa !88
@@ -32546,10 +32546,10 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store i32 %408, ptr %405, align 4, !tbaa !88
   store i32 %407, ptr %406, align 4, !tbaa !88
   %409 = getelementptr inbounds nuw i8, ptr %.sroa.016.025.i37.i, i64 112
-  %410 = load i32, ptr %397, align 4, !tbaa !88
-  %411 = load i32, ptr %409, align 4, !tbaa !88
-  store i32 %411, ptr %397, align 4, !tbaa !88
-  store i32 %410, ptr %409, align 4, !tbaa !88
+  %410 = load i32, ptr %397, align 8, !tbaa !88
+  %411 = load i32, ptr %409, align 8, !tbaa !88
+  store i32 %411, ptr %397, align 8, !tbaa !88
+  store i32 %410, ptr %409, align 8, !tbaa !88
   %412 = getelementptr inbounds nuw i8, ptr %.sroa.016.025.i37.i, i64 120
   br label %483
 
@@ -32566,19 +32566,19 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store ptr %419, ptr %339, align 8, !tbaa !1007
   store ptr null, ptr %414, align 8, !tbaa !1007
   %420 = getelementptr inbounds nuw i8, ptr %.sroa.020.026.i36.i, i64 32
-  %421 = load i32, ptr %420, align 4, !tbaa !88
-  store i32 %421, ptr %341, align 4, !tbaa !88
-  store i32 0, ptr %420, align 4, !tbaa !88
+  %421 = load i32, ptr %420, align 8, !tbaa !88
+  store i32 %421, ptr %341, align 8, !tbaa !88
+  store i32 0, ptr %420, align 8, !tbaa !88
   %422 = getelementptr inbounds nuw i8, ptr %.sroa.020.026.i36.i, i64 36
   %423 = load i32, ptr %342, align 4, !tbaa !88
   %424 = load i32, ptr %422, align 4, !tbaa !88
   store i32 %424, ptr %342, align 4, !tbaa !88
   store i32 %423, ptr %422, align 4, !tbaa !88
   %425 = getelementptr inbounds nuw i8, ptr %.sroa.020.026.i36.i, i64 40
-  %426 = load i32, ptr %340, align 4, !tbaa !88
-  %427 = load i32, ptr %425, align 4, !tbaa !88
-  store i32 %427, ptr %340, align 4, !tbaa !88
-  store i32 %426, ptr %425, align 4, !tbaa !88
+  %426 = load i32, ptr %340, align 8, !tbaa !88
+  %427 = load i32, ptr %425, align 8, !tbaa !88
+  store i32 %427, ptr %340, align 8, !tbaa !88
+  store i32 %426, ptr %425, align 8, !tbaa !88
   %428 = getelementptr inbounds nuw i8, ptr %.027.i35.i, i64 48
   %429 = getelementptr inbounds nuw i8, ptr %.sroa.020.026.i36.i, i64 48
   %430 = load ptr, ptr %428, align 8, !tbaa !92
@@ -32593,9 +32593,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store ptr null, ptr %429, align 8, !tbaa !1008
   %436 = getelementptr inbounds nuw i8, ptr %.027.i35.i, i64 56
   %437 = getelementptr inbounds nuw i8, ptr %.sroa.020.026.i36.i, i64 56
-  %438 = load i32, ptr %437, align 4, !tbaa !88
-  store i32 %438, ptr %436, align 4, !tbaa !88
-  store i32 0, ptr %437, align 4, !tbaa !88
+  %438 = load i32, ptr %437, align 8, !tbaa !88
+  store i32 %438, ptr %436, align 8, !tbaa !88
+  store i32 0, ptr %437, align 8, !tbaa !88
   %439 = getelementptr inbounds nuw i8, ptr %.027.i35.i, i64 60
   %440 = getelementptr inbounds nuw i8, ptr %.sroa.020.026.i36.i, i64 60
   %441 = load i32, ptr %439, align 4, !tbaa !88
@@ -32603,10 +32603,10 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store i32 %442, ptr %439, align 4, !tbaa !88
   store i32 %441, ptr %440, align 4, !tbaa !88
   %443 = getelementptr inbounds nuw i8, ptr %.sroa.020.026.i36.i, i64 64
-  %444 = load i32, ptr %431, align 4, !tbaa !88
-  %445 = load i32, ptr %443, align 4, !tbaa !88
-  store i32 %445, ptr %431, align 4, !tbaa !88
-  store i32 %444, ptr %443, align 4, !tbaa !88
+  %444 = load i32, ptr %431, align 8, !tbaa !88
+  %445 = load i32, ptr %443, align 8, !tbaa !88
+  store i32 %445, ptr %431, align 8, !tbaa !88
+  store i32 %444, ptr %443, align 8, !tbaa !88
   %446 = getelementptr inbounds nuw i8, ptr %.027.i35.i, i64 72
   %447 = getelementptr inbounds nuw i8, ptr %.sroa.020.026.i36.i, i64 72
   %448 = load ptr, ptr %446, align 8, !tbaa !89
@@ -32621,9 +32621,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store ptr null, ptr %447, align 8, !tbaa !877
   %454 = getelementptr inbounds nuw i8, ptr %.027.i35.i, i64 80
   %455 = getelementptr inbounds nuw i8, ptr %.sroa.020.026.i36.i, i64 80
-  %456 = load i32, ptr %455, align 4, !tbaa !88
-  store i32 %456, ptr %454, align 4, !tbaa !88
-  store i32 0, ptr %455, align 4, !tbaa !88
+  %456 = load i32, ptr %455, align 8, !tbaa !88
+  store i32 %456, ptr %454, align 8, !tbaa !88
+  store i32 0, ptr %455, align 8, !tbaa !88
   %457 = getelementptr inbounds nuw i8, ptr %.027.i35.i, i64 84
   %458 = getelementptr inbounds nuw i8, ptr %.sroa.020.026.i36.i, i64 84
   %459 = load i32, ptr %457, align 4, !tbaa !88
@@ -32631,10 +32631,10 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store i32 %460, ptr %457, align 4, !tbaa !88
   store i32 %459, ptr %458, align 4, !tbaa !88
   %461 = getelementptr inbounds nuw i8, ptr %.sroa.020.026.i36.i, i64 88
-  %462 = load i32, ptr %449, align 4, !tbaa !88
-  %463 = load i32, ptr %461, align 4, !tbaa !88
-  store i32 %463, ptr %449, align 4, !tbaa !88
-  store i32 %462, ptr %461, align 4, !tbaa !88
+  %462 = load i32, ptr %449, align 8, !tbaa !88
+  %463 = load i32, ptr %461, align 8, !tbaa !88
+  store i32 %463, ptr %449, align 8, !tbaa !88
+  store i32 %462, ptr %461, align 8, !tbaa !88
   %464 = getelementptr inbounds nuw i8, ptr %.027.i35.i, i64 96
   %465 = getelementptr inbounds nuw i8, ptr %.sroa.020.026.i36.i, i64 96
   %466 = load ptr, ptr %464, align 8, !tbaa !89
@@ -32649,9 +32649,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store ptr null, ptr %465, align 8, !tbaa !877
   %472 = getelementptr inbounds nuw i8, ptr %.027.i35.i, i64 104
   %473 = getelementptr inbounds nuw i8, ptr %.sroa.020.026.i36.i, i64 104
-  %474 = load i32, ptr %473, align 4, !tbaa !88
-  store i32 %474, ptr %472, align 4, !tbaa !88
-  store i32 0, ptr %473, align 4, !tbaa !88
+  %474 = load i32, ptr %473, align 8, !tbaa !88
+  store i32 %474, ptr %472, align 8, !tbaa !88
+  store i32 0, ptr %473, align 8, !tbaa !88
   %475 = getelementptr inbounds nuw i8, ptr %.027.i35.i, i64 108
   %476 = getelementptr inbounds nuw i8, ptr %.sroa.020.026.i36.i, i64 108
   %477 = load i32, ptr %475, align 4, !tbaa !88
@@ -32659,10 +32659,10 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store i32 %478, ptr %475, align 4, !tbaa !88
   store i32 %477, ptr %476, align 4, !tbaa !88
   %479 = getelementptr inbounds nuw i8, ptr %.sroa.020.026.i36.i, i64 112
-  %480 = load i32, ptr %467, align 4, !tbaa !88
-  %481 = load i32, ptr %479, align 4, !tbaa !88
-  store i32 %481, ptr %467, align 4, !tbaa !88
-  store i32 %480, ptr %479, align 4, !tbaa !88
+  %480 = load i32, ptr %467, align 8, !tbaa !88
+  %481 = load i32, ptr %479, align 8, !tbaa !88
+  store i32 %481, ptr %467, align 8, !tbaa !88
+  store i32 %480, ptr %479, align 8, !tbaa !88
   %482 = getelementptr inbounds nuw i8, ptr %.sroa.020.026.i36.i, i64 120
   br label %483
 
@@ -32708,9 +32708,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store ptr null, ptr %493, align 8, !tbaa !1007
   %500 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i32.i, i64 32
   %501 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i33.i, i64 32
-  %502 = load i32, ptr %501, align 4, !tbaa !88
-  store i32 %502, ptr %500, align 4, !tbaa !88
-  store i32 0, ptr %501, align 4, !tbaa !88
+  %502 = load i32, ptr %501, align 8, !tbaa !88
+  store i32 %502, ptr %500, align 8, !tbaa !88
+  store i32 0, ptr %501, align 8, !tbaa !88
   %503 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i32.i, i64 36
   %504 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i33.i, i64 36
   %505 = load i32, ptr %503, align 4, !tbaa !88
@@ -32718,10 +32718,10 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store i32 %506, ptr %503, align 4, !tbaa !88
   store i32 %505, ptr %504, align 4, !tbaa !88
   %507 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i33.i, i64 40
-  %508 = load i32, ptr %495, align 4, !tbaa !88
-  %509 = load i32, ptr %507, align 4, !tbaa !88
-  store i32 %509, ptr %495, align 4, !tbaa !88
-  store i32 %508, ptr %507, align 4, !tbaa !88
+  %508 = load i32, ptr %495, align 8, !tbaa !88
+  %509 = load i32, ptr %507, align 8, !tbaa !88
+  store i32 %509, ptr %495, align 8, !tbaa !88
+  store i32 %508, ptr %507, align 8, !tbaa !88
   %510 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i32.i, i64 48
   %511 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i33.i, i64 48
   %512 = load ptr, ptr %510, align 8, !tbaa !92
@@ -32736,9 +32736,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store ptr null, ptr %511, align 8, !tbaa !1008
   %518 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i32.i, i64 56
   %519 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i33.i, i64 56
-  %520 = load i32, ptr %519, align 4, !tbaa !88
-  store i32 %520, ptr %518, align 4, !tbaa !88
-  store i32 0, ptr %519, align 4, !tbaa !88
+  %520 = load i32, ptr %519, align 8, !tbaa !88
+  store i32 %520, ptr %518, align 8, !tbaa !88
+  store i32 0, ptr %519, align 8, !tbaa !88
   %521 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i32.i, i64 60
   %522 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i33.i, i64 60
   %523 = load i32, ptr %521, align 4, !tbaa !88
@@ -32746,10 +32746,10 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store i32 %524, ptr %521, align 4, !tbaa !88
   store i32 %523, ptr %522, align 4, !tbaa !88
   %525 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i33.i, i64 64
-  %526 = load i32, ptr %513, align 4, !tbaa !88
-  %527 = load i32, ptr %525, align 4, !tbaa !88
-  store i32 %527, ptr %513, align 4, !tbaa !88
-  store i32 %526, ptr %525, align 4, !tbaa !88
+  %526 = load i32, ptr %513, align 8, !tbaa !88
+  %527 = load i32, ptr %525, align 8, !tbaa !88
+  store i32 %527, ptr %513, align 8, !tbaa !88
+  store i32 %526, ptr %525, align 8, !tbaa !88
   %528 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i32.i, i64 72
   %529 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i33.i, i64 72
   %530 = load ptr, ptr %528, align 8, !tbaa !89
@@ -32764,9 +32764,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store ptr null, ptr %529, align 8, !tbaa !877
   %536 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i32.i, i64 80
   %537 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i33.i, i64 80
-  %538 = load i32, ptr %537, align 4, !tbaa !88
-  store i32 %538, ptr %536, align 4, !tbaa !88
-  store i32 0, ptr %537, align 4, !tbaa !88
+  %538 = load i32, ptr %537, align 8, !tbaa !88
+  store i32 %538, ptr %536, align 8, !tbaa !88
+  store i32 0, ptr %537, align 8, !tbaa !88
   %539 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i32.i, i64 84
   %540 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i33.i, i64 84
   %541 = load i32, ptr %539, align 4, !tbaa !88
@@ -32774,10 +32774,10 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store i32 %542, ptr %539, align 4, !tbaa !88
   store i32 %541, ptr %540, align 4, !tbaa !88
   %543 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i33.i, i64 88
-  %544 = load i32, ptr %531, align 4, !tbaa !88
-  %545 = load i32, ptr %543, align 4, !tbaa !88
-  store i32 %545, ptr %531, align 4, !tbaa !88
-  store i32 %544, ptr %543, align 4, !tbaa !88
+  %544 = load i32, ptr %531, align 8, !tbaa !88
+  %545 = load i32, ptr %543, align 8, !tbaa !88
+  store i32 %545, ptr %531, align 8, !tbaa !88
+  store i32 %544, ptr %543, align 8, !tbaa !88
   %546 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i32.i, i64 96
   %547 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i33.i, i64 96
   %548 = load ptr, ptr %546, align 8, !tbaa !89
@@ -32792,9 +32792,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store ptr null, ptr %547, align 8, !tbaa !877
   %554 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i32.i, i64 104
   %555 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i33.i, i64 104
-  %556 = load i32, ptr %555, align 4, !tbaa !88
-  store i32 %556, ptr %554, align 4, !tbaa !88
-  store i32 0, ptr %555, align 4, !tbaa !88
+  %556 = load i32, ptr %555, align 8, !tbaa !88
+  store i32 %556, ptr %554, align 8, !tbaa !88
+  store i32 0, ptr %555, align 8, !tbaa !88
   %557 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i32.i, i64 108
   %558 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i33.i, i64 108
   %559 = load i32, ptr %557, align 4, !tbaa !88
@@ -32802,10 +32802,10 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store i32 %560, ptr %557, align 4, !tbaa !88
   store i32 %559, ptr %558, align 4, !tbaa !88
   %561 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i33.i, i64 112
-  %562 = load i32, ptr %549, align 4, !tbaa !88
-  %563 = load i32, ptr %561, align 4, !tbaa !88
-  store i32 %563, ptr %549, align 4, !tbaa !88
-  store i32 %562, ptr %561, align 4, !tbaa !88
+  %562 = load i32, ptr %549, align 8, !tbaa !88
+  %563 = load i32, ptr %561, align 8, !tbaa !88
+  store i32 %563, ptr %549, align 8, !tbaa !88
+  store i32 %562, ptr %561, align 8, !tbaa !88
   %564 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i33.i, i64 120
   %565 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i32.i, i64 120
   %566 = add nsw i64 %.012.i.i.i.i.i.i31.i, -1
@@ -32842,9 +32842,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store ptr null, ptr %573, align 8, !tbaa !1007
   %580 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i13.i27.i, i64 32
   %581 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i14.i28.i, i64 32
-  %582 = load i32, ptr %581, align 4, !tbaa !88
-  store i32 %582, ptr %580, align 4, !tbaa !88
-  store i32 0, ptr %581, align 4, !tbaa !88
+  %582 = load i32, ptr %581, align 8, !tbaa !88
+  store i32 %582, ptr %580, align 8, !tbaa !88
+  store i32 0, ptr %581, align 8, !tbaa !88
   %583 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i13.i27.i, i64 36
   %584 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i14.i28.i, i64 36
   %585 = load i32, ptr %583, align 4, !tbaa !88
@@ -32852,10 +32852,10 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store i32 %586, ptr %583, align 4, !tbaa !88
   store i32 %585, ptr %584, align 4, !tbaa !88
   %587 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i14.i28.i, i64 40
-  %588 = load i32, ptr %575, align 4, !tbaa !88
-  %589 = load i32, ptr %587, align 4, !tbaa !88
-  store i32 %589, ptr %575, align 4, !tbaa !88
-  store i32 %588, ptr %587, align 4, !tbaa !88
+  %588 = load i32, ptr %575, align 8, !tbaa !88
+  %589 = load i32, ptr %587, align 8, !tbaa !88
+  store i32 %589, ptr %575, align 8, !tbaa !88
+  store i32 %588, ptr %587, align 8, !tbaa !88
   %590 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i13.i27.i, i64 48
   %591 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i14.i28.i, i64 48
   %592 = load ptr, ptr %590, align 8, !tbaa !92
@@ -32870,9 +32870,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store ptr null, ptr %591, align 8, !tbaa !1008
   %598 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i13.i27.i, i64 56
   %599 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i14.i28.i, i64 56
-  %600 = load i32, ptr %599, align 4, !tbaa !88
-  store i32 %600, ptr %598, align 4, !tbaa !88
-  store i32 0, ptr %599, align 4, !tbaa !88
+  %600 = load i32, ptr %599, align 8, !tbaa !88
+  store i32 %600, ptr %598, align 8, !tbaa !88
+  store i32 0, ptr %599, align 8, !tbaa !88
   %601 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i13.i27.i, i64 60
   %602 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i14.i28.i, i64 60
   %603 = load i32, ptr %601, align 4, !tbaa !88
@@ -32880,10 +32880,10 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store i32 %604, ptr %601, align 4, !tbaa !88
   store i32 %603, ptr %602, align 4, !tbaa !88
   %605 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i14.i28.i, i64 64
-  %606 = load i32, ptr %593, align 4, !tbaa !88
-  %607 = load i32, ptr %605, align 4, !tbaa !88
-  store i32 %607, ptr %593, align 4, !tbaa !88
-  store i32 %606, ptr %605, align 4, !tbaa !88
+  %606 = load i32, ptr %593, align 8, !tbaa !88
+  %607 = load i32, ptr %605, align 8, !tbaa !88
+  store i32 %607, ptr %593, align 8, !tbaa !88
+  store i32 %606, ptr %605, align 8, !tbaa !88
   %608 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i13.i27.i, i64 72
   %609 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i14.i28.i, i64 72
   %610 = load ptr, ptr %608, align 8, !tbaa !89
@@ -32898,9 +32898,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store ptr null, ptr %609, align 8, !tbaa !877
   %616 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i13.i27.i, i64 80
   %617 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i14.i28.i, i64 80
-  %618 = load i32, ptr %617, align 4, !tbaa !88
-  store i32 %618, ptr %616, align 4, !tbaa !88
-  store i32 0, ptr %617, align 4, !tbaa !88
+  %618 = load i32, ptr %617, align 8, !tbaa !88
+  store i32 %618, ptr %616, align 8, !tbaa !88
+  store i32 0, ptr %617, align 8, !tbaa !88
   %619 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i13.i27.i, i64 84
   %620 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i14.i28.i, i64 84
   %621 = load i32, ptr %619, align 4, !tbaa !88
@@ -32908,10 +32908,10 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store i32 %622, ptr %619, align 4, !tbaa !88
   store i32 %621, ptr %620, align 4, !tbaa !88
   %623 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i14.i28.i, i64 88
-  %624 = load i32, ptr %611, align 4, !tbaa !88
-  %625 = load i32, ptr %623, align 4, !tbaa !88
-  store i32 %625, ptr %611, align 4, !tbaa !88
-  store i32 %624, ptr %623, align 4, !tbaa !88
+  %624 = load i32, ptr %611, align 8, !tbaa !88
+  %625 = load i32, ptr %623, align 8, !tbaa !88
+  store i32 %625, ptr %611, align 8, !tbaa !88
+  store i32 %624, ptr %623, align 8, !tbaa !88
   %626 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i13.i27.i, i64 96
   %627 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i14.i28.i, i64 96
   %628 = load ptr, ptr %626, align 8, !tbaa !89
@@ -32926,9 +32926,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store ptr null, ptr %627, align 8, !tbaa !877
   %634 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i13.i27.i, i64 104
   %635 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i14.i28.i, i64 104
-  %636 = load i32, ptr %635, align 4, !tbaa !88
-  store i32 %636, ptr %634, align 4, !tbaa !88
-  store i32 0, ptr %635, align 4, !tbaa !88
+  %636 = load i32, ptr %635, align 8, !tbaa !88
+  store i32 %636, ptr %634, align 8, !tbaa !88
+  store i32 0, ptr %635, align 8, !tbaa !88
   %637 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i13.i27.i, i64 108
   %638 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i14.i28.i, i64 108
   %639 = load i32, ptr %637, align 4, !tbaa !88
@@ -32936,10 +32936,10 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store i32 %640, ptr %637, align 4, !tbaa !88
   store i32 %639, ptr %638, align 4, !tbaa !88
   %641 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i14.i28.i, i64 112
-  %642 = load i32, ptr %629, align 4, !tbaa !88
-  %643 = load i32, ptr %641, align 4, !tbaa !88
-  store i32 %643, ptr %629, align 4, !tbaa !88
-  store i32 %642, ptr %641, align 4, !tbaa !88
+  %642 = load i32, ptr %629, align 8, !tbaa !88
+  %643 = load i32, ptr %641, align 8, !tbaa !88
+  store i32 %643, ptr %629, align 8, !tbaa !88
+  store i32 %642, ptr %641, align 8, !tbaa !88
   %644 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i14.i28.i, i64 120
   %645 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i13.i27.i, i64 120
   %646 = add nsw i64 %.012.i.i.i.i.i12.i26.i, -1
@@ -32989,19 +32989,19 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store ptr %663, ptr %653, align 8, !tbaa !1007
   store ptr null, ptr %658, align 8, !tbaa !1007
   %664 = getelementptr inbounds nuw i8, ptr %.01629.i.i, i64 32
-  %665 = load i32, ptr %664, align 4, !tbaa !88
-  store i32 %665, ptr %655, align 4, !tbaa !88
-  store i32 0, ptr %664, align 4, !tbaa !88
+  %665 = load i32, ptr %664, align 8, !tbaa !88
+  store i32 %665, ptr %655, align 8, !tbaa !88
+  store i32 0, ptr %664, align 8, !tbaa !88
   %666 = getelementptr inbounds nuw i8, ptr %.01629.i.i, i64 36
   %667 = load i32, ptr %656, align 4, !tbaa !88
   %668 = load i32, ptr %666, align 4, !tbaa !88
   store i32 %668, ptr %656, align 4, !tbaa !88
   store i32 %667, ptr %666, align 4, !tbaa !88
   %669 = getelementptr inbounds nuw i8, ptr %.01629.i.i, i64 40
-  %670 = load i32, ptr %654, align 4, !tbaa !88
-  %671 = load i32, ptr %669, align 4, !tbaa !88
-  store i32 %671, ptr %654, align 4, !tbaa !88
-  store i32 %670, ptr %669, align 4, !tbaa !88
+  %670 = load i32, ptr %654, align 8, !tbaa !88
+  %671 = load i32, ptr %669, align 8, !tbaa !88
+  store i32 %671, ptr %654, align 8, !tbaa !88
+  store i32 %670, ptr %669, align 8, !tbaa !88
   %672 = getelementptr inbounds nuw i8, ptr %.sroa.0.028.i.i, i64 48
   %673 = getelementptr inbounds nuw i8, ptr %.01629.i.i, i64 48
   %674 = load ptr, ptr %672, align 8, !tbaa !92
@@ -33016,9 +33016,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store ptr null, ptr %673, align 8, !tbaa !1008
   %680 = getelementptr inbounds nuw i8, ptr %.sroa.0.028.i.i, i64 56
   %681 = getelementptr inbounds nuw i8, ptr %.01629.i.i, i64 56
-  %682 = load i32, ptr %681, align 4, !tbaa !88
-  store i32 %682, ptr %680, align 4, !tbaa !88
-  store i32 0, ptr %681, align 4, !tbaa !88
+  %682 = load i32, ptr %681, align 8, !tbaa !88
+  store i32 %682, ptr %680, align 8, !tbaa !88
+  store i32 0, ptr %681, align 8, !tbaa !88
   %683 = getelementptr inbounds nuw i8, ptr %.sroa.0.028.i.i, i64 60
   %684 = getelementptr inbounds nuw i8, ptr %.01629.i.i, i64 60
   %685 = load i32, ptr %683, align 4, !tbaa !88
@@ -33026,10 +33026,10 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store i32 %686, ptr %683, align 4, !tbaa !88
   store i32 %685, ptr %684, align 4, !tbaa !88
   %687 = getelementptr inbounds nuw i8, ptr %.01629.i.i, i64 64
-  %688 = load i32, ptr %675, align 4, !tbaa !88
-  %689 = load i32, ptr %687, align 4, !tbaa !88
-  store i32 %689, ptr %675, align 4, !tbaa !88
-  store i32 %688, ptr %687, align 4, !tbaa !88
+  %688 = load i32, ptr %675, align 8, !tbaa !88
+  %689 = load i32, ptr %687, align 8, !tbaa !88
+  store i32 %689, ptr %675, align 8, !tbaa !88
+  store i32 %688, ptr %687, align 8, !tbaa !88
   %690 = getelementptr inbounds nuw i8, ptr %.sroa.0.028.i.i, i64 72
   %691 = getelementptr inbounds nuw i8, ptr %.01629.i.i, i64 72
   %692 = load ptr, ptr %690, align 8, !tbaa !89
@@ -33044,9 +33044,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store ptr null, ptr %691, align 8, !tbaa !877
   %698 = getelementptr inbounds nuw i8, ptr %.sroa.0.028.i.i, i64 80
   %699 = getelementptr inbounds nuw i8, ptr %.01629.i.i, i64 80
-  %700 = load i32, ptr %699, align 4, !tbaa !88
-  store i32 %700, ptr %698, align 4, !tbaa !88
-  store i32 0, ptr %699, align 4, !tbaa !88
+  %700 = load i32, ptr %699, align 8, !tbaa !88
+  store i32 %700, ptr %698, align 8, !tbaa !88
+  store i32 0, ptr %699, align 8, !tbaa !88
   %701 = getelementptr inbounds nuw i8, ptr %.sroa.0.028.i.i, i64 84
   %702 = getelementptr inbounds nuw i8, ptr %.01629.i.i, i64 84
   %703 = load i32, ptr %701, align 4, !tbaa !88
@@ -33054,10 +33054,10 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store i32 %704, ptr %701, align 4, !tbaa !88
   store i32 %703, ptr %702, align 4, !tbaa !88
   %705 = getelementptr inbounds nuw i8, ptr %.01629.i.i, i64 88
-  %706 = load i32, ptr %693, align 4, !tbaa !88
-  %707 = load i32, ptr %705, align 4, !tbaa !88
-  store i32 %707, ptr %693, align 4, !tbaa !88
-  store i32 %706, ptr %705, align 4, !tbaa !88
+  %706 = load i32, ptr %693, align 8, !tbaa !88
+  %707 = load i32, ptr %705, align 8, !tbaa !88
+  store i32 %707, ptr %693, align 8, !tbaa !88
+  store i32 %706, ptr %705, align 8, !tbaa !88
   %708 = getelementptr inbounds nuw i8, ptr %.sroa.0.028.i.i, i64 96
   %709 = getelementptr inbounds nuw i8, ptr %.01629.i.i, i64 96
   %710 = load ptr, ptr %708, align 8, !tbaa !89
@@ -33072,9 +33072,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store ptr null, ptr %709, align 8, !tbaa !877
   %716 = getelementptr inbounds nuw i8, ptr %.sroa.0.028.i.i, i64 104
   %717 = getelementptr inbounds nuw i8, ptr %.01629.i.i, i64 104
-  %718 = load i32, ptr %717, align 4, !tbaa !88
-  store i32 %718, ptr %716, align 4, !tbaa !88
-  store i32 0, ptr %717, align 4, !tbaa !88
+  %718 = load i32, ptr %717, align 8, !tbaa !88
+  store i32 %718, ptr %716, align 8, !tbaa !88
+  store i32 0, ptr %717, align 8, !tbaa !88
   %719 = getelementptr inbounds nuw i8, ptr %.sroa.0.028.i.i, i64 108
   %720 = getelementptr inbounds nuw i8, ptr %.01629.i.i, i64 108
   %721 = load i32, ptr %719, align 4, !tbaa !88
@@ -33082,10 +33082,10 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store i32 %722, ptr %719, align 4, !tbaa !88
   store i32 %721, ptr %720, align 4, !tbaa !88
   %723 = getelementptr inbounds nuw i8, ptr %.01629.i.i, i64 112
-  %724 = load i32, ptr %711, align 4, !tbaa !88
-  %725 = load i32, ptr %723, align 4, !tbaa !88
-  store i32 %725, ptr %711, align 4, !tbaa !88
-  store i32 %724, ptr %723, align 4, !tbaa !88
+  %724 = load i32, ptr %711, align 8, !tbaa !88
+  %725 = load i32, ptr %723, align 8, !tbaa !88
+  store i32 %725, ptr %711, align 8, !tbaa !88
+  store i32 %724, ptr %723, align 8, !tbaa !88
   %726 = getelementptr inbounds nuw i8, ptr %.01629.i.i, i64 120
   br label %797
 
@@ -33102,19 +33102,19 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store ptr %733, ptr %653, align 8, !tbaa !1007
   store ptr null, ptr %728, align 8, !tbaa !1007
   %734 = getelementptr inbounds nuw i8, ptr %.030.i.i, i64 32
-  %735 = load i32, ptr %734, align 4, !tbaa !88
-  store i32 %735, ptr %655, align 4, !tbaa !88
-  store i32 0, ptr %734, align 4, !tbaa !88
+  %735 = load i32, ptr %734, align 8, !tbaa !88
+  store i32 %735, ptr %655, align 8, !tbaa !88
+  store i32 0, ptr %734, align 8, !tbaa !88
   %736 = getelementptr inbounds nuw i8, ptr %.030.i.i, i64 36
   %737 = load i32, ptr %656, align 4, !tbaa !88
   %738 = load i32, ptr %736, align 4, !tbaa !88
   store i32 %738, ptr %656, align 4, !tbaa !88
   store i32 %737, ptr %736, align 4, !tbaa !88
   %739 = getelementptr inbounds nuw i8, ptr %.030.i.i, i64 40
-  %740 = load i32, ptr %654, align 4, !tbaa !88
-  %741 = load i32, ptr %739, align 4, !tbaa !88
-  store i32 %741, ptr %654, align 4, !tbaa !88
-  store i32 %740, ptr %739, align 4, !tbaa !88
+  %740 = load i32, ptr %654, align 8, !tbaa !88
+  %741 = load i32, ptr %739, align 8, !tbaa !88
+  store i32 %741, ptr %654, align 8, !tbaa !88
+  store i32 %740, ptr %739, align 8, !tbaa !88
   %742 = getelementptr inbounds nuw i8, ptr %.sroa.0.028.i.i, i64 48
   %743 = getelementptr inbounds nuw i8, ptr %.030.i.i, i64 48
   %744 = load ptr, ptr %742, align 8, !tbaa !92
@@ -33129,9 +33129,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store ptr null, ptr %743, align 8, !tbaa !1008
   %750 = getelementptr inbounds nuw i8, ptr %.sroa.0.028.i.i, i64 56
   %751 = getelementptr inbounds nuw i8, ptr %.030.i.i, i64 56
-  %752 = load i32, ptr %751, align 4, !tbaa !88
-  store i32 %752, ptr %750, align 4, !tbaa !88
-  store i32 0, ptr %751, align 4, !tbaa !88
+  %752 = load i32, ptr %751, align 8, !tbaa !88
+  store i32 %752, ptr %750, align 8, !tbaa !88
+  store i32 0, ptr %751, align 8, !tbaa !88
   %753 = getelementptr inbounds nuw i8, ptr %.sroa.0.028.i.i, i64 60
   %754 = getelementptr inbounds nuw i8, ptr %.030.i.i, i64 60
   %755 = load i32, ptr %753, align 4, !tbaa !88
@@ -33139,10 +33139,10 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store i32 %756, ptr %753, align 4, !tbaa !88
   store i32 %755, ptr %754, align 4, !tbaa !88
   %757 = getelementptr inbounds nuw i8, ptr %.030.i.i, i64 64
-  %758 = load i32, ptr %745, align 4, !tbaa !88
-  %759 = load i32, ptr %757, align 4, !tbaa !88
-  store i32 %759, ptr %745, align 4, !tbaa !88
-  store i32 %758, ptr %757, align 4, !tbaa !88
+  %758 = load i32, ptr %745, align 8, !tbaa !88
+  %759 = load i32, ptr %757, align 8, !tbaa !88
+  store i32 %759, ptr %745, align 8, !tbaa !88
+  store i32 %758, ptr %757, align 8, !tbaa !88
   %760 = getelementptr inbounds nuw i8, ptr %.sroa.0.028.i.i, i64 72
   %761 = getelementptr inbounds nuw i8, ptr %.030.i.i, i64 72
   %762 = load ptr, ptr %760, align 8, !tbaa !89
@@ -33157,9 +33157,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store ptr null, ptr %761, align 8, !tbaa !877
   %768 = getelementptr inbounds nuw i8, ptr %.sroa.0.028.i.i, i64 80
   %769 = getelementptr inbounds nuw i8, ptr %.030.i.i, i64 80
-  %770 = load i32, ptr %769, align 4, !tbaa !88
-  store i32 %770, ptr %768, align 4, !tbaa !88
-  store i32 0, ptr %769, align 4, !tbaa !88
+  %770 = load i32, ptr %769, align 8, !tbaa !88
+  store i32 %770, ptr %768, align 8, !tbaa !88
+  store i32 0, ptr %769, align 8, !tbaa !88
   %771 = getelementptr inbounds nuw i8, ptr %.sroa.0.028.i.i, i64 84
   %772 = getelementptr inbounds nuw i8, ptr %.030.i.i, i64 84
   %773 = load i32, ptr %771, align 4, !tbaa !88
@@ -33167,10 +33167,10 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store i32 %774, ptr %771, align 4, !tbaa !88
   store i32 %773, ptr %772, align 4, !tbaa !88
   %775 = getelementptr inbounds nuw i8, ptr %.030.i.i, i64 88
-  %776 = load i32, ptr %763, align 4, !tbaa !88
-  %777 = load i32, ptr %775, align 4, !tbaa !88
-  store i32 %777, ptr %763, align 4, !tbaa !88
-  store i32 %776, ptr %775, align 4, !tbaa !88
+  %776 = load i32, ptr %763, align 8, !tbaa !88
+  %777 = load i32, ptr %775, align 8, !tbaa !88
+  store i32 %777, ptr %763, align 8, !tbaa !88
+  store i32 %776, ptr %775, align 8, !tbaa !88
   %778 = getelementptr inbounds nuw i8, ptr %.sroa.0.028.i.i, i64 96
   %779 = getelementptr inbounds nuw i8, ptr %.030.i.i, i64 96
   %780 = load ptr, ptr %778, align 8, !tbaa !89
@@ -33185,9 +33185,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store ptr null, ptr %779, align 8, !tbaa !877
   %786 = getelementptr inbounds nuw i8, ptr %.sroa.0.028.i.i, i64 104
   %787 = getelementptr inbounds nuw i8, ptr %.030.i.i, i64 104
-  %788 = load i32, ptr %787, align 4, !tbaa !88
-  store i32 %788, ptr %786, align 4, !tbaa !88
-  store i32 0, ptr %787, align 4, !tbaa !88
+  %788 = load i32, ptr %787, align 8, !tbaa !88
+  store i32 %788, ptr %786, align 8, !tbaa !88
+  store i32 0, ptr %787, align 8, !tbaa !88
   %789 = getelementptr inbounds nuw i8, ptr %.sroa.0.028.i.i, i64 108
   %790 = getelementptr inbounds nuw i8, ptr %.030.i.i, i64 108
   %791 = load i32, ptr %789, align 4, !tbaa !88
@@ -33195,10 +33195,10 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store i32 %792, ptr %789, align 4, !tbaa !88
   store i32 %791, ptr %790, align 4, !tbaa !88
   %793 = getelementptr inbounds nuw i8, ptr %.030.i.i, i64 112
-  %794 = load i32, ptr %781, align 4, !tbaa !88
-  %795 = load i32, ptr %793, align 4, !tbaa !88
-  store i32 %795, ptr %781, align 4, !tbaa !88
-  store i32 %794, ptr %793, align 4, !tbaa !88
+  %794 = load i32, ptr %781, align 8, !tbaa !88
+  %795 = load i32, ptr %793, align 8, !tbaa !88
+  store i32 %795, ptr %781, align 8, !tbaa !88
+  store i32 %794, ptr %793, align 8, !tbaa !88
   %796 = getelementptr inbounds nuw i8, ptr %.030.i.i, i64 120
   br label %797
 
@@ -33241,9 +33241,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store ptr null, ptr %808, align 8, !tbaa !1007
   %815 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i33, i64 32
   %816 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i34, i64 32
-  %817 = load i32, ptr %816, align 4, !tbaa !88
-  store i32 %817, ptr %815, align 4, !tbaa !88
-  store i32 0, ptr %816, align 4, !tbaa !88
+  %817 = load i32, ptr %816, align 8, !tbaa !88
+  store i32 %817, ptr %815, align 8, !tbaa !88
+  store i32 0, ptr %816, align 8, !tbaa !88
   %818 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i33, i64 36
   %819 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i34, i64 36
   %820 = load i32, ptr %818, align 4, !tbaa !88
@@ -33251,10 +33251,10 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store i32 %821, ptr %818, align 4, !tbaa !88
   store i32 %820, ptr %819, align 4, !tbaa !88
   %822 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i34, i64 40
-  %823 = load i32, ptr %810, align 4, !tbaa !88
-  %824 = load i32, ptr %822, align 4, !tbaa !88
-  store i32 %824, ptr %810, align 4, !tbaa !88
-  store i32 %823, ptr %822, align 4, !tbaa !88
+  %823 = load i32, ptr %810, align 8, !tbaa !88
+  %824 = load i32, ptr %822, align 8, !tbaa !88
+  store i32 %824, ptr %810, align 8, !tbaa !88
+  store i32 %823, ptr %822, align 8, !tbaa !88
   %825 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i33, i64 48
   %826 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i34, i64 48
   %827 = load ptr, ptr %825, align 8, !tbaa !92
@@ -33269,9 +33269,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store ptr null, ptr %826, align 8, !tbaa !1008
   %833 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i33, i64 56
   %834 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i34, i64 56
-  %835 = load i32, ptr %834, align 4, !tbaa !88
-  store i32 %835, ptr %833, align 4, !tbaa !88
-  store i32 0, ptr %834, align 4, !tbaa !88
+  %835 = load i32, ptr %834, align 8, !tbaa !88
+  store i32 %835, ptr %833, align 8, !tbaa !88
+  store i32 0, ptr %834, align 8, !tbaa !88
   %836 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i33, i64 60
   %837 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i34, i64 60
   %838 = load i32, ptr %836, align 4, !tbaa !88
@@ -33279,10 +33279,10 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store i32 %839, ptr %836, align 4, !tbaa !88
   store i32 %838, ptr %837, align 4, !tbaa !88
   %840 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i34, i64 64
-  %841 = load i32, ptr %828, align 4, !tbaa !88
-  %842 = load i32, ptr %840, align 4, !tbaa !88
-  store i32 %842, ptr %828, align 4, !tbaa !88
-  store i32 %841, ptr %840, align 4, !tbaa !88
+  %841 = load i32, ptr %828, align 8, !tbaa !88
+  %842 = load i32, ptr %840, align 8, !tbaa !88
+  store i32 %842, ptr %828, align 8, !tbaa !88
+  store i32 %841, ptr %840, align 8, !tbaa !88
   %843 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i33, i64 72
   %844 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i34, i64 72
   %845 = load ptr, ptr %843, align 8, !tbaa !89
@@ -33297,9 +33297,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store ptr null, ptr %844, align 8, !tbaa !877
   %851 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i33, i64 80
   %852 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i34, i64 80
-  %853 = load i32, ptr %852, align 4, !tbaa !88
-  store i32 %853, ptr %851, align 4, !tbaa !88
-  store i32 0, ptr %852, align 4, !tbaa !88
+  %853 = load i32, ptr %852, align 8, !tbaa !88
+  store i32 %853, ptr %851, align 8, !tbaa !88
+  store i32 0, ptr %852, align 8, !tbaa !88
   %854 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i33, i64 84
   %855 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i34, i64 84
   %856 = load i32, ptr %854, align 4, !tbaa !88
@@ -33307,10 +33307,10 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store i32 %857, ptr %854, align 4, !tbaa !88
   store i32 %856, ptr %855, align 4, !tbaa !88
   %858 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i34, i64 88
-  %859 = load i32, ptr %846, align 4, !tbaa !88
-  %860 = load i32, ptr %858, align 4, !tbaa !88
-  store i32 %860, ptr %846, align 4, !tbaa !88
-  store i32 %859, ptr %858, align 4, !tbaa !88
+  %859 = load i32, ptr %846, align 8, !tbaa !88
+  %860 = load i32, ptr %858, align 8, !tbaa !88
+  store i32 %860, ptr %846, align 8, !tbaa !88
+  store i32 %859, ptr %858, align 8, !tbaa !88
   %861 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i33, i64 96
   %862 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i34, i64 96
   %863 = load ptr, ptr %861, align 8, !tbaa !89
@@ -33325,9 +33325,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store ptr null, ptr %862, align 8, !tbaa !877
   %869 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i33, i64 104
   %870 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i34, i64 104
-  %871 = load i32, ptr %870, align 4, !tbaa !88
-  store i32 %871, ptr %869, align 4, !tbaa !88
-  store i32 0, ptr %870, align 4, !tbaa !88
+  %871 = load i32, ptr %870, align 8, !tbaa !88
+  store i32 %871, ptr %869, align 8, !tbaa !88
+  store i32 0, ptr %870, align 8, !tbaa !88
   %872 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i33, i64 108
   %873 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i34, i64 108
   %874 = load i32, ptr %872, align 4, !tbaa !88
@@ -33335,10 +33335,10 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   store i32 %875, ptr %872, align 4, !tbaa !88
   store i32 %874, ptr %873, align 4, !tbaa !88
   %876 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i34, i64 112
-  %877 = load i32, ptr %864, align 4, !tbaa !88
-  %878 = load i32, ptr %876, align 4, !tbaa !88
-  store i32 %878, ptr %864, align 4, !tbaa !88
-  store i32 %877, ptr %876, align 4, !tbaa !88
+  %877 = load i32, ptr %864, align 8, !tbaa !88
+  %878 = load i32, ptr %876, align 8, !tbaa !88
+  store i32 %878, ptr %864, align 8, !tbaa !88
+  store i32 %877, ptr %876, align 8, !tbaa !88
   %879 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i34, i64 120
   %880 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i33, i64 120
   %881 = add nsw i64 %.012.i.i.i.i.i.i.i32, -1
@@ -33380,9 +33380,9 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   store ptr null, ptr %893, align 8, !tbaa !1007
   %900 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i22.i.i, i64 32
   %901 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i23.i.i, i64 32
-  %902 = load i32, ptr %901, align 4, !tbaa !88
-  store i32 %902, ptr %900, align 4, !tbaa !88
-  store i32 0, ptr %901, align 4, !tbaa !88
+  %902 = load i32, ptr %901, align 8, !tbaa !88
+  store i32 %902, ptr %900, align 8, !tbaa !88
+  store i32 0, ptr %901, align 8, !tbaa !88
   %903 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i22.i.i, i64 36
   %904 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i23.i.i, i64 36
   %905 = load i32, ptr %903, align 4, !tbaa !88
@@ -33390,10 +33390,10 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   store i32 %906, ptr %903, align 4, !tbaa !88
   store i32 %905, ptr %904, align 4, !tbaa !88
   %907 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i23.i.i, i64 40
-  %908 = load i32, ptr %895, align 4, !tbaa !88
-  %909 = load i32, ptr %907, align 4, !tbaa !88
-  store i32 %909, ptr %895, align 4, !tbaa !88
-  store i32 %908, ptr %907, align 4, !tbaa !88
+  %908 = load i32, ptr %895, align 8, !tbaa !88
+  %909 = load i32, ptr %907, align 8, !tbaa !88
+  store i32 %909, ptr %895, align 8, !tbaa !88
+  store i32 %908, ptr %907, align 8, !tbaa !88
   %910 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i22.i.i, i64 48
   %911 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i23.i.i, i64 48
   %912 = load ptr, ptr %910, align 8, !tbaa !92
@@ -33408,9 +33408,9 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   store ptr null, ptr %911, align 8, !tbaa !1008
   %918 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i22.i.i, i64 56
   %919 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i23.i.i, i64 56
-  %920 = load i32, ptr %919, align 4, !tbaa !88
-  store i32 %920, ptr %918, align 4, !tbaa !88
-  store i32 0, ptr %919, align 4, !tbaa !88
+  %920 = load i32, ptr %919, align 8, !tbaa !88
+  store i32 %920, ptr %918, align 8, !tbaa !88
+  store i32 0, ptr %919, align 8, !tbaa !88
   %921 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i22.i.i, i64 60
   %922 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i23.i.i, i64 60
   %923 = load i32, ptr %921, align 4, !tbaa !88
@@ -33418,10 +33418,10 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   store i32 %924, ptr %921, align 4, !tbaa !88
   store i32 %923, ptr %922, align 4, !tbaa !88
   %925 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i23.i.i, i64 64
-  %926 = load i32, ptr %913, align 4, !tbaa !88
-  %927 = load i32, ptr %925, align 4, !tbaa !88
-  store i32 %927, ptr %913, align 4, !tbaa !88
-  store i32 %926, ptr %925, align 4, !tbaa !88
+  %926 = load i32, ptr %913, align 8, !tbaa !88
+  %927 = load i32, ptr %925, align 8, !tbaa !88
+  store i32 %927, ptr %913, align 8, !tbaa !88
+  store i32 %926, ptr %925, align 8, !tbaa !88
   %928 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i22.i.i, i64 72
   %929 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i23.i.i, i64 72
   %930 = load ptr, ptr %928, align 8, !tbaa !89
@@ -33436,9 +33436,9 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   store ptr null, ptr %929, align 8, !tbaa !877
   %936 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i22.i.i, i64 80
   %937 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i23.i.i, i64 80
-  %938 = load i32, ptr %937, align 4, !tbaa !88
-  store i32 %938, ptr %936, align 4, !tbaa !88
-  store i32 0, ptr %937, align 4, !tbaa !88
+  %938 = load i32, ptr %937, align 8, !tbaa !88
+  store i32 %938, ptr %936, align 8, !tbaa !88
+  store i32 0, ptr %937, align 8, !tbaa !88
   %939 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i22.i.i, i64 84
   %940 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i23.i.i, i64 84
   %941 = load i32, ptr %939, align 4, !tbaa !88
@@ -33446,10 +33446,10 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   store i32 %942, ptr %939, align 4, !tbaa !88
   store i32 %941, ptr %940, align 4, !tbaa !88
   %943 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i23.i.i, i64 88
-  %944 = load i32, ptr %931, align 4, !tbaa !88
-  %945 = load i32, ptr %943, align 4, !tbaa !88
-  store i32 %945, ptr %931, align 4, !tbaa !88
-  store i32 %944, ptr %943, align 4, !tbaa !88
+  %944 = load i32, ptr %931, align 8, !tbaa !88
+  %945 = load i32, ptr %943, align 8, !tbaa !88
+  store i32 %945, ptr %931, align 8, !tbaa !88
+  store i32 %944, ptr %943, align 8, !tbaa !88
   %946 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i22.i.i, i64 96
   %947 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i23.i.i, i64 96
   %948 = load ptr, ptr %946, align 8, !tbaa !89
@@ -33464,9 +33464,9 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   store ptr null, ptr %947, align 8, !tbaa !877
   %954 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i22.i.i, i64 104
   %955 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i23.i.i, i64 104
-  %956 = load i32, ptr %955, align 4, !tbaa !88
-  store i32 %956, ptr %954, align 4, !tbaa !88
-  store i32 0, ptr %955, align 4, !tbaa !88
+  %956 = load i32, ptr %955, align 8, !tbaa !88
+  store i32 %956, ptr %954, align 8, !tbaa !88
+  store i32 0, ptr %955, align 8, !tbaa !88
   %957 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i22.i.i, i64 108
   %958 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i23.i.i, i64 108
   %959 = load i32, ptr %957, align 4, !tbaa !88
@@ -33474,10 +33474,10 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   store i32 %960, ptr %957, align 4, !tbaa !88
   store i32 %959, ptr %958, align 4, !tbaa !88
   %961 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i23.i.i, i64 112
-  %962 = load i32, ptr %949, align 4, !tbaa !88
-  %963 = load i32, ptr %961, align 4, !tbaa !88
-  store i32 %963, ptr %949, align 4, !tbaa !88
-  store i32 %962, ptr %961, align 4, !tbaa !88
+  %962 = load i32, ptr %949, align 8, !tbaa !88
+  %963 = load i32, ptr %961, align 8, !tbaa !88
+  store i32 %963, ptr %949, align 8, !tbaa !88
+  store i32 %962, ptr %961, align 8, !tbaa !88
   %964 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i23.i.i, i64 120
   %965 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i22.i.i, i64 120
   %966 = add nsw i64 %.012.i.i.i.i.i21.i.i, -1
@@ -33535,19 +33535,19 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   store ptr %988, ptr %978, align 8, !tbaa !1007
   store ptr null, ptr %983, align 8, !tbaa !1007
   %989 = getelementptr inbounds nuw i8, ptr %.01629.i45.i, i64 32
-  %990 = load i32, ptr %989, align 4, !tbaa !88
-  store i32 %990, ptr %980, align 4, !tbaa !88
-  store i32 0, ptr %989, align 4, !tbaa !88
+  %990 = load i32, ptr %989, align 8, !tbaa !88
+  store i32 %990, ptr %980, align 8, !tbaa !88
+  store i32 0, ptr %989, align 8, !tbaa !88
   %991 = getelementptr inbounds nuw i8, ptr %.01629.i45.i, i64 36
   %992 = load i32, ptr %981, align 4, !tbaa !88
   %993 = load i32, ptr %991, align 4, !tbaa !88
   store i32 %993, ptr %981, align 4, !tbaa !88
   store i32 %992, ptr %991, align 4, !tbaa !88
   %994 = getelementptr inbounds nuw i8, ptr %.01629.i45.i, i64 40
-  %995 = load i32, ptr %979, align 4, !tbaa !88
-  %996 = load i32, ptr %994, align 4, !tbaa !88
-  store i32 %996, ptr %979, align 4, !tbaa !88
-  store i32 %995, ptr %994, align 4, !tbaa !88
+  %995 = load i32, ptr %979, align 8, !tbaa !88
+  %996 = load i32, ptr %994, align 8, !tbaa !88
+  store i32 %996, ptr %979, align 8, !tbaa !88
+  store i32 %995, ptr %994, align 8, !tbaa !88
   %997 = getelementptr inbounds nuw i8, ptr %.sroa.0.028.i46.i, i64 48
   %998 = getelementptr inbounds nuw i8, ptr %.01629.i45.i, i64 48
   %999 = load ptr, ptr %997, align 8, !tbaa !92
@@ -33562,9 +33562,9 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   store ptr null, ptr %998, align 8, !tbaa !1008
   %1005 = getelementptr inbounds nuw i8, ptr %.sroa.0.028.i46.i, i64 56
   %1006 = getelementptr inbounds nuw i8, ptr %.01629.i45.i, i64 56
-  %1007 = load i32, ptr %1006, align 4, !tbaa !88
-  store i32 %1007, ptr %1005, align 4, !tbaa !88
-  store i32 0, ptr %1006, align 4, !tbaa !88
+  %1007 = load i32, ptr %1006, align 8, !tbaa !88
+  store i32 %1007, ptr %1005, align 8, !tbaa !88
+  store i32 0, ptr %1006, align 8, !tbaa !88
   %1008 = getelementptr inbounds nuw i8, ptr %.sroa.0.028.i46.i, i64 60
   %1009 = getelementptr inbounds nuw i8, ptr %.01629.i45.i, i64 60
   %1010 = load i32, ptr %1008, align 4, !tbaa !88
@@ -33572,10 +33572,10 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   store i32 %1011, ptr %1008, align 4, !tbaa !88
   store i32 %1010, ptr %1009, align 4, !tbaa !88
   %1012 = getelementptr inbounds nuw i8, ptr %.01629.i45.i, i64 64
-  %1013 = load i32, ptr %1000, align 4, !tbaa !88
-  %1014 = load i32, ptr %1012, align 4, !tbaa !88
-  store i32 %1014, ptr %1000, align 4, !tbaa !88
-  store i32 %1013, ptr %1012, align 4, !tbaa !88
+  %1013 = load i32, ptr %1000, align 8, !tbaa !88
+  %1014 = load i32, ptr %1012, align 8, !tbaa !88
+  store i32 %1014, ptr %1000, align 8, !tbaa !88
+  store i32 %1013, ptr %1012, align 8, !tbaa !88
   %1015 = getelementptr inbounds nuw i8, ptr %.sroa.0.028.i46.i, i64 72
   %1016 = getelementptr inbounds nuw i8, ptr %.01629.i45.i, i64 72
   %1017 = load ptr, ptr %1015, align 8, !tbaa !89
@@ -33590,9 +33590,9 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   store ptr null, ptr %1016, align 8, !tbaa !877
   %1023 = getelementptr inbounds nuw i8, ptr %.sroa.0.028.i46.i, i64 80
   %1024 = getelementptr inbounds nuw i8, ptr %.01629.i45.i, i64 80
-  %1025 = load i32, ptr %1024, align 4, !tbaa !88
-  store i32 %1025, ptr %1023, align 4, !tbaa !88
-  store i32 0, ptr %1024, align 4, !tbaa !88
+  %1025 = load i32, ptr %1024, align 8, !tbaa !88
+  store i32 %1025, ptr %1023, align 8, !tbaa !88
+  store i32 0, ptr %1024, align 8, !tbaa !88
   %1026 = getelementptr inbounds nuw i8, ptr %.sroa.0.028.i46.i, i64 84
   %1027 = getelementptr inbounds nuw i8, ptr %.01629.i45.i, i64 84
   %1028 = load i32, ptr %1026, align 4, !tbaa !88
@@ -33600,10 +33600,10 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   store i32 %1029, ptr %1026, align 4, !tbaa !88
   store i32 %1028, ptr %1027, align 4, !tbaa !88
   %1030 = getelementptr inbounds nuw i8, ptr %.01629.i45.i, i64 88
-  %1031 = load i32, ptr %1018, align 4, !tbaa !88
-  %1032 = load i32, ptr %1030, align 4, !tbaa !88
-  store i32 %1032, ptr %1018, align 4, !tbaa !88
-  store i32 %1031, ptr %1030, align 4, !tbaa !88
+  %1031 = load i32, ptr %1018, align 8, !tbaa !88
+  %1032 = load i32, ptr %1030, align 8, !tbaa !88
+  store i32 %1032, ptr %1018, align 8, !tbaa !88
+  store i32 %1031, ptr %1030, align 8, !tbaa !88
   %1033 = getelementptr inbounds nuw i8, ptr %.sroa.0.028.i46.i, i64 96
   %1034 = getelementptr inbounds nuw i8, ptr %.01629.i45.i, i64 96
   %1035 = load ptr, ptr %1033, align 8, !tbaa !89
@@ -33618,9 +33618,9 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   store ptr null, ptr %1034, align 8, !tbaa !877
   %1041 = getelementptr inbounds nuw i8, ptr %.sroa.0.028.i46.i, i64 104
   %1042 = getelementptr inbounds nuw i8, ptr %.01629.i45.i, i64 104
-  %1043 = load i32, ptr %1042, align 4, !tbaa !88
-  store i32 %1043, ptr %1041, align 4, !tbaa !88
-  store i32 0, ptr %1042, align 4, !tbaa !88
+  %1043 = load i32, ptr %1042, align 8, !tbaa !88
+  store i32 %1043, ptr %1041, align 8, !tbaa !88
+  store i32 0, ptr %1042, align 8, !tbaa !88
   %1044 = getelementptr inbounds nuw i8, ptr %.sroa.0.028.i46.i, i64 108
   %1045 = getelementptr inbounds nuw i8, ptr %.01629.i45.i, i64 108
   %1046 = load i32, ptr %1044, align 4, !tbaa !88
@@ -33628,10 +33628,10 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   store i32 %1047, ptr %1044, align 4, !tbaa !88
   store i32 %1046, ptr %1045, align 4, !tbaa !88
   %1048 = getelementptr inbounds nuw i8, ptr %.01629.i45.i, i64 112
-  %1049 = load i32, ptr %1036, align 4, !tbaa !88
-  %1050 = load i32, ptr %1048, align 4, !tbaa !88
-  store i32 %1050, ptr %1036, align 4, !tbaa !88
-  store i32 %1049, ptr %1048, align 4, !tbaa !88
+  %1049 = load i32, ptr %1036, align 8, !tbaa !88
+  %1050 = load i32, ptr %1048, align 8, !tbaa !88
+  store i32 %1050, ptr %1036, align 8, !tbaa !88
+  store i32 %1049, ptr %1048, align 8, !tbaa !88
   %1051 = getelementptr inbounds nuw i8, ptr %.01629.i45.i, i64 120
   br label %1122
 
@@ -33648,19 +33648,19 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   store ptr %1058, ptr %978, align 8, !tbaa !1007
   store ptr null, ptr %1053, align 8, !tbaa !1007
   %1059 = getelementptr inbounds nuw i8, ptr %.030.i44.i, i64 32
-  %1060 = load i32, ptr %1059, align 4, !tbaa !88
-  store i32 %1060, ptr %980, align 4, !tbaa !88
-  store i32 0, ptr %1059, align 4, !tbaa !88
+  %1060 = load i32, ptr %1059, align 8, !tbaa !88
+  store i32 %1060, ptr %980, align 8, !tbaa !88
+  store i32 0, ptr %1059, align 8, !tbaa !88
   %1061 = getelementptr inbounds nuw i8, ptr %.030.i44.i, i64 36
   %1062 = load i32, ptr %981, align 4, !tbaa !88
   %1063 = load i32, ptr %1061, align 4, !tbaa !88
   store i32 %1063, ptr %981, align 4, !tbaa !88
   store i32 %1062, ptr %1061, align 4, !tbaa !88
   %1064 = getelementptr inbounds nuw i8, ptr %.030.i44.i, i64 40
-  %1065 = load i32, ptr %979, align 4, !tbaa !88
-  %1066 = load i32, ptr %1064, align 4, !tbaa !88
-  store i32 %1066, ptr %979, align 4, !tbaa !88
-  store i32 %1065, ptr %1064, align 4, !tbaa !88
+  %1065 = load i32, ptr %979, align 8, !tbaa !88
+  %1066 = load i32, ptr %1064, align 8, !tbaa !88
+  store i32 %1066, ptr %979, align 8, !tbaa !88
+  store i32 %1065, ptr %1064, align 8, !tbaa !88
   %1067 = getelementptr inbounds nuw i8, ptr %.sroa.0.028.i46.i, i64 48
   %1068 = getelementptr inbounds nuw i8, ptr %.030.i44.i, i64 48
   %1069 = load ptr, ptr %1067, align 8, !tbaa !92
@@ -33675,9 +33675,9 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   store ptr null, ptr %1068, align 8, !tbaa !1008
   %1075 = getelementptr inbounds nuw i8, ptr %.sroa.0.028.i46.i, i64 56
   %1076 = getelementptr inbounds nuw i8, ptr %.030.i44.i, i64 56
-  %1077 = load i32, ptr %1076, align 4, !tbaa !88
-  store i32 %1077, ptr %1075, align 4, !tbaa !88
-  store i32 0, ptr %1076, align 4, !tbaa !88
+  %1077 = load i32, ptr %1076, align 8, !tbaa !88
+  store i32 %1077, ptr %1075, align 8, !tbaa !88
+  store i32 0, ptr %1076, align 8, !tbaa !88
   %1078 = getelementptr inbounds nuw i8, ptr %.sroa.0.028.i46.i, i64 60
   %1079 = getelementptr inbounds nuw i8, ptr %.030.i44.i, i64 60
   %1080 = load i32, ptr %1078, align 4, !tbaa !88
@@ -33685,10 +33685,10 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   store i32 %1081, ptr %1078, align 4, !tbaa !88
   store i32 %1080, ptr %1079, align 4, !tbaa !88
   %1082 = getelementptr inbounds nuw i8, ptr %.030.i44.i, i64 64
-  %1083 = load i32, ptr %1070, align 4, !tbaa !88
-  %1084 = load i32, ptr %1082, align 4, !tbaa !88
-  store i32 %1084, ptr %1070, align 4, !tbaa !88
-  store i32 %1083, ptr %1082, align 4, !tbaa !88
+  %1083 = load i32, ptr %1070, align 8, !tbaa !88
+  %1084 = load i32, ptr %1082, align 8, !tbaa !88
+  store i32 %1084, ptr %1070, align 8, !tbaa !88
+  store i32 %1083, ptr %1082, align 8, !tbaa !88
   %1085 = getelementptr inbounds nuw i8, ptr %.sroa.0.028.i46.i, i64 72
   %1086 = getelementptr inbounds nuw i8, ptr %.030.i44.i, i64 72
   %1087 = load ptr, ptr %1085, align 8, !tbaa !89
@@ -33703,9 +33703,9 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   store ptr null, ptr %1086, align 8, !tbaa !877
   %1093 = getelementptr inbounds nuw i8, ptr %.sroa.0.028.i46.i, i64 80
   %1094 = getelementptr inbounds nuw i8, ptr %.030.i44.i, i64 80
-  %1095 = load i32, ptr %1094, align 4, !tbaa !88
-  store i32 %1095, ptr %1093, align 4, !tbaa !88
-  store i32 0, ptr %1094, align 4, !tbaa !88
+  %1095 = load i32, ptr %1094, align 8, !tbaa !88
+  store i32 %1095, ptr %1093, align 8, !tbaa !88
+  store i32 0, ptr %1094, align 8, !tbaa !88
   %1096 = getelementptr inbounds nuw i8, ptr %.sroa.0.028.i46.i, i64 84
   %1097 = getelementptr inbounds nuw i8, ptr %.030.i44.i, i64 84
   %1098 = load i32, ptr %1096, align 4, !tbaa !88
@@ -33713,10 +33713,10 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   store i32 %1099, ptr %1096, align 4, !tbaa !88
   store i32 %1098, ptr %1097, align 4, !tbaa !88
   %1100 = getelementptr inbounds nuw i8, ptr %.030.i44.i, i64 88
-  %1101 = load i32, ptr %1088, align 4, !tbaa !88
-  %1102 = load i32, ptr %1100, align 4, !tbaa !88
-  store i32 %1102, ptr %1088, align 4, !tbaa !88
-  store i32 %1101, ptr %1100, align 4, !tbaa !88
+  %1101 = load i32, ptr %1088, align 8, !tbaa !88
+  %1102 = load i32, ptr %1100, align 8, !tbaa !88
+  store i32 %1102, ptr %1088, align 8, !tbaa !88
+  store i32 %1101, ptr %1100, align 8, !tbaa !88
   %1103 = getelementptr inbounds nuw i8, ptr %.sroa.0.028.i46.i, i64 96
   %1104 = getelementptr inbounds nuw i8, ptr %.030.i44.i, i64 96
   %1105 = load ptr, ptr %1103, align 8, !tbaa !89
@@ -33731,9 +33731,9 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   store ptr null, ptr %1104, align 8, !tbaa !877
   %1111 = getelementptr inbounds nuw i8, ptr %.sroa.0.028.i46.i, i64 104
   %1112 = getelementptr inbounds nuw i8, ptr %.030.i44.i, i64 104
-  %1113 = load i32, ptr %1112, align 4, !tbaa !88
-  store i32 %1113, ptr %1111, align 4, !tbaa !88
-  store i32 0, ptr %1112, align 4, !tbaa !88
+  %1113 = load i32, ptr %1112, align 8, !tbaa !88
+  store i32 %1113, ptr %1111, align 8, !tbaa !88
+  store i32 0, ptr %1112, align 8, !tbaa !88
   %1114 = getelementptr inbounds nuw i8, ptr %.sroa.0.028.i46.i, i64 108
   %1115 = getelementptr inbounds nuw i8, ptr %.030.i44.i, i64 108
   %1116 = load i32, ptr %1114, align 4, !tbaa !88
@@ -33741,10 +33741,10 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   store i32 %1117, ptr %1114, align 4, !tbaa !88
   store i32 %1116, ptr %1115, align 4, !tbaa !88
   %1118 = getelementptr inbounds nuw i8, ptr %.030.i44.i, i64 112
-  %1119 = load i32, ptr %1106, align 4, !tbaa !88
-  %1120 = load i32, ptr %1118, align 4, !tbaa !88
-  store i32 %1120, ptr %1106, align 4, !tbaa !88
-  store i32 %1119, ptr %1118, align 4, !tbaa !88
+  %1119 = load i32, ptr %1106, align 8, !tbaa !88
+  %1120 = load i32, ptr %1118, align 8, !tbaa !88
+  store i32 %1120, ptr %1106, align 8, !tbaa !88
+  store i32 %1119, ptr %1118, align 8, !tbaa !88
   %1121 = getelementptr inbounds nuw i8, ptr %.030.i44.i, i64 120
   br label %1122
 
@@ -33790,9 +33790,9 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   store ptr null, ptr %1133, align 8, !tbaa !1007
   %1140 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i41.i, i64 32
   %1141 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i42.i, i64 32
-  %1142 = load i32, ptr %1141, align 4, !tbaa !88
-  store i32 %1142, ptr %1140, align 4, !tbaa !88
-  store i32 0, ptr %1141, align 4, !tbaa !88
+  %1142 = load i32, ptr %1141, align 8, !tbaa !88
+  store i32 %1142, ptr %1140, align 8, !tbaa !88
+  store i32 0, ptr %1141, align 8, !tbaa !88
   %1143 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i41.i, i64 36
   %1144 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i42.i, i64 36
   %1145 = load i32, ptr %1143, align 4, !tbaa !88
@@ -33800,10 +33800,10 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   store i32 %1146, ptr %1143, align 4, !tbaa !88
   store i32 %1145, ptr %1144, align 4, !tbaa !88
   %1147 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i42.i, i64 40
-  %1148 = load i32, ptr %1135, align 4, !tbaa !88
-  %1149 = load i32, ptr %1147, align 4, !tbaa !88
-  store i32 %1149, ptr %1135, align 4, !tbaa !88
-  store i32 %1148, ptr %1147, align 4, !tbaa !88
+  %1148 = load i32, ptr %1135, align 8, !tbaa !88
+  %1149 = load i32, ptr %1147, align 8, !tbaa !88
+  store i32 %1149, ptr %1135, align 8, !tbaa !88
+  store i32 %1148, ptr %1147, align 8, !tbaa !88
   %1150 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i41.i, i64 48
   %1151 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i42.i, i64 48
   %1152 = load ptr, ptr %1150, align 8, !tbaa !92
@@ -33818,9 +33818,9 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   store ptr null, ptr %1151, align 8, !tbaa !1008
   %1158 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i41.i, i64 56
   %1159 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i42.i, i64 56
-  %1160 = load i32, ptr %1159, align 4, !tbaa !88
-  store i32 %1160, ptr %1158, align 4, !tbaa !88
-  store i32 0, ptr %1159, align 4, !tbaa !88
+  %1160 = load i32, ptr %1159, align 8, !tbaa !88
+  store i32 %1160, ptr %1158, align 8, !tbaa !88
+  store i32 0, ptr %1159, align 8, !tbaa !88
   %1161 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i41.i, i64 60
   %1162 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i42.i, i64 60
   %1163 = load i32, ptr %1161, align 4, !tbaa !88
@@ -33828,10 +33828,10 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   store i32 %1164, ptr %1161, align 4, !tbaa !88
   store i32 %1163, ptr %1162, align 4, !tbaa !88
   %1165 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i42.i, i64 64
-  %1166 = load i32, ptr %1153, align 4, !tbaa !88
-  %1167 = load i32, ptr %1165, align 4, !tbaa !88
-  store i32 %1167, ptr %1153, align 4, !tbaa !88
-  store i32 %1166, ptr %1165, align 4, !tbaa !88
+  %1166 = load i32, ptr %1153, align 8, !tbaa !88
+  %1167 = load i32, ptr %1165, align 8, !tbaa !88
+  store i32 %1167, ptr %1153, align 8, !tbaa !88
+  store i32 %1166, ptr %1165, align 8, !tbaa !88
   %1168 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i41.i, i64 72
   %1169 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i42.i, i64 72
   %1170 = load ptr, ptr %1168, align 8, !tbaa !89
@@ -33846,9 +33846,9 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   store ptr null, ptr %1169, align 8, !tbaa !877
   %1176 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i41.i, i64 80
   %1177 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i42.i, i64 80
-  %1178 = load i32, ptr %1177, align 4, !tbaa !88
-  store i32 %1178, ptr %1176, align 4, !tbaa !88
-  store i32 0, ptr %1177, align 4, !tbaa !88
+  %1178 = load i32, ptr %1177, align 8, !tbaa !88
+  store i32 %1178, ptr %1176, align 8, !tbaa !88
+  store i32 0, ptr %1177, align 8, !tbaa !88
   %1179 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i41.i, i64 84
   %1180 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i42.i, i64 84
   %1181 = load i32, ptr %1179, align 4, !tbaa !88
@@ -33856,10 +33856,10 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   store i32 %1182, ptr %1179, align 4, !tbaa !88
   store i32 %1181, ptr %1180, align 4, !tbaa !88
   %1183 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i42.i, i64 88
-  %1184 = load i32, ptr %1171, align 4, !tbaa !88
-  %1185 = load i32, ptr %1183, align 4, !tbaa !88
-  store i32 %1185, ptr %1171, align 4, !tbaa !88
-  store i32 %1184, ptr %1183, align 4, !tbaa !88
+  %1184 = load i32, ptr %1171, align 8, !tbaa !88
+  %1185 = load i32, ptr %1183, align 8, !tbaa !88
+  store i32 %1185, ptr %1171, align 8, !tbaa !88
+  store i32 %1184, ptr %1183, align 8, !tbaa !88
   %1186 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i41.i, i64 96
   %1187 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i42.i, i64 96
   %1188 = load ptr, ptr %1186, align 8, !tbaa !89
@@ -33874,9 +33874,9 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   store ptr null, ptr %1187, align 8, !tbaa !877
   %1194 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i41.i, i64 104
   %1195 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i42.i, i64 104
-  %1196 = load i32, ptr %1195, align 4, !tbaa !88
-  store i32 %1196, ptr %1194, align 4, !tbaa !88
-  store i32 0, ptr %1195, align 4, !tbaa !88
+  %1196 = load i32, ptr %1195, align 8, !tbaa !88
+  store i32 %1196, ptr %1194, align 8, !tbaa !88
+  store i32 0, ptr %1195, align 8, !tbaa !88
   %1197 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i41.i, i64 108
   %1198 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i42.i, i64 108
   %1199 = load i32, ptr %1197, align 4, !tbaa !88
@@ -33884,10 +33884,10 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   store i32 %1200, ptr %1197, align 4, !tbaa !88
   store i32 %1199, ptr %1198, align 4, !tbaa !88
   %1201 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i42.i, i64 112
-  %1202 = load i32, ptr %1189, align 4, !tbaa !88
-  %1203 = load i32, ptr %1201, align 4, !tbaa !88
-  store i32 %1203, ptr %1189, align 4, !tbaa !88
-  store i32 %1202, ptr %1201, align 4, !tbaa !88
+  %1202 = load i32, ptr %1189, align 8, !tbaa !88
+  %1203 = load i32, ptr %1201, align 8, !tbaa !88
+  store i32 %1203, ptr %1189, align 8, !tbaa !88
+  store i32 %1202, ptr %1201, align 8, !tbaa !88
   %1204 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i42.i, i64 120
   %1205 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i41.i, i64 120
   %1206 = add nsw i64 %.012.i.i.i.i.i.i40.i, -1
@@ -33928,9 +33928,9 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   store ptr null, ptr %1217, align 8, !tbaa !1007
   %1224 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i22.i35.i, i64 32
   %1225 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i23.i36.i, i64 32
-  %1226 = load i32, ptr %1225, align 4, !tbaa !88
-  store i32 %1226, ptr %1224, align 4, !tbaa !88
-  store i32 0, ptr %1225, align 4, !tbaa !88
+  %1226 = load i32, ptr %1225, align 8, !tbaa !88
+  store i32 %1226, ptr %1224, align 8, !tbaa !88
+  store i32 0, ptr %1225, align 8, !tbaa !88
   %1227 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i22.i35.i, i64 36
   %1228 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i23.i36.i, i64 36
   %1229 = load i32, ptr %1227, align 4, !tbaa !88
@@ -33938,10 +33938,10 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   store i32 %1230, ptr %1227, align 4, !tbaa !88
   store i32 %1229, ptr %1228, align 4, !tbaa !88
   %1231 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i23.i36.i, i64 40
-  %1232 = load i32, ptr %1219, align 4, !tbaa !88
-  %1233 = load i32, ptr %1231, align 4, !tbaa !88
-  store i32 %1233, ptr %1219, align 4, !tbaa !88
-  store i32 %1232, ptr %1231, align 4, !tbaa !88
+  %1232 = load i32, ptr %1219, align 8, !tbaa !88
+  %1233 = load i32, ptr %1231, align 8, !tbaa !88
+  store i32 %1233, ptr %1219, align 8, !tbaa !88
+  store i32 %1232, ptr %1231, align 8, !tbaa !88
   %1234 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i22.i35.i, i64 48
   %1235 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i23.i36.i, i64 48
   %1236 = load ptr, ptr %1234, align 8, !tbaa !92
@@ -33956,9 +33956,9 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   store ptr null, ptr %1235, align 8, !tbaa !1008
   %1242 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i22.i35.i, i64 56
   %1243 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i23.i36.i, i64 56
-  %1244 = load i32, ptr %1243, align 4, !tbaa !88
-  store i32 %1244, ptr %1242, align 4, !tbaa !88
-  store i32 0, ptr %1243, align 4, !tbaa !88
+  %1244 = load i32, ptr %1243, align 8, !tbaa !88
+  store i32 %1244, ptr %1242, align 8, !tbaa !88
+  store i32 0, ptr %1243, align 8, !tbaa !88
   %1245 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i22.i35.i, i64 60
   %1246 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i23.i36.i, i64 60
   %1247 = load i32, ptr %1245, align 4, !tbaa !88
@@ -33966,10 +33966,10 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   store i32 %1248, ptr %1245, align 4, !tbaa !88
   store i32 %1247, ptr %1246, align 4, !tbaa !88
   %1249 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i23.i36.i, i64 64
-  %1250 = load i32, ptr %1237, align 4, !tbaa !88
-  %1251 = load i32, ptr %1249, align 4, !tbaa !88
-  store i32 %1251, ptr %1237, align 4, !tbaa !88
-  store i32 %1250, ptr %1249, align 4, !tbaa !88
+  %1250 = load i32, ptr %1237, align 8, !tbaa !88
+  %1251 = load i32, ptr %1249, align 8, !tbaa !88
+  store i32 %1251, ptr %1237, align 8, !tbaa !88
+  store i32 %1250, ptr %1249, align 8, !tbaa !88
   %1252 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i22.i35.i, i64 72
   %1253 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i23.i36.i, i64 72
   %1254 = load ptr, ptr %1252, align 8, !tbaa !89
@@ -33984,9 +33984,9 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   store ptr null, ptr %1253, align 8, !tbaa !877
   %1260 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i22.i35.i, i64 80
   %1261 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i23.i36.i, i64 80
-  %1262 = load i32, ptr %1261, align 4, !tbaa !88
-  store i32 %1262, ptr %1260, align 4, !tbaa !88
-  store i32 0, ptr %1261, align 4, !tbaa !88
+  %1262 = load i32, ptr %1261, align 8, !tbaa !88
+  store i32 %1262, ptr %1260, align 8, !tbaa !88
+  store i32 0, ptr %1261, align 8, !tbaa !88
   %1263 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i22.i35.i, i64 84
   %1264 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i23.i36.i, i64 84
   %1265 = load i32, ptr %1263, align 4, !tbaa !88
@@ -33994,10 +33994,10 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   store i32 %1266, ptr %1263, align 4, !tbaa !88
   store i32 %1265, ptr %1264, align 4, !tbaa !88
   %1267 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i23.i36.i, i64 88
-  %1268 = load i32, ptr %1255, align 4, !tbaa !88
-  %1269 = load i32, ptr %1267, align 4, !tbaa !88
-  store i32 %1269, ptr %1255, align 4, !tbaa !88
-  store i32 %1268, ptr %1267, align 4, !tbaa !88
+  %1268 = load i32, ptr %1255, align 8, !tbaa !88
+  %1269 = load i32, ptr %1267, align 8, !tbaa !88
+  store i32 %1269, ptr %1255, align 8, !tbaa !88
+  store i32 %1268, ptr %1267, align 8, !tbaa !88
   %1270 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i22.i35.i, i64 96
   %1271 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i23.i36.i, i64 96
   %1272 = load ptr, ptr %1270, align 8, !tbaa !89
@@ -34012,9 +34012,9 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   store ptr null, ptr %1271, align 8, !tbaa !877
   %1278 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i22.i35.i, i64 104
   %1279 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i23.i36.i, i64 104
-  %1280 = load i32, ptr %1279, align 4, !tbaa !88
-  store i32 %1280, ptr %1278, align 4, !tbaa !88
-  store i32 0, ptr %1279, align 4, !tbaa !88
+  %1280 = load i32, ptr %1279, align 8, !tbaa !88
+  store i32 %1280, ptr %1278, align 8, !tbaa !88
+  store i32 0, ptr %1279, align 8, !tbaa !88
   %1281 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i22.i35.i, i64 108
   %1282 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i23.i36.i, i64 108
   %1283 = load i32, ptr %1281, align 4, !tbaa !88
@@ -34022,10 +34022,10 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   store i32 %1284, ptr %1281, align 4, !tbaa !88
   store i32 %1283, ptr %1282, align 4, !tbaa !88
   %1285 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i23.i36.i, i64 112
-  %1286 = load i32, ptr %1273, align 4, !tbaa !88
-  %1287 = load i32, ptr %1285, align 4, !tbaa !88
-  store i32 %1287, ptr %1273, align 4, !tbaa !88
-  store i32 %1286, ptr %1285, align 4, !tbaa !88
+  %1286 = load i32, ptr %1273, align 8, !tbaa !88
+  %1287 = load i32, ptr %1285, align 8, !tbaa !88
+  store i32 %1287, ptr %1273, align 8, !tbaa !88
+  store i32 %1286, ptr %1285, align 8, !tbaa !88
   %1288 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i23.i36.i, i64 120
   %1289 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i22.i35.i, i64 120
   %1290 = add nsw i64 %.012.i.i.i.i.i21.i34.i, -1

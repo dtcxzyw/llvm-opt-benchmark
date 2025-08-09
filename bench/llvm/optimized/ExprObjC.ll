@@ -203,7 +203,7 @@ _ZN5clang16ObjCArrayLiteralC2ENS_4Stmt10EmptyShellEj.exit: ; preds = %24, %30
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i4, i64 20
   store i32 0, ptr %33, align 4, !tbaa !45
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i4, i64 24
-  store i32 0, ptr %34, align 4, !tbaa !45
+  store i32 0, ptr %34, align 8, !tbaa !45
   br label %35
 
 35:                                               ; preds = %_ZN5clang16ObjCArrayLiteralC2ENS_4Stmt10EmptyShellEj.exit, %_ZNK5clang10ASTContext8AllocateEmj.exit
@@ -266,7 +266,7 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
   %36 = load i32, ptr %34, align 8, !tbaa !58
   store i32 %36, ptr %35, align 8, !tbaa !58
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %38 = load i8, ptr %37, align 4, !tbaa !59, !range !7, !noundef !8
+  %38 = load i8, ptr %37, align 8, !tbaa !59, !range !7, !noundef !8
   %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %40, label %44
 
@@ -427,7 +427,7 @@ _ZN5clang21ObjCDictionaryLiteralC2ENS_4Stmt10EmptyShellEjb.exit: ; preds = %28, 
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 20
   store i32 0, ptr %40, align 4, !tbaa !45
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 24
-  store i32 0, ptr %41, align 4, !tbaa !45
+  store i32 0, ptr %41, align 8, !tbaa !45
   br label %42
 
 42:                                               ; preds = %_ZN5clang21ObjCDictionaryLiteralC2ENS_4Stmt10EmptyShellEjb.exit, %_ZNK5clang10ASTContext8AllocateEmj.exit
@@ -1285,7 +1285,7 @@ _ZN5clang15ObjCMessageExprC2ENS_4Stmt10EmptyShellEj.exit: ; preds = %29, %35
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i5, i64 28
   store i32 0, ptr %39, align 4, !tbaa !45
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i5, i64 32
-  store i32 0, ptr %40, align 4, !tbaa !45
+  store i32 0, ptr %40, align 8, !tbaa !45
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i5, i64 36
   store i32 0, ptr %41, align 4, !tbaa !45
   %42 = and i32 %1, 65535

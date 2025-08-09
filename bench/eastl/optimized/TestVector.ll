@@ -12827,12 +12827,12 @@ _ZN10TestObjectaSEOS_.exit.i.i.i.i:               ; preds = %_ZN10TestObjectaSEO
   store i32 %18, ptr %mMagicValue3.i.i.i.i.i, align 4
   %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %resultEnd.addr.06.i.i.i.i, i64 -20
   %mbThrowOnCopy4.i.i.i.i.i = getelementptr inbounds i8, ptr %last.addr.05.i.i.i.i, i64 -20
-  %20 = load i8, ptr %mbThrowOnCopy.i.i.i.i.i, align 1
+  %20 = load i8, ptr %mbThrowOnCopy.i.i.i.i.i, align 4
   %frombool.i.i.i.i.i.i = and i8 %20, 1
-  %21 = load i8, ptr %mbThrowOnCopy4.i.i.i.i.i, align 1
+  %21 = load i8, ptr %mbThrowOnCopy4.i.i.i.i.i, align 4
   %frombool3.i.i.i.i.i.i = and i8 %21, 1
-  store i8 %frombool3.i.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 1
-  store i8 %frombool.i.i.i.i.i.i, ptr %mbThrowOnCopy4.i.i.i.i.i, align 1
+  store i8 %frombool3.i.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 4
+  store i8 %frombool.i.i.i.i.i.i, ptr %mbThrowOnCopy4.i.i.i.i.i, align 4
   %dec.i.i.i.i = add nsw i64 %n.07.i.i.i.i, -1
   %cmp.i.i.i.i = icmp samesign ugt i64 %n.07.i.i.i.i, 1
   br i1 %cmp.i.i.i.i, label %_ZN10TestObjectaSEOS_.exit.i.i.i.i, label %invoke.cont9, !llvm.loop !104
@@ -13208,12 +13208,12 @@ if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i
   store i32 %18, ptr %mMagicValue3.i.i.i.i.i, align 4
   %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %resultEnd.addr.06.i.i.i.i, i64 -20
   %mbThrowOnCopy4.i.i.i.i.i = getelementptr inbounds i8, ptr %last.addr.05.i.i.i.i, i64 -20
-  %20 = load i8, ptr %mbThrowOnCopy.i.i.i.i.i, align 1
+  %20 = load i8, ptr %mbThrowOnCopy.i.i.i.i.i, align 4
   %frombool.i.i.i.i.i.i = and i8 %20, 1
-  %21 = load i8, ptr %mbThrowOnCopy4.i.i.i.i.i, align 1
+  %21 = load i8, ptr %mbThrowOnCopy4.i.i.i.i.i, align 4
   %frombool3.i.i.i.i.i.i = and i8 %21, 1
-  store i8 %frombool3.i.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 1
-  store i8 %frombool.i.i.i.i.i.i, ptr %mbThrowOnCopy4.i.i.i.i.i, align 1
+  store i8 %frombool3.i.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 4
+  store i8 %frombool.i.i.i.i.i.i, ptr %mbThrowOnCopy4.i.i.i.i.i, align 4
   %.pre.i.i.i.i = load i64, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   br label %_ZN10TestObjectaSEOS_.exit.i.i.i.i
 
@@ -13685,12 +13685,12 @@ _ZN10TestObjectaSEOS_.exit.i.i.i.i.i:             ; preds = %_ZN10TestObjectaSEO
   store i32 %7, ptr %mMagicValue3.i.i.i.i.i.i, align 4
   %mbThrowOnCopy.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %result.addr.08.i.i.i.i.i, i64 4
   %mbThrowOnCopy4.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %first.addr.07.i.i.i.i.i, i64 4
-  %9 = load i8, ptr %mbThrowOnCopy.i.i.i.i.i.i, align 1
+  %9 = load i8, ptr %mbThrowOnCopy.i.i.i.i.i.i, align 4
   %frombool.i.i.i.i.i.i.i = and i8 %9, 1
-  %10 = load i8, ptr %mbThrowOnCopy4.i.i.i.i.i.i, align 1
+  %10 = load i8, ptr %mbThrowOnCopy4.i.i.i.i.i.i, align 4
   %frombool3.i.i.i.i.i.i.i = and i8 %10, 1
-  store i8 %frombool3.i.i.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i.i, align 1
-  store i8 %frombool.i.i.i.i.i.i.i, ptr %mbThrowOnCopy4.i.i.i.i.i.i, align 1
+  store i8 %frombool3.i.i.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i.i, align 4
+  store i8 %frombool.i.i.i.i.i.i.i, ptr %mbThrowOnCopy4.i.i.i.i.i.i, align 4
   %dec.i.i.i.i.i = add nsw i64 %n.09.i.i.i.i.i, -1
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %first.addr.07.i.i.i.i.i, i64 24
   %incdec.ptr2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %result.addr.08.i.i.i.i.i, i64 24
@@ -13769,12 +13769,12 @@ _ZN10TestObjectaSEOS_.exit.i.i.i.i:               ; preds = %_ZN10TestObjectaSEO
   store i32 %4, ptr %mMagicValue3.i.i.i.i.i, align 4
   %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %result.addr.08.i.i.i.i, i64 4
   %mbThrowOnCopy4.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %first.addr.07.i.i.i.i, i64 4
-  %6 = load i8, ptr %mbThrowOnCopy.i.i.i.i.i, align 1
+  %6 = load i8, ptr %mbThrowOnCopy.i.i.i.i.i, align 4
   %frombool.i.i.i.i.i.i = and i8 %6, 1
-  %7 = load i8, ptr %mbThrowOnCopy4.i.i.i.i.i, align 1
+  %7 = load i8, ptr %mbThrowOnCopy4.i.i.i.i.i, align 4
   %frombool3.i.i.i.i.i.i = and i8 %7, 1
-  store i8 %frombool3.i.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 1
-  store i8 %frombool.i.i.i.i.i.i, ptr %mbThrowOnCopy4.i.i.i.i.i, align 1
+  store i8 %frombool3.i.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 4
+  store i8 %frombool.i.i.i.i.i.i, ptr %mbThrowOnCopy4.i.i.i.i.i, align 4
   %dec.i.i.i.i = add nsw i64 %n.09.i.i.i.i, -1
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %first.addr.07.i.i.i.i, i64 24
   %incdec.ptr2.i.i.i.i = getelementptr inbounds nuw i8, ptr %result.addr.08.i.i.i.i, i64 24
@@ -13861,12 +13861,12 @@ if.then.i.i:                                      ; preds = %if.then
   store i32 %7, ptr %mMagicValue3.i.i, align 4
   %mbThrowOnCopy.i.i = getelementptr inbounds nuw i8, ptr %first.addr.0.lcssa.i, i64 4
   %mbThrowOnCopy4.i.i = getelementptr inbounds i8, ptr %1, i64 -20
-  %9 = load i8, ptr %mbThrowOnCopy.i.i, align 1
+  %9 = load i8, ptr %mbThrowOnCopy.i.i, align 4
   %frombool.i.i.i = and i8 %9, 1
-  %10 = load i8, ptr %mbThrowOnCopy4.i.i, align 1
+  %10 = load i8, ptr %mbThrowOnCopy4.i.i, align 4
   %frombool3.i.i.i = and i8 %10, 1
-  store i8 %frombool3.i.i.i, ptr %mbThrowOnCopy.i.i, align 1
-  store i8 %frombool.i.i.i, ptr %mbThrowOnCopy4.i.i, align 1
+  store i8 %frombool3.i.i.i, ptr %mbThrowOnCopy.i.i, align 4
+  store i8 %frombool.i.i.i, ptr %mbThrowOnCopy4.i.i, align 4
   %.pre.i = load ptr, ptr %mpEnd.i, align 8
   br label %_ZN10TestObjectaSEOS_.exit.i
 
@@ -13924,12 +13924,12 @@ if.then.i:                                        ; preds = %entry
   store i32 %4, ptr %mMagicValue3.i, align 4
   %mbThrowOnCopy.i = getelementptr inbounds nuw i8, ptr %position, i64 4
   %mbThrowOnCopy4.i = getelementptr inbounds i8, ptr %0, i64 -20
-  %6 = load i8, ptr %mbThrowOnCopy.i, align 1
+  %6 = load i8, ptr %mbThrowOnCopy.i, align 4
   %frombool.i.i = and i8 %6, 1
-  %7 = load i8, ptr %mbThrowOnCopy4.i, align 1
+  %7 = load i8, ptr %mbThrowOnCopy4.i, align 4
   %frombool3.i.i = and i8 %7, 1
-  store i8 %frombool3.i.i, ptr %mbThrowOnCopy.i, align 1
-  store i8 %frombool.i.i, ptr %mbThrowOnCopy4.i, align 1
+  store i8 %frombool3.i.i, ptr %mbThrowOnCopy.i, align 4
+  store i8 %frombool.i.i, ptr %mbThrowOnCopy4.i, align 4
   %.pre = load ptr, ptr %mpEnd, align 8
   br label %_ZN10TestObjectaSEOS_.exit
 
@@ -14023,12 +14023,12 @@ _ZN10TestObjectaSEOS_.exit.i.i.i.i.i.i:           ; preds = %_ZN10TestObjectaSEO
   store i32 %8, ptr %mMagicValue3.i.i.i.i.i.i.i, align 4, !noalias !117
   %mbThrowOnCopy.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %result.addr.08.i.i.i.i.i.i, i64 4
   %mbThrowOnCopy4.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %first.addr.07.i.i.i.i.i.i, i64 4
-  %10 = load i8, ptr %mbThrowOnCopy.i.i.i.i.i.i.i, align 1, !noalias !117
+  %10 = load i8, ptr %mbThrowOnCopy.i.i.i.i.i.i.i, align 4, !noalias !117
   %frombool.i.i.i.i.i.i.i.i = and i8 %10, 1
-  %11 = load i8, ptr %mbThrowOnCopy4.i.i.i.i.i.i.i, align 1, !noalias !117
+  %11 = load i8, ptr %mbThrowOnCopy4.i.i.i.i.i.i.i, align 4, !noalias !117
   %frombool3.i.i.i.i.i.i.i.i = and i8 %11, 1
-  store i8 %frombool3.i.i.i.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i.i.i, align 1, !noalias !117
-  store i8 %frombool.i.i.i.i.i.i.i.i, ptr %mbThrowOnCopy4.i.i.i.i.i.i.i, align 1, !noalias !117
+  store i8 %frombool3.i.i.i.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i.i.i, align 4, !noalias !117
+  store i8 %frombool.i.i.i.i.i.i.i.i, ptr %mbThrowOnCopy4.i.i.i.i.i.i.i, align 4, !noalias !117
   %dec.i.i.i.i.i.i = add nsw i64 %n.09.i.i.i.i.i.i, -1
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %first.addr.07.i.i.i.i.i.i, i64 24
   %incdec.ptr2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %result.addr.08.i.i.i.i.i.i, i64 24
@@ -14111,12 +14111,12 @@ _ZN10TestObjectaSEOS_.exit.i.i.i.i.i:             ; preds = %_ZN10TestObjectaSEO
   store i32 %5, ptr %mMagicValue3.i.i.i.i.i.i, align 4
   %mbThrowOnCopy.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %result.addr.08.i.i.i.i.i, i64 4
   %mbThrowOnCopy4.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %first.addr.07.i.i.i.i.i, i64 4
-  %7 = load i8, ptr %mbThrowOnCopy.i.i.i.i.i.i, align 1
+  %7 = load i8, ptr %mbThrowOnCopy.i.i.i.i.i.i, align 4
   %frombool.i.i.i.i.i.i.i = and i8 %7, 1
-  %8 = load i8, ptr %mbThrowOnCopy4.i.i.i.i.i.i, align 1
+  %8 = load i8, ptr %mbThrowOnCopy4.i.i.i.i.i.i, align 4
   %frombool3.i.i.i.i.i.i.i = and i8 %8, 1
-  store i8 %frombool3.i.i.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i.i, align 1
-  store i8 %frombool.i.i.i.i.i.i.i, ptr %mbThrowOnCopy4.i.i.i.i.i.i, align 1
+  store i8 %frombool3.i.i.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i.i, align 4
+  store i8 %frombool.i.i.i.i.i.i.i, ptr %mbThrowOnCopy4.i.i.i.i.i.i, align 4
   %dec.i.i.i.i.i = add nsw i64 %n.09.i.i.i.i.i, -1
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %first.addr.07.i.i.i.i.i, i64 24
   %incdec.ptr2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %result.addr.08.i.i.i.i.i, i64 24
@@ -14205,12 +14205,12 @@ if.then.i.i.i:                                    ; preds = %if.then
   store i32 %8, ptr %mMagicValue3.i.i.i, align 4, !noalias !129
   %mbThrowOnCopy.i.i.i = getelementptr inbounds i8, ptr %.lcssa.i, i64 -20
   %mbThrowOnCopy4.i.i.i = getelementptr inbounds i8, ptr %0, i64 -20
-  %10 = load i8, ptr %mbThrowOnCopy.i.i.i, align 1, !noalias !129
+  %10 = load i8, ptr %mbThrowOnCopy.i.i.i, align 4, !noalias !129
   %frombool.i.i.i.i = and i8 %10, 1
-  %11 = load i8, ptr %mbThrowOnCopy4.i.i.i, align 1, !noalias !129
+  %11 = load i8, ptr %mbThrowOnCopy4.i.i.i, align 4, !noalias !129
   %frombool3.i.i.i.i = and i8 %11, 1
-  store i8 %frombool3.i.i.i.i, ptr %mbThrowOnCopy.i.i.i, align 1, !noalias !129
-  store i8 %frombool.i.i.i.i, ptr %mbThrowOnCopy4.i.i.i, align 1, !noalias !129
+  store i8 %frombool3.i.i.i.i, ptr %mbThrowOnCopy.i.i.i, align 4, !noalias !129
+  store i8 %frombool.i.i.i.i, ptr %mbThrowOnCopy4.i.i.i, align 4, !noalias !129
   %.pre.i.i = load ptr, ptr %mpEnd.i, align 8, !noalias !129
   br label %_ZN10TestObjectaSEOS_.exit.i.i
 
@@ -14273,12 +14273,12 @@ if.then.i.i:                                      ; preds = %entry
   store i32 %5, ptr %mMagicValue3.i.i, align 4
   %mbThrowOnCopy.i.i = getelementptr inbounds i8, ptr %0, i64 -20
   %mbThrowOnCopy4.i.i = getelementptr inbounds i8, ptr %1, i64 -20
-  %7 = load i8, ptr %mbThrowOnCopy.i.i, align 1
+  %7 = load i8, ptr %mbThrowOnCopy.i.i, align 4
   %frombool.i.i.i = and i8 %7, 1
-  %8 = load i8, ptr %mbThrowOnCopy4.i.i, align 1
+  %8 = load i8, ptr %mbThrowOnCopy4.i.i, align 4
   %frombool3.i.i.i = and i8 %8, 1
-  store i8 %frombool3.i.i.i, ptr %mbThrowOnCopy.i.i, align 1
-  store i8 %frombool.i.i.i, ptr %mbThrowOnCopy4.i.i, align 1
+  store i8 %frombool3.i.i.i, ptr %mbThrowOnCopy.i.i, align 4
+  store i8 %frombool.i.i.i, ptr %mbThrowOnCopy4.i.i, align 4
   %.pre.i = load ptr, ptr %mpEnd.i, align 8
   br label %_ZN10TestObjectaSEOS_.exit.i
 
@@ -14352,12 +14352,12 @@ if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i
   store i32 %4, ptr %mMagicValue3.i.i.i.i.i, align 4
   %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %result.addr.08.i.i.i.i, i64 4
   %mbThrowOnCopy4.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %first.addr.07.i.i.i.i, i64 4
-  %6 = load i8, ptr %mbThrowOnCopy.i.i.i.i.i, align 1
+  %6 = load i8, ptr %mbThrowOnCopy.i.i.i.i.i, align 4
   %frombool.i.i.i.i.i.i = and i8 %6, 1
-  %7 = load i8, ptr %mbThrowOnCopy4.i.i.i.i.i, align 1
+  %7 = load i8, ptr %mbThrowOnCopy4.i.i.i.i.i, align 4
   %frombool3.i.i.i.i.i.i = and i8 %7, 1
-  store i8 %frombool3.i.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 1
-  store i8 %frombool.i.i.i.i.i.i, ptr %mbThrowOnCopy4.i.i.i.i.i, align 1
+  store i8 %frombool3.i.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 4
+  store i8 %frombool.i.i.i.i.i.i, ptr %mbThrowOnCopy4.i.i.i.i.i, align 4
   %.pre.i.i.i.i = load i64, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   br label %_ZN10TestObjectaSEOS_.exit.i.i.i.i
 
@@ -14473,12 +14473,12 @@ if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i
   store i32 %6, ptr %mMagicValue3.i.i.i.i.i.i, align 4
   %mbThrowOnCopy.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %result.addr.08.i.i.i.i.i, i64 4
   %mbThrowOnCopy4.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %first.addr.07.i.i.i.i.i, i64 4
-  %8 = load i8, ptr %mbThrowOnCopy.i.i.i.i.i.i, align 1
+  %8 = load i8, ptr %mbThrowOnCopy.i.i.i.i.i.i, align 4
   %frombool.i.i.i.i.i.i.i = and i8 %8, 1
-  %9 = load i8, ptr %mbThrowOnCopy4.i.i.i.i.i.i, align 1
+  %9 = load i8, ptr %mbThrowOnCopy4.i.i.i.i.i.i, align 4
   %frombool3.i.i.i.i.i.i.i = and i8 %9, 1
-  store i8 %frombool3.i.i.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i.i, align 1
-  store i8 %frombool.i.i.i.i.i.i.i, ptr %mbThrowOnCopy4.i.i.i.i.i.i, align 1
+  store i8 %frombool3.i.i.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i.i, align 4
+  store i8 %frombool.i.i.i.i.i.i.i, ptr %mbThrowOnCopy4.i.i.i.i.i.i, align 4
   %.pre.i.i.i.i.i = load i64, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   br label %_ZN10TestObjectaSEOS_.exit.i.i.i.i.i
 
@@ -22491,7 +22491,7 @@ for.body915:                                      ; preds = %for.cond913.prehead
   %760 = load i32, ptr %mMagicValue.i2130, align 4
   store i32 32623592, ptr %mMagicValue.i2130, align 4
   %mbThrowOnCopy.i2131 = getelementptr inbounds nuw i8, ptr %add.ptr.i2126, i64 4
-  store i8 0, ptr %mbThrowOnCopy.i2131, align 1
+  store i8 0, ptr %mbThrowOnCopy.i2131, align 4
   %cmp.not.i2134 = icmp eq i32 %760, 32623592
   br i1 %cmp.not.i2134, label %_ZN10TestObjectD2Ev.exit2139, label %if.then.i2135
 
@@ -22561,12 +22561,12 @@ _ZN10TestObjectaSEOS_.exit.i.i.i.i.i:             ; preds = %_ZN10TestObjectaSEO
   store i32 %771, ptr %mMagicValue3.i.i.i.i.i.i, align 4
   %mbThrowOnCopy.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %result.addr.08.i.i.i.i.i, i64 4
   %mbThrowOnCopy4.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %first.addr.07.i.i.i.i.i, i64 4
-  %773 = load i8, ptr %mbThrowOnCopy.i.i.i.i.i.i, align 1
+  %773 = load i8, ptr %mbThrowOnCopy.i.i.i.i.i.i, align 4
   %frombool.i.i.i.i.i.i.i = and i8 %773, 1
-  %774 = load i8, ptr %mbThrowOnCopy4.i.i.i.i.i.i, align 1
+  %774 = load i8, ptr %mbThrowOnCopy4.i.i.i.i.i.i, align 4
   %frombool3.i.i.i.i.i.i.i = and i8 %774, 1
-  store i8 %frombool3.i.i.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i.i, align 1
-  store i8 %frombool.i.i.i.i.i.i.i, ptr %mbThrowOnCopy4.i.i.i.i.i.i, align 1
+  store i8 %frombool3.i.i.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i.i, align 4
+  store i8 %frombool.i.i.i.i.i.i.i, ptr %mbThrowOnCopy4.i.i.i.i.i.i, align 4
   %dec.i.i.i.i.i2158 = add nsw i64 %n.09.i.i.i.i.i, -1
   %incdec.ptr.i.i.i.i.i2159 = getelementptr inbounds nuw i8, ptr %first.addr.07.i.i.i.i.i, i64 24
   %incdec.ptr2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %result.addr.08.i.i.i.i.i, i64 24
@@ -22677,12 +22677,12 @@ _ZN10TestObjectaSEOS_.exit.i.i.i.i.i2237:         ; preds = %_ZN10TestObjectaSEO
   store i32 %797, ptr %mMagicValue3.i.i.i.i.i.i2232, align 4
   %mbThrowOnCopy.i.i.i.i.i.i2233 = getelementptr inbounds nuw i8, ptr %result.addr.08.i.i.i.i.i2226, i64 4
   %mbThrowOnCopy4.i.i.i.i.i.i2234 = getelementptr inbounds nuw i8, ptr %first.addr.07.i.i.i.i.i2227, i64 4
-  %799 = load i8, ptr %mbThrowOnCopy.i.i.i.i.i.i2233, align 1
+  %799 = load i8, ptr %mbThrowOnCopy.i.i.i.i.i.i2233, align 4
   %frombool.i.i.i.i.i.i.i2235 = and i8 %799, 1
-  %800 = load i8, ptr %mbThrowOnCopy4.i.i.i.i.i.i2234, align 1
+  %800 = load i8, ptr %mbThrowOnCopy4.i.i.i.i.i.i2234, align 4
   %frombool3.i.i.i.i.i.i.i2236 = and i8 %800, 1
-  store i8 %frombool3.i.i.i.i.i.i.i2236, ptr %mbThrowOnCopy.i.i.i.i.i.i2233, align 1
-  store i8 %frombool.i.i.i.i.i.i.i2235, ptr %mbThrowOnCopy4.i.i.i.i.i.i2234, align 1
+  store i8 %frombool3.i.i.i.i.i.i.i2236, ptr %mbThrowOnCopy.i.i.i.i.i.i2233, align 4
+  store i8 %frombool.i.i.i.i.i.i.i2235, ptr %mbThrowOnCopy4.i.i.i.i.i.i2234, align 4
   %dec.i.i.i.i.i2238 = add nsw i64 %n.09.i.i.i.i.i2225, -1
   %incdec.ptr.i.i.i.i.i2239 = getelementptr inbounds nuw i8, ptr %first.addr.07.i.i.i.i.i2227, i64 24
   %incdec.ptr2.i.i.i.i.i2240 = getelementptr inbounds nuw i8, ptr %result.addr.08.i.i.i.i.i2226, i64 24
@@ -36046,12 +36046,12 @@ _ZN10TestObjectaSEOS_.exit.i.i.i.i:               ; preds = %_ZN10TestObjectaSEO
   store i32 %19, ptr %mMagicValue3.i.i.i.i.i, align 4
   %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %resultEnd.addr.06.i.i.i.i, i64 -20
   %mbThrowOnCopy4.i.i.i.i.i = getelementptr inbounds i8, ptr %last.addr.05.i.i.i.i, i64 -20
-  %21 = load i8, ptr %mbThrowOnCopy.i.i.i.i.i, align 1
+  %21 = load i8, ptr %mbThrowOnCopy.i.i.i.i.i, align 4
   %frombool.i.i.i.i.i.i = and i8 %21, 1
-  %22 = load i8, ptr %mbThrowOnCopy4.i.i.i.i.i, align 1
+  %22 = load i8, ptr %mbThrowOnCopy4.i.i.i.i.i, align 4
   %frombool3.i.i.i.i.i.i = and i8 %22, 1
-  store i8 %frombool3.i.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 1
-  store i8 %frombool.i.i.i.i.i.i, ptr %mbThrowOnCopy4.i.i.i.i.i, align 1
+  store i8 %frombool3.i.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 4
+  store i8 %frombool.i.i.i.i.i.i, ptr %mbThrowOnCopy4.i.i.i.i.i, align 4
   %dec.i.i.i.i = add nsw i64 %n.07.i.i.i.i, -1
   %cmp.i.i.i.i = icmp samesign ugt i64 %n.07.i.i.i.i, 1
   br i1 %cmp.i.i.i.i, label %_ZN10TestObjectaSEOS_.exit.i.i.i.i, label %invoke.cont9, !llvm.loop !104
@@ -36395,12 +36395,12 @@ if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i
   store i32 %12, ptr %mMagicValue3.i.i.i.i.i, align 4
   %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %resultEnd.addr.06.i.i.i.i, i64 -20
   %mbThrowOnCopy4.i.i.i.i.i = getelementptr inbounds i8, ptr %last.addr.05.i.i.i.i, i64 -20
-  %14 = load i8, ptr %mbThrowOnCopy.i.i.i.i.i, align 1
+  %14 = load i8, ptr %mbThrowOnCopy.i.i.i.i.i, align 4
   %frombool.i.i.i.i.i.i = and i8 %14, 1
-  %15 = load i8, ptr %mbThrowOnCopy4.i.i.i.i.i, align 1
+  %15 = load i8, ptr %mbThrowOnCopy4.i.i.i.i.i, align 4
   %frombool3.i.i.i.i.i.i = and i8 %15, 1
-  store i8 %frombool3.i.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 1
-  store i8 %frombool.i.i.i.i.i.i, ptr %mbThrowOnCopy4.i.i.i.i.i, align 1
+  store i8 %frombool3.i.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 4
+  store i8 %frombool.i.i.i.i.i.i, ptr %mbThrowOnCopy4.i.i.i.i.i, align 4
   %.pre.i.i.i.i = load i64, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   br label %_ZN10TestObjectaSEOS_.exit.i.i.i.i
 
@@ -38649,12 +38649,12 @@ _ZN10TestObjectaSEOS_.exit.i.i.i.i:               ; preds = %_ZN10TestObjectaSEO
   store i32 %18, ptr %mMagicValue3.i.i.i.i.i, align 4
   %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %resultEnd.addr.06.i.i.i.i, i64 -20
   %mbThrowOnCopy4.i.i.i.i.i = getelementptr inbounds i8, ptr %last.addr.05.i.i.i.i, i64 -20
-  %20 = load i8, ptr %mbThrowOnCopy.i.i.i.i.i, align 1
+  %20 = load i8, ptr %mbThrowOnCopy.i.i.i.i.i, align 4
   %frombool.i.i.i.i.i.i = and i8 %20, 1
-  %21 = load i8, ptr %mbThrowOnCopy4.i.i.i.i.i, align 1
+  %21 = load i8, ptr %mbThrowOnCopy4.i.i.i.i.i, align 4
   %frombool3.i.i.i.i.i.i = and i8 %21, 1
-  store i8 %frombool3.i.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 1
-  store i8 %frombool.i.i.i.i.i.i, ptr %mbThrowOnCopy4.i.i.i.i.i, align 1
+  store i8 %frombool3.i.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 4
+  store i8 %frombool.i.i.i.i.i.i, ptr %mbThrowOnCopy4.i.i.i.i.i, align 4
   %dec.i.i.i.i = add nsw i64 %n.07.i.i.i.i, -1
   %cmp.i.i.i.i = icmp samesign ugt i64 %n.07.i.i.i.i, 1
   br i1 %cmp.i.i.i.i, label %_ZN10TestObjectaSEOS_.exit.i.i.i.i, label %invoke.cont15, !llvm.loop !104
@@ -39324,12 +39324,12 @@ if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i
   store i32 %12, ptr %mMagicValue3.i.i.i.i.i, align 4
   %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %resultEnd.addr.06.i.i.i.i, i64 -20
   %mbThrowOnCopy4.i.i.i.i.i = getelementptr inbounds i8, ptr %last.addr.05.i.i.i.i, i64 -20
-  %14 = load i8, ptr %mbThrowOnCopy.i.i.i.i.i, align 1
+  %14 = load i8, ptr %mbThrowOnCopy.i.i.i.i.i, align 4
   %frombool.i.i.i.i.i.i = and i8 %14, 1
-  %15 = load i8, ptr %mbThrowOnCopy4.i.i.i.i.i, align 1
+  %15 = load i8, ptr %mbThrowOnCopy4.i.i.i.i.i, align 4
   %frombool3.i.i.i.i.i.i = and i8 %15, 1
-  store i8 %frombool3.i.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 1
-  store i8 %frombool.i.i.i.i.i.i, ptr %mbThrowOnCopy4.i.i.i.i.i, align 1
+  store i8 %frombool3.i.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 4
+  store i8 %frombool.i.i.i.i.i.i, ptr %mbThrowOnCopy4.i.i.i.i.i, align 4
   %.pre.i.i.i.i = load i64, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   br label %_ZN10TestObjectaSEOS_.exit.i.i.i.i
 
@@ -40617,12 +40617,12 @@ if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i
   store i32 %16, ptr %mMagicValue3.i.i.i.i.i, align 4
   %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %resultEnd.addr.06.i.i.i.i, i64 -20
   %mbThrowOnCopy4.i.i.i.i.i = getelementptr inbounds i8, ptr %last.addr.05.i.i.i.i, i64 -20
-  %18 = load i8, ptr %mbThrowOnCopy.i.i.i.i.i, align 1
+  %18 = load i8, ptr %mbThrowOnCopy.i.i.i.i.i, align 4
   %frombool.i.i.i.i.i.i = and i8 %18, 1
-  %19 = load i8, ptr %mbThrowOnCopy4.i.i.i.i.i, align 1
+  %19 = load i8, ptr %mbThrowOnCopy4.i.i.i.i.i, align 4
   %frombool3.i.i.i.i.i.i = and i8 %19, 1
-  store i8 %frombool3.i.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 1
-  store i8 %frombool.i.i.i.i.i.i, ptr %mbThrowOnCopy4.i.i.i.i.i, align 1
+  store i8 %frombool3.i.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 4
+  store i8 %frombool.i.i.i.i.i.i, ptr %mbThrowOnCopy4.i.i.i.i.i, align 4
   %.pre.i.i.i.i = load i64, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   br label %_ZN10TestObjectaSEOS_.exit.i.i.i.i
 

@@ -5176,7 +5176,7 @@ _ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt10shared_ptrIN9grpc_co
   store ptr %96, ptr %95, align 8, !tbaa !45, !noalias !122
   %97 = getelementptr inbounds nuw i8, ptr %12, i64 536
   store i64 0, ptr %97, align 8, !tbaa !24, !noalias !122
-  store i8 0, ptr %96, align 1, !tbaa !36, !noalias !122
+  store i8 0, ptr %96, align 8, !tbaa !36, !noalias !122
   %98 = invoke { i64, i8 } @_ZNK9grpc_core11ChannelArgs24GetDurationFromIntMillisESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %67, i64 31, ptr nonnull @.str.20)
           to label %99 unwind label %164, !noalias !122
 
@@ -11995,7 +11995,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
   store i64 %38, ptr %40, align 8, !tbaa !24
   store ptr %30, ptr %27, align 8, !tbaa !19
   store i64 0, ptr %39, align 8, !tbaa !24
-  store i8 0, ptr %30, align 1, !tbaa !36
+  store i8 0, ptr %30, align 8, !tbaa !36
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 80
   call void @_ZN9grpc_core11ChannelArgsC1EOS0_(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull align 8 dereferenceable(8) %42) #42
@@ -22802,7 +22802,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !24, !alias.scope !740, !noalias !743
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !19, !alias.scope !743, !noalias !740
   store i64 0, ptr %48, align 8, !tbaa !24, !alias.scope !743, !noalias !740
-  store i8 0, ptr %39, align 1, !tbaa !36, !alias.scope !743, !noalias !740
+  store i8 0, ptr %39, align 8, !tbaa !36, !alias.scope !743, !noalias !740
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -22850,7 +22850,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !24, !alias.scope !747, !noalias !750
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !19, !alias.scope !750, !noalias !747
   store i64 0, ptr %64, align 8, !tbaa !24, !alias.scope !750, !noalias !747
-  store i8 0, ptr %55, align 1, !tbaa !36, !alias.scope !750, !noalias !747
+  store i8 0, ptr %55, align 8, !tbaa !36, !alias.scope !750, !noalias !747
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5
@@ -25585,7 +25585,7 @@ define linkonce_odr void @_ZZN9grpc_core14filters_detail9AddOpImplINS_25ClientLo
   %12 = load ptr, ptr %11, align 8, !tbaa !864
   tail call void @_ZN9grpc_core25ClientLoadReportingFilter4Call23OnClientInitialMetadataER19grpc_metadata_batch(ptr noundef nonnull align 8 dereferenceable(9) %3, ptr noundef nonnull align 8 dereferenceable(600) %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %13 = load i8, ptr %5, align 1, !tbaa !94
+  %13 = load i8, ptr %5, align 8, !tbaa !94
   store i8 %13, ptr %9, align 8, !tbaa !94
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %15 = load i64, ptr %11, align 8, !tbaa !864
@@ -26344,7 +26344,7 @@ define linkonce_odr void @_ZZN9grpc_core14filters_detail9AddOpImplINS_25ClientLo
   %12 = load ptr, ptr %11, align 8, !tbaa !864
   tail call void @_ZN9grpc_core25ClientLoadReportingFilter4Call23OnServerInitialMetadataER19grpc_metadata_batch(ptr noundef nonnull align 8 dereferenceable(9) %3, ptr noundef nonnull align 8 dereferenceable(600) %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %13 = load i8, ptr %5, align 1, !tbaa !94
+  %13 = load i8, ptr %5, align 8, !tbaa !94
   store i8 %13, ptr %9, align 8, !tbaa !94
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %15 = load i64, ptr %11, align 8, !tbaa !864
@@ -26407,7 +26407,7 @@ define linkonce_odr void @_ZZN9grpc_core14filters_detail25AddServerTrailingMetad
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !864, !noalias !876
   tail call void @_ZN9grpc_core25ClientLoadReportingFilter4Call24OnServerTrailingMetadataER19grpc_metadata_batch(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull align 8 dereferenceable(600) %6), !noalias !876
-  %7 = load i8, ptr %3, align 1, !tbaa !94, !noalias !876
+  %7 = load i8, ptr %3, align 8, !tbaa !94, !noalias !876
   store i8 %7, ptr %0, align 8, !tbaa !94, !alias.scope !876
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %5, align 8, !tbaa !864, !noalias !876

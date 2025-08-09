@@ -1101,7 +1101,7 @@ define i32 @Sbm_AddCardinConstrPairWise(ptr noundef %0, ptr noundef readonly cap
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %17, ptr %18, align 4, !tbaa !23
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %20 = load i32, ptr %19, align 4, !tbaa !23
+  %20 = load i32, ptr %19, align 8, !tbaa !23
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load i32, ptr %21, align 8, !tbaa !64
   %23 = shl i32 %20, %22
@@ -1275,7 +1275,7 @@ Vec_IntStartNatural.exit:                         ; preds = %.lr.ph.i, %2
   %33 = getelementptr inbounds nuw i8, ptr %21, i64 36
   store i32 %32, ptr %33, align 4, !tbaa !23
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 40
-  %35 = load i32, ptr %34, align 4, !tbaa !23
+  %35 = load i32, ptr %34, align 8, !tbaa !23
   %36 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %37 = load i32, ptr %36, align 8, !tbaa !64
   %38 = shl i32 %35, %37

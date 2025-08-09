@@ -2639,9 +2639,9 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__intel_pstate_cpu_init(pt
   %41 = load i32, ptr %32, align 8
   %42 = tail call i32 %40(i32 noundef %41) #26
   %43 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  store i32 %42, ptr %43, align 4
+  store i32 %42, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %32, i64 32
-  store i32 %37, ptr %44, align 4
+  store i32 %37, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %32, i64 36
   store i32 %39, ptr %45, align 4
   %46 = load i32, ptr @hwp_active, align 4
@@ -2676,7 +2676,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__intel_pstate_cpu_init(pt
   %65 = load i32, ptr %32, align 8
   %66 = call i32 %62(i32 noundef %65) #26, !callees !59
   %67 = getelementptr inbounds nuw i8, ptr %32, i64 40
-  store i32 %66, ptr %67, align 4
+  store i32 %66, ptr %67, align 8
   %68 = icmp eq i32 %66, %39
   br i1 %68, label %.thread, label %69
 
@@ -2686,13 +2686,13 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__intel_pstate_cpu_init(pt
   %72 = load ptr, ptr @pstate_funcs.3, align 8
   %73 = load i32, ptr %32, align 8
   %74 = call i32 %72(i32 noundef %73) #26
-  %75 = load i32, ptr %67, align 4
+  %75 = load i32, ptr %67, align 8
   %76 = load i32, ptr %61, align 4
   %77 = mul i32 %76, %75
   %78 = srem i32 %77, %71
   %79 = sub i32 %77, %78
   %80 = getelementptr inbounds nuw i8, ptr %32, i64 56
-  store i32 %79, ptr %80, align 4
+  store i32 %79, ptr %80, align 8
   %81 = load i32, ptr %59, align 4
   %82 = mul i32 %81, %75
   %83 = srem i32 %82, %71
@@ -2756,7 +2756,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__intel_pstate_cpu_init(pt
   %118 = tail call i32 %116(i32 noundef %117) #26
   %119 = getelementptr inbounds nuw i8, ptr %32, i64 44
   store i32 %118, ptr %119, align 4
-  %.pre = load i32, ptr %111, align 4
+  %.pre = load i32, ptr %111, align 8
   br label %121
 
 .thread:                                          ; preds = %108, %64
@@ -2870,7 +2870,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__intel_pstate_cpu_init(pt
   %187 = getelementptr inbounds nuw i8, ptr %185, i64 176
   store i32 0, ptr %187, align 8
   %188 = getelementptr inbounds nuw i8, ptr %185, i64 48
-  %189 = load i32, ptr %188, align 4
+  %189 = load i32, ptr %188, align 8
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %189, ptr %191, align 4
@@ -3222,7 +3222,7 @@ define internal void @intel_pstate_notify_work(ptr noundef %0) #0 align 16 {
   store i32 %20, ptr %21, align 4
   %22 = mul i32 %18, %9
   %23 = getelementptr i8, ptr %0, i64 -296
-  store i32 %22, ptr %23, align 4
+  store i32 %22, ptr %23, align 8
   %24 = getelementptr i8, ptr %0, i64 -316
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %9, %25
@@ -3348,7 +3348,7 @@ define internal fastcc void @intel_pstate_verify_cpu_policy(ptr noundef %0, ptr 
   store i32 %29, ptr %30, align 4
   %31 = mul i32 %27, %18
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %31, ptr %32, align 4
+  store i32 %31, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %34 = load i32, ptr %33, align 4
   %35 = icmp eq i32 %18, %34
@@ -3825,10 +3825,10 @@ define internal void @intel_pstate_update_util(ptr noundef %0, i64 noundef %1, i
   %81 = lshr i64 %80, 8
   %82 = trunc i64 %81 to i32
   %83 = getelementptr i8, ptr %0, i64 16
-  %84 = load i32, ptr %83, align 4
+  %84 = load i32, ptr %83, align 8
   %85 = tail call i32 @llvm.smax.i32(i32 %84, i32 %82)
   %86 = getelementptr i8, ptr %0, i64 24
-  %87 = load i32, ptr %86, align 4
+  %87 = load i32, ptr %86, align 8
   %88 = sext i32 %87 to i64
   %89 = getelementptr i8, ptr %0, i64 128
   %90 = load i32, ptr %89, align 8
@@ -3851,7 +3851,7 @@ define internal void @intel_pstate_update_util(ptr noundef %0, i64 noundef %1, i
   %107 = select i1 %106, i32 %99, i32 %104
   %108 = tail call i32 @llvm.smax.i32(i32 %107, i32 %102)
   %109 = getelementptr i8, ptr %0, i64 32
-  %110 = load i32, ptr %109, align 4
+  %110 = load i32, ptr %109, align 8
   %111 = mul i32 %108, %110
   %112 = load i32, ptr %4, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_cpu_frequency, i64 8), i32 2) #26
@@ -4327,7 +4327,7 @@ define internal range(i32 -2147483648, 1) i32 @intel_cpufreq_cpu_init(ptr nounde
   store i32 %43, ptr %44, align 4
   %45 = mul i32 %41, %32
   %46 = getelementptr inbounds nuw i8, ptr %26, i64 56
-  store i32 %45, ptr %46, align 4
+  store i32 %45, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %26, i64 36
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %32, %48
@@ -6101,7 +6101,7 @@ define internal fastcc void @update_qos_request(i32 noundef range(i32 1, 3) %0) 
   store i32 %42, ptr %43, align 4
   %44 = mul i32 %40, %31
   %45 = getelementptr inbounds nuw i8, ptr %19, i64 56
-  store i32 %44, ptr %45, align 4
+  store i32 %44, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %19, i64 36
   %47 = load i32, ptr %46, align 4
   %48 = icmp eq i32 %31, %47

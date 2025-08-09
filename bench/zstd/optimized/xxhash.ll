@@ -234,7 +234,7 @@ define noundef i32 @ZSTD_XXH32_update(ptr noundef captures(none) %0, ptr noundef
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr nonnull readonly align 1 %1, i64 %34, i1 false)
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load i32, ptr %35, align 4, !tbaa !3
-  %.val87 = load i32, ptr %31, align 1, !tbaa !3
+  %.val87 = load i32, ptr %31, align 4, !tbaa !3
   %37 = mul i32 %.val87, -2048144777
   %38 = add i32 %37, %36
   %39 = tail call i32 @llvm.fshl.i32(i32 %38, i32 %38, i32 13)
@@ -243,7 +243,7 @@ define noundef i32 @ZSTD_XXH32_update(ptr noundef captures(none) %0, ptr noundef
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %43 = load i32, ptr %42, align 4, !tbaa !3
-  %.val86 = load i32, ptr %41, align 1, !tbaa !3
+  %.val86 = load i32, ptr %41, align 4, !tbaa !3
   %44 = mul i32 %.val86, -2048144777
   %45 = add i32 %44, %43
   %46 = tail call i32 @llvm.fshl.i32(i32 %45, i32 %45, i32 13)
@@ -252,7 +252,7 @@ define noundef i32 @ZSTD_XXH32_update(ptr noundef captures(none) %0, ptr noundef
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %50 = load i32, ptr %49, align 4, !tbaa !3
-  %.val85 = load i32, ptr %48, align 1, !tbaa !3
+  %.val85 = load i32, ptr %48, align 4, !tbaa !3
   %51 = mul i32 %.val85, -2048144777
   %52 = add i32 %51, %50
   %53 = tail call i32 @llvm.fshl.i32(i32 %52, i32 %52, i32 13)
@@ -261,7 +261,7 @@ define noundef i32 @ZSTD_XXH32_update(ptr noundef captures(none) %0, ptr noundef
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %57 = load i32, ptr %56, align 4, !tbaa !3
-  %.val84 = load i32, ptr %55, align 1, !tbaa !3
+  %.val84 = load i32, ptr %55, align 4, !tbaa !3
   %58 = mul i32 %.val84, -2048144777
   %59 = add i32 %58, %57
   %60 = tail call i32 @llvm.fshl.i32(i32 %59, i32 %59, i32 13)
@@ -710,7 +710,7 @@ define noundef i32 @ZSTD_XXH64_update(ptr noundef captures(none) %0, ptr noundef
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull readonly align 1 %1, i64 %27, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !17
-  %.val79 = load i64, ptr %24, align 1, !tbaa !17
+  %.val79 = load i64, ptr %24, align 8, !tbaa !17
   %30 = mul i64 %.val79, -4417276706812531889
   %31 = add i64 %30, %29
   %32 = tail call i64 @llvm.fshl.i64(i64 %31, i64 %31, i64 31)
@@ -719,7 +719,7 @@ define noundef i32 @ZSTD_XXH64_update(ptr noundef captures(none) %0, ptr noundef
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load i64, ptr %34, align 8, !tbaa !17
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.val78 = load i64, ptr %36, align 1, !tbaa !17
+  %.val78 = load i64, ptr %36, align 8, !tbaa !17
   %37 = mul i64 %.val78, -4417276706812531889
   %38 = add i64 %37, %35
   %39 = tail call i64 @llvm.fshl.i64(i64 %38, i64 %38, i64 31)
@@ -728,7 +728,7 @@ define noundef i32 @ZSTD_XXH64_update(ptr noundef captures(none) %0, ptr noundef
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %42 = load i64, ptr %41, align 8, !tbaa !17
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.val77 = load i64, ptr %43, align 1, !tbaa !17
+  %.val77 = load i64, ptr %43, align 8, !tbaa !17
   %44 = mul i64 %.val77, -4417276706812531889
   %45 = add i64 %44, %42
   %46 = tail call i64 @llvm.fshl.i64(i64 %45, i64 %45, i64 31)
@@ -737,7 +737,7 @@ define noundef i32 @ZSTD_XXH64_update(ptr noundef captures(none) %0, ptr noundef
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %49 = load i64, ptr %48, align 8, !tbaa !17
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %.val76 = load i64, ptr %50, align 1, !tbaa !17
+  %.val76 = load i64, ptr %50, align 8, !tbaa !17
   %51 = mul i64 %.val76, -4417276706812531889
   %52 = add i64 %51, %49
   %53 = tail call i64 @llvm.fshl.i64(i64 %52, i64 %52, i64 31)

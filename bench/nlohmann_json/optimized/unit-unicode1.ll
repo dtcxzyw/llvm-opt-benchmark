@@ -12794,7 +12794,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i: ; preds = %.noexc3._ZN
   %35 = load i32, ptr %34, align 8, !tbaa !155
   %36 = and i32 %35, -75
   %37 = or disjoint i32 %36, 8
-  store i32 %37, ptr %34, align 4, !tbaa !156
+  store i32 %37, ptr %34, align 8, !tbaa !156
   %38 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef %1)
           to label %_ZNSolsEm.exit unwind label %83
 
@@ -14637,7 +14637,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %70
   store i64 %76, ptr %78, align 8, !tbaa !25
   store ptr %68, ptr %1, align 8, !tbaa !28
   store i64 0, ptr %77, align 8, !tbaa !25
-  store i8 0, ptr %68, align 1, !tbaa !24
+  store i8 0, ptr %68, align 8, !tbaa !24
   ret void
 
 .loopexit59:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmRKS4_.exit.i
@@ -15906,7 +15906,7 @@ define linkonce_odr dso_local void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonIS
   store ptr %12, ptr %11, align 8, !tbaa !20
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %13, align 8, !tbaa !25
-  store i8 0, ptr %12, align 1, !tbaa !24
+  store i8 0, ptr %12, align 8, !tbaa !24
   store ptr %11, ptr %0, align 8, !tbaa !24
   br label %22
 
@@ -28267,7 +28267,7 @@ define linkonce_odr dso_local { i8, ptr } @_ZN8nlohmann16json_abi_v3_11_36detail
   store ptr %32, ptr %31, align 8, !tbaa !20
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 0, ptr %33, align 8, !tbaa !25
-  store i8 0, ptr %32, align 1, !tbaa !24
+  store i8 0, ptr %32, align 8, !tbaa !24
   store ptr %31, ptr %22, align 8, !tbaa !24
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_valueC2ENS0_6detail7value_tE.exit
 
@@ -35676,7 +35676,7 @@ define linkonce_odr dso_local noundef nonnull ptr @_ZN8nlohmann16json_abi_v3_11_
   store ptr %24, ptr %23, align 8, !tbaa !20
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %25, align 8, !tbaa !25
-  store i8 0, ptr %24, align 1, !tbaa !24
+  store i8 0, ptr %24, align 8, !tbaa !24
   %26 = ptrtoint ptr %23 to i64
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_valueC2ENS0_6detail7value_tE.exit
 
@@ -35793,7 +35793,7 @@ _ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic
   store ptr %79, ptr %78, align 8, !tbaa !20
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store i64 0, ptr %80, align 8, !tbaa !25
-  store i8 0, ptr %79, align 1, !tbaa !24
+  store i8 0, ptr %79, align 8, !tbaa !24
   %81 = ptrtoint ptr %78 to i64
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_valueC2ENS0_6detail7value_tE.exit8
 
@@ -48124,7 +48124,7 @@ define linkonce_odr dso_local { i8, ptr } @_ZN8nlohmann16json_abi_v3_11_36detail
   store ptr %32, ptr %31, align 8, !tbaa !20
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 0, ptr %33, align 8, !tbaa !25
-  store i8 0, ptr %32, align 1, !tbaa !24
+  store i8 0, ptr %32, align 8, !tbaa !24
   store ptr %31, ptr %22, align 8, !tbaa !24
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_valueC2ENS0_6detail7value_tE.exit
 
@@ -50787,7 +50787,7 @@ define linkonce_odr dso_local noundef nonnull ptr @_ZN8nlohmann16json_abi_v3_11_
   store ptr %24, ptr %23, align 8, !tbaa !20
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %25, align 8, !tbaa !25
-  store i8 0, ptr %24, align 1, !tbaa !24
+  store i8 0, ptr %24, align 8, !tbaa !24
   %26 = ptrtoint ptr %23 to i64
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_valueC2ENS0_6detail7value_tE.exit
 
@@ -50904,7 +50904,7 @@ _ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic
   store ptr %79, ptr %78, align 8, !tbaa !20
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store i64 0, ptr %80, align 8, !tbaa !25
-  store i8 0, ptr %79, align 1, !tbaa !24
+  store i8 0, ptr %79, align 8, !tbaa !24
   %81 = ptrtoint ptr %78 to i64
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_valueC2ENS0_6detail7value_tE.exit8
 
@@ -62844,7 +62844,7 @@ define linkonce_odr dso_local { i8, ptr } @_ZN8nlohmann16json_abi_v3_11_36detail
   store ptr %32, ptr %31, align 8, !tbaa !20
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 0, ptr %33, align 8, !tbaa !25
-  store i8 0, ptr %32, align 1, !tbaa !24
+  store i8 0, ptr %32, align 8, !tbaa !24
   store ptr %31, ptr %22, align 8, !tbaa !24
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_valueC2ENS0_6detail7value_tE.exit
 
@@ -65507,7 +65507,7 @@ define linkonce_odr dso_local noundef nonnull ptr @_ZN8nlohmann16json_abi_v3_11_
   store ptr %24, ptr %23, align 8, !tbaa !20
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %25, align 8, !tbaa !25
-  store i8 0, ptr %24, align 1, !tbaa !24
+  store i8 0, ptr %24, align 8, !tbaa !24
   %26 = ptrtoint ptr %23 to i64
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_valueC2ENS0_6detail7value_tE.exit
 
@@ -65624,7 +65624,7 @@ _ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic
   store ptr %79, ptr %78, align 8, !tbaa !20
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store i64 0, ptr %80, align 8, !tbaa !25
-  store i8 0, ptr %79, align 1, !tbaa !24
+  store i8 0, ptr %79, align 8, !tbaa !24
   %81 = ptrtoint ptr %78 to i64
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_valueC2ENS0_6detail7value_tE.exit8
 
@@ -68010,7 +68010,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !tbaa !25, !alias.scope !538, !noalias !541
   store ptr %43, ptr %.0911.i.i.i.i, align 8, !tbaa !28, !alias.scope !541, !noalias !538
   store i64 0, ptr %52, align 8, !tbaa !25, !alias.scope !541, !noalias !538
-  store i8 0, ptr %43, align 1, !tbaa !24, !alias.scope !541, !noalias !538
+  store i8 0, ptr %43, align 8, !tbaa !24, !alias.scope !541, !noalias !538
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %54, %1
@@ -68058,7 +68058,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !tbaa !25, !alias.scope !545, !noalias !548
   store ptr %59, ptr %.0911.i.i.i.i29, align 8, !tbaa !28, !alias.scope !548, !noalias !545
   store i64 0, ptr %68, align 8, !tbaa !25, !alias.scope !548, !noalias !545
-  store i8 0, ptr %59, align 1, !tbaa !24, !alias.scope !548, !noalias !545
+  store i8 0, ptr %59, align 8, !tbaa !24, !alias.scope !548, !noalias !545
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 32
   %.not.i.i.i.i34 = icmp eq ptr %70, %6
@@ -79259,7 +79259,7 @@ define linkonce_odr dso_local { i8, ptr } @_ZN8nlohmann16json_abi_v3_11_36detail
   store ptr %32, ptr %31, align 8, !tbaa !20
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 0, ptr %33, align 8, !tbaa !25
-  store i8 0, ptr %32, align 1, !tbaa !24
+  store i8 0, ptr %32, align 8, !tbaa !24
   store ptr %31, ptr %22, align 8, !tbaa !24
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_valueC2ENS0_6detail7value_tE.exit
 
@@ -81922,7 +81922,7 @@ define linkonce_odr dso_local noundef nonnull ptr @_ZN8nlohmann16json_abi_v3_11_
   store ptr %24, ptr %23, align 8, !tbaa !20
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %25, align 8, !tbaa !25
-  store i8 0, ptr %24, align 1, !tbaa !24
+  store i8 0, ptr %24, align 8, !tbaa !24
   %26 = ptrtoint ptr %23 to i64
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_valueC2ENS0_6detail7value_tE.exit
 
@@ -82039,7 +82039,7 @@ _ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic
   store ptr %79, ptr %78, align 8, !tbaa !20
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store i64 0, ptr %80, align 8, !tbaa !25
-  store i8 0, ptr %79, align 1, !tbaa !24
+  store i8 0, ptr %79, align 8, !tbaa !24
   %81 = ptrtoint ptr %78 to i64
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_valueC2ENS0_6detail7value_tE.exit8
 

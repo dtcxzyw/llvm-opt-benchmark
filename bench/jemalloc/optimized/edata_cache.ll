@@ -83,7 +83,7 @@ malloc_mutex_lock.exit:                           ; preds = %8, %14
   %29 = add i64 %28, -1
   store atomic i64 %29, ptr %27 monotonic, align 8
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store atomic i8 0, ptr %30 monotonic, align 1
+  store atomic i8 0, ptr %30 monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #4
   br label %32
 
@@ -140,7 +140,7 @@ malloc_mutex_lock.exit:                           ; preds = %9, %15
   %21 = add i64 %20, 1
   store atomic i64 %21, ptr %19 monotonic, align 8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store atomic i8 0, ptr %22 monotonic, align 1
+  store atomic i8 0, ptr %22 monotonic, align 8
   %23 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #4
   ret void
 }
@@ -435,7 +435,7 @@ je_edata_cache_put.exit:                          ; preds = %14, %20
   %26 = add i64 %25, 1
   store atomic i64 %26, ptr %24 monotonic, align 8
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  store atomic i8 0, ptr %27 monotonic, align 1
+  store atomic i8 0, ptr %27 monotonic, align 8
   %28 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %9) #4
   br label %48
 

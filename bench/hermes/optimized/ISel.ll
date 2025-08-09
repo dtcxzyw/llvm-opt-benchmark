@@ -1936,7 +1936,7 @@ if.end.i.i40:                                     ; preds = %if.then12.i.i.i.i37
   %22 = load ptr, ptr %it, align 8
   store ptr %22, ptr %call.i.i.i42, align 8
   %second.i.i.i.i43 = getelementptr inbounds nuw i8, ptr %call.i.i.i42, i64 8
-  store i32 0, ptr %second.i.i.i.i43, align 4
+  store i32 0, ptr %second.i.i.i.i43, align 8
   %second.i6.i.i.i44 = getelementptr inbounds nuw i8, ptr %call.i.i.i42, i64 12
   store i32 0, ptr %second.i6.i.i.i44, align 4
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockESt4pairIjjENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_EixERKS4_.exit
@@ -15326,7 +15326,7 @@ if.end.i.i:                                       ; preds = %if.then12.i.i.i.i, 
   %7 = load i32, ptr %id.addr, align 4
   store i32 %7, ptr %call.i.i.i, align 4
   %second.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 4
-  store i8 0, ptr %second.i.i.i.i, align 1
+  store i8 0, ptr %second.i.i.i.i, align 4
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end13.i.i.i.i, %if.end.i.i, %if.end.i.i.i.i
@@ -20813,7 +20813,7 @@ if.end.i.i:                                       ; preds = %if.then12.i.i.i.i, 
   %7 = load i32, ptr %id.addr, align 4
   store i32 %7, ptr %call.i.i.i, align 4
   %second.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 4
-  store i8 0, ptr %second.i.i.i.i, align 1
+  store i8 0, ptr %second.i.i.i.i, align 4
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end13.i.i.i.i, %if.end.i.i, %if.end.i.i.i.i
@@ -23039,7 +23039,7 @@ if.end.i.i.i:                                     ; preds = %if.then12.i.i.i.i.i
   %14 = load ptr, ptr %inst.addr.i, align 8
   store ptr %14, ptr %call.i.i.i.i, align 8
   %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 8
-  store i32 0, ptr %second.i.i.i.i.i, align 4
+  store i32 0, ptr %second.i.i.i.i.i, align 8
   %second.i6.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 0, ptr %second.i6.i.i.i.i, align 4
   br label %_ZN6hermes3hbc23BytecodeModuleGenerator26serializedLiteralOffsetForEPKNS_11InstructionE.exit
@@ -25240,7 +25240,7 @@ if.end.i.i.i:                                     ; preds = %if.then12.i.i.i.i.i
   %14 = load ptr, ptr %inst.addr.i, align 8
   store ptr %14, ptr %call.i.i.i.i, align 8
   %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 8
-  store i32 0, ptr %second.i.i.i.i.i, align 4
+  store i32 0, ptr %second.i.i.i.i.i, align 8
   %second.i6.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 0, ptr %second.i6.i.i.i.i, align 4
   br label %_ZN6hermes3hbc23BytecodeModuleGenerator26serializedLiteralOffsetForEPKNS_11InstructionE.exit
@@ -51454,7 +51454,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPKN6hermes11InstructionESt4pairIjjENS_12Dens
   %second.i.i = getelementptr inbounds nuw i8, ptr %cond.sink.i.i.i, i64 8
   %second.i13.i = getelementptr inbounds nuw i8, ptr %B.020.i, i64 8
   %11 = load i64, ptr %second.i13.i, align 4
-  store i64 %11, ptr %second.i.i, align 4
+  store i64 %11, ptr %second.i.i, align 8
   %12 = load i32, ptr %NumEntries.i.i.i.i, align 8
   %add.i.i = add i32 %12, 1
   store i32 %add.i.i, ptr %NumEntries.i.i.i.i, align 8
@@ -54163,7 +54163,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockESt4pairIjjENS_12DenseM
   %second.i.i = getelementptr inbounds nuw i8, ptr %cond.sink.i.i.i, i64 8
   %second.i13.i = getelementptr inbounds nuw i8, ptr %B.020.i, i64 8
   %11 = load i64, ptr %second.i13.i, align 4
-  store i64 %11, ptr %second.i.i, align 4
+  store i64 %11, ptr %second.i.i, align 8
   %12 = load i32, ptr %NumEntries.i.i.i.i, align 8
   %add.i.i = add i32 %12, 1
   store i32 %add.i.i, ptr %NumEntries.i.i.i.i, align 8
@@ -55501,7 +55501,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIjhNS_12DenseMapInfoIjEENS_6detail12DenseMapP
   %second.i.i = getelementptr inbounds nuw i8, ptr %cond.sink.i.i.i, i64 4
   %second.i13.i = getelementptr inbounds nuw i8, ptr %B.020.i, i64 4
   %11 = load i8, ptr %second.i13.i, align 1
-  store i8 %11, ptr %second.i.i, align 1
+  store i8 %11, ptr %second.i.i, align 4
   %12 = load i32, ptr %NumEntries.i.i.i.i, align 8
   %add.i.i = add i32 %12, 1
   store i32 %add.i.i, ptr %NumEntries.i.i.i.i, align 8

@@ -9308,15 +9308,15 @@ define hidden void @cgltf_node_transform_local(ptr noundef readonly captures(non
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %15 = load float, ptr %14, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %17 = load float, ptr %16, align 4
+  %17 = load float, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %19 = load float, ptr %18, align 4
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %21 = load float, ptr %20, align 4
+  %21 = load float, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %23 = load float, ptr %22, align 4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %25 = load float, ptr %24, align 4
+  %25 = load float, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %27 = load float, ptr %26, align 4
   %28 = fmul float %17, 2.000000e+00
@@ -27604,11 +27604,11 @@ define hidden noalias noundef ptr @par_shapes_create_lsystem(ptr noundef readonl
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 40
   store ptr %18, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  store float 1.000000e+00, ptr %66, align 4
+  store float 1.000000e+00, ptr %66, align 8
   %67 = getelementptr inbounds nuw i8, ptr %63, i64 20
   store float 1.000000e+00, ptr %67, align 4
   %68 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  store float 1.000000e+00, ptr %68, align 4
+  store float 1.000000e+00, ptr %68, align 8
   %69 = add nsw i32 %2, -1
   %70 = add nsw i32 %.0143268, -1
   %71 = zext nneg i32 %70 to i64
@@ -27839,7 +27839,7 @@ par_shapes__pick_rule.exit:                       ; preds = %195, %202
   store i32 0, ptr %205, align 8
   %209 = getelementptr inbounds nuw i8, ptr %205, i64 16
   %210 = load float, ptr %81, align 4
-  store float %210, ptr %209, align 4
+  store float %210, ptr %209, align 8
   %211 = getelementptr inbounds nuw i8, ptr %75, i64 20
   %212 = load float, ptr %211, align 4
   %213 = getelementptr inbounds nuw i8, ptr %205, i64 20
@@ -27847,14 +27847,14 @@ par_shapes__pick_rule.exit:                       ; preds = %195, %202
   %214 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %215 = load float, ptr %214, align 4
   %216 = getelementptr inbounds nuw i8, ptr %205, i64 24
-  store float %215, ptr %216, align 4
+  store float %215, ptr %216, align 8
   %217 = getelementptr inbounds nuw i8, ptr %205, i64 4
   %218 = load float, ptr %80, align 4
   store float %218, ptr %217, align 4
   %219 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %220 = load float, ptr %219, align 4
   %221 = getelementptr inbounds nuw i8, ptr %205, i64 8
-  store float %220, ptr %221, align 4
+  store float %220, ptr %221, align 8
   %222 = getelementptr inbounds nuw i8, ptr %75, i64 12
   %223 = load float, ptr %222, align 4
   %224 = getelementptr inbounds nuw i8, ptr %205, i64 12
@@ -43522,20 +43522,20 @@ BuildPoseFromParentJoints.exit.i:                 ; preds = %1102, %._crit_edge2
   %1115 = load float, ptr %1114, align 4
   store float %1115, ptr %8, align 4
   %1116 = getelementptr inbounds nuw i8, ptr %1107, i64 112
-  %1117 = load float, ptr %1116, align 4
+  %1117 = load float, ptr %1116, align 8
   store float %1117, ptr %861, align 4
   %1118 = getelementptr inbounds nuw i8, ptr %1107, i64 116
   %1119 = load float, ptr %1118, align 4
   store float %1119, ptr %862, align 4
   %1120 = getelementptr inbounds nuw i8, ptr %1107, i64 120
-  %1121 = load float, ptr %1120, align 4
+  %1121 = load float, ptr %1120, align 8
   store float %1121, ptr %863, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %1122 = getelementptr inbounds nuw i8, ptr %1107, i64 124
   %1123 = load float, ptr %1122, align 4
   store float %1123, ptr %9, align 4
   %1124 = getelementptr inbounds nuw i8, ptr %1107, i64 128
-  %1125 = load float, ptr %1124, align 4
+  %1125 = load float, ptr %1124, align 8
   store float %1125, ptr %864, align 4
   %1126 = getelementptr inbounds nuw i8, ptr %1107, i64 132
   %1127 = load float, ptr %1126, align 4

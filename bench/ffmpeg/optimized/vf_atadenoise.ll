@@ -373,7 +373,7 @@ ff_bufqueue_peek.exit92:                          ; preds = %ff_bufqueue_peek.ex
   %137 = getelementptr inbounds nuw i8, ptr %12, i64 9464
   %138 = load ptr, ptr %137, align 8, !tbaa !59
   %139 = getelementptr inbounds nuw i8, ptr %12, i64 120
-  %140 = load i32, ptr %139, align 4, !tbaa !54
+  %140 = load i32, ptr %139, align 8, !tbaa !54
   %141 = getelementptr inbounds nuw i8, ptr %12, i64 124
   %142 = load i32, ptr %141, align 4, !tbaa !54
   %. = tail call i32 @llvm.smin.i32(i32 %140, i32 %142)
@@ -488,11 +488,11 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 124
   store i32 %20, ptr %22, align 4, !tbaa !54
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 120
-  store i32 %20, ptr %23, align 4, !tbaa !54
+  store i32 %20, ptr %23, align 8, !tbaa !54
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %25 = load i32, ptr %24, align 4, !tbaa !51
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  store i32 %25, ptr %26, align 4, !tbaa !54
+  store i32 %25, ptr %26, align 8, !tbaa !54
   store i32 %25, ptr %21, align 4, !tbaa !54
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load i32, ptr %27, align 8, !tbaa !50
@@ -506,11 +506,11 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 108
   store i32 %34, ptr %36, align 4, !tbaa !54
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 104
-  store i32 %34, ptr %37, align 4, !tbaa !54
+  store i32 %34, ptr %37, align 8, !tbaa !54
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = load i32, ptr %38, align 8, !tbaa !50
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  store i32 %39, ptr %40, align 4, !tbaa !54
+  store i32 %39, ptr %40, align 8, !tbaa !54
   store i32 %39, ptr %35, align 4, !tbaa !54
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %42 = load i32, ptr %41, align 8, !tbaa !67

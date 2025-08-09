@@ -29998,7 +29998,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit158.i: ; preds = %3302, %3
   %3338 = getelementptr inbounds nuw i8, ptr %3336, i64 24
   %3339 = load i64, ptr %3338, align 8
   %3340 = icmp eq i64 %3328, %3339
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i.i = load i64, ptr %3337, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i.i = load i64, ptr %3337, align 8
   %3341 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i.i
   %3342 = select i1 %3340, i1 %3341, i1 false
   br i1 %3342, label %.loopexit307.i, label %.lr.ph.i.i.i.i.i.i
@@ -30207,7 +30207,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dC2Ei.exit180.i: ; preds = %_ZN3
   %3422 = getelementptr inbounds nuw i8, ptr %3420, i64 24
   %3423 = load i64, ptr %3422, align 8
   %3424 = icmp eq i64 %3412, %3423
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i184.i = load i64, ptr %3421, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i184.i = load i64, ptr %3421, align 8
   %3425 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i183.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i184.i
   %3426 = select i1 %3424, i1 %3425, i1 false
   br i1 %3426, label %.loopexit303.i, label %.lr.ph.i.i.i.i.i185.i
@@ -60077,7 +60077,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSIbEENSt9enable_ifIXaasr12_TypeInf
   %17 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIbEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %18 = inttoptr i64 %17 to ptr
   store ptr %18, ptr %6, align 8
-  store i8 %16, ptr %1, align 1
+  store i8 %16, ptr %1, align 8
   ret i1 true
 }
 

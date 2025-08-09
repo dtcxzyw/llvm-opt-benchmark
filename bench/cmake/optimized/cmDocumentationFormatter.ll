@@ -1635,7 +1635,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39: ; preds = %_ZN
   %101 = load i32, ptr %100, align 8, !tbaa !105
   %102 = and i32 %101, -177
   %103 = or disjoint i32 %102, 32
-  store i32 %103, ptr %100, align 4, !tbaa !106
+  store i32 %103, ptr %100, align 8, !tbaa !106
   %104 = getelementptr inbounds nuw i8, ptr %.sroa.093.0124, i64 64
   %105 = load i8, ptr %104, align 8, !tbaa !107
   call void @llvm.lifetime.start.p0(ptr nonnull %10)

@@ -9216,7 +9216,7 @@ define internal noundef ptr @_ZL22createX86MCInstPrinterRKN4llvm6TripleEjRKNS_9M
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 76
   store i32 4, ptr %20, align 4, !tbaa !216
-  store i32 17, ptr %18, align 1
+  store i32 17, ptr %18, align 8
   store i32 1, ptr %19, align 8, !tbaa !133
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4llvm17X86ATTInstPrinterE, i64 16), ptr %7, align 8, !tbaa !84
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 96
@@ -9249,7 +9249,7 @@ define internal noundef ptr @_ZL22createX86MCInstPrinterRKN4llvm6TripleEjRKNS_9M
   %35 = getelementptr inbounds nuw i8, ptr %23, i64 72
   %36 = getelementptr inbounds nuw i8, ptr %23, i64 76
   store i32 4, ptr %36, align 4, !tbaa !216
-  store i32 17, ptr %34, align 1
+  store i32 17, ptr %34, align 8
   store i32 1, ptr %35, align 8, !tbaa !133
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4llvm19X86IntelInstPrinterE, i64 16), ptr %23, align 8, !tbaa !84
   br label %37

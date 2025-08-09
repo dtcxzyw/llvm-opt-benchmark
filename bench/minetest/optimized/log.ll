@@ -1911,7 +1911,7 @@ invoke.cont13:                                    ; preds = %if.end
   %9 = load i32, ptr %_M_flags.i.i, align 8, !tbaa !63
   %and.i.i.i.i = and i32 %9, -75
   %or.i.i.i.i = or disjoint i32 %and.i.i.i.i, 8
-  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 4, !tbaa !63
+  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 8, !tbaa !63
   %cmp.i.i24 = icmp eq i64 %call.i, 0
   br i1 %cmp.i.i24, label %if.then.i, label %if.else.i
 
@@ -5623,7 +5623,7 @@ invoke.cont:
   store ptr %3, ptr %second.i.i.i.i.i.i.i, align 8, !tbaa !57
   %_M_string_length.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 48
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !61
-  store i8 0, ptr %3, align 1, !tbaa !62
+  store i8 0, ptr %3, align 8, !tbaa !62
   store ptr %call5.i.i.i.i.i, ptr %_M_node.i, align 8, !tbaa !152
   %call8 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt6thread2idESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i)
           to label %invoke.cont7 unwind label %lpad

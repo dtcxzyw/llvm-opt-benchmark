@@ -220,7 +220,7 @@ _ZNSt10unique_ptrIN4llvm17SPIRVObjectWriterESt14default_deleteIS1_EED2Ev.exit:
   store ptr %9, ptr %6, align 8, !tbaa !62, !noalias !57
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 0, ptr %10, align 8, !tbaa !63, !noalias !57
-  store i8 0, ptr %9, align 1, !tbaa !64, !noalias !57
+  store i8 0, ptr %9, align 8, !tbaa !64, !noalias !57
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 104
@@ -237,11 +237,11 @@ _ZNSt10unique_ptrIN4llvm17SPIRVObjectWriterESt14default_deleteIS1_EED2Ev.exit:
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 120
   store i64 %4, ptr %17, align 8, !tbaa !60, !noalias !57
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 128
-  store i32 0, ptr %18, align 4, !tbaa !66, !noalias !57
+  store i32 0, ptr %18, align 8, !tbaa !66, !noalias !57
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 132
   store i32 0, ptr %19, align 4, !tbaa !67, !noalias !57
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 136
-  store i32 0, ptr %20, align 4, !tbaa !68, !noalias !57
+  store i32 0, ptr %20, align 8, !tbaa !68, !noalias !57
   store ptr %3, ptr %0, align 8, !tbaa !69
   ret void
 }

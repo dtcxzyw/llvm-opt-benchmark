@@ -6824,7 +6824,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_15toStrB5cxx11Ed(ptr dead_on_unwind
   %10 = load i32, ptr %9, align 8, !tbaa !314
   %11 = and i32 %10, -261
   %12 = or disjoint i32 %11, 4
-  store i32 %12, ptr %9, align 4, !tbaa !315
+  store i32 %12, ptr %9, align 8, !tbaa !315
   %13 = load i64, ptr %6, align 8
   %14 = getelementptr inbounds i8, ptr %4, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -12712,7 +12712,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i: ; pre
   store i64 %19, ptr %21, align 8, !tbaa !13
   store ptr %11, ptr %8, align 8, !tbaa !17
   store i64 0, ptr %20, align 8, !tbaa !13
-  store i8 0, ptr %11, align 1, !tbaa !16
+  store i8 0, ptr %11, align 8, !tbaa !16
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 40
   invoke void @_ZN2cv4gapi8GBackendC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %22)
           to label %29 unwind label %23

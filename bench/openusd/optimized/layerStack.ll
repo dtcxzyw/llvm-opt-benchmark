@@ -1794,7 +1794,7 @@ _ZNSt3setIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4lessIS1_ESaIS1_EED2Ev.e
   %.02.i.i.i.i = phi ptr [ %.0.val.i.i.i.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathEPS2_IS5_NS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace21ProcessedRelocateInfoEEELb1EEEEE18_M_deallocate_nodeEPSC_.exit.i.i.i.i ], [ %.val.i.i.i, %_ZNSt3setIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4lessIS1_ESaIS1_EED2Ev.exit ]
   %.0.val.i.i.i.i = load ptr, ptr %.02.i.i.i.i, align 8
   %112 = getelementptr inbounds nuw i8, ptr %.02.i.i.i.i, i64 8
-  %.val.i.i.i.i.i = load i32, ptr %112, align 4
+  %.val.i.i.i.i.i = load i32, ptr %112, align 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.val.i.i.i.i.i, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathEPS2_IS5_NS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace21ProcessedRelocateInfoEEELb1EEEEE18_M_deallocate_nodeEPSC_.exit.i.i.i.i, label %113
 
@@ -2711,14 +2711,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2ERKS2_.exit.i.i.
 .noexc97.i:                                       ; preds = %.loopexit.i.i93.i
   store ptr null, ptr %365, align 8
   %366 = getelementptr inbounds nuw i8, ptr %365, i64 8
-  store i32 %350, ptr %366, align 4
+  store i32 %350, ptr %366, align 8
   store i32 0, ptr %21, align 8
   %367 = getelementptr inbounds nuw i8, ptr %365, i64 12
   store i32 %.val19.i.i.i, ptr %367, align 4
   store i32 0, ptr %106, align 4
   %368 = getelementptr inbounds nuw i8, ptr %365, i64 16
   %369 = load i32, ptr %22, align 8
-  store i32 %369, ptr %368, align 4
+  store i32 %369, ptr %368, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i94.i = icmp eq i32 %369, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i94.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i.i.i.i.i, label %370
 
@@ -4662,7 +4662,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_12_GLOBAL__
   store ptr null, ptr %1179, align 8
   %1180 = getelementptr inbounds nuw i8, ptr %1179, i64 8
   %1181 = load i32, ptr %1143, align 4
-  store i32 %1181, ptr %1180, align 4
+  store i32 %1181, ptr %1180, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %1181, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace21ProcessedRelocateInfoEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRS1_S6_EEEPNS9_16_Hashtable_allocISaINS9_10_Hash_nodeIS7_Lb1EEEEEEDpOT_.exit.i.i.i.i.i, label %1182
 
@@ -4704,9 +4704,9 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1202, i8 0, i64 16, i1 false)
   %1207 = getelementptr inbounds nuw i8, ptr %1179, i64 40
   %1208 = getelementptr inbounds nuw i8, ptr %.sroa.017.1.i.i.i.i, i64 40
-  %1209 = load i32, ptr %1208, align 4
-  store i32 %1209, ptr %1207, align 4
-  store i32 0, ptr %1208, align 4
+  %1209 = load i32, ptr %1208, align 8
+  store i32 %1209, ptr %1207, align 8
+  store i32 0, ptr %1208, align 8
   %1210 = getelementptr inbounds nuw i8, ptr %1179, i64 44
   %1211 = getelementptr inbounds nuw i8, ptr %.sroa.017.1.i.i.i.i, i64 44
   %1212 = load i32, ptr %1211, align 4
@@ -4714,9 +4714,9 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_12
   store i32 0, ptr %1211, align 4
   %1213 = getelementptr inbounds nuw i8, ptr %1179, i64 48
   %1214 = getelementptr inbounds nuw i8, ptr %.sroa.017.1.i.i.i.i, i64 48
-  %1215 = load i32, ptr %1214, align 4
-  store i32 %1215, ptr %1213, align 4
-  store i32 0, ptr %1214, align 4
+  %1215 = load i32, ptr %1214, align 8
+  store i32 %1215, ptr %1213, align 8
+  store i32 0, ptr %1214, align 8
   %1216 = getelementptr inbounds nuw i8, ptr %1179, i64 52
   %1217 = getelementptr inbounds nuw i8, ptr %.sroa.017.1.i.i.i.i, i64 52
   %1218 = load i32, ptr %1217, align 4
@@ -10978,7 +10978,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22Sdf_PathNodeHandleImplINS_8Sdf_PoolINS_15
   %.06.i.i.i = phi ptr [ %125, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIN32pxrInternal_v0_24__pxrReserved__7SdfPathELb1EEEEE18_M_deallocate_nodeEPS4_.exit.i.i.i ], [ %124, %123 ]
   %125 = load ptr, ptr %.06.i.i.i, align 8
   %126 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 8
-  %127 = load i32, ptr %126, align 4
+  %127 = load i32, ptr %126, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %127, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIN32pxrInternal_v0_24__pxrReserved__7SdfPathELb1EEEEE18_M_deallocate_nodeEPS4_.exit.i.i.i, label %128
 
@@ -18318,7 +18318,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
   store ptr null, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load i32, ptr %37, align 4
-  store i32 %42, ptr %41, align 4
+  store i32 %42, ptr %41, align 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %42, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_PS2_IS3_NS0_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace21ProcessedRelocateInfoEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRS3_S8_EEEPNSB_16_Hashtable_allocISaINSB_10_Hash_nodeIS9_Lb1EEEEEEDpOT_.exit.i.i.i, label %43
 
@@ -19323,16 +19323,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit93: ; preds = %341, %328, 
   store ptr %459, ptr %425, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %456, i8 0, i64 16, i1 false)
   %460 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i.i.i, i64 24
-  %461 = load i32, ptr %460, align 4
+  %461 = load i32, ptr %460, align 8
   store i32 %461, ptr %426, align 8
-  store i32 0, ptr %460, align 4
+  store i32 0, ptr %460, align 8
   %462 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i.i.i, i64 28
   %463 = load i32, ptr %462, align 4
   store i32 %463, ptr %427, align 4
   store i32 0, ptr %462, align 4
   %.sroa.0.08.i = getelementptr inbounds i8, ptr %.sroa.0.07.i.i.i.i, i64 -32
   %.0.copyload.i.i.i.i9.i = load i64, ptr %2, align 8
-  %.0.copyload.i6.i.i.i10.i = load i64, ptr %.sroa.0.08.i, align 4
+  %.0.copyload.i6.i.i.i10.i = load i64, ptr %.sroa.0.08.i, align 8
   %464 = icmp eq i64 %.0.copyload.i.i.i.i9.i, %.0.copyload.i6.i.i.i10.i
   %465 = trunc i64 %.0.copyload.i.i.i.i9.i to i32
   br i1 %464, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EEEvSE_SH_.exit, label %.lr.ph.i
@@ -19441,8 +19441,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEaSEOS2_.exit.i258:
   store ptr null, ptr %497, align 8
   %510 = getelementptr inbounds nuw i8, ptr %.sroa.03.011.i, i64 24
   %511 = getelementptr inbounds nuw i8, ptr %.sroa.0.012.i, i64 24
-  %512 = load i32, ptr %511, align 4
-  store i32 0, ptr %511, align 4
+  %512 = load i32, ptr %511, align 8
+  store i32 0, ptr %511, align 8
   %513 = load i32, ptr %510, align 4
   store i32 %512, ptr %510, align 4
   %.not.i.i.i4.i259 = icmp eq i32 %513, 0
@@ -20968,14 +20968,14 @@ define internal fastcc void @_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReser
   %34 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #31
   store ptr null, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store i32 %19, ptr %35, align 4
+  store i32 %19, ptr %35, align 8
   store i32 0, ptr %1, align 4
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 %.val19.i, ptr %36, align 4
   store i32 0, ptr %5, align 4
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %38 = load i32, ptr %2, align 4
-  store i32 %38, ptr %37, align 4
+  store i32 %38, ptr %37, align 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %38, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i.i.i, label %39
 
@@ -22052,7 +22052,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit19: ; preds = %_ZN32px
   store ptr %146, ptr %175, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %141, i8 0, i64 16, i1 false)
   %176 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  store i32 %153, ptr %176, align 4
+  store i32 %153, ptr %176, align 8
   store i32 0, ptr %151, align 8
   %177 = getelementptr inbounds nuw i8, ptr %169, i64 28
   store i32 %167, ptr %177, align 4
@@ -22963,7 +22963,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_PS2_IS
   %68 = load ptr, ptr %.01757.i.i, align 8
   store ptr %68, ptr %.01560.i.i, align 8
   %69 = getelementptr inbounds nuw i8, ptr %.01757.i.i, i64 8
-  %.val.i.i.i.i = load i32, ptr %69, align 4
+  %.val.i.i.i.i = load i32, ptr %69, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %.val.i.i.i.i, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_PS2_IS3_NS0_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace21ProcessedRelocateInfoEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseEmPNSB_15_Hash_node_baseEPNSB_10_Hash_nodeIS9_Lb1EEE.exit.i.i, label %70
 
@@ -23806,7 +23806,7 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelo
   %32 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %34 = load i32, ptr %33, align 8
-  store i32 %34, ptr %32, align 4
+  store i32 %34, ptr %32, align 8
   store i32 0, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 28
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -23840,9 +23840,9 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelo
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false), !alias.scope !216, !noalias !213
   %48 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
   %49 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 24
-  %50 = load i32, ptr %49, align 4, !alias.scope !216, !noalias !213
-  store i32 %50, ptr %48, align 4, !alias.scope !213, !noalias !216
-  store i32 0, ptr %49, align 4, !alias.scope !216, !noalias !213
+  %50 = load i32, ptr %49, align 8, !alias.scope !216, !noalias !213
+  store i32 %50, ptr %48, align 8, !alias.scope !213, !noalias !216
+  store i32 0, ptr %49, align 8, !alias.scope !216, !noalias !213
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 28
   %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 28
   %53 = load i32, ptr %52, align 4, !alias.scope !216, !noalias !213
@@ -23884,9 +23884,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetReloc
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, i8 0, i64 16, i1 false), !alias.scope !222, !noalias !219
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 24
   %68 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 24
-  %69 = load i32, ptr %68, align 4, !alias.scope !222, !noalias !219
-  store i32 %69, ptr %67, align 4, !alias.scope !219, !noalias !222
-  store i32 0, ptr %68, align 4, !alias.scope !222, !noalias !219
+  %69 = load i32, ptr %68, align 8, !alias.scope !222, !noalias !219
+  store i32 %69, ptr %67, align 8, !alias.scope !219, !noalias !222
+  store i32 0, ptr %68, align 8, !alias.scope !222, !noalias !219
   %70 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 28
   %71 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 28
   %72 = load i32, ptr %71, align 4, !alias.scope !222, !noalias !219
@@ -24202,8 +24202,8 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   %77 = load ptr, ptr %76, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, i8 0, i64 16, i1 false)
   %78 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  %79 = load i32, ptr %78, align 4
-  store i32 0, ptr %78, align 4
+  %79 = load i32, ptr %78, align 8
+  store i32 0, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %70, i64 28
   %81 = load i32, ptr %80, align 4
   store i32 0, ptr %80, align 4
@@ -24275,8 +24275,8 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReser
   %103 = load ptr, ptr %102, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %100, i8 0, i64 16, i1 false)
   %104 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -8
-  %105 = load i32, ptr %104, align 4
-  store i32 0, ptr %104, align 4
+  %105 = load i32, ptr %104, align 8
+  store i32 0, ptr %104, align 8
   %106 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -4
   %107 = load i32, ptr %106, align 4
   store i32 0, ptr %106, align 4
@@ -24389,9 +24389,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   %139 = load ptr, ptr %25, align 8
   store ptr %139, ptr %24, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
-  %140 = load i32, ptr %27, align 4
+  %140 = load i32, ptr %27, align 8
   store i32 %140, ptr %26, align 8
-  store i32 0, ptr %27, align 4
+  store i32 0, ptr %27, align 8
   %141 = load i32, ptr %29, align 4
   store i32 %141, ptr %28, align 4
   store i32 0, ptr %29, align 4
@@ -24437,9 +24437,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   %155 = load ptr, ptr %25, align 8
   store ptr %155, ptr %32, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
-  %156 = load i32, ptr %27, align 4
+  %156 = load i32, ptr %27, align 8
   store i32 %156, ptr %33, align 8
-  store i32 0, ptr %27, align 4
+  store i32 0, ptr %27, align 8
   %157 = load i32, ptr %29, align 4
   store i32 %157, ptr %34, align 4
   store i32 0, ptr %29, align 4
@@ -24462,9 +24462,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   %163 = load ptr, ptr %25, align 8
   store ptr %163, ptr %37, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
-  %164 = load i32, ptr %27, align 4
+  %164 = load i32, ptr %27, align 8
   store i32 %164, ptr %38, align 8
-  store i32 0, ptr %27, align 4
+  store i32 0, ptr %27, align 8
   %165 = load i32, ptr %29, align 4
   store i32 %165, ptr %39, align 4
   store i32 0, ptr %29, align 4
@@ -24514,9 +24514,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   %179 = load ptr, ptr %25, align 8
   store ptr %179, ptr %42, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
-  %180 = load i32, ptr %27, align 4
+  %180 = load i32, ptr %27, align 8
   store i32 %180, ptr %43, align 8
-  store i32 0, ptr %27, align 4
+  store i32 0, ptr %27, align 8
   %181 = load i32, ptr %29, align 4
   store i32 %181, ptr %44, align 4
   store i32 0, ptr %29, align 4
@@ -24562,9 +24562,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   %195 = load ptr, ptr %25, align 8
   store ptr %195, ptr %47, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
-  %196 = load i32, ptr %27, align 4
+  %196 = load i32, ptr %27, align 8
   store i32 %196, ptr %48, align 8
-  store i32 0, ptr %27, align 4
+  store i32 0, ptr %27, align 8
   %197 = load i32, ptr %29, align 4
   store i32 %197, ptr %49, align 4
   store i32 0, ptr %29, align 4
@@ -24587,9 +24587,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   %203 = load ptr, ptr %25, align 8
   store ptr %203, ptr %52, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
-  %204 = load i32, ptr %27, align 4
+  %204 = load i32, ptr %27, align 8
   store i32 %204, ptr %53, align 8
-  store i32 0, ptr %27, align 4
+  store i32 0, ptr %27, align 8
   %205 = load i32, ptr %29, align 4
   store i32 %205, ptr %54, align 4
   store i32 0, ptr %29, align 4
@@ -24694,15 +24694,15 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   %232 = load ptr, ptr %231, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %229, i8 0, i64 16, i1 false)
   %233 = getelementptr inbounds nuw i8, ptr %.sroa.016.1.lcssa.i.i, i64 24
-  %234 = load i32, ptr %233, align 4
-  store i32 0, ptr %233, align 4
+  %234 = load i32, ptr %233, align 8
+  store i32 0, ptr %233, align 8
   %235 = getelementptr inbounds nuw i8, ptr %.sroa.016.1.lcssa.i.i, i64 28
   %236 = load i32, ptr %235, align 4
   store i32 0, ptr %235, align 4
   %237 = load i32, ptr %.sroa.0.1.lcssa.i.i, align 4
   store i32 0, ptr %.sroa.0.1.lcssa.i.i, align 4
-  %238 = load i32, ptr %.sroa.016.1.lcssa.i.i, align 4
-  store i32 %237, ptr %.sroa.016.1.lcssa.i.i, align 4
+  %238 = load i32, ptr %.sroa.016.1.lcssa.i.i, align 8
+  store i32 %237, ptr %.sroa.016.1.lcssa.i.i, align 8
   %.not.i.i.i.i20 = icmp eq i32 %238, 0
   br i1 %.not.i.i.i.i20, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit.i21, label %239
 
@@ -24764,8 +24764,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEaSEOS2_.exit.i24: ; preds = %266, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i23, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit.i21
   store ptr null, ptr %258, align 8
   %270 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.lcssa.i.i, i64 24
-  %271 = load i32, ptr %270, align 4
-  store i32 0, ptr %270, align 4
+  %271 = load i32, ptr %270, align 8
+  store i32 0, ptr %270, align 8
   %272 = load i32, ptr %233, align 4
   store i32 %271, ptr %233, align 4
   %.not.i.i.i4.i25 = icmp eq i32 %272, 0
@@ -24993,9 +24993,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %52 = load i32, ptr %51, align 4
+  %52 = load i32, ptr %51, align 8
   store i32 %52, ptr %50, align 8
-  store i32 0, ptr %51, align 4
+  store i32 0, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %55 = load i32, ptr %54, align 4
@@ -25236,9 +25236,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   store ptr %27, ptr %7, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %.pn21, i64 56
-  %29 = load i32, ptr %28, align 4
+  %29 = load i32, ptr %28, align 8
   store i32 %29, ptr %8, align 8
-  store i32 0, ptr %28, align 4
+  store i32 0, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.pn21, i64 60
   %31 = load i32, ptr %30, align 4
   store i32 %31, ptr %9, align 4
@@ -25328,8 +25328,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEaSEOS2_.exit.i: ; 
   store ptr null, ptr %62, align 8
   %75 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
   %76 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -8
-  %77 = load i32, ptr %76, align 4
-  store i32 0, ptr %76, align 4
+  %77 = load i32, ptr %76, align 8
+  store i32 0, ptr %76, align 8
   %78 = load i32, ptr %75, align 4
   store i32 %77, ptr %75, align 4
   %.not.i.i.i4.i = icmp eq i32 %78, 0
@@ -25411,9 +25411,9 @@ define internal fastcc void @_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__norm
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = load i32, ptr %14, align 4
+  %15 = load i32, ptr %14, align 8
   store i32 %15, ptr %13, align 8
-  store i32 0, ptr %14, align 4
+  store i32 0, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %18 = load i32, ptr %17, align 4
@@ -25421,7 +25421,7 @@ define internal fastcc void @_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__norm
   store i32 0, ptr %17, align 4
   %.sroa.0.08 = getelementptr inbounds i8, ptr %0, i64 -32
   %.0.copyload.i.i.i.i9 = load i64, ptr %2, align 8
-  %.0.copyload.i6.i.i.i10 = load i64, ptr %.sroa.0.08, align 4
+  %.0.copyload.i6.i.i.i10 = load i64, ptr %.sroa.0.08, align 8
   %19 = icmp eq i64 %.0.copyload.i.i.i.i9, %.0.copyload.i6.i.i.i10
   br i1 %19, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceENS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRS5_S8_.exit.thread, label %.lr.ph
 
@@ -27672,7 +27672,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7Sdf
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 8
   %.not.i.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS1_E.exit, label %9
 
@@ -30759,7 +30759,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_Coun
   store ptr %19, ptr %10, align 8, !noalias !351
   %.pre = load ptr, ptr %0, align 8
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store atomic i32 0, ptr %29 seq_cst, align 4, !noalias !351
+  store atomic i32 0, ptr %29 seq_cst, align 8, !noalias !351
   %30 = atomicrmw add ptr %29, i32 1 monotonic, align 4, !noalias !351
   %.not.i.i = icmp eq ptr %.pre, null
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_7VtValue8_CountedISt3mapINS_7SdfPathES4_St4lessIS4_ESaISt4pairIKS4_S4_EEEEEED2Ev.exit, label %31
@@ -31575,7 +31575,7 @@ _ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression8Var
 
 _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression8VariableESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression8VariableEEclEPS2_.exit.i.i.i.i.i.i, %.lr.ph
   store ptr null, ptr %8, align 8
-  %13 = load i32, ptr %7, align 4
+  %13 = load i32, ptr %7, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %13, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_St10unique_ptrINS0_16PcpMapExpression8VariableESt14default_deleteIS6_EEESt10_Select1stISA_ENS1_12FastLessThanESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit, label %14
 
@@ -31948,7 +31948,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrRese
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %40 = load i64, ptr %39, align 8
   %41 = icmp eq i64 %28, %40
-  %.0.copyload.i2.i.i.i.i18.i.i = load i64, ptr %38, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i = load i64, ptr %38, align 8
   %42 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i
   %43 = select i1 %41, i1 %42, i1 false
   br i1 %43, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ENS1_4HashENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit, label %.lr.ph.i.i
@@ -31981,7 +31981,7 @@ _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_SaIS1_ENSt8__d
   %54 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
   store ptr null, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  store i32 %18, ptr %55, align 4
+  store i32 %18, ptr %55, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %18, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKN32pxrInternal_v0_24__pxrReserved__7SdfPathES7_NS_10_AllocNodeISaINS_10_Hash_nodeIS5_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSD_.exit, label %56
 
@@ -32641,7 +32641,7 @@ define linkonce_odr void @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7
   %.06.i.i = phi ptr [ %4, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIN32pxrInternal_v0_24__pxrReserved__7SdfPathELb1EEEEE18_M_deallocate_nodeEPS4_.exit.i.i ], [ %3, %1 ]
   %4 = load ptr, ptr %.06.i.i, align 8
   %5 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 8
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIN32pxrInternal_v0_24__pxrReserved__7SdfPathELb1EEEEE18_M_deallocate_nodeEPS4_.exit.i.i, label %7
 
@@ -43094,7 +43094,7 @@ _ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression8Var
 
 _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression8VariableESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression8VariableEEclEPS2_.exit.i.i.i.i.i.i.i, %43
   store ptr null, ptr %25, align 8
-  %48 = load i32, ptr %7, align 4
+  %48 = load i32, ptr %7, align 8
   %.not.i.i.i.i.i.i.i.i7 = icmp eq i32 %48, 0
   br i1 %.not.i.i.i.i.i.i.i.i7, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_St10unique_ptrINS0_16PcpMapExpression8VariableESt14default_deleteIS6_EEESt10_Select1stISA_ENS1_12FastLessThanESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit.i, label %49
 
@@ -43368,7 +43368,7 @@ _ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression8Var
 
 _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression8VariableESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression8VariableEEclEPS2_.exit.i.i.i.i.i.i, %4
   store ptr null, ptr %6, align 8
-  %11 = load i32, ptr %5, align 4
+  %11 = load i32, ptr %5, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %11, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_St10unique_ptrINS0_16PcpMapExpression8VariableESt14default_deleteIS6_EEESt10_Select1stISA_ENS1_12FastLessThanESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit, label %12
 

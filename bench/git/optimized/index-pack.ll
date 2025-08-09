@@ -4976,7 +4976,7 @@ do_record_outgoing_links.exit:                    ; preds = %.lr.ph.i, %156, %14
   %163 = getelementptr inbounds nuw i8, ptr %109, i64 40
   store ptr null, ptr %163, align 8, !tbaa !169
   %164 = and i32 %159, -12
-  store i32 %164, ptr %109, align 4
+  store i32 %164, ptr %109, align 8
   br label %165
 
 165:                                              ; preds = %162, %do_record_outgoing_links.exit

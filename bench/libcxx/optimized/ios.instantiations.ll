@@ -1750,7 +1750,7 @@ define weak_odr dso_local void @_ZNSt3__113basic_istreamIcNS_11char_traitsIcEEEC
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 136
   store ptr null, ptr %15, align 8, !tbaa !4
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 144
-  store i32 -1, ptr %16, align 1, !tbaa !39
+  store i32 -1, ptr %16, align 8, !tbaa !39
   ret void
 }
 
@@ -1850,10 +1850,10 @@ define weak_odr dso_local void @_ZNSt3__113basic_istreamIcNS_11char_traitsIcEEE4
   store ptr %17, ptr %16, align 8, !tbaa !42
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 144
-  %.sroa.0.0.copyload.i.i = load i32, ptr %19, align 1, !tbaa !17
-  %21 = load i32, ptr %20, align 1, !tbaa !17
-  store i32 %21, ptr %19, align 1, !tbaa !17
-  store i32 %.sroa.0.0.copyload.i.i, ptr %20, align 1, !tbaa !17
+  %.sroa.0.0.copyload.i.i = load i32, ptr %19, align 8, !tbaa !17
+  %21 = load i32, ptr %20, align 8, !tbaa !17
+  store i32 %21, ptr %19, align 8, !tbaa !17
+  store i32 %.sroa.0.0.copyload.i.i, ptr %20, align 8, !tbaa !17
   ret void
 }
 
@@ -6216,7 +6216,7 @@ define weak_odr dso_local void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEEC
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 136
   store ptr null, ptr %14, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 144
-  store i32 -1, ptr %15, align 1, !tbaa !39
+  store i32 -1, ptr %15, align 8, !tbaa !39
   ret void
 }
 
@@ -6306,10 +6306,10 @@ define weak_odr dso_local void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE4
   store ptr %13, ptr %12, align 8, !tbaa !42
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 144
-  %.sroa.0.0.copyload.i.i = load i32, ptr %15, align 1, !tbaa !17
-  %17 = load i32, ptr %16, align 1, !tbaa !17
-  store i32 %17, ptr %15, align 1, !tbaa !17
-  store i32 %.sroa.0.0.copyload.i.i, ptr %16, align 1, !tbaa !17
+  %.sroa.0.0.copyload.i.i = load i32, ptr %15, align 8, !tbaa !17
+  %17 = load i32, ptr %16, align 8, !tbaa !17
+  store i32 %17, ptr %15, align 8, !tbaa !17
+  store i32 %.sroa.0.0.copyload.i.i, ptr %16, align 8, !tbaa !17
   ret void
 }
 
@@ -6497,7 +6497,7 @@ _ZNSt3__19use_facetB8ne210000INS_7num_putIcNS_19ostreambuf_iteratorIcNS_11char_t
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !47
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 144
-  %23 = load i32, ptr %22, align 1, !tbaa !39
+  %23 = load i32, ptr %22, align 8, !tbaa !39
   %.not.i = icmp eq i32 %23, -1
   br i1 %.not.i, label %24, label %33
 
@@ -6678,7 +6678,7 @@ _ZNSt3__19use_facetB8ne210000INS_7num_putIcNS_19ostreambuf_iteratorIcNS_11char_t
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %24 = load ptr, ptr %23, align 8, !tbaa !47
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 144
-  %26 = load i32, ptr %25, align 1, !tbaa !39
+  %26 = load i32, ptr %25, align 8, !tbaa !39
   %.not.i = icmp eq i32 %26, -1
   br i1 %.not.i, label %27, label %36
 
@@ -6871,7 +6871,7 @@ _ZNSt3__19use_facetB8ne210000INS_7num_putIcNS_19ostreambuf_iteratorIcNS_11char_t
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !47
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 144
-  %23 = load i32, ptr %22, align 1, !tbaa !39
+  %23 = load i32, ptr %22, align 8, !tbaa !39
   %.not.i = icmp eq i32 %23, -1
   br i1 %.not.i, label %24, label %33
 
@@ -7053,7 +7053,7 @@ _ZNSt3__19use_facetB8ne210000INS_7num_putIcNS_19ostreambuf_iteratorIcNS_11char_t
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %24 = load ptr, ptr %23, align 8, !tbaa !47
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 144
-  %26 = load i32, ptr %25, align 1, !tbaa !39
+  %26 = load i32, ptr %25, align 8, !tbaa !39
   %.not.i = icmp eq i32 %26, -1
   br i1 %.not.i, label %27, label %36
 
@@ -7246,7 +7246,7 @@ _ZNSt3__19use_facetB8ne210000INS_7num_putIcNS_19ostreambuf_iteratorIcNS_11char_t
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !47
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 144
-  %23 = load i32, ptr %22, align 1, !tbaa !39
+  %23 = load i32, ptr %22, align 8, !tbaa !39
   %.not.i = icmp eq i32 %23, -1
   br i1 %.not.i, label %24, label %33
 
@@ -7425,7 +7425,7 @@ _ZNSt3__19use_facetB8ne210000INS_7num_putIcNS_19ostreambuf_iteratorIcNS_11char_t
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !47
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 144
-  %23 = load i32, ptr %22, align 1, !tbaa !39
+  %23 = load i32, ptr %22, align 8, !tbaa !39
   %.not.i = icmp eq i32 %23, -1
   br i1 %.not.i, label %24, label %33
 
@@ -7603,7 +7603,7 @@ _ZNSt3__19use_facetB8ne210000INS_7num_putIcNS_19ostreambuf_iteratorIcNS_11char_t
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !47
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 144
-  %23 = load i32, ptr %22, align 1, !tbaa !39
+  %23 = load i32, ptr %22, align 8, !tbaa !39
   %.not.i = icmp eq i32 %23, -1
   br i1 %.not.i, label %24, label %33
 
@@ -7781,7 +7781,7 @@ _ZNSt3__19use_facetB8ne210000INS_7num_putIcNS_19ostreambuf_iteratorIcNS_11char_t
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !47
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 144
-  %23 = load i32, ptr %22, align 1, !tbaa !39
+  %23 = load i32, ptr %22, align 8, !tbaa !39
   %.not.i = icmp eq i32 %23, -1
   br i1 %.not.i, label %24, label %33
 
@@ -7959,7 +7959,7 @@ _ZNSt3__19use_facetB8ne210000INS_7num_putIcNS_19ostreambuf_iteratorIcNS_11char_t
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !47
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 144
-  %23 = load i32, ptr %22, align 1, !tbaa !39
+  %23 = load i32, ptr %22, align 8, !tbaa !39
   %.not.i = icmp eq i32 %23, -1
   br i1 %.not.i, label %24, label %33
 
@@ -8144,7 +8144,7 @@ _ZNSt3__19use_facetB8ne210000INS_7num_putIcNS_19ostreambuf_iteratorIcNS_11char_t
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !47
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 144
-  %23 = load i32, ptr %22, align 1, !tbaa !39
+  %23 = load i32, ptr %22, align 8, !tbaa !39
   %.not.i = icmp eq i32 %23, -1
   br i1 %.not.i, label %24, label %33
 
@@ -8322,7 +8322,7 @@ _ZNSt3__19use_facetB8ne210000INS_7num_putIcNS_19ostreambuf_iteratorIcNS_11char_t
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !47
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 144
-  %23 = load i32, ptr %22, align 1, !tbaa !39
+  %23 = load i32, ptr %22, align 8, !tbaa !39
   %.not.i = icmp eq i32 %23, -1
   br i1 %.not.i, label %24, label %33
 
@@ -8500,7 +8500,7 @@ _ZNSt3__19use_facetB8ne210000INS_7num_putIcNS_19ostreambuf_iteratorIcNS_11char_t
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !47
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 144
-  %23 = load i32, ptr %22, align 1, !tbaa !39
+  %23 = load i32, ptr %22, align 8, !tbaa !39
   %.not.i = icmp eq i32 %23, -1
   br i1 %.not.i, label %24, label %33
 
@@ -9293,7 +9293,7 @@ define weak_odr dso_local void @_ZNSt3__114basic_iostreamIcNS_11char_traitsIcEEE
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 136
   store ptr null, ptr %16, align 8, !tbaa !4
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 144
-  store i32 -1, ptr %17, align 1, !tbaa !39
+  store i32 -1, ptr %17, align 8, !tbaa !39
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %20 = load ptr, ptr %19, align 8
@@ -9432,10 +9432,10 @@ define weak_odr dso_local void @_ZNSt3__114basic_iostreamIcNS_11char_traitsIcEEE
   store ptr %17, ptr %16, align 8, !tbaa !42
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 144
-  %.sroa.0.0.copyload.i.i.i = load i32, ptr %19, align 1, !tbaa !17
-  %21 = load i32, ptr %20, align 1, !tbaa !17
-  store i32 %21, ptr %19, align 1, !tbaa !17
-  store i32 %.sroa.0.0.copyload.i.i.i, ptr %20, align 1, !tbaa !17
+  %.sroa.0.0.copyload.i.i.i = load i32, ptr %19, align 8, !tbaa !17
+  %21 = load i32, ptr %20, align 8, !tbaa !17
+  store i32 %21, ptr %19, align 8, !tbaa !17
+  store i32 %.sroa.0.0.copyload.i.i.i, ptr %20, align 8, !tbaa !17
   ret void
 }
 
@@ -10174,7 +10174,7 @@ define weak_odr dso_local void @_ZNSt3__113basic_istreamIwNS_11char_traitsIwEEEC
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 136
   store ptr null, ptr %15, align 8, !tbaa !62
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 144
-  store i32 -1, ptr %16, align 1, !tbaa !81
+  store i32 -1, ptr %16, align 8, !tbaa !81
   ret void
 }
 
@@ -10272,10 +10272,10 @@ define weak_odr dso_local void @_ZNSt3__113basic_istreamIwNS_11char_traitsIwEEE4
   store ptr %17, ptr %16, align 8, !tbaa !82
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 144
-  %.sroa.0.0.copyload.i.i = load i32, ptr %19, align 1, !tbaa !17
-  %21 = load i32, ptr %20, align 1, !tbaa !17
-  store i32 %21, ptr %19, align 1, !tbaa !17
-  store i32 %.sroa.0.0.copyload.i.i, ptr %20, align 1, !tbaa !17
+  %.sroa.0.0.copyload.i.i = load i32, ptr %19, align 8, !tbaa !17
+  %21 = load i32, ptr %20, align 8, !tbaa !17
+  store i32 %21, ptr %19, align 8, !tbaa !17
+  store i32 %.sroa.0.0.copyload.i.i, ptr %20, align 8, !tbaa !17
   ret void
 }
 
@@ -14600,7 +14600,7 @@ define weak_odr dso_local void @_ZNSt3__113basic_ostreamIwNS_11char_traitsIwEEEC
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 136
   store ptr null, ptr %14, align 8, !tbaa !62
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 144
-  store i32 -1, ptr %15, align 1, !tbaa !81
+  store i32 -1, ptr %15, align 8, !tbaa !81
   ret void
 }
 
@@ -14690,10 +14690,10 @@ define weak_odr dso_local void @_ZNSt3__113basic_ostreamIwNS_11char_traitsIwEEE4
   store ptr %13, ptr %12, align 8, !tbaa !82
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 144
-  %.sroa.0.0.copyload.i.i = load i32, ptr %15, align 1, !tbaa !17
-  %17 = load i32, ptr %16, align 1, !tbaa !17
-  store i32 %17, ptr %15, align 1, !tbaa !17
-  store i32 %.sroa.0.0.copyload.i.i, ptr %16, align 1, !tbaa !17
+  %.sroa.0.0.copyload.i.i = load i32, ptr %15, align 8, !tbaa !17
+  %17 = load i32, ptr %16, align 8, !tbaa !17
+  store i32 %17, ptr %15, align 8, !tbaa !17
+  store i32 %.sroa.0.0.copyload.i.i, ptr %16, align 8, !tbaa !17
   ret void
 }
 
@@ -14878,7 +14878,7 @@ _ZNSt3__19use_facetB8ne210000INS_7num_putIwNS_19ostreambuf_iteratorIwNS_11char_t
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !47
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 144
-  %23 = load i32, ptr %22, align 1, !tbaa !81
+  %23 = load i32, ptr %22, align 8, !tbaa !81
   %.not.i = icmp eq i32 %23, -1
   br i1 %.not.i, label %24, label %_ZNKSt3__19basic_iosIwNS_11char_traitsIwEEE4fillB8ne210000Ev.exit
 
@@ -15057,7 +15057,7 @@ _ZNSt3__19use_facetB8ne210000INS_7num_putIwNS_19ostreambuf_iteratorIwNS_11char_t
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %24 = load ptr, ptr %23, align 8, !tbaa !47
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 144
-  %26 = load i32, ptr %25, align 1, !tbaa !81
+  %26 = load i32, ptr %25, align 8, !tbaa !81
   %.not.i = icmp eq i32 %26, -1
   br i1 %.not.i, label %27, label %_ZNKSt3__19basic_iosIwNS_11char_traitsIwEEE4fillB8ne210000Ev.exit
 
@@ -15248,7 +15248,7 @@ _ZNSt3__19use_facetB8ne210000INS_7num_putIwNS_19ostreambuf_iteratorIwNS_11char_t
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !47
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 144
-  %23 = load i32, ptr %22, align 1, !tbaa !81
+  %23 = load i32, ptr %22, align 8, !tbaa !81
   %.not.i = icmp eq i32 %23, -1
   br i1 %.not.i, label %24, label %_ZNKSt3__19basic_iosIwNS_11char_traitsIwEEE4fillB8ne210000Ev.exit
 
@@ -15428,7 +15428,7 @@ _ZNSt3__19use_facetB8ne210000INS_7num_putIwNS_19ostreambuf_iteratorIwNS_11char_t
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %24 = load ptr, ptr %23, align 8, !tbaa !47
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 144
-  %26 = load i32, ptr %25, align 1, !tbaa !81
+  %26 = load i32, ptr %25, align 8, !tbaa !81
   %.not.i = icmp eq i32 %26, -1
   br i1 %.not.i, label %27, label %_ZNKSt3__19basic_iosIwNS_11char_traitsIwEEE4fillB8ne210000Ev.exit
 
@@ -15619,7 +15619,7 @@ _ZNSt3__19use_facetB8ne210000INS_7num_putIwNS_19ostreambuf_iteratorIwNS_11char_t
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !47
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 144
-  %23 = load i32, ptr %22, align 1, !tbaa !81
+  %23 = load i32, ptr %22, align 8, !tbaa !81
   %.not.i = icmp eq i32 %23, -1
   br i1 %.not.i, label %24, label %_ZNKSt3__19basic_iosIwNS_11char_traitsIwEEE4fillB8ne210000Ev.exit
 
@@ -15796,7 +15796,7 @@ _ZNSt3__19use_facetB8ne210000INS_7num_putIwNS_19ostreambuf_iteratorIwNS_11char_t
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !47
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 144
-  %23 = load i32, ptr %22, align 1, !tbaa !81
+  %23 = load i32, ptr %22, align 8, !tbaa !81
   %.not.i = icmp eq i32 %23, -1
   br i1 %.not.i, label %24, label %_ZNKSt3__19basic_iosIwNS_11char_traitsIwEEE4fillB8ne210000Ev.exit
 
@@ -15972,7 +15972,7 @@ _ZNSt3__19use_facetB8ne210000INS_7num_putIwNS_19ostreambuf_iteratorIwNS_11char_t
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !47
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 144
-  %23 = load i32, ptr %22, align 1, !tbaa !81
+  %23 = load i32, ptr %22, align 8, !tbaa !81
   %.not.i = icmp eq i32 %23, -1
   br i1 %.not.i, label %24, label %_ZNKSt3__19basic_iosIwNS_11char_traitsIwEEE4fillB8ne210000Ev.exit
 
@@ -16148,7 +16148,7 @@ _ZNSt3__19use_facetB8ne210000INS_7num_putIwNS_19ostreambuf_iteratorIwNS_11char_t
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !47
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 144
-  %23 = load i32, ptr %22, align 1, !tbaa !81
+  %23 = load i32, ptr %22, align 8, !tbaa !81
   %.not.i = icmp eq i32 %23, -1
   br i1 %.not.i, label %24, label %_ZNKSt3__19basic_iosIwNS_11char_traitsIwEEE4fillB8ne210000Ev.exit
 
@@ -16324,7 +16324,7 @@ _ZNSt3__19use_facetB8ne210000INS_7num_putIwNS_19ostreambuf_iteratorIwNS_11char_t
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !47
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 144
-  %23 = load i32, ptr %22, align 1, !tbaa !81
+  %23 = load i32, ptr %22, align 8, !tbaa !81
   %.not.i = icmp eq i32 %23, -1
   br i1 %.not.i, label %24, label %_ZNKSt3__19basic_iosIwNS_11char_traitsIwEEE4fillB8ne210000Ev.exit
 
@@ -16507,7 +16507,7 @@ _ZNSt3__19use_facetB8ne210000INS_7num_putIwNS_19ostreambuf_iteratorIwNS_11char_t
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !47
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 144
-  %23 = load i32, ptr %22, align 1, !tbaa !81
+  %23 = load i32, ptr %22, align 8, !tbaa !81
   %.not.i = icmp eq i32 %23, -1
   br i1 %.not.i, label %24, label %_ZNKSt3__19basic_iosIwNS_11char_traitsIwEEE4fillB8ne210000Ev.exit
 
@@ -16683,7 +16683,7 @@ _ZNSt3__19use_facetB8ne210000INS_7num_putIwNS_19ostreambuf_iteratorIwNS_11char_t
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !47
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 144
-  %23 = load i32, ptr %22, align 1, !tbaa !81
+  %23 = load i32, ptr %22, align 8, !tbaa !81
   %.not.i = icmp eq i32 %23, -1
   br i1 %.not.i, label %24, label %_ZNKSt3__19basic_iosIwNS_11char_traitsIwEEE4fillB8ne210000Ev.exit
 
@@ -16859,7 +16859,7 @@ _ZNSt3__19use_facetB8ne210000INS_7num_putIwNS_19ostreambuf_iteratorIwNS_11char_t
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !47
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 144
-  %23 = load i32, ptr %22, align 1, !tbaa !81
+  %23 = load i32, ptr %22, align 8, !tbaa !81
   %.not.i = icmp eq i32 %23, -1
   br i1 %.not.i, label %24, label %_ZNKSt3__19basic_iosIwNS_11char_traitsIwEEE4fillB8ne210000Ev.exit
 
@@ -19152,10 +19152,10 @@ define weak_odr dso_local noundef nonnull align 8 dereferenceable(128) ptr @_ZNS
   store ptr %17, ptr %16, align 8, !tbaa !42
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 144
-  %.sroa.0.0.copyload.i.i.i.i.i = load i32, ptr %19, align 1, !tbaa !17
-  %21 = load i32, ptr %20, align 1, !tbaa !17
-  store i32 %21, ptr %19, align 1, !tbaa !17
-  store i32 %.sroa.0.0.copyload.i.i.i.i.i, ptr %20, align 1, !tbaa !17
+  %.sroa.0.0.copyload.i.i.i.i.i = load i32, ptr %19, align 8, !tbaa !17
+  %21 = load i32, ptr %20, align 8, !tbaa !17
+  store i32 %21, ptr %19, align 8, !tbaa !17
+  store i32 %.sroa.0.0.copyload.i.i.i.i.i, ptr %20, align 8, !tbaa !17
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = tail call noundef nonnull align 8 dereferenceable(100) ptr @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(100) %23, ptr noundef nonnull align 8 dereferenceable(100) %22)
@@ -19181,10 +19181,10 @@ define weak_odr dso_local noundef nonnull align 8 dereferenceable(112) ptr @_ZNS
   store ptr %13, ptr %12, align 8, !tbaa !42
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 144
-  %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %15, align 1, !tbaa !17
-  %17 = load i32, ptr %16, align 1, !tbaa !17
-  store i32 %17, ptr %15, align 1, !tbaa !17
-  store i32 %.sroa.0.0.copyload.i.i.i.i, ptr %16, align 1, !tbaa !17
+  %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %15, align 8, !tbaa !17
+  %17 = load i32, ptr %16, align 8, !tbaa !17
+  store i32 %17, ptr %15, align 8, !tbaa !17
+  store i32 %.sroa.0.0.copyload.i.i.i.i, ptr %16, align 8, !tbaa !17
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = tail call noundef nonnull align 8 dereferenceable(100) ptr @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(100) %19, ptr noundef nonnull align 8 dereferenceable(100) %18)
@@ -19216,10 +19216,10 @@ define weak_odr dso_local noundef nonnull align 8 dereferenceable(120) ptr @_ZNS
   store ptr %17, ptr %16, align 8, !tbaa !42
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 144
-  %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %19, align 1, !tbaa !17
-  %21 = load i32, ptr %20, align 1, !tbaa !17
-  store i32 %21, ptr %19, align 1, !tbaa !17
-  store i32 %.sroa.0.0.copyload.i.i.i.i, ptr %20, align 1, !tbaa !17
+  %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %19, align 8, !tbaa !17
+  %21 = load i32, ptr %20, align 8, !tbaa !17
+  store i32 %21, ptr %19, align 8, !tbaa !17
+  store i32 %.sroa.0.0.copyload.i.i.i.i, ptr %20, align 8, !tbaa !17
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = tail call noundef nonnull align 8 dereferenceable(100) ptr @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(100) %23, ptr noundef nonnull align 8 dereferenceable(100) %22)

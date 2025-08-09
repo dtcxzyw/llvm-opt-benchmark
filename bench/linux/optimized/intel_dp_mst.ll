@@ -2922,13 +2922,13 @@ define internal fastcc i32 @intel_dp_mst_find_vcpi_slots_for_bpp(ptr %.392.val, 
   %143 = load i32, ptr %54, align 4
   %144 = zext i32 %143 to i64
   %145 = shl nuw nsw i64 %144, 6
-  %146 = load i32, ptr %55, align 4
+  %146 = load i32, ptr %55, align 8
   %147 = zext i32 %146 to i64
   %148 = add nsw i64 %147, -1
   %149 = add nsw i64 %148, %145
   %150 = udiv i64 %149, %147
   %151 = trunc i64 %150 to i32
-  store i32 %151, ptr %53, align 4
+  store i32 %151, ptr %53, align 8
   %152 = load i32, ptr %49, align 4
   %153 = tail call i32 @intel_dp_effective_data_rate(i32 noundef %152, i32 noundef %87, i32 noundef %137) #12
   %154 = shl i32 %153, 6

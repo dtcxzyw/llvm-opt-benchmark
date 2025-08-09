@@ -1814,15 +1814,15 @@ entry:
   %Last.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %add.ptr, ptr %Last.i, align 8
   %Names.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1 = load ptr, ptr %Names.i, align 8
+  %1 = load ptr, ptr %Names.i, align 16
   %Last.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %Last.i.i, align 8
   %Subs.i = getelementptr inbounds nuw i8, ptr %0, i64 296
   %2 = load ptr, ptr %Subs.i, align 8
   %Last.i1.i = getelementptr inbounds nuw i8, ptr %0, i64 304
-  store ptr %2, ptr %Last.i1.i, align 8
+  store ptr %2, ptr %Last.i1.i, align 16
   %TemplateParams.i = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %3 = load ptr, ptr %TemplateParams.i, align 8
+  %3 = load ptr, ptr %TemplateParams.i, align 16
   %Last.i2.i = getelementptr inbounds nuw i8, ptr %0, i64 584
   store ptr %3, ptr %Last.i2.i, align 8
   %ParsingLambdaParams.i = getelementptr inbounds nuw i8, ptr %0, i64 738

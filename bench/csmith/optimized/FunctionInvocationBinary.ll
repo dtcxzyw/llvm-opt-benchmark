@@ -494,13 +494,13 @@ _ZN24FunctionInvocationBinaryC2E10eBinaryOpsPK11SafeOpFlags.exit: ; preds = %_ZN
   store ptr %151, ptr %150, align 8, !tbaa !22
   %152 = getelementptr inbounds nuw i8, ptr %148, i64 72
   store i64 0, ptr %152, align 8, !tbaa !25
-  store i8 0, ptr %151, align 1, !tbaa !28
+  store i8 0, ptr %151, align 8, !tbaa !28
   %153 = getelementptr inbounds nuw i8, ptr %148, i64 96
   %154 = getelementptr inbounds nuw i8, ptr %148, i64 112
   store ptr %154, ptr %153, align 8, !tbaa !22
   %155 = getelementptr inbounds nuw i8, ptr %148, i64 104
   store i64 0, ptr %155, align 8, !tbaa !25
-  store i8 0, ptr %154, align 1, !tbaa !28
+  store i8 0, ptr %154, align 8, !tbaa !28
   br label %158
 
 156:                                              ; preds = %_ZN24FunctionInvocationBinary8safe_opsE10eBinaryOps.exit

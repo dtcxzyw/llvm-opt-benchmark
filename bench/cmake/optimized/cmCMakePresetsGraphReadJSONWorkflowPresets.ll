@@ -5190,7 +5190,7 @@ _ZSt19__relocate_object_aIN19cmCMakePresetsGraph14WorkflowPreset12WorkflowStepES
   store i64 %51, ptr %53, align 8, !tbaa !37, !alias.scope !172, !noalias !175
   store ptr %43, ptr %40, align 8, !tbaa !34, !alias.scope !175, !noalias !172
   store i64 0, ptr %52, align 8, !tbaa !37, !alias.scope !175, !noalias !172
-  store i8 0, ptr %43, align 1, !tbaa !8, !alias.scope !175, !noalias !172
+  store i8 0, ptr %43, align 8, !tbaa !8, !alias.scope !175, !noalias !172
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
   %.not.i.i.i = icmp eq ptr %54, %1
@@ -5242,7 +5242,7 @@ _ZSt19__relocate_object_aIN19cmCMakePresetsGraph14WorkflowPreset12WorkflowStepES
   store i64 %70, ptr %72, align 8, !tbaa !37, !alias.scope !179, !noalias !182
   store ptr %62, ptr %59, align 8, !tbaa !34, !alias.scope !182, !noalias !179
   store i64 0, ptr %71, align 8, !tbaa !37, !alias.scope !182, !noalias !179
-  store i8 0, ptr %62, align 1, !tbaa !8, !alias.scope !182, !noalias !179
+  store i8 0, ptr %62, align 8, !tbaa !8, !alias.scope !182, !noalias !179
   %73 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 40
   %74 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 40
   %.not.i.i.i24 = icmp eq ptr %73, %5

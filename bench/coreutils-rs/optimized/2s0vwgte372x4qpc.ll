@@ -5615,7 +5615,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.3794930749485918955.exit.
 65:                                               ; preds = %"_ZN4core3ptr85drop_in_place$LT$std..sync..mutex..MutexGuard$LT$std..sync..mpmc..zero..Inner$GT$$GT$17h7bb7e841ebd1d950E.llvm.3794930749485918955.exit"
   store ptr %61, ptr %.val, align 8
   %66 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  store atomic i8 1, ptr %66 release, align 1
+  store atomic i8 1, ptr %66 release, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !894)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !897)

@@ -753,7 +753,7 @@ define internal fastcc void @ieee80211_send_addba_with_timeout(ptr noundef %0, p
   %82 = getelementptr inbounds nuw i8, ptr %65, i64 25
   store i8 0, ptr %82, align 1
   %83 = getelementptr inbounds nuw i8, ptr %65, i64 26
-  store i8 %44, ptr %83, align 1
+  store i8 %44, ptr %83, align 2
   %84 = shl nuw nsw i16 %42, 2
   %85 = and i16 %84, 60
   %86 = or disjoint i16 %85, %41

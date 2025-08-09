@@ -196,7 +196,7 @@ define dso_local void @put_pi_state(ptr noundef %0) local_unnamed_addr #0 align 
 
 37:                                               ; preds = %30
   store ptr null, ptr %11, align 8
-  store volatile i32 1, ptr %4, align 4
+  store volatile i32 1, ptr %4, align 8
   store ptr %0, ptr %33, align 8
   br label %.thread
 

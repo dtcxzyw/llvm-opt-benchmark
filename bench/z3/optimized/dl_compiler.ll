@@ -14052,7 +14052,7 @@ _ZNK7obj_mapI9func_decljE5beginEv.exit.i:         ; preds = %22, %.lr.ph.i.i.i.i
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %27, ptr %9, align 8, !tbaa !18
-  %29 = load i32, ptr %28, align 4, !tbaa !24
+  %29 = load i32, ptr %28, align 8, !tbaa !24
   store i32 %29, ptr %25, align 8, !tbaa !19
   invoke void @_ZN14core_hashtableIN7obj_mapI9func_decljE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6insertEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(12) %9)
           to label %.noexc unwind label %129
@@ -14120,7 +14120,7 @@ _ZNK7obj_mapI9func_decljE5beginEv.exit.i30:       ; preds = %39, %.lr.ph.i.i.i.i
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i34, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %44, ptr %8, align 8, !tbaa !18
-  %46 = load i32, ptr %45, align 4, !tbaa !24
+  %46 = load i32, ptr %45, align 8, !tbaa !24
   store i32 %46, ptr %42, align 8, !tbaa !19
   invoke void @_ZN14core_hashtableIN7obj_mapI9func_decljE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6insertEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(12) %8)
           to label %.noexc44 unwind label %.loopexit69
@@ -14733,7 +14733,7 @@ _ZNK7obj_mapI9func_decljE5beginEv.exit.i:         ; preds = %108, %.lr.ph.i.i.i.
   %114 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %113, ptr %8, align 8, !tbaa !18
-  %115 = load i32, ptr %114, align 4, !tbaa !24
+  %115 = load i32, ptr %114, align 8, !tbaa !24
   store i32 %115, ptr %111, align 8, !tbaa !19
   invoke void @_ZN14core_hashtableIN7obj_mapI9func_decljE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6insertEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(12) %8)
           to label %.noexc73 unwind label %168
@@ -14801,7 +14801,7 @@ _ZNK7obj_mapI9func_decljE5beginEv.exit.i81:       ; preds = %125, %.lr.ph.i.i.i.
   %131 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i85, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %130, ptr %7, align 8, !tbaa !18
-  %132 = load i32, ptr %131, align 4, !tbaa !24
+  %132 = load i32, ptr %131, align 8, !tbaa !24
   store i32 %132, ptr %128, align 8, !tbaa !19
   invoke void @_ZN14core_hashtableIN7obj_mapI9func_decljE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6insertEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(12) %7)
           to label %.noexc95 unwind label %172

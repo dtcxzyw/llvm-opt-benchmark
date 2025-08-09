@@ -469,17 +469,17 @@ define linkonce_odr void @_ZN12SubAllocator14GlueFreeBlocksEv(ptr noundef nonnul
   %20 = load ptr, ptr %19, align 8, !tbaa !34
   store ptr %20, ptr %14, align 8, !tbaa !34
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 12
-  store ptr %2, ptr %21, align 1, !tbaa !38
+  store ptr %2, ptr %21, align 4, !tbaa !38
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  store ptr %18, ptr %22, align 1, !tbaa !42
+  store ptr %18, ptr %22, align 4, !tbaa !42
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store ptr %19, ptr %23, align 1, !tbaa !38
   store ptr %19, ptr %10, align 1, !tbaa !42
-  store i16 -1, ptr %19, align 1, !tbaa !43
+  store i16 -1, ptr %19, align 8, !tbaa !43
   %24 = load i8, ptr %16, align 1, !tbaa !27
   %25 = zext i8 %24 to i16
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 2
-  store i16 %25, ptr %26, align 1, !tbaa !44
+  store i16 %25, ptr %26, align 2, !tbaa !44
   %.not42 = icmp eq ptr %20, null
   br i1 %.not42, label %._crit_edge, label %17, !llvm.loop !45
 
@@ -11716,7 +11716,7 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit112: ; preds = %308, %.pre
   %359 = tail call noundef i32 @llvm.bswap.i32(i32 %358)
   %360 = shl i32 %359, %344
   %361 = getelementptr i8, ptr %357, i64 4
-  %362 = load i8, ptr %361, align 1, !tbaa !27
+  %362 = load i8, ptr %361, align 4, !tbaa !27
   %363 = zext i8 %362 to i32
   %364 = sub nuw nsw i32 8, %344
   %365 = lshr i32 %363, %364

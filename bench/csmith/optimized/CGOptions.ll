@@ -417,7 +417,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %7,
   store i64 %13, ptr %15, align 8, !tbaa !28
   store ptr %5, ptr %1, align 8, !tbaa !26
   store i64 0, ptr %14, align 8, !tbaa !28
-  store i8 0, ptr %5, align 1, !tbaa !30
+  store i8 0, ptr %5, align 8, !tbaa !30
   ret void
 }
 
@@ -501,7 +501,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %7,
   store i64 %13, ptr %15, align 8, !tbaa !28
   store ptr %5, ptr %1, align 8, !tbaa !26
   store i64 0, ptr %14, align 8, !tbaa !28
-  store i8 0, ptr %5, align 1, !tbaa !30
+  store i8 0, ptr %5, align 8, !tbaa !30
   ret void
 }
 
@@ -723,7 +723,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %7,
   store i64 %13, ptr %15, align 8, !tbaa !28
   store ptr %5, ptr %1, align 8, !tbaa !26
   store i64 0, ptr %14, align 8, !tbaa !28
-  store i8 0, ptr %5, align 1, !tbaa !30
+  store i8 0, ptr %5, align 8, !tbaa !30
   ret void
 }
 
@@ -1007,7 +1007,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %7,
   store i64 %13, ptr %15, align 8, !tbaa !28
   store ptr %5, ptr %1, align 8, !tbaa !26
   store i64 0, ptr %14, align 8, !tbaa !28
-  store i8 0, ptr %5, align 1, !tbaa !30
+  store i8 0, ptr %5, align 8, !tbaa !30
   ret void
 }
 
@@ -1267,7 +1267,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %7,
   store i64 %13, ptr %15, align 8, !tbaa !28
   store ptr %5, ptr %1, align 8, !tbaa !26
   store i64 0, ptr %14, align 8, !tbaa !28
-  store i8 0, ptr %5, align 1, !tbaa !30
+  store i8 0, ptr %5, align 8, !tbaa !30
   ret void
 }
 
@@ -1351,7 +1351,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %7,
   store i64 %13, ptr %15, align 8, !tbaa !28
   store ptr %5, ptr %1, align 8, !tbaa !26
   store i64 0, ptr %14, align 8, !tbaa !28
-  store i8 0, ptr %5, align 1, !tbaa !30
+  store i8 0, ptr %5, align 8, !tbaa !30
   ret void
 }
 
@@ -1435,7 +1435,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %7,
   store i64 %13, ptr %15, align 8, !tbaa !28
   store ptr %5, ptr %1, align 8, !tbaa !26
   store i64 0, ptr %14, align 8, !tbaa !28
-  store i8 0, ptr %5, align 1, !tbaa !30
+  store i8 0, ptr %5, align 8, !tbaa !30
   ret void
 }
 
@@ -1519,7 +1519,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %7,
   store i64 %13, ptr %15, align 8, !tbaa !28
   store ptr %5, ptr %1, align 8, !tbaa !26
   store i64 0, ptr %14, align 8, !tbaa !28
-  store i8 0, ptr %5, align 1, !tbaa !30
+  store i8 0, ptr %5, align 8, !tbaa !30
   ret void
 }
 
@@ -1603,7 +1603,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %7,
   store i64 %13, ptr %15, align 8, !tbaa !28
   store ptr %5, ptr %1, align 8, !tbaa !26
   store i64 0, ptr %14, align 8, !tbaa !28
-  store i8 0, ptr %5, align 1, !tbaa !30
+  store i8 0, ptr %5, align 8, !tbaa !30
   ret void
 }
 
@@ -2175,7 +2175,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %7,
   store i64 %13, ptr %15, align 8, !tbaa !28
   store ptr %5, ptr %1, align 8, !tbaa !26
   store i64 0, ptr %14, align 8, !tbaa !28
-  store i8 0, ptr %5, align 1, !tbaa !30
+  store i8 0, ptr %5, align 8, !tbaa !30
   ret void
 }
 
@@ -2259,7 +2259,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %7,
   store i64 %13, ptr %15, align 8, !tbaa !28
   store ptr %5, ptr %1, align 8, !tbaa !26
   store i64 0, ptr %14, align 8, !tbaa !28
-  store i8 0, ptr %5, align 1, !tbaa !30
+  store i8 0, ptr %5, align 8, !tbaa !30
   ret void
 }
 
@@ -2343,7 +2343,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %7,
   store i64 %13, ptr %15, align 8, !tbaa !28
   store ptr %5, ptr %1, align 8, !tbaa !26
   store i64 0, ptr %14, align 8, !tbaa !28
-  store i8 0, ptr %5, align 1, !tbaa !30
+  store i8 0, ptr %5, align 8, !tbaa !30
   ret void
 }
 
@@ -6140,7 +6140,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8, !tbaa !28
   store ptr %13, ptr %10, align 8, !tbaa !26
   store i64 0, ptr %24, align 8, !tbaa !28
-  store i8 0, ptr %13, align 1, !tbaa !30
+  store i8 0, ptr %13, align 8, !tbaa !30
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i8 0, ptr %26, align 8, !tbaa !111
   store ptr %7, ptr %23, align 8, !tbaa !119
@@ -6735,7 +6735,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !tbaa !28, !alias.scope !125, !noalias !128
   store ptr %43, ptr %.0911.i.i.i.i, align 8, !tbaa !26, !alias.scope !128, !noalias !125
   store i64 0, ptr %52, align 8, !tbaa !28, !alias.scope !128, !noalias !125
-  store i8 0, ptr %43, align 1, !tbaa !30, !alias.scope !128, !noalias !125
+  store i8 0, ptr %43, align 8, !tbaa !30, !alias.scope !128, !noalias !125
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %54, %1
@@ -6783,7 +6783,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !tbaa !28, !alias.scope !132, !noalias !135
   store ptr %59, ptr %.0911.i.i.i.i29, align 8, !tbaa !26, !alias.scope !135, !noalias !132
   store i64 0, ptr %68, align 8, !tbaa !28, !alias.scope !135, !noalias !132
-  store i8 0, ptr %59, align 1, !tbaa !30, !alias.scope !135, !noalias !132
+  store i8 0, ptr %59, align 8, !tbaa !30, !alias.scope !135, !noalias !132
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 32
   %.not.i.i.i.i34 = icmp eq ptr %70, %6

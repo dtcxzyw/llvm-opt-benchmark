@@ -1172,7 +1172,7 @@ _ZNSt10unique_ptrIN3ue222TeddyEngineDescriptionESt14default_deleteIS1_EED2Ev.exi
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.039158, ptr align 8 %413, i64 %415, i1 false)
   %416 = load i64, ptr %414, align 8
   %417 = getelementptr inbounds nuw i8, ptr %.039158, i64 %416
-  %418 = load i32, ptr %410, align 4
+  %418 = load i32, ptr %410, align 8
   %419 = zext i32 %418 to i64
   %420 = getelementptr inbounds nuw i32, ptr %386, i64 %419
   store i32 %411, ptr %420, align 4
@@ -1917,7 +1917,7 @@ _ZSt19__relocate_object_aIN3ue211hwlmLiteralES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.
   store i64 %32, ptr %34, align 8, !alias.scope !29, !noalias !32
   store ptr %24, ptr %.0911.i.i.i.i, align 8, !alias.scope !32, !noalias !29
   store i64 0, ptr %33, align 8, !alias.scope !32, !noalias !29
-  store i8 0, ptr %24, align 1, !alias.scope !32, !noalias !29
+  store i8 0, ptr %24, align 8, !alias.scope !32, !noalias !29
   %35 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %36 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %36, i64 24, i1 false), !alias.scope !34
@@ -1994,7 +1994,7 @@ _ZSt19__relocate_object_aIN3ue211hwlmLiteralES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.
   store i64 %68, ptr %70, align 8, !alias.scope !36, !noalias !39
   store ptr %60, ptr %.0911.i.i.i.i29, align 8, !alias.scope !39, !noalias !36
   store i64 0, ptr %69, align 8, !alias.scope !39, !noalias !36
-  store i8 0, ptr %60, align 1, !alias.scope !39, !noalias !36
+  store i8 0, ptr %60, align 8, !alias.scope !39, !noalias !36
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 32
   %72 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, ptr noundef nonnull align 8 dereferenceable(24) %72, i64 24, i1 false), !alias.scope !41

@@ -7498,7 +7498,7 @@ define void @_ZN7glslang14TParseVersions23updateExtensionBehaviorEiPKcS2_(ptr no
   %27 = load i32, ptr %26, align 4
   %28 = xor i32 %27, -1
   %29 = add i32 %25, %28
-  %30 = load i32, ptr %23, align 4
+  %30 = load i32, ptr %23, align 8
   %31 = tail call i32 @llvm.smin.i32(i32 %29, i32 %30)
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %31, i32 0)
   %32 = zext nneg i32 %.sroa.speculated.i.i to i64
@@ -7537,7 +7537,7 @@ _ZNK7glslang14TParseVersions13getCurrentLocEv.exit: ; preds = %18, %20
   %53 = load i32, ptr %52, align 4
   %54 = xor i32 %53, -1
   %55 = add i32 %51, %54
-  %56 = load i32, ptr %49, align 4
+  %56 = load i32, ptr %49, align 8
   %57 = tail call i32 @llvm.smin.i32(i32 %55, i32 %56)
   %.sroa.speculated.i.i124 = tail call i32 @llvm.smax.i32(i32 %57, i32 0)
   %58 = zext nneg i32 %.sroa.speculated.i.i124 to i64
@@ -7570,7 +7570,7 @@ _ZNK7glslang14TParseVersions13getCurrentLocEv.exit126: ; preds = %44, %46
   %76 = load i32, ptr %75, align 4
   %77 = xor i32 %76, -1
   %78 = add i32 %74, %77
-  %79 = load i32, ptr %72, align 4
+  %79 = load i32, ptr %72, align 8
   %80 = tail call i32 @llvm.smin.i32(i32 %78, i32 %79)
   %.sroa.speculated.i.i127 = tail call i32 @llvm.smax.i32(i32 %80, i32 0)
   %81 = zext nneg i32 %.sroa.speculated.i.i127 to i64
@@ -8122,7 +8122,7 @@ define void @_ZN7glslang14TParseVersions23updateExtensionBehaviorEPKcNS_18TExten
   %26 = load i32, ptr %25, align 4
   %27 = xor i32 %26, -1
   %28 = add i32 %24, %27
-  %29 = load i32, ptr %22, align 4
+  %29 = load i32, ptr %22, align 8
   %30 = tail call i32 @llvm.smin.i32(i32 %28, i32 %29)
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %30, i32 0)
   %31 = zext nneg i32 %.sroa.speculated.i.i to i64
@@ -8319,7 +8319,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   %103 = load i32, ptr %102, align 4
   %104 = xor i32 %103, -1
   %105 = add i32 %101, %104
-  %106 = load i32, ptr %99, align 4
+  %106 = load i32, ptr %99, align 8
   %107 = call i32 @llvm.smin.i32(i32 %105, i32 %106)
   %.sroa.speculated.i.i13 = call i32 @llvm.smax.i32(i32 %107, i32 0)
   %108 = zext nneg i32 %.sroa.speculated.i.i13 to i64
@@ -8356,7 +8356,7 @@ _ZNK7glslang14TParseVersions13getCurrentLocEv.exit15: ; preds = %94, %96
   %128 = load i32, ptr %127, align 4
   %129 = xor i32 %128, -1
   %130 = add i32 %126, %129
-  %131 = load i32, ptr %124, align 4
+  %131 = load i32, ptr %124, align 8
   %132 = call i32 @llvm.smin.i32(i32 %130, i32 %131)
   %.sroa.speculated.i.i16 = call i32 @llvm.smax.i32(i32 %132, i32 0)
   %133 = zext nneg i32 %.sroa.speculated.i.i16 to i64
@@ -8399,7 +8399,7 @@ _ZNK7glslang14TParseVersions13getCurrentLocEv.exit18: ; preds = %119, %121
   %157 = load i32, ptr %156, align 4
   %158 = xor i32 %157, -1
   %159 = add i32 %155, %158
-  %160 = load i32, ptr %153, align 4
+  %160 = load i32, ptr %153, align 8
   %161 = call i32 @llvm.smin.i32(i32 %159, i32 %160)
   %.sroa.speculated.i.i19 = call i32 @llvm.smax.i32(i32 %161, i32 0)
   %162 = zext nneg i32 %.sroa.speculated.i.i19 to i64
@@ -11374,7 +11374,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allo
   store i64 %25, ptr %26, align 8
   store ptr %16, ptr %14, align 8
   store i64 0, ptr %24, align 8
-  store i8 0, ptr %16, align 1
+  store i8 0, ptr %16, align 8
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store i32 0, ptr %27, align 8
   %28 = tail call { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS7_jESt10_Select1stISA_ESt4lessIS7_ENS5_ISA_EEE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS9_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(40) %8)
@@ -11796,7 +11796,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allo
   store i64 %25, ptr %26, align 8
   store ptr %16, ptr %14, align 8
   store i64 0, ptr %24, align 8
-  store i8 0, ptr %16, align 1
+  store i8 0, ptr %16, align 8
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store i32 0, ptr %27, align 8
   %28 = tail call { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS7_NS4_18TExtensionBehaviorEESt10_Select1stISB_ESt4lessIS7_ENS5_ISB_EEE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERS9_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(40) %8)

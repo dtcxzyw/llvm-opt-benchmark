@@ -2362,7 +2362,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !56, !alias.scope !222, !noalias !225
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !53, !alias.scope !225, !noalias !222
   store i64 0, ptr %48, align 8, !tbaa !56, !alias.scope !225, !noalias !222
-  store i8 0, ptr %39, align 1, !tbaa !38, !alias.scope !225, !noalias !222
+  store i8 0, ptr %39, align 8, !tbaa !38, !alias.scope !225, !noalias !222
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -2410,7 +2410,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !56, !alias.scope !229, !noalias !232
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !53, !alias.scope !232, !noalias !229
   store i64 0, ptr %64, align 8, !tbaa !56, !alias.scope !232, !noalias !229
-  store i8 0, ptr %55, align 1, !tbaa !38, !alias.scope !232, !noalias !229
+  store i8 0, ptr %55, align 8, !tbaa !38, !alias.scope !232, !noalias !229
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5
@@ -4073,7 +4073,7 @@ _ZN9grpc_core14promise_detail7CurriedIZNS_21promise_filter_detail30InterceptServ
   store ptr null, ptr %6, align 8, !tbaa !184, !noalias !298
   store i64 %4, ptr %2, align 8, !tbaa !179
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i8 %5, ptr %8, align 1, !tbaa !183
+  store i8 %5, ptr %8, align 8, !tbaa !183
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %7, ptr %9, align 8, !tbaa !184
   ret void
@@ -4085,7 +4085,7 @@ define linkonce_odr void @_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_m
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !184
   %.not.i.i.i = icmp ne ptr %5, null
-  %6 = load i8, ptr %3, align 1, !range !16
+  %6 = load i8, ptr %3, align 8, !range !16
   %7 = trunc nuw i8 %6 to i1
   %or.cond.i.i.i = select i1 %.not.i.i.i, i1 %7, i1 false
   br i1 %or.cond.i.i.i, label %8, label %_ZN9grpc_core14promise_detail11PromiseLikeINS0_7CurriedIZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_16HttpClientFilterEEEvMNT_4CallEFN4absl12lts_202407226StatusER19grpc_metadata_batchEPNS3_14FilterCallDataIS6_EERKNS_8CallArgsEEUlSt10unique_ptrISB_NS_5Arena13PooledDeleterEEE_SO_EEvED2Ev.exit
@@ -4210,7 +4210,7 @@ define linkonce_odr void @_ZZN9grpc_core21promise_filter_detail30InterceptServer
   %20 = load ptr, ptr %19, align 8, !tbaa !184
   store ptr %18, ptr %19, align 8, !tbaa !184
   %.not.i.i.i.i.i = icmp ne ptr %20, null
-  %21 = load i8, ptr %11, align 1, !range !16
+  %21 = load i8, ptr %11, align 8, !range !16
   %22 = trunc nuw i8 %21 to i1
   %or.cond.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %22, i1 false
   br i1 %or.cond.i.i.i.i.i, label %23, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEaSEOS4_.exit.i
@@ -4454,7 +4454,7 @@ define linkonce_odr void @_ZN9grpc_core21promise_filter_detail11RunCallImplIMNS_
   store i16 %storemerge.i.i.i.i.i, ptr %12, align 2, !tbaa !18
   %..i = shl nuw nsw i8 %11, 1
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  store i8 %..i, ptr %14, align 1, !tbaa !20
+  store i8 %..i, ptr %14, align 2, !tbaa !20
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %17 = load i16, ptr %16, align 2, !tbaa !18
@@ -4466,7 +4466,7 @@ define linkonce_odr void @_ZN9grpc_core21promise_filter_detail11RunCallImplIMNS_
   %storemerge.i.i.i.i16.i = or i16 %17, -8192
   store i16 %storemerge.i.i.i.i16.i, ptr %16, align 2, !tbaa !18
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i8 0, ptr %20, align 1, !tbaa !29
+  store i8 0, ptr %20, align 2, !tbaa !29
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !32, !noalias !326
   %23 = icmp ugt ptr %22, inttoptr (i64 1 to ptr)

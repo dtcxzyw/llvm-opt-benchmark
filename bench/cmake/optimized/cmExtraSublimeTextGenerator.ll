@@ -4211,7 +4211,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %302, ptr %304, align 8, !tbaa !13, !alias.scope !180, !noalias !183
   store ptr %294, ptr %.0911.i.i.i.i, align 8, !tbaa !5, !alias.scope !183, !noalias !180
   store i64 0, ptr %303, align 8, !tbaa !13, !alias.scope !183, !noalias !180
-  store i8 0, ptr %294, align 1, !tbaa !14, !alias.scope !183, !noalias !180
+  store i8 0, ptr %294, align 8, !tbaa !14, !alias.scope !183, !noalias !180
   %305 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %306 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %.not.i.i.i.i220 = icmp eq ptr %305, %250
@@ -8986,7 +8986,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %39
   store i64 %46, ptr %47, align 8, !tbaa !13
   store ptr %37, ptr %2, align 8, !tbaa !5
   store i64 0, ptr %45, align 8, !tbaa !13
-  store i8 0, ptr %37, align 1, !tbaa !14
+  store i8 0, ptr %37, align 8, !tbaa !14
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %3, ptr %48, align 8, !tbaa !260
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -9019,7 +9019,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit6: ; preds = %5
   store i64 %61, ptr %62, align 8, !tbaa !13
   store ptr %52, ptr %4, align 8, !tbaa !5
   store i64 0, ptr %60, align 8, !tbaa !13
-  store i8 0, ptr %52, align 1, !tbaa !14
+  store i8 0, ptr %52, align 8, !tbaa !14
   ret void
 
 63:                                               ; preds = %5
@@ -10494,14 +10494,14 @@ define linkonce_odr dso_local void @_ZNK47cmExternalMakefileProjectGeneratorSimp
   store ptr %7, ptr %6, align 8, !tbaa !22
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i64 0, ptr %8, align 8, !tbaa !13
-  store i8 0, ptr %7, align 1, !tbaa !14
+  store i8 0, ptr %7, align 8, !tbaa !14
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV27cmExtraSublimeTextGenerator, i64 16), ptr %4, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store ptr %10, ptr %9, align 8, !tbaa !22
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store i64 0, ptr %11, align 8, !tbaa !13
-  store i8 0, ptr %10, align 1, !tbaa !14
+  store i8 0, ptr %10, align 8, !tbaa !14
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store i8 0, ptr %12, align 8, !tbaa !27
   store ptr %4, ptr %0, align 8, !tbaa !378

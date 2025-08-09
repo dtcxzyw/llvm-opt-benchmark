@@ -13601,7 +13601,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %31, ptr %32, align 8, !tbaa !123
   store ptr %22, ptr %19, align 8, !tbaa !119
   store i64 0, ptr %30, align 8, !tbaa !123
-  store i8 0, ptr %22, align 1, !tbaa !114
+  store i8 0, ptr %22, align 8, !tbaa !114
   %33 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 184
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 184
   %35 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 200
@@ -13633,7 +13633,7 @@ _ZSt10_ConstructIN4llvm6VFInfoEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %_ZNKS
   store i64 %46, ptr %47, align 8, !tbaa !123
   store ptr %37, ptr %34, align 8, !tbaa !119
   store i64 0, ptr %45, align 8, !tbaa !123
-  store i8 0, ptr %37, align 1, !tbaa !114
+  store i8 0, ptr %37, align 8, !tbaa !114
   %48 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 216
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 216
   %50 = load i32, ptr %49, align 8, !tbaa !647
@@ -14130,7 +14130,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_18L
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.014, i64 32
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !55
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %21 = load i32, ptr %19, align 4, !tbaa !66
+  %21 = load i32, ptr %19, align 8, !tbaa !66
   store ptr %.sroa.01.0.copyload, ptr %3, align 8, !tbaa !54
   store i64 %.sroa.22.0.copyload, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !tbaa !55
   store ptr %.sroa.0.0.copyload, ptr %9, align 8, !tbaa !54
@@ -14559,7 +14559,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %19, ptr %20, align 8, !tbaa !123
   store ptr %10, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !119
   store i64 0, ptr %18, align 8, !tbaa !123
-  store i8 0, ptr %10, align 1, !tbaa !114
+  store i8 0, ptr %10, align 8, !tbaa !114
   %21 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 48
@@ -14591,7 +14591,7 @@ _ZSt10_ConstructIN4llvm30DiagnosticInfoOptimizationBase8ArgumentEJS2_EEvPT_DpOT0
   store i64 %34, ptr %35, align 8, !tbaa !123
   store ptr %25, ptr %22, align 8, !tbaa !119
   store i64 0, ptr %33, align 8, !tbaa !123
-  store i8 0, ptr %25, align 1, !tbaa !114
+  store i8 0, ptr %25, align 8, !tbaa !114
   %36 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 64
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 16, i1 false), !tbaa.struct !664
@@ -15108,7 +15108,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_7PHINodeEjNS_12DenseMapInfoIS3_vEENS_6de
   store ptr %60, ptr %50, align 8, !tbaa !355
   %61 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %62 = load i32, ptr %3, align 4, !tbaa !66
-  store i32 %62, ptr %61, align 4, !tbaa !66
+  store i32 %62, ptr %61, align 8, !tbaa !66
   %63 = load ptr, ptr %1, align 8, !tbaa !570
   %64 = load i32, ptr %7, align 8, !tbaa !571
   br label %.loopexit
@@ -15320,7 +15320,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_7PHINodeEjNS_12DenseMapInfoIS3_vEENS_6de
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !66
-  store i32 %68, ptr %66, align 4, !tbaa !66
+  store i32 %68, ptr %66, align 8, !tbaa !66
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !671
   br label %70

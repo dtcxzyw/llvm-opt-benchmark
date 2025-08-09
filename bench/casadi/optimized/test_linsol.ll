@@ -3478,7 +3478,7 @@ _ZSt19__relocate_object_aIZ4mainE4TestS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i.i.i: ; 
   store i64 %69, ptr %71, align 8, !tbaa !14, !alias.scope !101, !noalias !104
   store ptr %61, ptr %.092.i.i.i.i.i, align 8, !tbaa !11, !alias.scope !104, !noalias !101
   store i64 0, ptr %70, align 8, !tbaa !14, !alias.scope !104, !noalias !101
-  store i8 0, ptr %61, align 1, !tbaa !13, !alias.scope !104, !noalias !101
+  store i8 0, ptr %61, align 8, !tbaa !13, !alias.scope !104, !noalias !101
   %72 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i, i64 32
   %73 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i, i64 32
   %74 = load i32, ptr %73, align 8, !tbaa !40, !alias.scope !104, !noalias !101
@@ -4922,7 +4922,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i: ; pre
   store i64 %20, ptr %21, align 8, !tbaa !14
   store ptr %11, ptr %8, align 8, !tbaa !11
   store i64 0, ptr %19, align 8, !tbaa !14
-  store i8 0, ptr %11, align 1, !tbaa !13
+  store i8 0, ptr %11, align 8, !tbaa !13
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 64
   invoke void @_ZN6casadi11GenericTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %22)
           to label %_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericTypeEEEEE9constructISB_JRKSt21piecewise_construct_tSt5tupleIJOS7_EESJ_IJEEEEEvRSD_PT_DpOT0_.exit unwind label %23

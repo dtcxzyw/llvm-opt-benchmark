@@ -2443,7 +2443,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit36: ; preds = %59
   %69 = load i32, ptr %68, align 8, !tbaa !281
   %70 = and i32 %69, -261
   %71 = or disjoint i32 %70, 4
-  store i32 %71, ptr %68, align 4, !tbaa !290
+  store i32 %71, ptr %68, align 8, !tbaa !290
   %72 = load i64, ptr %65, align 8
   %73 = getelementptr inbounds i8, ptr %58, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
@@ -2465,7 +2465,7 @@ _ZlsRSoRK8mem_stat.exit:                          ; preds = %.noexc
   %83 = load i32, ptr %82, align 8, !tbaa !281
   %84 = and i32 %83, -261
   %85 = or disjoint i32 %84, 4
-  store i32 %85, ptr %82, align 4, !tbaa !290
+  store i32 %85, ptr %82, align 8, !tbaa !290
   %86 = load i64, ptr %79, align 8
   %87 = getelementptr inbounds i8, ptr %75, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
@@ -2605,7 +2605,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit61: ; preds = %134
   %144 = load i32, ptr %143, align 8, !tbaa !281
   %145 = and i32 %144, -261
   %146 = or disjoint i32 %145, 4
-  store i32 %146, ptr %143, align 4, !tbaa !290
+  store i32 %146, ptr %143, align 8, !tbaa !290
   %147 = load i64, ptr %140, align 8
   %148 = getelementptr inbounds i8, ptr %133, i64 %147
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
@@ -2627,7 +2627,7 @@ _ZlsRSoRK8mem_stat.exit64:                        ; preds = %.noexc62
   %158 = load i32, ptr %157, align 8, !tbaa !281
   %159 = and i32 %158, -261
   %160 = or disjoint i32 %159, 4
-  store i32 %160, ptr %157, align 4, !tbaa !290
+  store i32 %160, ptr %157, align 8, !tbaa !290
   %161 = load i64, ptr %154, align 8
   %162 = getelementptr inbounds i8, ptr %150, i64 %161
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
@@ -4679,7 +4679,7 @@ define hidden void @_ZN3sat14cut_simplifier12simulate_eqsEv(ptr noundef nonnull 
   %14 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i.i.i, i64 4
   store i32 0, ptr %14, align 4, !tbaa !373
   %15 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i.i.i, i64 16
-  store i32 -2, ptr %15, align 4, !tbaa !103
+  store i32 -2, ptr %15, align 8, !tbaa !103
   %16 = add nsw i32 %.01012.i.i.i.i.i.i.i.i.i, -1
   %17 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %16, 0
@@ -13351,7 +13351,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryImN3sat7
   %8 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 4
   store i32 0, ptr %8, align 4, !tbaa !373
   %9 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 16
-  store i32 -2, ptr %9, align 4, !tbaa !103
+  store i32 -2, ptr %9, align 8, !tbaa !103
   %10 = add i32 %.01012.i.i.i.i.i, -1
   %11 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i = icmp eq i32 %10, 0

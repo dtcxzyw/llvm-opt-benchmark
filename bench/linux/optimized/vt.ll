@@ -5879,7 +5879,7 @@ define internal fastcc void @reset_terminal(ptr noundef initializes((464, 472), 
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 385
   store i8 0, ptr %13, align 1
   %14 = getelementptr i8, ptr %0, i64 386
-  store i8 1, ptr %14, align 1
+  store i8 1, ptr %14, align 2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 387
   %16 = load i8, ptr %15, align 1
   %17 = and i8 %16, -2
@@ -8750,7 +8750,7 @@ define internal fastcc i32 @do_con_write(ptr noundef readonly captures(none) %0,
 
 635:                                              ; preds = %631
   %636 = load i32, ptr %64, align 8
-  store i32 %636, ptr %86, align 4
+  store i32 %636, ptr %86, align 8
   br label %637
 
 637:                                              ; preds = %635, %631

@@ -13130,10 +13130,10 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN7glslang
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
-  %21 = load i32, ptr %20, align 4
+  %21 = load i32, ptr %20, align 8
   %22 = and i32 %21, -2147483648
   %23 = or disjoint i32 %22, 520093696
-  store i32 %23, ptr %20, align 4
+  store i32 %23, ptr %20, align 8
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %26 = load i64, ptr %25, align 8
@@ -15279,10 +15279,10 @@ define linkonce_odr void @_ZN7glslang9TFunction16addThisParameterERNS_5TTypeEPKc
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  %16 = load i32, ptr %15, align 4
+  %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, -2147483648
   %18 = or disjoint i32 %17, 520093696
-  store i32 %18, ptr %15, align 4
+  store i32 %18, ptr %15, align 8
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %21 = load i64, ptr %20, align 8
@@ -21173,10 +21173,10 @@ _ZNSt3mapIPN7glslang7TVectorINS0_8TTypeLocEEES4_St4lessIS4_ENS0_14pool_allocator
   %213 = getelementptr inbounds nuw i8, ptr %206, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %211, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %212, i8 0, i64 16, i1 false)
-  %214 = load i32, ptr %213, align 4
+  %214 = load i32, ptr %213, align 8
   %215 = and i32 %214, -2147483648
   %216 = or disjoint i32 %215, 520093696
-  store i32 %216, ptr %213, align 4
+  store i32 %216, ptr %213, align 8
   %217 = getelementptr inbounds nuw i8, ptr %206, i64 16
   %218 = getelementptr inbounds nuw i8, ptr %206, i64 24
   %219 = load i64, ptr %218, align 8

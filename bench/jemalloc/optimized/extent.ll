@@ -709,7 +709,7 @@ extent_split_interior.exit.i.i:                   ; preds = %146
   %storemerge.i82.i.i = call i32 @llvm.umin.i32(i32 %167, i32 %169)
   store i32 %storemerge.i82.i.i, ptr %43, align 4, !tbaa !46
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 58472
-  store atomic i8 0, ptr %170 monotonic, align 1
+  store atomic i8 0, ptr %170 monotonic, align 4
   %171 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %13) #9
   br i1 %7, label %172, label %extent_alloc_retained.exit.thread30
 
@@ -1072,7 +1072,7 @@ extent_may_force_decay.exit:                      ; preds = %44
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 %.v.i.i
   tail call void @je_eset_insert(ptr noundef nonnull %56, ptr noundef nonnull %.033) #9
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store atomic i8 0, ptr %57 monotonic, align 1
+  store atomic i8 0, ptr %57 monotonic, align 8
   %58 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #9
   br label %59
 

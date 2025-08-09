@@ -76039,7 +76039,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_read_film_grain_characte
   %108 = getelementptr inbounds nuw i8, ptr %2, i64 5
   store i8 %107, ptr %108, align 1, !tbaa !1744
   %109 = getelementptr inbounds nuw i8, ptr %33, i64 10968
-  %110 = load i8, ptr %109, align 4, !tbaa !1749
+  %110 = load i8, ptr %109, align 8, !tbaa !1749
   %111 = getelementptr inbounds nuw i8, ptr %2, i64 6
   store i8 %110, ptr %111, align 2, !tbaa !1745
   %112 = getelementptr inbounds nuw i8, ptr %33, i64 10969

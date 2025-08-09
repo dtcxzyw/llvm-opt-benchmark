@@ -6611,7 +6611,7 @@ _ZN6google8protobuf5Arena14CreateInternalINSt7__cxx1112basic_stringIcSt11char_tr
   store ptr %28, ptr %.sink10, align 8, !tbaa !141
   %29 = getelementptr inbounds nuw i8, ptr %.sink10, i64 8
   store i64 0, ptr %29, align 8, !tbaa !54
-  store i8 0, ptr %28, align 1, !tbaa !34
+  store i8 0, ptr %28, align 8, !tbaa !34
   store ptr %.sink10, ptr %.fca.0.extract.i, align 8, !tbaa !34
   br label %30
 
@@ -7017,7 +7017,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %72, ptr %.sink6.i.i.i.i, align 8, !tbaa !141
   %73 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i, i64 8
   store i64 0, ptr %73, align 8, !tbaa !54
-  store i8 0, ptr %72, align 1, !tbaa !34
+  store i8 0, ptr %72, align 8, !tbaa !34
   %74 = load ptr, ptr %32, align 8, !tbaa !101
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -10706,7 +10706,7 @@ _ZN6google8protobuf5Arena14CreateInternalINSt7__cxx1112basic_stringIcSt11char_tr
   store ptr %29, ptr %.sink10.i, align 8, !tbaa !141
   %30 = getelementptr inbounds nuw i8, ptr %.sink10.i, i64 8
   store i64 0, ptr %30, align 8, !tbaa !54
-  store i8 0, ptr %29, align 1, !tbaa !34
+  store i8 0, ptr %29, align 8, !tbaa !34
   store ptr %.sink10.i, ptr %.fca.0.extract.i.i, align 8, !tbaa !34
   br label %_ZN6google8protobuf8internal12ExtensionSet13MutableStringB5cxx11EihPKNS0_15FieldDescriptorE.exit
 
@@ -15096,7 +15096,7 @@ _ZN6google8protobuf5Arena14CreateInternalINSt7__cxx1112basic_stringIcSt11char_tr
   store ptr %658, ptr %.sink10.i, align 8, !tbaa !141
   %659 = getelementptr inbounds nuw i8, ptr %.sink10.i, i64 8
   store i64 0, ptr %659, align 8, !tbaa !54
-  store i8 0, ptr %658, align 1, !tbaa !34
+  store i8 0, ptr %658, align 8, !tbaa !34
   store ptr %.sink10.i, ptr %.fca.0.extract.i.i323, align 8, !tbaa !34
   br label %_ZN6google8protobuf8internal12ExtensionSet13MutableStringB5cxx11EihPKNS0_15FieldDescriptorE.exit
 
@@ -23672,7 +23672,7 @@ _ZN6google8protobuf5Arena14CreateInternalINS0_8internal16InternalMetadata9Contai
   %25 = getelementptr inbounds nuw i8, ptr %.sink11, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %.sink11, i64 24
   store ptr %26, ptr %25, align 8, !tbaa !141
-  store i8 0, ptr %26, align 1, !tbaa !34
+  store i8 0, ptr %26, align 8, !tbaa !34
   %27 = ptrtoint ptr %.sink11 to i64
   %28 = or i64 %27, 1
   %29 = inttoptr i64 %28 to ptr
@@ -24090,7 +24090,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %16, ptr %15, align 8, !tbaa !141
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 0, ptr %17, align 8, !tbaa !54
-  store i8 0, ptr %16, align 1, !tbaa !34
+  store i8 0, ptr %16, align 8, !tbaa !34
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %14)
   %18 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv36
   store ptr %15, ptr %18, align 8, !tbaa !102
@@ -24137,7 +24137,7 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i: ;
   store ptr %35, ptr %34, align 8, !tbaa !141
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 0, ptr %36, align 8, !tbaa !54
-  store i8 0, ptr %35, align 1, !tbaa !34
+  store i8 0, ptr %35, align 8, !tbaa !34
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %24)
   %37 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv32
   store ptr %34, ptr %37, align 8, !tbaa !102

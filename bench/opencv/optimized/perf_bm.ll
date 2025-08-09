@@ -1364,7 +1364,7 @@ common.resume:                                    ; preds = %_ZN7testing8interna
   %104 = getelementptr inbounds nuw i8, ptr %82, i64 16
   store i64 12, ptr %104, align 8, !tbaa !20
   %105 = getelementptr inbounds nuw i8, ptr %82, i64 36
-  store i8 0, ptr %105, align 1, !tbaa !22
+  store i8 0, ptr %105, align 4, !tbaa !22
   %106 = getelementptr inbounds nuw i8, ptr %82, i64 40
   %107 = getelementptr inbounds nuw i8, ptr %82, i64 56
   store ptr %107, ptr %106, align 8, !tbaa !14
@@ -11815,7 +11815,7 @@ define internal void @_GLOBAL__sub_I_perf_bm.cpp() #25 section ".text.startup" p
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 40
   store i64 8, ptr %77, align 8, !tbaa !20
   %78 = getelementptr inbounds nuw i8, ptr %71, i64 56
-  store i8 0, ptr %78, align 1, !tbaa !22
+  store i8 0, ptr %78, align 8, !tbaa !22
   %79 = getelementptr inbounds nuw i8, ptr %71, i64 64
   store ptr %69, ptr %79, align 8, !tbaa !142
   %80 = getelementptr inbounds nuw i8, ptr %67, i64 80
@@ -12364,7 +12364,7 @@ _ZSt19__relocate_object_aIN7testing8internal25ParameterizedTestCaseInfoIN11openc
   store i64 %256, ptr %258, align 8, !tbaa !20, !alias.scope !421, !noalias !424
   store ptr %248, ptr %.092.i.i.i.i.i.i.i.i.i, align 8, !tbaa !17, !alias.scope !424, !noalias !421
   store i64 0, ptr %257, align 8, !tbaa !20, !alias.scope !424, !noalias !421
-  store i8 0, ptr %248, align 1, !tbaa !22, !alias.scope !424, !noalias !421
+  store i8 0, ptr %248, align 8, !tbaa !22, !alias.scope !424, !noalias !421
   %259 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i.i.i.i, i64 32
   %260 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %259, ptr noundef nonnull align 8 dereferenceable(28) %260, i64 28, i1 false), !alias.scope !426
@@ -12622,7 +12622,7 @@ __cxx_global_var_init.22.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   %333 = getelementptr inbounds nuw i8, ptr %331, i64 8
   store i64 12, ptr %333, align 8, !tbaa !20
   %334 = getelementptr inbounds nuw i8, ptr %331, i64 28
-  store i8 0, ptr %334, align 1, !tbaa !22
+  store i8 0, ptr %334, align 4, !tbaa !22
   %335 = getelementptr inbounds nuw i8, ptr %331, i64 32
   %336 = getelementptr inbounds nuw i8, ptr %331, i64 48
   store ptr %336, ptr %335, align 8, !tbaa !14
@@ -13175,7 +13175,7 @@ _ZSt19__relocate_object_aIN7testing8internal25ParameterizedTestCaseInfoIN11openc
   store i64 %516, ptr %518, align 8, !tbaa !20, !alias.scope !431, !noalias !434
   store ptr %508, ptr %.092.i.i.i.i.i.i.i.i.i95, align 8, !tbaa !17, !alias.scope !434, !noalias !431
   store i64 0, ptr %517, align 8, !tbaa !20, !alias.scope !434, !noalias !431
-  store i8 0, ptr %508, align 1, !tbaa !22, !alias.scope !434, !noalias !431
+  store i8 0, ptr %508, align 8, !tbaa !22, !alias.scope !434, !noalias !431
   %519 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i.i.i.i94, i64 32
   %520 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i.i.i.i95, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %519, ptr noundef nonnull align 8 dereferenceable(28) %520, i64 28, i1 false), !alias.scope !436

@@ -486,7 +486,7 @@ __rust_try.llvm.3849484896252022153.exit:
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !77, !noundef !5
   store i64 0, ptr %.val.i, align 8, !noalias !80
   %1 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
-  store i8 2, ptr %1, align 1, !noalias !80
+  store i8 2, ptr %1, align 8, !noalias !80
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
@@ -498,7 +498,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h0c4bd944e98fa2b5E(ptr noalia
   %4 = load ptr, ptr %3, align 8, !noalias !86
   store i64 0, ptr %.val.i, align 8, !noalias !86
   %5 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
-  store i8 2, ptr %5, align 1, !noalias !86
+  store i8 2, ptr %5, align 8, !noalias !86
   %6 = icmp eq i64 %2, 0
   br i1 %6, label %26, label %7
 
@@ -642,7 +642,7 @@ __rust_try.llvm.3849484896252022153.exit:
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !108, !noundef !5
   store i64 0, ptr %.val.i, align 8, !noalias !111
   %1 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
-  store i8 2, ptr %1, align 1, !noalias !111
+  store i8 2, ptr %1, align 8, !noalias !111
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
@@ -706,7 +706,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h93bc0d05e146ef57E(ptr noalia
   %5 = load ptr, ptr %4, align 8, !noalias !122
   store i64 0, ptr %.val.i, align 8, !noalias !122
   %6 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
-  store i8 2, ptr %6, align 1, !noalias !122
+  store i8 2, ptr %6, align 8, !noalias !122
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !122
   store i64 %3, ptr %2, align 8, !noalias !122
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -884,7 +884,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h09287134dc86af3eE.llvm.38494
   %5 = load ptr, ptr %4, align 8, !noalias !160
   store i64 0, ptr %.val, align 8, !noalias !160
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  store i8 2, ptr %6, align 1, !noalias !160
+  store i8 2, ptr %6, align 8, !noalias !160
   %7 = icmp eq i64 %3, 0
   br i1 %7, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h465c38606406b81bE.exit", label %8
 
@@ -914,7 +914,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h10d44002e361fd9dE.llvm.38494
   %.val = load ptr, ptr %2, align 8, !alias.scope !170, !noundef !5
   store i64 0, ptr %.val, align 8, !noalias !173
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  store i8 2, ptr %3, align 1, !noalias !173
+  store i8 2, ptr %3, align 8, !noalias !173
   ret void
 }
 
@@ -938,7 +938,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h7ce8c526f8016cf2E.llvm.38494
   %6 = load ptr, ptr %5, align 8, !noalias !184
   store i64 0, ptr %.val, align 8, !noalias !184
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  store i8 2, ptr %7, align 1, !noalias !184
+  store i8 2, ptr %7, align 8, !noalias !184
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !184
   store i64 %4, ptr %2, align 8, !noalias !184
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -969,7 +969,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h93b405689cafdd53E.llvm.38494
   %.val = load ptr, ptr %2, align 8, !alias.scope !202, !noundef !5
   store i64 0, ptr %.val, align 8, !noalias !205
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  store i8 2, ptr %3, align 1, !noalias !205
+  store i8 2, ptr %3, align 8, !noalias !205
   ret void
 }
 

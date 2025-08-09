@@ -1787,7 +1787,7 @@ cache_lookup_name.exit.i:                         ; preds = %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %77, ptr noundef nonnull readonly align 4 dereferenceable(32) %45, i64 32, i1 false)
   %78 = load i32, ptr %56, align 4, !tbaa !82
   %79 = getelementptr inbounds nuw i8, ptr %67, i64 96
-  store i32 %78, ptr %79, align 4, !tbaa !82
+  store i32 %78, ptr %79, align 8, !tbaa !82
   %80 = load ptr, ptr @the_repository, align 8, !tbaa !54
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 400
   %82 = load ptr, ptr %81, align 8, !tbaa !80

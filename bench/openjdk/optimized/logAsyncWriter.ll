@@ -526,7 +526,7 @@ define hidden void @_ZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStr
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.01116.i, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %38 = load i32, ptr %37, align 4
+  %38 = load i32, ptr %37, align 8
   %.not.i.i = icmp eq i32 %38, 0
   br i1 %.not.i.i, label %"_ZZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEEENK3$_0clES2_Rj.exit.i", label %39
 
@@ -647,7 +647,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %_ZN12ResourceMarkD2
   %46 = getelementptr inbounds nuw i8, ptr %.01118.i, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %.01118.i, i64 16
-  %49 = load i32, ptr %48, align 4
+  %49 = load i32, ptr %48, align 8
   %.not.i.i = icmp eq i32 %49, 0
   br i1 %.not.i.i, label %"_ZZN14AsyncLogWriter3runEvENK3$_0clEP19LogFileStreamOutputRj.exit.i", label %50
 
@@ -800,7 +800,7 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStream
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds nuw i8, ptr %.01116.i.i, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %115 = load i32, ptr %114, align 4
+  %115 = load i32, ptr %114, align 8
   %.not.i.i.i = icmp eq i32 %115, 0
   br i1 %.not.i.i.i, label %"_ZZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEEENK3$_0clES2_Rj.exit.i.i", label %116
 

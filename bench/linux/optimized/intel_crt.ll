@@ -172,7 +172,7 @@ define dso_local void @intel_crt_init(ptr noundef %0) local_unnamed_addr #0 alig
   %44 = getelementptr inbounds nuw i8, ptr %29, i64 136
   store i16 68, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 7184
-  %46 = load i32, ptr %45, align 4
+  %46 = load i32, ptr %45, align 8
   %47 = and i32 %46, 16
   %48 = icmp eq i32 %47, 0
   %49 = getelementptr inbounds nuw i8, ptr %29, i64 138

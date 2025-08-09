@@ -2208,7 +2208,7 @@ define internal fastcc void @minstrel_ht_update_stats(ptr noundef readonly captu
   %114 = udiv i32 %113, %109
   %115 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %116 = getelementptr inbounds nuw i8, ptr %104, i64 18
-  %117 = load i16, ptr %115, align 2
+  %117 = load i16, ptr %115, align 4
   %118 = tail call i32 @llvm.umax.i32(i32 %114, i32 1)
   %119 = icmp eq i16 %117, 0
   br i1 %119, label %120, label %122

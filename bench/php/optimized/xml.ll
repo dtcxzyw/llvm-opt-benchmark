@@ -2102,7 +2102,7 @@ xml_decode_tag.exit137:                           ; preds = %xml_xmlcharlen.exit
   %84 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %85 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %86 = load i64, ptr %85, align 8, !tbaa !61
-  %87 = load i8, ptr %84, align 1, !tbaa !28
+  %87 = load i8, ptr %84, align 8, !tbaa !28
   %88 = icmp sgt i8 %87, 57
   br i1 %88, label %_zend_handle_numeric_str.exit127.thread, label %89, !prof !109
 
@@ -2310,7 +2310,7 @@ xml_decode_tag.exit145:                           ; preds = %xml_xmlcharlen.exit
   %188 = getelementptr inbounds nuw i8, ptr %172, i64 24
   %189 = getelementptr inbounds nuw i8, ptr %172, i64 16
   %190 = load i64, ptr %189, align 8, !tbaa !61
-  %191 = load i8, ptr %188, align 1, !tbaa !28
+  %191 = load i8, ptr %188, align 8, !tbaa !28
   %192 = icmp sgt i8 %191, 57
   br i1 %192, label %_zend_handle_numeric_str.exit.thread, label %193, !prof !109
 

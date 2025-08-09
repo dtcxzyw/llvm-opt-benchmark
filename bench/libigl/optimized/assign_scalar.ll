@@ -4929,12 +4929,12 @@ _ZN5boost14operators_implmiERKN4CGAL13Lazy_exact_ntINS_14multiprecision6numberIN
   %67 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store <2 x double> %65, ptr %67, align 16, !tbaa !58, !noalias !97
   %68 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  store ptr null, ptr %68, align 8, !tbaa !100, !noalias !97
+  store ptr null, ptr %68, align 16, !tbaa !100, !noalias !97
   %69 = getelementptr inbounds nuw i8, ptr %53, i64 40
-  store i32 0, ptr %69, align 4, !tbaa !102, !noalias !97
+  store i32 0, ptr %69, align 8, !tbaa !102, !noalias !97
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL16Lazy_exact_unaryIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEEE, i64 16), ptr %53, align 16, !tbaa !20, !noalias !97
   %70 = getelementptr inbounds nuw i8, ptr %53, i64 48
-  store ptr %58, ptr %70, align 8, !tbaa !82, !noalias !97
+  store ptr %58, ptr %70, align 16, !tbaa !82, !noalias !97
   %71 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !58, !noalias !97
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %71, 0
   %72 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -5027,12 +5027,12 @@ _ZN5boost14operators_implmiERKN4CGAL13Lazy_exact_ntINS_14multiprecision6numberIN
   %108 = getelementptr inbounds nuw i8, ptr %94, i64 16
   store <2 x double> %106, ptr %108, align 16, !tbaa !58, !noalias !113
   %109 = getelementptr inbounds nuw i8, ptr %94, i64 32
-  store ptr null, ptr %109, align 8, !tbaa !100, !noalias !113
+  store ptr null, ptr %109, align 16, !tbaa !100, !noalias !113
   %110 = getelementptr inbounds nuw i8, ptr %94, i64 40
-  store i32 0, ptr %110, align 4, !tbaa !102, !noalias !113
+  store i32 0, ptr %110, align 8, !tbaa !102, !noalias !113
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL16Lazy_exact_unaryIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEEE, i64 16), ptr %94, align 16, !tbaa !20, !noalias !113
   %111 = getelementptr inbounds nuw i8, ptr %94, i64 48
-  store ptr %99, ptr %111, align 8, !tbaa !82, !noalias !113
+  store ptr %99, ptr %111, align 16, !tbaa !82, !noalias !113
   %112 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !58, !noalias !113
   %.not.i.i.i.i.i.i.i.i26 = icmp eq i8 %112, 0
   %113 = getelementptr inbounds nuw i8, ptr %99, i64 8
@@ -5547,7 +5547,7 @@ define linkonce_odr dso_local void @_ZN4CGAL13Lazy_exact_ntIN5boost14multiprecis
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %13, ptr %17, align 8, !tbaa !100
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i32 0, ptr %18, align 4, !tbaa !102
+  store i32 0, ptr %18, align 8, !tbaa !102
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL17Lazy_exact_Ex_CstIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEEE, i64 16), ptr %4, align 16, !tbaa !20
   store ptr %4, ptr %0, align 8, !tbaa !82
   ret void
@@ -5888,12 +5888,12 @@ _ZN5boost14operators_implmiERKN4CGAL13Lazy_exact_ntINS_14multiprecision6numberIN
   %69 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store <2 x double> %67, ptr %69, align 16, !tbaa !58, !noalias !127
   %70 = getelementptr inbounds nuw i8, ptr %55, i64 32
-  store ptr null, ptr %70, align 8, !tbaa !100, !noalias !127
+  store ptr null, ptr %70, align 16, !tbaa !100, !noalias !127
   %71 = getelementptr inbounds nuw i8, ptr %55, i64 40
-  store i32 0, ptr %71, align 4, !tbaa !102, !noalias !127
+  store i32 0, ptr %71, align 8, !tbaa !102, !noalias !127
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL16Lazy_exact_unaryIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEEE, i64 16), ptr %55, align 16, !tbaa !20, !noalias !127
   %72 = getelementptr inbounds nuw i8, ptr %55, i64 48
-  store ptr %60, ptr %72, align 8, !tbaa !82, !noalias !127
+  store ptr %60, ptr %72, align 16, !tbaa !82, !noalias !127
   %73 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !58, !noalias !127
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %73, 0
   %74 = getelementptr inbounds nuw i8, ptr %60, i64 8
@@ -5987,12 +5987,12 @@ _ZN5boost14operators_implmiERKN4CGAL13Lazy_exact_ntINS_14multiprecision6numberIN
   %111 = getelementptr inbounds nuw i8, ptr %97, i64 16
   store <2 x double> %109, ptr %111, align 16, !tbaa !58, !noalias !137
   %112 = getelementptr inbounds nuw i8, ptr %97, i64 32
-  store ptr null, ptr %112, align 8, !tbaa !100, !noalias !137
+  store ptr null, ptr %112, align 16, !tbaa !100, !noalias !137
   %113 = getelementptr inbounds nuw i8, ptr %97, i64 40
-  store i32 0, ptr %113, align 4, !tbaa !102, !noalias !137
+  store i32 0, ptr %113, align 8, !tbaa !102, !noalias !137
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL16Lazy_exact_unaryIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEEE, i64 16), ptr %97, align 16, !tbaa !20, !noalias !137
   %114 = getelementptr inbounds nuw i8, ptr %97, i64 48
-  store ptr %102, ptr %114, align 8, !tbaa !82, !noalias !137
+  store ptr %102, ptr %114, align 16, !tbaa !82, !noalias !137
   %115 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !58, !noalias !137
   %.not.i.i.i.i.i.i.i.i28 = icmp eq i8 %115, 0
   %116 = getelementptr inbounds nuw i8, ptr %102, i64 8
@@ -6499,8 +6499,8 @@ _ZN4CORE4ExprC2Ed.exit:                           ; preds = %23, %26
   %58 = load double, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !150, !noalias !145
   %59 = fadd double %57, %58
   %60 = getelementptr inbounds nuw i8, ptr %42, i64 40
-  %61 = load i32, ptr %60, align 4, !tbaa !23, !noalias !145
-  %62 = load i32, ptr %.sroa.6.0..sroa_idx.i.i, align 4, !tbaa !23, !noalias !145
+  %61 = load i32, ptr %60, align 8, !tbaa !23, !noalias !145
+  %62 = load i32, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !tbaa !23, !noalias !145
   %63 = call i32 @llvm.smax.i32(i32 %61, i32 %62)
   %64 = add nsw i32 %63, 1
   %65 = getelementptr inbounds nuw i8, ptr %40, i64 24
@@ -6599,8 +6599,8 @@ _ZN4CGAL3absIN4CORE4ExprEEENS_22Real_embeddable_traitsIT_E3Abs11result_typeERKS4
   %106 = load double, ptr %.sroa.5.0..sroa_idx.i.i27, align 8, !tbaa !150, !noalias !154
   %107 = fadd double %105, %106
   %108 = getelementptr inbounds nuw i8, ptr %90, i64 40
-  %109 = load i32, ptr %108, align 4, !tbaa !23, !noalias !154
-  %110 = load i32, ptr %.sroa.6.0..sroa_idx.i.i28, align 4, !tbaa !23, !noalias !154
+  %109 = load i32, ptr %108, align 8, !tbaa !23, !noalias !154
+  %110 = load i32, ptr %.sroa.6.0..sroa_idx.i.i28, align 8, !tbaa !23, !noalias !154
   %111 = call i32 @llvm.smax.i32(i32 %109, i32 %110)
   %112 = add nsw i32 %111, 1
   %113 = getelementptr inbounds nuw i8, ptr %88, i64 24
@@ -6980,8 +6980,8 @@ _ZN4CORE4ExprC2Ef.exit:                           ; preds = %25, %28
   %61 = load double, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !150, !noalias !163
   %62 = fadd double %60, %61
   %63 = getelementptr inbounds nuw i8, ptr %45, i64 40
-  %64 = load i32, ptr %63, align 4, !tbaa !23, !noalias !163
-  %65 = load i32, ptr %.sroa.6.0..sroa_idx.i.i, align 4, !tbaa !23, !noalias !163
+  %64 = load i32, ptr %63, align 8, !tbaa !23, !noalias !163
+  %65 = load i32, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !tbaa !23, !noalias !163
   %66 = call i32 @llvm.smax.i32(i32 %64, i32 %65)
   %67 = add nsw i32 %66, 1
   %68 = getelementptr inbounds nuw i8, ptr %43, i64 24
@@ -7081,8 +7081,8 @@ _ZN4CGAL3absIN4CORE4ExprEEENS_22Real_embeddable_traitsIT_E3Abs11result_typeERKS4
   %110 = load double, ptr %.sroa.5.0..sroa_idx.i.i27, align 8, !tbaa !150, !noalias !171
   %111 = fadd double %109, %110
   %112 = getelementptr inbounds nuw i8, ptr %94, i64 40
-  %113 = load i32, ptr %112, align 4, !tbaa !23, !noalias !171
-  %114 = load i32, ptr %.sroa.6.0..sroa_idx.i.i28, align 4, !tbaa !23, !noalias !171
+  %113 = load i32, ptr %112, align 8, !tbaa !23, !noalias !171
+  %114 = load i32, ptr %.sroa.6.0..sroa_idx.i.i28, align 8, !tbaa !23, !noalias !171
   %115 = call i32 @llvm.smax.i32(i32 %113, i32 %114)
   %116 = add nsw i32 %115, 1
   %117 = getelementptr inbounds nuw i8, ptr %92, i64 24
@@ -7365,9 +7365,9 @@ define weak_odr dso_local void @_ZN3igl8copyleft4cgal13assign_scalarIfN4CGAL13La
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store <2 x double> %9, ptr %11, align 16, !tbaa !58
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr null, ptr %12, align 8, !tbaa !100
+  store ptr null, ptr %12, align 16, !tbaa !100
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i32 0, ptr %13, align 4, !tbaa !102
+  store i32 0, ptr %13, align 8, !tbaa !102
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL14Lazy_exact_CstIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEfEE, i64 16), ptr %5, align 16, !tbaa !20
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 44
   store float %4, ptr %14, align 4, !tbaa !177
@@ -7493,9 +7493,9 @@ define weak_odr dso_local void @_ZN3igl8copyleft4cgal13assign_scalarIdN4CGAL13La
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store <2 x double> %8, ptr %10, align 16, !tbaa !58
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr null, ptr %11, align 8, !tbaa !100
+  store ptr null, ptr %11, align 16, !tbaa !100
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i32 0, ptr %12, align 4, !tbaa !102
+  store i32 0, ptr %12, align 8, !tbaa !102
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL14Lazy_exact_CstIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdEE, i64 16), ptr %5, align 16, !tbaa !20
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store double %4, ptr %13, align 16, !tbaa !185
@@ -47555,8 +47555,8 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CORE4Expr3cmpERKS0_(ptr noundef 
   %26 = fadd double %23, %25
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %29 = load i32, ptr %27, align 4, !tbaa !23, !noalias !730
-  %30 = load i32, ptr %28, align 4, !tbaa !23, !noalias !730
+  %29 = load i32, ptr %27, align 8, !tbaa !23, !noalias !730
+  %30 = load i32, ptr %28, align 8, !tbaa !23, !noalias !730
   %31 = tail call i32 @llvm.smax.i32(i32 %29, i32 %30)
   %32 = add nsw i32 %31, 1
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -60009,7 +60009,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %15
   store i64 %8, ptr %19, align 8, !tbaa !56
   store ptr %13, ptr %2, align 8, !tbaa !59
   store i64 0, ptr %7, align 8, !tbaa !56
-  store i8 0, ptr %13, align 1, !tbaa !58
+  store i8 0, ptr %13, align 8, !tbaa !58
   br label %55
 
 20:                                               ; preds = %5
@@ -63970,9 +63970,9 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(9) ptr @_Z
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store <2 x double> %13, ptr %15, align 16, !tbaa !58
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr null, ptr %16, align 8, !tbaa !100
+  store ptr null, ptr %16, align 16, !tbaa !100
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store i32 0, ptr %17, align 4, !tbaa !102
+  store i32 0, ptr %17, align 8, !tbaa !102
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL14Lazy_exact_CstIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdEE, i64 16), ptr %9, align 16, !tbaa !20
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store double %1, ptr %18, align 16, !tbaa !185
@@ -64003,13 +64003,13 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(9) ptr @_Z
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store <2 x double> %30, ptr %32, align 16, !tbaa !58
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store ptr null, ptr %33, align 8, !tbaa !100
+  store ptr null, ptr %33, align 16, !tbaa !100
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store i32 0, ptr %34, align 4, !tbaa !102
+  store i32 0, ptr %34, align 8, !tbaa !102
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL17Lazy_exact_binaryIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_SD_EE, i64 16), ptr %8, align 16, !tbaa !20
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %36 = load ptr, ptr %0, align 8, !tbaa !82
-  store ptr %36, ptr %35, align 8, !tbaa !82
+  store ptr %36, ptr %35, align 16, !tbaa !82
   %37 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !58
   %.not.i.i.i.i.i.i = icmp eq i8 %37, 0
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -65618,8 +65618,8 @@ _ZN4CORE4ExprC2Ed.exit:                           ; preds = %19, %22
   %56 = load double, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !150, !noalias !1012
   %57 = fadd double %55, %56
   %58 = getelementptr inbounds nuw i8, ptr %40, i64 40
-  %59 = load i32, ptr %58, align 4, !tbaa !23, !noalias !1012
-  %60 = load i32, ptr %.sroa.6.0..sroa_idx.i.i, align 4, !tbaa !23, !noalias !1012
+  %59 = load i32, ptr %58, align 8, !tbaa !23, !noalias !1012
+  %60 = load i32, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !tbaa !23, !noalias !1012
   %61 = call i32 @llvm.smax.i32(i32 %59, i32 %60)
   %62 = add nsw i32 %61, 1
   %63 = getelementptr inbounds nuw i8, ptr %38, i64 24

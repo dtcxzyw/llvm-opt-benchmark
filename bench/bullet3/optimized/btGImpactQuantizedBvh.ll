@@ -2046,7 +2046,7 @@ define internal fastcc void @_ZL41_find_quantized_collision_pairs_recursivePK21b
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load i16, ptr %13, align 2, !tbaa !37
   %17 = uitofp i16 %16 to float
-  %18 = load float, ptr %15, align 4, !tbaa !15
+  %18 = load float, ptr %15, align 8, !tbaa !15
   %19 = fdiv float %17, %18
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 2
   %21 = load i16, ptr %20, align 2, !tbaa !37
@@ -2058,9 +2058,9 @@ define internal fastcc void @_ZL41_find_quantized_collision_pairs_recursivePK21b
   %27 = load i16, ptr %26, align 2, !tbaa !37
   %28 = uitofp i16 %27 to float
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %30 = load float, ptr %29, align 4, !tbaa !15
+  %30 = load float, ptr %29, align 8, !tbaa !15
   %31 = fdiv float %28, %30
-  %32 = load float, ptr %14, align 4, !tbaa !15
+  %32 = load float, ptr %14, align 8, !tbaa !15
   %33 = fadd float %19, %32
   %34 = insertelement <2 x float> poison, float %33, i64 0
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -2068,7 +2068,7 @@ define internal fastcc void @_ZL41_find_quantized_collision_pairs_recursivePK21b
   %37 = fadd float %25, %36
   %.sroa.0.4.vec.insert15.i.i.i.i = insertelement <2 x float> %34, float %37, i64 1
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %39 = load float, ptr %38, align 4, !tbaa !15
+  %39 = load float, ptr %38, align 8, !tbaa !15
   %40 = fadd float %31, %39
   %.sroa.7.8.vec.insert19.i.i.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %40, i64 0
   store <2 x float> %.sroa.0.4.vec.insert15.i.i.i.i, ptr %8, align 8
@@ -2105,7 +2105,7 @@ define internal fastcc void @_ZL41_find_quantized_collision_pairs_recursivePK21b
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %64 = load i16, ptr %61, align 2, !tbaa !37
   %65 = uitofp i16 %64 to float
-  %66 = load float, ptr %63, align 4, !tbaa !15
+  %66 = load float, ptr %63, align 8, !tbaa !15
   %67 = fdiv float %65, %66
   %68 = getelementptr inbounds nuw i8, ptr %61, i64 2
   %69 = load i16, ptr %68, align 2, !tbaa !37
@@ -2117,9 +2117,9 @@ define internal fastcc void @_ZL41_find_quantized_collision_pairs_recursivePK21b
   %75 = load i16, ptr %74, align 2, !tbaa !37
   %76 = uitofp i16 %75 to float
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %78 = load float, ptr %77, align 4, !tbaa !15
+  %78 = load float, ptr %77, align 8, !tbaa !15
   %79 = fdiv float %76, %78
-  %80 = load float, ptr %62, align 4, !tbaa !15
+  %80 = load float, ptr %62, align 8, !tbaa !15
   %81 = fadd float %67, %80
   %82 = insertelement <2 x float> poison, float %81, i64 0
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -2127,7 +2127,7 @@ define internal fastcc void @_ZL41_find_quantized_collision_pairs_recursivePK21b
   %85 = fadd float %73, %84
   %.sroa.0.4.vec.insert15.i.i.i5.i = insertelement <2 x float> %82, float %85, i64 1
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %87 = load float, ptr %86, align 4, !tbaa !15
+  %87 = load float, ptr %86, align 8, !tbaa !15
   %88 = fadd float %79, %87
   %.sroa.7.8.vec.insert19.i.i.i6.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %88, i64 0
   store <2 x float> %.sroa.0.4.vec.insert15.i.i.i5.i, ptr %9, align 8

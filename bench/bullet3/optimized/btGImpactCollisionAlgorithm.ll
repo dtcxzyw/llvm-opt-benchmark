@@ -3239,7 +3239,7 @@ define dso_local void @_ZN27btGImpactCollisionAlgorithm37gimpacttrimeshpart_vs_p
   %158 = mul i32 %157, %153
   %159 = zext i32 %158 to i64
   %160 = getelementptr inbounds nuw i8, ptr %156, i64 %159
-  %161 = load float, ptr %129, align 4, !tbaa !55
+  %161 = load float, ptr %129, align 8, !tbaa !55
   br i1 %155, label %162, label %179
 
 162:                                              ; preds = %152

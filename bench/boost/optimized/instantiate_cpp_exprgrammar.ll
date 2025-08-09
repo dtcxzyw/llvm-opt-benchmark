@@ -1533,7 +1533,7 @@ _ZN5boost6spirit7classic5parseISt20_List_const_iteratorINS_4wave8cpplexer9lex_to
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %21, ptr %22, align 8, !tbaa !32, !noalias !25
   %.6.i.i.ptr16.i.i.i = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store i8 1, ptr %.6.i.i.ptr16.i.i.i, align 1, !tbaa !15, !noalias !25
+  store i8 1, ptr %.6.i.i.ptr16.i.i.i, align 8, !tbaa !15, !noalias !25
   %23 = load ptr, ptr %1, align 8, !tbaa !33, !noalias !25
   %.not8.i = icmp eq ptr %.sroa.03.0.copyload, %23
   br i1 %.not8.i, label %.loopexit81, label %.lr.ph.i
@@ -1788,7 +1788,7 @@ _ZNK5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcS
   %117 = getelementptr inbounds nuw i8, ptr %115, i64 8
   store ptr %116, ptr %117, align 8, !tbaa !32, !noalias !54
   %.6.i.i.ptr16.i.i.i47 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  store i8 1, ptr %.6.i.i.ptr16.i.i.i47, align 1, !tbaa !15, !noalias !54
+  store i8 1, ptr %.6.i.i.ptr16.i.i.i47, align 8, !tbaa !15, !noalias !54
   %.not8.i48 = icmp eq ptr %.sroa.0.0.copyload, %99
   br i1 %.not8.i48, label %.loopexit, label %.lr.ph.i49
 

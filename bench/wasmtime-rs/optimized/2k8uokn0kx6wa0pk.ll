@@ -13540,7 +13540,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h454b7e920355a17fE.exit780: ; preds = %811
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %887, i64 16
   %891 = ptrtoint ptr %.sroa.5.0..sroa_idx.i.i to i64
   %892 = trunc i64 %891 to i32
-  store i32 %892, ptr %.sroa.5.0..sroa_idx.i.i, align 4
+  store i32 %892, ptr %.sroa.5.0..sroa_idx.i.i, align 8
   %893 = sext i16 %.sroa.027.0.insert.insert to i64
   %894 = add i64 %.pn1.i567, -3
   %895 = add i64 %.sroa.023.01063, %893

@@ -3079,7 +3079,7 @@ VULKAN_RecordPipelineImageBarrier.exit.i:         ; preds = %348
   store i32 45, ptr %7, align 8
   store i32 4512, ptr %121, align 8
   store i32 32, ptr %122, align 4
-  %356 = load i32, ptr %346, align 4
+  %356 = load i32, ptr %346, align 8
   store i32 %356, ptr %123, align 8
   store i32 5, ptr %124, align 4
   store i32 -1, ptr %125, align 8
@@ -3091,7 +3091,7 @@ VULKAN_RecordPipelineImageBarrier.exit.i:         ; preds = %348
   %357 = load ptr, ptr @vkCmdPipelineBarrier, align 8
   %358 = load ptr, ptr %352, align 8
   call void %357(ptr noundef %358, i32 noundef 5248, i32 noundef 128, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %7) #7
-  store i32 5, ptr %346, align 4
+  store i32 5, ptr %346, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %359 = getelementptr inbounds nuw i8, ptr %261, i64 10376
   %360 = getelementptr inbounds nuw i8, ptr %261, i64 10380
@@ -3160,7 +3160,7 @@ VULKAN_RecordPipelineImageBarrier.exit48.i:       ; preds = %348
   %383 = getelementptr inbounds nuw i8, ptr %261, i64 1688
   %384 = load ptr, ptr %383, align 8
   call void %382(ptr noundef %384, i32 noundef 5248, i32 noundef 128, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %5) #7
-  store i32 5, ptr %346, align 4
+  store i32 5, ptr %346, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %385
 

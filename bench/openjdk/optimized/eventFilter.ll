@@ -1105,7 +1105,7 @@ define hidden range(i32 0, 203) i32 @eventFilter_setConditionalFilter(ptr nounde
   %9 = getelementptr inbounds [10000 x %struct.Filter_], ptr %7, i64 0, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i8 2, ptr %9, align 8
-  store i32 %2, ptr %10, align 4
+  store i32 %2, ptr %10, align 8
   br label %11
 
 11:                                               ; preds = %3, %6
@@ -1130,7 +1130,7 @@ define hidden range(i32 0, 513) i32 @eventFilter_setCountFilter(ptr noundef capt
 
 12:                                               ; preds = %10
   store i8 1, ptr %7, align 8
-  store i32 %2, ptr %8, align 4
+  store i32 %2, ptr %8, align 8
   br label %13
 
 13:                                               ; preds = %10, %3, %12

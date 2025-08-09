@@ -1705,7 +1705,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.end.i
 if.then11.i.i.i.i.i:                              ; preds = %if.else.i.i.i.i.i
   %17 = load i32, ptr %first.addr.0.i, align 4
   store i32 %17, ptr %last.addr.1.lcssa.i, align 4
-  %.pre.i.i.i.i.i = load i8, ptr %engaged.i.i.i.i.i, align 1
+  %.pre.i.i.i.i.i = load i8, ptr %engaged.i.i.i.i.i, align 4
   br label %if.end18.i.i.i.i.i
 
 if.else14.i.i.i.i.i:                              ; preds = %if.else.i.i.i.i.i

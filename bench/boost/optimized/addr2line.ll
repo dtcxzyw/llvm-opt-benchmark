@@ -3099,7 +3099,7 @@ define linkonce_odr hidden noundef i64 @_ZN5boost10stacktrace6detail14hex_str_to
   %14 = load i32, ptr %13, align 8, !tbaa !78
   %15 = and i32 %14, -75
   %16 = or disjoint i32 %15, 8
-  store i32 %16, ptr %13, align 4, !tbaa !79
+  store i32 %16, ptr %13, align 8, !tbaa !79
   %17 = load ptr, ptr %0, align 8, !tbaa !17
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i64, ptr %18, align 8, !tbaa !14

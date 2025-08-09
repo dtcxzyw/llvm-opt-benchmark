@@ -3467,7 +3467,7 @@ _ZSt19__relocate_object_aIN12_GLOBAL__N_110MemberDataES1_SaIS1_EEvPT_PT0_RT1_.ex
   store i64 %816, ptr %818, align 8, !tbaa !47, !alias.scope !290, !noalias !296
   store ptr %808, ptr %805, align 8, !tbaa !44, !alias.scope !293, !noalias !295
   store i64 0, ptr %817, align 8, !tbaa !47, !alias.scope !293, !noalias !295
-  store i8 0, ptr %808, align 1, !tbaa !43, !alias.scope !293, !noalias !295
+  store i8 0, ptr %808, align 8, !tbaa !43, !alias.scope !293, !noalias !295
   %819 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i.i, i64 56
   %820 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i.i, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %819, ptr noundef nonnull align 8 dereferenceable(40) %820, i64 40, i1 false), !alias.scope !297, !noalias !170

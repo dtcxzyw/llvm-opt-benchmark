@@ -70,7 +70,7 @@ define dso_local void @intel_huc_register_gsc_notifier(ptr noundef %0, ptr nound
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 568
   store i32 2, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %27 = load volatile i32, ptr %26, align 4
+  %27 = load volatile i32, ptr %26, align 8
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %31, label %29
 
@@ -106,7 +106,7 @@ define internal noundef i32 @gsc_notifier(ptr noundef %0, i64 noundef %1, ptr no
   %14 = getelementptr i8, ptr %0, i64 24
   store i32 1, ptr %14, align 8
   %15 = getelementptr i8, ptr %0, i64 -72
-  %16 = load volatile i32, ptr %15, align 4
+  %16 = load volatile i32, ptr %15, align 8
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %37, label %18
 
@@ -134,7 +134,7 @@ define internal noundef i32 @gsc_notifier(ptr noundef %0, i64 noundef %1, ptr no
   %31 = getelementptr i8, ptr %0, i64 24
   store i32 2, ptr %31, align 8
   %32 = getelementptr i8, ptr %0, i64 -72
-  %33 = load volatile i32, ptr %32, align 4
+  %33 = load volatile i32, ptr %32, align 8
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %37, label %35
 
@@ -269,7 +269,7 @@ define dso_local void @intel_huc_init_early(ptr noundef %0) local_unnamed_addr #
   %37 = getelementptr i8, ptr %0, i64 428
   store i32 %35, ptr %37, align 4
   %38 = getelementptr i8, ptr %0, i64 432
-  store i32 %36, ptr %38, align 4
+  store i32 %36, ptr %38, align 8
   br label %39
 
 39:                                               ; preds = %22, %17
@@ -609,7 +609,7 @@ define dso_local i32 @intel_huc_wait_for_auth_complete(ptr noundef %0, i32 nound
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %16 = tail call i32 @hrtimer_cancel(ptr noundef nonnull %15) #4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %18 = load volatile i32, ptr %17, align 4
+  %18 = load volatile i32, ptr %17, align 8
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %22, label %20
 
@@ -981,7 +981,7 @@ huc_is_fully_authenticated.exit.thread.thread:    ; preds = %24, %huc_is_fully_a
 70:                                               ; preds = %63
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %72 = load ptr, ptr %64, align 8
-  %73 = load i32, ptr %71, align 4
+  %73 = load i32, ptr %71, align 8
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 144
   %75 = load ptr, ptr %74, align 8
   %76 = tail call i32 %75(ptr noundef %72, i32 %73, i1 noundef zeroext true) #4
@@ -1097,7 +1097,7 @@ huc_is_fully_authenticated.exit.thread:           ; preds = %huc_is_fully_authen
   %53 = tail call i32 @hrtimer_cancel(ptr noundef nonnull %52) #4
   store i32 2, ptr %45, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %55 = load volatile i32, ptr %54, align 4
+  %55 = load volatile i32, ptr %54, align 8
   %56 = icmp slt i32 %55, 0
   br i1 %56, label %huc_is_fully_authenticated.exit.thread.thread, label %57
 
@@ -1285,7 +1285,7 @@ define internal noundef i32 @huc_delayed_load_timer_callback(ptr noundef %0) #0 
 54:                                               ; preds = %51, %47, %36
   store i32 2, ptr %27, align 8
   %55 = getelementptr i8, ptr %0, i64 -8
-  %56 = load volatile i32, ptr %55, align 4
+  %56 = load volatile i32, ptr %55, align 8
   %57 = icmp slt i32 %56, 0
   br i1 %57, label %60, label %58
 

@@ -394,7 +394,7 @@ define hidden range(i32 0, 2) i32 @SHA256_Final(ptr noundef writeonly captures(n
   %19 = lshr i32 %18, 24
   %20 = trunc nuw i32 %19 to i8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 97
-  store i8 %20, ptr %16, align 1, !tbaa !15
+  store i8 %20, ptr %16, align 4, !tbaa !15
   %22 = lshr i32 %18, 16
   %23 = trunc i32 %22 to i8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 98
@@ -402,7 +402,7 @@ define hidden range(i32 0, 2) i32 @SHA256_Final(ptr noundef writeonly captures(n
   %25 = lshr i32 %18, 8
   %26 = trunc i32 %25 to i8
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 99
-  store i8 %26, ptr %24, align 1, !tbaa !15
+  store i8 %26, ptr %24, align 2, !tbaa !15
   %28 = trunc i32 %18 to i8
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 100
   store i8 %28, ptr %27, align 1, !tbaa !15
@@ -411,7 +411,7 @@ define hidden range(i32 0, 2) i32 @SHA256_Final(ptr noundef writeonly captures(n
   %32 = lshr i32 %31, 24
   %33 = trunc nuw i32 %32 to i8
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 101
-  store i8 %33, ptr %29, align 1, !tbaa !15
+  store i8 %33, ptr %29, align 4, !tbaa !15
   %35 = lshr i32 %31, 16
   %36 = trunc i32 %35 to i8
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 102
@@ -419,7 +419,7 @@ define hidden range(i32 0, 2) i32 @SHA256_Final(ptr noundef writeonly captures(n
   %38 = lshr i32 %31, 8
   %39 = trunc i32 %38 to i8
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 103
-  store i8 %39, ptr %37, align 1, !tbaa !15
+  store i8 %39, ptr %37, align 2, !tbaa !15
   %41 = trunc i32 %31 to i8
   store i8 %41, ptr %40, align 1, !tbaa !15
   tail call void @sha256_block_data_order(ptr noundef nonnull %1, ptr noundef nonnull %6, i64 noundef 1) #6

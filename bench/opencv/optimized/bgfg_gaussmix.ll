@@ -1443,7 +1443,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSub
 _ZNSt12__shared_ptrIN2cv6bgsegm27BackgroundSubtractorMOGImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %5
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN2cv6bgsegm27BackgroundSubtractorMOGImplE, i64 16), ptr %9, align 8, !tbaa !109, !noalias !103
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i32 0, ptr %11, align 4, !tbaa !33, !noalias !103
+  store i32 0, ptr %11, align 8, !tbaa !33, !noalias !103
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store i32 0, ptr %12, align 4, !tbaa !111, !noalias !103
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -1453,7 +1453,7 @@ _ZNSt12__shared_ptrIN2cv6bgsegm27BackgroundSubtractorMOGImplELN9__gnu_cxx12_Lock
   store ptr %15, ptr %14, align 8, !tbaa !112, !noalias !103
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 184
   store i64 0, ptr %16, align 8, !tbaa !36, !noalias !103
-  store i8 0, ptr %15, align 1, !tbaa !49, !noalias !103
+  store i8 0, ptr %15, align 8, !tbaa !49, !noalias !103
   store i64 0, ptr %11, align 8, !noalias !103
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 0, ptr %17, align 8, !tbaa !34, !noalias !103

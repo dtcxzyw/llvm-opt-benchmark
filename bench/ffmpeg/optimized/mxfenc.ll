@@ -2922,7 +2922,7 @@ choose_chroma_location.exit.thread:               ; preds = %choose_chroma_locat
 
 154:                                              ; preds = %145
   store i32 1, ptr %34, align 8, !tbaa !45
-  %155 = load i32, ptr %28, align 4, !tbaa !197
+  %155 = load i32, ptr %28, align 8, !tbaa !197
   %156 = icmp ne i32 %155, 25
   br i1 %142, label %158, label %157
 
@@ -3112,7 +3112,7 @@ choose_chroma_location.exit.thread:               ; preds = %choose_chroma_locat
   %255 = sext i32 %254 to i64
   %256 = load i32, ptr %27, align 4, !tbaa !199
   %257 = sext i32 %256 to i64
-  %258 = load i32, ptr %28, align 4, !tbaa !197
+  %258 = load i32, ptr %28, align 8, !tbaa !197
   %259 = sext i32 %258 to i64
   %260 = call i64 @av_rescale_rnd(i64 noundef %255, i64 noundef %257, i64 noundef %259, i32 noundef 3) #16
   %261 = mul nsw i64 %260, %252
@@ -3313,7 +3313,7 @@ mxf_get_essence_container_ul_index.exit:          ; preds = %302
   store i64 %357, ptr %358, align 4, !tbaa !54
   %359 = shl i64 %357, 8
   %360 = getelementptr inbounds nuw i8, ptr %.val268, i64 156
-  store i64 %359, ptr %360, align 1, !tbaa !54
+  store i64 %359, ptr %360, align 4, !tbaa !54
   %361 = and i32 %354, 16777215
   %362 = getelementptr inbounds nuw i8, ptr %.val268, i64 144
   store i32 %361, ptr %362, align 8, !tbaa !136

@@ -431,7 +431,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %value.i, ptr noundef nonnull align 8 dereferenceable(24) %value3.i, i64 24, i1 false)
   %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %header, i64 31
   store i8 23, ptr %arrayidx.i.i.i.i.i, align 1
-  store i8 0, ptr %value3.i, align 1
+  store i8 0, ptr %value3.i, align 8
   %call7 = invoke noundef zeroext i1 @_ZN8proxygen11HeaderTable3addENS_11HPACKHeaderE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont6 unwind label %lpad5
 

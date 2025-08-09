@@ -283,7 +283,7 @@ uv__async_spin.exit.loopexit:                     ; preds = %28
   store ptr %19, ptr %16, align 8
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %27 = getelementptr inbounds i8, ptr %19, i64 -56
-  store atomic i32 1, ptr %26 seq_cst, align 4
+  store atomic i32 1, ptr %26 seq_cst, align 8
   br label %28
 
 28:                                               ; preds = %.backedge, %18

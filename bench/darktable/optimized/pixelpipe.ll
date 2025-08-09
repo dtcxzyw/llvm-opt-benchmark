@@ -2261,7 +2261,7 @@ define noundef i32 @dt_dev_pixelpipe_init_dummy(ptr noundef initializes((120, 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %41, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %40, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
-  store i32 0, ptr %0, align 8, !tbaa !6
+  store i32 0, ptr %0, align 16, !tbaa !6
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 0, ptr %45, align 8, !tbaa !16
@@ -2272,15 +2272,15 @@ define noundef i32 @dt_dev_pixelpipe_init_dummy(ptr noundef initializes((120, 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false)
   store ptr %47, ptr %48, align 8, !tbaa !19
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %47, ptr %49, align 8, !tbaa !20
+  store ptr %47, ptr %49, align 16, !tbaa !20
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %47, ptr %50, align 8, !tbaa !21
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %47, ptr %51, align 8, !tbaa !22
+  store ptr %47, ptr %51, align 16, !tbaa !22
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %47, ptr %52, align 8, !tbaa !23
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %47, ptr %53, align 8, !tbaa !24
+  store ptr %47, ptr %53, align 16, !tbaa !24
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 620
   store i32 8, ptr %54, align 4, !tbaa !28
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 616
@@ -2345,7 +2345,7 @@ define noundef i32 @dt_dev_pixelpipe_init_preview(ptr noundef initializes((120, 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %30, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %29, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
-  store i32 %3, ptr %0, align 8, !tbaa !6
+  store i32 %3, ptr %0, align 16, !tbaa !6
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 0, ptr %34, align 8, !tbaa !16
@@ -2359,21 +2359,21 @@ define noundef i32 @dt_dev_pixelpipe_init_preview(ptr noundef initializes((120, 
   %39 = shl nuw nsw i64 %36, 3
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %40, ptr %41, align 8, !tbaa !20
+  store ptr %40, ptr %41, align 16, !tbaa !20
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 %39
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %42, ptr %43, align 8, !tbaa !21
   %44 = shl nuw nsw i64 %36, 7
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %45, ptr %46, align 8, !tbaa !22
+  store ptr %45, ptr %46, align 16, !tbaa !22
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 %39
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %47, ptr %48, align 8, !tbaa !23
   %49 = shl nuw nsw i64 %36, 2
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %50, ptr %51, align 8, !tbaa !24
+  store ptr %50, ptr %51, align 16, !tbaa !24
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %1
@@ -2453,7 +2453,7 @@ define noundef i32 @dt_dev_pixelpipe_init_preview2(ptr noundef initializes((120,
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %30, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %29, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
-  store i32 %3, ptr %0, align 8, !tbaa !6
+  store i32 %3, ptr %0, align 16, !tbaa !6
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 0, ptr %34, align 8, !tbaa !16
@@ -2467,21 +2467,21 @@ define noundef i32 @dt_dev_pixelpipe_init_preview2(ptr noundef initializes((120,
   %39 = shl nuw nsw i64 %36, 3
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %40, ptr %41, align 8, !tbaa !20
+  store ptr %40, ptr %41, align 16, !tbaa !20
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 %39
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %42, ptr %43, align 8, !tbaa !21
   %44 = shl nuw nsw i64 %36, 7
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %45, ptr %46, align 8, !tbaa !22
+  store ptr %45, ptr %46, align 16, !tbaa !22
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 %39
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %47, ptr %48, align 8, !tbaa !23
   %49 = shl nuw nsw i64 %36, 2
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %50, ptr %51, align 8, !tbaa !24
+  store ptr %50, ptr %51, align 16, !tbaa !24
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %1
@@ -2564,7 +2564,7 @@ define noundef i32 @dt_dev_pixelpipe_init(ptr noundef initializes((120, 124), (1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %33, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %32, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
-  store i32 %6, ptr %0, align 8, !tbaa !6
+  store i32 %6, ptr %0, align 16, !tbaa !6
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 0, ptr %37, align 8, !tbaa !16
@@ -2572,7 +2572,7 @@ define noundef i32 @dt_dev_pixelpipe_init(ptr noundef initializes((120, 124), (1
   store i64 0, ptr %38, align 8, !tbaa !17
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
-  store i64 %4, ptr %39, align 8, !tbaa !18
+  store i64 %4, ptr %39, align 16, !tbaa !18
   %40 = zext nneg i32 %6 to i64
   %41 = tail call noalias ptr @calloc(i64 noundef %40, i64 noundef 160) #26
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2580,21 +2580,21 @@ define noundef i32 @dt_dev_pixelpipe_init(ptr noundef initializes((120, 124), (1
   %43 = shl nuw nsw i64 %40, 3
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %44, ptr %45, align 8, !tbaa !20
+  store ptr %44, ptr %45, align 16, !tbaa !20
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 %43
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %46, ptr %47, align 8, !tbaa !21
   %48 = shl nuw nsw i64 %40, 7
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %49, ptr %50, align 8, !tbaa !22
+  store ptr %49, ptr %50, align 16, !tbaa !22
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 %43
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %51, ptr %52, align 8, !tbaa !23
   %53 = shl nuw nsw i64 %40, 2
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %54, ptr %55, align 8, !tbaa !24
+  store ptr %54, ptr %55, align 16, !tbaa !24
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %1
@@ -3000,7 +3000,7 @@ define void @dt_dev_pixelpipe_create_nodes(ptr noundef %0, ptr noundef readonly 
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 40
   store ptr null, ptr %35, align 8, !tbaa !209
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 48
-  store i32 256, ptr %36, align 8, !tbaa !210
+  store i32 256, ptr %36, align 16, !tbaa !210
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 64
   store i32 0, ptr %37, align 16, !tbaa !211
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 80
@@ -4814,7 +4814,7 @@ _skip_piece_on_tags.exit.thread:                  ; preds = %113, %152, %147, %.
   %206 = select i1 %.not194, ptr @.str.6, ptr @.str.101
   %207 = load i32, ptr %185, align 4, !tbaa !264
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %209 = load i32, ptr %208, align 4, !tbaa !265
+  %209 = load i32, ptr %208, align 8, !tbaa !265
   %.not195 = icmp eq ptr %.0144, %.0135
   %210 = select i1 %.not195, ptr @.str.102, ptr @.str.6
   %211 = load i32, ptr %187, align 4, !tbaa !134
@@ -6267,7 +6267,7 @@ dt_dev_gui_module.exit507:                        ; preds = %479
   %530 = getelementptr inbounds nuw i8, ptr %0, i64 576
   store i32 1, ptr %530, align 16, !tbaa !122
   %531 = load ptr, ptr %2, align 8, !tbaa !27
-  %532 = load i32, ptr %0, align 8, !tbaa !6
+  %532 = load i32, ptr %0, align 16, !tbaa !6
   %533 = icmp sgt i32 %532, 2
   br i1 %533, label %.lr.ph.i508, label %dt_dev_pixelpipe_invalidate_cacheline.exit514
 

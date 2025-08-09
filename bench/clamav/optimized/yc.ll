@@ -127,17 +127,17 @@ define range(i32 0, 8) i32 @yc_decrypt(ptr noundef %0, ptr noundef %1, i32 nound
   %80 = getelementptr inbounds nuw i8, ptr %17, i64 6
   store i16 %79, ptr %80, align 2, !tbaa !14
   %81 = getelementptr inbounds nuw i8, ptr %17, i64 128
-  store i64 0, ptr %81, align 1
+  store i64 0, ptr %81, align 2
   %82 = getelementptr inbounds nuw i8, ptr %24, i64 2575
   %83 = load i32, ptr %82, align 1, !tbaa !12
   %84 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  store i32 %83, ptr %84, align 1, !tbaa !12
+  store i32 %83, ptr %84, align 2, !tbaa !12
   %85 = getelementptr inbounds nuw i8, ptr %17, i64 80
-  %86 = load i32, ptr %85, align 1, !tbaa !12
+  %86 = load i32, ptr %85, align 2, !tbaa !12
   %87 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %88 = load i32, ptr %87, align 4, !tbaa !15
   %89 = sub i32 %86, %88
-  store i32 %89, ptr %85, align 1, !tbaa !12
+  store i32 %89, ptr %85, align 2, !tbaa !12
   %90 = zext i32 %32 to i64
   %91 = tail call i64 @cli_writen(i32 noundef %6, ptr noundef %1, i64 noundef %90) #3
   %92 = icmp eq i64 %91, -1

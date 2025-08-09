@@ -2326,7 +2326,7 @@ _ZN11t_tabledataD2Ev.exit:                        ; preds = %_ZNSt6vectorIdSaIdE
   %430 = icmp eq i32 %427, 1
   %431 = load double, ptr %289, align 8, !tbaa !118
   %432 = getelementptr inbounds [18 x %struct.t_tab_props], ptr @_ZL6tprops, i64 0, i64 %.pre-phi
-  %.0332.in452.i = load float, ptr %.0332.in.in451.i, align 4, !tbaa !19
+  %.0332.in452.i = load float, ptr %.0332.in.in451.i, align 8, !tbaa !19
   %.0332453.i = fpext float %.0332.in452.i to double
   %.0355.in454.i = load float, ptr %.0355.in.in417.i, align 4, !tbaa !19
   %.0355455.i = fpext float %.0355.in454.i to double
@@ -2342,7 +2342,7 @@ _ZN11t_tabledataD2Ev.exit:                        ; preds = %_ZNSt6vectorIdSaIdE
   %439 = getelementptr inbounds [18 x %struct.t_tab_props], ptr @_ZL6tprops, i64 0, i64 %.pre-phi167
   %.0332.in.i = load float, ptr %.0332.in.in.i, align 4, !tbaa !19
   %.0332.i = fpext float %.0332.in.i to double
-  %.0355.in.i = load float, ptr %.0355.in.in431.i, align 4, !tbaa !19
+  %.0355.in.i = load float, ptr %.0355.in.in431.i, align 8, !tbaa !19
   %.0355.i = fpext float %.0355.in.i to double
   br i1 %436, label %440, label %448
 

@@ -1613,7 +1613,7 @@ findAttrByName.exit.i:                            ; preds = %390
   %487 = call { i16, i1 } @llvm.sadd.with.overflow.i16(i16 %486, i16 1)
   %488 = extractvalue { i16, i1 } %487, 1
   %489 = extractvalue { i16, i1 } %487, 0
-  store i16 %489, ptr %485, align 2
+  store i16 %489, ptr %485, align 8
   br i1 %488, label %490, label %MergeInheritedAttribute.exit.i
 
 490:                                              ; preds = %484
@@ -1863,7 +1863,7 @@ findAttrByName.exit.thread.i:                     ; preds = %397, %findAttrByNam
   %610 = call { i16, i1 } @llvm.sadd.with.overflow.i16(i16 %609, i16 1)
   %611 = extractvalue { i16, i1 } %610, 1
   %612 = extractvalue { i16, i1 } %610, 0
-  store i16 %612, ptr %608, align 2
+  store i16 %612, ptr %608, align 4
   br i1 %611, label %613, label %617
 
 613:                                              ; preds = %607
@@ -21134,7 +21134,7 @@ define internal fastcc { i64, i32 } @ATExecSetNotNull(ptr noundef nonnull captur
   %73 = tail call { i16, i1 } @llvm.sadd.with.overflow.i16(i16 %72, i16 1)
   %74 = extractvalue { i16, i1 } %73, 1
   %75 = extractvalue { i16, i1 } %73, 0
-  store i16 %75, ptr %71, align 2
+  store i16 %75, ptr %71, align 4
   br i1 %74, label %76, label %87
 
 76:                                               ; preds = %70
@@ -27195,7 +27195,7 @@ constraints_equivalent.exit.thread.i:             ; preds = %constraints_equival
   %350 = call { i16, i1 } @llvm.sadd.with.overflow.i16(i16 %349, i16 1)
   %351 = extractvalue { i16, i1 } %350, 1
   %352 = extractvalue { i16, i1 } %350, 0
-  store i16 %352, ptr %348, align 2
+  store i16 %352, ptr %348, align 4
   br i1 %351, label %353, label %357
 
 353:                                              ; preds = %341

@@ -3084,7 +3084,7 @@ define void @_ZNK8WasmEdge8Executor8Executor17runArrayNewDataOpERNS_7Runtime12St
   %.sroa.063.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
   store i32 %.sroa.063.0.extract.trunc, ptr %10, align 4
   %19 = getelementptr inbounds i8, ptr %17, i64 -32
-  %20 = load i32, ptr %19, align 4
+  %20 = load i32, ptr %19, align 16
   %21 = load i32, ptr %4, align 16
   %22 = invoke noundef ptr @_ZNK8WasmEdge8Executor8Executor15getDefTypeByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %21)
           to label %switch.lookup unwind label %122
@@ -3490,7 +3490,7 @@ define void @_ZNK8WasmEdge8Executor8Executor17runArrayNewElemOpERNS_7Runtime12St
   store ptr %16, ptr %14, align 8
   %.sroa.070.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
   %17 = getelementptr inbounds i8, ptr %15, i64 -32
-  %18 = load i32, ptr %17, align 4
+  %18 = load i32, ptr %17, align 16
   %19 = load i32, ptr %4, align 16
   %20 = invoke noundef ptr @_ZNK8WasmEdge8Executor8Executor15getDefTypeByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %19)
           to label %21 unwind label %124

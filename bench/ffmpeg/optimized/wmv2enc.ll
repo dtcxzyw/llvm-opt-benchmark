@@ -53,7 +53,7 @@ define internal range(i32 -2147483648, 1) i32 @wmv2_encode_init(ptr noundef %0) 
   %18 = load ptr, ptr %17, align 8, !tbaa !71
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 84
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 88
-  %21 = load i32, ptr %20, align 4, !tbaa !73
+  %21 = load i32, ptr %20, align 8, !tbaa !73
   %22 = load i32, ptr %19, align 4, !tbaa !74
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 7528
   %24 = load i64, ptr %23, align 8, !tbaa !75

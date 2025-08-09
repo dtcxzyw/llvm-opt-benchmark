@@ -86,7 +86,7 @@ define dso_local void @_bt_initmetapage(ptr noundef %0, i32 noundef %1, i32 noun
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 %5, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load i16, ptr %15, align 4
+  %16 = load i16, ptr %15, align 8
   %17 = zext i16 %16 to i64
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 12
@@ -315,7 +315,7 @@ BufferGetPage.exit:                               ; preds = %6, %12
   %71 = call i64 @XLogInsert(i8 noundef zeroext 11, i8 noundef zeroext -32) #10
   %72 = lshr i64 %71, 32
   %73 = trunc nuw i64 %72 to i32
-  store i32 %73, ptr %.0.i.i, align 4
+  store i32 %73, ptr %.0.i.i, align 8
   %74 = trunc i64 %71 to i32
   %75 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   store i32 %74, ptr %75, align 4

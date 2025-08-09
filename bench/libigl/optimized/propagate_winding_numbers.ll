@@ -514,7 +514,7 @@ _ZNSt5queueImSt5dequeImSaImEEE3popEv.exit:        ; preds = %178, %180
   %194 = load i32, ptr %193, align 4, !tbaa !11
   %195 = sext i32 %194 to i64
   %196 = getelementptr inbounds nuw i8, ptr %.sroa.0174.0270.us, i64 40
-  %197 = load i8, ptr %196, align 1, !tbaa !16, !range !18, !noundef !19
+  %197 = load i8, ptr %196, align 4, !tbaa !16, !range !18, !noundef !19
   %198 = load i64, ptr %192, align 8, !tbaa !13
   %199 = getelementptr i32, ptr %.sroa.0.0254, i64 %195
   br label %.preheader.i.us
@@ -1732,7 +1732,7 @@ _ZNSt5queueImSt5dequeImSaImEEE3popEv.exit:        ; preds = %178, %180
   %194 = load i32, ptr %193, align 4, !tbaa !11
   %195 = sext i32 %194 to i64
   %196 = getelementptr inbounds nuw i8, ptr %.sroa.0174.0270.us, i64 40
-  %197 = load i8, ptr %196, align 1, !tbaa !16, !range !18, !noundef !19
+  %197 = load i8, ptr %196, align 4, !tbaa !16, !range !18, !noundef !19
   %198 = load i64, ptr %192, align 8, !tbaa !13
   %199 = getelementptr i32, ptr %.sroa.0.0254, i64 %195
   br label %.preheader.i.us

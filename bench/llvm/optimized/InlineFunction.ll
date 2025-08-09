@@ -22318,9 +22318,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10AllocaInstENS_14SmallSetVectorINS_2at
   store ptr null, ptr %41, align 8, !tbaa !869
   %43 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 16
   %44 = getelementptr inbounds nuw i8, ptr %.022, i64 16
-  %45 = load i32, ptr %44, align 4, !tbaa !66
-  store i32 %45, ptr %43, align 4, !tbaa !66
-  store i32 0, ptr %44, align 4, !tbaa !66
+  %45 = load i32, ptr %44, align 8, !tbaa !66
+  store i32 %45, ptr %43, align 8, !tbaa !66
+  store i32 0, ptr %44, align 8, !tbaa !66
   %46 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 20
   %47 = getelementptr inbounds nuw i8, ptr %.022, i64 20
   %48 = load i32, ptr %46, align 4, !tbaa !66
@@ -22329,10 +22329,10 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10AllocaInstENS_14SmallSetVectorINS_2at
   store i32 %48, ptr %47, align 4, !tbaa !66
   %50 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 24
   %51 = getelementptr inbounds nuw i8, ptr %.022, i64 24
-  %52 = load i32, ptr %50, align 4, !tbaa !66
-  %53 = load i32, ptr %51, align 4, !tbaa !66
-  store i32 %53, ptr %50, align 4, !tbaa !66
-  store i32 %52, ptr %51, align 4, !tbaa !66
+  %52 = load i32, ptr %50, align 8, !tbaa !66
+  %53 = load i32, ptr %51, align 8, !tbaa !66
+  store i32 %53, ptr %50, align 8, !tbaa !66
+  store i32 %52, ptr %51, align 8, !tbaa !66
   %54 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 48
   store ptr %55, ptr %54, align 8, !tbaa !25
@@ -24981,7 +24981,7 @@ _ZSt10_ConstructIN4llvm17OperandBundleDefTIPNS0_5ValueEEEJS4_EEvPT_DpOT0_.exit.i
   store i64 %19, ptr %20, align 8, !tbaa !242
   store ptr %10, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !241
   store i64 0, ptr %18, align 8, !tbaa !242
-  store i8 0, ptr %10, align 1, !tbaa !131
+  store i8 0, ptr %10, align 8, !tbaa !131
   %21 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 32
   %23 = load ptr, ptr %22, align 8, !tbaa !438

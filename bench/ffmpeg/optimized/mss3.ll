@@ -1264,16 +1264,16 @@ model_reset.exit89:                               ; preds = %136, %._crit_edge.m
   tail call fastcc void @model_reset(ptr noundef nonnull %165)
   %166 = getelementptr inbounds nuw i8, ptr %150, i64 300
   %167 = getelementptr inbounds nuw i8, ptr %150, i64 312
-  store i32 1, ptr %167, align 4, !tbaa !98
+  store i32 1, ptr %167, align 8, !tbaa !98
   %168 = getelementptr inbounds nuw i8, ptr %150, i64 320
-  store i32 2, ptr %168, align 4, !tbaa !99
+  store i32 2, ptr %168, align 8, !tbaa !99
   %169 = getelementptr inbounds nuw i8, ptr %150, i64 308
   store i32 4096, ptr %169, align 4, !tbaa !100
   %170 = getelementptr inbounds nuw i8, ptr %150, i64 316
   store i32 8192, ptr %170, align 4, !tbaa !101
   store i32 4, ptr %166, align 4, !tbaa !102
   %171 = getelementptr inbounds nuw i8, ptr %150, i64 304
-  store i32 4, ptr %171, align 4, !tbaa !103
+  store i32 4, ptr %171, align 8, !tbaa !103
   %172 = getelementptr inbounds nuw i8, ptr %150, i64 324
   br label %173
 

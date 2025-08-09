@@ -714,7 +714,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_17OperandBundleDefTIPNS_5ValueEEELb0EE9push
   store i64 %211, ptr %212, align 8, !tbaa !182
   store ptr %202, ptr %.016.i.i.i.i, align 8, !tbaa !181
   store i64 0, ptr %210, align 8, !tbaa !182
-  store i8 0, ptr %202, align 1, !tbaa !57
+  store i8 0, ptr %202, align 8, !tbaa !57
   %213 = getelementptr inbounds nuw i8, ptr %199, i64 32
   %214 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 32
   %215 = load ptr, ptr %214, align 8, !tbaa !177
@@ -1759,7 +1759,7 @@ _ZSt10_ConstructIN4llvm17OperandBundleDefTIPNS0_5ValueEEEJS4_EEvPT_DpOT0_.exit.i
   store i64 %19, ptr %20, align 8, !tbaa !182
   store ptr %10, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !181
   store i64 0, ptr %18, align 8, !tbaa !182
-  store i8 0, ptr %10, align 1, !tbaa !57
+  store i8 0, ptr %10, align 8, !tbaa !57
   %21 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 32
   %23 = load ptr, ptr %22, align 8, !tbaa !177

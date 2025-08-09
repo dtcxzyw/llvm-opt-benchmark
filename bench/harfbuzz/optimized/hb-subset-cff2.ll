@@ -11132,7 +11132,7 @@ _ZN11hb_vector_tI8hb_set_tLb0EE5allocEjb.exit.thread: ; preds = %25, %13, %9, %_
   store atomic i64 0, ptr %42 monotonic, align 8
   store i8 1, ptr %37, align 8, !tbaa !265
   store i32 0, ptr %38, align 4, !tbaa !266
-  store atomic i32 0, ptr %39 monotonic, align 4
+  store atomic i32 0, ptr %39 monotonic, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %40, i8 0, i64 33, i1 false)
   %43 = load i32, ptr %27, align 4, !tbaa !385
   %44 = add i32 %43, 1
@@ -11610,7 +11610,7 @@ _ZN11hb_vector_tIjLb0EED2Ev.exit.i:               ; preds = %23, %10
   %51 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i32 %50, ptr %51, align 8, !tbaa !488
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
-  store atomic i32 -57005, ptr %19 monotonic, align 4
+  store atomic i32 -57005, ptr %19 monotonic, align 8
   %52 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %53 = load atomic i64, ptr %52 acquire, align 8
   %.not.i.i.i.i = icmp eq i64 %53, 0
@@ -12483,9 +12483,9 @@ _ZN3CFF15parsed_values_tINS_14parsed_cs_op_tEED2Ev.exit.i: ; preds = %_ZN3CFF15p
   %31 = load i32, ptr %30, align 8, !tbaa !362
   store i32 %31, ptr %26, align 8, !tbaa !362
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %33 = load i32, ptr %32, align 4, !tbaa !93
-  store i32 %33, ptr %27, align 4, !tbaa !93
-  store i32 0, ptr %32, align 4, !tbaa !93
+  %33 = load i32, ptr %32, align 8, !tbaa !93
+  store i32 %33, ptr %27, align 8, !tbaa !93
+  store i32 0, ptr %32, align 8, !tbaa !93
   %34 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 12
   %36 = load i32, ptr %35, align 4, !tbaa !93

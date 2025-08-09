@@ -1542,7 +1542,7 @@ _ZN14ExceptionCache12test_addressEPh.exit.i:      ; preds = %38, %43, %_ZN7nmeth
   %57 = load volatile i32, ptr %34, align 8
   %58 = add nsw i32 %57, 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
-  store volatile i32 %58, ptr %34, align 4
+  store volatile i32 %58, ptr %34, align 8
   br label %_ZN7nmethod25add_exception_cache_entryEP14ExceptionCache.exit
 
 _ZN14ExceptionCache23add_address_and_handlerEPhS0_.exit: ; preds = %_ZN14ExceptionCache26match_exception_with_spaceE6Handle.exit.i, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %48
@@ -1578,7 +1578,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %75, %65
   store volatile ptr null, ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %59, i64 280
   store ptr null, ptr %78, align 8
-  %79 = load volatile i32, ptr %60, align 4
+  %79 = load volatile i32, ptr %60, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %80 = icmp sgt i32 %79, 0
   br i1 %80, label %.lr.ph.i.i.i, label %_ZN14ExceptionCache12test_addressEPh.exit.i.i
@@ -1628,7 +1628,7 @@ _ZN14ExceptionCache12test_addressEPh.exit.i.i:    ; preds = %82, %87, %_ZNK7oopD
   %101 = load volatile i32, ptr %60, align 8
   %102 = add nsw i32 %101, 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
-  store volatile i32 %102, ptr %60, align 4
+  store volatile i32 %102, ptr %60, align 8
   br label %_ZN14ExceptionCacheC2E6HandlePhS1_.exit.preheader
 
 _ZN14ExceptionCacheC2E6HandlePhS1_.exit.preheader: ; preds = %_ZN14ExceptionCache12test_addressEPh.exit.i.i, %92, %95

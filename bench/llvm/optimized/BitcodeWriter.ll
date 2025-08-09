@@ -1558,14 +1558,14 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit14:
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 28
   store i32 32, ptr %15, align 4, !tbaa !27, !noalias !160
   %16 = zext i32 %2 to i64
-  store i64 %16, ptr %12, align 1
+  store i64 %16, ptr %12, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %.pre = load ptr, ptr %0, align 8, !tbaa !100
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store i64 0, ptr %17, align 1
+  store i64 0, ptr %17, align 8
   %.sroa.2.0..sroa_idx.i.i13 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  store i64 10, ptr %.sroa.2.0..sroa_idx.i.i13, align 1
+  store i64 10, ptr %.sroa.2.0..sroa_idx.i.i13, align 8
   store i32 2, ptr %14, align 8, !tbaa !26
   store ptr %11, ptr %5, align 8, !tbaa !162
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2689,17 +2689,17 @@ define internal fastcc void @_ZN12_GLOBAL__N_119ModuleBitcodeWriter5writeEv(ptr 
   %68 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %69 = getelementptr inbounds nuw i8, ptr %62, i64 28
   store i32 32, ptr %69, align 4, !tbaa !27, !noalias !296
-  store i64 1, ptr %66, align 1
+  store i64 1, ptr %66, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %62, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %70 = getelementptr inbounds nuw i8, ptr %62, i64 48
-  store i64 0, ptr %70, align 1
+  store i64 0, ptr %70, align 8
   %.sroa.2.0..sroa_idx.i.i12.i = getelementptr inbounds nuw i8, ptr %62, i64 56
-  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i12.i, align 1
+  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i12.i, align 8
   %71 = getelementptr inbounds nuw i8, ptr %62, i64 64
-  store i64 0, ptr %71, align 1
+  store i64 0, ptr %71, align 8
   %.sroa.2.0..sroa_idx.i.i19.i = getelementptr inbounds nuw i8, ptr %62, i64 72
-  store i64 8, ptr %.sroa.2.0..sroa_idx.i.i19.i, align 1
+  store i64 8, ptr %.sroa.2.0..sroa_idx.i.i19.i, align 8
   store i32 3, ptr %68, align 8, !tbaa !26
   store ptr %65, ptr %57, align 8, !tbaa !162
   %72 = getelementptr inbounds nuw i8, ptr %57, i64 8
@@ -2872,13 +2872,13 @@ _ZL17writeStringRecordRN4llvm15BitstreamWriterEjNS_9StringRefEj.exit: ; preds = 
   %146 = getelementptr inbounds nuw i8, ptr %140, i64 24
   %147 = getelementptr inbounds nuw i8, ptr %140, i64 28
   store i32 32, ptr %147, align 4, !tbaa !27, !noalias !302
-  store i64 2, ptr %144, align 1
+  store i64 2, ptr %144, align 8
   %.sroa.2.0..sroa_idx.i.i32.i = getelementptr inbounds nuw i8, ptr %140, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i32.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i32.i, align 8
   %148 = getelementptr inbounds nuw i8, ptr %140, i64 48
-  store i64 6, ptr %148, align 1
+  store i64 6, ptr %148, align 8
   %.sroa.2.0..sroa_idx.i.i39.i = getelementptr inbounds nuw i8, ptr %140, i64 56
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i39.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i39.i, align 8
   store i32 2, ptr %146, align 8, !tbaa !26
   store ptr %143, ptr %58, align 8, !tbaa !162
   %149 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -3029,23 +3029,23 @@ _ZL24writeIdentificationBlockRN4llvm15BitstreamWriterE.exit: ; preds = %_ZN4llvm
   %202 = getelementptr inbounds nuw i8, ptr %196, i64 24
   %203 = getelementptr inbounds nuw i8, ptr %196, i64 28
   store i32 32, ptr %203, align 4, !tbaa !27, !noalias !313
-  store i64 3, ptr %200, align 1
+  store i64 3, ptr %200, align 8
   %.sroa.2.0..sroa_idx.i.i.i5 = getelementptr inbounds nuw i8, ptr %196, i64 40
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i.i5, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i.i5, align 8
   %204 = getelementptr inbounds nuw i8, ptr %196, i64 48
-  store i64 8, ptr %204, align 1
+  store i64 8, ptr %204, align 8
   %.sroa.2.0..sroa_idx.i.i25.i = getelementptr inbounds nuw i8, ptr %196, i64 56
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i25.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i25.i, align 8
   %205 = getelementptr inbounds nuw i8, ptr %196, i64 64
-  store i64 0, ptr %205, align 1
+  store i64 0, ptr %205, align 8
   %.sroa.2.0..sroa_idx.i.i32.i6 = getelementptr inbounds nuw i8, ptr %196, i64 72
-  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i32.i6, align 1
+  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i32.i6, align 8
   %.pre.i7 = load ptr, ptr %0, align 8, !tbaa !290
   %.pre1078.i = load i8, ptr @__libc_single_threaded, align 1, !tbaa !171
   %206 = getelementptr inbounds nuw i8, ptr %196, i64 80
-  store i64 8, ptr %206, align 1
+  store i64 8, ptr %206, align 8
   %.sroa.2.0..sroa_idx.i.i39.i8 = getelementptr inbounds nuw i8, ptr %196, i64 88
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i39.i8, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i39.i8, align 8
   store i32 4, ptr %202, align 8, !tbaa !26
   store ptr %199, ptr %35, align 8, !tbaa !162
   %207 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -3170,23 +3170,23 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i44.i: ; preds = %249, %
   %260 = getelementptr inbounds nuw i8, ptr %254, i64 24
   %261 = getelementptr inbounds nuw i8, ptr %254, i64 28
   store i32 32, ptr %261, align 4, !tbaa !27, !noalias !319
-  store i64 1, ptr %258, align 1
+  store i64 1, ptr %258, align 8
   %.sroa.2.0..sroa_idx.i.i52.i = getelementptr inbounds nuw i8, ptr %254, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i52.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i52.i, align 8
   %262 = getelementptr inbounds nuw i8, ptr %254, i64 48
-  store i64 8, ptr %262, align 1
+  store i64 8, ptr %262, align 8
   %.sroa.2.0..sroa_idx.i.i59.i = getelementptr inbounds nuw i8, ptr %254, i64 56
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i59.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i59.i, align 8
   %263 = getelementptr inbounds nuw i8, ptr %254, i64 64
-  store i64 0, ptr %263, align 1
+  store i64 0, ptr %263, align 8
   %.sroa.2.0..sroa_idx.i.i66.i = getelementptr inbounds nuw i8, ptr %254, i64 72
-  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i66.i, align 1
+  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i66.i, align 8
   %.pre1079.i = load ptr, ptr %0, align 8, !tbaa !290
   %.pre1080.i = load i8, ptr @__libc_single_threaded, align 1, !tbaa !171
   %264 = getelementptr inbounds nuw i8, ptr %254, i64 80
-  store i64 7, ptr %264, align 1
+  store i64 7, ptr %264, align 8
   %.sroa.2.0..sroa_idx.i.i73.i = getelementptr inbounds nuw i8, ptr %254, i64 88
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i73.i, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i73.i, align 8
   store i32 4, ptr %260, align 8, !tbaa !26
   store ptr %257, ptr %36, align 8, !tbaa !162
   %265 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -3311,23 +3311,23 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i85.i: ; preds = %307, %
   %318 = getelementptr inbounds nuw i8, ptr %312, i64 24
   %319 = getelementptr inbounds nuw i8, ptr %312, i64 28
   store i32 32, ptr %319, align 4, !tbaa !27, !noalias !325
-  store i64 1, ptr %316, align 1
+  store i64 1, ptr %316, align 8
   %.sroa.2.0..sroa_idx.i.i93.i = getelementptr inbounds nuw i8, ptr %312, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i93.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i93.i, align 8
   %320 = getelementptr inbounds nuw i8, ptr %312, i64 48
-  store i64 8, ptr %320, align 1
+  store i64 8, ptr %320, align 8
   %.sroa.2.0..sroa_idx.i.i100.i = getelementptr inbounds nuw i8, ptr %312, i64 56
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i100.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i100.i, align 8
   %321 = getelementptr inbounds nuw i8, ptr %312, i64 64
-  store i64 0, ptr %321, align 1
+  store i64 0, ptr %321, align 8
   %.sroa.2.0..sroa_idx.i.i107.i = getelementptr inbounds nuw i8, ptr %312, i64 72
-  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i107.i, align 1
+  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i107.i, align 8
   %.pre1081.i = load ptr, ptr %0, align 8, !tbaa !290
   %.pre1082.i = load i8, ptr @__libc_single_threaded, align 1, !tbaa !171
   %322 = getelementptr inbounds nuw i8, ptr %312, i64 80
-  store i64 0, ptr %322, align 1
+  store i64 0, ptr %322, align 8
   %.sroa.2.0..sroa_idx.i.i114.i = getelementptr inbounds nuw i8, ptr %312, i64 88
-  store i64 8, ptr %.sroa.2.0..sroa_idx.i.i114.i, align 1
+  store i64 8, ptr %.sroa.2.0..sroa_idx.i.i114.i, align 8
   store i32 4, ptr %318, align 8, !tbaa !26
   store ptr %315, ptr %37, align 8, !tbaa !162
   %323 = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -3452,23 +3452,23 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i126.i: ; preds = %365, 
   %376 = getelementptr inbounds nuw i8, ptr %370, i64 24
   %377 = getelementptr inbounds nuw i8, ptr %370, i64 28
   store i32 32, ptr %377, align 4, !tbaa !27, !noalias !331
-  store i64 2, ptr %374, align 1
+  store i64 2, ptr %374, align 8
   %.sroa.2.0..sroa_idx.i.i134.i = getelementptr inbounds nuw i8, ptr %370, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i134.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i134.i, align 8
   %378 = getelementptr inbounds nuw i8, ptr %370, i64 48
-  store i64 8, ptr %378, align 1
+  store i64 8, ptr %378, align 8
   %.sroa.2.0..sroa_idx.i.i141.i = getelementptr inbounds nuw i8, ptr %370, i64 56
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i141.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i141.i, align 8
   %379 = getelementptr inbounds nuw i8, ptr %370, i64 64
-  store i64 0, ptr %379, align 1
+  store i64 0, ptr %379, align 8
   %.sroa.2.0..sroa_idx.i.i148.i = getelementptr inbounds nuw i8, ptr %370, i64 72
-  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i148.i, align 1
+  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i148.i, align 8
   %.pre1083.i = load ptr, ptr %0, align 8, !tbaa !290
   %.pre1084.i = load i8, ptr @__libc_single_threaded, align 1, !tbaa !171
   %380 = getelementptr inbounds nuw i8, ptr %370, i64 80
-  store i64 0, ptr %380, align 1
+  store i64 0, ptr %380, align 8
   %.sroa.2.0..sroa_idx.i.i155.i = getelementptr inbounds nuw i8, ptr %370, i64 88
-  store i64 8, ptr %.sroa.2.0..sroa_idx.i.i155.i, align 1
+  store i64 8, ptr %.sroa.2.0..sroa_idx.i.i155.i, align 8
   store i32 4, ptr %376, align 8, !tbaa !26
   store ptr %373, ptr %38, align 8, !tbaa !162
   %381 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -3593,9 +3593,9 @@ _ZNSt12__shared_ptrIN4llvm13BitCodeAbbrevELN9__gnu_cxx12_Lock_policyE2EED2Ev.exi
   %433 = getelementptr inbounds nuw i8, ptr %427, i64 24
   %434 = getelementptr inbounds nuw i8, ptr %427, i64 28
   store i32 32, ptr %434, align 4, !tbaa !27, !noalias !337
-  store i64 1, ptr %431, align 1
+  store i64 1, ptr %431, align 8
   %.sroa.2.0..sroa_idx.i.i175.i = getelementptr inbounds nuw i8, ptr %427, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i175.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i175.i, align 8
   store i32 1, ptr %433, align 8, !tbaa !26
   %435 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %436 = call noundef i64 @_ZNK4llvm15ValueEnumerator33computeBitsRequiredForTypeIndicesEv(ptr noundef nonnull align 8 dereferenceable(492) %435) #28
@@ -3749,15 +3749,15 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i194.i: ; preds = %495, 
   %506 = getelementptr inbounds nuw i8, ptr %500, i64 24
   %507 = getelementptr inbounds nuw i8, ptr %500, i64 28
   store i32 32, ptr %507, align 4, !tbaa !27, !noalias !343
-  store i64 4, ptr %504, align 1
+  store i64 4, ptr %504, align 8
   %.sroa.2.0..sroa_idx.i.i202.i = getelementptr inbounds nuw i8, ptr %500, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i202.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i202.i, align 8
   %.pre1085.i = load ptr, ptr %0, align 8, !tbaa !290
   %.pre1086.i = load i8, ptr @__libc_single_threaded, align 1, !tbaa !171
   %508 = getelementptr inbounds nuw i8, ptr %500, i64 48
-  store i64 8, ptr %508, align 1
+  store i64 8, ptr %508, align 8
   %.sroa.2.0..sroa_idx.i.i209.i = getelementptr inbounds nuw i8, ptr %500, i64 56
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i209.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i209.i, align 8
   store i32 2, ptr %506, align 8, !tbaa !26
   store ptr %503, ptr %40, align 8, !tbaa !162
   %509 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -3882,13 +3882,13 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit237.i: ; preds = %554, %
   %561 = getelementptr inbounds nuw i8, ptr %555, i64 24
   %562 = getelementptr inbounds nuw i8, ptr %555, i64 28
   store i32 32, ptr %562, align 4, !tbaa !27, !noalias !349
-  store i64 11, ptr %559, align 1
+  store i64 11, ptr %559, align 8
   %.sroa.2.0..sroa_idx.i.i229.i = getelementptr inbounds nuw i8, ptr %555, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i229.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i229.i, align 8
   %563 = getelementptr inbounds nuw i8, ptr %555, i64 48
-  store i64 4, ptr %563, align 1
+  store i64 4, ptr %563, align 8
   %.sroa.2.0..sroa_idx.i.i236.i = getelementptr inbounds nuw i8, ptr %555, i64 56
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i236.i, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i236.i, align 8
   store i32 2, ptr %561, align 8, !tbaa !26
   %564 = call noundef i64 @_ZNK4llvm15ValueEnumerator33computeBitsRequiredForTypeIndicesEv(ptr noundef nonnull align 8 dereferenceable(492) %435) #28
   %565 = load i32, ptr %561, align 8, !tbaa !26
@@ -4063,9 +4063,9 @@ _ZNSt12__shared_ptrIN4llvm13BitCodeAbbrevELN9__gnu_cxx12_Lock_policyE2EED2Ev.exi
   %643 = getelementptr inbounds nuw i8, ptr %637, i64 24
   %644 = getelementptr inbounds nuw i8, ptr %637, i64 28
   store i32 32, ptr %644, align 4, !tbaa !27, !noalias !355
-  store i64 2, ptr %641, align 1
+  store i64 2, ptr %641, align 8
   %.sroa.2.0..sroa_idx.i.i270.i = getelementptr inbounds nuw i8, ptr %637, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i270.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i270.i, align 8
   store i32 1, ptr %643, align 8, !tbaa !26
   %645 = load ptr, ptr %0, align 8, !tbaa !290
   store ptr %640, ptr %42, align 8, !tbaa !162
@@ -4192,13 +4192,13 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit298.i: ; preds = %692, %
   %699 = getelementptr inbounds nuw i8, ptr %693, i64 24
   %700 = getelementptr inbounds nuw i8, ptr %693, i64 28
   store i32 32, ptr %700, align 4, !tbaa !27, !noalias !361
-  store i64 20, ptr %697, align 1
+  store i64 20, ptr %697, align 8
   %.sroa.2.0..sroa_idx.i.i290.i = getelementptr inbounds nuw i8, ptr %693, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i290.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i290.i, align 8
   %701 = getelementptr inbounds nuw i8, ptr %693, i64 48
-  store i64 6, ptr %701, align 1
+  store i64 6, ptr %701, align 8
   %.sroa.2.0..sroa_idx.i.i297.i = getelementptr inbounds nuw i8, ptr %693, i64 56
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i297.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i297.i, align 8
   store i32 2, ptr %699, align 8, !tbaa !26
   %702 = call noundef i64 @_ZNK4llvm15ValueEnumerator33computeBitsRequiredForTypeIndicesEv(ptr noundef nonnull align 8 dereferenceable(492) %435) #28
   %703 = load i32, ptr %699, align 8, !tbaa !26
@@ -4395,19 +4395,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i330.i: ; preds = %781, 
   %792 = getelementptr inbounds nuw i8, ptr %786, i64 24
   %793 = getelementptr inbounds nuw i8, ptr %786, i64 28
   store i32 32, ptr %793, align 4, !tbaa !27, !noalias !367
-  store i64 56, ptr %790, align 1
+  store i64 56, ptr %790, align 8
   %.sroa.2.0..sroa_idx.i.i338.i = getelementptr inbounds nuw i8, ptr %786, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i338.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i338.i, align 8
   %794 = getelementptr inbounds nuw i8, ptr %786, i64 48
-  store i64 6, ptr %794, align 1
+  store i64 6, ptr %794, align 8
   %.sroa.2.0..sroa_idx.i.i345.i = getelementptr inbounds nuw i8, ptr %786, i64 56
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i345.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i345.i, align 8
   %.pre1087.i = load ptr, ptr %0, align 8, !tbaa !290
   %.pre1088.i = load i8, ptr @__libc_single_threaded, align 1, !tbaa !171
   %795 = getelementptr inbounds nuw i8, ptr %786, i64 64
-  store i64 4, ptr %795, align 1
+  store i64 4, ptr %795, align 8
   %.sroa.2.0..sroa_idx.i.i352.i = getelementptr inbounds nuw i8, ptr %786, i64 72
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i352.i, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i352.i, align 8
   store i32 3, ptr %792, align 8, !tbaa !26
   store ptr %789, ptr %44, align 8, !tbaa !162
   %796 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -4532,23 +4532,23 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i364.i: ; preds = %838, 
   %849 = getelementptr inbounds nuw i8, ptr %843, i64 24
   %850 = getelementptr inbounds nuw i8, ptr %843, i64 28
   store i32 32, ptr %850, align 4, !tbaa !27, !noalias !373
-  store i64 56, ptr %847, align 1
+  store i64 56, ptr %847, align 8
   %.sroa.2.0..sroa_idx.i.i372.i = getelementptr inbounds nuw i8, ptr %843, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i372.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i372.i, align 8
   %851 = getelementptr inbounds nuw i8, ptr %843, i64 48
-  store i64 6, ptr %851, align 1
+  store i64 6, ptr %851, align 8
   %.sroa.2.0..sroa_idx.i.i379.i = getelementptr inbounds nuw i8, ptr %843, i64 56
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i379.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i379.i, align 8
   %852 = getelementptr inbounds nuw i8, ptr %843, i64 64
-  store i64 4, ptr %852, align 1
+  store i64 4, ptr %852, align 8
   %.sroa.2.0..sroa_idx.i.i386.i = getelementptr inbounds nuw i8, ptr %843, i64 72
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i386.i, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i386.i, align 8
   %.pre1089.i = load ptr, ptr %0, align 8, !tbaa !290
   %.pre1090.i = load i8, ptr @__libc_single_threaded, align 1, !tbaa !171
   %853 = getelementptr inbounds nuw i8, ptr %843, i64 80
-  store i64 8, ptr %853, align 1
+  store i64 8, ptr %853, align 8
   %.sroa.2.0..sroa_idx.i.i393.i = getelementptr inbounds nuw i8, ptr %843, i64 88
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i393.i, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i393.i, align 8
   store i32 4, ptr %849, align 8, !tbaa !26
   store ptr %846, ptr %45, align 8, !tbaa !162
   %854 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -4673,23 +4673,23 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i405.i: ; preds = %896, 
   %907 = getelementptr inbounds nuw i8, ptr %901, i64 24
   %908 = getelementptr inbounds nuw i8, ptr %901, i64 28
   store i32 32, ptr %908, align 4, !tbaa !27, !noalias !379
-  store i64 2, ptr %905, align 1
+  store i64 2, ptr %905, align 8
   %.sroa.2.0..sroa_idx.i.i413.i = getelementptr inbounds nuw i8, ptr %901, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i413.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i413.i, align 8
   %909 = getelementptr inbounds nuw i8, ptr %901, i64 48
-  store i64 6, ptr %909, align 1
+  store i64 6, ptr %909, align 8
   %.sroa.2.0..sroa_idx.i.i420.i = getelementptr inbounds nuw i8, ptr %901, i64 56
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i420.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i420.i, align 8
   %910 = getelementptr inbounds nuw i8, ptr %901, i64 64
-  store i64 6, ptr %910, align 1
+  store i64 6, ptr %910, align 8
   %.sroa.2.0..sroa_idx.i.i427.i = getelementptr inbounds nuw i8, ptr %901, i64 72
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i427.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i427.i, align 8
   %.pre1091.i = load ptr, ptr %0, align 8, !tbaa !290
   %.pre1092.i = load i8, ptr @__libc_single_threaded, align 1, !tbaa !171
   %911 = getelementptr inbounds nuw i8, ptr %901, i64 80
-  store i64 4, ptr %911, align 1
+  store i64 4, ptr %911, align 8
   %.sroa.2.0..sroa_idx.i.i434.i = getelementptr inbounds nuw i8, ptr %901, i64 88
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i434.i, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i434.i, align 8
   store i32 4, ptr %907, align 8, !tbaa !26
   store ptr %904, ptr %46, align 8, !tbaa !162
   %912 = getelementptr inbounds nuw i8, ptr %46, i64 8
@@ -4814,27 +4814,27 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i446.i: ; preds = %954, 
   %965 = getelementptr inbounds nuw i8, ptr %959, i64 24
   %966 = getelementptr inbounds nuw i8, ptr %959, i64 28
   store i32 32, ptr %966, align 4, !tbaa !27, !noalias !385
-  store i64 2, ptr %963, align 1
+  store i64 2, ptr %963, align 8
   %.sroa.2.0..sroa_idx.i.i454.i = getelementptr inbounds nuw i8, ptr %959, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i454.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i454.i, align 8
   %967 = getelementptr inbounds nuw i8, ptr %959, i64 48
-  store i64 6, ptr %967, align 1
+  store i64 6, ptr %967, align 8
   %.sroa.2.0..sroa_idx.i.i461.i = getelementptr inbounds nuw i8, ptr %959, i64 56
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i461.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i461.i, align 8
   %968 = getelementptr inbounds nuw i8, ptr %959, i64 64
-  store i64 6, ptr %968, align 1
+  store i64 6, ptr %968, align 8
   %.sroa.2.0..sroa_idx.i.i468.i = getelementptr inbounds nuw i8, ptr %959, i64 72
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i468.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i468.i, align 8
   %969 = getelementptr inbounds nuw i8, ptr %959, i64 80
-  store i64 4, ptr %969, align 1
+  store i64 4, ptr %969, align 8
   %.sroa.2.0..sroa_idx.i.i475.i = getelementptr inbounds nuw i8, ptr %959, i64 88
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i475.i, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i475.i, align 8
   %.pre1093.i = load ptr, ptr %0, align 8, !tbaa !290
   %.pre1094.i = load i8, ptr @__libc_single_threaded, align 1, !tbaa !171
   %970 = getelementptr inbounds nuw i8, ptr %959, i64 96
-  store i64 8, ptr %970, align 1
+  store i64 8, ptr %970, align 8
   %.sroa.2.0..sroa_idx.i.i482.i = getelementptr inbounds nuw i8, ptr %959, i64 104
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i482.i, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i482.i, align 8
   store i32 5, ptr %965, align 8, !tbaa !26
   store ptr %962, ptr %47, align 8, !tbaa !162
   %971 = getelementptr inbounds nuw i8, ptr %47, i64 8
@@ -4959,13 +4959,13 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit510.i: ; preds = %1016, 
   %1023 = getelementptr inbounds nuw i8, ptr %1017, i64 24
   %1024 = getelementptr inbounds nuw i8, ptr %1017, i64 28
   store i32 32, ptr %1024, align 4, !tbaa !27, !noalias !391
-  store i64 3, ptr %1021, align 1
+  store i64 3, ptr %1021, align 8
   %.sroa.2.0..sroa_idx.i.i502.i = getelementptr inbounds nuw i8, ptr %1017, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i502.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i502.i, align 8
   %1025 = getelementptr inbounds nuw i8, ptr %1017, i64 48
-  store i64 6, ptr %1025, align 1
+  store i64 6, ptr %1025, align 8
   %.sroa.2.0..sroa_idx.i.i509.i = getelementptr inbounds nuw i8, ptr %1017, i64 56
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i509.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i509.i, align 8
   store i32 2, ptr %1023, align 8, !tbaa !26
   %1026 = call noundef i64 @_ZNK4llvm15ValueEnumerator33computeBitsRequiredForTypeIndicesEv(ptr noundef nonnull align 8 dereferenceable(492) %435) #28
   %1027 = load i32, ptr %1023, align 8, !tbaa !26
@@ -5140,13 +5140,13 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit551.i: ; preds = %1098, 
   %1105 = getelementptr inbounds nuw i8, ptr %1099, i64 24
   %1106 = getelementptr inbounds nuw i8, ptr %1099, i64 28
   store i32 32, ptr %1106, align 4, !tbaa !27, !noalias !397
-  store i64 3, ptr %1103, align 1
+  store i64 3, ptr %1103, align 8
   %.sroa.2.0..sroa_idx.i.i543.i = getelementptr inbounds nuw i8, ptr %1099, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i543.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i543.i, align 8
   %1107 = getelementptr inbounds nuw i8, ptr %1099, i64 48
-  store i64 6, ptr %1107, align 1
+  store i64 6, ptr %1107, align 8
   %.sroa.2.0..sroa_idx.i.i550.i = getelementptr inbounds nuw i8, ptr %1099, i64 56
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i550.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i550.i, align 8
   store i32 2, ptr %1105, align 8, !tbaa !26
   %1108 = call noundef i64 @_ZNK4llvm15ValueEnumerator33computeBitsRequiredForTypeIndicesEv(ptr noundef nonnull align 8 dereferenceable(492) %435) #28
   %1109 = load i32, ptr %1105, align 8, !tbaa !26
@@ -5343,9 +5343,9 @@ _ZNSt12__shared_ptrIN4llvm13BitCodeAbbrevELN9__gnu_cxx12_Lock_policyE2EED2Ev.exi
   %1197 = getelementptr inbounds nuw i8, ptr %1191, i64 24
   %1198 = getelementptr inbounds nuw i8, ptr %1191, i64 28
   store i32 32, ptr %1198, align 4, !tbaa !27, !noalias !403
-  store i64 10, ptr %1195, align 1
+  store i64 10, ptr %1195, align 8
   %.sroa.2.0..sroa_idx.i.i591.i = getelementptr inbounds nuw i8, ptr %1191, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i591.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i591.i, align 8
   store i32 1, ptr %1197, align 8, !tbaa !26
   %1199 = load ptr, ptr %0, align 8, !tbaa !290
   store ptr %1194, ptr %50, align 8, !tbaa !162
@@ -5472,15 +5472,15 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i603.i: ; preds = %1243,
   %1254 = getelementptr inbounds nuw i8, ptr %1248, i64 24
   %1255 = getelementptr inbounds nuw i8, ptr %1248, i64 28
   store i32 32, ptr %1255, align 4, !tbaa !27, !noalias !409
-  store i64 10, ptr %1252, align 1
+  store i64 10, ptr %1252, align 8
   %.sroa.2.0..sroa_idx.i.i611.i = getelementptr inbounds nuw i8, ptr %1248, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i611.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i611.i, align 8
   %.pre1095.i = load ptr, ptr %0, align 8, !tbaa !290
   %.pre1096.i = load i8, ptr @__libc_single_threaded, align 1, !tbaa !171
   %1256 = getelementptr inbounds nuw i8, ptr %1248, i64 48
-  store i64 6, ptr %1256, align 1
+  store i64 6, ptr %1256, align 8
   %.sroa.2.0..sroa_idx.i.i618.i = getelementptr inbounds nuw i8, ptr %1248, i64 56
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i618.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i618.i, align 8
   store i32 2, ptr %1254, align 8, !tbaa !26
   store ptr %1251, ptr %51, align 8, !tbaa !162
   %1257 = getelementptr inbounds nuw i8, ptr %51, i64 8
@@ -5605,9 +5605,9 @@ _ZNSt12__shared_ptrIN4llvm13BitCodeAbbrevELN9__gnu_cxx12_Lock_policyE2EED2Ev.exi
   %1309 = getelementptr inbounds nuw i8, ptr %1303, i64 24
   %1310 = getelementptr inbounds nuw i8, ptr %1303, i64 28
   store i32 32, ptr %1310, align 4, !tbaa !27, !noalias !415
-  store i64 15, ptr %1307, align 1
+  store i64 15, ptr %1307, align 8
   %.sroa.2.0..sroa_idx.i.i638.i = getelementptr inbounds nuw i8, ptr %1303, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i638.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i638.i, align 8
   store i32 1, ptr %1309, align 8, !tbaa !26
   %1311 = load ptr, ptr %0, align 8, !tbaa !290
   store ptr %1306, ptr %52, align 8, !tbaa !162
@@ -5734,17 +5734,17 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i650.i: ; preds = %1355,
   %1366 = getelementptr inbounds nuw i8, ptr %1360, i64 24
   %1367 = getelementptr inbounds nuw i8, ptr %1360, i64 28
   store i32 32, ptr %1367, align 4, !tbaa !27, !noalias !421
-  store i64 43, ptr %1364, align 1
+  store i64 43, ptr %1364, align 8
   %.sroa.2.0..sroa_idx.i.i658.i = getelementptr inbounds nuw i8, ptr %1360, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i658.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i658.i, align 8
   %.phi.trans.insert1098.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.pre1099.i = load ptr, ptr %.phi.trans.insert1098.i, align 8, !tbaa !422
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.pre1097.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !423
   %1368 = getelementptr inbounds nuw i8, ptr %1360, i64 48
-  store i64 3, ptr %1368, align 1
+  store i64 3, ptr %1368, align 8
   %.sroa.2.0..sroa_idx.i.i665.i = getelementptr inbounds nuw i8, ptr %1360, i64 56
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i665.i, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i665.i, align 8
   %1369 = ptrtoint ptr %.pre1097.i to i64
   %1370 = ptrtoint ptr %.pre1099.i to i64
   %1371 = sub i64 %1369, %1370
@@ -5754,19 +5754,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i650.i: ; preds = %1355,
   %1375 = sub nuw nsw i32 32, %1374
   %1376 = zext nneg i32 %1375 to i64
   %1377 = getelementptr inbounds nuw i8, ptr %1360, i64 64
-  store i64 %1376, ptr %1377, align 1
+  store i64 %1376, ptr %1377, align 8
   %.sroa.2.0..sroa_idx.i.i672.i = getelementptr inbounds nuw i8, ptr %1360, i64 72
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i672.i, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i672.i, align 8
   %1378 = getelementptr inbounds nuw i8, ptr %1360, i64 80
-  store i64 0, ptr %1378, align 1
+  store i64 0, ptr %1378, align 8
   %.sroa.2.0..sroa_idx.i.i679.i = getelementptr inbounds nuw i8, ptr %1360, i64 88
-  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i679.i, align 1
+  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i679.i, align 8
   %.pre1100.i = load ptr, ptr %0, align 8, !tbaa !290
   %.pre1101.i = load i8, ptr @__libc_single_threaded, align 1, !tbaa !171
   %1379 = getelementptr inbounds nuw i8, ptr %1360, i64 96
-  store i64 6, ptr %1379, align 1
+  store i64 6, ptr %1379, align 8
   %.sroa.2.0..sroa_idx.i.i686.i = getelementptr inbounds nuw i8, ptr %1360, i64 104
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i686.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i686.i, align 8
   store i32 5, ptr %1366, align 8, !tbaa !26
   store ptr %1363, ptr %53, align 8, !tbaa !162
   %1380 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -5891,27 +5891,27 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i698.i: ; preds = %1422,
   %1433 = getelementptr inbounds nuw i8, ptr %1427, i64 24
   %1434 = getelementptr inbounds nuw i8, ptr %1427, i64 28
   store i32 32, ptr %1434, align 4, !tbaa !27, !noalias !429
-  store i64 64, ptr %1431, align 1
+  store i64 64, ptr %1431, align 8
   %.sroa.2.0..sroa_idx.i.i706.i = getelementptr inbounds nuw i8, ptr %1427, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i706.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i706.i, align 8
   %1435 = getelementptr inbounds nuw i8, ptr %1427, i64 48
-  store i64 7, ptr %1435, align 1
+  store i64 7, ptr %1435, align 8
   %.sroa.2.0..sroa_idx.i.i713.i = getelementptr inbounds nuw i8, ptr %1427, i64 56
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i713.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i713.i, align 8
   %1436 = getelementptr inbounds nuw i8, ptr %1427, i64 64
-  store i64 7, ptr %1436, align 1
+  store i64 7, ptr %1436, align 8
   %.sroa.2.0..sroa_idx.i.i720.i = getelementptr inbounds nuw i8, ptr %1427, i64 72
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i720.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i720.i, align 8
   %1437 = getelementptr inbounds nuw i8, ptr %1427, i64 80
-  store i64 7, ptr %1437, align 1
+  store i64 7, ptr %1437, align 8
   %.sroa.2.0..sroa_idx.i.i727.i = getelementptr inbounds nuw i8, ptr %1427, i64 88
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i727.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i727.i, align 8
   %.pre1102.i = load ptr, ptr %0, align 8, !tbaa !290
   %.pre1103.i = load i8, ptr @__libc_single_threaded, align 1, !tbaa !171
   %1438 = getelementptr inbounds nuw i8, ptr %1427, i64 96
-  store i64 6, ptr %1438, align 1
+  store i64 6, ptr %1438, align 8
   %.sroa.2.0..sroa_idx.i.i734.i = getelementptr inbounds nuw i8, ptr %1427, i64 104
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i734.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i734.i, align 8
   store i32 5, ptr %1433, align 8, !tbaa !26
   store ptr %1430, ptr %54, align 8, !tbaa !162
   %1439 = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -6074,14 +6074,14 @@ _ZN12_GLOBAL__N_119ModuleBitcodeWriter14writeBlockInfoEv.exit: ; preds = %1470, 
   %1497 = getelementptr inbounds nuw i8, ptr %1491, i64 24
   %1498 = getelementptr inbounds nuw i8, ptr %1491, i64 28
   store i32 32, ptr %1498, align 4, !tbaa !27, !noalias !435
-  store i64 25, ptr %1495, align 1
+  store i64 25, ptr %1495, align 8
   %.sroa.2.0..sroa_idx.i.i.i13 = getelementptr inbounds nuw i8, ptr %1491, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i.i13, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i.i13, align 8
   %.pre.i14 = load ptr, ptr %0, align 8, !tbaa !290
   %1499 = getelementptr inbounds nuw i8, ptr %1491, i64 48
-  store i64 0, ptr %1499, align 1
+  store i64 0, ptr %1499, align 8
   %.sroa.2.0..sroa_idx.i.i87.i = getelementptr inbounds nuw i8, ptr %1491, i64 56
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i87.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i87.i, align 8
   store i32 2, ptr %1497, align 8, !tbaa !26
   store ptr %1494, ptr %29, align 8, !tbaa !162
   %1500 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -6184,22 +6184,22 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit122.i: ; preds = %1541, 
   %1548 = getelementptr inbounds nuw i8, ptr %1542, i64 24
   %1549 = getelementptr inbounds nuw i8, ptr %1542, i64 28
   store i32 32, ptr %1549, align 4, !tbaa !27, !noalias !441
-  store i64 21, ptr %1546, align 1
+  store i64 21, ptr %1546, align 8
   %.sroa.2.0..sroa_idx.i.i100.i20 = getelementptr inbounds nuw i8, ptr %1542, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i100.i20, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i100.i20, align 8
   %1550 = getelementptr inbounds nuw i8, ptr %1542, i64 48
-  store i64 1, ptr %1550, align 1
+  store i64 1, ptr %1550, align 8
   %.sroa.2.0..sroa_idx.i.i107.i21 = getelementptr inbounds nuw i8, ptr %1542, i64 56
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i107.i21, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i107.i21, align 8
   %1551 = getelementptr inbounds nuw i8, ptr %1542, i64 64
-  store i64 0, ptr %1551, align 1
+  store i64 0, ptr %1551, align 8
   %.sroa.2.0..sroa_idx.i.i114.i22 = getelementptr inbounds nuw i8, ptr %1542, i64 72
-  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i114.i22, align 1
+  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i114.i22, align 8
   %.pre560.i = load ptr, ptr %0, align 8, !tbaa !290
   %1552 = getelementptr inbounds nuw i8, ptr %1542, i64 80
-  store i64 %1490, ptr %1552, align 1
+  store i64 %1490, ptr %1552, align 8
   %.sroa.2.0..sroa_idx.i.i121.i = getelementptr inbounds nuw i8, ptr %1542, i64 88
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i121.i, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i121.i, align 8
   store i32 4, ptr %1548, align 8, !tbaa !26
   store ptr %1545, ptr %30, align 8, !tbaa !162
   %1553 = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -6303,22 +6303,22 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit168.i: ; preds = %1594, 
   %1601 = getelementptr inbounds nuw i8, ptr %1595, i64 24
   %1602 = getelementptr inbounds nuw i8, ptr %1595, i64 28
   store i32 32, ptr %1602, align 4, !tbaa !27, !noalias !447
-  store i64 18, ptr %1599, align 1
+  store i64 18, ptr %1599, align 8
   %.sroa.2.0..sroa_idx.i.i146.i = getelementptr inbounds nuw i8, ptr %1595, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i146.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i146.i, align 8
   %1603 = getelementptr inbounds nuw i8, ptr %1595, i64 48
-  store i64 1, ptr %1603, align 1
+  store i64 1, ptr %1603, align 8
   %.sroa.2.0..sroa_idx.i.i153.i = getelementptr inbounds nuw i8, ptr %1595, i64 56
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i153.i, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i153.i, align 8
   %1604 = getelementptr inbounds nuw i8, ptr %1595, i64 64
-  store i64 0, ptr %1604, align 1
+  store i64 0, ptr %1604, align 8
   %.sroa.2.0..sroa_idx.i.i160.i = getelementptr inbounds nuw i8, ptr %1595, i64 72
-  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i160.i, align 1
+  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i160.i, align 8
   %.pre561.i = load ptr, ptr %0, align 8, !tbaa !290
   %1605 = getelementptr inbounds nuw i8, ptr %1595, i64 80
-  store i64 %1490, ptr %1605, align 1
+  store i64 %1490, ptr %1605, align 8
   %.sroa.2.0..sroa_idx.i.i167.i = getelementptr inbounds nuw i8, ptr %1595, i64 88
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i167.i, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i167.i, align 8
   store i32 4, ptr %1601, align 8, !tbaa !26
   store ptr %1598, ptr %31, align 8, !tbaa !162
   %1606 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -6422,18 +6422,18 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit207.i: ; preds = %1647, 
   %1654 = getelementptr inbounds nuw i8, ptr %1648, i64 24
   %1655 = getelementptr inbounds nuw i8, ptr %1648, i64 28
   store i32 32, ptr %1655, align 4, !tbaa !27, !noalias !453
-  store i64 19, ptr %1652, align 1
+  store i64 19, ptr %1652, align 8
   %.sroa.2.0..sroa_idx.i.i192.i = getelementptr inbounds nuw i8, ptr %1648, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i192.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i192.i, align 8
   %1656 = getelementptr inbounds nuw i8, ptr %1648, i64 48
-  store i64 0, ptr %1656, align 1
+  store i64 0, ptr %1656, align 8
   %.sroa.2.0..sroa_idx.i.i199.i = getelementptr inbounds nuw i8, ptr %1648, i64 56
-  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i199.i, align 1
+  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i199.i, align 8
   %.pre562.i = load ptr, ptr %0, align 8, !tbaa !290
   %1657 = getelementptr inbounds nuw i8, ptr %1648, i64 64
-  store i64 0, ptr %1657, align 1
+  store i64 0, ptr %1657, align 8
   %.sroa.2.0..sroa_idx.i.i206.i = getelementptr inbounds nuw i8, ptr %1648, i64 72
-  store i64 8, ptr %.sroa.2.0..sroa_idx.i.i206.i, align 1
+  store i64 8, ptr %.sroa.2.0..sroa_idx.i.i206.i, align 8
   store i32 3, ptr %1654, align 8, !tbaa !26
   store ptr %1651, ptr %32, align 8, !tbaa !162
   %1658 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -6537,22 +6537,22 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit253.i: ; preds = %1699, 
   %1706 = getelementptr inbounds nuw i8, ptr %1700, i64 24
   %1707 = getelementptr inbounds nuw i8, ptr %1700, i64 28
   store i32 32, ptr %1707, align 4, !tbaa !27, !noalias !459
-  store i64 20, ptr %1704, align 1
+  store i64 20, ptr %1704, align 8
   %.sroa.2.0..sroa_idx.i.i231.i = getelementptr inbounds nuw i8, ptr %1700, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i231.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i231.i, align 8
   %1708 = getelementptr inbounds nuw i8, ptr %1700, i64 48
-  store i64 1, ptr %1708, align 1
+  store i64 1, ptr %1708, align 8
   %.sroa.2.0..sroa_idx.i.i238.i = getelementptr inbounds nuw i8, ptr %1700, i64 56
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i238.i, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i238.i, align 8
   %1709 = getelementptr inbounds nuw i8, ptr %1700, i64 64
-  store i64 0, ptr %1709, align 1
+  store i64 0, ptr %1709, align 8
   %.sroa.2.0..sroa_idx.i.i245.i = getelementptr inbounds nuw i8, ptr %1700, i64 72
-  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i245.i, align 1
+  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i245.i, align 8
   %.pre563.i = load ptr, ptr %0, align 8, !tbaa !290
   %1710 = getelementptr inbounds nuw i8, ptr %1700, i64 80
-  store i64 %1490, ptr %1710, align 1
+  store i64 %1490, ptr %1710, align 8
   %.sroa.2.0..sroa_idx.i.i252.i = getelementptr inbounds nuw i8, ptr %1700, i64 88
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i252.i, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i252.i, align 8
   store i32 4, ptr %1706, align 8, !tbaa !26
   store ptr %1703, ptr %33, align 8, !tbaa !162
   %1711 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -6655,18 +6655,18 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit292.i: ; preds = %1752, 
   %1759 = getelementptr inbounds nuw i8, ptr %1753, i64 24
   %1760 = getelementptr inbounds nuw i8, ptr %1753, i64 28
   store i32 32, ptr %1760, align 4, !tbaa !27, !noalias !465
-  store i64 11, ptr %1757, align 1
+  store i64 11, ptr %1757, align 8
   %.sroa.2.0..sroa_idx.i.i277.i = getelementptr inbounds nuw i8, ptr %1753, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i277.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i277.i, align 8
   %1761 = getelementptr inbounds nuw i8, ptr %1753, i64 48
-  store i64 8, ptr %1761, align 1
+  store i64 8, ptr %1761, align 8
   %.sroa.2.0..sroa_idx.i.i284.i = getelementptr inbounds nuw i8, ptr %1753, i64 56
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i284.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i284.i, align 8
   %.pre564.i = load ptr, ptr %0, align 8, !tbaa !290
   %1762 = getelementptr inbounds nuw i8, ptr %1753, i64 64
-  store i64 %1490, ptr %1762, align 1
+  store i64 %1490, ptr %1762, align 8
   %.sroa.2.0..sroa_idx.i.i291.i = getelementptr inbounds nuw i8, ptr %1753, i64 72
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i291.i, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i291.i, align 8
   store i32 3, ptr %1759, align 8, !tbaa !26
   store ptr %1756, ptr %34, align 8, !tbaa !162
   %1763 = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -8897,18 +8897,18 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit37.i: ; preds = %2865, %
   %2888 = getelementptr inbounds nuw i8, ptr %2882, i64 24
   %2889 = getelementptr inbounds nuw i8, ptr %2882, i64 28
   store i32 32, ptr %2889, align 4, !tbaa !27, !noalias !541
-  store i64 38, ptr %2886, align 1
+  store i64 38, ptr %2886, align 8
   %.sroa.2.0..sroa_idx.i.i.i91 = getelementptr inbounds nuw i8, ptr %2882, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i.i91, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i.i91, align 8
   %2890 = getelementptr inbounds nuw i8, ptr %2882, i64 48
-  store i64 32, ptr %2890, align 1
+  store i64 32, ptr %2890, align 8
   %.sroa.2.0..sroa_idx.i.i29.i = getelementptr inbounds nuw i8, ptr %2882, i64 56
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i29.i, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i29.i, align 8
   %.pre.i92 = load ptr, ptr %0, align 8, !tbaa !290
   %2891 = getelementptr inbounds nuw i8, ptr %2882, i64 64
-  store i64 32, ptr %2891, align 1
+  store i64 32, ptr %2891, align 8
   %.sroa.2.0..sroa_idx.i.i36.i = getelementptr inbounds nuw i8, ptr %2882, i64 72
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i36.i, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i36.i, align 8
   store i32 3, ptr %2888, align 8, !tbaa !26
   store ptr %2885, ptr %17, align 8, !tbaa !162
   %2892 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -9012,18 +9012,18 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit65.i: ; preds = %2933, %
   %2940 = getelementptr inbounds nuw i8, ptr %2934, i64 24
   %2941 = getelementptr inbounds nuw i8, ptr %2934, i64 28
   store i32 32, ptr %2941, align 4, !tbaa !27, !noalias !547
-  store i64 39, ptr %2938, align 1
+  store i64 39, ptr %2938, align 8
   %.sroa.2.0..sroa_idx.i.i50.i = getelementptr inbounds nuw i8, ptr %2934, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i50.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i50.i, align 8
   %2942 = getelementptr inbounds nuw i8, ptr %2934, i64 48
-  store i64 0, ptr %2942, align 1
+  store i64 0, ptr %2942, align 8
   %.sroa.2.0..sroa_idx.i.i57.i = getelementptr inbounds nuw i8, ptr %2934, i64 56
-  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i57.i, align 1
+  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i57.i, align 8
   %.pre195.i = load ptr, ptr %0, align 8, !tbaa !290
   %2943 = getelementptr inbounds nuw i8, ptr %2934, i64 64
-  store i64 6, ptr %2943, align 1
+  store i64 6, ptr %2943, align 8
   %.sroa.2.0..sroa_idx.i.i64.i = getelementptr inbounds nuw i8, ptr %2934, i64 72
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i64.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i64.i, align 8
   store i32 3, ptr %2940, align 8, !tbaa !26
   store ptr %2937, ptr %18, align 8, !tbaa !162
   %2944 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -9355,18 +9355,18 @@ _ZNSt6vectorImSaImEE5clearEv.exit.i:              ; preds = %3119, %._crit_edge.
   %3134 = getelementptr inbounds nuw i8, ptr %3128, i64 24
   %3135 = getelementptr inbounds nuw i8, ptr %3128, i64 28
   store i32 32, ptr %3135, align 4, !tbaa !27, !noalias !559
-  store i64 4, ptr %3132, align 1
+  store i64 4, ptr %3132, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3128, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
   %3136 = getelementptr inbounds nuw i8, ptr %3128, i64 48
-  store i64 0, ptr %3136, align 1
+  store i64 0, ptr %3136, align 8
   %.sroa.2.0..sroa_idx.i.i6.i.i.i = getelementptr inbounds nuw i8, ptr %3128, i64 56
-  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i6.i.i.i, align 1
+  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i6.i.i.i, align 8
   %.pre.i.i88.i = load ptr, ptr %0, align 8, !tbaa !290
   %3137 = getelementptr inbounds nuw i8, ptr %3128, i64 64
-  store i64 8, ptr %3137, align 1
+  store i64 8, ptr %3137, align 8
   %.sroa.2.0..sroa_idx.i.i13.i.i.i = getelementptr inbounds nuw i8, ptr %3128, i64 72
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i13.i.i.i, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i13.i.i.i, align 8
   store i32 3, ptr %3134, align 8, !tbaa !26
   store ptr %3131, ptr %14, align 8, !tbaa !162
   %3138 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -10142,18 +10142,18 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit25.i: ; preds = %_ZNK4ll
   %3478 = getelementptr inbounds nuw i8, ptr %3472, i64 24
   %3479 = getelementptr inbounds nuw i8, ptr %3472, i64 28
   store i32 32, ptr %3479, align 4, !tbaa !27, !noalias !662
-  store i64 3, ptr %3476, align 1
+  store i64 3, ptr %3476, align 8
   %.sroa.2.0..sroa_idx.i.i.i148 = getelementptr inbounds nuw i8, ptr %3472, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i.i148, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i.i148, align 8
   %3480 = getelementptr inbounds nuw i8, ptr %3472, i64 48
-  store i64 8, ptr %3480, align 1
+  store i64 8, ptr %3480, align 8
   %.sroa.2.0..sroa_idx.i.i17.i = getelementptr inbounds nuw i8, ptr %3472, i64 56
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i17.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i17.i, align 8
   %.pre.i149 = load ptr, ptr %0, align 8, !tbaa !290
   %3481 = getelementptr inbounds nuw i8, ptr %3472, i64 64
-  store i64 8, ptr %3481, align 1
+  store i64 8, ptr %3481, align 8
   %.sroa.2.0..sroa_idx.i.i24.i = getelementptr inbounds nuw i8, ptr %3472, i64 72
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i24.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i24.i, align 8
   store i32 3, ptr %3478, align 8, !tbaa !26
   store ptr %3475, ptr %5, align 8, !tbaa !162
   %3482 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -10897,22 +10897,22 @@ define internal fastcc void @_ZN12_GLOBAL__N_118IndexBitcodeWriter5writeEv(ptr n
   %61 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %62 = getelementptr inbounds nuw i8, ptr %55, i64 28
   store i32 32, ptr %62, align 4, !tbaa !27, !noalias !733
-  store i64 1, ptr %59, align 1
+  store i64 1, ptr %59, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %55, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %63 = getelementptr inbounds nuw i8, ptr %55, i64 48
-  store i64 8, ptr %63, align 1
+  store i64 8, ptr %63, align 8
   %.sroa.2.0..sroa_idx.i.i6.i = getelementptr inbounds nuw i8, ptr %55, i64 56
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i6.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i6.i, align 8
   %64 = getelementptr inbounds nuw i8, ptr %55, i64 64
-  store i64 0, ptr %64, align 1
+  store i64 0, ptr %64, align 8
   %.sroa.2.0..sroa_idx.i.i13.i = getelementptr inbounds nuw i8, ptr %55, i64 72
-  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i13.i, align 1
+  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i13.i, align 8
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !290
   %65 = getelementptr inbounds nuw i8, ptr %55, i64 80
-  store i64 8, ptr %65, align 1
+  store i64 8, ptr %65, align 8
   %.sroa.2.0..sroa_idx.i.i20.i = getelementptr inbounds nuw i8, ptr %55, i64 88
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i20.i, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i20.i, align 8
   store i32 4, ptr %61, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
   store ptr %58, ptr %42, align 8, !tbaa !162
@@ -11016,22 +11016,22 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit55.i: ; preds = %_ZN4llv
   %110 = getelementptr inbounds nuw i8, ptr %104, i64 24
   %111 = getelementptr inbounds nuw i8, ptr %104, i64 28
   store i32 32, ptr %111, align 4, !tbaa !27, !noalias !739
-  store i64 1, ptr %108, align 1
+  store i64 1, ptr %108, align 8
   %.sroa.2.0..sroa_idx.i.i33.i = getelementptr inbounds nuw i8, ptr %104, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i33.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i33.i, align 8
   %112 = getelementptr inbounds nuw i8, ptr %104, i64 48
-  store i64 8, ptr %112, align 1
+  store i64 8, ptr %112, align 8
   %.sroa.2.0..sroa_idx.i.i40.i = getelementptr inbounds nuw i8, ptr %104, i64 56
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i40.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i40.i, align 8
   %113 = getelementptr inbounds nuw i8, ptr %104, i64 64
-  store i64 0, ptr %113, align 1
+  store i64 0, ptr %113, align 8
   %.sroa.2.0..sroa_idx.i.i47.i = getelementptr inbounds nuw i8, ptr %104, i64 72
-  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i47.i, align 1
+  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i47.i, align 8
   %.pre275.i = load ptr, ptr %0, align 8, !tbaa !290
   %114 = getelementptr inbounds nuw i8, ptr %104, i64 80
-  store i64 7, ptr %114, align 1
+  store i64 7, ptr %114, align 8
   %.sroa.2.0..sroa_idx.i.i54.i = getelementptr inbounds nuw i8, ptr %104, i64 88
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i54.i, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i54.i, align 8
   store i32 4, ptr %110, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   store ptr %107, ptr %44, align 8, !tbaa !162
@@ -11137,22 +11137,22 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit101.i: ; preds = %156, %
   %163 = getelementptr inbounds nuw i8, ptr %157, i64 24
   %164 = getelementptr inbounds nuw i8, ptr %157, i64 28
   store i32 32, ptr %164, align 4, !tbaa !27, !noalias !745
-  store i64 1, ptr %161, align 1
+  store i64 1, ptr %161, align 8
   %.sroa.2.0..sroa_idx.i.i79.i = getelementptr inbounds nuw i8, ptr %157, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i79.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i79.i, align 8
   %165 = getelementptr inbounds nuw i8, ptr %157, i64 48
-  store i64 8, ptr %165, align 1
+  store i64 8, ptr %165, align 8
   %.sroa.2.0..sroa_idx.i.i86.i = getelementptr inbounds nuw i8, ptr %157, i64 56
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i86.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i86.i, align 8
   %166 = getelementptr inbounds nuw i8, ptr %157, i64 64
-  store i64 0, ptr %166, align 1
+  store i64 0, ptr %166, align 8
   %.sroa.2.0..sroa_idx.i.i93.i = getelementptr inbounds nuw i8, ptr %157, i64 72
-  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i93.i, align 1
+  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i93.i, align 8
   %.pre276.i = load ptr, ptr %0, align 8, !tbaa !290
   %167 = getelementptr inbounds nuw i8, ptr %157, i64 80
-  store i64 0, ptr %167, align 1
+  store i64 0, ptr %167, align 8
   %.sroa.2.0..sroa_idx.i.i100.i = getelementptr inbounds nuw i8, ptr %157, i64 88
-  store i64 8, ptr %.sroa.2.0..sroa_idx.i.i100.i, align 1
+  store i64 8, ptr %.sroa.2.0..sroa_idx.i.i100.i, align 8
   store i32 4, ptr %163, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store ptr %160, ptr %46, align 8, !tbaa !162
@@ -11258,30 +11258,30 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit161.i: ; preds = %209, %
   %216 = getelementptr inbounds nuw i8, ptr %210, i64 24
   %217 = getelementptr inbounds nuw i8, ptr %210, i64 28
   store i32 32, ptr %217, align 4, !tbaa !27, !noalias !751
-  store i64 2, ptr %214, align 1
+  store i64 2, ptr %214, align 8
   %.sroa.2.0..sroa_idx.i.i125.i = getelementptr inbounds nuw i8, ptr %210, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i125.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i125.i, align 8
   %218 = getelementptr inbounds nuw i8, ptr %210, i64 48
-  store i64 32, ptr %218, align 1
+  store i64 32, ptr %218, align 8
   %.sroa.2.0..sroa_idx.i.i132.i = getelementptr inbounds nuw i8, ptr %210, i64 56
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i132.i, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i132.i, align 8
   %219 = getelementptr inbounds nuw i8, ptr %210, i64 64
-  store i64 32, ptr %219, align 1
+  store i64 32, ptr %219, align 8
   %.sroa.2.0..sroa_idx.i.i139.i = getelementptr inbounds nuw i8, ptr %210, i64 72
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i139.i, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i139.i, align 8
   %220 = getelementptr inbounds nuw i8, ptr %210, i64 80
-  store i64 32, ptr %220, align 1
+  store i64 32, ptr %220, align 8
   %.sroa.2.0..sroa_idx.i.i146.i = getelementptr inbounds nuw i8, ptr %210, i64 88
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i146.i, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i146.i, align 8
   %221 = getelementptr inbounds nuw i8, ptr %210, i64 96
-  store i64 32, ptr %221, align 1
+  store i64 32, ptr %221, align 8
   %.sroa.2.0..sroa_idx.i.i153.i = getelementptr inbounds nuw i8, ptr %210, i64 104
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i153.i, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i153.i, align 8
   %.pre277.i = load ptr, ptr %0, align 8, !tbaa !290
   %222 = getelementptr inbounds nuw i8, ptr %210, i64 112
-  store i64 32, ptr %222, align 1
+  store i64 32, ptr %222, align 8
   %.sroa.2.0..sroa_idx.i.i160.i = getelementptr inbounds nuw i8, ptr %210, i64 120
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i160.i, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i160.i, align 8
   store i32 6, ptr %216, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
   store ptr %213, ptr %48, align 8, !tbaa !162
@@ -11679,22 +11679,22 @@ _ZN12_GLOBAL__N_118IndexBitcodeWriter15writeModStringsEv.exit: ; preds = %"_ZN12
   %371 = getelementptr inbounds nuw i8, ptr %365, i64 24
   %372 = getelementptr inbounds nuw i8, ptr %365, i64 28
   store i32 32, ptr %372, align 4, !tbaa !27, !noalias !771
-  store i64 16, ptr %369, align 1
+  store i64 16, ptr %369, align 8
   %.sroa.2.0..sroa_idx.i.i.i1 = getelementptr inbounds nuw i8, ptr %365, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i.i1, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i.i1, align 8
   %373 = getelementptr inbounds nuw i8, ptr %365, i64 48
-  store i64 6, ptr %373, align 1
+  store i64 6, ptr %373, align 8
   %.sroa.2.0..sroa_idx.i.i82.i = getelementptr inbounds nuw i8, ptr %365, i64 56
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i82.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i82.i, align 8
   %374 = getelementptr inbounds nuw i8, ptr %365, i64 64
-  store i64 32, ptr %374, align 1
+  store i64 32, ptr %374, align 8
   %.sroa.2.0..sroa_idx.i.i89.i = getelementptr inbounds nuw i8, ptr %365, i64 72
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i89.i, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i89.i, align 8
   %.pre.i2 = load ptr, ptr %0, align 8, !tbaa !290
   %375 = getelementptr inbounds nuw i8, ptr %365, i64 80
-  store i64 32, ptr %375, align 1
+  store i64 32, ptr %375, align 8
   %.sroa.2.0..sroa_idx.i.i96.i = getelementptr inbounds nuw i8, ptr %365, i64 88
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i96.i, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i96.i, align 8
   store i32 4, ptr %371, align 8, !tbaa !26
   store ptr %368, ptr %9, align 8, !tbaa !162
   %376 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -11842,18 +11842,18 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit119.i: ; preds = %._crit
   %445 = getelementptr inbounds nuw i8, ptr %439, i64 24
   %446 = getelementptr inbounds nuw i8, ptr %439, i64 28
   store i32 32, ptr %446, align 4, !tbaa !27, !noalias !780
-  store i64 30, ptr %443, align 1
+  store i64 30, ptr %443, align 8
   %.sroa.2.0..sroa_idx.i.i104.i = getelementptr inbounds nuw i8, ptr %439, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i104.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i104.i, align 8
   %447 = getelementptr inbounds nuw i8, ptr %439, i64 48
-  store i64 0, ptr %447, align 1
+  store i64 0, ptr %447, align 8
   %.sroa.2.0..sroa_idx.i.i111.i = getelementptr inbounds nuw i8, ptr %439, i64 56
-  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i111.i, align 1
+  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i111.i, align 8
   %.pre1051.i = load ptr, ptr %0, align 8, !tbaa !290
   %448 = getelementptr inbounds nuw i8, ptr %439, i64 64
-  store i64 32, ptr %448, align 1
+  store i64 32, ptr %448, align 8
   %.sroa.2.0..sroa_idx.i.i118.i = getelementptr inbounds nuw i8, ptr %439, i64 72
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i118.i, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i118.i, align 8
   store i32 3, ptr %445, align 8, !tbaa !26
   store ptr %442, ptr %12, align 8, !tbaa !162
   %449 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -12056,54 +12056,54 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit225.i: ; preds = %_ZNSt1
   %540 = getelementptr inbounds nuw i8, ptr %534, i64 24
   %541 = getelementptr inbounds nuw i8, ptr %534, i64 28
   store i32 32, ptr %541, align 4, !tbaa !27, !noalias !786
-  store i64 5, ptr %538, align 1
+  store i64 5, ptr %538, align 8
   %.sroa.2.0..sroa_idx.i.i147.i = getelementptr inbounds nuw i8, ptr %534, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i147.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i147.i, align 8
   %542 = getelementptr inbounds nuw i8, ptr %534, i64 48
-  store i64 8, ptr %542, align 1
+  store i64 8, ptr %542, align 8
   %.sroa.2.0..sroa_idx.i.i154.i = getelementptr inbounds nuw i8, ptr %534, i64 56
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i154.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i154.i, align 8
   %543 = getelementptr inbounds nuw i8, ptr %534, i64 64
-  store i64 8, ptr %543, align 1
+  store i64 8, ptr %543, align 8
   %.sroa.2.0..sroa_idx.i.i161.i = getelementptr inbounds nuw i8, ptr %534, i64 72
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i161.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i161.i, align 8
   %544 = getelementptr inbounds nuw i8, ptr %534, i64 80
-  store i64 6, ptr %544, align 1
+  store i64 6, ptr %544, align 8
   %.sroa.2.0..sroa_idx.i.i168.i = getelementptr inbounds nuw i8, ptr %534, i64 88
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i168.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i168.i, align 8
   %545 = getelementptr inbounds nuw i8, ptr %534, i64 96
-  store i64 8, ptr %545, align 1
+  store i64 8, ptr %545, align 8
   %.sroa.2.0..sroa_idx.i.i175.i = getelementptr inbounds nuw i8, ptr %534, i64 104
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i175.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i175.i, align 8
   %546 = getelementptr inbounds nuw i8, ptr %534, i64 112
-  store i64 4, ptr %546, align 1
+  store i64 4, ptr %546, align 8
   %.sroa.2.0..sroa_idx.i.i182.i = getelementptr inbounds nuw i8, ptr %534, i64 120
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i182.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i182.i, align 8
   %547 = getelementptr inbounds nuw i8, ptr %534, i64 128
-  store i64 8, ptr %547, align 1
+  store i64 8, ptr %547, align 8
   %.sroa.2.0..sroa_idx.i.i189.i = getelementptr inbounds nuw i8, ptr %534, i64 136
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i189.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i189.i, align 8
   %548 = getelementptr inbounds nuw i8, ptr %534, i64 144
-  store i64 4, ptr %548, align 1
+  store i64 4, ptr %548, align 8
   %.sroa.2.0..sroa_idx.i.i196.i = getelementptr inbounds nuw i8, ptr %534, i64 152
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i196.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i196.i, align 8
   %549 = getelementptr inbounds nuw i8, ptr %534, i64 160
-  store i64 4, ptr %549, align 1
+  store i64 4, ptr %549, align 8
   %.sroa.2.0..sroa_idx.i.i203.i = getelementptr inbounds nuw i8, ptr %534, i64 168
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i203.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i203.i, align 8
   %550 = getelementptr inbounds nuw i8, ptr %534, i64 176
-  store i64 4, ptr %550, align 1
+  store i64 4, ptr %550, align 8
   %.sroa.2.0..sroa_idx.i.i210.i = getelementptr inbounds nuw i8, ptr %534, i64 184
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i210.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i210.i, align 8
   %551 = getelementptr inbounds nuw i8, ptr %534, i64 192
-  store i64 0, ptr %551, align 1
+  store i64 0, ptr %551, align 8
   %.sroa.2.0..sroa_idx.i.i217.i = getelementptr inbounds nuw i8, ptr %534, i64 200
-  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i217.i, align 1
+  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i217.i, align 8
   %.pre1055.i = load ptr, ptr %0, align 8, !tbaa !290
   %552 = getelementptr inbounds nuw i8, ptr %534, i64 208
-  store i64 8, ptr %552, align 1
+  store i64 8, ptr %552, align 8
   %.sroa.2.0..sroa_idx.i.i224.i = getelementptr inbounds nuw i8, ptr %534, i64 216
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i224.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i224.i, align 8
   store i32 12, ptr %540, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %537, ptr %15, align 8, !tbaa !162
@@ -12209,30 +12209,30 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit285.i: ; preds = %594, %
   %601 = getelementptr inbounds nuw i8, ptr %595, i64 24
   %602 = getelementptr inbounds nuw i8, ptr %595, i64 28
   store i32 32, ptr %602, align 4, !tbaa !27, !noalias !792
-  store i64 6, ptr %599, align 1
+  store i64 6, ptr %599, align 8
   %.sroa.2.0..sroa_idx.i.i249.i = getelementptr inbounds nuw i8, ptr %595, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i249.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i249.i, align 8
   %603 = getelementptr inbounds nuw i8, ptr %595, i64 48
-  store i64 8, ptr %603, align 1
+  store i64 8, ptr %603, align 8
   %.sroa.2.0..sroa_idx.i.i256.i = getelementptr inbounds nuw i8, ptr %595, i64 56
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i256.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i256.i, align 8
   %604 = getelementptr inbounds nuw i8, ptr %595, i64 64
-  store i64 8, ptr %604, align 1
+  store i64 8, ptr %604, align 8
   %.sroa.2.0..sroa_idx.i.i263.i = getelementptr inbounds nuw i8, ptr %595, i64 72
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i263.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i263.i, align 8
   %605 = getelementptr inbounds nuw i8, ptr %595, i64 80
-  store i64 6, ptr %605, align 1
+  store i64 6, ptr %605, align 8
   %.sroa.2.0..sroa_idx.i.i270.i = getelementptr inbounds nuw i8, ptr %595, i64 88
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i270.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i270.i, align 8
   %606 = getelementptr inbounds nuw i8, ptr %595, i64 96
-  store i64 0, ptr %606, align 1
+  store i64 0, ptr %606, align 8
   %.sroa.2.0..sroa_idx.i.i277.i = getelementptr inbounds nuw i8, ptr %595, i64 104
-  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i277.i, align 1
+  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i277.i, align 8
   %.pre1056.i = load ptr, ptr %0, align 8, !tbaa !290
   %607 = getelementptr inbounds nuw i8, ptr %595, i64 112
-  store i64 8, ptr %607, align 1
+  store i64 8, ptr %607, align 8
   %.sroa.2.0..sroa_idx.i.i284.i = getelementptr inbounds nuw i8, ptr %595, i64 120
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i284.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i284.i, align 8
   store i32 6, ptr %601, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %598, ptr %17, align 8, !tbaa !162
@@ -12338,26 +12338,26 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit338.i: ; preds = %649, %
   %656 = getelementptr inbounds nuw i8, ptr %650, i64 24
   %657 = getelementptr inbounds nuw i8, ptr %650, i64 28
   store i32 32, ptr %657, align 4, !tbaa !27, !noalias !798
-  store i64 8, ptr %654, align 1
+  store i64 8, ptr %654, align 8
   %.sroa.2.0..sroa_idx.i.i309.i = getelementptr inbounds nuw i8, ptr %650, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i309.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i309.i, align 8
   %658 = getelementptr inbounds nuw i8, ptr %650, i64 48
-  store i64 8, ptr %658, align 1
+  store i64 8, ptr %658, align 8
   %.sroa.2.0..sroa_idx.i.i316.i = getelementptr inbounds nuw i8, ptr %650, i64 56
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i316.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i316.i, align 8
   %659 = getelementptr inbounds nuw i8, ptr %650, i64 64
-  store i64 8, ptr %659, align 1
+  store i64 8, ptr %659, align 8
   %.sroa.2.0..sroa_idx.i.i323.i = getelementptr inbounds nuw i8, ptr %650, i64 72
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i323.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i323.i, align 8
   %660 = getelementptr inbounds nuw i8, ptr %650, i64 80
-  store i64 6, ptr %660, align 1
+  store i64 6, ptr %660, align 8
   %.sroa.2.0..sroa_idx.i.i330.i = getelementptr inbounds nuw i8, ptr %650, i64 88
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i330.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i330.i, align 8
   %.pre1057.i = load ptr, ptr %0, align 8, !tbaa !290
   %661 = getelementptr inbounds nuw i8, ptr %650, i64 96
-  store i64 8, ptr %661, align 1
+  store i64 8, ptr %661, align 8
   %.sroa.2.0..sroa_idx.i.i337.i = getelementptr inbounds nuw i8, ptr %650, i64 104
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i337.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i337.i, align 8
   store i32 5, ptr %656, align 8, !tbaa !26
   store ptr %653, ptr %18, align 8, !tbaa !162
   %662 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -12461,30 +12461,30 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit398.i: ; preds = %703, %
   %710 = getelementptr inbounds nuw i8, ptr %704, i64 24
   %711 = getelementptr inbounds nuw i8, ptr %704, i64 28
   store i32 32, ptr %711, align 4, !tbaa !27, !noalias !804
-  store i64 28, ptr %708, align 1
+  store i64 28, ptr %708, align 8
   %.sroa.2.0..sroa_idx.i.i362.i = getelementptr inbounds nuw i8, ptr %704, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i362.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i362.i, align 8
   %712 = getelementptr inbounds nuw i8, ptr %704, i64 48
-  store i64 8, ptr %712, align 1
+  store i64 8, ptr %712, align 8
   %.sroa.2.0..sroa_idx.i.i369.i = getelementptr inbounds nuw i8, ptr %704, i64 56
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i369.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i369.i, align 8
   %713 = getelementptr inbounds nuw i8, ptr %704, i64 64
-  store i64 4, ptr %713, align 1
+  store i64 4, ptr %713, align 8
   %.sroa.2.0..sroa_idx.i.i376.i = getelementptr inbounds nuw i8, ptr %704, i64 72
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i376.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i376.i, align 8
   %714 = getelementptr inbounds nuw i8, ptr %704, i64 80
-  store i64 4, ptr %714, align 1
+  store i64 4, ptr %714, align 8
   %.sroa.2.0..sroa_idx.i.i383.i = getelementptr inbounds nuw i8, ptr %704, i64 88
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i383.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i383.i, align 8
   %715 = getelementptr inbounds nuw i8, ptr %704, i64 96
-  store i64 0, ptr %715, align 1
+  store i64 0, ptr %715, align 8
   %.sroa.2.0..sroa_idx.i.i390.i = getelementptr inbounds nuw i8, ptr %704, i64 104
-  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i390.i, align 1
+  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i390.i, align 8
   %.pre1058.i = load ptr, ptr %0, align 8, !tbaa !290
   %716 = getelementptr inbounds nuw i8, ptr %704, i64 112
-  store i64 8, ptr %716, align 1
+  store i64 8, ptr %716, align 8
   %.sroa.2.0..sroa_idx.i.i397.i = getelementptr inbounds nuw i8, ptr %704, i64 120
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i397.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i397.i, align 8
   store i32 6, ptr %710, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr %707, ptr %20, align 8, !tbaa !162
@@ -12590,26 +12590,26 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit451.i: ; preds = %758, %
   %765 = getelementptr inbounds nuw i8, ptr %759, i64 24
   %766 = getelementptr inbounds nuw i8, ptr %759, i64 28
   store i32 32, ptr %766, align 4, !tbaa !27, !noalias !810
-  store i64 29, ptr %763, align 1
+  store i64 29, ptr %763, align 8
   %.sroa.2.0..sroa_idx.i.i422.i = getelementptr inbounds nuw i8, ptr %759, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i422.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i422.i, align 8
   %767 = getelementptr inbounds nuw i8, ptr %759, i64 48
-  store i64 4, ptr %767, align 1
+  store i64 4, ptr %767, align 8
   %.sroa.2.0..sroa_idx.i.i429.i = getelementptr inbounds nuw i8, ptr %759, i64 56
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i429.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i429.i, align 8
   %768 = getelementptr inbounds nuw i8, ptr %759, i64 64
-  store i64 4, ptr %768, align 1
+  store i64 4, ptr %768, align 8
   %.sroa.2.0..sroa_idx.i.i436.i = getelementptr inbounds nuw i8, ptr %759, i64 72
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i436.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i436.i, align 8
   %769 = getelementptr inbounds nuw i8, ptr %759, i64 80
-  store i64 0, ptr %769, align 1
+  store i64 0, ptr %769, align 8
   %.sroa.2.0..sroa_idx.i.i443.i = getelementptr inbounds nuw i8, ptr %759, i64 88
-  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i443.i, align 1
+  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i443.i, align 8
   %.pre1059.i = load ptr, ptr %0, align 8, !tbaa !290
   %770 = getelementptr inbounds nuw i8, ptr %759, i64 96
-  store i64 8, ptr %770, align 1
+  store i64 8, ptr %770, align 8
   %.sroa.2.0..sroa_idx.i.i450.i = getelementptr inbounds nuw i8, ptr %759, i64 104
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i450.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i450.i, align 8
   store i32 5, ptr %765, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr %762, ptr %22, align 8, !tbaa !162
@@ -12715,18 +12715,18 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit490.i: ; preds = %812, %
   %819 = getelementptr inbounds nuw i8, ptr %813, i64 24
   %820 = getelementptr inbounds nuw i8, ptr %813, i64 28
   store i32 32, ptr %820, align 4, !tbaa !27, !noalias !816
-  store i64 32, ptr %817, align 1
+  store i64 32, ptr %817, align 8
   %.sroa.2.0..sroa_idx.i.i475.i = getelementptr inbounds nuw i8, ptr %813, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i475.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i475.i, align 8
   %821 = getelementptr inbounds nuw i8, ptr %813, i64 48
-  store i64 0, ptr %821, align 1
+  store i64 0, ptr %821, align 8
   %.sroa.2.0..sroa_idx.i.i482.i = getelementptr inbounds nuw i8, ptr %813, i64 56
-  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i482.i, align 1
+  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i482.i, align 8
   %.pre1060.i = load ptr, ptr %0, align 8, !tbaa !290
   %822 = getelementptr inbounds nuw i8, ptr %813, i64 64
-  store i64 8, ptr %822, align 1
+  store i64 8, ptr %822, align 8
   %.sroa.2.0..sroa_idx.i.i489.i = getelementptr inbounds nuw i8, ptr %813, i64 72
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i489.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i489.i, align 8
   store i32 3, ptr %819, align 8, !tbaa !26
   store ptr %816, ptr %23, align 8, !tbaa !162
   %823 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -13673,7 +13673,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_18GlobalValueSummaryEjNS_12DenseMapInfo
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_18GlobalValueSummaryEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E16InsertIntoBucketIRKS4_JEEEPS9_SF_OT_DpOT0_.exit.i.i.i: ; preds = %1246, %1240
   store ptr %996, ptr %1241, align 8, !tbaa !697
   %1249 = getelementptr inbounds nuw i8, ptr %1241, i64 8
-  store i32 0, ptr %1249, align 4, !tbaa !49
+  store i32 0, ptr %1249, align 8, !tbaa !49
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_18GlobalValueSummaryEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit.i.i
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_18GlobalValueSummaryEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit.i.i: ; preds = %1193, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_18GlobalValueSummaryEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E16InsertIntoBucketIRKS4_JEEEPS9_SF_OT_DpOT0_.exit.i.i.i, %1177
@@ -16014,18 +16014,18 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit48.i.i: ; preds = %68, %
   %75 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %76 = getelementptr inbounds nuw i8, ptr %69, i64 28
   store i32 32, ptr %76, align 4, !tbaa !27, !noalias !959
-  store i64 16, ptr %73, align 1
+  store i64 16, ptr %73, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %69, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
   %77 = getelementptr inbounds nuw i8, ptr %69, i64 48
-  store i64 0, ptr %77, align 1
+  store i64 0, ptr %77, align 8
   %.sroa.2.0..sroa_idx.i.i40.i.i = getelementptr inbounds nuw i8, ptr %69, i64 56
-  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i40.i.i, align 1
+  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i40.i.i, align 8
   %.pre.i.i = load ptr, ptr %10, align 8, !tbaa !290
   %78 = getelementptr inbounds nuw i8, ptr %69, i64 64
-  store i64 %.sroa.0203.0.i.i, ptr %78, align 1
+  store i64 %.sroa.0203.0.i.i, ptr %78, align 8
   %.sroa.2.0..sroa_idx.i.i47.i.i = getelementptr inbounds nuw i8, ptr %69, i64 72
-  store i64 %.sroa.6204.0.i.i, ptr %.sroa.2.0..sroa_idx.i.i47.i.i, align 1
+  store i64 %.sroa.6204.0.i.i, ptr %.sroa.2.0..sroa_idx.i.i47.i.i, align 8
   store i32 3, ptr %75, align 8, !tbaa !26
   store ptr %72, ptr %6, align 8, !tbaa !162
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -21111,34 +21111,34 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit289: ; preds = %._crit_e
   %225 = getelementptr inbounds nuw i8, ptr %219, i64 24
   %226 = getelementptr inbounds nuw i8, ptr %219, i64 28
   store i32 32, ptr %226, align 4, !tbaa !27, !noalias !1095
-  store i64 7, ptr %223, align 1
+  store i64 7, ptr %223, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %219, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %227 = getelementptr inbounds nuw i8, ptr %219, i64 48
-  store i64 8, ptr %227, align 1
+  store i64 8, ptr %227, align 8
   %.sroa.2.0..sroa_idx.i.i253 = getelementptr inbounds nuw i8, ptr %219, i64 56
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i253, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i253, align 8
   %228 = getelementptr inbounds nuw i8, ptr %219, i64 64
-  store i64 8, ptr %228, align 1
+  store i64 8, ptr %228, align 8
   %.sroa.2.0..sroa_idx.i.i260 = getelementptr inbounds nuw i8, ptr %219, i64 72
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i260, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i260, align 8
   %229 = getelementptr inbounds nuw i8, ptr %219, i64 80
-  store i64 %.0857.lcssa, ptr %229, align 1
+  store i64 %.0857.lcssa, ptr %229, align 8
   %.sroa.2.0..sroa_idx.i.i267 = getelementptr inbounds nuw i8, ptr %219, i64 88
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i267, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i267, align 8
   %230 = getelementptr inbounds nuw i8, ptr %219, i64 96
-  store i64 6, ptr %230, align 1
+  store i64 6, ptr %230, align 8
   %.sroa.2.0..sroa_idx.i.i274 = getelementptr inbounds nuw i8, ptr %219, i64 104
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i274, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i274, align 8
   store i32 5, ptr %225, align 8, !tbaa !26
   %231 = getelementptr inbounds nuw i8, ptr %219, i64 112
-  store i64 6, ptr %231, align 1
+  store i64 6, ptr %231, align 8
   %.sroa.2.0..sroa_idx.i.i281 = getelementptr inbounds nuw i8, ptr %219, i64 120
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i281, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i281, align 8
   %232 = getelementptr inbounds nuw i8, ptr %219, i64 128
-  store i64 5, ptr %232, align 1
+  store i64 5, ptr %232, align 8
   %.sroa.2.0..sroa_idx.i.i288 = getelementptr inbounds nuw i8, ptr %219, i64 136
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i288, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i288, align 8
   %233 = trunc nuw i8 %.sroa.7.1.lcssa to i1
   br i1 %233, label %_ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit304, label %_ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit296
 
@@ -21336,18 +21336,18 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit347: ; preds = %_ZL17get
   %319 = getelementptr inbounds nuw i8, ptr %313, i64 24
   %320 = getelementptr inbounds nuw i8, ptr %313, i64 28
   store i32 32, ptr %320, align 4, !tbaa !27, !noalias !1101
-  store i64 16, ptr %317, align 1
+  store i64 16, ptr %317, align 8
   %.sroa.2.0..sroa_idx.i.i332 = getelementptr inbounds nuw i8, ptr %313, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i332, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i332, align 8
   %321 = getelementptr inbounds nuw i8, ptr %313, i64 48
-  store i64 0, ptr %321, align 1
+  store i64 0, ptr %321, align 8
   %.sroa.2.0..sroa_idx.i.i339 = getelementptr inbounds nuw i8, ptr %313, i64 56
-  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i339, align 1
+  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i339, align 8
   %.pre1027 = load ptr, ptr %0, align 8, !tbaa !290
   %322 = getelementptr inbounds nuw i8, ptr %313, i64 64
-  store i64 %.sroa.0770.0, ptr %322, align 1
+  store i64 %.sroa.0770.0, ptr %322, align 8
   %.sroa.2.0..sroa_idx.i.i346 = getelementptr inbounds nuw i8, ptr %313, i64 72
-  store i64 %.sroa.6771.0, ptr %.sroa.2.0..sroa_idx.i.i346, align 1
+  store i64 %.sroa.6771.0, ptr %.sroa.2.0..sroa_idx.i.i346, align 8
   store i32 3, ptr %319, align 8, !tbaa !26
   store ptr %316, ptr %15, align 8, !tbaa !162
   %323 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -23600,14 +23600,14 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit653: ; preds = %_ZN4llv
   %1488 = getelementptr inbounds nuw i8, ptr %1482, i64 24
   %1489 = getelementptr inbounds nuw i8, ptr %1482, i64 28
   store i32 32, ptr %1489, align 4, !tbaa !27, !noalias !1123
-  store i64 13, ptr %1486, align 1
+  store i64 13, ptr %1486, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %1482, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %.pre.i654 = load ptr, ptr %0, align 8, !tbaa !290
   %1490 = getelementptr inbounds nuw i8, ptr %1482, i64 48
-  store i64 32, ptr %1490, align 1
+  store i64 32, ptr %1490, align 8
   %.sroa.2.0..sroa_idx.i.i6.i = getelementptr inbounds nuw i8, ptr %1482, i64 56
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i6.i, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i6.i, align 8
   store i32 2, ptr %1488, align 8, !tbaa !26
   store ptr %1485, ptr %2, align 8, !tbaa !162
   %1491 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -29348,22 +29348,22 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit103: ; preds = %_ZN4llvm
   %79 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %80 = getelementptr inbounds nuw i8, ptr %73, i64 28
   store i32 32, ptr %80, align 4, !tbaa !27, !noalias !1224
-  store i64 16, ptr %77, align 1
+  store i64 16, ptr %77, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %73, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %81 = getelementptr inbounds nuw i8, ptr %73, i64 48
-  store i64 6, ptr %81, align 1
+  store i64 6, ptr %81, align 8
   %.sroa.2.0..sroa_idx.i.i88 = getelementptr inbounds nuw i8, ptr %73, i64 56
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i88, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i88, align 8
   %82 = getelementptr inbounds nuw i8, ptr %73, i64 64
-  store i64 32, ptr %82, align 1
+  store i64 32, ptr %82, align 8
   %.sroa.2.0..sroa_idx.i.i95 = getelementptr inbounds nuw i8, ptr %73, i64 72
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i95, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i95, align 8
   %.pre = load ptr, ptr %0, align 8, !tbaa !290
   %83 = getelementptr inbounds nuw i8, ptr %73, i64 80
-  store i64 32, ptr %83, align 1
+  store i64 32, ptr %83, align 8
   %.sroa.2.0..sroa_idx.i.i102 = getelementptr inbounds nuw i8, ptr %73, i64 88
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i102, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i102, align 8
   store i32 4, ptr %79, align 8, !tbaa !26
   store ptr %76, ptr %17, align 8, !tbaa !162
   %84 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -29513,18 +29513,18 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit126: ; preds = %._crit_e
   %154 = getelementptr inbounds nuw i8, ptr %148, i64 24
   %155 = getelementptr inbounds nuw i8, ptr %148, i64 28
   store i32 32, ptr %155, align 4, !tbaa !27, !noalias !1230
-  store i64 30, ptr %152, align 1
+  store i64 30, ptr %152, align 8
   %.sroa.2.0..sroa_idx.i.i111 = getelementptr inbounds nuw i8, ptr %148, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i111, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i111, align 8
   %156 = getelementptr inbounds nuw i8, ptr %148, i64 48
-  store i64 0, ptr %156, align 1
+  store i64 0, ptr %156, align 8
   %.sroa.2.0..sroa_idx.i.i118 = getelementptr inbounds nuw i8, ptr %148, i64 56
-  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i118, align 1
+  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i118, align 8
   %.pre1180 = load ptr, ptr %0, align 8, !tbaa !290
   %157 = getelementptr inbounds nuw i8, ptr %148, i64 64
-  store i64 32, ptr %157, align 1
+  store i64 32, ptr %157, align 8
   %.sroa.2.0..sroa_idx.i.i125 = getelementptr inbounds nuw i8, ptr %148, i64 72
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i125, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i125, align 8
   store i32 3, ptr %154, align 8, !tbaa !26
   store ptr %151, ptr %20, align 8, !tbaa !162
   %158 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -29733,18 +29733,18 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit164: ; preds = %._crit_e
   %252 = getelementptr inbounds nuw i8, ptr %246, i64 24
   %253 = getelementptr inbounds nuw i8, ptr %246, i64 28
   store i32 32, ptr %253, align 4, !tbaa !27, !noalias !1236
-  store i64 31, ptr %250, align 1
+  store i64 31, ptr %250, align 8
   %.sroa.2.0..sroa_idx.i.i149 = getelementptr inbounds nuw i8, ptr %246, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i149, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i149, align 8
   %254 = getelementptr inbounds nuw i8, ptr %246, i64 48
-  store i64 0, ptr %254, align 1
+  store i64 0, ptr %254, align 8
   %.sroa.2.0..sroa_idx.i.i156 = getelementptr inbounds nuw i8, ptr %246, i64 56
-  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i156, align 1
+  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i156, align 8
   %.pre1186 = load ptr, ptr %0, align 8, !tbaa !290
   %255 = getelementptr inbounds nuw i8, ptr %246, i64 64
-  store i64 32, ptr %255, align 1
+  store i64 32, ptr %255, align 8
   %.sroa.2.0..sroa_idx.i.i163 = getelementptr inbounds nuw i8, ptr %246, i64 72
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i163, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i163, align 8
   store i32 3, ptr %252, align 8, !tbaa !26
   store ptr %249, ptr %22, align 8, !tbaa !162
   %256 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -29848,46 +29848,46 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit247: ; preds = %_ZN4llvm
   %304 = getelementptr inbounds nuw i8, ptr %298, i64 24
   %305 = getelementptr inbounds nuw i8, ptr %298, i64 28
   store i32 32, ptr %305, align 4, !tbaa !27, !noalias !1242
-  store i64 2, ptr %302, align 1
+  store i64 2, ptr %302, align 8
   %.sroa.2.0..sroa_idx.i.i183 = getelementptr inbounds nuw i8, ptr %298, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i183, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i183, align 8
   %306 = getelementptr inbounds nuw i8, ptr %298, i64 48
-  store i64 8, ptr %306, align 1
+  store i64 8, ptr %306, align 8
   %.sroa.2.0..sroa_idx.i.i190 = getelementptr inbounds nuw i8, ptr %298, i64 56
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i190, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i190, align 8
   %307 = getelementptr inbounds nuw i8, ptr %298, i64 64
-  store i64 8, ptr %307, align 1
+  store i64 8, ptr %307, align 8
   %.sroa.2.0..sroa_idx.i.i197 = getelementptr inbounds nuw i8, ptr %298, i64 72
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i197, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i197, align 8
   %308 = getelementptr inbounds nuw i8, ptr %298, i64 80
-  store i64 8, ptr %308, align 1
+  store i64 8, ptr %308, align 8
   %.sroa.2.0..sroa_idx.i.i204 = getelementptr inbounds nuw i8, ptr %298, i64 88
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i204, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i204, align 8
   %309 = getelementptr inbounds nuw i8, ptr %298, i64 96
-  store i64 4, ptr %309, align 1
+  store i64 4, ptr %309, align 8
   %.sroa.2.0..sroa_idx.i.i211 = getelementptr inbounds nuw i8, ptr %298, i64 104
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i211, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i211, align 8
   %310 = getelementptr inbounds nuw i8, ptr %298, i64 112
-  store i64 4, ptr %310, align 1
+  store i64 4, ptr %310, align 8
   %.sroa.2.0..sroa_idx.i.i218 = getelementptr inbounds nuw i8, ptr %298, i64 120
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i218, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i218, align 8
   %311 = getelementptr inbounds nuw i8, ptr %298, i64 128
-  store i64 4, ptr %311, align 1
+  store i64 4, ptr %311, align 8
   %.sroa.2.0..sroa_idx.i.i225 = getelementptr inbounds nuw i8, ptr %298, i64 136
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i225, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i225, align 8
   %312 = getelementptr inbounds nuw i8, ptr %298, i64 144
-  store i64 4, ptr %312, align 1
+  store i64 4, ptr %312, align 8
   %.sroa.2.0..sroa_idx.i.i232 = getelementptr inbounds nuw i8, ptr %298, i64 152
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i232, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i232, align 8
   %313 = getelementptr inbounds nuw i8, ptr %298, i64 160
-  store i64 0, ptr %313, align 1
+  store i64 0, ptr %313, align 8
   %.sroa.2.0..sroa_idx.i.i239 = getelementptr inbounds nuw i8, ptr %298, i64 168
-  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i239, align 1
+  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i239, align 8
   %.pre1187 = load ptr, ptr %0, align 8, !tbaa !290
   %314 = getelementptr inbounds nuw i8, ptr %298, i64 176
-  store i64 8, ptr %314, align 1
+  store i64 8, ptr %314, align 8
   %.sroa.2.0..sroa_idx.i.i246 = getelementptr inbounds nuw i8, ptr %298, i64 184
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i246, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i246, align 8
   store i32 10, ptr %304, align 8, !tbaa !26
   store ptr %301, ptr %23, align 8, !tbaa !162
   %315 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -29988,46 +29988,46 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit335: ; preds = %_ZN4llvm
   %360 = getelementptr inbounds nuw i8, ptr %354, i64 24
   %361 = getelementptr inbounds nuw i8, ptr %354, i64 28
   store i32 32, ptr %361, align 4, !tbaa !27, !noalias !1248
-  store i64 19, ptr %358, align 1
+  store i64 19, ptr %358, align 8
   %.sroa.2.0..sroa_idx.i.i271 = getelementptr inbounds nuw i8, ptr %354, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i271, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i271, align 8
   %362 = getelementptr inbounds nuw i8, ptr %354, i64 48
-  store i64 8, ptr %362, align 1
+  store i64 8, ptr %362, align 8
   %.sroa.2.0..sroa_idx.i.i278 = getelementptr inbounds nuw i8, ptr %354, i64 56
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i278, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i278, align 8
   %363 = getelementptr inbounds nuw i8, ptr %354, i64 64
-  store i64 6, ptr %363, align 1
+  store i64 6, ptr %363, align 8
   %.sroa.2.0..sroa_idx.i.i285 = getelementptr inbounds nuw i8, ptr %354, i64 72
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i285, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i285, align 8
   %364 = getelementptr inbounds nuw i8, ptr %354, i64 80
-  store i64 8, ptr %364, align 1
+  store i64 8, ptr %364, align 8
   %.sroa.2.0..sroa_idx.i.i292 = getelementptr inbounds nuw i8, ptr %354, i64 88
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i292, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i292, align 8
   %365 = getelementptr inbounds nuw i8, ptr %354, i64 96
-  store i64 4, ptr %365, align 1
+  store i64 4, ptr %365, align 8
   %.sroa.2.0..sroa_idx.i.i299 = getelementptr inbounds nuw i8, ptr %354, i64 104
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i299, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i299, align 8
   %366 = getelementptr inbounds nuw i8, ptr %354, i64 112
-  store i64 4, ptr %366, align 1
+  store i64 4, ptr %366, align 8
   %.sroa.2.0..sroa_idx.i.i306 = getelementptr inbounds nuw i8, ptr %354, i64 120
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i306, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i306, align 8
   %367 = getelementptr inbounds nuw i8, ptr %354, i64 128
-  store i64 4, ptr %367, align 1
+  store i64 4, ptr %367, align 8
   %.sroa.2.0..sroa_idx.i.i313 = getelementptr inbounds nuw i8, ptr %354, i64 136
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i313, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i313, align 8
   %368 = getelementptr inbounds nuw i8, ptr %354, i64 144
-  store i64 4, ptr %368, align 1
+  store i64 4, ptr %368, align 8
   %.sroa.2.0..sroa_idx.i.i320 = getelementptr inbounds nuw i8, ptr %354, i64 152
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i320, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i320, align 8
   %369 = getelementptr inbounds nuw i8, ptr %354, i64 160
-  store i64 0, ptr %369, align 1
+  store i64 0, ptr %369, align 8
   %.sroa.2.0..sroa_idx.i.i327 = getelementptr inbounds nuw i8, ptr %354, i64 168
-  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i327, align 1
+  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i327, align 8
   %.pre1188 = load ptr, ptr %0, align 8, !tbaa !290
   %370 = getelementptr inbounds nuw i8, ptr %354, i64 176
-  store i64 8, ptr %370, align 1
+  store i64 8, ptr %370, align 8
   %.sroa.2.0..sroa_idx.i.i334 = getelementptr inbounds nuw i8, ptr %354, i64 184
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i334, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i334, align 8
   store i32 10, ptr %360, align 8, !tbaa !26
   store ptr %357, ptr %24, align 8, !tbaa !162
   %371 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -30128,26 +30128,26 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit388: ; preds = %409, %_Z
   %416 = getelementptr inbounds nuw i8, ptr %410, i64 24
   %417 = getelementptr inbounds nuw i8, ptr %410, i64 28
   store i32 32, ptr %417, align 4, !tbaa !27, !noalias !1254
-  store i64 3, ptr %414, align 1
+  store i64 3, ptr %414, align 8
   %.sroa.2.0..sroa_idx.i.i359 = getelementptr inbounds nuw i8, ptr %410, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i359, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i359, align 8
   %418 = getelementptr inbounds nuw i8, ptr %410, i64 48
-  store i64 8, ptr %418, align 1
+  store i64 8, ptr %418, align 8
   %.sroa.2.0..sroa_idx.i.i366 = getelementptr inbounds nuw i8, ptr %410, i64 56
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i366, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i366, align 8
   %419 = getelementptr inbounds nuw i8, ptr %410, i64 64
-  store i64 6, ptr %419, align 1
+  store i64 6, ptr %419, align 8
   %.sroa.2.0..sroa_idx.i.i373 = getelementptr inbounds nuw i8, ptr %410, i64 72
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i373, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i373, align 8
   %420 = getelementptr inbounds nuw i8, ptr %410, i64 80
-  store i64 0, ptr %420, align 1
+  store i64 0, ptr %420, align 8
   %.sroa.2.0..sroa_idx.i.i380 = getelementptr inbounds nuw i8, ptr %410, i64 88
-  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i380, align 1
+  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i380, align 8
   %.pre1189 = load ptr, ptr %0, align 8, !tbaa !290
   %421 = getelementptr inbounds nuw i8, ptr %410, i64 96
-  store i64 8, ptr %421, align 1
+  store i64 8, ptr %421, align 8
   %.sroa.2.0..sroa_idx.i.i387 = getelementptr inbounds nuw i8, ptr %410, i64 104
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i387, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i387, align 8
   store i32 5, ptr %416, align 8, !tbaa !26
   store ptr %413, ptr %25, align 8, !tbaa !162
   %422 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -30251,30 +30251,30 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit448: ; preds = %_ZN4llvm
   %470 = getelementptr inbounds nuw i8, ptr %464, i64 24
   %471 = getelementptr inbounds nuw i8, ptr %464, i64 28
   store i32 32, ptr %471, align 4, !tbaa !27, !noalias !1260
-  store i64 23, ptr %468, align 1
+  store i64 23, ptr %468, align 8
   %.sroa.2.0..sroa_idx.i.i412 = getelementptr inbounds nuw i8, ptr %464, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i412, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i412, align 8
   %472 = getelementptr inbounds nuw i8, ptr %464, i64 48
-  store i64 8, ptr %472, align 1
+  store i64 8, ptr %472, align 8
   %.sroa.2.0..sroa_idx.i.i419 = getelementptr inbounds nuw i8, ptr %464, i64 56
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i419, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i419, align 8
   %473 = getelementptr inbounds nuw i8, ptr %464, i64 64
-  store i64 6, ptr %473, align 1
+  store i64 6, ptr %473, align 8
   %.sroa.2.0..sroa_idx.i.i426 = getelementptr inbounds nuw i8, ptr %464, i64 72
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i426, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i426, align 8
   %474 = getelementptr inbounds nuw i8, ptr %464, i64 80
-  store i64 4, ptr %474, align 1
+  store i64 4, ptr %474, align 8
   %.sroa.2.0..sroa_idx.i.i433 = getelementptr inbounds nuw i8, ptr %464, i64 88
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i433, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i433, align 8
   %475 = getelementptr inbounds nuw i8, ptr %464, i64 96
-  store i64 0, ptr %475, align 1
+  store i64 0, ptr %475, align 8
   %.sroa.2.0..sroa_idx.i.i440 = getelementptr inbounds nuw i8, ptr %464, i64 104
-  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i440, align 1
+  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i440, align 8
   %.pre1190 = load ptr, ptr %0, align 8, !tbaa !290
   %476 = getelementptr inbounds nuw i8, ptr %464, i64 112
-  store i64 8, ptr %476, align 1
+  store i64 8, ptr %476, align 8
   %.sroa.2.0..sroa_idx.i.i447 = getelementptr inbounds nuw i8, ptr %464, i64 120
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i447, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i447, align 8
   store i32 6, ptr %470, align 8, !tbaa !26
   store ptr %467, ptr %26, align 8, !tbaa !162
   %477 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -30378,22 +30378,22 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit494: ; preds = %_ZN4llvm
   %525 = getelementptr inbounds nuw i8, ptr %519, i64 24
   %526 = getelementptr inbounds nuw i8, ptr %519, i64 28
   store i32 32, ptr %526, align 4, !tbaa !27, !noalias !1266
-  store i64 7, ptr %523, align 1
+  store i64 7, ptr %523, align 8
   %.sroa.2.0..sroa_idx.i.i472 = getelementptr inbounds nuw i8, ptr %519, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i472, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i472, align 8
   %527 = getelementptr inbounds nuw i8, ptr %519, i64 48
-  store i64 8, ptr %527, align 1
+  store i64 8, ptr %527, align 8
   %.sroa.2.0..sroa_idx.i.i479 = getelementptr inbounds nuw i8, ptr %519, i64 56
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i479, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i479, align 8
   %528 = getelementptr inbounds nuw i8, ptr %519, i64 64
-  store i64 6, ptr %528, align 1
+  store i64 6, ptr %528, align 8
   %.sroa.2.0..sroa_idx.i.i486 = getelementptr inbounds nuw i8, ptr %519, i64 72
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i486, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i486, align 8
   %.pre1191 = load ptr, ptr %0, align 8, !tbaa !290
   %529 = getelementptr inbounds nuw i8, ptr %519, i64 80
-  store i64 8, ptr %529, align 1
+  store i64 8, ptr %529, align 8
   %.sroa.2.0..sroa_idx.i.i493 = getelementptr inbounds nuw i8, ptr %519, i64 88
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i493, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i493, align 8
   store i32 4, ptr %525, align 8, !tbaa !26
   store ptr %522, ptr %27, align 8, !tbaa !162
   %530 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -30497,26 +30497,26 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit547: ; preds = %571, %_Z
   %578 = getelementptr inbounds nuw i8, ptr %572, i64 24
   %579 = getelementptr inbounds nuw i8, ptr %572, i64 28
   store i32 32, ptr %579, align 4, !tbaa !27, !noalias !1272
-  store i64 22, ptr %576, align 1
+  store i64 22, ptr %576, align 8
   %.sroa.2.0..sroa_idx.i.i518 = getelementptr inbounds nuw i8, ptr %572, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i518, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i518, align 8
   %580 = getelementptr inbounds nuw i8, ptr %572, i64 48
-  store i64 8, ptr %580, align 1
+  store i64 8, ptr %580, align 8
   %.sroa.2.0..sroa_idx.i.i525 = getelementptr inbounds nuw i8, ptr %572, i64 56
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i525, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i525, align 8
   %581 = getelementptr inbounds nuw i8, ptr %572, i64 64
-  store i64 8, ptr %581, align 1
+  store i64 8, ptr %581, align 8
   %.sroa.2.0..sroa_idx.i.i532 = getelementptr inbounds nuw i8, ptr %572, i64 72
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i532, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i532, align 8
   %582 = getelementptr inbounds nuw i8, ptr %572, i64 80
-  store i64 0, ptr %582, align 1
+  store i64 0, ptr %582, align 8
   %.sroa.2.0..sroa_idx.i.i539 = getelementptr inbounds nuw i8, ptr %572, i64 88
-  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i539, align 1
+  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i539, align 8
   %.pre1192 = load ptr, ptr %0, align 8, !tbaa !290
   %583 = getelementptr inbounds nuw i8, ptr %572, i64 96
-  store i64 8, ptr %583, align 1
+  store i64 8, ptr %583, align 8
   %.sroa.2.0..sroa_idx.i.i546 = getelementptr inbounds nuw i8, ptr %572, i64 104
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i546, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i546, align 8
   store i32 5, ptr %578, align 8, !tbaa !26
   store ptr %575, ptr %28, align 8, !tbaa !162
   %584 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -30620,22 +30620,22 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit593: ; preds = %_ZN4llvm
   %632 = getelementptr inbounds nuw i8, ptr %626, i64 24
   %633 = getelementptr inbounds nuw i8, ptr %626, i64 28
   store i32 32, ptr %633, align 4, !tbaa !27, !noalias !1278
-  store i64 26, ptr %630, align 1
+  store i64 26, ptr %630, align 8
   %.sroa.2.0..sroa_idx.i.i571 = getelementptr inbounds nuw i8, ptr %626, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i571, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i571, align 8
   %634 = getelementptr inbounds nuw i8, ptr %626, i64 48
-  store i64 8, ptr %634, align 1
+  store i64 8, ptr %634, align 8
   %.sroa.2.0..sroa_idx.i.i578 = getelementptr inbounds nuw i8, ptr %626, i64 56
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i578, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i578, align 8
   %635 = getelementptr inbounds nuw i8, ptr %626, i64 64
-  store i64 0, ptr %635, align 1
+  store i64 0, ptr %635, align 8
   %.sroa.2.0..sroa_idx.i.i585 = getelementptr inbounds nuw i8, ptr %626, i64 72
-  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i585, align 1
+  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i585, align 8
   %.pre1193 = load ptr, ptr %0, align 8, !tbaa !290
   %636 = getelementptr inbounds nuw i8, ptr %626, i64 80
-  store i64 8, ptr %636, align 1
+  store i64 8, ptr %636, align 8
   %.sroa.2.0..sroa_idx.i.i592 = getelementptr inbounds nuw i8, ptr %626, i64 88
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i592, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i592, align 8
   store i32 4, ptr %632, align 8, !tbaa !26
   store ptr %629, ptr %29, align 8, !tbaa !162
   %637 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -30739,22 +30739,22 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit639: ; preds = %_ZN4llvm
   %685 = getelementptr inbounds nuw i8, ptr %679, i64 24
   %686 = getelementptr inbounds nuw i8, ptr %679, i64 28
   store i32 32, ptr %686, align 4, !tbaa !27, !noalias !1284
-  store i64 27, ptr %683, align 1
+  store i64 27, ptr %683, align 8
   %.sroa.2.0..sroa_idx.i.i617 = getelementptr inbounds nuw i8, ptr %679, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i617, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i617, align 8
   %687 = getelementptr inbounds nuw i8, ptr %679, i64 48
-  store i64 4, ptr %687, align 1
+  store i64 4, ptr %687, align 8
   %.sroa.2.0..sroa_idx.i.i624 = getelementptr inbounds nuw i8, ptr %679, i64 56
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i624, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i624, align 8
   %688 = getelementptr inbounds nuw i8, ptr %679, i64 64
-  store i64 0, ptr %688, align 1
+  store i64 0, ptr %688, align 8
   %.sroa.2.0..sroa_idx.i.i631 = getelementptr inbounds nuw i8, ptr %679, i64 72
-  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i631, align 1
+  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i631, align 8
   %.pre1194 = load ptr, ptr %0, align 8, !tbaa !290
   %689 = getelementptr inbounds nuw i8, ptr %679, i64 80
-  store i64 8, ptr %689, align 1
+  store i64 8, ptr %689, align 8
   %.sroa.2.0..sroa_idx.i.i638 = getelementptr inbounds nuw i8, ptr %679, i64 88
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i638, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i638, align 8
   store i32 4, ptr %685, align 8, !tbaa !26
   store ptr %682, ptr %30, align 8, !tbaa !162
   %690 = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -30858,18 +30858,18 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit678: ; preds = %731, %_Z
   %738 = getelementptr inbounds nuw i8, ptr %732, i64 24
   %739 = getelementptr inbounds nuw i8, ptr %732, i64 28
   store i32 32, ptr %739, align 4, !tbaa !27, !noalias !1290
-  store i64 32, ptr %736, align 1
+  store i64 32, ptr %736, align 8
   %.sroa.2.0..sroa_idx.i.i663 = getelementptr inbounds nuw i8, ptr %732, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i663, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i663, align 8
   %740 = getelementptr inbounds nuw i8, ptr %732, i64 48
-  store i64 0, ptr %740, align 1
+  store i64 0, ptr %740, align 8
   %.sroa.2.0..sroa_idx.i.i670 = getelementptr inbounds nuw i8, ptr %732, i64 56
-  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i670, align 1
+  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i670, align 8
   %.pre1195 = load ptr, ptr %0, align 8, !tbaa !290
   %741 = getelementptr inbounds nuw i8, ptr %732, i64 64
-  store i64 8, ptr %741, align 1
+  store i64 8, ptr %741, align 8
   %.sroa.2.0..sroa_idx.i.i677 = getelementptr inbounds nuw i8, ptr %732, i64 72
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i677, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i677, align 8
   store i32 3, ptr %738, align 8, !tbaa !26
   store ptr %735, ptr %31, align 8, !tbaa !162
   %742 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -36264,7 +36264,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_j
   store i64 %20, ptr %22, align 8, !tbaa !189
   store ptr %12, ptr %9, align 8, !tbaa !197
   store i64 0, ptr %21, align 8, !tbaa !189
-  store i8 0, ptr %12, align 1, !tbaa !171
+  store i8 0, ptr %12, align 8, !tbaa !171
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i32 0, ptr %23, align 8, !tbaa !1415
   %24 = tail call { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_jESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %7)
@@ -36860,21 +36860,21 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit206: ; preds = %17
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 28
   store i32 32, ptr %26, align 4, !tbaa !27, !noalias !1424
-  store i64 7, ptr %23, align 1
+  store i64 7, ptr %23, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %19, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  store i64 0, ptr %27, align 1
+  store i64 0, ptr %27, align 8
   %.sroa.2.0..sroa_idx.i.i198 = getelementptr inbounds nuw i8, ptr %19, i64 56
-  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i198, align 1
+  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i198, align 8
   %28 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %2, i1 false)
   %29 = sub nuw nsw i32 32, %28
   %30 = zext nneg i32 %29 to i64
   %.pre = load ptr, ptr %0, align 8, !tbaa !290
   %31 = getelementptr inbounds nuw i8, ptr %19, i64 64
-  store i64 %30, ptr %31, align 1
+  store i64 %30, ptr %31, align 8
   %.sroa.2.0..sroa_idx.i.i205 = getelementptr inbounds nuw i8, ptr %19, i64 72
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i205, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i205, align 8
   store i32 3, ptr %25, align 8, !tbaa !26
   store ptr %22, ptr %5, align 8, !tbaa !162
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -36977,18 +36977,18 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit233: ; preds = %72, %_ZN
   %79 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %80 = getelementptr inbounds nuw i8, ptr %73, i64 28
   store i32 32, ptr %80, align 4, !tbaa !27, !noalias !1430
-  store i64 8, ptr %77, align 1
+  store i64 8, ptr %77, align 8
   %.sroa.2.0..sroa_idx.i.i218 = getelementptr inbounds nuw i8, ptr %73, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i218, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i218, align 8
   %81 = getelementptr inbounds nuw i8, ptr %73, i64 48
-  store i64 0, ptr %81, align 1
+  store i64 0, ptr %81, align 8
   %.sroa.2.0..sroa_idx.i.i225 = getelementptr inbounds nuw i8, ptr %73, i64 56
-  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i225, align 1
+  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i225, align 8
   %.pre607 = load ptr, ptr %0, align 8, !tbaa !290
   %82 = getelementptr inbounds nuw i8, ptr %73, i64 64
-  store i64 8, ptr %82, align 1
+  store i64 8, ptr %82, align 8
   %.sroa.2.0..sroa_idx.i.i232 = getelementptr inbounds nuw i8, ptr %73, i64 72
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i232, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i232, align 8
   store i32 3, ptr %79, align 8, !tbaa !26
   store ptr %76, ptr %6, align 8, !tbaa !162
   %83 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -37092,18 +37092,18 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit272: ; preds = %124, %_Z
   %131 = getelementptr inbounds nuw i8, ptr %125, i64 24
   %132 = getelementptr inbounds nuw i8, ptr %125, i64 28
   store i32 32, ptr %132, align 4, !tbaa !27, !noalias !1436
-  store i64 9, ptr %129, align 1
+  store i64 9, ptr %129, align 8
   %.sroa.2.0..sroa_idx.i.i257 = getelementptr inbounds nuw i8, ptr %125, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i257, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i257, align 8
   %133 = getelementptr inbounds nuw i8, ptr %125, i64 48
-  store i64 0, ptr %133, align 1
+  store i64 0, ptr %133, align 8
   %.sroa.2.0..sroa_idx.i.i264 = getelementptr inbounds nuw i8, ptr %125, i64 56
-  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i264, align 1
+  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i264, align 8
   %.pre608 = load ptr, ptr %0, align 8, !tbaa !290
   %134 = getelementptr inbounds nuw i8, ptr %125, i64 64
-  store i64 7, ptr %134, align 1
+  store i64 7, ptr %134, align 8
   %.sroa.2.0..sroa_idx.i.i271 = getelementptr inbounds nuw i8, ptr %125, i64 72
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i271, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i271, align 8
   store i32 3, ptr %131, align 8, !tbaa !26
   store ptr %128, ptr %7, align 8, !tbaa !162
   %135 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -37206,18 +37206,18 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit311: ; preds = %176, %_Z
   %183 = getelementptr inbounds nuw i8, ptr %177, i64 24
   %184 = getelementptr inbounds nuw i8, ptr %177, i64 28
   store i32 32, ptr %184, align 4, !tbaa !27, !noalias !1442
-  store i64 9, ptr %181, align 1
+  store i64 9, ptr %181, align 8
   %.sroa.2.0..sroa_idx.i.i296 = getelementptr inbounds nuw i8, ptr %177, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i296, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i296, align 8
   %185 = getelementptr inbounds nuw i8, ptr %177, i64 48
-  store i64 0, ptr %185, align 1
+  store i64 0, ptr %185, align 8
   %.sroa.2.0..sroa_idx.i.i303 = getelementptr inbounds nuw i8, ptr %177, i64 56
-  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i303, align 1
+  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i303, align 8
   %.pre609 = load ptr, ptr %0, align 8, !tbaa !290
   %186 = getelementptr inbounds nuw i8, ptr %177, i64 64
-  store i64 0, ptr %186, align 1
+  store i64 0, ptr %186, align 8
   %.sroa.2.0..sroa_idx.i.i310 = getelementptr inbounds nuw i8, ptr %177, i64 72
-  store i64 8, ptr %.sroa.2.0..sroa_idx.i.i310, align 1
+  store i64 8, ptr %.sroa.2.0..sroa_idx.i.i310, align 8
   store i32 3, ptr %183, align 8, !tbaa !26
   store ptr %180, ptr %8, align 8, !tbaa !162
   %187 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -39523,34 +39523,34 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit42:
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 32, ptr %9, align 4, !tbaa !27, !noalias !1472
-  store i64 7, ptr %6, align 1
+  store i64 7, ptr %6, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store i64 1, ptr %10, align 1
+  store i64 1, ptr %10, align 8
   %.sroa.2.0..sroa_idx.i.i6 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i6, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i6, align 8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store i64 6, ptr %11, align 1
+  store i64 6, ptr %11, align 8
   %.sroa.2.0..sroa_idx.i.i13 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i13, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i13, align 8
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i64 8, ptr %12, align 1
+  store i64 8, ptr %12, align 8
   %.sroa.2.0..sroa_idx.i.i20 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i20, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i20, align 8
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store i64 6, ptr %13, align 1
+  store i64 6, ptr %13, align 8
   %.sroa.2.0..sroa_idx.i.i27 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i27, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i27, align 8
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  store i64 6, ptr %14, align 1
+  store i64 6, ptr %14, align 8
   %.sroa.2.0..sroa_idx.i.i34 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i34, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i34, align 8
   %.pre = load ptr, ptr %0, align 8, !tbaa !290
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  store i64 1, ptr %15, align 1
+  store i64 1, ptr %15, align 8
   %.sroa.2.0..sroa_idx.i.i41 = getelementptr inbounds nuw i8, ptr %2, i64 136
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i41, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i41, align 8
   store i32 7, ptr %8, align 8, !tbaa !26
   store ptr %5, ptr %1, align 8, !tbaa !162
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -39655,34 +39655,34 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit42:
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 32, ptr %9, align 4, !tbaa !27, !noalias !1478
-  store i64 12, ptr %6, align 1
+  store i64 12, ptr %6, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store i64 1, ptr %10, align 1
+  store i64 1, ptr %10, align 8
   %.sroa.2.0..sroa_idx.i.i6 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i6, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i6, align 8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store i64 6, ptr %11, align 1
+  store i64 6, ptr %11, align 8
   %.sroa.2.0..sroa_idx.i.i13 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i13, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i13, align 8
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i64 1, ptr %12, align 1
+  store i64 1, ptr %12, align 8
   %.sroa.2.0..sroa_idx.i.i20 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i20, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i20, align 8
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store i64 6, ptr %13, align 1
+  store i64 6, ptr %13, align 8
   %.sroa.2.0..sroa_idx.i.i27 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i27, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i27, align 8
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  store i64 0, ptr %14, align 1
+  store i64 0, ptr %14, align 8
   %.sroa.2.0..sroa_idx.i.i34 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i34, align 1
+  store i64 6, ptr %.sroa.2.0..sroa_idx.i.i34, align 8
   %.pre = load ptr, ptr %0, align 8, !tbaa !290
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  store i64 6, ptr %15, align 1
+  store i64 6, ptr %15, align 8
   %.sroa.2.0..sroa_idx.i.i41 = getelementptr inbounds nuw i8, ptr %2, i64 136
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i41, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i41, align 8
   store i32 7, ptr %8, align 8, !tbaa !26
   store ptr %5, ptr %1, align 8, !tbaa !162
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -39943,21 +39943,21 @@ _ZN4llvm15BitstreamWriter11FlushToWordEv.exit:    ; preds = %._crit_edge, %_ZN4l
   %87 = getelementptr inbounds nuw i8, ptr %81, i64 24
   %88 = getelementptr inbounds nuw i8, ptr %81, i64 28
   store i32 32, ptr %88, align 4, !tbaa !27, !noalias !1484
-  store i64 35, ptr %85, align 1
+  store i64 35, ptr %85, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %81, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %89 = getelementptr inbounds nuw i8, ptr %81, i64 48
-  store i64 6, ptr %89, align 1
+  store i64 6, ptr %89, align 8
   %.sroa.2.0..sroa_idx.i.i6.i = getelementptr inbounds nuw i8, ptr %81, i64 56
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i6.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i6.i, align 8
   %90 = getelementptr inbounds nuw i8, ptr %81, i64 64
-  store i64 6, ptr %90, align 1
+  store i64 6, ptr %90, align 8
   %.sroa.2.0..sroa_idx.i.i13.i = getelementptr inbounds nuw i8, ptr %81, i64 72
-  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i13.i, align 1
+  store i64 4, ptr %.sroa.2.0..sroa_idx.i.i13.i, align 8
   %91 = getelementptr inbounds nuw i8, ptr %81, i64 80
-  store i64 0, ptr %91, align 1
+  store i64 0, ptr %91, align 8
   %.sroa.2.0..sroa_idx.i.i20.i = getelementptr inbounds nuw i8, ptr %81, i64 88
-  store i64 10, ptr %.sroa.2.0..sroa_idx.i.i20.i, align 1
+  store i64 10, ptr %.sroa.2.0..sroa_idx.i.i20.i, align 8
   store i32 4, ptr %87, align 8, !tbaa !26
   store ptr %84, ptr %5, align 8, !tbaa !162
   %92 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -62301,7 +62301,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMap
 130:                                              ; preds = %127, %121
   store i64 %52, ptr %122, align 8, !tbaa !53, !noalias !1656
   %131 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  store i32 0, ptr %131, align 4, !tbaa !49, !noalias !1656
+  store i32 0, ptr %131, align 8, !tbaa !49, !noalias !1656
   %132 = load i32, ptr %16, align 8, !tbaa !26
   store i32 %132, ptr %131, align 8, !tbaa !1662
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -62687,7 +62687,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMap
   %68 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %69 = getelementptr inbounds nuw i8, ptr %.021.i, i64 8
   %70 = load i32, ptr %69, align 4, !tbaa !49
-  store i32 %70, ptr %68, align 4, !tbaa !49
+  store i32 %70, ptr %68, align 8, !tbaa !49
   %71 = add i32 %38, 1
   store i32 %71, ptr %32, align 8, !tbaa !1660
   br label %72
@@ -63471,7 +63471,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMap
 _ZN4llvm12DenseMapBaseINS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEEEEmjS3_S6_E16InsertIntoBucketImJEEEPS6_SA_OT_DpOT0_.exit.i: ; preds = %260, %254
   store i64 %184, ptr %255, align 8, !tbaa !53
   %263 = getelementptr inbounds nuw i8, ptr %255, i64 8
-  store i32 0, ptr %263, align 4, !tbaa !49
+  store i32 0, ptr %263, align 8, !tbaa !49
   %.pre = load i32, ptr %16, align 8, !tbaa !26
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEEEEmjS3_S6_EixEOm.exit
 
@@ -66884,7 +66884,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_18GlobalValueSummaryEjNS_12DenseMapInfo
   %57 = load ptr, ptr %1, align 8, !tbaa !697
   store ptr %57, ptr %48, align 8, !tbaa !697
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !49
+  store i32 0, ptr %58, align 8, !tbaa !49
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_18GlobalValueSummaryEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E16InsertIntoBucketIS4_JEEEPS9_SD_OT_DpOT0_.exit
@@ -69557,7 +69557,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_18GlobalValueSummaryEjNS_12DenseMapInfo
   %57 = load ptr, ptr %1, align 8, !tbaa !697
   store ptr %57, ptr %48, align 8, !tbaa !697
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !49
+  store i32 0, ptr %58, align 8, !tbaa !49
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_18GlobalValueSummaryEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E16InsertIntoBucketIRKS4_JEEEPS9_SF_OT_DpOT0_.exit
@@ -70202,7 +70202,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_18GlobalValueSummaryEjNS_12DenseMapInfo
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !49
-  store i32 %68, ptr %66, align 4, !tbaa !49
+  store i32 %68, ptr %66, align 8, !tbaa !49
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !860
   br label %70

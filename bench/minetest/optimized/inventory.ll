@@ -10786,7 +10786,7 @@ for.body:                                         ; preds = %_ZNSt6vectorIP13Inv
   store ptr %4, ptr %m_name.i, align 8, !tbaa !7
   %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 32
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !14
-  store i8 0, ptr %4, align 1, !tbaa !16
+  store i8 0, ptr %4, align 8, !tbaa !16
   %m_width.i = getelementptr inbounds nuw i8, ptr %call8, i64 60
   store i32 0, ptr %m_width.i, align 4, !tbaa !127
   %m_dirty.i14 = getelementptr inbounds nuw i8, ptr %call8, i64 72
@@ -13572,7 +13572,7 @@ invoke.cont15:                                    ; preds = %if.end5
   store ptr null, ptr %call5.i.i.i.i64, align 8, !tbaa !74
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i64, i64 8
   %4 = load i64, ptr %add.ptr, align 4
-  store i64 %4, ptr %add.ptr.i.i, align 4
+  store i64 %4, ptr %add.ptr.i.i, align 8
   %_M_before_begin.i65 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i.i64, ptr %_M_before_begin.i65, align 8, !tbaa !213
   %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -13597,7 +13597,7 @@ invoke.cont22:                                    ; preds = %for.body
   store ptr null, ptr %call5.i.i.i.i68, align 8, !tbaa !74
   %add.ptr.i.i67 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i68, i64 8
   %6 = load i64, ptr %add.ptr18, align 4
-  store i64 %6, ptr %add.ptr.i.i67, align 4
+  store i64 %6, ptr %add.ptr.i.i67, align 8
   store ptr %call5.i.i.i.i68, ptr %__prev_n.072, align 8, !tbaa !74
   %sext74 = shl i64 %6, 32
   %conv.i.i.i.i = ashr exact i64 %sext74, 32

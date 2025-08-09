@@ -34975,7 +34975,7 @@ define hidden { ptr, i64 } @"_ZN5tokio7runtime7context6scoped15Scoped$LT$T$GT$4w
   %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %66
   store ptr %storemerge.i.i.i, ptr %69, align 8, !noalias !3027
   %70 = add i32 %58, 1
-  store atomic i32 %70, ptr %64 release, align 4, !noalias !3027
+  store atomic i32 %70, ptr %64 release, align 8, !noalias !3027
   br label %"_ZN5tokio7runtime9scheduler12multi_thread5queue14Local$LT$T$GT$21push_back_or_overflow17h2c352d7fd418b751E.exit.i.i"
 
 71:                                               ; preds = %61
@@ -35214,7 +35214,7 @@ define hidden { ptr, i64 } @"_ZN5tokio7runtime7context6scoped15Scoped$LT$T$GT$4w
   %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %66
   store ptr %storemerge.i.i.i, ptr %69, align 8, !noalias !3067
   %70 = add i32 %58, 1
-  store atomic i32 %70, ptr %64 release, align 4, !noalias !3067
+  store atomic i32 %70, ptr %64 release, align 8, !noalias !3067
   br label %"_ZN5tokio7runtime9scheduler12multi_thread5queue14Local$LT$T$GT$21push_back_or_overflow17h2c352d7fd418b751E.exit.i.i"
 
 71:                                               ; preds = %61
@@ -35453,7 +35453,7 @@ define hidden { ptr, i64 } @"_ZN5tokio7runtime7context6scoped15Scoped$LT$T$GT$4w
   %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %66
   store ptr %storemerge.i.i.i, ptr %69, align 8, !noalias !3107
   %70 = add i32 %58, 1
-  store atomic i32 %70, ptr %64 release, align 4, !noalias !3107
+  store atomic i32 %70, ptr %64 release, align 8, !noalias !3107
   br label %"_ZN5tokio7runtime9scheduler12multi_thread5queue14Local$LT$T$GT$21push_back_or_overflow17h2c352d7fd418b751E.exit.i.i"
 
 71:                                               ; preds = %61
@@ -35692,7 +35692,7 @@ define hidden { ptr, i64 } @"_ZN5tokio7runtime7context6scoped15Scoped$LT$T$GT$4w
   %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %66
   store ptr %storemerge.i.i.i, ptr %69, align 8, !noalias !3147
   %70 = add i32 %58, 1
-  store atomic i32 %70, ptr %64 release, align 4, !noalias !3147
+  store atomic i32 %70, ptr %64 release, align 8, !noalias !3147
   br label %"_ZN5tokio7runtime9scheduler12multi_thread5queue14Local$LT$T$GT$21push_back_or_overflow17h2c352d7fd418b751E.exit.i.i"
 
 71:                                               ; preds = %61
@@ -35931,7 +35931,7 @@ define hidden { ptr, i64 } @"_ZN5tokio7runtime7context6scoped15Scoped$LT$T$GT$4w
   %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %66
   store ptr %storemerge.i.i.i, ptr %69, align 8, !noalias !3187
   %70 = add i32 %58, 1
-  store atomic i32 %70, ptr %64 release, align 4, !noalias !3187
+  store atomic i32 %70, ptr %64 release, align 8, !noalias !3187
   br label %"_ZN5tokio7runtime9scheduler12multi_thread5queue14Local$LT$T$GT$21push_back_or_overflow17h2c352d7fd418b751E.exit.i.i"
 
 71:                                               ; preds = %61
@@ -36170,7 +36170,7 @@ define hidden { ptr, i64 } @"_ZN5tokio7runtime7context6scoped15Scoped$LT$T$GT$4w
   %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %66
   store ptr %storemerge.i.i.i, ptr %69, align 8, !noalias !3227
   %70 = add i32 %58, 1
-  store atomic i32 %70, ptr %64 release, align 4, !noalias !3227
+  store atomic i32 %70, ptr %64 release, align 8, !noalias !3227
   br label %"_ZN5tokio7runtime9scheduler12multi_thread5queue14Local$LT$T$GT$21push_back_or_overflow17h2c352d7fd418b751E.exit.i.i"
 
 71:                                               ; preds = %61
@@ -36409,7 +36409,7 @@ define hidden { ptr, i64 } @"_ZN5tokio7runtime7context6scoped15Scoped$LT$T$GT$4w
   %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %66
   store ptr %storemerge.i.i.i, ptr %69, align 8, !noalias !3267
   %70 = add i32 %58, 1
-  store atomic i32 %70, ptr %64 release, align 4, !noalias !3267
+  store atomic i32 %70, ptr %64 release, align 8, !noalias !3267
   br label %"_ZN5tokio7runtime9scheduler12multi_thread5queue14Local$LT$T$GT$21push_back_or_overflow17h2c352d7fd418b751E.exit.i.i"
 
 71:                                               ; preds = %61
@@ -36648,7 +36648,7 @@ define hidden { ptr, i64 } @"_ZN5tokio7runtime7context6scoped15Scoped$LT$T$GT$4w
   %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %66
   store ptr %storemerge.i.i.i, ptr %69, align 8, !noalias !3307
   %70 = add i32 %58, 1
-  store atomic i32 %70, ptr %64 release, align 4, !noalias !3307
+  store atomic i32 %70, ptr %64 release, align 8, !noalias !3307
   br label %"_ZN5tokio7runtime9scheduler12multi_thread5queue14Local$LT$T$GT$21push_back_or_overflow17h2c352d7fd418b751E.exit.i.i"
 
 71:                                               ; preds = %61
@@ -36887,7 +36887,7 @@ define hidden { ptr, i64 } @"_ZN5tokio7runtime7context6scoped15Scoped$LT$T$GT$4w
   %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %66
   store ptr %storemerge.i.i.i, ptr %69, align 8, !noalias !3347
   %70 = add i32 %58, 1
-  store atomic i32 %70, ptr %64 release, align 4, !noalias !3347
+  store atomic i32 %70, ptr %64 release, align 8, !noalias !3347
   br label %"_ZN5tokio7runtime9scheduler12multi_thread5queue14Local$LT$T$GT$21push_back_or_overflow17h2c352d7fd418b751E.exit.i.i"
 
 71:                                               ; preds = %61
@@ -37126,7 +37126,7 @@ define hidden { ptr, i64 } @"_ZN5tokio7runtime7context6scoped15Scoped$LT$T$GT$4w
   %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %66
   store ptr %storemerge.i.i.i, ptr %69, align 8, !noalias !3387
   %70 = add i32 %58, 1
-  store atomic i32 %70, ptr %64 release, align 4, !noalias !3387
+  store atomic i32 %70, ptr %64 release, align 8, !noalias !3387
   br label %"_ZN5tokio7runtime9scheduler12multi_thread5queue14Local$LT$T$GT$21push_back_or_overflow17h2c352d7fd418b751E.exit.i.i"
 
 71:                                               ; preds = %61
@@ -37365,7 +37365,7 @@ define hidden { ptr, i64 } @"_ZN5tokio7runtime7context6scoped15Scoped$LT$T$GT$4w
   %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %66
   store ptr %storemerge.i.i.i, ptr %69, align 8, !noalias !3427
   %70 = add i32 %58, 1
-  store atomic i32 %70, ptr %64 release, align 4, !noalias !3427
+  store atomic i32 %70, ptr %64 release, align 8, !noalias !3427
   br label %"_ZN5tokio7runtime9scheduler12multi_thread5queue14Local$LT$T$GT$21push_back_or_overflow17h2c352d7fd418b751E.exit.i.i"
 
 71:                                               ; preds = %61
@@ -37604,7 +37604,7 @@ define hidden { ptr, i64 } @"_ZN5tokio7runtime7context6scoped15Scoped$LT$T$GT$4w
   %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %66
   store ptr %storemerge.i.i.i, ptr %69, align 8, !noalias !3467
   %70 = add i32 %58, 1
-  store atomic i32 %70, ptr %64 release, align 4, !noalias !3467
+  store atomic i32 %70, ptr %64 release, align 8, !noalias !3467
   br label %"_ZN5tokio7runtime9scheduler12multi_thread5queue14Local$LT$T$GT$21push_back_or_overflow17h2c352d7fd418b751E.exit.i.i"
 
 71:                                               ; preds = %61
@@ -37843,7 +37843,7 @@ define hidden { ptr, i64 } @"_ZN5tokio7runtime7context6scoped15Scoped$LT$T$GT$4w
   %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %66
   store ptr %storemerge.i.i.i, ptr %69, align 8, !noalias !3507
   %70 = add i32 %58, 1
-  store atomic i32 %70, ptr %64 release, align 4, !noalias !3507
+  store atomic i32 %70, ptr %64 release, align 8, !noalias !3507
   br label %"_ZN5tokio7runtime9scheduler12multi_thread5queue14Local$LT$T$GT$21push_back_or_overflow17h2c352d7fd418b751E.exit.i.i"
 
 71:                                               ; preds = %61
@@ -42795,7 +42795,7 @@ define hidden void @"_ZN5tokio7runtime9scheduler12multi_thread5queue14Local$LT$T
   %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %21
   store ptr %storemerge, ptr %24, align 8, !noalias !4078
   %25 = add i32 %13, 1
-  store atomic i32 %25, ptr %19 release, align 4, !noalias !4078
+  store atomic i32 %25, ptr %19 release, align 8, !noalias !4078
   br label %.loopexit
 
 26:                                               ; preds = %16
@@ -42825,7 +42825,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime9scheduler12multi_thread5queue14Loc
   %11 = trunc i64 %7 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %10, ptr %4, align 4
-  %12 = load i32, ptr %8, align 4, !noundef !4
+  %12 = load i32, ptr %8, align 8, !noundef !4
   %13 = icmp eq i32 %12, %11
   br i1 %13, label %._crit_edge, label %.lr.ph
 

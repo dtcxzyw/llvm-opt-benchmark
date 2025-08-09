@@ -1858,7 +1858,7 @@ define dso_local void @e1000e_reset(ptr noundef %0) local_unnamed_addr #1 align 
   %119 = load ptr, ptr %29, align 8
   %120 = getelementptr i8, ptr %119, i64 4096
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 14, ptr elementtype(i32) %120) #22, !srcloc !15
-  store i32 10240, ptr %5, align 4
+  store i32 10240, ptr %5, align 8
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 2260
   store i32 10232, ptr %121, align 4
   br label %175
@@ -1886,7 +1886,7 @@ define dso_local void @e1000e_reset(ptr noundef %0) local_unnamed_addr #1 align 
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 2260
   %139 = select i1 %137, i32 13568, i32 20480
   %140 = select i1 %137, i32 5376, i32 12288
-  store i32 %139, ptr %5, align 4
+  store i32 %139, ptr %5, align 8
   store i32 %140, ptr %138, align 4
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 2266
   store i16 4096, ptr %141, align 2
@@ -1944,7 +1944,7 @@ define dso_local void @e1000e_reset(ptr noundef %0) local_unnamed_addr #1 align 
   %172 = load ptr, ptr %29, align 8
   %173 = getelementptr i8, ptr %172, i64 4096
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 14, ptr elementtype(i32) %173) #22, !srcloc !15
-  store i32 12896, ptr %5, align 4
+  store i32 12896, ptr %5, align 8
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 2260
   store i32 11464, ptr %174, align 4
   br label %175
@@ -2468,7 +2468,7 @@ define internal fastcc void @e1000_flush_desc_rings(ptr noundef readonly capture
 42:                                               ; preds = %.loopexit18
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %44 = load ptr, ptr %43, align 64
-  %45 = load ptr, ptr %4, align 8
+  %45 = load ptr, ptr %4, align 64
   %46 = getelementptr i8, ptr %45, i64 1024
   %47 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %46) #22, !srcloc !13
   %48 = or i32 %47, 2
@@ -6303,7 +6303,7 @@ define dso_local i32 @e1000e_open(ptr noundef %0) #1 align 16 {
   %3 = getelementptr i8, ptr %0, i64 3760
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr i8, ptr %0, i64 3024
-  %6 = load volatile i64, ptr %5, align 8
+  %6 = load volatile i64, ptr %5, align 16
   %7 = and i64 %6, 1
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %9, label %144
@@ -6945,7 +6945,7 @@ define dso_local noundef i32 @e1000e_close(ptr noundef %0) #1 align 16 {
   %3 = getelementptr i8, ptr %0, i64 3760
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr i8, ptr %0, i64 3024
-  %6 = load volatile i64, ptr %5, align 8
+  %6 = load volatile i64, ptr %5, align 16
   %7 = and i64 %6, 2
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
@@ -12769,7 +12769,7 @@ define internal void @e1000_remove(ptr noundef %0) #1 align 16 {
   %55 = load ptr, ptr %54, align 16
   tail call void @kfree(ptr noundef %55) #22
   %56 = getelementptr i8, ptr %3, i64 3776
-  %57 = load ptr, ptr %56, align 8
+  %57 = load ptr, ptr %56, align 64
   tail call void @iounmap(ptr noundef %57) #22
   %58 = getelementptr i8, ptr %3, i64 3784
   %59 = load ptr, ptr %58, align 8
@@ -13341,11 +13341,11 @@ define internal fastcc noundef range(i32 -12, 1) i32 @e1000_sw_init(ptr noundef 
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 12152
   store i64 68719476704, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 12160
-  store volatile ptr %45, ptr %45, align 8
+  store volatile ptr %45, ptr %45, align 32
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 12168
   store volatile ptr %45, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 12176
-  store ptr @e1000e_tx_hwtstamp_work, ptr %47, align 8
+  store ptr @e1000e_tx_hwtstamp_work, ptr %47, align 16
   br label %48
 
 48:                                               ; preds = %39, %26

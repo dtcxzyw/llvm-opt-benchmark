@@ -7970,7 +7970,7 @@ define linkonce_odr dso_local void @_ZN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEC2INS
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %18 = load <2 x double>, ptr %17, align 1, !tbaa !25
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %20 = load <2 x double>, ptr %19, align 8
+  %20 = load <2 x double>, ptr %19, align 16
   %21 = shufflevector <2 x double> %20, <2 x double> poison, <2 x i32> zeroinitializer
   %22 = fmul <2 x double> %18, %21
   %23 = fadd <2 x double> %16, %22
@@ -7994,7 +7994,7 @@ define linkonce_odr dso_local void @_ZN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEC2INS
   %40 = fadd <2 x double> %34, %39
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %42 = load <2 x double>, ptr %41, align 1, !tbaa !25
-  %43 = load <2 x double>, ptr %19, align 8
+  %43 = load <2 x double>, ptr %19, align 16
   %44 = shufflevector <2 x double> %43, <2 x double> poison, <2 x i32> zeroinitializer
   %45 = fmul <2 x double> %42, %44
   %46 = fadd <2 x double> %40, %45
@@ -9592,7 +9592,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIiSt4pairIKijESaIS2_
   %45 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #38
   store ptr null, ptr %45, align 8, !tbaa !16
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store i32 %43, ptr %46, align 4, !tbaa !160
+  store i32 %43, ptr %46, align 8, !tbaa !160
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %48 = load i32, ptr %44, align 4, !tbaa !59
   store i32 %48, ptr %47, align 4, !tbaa !162
@@ -9757,7 +9757,7 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !16
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !59
+  %16 = load i32, ptr %15, align 8, !tbaa !59
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18

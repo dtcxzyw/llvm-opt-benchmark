@@ -4488,7 +4488,7 @@ define hidden void @_ZN6Assimp11DXFImporter17GenerateHierarchyEP7aiSceneRNS_3DXF
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %7, ptr noundef nonnull align 1 dereferenceable(10) @.str.31, i64 10, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 14
-  store i8 0, ptr %8, align 1
+  store i8 0, ptr %8, align 2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 1
@@ -5537,13 +5537,13 @@ define hidden void @_ZN6Assimp11DXFImporter13ParsePolyLineERNS_3DXF10LineReaderE
   store ptr %17, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 112
   store i64 0, ptr %18, align 8
-  store i8 0, ptr %17, align 1
+  store i8 0, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 136
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 152
   store ptr %20, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 144
   store i64 0, ptr %21, align 8
-  store i8 0, ptr %20, align 1
+  store i8 0, ptr %20, align 8
   store ptr %15, ptr %7, align 8
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr null, ptr %22, align 8
@@ -6717,13 +6717,13 @@ define hidden void @_ZN6Assimp11DXFImporter11Parse3DFaceERNS_3DXF10LineReaderERN
   store ptr %24, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 112
   store i64 0, ptr %25, align 8
-  store i8 0, ptr %24, align 1
+  store i8 0, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 136
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 152
   store ptr %27, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 144
   store i64 0, ptr %28, align 8
-  store i8 0, ptr %27, align 1
+  store i8 0, ptr %27, align 8
   store ptr %22, ptr %16, align 8
   %29 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr null, ptr %29, align 8
@@ -7537,7 +7537,7 @@ define hidden void @_ZN6Assimp11DXFImporter14ParseInsertionERNS_3DXF10LineReader
   store ptr %25, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store i64 0, ptr %26, align 8
-  store i8 0, ptr %25, align 1
+  store i8 0, ptr %25, align 8
   %27 = load ptr, ptr %13, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 64
   store ptr %28, ptr %13, align 8
@@ -13946,7 +13946,7 @@ _ZSt19__relocate_object_aIN6Assimp3DXF5BlockES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i:
   store i64 %51, ptr %53, align 8, !alias.scope !192, !noalias !195
   store ptr %43, ptr %40, align 8, !alias.scope !195, !noalias !192
   store i64 0, ptr %52, align 8, !alias.scope !195, !noalias !192
-  store i8 0, ptr %43, align 1, !alias.scope !195, !noalias !192
+  store i8 0, ptr %43, align 8, !alias.scope !195, !noalias !192
   %54 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 80
   %55 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %54, ptr noundef nonnull align 8 dereferenceable(12) %55, i64 12, i1 false), !alias.scope !197
@@ -14024,7 +14024,7 @@ _ZSt19__relocate_object_aIN6Assimp3DXF5BlockES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i2
   store i64 %87, ptr %89, align 8, !alias.scope !199, !noalias !202
   store ptr %79, ptr %76, align 8, !alias.scope !202, !noalias !199
   store i64 0, ptr %88, align 8, !alias.scope !202, !noalias !199
-  store i8 0, ptr %79, align 1, !alias.scope !202, !noalias !199
+  store i8 0, ptr %79, align 8, !alias.scope !202, !noalias !199
   %90 = getelementptr inbounds nuw i8, ptr %.012.i.i.i17, i64 80
   %91 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i18, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %90, ptr noundef nonnull align 8 dereferenceable(12) %91, i64 12, i1 false), !alias.scope !204
@@ -14362,7 +14362,7 @@ _ZNKSt6vectorIN6Assimp3DXF11InsertBlockESaIS2_EE12_M_check_lenEmPKc.exit: ; pred
   store ptr %28, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %20, i64 40
   store i64 0, ptr %29, align 8
-  store i8 0, ptr %28, align 1
+  store i8 0, ptr %28, align 8
   %.not10.i.i.i = icmp eq ptr %5, %1
   br i1 %.not10.i.i.i, label %_ZNSt6vectorIN6Assimp3DXF11InsertBlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i
 
@@ -14405,7 +14405,7 @@ _ZSt19__relocate_object_aIN6Assimp3DXF11InsertBlockES2_SaIS2_EEvPT_PT0_RT1_.exit
   store i64 %42, ptr %44, align 8, !alias.scope !218, !noalias !221
   store ptr %34, ptr %31, align 8, !alias.scope !221, !noalias !218
   store i64 0, ptr %43, align 8, !alias.scope !221, !noalias !218
-  store i8 0, ptr %34, align 1, !alias.scope !221, !noalias !218
+  store i8 0, ptr %34, align 8, !alias.scope !221, !noalias !218
   %45 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 64
   %46 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 64
   %.not.i.i.i = icmp eq ptr %45, %1
@@ -14456,7 +14456,7 @@ _ZSt19__relocate_object_aIN6Assimp3DXF11InsertBlockES2_SaIS2_EEvPT_PT0_RT1_.exit
   store i64 %60, ptr %62, align 8, !alias.scope !225, !noalias !228
   store ptr %52, ptr %49, align 8, !alias.scope !228, !noalias !225
   store i64 0, ptr %61, align 8, !alias.scope !228, !noalias !225
-  store i8 0, ptr %52, align 1, !alias.scope !228, !noalias !225
+  store i8 0, ptr %52, align 8, !alias.scope !228, !noalias !225
   %63 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i28, i64 64
   %64 = getelementptr inbounds nuw i8, ptr %.012.i.i.i27, i64 64
   %.not.i.i.i33 = icmp eq ptr %63, %4

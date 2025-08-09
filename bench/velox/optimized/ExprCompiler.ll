@@ -19682,7 +19682,7 @@ _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKN8facebook5velox4cor
   tail call void @llvm.assume(i1 %cmp.i.i.i.i)
   %conv.i.i.i.i.i = trunc nuw i64 %desiredCapacity.addr.0.pn.i.i to i16
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %20, i64 12
-  store i16 %conv.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i, align 1
+  store i16 %conv.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i, align 2
   store ptr %20, ptr %chunks_, align 8
   %22 = trunc nuw nsw i64 %.pn.i.i to i32
   %conv.i10.i = add nsw i32 %22, -1

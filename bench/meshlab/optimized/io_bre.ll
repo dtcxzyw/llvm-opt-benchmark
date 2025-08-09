@@ -3345,7 +3345,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %36 = load i32, ptr %35, align 4
+  %36 = load i32, ptr %35, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #27
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %34, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %36, 1
@@ -3770,7 +3770,7 @@ _ZN10QByteArray4dataEv.exit.i:                    ; preds = %.noexc242, %35
   %66 = getelementptr inbounds nuw i8, ptr %60, i64 14
   %67 = load i16, ptr %66, align 2
   %68 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  %69 = load i16, ptr %68, align 2
+  %69 = load i16, ptr %68, align 4
   %.sroa.0730.0.extract.trunc = zext i16 %67 to i32
   %.sroa.3.0.extract.trunc = zext i16 %69 to i32
   %70 = getelementptr inbounds nuw i8, ptr %60, i64 18
@@ -3784,7 +3784,7 @@ _ZN10QByteArray4dataEv.exit.i:                    ; preds = %.noexc242, %35
   %78 = trunc i16 %71 to i8
   %79 = shl i8 %78, 3
   %80 = getelementptr inbounds nuw i8, ptr %60, i64 12
-  %81 = load i8, ptr %80, align 1
+  %81 = load i8, ptr %80, align 4
   %82 = load i32, ptr %1, align 8
   %83 = icmp slt i32 %82, %.sroa.0730.0.extract.trunc
   %84 = load i32, ptr %17, align 4
@@ -4525,11 +4525,11 @@ _ZN3vcg3tri2io10VertexGrid7QualityEii.exit:       ; preds = %_ZN10QByteArray4dat
   %465 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %464, i64 %463, i32 0, i64 0, i32 0, i64 1
   store float %130, ptr %465, align 4
   %466 = getelementptr inbounds nuw i8, ptr %229, i64 56
-  store float %441, ptr %466, align 4
+  store float %441, ptr %466, align 8
   %467 = getelementptr inbounds nuw i8, ptr %229, i64 60
   store float %443, ptr %467, align 4
   %468 = getelementptr inbounds nuw i8, ptr %229, i64 64
-  store float %445, ptr %468, align 4
+  store float %445, ptr %468, align 8
   %469 = load i32, ptr %1, align 8
   %470 = icmp sge i32 %.0238781, %469
   %471 = load i32, ptr %17, align 4
@@ -12705,7 +12705,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.015.0, i64 32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %.sroa.015.0, i64 80
-  %65 = load i32, ptr %64, align 4
+  %65 = load i32, ptr %64, align 8
   br label %66
 
 66:                                               ; preds = %_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit, %13, %61

@@ -5077,7 +5077,7 @@ check_marker.exit:                                ; preds = %.thread
   %185 = getelementptr inbounds nuw i8, ptr %75, i64 100
   store i32 30000, ptr %185, align 4, !tbaa !85
   %.sroa.227.0..sroa_idx = getelementptr inbounds nuw i8, ptr %75, i64 104
-  store i32 1001, ptr %.sroa.227.0..sroa_idx, align 4, !tbaa !85
+  store i32 1001, ptr %.sroa.227.0..sroa_idx, align 8, !tbaa !85
   br label %567
 
 186:                                              ; preds = %94

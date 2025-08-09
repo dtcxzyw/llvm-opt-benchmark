@@ -7080,7 +7080,7 @@ _ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttribu
   %49 = lshr i64 %48, 1
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %51 = load i32, ptr %50, align 4
-  %52 = load i32, ptr %40, align 4
+  %52 = load i32, ptr %40, align 8
   %53 = zext i32 %52 to i64
   %54 = add i64 %45, %53
   %55 = add i64 %54, %49

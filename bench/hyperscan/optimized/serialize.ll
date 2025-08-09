@@ -672,7 +672,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i: ; preds = %38
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store i64 10, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 34
-  store i8 0, ptr %53, align 1
+  store i8 0, ptr %53, align 2
   %54 = getelementptr inbounds nuw i8, ptr %49, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %54, i8 0, i64 48, i1 false)
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1113,7 +1113,7 @@ define internal fastcc void @_ZN7testing8internal25ParameterizedTestCaseInfoIN12
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 10, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 26
-  store i8 0, ptr %9, align 1
+  store i8 0, ptr %9, align 2
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %11, ptr %10, align 8
@@ -6687,7 +6687,7 @@ define linkonce_odr hidden void @_ZN7testing15AssertionResult13AppendMessageERKN
   store ptr %9, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 0, ptr %10, align 8
-  store i8 0, ptr %9, align 1
+  store i8 0, ptr %9, align 8
   %11 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
   br i1 %11, label %12, label %22
 
@@ -31402,7 +31402,7 @@ _ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store i64 %50, ptr %52, align 8, !alias.scope !127, !noalias !130
   store ptr %42, ptr %.0911.i.i.i.i, align 8, !alias.scope !130, !noalias !127
   store i64 0, ptr %51, align 8, !alias.scope !130, !noalias !127
-  store i8 0, ptr %42, align 1, !alias.scope !130, !noalias !127
+  store i8 0, ptr %42, align 8, !alias.scope !130, !noalias !127
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %55 = load ptr, ptr %54, align 8, !alias.scope !130, !noalias !127
@@ -31454,7 +31454,7 @@ _ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store i64 %69, ptr %71, align 8, !alias.scope !134, !noalias !137
   store ptr %61, ptr %.0911.i.i.i.i19, align 8, !alias.scope !137, !noalias !134
   store i64 0, ptr %70, align 8, !alias.scope !137, !noalias !134
-  store i8 0, ptr %61, align 1, !alias.scope !137, !noalias !134
+  store i8 0, ptr %61, align 8, !alias.scope !137, !noalias !134
   %72 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 32
   %73 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 32
   %74 = load ptr, ptr %73, align 8, !alias.scope !137, !noalias !134

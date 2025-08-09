@@ -169,7 +169,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %if
   store i64 %5, ptr %_M_string_length.i13.i, align 8, !tbaa !14
   store ptr %2, ptr %name, align 8, !tbaa !10
   store i64 0, ptr %_M_string_length.i12.i, align 8, !tbaa !14
-  store i8 0, ptr %2, align 1, !tbaa !16
+  store i8 0, ptr %2, align 8, !tbaa !16
   %code3 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr %6, ptr %code3, align 8, !tbaa !15
@@ -200,7 +200,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit9: ; preds = %i
   store i64 %11, ptr %_M_string_length.i13.i4, align 8, !tbaa !14
   store ptr %8, ptr %code, align 8, !tbaa !10
   store i64 0, ptr %_M_string_length.i12.i3, align 8, !tbaa !14
-  store i8 0, ptr %8, align 1, !tbaa !16
+  store i8 0, ptr %8, align 8, !tbaa !16
   %numeric = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i32 %numericCode, ptr %numeric, align 8, !tbaa !17
   %symbol4 = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -233,7 +233,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit18: ; preds = %
   store i64 %17, ptr %_M_string_length.i13.i13, align 8, !tbaa !14
   store ptr %14, ptr %symbol, align 8, !tbaa !10
   store i64 0, ptr %_M_string_length.i12.i12, align 8, !tbaa !14
-  store i8 0, ptr %14, align 1, !tbaa !16
+  store i8 0, ptr %14, align 8, !tbaa !16
   %fractionSymbol5 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %18 = getelementptr inbounds nuw i8, ptr %this, i64 120
   store ptr %18, ptr %fractionSymbol5, align 8, !tbaa !15
@@ -264,7 +264,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit27: ; preds = %
   store i64 %23, ptr %_M_string_length.i13.i22, align 8, !tbaa !14
   store ptr %20, ptr %fractionSymbol, align 8, !tbaa !10
   store i64 0, ptr %_M_string_length.i12.i21, align 8, !tbaa !14
-  store i8 0, ptr %20, align 1, !tbaa !16
+  store i8 0, ptr %20, align 8, !tbaa !16
   %fractionsPerUnit6 = getelementptr inbounds nuw i8, ptr %this, i64 136
   store i32 %fractionsPerUnit, ptr %fractionsPerUnit6, align 8, !tbaa !31
   %rounding7 = getelementptr inbounds nuw i8, ptr %this, i64 140
@@ -366,7 +366,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %if
   store i64 %5, ptr %_M_string_length.i13.i, align 8, !tbaa !14
   store ptr %2, ptr %name, align 8, !tbaa !10
   store i64 0, ptr %_M_string_length.i12.i, align 8, !tbaa !14
-  store i8 0, ptr %2, align 1, !tbaa !16
+  store i8 0, ptr %2, align 8, !tbaa !16
   %code3 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr %6, ptr %code3, align 8, !tbaa !15
@@ -397,7 +397,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit9: ; preds = %i
   store i64 %11, ptr %_M_string_length.i13.i4, align 8, !tbaa !14
   store ptr %8, ptr %code, align 8, !tbaa !10
   store i64 0, ptr %_M_string_length.i12.i3, align 8, !tbaa !14
-  store i8 0, ptr %8, align 1, !tbaa !16
+  store i8 0, ptr %8, align 8, !tbaa !16
   %numeric = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i32 %numericCode, ptr %numeric, align 8, !tbaa !17
   %symbol4 = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -430,7 +430,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit18: ; preds = %
   store i64 %17, ptr %_M_string_length.i13.i13, align 8, !tbaa !14
   store ptr %14, ptr %symbol, align 8, !tbaa !10
   store i64 0, ptr %_M_string_length.i12.i12, align 8, !tbaa !14
-  store i8 0, ptr %14, align 1, !tbaa !16
+  store i8 0, ptr %14, align 8, !tbaa !16
   %fractionSymbol5 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %18 = getelementptr inbounds nuw i8, ptr %this, i64 120
   store ptr %18, ptr %fractionSymbol5, align 8, !tbaa !15
@@ -461,7 +461,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit27: ; preds = %
   store i64 %23, ptr %_M_string_length.i13.i22, align 8, !tbaa !14
   store ptr %20, ptr %fractionSymbol, align 8, !tbaa !10
   store i64 0, ptr %_M_string_length.i12.i21, align 8, !tbaa !14
-  store i8 0, ptr %20, align 1, !tbaa !16
+  store i8 0, ptr %20, align 8, !tbaa !16
   %fractionsPerUnit6 = getelementptr inbounds nuw i8, ptr %this, i64 136
   store i32 %fractionsPerUnit, ptr %fractionsPerUnit6, align 8, !tbaa !31
   %rounding7 = getelementptr inbounds nuw i8, ptr %this, i64 140
@@ -504,7 +504,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit36: ; preds = %
   store i64 %31, ptr %_M_string_length.i13.i31, align 8, !tbaa !14
   store ptr %28, ptr %formatString, align 8, !tbaa !10
   store i64 0, ptr %_M_string_length.i12.i30, align 8, !tbaa !14
-  store i8 0, ptr %28, align 1, !tbaa !16
+  store i8 0, ptr %28, align 8, !tbaa !16
   %32 = getelementptr inbounds nuw i8, ptr %this, i64 208
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %minorUnitCodes, i64 16
   %33 = load ptr, ptr %_M_parent.i.i.i.i, align 8, !tbaa !36

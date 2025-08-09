@@ -6911,7 +6911,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN4llvm11less_secondEEclIPSt4pairIPNS2_15DomT
   %134 = load ptr, ptr %123, align 8, !tbaa !172
   store ptr %134, ptr %133, align 8, !tbaa !564
   %135 = getelementptr inbounds nuw i8, ptr %133, i64 8
-  store i32 %125, ptr %135, align 4, !tbaa !561
+  store i32 %125, ptr %135, align 8, !tbaa !561
   %136 = getelementptr inbounds nuw i8, ptr %133, i64 12
   store i32 %132, ptr %136, align 4, !tbaa !563
   %.not.i.i30 = icmp ult i64 %.020.in.i.i.i, 2
@@ -6922,7 +6922,7 @@ _ZNSt14priority_queueISt4pairIPN4llvm15DomTreeNodeBaseINS1_10BasicBlockEEES0_Ijj
   %137 = getelementptr inbounds %"struct.std::pair.475", ptr %117, i64 %.013.lcssa.i.i.i
   store ptr %.sroa.01.0.copyload.i.i, ptr %137, align 8, !tbaa !564
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  store i64 %.sroa.4.0.copyload.i.i, ptr %138, align 4
+  store i64 %.sroa.4.0.copyload.i.i, ptr %138, align 8
   %139 = load i8, ptr %26, align 4, !tbaa !32, !range !49, !noalias !567, !noundef !50
   %140 = trunc nuw i8 %139 to i1
   br i1 %140, label %141, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
@@ -7000,7 +7000,7 @@ _ZN4llvm19SmallPtrSetIteratorIPNS_10BasicBlockEEppEv.exit: ; preds = %.lr.ph.i4.
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %161, i64 -8
   %.sroa.4.0.copyload.i.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
   store ptr %.sroa.0.0.copyload, ptr %162, align 8, !tbaa !564
-  store i32 %.sroa.4.0.copyload, ptr %.sroa.4.0..sroa_idx.i.i.i, align 4, !tbaa !561
+  store i32 %.sroa.4.0.copyload, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !tbaa !561
   %163 = getelementptr inbounds nuw i8, ptr %158, i64 12
   %164 = load i32, ptr %163, align 4, !tbaa !71
   %165 = getelementptr inbounds i8, ptr %161, i64 -4
@@ -11326,7 +11326,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %21
   store i64 %224, ptr %225, align 8, !tbaa !36
   store ptr %217, ptr %5, align 8, !tbaa !48
   store i64 0, ptr %15, align 8, !tbaa !36
-  store i8 0, ptr %217, align 1, !tbaa !38
+  store i8 0, ptr %217, align 8, !tbaa !38
   br label %226
 
 226:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit27
@@ -19631,7 +19631,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN4llvm11less_secondEEclIPSt4pairIPNS2_15DomT
   %133 = load ptr, ptr %122, align 8, !tbaa !172
   store ptr %133, ptr %132, align 8, !tbaa !564
   %134 = getelementptr inbounds nuw i8, ptr %132, i64 8
-  store i32 %124, ptr %134, align 4, !tbaa !561
+  store i32 %124, ptr %134, align 8, !tbaa !561
   %135 = getelementptr inbounds nuw i8, ptr %132, i64 12
   store i32 %131, ptr %135, align 4, !tbaa !563
   %.not.i.i13 = icmp ult i64 %.020.in.i.i.i, 2
@@ -19642,7 +19642,7 @@ _ZNSt14priority_queueISt4pairIPN4llvm15DomTreeNodeBaseINS1_10BasicBlockEEES0_Ijj
   %136 = getelementptr inbounds %"struct.std::pair.475", ptr %116, i64 %.013.lcssa.i.i.i
   store ptr %.sroa.01.0.copyload.i.i, ptr %136, align 8, !tbaa !564
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
-  store i64 %.sroa.4.0.copyload.i.i, ptr %137, align 4
+  store i64 %.sroa.4.0.copyload.i.i, ptr %137, align 8
   br label %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread
 
 _ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread: ; preds = %63, %.lr.ph.i.i9, %57, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit12, %_ZNSt14priority_queueISt4pairIPN4llvm15DomTreeNodeBaseINS1_10BasicBlockEEES0_IjjEENS1_11SmallVectorIS7_Lj32EEENS1_11less_secondEE4pushEOS7_.exit, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit
@@ -19702,8 +19702,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm11less_secondEEclIPSt4pairIPNS2_15Dom
   store ptr %30, ptr %29, align 8, !tbaa !564
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %33 = load i32, ptr %31, align 4, !tbaa !71
-  store i32 %33, ptr %32, align 4, !tbaa !561
+  %33 = load i32, ptr %31, align 8, !tbaa !71
+  store i32 %33, ptr %32, align 8, !tbaa !561
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 12
   %35 = load i32, ptr %34, align 4, !tbaa !71
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 12
@@ -19732,8 +19732,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm11less_secondEEclIPSt4pairIPNS2_15Dom
   store ptr %49, ptr %48, align 8, !tbaa !564
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %52 = load i32, ptr %50, align 4, !tbaa !71
-  store i32 %52, ptr %51, align 4, !tbaa !561
+  %52 = load i32, ptr %50, align 8, !tbaa !71
+  store i32 %52, ptr %51, align 8, !tbaa !561
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 12
   %54 = load i32, ptr %53, align 4, !tbaa !71
   %55 = getelementptr inbounds nuw i8, ptr %48, i64 12
@@ -19779,7 +19779,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN4llvm11less_secondEEclIPSt4pairIPNS2_15DomT
   %69 = load ptr, ptr %58, align 8, !tbaa !172
   store ptr %69, ptr %68, align 8, !tbaa !564
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  store i32 %60, ptr %70, align 4, !tbaa !561
+  store i32 %60, ptr %70, align 8, !tbaa !561
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 12
   store i32 %67, ptr %71, align 4, !tbaa !563
   %72 = icmp sgt i64 %.020.i, %1
@@ -19790,7 +19790,7 @@ _ZSt11__push_heapIPSt4pairIPN4llvm15DomTreeNodeBaseINS1_10BasicBlockEEES0_IjjEEl
   %73 = getelementptr inbounds %"struct.std::pair.475", ptr %0, i64 %.013.lcssa.i
   store ptr %3, ptr %73, align 8, !tbaa !564
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  store i64 %4, ptr %74, align 4
+  store i64 %4, ptr %74, align 8
   ret void
 }
 
@@ -21386,7 +21386,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11AnalysisKeyEbLj8ENS_12DenseMapIn
   store ptr %66, ptr %54, align 8, !tbaa !915
   %67 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %68 = load i8, ptr %3, align 1, !tbaa !89, !range !49, !noundef !50
-  store i8 %68, ptr %67, align 1, !tbaa !89
+  store i8 %68, ptr %67, align 8, !tbaa !89
   %69 = load i32, ptr %1, align 8
   %70 = and i32 %69, 1
   %.not.i.i.i.i7 = icmp eq i32 %70, 0
@@ -21531,7 +21531,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIPNS_11AnalysisKeyEbLj8E
   %30 = getelementptr inbounds nuw i8, ptr %.02738, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %.028.ptr39, i64 8
   %32 = load i8, ptr %31, align 8, !tbaa !89, !range !49, !noundef !50
-  store i8 %32, ptr %30, align 1, !tbaa !89
+  store i8 %32, ptr %30, align 8, !tbaa !89
   %33 = getelementptr inbounds nuw i8, ptr %.02738, i64 16
   br label %34
 
@@ -21690,7 +21690,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11AnalysisKeyEbLj8ENS_12DenseMapIn
   %48 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %.023, i64 8
   %50 = load i8, ptr %49, align 1, !tbaa !89, !range !49, !noundef !50
-  store i8 %50, ptr %48, align 1, !tbaa !89
+  store i8 %50, ptr %48, align 8, !tbaa !89
   %51 = load i32, ptr %0, align 8
   %52 = and i32 %51, -2
   %53 = add i32 %52, 2

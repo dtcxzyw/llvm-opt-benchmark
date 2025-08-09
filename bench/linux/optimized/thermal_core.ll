@@ -1919,7 +1919,7 @@ define dso_local i32 @thermal_bind_cdev_to_trip(ptr noundef %0, ptr noundef %1, 
   store ptr %107, ptr %108, align 8
   store volatile ptr %104, ptr %107, align 8
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 920
-  store volatile i32 1, ptr %109, align 4
+  store volatile i32 1, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %111 = load ptr, ptr %110, align 8
   %112 = icmp eq ptr %111, null

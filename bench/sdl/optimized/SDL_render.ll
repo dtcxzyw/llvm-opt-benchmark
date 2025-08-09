@@ -866,7 +866,7 @@ select.unfold..critedge_crit_edge:                ; preds = %select.unfold
   %90 = getelementptr inbounds nuw i8, ptr %5, i64 364
   store float 1.000000e+00, ptr %90, align 4
   %91 = getelementptr inbounds nuw i8, ptr %5, i64 368
-  store float 1.000000e+00, ptr %91, align 4
+  store float 1.000000e+00, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %5, i64 416
   store float 1.000000e+00, ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %5, i64 420
@@ -882,16 +882,16 @@ select.unfold..critedge_crit_edge:                ; preds = %select.unfold
   %98 = getelementptr inbounds nuw i8, ptr %5, i64 444
   store float 1.000000e+00, ptr %98, align 4
   tail call fastcc void @UpdatePixelViewport(ptr noundef nonnull %87)
-  %99 = load float, ptr %94, align 4
+  %99 = load float, ptr %94, align 8
   %100 = load float, ptr %95, align 4
   %101 = getelementptr inbounds nuw i8, ptr %5, i64 328
-  %102 = load i32, ptr %101, align 4
+  %102 = load i32, ptr %101, align 8
   %103 = sitofp i32 %102 to float
   %104 = fmul float %99, %103
   %105 = tail call float @SDL_floorf_REAL(float noundef %104) #15
   %106 = fptosi float %105 to i32
   %107 = getelementptr inbounds nuw i8, ptr %5, i64 344
-  store i32 %106, ptr %107, align 4
+  store i32 %106, ptr %107, align 8
   %108 = getelementptr inbounds nuw i8, ptr %5, i64 332
   %109 = load i32, ptr %108, align 4
   %110 = sitofp i32 %109 to float
@@ -901,13 +901,13 @@ select.unfold..critedge_crit_edge:                ; preds = %select.unfold
   %114 = getelementptr inbounds nuw i8, ptr %5, i64 348
   store i32 %113, ptr %114, align 4
   %115 = getelementptr inbounds nuw i8, ptr %5, i64 336
-  %116 = load i32, ptr %115, align 4
+  %116 = load i32, ptr %115, align 8
   %117 = sitofp i32 %116 to float
   %118 = fmul float %99, %117
   %119 = tail call float @SDL_ceilf_REAL(float noundef %118) #15
   %120 = fptosi float %119 to i32
   %121 = getelementptr inbounds nuw i8, ptr %5, i64 352
-  store i32 %120, ptr %121, align 4
+  store i32 %120, ptr %121, align 8
   %122 = getelementptr inbounds nuw i8, ptr %5, i64 340
   %123 = load i32, ptr %122, align 4
   %124 = sitofp i32 %123 to float
@@ -2545,7 +2545,7 @@ switch.lookup:                                    ; preds = %95
   %108 = getelementptr inbounds nuw i8, ptr %74, i64 132
   store float 1.000000e+00, ptr %108, align 4
   %109 = getelementptr inbounds nuw i8, ptr %74, i64 136
-  store float 1.000000e+00, ptr %109, align 4
+  store float 1.000000e+00, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %74, i64 184
   store float 1.000000e+00, ptr %110, align 8
   %111 = getelementptr inbounds nuw i8, ptr %74, i64 188
@@ -5681,7 +5681,7 @@ SDL_UnlockTextureYUV.exit:                        ; preds = %18, %27
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %41 = load i32, ptr %40, align 4
+  %41 = load i32, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %43 = load i32, ptr %42, align 8
   %44 = mul nsw i32 %43, %41

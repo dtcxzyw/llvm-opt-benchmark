@@ -33500,7 +33500,7 @@ define void @_ZN6open3d8geometry9TetraMesh19ExtractTriangleMeshERKSt6vectorIdSaI
   store ptr %23, ptr %22, align 8, !tbaa !37, !noalias !696
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i64 0, ptr %24, align 8, !tbaa !21, !noalias !696
-  store i8 0, ptr %23, align 1, !tbaa !22, !noalias !696
+  store i8 0, ptr %23, align 8, !tbaa !22, !noalias !696
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %25, i8 0, i64 72, i1 false), !noalias !696
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry12TriangleMeshE, i64 16), ptr %19, align 8, !tbaa !4, !noalias !696

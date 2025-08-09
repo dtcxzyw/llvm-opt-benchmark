@@ -1253,7 +1253,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 24
   store i64 0, ptr %42, align 8, !tbaa !12
-  store i32 1, ptr %38, align 4, !tbaa !8
+  store i32 1, ptr %38, align 8, !tbaa !8
   store i32 131104, ptr %41, align 4
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %10, ptr %43, align 8, !tbaa !4
@@ -3808,7 +3808,7 @@ lean_alloc_ctor.exit:                             ; preds = %l_Lean_mkStateFromI
   %65 = getelementptr inbounds nuw i8, ptr %.sink118, i64 4
   %66 = getelementptr inbounds nuw i8, ptr %.sink118, i64 24
   store i64 1, ptr %66, align 8, !tbaa !12
-  store i32 1, ptr %.sink118, align 4, !tbaa !8
+  store i32 1, ptr %.sink118, align 8, !tbaa !8
   store i32 131104, ptr %65, align 4
   %67 = getelementptr inbounds nuw i8, ptr %.sink118, i64 8
   store ptr %.0.i99.sink, ptr %67, align 8, !tbaa !4
@@ -5174,7 +5174,7 @@ _init_l_Lean_initFn____x40_Lean_Namespace___hyg_3____closed__7.exit: ; preds = %
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 48
   store i64 257, ptr %69, align 8, !tbaa !12
-  store i32 1, ptr %65, align 4, !tbaa !8
+  store i32 1, ptr %65, align 8, !tbaa !8
   store i32 327736, ptr %68, align 4
   %70 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store ptr %61, ptr %70, align 8, !tbaa !4
@@ -5205,7 +5205,7 @@ _init_l_Lean_initFn____x40_Lean_Namespace___hyg_3____closed__7.exit: ; preds = %
   %.val13 = load ptr, ptr %81, align 8, !tbaa !4
   store ptr %.val13, ptr @l_Lean_namespacesExt, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val13) #3
-  %82 = load i32, ptr %77, align 4, !tbaa !8
+  %82 = load i32, ptr %77, align 8, !tbaa !8
   %83 = icmp sgt i32 %82, 1
   br i1 %83, label %84, label %86, !prof !11
 

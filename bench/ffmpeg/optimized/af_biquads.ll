@@ -1716,7 +1716,7 @@ convert_dir2zdf.exit:                             ; preds = %598, %611, %627, %6
   store float %757, ptr %758, align 4, !tbaa !73
   %759 = fptrunc nsz double %746 to float
   %760 = getelementptr inbounds nuw i8, ptr %5, i64 176
-  store float %759, ptr %760, align 4, !tbaa !73
+  store float %759, ptr %760, align 8, !tbaa !73
   %761 = fptrunc nsz double %745 to float
   %762 = getelementptr inbounds nuw i8, ptr %5, i64 180
   store float %761, ptr %762, align 4, !tbaa !73

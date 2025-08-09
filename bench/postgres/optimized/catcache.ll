@@ -3620,7 +3620,7 @@ define internal ptr @ResOwnerPrintCatCache(i64 noundef %0) #0 {
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %.val = load i16, ptr %8, align 2
+  %.val = load i16, ptr %8, align 4
   %9 = getelementptr i8, ptr %2, i64 6
   %.val6 = load i16, ptr %9, align 2
   %10 = zext i16 %.val to i32
@@ -3628,7 +3628,7 @@ define internal ptr @ResOwnerPrintCatCache(i64 noundef %0) #0 {
   %12 = zext i16 %.val6 to i32
   %13 = or disjoint i32 %11, %12
   %14 = getelementptr i8, ptr %2, i64 8
-  %.val7 = load i16, ptr %14, align 2
+  %.val7 = load i16, ptr %14, align 8
   %15 = zext i16 %.val7 to i32
   %16 = getelementptr inbounds i8, ptr %2, i64 -8
   %17 = load i32, ptr %16, align 8

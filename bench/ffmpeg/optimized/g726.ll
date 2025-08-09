@@ -587,7 +587,7 @@ define internal fastcc void @g726_reset(ptr noundef captures(none) initializes((
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 16 dereferenceable(32) %6, i64 32, i1 false), !tbaa.struct !67
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 42
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i8 32, ptr %7, align 1, !tbaa !70
+  store i8 32, ptr %7, align 2, !tbaa !70
   store i32 1, ptr %8, align 4, !tbaa !42
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 45
   store i8 32, ptr %9, align 1, !tbaa !70
@@ -766,7 +766,7 @@ define internal fastcc signext i16 @g726_decode(ptr noundef captures(none) %0, i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %101, ptr noundef nonnull align 8 dereferenceable(3) %100, i64 3, i1 false), !tbaa.struct !80
   %.lobit.i = lshr i32 %46, 31
   %102 = trunc nuw nsw i32 %.lobit.i to i8
-  store i8 %102, ptr %100, align 1, !tbaa !78
+  store i8 %102, ptr %100, align 8, !tbaa !78
   %spec.select.i = tail call i32 @llvm.abs.i32(i32 range(i32 -536870912, 536870912) %46, i1 true)
   %103 = and i32 %spec.select.i, 65280
   %.not.i.i = icmp eq i32 %103, 0
@@ -790,7 +790,7 @@ define internal fastcc signext i16 @g726_decode(ptr noundef captures(none) %0, i
   %118 = trunc i32 %117 to i8
   %119 = select i1 %109, i8 %118, i8 32
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 42
-  store i8 %119, ptr %120, align 1, !tbaa !70
+  store i8 %119, ptr %120, align 2, !tbaa !70
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 46
   %scevgep = getelementptr i8, ptr %0, i64 49
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %scevgep, ptr noundef nonnull align 1 dereferenceable(15) %121, i64 15, i1 false)
@@ -817,7 +817,7 @@ define internal fastcc signext i16 @g726_decode(ptr noundef captures(none) %0, i
   %137 = trunc i32 %136 to i8
   %138 = select i1 %128, i8 %137, i8 32
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i8 %138, ptr %139, align 1, !tbaa !70
+  store i8 %138, ptr %139, align 8, !tbaa !70
   %140 = trunc i32 %6 to i8
   store i8 %140, ptr %121, align 2, !tbaa !78
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 64

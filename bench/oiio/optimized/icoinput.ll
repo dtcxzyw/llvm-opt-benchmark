@@ -2240,15 +2240,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit137: ; preds = %_Z
   call void @llvm.experimental.noalias.scope.decl(metadata !120)
   %271 = load i16, ptr %265, align 2, !tbaa !123, !noalias !124
   %.sroa.042.0.insert.ext.i.i = zext i16 %271 to i64
-  %272 = load i8, ptr %266, align 1, !tbaa !14, !noalias !124
+  %272 = load i8, ptr %266, align 2, !tbaa !14, !noalias !124
   %.sroa.057.0.insert.ext.i.i = zext i8 %272 to i64
   %273 = load i8, ptr %267, align 1, !tbaa !14, !noalias !124
   %.sroa.054.0.insert.ext.i.i = zext i8 %273 to i64
-  %274 = load i8, ptr %268, align 1, !tbaa !14, !noalias !124
+  %274 = load i8, ptr %268, align 2, !tbaa !14, !noalias !124
   %.sroa.051.0.insert.ext.i.i = zext i8 %274 to i64
   %275 = load i8, ptr %269, align 1, !tbaa !14, !noalias !124
   %.sroa.048.0.insert.ext.i.i = zext i8 %275 to i64
-  %276 = load i8, ptr %270, align 1, !tbaa !14, !noalias !124
+  %276 = load i8, ptr %270, align 2, !tbaa !14, !noalias !124
   %.sroa.045.0.insert.ext.i.i = zext i8 %276 to i64
   store i64 %.sroa.042.0.insert.ext.i.i, ptr %27, align 16, !alias.scope !120, !noalias !117
   %277 = getelementptr inbounds nuw i8, ptr %27, i64 16
@@ -4998,7 +4998,7 @@ _ZNSt12_Vector_baseIN11OpenImageIO6v3_1_010ParamValueESaIS2_EE11_M_allocateEm.ex
   %.sroa.04.08.i.i.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i.i.i ], [ %6, %_ZNSt12_Vector_baseIN11OpenImageIO6v3_1_010ParamValueESaIS2_EE11_M_allocateEm.exit.i ]
   store ptr null, ptr %.09.i.i.i.i.i, align 8, !tbaa !162
   %22 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 8
-  store i8 0, ptr %22, align 4, !tbaa !164
+  store i8 0, ptr %22, align 8, !tbaa !164
   %23 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 9
   store i8 1, ptr %23, align 1, !tbaa !165
   %24 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 10
@@ -5164,7 +5164,7 @@ _ZSt4copyIPN11OpenImageIO6v3_1_010ParamValueES3_ET0_T_S5_S4_.exit: ; preds = %_Z
   %.0810.i.i.i.i = phi ptr [ %100, %.lr.ph.i.i.i.i ], [ %81, %_ZSt4copyIPN11OpenImageIO6v3_1_010ParamValueES3_ET0_T_S5_S4_.exit ]
   store ptr null, ptr %.011.i.i.i.i, align 8, !tbaa !162
   %82 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
-  store i8 0, ptr %82, align 4, !tbaa !164
+  store i8 0, ptr %82, align 8, !tbaa !164
   %83 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 9
   store i8 1, ptr %83, align 1, !tbaa !165
   %84 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 10

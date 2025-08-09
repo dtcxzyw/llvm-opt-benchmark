@@ -4023,7 +4023,7 @@ __skb_put.exit:                                   ; preds = %232
   %357 = add i32 %356, %345
   store i32 %357, ptr %354, align 64
   %358 = getelementptr inbounds nuw i8, ptr %349, i64 144
-  %359 = load volatile i64, ptr %358, align 8
+  %359 = load volatile i64, ptr %358, align 16
   %360 = and i64 %359, 1
   %361 = icmp ne i64 %360, 0
   br label %382

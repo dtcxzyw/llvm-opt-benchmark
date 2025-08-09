@@ -488,7 +488,7 @@ define dso_local noundef ptr @_ZN22b3DynamicBvhBroadphase11createProxyERK9b3Vect
   store ptr null, ptr %18, align 8, !tbaa !37
   %31 = load ptr, ptr %30, align 8, !tbaa !37
   %32 = getelementptr inbounds nuw i8, ptr %13, i64 80
-  store ptr %31, ptr %32, align 8, !tbaa !37
+  store ptr %31, ptr %32, align 16, !tbaa !37
   %.not.i = icmp eq ptr %31, null
   br i1 %.not.i, label %_ZL12b3ListAppendI11b3DbvtProxyEvPT_RS2_.exit, label %33
 
@@ -897,7 +897,7 @@ define dso_local void @_ZN22b3DynamicBvhBroadphase12destroyProxyEP17b3Broadphase
   %11 = load ptr, ptr %10, align 8, !tbaa !37
   %.not.i = icmp eq ptr %11, null
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %13 = load ptr, ptr %12, align 8, !tbaa !37
+  %13 = load ptr, ptr %12, align 16, !tbaa !37
   br i1 %.not.i, label %16, label %14
 
 14:                                               ; preds = %3

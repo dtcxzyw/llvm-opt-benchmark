@@ -4922,7 +4922,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70: ; preds = %_ZN
   %.sroa.087.0144 = phi ptr [ %161, %.lr.ph147 ], [ %148, %157 ]
   %161 = load ptr, ptr %.sroa.087.0144, align 8
   %162 = getelementptr inbounds nuw i8, ptr %.sroa.087.0144, i64 16
-  %163 = load i32, ptr %162, align 4
+  %163 = load i32, ptr %162, align 8
   %164 = load ptr, ptr %158, align 8
   %165 = getelementptr inbounds nuw i32, ptr %164, i64 %.0145
   store i32 %163, ptr %165, align 4

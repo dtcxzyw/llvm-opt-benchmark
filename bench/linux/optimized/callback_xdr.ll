@@ -615,7 +615,7 @@ define internal i32 @encode_getattr_res(ptr readnone captures(none) %0, ptr noun
   %61 = trunc i64 %60 to i32
   %62 = tail call i32 @llvm.bswap.i32(i32 %61)
   store i32 %62, ptr %58, align 4
-  %.pre12 = load i32, ptr %48, align 4
+  %.pre12 = load i32, ptr %48, align 8
   br label %63
 
 63:                                               ; preds = %46, %55

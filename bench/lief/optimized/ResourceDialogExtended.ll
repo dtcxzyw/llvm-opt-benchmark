@@ -2071,7 +2071,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN4LIEF2PE22ResourceDialogExtendedEJE
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  store i32 2, ptr %5, align 4, !tbaa !17
+  store i32 2, ptr %5, align 8, !tbaa !17
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 36
   store i8 0, ptr %6, align 4, !tbaa !24
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -2079,9 +2079,9 @@ define linkonce_odr void @_ZSt11make_uniqueIN4LIEF2PE22ResourceDialogExtendedEJE
   store ptr %8, ptr %7, align 8, !tbaa !26
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i64 0, ptr %9, align 8, !tbaa !30
-  store i16 0, ptr %8, align 2, !tbaa !32
+  store i16 0, ptr %8, align 8, !tbaa !32
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store i32 2, ptr %10, align 4, !tbaa !17
+  store i32 2, ptr %10, align 8, !tbaa !17
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 76
   store i8 0, ptr %11, align 4, !tbaa !24
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 80
@@ -2089,13 +2089,13 @@ define linkonce_odr void @_ZSt11make_uniqueIN4LIEF2PE22ResourceDialogExtendedEJE
   store ptr %13, ptr %12, align 8, !tbaa !26
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i64 0, ptr %14, align 8, !tbaa !30
-  store i16 0, ptr %13, align 2, !tbaa !32
+  store i16 0, ptr %13, align 8, !tbaa !32
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store ptr %16, ptr %15, align 8, !tbaa !26
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 120
   store i64 0, ptr %17, align 8, !tbaa !30
-  store i16 0, ptr %16, align 2, !tbaa !32
+  store i16 0, ptr %16, align 8, !tbaa !32
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4LIEF2PE22ResourceDialogExtendedE, i64 16), ptr %2, align 8, !tbaa !12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 160
@@ -2104,7 +2104,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN4LIEF2PE22ResourceDialogExtendedEJE
   store ptr %20, ptr %19, align 8, !tbaa !26
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 168
   store i64 0, ptr %21, align 8, !tbaa !30
-  store i16 0, ptr %20, align 2, !tbaa !32
+  store i16 0, ptr %20, align 8, !tbaa !32
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   store ptr %2, ptr %0, align 8, !tbaa !83
@@ -4367,7 +4367,7 @@ _ZN4LIEF2PE14ResourceDialog16ordinal_or_str_tC2EOS2_.exit.i.i.i.i.i.i.i.i: ; pre
   store i64 %43, ptr %45, align 8, !tbaa !30, !alias.scope !282, !noalias !285
   store ptr %34, ptr %31, align 8, !tbaa !56, !alias.scope !285, !noalias !282
   store i64 0, ptr %44, align 8, !tbaa !30, !alias.scope !285, !noalias !282
-  store i16 0, ptr %34, align 2, !tbaa !32, !alias.scope !285, !noalias !282
+  store i16 0, ptr %34, align 8, !tbaa !32, !alias.scope !285, !noalias !282
   %46 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 72
   %47 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 72
   %48 = load i64, ptr %47, align 8, !alias.scope !285, !noalias !282
@@ -4406,7 +4406,7 @@ _ZSt19__relocate_object_aIN4LIEF2PE22ResourceDialogExtended4ItemES3_SaIS3_EEvPT_
   store i64 %62, ptr %64, align 8, !tbaa !30, !alias.scope !282, !noalias !285
   store ptr %53, ptr %50, align 8, !tbaa !56, !alias.scope !285, !noalias !282
   store i64 0, ptr %63, align 8, !tbaa !30, !alias.scope !285, !noalias !282
-  store i16 0, ptr %53, align 2, !tbaa !32, !alias.scope !285, !noalias !282
+  store i16 0, ptr %53, align 8, !tbaa !32, !alias.scope !285, !noalias !282
   %65 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 112
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 112
   %67 = load ptr, ptr %66, align 8, !tbaa !58, !alias.scope !285, !noalias !282
@@ -4486,7 +4486,7 @@ _ZN4LIEF2PE14ResourceDialog16ordinal_or_str_tC2EOS2_.exit.i.i.i.i.i.i.i.i23: ; p
   store i64 %100, ptr %102, align 8, !tbaa !30, !alias.scope !289, !noalias !292
   store ptr %91, ptr %88, align 8, !tbaa !56, !alias.scope !292, !noalias !289
   store i64 0, ptr %101, align 8, !tbaa !30, !alias.scope !292, !noalias !289
-  store i16 0, ptr %91, align 2, !tbaa !32, !alias.scope !292, !noalias !289
+  store i16 0, ptr %91, align 8, !tbaa !32, !alias.scope !292, !noalias !289
   %103 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 72
   %104 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 72
   %105 = load i64, ptr %104, align 8, !alias.scope !292, !noalias !289
@@ -4525,7 +4525,7 @@ _ZSt19__relocate_object_aIN4LIEF2PE22ResourceDialogExtended4ItemES3_SaIS3_EEvPT_
   store i64 %119, ptr %121, align 8, !tbaa !30, !alias.scope !289, !noalias !292
   store ptr %110, ptr %107, align 8, !tbaa !56, !alias.scope !292, !noalias !289
   store i64 0, ptr %120, align 8, !tbaa !30, !alias.scope !292, !noalias !289
-  store i16 0, ptr %110, align 2, !tbaa !32, !alias.scope !292, !noalias !289
+  store i16 0, ptr %110, align 8, !tbaa !32, !alias.scope !292, !noalias !289
   %122 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 112
   %123 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 112
   %124 = load ptr, ptr %123, align 8, !tbaa !58, !alias.scope !292, !noalias !289

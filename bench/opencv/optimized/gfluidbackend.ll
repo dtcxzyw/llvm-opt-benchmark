@@ -3915,7 +3915,7 @@ define hidden void @_ZN2cv5gimpl10FluidAgent5debugERSo(ptr noundef nonnull align
   %9 = load i32, ptr %8, align 8, !tbaa !235
   %10 = and i32 %9, -75
   %11 = or disjoint i32 %10, 8
-  store i32 %11, ptr %8, align 4, !tbaa !244
+  store i32 %11, ptr %8, align 8, !tbaa !244
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %0)
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.3, i64 noundef 2)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -3932,7 +3932,7 @@ define hidden void @_ZN2cv5gimpl10FluidAgent5debugERSo(ptr noundef nonnull align
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load i32, ptr %25, align 8, !tbaa !235
   %27 = or i32 %26, 1
-  store i32 %27, ptr %25, align 4, !tbaa !244
+  store i32 %27, ptr %25, align 8, !tbaa !244
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %29 = load ptr, ptr %28, align 8, !tbaa !172
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -3993,7 +3993,7 @@ _ZNK2cv5gimpl10FluidAgent7canWorkEv.exit:         ; preds = %33, %.loopexit.i, %
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %55 = load i32, ptr %54, align 8, !tbaa !235
   %56 = or i32 %55, 1
-  store i32 %56, ptr %54, align 4, !tbaa !244
+  store i32 %56, ptr %54, align 8, !tbaa !244
   %57 = load ptr, ptr %28, align 8, !tbaa !172
   %58 = load ptr, ptr %30, align 8, !tbaa !172
   %.not13.i = icmp eq ptr %57, %58
@@ -4025,7 +4025,7 @@ _ZNK2cv5gimpl10FluidAgent7canReadEv.exit:         ; preds = %60, %.critedge.i, %
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
   %70 = load i32, ptr %69, align 8, !tbaa !235
   %71 = or i32 %70, 1
-  store i32 %71, ptr %69, align 4, !tbaa !244
+  store i32 %71, ptr %69, align 8, !tbaa !244
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %73 = load ptr, ptr %72, align 8, !tbaa !227
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 336
@@ -4071,7 +4071,7 @@ _ZNK2cv5gimpl10FluidAgent8canWriteEv.exit:        ; preds = %_ZNK2cv5gimpl10Flui
   %97 = load i32, ptr %96, align 8, !tbaa !235
   %98 = and i32 %97, -75
   %99 = or disjoint i32 %98, 2
-  store i32 %99, ptr %96, align 4, !tbaa !244
+  store i32 %99, ptr %96, align 8, !tbaa !244
   %100 = load i32, ptr %85, align 4, !tbaa !154
   %101 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %90, i32 noundef %100)
   %102 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %101, ptr noundef nonnull @.str.10, i64 noundef 1)
@@ -17890,7 +17890,7 @@ _ZNSt6vectorIPN2cv4gapi5fluid6BufferESaIS4_EE12emplace_backIJS4_EEEvDpOT_.exit: 
   %1647 = load i32, ptr %1646, align 8, !tbaa !235
   %1648 = and i32 %1647, -261
   %1649 = or disjoint i32 %1648, 4
-  store i32 %1649, ptr %1646, align 4, !tbaa !244
+  store i32 %1649, ptr %1646, align 8, !tbaa !244
   %1650 = load i64, ptr %1643, align 8
   %1651 = getelementptr inbounds i8, ptr %1639, i64 %1650
   %1652 = getelementptr inbounds nuw i8, ptr %1651, i64 8
@@ -27880,7 +27880,7 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
   %455 = call i32 @llvm.smax.i32(i32 %453, i32 %454)
   store i32 %455, ptr %452, align 8, !tbaa !708
   %456 = getelementptr inbounds nuw i8, ptr %449, i64 20
-  %457 = load i32, ptr %253, align 4, !tbaa !23
+  %457 = load i32, ptr %253, align 8, !tbaa !23
   %458 = load i32, ptr %456, align 4, !tbaa !23
   %459 = call i32 @llvm.smax.i32(i32 %457, i32 %458)
   store i32 %459, ptr %456, align 4, !tbaa !446
@@ -37721,7 +37721,7 @@ _ZNSt10_HashtableIiSt4pairIKimESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKimESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !52
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !23
+  %16 = load i32, ptr %15, align 8, !tbaa !23
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -38506,7 +38506,7 @@ _ZNSt10_HashtableIiSt4pairIKimESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   store ptr %22, ptr %26, align 8, !tbaa !552
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load i64, ptr %27, align 8, !tbaa !348
-  %29 = load i32, ptr %25, align 4, !tbaa !23
+  %29 = load i32, ptr %25, align 8, !tbaa !23
   %30 = sext i32 %29 to i64
   %31 = urem i64 %30, %28
   %32 = getelementptr inbounds nuw ptr, ptr %18, i64 %31
@@ -38527,7 +38527,7 @@ _ZNSt10_HashtableIiSt4pairIKimESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false)
   store ptr %33, ptr %.02636, align 8, !tbaa !52
-  %37 = load i32, ptr %36, align 4, !tbaa !23
+  %37 = load i32, ptr %36, align 8, !tbaa !23
   %38 = sext i32 %37 to i64
   %39 = urem i64 %38, %28
   %40 = getelementptr inbounds nuw ptr, ptr %18, i64 %39
@@ -65243,7 +65243,7 @@ _ZNSt10_HashtableIiSt4pairIKiN2cv3MatEESaIS4_ENSt8__detail10_Select1stESt8equal_
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiN2cv3MatEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !52
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !23
+  %16 = load i32, ptr %15, align 8, !tbaa !23
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -65436,7 +65436,7 @@ _ZNSt10_HashtableIiSt4pairIKiN2cv7Scalar_IdEEESaIS5_ENSt8__detail10_Select1stESt
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiN2cv7Scalar_IdEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !52
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !23
+  %16 = load i32, ptr %15, align 8, !tbaa !23
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -65717,7 +65717,7 @@ _ZNSt10_HashtableIiSt4pairIKiN2cv6detail9VectorRefEESaIS5_ENSt8__detail10_Select
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiN2cv6detail9VectorRefEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !52
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !23
+  %16 = load i32, ptr %15, align 8, !tbaa !23
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -66128,7 +66128,7 @@ _ZNSt10_HashtableIiSt4pairIKiN2cv6detail9OpaqueRefEESaIS5_ENSt8__detail10_Select
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiN2cv6detail9OpaqueRefEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !52
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !23
+  %16 = load i32, ptr %15, align 8, !tbaa !23
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18

@@ -1774,7 +1774,7 @@ define linkonce_odr hidden void @_ZN13CE_Eliminator22adjust_exception_edgesEP10B
   %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   tail call void @_ZN10BlockBegin21add_exception_handlerEPS_(ptr noundef nonnull align 8 dereferenceable(408) %1, ptr noundef %12) #15
-  %13 = load i32, ptr %8, align 4
+  %13 = load i32, ptr %8, align 8
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %16
 
@@ -4226,7 +4226,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %35, %37
   %172 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %173 = load ptr, ptr %172, align 8
   %174 = getelementptr inbounds nuw i8, ptr %1, i64 224
-  %175 = load i32, ptr %174, align 4
+  %175 = load i32, ptr %174, align 8
   %176 = icmp sgt i32 %175, 0
   br i1 %176, label %.lr.ph126, label %.lr.ph129
 

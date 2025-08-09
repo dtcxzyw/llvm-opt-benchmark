@@ -1244,7 +1244,7 @@ define hidden void @_ZN5salsa5views5Views3add17h10e7fb36ec508b8cE(ptr noundef no
   %.sroa.7.0..sroa_idx = getelementptr i8, ptr %57, i64 1568
   store i64 6358448394811403724, ptr %.sroa.7.0..sroa_idx, align 8
   %59 = getelementptr i8, ptr %57, i64 1576
-  store atomic i8 1, ptr %59 release, align 1, !noalias !107
+  store atomic i8 1, ptr %59 release, align 8, !noalias !107
   %60 = atomicrmw add ptr %5, i64 1 release, align 8, !noalias !107
   br label %.loopexit16
 
@@ -1375,7 +1375,7 @@ define hidden void @_ZN5salsa5views5Views3add17h477d43d688951525E(ptr noundef no
   %.sroa.7.0..sroa_idx = getelementptr i8, ptr %57, i64 1568
   store i64 8499327246143177076, ptr %.sroa.7.0..sroa_idx, align 8
   %59 = getelementptr i8, ptr %57, i64 1576
-  store atomic i8 1, ptr %59 release, align 1, !noalias !126
+  store atomic i8 1, ptr %59 release, align 8, !noalias !126
   %60 = atomicrmw add ptr %5, i64 1 release, align 8, !noalias !126
   br label %.loopexit16
 
@@ -1506,7 +1506,7 @@ define hidden void @_ZN5salsa5views5Views3add17h748fd79ddf875164E(ptr noundef no
   %.sroa.7.0..sroa_idx = getelementptr i8, ptr %57, i64 1568
   store i64 7469766667972927328, ptr %.sroa.7.0..sroa_idx, align 8
   %59 = getelementptr i8, ptr %57, i64 1576
-  store atomic i8 1, ptr %59 release, align 1, !noalias !144
+  store atomic i8 1, ptr %59 release, align 8, !noalias !144
   %60 = atomicrmw add ptr %5, i64 1 release, align 8, !noalias !144
   br label %.loopexit16
 
@@ -1637,7 +1637,7 @@ define hidden void @_ZN5salsa5views5Views3add17h78ddcd762cbb8739E(ptr noundef no
   %.sroa.7.0..sroa_idx = getelementptr i8, ptr %57, i64 1568
   store i64 3822131886838487033, ptr %.sroa.7.0..sroa_idx, align 8
   %59 = getelementptr i8, ptr %57, i64 1576
-  store atomic i8 1, ptr %59 release, align 1, !noalias !162
+  store atomic i8 1, ptr %59 release, align 8, !noalias !162
   %60 = atomicrmw add ptr %5, i64 1 release, align 8, !noalias !162
   br label %.loopexit16
 
@@ -1768,7 +1768,7 @@ define hidden void @_ZN5salsa5views5Views3add17h869098ac58e2b863E(ptr noundef no
   %.sroa.7.0..sroa_idx = getelementptr i8, ptr %57, i64 1568
   store i64 637409720492316309, ptr %.sroa.7.0..sroa_idx, align 8
   %59 = getelementptr i8, ptr %57, i64 1576
-  store atomic i8 1, ptr %59 release, align 1, !noalias !180
+  store atomic i8 1, ptr %59 release, align 8, !noalias !180
   %60 = atomicrmw add ptr %5, i64 1 release, align 8, !noalias !180
   br label %.loopexit16
 
@@ -1899,7 +1899,7 @@ define hidden void @_ZN5salsa5views5Views3add17he25da02805fc19d6E(ptr noundef no
   %.sroa.7.0..sroa_idx = getelementptr i8, ptr %57, i64 1568
   store i64 760515197786833164, ptr %.sroa.7.0..sroa_idx, align 8
   %59 = getelementptr i8, ptr %57, i64 1576
-  store atomic i8 1, ptr %59 release, align 1, !noalias !198
+  store atomic i8 1, ptr %59 release, align 8, !noalias !198
   %60 = atomicrmw add ptr %5, i64 1 release, align 8, !noalias !198
   br label %.loopexit16
 

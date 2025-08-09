@@ -9804,9 +9804,9 @@ _ZN5StackIP7oopDescL8MEMFLAGS5EE3popEv.exit:      ; preds = %52, %_ZN5StackIP7oo
 94:                                               ; preds = %_ZN5StackIP7oopDescL8MEMFLAGS5EE3popEv.exit
   %.sroa.0.0.copyload.i = load i64, ptr %92, align 8
   %95 = getelementptr inbounds nuw i8, ptr %87, i64 128
-  %96 = load volatile i32, ptr %95, align 4
+  %96 = load volatile i32, ptr %95, align 8
   %97 = getelementptr inbounds nuw i8, ptr %87, i64 256
-  %98 = load volatile i32, ptr %97, align 4
+  %98 = load volatile i32, ptr %97, align 8
   %99 = sub i32 %96, %98
   %100 = and i32 %99, 131070
   %.not.i.i = icmp eq i32 %100, 131070
@@ -9821,7 +9821,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.t
   %105 = add i32 %96, 1
   %106 = and i32 %105, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !14
-  store volatile i32 %106, ptr %95, align 4
+  store volatile i32 %106, ptr %95, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i: ; preds = %94
@@ -10269,7 +10269,7 @@ define linkonce_odr hidden void @_ZN32ShenandoahParallelObjectIterator23object_i
   %51 = getelementptr inbounds nuw %class.ShenandoahMarkTask, ptr %49, i64 %50
   %52 = load i64, ptr %51, align 8
   store i64 %52, ptr %5, align 8
-  %53 = load volatile i32, ptr %25, align 4
+  %53 = load volatile i32, ptr %25, align 8
   %54 = sub i32 %47, %53
   %55 = and i32 %54, 131071
   switch i32 %55, label %.critedge [
@@ -10298,7 +10298,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.i: ; preds = %60, %56
   store volatile i64 %.sroa.08.0.insert.insert11.i.i.i, ptr %25, align 8
-  %64 = load volatile i32, ptr %25, align 4
+  %64 = load volatile i32, ptr %25, align 8
   br label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread6.i
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread6.i: ; preds = %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.i, %41
@@ -10534,9 +10534,9 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread: ; preds = %11, %
 74:                                               ; preds = %66
   %.sroa.0.0.copyload.i = load i64, ptr %72, align 8
   %75 = getelementptr inbounds nuw i8, ptr %68, i64 128
-  %76 = load volatile i32, ptr %75, align 4
+  %76 = load volatile i32, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %68, i64 256
-  %78 = load volatile i32, ptr %77, align 4
+  %78 = load volatile i32, ptr %77, align 8
   %79 = sub i32 %76, %78
   %80 = and i32 %79, 131070
   %.not.i.i = icmp eq i32 %80, 131070
@@ -10551,7 +10551,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.t
   %85 = add i32 %76, 1
   %86 = and i32 %85, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !14
-  store volatile i32 %86, ptr %75, align 4
+  store volatile i32 %86, ptr %75, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i: ; preds = %74
@@ -10742,9 +10742,9 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread: ; preds = %19, %
 81:                                               ; preds = %73
   %.sroa.0.0.copyload.i = load i64, ptr %79, align 8
   %82 = getelementptr inbounds nuw i8, ptr %75, i64 128
-  %83 = load volatile i32, ptr %82, align 4
+  %83 = load volatile i32, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %75, i64 256
-  %85 = load volatile i32, ptr %84, align 4
+  %85 = load volatile i32, ptr %84, align 8
   %86 = sub i32 %83, %85
   %87 = and i32 %86, 131070
   %.not.i.i = icmp eq i32 %87, 131070
@@ -10759,7 +10759,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.t
   %92 = add i32 %83, 1
   %93 = and i32 %92, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !14
-  store volatile i32 %93, ptr %82, align 4
+  store volatile i32 %93, ptr %82, align 8
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i: ; preds = %81
@@ -10928,7 +10928,7 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI6PaddedI25Buffe
   %66 = load volatile i64, ptr %58, align 8
   %.sroa.010.0.extract.trunc.i = trunc i64 %66 to i32
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !14
-  %67 = load volatile i32, ptr %56, align 4
+  %67 = load volatile i32, ptr %56, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !14
   %68 = sub i32 %67, %.sroa.010.0.extract.trunc.i
   %69 = and i32 %68, 131071
@@ -10964,7 +10964,7 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI6PaddedI25Buffe
   %84 = load volatile i64, ptr %47, align 8
   %.sroa.010.0.extract.trunc.i42 = trunc i64 %84 to i32
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !14
-  %85 = load volatile i32, ptr %45, align 4
+  %85 = load volatile i32, ptr %45, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !14
   %86 = sub i32 %85, %.sroa.010.0.extract.trunc.i42
   %87 = and i32 %86, 131071
@@ -11017,7 +11017,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0
   %.sroa.010.0.extract.trunc.i49 = trunc i64 %110 to i32
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !14
   %111 = getelementptr inbounds nuw i8, ptr %108, i64 128
-  %112 = load volatile i32, ptr %111, align 4
+  %112 = load volatile i32, ptr %111, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !14
   %113 = sub i32 %112, %.sroa.010.0.extract.trunc.i49
   %114 = and i32 %113, 131071

@@ -140,13 +140,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %6, %14
   %23 = load i32, ptr %22, align 8, !tbaa !27
   %24 = and i32 %23, -75
   %25 = or disjoint i32 %24, 8
-  store i32 %25, ptr %22, align 4, !tbaa !28
+  store i32 %25, ptr %22, align 8, !tbaa !28
   %26 = load i64, ptr %19, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load i32, ptr %28, align 8, !tbaa !27
   %30 = or i32 %29, 512
-  store i32 %30, ptr %28, align 4, !tbaa !28
+  store i32 %30, ptr %28, align 8, !tbaa !28
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load i32, ptr %31, align 8, !tbaa !15
   %33 = zext i32 %32 to i64

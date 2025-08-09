@@ -1148,7 +1148,7 @@ define linkonce_odr void @_ZThn64_N3g2o12VertexLine3DD1Ev(ptr noundef %0) unname
   store ptr getelementptr inbounds nuw inrange(-16, 256) (i8, ptr @_ZTVN3g2o10BaseVertexILi4ENS_6Line3DEEE, i64 16), ptr %2, align 16, !tbaa !33
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3g2o10BaseVertexILi4ENS_6Line3DEEE, i64 288), ptr %0, align 16, !tbaa !33
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %4 = load ptr, ptr %3, align 8, !tbaa !48
+  %4 = load ptr, ptr %3, align 16, !tbaa !48
   %.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i.i, label %_ZN3g2o10BaseVertexILi4ENS_6Line3DEED2Ev.exit, label %5
 
@@ -1172,7 +1172,7 @@ define linkonce_odr void @_ZThn64_N3g2o12VertexLine3DD0Ev(ptr noundef %0) unname
   store ptr getelementptr inbounds nuw inrange(-16, 256) (i8, ptr @_ZTVN3g2o10BaseVertexILi4ENS_6Line3DEEE, i64 16), ptr %2, align 16, !tbaa !33
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3g2o10BaseVertexILi4ENS_6Line3DEEE, i64 288), ptr %0, align 16, !tbaa !33
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %4 = load ptr, ptr %3, align 8, !tbaa !48
+  %4 = load ptr, ptr %3, align 16, !tbaa !48
   %.not.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN3g2o12VertexLine3DD0Ev.exit, label %5
 
@@ -1217,7 +1217,7 @@ define linkonce_odr void @_ZThn64_N3g2o10BaseVertexILi4ENS_6Line3DEED1Ev(ptr nou
   store ptr getelementptr inbounds nuw inrange(-16, 256) (i8, ptr @_ZTVN3g2o10BaseVertexILi4ENS_6Line3DEEE, i64 16), ptr %2, align 16, !tbaa !33
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3g2o10BaseVertexILi4ENS_6Line3DEEE, i64 288), ptr %0, align 16, !tbaa !33
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %4 = load ptr, ptr %3, align 8, !tbaa !48
+  %4 = load ptr, ptr %3, align 16, !tbaa !48
   %.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i.i, label %_ZN3g2o10BaseVertexILi4ENS_6Line3DEED2Ev.exit, label %5
 

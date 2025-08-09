@@ -126,7 +126,7 @@ define internal fastcc void @"_ZN12thread_local20ThreadLocal$LT$T$GT$6insert17h4
   %44 = load ptr, ptr %4, align 8, !nonnull !3, !noundef !3
   store ptr %44, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store atomic i8 1, ptr %45 release, align 1
+  store atomic i8 1, ptr %45 release, align 8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %47 = atomicrmw add ptr %46, i64 1 release, align 8
   ret void
@@ -408,7 +408,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime9scheduler12multi_thread5queue14Loc
   %11 = trunc i64 %7 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %10, ptr %4, align 4
-  %12 = load i32, ptr %8, align 4, !noundef !3
+  %12 = load i32, ptr %8, align 8, !noundef !3
   %13 = icmp eq i32 %12, %11
   br i1 %13, label %._crit_edge, label %.lr.ph
 

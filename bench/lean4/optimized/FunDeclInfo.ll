@@ -16435,7 +16435,7 @@ _init_l___private_Lean_Compiler_LCNF_Simp_FunDeclInfo_0__Lean_Compiler_LCNF_Simp
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store i64 0, ptr %44, align 8, !tbaa !16
-  store i32 1, ptr %40, align 4, !tbaa !4
+  store i32 1, ptr %40, align 8, !tbaa !4
   store i32 100728856, ptr %43, align 4
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %39, ptr %45, align 8, !tbaa !10
@@ -16476,7 +16476,7 @@ _init_l___private_Lean_Compiler_LCNF_Simp_FunDeclInfo_0__Lean_Compiler_LCNF_Simp
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store i64 0, ptr %58, align 8, !tbaa !16
-  store i32 1, ptr %54, align 4, !tbaa !4
+  store i32 1, ptr %54, align 8, !tbaa !4
   store i32 100728856, ptr %57, align 4
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store ptr %53, ptr %59, align 8, !tbaa !10
@@ -16537,7 +16537,7 @@ _init_l___private_Lean_Compiler_LCNF_Simp_FunDeclInfo_0__Lean_Compiler_LCNF_Simp
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %79 = getelementptr inbounds nuw i8, ptr %75, i64 16
   store i64 0, ptr %79, align 8, !tbaa !16
-  store i32 1, ptr %75, align 4, !tbaa !4
+  store i32 1, ptr %75, align 8, !tbaa !4
   store i32 100728856, ptr %78, align 4
   %80 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store ptr %74, ptr %80, align 8, !tbaa !10
@@ -16577,7 +16577,7 @@ _init_l___private_Lean_Compiler_LCNF_Simp_FunDeclInfo_0__Lean_Compiler_LCNF_Simp
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 4
   %93 = getelementptr inbounds nuw i8, ptr %89, i64 16
   store i64 0, ptr %93, align 8, !tbaa !16
-  store i32 1, ptr %89, align 4, !tbaa !4
+  store i32 1, ptr %89, align 8, !tbaa !4
   store i32 100728856, ptr %92, align 4
   %94 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store ptr %88, ptr %94, align 8, !tbaa !10
@@ -16638,7 +16638,7 @@ _init_l___private_Lean_Compiler_LCNF_Simp_FunDeclInfo_0__Lean_Compiler_LCNF_Simp
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 4
   %114 = getelementptr inbounds nuw i8, ptr %110, i64 16
   store i64 0, ptr %114, align 8, !tbaa !16
-  store i32 1, ptr %110, align 4, !tbaa !4
+  store i32 1, ptr %110, align 8, !tbaa !4
   store i32 100728856, ptr %113, align 4
   %115 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store ptr %109, ptr %115, align 8, !tbaa !10
@@ -16678,7 +16678,7 @@ _init_l___private_Lean_Compiler_LCNF_Simp_FunDeclInfo_0__Lean_Compiler_LCNF_Simp
   %127 = getelementptr inbounds nuw i8, ptr %124, i64 4
   %128 = getelementptr inbounds nuw i8, ptr %124, i64 16
   store i64 0, ptr %128, align 8, !tbaa !16
-  store i32 1, ptr %124, align 4, !tbaa !4
+  store i32 1, ptr %124, align 8, !tbaa !4
   store i32 100728856, ptr %127, align 4
   %129 = getelementptr inbounds nuw i8, ptr %124, i64 8
   store ptr %123, ptr %129, align 8, !tbaa !10

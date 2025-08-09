@@ -4642,7 +4642,7 @@ _Z19forcerec_set_rangesP10t_forcereciii.exit:     ; preds = %_ZN18ForceHelperBuf
 1409:                                             ; preds = %_Z19forcerec_set_rangesP10t_forcereciii.exit
   %1410 = load ptr, ptr %3, align 8, !tbaa !370
   %1411 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #31, !noalias !517
-  %1412 = load i8, ptr %167, align 1, !tbaa !434, !range !34, !noalias !517, !noundef !35
+  %1412 = load i8, ptr %167, align 8, !tbaa !434, !range !34, !noalias !517, !noundef !35
   %1413 = trunc nuw i8 %1412 to i1
   invoke void @_ZN20DispersionCorrectionC1ERK10gmx_mtop_tRK10t_inputrecbRK19interaction_const_tPKc(ptr noundef nonnull align 8 dereferenceable(72) %1411, ptr noundef nonnull align 8 dereferenceable(768) %5, ptr noundef nonnull align 8 dereferenceable(880) %4, i1 noundef zeroext %1413, ptr noundef nonnull align 8 dereferenceable(152) %1410, ptr noundef %8)
           to label %_ZSt11make_uniqueI20DispersionCorrectionJRK10gmx_mtop_tRK10t_inputrecRbR19interaction_const_tRPKcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %1414, !noalias !517

@@ -201,8 +201,8 @@ define internal fastcc void @h264_copy_picture_params(ptr noundef %0, ptr nounde
   store ptr %39, ptr %40, align 8, !tbaa !24
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %43 = load i32, ptr %41, align 4, !tbaa !31
-  store i32 %43, ptr %42, align 4, !tbaa !31
+  %43 = load i32, ptr %41, align 8, !tbaa !31
+  store i32 %43, ptr %42, align 8, !tbaa !31
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %45 = load i32, ptr %44, align 4, !tbaa !31
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 140

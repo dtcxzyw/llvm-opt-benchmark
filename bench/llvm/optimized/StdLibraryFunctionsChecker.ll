@@ -14000,11 +14000,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   %4637 = getelementptr inbounds nuw i8, ptr %4632, i64 48
   store i8 0, ptr %4637, align 8, !tbaa !1586, !noalias !1585
   %4638 = getelementptr inbounds nuw i8, ptr %4632, i64 56
-  store i32 1, ptr %4638, align 4, !tbaa !239, !noalias !1585
+  store i32 1, ptr %4638, align 8, !tbaa !239, !noalias !1585
   %4639 = getelementptr inbounds nuw i8, ptr %4632, i64 60
   store i8 1, ptr %4639, align 4, !tbaa !1588, !noalias !1585
   %4640 = getelementptr inbounds nuw i8, ptr %4632, i64 64
-  store i32 2, ptr %4640, align 4, !tbaa !239, !noalias !1585
+  store i32 2, ptr %4640, align 8, !tbaa !239, !noalias !1585
   %4641 = getelementptr inbounds nuw i8, ptr %4632, i64 68
   store i8 1, ptr %4641, align 4, !tbaa !1588, !noalias !1585
   %4642 = getelementptr inbounds nuw i8, ptr %4632, i64 72
@@ -21987,7 +21987,7 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   %7772 = getelementptr inbounds nuw i8, ptr %7767, i64 48
   store i8 0, ptr %7772, align 8, !tbaa !1586, !noalias !2111
   %7773 = getelementptr inbounds nuw i8, ptr %7767, i64 56
-  store i32 1, ptr %7773, align 4, !tbaa !239, !noalias !2111
+  store i32 1, ptr %7773, align 8, !tbaa !239, !noalias !2111
   %7774 = getelementptr inbounds nuw i8, ptr %7767, i64 60
   store i8 1, ptr %7774, align 4, !tbaa !1588, !noalias !2111
   %7775 = getelementptr inbounds nuw i8, ptr %7767, i64 68
@@ -31086,7 +31086,7 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   %11382 = getelementptr inbounds nuw i8, ptr %11377, i64 48
   store i8 0, ptr %11382, align 8, !tbaa !1586, !noalias !2848
   %11383 = getelementptr inbounds nuw i8, ptr %11377, i64 56
-  store i32 1, ptr %11383, align 4, !tbaa !239, !noalias !2848
+  store i32 1, ptr %11383, align 8, !tbaa !239, !noalias !2848
   %11384 = getelementptr inbounds nuw i8, ptr %11377, i64 60
   store i8 1, ptr %11384, align 4, !tbaa !1588, !noalias !2848
   %11385 = getelementptr inbounds nuw i8, ptr %11377, i64 68
@@ -39837,7 +39837,7 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   %14848 = getelementptr inbounds nuw i8, ptr %14843, i64 48
   store i8 0, ptr %14848, align 8, !tbaa !1586, !noalias !3565
   %14849 = getelementptr inbounds nuw i8, ptr %14843, i64 56
-  store i32 2, ptr %14849, align 4, !tbaa !239, !noalias !3565
+  store i32 2, ptr %14849, align 8, !tbaa !239, !noalias !3565
   %14850 = getelementptr inbounds nuw i8, ptr %14843, i64 60
   store i8 1, ptr %14850, align 4, !tbaa !1588, !noalias !3565
   %14851 = getelementptr inbounds nuw i8, ptr %14843, i64 68
@@ -40833,7 +40833,7 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   %15246 = getelementptr inbounds nuw i8, ptr %15241, i64 48
   store i8 0, ptr %15246, align 8, !tbaa !1586, !noalias !3663
   %15247 = getelementptr inbounds nuw i8, ptr %15241, i64 56
-  store i32 3, ptr %15247, align 4, !tbaa !239, !noalias !3663
+  store i32 3, ptr %15247, align 8, !tbaa !239, !noalias !3663
   %15248 = getelementptr inbounds nuw i8, ptr %15241, i64 60
   store i8 1, ptr %15248, align 4, !tbaa !1588, !noalias !3663
   %15249 = getelementptr inbounds nuw i8, ptr %15241, i64 68
@@ -43902,7 +43902,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx1
   %16452 = getelementptr inbounds nuw i8, ptr %16447, i64 48
   store i8 0, ptr %16452, align 8, !tbaa !1586, !noalias !3875
   %16453 = getelementptr inbounds nuw i8, ptr %16447, i64 56
-  store i32 2, ptr %16453, align 4, !tbaa !239, !noalias !3875
+  store i32 2, ptr %16453, align 8, !tbaa !239, !noalias !3875
   %16454 = getelementptr inbounds nuw i8, ptr %16447, i64 60
   store i8 1, ptr %16454, align 4, !tbaa !1588, !noalias !3875
   %16455 = getelementptr inbounds nuw i8, ptr %16447, i64 68
@@ -46368,7 +46368,7 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   %17422 = getelementptr inbounds nuw i8, ptr %17417, i64 48
   store i8 0, ptr %17422, align 8, !tbaa !1586, !noalias !4103
   %17423 = getelementptr inbounds nuw i8, ptr %17417, i64 56
-  store i32 2, ptr %17423, align 4, !tbaa !239, !noalias !4103
+  store i32 2, ptr %17423, align 8, !tbaa !239, !noalias !4103
   %17424 = getelementptr inbounds nuw i8, ptr %17417, i64 60
   store i8 1, ptr %17424, align 4, !tbaa !1588, !noalias !4103
   %17425 = getelementptr inbounds nuw i8, ptr %17417, i64 68
@@ -47351,7 +47351,7 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   %17798 = getelementptr inbounds nuw i8, ptr %17793, i64 48
   store i8 0, ptr %17798, align 8, !tbaa !1586, !noalias !4167
   %17799 = getelementptr inbounds nuw i8, ptr %17793, i64 56
-  store i32 2, ptr %17799, align 4, !tbaa !239, !noalias !4167
+  store i32 2, ptr %17799, align 8, !tbaa !239, !noalias !4167
   %17800 = getelementptr inbounds nuw i8, ptr %17793, i64 60
   store i8 1, ptr %17800, align 4, !tbaa !1588, !noalias !4167
   %17801 = getelementptr inbounds nuw i8, ptr %17793, i64 68
@@ -48665,7 +48665,7 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   %18299 = getelementptr inbounds nuw i8, ptr %18294, i64 48
   store i8 0, ptr %18299, align 8, !tbaa !1586, !noalias !4252
   %18300 = getelementptr inbounds nuw i8, ptr %18294, i64 56
-  store i32 2, ptr %18300, align 4, !tbaa !239, !noalias !4252
+  store i32 2, ptr %18300, align 8, !tbaa !239, !noalias !4252
   %18301 = getelementptr inbounds nuw i8, ptr %18294, i64 60
   store i8 1, ptr %18301, align 4, !tbaa !1588, !noalias !4252
   %18302 = getelementptr inbounds nuw i8, ptr %18294, i64 68
@@ -50124,7 +50124,7 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   %18846 = getelementptr inbounds nuw i8, ptr %18841, i64 48
   store i8 0, ptr %18846, align 8, !tbaa !1586, !noalias !4327
   %18847 = getelementptr inbounds nuw i8, ptr %18841, i64 56
-  store i32 4, ptr %18847, align 4, !tbaa !239, !noalias !4327
+  store i32 4, ptr %18847, align 8, !tbaa !239, !noalias !4327
   %18848 = getelementptr inbounds nuw i8, ptr %18841, i64 60
   store i8 1, ptr %18848, align 4, !tbaa !1588, !noalias !4327
   %18849 = getelementptr inbounds nuw i8, ptr %18841, i64 68
@@ -51024,7 +51024,7 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   %19203 = getelementptr inbounds nuw i8, ptr %19198, i64 48
   store i8 0, ptr %19203, align 8, !tbaa !1586, !noalias !4418
   %19204 = getelementptr inbounds nuw i8, ptr %19198, i64 56
-  store i32 2, ptr %19204, align 4, !tbaa !239, !noalias !4418
+  store i32 2, ptr %19204, align 8, !tbaa !239, !noalias !4418
   %19205 = getelementptr inbounds nuw i8, ptr %19198, i64 60
   store i8 1, ptr %19205, align 4, !tbaa !1588, !noalias !4418
   %19206 = getelementptr inbounds nuw i8, ptr %19198, i64 68
@@ -51974,7 +51974,7 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   %19567 = getelementptr inbounds nuw i8, ptr %19562, i64 48
   store i8 0, ptr %19567, align 8, !tbaa !1586, !noalias !4460
   %19568 = getelementptr inbounds nuw i8, ptr %19562, i64 56
-  store i32 1, ptr %19568, align 4, !tbaa !239, !noalias !4460
+  store i32 1, ptr %19568, align 8, !tbaa !239, !noalias !4460
   %19569 = getelementptr inbounds nuw i8, ptr %19562, i64 60
   store i8 1, ptr %19569, align 4, !tbaa !1588, !noalias !4460
   %19570 = getelementptr inbounds nuw i8, ptr %19562, i64 68
@@ -52062,7 +52062,7 @@ _ZNSt12_Vector_baseISt4pairImmESaIS1_EEC2EmRKS2_.exit.i.i.i.i.i.i.i.i.i.i16485: 
   %19603 = getelementptr inbounds nuw i8, ptr %19598, i64 48
   store i8 0, ptr %19603, align 8, !tbaa !1586, !noalias !4479
   %19604 = getelementptr inbounds nuw i8, ptr %19598, i64 56
-  store i32 3, ptr %19604, align 4, !tbaa !239, !noalias !4479
+  store i32 3, ptr %19604, align 8, !tbaa !239, !noalias !4479
   %19605 = getelementptr inbounds nuw i8, ptr %19598, i64 60
   store i8 1, ptr %19605, align 4, !tbaa !1588, !noalias !4479
   %19606 = getelementptr inbounds nuw i8, ptr %19598, i64 68
@@ -52150,7 +52150,7 @@ _ZNSt12_Vector_baseISt4pairImmESaIS1_EEC2EmRKS2_.exit.i.i.i.i.i.i.i.i.i.i16494: 
   %19639 = getelementptr inbounds nuw i8, ptr %19634, i64 48
   store i8 0, ptr %19639, align 8, !tbaa !1586, !noalias !4498
   %19640 = getelementptr inbounds nuw i8, ptr %19634, i64 56
-  store i32 5, ptr %19640, align 4, !tbaa !239, !noalias !4498
+  store i32 5, ptr %19640, align 8, !tbaa !239, !noalias !4498
   %19641 = getelementptr inbounds nuw i8, ptr %19634, i64 60
   store i8 1, ptr %19641, align 4, !tbaa !1588, !noalias !4498
   %19642 = getelementptr inbounds nuw i8, ptr %19634, i64 68
@@ -61324,7 +61324,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx1
   %23361 = getelementptr inbounds nuw i8, ptr %23356, i64 48
   store i8 0, ptr %23361, align 8, !tbaa !1586, !noalias !5285
   %23362 = getelementptr inbounds nuw i8, ptr %23356, i64 56
-  store i32 1, ptr %23362, align 4, !tbaa !239, !noalias !5285
+  store i32 1, ptr %23362, align 8, !tbaa !239, !noalias !5285
   %23363 = getelementptr inbounds nuw i8, ptr %23356, i64 60
   store i8 1, ptr %23363, align 4, !tbaa !1588, !noalias !5285
   %23364 = getelementptr inbounds nuw i8, ptr %23356, i64 68
@@ -61523,11 +61523,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx1
   %23438 = getelementptr inbounds nuw i8, ptr %23433, i64 48
   store i8 0, ptr %23438, align 8, !tbaa !1586, !noalias !5298
   %23439 = getelementptr inbounds nuw i8, ptr %23433, i64 56
-  store i32 1, ptr %23439, align 4, !tbaa !239, !noalias !5298
+  store i32 1, ptr %23439, align 8, !tbaa !239, !noalias !5298
   %23440 = getelementptr inbounds nuw i8, ptr %23433, i64 60
   store i8 1, ptr %23440, align 4, !tbaa !1588, !noalias !5298
   %23441 = getelementptr inbounds nuw i8, ptr %23433, i64 64
-  store i32 2, ptr %23441, align 4, !tbaa !239, !noalias !5298
+  store i32 2, ptr %23441, align 8, !tbaa !239, !noalias !5298
   %23442 = getelementptr inbounds nuw i8, ptr %23433, i64 68
   store i8 1, ptr %23442, align 4, !tbaa !1588, !noalias !5298
   %23443 = getelementptr inbounds nuw i8, ptr %23433, i64 72
@@ -69050,7 +69050,7 @@ _ZNSt12__shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker23NotNullBufferCo
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false)
   %.sroa.7.12..sroa_idx3 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store i8 %6, ptr %.sroa.7.12..sroa_idx3, align 4, !noalias !5680
+  store i8 %6, ptr %.sroa.7.12..sroa_idx3, align 8, !noalias !5680
   store ptr %10, ptr %0, align 8, !tbaa !447
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %13, align 8, !tbaa !421

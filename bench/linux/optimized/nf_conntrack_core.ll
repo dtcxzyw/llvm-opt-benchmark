@@ -736,7 +736,7 @@ declare dso_local void @nf_ct_remove_expectations(ptr noundef) local_unnamed_add
 define dso_local void @nf_conntrack_free(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
-  %4 = load volatile i32, ptr %0, align 4
+  %4 = load volatile i32, ptr %0, align 8
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %7, label %6, !prof !9
 

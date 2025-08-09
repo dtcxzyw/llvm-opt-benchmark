@@ -1051,9 +1051,9 @@ _ZltRK8rationalS1_.exit:                          ; preds = %284
   store i8 %304, ptr %297, align 4
   %305 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %306 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %307 = load i32, ptr %305, align 4, !tbaa !46
+  %307 = load i32, ptr %305, align 8, !tbaa !46
   %308 = load i32, ptr %306, align 8, !tbaa !46
-  store i32 %308, ptr %305, align 4, !tbaa !46
+  store i32 %308, ptr %305, align 8, !tbaa !46
   store i32 %307, ptr %306, align 8, !tbaa !46
   %309 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %310 = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -16884,10 +16884,10 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterI15interval_comp_tEclIPSt4pairI8rationalS6_E
   store i8 %122, ptr %115, align 4
   %123 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -48
   %124 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -48
-  %125 = load i32, ptr %123, align 4, !tbaa !46
-  %126 = load i32, ptr %124, align 4, !tbaa !46
-  store i32 %126, ptr %123, align 4, !tbaa !46
-  store i32 %125, ptr %124, align 4, !tbaa !46
+  %125 = load i32, ptr %123, align 8, !tbaa !46
+  %126 = load i32, ptr %124, align 8, !tbaa !46
+  store i32 %126, ptr %123, align 8, !tbaa !46
+  store i32 %125, ptr %124, align 8, !tbaa !46
   %127 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -40
   %128 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -40
   %129 = load ptr, ptr %127, align 8, !tbaa !51
@@ -16908,10 +16908,10 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterI15interval_comp_tEclIPSt4pairI8rationalS6_E
   store i8 %140, ptr %133, align 4
   %141 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -32
   %142 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -32
-  %143 = load i32, ptr %142, align 4, !tbaa !46
-  %144 = load i32, ptr %141, align 4, !tbaa !46
-  store i32 %144, ptr %142, align 4, !tbaa !46
-  store i32 %143, ptr %141, align 4, !tbaa !46
+  %143 = load i32, ptr %142, align 8, !tbaa !46
+  %144 = load i32, ptr %141, align 8, !tbaa !46
+  store i32 %144, ptr %142, align 8, !tbaa !46
+  store i32 %143, ptr %141, align 8, !tbaa !46
   %145 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -24
   %146 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -24
   %147 = load ptr, ptr %145, align 8, !tbaa !51
@@ -16932,10 +16932,10 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterI15interval_comp_tEclIPSt4pairI8rationalS6_E
   store i8 %158, ptr %151, align 4
   %159 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -16
   %160 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -16
-  %161 = load i32, ptr %159, align 4, !tbaa !46
-  %162 = load i32, ptr %160, align 4, !tbaa !46
-  store i32 %162, ptr %159, align 4, !tbaa !46
-  store i32 %161, ptr %160, align 4, !tbaa !46
+  %161 = load i32, ptr %159, align 8, !tbaa !46
+  %162 = load i32, ptr %160, align 8, !tbaa !46
+  store i32 %162, ptr %159, align 8, !tbaa !46
+  store i32 %161, ptr %160, align 8, !tbaa !46
   %163 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
   %164 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -8
   %165 = load ptr, ptr %163, align 8, !tbaa !51
@@ -17001,8 +17001,8 @@ _ZSt13move_backwardIPSt4pairI8rationalS1_ES3_ET0_T_S5_S4_.exit: ; preds = %_ZSt1
   %198 = and i8 %193, 3
   %199 = or disjoint i8 %195, %198
   store i8 %199, ptr %8, align 4
-  %200 = load i32, ptr %5, align 4, !tbaa !46
-  store i32 %187, ptr %5, align 4, !tbaa !46
+  %200 = load i32, ptr %5, align 8, !tbaa !46
+  store i32 %187, ptr %5, align 8, !tbaa !46
   store i32 %200, ptr %10, align 8, !tbaa !46
   %201 = load ptr, ptr %21, align 8, !tbaa !51
   store ptr %186, ptr %21, align 8, !tbaa !51
@@ -17016,8 +17016,8 @@ _ZSt13move_backwardIPSt4pairI8rationalS1_ES3_ET0_T_S5_S4_.exit: ; preds = %_ZSt1
   %207 = and i8 %202, 3
   %208 = or disjoint i8 %204, %207
   store i8 %208, ptr %11, align 4
-  %209 = load i32, ptr %22, align 4, !tbaa !46
-  store i32 %184, ptr %22, align 4, !tbaa !46
+  %209 = load i32, ptr %22, align 8, !tbaa !46
+  store i32 %184, ptr %22, align 8, !tbaa !46
   store i32 %209, ptr %13, align 8, !tbaa !46
   %210 = load ptr, ptr %23, align 8, !tbaa !51
   store ptr %183, ptr %23, align 8, !tbaa !51
@@ -17031,8 +17031,8 @@ _ZSt13move_backwardIPSt4pairI8rationalS1_ES3_ET0_T_S5_S4_.exit: ; preds = %_ZSt1
   %216 = and i8 %211, 3
   %217 = or disjoint i8 %213, %216
   store i8 %217, ptr %14, align 4
-  %218 = load i32, ptr %25, align 4, !tbaa !46
-  store i32 %181, ptr %25, align 4, !tbaa !46
+  %218 = load i32, ptr %25, align 8, !tbaa !46
+  store i32 %181, ptr %25, align 8, !tbaa !46
   store i32 %218, ptr %16, align 8, !tbaa !46
   %219 = load ptr, ptr %26, align 8, !tbaa !51
   store ptr %180, ptr %26, align 8, !tbaa !51
@@ -17246,9 +17246,9 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterI15interval_comp_tEclISt4pairI8rationalS6_EPS
   %94 = or disjoint i8 %90, %93
   store i8 %94, ptr %4, align 4
   %95 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %96 = load i32, ptr %95, align 4, !tbaa !46
+  %96 = load i32, ptr %95, align 8, !tbaa !46
   %97 = load i32, ptr %11, align 8, !tbaa !46
-  store i32 %97, ptr %95, align 4, !tbaa !46
+  store i32 %97, ptr %95, align 8, !tbaa !46
   store i32 %96, ptr %11, align 8, !tbaa !46
   %98 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %99 = load ptr, ptr %98, align 8, !tbaa !51
@@ -17267,9 +17267,9 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterI15interval_comp_tEclISt4pairI8rationalS6_EPS
   %109 = or disjoint i8 %105, %108
   store i8 %109, ptr %14, align 4
   %110 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  %111 = load i32, ptr %110, align 4, !tbaa !46
+  %111 = load i32, ptr %110, align 8, !tbaa !46
   %112 = load i32, ptr %21, align 8, !tbaa !46
-  store i32 %112, ptr %110, align 4, !tbaa !46
+  store i32 %112, ptr %110, align 8, !tbaa !46
   store i32 %111, ptr %21, align 8, !tbaa !46
   %113 = getelementptr inbounds nuw i8, ptr %.0, i64 40
   %114 = load ptr, ptr %113, align 8, !tbaa !51
@@ -17288,9 +17288,9 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterI15interval_comp_tEclISt4pairI8rationalS6_EPS
   %124 = or disjoint i8 %120, %123
   store i8 %124, ptr %24, align 4
   %125 = getelementptr inbounds nuw i8, ptr %.0, i64 48
-  %126 = load i32, ptr %125, align 4, !tbaa !46
+  %126 = load i32, ptr %125, align 8, !tbaa !46
   %127 = load i32, ptr %31, align 8, !tbaa !46
-  store i32 %127, ptr %125, align 4, !tbaa !46
+  store i32 %127, ptr %125, align 8, !tbaa !46
   store i32 %126, ptr %31, align 8, !tbaa !46
   %128 = getelementptr inbounds nuw i8, ptr %.0, i64 56
   %129 = load ptr, ptr %128, align 8, !tbaa !51
@@ -18399,9 +18399,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14core_hashtableIN7obj_mapI3ap
   store ptr %17, ptr %.048, align 8, !tbaa !176
   %39 = getelementptr inbounds nuw i8, ptr %.048, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %41 = load i32, ptr %39, align 4, !tbaa !46
+  %41 = load i32, ptr %39, align 8, !tbaa !46
   %42 = load i32, ptr %40, align 8, !tbaa !46
-  store i32 %42, ptr %39, align 4, !tbaa !46
+  store i32 %42, ptr %39, align 8, !tbaa !46
   store i32 %41, ptr %40, align 8, !tbaa !46
   %43 = getelementptr inbounds nuw i8, ptr %.048, i64 16
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -18434,9 +18434,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14core_hashtableIN7obj_mapI3ap
   store i8 %65, ptr %50, align 4
   %66 = getelementptr inbounds nuw i8, ptr %.048, i64 24
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %68 = load i32, ptr %66, align 4, !tbaa !46
+  %68 = load i32, ptr %66, align 8, !tbaa !46
   %69 = load i32, ptr %67, align 8, !tbaa !46
-  store i32 %69, ptr %66, align 4, !tbaa !46
+  store i32 %69, ptr %66, align 8, !tbaa !46
   store i32 %68, ptr %67, align 8, !tbaa !46
   %70 = getelementptr inbounds nuw i8, ptr %.048, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -18516,9 +18516,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14core_hashtableIN7obj_mapI3ap
   store ptr %17, ptr %.0, align 8, !tbaa !176
   %109 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %111 = load i32, ptr %109, align 4, !tbaa !46
+  %111 = load i32, ptr %109, align 8, !tbaa !46
   %112 = load i32, ptr %110, align 8, !tbaa !46
-  store i32 %112, ptr %109, align 4, !tbaa !46
+  store i32 %112, ptr %109, align 8, !tbaa !46
   store i32 %111, ptr %110, align 8, !tbaa !46
   %113 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -18551,9 +18551,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14core_hashtableIN7obj_mapI3ap
   store i8 %135, ptr %120, align 4
   %136 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %137 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %138 = load i32, ptr %136, align 4, !tbaa !46
+  %138 = load i32, ptr %136, align 8, !tbaa !46
   %139 = load i32, ptr %137, align 8, !tbaa !46
-  store i32 %139, ptr %136, align 4, !tbaa !46
+  store i32 %139, ptr %136, align 8, !tbaa !46
   store i32 %138, ptr %137, align 8, !tbaa !46
   %140 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %141 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -18725,9 +18725,9 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI3app8rationalE13o
   store ptr %10, ptr %.034, align 8, !tbaa !176
   %20 = getelementptr inbounds nuw i8, ptr %.034, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %.02839, i64 8
-  %22 = load i32, ptr %20, align 4, !tbaa !46
+  %22 = load i32, ptr %20, align 8, !tbaa !46
   %23 = load i32, ptr %21, align 4, !tbaa !46
-  store i32 %23, ptr %20, align 4, !tbaa !46
+  store i32 %23, ptr %20, align 8, !tbaa !46
   store i32 %22, ptr %21, align 4, !tbaa !46
   %24 = getelementptr inbounds nuw i8, ptr %.034, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %.02839, i64 16
@@ -18760,10 +18760,10 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI3app8rationalE13o
   store i8 %46, ptr %31, align 4
   %47 = getelementptr inbounds nuw i8, ptr %.034, i64 24
   %48 = getelementptr inbounds nuw i8, ptr %.02839, i64 24
-  %49 = load i32, ptr %47, align 4, !tbaa !46
-  %50 = load i32, ptr %48, align 4, !tbaa !46
-  store i32 %50, ptr %47, align 4, !tbaa !46
-  store i32 %49, ptr %48, align 4, !tbaa !46
+  %49 = load i32, ptr %47, align 8, !tbaa !46
+  %50 = load i32, ptr %48, align 8, !tbaa !46
+  store i32 %50, ptr %47, align 8, !tbaa !46
+  store i32 %49, ptr %48, align 8, !tbaa !46
   %51 = getelementptr inbounds nuw i8, ptr %.034, i64 32
   %52 = getelementptr inbounds nuw i8, ptr %.02839, i64 32
   %53 = load ptr, ptr %51, align 8, !tbaa !51
@@ -18810,9 +18810,9 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI3app8rationalE13o
   store ptr %10, ptr %.136, align 8, !tbaa !176
   %79 = getelementptr inbounds nuw i8, ptr %.136, i64 8
   %80 = getelementptr inbounds nuw i8, ptr %.02839, i64 8
-  %81 = load i32, ptr %79, align 4, !tbaa !46
+  %81 = load i32, ptr %79, align 8, !tbaa !46
   %82 = load i32, ptr %80, align 4, !tbaa !46
-  store i32 %82, ptr %79, align 4, !tbaa !46
+  store i32 %82, ptr %79, align 8, !tbaa !46
   store i32 %81, ptr %80, align 4, !tbaa !46
   %83 = getelementptr inbounds nuw i8, ptr %.136, i64 16
   %84 = getelementptr inbounds nuw i8, ptr %.02839, i64 16
@@ -18845,10 +18845,10 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI3app8rationalE13o
   store i8 %105, ptr %90, align 4
   %106 = getelementptr inbounds nuw i8, ptr %.136, i64 24
   %107 = getelementptr inbounds nuw i8, ptr %.02839, i64 24
-  %108 = load i32, ptr %106, align 4, !tbaa !46
-  %109 = load i32, ptr %107, align 4, !tbaa !46
-  store i32 %109, ptr %106, align 4, !tbaa !46
-  store i32 %108, ptr %107, align 4, !tbaa !46
+  %108 = load i32, ptr %106, align 8, !tbaa !46
+  %109 = load i32, ptr %107, align 8, !tbaa !46
+  store i32 %109, ptr %106, align 8, !tbaa !46
+  store i32 %108, ptr %107, align 8, !tbaa !46
   %110 = getelementptr inbounds nuw i8, ptr %.136, i64 32
   %111 = getelementptr inbounds nuw i8, ptr %.02839, i64 32
   %112 = load ptr, ptr %110, align 8, !tbaa !51
@@ -19210,9 +19210,9 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI3app8rationalE13o
   store ptr %16, ptr %.04564, align 8, !tbaa !176
   %33 = getelementptr inbounds nuw i8, ptr %.04564, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %35 = load i32, ptr %33, align 4, !tbaa !46
+  %35 = load i32, ptr %33, align 8, !tbaa !46
   %36 = load i32, ptr %34, align 8, !tbaa !46
-  store i32 %36, ptr %33, align 4, !tbaa !46
+  store i32 %36, ptr %33, align 8, !tbaa !46
   store i32 %35, ptr %34, align 8, !tbaa !46
   %37 = getelementptr inbounds nuw i8, ptr %.04564, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -19245,9 +19245,9 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI3app8rationalE13o
   store i8 %59, ptr %44, align 4
   %60 = getelementptr inbounds nuw i8, ptr %.04564, i64 24
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %62 = load i32, ptr %60, align 4, !tbaa !46
+  %62 = load i32, ptr %60, align 8, !tbaa !46
   %63 = load i32, ptr %61, align 8, !tbaa !46
-  store i32 %63, ptr %60, align 4, !tbaa !46
+  store i32 %63, ptr %60, align 8, !tbaa !46
   store i32 %62, ptr %61, align 8, !tbaa !46
   %64 = getelementptr inbounds nuw i8, ptr %.04564, i64 32
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -19295,9 +19295,9 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI3app8rationalE13o
   store ptr %16, ptr %.043, align 8, !tbaa !176
   %92 = getelementptr inbounds nuw i8, ptr %.043, i64 8
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %94 = load i32, ptr %92, align 4, !tbaa !46
+  %94 = load i32, ptr %92, align 8, !tbaa !46
   %95 = load i32, ptr %93, align 8, !tbaa !46
-  store i32 %95, ptr %92, align 4, !tbaa !46
+  store i32 %95, ptr %92, align 8, !tbaa !46
   store i32 %94, ptr %93, align 8, !tbaa !46
   %96 = getelementptr inbounds nuw i8, ptr %.043, i64 16
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -19330,9 +19330,9 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI3app8rationalE13o
   store i8 %118, ptr %103, align 4
   %119 = getelementptr inbounds nuw i8, ptr %.043, i64 24
   %120 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %121 = load i32, ptr %119, align 4, !tbaa !46
+  %121 = load i32, ptr %119, align 8, !tbaa !46
   %122 = load i32, ptr %120, align 8, !tbaa !46
-  store i32 %122, ptr %119, align 4, !tbaa !46
+  store i32 %122, ptr %119, align 8, !tbaa !46
   store i32 %121, ptr %120, align 8, !tbaa !46
   %123 = getelementptr inbounds nuw i8, ptr %.043, i64 32
   %124 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -19396,9 +19396,9 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI3app8rationalE13o
   store ptr %16, ptr %.14667, align 8, !tbaa !176
   %157 = getelementptr inbounds nuw i8, ptr %.14667, i64 8
   %158 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %159 = load i32, ptr %157, align 4, !tbaa !46
+  %159 = load i32, ptr %157, align 8, !tbaa !46
   %160 = load i32, ptr %158, align 8, !tbaa !46
-  store i32 %160, ptr %157, align 4, !tbaa !46
+  store i32 %160, ptr %157, align 8, !tbaa !46
   store i32 %159, ptr %158, align 8, !tbaa !46
   %161 = getelementptr inbounds nuw i8, ptr %.14667, i64 16
   %162 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -19431,9 +19431,9 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI3app8rationalE13o
   store i8 %183, ptr %168, align 4
   %184 = getelementptr inbounds nuw i8, ptr %.14667, i64 24
   %185 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %186 = load i32, ptr %184, align 4, !tbaa !46
+  %186 = load i32, ptr %184, align 8, !tbaa !46
   %187 = load i32, ptr %185, align 8, !tbaa !46
-  store i32 %187, ptr %184, align 4, !tbaa !46
+  store i32 %187, ptr %184, align 8, !tbaa !46
   store i32 %186, ptr %185, align 8, !tbaa !46
   %188 = getelementptr inbounds nuw i8, ptr %.14667, i64 32
   %189 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -19481,9 +19481,9 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI3app8rationalE13o
   store ptr %16, ptr %.0, align 8, !tbaa !176
   %216 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %217 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %218 = load i32, ptr %216, align 4, !tbaa !46
+  %218 = load i32, ptr %216, align 8, !tbaa !46
   %219 = load i32, ptr %217, align 8, !tbaa !46
-  store i32 %219, ptr %216, align 4, !tbaa !46
+  store i32 %219, ptr %216, align 8, !tbaa !46
   store i32 %218, ptr %217, align 8, !tbaa !46
   %220 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %221 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -19516,9 +19516,9 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI3app8rationalE13o
   store i8 %242, ptr %227, align 4
   %243 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %244 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %245 = load i32, ptr %243, align 4, !tbaa !46
+  %245 = load i32, ptr %243, align 8, !tbaa !46
   %246 = load i32, ptr %244, align 8, !tbaa !46
-  store i32 %246, ptr %243, align 4, !tbaa !46
+  store i32 %246, ptr %243, align 8, !tbaa !46
   store i32 %245, ptr %244, align 8, !tbaa !46
   %247 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %248 = getelementptr inbounds nuw i8, ptr %1, i64 32

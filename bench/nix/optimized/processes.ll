@@ -3625,11 +3625,11 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %114, %116
   %127 = getelementptr inbounds nuw i8, ptr %123, i64 24
   store ptr null, ptr %127, align 8, !noalias !27
   %128 = getelementptr inbounds nuw i8, ptr %123, i64 32
-  store i32 0, ptr %128, align 4, !noalias !27
+  store i32 0, ptr %128, align 8, !noalias !27
   %129 = getelementptr inbounds nuw i8, ptr %123, i64 36
-  store i8 0, ptr %129, align 1, !noalias !27
+  store i8 0, ptr %129, align 4, !noalias !27
   %130 = getelementptr inbounds nuw i8, ptr %123, i64 40
-  store i32 0, ptr %130, align 4, !noalias !27
+  store i32 0, ptr %130, align 8, !noalias !27
   store ptr %123, ptr %122, align 8, !alias.scope !27
   store ptr %126, ptr %12, align 8, !alias.scope !27
   %131 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
@@ -14152,7 +14152,7 @@ _ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit: ; 
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(28) %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load atomic i32, ptr %8 acquire, align 4
+  %9 = load atomic i32, ptr %8 acquire, align 8
   %10 = and i32 %9, 2147483647
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %.preheader.i

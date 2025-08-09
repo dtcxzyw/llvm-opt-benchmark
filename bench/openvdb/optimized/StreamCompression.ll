@@ -2149,7 +2149,7 @@ _ZSt11make_sharedIN7openvdb5v11_011compression4PageEJEESt10shared_ptrINSt9enable
   %mData.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   store ptr null, ptr %mData.i.i.i.i.i.i.i.i, align 8, !noalias !10
   %mMutex.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
-  store i8 0, ptr %mMutex.i.i.i.i.i.i.i.i, align 1, !noalias !10
+  store i8 0, ptr %mMutex.i.i.i.i.i.i.i.i, align 8, !noalias !10
   %mPage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %_M_impl.i.i.i.i.i.i, ptr %mPage, align 8
   %_M_refcount3.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24

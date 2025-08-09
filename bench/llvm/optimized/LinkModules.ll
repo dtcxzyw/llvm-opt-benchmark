@@ -709,7 +709,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6ComdatESt4pairINS2_13SelectionKindEN12
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   store ptr %98, ptr %258, align 8, !tbaa !67
   %264 = getelementptr inbounds nuw i8, ptr %258, i64 8
-  store i32 0, ptr %264, align 4, !tbaa !220
+  store i32 0, ptr %264, align 8, !tbaa !220
   %265 = getelementptr inbounds nuw i8, ptr %258, i64 12
   store i32 0, ptr %265, align 4, !tbaa !222
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6ComdatESt4pairINS2_13SelectionKindEN12_GLOBAL__N_18LinkFromEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S9_EEEES4_S9_SB_SE_EixEOS4_.exit.i
@@ -3009,7 +3009,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6ComdatESt4pairINS2_13SelectionKindEN12
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %135, ptr %176, align 8, !tbaa !67
   %183 = getelementptr inbounds nuw i8, ptr %176, i64 8
-  store i32 0, ptr %183, align 4, !tbaa !220
+  store i32 0, ptr %183, align 8, !tbaa !220
   %184 = getelementptr inbounds nuw i8, ptr %176, i64 12
   store i32 0, ptr %184, align 4, !tbaa !222
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6ComdatESt4pairINS2_13SelectionKindEN12_GLOBAL__N_18LinkFromEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S9_EEEES4_S9_SB_SE_EixERKS4_.exit
@@ -3896,7 +3896,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6ComdatESt4pairINS2_13SelectionKindEN12
   %63 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 8
   %64 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 8
   %65 = load i64, ptr %64, align 4
-  store i64 %65, ptr %63, align 4
+  store i64 %65, ptr %63, align 8
   %.val.i19.i.i = load i32, ptr %32, align 8, !tbaa !218
   %66 = add i32 %.val.i19.i.i, 1
   store i32 %66, ptr %32, align 8, !tbaa !218

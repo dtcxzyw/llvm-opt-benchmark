@@ -426,7 +426,7 @@ _ZN4llvm9StringRefC2EPKc.exit4.critedge.i.i:      ; preds = %1
   store ptr %90, ptr %89, align 8, !tbaa !11
   %91 = getelementptr inbounds nuw i8, ptr %11, i64 152
   store i64 0, ptr %91, align 8, !tbaa !18
-  store i8 0, ptr %90, align 1, !tbaa !17
+  store i8 0, ptr %90, align 8, !tbaa !17
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 176
   store ptr %11, ptr %92, align 8, !tbaa !19
   %93 = getelementptr inbounds nuw i8, ptr %11, i64 184
@@ -461,7 +461,7 @@ _ZN4llvm9StringRefC2EPKc.exit4.critedge.i.i:      ; preds = %1
   store ptr %108, ptr %107, align 8, !tbaa !11
   %109 = getelementptr inbounds nuw i8, ptr %11, i64 256
   store i64 0, ptr %109, align 8, !tbaa !18
-  store i8 0, ptr %108, align 1, !tbaa !17
+  store i8 0, ptr %108, align 8, !tbaa !17
   %110 = getelementptr inbounds nuw i8, ptr %11, i64 280
   store ptr %11, ptr %110, align 8, !tbaa !19
   %111 = getelementptr inbounds nuw i8, ptr %11, i64 288

@@ -9156,7 +9156,7 @@ define hidden void @_ZN8GraphKit27set_arguments_for_java_callEP12CallJavaNode(pt
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load i32, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %10 = load i32, ptr %9, align 4
+  %10 = load i32, ptr %9, align 8
   %11 = lshr i32 %10, 3
   %.lobit.i = and i32 %11, 1
   %12 = xor i32 %.lobit.i, 1
@@ -14003,7 +14003,7 @@ define hidden void @_ZN8GraphKit42record_profiled_parameters_for_speculationEv(p
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %13 = load i32, ptr %12, align 4
+  %13 = load i32, ptr %12, align 8
   %14 = lshr i32 %13, 3
   %.lobit.i8 = and i32 %14, 1
   %15 = xor i32 %.lobit.i8, 1
@@ -14086,7 +14086,7 @@ define hidden void @_ZN8GraphKit42record_profiled_parameters_for_speculationEv(p
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 48
   %71 = load i32, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  %73 = load i32, ptr %72, align 4
+  %73 = load i32, ptr %72, align 8
   %74 = lshr i32 %73, 3
   %.lobit.i = and i32 %74, 1
   %75 = xor i32 %.lobit.i, 1

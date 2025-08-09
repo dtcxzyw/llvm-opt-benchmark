@@ -3468,9 +3468,9 @@ define dso_local void @__bio_advance(ptr noundef captures(none) %0, i32 noundef 
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %15 = load i32, ptr %14, align 1
+  %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %17 = load i32, ptr %16, align 1
+  %17 = load i32, ptr %16, align 8
   %18 = icmp uge i32 %17, %1
   %19 = load i1, ptr @bvec_iter_advance.__already_done, align 1
   %20 = select i1 %18, i1 true, i1 %19

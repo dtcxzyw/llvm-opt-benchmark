@@ -1450,7 +1450,7 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   store <2 x double> %361, ptr %359, align 8, !tbaa !30
   %362 = getelementptr inbounds nuw i8, ptr %359, i64 16
   %363 = getelementptr i8, ptr %360, i64 16
-  %364 = load double, ptr %363, align 8, !tbaa !20
+  %364 = load double, ptr %363, align 16, !tbaa !20
   store double %364, ptr %362, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %365 = add nsw i32 %7, 1

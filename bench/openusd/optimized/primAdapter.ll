@@ -3871,7 +3871,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__18UsdImagingDeleg
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %36 = load i64, ptr %35, align 8
   %37 = icmp eq i64 %25, %36
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i = load i64, ptr %34, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i = load i64, ptr %34, align 8
   %38 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i
   %39 = select i1 %37, i1 %38, i1 false
   br i1 %39, label %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_NS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S1_EEE4findERS6_.exit, label %.lr.ph.i.i.i.i
@@ -7194,7 +7194,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__18UsdImagingDeleg
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %36 = load i64, ptr %35, align 8
   %37 = icmp eq i64 %25, %36
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i = load i64, ptr %34, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i = load i64, ptr %34, align 8
   %38 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i
   %39 = select i1 %37, i1 %38, i1 false
   br i1 %39, label %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_NS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S1_EEE4findERS6_.exit, label %.lr.ph.i.i.i.i
@@ -12922,7 +12922,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit25: ; preds = %.i
   %195 = getelementptr inbounds nuw i8, ptr %193, i64 144
   %196 = load i64, ptr %195, align 8
   %197 = icmp eq i64 %186, %196
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i = load i64, ptr %194, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i = load i64, ptr %194, align 8
   %198 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i
   %199 = select i1 %197, i1 %198, i1 false
   %200 = trunc i64 %.0.copyload.i.i.i.i.i.i.i.i.i to i32
@@ -32514,7 +32514,7 @@ _ZN3tbb6detail2d010raii_guardIZNS0_2d125concurrent_unordered_baseINS3_31concurre
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %62 = load atomic i32, ptr %61 seq_cst, align 8
-  store atomic i32 %62, ptr %60 seq_cst, align 4
+  store atomic i32 %62, ptr %60 seq_cst, align 8
   ret ptr %4
 }
 
@@ -34555,9 +34555,9 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSys
   store i64 0, ptr %.0911.i.i.i, align 8, !alias.scope !288, !noalias !285
   %65 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %67 = load i32, ptr %66, align 4, !alias.scope !288, !noalias !285
-  store i32 %67, ptr %65, align 4, !alias.scope !285, !noalias !288
-  store i32 0, ptr %66, align 4, !alias.scope !288, !noalias !285
+  %67 = load i32, ptr %66, align 8, !alias.scope !288, !noalias !285
+  store i32 %67, ptr %65, align 8, !alias.scope !285, !noalias !288
+  store i32 0, ptr %66, align 8, !alias.scope !288, !noalias !285
   %68 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 12
   %69 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 12
   %70 = load i32, ptr %69, align 4, !alias.scope !288, !noalias !285
@@ -34565,9 +34565,9 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSys
   store i32 0, ptr %69, align 4, !alias.scope !288, !noalias !285
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %72 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
-  %73 = load i32, ptr %72, align 4, !alias.scope !288, !noalias !285
-  store i32 %73, ptr %71, align 4, !alias.scope !285, !noalias !288
-  store i32 0, ptr %72, align 4, !alias.scope !288, !noalias !285
+  %73 = load i32, ptr %72, align 8, !alias.scope !288, !noalias !285
+  store i32 %73, ptr %71, align 8, !alias.scope !285, !noalias !288
+  store i32 0, ptr %72, align 8, !alias.scope !288, !noalias !285
   %74 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 20
   %75 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 20
   %76 = load i32, ptr %75, align 4, !alias.scope !288, !noalias !285
@@ -34595,9 +34595,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSysAPI7BindingESa
   store i64 0, ptr %.0911.i.i.i19, align 8, !alias.scope !294, !noalias !291
   %81 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 8
   %82 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 8
-  %83 = load i32, ptr %82, align 4, !alias.scope !294, !noalias !291
-  store i32 %83, ptr %81, align 4, !alias.scope !291, !noalias !294
-  store i32 0, ptr %82, align 4, !alias.scope !294, !noalias !291
+  %83 = load i32, ptr %82, align 8, !alias.scope !294, !noalias !291
+  store i32 %83, ptr %81, align 8, !alias.scope !291, !noalias !294
+  store i32 0, ptr %82, align 8, !alias.scope !294, !noalias !291
   %84 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 12
   %85 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 12
   %86 = load i32, ptr %85, align 4, !alias.scope !294, !noalias !291
@@ -34605,9 +34605,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSysAPI7BindingESa
   store i32 0, ptr %85, align 4, !alias.scope !294, !noalias !291
   %87 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 16
   %88 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 16
-  %89 = load i32, ptr %88, align 4, !alias.scope !294, !noalias !291
-  store i32 %89, ptr %87, align 4, !alias.scope !291, !noalias !294
-  store i32 0, ptr %88, align 4, !alias.scope !294, !noalias !291
+  %89 = load i32, ptr %88, align 8, !alias.scope !294, !noalias !291
+  store i32 %89, ptr %87, align 8, !alias.scope !291, !noalias !294
+  store i32 0, ptr %88, align 8, !alias.scope !294, !noalias !291
   %90 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 20
   %91 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 20
   %92 = load i32, ptr %91, align 4, !alias.scope !294, !noalias !291
@@ -39925,8 +39925,8 @@ _ZZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_tra
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %143, ptr noundef nonnull align 8 dereferenceable(128) %144, i64 128, i1 false)
   %145 = getelementptr inbounds nuw i8, ptr %89, i64 208
   %146 = getelementptr inbounds nuw i8, ptr %3, i64 192
-  %147 = load atomic i32, ptr %146 seq_cst, align 4
-  store atomic i32 %147, ptr %145 seq_cst, align 4
+  %147 = load atomic i32, ptr %146 seq_cst, align 8
+  store atomic i32 %147, ptr %145 seq_cst, align 8
   %148 = ptrtoint ptr %89 to i64
   store atomic i64 %.0.lcssa.i.ph, ptr %89 release, align 8
   %149 = cmpxchg ptr %.2.ph, i64 %.0.lcssa.i.ph, i64 %148 seq_cst seq_cst, align 8
@@ -43804,7 +43804,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomImageable11PurposeInfoaSERKS1_.exi
   store i8 %157, ptr %156, align 8
   %158 = load atomic i32, ptr %112 seq_cst, align 8
   %159 = add i32 %158, 1
-  store atomic i32 %159, ptr %110 seq_cst, align 4
+  store atomic i32 %159, ptr %110 seq_cst, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__33UsdImaging_ResolvedAttributeCacheINS_26UsdImaging_PurposeStrategyEbE21_SetCacheEntryForPrimERKNS_7UsdPrimERKNS_16UsdGeomImageable11PurposeInfoEPNS2_6_EntryE.exit
 
 160:                                              ; preds = %.preheader49, %160
@@ -43884,7 +43884,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomImageable11PurposeInfoaSERKS1_.exi
   store i8 %199, ptr %198, align 8
   %200 = load atomic i32, ptr %112 seq_cst, align 8
   %201 = add i32 %200, 1
-  store atomic i32 %201, ptr %110 seq_cst, align 4
+  store atomic i32 %201, ptr %110 seq_cst, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__33UsdImaging_ResolvedAttributeCacheINS_26UsdImaging_PurposeStrategyEbE21_SetCacheEntryForPrimERKNS_7UsdPrimERKNS_16UsdGeomImageable11PurposeInfoEPNS2_6_EntryE.exit35
 
 202:                                              ; preds = %.preheader, %202
@@ -49934,8 +49934,8 @@ _ZZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_tra
   store ptr null, ptr %136, align 8
   %138 = getelementptr inbounds nuw i8, ptr %89, i64 96
   %139 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %140 = load atomic i32, ptr %139 seq_cst, align 4
-  store atomic i32 %140, ptr %138 seq_cst, align 4
+  %140 = load atomic i32, ptr %139 seq_cst, align 8
+  store atomic i32 %140, ptr %138 seq_cst, align 8
   %141 = ptrtoint ptr %89 to i64
   store atomic i64 %.0.lcssa.i.ph, ptr %89 release, align 8
   %142 = cmpxchg ptr %.2.ph, i64 %.0.lcssa.i.ph, i64 %141 seq_cst seq_cst, align 8

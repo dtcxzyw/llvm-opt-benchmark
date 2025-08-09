@@ -807,7 +807,7 @@ _ZN6hermes2vm7HadesGC11HeapSegment11setCellHeadEPKNS0_6GCCellEm.exit: ; preds = 
   %7 = ptrtoint ptr %6 to i64
   %sub.i.i.i.i = sub i64 %0, %7
   %conv.i.i.i.i = trunc i64 %sub.i.i.i.i to i32
-  store i32 %conv.i.i.i.i, ptr %head.i, align 4
+  store i32 %conv.i.i.i.i, ptr %head.i, align 8
   %cmp.i.i.not.i = icmp eq i32 %4, 0
   br i1 %cmp.i.i.not.i, label %if.then.i3, label %_ZN6hermes2vm7HadesGC6OldGen17addCellToFreelistEPNS2_12FreelistCellEPNS2_13SegmentBucketE.exit
 
@@ -892,7 +892,7 @@ entry:
   %4 = ptrtoint ptr %2 to i64
   %sub.i.i.i = sub i64 %3, %4
   %conv.i.i.i = trunc i64 %sub.i.i.i to i32
-  store i32 %conv.i.i.i, ptr %head, align 4
+  store i32 %conv.i.i.i, ptr %head, align 8
   %cmp.i.i.not = icmp eq i32 %0, 0
   br i1 %cmp.i.i.not, label %if.then, label %if.end
 
@@ -1474,7 +1474,7 @@ _ZN6hermes2vm7HadesGC6OldGen26addCellToFreelistFromSweepEPcS3_RSt5arrayINS2_13Se
   %31 = ptrtoint ptr %30 to i64
   %sub.i.i.i.i = sub i64 %sub.ptr.rhs.cast.i, %31
   %conv.i.i.i.i = trunc i64 %sub.i.i.i.i to i32
-  store i32 %conv.i.i.i.i, ptr %head.i, align 4
+  store i32 %conv.i.i.i.i, ptr %head.i, align 8
   %bf.load.i.i.i.i.i.i.i.i.i.pre = load i32, ptr %__begin2.sroa.0.0151, align 4
   br label %if.end51
 
@@ -1591,7 +1591,7 @@ _ZN6hermes2vm7HadesGC6OldGen26addCellToFreelistFromSweepEPcS3_RSt5arrayINS2_13Se
   %42 = ptrtoint ptr %41 to i64
   %sub.i.i.i.i114 = sub i64 %sub.ptr.rhs.cast.i100, %42
   %conv.i.i.i.i115 = trunc i64 %sub.i.i.i.i114 to i32
-  store i32 %conv.i.i.i.i115, ptr %head.i110, align 4
+  store i32 %conv.i.i.i.i115, ptr %head.i110, align 8
   br label %if.end69
 
 if.end69:                                         ; preds = %_ZNSt5dequeIN6hermes2vm7HadesGC11HeapSegmentESaIS3_EEixEm.exit, %_ZN6hermes2vm7HadesGC6OldGen26addCellToFreelistFromSweepEPcS3_RSt5arrayINS2_13SegmentBucketELm267EEb.exit129, %for.end65
@@ -6372,11 +6372,11 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
   %_M_result.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 24
   store ptr null, ptr %_M_result.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !86
   %_M_status.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32
-  store i32 0, ptr %_M_status.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !86
+  store i32 0, ptr %_M_status.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !86
   %_M_retrieved.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 36
-  store i8 0, ptr %_M_retrieved.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !86
+  store i8 0, ptr %_M_retrieved.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !86
   %_M_once.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 40
-  store i32 0, ptr %_M_once.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !86
+  store i32 0, ptr %_M_once.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !86
   store ptr %call5.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !80, !noalias !79
   store ptr %_M_impl.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_impl.i.i.i.i.i.i, align 8, !alias.scope !80, !noalias !79
   %_M_storage.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 32
@@ -11495,7 +11495,7 @@ _ZN6hermes2vm7HadesGC6OldGen22removeCellFromFreelistEPNS0_27AssignableCompressed
   %43 = ptrtoint ptr %42 to i64
   %sub.i.i.i.i = sub i64 %add.i.i44, %43
   %conv.i.i.i.i70 = trunc i64 %sub.i.i.i.i to i32
-  store i32 %conv.i.i.i.i70, ptr %head.i67, align 4
+  store i32 %conv.i.i.i.i70, ptr %head.i67, align 8
   %cmp.i.i.not.i71 = icmp eq i32 %40, 0
   br i1 %cmp.i.i.not.i71, label %if.then.i72, label %if.end35
 
@@ -11815,7 +11815,7 @@ _ZN6hermes2vm7HadesGC11HeapSegment11setCellHeadEPKNS0_6GCCellEm.exit.i: ; preds 
   %29 = ptrtoint ptr %28 to i64
   %sub.i.i.i.i.i = sub i64 %22, %29
   %conv.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i to i32
-  store i32 %conv.i.i.i.i.i, ptr %head.i.i, align 4
+  store i32 %conv.i.i.i.i.i, ptr %head.i.i, align 8
   %cmp.i.i.not.i.i = icmp eq i32 %26, 0
   br i1 %cmp.i.i.not.i.i, label %if.then.i3.i, label %if.end
 
@@ -13279,7 +13279,7 @@ _ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit: ; 
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(28) %0) #34
   %_M_status.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %2 = load atomic i32, ptr %_M_status.i acquire, align 4
+  %2 = load atomic i32, ptr %_M_status.i acquire, align 8
   %and.i6.i = and i32 %2, 2147483647
   %cmp.i.i = icmp eq i32 %and.i6.i, 1
   br i1 %cmp.i.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %for.cond.us.i.i
@@ -19595,7 +19595,7 @@ if.end19.i.i.i:                                   ; preds = %if.then17.i.i.i, %i
   %18 = ptrtoint ptr %17 to i64
   %sub.i.i.i.i.i.i.i = sub i64 %5, %18
   %conv.i.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i.i to i32
-  store i32 %conv.i.i.i.i.i.i.i, ptr %copyListHead_.i.i.i.i, align 4
+  store i32 %conv.i.i.i.i.i.i.i, ptr %copyListHead_.i.i.i.i, align 8
   br label %_ZN6hermes2vm7HadesGC12EvacAcceptorILb1EE6acceptERPNS0_6GCCellE.exit
 
 _ZN6hermes2vm7HadesGC12EvacAcceptorILb1EE6acceptERPNS0_6GCCellE.exit: ; preds = %_ZNK6hermes2vm7HadesGC12EvacAcceptorILb1EE13shouldForwardEPKv.exit.i.i, %if.then.i.i.i, %if.end19.i.i.i
@@ -19915,7 +19915,7 @@ if.end21.i.i320:                                  ; preds = %if.then19.i.i328, %
   %30 = ptrtoint ptr %29 to i64
   %sub.i.i.i.i.i.i324 = sub i64 %add.i.i.i302, %30
   %conv.i.i.i.i.i.i325 = trunc i64 %sub.i.i.i.i.i.i324 to i32
-  store i32 %conv.i.i.i.i.i.i325, ptr %copyListHead_.i.i.i321, align 4
+  store i32 %conv.i.i.i.i.i.i325, ptr %copyListHead_.i.i.i321, align 8
   %sub.i.i.i.i14.i.i326 = sub i64 %25, %30
   %conv.i.i.i.i15.i.i327 = trunc i64 %sub.i.i.i.i14.i.i326 to i32
   br label %_ZN6hermes2vm7HadesGC12EvacAcceptorILb1EE10acceptHeapENS0_17CompressedPointerEPv.exit329
@@ -20042,7 +20042,7 @@ if.end19.i.i272:                                  ; preds = %if.then17.i.i278, %
   %54 = ptrtoint ptr %53 to i64
   %sub.i.i.i.i.i.i276 = sub i64 %37, %54
   %conv.i.i.i.i.i.i277 = trunc i64 %sub.i.i.i.i.i.i276 to i32
-  store i32 %conv.i.i.i.i.i.i277, ptr %copyListHead_.i.i.i273, align 4
+  store i32 %conv.i.i.i.i.i.i277, ptr %copyListHead_.i.i.i273, align 8
   br label %_ZN6hermes2vm7HadesGC12EvacAcceptorILb1EE10acceptHeapEPNS0_6GCCellEPv.exit279
 
 if.end.i239:                                      ; preds = %_ZNK6hermes2vm7HadesGC12EvacAcceptorILb1EE13shouldForwardEPKv.exit.i236
@@ -20159,7 +20159,7 @@ if.end21.i.i222:                                  ; preds = %if.then19.i.i230, %
   %76 = ptrtoint ptr %75 to i64
   %sub.i.i.i.i.i.i226 = sub i64 %add.i.i.i204, %76
   %conv.i.i.i.i.i.i227 = trunc i64 %sub.i.i.i.i.i.i226 to i32
-  store i32 %conv.i.i.i.i.i.i227, ptr %copyListHead_.i.i.i223, align 4
+  store i32 %conv.i.i.i.i.i.i227, ptr %copyListHead_.i.i.i223, align 8
   %sub.i.i.i.i14.i.i228 = sub i64 %71, %76
   %conv.i.i.i.i15.i.i229 = trunc i64 %sub.i.i.i.i14.i.i228 to i32
   br label %_ZN6hermes2vm7HadesGC12EvacAcceptorILb1EE10acceptHeapENS0_17CompressedPointerEPv.exit231
@@ -20301,7 +20301,7 @@ if.end21.i.i172:                                  ; preds = %if.then19.i.i180, %
   %99 = ptrtoint ptr %98 to i64
   %sub.i.i.i.i.i.i176 = sub i64 %add.i.i.i154, %99
   %conv.i.i.i.i.i.i177 = trunc i64 %sub.i.i.i.i.i.i176 to i32
-  store i32 %conv.i.i.i.i.i.i177, ptr %copyListHead_.i.i.i173, align 4
+  store i32 %conv.i.i.i.i.i.i177, ptr %copyListHead_.i.i.i173, align 8
   %sub.i.i.i.i14.i.i178 = sub i64 %94, %99
   %conv.i.i.i.i15.i.i179 = trunc i64 %sub.i.i.i.i14.i.i178 to i32
   br label %_ZN6hermes2vm7HadesGC12EvacAcceptorILb1EE10acceptHeapENS0_17CompressedPointerEPv.exit181
@@ -20417,7 +20417,7 @@ if.end19.i.i:                                     ; preds = %if.then17.i.i, %if.
   %118 = ptrtoint ptr %117 to i64
   %sub.i.i.i.i.i.i130 = sub i64 %102, %118
   %conv.i.i.i.i.i.i131 = trunc i64 %sub.i.i.i.i.i.i130 to i32
-  store i32 %conv.i.i.i.i.i.i131, ptr %copyListHead_.i.i.i127, align 4
+  store i32 %conv.i.i.i.i.i.i131, ptr %copyListHead_.i.i.i127, align 8
   br label %_ZN6hermes2vm7HadesGC12EvacAcceptorILb1EE10acceptHeapEPNS0_6GCCellEPv.exit
 
 if.end.i107:                                      ; preds = %_ZNK6hermes2vm7HadesGC12EvacAcceptorILb1EE13shouldForwardEPKv.exit.i
@@ -20535,7 +20535,7 @@ if.end21.i.i:                                     ; preds = %if.then19.i.i, %if.
   %136 = ptrtoint ptr %135 to i64
   %sub.i.i.i.i.i.i = sub i64 %add.i.i.i, %136
   %conv.i.i.i.i.i.i104 = trunc i64 %sub.i.i.i.i.i.i to i32
-  store i32 %conv.i.i.i.i.i.i104, ptr %copyListHead_.i.i.i, align 4
+  store i32 %conv.i.i.i.i.i.i104, ptr %copyListHead_.i.i.i, align 8
   %sub.i.i.i.i14.i.i = sub i64 %131, %136
   %conv.i.i.i.i15.i.i = trunc i64 %sub.i.i.i.i14.i.i to i32
   br label %_ZN6hermes2vm7HadesGC12EvacAcceptorILb1EE10acceptHeapENS0_17CompressedPointerEPv.exit
@@ -21686,7 +21686,7 @@ if.end21.i.i.i:                                   ; preds = %if.then19.i.i.i, %i
   %11 = ptrtoint ptr %10 to i64
   %sub.i.i.i.i.i.i.i = sub i64 %add.i.i.i.i, %11
   %conv.i.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i.i to i32
-  store i32 %conv.i.i.i.i.i.i.i, ptr %copyListHead_.i.i.i.i, align 4
+  store i32 %conv.i.i.i.i.i.i.i, ptr %copyListHead_.i.i.i.i, align 8
   %sub.i.i.i.i14.i.i.i = sub i64 %6, %11
   %conv.i.i.i.i15.i.i.i = trunc i64 %sub.i.i.i.i14.i.i.i to i32
   br label %_ZN6hermes2vm7HadesGC12EvacAcceptorILb0EE6acceptERNS0_13GCPointerBaseE.exit
@@ -21944,7 +21944,7 @@ if.end19.i.i.i:                                   ; preds = %if.then17.i.i.i, %i
   %17 = ptrtoint ptr %16 to i64
   %sub.i.i.i.i.i.i.i = sub i64 %5, %17
   %conv.i.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i.i to i32
-  store i32 %conv.i.i.i.i.i.i.i, ptr %copyListHead_.i.i.i.i, align 4
+  store i32 %conv.i.i.i.i.i.i.i, ptr %copyListHead_.i.i.i.i, align 8
   br label %_ZN6hermes2vm7HadesGC12EvacAcceptorILb0EE6acceptERPNS0_6GCCellE.exit
 
 _ZN6hermes2vm7HadesGC12EvacAcceptorILb0EE6acceptERPNS0_6GCCellE.exit: ; preds = %entry, %if.then.i.i.i, %if.end19.i.i.i
@@ -22043,7 +22043,7 @@ if.end21.i.i.i:                                   ; preds = %if.then19.i.i.i, %i
   %13 = ptrtoint ptr %12 to i64
   %sub.i.i.i.i.i.i.i = sub i64 %add.i.i.i.i, %13
   %conv.i.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i.i to i32
-  store i32 %conv.i.i.i.i.i.i.i, ptr %copyListHead_.i.i.i.i, align 4
+  store i32 %conv.i.i.i.i.i.i.i, ptr %copyListHead_.i.i.i.i, align 8
   %sub.i.i.i.i14.i.i.i = sub i64 %8, %13
   %conv.i.i.i.i15.i.i.i = trunc i64 %sub.i.i.i.i14.i.i.i to i32
   br label %_ZN6hermes2vm7HadesGC12EvacAcceptorILb0EE6acceptERNS0_13GCPointerBaseE.exit
@@ -22295,7 +22295,7 @@ if.end21.i.i.i.i.i:                               ; preds = %if.then19.i.i.i.i.i
   %30 = ptrtoint ptr %29 to i64
   %sub.i.i.i.i.i.i.i.i.i104 = sub i64 %add.i.i.i.i.i.i101, %30
   %conv.i.i.i.i.i.i.i.i.i105 = trunc i64 %sub.i.i.i.i.i.i.i.i.i104 to i32
-  store i32 %conv.i.i.i.i.i.i.i.i.i105, ptr %copyListHead_.i.i.i.i.i.i, align 4
+  store i32 %conv.i.i.i.i.i.i.i.i.i105, ptr %copyListHead_.i.i.i.i.i.i, align 8
   %sub.i.i.i.i14.i.i.i.i.i = sub i64 %25, %30
   %conv.i.i.i.i15.i.i.i.i.i = trunc i64 %sub.i.i.i.i14.i.i.i.i.i to i32
   br label %_ZN6hermes2vm11SlotVisitorINS0_7HadesGC12EvacAcceptorILb0EEEE9visitSlotINS0_13GCPointerBaseEEEvPc.exit.i
@@ -22400,7 +22400,7 @@ if.end19.i.i.i223:                                ; preds = %if.then17.i.i.i230,
   %51 = ptrtoint ptr %50 to i64
   %sub.i.i.i.i.i.i.i227 = sub i64 %36, %51
   %conv.i.i.i.i.i.i.i228 = trunc i64 %sub.i.i.i.i.i.i.i227 to i32
-  store i32 %conv.i.i.i.i.i.i.i228, ptr %copyListHead_.i.i.i.i224, align 4
+  store i32 %conv.i.i.i.i.i.i.i228, ptr %copyListHead_.i.i.i.i224, align 8
   %.pre.i229 = load i64, ptr %add.ptr11.i, align 8
   br label %_ZN6hermes2vm7HadesGC12EvacAcceptorILb0EE10acceptHeapEPNS0_6GCCellEPv.exit.i195
 
@@ -22496,7 +22496,7 @@ if.end21.i.i.i177:                                ; preds = %if.then19.i.i.i186,
   %70 = ptrtoint ptr %69 to i64
   %sub.i.i.i.i.i.i.i181 = sub i64 %add.i.i.i.i159, %70
   %conv.i.i.i.i.i.i.i182 = trunc i64 %sub.i.i.i.i.i.i.i181 to i32
-  store i32 %conv.i.i.i.i.i.i.i182, ptr %copyListHead_.i.i.i.i178, align 4
+  store i32 %conv.i.i.i.i.i.i.i182, ptr %copyListHead_.i.i.i.i178, align 8
   %sub.i.i.i.i14.i.i.i183 = sub i64 %65, %70
   %conv.i.i.i.i15.i.i.i184 = trunc i64 %sub.i.i.i.i14.i.i.i183 to i32
   %.pre.i185 = load i32, ptr %add.ptr23.i, align 4
@@ -22617,7 +22617,7 @@ if.end21.i.i.i.i.i.i:                             ; preds = %if.then19.i.i.i.i.i
   %91 = ptrtoint ptr %90 to i64
   %sub.i.i.i.i.i.i.i.i.i.i = sub i64 %add.i.i.i.i.i.i.i, %91
   %conv.i.i.i.i.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i.i.i.i.i to i32
-  store i32 %conv.i.i.i.i.i.i.i.i.i.i, ptr %copyListHead_.i.i.i.i.i.i.i, align 4
+  store i32 %conv.i.i.i.i.i.i.i.i.i.i, ptr %copyListHead_.i.i.i.i.i.i.i, align 8
   %sub.i.i.i.i14.i.i.i.i.i.i = sub i64 %86, %91
   %conv.i.i.i.i15.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i14.i.i.i.i.i.i to i32
   br label %_ZN6hermes2vm11BaseVisitor18ArrayElementAcceptINS0_7HadesGC12EvacAcceptorILb0EEENS0_13GCPointerBaseELb0EE4implERS5_RS6_j.exit.i.i
@@ -22711,7 +22711,7 @@ if.end19.i.i.i:                                   ; preds = %if.then17.i.i.i, %i
   %107 = ptrtoint ptr %106 to i64
   %sub.i.i.i.i.i.i.i140 = sub i64 %92, %107
   %conv.i.i.i.i.i.i.i141 = trunc i64 %sub.i.i.i.i.i.i.i140 to i32
-  store i32 %conv.i.i.i.i.i.i.i141, ptr %copyListHead_.i.i.i.i137, align 4
+  store i32 %conv.i.i.i.i.i.i.i141, ptr %copyListHead_.i.i.i.i137, align 8
   %.pre.i142 = load i64, ptr %start.addr.05.i21.i, align 8
   br label %_ZN6hermes2vm7HadesGC12EvacAcceptorILb0EE10acceptHeapEPNS0_6GCCellEPv.exit.i
 
@@ -22808,7 +22808,7 @@ if.end21.i.i.i:                                   ; preds = %if.then19.i.i.i, %i
   %122 = ptrtoint ptr %121 to i64
   %sub.i.i.i.i.i.i.i111 = sub i64 %add.i.i.i.i, %122
   %conv.i.i.i.i.i.i.i112 = trunc i64 %sub.i.i.i.i.i.i.i111 to i32
-  store i32 %conv.i.i.i.i.i.i.i112, ptr %copyListHead_.i.i.i.i, align 4
+  store i32 %conv.i.i.i.i.i.i.i112, ptr %copyListHead_.i.i.i.i, align 8
   %sub.i.i.i.i14.i.i.i = sub i64 %117, %122
   %conv.i.i.i.i15.i.i.i = trunc i64 %sub.i.i.i.i14.i.i.i to i32
   %.pre.i = load i32, ptr %start.addr.05.i28.i, align 4
@@ -22973,7 +22973,7 @@ if.end21.i.i.i.i:                                 ; preds = %if.then19.i.i.i.i, 
   %15 = ptrtoint ptr %14 to i64
   %sub.i.i.i.i.i.i.i.i = sub i64 %add.i.i.i.i.i, %15
   %conv.i.i.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i.i.i to i32
-  store i32 %conv.i.i.i.i.i.i.i.i, ptr %copyListHead_.i.i.i.i.i, align 4
+  store i32 %conv.i.i.i.i.i.i.i.i, ptr %copyListHead_.i.i.i.i.i, align 8
   %sub.i.i.i.i14.i.i.i.i = sub i64 %10, %15
   %conv.i.i.i.i15.i.i.i.i = trunc i64 %sub.i.i.i.i14.i.i.i.i to i32
   br label %_ZN6hermes2vm11SlotVisitorINS0_7HadesGC12EvacAcceptorILb0EEEE9visitSlotINS0_13GCPointerBaseEEEvPc.exit
@@ -23239,7 +23239,7 @@ if.end21.i.i.i:                                   ; preds = %if.then19.i.i.i, %i
   %12 = ptrtoint ptr %11 to i64
   %sub.i.i.i.i.i.i.i = sub i64 %add.i.i.i.i, %12
   %conv.i.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i.i to i32
-  store i32 %conv.i.i.i.i.i.i.i, ptr %copyListHead_.i.i.i.i, align 4
+  store i32 %conv.i.i.i.i.i.i.i, ptr %copyListHead_.i.i.i.i, align 8
   %sub.i.i.i.i14.i.i.i = sub i64 %7, %12
   %conv.i.i.i.i15.i.i.i = trunc i64 %sub.i.i.i.i14.i.i.i to i32
   br label %_ZN6hermes2vm7HadesGC12EvacAcceptorILb0EE6acceptERNS0_13GCPointerBaseE.exit
@@ -23346,7 +23346,7 @@ if.end21.i.i.i.i:                                 ; preds = %if.then19.i.i.i.i, 
   %15 = ptrtoint ptr %14 to i64
   %sub.i.i.i.i.i.i.i.i = sub i64 %add.i.i.i.i.i, %15
   %conv.i.i.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i.i.i to i32
-  store i32 %conv.i.i.i.i.i.i.i.i, ptr %copyListHead_.i.i.i.i.i, align 4
+  store i32 %conv.i.i.i.i.i.i.i.i, ptr %copyListHead_.i.i.i.i.i, align 8
   %sub.i.i.i.i14.i.i.i.i = sub i64 %10, %15
   %conv.i.i.i.i15.i.i.i.i = trunc i64 %sub.i.i.i.i14.i.i.i.i to i32
   br label %_ZN6hermes2vm11SlotVisitorINS0_7HadesGC12EvacAcceptorILb0EEEE9visitSlotINS0_13GCPointerBaseEEEvPc.exit

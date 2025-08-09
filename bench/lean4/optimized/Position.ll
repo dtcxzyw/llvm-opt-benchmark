@@ -478,7 +478,7 @@ lean_alloc_ctor.exit70:                           ; preds = %lean_alloc_ctor.exi
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i64 0, ptr %30, align 8, !tbaa !13
-  store i32 1, ptr %26, align 4, !tbaa !9
+  store i32 1, ptr %26, align 8, !tbaa !9
   store i32 100728856, ptr %29, align 4
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %20, ptr %31, align 8, !tbaa !4
@@ -668,7 +668,7 @@ lean_alloc_ctor.exit82:                           ; preds = %lean_alloc_ctor.exi
   %101 = getelementptr inbounds nuw i8, ptr %98, i64 4
   %102 = getelementptr inbounds nuw i8, ptr %98, i64 16
   store i64 0, ptr %102, align 8, !tbaa !13
-  store i32 1, ptr %98, align 4, !tbaa !9
+  store i32 1, ptr %98, align 8, !tbaa !9
   store i32 100728856, ptr %101, align 4
   %103 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store ptr %92, ptr %103, align 8, !tbaa !4
@@ -756,7 +756,7 @@ lean_alloc_ctor.exit88:                           ; preds = %lean_alloc_ctor.exi
   %134 = getelementptr inbounds nuw i8, ptr %131, i64 4
   %135 = getelementptr inbounds nuw i8, ptr %131, i64 16
   store i64 0, ptr %135, align 8, !tbaa !13
-  store i32 1, ptr %131, align 4, !tbaa !9
+  store i32 1, ptr %131, align 8, !tbaa !9
   store i32 100728856, ptr %134, align 4
   %136 = getelementptr inbounds nuw i8, ptr %131, i64 8
   store ptr %125, ptr %136, align 8, !tbaa !4
@@ -4040,7 +4040,7 @@ lean_dec.exit131:                                 ; preds = %32, %31, %29, %lean
   %41 = add i64 %40, -1
   %42 = inttoptr i64 %41 to ptr
   %.1.i.i = select i1 %39, ptr inttoptr (i64 1 to ptr), ptr %42
-  %.val188 = load i32, ptr %0, align 4, !tbaa !9
+  %.val188 = load i32, ptr %0, align 8, !tbaa !9
   %43 = icmp eq i32 %.val188, 1
   br i1 %43, label %44, label %96
 
@@ -4419,7 +4419,7 @@ lean_dec.exit119:                                 ; preds = %186, %185, %183, %l
   %194 = add i64 %193, -1
   %195 = inttoptr i64 %194 to ptr
   %.1.i.i196 = select i1 %192, ptr inttoptr (i64 1 to ptr), ptr %195
-  %.val = load i32, ptr %0, align 4, !tbaa !9
+  %.val = load i32, ptr %0, align 8, !tbaa !9
   %196 = icmp eq i32 %.val, 1
   br i1 %196, label %197, label %237
 

@@ -192,7 +192,7 @@ define range(i32 0, 2) i32 @X509_set1_notBefore(ptr noundef captures(address_is_
   %14 = load ptr, ptr %7, align 8, !tbaa !36
   tail call void @ASN1_TIME_free(ptr noundef %14) #8
   store ptr %11, ptr %7, align 8, !tbaa !36
-  store i32 1, ptr %6, align 4, !tbaa !37
+  store i32 1, ptr %6, align 8, !tbaa !37
   br label %ossl_x509_set1_time.exit
 
 ossl_x509_set1_time.exit:                         ; preds = %13, %10, %5, %2
@@ -223,7 +223,7 @@ define range(i32 0, 2) i32 @X509_set1_notAfter(ptr noundef captures(address_is_n
   %14 = load ptr, ptr %7, align 8, !tbaa !36
   tail call void @ASN1_TIME_free(ptr noundef %14) #8
   store ptr %11, ptr %7, align 8, !tbaa !36
-  store i32 1, ptr %6, align 4, !tbaa !37
+  store i32 1, ptr %6, align 8, !tbaa !37
   br label %ossl_x509_set1_time.exit
 
 ossl_x509_set1_time.exit:                         ; preds = %13, %10, %5, %2
@@ -469,11 +469,11 @@ define range(i32 0, 2) i32 @ossl_x509_init_sig_info(ptr noundef initializes((176
   %9 = tail call ptr @X509_PUBKEY_get0(ptr noundef %8) #8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i32 0, ptr %4, align 4, !tbaa !45
+  store i32 0, ptr %4, align 8, !tbaa !45
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 180
   store i32 0, ptr %10, align 4, !tbaa !46
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store i32 -1, ptr %11, align 4, !tbaa !47
+  store i32 -1, ptr %11, align 8, !tbaa !47
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 188
   store i32 0, ptr %12, align 4, !tbaa !48
   %13 = load ptr, ptr %5, align 8, !tbaa !49

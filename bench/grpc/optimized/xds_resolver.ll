@@ -1947,7 +1947,7 @@ _ZN9grpc_core12_GLOBAL__N_111XdsResolver26XdsRouteStateAttributeImpl17LockAndGet
   %64 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %65 = load ptr, ptr %64, align 16, !tbaa !151
   tail call void %65(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %63, ptr noundef nonnull align 16 dereferenceable(32) %63) #41
-  store ptr %.sroa.024.2, ptr %63, align 8, !tbaa !146
+  store ptr %.sroa.024.2, ptr %63, align 16, !tbaa !146
   store ptr @"_ZN4absl12lts_2024072222internal_any_invocable22LocalManagerNontrivialIZN9grpc_core12_GLOBAL__N_111XdsResolver22ClusterSelectionFilter4Call23OnClientInitialMetadataER19grpc_metadata_batchE3$_0EEvNS1_14FunctionToCallEPNS1_15TypeErasedStateESD_", ptr %64, align 16, !tbaa !151
   store ptr @"_ZN4absl12lts_2024072222internal_any_invocable12LocalInvokerILb0EvRZN9grpc_core12_GLOBAL__N_111XdsResolver22ClusterSelectionFilter4Call23OnClientInitialMetadataER19grpc_metadata_batchE3$_0JEEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE", ptr %60, align 8, !tbaa !149
   br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_111XdsResolver10ClusterRefEED2Ev.exit
@@ -6744,7 +6744,7 @@ _ZN9grpc_core3URIC2EOS0_.exit:                    ; preds = %155, %_ZNKSt7__cxx1
   store ptr %166, ptr %165, align 8, !tbaa !152, !noalias !279
   %167 = getelementptr inbounds nuw i8, ptr %41, i64 272
   store i64 0, ptr %167, align 8, !tbaa !65, !noalias !279
-  store i8 0, ptr %166, align 1, !tbaa !99, !noalias !279
+  store i8 0, ptr %166, align 8, !tbaa !99, !noalias !279
   %168 = getelementptr inbounds nuw i8, ptr %41, i64 296
   %169 = getelementptr inbounds nuw i8, ptr %41, i64 312
   store ptr %169, ptr %168, align 8, !tbaa !152, !noalias !279
@@ -21671,7 +21671,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !65, !alias.scope !743, !noalias !746
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !61, !alias.scope !746, !noalias !743
   store i64 0, ptr %48, align 8, !tbaa !65, !alias.scope !746, !noalias !743
-  store i8 0, ptr %39, align 1, !tbaa !99, !alias.scope !746, !noalias !743
+  store i8 0, ptr %39, align 8, !tbaa !99, !alias.scope !746, !noalias !743
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -21719,7 +21719,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !65, !alias.scope !750, !noalias !753
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !61, !alias.scope !753, !noalias !750
   store i64 0, ptr %64, align 8, !tbaa !65, !alias.scope !753, !noalias !750
-  store i8 0, ptr %55, align 1, !tbaa !99, !alias.scope !753, !noalias !750
+  store i8 0, ptr %55, align 8, !tbaa !99, !alias.scope !753, !noalias !750
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5
@@ -25213,7 +25213,7 @@ define internal void @_ZZN9grpc_core14filters_detail9AddOpImplINS_12_GLOBAL__N_1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_111XdsResolver22ClusterSelectionFilter4Call23OnClientInitialMetadataER19grpc_metadata_batch(ptr nonnull readnone align 1 poison, ptr nonnull align 8 poison), !noalias !892
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !892
-  %11 = load i8, ptr %4, align 1, !tbaa !88, !noalias !892
+  %11 = load i8, ptr %4, align 8, !tbaa !88, !noalias !892
   store i8 %11, ptr %8, align 8, !tbaa !88, !noalias !892
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load i64, ptr %10, align 8, !tbaa !90, !noalias !892

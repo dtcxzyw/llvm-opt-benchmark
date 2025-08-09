@@ -47,7 +47,7 @@ define internal void @mpv_pic_reset(ptr readnone captures(none) %0, ptr noundef 
   %5 = load i32, ptr %4, align 4, !tbaa !14
   %.not.i = icmp eq i32 %5, 0
   %6 = select i1 %.not.i, i32 2147483647, i32 -1
-  store i32 %6, ptr %3, align 4, !tbaa !15
+  store i32 %6, ptr %3, align 8, !tbaa !15
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 96
   tail call void @av_refstruct_unref(ptr noundef nonnull %7) #6
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 72

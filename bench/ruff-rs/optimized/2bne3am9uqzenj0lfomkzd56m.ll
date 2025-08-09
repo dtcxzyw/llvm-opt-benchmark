@@ -4142,7 +4142,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h40b5
   %130 = getelementptr i8, ptr %129, i64 256
   store i32 %70, ptr %130, align 4
   %131 = getelementptr i8, ptr %129, i64 260
-  store atomic i8 1, ptr %131 release, align 1
+  store atomic i8 1, ptr %131 release, align 4
   %132 = atomicrmw add ptr %60, i64 1 release, align 8
   br label %133
 
@@ -4537,7 +4537,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h672f
   %127 = getelementptr i8, ptr %126, i64 256
   store i32 %67, ptr %127, align 4
   %128 = getelementptr i8, ptr %126, i64 260
-  store atomic i8 1, ptr %128 release, align 1
+  store atomic i8 1, ptr %128 release, align 4
   %129 = atomicrmw add ptr %57, i64 1 release, align 8
   br label %130
 
@@ -4783,7 +4783,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17h40834eee58d7e
   store ptr %92, ptr %86, align 8, !noalias !243
   store ptr %86, ptr %20, align 8, !alias.scope !243
   %93 = getelementptr inbounds nuw i8, ptr %86, i64 16
-  %94 = load i32, ptr %93, align 4, !range !205, !noalias !243, !noundef !7
+  %94 = load i32, ptr %93, align 8, !range !205, !noalias !243, !noundef !7
   %95 = add i32 %94, -1
   %96 = lshr i32 %95, 10
   %97 = zext nneg i32 %96 to i64
@@ -5230,7 +5230,7 @@ define internal fastcc noundef range(i64 0, -32) i64 @"_ZN6boxcar3raw12Vec$LT$T$
   %43 = getelementptr i8, ptr %41, i64 776
   store ptr %2, ptr %43, align 8, !noalias !313
   %44 = getelementptr i8, ptr %41, i64 784
-  store atomic i8 1, ptr %44 release, align 1
+  store atomic i8 1, ptr %44 release, align 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %46 = atomicrmw add ptr %45, i64 1 release, align 8, !noalias !313
   ret i64 %5

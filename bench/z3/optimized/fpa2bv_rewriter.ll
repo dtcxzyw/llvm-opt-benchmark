@@ -2964,7 +2964,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %57
   store i8 0, ptr %67, align 8, !tbaa !200
   %68 = getelementptr inbounds nuw i8, ptr %61, i64 96
   %69 = load ptr, ptr %68, align 8, !tbaa !202
-  %70 = load i32, ptr %63, align 4, !tbaa !203
+  %70 = load i32, ptr %63, align 8, !tbaa !203
   %71 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %69, i32 noundef %70, i32 noundef 40, i32 noundef 2, ptr noundef nonnull %11, i32 noundef 1, ptr noundef nonnull %10, ptr noundef null)
           to label %72 unwind label %74
 
@@ -3015,7 +3015,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %57
   store i8 0, ptr %93, align 8, !tbaa !200
   %94 = getelementptr inbounds nuw i8, ptr %87, i64 96
   %95 = load ptr, ptr %94, align 8, !tbaa !202
-  %96 = load i32, ptr %88, align 4, !tbaa !203
+  %96 = load i32, ptr %88, align 8, !tbaa !203
   %97 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %95, i32 noundef %96, i32 noundef 40, i32 noundef 2, ptr noundef nonnull %9, i32 noundef 1, ptr noundef nonnull %8, ptr noundef null)
           to label %98 unwind label %100
 
@@ -3066,7 +3066,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %57
   store i8 0, ptr %119, align 8, !tbaa !200
   %120 = getelementptr inbounds nuw i8, ptr %113, i64 96
   %121 = load ptr, ptr %120, align 8, !tbaa !202
-  %122 = load i32, ptr %114, align 4, !tbaa !203
+  %122 = load i32, ptr %114, align 8, !tbaa !203
   %123 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %121, i32 noundef %122, i32 noundef 40, i32 noundef 2, ptr noundef nonnull %7, i32 noundef 1, ptr noundef nonnull %6, ptr noundef null)
           to label %124 unwind label %126
 

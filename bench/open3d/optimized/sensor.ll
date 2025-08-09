@@ -66514,20 +66514,20 @@ _ZN8pybind116detail7cast_opIRKN6open3d6camera22PinholeCameraIntrinsicEEENS0_11ty
   store i64 %22, ptr %20, align 8
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %25 = load <2 x double>, ptr %24, align 1, !tbaa !161
-  store <2 x double> %25, ptr %23, align 1, !tbaa !161
+  %25 = load <2 x double>, ptr %24, align 8, !tbaa !161
+  store <2 x double> %25, ptr %23, align 8, !tbaa !161
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %28 = load <2 x double>, ptr %27, align 1, !tbaa !161
-  store <2 x double> %28, ptr %26, align 1, !tbaa !161
+  %28 = load <2 x double>, ptr %27, align 8, !tbaa !161
+  store <2 x double> %28, ptr %26, align 8, !tbaa !161
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %31 = load <2 x double>, ptr %30, align 1, !tbaa !161
-  store <2 x double> %31, ptr %29, align 1, !tbaa !161
+  %31 = load <2 x double>, ptr %30, align 8, !tbaa !161
+  store <2 x double> %31, ptr %29, align 8, !tbaa !161
   %32 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %33 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  %34 = load <2 x double>, ptr %33, align 1, !tbaa !161
-  store <2 x double> %34, ptr %32, align 1, !tbaa !161
+  %34 = load <2 x double>, ptr %33, align 8, !tbaa !161
+  store <2 x double> %34, ptr %32, align 8, !tbaa !161
   %35 = getelementptr inbounds nuw i8, ptr %19, i64 80
   %36 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %37 = load double, ptr %36, align 8, !tbaa !2081

@@ -25566,7 +25566,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit45.i: 
   %1625 = getelementptr inbounds nuw i8, ptr %1623, i64 24
   %1626 = load i64, ptr %1625, align 8
   %1627 = icmp eq i64 %1615, %1626
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i.i = load i64, ptr %1624, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i.i = load i64, ptr %1624, align 8
   %1628 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i.i
   %1629 = select i1 %1627, i1 %1628, i1 false
   %1630 = trunc i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i to i32
@@ -25724,7 +25724,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit52.i: 
   %1701 = getelementptr inbounds nuw i8, ptr %1699, i64 24
   %1702 = load i64, ptr %1701, align 8
   %1703 = icmp eq i64 %1691, %1702
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i56.i = load i64, ptr %1700, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i56.i = load i64, ptr %1700, align 8
   %1704 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i55.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i56.i
   %1705 = select i1 %1703, i1 %1704, i1 false
   %1706 = trunc i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i55.i to i32
@@ -25882,7 +25882,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit76.i: 
   %1777 = getelementptr inbounds nuw i8, ptr %1775, i64 24
   %1778 = load i64, ptr %1777, align 8
   %1779 = icmp eq i64 %1767, %1778
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i80.i = load i64, ptr %1776, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i80.i = load i64, ptr %1776, align 8
   %1780 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i79.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i80.i
   %1781 = select i1 %1779, i1 %1780, i1 false
   %1782 = trunc i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i79.i to i32

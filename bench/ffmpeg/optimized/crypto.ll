@@ -71,7 +71,7 @@ define internal i32 @crypto_open2(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %19 = load ptr, ptr %18, align 8, !tbaa !19
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 8288
   %21 = load i32, ptr %20, align 8, !tbaa !20
-  %22 = load i32, ptr %17, align 4, !tbaa !21
+  %22 = load i32, ptr %17, align 8, !tbaa !21
   switch i32 %22, label %29 [
     i32 0, label %23
     i32 16, label %set_aes_arg.exit
@@ -112,7 +112,7 @@ set_aes_arg.exit:                                 ; preds = %28, %15
   %33 = load ptr, ptr %32, align 8, !tbaa !23
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 8304
   %35 = load i32, ptr %34, align 8, !tbaa !24
-  %36 = load i32, ptr %31, align 4, !tbaa !21
+  %36 = load i32, ptr %31, align 8, !tbaa !21
   switch i32 %36, label %43 [
     i32 0, label %37
     i32 16, label %set_aes_arg.exit76
@@ -158,7 +158,7 @@ set_aes_arg.exit76:                               ; preds = %42, %set_aes_arg.ex
   %49 = load ptr, ptr %48, align 8, !tbaa !19
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 8288
   %51 = load i32, ptr %50, align 8, !tbaa !20
-  %52 = load i32, ptr %47, align 4, !tbaa !21
+  %52 = load i32, ptr %47, align 8, !tbaa !21
   switch i32 %52, label %59 [
     i32 0, label %53
     i32 16, label %set_aes_arg.exit79
@@ -199,7 +199,7 @@ set_aes_arg.exit79:                               ; preds = %58, %45
   %63 = load ptr, ptr %62, align 8, !tbaa !23
   %64 = getelementptr inbounds nuw i8, ptr %7, i64 8304
   %65 = load i32, ptr %64, align 8, !tbaa !24
-  %66 = load i32, ptr %61, align 4, !tbaa !21
+  %66 = load i32, ptr %61, align 8, !tbaa !21
   switch i32 %66, label %73 [
     i32 0, label %67
     i32 16, label %set_aes_arg.exit82

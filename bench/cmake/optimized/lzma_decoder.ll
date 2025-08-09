@@ -2757,7 +2757,7 @@ literal_init.exit:                                ; preds = %.lr.ph.i, %2
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 28268
   store i32 -1, ptr %22, align 4, !tbaa !97
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 28272
-  store i32 0, ptr %23, align 4, !tbaa !98
+  store i32 0, ptr %23, align 8, !tbaa !98
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 28276
   store i32 5, ptr %24, align 4, !tbaa !99
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24576

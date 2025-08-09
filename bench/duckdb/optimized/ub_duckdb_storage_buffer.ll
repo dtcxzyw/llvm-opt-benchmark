@@ -5807,7 +5807,7 @@ define void @_ZN6duckdb10BufferPoolC2Embm(ptr noundef nonnull align 8 dereferenc
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr null, ptr %32, align 8, !tbaa !242, !noalias !216
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store i32 0, ptr %33, align 4, !tbaa !243, !noalias !216
+  store i32 0, ptr %33, align 8, !tbaa !243, !noalias !216
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store i64 0, ptr %34, align 8, !tbaa !89, !noalias !216
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 48
@@ -5830,7 +5830,7 @@ _ZNSt5arrayIN17duckdb_moodycamel15ConcurrentQueueIN6duckdb18BufferEvictionNodeEN
   %41 = getelementptr inbounds nuw i8, ptr %31, i64 616
   store i32 0, ptr %41, align 4, !tbaa !243, !noalias !216
   %42 = getelementptr inbounds nuw i8, ptr %31, i64 608
-  store atomic i8 0, ptr %42 monotonic, align 1, !noalias !216
+  store atomic i8 0, ptr %42 monotonic, align 4, !noalias !216
   %43 = getelementptr inbounds nuw i8, ptr %31, i64 64
   store atomic i64 0, ptr %43 monotonic, align 8, !noalias !216
   %44 = getelementptr inbounds nuw i8, ptr %31, i64 72
@@ -5868,7 +5868,7 @@ _ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb18BufferEvictionNodeENS_28Concur
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 824
   store ptr null, ptr %58, align 8, !tbaa !244, !noalias !216
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 832
-  store i8 0, ptr %59, align 1, !tbaa !253, !noalias !216
+  store i8 0, ptr %59, align 8, !tbaa !253, !noalias !216
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 833
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, i8 0, i64 16, i1 false), !noalias !216
   store i8 1, ptr %60, align 1, !tbaa !254, !noalias !216
@@ -9593,7 +9593,7 @@ _ZSt19__relocate_object_aIN6duckdb20ExceptionFormatValueES1_SaIS1_EEvPT_PT0_RT1_
   store i64 %49, ptr %51, align 8, !tbaa !81, !alias.scope !303, !noalias !306
   store ptr %41, ptr %38, align 8, !tbaa !78, !alias.scope !306, !noalias !303
   store i64 0, ptr %50, align 8, !tbaa !81, !alias.scope !306, !noalias !303
-  store i8 0, ptr %41, align 1, !tbaa !15, !alias.scope !306, !noalias !303
+  store i8 0, ptr %41, align 8, !tbaa !15, !alias.scope !306, !noalias !303
   %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 56
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 56
   %.not.i.i.i.i = icmp eq ptr %52, %1
@@ -9644,7 +9644,7 @@ _ZSt19__relocate_object_aIN6duckdb20ExceptionFormatValueES1_SaIS1_EEvPT_PT0_RT1_
   store i64 %67, ptr %69, align 8, !tbaa !81, !alias.scope !310, !noalias !313
   store ptr %59, ptr %56, align 8, !tbaa !78, !alias.scope !313, !noalias !310
   store i64 0, ptr %68, align 8, !tbaa !81, !alias.scope !313, !noalias !310
-  store i8 0, ptr %59, align 1, !tbaa !15, !alias.scope !313, !noalias !310
+  store i8 0, ptr %59, align 8, !tbaa !15, !alias.scope !313, !noalias !310
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 56
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 56
   %.not.i.i.i.i24 = icmp eq ptr %70, %5
@@ -11288,7 +11288,7 @@ _ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb18BufferEvictionNodeENS_28Concur
 51:                                               ; preds = %54, %49
   %.0.in.i.i.i.i = phi i64 [ %50, %49 ], [ %55, %54 ]
   store atomic i64 %.0.in.i.i.i.i, ptr %40 monotonic, align 8
-  store atomic i32 1, ptr %30 release, align 4
+  store atomic i32 1, ptr %30 release, align 8
   %52 = cmpxchg ptr %28, i64 %.0.in.i.i.i.i, i64 %.016.in28.i.i.i release monotonic, align 8
   %53 = extractvalue { i64, i1 } %52, 1
   br i1 %53, label %_ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb18BufferEvictionNodeENS_28ConcurrentQueueDefaultTraitsEE8FreeListINS4_5BlockEE28add_knowing_refcount_is_zeroEPS6_.exit.i.i.i, label %54
@@ -11322,7 +11322,7 @@ _ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb18BufferEvictionNodeENS_28Concur
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 824
   store ptr null, ptr %63, align 8, !tbaa !244
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 832
-  store i8 0, ptr %64, align 1, !tbaa !253
+  store i8 0, ptr %64, align 8, !tbaa !253
   %65 = getelementptr inbounds nuw i8, ptr %59, i64 833
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, i8 0, i64 16, i1 false)
   store i8 1, ptr %65, align 1, !tbaa !254
@@ -11450,7 +11450,7 @@ select.unfold._crit_edge:                         ; preds = %_ZNSt6atomicIbE23co
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr null, ptr %25, align 8, !tbaa !191
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store i8 0, ptr %26, align 1, !tbaa !253
+  store i8 0, ptr %26, align 8, !tbaa !253
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %27, i8 0, i64 48, i1 false)
@@ -11531,7 +11531,7 @@ _ZN17duckdb_moodycamel7detailsL13ceil_to_pow_2ImEET_S2_.exit.i.i: ; preds = %41
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr null, ptr %69, align 8, !tbaa !191
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  store i8 0, ptr %70, align 1, !tbaa !253
+  store i8 0, ptr %70, align 8, !tbaa !253
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %72 = getelementptr inbounds nuw i8, ptr %67, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %71, i8 0, i64 49, i1 false)
@@ -11857,7 +11857,7 @@ _ZN6duckdb18BufferEvictionNodeD2Ev.exit:          ; preds = %60, %_ZN9__gnu_cxx2
 98:                                               ; preds = %101, %94
   %.0.in.i.i.i = phi i64 [ %95, %94 ], [ %102, %101 ]
   store atomic i64 %.0.in.i.i.i, ptr %96 monotonic, align 8
-  store atomic i32 1, ptr %91 release, align 4
+  store atomic i32 1, ptr %91 release, align 8
   %99 = cmpxchg ptr %90, i64 %.0.in.i.i.i, i64 %97 release monotonic, align 8
   %100 = extractvalue { i64, i1 } %99, 1
   br i1 %100, label %_ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb18BufferEvictionNodeENS_28ConcurrentQueueDefaultTraitsEE22add_block_to_free_listEPNS4_5BlockE.exit, label %101
@@ -11942,7 +11942,7 @@ define linkonce_odr void @_ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb18Buff
 23:                                               ; preds = %26, %19
   %.0.in.i.i.i = phi i64 [ %20, %19 ], [ %27, %26 ]
   store atomic i64 %.0.in.i.i.i, ptr %21 monotonic, align 8
-  store atomic i32 1, ptr %16 release, align 4
+  store atomic i32 1, ptr %16 release, align 8
   %24 = cmpxchg ptr %15, i64 %.0.in.i.i.i, i64 %22 release monotonic, align 8
   %25 = extractvalue { i64, i1 } %24, 1
   br i1 %25, label %.loopexit40, label %26
@@ -12047,7 +12047,7 @@ _ZN6duckdb18BufferEvictionNodeD2Ev.exit:          ; preds = %49, %_ZN9__gnu_cxx2
 81:                                               ; preds = %84, %77
   %.0.in.i.i.i36 = phi i64 [ %78, %77 ], [ %85, %84 ]
   store atomic i64 %.0.in.i.i.i36, ptr %79 monotonic, align 8
-  store atomic i32 1, ptr %74 release, align 4
+  store atomic i32 1, ptr %74 release, align 8
   %82 = cmpxchg ptr %73, i64 %.0.in.i.i.i36, i64 %80 release monotonic, align 8
   %83 = extractvalue { i64, i1 } %82, 1
   br i1 %83, label %_ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb18BufferEvictionNodeENS_28ConcurrentQueueDefaultTraitsEE22add_block_to_free_listEPNS4_5BlockE.exit37, label %84
@@ -12577,7 +12577,7 @@ _ZN6duckdb18BufferEvictionNodeD2Ev.exit.i:        ; preds = %87, %_ZN9__gnu_cxx2
 102:                                              ; preds = %105, %99
   %.0.in.i.i.i.i = phi i64 [ %100, %99 ], [ %106, %105 ]
   store atomic i64 %.0.in.i.i.i.i, ptr %101 monotonic, align 8
-  store atomic i32 1, ptr %96 release, align 4
+  store atomic i32 1, ptr %96 release, align 8
   %103 = cmpxchg ptr %95, i64 %.0.in.i.i.i.i, i64 %40 release monotonic, align 8
   %104 = extractvalue { i64, i1 } %103, 1
   br i1 %104, label %_ZZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb18BufferEvictionNodeENS_28ConcurrentQueueDefaultTraitsEE16ImplicitProducer7dequeueIS2_EEbRT_EN5GuardD2Ev.exit.thread, label %105
@@ -13150,7 +13150,7 @@ _ZN6duckdb18BufferEvictionNodeD2Ev.exit:          ; preds = %_ZN6duckdb18BufferE
 122:                                              ; preds = %125, %119
   %.0.in.i.i.i = phi i64 [ %120, %119 ], [ %126, %125 ]
   store atomic i64 %.0.in.i.i.i, ptr %121 monotonic, align 8
-  store atomic i32 1, ptr %116 release, align 4
+  store atomic i32 1, ptr %116 release, align 8
   %123 = cmpxchg ptr %115, i64 %.0.in.i.i.i, i64 %55 release monotonic, align 8
   %124 = extractvalue { i64, i1 } %123, 1
   br i1 %124, label %_ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb18BufferEvictionNodeENS_28ConcurrentQueueDefaultTraitsEE22add_block_to_free_listEPNS4_5BlockE.exit, label %125

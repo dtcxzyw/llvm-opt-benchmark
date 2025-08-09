@@ -439,7 +439,7 @@ _ZN5clang4ento29PathDiagnosticConsumerOptionsC2EOS1_.exit: ; preds = %104, %_ZNK
   store i64 %109, ptr %110, align 8, !tbaa !3
   store ptr %102, ptr %0, align 8, !tbaa !12
   store i64 0, ptr %18, align 8, !tbaa !3
-  store i8 0, ptr %102, align 1, !tbaa !14
+  store i8 0, ptr %102, align 8, !tbaa !14
   %111 = getelementptr inbounds nuw i8, ptr %10, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %111, ptr noundef nonnull align 8 dereferenceable(6) %33, i64 6, i1 false)
   call void @_ZN5clang4ento39createTextMinimalPathDiagnosticConsumerENS0_29PathDiagnosticConsumerOptionsERSt6vectorIPNS0_22PathDiagnosticConsumerESaIS4_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12PreprocessorERKNS_8cross_tu27CrossTranslationUnitContextERKNS_21MacroExpansionContextE(ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(3288) %3, ptr noundef nonnull align 8 dereferenceable(216) %4, ptr noundef nonnull align 8 dereferenceable(72) %5) #21
@@ -718,7 +718,7 @@ _ZN5clang4ento29PathDiagnosticConsumerOptionsC2EOS1_.exit: ; preds = %104, %_ZNK
   store i64 %109, ptr %110, align 8, !tbaa !3
   store ptr %102, ptr %0, align 8, !tbaa !12
   store i64 0, ptr %18, align 8, !tbaa !3
-  store i8 0, ptr %102, align 1, !tbaa !14
+  store i8 0, ptr %102, align 8, !tbaa !14
   %111 = getelementptr inbounds nuw i8, ptr %10, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %111, ptr noundef nonnull align 8 dereferenceable(6) %33, i64 6, i1 false)
   call void @_ZN5clang4ento39createTextMinimalPathDiagnosticConsumerENS0_29PathDiagnosticConsumerOptionsERSt6vectorIPNS0_22PathDiagnosticConsumerESaIS4_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12PreprocessorERKNS_8cross_tu27CrossTranslationUnitContextERKNS_21MacroExpansionContextE(ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(3288) %3, ptr noundef nonnull align 8 dereferenceable(216) %4, ptr noundef nonnull align 8 dereferenceable(72) %5) #21

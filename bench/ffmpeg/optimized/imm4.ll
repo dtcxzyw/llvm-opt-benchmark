@@ -92,7 +92,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %.018.i.i = select i1 %or.cond3.i.i, i32 %30, i32 0
   %.017.i.i = select i1 %or.cond.i.i, ptr %25, ptr null
   %32 = lshr exact i32 %.018.i.i, 3
-  store ptr %.017.i.i, ptr %7, align 8, !tbaa !38
+  store ptr %.017.i.i, ptr %7, align 16, !tbaa !38
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 36
   store i32 %.018.i.i, ptr %33, align 4, !tbaa !39
   %34 = add nuw nsw i32 %.018.i.i, 8
@@ -103,7 +103,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %37, ptr %38, align 8, !tbaa !41
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i32 0, ptr %39, align 8, !tbaa !42
+  store i32 0, ptr %39, align 16, !tbaa !42
   br i1 %or.cond3.i.i, label %40, label %156
 
 40:                                               ; preds = %18

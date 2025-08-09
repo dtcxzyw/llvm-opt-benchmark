@@ -2746,7 +2746,7 @@ define internal noundef range(i32 0, 2) i32 @svc_udp_has_wspace(ptr noundef %0) 
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %6, i32 4, ptr nonnull elementtype(i8) %6) #16, !srcloc !6
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %8 = load volatile i32, ptr %7, align 4
+  %8 = load volatile i32, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %10 = load i32, ptr %9, align 8
   %11 = add i32 %10, %8

@@ -790,7 +790,7 @@ define dso_local void @eio_new_obj(ptr noundef readonly captures(none) %0, ptr n
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 8
   %8 = call i64 @write(i32 noundef %7, ptr noundef nonnull %3, i64 noundef 1) #10
   %.not.i = icmp eq i64 %8, 1
   br i1 %.not.i, label %eio_signal_wakeup.exit, label %9

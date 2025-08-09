@@ -8851,8 +8851,8 @@ define hidden { i64, i64 } @"_ZN15futures_channel7oneshot15Sender$LT$T$GT$4send1
   store i64 1, ptr %4, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %1, ptr %16, align 8
-  store atomic i8 0, ptr %9 seq_cst, align 1, !noalias !1357
-  %17 = load atomic i8, ptr %5 seq_cst, align 1
+  store atomic i8 0, ptr %9 seq_cst, align 8, !noalias !1357
+  %17 = load atomic i8, ptr %5 seq_cst, align 8
   %18 = icmp eq i8 %17, 0
   br i1 %18, label %25, label %19
 
@@ -8866,7 +8866,7 @@ define hidden { i64, i64 } @"_ZN15futures_channel7oneshot15Sender$LT$T$GT$4send1
   %23 = load i64, ptr %16, align 8
   store i64 0, ptr %4, align 8
   %trunc13.i = trunc nuw i64 %22 to i1
-  store atomic i8 0, ptr %9 seq_cst, align 1, !noalias !22
+  store atomic i8 0, ptr %9 seq_cst, align 8, !noalias !22
   %..i = select i1 %trunc13.i, i64 %23, i64 %1
   br label %25
 

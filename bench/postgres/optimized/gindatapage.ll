@@ -2787,7 +2787,7 @@ leafRepackItems.exit.i:                           ; preds = %398, %380
   %.042.lcssa.i.i = phi i16 [ 32, %514 ], [ %544, %._crit_edge.loopexit.i.i ]
   %545 = getelementptr inbounds nuw i8, ptr %523, i64 12
   store i16 %.042.lcssa.i.i, ptr %545, align 4
-  store i48 %.sroa.0.0.copyload.i, ptr %524, align 2
+  store i48 %.sroa.0.0.copyload.i, ptr %524, align 4
   %546 = getelementptr inbounds nuw i8, ptr %522, i64 32
   br label %547
 
@@ -2829,7 +2829,7 @@ dataPlaceToPageLeafSplit.exit.i:                  ; preds = %562
   %566 = add i16 %565, 32
   %567 = getelementptr inbounds nuw i8, ptr %522, i64 12
   store i16 %566, ptr %567, align 4
-  store i48 %.sroa.0.0.insert.insert.i, ptr %564, align 2
+  store i48 %.sroa.0.0.insert.insert.i, ptr %564, align 4
   %568 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #11
   br i1 %.0132.i, label %569, label %580
 

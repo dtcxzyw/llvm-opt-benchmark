@@ -868,7 +868,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %if
   store i64 %5, ptr %_M_string_length.i29.i, align 8, !tbaa !13
   store ptr %2, ptr %in_message, align 8, !tbaa !7
   store i64 0, ptr %_M_string_length.i28.i, align 8, !tbaa !13
-  store i8 0, ptr %2, align 1, !tbaa !24
+  store i8 0, ptr %2, align 8, !tbaa !24
   %call = invoke noundef ptr @_ZN2fs19GetFilenameFromPathEPKc(ptr noundef %in_file)
           to label %invoke.cont unwind label %lpad
 
@@ -1212,7 +1212,7 @@ invoke.cont28:                                    ; preds = %if.end
   store ptr %8, ptr %name.i.i, align 8, !tbaa !23
   %_M_string_length.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call29, i64 32
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !13
-  store i8 0, ptr %8, align 1, !tbaa !24
+  store i8 0, ptr %8, align 8, !tbaa !24
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8MyObjDef, i64 16), ptr %call29, align 8, !tbaa !4
   %call3.i.i513 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i, i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.13, i64 noundef 6)
           to label %invoke.cont30 unwind label %lpad27
@@ -1390,7 +1390,7 @@ invoke.cont90:                                    ; preds = %if.end87
   store ptr %23, ptr %name.i.i542, align 8, !tbaa !23
   %_M_string_length.i.i.i.i.i543 = getelementptr inbounds nuw i8, ptr %call91, i64 32
   store i64 0, ptr %_M_string_length.i.i.i.i.i543, align 8, !tbaa !13
-  store i8 0, ptr %23, align 1, !tbaa !24
+  store i8 0, ptr %23, align 8, !tbaa !24
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8MyObjDef, i64 16), ptr %call91, align 8, !tbaa !4
   %call3.i.i546 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i542, i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.16, i64 noundef 6)
           to label %invoke.cont93 unwind label %lpad27
@@ -1563,7 +1563,7 @@ invoke.cont155:                                   ; preds = %if.end152
   store ptr %37, ptr %name.i.i578, align 8, !tbaa !23
   %_M_string_length.i.i.i.i.i579 = getelementptr inbounds nuw i8, ptr %call156, i64 32
   store i64 0, ptr %_M_string_length.i.i.i.i.i579, align 8, !tbaa !13
-  store i8 0, ptr %37, align 1, !tbaa !24
+  store i8 0, ptr %37, align 8, !tbaa !24
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8MyObjDef, i64 16), ptr %call156, align 8, !tbaa !4
   %call3.i.i582 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i578, i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.19, i64 noundef 4)
           to label %invoke.cont158 unwind label %lpad27
@@ -1736,7 +1736,7 @@ invoke.cont220:                                   ; preds = %if.end217
   store ptr %51, ptr %name.i.i614, align 8, !tbaa !23
   %_M_string_length.i.i.i.i.i615 = getelementptr inbounds nuw i8, ptr %call221, i64 32
   store i64 0, ptr %_M_string_length.i.i.i.i.i615, align 8, !tbaa !13
-  store i8 0, ptr %51, align 1, !tbaa !24
+  store i8 0, ptr %51, align 8, !tbaa !24
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8MyObjDef, i64 16), ptr %call221, align 8, !tbaa !4
   %call3.i.i618 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i614, i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.22, i64 noundef 6)
           to label %invoke.cont223 unwind label %lpad27
@@ -2350,7 +2350,7 @@ invoke.cont:                                      ; preds = %entry
   store ptr %0, ptr %name.i.i, align 8, !tbaa !23
   %_M_string_length.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !13
-  store i8 0, ptr %0, align 1, !tbaa !24
+  store i8 0, ptr %0, align 8, !tbaa !24
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8MyObjDef, i64 16), ptr %call, align 8, !tbaa !4
   %testvalue = getelementptr inbounds nuw i8, ptr %call, i64 56
   store i32 -301924591, ptr %testvalue, align 8, !tbaa !38

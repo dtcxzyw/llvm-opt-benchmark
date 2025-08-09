@@ -1464,7 +1464,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime9scheduler12multi_thread5queue14Loc
   %11 = trunc i64 %7 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %10, ptr %4, align 4
-  %12 = load i32, ptr %8, align 4, !noundef !4
+  %12 = load i32, ptr %8, align 8, !noundef !4
   %13 = icmp eq i32 %12, %11
   br i1 %13, label %._crit_edge, label %.lr.ph
 

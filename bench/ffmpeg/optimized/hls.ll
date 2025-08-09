@@ -3657,7 +3657,7 @@ ensure_playlist.exit312:                          ; preds = %243, %237
   store i64 0, ptr %281, align 4
   %282 = call noundef i64 @llvm.bswap.i64(i64 %280)
   %283 = getelementptr inbounds nuw i8, ptr %269, i64 52
-  store i64 %282, ptr %283, align 1, !tbaa !76
+  store i64 %282, ptr %283, align 4, !tbaa !76
   br label %284
 
 284:                                              ; preds = %274, %272
@@ -3848,7 +3848,7 @@ ensure_playlist.exit312:                          ; preds = %243, %237
   store i64 0, ptr %363, align 4
   %364 = call noundef i64 @llvm.bswap.i64(i64 %362)
   %365 = getelementptr inbounds nuw i8, ptr %351, i64 52
-  store i64 %364, ptr %365, align 1, !tbaa !76
+  store i64 %364, ptr %365, align 4, !tbaa !76
   br label %366
 
 366:                                              ; preds = %355, %353

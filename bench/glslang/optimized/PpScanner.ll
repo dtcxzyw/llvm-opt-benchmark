@@ -1386,7 +1386,7 @@ define noundef range(i32 -2147483648, 163) i32 @_ZN7glslang10TPpContext12tString
   %36 = load i32, ptr %35, align 4
   %37 = xor i32 %36, -1
   %38 = add i32 %34, %37
-  %39 = load i32, ptr %32, align 4
+  %39 = load i32, ptr %32, align 8
   %40 = tail call i32 @llvm.smin.i32(i32 %38, i32 %39)
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %40, i32 0)
   %41 = zext nneg i32 %.sroa.speculated.i.i to i64
@@ -3693,7 +3693,7 @@ define noundef i32 @_ZN7glslang10TPpContext8tokenizeERNS_8TPpTokenE(ptr noundef 
   %29 = load i32, ptr %28, align 4
   %30 = xor i32 %29, -1
   %31 = add i32 %27, %30
-  %32 = load i32, ptr %25, align 4
+  %32 = load i32, ptr %25, align 8
   %33 = call i32 @llvm.smin.i32(i32 %31, i32 %32)
   %.sroa.speculated.i.i.i = call i32 @llvm.smax.i32(i32 %33, i32 0)
   %34 = zext nneg i32 %.sroa.speculated.i.i.i to i64
@@ -3746,7 +3746,7 @@ _ZNK7glslang14TParseVersions13getCurrentLocEv.exit.i: ; preds = %22, %20
   %64 = load i32, ptr %63, align 4
   %65 = xor i32 %64, -1
   %66 = add i32 %62, %65
-  %67 = load i32, ptr %60, align 4
+  %67 = load i32, ptr %60, align 8
   %68 = call i32 @llvm.smin.i32(i32 %66, i32 %67)
   %.sroa.speculated.i.i.i21 = call i32 @llvm.smax.i32(i32 %68, i32 0)
   %69 = zext nneg i32 %.sroa.speculated.i.i.i21 to i64
@@ -4381,7 +4381,7 @@ define void @_ZN7glslang10TPpContext17missingEndifCheckEv(ptr noundef nonnull re
   %22 = load i32, ptr %21, align 4
   %23 = xor i32 %22, -1
   %24 = add i32 %20, %23
-  %25 = load i32, ptr %18, align 4
+  %25 = load i32, ptr %18, align 8
   %26 = tail call i32 @llvm.smin.i32(i32 %24, i32 %25)
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %26, i32 0)
   %27 = zext nneg i32 %.sroa.speculated.i.i to i64

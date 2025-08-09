@@ -1111,8 +1111,8 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   %681 = load i32, ptr %680, align 8
   %682 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %683 = getelementptr inbounds nuw i8, ptr %0, i64 848
-  %684 = load i32, ptr %683, align 4
-  %685 = load i32, ptr %682, align 4
+  %684 = load i32, ptr %683, align 8
+  %685 = load i32, ptr %682, align 8
   %686 = sub i32 %684, %685
   %687 = getelementptr inbounds nuw i8, ptr %0, i64 852
   %688 = load i32, ptr %687, align 4

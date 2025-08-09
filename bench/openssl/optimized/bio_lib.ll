@@ -35,7 +35,7 @@ define ptr @BIO_new_ex(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 44
   store i32 1, ptr %7, align 4, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  store atomic i32 1, ptr %8 seq_cst, align 4, !tbaa !19
+  store atomic i32 1, ptr %8 seq_cst, align 8, !tbaa !19
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %10 = tail call i32 @CRYPTO_new_ex_data(i32 noundef 12, ptr noundef nonnull %3, ptr noundef nonnull %9) #14
   %.not = icmp eq i32 %10, 0

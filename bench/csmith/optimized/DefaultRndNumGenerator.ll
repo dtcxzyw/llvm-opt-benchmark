@@ -186,7 +186,7 @@ define dso_local noundef nonnull ptr @_ZN22DefaultRndNumGenerator21make_rndnum_g
   store ptr %9, ptr %8, align 8, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %10, align 8, !tbaa !19
-  store i8 0, ptr %9, align 1, !tbaa !20
+  store i8 0, ptr %9, align 8, !tbaa !20
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %4, ptr %11, align 8, !tbaa !21
   store ptr %5, ptr @_ZN22DefaultRndNumGenerator5impl_E, align 8, !tbaa !23

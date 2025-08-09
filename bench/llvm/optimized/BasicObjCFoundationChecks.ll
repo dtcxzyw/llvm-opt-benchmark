@@ -2785,7 +2785,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang8SelectorEjLj16ENS_12DenseMapIn
   %57 = load i64, ptr %1, align 8, !tbaa !9
   store i64 %57, ptr %47, align 8, !tbaa !9
   %58 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !604
+  store i32 0, ptr %58, align 8, !tbaa !604
   br label %.loopexit
 
 .loopexit:                                        ; preds = %23, %13, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang8SelectorEjLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E16InsertIntoBucketIRKS3_JEEEPS8_SE_OT_DpOT0_.exit
@@ -3820,7 +3820,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIN5clang8SelectorEjLj16E
   %29 = getelementptr inbounds nuw i8, ptr %.03142, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %.032.ptr43, i64 8
   %31 = load i32, ptr %30, align 8, !tbaa !604
-  store i32 %31, ptr %29, align 4, !tbaa !604
+  store i32 %31, ptr %29, align 8, !tbaa !604
   %32 = getelementptr inbounds nuw i8, ptr %.03142, i64 16
   br label %33
 
@@ -3974,7 +3974,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang8SelectorEjLj16ENS_12DenseMapIn
   %41 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %.026, i64 8
   %43 = load i32, ptr %42, align 4, !tbaa !604
-  store i32 %43, ptr %41, align 4, !tbaa !604
+  store i32 %43, ptr %41, align 8, !tbaa !604
   %44 = load i32, ptr %0, align 8
   %45 = and i32 %44, -2
   %46 = add i32 %45, 2
@@ -11310,8 +11310,8 @@ _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymEx
   %61 = icmp eq i32 %58, %60
   %62 = getelementptr inbounds nuw i8, ptr %47, i64 56
   %63 = getelementptr inbounds nuw i8, ptr %52, i64 56
-  %64 = load i8, ptr %62, align 4, !range !703
-  %65 = load i8, ptr %63, align 4, !range !703
+  %64 = load i8, ptr %62, align 8, !range !703
+  %65 = load i8, ptr %63, align 8, !range !703
   %66 = icmp eq i8 %64, %65
   %.0.i.i = select i1 %61, i1 %66, i1 false
   br i1 %.0.i.i, label %.preheader, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEbEEEneERKS8_.exit.thread36

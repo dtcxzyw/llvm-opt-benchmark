@@ -155,7 +155,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImiES5_EEbT_T0_.exit.i.i: ; pred
   %24 = load i64, ptr %22, align 8, !tbaa !17
   store i64 %24, ptr %23, align 8, !tbaa !12
   %25 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i.i, i64 -8
-  %26 = load i32, ptr %25, align 4, !tbaa !18
+  %26 = load i32, ptr %25, align 8, !tbaa !18
   %27 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i.i, i64 -8
   store i32 %26, ptr %27, align 8, !tbaa !16
   %28 = add nsw i64 %.010.i.i.i.i.i.i.i, -1
@@ -409,7 +409,7 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIPSt4pairImiElN9__gnu_
   %.sroa.4.0.copyload.i.i8.i = load i32, ptr %.sroa.4.0..sroa_idx.i.i7.i, align 8
   %19 = load i64, ptr %0, align 8, !tbaa !17
   store i64 %19, ptr %18, align 8, !tbaa !12
-  %20 = load i32, ptr %16, align 4, !tbaa !18
+  %20 = load i32, ptr %16, align 8, !tbaa !18
   store i32 %20, ptr %.sroa.4.0..sroa_idx.i.i7.i, align 8, !tbaa !16
   %21 = ptrtoint ptr %18 to i64
   %22 = sub i64 %21, %4
@@ -569,9 +569,9 @@ _ZSt22__move_median_to_firstIPSt4pairImiEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_
   store i64 %53, ptr %.sink46.i, align 8, !tbaa !17
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %55 = getelementptr inbounds nuw i8, ptr %.sink46.i, i64 8
-  %56 = load i32, ptr %54, align 4, !tbaa !18
-  store i32 %.sink42.i, ptr %54, align 4, !tbaa !18
-  store i32 %56, ptr %55, align 4, !tbaa !18
+  %56 = load i32, ptr %54, align 8, !tbaa !18
+  store i32 %.sink42.i, ptr %54, align 8, !tbaa !18
+  store i32 %56, ptr %55, align 8, !tbaa !18
   br label %57
 
 57:                                               ; preds = %80, %_ZSt22__move_median_to_firstIPSt4pairImiEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_S6_T0_.exit
@@ -634,9 +634,9 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImiES5_EEbT_T0_.exit15.thread.i:
   store i64 %60, ptr %.114.i, align 8, !tbaa !17
   %81 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %82 = getelementptr inbounds i8, ptr %.013.pn.i, i64 -8
-  %83 = load i32, ptr %81, align 4, !tbaa !18
+  %83 = load i32, ptr %81, align 8, !tbaa !18
   %84 = load i32, ptr %82, align 4, !tbaa !18
-  store i32 %84, ptr %81, align 4, !tbaa !18
+  store i32 %84, ptr %81, align 8, !tbaa !18
   store i32 %83, ptr %82, align 4, !tbaa !18
   %85 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
   br label %57, !llvm.loop !30
@@ -690,7 +690,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImiES5_EEbT_T0_.exit.thread31: ;
   %29 = load i64, ptr %27, align 8, !tbaa !17
   store i64 %29, ptr %28, align 8, !tbaa !12
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %31 = load i32, ptr %30, align 4, !tbaa !18
+  %31 = load i32, ptr %30, align 8, !tbaa !18
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i32 %31, ptr %32, align 8, !tbaa !16
   %33 = icmp slt i64 %26, %7
@@ -716,7 +716,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImiES5_EEbT_T0_.exit.thread31: ;
   %45 = load i64, ptr %43, align 8, !tbaa !17
   store i64 %45, ptr %44, align 8, !tbaa !12
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %47 = load i32, ptr %46, align 4, !tbaa !18
+  %47 = load i32, ptr %46, align 8, !tbaa !18
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i32 %47, ptr %48, align 8, !tbaa !16
   br label %49

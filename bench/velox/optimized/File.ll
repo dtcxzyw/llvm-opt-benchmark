@@ -1767,7 +1767,7 @@ _ZN5folly10SemiFutureImEC2ImvEEOT_.exit:          ; preds = %call.i1.i.i.noexc
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly7futures6detail4CoreImEE, i64 16), ptr %call.i1.i.i2, align 16
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %call.i1.i.i2, i64 144
-  store i64 %call, ptr %3, align 8
+  store i64 %call, ptr %3, align 16
   store ptr %call.i1.i.i2, ptr %agg.result, align 8
   br label %return
 
@@ -2059,7 +2059,7 @@ _ZN5folly3TryImED2Ev.exit:                        ; preds = %call.i.i.noexc
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly7futures6detail4CoreImEE, i64 16), ptr %call.i.i1, align 16, !noalias !19
   store i32 1, ptr %3, align 8, !noalias !19
   %4 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 144
-  store i64 %1, ptr %4, align 8, !alias.scope !22, !noalias !19
+  store i64 %1, ptr %4, align 16, !alias.scope !22, !noalias !19
   store ptr %call.i.i1, ptr %agg.result, align 8, !alias.scope !19
   %5 = load ptr, ptr %agg.tmp1, align 8
   %tobool.not.i.i = icmp eq ptr %5, null

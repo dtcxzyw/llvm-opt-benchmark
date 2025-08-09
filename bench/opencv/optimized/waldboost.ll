@@ -3686,7 +3686,7 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit:           ; preds = %_ZNSt6vectorIfSaIfE
   %906 = load i32, ptr %905, align 8, !tbaa !158
   %907 = and i32 %906, -261
   %908 = or disjoint i32 %907, 4
-  store i32 %908, ptr %905, align 4, !tbaa !159
+  store i32 %908, ptr %905, align 8, !tbaa !159
   %909 = load i64, ptr %902, align 8
   %910 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %909
   %911 = getelementptr inbounds nuw i8, ptr %910, i64 8
@@ -3708,7 +3708,7 @@ _ZNSolsEd.exit:                                   ; preds = %900
   %921 = load i32, ptr %920, align 8, !tbaa !158
   %922 = and i32 %921, -261
   %923 = or disjoint i32 %922, 4
-  store i32 %923, ptr %920, align 4, !tbaa !159
+  store i32 %923, ptr %920, align 8, !tbaa !159
   %924 = load i64, ptr %917, align 8
   %925 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %924
   %926 = getelementptr inbounds nuw i8, ptr %925, i64 8
@@ -3730,7 +3730,7 @@ _ZNSolsEf.exit:                                   ; preds = %915
   %936 = load i32, ptr %935, align 8, !tbaa !158
   %937 = and i32 %936, -261
   %938 = or disjoint i32 %937, 4
-  store i32 %938, ptr %935, align 4, !tbaa !159
+  store i32 %938, ptr %935, align 8, !tbaa !159
   %939 = load i64, ptr %932, align 8
   %940 = getelementptr inbounds i8, ptr %928, i64 %939
   %941 = getelementptr inbounds nuw i8, ptr %940, i64 8
@@ -3751,7 +3751,7 @@ _ZNSolsEd.exit343:                                ; preds = %930
   %950 = load i32, ptr %949, align 8, !tbaa !158
   %951 = and i32 %950, -261
   %952 = or disjoint i32 %951, 256
-  store i32 %952, ptr %949, align 4, !tbaa !159
+  store i32 %952, ptr %949, align 8, !tbaa !159
   %953 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %942, double noundef %.1167.lcssa)
           to label %_ZNSolsEd.exit349 unwind label %.loopexit526
 

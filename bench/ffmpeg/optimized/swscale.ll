@@ -156,7 +156,7 @@ is16BPS.exit:                                     ; preds = %64
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 452
   %80 = load i32, ptr %79, align 4, !tbaa !49
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %82 = load i32, ptr %81, align 4, !tbaa !49
+  %82 = load i32, ptr %81, align 8, !tbaa !49
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %84 = load i32, ptr %83, align 16, !tbaa !50
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 464
@@ -1010,7 +1010,7 @@ solve_range_convert.exit.i:                       ; preds = %19
   %50 = lshr i64 %48, %49
   %51 = sub i64 0, %50
   %52 = trunc i64 %51 to i32
-  store i32 %52, ptr %38, align 4, !tbaa !49
+  store i32 %52, ptr %38, align 8, !tbaa !49
   %53 = zext i16 %.49.i to i64
   %54 = shl i64 %53, %41
   %55 = zext i16 %.46.i to i64
@@ -1018,7 +1018,7 @@ solve_range_convert.exit.i:                       ; preds = %19
   %57 = and i64 %51, 4294967295
   %58 = mul nsw i64 %57, %56
   %59 = sub nsw i64 %54, %58
-  store i64 %59, ptr %39, align 8, !tbaa !92
+  store i64 %59, ptr %39, align 16, !tbaa !92
   %60 = sub i16 %.50.i, %.48.i
   %61 = zext i16 %60 to i64
   %62 = shl i64 %61, %41

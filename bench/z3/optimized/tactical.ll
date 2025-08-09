@@ -2387,7 +2387,7 @@ _ZN12par_tacticalC2EjPKP6tactic.exit:             ; preds = %21, %2
   store ptr %31, ptr %30, align 8, !tbaa !27
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 0, ptr %32, align 8, !tbaa !30
-  store i8 0, ptr %31, align 1, !tbaa !33
+  store i8 0, ptr %31, align 8, !tbaa !33
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i32 0, ptr %33, align 8, !tbaa !34
   ret ptr %3
@@ -2471,7 +2471,7 @@ _Z3parjPKP6tactic.exit:                           ; preds = %23
   store ptr %33, ptr %32, align 8, !tbaa !27
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 0, ptr %34, align 8, !tbaa !30
-  store i8 0, ptr %33, align 1, !tbaa !33
+  store i8 0, ptr %33, align 8, !tbaa !33
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i32 0, ptr %35, align 8, !tbaa !34
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2558,7 +2558,7 @@ _Z3parjPKP6tactic.exit:                           ; preds = %25
   store ptr %35, ptr %34, align 8, !tbaa !27
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i64 0, ptr %36, align 8, !tbaa !30
-  store i8 0, ptr %35, align 1, !tbaa !33
+  store i8 0, ptr %35, align 8, !tbaa !33
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i32 0, ptr %37, align 8, !tbaa !34
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2647,7 +2647,7 @@ _Z3parjPKP6tactic.exit:                           ; preds = %27
   store ptr %37, ptr %36, align 8, !tbaa !27
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i64 0, ptr %38, align 8, !tbaa !30
-  store i8 0, ptr %37, align 1, !tbaa !33
+  store i8 0, ptr %37, align 8, !tbaa !33
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store i32 0, ptr %39, align 8, !tbaa !34
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -11412,7 +11412,7 @@ _ZN15ref_vector_coreI6tactic21ref_unmanaged_wrapperIS0_EE7inc_refEPS0_.exit.i: ;
   store ptr %48, ptr %47, align 8, !tbaa !27
   %49 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i64 0, ptr %49, align 8, !tbaa !30
-  store i8 0, ptr %48, align 1, !tbaa !33
+  store i8 0, ptr %48, align 8, !tbaa !33
   %50 = getelementptr inbounds nuw i8, ptr %12, i64 56
   store i32 0, ptr %50, align 8, !tbaa !34
   br label %_ZN15ref_vector_coreI6tactic21ref_unmanaged_wrapperIS0_EED2Ev.exit
@@ -11435,7 +11435,7 @@ _ZNK15ref_vector_coreI6tactic21ref_unmanaged_wrapperIS0_EE4sizeEv.exit: ; preds 
   store ptr %56, ptr %55, align 8, !tbaa !27
   %57 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i64 0, ptr %57, align 8, !tbaa !30
-  store i8 0, ptr %56, align 1, !tbaa !33
+  store i8 0, ptr %56, align 8, !tbaa !33
   %58 = getelementptr inbounds nuw i8, ptr %12, i64 56
   store i32 0, ptr %58, align 8, !tbaa !34
   br label %_ZNK6vectorIP6tacticLb0EjE4sizeEv.exit.i
@@ -11508,7 +11508,7 @@ _ZN15ref_vector_coreI6tactic21ref_unmanaged_wrapperIS0_EE7inc_refEPS0_.exit.i.i.
   store ptr %84, ptr %83, align 8, !tbaa !27
   %85 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i64 0, ptr %85, align 8, !tbaa !30
-  store i8 0, ptr %84, align 1, !tbaa !33
+  store i8 0, ptr %84, align 8, !tbaa !33
   %86 = getelementptr inbounds nuw i8, ptr %12, i64 56
   store i32 0, ptr %86, align 8, !tbaa !34
   %87 = icmp eq ptr %.pre, null

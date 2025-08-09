@@ -3204,7 +3204,7 @@ define dso_local void @_ZN4llvm16DwarfCompileUnit22addWasmRelocBaseGlobalEPNS_6D
   %17 = icmp eq i32 %10, 4
   %.sroa.0.0.insert.insert = select i1 %17, i16 383, i16 382
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 130
-  %19 = load i8, ptr %18, align 1, !tbaa !628, !range !48, !noundef !49
+  %19 = load i8, ptr %18, align 2, !tbaa !628, !range !48, !noundef !49
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %_ZN4llvm12MCSymbolWasm13setGlobalTypeENS_4wasm14WasmGlobalTypeE.exit, label %21
 

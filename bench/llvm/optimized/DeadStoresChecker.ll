@@ -6626,7 +6626,7 @@ _ZN5clang9FixItHintC2EOS0_.exit:                  ; preds = %29, %_ZNKSt7__cxx11
   store i64 %36, ptr %37, align 8, !tbaa !804
   store ptr %27, ptr %24, align 8, !tbaa !808
   store i64 0, ptr %35, align 8, !tbaa !804
-  store i8 0, ptr %27, align 1, !tbaa !253
+  store i8 0, ptr %27, align 8, !tbaa !253
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %39 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 56
   %40 = load i8, ptr %39, align 8, !tbaa !805, !range !260, !noundef !264
@@ -7028,7 +7028,7 @@ _ZSt10_ConstructIN5clang9FixItHintEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = 
   store i64 %24, ptr %25, align 8, !tbaa !804
   store ptr %15, ptr %12, align 8, !tbaa !808
   store i64 0, ptr %23, align 8, !tbaa !804
-  store i8 0, ptr %15, align 1, !tbaa !253
+  store i8 0, ptr %15, align 8, !tbaa !253
   %26 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 56
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 56
   %28 = load i8, ptr %27, align 8, !tbaa !805, !range !260, !noundef !264

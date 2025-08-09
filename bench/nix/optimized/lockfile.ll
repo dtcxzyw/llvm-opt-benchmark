@@ -26121,7 +26121,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !alias.scope !208, !noalias !211
   store ptr %39, ptr %.0911.i.i.i, align 8, !alias.scope !211, !noalias !208
   store i64 0, ptr %48, align 8, !alias.scope !211, !noalias !208
-  store i8 0, ptr %39, align 1, !alias.scope !211, !noalias !208
+  store i8 0, ptr %39, align 8, !alias.scope !211, !noalias !208
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i) #31
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
@@ -26171,7 +26171,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !alias.scope !215, !noalias !218
   store ptr %55, ptr %.0911.i.i.i19, align 8, !alias.scope !218, !noalias !215
   store i64 0, ptr %64, align 8, !alias.scope !218, !noalias !215
-  store i8 0, ptr %55, align 1, !alias.scope !218, !noalias !215
+  store i8 0, ptr %55, align 8, !alias.scope !218, !noalias !215
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i19) #31
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
@@ -28051,7 +28051,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %32, ptr %34, align 8, !alias.scope !243, !noalias !246
   store ptr %24, ptr %.0911.i.i.i, align 8, !alias.scope !246, !noalias !243
   store i64 0, ptr %33, align 8, !alias.scope !246, !noalias !243
-  store i8 0, ptr %24, align 1, !alias.scope !246, !noalias !243
+  store i8 0, ptr %24, align 8, !alias.scope !246, !noalias !243
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i) #31
   %35 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %36 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
@@ -28101,7 +28101,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %48, ptr %50, align 8, !alias.scope !249, !noalias !252
   store ptr %40, ptr %.0911.i.i.i29, align 8, !alias.scope !252, !noalias !249
   store i64 0, ptr %49, align 8, !alias.scope !252, !noalias !249
-  store i8 0, ptr %40, align 1, !alias.scope !252, !noalias !249
+  store i8 0, ptr %40, align 8, !alias.scope !252, !noalias !249
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i29) #31
   %51 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
@@ -30327,7 +30327,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8
   store ptr %13, ptr %10, align 8
   store i64 0, ptr %24, align 8
-  store i8 0, ptr %13, align 1
+  store i8 0, ptr %13, align 8
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i8 0, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 72
@@ -31893,7 +31893,7 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Varia
 _ZNSt8__detail9__variant9__emplaceILm2ELb0EJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmN3nix8ExplicitIbEEEJRKSA_EEEvRNS0_16_Variant_storageIXT0_EJDpT1_EEEDpOT2_.exit.i.i.i.i: ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmN3nix8ExplicitIbEEEE8_M_resetEvEUlOT_E_RSt7variantIJS9_mSC_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESH_SK_.exit.i.i.i.i.i.i.i11, %20
   store i8 -1, ptr %22, align 8
   %33 = load i8, ptr %1, align 8
-  store i8 %33, ptr %21, align 1
+  store i8 %33, ptr %21, align 8
   store i8 2, ptr %22, align 8
   br label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_17_Copy_assign_baseILb0EJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmN3nix8ExplicitIbEEEEaSERKSE_EUlOT_T0_E_RKSt7variantIJSA_mSD_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESL_SP_.exit
 
@@ -32059,7 +32059,7 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Varia
 _ZNSt8__detail9__variant9__emplaceILm2ELb0EJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmN3nix8ExplicitIbEEEJSA_EEEvRNS0_16_Variant_storageIXT0_EJDpT1_EEEDpOT2_.exit.i.i.i.i: ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmN3nix8ExplicitIbEEEE8_M_resetEvEUlOT_E_RSt7variantIJS9_mSC_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESH_SK_.exit.i.i.i.i.i.i.i11, %20
   store i8 -1, ptr %22, align 8
   %33 = load i8, ptr %1, align 8
-  store i8 %33, ptr %21, align 1
+  store i8 %33, ptr %21, align 8
   store i8 2, ptr %22, align 8
   br label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_17_Move_assign_baseILb0EJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmN3nix8ExplicitIbEEEEaSEOSE_EUlOT_T0_E_RSt7variantIJSA_mSD_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESK_SN_.exit
 

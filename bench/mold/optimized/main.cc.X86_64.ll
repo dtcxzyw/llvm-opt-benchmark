@@ -11075,10 +11075,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   store ptr %55, ptr %54, align 8, !tbaa !31
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 304
   store i64 0, ptr %56, align 8, !tbaa !26
-  store i8 0, ptr %55, align 1, !tbaa !30
+  store i8 0, ptr %55, align 8, !tbaa !30
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 328
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 408
-  store i32 0, ptr %58, align 4, !tbaa !46
+  store i32 0, ptr %58, align 8, !tbaa !46
   %59 = getelementptr inbounds nuw i8, ptr %53, i64 416
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %57, i8 0, i64 72, i1 false)
@@ -11106,7 +11106,7 @@ _ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold10SharedFileINS4_6X86_
   %73 = load i8, ptr %1, align 8, !tbaa !331, !range !288, !noundef !289
   %74 = xor i8 %73, 1
   %75 = getelementptr inbounds nuw i8, ptr %53, i64 128
-  store atomic i8 %74, ptr %75 monotonic, align 1
+  store atomic i8 %74, ptr %75 monotonic, align 8
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %77 = load ptr, ptr %76, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -16535,7 +16535,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   store ptr %63, ptr %62, align 8, !tbaa !31
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store i64 0, ptr %64, align 8, !tbaa !26
-  store i8 0, ptr %63, align 1, !tbaa !30
+  store i8 0, ptr %63, align 8, !tbaa !30
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 32
   %66 = getelementptr inbounds nuw i8, ptr %62, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, i8 0, i64 16, i1 false)

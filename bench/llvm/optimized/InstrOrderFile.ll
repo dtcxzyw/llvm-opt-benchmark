@@ -807,7 +807,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i:      ; preds = %233
   %271 = load i32, ptr %270, align 8, !tbaa !182
   %272 = and i32 %271, -75
   %273 = or disjoint i32 %272, 8
-  store i32 %273, ptr %270, align 4, !tbaa !183
+  store i32 %273, ptr %270, align 8, !tbaa !183
   %274 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(136) %228) #19
   %275 = extractvalue { ptr, i64 } %274, 0
   %276 = extractvalue { ptr, i64 } %274, 1

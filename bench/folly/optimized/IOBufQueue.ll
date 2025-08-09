@@ -120,8 +120,8 @@ _ZNK5folly10IOBufQueue10flushCacheEv.exit.i:      ; preds = %7, %1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %.sroa.2.0.copyload.i.i.i.i, ptr %23, align 8, !tbaa !37
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %25 = load i8, ptr %24, align 1, !tbaa !7, !range !38, !noundef !39
-  store i8 0, ptr %24, align 1, !tbaa !7
+  %25 = load i8, ptr %24, align 8, !tbaa !7, !range !38, !noundef !39
+  store i8 0, ptr %24, align 8, !tbaa !7
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 %25, ptr %26, align 8, !tbaa !40
   store ptr %21, ptr %4, align 8, !tbaa !11
@@ -195,8 +195,8 @@ _ZNK5folly10IOBufQueue10flushCacheEv.exit.i:      ; preds = %13, %2
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %.sroa.2.0.copyload.i.i.i.i, ptr %29, align 8, !tbaa !37
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %31 = load i8, ptr %30, align 1, !tbaa !7, !range !38, !noundef !39
-  store i8 0, ptr %30, align 1, !tbaa !7
+  %31 = load i8, ptr %30, align 8, !tbaa !7, !range !38, !noundef !39
+  store i8 0, ptr %30, align 8, !tbaa !7
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i8 %31, ptr %32, align 8, !tbaa !40
   store ptr %27, ptr %10, align 8, !tbaa !11
@@ -284,8 +284,8 @@ _ZNK5folly10IOBufQueue10flushCacheEv.exit.i:      ; preds = %9, %3
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %.sroa.2.0.copyload.i.i.i.i, ptr %25, align 8, !tbaa !37
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %27 = load i8, ptr %26, align 1, !tbaa !7, !range !38, !noundef !39
-  store i8 0, ptr %26, align 1, !tbaa !7
+  %27 = load i8, ptr %26, align 8, !tbaa !7, !range !38, !noundef !39
+  store i8 0, ptr %26, align 8, !tbaa !7
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i8 %27, ptr %28, align 8, !tbaa !40
   store ptr %23, ptr %6, align 8, !tbaa !11
@@ -333,8 +333,8 @@ _ZNK5folly10IOBufQueue10flushCacheEv.exit.i10:    ; preds = %34, %_ZN5folly10IOB
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %.sroa.2.0.copyload.i.i.i.i14, ptr %50, align 8, !tbaa !37
   %51 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %52 = load i8, ptr %51, align 1, !tbaa !7, !range !38, !noundef !39
-  store i8 0, ptr %51, align 1, !tbaa !7
+  %52 = load i8, ptr %51, align 8, !tbaa !7, !range !38, !noundef !39
+  store i8 0, ptr %51, align 8, !tbaa !7
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 %52, ptr %53, align 8, !tbaa !40
   store ptr %48, ptr %31, align 8, !tbaa !11

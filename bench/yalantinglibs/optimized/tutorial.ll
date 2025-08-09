@@ -1157,7 +1157,7 @@ _ZSt19__relocate_object_aIN8tutorial6Person11PhoneNumberES2_SaIS2_EEvPT_PT0_RT1_
   store i64 %9, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i, align 8, !alias.scope !7, !noalias !10
   store ptr %6, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !10, !noalias !7
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i, align 8, !alias.scope !10, !noalias !7
-  store i8 0, ptr %6, align 1, !alias.scope !10, !noalias !7
+  store i8 0, ptr %6, align 8, !alias.scope !10, !noalias !7
   %type.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 32
   %type3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 32
   %10 = load i32, ptr %type3.i.i.i.i.i.i.i, align 8, !alias.scope !10, !noalias !7
@@ -1211,7 +1211,7 @@ _ZSt19__relocate_object_aIN8tutorial6Person11PhoneNumberES2_SaIS2_EEvPT_PT0_RT1_
   store i64 %16, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i28, align 8, !alias.scope !14, !noalias !17
   store ptr %13, ptr %__first.addr.06.i.i.i21, align 8, !alias.scope !17, !noalias !14
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i27, align 8, !alias.scope !17, !noalias !14
-  store i8 0, ptr %13, align 1, !alias.scope !17, !noalias !14
+  store i8 0, ptr %13, align 8, !alias.scope !17, !noalias !14
   %type.i.i.i.i.i.i.i29 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i20, i64 32
   %type3.i.i.i.i.i.i.i30 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i21, i64 32
   %17 = load i32, ptr %type3.i.i.i.i.i.i.i30, align 8, !alias.scope !17, !noalias !14
@@ -1640,7 +1640,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i: ; preds
   store i64 %5, ptr %_M_string_length.i13.i.i.i.i, align 8
   store ptr %2, ptr %__orig, align 8
   store i64 0, ptr %_M_string_length.i12.i.i.i.i, align 8
-  store i8 0, ptr %2, align 1
+  store i8 0, ptr %2, align 8
   %id.i.i.i = getelementptr inbounds nuw i8, ptr %__dest, i64 32
   %id3.i.i.i = getelementptr inbounds nuw i8, ptr %__orig, i64 32
   %6 = load i32, ptr %id3.i.i.i, align 8
@@ -1679,7 +1679,7 @@ _ZNSt16allocator_traitsISaIN8tutorial6PersonEEE9constructIS1_JS1_EEEvRS2_PT_DpOT
   store i64 %12, ptr %_M_string_length.i13.i7.i.i.i, align 8
   store ptr %9, ptr %email4.i.i.i, align 8
   store i64 0, ptr %_M_string_length.i12.i6.i.i.i, align 8
-  store i8 0, ptr %9, align 1
+  store i8 0, ptr %9, align 8
   %phones.i.i.i = getelementptr inbounds nuw i8, ptr %__dest, i64 72
   %phones5.i.i.i = getelementptr inbounds nuw i8, ptr %__orig, i64 72
   %13 = load ptr, ptr %phones5.i.i.i, align 8

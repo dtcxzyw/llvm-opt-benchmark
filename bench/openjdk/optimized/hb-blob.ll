@@ -70,7 +70,7 @@ _ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread: ; preds = %7, %5
   store atomic i32 1, ptr %11 monotonic, align 4
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store atomic i64 0, ptr %12 monotonic, align 8
-  %13 = load atomic i32, ptr %8 monotonic, align 4
+  %13 = load atomic i32, ptr %8 monotonic, align 8
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %0, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -327,8 +327,8 @@ define hidden noundef nonnull ptr @hb_blob_create_sub_blob(ptr noundef %0, i32 n
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = sub i32 %8, %1
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %2, i32 %18)
-  %19 = load atomic i32, ptr %0 monotonic, align 4
-  %20 = load atomic i32, ptr %0 monotonic, align 4
+  %19 = load atomic i32, ptr %0 monotonic, align 8
+  %20 = load atomic i32, ptr %0 monotonic, align 8
   %.not.i7.i.i = icmp eq i32 %20, 0
   br i1 %.not.i7.i.i, label %hb_blob_reference.exit, label %21
 
@@ -363,7 +363,7 @@ _ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread.i: ; preds = %26, %24
   store atomic i32 1, ptr %29 monotonic, align 4
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store atomic i64 0, ptr %30 monotonic, align 8
-  %31 = load atomic i32, ptr %27 monotonic, align 4
+  %31 = load atomic i32, ptr %27 monotonic, align 8
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %17, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 24
@@ -856,7 +856,7 @@ _ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread.i: ; preds = %25, %21
   store atomic i32 1, ptr %28 monotonic, align 4
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store atomic i64 0, ptr %29 monotonic, align 8
-  %30 = load atomic i32, ptr %26 monotonic, align 4
+  %30 = load atomic i32, ptr %26 monotonic, align 8
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr %.132, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 24

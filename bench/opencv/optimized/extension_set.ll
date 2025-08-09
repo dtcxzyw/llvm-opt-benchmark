@@ -8315,7 +8315,7 @@ _ZN6google8protobuf5Arena14CreateInternalINSt7__cxx1112basic_stringIcSt11char_tr
   store ptr %20, ptr %.sink9, align 8, !tbaa !135
   %21 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
   store i64 0, ptr %21, align 8, !tbaa !60
-  store i8 0, ptr %20, align 1, !tbaa !38
+  store i8 0, ptr %20, align 8, !tbaa !38
   store ptr %.sink9, ptr %.fca.0.extract.i, align 8, !tbaa !38
   br label %22
 
@@ -8676,7 +8676,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %46, ptr %.sink5.i.i.i.i, align 8, !tbaa !135
   %47 = getelementptr inbounds nuw i8, ptr %.sink5.i.i.i.i, i64 8
   store i64 0, ptr %47, align 8, !tbaa !60
-  store i8 0, ptr %46, align 1, !tbaa !38
+  store i8 0, ptr %46, align 8, !tbaa !38
   %48 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull %.sink5.i.i.i.i)
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit
 
@@ -12339,7 +12339,7 @@ _ZN6google8protobuf5Arena14CreateInternalINSt7__cxx1112basic_stringIcSt11char_tr
   store ptr %21, ptr %.sink9.i, align 8, !tbaa !135
   %22 = getelementptr inbounds nuw i8, ptr %.sink9.i, i64 8
   store i64 0, ptr %22, align 8, !tbaa !60
-  store i8 0, ptr %21, align 1, !tbaa !38
+  store i8 0, ptr %21, align 8, !tbaa !38
   store ptr %.sink9.i, ptr %.fca.0.extract.i.i, align 8, !tbaa !38
   br label %_ZN6google8protobuf8internal12ExtensionSet13MutableStringB5cxx11EihPKNS0_15FieldDescriptorE.exit
 
@@ -12802,9 +12802,9 @@ define hidden void @_ZN6google8protobuf8internal12ExtensionSet12InternalSwapEPS2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i16, ptr %5, align 8, !tbaa !165
-  %8 = load i16, ptr %6, align 2, !tbaa !165
+  %8 = load i16, ptr %6, align 8, !tbaa !165
   store i16 %8, ptr %5, align 8, !tbaa !165
-  store i16 %7, ptr %6, align 2, !tbaa !165
+  store i16 %7, ptr %6, align 8, !tbaa !165
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %11 = load i16, ptr %9, align 2, !tbaa !165
@@ -18584,7 +18584,7 @@ _ZN6google8protobuf5Arena14CreateInternalINSt7__cxx1112basic_stringIcSt11char_tr
   store ptr %650, ptr %.sink9.i, align 8, !tbaa !135
   %651 = getelementptr inbounds nuw i8, ptr %.sink9.i, i64 8
   store i64 0, ptr %651, align 8, !tbaa !60
-  store i8 0, ptr %650, align 1, !tbaa !38
+  store i8 0, ptr %650, align 8, !tbaa !38
   store ptr %.sink9.i, ptr %.fca.0.extract.i.i323, align 8, !tbaa !38
   br label %_ZN6google8protobuf8internal12ExtensionSet13MutableStringB5cxx11EihPKNS0_15FieldDescriptorE.exit
 
@@ -26527,7 +26527,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit: ; preds = %1, %6
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %12, ptr %11, align 8, !tbaa !135
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   br label %_ZN6google8protobuf5Arena14CreateInternalINS0_8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJEEEPT_PS1_St17integral_constantIbLb0EEDpOT0_.exit
 
 13:                                               ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit
@@ -26541,7 +26541,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit: ; preds = %1, %6
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %19, ptr %18, align 8, !tbaa !135
-  store i8 0, ptr %19, align 1, !tbaa !38
+  store i8 0, ptr %19, align 8, !tbaa !38
   %.pre = load i64, ptr %0, align 8, !tbaa !138
   br label %_ZN6google8protobuf5Arena14CreateInternalINS0_8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJEEEPT_PS1_St17integral_constantIbLb0EEDpOT0_.exit
 
@@ -26927,7 +26927,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %12, ptr %11, align 8, !tbaa !135
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %13, align 8, !tbaa !60
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   %14 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv28
   store ptr %11, ptr %14, align 8, !tbaa !106
   %indvars.iv.next29 = add nsw i64 %indvars.iv28, 1
@@ -26946,7 +26946,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %19, ptr %16, align 8, !tbaa !135
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 0, ptr %20, align 8, !tbaa !60
-  store i8 0, ptr %19, align 1, !tbaa !38
+  store i8 0, ptr %19, align 8, !tbaa !38
   %21 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   store ptr %16, ptr %21, align 8, !tbaa !106
   %indvars.iv.next = add nsw i64 %indvars.iv, 1

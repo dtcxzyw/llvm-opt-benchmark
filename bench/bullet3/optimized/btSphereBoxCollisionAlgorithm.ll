@@ -323,7 +323,7 @@ define dso_local noundef zeroext i1 @_ZN29btSphereBoxCollisionAlgorithm17getSphe
   %55 = fmul float %26, %47
   %56 = tail call float @llvm.fmuladd.f32(float %46, float %21, float %55)
   %57 = tail call noundef float @llvm.fmuladd.f32(float %48, float %31, float %56)
-  %58 = load float, ptr %11, align 4, !tbaa !32
+  %58 = load float, ptr %11, align 8, !tbaa !32
   %59 = fcmp olt float %58, %51
   %.sroa.speculated129 = select i1 %59, float %58, float %51
   %60 = fneg float %58
@@ -337,7 +337,7 @@ define dso_local noundef zeroext i1 @_ZN29btSphereBoxCollisionAlgorithm17getSphe
   %66 = fcmp olt float %.sroa.speculated126, %65
   %.sroa.speculated71 = select i1 %66, float %65, float %.sroa.speculated126
   %67 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %68 = load float, ptr %67, align 4, !tbaa !32
+  %68 = load float, ptr %67, align 8, !tbaa !32
   %69 = fcmp olt float %68, %57
   %.sroa.speculated123 = select i1 %69, float %68, float %57
   %70 = fneg float %68

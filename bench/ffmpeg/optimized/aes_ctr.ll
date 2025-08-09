@@ -16,7 +16,7 @@ define void @av_aes_ctr_set_iv(ptr noundef writeonly captures(none) initializes(
   %3 = load i64, ptr %1, align 1
   store i64 %3, ptr %0, align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %4, align 1
+  store i64 0, ptr %4, align 8
   ret void
 }
 
@@ -47,7 +47,7 @@ define void @av_aes_ctr_set_random_iv(ptr noundef writeonly captures(none) initi
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %.sroa.0.0.insert.ext
   store i64 %.sroa.0.0.insert.insert, ptr %0, align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %4, align 1
+  store i64 0, ptr %4, align 8
   ret void
 }
 
@@ -79,7 +79,7 @@ define void @av_aes_ctr_increment_iv(ptr noundef captures(none) initializes((8, 
   %5 = tail call noundef i64 @llvm.bswap.i64(i64 %4)
   store i64 %5, ptr %0, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %6, align 1
+  store i64 0, ptr %6, align 8
   ret void
 }
 

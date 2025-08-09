@@ -273,7 +273,7 @@ define dso_local noundef range(i32 -12, 1) i32 @iommu_dma_init_fq(ptr noundef %0
   %101 = getelementptr inbounds nuw i8, ptr %3, i64 160
   tail call void @init_timer_key(ptr noundef nonnull %101, ptr noundef nonnull @fq_flush_timeout, i32 noundef 0, ptr noundef null, ptr noundef null) #15
   %102 = getelementptr inbounds nuw i8, ptr %3, i64 200
-  store volatile i32 0, ptr %102, align 4
+  store volatile i32 0, ptr %102, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !15
   store volatile ptr %0, ptr %4, align 8
   br label %103

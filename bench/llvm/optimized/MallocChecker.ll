@@ -11274,7 +11274,7 @@ _ZN5clang4ento15CallDescriptionD2Ev.exit995:      ; preds = %_ZSt8_DestroyIPNSt7
   %.repack5.i.i.i.i = getelementptr inbounds nuw i8, ptr %2711, i64 8
   store i64 0, ptr %.repack5.i.i.i.i, align 8, !tbaa !387
   %2712 = getelementptr inbounds nuw i8, ptr %2711, i64 16
-  store i8 0, ptr %2712, align 1, !tbaa !81
+  store i8 0, ptr %2712, align 8, !tbaa !81
   store ptr %2711, ptr %139, align 8, !tbaa !396
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113MallocCheckerEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNS7_9CallEventERNS7_14CheckerContextEESt5_BindIFMS1_KFvSA_SD_SF_bESt12_PlaceholderILi1EESK_ILi2EESK_ILi3EESK_ILi4EEbEEE9_M_invokeERKSt9_Any_dataOS3_OSA_SD_SF_, ptr %2709, align 8, !tbaa !373
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113MallocCheckerEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNS7_9CallEventERNS7_14CheckerContextEESt5_BindIFMS1_KFvSA_SD_SF_bESt12_PlaceholderILi1EESK_ILi2EESK_ILi3EESK_ILi4EEbEEE10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation, ptr %2708, align 8, !tbaa !376
@@ -11413,7 +11413,7 @@ _ZNSt4pairIN5clang4ento15CallDescriptionESt8functionIFvPKN12_GLOBAL__N_113Malloc
   %.repack5.i.i.i.i1003 = getelementptr inbounds nuw i8, ptr %2767, i64 8
   store i64 0, ptr %.repack5.i.i.i.i1003, align 8, !tbaa !387
   %2768 = getelementptr inbounds nuw i8, ptr %2767, i64 16
-  store i8 1, ptr %2768, align 1, !tbaa !81
+  store i8 1, ptr %2768, align 8, !tbaa !81
   store ptr %2767, ptr %142, align 8, !tbaa !396
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113MallocCheckerEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNS7_9CallEventERNS7_14CheckerContextEESt5_BindIFMS1_KFvSA_SD_SF_bESt12_PlaceholderILi1EESK_ILi2EESK_ILi3EESK_ILi4EEbEEE9_M_invokeERKSt9_Any_dataOS3_OSA_SD_SF_, ptr %2765, align 8, !tbaa !373
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113MallocCheckerEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNS7_9CallEventERNS7_14CheckerContextEESt5_BindIFMS1_KFvSA_SD_SF_bESt12_PlaceholderILi1EESK_ILi2EESK_ILi3EESK_ILi4EEbEEE10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation, ptr %2764, align 8, !tbaa !376
@@ -11552,7 +11552,7 @@ _ZNSt4pairIN5clang4ento15CallDescriptionESt8functionIFvPKN12_GLOBAL__N_113Malloc
   %.repack5.i.i.i.i1011 = getelementptr inbounds nuw i8, ptr %2823, i64 8
   store i64 0, ptr %.repack5.i.i.i.i1011, align 8, !tbaa !387
   %2824 = getelementptr inbounds nuw i8, ptr %2823, i64 16
-  store i8 0, ptr %2824, align 1, !tbaa !81
+  store i8 0, ptr %2824, align 8, !tbaa !81
   store ptr %2823, ptr %145, align 8, !tbaa !396
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113MallocCheckerEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNS7_9CallEventERNS7_14CheckerContextEESt5_BindIFMS1_KFvSA_SD_SF_bESt12_PlaceholderILi1EESK_ILi2EESK_ILi3EESK_ILi4EEbEEE9_M_invokeERKSt9_Any_dataOS3_OSA_SD_SF_, ptr %2821, align 8, !tbaa !373
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113MallocCheckerEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNS7_9CallEventERNS7_14CheckerContextEESt5_BindIFMS1_KFvSA_SD_SF_bESt12_PlaceholderILi1EESK_ILi2EESK_ILi3EESK_ILi4EEbEEE10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation, ptr %2820, align 8, !tbaa !376
@@ -11691,7 +11691,7 @@ _ZNSt4pairIN5clang4ento15CallDescriptionESt8functionIFvPKN12_GLOBAL__N_113Malloc
   %.repack5.i.i.i.i1019 = getelementptr inbounds nuw i8, ptr %2879, i64 8
   store i64 0, ptr %.repack5.i.i.i.i1019, align 8, !tbaa !387
   %2880 = getelementptr inbounds nuw i8, ptr %2879, i64 16
-  store i8 0, ptr %2880, align 1, !tbaa !81
+  store i8 0, ptr %2880, align 8, !tbaa !81
   store ptr %2879, ptr %148, align 8, !tbaa !396
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113MallocCheckerEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNS7_9CallEventERNS7_14CheckerContextEESt5_BindIFMS1_KFvSA_SD_SF_bESt12_PlaceholderILi1EESK_ILi2EESK_ILi3EESK_ILi4EEbEEE9_M_invokeERKSt9_Any_dataOS3_OSA_SD_SF_, ptr %2877, align 8, !tbaa !373
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113MallocCheckerEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNS7_9CallEventERNS7_14CheckerContextEESt5_BindIFMS1_KFvSA_SD_SF_bESt12_PlaceholderILi1EESK_ILi2EESK_ILi3EESK_ILi4EEbEEE10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation, ptr %2876, align 8, !tbaa !376
@@ -24401,7 +24401,7 @@ _ZN12_GLOBAL__N_116MallocBugVisitor14isRelinquishedEPKNS_8RefStateES3_PKN5clang4
   store ptr %327, ptr %326, align 8, !tbaa !306, !noalias !1392
   %328 = getelementptr inbounds nuw i8, ptr %323, i64 24
   store i64 0, ptr %328, align 8, !tbaa !303, !noalias !1392
-  store i8 0, ptr %327, align 1, !tbaa !304, !noalias !1392
+  store i8 0, ptr %327, align 8, !tbaa !304, !noalias !1392
   br label %.critedge145.thread.thread
 
 _ZN4llvm15isa_and_nonnullIJN5clang8CallExprEEPKNS1_4StmtEEEbRKT0_.exit.i: ; preds = %_ZN12_GLOBAL__N_116MallocBugVisitor14isRelinquishedEPKNS_8RefStateES3_PKN5clang4StmtE.exit, %318, %_ZN4llvm15isa_and_nonnullIJN5clang8CallExprENS1_15ObjCMessageExprENS1_19ObjCPropertyRefExprEEPKNS1_4StmtEEEbRKT0_.exit.i, %_ZN12_GLOBAL__N_116MallocBugVisitor10isReleasedEPKNS_8RefStateES3_PKN5clang4StmtE.exit.thread
@@ -33869,7 +33869,7 @@ define internal void @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113MallocChecke
   %.val9.i.i.i.i = load i64, ptr %.val, align 8, !tbaa !304
   %8 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %.val10.i.i.i.i = load i64, ptr %8, align 8, !tbaa !304
-  %.val12.i.i.i.i = load i8, ptr %7, align 1
+  %.val12.i.i.i.i = load i8, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = getelementptr inbounds i8, ptr %.val5, i64 %.val10.i.i.i.i
   %10 = and i64 %.val9.i.i.i.i, 1
@@ -41960,7 +41960,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit15.i: ; preds
   %75 = getelementptr inbounds nuw i8, ptr %64, i64 32
   store i64 14, ptr %75, align 8, !tbaa !303
   %76 = getelementptr inbounds nuw i8, ptr %64, i64 54
-  store i8 0, ptr %76, align 1, !tbaa !304
+  store i8 0, ptr %76, align 2, !tbaa !304
   %77 = getelementptr inbounds nuw i8, ptr %64, i64 56
   %78 = getelementptr inbounds nuw i8, ptr %64, i64 72
   store ptr %78, ptr %77, align 8, !tbaa !306

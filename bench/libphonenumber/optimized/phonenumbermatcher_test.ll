@@ -19213,7 +19213,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.
   store i64 %93, ptr %95, align 8, !tbaa !36, !alias.scope !113, !noalias !116
   store ptr %85, ptr %.092.i.i.i.i.i, align 8, !tbaa !66, !alias.scope !116, !noalias !113
   store i64 0, ptr %94, align 8, !tbaa !36, !alias.scope !116, !noalias !113
-  store i8 0, ptr %85, align 1, !tbaa !38, !alias.scope !116, !noalias !113
+  store i8 0, ptr %85, align 8, !tbaa !38, !alias.scope !116, !noalias !113
   %96 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i, i64 32
   %97 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i, i64 32
   %98 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i, i64 48
@@ -19247,7 +19247,7 @@ _ZSt19__relocate_object_aIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_S
   store i64 %108, ptr %110, align 8, !tbaa !36, !alias.scope !113, !noalias !116
   store ptr %100, ptr %97, align 8, !tbaa !66, !alias.scope !116, !noalias !113
   store i64 0, ptr %109, align 8, !tbaa !36, !alias.scope !116, !noalias !113
-  store i8 0, ptr %100, align 1, !tbaa !38, !alias.scope !116, !noalias !113
+  store i8 0, ptr %100, align 8, !tbaa !38, !alias.scope !116, !noalias !113
   %111 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i, i64 64
   %112 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i, i64 64
   %.not.i.i.i.i.i = icmp eq ptr %111, %4
@@ -26051,7 +26051,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.
   store i64 %38, ptr %39, align 8, !tbaa !36
   store ptr %29, ptr %.sroa.010.012.i.i.i.i.i.i.i, align 8, !tbaa !66
   store i64 0, ptr %37, align 8, !tbaa !36
-  store i8 0, ptr %29, align 1, !tbaa !38
+  store i8 0, ptr %29, align 8, !tbaa !38
   %40 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i, i64 32
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.010.012.i.i.i.i.i.i.i, i64 32
   %42 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i, i64 48
@@ -26083,7 +26083,7 @@ _ZSt10_ConstructIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEJS3_EEvPT_DpOT0_
   store i64 %53, ptr %54, align 8, !tbaa !36
   store ptr %44, ptr %41, align 8, !tbaa !66
   store i64 0, ptr %52, align 8, !tbaa !36
-  store i8 0, ptr %44, align 1, !tbaa !38
+  store i8 0, ptr %44, align 8, !tbaa !38
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.010.012.i.i.i.i.i.i.i, i64 64
   %56 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i, i64 64
   %.not.i.i.i.i.i.i.i = icmp eq ptr %55, %17
@@ -26358,7 +26358,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i6
   store i64 %169, ptr %170, align 8, !tbaa !36
   store ptr %160, ptr %.sroa.010.012.i.i.i.i.i64.i.i, align 8, !tbaa !66
   store i64 0, ptr %168, align 8, !tbaa !36
-  store i8 0, ptr %160, align 1, !tbaa !38
+  store i8 0, ptr %160, align 8, !tbaa !38
   %171 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i63.i.i, i64 32
   %172 = getelementptr inbounds nuw i8, ptr %.sroa.010.012.i.i.i.i.i64.i.i, i64 32
   %173 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i63.i.i, i64 48
@@ -26390,7 +26390,7 @@ _ZSt10_ConstructIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEJS3_EEvPT_DpOT0_
   store i64 %184, ptr %185, align 8, !tbaa !36
   store ptr %175, ptr %172, align 8, !tbaa !66
   store i64 0, ptr %183, align 8, !tbaa !36
-  store i8 0, ptr %175, align 1, !tbaa !38
+  store i8 0, ptr %175, align 8, !tbaa !38
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.010.012.i.i.i.i.i64.i.i, i64 64
   %187 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i63.i.i, i64 64
   %.not.i.i.i.i.i69.i.i = icmp eq ptr %186, %17
@@ -26481,7 +26481,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i8
   store i64 %220, ptr %222, align 8, !tbaa !36
   store ptr %212, ptr %.sroa.010.012.i.i.i.i.i81.i.i, align 8, !tbaa !66
   store i64 0, ptr %221, align 8, !tbaa !36
-  store i8 0, ptr %212, align 1, !tbaa !38
+  store i8 0, ptr %212, align 8, !tbaa !38
   %223 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i80.i.i, i64 32
   %224 = getelementptr inbounds nuw i8, ptr %.sroa.010.012.i.i.i.i.i81.i.i, i64 32
   %225 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i80.i.i, i64 48
@@ -26515,7 +26515,7 @@ _ZSt10_ConstructIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEJS3_EEvPT_DpOT0_
   store i64 %235, ptr %237, align 8, !tbaa !36
   store ptr %227, ptr %224, align 8, !tbaa !66
   store i64 0, ptr %236, align 8, !tbaa !36
-  store i8 0, ptr %227, align 1, !tbaa !38
+  store i8 0, ptr %227, align 8, !tbaa !38
   %238 = getelementptr inbounds nuw i8, ptr %.sroa.010.012.i.i.i.i.i81.i.i, i64 64
   %239 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i80.i.i, i64 64
   %.not.i.i.i.i.i86.i.i = icmp eq ptr %238, %1
@@ -26562,7 +26562,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i9
   store i64 %253, ptr %254, align 8, !tbaa !36
   store ptr %244, ptr %.sroa.010.012.i.i.i.i.i91.i.i, align 8, !tbaa !66
   store i64 0, ptr %252, align 8, !tbaa !36
-  store i8 0, ptr %244, align 1, !tbaa !38
+  store i8 0, ptr %244, align 8, !tbaa !38
   %255 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i90.i.i, i64 32
   %256 = getelementptr inbounds nuw i8, ptr %.sroa.010.012.i.i.i.i.i91.i.i, i64 32
   %257 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i90.i.i, i64 48
@@ -26594,7 +26594,7 @@ _ZSt10_ConstructIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEJS3_EEvPT_DpOT0_
   store i64 %268, ptr %269, align 8, !tbaa !36
   store ptr %259, ptr %256, align 8, !tbaa !66
   store i64 0, ptr %267, align 8, !tbaa !36
-  store i8 0, ptr %259, align 1, !tbaa !38
+  store i8 0, ptr %259, align 8, !tbaa !38
   %270 = getelementptr inbounds nuw i8, ptr %.sroa.010.012.i.i.i.i.i91.i.i, i64 64
   %271 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i90.i.i, i64 64
   %.not.i.i.i.i.i96.i.i = icmp eq ptr %270, %17
@@ -48212,7 +48212,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %8, ptr %7, align 8, !tbaa !33
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %9, align 8, !tbaa !36
-  store i8 0, ptr %8, align 1, !tbaa !38
+  store i8 0, ptr %8, align 8, !tbaa !38
   store ptr %7, ptr %4, align 8, !tbaa !69
   br label %10
 

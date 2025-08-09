@@ -1495,7 +1495,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEjNS_12DenseMapInfoIS3_vEE
 371:                                              ; preds = %368, %362
   store ptr %294, ptr %363, align 8, !tbaa !190, !noalias !259
   %372 = getelementptr inbounds nuw i8, ptr %363, i64 8
-  store i32 %288, ptr %372, align 4, !tbaa !201, !noalias !259
+  store i32 %288, ptr %372, align 8, !tbaa !201, !noalias !259
   %373 = load i32, ptr %38, align 8, !tbaa !26
   %374 = load i32, ptr %39, align 4, !tbaa !27
   %.not.i.i.not.i.i94 = icmp ult i32 %373, %374
@@ -1775,7 +1775,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEjNS_12DenseMapInfoIS3_vEE
 514:                                              ; preds = %511, %505
   store ptr %400, ptr %506, align 8, !tbaa !190, !noalias !266
   %515 = getelementptr inbounds nuw i8, ptr %506, i64 8
-  store i32 %438, ptr %515, align 4, !tbaa !201, !noalias !266
+  store i32 %438, ptr %515, align 8, !tbaa !201, !noalias !266
   %516 = load i32, ptr %26, align 8, !tbaa !26
   %517 = load i32, ptr %27, align 4, !tbaa !27
   %.not.i.i.not.i.i105 = icmp ult i32 %516, %517
@@ -12375,7 +12375,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEjNS_12DenseMapInfoIS3_vEE
   %61 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %62 = load i64, ptr %3, align 8, !tbaa !45
   %63 = trunc i64 %62 to i32
-  store i32 %63, ptr %61, align 4, !tbaa !201
+  store i32 %63, ptr %61, align 8, !tbaa !201
   %64 = load ptr, ptr %1, align 8, !tbaa !187
   %65 = load i32, ptr %7, align 8, !tbaa !184
   br label %.loopexit
@@ -12587,7 +12587,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEjNS_12DenseMapInfoIS3_vEE
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !201
-  store i32 %68, ptr %66, align 4, !tbaa !201
+  store i32 %68, ptr %66, align 8, !tbaa !201
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !188
   br label %70
@@ -13982,7 +13982,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEjNS_12DenseMapInfoIS3_vEE
   store ptr %60, ptr %50, align 8, !tbaa !190
   %61 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %62 = load i32, ptr %3, align 4, !tbaa !201
-  store i32 %62, ptr %61, align 4, !tbaa !201
+  store i32 %62, ptr %61, align 8, !tbaa !201
   %63 = load ptr, ptr %1, align 8, !tbaa !187
   %64 = load i32, ptr %7, align 8, !tbaa !184
   br label %.loopexit

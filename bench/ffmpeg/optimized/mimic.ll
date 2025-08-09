@@ -266,7 +266,7 @@ define internal i32 @mimic_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
   %.018.i = select i1 %or.cond3.i, i32 %100, i32 0
   %.017.i = select i1 %or.cond.i, ptr %99, ptr null
   %102 = lshr exact i32 %.018.i, 3
-  store ptr %.017.i, ptr %98, align 8, !tbaa !62
+  store ptr %.017.i, ptr %98, align 16, !tbaa !62
   %103 = getelementptr inbounds nuw i8, ptr %9, i64 468
   store i32 %.018.i, ptr %103, align 4, !tbaa !63
   %104 = add nuw nsw i32 %.018.i, 8
@@ -277,7 +277,7 @@ define internal i32 @mimic_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
   %108 = getelementptr inbounds nuw i8, ptr %9, i64 456
   store ptr %107, ptr %108, align 8, !tbaa !65
   %109 = getelementptr inbounds nuw i8, ptr %9, i64 464
-  store i32 0, ptr %109, align 8, !tbaa !66
+  store i32 0, ptr %109, align 16, !tbaa !66
   %110 = zext i1 %.not108 to i32
   %111 = sub nsw i32 10000, %19
   %112 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -393,9 +393,9 @@ define internal i32 @mimic_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
 182:                                              ; preds = %168, %167
   %183 = load ptr, ptr %117, align 16, !tbaa !68
   tail call void %183(ptr noundef nonnull %116) #4
-  %184 = load i32, ptr %109, align 8, !tbaa !66
+  %184 = load i32, ptr %109, align 16, !tbaa !66
   %185 = load i32, ptr %105, align 8, !tbaa !64
-  %186 = load ptr, ptr %98, align 8, !tbaa !62
+  %186 = load ptr, ptr %98, align 16, !tbaa !62
   %187 = lshr i32 %184, 3
   %188 = zext nneg i32 %187 to i64
   %189 = getelementptr inbounds nuw i8, ptr %186, i64 %188
@@ -405,11 +405,11 @@ define internal i32 @mimic_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
   %193 = shl i32 %191, %192
   %194 = add i32 %184, 8
   %195 = tail call i32 @llvm.umin.i32(i32 %185, i32 %194)
-  store i32 %195, ptr %109, align 8, !tbaa !66
+  store i32 %195, ptr %109, align 16, !tbaa !66
   %sh.diff.i.i = lshr i32 %193, 21
   %tr.sh.diff.i.i = trunc nuw nsw i32 %sh.diff.i.i to i16
   %196 = and i16 %tr.sh.diff.i.i, 2040
-  store i16 %196, ptr %116, align 2, !tbaa !69
+  store i16 %196, ptr %116, align 16, !tbaa !69
   br i1 %118, label %.lr.ph.i.i, label %.thread.loopexit.i.i
 
 .lr.ph.i.i:                                       ; preds = %182, %286

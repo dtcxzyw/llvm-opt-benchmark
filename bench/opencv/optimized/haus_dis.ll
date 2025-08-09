@@ -848,7 +848,7 @@ define void @_ZN2cv32createHausdorffDistanceExtractorEif(ptr dead_on_unwind noal
   store ptr %6, ptr %5, align 8, !tbaa !70
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %7, align 8, !tbaa !30
-  store i8 0, ptr %6, align 1, !tbaa !71
+  store i8 0, ptr %6, align 8, !tbaa !71
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %1, ptr %8, align 8, !tbaa !32
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 12

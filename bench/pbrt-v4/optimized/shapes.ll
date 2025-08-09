@@ -8404,9 +8404,9 @@ define dso_local noundef zeroext i1 @_ZNK4pbrt5Curve18RecursiveIntersectERKNS_3R
   %266 = fmul float %260, %.sroa.0.4.vec.extract.i333
   %267 = fmul float %260, %.sroa.2164.0.copyload
   %268 = getelementptr inbounds nuw i8, ptr %238, i64 72
-  %.sroa.0153.0.copyload = load <2 x float>, ptr %268, align 4
+  %.sroa.0153.0.copyload = load <2 x float>, ptr %268, align 8
   %.sroa.2154.0..sroa_idx = getelementptr inbounds nuw i8, ptr %238, i64 80
-  %.sroa.2154.0.copyload = load float, ptr %.sroa.2154.0..sroa_idx, align 4, !tbaa !17
+  %.sroa.2154.0.copyload = load float, ptr %.sroa.2154.0..sroa_idx, align 8, !tbaa !17
   %.sroa.0.0.vec.extract.i336 = extractelement <2 x float> %.sroa.0153.0.copyload, i64 0
   %269 = fmul float %263, %.sroa.0.0.vec.extract.i336
   %.sroa.0.4.vec.extract.i337 = extractelement <2 x float> %.sroa.0153.0.copyload, i64 1

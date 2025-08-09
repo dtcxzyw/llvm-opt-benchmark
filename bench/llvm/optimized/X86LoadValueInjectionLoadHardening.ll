@@ -2041,7 +2041,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEiNS_12DenseMapInfoIS3_vEE
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E16InsertIntoBucketIRKS3_JEEEPS8_SE_OT_DpOT0_.exit.i.i: ; preds = %416, %410
   store ptr %242, ptr %411, align 8, !tbaa !405, !noalias !336
   %420 = getelementptr inbounds nuw i8, ptr %411, i64 8
-  store i32 0, ptr %420, align 4, !tbaa !344, !noalias !336
+  store i32 0, ptr %420, align 8, !tbaa !344, !noalias !336
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixERKS3_.exit.i
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixERKS3_.exit.i: ; preds = %361, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E16InsertIntoBucketIRKS3_JEEEPS8_SE_OT_DpOT0_.exit.i.i, %345
@@ -3006,7 +3006,7 @@ _ZN4llvm14ImmutableGraphIPNS_12MachineInstrEiE7EdgeSetC2ERKS3_b.exit.i: ; preds 
   %832 = getelementptr inbounds nuw i32, ptr %778, i64 %831
   store i32 %828, ptr %832, align 4, !tbaa !344
   %833 = getelementptr inbounds nuw i8, ptr %.027127.i, i64 8
-  %834 = load i32, ptr %833, align 4, !tbaa !344
+  %834 = load i32, ptr %833, align 8, !tbaa !344
   %835 = getelementptr inbounds nuw i32, ptr %790, i64 %831
   store i32 %834, ptr %835, align 4, !tbaa !344
   %836 = getelementptr inbounds nuw i8, ptr %.027127.i, i64 16
@@ -5913,7 +5913,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEiNS_12DenseMapInfoIS3_vEE
   %280 = load ptr, ptr %5, align 8, !tbaa !405, !noalias !715
   store ptr %280, ptr %271, align 8, !tbaa !405, !noalias !715
   %281 = getelementptr inbounds nuw i8, ptr %271, i64 8
-  store i32 0, ptr %281, align 4, !tbaa !344, !noalias !715
+  store i32 0, ptr %281, align 8, !tbaa !344, !noalias !715
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixERKS3_.exit.i
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixERKS3_.exit.i: ; preds = %220, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E16InsertIntoBucketIRKS3_JEEEPS8_SE_OT_DpOT0_.exit.i.i, %203
@@ -8880,7 +8880,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEiNS_12DenseMapInfoIS3_vEE
   %57 = load ptr, ptr %1, align 8, !tbaa !405
   store ptr %57, ptr %48, align 8, !tbaa !405
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !344
+  store i32 0, ptr %58, align 8, !tbaa !344
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E16InsertIntoBucketIRKS3_JEEEPS8_SE_OT_DpOT0_.exit
@@ -9391,7 +9391,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEiNS_12DenseMapInfoIS3_vEE
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !344
-  store i32 %68, ptr %66, align 4, !tbaa !344
+  store i32 %68, ptr %66, align 8, !tbaa !344
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !436
   br label %70
@@ -12517,7 +12517,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPKN4llvm14ImmutableGraphIPNS0_
   %.019.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i ], [ %76, %75 ]
   %31 = load ptr, ptr %.019.i.i.i, align 8, !tbaa !471
   %32 = getelementptr i8, ptr %.019.i.i.i, i64 8
-  %.0.val.i.i.i = load i32, ptr %32, align 4, !tbaa !344
+  %.0.val.i.i.i = load i32, ptr %32, align 8, !tbaa !344
   %.not15.i.i.i = icmp eq i32 %.0.val.i.i.i, -1
   br i1 %.not15.i.i.i, label %75, label %33
 

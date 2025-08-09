@@ -30273,9 +30273,9 @@ default.unreachable:                              ; preds = %"_ZN53_$LT$smol_str
   %.sroa.06.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.06.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.11.sroa.0, i64 7, i1 false)
   %.sroa.06.sroa.6.sroa.4.0..sroa.06.sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 32
-  store ptr %.sroa.11.sroa.4.1, ptr %.sroa.06.sroa.6.sroa.4.0..sroa.06.sroa.6.0..sroa_idx.sroa_idx, align 1
+  store ptr %.sroa.11.sroa.4.1, ptr %.sroa.06.sroa.6.sroa.4.0..sroa.06.sroa.6.0..sroa_idx.sroa_idx, align 8
   %.sroa.06.sroa.6.sroa.5.0..sroa.06.sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 40
-  store i64 %.sroa.11.sroa.5.1, ptr %.sroa.06.sroa.6.sroa.5.0..sroa.06.sroa.6.0..sroa_idx.sroa_idx, align 1
+  store i64 %.sroa.11.sroa.5.1, ptr %.sroa.06.sroa.6.sroa.5.0..sroa.06.sroa.6.0..sroa_idx.sroa_idx, align 8
   %80 = icmp eq i64 %15, 0
   br i1 %80, label %.thread, label %14
 
@@ -30615,9 +30615,9 @@ default.unreachable:                              ; preds = %19
   %.sroa.06.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %.sroa.06.sroa.5.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(47) %.sroa.13.sroa.0, i64 47, i1 false)
   %.sroa.06.sroa.5.sroa.4.0..sroa.06.sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 56
-  store i64 %.sroa.13.sroa.7.1, ptr %.sroa.06.sroa.5.sroa.4.0..sroa.06.sroa.5.0..sroa_idx.sroa_idx, align 1
+  store i64 %.sroa.13.sroa.7.1, ptr %.sroa.06.sroa.5.sroa.4.0..sroa.06.sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.06.sroa.5.sroa.5.0..sroa.06.sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 64
-  store i64 %.sroa.13.sroa.8.1, ptr %.sroa.06.sroa.5.sroa.5.0..sroa.06.sroa.5.0..sroa_idx.sroa_idx, align 1
+  store i64 %.sroa.13.sroa.8.1, ptr %.sroa.06.sroa.5.sroa.5.0..sroa.06.sroa.5.0..sroa_idx.sroa_idx, align 8
   %47 = icmp eq i64 %17, 0
   br i1 %47, label %.thread, label %16
 

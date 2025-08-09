@@ -26513,7 +26513,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i.i: ; preds = %48
   %.sroa.5.0..sroa_idx12.i = getelementptr inbounds nuw i8, ptr %57, i64 1
   store i8 %.sroa.4.0.i, ptr %.sroa.5.0..sroa_idx12.i, align 1, !noalias !4430
   %.sroa.5.sroa.531.0..sroa.5.0..sroa_idx12.sroa_idx.i = getelementptr inbounds nuw i8, ptr %57, i64 4
-  store i32 %.sroa.79.0.i, ptr %.sroa.5.sroa.531.0..sroa.5.0..sroa_idx12.sroa_idx.i, align 1, !noalias !4430
+  store i32 %.sroa.79.0.i, ptr %.sroa.5.sroa.531.0..sroa.5.0..sroa_idx12.sroa_idx.i, align 4, !noalias !4430
   %.sroa.514.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %.sroa.8.0.i, ptr %.sroa.514.0..sroa_idx.i, align 8, !noalias !4430
   %.sroa.617.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %57, i64 16
@@ -43504,7 +43504,7 @@ _ZN17cranelift_codegen3isa6unwind6winx646Writer8write_u817h63c4b62c0fdedf08E.exi
   %94 = add nuw i64 %56, 1
   %95 = load i32, ptr %.08.i, align 4, !alias.scope !6340, !noalias !6343, !noundef !4
   %96 = icmp ult i32 %95, 1048576
-  %97 = load i8, ptr %.07.i, align 1, !alias.scope !6340, !noalias !6343, !noundef !4
+  %97 = load i8, ptr %.07.i, align 2, !alias.scope !6340, !noalias !6343, !noundef !4
   %98 = icmp ult i64 %94, %2
   br i1 %96, label %122, label %99
 

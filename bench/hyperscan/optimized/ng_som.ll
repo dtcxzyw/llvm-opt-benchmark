@@ -41291,7 +41291,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZN3ue29ue2_graphINS_11RoseInGraphENS_1
   store ptr %13, ptr %12, align 8
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 0, ptr %15, align 8
-  store i8 0, ptr %13, align 1
+  store i8 0, ptr %13, align 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 120
@@ -44448,7 +44448,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %36, ptr %37, align 8
   store ptr %26, ptr %.sroa.08.012.i.i.i.i.i, align 8
   store i64 0, ptr %35, align 8
-  store i8 0, ptr %26, align 1
+  store i8 0, ptr %26, align 8
   %38 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 32
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 32
   %40 = load ptr, ptr %39, align 8
@@ -44608,7 +44608,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %103, ptr %104, align 8
   store ptr %93, ptr %.sroa.08.012.i.i.i.i.i56, align 8
   store i64 0, ptr %102, align 8
-  store i8 0, ptr %93, align 1
+  store i8 0, ptr %93, align 8
   %105 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i55, i64 32
   %106 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i56, i64 32
   %107 = load ptr, ptr %106, align 8

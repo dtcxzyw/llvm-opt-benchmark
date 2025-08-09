@@ -491,11 +491,11 @@ define internal fastcc void @_ZN4llvm8parallel6detail12_GLOBAL__N_118ThreadPoolE
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr null, ptr %9, align 8, !tbaa !56, !noalias !47
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 0, ptr %10, align 4, !tbaa !59, !noalias !47
+  store i32 0, ptr %10, align 8, !tbaa !59, !noalias !47
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  store i8 0, ptr %11, align 1, !tbaa !61, !noalias !47
+  store i8 0, ptr %11, align 4, !tbaa !61, !noalias !47
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i32 0, ptr %12, align 4, !tbaa !63, !noalias !47
+  store i32 0, ptr %12, align 8, !tbaa !63, !noalias !47
   store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm8parallel6detail12_GLOBAL__N_18Executor18getDefaultExecutorEvE4Exec, i64 136), align 8, !tbaa !65, !alias.scope !47
   store ptr %8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm8parallel6detail12_GLOBAL__N_18Executor18getDefaultExecutorEvE4Exec, i64 128), align 8, !tbaa !68, !alias.scope !47
   %13 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
@@ -729,7 +729,7 @@ _ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit.i.i
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(28) %15) #20
   %35 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %36 = load atomic i32, ptr %35 acquire, align 4
+  %36 = load atomic i32, ptr %35 acquire, align 8
   %37 = and i32 %36, 2147483647
   %38 = icmp eq i32 %37, 1
   br i1 %38, label %_ZNKSt14__basic_futureIvE4waitEv.exit.i, label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit.us.i.i.i.i

@@ -830,7 +830,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %11
   store i64 %18, ptr %19, align 8, !tbaa !21
   store ptr %9, ptr %1, align 8, !tbaa !51
   store i64 0, ptr %17, align 8, !tbaa !21
-  store i8 0, ptr %9, align 1, !tbaa !23
+  store i8 0, ptr %9, align 8, !tbaa !23
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %20, i8 0, i64 48, i1 false)
@@ -890,7 +890,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %10
   store i64 %17, ptr %18, align 8, !tbaa !21
   store ptr %8, ptr %1, align 8, !tbaa !51
   store i64 0, ptr %16, align 8, !tbaa !21
-  store i8 0, ptr %8, align 1, !tbaa !23
+  store i8 0, ptr %8, align 8, !tbaa !23
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %19, i8 0, i64 48, i1 false)
@@ -930,9 +930,9 @@ define noundef nonnull align 8 dereferenceable(216) ptr @_ZN4LIEF5MachO14Segment
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %21 = load i32, ptr %19, align 8, !tbaa !54
-  %22 = load i32, ptr %20, align 4, !tbaa !54
+  %22 = load i32, ptr %20, align 8, !tbaa !54
   store i32 %22, ptr %19, align 8, !tbaa !54
-  store i32 %21, ptr %20, align 4, !tbaa !54
+  store i32 %21, ptr %20, align 8, !tbaa !54
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 124
   %25 = load i32, ptr %23, align 4, !tbaa !54
@@ -942,9 +942,9 @@ define noundef nonnull align 8 dereferenceable(216) ptr @_ZN4LIEF5MachO14Segment
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %29 = load i32, ptr %27, align 8, !tbaa !54
-  %30 = load i32, ptr %28, align 4, !tbaa !54
+  %30 = load i32, ptr %28, align 8, !tbaa !54
   store i32 %30, ptr %27, align 8, !tbaa !54
-  store i32 %29, ptr %28, align 4, !tbaa !54
+  store i32 %29, ptr %28, align 8, !tbaa !54
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 132
   %33 = load i32, ptr %31, align 4, !tbaa !54

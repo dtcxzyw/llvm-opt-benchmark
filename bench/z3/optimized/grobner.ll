@@ -5234,7 +5234,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
   call void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(728) %37, ptr noundef nonnull align 8 dereferenceable(16) %34)
   %38 = load i8, ptr %35, align 4
   %39 = load i32, ptr %5, align 8, !tbaa !61
-  store i32 %39, ptr %26, align 4, !tbaa !61
+  store i32 %39, ptr %26, align 8, !tbaa !61
   store i32 0, ptr %5, align 8, !tbaa !61
   %40 = load ptr, ptr %33, align 8, !tbaa !170
   store ptr %40, ptr %28, align 8, !tbaa !170
@@ -5244,7 +5244,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
   store i8 %42, ptr %27, align 4
   %43 = and i8 %41, -4
   store i8 %43, ptr %32, align 4
-  store i32 1, ptr %29, align 4, !tbaa !61
+  store i32 1, ptr %29, align 8, !tbaa !61
   store i32 1, ptr %34, align 8, !tbaa !61
   %44 = load ptr, ptr %36, align 8, !tbaa !170
   store ptr %44, ptr %31, align 8, !tbaa !170

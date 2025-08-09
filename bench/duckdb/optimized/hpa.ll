@@ -261,7 +261,7 @@ malloc_mutex_lock.exit.i.i:                       ; preds = %57, %51
   tail call void @duckdb_je_hpdata_init(ptr noundef nonnull %68, ptr noundef %75, i64 noundef %77) #8
   %79 = getelementptr inbounds nuw i8, ptr %46, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, i8 0, i64 16, i1 false)
-  store atomic i8 0, ptr %79 monotonic, align 1
+  store atomic i8 0, ptr %79 monotonic, align 8
   %80 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %47) #8
   br label %duckdb_je_hpa_central_extract.exit.i
 
@@ -319,7 +319,7 @@ malloc_mutex_lock.exit.i.i:                       ; preds = %57, %51
   %104 = add i64 %103, -2097152
   store i64 %104, ptr %102, align 8, !tbaa !62
   %105 = getelementptr inbounds nuw i8, ptr %46, i64 64
-  store atomic i8 0, ptr %105 monotonic, align 1
+  store atomic i8 0, ptr %105 monotonic, align 8
   %106 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %47) #8
   br label %duckdb_je_hpa_central_extract.exit.i
 
@@ -1005,10 +1005,10 @@ malloc_mutex_lock.exit15:                         ; preds = %24, %30
   %54 = add i64 %53, %51
   store i64 %54, ptr %52, align 8, !tbaa !90
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  store atomic i8 0, ptr %55 monotonic, align 1
+  store atomic i8 0, ptr %55 monotonic, align 8
   %56 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %19) #8
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  store atomic i8 0, ptr %57 monotonic, align 1
+  store atomic i8 0, ptr %57 monotonic, align 8
   %58 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #8
   ret void
 }
@@ -1296,7 +1296,7 @@ hpa_should_purge.exit:                            ; preds = %hpa_ndirty_max.exit
   %92 = load i64, ptr %18, align 8, !tbaa !44
   %93 = add i64 %92, %91
   store i64 %93, ptr %18, align 8, !tbaa !44
-  store atomic i8 0, ptr %26 monotonic, align 1
+  store atomic i8 0, ptr %26 monotonic, align 8
   %94 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %27) #8
   br i1 %90, label %95, label %99
 

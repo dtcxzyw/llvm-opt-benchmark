@@ -354,13 +354,13 @@ define void @_ZN3gmx15analysismodules7RdfInfo6createEv(ptr dead_on_unwind noalia
   store ptr %6, ptr %5, align 8, !tbaa !7
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %7, align 8, !tbaa !12
-  store i8 0, ptr %6, align 1, !tbaa !15
+  store i8 0, ptr %6, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr %9, ptr %8, align 8, !tbaa !7
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i64 0, ptr %10, align 8, !tbaa !12
-  store i8 0, ptr %9, align 1, !tbaa !15
+  store i8 0, ptr %9, align 8, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store i32 0, ptr %11, align 8, !tbaa !16
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 88

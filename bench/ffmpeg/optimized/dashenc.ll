@@ -5730,7 +5730,7 @@ av_cmp_q.exit185.thread.i:                        ; preds = %av_cmp_q.exit185.th
   %423 = getelementptr inbounds nuw i8, ptr %367, i64 92
   %424 = load i32, ptr %423, align 4, !tbaa !201
   %425 = getelementptr inbounds nuw i8, ptr %367, i64 96
-  %426 = load i32, ptr %425, align 4, !tbaa !244
+  %426 = load i32, ptr %425, align 8, !tbaa !244
   %427 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %54, ptr noundef nonnull @.str.187, i32 noundef %424, i32 noundef %426) #15
   br label %.thread210.i
 

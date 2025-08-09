@@ -1569,7 +1569,7 @@ _ZNSt6vectorIP10aiNodeAnimSaIS1_EED2Ev.exit:      ; preds = %434, %458, %456, %4
   %470 = getelementptr inbounds nuw i8, ptr %466, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %470, ptr noundef nonnull align 1 dereferenceable(14) @.str.18, i64 14, i1 false)
   %471 = getelementptr inbounds nuw i8, ptr %466, i64 18
-  store i8 0, ptr %471, align 1
+  store i8 0, ptr %471, align 2
   %472 = getelementptr inbounds nuw i8, ptr %464, i64 1048
   %473 = load i32, ptr %472, align 8
   %474 = getelementptr inbounds nuw i8, ptr %466, i64 1104
@@ -1650,7 +1650,7 @@ _ZN8aiStringaSERKS_.exit:                         ; preds = %491, %500
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %489, i64 1032
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.4.0..sroa_idx.i, i8 0, i64 16, i1 false)
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %489, i64 1048
-  store float 1.000000e+00, ptr %.sroa.5.0..sroa_idx.i, align 4
+  store float 1.000000e+00, ptr %.sroa.5.0..sroa_idx.i, align 8
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %489, i64 1052
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6.0..sroa_idx.i, i8 0, i64 16, i1 false)
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %489, i64 1068
@@ -1658,17 +1658,17 @@ _ZN8aiStringaSERKS_.exit:                         ; preds = %491, %500
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %489, i64 1072
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.8.0..sroa_idx.i, i8 0, i64 16, i1 false)
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %489, i64 1088
-  store float 1.000000e+00, ptr %.sroa.9.0..sroa_idx.i, align 4
+  store float 1.000000e+00, ptr %.sroa.9.0..sroa_idx.i, align 8
   %512 = load float, ptr %510, align 4
   %513 = getelementptr inbounds nuw i8, ptr %489, i64 1040
-  store float %512, ptr %513, align 4
+  store float %512, ptr %513, align 8
   %514 = getelementptr inbounds nuw i8, ptr %509, i64 12
   %515 = load float, ptr %514, align 4
   %516 = getelementptr inbounds nuw i8, ptr %489, i64 1056
-  store float %515, ptr %516, align 4
+  store float %515, ptr %516, align 8
   %517 = getelementptr inbounds nuw i8, ptr %509, i64 16
   %518 = load float, ptr %517, align 4
-  store float %518, ptr %.sroa.8.0..sroa_idx.i, align 4
+  store float %518, ptr %.sroa.8.0..sroa_idx.i, align 8
   %indvars.iv.next601 = add nuw nsw i64 %indvars.iv600, 1
   %519 = load i32, ptr %472, align 8
   %520 = zext i32 %519 to i64

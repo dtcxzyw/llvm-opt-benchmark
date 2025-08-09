@@ -184,7 +184,7 @@ define dso_local noundef ptr @_ZN4absl12log_internal21CheckOpMessageBuilder9NewS
   store ptr %4, ptr %3, align 8, !tbaa !32, !alias.scope !33
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %5, align 8, !tbaa !24, !alias.scope !33
-  store i8 0, ptr %4, align 1, !tbaa !25, !alias.scope !33
+  store i8 0, ptr %4, align 8, !tbaa !25, !alias.scope !33
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8, !tbaa !34, !noalias !33
   %.not.i.not.i.i = icmp eq ptr %7, null

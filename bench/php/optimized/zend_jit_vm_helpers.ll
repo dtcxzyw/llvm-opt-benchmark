@@ -806,7 +806,7 @@ define hidden void @zend_jit_undefined_string_key(ptr noundef captures(none) %0)
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %16 = load i64, ptr %15, align 8, !tbaa !77
-  %17 = load i8, ptr %14, align 1, !tbaa !16
+  %17 = load i8, ptr %14, align 8, !tbaa !16
   %18 = icmp sgt i8 %17, 57
   br i1 %18, label %_zend_handle_numeric_str.exit.thread, label %19, !prof !4
 
@@ -1289,9 +1289,9 @@ define hidden range(i32 0, 96) i32 @zend_jit_trace_execute(ptr noundef %0, ptr n
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i8 8, ptr %40, align 8, !tbaa !16
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i8 13, ptr %41, align 1, !tbaa !16
+  store i8 13, ptr %41, align 2, !tbaa !16
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 34
-  store i8 13, ptr %42, align 1, !tbaa !16
+  store i8 13, ptr %42, align 2, !tbaa !16
   store i8 0, ptr %32, align 1, !tbaa !16
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 35
   store i8 0, ptr %43, align 1, !tbaa !16
@@ -1312,9 +1312,9 @@ define hidden range(i32 0, 96) i32 @zend_jit_trace_execute(ptr noundef %0, ptr n
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i8 8, ptr %51, align 8, !tbaa !16
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i8 12, ptr %52, align 1, !tbaa !16
+  store i8 12, ptr %52, align 2, !tbaa !16
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 34
-  store i8 12, ptr %53, align 1, !tbaa !16
+  store i8 12, ptr %53, align 2, !tbaa !16
   store i8 0, ptr %32, align 1, !tbaa !16
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 35
   store i8 0, ptr %54, align 1, !tbaa !16
@@ -1340,9 +1340,9 @@ define hidden range(i32 0, 96) i32 @zend_jit_trace_execute(ptr noundef %0, ptr n
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i8 8, ptr %61, align 8, !tbaa !16
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i8 8, ptr %62, align 1, !tbaa !16
+  store i8 8, ptr %62, align 2, !tbaa !16
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 34
-  store i8 8, ptr %63, align 1, !tbaa !16
+  store i8 8, ptr %63, align 2, !tbaa !16
   store i8 0, ptr %32, align 1, !tbaa !16
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 35
   store i8 0, ptr %64, align 1, !tbaa !16
@@ -1631,7 +1631,7 @@ define hidden range(i32 0, 96) i32 @zend_jit_trace_execute(ptr noundef %0, ptr n
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 1
   store i8 %.2693, ptr %193, align 1, !tbaa !16
   %194 = getelementptr inbounds nuw i8, ptr %192, i64 2
-  store i8 %.0688, ptr %194, align 1, !tbaa !16
+  store i8 %.0688, ptr %194, align 2, !tbaa !16
   %195 = getelementptr inbounds nuw i8, ptr %192, i64 3
   store i8 %.0685, ptr %195, align 1, !tbaa !16
   %196 = getelementptr inbounds nuw i8, ptr %192, i64 8
@@ -1798,7 +1798,7 @@ define hidden range(i32 0, 96) i32 @zend_jit_trace_execute(ptr noundef %0, ptr n
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 24
   %268 = getelementptr inbounds nuw i8, ptr %266, i64 16
   %269 = load i64, ptr %268, align 8, !tbaa !77
-  %270 = load i8, ptr %267, align 1, !tbaa !16
+  %270 = load i8, ptr %267, align 8, !tbaa !16
   %271 = icmp sgt i8 %270, 57
   br i1 %271, label %_zend_handle_numeric_str.exit.i.thread, label %272, !prof !4
 
@@ -3025,9 +3025,9 @@ zend_jit_trace_bad_stop_event.exit907:            ; preds = %810
   store i8 8, ptr %831, align 8, !tbaa !16
   %832 = trunc nuw nsw i32 %.151014 to i8
   %833 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i8 %832, ptr %833, align 1, !tbaa !16
+  store i8 %832, ptr %833, align 2, !tbaa !16
   %834 = getelementptr inbounds nuw i8, ptr %831, i64 2
-  store i8 %832, ptr %834, align 1, !tbaa !16
+  store i8 %832, ptr %834, align 2, !tbaa !16
   %.not832 = icmp eq i32 %.55941013.fr, 0
   %835 = trunc i32 %.55941013.fr to i8
   %836 = add i8 %835, 1

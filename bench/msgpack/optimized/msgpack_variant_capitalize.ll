@@ -503,7 +503,7 @@ define dso_local void @_Z5printRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %13 = load i32, ptr %12, align 8, !tbaa !15
   %14 = and i32 %13, -75
   %15 = or disjoint i32 %14, 2
-  store i32 %15, ptr %12, align 4, !tbaa !25
+  store i32 %15, ptr %12, align 8, !tbaa !25
   %16 = load i64, ptr %9, align 8
   %17 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 240
@@ -554,7 +554,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %23, 
   %41 = load i32, ptr %40, align 8, !tbaa !15
   %42 = and i32 %41, -75
   %43 = or disjoint i32 %42, 8
-  store i32 %43, ptr %40, align 4, !tbaa !25
+  store i32 %43, ptr %40, align 8, !tbaa !25
   %44 = load i64, ptr %34, align 8
   %45 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 225
@@ -9035,7 +9035,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit16: ; preds = %25, %27
   %72 = load i32, ptr %71, align 8, !tbaa !15
   %73 = and i32 %72, -75
   %74 = or disjoint i32 %73, 8
-  store i32 %74, ptr %71, align 4, !tbaa !25
+  store i32 %74, ptr %71, align 8, !tbaa !25
   %75 = load i64, ptr %68, align 8
   %76 = getelementptr inbounds i8, ptr %58, i64 %75
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 16

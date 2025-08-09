@@ -2850,7 +2850,7 @@ default.unreachable:                              ; preds = %41
   %.sroa.17.8.copyload.i.i = load i64, ptr %.sroa.17.8..sroa_idx.i.i, align 8, !noalias !448
   %.sroa.19.sroa.6.sroa.0.0.copyload.i.i = load i24, ptr %.sroa.5.0..sroa_idx.i.i.i, align 1, !noalias !448
   %.sroa.23.33..sroa.5.0..sroa_idx.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %60, i64 28
-  %.sroa.23.33.copyload.i.i = load i32, ptr %.sroa.23.33..sroa.5.0..sroa_idx.i.sroa_idx.i.i, align 1, !noalias !448
+  %.sroa.23.33.copyload.i.i = load i32, ptr %.sroa.23.33..sroa.5.0..sroa_idx.i.sroa_idx.i.i, align 4, !noalias !448
   br label %141
 
 64:                                               ; preds = %49

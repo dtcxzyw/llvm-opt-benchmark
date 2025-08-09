@@ -1665,7 +1665,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN20colvarbias_histogram
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i32, ptr %7, align 8, !tbaa !141
   %9 = and i32 %8, -261
-  store i32 %9, ptr %7, align 4, !tbaa !150
+  store i32 %9, ptr %7, align 8, !tbaa !150
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %10, ptr %2, align 8, !tbaa !122

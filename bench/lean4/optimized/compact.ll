@@ -2171,7 +2171,7 @@ _ZNSt13unordered_mapIP11lean_objectS1_St4hashIS1_ESt8equal_toIS1_E16mi_stl_alloc
   store ptr %116, ptr %115, align 8, !tbaa !88
   %117 = getelementptr inbounds nuw i8, ptr %114, i64 16
   store i64 0, ptr %117, align 8, !tbaa !91
-  store i8 0, ptr %116, align 1, !tbaa !93
+  store i8 0, ptr %116, align 8, !tbaa !93
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %114, align 8, !tbaa !94
   tail call void @__cxa_throw(ptr nonnull %114, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #25
   unreachable
@@ -2471,7 +2471,7 @@ _ZN4lean16compacted_region15fix_constructorEP11lean_object.exit: ; preds = %.lr.
   store ptr %47, ptr %46, align 8, !tbaa !88
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store i64 0, ptr %48, align 8, !tbaa !91
-  store i8 0, ptr %47, align 1, !tbaa !93
+  store i8 0, ptr %47, align 8, !tbaa !93
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %45, align 8, !tbaa !94
   tail call void @__cxa_throw(ptr nonnull %45, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #25
   unreachable
@@ -2624,7 +2624,7 @@ _ZN4lean16compacted_region9fix_arrayEP11lean_object.exit: ; preds = %.lr.ph.i30,
   store ptr %142, ptr %141, align 8, !tbaa !88
   %143 = getelementptr inbounds nuw i8, ptr %140, i64 16
   store i64 0, ptr %143, align 8, !tbaa !91
-  store i8 0, ptr %142, align 1, !tbaa !93
+  store i8 0, ptr %142, align 8, !tbaa !93
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %140, align 8, !tbaa !94
   tail call void @__cxa_throw(ptr nonnull %140, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #25
   unreachable
@@ -2636,7 +2636,7 @@ _ZN4lean16compacted_region9fix_arrayEP11lean_object.exit: ; preds = %.lr.ph.i30,
   store ptr %147, ptr %146, align 8, !tbaa !88
   %148 = getelementptr inbounds nuw i8, ptr %145, i64 16
   store i64 0, ptr %148, align 8, !tbaa !91
-  store i8 0, ptr %147, align 1, !tbaa !93
+  store i8 0, ptr %147, align 8, !tbaa !93
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %145, align 8, !tbaa !94
   tail call void @__cxa_throw(ptr nonnull %145, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #25
   unreachable

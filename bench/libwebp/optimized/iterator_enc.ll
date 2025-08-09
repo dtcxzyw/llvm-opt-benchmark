@@ -1032,7 +1032,7 @@ define hidden void @VP8IteratorNzToBytes(ptr noundef captures(none) initializes(
   %10 = lshr i32 %4, 13
   %.lobit37 = and i32 %10, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 %.lobit37, ptr %11, align 4, !tbaa !47
+  store i32 %.lobit37, ptr %11, align 8, !tbaa !47
   %12 = lshr i32 %4, 14
   %.lobit38 = and i32 %12, 1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 140
@@ -1040,7 +1040,7 @@ define hidden void @VP8IteratorNzToBytes(ptr noundef captures(none) initializes(
   %14 = lshr i32 %4, 15
   %.lobit39 = and i32 %14, 1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i32 %.lobit39, ptr %15, align 4, !tbaa !47
+  store i32 %.lobit39, ptr %15, align 8, !tbaa !47
   %16 = lshr i32 %4, 18
   %.lobit40 = and i32 %16, 1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 148
@@ -1048,7 +1048,7 @@ define hidden void @VP8IteratorNzToBytes(ptr noundef captures(none) initializes(
   %18 = lshr i32 %4, 19
   %.lobit41 = and i32 %18, 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i32 %.lobit41, ptr %19, align 4, !tbaa !47
+  store i32 %.lobit41, ptr %19, align 8, !tbaa !47
   %20 = lshr i32 %4, 22
   %.lobit42 = and i32 %20, 1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 156
@@ -1056,14 +1056,14 @@ define hidden void @VP8IteratorNzToBytes(ptr noundef captures(none) initializes(
   %22 = lshr i32 %4, 23
   %.lobit43 = and i32 %22, 1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i32 %.lobit43, ptr %23, align 4, !tbaa !47
+  store i32 %.lobit43, ptr %23, align 8, !tbaa !47
   %24 = lshr i32 %4, 24
   %.lobit44 = and i32 %24, 1
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 164
   store i32 %.lobit44, ptr %25, align 4, !tbaa !47
   %26 = lshr i32 %6, 3
   %.lobit45 = and i32 %26, 1
-  store i32 %.lobit45, ptr %8, align 4, !tbaa !47
+  store i32 %.lobit45, ptr %8, align 8, !tbaa !47
   %27 = lshr i32 %6, 7
   %.lobit46 = and i32 %27, 1
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 172
@@ -1071,7 +1071,7 @@ define hidden void @VP8IteratorNzToBytes(ptr noundef captures(none) initializes(
   %29 = lshr i32 %6, 11
   %.lobit47 = and i32 %29, 1
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i32 %.lobit47, ptr %30, align 4, !tbaa !47
+  store i32 %.lobit47, ptr %30, align 8, !tbaa !47
   %31 = lshr i32 %6, 15
   %.lobit48 = and i32 %31, 1
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 180
@@ -1079,7 +1079,7 @@ define hidden void @VP8IteratorNzToBytes(ptr noundef captures(none) initializes(
   %33 = lshr i32 %6, 17
   %.lobit49 = and i32 %33, 1
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store i32 %.lobit49, ptr %34, align 4, !tbaa !47
+  store i32 %.lobit49, ptr %34, align 8, !tbaa !47
   %35 = lshr i32 %6, 19
   %.lobit50 = and i32 %35, 1
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -1087,7 +1087,7 @@ define hidden void @VP8IteratorNzToBytes(ptr noundef captures(none) initializes(
   %37 = lshr i32 %6, 21
   %.lobit51 = and i32 %37, 1
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i32 %.lobit51, ptr %38, align 4, !tbaa !47
+  store i32 %.lobit51, ptr %38, align 8, !tbaa !47
   %39 = lshr i32 %6, 23
   %.lobit52 = and i32 %39, 1
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 196
@@ -1577,7 +1577,7 @@ define hidden void @VP8IteratorStartI4(ptr noundef initializes((128, 132)) %0) l
   %45 = lshr i32 %39, 13
   %.lobit37.i = and i32 %45, 1
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 %.lobit37.i, ptr %46, align 4, !tbaa !47
+  store i32 %.lobit37.i, ptr %46, align 8, !tbaa !47
   %47 = lshr i32 %39, 14
   %.lobit38.i = and i32 %47, 1
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 140
@@ -1585,7 +1585,7 @@ define hidden void @VP8IteratorStartI4(ptr noundef initializes((128, 132)) %0) l
   %49 = lshr i32 %39, 15
   %.lobit39.i = and i32 %49, 1
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i32 %.lobit39.i, ptr %50, align 4, !tbaa !47
+  store i32 %.lobit39.i, ptr %50, align 8, !tbaa !47
   %51 = lshr i32 %39, 18
   %.lobit40.i = and i32 %51, 1
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 148
@@ -1593,7 +1593,7 @@ define hidden void @VP8IteratorStartI4(ptr noundef initializes((128, 132)) %0) l
   %53 = lshr i32 %39, 19
   %.lobit41.i = and i32 %53, 1
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i32 %.lobit41.i, ptr %54, align 4, !tbaa !47
+  store i32 %.lobit41.i, ptr %54, align 8, !tbaa !47
   %55 = lshr i32 %39, 22
   %.lobit42.i = and i32 %55, 1
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 156
@@ -1601,14 +1601,14 @@ define hidden void @VP8IteratorStartI4(ptr noundef initializes((128, 132)) %0) l
   %57 = lshr i32 %39, 23
   %.lobit43.i = and i32 %57, 1
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i32 %.lobit43.i, ptr %58, align 4, !tbaa !47
+  store i32 %.lobit43.i, ptr %58, align 8, !tbaa !47
   %59 = lshr i32 %39, 24
   %.lobit44.i = and i32 %59, 1
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 164
   store i32 %.lobit44.i, ptr %60, align 4, !tbaa !47
   %61 = lshr i32 %41, 3
   %.lobit45.i = and i32 %61, 1
-  store i32 %.lobit45.i, ptr %43, align 4, !tbaa !47
+  store i32 %.lobit45.i, ptr %43, align 8, !tbaa !47
   %62 = lshr i32 %41, 7
   %.lobit46.i = and i32 %62, 1
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 172
@@ -1616,7 +1616,7 @@ define hidden void @VP8IteratorStartI4(ptr noundef initializes((128, 132)) %0) l
   %64 = lshr i32 %41, 11
   %.lobit47.i = and i32 %64, 1
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i32 %.lobit47.i, ptr %65, align 4, !tbaa !47
+  store i32 %.lobit47.i, ptr %65, align 8, !tbaa !47
   %66 = lshr i32 %41, 15
   %.lobit48.i = and i32 %66, 1
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 180
@@ -1624,7 +1624,7 @@ define hidden void @VP8IteratorStartI4(ptr noundef initializes((128, 132)) %0) l
   %68 = lshr i32 %41, 17
   %.lobit49.i = and i32 %68, 1
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store i32 %.lobit49.i, ptr %69, align 4, !tbaa !47
+  store i32 %.lobit49.i, ptr %69, align 8, !tbaa !47
   %70 = lshr i32 %41, 19
   %.lobit50.i = and i32 %70, 1
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -1632,7 +1632,7 @@ define hidden void @VP8IteratorStartI4(ptr noundef initializes((128, 132)) %0) l
   %72 = lshr i32 %41, 21
   %.lobit51.i = and i32 %72, 1
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i32 %.lobit51.i, ptr %73, align 4, !tbaa !47
+  store i32 %.lobit51.i, ptr %73, align 8, !tbaa !47
   %74 = lshr i32 %41, 23
   %.lobit52.i = and i32 %74, 1
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 196

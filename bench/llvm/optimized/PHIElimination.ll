@@ -7918,7 +7918,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEjNS_27MachineInstrExpress
   %32 = load ptr, ptr %1, align 8, !tbaa !289
   store ptr %32, ptr %23, align 8, !tbaa !289
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store i32 0, ptr %33, align 4, !tbaa !492
+  store i32 0, ptr %33, align 8, !tbaa !492
   br label %34
 
 34:                                               ; preds = %2, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEjNS_27MachineInstrExpressionTraitENS_6detail12DenseMapPairIS3_jEEEES3_jS4_S7_E16InsertIntoBucketIRKS3_JEEEPS7_SD_OT_DpOT0_.exit
@@ -8321,8 +8321,8 @@ _ZN4llvm27MachineInstrExpressionTrait7isEqualERKPKNS_12MachineInstrES5_.exit.i: 
   store ptr %42, ptr %43, align 8, !tbaa !289
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %.019.i, i64 8
-  %46 = load i32, ptr %45, align 4, !tbaa !492
-  store i32 %46, ptr %44, align 4, !tbaa !492
+  %46 = load i32, ptr %45, align 8, !tbaa !492
+  store i32 %46, ptr %44, align 8, !tbaa !492
   %47 = load i32, ptr %33, align 8, !tbaa !599
   %48 = add i32 %47, 1
   store i32 %48, ptr %33, align 8, !tbaa !599

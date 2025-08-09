@@ -4591,7 +4591,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
   store ptr %183, ptr %182, align 8, !tbaa !4
   %184 = getelementptr inbounds nuw i8, ptr %155, i64 72
   store i64 0, ptr %184, align 8, !tbaa !10
-  store i8 0, ptr %183, align 1, !tbaa !13
+  store i8 0, ptr %183, align 8, !tbaa !13
   store ptr %155, ptr %21, align 8, !tbaa !206
   %185 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %129, ptr %.08.lcssa.i.i.i12.i, ptr noundef nonnull align 8 dereferenceable(32) %156)
           to label %186 unwind label %206

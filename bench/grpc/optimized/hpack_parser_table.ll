@@ -3720,7 +3720,7 @@ define linkonce_odr void @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE1
   %storemerge.i.i.i.i.i = or i16 %4, 2
   store i16 %storemerge.i.i.i.i.i, ptr %3, align 2, !tbaa !167
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  store i8 %.0.copyload.i.i, ptr %5, align 1, !tbaa !188
+  store i8 %.0.copyload.i.i, ptr %5, align 2, !tbaa !188
   ret void
 }
 
@@ -4591,7 +4591,7 @@ define linkonce_odr void @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE1
   %storemerge.i.i.i.i.i = or i16 %4, 16384
   store i16 %storemerge.i.i.i.i.i, ptr %3, align 2, !tbaa !167
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i8 %.0.copyload.i.i, ptr %5, align 1, !tbaa !227
+  store i8 %.0.copyload.i.i, ptr %5, align 2, !tbaa !227
   ret void
 }
 
@@ -5444,7 +5444,7 @@ define linkonce_odr void @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE2
   %storemerge.i.i.i.i.i = or i16 %5, 1024
   store i16 %storemerge.i.i.i.i.i, ptr %4, align 2, !tbaa !167
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i8 %.sroa.0.0.copyload.i, ptr %6, align 1, !tbaa !30
+  store i8 %.sroa.0.0.copyload.i, ptr %6, align 2, !tbaa !30
   ret void
 }
 
@@ -8690,7 +8690,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %49, ptr %51, align 8, !tbaa !24
   store ptr %40, ptr %37, align 8, !tbaa !20
   store i64 0, ptr %50, align 8, !tbaa !24
-  store i8 0, ptr %40, align 1, !tbaa !30
+  store i8 0, ptr %40, align 8, !tbaa !30
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.023.0, i64 40
   %53 = add nuw nsw i64 %.012.i, 1
   %exitcond.not.i = icmp eq i64 %53, %.sink1.i

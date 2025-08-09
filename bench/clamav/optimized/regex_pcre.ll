@@ -285,7 +285,7 @@ define i32 @cli_pcre_match(ptr noundef readonly captures(none) %0, ptr noundef %
   %27 = load i64, ptr %26, align 8, !tbaa !17
   %28 = trunc i64 %27 to i32
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %28, ptr %29, align 4, !tbaa !16
+  store i32 %28, ptr %29, align 8, !tbaa !16
   br label %33
 
 30:                                               ; preds = %18
@@ -490,7 +490,7 @@ define range(i32 0, 21) i32 @cli_pcre_results_reset(ptr noundef captures(none) i
   store i32 0, ptr %0, align 8, !tbaa !23
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %4, align 4, !tbaa !16
+  store i32 0, ptr %4, align 8, !tbaa !16
   store i32 0, ptr %3, align 4, !tbaa !16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !20

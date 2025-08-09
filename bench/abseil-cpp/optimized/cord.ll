@@ -528,7 +528,7 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i: ; preds = %6
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 13
   store i8 0, ptr %28, align 1, !tbaa !13
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 14
-  store i8 0, ptr %29, align 1, !tbaa !13
+  store i8 0, ptr %29, align 2, !tbaa !13
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 15
   store i8 1, ptr %30, align 1, !tbaa !13
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -685,7 +685,7 @@ define internal fastcc noundef ptr @_ZN4abslL10ForceBtreeEPNS_13cord_internal7Co
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !55
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load atomic i32, ptr %7 acquire, align 4
+  %8 = load atomic i32, ptr %7 acquire, align 8
   %9 = icmp eq i32 %8, 2
   br i1 %9, label %10, label %12
 
@@ -738,7 +738,7 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i: ; preds = %_ZN4
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 13
   store i8 0, ptr %29, align 1, !tbaa !13
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 14
-  store i8 0, ptr %30, align 1, !tbaa !13
+  store i8 0, ptr %30, align 2, !tbaa !13
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 15
   store i8 1, ptr %31, align 1, !tbaa !13
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -824,7 +824,7 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i: ; preds = %6
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 13
   store i8 0, ptr %28, align 1, !tbaa !13
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 14
-  store i8 0, ptr %29, align 1, !tbaa !13
+  store i8 0, ptr %29, align 2, !tbaa !13
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 15
   store i8 1, ptr %30, align 1, !tbaa !13
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -1235,7 +1235,7 @@ _ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit.i: ; preds = %4
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 13
   store i8 0, ptr %29, align 1, !tbaa !13
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 14
-  store i8 0, ptr %30, align 1, !tbaa !13
+  store i8 0, ptr %30, align 2, !tbaa !13
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 15
   store i8 1, ptr %31, align 1, !tbaa !13
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -1859,7 +1859,7 @@ _ZN4absl13cord_internal16CordzUpdateScopeC2EPNS0_9CordzInfoENS0_18CordzUpdateTra
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !55
   %36 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %37 = load atomic i32, ptr %36 acquire, align 4
+  %37 = load atomic i32, ptr %36 acquire, align 8
   %38 = icmp eq i32 %37, 2
   br i1 %38, label %39, label %41
 
@@ -2012,7 +2012,7 @@ _ZN4abslL19PrepareAppendRegionEPNS_13cord_internal7CordRepEPPcPmm.exit.thread: ;
   %109 = getelementptr inbounds nuw i8, ptr %102, i64 8
   store i64 0, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  store i32 2, ptr %110, align 4, !tbaa !14
+  store i32 2, ptr %110, align 8, !tbaa !14
   %111 = icmp samesign ult i64 %101, 513
   %.sink6.i.i.i.i49 = select i1 %111, i64 3, i64 6
   %.sink5.i.i.i.i = select i1 %111, i64 2, i64 58
@@ -2720,7 +2720,7 @@ _ZNK4absl4Cord5emptyEv.exit29:                    ; preds = %36, %38
 52:                                               ; preds = %44
   %53 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %54 = load ptr, ptr %53, align 8, !tbaa !55
-  %55 = load atomic i32, ptr %47 acquire, align 4
+  %55 = load atomic i32, ptr %47 acquire, align 8
   %56 = icmp eq i32 %55, 2
   br i1 %56, label %57, label %59
 
@@ -3325,7 +3325,7 @@ _ZNO4absl4Cord7TakeRepEv.exit:                    ; preds = %44, %49
   %55 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %56 = load ptr, ptr %55, align 8, !tbaa !55
   %57 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %58 = load atomic i32, ptr %57 acquire, align 4
+  %58 = load atomic i32, ptr %57 acquire, align 8
   %59 = icmp eq i32 %58, 2
   br i1 %59, label %60, label %62
 
@@ -3767,7 +3767,7 @@ _ZNO4absl4Cord7TakeRepEv.exit45:                  ; preds = %_ZNK4absl4Cord9Inli
   %252 = getelementptr inbounds nuw i8, ptr %.0.i.i44, i64 16
   %253 = load ptr, ptr %252, align 8, !tbaa !55
   %254 = getelementptr inbounds nuw i8, ptr %.0.i.i44, i64 8
-  %255 = load atomic i32, ptr %254 acquire, align 4
+  %255 = load atomic i32, ptr %254 acquire, align 8
   %256 = icmp eq i32 %255, 2
   br i1 %256, label %257, label %259
 
@@ -3890,7 +3890,7 @@ _ZNK4absl4Cord5emptyEv.exit:                      ; preds = %21, %25
 39:                                               ; preds = %33
   %40 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !55
-  %42 = load atomic i32, ptr %34 acquire, align 4
+  %42 = load atomic i32, ptr %34 acquire, align 8
   %43 = icmp eq i32 %42, 2
   br i1 %43, label %44, label %46
 
@@ -4524,7 +4524,7 @@ _ZN4absl13cord_internal16CordzUpdateScopeC2EPNS0_9CordzInfoENS0_18CordzUpdateTra
   %153 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %154 = load ptr, ptr %153, align 8, !tbaa !55
   %155 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %156 = load atomic i32, ptr %155 acquire, align 4
+  %156 = load atomic i32, ptr %155 acquire, align 8
   %157 = icmp eq i32 %156, 2
   br i1 %157, label %158, label %160
 
@@ -5075,7 +5075,7 @@ _ZN4absl13cord_internal16CordzUpdateScopeC2EPNS0_9CordzInfoENS0_18CordzUpdateTra
   %124 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %125 = load ptr, ptr %124, align 8, !tbaa !55
   %126 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %127 = load atomic i32, ptr %126 acquire, align 4
+  %127 = load atomic i32, ptr %126 acquire, align 8
   %128 = icmp eq i32 %127, 2
   br i1 %128, label %129, label %131
 
@@ -6330,7 +6330,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4absl12crc_internal12CrcCordState1
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %6, align 8, !tbaa !129
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 0, ptr %7, align 4, !tbaa !141
+  store i32 0, ptr %7, align 8, !tbaa !141
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, i8 0, i64 80, i1 false)
   invoke void @_ZNSt11_Deque_baseIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %8, i64 noundef 0)
@@ -10041,7 +10041,7 @@ _ZNK4absl4Cord4sizeEv.exit:                       ; preds = %5, %9
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 0, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i32 2, ptr %23, align 4, !tbaa !14
+  store i32 2, ptr %23, align 8, !tbaa !14
   %24 = icmp samesign ult i64 %20, 513
   %.sink6.i.i.i.i = select i1 %24, i64 3, i64 6
   %.sink5.i.i.i.i = select i1 %24, i64 2, i64 58
@@ -10184,7 +10184,7 @@ _ZN4absl13cord_internal11SkipCrcNodeEPNS0_7CordRepE.exit: ; preds = %8, %12
   %23 = zext i8 %22 to i32
   store i32 %23, ptr %19, align 8, !tbaa !99
   %24 = getelementptr inbounds nuw i8, ptr %.0.i, i64 14
-  %25 = load i8, ptr %24, align 1
+  %25 = load i8, ptr %24, align 2
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %27 = zext i8 %22 to i64
   %28 = getelementptr inbounds nuw [12 x ptr], ptr %26, i64 0, i64 %27

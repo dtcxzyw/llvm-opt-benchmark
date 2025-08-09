@@ -1296,7 +1296,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
   store ptr %21, ptr %20, align 8, !tbaa !32, !noalias !41
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store i64 0, ptr %22, align 8, !tbaa !18, !noalias !41
-  store i8 0, ptr %21, align 1, !tbaa !19, !noalias !41
+  store i8 0, ptr %21, align 8, !tbaa !19, !noalias !41
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry10PointCloudE, i64 16), ptr %17, align 8, !tbaa !4, !noalias !41
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %23, i8 0, i64 96, i1 false), !noalias !41
@@ -2053,7 +2053,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
   store ptr %21, ptr %20, align 8, !tbaa !32, !noalias !71
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store i64 0, ptr %22, align 8, !tbaa !18, !noalias !71
-  store i8 0, ptr %21, align 1, !tbaa !19, !noalias !71
+  store i8 0, ptr %21, align 8, !tbaa !19, !noalias !71
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %23, i8 0, i64 72, i1 false), !noalias !71
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry12TriangleMeshE, i64 16), ptr %17, align 8, !tbaa !4, !noalias !71
@@ -2099,7 +2099,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
   store ptr %44, ptr %43, align 8, !tbaa !32, !noalias !76
   %45 = getelementptr inbounds nuw i8, ptr %37, i64 40
   store i64 0, ptr %45, align 8, !tbaa !18, !noalias !76
-  store i8 0, ptr %44, align 1, !tbaa !19, !noalias !76
+  store i8 0, ptr %44, align 8, !tbaa !19, !noalias !76
   %46 = getelementptr inbounds nuw i8, ptr %37, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %46, i8 0, i64 72, i1 false), !noalias !76
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry12TriangleMeshE, i64 16), ptr %40, align 8, !tbaa !4, !noalias !76

@@ -129,7 +129,7 @@ define internal fastcc noundef nonnull ptr @_ZN4absl13base_internal12_GLOBAL__N_
   store ptr %4, ptr %.ptr.i, align 8, !tbaa !12
   %5 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 8
   store i64 0, ptr %5, align 8, !tbaa !18
-  store i8 0, ptr %4, align 1, !tbaa !20
+  store i8 0, ptr %4, align 8, !tbaa !20
   %.add.i = add nuw nsw i64 %.idx.i, 32
   %6 = icmp eq i64 %.add.i, 4320
   br i1 %6, label %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm135EEC2Ev.exit.preheader, label %3

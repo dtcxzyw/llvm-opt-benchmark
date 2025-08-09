@@ -4609,7 +4609,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_10bfi_detail16IrreducibleGraph7Ir
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_10bfi_detail16IrreducibleGraph7IrrNodeEbLj8ENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_bEEEES6_bS8_SB_E16InsertIntoBucketIRKS6_JEEEPSB_SH_OT_DpOT0_.exit.i: ; preds = %170, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_10bfi_detail16IrreducibleGraph7IrrNodeEbLj8ENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_bEEEES6_bS8_SB_E15LookupBucketForIS6_EEbRKT_RPSB_.exit
   store ptr %88, ptr %163, align 8, !tbaa !205
   %173 = getelementptr inbounds nuw i8, ptr %163, i64 8
-  store i8 0, ptr %173, align 1, !tbaa !47
+  store i8 0, ptr %173, align 8, !tbaa !47
   br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_10bfi_detail16IrreducibleGraph7IrrNodeEbLj8ENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_bEEEES6_bS8_SB_EixERKS6_.exit
 
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_10bfi_detail16IrreducibleGraph7IrrNodeEbLj8ENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_bEEEES6_bS8_SB_EixERKS6_.exit: ; preds = %112, %96, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_10bfi_detail16IrreducibleGraph7IrrNodeEbLj8ENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_bEEEES6_bS8_SB_E16InsertIntoBucketIRKS6_JEEEPSB_SH_OT_DpOT0_.exit.i
@@ -7747,7 +7747,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIPKNS_10bfi_detail16Irre
   %30 = getelementptr inbounds nuw i8, ptr %.02738, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %.028.ptr39, i64 8
   %32 = load i8, ptr %31, align 8, !tbaa !47, !range !48, !noundef !49
-  store i8 %32, ptr %30, align 1, !tbaa !47
+  store i8 %32, ptr %30, align 8, !tbaa !47
   %33 = getelementptr inbounds nuw i8, ptr %.02738, i64 16
   br label %34
 
@@ -7906,7 +7906,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_10bfi_detail16IrreducibleGraph7Ir
   %48 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %.023, i64 8
   %50 = load i8, ptr %49, align 1, !tbaa !47, !range !48, !noundef !49
-  store i8 %50, ptr %48, align 1, !tbaa !47
+  store i8 %50, ptr %48, align 8, !tbaa !47
   %51 = load i32, ptr %0, align 8
   %52 = and i32 %51, -2
   %53 = add i32 %52, 2
@@ -9373,7 +9373,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10bfi_detail16IrreducibleGraph7IrrNodeE
   %145 = load ptr, ptr %67, align 8, !tbaa !205
   store ptr %145, ptr %137, align 8, !tbaa !205
   %146 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  store i32 0, ptr %146, align 4, !tbaa !66
+  store i32 0, ptr %146, align 8, !tbaa !66
   %.pre28 = load ptr, ptr %5, align 8, !tbaa !221
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre28, i64 -8
   %.pre29 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !205
@@ -9511,7 +9511,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10bfi_detail16IrreducibleGraph7IrrNodeE
   %57 = load ptr, ptr %1, align 8, !tbaa !205
   store ptr %57, ptr %48, align 8, !tbaa !205
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !66
+  store i32 0, ptr %58, align 8, !tbaa !66
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10bfi_detail16IrreducibleGraph7IrrNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E16InsertIntoBucketIRKS6_JEEEPSB_SH_OT_DpOT0_.exit
@@ -9712,7 +9712,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10bfi_detail16IrreducibleGraph7IrrNodeE
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !66
-  store i32 %68, ptr %66, align 4, !tbaa !66
+  store i32 %68, ptr %66, align 8, !tbaa !66
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !418
   br label %70

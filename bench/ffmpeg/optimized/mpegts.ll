@@ -7015,7 +7015,7 @@ define internal range(i32 -1094995529, 1) i32 @mpegts_push_data(ptr noundef read
   %227 = zext nneg i16 %226 to i64
   %228 = or disjoint i64 %223, %227
   store i64 %228, ptr %49, align 8, !tbaa !168
-  %229 = load i8, ptr %53, align 1, !tbaa !9
+  %229 = load i8, ptr %53, align 2, !tbaa !9
   %230 = and i8 %229, 14
   %231 = zext nneg i8 %230 to i64
   %232 = shl nuw nsw i64 %231, 29

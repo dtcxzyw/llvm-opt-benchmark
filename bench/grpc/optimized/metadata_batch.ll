@@ -6223,7 +6223,7 @@ _ZN4absl12lts_2024072218container_internal20common_policy_traitsINS1_17FlatHashS
   store i64 %41, ptr %42, align 8, !tbaa !3
   store ptr %32, ptr %29, align 8, !tbaa !11
   store i64 0, ptr %40, align 8, !tbaa !3
-  store i8 0, ptr %32, align 1, !tbaa !12
+  store i8 0, ptr %32, align 8, !tbaa !12
   %.pre.i = load i64, ptr %5, align 8, !tbaa !739
   br label %43
 
@@ -6335,7 +6335,7 @@ _ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolic
   store i64 %106, ptr %107, align 8, !tbaa !3
   store ptr %99, ptr %53, align 8, !tbaa !11
   store i64 0, ptr %55, align 8, !tbaa !3
-  store i8 0, ptr %99, align 1, !tbaa !12
+  store i8 0, ptr %99, align 8, !tbaa !12
   %.pre = load i64, ptr %5, align 8, !tbaa !739
   br label %108
 
@@ -6593,7 +6593,7 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   store i64 %15, ptr %16, align 8, !tbaa !3
   store ptr %6, ptr %2, align 8, !tbaa !11
   store i64 0, ptr %14, align 8, !tbaa !3
-  store i8 0, ptr %6, align 1, !tbaa !12
+  store i8 0, ptr %6, align 8, !tbaa !12
   ret void
 }
 

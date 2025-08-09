@@ -2711,7 +2711,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   store i64 %46, ptr %47, align 8, !tbaa !48
   store ptr %36, ptr %3, align 8, !tbaa !44
   store i64 0, ptr %45, align 8, !tbaa !48
-  store i8 0, ptr %36, align 1, !tbaa !66
+  store i8 0, ptr %36, align 8, !tbaa !66
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %49 = load ptr, ptr %4, align 8, !tbaa !124
   store ptr %49, ptr %48, align 8, !tbaa !124
@@ -12812,7 +12812,7 @@ _ZSt19__relocate_object_aIN6duckdb20ExceptionFormatValueES1_SaIS1_EEvPT_PT0_RT1_
   store i64 %49, ptr %51, align 8, !tbaa !48, !alias.scope !491, !noalias !494
   store ptr %41, ptr %38, align 8, !tbaa !44, !alias.scope !494, !noalias !491
   store i64 0, ptr %50, align 8, !tbaa !48, !alias.scope !494, !noalias !491
-  store i8 0, ptr %41, align 1, !tbaa !66, !alias.scope !494, !noalias !491
+  store i8 0, ptr %41, align 8, !tbaa !66, !alias.scope !494, !noalias !491
   %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 56
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 56
   %.not.i.i.i.i = icmp eq ptr %52, %1
@@ -12863,7 +12863,7 @@ _ZSt19__relocate_object_aIN6duckdb20ExceptionFormatValueES1_SaIS1_EEvPT_PT0_RT1_
   store i64 %67, ptr %69, align 8, !tbaa !48, !alias.scope !498, !noalias !501
   store ptr %59, ptr %56, align 8, !tbaa !44, !alias.scope !501, !noalias !498
   store i64 0, ptr %68, align 8, !tbaa !48, !alias.scope !501, !noalias !498
-  store i8 0, ptr %59, align 1, !tbaa !66, !alias.scope !501, !noalias !498
+  store i8 0, ptr %59, align 8, !tbaa !66, !alias.scope !501, !noalias !498
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 56
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 56
   %.not.i.i.i.i24 = icmp eq ptr %70, %5
@@ -18525,7 +18525,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
   store ptr %10, ptr %9, align 8, !tbaa !64
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %11, align 8, !tbaa !48
-  store i8 0, ptr %10, align 1, !tbaa !66
+  store i8 0, ptr %10, align 8, !tbaa !66
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %8, align 8, !tbaa !106
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i32 3, ptr %12, align 8, !tbaa !599
@@ -18580,7 +18580,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb11MyTransportEE13w
   store ptr %36, ptr %35, align 8, !tbaa !64
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i64 0, ptr %37, align 8, !tbaa !48
-  store i8 0, ptr %36, align 1, !tbaa !66
+  store i8 0, ptr %36, align 8, !tbaa !66
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %34, align 8, !tbaa !106
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 40
   store i32 3, ptr %38, align 8, !tbaa !599
@@ -19155,7 +19155,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
   store ptr %17, ptr %16, align 8, !tbaa !64
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 0, ptr %18, align 8, !tbaa !48
-  store i8 0, ptr %17, align 1, !tbaa !66
+  store i8 0, ptr %17, align 8, !tbaa !66
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %15, align 8, !tbaa !106
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 2, ptr %19, align 8, !tbaa !599
@@ -19177,7 +19177,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
   store ptr %28, ptr %27, align 8, !tbaa !64
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i64 0, ptr %29, align 8, !tbaa !48
-  store i8 0, ptr %28, align 1, !tbaa !66
+  store i8 0, ptr %28, align 8, !tbaa !66
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %26, align 8, !tbaa !106
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 40
   store i32 3, ptr %30, align 8, !tbaa !599
@@ -19493,7 +19493,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
   store ptr %23, ptr %22, align 8, !tbaa !64
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i64 0, ptr %24, align 8, !tbaa !48
-  store i8 0, ptr %23, align 1, !tbaa !66
+  store i8 0, ptr %23, align 8, !tbaa !66
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %21, align 8, !tbaa !106
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store i32 2, ptr %25, align 8, !tbaa !599
@@ -19517,7 +19517,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
   store ptr %32, ptr %31, align 8, !tbaa !64
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i64 0, ptr %33, align 8, !tbaa !48
-  store i8 0, ptr %32, align 1, !tbaa !66
+  store i8 0, ptr %32, align 8, !tbaa !66
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %30, align 8, !tbaa !106
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 40
   store i32 3, ptr %34, align 8, !tbaa !599
@@ -19570,7 +19570,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
   store ptr %25, ptr %24, align 8, !tbaa !64
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i64 0, ptr %26, align 8, !tbaa !48
-  store i8 0, ptr %25, align 1, !tbaa !66
+  store i8 0, ptr %25, align 8, !tbaa !66
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %23, align 8, !tbaa !106
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 40
   store i32 2, ptr %27, align 8, !tbaa !599
@@ -19594,7 +19594,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
   store ptr %34, ptr %33, align 8, !tbaa !64
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store i64 0, ptr %35, align 8, !tbaa !48
-  store i8 0, ptr %34, align 1, !tbaa !66
+  store i8 0, ptr %34, align 8, !tbaa !66
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %32, align 8, !tbaa !106
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 40
   store i32 3, ptr %36, align 8, !tbaa !599
@@ -19646,7 +19646,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol4skipINS1_17T
   store ptr %31, ptr %30, align 8, !tbaa !64
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i64 0, ptr %32, align 8, !tbaa !48
-  store i8 0, ptr %31, align 1, !tbaa !66
+  store i8 0, ptr %31, align 8, !tbaa !66
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %29, align 8, !tbaa !106
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 40
   store i32 6, ptr %33, align 8, !tbaa !599
@@ -21766,7 +21766,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
   store ptr %10, ptr %9, align 8, !tbaa !64
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %11, align 8, !tbaa !48
-  store i8 0, ptr %10, align 1, !tbaa !66
+  store i8 0, ptr %10, align 8, !tbaa !66
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %8, align 8, !tbaa !106
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i32 3, ptr %12, align 8, !tbaa !599
@@ -21821,7 +21821,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTINS0_9transport10TTransport
   store ptr %36, ptr %35, align 8, !tbaa !64
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i64 0, ptr %37, align 8, !tbaa !48
-  store i8 0, ptr %36, align 1, !tbaa !66
+  store i8 0, ptr %36, align 8, !tbaa !66
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %34, align 8, !tbaa !106
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 40
   store i32 3, ptr %38, align 8, !tbaa !599
@@ -22240,7 +22240,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
   store ptr %17, ptr %16, align 8, !tbaa !64
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 0, ptr %18, align 8, !tbaa !48
-  store i8 0, ptr %17, align 1, !tbaa !66
+  store i8 0, ptr %17, align 8, !tbaa !66
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %15, align 8, !tbaa !106
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 2, ptr %19, align 8, !tbaa !599
@@ -22262,7 +22262,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
   store ptr %28, ptr %27, align 8, !tbaa !64
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i64 0, ptr %29, align 8, !tbaa !48
-  store i8 0, ptr %28, align 1, !tbaa !66
+  store i8 0, ptr %28, align 8, !tbaa !66
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %26, align 8, !tbaa !106
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 40
   store i32 3, ptr %30, align 8, !tbaa !599
@@ -22470,7 +22470,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
   store ptr %23, ptr %22, align 8, !tbaa !64
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i64 0, ptr %24, align 8, !tbaa !48
-  store i8 0, ptr %23, align 1, !tbaa !66
+  store i8 0, ptr %23, align 8, !tbaa !66
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %21, align 8, !tbaa !106
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store i32 2, ptr %25, align 8, !tbaa !599
@@ -22494,7 +22494,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
   store ptr %32, ptr %31, align 8, !tbaa !64
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i64 0, ptr %33, align 8, !tbaa !48
-  store i8 0, ptr %32, align 1, !tbaa !66
+  store i8 0, ptr %32, align 8, !tbaa !66
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %30, align 8, !tbaa !106
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 40
   store i32 3, ptr %34, align 8, !tbaa !599
@@ -22547,7 +22547,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
   store ptr %25, ptr %24, align 8, !tbaa !64
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i64 0, ptr %26, align 8, !tbaa !48
-  store i8 0, ptr %25, align 1, !tbaa !66
+  store i8 0, ptr %25, align 8, !tbaa !66
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %23, align 8, !tbaa !106
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 40
   store i32 2, ptr %27, align 8, !tbaa !599
@@ -22571,7 +22571,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
   store ptr %34, ptr %33, align 8, !tbaa !64
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store i64 0, ptr %35, align 8, !tbaa !48
-  store i8 0, ptr %34, align 1, !tbaa !66
+  store i8 0, ptr %34, align 8, !tbaa !66
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %32, align 8, !tbaa !106
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 40
   store i32 3, ptr %36, align 8, !tbaa !599
@@ -22623,7 +22623,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol4skipINS1_17T
   store ptr %31, ptr %30, align 8, !tbaa !64
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i64 0, ptr %32, align 8, !tbaa !48
-  store i8 0, ptr %31, align 1, !tbaa !66
+  store i8 0, ptr %31, align 8, !tbaa !66
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %29, align 8, !tbaa !106
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 40
   store i32 6, ptr %33, align 8, !tbaa !599

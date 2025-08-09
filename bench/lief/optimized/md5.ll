@@ -763,9 +763,9 @@ mbedtls_md5_free.exit:                            ; preds = %15, %12
   %22 = tail call i32 @llvm.fshl.i32(i32 %21, i32 %19, i32 3)
   %23 = shl i32 %19, 3
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 %23, ptr %24, align 1
+  store i32 %23, ptr %24, align 4
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  store i32 %22, ptr %25, align 1
+  store i32 %22, ptr %25, align 4
   %26 = tail call i32 @mbedtls_internal_md5_process(ptr noundef nonnull %0, ptr noundef nonnull %5)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load i32, ptr %27, align 4, !tbaa !7

@@ -284,7 +284,7 @@ define hidden void @rb_vm_unlock_body() local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %3 = load i32, ptr %2, align 8, !tbaa !61
   %4 = add i32 %3, -1
-  store i32 %4, ptr %2, align 4, !tbaa !62
+  store i32 %4, ptr %2, align 8, !tbaa !62
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %vm_lock_leave.exit
 

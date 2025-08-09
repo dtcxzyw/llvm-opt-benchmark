@@ -899,10 +899,10 @@ _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit: ; preds = %230, %232
   %405 = select i1 %.not332, ptr %404, ptr %308
   %406 = getelementptr inbounds nuw i8, ptr %70, i64 288
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %406, ptr noundef nonnull align 8 dereferenceable(16) %405, i64 16, i1 false), !tbaa.struct !215
-  %.val.i = load float, ptr %406, align 4, !tbaa !154
+  %.val.i = load float, ptr %406, align 8, !tbaa !154
   %407 = getelementptr inbounds nuw i8, ptr %70, i64 292
   %.val4.i = load float, ptr %407, align 4, !tbaa !155
-  %.val5.i = load float, ptr %404, align 4, !tbaa !154
+  %.val5.i = load float, ptr %404, align 8, !tbaa !154
   %408 = getelementptr inbounds nuw i8, ptr %70, i64 276
   %.val6.i = load float, ptr %408, align 4, !tbaa !155
   %.inv.i.i = fcmp oge float %.val.i, %.val5.i
@@ -911,10 +911,10 @@ _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit: ; preds = %230, %232
   %409 = select i1 %.inv6.i.i, float %.val4.i, float %.val6.i
   %410 = getelementptr inbounds nuw i8, ptr %70, i64 296
   %411 = getelementptr inbounds nuw i8, ptr %70, i64 280
-  %.val7.i = load float, ptr %410, align 4, !tbaa !154
+  %.val7.i = load float, ptr %410, align 8, !tbaa !154
   %412 = getelementptr inbounds nuw i8, ptr %70, i64 300
   %.val8.i = load float, ptr %412, align 4, !tbaa !155
-  %.val9.i = load float, ptr %411, align 4, !tbaa !154
+  %.val9.i = load float, ptr %411, align 8, !tbaa !154
   %413 = getelementptr inbounds nuw i8, ptr %70, i64 284
   %.val10.i = load float, ptr %413, align 4, !tbaa !155
   %414 = fcmp olt float %.val7.i, %.val9.i
@@ -922,10 +922,10 @@ _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit: ; preds = %230, %232
   %415 = fcmp olt float %.val8.i, %.val10.i
   %416 = select i1 %415, float %.val8.i, float %.val10.i
   %417 = getelementptr inbounds nuw i8, ptr %70, i64 360
-  %.val7.i373 = load float, ptr %309, align 4, !tbaa !154
+  %.val7.i373 = load float, ptr %309, align 8, !tbaa !154
   %418 = getelementptr inbounds nuw i8, ptr %70, i64 356
   %.val8.i374 = load float, ptr %418, align 4
-  %.val9.i375 = load float, ptr %417, align 4
+  %.val9.i375 = load float, ptr %417, align 8
   %419 = getelementptr inbounds nuw i8, ptr %70, i64 364
   %.val10.i376 = load float, ptr %419, align 4
   %420 = fcmp olt float %..i.i, %.val7.i373
@@ -938,7 +938,7 @@ _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit: ; preds = %230, %232
   %425 = select i1 %423, float %.val8.i374, float %.19.i.i
   %.sroa.0.0.vec.insert.i.i378 = insertelement <2 x float> poison, float %422, i64 0
   %.sroa.0.4.vec.insert.i.i379 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i378, float %425, i64 1
-  store <2 x float> %.sroa.0.4.vec.insert.i.i379, ptr %406, align 4
+  store <2 x float> %.sroa.0.4.vec.insert.i.i379, ptr %406, align 8
   %426 = fcmp olt float %..i11.i, %.val7.i373
   %427 = fcmp ogt float %..i11.i, %.val9.i375
   %..i17.i = select i1 %427, float %.val9.i375, float %..i11.i
@@ -949,7 +949,7 @@ _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit: ; preds = %230, %232
   %431 = select i1 %429, float %.val8.i374, float %.19.i18.i
   %.sroa.0.0.vec.insert.i19.i = insertelement <2 x float> poison, float %428, i64 0
   %.sroa.0.4.vec.insert.i20.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i19.i, float %431, i64 1
-  store <2 x float> %.sroa.0.4.vec.insert.i20.i, ptr %410, align 4
+  store <2 x float> %.sroa.0.4.vec.insert.i20.i, ptr %410, align 8
   %432 = and i32 %.6.i, 131072
   %.not339 = icmp eq i32 %432, 0
   br i1 %.not339, label %438, label %433
@@ -6406,7 +6406,7 @@ _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit: ; preds = %86, %88
   %182 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %183 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %.val5.i = load float, ptr %184, align 4, !tbaa !154
+  %.val5.i = load float, ptr %184, align 8, !tbaa !154
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 308
   %.val6.i = load float, ptr %185, align 4, !tbaa !155
   %.inv.i.i = fcmp oge float %178, %.val5.i
@@ -6417,7 +6417,7 @@ _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit: ; preds = %86, %88
   %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %186, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %2, align 8
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %.val9.i = load float, ptr %187, align 4, !tbaa !154
+  %.val9.i = load float, ptr %187, align 8, !tbaa !154
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 316
   %.val10.i = load float, ptr %188, align 4, !tbaa !155
   %189 = fcmp olt float %180, %.val9.i
@@ -6501,7 +6501,7 @@ _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit: ; preds = %86, %88
   %236 = select i1 %235, float %230, float %234
   %237 = load float, ptr %70, align 4, !tbaa !248
   %238 = load float, ptr %67, align 8, !tbaa !247
-  %.val5.i193 = load float, ptr %216, align 4, !tbaa !154
+  %.val5.i193 = load float, ptr %216, align 8, !tbaa !154
   %.val6.i194 = load float, ptr %217, align 4, !tbaa !155
   %.inv.i.i195 = fcmp oge float %233, %.val5.i193
   %..i.i196 = select i1 %.inv.i.i195, float %233, float %.val5.i193
@@ -6510,7 +6510,7 @@ _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit: ; preds = %86, %88
   %.sroa.0.0.vec.insert.i.i198 = insertelement <2 x float> poison, float %..i.i196, i64 0
   %.sroa.0.4.vec.insert.i.i199 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i198, float %239, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i.i199, ptr %3, align 8
-  %.val9.i202 = load float, ptr %218, align 4, !tbaa !154
+  %.val9.i202 = load float, ptr %218, align 8, !tbaa !154
   %.val10.i203 = load float, ptr %219, align 4, !tbaa !155
   %240 = fcmp olt float %236, %.val9.i202
   %..i11.i204 = select i1 %240, float %236, float %.val9.i202
@@ -8843,7 +8843,7 @@ define dso_local void @_ZN5ImGui13TableBeginRowEP10ImGuiTable(ptr noundef captur
   store i32 -1, ptr %7, align 4, !tbaa !242
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i32 16777216, ptr %9, align 4, !tbaa !273
+  store i32 16777216, ptr %9, align 8, !tbaa !273
   store i32 16777216, ptr %8, align 4, !tbaa !273
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 558
   store i16 -1, ptr %10, align 2, !tbaa !487
@@ -9675,7 +9675,7 @@ define dso_local void @_ZN5ImGui25TablePopBackgroundChannelEv() local_unnamed_ad
   %9 = load ptr, ptr %6, align 8, !tbaa !271
   %10 = sext i32 %8 to i64
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 368
-  %12 = load <4 x float>, ptr %11, align 4
+  %12 = load <4 x float>, ptr %11, align 8
   %.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %12, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i.i = shufflevector <4 x float> %12, <4 x float> poison, <2 x i32> <i32 2, i32 3>
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 592
@@ -11967,7 +11967,7 @@ _ZN5ImGui15TableSetBgColorEiji.exit:              ; preds = %170, %179
   %204 = fmul float %203, %202
   %.sroa.066.0.copyload = load float, ptr %87, align 4, !tbaa !216
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 3112
-  %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !216
+  %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !216
   %205 = getelementptr inbounds nuw i8, ptr %15, i64 3176
   %.sroa.065.0.copyload = load float, ptr %205, align 8, !tbaa !216
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 3180
@@ -13667,7 +13667,7 @@ define dso_local void @_ZN5ImGui14DebugNodeTableEP10ImGuiTable(ptr noundef %0) l
   %64 = load float, ptr %63, align 4, !tbaa !386
   %65 = fpext float %64 to double
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %67 = load float, ptr %66, align 4, !tbaa !158
+  %67 = load float, ptr %66, align 8, !tbaa !158
   %68 = fsub float %67, %61
   %69 = fpext float %68 to double
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 252

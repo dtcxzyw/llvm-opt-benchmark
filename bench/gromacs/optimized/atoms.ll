@@ -1288,8 +1288,8 @@ define void @_Z12compareAtomsP8_IO_FILEPK7t_atomsS3_ff(ptr noundef %0, ptr nound
   %49 = load i8, ptr %48, align 4, !tbaa !66, !range !29, !noundef !30
   %50 = trunc nuw i8 %49 to i1
   %51 = tail call noundef zeroext i1 @_Z8cmp_boolP8_IO_FILEPKcibb(ptr noundef %0, ptr noundef nonnull @.str.34, i32 noundef -1, i1 noundef zeroext %47, i1 noundef zeroext %50)
-  %52 = load i32, ptr %2, align 4, !tbaa !33
-  %53 = load i32, ptr %1, align 4, !tbaa !33
+  %52 = load i32, ptr %2, align 8, !tbaa !33
+  %53 = load i32, ptr %1, align 8, !tbaa !33
   %54 = tail call i32 @llvm.smin.i32(i32 %52, i32 %53)
   %55 = icmp sgt i32 %54, 0
   br i1 %55, label %.lr.ph, label %.preheader97

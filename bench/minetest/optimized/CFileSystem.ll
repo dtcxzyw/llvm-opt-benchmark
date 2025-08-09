@@ -4467,7 +4467,7 @@ _ZN3irr4core6stringIcEC2IcEEPKT_j.exit.us:        ; preds = %for.body.i.us.epil,
   store ptr %23, ptr %_M_storage.i.i.i.i.us, align 8, !tbaa !6
   %_M_string_length.i.i.i.i.i.i.i.i.i.us = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.us, i64 24
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.us, align 8, !tbaa !10
-  store i8 0, ptr %23, align 1, !tbaa !13
+  store i8 0, ptr %23, align 8, !tbaa !13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.us, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i.us, ptr noundef nonnull %ret) #23
   %24 = load i64, ptr %_M_size.i.i.i, align 8, !tbaa !93
@@ -4505,7 +4505,7 @@ if.then21.us:                                     ; preds = %if.else.us
   store ptr %27, ptr %_M_storage.i.i.i.i89.us, align 8, !tbaa !6
   %_M_string_length.i.i.i.i.i.i.i.i.i90.us = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i88.us, i64 24
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i.i90.us, align 8, !tbaa !10
-  store i8 0, ptr %27, align 1, !tbaa !13
+  store i8 0, ptr %27, align 8, !tbaa !13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i89.us, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22) #23
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i88.us, ptr noundef nonnull %ret) #23
   %28 = load i64, ptr %_M_size.i.i.i, align 8, !tbaa !93
@@ -4556,7 +4556,7 @@ _ZN3irr4core6stringIcEC2IcEEPKT_j.exit109.us:     ; preds = %if.end.i102.us, %if
   store ptr %34, ptr %_M_storage.i.i.i.i111.us, align 8, !tbaa !6
   %_M_string_length.i.i.i.i.i.i.i.i.i112.us = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i110.us, i64 24
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i.i112.us, align 8, !tbaa !10
-  store i8 0, ptr %34, align 1, !tbaa !13
+  store i8 0, ptr %34, align 8, !tbaa !13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i111.us, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27) #23
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i110.us, ptr noundef nonnull %ret) #23
   %35 = load i64, ptr %_M_size.i.i.i, align 8, !tbaa !93
@@ -4691,7 +4691,7 @@ _ZN3irr4core6stringIcEC2IcEEPKT_j.exit135:        ; preds = %for.body.i129.epil,
   store ptr %56, ptr %_M_storage.i.i.i.i137, align 8, !tbaa !6
   %_M_string_length.i.i.i.i.i.i.i.i.i138 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i136, i64 24
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i.i138, align 8, !tbaa !10
-  store i8 0, ptr %56, align 1, !tbaa !13
+  store i8 0, ptr %56, align 8, !tbaa !13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i137, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp41) #23
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i136, ptr noundef nonnull %ret) #23
   %57 = load i64, ptr %_M_size.i.i.i, align 8, !tbaa !93
@@ -4731,7 +4731,7 @@ if.then49:                                        ; preds = %if.else47
   store ptr %61, ptr %_M_storage.i.i.i.i149, align 8, !tbaa !6
   %_M_string_length.i.i.i.i.i.i.i.i.i150 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i148, i64 24
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i.i150, align 8, !tbaa !10
-  store i8 0, ptr %61, align 1, !tbaa !13
+  store i8 0, ptr %61, align 8, !tbaa !13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i149, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp50) #23
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i148, ptr noundef nonnull %ret) #23
   %62 = load i64, ptr %_M_size.i.i.i, align 8, !tbaa !93

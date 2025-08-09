@@ -6283,7 +6283,7 @@ define internal i32 @dp_aux_backlight_update_status(ptr noundef readonly capture
   %63 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr i8, ptr %4, i64 20
-  %.val = load i8, ptr %65, align 2
+  %.val = load i8, ptr %65, align 4
   %66 = tail call fastcc i32 @drm_edp_backlight_set_enable(ptr noundef %64, i8 %.val, i1 noundef zeroext false)
   store i8 0, ptr %59, align 2
   br label %67

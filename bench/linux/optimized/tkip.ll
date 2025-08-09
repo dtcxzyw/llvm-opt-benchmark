@@ -77,7 +77,7 @@ define dso_local void @ieee80211_get_tkip_p1k_iv(ptr noundef %0, i32 noundef %1,
   %7 = getelementptr i8, ptr %0, i64 -484
   %8 = getelementptr i8, ptr %0, i64 20
   %9 = getelementptr i8, ptr %0, i64 -472
-  %10 = load i32, ptr %9, align 4
+  %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, %1
   br i1 %11, label %12, label %16
 
@@ -367,7 +367,7 @@ define dso_local void @ieee80211_get_tkip_p2k(ptr noundef %0, ptr noundef readon
   %18 = getelementptr i8, ptr %0, i64 -484
   %19 = getelementptr i8, ptr %0, i64 20
   %20 = getelementptr i8, ptr %0, i64 -472
-  %21 = load i32, ptr %20, align 4
+  %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, %12
   br i1 %22, label %23, label %27
 
@@ -567,7 +567,7 @@ define dso_local i32 @ieee80211_tkip_encrypt_data(ptr noundef %0, ptr noundef %1
   %21 = getelementptr i8, ptr %1, i64 52
   %22 = getelementptr i8, ptr %1, i64 556
   %23 = getelementptr i8, ptr %1, i64 64
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, %15
   br i1 %25, label %26, label %30
 

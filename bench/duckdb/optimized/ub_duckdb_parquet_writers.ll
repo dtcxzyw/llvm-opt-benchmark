@@ -2839,13 +2839,13 @@ _ZNSt10unique_ptrIN6duckdb21StringStatisticsStateESt14default_deleteIS1_EED2Ev.e
   store ptr %6, ptr %5, align 8, !tbaa !144, !noalias !138
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %7, align 8, !tbaa !16, !noalias !138
-  store i8 0, ptr %6, align 1, !tbaa !115, !noalias !138
+  store i8 0, ptr %6, align 8, !tbaa !115, !noalias !138
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %9, ptr %8, align 8, !tbaa !144, !noalias !138
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %10, align 8, !tbaa !16, !noalias !138
-  store i8 0, ptr %9, align 1, !tbaa !115, !noalias !138
+  store i8 0, ptr %9, align 8, !tbaa !115, !noalias !138
   store ptr %2, ptr %0, align 8, !tbaa !90
   ret void
 }
@@ -13046,7 +13046,7 @@ _ZSt19__relocate_object_aIN6duckdb20ExceptionFormatValueES1_SaIS1_EEvPT_PT0_RT1_
   store i64 %49, ptr %51, align 8, !tbaa !16, !alias.scope !583, !noalias !586
   store ptr %41, ptr %38, align 8, !tbaa !11, !alias.scope !586, !noalias !583
   store i64 0, ptr %50, align 8, !tbaa !16, !alias.scope !586, !noalias !583
-  store i8 0, ptr %41, align 1, !tbaa !115, !alias.scope !586, !noalias !583
+  store i8 0, ptr %41, align 8, !tbaa !115, !alias.scope !586, !noalias !583
   %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 56
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 56
   %.not.i.i.i.i = icmp eq ptr %52, %1
@@ -13097,7 +13097,7 @@ _ZSt19__relocate_object_aIN6duckdb20ExceptionFormatValueES1_SaIS1_EEvPT_PT0_RT1_
   store i64 %67, ptr %69, align 8, !tbaa !16, !alias.scope !590, !noalias !593
   store ptr %59, ptr %56, align 8, !tbaa !11, !alias.scope !593, !noalias !590
   store i64 0, ptr %68, align 8, !tbaa !16, !alias.scope !593, !noalias !590
-  store i8 0, ptr %59, align 1, !tbaa !115, !alias.scope !593, !noalias !590
+  store i8 0, ptr %59, align 8, !tbaa !115, !alias.scope !593, !noalias !590
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 56
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 56
   %.not.i.i.i.i24 = icmp eq ptr %70, %5

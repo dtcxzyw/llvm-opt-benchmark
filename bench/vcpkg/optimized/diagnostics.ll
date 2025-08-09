@@ -7248,7 +7248,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.
   store i64 %40, ptr %42, align 8, !tbaa !17, !alias.scope !211, !noalias !214
   store ptr %32, ptr %29, align 8, !tbaa !12, !alias.scope !214, !noalias !211
   store i64 0, ptr %41, align 8, !tbaa !17, !alias.scope !214, !noalias !211
-  store i8 0, ptr %32, align 1, !tbaa !18, !alias.scope !214, !noalias !211
+  store i8 0, ptr %32, align 8, !tbaa !18, !alias.scope !214, !noalias !211
   br label %_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS7_.exit.i.i.i.i.i.i.i
 
 _ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS7_.exit.i.i.i.i.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i
@@ -7289,7 +7289,7 @@ _ZN5vcpkg15LocalizedStringD2Ev.exit.i.i.i.i.i.i.i: ; preds = %_ZNKSt7__cxx1112ba
   store i64 %58, ptr %60, align 8, !tbaa !17, !alias.scope !211, !noalias !214
   store ptr %50, ptr %47, align 8, !tbaa !12, !alias.scope !214, !noalias !211
   store i64 0, ptr %59, align 8, !tbaa !17, !alias.scope !214, !noalias !211
-  store i8 0, ptr %50, align 1, !tbaa !18, !alias.scope !214, !noalias !211
+  store i8 0, ptr %50, align 8, !tbaa !18, !alias.scope !214, !noalias !211
   br i1 %27, label %61, label %_ZSt19__relocate_object_aIN5vcpkg14DiagnosticLineES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
 
 61:                                               ; preds = %_ZN5vcpkg15LocalizedStringD2Ev.exit.i.i.i.i.i.i.i
@@ -7374,7 +7374,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.
   store i64 %92, ptr %94, align 8, !tbaa !17, !alias.scope !218, !noalias !221
   store ptr %84, ptr %81, align 8, !tbaa !12, !alias.scope !221, !noalias !218
   store i64 0, ptr %93, align 8, !tbaa !17, !alias.scope !221, !noalias !218
-  store i8 0, ptr %84, align 1, !tbaa !18, !alias.scope !221, !noalias !218
+  store i8 0, ptr %84, align 8, !tbaa !18, !alias.scope !221, !noalias !218
   br label %_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS7_.exit.i.i.i.i.i.i.i30
 
 _ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS7_.exit.i.i.i.i.i.i.i30: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.i.i43, %.lr.ph.i.i.i27
@@ -7415,7 +7415,7 @@ _ZN5vcpkg15LocalizedStringD2Ev.exit.i.i.i.i.i.i.i34: ; preds = %_ZNKSt7__cxx1112
   store i64 %110, ptr %112, align 8, !tbaa !17, !alias.scope !218, !noalias !221
   store ptr %102, ptr %99, align 8, !tbaa !12, !alias.scope !221, !noalias !218
   store i64 0, ptr %111, align 8, !tbaa !17, !alias.scope !221, !noalias !218
-  store i8 0, ptr %102, align 1, !tbaa !18, !alias.scope !221, !noalias !218
+  store i8 0, ptr %102, align 8, !tbaa !18, !alias.scope !221, !noalias !218
   br i1 %79, label %113, label %_ZSt19__relocate_object_aIN5vcpkg14DiagnosticLineES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i35
 
 113:                                              ; preds = %_ZN5vcpkg15LocalizedStringD2Ev.exit.i.i.i.i.i.i.i34
@@ -7845,7 +7845,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.
   store i64 %79, ptr %81, align 8, !tbaa !17, !alias.scope !224, !noalias !227
   store ptr %71, ptr %68, align 8, !tbaa !12, !alias.scope !227, !noalias !224
   store i64 0, ptr %80, align 8, !tbaa !17, !alias.scope !227, !noalias !224
-  store i8 0, ptr %71, align 1, !tbaa !18, !alias.scope !227, !noalias !224
+  store i8 0, ptr %71, align 8, !tbaa !18, !alias.scope !227, !noalias !224
   br label %_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS7_.exit.i.i.i.i.i.i.i
 
 _ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS7_.exit.i.i.i.i.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i
@@ -7886,7 +7886,7 @@ _ZN5vcpkg15LocalizedStringD2Ev.exit.i.i.i.i.i.i.i: ; preds = %_ZNKSt7__cxx1112ba
   store i64 %97, ptr %99, align 8, !tbaa !17, !alias.scope !224, !noalias !227
   store ptr %89, ptr %86, align 8, !tbaa !12, !alias.scope !227, !noalias !224
   store i64 0, ptr %98, align 8, !tbaa !17, !alias.scope !227, !noalias !224
-  store i8 0, ptr %89, align 1, !tbaa !18, !alias.scope !227, !noalias !224
+  store i8 0, ptr %89, align 8, !tbaa !18, !alias.scope !227, !noalias !224
   br i1 %66, label %100, label %_ZSt19__relocate_object_aIN5vcpkg14DiagnosticLineES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
 
 100:                                              ; preds = %_ZN5vcpkg15LocalizedStringD2Ev.exit.i.i.i.i.i.i.i
@@ -7971,7 +7971,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.
   store i64 %131, ptr %133, align 8, !tbaa !17, !alias.scope !230, !noalias !233
   store ptr %123, ptr %120, align 8, !tbaa !12, !alias.scope !233, !noalias !230
   store i64 0, ptr %132, align 8, !tbaa !17, !alias.scope !233, !noalias !230
-  store i8 0, ptr %123, align 1, !tbaa !18, !alias.scope !233, !noalias !230
+  store i8 0, ptr %123, align 8, !tbaa !18, !alias.scope !233, !noalias !230
   br label %_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS7_.exit.i.i.i.i.i.i.i20
 
 _ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS7_.exit.i.i.i.i.i.i.i20: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.i.i33, %.lr.ph.i.i.i17
@@ -8012,7 +8012,7 @@ _ZN5vcpkg15LocalizedStringD2Ev.exit.i.i.i.i.i.i.i24: ; preds = %_ZNKSt7__cxx1112
   store i64 %149, ptr %151, align 8, !tbaa !17, !alias.scope !230, !noalias !233
   store ptr %141, ptr %138, align 8, !tbaa !12, !alias.scope !233, !noalias !230
   store i64 0, ptr %150, align 8, !tbaa !17, !alias.scope !233, !noalias !230
-  store i8 0, ptr %141, align 1, !tbaa !18, !alias.scope !233, !noalias !230
+  store i8 0, ptr %141, align 8, !tbaa !18, !alias.scope !233, !noalias !230
   br i1 %118, label %152, label %_ZSt19__relocate_object_aIN5vcpkg14DiagnosticLineES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i25
 
 152:                                              ; preds = %_ZN5vcpkg15LocalizedStringD2Ev.exit.i.i.i.i.i.i.i24

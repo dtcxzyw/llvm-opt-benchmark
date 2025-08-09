@@ -206,14 +206,14 @@ define internal fastcc void @__scsi_queue_insert(ptr noundef %0, i32 noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 392
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 544
   %8 = load i32, ptr %7, align 8
-  store volatile i32 %8, ptr %6, align 4
+  store volatile i32 %8, ptr %6, align 8
   br label %19
 
 9:                                                ; preds = %2, %2
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 416
   %12 = load i32, ptr %11, align 8
-  store volatile i32 %12, ptr %10, align 4
+  store volatile i32 %12, ptr %10, align 8
   br label %19
 
 13:                                               ; preds = %2
@@ -1783,7 +1783,7 @@ define internal fastcc void @scsi_io_completion_action(ptr noundef %0, i32 nound
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 80
   %175 = getelementptr inbounds nuw i8, ptr %173, i64 416
   %176 = load i32, ptr %175, align 8
-  store volatile i32 %176, ptr %174, align 4
+  store volatile i32 %176, ptr %174, align 8
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i32 0, ptr %177, align 8
   %178 = load ptr, ptr %0, align 8
@@ -1811,7 +1811,7 @@ define internal fastcc void @scsi_io_completion_action(ptr noundef %0, i32 nound
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 80
   %194 = getelementptr inbounds nuw i8, ptr %192, i64 416
   %195 = load i32, ptr %194, align 8
-  store volatile i32 %195, ptr %193, align 4
+  store volatile i32 %195, ptr %193, align 8
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i32 0, ptr %196, align 8
   %197 = load ptr, ptr %0, align 8
@@ -5140,7 +5140,7 @@ define internal zeroext i8 @scsi_queue_rq(ptr readnone captures(none) %0, ptr no
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 392
   %375 = getelementptr inbounds nuw i8, ptr %373, i64 544
   %376 = load i32, ptr %375, align 8
-  store volatile i32 %376, ptr %374, align 4
+  store volatile i32 %376, ptr %374, align 8
   br label %.thread
 
 377:                                              ; preds = %368, %368
@@ -5153,7 +5153,7 @@ define internal zeroext i8 @scsi_queue_rq(ptr readnone captures(none) %0, ptr no
   %381 = getelementptr inbounds nuw i8, ptr %380, i64 80
   %382 = getelementptr inbounds nuw i8, ptr %380, i64 416
   %383 = load i32, ptr %382, align 8
-  store volatile i32 %383, ptr %381, align 4
+  store volatile i32 %383, ptr %381, align 8
   br label %.thread
 
 384:                                              ; preds = %377

@@ -71,9 +71,9 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi24EEERS2_RAT__Kc.exit: ; pr
   %18 = add i32 %17, 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
-  store i32 %18, ptr %19, align 1
+  store i32 %18, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 6, ptr %20, align 1
+  store i32 6, ptr %20, align 4
   br label %21
 
 21:                                               ; preds = %11, %14, %3

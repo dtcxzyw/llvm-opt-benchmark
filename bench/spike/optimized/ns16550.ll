@@ -867,7 +867,7 @@ define void @_Z20ns16550_generate_dtsPK5sim_tRKSt6vectorINSt7__cxx1112basic_stri
   %11 = load i32, ptr %10, align 8, !tbaa !50
   %12 = and i32 %11, -75
   %13 = or disjoint i32 %12, 8
-  store i32 %13, ptr %10, align 4, !tbaa !59
+  store i32 %13, ptr %10, align 8, !tbaa !59
   %14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str, i64 noundef 21)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %111
 
@@ -888,7 +888,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %3
   %24 = load i32, ptr %23, align 8, !tbaa !50
   %25 = and i32 %24, -75
   %26 = or disjoint i32 %25, 2
-  store i32 %26, ptr %23, align 4, !tbaa !59
+  store i32 %26, ptr %23, align 8, !tbaa !59
   %27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef 10000000)
           to label %_ZNSolsEm.exit unwind label %111
 
@@ -905,7 +905,7 @@ _ZNSolsEm.exit:                                   ; preds = %18
   %35 = load i32, ptr %34, align 8, !tbaa !50
   %36 = and i32 %35, -75
   %37 = or disjoint i32 %36, 2
-  store i32 %37, ptr %34, align 4, !tbaa !59
+  store i32 %37, ptr %34, align 8, !tbaa !59
   %38 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %27, i32 noundef 1)
           to label %39 unwind label %111
 
@@ -918,7 +918,7 @@ _ZNSolsEm.exit:                                   ; preds = %18
   %45 = load i32, ptr %44, align 8, !tbaa !50
   %46 = and i32 %45, -75
   %47 = or disjoint i32 %46, 8
-  store i32 %47, ptr %44, align 4, !tbaa !59
+  store i32 %47, ptr %44, align 8, !tbaa !59
   %48 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str.3, i64 noundef 18)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12 unwind label %113
 

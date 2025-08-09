@@ -824,7 +824,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEEN
 _ZSt9make_pairIRKPN4llvm11InstructionENS0_11SmallVectorIS2_Lj8EEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS8_INS9_IT0_E4typeEE6__typeEEOSA_OSF_.exit.i.i.i: ; preds = %184, %178
   store ptr %95, ptr %179, align 8, !tbaa !121, !noalias !117
   %189 = getelementptr inbounds nuw i8, ptr %179, i64 8
-  store i32 0, ptr %189, align 4, !tbaa !47, !noalias !117
+  store i32 0, ptr %189, align 8, !tbaa !47, !noalias !117
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %53, ptr %5, align 8, !tbaa !25
@@ -2057,7 +2057,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEEN
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !47
-  store i32 %68, ptr %66, align 4, !tbaa !47
+  store i32 %68, ptr %66, align 8, !tbaa !47
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !126
   br label %70

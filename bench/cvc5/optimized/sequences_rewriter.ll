@@ -24937,7 +24937,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit515: ; preds = %_ZN4cvc58internal1
   store ptr %1838, ptr %72, align 8, !tbaa !47
   %1839 = load ptr, ptr %1815, align 8, !tbaa !37
   store ptr %1839, ptr %73, align 8, !tbaa !47
-  %1840 = load i32, ptr %.sroa.0709.0740, align 4, !tbaa !498
+  %1840 = load i32, ptr %.sroa.0709.0740, align 8, !tbaa !498
   %1841 = icmp ne i32 %1840, 0
   %1842 = invoke noundef zeroext i1 @_ZN4cvc58internal6theory7strings4Word10hasOverlapENS0_12NodeTemplateILb0EEES5_b(ptr noundef nonnull %72, ptr noundef nonnull %73, i1 noundef zeroext %1841)
           to label %1843 unwind label %1859

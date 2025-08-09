@@ -269,7 +269,7 @@ _ZNSt16allocator_traitsISaIN3vcg6Point2IfEEEE8allocateERS3_m.exit.i.i.i.i161: ; 
   %99 = load i32, ptr %98, align 8
   %100 = and i32 %99, 2147483647
   %101 = icmp ule i32 %97, %100
-  %102 = load atomic i32, ptr %94 monotonic, align 4
+  %102 = load atomic i32, ptr %94 monotonic, align 8
   %103 = icmp ult i32 %102, 2
   %or.cond.not.i.i = select i1 %103, i1 %101, i1 false
   br i1 %or.cond.not.i.i, label %106, label %104

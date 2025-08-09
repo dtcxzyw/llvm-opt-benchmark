@@ -55930,7 +55930,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %14, ptr %_M_string_length.i13.i.i.i.i.i.i.i, align 8, !alias.scope !101, !noalias !104
   store ptr %11, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !104, !noalias !101
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i, align 8, !alias.scope !104, !noalias !101
-  store i8 0, ptr %11, align 1, !alias.scope !104, !noalias !101
+  store i8 0, ptr %11, align 8, !alias.scope !104, !noalias !101
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #20
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 32
   %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 32
@@ -55980,7 +55980,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %20, ptr %_M_string_length.i13.i.i.i.i.i.i.i21, align 8, !alias.scope !108, !noalias !111
   store ptr %17, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !111, !noalias !108
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i20, align 8, !alias.scope !111, !noalias !108
-  store i8 0, ptr %17, align 1, !alias.scope !111, !noalias !108
+  store i8 0, ptr %17, align 8, !alias.scope !111, !noalias !108
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #20
   %incdec.ptr.i.i.i22 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i14, i64 32
   %incdec.ptr1.i.i.i23 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i13, i64 32
@@ -56342,7 +56342,7 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   store i64 %6, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !115, !noalias !118
   store ptr %3, ptr %__first.addr.06, align 8, !alias.scope !118, !noalias !115
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !118, !noalias !115
-  store i8 0, ptr %3, align 1, !alias.scope !118, !noalias !115
+  store i8 0, ptr %3, align 8, !alias.scope !118, !noalias !115
   store i8 1, ptr %_M_engaged.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !115, !noalias !118
   br label %_ZSt19__relocate_object_aIN6google8protobuf19EnumDescriptorProtoES2_SaIS2_EEvPT_PT0_RT1_.exit
 
@@ -56481,7 +56481,7 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   store i64 %9, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !122, !noalias !125
   store ptr %6, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !125, !noalias !122
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !125, !noalias !122
-  store i8 0, ptr %6, align 1, !alias.scope !125, !noalias !122
+  store i8 0, ptr %6, align 8, !alias.scope !125, !noalias !122
   store i8 1, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !122, !noalias !125
   br label %_ZSt19__relocate_object_aIN6google8protobuf22ServiceDescriptorProtoES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i
 
@@ -56561,7 +56561,7 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   store i64 %20, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i38, align 8, !alias.scope !129, !noalias !132
   store ptr %17, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !132, !noalias !129
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i37, align 8, !alias.scope !132, !noalias !129
-  store i8 0, ptr %17, align 1, !alias.scope !132, !noalias !129
+  store i8 0, ptr %17, align 8, !alias.scope !132, !noalias !129
   store i8 1, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i16, align 8, !alias.scope !129, !noalias !132
   br label %_ZSt19__relocate_object_aIN6google8protobuf22ServiceDescriptorProtoES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i18
 
@@ -57608,7 +57608,7 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   store i64 %9, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !136, !noalias !139
   store ptr %6, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !139, !noalias !136
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !139, !noalias !136
-  store i8 0, ptr %6, align 1, !alias.scope !139, !noalias !136
+  store i8 0, ptr %6, align 8, !alias.scope !139, !noalias !136
   store i8 1, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !136, !noalias !139
   %.pre4.i.i.i.i = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !139, !noalias !136
   br label %_ZNSt10unique_ptrIN6google8protobuf12OneofOptionsESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i
@@ -57702,7 +57702,7 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   store i64 %21, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i41, align 8, !alias.scope !143, !noalias !146
   store ptr %18, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !146, !noalias !143
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i40, align 8, !alias.scope !146, !noalias !143
-  store i8 0, ptr %18, align 1, !alias.scope !146, !noalias !143
+  store i8 0, ptr %18, align 8, !alias.scope !146, !noalias !143
   store i8 1, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i16, align 8, !alias.scope !143, !noalias !146
   %.pre4.i.i.i.i42 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i.i15, align 8, !alias.scope !146, !noalias !143
   br label %_ZNSt10unique_ptrIN6google8protobuf12OneofOptionsESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i18
@@ -58075,7 +58075,7 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   store i64 %9, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !150, !noalias !153
   store ptr %6, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !153, !noalias !150
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !153, !noalias !150
-  store i8 0, ptr %6, align 1, !alias.scope !153, !noalias !150
+  store i8 0, ptr %6, align 8, !alias.scope !153, !noalias !150
   store i8 1, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !150, !noalias !153
   %.pre4.i.i.i.i = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !153, !noalias !150
   br label %_ZNSt10unique_ptrIN6google8protobuf16EnumValueOptionsESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i
@@ -58173,7 +58173,7 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   store i64 %22, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i43, align 8, !alias.scope !157, !noalias !160
   store ptr %19, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !160, !noalias !157
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i42, align 8, !alias.scope !160, !noalias !157
-  store i8 0, ptr %19, align 1, !alias.scope !160, !noalias !157
+  store i8 0, ptr %19, align 8, !alias.scope !160, !noalias !157
   store i8 1, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i16, align 8, !alias.scope !157, !noalias !160
   %.pre4.i.i.i.i44 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i.i15, align 8, !alias.scope !160, !noalias !157
   br label %_ZNSt10unique_ptrIN6google8protobuf16EnumValueOptionsESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i18
@@ -58543,7 +58543,7 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   store i64 %9, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !164, !noalias !167
   store ptr %6, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !167, !noalias !164
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !167, !noalias !164
-  store i8 0, ptr %6, align 1, !alias.scope !167, !noalias !164
+  store i8 0, ptr %6, align 8, !alias.scope !167, !noalias !164
   store i8 1, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !164, !noalias !167
   %.pre3.i.i.i.i = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !167, !noalias !164
   br label %_ZNSt16allocator_traitsISaIN6google8protobuf19UninterpretedOption8NamePartEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit.i.i.i.i
@@ -58636,7 +58636,7 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   store i64 %21, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i41, align 8, !alias.scope !171, !noalias !174
   store ptr %18, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !174, !noalias !171
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i40, align 8, !alias.scope !174, !noalias !171
-  store i8 0, ptr %18, align 1, !alias.scope !174, !noalias !171
+  store i8 0, ptr %18, align 8, !alias.scope !174, !noalias !171
   store i8 1, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i16, align 8, !alias.scope !171, !noalias !174
   %.pre3.i.i.i.i42 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i.i15, align 8, !alias.scope !174, !noalias !171
   br label %_ZNSt16allocator_traitsISaIN6google8protobuf19UninterpretedOption8NamePartEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit.i.i.i.i18
@@ -59039,7 +59039,7 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   store i64 %9, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i.i.i.i, align 8
   store ptr %6, ptr %source_file3.i.i.i, align 8
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i.i.i.i, align 8
-  store i8 0, ptr %6, align 1
+  store i8 0, ptr %6, align 8
   store i8 1, ptr %_M_engaged.i.i.i.i.i.i.i.i, align 8
   %.pre4 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
   br label %_ZNSt16allocator_traitsISaIN6google8protobuf17GeneratedCodeInfo10AnnotationEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit

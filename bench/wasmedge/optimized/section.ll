@@ -36440,7 +36440,7 @@ define linkonce_odr void @_ZNSt6vectorIN8WasmEdge3AST10ImportDescESaIS2_EE17_M_d
   %22 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 77
   store i8 0, ptr %22, align 1
   %23 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 80
-  store i32 0, ptr %23, align 4
+  store i32 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 78
   store i8 99, ptr %24, align 2
   %25 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 79
@@ -36451,11 +36451,11 @@ define linkonce_odr void @_ZNSt6vectorIN8WasmEdge3AST10ImportDescESaIS2_EE17_M_d
   %28 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 100
   store i32 0, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 104
-  store i32 0, ptr %29, align 4
+  store i32 0, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 109
   store i8 0, ptr %30, align 1
   %31 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 112
-  store i32 0, ptr %31, align 4
+  store i32 0, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 110
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %27, i8 0, i64 9, i1 false)
   store i8 127, ptr %32, align 2
@@ -36502,7 +36502,7 @@ _ZNKSt6vectorIN8WasmEdge3AST10ImportDescESaIS2_EE12_M_check_lenEmPKc.exit: ; pre
   %48 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 77
   store i8 0, ptr %48, align 1
   %49 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 80
-  store i32 0, ptr %49, align 4
+  store i32 0, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 78
   store i8 99, ptr %50, align 2
   %51 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 79
@@ -36513,11 +36513,11 @@ _ZNKSt6vectorIN8WasmEdge3AST10ImportDescESaIS2_EE12_M_check_lenEmPKc.exit: ; pre
   %54 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 100
   store i32 0, ptr %54, align 4
   %55 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 104
-  store i32 0, ptr %55, align 4
+  store i32 0, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 109
   store i8 0, ptr %56, align 1
   %57 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 112
-  store i32 0, ptr %57, align 4
+  store i32 0, ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 110
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %53, i8 0, i64 9, i1 false)
   store i8 127, ptr %58, align 2
@@ -37567,7 +37567,7 @@ define linkonce_odr void @_ZNSt6vectorIN8WasmEdge3AST14ElementSegmentESaIS2_EE17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.08.i.i.i, i8 0, i64 32, i1 false)
   store i8 1, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 32
-  store i32 0, ptr %20, align 4
+  store i32 0, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 30
   store i8 99, ptr %21, align 2
   %22 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 31
@@ -37607,7 +37607,7 @@ _ZNKSt6vectorIN8WasmEdge3AST14ElementSegmentESaIS2_EE12_M_check_lenEmPKc.exit: ;
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.08.i.i.i31, i8 0, i64 32, i1 false)
   store i8 1, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 32
-  store i32 0, ptr %35, align 4
+  store i32 0, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 30
   store i8 99, ptr %36, align 2
   %37 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 31
@@ -44665,9 +44665,9 @@ _ZNSt12_Vector_baseIN8WasmEdge3AST11InstructionESaIS2_EE13_M_deallocateEPS2_m.ex
   store i128 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, ptr %.0811.i.i.i.i.i, align 16
   %49 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 16
   %50 = load i32, ptr %44, align 16
-  %51 = load i32, ptr %49, align 4
+  %51 = load i32, ptr %49, align 16
   store i32 %51, ptr %44, align 16
-  store i32 %50, ptr %49, align 4
+  store i32 %50, ptr %49, align 16
   %52 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 20
   %53 = load i32, ptr %45, align 4
   %54 = load i32, ptr %52, align 4
@@ -44675,9 +44675,9 @@ _ZNSt12_Vector_baseIN8WasmEdge3AST11InstructionESaIS2_EE13_M_deallocateEPS2_m.ex
   store i32 %53, ptr %52, align 4
   %55 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 24
   %.sroa.0.0.copyload.i5.i.i.i.i.i.i.i = load i8, ptr %46, align 8
-  %56 = load i8, ptr %55, align 1
+  %56 = load i8, ptr %55, align 8
   store i8 %56, ptr %46, align 8
-  store i8 %.sroa.0.0.copyload.i5.i.i.i.i.i.i.i, ptr %55, align 1
+  store i8 %.sroa.0.0.copyload.i5.i.i.i.i.i.i.i, ptr %55, align 8
   call void @_ZN8WasmEdge3AST11Instruction5resetEv(ptr noundef nonnull align 16 dereferenceable(25) %4) #18
   br label %_ZN8WasmEdge3AST11InstructionaSERKS1_.exit.i.i.i.i.i
 
@@ -44739,9 +44739,9 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN8WasmEdge3AST11InstructionESt6vector
   store i128 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i35, ptr %.0811.i.i.i.i.i32, align 16
   %73 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i32, i64 16
   %74 = load i32, ptr %68, align 16
-  %75 = load i32, ptr %73, align 4
+  %75 = load i32, ptr %73, align 16
   store i32 %75, ptr %68, align 16
-  store i32 %74, ptr %73, align 4
+  store i32 %74, ptr %73, align 16
   %76 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i32, i64 20
   %77 = load i32, ptr %69, align 4
   %78 = load i32, ptr %76, align 4
@@ -44749,9 +44749,9 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN8WasmEdge3AST11InstructionESt6vector
   store i32 %77, ptr %76, align 4
   %79 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i32, i64 24
   %.sroa.0.0.copyload.i5.i.i.i.i.i.i.i36 = load i8, ptr %70, align 8
-  %80 = load i8, ptr %79, align 1
+  %80 = load i8, ptr %79, align 8
   store i8 %80, ptr %70, align 8
-  store i8 %.sroa.0.0.copyload.i5.i.i.i.i.i.i.i36, ptr %79, align 1
+  store i8 %.sroa.0.0.copyload.i5.i.i.i.i.i.i.i36, ptr %79, align 8
   call void @_ZN8WasmEdge3AST11Instruction5resetEv(ptr noundef nonnull align 16 dereferenceable(25) %3) #18
   br label %_ZN8WasmEdge3AST11InstructionaSERKS1_.exit.i.i.i.i.i37
 

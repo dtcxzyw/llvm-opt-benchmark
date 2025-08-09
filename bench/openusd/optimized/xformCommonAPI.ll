@@ -11354,7 +11354,7 @@ _ZNSt8__detail9__variant9__emplaceILm0ELb0EJN32pxrInternal_v0_24__pxrReserved__1
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load i32, ptr %21, align 8
-  store i32 %22, ptr %20, align 4
+  store i32 %22, ptr %20, align 8
   store i32 0, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -11526,7 +11526,7 @@ _ZNSt8__detail9__variant9__emplaceILm1ELb0EJN32pxrInternal_v0_24__pxrReserved__1
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load i32, ptr %17, align 8
-  store i32 %18, ptr %16, align 4
+  store i32 %18, ptr %16, align 8
   store i32 0, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -11562,7 +11562,7 @@ _ZNSt8__detail9__variant9__emplaceILm1ELb0EJN32pxrInternal_v0_24__pxrReserved__1
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %41 = load i32, ptr %40, align 8
-  store i32 %41, ptr %39, align 4
+  store i32 %41, ptr %39, align 8
   store i32 0, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 100
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 100

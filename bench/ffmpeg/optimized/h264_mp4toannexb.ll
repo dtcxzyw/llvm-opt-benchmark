@@ -227,7 +227,7 @@ define internal i32 @h264_mp4toannexb_filter(ptr noundef %0, ptr noundef %1) #0 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %81, ptr noundef nonnull readonly align 1 dereferenceable(1) %49, i64 %50, i1 false)
   %82 = add i32 %79, %62
   store ptr %75, ptr %6, align 8, !tbaa !39
-  store i32 %82, ptr %42, align 4, !tbaa !38
+  store i32 %82, ptr %42, align 8, !tbaa !38
   br label %h264_mp4toannexb_save_ps.exit.i
 
 h264_mp4toannexb_save_ps.exit.i:                  ; preds = %76, %70

@@ -1282,13 +1282,13 @@ define hidden void @_ZN17opencv_tensorflow10VersionDef12InternalSwapEPS0_(ptr no
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.0.copyload.i.i.i = load i128, ptr %7, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 1 dereferenceable(16) %8, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i, ptr %8, align 1
+  store i128 %.0.copyload.i.i.i, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %.0.copyload.i.i = load i64, ptr %9, align 4
-  %11 = load i64, ptr %10, align 1
+  %11 = load i64, ptr %10, align 4
   store i64 %11, ptr %9, align 4
-  store i64 %.0.copyload.i.i, ptr %10, align 1
+  store i64 %.0.copyload.i.i, ptr %10, align 4
   ret void
 }
 

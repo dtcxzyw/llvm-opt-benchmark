@@ -8252,15 +8252,15 @@ define dso_local noundef ptr @_ZN24btCollisionWorldImporter17createSphereShapeEf
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 8, ptr %5, align 8, !tbaa !443
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store float 1.000000e+00, ptr %6, align 4, !tbaa !198
+  store float 1.000000e+00, ptr %6, align 8, !tbaa !198
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store float 1.000000e+00, ptr %7, align 4, !tbaa !198
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store float 1.000000e+00, ptr %8, align 4, !tbaa !198
+  store float 1.000000e+00, ptr %8, align 8, !tbaa !198
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %9, i8 0, i64 20, i1 false)
-  store float %1, ptr %10, align 4, !tbaa !198
+  store float %1, ptr %10, align 8, !tbaa !198
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store float %1, ptr %11, align 8, !tbaa !241
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 68

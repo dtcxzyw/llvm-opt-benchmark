@@ -16857,7 +16857,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2201: ; preds = %_
   call void @llvm.lifetime.start.p0(ptr nonnull %162)
   call void @llvm.lifetime.start.p0(ptr nonnull %163)
   %6687 = getelementptr inbounds nuw i8, ptr %6435, i64 88
-  %.val1199 = load i32, ptr %6687, align 4, !tbaa !63, !noalias !196
+  %.val1199 = load i32, ptr %6687, align 8, !tbaa !63, !noalias !196
   invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idB5cxx11ERKNS0_8IdStringE(ptr dead_on_unwind noalias writable align 8 %164, i32 %.val1199)
           to label %6688 unwind label %6729
 
@@ -28968,7 +28968,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %20
   store i64 %205, ptr %206, align 8, !tbaa !12
   store ptr %198, ptr %2, align 8, !tbaa !42
   store i64 0, ptr %170, align 8, !tbaa !12
-  store i8 0, ptr %198, align 1, !tbaa !15
+  store i8 0, ptr %198, align 8, !tbaa !15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit
 
 .thread162:                                       ; preds = %184, %186, %182, %189, %_ZNKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE5countERKS5_.exit.thread, %167, %_ZNKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE5countERKS5_.exit
@@ -96876,7 +96876,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_iESt
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !281
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
-  %8 = load i32, ptr %7, align 4, !tbaa !63
+  %8 = load i32, ptr %7, align 8, !tbaa !63
   %9 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !82, !range !84, !noundef !85
   %10 = trunc nuw i8 %9 to i1
   %11 = icmp ne i32 %8, 0
@@ -98466,7 +98466,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   store ptr %33, ptr %32, align 8, !tbaa !6
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i64 0, ptr %34, align 8, !tbaa !12
-  store i8 0, ptr %33, align 1, !tbaa !15
+  store i8 0, ptr %33, align 8, !tbaa !15
   ret void
 
 35:                                               ; preds = %25

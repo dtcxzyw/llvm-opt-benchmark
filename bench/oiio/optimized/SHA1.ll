@@ -56,7 +56,7 @@ define void @_ZN11OpenImageIO6v3_1_04SHA1C2EPKvm(ptr noundef nonnull align 8 cap
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 0, ptr %11, align 4, !tbaa !8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 0, ptr %12, align 4, !tbaa !8
+  store i32 0, ptr %12, align 8, !tbaa !8
   store ptr %4, ptr %0, align 8, !tbaa !10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %13, align 8, !tbaa !14

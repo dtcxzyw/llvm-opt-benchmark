@@ -184,7 +184,7 @@ define noundef zeroext i1 @_ZN3tbb6detail2r115task_dispatcher6resumeERS2_(ptr no
   store i32 2, ptr %14, align 8, !tbaa !113
   %15 = tail call i32 @swapcontext(ptr noundef nonnull align 8 dereferenceable(988) %11, ptr noundef nonnull align 8 dereferenceable(988) %12) #5
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 1024
-  store atomic i32 0, ptr %16 monotonic, align 4
+  store atomic i32 0, ptr %16 monotonic, align 8
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 1016
   %18 = load ptr, ptr %17, align 8, !tbaa !112
   %.not.i.i = icmp eq ptr %18, null
@@ -534,7 +534,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %14, %_ZN3tbb6
 _ZN3tbb6detail2r114arena_co_cache3popEv.exit:     ; preds = %.loopexit.i
   store i32 %25, ptr %19, align 8, !tbaa !150
   store ptr null, ptr %27, align 8, !tbaa !151
-  store atomic i8 0, ptr %5 release, align 1
+  store atomic i8 0, ptr %5 release, align 8
   br label %51
 
 30:                                               ; preds = %.loopexit.i
@@ -629,7 +629,7 @@ define void @_ZN3tbb6detail2r115task_dispatcher16internal_suspendEv(ptr noundef 
   store i32 2, ptr %27, align 8, !tbaa !113
   %28 = tail call i32 @swapcontext(ptr noundef nonnull align 8 dereferenceable(988) %24, ptr noundef nonnull align 8 dereferenceable(988) %25) #5
   %29 = getelementptr inbounds nuw i8, ptr %20, i64 1024
-  store atomic i32 0, ptr %29 monotonic, align 4
+  store atomic i32 0, ptr %29 monotonic, align 8
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 1016
   %31 = load ptr, ptr %30, align 8, !tbaa !112
   %.not.i.i.i = icmp eq ptr %31, null
@@ -789,7 +789,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %
   %42 = add i32 %35, 1
   %spec.select.i.i = select i1 %41, i32 0, i32 %42
   store i32 %spec.select.i.i, ptr %34, align 8, !tbaa !150
-  store atomic i8 0, ptr %20 release, align 1
+  store atomic i8 0, ptr %20 release, align 8
   br i1 %.not.i, label %_ZN3tbb6detail2r114arena_co_cache4pushEPNS1_15task_dispatcherE.exit, label %43
 
 43:                                               ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
@@ -803,7 +803,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 1024
   store atomic i32 2, ptr %47 monotonic, align 4
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  store atomic i8 1, ptr %48 release, align 1
+  store atomic i8 1, ptr %48 release, align 4
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %50 = load ptr, ptr %49, align 8, !tbaa !146
   %51 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN3tbb6detail2r15arena27get_waiting_threads_monitorEv(ptr noundef nonnull align 128 dereferenceable(768) %50)
@@ -942,7 +942,7 @@ _ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit.i.i: ; pr
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 8
   store ptr %102, ptr %103, align 8, !tbaa !171
   %104 = getelementptr inbounds nuw i8, ptr %.01620.i.i, i64 32
-  store atomic i8 0, ptr %104 monotonic, align 1
+  store atomic i8 0, ptr %104 monotonic, align 8
   %105 = load atomic i64, ptr %2 monotonic, align 8
   %106 = add i64 %105, 1
   store atomic i64 %106, ptr %2 monotonic, align 8
@@ -1130,7 +1130,7 @@ _ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit.i.i: ; pr
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store ptr %61, ptr %62, align 8, !tbaa !171
   %63 = getelementptr inbounds nuw i8, ptr %.01620.i.i, i64 32
-  store atomic i8 0, ptr %63 monotonic, align 1
+  store atomic i8 0, ptr %63 monotonic, align 8
   %64 = load atomic i64, ptr %2 monotonic, align 8
   %65 = add i64 %64, 1
   store atomic i64 %65, ptr %2 monotonic, align 8

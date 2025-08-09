@@ -769,7 +769,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %203 = getelementptr inbounds nuw i8, ptr %193, i64 272
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %203, ptr nonnull align 8 %202, i64 %201, i1 false), !alias.scope !92, !noalias !86
   store i128 %.sroa.31.1, ptr %198, align 16, !alias.scope !89, !noalias !86
-  store ptr %.sroa.35.1, ptr %202, align 8, !alias.scope !92, !noalias !86
+  store ptr %.sroa.35.1, ptr %202, align 16, !alias.scope !92, !noalias !86
   %204 = getelementptr inbounds nuw i8, ptr %193, i64 264
   store ptr %.sroa.36.1, ptr %204, align 8, !alias.scope !92, !noalias !86
   %205 = getelementptr inbounds nuw i8, ptr %193, i64 416
@@ -777,18 +777,18 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %207 = shl nuw nsw i64 %196, 3
   %208 = add nsw i64 %207, -40
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %206, ptr nonnull align 8 %205, i64 %208, i1 false), !alias.scope !95, !noalias !86
-  store ptr %.sroa.840.177135146, ptr %205, align 8, !alias.scope !95, !noalias !86
+  store ptr %.sroa.840.177135146, ptr %205, align 16, !alias.scope !95, !noalias !86
   store i16 %197, ptr %194, align 2, !noalias !86
   br label %.lr.ph.i.i63.preheader.i
 
 209:                                              ; preds = %192
   store i128 %.sroa.31.1, ptr %198, align 16, !alias.scope !89, !noalias !86
   %210 = getelementptr inbounds nuw i8, ptr %193, i64 256
-  store ptr %.sroa.35.1, ptr %210, align 8, !alias.scope !92, !noalias !86
+  store ptr %.sroa.35.1, ptr %210, align 16, !alias.scope !92, !noalias !86
   %211 = getelementptr inbounds nuw i8, ptr %193, i64 264
   store ptr %.sroa.36.1, ptr %211, align 8, !alias.scope !92, !noalias !86
   %212 = getelementptr inbounds nuw i8, ptr %193, i64 416
-  store ptr %.sroa.840.177135146, ptr %212, align 8, !alias.scope !95, !noalias !86
+  store ptr %.sroa.840.177135146, ptr %212, align 16, !alias.scope !95, !noalias !86
   store i16 %197, ptr %194, align 2, !noalias !86
   %213 = icmp eq i16 %195, 5
   br i1 %213, label %.lr.ph.i.i63.preheader.i, label %.thread69

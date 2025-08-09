@@ -19306,7 +19306,7 @@ _ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE7entry_
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %14 = load i32, ptr %13, align 8, !tbaa !346
   store i32 %14, ptr %12, align 8, !tbaa !346
-  %15 = load i32, ptr %2, align 4, !tbaa !6
+  %15 = load i32, ptr %2, align 8, !tbaa !6
   %16 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !29, !range !23, !noundef !24
   %17 = trunc nuw i8 %16 to i1
   %18 = icmp ne i32 %15, 0
@@ -20223,7 +20223,7 @@ _ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE7entry_
   %10 = load i32, ptr %9, align 8, !tbaa !346
   store i32 %10, ptr %8, align 8, !tbaa !346
   %.sroa.0.016 = getelementptr inbounds i8, ptr %0, i64 -56
-  %11 = load i32, ptr %.sroa.0.016, align 4, !tbaa !6
+  %11 = load i32, ptr %.sroa.0.016, align 8, !tbaa !6
   %12 = load i32, ptr %2, align 8, !tbaa !6
   %13 = icmp slt i32 %11, %12
   br i1 %13, label %.lr.ph, label %._crit_edge

@@ -3424,7 +3424,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EED2Ev.exit: ; preds = %272, %208, %203
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %288, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
   %289 = getelementptr inbounds nuw i8, ptr %284, i64 24
   %290 = load i32, ptr %7, align 4
-  store i32 %290, ptr %289, align 4
+  store i32 %290, ptr %289, align 8
   %291 = load ptr, ptr %283, align 8
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 32
   store ptr %292, ptr %283, align 8
@@ -3798,7 +3798,7 @@ define void @_ZN8WasmEdge4LLVM8Compiler7compileERKNS_3AST15FunctionSectionERKNS2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %106, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false)
   %107 = getelementptr inbounds nuw i8, ptr %102, i64 24
   %108 = load i32, ptr %40, align 4
-  store i32 %108, ptr %107, align 4
+  store i32 %108, ptr %107, align 8
   %109 = load ptr, ptr %101, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 32
   store ptr %110, ptr %101, align 8
@@ -36790,7 +36790,7 @@ _ZNSt10_HashtableIN8WasmEdge7ErrCode5ValueESt4pairIKS2_NS0_4LLVM10BasicBlockEESa
   %.02530 = phi i64 [ %.1, %31 ], [ 0, %_ZNSt10_HashtableIN8WasmEdge7ErrCode5ValueESt4pairIKS2_NS0_4LLVM10BasicBlockEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %16 = load ptr, ptr %.031, align 8
   %17 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %18 = load i32, ptr %17, align 4
+  %18 = load i32, ptr %17, align 8
   %19 = zext i32 %18 to i64
   %20 = urem i64 %19, %1
   %21 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %20
@@ -65040,7 +65040,7 @@ _ZNKSt6vectorISt5tupleIJjN8WasmEdge4LLVM14FunctionCalleeEPKNS1_3AST11CodeSegment
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %26 = load i32, ptr %2, align 4
-  store i32 %26, ptr %25, align 4
+  store i32 %26, ptr %25, align 8
   %.not10.i.i.i = icmp eq ptr %8, %1
   br i1 %.not10.i.i.i, label %_ZNSt6vectorISt5tupleIJjN8WasmEdge4LLVM14FunctionCalleeEPKNS1_3AST11CodeSegmentEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit, label %.lr.ph.i.i.i
 
@@ -65158,7 +65158,7 @@ _ZNKSt6vectorISt5tupleIJjN8WasmEdge4LLVM14FunctionCalleeEPKNS1_3AST11CodeSegment
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %27 = load i32, ptr %2, align 4
-  store i32 %27, ptr %26, align 4
+  store i32 %27, ptr %26, align 8
   %.not10.i.i.i = icmp eq ptr %8, %1
   br i1 %.not10.i.i.i, label %_ZNSt6vectorISt5tupleIJjN8WasmEdge4LLVM14FunctionCalleeEPKNS1_3AST11CodeSegmentEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit, label %.lr.ph.i.i.i
 

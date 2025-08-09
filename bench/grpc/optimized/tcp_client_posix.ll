@@ -1479,7 +1479,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit112:        ; preds = %_ZN4absl12lts_20240
   %186 = getelementptr inbounds nuw i8, ptr %184, i64 152
   %187 = getelementptr inbounds nuw i8, ptr %184, i64 168
   store ptr %187, ptr %186, align 8, !tbaa !63
-  store i8 0, ptr %187, align 1, !tbaa !51
+  store i8 0, ptr %187, align 8, !tbaa !51
   %188 = getelementptr inbounds nuw i8, ptr %184, i64 216
   store i32 8192, ptr %188, align 8, !tbaa !64
   %189 = getelementptr inbounds nuw i8, ptr %184, i64 220

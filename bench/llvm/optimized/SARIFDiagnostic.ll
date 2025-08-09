@@ -2119,7 +2119,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
   store i64 %46, ptr %48, align 8, !tbaa !24
   store ptr %38, ptr %35, align 8, !tbaa !42
   store i64 0, ptr %47, align 8, !tbaa !24
-  store i8 0, ptr %38, align 1, !tbaa !27
+  store i8 0, ptr %38, align 8, !tbaa !27
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2153,7 +2153,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit8.i: ; preds = 
   store i64 %61, ptr %63, align 8, !tbaa !24
   store ptr %53, ptr %50, align 8, !tbaa !42
   store i64 0, ptr %62, align 8, !tbaa !24
-  store i8 0, ptr %53, align 1, !tbaa !27
+  store i8 0, ptr %53, align 8, !tbaa !27
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %65, ptr %64, align 8, !tbaa !71
@@ -3352,7 +3352,7 @@ _ZSt10_ConstructIN5clang10ThreadFlowEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds 
   store i64 %24, ptr %25, align 8, !tbaa !24
   store ptr %15, ptr %12, align 8, !tbaa !42
   store i64 0, ptr %23, align 8, !tbaa !24
-  store i8 0, ptr %15, align 1, !tbaa !27
+  store i8 0, ptr %15, align 8, !tbaa !27
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 48
   %27 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 48
   %.not.i.i.i.i.i.i = icmp eq ptr %26, %10
@@ -4025,7 +4025,7 @@ _ZSt10_ConstructIN5clang10ThreadFlowEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = 
   store i64 %196, ptr %197, align 8, !tbaa !24
   store ptr %187, ptr %184, align 8, !tbaa !42
   store i64 0, ptr %195, align 8, !tbaa !24
-  store i8 0, ptr %187, align 1, !tbaa !27
+  store i8 0, ptr %187, align 8, !tbaa !27
   %198 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 48
   %199 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 48
   %.not.i.i.i.i.i = icmp eq ptr %198, %179

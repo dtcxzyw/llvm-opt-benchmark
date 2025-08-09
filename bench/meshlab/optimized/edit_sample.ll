@@ -9105,7 +9105,7 @@ _ZNK19MeshLabPluginLogger3logIJRhS1_S1_S1_EEEvN11GLLogStream6LevelsEPKcDpOT_.exi
   %254 = fpext float %253 to double
   %255 = load float, ptr %252, align 4
   %256 = fpext float %255 to double
-  %257 = load i16, ptr %251, align 2
+  %257 = load i16, ptr %251, align 4
   %258 = sext i16 %257 to i32
   %259 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 4096, ptr noundef nonnull @.str.37, double noundef %254, double noundef %256, i32 noundef %258) #26
   call void @_ZN11GLLogStream3logEiPKc(ptr noundef nonnull align 8 dereferenceable(40) %238, i32 noundef 2, ptr noundef nonnull %12)
@@ -9149,7 +9149,7 @@ _ZNK19MeshLabPluginLogger3logIJRfS1_RsEEEvN11GLLogStream6LevelsEPKcDpOT_.exit: ;
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %281 = load float, ptr %279, align 4
   %282 = fpext float %281 to double
-  %283 = load i16, ptr %280, align 2
+  %283 = load i16, ptr %280, align 4
   %284 = sext i16 %283 to i32
   %285 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 4096, ptr noundef nonnull @.str.38, double noundef %282, double noundef %282, i32 noundef %284) #26
   call void @_ZN11GLLogStream3logEiPKc(ptr noundef nonnull align 8 dereferenceable(40) %264, i32 noundef 2, ptr noundef nonnull %11)
@@ -9344,7 +9344,7 @@ _ZNK19MeshLabPluginLogger3logIJRhS1_S1_S1_EEEvN11GLLogStream6LevelsEPKcDpOT_.exi
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %378 = load float, ptr %376, align 4
   %379 = fpext float %378 to double
-  %380 = load i16, ptr %377, align 2
+  %380 = load i16, ptr %377, align 4
   %381 = sext i16 %380 to i32
   %382 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 4096, ptr noundef nonnull @.str.38, double noundef %379, double noundef %379, i32 noundef %381) #26
   call void @_ZN11GLLogStream3logEiPKc(ptr noundef nonnull align 8 dereferenceable(40) %364, i32 noundef 2, ptr noundef nonnull %5)

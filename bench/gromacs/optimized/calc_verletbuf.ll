@@ -4709,10 +4709,10 @@ _ZNSt10_HashtableI33AtomNonbondedAndKineticPropertiesSt4pairIKS0_iESaIS3_ENSt8__
   %.02530 = phi i64 [ %.1, %50 ], [ 0, %_ZNSt10_HashtableI33AtomNonbondedAndKineticPropertiesSt4pairIKS0_iESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i16, ptr %15, align 4, !tbaa !22
+  %16 = load i16, ptr %15, align 8, !tbaa !22
   %17 = sext i16 %16 to i64
   %18 = getelementptr inbounds nuw i8, ptr %.031, i64 16
-  %19 = load i16, ptr %18, align 4, !tbaa !275
+  %19 = load i16, ptr %18, align 8, !tbaa !275
   %20 = sext i16 %19 to i64
   %21 = shl nsw i64 %20, 16
   %22 = add nsw i64 %21, 2147418112

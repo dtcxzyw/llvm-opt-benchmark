@@ -589,7 +589,7 @@ zend_string_copy.exit:                            ; preds = %9, %25
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store i64 7887331704433110645, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  store i8 0, ptr %36, align 1, !tbaa !4
+  store i8 0, ptr %36, align 8, !tbaa !4
   %37 = load ptr, ptr %14, align 8, !tbaa !4
   %38 = getelementptr inbounds nuw %struct._zend_class_name, ptr %37, i64 %29, i32 1
   store ptr %31, ptr %38, align 8, !tbaa !66
@@ -629,7 +629,7 @@ zend_string_copy.exit20:                          ; preds = %40, %47
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %57, ptr noundef nonnull align 1 dereferenceable(10) @.str.1, i64 10, i1 false)
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 34
-  store i8 0, ptr %58, align 1, !tbaa !4
+  store i8 0, ptr %58, align 2, !tbaa !4
   %59 = load ptr, ptr %14, align 8, !tbaa !4
   %60 = getelementptr inbounds nuw %struct._zend_class_name, ptr %59, i64 %51, i32 1
   store ptr %53, ptr %60, align 8, !tbaa !66

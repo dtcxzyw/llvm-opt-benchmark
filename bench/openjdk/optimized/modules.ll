@@ -919,7 +919,7 @@ _ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit: ; preds = %_ZN
   %274 = load ptr, ptr %273, align 8
   call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %274) #14
   %indvars.iv.next229 = add nuw nsw i64 %indvars.iv228, 1
-  %275 = load i32, ptr %127, align 4
+  %275 = load i32, ptr %127, align 8
   %276 = sext i32 %275 to i64
   %277 = icmp slt i64 %indvars.iv.next229, %276
   br i1 %277, label %.lr.ph215, label %_ZNK6HandleclEv.exit154, !llvm.loop !10
@@ -1019,7 +1019,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %279, %280
   %313 = load ptr, ptr %312, align 8
   %314 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %313) #14
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE89ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.22, ptr noundef %314, ptr noundef nonnull %.0.i)
-  %.pre = load i32, ptr %127, align 4
+  %.pre = load i32, ptr %127, align 8
   br label %315
 
 315:                                              ; preds = %310, %.lr.ph218
@@ -1555,7 +1555,7 @@ _ZN16ModuleEntryTable16javabase_definedEv.exit.thread: ; preds = %_ZN11MutexLock
   %168 = load ptr, ptr %167, align 8
   call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %168) #14
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
-  %169 = load i32, ptr %67, align 4
+  %169 = load i32, ptr %67, align 8
   %170 = sext i32 %169 to i64
   %171 = icmp slt i64 %indvars.iv.next106, %170
   br i1 %171, label %.lr.ph99, label %._crit_edge100, !llvm.loop !13
@@ -1647,7 +1647,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %172, %._crit_edge10
   %202 = load ptr, ptr %201, align 8
   %203 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %202) #14
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE89ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.91, ptr noundef %203)
-  %.pre = load i32, ptr %67, align 4
+  %.pre = load i32, ptr %67, align 8
   br label %204
 
 204:                                              ; preds = %199, %.lr.ph102

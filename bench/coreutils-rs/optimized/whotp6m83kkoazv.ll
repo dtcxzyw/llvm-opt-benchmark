@@ -419,7 +419,7 @@ define internal fastcc noundef i64 @_ZN4rand3rng3Rng3gen17hae4b1cf3b659ebc0E(ptr
 "_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17h7007e02cbaf90c5aE.exit.i.i": ; preds = %32, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.6624592575629554789.exit.i.i.i.i"
   store i64 1, ptr %5, align 16, !alias.scope !103, !noalias !83
   %33 = zext i32 %15 to i64
-  %34 = load i32, ptr %4, align 4, !alias.scope !80, !noalias !83, !noundef !16
+  %34 = load i32, ptr %4, align 16, !alias.scope !80, !noalias !83, !noundef !16
   %35 = zext i32 %34 to i64
   %36 = shl nuw i64 %35, 32
   %37 = or disjoint i64 %36, %33
@@ -467,7 +467,7 @@ define internal fastcc noundef i64 @_ZN4rand3rng3Rng3gen17hae4b1cf3b659ebc0E(ptr
 
 "_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17h7007e02cbaf90c5aE.exit9.i.i": ; preds = %55, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.6624592575629554789.exit.i.i8.i.i"
   store i64 2, ptr %5, align 16, !alias.scope !118, !noalias !83
-  %56 = load i64, ptr %4, align 4, !alias.scope !119, !noalias !83
+  %56 = load i64, ptr %4, align 16, !alias.scope !119, !noalias !83
   br label %"_ZN4rand13distributions7integer120_$LT$impl$u20$rand..distributions..distribution..Distribution$LT$usize$GT$$u20$for$u20$rand..distributions..Standard$GT$6sample17h3da7d7bbe74efd47E.exit"
 
 "_ZN4rand13distributions7integer120_$LT$impl$u20$rand..distributions..distribution..Distribution$LT$usize$GT$$u20$for$u20$rand..distributions..Standard$GT$6sample17h3da7d7bbe74efd47E.exit": ; preds = %9, %"_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17h7007e02cbaf90c5aE.exit.i.i", %"_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17h7007e02cbaf90c5aE.exit9.i.i"

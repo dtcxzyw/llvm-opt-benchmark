@@ -28957,7 +28957,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %7, ptr %6, align 8, !tbaa !86, !noalias !558
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %8, align 8, !tbaa !29, !noalias !558
-  store i8 0, ptr %7, align 1, !tbaa !30, !noalias !558
+  store i8 0, ptr %7, align 8, !tbaa !30, !noalias !558
   store ptr %6, ptr %4, align 8, !tbaa !43
   br label %9
 
@@ -79627,7 +79627,7 @@ define internal void @_ZN12_GLOBAL__N_127CivilTime_OutputStream_Test8TestBodyEv(
   %57 = load i32, ptr %56, align 8, !tbaa !1446
   %58 = and i32 %57, -177
   %59 = or disjoint i32 %58, 32
-  store i32 %59, ptr %56, align 4, !tbaa !1447
+  store i32 %59, ptr %56, align 8, !tbaa !1447
   %60 = load i64, ptr %53, align 8
   %61 = getelementptr inbounds i8, ptr %51, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 225
@@ -80022,7 +80022,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %226 = load i32, ptr %225, align 8, !tbaa !1446
   %227 = and i32 %226, -177
   %228 = or disjoint i32 %227, 32
-  store i32 %228, ptr %225, align 4, !tbaa !1447
+  store i32 %228, ptr %225, align 8, !tbaa !1447
   %229 = load i64, ptr %222, align 8
   %230 = getelementptr inbounds i8, ptr %220, i64 %229
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 225
@@ -80421,7 +80421,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %390 = load i32, ptr %389, align 8, !tbaa !1446
   %391 = and i32 %390, -177
   %392 = or disjoint i32 %391, 32
-  store i32 %392, ptr %389, align 4, !tbaa !1447
+  store i32 %392, ptr %389, align 8, !tbaa !1447
   %393 = load i64, ptr %386, align 8
   %394 = getelementptr inbounds i8, ptr %384, i64 %393
   %395 = getelementptr inbounds nuw i8, ptr %394, i64 225
@@ -80820,7 +80820,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %554 = load i32, ptr %553, align 8, !tbaa !1446
   %555 = and i32 %554, -177
   %556 = or disjoint i32 %555, 32
-  store i32 %556, ptr %553, align 4, !tbaa !1447
+  store i32 %556, ptr %553, align 8, !tbaa !1447
   %557 = load i64, ptr %550, align 8
   %558 = getelementptr inbounds i8, ptr %548, i64 %557
   %559 = getelementptr inbounds nuw i8, ptr %558, i64 225
@@ -81219,7 +81219,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %718 = load i32, ptr %717, align 8, !tbaa !1446
   %719 = and i32 %718, -177
   %720 = or disjoint i32 %719, 32
-  store i32 %720, ptr %717, align 4, !tbaa !1447
+  store i32 %720, ptr %717, align 8, !tbaa !1447
   %721 = load i64, ptr %714, align 8
   %722 = getelementptr inbounds i8, ptr %712, i64 %721
   %723 = getelementptr inbounds nuw i8, ptr %722, i64 225
@@ -81618,7 +81618,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %882 = load i32, ptr %881, align 8, !tbaa !1446
   %883 = and i32 %882, -177
   %884 = or disjoint i32 %883, 32
-  store i32 %884, ptr %881, align 4, !tbaa !1447
+  store i32 %884, ptr %881, align 8, !tbaa !1447
   %885 = load i64, ptr %878, align 8
   %886 = getelementptr inbounds i8, ptr %876, i64 %885
   %887 = getelementptr inbounds nuw i8, ptr %886, i64 225
@@ -82017,7 +82017,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %1046 = load i32, ptr %1045, align 8, !tbaa !1446
   %1047 = and i32 %1046, -177
   %1048 = or disjoint i32 %1047, 32
-  store i32 %1048, ptr %1045, align 4, !tbaa !1447
+  store i32 %1048, ptr %1045, align 8, !tbaa !1447
   %1049 = load i64, ptr %1042, align 8
   %1050 = getelementptr inbounds i8, ptr %1040, i64 %1049
   %1051 = getelementptr inbounds nuw i8, ptr %1050, i64 225

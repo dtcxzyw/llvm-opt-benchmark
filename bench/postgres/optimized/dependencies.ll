@@ -343,14 +343,14 @@ define dso_local noundef ptr @statext_dependencies_serialize(ptr noundef readonl
   store i32 %18, ptr %16, align 4
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %20 = load i32, ptr %0, align 8
-  store i32 %20, ptr %19, align 1
+  store i32 %20, ptr %19, align 4
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %23 = load i32, ptr %22, align 4
-  store i32 %23, ptr %21, align 1
+  store i32 %23, ptr %21, align 4
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %25 = load i32, ptr %2, align 8
-  store i32 %25, ptr %24, align 1
+  store i32 %25, ptr %24, align 4
   %26 = load i32, ptr %2, align 8
   %.not44 = icmp eq i32 %26, 0
   br i1 %.not44, label %._crit_edge43, label %.lr.ph42

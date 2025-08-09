@@ -1635,7 +1635,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   %42 = call i64 @dm_rh_get_region_key(ptr noundef nonnull %41) #12
   %43 = load ptr, ptr %20, align 8
   %44 = call i64 @dm_rh_get_region_size(ptr noundef %43) #12
-  %45 = load volatile i32, ptr %34, align 4
+  %45 = load volatile i32, ptr %34, align 8
   %46 = sext i32 %45 to i64
   %47 = getelementptr [0 x %struct.mirror], ptr %33, i64 0, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
@@ -1795,7 +1795,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   store ptr null, ptr %149, align 8
   %152 = load ptr, ptr %20, align 8
   %153 = call i64 @dm_rh_bio_to_region(ptr noundef %152, ptr noundef nonnull %149) #12
-  %154 = load volatile i32, ptr %139, align 4
+  %154 = load volatile i32, ptr %139, align 8
   %155 = sext i32 %154 to i64
   %156 = getelementptr [0 x %struct.mirror], ptr %138, i64 0, i64 %155
   %157 = load ptr, ptr %20, align 8

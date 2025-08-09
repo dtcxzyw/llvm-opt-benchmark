@@ -7500,7 +7500,7 @@ define linkonce_odr hidden void @_ZN7bv_util17log_bv_from_exprsEP3appjPKP4expr(p
   %42 = load i32, ptr %41, align 8, !tbaa !465
   %43 = and i32 %42, -75
   %44 = or disjoint i32 %43, 8
-  store i32 %44, ptr %41, align 4, !tbaa !474
+  store i32 %44, ptr %41, align 8, !tbaa !474
   br i1 %.not46, label %._crit_edge45, label %.lr.ph44.preheader
 
 .lr.ph44.preheader:                               ; preds = %31
@@ -7526,7 +7526,7 @@ define linkonce_odr hidden void @_ZN7bv_util17log_bv_from_exprsEP3appjPKP4expr(p
   %52 = load i32, ptr %51, align 8, !tbaa !465
   %53 = and i32 %52, -75
   %54 = or disjoint i32 %53, 2
-  store i32 %54, ptr %51, align 4, !tbaa !474
+  store i32 %54, ptr %51, align 8, !tbaa !474
   br label %.loopexit
 
 .lr.ph44:                                         ; preds = %.lr.ph44.preheader, %79

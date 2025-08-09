@@ -142,7 +142,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 32:                                               ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
   %33 = load double, ptr %27, align 8, !tbaa !34
-  %34 = load i32, ptr %29, align 4, !tbaa !35
+  %34 = load i32, ptr %29, align 8, !tbaa !35
   %35 = add i32 %34, 40
   %36 = and i32 %35, 63
   %37 = zext nneg i32 %36 to i64
@@ -159,7 +159,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %48 = getelementptr inbounds nuw [64 x i32], ptr %28, i64 0, i64 %47
   store i32 %45, ptr %48, align 4, !tbaa !25
   %49 = add i32 %34, 1
-  store i32 %49, ptr %29, align 4, !tbaa !35
+  store i32 %49, ptr %29, align 8, !tbaa !35
   %50 = uitofp i32 %45 to double
   %51 = fdiv nsz double %50, 0x41EFFFFFFFE00000
   %52 = tail call nsz double @llvm.fmuladd.f64(double %51, double 2.000000e+00, double -1.000000e+00)

@@ -595,9 +595,9 @@ invoke.cont89:                                    ; preds = %invoke.cont83
   %supported_features_.i.i = getelementptr inbounds nuw i8, ptr %response, i64 56
   store i64 %call88, ptr %supported_features_.i.i, align 8
   %74 = getelementptr inbounds nuw i8, ptr %response, i64 16
-  %75 = load i32, ptr %74, align 4
+  %75 = load i32, ptr %74, align 8
   %or.i64 = or i32 %75, 2
-  store i32 %or.i64, ptr %74, align 4
+  store i32 %or.i64, ptr %74, align 8
   %vtable90 = load ptr, ptr %generator, align 8
   %vfn91 = getelementptr inbounds nuw i8, ptr %vtable90, i64 56
   %76 = load ptr, ptr %vfn91, align 8
@@ -607,9 +607,9 @@ invoke.cont89:                                    ; preds = %invoke.cont83
 invoke.cont94:                                    ; preds = %invoke.cont89
   %minimum_edition_.i.i = getelementptr inbounds nuw i8, ptr %response, i64 64
   store i32 %call93, ptr %minimum_edition_.i.i, align 8
-  %77 = load i32, ptr %74, align 4
+  %77 = load i32, ptr %74, align 8
   %or.i65 = or i32 %77, 4
-  store i32 %or.i65, ptr %74, align 4
+  store i32 %or.i65, ptr %74, align 8
   %vtable95 = load ptr, ptr %generator, align 8
   %vfn96 = getelementptr inbounds nuw i8, ptr %vtable95, i64 64
   %78 = load ptr, ptr %vfn96, align 8

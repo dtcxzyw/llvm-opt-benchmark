@@ -1677,11 +1677,11 @@ _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit157:
   %136 = phi ptr [ %130, %133 ], [ %142, %135 ]
   store double 0.000000e+00, ptr %136, align 8
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
-  store float 1.000000e+00, ptr %137, align 4
+  store float 1.000000e+00, ptr %137, align 8
   %138 = getelementptr inbounds nuw i8, ptr %136, i64 12
   store float 0.000000e+00, ptr %138, align 4
   %139 = getelementptr inbounds nuw i8, ptr %136, i64 16
-  store float 0.000000e+00, ptr %139, align 4
+  store float 0.000000e+00, ptr %139, align 8
   %140 = getelementptr inbounds nuw i8, ptr %136, i64 20
   store float 0.000000e+00, ptr %140, align 4
   %141 = getelementptr inbounds nuw i8, ptr %136, i64 24
@@ -2004,11 +2004,11 @@ _ZN13aiQuaterniontIfEC2ERK12aiMatrix3x3tIfE.exit: ; preds = %208, %222, %237, %2
   %325 = phi ptr [ %321, %322 ], [ %331, %324 ]
   store double 0.000000e+00, ptr %325, align 8
   %326 = getelementptr inbounds nuw i8, ptr %325, i64 8
-  store float 1.000000e+00, ptr %326, align 4
+  store float 1.000000e+00, ptr %326, align 8
   %327 = getelementptr inbounds nuw i8, ptr %325, i64 12
   store float 0.000000e+00, ptr %327, align 4
   %328 = getelementptr inbounds nuw i8, ptr %325, i64 16
-  store float 0.000000e+00, ptr %328, align 4
+  store float 0.000000e+00, ptr %328, align 8
   %329 = getelementptr inbounds nuw i8, ptr %325, i64 20
   store float 0.000000e+00, ptr %329, align 4
   %330 = getelementptr inbounds nuw i8, ptr %325, i64 24

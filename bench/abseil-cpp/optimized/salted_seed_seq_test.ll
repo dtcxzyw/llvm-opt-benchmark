@@ -8693,7 +8693,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %35
   store i64 %41, ptr %43, align 8, !tbaa !47
   store ptr %33, ptr %1, align 8, !tbaa !41
   store i64 0, ptr %42, align 8, !tbaa !47
-  store i8 0, ptr %33, align 1, !tbaa !25
+  store i8 0, ptr %33, align 8, !tbaa !25
   ret void
 }
 
@@ -8725,7 +8725,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %7, ptr %6, align 8, !tbaa !89, !noalias !233
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %8, align 8, !tbaa !47, !noalias !233
-  store i8 0, ptr %7, align 1, !tbaa !25, !noalias !233
+  store i8 0, ptr %7, align 8, !tbaa !25, !noalias !233
   store ptr %6, ptr %4, align 8, !tbaa !40
   br label %9
 

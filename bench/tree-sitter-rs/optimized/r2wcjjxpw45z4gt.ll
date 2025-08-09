@@ -28283,7 +28283,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hd4f1a1f609170bffE.exit.
   %.val.i = load ptr, ptr %12, align 8, !noalias !6118, !nonnull !4, !align !58, !noundef !4
   %.val4.i = load i64, ptr %100, align 8, !alias.scope !6119, !noalias !6126, !noundef !4
   %101 = getelementptr i8, ptr %99, i64 -32
-  %.val5.i = load i8, ptr %101, align 1, !noalias !6118
+  %.val5.i = load i8, ptr %101, align 8, !noalias !6118
   call void @llvm.experimental.noalias.scope.decl(metadata !6133), !noalias !6109
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !6136
   call void @llvm.experimental.noalias.scope.decl(metadata !6138), !noalias !6109
@@ -36542,7 +36542,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hd4f1a1f609170bffE.exit.
   %.val.i = load ptr, ptr %12, align 8, !noalias !8560, !nonnull !4, !align !58, !noundef !4
   %.val4.i = load ptr, ptr %100, align 8, !alias.scope !8561, !noalias !8568, !noundef !4
   %101 = getelementptr i8, ptr %99, i64 -32
-  %.val5.i = load i32, ptr %101, align 4, !noalias !8560
+  %.val5.i = load i32, ptr %101, align 8, !noalias !8560
   call void @llvm.experimental.noalias.scope.decl(metadata !8575), !noalias !8551
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !8578
   call void @llvm.experimental.noalias.scope.decl(metadata !8580), !noalias !8551
@@ -37326,7 +37326,7 @@ define internal noundef i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_
   %.val = load ptr, ptr %8, align 8, !nonnull !4, !align !58, !noundef !4
   %.val4 = load i64, ptr %12, align 8, !alias.scope !8858, !noalias !8865, !noundef !4
   %13 = getelementptr i8, ptr %11, i64 -32
-  %.val5 = load i8, ptr %13, align 1
+  %.val5 = load i8, ptr %13, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8872)
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !8875
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8877)
@@ -38260,7 +38260,7 @@ define internal noundef i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_
   %.val = load ptr, ptr %8, align 8, !nonnull !4, !align !58, !noundef !4
   %.val4 = load ptr, ptr %12, align 8, !alias.scope !9372, !noalias !9379, !noundef !4
   %13 = getelementptr i8, ptr %11, i64 -32
-  %.val5 = load i32, ptr %13, align 4
+  %.val5 = load i32, ptr %13, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9386)
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !9389
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9391)

@@ -1241,7 +1241,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66: ; preds = %_ZN
   %198 = load i32, ptr %197, align 8
   %199 = and i32 %198, -75
   %200 = or disjoint i32 %199, 8
-  store i32 %200, ptr %197, align 4
+  store i32 %200, ptr %197, align 8
   %201 = load ptr, ptr %192, align 8
   %202 = getelementptr i8, ptr %201, i64 -24
   %203 = load i64, ptr %202, align 8
@@ -1249,7 +1249,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66: ; preds = %_ZN
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 24
   %206 = load i32, ptr %205, align 8
   %207 = or i32 %206, 512
-  store i32 %207, ptr %205, align 4
+  store i32 %207, ptr %205, align 8
   %208 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %192, i32 noundef %18)
   %209 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %208, ptr noundef nonnull @.str.9)
   %210 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %209, ptr noundef nonnull align 8 dereferenceable(32) %0)

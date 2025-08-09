@@ -2869,12 +2869,12 @@ BufferGetPage.exit:                               ; preds = %23, %29
   %52 = load i32, ptr %51, align 8
   %53 = lshr i32 %52, 16
   %54 = trunc nuw i32 %53 to i16
-  store i16 %54, ptr %50, align 2
+  store i16 %54, ptr %50, align 4
   %55 = trunc i32 %52 to i16
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 102
   store i16 %55, ptr %56, align 2
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i16 %19, ptr %57, align 2
+  store i16 %19, ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %46, i64 480
   %59 = load ptr, ptr %58, align 8
   %.not31 = icmp eq ptr %59, null
@@ -3173,9 +3173,9 @@ SampleHeapTupleVisible.exit.us:                   ; preds = %90
   %101 = load i32, ptr %97, align 4
   %102 = lshr i32 %101, 17
   store i32 %102, ptr %61, align 8
-  store i16 %66, ptr %64, align 2
+  store i16 %66, ptr %64, align 4
   store i16 %67, ptr %68, align 2
-  store i16 %87, ptr %69, align 2
+  store i16 %87, ptr %69, align 8
   br i1 %.not, label %.split75.us, label %.thread60
 
 .split75.us:                                      ; preds = %SampleHeapTupleVisible.exit.us

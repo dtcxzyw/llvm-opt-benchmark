@@ -3972,7 +3972,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %26
   store i64 %32, ptr %34, align 8, !tbaa !199
   store ptr %24, ptr %1, align 8, !tbaa !201
   store i64 0, ptr %33, align 8, !tbaa !199
-  store i8 0, ptr %24, align 1, !tbaa !161
+  store i8 0, ptr %24, align 8, !tbaa !161
   invoke void @_ZN9grpc_core7ChannelC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11ChannelArgsE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %11, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %35 unwind label %220
 
@@ -4068,7 +4068,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit67: ; preds = %
   store i64 %72, ptr %73, align 8, !tbaa !199
   store ptr %63, ptr %3, align 8, !tbaa !201
   store i64 0, ptr %71, align 8, !tbaa !199
-  store i8 0, ptr %63, align 1, !tbaa !161
+  store i8 0, ptr %63, align 8, !tbaa !161
   %74 = invoke noundef i64 @_ZN9grpc_core8internal32ClientChannelServiceConfigParser11ParserIndexEv()
           to label %75 unwind label %230
 
@@ -10918,7 +10918,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
   store i64 %779, ptr %781, align 8, !tbaa !199
   store ptr %771, ptr %768, align 8, !tbaa !201
   store i64 0, ptr %780, align 8, !tbaa !199
-  store i8 0, ptr %771, align 1, !tbaa !161
+  store i8 0, ptr %771, align 8, !tbaa !161
   %782 = getelementptr inbounds nuw i8, ptr %52, i64 80
   call void @_ZN9grpc_core11ChannelArgsC1EOS0_(ptr noundef nonnull align 8 dereferenceable(8) %782, ptr noundef nonnull align 8 dereferenceable(8) %305) #46
   %783 = getelementptr inbounds nuw i8, ptr %52, i64 88
@@ -27494,7 +27494,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
   store i64 %40, ptr %42, align 8, !tbaa !199
   store ptr %32, ptr %29, align 8, !tbaa !201
   store i64 0, ptr %41, align 8, !tbaa !199
-  store i8 0, ptr %32, align 1, !tbaa !161
+  store i8 0, ptr %32, align 8, !tbaa !161
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 80
   call void @_ZN9grpc_core11ChannelArgsC1EOS0_(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull align 8 dereferenceable(8) %44) #46

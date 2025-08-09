@@ -17245,7 +17245,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17he79ed1937fdf
   %64 = getelementptr inbounds nuw i8, ptr %.sroa.011.031.i.i.i.i, i64 8
   %.val1.i.i.i.i.i = load i64, ptr %64, align 8, !alias.scope !4571, !noalias !4569, !noundef !11
   %65 = getelementptr inbounds nuw i8, ptr %.sroa.011.031.i.i.i.i, i64 16
-  %.val2.i.i.i.i.i = load i32, ptr %65, align 4, !alias.scope !4574, !noalias !4569, !noundef !11
+  %.val2.i.i.i.i.i = load i32, ptr %65, align 8, !alias.scope !4574, !noalias !4569, !noundef !11
   %66 = getelementptr inbounds nuw [0 x { [3 x i64] }], ptr %54, i64 0, i64 %.sroa.7.030.i.i.i.i
   store i64 %.val.i.i.i.i.i, ptr %66, align 8, !noalias !4575
   %.sroa.420.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %66, i64 8

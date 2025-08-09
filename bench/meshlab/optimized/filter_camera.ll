@@ -12066,12 +12066,12 @@ _ZN7QStringD2Ev.exit929:                          ; preds = %1230, %_ZN9QtPrivat
   %1249 = getelementptr inbounds nuw i8, ptr %1248, i64 16
   %1250 = call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %1249)
   %1251 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  store i32 %1250, ptr %1251, align 4
+  store i32 %1250, ptr %1251, align 8
   %1252 = getelementptr inbounds nuw i8, ptr %97, i64 12
   %1253 = getelementptr inbounds nuw i8, ptr %97, i64 16
-  %1254 = load float, ptr %1253, align 4
+  %1254 = load float, ptr %1253, align 8
   %1255 = fdiv float %1254, %1243
-  store float %1255, ptr %1253, align 4
+  store float %1255, ptr %1253, align 8
   %1256 = load float, ptr %1252, align 4
   %1257 = fdiv float %1256, %1243
   store float %1257, ptr %1252, align 4
@@ -12089,7 +12089,7 @@ _ZN7QStringD2Ev.exit929:                          ; preds = %1230, %_ZN9QtPrivat
   %1268 = fptosi double %1267 to i32
   %1269 = sitofp i32 %1268 to float
   %1270 = getelementptr inbounds nuw i8, ptr %97, i64 24
-  store float %1269, ptr %1270, align 4
+  store float %1269, ptr %1270, align 8
   br label %_ZN7QStringD2Ev.exit936
 
 1271:                                             ; preds = %1228
@@ -12877,7 +12877,7 @@ _ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %1575 = getelementptr inbounds nuw i8, ptr %.sroa.013.021.i, i64 40
-  store i32 %1574, ptr %1575, align 1
+  store i32 %1574, ptr %1575, align 4
   %.pre1520 = load ptr, ptr %1368, align 8
   br label %1576
 
@@ -13162,7 +13162,7 @@ _ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEESt6vectorIZN18FilterCa
   %1692 = getelementptr inbounds nuw i8, ptr %.sroa.018.0.i, i64 32
   %1693 = load ptr, ptr %1692, align 8
   %1694 = getelementptr inbounds nuw i8, ptr %.sroa.018.0.i, i64 80
-  %1695 = load i32, ptr %1694, align 4
+  %1695 = load i32, ptr %1694, align 8
   br label %1696
 
 .body:                                            ; preds = %.body.i, %1689

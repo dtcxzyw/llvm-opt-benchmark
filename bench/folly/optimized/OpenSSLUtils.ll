@@ -1215,7 +1215,7 @@ define internal fastcc void @_ZN5folly3sslL21getOpenSSLCipherNamesB5cxx11Ev() un
   store ptr %62, ptr %61, align 8, !tbaa !77
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 24
   store i64 0, ptr %63, align 8, !tbaa !78
-  store i8 0, ptr %62, align 1, !tbaa !22
+  store i8 0, ptr %62, align 8, !tbaa !22
   store ptr %59, ptr %19, align 8, !tbaa !79
   %64 = invoke ptr @_ZNSt10_HashtableItSt4pairIKtNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) @_ZZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE16cipherCodeToNameB5cxx11, i64 noundef %42, i64 noundef %40, ptr noundef nonnull %59, i64 noundef 1)
           to label %_ZNSt10_HashtableItSt4pairIKtNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i.i unwind label %65
@@ -1663,7 +1663,7 @@ _ZNSt10_HashtableItSt4pairIKtNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableItSt4pairIKtNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !57
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i16, ptr %15, align 2, !tbaa !58
+  %16 = load i16, ptr %15, align 8, !tbaa !58
   %17 = zext i16 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18

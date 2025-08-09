@@ -1107,7 +1107,7 @@ define internal void @netfs_cleanup_buffered_write(ptr noundef %0) #0 align 16 {
 27:                                               ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %29 = load i64, ptr %28, align 16
-  %30 = load volatile i64, ptr %23, align 8
+  %30 = load volatile i64, ptr %23, align 16
   %31 = and i64 %30, 64
   %32 = icmp eq i64 %31, 0
   br i1 %32, label %37, label %33
@@ -1217,7 +1217,7 @@ define internal void @netfs_cleanup_buffered_write(ptr noundef %0) #0 align 16 {
 91:                                               ; preds = %85
   %92 = getelementptr inbounds nuw i8, ptr %87, i64 32
   %93 = load i64, ptr %92, align 16
-  %94 = load volatile i64, ptr %87, align 8
+  %94 = load volatile i64, ptr %87, align 16
   %95 = and i64 %94, 64
   %96 = icmp eq i64 %95, 0
   br i1 %96, label %101, label %97
@@ -3756,7 +3756,7 @@ define internal fastcc void @netfs_pages_written_back(ptr noundef readonly captu
 268:                                              ; preds = %267, %261
   %269 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %270 = load i64, ptr %269, align 16
-  %271 = load volatile i64, ptr %22, align 8
+  %271 = load volatile i64, ptr %22, align 16
   %272 = and i64 %271, 64
   %273 = icmp eq i64 %272, 0
   br i1 %273, label %278, label %274

@@ -947,7 +947,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %if
   store i64 %5, ptr %_M_string_length.i13.i, align 8, !tbaa !13
   store ptr %2, ptr %name, align 8, !tbaa !9
   store i64 0, ptr %_M_string_length.i12.i, align 8, !tbaa !13
-  store i8 0, ptr %2, align 1, !tbaa !37
+  store i8 0, ptr %2, align 8, !tbaa !37
   %code3 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr %6, ptr %code3, align 8, !tbaa !35
@@ -978,7 +978,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit9: ; preds = %i
   store i64 %11, ptr %_M_string_length.i13.i4, align 8, !tbaa !13
   store ptr %8, ptr %code, align 8, !tbaa !9
   store i64 0, ptr %_M_string_length.i12.i3, align 8, !tbaa !13
-  store i8 0, ptr %8, align 1, !tbaa !37
+  store i8 0, ptr %8, align 8, !tbaa !37
   %unitType4 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i32 %unitType, ptr %unitType4, align 8, !tbaa !43
   %triangulationUnitOfMeasure5 = getelementptr inbounds nuw i8, ptr %this, i64 72

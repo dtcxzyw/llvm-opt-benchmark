@@ -136,7 +136,7 @@ invoke.cont:
   %upstream.i6.i = getelementptr inbounds nuw i8, ptr %call1, i64 88
   store ptr null, ptr %upstream.i6.i, align 8, !tbaa !22
   %scale.i = getelementptr inbounds nuw i8, ptr %call1, i64 96
-  store <2 x float> splat (float 1.000000e+00), ptr %scale.i, align 4, !tbaa !13
+  store <2 x float> splat (float 1.000000e+00), ptr %scale.i, align 8, !tbaa !13
   %pipeline = getelementptr inbounds nuw i8, ptr %result, i64 16
   store ptr %call1, ptr %pipeline, align 8, !tbaa !11
   %tobool.not = icmp eq ptr %call, null

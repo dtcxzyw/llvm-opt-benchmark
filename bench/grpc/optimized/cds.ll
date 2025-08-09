@@ -1371,7 +1371,7 @@ _ZN9grpc_core19LoadBalancingPolicy4ArgsD2Ev.exit.i.i: ; preds = %49, %_ZN9__gnu_
   store ptr %51, ptr %50, align 8, !tbaa !33, !noalias !44
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i64 0, ptr %52, align 8, !tbaa !36, !noalias !44
-  store i8 0, ptr %51, align 1, !tbaa !24, !noalias !44
+  store i8 0, ptr %51, align 8, !tbaa !24, !noalias !44
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 104
@@ -24580,7 +24580,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %23, ptr %26, align 8, !tbaa !36
   store ptr %14, ptr %11, align 8, !tbaa !43
   store i64 0, ptr %25, align 8, !tbaa !36
-  store i8 0, ptr %14, align 1, !tbaa !24
+  store i8 0, ptr %14, align 8, !tbaa !24
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %27, i8 0, i64 56, i1 false)
   store ptr %8, ptr %24, align 8, !tbaa !623

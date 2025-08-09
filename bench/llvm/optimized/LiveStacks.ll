@@ -2079,7 +2079,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIiSt4pairIKiN4llvm12LiveInterv
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
-  store i32 %18, ptr %28, align 4, !tbaa !308
+  store i32 %18, ptr %28, align 8, !tbaa !308
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 132
   store float %19, ptr %29, align 4, !tbaa !309
   store ptr %7, ptr %6, align 8, !tbaa !310
@@ -2327,7 +2327,7 @@ _ZNSt10_HashtableIiSt4pairIKiN4llvm12LiveIntervalEESaIS4_ENSt8__detail10_Select1
   %.02530 = phi i64 [ %.1, %31 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiN4llvm12LiveIntervalEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %16 = load ptr, ptr %.031, align 8, !tbaa !186
   %17 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %18 = load i32, ptr %17, align 4, !tbaa !184
+  %18 = load i32, ptr %17, align 8, !tbaa !184
   %19 = sext i32 %18 to i64
   %20 = urem i64 %19, %1
   %21 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %20

@@ -4452,9 +4452,9 @@ _ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit.lo
   %1218 = sdiv i32 %1217, -2
   %1219 = sdiv i32 %1217, 2
   %.not338206 = icmp sgt i32 %1218, %1219
-  %.pre335 = load float, ptr %1192, align 4, !tbaa !8
+  %.pre335 = load float, ptr %1192, align 8, !tbaa !8
   %.pre336 = load float, ptr %1193, align 4, !tbaa !8
-  %.pre337 = load float, ptr %1194, align 4, !tbaa !8
+  %.pre337 = load float, ptr %1194, align 8, !tbaa !8
   br i1 %.not338206, label %.._crit_edge213_crit_edge, label %.lr.ph212
 
 .._crit_edge213_crit_edge:                        ; preds = %1215

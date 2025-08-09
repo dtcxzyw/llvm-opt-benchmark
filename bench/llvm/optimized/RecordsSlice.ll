@@ -3404,7 +3404,7 @@ define internal fastcc void @_ZL19createInterfaceFileRKN4llvm11SmallVectorISt10s
   store ptr %38, ptr %37, align 8, !tbaa !250, !noalias !247
   %39 = getelementptr inbounds nuw i8, ptr %24, i64 240
   store i64 0, ptr %39, align 8, !tbaa !252, !noalias !247
-  store i8 0, ptr %38, align 1, !tbaa !19, !noalias !247
+  store i8 0, ptr %38, align 8, !tbaa !19, !noalias !247
   %40 = getelementptr inbounds nuw i8, ptr %24, i64 264
   store i32 0, ptr %40, align 8, !tbaa !254, !noalias !247
   %41 = getelementptr inbounds nuw i8, ptr %24, i64 272
@@ -3412,7 +3412,7 @@ define internal fastcc void @_ZL19createInterfaceFileRKN4llvm11SmallVectorISt10s
   store ptr %42, ptr %41, align 8, !tbaa !250, !noalias !247
   %43 = getelementptr inbounds nuw i8, ptr %24, i64 280
   store i64 0, ptr %43, align 8, !tbaa !252, !noalias !247
-  store i8 0, ptr %42, align 1, !tbaa !19, !noalias !247
+  store i8 0, ptr %42, align 8, !tbaa !19, !noalias !247
   %44 = getelementptr inbounds nuw i8, ptr %24, i64 304
   %45 = getelementptr inbounds nuw i8, ptr %24, i64 320
   store i32 0, ptr %45, align 8, !tbaa !286, !noalias !247

@@ -2808,7 +2808,7 @@ _ZN3nix9StorePathC2EOS0_.exit:                    ; preds = %93, %_ZNKSt7__cxx11
   store i64 %99, ptr %101, align 8
   store ptr %91, ptr %88, align 8
   store i64 0, ptr %100, align 8
-  store i8 0, ptr %91, align 1
+  store i8 0, ptr %91, align 8
   br i1 %48, label %.critedge36, label %.critedge
 
 .critedge:                                        ; preds = %_ZN3nix9StorePathC2EOS0_.exit

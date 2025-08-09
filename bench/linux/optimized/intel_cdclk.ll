@@ -181,7 +181,7 @@ define dso_local void @intel_cdclk_init_hw(ptr noundef %0) local_unnamed_addr #0
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef %0, ptr noundef nonnull %13) #15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 7184
-  %18 = load i32, ptr %17, align 4
+  %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 18874368
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %28, label %21
@@ -476,7 +476,7 @@ bxt_calc_cdclk.exit7:                             ; preds = %174, %._crit_edge
   %198 = load ptr, ptr %197, align 8
   %199 = load ptr, ptr %198, align 8
   tail call void %199(ptr noundef %0, ptr noundef nonnull %196) #15
-  %200 = load i32, ptr %8, align 4
+  %200 = load i32, ptr %8, align 8
   %201 = and i32 %200, 18874368
   %202 = icmp eq i32 %201, 0
   br i1 %202, label %209, label %203
@@ -2592,7 +2592,7 @@ define dso_local void @intel_update_cdclk(ptr noundef %0) local_unnamed_addr #0 
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef %0, ptr noundef nonnull %2) #15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 7184
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 18874368
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %17, label %10
@@ -3568,7 +3568,7 @@ thread-pre-split:                                 ; preds = %129, %119
   %156 = load ptr, ptr %155, align 8
   tail call void %156(ptr noundef %0, ptr noundef nonnull %30) #15
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 7184
-  %158 = load i32, ptr %157, align 4
+  %158 = load i32, ptr %157, align 8
   %159 = and i32 %158, 18874368
   %160 = icmp eq i32 %159, 0
   br i1 %160, label %168, label %161
@@ -4478,7 +4478,7 @@ define internal void @skl_set_cdclk(ptr noundef %0, ptr noundef readonly capture
   %184 = load ptr, ptr %183, align 8
   %185 = load ptr, ptr %184, align 8
   tail call void %185(ptr noundef %0, ptr noundef nonnull %182) #15
-  %186 = load i32, ptr %7, align 4
+  %186 = load i32, ptr %7, align 8
   %187 = and i32 %186, 18874368
   %188 = icmp eq i32 %187, 0
   br i1 %188, label %194, label %189
@@ -6024,7 +6024,7 @@ define internal void @bdw_set_cdclk(ptr noundef %0, ptr noundef readonly capture
   %125 = load ptr, ptr %124, align 8
   tail call void %125(ptr noundef %0, ptr noundef nonnull %122) #15
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 7184
-  %127 = load i32, ptr %126, align 4
+  %127 = load i32, ptr %126, align 8
   %128 = and i32 %127, 18874368
   %129 = icmp eq i32 %128, 0
   br i1 %129, label %135, label %130
@@ -6310,7 +6310,7 @@ define internal void @chv_set_cdclk(ptr noundef %0, ptr noundef readonly capture
   %48 = load ptr, ptr %47, align 8
   tail call void %48(ptr noundef %0, ptr noundef nonnull %45) #15
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 7184
-  %50 = load i32, ptr %49, align 4
+  %50 = load i32, ptr %49, align 8
   %51 = and i32 %50, 18874368
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %60, label %53
@@ -6352,7 +6352,7 @@ define internal range(i32 -2147483648, 1) i32 @vlv_modeset_calc_cdclk(ptr nounde
   %13 = icmp eq i32 %12, 0
   %14 = select i1 %13, i32 320000, i32 333333
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 7184
-  %16 = load i32, ptr %15, align 4
+  %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 2097152
   %18 = icmp ne i32 %17, 0
   %19 = icmp samesign ult i32 %14, %6
@@ -6414,7 +6414,7 @@ define internal range(i32 -2147483648, 1) i32 @vlv_modeset_calc_cdclk(ptr nounde
   %57 = urem i32 %56, 320000
   %58 = icmp eq i32 %57, 0
   %59 = select i1 %58, i32 320000, i32 333333
-  %60 = load i32, ptr %15, align 4
+  %60 = load i32, ptr %15, align 8
   %61 = and i32 %60, 2097152
   %62 = icmp ne i32 %61, 0
   %63 = icmp slt i32 %59, %54
@@ -6705,7 +6705,7 @@ define internal void @vlv_set_cdclk(ptr noundef %0, ptr noundef readonly capture
   %91 = load ptr, ptr %90, align 8
   tail call void %91(ptr noundef %0, ptr noundef nonnull %88) #15
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 7184
-  %93 = load i32, ptr %92, align 4
+  %93 = load i32, ptr %92, align 8
   %94 = and i32 %93, 18874368
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %103, label %96

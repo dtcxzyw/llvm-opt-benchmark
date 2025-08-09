@@ -6679,7 +6679,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFSt8optionalIN32pxrInternal_v
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %16 = load ptr, ptr %5, align 8, !noalias !77
   %17 = load i32, ptr %2, align 4, !noalias !77
-  %18 = load i32, ptr %12, align 4, !noalias !77
+  %18 = load i32, ptr %12, align 8, !noalias !77
   %19 = load ptr, ptr %13, align 8, !noalias !77
   %20 = load ptr, ptr %14, align 8, !noalias !77
   %21 = load ptr, ptr %15, align 8, !noalias !77

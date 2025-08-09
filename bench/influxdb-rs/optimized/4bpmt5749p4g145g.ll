@@ -965,7 +965,7 @@ define hidden { i8, i8 } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate
   %.sroa.5.0..8.val.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 5
   store i24 0, ptr %.sroa.5.0..8.val.sroa_idx.i.i.i.i, align 1, !noalias !269
   %.sroa.5.sroa.4.0..sroa.5.0..8.val.sroa_idx.i.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 8
-  store i64 %.sroa.13.0.ph.i.i.i, ptr %.sroa.5.sroa.4.0..sroa.5.0..8.val.sroa_idx.i.sroa_idx.i.i.i, align 1, !noalias !269
+  store i64 %.sroa.13.0.ph.i.i.i, ptr %.sroa.5.sroa.4.0..sroa.5.0..8.val.sroa_idx.i.sroa_idx.i.i.i, align 8, !noalias !269
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h553cb57bfbfdb48bE.exit.i"
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h553cb57bfbfdb48bE.exit.i": ; preds = %44, %"_ZN58_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$hex..FromHex$GT$8from_hex28_$u7b$$u7b$closure$u7d$$u7d$17h76b1d52bec8852acE.exit.i.i.i"
@@ -1875,7 +1875,7 @@ define hidden { i8, i8 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h1282
   %.sroa.5.0..8.val.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.val, i64 5
   store i24 0, ptr %.sroa.5.0..8.val.sroa_idx.i.i.i, align 1, !noalias !500
   %.sroa.5.sroa.4.0..sroa.5.0..8.val.sroa_idx.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  store i64 %.sroa.13.0.ph.i.i, ptr %.sroa.5.sroa.4.0..sroa.5.0..8.val.sroa_idx.i.sroa_idx.i.i, align 1, !noalias !500
+  store i64 %.sroa.13.0.ph.i.i, ptr %.sroa.5.sroa.4.0..sroa.5.0..8.val.sroa_idx.i.sroa_idx.i.i, align 8, !noalias !500
   %.pre.i = load i64, ptr %.val17, align 8, !noalias !487
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h553cb57bfbfdb48bE.exit"
 

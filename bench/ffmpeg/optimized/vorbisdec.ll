@@ -3402,7 +3402,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @vorbis_parse_id_hdr(ptr no
   %164 = tail call ptr @av_malloc_array(i64 noundef %160, i64 noundef %163) #11
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %164, ptr %165, align 8, !tbaa !59
-  %166 = load i32, ptr %134, align 4, !tbaa !44
+  %166 = load i32, ptr %134, align 8, !tbaa !44
   %167 = lshr i32 %166, 2
   %168 = zext nneg i32 %167 to i64
   %169 = load i8, ptr %86, align 8, !tbaa !51
@@ -5378,7 +5378,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vorbis_parse_setup_hdr_res
   %80 = load ptr, ptr %0, align 8, !tbaa !29
   %81 = and i32 %39, 65535
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %83 = load i32, ptr %82, align 4, !tbaa !44
+  %83 = load i32, ptr %82, align 8, !tbaa !44
   %84 = lshr i32 %83, 1
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %80, i32 noundef 16, ptr noundef nonnull @.str.41, i32 noundef %81, i32 noundef %49, i32 noundef %59, i32 noundef %72, i32 noundef %84) #11
   br label %.thread

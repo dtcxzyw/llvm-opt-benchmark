@@ -272,7 +272,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalINS0_8internal19ImplicitWeakMess
   store ptr %14, ptr %13, align 8, !tbaa !14
   %15 = getelementptr inbounds nuw i8, ptr %.sink7, i64 24
   store i64 0, ptr %15, align 8, !tbaa !17
-  store i8 0, ptr %14, align 1, !tbaa !19
+  store i8 0, ptr %14, align 8, !tbaa !19
   ret ptr %.sink7
 }
 

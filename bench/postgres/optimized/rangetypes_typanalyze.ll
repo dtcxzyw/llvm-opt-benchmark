@@ -304,18 +304,18 @@ define internal void @compute_range_stats(ptr noundef %0, ptr noundef readonly c
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr %120, ptr %137, align 8
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i32 %spec.select, ptr %138, align 4
+  store i32 %spec.select, ptr %138, align 8
   %139 = load i32, ptr %.0, align 8
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store i32 %139, ptr %140, align 4
+  store i32 %139, ptr %140, align 8
   %141 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %142 = load i16, ptr %141, align 8
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 276
-  store i16 %142, ptr %143, align 2
+  store i16 %142, ptr %143, align 4
   %144 = getelementptr inbounds nuw i8, ptr %.0, i64 10
   %145 = load i8, ptr %144, align 2, !range !4, !noundef !5
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 286
-  store i8 %145, ptr %146, align 1
+  store i8 %145, ptr %146, align 2
   %147 = getelementptr inbounds nuw i8, ptr %.0, i64 11
   %148 = load i8, ptr %147, align 1
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 291

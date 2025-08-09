@@ -113869,7 +113869,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %8, ptr %7, align 8, !tbaa !1655
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %9, align 8, !tbaa !66
-  store i8 0, ptr %8, align 1, !tbaa !25
+  store i8 0, ptr %8, align 8, !tbaa !25
   store ptr %7, ptr %4, align 8, !tbaa !69
   br label %10
 
@@ -141494,8 +141494,8 @@ _ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIicEESaIS3_EE13_M_deallocateE
   store i64 %35, ptr %.0811.i.i.i.i.i, align 8, !tbaa !2403
   %36 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 8
-  %38 = load i32, ptr %37, align 4, !tbaa !2407
-  store i32 %38, ptr %36, align 4, !tbaa !2407
+  %38 = load i32, ptr %37, align 8, !tbaa !2407
+  store i32 %38, ptr %36, align 8, !tbaa !2407
   %39 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 12
   %40 = load i8, ptr %39, align 4, !tbaa !2408
   %41 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 12
@@ -141520,8 +141520,8 @@ _ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIicEESaIS3_EE13_M_deallocateE
   store i64 %50, ptr %.0811.i.i.i.i.i28, align 8, !tbaa !2403
   %51 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i28, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i29, i64 8
-  %53 = load i32, ptr %52, align 4, !tbaa !2407
-  store i32 %53, ptr %51, align 4, !tbaa !2407
+  %53 = load i32, ptr %52, align 8, !tbaa !2407
+  store i32 %53, ptr %51, align 8, !tbaa !2407
   %54 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i29, i64 12
   %55 = load i8, ptr %54, align 4, !tbaa !2408
   %56 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i28, i64 12
@@ -142456,9 +142456,9 @@ define linkonce_odr hidden noundef i64 @_ZN4entt39basic_meta_associative_contain
   %40 = getelementptr inbounds nuw i64, ptr %7, i64 %39
   %41 = load i64, ptr %35, align 8, !tbaa !2403
   store i64 %41, ptr %20, align 8, !tbaa !2403
-  store i32 %37, ptr %34, align 4, !tbaa !2407
+  store i32 %37, ptr %34, align 8, !tbaa !2407
   %42 = getelementptr inbounds i8, ptr %27, i64 -4
-  %43 = load i8, ptr %42, align 1, !tbaa !25
+  %43 = load i8, ptr %42, align 4, !tbaa !25
   %44 = getelementptr inbounds nuw i8, ptr %20, i64 12
   store i8 %43, ptr %44, align 4, !tbaa !2408
   %45 = load i64, ptr %40, align 8, !tbaa !189
@@ -143021,7 +143021,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNS
   %15 = load i64, ptr %4, align 8, !tbaa !645
   %16 = inttoptr i64 %15 to ptr
   %17 = load i32, ptr %14, align 4, !tbaa !33
-  store i32 %17, ptr %12, align 4, !tbaa !2407
+  store i32 %17, ptr %12, align 8, !tbaa !2407
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %19 = load i8, ptr %16, align 1, !tbaa !25
   store i8 %19, ptr %18, align 4, !tbaa !2408
@@ -143061,7 +143061,7 @@ _ZNKSt6vectorIN4entt8internal14dense_map_nodeIicEESaIS3_EE12_M_check_lenEmPKc.ex
   %40 = load i64, ptr %4, align 8, !tbaa !645
   %41 = inttoptr i64 %40 to ptr
   %42 = load i32, ptr %39, align 4, !tbaa !33
-  store i32 %42, ptr %37, align 4, !tbaa !2407
+  store i32 %42, ptr %37, align 8, !tbaa !2407
   %43 = getelementptr inbounds nuw i8, ptr %35, i64 12
   %44 = load i8, ptr %41, align 1, !tbaa !25
   store i8 %44, ptr %43, align 4, !tbaa !2408
@@ -143207,7 +143207,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNS
   %15 = load i64, ptr %4, align 8, !tbaa !645
   %16 = inttoptr i64 %15 to ptr
   %17 = load i32, ptr %14, align 4, !tbaa !33
-  store i32 %17, ptr %12, align 4, !tbaa !2407
+  store i32 %17, ptr %12, align 8, !tbaa !2407
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %19 = load i8, ptr %16, align 1, !tbaa !25
   store i8 %19, ptr %18, align 4, !tbaa !2408
@@ -143247,7 +143247,7 @@ _ZNKSt6vectorIN4entt8internal14dense_map_nodeIicEESaIS3_EE12_M_check_lenEmPKc.ex
   %40 = load i64, ptr %4, align 8, !tbaa !645
   %41 = inttoptr i64 %40 to ptr
   %42 = load i32, ptr %39, align 4, !tbaa !33
-  store i32 %42, ptr %37, align 4, !tbaa !2407
+  store i32 %42, ptr %37, align 8, !tbaa !2407
   %43 = getelementptr inbounds nuw i8, ptr %35, i64 12
   %44 = load i8, ptr %41, align 1, !tbaa !25
   store i8 %44, ptr %43, align 4, !tbaa !2408

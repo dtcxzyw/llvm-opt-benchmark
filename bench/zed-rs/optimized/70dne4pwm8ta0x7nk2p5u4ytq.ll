@@ -256,8 +256,8 @@ default.unreachable54:                            ; preds = %1
   store ptr @anon.2ed2554862fb8507756c7cf99e755627.0, ptr %17, align 8, !noalias !42
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store ptr null, ptr %27, align 8, !noalias !42
-  store atomic i8 0, ptr %18 seq_cst, align 1, !noalias !45
-  %28 = load atomic i8, ptr %14 seq_cst, align 1, !noalias !42
+  store atomic i8 0, ptr %18 seq_cst, align 8, !noalias !45
+  %28 = load atomic i8, ptr %14 seq_cst, align 8, !noalias !42
   %29 = icmp eq i8 %28, 0
   br i1 %29, label %common.ret.sink.split.i21, label %.noexc14.i
 
@@ -266,7 +266,7 @@ default.unreachable54:                            ; preds = %1
           cleanup
   store ptr @anon.2ed2554862fb8507756c7cf99e755627.0, ptr %17, align 8, !noalias !42
   store ptr null, ptr %24, align 8, !noalias !42
-  store atomic i8 0, ptr %18 seq_cst, align 1, !noalias !50
+  store atomic i8 0, ptr %18 seq_cst, align 8, !noalias !50
   invoke void @"_ZN4core3ptr149drop_in_place$LT$futures_channel..oneshot..Receiver$LT$core..result..Result$LT$alloc..sync..Arc$LT$language..Language$GT$$C$anyhow..Error$GT$$GT$$GT$17h66ea950098d6c1ddE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %12) #17
           to label %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h379bbf6cd3184207E.exit31" unwind label %42
 
@@ -282,7 +282,7 @@ default.unreachable54:                            ; preds = %1
   %36 = load ptr, ptr %35, align 8, !noalias !42
   store i64 2, ptr %13, align 8, !noalias !42
   %37 = icmp eq i64 %34, 2
-  store atomic i8 0, ptr %31 seq_cst, align 1, !noalias !42
+  store atomic i8 0, ptr %31 seq_cst, align 8, !noalias !42
   %..i.i.i = select i1 %37, ptr undef, ptr %36
   br label %38
 

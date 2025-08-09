@@ -1312,7 +1312,7 @@ _ZN3CFF15cff1_cs_opset_tI20cff1_cs_opset_path_t17cff1_path_param_t22cff1_path_pr
   %180 = getelementptr inbounds nuw i8, ptr %177, i64 16
   %181 = load ptr, ptr %180, align 8
   %182 = getelementptr inbounds nuw i8, ptr %177, i64 24
-  %183 = load i32, ptr %182, align 4
+  %183 = load i32, ptr %182, align 8
   %.not.i20 = icmp eq i32 %183, 0
   br i1 %.not.i20, label %_ZN17cff1_path_param_t8end_pathEv.exit, label %184
 
@@ -7341,7 +7341,7 @@ define linkonce_odr hidden void @_ZN20cff1_cs_opset_path_t12process_seacERN3CFF2
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %11 = load i32, ptr %10, align 4
+  %11 = load i32, ptr %10, align 8
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %_ZN17cff1_path_param_t8end_pathEv.exit, label %12
 
@@ -11246,7 +11246,7 @@ _ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit: ; preds = %51, 
 60:                                               ; preds = %11
   %61 = load float, ptr %13, align 8
   %62 = tail call float @llvm.fmuladd.f32(float %22, float %61, float %18)
-  %63 = load i32, ptr %30, align 4
+  %63 = load i32, ptr %30, align 8
   %.not58 = icmp eq i32 %63, 0
   br i1 %.not58, label %91, label %64
 
@@ -11415,7 +11415,7 @@ _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit: ; preds = %49, %
 58:                                               ; preds = %11
   %59 = load float, ptr %13, align 8
   %60 = tail call float @llvm.fmuladd.f32(float %22, float %59, float %18)
-  %61 = load i32, ptr %30, align 4
+  %61 = load i32, ptr %30, align 8
   %.not32 = icmp eq i32 %61, 0
   br i1 %.not32, label %62, label %78
 
@@ -11594,7 +11594,7 @@ _ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit: ; preds = %
   %74 = tail call float @llvm.fmuladd.f32(float %28, float %73, float %24)
   %75 = tail call float @llvm.fmuladd.f32(float %32, float %73, float %30)
   %76 = tail call float @llvm.fmuladd.f32(float %36, float %73, float %34)
-  %77 = load i32, ptr %44, align 4
+  %77 = load i32, ptr %44, align 8
   %.not52 = icmp eq i32 %77, 0
   br i1 %.not52, label %78, label %94
 

@@ -188,7 +188,7 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal21InitializeEnumStringsEP
   store ptr %13, ptr %6, align 8, !tbaa !26, !alias.scope !25
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %14, align 8, !tbaa !28, !alias.scope !25
-  store i8 0, ptr %13, align 1, !tbaa !30, !alias.scope !25
+  store i8 0, ptr %13, align 8, !tbaa !30, !alias.scope !25
   br label %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9ConstructIJRKNS0_11StringPieceEEEEvDpOT_.exit
 
 15:                                               ; preds = %.lr.ph

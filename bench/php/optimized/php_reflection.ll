@@ -30035,7 +30035,7 @@ define hidden void @zim_ReflectionExtension_getINIEntries(ptr noundef readonly c
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %64 = load i64, ptr %63, align 8, !tbaa !75
-  %65 = load i8, ptr %62, align 1, !tbaa !26
+  %65 = load i8, ptr %62, align 8, !tbaa !26
   %66 = icmp sgt i8 %65, 57
   br i1 %66, label %_zend_handle_numeric_str.exit.thread.i, label %67, !prof !70
 
@@ -31589,7 +31589,7 @@ define hidden void @zim_ReflectionReference_getId(ptr noundef readonly captures(
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %34, ptr noundef nonnull align 16 dereferenceable(20) %3, i64 20, i1 false)
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 44
-  store i8 0, ptr %35, align 1, !tbaa !26
+  store i8 0, ptr %35, align 4, !tbaa !26
   store ptr %30, ptr %1, align 8, !tbaa !26
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %36, align 8, !tbaa !26
@@ -36354,7 +36354,7 @@ register_class_ReflectionFunction.exit:           ; preds = %2, %160, %167, %168
   %253 = getelementptr inbounds nuw i8, ptr %249, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(42) %253, ptr noundef nonnull align 1 dereferenceable(42) @.str.337, i64 42, i1 false)
   %254 = getelementptr inbounds nuw i8, ptr %249, i64 66
-  store i8 0, ptr %254, align 1, !tbaa !26
+  store i8 0, ptr %254, align 2, !tbaa !26
   %255 = getelementptr inbounds nuw i8, ptr %236, i64 56
   %256 = getelementptr inbounds nuw i8, ptr %236, i64 64
   store ptr %249, ptr %256, align 8, !tbaa !26
@@ -36408,7 +36408,7 @@ register_class_ReflectionFunction.exit:           ; preds = %2, %160, %167, %168
   %286 = getelementptr inbounds nuw i8, ptr %282, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(42) %286, ptr noundef nonnull align 1 dereferenceable(42) @.str.337, i64 42, i1 false)
   %287 = getelementptr inbounds nuw i8, ptr %282, i64 66
-  store i8 0, ptr %287, align 1, !tbaa !26
+  store i8 0, ptr %287, align 2, !tbaa !26
   %288 = getelementptr inbounds nuw i8, ptr %269, i64 56
   %289 = getelementptr inbounds nuw i8, ptr %269, i64 64
   store ptr %282, ptr %289, align 8, !tbaa !26
@@ -36462,7 +36462,7 @@ register_class_ReflectionFunction.exit:           ; preds = %2, %160, %167, %168
   %319 = getelementptr inbounds nuw i8, ptr %315, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(42) %319, ptr noundef nonnull align 1 dereferenceable(42) @.str.337, i64 42, i1 false)
   %320 = getelementptr inbounds nuw i8, ptr %315, i64 66
-  store i8 0, ptr %320, align 1, !tbaa !26
+  store i8 0, ptr %320, align 2, !tbaa !26
   %321 = getelementptr inbounds nuw i8, ptr %302, i64 56
   %322 = getelementptr inbounds nuw i8, ptr %302, i64 64
   store ptr %315, ptr %322, align 8, !tbaa !26

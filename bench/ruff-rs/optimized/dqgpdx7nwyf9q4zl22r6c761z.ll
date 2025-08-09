@@ -14006,7 +14006,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h0024
   %129 = getelementptr i8, ptr %128, i64 256
   store i32 %67, ptr %129, align 4
   %130 = getelementptr i8, ptr %128, i64 260
-  store atomic i8 1, ptr %130 release, align 1
+  store atomic i8 1, ptr %130 release, align 4
   %131 = atomicrmw add ptr %57, i64 1 release, align 8
   br label %132
 
@@ -14401,7 +14401,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h01fa
   %129 = getelementptr i8, ptr %128, i64 256
   store i32 %67, ptr %129, align 4
   %130 = getelementptr i8, ptr %128, i64 260
-  store atomic i8 1, ptr %130 release, align 1
+  store atomic i8 1, ptr %130 release, align 4
   %131 = atomicrmw add ptr %57, i64 1 release, align 8
   br label %132
 
@@ -14799,7 +14799,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h03de
   %132 = getelementptr i8, ptr %131, i64 256
   store i32 %70, ptr %132, align 4
   %133 = getelementptr i8, ptr %131, i64 260
-  store atomic i8 1, ptr %133 release, align 1
+  store atomic i8 1, ptr %133 release, align 4
   %134 = atomicrmw add ptr %60, i64 1 release, align 8
   br label %135
 
@@ -15194,7 +15194,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h0470
   %129 = getelementptr i8, ptr %128, i64 256
   store i32 %67, ptr %129, align 4
   %130 = getelementptr i8, ptr %128, i64 260
-  store atomic i8 1, ptr %130 release, align 1
+  store atomic i8 1, ptr %130 release, align 4
   %131 = atomicrmw add ptr %57, i64 1 release, align 8
   br label %132
 
@@ -15592,7 +15592,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h12b2
   %132 = getelementptr i8, ptr %131, i64 256
   store i32 %70, ptr %132, align 4
   %133 = getelementptr i8, ptr %131, i64 260
-  store atomic i8 1, ptr %133 release, align 1
+  store atomic i8 1, ptr %133 release, align 4
   %134 = atomicrmw add ptr %60, i64 1 release, align 8
   br label %135
 
@@ -15987,7 +15987,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h133f
   %129 = getelementptr i8, ptr %128, i64 256
   store i32 %67, ptr %129, align 4
   %130 = getelementptr i8, ptr %128, i64 260
-  store atomic i8 1, ptr %130 release, align 1
+  store atomic i8 1, ptr %130 release, align 4
   %131 = atomicrmw add ptr %57, i64 1 release, align 8
   br label %132
 
@@ -16385,7 +16385,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h191a
   %132 = getelementptr i8, ptr %131, i64 256
   store i32 %70, ptr %132, align 4
   %133 = getelementptr i8, ptr %131, i64 260
-  store atomic i8 1, ptr %133 release, align 1
+  store atomic i8 1, ptr %133 release, align 4
   %134 = atomicrmw add ptr %60, i64 1 release, align 8
   br label %135
 
@@ -16780,7 +16780,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h1f55
   %129 = getelementptr i8, ptr %128, i64 256
   store i32 %67, ptr %129, align 4
   %130 = getelementptr i8, ptr %128, i64 260
-  store atomic i8 1, ptr %130 release, align 1
+  store atomic i8 1, ptr %130 release, align 4
   %131 = atomicrmw add ptr %57, i64 1 release, align 8
   br label %132
 
@@ -17175,7 +17175,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h220d
   %129 = getelementptr i8, ptr %128, i64 256
   store i32 %67, ptr %129, align 4
   %130 = getelementptr i8, ptr %128, i64 260
-  store atomic i8 1, ptr %130 release, align 1
+  store atomic i8 1, ptr %130 release, align 4
   %131 = atomicrmw add ptr %57, i64 1 release, align 8
   br label %132
 
@@ -17570,7 +17570,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h2537
   %129 = getelementptr i8, ptr %128, i64 256
   store i32 %67, ptr %129, align 4
   %130 = getelementptr i8, ptr %128, i64 260
-  store atomic i8 1, ptr %130 release, align 1
+  store atomic i8 1, ptr %130 release, align 4
   %131 = atomicrmw add ptr %57, i64 1 release, align 8
   br label %132
 
@@ -17968,7 +17968,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h2da4
   %132 = getelementptr i8, ptr %131, i64 256
   store i32 %70, ptr %132, align 4
   %133 = getelementptr i8, ptr %131, i64 260
-  store atomic i8 1, ptr %133 release, align 1
+  store atomic i8 1, ptr %133 release, align 4
   %134 = atomicrmw add ptr %60, i64 1 release, align 8
   br label %135
 
@@ -18366,7 +18366,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h335f
   %132 = getelementptr i8, ptr %131, i64 256
   store i32 %70, ptr %132, align 4
   %133 = getelementptr i8, ptr %131, i64 260
-  store atomic i8 1, ptr %133 release, align 1
+  store atomic i8 1, ptr %133 release, align 4
   %134 = atomicrmw add ptr %60, i64 1 release, align 8
   br label %135
 
@@ -18761,7 +18761,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h361f
   %129 = getelementptr i8, ptr %128, i64 256
   store i32 %67, ptr %129, align 4
   %130 = getelementptr i8, ptr %128, i64 260
-  store atomic i8 1, ptr %130 release, align 1
+  store atomic i8 1, ptr %130 release, align 4
   %131 = atomicrmw add ptr %57, i64 1 release, align 8
   br label %132
 
@@ -19159,7 +19159,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h4038
   %132 = getelementptr i8, ptr %131, i64 256
   store i32 %70, ptr %132, align 4
   %133 = getelementptr i8, ptr %131, i64 260
-  store atomic i8 1, ptr %133 release, align 1
+  store atomic i8 1, ptr %133 release, align 4
   %134 = atomicrmw add ptr %60, i64 1 release, align 8
   br label %135
 
@@ -19554,7 +19554,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h417f
   %129 = getelementptr i8, ptr %128, i64 256
   store i32 %67, ptr %129, align 4
   %130 = getelementptr i8, ptr %128, i64 260
-  store atomic i8 1, ptr %130 release, align 1
+  store atomic i8 1, ptr %130 release, align 4
   %131 = atomicrmw add ptr %57, i64 1 release, align 8
   br label %132
 
@@ -19952,7 +19952,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h45cf
   %132 = getelementptr i8, ptr %131, i64 256
   store i32 %70, ptr %132, align 4
   %133 = getelementptr i8, ptr %131, i64 260
-  store atomic i8 1, ptr %133 release, align 1
+  store atomic i8 1, ptr %133 release, align 4
   %134 = atomicrmw add ptr %60, i64 1 release, align 8
   br label %135
 
@@ -20350,7 +20350,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h48bc
   %132 = getelementptr i8, ptr %131, i64 256
   store i32 %70, ptr %132, align 4
   %133 = getelementptr i8, ptr %131, i64 260
-  store atomic i8 1, ptr %133 release, align 1
+  store atomic i8 1, ptr %133 release, align 4
   %134 = atomicrmw add ptr %60, i64 1 release, align 8
   br label %135
 
@@ -20748,7 +20748,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h4aaf
   %132 = getelementptr i8, ptr %131, i64 256
   store i32 %70, ptr %132, align 4
   %133 = getelementptr i8, ptr %131, i64 260
-  store atomic i8 1, ptr %133 release, align 1
+  store atomic i8 1, ptr %133 release, align 4
   %134 = atomicrmw add ptr %60, i64 1 release, align 8
   br label %135
 
@@ -21146,7 +21146,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h4bec
   %132 = getelementptr i8, ptr %131, i64 256
   store i32 %70, ptr %132, align 4
   %133 = getelementptr i8, ptr %131, i64 260
-  store atomic i8 1, ptr %133 release, align 1
+  store atomic i8 1, ptr %133 release, align 4
   %134 = atomicrmw add ptr %60, i64 1 release, align 8
   br label %135
 
@@ -21541,7 +21541,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h4d32
   %129 = getelementptr i8, ptr %128, i64 256
   store i32 %67, ptr %129, align 4
   %130 = getelementptr i8, ptr %128, i64 260
-  store atomic i8 1, ptr %130 release, align 1
+  store atomic i8 1, ptr %130 release, align 4
   %131 = atomicrmw add ptr %57, i64 1 release, align 8
   br label %132
 
@@ -21939,7 +21939,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h4dde
   %132 = getelementptr i8, ptr %131, i64 256
   store i32 %70, ptr %132, align 4
   %133 = getelementptr i8, ptr %131, i64 260
-  store atomic i8 1, ptr %133 release, align 1
+  store atomic i8 1, ptr %133 release, align 4
   %134 = atomicrmw add ptr %60, i64 1 release, align 8
   br label %135
 
@@ -22334,7 +22334,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h5231
   %129 = getelementptr i8, ptr %128, i64 256
   store i32 %67, ptr %129, align 4
   %130 = getelementptr i8, ptr %128, i64 260
-  store atomic i8 1, ptr %130 release, align 1
+  store atomic i8 1, ptr %130 release, align 4
   %131 = atomicrmw add ptr %57, i64 1 release, align 8
   br label %132
 
@@ -22729,7 +22729,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h53d2
   %129 = getelementptr i8, ptr %128, i64 256
   store i32 %67, ptr %129, align 4
   %130 = getelementptr i8, ptr %128, i64 260
-  store atomic i8 1, ptr %130 release, align 1
+  store atomic i8 1, ptr %130 release, align 4
   %131 = atomicrmw add ptr %57, i64 1 release, align 8
   br label %132
 
@@ -23127,7 +23127,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h577a
   %132 = getelementptr i8, ptr %131, i64 256
   store i32 %70, ptr %132, align 4
   %133 = getelementptr i8, ptr %131, i64 260
-  store atomic i8 1, ptr %133 release, align 1
+  store atomic i8 1, ptr %133 release, align 4
   %134 = atomicrmw add ptr %60, i64 1 release, align 8
   br label %135
 
@@ -23525,7 +23525,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h5d3c
   %132 = getelementptr i8, ptr %131, i64 256
   store i32 %70, ptr %132, align 4
   %133 = getelementptr i8, ptr %131, i64 260
-  store atomic i8 1, ptr %133 release, align 1
+  store atomic i8 1, ptr %133 release, align 4
   %134 = atomicrmw add ptr %60, i64 1 release, align 8
   br label %135
 
@@ -23920,7 +23920,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h5e96
   %129 = getelementptr i8, ptr %128, i64 256
   store i32 %67, ptr %129, align 4
   %130 = getelementptr i8, ptr %128, i64 260
-  store atomic i8 1, ptr %130 release, align 1
+  store atomic i8 1, ptr %130 release, align 4
   %131 = atomicrmw add ptr %57, i64 1 release, align 8
   br label %132
 
@@ -24318,7 +24318,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h652b
   %132 = getelementptr i8, ptr %131, i64 256
   store i32 %70, ptr %132, align 4
   %133 = getelementptr i8, ptr %131, i64 260
-  store atomic i8 1, ptr %133 release, align 1
+  store atomic i8 1, ptr %133 release, align 4
   %134 = atomicrmw add ptr %60, i64 1 release, align 8
   br label %135
 
@@ -24716,7 +24716,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h65dc
   %132 = getelementptr i8, ptr %131, i64 256
   store i32 %70, ptr %132, align 4
   %133 = getelementptr i8, ptr %131, i64 260
-  store atomic i8 1, ptr %133 release, align 1
+  store atomic i8 1, ptr %133 release, align 4
   %134 = atomicrmw add ptr %60, i64 1 release, align 8
   br label %135
 
@@ -25114,7 +25114,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h67a1
   %132 = getelementptr i8, ptr %131, i64 256
   store i32 %70, ptr %132, align 4
   %133 = getelementptr i8, ptr %131, i64 260
-  store atomic i8 1, ptr %133 release, align 1
+  store atomic i8 1, ptr %133 release, align 4
   %134 = atomicrmw add ptr %60, i64 1 release, align 8
   br label %135
 
@@ -25509,7 +25509,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h684a
   %129 = getelementptr i8, ptr %128, i64 256
   store i32 %67, ptr %129, align 4
   %130 = getelementptr i8, ptr %128, i64 260
-  store atomic i8 1, ptr %130 release, align 1
+  store atomic i8 1, ptr %130 release, align 4
   %131 = atomicrmw add ptr %57, i64 1 release, align 8
   br label %132
 
@@ -25907,7 +25907,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h6b4c
   %132 = getelementptr i8, ptr %131, i64 256
   store i32 %70, ptr %132, align 4
   %133 = getelementptr i8, ptr %131, i64 260
-  store atomic i8 1, ptr %133 release, align 1
+  store atomic i8 1, ptr %133 release, align 4
   %134 = atomicrmw add ptr %60, i64 1 release, align 8
   br label %135
 
@@ -26302,7 +26302,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h7007
   %129 = getelementptr i8, ptr %128, i64 256
   store i32 %67, ptr %129, align 4
   %130 = getelementptr i8, ptr %128, i64 260
-  store atomic i8 1, ptr %130 release, align 1
+  store atomic i8 1, ptr %130 release, align 4
   %131 = atomicrmw add ptr %57, i64 1 release, align 8
   br label %132
 
@@ -26697,7 +26697,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h8963
   %129 = getelementptr i8, ptr %128, i64 256
   store i32 %67, ptr %129, align 4
   %130 = getelementptr i8, ptr %128, i64 260
-  store atomic i8 1, ptr %130 release, align 1
+  store atomic i8 1, ptr %130 release, align 4
   %131 = atomicrmw add ptr %57, i64 1 release, align 8
   br label %132
 
@@ -27095,7 +27095,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h8b39
   %132 = getelementptr i8, ptr %131, i64 256
   store i32 %70, ptr %132, align 4
   %133 = getelementptr i8, ptr %131, i64 260
-  store atomic i8 1, ptr %133 release, align 1
+  store atomic i8 1, ptr %133 release, align 4
   %134 = atomicrmw add ptr %60, i64 1 release, align 8
   br label %135
 
@@ -27493,7 +27493,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17ha249
   %132 = getelementptr i8, ptr %131, i64 256
   store i32 %70, ptr %132, align 4
   %133 = getelementptr i8, ptr %131, i64 260
-  store atomic i8 1, ptr %133 release, align 1
+  store atomic i8 1, ptr %133 release, align 4
   %134 = atomicrmw add ptr %60, i64 1 release, align 8
   br label %135
 
@@ -27891,7 +27891,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17ha677
   %132 = getelementptr i8, ptr %131, i64 256
   store i32 %70, ptr %132, align 4
   %133 = getelementptr i8, ptr %131, i64 260
-  store atomic i8 1, ptr %133 release, align 1
+  store atomic i8 1, ptr %133 release, align 4
   %134 = atomicrmw add ptr %60, i64 1 release, align 8
   br label %135
 
@@ -28289,7 +28289,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17haf0d
   %132 = getelementptr i8, ptr %131, i64 256
   store i32 %70, ptr %132, align 4
   %133 = getelementptr i8, ptr %131, i64 260
-  store atomic i8 1, ptr %133 release, align 1
+  store atomic i8 1, ptr %133 release, align 4
   %134 = atomicrmw add ptr %60, i64 1 release, align 8
   br label %135
 
@@ -28687,7 +28687,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17hb080
   %132 = getelementptr i8, ptr %131, i64 256
   store i32 %70, ptr %132, align 4
   %133 = getelementptr i8, ptr %131, i64 260
-  store atomic i8 1, ptr %133 release, align 1
+  store atomic i8 1, ptr %133 release, align 4
   %134 = atomicrmw add ptr %60, i64 1 release, align 8
   br label %135
 
@@ -29082,7 +29082,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17hb0b1
   %129 = getelementptr i8, ptr %128, i64 256
   store i32 %67, ptr %129, align 4
   %130 = getelementptr i8, ptr %128, i64 260
-  store atomic i8 1, ptr %130 release, align 1
+  store atomic i8 1, ptr %130 release, align 4
   %131 = atomicrmw add ptr %57, i64 1 release, align 8
   br label %132
 
@@ -29477,7 +29477,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17hb929
   %129 = getelementptr i8, ptr %128, i64 256
   store i32 %67, ptr %129, align 4
   %130 = getelementptr i8, ptr %128, i64 260
-  store atomic i8 1, ptr %130 release, align 1
+  store atomic i8 1, ptr %130 release, align 4
   %131 = atomicrmw add ptr %57, i64 1 release, align 8
   br label %132
 
@@ -29872,7 +29872,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17hc10d
   %129 = getelementptr i8, ptr %128, i64 256
   store i32 %67, ptr %129, align 4
   %130 = getelementptr i8, ptr %128, i64 260
-  store atomic i8 1, ptr %130 release, align 1
+  store atomic i8 1, ptr %130 release, align 4
   %131 = atomicrmw add ptr %57, i64 1 release, align 8
   br label %132
 
@@ -30270,7 +30270,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17hc5a2
   %132 = getelementptr i8, ptr %131, i64 256
   store i32 %70, ptr %132, align 4
   %133 = getelementptr i8, ptr %131, i64 260
-  store atomic i8 1, ptr %133 release, align 1
+  store atomic i8 1, ptr %133 release, align 4
   %134 = atomicrmw add ptr %60, i64 1 release, align 8
   br label %135
 
@@ -30665,7 +30665,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17hc5e1
   %129 = getelementptr i8, ptr %128, i64 256
   store i32 %67, ptr %129, align 4
   %130 = getelementptr i8, ptr %128, i64 260
-  store atomic i8 1, ptr %130 release, align 1
+  store atomic i8 1, ptr %130 release, align 4
   %131 = atomicrmw add ptr %57, i64 1 release, align 8
   br label %132
 
@@ -31060,7 +31060,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17hc678
   %129 = getelementptr i8, ptr %128, i64 256
   store i32 %67, ptr %129, align 4
   %130 = getelementptr i8, ptr %128, i64 260
-  store atomic i8 1, ptr %130 release, align 1
+  store atomic i8 1, ptr %130 release, align 4
   %131 = atomicrmw add ptr %57, i64 1 release, align 8
   br label %132
 
@@ -31458,7 +31458,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17hc69c
   %132 = getelementptr i8, ptr %131, i64 256
   store i32 %70, ptr %132, align 4
   %133 = getelementptr i8, ptr %131, i64 260
-  store atomic i8 1, ptr %133 release, align 1
+  store atomic i8 1, ptr %133 release, align 4
   %134 = atomicrmw add ptr %60, i64 1 release, align 8
   br label %135
 
@@ -31856,7 +31856,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17hca7c
   %132 = getelementptr i8, ptr %131, i64 256
   store i32 %70, ptr %132, align 4
   %133 = getelementptr i8, ptr %131, i64 260
-  store atomic i8 1, ptr %133 release, align 1
+  store atomic i8 1, ptr %133 release, align 4
   %134 = atomicrmw add ptr %60, i64 1 release, align 8
   br label %135
 
@@ -32254,7 +32254,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17hcfe9
   %132 = getelementptr i8, ptr %131, i64 256
   store i32 %70, ptr %132, align 4
   %133 = getelementptr i8, ptr %131, i64 260
-  store atomic i8 1, ptr %133 release, align 1
+  store atomic i8 1, ptr %133 release, align 4
   %134 = atomicrmw add ptr %60, i64 1 release, align 8
   br label %135
 
@@ -32652,7 +32652,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17hd1a1
   %132 = getelementptr i8, ptr %131, i64 256
   store i32 %70, ptr %132, align 4
   %133 = getelementptr i8, ptr %131, i64 260
-  store atomic i8 1, ptr %133 release, align 1
+  store atomic i8 1, ptr %133 release, align 4
   %134 = atomicrmw add ptr %60, i64 1 release, align 8
   br label %135
 
@@ -33050,7 +33050,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17hd384
   %132 = getelementptr i8, ptr %131, i64 256
   store i32 %70, ptr %132, align 4
   %133 = getelementptr i8, ptr %131, i64 260
-  store atomic i8 1, ptr %133 release, align 1
+  store atomic i8 1, ptr %133 release, align 4
   %134 = atomicrmw add ptr %60, i64 1 release, align 8
   br label %135
 
@@ -33448,7 +33448,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17hd386
   %132 = getelementptr i8, ptr %131, i64 256
   store i32 %70, ptr %132, align 4
   %133 = getelementptr i8, ptr %131, i64 260
-  store atomic i8 1, ptr %133 release, align 1
+  store atomic i8 1, ptr %133 release, align 4
   %134 = atomicrmw add ptr %60, i64 1 release, align 8
   br label %135
 
@@ -33846,7 +33846,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17hdb93
   %132 = getelementptr i8, ptr %131, i64 256
   store i32 %70, ptr %132, align 4
   %133 = getelementptr i8, ptr %131, i64 260
-  store atomic i8 1, ptr %133 release, align 1
+  store atomic i8 1, ptr %133 release, align 4
   %134 = atomicrmw add ptr %60, i64 1 release, align 8
   br label %135
 
@@ -34244,7 +34244,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17he6db
   %132 = getelementptr i8, ptr %131, i64 256
   store i32 %70, ptr %132, align 4
   %133 = getelementptr i8, ptr %131, i64 260
-  store atomic i8 1, ptr %133 release, align 1
+  store atomic i8 1, ptr %133 release, align 4
   %134 = atomicrmw add ptr %60, i64 1 release, align 8
   br label %135
 
@@ -34639,7 +34639,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17hea93
   %129 = getelementptr i8, ptr %128, i64 256
   store i32 %67, ptr %129, align 4
   %130 = getelementptr i8, ptr %128, i64 260
-  store atomic i8 1, ptr %130 release, align 1
+  store atomic i8 1, ptr %130 release, align 4
   %131 = atomicrmw add ptr %57, i64 1 release, align 8
   br label %132
 
@@ -35037,7 +35037,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17heb8a
   %132 = getelementptr i8, ptr %131, i64 256
   store i32 %70, ptr %132, align 4
   %133 = getelementptr i8, ptr %131, i64 260
-  store atomic i8 1, ptr %133 release, align 1
+  store atomic i8 1, ptr %133 release, align 4
   %134 = atomicrmw add ptr %60, i64 1 release, align 8
   br label %135
 
@@ -35432,7 +35432,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17hf0ef
   %129 = getelementptr i8, ptr %128, i64 256
   store i32 %67, ptr %129, align 4
   %130 = getelementptr i8, ptr %128, i64 260
-  store atomic i8 1, ptr %130 release, align 1
+  store atomic i8 1, ptr %130 release, align 4
   %131 = atomicrmw add ptr %57, i64 1 release, align 8
   br label %132
 
@@ -35827,7 +35827,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17hf2f2
   %129 = getelementptr i8, ptr %128, i64 256
   store i32 %67, ptr %129, align 4
   %130 = getelementptr i8, ptr %128, i64 260
-  store atomic i8 1, ptr %130 release, align 1
+  store atomic i8 1, ptr %130 release, align 4
   %131 = atomicrmw add ptr %57, i64 1 release, align 8
   br label %132
 
@@ -36222,7 +36222,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17hf311
   %129 = getelementptr i8, ptr %128, i64 256
   store i32 %67, ptr %129, align 4
   %130 = getelementptr i8, ptr %128, i64 260
-  store atomic i8 1, ptr %130 release, align 1
+  store atomic i8 1, ptr %130 release, align 4
   %131 = atomicrmw add ptr %57, i64 1 release, align 8
   br label %132
 
@@ -36617,7 +36617,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17hf5aa
   %129 = getelementptr i8, ptr %128, i64 256
   store i32 %67, ptr %129, align 4
   %130 = getelementptr i8, ptr %128, i64 260
-  store atomic i8 1, ptr %130 release, align 1
+  store atomic i8 1, ptr %130 release, align 4
   %131 = atomicrmw add ptr %57, i64 1 release, align 8
   br label %132
 
@@ -37015,7 +37015,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17hf5bf
   %132 = getelementptr i8, ptr %131, i64 256
   store i32 %70, ptr %132, align 4
   %133 = getelementptr i8, ptr %131, i64 260
-  store atomic i8 1, ptr %133 release, align 1
+  store atomic i8 1, ptr %133 release, align 4
   %134 = atomicrmw add ptr %60, i64 1 release, align 8
   br label %135
 
@@ -37413,7 +37413,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17hf61b
   %132 = getelementptr i8, ptr %131, i64 256
   store i32 %70, ptr %132, align 4
   %133 = getelementptr i8, ptr %131, i64 260
-  store atomic i8 1, ptr %133 release, align 1
+  store atomic i8 1, ptr %133 release, align 4
   %134 = atomicrmw add ptr %60, i64 1 release, align 8
   br label %135
 
@@ -37808,7 +37808,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17hf843
   %129 = getelementptr i8, ptr %128, i64 256
   store i32 %67, ptr %129, align 4
   %130 = getelementptr i8, ptr %128, i64 260
-  store atomic i8 1, ptr %130 release, align 1
+  store atomic i8 1, ptr %130 release, align 4
   %131 = atomicrmw add ptr %57, i64 1 release, align 8
   br label %132
 
@@ -38206,7 +38206,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17hfacb
   %132 = getelementptr i8, ptr %131, i64 256
   store i32 %70, ptr %132, align 4
   %133 = getelementptr i8, ptr %131, i64 260
-  store atomic i8 1, ptr %133 release, align 1
+  store atomic i8 1, ptr %133 release, align 4
   %134 = atomicrmw add ptr %60, i64 1 release, align 8
   br label %135
 
@@ -38604,7 +38604,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17hfc41
   %132 = getelementptr i8, ptr %131, i64 256
   store i32 %70, ptr %132, align 4
   %133 = getelementptr i8, ptr %131, i64 260
-  store atomic i8 1, ptr %133 release, align 1
+  store atomic i8 1, ptr %133 release, align 4
   %134 = atomicrmw add ptr %60, i64 1 release, align 8
   br label %135
 
@@ -39002,7 +39002,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17hfe2c
   %132 = getelementptr i8, ptr %131, i64 256
   store i32 %70, ptr %132, align 4
   %133 = getelementptr i8, ptr %131, i64 260
-  store atomic i8 1, ptr %133 release, align 1
+  store atomic i8 1, ptr %133 release, align 4
   %134 = atomicrmw add ptr %60, i64 1 release, align 8
   br label %135
 
@@ -39400,7 +39400,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17hff3d
   %132 = getelementptr i8, ptr %131, i64 256
   store i32 %70, ptr %132, align 4
   %133 = getelementptr i8, ptr %131, i64 260
-  store atomic i8 1, ptr %133 release, align 1
+  store atomic i8 1, ptr %133 release, align 4
   %134 = atomicrmw add ptr %60, i64 1 release, align 8
   br label %135
 
@@ -40480,7 +40480,7 @@ define internal fastcc noundef range(i64 0, -32) i64 @"_ZN6boxcar3raw12Vec$LT$T$
   %43 = getelementptr i8, ptr %41, i64 776
   store ptr %2, ptr %43, align 8, !noalias !2398
   %44 = getelementptr i8, ptr %41, i64 784
-  store atomic i8 1, ptr %44 release, align 1
+  store atomic i8 1, ptr %44 release, align 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %46 = atomicrmw add ptr %45, i64 1 release, align 8, !noalias !2398
   ret i64 %5

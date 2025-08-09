@@ -3460,7 +3460,7 @@ define linkonce_odr { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17
   %46 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %47 = load i64, ptr %46, align 8
   store i64 0, ptr %46, align 8
-  store i16 %.134, ptr %32, align 2
+  store i16 %.134, ptr %32, align 8
   %48 = add i64 %.1, 1
   %49 = load i64, ptr %0, align 8
   %50 = and i64 %49, %48
@@ -3504,7 +3504,7 @@ define linkonce_odr { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17
   %69 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %70 = load i64, ptr %69, align 8
   store i64 %.sroa.66.0.i, ptr %69, align 8
-  store i16 %storemerge19.i.i, ptr %60, align 2
+  store i16 %storemerge19.i.i, ptr %60, align 8
   %.pre.i.i = load i64, ptr %0, align 8
   %.pre23.i.i = load ptr, ptr %9, align 8
   br label %71
@@ -3700,8 +3700,8 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_
   %39 = load i64, ptr %37, align 8
   store i64 %39, ptr %24, align 8
   store i64 %38, ptr %37, align 8
-  %40 = load i16, ptr %28, align 2
-  store i16 %.011.i, ptr %28, align 2
+  %40 = load i16, ptr %28, align 8
+  store i16 %.011.i, ptr %28, align 8
   %.pre = load i64, ptr %3, align 8
   br label %41
 
@@ -4170,7 +4170,7 @@ define linkonce_odr { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17
   %45 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %46 = load i64, ptr %45, align 8
   store i64 0, ptr %45, align 8
-  store i16 %.134, ptr %31, align 2
+  store i16 %.134, ptr %31, align 8
   %47 = add i64 %.1, 1
   %48 = load i64, ptr %0, align 8
   %49 = and i64 %48, %47
@@ -4214,7 +4214,7 @@ define linkonce_odr { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17
   %68 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %69 = load i64, ptr %68, align 8
   store i64 %.sroa.6.0.i, ptr %68, align 8
-  store i16 %storemerge19.i.i, ptr %59, align 2
+  store i16 %storemerge19.i.i, ptr %59, align 8
   %.pre.i.i = load i64, ptr %0, align 8
   %.pre23.i.i = load ptr, ptr %8, align 8
   br label %70
@@ -4409,8 +4409,8 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_
   %38 = load i64, ptr %36, align 8
   store i64 %38, ptr %23, align 8
   store i64 %37, ptr %36, align 8
-  %39 = load i16, ptr %27, align 2
-  store i16 %.011.i, ptr %27, align 2
+  %39 = load i16, ptr %27, align 8
+  store i16 %.011.i, ptr %27, align 8
   %.pre = load i64, ptr %3, align 8
   br label %40
 

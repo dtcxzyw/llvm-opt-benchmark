@@ -483,7 +483,7 @@ ExecHashGetBucketAndBatch.exit.i.i.i:             ; preds = %266, %.lr.ph.i41.i
   %.053.i.i.i = phi ptr [ %275, %.lr.ph.i.i.i ], [ %279, %344 ]
   %279 = load ptr, ptr %.053.i.i.i, align 8
   %280 = getelementptr inbounds nuw i8, ptr %.053.i.i.i, i64 16
-  %281 = load i32, ptr %280, align 4
+  %281 = load i32, ptr %280, align 8
   %282 = zext i32 %281 to i64
   %283 = add nuw nsw i64 %282, 16
   %284 = load i32, ptr %171, align 4
@@ -743,7 +743,7 @@ ExecHashGetBucketAndBatch.exit.i.i:               ; preds = %ExecHashGetBucketAn
   %404 = getelementptr inbounds ptr, ptr %403, i64 %400
   store ptr %393, ptr %404, align 8
   %405 = getelementptr inbounds nuw i8, ptr %393, i64 16
-  %406 = load i32, ptr %405, align 4
+  %406 = load i32, ptr %405, align 8
   %407 = zext i32 %406 to i64
   %408 = add nuw nsw i64 %407, 23
   %409 = and i64 %408, 8589934584
@@ -4099,7 +4099,7 @@ ExecHashGetBucketAndBatch.exit.thread:            ; preds = %175, %ExecHashGetBu
   %198 = getelementptr inbounds nuw i8, ptr %196, i64 8
   store i32 %197, ptr %198, align 8
   %199 = getelementptr inbounds nuw i8, ptr %196, i64 16
-  %200 = load i32, ptr %177, align 4
+  %200 = load i32, ptr %177, align 8
   %201 = zext i32 %200 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %199, ptr nonnull align 4 %177, i64 %201, i1 false)
   %202 = load ptr, ptr %148, align 8

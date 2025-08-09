@@ -4240,7 +4240,7 @@ encode_putfh.exit:                                ; preds = %21, %25
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 128
   %57 = load i64, ptr %56, align 8
   %58 = tail call i64 @llvm.bswap.i64(i64 %57)
-  store i64 %58, ptr %54, align 1
+  store i64 %58, ptr %54, align 4
   %59 = getelementptr i8, ptr %32, i64 16
   %60 = load ptr, ptr %36, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 136
@@ -4394,7 +4394,7 @@ encode_putfh.exit:                                ; preds = %21, %25
   %139 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %140 = load i64, ptr %139, align 8
   %141 = tail call i64 @llvm.bswap.i64(i64 %140)
-  store i64 %141, ptr %138, align 1
+  store i64 %141, ptr %138, align 4
   br label %167
 
 142:                                              ; preds = %70
@@ -4729,7 +4729,7 @@ encode_putfh.exit:                                ; preds = %21, %25
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 128
   %45 = load i64, ptr %44, align 8
   %46 = tail call i64 @llvm.bswap.i64(i64 %45)
-  store i64 %46, ptr %42, align 1
+  store i64 %46, ptr %42, align 4
   %47 = getelementptr i8, ptr %32, i64 12
   %48 = load ptr, ptr %36, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 136
@@ -4774,7 +4774,7 @@ encode_putfh.exit:                                ; preds = %21, %25
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %75 = load i64, ptr %74, align 8
   %76 = tail call i64 @llvm.bswap.i64(i64 %75)
-  store i64 %76, ptr %73, align 1
+  store i64 %76, ptr %73, align 4
   %77 = icmp ugt i32 %31, 8
   br i1 %77, label %78, label %79, !prof !6
 
@@ -4927,9 +4927,9 @@ define internal i32 @nfs4_xdr_dec_lockt(ptr readnone captures(none) %0, ptr noun
   %80 = getelementptr i8, ptr %75, i64 16
   %81 = load i32, ptr %80, align 4
   %82 = getelementptr i8, ptr %75, i64 8
-  %83 = load i64, ptr %82, align 1
+  %83 = load i64, ptr %82, align 4
   %84 = tail call i64 @llvm.bswap.i64(i64 %83)
-  %85 = load i64, ptr %75, align 1
+  %85 = load i64, ptr %75, align 4
   %86 = tail call i64 @llvm.bswap.i64(i64 %85)
   %87 = getelementptr inbounds nuw i8, ptr %74, i64 128
   store i64 %86, ptr %87, align 8
@@ -6329,12 +6329,12 @@ define internal i32 @nfs4_xdr_dec_remove(ptr readnone captures(none) %0, ptr nou
   %78 = tail call i32 @llvm.bswap.i32(i32 %77)
   store i32 %78, ptr %40, align 8
   %79 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %80 = load i64, ptr %76, align 1
+  %80 = load i64, ptr %76, align 4
   %81 = tail call i64 @llvm.bswap.i64(i64 %80)
   store i64 %81, ptr %79, align 8
   %82 = getelementptr i8, ptr %73, i64 12
   %83 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %84 = load i64, ptr %82, align 1
+  %84 = load i64, ptr %82, align 4
   %85 = tail call i64 @llvm.bswap.i64(i64 %84)
   store i64 %85, ptr %83, align 8
   br label %.thread
@@ -7468,12 +7468,12 @@ define internal i32 @nfs4_xdr_dec_create(ptr readnone captures(none) %0, ptr nou
   %78 = tail call i32 @llvm.bswap.i32(i32 %77)
   store i32 %78, ptr %40, align 8
   %79 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %80 = load i64, ptr %76, align 1
+  %80 = load i64, ptr %76, align 4
   %81 = tail call i64 @llvm.bswap.i64(i64 %80)
   store i64 %81, ptr %79, align 8
   %82 = getelementptr i8, ptr %73, i64 12
   %83 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %84 = load i64, ptr %82, align 1
+  %84 = load i64, ptr %82, align 4
   %85 = tail call i64 @llvm.bswap.i64(i64 %84)
   store i64 %85, ptr %83, align 8
   %86 = tail call ptr @xdr_inline_decode(ptr noundef %1, i64 noundef 4) #12
@@ -10562,7 +10562,7 @@ define internal void @nfs4_xdr_enc_release_lockowner(ptr readnone captures(none)
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %28 = load i64, ptr %27, align 8
   %29 = tail call i64 @llvm.bswap.i64(i64 %28)
-  store i64 %29, ptr %26, align 1
+  store i64 %29, ptr %26, align 4
   %30 = icmp ugt i32 %13, 8
   br i1 %30, label %31, label %32, !prof !6
 
@@ -13066,7 +13066,7 @@ define internal fastcc void @encode_open(ptr noundef %0, ptr noundef %1, ptr nou
   store i32 %60, ptr %56, align 4
   %62 = load i64, ptr %57, align 8
   %63 = tail call i64 @llvm.bswap.i64(i64 %62)
-  store i64 %63, ptr %61, align 1
+  store i64 %63, ptr %61, align 4
   %64 = tail call ptr @xdr_reserve_space(ptr noundef %0, i64 noundef 4) #12
   %65 = icmp eq ptr %64, null
   br i1 %65, label %66, label %67, !prof !6
@@ -13737,7 +13737,7 @@ define internal fastcc void @encode_attrs(ptr noundef %0, ptr noundef readonly c
   %233 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %234 = load i64, ptr %233, align 8
   %235 = call i64 @llvm.bswap.i64(i64 %234)
-  store i64 %235, ptr %231, align 1
+  store i64 %235, ptr %231, align 4
   %236 = getelementptr i8, ptr %224, i64 12
   %237 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %238 = load i64, ptr %237, align 8
@@ -13770,7 +13770,7 @@ define internal fastcc void @encode_attrs(ptr noundef %0, ptr noundef readonly c
   %254 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %255 = load i64, ptr %254, align 8
   %256 = call i64 @llvm.bswap.i64(i64 %255)
-  store i64 %256, ptr %252, align 1
+  store i64 %256, ptr %252, align 4
   %257 = getelementptr i8, ptr %244, i64 12
   %258 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %259 = load i64, ptr %258, align 8
@@ -13940,12 +13940,12 @@ define internal fastcc noundef i32 @decode_open(ptr noundef %0, ptr noundef capt
   %52 = tail call i32 @llvm.bswap.i32(i32 %51)
   store i32 %52, ptr %49, align 8
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %54 = load i64, ptr %50, align 1
+  %54 = load i64, ptr %50, align 4
   %55 = tail call i64 @llvm.bswap.i64(i64 %54)
   store i64 %55, ptr %53, align 8
   %56 = getelementptr i8, ptr %46, i64 12
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 200
-  %58 = load i64, ptr %56, align 1
+  %58 = load i64, ptr %56, align 4
   %59 = tail call i64 @llvm.bswap.i64(i64 %58)
   store i64 %59, ptr %57, align 8
   br label %60
@@ -14556,7 +14556,7 @@ define internal fastcc i32 @decode_fsinfo(ptr noundef %0, ptr noundef captures(n
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 512, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i32 60, ptr %75, align 4
+  store i32 60, ptr %75, align 8
   %76 = load i32, ptr %3, align 4
   %77 = zext i32 %76 to i64
   %78 = and i64 %77, 1023
@@ -15120,12 +15120,12 @@ define internal fastcc i32 @decode_rename(ptr noundef %0, ptr noundef writeonly 
   %41 = tail call i32 @llvm.bswap.i32(i32 %40)
   store i32 %41, ptr %1, align 8
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %43 = load i64, ptr %39, align 1
+  %43 = load i64, ptr %39, align 4
   %44 = tail call i64 @llvm.bswap.i64(i64 %43)
   store i64 %44, ptr %42, align 8
   %45 = getelementptr i8, ptr %36, i64 12
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %47 = load i64, ptr %45, align 1
+  %47 = load i64, ptr %45, align 4
   %48 = tail call i64 @llvm.bswap.i64(i64 %47)
   store i64 %48, ptr %46, align 8
   %49 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 20) #12
@@ -15138,12 +15138,12 @@ define internal fastcc i32 @decode_rename(ptr noundef %0, ptr noundef writeonly 
   %54 = tail call i32 @llvm.bswap.i32(i32 %53)
   store i32 %54, ptr %2, align 8
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %56 = load i64, ptr %52, align 1
+  %56 = load i64, ptr %52, align 4
   %57 = tail call i64 @llvm.bswap.i64(i64 %56)
   store i64 %57, ptr %55, align 8
   %58 = getelementptr i8, ptr %49, i64 12
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %60 = load i64, ptr %58, align 1
+  %60 = load i64, ptr %58, align 4
   %61 = tail call i64 @llvm.bswap.i64(i64 %60)
   store i64 %61, ptr %59, align 8
   br label %.thread
@@ -15220,12 +15220,12 @@ define internal fastcc i32 @decode_link(ptr noundef %0, ptr noundef writeonly ca
   %40 = tail call i32 @llvm.bswap.i32(i32 %39)
   store i32 %40, ptr %1, align 8
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %42 = load i64, ptr %38, align 1
+  %42 = load i64, ptr %38, align 4
   %43 = tail call i64 @llvm.bswap.i64(i64 %42)
   store i64 %43, ptr %41, align 8
   %44 = getelementptr i8, ptr %35, i64 12
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %46 = load i64, ptr %44, align 1
+  %46 = load i64, ptr %44, align 4
   %47 = tail call i64 @llvm.bswap.i64(i64 %46)
   store i64 %47, ptr %45, align 8
   br label %.thread

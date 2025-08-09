@@ -20928,7 +20928,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit: ; preds = %_ZN32pxrI
   store ptr %.sink8.i.sink5.i.i.i.i, ptr %50, align 8, !noalias !70
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 16, i1 false), !noalias !70
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  store i32 %33, ptr %51, align 4, !noalias !70
+  store i32 %33, ptr %51, align 8, !noalias !70
   br i1 %.not.i.i, label %63, label %52
 
 52:                                               ; preds = %.noexc.i8
@@ -23393,7 +23393,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__32HdRetainedTyped
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS_7SdfPathEEE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %1, align 4
-  store i32 %5, ptr %4, align 4
+  store i32 %5, ptr %4, align 8
   %.not.i.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS_7SdfPathEEC2ERKS1_.exit, label %6
 
@@ -65987,7 +65987,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6Appen
   %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq double %24, 0.000000e+00
   %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, double 0.000000e+00, double %24
   %25 = bitcast double %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %26 = load i8, ptr %23, align 1
+  %26 = load i8, ptr %23, align 8
   %27 = and i8 %26, 1
   %28 = zext nneg i8 %27 to i64
   %29 = add i64 %25, %28
@@ -66002,7 +66002,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6Appen
   %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, double 0.000000e+00, double %36
   %37 = bitcast double %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %38 = getelementptr inbounds nuw i8, ptr %.024.i.i, i64 24
-  %39 = load i8, ptr %38, align 1
+  %39 = load i8, ptr %38, align 8
   %40 = and i8 %39, 1
   %41 = zext nneg i8 %40 to i64
   %42 = add i64 %37, %41
@@ -74625,7 +74625,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__47UsdImaging_NiIn
   %19 = atomicrmw add ptr %.sink.i.i.i.i.i.i, i64 1 monotonic, align 8
   %.pre = load ptr, ptr %11, align 8
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store atomic i32 0, ptr %20 seq_cst, align 4
+  store atomic i32 0, ptr %20 seq_cst, align 8
   store ptr %9, ptr %0, align 8
   %21 = atomicrmw add ptr %20, i32 1 monotonic, align 4
   %.not.i.i = icmp eq ptr %.pre, null
@@ -75061,7 +75061,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_Coun
   %16 = atomicrmw add ptr %.sink.i.i.i.i.i, i64 1 monotonic, align 8, !noalias !715
   %.pre.i.i = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store atomic i32 0, ptr %17 seq_cst, align 4, !noalias !715
+  store atomic i32 0, ptr %17 seq_cst, align 8, !noalias !715
   %18 = atomicrmw add ptr %17, i32 1 monotonic, align 4, !noalias !715
   %.not.i.i.i.i = icmp eq ptr %.pre.i.i, null
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_7VtValue8_CountedINS_7VtArrayINS_9GfFrustumEEEEEED2Ev.exit.i.i, label %19
@@ -77151,7 +77151,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__47UsdImaging_NiIn
   %19 = atomicrmw add ptr %.sink.i.i.i.i.i.i, i64 1 monotonic, align 8
   %.pre = load ptr, ptr %11, align 8
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store atomic i32 0, ptr %20 seq_cst, align 4
+  store atomic i32 0, ptr %20 seq_cst, align 8
   store ptr %9, ptr %0, align 8
   %21 = atomicrmw add ptr %20, i32 1 monotonic, align 4
   %.not.i.i = icmp eq ptr %.pre, null
@@ -77636,7 +77636,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_Coun
   %16 = atomicrmw add ptr %.sink.i.i.i.i.i, i64 1 monotonic, align 8, !noalias !729
   %.pre.i.i = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store atomic i32 0, ptr %17 seq_cst, align 4, !noalias !729
+  store atomic i32 0, ptr %17 seq_cst, align 8, !noalias !729
   %18 = atomicrmw add ptr %17, i32 1 monotonic, align 4, !noalias !729
   %.not.i.i.i.i = icmp eq ptr %.pre.i.i, null
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_7VtValue8_CountedINS_7VtArrayINS_15GfMultiIntervalEEEEEED2Ev.exit.i.i, label %19
@@ -83735,7 +83735,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7Sdf
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 8
   %.not.i.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS1_E.exit, label %9
 
@@ -86812,7 +86812,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_Coun
   %16 = atomicrmw add ptr %.sink.i.i.i.i.i, i64 1 monotonic, align 8, !noalias !791
   %.pre.i.i = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store atomic i32 0, ptr %17 seq_cst, align 4, !noalias !791
+  store atomic i32 0, ptr %17 seq_cst, align 8, !noalias !791
   %18 = atomicrmw add ptr %17, i32 1 monotonic, align 4, !noalias !791
   %.not.i.i.i.i = icmp eq ptr %.pre.i.i, null
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_7VtValue8_CountedINS_7VtArrayINS_7SdfPathEEEEEED2Ev.exit.i.i, label %19
@@ -94656,7 +94656,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7Sdf
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS4_E.exit, label %9
 

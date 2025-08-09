@@ -14643,7 +14643,7 @@ _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit96.i.i.i: ; pre
   %.sroa.68.16..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %53, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.68.16..sroa_idx.i.i.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.10.i.i, i64 7, i1 false), !noalias !2711
   %.sroa.6.sroa.4.0..sroa.68.16..sroa_idx.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store i64 %.sroa.11.1.i.i, ptr %.sroa.6.sroa.4.0..sroa.68.16..sroa_idx.i.sroa_idx.i.i, align 1, !noalias !2786
+  store i64 %.sroa.11.1.i.i, ptr %.sroa.6.sroa.4.0..sroa.68.16..sroa_idx.i.sroa_idx.i.i, align 8, !noalias !2786
   %.sroa.6.sroa.7.0..sroa.68.16..sroa_idx.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %53, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %.sroa.6.sroa.7.0..sroa.68.16..sroa_idx.i.sroa_idx.i.i, ptr noundef nonnull align 16 dereferenceable(24) %.sroa.14.i.i, i64 24, i1 false), !noalias !2711
   %.sroa.6.sroa.8.0..sroa.68.16..sroa_idx.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %53, i64 40

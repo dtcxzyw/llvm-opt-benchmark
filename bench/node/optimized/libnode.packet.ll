@@ -529,7 +529,7 @@ if.end29:                                         ; preds = %entry
   store i64 1200, ptr %capacity_.i.i.i.i.i.i.i.i.i, align 8, !noalias !8
   %buf_.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 40
   store ptr %buf_st_.i.i.i.i.i.i.i.i.i, ptr %buf_.i.i.i.i.i.i.i.i.i, align 8, !noalias !8
-  store i8 0, ptr %buf_st_.i.i.i.i.i.i.i.i.i, align 1, !noalias !8
+  store i8 0, ptr %buf_st_.i.i.i.i.i.i.i.i.i, align 8, !noalias !8
   %diagnostic_label_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 1248
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i.i.i) #23, !noalias !8
   call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i.i.i.i.i.i.i.i), !noalias !8
@@ -1114,7 +1114,7 @@ entry:
   store i64 1200, ptr %capacity_.i.i.i.i.i.i.i.i.i, align 8, !noalias !19
   %buf_.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 40
   store ptr %buf_st_.i.i.i.i.i.i.i.i.i, ptr %buf_.i.i.i.i.i.i.i.i.i, align 8, !noalias !19
-  store i8 0, ptr %buf_st_.i.i.i.i.i.i.i.i.i, align 1, !noalias !19
+  store i8 0, ptr %buf_st_.i.i.i.i.i.i.i.i.i, align 8, !noalias !19
   %diagnostic_label_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 1248
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i.i.i) #23, !noalias !19
   call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i.i.i.i.i.i.i.i), !noalias !19

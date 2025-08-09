@@ -12717,7 +12717,7 @@ CombineLengthCodes.exit:                          ; preds = %1093, %GetCopyLengt
   %1125 = getelementptr inbounds nuw i8, ptr %1124, i64 131072
   %1126 = getelementptr inbounds nuw i8, ptr %1124, i64 196608
   %1127 = load ptr, ptr %42, align 8, !tbaa !486, !alias.scope !558, !noalias !561
-  %.promoted906 = load i16, ptr %13, align 2, !tbaa !67, !alias.scope !558, !noalias !561
+  %.promoted906 = load i16, ptr %13, align 8, !tbaa !67, !alias.scope !558, !noalias !561
   br label %1128
 
 1128:                                             ; preds = %.lr.ph905, %1128
@@ -12777,7 +12777,7 @@ CombineLengthCodes.exit:                          ; preds = %1093, %GetCopyLengt
   %1163 = getelementptr inbounds nuw i8, ptr %1162, i64 131072
   %1164 = getelementptr inbounds nuw i8, ptr %1162, i64 196608
   %1165 = load ptr, ptr %42, align 8, !tbaa !486, !alias.scope !567, !noalias !570
-  %.promoted764 = load i16, ptr %13, align 2, !tbaa !67, !alias.scope !567, !noalias !570
+  %.promoted764 = load i16, ptr %13, align 8, !tbaa !67, !alias.scope !567, !noalias !570
   br label %1166
 
 1166:                                             ; preds = %.lr.ph761, %1166
@@ -12828,7 +12828,7 @@ CombineLengthCodes.exit:                          ; preds = %1093, %GetCopyLengt
   %1196 = getelementptr inbounds nuw i8, ptr %1195, i64 131072
   %1197 = getelementptr inbounds nuw i8, ptr %1195, i64 196608
   %1198 = load ptr, ptr %42, align 8, !tbaa !486, !alias.scope !576, !noalias !579
-  %.promoted758 = load i16, ptr %13, align 2, !tbaa !67, !alias.scope !576, !noalias !579
+  %.promoted758 = load i16, ptr %13, align 8, !tbaa !67, !alias.scope !576, !noalias !579
   br label %1199
 
 1199:                                             ; preds = %.lr.ph755, %1199
@@ -15147,7 +15147,7 @@ CombineLengthCodes.exit:                          ; preds = %1112, %GetCopyLengt
   %1144 = getelementptr inbounds nuw i8, ptr %1143, i64 131072
   %1145 = getelementptr inbounds nuw i8, ptr %1143, i64 196608
   %1146 = load ptr, ptr %55, align 8, !tbaa !486, !alias.scope !675, !noalias !678
-  %.promoted906 = load i16, ptr %13, align 2, !tbaa !67, !alias.scope !675, !noalias !678
+  %.promoted906 = load i16, ptr %13, align 8, !tbaa !67, !alias.scope !675, !noalias !678
   br label %1147
 
 1147:                                             ; preds = %.lr.ph905, %1147
@@ -15207,7 +15207,7 @@ CombineLengthCodes.exit:                          ; preds = %1112, %GetCopyLengt
   %1182 = getelementptr inbounds nuw i8, ptr %1181, i64 131072
   %1183 = getelementptr inbounds nuw i8, ptr %1181, i64 196608
   %1184 = load ptr, ptr %55, align 8, !tbaa !486, !alias.scope !684, !noalias !687
-  %.promoted764 = load i16, ptr %13, align 2, !tbaa !67, !alias.scope !684, !noalias !687
+  %.promoted764 = load i16, ptr %13, align 8, !tbaa !67, !alias.scope !684, !noalias !687
   br label %1185
 
 1185:                                             ; preds = %.lr.ph761, %1185
@@ -15258,7 +15258,7 @@ CombineLengthCodes.exit:                          ; preds = %1112, %GetCopyLengt
   %1215 = getelementptr inbounds nuw i8, ptr %1214, i64 131072
   %1216 = getelementptr inbounds nuw i8, ptr %1214, i64 196608
   %1217 = load ptr, ptr %55, align 8, !tbaa !486, !alias.scope !693, !noalias !696
-  %.promoted758 = load i16, ptr %13, align 2, !tbaa !67, !alias.scope !693, !noalias !696
+  %.promoted758 = load i16, ptr %13, align 8, !tbaa !67, !alias.scope !693, !noalias !696
   br label %1218
 
 1218:                                             ; preds = %.lr.ph755, %1218
@@ -31497,7 +31497,7 @@ CombineLengthCodes.exit:                          ; preds = %758, %GetCopyLength
   %790 = getelementptr inbounds nuw i8, ptr %789, i64 131072
   %791 = getelementptr inbounds nuw i8, ptr %789, i64 196608
   %792 = load ptr, ptr %41, align 8, !tbaa !486, !alias.scope !1371, !noalias !1374
-  %.promoted618 = load i16, ptr %13, align 2, !tbaa !67, !alias.scope !1371, !noalias !1374
+  %.promoted618 = load i16, ptr %13, align 8, !tbaa !67, !alias.scope !1371, !noalias !1374
   br label %793
 
 793:                                              ; preds = %.lr.ph617, %793
@@ -31557,7 +31557,7 @@ FindLongestMatchH40.exit.thread:                  ; preds = %229, %FindLongestMa
   %827 = getelementptr inbounds nuw i8, ptr %826, i64 131072
   %828 = getelementptr inbounds nuw i8, ptr %826, i64 196608
   %829 = load ptr, ptr %41, align 8, !tbaa !486, !alias.scope !1379, !noalias !1382
-  %.promoted631 = load i16, ptr %13, align 2, !tbaa !67, !alias.scope !1379, !noalias !1382
+  %.promoted631 = load i16, ptr %13, align 8, !tbaa !67, !alias.scope !1379, !noalias !1382
   br label %830
 
 830:                                              ; preds = %.lr.ph628, %830
@@ -31608,7 +31608,7 @@ FindLongestMatchH40.exit.thread:                  ; preds = %229, %FindLongestMa
   %860 = getelementptr inbounds nuw i8, ptr %859, i64 131072
   %861 = getelementptr inbounds nuw i8, ptr %859, i64 196608
   %862 = load ptr, ptr %41, align 8, !tbaa !486, !alias.scope !1388, !noalias !1391
-  %.promoted624 = load i16, ptr %13, align 2, !tbaa !67, !alias.scope !1388, !noalias !1391
+  %.promoted624 = load i16, ptr %13, align 8, !tbaa !67, !alias.scope !1388, !noalias !1391
   br label %863
 
 863:                                              ; preds = %.lr.ph621, %863
@@ -33202,7 +33202,7 @@ CombineLengthCodes.exit:                          ; preds = %777, %GetCopyLength
   %809 = getelementptr inbounds nuw i8, ptr %808, i64 131072
   %810 = getelementptr inbounds nuw i8, ptr %808, i64 196608
   %811 = load ptr, ptr %54, align 8, !tbaa !486, !alias.scope !1452, !noalias !1455
-  %.promoted618 = load i16, ptr %13, align 2, !tbaa !67, !alias.scope !1452, !noalias !1455
+  %.promoted618 = load i16, ptr %13, align 8, !tbaa !67, !alias.scope !1452, !noalias !1455
   br label %812
 
 812:                                              ; preds = %.lr.ph617, %812
@@ -33262,7 +33262,7 @@ FindLongestMatchH41.exit.thread:                  ; preds = %242, %FindLongestMa
   %846 = getelementptr inbounds nuw i8, ptr %845, i64 131072
   %847 = getelementptr inbounds nuw i8, ptr %845, i64 196608
   %848 = load ptr, ptr %54, align 8, !tbaa !486, !alias.scope !1460, !noalias !1463
-  %.promoted631 = load i16, ptr %13, align 2, !tbaa !67, !alias.scope !1460, !noalias !1463
+  %.promoted631 = load i16, ptr %13, align 8, !tbaa !67, !alias.scope !1460, !noalias !1463
   br label %849
 
 849:                                              ; preds = %.lr.ph628, %849
@@ -33313,7 +33313,7 @@ FindLongestMatchH41.exit.thread:                  ; preds = %242, %FindLongestMa
   %879 = getelementptr inbounds nuw i8, ptr %878, i64 131072
   %880 = getelementptr inbounds nuw i8, ptr %878, i64 196608
   %881 = load ptr, ptr %54, align 8, !tbaa !486, !alias.scope !1469, !noalias !1472
-  %.promoted624 = load i16, ptr %13, align 2, !tbaa !67, !alias.scope !1469, !noalias !1472
+  %.promoted624 = load i16, ptr %13, align 8, !tbaa !67, !alias.scope !1469, !noalias !1472
   br label %882
 
 882:                                              ; preds = %.lr.ph621, %882

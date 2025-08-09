@@ -7914,11 +7914,11 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit.i.i.i: ; preds =
   %43 = getelementptr inbounds nuw i8, ptr %.val, i64 120
   store atomic i64 -2147483648, ptr %43 seq_cst, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  store atomic i8 0, ptr %44 seq_cst, align 1
+  store atomic i8 0, ptr %44 seq_cst, align 8
   %45 = getelementptr inbounds nuw i8, ptr %.val, i64 136
   store atomic i64 -2147483648, ptr %45 seq_cst, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.val, i64 144
-  store atomic i8 0, ptr %46 seq_cst, align 1
+  store atomic i8 0, ptr %46 seq_cst, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.val, i64 112
   %48 = load ptr, ptr %47, align 8, !tbaa !60
   %49 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(92) %48) #24
@@ -12945,7 +12945,7 @@ _ZSt19__relocate_object_aIN3dap6ThreadES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i: ; pre
   store i64 %55, ptr %57, align 8, !tbaa !13, !alias.scope !428, !noalias !431
   store ptr %47, ptr %44, align 8, !tbaa !18, !alias.scope !431, !noalias !428
   store i64 0, ptr %56, align 8, !tbaa !13, !alias.scope !431, !noalias !428
-  store i8 0, ptr %47, align 1, !tbaa !36, !alias.scope !431, !noalias !428
+  store i8 0, ptr %47, align 8, !tbaa !36, !alias.scope !431, !noalias !428
   %58 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
   %59 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
   %.not.i.i.i = icmp eq ptr %58, %1
@@ -12997,7 +12997,7 @@ _ZSt19__relocate_object_aIN3dap6ThreadES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i33: ; p
   store i64 %74, ptr %76, align 8, !tbaa !13, !alias.scope !435, !noalias !438
   store ptr %66, ptr %63, align 8, !tbaa !18, !alias.scope !438, !noalias !435
   store i64 0, ptr %75, align 8, !tbaa !13, !alias.scope !438, !noalias !435
-  store i8 0, ptr %66, align 1, !tbaa !36, !alias.scope !438, !noalias !435
+  store i8 0, ptr %66, align 8, !tbaa !36, !alias.scope !438, !noalias !435
   %77 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 40
   %78 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 40
   %.not.i.i.i34 = icmp eq ptr %77, %6
@@ -16949,11 +16949,11 @@ define internal void @"_ZNSt17_Function_handlerIFvPKvRKSt8functionIFvPKN3dap8Typ
   %12 = getelementptr inbounds nuw i8, ptr %.val, i64 120
   store atomic i64 -2147483648, ptr %12 seq_cst, align 8
   %13 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  store atomic i8 0, ptr %13 seq_cst, align 1
+  store atomic i8 0, ptr %13 seq_cst, align 8
   %14 = getelementptr inbounds nuw i8, ptr %.val, i64 136
   store atomic i64 -2147483648, ptr %14 seq_cst, align 8
   %15 = getelementptr inbounds nuw i8, ptr %.val, i64 144
-  store atomic i8 0, ptr %15 seq_cst, align 1
+  store atomic i8 0, ptr %15 seq_cst, align 8
   %16 = getelementptr inbounds nuw i8, ptr %.val, i64 112
   %17 = load ptr, ptr %16, align 8, !tbaa !60
   %18 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(92) %17) #24

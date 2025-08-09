@@ -464,7 +464,7 @@ getHandlerChain.exit:                             ; preds = %1, %4
   %.0715 = phi ptr [ %12, %freeHandler.exit.thread ], [ %10, %getHandlerChain.exit ]
   %11 = getelementptr inbounds nuw i8, ptr %.0715, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = load i32, ptr %.0715, align 4
+  %13 = load i32, ptr %.0715, align 8
   %.not10 = icmp eq i32 %13, 0
   br i1 %.not10, label %freeHandler.exit.thread, label %14
 

@@ -2431,7 +2431,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %16, ptr %_M_string_length.i24.i.i.i.i.i.i.i, align 8, !tbaa !16, !alias.scope !77, !noalias !80
   store ptr %13, ptr %__first.addr.07.i.i.i, align 8, !tbaa !12, !alias.scope !80, !noalias !77
   store i64 0, ptr %_M_string_length.i23.i.i.i.i.i.i.i, align 8, !tbaa !16, !alias.scope !80, !noalias !77
-  store i8 0, ptr %13, align 1, !tbaa !17, !alias.scope !80, !noalias !77
+  store i8 0, ptr %13, align 8, !tbaa !17, !alias.scope !80, !noalias !77
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 32
   %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
@@ -2479,7 +2479,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %22, ptr %_M_string_length.i24.i.i.i.i.i.i.i59, align 8, !tbaa !16, !alias.scope !83, !noalias !86
   store ptr %19, ptr %__first.addr.07.i.i.i52, align 8, !tbaa !12, !alias.scope !86, !noalias !83
   store i64 0, ptr %_M_string_length.i23.i.i.i.i.i.i.i58, align 8, !tbaa !16, !alias.scope !86, !noalias !83
-  store i8 0, ptr %19, align 1, !tbaa !17, !alias.scope !86, !noalias !83
+  store i8 0, ptr %19, align 8, !tbaa !17, !alias.scope !86, !noalias !83
   %incdec.ptr.i.i.i60 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i52, i64 32
   %incdec.ptr1.i.i.i61 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i51, i64 32
   %cmp.not.i.i.i62 = icmp eq ptr %incdec.ptr.i.i.i60, %0
@@ -2613,7 +2613,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %8, ptr %_M_string_length.i24.i.i.i.i.i.i.i.i, align 8, !tbaa !16, !alias.scope !88, !noalias !91
   store ptr %5, ptr %__first.addr.07.i.i.i, align 8, !tbaa !12, !alias.scope !91, !noalias !88
   store i64 0, ptr %_M_string_length.i23.i.i.i.i.i.i.i.i, align 8, !tbaa !16, !alias.scope !91, !noalias !88
-  store i8 0, ptr %5, align 1, !tbaa !17, !alias.scope !91, !noalias !88
+  store i8 0, ptr %5, align 8, !tbaa !17, !alias.scope !91, !noalias !88
   %texture.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 32
   %texture3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 48
@@ -2647,7 +2647,7 @@ _ZSt19__relocate_object_aI15TextureOverrideS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i: ;
   store i64 %14, ptr %_M_string_length.i24.i10.i.i.i.i.i.i.i, align 8, !tbaa !16, !alias.scope !88, !noalias !91
   store ptr %11, ptr %texture3.i.i.i.i.i.i.i, align 8, !tbaa !12, !alias.scope !91, !noalias !88
   store i64 0, ptr %_M_string_length.i23.i9.i.i.i.i.i.i.i, align 8, !tbaa !16, !alias.scope !91, !noalias !88
-  store i8 0, ptr %11, align 1, !tbaa !17, !alias.scope !91, !noalias !88
+  store i8 0, ptr %11, align 8, !tbaa !17, !alias.scope !91, !noalias !88
   %target.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 64
   %target4.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %target.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(3) %target4.i.i.i.i.i.i.i, i64 3, i1 false), !alias.scope !93
@@ -2698,7 +2698,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i5
   store i64 %20, ptr %_M_string_length.i24.i.i.i.i.i.i.i.i58, align 8, !tbaa !16, !alias.scope !95, !noalias !98
   store ptr %17, ptr %__first.addr.07.i.i.i51, align 8, !tbaa !12, !alias.scope !98, !noalias !95
   store i64 0, ptr %_M_string_length.i23.i.i.i.i.i.i.i.i57, align 8, !tbaa !16, !alias.scope !98, !noalias !95
-  store i8 0, ptr %17, align 1, !tbaa !17, !alias.scope !98, !noalias !95
+  store i8 0, ptr %17, align 8, !tbaa !17, !alias.scope !98, !noalias !95
   %texture.i.i.i.i.i.i.i59 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i50, i64 32
   %texture3.i.i.i.i.i.i.i60 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i51, i64 32
   %21 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i50, i64 48
@@ -2732,7 +2732,7 @@ _ZSt19__relocate_object_aI15TextureOverrideS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i65:
   store i64 %26, ptr %_M_string_length.i24.i10.i.i.i.i.i.i.i67, align 8, !tbaa !16, !alias.scope !95, !noalias !98
   store ptr %23, ptr %texture3.i.i.i.i.i.i.i60, align 8, !tbaa !12, !alias.scope !98, !noalias !95
   store i64 0, ptr %_M_string_length.i23.i9.i.i.i.i.i.i.i66, align 8, !tbaa !16, !alias.scope !98, !noalias !95
-  store i8 0, ptr %23, align 1, !tbaa !17, !alias.scope !98, !noalias !95
+  store i8 0, ptr %23, align 8, !tbaa !17, !alias.scope !98, !noalias !95
   %target.i.i.i.i.i.i.i68 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i50, i64 64
   %target4.i.i.i.i.i.i.i69 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i51, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %target.i.i.i.i.i.i.i68, ptr noundef nonnull align 8 dereferenceable(3) %target4.i.i.i.i.i.i.i69, i64 3, i1 false), !alias.scope !100

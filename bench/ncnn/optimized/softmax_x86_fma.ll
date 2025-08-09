@@ -3993,7 +3993,7 @@ _ZN4ncnn3MatD2Ev.exit1625:                        ; preds = %2271, %2269, %2277,
   %2366 = add <8 x i32> %2365, splat (i32 1065353216)
   %2367 = bitcast <8 x i32> %2366 to <8 x float>
   %2368 = fmul fast <8 x float> %2363, %2367
-  store <8 x float> %2368, ptr %2343, align 1, !tbaa !33
+  store <8 x float> %2368, ptr %2343, align 32, !tbaa !33
   %2369 = fadd fast <8 x float> %2368, %.011963476
   %indvars.iv.next3853 = add nuw nsw i64 %indvars.iv3852, 8
   %2370 = or disjoint i64 %indvars.iv.next3853, 7

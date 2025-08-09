@@ -40703,13 +40703,13 @@ _ZNSt6vectorIN4llvm9InlineAsm14ConstraintInfoESaIS2_EED2Ev.exit: ; preds = %_ZSt
   store ptr %70, ptr %69, align 8, !tbaa !825
   %71 = getelementptr inbounds nuw i8, ptr %42, i64 88
   store i64 0, ptr %71, align 8, !tbaa !792
-  store i8 0, ptr %70, align 1, !tbaa !350
+  store i8 0, ptr %70, align 8, !tbaa !350
   %72 = getelementptr inbounds nuw i8, ptr %42, i64 112
   store i32 6, ptr %72, align 8, !tbaa !826
   %73 = getelementptr inbounds nuw i8, ptr %42, i64 120
   store ptr null, ptr %73, align 8, !tbaa !829
   %74 = getelementptr inbounds nuw i8, ptr %42, i64 128
-  store i16 1, ptr %74, align 2, !tbaa !381
+  store i16 1, ptr %74, align 8, !tbaa !381
   call void @_ZN4llvm9InlineAsm14ConstraintInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %6) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %75 = load ptr, ptr %18, align 8, !tbaa !802
@@ -41176,7 +41176,7 @@ _ZNK4llvm3MVT9isIntegerEv.exit._ZNK4llvm3MVT9isIntegerEv.exit174_crit_edge.threa
   %286 = load ptr, ptr %285, align 8
   %287 = call { i32, ptr } %286(ptr noundef nonnull align 8 dereferenceable(412423) %1, ptr noundef %3, ptr %281, i64 %283, i16 %.sroa.0.0.copyload) #31
   %288 = extractvalue { i32, ptr } %287, 1
-  %289 = load i16, ptr %266, align 2, !tbaa !381
+  %289 = load i16, ptr %266, align 8, !tbaa !381
   %290 = add i16 %289, -2
   %or.cond.i182 = icmp ult i16 %290, 8
   %291 = add i16 %289, -17
@@ -93829,13 +93829,13 @@ _ZNKSt6vectorIN4llvm14TargetLowering14AsmOperandInfoESaIS2_EE12_M_check_lenEmPKc
   store ptr %52, ptr %51, align 8, !tbaa !825
   %53 = getelementptr inbounds nuw i8, ptr %22, i64 88
   store i64 0, ptr %53, align 8, !tbaa !792
-  store i8 0, ptr %52, align 1, !tbaa !350
+  store i8 0, ptr %52, align 8, !tbaa !350
   %54 = getelementptr inbounds nuw i8, ptr %22, i64 112
   store i32 6, ptr %54, align 8, !tbaa !826
   %55 = getelementptr inbounds nuw i8, ptr %22, i64 120
   store ptr null, ptr %55, align 8, !tbaa !829
   %56 = getelementptr inbounds nuw i8, ptr %22, i64 128
-  store i16 1, ptr %56, align 2, !tbaa !381
+  store i16 1, ptr %56, align 8, !tbaa !381
   call void @_ZN4llvm9InlineAsm14ConstraintInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %4) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not10.i.i.i = icmp eq ptr %7, %1
@@ -93914,7 +93914,7 @@ _ZSt19__relocate_object_aIN4llvm14TargetLowering14AsmOperandInfoES2_SaIS2_EEvPT_
   store i64 %93, ptr %95, align 8, !tbaa !792, !alias.scope !1269, !noalias !1272
   store ptr %85, ptr %82, align 8, !tbaa !788, !alias.scope !1272, !noalias !1269
   store i64 0, ptr %94, align 8, !tbaa !792, !alias.scope !1272, !noalias !1269
-  store i8 0, ptr %85, align 1, !tbaa !350, !alias.scope !1272, !noalias !1269
+  store i8 0, ptr %85, align 8, !tbaa !350, !alias.scope !1272, !noalias !1269
   %96 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 112
   %97 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %96, ptr noundef nonnull align 8 dereferenceable(18) %97, i64 18, i1 false), !alias.scope !1274
@@ -94003,7 +94003,7 @@ _ZSt19__relocate_object_aIN4llvm14TargetLowering14AsmOperandInfoES2_SaIS2_EEvPT_
   store i64 %137, ptr %139, align 8, !tbaa !792, !alias.scope !1276, !noalias !1279
   store ptr %129, ptr %126, align 8, !tbaa !788, !alias.scope !1279, !noalias !1276
   store i64 0, ptr %138, align 8, !tbaa !792, !alias.scope !1279, !noalias !1276
-  store i8 0, ptr %129, align 1, !tbaa !350, !alias.scope !1279, !noalias !1276
+  store i8 0, ptr %129, align 8, !tbaa !350, !alias.scope !1279, !noalias !1276
   %140 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 112
   %141 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %140, ptr noundef nonnull align 8 dereferenceable(18) %141, i64 18, i1 false), !alias.scope !1281

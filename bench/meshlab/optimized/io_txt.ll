@@ -4969,7 +4969,7 @@ _ZN11QStringListD2Ev.exit:                        ; preds = %_ZN11QStringListaSE
   %.sroa.0759.0.insert.ext = zext i8 %419 to i32
   %.sroa.2760.0.insert.insert = or disjoint i32 %.sroa.3761.0.insert.insert, %.sroa.0759.0.insert.ext
   %.sroa.0759.0.insert.insert = or disjoint i32 %.sroa.2760.0.insert.insert, -16777216
-  store i32 %.sroa.0759.0.insert.insert, ptr %422, align 1
+  store i32 %.sroa.0759.0.insert.insert, ptr %422, align 4
   br label %.backedge
 
 423:                                              ; preds = %387
@@ -5336,7 +5336,7 @@ _ZN11QStringListD2Ev.exit:                        ; preds = %_ZN11QStringListaSE
   %.sroa.0739.0.insert.ext = zext i8 %658 to i32
   %.sroa.2740.0.insert.insert = or disjoint i32 %.sroa.3741.0.insert.insert, %.sroa.0739.0.insert.ext
   %.sroa.0739.0.insert.insert = or disjoint i32 %.sroa.2740.0.insert.insert, -16777216
-  store i32 %.sroa.0739.0.insert.insert, ptr %661, align 1
+  store i32 %.sroa.0739.0.insert.insert, ptr %661, align 4
   %662 = getelementptr inbounds nuw i8, ptr %645, i64 24
   store float %601, ptr %662, align 4
   %663 = getelementptr inbounds nuw i8, ptr %645, i64 28
@@ -5553,7 +5553,7 @@ _ZN11QStringListD2Ev.exit:                        ; preds = %_ZN11QStringListaSE
   %.sroa.0725.0.insert.ext = zext i8 %799 to i32
   %.sroa.2726.0.insert.insert = or disjoint i32 %.sroa.3727.0.insert.insert, %.sroa.0725.0.insert.ext
   %.sroa.0725.0.insert.insert = or disjoint i32 %.sroa.2726.0.insert.insert, -16777216
-  store i32 %.sroa.0725.0.insert.insert, ptr %802, align 1
+  store i32 %.sroa.0725.0.insert.insert, ptr %802, align 4
   %803 = getelementptr inbounds nuw i8, ptr %786, i64 24
   store float %715, ptr %803, align 4
   %804 = getelementptr inbounds nuw i8, ptr %786, i64 28
@@ -5712,7 +5712,7 @@ _ZN11QStringListD2Ev.exit:                        ; preds = %_ZN11QStringListaSE
   %.sroa.0713.0.insert.ext = zext i8 %895 to i32
   %.sroa.2714.0.insert.insert = or disjoint i32 %.sroa.3715.0.insert.insert, %.sroa.0713.0.insert.ext
   %.sroa.0713.0.insert.insert = or disjoint i32 %.sroa.2714.0.insert.insert, -16777216
-  store i32 %.sroa.0713.0.insert.insert, ptr %898, align 1
+  store i32 %.sroa.0713.0.insert.insert, ptr %898, align 4
   br label %.backedge
 
 899:                                              ; preds = %866
@@ -5881,7 +5881,7 @@ _ZN11QStringListD2Ev.exit:                        ; preds = %_ZN11QStringListaSE
   %.sroa.0703.0.insert.ext = zext i8 %1000 to i32
   %.sroa.2704.0.insert.insert = or disjoint i32 %.sroa.3705.0.insert.insert, %.sroa.0703.0.insert.ext
   %.sroa.0703.0.insert.insert = or disjoint i32 %.sroa.2704.0.insert.insert, -16777216
-  store i32 %.sroa.0703.0.insert.insert, ptr %1003, align 1
+  store i32 %.sroa.0703.0.insert.insert, ptr %1003, align 4
   br label %.backedge
 
 1004:                                             ; preds = %968
@@ -6092,7 +6092,7 @@ _ZN11QStringListD2Ev.exit:                        ; preds = %_ZN11QStringListaSE
   %.sroa.0692.0.insert.ext = zext i8 %1138 to i32
   %.sroa.2693.0.insert.insert = or disjoint i32 %.sroa.3694.0.insert.insert, %.sroa.0692.0.insert.ext
   %.sroa.0692.0.insert.insert = or disjoint i32 %.sroa.2693.0.insert.insert, -16777216
-  store i32 %.sroa.0692.0.insert.insert, ptr %1141, align 1
+  store i32 %.sroa.0692.0.insert.insert, ptr %1141, align 4
   %1142 = getelementptr inbounds nuw i8, ptr %1125, i64 24
   store float %1081, ptr %1142, align 4
   %1143 = getelementptr inbounds nuw i8, ptr %1125, i64 28
@@ -6309,7 +6309,7 @@ _ZN11QStringListD2Ev.exit:                        ; preds = %_ZN11QStringListaSE
   %.sroa.0678.0.insert.ext = zext i8 %1279 to i32
   %.sroa.2679.0.insert.insert = or disjoint i32 %.sroa.3680.0.insert.insert, %.sroa.0678.0.insert.ext
   %.sroa.0678.0.insert.insert = or disjoint i32 %.sroa.2679.0.insert.insert, -16777216
-  store i32 %.sroa.0678.0.insert.insert, ptr %1282, align 1
+  store i32 %.sroa.0678.0.insert.insert, ptr %1282, align 4
   %1283 = getelementptr inbounds nuw i8, ptr %1266, i64 24
   store float %1213, ptr %1283, align 4
   %1284 = getelementptr inbounds nuw i8, ptr %1266, i64 28
@@ -6666,7 +6666,7 @@ _ZN11QStringListD2Ev.exit:                        ; preds = %_ZN11QStringListaSE
   %.sroa.0656.0.insert.ext = zext i8 %1509 to i32
   %.sroa.2657.0.insert.insert = or disjoint i32 %.sroa.3658.0.insert.insert, %.sroa.0656.0.insert.ext
   %.sroa.0656.0.insert.insert = or disjoint i32 %.sroa.2657.0.insert.insert, -16777216
-  store i32 %.sroa.0656.0.insert.insert, ptr %1512, align 1
+  store i32 %.sroa.0656.0.insert.insert, ptr %1512, align 4
   %1513 = getelementptr inbounds nuw i8, ptr %1496, i64 24
   store float %1416, ptr %1513, align 4
   %1514 = getelementptr inbounds nuw i8, ptr %1496, i64 28
@@ -6883,7 +6883,7 @@ _ZN11QStringListD2Ev.exit:                        ; preds = %_ZN11QStringListaSE
   %.sroa.0643.0.insert.ext = zext i8 %1650 to i32
   %.sroa.2644.0.insert.insert = or disjoint i32 %.sroa.3.0.insert.insert, %.sroa.0643.0.insert.ext
   %.sroa.0643.0.insert.insert = or disjoint i32 %.sroa.2644.0.insert.insert, -16777216
-  store i32 %.sroa.0643.0.insert.insert, ptr %1653, align 1
+  store i32 %.sroa.0643.0.insert.insert, ptr %1653, align 4
   %1654 = getelementptr inbounds nuw i8, ptr %1637, i64 24
   store float %1557, ptr %1654, align 4
   %1655 = getelementptr inbounds nuw i8, ptr %1637, i64 28

@@ -4154,13 +4154,13 @@ _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2
   %jspb_encoding_options_5 = getelementptr inbounds nuw i8, ptr %other, i64 24
   %tmp.0.copyload.i.i = load i128, ptr %jspb_encoding_options_, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %jspb_encoding_options_, ptr noundef nonnull align 1 dereferenceable(16) %jspb_encoding_options_5, i64 16, i1 false)
-  store i128 %tmp.0.copyload.i.i, ptr %jspb_encoding_options_5, align 1
+  store i128 %tmp.0.copyload.i.i, ptr %jspb_encoding_options_5, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %add.ptr1.i = getelementptr inbounds nuw i8, ptr %other, i64 40
   %tmp.0.copyload.i.i.i = load i8, ptr %add.ptr.i, align 8
-  %23 = load i8, ptr %add.ptr1.i, align 1
+  %23 = load i8, ptr %add.ptr1.i, align 8
   store i8 %23, ptr %add.ptr.i, align 8
-  store i8 %tmp.0.copyload.i.i.i, ptr %add.ptr1.i, align 1
+  store i8 %tmp.0.copyload.i.i.i, ptr %add.ptr1.i, align 8
   %payload_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %payload_6 = getelementptr inbounds nuw i8, ptr %other, i64 48
   %__tmp.sroa.0.0.copyload.i = load ptr, ptr %payload_, align 8
@@ -7749,7 +7749,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %if.else.i,
   %failure_.i.i6 = getelementptr inbounds nuw i8, ptr %call2.i8, i64 16
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %failure_.i.i6, ptr noundef nonnull %arena)
   %_cached_size_.i.i7 = getelementptr inbounds nuw i8, ptr %call2.i8, i64 40
-  store i32 0, ptr %_cached_size_.i.i7, align 4
+  store i32 0, ptr %_cached_size_.i.i7, align 8
   %4 = load atomic i32, ptr @scc_info_FailureSet_conformance_2fconformance_2eproto acquire, align 8
   %cmp.not.i.i.i.i8 = icmp eq i32 %4, 0
   br i1 %cmp.not.i.i.i.i8, label %_ZN6google8protobuf5Arena21CreateMessageInternalIN11conformance10FailureSetEEEPT_PS1_.exit, label %if.then.i.i.i.i9
@@ -7781,7 +7781,7 @@ if.then.i:                                        ; preds = %entry
   store ptr null, ptr %_internal_metadata_.i.i.i.i, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN11conformance18ConformanceRequestE, i64 16), ptr %call.i, align 8
   %_cached_size_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 56
-  store i32 0, ptr %_cached_size_.i.i, align 4
+  store i32 0, ptr %_cached_size_.i.i, align 8
   %0 = load atomic i32, ptr @scc_info_ConformanceRequest_conformance_2fconformance_2eproto acquire, align 8
   %cmp.not.i.i.i.i = icmp eq i32 %0, 0
   br i1 %cmp.not.i.i.i.i, label %_ZN6google8protobuf5Arena21CreateMessageInternalIN11conformance18ConformanceRequestEEEPT_PS1_.exit, label %if.then.i.i.i.i
@@ -7812,7 +7812,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %if.else.i,
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i5, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN11conformance18ConformanceRequestE, i64 16), ptr %call2.i8, align 8
   %_cached_size_.i.i6 = getelementptr inbounds nuw i8, ptr %call2.i8, i64 56
-  store i32 0, ptr %_cached_size_.i.i6, align 4
+  store i32 0, ptr %_cached_size_.i.i6, align 8
   %3 = load atomic i32, ptr @scc_info_ConformanceRequest_conformance_2fconformance_2eproto acquire, align 8
   %cmp.not.i.i.i.i7 = icmp eq i32 %3, 0
   br i1 %cmp.not.i.i.i.i7, label %_ZN6google8protobuf5Arena21CreateMessageInternalIN11conformance18ConformanceRequestEEEPT_PS1_.exit, label %if.then.i.i.i.i8
@@ -7844,7 +7844,7 @@ if.then.i:                                        ; preds = %entry
   store ptr null, ptr %_internal_metadata_.i.i.i.i, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN11conformance19ConformanceResponseE, i64 16), ptr %call.i, align 8
   %_cached_size_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
-  store i32 0, ptr %_cached_size_.i.i, align 4
+  store i32 0, ptr %_cached_size_.i.i, align 8
   %0 = load atomic i32, ptr @scc_info_ConformanceResponse_conformance_2fconformance_2eproto acquire, align 8
   %cmp.not.i.i.i.i = icmp eq i32 %0, 0
   br i1 %cmp.not.i.i.i.i, label %_ZN6google8protobuf5Arena21CreateMessageInternalIN11conformance19ConformanceResponseEEEPT_PS1_.exit, label %if.then.i.i.i.i
@@ -7875,7 +7875,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %if.else.i,
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i5, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN11conformance19ConformanceResponseE, i64 16), ptr %call2.i8, align 8
   %_cached_size_.i.i6 = getelementptr inbounds nuw i8, ptr %call2.i8, i64 24
-  store i32 0, ptr %_cached_size_.i.i6, align 4
+  store i32 0, ptr %_cached_size_.i.i6, align 8
   %3 = load atomic i32, ptr @scc_info_ConformanceResponse_conformance_2fconformance_2eproto acquire, align 8
   %cmp.not.i.i.i.i7 = icmp eq i32 %3, 0
   br i1 %cmp.not.i.i.i.i7, label %_ZN6google8protobuf5Arena21CreateMessageInternalIN11conformance19ConformanceResponseEEEPT_PS1_.exit, label %if.then.i.i.i.i8
@@ -8009,7 +8009,7 @@ entry:
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN11conformance18ConformanceRequestE, i64 16), ptr %call.i.i, align 8
   %_cached_size_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 56
-  store i32 0, ptr %_cached_size_.i.i.i, align 4
+  store i32 0, ptr %_cached_size_.i.i.i, align 8
   %0 = load atomic i32, ptr @scc_info_ConformanceRequest_conformance_2fconformance_2eproto acquire, align 8
   %cmp.not.i.i.i.i.i = icmp eq i32 %0, 0
   br i1 %cmp.not.i.i.i.i.i, label %_ZN6google8protobuf5Arena18CreateMaybeMessageIN11conformance18ConformanceRequestEJEEEPT_PS1_DpOT0_.exit, label %if.then.i.i.i.i.i
@@ -8057,7 +8057,7 @@ entry:
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN11conformance19ConformanceResponseE, i64 16), ptr %call.i.i, align 8
   %_cached_size_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 24
-  store i32 0, ptr %_cached_size_.i.i.i, align 4
+  store i32 0, ptr %_cached_size_.i.i.i, align 8
   %0 = load atomic i32, ptr @scc_info_ConformanceResponse_conformance_2fconformance_2eproto acquire, align 8
   %cmp.not.i.i.i.i.i = icmp eq i32 %0, 0
   br i1 %cmp.not.i.i.i.i.i, label %_ZN6google8protobuf5Arena18CreateMaybeMessageIN11conformance19ConformanceResponseEJEEEPT_PS1_DpOT0_.exit, label %if.then.i.i.i.i.i

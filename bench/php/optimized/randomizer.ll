@@ -205,7 +205,7 @@ zend_object_release.exit:                         ; preds = %51, %52, %57
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 24
   store i64 7310575239085057383, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %69, i64 32
-  store i8 0, ptr %74, align 1, !tbaa !4
+  store i8 0, ptr %74, align 8, !tbaa !4
   %75 = load ptr, ptr %61, align 8, !tbaa !12
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 64
   %77 = call ptr @zend_hash_find(ptr noundef nonnull %76, ptr noundef nonnull %69) #9
@@ -298,7 +298,7 @@ define internal fastcc void @randomizer_common_init(ptr noundef writeonly captur
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 7310575239085057383, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store i8 0, ptr %16, align 1, !tbaa !4
+  store i8 0, ptr %16, align 8, !tbaa !4
   %17 = load ptr, ptr %3, align 8, !tbaa !12
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %19 = tail call ptr @zend_hash_find(ptr noundef nonnull %18, ptr noundef nonnull %11) #9

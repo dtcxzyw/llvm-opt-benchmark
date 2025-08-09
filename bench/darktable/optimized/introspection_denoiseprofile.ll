@@ -1525,7 +1525,7 @@ compute_wb_factors.exit.i.i:                      ; preds = %.preheader1.i.i.i, 
   %212 = load float, ptr %209, align 8, !tbaa !167
   %213 = fmul reassoc nsz arcp contract afn float %212, %87
   %214 = load float, ptr %210, align 4, !tbaa !36
-  %215 = load float, ptr %211, align 4, !tbaa !36
+  %215 = load float, ptr %211, align 8, !tbaa !36
   br label %250
 
 216:                                              ; preds = %250
@@ -3080,7 +3080,7 @@ backtransform.exit.i:                             ; preds = %1121, %1105
   %1147 = icmp eq i32 %1146, 0
   %1148 = load float, ptr %806, align 4, !tbaa !36
   %1149 = fmul reassoc nsz arcp contract afn float %1148, %630
-  %1150 = load float, ptr %817, align 4, !tbaa !36
+  %1150 = load float, ptr %817, align 8, !tbaa !36
   %1151 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %1152 = load float, ptr %1151, align 8, !tbaa !186
   %1153 = fpext reassoc nsz arcp contract afn float %1152 to double
@@ -3899,7 +3899,7 @@ define void @reload_defaults(ptr noundef readonly captures(none) %0) local_unnam
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %100, ptr noundef nonnull align 16 dereferenceable(64) %2, i64 64, i1 false), !tbaa.struct !40
   %101 = load ptr, ptr %5, align 16, !tbaa !248
   call void @dt_bauhaus_combobox_add(ptr noundef %101, ptr noundef nonnull %3) #20
-  %.07093 = load ptr, ptr %96, align 8, !tbaa !250
+  %.07093 = load ptr, ptr %96, align 16, !tbaa !250
   %.not8294 = icmp eq ptr %.07093, null
   br i1 %.not8294, label %._crit_edge, label %.lr.ph96
 
@@ -3954,7 +3954,7 @@ define void @gui_update(ptr noundef readonly captures(none) %0) local_unnamed_ad
   %6 = load ptr, ptr %3, align 16, !tbaa !248
   tail call void @dt_bauhaus_combobox_set(ptr noundef %6, i32 noundef -1) #20
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 160
-  %.03744 = load ptr, ptr %7, align 8, !tbaa !250
+  %.03744 = load ptr, ptr %7, align 16, !tbaa !250
   %.not45 = icmp eq ptr %.03744, null
   br i1 %.not45, label %.loopexit, label %.lr.ph
 

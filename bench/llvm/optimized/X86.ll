@@ -583,7 +583,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EEC2INS0_20StringMapKeyIteratorIS1_EEvEET_S7
   store ptr %154, ptr %.ptr.i.i.i.i, align 8, !tbaa !11
   %155 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
   store i64 0, ptr %155, align 8, !tbaa !18
-  store i8 0, ptr %154, align 1, !tbaa !17
+  store i8 0, ptr %154, align 8, !tbaa !17
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 32
   %156 = icmp eq i64 %.add.i.i.i.i, 416
   br i1 %156, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %153
@@ -7115,7 +7115,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llv
   store ptr %16, ptr %.ptr.i.i.i, align 8, !tbaa !11
   %17 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %17, align 8, !tbaa !18
-  store i8 0, ptr %16, align 1, !tbaa !17
+  store i8 0, ptr %16, align 8, !tbaa !17
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %18 = icmp eq i64 %.add.i.i.i, 416
   br i1 %18, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %15

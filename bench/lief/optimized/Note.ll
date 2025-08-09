@@ -4093,7 +4093,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %17
   store i64 %181, ptr %183, align 8, !tbaa !84
   store ptr %173, ptr %2, align 8, !tbaa !77
   store i64 0, ptr %182, align 8, !tbaa !84
-  store i8 0, ptr %173, align 1, !tbaa !70
+  store i8 0, ptr %173, align 8, !tbaa !70
   call void @_ZN4LIEF3ELF4Note6createERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt6vectorIhSaIhEES7_NS0_6Header9FILE_TYPEENS0_4ARCHENSD_5CLASSE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.298") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef %168, ptr noundef nonnull %25, ptr noundef nonnull %26, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   %184 = load ptr, ptr %26, align 8, !tbaa !77
   %185 = icmp eq ptr %184, %171
@@ -4332,7 +4332,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %47
   store i64 %53, ptr %55, align 8, !tbaa !84
   store ptr %45, ptr %4, align 8, !tbaa !77
   store i64 0, ptr %54, align 8, !tbaa !84
-  store i8 0, ptr %45, align 1, !tbaa !70
+  store i8 0, ptr %45, align 8, !tbaa !70
   call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %20) #25
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4LIEF3ELF4NoteE, i64 16), ptr %20, align 8, !tbaa !88
   %56 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -4444,7 +4444,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit11: ; preds = %
   store i64 %101, ptr %103, align 8, !tbaa !84
   store ptr %93, ptr %4, align 8, !tbaa !77
   store i64 0, ptr %102, align 8, !tbaa !84
-  store i8 0, ptr %93, align 1, !tbaa !70
+  store i8 0, ptr %93, align 8, !tbaa !70
   call void @_ZN4LIEF3ELF4Note6createERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_4TYPEESt6vectorIhSaIhEES7_NS0_4ARCHENS0_6Header5CLASSE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.298") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.sroa.019.0.extract.trunc, ptr noundef nonnull %14, ptr noundef nonnull %15, i32 noundef %6, i32 noundef %7)
   %104 = load ptr, ptr %15, align 8, !tbaa !77
   %105 = icmp eq ptr %104, %91
@@ -5579,7 +5579,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit161: ; preds = 
   store i64 %412, ptr %414, align 8, !tbaa !84
   store ptr %404, ptr %4, align 8, !tbaa !77
   store i64 0, ptr %413, align 8, !tbaa !84
-  store i8 0, ptr %404, align 1, !tbaa !70
+  store i8 0, ptr %404, align 8, !tbaa !70
   call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %386) #25
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4LIEF3ELF4NoteE, i64 16), ptr %386, align 8, !tbaa !88
   %415 = getelementptr inbounds nuw i8, ptr %386, i64 8
@@ -5748,7 +5748,7 @@ _ZNSt10unique_ptrIN4LIEF3ELF15NoteGnuPropertyESt14default_deleteIS2_EED2Ev.exit:
   store i64 %479, ptr %481, align 8, !tbaa !84
   store ptr %471, ptr %4, align 8, !tbaa !77
   store i64 0, ptr %480, align 8, !tbaa !84
-  store i8 0, ptr %471, align 1, !tbaa !70
+  store i8 0, ptr %471, align 8, !tbaa !70
   call void @_ZN4LIEF3ELF15NoteGnuPropertyC2ENS0_4ARCHENS0_6Header5CLASSENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt6vectorIhSaIhEESA_(ptr noundef nonnull align 8 dereferenceable(112) %451, i32 noundef %5, i32 noundef %6, ptr noundef nonnull %33, i32 noundef %.sroa.0291.0.extract.trunc301, ptr noundef nonnull %34, ptr noundef nonnull %35)
   store ptr %451, ptr %0, align 8, !tbaa !91
   %482 = load ptr, ptr %35, align 8, !tbaa !77
@@ -5865,7 +5865,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit187: ; preds = 
   store i64 %527, ptr %529, align 8, !tbaa !84
   store ptr %519, ptr %4, align 8, !tbaa !77
   store i64 0, ptr %528, align 8, !tbaa !84
-  store i8 0, ptr %519, align 1, !tbaa !70
+  store i8 0, ptr %519, align 8, !tbaa !70
   call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %501) #25
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4LIEF3ELF4NoteE, i64 16), ptr %501, align 8, !tbaa !88
   %530 = getelementptr inbounds nuw i8, ptr %501, i64 8
@@ -6008,7 +6008,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit203: ; preds = 
   store i64 %584, ptr %586, align 8, !tbaa !84
   store ptr %576, ptr %4, align 8, !tbaa !77
   store i64 0, ptr %585, align 8, !tbaa !84
-  store i8 0, ptr %576, align 1, !tbaa !70
+  store i8 0, ptr %576, align 8, !tbaa !70
   call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %558) #25
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4LIEF3ELF4NoteE, i64 16), ptr %558, align 8, !tbaa !88
   %587 = getelementptr inbounds nuw i8, ptr %558, i64 8
@@ -6151,7 +6151,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit219: ; preds = 
   store i64 %641, ptr %643, align 8, !tbaa !84
   store ptr %633, ptr %4, align 8, !tbaa !77
   store i64 0, ptr %642, align 8, !tbaa !84
-  store i8 0, ptr %633, align 1, !tbaa !70
+  store i8 0, ptr %633, align 8, !tbaa !70
   call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %615) #25
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4LIEF3ELF4NoteE, i64 16), ptr %615, align 8, !tbaa !88
   %644 = getelementptr inbounds nuw i8, ptr %615, i64 8
@@ -6294,7 +6294,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit235: ; preds = 
   store i64 %698, ptr %700, align 8, !tbaa !84
   store ptr %690, ptr %4, align 8, !tbaa !77
   store i64 0, ptr %699, align 8, !tbaa !84
-  store i8 0, ptr %690, align 1, !tbaa !70
+  store i8 0, ptr %690, align 8, !tbaa !70
   call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %672) #25
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4LIEF3ELF4NoteE, i64 16), ptr %672, align 8, !tbaa !88
   %701 = getelementptr inbounds nuw i8, ptr %672, i64 8
@@ -6789,7 +6789,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %13
   store i64 %19, ptr %21, align 8, !tbaa !84
   store ptr %11, ptr %3, align 8, !tbaa !77
   store i64 0, ptr %20, align 8, !tbaa !84
-  store i8 0, ptr %11, align 1, !tbaa !70
+  store i8 0, ptr %11, align 8, !tbaa !70
   %22 = load ptr, ptr %5, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !12
@@ -6908,7 +6908,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %13
   store i64 %19, ptr %21, align 8, !tbaa !84
   store ptr %11, ptr %3, align 8, !tbaa !77
   store i64 0, ptr %20, align 8, !tbaa !84
-  store i8 0, ptr %11, align 1, !tbaa !70
+  store i8 0, ptr %11, align 8, !tbaa !70
   %22 = load ptr, ptr %5, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !12
@@ -7029,7 +7029,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %13
   store i64 %19, ptr %21, align 8, !tbaa !84
   store ptr %11, ptr %3, align 8, !tbaa !77
   store i64 0, ptr %20, align 8, !tbaa !84
-  store i8 0, ptr %11, align 1, !tbaa !70
+  store i8 0, ptr %11, align 8, !tbaa !70
   %22 = load ptr, ptr %5, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !12
@@ -7148,7 +7148,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %14
   store i64 %20, ptr %22, align 8, !tbaa !84
   store ptr %12, ptr %3, align 8, !tbaa !77
   store i64 0, ptr %21, align 8, !tbaa !84
-  store i8 0, ptr %12, align 1, !tbaa !70
+  store i8 0, ptr %12, align 8, !tbaa !70
   %23 = load ptr, ptr %5, align 8, !tbaa !3
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !12
@@ -7186,7 +7186,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit4: ; preds = %3
   store i64 %38, ptr %40, align 8, !tbaa !84
   store ptr %30, ptr %6, align 8, !tbaa !77
   store i64 0, ptr %39, align 8, !tbaa !84
-  store i8 0, ptr %30, align 1, !tbaa !70
+  store i8 0, ptr %30, align 8, !tbaa !70
   call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #25
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4LIEF3ELF4NoteE, i64 16), ptr %0, align 8, !tbaa !88
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8

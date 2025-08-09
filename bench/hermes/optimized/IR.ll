@@ -4933,7 +4933,7 @@ if.then:                                          ; preds = %if.then20.i.i.i, %_
   %11 = load i64, ptr %originalName, align 8
   store i64 %11, ptr %call.i.i, align 8, !noalias !16
   %second.i.i2.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
-  store i32 0, ptr %second.i.i2.i, align 4, !noalias !16
+  store i32 0, ptr %second.i.i2.i, align 8, !noalias !16
   %12 = inttoptr i64 %11 to ptr
   br label %return
 
@@ -6734,7 +6734,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %18 = load ptr, ptr %incdec.ptr1.i.i.i.i.i.i, align 8
   store ptr %18, ptr %__result.addr.08.i.i.i.i.i.i, align 8
   %second.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i.i, i64 24
-  %19 = load i32, ptr %second.i.i.i.i.i.i.i, align 4
+  %19 = load i32, ptr %second.i.i.i.i.i.i.i, align 8
   %second3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i.i, i64 8
   store i32 %19, ptr %second3.i.i.i.i.i.i.i, align 8
   %dec.i.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i.i, -1
@@ -13532,7 +13532,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEjNS_12DenseMapInfoIS3_E
   %second.i.i = getelementptr inbounds nuw i8, ptr %cond.sink.i.i.i, i64 8
   %second.i14.i = getelementptr inbounds nuw i8, ptr %B.021.i, i64 8
   %7 = load i32, ptr %second.i14.i, align 4
-  store i32 %7, ptr %second.i.i, align 4
+  store i32 %7, ptr %second.i.i, align 8
   %8 = load i32, ptr %NumEntries.i.i.i.i, align 8
   %add.i.i = add i32 %8, 1
   store i32 %add.i.i, ptr %NumEntries.i.i.i.i, align 8

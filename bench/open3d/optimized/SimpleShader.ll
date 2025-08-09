@@ -7139,7 +7139,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__det
   %45 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28
   store ptr null, ptr %45, align 8, !tbaa !103
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store i32 %43, ptr %46, align 4, !tbaa !218
+  store i32 %43, ptr %46, align 8, !tbaa !218
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %48 = load i32, ptr %44, align 4, !tbaa !70
   store i32 %48, ptr %47, align 4, !tbaa !220
@@ -7323,7 +7323,7 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !103
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !70
+  %16 = load i32, ptr %15, align 8, !tbaa !70
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -7905,7 +7905,7 @@ _ZNKSt8__detail15_Hashtable_baseISt5tupleIJiiEES2_NS_9_IdentityESt8equal_toIS2_E
   store ptr null, ptr %54, align 8, !tbaa !103
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load i64, ptr %1, align 4
-  store i64 %56, ptr %55, align 4
+  store i64 %56, ptr %55, align 8
   %57 = invoke ptr @_ZNSt10_HashtableISt5tupleIJiiEES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_EN6open3d7utility10hash_tupleIS1_EENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS3_10_Hash_nodeIS1_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %31, i64 noundef %28, ptr noundef nonnull %54, i64 noundef 1)
           to label %_ZNKSt10_HashtableISt5tupleIJiiEES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_EN6open3d7utility10hash_tupleIS1_EENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit unwind label %_ZNSt10_HashtableISt5tupleIJiiEES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_EN6open3d7utility10hash_tupleIS1_EENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit20
 

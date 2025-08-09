@@ -8151,7 +8151,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit6: ; preds = %_ZNSol
   store ptr %15, ptr %13, align 8, !tbaa !173, !alias.scope !354
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %16, align 8, !tbaa !102, !alias.scope !354
-  store i8 0, ptr %15, align 1, !tbaa !103, !alias.scope !354
+  store i8 0, ptr %15, align 8, !tbaa !103, !alias.scope !354
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %18 = load ptr, ptr %17, align 8, !tbaa !355, !noalias !354
   %.not.i.not.i.i = icmp eq ptr %18, null
@@ -12222,7 +12222,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit6: ; preds = %12
   store ptr %16, ptr %14, align 8, !tbaa !173, !alias.scope !482
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 0, ptr %17, align 8, !tbaa !102, !alias.scope !482
-  store i8 0, ptr %16, align 1, !tbaa !103, !alias.scope !482
+  store i8 0, ptr %16, align 8, !tbaa !103, !alias.scope !482
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %19 = load ptr, ptr %18, align 8, !tbaa !355, !noalias !482
   %.not.i.not.i.i = icmp eq ptr %19, null
@@ -12370,7 +12370,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit7: ; preds = %_ZNSol
   store ptr %14, ptr %12, align 8, !tbaa !173, !alias.scope !489
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 0, ptr %15, align 8, !tbaa !102, !alias.scope !489
-  store i8 0, ptr %14, align 1, !tbaa !103, !alias.scope !489
+  store i8 0, ptr %14, align 8, !tbaa !103, !alias.scope !489
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %17 = load ptr, ptr %16, align 8, !tbaa !355, !noalias !489
   %.not.i.not.i.i = icmp eq ptr %17, null
@@ -12609,11 +12609,11 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceISt7promiseISt10shared_pt
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr null, ptr %12, align 8, !tbaa !493, !noalias !490
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i32 0, ptr %13, align 4, !tbaa !496, !noalias !490
+  store i32 0, ptr %13, align 8, !tbaa !496, !noalias !490
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  store i8 0, ptr %14, align 1, !tbaa !498, !noalias !490
+  store i8 0, ptr %14, align 4, !tbaa !498, !noalias !490
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store i32 0, ptr %15, align 4, !tbaa !500, !noalias !490
+  store i32 0, ptr %15, align 8, !tbaa !500, !noalias !490
   store ptr %7, ptr %8, align 8, !tbaa !128, !alias.scope !490
   store ptr %11, ptr %6, align 8, !tbaa !166, !alias.scope !490
   %16 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #34
@@ -15018,7 +15018,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit14: ; preds = %32
   store ptr %36, ptr %34, align 8, !tbaa !173, !alias.scope !611
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 0, ptr %37, align 8, !tbaa !102, !alias.scope !611
-  store i8 0, ptr %36, align 1, !tbaa !103, !alias.scope !611
+  store i8 0, ptr %36, align 8, !tbaa !103, !alias.scope !611
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %39 = load ptr, ptr %38, align 8, !tbaa !355, !noalias !611
   %.not.i.not.i.i = icmp eq ptr %39, null
@@ -15606,7 +15606,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit6: ; preds = %11
   store ptr %15, ptr %13, align 8, !tbaa !173, !alias.scope !636
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %16, align 8, !tbaa !102, !alias.scope !636
-  store i8 0, ptr %15, align 1, !tbaa !103, !alias.scope !636
+  store i8 0, ptr %15, align 8, !tbaa !103, !alias.scope !636
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %18 = load ptr, ptr %17, align 8, !tbaa !355, !noalias !636
   %.not.i.not.i.i = icmp eq ptr %18, null
@@ -15727,7 +15727,7 @@ _ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit: ; 
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(28) %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load atomic i32, ptr %8 acquire, align 4
+  %9 = load atomic i32, ptr %8 acquire, align 8
   %10 = and i32 %9, 2147483647
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit.us.i.i
@@ -18183,7 +18183,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit7: ; preds = %_ZNSol
   store ptr %16, ptr %14, align 8, !tbaa !173, !alias.scope !683
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 0, ptr %17, align 8, !tbaa !102, !alias.scope !683
-  store i8 0, ptr %16, align 1, !tbaa !103, !alias.scope !683
+  store i8 0, ptr %16, align 8, !tbaa !103, !alias.scope !683
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %19 = load ptr, ptr %18, align 8, !tbaa !355, !noalias !683
   %.not.i.not.i.i = icmp eq ptr %19, null
@@ -24267,7 +24267,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit6: ; preds = %11
   store ptr %15, ptr %13, align 8, !tbaa !173, !alias.scope !909
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %16, align 8, !tbaa !102, !alias.scope !909
-  store i8 0, ptr %15, align 1, !tbaa !103, !alias.scope !909
+  store i8 0, ptr %15, align 8, !tbaa !103, !alias.scope !909
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %18 = load ptr, ptr %17, align 8, !tbaa !355, !noalias !909
   %.not.i.not.i.i = icmp eq ptr %18, null
@@ -35438,7 +35438,7 @@ _ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit: ; 
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(28) %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load atomic i32, ptr %8 acquire, align 4
+  %9 = load atomic i32, ptr %8 acquire, align 8
   %10 = and i32 %9, 2147483647
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit.us.i.i
@@ -36598,11 +36598,11 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceISt7promiseISt10shared_pt
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr null, ptr %12, align 8, !tbaa !493, !noalias !1261
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i32 0, ptr %13, align 4, !tbaa !496, !noalias !1261
+  store i32 0, ptr %13, align 8, !tbaa !496, !noalias !1261
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  store i8 0, ptr %14, align 1, !tbaa !498, !noalias !1261
+  store i8 0, ptr %14, align 4, !tbaa !498, !noalias !1261
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store i32 0, ptr %15, align 4, !tbaa !500, !noalias !1261
+  store i32 0, ptr %15, align 8, !tbaa !500, !noalias !1261
   store ptr %7, ptr %8, align 8, !tbaa !128, !alias.scope !1261
   store ptr %11, ptr %6, align 8, !tbaa !166, !alias.scope !1261
   %16 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #34
@@ -38109,7 +38109,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit7: ; preds = %_ZNSol
   store ptr %16, ptr %14, align 8, !tbaa !173, !alias.scope !1311
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 0, ptr %17, align 8, !tbaa !102, !alias.scope !1311
-  store i8 0, ptr %16, align 1, !tbaa !103, !alias.scope !1311
+  store i8 0, ptr %16, align 8, !tbaa !103, !alias.scope !1311
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %19 = load ptr, ptr %18, align 8, !tbaa !355, !noalias !1311
   %.not.i.not.i.i = icmp eq ptr %19, null
@@ -38285,7 +38285,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit6: ; preds = %12
   store ptr %16, ptr %14, align 8, !tbaa !173, !alias.scope !1318
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 0, ptr %17, align 8, !tbaa !102, !alias.scope !1318
-  store i8 0, ptr %16, align 1, !tbaa !103, !alias.scope !1318
+  store i8 0, ptr %16, align 8, !tbaa !103, !alias.scope !1318
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %19 = load ptr, ptr %18, align 8, !tbaa !355, !noalias !1318
   %.not.i.not.i.i = icmp eq ptr %19, null

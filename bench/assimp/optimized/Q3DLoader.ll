@@ -4256,11 +4256,11 @@ _ZNSt6vectorISt4pairIjjESaIS1_EED2Ev.exit:        ; preds = %.preheader, %1669
   %1716 = load ptr, ptr %193, align 8
   %1717 = getelementptr inbounds nuw i8, ptr %1710, i64 1096
   store ptr %1716, ptr %1717, align 8
-  store i32 8, ptr %1710, align 4
+  store i32 8, ptr %1710, align 8
   %1718 = getelementptr inbounds nuw i8, ptr %1710, i64 4
   store i64 8388068007926313809, ptr %1718, align 4
   %1719 = getelementptr inbounds nuw i8, ptr %1710, i64 12
-  store i8 0, ptr %1719, align 1
+  store i8 0, ptr %1719, align 4
   %1720 = getelementptr inbounds nuw i8, ptr %1716, i64 1028
   %1721 = getelementptr inbounds nuw i8, ptr %1710, i64 1028
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %1721, ptr noundef nonnull align 4 dereferenceable(64) %1720, i64 64, i1 false)
@@ -4284,7 +4284,7 @@ _ZNSt6vectorISt4pairIjjESaIS1_EED2Ev.exit:        ; preds = %.preheader, %1669
   %1731 = load ptr, ptr %193, align 8
   %1732 = getelementptr inbounds nuw i8, ptr %1724, i64 1096
   store ptr %1731, ptr %1732, align 8
-  store i32 9, ptr %1724, align 4
+  store i32 9, ptr %1724, align 8
   %1733 = getelementptr inbounds nuw i8, ptr %1724, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %1733, ptr noundef nonnull align 1 dereferenceable(9) @.str.16, i64 9, i1 false)
   %1734 = getelementptr inbounds nuw i8, ptr %1724, i64 13

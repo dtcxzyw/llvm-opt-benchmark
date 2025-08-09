@@ -1320,7 +1320,7 @@ _ZN6gmxapi14BasicExceptionINS_13ProtocolErrorEEC2ENSt7__cxx1112basic_stringIcSt1
   store i64 %19, ptr %20, align 8, !tbaa !17
   store ptr %7, ptr %1, align 8, !tbaa !21
   store i64 0, ptr %18, align 8, !tbaa !17
-  store i8 0, ptr %7, align 1, !tbaa !33
+  store i8 0, ptr %7, align 8, !tbaa !33
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6gmxapi13ProtocolErrorE, i64 16), ptr %0, align 8, !tbaa !9
   ret void
 }

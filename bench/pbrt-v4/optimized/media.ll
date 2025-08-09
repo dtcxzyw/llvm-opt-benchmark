@@ -7780,7 +7780,7 @@ define linkonce_odr dso_local void @_ZNK4pbrt10GridMedium9SampleRayENS_3RayEfRKN
   %16 = load <4 x float>, ptr %15, align 4, !noalias !397
   %.sroa.05.4.vec.insert.i.i = shufflevector <4 x float> %16, <4 x float> poison, <2 x i32> zeroinitializer
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %18 = load <4 x float>, ptr %17, align 4, !noalias !397
+  %18 = load <4 x float>, ptr %17, align 8, !noalias !397
   %.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %18, <4 x float> poison, <2 x i32> zeroinitializer
   store <2 x float> %.sroa.07.4.vec.insert.i.i, ptr %10, align 8, !noalias !397
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -8708,7 +8708,7 @@ define linkonce_odr dso_local void @_ZN4pbrt19DDAMajorantIteratorC2ENS_3RayEffPK
   %30 = load float, ptr %29, align 4, !tbaa !221
   %31 = fdiv float %30, %13
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %33 = load float, ptr %32, align 4, !tbaa !222
+  %33 = load float, ptr %32, align 8, !tbaa !222
   %34 = fdiv float %33, %16
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %36 = load float, ptr %35, align 4, !tbaa !223
@@ -13250,7 +13250,7 @@ define linkonce_odr dso_local void @_ZNK4pbrt13RGBGridMedium9SampleRayENS_3RayEf
   %13 = load <4 x float>, ptr %12, align 4, !noalias !527
   %.sroa.05.4.vec.insert.i.i = shufflevector <4 x float> %13, <4 x float> poison, <2 x i32> zeroinitializer
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %15 = load <4 x float>, ptr %14, align 4, !noalias !527
+  %15 = load <4 x float>, ptr %14, align 8, !noalias !527
   %.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %15, <4 x float> poison, <2 x i32> zeroinitializer
   store <2 x float> %.sroa.07.4.vec.insert.i.i, ptr %7, align 8, !noalias !527
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -16045,7 +16045,7 @@ define linkonce_odr dso_local void @_ZNK4pbrt11CloudMedium9SampleRayENS_3RayEfRK
   %15 = load <4 x float>, ptr %14, align 4, !noalias !556
   %.sroa.05.4.vec.insert.i.i = shufflevector <4 x float> %15, <4 x float> poison, <2 x i32> zeroinitializer
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %17 = load <4 x float>, ptr %16, align 4, !noalias !556
+  %17 = load <4 x float>, ptr %16, align 8, !noalias !556
   %.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %17, <4 x float> poison, <2 x i32> zeroinitializer
   store <2 x float> %.sroa.07.4.vec.insert.i.i, ptr %10, align 8, !noalias !556
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -16703,7 +16703,7 @@ define linkonce_odr dso_local void @_ZNK4pbrt13NanoVDBMedium9SampleRayENS_3RayEf
   %16 = load <4 x float>, ptr %15, align 4, !noalias !565
   %.sroa.05.4.vec.insert.i.i = shufflevector <4 x float> %16, <4 x float> poison, <2 x i32> zeroinitializer
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %18 = load <4 x float>, ptr %17, align 4, !noalias !565
+  %18 = load <4 x float>, ptr %17, align 8, !noalias !565
   %.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %18, <4 x float> poison, <2 x i32> zeroinitializer
   store <2 x float> %.sroa.07.4.vec.insert.i.i, ptr %10, align 8, !noalias !565
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -17204,25 +17204,25 @@ _ZNK4pbrt9Transform12ApplyInverseIfEENS_6Point3IT_EES4_.exit: ; preds = %_ZNK4pb
   %126 = fsub float %.sroa.493.0.i, %125
   %127 = load float, ptr %117, align 4, !tbaa !127
   %128 = getelementptr inbounds nuw i8, ptr %116, i64 336
-  %129 = load float, ptr %128, align 4, !tbaa !127
+  %129 = load float, ptr %128, align 8, !tbaa !127
   %130 = getelementptr inbounds nuw i8, ptr %116, i64 340
   %131 = load float, ptr %130, align 4, !tbaa !127
   %132 = fmul float %126, %131
   %133 = tail call float @llvm.fma.f32(float %123, float %129, float %132)
   %134 = tail call float @llvm.fma.f32(float %120, float %127, float %133)
   %135 = getelementptr inbounds nuw i8, ptr %116, i64 344
-  %136 = load float, ptr %135, align 4, !tbaa !127
+  %136 = load float, ptr %135, align 8, !tbaa !127
   %137 = getelementptr inbounds nuw i8, ptr %116, i64 348
   %138 = load float, ptr %137, align 4, !tbaa !127
   %139 = getelementptr inbounds nuw i8, ptr %116, i64 352
-  %140 = load float, ptr %139, align 4, !tbaa !127
+  %140 = load float, ptr %139, align 8, !tbaa !127
   %141 = fmul float %126, %140
   %142 = tail call float @llvm.fma.f32(float %123, float %138, float %141)
   %143 = tail call float @llvm.fma.f32(float %120, float %136, float %142)
   %144 = getelementptr inbounds nuw i8, ptr %116, i64 356
   %145 = load float, ptr %144, align 4, !tbaa !127
   %146 = getelementptr inbounds nuw i8, ptr %116, i64 360
-  %147 = load float, ptr %146, align 4, !tbaa !127
+  %147 = load float, ptr %146, align 8, !tbaa !127
   %148 = getelementptr inbounds nuw i8, ptr %116, i64 364
   %149 = load float, ptr %148, align 4, !tbaa !127
   %150 = fmul float %126, %149
@@ -17433,25 +17433,25 @@ define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt13NanoVDBMe
   %20 = fsub float %2, %19
   %21 = load float, ptr %11, align 4, !tbaa !127
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 336
-  %23 = load float, ptr %22, align 4, !tbaa !127
+  %23 = load float, ptr %22, align 8, !tbaa !127
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 340
   %25 = load float, ptr %24, align 4, !tbaa !127
   %26 = fmul float %20, %25
   %27 = tail call float @llvm.fma.f32(float %17, float %23, float %26)
   %28 = tail call float @llvm.fma.f32(float %14, float %21, float %27)
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 344
-  %30 = load float, ptr %29, align 4, !tbaa !127
+  %30 = load float, ptr %29, align 8, !tbaa !127
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 348
   %32 = load float, ptr %31, align 4, !tbaa !127
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 352
-  %34 = load float, ptr %33, align 4, !tbaa !127
+  %34 = load float, ptr %33, align 8, !tbaa !127
   %35 = fmul float %20, %34
   %36 = tail call float @llvm.fma.f32(float %17, float %32, float %35)
   %37 = tail call float @llvm.fma.f32(float %14, float %30, float %36)
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 356
   %39 = load float, ptr %38, align 4, !tbaa !127
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 360
-  %41 = load float, ptr %40, align 4, !tbaa !127
+  %41 = load float, ptr %40, align 8, !tbaa !127
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 364
   %43 = load float, ptr %42, align 4, !tbaa !127
   %44 = fmul float %20, %43
@@ -25137,7 +25137,7 @@ _ZNK4pbrt3SOAINS_10RaySamplesEE16GetSetIndirectorcvS1_Ev.exit:
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 96
   %.sroa.7.0.copyload = load float, ptr %.sroa.7.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %40 = load float, ptr %1, align 4, !tbaa !157
+  %40 = load float, ptr %1, align 8, !tbaa !157
   %.sroa.07.0.vec.insert.i = insertelement <2 x float> poison, float %40, i64 0
   %.sroa.07.4.vec.insert.i = shufflevector <2 x float> %.sroa.07.0.vec.insert.i, <2 x float> poison, <2 x i32> zeroinitializer
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -25145,7 +25145,7 @@ _ZNK4pbrt3SOAINS_10RaySamplesEE16GetSetIndirectorcvS1_Ev.exit:
   %.sroa.05.0.vec.insert.i = insertelement <2 x float> poison, float %42, i64 0
   %.sroa.05.4.vec.insert.i = shufflevector <2 x float> %.sroa.05.0.vec.insert.i, <2 x float> poison, <2 x i32> zeroinitializer
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %44 = load float, ptr %43, align 4, !tbaa !159
+  %44 = load float, ptr %43, align 8, !tbaa !159
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %44, i64 0
   %.sroa.0.4.vec.insert.i = shufflevector <2 x float> %.sroa.0.0.vec.insert.i, <2 x float> poison, <2 x i32> zeroinitializer
   store <2 x float> %.sroa.07.4.vec.insert.i, ptr %19, align 8
@@ -25874,10 +25874,10 @@ _ZNK4pbrt15SampledSpectrum17MaxComponentValueEv.exit220: ; preds = %.preheader
   %390 = getelementptr inbounds nuw i8, ptr %289, i64 120
   %391 = load ptr, ptr %390, align 8, !tbaa !198
   %392 = getelementptr inbounds %"struct.pbrt::Float4", ptr %391, i64 %297
-  %393 = load <4 x float>, ptr %291, align 4
+  %393 = load <4 x float>, ptr %291, align 8
   %.sroa.03.4.vec.insert.i.i = shufflevector <4 x float> %393, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %394 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %395 = load <4 x float>, ptr %394, align 4
+  %395 = load <4 x float>, ptr %394, align 8
   %.sroa.35.12.vec.insert.i.i = shufflevector <4 x float> %395, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   store <2 x float> %.sroa.03.4.vec.insert.i.i, ptr %392, align 16
   %.sroa.2.0..0..sroa_idx.i.i39.i = getelementptr inbounds nuw i8, ptr %392, i64 8
@@ -25886,7 +25886,7 @@ _ZNK4pbrt15SampledSpectrum17MaxComponentValueEv.exit220: ; preds = %.preheader
   %397 = load ptr, ptr %396, align 8, !tbaa !199
   %398 = getelementptr inbounds %"struct.pbrt::Float4", ptr %397, i64 %297
   %399 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %400 = load <4 x float>, ptr %399, align 4
+  %400 = load <4 x float>, ptr %399, align 8
   %.sroa.0.4.vec.insert.i40.i = shufflevector <4 x float> %400, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i41.i = shufflevector <4 x float> %400, <4 x float> poison, <2 x i32> <i32 2, i32 3>
   store <2 x float> %.sroa.0.4.vec.insert.i40.i, ptr %398, align 16

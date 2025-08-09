@@ -492,7 +492,7 @@ define internal i32 @rv10_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %140 = tail call i32 @llvm.umin.i32(i32 %80, i32 %139)
   store i32 %140, ptr %67, align 8, !tbaa !4
   %141 = getelementptr inbounds nuw i8, ptr %55, i64 1288
-  store i32 %138, ptr %141, align 4, !tbaa !79
+  store i32 %138, ptr %141, align 8, !tbaa !79
   %142 = lshr i32 %140, 3
   %143 = zext nneg i32 %142 to i64
   %144 = getelementptr inbounds nuw i8, ptr %81, i64 %143
@@ -1225,7 +1225,7 @@ rv10_decode_picture_header.exit.thread.thread.i:  ; preds = %379, %333, %328, %r
   %552 = getelementptr inbounds nuw i8, ptr %55, i64 4124
   store i32 0, ptr %552, align 4, !tbaa !79
   %553 = getelementptr inbounds nuw i8, ptr %55, i64 4128
-  store i32 0, ptr %553, align 4, !tbaa !79
+  store i32 0, ptr %553, align 8, !tbaa !79
   %554 = getelementptr inbounds nuw i8, ptr %55, i64 4132
   store i32 0, ptr %554, align 4, !tbaa !79
   tail call void @ff_init_block_index(ptr noundef nonnull %55) #8
@@ -1267,21 +1267,21 @@ rv10_decode_picture_header.exit.thread.thread.i:  ; preds = %379, %333, %328, %r
   %578 = load i32, ptr %557, align 4, !tbaa !79
   %579 = add nsw i32 %578, 2
   store i32 %579, ptr %557, align 4, !tbaa !79
-  %580 = load i32, ptr %558, align 4, !tbaa !79
+  %580 = load i32, ptr %558, align 8, !tbaa !79
   %581 = add nsw i32 %580, 2
-  store i32 %581, ptr %558, align 4, !tbaa !79
+  store i32 %581, ptr %558, align 8, !tbaa !79
   %582 = load i32, ptr %559, align 4, !tbaa !79
   %583 = add nsw i32 %582, 2
   store i32 %583, ptr %559, align 4, !tbaa !79
-  %584 = load i32, ptr %560, align 4, !tbaa !79
+  %584 = load i32, ptr %560, align 8, !tbaa !79
   %585 = add nsw i32 %584, 2
-  store i32 %585, ptr %560, align 4, !tbaa !79
+  store i32 %585, ptr %560, align 8, !tbaa !79
   %586 = load i32, ptr %561, align 4, !tbaa !79
   %587 = add nsw i32 %586, 1
   store i32 %587, ptr %561, align 4, !tbaa !79
-  %588 = load i32, ptr %562, align 4, !tbaa !79
+  %588 = load i32, ptr %562, align 8, !tbaa !79
   %589 = add nsw i32 %588, 1
-  store i32 %589, ptr %562, align 4, !tbaa !79
+  store i32 %589, ptr %562, align 8, !tbaa !79
   %590 = shl nuw nsw i32 %577, 1
   %591 = load ptr, ptr %563, align 8, !tbaa !114
   %592 = zext nneg i32 %590 to i64

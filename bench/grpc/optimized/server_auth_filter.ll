@@ -1161,7 +1161,7 @@ _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit50: ; preds = %
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, ptr %0, align 8, !tbaa !108
   store i16 0, ptr %.sroa.2.0..0.1.sroa_idx.i.i.i.i, align 8, !tbaa !109
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store atomic i8 1, ptr %147 release, align 1
+  store atomic i8 1, ptr %147 release, align 8
   %148 = load ptr, ptr %.sroa.0.0.copyload.i.i.i.i, align 8, !tbaa !29
   %149 = load ptr, ptr %148, align 8
   invoke void %149(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.0.copyload.i.i.i.i, i16 noundef zeroext %.sroa.2.0.copyload.i.i.i.i)
@@ -2039,7 +2039,7 @@ _ZN9grpc_core5Arena5AllocEm.exit.i.i.i.i:         ; preds = %._ZN9grpc_core5Aren
   %88 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 112
   store i8 %87, ptr %88, align 16, !tbaa !158
   %89 = trunc nuw i8 %86 to i1
-  store i8 %86, ptr %.0.i.i.i.i.i, align 8, !tbaa !161
+  store i8 %86, ptr %.0.i.i.i.i.i, align 16, !tbaa !161
   br i1 %89, label %_ZN9grpc_core14promise_detail11PromiseLikeINS_2IfIbNS_17ImmediateOkStatusEZNS_16ServerAuthFilter4Call23OnClientInitialMetadataER19grpc_metadata_batchPS4_EUlvE_EEvEC2EOSB_.exit.i.i.i.i.i, label %90
 
 90:                                               ; preds = %_ZN9grpc_core5Arena5AllocEm.exit.i.i.i.i
@@ -7258,7 +7258,7 @@ _ZN9grpc_core37ClientInitialMetadataOutstandingTokenD2Ev.exit.i.i.i: ; preds = %
   %64 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %65 = load ptr, ptr %64, align 8, !tbaa !96, !noalias !481
   %.not.i1.i.i.i = icmp ne ptr %65, null
-  %66 = load i8, ptr %36, align 1, !range !86, !noalias !481
+  %66 = load i8, ptr %36, align 8, !range !86, !noalias !481
   %67 = trunc nuw i8 %66 to i1
   %or.cond.i.i.i.i = select i1 %.not.i1.i.i.i, i1 %67, i1 false
   br i1 %or.cond.i.i.i.i, label %68, label %_ZN9grpc_core14promise_detail18OncePromiseFactoryIvZNS_21promise_filter_detail11RunCallImplIMNS_16ServerAuthFilter4CallEFNS_2IfIbNS_17ImmediateOkStatusEZNS5_23OnClientInitialMetadataER19grpc_metadata_batchPS4_EUlvE_EES9_SA_ES4_vE3RunENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrIS8_NS_5Arena13PooledDeleterEEEESG_EEPNS2_14FilterCallDataIS4_EEEUlvE_ED2Ev.exit

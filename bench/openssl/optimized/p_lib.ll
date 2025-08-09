@@ -3690,7 +3690,7 @@ define ptr @EVP_PKEY_new() local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %4, align 4, !tbaa !77
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store atomic i32 1, ptr %5 seq_cst, align 4, !tbaa !98
+  store atomic i32 1, ptr %5 seq_cst, align 8, !tbaa !98
   %6 = tail call ptr @CRYPTO_THREAD_lock_new() #12
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr %6, ptr %7, align 8, !tbaa !36

@@ -5437,7 +5437,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %.sroa.23.0.copyload.i.i11.i = load i32, ptr %.sroa.23.0..sroa_idx.i.i10.i, align 8
   %18 = load double, ptr %0, align 8
   store double %18, ptr %17, align 8
-  %19 = load i32, ptr %15, align 4
+  %19 = load i32, ptr %15, align 8
   store i32 %19, ptr %.sroa.23.0..sroa_idx.i.i10.i, align 8
   %20 = ptrtoint ptr %17 to i64
   %21 = sub i64 %20, %4
@@ -5517,7 +5517,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIdjESt6ve
   %20 = load double, ptr %18, align 8
   store double %20, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -8
-  %22 = load i32, ptr %21, align 4
+  %22 = load i32, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -8
   store i32 %22, ptr %23, align 8
   %24 = add nsw i64 %.010.i.i.i.i.i.i, -1
@@ -5679,7 +5679,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIdjESt6ve
   %68 = load double, ptr %66, align 8
   store double %68, ptr %67, align 8
   %69 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i43, i64 -8
-  %70 = load i32, ptr %69, align 4
+  %70 = load i32, ptr %69, align 8
   %71 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i42, i64 -8
   store i32 %70, ptr %71, align 8
   %72 = add nsw i64 %.010.i.i.i.i.i.i41, -1
@@ -5842,10 +5842,10 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIdjESt6vecto
   store double %55, ptr %.sink41.i, align 8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %57 = getelementptr inbounds nuw i8, ptr %.sink41.i, i64 8
-  %58 = load i32, ptr %56, align 4
-  %59 = load i32, ptr %57, align 4
-  store i32 %59, ptr %56, align 4
-  store i32 %58, ptr %57, align 4
+  %58 = load i32, ptr %56, align 8
+  %59 = load i32, ptr %57, align 8
+  store i32 %59, ptr %56, align 8
+  store i32 %58, ptr %57, align 8
   br label %60
 
 60:                                               ; preds = %81, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIdjESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_SB_T0_.exit
@@ -5908,9 +5908,9 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIdjESt6ve
   store double %63, ptr %.sroa.0.1.i, align 8
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.011.1.i, i64 8
   %83 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i, i64 -8
-  %84 = load i32, ptr %82, align 4
+  %84 = load i32, ptr %82, align 8
   %85 = load i32, ptr %83, align 4
-  store i32 %85, ptr %82, align 4
+  store i32 %85, ptr %82, align 8
   store i32 %84, ptr %83, align 4
   %86 = getelementptr inbounds nuw i8, ptr %.sroa.011.1.i, i64 16
   br label %60, !llvm.loop !43
@@ -5986,7 +5986,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIdjESt6ve
   %42 = load double, ptr %40, align 8
   store double %42, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %44 = load i32, ptr %43, align 4
+  %44 = load i32, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i32 %44, ptr %45, align 8
   br label %46
@@ -9511,7 +9511,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN9QtPrivate8RefCo
   %73 = load float, ptr %72, align 4
   %74 = fcmp ogt float %73, 0.000000e+00
   %75 = getelementptr inbounds nuw i8, ptr %.sroa.038.044, i64 32
-  %76 = load float, ptr %75, align 4
+  %76 = load float, ptr %75, align 8
   %77 = fcmp ogt float %76, 0.000000e+00
   %78 = select i1 %74, i1 %77, i1 false
   br i1 %78, label %79, label %132
@@ -13099,7 +13099,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %52, %_ZN9QtPrivate8
   %81 = load i32, ptr %80, align 8, !noalias !119
   %82 = sext i32 %81 to i64
   %83 = getelementptr inbounds ptr, ptr %79, i64 %82
-  %84 = load atomic i32, ptr %78 monotonic, align 4, !noalias !122
+  %84 = load atomic i32, ptr %78 monotonic, align 8, !noalias !122
   %85 = icmp ugt i32 %84, 1
   br i1 %85, label %86, label %_ZN5QListI7QStringE3endEv.exit
 
@@ -13301,7 +13301,7 @@ _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i: ; preds = %_ZN7QStri
   %176 = load i32, ptr %175, align 8, !noalias !126
   %177 = sext i32 %176 to i64
   %178 = getelementptr inbounds ptr, ptr %174, i64 %177
-  %179 = load atomic i32, ptr %173 monotonic, align 4, !noalias !129
+  %179 = load atomic i32, ptr %173 monotonic, align 8, !noalias !129
   %180 = icmp ugt i32 %179, 1
   br i1 %180, label %181, label %_ZN5QListI5QPairI7QStringS1_EE3endEv.exit
 
@@ -23149,7 +23149,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i: ; preds = %_ZN9QtPrivate8Re
   %141 = load i32, ptr %140, align 8, !noalias !252
   %142 = sext i32 %141 to i64
   %143 = getelementptr inbounds ptr, ptr %139, i64 %142
-  %144 = load atomic i32, ptr %138 monotonic, align 4, !noalias !255
+  %144 = load atomic i32, ptr %138 monotonic, align 8, !noalias !255
   %145 = icmp ugt i32 %144, 1
   br i1 %145, label %146, label %_ZN5QListIP7QActionE3endEv.exit
 

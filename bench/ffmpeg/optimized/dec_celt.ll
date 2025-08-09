@@ -267,14 +267,14 @@ thread-pre-split.thread:                          ; preds = %68, %72, %thread-pr
   store i32 %122, ptr %132, align 16, !tbaa !36
   store float %125, ptr %84, align 4, !tbaa !35
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 16920
-  store float %128, ptr %133, align 4, !tbaa !35
+  store float %128, ptr %133, align 8, !tbaa !35
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 16924
   store float %131, ptr %134, align 4, !tbaa !35
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 33808
   store i32 %122, ptr %135, align 16, !tbaa !36
   store float %125, ptr %85, align 4, !tbaa !35
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 33816
-  store float %128, ptr %136, align 4, !tbaa !35
+  store float %128, ptr %136, align 8, !tbaa !35
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 33820
   store float %131, ptr %137, align 4, !tbaa !35
   br label %.loopexit.i
@@ -1764,11 +1764,11 @@ define internal fastcc void @celt_postfilter_apply_transition(ptr noundef readon
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16864
   %12 = load i32, ptr %11, align 16, !tbaa !77
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16872
-  %14 = load float, ptr %13, align 4, !tbaa !35
+  %14 = load float, ptr %13, align 8, !tbaa !35
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16876
   %16 = load float, ptr %15, align 4, !tbaa !35
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16856
-  %18 = load float, ptr %17, align 4, !tbaa !35
+  %18 = load float, ptr %17, align 8, !tbaa !35
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16860
   %20 = load float, ptr %19, align 4, !tbaa !35
   %21 = sub nsw i32 0, %10

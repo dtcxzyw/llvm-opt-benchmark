@@ -639,7 +639,7 @@ define void @_ZN5boost3log11v2_mt_posix13attribute_set5eraseENS2_4iterILb0EEES4_
   %5 = getelementptr inbounds nuw i8, ptr %.sroa.01.03, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !6
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.01.03, i64 16
-  %8 = load i32, ptr %7, align 4, !tbaa !22
+  %8 = load i32, ptr %7, align 8, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %10 = and i32 %8, 15
   %11 = zext nneg i32 %10 to i64

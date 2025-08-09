@@ -31198,7 +31198,7 @@ _ZN6QCacheI7QStringN22QCPLabelPainterPrivate11CachedLabelEEC2Ex.exit: ; preds = 
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 136
   store ptr null, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 144
-  store i8 0, ptr %23, align 8
+  store i8 0, ptr %23, align 16
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 145
   store i8 0, ptr %24, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(138) %.ptr.i, i8 noundef -1, i64 noundef 128, i1 noundef false) #52
@@ -35120,7 +35120,7 @@ _ZN22QCPLabelPainterPrivate11CachedLabelC2Ev.exit: ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN10QCPPainterC1EP12QPaintDevice(ptr noundef nonnull align 8 dereferenceable_or_null(40) %10, ptr noundef nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %84 = load i32, ptr %12, align 4
+  %84 = load i32, ptr %12, align 8
   %85 = sub i32 0, %84
   %86 = load i32, ptr %13, align 4
   %87 = sub i32 0, %86
@@ -47297,7 +47297,7 @@ _ZN7QStringD2Ev.exit69:                           ; preds = %60, %_ZN17QArrayDat
   store ptr @_ZN15QtSharedPointer33ExternalRefCountWithCustomDeleterI13QCPAxisTickerNS_13NormalDeleterEE7deleterEPNS_20ExternalRefCountDataE, ptr %105, align 8
   %106 = getelementptr inbounds nuw i8, ptr %101, i64 4
   store atomic i32 1, ptr %106 monotonic, align 4
-  store atomic i32 1, ptr %101 monotonic, align 4
+  store atomic i32 1, ptr %101 monotonic, align 8
   br label %107
 
 107:                                              ; preds = %104, %.noexc
@@ -53895,9 +53895,9 @@ _ZNK7QCPAxis12getLabelFontEv.exit:                ; preds = %.loopexit
   store ptr %89, ptr %9, align 8
   %91 = getelementptr inbounds nuw i8, ptr %87, i64 104
   %92 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %93 = load i32, ptr %91, align 4
+  %93 = load i32, ptr %91, align 8
   %94 = load i32, ptr %92, align 8
-  store i32 %94, ptr %91, align 4
+  store i32 %94, ptr %91, align 8
   store i32 %93, ptr %92, align 8
   call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(12) %9) #52
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -53972,9 +53972,9 @@ _ZNK7QCPAxis16getTickLabelFontEv.exit:            ; preds = %_ZNK7QCPAxis12getLa
   store ptr %127, ptr %12, align 8
   %129 = getelementptr inbounds nuw i8, ptr %125, i64 216
   %130 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %131 = load i32, ptr %129, align 4
+  %131 = load i32, ptr %129, align 8
   %132 = load i32, ptr %130, align 8
-  store i32 %132, ptr %129, align 4
+  store i32 %132, ptr %129, align 8
   store i32 %131, ptr %130, align 8
   call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(12) %12) #52
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -54729,9 +54729,9 @@ _ZNK7QCPAxis12getLabelFontEv.exit:                ; preds = %.loopexit
   store ptr %65, ptr %5, align 8
   %67 = getelementptr inbounds nuw i8, ptr %63, i64 104
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %69 = load i32, ptr %67, align 4
+  %69 = load i32, ptr %67, align 8
   %70 = load i32, ptr %68, align 8
-  store i32 %70, ptr %67, align 4
+  store i32 %70, ptr %67, align 8
   store i32 %69, ptr %68, align 8
   call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(12) %5) #52
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -55127,7 +55127,7 @@ _ZN6QCacheI7QStringN21QCPAxisPainterPrivate11CachedLabelEEC2Ex.exit: ; preds = %
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 136
   store ptr null, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %58, i64 144
-  store i8 0, ptr %63, align 8
+  store i8 0, ptr %63, align 16
   %64 = getelementptr inbounds nuw i8, ptr %58, i64 145
   store i8 0, ptr %64, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(138) %.ptr.i, i8 noundef -1, i64 noundef 128, i1 noundef false) #52
@@ -86417,7 +86417,7 @@ define void @_ZN11QCustomPlot17setupPaintBuffersEv(ptr noundef align 8 dereferen
   store ptr @_ZN15QtSharedPointer33ExternalRefCountWithCustomDeleterI22QCPAbstractPaintBufferNS_13NormalDeleterEE7deleterEPNS_20ExternalRefCountDataE, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store atomic i32 1, ptr %19 monotonic, align 4
-  store atomic i32 1, ptr %14 monotonic, align 4
+  store atomic i32 1, ptr %14 monotonic, align 8
   br label %_ZN14QSharedPointerI22QCPAbstractPaintBufferEC2IS0_TnNSt9enable_ifIXsr3std14is_convertibleIPT_PS0_EE5valueEbE4typeELb1EEES5_.exit
 
 _ZN14QSharedPointerI22QCPAbstractPaintBufferEC2IS0_TnNSt9enable_ifIXsr3std14is_convertibleIPT_PS0_EE5valueEbE4typeELb1EEES5_.exit: ; preds = %12, %17
@@ -86567,7 +86567,7 @@ _ZNK14QSharedPointerI22QCPAbstractPaintBufferE9toWeakRefEv.exit: ; preds = %56, 
   store ptr @_ZN15QtSharedPointer33ExternalRefCountWithCustomDeleterI22QCPAbstractPaintBufferNS_13NormalDeleterEE7deleterEPNS_20ExternalRefCountDataE, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %77, i64 4
   store atomic i32 1, ptr %82 monotonic, align 4
-  store atomic i32 1, ptr %77 monotonic, align 4
+  store atomic i32 1, ptr %77 monotonic, align 8
   br label %_ZN14QSharedPointerI22QCPAbstractPaintBufferEC2IS0_TnNSt9enable_ifIXsr3std14is_convertibleIPT_PS0_EE5valueEbE4typeELb1EEES5_.exit31
 
 _ZN14QSharedPointerI22QCPAbstractPaintBufferEC2IS0_TnNSt9enable_ifIXsr3std14is_convertibleIPT_PS0_EE5valueEbE4typeELb1EEES5_.exit31: ; preds = %75, %80
@@ -86690,7 +86690,7 @@ _ZN12QWeakPointerI22QCPAbstractPaintBufferED2Ev.exit45: ; preds = %111, %109, %_
   store ptr @_ZN15QtSharedPointer33ExternalRefCountWithCustomDeleterI22QCPAbstractPaintBufferNS_13NormalDeleterEE7deleterEPNS_20ExternalRefCountDataE, ptr %134, align 8
   %135 = getelementptr inbounds nuw i8, ptr %130, i64 4
   store atomic i32 1, ptr %135 monotonic, align 4
-  store atomic i32 1, ptr %130 monotonic, align 4
+  store atomic i32 1, ptr %130 monotonic, align 8
   br label %_ZN14QSharedPointerI22QCPAbstractPaintBufferEC2IS0_TnNSt9enable_ifIXsr3std14is_convertibleIPT_PS0_EE5valueEbE4typeELb1EEES5_.exit46
 
 _ZN14QSharedPointerI22QCPAbstractPaintBufferEC2IS0_TnNSt9enable_ifIXsr3std14is_convertibleIPT_PS0_EE5valueEbE4typeELb1EEES5_.exit46: ; preds = %128, %133
@@ -124447,7 +124447,7 @@ define void @_ZN8QCPGraphC2EP7QCPAxisS1_(ptr noundef align 8 dereferenceable_or_
   store ptr @_ZN15QtSharedPointer33ExternalRefCountWithCustomDeleterI16QCPDataContainerI12QCPGraphDataENS_13NormalDeleterEE7deleterEPNS_20ExternalRefCountDataE, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store atomic i32 1, ptr %17 monotonic, align 4
-  store atomic i32 1, ptr %12 monotonic, align 4
+  store atomic i32 1, ptr %12 monotonic, align 8
   br label %_ZN22QCPAbstractPlottable1DI12QCPGraphDataEC2EP7QCPAxisS3_.exit
 
 common.resume:                                    ; preds = %55, %18
@@ -139338,7 +139338,7 @@ define void @_ZN8QCPCurveC2EP7QCPAxisS1_(ptr noundef align 8 dereferenceable_or_
   store ptr @_ZN15QtSharedPointer33ExternalRefCountWithCustomDeleterI16QCPDataContainerI12QCPCurveDataENS_13NormalDeleterEE7deleterEPNS_20ExternalRefCountDataE, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store atomic i32 1, ptr %18 monotonic, align 4
-  store atomic i32 1, ptr %13 monotonic, align 4
+  store atomic i32 1, ptr %13 monotonic, align 8
   br label %_ZN22QCPAbstractPlottable1DI12QCPCurveDataEC2EP7QCPAxisS3_.exit
 
 common.resume:                                    ; preds = %68, %19
@@ -153394,7 +153394,7 @@ define void @_ZN7QCPBarsC2EP7QCPAxisS1_(ptr noundef align 8 dereferenceable_or_n
   store ptr @_ZN15QtSharedPointer33ExternalRefCountWithCustomDeleterI16QCPDataContainerI11QCPBarsDataENS_13NormalDeleterEE7deleterEPNS_20ExternalRefCountDataE, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store atomic i32 1, ptr %18 monotonic, align 4
-  store atomic i32 1, ptr %13 monotonic, align 4
+  store atomic i32 1, ptr %13 monotonic, align 8
   br label %_ZN22QCPAbstractPlottable1DI11QCPBarsDataEC2EP7QCPAxisS3_.exit
 
 common.resume:                                    ; preds = %60, %19
@@ -160151,7 +160151,7 @@ define void @_ZN17QCPStatisticalBoxC2EP7QCPAxisS1_(ptr noundef align 8 dereferen
   store ptr @_ZN15QtSharedPointer33ExternalRefCountWithCustomDeleterI16QCPDataContainerI21QCPStatisticalBoxDataENS_13NormalDeleterEE7deleterEPNS_20ExternalRefCountDataE, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store atomic i32 1, ptr %21 monotonic, align 4
-  store atomic i32 1, ptr %16 monotonic, align 4
+  store atomic i32 1, ptr %16 monotonic, align 8
   br label %_ZN22QCPAbstractPlottable1DI21QCPStatisticalBoxDataEC2EP7QCPAxisS3_.exit
 
 common.resume:                                    ; preds = %69, %22
@@ -165295,7 +165295,7 @@ define void @_ZNK17QCPStatisticalBox18drawStatisticalBoxEP10QCPPainterN5QListI21
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 248
   call void @_ZN8QPainter6setPenERK4QPen(ptr noundef align 8 dereferenceable_or_null(40) %1, ptr noundef nonnull align 8 dereferenceable(8) %44)
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %46 = load i32, ptr %45, align 4
+  %46 = load i32, ptr %45, align 8
   %47 = and i32 %46, 4
   %.not.i = icmp eq i32 %47, 0
   br i1 %.not.i, label %_ZN10QCPPainter6setPenERK4QPen.exit, label %48
@@ -171254,7 +171254,7 @@ define void @_ZN12QCPFinancialC2EP7QCPAxisS1_(ptr noundef align 8 dereferenceabl
   store ptr @_ZN15QtSharedPointer33ExternalRefCountWithCustomDeleterI16QCPDataContainerI16QCPFinancialDataENS_13NormalDeleterEE7deleterEPNS_20ExternalRefCountDataE, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store atomic i32 1, ptr %20 monotonic, align 4
-  store atomic i32 1, ptr %15 monotonic, align 4
+  store atomic i32 1, ptr %15 monotonic, align 8
   br label %_ZN22QCPAbstractPlottable1DI16QCPFinancialDataEC2EP7QCPAxisS3_.exit
 
 common.resume:                                    ; preds = %82, %21
@@ -180161,7 +180161,7 @@ define void @_ZN12QCPErrorBarsC2EP7QCPAxisS1_(ptr noundef align 8 dereferenceabl
   store ptr @_ZN15QtSharedPointer33ExternalRefCountWithCustomDeleterI5QListI16QCPErrorBarsDataENS_13NormalDeleterEE7deleterEPNS_20ExternalRefCountDataE, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store atomic i32 1, ptr %16 monotonic, align 4
-  store atomic i32 1, ptr %11 monotonic, align 4
+  store atomic i32 1, ptr %11 monotonic, align 8
   br label %17
 
 17:                                               ; preds = %14, %.noexc
@@ -205765,7 +205765,7 @@ _ZN7QStringD2Ev.exit66:                           ; preds = %58, %_ZN17QArrayDat
   store ptr @_ZN15QtSharedPointer33ExternalRefCountWithCustomDeleterI13QCPAxisTickerNS_13NormalDeleterEE7deleterEPNS_20ExternalRefCountDataE, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %96, i64 4
   store atomic i32 1, ptr %101 monotonic, align 4
-  store atomic i32 1, ptr %96 monotonic, align 4
+  store atomic i32 1, ptr %96 monotonic, align 8
   br label %102
 
 102:                                              ; preds = %99, %.noexc
@@ -210791,7 +210791,7 @@ _ZN7QStringD2Ev.exit78:                           ; preds = %69, %_ZN17QArrayDat
   store ptr @_ZN15QtSharedPointer33ExternalRefCountWithCustomDeleterI18QCPAxisTickerFixedNS_13NormalDeleterEE7deleterEPNS_20ExternalRefCountDataE, ptr %117, align 8
   %118 = getelementptr inbounds nuw i8, ptr %113, i64 4
   store atomic i32 1, ptr %118 monotonic, align 4
-  store atomic i32 1, ptr %113 monotonic, align 4
+  store atomic i32 1, ptr %113 monotonic, align 8
   br label %119
 
 119:                                              ; preds = %116, %.noexc
@@ -220394,7 +220394,7 @@ _ZN7QStringD2Ev.exit:
   store ptr @_ZN15QtSharedPointer33ExternalRefCountWithCustomDeleterI16QCPDataContainerI12QCPGraphDataENS_13NormalDeleterEE7deleterEPNS_20ExternalRefCountDataE, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store atomic i32 1, ptr %23 monotonic, align 4
-  store atomic i32 1, ptr %18 monotonic, align 4
+  store atomic i32 1, ptr %18 monotonic, align 8
   br label %24
 
 24:                                               ; preds = %21, %.noexc

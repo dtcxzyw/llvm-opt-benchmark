@@ -4221,7 +4221,7 @@ invoke.cont96.i.i.i.i.i:                          ; preds = %call3.i.i.i.noexc.i
   %capacity_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i.i363.i.i.i.i.i, i64 32
   store i64 %sub.i.i.i.i.i.i.i.i, ptr %capacity_.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !41
   %referenceCount_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i.i363.i.i.i.i.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !41
+  store i32 0, ptr %referenceCount_.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !41
   %podType_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i.i363.i.i.i.i.i, i64 44
   store i8 1, ptr %podType_.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !41
   %padding_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i.i363.i.i.i.i.i, i64 48

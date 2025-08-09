@@ -17719,7 +17719,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9: ; preds = %_ZNK
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i64 6, ptr %60, align 8, !tbaa !15
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 86
-  store i8 0, ptr %61, align 1, !tbaa !16
+  store i8 0, ptr %61, align 2, !tbaa !16
   ret void
 
 62:                                               ; preds = %.noexc.i
@@ -17828,7 +17828,7 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeIN10cmPolicies12PolicyStatusESt
   store ptr %14, ptr %13, align 8, !tbaa !36
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i64 0, ptr %15, align 8, !tbaa !15
-  store i8 0, ptr %14, align 1, !tbaa !16
+  store i8 0, ptr %14, align 8, !tbaa !16
   store ptr %8, ptr %7, align 8, !tbaa !319
   %16 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN10cmPolicies12PolicyStatusESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %9)
           to label %17 unwind label %32
@@ -18721,7 +18721,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12: ; preds = %_ZN
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i64 6, ptr %63, align 8, !tbaa !15
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 86
-  store i8 0, ptr %64, align 1, !tbaa !16
+  store i8 0, ptr %64, align 2, !tbaa !16
   ret void
 
 65:                                               ; preds = %.noexc.i7
@@ -20023,7 +20023,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9: ; preds = %_ZNK
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i64 6, ptr %60, align 8, !tbaa !15
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 86
-  store i8 0, ptr %61, align 1, !tbaa !16
+  store i8 0, ptr %61, align 2, !tbaa !16
   ret void
 
 62:                                               ; preds = %.noexc.i
@@ -22538,7 +22538,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %9,
   store i64 %16, ptr %17, align 8, !tbaa !15
   store ptr %7, ptr %1, align 8, !tbaa !9
   store i64 0, ptr %15, align 8, !tbaa !15
-  store i8 0, ptr %7, align 1, !tbaa !16
+  store i8 0, ptr %7, align 8, !tbaa !16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.not = icmp eq ptr %2, null
   %19 = select i1 %.not, ptr @.str.56, ptr %2
@@ -25041,7 +25041,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %8,
   store i64 %15, ptr %16, align 8, !tbaa !15
   store ptr %6, ptr %1, align 8, !tbaa !9
   store i64 0, ptr %14, align 8, !tbaa !15
-  store i8 0, ptr %6, align 1, !tbaa !16
+  store i8 0, ptr %6, align 8, !tbaa !16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !478)
   %18 = tail call i64 @llvm.abs.i64(i64 %2, i1 false)
@@ -25937,7 +25937,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12: ; preds = %_ZN
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i64 6, ptr %64, align 8, !tbaa !15
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 86
-  store i8 0, ptr %65, align 1, !tbaa !16
+  store i8 0, ptr %65, align 2, !tbaa !16
   ret void
 
 66:                                               ; preds = %.noexc.i7
@@ -27262,7 +27262,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14: ; preds = %_ZN
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i64 6, ptr %62, align 8, !tbaa !15
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 86
-  store i8 0, ptr %63, align 1, !tbaa !16
+  store i8 0, ptr %63, align 2, !tbaa !16
   ret void
 
 64:                                               ; preds = %.noexc.i9
@@ -27715,7 +27715,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14: ; preds = %_ZN
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i64 6, ptr %63, align 8, !tbaa !15
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 86
-  store i8 0, ptr %64, align 1, !tbaa !16
+  store i8 0, ptr %64, align 2, !tbaa !16
   ret void
 
 65:                                               ; preds = %.noexc.i9

@@ -18179,7 +18179,7 @@ sw.bb28:                                          ; preds = %_ZNK6google8protobu
   %current_size_.i.i = getelementptr inbounds nuw i8, ptr %call32, i64 8
   %21 = load i32, ptr %current_size_.i.i, align 8
   %sub.i.i = add nsw i32 %21, -1
-  store i32 %sub.i.i, ptr %current_size_.i.i, align 4
+  store i32 %sub.i.i, ptr %current_size_.i.i, align 8
   %22 = load ptr, ptr %call32, align 8
   %23 = ptrtoint ptr %22 to i64
   %and.i.i.i.i = and i64 %23, 1
@@ -18239,7 +18239,7 @@ if.then35:                                        ; preds = %_ZN6google8protobuf
   %current_size_.i = getelementptr inbounds nuw i8, ptr %call37, i64 8
   %32 = load i32, ptr %current_size_.i, align 8
   %sub.i = add nsw i32 %32, -1
-  store i32 %sub.i, ptr %current_size_.i, align 4
+  store i32 %sub.i, ptr %current_size_.i, align 8
   %33 = load ptr, ptr %call37, align 8
   %34 = ptrtoint ptr %33 to i64
   %and.i.i.i = and i64 %34, 1
@@ -18262,7 +18262,7 @@ if.else38:                                        ; preds = %_ZNK6google8protobu
   %current_size_.i42 = getelementptr inbounds nuw i8, ptr %call39, i64 8
   %38 = load i32, ptr %current_size_.i42, align 8
   %sub.i43 = add nsw i32 %38, -1
-  store i32 %sub.i43, ptr %current_size_.i42, align 4
+  store i32 %sub.i43, ptr %current_size_.i42, align 8
   %39 = load ptr, ptr %call39, align 8
   %40 = ptrtoint ptr %39 to i64
   %and.i.i.i44 = and i64 %40, 1
@@ -18418,7 +18418,7 @@ if.then19:                                        ; preds = %_ZN6google8protobuf
   %current_size_.i.i = getelementptr inbounds nuw i8, ptr %call21, i64 8
   %20 = load i32, ptr %current_size_.i.i, align 8
   %sub.i.i = add nsw i32 %20, -1
-  store i32 %sub.i.i, ptr %current_size_.i.i, align 4
+  store i32 %sub.i.i, ptr %current_size_.i.i, align 8
   %21 = load ptr, ptr %call21, align 8
   %22 = ptrtoint ptr %21 to i64
   %and.i.i.i.i = and i64 %22, 1
@@ -18495,7 +18495,7 @@ if.else23:                                        ; preds = %_ZNK6google8protobu
   %current_size_.i.i20 = getelementptr inbounds nuw i8, ptr %call24, i64 8
   %33 = load i32, ptr %current_size_.i.i20, align 8
   %sub.i.i21 = add nsw i32 %33, -1
-  store i32 %sub.i.i21, ptr %current_size_.i.i20, align 4
+  store i32 %sub.i.i21, ptr %current_size_.i.i20, align 8
   %34 = load ptr, ptr %call24, align 8
   %35 = ptrtoint ptr %34 to i64
   %and.i.i.i.i22 = and i64 %35, 1
@@ -18798,7 +18798,7 @@ if.then19:                                        ; preds = %_ZN6google8protobuf
   %current_size_.i = getelementptr inbounds nuw i8, ptr %call21, i64 8
   %20 = load i32, ptr %current_size_.i, align 8
   %sub.i = add nsw i32 %20, -1
-  store i32 %sub.i, ptr %current_size_.i, align 4
+  store i32 %sub.i, ptr %current_size_.i, align 8
   %21 = load ptr, ptr %call21, align 8
   %22 = ptrtoint ptr %21 to i64
   %and.i.i.i = and i64 %22, 1
@@ -18864,7 +18864,7 @@ if.else23:                                        ; preds = %_ZNK6google8protobu
   %current_size_.i16 = getelementptr inbounds nuw i8, ptr %call24, i64 8
   %32 = load i32, ptr %current_size_.i16, align 8
   %sub.i17 = add nsw i32 %32, -1
-  store i32 %sub.i17, ptr %current_size_.i16, align 4
+  store i32 %sub.i17, ptr %current_size_.i16, align 8
   %33 = load ptr, ptr %call24, align 8
   %34 = ptrtoint ptr %33 to i64
   %and.i.i.i18 = and i64 %34, 1

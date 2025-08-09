@@ -5093,17 +5093,17 @@ define linkonce_odr hidden void @_ZNK6google8protobuf8internal30RepeatedPtrField
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !196, !noalias !197
   %21 = load i32, ptr %18, align 4, !tbaa !155, !noalias !197
-  %22 = load i32, ptr %17, align 4, !tbaa !155, !noalias !197
+  %22 = load i32, ptr %17, align 8, !tbaa !155, !noalias !197
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !196, !noalias !200
   %27 = load i32, ptr %24, align 4, !tbaa !155, !noalias !200
-  %28 = load i32, ptr %23, align 4, !tbaa !155, !noalias !200
-  store i32 %28, ptr %17, align 4, !tbaa !155
+  %28 = load i32, ptr %23, align 8, !tbaa !155, !noalias !200
+  store i32 %28, ptr %17, align 8, !tbaa !155
   store i32 %27, ptr %18, align 4, !tbaa !155
   store ptr %26, ptr %19, align 8, !tbaa !196
-  store i32 %22, ptr %23, align 4, !tbaa !155
+  store i32 %22, ptr %23, align 8, !tbaa !155
   store i32 %21, ptr %24, align 4, !tbaa !155
   store ptr %20, ptr %25, align 8, !tbaa !196
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4SwapEPS8_.exit
@@ -5129,7 +5129,7 @@ define linkonce_odr hidden void @_ZNK6google8protobuf8internal30RepeatedPtrField
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !196, !noalias !203
   %40 = load i32, ptr %37, align 4, !tbaa !155, !noalias !203
-  %41 = load i32, ptr %36, align 4, !tbaa !155, !noalias !203
+  %41 = load i32, ptr %36, align 8, !tbaa !155, !noalias !203
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -5379,7 +5379,7 @@ define linkonce_odr hidden noundef ptr @_ZNK6google8protobuf8internal30RepeatedP
   store ptr %4, ptr %3, align 8, !tbaa !28
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %5, align 8, !tbaa !34
-  store i8 0, ptr %4, align 1, !tbaa !36
+  store i8 0, ptr %4, align 8, !tbaa !36
   ret ptr %3
 }
 
@@ -5436,7 +5436,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %19, ptr %.sink6.i.i, align 8, !tbaa !28
   %20 = getelementptr inbounds nuw i8, ptr %.sink6.i.i, i64 8
   store i64 0, ptr %20, align 8, !tbaa !34
-  store i8 0, ptr %19, align 1, !tbaa !36
+  store i8 0, ptr %19, align 8, !tbaa !36
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sink6.i.i, ptr noundef nonnull align 8 dereferenceable(32) %1)
   br i1 %6, label %21, label %_ZN6google8protobuf5Arena11OwnInternalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_St17integral_constantIbLb0EE.exit
 
@@ -5931,14 +5931,14 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldI
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %61 = load ptr, ptr %60, align 8, !tbaa !196, !noalias !215
   %62 = load i32, ptr %59, align 4, !tbaa !155, !noalias !215
-  %63 = load i32, ptr %34, align 4, !tbaa !155, !noalias !215
+  %63 = load i32, ptr %34, align 8, !tbaa !155, !noalias !215
   %64 = load ptr, ptr %1, align 8, !tbaa !214, !noalias !215
   store ptr %64, ptr %3, align 8, !tbaa !214
   store i32 %63, ptr %5, align 8, !tbaa !155
   store i32 %62, ptr %53, align 4, !tbaa !155
   store ptr %61, ptr %54, align 8, !tbaa !196
   store ptr %58, ptr %1, align 8, !tbaa !214
-  store i32 %57, ptr %34, align 4, !tbaa !155
+  store i32 %57, ptr %34, align 8, !tbaa !155
   store i32 %56, ptr %59, align 4, !tbaa !155
   store ptr %55, ptr %60, align 8, !tbaa !196
   %.not.i = icmp ne ptr %61, null
@@ -6022,7 +6022,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %12, ptr %11, align 8, !tbaa !28
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %13, align 8, !tbaa !34
-  store i8 0, ptr %12, align 1, !tbaa !36
+  store i8 0, ptr %12, align 8, !tbaa !36
   %14 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv28
   store ptr %11, ptr %14, align 8, !tbaa !91
   %indvars.iv.next29 = add nsw i64 %indvars.iv28, 1
@@ -6041,7 +6041,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %19, ptr %16, align 8, !tbaa !28
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 0, ptr %20, align 8, !tbaa !34
-  store i8 0, ptr %19, align 1, !tbaa !36
+  store i8 0, ptr %19, align 8, !tbaa !36
   %21 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   store ptr %16, ptr %21, align 8, !tbaa !91
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -6327,17 +6327,17 @@ define linkonce_odr hidden void @_ZNK6google8protobuf8internal16MapFieldAccessor
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !196, !noalias !223
   %23 = load i32, ptr %20, align 4, !tbaa !155, !noalias !223
-  %24 = load i32, ptr %19, align 4, !tbaa !155, !noalias !223
+  %24 = load i32, ptr %19, align 8, !tbaa !155, !noalias !223
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !196, !noalias !226
   %29 = load i32, ptr %26, align 4, !tbaa !155, !noalias !226
-  %30 = load i32, ptr %25, align 4, !tbaa !155, !noalias !226
-  store i32 %30, ptr %19, align 4, !tbaa !155
+  %30 = load i32, ptr %25, align 8, !tbaa !155, !noalias !226
+  store i32 %30, ptr %19, align 8, !tbaa !155
   store i32 %29, ptr %20, align 4, !tbaa !155
   store ptr %28, ptr %21, align 8, !tbaa !196
-  store i32 %24, ptr %25, align 4, !tbaa !155
+  store i32 %24, ptr %25, align 8, !tbaa !155
   store i32 %23, ptr %26, align 4, !tbaa !155
   store ptr %22, ptr %27, align 8, !tbaa !196
   br label %_ZN6google8protobuf16RepeatedPtrFieldINS0_7MessageEE4SwapEPS3_.exit
@@ -6652,14 +6652,14 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldI
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %61 = load ptr, ptr %60, align 8, !tbaa !196, !noalias !232
   %62 = load i32, ptr %59, align 4, !tbaa !155, !noalias !232
-  %63 = load i32, ptr %34, align 4, !tbaa !155, !noalias !232
+  %63 = load i32, ptr %34, align 8, !tbaa !155, !noalias !232
   %64 = load ptr, ptr %1, align 8, !tbaa !214, !noalias !232
   store ptr %64, ptr %3, align 8, !tbaa !214
   store i32 %63, ptr %5, align 8, !tbaa !155
   store i32 %62, ptr %53, align 4, !tbaa !155
   store ptr %61, ptr %54, align 8, !tbaa !196
   store ptr %58, ptr %1, align 8, !tbaa !214
-  store i32 %57, ptr %34, align 4, !tbaa !155
+  store i32 %57, ptr %34, align 8, !tbaa !155
   store i32 %56, ptr %59, align 4, !tbaa !155
   store ptr %55, ptr %60, align 8, !tbaa !196
   %.not.i = icmp ne ptr %61, null
@@ -7000,17 +7000,17 @@ define linkonce_odr hidden void @_ZNK6google8protobuf8internal31RepeatedPtrField
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !196, !noalias !238
   %21 = load i32, ptr %18, align 4, !tbaa !155, !noalias !238
-  %22 = load i32, ptr %17, align 4, !tbaa !155, !noalias !238
+  %22 = load i32, ptr %17, align 8, !tbaa !155, !noalias !238
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !196, !noalias !241
   %27 = load i32, ptr %24, align 4, !tbaa !155, !noalias !241
-  %28 = load i32, ptr %23, align 4, !tbaa !155, !noalias !241
-  store i32 %28, ptr %17, align 4, !tbaa !155
+  %28 = load i32, ptr %23, align 8, !tbaa !155, !noalias !241
+  store i32 %28, ptr %17, align 8, !tbaa !155
   store i32 %27, ptr %18, align 4, !tbaa !155
   store ptr %26, ptr %19, align 8, !tbaa !196
-  store i32 %22, ptr %23, align 4, !tbaa !155
+  store i32 %22, ptr %23, align 8, !tbaa !155
   store i32 %21, ptr %24, align 4, !tbaa !155
   store ptr %20, ptr %25, align 8, !tbaa !196
   br label %_ZN6google8protobuf16RepeatedPtrFieldINS0_7MessageEE4SwapEPS3_.exit

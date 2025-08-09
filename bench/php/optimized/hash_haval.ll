@@ -154,7 +154,7 @@ Encode.exit:
   store i8 %13, ptr %14, align 1, !tbaa !14
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %17 = load i64, ptr %16, align 4
+  %17 = load i64, ptr %16, align 8
   store i64 %17, ptr %15, align 1
   %18 = load i32, ptr %16, align 8, !tbaa !4
   %19 = lshr i32 %18, 3
@@ -622,7 +622,7 @@ Encode.exit:
   store i8 %13, ptr %14, align 1, !tbaa !14
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %17 = load i64, ptr %16, align 4
+  %17 = load i64, ptr %16, align 8
   store i64 %17, ptr %15, align 1
   %18 = load i32, ptr %16, align 8, !tbaa !4
   %19 = lshr i32 %18, 3
@@ -844,7 +844,7 @@ Encode.exit:
   store i8 %13, ptr %14, align 1, !tbaa !14
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %17 = load i64, ptr %16, align 4
+  %17 = load i64, ptr %16, align 8
   store i64 %17, ptr %15, align 1
   %18 = load i32, ptr %16, align 8, !tbaa !4
   %19 = lshr i32 %18, 3
@@ -1062,7 +1062,7 @@ Encode.exit:
   store i8 %13, ptr %14, align 1, !tbaa !14
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %17 = load i64, ptr %16, align 4
+  %17 = load i64, ptr %16, align 8
   store i64 %17, ptr %15, align 1
   %18 = load i32, ptr %16, align 8, !tbaa !4
   %19 = lshr i32 %18, 3
@@ -1271,7 +1271,7 @@ Encode.exit:
   store i8 %13, ptr %14, align 1, !tbaa !14
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %17 = load i64, ptr %16, align 4
+  %17 = load i64, ptr %16, align 8
   store i64 %17, ptr %15, align 1
   %18 = load i32, ptr %16, align 8, !tbaa !4
   %19 = lshr i32 %18, 3

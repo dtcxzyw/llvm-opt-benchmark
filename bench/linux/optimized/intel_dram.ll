@@ -335,7 +335,7 @@ default.unreachable7:                             ; preds = %98
   %142 = and i64 %141, 2
   %143 = icmp eq i64 %142, 0
   %144 = zext i1 %143 to i8
-  store i8 %144, ptr %2, align 4
+  store i8 %144, ptr %2, align 8
   %145 = load i16, ptr %129, align 8
   %146 = icmp ugt i16 %145, 13
   br i1 %146, label %147, label %.thread4

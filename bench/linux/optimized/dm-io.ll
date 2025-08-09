@@ -229,7 +229,7 @@ define dso_local range(i32 -22, 1) i32 @dm_io(ptr noundef readonly captures(none
   %73 = call noalias ptr @mempool_alloc(ptr noundef %63, i32 noundef 3072) #12
   store i64 0, ptr %73, align 64
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  store volatile i32 1, ptr %74, align 4
+  store volatile i32 1, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 16
   store ptr %63, ptr %75, align 16
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 24
@@ -285,7 +285,7 @@ define dso_local range(i32 -22, 1) i32 @dm_io(ptr noundef readonly captures(none
   %101 = tail call noalias ptr @mempool_alloc(ptr noundef %100, i32 noundef 3072) #12
   store i64 0, ptr %101, align 64
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  store volatile i32 1, ptr %102, align 4
+  store volatile i32 1, ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 16
   store ptr %100, ptr %103, align 16
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 24
@@ -413,9 +413,9 @@ define internal void @bio_next_page(ptr noundef captures(none) %0) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %8 = load i32, ptr %7, align 1
+  %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load i32, ptr %9, align 1
+  %10 = load i32, ptr %9, align 8
   %11 = icmp uge i32 %10, %4
   %12 = load i1, ptr @bvec_iter_advance.__already_done, align 1
   %13 = select i1 %11, i1 true, i1 %12

@@ -3470,7 +3470,7 @@ cleanup.cont.i.i:                                 ; preds = %lor.lhs.false.i.i.i
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #35
   store ptr null, ptr %call5.i.i.i.i.i.i, align 8, !tbaa !124
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 8
-  store i16 %peer_requested, ptr %add.ptr.i.i.i.i, align 4, !tbaa !166
+  store i16 %peer_requested, ptr %add.ptr.i.i.i.i, align 8, !tbaa !166
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 12
   store i32 0, ptr %second.i.i.i.i.i.i.i.i, align 4, !tbaa !168
   %call7.i.i = invoke ptr @_ZNSt10_HashtableItSt4pairIKtjESaIS2_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS4_10_Hash_nodeIS2_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %m_peer_queue_count, i64 noundef %rem.i.i.i.i.i, i64 noundef %conv.i.i.i.i, ptr noundef nonnull %call5.i.i.i.i.i.i, i64 noundef 1)
@@ -4240,7 +4240,7 @@ if.end:                                           ; preds = %_ZNKSt4lessIN3irr4c
   %_M_element_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 296
   %8 = load i64, ptr %_M_element_count.i.i.i, align 8, !tbaa !201
   %cmp.not.not.i.i = icmp eq i64 %8, 0
-  %9 = load i16, ptr %bedata, align 2
+  %9 = load i16, ptr %bedata, align 8
   br i1 %cmp.not.not.i.i, label %if.then.i.i, label %if.end15.i.i
 
 if.then.i.i:                                      ; preds = %if.end
@@ -9478,7 +9478,7 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIt
   %__bbegin_bkt.043 = phi i64 [ %__bbegin_bkt.1, %if.end22 ], [ 0, %_ZNSt10_HashtableItSt4pairIKtjESaIS2_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %1 = load ptr, ptr %__p.044, align 8, !tbaa !124
   %add.ptr = getelementptr inbounds nuw i8, ptr %__p.044, i64 8
-  %2 = load i16, ptr %add.ptr, align 2, !tbaa !104
+  %2 = load i16, ptr %add.ptr, align 8, !tbaa !104
   %conv.i.i.i = zext i16 %2 to i64
   %rem.i.i = urem i64 %conv.i.i.i, %__bkt_count
   %arrayidx = getelementptr inbounds nuw ptr, ptr %retval.0.i, i64 %rem.i.i

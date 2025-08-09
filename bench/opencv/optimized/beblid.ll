@@ -2234,7 +2234,7 @@ _ZNSt12_Vector_baseIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EEC2EmRKS3_.exit.
   %51 = load float, ptr %50, align 4, !tbaa !140
   %52 = fmul float %49, %51
   %53 = load i32, ptr %38, align 4, !tbaa !79
-  %54 = load i32, ptr %39, align 4, !tbaa !80
+  %54 = load i32, ptr %39, align 8, !tbaa !80
   %55 = add nsw i32 %54, %53
   %56 = sitofp i32 %55 to float
   %57 = fmul float %56, 5.000000e-01
@@ -3638,7 +3638,7 @@ _ZNSt12_Vector_baseIN2cv11xfeatures2d10ABWLParamsESaIS2_EEC2EmRKS3_.exit.thread.
   %51 = load float, ptr %50, align 4, !tbaa !140
   %52 = fmul float %49, %51
   %53 = load i32, ptr %38, align 4, !tbaa !79
-  %54 = load i32, ptr %39, align 4, !tbaa !80
+  %54 = load i32, ptr %39, align 8, !tbaa !80
   %55 = add nsw i32 %54, %53
   %56 = sitofp i32 %55 to float
   %57 = fmul float %56, 5.000000e-01

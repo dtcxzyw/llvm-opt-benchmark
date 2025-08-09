@@ -2023,7 +2023,7 @@ define void @_Z19_gmx_sel_init_lexerPPvP23gmx_ana_selcollection_tPN3gmx10TextWri
   store ptr %28, ptr %27, align 8, !tbaa !71
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 56
   store i64 0, ptr %29, align 8, !tbaa !26
-  store i8 0, ptr %28, align 1, !tbaa !37
+  store i8 0, ptr %28, align 8, !tbaa !37
   store ptr %1, ptr %25, align 8, !tbaa !92
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i8 %24, ptr %30, align 8, !tbaa !107

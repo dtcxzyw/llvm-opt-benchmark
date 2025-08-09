@@ -7886,7 +7886,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !tbaa !14, !alias.scope !230, !noalias !233
   store ptr %43, ptr %.0911.i.i.i, align 8, !tbaa !25, !alias.scope !233, !noalias !230
   store i64 0, ptr %52, align 8, !tbaa !14, !alias.scope !233, !noalias !230
-  store i8 0, ptr %43, align 1, !tbaa !9, !alias.scope !233, !noalias !230
+  store i8 0, ptr %43, align 8, !tbaa !9, !alias.scope !233, !noalias !230
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %54, %1
@@ -7934,7 +7934,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !tbaa !14, !alias.scope !237, !noalias !240
   store ptr %59, ptr %.0911.i.i.i29, align 8, !tbaa !25, !alias.scope !240, !noalias !237
   store i64 0, ptr %68, align 8, !tbaa !14, !alias.scope !240, !noalias !237
-  store i8 0, ptr %59, align 1, !tbaa !9, !alias.scope !240, !noalias !237
+  store i8 0, ptr %59, align 8, !tbaa !9, !alias.scope !240, !noalias !237
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %.not.i.i.i34 = icmp eq ptr %70, %6
@@ -8220,7 +8220,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %75
   store i64 %81, ptr %83, align 8, !tbaa !14
   store ptr %73, ptr %3, align 8, !tbaa !25
   store i64 0, ptr %82, align 8, !tbaa !14
-  store i8 0, ptr %73, align 1, !tbaa !9
+  store i8 0, ptr %73, align 8, !tbaa !9
   ret void
 }
 
@@ -8718,7 +8718,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %78
   store i64 %84, ptr %86, align 8, !tbaa !14
   store ptr %76, ptr %1, align 8, !tbaa !25
   store i64 0, ptr %85, align 8, !tbaa !14
-  store i8 0, ptr %76, align 1, !tbaa !9
+  store i8 0, ptr %76, align 8, !tbaa !9
   ret void
 
 .loopexit59:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmRKS4_.exit.i
@@ -11301,7 +11301,7 @@ _ZN8nlohmann6detail10serializerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basi
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 24
   %116 = load i32, ptr %115, align 8, !tbaa !282
   %117 = or i32 %116, 16384
-  store i32 %117, ptr %115, align 4, !tbaa !291
+  store i32 %117, ptr %115, align 8, !tbaa !291
   %118 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St8_SetfillIS3_E(ptr noundef nonnull align 8 dereferenceable(8) %110, i8 48)
           to label %119 unwind label %142
 
@@ -11318,7 +11318,7 @@ _ZN8nlohmann6detail10serializerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basi
   %128 = load i32, ptr %127, align 8, !tbaa !282
   %129 = and i32 %128, -75
   %130 = or disjoint i32 %129, 8
-  store i32 %130, ptr %127, align 4, !tbaa !291
+  store i32 %130, ptr %127, align 8, !tbaa !291
   %131 = zext i8 %22 to i32
   %132 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %118, i32 noundef %131)
           to label %133 unwind label %142
@@ -11668,7 +11668,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131: ; preds = %_Z
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 24
   %261 = load i32, ptr %260, align 8, !tbaa !282
   %262 = or i32 %261, 16384
-  store i32 %262, ptr %260, align 4, !tbaa !291
+  store i32 %262, ptr %260, align 8, !tbaa !291
   %263 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St8_SetfillIS3_E(ptr noundef nonnull align 8 dereferenceable(8) %255, i8 48)
           to label %264 unwind label %289
 
@@ -11685,7 +11685,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131: ; preds = %_Z
   %273 = load i32, ptr %272, align 8, !tbaa !282
   %274 = and i32 %273, -75
   %275 = or disjoint i32 %274, 8
-  store i32 %275, ptr %272, align 4, !tbaa !291
+  store i32 %275, ptr %272, align 8, !tbaa !291
   %276 = load i64, ptr %15, align 8, !tbaa !14
   %277 = load ptr, ptr %1, align 8, !tbaa !25
   %278 = getelementptr i8, ptr %277, i64 %276

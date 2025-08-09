@@ -324,11 +324,11 @@ define void @color_picker_apply(ptr noundef %0, ptr noundef readnone captures(no
   %29 = load float, ptr %28, align 4, !tbaa !47
   store float %29, ptr %18, align 16, !tbaa !47
   %30 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %31 = load float, ptr %27, align 4, !tbaa !47
+  %31 = load float, ptr %27, align 16, !tbaa !47
   store float %31, ptr %30, align 4, !tbaa !47
   %32 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %34 = load float, ptr %33, align 4, !tbaa !47
+  %34 = load float, ptr %33, align 8, !tbaa !47
   store float %34, ptr %32, align 8, !tbaa !47
   %35 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 524

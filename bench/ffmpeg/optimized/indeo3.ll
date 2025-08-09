@@ -2230,7 +2230,7 @@ copy_block4.exit:                                 ; preds = %.preheader56, %.pre
   %203 = and i32 %202, 2139062143
   store i32 %203, ptr %.029830, align 4, !tbaa !40
   %204 = getelementptr inbounds nuw i8, ptr %.029830, i64 4
-  %205 = load i32, ptr %204, align 1, !tbaa !40
+  %205 = load i32, ptr %204, align 4, !tbaa !40
   %206 = load ptr, ptr %197, align 8, !tbaa !104
   %207 = zext nneg i32 %.0294 to i64
   %208 = getelementptr inbounds nuw i32, ptr %206, i64 %207
@@ -2247,7 +2247,7 @@ copy_block4.exit:                                 ; preds = %.preheader56, %.pre
   %218 = and i32 %217, 2139062143
   store i32 %218, ptr %212, align 4, !tbaa !40
   %219 = getelementptr inbounds nuw i8, ptr %212, i64 4
-  %220 = load i32, ptr %219, align 1, !tbaa !40
+  %220 = load i32, ptr %219, align 4, !tbaa !40
   %221 = load ptr, ptr %197, align 8, !tbaa !104
   %222 = getelementptr inbounds nuw i32, ptr %221, i64 %207
   %223 = load i32, ptr %222, align 4, !tbaa !47
@@ -2266,7 +2266,7 @@ copy_block4.exit:                                 ; preds = %.preheader56, %.pre
   %232 = and i16 %231, 32639
   store i16 %232, ptr %.029830, align 2, !tbaa !40
   %233 = getelementptr inbounds nuw i8, ptr %.029830, i64 2
-  %234 = load i16, ptr %233, align 1, !tbaa !40
+  %234 = load i16, ptr %233, align 2, !tbaa !40
   %235 = load ptr, ptr %.0296, align 8, !tbaa !103
   %236 = zext nneg i32 %.0294 to i64
   %237 = getelementptr inbounds nuw i16, ptr %235, i64 %236
@@ -2283,7 +2283,7 @@ copy_block4.exit:                                 ; preds = %.preheader56, %.pre
   %247 = and i16 %246, 32639
   store i16 %247, ptr %241, align 2, !tbaa !40
   %248 = getelementptr inbounds nuw i8, ptr %241, i64 2
-  %249 = load i16, ptr %248, align 1, !tbaa !40
+  %249 = load i16, ptr %248, align 2, !tbaa !40
   %250 = load ptr, ptr %.0296, align 8, !tbaa !103
   %251 = getelementptr inbounds nuw i16, ptr %250, i64 %236
   %252 = load i16, ptr %251, align 2, !tbaa !90

@@ -5996,13 +5996,13 @@ _ZN20btAlignedObjectArrayIN10btSoftBody4NodeEE9push_backERKS1_.exit: ; preds = %
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !349)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !352)
-  %113 = load float, ptr %102, align 4, !tbaa !234, !noalias !355
+  %113 = load float, ptr %102, align 8, !tbaa !234, !noalias !355
   %114 = fsub float %113, %52
   %115 = getelementptr inbounds nuw i8, ptr %101, i64 20
   %116 = load float, ptr %115, align 4, !tbaa !234, !noalias !355
   %117 = fsub float %116, %52
   %118 = getelementptr inbounds nuw i8, ptr %101, i64 24
-  %119 = load float, ptr %118, align 4, !tbaa !234, !noalias !355
+  %119 = load float, ptr %118, align 8, !tbaa !234, !noalias !355
   %120 = fsub float %119, %52
   %.sroa.0.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %114, i64 0
   %.sroa.0.4.vec.insert.i.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i.i, float %117, i64 1
@@ -7818,8 +7818,8 @@ define dso_local void @_ZN10btSoftBody22appendDeformableAnchorEiP11btRigidBody(p
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %95 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %96 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %97 = load float, ptr %95, align 4, !tbaa !234
-  %98 = load float, ptr %96, align 4, !tbaa !234
+  %97 = load float, ptr %95, align 8, !tbaa !234
+  %98 = load float, ptr %96, align 8, !tbaa !234
   %99 = fsub float %97, %98
   %100 = getelementptr inbounds nuw i8, ptr %85, i64 20
   %101 = load float, ptr %100, align 4, !tbaa !234
@@ -7827,9 +7827,9 @@ define dso_local void @_ZN10btSoftBody22appendDeformableAnchorEiP11btRigidBody(p
   %103 = load float, ptr %102, align 4, !tbaa !234
   %104 = fsub float %101, %103
   %105 = getelementptr inbounds nuw i8, ptr %85, i64 24
-  %106 = load float, ptr %105, align 4, !tbaa !234
+  %106 = load float, ptr %105, align 8, !tbaa !234
   %107 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %108 = load float, ptr %107, align 4, !tbaa !234
+  %108 = load float, ptr %107, align 8, !tbaa !234
   %109 = fsub float %106, %108
   %110 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %111 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -7839,15 +7839,15 @@ define dso_local void @_ZN10btSoftBody22appendDeformableAnchorEiP11btRigidBody(p
   %115 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %116 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %117 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %118 = load float, ptr %92, align 4, !tbaa !234, !noalias !416
-  %119 = load float, ptr %110, align 4, !tbaa !234, !noalias !416
-  %120 = load float, ptr %111, align 4, !tbaa !234, !noalias !416
+  %118 = load float, ptr %92, align 8, !tbaa !234, !noalias !416
+  %119 = load float, ptr %110, align 8, !tbaa !234, !noalias !416
+  %120 = load float, ptr %111, align 8, !tbaa !234, !noalias !416
   %121 = load float, ptr %112, align 4, !tbaa !234, !noalias !416
   %122 = load float, ptr %113, align 4, !tbaa !234, !noalias !416
   %123 = load float, ptr %114, align 4, !tbaa !234, !noalias !416
-  %124 = load float, ptr %115, align 4, !tbaa !234, !noalias !416
-  %125 = load float, ptr %116, align 4, !tbaa !234, !noalias !416
-  %126 = load float, ptr %117, align 4, !tbaa !234, !noalias !416
+  %124 = load float, ptr %115, align 8, !tbaa !234, !noalias !416
+  %125 = load float, ptr %116, align 8, !tbaa !234, !noalias !416
+  %126 = load float, ptr %117, align 8, !tbaa !234, !noalias !416
   %127 = fmul float %104, %119
   %128 = tail call float @llvm.fmuladd.f32(float %118, float %99, float %127)
   %129 = tail call noundef float @llvm.fmuladd.f32(float %120, float %109, float %128)
@@ -8904,8 +8904,8 @@ define dso_local void @_ZN10btSoftBody22appendDeformableAnchorEiP23btMultiBodyLi
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %97 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %98 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %99 = load float, ptr %97, align 4, !tbaa !234
-  %100 = load float, ptr %98, align 4, !tbaa !234
+  %99 = load float, ptr %97, align 8, !tbaa !234
+  %100 = load float, ptr %98, align 8, !tbaa !234
   %101 = fsub float %99, %100
   %102 = getelementptr inbounds nuw i8, ptr %89, i64 20
   %103 = load float, ptr %102, align 4, !tbaa !234
@@ -8913,9 +8913,9 @@ define dso_local void @_ZN10btSoftBody22appendDeformableAnchorEiP23btMultiBodyLi
   %105 = load float, ptr %104, align 4, !tbaa !234
   %106 = fsub float %103, %105
   %107 = getelementptr inbounds nuw i8, ptr %89, i64 24
-  %108 = load float, ptr %107, align 4, !tbaa !234
+  %108 = load float, ptr %107, align 8, !tbaa !234
   %109 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %110 = load float, ptr %109, align 4, !tbaa !234
+  %110 = load float, ptr %109, align 8, !tbaa !234
   %111 = fsub float %108, %110
   %112 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %113 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -8925,15 +8925,15 @@ define dso_local void @_ZN10btSoftBody22appendDeformableAnchorEiP23btMultiBodyLi
   %117 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %118 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %119 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %120 = load float, ptr %94, align 4, !tbaa !234, !noalias !478
-  %121 = load float, ptr %112, align 4, !tbaa !234, !noalias !478
-  %122 = load float, ptr %113, align 4, !tbaa !234, !noalias !478
+  %120 = load float, ptr %94, align 8, !tbaa !234, !noalias !478
+  %121 = load float, ptr %112, align 8, !tbaa !234, !noalias !478
+  %122 = load float, ptr %113, align 8, !tbaa !234, !noalias !478
   %123 = load float, ptr %114, align 4, !tbaa !234, !noalias !478
   %124 = load float, ptr %115, align 4, !tbaa !234, !noalias !478
   %125 = load float, ptr %116, align 4, !tbaa !234, !noalias !478
-  %126 = load float, ptr %117, align 4, !tbaa !234, !noalias !478
-  %127 = load float, ptr %118, align 4, !tbaa !234, !noalias !478
-  %128 = load float, ptr %119, align 4, !tbaa !234, !noalias !478
+  %126 = load float, ptr %117, align 8, !tbaa !234, !noalias !478
+  %127 = load float, ptr %118, align 8, !tbaa !234, !noalias !478
+  %128 = load float, ptr %119, align 8, !tbaa !234, !noalias !478
   %129 = fmul float %106, %121
   %130 = tail call float @llvm.fmuladd.f32(float %120, float %101, float %129)
   %131 = tail call noundef float @llvm.fmuladd.f32(float %122, float %111, float %130)
@@ -11958,13 +11958,13 @@ _ZL14EvaluateMediumPK19btSoftBodyWorldInfoRK9btVector3RN10btSoftBody7sMediumE.ex
   %232 = tail call float @llvm.fmuladd.f32(float %228, float %228, float %231)
   %233 = tail call noundef float @llvm.fmuladd.f32(float %230, float %230, float %232)
   %234 = getelementptr inbounds nuw i8, ptr %224, i64 48
-  %235 = load float, ptr %234, align 4, !tbaa !234
+  %235 = load float, ptr %234, align 8, !tbaa !234
   %236 = getelementptr inbounds nuw i8, ptr %224, i64 52
   %237 = load float, ptr %236, align 4, !tbaa !234
   %238 = fmul float %237, %237
   %239 = tail call float @llvm.fmuladd.f32(float %235, float %235, float %238)
   %240 = getelementptr inbounds nuw i8, ptr %224, i64 56
-  %241 = load float, ptr %240, align 4, !tbaa !234
+  %241 = load float, ptr %240, align 8, !tbaa !234
   %242 = tail call noundef float @llvm.fmuladd.f32(float %241, float %241, float %239)
   %243 = fcmp ogt float %233, %242
   br i1 %243, label %244, label %264
@@ -12824,13 +12824,13 @@ _ZNK10btSoftBody12getTotalMassEv.exit:            ; preds = %9
   %22 = fdiv float 1.000000e+00, %20
   %23 = select i1 %21, float 0.000000e+00, float %22
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  %25 = load float, ptr %24, align 4, !tbaa !234
+  %25 = load float, ptr %24, align 8, !tbaa !234
   %26 = fmul float %25, %23
   %27 = getelementptr inbounds nuw i8, ptr %18, i64 52
   %28 = load float, ptr %27, align 4, !tbaa !234
   %29 = fmul float %23, %28
   %30 = getelementptr inbounds nuw i8, ptr %18, i64 56
-  %31 = load float, ptr %30, align 4, !tbaa !234
+  %31 = load float, ptr %30, align 8, !tbaa !234
   %32 = fmul float %23, %31
   %.sroa.014.0.vec.extract = extractelement <2 x float> %.sroa.014.034, i64 0
   %33 = fadd float %.sroa.014.0.vec.extract, %26
@@ -12904,13 +12904,13 @@ _ZNK10btSoftBody12getTotalMassEv.exit.i:          ; preds = %.lr.ph.i.i
   %20 = fdiv float 1.000000e+00, %18
   %21 = select i1 %19, float 0.000000e+00, float %20
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  %23 = load float, ptr %22, align 4, !tbaa !234
+  %23 = load float, ptr %22, align 8, !tbaa !234
   %24 = fmul float %23, %21
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 52
   %26 = load float, ptr %25, align 4, !tbaa !234
   %27 = fmul float %21, %26
   %28 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  %29 = load float, ptr %28, align 4, !tbaa !234
+  %29 = load float, ptr %28, align 8, !tbaa !234
   %30 = fmul float %21, %29
   %.sroa.014.0.vec.extract.i = extractelement <2 x float> %.sroa.014.034.i, i64 0
   %31 = fadd float %.sroa.014.0.vec.extract.i, %24
@@ -13020,13 +13020,13 @@ _ZNK10btSoftBody12getTotalMassEv.exit.i:          ; preds = %.lr.ph.i.i
   %20 = fdiv float 1.000000e+00, %18
   %21 = select i1 %19, float 0.000000e+00, float %20
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  %23 = load float, ptr %22, align 4, !tbaa !234
+  %23 = load float, ptr %22, align 8, !tbaa !234
   %24 = fmul float %23, %21
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 52
   %26 = load float, ptr %25, align 4, !tbaa !234
   %27 = fmul float %21, %26
   %28 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  %29 = load float, ptr %28, align 4, !tbaa !234
+  %29 = load float, ptr %28, align 8, !tbaa !234
   %30 = fmul float %21, %29
   %.sroa.014.0.vec.extract.i = extractelement <2 x float> %.sroa.014.034.i, i64 0
   %31 = fadd float %.sroa.014.0.vec.extract.i, %24
@@ -14316,7 +14316,7 @@ _ZN10btSoftBody15updateConstantsEv.exit:          ; preds = %.lr.ph.i1.i, %._cri
   store <2 x float> %.sroa.0.4.vec.insert.i3.i.i, ptr %77, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i4.i.i, ptr %85, align 8, !tbaa !228
   %107 = getelementptr inbounds nuw i8, ptr %76, i64 32
-  %108 = load float, ptr %107, align 4, !tbaa !234
+  %108 = load float, ptr %107, align 8, !tbaa !234
   %109 = load float, ptr %1, align 4, !tbaa !234
   %110 = getelementptr inbounds nuw i8, ptr %76, i64 36
   %111 = load float, ptr %110, align 4, !tbaa !234
@@ -14324,7 +14324,7 @@ _ZN10btSoftBody15updateConstantsEv.exit:          ; preds = %.lr.ph.i1.i, %._cri
   %113 = fmul float %111, %112
   %114 = call float @llvm.fmuladd.f32(float %108, float %109, float %113)
   %115 = getelementptr inbounds nuw i8, ptr %76, i64 40
-  %116 = load float, ptr %115, align 4, !tbaa !234
+  %116 = load float, ptr %115, align 8, !tbaa !234
   %117 = load float, ptr %17, align 4, !tbaa !234
   %118 = call noundef float @llvm.fmuladd.f32(float %116, float %117, float %114)
   %119 = load float, ptr %14, align 4, !tbaa !234
@@ -14352,7 +14352,7 @@ _ZN10btSoftBody15updateConstantsEv.exit:          ; preds = %.lr.ph.i1.i, %._cri
   store <2 x float> %.sroa.3.12.vec.insert.i4.i.i22, ptr %115, align 8, !tbaa !228
   %137 = getelementptr inbounds nuw i8, ptr %76, i64 96
   %138 = load float, ptr %1, align 4, !tbaa !234
-  %139 = load float, ptr %137, align 4, !tbaa !234
+  %139 = load float, ptr %137, align 8, !tbaa !234
   %140 = load float, ptr %16, align 4, !tbaa !234
   %141 = getelementptr inbounds nuw i8, ptr %76, i64 100
   %142 = load float, ptr %141, align 4, !tbaa !234
@@ -14360,7 +14360,7 @@ _ZN10btSoftBody15updateConstantsEv.exit:          ; preds = %.lr.ph.i1.i, %._cri
   %144 = call float @llvm.fmuladd.f32(float %138, float %139, float %143)
   %145 = load float, ptr %17, align 4, !tbaa !234
   %146 = getelementptr inbounds nuw i8, ptr %76, i64 104
-  %147 = load float, ptr %146, align 4, !tbaa !234
+  %147 = load float, ptr %146, align 8, !tbaa !234
   %148 = call noundef float @llvm.fmuladd.f32(float %145, float %147, float %144)
   %149 = load float, ptr %14, align 4, !tbaa !234
   %150 = load float, ptr %18, align 4, !tbaa !234
@@ -15032,27 +15032,27 @@ define dso_local void @_ZN10btSoftBody19initializeDmInverseEv(ptr noundef nonnul
   %87 = tail call noundef float @llvm.fmuladd.f32(float %17, float %35, float %86)
   %88 = fmul float %87, %64
   %89 = getelementptr inbounds nuw i8, ptr %8, i64 136
-  store float %65, ptr %89, align 4
+  store float %65, ptr %89, align 8
   %.sroa.4275.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 140
   store float %68, ptr %.sroa.4275.0..sroa_idx, align 4
   %.sroa.5276.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 144
-  store float %72, ptr %.sroa.5276.0..sroa_idx, align 4
+  store float %72, ptr %.sroa.5276.0..sroa_idx, align 8
   %.sroa.6277.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 148
   store float 0.000000e+00, ptr %.sroa.6277.0..sroa_idx, align 4, !tbaa !228
   %90 = getelementptr inbounds nuw i8, ptr %8, i64 152
-  store float %73, ptr %90, align 4
+  store float %73, ptr %90, align 8
   %.sroa.9.16..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 156
   store float %76, ptr %.sroa.9.16..sroa_idx, align 4
   %.sroa.10.16..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 160
-  store float %80, ptr %.sroa.10.16..sroa_idx, align 4
+  store float %80, ptr %.sroa.10.16..sroa_idx, align 8
   %.sroa.11.16..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 164
   store float 0.000000e+00, ptr %.sroa.11.16..sroa_idx, align 4, !tbaa !228
   %91 = getelementptr inbounds nuw i8, ptr %8, i64 168
-  store float %81, ptr %91, align 4
+  store float %81, ptr %91, align 8
   %.sroa.14.32..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 172
   store float %84, ptr %.sroa.14.32..sroa_idx, align 4
   %.sroa.15.32..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 176
-  store float %88, ptr %.sroa.15.32..sroa_idx, align 4
+  store float %88, ptr %.sroa.15.32..sroa_idx, align 8
   %.sroa.16.32..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 180
   store float 0.000000e+00, ptr %.sroa.16.32..sroa_idx, align 4, !tbaa !228
   %.sroa.0231.0.copyload = load float, ptr %14, align 8
@@ -15202,27 +15202,27 @@ define dso_local void @_ZN10btSoftBody19initializeDmInverseEv(ptr noundef nonnul
   %224 = getelementptr inbounds nuw i8, ptr %8, i64 236
   store float %212, ptr %224, align 4
   %.sroa.469.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 240
-  store float %213, ptr %.sroa.469.0..sroa_idx, align 4
+  store float %213, ptr %.sroa.469.0..sroa_idx, align 8
   %.sroa.570.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 244
   store float %214, ptr %.sroa.570.0..sroa_idx, align 4
   %.sroa.671.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 248
-  store float %215, ptr %.sroa.671.0..sroa_idx, align 4
+  store float %215, ptr %.sroa.671.0..sroa_idx, align 8
   %225 = getelementptr inbounds nuw i8, ptr %8, i64 252
   store float %216, ptr %225, align 4
   %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 256
-  store float %217, ptr %.sroa.461.0..sroa_idx, align 4
+  store float %217, ptr %.sroa.461.0..sroa_idx, align 8
   %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 260
   store float %218, ptr %.sroa.562.0..sroa_idx, align 4
   %.sroa.663.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 264
-  store float %219, ptr %.sroa.663.0..sroa_idx, align 4
+  store float %219, ptr %.sroa.663.0..sroa_idx, align 8
   %226 = getelementptr inbounds nuw i8, ptr %8, i64 268
   store float %220, ptr %226, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 272
-  store float %221, ptr %.sroa.4.0..sroa_idx, align 4
+  store float %221, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 276
   store float %222, ptr %.sroa.5.0..sroa_idx, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 280
-  store float %223, ptr %.sroa.6.0..sroa_idx, align 4
+  store float %223, ptr %.sroa.6.0..sroa_idx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %227 = load i32, ptr %2, align 4, !tbaa !158
   %228 = sext i32 %227 to i64
@@ -20681,8 +20681,8 @@ _ZN10btSoftBody10clusterComEPKNS_7ClusterE.exit.._crit_edge164_crit_edge: ; pred
   %89 = getelementptr inbounds nuw i8, ptr %9, i64 192
   %.promoted165 = load float, ptr %86, align 4, !tbaa !234
   %.promoted166 = load float, ptr %87, align 4, !tbaa !234
-  %.promoted167 = load float, ptr %88, align 4, !tbaa !234
-  %.promoted168 = load float, ptr %89, align 4, !tbaa !234
+  %.promoted167 = load float, ptr %88, align 8, !tbaa !234
+  %.promoted168 = load float, ptr %89, align 8, !tbaa !234
   %wide.trip.count182 = zext nneg i32 %43 to i64
   br label %103
 
@@ -20910,7 +20910,7 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit: ; preds = %189, %_ZN20
   %217 = load ptr, ptr %216, align 8, !tbaa !344
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 16
   %219 = load float, ptr %218, align 4, !tbaa !234
-  %220 = load float, ptr %77, align 4, !tbaa !234
+  %220 = load float, ptr %77, align 8, !tbaa !234
   %221 = fsub float %219, %220
   %222 = getelementptr inbounds nuw i8, ptr %217, i64 20
   %223 = load float, ptr %222, align 4, !tbaa !234
@@ -20918,7 +20918,7 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit: ; preds = %189, %_ZN20
   %225 = fsub float %223, %224
   %226 = getelementptr inbounds nuw i8, ptr %217, i64 24
   %227 = load float, ptr %226, align 4, !tbaa !234
-  %228 = load float, ptr %.sroa.432.0..sroa_idx, align 4, !tbaa !234
+  %228 = load float, ptr %.sroa.432.0..sroa_idx, align 8, !tbaa !234
   %229 = fsub float %227, %228
   %.sroa.0.0.vec.insert.i103 = insertelement <2 x float> poison, float %221, i64 0
   %.sroa.0.4.vec.insert.i104 = insertelement <2 x float> %.sroa.0.0.vec.insert.i103, float %225, i64 1
@@ -21308,9 +21308,9 @@ define dso_local void @_ZN10btSoftBody14updateClustersEv(ptr noundef nonnull ali
   %232 = load ptr, ptr %231, align 8, !tbaa !128
   %233 = getelementptr inbounds nuw i8, ptr %30, i64 268
   %wide.trip.count339 = zext nneg i32 %32 to i64
-  %.pre = load float, ptr %62, align 4, !tbaa !234
+  %.pre = load float, ptr %62, align 8, !tbaa !234
   %.pre352 = load float, ptr %233, align 4, !tbaa !234
-  %.pre353 = load float, ptr %.sroa.526.0..sroa_idx, align 4, !tbaa !234
+  %.pre353 = load float, ptr %.sroa.526.0..sroa_idx, align 8, !tbaa !234
   br label %234
 
 234:                                              ; preds = %.lr.ph306, %234
@@ -21437,7 +21437,7 @@ define dso_local void @_ZN10btSoftBody14updateClustersEv(ptr noundef nonnull ali
   %323 = load ptr, ptr %316, align 8, !tbaa !124
   %324 = getelementptr inbounds nuw %class.btVector3, ptr %323, i64 %indvars.iv341
   %325 = load float, ptr %324, align 4, !tbaa !234
-  %326 = load float, ptr %132, align 4, !tbaa !234
+  %326 = load float, ptr %132, align 8, !tbaa !234
   %327 = getelementptr inbounds nuw i8, ptr %324, i64 4
   %328 = load float, ptr %327, align 4, !tbaa !234
   %329 = load float, ptr %141, align 4, !tbaa !234
@@ -21445,25 +21445,25 @@ define dso_local void @_ZN10btSoftBody14updateClustersEv(ptr noundef nonnull ali
   %331 = call float @llvm.fmuladd.f32(float %325, float %326, float %330)
   %332 = getelementptr inbounds nuw i8, ptr %324, i64 8
   %333 = load float, ptr %332, align 4, !tbaa !234
-  %334 = load float, ptr %147, align 4, !tbaa !234
+  %334 = load float, ptr %147, align 8, !tbaa !234
   %335 = call noundef float @llvm.fmuladd.f32(float %333, float %334, float %331)
-  %336 = load float, ptr %134, align 4, !tbaa !234
+  %336 = load float, ptr %134, align 8, !tbaa !234
   %337 = load float, ptr %169, align 4, !tbaa !234
   %338 = fmul float %328, %337
   %339 = call float @llvm.fmuladd.f32(float %325, float %336, float %338)
-  %340 = load float, ptr %173, align 4, !tbaa !234
+  %340 = load float, ptr %173, align 8, !tbaa !234
   %341 = call noundef float @llvm.fmuladd.f32(float %333, float %340, float %339)
-  %342 = load float, ptr %135, align 4, !tbaa !234
+  %342 = load float, ptr %135, align 8, !tbaa !234
   %343 = load float, ptr %183, align 4, !tbaa !234
   %344 = fmul float %328, %343
   %345 = call float @llvm.fmuladd.f32(float %325, float %342, float %344)
-  %346 = load float, ptr %187, align 4, !tbaa !234
+  %346 = load float, ptr %187, align 8, !tbaa !234
   %347 = call noundef float @llvm.fmuladd.f32(float %333, float %346, float %345)
-  %348 = load float, ptr %133, align 4, !tbaa !234
+  %348 = load float, ptr %133, align 8, !tbaa !234
   %349 = fadd float %335, %348
   %350 = load float, ptr %317, align 4, !tbaa !234
   %351 = fadd float %341, %350
-  %352 = load float, ptr %318, align 4, !tbaa !234
+  %352 = load float, ptr %318, align 8, !tbaa !234
   %353 = fadd float %347, %352
   %354 = getelementptr inbounds nuw i8, ptr %322, i64 16
   %355 = load float, ptr %310, align 4, !tbaa !700
@@ -25582,14 +25582,14 @@ _ZN10btSoftBody11addVelocityERK9btVector3.exit:   ; preds = %_ZN10btSoftBody11ad
   %202 = load ptr, ptr %201, align 8, !tbaa !244
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %203 = getelementptr inbounds nuw i8, ptr %187, i64 48
-  %204 = load float, ptr %203, align 4, !tbaa !234
+  %204 = load float, ptr %203, align 8, !tbaa !234
   %205 = load float, ptr %74, align 8, !tbaa !234
   %206 = fmul float %204, %205
   %207 = getelementptr inbounds nuw i8, ptr %187, i64 52
   %208 = load float, ptr %207, align 4, !tbaa !234
   %209 = fmul float %205, %208
   %210 = getelementptr inbounds nuw i8, ptr %187, i64 56
-  %211 = load float, ptr %210, align 4, !tbaa !234
+  %211 = load float, ptr %210, align 8, !tbaa !234
   %212 = fmul float %205, %211
   %.sroa.0.0.vec.insert.i69 = insertelement <2 x float> poison, float %206, i64 0
   %.sroa.0.4.vec.insert.i70 = insertelement <2 x float> %.sroa.0.0.vec.insert.i69, float %209, i64 1
@@ -26896,7 +26896,7 @@ define dso_local void @_ZN10btSoftBody16solveConstraintsEv(ptr noundef nonnull a
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %54 = load float, ptr %52, align 4, !tbaa !234
-  %55 = load float, ptr %53, align 4, !tbaa !234
+  %55 = load float, ptr %53, align 8, !tbaa !234
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 12
   %57 = load float, ptr %56, align 4, !tbaa !234
   %58 = getelementptr inbounds nuw i8, ptr %49, i64 12
@@ -26906,7 +26906,7 @@ define dso_local void @_ZN10btSoftBody16solveConstraintsEv(ptr noundef nonnull a
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %63 = load float, ptr %62, align 4, !tbaa !234
   %64 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %65 = load float, ptr %64, align 4, !tbaa !234
+  %65 = load float, ptr %64, align 8, !tbaa !234
   %66 = tail call noundef float @llvm.fmuladd.f32(float %63, float %65, float %61)
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %68 = load float, ptr %67, align 4, !tbaa !234
@@ -32454,13 +32454,13 @@ define dso_local void @_ZN10btSoftBody17updateDeformationEv(ptr noundef nonnull 
   %65 = load float, ptr %64, align 4, !tbaa !234
   %66 = fsub float %65, %43
   %67 = getelementptr inbounds nuw i8, ptr %25, i64 136
-  %68 = load float, ptr %67, align 4, !tbaa !234, !noalias !944
+  %68 = load float, ptr %67, align 8, !tbaa !234, !noalias !944
   %69 = getelementptr inbounds nuw i8, ptr %25, i64 152
-  %70 = load float, ptr %69, align 4, !tbaa !234, !noalias !944
+  %70 = load float, ptr %69, align 8, !tbaa !234, !noalias !944
   %71 = fmul float %49, %70
   %72 = call float @llvm.fmuladd.f32(float %68, float %34, float %71)
   %73 = getelementptr inbounds nuw i8, ptr %25, i64 168
-  %74 = load float, ptr %73, align 4, !tbaa !234, !noalias !944
+  %74 = load float, ptr %73, align 8, !tbaa !234, !noalias !944
   %75 = call noundef float @llvm.fmuladd.f32(float %74, float %60, float %72)
   %76 = getelementptr inbounds nuw i8, ptr %25, i64 140
   %77 = load float, ptr %76, align 4, !tbaa !234, !noalias !944
@@ -32472,13 +32472,13 @@ define dso_local void @_ZN10btSoftBody17updateDeformationEv(ptr noundef nonnull 
   %83 = load float, ptr %82, align 4, !tbaa !234, !noalias !944
   %84 = call noundef float @llvm.fmuladd.f32(float %83, float %60, float %81)
   %85 = getelementptr inbounds nuw i8, ptr %25, i64 144
-  %86 = load float, ptr %85, align 4, !tbaa !234, !noalias !944
+  %86 = load float, ptr %85, align 8, !tbaa !234, !noalias !944
   %87 = getelementptr inbounds nuw i8, ptr %25, i64 160
-  %88 = load float, ptr %87, align 4, !tbaa !234, !noalias !944
+  %88 = load float, ptr %87, align 8, !tbaa !234, !noalias !944
   %89 = fmul float %49, %88
   %90 = call float @llvm.fmuladd.f32(float %86, float %34, float %89)
   %91 = getelementptr inbounds nuw i8, ptr %25, i64 176
-  %92 = load float, ptr %91, align 4, !tbaa !234, !noalias !944
+  %92 = load float, ptr %91, align 8, !tbaa !234, !noalias !944
   %93 = call noundef float @llvm.fmuladd.f32(float %92, float %60, float %90)
   %94 = fmul float %52, %70
   %95 = call float @llvm.fmuladd.f32(float %68, float %39, float %94)
@@ -32499,27 +32499,27 @@ define dso_local void @_ZN10btSoftBody17updateDeformationEv(ptr noundef nonnull 
   %110 = call float @llvm.fmuladd.f32(float %86, float %44, float %109)
   %111 = call noundef float @llvm.fmuladd.f32(float %92, float %66, float %110)
   %112 = getelementptr inbounds nuw i8, ptr %25, i64 184
-  store float %75, ptr %112, align 4
+  store float %75, ptr %112, align 8
   %.sroa.4157.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 188
   store float %84, ptr %.sroa.4157.0..sroa_idx, align 4
   %.sroa.5158.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 192
-  store float %93, ptr %.sroa.5158.0..sroa_idx, align 4
+  store float %93, ptr %.sroa.5158.0..sroa_idx, align 8
   %.sroa.6159.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 196
   store float 0.000000e+00, ptr %.sroa.6159.0..sroa_idx, align 4, !tbaa !228
   %113 = getelementptr inbounds nuw i8, ptr %25, i64 200
-  store float %96, ptr %113, align 4
+  store float %96, ptr %113, align 8
   %.sroa.9161.16..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 204
   store float %99, ptr %.sroa.9161.16..sroa_idx, align 4
   %.sroa.10162.16..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 208
-  store float %102, ptr %.sroa.10162.16..sroa_idx, align 4
+  store float %102, ptr %.sroa.10162.16..sroa_idx, align 8
   %.sroa.11163.16..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 212
   store float 0.000000e+00, ptr %.sroa.11163.16..sroa_idx, align 4, !tbaa !228
   %114 = getelementptr inbounds nuw i8, ptr %25, i64 216
-  store float %105, ptr %114, align 4
+  store float %105, ptr %114, align 8
   %.sroa.14165.32..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 220
   store float %108, ptr %.sroa.14165.32..sroa_idx, align 4
   %.sroa.15166.32..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 224
-  store float %111, ptr %.sroa.15166.32..sroa_idx, align 4
+  store float %111, ptr %.sroa.15166.32..sroa_idx, align 8
   %.sroa.16167.32..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 228
   store float 0.000000e+00, ptr %.sroa.16167.32..sroa_idx, align 4, !tbaa !228
   %115 = load ptr, ptr %8, align 8, !tbaa !161
@@ -32529,38 +32529,38 @@ define dso_local void @_ZN10btSoftBody17updateDeformationEv(ptr noundef nonnull 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %117, ptr noundef nonnull align 4 dereferenceable(16) %113, i64 16, i1 false), !tbaa.struct !227
   %118 = getelementptr inbounds nuw i8, ptr %116, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %118, ptr noundef nonnull align 4 dereferenceable(16) %114, i64 16, i1 false), !tbaa.struct !227
-  %119 = load float, ptr %112, align 4, !tbaa !234
+  %119 = load float, ptr %112, align 8, !tbaa !234
   %120 = load float, ptr %.sroa.9161.16..sroa_idx, align 4, !tbaa !234
-  %121 = load float, ptr %.sroa.15166.32..sroa_idx, align 4, !tbaa !234
-  %122 = load float, ptr %.sroa.10162.16..sroa_idx, align 4, !tbaa !234
+  %121 = load float, ptr %.sroa.15166.32..sroa_idx, align 8, !tbaa !234
+  %122 = load float, ptr %.sroa.10162.16..sroa_idx, align 8, !tbaa !234
   %123 = load float, ptr %.sroa.14165.32..sroa_idx, align 4, !tbaa !234
   %124 = fneg float %123
   %125 = fmul float %122, %124
   %126 = call float @llvm.fmuladd.f32(float %120, float %121, float %125)
   %127 = load float, ptr %.sroa.4157.0..sroa_idx, align 4, !tbaa !234
-  %128 = load float, ptr %114, align 4, !tbaa !234
-  %129 = load float, ptr %113, align 4, !tbaa !234
+  %128 = load float, ptr %114, align 8, !tbaa !234
+  %129 = load float, ptr %113, align 8, !tbaa !234
   %130 = fneg float %121
   %131 = fmul float %129, %130
   %132 = call float @llvm.fmuladd.f32(float %122, float %128, float %131)
   %133 = fmul float %127, %132
   %134 = call float @llvm.fmuladd.f32(float %119, float %126, float %133)
-  %135 = load float, ptr %.sroa.5158.0..sroa_idx, align 4, !tbaa !234
+  %135 = load float, ptr %.sroa.5158.0..sroa_idx, align 8, !tbaa !234
   %136 = fneg float %128
   %137 = fmul float %120, %136
   %138 = call float @llvm.fmuladd.f32(float %129, float %123, float %137)
   %139 = call noundef float @llvm.fmuladd.f32(float %135, float %138, float %134)
   %140 = getelementptr inbounds nuw i8, ptr %116, i64 52
   store float %139, ptr %140, align 4, !tbaa !947
-  %141 = load float, ptr %112, align 4, !tbaa !234, !noalias !949
-  %142 = load float, ptr %113, align 4, !tbaa !234, !noalias !949
-  %143 = load float, ptr %114, align 4, !tbaa !234, !noalias !949
+  %141 = load float, ptr %112, align 8, !tbaa !234, !noalias !949
+  %142 = load float, ptr %113, align 8, !tbaa !234, !noalias !949
+  %143 = load float, ptr %114, align 8, !tbaa !234, !noalias !949
   %144 = load float, ptr %.sroa.4157.0..sroa_idx, align 4, !tbaa !234, !noalias !949
   %145 = load float, ptr %.sroa.9161.16..sroa_idx, align 4, !tbaa !234, !noalias !949
   %146 = load float, ptr %.sroa.14165.32..sroa_idx, align 4, !tbaa !234, !noalias !949
-  %147 = load float, ptr %.sroa.5158.0..sroa_idx, align 4, !tbaa !234, !noalias !949
-  %148 = load float, ptr %.sroa.10162.16..sroa_idx, align 4, !tbaa !234, !noalias !949
-  %149 = load float, ptr %.sroa.15166.32..sroa_idx, align 4, !tbaa !234, !noalias !949
+  %147 = load float, ptr %.sroa.5158.0..sroa_idx, align 8, !tbaa !234, !noalias !949
+  %148 = load float, ptr %.sroa.10162.16..sroa_idx, align 8, !tbaa !234, !noalias !949
+  %149 = load float, ptr %.sroa.15166.32..sroa_idx, align 8, !tbaa !234, !noalias !949
   %150 = fmul float %142, %142
   %151 = call float @llvm.fmuladd.f32(float %141, float %141, float %150)
   %152 = call noundef float @llvm.fmuladd.f32(float %143, float %143, float %151)
@@ -32575,13 +32575,13 @@ define dso_local void @_ZN10btSoftBody17updateDeformationEv(ptr noundef nonnull 
   %161 = getelementptr inbounds nuw i8, ptr %116, i64 48
   store float %160, ptr %161, align 4, !tbaa !952
   %162 = load float, ptr %.sroa.9161.16..sroa_idx, align 4, !tbaa !234, !noalias !953
-  %163 = load float, ptr %.sroa.15166.32..sroa_idx, align 4, !tbaa !234, !noalias !953
-  %164 = load float, ptr %.sroa.10162.16..sroa_idx, align 4, !tbaa !234, !noalias !953
+  %163 = load float, ptr %.sroa.15166.32..sroa_idx, align 8, !tbaa !234, !noalias !953
+  %164 = load float, ptr %.sroa.10162.16..sroa_idx, align 8, !tbaa !234, !noalias !953
   %165 = load float, ptr %.sroa.14165.32..sroa_idx, align 4, !tbaa !234, !noalias !953
   %166 = fneg float %165
   %167 = fmul float %164, %166
   %168 = call noundef float @llvm.fmuladd.f32(float %162, float %163, float %167)
-  %169 = load float, ptr %.sroa.5158.0..sroa_idx, align 4, !tbaa !234, !noalias !953
+  %169 = load float, ptr %.sroa.5158.0..sroa_idx, align 8, !tbaa !234, !noalias !953
   %170 = load float, ptr %.sroa.4157.0..sroa_idx, align 4, !tbaa !234, !noalias !953
   %171 = fneg float %163
   %172 = fmul float %170, %171
@@ -32589,11 +32589,11 @@ define dso_local void @_ZN10btSoftBody17updateDeformationEv(ptr noundef nonnull 
   %174 = fneg float %162
   %175 = fmul float %169, %174
   %176 = call noundef float @llvm.fmuladd.f32(float %170, float %164, float %175)
-  %177 = load float, ptr %114, align 4, !tbaa !234, !noalias !953
-  %178 = load float, ptr %113, align 4, !tbaa !234, !noalias !953
+  %177 = load float, ptr %114, align 8, !tbaa !234, !noalias !953
+  %178 = load float, ptr %113, align 8, !tbaa !234, !noalias !953
   %179 = fmul float %178, %171
   %180 = call noundef float @llvm.fmuladd.f32(float %164, float %177, float %179)
-  %181 = load float, ptr %112, align 4, !tbaa !234, !noalias !953
+  %181 = load float, ptr %112, align 8, !tbaa !234, !noalias !953
   %182 = fneg float %177
   %183 = fmul float %169, %182
   %184 = call noundef float @llvm.fmuladd.f32(float %181, float %163, float %183)
@@ -32663,38 +32663,38 @@ define dso_local void @_ZN10btSoftBody17updateDeformationEv(ptr noundef nonnull 
   %206 = getelementptr inbounds nuw i8, ptr %25, i64 236
   %207 = load float, ptr %206, align 4, !tbaa !234
   %208 = getelementptr inbounds nuw i8, ptr %25, i64 240
-  %209 = load float, ptr %208, align 4, !tbaa !234
+  %209 = load float, ptr %208, align 8, !tbaa !234
   %210 = fmul float %.sroa.0104.0.copyload, %209
   %211 = call float @llvm.fmuladd.f32(float %.sroa.0108.0.copyload, float %207, float %210)
   %212 = getelementptr inbounds nuw i8, ptr %25, i64 244
   %213 = load float, ptr %212, align 4, !tbaa !234
   %214 = call float @llvm.fmuladd.f32(float %.sroa.0100.0.copyload, float %213, float %211)
   %215 = getelementptr inbounds nuw i8, ptr %25, i64 248
-  %216 = load float, ptr %215, align 4, !tbaa !234
+  %216 = load float, ptr %215, align 8, !tbaa !234
   %217 = call noundef float @llvm.fmuladd.f32(float %.sroa.096.0.copyload, float %216, float %214)
   %218 = getelementptr inbounds nuw i8, ptr %25, i64 252
   %219 = load float, ptr %218, align 4, !tbaa !234
   %220 = getelementptr inbounds nuw i8, ptr %25, i64 256
-  %221 = load float, ptr %220, align 4, !tbaa !234
+  %221 = load float, ptr %220, align 8, !tbaa !234
   %222 = fmul float %.sroa.0104.0.copyload, %221
   %223 = call float @llvm.fmuladd.f32(float %.sroa.0108.0.copyload, float %219, float %222)
   %224 = getelementptr inbounds nuw i8, ptr %25, i64 260
   %225 = load float, ptr %224, align 4, !tbaa !234
   %226 = call float @llvm.fmuladd.f32(float %.sroa.0100.0.copyload, float %225, float %223)
   %227 = getelementptr inbounds nuw i8, ptr %25, i64 264
-  %228 = load float, ptr %227, align 4, !tbaa !234
+  %228 = load float, ptr %227, align 8, !tbaa !234
   %229 = call noundef float @llvm.fmuladd.f32(float %.sroa.096.0.copyload, float %228, float %226)
   %230 = getelementptr inbounds nuw i8, ptr %25, i64 268
   %231 = load float, ptr %230, align 4, !tbaa !234
   %232 = getelementptr inbounds nuw i8, ptr %25, i64 272
-  %233 = load float, ptr %232, align 4, !tbaa !234
+  %233 = load float, ptr %232, align 8, !tbaa !234
   %234 = fmul float %.sroa.0104.0.copyload, %233
   %235 = call float @llvm.fmuladd.f32(float %.sroa.0108.0.copyload, float %231, float %234)
   %236 = getelementptr inbounds nuw i8, ptr %25, i64 276
   %237 = load float, ptr %236, align 4, !tbaa !234
   %238 = call float @llvm.fmuladd.f32(float %.sroa.0100.0.copyload, float %237, float %235)
   %239 = getelementptr inbounds nuw i8, ptr %25, i64 280
-  %240 = load float, ptr %239, align 4, !tbaa !234
+  %240 = load float, ptr %239, align 8, !tbaa !234
   %241 = call noundef float @llvm.fmuladd.f32(float %.sroa.096.0.copyload, float %240, float %238)
   %242 = fmul float %.sroa.4105.0.copyload, %209
   %243 = call float @llvm.fmuladd.f32(float %.sroa.4109.0.copyload, float %207, float %242)
@@ -33831,14 +33831,14 @@ define dso_local void @_ZN10btSoftBody6LJoint5SolveEff(ptr noundef nonnull align
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %40 = load float, ptr %39, align 8, !tbaa !234
   %41 = getelementptr inbounds nuw i8, ptr %11, i64 376
-  %42 = load float, ptr %41, align 4, !tbaa !234
+  %42 = load float, ptr %41, align 8, !tbaa !234
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %44 = load float, ptr %43, align 4, !tbaa !234
   %45 = fneg float %44
   %46 = fmul float %42, %45
   %47 = tail call float @llvm.fmuladd.f32(float %38, float %40, float %46)
   %48 = load float, ptr %7, align 8, !tbaa !234
-  %49 = load float, ptr %36, align 4, !tbaa !234
+  %49 = load float, ptr %36, align 8, !tbaa !234
   %50 = fneg float %40
   %51 = fmul float %49, %50
   %52 = tail call float @llvm.fmuladd.f32(float %42, float %48, float %51)
@@ -33911,14 +33911,14 @@ _ZNK10btSoftBody4Body8velocityERK9btVector3.exit: ; preds = %10, %12, %34
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %93 = load float, ptr %92, align 8, !tbaa !234
   %94 = getelementptr inbounds nuw i8, ptr %64, i64 376
-  %95 = load float, ptr %94, align 4, !tbaa !234
+  %95 = load float, ptr %94, align 8, !tbaa !234
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %97 = load float, ptr %96, align 4, !tbaa !234
   %98 = fneg float %97
   %99 = fmul float %95, %98
   %100 = tail call float @llvm.fmuladd.f32(float %91, float %93, float %99)
   %101 = load float, ptr %60, align 8, !tbaa !234
-  %102 = load float, ptr %89, align 4, !tbaa !234
+  %102 = load float, ptr %89, align 8, !tbaa !234
   %103 = fneg float %93
   %104 = fmul float %102, %103
   %105 = tail call float @llvm.fmuladd.f32(float %95, float %101, float %104)
@@ -35270,14 +35270,14 @@ define dso_local void @_ZN10btSoftBody6CJoint5SolveEff(ptr noundef nonnull align
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %42 = load float, ptr %41, align 8, !tbaa !234
   %43 = getelementptr inbounds nuw i8, ptr %13, i64 376
-  %44 = load float, ptr %43, align 4, !tbaa !234
+  %44 = load float, ptr %43, align 8, !tbaa !234
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %46 = load float, ptr %45, align 4, !tbaa !234
   %47 = fneg float %46
   %48 = fmul float %44, %47
   %49 = tail call float @llvm.fmuladd.f32(float %40, float %42, float %48)
   %50 = load float, ptr %9, align 8, !tbaa !234
-  %51 = load float, ptr %38, align 4, !tbaa !234
+  %51 = load float, ptr %38, align 8, !tbaa !234
   %52 = fneg float %42
   %53 = fmul float %51, %52
   %54 = tail call float @llvm.fmuladd.f32(float %44, float %50, float %53)
@@ -35350,14 +35350,14 @@ _ZNK10btSoftBody4Body8velocityERK9btVector3.exit: ; preds = %12, %14, %36
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %95 = load float, ptr %94, align 8, !tbaa !234
   %96 = getelementptr inbounds nuw i8, ptr %66, i64 376
-  %97 = load float, ptr %96, align 4, !tbaa !234
+  %97 = load float, ptr %96, align 8, !tbaa !234
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %99 = load float, ptr %98, align 4, !tbaa !234
   %100 = fneg float %99
   %101 = fmul float %97, %100
   %102 = tail call float @llvm.fmuladd.f32(float %93, float %95, float %101)
   %103 = load float, ptr %62, align 8, !tbaa !234
-  %104 = load float, ptr %91, align 4, !tbaa !234
+  %104 = load float, ptr %91, align 8, !tbaa !234
   %105 = fneg float %95
   %106 = fmul float %104, %105
   %107 = tail call float @llvm.fmuladd.f32(float %97, float %103, float %106)
@@ -35951,7 +35951,7 @@ define dso_local void @_ZN10btSoftBody14PSolve_AnchorsEPS_ff(ptr noundef readonl
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 40
-  %26 = load float, ptr %23, align 4, !tbaa !234
+  %26 = load float, ptr %23, align 8, !tbaa !234
   %27 = load float, ptr %21, align 4, !tbaa !234
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %29 = load float, ptr %28, align 4, !tbaa !234
@@ -35960,7 +35960,7 @@ define dso_local void @_ZN10btSoftBody14PSolve_AnchorsEPS_ff(ptr noundef readonl
   %32 = fmul float %29, %31
   %33 = call float @llvm.fmuladd.f32(float %26, float %27, float %32)
   %34 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %35 = load float, ptr %34, align 4, !tbaa !234
+  %35 = load float, ptr %34, align 8, !tbaa !234
   %36 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %37 = load float, ptr %36, align 4, !tbaa !234
   %38 = call noundef float @llvm.fmuladd.f32(float %35, float %37, float %33)
@@ -35999,7 +35999,7 @@ define dso_local void @_ZN10btSoftBody14PSolve_AnchorsEPS_ff(ptr noundef readonl
   %71 = getelementptr inbounds nuw i8, ptr %20, i64 444
   %72 = load float, ptr %71, align 4, !tbaa !234
   %73 = getelementptr inbounds nuw i8, ptr %18, i64 88
-  %74 = load float, ptr %73, align 4, !tbaa !234
+  %74 = load float, ptr %73, align 8, !tbaa !234
   %75 = fneg float %74
   %76 = fmul float %72, %75
   %77 = call float @llvm.fmuladd.f32(float %68, float %70, float %76)
@@ -36052,7 +36052,7 @@ define dso_local void @_ZN10btSoftBody14PSolve_AnchorsEPS_ff(ptr noundef readonl
   %124 = getelementptr inbounds nuw i8, ptr %18, i64 36
   %125 = load float, ptr %124, align 4, !tbaa !234
   %126 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  %127 = load float, ptr %126, align 4, !tbaa !234
+  %127 = load float, ptr %126, align 8, !tbaa !234
   %128 = fmul float %122, %127
   %129 = call float @llvm.fmuladd.f32(float %125, float %121, float %128)
   %130 = getelementptr inbounds nuw i8, ptr %18, i64 44
@@ -36061,7 +36061,7 @@ define dso_local void @_ZN10btSoftBody14PSolve_AnchorsEPS_ff(ptr noundef readonl
   %133 = getelementptr inbounds nuw i8, ptr %18, i64 52
   %134 = load float, ptr %133, align 4, !tbaa !234
   %135 = getelementptr inbounds nuw i8, ptr %18, i64 56
-  %136 = load float, ptr %135, align 4, !tbaa !234
+  %136 = load float, ptr %135, align 8, !tbaa !234
   %137 = fmul float %122, %136
   %138 = call float @llvm.fmuladd.f32(float %134, float %121, float %137)
   %139 = getelementptr inbounds nuw i8, ptr %18, i64 60
@@ -36070,14 +36070,14 @@ define dso_local void @_ZN10btSoftBody14PSolve_AnchorsEPS_ff(ptr noundef readonl
   %142 = getelementptr inbounds nuw i8, ptr %18, i64 68
   %143 = load float, ptr %142, align 4, !tbaa !234
   %144 = getelementptr inbounds nuw i8, ptr %18, i64 72
-  %145 = load float, ptr %144, align 4, !tbaa !234
+  %145 = load float, ptr %144, align 8, !tbaa !234
   %146 = fmul float %122, %145
   %147 = call float @llvm.fmuladd.f32(float %143, float %121, float %146)
   %148 = getelementptr inbounds nuw i8, ptr %18, i64 76
   %149 = load float, ptr %148, align 4, !tbaa !234
   %150 = call noundef float @llvm.fmuladd.f32(float %149, float %123, float %147)
   %151 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  %152 = load float, ptr %151, align 4, !tbaa !234
+  %152 = load float, ptr %151, align 8, !tbaa !234
   %153 = fmul float %132, %152
   %154 = fmul float %141, %152
   %155 = fmul float %152, %150
@@ -36663,13 +36663,13 @@ _ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i115: ; preds = %148, %_ZNK20b
   %.sroa.9.8.vec.extract = extractelement <2 x float> %.sroa.9.2, i64 0
   %215 = fsub float %212, %.sroa.9.8.vec.extract
   %216 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %217 = load float, ptr %216, align 4, !tbaa !234
+  %217 = load float, ptr %216, align 8, !tbaa !234
   %218 = getelementptr inbounds nuw i8, ptr %53, i64 12
   %219 = load float, ptr %218, align 4, !tbaa !234
   %220 = fmul float %214, %219
   %221 = call float @llvm.fmuladd.f32(float %213, float %217, float %220)
   %222 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %223 = load float, ptr %222, align 4, !tbaa !234
+  %223 = load float, ptr %222, align 8, !tbaa !234
   %224 = call noundef float @llvm.fmuladd.f32(float %215, float %223, float %221)
   %225 = fcmp ugt float %224, 0x3E80000000000000
   br i1 %225, label %341, label %226
@@ -36711,31 +36711,31 @@ _ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i115: ; preds = %148, %_ZNK20b
   %258 = fmul float %1, %255
   %259 = fmul float %1, %256
   %260 = fmul float %1, %257
-  %261 = load float, ptr %240, align 4, !tbaa !234
+  %261 = load float, ptr %240, align 8, !tbaa !234
   %262 = getelementptr inbounds nuw i8, ptr %53, i64 76
   %263 = load float, ptr %262, align 4, !tbaa !234
   %264 = fmul float %263, %259
   %265 = call float @llvm.fmuladd.f32(float %261, float %258, float %264)
   %266 = getelementptr inbounds nuw i8, ptr %53, i64 80
-  %267 = load float, ptr %266, align 4, !tbaa !234
+  %267 = load float, ptr %266, align 8, !tbaa !234
   %268 = call noundef float @llvm.fmuladd.f32(float %267, float %260, float %265)
   %269 = getelementptr inbounds nuw i8, ptr %53, i64 88
-  %270 = load float, ptr %269, align 4, !tbaa !234
+  %270 = load float, ptr %269, align 8, !tbaa !234
   %271 = getelementptr inbounds nuw i8, ptr %53, i64 92
   %272 = load float, ptr %271, align 4, !tbaa !234
   %273 = fmul float %259, %272
   %274 = call float @llvm.fmuladd.f32(float %270, float %258, float %273)
   %275 = getelementptr inbounds nuw i8, ptr %53, i64 96
-  %276 = load float, ptr %275, align 4, !tbaa !234
+  %276 = load float, ptr %275, align 8, !tbaa !234
   %277 = call noundef float @llvm.fmuladd.f32(float %276, float %260, float %274)
   %278 = getelementptr inbounds nuw i8, ptr %53, i64 104
-  %279 = load float, ptr %278, align 4, !tbaa !234
+  %279 = load float, ptr %278, align 8, !tbaa !234
   %280 = getelementptr inbounds nuw i8, ptr %53, i64 108
   %281 = load float, ptr %280, align 4, !tbaa !234
   %282 = fmul float %259, %281
   %283 = call float @llvm.fmuladd.f32(float %279, float %258, float %282)
   %284 = getelementptr inbounds nuw i8, ptr %53, i64 112
-  %285 = load float, ptr %284, align 4, !tbaa !234
+  %285 = load float, ptr %284, align 8, !tbaa !234
   %286 = call noundef float @llvm.fmuladd.f32(float %285, float %260, float %283)
   %.sroa.0.0.vec.insert.i184 = insertelement <2 x float> poison, float %268, i64 0
   %.sroa.0.4.vec.insert.i185 = insertelement <2 x float> %.sroa.0.0.vec.insert.i184, float %277, i64 1
@@ -36743,7 +36743,7 @@ _ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i115: ; preds = %148, %_ZNK20b
   store <2 x float> %.sroa.0.4.vec.insert.i185, ptr %7, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i186, ptr %48, align 8
   %287 = getelementptr inbounds nuw i8, ptr %53, i64 136
-  %288 = load float, ptr %287, align 4, !tbaa !234
+  %288 = load float, ptr %287, align 8, !tbaa !234
   %289 = fmul float %288, %268
   %290 = fmul float %288, %277
   %291 = fmul float %288, %286
@@ -36900,7 +36900,7 @@ define dso_local void @_ZN10btSoftBody16PSolve_SContactsEPS_ff(ptr noundef reado
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %26 = load float, ptr %18, align 4, !tbaa !234
-  %27 = load float, ptr %25, align 4, !tbaa !234
+  %27 = load float, ptr %25, align 8, !tbaa !234
   %28 = fmul float %26, %27
   %29 = getelementptr inbounds nuw i8, ptr %17, i64 20
   %30 = load float, ptr %29, align 4, !tbaa !234
@@ -36923,7 +36923,7 @@ define dso_local void @_ZN10btSoftBody16PSolve_SContactsEPS_ff(ptr noundef reado
   %47 = fadd float %34, %44
   %48 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %49 = load float, ptr %24, align 4, !tbaa !234
-  %50 = load float, ptr %48, align 4, !tbaa !234
+  %50 = load float, ptr %48, align 8, !tbaa !234
   %51 = fmul float %49, %50
   %52 = getelementptr inbounds nuw i8, ptr %23, i64 20
   %53 = load float, ptr %52, align 4, !tbaa !234
@@ -36988,13 +36988,13 @@ define dso_local void @_ZN10btSoftBody16PSolve_SContactsEPS_ff(ptr noundef reado
   %112 = fsub float %98, %109
   %113 = fsub float %103, %110
   %114 = fsub float %108, %111
-  %115 = load float, ptr %12, align 4, !tbaa !234
+  %115 = load float, ptr %12, align 8, !tbaa !234
   %116 = getelementptr inbounds nuw i8, ptr %11, i64 36
   %117 = load float, ptr %116, align 4, !tbaa !234
   %118 = fmul float %113, %117
   %119 = call float @llvm.fmuladd.f32(float %112, float %115, float %118)
   %120 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %121 = load float, ptr %120, align 4, !tbaa !234
+  %121 = load float, ptr %120, align 8, !tbaa !234
   %122 = call noundef float @llvm.fmuladd.f32(float %114, float %121, float %119)
   %123 = fcmp olt float %122, 0.000000e+00
   br i1 %123, label %124, label %141
@@ -37168,26 +37168,26 @@ define dso_local void @_ZN10btSoftBody12PSolve_LinksEPS_ff(ptr noundef readonly 
   %51 = fmul float %29, %49
   %52 = fmul float %34, %49
   %53 = fsub float %23, %50
-  store float %53, ptr %21, align 4, !tbaa !234
+  store float %53, ptr %21, align 8, !tbaa !234
   %54 = fsub float %28, %51
   store float %54, ptr %27, align 4, !tbaa !234
   %55 = fsub float %33, %52
-  store float %55, ptr %32, align 4, !tbaa !234
+  store float %55, ptr %32, align 8, !tbaa !234
   %56 = getelementptr inbounds nuw i8, ptr %19, i64 112
   %57 = load float, ptr %56, align 8, !tbaa !235
   %58 = fmul float %46, %57
   %59 = fmul float %24, %58
   %60 = fmul float %29, %58
   %61 = fmul float %34, %58
-  %62 = load float, ptr %20, align 4, !tbaa !234
+  %62 = load float, ptr %20, align 8, !tbaa !234
   %63 = fadd float %62, %59
-  store float %63, ptr %20, align 4, !tbaa !234
+  store float %63, ptr %20, align 8, !tbaa !234
   %64 = load float, ptr %25, align 4, !tbaa !234
   %65 = fadd float %60, %64
   store float %65, ptr %25, align 4, !tbaa !234
-  %66 = load float, ptr %30, align 4, !tbaa !234
+  %66 = load float, ptr %30, align 8, !tbaa !234
   %67 = fadd float %61, %66
-  store float %67, ptr %30, align 4, !tbaa !234
+  store float %67, ptr %30, align 8, !tbaa !234
   br label %68
 
 68:                                               ; preds = %15, %42, %10
@@ -37240,13 +37240,13 @@ define dso_local void @_ZN10btSoftBody12VSolve_LinksEPS_f(ptr noundef readonly c
   %28 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %29 = load float, ptr %28, align 4, !tbaa !234
   %30 = fsub float %27, %29
-  %31 = load float, ptr %12, align 4, !tbaa !234
+  %31 = load float, ptr %12, align 8, !tbaa !234
   %32 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %33 = load float, ptr %32, align 4, !tbaa !234
   %34 = fmul float %25, %33
   %35 = call float @llvm.fmuladd.f32(float %31, float %20, float %34)
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %37 = load float, ptr %36, align 4, !tbaa !234
+  %37 = load float, ptr %36, align 8, !tbaa !234
   %38 = call noundef float @llvm.fmuladd.f32(float %37, float %30, float %35)
   %39 = fneg float %38
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 64
@@ -37260,29 +37260,29 @@ define dso_local void @_ZN10btSoftBody12VSolve_LinksEPS_f(ptr noundef readonly c
   %48 = fmul float %33, %46
   %49 = fmul float %37, %46
   %50 = fadd float %18, %47
-  store float %50, ptr %14, align 4, !tbaa !234
+  store float %50, ptr %14, align 8, !tbaa !234
   %51 = fadd float %22, %48
   store float %51, ptr %21, align 4, !tbaa !234
   %52 = fadd float %27, %49
-  store float %52, ptr %26, align 4, !tbaa !234
+  store float %52, ptr %26, align 8, !tbaa !234
   %53 = getelementptr inbounds nuw i8, ptr %16, i64 112
   %54 = load float, ptr %53, align 8, !tbaa !235
   %55 = fmul float %43, %54
-  %56 = load float, ptr %12, align 4, !tbaa !234
+  %56 = load float, ptr %12, align 8, !tbaa !234
   %57 = fmul float %56, %55
   %58 = load float, ptr %32, align 4, !tbaa !234
   %59 = fmul float %55, %58
-  %60 = load float, ptr %36, align 4, !tbaa !234
+  %60 = load float, ptr %36, align 8, !tbaa !234
   %61 = fmul float %55, %60
-  %62 = load float, ptr %17, align 4, !tbaa !234
+  %62 = load float, ptr %17, align 8, !tbaa !234
   %63 = fsub float %62, %57
-  store float %63, ptr %17, align 4, !tbaa !234
+  store float %63, ptr %17, align 8, !tbaa !234
   %64 = load float, ptr %23, align 4, !tbaa !234
   %65 = fsub float %64, %59
   store float %65, ptr %23, align 4, !tbaa !234
-  %66 = load float, ptr %28, align 4, !tbaa !234
+  %66 = load float, ptr %28, align 8, !tbaa !234
   %67 = fsub float %66, %61
-  store float %67, ptr %28, align 4, !tbaa !234
+  store float %67, ptr %28, align 8, !tbaa !234
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !1013
@@ -47207,11 +47207,11 @@ _ZNK10btSoftBody4Body5xformEv.exit34:             ; preds = %_ZNK10btSoftBody4Bo
   %111 = getelementptr inbounds nuw i8, ptr %90, i64 372
   %112 = load float, ptr %111, align 4, !tbaa !234
   %113 = getelementptr inbounds nuw i8, ptr %90, i64 376
-  %114 = load float, ptr %113, align 4, !tbaa !234
+  %114 = load float, ptr %113, align 8, !tbaa !234
   %115 = fneg float %48
   %116 = fmul float %114, %115
   %117 = tail call float @llvm.fmuladd.f32(float %112, float %53, float %116)
-  %118 = load float, ptr %110, align 4, !tbaa !234
+  %118 = load float, ptr %110, align 8, !tbaa !234
   %119 = fneg float %53
   %120 = fmul float %118, %119
   %121 = tail call float @llvm.fmuladd.f32(float %114, float %43, float %120)
@@ -47273,11 +47273,11 @@ _ZNK10btSoftBody4Body8velocityERK9btVector3.exit: ; preds = %89, %91, %108
   %151 = getelementptr inbounds nuw i8, ptr %71, i64 372
   %152 = load float, ptr %151, align 4, !tbaa !234
   %153 = getelementptr inbounds nuw i8, ptr %71, i64 376
-  %154 = load float, ptr %153, align 4, !tbaa !234
+  %154 = load float, ptr %153, align 8, !tbaa !234
   %155 = fneg float %81
   %156 = fmul float %154, %155
   %157 = tail call float @llvm.fmuladd.f32(float %152, float %86, float %156)
-  %158 = load float, ptr %150, align 4, !tbaa !234
+  %158 = load float, ptr %150, align 8, !tbaa !234
   %159 = fneg float %86
   %160 = fmul float %158, %159
   %161 = tail call float @llvm.fmuladd.f32(float %154, float %76, float %160)

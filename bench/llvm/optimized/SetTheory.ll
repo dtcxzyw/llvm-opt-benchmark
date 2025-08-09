@@ -2531,9 +2531,9 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseINS_14SmallSetVectorI
   store ptr null, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !166
   %9 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 8
-  %11 = load i32, ptr %10, align 4, !tbaa !195
-  store i32 %11, ptr %9, align 4, !tbaa !195
-  store i32 0, ptr %10, align 4, !tbaa !195
+  %11 = load i32, ptr %10, align 8, !tbaa !195
+  store i32 %11, ptr %9, align 8, !tbaa !195
+  store i32 0, ptr %10, align 8, !tbaa !195
   %12 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 12
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 12
   %14 = load i32, ptr %12, align 4, !tbaa !195
@@ -2542,10 +2542,10 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseINS_14SmallSetVectorI
   store i32 %14, ptr %13, align 4, !tbaa !195
   %16 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 16
-  %18 = load i32, ptr %16, align 4, !tbaa !195
-  %19 = load i32, ptr %17, align 4, !tbaa !195
-  store i32 %19, ptr %16, align 4, !tbaa !195
-  store i32 %18, ptr %17, align 4, !tbaa !195
+  %18 = load i32, ptr %16, align 8, !tbaa !195
+  %19 = load i32, ptr %17, align 8, !tbaa !195
+  store i32 %19, ptr %16, align 8, !tbaa !195
+  store i32 %18, ptr %17, align 8, !tbaa !195
   %20 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 40
   store ptr %21, ptr %20, align 8, !tbaa !133

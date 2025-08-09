@@ -3466,13 +3466,13 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
   store i64 %20, ptr %22, align 8, !tbaa !22
   store ptr %12, ptr %9, align 8, !tbaa !25
   store i64 0, ptr %21, align 8, !tbaa !22
-  store i8 0, ptr %12, align 1, !tbaa !24
+  store i8 0, ptr %12, align 8, !tbaa !24
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store ptr %24, ptr %23, align 8, !tbaa !19
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store i64 0, ptr %25, align 8, !tbaa !22
-  store i8 0, ptr %24, align 1, !tbaa !24
+  store i8 0, ptr %24, align 8, !tbaa !24
   %26 = tail call { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %7)
   %27 = extractvalue { ptr, ptr } %26, 0
   %28 = extractvalue { ptr, ptr } %26, 1

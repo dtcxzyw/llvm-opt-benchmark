@@ -233,7 +233,7 @@ define internal fastcc void @idctRowCondDC_int16_8bit(ptr noundef captures(none)
   %12 = sext i16 %11 to i32
   %13 = or i32 %9, %12
   %.not = icmp eq i32 %13, 0
-  %14 = load i16, ptr %0, align 2, !tbaa !6
+  %14 = load i16, ptr %0, align 4, !tbaa !6
   %15 = sext i16 %14 to i32
   br i1 %.not, label %16, label %20
 
@@ -1005,7 +1005,7 @@ define internal fastcc void @idctRowCondDC_int16_10bit(ptr noundef captures(none
   %12 = sext i16 %11 to i32
   %13 = or i32 %9, %12
   %.not = icmp eq i32 %13, 0
-  %14 = load i16, ptr %0, align 2, !tbaa !6
+  %14 = load i16, ptr %0, align 4, !tbaa !6
   %15 = sext i16 %14 to i32
   br i1 %.not, label %16, label %20
 
@@ -1759,7 +1759,7 @@ define internal fastcc void @idctRowCondDC_int16_12bit(ptr noundef captures(none
   %12 = sext i16 %11 to i32
   %13 = or i32 %9, %12
   %.not = icmp eq i32 %13, 0
-  %14 = load i16, ptr %0, align 2, !tbaa !6
+  %14 = load i16, ptr %0, align 4, !tbaa !6
   %15 = sext i16 %14 to i32
   br i1 %.not, label %16, label %21
 

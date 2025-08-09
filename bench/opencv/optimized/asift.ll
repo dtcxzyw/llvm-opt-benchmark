@@ -2915,7 +2915,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %955, %953, %951, %_
   %1008 = load i32, ptr %1007, align 8, !tbaa !133
   %1009 = and i32 %1008, -261
   %1010 = or disjoint i32 %1009, 4
-  store i32 %1010, ptr %1007, align 4, !tbaa !134
+  store i32 %1010, ptr %1007, align 8, !tbaa !134
   %1011 = load i64, ptr %1004, align 8
   %1012 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %1011
   %1013 = getelementptr inbounds nuw i8, ptr %1012, i64 8
@@ -5500,7 +5500,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !15, !alias.scope !199, !noalias !202
   store ptr %39, ptr %.0911.i.i.i.i, align 8, !tbaa !12, !alias.scope !202, !noalias !199
   store i64 0, ptr %48, align 8, !tbaa !15, !alias.scope !202, !noalias !199
-  store i8 0, ptr %39, align 1, !tbaa !14, !alias.scope !202, !noalias !199
+  store i8 0, ptr %39, align 8, !tbaa !14, !alias.scope !202, !noalias !199
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %50, %1
@@ -5548,7 +5548,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !15, !alias.scope !206, !noalias !209
   store ptr %55, ptr %.0911.i.i.i.i19, align 8, !tbaa !12, !alias.scope !209, !noalias !206
   store i64 0, ptr %64, align 8, !tbaa !15, !alias.scope !209, !noalias !206
-  store i8 0, ptr %55, align 1, !tbaa !14, !alias.scope !209, !noalias !206
+  store i8 0, ptr %55, align 8, !tbaa !14, !alias.scope !209, !noalias !206
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 32
   %.not.i.i.i.i24 = icmp eq ptr %66, %5

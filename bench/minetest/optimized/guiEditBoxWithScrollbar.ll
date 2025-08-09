@@ -1990,7 +1990,7 @@ if.then.i637:                                     ; preds = %_ZNSt6vectorIN3irr4
   store ptr %98, ptr %96, align 8, !tbaa !64
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %96, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !65
-  store i32 0, ptr %98, align 4, !tbaa !66
+  store i32 0, ptr %98, align 8, !tbaa !66
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %96, i64 32
   store ptr %incdec.ptr.i, ptr %_M_finish.i630, align 8, !tbaa !107
   br label %if.end137
@@ -3698,7 +3698,7 @@ if.then.i:                                        ; preds = %if.then78
   store ptr %38, ptr %36, align 8, !tbaa !64
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !65
-  store i32 0, ptr %38, align 4, !tbaa !66
+  store i32 0, ptr %38, align 8, !tbaa !66
   %cmp.i.i.i.i.i197 = icmp eq ptr %36, %line
   br i1 %cmp.i.i.i.i.i197, label %_ZNSt16allocator_traitsISaIN3irr4core6stringIwEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i, label %if.end.i.i.i.i.i
 
@@ -3919,7 +3919,7 @@ if.then.i269:                                     ; preds = %invoke.cont109
   store ptr %67, ptr %65, align 8, !tbaa !64
   %_M_string_length.i.i.i.i.i.i.i270 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i270, align 8, !tbaa !65
-  store i32 0, ptr %67, align 4, !tbaa !66
+  store i32 0, ptr %67, align 8, !tbaa !66
   %cmp.i.i.i.i.i271 = icmp eq ptr %65, %line
   br i1 %cmp.i.i.i.i.i271, label %_ZNSt16allocator_traitsISaIN3irr4core6stringIwEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i281, label %if.end.i.i.i.i.i272
 
@@ -4070,7 +4070,7 @@ if.then.i378:                                     ; preds = %invoke.cont133
   store ptr %86, ptr %84, align 8, !tbaa !64
   %_M_string_length.i.i.i.i.i.i.i379 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i379, align 8, !tbaa !65
-  store i32 0, ptr %86, align 4, !tbaa !66
+  store i32 0, ptr %86, align 8, !tbaa !66
   %cmp.i.i.i.i.i380 = icmp eq ptr %84, %line
   br i1 %cmp.i.i.i.i.i380, label %_ZNSt16allocator_traitsISaIN3irr4core6stringIwEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i390, label %if.end.i.i.i.i.i381
 
@@ -7140,7 +7140,7 @@ _ZNKSt6vectorIN3irr4core6stringIwEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %
   store ptr %3, ptr %add.ptr, align 8, !tbaa !64
   %_M_string_length.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !65
-  store i32 0, ptr %3, align 4, !tbaa !66
+  store i32 0, ptr %3, align 8, !tbaa !66
   %call.i.i.i.i53 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKN3irr4core6stringIwEEPS3_ET0_T_S8_S7_(ptr noundef %1, ptr noundef %__position.coerce, ptr noundef nonnull %call5.i.i.i)
           to label %invoke.cont10 unwind label %if.then
 
@@ -7287,7 +7287,7 @@ for.body:                                         ; preds = %entry, %for.inc
   store ptr %0, ptr %__cur.018, align 8, !tbaa !64
   %_M_string_length.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.018, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !65
-  store i32 0, ptr %0, align 4, !tbaa !66
+  store i32 0, ptr %0, align 8, !tbaa !66
   %cmp.i.i.i = icmp eq ptr %__cur.018, %__first.addr.017
   br i1 %cmp.i.i.i, label %for.inc, label %if.end.i.i.i
 
@@ -7421,7 +7421,7 @@ _ZNKSt6vectorIN3irr4core6stringIwEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %
   store ptr %3, ptr %add.ptr, align 8, !tbaa !64
   %_M_string_length.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !65
-  store i32 0, ptr %3, align 4, !tbaa !66
+  store i32 0, ptr %3, align 8, !tbaa !66
   %cmp.i.i.i.i = icmp eq ptr %add.ptr, %__args
   br i1 %cmp.i.i.i.i, label %invoke.cont, label %if.end.i.i.i.i
 

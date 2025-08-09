@@ -1272,7 +1272,7 @@ define internal void @_ZL46UConverter_toUnicode_ISO_2022_JP_OFFSETS_LOGICP23UCon
   %106 = zext i8 %49 to i32
   %107 = getelementptr inbounds nuw i8, ptr %15, i64 112
   store i8 0, ptr %107, align 8, !tbaa !51
-  %108 = load i8, ptr %41, align 1, !tbaa !55
+  %108 = load i8, ptr %41, align 8, !tbaa !55
   %109 = sext i8 %108 to i64
   %110 = getelementptr inbounds [4 x i8], ptr %16, i64 0, i64 %109
   %111 = load i8, ptr %110, align 1, !tbaa !23
@@ -3228,7 +3228,7 @@ _ZL50UConverter_toUnicode_ISO_2022_KR_OFFSETS_LOGIC_IBMP23UConverterToUnicodeArg
   store ptr %146, ptr %5, align 8
   %162 = zext i8 %147 to i16
   store i8 0, ptr %143, align 8, !tbaa !51
-  %163 = load i8, ptr %142, align 4, !tbaa !107
+  %163 = load i8, ptr %142, align 8, !tbaa !107
   %164 = icmp eq i8 %163, 1
   br i1 %164, label %165, label %202
 

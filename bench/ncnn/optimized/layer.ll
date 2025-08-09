@@ -7354,13 +7354,13 @@ define hidden noundef ptr @_ZN4ncnn12create_layerEi(i32 noundef %0) local_unname
   store ptr %29, ptr %28, align 8, !tbaa !48
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 56
   store i64 0, ptr %30, align 8, !tbaa !49
-  store i8 0, ptr %29, align 1, !tbaa !50
+  store i8 0, ptr %29, align 8, !tbaa !50
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 80
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 96
   store ptr %32, ptr %31, align 8, !tbaa !48
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 88
   store i64 0, ptr %33, align 8, !tbaa !49
-  store i8 0, ptr %32, align 1, !tbaa !50
+  store i8 0, ptr %32, align 8, !tbaa !50
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 112
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %27, i64 40

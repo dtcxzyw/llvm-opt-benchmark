@@ -483,7 +483,7 @@ _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit: ; pr
   store <2 x double> %36, ptr %37, align 1, !tbaa !77
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %39 = load <2 x double>, ptr %38, align 16, !tbaa !77, !noalias !92
-  %40 = load double, ptr %22, align 8, !tbaa !81, !noalias !95
+  %40 = load double, ptr %22, align 16, !tbaa !81, !noalias !95
   %41 = tail call double @sin(double noundef %40) #21, !tbaa !90, !noalias !95
   %42 = tail call double @cos(double noundef %40) #21, !tbaa !90, !noalias !95
   %43 = fneg double %41

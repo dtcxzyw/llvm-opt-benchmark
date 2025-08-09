@@ -3256,11 +3256,11 @@ _ZN5folly21CPUThreadPoolExecutor7CPUTaskC2EOS1_.exit: ; preds = %_ZN5folly14Unbo
   %50 = load ptr, ptr %49, align 8, !tbaa !239
   store ptr %50, ptr %48, align 8, !tbaa !239
   %51 = getelementptr inbounds nuw i8, ptr %34, i64 96
-  store ptr null, ptr %51, align 8, !tbaa !46
+  store ptr null, ptr %51, align 16, !tbaa !46
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %53 = load ptr, ptr %52, align 8, !tbaa !46
-  store ptr null, ptr %52, align 8, !tbaa !46
-  store ptr %53, ptr %51, align 8, !tbaa !46
+  %53 = load ptr, ptr %52, align 16, !tbaa !46
+  store ptr null, ptr %52, align 16, !tbaa !46
+  store ptr %53, ptr %51, align 16, !tbaa !46
   store ptr null, ptr %49, align 8, !tbaa !239
   %54 = getelementptr inbounds nuw i8, ptr %34, i64 104
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -3274,7 +3274,7 @@ _ZN5folly21CPUThreadPoolExecutor7CPUTaskC2EOS1_.exit: ; preds = %_ZN5folly14Unbo
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %61 = load i64, ptr %60, align 16, !tbaa !165
   store i64 %61, ptr %59, align 16, !tbaa !165
-  store atomic i32 1, ptr %34 release, align 4
+  store atomic i32 1, ptr %34 release, align 16
   %62 = and i64 %22, 63
   switch i64 %62, label %_ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm6ESt6atomicE11enqueueImplIS2_EEvOT_.exit [
     i64 0, label %63
@@ -3578,8 +3578,8 @@ _ZN5folly21CPUThreadPoolExecutor7CPUTaskC2EOS1_.exit: ; preds = %3, %11
   store ptr %18, ptr %16, align 8, !tbaa !239
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %21 = load ptr, ptr %20, align 8, !tbaa !46
-  store ptr null, ptr %20, align 8, !tbaa !46
+  %21 = load ptr, ptr %20, align 16, !tbaa !46
+  store ptr null, ptr %20, align 16, !tbaa !46
   store ptr %21, ptr %19, align 16, !tbaa !46
   store ptr null, ptr %17, align 8, !tbaa !239
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 88
@@ -3830,8 +3830,8 @@ _ZN5folly21CPUThreadPoolExecutor7CPUTaskC2EOS1_.exit: ; preds = %_ZN5folly19Satu
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr null, ptr %59, align 16, !tbaa !46
   %60 = getelementptr inbounds nuw i8, ptr %38, i64 96
-  %61 = load ptr, ptr %60, align 8, !tbaa !46
-  store ptr null, ptr %60, align 8, !tbaa !46
+  %61 = load ptr, ptr %60, align 16, !tbaa !46
+  store ptr null, ptr %60, align 16, !tbaa !46
   store ptr %61, ptr %59, align 16, !tbaa !46
   store ptr null, ptr %57, align 8, !tbaa !239
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -4159,8 +4159,8 @@ _ZN5folly21CPUThreadPoolExecutor7CPUTaskC2EOS1_.exit: ; preds = %_ZN5folly19Satu
   %67 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store ptr null, ptr %67, align 16, !tbaa !46
   %68 = getelementptr inbounds nuw i8, ptr %46, i64 96
-  %69 = load ptr, ptr %68, align 8, !tbaa !46
-  store ptr null, ptr %68, align 8, !tbaa !46
+  %69 = load ptr, ptr %68, align 16, !tbaa !46
+  store ptr null, ptr %68, align 16, !tbaa !46
   store ptr %69, ptr %67, align 16, !tbaa !46
   store ptr null, ptr %65, align 8, !tbaa !239
   %70 = getelementptr inbounds nuw i8, ptr %7, i64 88
@@ -14147,8 +14147,8 @@ _ZN5folly21CPUThreadPoolExecutor7CPUTaskC2EOS1_.exit: ; preds = %2, %10
   store ptr %17, ptr %15, align 8, !tbaa !239
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %20 = load ptr, ptr %19, align 8, !tbaa !46
-  store ptr null, ptr %19, align 8, !tbaa !46
+  %20 = load ptr, ptr %19, align 16, !tbaa !46
+  store ptr null, ptr %19, align 16, !tbaa !46
   store ptr %20, ptr %18, align 16, !tbaa !46
   store ptr null, ptr %16, align 8, !tbaa !239
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 88
@@ -14395,11 +14395,11 @@ _ZN5folly21CPUThreadPoolExecutor7CPUTaskC2EOS1_.exit: ; preds = %_ZN5folly14Unbo
   %70 = load ptr, ptr %69, align 8, !tbaa !239
   store ptr %70, ptr %68, align 8, !tbaa !239
   %71 = getelementptr inbounds nuw i8, ptr %54, i64 96
-  store ptr null, ptr %71, align 8, !tbaa !46
+  store ptr null, ptr %71, align 16, !tbaa !46
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %73 = load ptr, ptr %72, align 8, !tbaa !46
-  store ptr null, ptr %72, align 8, !tbaa !46
-  store ptr %73, ptr %71, align 8, !tbaa !46
+  %73 = load ptr, ptr %72, align 16, !tbaa !46
+  store ptr null, ptr %72, align 16, !tbaa !46
+  store ptr %73, ptr %71, align 16, !tbaa !46
   store ptr null, ptr %69, align 8, !tbaa !239
   %74 = getelementptr inbounds nuw i8, ptr %54, i64 104
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -14944,7 +14944,7 @@ define linkonce_odr noundef ptr @_ZSt27__uninitialized_default_n_aIPN5folly14Unb
   %11 = getelementptr inbounds nuw i8, ptr %.016, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %.016, i64 36
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %10, i8 0, i64 28, i1 false)
-  store i8 1, ptr %12, align 1, !tbaa !43
+  store i8 1, ptr %12, align 4, !tbaa !43
   %13 = getelementptr inbounds nuw i8, ptr %.016, i64 37
   store i8 0, ptr %13, align 1, !tbaa !43
   %14 = getelementptr inbounds nuw i8, ptr %.016, i64 40
@@ -16349,8 +16349,8 @@ _ZN5folly21CPUThreadPoolExecutor7CPUTaskC2EOS1_.exit: ; preds = %_ZN5folly14Unbo
   store ptr %86, ptr %16, align 8, !tbaa !239
   store ptr null, ptr %17, align 16, !tbaa !46
   %87 = getelementptr inbounds nuw i8, ptr %59, i64 96
-  %88 = load ptr, ptr %87, align 8, !tbaa !46
-  store ptr null, ptr %87, align 8, !tbaa !46
+  %88 = load ptr, ptr %87, align 16, !tbaa !46
+  store ptr null, ptr %87, align 16, !tbaa !46
   store ptr %88, ptr %17, align 16, !tbaa !46
   store ptr null, ptr %85, align 8, !tbaa !239
   %89 = getelementptr inbounds nuw i8, ptr %59, i64 104
@@ -17520,11 +17520,11 @@ _ZN5folly21CPUThreadPoolExecutor7CPUTaskC2EOS1_.exit: ; preds = %_ZN5folly14Unbo
   %50 = load ptr, ptr %49, align 8, !tbaa !239
   store ptr %50, ptr %48, align 8, !tbaa !239
   %51 = getelementptr inbounds nuw i8, ptr %34, i64 96
-  store ptr null, ptr %51, align 8, !tbaa !46
+  store ptr null, ptr %51, align 16, !tbaa !46
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %53 = load ptr, ptr %52, align 8, !tbaa !46
-  store ptr null, ptr %52, align 8, !tbaa !46
-  store ptr %53, ptr %51, align 8, !tbaa !46
+  %53 = load ptr, ptr %52, align 16, !tbaa !46
+  store ptr null, ptr %52, align 16, !tbaa !46
+  store ptr %53, ptr %51, align 16, !tbaa !46
   store ptr null, ptr %49, align 8, !tbaa !239
   %54 = getelementptr inbounds nuw i8, ptr %34, i64 104
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -17538,7 +17538,7 @@ _ZN5folly21CPUThreadPoolExecutor7CPUTaskC2EOS1_.exit: ; preds = %_ZN5folly14Unbo
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %61 = load i64, ptr %60, align 16, !tbaa !165
   store i64 %61, ptr %59, align 16, !tbaa !165
-  store atomic i32 1, ptr %34 release, align 4
+  store atomic i32 1, ptr %34 release, align 16
   %62 = and i64 %22, 63
   switch i64 %62, label %_ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm6ESt6atomicE11enqueueImplIS2_EEvOT_.exit [
     i64 0, label %63
@@ -17992,8 +17992,8 @@ _ZN5folly21CPUThreadPoolExecutor7CPUTaskC2EOS1_.exit: ; preds = %_ZN5folly19Satu
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr null, ptr %62, align 16, !tbaa !46
   %63 = getelementptr inbounds nuw i8, ptr %41, i64 96
-  %64 = load ptr, ptr %63, align 8, !tbaa !46
-  store ptr null, ptr %63, align 8, !tbaa !46
+  %64 = load ptr, ptr %63, align 16, !tbaa !46
+  store ptr null, ptr %63, align 16, !tbaa !46
   store ptr %64, ptr %62, align 16, !tbaa !46
   store ptr null, ptr %60, align 8, !tbaa !239
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -18329,8 +18329,8 @@ _ZN5folly21CPUThreadPoolExecutor7CPUTaskC2EOS1_.exit: ; preds = %_ZN5folly19Satu
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 80
   store ptr null, ptr %70, align 16, !tbaa !46
   %71 = getelementptr inbounds nuw i8, ptr %49, i64 96
-  %72 = load ptr, ptr %71, align 8, !tbaa !46
-  store ptr null, ptr %71, align 8, !tbaa !46
+  %72 = load ptr, ptr %71, align 16, !tbaa !46
+  store ptr null, ptr %71, align 16, !tbaa !46
   store ptr %72, ptr %70, align 16, !tbaa !46
   store ptr null, ptr %68, align 8, !tbaa !239
   %73 = getelementptr inbounds nuw i8, ptr %8, i64 88
@@ -20840,8 +20840,8 @@ _ZN5folly21CPUThreadPoolExecutor7CPUTaskC2EOS1_.exit: ; preds = %2, %10
   store ptr %17, ptr %15, align 8, !tbaa !239
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %20 = load ptr, ptr %19, align 8, !tbaa !46
-  store ptr null, ptr %19, align 8, !tbaa !46
+  %20 = load ptr, ptr %19, align 16, !tbaa !46
+  store ptr null, ptr %19, align 16, !tbaa !46
   store ptr %20, ptr %18, align 16, !tbaa !46
   store ptr null, ptr %16, align 8, !tbaa !239
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 88
@@ -21088,11 +21088,11 @@ _ZN5folly21CPUThreadPoolExecutor7CPUTaskC2EOS1_.exit: ; preds = %_ZN5folly14Unbo
   %70 = load ptr, ptr %69, align 8, !tbaa !239
   store ptr %70, ptr %68, align 8, !tbaa !239
   %71 = getelementptr inbounds nuw i8, ptr %54, i64 96
-  store ptr null, ptr %71, align 8, !tbaa !46
+  store ptr null, ptr %71, align 16, !tbaa !46
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %73 = load ptr, ptr %72, align 8, !tbaa !46
-  store ptr null, ptr %72, align 8, !tbaa !46
-  store ptr %73, ptr %71, align 8, !tbaa !46
+  %73 = load ptr, ptr %72, align 16, !tbaa !46
+  store ptr null, ptr %72, align 16, !tbaa !46
+  store ptr %73, ptr %71, align 16, !tbaa !46
   store ptr null, ptr %69, align 8, !tbaa !239
   %74 = getelementptr inbounds nuw i8, ptr %54, i64 104
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -24659,31 +24659,31 @@ _ZNSt12_Vector_baseIN5folly9MPMCQueueINS0_21CPUThreadPoolExecutor7CPUTaskESt6ato
   store i64 %29, ptr %27, align 8, !tbaa !44, !alias.scope !889, !noalias !892
   %30 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %31 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
-  %32 = load atomic i64, ptr %31 monotonic, align 8, !alias.scope !892, !noalias !889
+  %32 = load atomic i64, ptr %31 monotonic, align 32, !alias.scope !892, !noalias !889
   store i64 %32, ptr %30, align 32, !tbaa !44, !alias.scope !889, !noalias !892
   %33 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 64
   %34 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 64
-  %35 = load atomic i64, ptr %34 monotonic, align 8, !alias.scope !892, !noalias !889
+  %35 = load atomic i64, ptr %34 monotonic, align 64, !alias.scope !892, !noalias !889
   store i64 %35, ptr %33, align 64, !tbaa !44, !alias.scope !889, !noalias !892
   %36 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 128
   %37 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 128
-  %38 = load atomic i64, ptr %37 monotonic, align 8, !alias.scope !892, !noalias !889
+  %38 = load atomic i64, ptr %37 monotonic, align 64, !alias.scope !892, !noalias !889
   store i64 %38, ptr %36, align 64, !tbaa !44, !alias.scope !889, !noalias !892
   %39 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 192
   %40 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 192
-  %41 = load atomic i32, ptr %40 monotonic, align 4, !alias.scope !892, !noalias !889
+  %41 = load atomic i32, ptr %40 monotonic, align 64, !alias.scope !892, !noalias !889
   store i32 %41, ptr %39, align 64, !tbaa !45, !alias.scope !889, !noalias !892
   %42 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 256
   %43 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 256
-  %44 = load atomic i32, ptr %43 monotonic, align 4, !alias.scope !892, !noalias !889
+  %44 = load atomic i32, ptr %43 monotonic, align 64, !alias.scope !892, !noalias !889
   store i32 %44, ptr %42, align 64, !tbaa !45, !alias.scope !889, !noalias !892
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(320) %.0911.i.i.i, i8 0, i64 20, i1 false), !alias.scope !892, !noalias !889
   store atomic i64 0, ptr %28 monotonic, align 8, !alias.scope !892, !noalias !889
-  store atomic i64 0, ptr %31 monotonic, align 8, !alias.scope !892, !noalias !889
-  store atomic i64 0, ptr %34 monotonic, align 8, !alias.scope !892, !noalias !889
-  store atomic i64 0, ptr %37 monotonic, align 8, !alias.scope !892, !noalias !889
-  store atomic i32 0, ptr %40 monotonic, align 4, !alias.scope !892, !noalias !889
-  store atomic i32 0, ptr %43 monotonic, align 4, !alias.scope !892, !noalias !889
+  store atomic i64 0, ptr %31 monotonic, align 32, !alias.scope !892, !noalias !889
+  store atomic i64 0, ptr %34 monotonic, align 64, !alias.scope !892, !noalias !889
+  store atomic i64 0, ptr %37 monotonic, align 64, !alias.scope !892, !noalias !889
+  store atomic i32 0, ptr %40 monotonic, align 64, !alias.scope !892, !noalias !889
+  store atomic i32 0, ptr %43 monotonic, align 64, !alias.scope !892, !noalias !889
   store ptr null, ptr %22, align 8, !tbaa !48, !alias.scope !892, !noalias !889
   %45 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 320
   %46 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 320
@@ -24855,8 +24855,8 @@ _ZN5folly21CPUThreadPoolExecutor7CPUTaskC2EOS1_.exit: ; preds = %2, %10
   store ptr %17, ptr %15, align 8, !tbaa !239
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %20 = load ptr, ptr %19, align 8, !tbaa !46
-  store ptr null, ptr %19, align 8, !tbaa !46
+  %20 = load ptr, ptr %19, align 16, !tbaa !46
+  store ptr null, ptr %19, align 16, !tbaa !46
   store ptr %20, ptr %18, align 16, !tbaa !46
   store ptr null, ptr %16, align 8, !tbaa !239
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 88
@@ -25065,7 +25065,7 @@ _ZN6google12Check_LTImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %54 = load i32, ptr %53, align 16, !tbaa !48
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 128
-  %56 = load atomic i64, ptr %55 acquire, align 8
+  %56 = load atomic i64, ptr %55 acquire, align 64
   %57 = sub i64 %49, %56
   %58 = load i64, ptr %47, align 64, !tbaa !894
   %.not25.i.i = icmp slt i64 %57, %58
@@ -25175,7 +25175,7 @@ define linkonce_odr void @_ZN5folly24PriorityLifoSemMPMCQueueINS_21CPUThreadPool
   %16 = getelementptr inbounds i8, ptr %.sroa.05.016.i, i64 -304
   %17 = load i32, ptr %16, align 16, !tbaa !48
   %18 = getelementptr inbounds i8, ptr %.sroa.05.016.i, i64 -256
-  %19 = load atomic i64, ptr %18 acquire, align 8
+  %19 = load atomic i64, ptr %18 acquire, align 64
   %.not25.i.i.i = icmp ult i64 %12, %19
   br i1 %.not25.i.i.i, label %.lr.ph.i.i.i, label %.loopexit.i
 
@@ -25257,7 +25257,7 @@ define linkonce_odr void @_ZN5folly24PriorityLifoSemMPMCQueueINS_21CPUThreadPool
   %19 = getelementptr inbounds i8, ptr %.sroa.05.016.i, i64 -304
   %20 = load i32, ptr %19, align 16, !tbaa !48
   %21 = getelementptr inbounds i8, ptr %.sroa.05.016.i, i64 -256
-  %22 = load atomic i64, ptr %21 acquire, align 8
+  %22 = load atomic i64, ptr %21 acquire, align 64
   %.not25.i.i.i = icmp ult i64 %15, %22
   br i1 %.not25.i.i.i, label %.lr.ph.i.i.i, label %.loopexit.i
 
@@ -25689,31 +25689,31 @@ _ZNSt16allocator_traitsISaIN5folly9MPMCQueueINS0_21CPUThreadPoolExecutor7CPUTask
   store i64 %32, ptr %30, align 8, !tbaa !44, !alias.scope !915, !noalias !918
   %33 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %34 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
-  %35 = load atomic i64, ptr %34 monotonic, align 8, !alias.scope !918, !noalias !915
+  %35 = load atomic i64, ptr %34 monotonic, align 32, !alias.scope !918, !noalias !915
   store i64 %35, ptr %33, align 32, !tbaa !44, !alias.scope !915, !noalias !918
   %36 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 64
   %37 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 64
-  %38 = load atomic i64, ptr %37 monotonic, align 8, !alias.scope !918, !noalias !915
+  %38 = load atomic i64, ptr %37 monotonic, align 64, !alias.scope !918, !noalias !915
   store i64 %38, ptr %36, align 64, !tbaa !44, !alias.scope !915, !noalias !918
   %39 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 128
   %40 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 128
-  %41 = load atomic i64, ptr %40 monotonic, align 8, !alias.scope !918, !noalias !915
+  %41 = load atomic i64, ptr %40 monotonic, align 64, !alias.scope !918, !noalias !915
   store i64 %41, ptr %39, align 64, !tbaa !44, !alias.scope !915, !noalias !918
   %42 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 192
   %43 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 192
-  %44 = load atomic i32, ptr %43 monotonic, align 4, !alias.scope !918, !noalias !915
+  %44 = load atomic i32, ptr %43 monotonic, align 64, !alias.scope !918, !noalias !915
   store i32 %44, ptr %42, align 64, !tbaa !45, !alias.scope !915, !noalias !918
   %45 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 256
   %46 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 256
-  %47 = load atomic i32, ptr %46 monotonic, align 4, !alias.scope !918, !noalias !915
+  %47 = load atomic i32, ptr %46 monotonic, align 64, !alias.scope !918, !noalias !915
   store i32 %47, ptr %45, align 64, !tbaa !45, !alias.scope !915, !noalias !918
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(320) %.0911.i.i.i, i8 0, i64 20, i1 false), !alias.scope !918, !noalias !915
   store atomic i64 0, ptr %31 monotonic, align 8, !alias.scope !918, !noalias !915
-  store atomic i64 0, ptr %34 monotonic, align 8, !alias.scope !918, !noalias !915
-  store atomic i64 0, ptr %37 monotonic, align 8, !alias.scope !918, !noalias !915
-  store atomic i64 0, ptr %40 monotonic, align 8, !alias.scope !918, !noalias !915
-  store atomic i32 0, ptr %43 monotonic, align 4, !alias.scope !918, !noalias !915
-  store atomic i32 0, ptr %46 monotonic, align 4, !alias.scope !918, !noalias !915
+  store atomic i64 0, ptr %34 monotonic, align 32, !alias.scope !918, !noalias !915
+  store atomic i64 0, ptr %37 monotonic, align 64, !alias.scope !918, !noalias !915
+  store atomic i64 0, ptr %40 monotonic, align 64, !alias.scope !918, !noalias !915
+  store atomic i32 0, ptr %43 monotonic, align 64, !alias.scope !918, !noalias !915
+  store atomic i32 0, ptr %46 monotonic, align 64, !alias.scope !918, !noalias !915
   store ptr null, ptr %25, align 8, !tbaa !48, !alias.scope !918, !noalias !915
   %48 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 320
   %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 320
@@ -25747,31 +25747,31 @@ _ZNSt6vectorIN5folly9MPMCQueueINS0_21CPUThreadPoolExecutor7CPUTaskESt6atomicLb0E
   store i64 %60, ptr %58, align 8, !tbaa !44, !alias.scope !920, !noalias !923
   %61 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %62 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
-  %63 = load atomic i64, ptr %62 monotonic, align 8, !alias.scope !923, !noalias !920
-  store i64 %63, ptr %61, align 8, !tbaa !44, !alias.scope !920, !noalias !923
+  %63 = load atomic i64, ptr %62 monotonic, align 32, !alias.scope !923, !noalias !920
+  store i64 %63, ptr %61, align 32, !tbaa !44, !alias.scope !920, !noalias !923
   %64 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 64
   %65 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 64
-  %66 = load atomic i64, ptr %65 monotonic, align 8, !alias.scope !923, !noalias !920
-  store i64 %66, ptr %64, align 8, !tbaa !44, !alias.scope !920, !noalias !923
+  %66 = load atomic i64, ptr %65 monotonic, align 64, !alias.scope !923, !noalias !920
+  store i64 %66, ptr %64, align 64, !tbaa !44, !alias.scope !920, !noalias !923
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 128
   %68 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 128
-  %69 = load atomic i64, ptr %68 monotonic, align 8, !alias.scope !923, !noalias !920
-  store i64 %69, ptr %67, align 8, !tbaa !44, !alias.scope !920, !noalias !923
+  %69 = load atomic i64, ptr %68 monotonic, align 64, !alias.scope !923, !noalias !920
+  store i64 %69, ptr %67, align 64, !tbaa !44, !alias.scope !920, !noalias !923
   %70 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 192
   %71 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 192
-  %72 = load atomic i32, ptr %71 monotonic, align 4, !alias.scope !923, !noalias !920
-  store i32 %72, ptr %70, align 4, !tbaa !45, !alias.scope !920, !noalias !923
+  %72 = load atomic i32, ptr %71 monotonic, align 64, !alias.scope !923, !noalias !920
+  store i32 %72, ptr %70, align 64, !tbaa !45, !alias.scope !920, !noalias !923
   %73 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 256
   %74 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 256
-  %75 = load atomic i32, ptr %74 monotonic, align 4, !alias.scope !923, !noalias !920
-  store i32 %75, ptr %73, align 4, !tbaa !45, !alias.scope !920, !noalias !923
+  %75 = load atomic i32, ptr %74 monotonic, align 64, !alias.scope !923, !noalias !920
+  store i32 %75, ptr %73, align 64, !tbaa !45, !alias.scope !920, !noalias !923
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(320) %.0911.i.i.i29, i8 0, i64 20, i1 false), !alias.scope !923, !noalias !920
   store atomic i64 0, ptr %59 monotonic, align 8, !alias.scope !923, !noalias !920
-  store atomic i64 0, ptr %62 monotonic, align 8, !alias.scope !923, !noalias !920
-  store atomic i64 0, ptr %65 monotonic, align 8, !alias.scope !923, !noalias !920
-  store atomic i64 0, ptr %68 monotonic, align 8, !alias.scope !923, !noalias !920
-  store atomic i32 0, ptr %71 monotonic, align 4, !alias.scope !923, !noalias !920
-  store atomic i32 0, ptr %74 monotonic, align 4, !alias.scope !923, !noalias !920
+  store atomic i64 0, ptr %62 monotonic, align 32, !alias.scope !923, !noalias !920
+  store atomic i64 0, ptr %65 monotonic, align 64, !alias.scope !923, !noalias !920
+  store atomic i64 0, ptr %68 monotonic, align 64, !alias.scope !923, !noalias !920
+  store atomic i32 0, ptr %71 monotonic, align 64, !alias.scope !923, !noalias !920
+  store atomic i32 0, ptr %74 monotonic, align 64, !alias.scope !923, !noalias !920
   store ptr null, ptr %53, align 8, !tbaa !48, !alias.scope !923, !noalias !920
   %76 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 320
   %77 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 320

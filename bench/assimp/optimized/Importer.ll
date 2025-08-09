@@ -539,7 +539,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit:
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr null, ptr %32, align 8
   store i64 0, ptr %8, align 8
-  store i8 0, ptr %7, align 1
+  store i8 0, ptr %7, align 8
   %33 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false)

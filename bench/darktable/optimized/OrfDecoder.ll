@@ -2845,7 +2845,7 @@ _ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit60: ; preds = %_ZNKSt8_Rb_treeIN
   %172 = add i32 %.neg, %171
   %.sroa.0.0.insert.ext.i = zext i32 %172 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.0.0.insert.ext.i, 4294967296
-  store i64 %.sroa.0.0.insert.insert.i, ptr %164, align 4
+  store i64 %.sroa.0.0.insert.insert.i, ptr %164, align 8
   br label %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit60.thread
 
 _ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit60.thread: ; preds = %83, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit.thread, %_ZNKSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i58, %121, %162, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit60

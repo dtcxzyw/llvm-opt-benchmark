@@ -15582,7 +15582,7 @@ invoke.cont341:                                   ; preds = %_ZNSt7__cxx1112basi
   store ptr %333, ptr %m_formname.i.i, align 8, !tbaa !4
   %_M_string_length.i.i.i.i.i1287 = getelementptr inbounds nuw i8, ptr %call342, i64 16
   store i64 0, ptr %_M_string_length.i.i.i.i.i1287, align 8, !tbaa !14
-  store i8 0, ptr %333, align 1, !tbaa !13
+  store i8 0, ptr %333, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV20LocalFormspecHandler, i64 16), ptr %call342, align 8, !tbaa !15
   %m_client.i = getelementptr inbounds nuw i8, ptr %call342, i64 40
   store ptr null, ptr %m_client.i, align 8, !tbaa !796
@@ -15678,7 +15678,7 @@ invoke.cont375.thread:                            ; preds = %invoke.cont369
   %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %347, i64 2104
   store i64 12, ptr %_M_string_length.i.i.i.i.i.i.i.i.i, align 8, !tbaa !14
   %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %347, i64 2124
-  store i8 0, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1, !tbaa !13
+  store i8 0, ptr %arrayidx.i.i.i.i.i.i.i.i, align 4, !tbaa !13
   store i8 1, ptr %_M_engaged.i.i.i, align 8, !tbaa !799
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1321
 
@@ -17054,7 +17054,7 @@ invoke.cont38:                                    ; preds = %_ZNKSt14default_del
   store ptr %63, ptr %m_player_step_sound.i, align 8, !tbaa !4
   %_M_string_length.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call34, i64 40
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i, align 8, !tbaa !14
-  store i8 0, ptr %63, align 1, !tbaa !13
+  store i8 0, ptr %63, align 8, !tbaa !13
   %gain3.i.i = getelementptr inbounds nuw i8, ptr %call34, i64 64
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %gain3.i.i, align 8, !tbaa !34
   %loop7.i.i = getelementptr inbounds nuw i8, ptr %call34, i64 80
@@ -17066,7 +17066,7 @@ invoke.cont38:                                    ; preds = %_ZNKSt14default_del
   store ptr %64, ptr %m_player_leftpunch_sound.i, align 8, !tbaa !4
   %_M_string_length.i.i.i.i.i.i.i22.i = getelementptr inbounds nuw i8, ptr %call34, i64 96
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i22.i, align 8, !tbaa !14
-  store i8 0, ptr %64, align 1, !tbaa !13
+  store i8 0, ptr %64, align 8, !tbaa !13
   %gain3.i24.i = getelementptr inbounds nuw i8, ptr %call34, i64 120
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %gain3.i24.i, align 8, !tbaa !34
   %loop7.i28.i = getelementptr inbounds nuw i8, ptr %call34, i64 136
@@ -17078,7 +17078,7 @@ invoke.cont38:                                    ; preds = %_ZNKSt14default_del
   store ptr %65, ptr %m_player_leftpunch_sound2.i, align 8, !tbaa !4
   %_M_string_length.i.i.i.i.i.i.i46.i = getelementptr inbounds nuw i8, ptr %call34, i64 152
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i46.i, align 8, !tbaa !14
-  store i8 0, ptr %65, align 1, !tbaa !13
+  store i8 0, ptr %65, align 8, !tbaa !13
   %gain3.i48.i = getelementptr inbounds nuw i8, ptr %call34, i64 176
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %gain3.i48.i, align 8, !tbaa !34
   %loop7.i52.i = getelementptr inbounds nuw i8, ptr %call34, i64 192
@@ -17090,7 +17090,7 @@ invoke.cont38:                                    ; preds = %_ZNKSt14default_del
   store ptr %66, ptr %m_player_rightpunch_sound.i, align 8, !tbaa !4
   %_M_string_length.i.i.i.i.i.i.i71.i = getelementptr inbounds nuw i8, ptr %call34, i64 208
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i71.i, align 8, !tbaa !14
-  store i8 0, ptr %66, align 1, !tbaa !13
+  store i8 0, ptr %66, align 8, !tbaa !13
   %gain3.i73.i = getelementptr inbounds nuw i8, ptr %call34, i64 232
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %gain3.i73.i, align 8, !tbaa !34
   %loop7.i77.i = getelementptr inbounds nuw i8, ptr %call34, i64 248
@@ -20320,7 +20320,7 @@ invoke.cont43:                                    ; preds = %if.else
   %69 = load i32, ptr %gep, align 8, !tbaa !929
   %and.i.i.i.i = and i32 %69, -261
   %or.i.i.i.i = or disjoint i32 %and.i.i.i.i, 4
-  store i32 %or.i.i.i.i, ptr %gep, align 4, !tbaa !929
+  store i32 %or.i.i.i.i, ptr %gep, align 8, !tbaa !929
   %vbase.offset47 = load i64, ptr %vbase.offset.ptr, align 8
   %gep412 = getelementptr i8, ptr %invariant.gep411, i64 %vbase.offset47
   store i64 0, ptr %gep412, align 8, !tbaa !930
@@ -23363,7 +23363,7 @@ invoke.cont38:                                    ; preds = %if.end36
   %m_client.i88 = getelementptr inbounds nuw i8, ptr %call39, i64 40
   store ptr %20, ptr %m_client.i88, align 8, !tbaa !959
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !14
-  store i8 0, ptr %21, align 1, !tbaa !13
+  store i8 0, ptr %21, align 8, !tbaa !13
   %m_game_ui = getelementptr inbounds nuw i8, ptr %this, i64 264
   %22 = load ptr, ptr %m_game_ui, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
@@ -30598,7 +30598,7 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i.i.i,
   store ptr %20, ptr %m_formname.i.i, align 8, !tbaa !4
   %_M_string_length.i.i.i.i.i52 = getelementptr inbounds nuw i8, ptr %call14, i64 16
   store i64 0, ptr %_M_string_length.i.i.i.i.i52, align 8, !tbaa !14
-  store i8 0, ptr %20, align 1, !tbaa !13
+  store i8 0, ptr %20, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23TextDestPlayerInventory, i64 16), ptr %call14, align 8, !tbaa !15
   %m_client.i = getelementptr inbounds nuw i8, ptr %call14, i64 40
   store ptr %18, ptr %m_client.i, align 8, !tbaa !959
@@ -30779,7 +30779,7 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i.i.i,
   store ptr %12, ptr %m_formname.i.i, align 8, !tbaa !4
   %_M_string_length.i.i.i.i.i24 = getelementptr inbounds nuw i8, ptr %call2, i64 16
   store i64 0, ptr %_M_string_length.i.i.i.i.i24, align 8, !tbaa !14
-  store i8 0, ptr %12, align 1, !tbaa !13
+  store i8 0, ptr %12, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV20LocalFormspecHandler, i64 16), ptr %call2, align 8, !tbaa !15
   %m_client.i = getelementptr inbounds nuw i8, ptr %call2, i64 40
   store ptr %11, ptr %m_client.i, align 8, !tbaa !796
@@ -31041,15 +31041,15 @@ invoke.cont:                                      ; preds = %lor.lhs.false.i.i.i
   store ptr %23, ptr %name.i73, align 8, !tbaa !4
   %_M_string_length.i.i.i.i74 = getelementptr inbounds nuw i8, ptr %call11, i64 24
   store i64 0, ptr %_M_string_length.i.i.i.i74, align 8, !tbaa !14
-  store i8 0, ptr %23, align 1, !tbaa !13
+  store i8 0, ptr %23, align 8, !tbaa !13
   %scale.i = getelementptr inbounds nuw i8, ptr %call11, i64 48
-  store <2 x float> zeroinitializer, ptr %scale.i, align 4, !tbaa !34
+  store <2 x float> zeroinitializer, ptr %scale.i, align 8, !tbaa !34
   %text.i75 = getelementptr inbounds nuw i8, ptr %call11, i64 56
   %24 = getelementptr inbounds nuw i8, ptr %call11, i64 72
   store ptr %24, ptr %text.i75, align 8, !tbaa !4
   %_M_string_length.i.i.i9.i = getelementptr inbounds nuw i8, ptr %call11, i64 64
   store i64 0, ptr %_M_string_length.i.i.i9.i, align 8, !tbaa !14
-  store i8 0, ptr %24, align 1, !tbaa !13
+  store i8 0, ptr %24, align 8, !tbaa !13
   %align.i = getelementptr inbounds nuw i8, ptr %call11, i64 100
   %text2.i76 = getelementptr inbounds nuw i8, ptr %call11, i64 144
   %25 = getelementptr inbounds nuw i8, ptr %call11, i64 160
@@ -31057,7 +31057,7 @@ invoke.cont:                                      ; preds = %lor.lhs.false.i.i.i
   store ptr %25, ptr %text2.i76, align 8, !tbaa !4
   %_M_string_length.i.i.i14.i = getelementptr inbounds nuw i8, ptr %call11, i64 152
   store i64 0, ptr %_M_string_length.i.i.i14.i, align 8, !tbaa !14
-  store i8 0, ptr %25, align 1, !tbaa !13
+  store i8 0, ptr %25, align 8, !tbaa !13
   %type = getelementptr inbounds nuw i8, ptr %3, i64 4
   %26 = load i8, ptr %type, align 4, !tbaa !1094
   %conv = zext i8 %26 to i32
@@ -31146,7 +31146,7 @@ cleanup.cont.i.i:                                 ; preds = %lor.lhs.false.i.i.i
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #42
   store ptr null, ptr %call5.i.i.i.i.i.i, align 8, !tbaa !100
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 8
-  store i32 %4, ptr %add.ptr.i.i.i.i, align 4, !tbaa !1105
+  store i32 %4, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1105
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 12
   store i32 0, ptr %second.i.i.i.i.i.i.i.i, align 4, !tbaa !1107
   %call7.i.i = invoke ptr @_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS4_10_Hash_nodeIS2_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %m_hud_server_to_client, i64 noundef %rem.i.i.i.i.i79, i64 noundef %conv.i.i.i.i77.pre-phi, ptr noundef nonnull %call5.i.i.i.i.i.i, i64 noundef 1)
@@ -32969,7 +32969,7 @@ invoke.cont31:                                    ; preds = %if.end.i.i.i.i.i.i,
   store ptr %28, ptr %m_formname.i.i, align 8, !tbaa !4
   %_M_string_length.i.i.i.i.i107 = getelementptr inbounds nuw i8, ptr %call33, i64 16
   store i64 0, ptr %_M_string_length.i.i.i.i.i107, align 8, !tbaa !14
-  store i8 0, ptr %28, align 1, !tbaa !13
+  store i8 0, ptr %28, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV20LocalFormspecHandler, i64 16), ptr %call33, align 8, !tbaa !15
   %m_client.i = getelementptr inbounds nuw i8, ptr %call33, i64 40
   store ptr %27, ptr %m_client.i, align 8, !tbaa !796
@@ -33770,7 +33770,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %if
   store i64 %7, ptr %_M_string_length.i29.i, align 8, !tbaa !14
   store ptr %4, ptr %1, align 8, !tbaa !11
   store i64 0, ptr %_M_string_length.i28.i, align 8, !tbaa !14
-  store i8 0, ptr %4, align 1, !tbaa !13
+  store i8 0, ptr %4, align 8, !tbaa !13
   %8 = load ptr, ptr %_M_start.i.i, align 8, !tbaa !1161
   %_M_last.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %9 = load ptr, ptr %_M_last.i.i, align 8, !tbaa !1162
@@ -38021,7 +38021,7 @@ invoke.cont76:                                    ; preds = %invoke.cont65
   store ptr %35, ptr %m_formname.i.i, align 8, !tbaa !4
   %_M_string_length.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call72, i64 16
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !14
-  store i8 0, ptr %35, align 1, !tbaa !13
+  store i8 0, ptr %35, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV20TextDestNodeMetadata, i64 16), ptr %call72, align 8, !tbaa !15
   %m_p.i889 = getelementptr inbounds nuw i8, ptr %call72, i64 40
   store i48 %agg.tmp67.sroa.0.0.copyload, ptr %m_p.i889, align 8, !tbaa.struct !618
@@ -50422,7 +50422,7 @@ invoke.cont15:                                    ; preds = %if.end5
   store ptr null, ptr %call5.i.i.i.i64, align 8, !tbaa !100
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i64, i64 8
   %4 = load i64, ptr %add.ptr, align 4
-  store i64 %4, ptr %add.ptr.i.i, align 4
+  store i64 %4, ptr %add.ptr.i.i, align 8
   %_M_before_begin.i65 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i.i64, ptr %_M_before_begin.i65, align 8, !tbaa !1416
   %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -50447,7 +50447,7 @@ invoke.cont22:                                    ; preds = %for.body
   store ptr null, ptr %call5.i.i.i.i68, align 8, !tbaa !100
   %add.ptr.i.i67 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i68, i64 8
   %6 = load i64, ptr %add.ptr18, align 4
-  store i64 %6, ptr %add.ptr.i.i67, align 4
+  store i64 %6, ptr %add.ptr.i.i67, align 8
   store ptr %call5.i.i.i.i68, ptr %__prev_n.072, align 8, !tbaa !100
   %sext74 = shl i64 %6, 32
   %conv.i.i.i.i = ashr exact i64 %sext74, 32
@@ -54587,7 +54587,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   store ptr %24, ptr %second.i.i.i.i.i.i, align 8, !tbaa !4
   %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 48
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i.i, align 8, !tbaa !14
-  store i8 0, ptr %24, align 1, !tbaa !13
+  store i8 0, ptr %24, align 8, !tbaa !13
   store ptr %call5.i.i.i.i, ptr %_M_node.i, align 8, !tbaa !1467
   %call7 = invoke ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %rem.i.i.i, i64 noundef %call.i5.i.i, ptr noundef nonnull %call5.i.i.i.i, i64 noundef 1)
           to label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %lpad
@@ -55484,7 +55484,7 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIj
   %__bbegin_bkt.043 = phi i64 [ %__bbegin_bkt.1, %if.end22 ], [ 0, %_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %1 = load ptr, ptr %__p.044, align 8, !tbaa !100
   %add.ptr = getelementptr inbounds nuw i8, ptr %__p.044, i64 8
-  %2 = load i32, ptr %add.ptr, align 4, !tbaa !497
+  %2 = load i32, ptr %add.ptr, align 8, !tbaa !497
   %conv.i.i.i = zext i32 %2 to i64
   %rem.i.i = urem i64 %conv.i.i.i, %__bkt_count
   %arrayidx = getelementptr inbounds nuw ptr, ptr %retval.0.i, i64 %rem.i.i

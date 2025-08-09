@@ -361,7 +361,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @hugetlb_acct_memory(ptr no
   store ptr %61, ptr %63, align 8
   store ptr %62, ptr %61, align 8
   %64 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  store ptr %5, ptr %64, align 8
+  store ptr %5, ptr %64, align 16
   store volatile ptr %61, ptr %5, align 8
   %65 = call i32 @__SCT__cond_resched() #22
   %66 = add nuw nsw i64 %29, 1
@@ -1758,13 +1758,13 @@ define dso_local void @free_huge_folio(ptr noundef %0) local_unnamed_addr #0 ali
   %117 = lshr i64 %116, 58
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %120 = load ptr, ptr %119, align 8
+  %120 = load ptr, ptr %119, align 16
   %121 = load ptr, ptr %118, align 8
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   store ptr %120, ptr %122, align 8
   store volatile ptr %121, ptr %120, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %118, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %119, align 8
+  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %119, align 16
   %123 = load volatile i64, ptr %36, align 8
   %124 = and i64 %123, 8
   %125 = icmp eq i64 %124, 0
@@ -2378,7 +2378,7 @@ define dso_local i32 @dissolve_free_huge_page(ptr noundef %0) local_unnamed_addr
   %124 = load i64, ptr %27, align 16
   %125 = lshr i64 %124, 58
   store volatile ptr %31, ptr %31, align 8
-  store volatile ptr %31, ptr %32, align 8
+  store volatile ptr %31, ptr %32, align 16
   %126 = load i64, ptr %103, align 8
   %127 = add i64 %126, 1
   store i64 %127, ptr %103, align 8
@@ -2400,7 +2400,7 @@ define dso_local i32 @dissolve_free_huge_page(ptr noundef %0) local_unnamed_addr
   %136 = lshr i64 %135, 58
   %137 = getelementptr inbounds nuw i8, ptr %71, i64 120
   %138 = getelementptr [64 x %struct.list_head], ptr %137, i64 0, i64 %136
-  %139 = load ptr, ptr %32, align 8
+  %139 = load ptr, ptr %32, align 16
   %140 = load ptr, ptr %31, align 8
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
   store ptr %139, ptr %141, align 8
@@ -2409,7 +2409,7 @@ define dso_local i32 @dissolve_free_huge_page(ptr noundef %0) local_unnamed_addr
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   store ptr %31, ptr %143, align 8
   store ptr %142, ptr %31, align 8
-  store ptr %138, ptr %32, align 8
+  store ptr %138, ptr %32, align 16
   store volatile ptr %31, ptr %138, align 8
   %144 = load i64, ptr %82, align 8
   %145 = add i64 %144, 1
@@ -3301,7 +3301,7 @@ isolate_hugetlb.exit:                             ; preds = %.lr.ph.i
   %180 = lshr i64 %179, 58
   %181 = getelementptr inbounds nuw i8, ptr %57, i64 120
   %182 = getelementptr [64 x %struct.list_head], ptr %181, i64 0, i64 %180
-  %183 = load ptr, ptr %120, align 8
+  %183 = load ptr, ptr %120, align 16
   %184 = load ptr, ptr %119, align 8
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 8
   store ptr %183, ptr %185, align 8
@@ -3310,7 +3310,7 @@ isolate_hugetlb.exit:                             ; preds = %.lr.ph.i
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 8
   store ptr %119, ptr %187, align 8
   store ptr %186, ptr %119, align 8
-  store ptr %182, ptr %120, align 8
+  store ptr %182, ptr %120, align 16
   store volatile ptr %119, ptr %182, align 8
   %188 = getelementptr inbounds nuw i8, ptr %57, i64 72
   %189 = load i64, ptr %188, align 8
@@ -13314,7 +13314,7 @@ define internal fastcc void @__update_and_free_hugetlb_folio(ptr noundef %0, ptr
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store volatile ptr %18, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store volatile ptr %18, ptr %19, align 8
+  store volatile ptr %18, ptr %19, align 16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, 1
@@ -13349,7 +13349,7 @@ define internal fastcc void @__update_and_free_hugetlb_folio(ptr noundef %0, ptr
   %41 = lshr i64 %40, 58
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %43 = getelementptr [64 x %struct.list_head], ptr %42, i64 0, i64 %41
-  %44 = load ptr, ptr %19, align 8
+  %44 = load ptr, ptr %19, align 16
   %45 = load ptr, ptr %18, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %44, ptr %46, align 8
@@ -13358,7 +13358,7 @@ define internal fastcc void @__update_and_free_hugetlb_folio(ptr noundef %0, ptr
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr %18, ptr %48, align 8
   store ptr %47, ptr %18, align 8
-  store ptr %43, ptr %19, align 8
+  store ptr %43, ptr %19, align 16
   store volatile ptr %18, ptr %43, align 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %50 = load i64, ptr %49, align 8
@@ -13565,7 +13565,7 @@ define internal fastcc ptr @alloc_fresh_hugetlb_folio(ptr noundef %0, i32 nounde
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store volatile ptr %30, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store volatile ptr %30, ptr %31, align 8
+  store volatile ptr %30, ptr %31, align 16
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %32, i8 0, i64 24, i1 false)
   tail call void @hugetlb_vmemmap_optimize_folio(ptr noundef %0, ptr noundef nonnull %11) #22

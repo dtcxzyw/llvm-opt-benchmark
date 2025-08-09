@@ -6184,7 +6184,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_9GV
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.014, i64 32
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %21 = load i32, ptr %19, align 4, !tbaa !73
+  %21 = load i32, ptr %19, align 8, !tbaa !73
   store ptr %.sroa.01.0.copyload, ptr %3, align 8, !tbaa !49
   store i64 %.sroa.22.0.copyload, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !tbaa !50
   store ptr %.sroa.0.0.copyload, ptr %9, align 8, !tbaa !49
@@ -6439,7 +6439,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_17P
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.014, i64 32
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %21 = load i32, ptr %19, align 4, !tbaa !73
+  %21 = load i32, ptr %19, align 8, !tbaa !73
   store ptr %.sroa.01.0.copyload, ptr %3, align 8, !tbaa !49
   store i64 %.sroa.22.0.copyload, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !tbaa !50
   store ptr %.sroa.0.0.copyload, ptr %9, align 8, !tbaa !49
@@ -7315,7 +7315,7 @@ _ZNSt5dequeISt4pairIPKN4llvm4LoopEPNS1_26BlockFrequencyInfoImplBase8LoopDataEESa
   %75 = getelementptr inbounds nuw i8, ptr %65, i64 120
   %76 = getelementptr inbounds nuw i8, ptr %65, i64 124
   store i32 4, ptr %76, align 4, !tbaa !27
-  store i32 %64, ptr %74, align 4, !tbaa !73
+  store i32 %64, ptr %74, align 8, !tbaa !73
   store i32 1, ptr %75, align 8, !tbaa !26
   %77 = getelementptr inbounds nuw i8, ptr %65, i64 144
   %78 = getelementptr inbounds nuw i8, ptr %65, i64 160
@@ -8732,7 +8732,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_11AssertingVHIKNS_10BasicBlockEEESt4pairI
   %57 = load ptr, ptr %1, align 8, !tbaa !152
   store ptr %57, ptr %48, align 8, !tbaa !152
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 -1, ptr %58, align 4, !tbaa !211
+  store i32 -1, ptr %58, align 8, !tbaa !211
   %59 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %60 = getelementptr inbounds nuw i8, ptr %48, i64 48
   store i64 0, ptr %60, align 8
@@ -13778,7 +13778,7 @@ _ZN4llvm13ScaledNumbers6getSumImEESt4pairIT_sES3_sS3_s.exit.i: ; preds = %198, %
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store i64 %.sroa.013.0.i.i, ptr %70, align 8, !tbaa !50
-  store i16 %.sroa.3.0.i.i, ptr %71, align 2, !tbaa !453
+  store i16 %.sroa.3.0.i.i, ptr %71, align 8, !tbaa !453
   %203 = icmp sgt i16 %.sroa.3.0.i.i, 16383
   br i1 %203, label %204, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E8containsES4_.exit
 
@@ -16682,7 +16682,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %21
   store i64 %224, ptr %225, align 8, !tbaa !55
   store ptr %217, ptr %5, align 8, !tbaa !62
   store i64 0, ptr %15, align 8, !tbaa !55
-  store i8 0, ptr %217, align 1, !tbaa !57
+  store i8 0, ptr %217, align 8, !tbaa !57
   br label %226
 
 226:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit27
@@ -18782,7 +18782,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockENS_26BlockFrequencyInfoImp
   %57 = load ptr, ptr %1, align 8, !tbaa !231
   store ptr %57, ptr %48, align 8, !tbaa !231
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 -1, ptr %58, align 4, !tbaa !211
+  store i32 -1, ptr %58, align 8, !tbaa !211
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockENS_26BlockFrequencyInfoImplBase9BlockNodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E16InsertIntoBucketIRKS4_JEEEPSB_SH_OT_DpOT0_.exit
@@ -18983,7 +18983,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockENS_26BlockFrequencyInfoImp
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !73
-  store i32 %68, ptr %66, align 4, !tbaa !73
+  store i32 %68, ptr %66, align 8, !tbaa !73
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !233
   br label %70

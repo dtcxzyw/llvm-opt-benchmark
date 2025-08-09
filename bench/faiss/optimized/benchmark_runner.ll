@@ -918,13 +918,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store ptr %58, ptr %57, align 8, !tbaa !100
   %59 = getelementptr inbounds nuw i8, ptr %52, i64 48
   store i64 0, ptr %59, align 8, !tbaa !3
-  store i8 0, ptr %58, align 1, !tbaa !12
+  store i8 0, ptr %58, align 8, !tbaa !12
   %60 = getelementptr inbounds nuw i8, ptr %52, i64 72
   %61 = getelementptr inbounds nuw i8, ptr %52, i64 88
   store ptr %61, ptr %60, align 8, !tbaa !100
   %62 = getelementptr inbounds nuw i8, ptr %52, i64 80
   store i64 0, ptr %62, align 8, !tbaa !3
-  store i8 0, ptr %61, align 1, !tbaa !12
+  store i8 0, ptr %61, align 8, !tbaa !12
   %63 = getelementptr inbounds nuw i8, ptr %52, i64 104
   store i32 0, ptr %63, align 8, !tbaa !101
   %64 = getelementptr inbounds nuw i8, ptr %52, i64 120
@@ -938,7 +938,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %68 = getelementptr inbounds nuw i8, ptr %52, i64 152
   %69 = getelementptr inbounds nuw i8, ptr %52, i64 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %68, i8 0, i64 48, i1 false)
-  store i32 %56, ptr %69, align 4, !tbaa !108
+  store i32 %56, ptr %69, align 8, !tbaa !108
   %70 = getelementptr inbounds nuw i8, ptr %52, i64 208
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(100) %70, i8 0, i64 40, i1 false)
   %71 = getelementptr inbounds nuw i8, ptr %52, i64 248
@@ -1035,7 +1035,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %_ZN
   %110 = getelementptr inbounds nuw i8, ptr %105, i64 24
   store ptr %104, ptr %110, align 8, !tbaa !128
   %111 = getelementptr inbounds nuw i8, ptr %105, i64 32
-  store i32 %106, ptr %111, align 4, !tbaa !130
+  store i32 %106, ptr %111, align 8, !tbaa !130
   %112 = getelementptr inbounds nuw i8, ptr %105, i64 40
   %113 = load i64, ptr %43, align 8, !tbaa !93
   store i64 %113, ptr %112, align 8, !tbaa !132
@@ -2314,13 +2314,13 @@ _ZNSt10unique_ptrIN9benchmark8internal13ThreadManagerESt14default_deleteIS2_EE5r
   store ptr %40, ptr %39, align 8, !tbaa !100
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 48
   store i64 0, ptr %41, align 8, !tbaa !3
-  store i8 0, ptr %40, align 1, !tbaa !12
+  store i8 0, ptr %40, align 8, !tbaa !12
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 72
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 88
   store ptr %43, ptr %42, align 8, !tbaa !100
   %44 = getelementptr inbounds nuw i8, ptr %38, i64 80
   store i64 0, ptr %44, align 8, !tbaa !3
-  store i8 0, ptr %43, align 1, !tbaa !12
+  store i8 0, ptr %43, align 8, !tbaa !12
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 104
   store i32 0, ptr %45, align 8, !tbaa !101
   %46 = getelementptr inbounds nuw i8, ptr %38, i64 120
@@ -2334,7 +2334,7 @@ _ZNSt10unique_ptrIN9benchmark8internal13ThreadManagerESt14default_deleteIS2_EE5r
   %50 = getelementptr inbounds nuw i8, ptr %38, i64 152
   %51 = getelementptr inbounds nuw i8, ptr %38, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %50, i8 0, i64 48, i1 false)
-  store i32 1, ptr %51, align 4, !tbaa !108
+  store i32 1, ptr %51, align 8, !tbaa !108
   %52 = getelementptr inbounds nuw i8, ptr %38, i64 208
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(100) %52, i8 0, i64 40, i1 false)
   %53 = getelementptr inbounds nuw i8, ptr %38, i64 248
@@ -2436,13 +2436,13 @@ _ZNSt10unique_ptrIN9benchmark8internal13ThreadManagerESt14default_deleteIS2_EE5r
   store ptr %6, ptr %5, align 8, !tbaa !100
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i64 0, ptr %7, align 8, !tbaa !3
-  store i8 0, ptr %6, align 1, !tbaa !12
+  store i8 0, ptr %6, align 8, !tbaa !12
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store ptr %9, ptr %8, align 8, !tbaa !100
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store i64 0, ptr %10, align 8, !tbaa !3
-  store i8 0, ptr %9, align 1, !tbaa !12
+  store i8 0, ptr %9, align 8, !tbaa !12
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 104
   store i32 0, ptr %11, align 8, !tbaa !101
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
@@ -2456,7 +2456,7 @@ _ZNSt10unique_ptrIN9benchmark8internal13ThreadManagerESt14default_deleteIS2_EE5r
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false)
-  store i32 1, ptr %17, align 4, !tbaa !108
+  store i32 1, ptr %17, align 8, !tbaa !108
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 208
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(100) %18, i8 0, i64 40, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 248

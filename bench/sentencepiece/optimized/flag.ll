@@ -487,7 +487,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   store ptr %35, ptr %34, align 8, !tbaa !6
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store i64 0, ptr %36, align 8, !tbaa !14
-  store i8 0, ptr %35, align 1, !tbaa !16
+  store i8 0, ptr %35, align 8, !tbaa !16
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 0, i64 32, i1 false)
   store ptr %32, ptr %31, align 8, !tbaa !17
@@ -1625,7 +1625,7 @@ define weak_odr void @_ZN4absl4FlagIiEC2EPKcS3_S3_RKi(ptr noundef nonnull align 
   store ptr %17, ptr %16, align 8, !tbaa !6
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i64 0, ptr %18, align 8, !tbaa !14
-  store i8 0, ptr %17, align 1, !tbaa !16
+  store i8 0, ptr %17, align 8, !tbaa !16
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 32, i1 false)
   store ptr %15, ptr %14, align 8, !tbaa !17
@@ -2303,7 +2303,7 @@ define weak_odr void @_ZN4absl4FlagIjEC2EPKcS3_S3_RKj(ptr noundef nonnull align 
   store ptr %17, ptr %16, align 8, !tbaa !6
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i64 0, ptr %18, align 8, !tbaa !14
-  store i8 0, ptr %17, align 1, !tbaa !16
+  store i8 0, ptr %17, align 8, !tbaa !16
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 32, i1 false)
   store ptr %15, ptr %14, align 8, !tbaa !17
@@ -2982,7 +2982,7 @@ define weak_odr void @_ZN4absl4FlagIdEC2EPKcS3_S3_RKd(ptr noundef nonnull align 
   store ptr %17, ptr %16, align 8, !tbaa !6
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i64 0, ptr %18, align 8, !tbaa !14
-  store i8 0, ptr %17, align 1, !tbaa !16
+  store i8 0, ptr %17, align 8, !tbaa !16
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 32, i1 false)
   store ptr %15, ptr %14, align 8, !tbaa !17
@@ -3660,7 +3660,7 @@ define weak_odr void @_ZN4absl4FlagIfEC2EPKcS3_S3_RKf(ptr noundef nonnull align 
   store ptr %17, ptr %16, align 8, !tbaa !6
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i64 0, ptr %18, align 8, !tbaa !14
-  store i8 0, ptr %17, align 1, !tbaa !16
+  store i8 0, ptr %17, align 8, !tbaa !16
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 32, i1 false)
   store ptr %15, ptr %14, align 8, !tbaa !17
@@ -4338,7 +4338,7 @@ define weak_odr void @_ZN4absl4FlagIbEC2EPKcS3_S3_RKb(ptr noundef nonnull align 
   store ptr %16, ptr %15, align 8, !tbaa !6
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i64 0, ptr %17, align 8, !tbaa !14
-  store i8 0, ptr %16, align 1, !tbaa !16
+  store i8 0, ptr %16, align 8, !tbaa !16
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 0, i64 32, i1 false)
   store ptr %14, ptr %13, align 8, !tbaa !17
@@ -4732,7 +4732,7 @@ define weak_odr void @_ZN4absl4FlagIlEC2EPKcS3_S3_RKl(ptr noundef nonnull align 
   store ptr %17, ptr %16, align 8, !tbaa !6
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i64 0, ptr %18, align 8, !tbaa !14
-  store i8 0, ptr %17, align 1, !tbaa !16
+  store i8 0, ptr %17, align 8, !tbaa !16
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 32, i1 false)
   store ptr %15, ptr %14, align 8, !tbaa !17
@@ -5410,7 +5410,7 @@ define weak_odr void @_ZN4absl4FlagImEC2EPKcS3_S3_RKm(ptr noundef nonnull align 
   store ptr %17, ptr %16, align 8, !tbaa !6
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i64 0, ptr %18, align 8, !tbaa !14
-  store i8 0, ptr %17, align 1, !tbaa !16
+  store i8 0, ptr %17, align 8, !tbaa !16
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 32, i1 false)
   store ptr %15, ptr %14, align 8, !tbaa !17

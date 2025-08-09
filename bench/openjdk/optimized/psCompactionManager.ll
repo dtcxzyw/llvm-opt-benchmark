@@ -2665,7 +2665,7 @@ _ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj8192EE4pushES0_.exit.thread.i.
   %38 = add i32 %29, 1
   %39 = and i32 %38, 8191
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !6
-  store volatile i32 %39, ptr %28, align 4
+  store volatile i32 %39, ptr %28, align 8
   br label %_ZN20ParCompactionManager13push_objarrayEP7oopDescm.exit
 
 _ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj8192EE4pushES0_.exit.i.i: ; preds = %26
@@ -2801,7 +2801,7 @@ _ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj8192EE4pushES0_.exit.thread.i.
   %38 = add i32 %29, 1
   %39 = and i32 %38, 8191
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !6
-  store volatile i32 %39, ptr %28, align 4
+  store volatile i32 %39, ptr %28, align 8
   br label %_ZN20ParCompactionManager13push_objarrayEP7oopDescm.exit
 
 _ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj8192EE4pushES0_.exit.i.i: ; preds = %26

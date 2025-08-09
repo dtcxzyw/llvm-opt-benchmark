@@ -399,7 +399,7 @@ define range(i32 -1094995529, 1) i32 @ff_dolby_e_parse_header(ptr noundef %0, pt
   %105 = add i32 %95, 6
   %106 = tail call i32 @llvm.umin.i32(i32 %93, i32 %105)
   store i32 %106, ptr %68, align 8, !tbaa !26
-  store i32 %104, ptr %4, align 4, !tbaa !29
+  store i32 %104, ptr %4, align 8, !tbaa !29
   %107 = icmp ugt i32 %103, 1610612735
   br i1 %107, label %108, label %111
 
@@ -449,7 +449,7 @@ define range(i32 -1094995529, 1) i32 @ff_dolby_e_parse_header(ptr noundef %0, pt
   %141 = tail call i32 @llvm.umin.i32(i32 %93, i32 %140)
   store i32 %141, ptr %68, align 8, !tbaa !26
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 %139, ptr %142, align 4, !tbaa !33
+  store i32 %139, ptr %142, align 8, !tbaa !33
   %143 = zext nneg i32 %128 to i64
   %144 = getelementptr inbounds nuw [16 x i16], ptr @sample_rate_tab, i64 0, i64 %143
   %145 = load i16, ptr %144, align 2, !tbaa !34
@@ -513,7 +513,7 @@ define range(i32 -1094995529, 1) i32 @ff_dolby_e_parse_header(ptr noundef %0, pt
   %179 = add i32 %169, 8
   %180 = tail call i32 @llvm.umin.i32(i32 %93, i32 %179)
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 %178, ptr %181, align 4, !tbaa !38
+  store i32 %178, ptr %181, align 8, !tbaa !38
   %182 = mul nuw nsw i32 %119, 10
   %183 = sub nsw i32 0, %180
   %184 = sub nsw i32 %93, %180

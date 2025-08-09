@@ -17402,7 +17402,7 @@ define internal fastcc void @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111Typ
   tail call void @_ZN5clang5index15IndexingContext9indexBodyEPKNS_4StmtEPKNS_9NamedDeclEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef %4, ptr noundef %7, ptr noundef %9) #14
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %12 = load i32, ptr %11, align 4, !tbaa !681
+  %12 = load i32, ptr %11, align 8, !tbaa !681
   %13 = zext i32 %12 to i64
   %.idx.i = shl nuw nsw i64 %13, 3
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i
@@ -17847,7 +17847,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111TypeIndexerEE18VisitOMPClauseLis
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8, !tbaa !23
   tail call void @_ZN5clang5index15IndexingContext9indexBodyEPKNS_4StmtEPKNS_9NamedDeclEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef %.val, ptr noundef %19, ptr noundef %21) #14
-  %22 = load i32, ptr %4, align 4, !tbaa !705
+  %22 = load i32, ptr %4, align 8, !tbaa !705
   %23 = zext i32 %22 to i64
   %.idx = shl nuw nsw i64 %23, 3
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
@@ -18072,7 +18072,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111TypeIndexerEE18VisitOMPClauseLis
   %29 = load ptr, ptr %5, align 8, !tbaa !12
   %30 = load ptr, ptr %7, align 8, !tbaa !23
   tail call void @_ZN5clang5index15IndexingContext9indexBodyEPKNS_4StmtEPKNS_9NamedDeclEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(64) %28, ptr noundef %27, ptr noundef %29, ptr noundef %30) #14
-  %31 = load i32, ptr %13, align 4, !tbaa !718
+  %31 = load i32, ptr %13, align 8, !tbaa !718
   %32 = zext i32 %31 to i64
   %.idx = shl nuw nsw i64 %32, 3
   %33 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
@@ -18320,7 +18320,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111TypeIndexerEE18VisitOMPClauseLis
   %25 = load ptr, ptr %18, align 8, !tbaa !12
   %26 = load ptr, ptr %20, align 8, !tbaa !23
   tail call void @_ZN5clang5index15IndexingContext9indexBodyEPKNS_4StmtEPKNS_9NamedDeclEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef %23, ptr noundef %25, ptr noundef %26) #14
-  %27 = load i32, ptr %4, align 4, !tbaa !728
+  %27 = load i32, ptr %4, align 8, !tbaa !728
   %28 = zext i32 %27 to i64
   %.idx = shl nuw nsw i64 %28, 3
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
@@ -18471,7 +18471,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111TypeIndexerEE18VisitOMPClauseLis
   %45 = load ptr, ptr %14, align 8, !tbaa !12
   %46 = load ptr, ptr %16, align 8, !tbaa !23
   tail call void @_ZN5clang5index15IndexingContext9indexBodyEPKNS_4StmtEPKNS_9NamedDeclEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(64) %44, ptr noundef %43, ptr noundef %45, ptr noundef %46) #14
-  %47 = load i32, ptr %4, align 4, !tbaa !730
+  %47 = load i32, ptr %4, align 8, !tbaa !730
   %48 = zext i32 %47 to i64
   %.idx = shl nuw nsw i64 %48, 3
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
@@ -18985,7 +18985,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111TypeIndexerEE18VisitOMPClauseLis
   %29 = load ptr, ptr %5, align 8, !tbaa !12
   %30 = load ptr, ptr %7, align 8, !tbaa !23
   tail call void @_ZN5clang5index15IndexingContext9indexBodyEPKNS_4StmtEPKNS_9NamedDeclEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(64) %28, ptr noundef %27, ptr noundef %29, ptr noundef %30) #14
-  %31 = load i32, ptr %13, align 4, !tbaa !761
+  %31 = load i32, ptr %13, align 8, !tbaa !761
   %32 = zext i32 %31 to i64
   %.idx = shl nuw nsw i64 %32, 3
   %33 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
@@ -19286,7 +19286,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111TypeIndexerEE18VisitOMPClauseLis
   %29 = load ptr, ptr %5, align 8, !tbaa !12
   %30 = load ptr, ptr %7, align 8, !tbaa !23
   tail call void @_ZN5clang5index15IndexingContext9indexBodyEPKNS_4StmtEPKNS_9NamedDeclEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(64) %28, ptr noundef %27, ptr noundef %29, ptr noundef %30) #14
-  %31 = load i32, ptr %13, align 4, !tbaa !773
+  %31 = load i32, ptr %13, align 8, !tbaa !773
   %32 = zext i32 %31 to i64
   %.idx = shl nuw nsw i64 %32, 3
   %33 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx

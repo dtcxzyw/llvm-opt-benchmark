@@ -8016,13 +8016,13 @@ define void @nk_stroke_line(ptr noundef captures(address_is_null) %0, float noun
   store i16 %34, ptr %35, align 2, !tbaa !111
   %36 = fptosi float %2 to i16
   %37 = getelementptr inbounds nuw i8, ptr %12, i64 20
-  store i16 %36, ptr %37, align 2, !tbaa !112
+  store i16 %36, ptr %37, align 4, !tbaa !112
   %38 = fptosi float %3 to i16
   %39 = getelementptr inbounds nuw i8, ptr %12, i64 22
   store i16 %38, ptr %39, align 2, !tbaa !113
   %40 = fptosi float %4 to i16
   %41 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store i16 %40, ptr %41, align 2, !tbaa !114
+  store i16 %40, ptr %41, align 8, !tbaa !114
   %42 = getelementptr inbounds nuw i8, ptr %12, i64 26
   store i32 %6, ptr %42, align 2
   br label %nk_command_buffer_push.exit.thread
@@ -8077,25 +8077,25 @@ define void @nk_stroke_curve(ptr noundef captures(address_is_null) %0, float nou
   store i16 %39, ptr %40, align 2, !tbaa !117
   %41 = fptosi float %2 to i16
   %42 = getelementptr inbounds nuw i8, ptr %17, i64 20
-  store i16 %41, ptr %42, align 2, !tbaa !118
+  store i16 %41, ptr %42, align 4, !tbaa !118
   %43 = fptosi float %3 to i16
   %44 = getelementptr inbounds nuw i8, ptr %17, i64 26
   store i16 %43, ptr %44, align 2, !tbaa !119
   %45 = fptosi float %4 to i16
   %46 = getelementptr inbounds nuw i8, ptr %17, i64 28
-  store i16 %45, ptr %46, align 2, !tbaa !120
+  store i16 %45, ptr %46, align 4, !tbaa !120
   %47 = fptosi float %5 to i16
   %48 = getelementptr inbounds nuw i8, ptr %17, i64 30
   store i16 %47, ptr %48, align 2, !tbaa !119
   %49 = fptosi float %6 to i16
   %50 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  store i16 %49, ptr %50, align 2, !tbaa !120
+  store i16 %49, ptr %50, align 8, !tbaa !120
   %51 = fptosi float %7 to i16
   %52 = getelementptr inbounds nuw i8, ptr %17, i64 22
   store i16 %51, ptr %52, align 2, !tbaa !121
   %53 = fptosi float %8 to i16
   %54 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store i16 %53, ptr %54, align 2, !tbaa !122
+  store i16 %53, ptr %54, align 8, !tbaa !122
   %55 = getelementptr inbounds nuw i8, ptr %17, i64 34
   store i32 %10, ptr %55, align 2
   br label %nk_command_buffer_push.exit.thread
@@ -8892,19 +8892,19 @@ define void @nk_stroke_triangle(ptr noundef captures(address_is_null) %0, float 
   store i16 %89, ptr %90, align 2, !tbaa !168
   %91 = fptosi float %2 to i16
   %92 = getelementptr inbounds nuw i8, ptr %67, i64 20
-  store i16 %91, ptr %92, align 2, !tbaa !169
+  store i16 %91, ptr %92, align 4, !tbaa !169
   %93 = fptosi float %3 to i16
   %94 = getelementptr inbounds nuw i8, ptr %67, i64 22
   store i16 %93, ptr %94, align 2, !tbaa !170
   %95 = fptosi float %4 to i16
   %96 = getelementptr inbounds nuw i8, ptr %67, i64 24
-  store i16 %95, ptr %96, align 2, !tbaa !171
+  store i16 %95, ptr %96, align 8, !tbaa !171
   %97 = fptosi float %5 to i16
   %98 = getelementptr inbounds nuw i8, ptr %67, i64 26
   store i16 %97, ptr %98, align 2, !tbaa !172
   %99 = fptosi float %6 to i16
   %100 = getelementptr inbounds nuw i8, ptr %67, i64 28
-  store i16 %99, ptr %100, align 2, !tbaa !173
+  store i16 %99, ptr %100, align 4, !tbaa !173
   %101 = getelementptr inbounds nuw i8, ptr %67, i64 30
   store i32 %8, ptr %101, align 2
   br label %nk_command_buffer_push.exit.thread
@@ -15326,7 +15326,7 @@ define ptr @nk__begin(ptr noundef %0) local_unnamed_addr #21 {
   %36 = fsub float %33, %35
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %36, i64 0
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %38 = load float, ptr %37, align 4, !tbaa !347
+  %38 = load float, ptr %37, align 8, !tbaa !347
   %39 = getelementptr inbounds nuw i8, ptr %16, i64 36
   %40 = load float, ptr %39, align 4, !tbaa !348
   %41 = fsub float %38, %40
@@ -30094,7 +30094,7 @@ define ptr @nk_font_atlas_bake(ptr noundef %0, ptr noundef captures(address_is_n
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %33 = load ptr, ptr %32, align 8, !tbaa !618
   %.not.i = icmp eq ptr %33, null
-  store i32 0, ptr %31, align 4, !tbaa !7
+  store i32 0, ptr %31, align 8, !tbaa !7
   br i1 %.not.i, label %nk_font_baker_memory.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.thread, %59
@@ -30523,7 +30523,7 @@ nk_font_init.exit:                                ; preds = %.lr.ph, %nk_font_fi
   %257 = load float, ptr %256, align 8, !tbaa !226
   %258 = fptoui float %257 to i16
   %259 = getelementptr inbounds nuw i8, ptr %239, i64 16
-  store i16 %258, ptr %259, align 4, !tbaa !199
+  store i16 %258, ptr %259, align 8, !tbaa !199
   %260 = getelementptr inbounds nuw i8, ptr %246, i64 12
   %261 = load float, ptr %260, align 4, !tbaa !228
   %262 = fptoui float %261 to i16
@@ -36656,10 +36656,10 @@ nk_find_window.exit:                              ; preds = %43, %nk_strlen.exit
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %132 = load float, ptr %131, align 8, !tbaa !215
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 9440
-  %134 = load float, ptr %133, align 4, !tbaa !902
+  %134 = load float, ptr %133, align 8, !tbaa !902
   %135 = tail call float @llvm.fmuladd.f32(float %134, float 2.000000e+00, float %132)
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 9448
-  %137 = load float, ptr %136, align 4, !tbaa !903
+  %137 = load float, ptr %136, align 8, !tbaa !903
   %138 = tail call float @llvm.fmuladd.f32(float %137, float 2.000000e+00, float %135)
   %139 = and i32 %118, 32768
   %.not246 = icmp eq i32 %139, 0
@@ -37451,7 +37451,7 @@ nk_zero.exit407:                                  ; preds = %.loopexit46.i.i401.
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 9620
   %.sroa.0163.0.copyload = load float, ptr %36, align 4, !tbaa !3
   %.sroa.4164.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9624
-  %.sroa.4164.0.copyload = load float, ptr %.sroa.4164.0..sroa_idx, align 4, !tbaa !3
+  %.sroa.4164.0.copyload = load float, ptr %.sroa.4164.0..sroa_idx, align 8, !tbaa !3
   switch i32 %2, label %nk_panel_get_padding.exit [
     i32 64, label %41
     i32 2, label %37
@@ -39251,7 +39251,7 @@ nk_input_has_mouse_click_in_rect.exit.i.i:        ; preds = %513
   %.sroa.026.4.vec.extract72.i = extractelement <2 x float> %.sroa.026.3.i, i64 1
   %578 = fmul float %.sroa.6.0.copyload.i, 5.000000e-01
   %579 = fadd float %578, %.sroa.026.4.vec.extract72.i
-  store float %579, ptr %522, align 4, !tbaa !741
+  store float %579, ptr %522, align 8, !tbaa !741
   br label %nk_input_has_mouse_click_down_in_rect.exit.thread.i
 
 nk_input_has_mouse_click_down_in_rect.exit.thread.i: ; preds = %572, %nk_input_has_mouse_click_in_rect.exit.i.i, %513, %510, %471
@@ -40001,7 +40001,7 @@ nk_input_is_mouse_hovering_rect.exit.thread:      ; preds = %28, %18, %15, %12
   %49 = load float, ptr %48, align 8, !tbaa !215
   %50 = tail call float @llvm.fmuladd.f32(float %46, float 2.000000e+00, float %49)
   %.sroa.0.4.vec.extract.i34 = extractelement <2 x float> %36, i64 1
-  %51 = load float, ptr %5, align 4, !tbaa !728
+  %51 = load float, ptr %5, align 8, !tbaa !728
   %52 = fcmp ugt float %.sroa.0.4.vec.extract.i34, %51
   %53 = fadd float %.sroa.0.4.vec.extract.i34, %50
   %54 = fcmp uge float %51, %53
@@ -40124,7 +40124,7 @@ nk_input_is_mouse_hovering_rect.exit.thread.i:    ; preds = %.nk_input_is_mouse_
   %48 = load float, ptr %47, align 8, !tbaa !215
   %49 = tail call float @llvm.fmuladd.f32(float %45, float 2.000000e+00, float %48)
   %.sroa.0.4.vec.extract.i34.i = extractelement <2 x float> %36, i64 1
-  %50 = load float, ptr %5, align 4, !tbaa !728
+  %50 = load float, ptr %5, align 8, !tbaa !728
   %51 = fcmp ugt float %.sroa.0.4.vec.extract.i34.i, %50
   %52 = fadd float %.sroa.0.4.vec.extract.i34.i, %49
   %53 = fcmp uge float %50, %52
@@ -43853,7 +43853,7 @@ define void @nk_menubar_begin(ptr noundef readonly captures(address_is_null) %0)
   %19 = load float, ptr %18, align 8, !tbaa !929
   %20 = fadd float %17, %19
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  store float %20, ptr %21, align 4, !tbaa !998
+  store float %20, ptr %21, align 8, !tbaa !998
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %23 = load float, ptr %22, align 8, !tbaa !916
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 92
@@ -43867,7 +43867,7 @@ define void @nk_menubar_begin(ptr noundef readonly captures(address_is_null) %0)
   %30 = load ptr, ptr %29, align 8, !tbaa !910
   %31 = load i32, ptr %30, align 4, !tbaa !7
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 104
-  store i32 %31, ptr %32, align 4, !tbaa !1001
+  store i32 %31, ptr %32, align 8, !tbaa !1001
   store i32 0, ptr %30, align 4, !tbaa !7
   br label %33
 
@@ -43913,7 +43913,7 @@ define void @nk_menubar_end(ptr noundef readonly captures(address_is_null) %0) l
   %23 = load float, ptr %22, align 4, !tbaa !1002
   %24 = fadd float %21, %23
   %25 = fadd float %18, %24
-  store float %25, ptr %19, align 4, !tbaa !1003
+  store float %25, ptr %19, align 8, !tbaa !1003
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %27 = load float, ptr %26, align 4, !tbaa !918
   %28 = fadd float %27, %25
@@ -43928,7 +43928,7 @@ define void @nk_menubar_end(ptr noundef readonly captures(address_is_null) %0) l
   %35 = load ptr, ptr %34, align 8, !tbaa !909
   store i32 %33, ptr %35, align 4, !tbaa !7
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 104
-  %37 = load i32, ptr %36, align 4, !tbaa !1001
+  %37 = load i32, ptr %36, align 8, !tbaa !1001
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %39 = load ptr, ptr %38, align 8, !tbaa !910
   store i32 %37, ptr %39, align 4, !tbaa !7
@@ -43936,9 +43936,9 @@ define void @nk_menubar_end(ptr noundef readonly captures(address_is_null) %0) l
   store float %40, ptr %14, align 4, !tbaa !919
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 68
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store float %28, ptr %42, align 4, !tbaa !940
+  store float %28, ptr %42, align 8, !tbaa !940
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store float %31, ptr %43, align 4, !tbaa !942
+  store float %31, ptr %43, align 8, !tbaa !942
   %44 = load <2 x float>, ptr %41, align 4
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 76
   %46 = load <2 x float>, ptr %45, align 4
@@ -45215,7 +45215,7 @@ define void @nk_layout_row_dynamic(ptr noundef readonly captures(address_is_null
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 9504
   %.sroa.03.0.copyload.i.i = load i32, ptr %12, align 8
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 9616
-  %.sroa.3.0.copyload.i.i = load float, ptr %.sroa.3.0..sroa_idx.i.i, align 4, !tbaa !3
+  %.sroa.3.0.copyload.i.i = load float, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 116
   store i32 0, ptr %13, align 4, !tbaa !924
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 120
@@ -45303,7 +45303,7 @@ define void @nk_layout_row_static(ptr noundef readonly captures(address_is_null)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 9504
   %.sroa.03.0.copyload.i.i = load i32, ptr %13, align 8
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 9616
-  %.sroa.3.0.copyload.i.i = load float, ptr %.sroa.3.0..sroa_idx.i.i, align 4, !tbaa !3
+  %.sroa.3.0.copyload.i.i = load float, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 116
   store i32 0, ptr %14, align 4, !tbaa !924
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 120
@@ -45392,7 +45392,7 @@ define void @nk_layout_row_begin(ptr noundef readonly captures(address_is_null) 
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 9504
   %.sroa.03.0.copyload.i = load i32, ptr %13, align 8
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 9616
-  %.sroa.3.0.copyload.i = load float, ptr %.sroa.3.0..sroa_idx.i, align 4, !tbaa !3
+  %.sroa.3.0.copyload.i = load float, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 116
   store i32 0, ptr %14, align 4, !tbaa !924
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 120
@@ -45571,7 +45571,7 @@ define void @nk_layout_row(ptr noundef readonly captures(address_is_null) %0, i3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 9504
   %.sroa.03.0.copyload.i = load i32, ptr %14, align 8
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 9616
-  %.sroa.3.0.copyload.i = load float, ptr %.sroa.3.0..sroa_idx.i, align 4, !tbaa !3
+  %.sroa.3.0.copyload.i = load float, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 116
   store i32 0, ptr %15, align 4, !tbaa !924
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 120
@@ -45703,7 +45703,7 @@ define void @nk_layout_row_template_begin(ptr noundef readonly captures(address_
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 9504
   %.sroa.03.0.copyload.i = load i32, ptr %11, align 8
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 9616
-  %.sroa.3.0.copyload.i = load float, ptr %.sroa.3.0..sroa_idx.i, align 4, !tbaa !3
+  %.sroa.3.0.copyload.i = load float, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 116
   store i32 0, ptr %12, align 4, !tbaa !924
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 120
@@ -46063,7 +46063,7 @@ define void @nk_layout_space_begin(ptr noundef readonly captures(address_is_null
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 9504
   %.sroa.03.0.copyload.i = load i32, ptr %13, align 8
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 9616
-  %.sroa.3.0.copyload.i = load float, ptr %.sroa.3.0..sroa_idx.i, align 4, !tbaa !3
+  %.sroa.3.0.copyload.i = load float, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 116
   store i32 0, ptr %14, align 4, !tbaa !924
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 120
@@ -46511,13 +46511,13 @@ define internal fastcc range(i32 0, 2) i32 @nk_tree_state_base(ptr noundef captu
   %20 = load float, ptr %19, align 8, !tbaa !215
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8404
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8408
-  %23 = load float, ptr %22, align 4, !tbaa !1012
+  %23 = load float, ptr %22, align 8, !tbaa !1012
   %24 = tail call float @llvm.fmuladd.f32(float %23, float 2.000000e+00, float %20)
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 124
   store float %24, ptr %25, align 4, !tbaa !832
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 9504
   %.sroa.03.0.copyload.i.i.i = load i32, ptr %26, align 8
-  %.sroa.3.0.copyload.i.i.i = load float, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !3
+  %.sroa.3.0.copyload.i.i.i = load float, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !3
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 116
   store i32 0, ptr %27, align 4, !tbaa !924
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 120
@@ -46820,7 +46820,7 @@ thread-pre-split:                                 ; preds = %151
   %175 = load float, ptr %174, align 8, !tbaa !215
   %176 = insertelement <2 x float> poison, float %175, i64 0
   %.sroa.11.8.vec.insert = shufflevector <2 x float> %176, <2 x float> poison, <2 x i32> zeroinitializer
-  %177 = load float, ptr %22, align 4, !tbaa !1012
+  %177 = load float, ptr %22, align 8, !tbaa !1012
   %178 = fadd float %160, %177
   %179 = load float, ptr %21, align 4, !tbaa !1016
   %180 = fadd float %161, %179
@@ -47327,13 +47327,13 @@ nk_strlen.exit34:                                 ; preds = %.lr.ph.i29.preheade
   %54 = load float, ptr %53, align 8, !tbaa !215
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8404
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8408
-  %57 = load float, ptr %56, align 4, !tbaa !1012
+  %57 = load float, ptr %56, align 8, !tbaa !1012
   %58 = tail call float @llvm.fmuladd.f32(float %57, float 2.000000e+00, float %54)
   %59 = getelementptr inbounds nuw i8, ptr %45, i64 124
   store float %58, ptr %59, align 4, !tbaa !832
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 9504
   %.sroa.03.0.copyload.i.i.i.i = load i32, ptr %60, align 8
-  %.sroa.3.0.copyload.i.i.i.i = load float, ptr %.sroa.631.0..sroa_idx.i, align 4, !tbaa !3
+  %.sroa.3.0.copyload.i.i.i.i = load float, ptr %.sroa.631.0..sroa_idx.i, align 8, !tbaa !3
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 116
   store i32 0, ptr %61, align 4, !tbaa !924
   %62 = getelementptr inbounds nuw i8, ptr %45, i64 120
@@ -47599,7 +47599,7 @@ nk_rgb_factor.exit187.i:                          ; preds = %171, %170
   %.sroa.8.8.vec.insert.i = shufflevector <2 x float> %195, <2 x float> poison, <2 x i32> zeroinitializer
   %196 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %197 = load float, ptr %196, align 4, !tbaa !126
-  %198 = load float, ptr %56, align 4, !tbaa !1012
+  %198 = load float, ptr %56, align 8, !tbaa !1012
   %199 = fadd float %197, %198
   %200 = load float, ptr %10, align 8, !tbaa !124
   %201 = load float, ptr %55, align 4, !tbaa !1016
@@ -47963,7 +47963,7 @@ define void @nk_group_scrolled_end(ptr noundef %0) local_unnamed_addr #21 {
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %15 = load float, ptr %14, align 8, !tbaa !922
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  %17 = load float, ptr %16, align 4, !tbaa !1003
+  %17 = load float, ptr %16, align 8, !tbaa !1003
   %18 = fadd float %15, %17
   %19 = fsub float %13, %18
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 76
@@ -48824,7 +48824,7 @@ define range(i32 0, 32769) i32 @nk_list_view_begin(ptr noundef %0, ptr noundef c
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 18520
   %12 = load ptr, ptr %11, align 8, !tbaa !828
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9616
-  %.sroa.3.0.copyload = load float, ptr %.sroa.3.0..sroa_idx, align 4, !tbaa !3
+  %.sroa.3.0.copyload = load float, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !3
   %13 = fptosi float %.sroa.3.0.copyload to i32
   %14 = tail call i32 @llvm.smax.i32(i32 %13, i32 0)
   %15 = add nsw i32 %14, %4
@@ -50000,7 +50000,7 @@ define void @nk_widget_disable_begin(ptr noundef %0) local_unnamed_addr #35 {
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 460
   %112 = load float, ptr %111, align 4, !tbaa !1117
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  store float %112, ptr %113, align 4, !tbaa !1118
+  store float %112, ptr %113, align 8, !tbaa !1118
   br label %114
 
 114:                                              ; preds = %1, %2, %5
@@ -50110,7 +50110,7 @@ define void @nk_widget_disable_end(ptr noundef captures(address_is_null) %0) loc
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 7860
   store float 1.000000e+00, ptr %50, align 4, !tbaa !1116
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  store float 1.000000e+00, ptr %51, align 4, !tbaa !1118
+  store float 1.000000e+00, ptr %51, align 8, !tbaa !1118
   br label %52
 
 52:                                               ; preds = %1, %2, %5
@@ -50146,7 +50146,7 @@ define void @nk_text_colored(ptr noundef readonly captures(address_is_null) %0, 
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 9504
   %17 = load i32, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %19 = load float, ptr %18, align 4, !tbaa !1118
+  %19 = load float, ptr %18, align 8, !tbaa !1118
   %.sroa.5.0.extract.shift.i = lshr i32 %4, 8
   %.sroa.7.0.extract.shift.i = lshr i32 %4, 16
   %20 = fcmp oeq float %19, 1.000000e+00
@@ -50351,7 +50351,7 @@ define void @nk_text_wrap_colored(ptr noundef readonly captures(address_is_null)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 9504
   %18 = load i32, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %20 = load float, ptr %19, align 4, !tbaa !1118
+  %20 = load float, ptr %19, align 8, !tbaa !1118
   %.sroa.5.0.extract.shift.i = lshr i32 %3, 8
   %.sroa.7.0.extract.shift.i = lshr i32 %3, 16
   %21 = fcmp oeq float %20, 1.000000e+00
@@ -56119,7 +56119,7 @@ nk_slider_behavior.exit.i:                        ; preds = %nk_input_is_mouse_p
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 2776
   %176 = load ptr, ptr %175, align 8
   tail call void %173(ptr noundef nonnull %27, ptr %176) #55
-  %.pre196.i = load i32, ptr %26, align 4, !tbaa !7
+  %.pre196.i = load i32, ptr %26, align 8, !tbaa !7
   br label %177
 
 177:                                              ; preds = %174, %nk_slider_behavior.exit.i
@@ -56881,7 +56881,7 @@ nk_knob_behavior.exit.i:                          ; preds = %nk_input_is_mouse_p
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 2992
   %223 = load ptr, ptr %222, align 8
   tail call void %220(ptr noundef nonnull %27, ptr %223) #55
-  %.pre.i = load i32, ptr %26, align 4, !tbaa !7
+  %.pre.i = load i32, ptr %26, align 8, !tbaa !7
   br label %224
 
 224:                                              ; preds = %221, %nk_knob_behavior.exit.i
@@ -57260,13 +57260,13 @@ nk_rgb_factor.exit194.i.i:                        ; preds = %386, %385
   store i16 %421, ptr %422, align 2, !tbaa !111
   %423 = fptosi float %382 to i16
   %424 = getelementptr inbounds nuw i8, ptr %400, i64 20
-  store i16 %423, ptr %424, align 2, !tbaa !112
+  store i16 %423, ptr %424, align 4, !tbaa !112
   %425 = fptosi float %370 to i16
   %426 = getelementptr inbounds nuw i8, ptr %400, i64 22
   store i16 %425, ptr %426, align 2, !tbaa !113
   %427 = fptosi float %378 to i16
   %428 = getelementptr inbounds nuw i8, ptr %400, i64 24
-  store i16 %427, ptr %428, align 2, !tbaa !114
+  store i16 %427, ptr %428, align 8, !tbaa !114
   %429 = getelementptr inbounds nuw i8, ptr %400, i64 26
   store i32 %.sroa.011.0.insert.insert.i190.i.i, ptr %429, align 2
   br label %nk_draw_knob.exit.i
@@ -57363,7 +57363,7 @@ define range(i32 0, 2) i32 @nk_progress(ptr noundef captures(address) %0, ptr no
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 3272
   %32 = load float, ptr %31, align 8, !tbaa !1152
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 3288
-  %34 = load float, ptr %33, align 4, !tbaa !1153
+  %34 = load float, ptr %33, align 8, !tbaa !1153
   %35 = fadd float %30, %32
   %36 = fadd float %32, %34
   %.sroa.6.8.vec.extract.i.i = extractelement <2 x float> %28, i64 0
@@ -57386,10 +57386,10 @@ define range(i32 0, 2) i32 @nk_progress(ptr noundef captures(address) %0, ptr no
   %48 = uitofp i64 %2 to float
   %49 = fdiv float %47, %48
   %50 = tail call i64 @llvm.umin.i64(i64 %22, i64 %2)
-  %51 = load i32, ptr %23, align 4, !tbaa !7
+  %51 = load i32, ptr %23, align 8, !tbaa !7
   %52 = and i32 %51, 2
   %..i.i = or disjoint i32 %52, 4
-  store i32 %..i.i, ptr %23, align 4, !tbaa !7
+  store i32 %..i.i, ptr %23, align 8, !tbaa !7
   %53 = icmp ne ptr %21, null
   %54 = icmp ne i32 %3, 0
   %or.cond.i.i = and i1 %54, %53
@@ -57525,7 +57525,7 @@ nk_progress_behavior.exit.i:                      ; preds = %nk_input_is_mouse_p
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 3304
   %126 = load ptr, ptr %125, align 8
   tail call void %123(ptr noundef nonnull %24, ptr %126) #55
-  %.pre.i = load i32, ptr %23, align 4, !tbaa !7
+  %.pre.i = load i32, ptr %23, align 8, !tbaa !7
   br label %127
 
 127:                                              ; preds = %124, %nk_progress_behavior.exit.i
@@ -58574,7 +58574,7 @@ nk_utf_decode.exit.i.i:                           ; preds = %78, %nk_utf_validat
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 5382
   store i16 999, ptr %101, align 2, !tbaa !1158
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 5376
-  %103 = load i16, ptr %102, align 4, !tbaa !1159
+  %103 = load i16, ptr %102, align 8, !tbaa !1159
   %104 = icmp eq i16 %103, 99
   br i1 %104, label %105, label %106
 
@@ -59161,7 +59161,7 @@ nk_utf_decode.exit.i80:                           ; preds = %200, %nk_utf_valida
   %218 = load i32, ptr %66, align 8, !tbaa !1172
   store i16 99, ptr %70, align 2, !tbaa !1157
   store i16 999, ptr %71, align 2, !tbaa !1158
-  %219 = load i16, ptr %72, align 4, !tbaa !1159
+  %219 = load i16, ptr %72, align 8, !tbaa !1159
   %220 = icmp eq i16 %219, 99
   br i1 %220, label %221, label %222
 
@@ -59645,9 +59645,9 @@ nk_str_insert_text_runes.exit:                    ; preds = %nk_utf_validate.exi
   %146 = sext i16 %145 to i32
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i32 %146, ptr %147, align 8, !tbaa !1172
-  %148 = load i16, ptr %5, align 4, !tbaa !1159
+  %148 = load i16, ptr %5, align 8, !tbaa !1159
   %149 = add i16 %148, -1
-  store i16 %149, ptr %5, align 4, !tbaa !1159
+  store i16 %149, ptr %5, align 8, !tbaa !1159
   %150 = load i16, ptr %12, align 2, !tbaa !1157
   %151 = add i16 %150, -1
   store i16 %151, ptr %12, align 2, !tbaa !1157
@@ -59865,9 +59865,9 @@ nk_str_insert_text_runes.exit:                    ; preds = %nk_utf_validate.exi
   %93 = add nsw i32 %.sroa.0.0.copyload, %92
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i32 %93, ptr %94, align 8, !tbaa !1172
-  %95 = load i16, ptr %9, align 4, !tbaa !1159
+  %95 = load i16, ptr %9, align 8, !tbaa !1159
   %96 = add i16 %95, 1
-  store i16 %96, ptr %9, align 4, !tbaa !1159
+  store i16 %96, ptr %9, align 8, !tbaa !1159
   %97 = load i16, ptr %4, align 2, !tbaa !1157
   %98 = add i16 %97, 1
   store i16 %98, ptr %4, align 2, !tbaa !1157
@@ -63596,10 +63596,10 @@ nk_string_float_limit.exit440.i:                  ; preds = %180, %184
   %208 = fsub float %204, %200
   %209 = load i32, ptr %.088, align 4, !tbaa !7
   %210 = icmp ne i32 %209, 1
-  %211 = load i32, ptr %63, align 4, !tbaa !7
+  %211 = load i32, ptr %63, align 8, !tbaa !7
   %212 = and i32 %211, 2
   %..i.i = or disjoint i32 %212, 4
-  store i32 %..i.i, ptr %63, align 4, !tbaa !7
+  store i32 %..i.i, ptr %63, align 8, !tbaa !7
   %.not25.i.i = icmp eq ptr %62, null
   %.pr58.i.i = load i32, ptr %.088, align 4, !tbaa !7
   br i1 %.not25.i.i, label %.thread57.i.i, label %213
@@ -65766,13 +65766,13 @@ nk_input_is_mouse_hovering_rect.exit.i:           ; preds = %60
   store i16 %132, ptr %133, align 2, !tbaa !111
   %134 = fptosi float %109 to i16
   %135 = getelementptr inbounds nuw i8, ptr %111, i64 20
-  store i16 %134, ptr %135, align 2, !tbaa !112
+  store i16 %134, ptr %135, align 4, !tbaa !112
   %136 = fptosi float %98 to i16
   %137 = getelementptr inbounds nuw i8, ptr %111, i64 22
   store i16 %136, ptr %137, align 2, !tbaa !113
   %138 = fptosi float %105 to i16
   %139 = getelementptr inbounds nuw i8, ptr %111, i64 24
-  store i16 %138, ptr %139, align 2, !tbaa !114
+  store i16 %138, ptr %139, align 8, !tbaa !114
   %140 = getelementptr inbounds nuw i8, ptr %111, i64 26
   store i32 %.sroa.05.0.copyload7.i, ptr %140, align 2
   br label %nk_stroke_line.exit.i
@@ -66677,12 +66677,12 @@ nk_color_picker_behavior.exit.i:                  ; preds = %nk_input_is_mouse_p
   store i16 %234, ptr %235, align 2, !tbaa !111
   %236 = trunc i32 %214 to i16
   %237 = getelementptr inbounds nuw i8, ptr %208, i64 20
-  store i16 %236, ptr %237, align 2, !tbaa !112
+  store i16 %236, ptr %237, align 4, !tbaa !112
   %238 = fptosi float %210 to i16
   %239 = getelementptr inbounds nuw i8, ptr %208, i64 22
   store i16 %238, ptr %239, align 2, !tbaa !113
   %240 = getelementptr inbounds nuw i8, ptr %208, i64 24
-  store i16 %236, ptr %240, align 2, !tbaa !114
+  store i16 %236, ptr %240, align 8, !tbaa !114
   %241 = getelementptr inbounds nuw i8, ptr %208, i64 26
   store i32 -1, ptr %241, align 2
   br label %nk_stroke_line.exit.i.i
@@ -66739,12 +66739,12 @@ nk_stroke_line.exit.i.i:                          ; preds = %209, %191
   store i16 %276, ptr %277, align 2, !tbaa !111
   %278 = trunc i32 %256 to i16
   %279 = getelementptr inbounds nuw i8, ptr %244, i64 20
-  store i16 %278, ptr %279, align 2, !tbaa !112
+  store i16 %278, ptr %279, align 4, !tbaa !112
   %280 = fptosi float %247 to i16
   %281 = getelementptr inbounds nuw i8, ptr %244, i64 22
   store i16 %280, ptr %281, align 2, !tbaa !113
   %282 = getelementptr inbounds nuw i8, ptr %244, i64 24
-  store i16 %278, ptr %282, align 2, !tbaa !114
+  store i16 %278, ptr %282, align 8, !tbaa !114
   %283 = getelementptr inbounds nuw i8, ptr %244, i64 26
   store i32 -1, ptr %283, align 2
   br label %nk_stroke_line.exit77.i.i
@@ -66856,12 +66856,12 @@ nk_hsv_f.exit.i.i:                                ; preds = %295, %294, %293, %2
   store i16 %348, ptr %349, align 2, !tbaa !111
   %350 = trunc i32 %322 to i16
   %351 = getelementptr inbounds nuw i8, ptr %325, i64 20
-  store i16 %350, ptr %351, align 2, !tbaa !112
+  store i16 %350, ptr %351, align 4, !tbaa !112
   %352 = fptosi float %327 to i16
   %353 = getelementptr inbounds nuw i8, ptr %325, i64 22
   store i16 %352, ptr %353, align 2, !tbaa !113
   %354 = getelementptr inbounds nuw i8, ptr %325, i64 24
-  store i16 %350, ptr %354, align 2, !tbaa !114
+  store i16 %350, ptr %354, align 8, !tbaa !114
   %355 = getelementptr inbounds nuw i8, ptr %325, i64 26
   store i32 -1, ptr %355, align 2
   br label %nk_stroke_line.exit81.i.i
@@ -66905,12 +66905,12 @@ nk_stroke_line.exit81.i.i:                        ; preds = %326, %nk_hsv_f.exit
   store i16 %381, ptr %382, align 2, !tbaa !111
   %383 = trunc i32 %322 to i16
   %384 = getelementptr inbounds nuw i8, ptr %357, i64 20
-  store i16 %383, ptr %384, align 2, !tbaa !112
+  store i16 %383, ptr %384, align 4, !tbaa !112
   %385 = fptosi float %359 to i16
   %386 = getelementptr inbounds nuw i8, ptr %357, i64 22
   store i16 %385, ptr %386, align 2, !tbaa !113
   %387 = getelementptr inbounds nuw i8, ptr %357, i64 24
-  store i16 %383, ptr %387, align 2, !tbaa !114
+  store i16 %383, ptr %387, align 8, !tbaa !114
   %388 = getelementptr inbounds nuw i8, ptr %357, i64 26
   store i32 -1, ptr %388, align 2
   br label %nk_stroke_line.exit83.i.i
@@ -66954,12 +66954,12 @@ nk_stroke_line.exit83.i.i:                        ; preds = %358, %nk_stroke_lin
   store i16 %414, ptr %415, align 2, !tbaa !111
   %416 = fptosi float %394 to i16
   %417 = getelementptr inbounds nuw i8, ptr %390, i64 20
-  store i16 %416, ptr %417, align 2, !tbaa !112
+  store i16 %416, ptr %417, align 4, !tbaa !112
   %418 = getelementptr inbounds nuw i8, ptr %390, i64 22
   store i16 %414, ptr %418, align 2, !tbaa !113
   %419 = fptosi float %392 to i16
   %420 = getelementptr inbounds nuw i8, ptr %390, i64 24
-  store i16 %419, ptr %420, align 2, !tbaa !114
+  store i16 %419, ptr %420, align 8, !tbaa !114
   %421 = getelementptr inbounds nuw i8, ptr %390, i64 26
   store i32 -1, ptr %421, align 2
   br label %nk_stroke_line.exit85.i.i
@@ -67002,12 +67002,12 @@ nk_stroke_line.exit85.i.i:                        ; preds = %391, %nk_stroke_lin
   store i16 %446, ptr %447, align 2, !tbaa !111
   %448 = fptosi float %426 to i16
   %449 = getelementptr inbounds nuw i8, ptr %423, i64 20
-  store i16 %448, ptr %449, align 2, !tbaa !112
+  store i16 %448, ptr %449, align 4, !tbaa !112
   %450 = getelementptr inbounds nuw i8, ptr %423, i64 22
   store i16 %446, ptr %450, align 2, !tbaa !113
   %451 = fptosi float %425 to i16
   %452 = getelementptr inbounds nuw i8, ptr %423, i64 24
-  store i16 %451, ptr %452, align 2, !tbaa !114
+  store i16 %451, ptr %452, align 8, !tbaa !114
   %453 = getelementptr inbounds nuw i8, ptr %423, i64 26
   store i32 -1, ptr %453, align 2
   br label %nk_do_color_picker.exit
@@ -67275,7 +67275,7 @@ nk_rgb_factor.exit166:                            ; preds = %96, %97
   %.not105 = icmp eq i32 %.092, 0
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 8828
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 8832
-  %116 = load float, ptr %115, align 4, !tbaa !1254
+  %116 = load float, ptr %115, align 8, !tbaa !1254
   %117 = tail call float @llvm.fmuladd.f32(float %116, float -2.000000e+00, float %34)
   %118 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store float %117, ptr %118, align 4, !tbaa !125
@@ -67307,7 +67307,7 @@ nk_rgb_factor.exit166:                            ; preds = %96, %97
   %137 = load float, ptr %136, align 4, !tbaa !1258
   %138 = fadd float %35, %137
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 8824
-  %140 = load float, ptr %139, align 4, !tbaa !1259
+  %140 = load float, ptr %139, align 8, !tbaa !1259
   %141 = fadd float %37, %140
   %142 = tail call float @llvm.fmuladd.f32(float %140, float -2.000000e+00, float %34)
   br i1 %.not105, label %149, label %143
@@ -67838,7 +67838,7 @@ nk_rgb_factor.exit136:                            ; preds = %84, %85
   %.not93 = icmp eq i32 %.080, 0
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 8828
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 8832
-  %104 = load float, ptr %103, align 4, !tbaa !1254
+  %104 = load float, ptr %103, align 8, !tbaa !1254
   %105 = tail call float @llvm.fmuladd.f32(float %104, float -2.000000e+00, float %31)
   %106 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store float %105, ptr %106, align 4, !tbaa !125
@@ -67868,7 +67868,7 @@ nk_rgb_factor.exit136:                            ; preds = %84, %85
   %.sroa.5.12.vec.insert = insertelement <2 x float> %.sroa.5.8.vec.insert, float %123, i64 1
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 8820
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 8824
-  %126 = load float, ptr %125, align 4, !tbaa !1259
+  %126 = load float, ptr %125, align 8, !tbaa !1259
   %127 = tail call float @llvm.fmuladd.f32(float %126, float -4.000000e+00, float %31)
   %128 = tail call float @llvm.fmuladd.f32(float %126, float 2.000000e+00, float %34)
   %129 = load float, ptr %124, align 4, !tbaa !1258
@@ -68323,7 +68323,7 @@ nk_rgb_factor.exit157:                            ; preds = %99, %100
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %.0 = load i32, ptr %116, align 4, !tbaa !7
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 8832
-  %118 = load float, ptr %117, align 4, !tbaa !1254
+  %118 = load float, ptr %117, align 8, !tbaa !1254
   %119 = tail call float @llvm.fmuladd.f32(float %118, float -2.000000e+00, float %31)
   %120 = fadd <2 x float> %25, %27
   %121 = extractelement <2 x float> %120, i64 0
@@ -68345,7 +68345,7 @@ nk_rgb_factor.exit157:                            ; preds = %99, %100
   %.sroa.5.12.vec.insert = insertelement <2 x float> %.sroa.5.8.vec.insert, float %133, i64 1
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 8820
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 8824
-  %136 = load float, ptr %135, align 4, !tbaa !1259
+  %136 = load float, ptr %135, align 8, !tbaa !1259
   %137 = tail call float @llvm.fmuladd.f32(float %136, float -2.000000e+00, float %31)
   %138 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store float %137, ptr %138, align 4, !tbaa !127
@@ -69087,7 +69087,7 @@ nk_rgb_factor.exit197:                            ; preds = %110, %111
   %.0105 = load i32, ptr %127, align 4, !tbaa !7
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 8828
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 8832
-  %130 = load float, ptr %129, align 4, !tbaa !1254
+  %130 = load float, ptr %129, align 8, !tbaa !1254
   %131 = tail call float @llvm.fmuladd.f32(float %130, float -2.000000e+00, float %32)
   %132 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store float %131, ptr %132, align 4, !tbaa !125
@@ -69191,7 +69191,7 @@ nk_draw_button_symbol.exit:                       ; preds = %162, %163
   %188 = fadd float %185, %187
   %189 = load float, ptr %176, align 4, !tbaa !1258
   %190 = fadd float %188, %189
-  %191 = load float, ptr %179, align 4, !tbaa !1259
+  %191 = load float, ptr %179, align 8, !tbaa !1259
   %192 = fadd float %34, %191
   %193 = fsub float %137, %189
   %194 = fsub float %193, %190
@@ -69493,7 +69493,7 @@ nk_rgb_factor.exit143:                            ; preds = %nk_rgb_factor.exit1
   %.075 = load i32, ptr %100, align 4, !tbaa !7
   %.not88 = icmp eq i32 %.075, 0
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 8832
-  %102 = load float, ptr %101, align 4, !tbaa !1254
+  %102 = load float, ptr %101, align 8, !tbaa !1254
   %103 = tail call float @llvm.fmuladd.f32(float %102, float -2.000000e+00, float %31)
   %104 = fadd <2 x float> %25, %27
   %105 = extractelement <2 x float> %104, i64 0
@@ -69514,7 +69514,7 @@ nk_rgb_factor.exit143:                            ; preds = %nk_rgb_factor.exit1
   %.sroa.5.12.vec.insert = insertelement <2 x float> %.sroa.5.8.vec.insert, float %116, i64 1
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 8820
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 8824
-  %119 = load float, ptr %118, align 4, !tbaa !1259
+  %119 = load float, ptr %118, align 8, !tbaa !1259
   %120 = tail call float @llvm.fmuladd.f32(float %119, float -2.000000e+00, float %31)
   %121 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store float %120, ptr %121, align 4, !tbaa !127
@@ -69920,7 +69920,7 @@ nk_rgb_factor.exit178:                            ; preds = %93, %94
   %.not117 = icmp eq i32 %.0104, 0
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 8828
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 8832
-  %113 = load float, ptr %112, align 4, !tbaa !1254
+  %113 = load float, ptr %112, align 8, !tbaa !1254
   %114 = tail call float @llvm.fmuladd.f32(float %113, float -2.000000e+00, float %32)
   %115 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store float %114, ptr %115, align 4, !tbaa !125
@@ -70702,7 +70702,7 @@ nk_combo_begin_label.exit:                        ; preds = %nk_panel_get_paddin
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 104
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 9504
   %.sroa.03.0.copyload.i.i.i = load i32, ptr %49, align 8
-  %.sroa.3.0.copyload.i.i.i = load float, ptr %.sroa.3.0..sroa_idx, align 4, !tbaa !3
+  %.sroa.3.0.copyload.i.i.i = load float, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !3
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 116
   store i32 0, ptr %50, align 4, !tbaa !924
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 120
@@ -71053,7 +71053,7 @@ nk_panel_get_padding.exit:                        ; preds = %11, %18, %19, %20, 
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 104
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 9504
   %.sroa.03.0.copyload.i.i.i = load i32, ptr %61, align 8
-  %.sroa.3.0.copyload.i.i.i = load float, ptr %.sroa.3.0..sroa_idx, align 4, !tbaa !3
+  %.sroa.3.0.copyload.i.i.i = load float, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !3
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 116
   store i32 0, ptr %62, align 4, !tbaa !924
   %63 = getelementptr inbounds nuw i8, ptr %58, i64 120
@@ -71461,7 +71461,7 @@ nk_combo_begin_label.exit:                        ; preds = %nk_panel_get_paddin
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 104
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 9504
   %.sroa.03.0.copyload.i.i.i = load i32, ptr %48, align 8
-  %.sroa.3.0.copyload.i.i.i = load float, ptr %.sroa.3.0..sroa_idx, align 4, !tbaa !3
+  %.sroa.3.0.copyload.i.i.i = load float, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !3
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 116
   store i32 0, ptr %49, align 4, !tbaa !924
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 120
@@ -71919,7 +71919,7 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader,
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 9504
   %.sroa.03.0.copyload.i.i.i = load i32, ptr %40, align 8
   %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 9616
-  %.sroa.3.0.copyload.i.i.i = load float, ptr %.sroa.3.0..sroa_idx.i.i.i, align 4, !tbaa !3
+  %.sroa.3.0.copyload.i.i.i = load float, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8, !tbaa !3
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 116
   store i32 0, ptr %41, align 4, !tbaa !924
   %42 = getelementptr inbounds nuw i8, ptr %35, i64 120
@@ -72008,7 +72008,7 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader,
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 9504
   %81 = load i32, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %83 = load float, ptr %82, align 4, !tbaa !1118
+  %83 = load float, ptr %82, align 8, !tbaa !1118
   %.sroa.5.0.extract.shift.i.i = lshr i32 %75, 8
   %.sroa.7.0.extract.shift.i.i = lshr i32 %75, 16
   %84 = fcmp oeq float %83, 1.000000e+00

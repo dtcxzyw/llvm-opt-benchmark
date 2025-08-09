@@ -1866,7 +1866,7 @@ _ZN3gmx14OptionTemplateINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_1
   store ptr %452, ptr %451, align 8, !tbaa !18
   %453 = getelementptr inbounds nuw i8, ptr %448, i64 40
   store i64 0, ptr %453, align 8, !tbaa !24
-  store i8 0, ptr %452, align 1, !tbaa !16
+  store i8 0, ptr %452, align 8, !tbaa !16
   %454 = getelementptr inbounds nuw i8, ptr %448, i64 64
   store i32 0, ptr %454, align 8, !tbaa !137
   %455 = getelementptr inbounds nuw i8, ptr %448, i64 68

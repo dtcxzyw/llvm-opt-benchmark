@@ -1959,7 +1959,7 @@ _ZNSt8functionIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clan
   %.repack5.i.i.i.i = getelementptr inbounds nuw i8, ptr %455, i64 8
   store i64 0, ptr %.repack5.i.i.i.i, align 8, !tbaa !269
   %456 = getelementptr inbounds nuw i8, ptr %455, i64 16
-  store i8 1, ptr %456, align 1, !tbaa !278
+  store i8 1, ptr %456, align 8, !tbaa !278
   store ptr %455, ptr %451, align 8, !tbaa !279
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextEESt5_BindIFMS1_KFvS6_SB_SD_bESt12_PlaceholderILi1EESI_ILi2EESI_ILi3EESI_ILi4EEbEEE9_M_invokeERKSt9_Any_dataOS3_OS6_SB_SD_, ptr %453, align 8, !tbaa !258
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextEESt5_BindIFMS1_KFvS6_SB_SD_bESt12_PlaceholderILi1EESI_ILi2EESI_ILi3EESI_ILi4EEbEEE10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation, ptr %452, align 8, !tbaa !261
@@ -2128,7 +2128,7 @@ _ZNSt8functionIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clan
   %.repack5.i.i.i.i410 = getelementptr inbounds nuw i8, ptr %524, i64 8
   store i64 0, ptr %.repack5.i.i.i.i410, align 8, !tbaa !269
   %525 = getelementptr inbounds nuw i8, ptr %524, i64 16
-  store i8 0, ptr %525, align 1, !tbaa !278
+  store i8 0, ptr %525, align 8, !tbaa !278
   store ptr %524, ptr %520, align 8, !tbaa !279
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextEESt5_BindIFMS1_KFvS6_SB_SD_bESt12_PlaceholderILi1EESI_ILi2EESI_ILi3EESI_ILi4EEbEEE9_M_invokeERKSt9_Any_dataOS3_OS6_SB_SD_, ptr %522, align 8, !tbaa !258
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextEESt5_BindIFMS1_KFvS6_SB_SD_bESt12_PlaceholderILi1EESI_ILi2EESI_ILi3EESI_ILi4EEbEEE10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation, ptr %521, align 8, !tbaa !261
@@ -2297,7 +2297,7 @@ _ZNSt8functionIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clan
   %.repack5.i.i.i.i424 = getelementptr inbounds nuw i8, ptr %593, i64 8
   store i64 0, ptr %.repack5.i.i.i.i424, align 8, !tbaa !269
   %594 = getelementptr inbounds nuw i8, ptr %593, i64 16
-  store i8 1, ptr %594, align 1, !tbaa !278
+  store i8 1, ptr %594, align 8, !tbaa !278
   store ptr %593, ptr %589, align 8, !tbaa !279
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextEESt5_BindIFMS1_KFvS6_SB_SD_bESt12_PlaceholderILi1EESI_ILi2EESI_ILi3EESI_ILi4EEbEEE9_M_invokeERKSt9_Any_dataOS3_OS6_SB_SD_, ptr %591, align 8, !tbaa !258
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextEESt5_BindIFMS1_KFvS6_SB_SD_bESt12_PlaceholderILi1EESI_ILi2EESI_ILi3EESI_ILi4EEbEEE10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation, ptr %590, align 8, !tbaa !261
@@ -2466,7 +2466,7 @@ _ZNSt8functionIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clan
   %.repack5.i.i.i.i438 = getelementptr inbounds nuw i8, ptr %662, i64 8
   store i64 0, ptr %.repack5.i.i.i.i438, align 8, !tbaa !269
   %663 = getelementptr inbounds nuw i8, ptr %662, i64 16
-  store i8 0, ptr %663, align 1, !tbaa !278
+  store i8 0, ptr %663, align 8, !tbaa !278
   store ptr %662, ptr %658, align 8, !tbaa !279
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextEESt5_BindIFMS1_KFvS6_SB_SD_bESt12_PlaceholderILi1EESI_ILi2EESI_ILi3EESI_ILi4EEbEEE9_M_invokeERKSt9_Any_dataOS3_OS6_SB_SD_, ptr %660, align 8, !tbaa !258
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextEESt5_BindIFMS1_KFvS6_SB_SD_bESt12_PlaceholderILi1EESI_ILi2EESI_ILi3EESI_ILi4EEbEEE10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation, ptr %659, align 8, !tbaa !261
@@ -2635,7 +2635,7 @@ _ZNSt8functionIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clan
   %.repack5.i.i.i.i452 = getelementptr inbounds nuw i8, ptr %731, i64 8
   store i64 0, ptr %.repack5.i.i.i.i452, align 8, !tbaa !269
   %732 = getelementptr inbounds nuw i8, ptr %731, i64 16
-  store i8 1, ptr %732, align 1, !tbaa !278
+  store i8 1, ptr %732, align 8, !tbaa !278
   store ptr %731, ptr %727, align 8, !tbaa !279
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextEESt5_BindIFMS1_KFvS6_SB_SD_bESt12_PlaceholderILi1EESI_ILi2EESI_ILi3EESI_ILi4EEbEEE9_M_invokeERKSt9_Any_dataOS3_OS6_SB_SD_, ptr %729, align 8, !tbaa !258
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextEESt5_BindIFMS1_KFvS6_SB_SD_bESt12_PlaceholderILi1EESI_ILi2EESI_ILi3EESI_ILi4EEbEEE10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation, ptr %728, align 8, !tbaa !261
@@ -2804,7 +2804,7 @@ _ZNSt8functionIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clan
   %.repack5.i.i.i.i466 = getelementptr inbounds nuw i8, ptr %800, i64 8
   store i64 0, ptr %.repack5.i.i.i.i466, align 8, !tbaa !269
   %801 = getelementptr inbounds nuw i8, ptr %800, i64 16
-  store i8 1, ptr %801, align 1, !tbaa !278
+  store i8 1, ptr %801, align 8, !tbaa !278
   store ptr %800, ptr %796, align 8, !tbaa !279
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextEESt5_BindIFMS1_KFvS6_SB_SD_bESt12_PlaceholderILi1EESI_ILi2EESI_ILi3EESI_ILi4EEbEEE9_M_invokeERKSt9_Any_dataOS3_OS6_SB_SD_, ptr %798, align 8, !tbaa !258
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextEESt5_BindIFMS1_KFvS6_SB_SD_bESt12_PlaceholderILi1EESI_ILi2EESI_ILi3EESI_ILi4EEbEEE10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation, ptr %797, align 8, !tbaa !261
@@ -2973,7 +2973,7 @@ _ZNSt8functionIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clan
   %.repack5.i.i.i.i480 = getelementptr inbounds nuw i8, ptr %869, i64 8
   store i64 0, ptr %.repack5.i.i.i.i480, align 8, !tbaa !269
   %870 = getelementptr inbounds nuw i8, ptr %869, i64 16
-  store i8 0, ptr %870, align 1, !tbaa !278
+  store i8 0, ptr %870, align 8, !tbaa !278
   store ptr %869, ptr %865, align 8, !tbaa !279
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextEESt5_BindIFMS1_KFvS6_SB_SD_bESt12_PlaceholderILi1EESI_ILi2EESI_ILi3EESI_ILi4EEbEEE9_M_invokeERKSt9_Any_dataOS3_OS6_SB_SD_, ptr %867, align 8, !tbaa !258
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextEESt5_BindIFMS1_KFvS6_SB_SD_bESt12_PlaceholderILi1EESI_ILi2EESI_ILi3EESI_ILi4EEbEEE10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation, ptr %866, align 8, !tbaa !261
@@ -3142,7 +3142,7 @@ _ZNSt8functionIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clan
   %.repack5.i.i.i.i494 = getelementptr inbounds nuw i8, ptr %938, i64 8
   store i64 0, ptr %.repack5.i.i.i.i494, align 8, !tbaa !269
   %939 = getelementptr inbounds nuw i8, ptr %938, i64 16
-  store i8 1, ptr %939, align 1, !tbaa !278
+  store i8 1, ptr %939, align 8, !tbaa !278
   store ptr %938, ptr %934, align 8, !tbaa !279
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextEESt5_BindIFMS1_KFvS6_SB_SD_bESt12_PlaceholderILi1EESI_ILi2EESI_ILi3EESI_ILi4EEbEEE9_M_invokeERKSt9_Any_dataOS3_OS6_SB_SD_, ptr %936, align 8, !tbaa !258
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextEESt5_BindIFMS1_KFvS6_SB_SD_bESt12_PlaceholderILi1EESI_ILi2EESI_ILi3EESI_ILi4EEbEEE10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation, ptr %935, align 8, !tbaa !261
@@ -8715,7 +8715,7 @@ _ZN5clang4ento15CallDescriptionD2Ev.exit1209:     ; preds = %_ZSt8_DestroyIPNSt7
   %.repack5.i.i.i.i1213 = getelementptr inbounds nuw i8, ptr %3064, i64 8
   store i64 0, ptr %.repack5.i.i.i.i1213, align 8, !tbaa !300
   %3065 = getelementptr inbounds nuw i8, ptr %3064, i64 16
-  store i8 0, ptr %3065, align 1, !tbaa !278
+  store i8 0, ptr %3065, align 8, !tbaa !278
   %3066 = getelementptr inbounds nuw i8, ptr %3064, i64 17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %3066, ptr noundef nonnull align 8 dereferenceable(3) @_ZN12_GLOBAL__N_19ErrorFEofE, i64 3, i1 false), !tbaa.struct !296
   store ptr %3064, ptr %3061, align 8, !tbaa !310
@@ -8881,7 +8881,7 @@ _ZNSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_113FnDescriptionEEC2IS2_S
   %.repack5.i.i.i.i1224 = getelementptr inbounds nuw i8, ptr %3134, i64 8
   store i64 0, ptr %.repack5.i.i.i.i1224, align 8, !tbaa !300
   %3135 = getelementptr inbounds nuw i8, ptr %3134, i64 16
-  store i8 0, ptr %3135, align 1, !tbaa !278
+  store i8 0, ptr %3135, align 8, !tbaa !278
   %3136 = getelementptr inbounds nuw i8, ptr %3134, i64 17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %3136, ptr noundef nonnull align 8 dereferenceable(3) @_ZN12_GLOBAL__N_111ErrorFErrorE, i64 3, i1 false), !tbaa.struct !296
   store ptr %3134, ptr %3131, align 8, !tbaa !310
@@ -9047,7 +9047,7 @@ _ZNSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_113FnDescriptionEEC2IS2_S
   %.repack5.i.i.i.i1235 = getelementptr inbounds nuw i8, ptr %3204, i64 8
   store i64 0, ptr %.repack5.i.i.i.i1235, align 8, !tbaa !300
   %3205 = getelementptr inbounds nuw i8, ptr %3204, i64 16
-  store i8 1, ptr %3205, align 1, !tbaa !278
+  store i8 1, ptr %3205, align 8, !tbaa !278
   %3206 = getelementptr inbounds nuw i8, ptr %3204, i64 17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %3206, ptr noundef nonnull align 8 dereferenceable(3) @_ZN12_GLOBAL__N_111ErrorFErrorE, i64 3, i1 false), !tbaa.struct !296
   store ptr %3204, ptr %3201, align 8, !tbaa !310
@@ -24682,7 +24682,7 @@ define internal void @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113StreamChecke
   %.val9.i.i.i.i = load i64, ptr %.val, align 8, !tbaa !239
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %.val10.i.i.i.i = load i64, ptr %7, align 8, !tbaa !239
-  %.val13.i.i.i.i = load i8, ptr %6, align 1
+  %.val13.i.i.i.i = load i8, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %.val5, i64 %.val10.i.i.i.i
   %9 = and i64 %.val9.i.i.i.i, 1
   %.not.i.i.i.i.i.i = icmp eq i64 %9, 0
@@ -25370,7 +25370,7 @@ define internal void @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113StreamChecke
   %.val10.i.i.i.i = load i64, ptr %.val, align 8, !tbaa !239
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %.val11.i.i.i.i = load i64, ptr %7, align 8, !tbaa !239
-  %.val14.i.i.i.i = load i8, ptr %6, align 1
+  %.val14.i.i.i.i = load i8, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %.val5, i64 %.val11.i.i.i.i
   %9 = and i64 %.val10.i.i.i.i, 1
   %.not.i.i.i.i.i.i = icmp eq i64 %9, 0

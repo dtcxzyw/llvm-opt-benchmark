@@ -10172,13 +10172,13 @@ _ZNSt3mapIPKvN7testing12_GLOBAL__N_115MockObjectStateESt4lessIS1_ESaISt4pairIKS1
   store ptr %16, ptr %15, align 8, !tbaa !14
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i64 0, ptr %17, align 8, !tbaa !12
-  store i8 0, ptr %16, align 1, !tbaa !13
+  store i8 0, ptr %16, align 8, !tbaa !13
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 104
   store ptr %19, ptr %18, align 8, !tbaa !14
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 96
   store i64 0, ptr %20, align 8, !tbaa !12
-  store i8 0, ptr %19, align 1, !tbaa !13
+  store i8 0, ptr %19, align 8, !tbaa !13
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 120
   store i8 0, ptr %21, align 8, !tbaa !342
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 136

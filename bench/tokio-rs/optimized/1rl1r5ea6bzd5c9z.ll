@@ -5684,7 +5684,7 @@ define hidden noundef range(i64 0, 4294967296) i64 @"_ZN5tokio7runtime9scheduler
   %4 = load atomic i64, ptr %3 acquire, align 8
   %5 = trunc i64 %4 to i32
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %7 = load atomic i32, ptr %6 acquire, align 4
+  %7 = load atomic i32, ptr %6 acquire, align 8
   %8 = sub i32 %7, %5
   %9 = zext i32 %8 to i64
   ret i64 %9
@@ -5698,7 +5698,7 @@ define hidden noundef range(i64 -4294967039, 257) i64 @"_ZN5tokio7runtime9schedu
   %5 = lshr i64 %4, 32
   %6 = trunc nuw i64 %5 to i32
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %8 = load atomic i32, ptr %7 acquire, align 4
+  %8 = load atomic i32, ptr %7 acquire, align 8
   %9 = sub i32 %8, %6
   %10 = zext i32 %9 to i64
   %11 = sub nsw i64 256, %10
@@ -5712,7 +5712,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio7runtime9scheduler12multi_thread5que
   %4 = load atomic i64, ptr %3 acquire, align 8
   %5 = trunc i64 %4 to i32
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %7 = load atomic i32, ptr %6 acquire, align 4
+  %7 = load atomic i32, ptr %6 acquire, align 8
   %8 = icmp ne i32 %7, %5
   ret i1 %8
 }
@@ -5916,7 +5916,7 @@ _ZN5tokio4loom3std10atomic_u329AtomicU3211unsync_load17hc488a0b2ff33134bE.exit: 
   %25 = getelementptr inbounds nuw [256 x ptr], ptr %24, i64 0, i64 %22
   store ptr %20, ptr %25, align 8, !noalias !592
   %26 = add i32 %14, 1
-  store atomic i32 %26, ptr %8 release, align 4, !noalias !592
+  store atomic i32 %26, ptr %8 release, align 8, !noalias !592
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker232_$LT$impl$u20$tokio..runtime..scheduler..multi_thread..overflow..Overflow$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$u20$for$u20$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$4push17h87495d225255ae81E.exit"
 
 27:                                               ; preds = %17
@@ -5958,7 +5958,7 @@ define hidden void @"_ZN5tokio7runtime9scheduler12multi_thread5queue14Local$LT$T
   store ptr %1, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %11 = add i32 %2, 1
-  store atomic i32 %11, ptr %10 release, align 4
+  store atomic i32 %11, ptr %10 release, align 8
   ret void
 }
 
@@ -6160,7 +6160,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio7runtime9scheduler12multi_thread5que
   %4 = load atomic i64, ptr %3 acquire, align 8
   %5 = trunc i64 %4 to i32
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %7 = load atomic i32, ptr %6 acquire, align 4
+  %7 = load atomic i32, ptr %6 acquire, align 8
   %8 = icmp eq i32 %7, %5
   ret i1 %8
 }
@@ -6220,7 +6220,7 @@ define hidden noundef i32 @"_ZN5tokio7runtime9scheduler12multi_thread5queue14Ste
   %14 = lshr i64 %12, 32
   %15 = trunc nuw i64 %14 to i32
   %16 = trunc i64 %12 to i32
-  %17 = load atomic i32, ptr %13 acquire, align 4
+  %17 = load atomic i32, ptr %13 acquire, align 8
   %.not46 = icmp eq i32 %15, %16
   br i1 %.not46, label %.lr.ph, label %._crit_edge
 

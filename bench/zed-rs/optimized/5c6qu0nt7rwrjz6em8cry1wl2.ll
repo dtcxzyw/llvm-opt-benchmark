@@ -18694,7 +18694,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !2355
   %250 = getelementptr inbounds nuw i8, ptr %204, i64 120
   %251 = getelementptr inbounds nuw i8, ptr %204, i64 112
-  %252 = load ptr, ptr %251, align 8, !alias.scope !2356, !noalias !2359, !nonnull !5, !noundef !5
+  %252 = load ptr, ptr %251, align 16, !alias.scope !2356, !noalias !2359, !nonnull !5, !noundef !5
   %253 = load i64, ptr %250, align 8, !alias.scope !2356, !noalias !2359, !noundef !5
   invoke void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hac7685a8527fb767E.llvm.13602880533186600580"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 %252, i64 noundef %253)
           to label %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h05ebb60f3f1e1b99E.exit.i" unwind label %255, !noalias !2350
@@ -19612,7 +19612,7 @@ define void @_ZN7channel12channel_chat11ChannelChat14message_update17h9bc98fb97c
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !2545
   %96 = getelementptr inbounds nuw i8, ptr %83, i64 120
   %97 = getelementptr inbounds nuw i8, ptr %83, i64 112
-  %98 = load ptr, ptr %97, align 8, !alias.scope !2546, !noalias !2549, !nonnull !5, !noundef !5
+  %98 = load ptr, ptr %97, align 16, !alias.scope !2546, !noalias !2549, !nonnull !5, !noundef !5
   %99 = load i64, ptr %96, align 8, !alias.scope !2546, !noalias !2549, !noundef !5
   invoke void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hac7685a8527fb767E.llvm.13602880533186600580"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 %98, i64 noundef %99)
           to label %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h05ebb60f3f1e1b99E.exit.i" unwind label %101, !noalias !2543

@@ -3157,7 +3157,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i.i:        ; preds = %3
   %36 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %37 = load ptr, ptr %36, align 8, !tbaa !63
   %38 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store i32 %35, ptr %38, align 4, !tbaa !52
+  store i32 %35, ptr %38, align 8, !tbaa !52
   %39 = icmp eq i32 %35, 0
   br i1 %39, label %40, label %_ZN11ast_manager7inc_refEP3ast.exit.i.i.i198
 
@@ -3192,7 +3192,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i.i198:     ; preds = %_ZN7obj_refI4expr11
   %53 = add nuw nsw i64 %.idx, 24
   %54 = getelementptr inbounds nuw i8, ptr %44, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store i32 %47, ptr %55, align 4, !tbaa !52
+  store i32 %47, ptr %55, align 8, !tbaa !52
   %56 = icmp eq i32 %47, 0
   br i1 %56, label %57, label %_ZN11ast_manager7inc_refEP3ast.exit.i.i.i203
 
@@ -3227,7 +3227,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i.i203:     ; preds = %_ZN7obj_refI4expr11
   %71 = getelementptr inbounds nuw [0 x ptr], ptr %69, i64 0, i64 %70
   %72 = load ptr, ptr %71, align 8, !tbaa !63
   %73 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  store i32 %64, ptr %73, align 4, !tbaa !52
+  store i32 %64, ptr %73, align 8, !tbaa !52
   %74 = icmp eq i32 %64, 0
   br i1 %74, label %75, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit206
 

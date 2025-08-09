@@ -7778,7 +7778,7 @@ _ZNK4llvm7memprof5FrameeqERKS1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %719
   %737 = load ptr, ptr %294, align 8, !tbaa !543
   call void @llvm_blake3_hasher_update(ptr noundef nonnull align 8 dereferenceable(1912) %737, ptr noundef nonnull %7, i64 noundef 8) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %738 = load i32, ptr %734, align 4, !tbaa !81
+  %738 = load i32, ptr %734, align 8, !tbaa !81
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %738, ptr %6, align 4, !tbaa !81
   %739 = load ptr, ptr %294, align 8, !tbaa !543
@@ -8664,7 +8664,7 @@ _ZL34stackFrameIncludesInlinedCallStackN4llvm8ArrayRefINS_7memprof5FrameEEENS0_I
   %1076 = load ptr, ptr %303, align 8, !tbaa !543
   call void @llvm_blake3_hasher_update(ptr noundef nonnull align 8 dereferenceable(1912) %1076, ptr noundef nonnull %24, i64 noundef 8) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  %1077 = load i32, ptr %1073, align 4, !tbaa !81
+  %1077 = load i32, ptr %1073, align 8, !tbaa !81
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 %1077, ptr %23, align 4, !tbaa !81
   %1078 = load ptr, ptr %303, align 8, !tbaa !543
@@ -16394,10 +16394,10 @@ _ZNKSt8__detail15_Hashtable_baseIN4llvm7memprof12LineLocationESt4pairIKS3_S3_ENS
   %33 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #26
   store ptr null, ptr %33, align 8, !tbaa !404
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store i64 %5, ptr %34, align 4
+  store i64 %5, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %36 = load i64, ptr %3, align 4
-  store i64 %36, ptr %35, align 4
+  store i64 %36, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %39 = load i64, ptr %38, align 8, !tbaa !530

@@ -4403,7 +4403,7 @@ _ZN2cv3dnn12ReLU6FunctorC2Eff.exit:               ; preds = %_ZNSt7__cxx1112basi
   %79 = getelementptr inbounds nuw i8, ptr %66, i64 108
   %80 = getelementptr inbounds nuw i8, ptr %66, i64 112
   store float %.0.i81, ptr %79, align 4
-  store float %.0.i4684, ptr %80, align 4
+  store float %.0.i4684, ptr %80, align 8
   store ptr %66, ptr %0, align 8, !tbaa !50
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %81, align 8, !tbaa !29
@@ -9060,7 +9060,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60: ; preds = %_ZN
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 108
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 112
   store float %.0.i77, ptr %66, align 4
-  store float %.0.i4680, ptr %67, align 4
+  store float %.0.i4680, ptr %67, align 8
   store ptr %64, ptr %0, align 8, !tbaa !249
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %68, align 8, !tbaa !29
@@ -9445,7 +9445,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60: ; preds = %_ZN
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 112
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 116
   store float %.0.i76, ptr %66, align 4
-  store float %.0.i4679, ptr %67, align 4
+  store float %.0.i4679, ptr %67, align 8
   store i32 1, ptr %68, align 4
   store ptr %64, ptr %0, align 8, !tbaa !258
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12858,7 +12858,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60: ; preds = %_ZN
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 108
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 112
   store float %.0.i77, ptr %66, align 4
-  store float %.0.i4680, ptr %67, align 4
+  store float %.0.i4680, ptr %67, align 8
   store ptr %64, ptr %0, align 8, !tbaa !355
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %68, align 8, !tbaa !29
@@ -13574,7 +13574,7 @@ _ZN2cv10AutoBufferIlLm1EE8allocateEm.exit.i:      ; preds = %5
   store ptr %32, ptr %.ptr.i, align 8, !tbaa !3
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store i64 0, ptr %33, align 8, !tbaa !9
-  store i8 0, ptr %32, align 1, !tbaa !12
+  store i8 0, ptr %32, align 8, !tbaa !12
   store ptr %.ptr.i, ptr %29, align 8, !tbaa !377
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -13603,7 +13603,7 @@ _ZN2cv10AutoBufferIlLm1EE8allocateEm.exit.i:      ; preds = %5
   store ptr %47, ptr %46, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i64 0, ptr %48, align 8, !tbaa !9
-  store i8 0, ptr %47, align 1, !tbaa !12
+  store i8 0, ptr %47, align 8, !tbaa !12
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %50 = icmp eq ptr %49, %44
   br i1 %50, label %_ZN2cv10AutoBufferINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm1EE8allocateEm.exit.thread.i, label %45
@@ -13942,7 +13942,7 @@ _ZN2cv10AutoBufferIlLm1EE8allocateEm.exit.i:      ; preds = %6
   store ptr %33, ptr %.ptr.i, align 8, !tbaa !3
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store i64 0, ptr %34, align 8, !tbaa !9
-  store i8 0, ptr %33, align 1, !tbaa !12
+  store i8 0, ptr %33, align 8, !tbaa !12
   store ptr %.ptr.i, ptr %30, align 8, !tbaa !377
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -13971,7 +13971,7 @@ _ZN2cv10AutoBufferIlLm1EE8allocateEm.exit.i:      ; preds = %6
   store ptr %48, ptr %47, align 8, !tbaa !3
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 0, ptr %49, align 8, !tbaa !9
-  store i8 0, ptr %48, align 1, !tbaa !12
+  store i8 0, ptr %48, align 8, !tbaa !12
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %51 = icmp eq ptr %50, %45
   br i1 %51, label %_ZN2cv10AutoBufferINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm1EE8allocateEm.exit.thread.i, label %46

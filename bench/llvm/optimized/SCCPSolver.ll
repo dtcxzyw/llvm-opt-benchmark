@@ -5161,7 +5161,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm15SCCPInstVisitor23isStructLatticeC
   %39 = load ptr, ptr %38, align 8, !tbaa !207
   %40 = icmp eq ptr %1, %39
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %42 = load i32, ptr %41, align 4
+  %42 = load i32, ptr %41, align 8
   %43 = zext i32 %42 to i64
   %44 = icmp eq i64 %indvars.iv, %43
   %45 = select i1 %40, i1 %44, i1 false
@@ -5186,7 +5186,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm15SCCPInstVisitor23isStructLatticeC
   %57 = load ptr, ptr %56, align 8, !tbaa !207
   %58 = icmp eq ptr %1, %57
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %60 = load i32, ptr %59, align 4
+  %60 = load i32, ptr %59, align 8
   %61 = zext i32 %60 to i64
   %62 = icmp eq i64 %indvars.iv, %61
   %63 = select i1 %58, i1 %62, i1 false
@@ -5614,7 +5614,7 @@ define dso_local noundef ptr @_ZNK4llvm15SCCPInstVisitor17getConstantOrNullEPNS_
   %40 = load ptr, ptr %39, align 8, !tbaa !221
   %41 = icmp eq ptr %1, %40
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %43 = load i32, ptr %42, align 4
+  %43 = load i32, ptr %42, align 8
   %44 = zext i32 %43 to i64
   %45 = icmp eq i64 %indvars.iv.i, %44
   %46 = select i1 %41, i1 %45, i1 false
@@ -5639,7 +5639,7 @@ define dso_local noundef ptr @_ZNK4llvm15SCCPInstVisitor17getConstantOrNullEPNS_
   %58 = load ptr, ptr %57, align 8, !tbaa !221
   %59 = icmp eq ptr %1, %58
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %61 = load i32, ptr %60, align 4
+  %61 = load i32, ptr %60, align 8
   %62 = zext i32 %61 to i64
   %63 = icmp eq i64 %indvars.iv.i, %62
   %64 = select i1 %59, i1 %63, i1 false
@@ -6548,7 +6548,7 @@ _ZN4llvm8Function7arg_endEv.exit:                 ; preds = %_ZN4llvm8Function9a
   %87 = load ptr, ptr %86, align 8, !tbaa !221
   %88 = icmp eq ptr %.032176, %87
   %89 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  %90 = load i32, ptr %89, align 4
+  %90 = load i32, ptr %89, align 8
   %91 = zext i32 %90 to i64
   %92 = icmp eq i64 %indvars.iv, %91
   %93 = select i1 %88, i1 %92, i1 false
@@ -6586,7 +6586,7 @@ _ZN4llvm8Function7arg_endEv.exit:                 ; preds = %_ZN4llvm8Function9a
   %112 = load ptr, ptr %111, align 8, !tbaa !221
   %113 = icmp eq ptr %.032176, %112
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  %115 = load i32, ptr %114, align 4
+  %115 = load i32, ptr %114, align 8
   %116 = zext i32 %115 to i64
   %117 = icmp eq i64 %indvars.iv, %116
   %118 = select i1 %113, i1 %117, i1 false
@@ -6637,7 +6637,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_5ValueEjENS_19ValueLatticeElemen
   %144 = load ptr, ptr %143, align 8, !tbaa !221
   %145 = icmp eq ptr %.032176, %144
   %146 = getelementptr inbounds nuw i8, ptr %143, i64 8
-  %147 = load i32, ptr %146, align 4
+  %147 = load i32, ptr %146, align 8
   %148 = zext i32 %147 to i64
   %149 = icmp eq i64 %indvars.iv, %148
   %150 = select i1 %145, i1 %149, i1 false
@@ -6675,7 +6675,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_5ValueEjENS_19ValueLatticeElemen
   %169 = load ptr, ptr %168, align 8, !tbaa !221
   %170 = icmp eq ptr %.032176, %169
   %171 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  %172 = load i32, ptr %171, align 4
+  %172 = load i32, ptr %171, align 8
   %173 = zext i32 %172 to i64
   %174 = icmp eq i64 %indvars.iv, %173
   %175 = select i1 %170, i1 %174, i1 false
@@ -6694,7 +6694,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_5ValueEjENS_19ValueLatticeElemen
   %180 = load ptr, ptr %177, align 8, !tbaa !221
   %181 = icmp eq ptr %180, inttoptr (i64 -4096 to ptr)
   %182 = getelementptr inbounds nuw i8, ptr %177, i64 8
-  %183 = load i32, ptr %182, align 4
+  %183 = load i32, ptr %182, align 8
   %184 = icmp eq i32 %183, -1
   %185 = select i1 %181, i1 %184, i1 false
   br i1 %185, label %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_5ValueEjENS_19ValueLatticeElementENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S6_EEEES5_S6_S8_SB_E16InsertIntoBucketIS5_JEEEPSB_SF_OT_DpOT0_.exit.i, label %186
@@ -6893,7 +6893,7 @@ _ZN4llvm19ValueLatticeElement12markConstantEPNS_8ConstantEb.exit: ; preds = %197
   %282 = load ptr, ptr %281, align 8, !tbaa !221
   %283 = icmp eq ptr %.032176, %282
   %284 = getelementptr inbounds nuw i8, ptr %281, i64 8
-  %285 = load i32, ptr %284, align 4
+  %285 = load i32, ptr %284, align 8
   %286 = zext i32 %285 to i64
   %287 = icmp eq i64 %indvars.iv206, %286
   %288 = select i1 %283, i1 %287, i1 false
@@ -6935,7 +6935,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_5ValueEjENS_19ValueLatticeElemen
   %307 = load ptr, ptr %306, align 8, !tbaa !221
   %308 = icmp eq ptr %.032176, %307
   %309 = getelementptr inbounds nuw i8, ptr %306, i64 8
-  %310 = load i32, ptr %309, align 4
+  %310 = load i32, ptr %309, align 8
   %311 = zext i32 %310 to i64
   %312 = icmp eq i64 %indvars.iv206, %311
   %313 = select i1 %308, i1 %312, i1 false
@@ -6986,7 +6986,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_5ValueEjENS_19ValueLatticeElemen
   %339 = load ptr, ptr %338, align 8, !tbaa !221
   %340 = icmp eq ptr %.032176, %339
   %341 = getelementptr inbounds nuw i8, ptr %338, i64 8
-  %342 = load i32, ptr %341, align 4
+  %342 = load i32, ptr %341, align 8
   %343 = zext i32 %342 to i64
   %344 = icmp eq i64 %indvars.iv206, %343
   %345 = select i1 %340, i1 %344, i1 false
@@ -7024,7 +7024,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_5ValueEjENS_19ValueLatticeElemen
   %364 = load ptr, ptr %363, align 8, !tbaa !221
   %365 = icmp eq ptr %.032176, %364
   %366 = getelementptr inbounds nuw i8, ptr %363, i64 8
-  %367 = load i32, ptr %366, align 4
+  %367 = load i32, ptr %366, align 8
   %368 = zext i32 %367 to i64
   %369 = icmp eq i64 %indvars.iv206, %368
   %370 = select i1 %365, i1 %369, i1 false
@@ -7043,7 +7043,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_5ValueEjENS_19ValueLatticeElemen
   %375 = load ptr, ptr %372, align 8, !tbaa !221
   %376 = icmp eq ptr %375, inttoptr (i64 -4096 to ptr)
   %377 = getelementptr inbounds nuw i8, ptr %372, i64 8
-  %378 = load i32, ptr %377, align 4
+  %378 = load i32, ptr %377, align 8
   %379 = icmp eq i32 %378, -1
   %380 = select i1 %376, i1 %379, i1 false
   br i1 %380, label %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_5ValueEjENS_19ValueLatticeElementENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S6_EEEES5_S6_S8_SB_E16InsertIntoBucketIS5_JEEEPSB_SF_OT_DpOT0_.exit.i63, label %381
@@ -7091,7 +7091,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_5ValueEjENS_19ValueLatticeElemen
   %403 = load ptr, ptr %402, align 8, !tbaa !221
   %404 = icmp eq ptr %.033174, %403
   %405 = getelementptr inbounds nuw i8, ptr %402, i64 8
-  %406 = load i32, ptr %405, align 4
+  %406 = load i32, ptr %405, align 8
   %407 = zext i32 %406 to i64
   %408 = icmp eq i64 %indvars.iv206, %407
   %409 = select i1 %404, i1 %408, i1 false
@@ -7129,7 +7129,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_5ValueEjENS_19ValueLatticeElemen
   %428 = load ptr, ptr %427, align 8, !tbaa !221
   %429 = icmp eq ptr %.033174, %428
   %430 = getelementptr inbounds nuw i8, ptr %427, i64 8
-  %431 = load i32, ptr %430, align 4
+  %431 = load i32, ptr %430, align 8
   %432 = zext i32 %431 to i64
   %433 = icmp eq i64 %indvars.iv206, %432
   %434 = select i1 %429, i1 %433, i1 false
@@ -7183,7 +7183,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_5ValueEjENS_19ValueLatticeElemen
   %461 = load ptr, ptr %460, align 8, !tbaa !221
   %462 = icmp eq ptr %.033174, %461
   %463 = getelementptr inbounds nuw i8, ptr %460, i64 8
-  %464 = load i32, ptr %463, align 4
+  %464 = load i32, ptr %463, align 8
   %465 = zext i32 %464 to i64
   %466 = icmp eq i64 %indvars.iv206, %465
   %467 = select i1 %462, i1 %466, i1 false
@@ -7221,7 +7221,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_5ValueEjENS_19ValueLatticeElemen
   %486 = load ptr, ptr %485, align 8, !tbaa !221
   %487 = icmp eq ptr %.033174, %486
   %488 = getelementptr inbounds nuw i8, ptr %485, i64 8
-  %489 = load i32, ptr %488, align 4
+  %489 = load i32, ptr %488, align 8
   %490 = zext i32 %489 to i64
   %491 = icmp eq i64 %indvars.iv206, %490
   %492 = select i1 %487, i1 %491, i1 false
@@ -7240,7 +7240,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_5ValueEjENS_19ValueLatticeElemen
   %497 = load ptr, ptr %494, align 8, !tbaa !221
   %498 = icmp eq ptr %497, inttoptr (i64 -4096 to ptr)
   %499 = getelementptr inbounds nuw i8, ptr %494, i64 8
-  %500 = load i32, ptr %499, align 4
+  %500 = load i32, ptr %499, align 8
   %501 = icmp eq i32 %500, -1
   %502 = select i1 %498, i1 %501, i1 false
   br i1 %502, label %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_5ValueEjENS_19ValueLatticeElementENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S6_EEEES5_S6_S8_SB_E16InsertIntoBucketIS5_JEEEPSB_SF_OT_DpOT0_.exit.i84, label %503
@@ -10244,7 +10244,7 @@ _ZSt9make_pairISt4pairIPN4llvm5ValueEjENS1_19ValueLatticeElementEES0_INSt25__str
   %29 = load ptr, ptr %28, align 8, !tbaa !221, !noalias !306
   %30 = icmp eq ptr %1, %29
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %32 = load i32, ptr %31, align 4, !noalias !306
+  %32 = load i32, ptr %31, align 8, !noalias !306
   %33 = icmp eq i32 %2, %32
   %34 = select i1 %30, i1 %33, i1 false
   br i1 %34, label %_ZN4llvm19ValueLatticeElementD2Ev.exit, label %.lr.ph.i.i, !prof !86
@@ -10281,7 +10281,7 @@ _ZSt9make_pairISt4pairIPN4llvm5ValueEjENS1_19ValueLatticeElementEES0_INSt25__str
   %53 = load ptr, ptr %52, align 8, !tbaa !221, !noalias !306
   %54 = icmp eq ptr %1, %53
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %56 = load i32, ptr %55, align 4, !noalias !306
+  %56 = load i32, ptr %55, align 8, !noalias !306
   %57 = icmp eq i32 %2, %56
   %58 = select i1 %54, i1 %57, i1 false
   br i1 %58, label %_ZN4llvm19ValueLatticeElementD2Ev.exit, label %.lr.ph.i.i, !prof !88, !llvm.loop !241
@@ -22532,7 +22532,7 @@ define dso_local void @_ZNK4llvm10SCCPSolver24getStructLatticeValueForEPNS_5Valu
   %35 = load ptr, ptr %34, align 8, !tbaa !221
   %36 = icmp eq ptr %2, %35
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %38 = load i32, ptr %37, align 4
+  %38 = load i32, ptr %37, align 8
   %39 = zext i32 %38 to i64
   %40 = icmp eq i64 %indvars.iv.i, %39
   %41 = select i1 %36, i1 %40, i1 false
@@ -22557,7 +22557,7 @@ define dso_local void @_ZNK4llvm10SCCPSolver24getStructLatticeValueForEPNS_5Valu
   %53 = load ptr, ptr %52, align 8, !tbaa !221
   %54 = icmp eq ptr %2, %53
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %56 = load i32, ptr %55, align 4
+  %56 = load i32, ptr %55, align 8
   %57 = zext i32 %56 to i64
   %58 = icmp eq i64 %indvars.iv.i, %57
   %59 = select i1 %54, i1 %58, i1 false
@@ -24328,7 +24328,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %30 = load ptr, ptr %29, align 8, !tbaa !221
   %31 = icmp eq ptr %9, %30
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %33 = load i32, ptr %32, align 4
+  %33 = load i32, ptr %32, align 8
   %34 = icmp eq i32 %16, %33
   %35 = select i1 %31, i1 %34, i1 false
   br i1 %35, label %._crit_edge, label %.lr.ph, !prof !86
@@ -24365,7 +24365,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %54 = load ptr, ptr %53, align 8, !tbaa !221
   %55 = icmp eq ptr %9, %54
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %57 = load i32, ptr %56, align 4
+  %57 = load i32, ptr %56, align 8
   %58 = icmp eq i32 %16, %57
   %59 = select i1 %55, i1 %58, i1 false
   br i1 %59, label %._crit_edge, label %.lr.ph, !prof !88, !llvm.loop !241
@@ -24422,7 +24422,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4p
   %25 = load ptr, ptr %22, align 8, !tbaa !221
   %26 = icmp eq ptr %25, inttoptr (i64 -4096 to ptr)
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %28 = load i32, ptr %27, align 4
+  %28 = load i32, ptr %27, align 8
   %29 = icmp eq i32 %28, -1
   %30 = select i1 %26, i1 %29, i1 false
   br i1 %30, label %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_5ValueEjENS_19ValueLatticeElementENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S6_EEEES5_S6_S8_SB_E20InsertIntoBucketImplIS5_EEPSB_RKT_SF_.exit, label %31
@@ -24593,7 +24593,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_5ValueEjENS_19ValueLatticeElemen
   %12 = load ptr, ptr %.027, align 8, !tbaa !221
   %13 = icmp eq ptr %12, inttoptr (i64 -4096 to ptr)
   %14 = getelementptr inbounds nuw i8, ptr %.027, i64 8
-  %15 = load i32, ptr %14, align 4
+  %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, -1
   %17 = select i1 %13, i1 %16, i1 false
   br i1 %17, label %_ZN4llvm19ValueLatticeElementD2Ev.exit, label %18
@@ -24630,7 +24630,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_5ValueEjENS_19ValueLatticeElemen
   %44 = load ptr, ptr %43, align 8, !tbaa !221
   %45 = icmp eq ptr %12, %44
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %47 = load i32, ptr %46, align 4
+  %47 = load i32, ptr %46, align 8
   %48 = icmp eq i32 %15, %47
   %49 = select i1 %45, i1 %48, i1 false
   br i1 %49, label %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_5ValueEjENS_19ValueLatticeElementENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S6_EEEES5_S6_S8_SB_E15LookupBucketForIS5_EEbRKT_RPSB_.exit, label %.lr.ph.i17, !prof !86
@@ -24667,7 +24667,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_5ValueEjENS_19ValueLatticeElemen
   %68 = load ptr, ptr %67, align 8, !tbaa !221
   %69 = icmp eq ptr %12, %68
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %71 = load i32, ptr %70, align 4
+  %71 = load i32, ptr %70, align 8
   %72 = icmp eq i32 %15, %71
   %73 = select i1 %69, i1 %72, i1 false
   br i1 %73, label %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_5ValueEjENS_19ValueLatticeElementENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S6_EEEES5_S6_S8_SB_E15LookupBucketForIS5_EEbRKT_RPSB_.exit, label %.lr.ph.i17, !prof !88, !llvm.loop !241
@@ -25337,9 +25337,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueENS_14SmallSetVectorIPNS_4UserELj2
   store ptr null, ptr %41, align 8, !tbaa !549
   %43 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 16
   %44 = getelementptr inbounds nuw i8, ptr %.022, i64 16
-  %45 = load i32, ptr %44, align 4, !tbaa !28
-  store i32 %45, ptr %43, align 4, !tbaa !28
-  store i32 0, ptr %44, align 4, !tbaa !28
+  %45 = load i32, ptr %44, align 8, !tbaa !28
+  store i32 %45, ptr %43, align 8, !tbaa !28
+  store i32 0, ptr %44, align 8, !tbaa !28
   %46 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 20
   %47 = getelementptr inbounds nuw i8, ptr %.022, i64 20
   %48 = load i32, ptr %46, align 4, !tbaa !28
@@ -25348,10 +25348,10 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueENS_14SmallSetVectorIPNS_4UserELj2
   store i32 %48, ptr %47, align 4, !tbaa !28
   %50 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 24
   %51 = getelementptr inbounds nuw i8, ptr %.022, i64 24
-  %52 = load i32, ptr %50, align 4, !tbaa !28
-  %53 = load i32, ptr %51, align 4, !tbaa !28
-  store i32 %53, ptr %50, align 4, !tbaa !28
-  store i32 %52, ptr %51, align 4, !tbaa !28
+  %52 = load i32, ptr %50, align 8, !tbaa !28
+  %53 = load i32, ptr %51, align 8, !tbaa !28
+  store i32 %53, ptr %50, align 8, !tbaa !28
+  store i32 %52, ptr %51, align 8, !tbaa !28
   %54 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 48
   store ptr %55, ptr %54, align 8, !tbaa !120
@@ -28124,7 +28124,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS
   %32 = load ptr, ptr %31, align 8, !tbaa !207
   %33 = icmp eq ptr %11, %32
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %35 = load i32, ptr %34, align 4
+  %35 = load i32, ptr %34, align 8
   %36 = icmp eq i32 %18, %35
   %37 = select i1 %33, i1 %36, i1 false
   br i1 %37, label %.loopexit, label %.lr.ph.i, !prof !86
@@ -28161,7 +28161,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS
   %56 = load ptr, ptr %55, align 8, !tbaa !207
   %57 = icmp eq ptr %11, %56
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %59 = load i32, ptr %58, align 4
+  %59 = load i32, ptr %58, align 8
   %60 = icmp eq i32 %18, %59
   %61 = select i1 %57, i1 %60, i1 false
   br i1 %61, label %.loopexit, label %.lr.ph.i, !prof !88, !llvm.loop !583
@@ -28208,7 +28208,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_8FunctionEjEjNS_12DenseMapInfoIS
   %79 = load ptr, ptr %76, align 8, !tbaa !207
   %80 = icmp eq ptr %79, inttoptr (i64 -4096 to ptr)
   %81 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %82 = load i32, ptr %81, align 4
+  %82 = load i32, ptr %81, align 8
   %83 = icmp eq i32 %82, -1
   %84 = select i1 %80, i1 %83, i1 false
   br i1 %84, label %89, label %85
@@ -28229,7 +28229,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_8FunctionEjEjNS_12DenseMapInfoIS
   store i32 %92, ptr %81, align 8, !tbaa !587
   %93 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %94 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %94, ptr %93, align 4, !tbaa !28
+  store i32 %94, ptr %93, align 8, !tbaa !28
   %95 = load ptr, ptr %1, align 8, !tbaa !203
   %96 = load i32, ptr %7, align 8, !tbaa !206
   br label %.loopexit
@@ -28282,7 +28282,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %30 = load ptr, ptr %29, align 8, !tbaa !207
   %31 = icmp eq ptr %9, %30
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %33 = load i32, ptr %32, align 4
+  %33 = load i32, ptr %32, align 8
   %34 = icmp eq i32 %16, %33
   %35 = select i1 %31, i1 %34, i1 false
   br i1 %35, label %._crit_edge, label %.lr.ph, !prof !86
@@ -28319,7 +28319,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %54 = load ptr, ptr %53, align 8, !tbaa !207
   %55 = icmp eq ptr %9, %54
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %57 = load i32, ptr %56, align 4
+  %57 = load i32, ptr %56, align 8
   %58 = icmp eq i32 %16, %57
   %59 = select i1 %55, i1 %58, i1 false
   br i1 %59, label %._crit_edge, label %.lr.ph, !prof !88, !llvm.loop !583
@@ -28429,7 +28429,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_8FunctionEjEjNS_12DenseMapInfoIS
   %12 = load ptr, ptr %.027, align 8, !tbaa !207
   %13 = icmp eq ptr %12, inttoptr (i64 -4096 to ptr)
   %14 = getelementptr inbounds nuw i8, ptr %.027, i64 8
-  %15 = load i32, ptr %14, align 4
+  %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, -1
   %17 = select i1 %13, i1 %16, i1 false
   br i1 %17, label %80, label %18
@@ -28466,7 +28466,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_8FunctionEjEjNS_12DenseMapInfoIS
   %44 = load ptr, ptr %43, align 8, !tbaa !207
   %45 = icmp eq ptr %12, %44
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %47 = load i32, ptr %46, align 4
+  %47 = load i32, ptr %46, align 8
   %48 = icmp eq i32 %15, %47
   %49 = select i1 %45, i1 %48, i1 false
   br i1 %49, label %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_8FunctionEjEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit, label %.lr.ph.i17, !prof !86
@@ -28503,7 +28503,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_8FunctionEjEjNS_12DenseMapInfoIS
   %68 = load ptr, ptr %67, align 8, !tbaa !207
   %69 = icmp eq ptr %12, %68
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %71 = load i32, ptr %70, align 4
+  %71 = load i32, ptr %70, align 8
   %72 = icmp eq i32 %15, %71
   %73 = select i1 %69, i1 %72, i1 false
   br i1 %73, label %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_8FunctionEjEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit, label %.lr.ph.i17, !prof !88, !llvm.loop !583
@@ -28516,7 +28516,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_8FunctionEjEjNS_12DenseMapInfoIS
   %75 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 16
   %76 = getelementptr inbounds nuw i8, ptr %.027, i64 16
   %77 = load i32, ptr %76, align 4, !tbaa !28
-  store i32 %77, ptr %75, align 4, !tbaa !28
+  store i32 %77, ptr %75, align 8, !tbaa !28
   %78 = load i32, ptr %4, align 8, !tbaa !585
   %79 = add i32 %78, 1
   store i32 %79, ptr %4, align 8, !tbaa !585
@@ -28992,7 +28992,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionEjNS_12DenseMapInfoIS3_vEENS_6d
   store ptr %60, ptr %50, align 8, !tbaa !166
   %61 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %62 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %62, ptr %61, align 4, !tbaa !28
+  store i32 %62, ptr %61, align 8, !tbaa !28
   %63 = load ptr, ptr %1, align 8, !tbaa !289
   %64 = load i32, ptr %7, align 8, !tbaa !292
   br label %.loopexit
@@ -29204,7 +29204,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionEjNS_12DenseMapInfoIS3_vEENS_6d
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !28
-  store i32 %68, ptr %66, align 4, !tbaa !28
+  store i32 %68, ptr %66, align 8, !tbaa !28
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !603
   br label %70
@@ -29984,7 +29984,7 @@ _ZN4llvm19ValueLatticeElementD2Ev.exit60:         ; preds = %153, %150, %_ZN4llv
   %189 = load ptr, ptr %188, align 8, !tbaa !221
   %190 = icmp eq ptr %37, %189
   %191 = getelementptr inbounds nuw i8, ptr %188, i64 8
-  %192 = load i32, ptr %191, align 4
+  %192 = load i32, ptr %191, align 8
   %193 = zext i32 %192 to i64
   %194 = icmp eq i64 %indvars.iv, %193
   %195 = select i1 %190, i1 %194, i1 false
@@ -30009,7 +30009,7 @@ _ZN4llvm19ValueLatticeElementD2Ev.exit60:         ; preds = %153, %150, %_ZN4llv
   %207 = load ptr, ptr %206, align 8, !tbaa !221
   %208 = icmp eq ptr %37, %207
   %209 = getelementptr inbounds nuw i8, ptr %206, i64 8
-  %210 = load i32, ptr %209, align 4
+  %210 = load i32, ptr %209, align 8
   %211 = zext i32 %210 to i64
   %212 = icmp eq i64 %indvars.iv, %211
   %213 = select i1 %208, i1 %212, i1 false
@@ -30802,7 +30802,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS
   %32 = load ptr, ptr %31, align 8, !tbaa !207
   %33 = icmp eq ptr %11, %32
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %35 = load i32, ptr %34, align 4
+  %35 = load i32, ptr %34, align 8
   %36 = icmp eq i32 %18, %35
   %37 = select i1 %33, i1 %36, i1 false
   br i1 %37, label %.loopexit, label %.lr.ph.i, !prof !86
@@ -30839,7 +30839,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS
   %56 = load ptr, ptr %55, align 8, !tbaa !207
   %57 = icmp eq ptr %11, %56
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %59 = load i32, ptr %58, align 4
+  %59 = load i32, ptr %58, align 8
   %60 = icmp eq i32 %18, %59
   %61 = select i1 %57, i1 %60, i1 false
   br i1 %61, label %.loopexit, label %.lr.ph.i, !prof !88, !llvm.loop !583
@@ -30886,7 +30886,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_8FunctionEjEjNS_12DenseMapInfoIS
   %79 = load ptr, ptr %76, align 8, !tbaa !207
   %80 = icmp eq ptr %79, inttoptr (i64 -4096 to ptr)
   %81 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %82 = load i32, ptr %81, align 4
+  %82 = load i32, ptr %81, align 8
   %83 = icmp eq i32 %82, -1
   %84 = select i1 %80, i1 %83, i1 false
   br i1 %84, label %89, label %85
@@ -30907,7 +30907,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_8FunctionEjEjNS_12DenseMapInfoIS
   store i32 %92, ptr %81, align 8, !tbaa !587
   %93 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %94 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %94, ptr %93, align 4, !tbaa !28
+  store i32 %94, ptr %93, align 8, !tbaa !28
   %95 = load ptr, ptr %1, align 8, !tbaa !203
   %96 = load i32, ptr %7, align 8, !tbaa !206
   br label %.loopexit
@@ -32068,7 +32068,7 @@ define linkonce_odr hidden void @_ZN4llvm8DenseMapISt4pairIPNS_5ValueEjENS_19Val
   %7 = load ptr, ptr %.016.i, align 8, !tbaa !221
   %8 = icmp eq ptr %7, inttoptr (i64 -4096 to ptr)
   %9 = getelementptr inbounds nuw i8, ptr %.016.i, i64 8
-  %10 = load i32, ptr %9, align 4
+  %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, -1
   %12 = select i1 %8, i1 %11, i1 false
   br i1 %12, label %_ZN4llvm19ValueLatticeElementD2Ev.exit.i, label %13

@@ -180,7 +180,7 @@ scatter.exit:                                     ; preds = %.lr.ph548, %58, %sc
   %81 = load ptr, ptr %80, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %81, i8 0, i64 32, i1 false)
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 224
-  store i32 0, ptr %82, align 8
+  store i32 0, ptr %82, align 16
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %84 = load i32, ptr %83, align 8
   %.not.i53 = icmp eq i32 %84, -1
@@ -881,7 +881,7 @@ mmbit_set_i.exit132:                              ; preds = %.thread360, %.lr.ph
   %482 = getelementptr inbounds nuw i8, ptr %478, i64 %481
   %483 = getelementptr inbounds nuw i8, ptr %468, i64 16
   store ptr %482, ptr %483, align 8
-  %484 = load ptr, ptr %15, align 8
+  %484 = load ptr, ptr %15, align 16
   %485 = getelementptr inbounds nuw i8, ptr %471, i64 4
   %486 = load i32, ptr %485, align 4
   %487 = zext i32 %486 to i64
@@ -889,17 +889,17 @@ mmbit_set_i.exit132:                              ; preds = %.thread360, %.lr.ph
   %489 = getelementptr inbounds nuw i8, ptr %468, i64 24
   store ptr %488, ptr %489, align 8
   %490 = getelementptr inbounds nuw i8, ptr %1, i64 320
-  %491 = load i64, ptr %490, align 8
+  %491 = load i64, ptr %490, align 16
   %492 = getelementptr inbounds nuw i8, ptr %468, i64 32
   store i64 %491, ptr %492, align 8
-  %493 = load ptr, ptr %93, align 8
+  %493 = load ptr, ptr %93, align 16
   %494 = getelementptr inbounds nuw i8, ptr %468, i64 40
   store ptr %493, ptr %494, align 8
   %495 = load i64, ptr %5, align 8
   %496 = getelementptr inbounds nuw i8, ptr %468, i64 48
   store i64 %495, ptr %496, align 8
   %497 = getelementptr inbounds nuw i8, ptr %1, i64 304
-  %498 = load ptr, ptr %497, align 8
+  %498 = load ptr, ptr %497, align 16
   %499 = getelementptr inbounds nuw i8, ptr %468, i64 56
   store ptr %498, ptr %499, align 8
   %500 = getelementptr inbounds nuw i8, ptr %1, i64 312
@@ -1505,16 +1505,16 @@ mmbit_set_i.exit:                                 ; preds = %.thread380, %.lr.ph
   %876 = getelementptr inbounds nuw i8, ptr %.sink903, i64 %875
   %877 = getelementptr inbounds nuw i8, ptr %855, i64 24
   store ptr %876, ptr %877, align 8
-  %878 = load i64, ptr %713, align 8
+  %878 = load i64, ptr %713, align 16
   %879 = getelementptr inbounds nuw i8, ptr %855, i64 32
   store i64 %878, ptr %879, align 8
-  %880 = load ptr, ptr %714, align 8
+  %880 = load ptr, ptr %714, align 16
   %881 = getelementptr inbounds nuw i8, ptr %855, i64 40
   store ptr %880, ptr %881, align 8
   %882 = load i64, ptr %5, align 8
   %883 = getelementptr inbounds nuw i8, ptr %855, i64 48
   store i64 %882, ptr %883, align 8
-  %884 = load ptr, ptr %715, align 8
+  %884 = load ptr, ptr %715, align 16
   %885 = getelementptr inbounds nuw i8, ptr %855, i64 56
   store ptr %884, ptr %885, align 8
   %886 = load i64, ptr %716, align 8

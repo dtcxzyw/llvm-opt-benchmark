@@ -3116,7 +3116,7 @@ invoke.cont95:                                    ; preds = %if.end94
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !297
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly5BatonILb1ESt6atomicEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i28, align 8, !noalias !297
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i28, i64 16
-  store i32 0, ptr %_M_impl.i.i.i.i.i.i, align 4, !noalias !297
+  store i32 0, ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !297
   store ptr %call5.i.i.i2.i.i.i.i28, ptr %_M_refcount.i.i.i, align 8, !alias.scope !297
   store ptr %_M_impl.i.i.i.i.i.i, ptr %destroy_baton, align 8, !alias.scope !297
   tail call void @llvm.experimental.noalias.scope.decl(metadata !300)
@@ -3132,7 +3132,7 @@ invoke.cont98:                                    ; preds = %invoke.cont95
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i31, align 4, !noalias !300
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6atomicIbESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i33, align 8, !noalias !300
   %_M_impl.i.i.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i33, i64 16
-  store i8 0, ptr %_M_impl.i.i.i.i.i.i32, align 1, !noalias !300
+  store i8 0, ptr %_M_impl.i.i.i.i.i.i32, align 8, !noalias !300
   store ptr %call5.i.i.i2.i.i.i.i33, ptr %_M_refcount.i.i.i29, align 8, !alias.scope !300
   store ptr %_M_impl.i.i.i.i.i.i32, ptr %print_destructor_stack_trace, align 8, !alias.scope !300
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %this, i64 2240

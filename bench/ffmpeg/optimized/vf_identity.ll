@@ -319,7 +319,7 @@ define internal range(i32 -22, 1) i32 @config_input_ref(ptr noundef readonly cap
   %notmask82 = shl nsw i32 -1, %92
   %93 = xor i32 %notmask82, -1
   %94 = getelementptr inbounds nuw i8, ptr %8, i64 184
-  store i32 %93, ptr %94, align 4, !tbaa !61
+  store i32 %93, ptr %94, align 8, !tbaa !61
   %95 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %96 = load i32, ptr %95, align 8, !tbaa !66
   %notmask83 = shl nsw i32 -1, %96
@@ -331,7 +331,7 @@ define internal range(i32 -22, 1) i32 @config_input_ref(ptr noundef readonly cap
   %notmask84 = shl nsw i32 -1, %100
   %101 = xor i32 %notmask84, -1
   %102 = getelementptr inbounds nuw i8, ptr %8, i64 192
-  store i32 %101, ptr %102, align 4, !tbaa !61
+  store i32 %101, ptr %102, align 8, !tbaa !61
   %103 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %104 = load ptr, ptr %103, align 8, !tbaa !32
   %105 = load ptr, ptr %104, align 8, !tbaa !33

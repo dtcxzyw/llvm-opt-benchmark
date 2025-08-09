@@ -32728,7 +32728,7 @@ _init_l_Lean_Elab_Tactic_evalSimpTrace___lambda__1___closed__2.exit: ; preds = %
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 16
   store i64 1, ptr %55, align 8, !tbaa !12
-  store i32 1, ptr %51, align 4, !tbaa !4
+  store i32 1, ptr %51, align 8, !tbaa !4
   store i32 16842776, ptr %54, align 4
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr %50, ptr %56, align 8, !tbaa !9

@@ -25618,11 +25618,11 @@ _ZN4gpui3app10entity_map9EntityMap4read17h05f60f49947b80d6E.exit: ; preds = %"_Z
   %124 = getelementptr inbounds { { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, { i64, i64 }, i64 }, ptr %123, i64 %119
   %.sroa.048.0.copyload = load i32, ptr %124, align 8
   %.sroa.449.sroa.4.0..sroa.449.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %124, i64 32
-  %.sroa.449.sroa.4.0.copyload = load i64, ptr %.sroa.449.sroa.4.0..sroa.449.0..sroa_idx.sroa_idx, align 4
+  %.sroa.449.sroa.4.0.copyload = load i64, ptr %.sroa.449.sroa.4.0..sroa.449.0..sroa_idx.sroa_idx, align 8
   %.sroa.449.sroa.5.0..sroa.449.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %124, i64 40
-  %.sroa.449.sroa.5.0.copyload = load i64, ptr %.sroa.449.sroa.5.0..sroa.449.0..sroa_idx.sroa_idx, align 4
+  %.sroa.449.sroa.5.0.copyload = load i64, ptr %.sroa.449.sroa.5.0..sroa.449.0..sroa_idx.sroa_idx, align 8
   %.sroa.449.sroa.6.0..sroa.449.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %124, i64 48
-  %.sroa.449.sroa.6.0.copyload = load i64, ptr %.sroa.449.sroa.6.0..sroa.449.0..sroa_idx.sroa_idx, align 4
+  %.sroa.449.sroa.6.0.copyload = load i64, ptr %.sroa.449.sroa.6.0..sroa.449.0..sroa_idx.sroa_idx, align 8
   %125 = icmp eq i32 %.sroa.048.0.copyload, 0
   br i1 %125, label %130, label %126
 

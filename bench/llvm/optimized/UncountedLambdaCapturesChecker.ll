@@ -4770,7 +4770,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit16.i:             ; preds = %155, %153
   store ptr %174, ptr %173, align 8, !tbaa !9, !noalias !254
   %175 = getelementptr inbounds nuw i8, ptr %170, i64 32
   store i64 0, ptr %175, align 8, !tbaa !17, !noalias !254
-  store i8 0, ptr %174, align 1, !tbaa !16, !noalias !254
+  store i8 0, ptr %174, align 8, !tbaa !16, !noalias !254
   %176 = getelementptr inbounds nuw i8, ptr %170, i64 56
   %177 = getelementptr inbounds nuw i8, ptr %170, i64 72
   store ptr %177, ptr %176, align 8, !tbaa !9, !noalias !254
@@ -5231,7 +5231,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit8.i:              ; preds = %338, %336
   store ptr %357, ptr %356, align 8, !tbaa !9, !noalias !297
   %358 = getelementptr inbounds nuw i8, ptr %353, i64 32
   store i64 0, ptr %358, align 8, !tbaa !17, !noalias !297
-  store i8 0, ptr %357, align 1, !tbaa !16, !noalias !297
+  store i8 0, ptr %357, align 8, !tbaa !16, !noalias !297
   %359 = getelementptr inbounds nuw i8, ptr %353, i64 56
   %360 = getelementptr inbounds nuw i8, ptr %353, i64 72
   store ptr %360, ptr %359, align 8, !tbaa !9, !noalias !297

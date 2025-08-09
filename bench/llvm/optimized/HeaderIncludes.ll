@@ -1551,7 +1551,7 @@ _ZNSt7__cxx114listIN5clang7tooling14HeaderIncludes7IncludeESaIS4_EE9push_backEOS
   store i64 %39, ptr %40, align 8, !tbaa !14
   store ptr %32, ptr %1, align 8, !tbaa !11
   store i64 0, ptr %9, align 8, !tbaa !14
-  store i8 0, ptr %32, align 1, !tbaa !13
+  store i8 0, ptr %32, align 8, !tbaa !13
   %41 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %41, ptr noundef nonnull align 8 dereferenceable(12) %42, i64 12, i1 false)
@@ -5223,7 +5223,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt8__detail12_Insert_baseIiSt4pairIKi
   %25 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
   store ptr null, ptr %25, align 8, !tbaa !113
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store i32 %4, ptr %26, align 4, !tbaa !367
+  store i32 %4, ptr %26, align 8, !tbaa !367
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 12
   store i32 0, ptr %27, align 4, !tbaa !110
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -5339,7 +5339,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %.02530 = phi i64 [ %.1, %31 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %16 = load ptr, ptr %.031, align 8, !tbaa !113
   %17 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %18 = load i32, ptr %17, align 4, !tbaa !103
+  %18 = load i32, ptr %17, align 8, !tbaa !103
   %19 = sext i32 %18 to i64
   %20 = urem i64 %19, %1
   %21 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %20
@@ -5764,7 +5764,7 @@ _ZNSt10_HashtableIiSt4pairIKiN4llvm11SmallVectorIPKN5clang7tooling14HeaderInclud
   %.02530 = phi i64 [ %.1, %31 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiN4llvm11SmallVectorIPKN5clang7tooling14HeaderIncludes7IncludeELj8EEEESaISB_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %16 = load ptr, ptr %.031, align 8, !tbaa !113
   %17 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %18 = load i32, ptr %17, align 4, !tbaa !103
+  %18 = load i32, ptr %17, align 8, !tbaa !103
   %19 = sext i32 %18 to i64
   %20 = urem i64 %19, %1
   %21 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %20

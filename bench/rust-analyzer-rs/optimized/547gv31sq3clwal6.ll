@@ -2023,7 +2023,7 @@ define hidden void @"_ZN46_$LT$hir..Type$u20$as$u20$core..hash..Hash$GT$4hash17h
   %37 = xor i64 %36, %35
   %38 = mul i64 %37, 5871781006564002453
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i.i, i64 8
-  %40 = load i32, ptr %39, align 4, !alias.scope !394, !noalias !397, !noundef !17
+  %40 = load i32, ptr %39, align 8, !alias.scope !394, !noalias !397, !noundef !17
   %41 = zext i32 %40 to i64
   %42 = tail call i64 @llvm.fshl.i64(i64 %38, i64 %38, i64 5)
   %43 = xor i64 %42, %41
@@ -4270,7 +4270,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17hcfd01678d34b193
   %34 = xor i64 %33, %32
   %35 = mul i64 %34, 5871781006564002453
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i.i.i.i, i64 8
-  %37 = load i32, ptr %36, align 4, !alias.scope !1105, !noalias !1108, !noundef !17
+  %37 = load i32, ptr %36, align 8, !alias.scope !1105, !noalias !1108, !noundef !17
   %38 = zext i32 %37 to i64
   %39 = tail call i64 @llvm.fshl.i64(i64 %35, i64 %35, i64 5)
   %40 = xor i64 %39, %38
@@ -5076,7 +5076,7 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
   %38 = xor i64 %37, %36
   %39 = mul i64 %38, 5871781006564002453
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i.i.i, i64 8
-  %41 = load i32, ptr %40, align 4, !alias.scope !1360, !noalias !1363, !noundef !17
+  %41 = load i32, ptr %40, align 8, !alias.scope !1360, !noalias !1363, !noundef !17
   %42 = zext i32 %41 to i64
   %43 = tail call i64 @llvm.fshl.i64(i64 %39, i64 %39, i64 5)
   %44 = xor i64 %43, %42
@@ -8891,7 +8891,7 @@ _ZN4core4hash4Hash10hash_slice17hba051c3c6275f5bdE.exit53: ; preds = %.lr.ph.i51
   %225 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
   %.val38 = load i32, ptr %225, align 4, !range !310, !noundef !17
   %226 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %.val39 = load i32, ptr %226, align 4
+  %.val39 = load i32, ptr %226, align 8
   %227 = zext nneg i32 %.val38 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !2336
   store i64 %227, ptr %8, align 8, !noalias !2336
@@ -9157,7 +9157,7 @@ default.unreachable220:                           ; preds = %tailrecurse
   %117 = xor i64 %116, %115
   %118 = mul i64 %117, 5871781006564002453
   %119 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i.i, i64 8
-  %120 = load i32, ptr %119, align 4, !alias.scope !2393, !noalias !2396, !noundef !17
+  %120 = load i32, ptr %119, align 8, !alias.scope !2393, !noalias !2396, !noundef !17
   %121 = zext i32 %120 to i64
   %122 = tail call i64 @llvm.fshl.i64(i64 %118, i64 %118, i64 5)
   %123 = xor i64 %122, %121
@@ -9339,7 +9339,7 @@ _ZN4core4hash6Hasher9write_str17hb9b9909e76436acfE.llvm.14187311439413012207.exi
   %227 = xor i64 %226, %225
   %228 = mul i64 %227, 5871781006564002453
   %229 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i.i.i.i, i64 8
-  %230 = load i32, ptr %229, align 4, !alias.scope !2483, !noalias !2486, !noundef !17
+  %230 = load i32, ptr %229, align 8, !alias.scope !2483, !noalias !2486, !noundef !17
   %231 = zext i32 %230 to i64
   %232 = tail call i64 @llvm.fshl.i64(i64 %228, i64 %228, i64 5)
   %233 = xor i64 %232, %231
@@ -9467,7 +9467,7 @@ _ZN4core4hash4Hash10hash_slice17hb468b5b2917db82cE.exit: ; preds = %176, %._crit
   %315 = xor i64 %314, %313
   %316 = mul i64 %315, 5871781006564002453
   %317 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i.i.i.i50, i64 8
-  %318 = load i32, ptr %317, align 4, !alias.scope !2547, !noalias !2550, !noundef !17
+  %318 = load i32, ptr %317, align 8, !alias.scope !2547, !noalias !2550, !noundef !17
   %319 = zext i32 %318 to i64
   %320 = tail call i64 @llvm.fshl.i64(i64 %316, i64 %316, i64 5)
   %321 = xor i64 %320, %319
@@ -9598,7 +9598,7 @@ _ZN4core4hash4Hash10hash_slice17hb468b5b2917db82cE.exit53: ; preds = %264, %._cr
   %405 = xor i64 %404, %403
   %406 = mul i64 %405, 5871781006564002453
   %407 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i.i.i.i64, i64 8
-  %408 = load i32, ptr %407, align 4, !alias.scope !2611, !noalias !2614, !noundef !17
+  %408 = load i32, ptr %407, align 8, !alias.scope !2611, !noalias !2614, !noundef !17
   %409 = zext i32 %408 to i64
   %410 = tail call i64 @llvm.fshl.i64(i64 %406, i64 %406, i64 5)
   %411 = xor i64 %410, %409
@@ -9726,7 +9726,7 @@ _ZN4core4hash4Hash10hash_slice17hb468b5b2917db82cE.exit67: ; preds = %354, %._cr
   %493 = xor i64 %492, %491
   %494 = mul i64 %493, 5871781006564002453
   %495 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i.i.i.i78, i64 8
-  %496 = load i32, ptr %495, align 4, !alias.scope !2675, !noalias !2678, !noundef !17
+  %496 = load i32, ptr %495, align 8, !alias.scope !2675, !noalias !2678, !noundef !17
   %497 = zext i32 %496 to i64
   %498 = tail call i64 @llvm.fshl.i64(i64 %494, i64 %494, i64 5)
   %499 = xor i64 %498, %497
@@ -9824,7 +9824,7 @@ _ZN4core4hash4Hash10hash_slice17hb468b5b2917db82cE.exit81: ; preds = %442, %._cr
   %565 = xor i64 %564, %563
   %566 = mul i64 %565, 5871781006564002453
   %567 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i.i87, i64 8
-  %568 = load i32, ptr %567, align 4, !alias.scope !2712, !noalias !2715, !noundef !17
+  %568 = load i32, ptr %567, align 8, !alias.scope !2712, !noalias !2715, !noundef !17
   %569 = zext i32 %568 to i64
   %570 = tail call i64 @llvm.fshl.i64(i64 %566, i64 %566, i64 5)
   %571 = xor i64 %570, %569
@@ -9890,7 +9890,7 @@ common.ret:                                       ; preds = %.lr.ph, %.lr.ph167,
   %604 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
   %.val38 = load i32, ptr %604, align 4, !range !310, !noundef !17
   %605 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %.val39 = load i32, ptr %605, align 4
+  %.val39 = load i32, ptr %605, align 8
   %606 = zext nneg i32 %.val38 to i64
   %607 = load i64, ptr %1, align 8, !alias.scope !2740, !noundef !17
   %608 = tail call i64 @llvm.fshl.i64(i64 %607, i64 %607, i64 5)
@@ -9960,7 +9960,7 @@ common.ret:                                       ; preds = %.lr.ph, %.lr.ph167,
   %658 = xor i64 %657, %656
   %659 = mul i64 %658, 5871781006564002453
   %660 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i.i94, i64 8
-  %661 = load i32, ptr %660, align 4, !alias.scope !2767, !noalias !2770, !noundef !17
+  %661 = load i32, ptr %660, align 8, !alias.scope !2767, !noalias !2770, !noundef !17
   %662 = zext i32 %661 to i64
   %663 = tail call i64 @llvm.fshl.i64(i64 %659, i64 %659, i64 5)
   %664 = xor i64 %663, %662
@@ -11738,7 +11738,7 @@ define internal fastcc void @"_ZN69_$LT$hir_ty..traits..TraitEnvironment$u20$as$
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !3226
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !3229)
-  %28 = load i32, ptr %27, align 4, !alias.scope !3232, !noalias !3233, !noundef !17
+  %28 = load i32, ptr %27, align 8, !alias.scope !3232, !noalias !3233, !noundef !17
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3235
   store i32 %28, ptr %4, align 4, !noalias !3235
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h7f8b085d6326c141E.llvm.8330083114956406873"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef 4), !noalias !3232
@@ -11803,7 +11803,7 @@ define hidden void @"_ZN69_$LT$hir_ty..traits..TraitEnvironment$u20$as$u20$core.
   %35 = xor i64 %34, %33
   %36 = mul i64 %35, 5871781006564002453
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i, i64 8
-  %38 = load i32, ptr %37, align 4, !alias.scope !3263, !noalias !3266, !noundef !17
+  %38 = load i32, ptr %37, align 8, !alias.scope !3263, !noalias !3266, !noundef !17
   %39 = zext i32 %38 to i64
   %40 = tail call i64 @llvm.fshl.i64(i64 %36, i64 %36, i64 5)
   %41 = xor i64 %40, %39
@@ -19620,7 +19620,7 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12re
   %36 = xor i64 %35, %34
   %37 = mul i64 %36, 5871781006564002453
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i.i.i.i.i, i64 8
-  %39 = load i32, ptr %38, align 4, !alias.scope !4913, !noalias !4916, !noundef !17
+  %39 = load i32, ptr %38, align 8, !alias.scope !4913, !noalias !4916, !noundef !17
   %40 = zext i32 %39 to i64
   %41 = tail call i64 @llvm.fshl.i64(i64 %37, i64 %37, i64 5)
   %42 = xor i64 %41, %40
@@ -21157,7 +21157,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hba
   %40 = xor i64 %39, %38
   %41 = mul i64 %40, 5871781006564002453
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i.i.i.i.i, i64 8
-  %43 = load i32, ptr %42, align 4, !alias.scope !5380, !noalias !5383, !noundef !17
+  %43 = load i32, ptr %42, align 8, !alias.scope !5380, !noalias !5383, !noundef !17
   %44 = zext i32 %43 to i64
   %45 = tail call i64 @llvm.fshl.i64(i64 %41, i64 %41, i64 5)
   %46 = xor i64 %45, %44
@@ -22509,7 +22509,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN9hashbrown3ma
   %38 = xor i64 %37, %36
   %39 = mul i64 %38, 5871781006564002453
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i.i.i.i.i, i64 8
-  %41 = load i32, ptr %40, align 4, !alias.scope !5811, !noalias !5814, !noundef !17
+  %41 = load i32, ptr %40, align 8, !alias.scope !5811, !noalias !5814, !noundef !17
   %42 = zext i32 %41 to i64
   %43 = tail call i64 @llvm.fshl.i64(i64 %39, i64 %39, i64 5)
   %44 = xor i64 %43, %42

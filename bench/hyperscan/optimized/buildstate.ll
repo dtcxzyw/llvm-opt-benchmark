@@ -4444,7 +4444,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableISt4pairIjiES1_SaIS1_EN
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %1, align 4
-  store i32 %6, ptr %5, align 4
+  store i32 %6, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %8 = load i32, ptr %2, align 4
   store i32 %8, ptr %7, align 4

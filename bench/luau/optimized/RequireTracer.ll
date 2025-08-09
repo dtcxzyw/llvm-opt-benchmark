@@ -5678,7 +5678,7 @@ _ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store i64 %30, ptr %32, align 8, !tbaa !45, !alias.scope !140, !noalias !143
   store ptr %22, ptr %.0911.i.i.i, align 8, !tbaa !44, !alias.scope !143, !noalias !140
   store i64 0, ptr %31, align 8, !tbaa !45, !alias.scope !143, !noalias !140
-  store i8 0, ptr %22, align 1, !tbaa !47, !alias.scope !143, !noalias !140
+  store i8 0, ptr %22, align 8, !tbaa !47, !alias.scope !143, !noalias !140
   %33 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %34 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %34, i64 16, i1 false), !tbaa.struct !100, !alias.scope !145
@@ -6254,7 +6254,7 @@ _ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store i64 %49, ptr %51, align 8, !tbaa !45, !alias.scope !151, !noalias !154
   store ptr %41, ptr %.0911.i.i.i, align 8, !tbaa !44, !alias.scope !154, !noalias !151
   store i64 0, ptr %50, align 8, !tbaa !45, !alias.scope !154, !noalias !151
-  store i8 0, ptr %41, align 1, !tbaa !47, !alias.scope !154, !noalias !151
+  store i8 0, ptr %41, align 8, !tbaa !47, !alias.scope !154, !noalias !151
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %53, i64 16, i1 false), !tbaa.struct !100, !alias.scope !156
@@ -6305,7 +6305,7 @@ _ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store i64 %67, ptr %69, align 8, !tbaa !45, !alias.scope !157, !noalias !160
   store ptr %59, ptr %.0911.i.i.i19, align 8, !tbaa !44, !alias.scope !160, !noalias !157
   store i64 0, ptr %68, align 8, !tbaa !45, !alias.scope !160, !noalias !157
-  store i8 0, ptr %59, align 1, !tbaa !47, !alias.scope !160, !noalias !157
+  store i8 0, ptr %59, align 8, !tbaa !47, !alias.scope !160, !noalias !157
   %70 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(16) %71, i64 16, i1 false), !tbaa.struct !100, !alias.scope !162

@@ -3335,7 +3335,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit119
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 72
   store i64 2, ptr %31, align 8, !tbaa !12
-  store i32 1, ptr %27, align 4, !tbaa !8
+  store i32 1, ptr %27, align 8, !tbaa !8
   store i32 524368, ptr %30, align 4
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %3, ptr %32, align 8, !tbaa !4
@@ -3486,7 +3486,7 @@ lean_alloc_ctor.exit165:                          ; preds = %lean_inc.exit116
   %89 = getelementptr inbounds nuw i8, ptr %86, i64 4
   %90 = getelementptr inbounds nuw i8, ptr %86, i64 32
   store i64 0, ptr %90, align 8, !tbaa !12
-  store i32 1, ptr %86, align 4, !tbaa !8
+  store i32 1, ptr %86, align 8, !tbaa !8
   store i32 196648, ptr %89, align 4
   %91 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store ptr %3, ptr %91, align 8, !tbaa !4
@@ -5345,7 +5345,7 @@ _init_l_Lake_instInhabitedOrderedTagAttribute___closed__2.exit: ; preds = %_init
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 32
   store i64 0, ptr %44, align 8, !tbaa !12
-  store i32 1, ptr %40, align 4, !tbaa !8
+  store i32 1, ptr %40, align 8, !tbaa !8
   store i32 196648, ptr %43, align 4
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %45, align 8, !tbaa !4
@@ -5456,7 +5456,7 @@ _init_l_Lake_instInhabitedOrderedTagAttribute___closed__7.exit: ; preds = %_init
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %84 = getelementptr inbounds nuw i8, ptr %80, i64 32
   store i64 0, ptr %84, align 8, !tbaa !12
-  store i32 1, ptr %80, align 4, !tbaa !8
+  store i32 1, ptr %80, align 8, !tbaa !8
   store i32 196648, ptr %83, align 4
   %85 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %85, align 8, !tbaa !4

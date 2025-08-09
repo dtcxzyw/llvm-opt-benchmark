@@ -73,13 +73,13 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %30 = fdiv nsz double %29, %23
   %31 = tail call nsz double @llvm.pow.f64(double %30, double %21)
   %32 = fptrunc nsz double %31 to float
-  store float %32, ptr %16, align 4, !tbaa !39
+  store float %32, ptr %16, align 8, !tbaa !39
   %33 = fsub nsz double 1.000000e+00, %29
   %34 = fdiv nsz double 1.000000e+00, %33
   %35 = fptrunc nsz double %34 to float
-  store float %35, ptr %17, align 4, !tbaa !39
+  store float %35, ptr %17, align 8, !tbaa !39
   %36 = fptrunc nsz double %29 to float
-  store float %36, ptr %18, align 4, !tbaa !39
+  store float %36, ptr %18, align 8, !tbaa !39
   %37 = tail call i1 @llvm.is.fpclass.f32(float %32, i32 264)
   br i1 %37, label %39, label %38
 
@@ -527,11 +527,11 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 44
   store i32 %27, ptr %29, align 4, !tbaa !44
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store i32 %27, ptr %30, align 4, !tbaa !44
+  store i32 %27, ptr %30, align 8, !tbaa !44
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %32 = load i32, ptr %31, align 8, !tbaa !41
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store i32 %32, ptr %33, align 4, !tbaa !44
+  store i32 %32, ptr %33, align 8, !tbaa !44
   store i32 %32, ptr %28, align 4, !tbaa !44
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %35 = load i32, ptr %34, align 4, !tbaa !42
@@ -545,11 +545,11 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 60
   store i32 %41, ptr %43, align 4, !tbaa !44
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  store i32 %41, ptr %44, align 4, !tbaa !44
+  store i32 %41, ptr %44, align 8, !tbaa !44
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %46 = load i32, ptr %45, align 4, !tbaa !42
   %47 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  store i32 %46, ptr %47, align 4, !tbaa !44
+  store i32 %46, ptr %47, align 8, !tbaa !44
   store i32 %46, ptr %42, align 4, !tbaa !44
   %48 = load i32, ptr %2, align 4, !tbaa !67
   %49 = tail call i32 @av_pix_fmt_count_planes(i32 noundef %48) #8

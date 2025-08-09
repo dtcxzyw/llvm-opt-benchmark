@@ -1188,7 +1188,7 @@ _ZN14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEED2Ev.exit22: ; preds 
   store ptr @_ZN15QtSharedPointer33ExternalRefCountWithCustomDeleterI4QMapI20InterfaceTreeColumns8QVariantENS_13NormalDeleterEE7deleterEPNS_20ExternalRefCountDataE, ptr %97, align 8
   %98 = getelementptr inbounds nuw i8, ptr %93, i64 4
   store atomic i32 1, ptr %98 monotonic, align 4
-  store atomic i32 1, ptr %93 monotonic, align 4
+  store atomic i32 1, ptr %93 monotonic, align 8
   br label %_ZN14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEEC2IS3_TnNSt9enable_ifIXsr3std14is_convertibleIPT_PS3_EE5valueEbE4typeELb1EEES8_.exit
 
 _ZN14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEEC2IS3_TnNSt9enable_ifIXsr3std14is_convertibleIPT_PS3_EE5valueEbE4typeELb1EEES8_.exit: ; preds = %96, %.noexc

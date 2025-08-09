@@ -1079,7 +1079,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__det
   %45 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #36
   store ptr null, ptr %45, align 8, !tbaa !16
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store i32 %43, ptr %46, align 4, !tbaa !33
+  store i32 %43, ptr %46, align 8, !tbaa !33
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %48 = load i32, ptr %44, align 4, !tbaa !28
   store i32 %48, ptr %47, align 4, !tbaa !35
@@ -1263,7 +1263,7 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !16
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !28
+  %16 = load i32, ptr %15, align 8, !tbaa !28
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -43433,9 +43433,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i1064: ; preds =
 2730:                                             ; preds = %2729
   store i32 4, ptr %2728, align 4, !tbaa !763
   %2731 = getelementptr inbounds nuw i8, ptr %2728, i64 4
-  store i32 1953460082, ptr %2731, align 1
+  store i32 1953460082, ptr %2731, align 4
   %2732 = getelementptr inbounds nuw i8, ptr %2728, i64 8
-  store i8 0, ptr %2732, align 1, !tbaa !85
+  store i8 0, ptr %2732, align 4, !tbaa !85
   %2733 = getelementptr inbounds nuw i8, ptr %2728, i64 1120
   store i32 1, ptr %2733, align 8, !tbaa !789
   %2734 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znam(i64 noundef 4) #36
@@ -44492,7 +44492,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %59 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr %57, ptr %59, align 8, !tbaa !805
   %60 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i32 6778480, ptr %60, align 1
+  store i32 6778480, ptr %60, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %61 = load i64, ptr %19, align 8, !tbaa !87
   %62 = trunc i64 %61 to i32

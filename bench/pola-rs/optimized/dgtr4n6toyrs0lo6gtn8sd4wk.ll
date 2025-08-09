@@ -95823,7 +95823,7 @@ _ZN8foldhash4fast10FoldHasher9write_num17h177c353b9c07c04cE.exit4: ; preds = %30
   %335 = getelementptr inbounds nuw i8, ptr %334, i64 16
   tail call void @"_ZN65_$LT$polars_plan..dsl..expr..Expr$u20$as$u20$core..hash..Hash$GT$4hash17h7cdd44debf984bbaE"(ptr noundef nonnull align 16 %335, ptr noalias noundef nonnull align 16 dereferenceable(64) %1)
   %336 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %337 = load ptr, ptr %336, align 8, !nonnull !4, !noundef !4
+  %337 = load ptr, ptr %336, align 16, !nonnull !4, !noundef !4
   %338 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
   %339 = load i64, ptr %338, align 8, !noundef !4
   %340 = load i8, ptr %3, align 8, !alias.scope !9268, !noundef !4
@@ -96472,7 +96472,7 @@ _ZN4core4hash6Hasher11write_isize17hef9e965d30d9f734E.exit46: ; preds = %699, %7
   %732 = getelementptr inbounds nuw i8, ptr %731, i64 16
   tail call void @"_ZN65_$LT$polars_plan..dsl..expr..Expr$u20$as$u20$core..hash..Hash$GT$4hash17h7cdd44debf984bbaE"(ptr noundef nonnull align 16 %732, ptr noalias noundef nonnull align 16 dereferenceable(64) %1)
   %733 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %734 = load ptr, ptr %733, align 8, !nonnull !4, !noundef !4
+  %734 = load ptr, ptr %733, align 16, !nonnull !4, !noundef !4
   %735 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
   %736 = load i64, ptr %735, align 8, !noundef !4
   %737 = load i8, ptr %3, align 8, !alias.scope !9322, !noundef !4

@@ -905,7 +905,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5osgeo4proj5datum5Datum7Priv
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2, i8 0, i64 88, i1 false)
   store ptr %4, ptr %3, align 8, !tbaa !38
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i8 0, ptr %4, align 1, !tbaa !40
+  store i8 0, ptr %4, align 8, !tbaa !40
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
   %7 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #36
@@ -12829,7 +12829,7 @@ define hidden void @_ZN5osgeo4proj5datum29DynamicGeodeticReferenceFrameC2ERKN7dr
   store ptr %16, ptr %15, align 8, !tbaa !38, !noalias !217
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i64 0, ptr %17, align 8, !tbaa !39, !noalias !217
-  store i8 0, ptr %16, align 1, !tbaa !40, !noalias !217
+  store i8 0, ptr %16, align 8, !tbaa !40, !noalias !217
   store ptr %10, ptr %9, align 8, !tbaa !212, !alias.scope !217
   %18 = load i8, ptr %4, align 8, !tbaa !3, !range !13, !noundef !14
   store i8 %18, ptr %14, align 8, !tbaa !3
@@ -16408,7 +16408,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i.i.i: ; preds =
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i64 4, ptr %33, align 8, !tbaa !39, !noalias !295
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 60
-  store i8 0, ptr %34, align 1, !tbaa !40, !noalias !295
+  store i8 0, ptr %34, align 4, !tbaa !40, !noalias !295
   store ptr %11, ptr %10, align 8, !tbaa !263, !alias.scope !295
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %36 = load i64, ptr %35, align 8, !tbaa !39
@@ -18148,7 +18148,7 @@ define hidden void @_ZN5osgeo4proj5datum29DynamicVerticalReferenceFrameC2ERKNS0_
   store ptr %15, ptr %14, align 8, !tbaa !38, !noalias !302
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i64 0, ptr %16, align 8, !tbaa !39, !noalias !302
-  store i8 0, ptr %15, align 1, !tbaa !40, !noalias !302
+  store i8 0, ptr %15, align 8, !tbaa !40, !noalias !302
   store ptr %9, ptr %8, align 8, !tbaa !300, !alias.scope !302
   %17 = load i8, ptr %3, align 8, !tbaa !3, !range !13, !noundef !14
   store i8 %17, ptr %13, align 8, !tbaa !3

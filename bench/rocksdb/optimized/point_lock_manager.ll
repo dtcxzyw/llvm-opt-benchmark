@@ -8911,7 +8911,7 @@ _ZNSt10_HashtableIjSt4pairIKjN7rocksdb11KeyLockInfoEESaIS4_ENSt8__detail10_Selec
   %.05568.i = phi i8 [ %.156.i, %310 ], [ 0, %_ZNSt10_HashtableIjSt4pairIKjN7rocksdb11KeyLockInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb0EEEE19_M_allocate_bucketsEm.exit.i ]
   %280 = load ptr, ptr %.072.i, align 8, !tbaa !139
   %281 = getelementptr inbounds nuw i8, ptr %.072.i, i64 8
-  %282 = load i32, ptr %281, align 4, !tbaa !114
+  %282 = load i32, ptr %281, align 8, !tbaa !114
   %283 = zext i32 %282 to i64
   %284 = urem i64 %283, %270
   %.not62.i = icmp ne ptr %.05469.i, null
@@ -12660,7 +12660,7 @@ _ZNSt10_HashtableIjSt4pairIKjSt10shared_ptrIN7rocksdb7LockMapEEESaIS6_ENSt8__det
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIjSt4pairIKjSt10shared_ptrIN7rocksdb7LockMapEEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !139
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !114
+  %16 = load i32, ptr %15, align 8, !tbaa !114
   %17 = zext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -13899,7 +13899,7 @@ _ZSt19__relocate_object_aISt4pairImN7rocksdb14TrackedTrxInfoEES3_SaIS3_EEvPT_PT0
   store i64 %61, ptr %63, align 8, !tbaa !16, !alias.scope !537, !noalias !540
   store ptr %53, ptr %50, align 8, !tbaa !11, !alias.scope !540, !noalias !537
   store i64 0, ptr %62, align 8, !tbaa !16, !alias.scope !540, !noalias !537
-  store i8 0, ptr %53, align 1, !tbaa !17, !alias.scope !540, !noalias !537
+  store i8 0, ptr %53, align 8, !tbaa !17, !alias.scope !540, !noalias !537
   %64 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 152
   %65 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 152
   %.not.i.i.i = icmp eq ptr %64, %1
@@ -13995,7 +13995,7 @@ _ZSt19__relocate_object_aISt4pairImN7rocksdb14TrackedTrxInfoEES3_SaIS3_EEvPT_PT0
   store i64 %103, ptr %105, align 8, !tbaa !16, !alias.scope !544, !noalias !547
   store ptr %95, ptr %92, align 8, !tbaa !11, !alias.scope !547, !noalias !544
   store i64 0, ptr %104, align 8, !tbaa !16, !alias.scope !547, !noalias !544
-  store i8 0, ptr %95, align 1, !tbaa !17, !alias.scope !547, !noalias !544
+  store i8 0, ptr %95, align 8, !tbaa !17, !alias.scope !547, !noalias !544
   %106 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 152
   %107 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 152
   %.not.i.i.i39 = icmp eq ptr %106, %5
@@ -14576,7 +14576,7 @@ _ZSt19__relocate_object_aIN7rocksdb12DeadlockInfoES1_SaIS1_EEvPT_PT0_RT1_.exit.i
   store i64 %49, ptr %51, align 8, !tbaa !16, !alias.scope !556, !noalias !559
   store ptr %41, ptr %38, align 8, !tbaa !11, !alias.scope !559, !noalias !556
   store i64 0, ptr %50, align 8, !tbaa !16, !alias.scope !559, !noalias !556
-  store i8 0, ptr %41, align 1, !tbaa !17, !alias.scope !559, !noalias !556
+  store i8 0, ptr %41, align 8, !tbaa !17, !alias.scope !559, !noalias !556
   %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 48
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 48
   %.not.i.i.i = icmp eq ptr %52, %1
@@ -14627,7 +14627,7 @@ _ZSt19__relocate_object_aIN7rocksdb12DeadlockInfoES1_SaIS1_EEvPT_PT0_RT1_.exit.i
   store i64 %67, ptr %69, align 8, !tbaa !16, !alias.scope !563, !noalias !566
   store ptr %59, ptr %56, align 8, !tbaa !11, !alias.scope !566, !noalias !563
   store i64 0, ptr %68, align 8, !tbaa !16, !alias.scope !566, !noalias !563
-  store i8 0, ptr %59, align 1, !tbaa !17, !alias.scope !566, !noalias !563
+  store i8 0, ptr %59, align 8, !tbaa !17, !alias.scope !566, !noalias !563
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 48
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 48
   %.not.i.i.i24 = icmp eq ptr %70, %5

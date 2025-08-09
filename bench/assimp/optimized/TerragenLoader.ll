@@ -352,7 +352,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit198: ; preds = %_Z
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(18) %69, ptr noundef nonnull align 1 dereferenceable(18) @.str.10, i64 18, i1 false)
   %70 = getelementptr inbounds nuw i8, ptr %65, i64 22
-  store i8 0, ptr %70, align 1
+  store i8 0, ptr %70, align 2
   %71 = getelementptr inbounds nuw i8, ptr %65, i64 1028
   %72 = getelementptr inbounds nuw i8, ptr %65, i64 1068
   store float 3.000000e+01, ptr %72, align 4

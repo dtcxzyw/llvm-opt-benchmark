@@ -75,8 +75,8 @@ define hidden void @_ZN4LIEF2PE17init_c_dos_headerEP11Pe_Binary_tPNS0_6BinaryE(p
   store i32 %52, ptr %53, align 4, !tbaa !56
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 132
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %56 = load i64, ptr %54, align 2
-  store i64 %56, ptr %55, align 2
+  %56 = load i64, ptr %54, align 4
+  store i64 %56, ptr %55, align 4
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %58, ptr noundef nonnull align 2 dereferenceable(20) %57, i64 20, i1 false)

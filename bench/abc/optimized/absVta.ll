@@ -5433,7 +5433,7 @@ Vec_IntDoubleWidth.exit:                          ; preds = %._crit_edge32.i, %1
   %220 = getelementptr inbounds nuw i8, ptr %192, i64 140
   store i32 %219, ptr %220, align 4, !tbaa !10
   %221 = getelementptr inbounds nuw i8, ptr %192, i64 144
-  %222 = load i32, ptr %221, align 4, !tbaa !10
+  %222 = load i32, ptr %221, align 8, !tbaa !10
   %223 = getelementptr inbounds nuw i8, ptr %192, i64 152
   %224 = load i32, ptr %223, align 8, !tbaa !187
   %225 = shl i32 %222, %224

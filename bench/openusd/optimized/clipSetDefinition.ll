@@ -2632,7 +2632,7 @@ _ZNKSt14default_deleteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 _ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev.exit.i471: ; preds = %_ZNKSt14default_deleteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7VtValueESt4lessIvESaISt4pairIKS6_S8_EEEEclEPSF_.exit.i.i.i470, %842
   store ptr null, ptr %847, align 8
   %855 = getelementptr inbounds nuw i8, ptr %844, i64 80
-  %856 = load i32, ptr %855, align 4
+  %856 = load i32, ptr %855, align 8
   %.not.i.i.i.i472 = icmp eq i32 %856, 0
   br i1 %.not.i.i.i.i472, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i, label %857
 
@@ -3155,9 +3155,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_ClipSetESaIS2_EE
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %1047, i8 0, i64 16, i1 false)
   %1054 = getelementptr inbounds nuw i8, ptr %1046, i64 16
   %1055 = getelementptr inbounds nuw i8, ptr %.sroa.0532.01129, i64 80
-  %1056 = load i32, ptr %1055, align 4
-  store i32 %1056, ptr %1054, align 4
-  store i32 0, ptr %1055, align 4
+  %1056 = load i32, ptr %1055, align 8
+  store i32 %1056, ptr %1054, align 8
+  store i32 0, ptr %1055, align 8
   %1057 = getelementptr inbounds nuw i8, ptr %1046, i64 20
   %1058 = getelementptr inbounds nuw i8, ptr %.sroa.0532.01129, i64 84
   %1059 = load i32, ptr %1058, align 4
@@ -3211,9 +3211,9 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_ClipSetESaIS2_E
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %1047, i8 0, i64 16, i1 false)
   %1086 = getelementptr inbounds nuw i8, ptr %1081, i64 16
   %1087 = getelementptr inbounds nuw i8, ptr %.sroa.0532.01129, i64 80
-  %1088 = load i32, ptr %1087, align 4
-  store i32 %1088, ptr %1086, align 4
-  store i32 0, ptr %1087, align 4
+  %1088 = load i32, ptr %1087, align 8
+  store i32 %1088, ptr %1086, align 8
+  store i32 0, ptr %1087, align 8
   %1089 = getelementptr inbounds nuw i8, ptr %1081, i64 20
   %1090 = getelementptr inbounds nuw i8, ptr %.sroa.0532.01129, i64 84
   %1091 = load i32, ptr %1090, align 4
@@ -3246,9 +3246,9 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_ClipSetESaIS2_E
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.092.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !39, !noalias !36
   %1103 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i, i64 16
   %1104 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i, i64 16
-  %1105 = load i32, ptr %1104, align 4, !alias.scope !39, !noalias !36
-  store i32 %1105, ptr %1103, align 4, !alias.scope !36, !noalias !39
-  store i32 0, ptr %1104, align 4, !alias.scope !39, !noalias !36
+  %1105 = load i32, ptr %1104, align 8, !alias.scope !39, !noalias !36
+  store i32 %1105, ptr %1103, align 8, !alias.scope !36, !noalias !39
+  store i32 0, ptr %1104, align 8, !alias.scope !39, !noalias !36
   %1106 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i, i64 20
   %1107 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i, i64 20
   %1108 = load i32, ptr %1107, align 4, !alias.scope !39, !noalias !36
@@ -3289,7 +3289,7 @@ _ZNKSt14default_deleteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 
 _ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev.exit.i521: ; preds = %_ZNKSt14default_deleteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7VtValueESt4lessIvESaISt4pairIKS6_S8_EEEEclEPSF_.exit.i.i.i520, %.lr.ph.i.i.i.i.i156
   store ptr null, ptr %1112, align 8
-  %1123 = load i32, ptr %1104, align 4
+  %1123 = load i32, ptr %1104, align 8
   %.not.i.i.i.i522 = icmp eq i32 %1123, 0
   br i1 %.not.i.i.i.i522, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i523, label %1124
 
@@ -13955,9 +13955,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   store ptr %124, ptr %108, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %121, i8 0, i64 16, i1 false)
   %125 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  %126 = load i32, ptr %125, align 4
+  %126 = load i32, ptr %125, align 8
   store i32 %126, ptr %109, align 8
-  store i32 0, ptr %125, align 4
+  store i32 0, ptr %125, align 8
   %127 = getelementptr inbounds nuw i8, ptr %121, i64 20
   %128 = load i32, ptr %127, align 4
   store i32 %128, ptr %110, align 4
@@ -14038,9 +14038,9 @@ common.resume:                                    ; preds = %175, %140
   store ptr %157, ptr %142, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %154, i8 0, i64 16, i1 false)
   %158 = getelementptr inbounds i8, ptr %.sroa.0.02.i.i, i64 -80
-  %159 = load i32, ptr %158, align 4
+  %159 = load i32, ptr %158, align 8
   store i32 %159, ptr %143, align 8
-  store i32 0, ptr %158, align 4
+  store i32 0, ptr %158, align 8
   %160 = getelementptr inbounds i8, ptr %.sroa.0.02.i.i, i64 -76
   %161 = load i32, ptr %160, align 4
   store i32 %161, ptr %144, align 4
@@ -14132,9 +14132,9 @@ common.resume:                                    ; preds = %175, %140
   %192 = load ptr, ptr %44, align 8
   store ptr %192, ptr %88, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 16, i1 false)
-  %193 = load i32, ptr %45, align 4
+  %193 = load i32, ptr %45, align 8
   store i32 %193, ptr %89, align 8
-  store i32 0, ptr %45, align 4
+  store i32 0, ptr %45, align 8
   %194 = load i32, ptr %46, align 4
   store i32 %194, ptr %90, align 4
   store i32 0, ptr %46, align 4
@@ -14170,9 +14170,9 @@ common.resume:                                    ; preds = %175, %140
   %202 = load ptr, ptr %44, align 8
   store ptr %202, ptr %82, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 16, i1 false)
-  %203 = load i32, ptr %45, align 4
+  %203 = load i32, ptr %45, align 8
   store i32 %203, ptr %83, align 8
-  store i32 0, ptr %45, align 4
+  store i32 0, ptr %45, align 8
   %204 = load i32, ptr %46, align 4
   store i32 %204, ptr %84, align 4
   store i32 0, ptr %46, align 4
@@ -14194,9 +14194,9 @@ common.resume:                                    ; preds = %175, %140
   %210 = load ptr, ptr %44, align 8
   store ptr %210, ptr %76, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 16, i1 false)
-  %211 = load i32, ptr %45, align 4
+  %211 = load i32, ptr %45, align 8
   store i32 %211, ptr %77, align 8
-  store i32 0, ptr %45, align 4
+  store i32 0, ptr %45, align 8
   %212 = load i32, ptr %46, align 4
   store i32 %212, ptr %78, align 4
   store i32 0, ptr %46, align 4
@@ -14232,9 +14232,9 @@ common.resume:                                    ; preds = %175, %140
   %220 = load ptr, ptr %44, align 8
   store ptr %220, ptr %62, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 16, i1 false)
-  %221 = load i32, ptr %45, align 4
+  %221 = load i32, ptr %45, align 8
   store i32 %221, ptr %63, align 8
-  store i32 0, ptr %45, align 4
+  store i32 0, ptr %45, align 8
   %222 = load i32, ptr %46, align 4
   store i32 %222, ptr %64, align 4
   store i32 0, ptr %46, align 4
@@ -14270,9 +14270,9 @@ common.resume:                                    ; preds = %175, %140
   %230 = load ptr, ptr %44, align 8
   store ptr %230, ptr %56, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 16, i1 false)
-  %231 = load i32, ptr %45, align 4
+  %231 = load i32, ptr %45, align 8
   store i32 %231, ptr %57, align 8
-  store i32 0, ptr %45, align 4
+  store i32 0, ptr %45, align 8
   %232 = load i32, ptr %46, align 4
   store i32 %232, ptr %58, align 4
   store i32 0, ptr %46, align 4
@@ -14294,9 +14294,9 @@ common.resume:                                    ; preds = %175, %140
   %238 = load ptr, ptr %44, align 8
   store ptr %238, ptr %49, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 16, i1 false)
-  %239 = load i32, ptr %45, align 4
+  %239 = load i32, ptr %45, align 8
   store i32 %239, ptr %50, align 8
-  store i32 0, ptr %45, align 4
+  store i32 0, ptr %45, align 8
   %240 = load i32, ptr %46, align 4
   store i32 %240, ptr %51, align 4
   store i32 0, ptr %46, align 4
@@ -14929,9 +14929,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %3, i8 0, i64 16, i1 false)
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %51 = load i32, ptr %50, align 4
+  %51 = load i32, ptr %50, align 8
   store i32 %51, ptr %49, align 8
-  store i32 0, ptr %50, align 4
+  store i32 0, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %54 = load i32, ptr %53, align 4
@@ -15298,9 +15298,9 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %13, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.0.021, i8 0, i64 16, i1 false)
-  %28 = load i32, ptr %21, align 4
+  %28 = load i32, ptr %21, align 8
   store i32 %28, ptr %14, align 8
-  store i32 0, ptr %21, align 4
+  store i32 0, ptr %21, align 8
   %29 = getelementptr inbounds nuw i8, ptr %.pn20, i64 116
   %30 = load i32, ptr %29, align 4
   store i32 %30, ptr %15, align 4
@@ -15357,8 +15357,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_13PcpLayerStackEEaSEOS2_.exit
   store ptr null, ptr %40, align 8
   %54 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -80
   %55 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -80
-  %56 = load i32, ptr %55, align 4
-  store i32 0, ptr %55, align 4
+  %56 = load i32, ptr %55, align 8
+  store i32 0, ptr %55, align 8
   %57 = load i32, ptr %54, align 4
   store i32 %56, ptr %54, align 4
   %.not.i.i.i.i.i = icmp eq i32 %57, 0
@@ -15465,9 +15465,9 @@ define internal fastcc void @"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__nor
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 16, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load i32, ptr %10, align 4
+  %11 = load i32, ptr %10, align 8
   store i32 %11, ptr %9, align 8
-  store i32 0, ptr %10, align 4
+  store i32 0, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4

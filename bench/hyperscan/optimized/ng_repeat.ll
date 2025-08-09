@@ -2013,7 +2013,7 @@ _ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %573, i64 16
   store i64 %447, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8
   %575 = getelementptr inbounds nuw i8, ptr %573, i64 24
-  store i32 -2147483648, ptr %575, align 4
+  store i32 -2147483648, ptr %575, align 8
   %576 = invoke ptr @_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_NS0_5depthEESaISC_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSE_10_Hash_nodeISC_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %76, i64 noundef %551, i64 noundef %447, ptr noundef nonnull %573, i64 noundef 1)
           to label %_ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEENS0_5depthESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_S9_EEEixERSF_.exit.i.i.i unwind label %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_NS0_5depthEESaISC_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i.i.i.i
 
@@ -2436,7 +2436,7 @@ _ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8
   %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %752, i64 16
   store i64 %616, ptr %.sroa.5.0..sroa_idx.i.i.i.i, align 8
   %754 = getelementptr inbounds nuw i8, ptr %752, i64 24
-  store i32 -2147483648, ptr %754, align 4
+  store i32 -2147483648, ptr %754, align 8
   %755 = load i64, ptr %397, align 8
   %756 = invoke { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %396, i64 noundef %729, i64 noundef %698, i64 noundef 1)
           to label %.noexc.i.i unwind label %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_NS0_5depthEESaISC_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i.i.i.i.i
@@ -38407,11 +38407,11 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(16) ptr @_ZNS
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  store i32 2147483647, ptr %32, align 4
+  store i32 2147483647, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 28
   store i32 0, ptr %33, align 4
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  store i32 2147483647, ptr %34, align 4
+  store i32 2147483647, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 36
   store i32 0, ptr %35, align 4
   %36 = invoke ptr @_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_NS0_14NFAVertexDepthEESaISC_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSE_10_Hash_nodeISC_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %7, i64 noundef %4, ptr noundef nonnull %30, i64 noundef 1)

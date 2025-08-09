@@ -1591,7 +1591,7 @@ define internal range(i32 0, 384) i32 @n_tty_poll(ptr noundef %0, ptr noundef %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr i8, ptr %0, i64 286
-  %14 = load i8, ptr %13, align 1
+  %14 = load i8, ptr %13, align 2
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %16, label %21
 
@@ -1639,7 +1639,7 @@ define internal range(i32 0, 384) i32 @n_tty_poll(ptr noundef %0, ptr noundef %1
   %45 = load ptr, ptr %44, align 8
   tail call void @tty_buffer_flush_work(ptr noundef %45) #13
   %46 = load ptr, ptr %11, align 8
-  %47 = load i8, ptr %13, align 1
+  %47 = load i8, ptr %13, align 2
   %48 = icmp eq i8 %47, 0
   br i1 %48, label %49, label %54
 

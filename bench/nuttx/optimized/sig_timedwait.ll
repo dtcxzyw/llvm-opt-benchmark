@@ -75,7 +75,7 @@ define range(i32 -11, 256) i32 @nxsig_timedwait(ptr noundef %0, ptr noundef writ
   %37 = call zeroext i1 @nxsched_remove_readytorun(ptr noundef %6, i1 noundef zeroext true) #5
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i8 6, ptr %38, align 16
-  store ptr null, ptr %6, align 8
+  store ptr null, ptr %6, align 16
   %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @g_waitingforsignal, i64 8), align 8
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %39, ptr %40, align 8
@@ -111,7 +111,7 @@ define range(i32 -11, 256) i32 @nxsig_timedwait(ptr noundef %0, ptr noundef writ
   %52 = call zeroext i1 @nxsched_remove_readytorun(ptr noundef %6, i1 noundef zeroext true) #5
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i8 6, ptr %53, align 16
-  store ptr null, ptr %6, align 8
+  store ptr null, ptr %6, align 16
   %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @g_waitingforsignal, i64 8), align 8
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %54, ptr %55, align 8

@@ -2368,7 +2368,7 @@ define dso_local void @__flush_workqueue(ptr noundef %0) #1 align 16 {
   store volatile ptr %2, ptr %43, align 8
   %44 = load i32, ptr %12, align 64
   %.fr23 = freeze i32 %44
-  %45 = load volatile ptr, ptr %0, align 8
+  %45 = load volatile ptr, ptr %0, align 64
   %46 = icmp eq ptr %45, %0
   br i1 %46, label %.loopexit19, label %47
 
@@ -3950,23 +3950,23 @@ define dso_local noundef ptr @alloc_workqueue(ptr noundef readonly captures(none
   call void @__mutex_init(ptr noundef nonnull %48, ptr noundef nonnull @.str.2, ptr noundef nonnull @alloc_workqueue.__key) #26
   %49 = getelementptr inbounds nuw i8, ptr %19, i64 72
   store volatile i32 0, ptr %49, align 8
-  store volatile ptr %19, ptr %19, align 8
+  store volatile ptr %19, ptr %19, align 64
   %50 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store volatile ptr %19, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %19, i64 88
   store volatile ptr %51, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %19, i64 96
-  store volatile ptr %51, ptr %52, align 8
+  store volatile ptr %51, ptr %52, align 32
   %53 = getelementptr inbounds nuw i8, ptr %19, i64 104
   store volatile ptr %53, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %19, i64 112
-  store volatile ptr %53, ptr %54, align 8
+  store volatile ptr %53, ptr %54, align 16
   %55 = getelementptr inbounds nuw i8, ptr %19, i64 120
   store volatile ptr %55, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %19, i64 128
-  store volatile ptr %55, ptr %56, align 8
+  store volatile ptr %55, ptr %56, align 64
   %57 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store volatile ptr %57, ptr %57, align 8
+  store volatile ptr %57, ptr %57, align 16
   %58 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store volatile ptr %57, ptr %58, align 8
   %59 = load i32, ptr %46, align 64
@@ -4044,21 +4044,21 @@ define dso_local noundef ptr @alloc_workqueue(ptr noundef readonly captures(none
   %106 = getelementptr inbounds nuw i8, ptr %95, i64 104
   store volatile ptr %106, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %95, i64 112
-  store volatile ptr %106, ptr %107, align 8
+  store volatile ptr %106, ptr %107, align 16
   %108 = getelementptr inbounds nuw i8, ptr %95, i64 120
   store volatile ptr %108, ptr %108, align 8
   %109 = getelementptr inbounds nuw i8, ptr %95, i64 128
-  store volatile ptr %108, ptr %109, align 8
+  store volatile ptr %108, ptr %109, align 128
   %110 = getelementptr inbounds nuw i8, ptr %95, i64 136
   store volatile ptr %110, ptr %110, align 8
   %111 = getelementptr inbounds nuw i8, ptr %95, i64 144
-  store volatile ptr %110, ptr %111, align 8
+  store volatile ptr %110, ptr %111, align 16
   %112 = getelementptr inbounds nuw i8, ptr %95, i64 216
   %113 = getelementptr inbounds nuw i8, ptr %95, i64 240
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %113, i8 0, i64 16, i1 false)
   store volatile ptr %112, ptr %112, align 8
   %114 = getelementptr inbounds nuw i8, ptr %95, i64 224
-  store volatile ptr %112, ptr %114, align 8
+  store volatile ptr %112, ptr %114, align 32
   %115 = getelementptr inbounds nuw i8, ptr %95, i64 232
   store ptr @pwq_release_workfn, ptr %115, align 8
   call void @mutex_lock(ptr noundef nonnull %48) #26
@@ -4076,12 +4076,12 @@ define dso_local noundef ptr @alloc_workqueue(ptr noundef readonly captures(none
   %125 = getelementptr inbounds nuw i8, ptr %116, i64 16
   store i32 %124, ptr %125, align 16
   call fastcc void @pwq_adjust_max_active(ptr noundef %116)
-  %126 = load ptr, ptr %118, align 8
+  %126 = load ptr, ptr %118, align 64
   store ptr %126, ptr %119, align 8
   %127 = getelementptr inbounds nuw i8, ptr %116, i64 128
-  store ptr %118, ptr %127, align 8
+  store ptr %118, ptr %127, align 16
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !170
-  store volatile ptr %119, ptr %118, align 8
+  store volatile ptr %119, ptr %118, align 64
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 8
   store ptr %119, ptr %128, align 8
   br label %129
@@ -5346,7 +5346,7 @@ define dso_local void @show_one_workqueue(ptr noundef %0) local_unnamed_addr #1 
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %17 = load i32, ptr %16, align 64
   %18 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8, ptr noundef nonnull %15, i32 noundef %17) #29
-  %19 = load volatile ptr, ptr %0, align 8
+  %19 = load volatile ptr, ptr %0, align 64
   %20 = icmp eq ptr %19, %0
   br i1 %20, label %.loopexit, label %.preheader
 
@@ -5417,7 +5417,7 @@ define dso_local void @workqueue_set_max_active(ptr noundef %0, i32 noundef %1) 
   store i32 %19, ptr %3, align 64
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 %16, ptr %20, align 4
-  %21 = load volatile ptr, ptr %0, align 8
+  %21 = load volatile ptr, ptr %0, align 64
   %22 = icmp eq ptr %21, %0
   br i1 %22, label %.loopexit, label %.preheader
 
@@ -6684,12 +6684,12 @@ define internal fastcc void @wq_update_pod(ptr noundef %0, i32 noundef range(i32
   %101 = getelementptr inbounds nuw i8, ptr %70, i64 16
   store i32 %100, ptr %101, align 16
   tail call fastcc void @pwq_adjust_max_active(ptr noundef nonnull %70)
-  %102 = load ptr, ptr %94, align 8
+  %102 = load ptr, ptr %94, align 64
   store ptr %102, ptr %95, align 8
   %103 = getelementptr inbounds nuw i8, ptr %70, i64 128
-  store ptr %94, ptr %103, align 8
+  store ptr %94, ptr %103, align 16
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !170
-  store volatile ptr %95, ptr %94, align 8
+  store volatile ptr %95, ptr %94, align 64
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 8
   store ptr %95, ptr %104, align 8
   br label %105
@@ -9473,12 +9473,12 @@ define internal fastcc void @apply_wqattrs_commit(ptr noundef captures(none) %0)
   %49 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store i32 %48, ptr %49, align 16
   tail call fastcc void @pwq_adjust_max_active(ptr noundef %40)
-  %50 = load ptr, ptr %42, align 8
+  %50 = load ptr, ptr %42, align 64
   store ptr %50, ptr %43, align 8
   %51 = getelementptr inbounds nuw i8, ptr %40, i64 128
-  store ptr %42, ptr %51, align 8
+  store ptr %42, ptr %51, align 16
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !170
-  store volatile ptr %43, ptr %42, align 8
+  store volatile ptr %43, ptr %42, align 64
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr %43, ptr %52, align 8
   br label %53
@@ -9521,12 +9521,12 @@ define internal fastcc void @apply_wqattrs_commit(ptr noundef captures(none) %0)
   %80 = getelementptr inbounds nuw i8, ptr %71, i64 16
   store i32 %79, ptr %80, align 16
   tail call fastcc void @pwq_adjust_max_active(ptr noundef %71)
-  %81 = load ptr, ptr %73, align 8
+  %81 = load ptr, ptr %73, align 64
   store ptr %81, ptr %74, align 8
   %82 = getelementptr inbounds nuw i8, ptr %71, i64 128
-  store ptr %73, ptr %82, align 8
+  store ptr %73, ptr %82, align 16
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !170
-  store volatile ptr %74, ptr %73, align 8
+  store volatile ptr %74, ptr %73, align 64
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store ptr %74, ptr %83, align 8
   %.pre = load ptr, ptr %70, align 8
@@ -9906,21 +9906,21 @@ define internal fastcc ptr @alloc_unbound_pwq(ptr noundef %0, ptr noundef readon
   %177 = getelementptr inbounds nuw i8, ptr %165, i64 104
   store volatile ptr %177, ptr %177, align 8
   %178 = getelementptr inbounds nuw i8, ptr %165, i64 112
-  store volatile ptr %177, ptr %178, align 8
+  store volatile ptr %177, ptr %178, align 16
   %179 = getelementptr inbounds nuw i8, ptr %165, i64 120
   store volatile ptr %179, ptr %179, align 8
   %180 = getelementptr inbounds nuw i8, ptr %165, i64 128
-  store volatile ptr %179, ptr %180, align 8
+  store volatile ptr %179, ptr %180, align 128
   %181 = getelementptr inbounds nuw i8, ptr %165, i64 136
   store volatile ptr %181, ptr %181, align 8
   %182 = getelementptr inbounds nuw i8, ptr %165, i64 144
-  store volatile ptr %181, ptr %182, align 8
+  store volatile ptr %181, ptr %182, align 16
   %183 = getelementptr inbounds nuw i8, ptr %165, i64 216
   %184 = getelementptr inbounds nuw i8, ptr %165, i64 240
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %184, i8 0, i64 16, i1 false)
   store volatile ptr %183, ptr %183, align 8
   %185 = getelementptr inbounds nuw i8, ptr %165, i64 224
-  store volatile ptr %183, ptr %185, align 8
+  store volatile ptr %183, ptr %185, align 32
   %186 = getelementptr inbounds nuw i8, ptr %165, i64 232
   store ptr @pwq_release_workfn, ptr %186, align 8
   br label %.thread
@@ -10710,12 +10710,12 @@ define internal fastcc ptr @install_unbound_pwq(ptr noundef readonly captures(no
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %11, ptr %12, align 16
   tail call fastcc void @pwq_adjust_max_active(ptr noundef %2)
-  %13 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %5, align 64
   store ptr %13, ptr %6, align 8
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  store ptr %5, ptr %14, align 8
+  store ptr %5, ptr %14, align 16
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !170
-  store volatile ptr %6, ptr %5, align 8
+  store volatile ptr %6, ptr %5, align 64
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %6, ptr %15, align 8
   br label %16

@@ -9607,7 +9607,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i: ; pre
   store i64 %20, ptr %21, align 8, !tbaa !30
   store ptr %11, ptr %8, align 8, !tbaa !96
   store i64 0, ptr %19, align 8, !tbaa !30
-  store i8 0, ptr %11, align 1, !tbaa !31
+  store i8 0, ptr %11, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1344) %22, i8 0, i64 1344, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 72

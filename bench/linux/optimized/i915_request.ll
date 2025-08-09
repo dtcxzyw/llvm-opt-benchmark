@@ -3236,7 +3236,7 @@ define dso_local void @i915_request_show(ptr noundef %0, ptr noundef %1, ptr nou
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %5, i8 0, i64 80, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 352
-  %12 = load i32, ptr %11, align 4
+  %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, -2147483648
   br i1 %13, label %16, label %14
 

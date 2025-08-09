@@ -4815,9 +4815,9 @@ _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit:
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %10, ptr %11, align 8, !tbaa !602
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %13 = load i32, ptr %12, align 4, !tbaa !605
+  %13 = load i32, ptr %12, align 8, !tbaa !605
   %14 = add i32 %13, 1
-  store i32 %14, ptr %12, align 4, !tbaa !605
+  store i32 %14, ptr %12, align 8, !tbaa !605
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %38, label %15
 

@@ -3621,7 +3621,7 @@ _ZN4lean10object_refD2Ev.exit50:                  ; preds = %158, %167, %169, %1
   store ptr %178, ptr %177, align 8, !tbaa !94
   %179 = getelementptr inbounds nuw i8, ptr %176, i64 16
   store i64 0, ptr %179, align 8, !tbaa !97
-  store i8 0, ptr %178, align 1, !tbaa !99
+  store i8 0, ptr %178, align 8, !tbaa !99
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %176, align 8, !tbaa !100
   tail call void @__cxa_throw(ptr nonnull %176, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #16
   unreachable

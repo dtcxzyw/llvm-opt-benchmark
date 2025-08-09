@@ -845,13 +845,13 @@ define internal i32 @dissect_iax2(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store i32 0, ptr %69, align 8
   tail call void @nstime_delta(ptr noundef nonnull %67, ptr noundef nonnull %67, ptr noundef nonnull @iax_new_call.millisecond)
   %70 = getelementptr inbounds nuw i8, ptr %63, i64 80
-  store i32 0, ptr %70, align 4
+  store i32 0, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %63, i64 84
   store i32 0, ptr %71, align 4
   %72 = getelementptr i8, ptr %63, i64 92
   store i32 0, ptr %72, align 4
   %73 = getelementptr i8, ptr %63, i64 96
-  store i32 0, ptr %73, align 4
+  store i32 0, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %75 = load i32, ptr %74, align 4
   %.not.i.i.i = icmp eq ptr %63, null

@@ -3908,7 +3908,7 @@ st_mult.exit:                                     ; preds = %38
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %59 = load i32, ptr %58, align 4, !tbaa !4
   %60 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  store i32 %59, ptr %60, align 4, !tbaa !4
+  store i32 %59, ptr %60, align 8, !tbaa !4
   br label %find_cached_object.exit.thread
 
 find_cached_object.exit.thread:                   ; preds = %.lr.ph.i, %._crit_edge.i, %repo_has_object_file_with_flags.exit, %48

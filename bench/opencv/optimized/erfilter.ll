@@ -5178,12 +5178,12 @@ _ZNSt5dequeIiSaIiEE9push_backEOi.exit41:          ; preds = %101, %103
   %113 = load i32, ptr %112, align 4, !tbaa !23
   %.sroa.speculated80 = call i32 @llvm.smin.i32(i32 %2, i32 %113)
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %115 = load i32, ptr %114, align 4, !tbaa !23
+  %115 = load i32, ptr %114, align 8, !tbaa !23
   %.sroa.speculated65 = call i32 @llvm.smin.i32(i32 %3, i32 %115)
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %117 = load i32, ptr %116, align 4, !tbaa !143
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %119 = load i32, ptr %118, align 4, !tbaa !144
+  %119 = load i32, ptr %118, align 8, !tbaa !144
   %120 = add i32 %113, -1
   %121 = add i32 %120, %117
   %.sroa.speculated55 = call i32 @llvm.smax.i32(i32 %121, i32 %2)
@@ -5191,13 +5191,13 @@ _ZNSt5dequeIiSaIiEE9push_backEOi.exit41:          ; preds = %101, %103
   %123 = add i32 %122, %119
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %123, i32 %3)
   store i32 %.sroa.speculated80, ptr %112, align 4, !tbaa !191
-  store i32 %.sroa.speculated65, ptr %114, align 4, !tbaa !186
+  store i32 %.sroa.speculated65, ptr %114, align 8, !tbaa !186
   %reass.sub92 = sub i32 %.sroa.speculated55, %.sroa.speculated80
   %124 = add i32 %reass.sub92, 1
   store i32 %124, ptr %116, align 4, !tbaa !192
   %reass.sub93 = sub i32 %.sroa.speculated, %.sroa.speculated65
   %125 = add i32 %reass.sub93, 1
-  store i32 %125, ptr %118, align 4, !tbaa !193
+  store i32 %125, ptr %118, align 8, !tbaa !193
   %126 = sitofp i32 %2 to double
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %128 = load double, ptr %127, align 8, !tbaa !107
@@ -5446,14 +5446,14 @@ define void @_ZN2cv4text10ERFilterNM8er_mergeEPNS0_6ERStatES3_(ptr noundef nonnu
   store i32 %15, ptr %13, align 4, !tbaa !181
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %18 = load i32, ptr %17, align 4, !tbaa !186
+  %18 = load i32, ptr %17, align 8, !tbaa !186
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %22 = load i32, ptr %19, align 4, !tbaa !144
+  %22 = load i32, ptr %19, align 8, !tbaa !144
   %23 = add nsw i32 %22, %18
-  %24 = load i32, ptr %20, align 4, !tbaa !146
-  %25 = load i32, ptr %21, align 4, !tbaa !144
+  %24 = load i32, ptr %20, align 8, !tbaa !146
+  %25 = load i32, ptr %21, align 8, !tbaa !144
   %26 = add nsw i32 %25, %24
   %27 = tail call i32 @llvm.smin.i32(i32 %26, i32 %23)
   %.not.not344 = icmp slt i32 %18, %27
@@ -5858,7 +5858,7 @@ _ZNSt5dequeIiSaIiEE9push_backEOi.exit:            ; preds = %252, %254
   %265 = load i32, ptr %34, align 4, !tbaa !23
   %266 = load i32, ptr %16, align 4, !tbaa !23
   %267 = call i32 @llvm.smin.i32(i32 %265, i32 %266)
-  %268 = load i32, ptr %20, align 4, !tbaa !23
+  %268 = load i32, ptr %20, align 8, !tbaa !23
   %269 = call i32 @llvm.smin.i32(i32 %268, i32 %258)
   %270 = load i32, ptr %33, align 4, !tbaa !143
   %271 = add nsw i32 %270, %266
@@ -5866,11 +5866,11 @@ _ZNSt5dequeIiSaIiEE9push_backEOi.exit:            ; preds = %252, %254
   %273 = call i32 @llvm.smax.i32(i32 %271, i32 %272)
   %274 = call i32 @llvm.smax.i32(i32 %.pre-phi389, i32 %.lcssa308)
   store i32 %267, ptr %16, align 4, !tbaa !191
-  store i32 %269, ptr %17, align 4, !tbaa !186
+  store i32 %269, ptr %17, align 8, !tbaa !186
   %275 = sub i32 %273, %267
   store i32 %275, ptr %33, align 4, !tbaa !192
   %276 = sub i32 %274, %269
-  store i32 %276, ptr %19, align 4, !tbaa !193
+  store i32 %276, ptr %19, align 8, !tbaa !193
   %277 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %278 = load double, ptr %277, align 8, !tbaa !107
   %279 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -5903,7 +5903,7 @@ _ZNSt5dequeIiSaIiEE9push_backEOi.exit:            ; preds = %252, %254
   store double %301, ptr %299, align 8, !tbaa !107
   %302 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %303 = load ptr, ptr %302, align 8, !tbaa !34
-  %304 = load i32, ptr %21, align 4, !tbaa !193
+  %304 = load i32, ptr %21, align 8, !tbaa !193
   %305 = sdiv i32 %304, 6
   %306 = sext i32 %305 to i64
   %307 = getelementptr inbounds nuw i8, ptr %303, i64 48
@@ -6148,7 +6148,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i225: ; preds = %447, %441
   store i32 %432, ptr %454, align 4
   call void @_ZdlPv(ptr noundef nonnull %431) #36
   %457 = load ptr, ptr %302, align 8, !tbaa !34
-  %458 = load i32, ptr %21, align 4, !tbaa !193
+  %458 = load i32, ptr %21, align 8, !tbaa !193
   %459 = mul nsw i32 %458, 5
   %460 = sdiv i32 %459, 6
   %461 = sext i32 %460 to i64
@@ -15534,7 +15534,7 @@ _ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i
   %287 = sitofp i32 %286 to float
   %288 = fadd float %287, %285
   %289 = getelementptr inbounds nuw i8, ptr %217, i64 16
-  %290 = load i32, ptr %289, align 4, !tbaa !441
+  %290 = load i32, ptr %289, align 8, !tbaa !441
   %291 = sitofp i32 %290 to float
   %292 = sdiv i32 %221, 2
   %293 = sitofp i32 %292 to float
@@ -29551,7 +29551,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i.i:             ; preds = %634
   %695 = load i32, ptr %660, align 4, !tbaa !191
   %696 = sub nsw i32 %694, %695
   %697 = sdiv i32 %692, %693
-  %698 = load i32, ptr %675, align 4, !tbaa !186
+  %698 = load i32, ptr %675, align 8, !tbaa !186
   %699 = sub nsw i32 %697, %698
   store double 2.550000e+02, ptr %26, align 8, !tbaa !107
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %316, i8 0, i64 24, i1 false)
@@ -39573,8 +39573,8 @@ _ZNSt16allocator_traitsISaIN2cv4text8HClusterEEE9constructIS2_JRKS2_EEEvRS3_PT_D
   store ptr %25, ptr %23, align 8, !tbaa !115, !alias.scope !803, !noalias !806
   %26 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 16
   %27 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 16
-  %28 = load ptr, ptr %27, align 8, !tbaa !112, !alias.scope !806, !noalias !803
-  store ptr %28, ptr %26, align 8, !tbaa !112, !alias.scope !803, !noalias !806
+  %28 = load ptr, ptr %27, align 16, !tbaa !112, !alias.scope !806, !noalias !803
+  store ptr %28, ptr %26, align 16, !tbaa !112, !alias.scope !803, !noalias !806
   %29 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 24
   %30 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 24
   %31 = load ptr, ptr %30, align 8, !tbaa !114, !alias.scope !806, !noalias !803
@@ -39585,16 +39585,16 @@ _ZNSt16allocator_traitsISaIN2cv4text8HClusterEEE9constructIS2_JRKS2_EEEvRS3_PT_D
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %32, ptr noundef nonnull align 16 dereferenceable(48) %33, i64 48, i1 false), !alias.scope !808
   %34 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 80
   %35 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 80
-  %36 = load ptr, ptr %35, align 8, !tbaa !395, !alias.scope !806, !noalias !803
-  store ptr %36, ptr %34, align 8, !tbaa !395, !alias.scope !803, !noalias !806
+  %36 = load ptr, ptr %35, align 16, !tbaa !395, !alias.scope !806, !noalias !803
+  store ptr %36, ptr %34, align 16, !tbaa !395, !alias.scope !803, !noalias !806
   %37 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 88
   %38 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 88
   %39 = load ptr, ptr %38, align 8, !tbaa !398, !alias.scope !806, !noalias !803
   store ptr %39, ptr %37, align 8, !tbaa !398, !alias.scope !803, !noalias !806
   %40 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 96
   %41 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 96
-  %42 = load ptr, ptr %41, align 8, !tbaa !410, !alias.scope !806, !noalias !803
-  store ptr %42, ptr %40, align 8, !tbaa !410, !alias.scope !803, !noalias !806
+  %42 = load ptr, ptr %41, align 16, !tbaa !410, !alias.scope !806, !noalias !803
+  store ptr %42, ptr %40, align 16, !tbaa !410, !alias.scope !803, !noalias !806
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %35, i8 0, i64 24, i1 false), !alias.scope !806, !noalias !803
   %43 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 104
   %44 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 104
@@ -39602,16 +39602,16 @@ _ZNSt16allocator_traitsISaIN2cv4text8HClusterEEE9constructIS2_JRKS2_EEEvRS3_PT_D
   store i8 %45, ptr %43, align 8, !tbaa !809, !alias.scope !803, !noalias !806
   %46 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 112
   %47 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 112
-  %48 = load ptr, ptr %47, align 8, !tbaa !115, !alias.scope !806, !noalias !803
-  store ptr %48, ptr %46, align 8, !tbaa !115, !alias.scope !803, !noalias !806
+  %48 = load ptr, ptr %47, align 16, !tbaa !115, !alias.scope !806, !noalias !803
+  store ptr %48, ptr %46, align 16, !tbaa !115, !alias.scope !803, !noalias !806
   %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 120
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 120
   %51 = load ptr, ptr %50, align 8, !tbaa !112, !alias.scope !806, !noalias !803
   store ptr %51, ptr %49, align 8, !tbaa !112, !alias.scope !803, !noalias !806
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 128
   %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 128
-  %54 = load ptr, ptr %53, align 8, !tbaa !114, !alias.scope !806, !noalias !803
-  store ptr %54, ptr %52, align 8, !tbaa !114, !alias.scope !803, !noalias !806
+  %54 = load ptr, ptr %53, align 16, !tbaa !114, !alias.scope !806, !noalias !803
+  store ptr %54, ptr %52, align 16, !tbaa !114, !alias.scope !803, !noalias !806
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %47, i8 0, i64 24, i1 false), !alias.scope !806, !noalias !803
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 136
   %56 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 136
@@ -39640,8 +39640,8 @@ _ZNSt6vectorIN2cv4text8HClusterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; pre
   store ptr %63, ptr %61, align 8, !tbaa !115, !alias.scope !811, !noalias !814
   %64 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 16
   %65 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 16
-  %66 = load ptr, ptr %65, align 8, !tbaa !112, !alias.scope !814, !noalias !811
-  store ptr %66, ptr %64, align 8, !tbaa !112, !alias.scope !811, !noalias !814
+  %66 = load ptr, ptr %65, align 16, !tbaa !112, !alias.scope !814, !noalias !811
+  store ptr %66, ptr %64, align 16, !tbaa !112, !alias.scope !811, !noalias !814
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 24
   %68 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 24
   %69 = load ptr, ptr %68, align 8, !tbaa !114, !alias.scope !814, !noalias !811
@@ -39652,16 +39652,16 @@ _ZNSt6vectorIN2cv4text8HClusterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; pre
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %70, ptr noundef nonnull align 16 dereferenceable(48) %71, i64 48, i1 false), !alias.scope !816
   %72 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 80
   %73 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 80
-  %74 = load ptr, ptr %73, align 8, !tbaa !395, !alias.scope !814, !noalias !811
-  store ptr %74, ptr %72, align 8, !tbaa !395, !alias.scope !811, !noalias !814
+  %74 = load ptr, ptr %73, align 16, !tbaa !395, !alias.scope !814, !noalias !811
+  store ptr %74, ptr %72, align 16, !tbaa !395, !alias.scope !811, !noalias !814
   %75 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 88
   %76 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 88
   %77 = load ptr, ptr %76, align 8, !tbaa !398, !alias.scope !814, !noalias !811
   store ptr %77, ptr %75, align 8, !tbaa !398, !alias.scope !811, !noalias !814
   %78 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 96
   %79 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 96
-  %80 = load ptr, ptr %79, align 8, !tbaa !410, !alias.scope !814, !noalias !811
-  store ptr %80, ptr %78, align 8, !tbaa !410, !alias.scope !811, !noalias !814
+  %80 = load ptr, ptr %79, align 16, !tbaa !410, !alias.scope !814, !noalias !811
+  store ptr %80, ptr %78, align 16, !tbaa !410, !alias.scope !811, !noalias !814
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %73, i8 0, i64 24, i1 false), !alias.scope !814, !noalias !811
   %81 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 104
   %82 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 104
@@ -39669,16 +39669,16 @@ _ZNSt6vectorIN2cv4text8HClusterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; pre
   store i8 %83, ptr %81, align 8, !tbaa !809, !alias.scope !811, !noalias !814
   %84 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 112
   %85 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 112
-  %86 = load ptr, ptr %85, align 8, !tbaa !115, !alias.scope !814, !noalias !811
-  store ptr %86, ptr %84, align 8, !tbaa !115, !alias.scope !811, !noalias !814
+  %86 = load ptr, ptr %85, align 16, !tbaa !115, !alias.scope !814, !noalias !811
+  store ptr %86, ptr %84, align 16, !tbaa !115, !alias.scope !811, !noalias !814
   %87 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 120
   %88 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 120
   %89 = load ptr, ptr %88, align 8, !tbaa !112, !alias.scope !814, !noalias !811
   store ptr %89, ptr %87, align 8, !tbaa !112, !alias.scope !811, !noalias !814
   %90 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 128
   %91 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 128
-  %92 = load ptr, ptr %91, align 8, !tbaa !114, !alias.scope !814, !noalias !811
-  store ptr %92, ptr %90, align 8, !tbaa !114, !alias.scope !811, !noalias !814
+  %92 = load ptr, ptr %91, align 16, !tbaa !114, !alias.scope !814, !noalias !811
+  store ptr %92, ptr %90, align 16, !tbaa !114, !alias.scope !811, !noalias !814
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %85, i8 0, i64 24, i1 false), !alias.scope !814, !noalias !811
   %93 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 136
   %94 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 136

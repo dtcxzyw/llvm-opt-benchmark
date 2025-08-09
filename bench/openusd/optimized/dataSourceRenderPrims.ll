@@ -1097,7 +1097,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__34UsdImagingDataSourceRenderPa
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_DataSourceRenderPassE, i64 16), ptr %18, align 8, !noalias !6
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load i32, ptr %14, align 8, !noalias !6
-  store i32 %21, ptr %20, align 4, !noalias !6
+  store i32 %21, ptr %20, align 8, !noalias !6
   %.not.i.i.i.i = icmp eq i32 %21, 0
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i, label %22
 
@@ -2086,7 +2086,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__38UsdImagingDataSourceRenderSe
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_DataSourceRenderSettingsE, i64 16), ptr %18, align 8, !noalias !17
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load i32, ptr %14, align 8, !noalias !17
-  store i32 %21, ptr %20, align 4, !noalias !17
+  store i32 %21, ptr %20, align 8, !noalias !17
   %.not.i.i.i.i = icmp eq i32 %21, 0
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i, label %22
 
@@ -2942,7 +2942,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__37UsdImagingDataSourceRenderPr
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_DataSourceRenderProductE, i64 16), ptr %18, align 8, !noalias !20
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load i32, ptr %14, align 8, !noalias !20
-  store i32 %21, ptr %20, align 4, !noalias !20
+  store i32 %21, ptr %20, align 8, !noalias !20
   %.not.i.i.i.i = icmp eq i32 %21, 0
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i, label %22
 
@@ -3798,7 +3798,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__33UsdImagingDataSourceRenderVa
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DataSourceRenderVarE, i64 16), ptr %18, align 8, !noalias !23
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load i32, ptr %14, align 8, !noalias !23
-  store i32 %21, ptr %20, align 4, !noalias !23
+  store i32 %21, ptr %20, align 8, !noalias !23
   %.not.i.i.i.i = icmp eq i32 %21, 0
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i, label %22
 
@@ -6939,7 +6939,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__32HdRetainedTyped
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS_7SdfPathEEE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %1, align 4
-  store i32 %5, ptr %4, align 4
+  store i32 %5, ptr %4, align 8
   %.not.i.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS_7SdfPathEEC2ERKS1_.exit, label %6
 
@@ -12248,7 +12248,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_Coun
   %16 = atomicrmw add ptr %.sink.i.i.i.i.i, i64 1 monotonic, align 8, !noalias !75
   %.pre.i.i = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store atomic i32 0, ptr %17 seq_cst, align 4, !noalias !75
+  store atomic i32 0, ptr %17 seq_cst, align 8, !noalias !75
   %18 = atomicrmw add ptr %17, i32 1 monotonic, align 4, !noalias !75
   %.not.i.i.i.i = icmp eq ptr %.pre.i.i, null
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_7VtValue8_CountedINS_7VtArrayINS_7SdfPathEEEEEED2Ev.exit.i.i, label %19

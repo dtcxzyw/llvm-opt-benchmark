@@ -1078,7 +1078,7 @@ _ZNSt8_Rb_treeIN5boost7archive6detail19basic_oarchive_impl7aobjectES4_St9_Identi
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %50 = load i16, ptr %49, align 8, !tbaa !51
-  store i16 %50, ptr %48, align 2, !tbaa !51
+  store i16 %50, ptr %48, align 8, !tbaa !51
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 44
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %53 = load i32, ptr %52, align 4, !tbaa !60
@@ -1191,7 +1191,7 @@ _ZNSt8_Rb_treeIN5boost7archive6detail19basic_oarchive_impl12cobject_typeES4_St9_
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %43 = load i16, ptr %42, align 8, !tbaa !51
-  store i16 %43, ptr %41, align 2, !tbaa !51
+  store i16 %43, ptr %41, align 8, !tbaa !51
   %44 = getelementptr inbounds nuw i8, ptr %38, i64 42
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %46 = load i8, ptr %45, align 2, !tbaa !52, !range !53, !noundef !54

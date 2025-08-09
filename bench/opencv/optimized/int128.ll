@@ -411,7 +411,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google8protobu
   %24 = load i32, ptr %23, align 8, !tbaa !12
   %25 = and i32 %24, -16971
   %26 = or disjoint i32 %25, %22
-  store i32 %26, ptr %23, align 4, !tbaa !23
+  store i32 %26, ptr %23, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !9
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

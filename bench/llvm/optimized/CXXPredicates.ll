@@ -429,7 +429,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %43
   store i64 %48, ptr %49, align 8, !tbaa !28
   store ptr %41, ptr %1, align 8, !tbaa !27
   store i64 0, ptr %6, align 8, !tbaa !28
-  store i8 0, ptr %41, align 1, !tbaa !34
+  store i8 0, ptr %41, align 8, !tbaa !34
   call void @_ZN4llvm2gi16CXXPredicateCodeC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr noundef nonnull align 8 dereferenceable(72) %38, ptr noundef nonnull %4, i32 noundef %37) #19
   %50 = load ptr, ptr %4, align 8, !tbaa !27
   %51 = icmp eq ptr %50, %39

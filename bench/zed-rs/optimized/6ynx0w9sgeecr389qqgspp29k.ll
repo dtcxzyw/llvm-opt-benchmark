@@ -51719,8 +51719,8 @@ define hidden void @"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$GT$$u20$a
   store ptr %16, ptr %18, align 8, !noalias !10563
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 464
   store ptr %17, ptr %34, align 8, !noalias !10563
-  store atomic i8 0, ptr %19 seq_cst, align 1, !noalias !10580
-  %35 = load atomic i8, ptr %6 seq_cst, align 1, !noalias !10563
+  store atomic i8 0, ptr %19 seq_cst, align 8, !noalias !10580
+  %35 = load atomic i8, ptr %6 seq_cst, align 8, !noalias !10563
   %36 = icmp eq i8 %35, 0
   br i1 %36, label %42, label %39
 
@@ -51729,7 +51729,7 @@ define hidden void @"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$GT$$u20$a
           cleanup
   store ptr %16, ptr %18, align 8, !noalias !10563
   store ptr %17, ptr %29, align 8, !noalias !10563
-  store atomic i8 0, ptr %19 seq_cst, align 1, !noalias !10585
+  store atomic i8 0, ptr %19 seq_cst, align 8, !noalias !10585
   resume { ptr, i32 } %38
 
 39:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17he25901e55bef4e4bE.llvm.14374035290645986018.exit.i", %31, %3

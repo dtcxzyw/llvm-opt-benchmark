@@ -1177,7 +1177,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
 .noexc164:                                        ; preds = %318
   store ptr getelementptr inbounds nuw inrange(-16, 296) (i8, ptr @_ZTV9AstNodeIf, i64 16), ptr %264, align 8, !tbaa !94
   %319 = getelementptr inbounds nuw i8, ptr %264, i64 152
-  store i8 0, ptr %319, align 1, !tbaa !128
+  store i8 0, ptr %319, align 8, !tbaa !128
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(160) %264, ptr noundef nonnull %239)
           to label %.noexc165 unwind label %352
 
@@ -5180,7 +5180,7 @@ _ZN8AstCFunc4nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit11:
   store ptr %35, ptr %34, align 8, !tbaa !79
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 160
   store i64 0, ptr %36, align 8, !tbaa !83
-  store i8 0, ptr %35, align 1, !tbaa !82
+  store i8 0, ptr %35, align 8, !tbaa !82
   %37 = getelementptr inbounds nuw i8, ptr %29, i64 184
   store i8 0, ptr %37, align 8, !tbaa !225
   %38 = getelementptr inbounds nuw i8, ptr %29, i64 192

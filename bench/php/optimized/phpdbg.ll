@@ -1856,7 +1856,7 @@ define hidden void @phpdbg_register_file_handles() local_unnamed_addr #0 {
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %49, ptr noundef nonnull align 1 dereferenceable(6) @.str.20, i64 6, i1 false)
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 30
-  store i8 0, ptr %50, align 1, !tbaa !4
+  store i8 0, ptr %50, align 2, !tbaa !4
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %45, ptr %51, align 8, !tbaa !149
   %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 472), align 8, !tbaa !151
@@ -1878,7 +1878,7 @@ define hidden void @phpdbg_register_file_handles() local_unnamed_addr #0 {
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %59, ptr noundef nonnull align 1 dereferenceable(6) @.str.21, i64 6, i1 false)
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 30
-  store i8 0, ptr %60, align 1, !tbaa !4
+  store i8 0, ptr %60, align 2, !tbaa !4
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %55, ptr %61, align 8, !tbaa !149
   %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 472), align 8, !tbaa !151

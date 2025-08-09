@@ -1618,7 +1618,7 @@ define hidden ptr @SDL_GetAudioStreamOutputChannelMap_REAL(ptr noundef readonly 
   %4 = load ptr, ptr %0, align 8
   tail call void @SDL_LockMutex_REAL(ptr noundef %4) #11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @SDL_ChannelMapDup(ptr noundef %8, i32 noundef %6) #11
@@ -2663,7 +2663,7 @@ UpdateAudioStreamInputSpec.exit:                  ; preds = %123
   %154 = call i32 @llvm.umax.i32(i32 %153, i32 4)
   %155 = call i32 @llvm.smax.i32(i32 %145, i32 %147)
   %156 = mul nsw i32 %154, %155
-  %157 = load i32, ptr %103, align 4
+  %157 = load i32, ptr %103, align 8
   %158 = load i64, ptr %96, align 8
   %.val.i = load i32, ptr %104, align 4
   %.val120.i = load float, ptr %105, align 8

@@ -218,19 +218,19 @@ _ZN9grpc_core7ExecCtxC2Ev.exit:                   ; preds = %14, %_ZN9grpc_core4
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 80
   store ptr %24, ptr %23, align 8, !tbaa !51
-  store i8 0, ptr %24, align 1, !tbaa !52
+  store i8 0, ptr %24, align 8, !tbaa !52
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 104
   %26 = getelementptr inbounds nuw i8, ptr %15, i64 120
   store ptr %26, ptr %25, align 8, !tbaa !51
-  store i8 0, ptr %26, align 1, !tbaa !52
+  store i8 0, ptr %26, align 8, !tbaa !52
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 136
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 152
   store ptr %28, ptr %27, align 8, !tbaa !51
-  store i8 0, ptr %28, align 1, !tbaa !52
+  store i8 0, ptr %28, align 8, !tbaa !52
   %29 = getelementptr inbounds nuw i8, ptr %15, i64 168
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 184
   store ptr %30, ptr %29, align 8, !tbaa !51
-  store i8 0, ptr %30, align 1, !tbaa !52
+  store i8 0, ptr %30, align 8, !tbaa !52
   %31 = getelementptr inbounds nuw i8, ptr %15, i64 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %31, i8 0, i64 17, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %1, align 8, !tbaa !3

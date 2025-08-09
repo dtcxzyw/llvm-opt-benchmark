@@ -6087,12 +6087,12 @@ estimate_timings_from_bit_rate.exit.i:            ; preds = %._crit_edge77.threa
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %1256 = getelementptr inbounds nuw i8, ptr %1251, i64 40
   %1257 = load i64, ptr %1256, align 8, !tbaa !127
-  %.val.i = load i64, ptr %1255, align 4
+  %.val.i = load i64, ptr %1255, align 8
   %1258 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %5, i64 noundef %1257, i64 %.val.i) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   %1259 = getelementptr inbounds nuw i8, ptr %1251, i64 48
   %1260 = load i64, ptr %1259, align 8, !tbaa !259
-  %.val43.i = load i64, ptr %1255, align 4
+  %.val43.i = load i64, ptr %1255, align 8
   %1261 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %6, i64 noundef %1260, i64 %.val43.i) #15
   %1262 = trunc nuw i64 %indvars.iv.i to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 56, ptr noundef nonnull @.str.92, i32 noundef %1262, ptr noundef %1258, ptr noundef %1261) #15

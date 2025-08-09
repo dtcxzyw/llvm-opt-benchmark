@@ -2239,7 +2239,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit: ; preds = %_ZN3
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 32
   %112 = load i64, ptr %111, align 8
   %113 = icmp eq i64 %101, %112
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i = load i64, ptr %110, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i = load i64, ptr %110, align 8
   %114 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i
   %115 = select i1 %113, i1 %114, i1 false
   br i1 %115, label %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt10shared_ptrINS0_29UsdSkelImagingSkeletonAdapter9_SkelDataEENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S5_EEE4findERSA_.exit, label %.lr.ph.i.i.i.i
@@ -2844,7 +2844,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt10shared_ptrI
   %390 = getelementptr inbounds nuw i8, ptr %388, i64 80
   %391 = load i64, ptr %390, align 8
   %392 = icmp eq i64 %380, %391
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i91 = load i64, ptr %389, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i91 = load i64, ptr %389, align 8
   %393 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i90, %.0.copyload.i2.i.i.i.i18.i.i.i.i91
   %394 = select i1 %392, i1 %393, i1 false
   br i1 %394, label %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_14UsdSkelBindingENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S2_EEE4findERS7_.exit, label %.lr.ph.i.i.i.i92
@@ -2921,7 +2921,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_14UsdSkelBi
   %430 = getelementptr inbounds nuw i8, ptr %428, i64 32
   %431 = load i64, ptr %430, align 8
   %432 = icmp eq i64 %420, %431
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %429, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %429, align 8
   %433 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i
   %434 = select i1 %432, i1 %433, i1 false
   br i1 %434, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt10shared_ptrINS0_29UsdSkelImagingSkeletonAdapter9_SkelDataEENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S5_EEE4findERSA_.exit.i, label %.lr.ph.i.i.i.i.i
@@ -4655,7 +4655,7 @@ define linkonce_odr ptr @_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved_
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 80
   %34 = load i64, ptr %33, align 8
   %35 = icmp eq i64 %23, %34
-  %.0.copyload.i2.i.i.i.i18.i.i.i = load i64, ptr %32, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i = load i64, ptr %32, align 8
   %36 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i
   %37 = select i1 %35, i1 %36, i1 false
   br i1 %37, label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_14UsdSkelBindingEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_4HashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS3_.exit, label %.lr.ph.i.i.i
@@ -4743,7 +4743,7 @@ define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkelet
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %35 = load i64, ptr %34, align 8
   %36 = icmp eq i64 %24, %35
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i = load i64, ptr %33, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i = load i64, ptr %33, align 8
   %37 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i
   %38 = select i1 %36, i1 %37, i1 false
   br i1 %38, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt10shared_ptrINS0_29UsdSkelImagingSkeletonAdapter9_SkelDataEENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S5_EEE4findERSA_.exit, label %.lr.ph.i.i.i.i
@@ -5365,7 +5365,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapt
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 464
   %44 = load i64, ptr %43, align 8
   %45 = icmp eq i64 %33, %44
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %42, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %42, align 8
   %46 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i
   %47 = select i1 %45, i1 %46, i1 false
   br i1 %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter18_IsSkinnedPrimPathERKNS_7SdfPathE.exit, label %.lr.ph.i.i.i.i.i
@@ -5502,7 +5502,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapt
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %44 = load i64, ptr %43, align 8
   %45 = icmp eq i64 %33, %44
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %42, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %42, align 8
   %46 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i
   %47 = select i1 %45, i1 %46, i1 false
   br i1 %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter12_GetSkelDataERKNS_7SdfPathE.exit, label %.lr.ph.i.i.i.i.i
@@ -6657,7 +6657,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagin
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 464
   %35 = load i64, ptr %34, align 8
   %36 = icmp eq i64 %24, %35
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i = load i64, ptr %33, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i = load i64, ptr %33, align 8
   %37 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i
   %38 = select i1 %36, i1 %37, i1 false
   br i1 %38, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_29UsdSkelImagingSkeletonAdapter16_SkinnedPrimDataENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S3_EEE4findERS8_.exit, label %.lr.ph.i.i.i.i
@@ -7196,7 +7196,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapt
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 464
   %55 = load i64, ptr %54, align 8
   %56 = icmp eq i64 %44, %55
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %53, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %53, align 8
   %57 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i
   %58 = select i1 %56, i1 %57, i1 false
   br i1 %58, label %_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter18_IsSkinnedPrimPathERKNS_7SdfPathE.exit, label %.lr.ph.i.i.i.i.i
@@ -7304,7 +7304,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapt
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %42 = load i64, ptr %41, align 8
   %43 = icmp eq i64 %31, %42
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %40, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %40, align 8
   %44 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i
   %45 = select i1 %43, i1 %44, i1 false
   br i1 %45, label %_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter12_GetSkelDataERKNS_7SdfPathE.exit, label %.lr.ph.i.i.i.i.i
@@ -8416,7 +8416,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_2
   %108 = getelementptr inbounds nuw i8, ptr %106, i64 464
   %109 = load i64, ptr %108, align 8
   %110 = icmp eq i64 %98, %109
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %107, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %107, align 8
   %111 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i
   %112 = select i1 %110, i1 %111, i1 false
   br i1 %112, label %_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter18_IsSkinnedPrimPathERKNS_7SdfPathE.exit, label %.lr.ph.i.i.i.i.i
@@ -8958,7 +8958,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_34USDIMAGING_COLLECTI
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 464
   %48 = load i64, ptr %47, align 8
   %49 = icmp eq i64 %37, %48
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %46, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %46, align 8
   %50 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i
   %51 = select i1 %49, i1 %50, i1 false
   %52 = trunc i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i to i32
@@ -9043,7 +9043,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_34USDIMAGING_COLLECTI
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 464
   %90 = load i64, ptr %89, align 8
   %91 = icmp eq i64 %82, %90
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i24 = load i64, ptr %88, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i24 = load i64, ptr %88, align 8
   %92 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i23, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i24
   %93 = select i1 %91, i1 %92, i1 false
   br i1 %93, label %.loopexit71, label %.lr.ph.i.i.i.i.i25
@@ -9145,7 +9145,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_34USDIMAGING_COLLECTI
   %136 = getelementptr inbounds nuw i8, ptr %134, i64 32
   %137 = load i64, ptr %136, align 8
   %138 = icmp eq i64 %126, %137
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i41 = load i64, ptr %135, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i41 = load i64, ptr %135, align 8
   %139 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i40, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i41
   %140 = select i1 %138, i1 %139, i1 false
   br i1 %140, label %_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter12_GetSkelDataERKNS_7SdfPathE.exit, label %.lr.ph.i.i.i.i.i42
@@ -9331,7 +9331,7 @@ define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkelet
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 464
   %35 = load i64, ptr %34, align 8
   %36 = icmp eq i64 %24, %35
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i = load i64, ptr %33, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i = load i64, ptr %33, align 8
   %37 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i
   %38 = select i1 %36, i1 %37, i1 false
   br i1 %38, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_29UsdSkelImagingSkeletonAdapter16_SkinnedPrimDataENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S3_EEE4findERS8_.exit, label %.lr.ph.i.i.i.i
@@ -9523,7 +9523,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapte
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 464
   %50 = load i64, ptr %49, align 8
   %51 = icmp eq i64 %39, %50
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %48, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %48, align 8
   %52 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i
   %53 = select i1 %51, i1 %52, i1 false
   br i1 %53, label %_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter18_IsSkinnedPrimPathERKNS_7SdfPathE.exit, label %.lr.ph.i.i.i.i.i
@@ -10064,7 +10064,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapte
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 464
   %42 = load i64, ptr %41, align 8
   %43 = icmp eq i64 %31, %42
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %40, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %40, align 8
   %44 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i
   %45 = select i1 %43, i1 %44, i1 false
   br i1 %45, label %_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter18_IsSkinnedPrimPathERKNS_7SdfPathE.exit, label %.lr.ph.i.i.i.i.i
@@ -10273,7 +10273,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapte
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 464
   %42 = load i64, ptr %41, align 8
   %43 = icmp eq i64 %31, %42
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %40, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %40, align 8
   %44 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i
   %45 = select i1 %43, i1 %44, i1 false
   br i1 %45, label %_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter18_IsSkinnedPrimPathERKNS_7SdfPathE.exit, label %.lr.ph.i.i.i.i.i
@@ -10482,7 +10482,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapte
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 464
   %42 = load i64, ptr %41, align 8
   %43 = icmp eq i64 %31, %42
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %40, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %40, align 8
   %44 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i
   %45 = select i1 %43, i1 %44, i1 false
   br i1 %45, label %_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter18_IsSkinnedPrimPathERKNS_7SdfPathE.exit, label %.lr.ph.i.i.i.i.i
@@ -10691,7 +10691,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapte
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 464
   %42 = load i64, ptr %41, align 8
   %43 = icmp eq i64 %31, %42
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %40, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %40, align 8
   %44 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i
   %45 = select i1 %43, i1 %44, i1 false
   br i1 %45, label %_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter18_IsSkinnedPrimPathERKNS_7SdfPathE.exit, label %.lr.ph.i.i.i.i.i
@@ -10905,7 +10905,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapte
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 464
   %44 = load i64, ptr %43, align 8
   %45 = icmp eq i64 %33, %44
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %42, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %42, align 8
   %46 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i
   %47 = select i1 %45, i1 %46, i1 false
   br i1 %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter18_IsSkinnedPrimPathERKNS_7SdfPathE.exit, label %.lr.ph.i.i.i.i.i
@@ -11147,7 +11147,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapte
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 464
   %44 = load i64, ptr %43, align 8
   %45 = icmp eq i64 %33, %44
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %42, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %42, align 8
   %46 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i
   %47 = select i1 %45, i1 %46, i1 false
   br i1 %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter18_IsSkinnedPrimPathERKNS_7SdfPathE.exit, label %.lr.ph.i.i.i.i.i
@@ -11384,7 +11384,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapte
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 464
   %42 = load i64, ptr %41, align 8
   %43 = icmp eq i64 %31, %42
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %40, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %40, align 8
   %44 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i
   %45 = select i1 %43, i1 %44, i1 false
   br i1 %45, label %_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter18_IsSkinnedPrimPathERKNS_7SdfPathE.exit, label %.lr.ph.i.i.i.i.i
@@ -11587,7 +11587,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapt
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 464
   %39 = load i64, ptr %38, align 8
   %40 = icmp eq i64 %28, %39
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %37, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %37, align 8
   %41 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i
   %42 = select i1 %40, i1 %41, i1 false
   br i1 %42, label %_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter18_IsSkinnedPrimPathERKNS_7SdfPathE.exit, label %.lr.ph.i.i.i.i.i
@@ -11860,7 +11860,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter22_IsCallba
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 32
   %65 = load i64, ptr %64, align 8
   %66 = icmp eq i64 %54, %65
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %63, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %63, align 8
   %67 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i
   %68 = select i1 %66, i1 %67, i1 false
   br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter12_GetSkelDataERKNS_7SdfPathE.exit, label %.lr.ph.i.i.i.i.i
@@ -12017,7 +12017,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter12_GetSkelD
   %135 = getelementptr inbounds nuw i8, ptr %133, i64 464
   %136 = load i64, ptr %135, align 8
   %137 = icmp eq i64 %125, %136
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i23 = load i64, ptr %134, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i23 = load i64, ptr %134, align 8
   %138 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i22, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i23
   %139 = select i1 %137, i1 %138, i1 false
   br i1 %139, label %.loopexit55, label %.lr.ph.i.i.i.i.i24
@@ -13051,7 +13051,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter22_IsCallba
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %68 = load i64, ptr %67, align 8
   %69 = icmp eq i64 %57, %68
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %66, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %66, align 8
   %70 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i
   %71 = select i1 %69, i1 %70, i1 false
   br i1 %71, label %_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter12_GetSkelDataERKNS_7SdfPathE.exit, label %.lr.ph.i.i.i.i.i
@@ -13383,7 +13383,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_24HdTokens_StaticTokenTy
   %218 = getelementptr inbounds nuw i8, ptr %216, i64 464
   %219 = load i64, ptr %218, align 8
   %220 = icmp eq i64 %208, %219
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i58 = load i64, ptr %217, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i58 = load i64, ptr %217, align 8
   %221 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i57, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i58
   %222 = select i1 %220, i1 %221, i1 false
   br i1 %222, label %.loopexit91, label %.lr.ph.i.i.i.i.i59
@@ -14601,7 +14601,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagin
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 464
   %42 = load i64, ptr %41, align 8
   %43 = icmp eq i64 %31, %42
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %40, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %40, align 8
   %44 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i
   %45 = select i1 %43, i1 %44, i1 false
   br i1 %45, label %_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter18_IsSkinnedPrimPathERKNS_7SdfPathE.exit, label %.lr.ph.i.i.i.i.i
@@ -14829,7 +14829,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapt
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 464
   %44 = load i64, ptr %43, align 8
   %45 = icmp eq i64 %33, %44
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %42, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %42, align 8
   %46 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i
   %47 = select i1 %45, i1 %46, i1 false
   br i1 %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter18_IsSkinnedPrimPathERKNS_7SdfPathE.exit, label %.lr.ph.i.i.i.i.i
@@ -18885,7 +18885,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapte
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %40 = load i64, ptr %39, align 8
   %41 = icmp eq i64 %29, %40
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %38, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %38, align 8
   %42 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i
   %43 = select i1 %41, i1 %42, i1 false
   %44 = trunc i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i to i32
@@ -19150,7 +19150,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter12_GetSkelD
   %179 = getelementptr inbounds nuw i8, ptr %177, i64 464
   %180 = load i64, ptr %179, align 8
   %181 = icmp eq i64 %169, %180
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i26 = load i64, ptr %178, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i26 = load i64, ptr %178, align 8
   %182 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i25, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i26
   %183 = select i1 %181, i1 %182, i1 false
   br i1 %183, label %_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter18_IsSkinnedPrimPathERKNS_7SdfPathE.exit, label %.lr.ph.i.i.i.i.i27
@@ -19682,7 +19682,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter22_IsCallba
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %56 = load i64, ptr %55, align 8
   %57 = icmp eq i64 %45, %56
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %54, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %54, align 8
   %58 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i
   %59 = select i1 %57, i1 %58, i1 false
   br i1 %59, label %_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter12_GetSkelDataERKNS_7SdfPathE.exit, label %.lr.ph.i.i.i.i.i
@@ -20562,7 +20562,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %34, %_ZNK
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 464
   %73 = load i64, ptr %72, align 8
   %74 = icmp eq i64 %62, %73
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %71, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %71, align 8
   %75 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i
   %76 = select i1 %74, i1 %75, i1 false
   %77 = trunc i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i to i32
@@ -22289,7 +22289,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__31HdExtComputationInputDescripto
   store i64 0, ptr %12, align 8
   %304 = getelementptr inbounds nuw i8, ptr %301, i64 8
   %305 = load i32, ptr %257, align 8
-  store i32 %305, ptr %304, align 4
+  store i32 %305, ptr %304, align 8
   store i32 0, ptr %257, align 8
   %306 = getelementptr inbounds nuw i8, ptr %301, i64 12
   %307 = load i32, ptr %258, align 4
@@ -22889,7 +22889,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapt
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 464
   %45 = load i64, ptr %44, align 8
   %46 = icmp eq i64 %34, %45
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %43, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %43, align 8
   %47 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i
   %48 = select i1 %46, i1 %47, i1 false
   br i1 %48, label %_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter18_IsSkinnedPrimPathERKNS_7SdfPathE.exit, label %.lr.ph.i.i.i.i.i
@@ -24002,7 +24002,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7UsdPrimESt4pairIKS1_NS0_17
   %278 = getelementptr inbounds nuw i8, ptr %276, i64 464
   %279 = load i64, ptr %278, align 8
   %280 = icmp eq i64 %268, %279
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %277, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %277, align 8
   %281 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i
   %282 = select i1 %280, i1 %281, i1 false
   br i1 %282, label %_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter19_GetSkinnedPrimDataERKNS_7SdfPathE.exit, label %.lr.ph.i.i.i.i.i
@@ -24112,7 +24112,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter19_GetSkinn
   %335 = getelementptr inbounds nuw i8, ptr %333, i64 32
   %336 = load i64, ptr %335, align 8
   %337 = icmp eq i64 %325, %336
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i82 = load i64, ptr %334, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i82 = load i64, ptr %334, align 8
   %338 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i81, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i82
   %339 = select i1 %337, i1 %338, i1 false
   br i1 %339, label %_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter12_GetSkelDataERKNS_7SdfPathE.exit, label %.lr.ph.i.i.i.i.i83
@@ -25587,7 +25587,7 @@ define linkonce_odr ptr @_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 80
   %34 = load i64, ptr %33, align 8
   %35 = icmp eq i64 %23, %34
-  %.0.copyload.i2.i.i.i.i18.i.i.i = load i64, ptr %32, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i = load i64, ptr %32, align 8
   %36 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i
   %37 = select i1 %35, i1 %36, i1 false
   br i1 %37, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_14UsdSkelBindingEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_4HashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS3_.exit, label %.lr.ph.i.i.i
@@ -25902,7 +25902,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %114, %116, %1
   %164 = getelementptr inbounds nuw i8, ptr %162, i64 464
   %165 = load i64, ptr %164, align 8
   %166 = icmp eq i64 %154, %165
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %163, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %163, align 8
   %167 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i
   %168 = select i1 %166, i1 %167, i1 false
   br i1 %168, label %_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter19_GetSkinnedPrimDataERKNS_7SdfPathE.exit, label %.lr.ph.i.i.i.i.i
@@ -27303,7 +27303,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapterEED2
   %396 = getelementptr inbounds nuw i8, ptr %394, i64 464
   %397 = load i64, ptr %396, align 8
   %398 = icmp eq i64 %386, %397
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %395, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %395, align 8
   %399 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i
   %400 = select i1 %398, i1 %399, i1 false
   br i1 %400, label %_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter19_GetSkinnedPrimDataERKNS_7SdfPathE.exit, label %.lr.ph.i.i.i.i.i
@@ -27408,7 +27408,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter19_GetSkinn
   %451 = getelementptr inbounds nuw i8, ptr %449, i64 32
   %452 = load i64, ptr %451, align 8
   %453 = icmp eq i64 %441, %452
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i158 = load i64, ptr %450, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i158 = load i64, ptr %450, align 8
   %454 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i157, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i158
   %455 = select i1 %453, i1 %454, i1 false
   br i1 %455, label %_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter12_GetSkelDataERKNS_7SdfPathE.exit, label %.lr.ph.i.i.i.i.i159
@@ -29073,7 +29073,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %123, %125, %1
   %173 = getelementptr inbounds nuw i8, ptr %171, i64 464
   %174 = load i64, ptr %173, align 8
   %175 = icmp eq i64 %163, %174
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %172, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %172, align 8
   %176 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i
   %177 = select i1 %175, i1 %176, i1 false
   br i1 %177, label %_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter19_GetSkinnedPrimDataERKNS_7SdfPathE.exit, label %.lr.ph.i.i.i.i.i
@@ -30228,7 +30228,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %65, %_ZNK
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 464
   %104 = load i64, ptr %103, align 8
   %105 = icmp eq i64 %93, %104
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %102, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %102, align 8
   %106 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i
   %107 = select i1 %105, i1 %106, i1 false
   %108 = trunc i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i to i32
@@ -30788,7 +30788,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagin
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 464
   %37 = load i64, ptr %36, align 8
   %38 = icmp eq i64 %26, %37
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %35, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %35, align 8
   %39 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i
   %40 = select i1 %38, i1 %39, i1 false
   br i1 %40, label %_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter19_GetSkinnedPrimDataERKNS_7SdfPathE.exit, label %.lr.ph.i.i.i.i.i
@@ -30890,7 +30890,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter19_GetSkinn
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 32
   %91 = load i64, ptr %90, align 8
   %92 = icmp eq i64 %80, %91
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i18 = load i64, ptr %89, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i18 = load i64, ptr %89, align 8
   %93 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i17, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i18
   %94 = select i1 %92, i1 %93, i1 false
   br i1 %94, label %_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter12_GetSkelDataERKNS_7SdfPathE.exit, label %.lr.ph.i.i.i.i.i19
@@ -33715,7 +33715,7 @@ define linkonce_odr void @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7
   %5 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 16
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__14UsdSkelBindingD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #30
-  %7 = load i32, ptr %5, align 4
+  %7 = load i32, ptr %5, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_14UsdSkelBindingEELb1EEEEE18_M_deallocate_nodeEPS8_.exit.i.i, label %8
 
@@ -33944,7 +33944,7 @@ define linkonce_odr void @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7
   %5 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 16
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter16_SkinnedPrimDataD2Ev(ptr noundef nonnull align 8 dereferenceable(441) %6) #30
-  %7 = load i32, ptr %5, align 4
+  %7 = load i32, ptr %5, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_29UsdSkelImagingSkeletonAdapter16_SkinnedPrimDataEELb1EEEEE18_M_deallocate_nodeEPS9_.exit.i.i, label %8
 
@@ -35107,7 +35107,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZNS5_12_GLOBAL__N_116_TransformPointsENS5_6TfSpanINS5_7GfVec3fEEERKNS5_10GfMatrix4dEE3$_0EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEEE", i64 16), ptr %51, align 64
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64
-  store i64 %54, ptr %53, align 8
+  store i64 %54, ptr %53, align 64
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8
   %57 = sub i64 %54, %56
@@ -35117,7 +35117,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16
-  store i64 %61, ptr %60, align 8
+  store i64 %61, ptr %60, align 16
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   %63 = load i64, ptr %49, align 8
   store i64 %63, ptr %62, align 8
@@ -35127,7 +35127,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %66, ptr %13, align 8
   store i64 %66, ptr %64, align 8
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 112
-  store i32 2, ptr %67, align 8
+  store i32 2, ptr %67, align 16
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 116
   %69 = load i8, ptr %48, align 4
   store i8 %69, ptr %68, align 4
@@ -35138,12 +35138,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 32
   store ptr %73, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4
+  store i32 2, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8
   store i64 %76, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1
+  store i8 0, ptr %77, align 8
   store ptr %72, ptr %50, align 32
   %78 = getelementptr inbounds nuw i8, ptr %51, i64 96
   store ptr %72, ptr %78, align 32
@@ -35333,7 +35333,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   store i64 %166, ptr %13, align 8
   store i64 %166, ptr %164, align 8
   %167 = getelementptr inbounds nuw i8, ptr %158, i64 112
-  store i32 2, ptr %167, align 8
+  store i32 2, ptr %167, align 16
   %168 = getelementptr inbounds nuw i8, ptr %158, i64 116
   %169 = load i8, ptr %97, align 4
   %170 = getelementptr inbounds nuw i8, ptr %158, i64 120
@@ -35345,12 +35345,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %174 = load ptr, ptr %106, align 32
   store ptr %174, ptr %173, align 8
   %175 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  store i32 2, ptr %175, align 4
+  store i32 2, ptr %175, align 8
   %176 = getelementptr inbounds nuw i8, ptr %173, i64 16
   %177 = load i64, ptr %3, align 8
   store i64 %177, ptr %176, align 8
   %178 = getelementptr inbounds nuw i8, ptr %173, i64 24
-  store i8 0, ptr %178, align 1
+  store i8 0, ptr %178, align 8
   store ptr %173, ptr %106, align 32
   %179 = getelementptr inbounds nuw i8, ptr %158, i64 96
   store ptr %173, ptr %179, align 32
@@ -38663,9 +38663,9 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__20UsdImagingIndexP
   store i64 0, ptr %.0911.i.i.i, align 8, !alias.scope !175, !noalias !172
   %48 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %50 = load i32, ptr %49, align 4, !alias.scope !175, !noalias !172
-  store i32 %50, ptr %48, align 4, !alias.scope !172, !noalias !175
-  store i32 0, ptr %49, align 4, !alias.scope !175, !noalias !172
+  %50 = load i32, ptr %49, align 8, !alias.scope !175, !noalias !172
+  store i32 %50, ptr %48, align 8, !alias.scope !172, !noalias !175
+  store i32 0, ptr %49, align 8, !alias.scope !175, !noalias !172
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 12
   %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 12
   %53 = load i32, ptr %52, align 4, !alias.scope !175, !noalias !172
@@ -38692,9 +38692,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__20UsdImagingIndexProxy12_TypeAnd
   store i64 0, ptr %.0911.i.i.i19, align 8, !alias.scope !181, !noalias !178
   %58 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 8
   %59 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 8
-  %60 = load i32, ptr %59, align 4, !alias.scope !181, !noalias !178
-  store i32 %60, ptr %58, align 4, !alias.scope !178, !noalias !181
-  store i32 0, ptr %59, align 4, !alias.scope !181, !noalias !178
+  %60 = load i32, ptr %59, align 8, !alias.scope !181, !noalias !178
+  store i32 %60, ptr %58, align 8, !alias.scope !178, !noalias !181
+  store i32 0, ptr %59, align 8, !alias.scope !181, !noalias !178
   %61 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 12
   %62 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 12
   %63 = load i32, ptr %62, align 4, !alias.scope !181, !noalias !178
@@ -42657,7 +42657,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7Sdf
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 8
   %.not.i.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS1_E.exit, label %9
 
@@ -42727,7 +42727,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8__det
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %26 = load i64, ptr %25, align 8
   %27 = icmp eq i64 %15, %26
-  %.0.copyload.i2.i.i.i.i18.i.i = load i64, ptr %24, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i = load i64, ptr %24, align 8
   %28 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i
   %29 = select i1 %27, i1 %28, i1 false
   %30 = lshr i64 %.0.copyload.i.i.i.i.i.i.i, 32
@@ -42764,7 +42764,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8__det
   %43 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
   store ptr null, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store i32 %4, ptr %44, align 4
+  store i32 %4, ptr %44, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_St10shared_ptrINS0_29UsdSkelImagingSkeletonAdapter9_SkelDataEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_4HashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS3_EESQ_IJEEEEEPNSA_16_Hashtable_allocISaINSA_10_Hash_nodeIS8_Lb1EEEEEEDpOT_.exit, label %45
 
@@ -43255,7 +43255,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(441) ptr @_ZNSt8__de
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 464
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %17, %28
-  %.0.copyload.i2.i.i.i.i18.i.i = load i64, ptr %26, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i = load i64, ptr %26, align 8
   %30 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i
   %31 = select i1 %29, i1 %30, i1 false
   br i1 %31, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_29UsdSkelImagingSkeletonAdapter16_SkinnedPrimDataEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %.lr.ph.i.i
@@ -43465,7 +43465,7 @@ define linkonce_odr noundef ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_
   %7 = load i64, ptr %2, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = load i32, ptr %8, align 4
-  store i32 %9, ptr %6, align 4
+  store i32 %9, ptr %6, align 8
   %.not.i.i.i.i.i.i = icmp eq i32 %9, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i, label %10
 
@@ -45685,7 +45685,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(64) ptr @_ZNSt8__det
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 80
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %17, %28
-  %.0.copyload.i2.i.i.i.i18.i.i = load i64, ptr %26, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i = load i64, ptr %26, align 8
   %30 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i
   %31 = select i1 %29, i1 %30, i1 false
   br i1 %31, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_14UsdSkelBindingEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_4HashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %.lr.ph.i.i
@@ -45895,7 +45895,7 @@ define linkonce_odr noundef ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_
   %7 = load i64, ptr %2, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = load i32, ptr %8, align 4
-  store i32 %9, ptr %6, align 4
+  store i32 %9, ptr %6, align 8
   store i32 0, ptr %8, align 4
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -46154,7 +46154,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(64) ptr @_ZNSt8__det
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 80
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %17, %28
-  %.0.copyload.i2.i.i.i.i18.i.i = load i64, ptr %26, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i = load i64, ptr %26, align 8
   %30 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i
   %31 = select i1 %29, i1 %30, i1 false
   br i1 %31, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_14UsdSkelBindingEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_4HashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %.lr.ph.i.i
@@ -46212,7 +46212,7 @@ define linkonce_odr noundef ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_
   %7 = load i64, ptr %2, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = load i32, ptr %8, align 4
-  store i32 %9, ptr %6, align 4
+  store i32 %9, ptr %6, align 8
   %.not.i.i.i.i.i.i = icmp eq i32 %9, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i, label %10
 
@@ -46342,7 +46342,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_14
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %43 = load i64, ptr %42, align 8
   %44 = icmp eq i64 %32, %43
-  %.0.copyload.i2.i.i.i.i18.i = load i64, ptr %41, align 4
+  %.0.copyload.i2.i.i.i.i18.i = load i64, ptr %41, align 8
   %45 = icmp eq i64 %.0.copyload.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i
   %46 = select i1 %44, i1 %45, i1 false
   br i1 %46, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_14UsdSkelBindingEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_4HashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS3_m.exit, label %.lr.ph.i
@@ -46452,7 +46452,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_14
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__14UsdSkelBindingD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %37) #30
-  %38 = load i32, ptr %36, align 4
+  %38 = load i32, ptr %36, align 8
   %.not.i.i.i.i.i.i = icmp eq i32 %38, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_14UsdSkelBindingEELb1EEEEE18_M_deallocate_nodeEPS8_.exit, label %39
 
@@ -46565,7 +46565,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_St10sh
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %43 = load i64, ptr %42, align 8
   %44 = icmp eq i64 %32, %43
-  %.0.copyload.i2.i.i.i.i18.i = load i64, ptr %41, align 4
+  %.0.copyload.i2.i.i.i.i18.i = load i64, ptr %41, align 8
   %45 = icmp eq i64 %.0.copyload.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i
   %46 = select i1 %44, i1 %45, i1 false
   br i1 %46, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_St10shared_ptrINS0_29UsdSkelImagingSkeletonAdapter9_SkelDataEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_4HashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS3_m.exit.thread, label %.lr.ph.i
@@ -46735,7 +46735,7 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__31HdExtComputationInputDescript
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %25 = load i32, ptr %24, align 8
-  store i32 %25, ptr %23, align 4
+  store i32 %25, ptr %23, align 8
   store i32 0, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -46760,9 +46760,9 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__31HdExtComputationInputDescript
   store i64 0, ptr %.0911.i.i.i, align 8, !alias.scope !232, !noalias !229
   %33 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %35 = load i32, ptr %34, align 4, !alias.scope !232, !noalias !229
-  store i32 %35, ptr %33, align 4, !alias.scope !229, !noalias !232
-  store i32 0, ptr %34, align 4, !alias.scope !232, !noalias !229
+  %35 = load i32, ptr %34, align 8, !alias.scope !232, !noalias !229
+  store i32 %35, ptr %33, align 8, !alias.scope !229, !noalias !232
+  store i32 0, ptr %34, align 8, !alias.scope !232, !noalias !229
   %36 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 12
   %37 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 12
   %38 = load i32, ptr %37, align 4, !alias.scope !232, !noalias !229
@@ -46794,9 +46794,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__31HdExtComputationInputDescripto
   store i64 0, ptr %.0911.i.i.i19, align 8, !alias.scope !238, !noalias !235
   %46 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 8
   %47 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 8
-  %48 = load i32, ptr %47, align 4, !alias.scope !238, !noalias !235
-  store i32 %48, ptr %46, align 4, !alias.scope !235, !noalias !238
-  store i32 0, ptr %47, align 4, !alias.scope !238, !noalias !235
+  %48 = load i32, ptr %47, align 8, !alias.scope !238, !noalias !235
+  store i32 %48, ptr %46, align 8, !alias.scope !235, !noalias !238
+  store i32 0, ptr %47, align 8, !alias.scope !238, !noalias !235
   %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 12
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 12
   %51 = load i32, ptr %50, align 4, !alias.scope !238, !noalias !235
@@ -47096,9 +47096,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i: ; preds = %49,
   store i32 0, ptr %86, align 4, !alias.scope !256, !noalias !253
   %88 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %89 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
-  %90 = load i32, ptr %89, align 4, !alias.scope !256, !noalias !253
-  store i32 %90, ptr %88, align 4, !alias.scope !253, !noalias !256
-  store i32 0, ptr %89, align 4, !alias.scope !256, !noalias !253
+  %90 = load i32, ptr %89, align 8, !alias.scope !256, !noalias !253
+  store i32 %90, ptr %88, align 8, !alias.scope !253, !noalias !256
+  store i32 0, ptr %89, align 8, !alias.scope !256, !noalias !253
   %91 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
   %92 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
   %93 = load i64, ptr %92, align 8, !alias.scope !256, !noalias !253
@@ -47147,9 +47147,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__33HdExtComputationPrimvarDescrip
   store i32 0, ptr %111, align 4, !alias.scope !263, !noalias !260
   %113 = getelementptr inbounds nuw i8, ptr %.012.i.i.i33, i64 32
   %114 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i34, i64 32
-  %115 = load i32, ptr %114, align 4, !alias.scope !263, !noalias !260
-  store i32 %115, ptr %113, align 4, !alias.scope !260, !noalias !263
-  store i32 0, ptr %114, align 4, !alias.scope !263, !noalias !260
+  %115 = load i32, ptr %114, align 8, !alias.scope !263, !noalias !260
+  store i32 %115, ptr %113, align 8, !alias.scope !260, !noalias !263
+  store i32 0, ptr %114, align 8, !alias.scope !263, !noalias !260
   %116 = getelementptr inbounds nuw i8, ptr %.012.i.i.i33, i64 40
   %117 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i34, i64 40
   %118 = load i64, ptr %117, align 8, !alias.scope !263, !noalias !260
@@ -51757,7 +51757,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_29
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 464
   %43 = load i64, ptr %42, align 8
   %44 = icmp eq i64 %32, %43
-  %.0.copyload.i2.i.i.i.i18.i = load i64, ptr %41, align 4
+  %.0.copyload.i2.i.i.i.i18.i = load i64, ptr %41, align 8
   %45 = icmp eq i64 %.0.copyload.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i
   %46 = select i1 %44, i1 %45, i1 false
   br i1 %46, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_29UsdSkelImagingSkeletonAdapter16_SkinnedPrimDataEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS3_m.exit, label %.lr.ph.i
@@ -51867,7 +51867,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_29
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter16_SkinnedPrimDataD2Ev(ptr noundef nonnull align 8 dereferenceable(441) %37) #30
-  %38 = load i32, ptr %36, align 4
+  %38 = load i32, ptr %36, align 8
   %.not.i.i.i.i.i.i = icmp eq i32 %38, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_29UsdSkelImagingSkeletonAdapter16_SkinnedPrimDataEELb1EEEEE18_M_deallocate_nodeEPS9_.exit, label %39
 

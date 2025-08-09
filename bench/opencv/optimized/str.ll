@@ -1073,7 +1073,7 @@ define hidden void @_ZN5zxing7StrUtil14COMBINE_STRINGEcNS_3RefINS_6StringEEEc(pt
   store ptr %8, ptr %7, align 8, !tbaa !10
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8, !tbaa !17
-  store i8 0, ptr %8, align 1, !tbaa !19
+  store i8 0, ptr %8, align 8, !tbaa !19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 0)
           to label %_ZN5zxing6StringC2Ei.exit unwind label %10
 

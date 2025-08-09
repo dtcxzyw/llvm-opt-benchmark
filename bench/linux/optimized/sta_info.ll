@@ -600,7 +600,7 @@ define dso_local ptr @sta_info_get_by_addrs(ptr noundef %0, ptr noundef %1, ptr 
 7:                                                ; preds = %3
   %8 = load i32, ptr %2, align 4
   %9 = getelementptr i8, ptr %2, i64 4
-  %10 = load i16, ptr %9, align 2
+  %10 = load i16, ptr %9, align 4
   br label %11
 
 11:                                               ; preds = %24, %7
@@ -1336,7 +1336,7 @@ define dso_local i32 @sta_info_insert_rcu(ptr noundef %0) local_unnamed_addr #0 
   %15 = load i32, ptr %13, align 4
   %16 = xor i32 %15, %14
   %17 = getelementptr i8, ptr %0, i64 2684
-  %18 = load i16, ptr %17, align 2
+  %18 = load i16, ptr %17, align 4
   %19 = getelementptr i8, ptr %5, i64 5066
   %20 = load i16, ptr %19, align 2
   %21 = xor i16 %20, %18
@@ -3557,7 +3557,7 @@ define dso_local ptr @ieee80211_find_sta_by_ifaddr(ptr noundef %0, ptr noundef %
 .split:                                           ; preds = %7
   %9 = getelementptr i8, ptr %2, i64 4
   %10 = load i32, ptr %2, align 4
-  %11 = load i16, ptr %9, align 2
+  %11 = load i16, ptr %9, align 4
   br label %12
 
 12:                                               ; preds = %30, %.split

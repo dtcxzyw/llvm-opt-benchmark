@@ -2513,7 +2513,7 @@ define internal i32 @inet6_net_init(ptr noundef initializes((1741, 1742), (1744,
   store i64 72057594037927935, ptr %22, align 8
   %23 = tail call noalias dereferenceable_or_null(80) ptr @__alloc_percpu(i64 noundef 80, i64 noundef 8) #16
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  store ptr %23, ptr %24, align 8
+  store ptr %23, ptr %24, align 16
   %25 = icmp eq ptr %23, null
   br i1 %25, label %.thread6, label %26
 

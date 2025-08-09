@@ -89,7 +89,7 @@ _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERK
   %46 = load <8 x float>, ptr %45, align 4
   %47 = shufflevector <8 x float> %46, <8 x float> poison, <8 x i32> zeroinitializer
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %49 = load <8 x float>, ptr %48, align 4
+  %49 = load <8 x float>, ptr %48, align 8
   %50 = shufflevector <8 x float> %49, <8 x float> poison, <8 x i32> zeroinitializer
   %51 = fmul <8 x float> %40, <float 0xBFD5555560000000, float poison, float poison, float poison, float poison, float poison, float poison, float poison>
   %52 = shufflevector <8 x float> %51, <8 x float> poison, <8 x i32> zeroinitializer

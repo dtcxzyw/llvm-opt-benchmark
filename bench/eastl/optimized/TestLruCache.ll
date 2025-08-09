@@ -4609,7 +4609,7 @@ if.then:                                          ; preds = %_ZN5eastl9hashtable
   %13 = load ptr, ptr %this, align 8
   %call.i.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %mValue.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i.i, i64 16
-  %14 = load i32, ptr %pNode.addr.05.i.i, align 4
+  %14 = load i32, ptr %pNode.addr.05.i.i, align 8
   store i32 %14, ptr %mValue.i.i.i.i, align 4
   store ptr %13, ptr %call.i.i.i.i.i.i.i, align 8
   %mpPrev.i.i.i3.i = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -4700,7 +4700,7 @@ _ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS
   %15 = load ptr, ptr %this, align 8
   %call.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %mValue.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i.i.i, i64 16
-  %16 = load i32, ptr %pNode.addr.05.i.i, align 4
+  %16 = load i32, ptr %pNode.addr.05.i.i, align 8
   store i32 %16, ptr %mValue.i.i.i.i.i, align 4
   store ptr %15, ptr %call.i.i.i.i.i.i.i.i, align 8
   %mpPrev.i.i.i3.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -4815,7 +4815,7 @@ _ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS
   %19 = load ptr, ptr %this, align 8
   %call.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %mValue.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i.i.i, i64 16
-  %20 = load i32, ptr %.sink.i, align 4
+  %20 = load i32, ptr %.sink.i, align 8
   store i32 %20, ptr %mValue.i.i.i.i.i, align 4
   store ptr %19, ptr %call.i.i.i.i.i.i.i.i, align 8
   %mpPrev.i.i.i3.i.i = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -5218,7 +5218,7 @@ _ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EEN
   %15 = load ptr, ptr %this, align 8
   %call.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %mValue.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i.i.i, i64 16
-  %16 = load i32, ptr %pNode.addr.05.i.i, align 4
+  %16 = load i32, ptr %pNode.addr.05.i.i, align 8
   store i32 %16, ptr %mValue.i.i.i.i.i, align 4
   store ptr %15, ptr %call.i.i.i.i.i.i.i.i, align 8
   %mpPrev.i.i.i3.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -5436,7 +5436,7 @@ _ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EEN
   %19 = load ptr, ptr %this, align 8
   %call.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %mValue.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i.i.i, i64 16
-  %20 = load i32, ptr %.sink.i, align 4
+  %20 = load i32, ptr %.sink.i, align 8
   store i32 %20, ptr %mValue.i.i.i.i.i, align 4
   store ptr %19, ptr %call.i.i.i.i.i.i.i.i, align 8
   %mpPrev.i.i.i3.i.i = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -5857,7 +5857,7 @@ _ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12
   %19 = load ptr, ptr %this, align 8
   %call.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %mValue.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i.i.i, i64 16
-  %20 = load i32, ptr %.sink.i, align 4
+  %20 = load i32, ptr %.sink.i, align 8
   store i32 %20, ptr %mValue.i.i.i.i.i, align 4
   store ptr %19, ptr %call.i.i.i.i.i.i.i.i, align 8
   %mpPrev.i.i.i3.i.i = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -6394,7 +6394,7 @@ if.then:                                          ; preds = %for.inc.i, %entry
   %second.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   %8 = load i32, ptr @_ZN20TestLruCacheInternal3Foo5countE, align 4
   %inc.i.i.i.i = add nsw i32 %8, 1
-  store i32 %8, ptr %second.i.i, align 4
+  store i32 %8, ptr %second.i.i, align 8
   %b.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 12
   %inc2.i.i.i.i = add nsw i32 %8, 2
   store i32 %inc2.i.i.i.i, ptr @_ZN20TestLruCacheInternal3Foo5countE, align 4

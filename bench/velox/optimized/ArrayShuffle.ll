@@ -3985,7 +3985,7 @@ call6.i.i.noexc:                                  ; preds = %call3.i.i.noexc
   %capacity_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i29, i64 32
   store i64 %sub.i.i, ptr %capacity_.i.i.i.i, align 8, !noalias !38
   %referenceCount_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i29, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i.i, align 4, !noalias !38
+  store i32 0, ptr %referenceCount_.i.i.i.i, align 8, !noalias !38
   %podType_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i29, i64 44
   store i8 1, ptr %podType_.i.i.i.i, align 4, !noalias !38
   %padding_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i29, i64 48
@@ -4073,7 +4073,7 @@ call6.i.i.noexc60:                                ; preds = %call3.i.i.noexc58
   %capacity_.i.i.i.i41 = getelementptr inbounds nuw i8, ptr %call6.i.i61, i64 32
   store i64 %sub.i.i36, ptr %capacity_.i.i.i.i41, align 8, !noalias !45
   %referenceCount_.i.i.i.i42 = getelementptr inbounds nuw i8, ptr %call6.i.i61, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i.i42, align 4, !noalias !45
+  store i32 0, ptr %referenceCount_.i.i.i.i42, align 8, !noalias !45
   %podType_.i.i.i.i43 = getelementptr inbounds nuw i8, ptr %call6.i.i61, i64 44
   store i8 1, ptr %podType_.i.i.i.i43, align 4, !noalias !45
   %padding_.i.i.i.i44 = getelementptr inbounds nuw i8, ptr %call6.i.i61, i64 48
@@ -4160,7 +4160,7 @@ call6.i.i.noexc94:                                ; preds = %call3.i.i.noexc92
   %capacity_.i.i.i.i75 = getelementptr inbounds nuw i8, ptr %call6.i.i95, i64 32
   store i64 %sub.i.i70, ptr %capacity_.i.i.i.i75, align 8, !noalias !52
   %referenceCount_.i.i.i.i76 = getelementptr inbounds nuw i8, ptr %call6.i.i95, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i.i76, align 4, !noalias !52
+  store i32 0, ptr %referenceCount_.i.i.i.i76, align 8, !noalias !52
   %podType_.i.i.i.i77 = getelementptr inbounds nuw i8, ptr %call6.i.i95, i64 44
   store i8 1, ptr %podType_.i.i.i.i77, align 4, !noalias !52
   %padding_.i.i.i.i78 = getelementptr inbounds nuw i8, ptr %call6.i.i95, i64 48

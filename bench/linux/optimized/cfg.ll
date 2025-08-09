@@ -3898,7 +3898,7 @@ define internal i32 @ieee80211_add_station(ptr noundef %0, ptr noundef %1, ptr n
   %22 = load i32, ptr %20, align 4
   %23 = xor i32 %22, %21
   %24 = getelementptr i8, ptr %2, i64 4
-  %25 = load i16, ptr %24, align 2
+  %25 = load i16, ptr %24, align 4
   %26 = getelementptr i8, ptr %17, i64 7370
   %27 = load i16, ptr %26, align 2
   %28 = xor i16 %27, %25
@@ -10769,7 +10769,7 @@ define internal fastcc noundef range(i32 -95, 1) i32 @ieee80211_set_mon_options(
   %59 = getelementptr i8, ptr %44, i64 4
   %60 = load i16, ptr %59, align 2
   %61 = getelementptr i8, ptr %20, i64 1912
-  store i16 %60, ptr %61, align 2
+  store i16 %60, ptr %61, align 4
   br label %62
 
 62:                                               ; preds = %56, %41
@@ -11946,9 +11946,9 @@ define internal fastcc i32 @sta_link_apply_parameters(ptr noundef %0, ptr nounde
   %86 = load i32, ptr %76, align 4
   %87 = xor i32 %86, %85
   %88 = getelementptr i8, ptr %16, i64 4
-  %89 = load i16, ptr %88, align 2
+  %89 = load i16, ptr %88, align 4
   %90 = getelementptr i8, ptr %76, i64 4
-  %91 = load i16, ptr %90, align 2
+  %91 = load i16, ptr %90, align 4
   %92 = xor i16 %91, %89
   %93 = zext i16 %92 to i32
   %94 = or i32 %87, %93

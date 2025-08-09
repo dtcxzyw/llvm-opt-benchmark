@@ -3102,7 +3102,7 @@ define void @_ZN3gmx19StatePropagatorData13setLocalStateEP7t_state(ptr noundef n
   %15 = load float, ptr %13, align 4, !tbaa !136
   store float %15, ptr %14, align 8, !tbaa !136
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %17 = load float, ptr %16, align 4, !tbaa !136
+  %17 = load float, ptr %16, align 8, !tbaa !136
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 276
   store float %17, ptr %18, align 4, !tbaa !136
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 60
@@ -3111,14 +3111,14 @@ define void @_ZN3gmx19StatePropagatorData13setLocalStateEP7t_state(ptr noundef n
   store float %20, ptr %21, align 8, !tbaa !136
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 284
-  %24 = load float, ptr %22, align 4, !tbaa !136
+  %24 = load float, ptr %22, align 8, !tbaa !136
   store float %24, ptr %23, align 4, !tbaa !136
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %26 = load float, ptr %25, align 4, !tbaa !136
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store float %26, ptr %27, align 8, !tbaa !136
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %29 = load float, ptr %28, align 4, !tbaa !136
+  %29 = load float, ptr %28, align 8, !tbaa !136
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 292
   store float %29, ptr %30, align 4, !tbaa !136
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 76
@@ -3126,7 +3126,7 @@ define void @_ZN3gmx19StatePropagatorData13setLocalStateEP7t_state(ptr noundef n
   %33 = load float, ptr %31, align 4, !tbaa !136
   store float %33, ptr %32, align 8, !tbaa !136
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %35 = load float, ptr %34, align 4, !tbaa !136
+  %35 = load float, ptr %34, align 8, !tbaa !136
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 300
   store float %35, ptr %36, align 4, !tbaa !136
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 84
@@ -3366,7 +3366,7 @@ define linkonce_odr void @_ZN3gmx19changePinningPolicyINS_12PaddedVectorINS_11Ba
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 5, i1 false)
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i = trunc nuw i64 %.sroa.0.0.insert.insert to i40
-  store i40 %.sroa.0.0.extract.trunc.i.i.i.i.i.i, ptr %0, align 4
+  store i40 %.sroa.0.0.extract.trunc.i.i.i.i.i.i, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i64, ptr %17, align 8, !tbaa !95
   %19 = inttoptr i64 %18 to ptr
@@ -12564,7 +12564,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %57
   store i64 %64, ptr %65, align 8, !tbaa !97
   store ptr %55, ptr %10, align 8, !tbaa !96
   store i64 0, ptr %63, align 8, !tbaa !97
-  store i8 0, ptr %55, align 1, !tbaa !98
+  store i8 0, ptr %55, align 8, !tbaa !98
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr %2, ptr %66, align 8, !tbaa !512
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -12652,7 +12652,7 @@ define void @_ZN3gmx19StatePropagatorData24readCheckpointToTrxFrameEP10t_trxfram
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 276
   %41 = load float, ptr %40, align 4, !tbaa !136
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store float %41, ptr %42, align 4, !tbaa !136
+  store float %41, ptr %42, align 8, !tbaa !136
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 280
   %44 = load float, ptr %43, align 8, !tbaa !136
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 124
@@ -12660,7 +12660,7 @@ define void @_ZN3gmx19StatePropagatorData24readCheckpointToTrxFrameEP10t_trxfram
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 284
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %48 = load float, ptr %46, align 4, !tbaa !136
-  store float %48, ptr %47, align 4, !tbaa !136
+  store float %48, ptr %47, align 8, !tbaa !136
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 288
   %50 = load float, ptr %49, align 8, !tbaa !136
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 132
@@ -12668,7 +12668,7 @@ define void @_ZN3gmx19StatePropagatorData24readCheckpointToTrxFrameEP10t_trxfram
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 292
   %53 = load float, ptr %52, align 4, !tbaa !136
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store float %53, ptr %54, align 4, !tbaa !136
+  store float %53, ptr %54, align 8, !tbaa !136
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 296
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %57 = load float, ptr %55, align 8, !tbaa !136
@@ -12676,7 +12676,7 @@ define void @_ZN3gmx19StatePropagatorData24readCheckpointToTrxFrameEP10t_trxfram
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 300
   %59 = load float, ptr %58, align 4, !tbaa !136
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store float %59, ptr %60, align 4, !tbaa !136
+  store float %59, ptr %60, align 8, !tbaa !136
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 304
   %62 = load float, ptr %61, align 8, !tbaa !136
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 148

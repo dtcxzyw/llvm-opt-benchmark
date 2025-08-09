@@ -7267,7 +7267,7 @@ _ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store i64 %57, ptr %58, align 8, !tbaa !53
   store ptr %48, ptr %.016.i.i.i.i.i.i, align 8, !tbaa !52
   store i64 0, ptr %56, align 8, !tbaa !53
-  store i8 0, ptr %48, align 1, !tbaa !55
+  store i8 0, ptr %48, align 8, !tbaa !55
   %59 = load i32, ptr %17, align 8, !tbaa !273
   %60 = add i32 %59, 1
   store i32 %60, ptr %17, align 8, !tbaa !273
@@ -7459,7 +7459,7 @@ _ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store i64 %134, ptr %135, align 8, !tbaa !53
   store ptr %125, ptr %.016.i.i.i23.i.i.i, align 8, !tbaa !52
   store i64 0, ptr %133, align 8, !tbaa !53
-  store i8 0, ptr %125, align 1, !tbaa !55
+  store i8 0, ptr %125, align 8, !tbaa !55
   %136 = load i32, ptr %17, align 8, !tbaa !273
   %137 = add i32 %136, 1
   store i32 %137, ptr %17, align 8, !tbaa !273
@@ -7957,7 +7957,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %22, ptr %23, align 8, !tbaa !53
   store ptr %13, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !52
   store i64 0, ptr %21, align 8, !tbaa !53
-  store i8 0, ptr %13, align 1, !tbaa !55
+  store i8 0, ptr %13, align 8, !tbaa !55
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq ptr %24, %10

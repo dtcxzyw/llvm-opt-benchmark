@@ -1479,9 +1479,9 @@ define i32 @Wln_ObjCreateCo(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   store i32 %31, ptr %29, align 4, !tbaa !11
   store i32 4, ptr %26, align 4, !tbaa !11
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %33 = load i32, ptr %32, align 4, !tbaa !11
+  %33 = load i32, ptr %32, align 8, !tbaa !11
   %34 = add nsw i32 %33, 1
-  store i32 %34, ptr %32, align 4, !tbaa !11
+  store i32 %34, ptr %32, align 8, !tbaa !11
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %36 = load ptr, ptr %35, align 8, !tbaa !20
   %37 = getelementptr inbounds %struct.Wln_Vec_t_, ptr %36, i64 %25

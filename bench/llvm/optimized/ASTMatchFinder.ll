@@ -2974,13 +2974,13 @@ define internal void @_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVi
   %17 = load ptr, ptr %16, align 8, !tbaa !713
   store ptr %9, ptr %16, align 8, !tbaa !713
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %19 = load i32, ptr %18, align 4, !tbaa !714
-  store i32 %11, ptr %18, align 4, !tbaa !714
+  %19 = load i32, ptr %18, align 8, !tbaa !714
+  store i32 %11, ptr %18, align 8, !tbaa !714
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %21 = load i32, ptr %20, align 4, !tbaa !714
   store i32 %13, ptr %20, align 4, !tbaa !714
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i32 %15, ptr %22, align 4, !tbaa !714
+  store i32 %15, ptr %22, align 8, !tbaa !714
   %23 = icmp eq i32 %21, 0
   %.not10.i = icmp eq i32 %19, 0
   %or.cond = select i1 %23, i1 true, i1 %.not10.i

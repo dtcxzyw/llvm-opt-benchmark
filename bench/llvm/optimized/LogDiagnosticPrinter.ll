@@ -3432,7 +3432,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %19, ptr %20, align 8, !tbaa !47
   store ptr %10, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !58
   store i64 0, ptr %18, align 8, !tbaa !47
-  store i8 0, ptr %10, align 1, !tbaa !48
+  store i8 0, ptr %10, align 8, !tbaa !48
   %21 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 48
@@ -3464,7 +3464,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit7.i.i.i.i.i.i.i
   store i64 %34, ptr %35, align 8, !tbaa !47
   store ptr %25, ptr %22, align 8, !tbaa !58
   store i64 0, ptr %33, align 8, !tbaa !47
-  store i8 0, ptr %25, align 1, !tbaa !48
+  store i8 0, ptr %25, align 8, !tbaa !48
   %36 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 64
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %36, ptr noundef nonnull align 8 dereferenceable(12) %37, i64 12, i1 false)
@@ -3499,7 +3499,7 @@ _ZSt10_ConstructIN5clang20LogDiagnosticPrinter9DiagEntryEJS2_EEvPT_DpOT0_.exit.i
   store i64 %51, ptr %52, align 8, !tbaa !47
   store ptr %42, ptr %39, align 8, !tbaa !58
   store i64 0, ptr %50, align 8, !tbaa !47
-  store i8 0, ptr %42, align 1, !tbaa !48
+  store i8 0, ptr %42, align 8, !tbaa !48
   %53 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 112
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 112
   %55 = load i32, ptr %54, align 8, !tbaa !55

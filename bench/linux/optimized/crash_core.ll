@@ -450,7 +450,7 @@ define dso_local noundef range(i32 -12, 1) i32 @crash_prepare_elf64_headers(ptr 
   %23 = getelementptr i8, ptr %16, i64 7
   store i8 0, ptr %23, align 1
   %24 = getelementptr i8, ptr %16, i64 8
-  store i64 0, ptr %24, align 1
+  store i64 0, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i16 4, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 18

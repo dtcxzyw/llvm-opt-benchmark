@@ -934,7 +934,7 @@ _ZNSt10unique_ptrIN3gmx11SetTimeStepESt14default_deleteIS1_EED2Ev.exit147.i: ; p
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx6SetBoxE, i64 16), ptr %254, align 8, !tbaa !12, !noalias !102
   %257 = getelementptr inbounds nuw i8, ptr %254, i64 8
   %258 = load float, ptr %256, align 4, !tbaa !76, !noalias !105
-  store float %258, ptr %257, align 4, !tbaa !76, !noalias !102
+  store float %258, ptr %257, align 8, !tbaa !76, !noalias !102
   %259 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %260 = load float, ptr %259, align 8, !tbaa !76, !noalias !105
   %261 = getelementptr inbounds nuw i8, ptr %254, i64 12
@@ -942,7 +942,7 @@ _ZNSt10unique_ptrIN3gmx11SetTimeStepESt14default_deleteIS1_EED2Ev.exit147.i: ; p
   %262 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %263 = load float, ptr %262, align 4, !tbaa !76, !noalias !105
   %264 = getelementptr inbounds nuw i8, ptr %254, i64 16
-  store float %263, ptr %264, align 4, !tbaa !76, !noalias !102
+  store float %263, ptr %264, align 8, !tbaa !76, !noalias !102
   %265 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %266 = getelementptr inbounds nuw i8, ptr %254, i64 20
   %267 = load float, ptr %265, align 8, !tbaa !76, !noalias !105
@@ -950,7 +950,7 @@ _ZNSt10unique_ptrIN3gmx11SetTimeStepESt14default_deleteIS1_EED2Ev.exit147.i: ; p
   %268 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %269 = load float, ptr %268, align 4, !tbaa !76, !noalias !105
   %270 = getelementptr inbounds nuw i8, ptr %254, i64 24
-  store float %269, ptr %270, align 4, !tbaa !76, !noalias !102
+  store float %269, ptr %270, align 8, !tbaa !76, !noalias !102
   %271 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %272 = load float, ptr %271, align 8, !tbaa !76, !noalias !105
   %273 = getelementptr inbounds nuw i8, ptr %254, i64 28
@@ -958,7 +958,7 @@ _ZNSt10unique_ptrIN3gmx11SetTimeStepESt14default_deleteIS1_EED2Ev.exit147.i: ; p
   %274 = getelementptr inbounds nuw i8, ptr %5, i64 52
   %275 = getelementptr inbounds nuw i8, ptr %254, i64 32
   %276 = load float, ptr %274, align 4, !tbaa !76, !noalias !105
-  store float %276, ptr %275, align 4, !tbaa !76, !noalias !102
+  store float %276, ptr %275, align 8, !tbaa !76, !noalias !102
   %277 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %278 = load float, ptr %277, align 8, !tbaa !76, !noalias !105
   %279 = getelementptr inbounds nuw i8, ptr %254, i64 36
@@ -966,7 +966,7 @@ _ZNSt10unique_ptrIN3gmx11SetTimeStepESt14default_deleteIS1_EED2Ev.exit147.i: ; p
   %280 = getelementptr inbounds nuw i8, ptr %5, i64 60
   %281 = load float, ptr %280, align 4, !tbaa !76, !noalias !105
   %282 = getelementptr inbounds nuw i8, ptr %254, i64 40
-  store float %281, ptr %282, align 4, !tbaa !76, !noalias !102
+  store float %281, ptr %282, align 8, !tbaa !76, !noalias !102
   store ptr %254, ptr %16, align 8, !tbaa !29, !noalias !26
   invoke void @_ZN3gmx22OutputAdapterContainer10addAdapterESt10unique_ptrINS_14IOutputAdapterESt14default_deleteIS2_EENS_19CoordinateFileFlagsE(ptr noundef nonnull align 8 dereferenceable(4112) %27, ptr noundef nonnull %16, i64 noundef 256)
           to label %283 unwind label %290

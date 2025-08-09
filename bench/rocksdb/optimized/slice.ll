@@ -198,7 +198,7 @@ define noundef nonnull ptr @_ZN7rocksdb23NewFixedPrefixTransformEm(i64 noundef %
   store ptr %11, ptr %10, align 8, !tbaa !23
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i64 0, ptr %12, align 8, !tbaa !24
-  store i8 0, ptr %11, align 1, !tbaa !25
+  store i8 0, ptr %11, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -779,7 +779,7 @@ define noundef nonnull ptr @_ZN7rocksdb24NewCappedPrefixTransformEm(i64 noundef 
   store ptr %11, ptr %10, align 8, !tbaa !23
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i64 0, ptr %12, align 8, !tbaa !24
-  store i8 0, ptr %11, align 1, !tbaa !25
+  store i8 0, ptr %11, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -8681,7 +8681,7 @@ _ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store i64 %54, ptr %56, align 8, !tbaa !24, !alias.scope !257, !noalias !260
   store ptr %46, ptr %.0911.i.i.i, align 8, !tbaa !27, !alias.scope !260, !noalias !257
   store i64 0, ptr %55, align 8, !tbaa !24, !alias.scope !260, !noalias !257
-  store i8 0, ptr %46, align 1, !tbaa !25, !alias.scope !260, !noalias !257
+  store i8 0, ptr %46, align 8, !tbaa !25, !alias.scope !260, !noalias !257
   %57 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %58 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %59 = load i32, ptr %58, align 8, !tbaa !254, !alias.scope !260, !noalias !257
@@ -8733,7 +8733,7 @@ _ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store i64 %73, ptr %75, align 8, !tbaa !24, !alias.scope !264, !noalias !267
   store ptr %65, ptr %.0911.i.i.i30, align 8, !tbaa !27, !alias.scope !267, !noalias !264
   store i64 0, ptr %74, align 8, !tbaa !24, !alias.scope !267, !noalias !264
-  store i8 0, ptr %65, align 1, !tbaa !25, !alias.scope !267, !noalias !264
+  store i8 0, ptr %65, align 8, !tbaa !25, !alias.scope !267, !noalias !264
   %76 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 32
   %77 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 32
   %78 = load i32, ptr %77, align 8, !tbaa !254, !alias.scope !267, !noalias !264

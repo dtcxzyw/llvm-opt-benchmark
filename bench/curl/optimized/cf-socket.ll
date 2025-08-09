@@ -1959,7 +1959,7 @@ define internal range(i32 0, 46) i32 @cf_udp_connect(ptr noundef %0, ptr noundef
   %96 = getelementptr inbounds nuw i8, ptr %42, i64 252
   %97 = load i32, ptr %96, align 4, !tbaa !119
   %98 = getelementptr inbounds nuw i8, ptr %42, i64 248
-  %99 = load i32, ptr %98, align 4, !tbaa !123
+  %99 = load i32, ptr %98, align 8, !tbaa !123
   tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.45, ptr noundef nonnull %92, i32 noundef %93, ptr noundef nonnull %95, i32 noundef %97, ptr noundef nonnull %94, i32 noundef %99) #13
   br label %100
 
@@ -2594,7 +2594,7 @@ socket_close.exit:                                ; preds = %125, %139, %.thread
   %186 = load i32, ptr %59, align 8, !tbaa !116
   %187 = getelementptr inbounds nuw i8, ptr %12, i64 156
   %188 = getelementptr inbounds nuw i8, ptr %12, i64 248
-  %189 = load i32, ptr %188, align 4, !tbaa !123
+  %189 = load i32, ptr %188, align 8, !tbaa !123
   call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.55, i32 noundef %186, ptr noundef nonnull %187, i32 noundef %189) #13
   br label %190
 
@@ -2940,7 +2940,7 @@ define internal fastcc range(i32 0, 46) i32 @cf_socket_open(ptr noundef %0, ptr 
   %35 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %36 = load i32, ptr %35, align 8, !tbaa !15
   %37 = tail call i32 @socket(i32 noundef %34, i32 noundef %31, i32 noundef %36) #13
-  store i32 %37, ptr %33, align 4, !tbaa !87
+  store i32 %37, ptr %33, align 8, !tbaa !87
   br label %38
 
 38:                                               ; preds = %28, %21

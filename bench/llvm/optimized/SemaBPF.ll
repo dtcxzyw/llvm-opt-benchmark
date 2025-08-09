@@ -154,7 +154,7 @@ switch.lookup:                                    ; preds = %33
   store ptr %53, ptr %.ptr.i.i.i.i, align 8, !tbaa !39
   %54 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
   store i64 0, ptr %54, align 8, !tbaa !42
-  store i8 0, ptr %53, align 1, !tbaa !45
+  store i8 0, ptr %53, align 8, !tbaa !45
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 32
   %55 = icmp eq i64 %.add.i.i.i.i, 416
   br i1 %55, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %52
@@ -639,7 +639,7 @@ _ZN5clangL26isValidPreserveTypeInfoArgEPNS_4ExprE.exit.thread114: ; preds = %_ZN
   store ptr %297, ptr %.ptr.i.i.i.i80, align 8, !tbaa !39
   %298 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i80, i64 8
   store i64 0, ptr %298, align 8, !tbaa !42
-  store i8 0, ptr %297, align 1, !tbaa !45
+  store i8 0, ptr %297, align 8, !tbaa !45
   %.add.i.i.i.i81 = add nuw nsw i64 %.idx.i.i.i.i79, 32
   %299 = icmp eq i64 %.add.i.i.i.i81, 416
   br i1 %299, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i82, label %296
@@ -1267,7 +1267,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEm
   store ptr %14, ptr %.ptr.i.i.i, align 8, !tbaa !39
   %15 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %15, align 8, !tbaa !42
-  store i8 0, ptr %14, align 1, !tbaa !45
+  store i8 0, ptr %14, align 8, !tbaa !45
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %16 = icmp eq i64 %.add.i.i.i, 416
   br i1 %16, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %13
@@ -1620,7 +1620,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic14AddSourceRange
   store ptr %13, ptr %.ptr.i.i.i, align 8, !tbaa !39
   %14 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %14, align 8, !tbaa !42
-  store i8 0, ptr %13, align 1, !tbaa !45
+  store i8 0, ptr %13, align 8, !tbaa !45
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %15 = icmp eq i64 %.add.i.i.i, 416
   br i1 %15, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %12

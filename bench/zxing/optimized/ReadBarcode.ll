@@ -1064,7 +1064,7 @@ _ZN5ZXing5ErrorC2EOS0_.exit.i:                    ; preds = %_ZNKSt7__cxx1112bas
   store i64 %60, ptr %62, align 8, !tbaa !106
   store ptr %52, ptr %49, align 8, !tbaa !129
   store i64 0, ptr %61, align 8, !tbaa !106
-  store i8 0, ptr %52, align 1, !tbaa !25
+  store i8 0, ptr %52, align 8, !tbaa !25
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %63, ptr noundef nonnull align 8 dereferenceable(11) %64, i64 11, i1 false)
@@ -1108,7 +1108,7 @@ _ZN5ZXing6ResultC2EOS0_.exit:                     ; preds = %76, %_ZNKSt7__cxx11
   store i64 %82, ptr %84, align 8, !tbaa !106
   store ptr %74, ptr %71, align 8, !tbaa !129
   store i64 0, ptr %83, align 8, !tbaa !106
-  store i8 0, ptr %74, align 1, !tbaa !25
+  store i8 0, ptr %74, align 8, !tbaa !25
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %86 = getelementptr inbounds nuw i8, ptr %3, i64 192
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %85, ptr noundef nonnull align 8 dereferenceable(19) %86, i64 19, i1 false)
@@ -1923,7 +1923,7 @@ _ZN5ZXing5ErrorC2EOS0_.exit.i.i.i.i:              ; preds = %_ZNKSt7__cxx1112bas
   store i64 %345, ptr %346, align 8, !tbaa !106
   store ptr %336, ptr %333, align 8, !tbaa !129
   store i64 0, ptr %344, align 8, !tbaa !106
-  store i8 0, ptr %336, align 1, !tbaa !25
+  store i8 0, ptr %336, align 8, !tbaa !25
   %347 = getelementptr inbounds nuw i8, ptr %311, i64 88
   %348 = getelementptr inbounds nuw i8, ptr %.sroa.0179.0250, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %347, ptr noundef nonnull align 8 dereferenceable(11) %348, i64 11, i1 false)
@@ -1965,7 +1965,7 @@ _ZNSt16allocator_traitsISaIN5ZXing6ResultEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.
   store i64 %367, ptr %368, align 8, !tbaa !106
   store ptr %358, ptr %355, align 8, !tbaa !129
   store i64 0, ptr %366, align 8, !tbaa !106
-  store i8 0, ptr %358, align 1, !tbaa !25
+  store i8 0, ptr %358, align 8, !tbaa !25
   %369 = getelementptr inbounds nuw i8, ptr %311, i64 192
   %370 = getelementptr inbounds nuw i8, ptr %.sroa.0179.0250, i64 192
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %369, ptr noundef nonnull align 8 dereferenceable(19) %370, i64 19, i1 false)
@@ -4070,7 +4070,7 @@ _ZN5ZXing5ErrorC2EOS0_.exit.i.i.i.i.i.i.i:        ; preds = %_ZNKSt7__cxx1112bas
   store i64 %109, ptr %111, align 8, !tbaa !106, !alias.scope !220, !noalias !223
   store ptr %101, ptr %98, align 8, !tbaa !129, !alias.scope !223, !noalias !220
   store i64 0, ptr %110, align 8, !tbaa !106, !alias.scope !223, !noalias !220
-  store i8 0, ptr %101, align 1, !tbaa !25, !alias.scope !223, !noalias !220
+  store i8 0, ptr %101, align 8, !tbaa !25, !alias.scope !223, !noalias !220
   %112 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 88
   %113 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %112, ptr noundef nonnull align 8 dereferenceable(11) %113, i64 11, i1 false), !alias.scope !225
@@ -4114,7 +4114,7 @@ _ZSt19__relocate_object_aIN5ZXing6ResultES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i: ; p
   store i64 %131, ptr %133, align 8, !tbaa !106, !alias.scope !220, !noalias !223
   store ptr %123, ptr %120, align 8, !tbaa !129, !alias.scope !223, !noalias !220
   store i64 0, ptr %132, align 8, !tbaa !106, !alias.scope !223, !noalias !220
-  store i8 0, ptr %123, align 1, !tbaa !25, !alias.scope !223, !noalias !220
+  store i8 0, ptr %123, align 8, !tbaa !25, !alias.scope !223, !noalias !220
   %134 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 192
   %135 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 192
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %134, ptr noundef nonnull align 8 dereferenceable(19) %135, i64 19, i1 false), !alias.scope !225
@@ -4194,7 +4194,7 @@ _ZN5ZXing5ErrorC2EOS0_.exit.i.i.i.i.i.i.i23:      ; preds = %_ZNKSt7__cxx1112bas
   store i64 %169, ptr %171, align 8, !tbaa !106, !alias.scope !227, !noalias !230
   store ptr %161, ptr %158, align 8, !tbaa !129, !alias.scope !230, !noalias !227
   store i64 0, ptr %170, align 8, !tbaa !106, !alias.scope !230, !noalias !227
-  store i8 0, ptr %161, align 1, !tbaa !25, !alias.scope !230, !noalias !227
+  store i8 0, ptr %161, align 8, !tbaa !25, !alias.scope !230, !noalias !227
   %172 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 88
   %173 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %172, ptr noundef nonnull align 8 dereferenceable(11) %173, i64 11, i1 false), !alias.scope !232
@@ -4238,7 +4238,7 @@ _ZSt19__relocate_object_aIN5ZXing6ResultES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i27: ;
   store i64 %191, ptr %193, align 8, !tbaa !106, !alias.scope !227, !noalias !230
   store ptr %183, ptr %180, align 8, !tbaa !129, !alias.scope !230, !noalias !227
   store i64 0, ptr %192, align 8, !tbaa !106, !alias.scope !230, !noalias !227
-  store i8 0, ptr %183, align 1, !tbaa !25, !alias.scope !230, !noalias !227
+  store i8 0, ptr %183, align 8, !tbaa !25, !alias.scope !230, !noalias !227
   %194 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 192
   %195 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 192
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %194, ptr noundef nonnull align 8 dereferenceable(19) %195, i64 19, i1 false), !alias.scope !232

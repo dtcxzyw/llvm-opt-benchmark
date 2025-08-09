@@ -2458,7 +2458,7 @@ define linkonce_odr dso_local void @_ZN8nlohmann19json_abi_dp_v3_11_310basic_jso
   store ptr %12, ptr %11, align 8, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %13, align 8, !tbaa !15
-  store i8 0, ptr %12, align 1, !tbaa !14
+  store i8 0, ptr %12, align 8, !tbaa !14
   store ptr %11, ptr %0, align 8, !tbaa !14
   br label %22
 
@@ -14455,7 +14455,7 @@ define linkonce_odr dso_local { i8, ptr } @_ZN8nlohmann19json_abi_dp_v3_11_36det
   store ptr %36, ptr %35, align 8, !tbaa !4
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i64 0, ptr %37, align 8, !tbaa !15
-  store i8 0, ptr %36, align 1, !tbaa !14
+  store i8 0, ptr %36, align 8, !tbaa !14
   store ptr %35, ptr %22, align 8, !tbaa !14
   %38 = ptrtoint ptr %35 to i64
   %39 = trunc i64 %38 to i1
@@ -22518,7 +22518,7 @@ define linkonce_odr dso_local noundef nonnull ptr @_ZN8nlohmann19json_abi_dp_v3_
   store ptr %24, ptr %23, align 8, !tbaa !4
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %25, align 8, !tbaa !15
-  store i8 0, ptr %24, align 1, !tbaa !14
+  store i8 0, ptr %24, align 8, !tbaa !14
   %26 = ptrtoint ptr %23 to i64
   br label %_ZN8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_valueC2ENS0_6detail7value_tE.exit
 
@@ -22820,7 +22820,7 @@ _ZN8nlohmann19json_abi_dp_v3_11_36detail19json_sax_dom_parserINS0_10basic_jsonIS
   store ptr %173, ptr %172, align 8, !tbaa !4
   %174 = getelementptr inbounds nuw i8, ptr %172, i64 8
   store i64 0, ptr %174, align 8, !tbaa !15
-  store i8 0, ptr %173, align 1, !tbaa !14
+  store i8 0, ptr %173, align 8, !tbaa !14
   %175 = ptrtoint ptr %172 to i64
   br label %_ZN8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_valueC2ENS0_6detail7value_tE.exit23
 

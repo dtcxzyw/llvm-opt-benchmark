@@ -201,7 +201,7 @@ define weak_odr noundef ptr @_ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stri
   store ptr %4, ptr %3, align 8, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 0, ptr %5, align 8, !tbaa !14
-  store i8 0, ptr %4, align 1, !tbaa !16
+  store i8 0, ptr %4, align 8, !tbaa !16
   ret ptr %1
 
 6:                                                ; preds = %0
@@ -231,7 +231,7 @@ define weak_odr noundef ptr @_ZNK7Imf_3_414TypedAttributeINSt7__cxx1112basic_str
   store ptr %5, ptr %4, align 8, !tbaa !6
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 0, ptr %6, align 8, !tbaa !14
-  store i8 0, ptr %5, align 1, !tbaa !16
+  store i8 0, ptr %5, align 8, !tbaa !16
   %7 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(8) %0, ptr nonnull @_ZTIN7Imf_3_49AttributeE, ptr nonnull @_ZTIN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0) #17
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.thread.i.i.i, label %_ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13copyValueFromERKNS_9AttributeE.exit

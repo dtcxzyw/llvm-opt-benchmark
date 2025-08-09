@@ -158,11 +158,11 @@ gcm_set_acceleration.exit.i:                      ; preds = %19
   %62 = getelementptr inbounds nuw [16 x [2 x i64]], ptr %29, i64 0, i64 %61
   %63 = load i64, ptr %62, align 8, !tbaa !3
   %64 = call i64 @llvm.bswap.i64(i64 %63)
-  store i64 %64, ptr %62, align 1
+  store i64 %64, ptr %62, align 8
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %66 = load i64, ptr %65, align 8, !tbaa !3
   %67 = call i64 @llvm.bswap.i64(i64 %66)
-  store i64 %67, ptr %65, align 1
+  store i64 %67, ptr %65, align 8
   %68 = lshr i32 %.150.i, 1
   %.not43.i = icmp samesign ult i32 %.150.i, 2
   br i1 %.not43.i, label %.lr.ph54.i, label %.preheader48.i, !llvm.loop !17

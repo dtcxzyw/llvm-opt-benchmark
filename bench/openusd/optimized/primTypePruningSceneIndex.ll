@@ -1614,7 +1614,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexPrimD2Ev.exit: ; preds = %435
   %.0912.i = phi ptr [ %456, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableIbE6_EntryD2Ev.exit.i ], [ %454, %.lr.ph16.i ]
   %455 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 16
   %456 = load ptr, ptr %455, align 8
-  %457 = load i32, ptr %.0912.i, align 4
+  %457 = load i32, ptr %.0912.i, align 8
   %.not.i.i.i.i.i69 = icmp eq i32 %457, 0
   br i1 %.not.i.i.i.i.i69, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableIbE6_EntryD2Ev.exit.i, label %458
 
@@ -4940,7 +4940,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableIbE
   %.0912.i = phi ptr [ %13, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableIbE6_EntryD2Ev.exit.i ], [ %11, %.lr.ph16.i ]
   %12 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = load i32, ptr %.0912.i, align 4
+  %14 = load i32, ptr %.0912.i, align 8
   %.not.i.i.i.i.i = icmp eq i32 %14, 0
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableIbE6_EntryD2Ev.exit.i, label %15
 
@@ -6264,7 +6264,7 @@ _ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableIbE6_EntryESaIS4_
   %.01642 = phi ptr [ %45, %.lr.ph ], [ %43, %.lr.ph45 ]
   %44 = getelementptr inbounds nuw i8, ptr %.01642, i64 16
   %45 = load ptr, ptr %44, align 8
-  %46 = load i32, ptr %.01642, align 4
+  %46 = load i32, ptr %.01642, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.01642, i64 4
   %48 = load i32, ptr %47, align 4
   %49 = zext i32 %46 to i64

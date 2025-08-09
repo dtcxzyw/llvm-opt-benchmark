@@ -4423,8 +4423,8 @@ _ZN7mitsuba3refINS_4MeshIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEEC2IS7_EEPS
   %249 = load ptr, ptr %248, align 8
   store ptr %.sroa.0.0.i, ptr %248, align 8
   %250 = getelementptr inbounds nuw i8, ptr %247, i64 488
-  %251 = load i8, ptr %250, align 1
-  store i8 1, ptr %250, align 1
+  %251 = load i8, ptr %250, align 8
+  store i8 1, ptr %250, align 8
   %252 = getelementptr inbounds nuw i8, ptr %247, i64 480
   store i64 %235, ptr %252, align 8
   %253 = trunc i8 %251 to i1
@@ -4469,8 +4469,8 @@ _ZN7mitsuba3refINS_4MeshIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEEC2IS7_EEPS
   %275 = load ptr, ptr %274, align 8
   store ptr %.sroa.0.0.i87, ptr %274, align 8
   %276 = getelementptr inbounds nuw i8, ptr %247, i64 512
-  %277 = load i8, ptr %276, align 1
-  store i8 1, ptr %276, align 1
+  %277 = load i8, ptr %276, align 8
+  store i8 1, ptr %276, align 8
   %278 = getelementptr inbounds nuw i8, ptr %247, i64 504
   store i64 %262, ptr %278, align 8
   %279 = trunc i8 %277 to i1
@@ -4558,8 +4558,8 @@ _ZN7mitsuba3refINS_4MeshIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEEC2IS7_EEPS
   %315 = load ptr, ptr %314, align 8
   store ptr %.sroa.0.0.i93, ptr %314, align 8
   %316 = getelementptr inbounds nuw i8, ptr %247, i64 536
-  %317 = load i8, ptr %316, align 1
-  store i8 1, ptr %316, align 1
+  %317 = load i8, ptr %316, align 8
+  store i8 1, ptr %316, align 8
   %318 = getelementptr inbounds nuw i8, ptr %247, i64 528
   store i64 %302, ptr %318, align 8
   %319 = trunc i8 %317 to i1
@@ -4602,8 +4602,8 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit96:            ; preds = %321, %308, %296
   %341 = load ptr, ptr %340, align 8
   store ptr %.sroa.0.0.i98, ptr %340, align 8
   %342 = getelementptr inbounds nuw i8, ptr %247, i64 560
-  %343 = load i8, ptr %342, align 1
-  store i8 1, ptr %342, align 1
+  %343 = load i8, ptr %342, align 8
+  store i8 1, ptr %342, align 8
   %344 = getelementptr inbounds nuw i8, ptr %247, i64 552
   store i64 %328, ptr %344, align 8
   %345 = trunc i8 %343 to i1
@@ -7772,8 +7772,8 @@ _ZNSt3__128__exception_guard_exceptionsINS_6vectorIfNS_9allocatorIfEEE16__destro
   %127 = load ptr, ptr %126, align 8
   store ptr %.sroa.0.0, ptr %126, align 8
   %128 = getelementptr inbounds nuw i8, ptr %25, i64 488
-  %129 = load i8, ptr %128, align 1
-  store i8 1, ptr %128, align 1
+  %129 = load i8, ptr %128, align 8
+  store i8 1, ptr %128, align 8
   %130 = getelementptr inbounds nuw i8, ptr %25, i64 480
   store i64 %95, ptr %130, align 8
   %131 = trunc i8 %129 to i1
@@ -11875,8 +11875,8 @@ _ZN5drjit12DynamicArrayIfE5zero_Em.exit119:       ; preds = %147, %.lr.ph.split.
   %154 = load ptr, ptr %132, align 8
   store ptr %.sroa.0.2, ptr %132, align 8
   %155 = getelementptr inbounds nuw i8, ptr %.sroa.0126.0161, i64 72
-  %156 = load i8, ptr %155, align 1
-  store i8 1, ptr %155, align 1
+  %156 = load i8, ptr %155, align 8
+  store i8 1, ptr %155, align 8
   store i64 %131, ptr %133, align 8
   %157 = trunc i8 %156 to i1
   %158 = icmp ne ptr %154, null

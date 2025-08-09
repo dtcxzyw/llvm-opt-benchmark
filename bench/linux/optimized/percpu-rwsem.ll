@@ -67,7 +67,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__percpu_init_rwsem(ptr noundef 
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @__init_waitqueue_head(ptr noundef nonnull %9, ptr noundef nonnull @.str, ptr noundef nonnull @__percpu_init_rwsem.__key) #9
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store volatile i32 0, ptr %10, align 4
+  store volatile i32 0, ptr %10, align 8
   br label %11
 
 11:                                               ; preds = %7, %3
@@ -115,7 +115,7 @@ define dso_local noundef zeroext i1 @__percpu_down_read(ptr noundef %0, i1 nound
   tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, ptr elementtype(i32) %4) #9, !srcloc !7
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %6 = load volatile i32, ptr %5, align 4
+  %6 = load volatile i32, ptr %5, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %.thread, label %8, !prof !10
@@ -262,7 +262,7 @@ define internal fastcc void @percpu_rwsem_wait(ptr noundef %0, i1 noundef zeroex
   call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %13, ptr elementtype(i32) %13) #9, !srcloc !7
   call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %15 = load volatile i32, ptr %14, align 4
+  %15 = load volatile i32, ptr %14, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %21, label %17, !prof !10
@@ -599,7 +599,7 @@ define internal range(i32 0, 2) i32 @percpu_rwsem_wake_function(ptr noundef %0, 
   tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %10, ptr elementtype(i32) %10) #9, !srcloc !7
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %12 = load volatile i32, ptr %11, align 4
+  %12 = load volatile i32, ptr %11, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %18, label %14, !prof !10

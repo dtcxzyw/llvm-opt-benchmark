@@ -295,7 +295,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %52
   store i64 %59, ptr %60, align 8, !tbaa !10
   store ptr %50, ptr %1, align 8, !tbaa !42
   store i64 0, ptr %58, align 8, !tbaa !10
-  store i8 0, ptr %50, align 1, !tbaa !13
+  store i8 0, ptr %50, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 32, i1 false)
   %61 = invoke noundef i32 @_ZNK10cmMakefile15GetPolicyStatusEN10cmPolicies8PolicyIDEb(ptr noundef nonnull align 8 dereferenceable(2880) %2, i32 noundef 177, i1 noundef zeroext false)
@@ -2428,7 +2428,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %10
   store i64 %16, ptr %18, align 8, !tbaa !10
   store ptr %8, ptr %1, align 8, !tbaa !42
   store i64 0, ptr %17, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   invoke void @_ZN25cmInstallCommandArgumentsC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER10cmMakefile(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(2880) %2)
           to label %19 unwind label %50
 
@@ -3743,7 +3743,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !10, !alias.scope !105, !noalias !108
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !42, !alias.scope !108, !noalias !105
   store i64 0, ptr %48, align 8, !tbaa !10, !alias.scope !108, !noalias !105
-  store i8 0, ptr %39, align 1, !tbaa !13, !alias.scope !108, !noalias !105
+  store i8 0, ptr %39, align 8, !tbaa !13, !alias.scope !108, !noalias !105
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -3791,7 +3791,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !10, !alias.scope !112, !noalias !115
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !42, !alias.scope !115, !noalias !112
   store i64 0, ptr %64, align 8, !tbaa !10, !alias.scope !115, !noalias !112
-  store i8 0, ptr %55, align 1, !tbaa !13, !alias.scope !115, !noalias !112
+  store i8 0, ptr %55, align 8, !tbaa !13, !alias.scope !115, !noalias !112
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5
@@ -4856,7 +4856,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %10
   store i64 %16, ptr %18, align 8, !tbaa !10
   store ptr %8, ptr %1, align 8, !tbaa !42
   store i64 0, ptr %17, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   invoke void @_ZN11cmCMakePath10FormatPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6formatE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull %5, i8 noundef zeroext %2)
           to label %19 unwind label %60
 
@@ -5902,7 +5902,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   store i64 %17, ptr %19, align 8, !tbaa !10
   store ptr %9, ptr %6, align 8, !tbaa !42
   store i64 0, ptr %18, align 8, !tbaa !10
-  store i8 0, ptr %9, align 1, !tbaa !13
+  store i8 0, ptr %9, align 8, !tbaa !13
   %20 = load ptr, ptr %4, align 8, !tbaa !58
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr %21, ptr %4, align 8, !tbaa !58

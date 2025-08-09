@@ -328,7 +328,7 @@ define internal void @outputHandleGeometry(ptr noundef captures(none) initialize
   store i32 %4, ptr %13, align 8, !tbaa !124
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 %5, ptr %14, align 4, !tbaa !125
-  %char0 = load i8, ptr %0, align 1
+  %char0 = load i8, ptr %0, align 8
   %15 = icmp eq i8 %char0, 0
   br i1 %15, label %16, label %18
 

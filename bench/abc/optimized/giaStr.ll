@@ -4539,9 +4539,9 @@ Str_NtkCreate.exit:                               ; preds = %21, %47
   store i32 -1, ptr %70, align 4, !tbaa !34
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store i32 -1, ptr %71, align 4, !tbaa !88
-  %72 = load i32, ptr %60, align 4, !tbaa !38
+  %72 = load i32, ptr %60, align 8, !tbaa !38
   %73 = add nsw i32 %72, 1
-  store i32 %73, ptr %60, align 4, !tbaa !38
+  store i32 %73, ptr %60, align 8, !tbaa !38
   br label %.sink.split
 
 74:                                               ; preds = %61

@@ -1370,9 +1370,9 @@ _ZNSt6vectorIN6Assimp3ASE4MeshESaIS2_EE12emplace_backIJRA8_KcEEERS2_DpOT_.exit: 
   store ptr %91, ptr %90, align 8
   %92 = getelementptr inbounds nuw i8, ptr %83, i64 48
   store i64 0, ptr %92, align 8
-  store i8 0, ptr %91, align 1
+  store i8 0, ptr %91, align 8
   %93 = getelementptr inbounds nuw i8, ptr %83, i64 72
-  store float 1.000000e+00, ptr %93, align 4
+  store float 1.000000e+00, ptr %93, align 8
   %94 = getelementptr inbounds nuw i8, ptr %83, i64 76
   %95 = getelementptr inbounds nuw i8, ptr %83, i64 92
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %94, i8 0, i64 16, i1 false)
@@ -1380,7 +1380,7 @@ _ZNSt6vectorIN6Assimp3ASE4MeshESaIS2_EE12emplace_backIJRA8_KcEEERS2_DpOT_.exit: 
   %96 = getelementptr inbounds nuw i8, ptr %83, i64 96
   %97 = getelementptr inbounds nuw i8, ptr %83, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %96, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %97, align 4
+  store float 1.000000e+00, ptr %97, align 8
   %98 = getelementptr inbounds nuw i8, ptr %83, i64 116
   %99 = getelementptr inbounds nuw i8, ptr %83, i64 132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %98, i8 0, i64 16, i1 false)
@@ -1388,7 +1388,7 @@ _ZNSt6vectorIN6Assimp3ASE4MeshESaIS2_EE12emplace_backIJRA8_KcEEERS2_DpOT_.exit: 
   %100 = getelementptr inbounds nuw i8, ptr %83, i64 140
   store float 0.000000e+00, ptr %100, align 4
   %101 = getelementptr inbounds nuw i8, ptr %83, i64 144
-  store float 0.000000e+00, ptr %101, align 4
+  store float 0.000000e+00, ptr %101, align 8
   %102 = getelementptr inbounds nuw i8, ptr %83, i64 148
   %103 = getelementptr inbounds nuw i8, ptr %83, i64 136
   %104 = getelementptr inbounds nuw i8, ptr %83, i64 160
@@ -10076,11 +10076,11 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit20.thread: ; preds = %29, %_ZN6Assimp1
 44:                                               ; preds = %41
   store double 0.000000e+00, ptr %42, align 8
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store float 1.000000e+00, ptr %45, align 4
+  store float 1.000000e+00, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 12
   store float 0.000000e+00, ptr %46, align 4
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  store float 0.000000e+00, ptr %47, align 4
+  store float 0.000000e+00, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %42, i64 20
   store float 0.000000e+00, ptr %48, align 4
   %49 = getelementptr inbounds nuw i8, ptr %42, i64 24
@@ -17375,9 +17375,9 @@ _ZNKSt6vectorIN6Assimp3ASE5DummyESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %2
   store ptr %26, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 48
   store i64 0, ptr %27, align 8
-  store i8 0, ptr %26, align 1
+  store i8 0, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 72
-  store float 1.000000e+00, ptr %28, align 4
+  store float 1.000000e+00, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %20, i64 76
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 92
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %29, i8 0, i64 16, i1 false)
@@ -17385,7 +17385,7 @@ _ZNKSt6vectorIN6Assimp3ASE5DummyESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %2
   %31 = getelementptr inbounds nuw i8, ptr %20, i64 96
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %32, align 4
+  store float 1.000000e+00, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %20, i64 116
   %34 = getelementptr inbounds nuw i8, ptr %20, i64 132
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %33, i8 0, i64 16, i1 false)
@@ -17393,7 +17393,7 @@ _ZNKSt6vectorIN6Assimp3ASE5DummyESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %2
   %35 = getelementptr inbounds nuw i8, ptr %20, i64 140
   store float 0.000000e+00, ptr %35, align 4
   %36 = getelementptr inbounds nuw i8, ptr %20, i64 144
-  store float 0.000000e+00, ptr %36, align 4
+  store float 0.000000e+00, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %20, i64 148
   %38 = getelementptr inbounds nuw i8, ptr %20, i64 136
   %39 = getelementptr inbounds nuw i8, ptr %20, i64 160
@@ -17701,9 +17701,9 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorIN6Assimp3ASE5LightEE9con
   store ptr %38, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i64 0, ptr %39, align 8
-  store i8 0, ptr %38, align 1
+  store i8 0, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store float 1.000000e+00, ptr %40, align 4
+  store float 1.000000e+00, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 92
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %41, i8 0, i64 16, i1 false)
@@ -17711,7 +17711,7 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorIN6Assimp3ASE5LightEE9con
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %44, align 4
+  store float 1.000000e+00, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %45, i8 0, i64 16, i1 false)
@@ -17719,7 +17719,7 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorIN6Assimp3ASE5LightEE9con
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 140
   store float 0.000000e+00, ptr %47, align 4
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  store float 0.000000e+00, ptr %48, align 4
+  store float 0.000000e+00, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 160
@@ -17737,11 +17737,11 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorIN6Assimp3ASE5LightEE9con
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 340
   store i32 0, ptr %56, align 4
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 344
-  store float 1.000000e+00, ptr %57, align 4
+  store float 1.000000e+00, ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 348
   store float 1.000000e+00, ptr %58, align 4
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 352
-  store float 1.000000e+00, ptr %59, align 4
+  store float 1.000000e+00, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 356
   store float 1.000000e+00, ptr %60, align 4
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 360
@@ -18471,9 +18471,9 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorIN6Assimp3ASE6CameraEE9co
   store ptr %38, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i64 0, ptr %39, align 8
-  store i8 0, ptr %38, align 1
+  store i8 0, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store float 1.000000e+00, ptr %40, align 4
+  store float 1.000000e+00, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 92
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %41, i8 0, i64 16, i1 false)
@@ -18481,7 +18481,7 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorIN6Assimp3ASE6CameraEE9co
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %44, align 4
+  store float 1.000000e+00, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %45, i8 0, i64 16, i1 false)
@@ -18489,7 +18489,7 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorIN6Assimp3ASE6CameraEE9co
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 140
   store float 0.000000e+00, ptr %47, align 4
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  store float 0.000000e+00, ptr %48, align 4
+  store float 0.000000e+00, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 160
@@ -18779,7 +18779,7 @@ _ZSt19__relocate_object_aIN6Assimp3ASE4BoneES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i: 
   store i64 %51, ptr %53, align 8, !alias.scope !168, !noalias !171
   store ptr %43, ptr %.0911.i.i.i, align 8, !alias.scope !171, !noalias !168
   store i64 0, ptr %52, align 8, !alias.scope !171, !noalias !168
-  store i8 0, ptr %43, align 1, !alias.scope !171, !noalias !168
+  store i8 0, ptr %43, align 8, !alias.scope !171, !noalias !168
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %54, %1
@@ -18827,7 +18827,7 @@ _ZSt19__relocate_object_aIN6Assimp3ASE4BoneES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i33
   store i64 %67, ptr %69, align 8, !alias.scope !175, !noalias !178
   store ptr %59, ptr %.0911.i.i.i29, align 8, !alias.scope !178, !noalias !175
   store i64 0, ptr %68, align 8, !alias.scope !178, !noalias !175
-  store i8 0, ptr %59, align 1, !alias.scope !178, !noalias !175
+  store i8 0, ptr %59, align 8, !alias.scope !178, !noalias !175
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %.not.i.i.i34 = icmp eq ptr %70, %6
@@ -20913,11 +20913,11 @@ _ZNKSt6vectorI9aiQuatKeySaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   store double 0.000000e+00, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store float 1.000000e+00, ptr %21, align 4
+  store float 1.000000e+00, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 12
   store float 0.000000e+00, ptr %22, align 4
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store float 0.000000e+00, ptr %23, align 4
+  store float 0.000000e+00, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store float 0.000000e+00, ptr %24, align 4
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 24
@@ -21089,7 +21089,7 @@ _ZSt10_ConstructIN6Assimp3ASE4BoneEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %_
   store i64 %52, ptr %53, align 8
   store ptr %43, ptr %.sroa.08.012.i.i.i.i.i, align 8
   store i64 0, ptr %51, align 8
-  store i8 0, ptr %43, align 1
+  store i8 0, ptr %43, align 8
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq ptr %54, %33
@@ -21309,7 +21309,7 @@ _ZSt10_ConstructIN6Assimp3ASE4BoneEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i75: ; preds = 
   store i64 %127, ptr %128, align 8
   store ptr %118, ptr %.sroa.08.012.i.i.i.i.i73, align 8
   store i64 0, ptr %126, align 8
-  store i8 0, ptr %118, align 1
+  store i8 0, ptr %118, align 8
   %129 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i73, i64 32
   %130 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i72, i64 32
   %.not.i.i.i.i.i76 = icmp eq ptr %129, %33
@@ -21423,7 +21423,7 @@ _ZSt10_ConstructIN6Assimp3ASE4BoneEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i95: ; preds = 
   store i64 %171, ptr %172, align 8
   store ptr %162, ptr %.sroa.08.012.i.i.i.i.i93, align 8
   store i64 0, ptr %170, align 8
-  store i8 0, ptr %162, align 1
+  store i8 0, ptr %162, align 8
   %173 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i93, i64 32
   %174 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i92, i64 32
   %.not.i.i.i.i.i96 = icmp eq ptr %173, %1
@@ -21467,7 +21467,7 @@ _ZSt10_ConstructIN6Assimp3ASE4BoneEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i103: ; preds =
   store i64 %187, ptr %188, align 8
   store ptr %178, ptr %.sroa.08.012.i.i.i.i.i101, align 8
   store i64 0, ptr %186, align 8
-  store i8 0, ptr %178, align 1
+  store i8 0, ptr %178, align 8
   %189 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i101, i64 32
   %190 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i100, i64 32
   %.not.i.i.i.i.i104 = icmp eq ptr %189, %11

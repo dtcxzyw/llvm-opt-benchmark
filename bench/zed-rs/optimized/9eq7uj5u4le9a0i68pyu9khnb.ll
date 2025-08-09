@@ -56723,9 +56723,9 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17hecabd5b18629ceadE(ptr 
   %.sroa.4.0..sroa_idx1.i.i = getelementptr inbounds nuw i8, ptr %196, i64 88
   %.sroa.4.0.copyload2.i.i = load i8, ptr %.sroa.4.0..sroa_idx1.i.i, align 8, !noalias !13211
   %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx3.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %196, i64 96
-  %.sroa.6.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx3.sroa_idx.i.i, align 1, !noalias !13211
+  %.sroa.6.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx3.sroa_idx.i.i, align 8, !noalias !13211
   %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx3.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %196, i64 104
-  %.sroa.6.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx3.sroa_idx.i.i, align 1, !noalias !13211
+  %.sroa.6.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx3.sroa_idx.i.i, align 8, !noalias !13211
   %198 = icmp eq i8 %.sroa.4.0.copyload2.i.i, 2
   br i1 %198, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hccc3bb8a6f924978E.exit.i.i._crit_edge", label %199
 
@@ -92267,7 +92267,7 @@ define hidden noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$6insert17h
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21149)
-  %57 = load float, ptr %56, align 4, !alias.scope !21152, !noalias !21161, !noundef !9
+  %57 = load float, ptr %56, align 8, !alias.scope !21152, !noalias !21161, !noundef !9
   %58 = fcmp ugt float %57, %15
   %59 = fcmp ult float %57, %15
   %..i.i.i.i.i = select i1 %59, i8 2, i8 1
@@ -92287,7 +92287,7 @@ define hidden noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$6insert17h
   %switch.i6.i.i = icmp samesign ult i8 %65, -2
   %.sroa.01.0.i.i = select i1 %switch.i6.i.i, float %62, float %17
   %66 = getelementptr inbounds nuw i8, ptr %51, i64 32
-  %67 = load float, ptr %66, align 4, !alias.scope !21179, !noalias !21184, !noundef !9
+  %67 = load float, ptr %66, align 8, !alias.scope !21179, !noalias !21184, !noundef !9
   %68 = fadd float %57, %67
   %69 = getelementptr inbounds nuw i8, ptr %51, i64 36
   %70 = load float, ptr %69, align 4, !alias.scope !21185, !noalias !21184, !noundef !9

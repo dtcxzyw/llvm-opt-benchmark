@@ -1704,7 +1704,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang10RawCommentEjNS_12DenseMapInfoIS4_v
   %57 = load ptr, ptr %1, align 8, !tbaa !428
   store ptr %57, ptr %48, align 8, !tbaa !428
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !3
+  store i32 0, ptr %58, align 8, !tbaa !3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang10RawCommentEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E16InsertIntoBucketIRKS4_JEEEPS9_SF_OT_DpOT0_.exit
@@ -3211,7 +3211,7 @@ _ZSt19__relocate_object_aIN5clang10RawComment11CommentLineES2_SaIS2_EEvPT_PT0_RT
   store i64 %55, ptr %57, align 8, !tbaa !396, !alias.scope !577, !noalias !580
   store ptr %47, ptr %.0911.i.i.i, align 8, !tbaa !401, !alias.scope !580, !noalias !577
   store i64 0, ptr %56, align 8, !tbaa !396, !alias.scope !580, !noalias !577
-  store i8 0, ptr %47, align 1, !tbaa !23, !alias.scope !580, !noalias !577
+  store i8 0, ptr %47, align 8, !tbaa !23, !alias.scope !580, !noalias !577
   %58 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %59 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %58, ptr noundef nonnull align 8 dereferenceable(48) %59, i64 48, i1 false), !alias.scope !582
@@ -3262,7 +3262,7 @@ _ZSt19__relocate_object_aIN5clang10RawComment11CommentLineES2_SaIS2_EEvPT_PT0_RT
   store i64 %73, ptr %75, align 8, !tbaa !396, !alias.scope !584, !noalias !587
   store ptr %65, ptr %.0911.i.i.i21, align 8, !tbaa !401, !alias.scope !587, !noalias !584
   store i64 0, ptr %74, align 8, !tbaa !396, !alias.scope !587, !noalias !584
-  store i8 0, ptr %65, align 1, !tbaa !23, !alias.scope !587, !noalias !584
+  store i8 0, ptr %65, align 8, !tbaa !23, !alias.scope !587, !noalias !584
   %76 = getelementptr inbounds nuw i8, ptr %.012.i.i.i20, i64 32
   %77 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i21, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %76, ptr noundef nonnull align 8 dereferenceable(48) %77, i64 48, i1 false), !alias.scope !589
@@ -3446,7 +3446,7 @@ _ZSt19__relocate_object_aIN5clang10RawComment11CommentLineES2_SaIS2_EEvPT_PT0_RT
   store i64 %61, ptr %63, align 8, !tbaa !396, !alias.scope !590, !noalias !593
   store ptr %53, ptr %.0911.i.i.i, align 8, !tbaa !401, !alias.scope !593, !noalias !590
   store i64 0, ptr %62, align 8, !tbaa !396, !alias.scope !593, !noalias !590
-  store i8 0, ptr %53, align 1, !tbaa !23, !alias.scope !593, !noalias !590
+  store i8 0, ptr %53, align 8, !tbaa !23, !alias.scope !593, !noalias !590
   %64 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %65 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %64, ptr noundef nonnull align 8 dereferenceable(48) %65, i64 48, i1 false), !alias.scope !595
@@ -3497,7 +3497,7 @@ _ZSt19__relocate_object_aIN5clang10RawComment11CommentLineES2_SaIS2_EEvPT_PT0_RT
   store i64 %79, ptr %81, align 8, !tbaa !396, !alias.scope !596, !noalias !599
   store ptr %71, ptr %.0911.i.i.i21, align 8, !tbaa !401, !alias.scope !599, !noalias !596
   store i64 0, ptr %80, align 8, !tbaa !396, !alias.scope !599, !noalias !596
-  store i8 0, ptr %71, align 1, !tbaa !23, !alias.scope !599, !noalias !596
+  store i8 0, ptr %71, align 8, !tbaa !23, !alias.scope !599, !noalias !596
   %82 = getelementptr inbounds nuw i8, ptr %.012.i.i.i20, i64 32
   %83 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i21, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %82, ptr noundef nonnull align 8 dereferenceable(48) %83, i64 48, i1 false), !alias.scope !601
@@ -4212,7 +4212,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang10RawCommentEjNS_12DenseMapInfoIS4_v
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !3
-  store i32 %68, ptr %66, align 4, !tbaa !3
+  store i32 %68, ptr %66, align 8, !tbaa !3
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !455
   br label %70

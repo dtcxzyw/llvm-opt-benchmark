@@ -172,7 +172,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %14
   store i64 %21, ptr %22, align 8, !tbaa !18
   store ptr %12, ptr %4, align 8, !tbaa !17
   store i64 0, ptr %20, align 8, !tbaa !18
-  store i8 0, ptr %12, align 1, !tbaa !19
+  store i8 0, ptr %12, align 8, !tbaa !19
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %5, ptr %23, align 8, !tbaa !20
   ret void
@@ -315,7 +315,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %14
   store i64 %21, ptr %22, align 8, !tbaa !18
   store ptr %12, ptr %4, align 8, !tbaa !17
   store i64 0, ptr %20, align 8, !tbaa !18
-  store i8 0, ptr %12, align 1, !tbaa !19
+  store i8 0, ptr %12, align 8, !tbaa !19
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %5, ptr %23, align 8, !tbaa !20
   ret void
@@ -2703,9 +2703,9 @@ _ZN4llvm11SmallVectorINS_5MachO11fat_arch_64ELj2EEC2ERKS3_.exit.i: ; preds = %.s
   %150 = call noundef i64 @llvm.bswap.i64(i64 %149)
   store i64 %150, ptr %148, align 8, !tbaa !24, !noalias !295
   %151 = getelementptr inbounds nuw i8, ptr %.02637.i, i64 24
-  %152 = load i32, ptr %151, align 4, !tbaa !34, !noalias !295
+  %152 = load i32, ptr %151, align 8, !tbaa !34, !noalias !295
   %153 = call noundef i32 @llvm.bswap.i32(i32 %152)
-  store i32 %153, ptr %151, align 4, !tbaa !34, !noalias !295
+  store i32 %153, ptr %151, align 8, !tbaa !34, !noalias !295
   %154 = getelementptr inbounds nuw i8, ptr %.02637.i, i64 28
   %155 = load i32, ptr %154, align 4, !tbaa !34, !noalias !295
   %156 = call noundef i32 @llvm.bswap.i32(i32 %155)
@@ -2743,9 +2743,9 @@ _ZN4llvm11SmallVectorINS_5MachO11fat_arch_64ELj2EEC2ERKS3_.exit.i: ; preds = %.s
   %173 = call noundef i64 @llvm.bswap.i64(i64 %172)
   store i64 %173, ptr %171, align 8, !tbaa !24, !noalias !295
   %174 = getelementptr inbounds nuw i8, ptr %.02739.i, i64 24
-  %175 = load i32, ptr %174, align 4, !tbaa !34, !noalias !295
+  %175 = load i32, ptr %174, align 8, !tbaa !34, !noalias !295
   %176 = call noundef i32 @llvm.bswap.i32(i32 %175)
-  store i32 %176, ptr %174, align 4, !tbaa !34, !noalias !295
+  store i32 %176, ptr %174, align 8, !tbaa !34, !noalias !295
   %177 = getelementptr inbounds nuw i8, ptr %.02739.i, i64 28
   %178 = load i32, ptr %177, align 4, !tbaa !34, !noalias !295
   %179 = call noundef i32 @llvm.bswap.i32(i32 %178)

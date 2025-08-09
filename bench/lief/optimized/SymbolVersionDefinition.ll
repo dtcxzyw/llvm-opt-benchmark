@@ -449,14 +449,14 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF3ELFlsERSoRKNS0_2
   %8 = load i32, ptr %7, align 8, !tbaa !56
   %9 = and i32 %8, -75
   %10 = or disjoint i32 %9, 8
-  store i32 %10, ptr %7, align 4, !tbaa !65
+  store i32 %10, ptr %7, align 8, !tbaa !65
   %11 = load i64, ptr %4, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load i32, ptr %13, align 8, !tbaa !56
   %15 = and i32 %14, -177
   %16 = or disjoint i32 %15, 32
-  store i32 %16, ptr %13, align 4, !tbaa !65
+  store i32 %16, ptr %13, align 8, !tbaa !65
   %17 = load i64, ptr %4, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16

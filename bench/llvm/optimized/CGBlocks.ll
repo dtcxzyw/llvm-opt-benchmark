@@ -14776,7 +14776,7 @@ _ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i: ; preds 
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %.val8.i.i.i = load i32, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %42, i64 48
-  %.val9.i.i.i = load i32, ptr %48, align 4
+  %.val9.i.i.i = load i32, ptr %48, align 8
   %switch.tableidx111 = add i32 %.val9.i.i.i, -3
   %49 = icmp ult i32 %switch.tableidx111, 6
   %50 = zext nneg i32 %switch.tableidx111 to i64
@@ -14885,7 +14885,7 @@ _ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i42: ; pred
   %81 = getelementptr inbounds nuw i8, ptr %75, i64 40
   %.val.i.i.i43 = load i32, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %75, i64 48
-  %.val7.i.i.i44 = load i32, ptr %82, align 4
+  %.val7.i.i.i44 = load i32, ptr %82, align 8
   %switch.tableidx115 = add i32 %.val7.i.i.i44, -3
   %83 = icmp ult i32 %switch.tableidx115, 6
   %84 = zext nneg i32 %switch.tableidx115 to i64
@@ -15410,7 +15410,7 @@ _ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i: ; preds 
   %103 = getelementptr inbounds nuw i8, ptr %98, i64 40
   %.val8.i.i.i75 = load i32, ptr %103, align 8
   %104 = getelementptr inbounds nuw i8, ptr %98, i64 48
-  %.val9.i.i.i76 = load i32, ptr %104, align 4
+  %.val9.i.i.i76 = load i32, ptr %104, align 8
   %switch.tableidx188 = add i32 %.val9.i.i.i76, -3
   %105 = icmp ult i32 %switch.tableidx188, 6
   %106 = zext nneg i32 %switch.tableidx188 to i64
@@ -15519,7 +15519,7 @@ _ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i90: ; pred
   %137 = getelementptr inbounds nuw i8, ptr %131, i64 40
   %.val.i.i.i91 = load i32, ptr %137, align 8
   %138 = getelementptr inbounds nuw i8, ptr %131, i64 48
-  %.val7.i.i.i92 = load i32, ptr %138, align 4
+  %.val7.i.i.i92 = load i32, ptr %138, align 8
   %switch.tableidx192 = add i32 %.val7.i.i.i92, -3
   %139 = icmp ult i32 %switch.tableidx192, 6
   %140 = zext nneg i32 %switch.tableidx192 to i64

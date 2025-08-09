@@ -2834,7 +2834,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit:       ; preds = %124, %112
   store ptr null, ptr %121, align 8, !tbaa !219
   %135 = getelementptr inbounds nuw i8, ptr %128, i64 32
   %136 = load i64, ptr %122, align 16, !tbaa !82
-  store i64 %136, ptr %135, align 8, !tbaa !82
+  store i64 %136, ptr %135, align 16, !tbaa !82
   store i64 55, ptr %122, align 16, !tbaa !82
   %137 = getelementptr inbounds nuw i8, ptr %128, i64 40
   %138 = load ptr, ptr %127, align 8, !tbaa !253
@@ -6161,7 +6161,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit:       ; preds = %84, %_ZN4absl12lts_
   store ptr null, ptr %81, align 8, !tbaa !219
   %95 = getelementptr inbounds nuw i8, ptr %88, i64 32
   %96 = load i64, ptr %82, align 16, !tbaa !82
-  store i64 %96, ptr %95, align 8, !tbaa !82
+  store i64 %96, ptr %95, align 16, !tbaa !82
   store i64 55, ptr %82, align 16, !tbaa !82
   %97 = getelementptr inbounds nuw i8, ptr %88, i64 40
   %98 = load ptr, ptr %87, align 8, !tbaa !319
@@ -6529,7 +6529,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit114:    ; preds = %231, %219
   store ptr null, ptr %228, align 8, !tbaa !219
   %242 = getelementptr inbounds nuw i8, ptr %235, i64 32
   %243 = load i64, ptr %229, align 16, !tbaa !82
-  store i64 %243, ptr %242, align 8, !tbaa !82
+  store i64 %243, ptr %242, align 16, !tbaa !82
   store i64 55, ptr %229, align 16, !tbaa !82
   %244 = getelementptr inbounds nuw i8, ptr %235, i64 40
   %245 = load ptr, ptr %234, align 8, !tbaa !327

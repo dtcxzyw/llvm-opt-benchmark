@@ -1505,13 +1505,13 @@ define void @_ZN5boost9iostreams18mapped_file_sourceC2Ev(ptr noundef nonnull ali
   store ptr %6, ptr %5, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i64 0, ptr %7, align 8, !tbaa !13
-  store i8 0, ptr %6, align 1, !tbaa !15
+  store i8 0, ptr %6, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store ptr %9, ptr %8, align 8, !tbaa !16
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i64 0, ptr %10, align 8, !tbaa !18
-  store i32 0, ptr %9, align 4, !tbaa !20
+  store i32 0, ptr %9, align 8, !tbaa !20
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i8 0, ptr %11, align 8, !tbaa !22
   invoke void @_ZN5boost9iostreams6detail16mapped_file_impl5clearEb(ptr noundef nonnull align 8 dereferenceable(133) %2, i1 noundef zeroext false)
@@ -1703,13 +1703,13 @@ define void @_ZN5boost9iostreams18mapped_file_source4initEv(ptr noundef nonnull 
   store ptr %6, ptr %5, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i64 0, ptr %7, align 8, !tbaa !13
-  store i8 0, ptr %6, align 1, !tbaa !15
+  store i8 0, ptr %6, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store ptr %9, ptr %8, align 8, !tbaa !16
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i64 0, ptr %10, align 8, !tbaa !18
-  store i32 0, ptr %9, align 4, !tbaa !20
+  store i32 0, ptr %9, align 8, !tbaa !20
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i8 0, ptr %11, align 8, !tbaa !22
   invoke void @_ZN5boost9iostreams6detail16mapped_file_impl5clearEb(ptr noundef nonnull align 8 dereferenceable(133) %2, i1 noundef zeroext false)

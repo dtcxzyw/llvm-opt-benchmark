@@ -4057,7 +4057,7 @@ define internal fastcc void @factorized_draw(ptr noundef %0, ptr noundef %1, i32
   %52 = load i32, ptr %28, align 8, !tbaa !98
   %spec.select = call i32 @llvm.umax.i32(i32 %52, i32 %50)
   %53 = getelementptr inbounds nuw i8, ptr %10, i64 352
-  store i32 0, ptr %53, align 4, !tbaa !93
+  store i32 0, ptr %53, align 8, !tbaa !93
   %54 = getelementptr inbounds nuw i8, ptr %10, i64 216
   store i32 0, ptr %54, align 8, !tbaa !135
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 1592
@@ -4099,7 +4099,7 @@ define internal fastcc void @factorized_draw(ptr noundef %0, ptr noundef %1, i32
   %74 = load i32, ptr %73, align 8, !tbaa !135
   %75 = getelementptr inbounds nuw i8, ptr %10, i64 220
   %76 = getelementptr inbounds nuw i8, ptr %10, i64 352
-  %77 = load i32, ptr %76, align 4, !tbaa !93
+  %77 = load i32, ptr %76, align 8, !tbaa !93
   call fastcc void @lstopo_set_object_color(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %7)
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %79 = load ptr, ptr %78, align 8, !tbaa !120

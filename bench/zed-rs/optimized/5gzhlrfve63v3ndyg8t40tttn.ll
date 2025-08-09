@@ -99319,11 +99319,11 @@ _ZN3vim9surrounds18find_surround_pair17h8d53ac92938eca67E.exit: ; preds = %"_ZN7
   call void @llvm.experimental.noalias.scope.decl(metadata !21091)
   %256 = load i64, ptr %.sroa.0103.0196, align 8, !alias.scope !21091, !noalias !21088, !noundef !22
   %257 = getelementptr inbounds nuw i8, ptr %.sroa.0103.0196, i64 8
-  %.val2.i = load i32, ptr %257, align 4, !alias.scope !21091, !noalias !21088, !noundef !22
+  %.val2.i = load i32, ptr %257, align 8, !alias.scope !21091, !noalias !21088, !noundef !22
   %258 = getelementptr inbounds nuw i8, ptr %.sroa.0103.0196, i64 12
   %.val3.i = load i32, ptr %258, align 4, !alias.scope !21091, !noalias !21088, !noundef !22
   %259 = getelementptr inbounds nuw i8, ptr %.sroa.0103.0196, i64 16
-  %.val.i72 = load i32, ptr %259, align 4, !alias.scope !21091, !noalias !21088, !noundef !22
+  %.val.i72 = load i32, ptr %259, align 8, !alias.scope !21091, !noalias !21088, !noundef !22
   %260 = getelementptr inbounds nuw i8, ptr %.sroa.0103.0196, i64 20
   %.val1.i = load i32, ptr %260, align 4, !alias.scope !21091, !noalias !21088, !noundef !22
   %261 = getelementptr inbounds nuw i8, ptr %.sroa.0103.0196, i64 36
@@ -99412,11 +99412,11 @@ _ZN3vim9surrounds18find_surround_pair17h8d53ac92938eca67E.exit: ; preds = %"_ZN7
   call void @llvm.experimental.noalias.scope.decl(metadata !21104)
   %289 = load i64, ptr %.sroa.0103.0196, align 8, !alias.scope !21104, !noalias !21101, !noundef !22
   %290 = getelementptr inbounds nuw i8, ptr %.sroa.0103.0196, i64 8
-  %.val2.i73 = load i32, ptr %290, align 4, !alias.scope !21104, !noalias !21101, !noundef !22
+  %.val2.i73 = load i32, ptr %290, align 8, !alias.scope !21104, !noalias !21101, !noundef !22
   %291 = getelementptr inbounds nuw i8, ptr %.sroa.0103.0196, i64 12
   %.val3.i74 = load i32, ptr %291, align 4, !alias.scope !21104, !noalias !21101, !noundef !22
   %292 = getelementptr inbounds nuw i8, ptr %.sroa.0103.0196, i64 16
-  %.val.i75 = load i32, ptr %292, align 4, !alias.scope !21104, !noalias !21101, !noundef !22
+  %.val.i75 = load i32, ptr %292, align 8, !alias.scope !21104, !noalias !21101, !noundef !22
   %293 = getelementptr inbounds nuw i8, ptr %.sroa.0103.0196, i64 20
   %.val1.i76 = load i32, ptr %293, align 4, !alias.scope !21104, !noalias !21101, !noundef !22
   %294 = getelementptr inbounds nuw i8, ptr %.sroa.0103.0196, i64 36
@@ -100113,10 +100113,10 @@ define hidden void @"_ZN3vim9surrounds26_$LT$impl$u20$vim..Vim$GT$16delete_surro
   call void @llvm.experimental.noalias.scope.decl(metadata !21230)
   call void @llvm.experimental.noalias.scope.decl(metadata !21233)
   %147 = load i64, ptr %.sroa.0110.0198, align 8, !alias.scope !21233, !noalias !21230, !noundef !22
-  %.val2.i = load i32, ptr %84, align 4, !alias.scope !21233, !noalias !21230, !noundef !22
+  %.val2.i = load i32, ptr %84, align 8, !alias.scope !21233, !noalias !21230, !noundef !22
   %.val3.i = load i32, ptr %86, align 4, !alias.scope !21233, !noalias !21230, !noundef !22
   %148 = getelementptr inbounds nuw i8, ptr %.sroa.0110.0198, i64 16
-  %.val.i63 = load i32, ptr %148, align 4, !alias.scope !21233, !noalias !21230, !noundef !22
+  %.val.i63 = load i32, ptr %148, align 8, !alias.scope !21233, !noalias !21230, !noundef !22
   %149 = getelementptr inbounds nuw i8, ptr %.sroa.0110.0198, i64 20
   %.val1.i = load i32, ptr %149, align 4, !alias.scope !21233, !noalias !21230, !noundef !22
   %150 = getelementptr inbounds nuw i8, ptr %.sroa.0110.0198, i64 36
@@ -101862,10 +101862,10 @@ _ZN3vim9surrounds18find_surround_pair17h8d53ac92938eca67E.exit: ; preds = %"_ZN7
   call void @llvm.experimental.noalias.scope.decl(metadata !21644)
   call void @llvm.experimental.noalias.scope.decl(metadata !21647)
   %336 = load i64, ptr %.sroa.0194.0306, align 8, !alias.scope !21647, !noalias !21644, !noundef !22
-  %.val2.i = load i32, ptr %240, align 4, !alias.scope !21647, !noalias !21644, !noundef !22
+  %.val2.i = load i32, ptr %240, align 8, !alias.scope !21647, !noalias !21644, !noundef !22
   %.val3.i = load i32, ptr %242, align 4, !alias.scope !21647, !noalias !21644, !noundef !22
   %337 = getelementptr inbounds nuw i8, ptr %.sroa.0194.0306, i64 16
-  %.val.i108 = load i32, ptr %337, align 4, !alias.scope !21647, !noalias !21644, !noundef !22
+  %.val.i108 = load i32, ptr %337, align 8, !alias.scope !21647, !noalias !21644, !noundef !22
   %338 = getelementptr inbounds nuw i8, ptr %.sroa.0194.0306, i64 20
   %.val1.i = load i32, ptr %338, align 4, !alias.scope !21647, !noalias !21644, !noundef !22
   %339 = getelementptr inbounds nuw i8, ptr %.sroa.0194.0306, i64 36
@@ -103467,10 +103467,10 @@ define hidden void @"_ZN3vim9surrounds26_$LT$impl$u20$vim..Vim$GT$36check_and_mo
   call void @llvm.experimental.noalias.scope.decl(metadata !21963)
   call void @llvm.experimental.noalias.scope.decl(metadata !21966)
   %104 = load i64, ptr %.sroa.054.091, align 8, !alias.scope !21966, !noalias !21963, !noundef !22
-  %.val2.i = load i32, ptr %53, align 4, !alias.scope !21966, !noalias !21963, !noundef !22
+  %.val2.i = load i32, ptr %53, align 8, !alias.scope !21966, !noalias !21963, !noundef !22
   %.val3.i = load i32, ptr %55, align 4, !alias.scope !21966, !noalias !21963, !noundef !22
   %105 = getelementptr inbounds nuw i8, ptr %.sroa.054.091, i64 16
-  %.val.i33 = load i32, ptr %105, align 4, !alias.scope !21966, !noalias !21963, !noundef !22
+  %.val.i33 = load i32, ptr %105, align 8, !alias.scope !21966, !noalias !21963, !noundef !22
   %106 = getelementptr inbounds nuw i8, ptr %.sroa.054.091, i64 20
   %.val1.i = load i32, ptr %106, align 4, !alias.scope !21966, !noalias !21963, !noundef !22
   %107 = getelementptr inbounds nuw i8, ptr %.sroa.054.091, i64 36

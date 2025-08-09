@@ -393,7 +393,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_light17h56cd9baf47bc31b1E.exit28.i.backedg
   %.sroa.427.0.copyload = load i32, ptr %.sroa.427.0..val.sroa_idx, align 8, !noalias !10
   %.sroa.528.0..val.sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(84) %.sroa.528, ptr noundef nonnull align 4 dereferenceable(84) %.sroa.528.0..val.sroa_idx, i64 84, i1 false)
-  store atomic i64 %76, ptr %74 release, align 8, !noalias !10
+  store atomic i64 %76, ptr %74 release, align 16, !noalias !10
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 256
   call fastcc void @_ZN3std4sync4mpmc5waker9SyncWaker6notify17h0bf8693799c96025E(ptr noundef nonnull align 8 %77), !noalias !10
   call void @llvm.experimental.noalias.scope.decl(metadata !13)
@@ -880,7 +880,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_light17h56cd9baf47bc31b1E.exit28.i: ; pred
   store i32 %.sroa.5.0.copyload38, ptr %.sroa.5.0..val17.sroa_idx, align 8, !noalias !73
   %.sroa.6.0..val17.sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(84) %.sroa.6.0..val17.sroa_idx, ptr noundef nonnull align 4 dereferenceable(84) %.sroa.6.0..sroa_idx39, i64 84, i1 false)
-  store atomic i64 %85, ptr %84 release, align 8, !noalias !76
+  store atomic i64 %85, ptr %84 release, align 16, !noalias !76
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 320
   call fastcc void @_ZN3std4sync4mpmc5waker9SyncWaker6notify17h0bf8693799c96025E(ptr noundef nonnull align 8 %86), !noalias !76
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h6a5269c8ad829d64E.exit"

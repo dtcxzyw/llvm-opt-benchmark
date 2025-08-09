@@ -1028,7 +1028,7 @@ lfe_downsample.exit:                              ; preds = %177
   %232 = load ptr, ptr %186, align 8, !tbaa !94
   %233 = load ptr, ptr %187, align 8, !tbaa !95
   call void %232(ptr noundef %233, ptr noundef nonnull %7, ptr noundef nonnull %6, i64 noundef 4) #11
-  %234 = load i32, ptr %189, align 4, !tbaa !27
+  %234 = load i32, ptr %189, align 8, !tbaa !27
   br label %235
 
 235:                                              ; preds = %get_cb.exit.i.i.i, %231
@@ -1829,9 +1829,9 @@ shift_history.exit:                               ; preds = %._crit_edge.us.i, %
   %582 = load i64, ptr %581, align 1, !tbaa !50
   store i64 %582, ptr %580, align 8, !tbaa !50
   %583 = getelementptr inbounds nuw i8, ptr %580, i64 24
-  %584 = load i64, ptr %583, align 1, !tbaa !50
+  %584 = load i64, ptr %583, align 8, !tbaa !50
   %585 = getelementptr inbounds nuw i8, ptr %580, i64 8
-  store i64 %584, ptr %585, align 1, !tbaa !50
+  store i64 %584, ptr %585, align 8, !tbaa !50
   br label %ff_dca_core_dequantize.exit.i
 
 ff_dca_core_dequantize.exit.i:                    ; preds = %.split.i.i, %.split.us.i.i, %579

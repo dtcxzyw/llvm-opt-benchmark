@@ -606,7 +606,7 @@ define hidden void @luaD_hook(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 196
   store i32 %3, ptr %28, align 4, !tbaa !51
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store i32 %4, ptr %29, align 4, !tbaa !52
+  store i32 %4, ptr %29, align 8, !tbaa !52
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 60
   %31 = load i32, ptr %30, align 4, !tbaa !43
   %32 = and i32 %31, 32768
@@ -733,7 +733,7 @@ define hidden void @luaD_hookcall(ptr noundef initializes((180, 184)) %0, ptr no
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 196
   store i32 1, ptr %44, align 4, !tbaa !51
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store i32 %22, ptr %45, align 4, !tbaa !52
+  store i32 %22, ptr %45, align 8, !tbaa !52
   %46 = getelementptr inbounds nuw i8, ptr %30, i64 60
   %47 = load i32, ptr %46, align 4, !tbaa !43
   %48 = and i32 %47, 32768
@@ -1085,7 +1085,7 @@ define internal fastcc void @rethook(ptr noundef %0, ptr noundef captures(none) 
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 196
   store i32 %39, ptr %60, align 4, !tbaa !51
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store i32 %2, ptr %61, align 4, !tbaa !52
+  store i32 %2, ptr %61, align 8, !tbaa !52
   %62 = getelementptr inbounds nuw i8, ptr %47, i64 60
   %63 = load i32, ptr %62, align 4, !tbaa !43
   %64 = and i32 %63, 32768

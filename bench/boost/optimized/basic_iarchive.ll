@@ -1730,7 +1730,7 @@ _ZNSt8_Rb_treeIN5boost7archive6detail19basic_iarchive_impl12cobject_typeES4_St9_
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %43 = load i16, ptr %42, align 8, !tbaa !17
-  store i16 %43, ptr %41, align 2, !tbaa !17
+  store i16 %43, ptr %41, align 8, !tbaa !17
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %37, ptr noundef nonnull %38, ptr noundef nonnull %.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %4) #26
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %45 = load i64, ptr %44, align 8, !tbaa !75
@@ -1792,11 +1792,11 @@ _ZNKSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE12
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %28 = load i32, ptr %27, align 8, !tbaa !44
-  store i32 %28, ptr %26, align 4, !tbaa !44
+  store i32 %28, ptr %26, align 8, !tbaa !44
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 20
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %31 = load i8, ptr %30, align 4, !tbaa !43, !range !12, !noundef !13
-  store i8 %31, ptr %29, align 1, !tbaa !43
+  store i8 %31, ptr %29, align 4, !tbaa !43
   %32 = getelementptr inbounds nuw i8, ptr %21, i64 21
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 21
   %34 = load i8, ptr %33, align 1, !tbaa !3, !range !12, !noundef !13
@@ -1815,12 +1815,12 @@ _ZNKSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE12
   store ptr %38, ptr %36, align 8, !tbaa !85
   %39 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 16
-  %41 = load i32, ptr %40, align 4, !tbaa !44
-  store i32 %41, ptr %39, align 4, !tbaa !44
+  %41 = load i32, ptr %40, align 8, !tbaa !44
+  store i32 %41, ptr %39, align 8, !tbaa !44
   %42 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 20
   %43 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 20
-  %44 = load i8, ptr %43, align 1, !tbaa !43, !range !12, !noundef !13
-  store i8 %44, ptr %42, align 1, !tbaa !43
+  %44 = load i8, ptr %43, align 4, !tbaa !43, !range !12, !noundef !13
+  store i8 %44, ptr %42, align 4, !tbaa !43
   %45 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 21
   %46 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 21
   %47 = load i8, ptr %46, align 1, !tbaa !3, !range !12, !noundef !13
@@ -1847,12 +1847,12 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5boost7archive6detail19basic_iarchive
   store ptr %54, ptr %52, align 8, !tbaa !85
   %55 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i30, i64 16
   %56 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i31, i64 16
-  %57 = load i32, ptr %56, align 4, !tbaa !44
-  store i32 %57, ptr %55, align 4, !tbaa !44
+  %57 = load i32, ptr %56, align 8, !tbaa !44
+  store i32 %57, ptr %55, align 8, !tbaa !44
   %58 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i30, i64 20
   %59 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i31, i64 20
-  %60 = load i8, ptr %59, align 1, !tbaa !43, !range !12, !noundef !13
-  store i8 %60, ptr %58, align 1, !tbaa !43
+  %60 = load i8, ptr %59, align 4, !tbaa !43, !range !12, !noundef !13
+  store i8 %60, ptr %58, align 4, !tbaa !43
   %61 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i30, i64 21
   %62 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i31, i64 21
   %63 = load i8, ptr %62, align 1, !tbaa !3, !range !12, !noundef !13

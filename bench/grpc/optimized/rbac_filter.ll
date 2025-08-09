@@ -485,7 +485,7 @@ _ZN9grpc_core12EvaluateArgs14PerChannelArgs7AddressC2EOS2_.exit.i: ; preds = %_Z
   store i64 %43, ptr %44, align 8, !tbaa !56
   store ptr %34, ptr %31, align 8, !tbaa !55
   store i64 0, ptr %42, align 8, !tbaa !56
-  store i8 0, ptr %34, align 1, !tbaa !57
+  store i8 0, ptr %34, align 8, !tbaa !57
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %47 = load i32, ptr %46, align 8, !tbaa !69
@@ -524,7 +524,7 @@ _ZN9grpc_core12EvaluateArgs14PerChannelArgsC2EOS1_.exit: ; preds = %56, %_ZNKSt7
   store i64 %63, ptr %64, align 8, !tbaa !56
   store ptr %54, ptr %51, align 8, !tbaa !55
   store i64 0, ptr %62, align 8, !tbaa !56
-  store i8 0, ptr %54, align 1, !tbaa !57
+  store i8 0, ptr %54, align 8, !tbaa !57
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 456
   %67 = load i32, ptr %66, align 8, !tbaa !69
@@ -2768,7 +2768,7 @@ define linkonce_odr void @_ZN9grpc_core20arena_promise_detail7InlinedISt10unique
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !119
   %.not.i.i = icmp ne ptr %3, null
-  %4 = load i8, ptr %0, align 1, !range !145
+  %4 = load i8, ptr %0, align 8, !range !145
   %5 = trunc nuw i8 %4 to i1
   %or.cond.i.i = select i1 %.not.i.i, i1 %5, i1 false
   br i1 %or.cond.i.i, label %6, label %_ZN9grpc_core14promise_detail9ImmediateISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit

@@ -1221,7 +1221,7 @@ _ZNK3gmx8internal23AnalysisDataStorageImpl23shouldNotifyImmediatelyEv.exit.threa
 
 90:                                               ; preds = %._crit_edge, %58
   store i32 3, ptr %40, align 8, !tbaa !64
-  %91 = load i32, ptr %35, align 4, !tbaa !30
+  %91 = load i32, ptr %35, align 8, !tbaa !30
   %92 = load i32, ptr %50, align 8, !tbaa !34
   %.not = icmp slt i32 %91, %92
   br i1 %.not, label %94, label %93
@@ -2323,7 +2323,7 @@ define void @_ZN3gmx24AnalysisDataStorageFrame11finishFrameEv(ptr noundef nonnul
 4:                                                ; preds = %1
   %5 = load ptr, ptr %2, align 8, !tbaa !83
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %7 = load i32, ptr %6, align 4, !tbaa !30
+  %7 = load i32, ptr %6, align 8, !tbaa !30
   tail call void @_ZN3gmx8internal23AnalysisDataStorageImpl11finishFrameEi(ptr noundef nonnull align 8 dereferenceable(92) %5, i32 noundef %7)
   ret void
 }

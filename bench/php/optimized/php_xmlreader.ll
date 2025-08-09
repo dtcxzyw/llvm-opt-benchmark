@@ -1389,7 +1389,7 @@ zend_string_release.exit211.i:                    ; preds = %491, %490, %483, %z
   %497 = getelementptr inbounds nuw i8, ptr %493, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %497, ptr noundef nonnull align 1 dereferenceable(14) @.str.28, i64 14, i1 false)
   %498 = getelementptr inbounds nuw i8, ptr %493, i64 38
-  store i8 0, ptr %498, align 1, !tbaa !8
+  store i8 0, ptr %498, align 2, !tbaa !8
   store ptr null, ptr %63, align 8, !tbaa !47
   %499 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 16, ptr %499, align 8, !tbaa !49
@@ -1585,7 +1585,7 @@ zend_string_release.exit223.i:                    ; preds = %575, %574, %567, %z
   %581 = getelementptr inbounds nuw i8, ptr %577, i64 24
   store i64 7310868735423897960, ptr %581, align 8
   %582 = getelementptr inbounds nuw i8, ptr %577, i64 32
-  store i8 0, ptr %582, align 1, !tbaa !8
+  store i8 0, ptr %582, align 8, !tbaa !8
   store ptr null, ptr %71, align 8, !tbaa !47
   %583 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store i32 12, ptr %583, align 8, !tbaa !49
@@ -1683,7 +1683,7 @@ zend_string_release.exit229.i:                    ; preds = %617, %616, %609, %z
   %623 = getelementptr inbounds nuw i8, ptr %619, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %623, ptr noundef nonnull align 1 dereferenceable(14) @.str.40, i64 14, i1 false)
   %624 = getelementptr inbounds nuw i8, ptr %619, i64 38
-  store i8 0, ptr %624, align 1, !tbaa !8
+  store i8 0, ptr %624, align 2, !tbaa !8
   store ptr null, ptr %75, align 8, !tbaa !47
   %625 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store i32 12, ptr %625, align 8, !tbaa !49
@@ -1793,7 +1793,7 @@ zend_string_release.exit235.i:                    ; preds = %659, %658, %651, %z
   %672 = getelementptr inbounds nuw i8, ptr %668, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %672, ptr noundef nonnull align 1 dereferenceable(12) @.str.46, i64 12, i1 false)
   %673 = getelementptr inbounds nuw i8, ptr %668, i64 36
-  store i8 0, ptr %673, align 1, !tbaa !8
+  store i8 0, ptr %673, align 4, !tbaa !8
   store ptr null, ptr %81, align 8, !tbaa !47
   %674 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store i32 64, ptr %674, align 8, !tbaa !49
@@ -1842,7 +1842,7 @@ zend_string_release.exit238.i:                    ; preds = %687, %686, %679, %z
   %693 = getelementptr inbounds nuw i8, ptr %689, i64 24
   store i64 7309475598607609710, ptr %693, align 8
   %694 = getelementptr inbounds nuw i8, ptr %689, i64 32
-  store i8 0, ptr %694, align 1, !tbaa !8
+  store i8 0, ptr %694, align 8, !tbaa !8
   store ptr null, ptr %83, align 8, !tbaa !47
   %695 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store i32 16, ptr %695, align 8, !tbaa !49
@@ -1891,7 +1891,7 @@ zend_string_release.exit241.i:                    ; preds = %708, %707, %700, %z
   %714 = getelementptr inbounds nuw i8, ptr %710, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %714, ptr noundef nonnull align 1 dereferenceable(6) @.str.50, i64 6, i1 false)
   %715 = getelementptr inbounds nuw i8, ptr %710, i64 30
-  store i8 0, ptr %715, align 1, !tbaa !8
+  store i8 0, ptr %715, align 2, !tbaa !8
   store ptr null, ptr %85, align 8, !tbaa !47
   %716 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store i32 64, ptr %716, align 8, !tbaa !49

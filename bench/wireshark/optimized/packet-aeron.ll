@@ -3011,7 +3011,7 @@ copy_address_wmem.exit.i.i:                       ; preds = %153, %.loopexit.i.i
   %160 = getelementptr inbounds nuw i8, ptr %145, i64 28
   store i32 0, ptr %160, align 4
   %161 = getelementptr inbounds nuw i8, ptr %145, i64 32
-  store i32 0, ptr %161, align 4
+  store i32 0, ptr %161, align 8
   %162 = getelementptr inbounds nuw i8, ptr %145, i64 36
   store i32 0, ptr %162, align 4
   %163 = load ptr, ptr %95, align 8
@@ -3106,7 +3106,7 @@ aeron_stream_rcv_add.exit.i:                      ; preds = %aeron_stream_rcv_ad
   store i32 %200, ptr %84, align 8
   store i32 %spec.select.i, ptr %82, align 4
   %201 = getelementptr inbounds nuw i8, ptr %.039, i64 64
-  store i32 %spec.select221.i, ptr %201, align 4
+  store i32 %spec.select221.i, ptr %201, align 8
   br label %223
 
 202:                                              ; preds = %aeron_stream_rcv_add.exit.i

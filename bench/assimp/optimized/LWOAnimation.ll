@@ -2342,11 +2342,11 @@ _ZNSt6vectorI11aiVectorKeySaIS0_EED2Ev.exit77:    ; preds = %178, %181
   %214 = phi ptr [ %208, %211 ], [ %220, %213 ]
   store double 0.000000e+00, ptr %214, align 8
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 8
-  store float 1.000000e+00, ptr %215, align 4
+  store float 1.000000e+00, ptr %215, align 8
   %216 = getelementptr inbounds nuw i8, ptr %214, i64 12
   store float 0.000000e+00, ptr %216, align 4
   %217 = getelementptr inbounds nuw i8, ptr %214, i64 16
-  store float 0.000000e+00, ptr %217, align 4
+  store float 0.000000e+00, ptr %217, align 8
   %218 = getelementptr inbounds nuw i8, ptr %214, i64 20
   store float 0.000000e+00, ptr %218, align 4
   %219 = getelementptr inbounds nuw i8, ptr %214, i64 24

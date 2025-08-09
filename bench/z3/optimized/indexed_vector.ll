@@ -2332,10 +2332,10 @@ define linkonce_odr hidden noundef ptr @_ZNSt20__copy_move_backwardILb1ELb0ESt26
   store i8 %35, ptr %20, align 4
   %36 = getelementptr inbounds i8, ptr %.069, i64 -16
   %37 = getelementptr inbounds i8, ptr %.078, i64 -16
-  %38 = load i32, ptr %36, align 4, !tbaa !9
-  %39 = load i32, ptr %37, align 4, !tbaa !9
-  store i32 %39, ptr %36, align 4, !tbaa !9
-  store i32 %38, ptr %37, align 4, !tbaa !9
+  %38 = load i32, ptr %36, align 8, !tbaa !9
+  %39 = load i32, ptr %37, align 8, !tbaa !9
+  store i32 %39, ptr %36, align 8, !tbaa !9
+  store i32 %38, ptr %37, align 8, !tbaa !9
   %40 = getelementptr inbounds i8, ptr %.069, i64 -8
   %41 = getelementptr inbounds i8, ptr %.078, i64 -8
   %42 = load ptr, ptr %40, align 8, !tbaa !87

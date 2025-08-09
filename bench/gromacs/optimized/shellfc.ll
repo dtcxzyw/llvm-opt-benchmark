@@ -2061,7 +2061,7 @@ define linkonce_odr void @_ZN3gmx19changePinningPolicyINS_12PaddedVectorINS_11Ba
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 5, i1 false)
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i = trunc nuw i64 %.sroa.0.0.insert.insert to i40
-  store i40 %.sroa.0.0.extract.trunc.i.i.i.i.i.i, ptr %0, align 4
+  store i40 %.sroa.0.0.extract.trunc.i.i.i.i.i.i, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i64, ptr %17, align 8, !tbaa !160
   %19 = inttoptr i64 %18 to ptr

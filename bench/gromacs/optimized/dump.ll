@@ -321,43 +321,43 @@ _ZNSt10unique_ptrIN3gmx12_GLOBAL__N_14DumpESt14default_deleteIS2_EED2Ev.exit:
   store ptr %7, ptr %6, align 8, !tbaa !23, !noalias !4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 0, ptr %8, align 8, !tbaa !24, !noalias !4
-  store i8 0, ptr %7, align 1, !tbaa !25, !noalias !4
+  store i8 0, ptr %7, align 8, !tbaa !25, !noalias !4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %10, ptr %9, align 8, !tbaa !23, !noalias !4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i64 0, ptr %11, align 8, !tbaa !24, !noalias !4
-  store i8 0, ptr %10, align 1, !tbaa !25, !noalias !4
+  store i8 0, ptr %10, align 8, !tbaa !25, !noalias !4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store ptr %13, ptr %12, align 8, !tbaa !23, !noalias !4
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store i64 0, ptr %14, align 8, !tbaa !24, !noalias !4
-  store i8 0, ptr %13, align 1, !tbaa !25, !noalias !4
+  store i8 0, ptr %13, align 8, !tbaa !25, !noalias !4
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr %16, ptr %15, align 8, !tbaa !23, !noalias !4
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i64 0, ptr %17, align 8, !tbaa !24, !noalias !4
-  store i8 0, ptr %16, align 1, !tbaa !25, !noalias !4
+  store i8 0, ptr %16, align 8, !tbaa !25, !noalias !4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr %19, ptr %18, align 8, !tbaa !23, !noalias !4
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 152
   store i64 0, ptr %20, align 8, !tbaa !24, !noalias !4
-  store i8 0, ptr %19, align 1, !tbaa !25, !noalias !4
+  store i8 0, ptr %19, align 8, !tbaa !25, !noalias !4
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 192
   store ptr %22, ptr %21, align 8, !tbaa !23, !noalias !4
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 184
   store i64 0, ptr %23, align 8, !tbaa !24, !noalias !4
-  store i8 0, ptr %22, align 1, !tbaa !25, !noalias !4
+  store i8 0, ptr %22, align 8, !tbaa !25, !noalias !4
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 224
   store ptr %25, ptr %24, align 8, !tbaa !23, !noalias !4
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 216
   store i64 0, ptr %26, align 8, !tbaa !24, !noalias !4
-  store i8 0, ptr %25, align 1, !tbaa !25, !noalias !4
+  store i8 0, ptr %25, align 8, !tbaa !25, !noalias !4
   store ptr %1, ptr %0, align 8, !tbaa !26
   ret void
 }

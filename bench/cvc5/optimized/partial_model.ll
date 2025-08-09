@@ -4572,7 +4572,7 @@ define hidden void @_ZN4cvc58internal6theory5arith6linear14ArithVariables23setLo
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 336
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  %16 = load i32, ptr %10, align 4, !tbaa !111
+  %16 = load i32, ptr %10, align 8, !tbaa !111
   %17 = load ptr, ptr %15, align 8, !tbaa !171
   store i32 %16, ptr %3, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -4706,7 +4706,7 @@ define hidden void @_ZN4cvc58internal6theory5arith6linear14ArithVariables23setUp
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 424
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  %16 = load i32, ptr %10, align 4, !tbaa !111
+  %16 = load i32, ptr %10, align 8, !tbaa !111
   %17 = load ptr, ptr %15, align 8, !tbaa !171
   store i32 %16, ptr %3, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8

@@ -1314,7 +1314,7 @@ _ZN14JfrThreadLocal16assign_thread_idEPK6ThreadPS_.exit.i19: ; preds = %62, %_Z1
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %66 = load volatile i64, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 774
-  %68 = load volatile i8, ptr %67, align 1
+  %68 = load volatile i8, ptr %67, align 2
   %69 = trunc i8 %68 to i1
   br i1 %69, label %_ZN14JfrThreadLocal13jvm_thread_idEPK6ThreadPS_.exit, label %70
 
@@ -1515,7 +1515,7 @@ define hidden void @_ZN14JfrThreadLocal21on_set_current_threadEP10JavaThreadP7oo
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 774
   %.lobit = lshr i16 %18, 15
   %21 = trunc nuw nsw i16 %.lobit to i8
-  store volatile i8 %21, ptr %20, align 1
+  store volatile i8 %21, ptr %20, align 2
   br i1 %19, label %24, label %22
 
 22:                                               ; preds = %6

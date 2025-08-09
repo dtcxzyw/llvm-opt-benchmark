@@ -6438,7 +6438,7 @@ define internal void @rcu_tasks_pertask(ptr noundef %0, ptr noundef %1) #1 align
   store ptr %37, ptr %39, align 8
   store ptr %38, ptr %37, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 1072
-  store ptr %1, ptr %40, align 8
+  store ptr %1, ptr %40, align 16
   store volatile ptr %37, ptr %1, align 8
   br label %41
 

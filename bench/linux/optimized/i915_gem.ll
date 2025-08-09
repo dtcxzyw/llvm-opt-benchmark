@@ -2444,7 +2444,7 @@ define dso_local void @i915_gem_drain_freed_objects(ptr noundef %0) local_unname
   %10 = load ptr, ptr %7, align 8
   tail call void @drain_workqueue(ptr noundef %10) #9
   tail call void @rcu_barrier() #9
-  %11 = load volatile i32, ptr %2, align 4
+  %11 = load volatile i32, ptr %2, align 8
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %.loopexit, label %8, !llvm.loop !59
 
@@ -2471,7 +2471,7 @@ define dso_local void @i915_gem_drain_workqueue(ptr noundef %0) local_unnamed_ad
   %8 = load ptr, ptr %2, align 8
   tail call void @__flush_workqueue(ptr noundef %8) #9
   tail call void @rcu_barrier() #9
-  %9 = load volatile i32, ptr %3, align 4
+  %9 = load volatile i32, ptr %3, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %.loopexit, label %.preheader
 
@@ -2480,7 +2480,7 @@ define dso_local void @i915_gem_drain_workqueue(ptr noundef %0) local_unnamed_ad
   %12 = load ptr, ptr %5, align 8
   tail call void @drain_workqueue(ptr noundef %12) #9
   tail call void @rcu_barrier() #9
-  %13 = load volatile i32, ptr %3, align 4
+  %13 = load volatile i32, ptr %3, align 8
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !59
 
@@ -2598,7 +2598,7 @@ define dso_local i32 @i915_gem_init(ptr noundef %0) local_unnamed_addr #0 align 
   %54 = load ptr, ptr %48, align 8
   tail call void @__flush_workqueue(ptr noundef %54) #9
   tail call void @rcu_barrier() #9
-  %55 = load volatile i32, ptr %49, align 4
+  %55 = load volatile i32, ptr %49, align 8
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %.loopexit.i, label %.preheader.i
 
@@ -2607,7 +2607,7 @@ define dso_local i32 @i915_gem_init(ptr noundef %0) local_unnamed_addr #0 align 
   %58 = load ptr, ptr %51, align 8
   tail call void @drain_workqueue(ptr noundef %58) #9
   tail call void @rcu_barrier() #9
-  %59 = load volatile i32, ptr %49, align 4
+  %59 = load volatile i32, ptr %49, align 8
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %.loopexit.i, label %.preheader.i, !llvm.loop !59
 
@@ -2689,7 +2689,7 @@ i915_gem_drain_workqueue.exit:                    ; preds = %.loopexit.i
   %98 = load ptr, ptr %51, align 8
   tail call void @drain_workqueue(ptr noundef %98) #9
   tail call void @rcu_barrier() #9
-  %99 = load volatile i32, ptr %49, align 4
+  %99 = load volatile i32, ptr %49, align 8
   %100 = icmp eq i32 %99, 0
   br i1 %100, label %.loopexit, label %.preheader, !llvm.loop !59
 
@@ -2796,7 +2796,7 @@ define dso_local void @i915_gem_driver_remove(ptr noundef %0) local_unnamed_addr
   %19 = load ptr, ptr %13, align 8
   tail call void @__flush_workqueue(ptr noundef %19) #9
   tail call void @rcu_barrier() #9
-  %20 = load volatile i32, ptr %14, align 4
+  %20 = load volatile i32, ptr %14, align 8
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %.loopexit.i, label %.preheader.i
 
@@ -2805,7 +2805,7 @@ define dso_local void @i915_gem_driver_remove(ptr noundef %0) local_unnamed_addr
   %23 = load ptr, ptr %16, align 8
   tail call void @drain_workqueue(ptr noundef %23) #9
   tail call void @rcu_barrier() #9
-  %24 = load volatile i32, ptr %14, align 4
+  %24 = load volatile i32, ptr %14, align 8
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %.loopexit.i, label %.preheader.i, !llvm.loop !59
 
@@ -2864,7 +2864,7 @@ define dso_local void @i915_gem_driver_release(ptr noundef %0) local_unnamed_add
   %24 = load ptr, ptr %18, align 8
   tail call void @__flush_workqueue(ptr noundef %24) #9
   tail call void @rcu_barrier() #9
-  %25 = load volatile i32, ptr %19, align 4
+  %25 = load volatile i32, ptr %19, align 8
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %.loopexit.i, label %.preheader.i
 
@@ -2873,7 +2873,7 @@ define dso_local void @i915_gem_driver_release(ptr noundef %0) local_unnamed_add
   %28 = load ptr, ptr %21, align 8
   tail call void @drain_workqueue(ptr noundef %28) #9
   tail call void @rcu_barrier() #9
-  %29 = load volatile i32, ptr %19, align 4
+  %29 = load volatile i32, ptr %19, align 8
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %.loopexit.i, label %.preheader.i, !llvm.loop !59
 
@@ -2959,7 +2959,7 @@ define dso_local void @i915_gem_cleanup_early(ptr noundef %0) local_unnamed_addr
   %8 = load ptr, ptr %2, align 8
   tail call void @__flush_workqueue(ptr noundef %8) #9
   tail call void @rcu_barrier() #9
-  %9 = load volatile i32, ptr %3, align 4
+  %9 = load volatile i32, ptr %3, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %.loopexit.i, label %.preheader.i
 
@@ -2968,7 +2968,7 @@ define dso_local void @i915_gem_cleanup_early(ptr noundef %0) local_unnamed_addr
   %12 = load ptr, ptr %5, align 8
   tail call void @drain_workqueue(ptr noundef %12) #9
   tail call void @rcu_barrier() #9
-  %13 = load volatile i32, ptr %3, align 4
+  %13 = load volatile i32, ptr %3, align 8
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %.loopexit.i, label %.preheader.i, !llvm.loop !59
 

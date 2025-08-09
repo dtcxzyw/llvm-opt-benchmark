@@ -7635,7 +7635,7 @@ _ZN20JvmtiThreadEventMarkC2EP10JavaThread.exit:   ; preds = %_ZN16SafeResourceMa
   %110 = load i64, ptr %109, align 8
   call void %103(ptr noundef nonnull %0, i64 noundef %110) #20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %111 = load i32, ptr %1, align 4
+  %111 = load i32, ptr %1, align 8
   %112 = sext i32 %111 to i64
   %113 = icmp slt i64 %indvars.iv.next, %112
   br i1 %113, label %107, label %.loopexit, !llvm.loop !33

@@ -595,12 +595,12 @@ lean_alloc_ctor.exit:                             ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %15, align 8, !tbaa !12
-  store i32 1, ptr %11, align 4, !tbaa !8
+  store i32 1, ptr %11, align 8, !tbaa !8
   store i32 16777232, ptr %14, align 4
   %16 = ptrtoint ptr %6 to i64
   %17 = lshr i64 %16, 1
   %18 = trunc i64 %17 to i8
-  store i8 %18, ptr %15, align 1, !tbaa !14
+  store i8 %18, ptr %15, align 8, !tbaa !14
   %19 = ptrtoint ptr %10 to i64
   %20 = and i64 %19, 1
   %.not = icmp eq i64 %20, 0
@@ -1444,7 +1444,7 @@ lean_alloc_ctor.exit:                             ; preds = %1
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i64 0, ptr %14, align 8, !tbaa !12
-  store i32 1, ptr %10, align 4, !tbaa !8
+  store i32 1, ptr %10, align 8, !tbaa !8
   store i32 196648, ptr %13, align 4
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %3, ptr %15, align 8, !tbaa !4
@@ -1452,7 +1452,7 @@ lean_alloc_ctor.exit:                             ; preds = %1
   store ptr %5, ptr %16, align 8, !tbaa !4
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %7, ptr %17, align 8, !tbaa !4
-  store i8 %9, ptr %14, align 1, !tbaa !14
+  store i8 %9, ptr %14, align 8, !tbaa !14
   ret ptr %10
 }
 
@@ -1654,7 +1654,7 @@ _init_l_Lean_Compiler_LCNF_instInhabitedConfigOptions___closed__1.exit: ; preds 
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store i64 0, ptr %22, align 8, !tbaa !12
-  store i32 1, ptr %18, align 4, !tbaa !8
+  store i32 1, ptr %18, align 8, !tbaa !8
   store i32 196648, ptr %21, align 4
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %23, align 8, !tbaa !4
@@ -1740,7 +1740,7 @@ _init_l_Lean_Compiler_LCNF_initFn____x40_Lean_Compiler_LCNF_ConfigOptions___hyg_
   %.val37 = load ptr, ptr %59, align 8, !tbaa !4
   store ptr %.val37, ptr @l_Lean_Compiler_LCNF_compiler_small, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val37) #3
-  %60 = load i32, ptr %55, align 4, !tbaa !8
+  %60 = load i32, ptr %55, align 8, !tbaa !8
   %61 = icmp sgt i32 %60, 1
   br i1 %61, label %62, label %64, !prof !11
 
@@ -1818,7 +1818,7 @@ _init_l_Lean_Compiler_LCNF_initFn____x40_Lean_Compiler_LCNF_ConfigOptions___hyg_
   %.val38 = load ptr, ptr %94, align 8, !tbaa !4
   store ptr %.val38, ptr @l_Lean_Compiler_LCNF_compiler_maxRecInline, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val38) #3
-  %95 = load i32, ptr %90, align 4, !tbaa !8
+  %95 = load i32, ptr %90, align 8, !tbaa !8
   %96 = icmp sgt i32 %95, 1
   br i1 %96, label %97, label %99, !prof !11
 
@@ -1896,7 +1896,7 @@ _init_l_Lean_Compiler_LCNF_initFn____x40_Lean_Compiler_LCNF_ConfigOptions___hyg_
   %.val39 = load ptr, ptr %129, align 8, !tbaa !4
   store ptr %.val39, ptr @l_Lean_Compiler_LCNF_compiler_maxRecInlineIfReduce, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val39) #3
-  %130 = load i32, ptr %125, align 4, !tbaa !8
+  %130 = load i32, ptr %125, align 8, !tbaa !8
   %131 = icmp sgt i32 %130, 1
   br i1 %131, label %132, label %134, !prof !11
 
@@ -1974,7 +1974,7 @@ _init_l_Lean_Compiler_LCNF_initFn____x40_Lean_Compiler_LCNF_ConfigOptions___hyg_
   %.val40 = load ptr, ptr %164, align 8, !tbaa !4
   store ptr %.val40, ptr @l_Lean_Compiler_LCNF_compiler_checkTypes, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val40) #3
-  %165 = load i32, ptr %160, align 4, !tbaa !8
+  %165 = load i32, ptr %160, align 8, !tbaa !8
   %166 = icmp sgt i32 %165, 1
   br i1 %166, label %167, label %169, !prof !11
 

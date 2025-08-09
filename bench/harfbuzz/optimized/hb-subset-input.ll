@@ -400,7 +400,7 @@ define dso_local noundef ptr @hb_subset_input_create_or_fail() local_unnamed_add
   store atomic i32 1, ptr %3 monotonic, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store atomic i64 0, ptr %4 monotonic, align 8
-  %5 = load atomic i32, ptr %1 monotonic, align 4
+  %5 = load atomic i32, ptr %1 monotonic, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %8
 
@@ -1338,8 +1338,8 @@ hb_subset_input_set.exit.i:                       ; preds = %10, %9
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 85
   store i8 1, ptr %18, align 1, !tbaa !22
   %19 = tail call ptr @hb_subset_or_fail(ptr noundef %0, ptr noundef nonnull %2) #21
-  %20 = load atomic i32, ptr %2 monotonic, align 4
-  %21 = load atomic i32, ptr %2 monotonic, align 4
+  %20 = load atomic i32, ptr %2 monotonic, align 8
+  %21 = load atomic i32, ptr %2 monotonic, align 8
   %.not.i9.i.i = icmp eq i32 %21, 0
   br i1 %.not.i9.i.i, label %hb_subset_input_destroy.exit, label %22, !prof !58
 

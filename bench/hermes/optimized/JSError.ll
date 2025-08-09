@@ -1335,10 +1335,10 @@ if.then117:                                       ; preds = %if.then12.i.i.i.i, 
   store ptr %75, ptr %call.i.i.i, align 8, !noalias !16
   %second.i.i2.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   %76 = load i32, ptr %second.i, align 8, !noalias !16
-  store i32 %76, ptr %second.i.i2.i.i, align 4, !noalias !16
+  store i32 %76, ptr %second.i.i2.i.i, align 8, !noalias !16
   %77 = load ptr, ptr %add.ptr.i.i, align 8
   %call119 = call noundef i32 @_ZNK6hermes2vm9CodeBlock16getVirtualOffsetEv(ptr noundef nonnull align 8 dereferenceable(40) %77) #17
-  store i32 %call119, ptr %second.i.i2.i.i, align 4
+  store i32 %call119, ptr %second.i.i2.i.i, align 8
   br label %if.end120
 
 if.end120:                                        ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIPKN6hermes2vm9CodeBlockEjNS_12DenseMapInfoIS6_EENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E6insertEOSt4pairIS6_jE.exit.thread, %if.then117
@@ -1820,7 +1820,7 @@ entry:
   %catchable_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stacktrace_.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   store i8 1, ptr %catchable_.i.i.i.i.i.i.i, align 8
-  store i32 486539320, ptr %call.i.i.i.i.i, align 4
+  store i32 486539320, ptr %call.i.i.i.i.i, align 8
   ret ptr %call.i.i.i.i.i
 }
 
@@ -1856,7 +1856,7 @@ entry:
   %catchable_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stacktrace_.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   store i8 %frombool, ptr %catchable_.i.i.i.i.i.i, align 8
-  store i32 486539320, ptr %call.i.i.i.i, align 4
+  store i32 486539320, ptr %call.i.i.i.i, align 8
   ret ptr %call.i.i.i.i
 }
 
@@ -3272,7 +3272,7 @@ _ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i.i: ; preds = %cond.fa
   %cond.i.i.i.i.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i.i.i.i ], [ %90, %cond.false.i.i.i.i.i.i.i.i.i ]
   %value_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i.i.i.i, i64 8
   store i64 %retval.sroa.0.0.copyload.i63.i, ptr %value_.i.i.i.i.i.i.i.i.i.i, align 8
-  store i32 402653200, ptr %cond.i.i.i.i.i.i.i.i.i, align 4
+  store i32 402653200, ptr %cond.i.i.i.i.i.i.i.i.i, align 8
   %92 = ptrtoint ptr %cond.i.i.i.i.i.i.i.i.i to i64
   %sub.i.i.i.i.i13.i.i = sub i64 %92, %57
   %conv.i.i.i.i.i14.i.i = trunc i64 %sub.i.i.i.i.i13.i.i to i32
@@ -4692,7 +4692,7 @@ _ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i: ; preds = %cond.fals
   %cond.i.i.i.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i.i.i ], [ %8, %cond.false.i.i.i.i.i.i.i.i ]
   %value_.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i.i.i, i64 8
   store i64 %retval.sroa.0.0.copyload.i.i13, ptr %value_.i.i.i.i.i.i.i.i.i, align 8
-  store i32 402653200, ptr %cond.i.i.i.i.i.i.i.i, align 4
+  store i32 402653200, ptr %cond.i.i.i.i.i.i.i.i, align 8
   %10 = ptrtoint ptr %cond.i.i.i.i.i.i.i.i to i64
   %11 = ptrtoint ptr %runtime to i64
   %sub.i.i.i.i.i13.i = sub i64 %10, %11
@@ -5163,7 +5163,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPKN6hermes2vm9CodeBlockEjNS_12DenseMapInfoIS
   %second.i.i = getelementptr inbounds nuw i8, ptr %cond.sink.i.i.i, i64 8
   %second.i13.i = getelementptr inbounds nuw i8, ptr %B.020.i, i64 8
   %11 = load i32, ptr %second.i13.i, align 4
-  store i32 %11, ptr %second.i.i, align 4
+  store i32 %11, ptr %second.i.i, align 8
   %12 = load i32, ptr %NumEntries.i.i.i.i, align 8
   %add.i.i = add i32 %12, 1
   store i32 %add.i.i, ptr %NumEntries.i.i.i.i, align 8

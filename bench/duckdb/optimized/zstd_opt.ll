@@ -3429,7 +3429,7 @@ define internal fastcc noundef i32 @_ZN11duckdb_zstdL14ZSTD_insertBt1EPKNS_17ZST
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = load ptr, ptr %9, align 8, !tbaa !96
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %12 = load i32, ptr %11, align 4, !tbaa !97
+  %12 = load i32, ptr %11, align 8, !tbaa !97
   switch i32 %4, label %13 [
     i32 8, label %33
     i32 5, label %18
@@ -3508,7 +3508,7 @@ _ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit:       ; preds = %13, %18, %23, %28, 
   %63 = getelementptr inbounds nuw i32, ptr %39, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %65 = load i32, ptr %8, align 4, !tbaa !101
+  %65 = load i32, ptr %8, align 8, !tbaa !101
   %66 = getelementptr i8, ptr %0, i64 28
   %.val149 = load i32, ptr %66, align 4, !tbaa !95
   %67 = getelementptr i8, ptr %0, i64 40
@@ -4843,7 +4843,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %49 = load i32, ptr %48, align 8, !tbaa !23
   %50 = tail call i32 @llvm.usub.sat.i32(i32 %.pre-phi168, i32 %47)
-  %51 = load i32, ptr %29, align 4, !tbaa !101
+  %51 = load i32, ptr %29, align 8, !tbaa !101
   %52 = getelementptr i8, ptr %1, i64 28
   %.val9 = load i32, ptr %52, align 4, !tbaa !95
   %53 = getelementptr i8, ptr %1, i64 40
@@ -5499,7 +5499,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %49 = load i32, ptr %48, align 8, !tbaa !23
   %50 = tail call i32 @llvm.usub.sat.i32(i32 %.pre-phi126, i32 %47)
-  %51 = load i32, ptr %29, align 4, !tbaa !101
+  %51 = load i32, ptr %29, align 8, !tbaa !101
   %52 = getelementptr i8, ptr %1, i64 28
   %.val9 = load i32, ptr %52, align 4, !tbaa !95
   %53 = getelementptr i8, ptr %1, i64 40
@@ -5979,7 +5979,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %49 = load i32, ptr %48, align 8, !tbaa !23
   %50 = tail call i32 @llvm.usub.sat.i32(i32 %.pre-phi126, i32 %47)
-  %51 = load i32, ptr %29, align 4, !tbaa !101
+  %51 = load i32, ptr %29, align 8, !tbaa !101
   %52 = getelementptr i8, ptr %1, i64 28
   %.val9 = load i32, ptr %52, align 4, !tbaa !95
   %53 = getelementptr i8, ptr %1, i64 40
@@ -6459,7 +6459,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %49 = load i32, ptr %48, align 8, !tbaa !23
   %50 = tail call i32 @llvm.usub.sat.i32(i32 %.pre-phi126, i32 %47)
-  %51 = load i32, ptr %29, align 4, !tbaa !101
+  %51 = load i32, ptr %29, align 8, !tbaa !101
   %52 = getelementptr i8, ptr %1, i64 28
   %.val9 = load i32, ptr %52, align 4, !tbaa !95
   %53 = getelementptr i8, ptr %1, i64 40
@@ -6945,7 +6945,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %28, i64 %52
   %55 = tail call i32 @llvm.usub.sat.i32(i32 %.pre-phi174, i32 %47)
-  %56 = load i32, ptr %29, align 4, !tbaa !101
+  %56 = load i32, ptr %29, align 8, !tbaa !101
   %57 = getelementptr i8, ptr %1, i64 28
   %.val9 = load i32, ptr %57, align 4, !tbaa !95
   %58 = getelementptr i8, ptr %1, i64 40
@@ -7661,7 +7661,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %28, i64 %52
   %55 = tail call i32 @llvm.usub.sat.i32(i32 %.pre-phi130, i32 %47)
-  %56 = load i32, ptr %29, align 4, !tbaa !101
+  %56 = load i32, ptr %29, align 8, !tbaa !101
   %57 = getelementptr i8, ptr %1, i64 28
   %.val9 = load i32, ptr %57, align 4, !tbaa !95
   %58 = getelementptr i8, ptr %1, i64 40
@@ -8190,7 +8190,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %28, i64 %52
   %55 = tail call i32 @llvm.usub.sat.i32(i32 %.pre-phi130, i32 %47)
-  %56 = load i32, ptr %29, align 4, !tbaa !101
+  %56 = load i32, ptr %29, align 8, !tbaa !101
   %57 = getelementptr i8, ptr %1, i64 28
   %.val9 = load i32, ptr %57, align 4, !tbaa !95
   %58 = getelementptr i8, ptr %1, i64 40
@@ -8719,7 +8719,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %28, i64 %52
   %55 = tail call i32 @llvm.usub.sat.i32(i32 %.pre-phi130, i32 %47)
-  %56 = load i32, ptr %29, align 4, !tbaa !101
+  %56 = load i32, ptr %29, align 8, !tbaa !101
   %57 = getelementptr i8, ptr %1, i64 28
   %.val9 = load i32, ptr %57, align 4, !tbaa !95
   %58 = getelementptr i8, ptr %1, i64 40
@@ -9246,7 +9246,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   %50 = zext i32 %49 to i64
   %51 = getelementptr inbounds nuw i8, ptr %28, i64 %50
   %52 = tail call i32 @llvm.usub.sat.i32(i32 %.pre-phi222, i32 %47)
-  %53 = load i32, ptr %29, align 4, !tbaa !101
+  %53 = load i32, ptr %29, align 8, !tbaa !101
   %54 = getelementptr i8, ptr %1, i64 28
   %.val10 = load i32, ptr %54, align 4, !tbaa !95
   %55 = getelementptr i8, ptr %1, i64 40
@@ -9282,7 +9282,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   %82 = load i32, ptr %81, align 4, !tbaa !95
   %83 = sub i32 %61, %80
   %84 = getelementptr inbounds nuw i8, ptr %73, i64 264
-  %85 = load i32, ptr %84, align 4, !tbaa !97
+  %85 = load i32, ptr %84, align 8, !tbaa !97
   %86 = getelementptr inbounds nuw i8, ptr %73, i64 260
   %87 = load i32, ptr %86, align 4, !tbaa !99
   %88 = add i32 %87, -1
@@ -10068,7 +10068,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   %50 = zext i32 %49 to i64
   %51 = getelementptr inbounds nuw i8, ptr %28, i64 %50
   %52 = tail call i32 @llvm.usub.sat.i32(i32 %.pre-phi178, i32 %47)
-  %53 = load i32, ptr %29, align 4, !tbaa !101
+  %53 = load i32, ptr %29, align 8, !tbaa !101
   %54 = getelementptr i8, ptr %1, i64 28
   %.val10 = load i32, ptr %54, align 4, !tbaa !95
   %55 = getelementptr i8, ptr %1, i64 40
@@ -10104,7 +10104,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   %82 = load i32, ptr %81, align 4, !tbaa !95
   %83 = sub i32 %61, %80
   %84 = getelementptr inbounds nuw i8, ptr %73, i64 264
-  %85 = load i32, ptr %84, align 4, !tbaa !97
+  %85 = load i32, ptr %84, align 8, !tbaa !97
   %86 = getelementptr inbounds nuw i8, ptr %73, i64 260
   %87 = load i32, ptr %86, align 4, !tbaa !99
   %88 = add i32 %87, -1
@@ -10712,7 +10712,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   %50 = zext i32 %49 to i64
   %51 = getelementptr inbounds nuw i8, ptr %28, i64 %50
   %52 = tail call i32 @llvm.usub.sat.i32(i32 %.pre-phi178, i32 %47)
-  %53 = load i32, ptr %29, align 4, !tbaa !101
+  %53 = load i32, ptr %29, align 8, !tbaa !101
   %54 = getelementptr i8, ptr %1, i64 28
   %.val10 = load i32, ptr %54, align 4, !tbaa !95
   %55 = getelementptr i8, ptr %1, i64 40
@@ -10748,7 +10748,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   %82 = load i32, ptr %81, align 4, !tbaa !95
   %83 = sub i32 %61, %80
   %84 = getelementptr inbounds nuw i8, ptr %73, i64 264
-  %85 = load i32, ptr %84, align 4, !tbaa !97
+  %85 = load i32, ptr %84, align 8, !tbaa !97
   %86 = getelementptr inbounds nuw i8, ptr %73, i64 260
   %87 = load i32, ptr %86, align 4, !tbaa !99
   %88 = add i32 %87, -1
@@ -11354,7 +11354,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   %50 = zext i32 %49 to i64
   %51 = getelementptr inbounds nuw i8, ptr %28, i64 %50
   %52 = tail call i32 @llvm.usub.sat.i32(i32 %.pre-phi178, i32 %47)
-  %53 = load i32, ptr %29, align 4, !tbaa !101
+  %53 = load i32, ptr %29, align 8, !tbaa !101
   %54 = getelementptr i8, ptr %1, i64 28
   %.val10 = load i32, ptr %54, align 4, !tbaa !95
   %55 = getelementptr i8, ptr %1, i64 40
@@ -11390,7 +11390,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   %82 = load i32, ptr %81, align 4, !tbaa !95
   %83 = sub i32 %61, %80
   %84 = getelementptr inbounds nuw i8, ptr %73, i64 264
-  %85 = load i32, ptr %84, align 4, !tbaa !97
+  %85 = load i32, ptr %84, align 8, !tbaa !97
   %86 = getelementptr inbounds nuw i8, ptr %73, i64 260
   %87 = load i32, ptr %86, align 4, !tbaa !99
   %88 = add i32 %87, -1

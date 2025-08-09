@@ -6131,7 +6131,7 @@ _ZNSt14priority_queueISt4pairIS0_IjjEPN5clang6format12_GLOBAL__N_123OptimizingLi
   %.sroa.02.0.copyload.i.i.i = load i64, ptr %103, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %102, i64 -8
   %.sroa.4.0.copyload.i.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
-  store i32 %94, ptr %103, align 4, !tbaa !355
+  store i32 %94, ptr %103, align 8, !tbaa !355
   %104 = getelementptr inbounds nuw i8, ptr %.val29, i64 4
   %105 = load i32, ptr %104, align 4, !tbaa !166
   %106 = getelementptr inbounds i8, ptr %102, i64 -12

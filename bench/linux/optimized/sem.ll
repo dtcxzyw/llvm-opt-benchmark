@@ -748,15 +748,15 @@ define internal i32 @newary(ptr noundef %0, ptr noundef readonly captures(none) 
   %49 = getelementptr inbounds nuw i8, ptr %22, i64 136
   store volatile ptr %49, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %22, i64 144
-  store volatile ptr %49, ptr %50, align 8
+  store volatile ptr %49, ptr %50, align 16
   %51 = getelementptr inbounds nuw i8, ptr %22, i64 152
   store volatile ptr %51, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %22, i64 160
-  store volatile ptr %51, ptr %52, align 8
+  store volatile ptr %51, ptr %52, align 32
   %53 = getelementptr inbounds nuw i8, ptr %22, i64 168
   store volatile ptr %53, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %22, i64 176
-  store volatile ptr %53, ptr %54, align 8
+  store volatile ptr %53, ptr %54, align 16
   %55 = getelementptr inbounds nuw i8, ptr %22, i64 184
   store i32 %5, ptr %55, align 8
   %56 = tail call i64 @ktime_get_real_seconds() #12
@@ -4162,7 +4162,7 @@ define internal fastcc i32 @semctl_setval(ptr noundef %0, i32 noundef range(i32 
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 256
   %43 = zext nneg i32 %41 to i64
   %44 = getelementptr [0 x %struct.sem], ptr %42, i64 0, i64 %43
-  %45 = load volatile i32, ptr %9, align 4
+  %45 = load volatile i32, ptr %9, align 8
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %47, label %48, !prof !5
 

@@ -2833,7 +2833,7 @@ _ZSt19__relocate_object_aI7patternS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i.i: ; preds 
   store i64 %49, ptr %51, align 8, !alias.scope !9, !noalias !12
   store ptr %41, ptr %.0911.i.i.i.i, align 8, !alias.scope !12, !noalias !9
   store i64 0, ptr %50, align 8, !alias.scope !12, !noalias !9
-  store i8 0, ptr %41, align 1, !alias.scope !12, !noalias !9
+  store i8 0, ptr %41, align 8, !alias.scope !12, !noalias !9
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %52, ptr noundef nonnull align 8 dereferenceable(48) %53, i64 48, i1 false), !alias.scope !14
@@ -2884,7 +2884,7 @@ _ZSt19__relocate_object_aI7patternS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i.i23: ; pred
   store i64 %67, ptr %69, align 8, !alias.scope !16, !noalias !19
   store ptr %59, ptr %.0911.i.i.i.i19, align 8, !alias.scope !19, !noalias !16
   store i64 0, ptr %68, align 8, !alias.scope !19, !noalias !16
-  store i8 0, ptr %59, align 1, !alias.scope !19, !noalias !16
+  store i8 0, ptr %59, align 8, !alias.scope !19, !noalias !16
   %70 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %70, ptr noundef nonnull align 8 dereferenceable(48) %71, i64 48, i1 false), !alias.scope !21
@@ -3259,7 +3259,7 @@ define linkonce_odr hidden void @_ZN7testing15AssertionResult13AppendMessageERKN
   store ptr %9, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 0, ptr %10, align 8
-  store i8 0, ptr %9, align 1
+  store i8 0, ptr %9, align 8
   %11 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
   br i1 %11, label %12, label %22
 

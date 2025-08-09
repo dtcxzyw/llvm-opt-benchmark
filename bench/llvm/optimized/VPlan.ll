@@ -11598,7 +11598,7 @@ _ZN4llvm14iterator_rangeINS_11df_iteratorINS_30VPBlockShallowTraversalWrapperIPN
   store ptr %357, ptr %356, align 8, !tbaa !337
   %358 = getelementptr inbounds nuw i8, ptr %344, i64 128
   store i64 0, ptr %358, align 8, !tbaa !327
-  store i8 0, ptr %357, align 1, !tbaa !271
+  store i8 0, ptr %357, align 8, !tbaa !271
   %359 = getelementptr inbounds nuw i8, ptr %344, i64 152
   %360 = getelementptr inbounds nuw i8, ptr %344, i64 168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %359, i8 0, i64 16, i1 false)
@@ -13731,7 +13731,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_7VPValueENSt7__cxx1112basic_stringIcSt1
   store ptr %59, ptr %58, align 8, !tbaa !337
   %60 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store i64 0, ptr %60, align 8, !tbaa !327
-  store i8 0, ptr %59, align 1, !tbaa !271
+  store i8 0, ptr %59, align 8, !tbaa !271
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_7VPValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E16InsertIntoBucketIRKS4_JEEEPSF_SL_OT_DpOT0_.exit
@@ -24354,7 +24354,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %46, %
   store i64 %53, ptr %54, align 8, !tbaa !327
   store ptr %44, ptr %41, align 8, !tbaa !326
   store i64 0, ptr %52, align 8, !tbaa !327
-  store i8 0, ptr %44, align 1, !tbaa !271
+  store i8 0, ptr %44, align 8, !tbaa !271
   %55 = load i32, ptr %4, align 8, !tbaa !765
   %56 = add i32 %55, 1
   store i32 %56, ptr %4, align 8, !tbaa !765

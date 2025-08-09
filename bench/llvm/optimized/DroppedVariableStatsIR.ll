@@ -2601,9 +2601,9 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i: ; preds = %_ZN4ll
   store ptr null, ptr %43, align 8, !tbaa !161
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %46 = getelementptr inbounds nuw i8, ptr %.028.i, i64 24
-  %47 = load i32, ptr %46, align 4, !tbaa !62
-  store i32 %47, ptr %45, align 4, !tbaa !62
-  store i32 0, ptr %46, align 4, !tbaa !62
+  %47 = load i32, ptr %46, align 8, !tbaa !62
+  store i32 %47, ptr %45, align 8, !tbaa !62
+  store i32 0, ptr %46, align 8, !tbaa !62
   %48 = getelementptr inbounds nuw i8, ptr %41, i64 28
   %49 = getelementptr inbounds nuw i8, ptr %.028.i, i64 28
   %50 = load i32, ptr %48, align 4, !tbaa !62
@@ -2612,10 +2612,10 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i: ; preds = %_ZN4ll
   store i32 %50, ptr %49, align 4, !tbaa !62
   %52 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %53 = getelementptr inbounds nuw i8, ptr %.028.i, i64 32
-  %54 = load i32, ptr %52, align 4, !tbaa !62
-  %55 = load i32, ptr %53, align 4, !tbaa !62
-  store i32 %55, ptr %52, align 4, !tbaa !62
-  store i32 %54, ptr %53, align 4, !tbaa !62
+  %54 = load i32, ptr %52, align 8, !tbaa !62
+  %55 = load i32, ptr %53, align 8, !tbaa !62
+  store i32 %55, ptr %52, align 8, !tbaa !62
+  store i32 %54, ptr %53, align 8, !tbaa !62
   %56 = load i32, ptr %33, align 8, !tbaa !47
   %57 = add i32 %56, 1
   store i32 %57, ptr %33, align 8, !tbaa !47
@@ -4351,9 +4351,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionENS_20DroppedVariableStats14De
   store ptr null, ptr %41, align 8, !tbaa !149
   %43 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 16
   %44 = getelementptr inbounds nuw i8, ptr %.022, i64 16
-  %45 = load i32, ptr %44, align 4, !tbaa !62
-  store i32 %45, ptr %43, align 4, !tbaa !62
-  store i32 0, ptr %44, align 4, !tbaa !62
+  %45 = load i32, ptr %44, align 8, !tbaa !62
+  store i32 %45, ptr %43, align 8, !tbaa !62
+  store i32 0, ptr %44, align 8, !tbaa !62
   %46 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 20
   %47 = getelementptr inbounds nuw i8, ptr %.022, i64 20
   %48 = load i32, ptr %46, align 4, !tbaa !62
@@ -4362,10 +4362,10 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionENS_20DroppedVariableStats14De
   store i32 %48, ptr %47, align 4, !tbaa !62
   %50 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 24
   %51 = getelementptr inbounds nuw i8, ptr %.022, i64 24
-  %52 = load i32, ptr %50, align 4, !tbaa !62
-  %53 = load i32, ptr %51, align 4, !tbaa !62
-  store i32 %53, ptr %50, align 4, !tbaa !62
-  store i32 %52, ptr %51, align 4, !tbaa !62
+  %52 = load i32, ptr %50, align 8, !tbaa !62
+  %53 = load i32, ptr %51, align 8, !tbaa !62
+  store i32 %53, ptr %50, align 8, !tbaa !62
+  store i32 %52, ptr %51, align 8, !tbaa !62
   %54 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.022, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, i8 0, i64 20, i1 false)
@@ -4374,9 +4374,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionENS_20DroppedVariableStats14De
   store ptr null, ptr %55, align 8, !tbaa !149
   %57 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 40
   %58 = getelementptr inbounds nuw i8, ptr %.022, i64 40
-  %59 = load i32, ptr %58, align 4, !tbaa !62
-  store i32 %59, ptr %57, align 4, !tbaa !62
-  store i32 0, ptr %58, align 4, !tbaa !62
+  %59 = load i32, ptr %58, align 8, !tbaa !62
+  store i32 %59, ptr %57, align 8, !tbaa !62
+  store i32 0, ptr %58, align 8, !tbaa !62
   %60 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 44
   %61 = getelementptr inbounds nuw i8, ptr %.022, i64 44
   %62 = load i32, ptr %60, align 4, !tbaa !62
@@ -4385,10 +4385,10 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionENS_20DroppedVariableStats14De
   store i32 %62, ptr %61, align 4, !tbaa !62
   %64 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 48
   %65 = getelementptr inbounds nuw i8, ptr %.022, i64 48
-  %66 = load i32, ptr %64, align 4, !tbaa !62
-  %67 = load i32, ptr %65, align 4, !tbaa !62
-  store i32 %67, ptr %64, align 4, !tbaa !62
-  store i32 %66, ptr %65, align 4, !tbaa !62
+  %66 = load i32, ptr %64, align 8, !tbaa !62
+  %67 = load i32, ptr %65, align 8, !tbaa !62
+  store i32 %67, ptr %64, align 8, !tbaa !62
+  store i32 %66, ptr %65, align 8, !tbaa !62
   %68 = load i32, ptr %4, align 8, !tbaa !40
   %69 = add i32 %68, 1
   store i32 %69, ptr %4, align 8, !tbaa !40
@@ -4825,9 +4825,9 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8DenseMapIPKNS_8FunctionENS_20DroppedVariab
   store ptr null, ptr %.016.i.i.i, align 8, !tbaa !39
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 8
-  %28 = load i32, ptr %27, align 4, !tbaa !62
-  store i32 %28, ptr %26, align 4, !tbaa !62
-  store i32 0, ptr %27, align 4, !tbaa !62
+  %28 = load i32, ptr %27, align 8, !tbaa !62
+  store i32 %28, ptr %26, align 8, !tbaa !62
+  store i32 0, ptr %27, align 8, !tbaa !62
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %30 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 12
   %31 = load i32, ptr %29, align 4, !tbaa !62
@@ -4836,10 +4836,10 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8DenseMapIPKNS_8FunctionENS_20DroppedVariab
   store i32 %31, ptr %30, align 4, !tbaa !62
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 16
-  %35 = load i32, ptr %33, align 4, !tbaa !62
-  %36 = load i32, ptr %34, align 4, !tbaa !62
-  store i32 %36, ptr %33, align 4, !tbaa !62
-  store i32 %35, ptr %34, align 4, !tbaa !62
+  %35 = load i32, ptr %33, align 8, !tbaa !62
+  %36 = load i32, ptr %34, align 8, !tbaa !62
+  store i32 %36, ptr %33, align 8, !tbaa !62
+  store i32 %35, ptr %34, align 8, !tbaa !62
   %37 = load i32, ptr %5, align 8, !tbaa !11
   %38 = add i32 %37, 1
   store i32 %38, ptr %5, align 8, !tbaa !11
@@ -4944,9 +4944,9 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8DenseMapINS_9StringRefENS1_ISt5tupleIJPKNS
   store ptr null, ptr %.016.i.i.i7, align 8, !tbaa !45
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %87 = getelementptr inbounds nuw i8, ptr %.016.i.i.i7, i64 8
-  %88 = load i32, ptr %87, align 4, !tbaa !62
-  store i32 %88, ptr %86, align 4, !tbaa !62
-  store i32 0, ptr %87, align 4, !tbaa !62
+  %88 = load i32, ptr %87, align 8, !tbaa !62
+  store i32 %88, ptr %86, align 8, !tbaa !62
+  store i32 0, ptr %87, align 8, !tbaa !62
   %89 = getelementptr inbounds nuw i8, ptr %84, i64 12
   %90 = getelementptr inbounds nuw i8, ptr %.016.i.i.i7, i64 12
   %91 = load i32, ptr %89, align 4, !tbaa !62
@@ -4955,10 +4955,10 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8DenseMapINS_9StringRefENS1_ISt5tupleIJPKNS
   store i32 %91, ptr %90, align 4, !tbaa !62
   %93 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %94 = getelementptr inbounds nuw i8, ptr %.016.i.i.i7, i64 16
-  %95 = load i32, ptr %93, align 4, !tbaa !62
-  %96 = load i32, ptr %94, align 4, !tbaa !62
-  store i32 %96, ptr %93, align 4, !tbaa !62
-  store i32 %95, ptr %94, align 4, !tbaa !62
+  %95 = load i32, ptr %93, align 8, !tbaa !62
+  %96 = load i32, ptr %94, align 8, !tbaa !62
+  store i32 %96, ptr %93, align 8, !tbaa !62
+  store i32 %95, ptr %94, align 8, !tbaa !62
   %97 = load i32, ptr %65, align 8, !tbaa !11
   %98 = add i32 %97, 1
   store i32 %98, ptr %65, align 8, !tbaa !11
@@ -5055,9 +5055,9 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseINS_8DenseMapIPKNS_8F
   store ptr null, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !39
   %9 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 8
-  %11 = load i32, ptr %10, align 4, !tbaa !62
-  store i32 %11, ptr %9, align 4, !tbaa !62
-  store i32 0, ptr %10, align 4, !tbaa !62
+  %11 = load i32, ptr %10, align 8, !tbaa !62
+  store i32 %11, ptr %9, align 8, !tbaa !62
+  store i32 0, ptr %10, align 8, !tbaa !62
   %12 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 12
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 12
   %14 = load i32, ptr %12, align 4, !tbaa !62
@@ -5066,10 +5066,10 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseINS_8DenseMapIPKNS_8F
   store i32 %14, ptr %13, align 4, !tbaa !62
   %16 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 16
-  %18 = load i32, ptr %16, align 4, !tbaa !62
-  %19 = load i32, ptr %17, align 4, !tbaa !62
-  store i32 %19, ptr %16, align 4, !tbaa !62
-  store i32 %18, ptr %17, align 4, !tbaa !62
+  %18 = load i32, ptr %16, align 8, !tbaa !62
+  %19 = load i32, ptr %17, align 8, !tbaa !62
+  store i32 %19, ptr %16, align 8, !tbaa !62
+  store i32 %18, ptr %17, align 8, !tbaa !62
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i = icmp eq ptr %20, %7
@@ -5196,9 +5196,9 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseINS_8DenseMapINS_9Str
   store ptr null, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !45
   %9 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 8
-  %11 = load i32, ptr %10, align 4, !tbaa !62
-  store i32 %11, ptr %9, align 4, !tbaa !62
-  store i32 0, ptr %10, align 4, !tbaa !62
+  %11 = load i32, ptr %10, align 8, !tbaa !62
+  store i32 %11, ptr %9, align 8, !tbaa !62
+  store i32 0, ptr %10, align 8, !tbaa !62
   %12 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 12
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 12
   %14 = load i32, ptr %12, align 4, !tbaa !62
@@ -5207,10 +5207,10 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseINS_8DenseMapINS_9Str
   store i32 %14, ptr %13, align 4, !tbaa !62
   %16 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 16
-  %18 = load i32, ptr %16, align 4, !tbaa !62
-  %19 = load i32, ptr %17, align 4, !tbaa !62
-  store i32 %19, ptr %16, align 4, !tbaa !62
-  store i32 %18, ptr %17, align 4, !tbaa !62
+  %18 = load i32, ptr %16, align 8, !tbaa !62
+  %19 = load i32, ptr %17, align 8, !tbaa !62
+  store i32 %19, ptr %16, align 8, !tbaa !62
+  store i32 %18, ptr %17, align 8, !tbaa !62
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i = icmp eq ptr %20, %7

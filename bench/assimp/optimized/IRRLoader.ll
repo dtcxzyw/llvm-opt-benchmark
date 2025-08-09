@@ -620,13 +620,13 @@ define hidden noalias noundef nonnull ptr @_ZN6Assimp11IRRImporter19BuildSingleQ
   store i64 1, ptr %13, align 16
   %.ptr = getelementptr inbounds nuw i8, ptr %13, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr null, ptr %14, align 8
+  store ptr null, ptr %14, align 16
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 208
   store ptr %.ptr, ptr %15, align 8
   store i32 4, ptr %.ptr, align 8
   %16 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znam(i64 noundef 16) #32
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr %16, ptr %17, align 8
+  store ptr %16, ptr %17, align 16
   br label %42
 
 18:                                               ; preds = %42
@@ -2194,11 +2194,11 @@ _ZN6Assimp4Math3lcmIiEET_S2_S2_.exit295:          ; preds = %.lr.ph.i.i286, %143
   %174 = phi ptr [ %169, %171 ], [ %180, %173 ]
   store double 0.000000e+00, ptr %174, align 8
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
-  store float 1.000000e+00, ptr %175, align 4
+  store float 1.000000e+00, ptr %175, align 8
   %176 = getelementptr inbounds nuw i8, ptr %174, i64 12
   store float 0.000000e+00, ptr %176, align 4
   %177 = getelementptr inbounds nuw i8, ptr %174, i64 16
-  store float 0.000000e+00, ptr %177, align 4
+  store float 0.000000e+00, ptr %177, align 8
   %178 = getelementptr inbounds nuw i8, ptr %174, i64 20
   store float 0.000000e+00, ptr %178, align 4
   %179 = getelementptr inbounds nuw i8, ptr %174, i64 24
@@ -2436,7 +2436,7 @@ _ZN10aiVector3tIfE9NormalizeEv.exit307:           ; preds = %_ZN10aiVector3tIfE9
   %327 = fmul float %313, %324
   %328 = load float, ptr %297, align 4
   %329 = fadd float %328, %325
-  %330 = load float, ptr %299, align 4
+  %330 = load float, ptr %299, align 8
   %331 = fadd float %330, %326
   %332 = load float, ptr %300, align 4
   %333 = fadd float %332, %327
@@ -2945,7 +2945,7 @@ _ZNSt6vectorIP18aiMaterialPropertySaIS1_EE7reserveEm.exit: ; preds = %_ZNSt12_Ve
   store i32 1, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 1048
   store ptr null, ptr %26, align 8
-  store i32 12, ptr %22, align 4
+  store i32 12, ptr %22, align 8
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %27, ptr noundef nonnull align 1 dereferenceable(12) @.str.14, i64 12, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 1032
@@ -3105,7 +3105,7 @@ _ZNSt6vectorIP18aiMaterialPropertySaIS1_EE9push_backERKS1_.exit46: ; preds = %_Z
   store i32 1, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %78, i64 1048
   store ptr null, ptr %82, align 8
-  store i32 12, ptr %78, align 4
+  store i32 12, ptr %78, align 8
   %83 = getelementptr inbounds nuw i8, ptr %78, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %83, ptr noundef nonnull align 1 dereferenceable(12) @.str.15, i64 12, i1 false)
   %84 = load i32, ptr %28, align 8
@@ -3757,9 +3757,9 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE9push_backEOS1_.exit: ; preds = %161, %_ZNSt6vector
   %189 = fmul float %186, %188
   store float %189, ptr %187, align 4
   %190 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %191 = load float, ptr %190, align 4
+  %191 = load float, ptr %190, align 8
   %192 = fmul float %186, %191
-  store float %192, ptr %190, align 4
+  store float %192, ptr %190, align 8
   %193 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %194 = load float, ptr %193, align 4
   %195 = fmul float %186, %194
@@ -3854,9 +3854,9 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE9push_backEOS1_.exit164: ; preds = %211, %_ZNSt6vec
   %238 = fmul float %235, %237
   store float %238, ptr %236, align 4
   %239 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %240 = load float, ptr %239, align 4
+  %240 = load float, ptr %239, align 8
   %241 = fmul float %235, %240
-  store float %241, ptr %239, align 4
+  store float %241, ptr %239, align 8
   %242 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %243 = load float, ptr %242, align 4
   %244 = fmul float %235, %243
@@ -6192,7 +6192,7 @@ define hidden void @_ZN6Assimp11IRRImporter14ParseAnimatorsERN4pugi8xml_nodeEPNS
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store float 0x3F50624DE0000000, ptr %14, align 4
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store float 0.000000e+00, ptr %15, align 4
+  store float 0.000000e+00, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 28
   store float 1.000000e+00, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 32
@@ -9529,7 +9529,7 @@ _ZNSt6vectorIP10aiMaterialSaIS1_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector_bas
   %314 = getelementptr inbounds nuw i8, ptr %304, i64 1088
   store ptr null, ptr %314, align 8
   store ptr %304, ptr %301, align 8
-  store i32 21, ptr %304, align 4
+  store i32 21, ptr %304, align 8
   %315 = getelementptr inbounds nuw i8, ptr %304, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(21) %315, ptr noundef nonnull align 1 dereferenceable(21) @.str.98, i64 21, i1 false)
   %316 = ptrtoint ptr %297 to i64

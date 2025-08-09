@@ -3615,7 +3615,7 @@ define dso_local i32 @mpol_misplaced(ptr noundef %0, ptr noundef %1, i64 noundef
   %12 = add i64 %11, ptrtoint (ptr @numa_node to i64)
   %13 = inttoptr i64 %12 to ptr
   %14 = load i32, ptr %13, align 4
-  %15 = load volatile i64, ptr %0, align 8
+  %15 = load volatile i64, ptr %0, align 16
   %16 = and i64 %15, 64
   %17 = icmp eq i64 %16, 0
   br i1 %17, label %23, label %18
@@ -6690,7 +6690,7 @@ define internal ptr @alloc_migration_target_by_mpol(ptr noundef %0, i64 noundef 
   %21 = zext nneg i32 %18 to i64
   %22 = lshr i64 %20, %21
   %23 = add i64 %22, %7
-  %24 = load volatile i64, ptr %0, align 8
+  %24 = load volatile i64, ptr %0, align 16
   %25 = and i64 %24, 64
   %26 = icmp eq i64 %25, 0
   br i1 %26, label %54, label %27

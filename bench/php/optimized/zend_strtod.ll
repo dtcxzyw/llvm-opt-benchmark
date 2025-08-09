@@ -3643,10 +3643,10 @@ rv_alloc.exit.i:                                  ; preds = %43, %38
   store i32 0, ptr %46, align 4, !tbaa !52
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 0, ptr %47, align 8, !tbaa !50
-  store i32 0, ptr %.0.i.i.i, align 4, !tbaa !51
+  store i32 0, ptr %.0.i.i.i, align 8, !tbaa !51
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 4
   store ptr %48, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1928), align 8, !tbaa !54
-  store i8 73, ptr %48, align 1, !tbaa !45
+  store i8 73, ptr %48, align 4, !tbaa !45
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %rv_alloc.exit.i
@@ -3694,10 +3694,10 @@ rv_alloc.exit.i557:                               ; preds = %57, %52
   store i32 0, ptr %60, align 4, !tbaa !52
   %61 = getelementptr inbounds nuw i8, ptr %.0.i.i.i558, i64 16
   store i32 0, ptr %61, align 8, !tbaa !50
-  store i32 0, ptr %.0.i.i.i558, align 4, !tbaa !51
+  store i32 0, ptr %.0.i.i.i558, align 8, !tbaa !51
   %62 = getelementptr inbounds nuw i8, ptr %.0.i.i.i558, i64 4
   store ptr %62, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1928), align 8, !tbaa !54
-  store i8 78, ptr %62, align 1, !tbaa !45
+  store i8 78, ptr %62, align 4, !tbaa !45
   br label %.lr.ph.i559
 
 .lr.ph.i559:                                      ; preds = %.lr.ph.i559, %rv_alloc.exit.i557
@@ -3753,10 +3753,10 @@ rv_alloc.exit.i568:                               ; preds = %75, %70
   store i32 0, ptr %78, align 4, !tbaa !52
   %79 = getelementptr inbounds nuw i8, ptr %.0.i.i.i569, i64 16
   store i32 0, ptr %79, align 8, !tbaa !50
-  store i32 0, ptr %.0.i.i.i569, align 4, !tbaa !51
+  store i32 0, ptr %.0.i.i.i569, align 8, !tbaa !51
   %80 = getelementptr inbounds nuw i8, ptr %.0.i.i.i569, i64 4
   store ptr %80, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1928), align 8, !tbaa !54
-  store i8 48, ptr %80, align 1, !tbaa !45
+  store i8 48, ptr %80, align 4, !tbaa !45
   %81 = getelementptr inbounds nuw i8, ptr %.0.i.i.i569, i64 5
   store i8 0, ptr %81, align 1, !tbaa !45
   %.not9.i575 = icmp eq ptr %5, null
@@ -3994,7 +3994,7 @@ rv_alloc.exit:                                    ; preds = %175, %185
   store i32 0, ptr %188, align 4, !tbaa !52
   %189 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   store i32 0, ptr %189, align 8, !tbaa !50
-  store i32 %.012.lcssa19.i, ptr %.0.i.i, align 4, !tbaa !51
+  store i32 %.012.lcssa19.i, ptr %.0.i.i, align 8, !tbaa !51
   %.ptr720.ptr = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   store ptr %.ptr720.ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1928), align 8, !tbaa !54
   %or.cond6 = icmp ult i32 %.0468666, 15

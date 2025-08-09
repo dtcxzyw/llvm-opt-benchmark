@@ -198,7 +198,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %31 = getelementptr inbounds nuw [16 x %struct.APContext], ptr %30, i64 %indvars.iv46
   %32 = getelementptr inbounds nuw [16 x %struct.APContext], ptr %31, i64 0, i64 %indvars.iv
   %33 = load i32, ptr %24, align 8, !tbaa !54
-  %34 = load i32, ptr %25, align 4, !tbaa !55
+  %34 = load i32, ptr %25, align 8, !tbaa !55
   %35 = add i32 %34, 40
   %36 = and i32 %35, 63
   %37 = zext nneg i32 %36 to i64
@@ -215,7 +215,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %48 = getelementptr inbounds nuw [64 x i32], ptr %14, i64 0, i64 %47
   store i32 %45, ptr %48, align 4, !tbaa !56
   %49 = add i32 %34, 1
-  store i32 %49, ptr %25, align 4, !tbaa !55
+  store i32 %49, ptr %25, align 8, !tbaa !55
   %50 = uitofp i32 %45 to double
   %51 = fdiv nsz double %50, 0x41EFFFFFFFE00000
   %52 = tail call nsz double @llvm.fmuladd.f64(double %51, double 2.291700e-03, double 8.333300e-04)

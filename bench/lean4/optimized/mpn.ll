@@ -405,7 +405,7 @@ define hidden void @_ZN4lean7mpn_divEPKjmS1_mPjS2_(ptr noundef readonly captures
   store ptr %85, ptr %84, align 8, !tbaa !27
   %86 = getelementptr inbounds nuw i8, ptr %83, i64 16
   store i64 0, ptr %86, align 8, !tbaa !30
-  store i8 0, ptr %85, align 1, !tbaa !32
+  store i8 0, ptr %85, align 8, !tbaa !32
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %83, align 8, !tbaa !33
   invoke void @__cxa_throw(ptr nonnull %83, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #15
           to label %.noexc unwind label %.loopexit.split-lp
@@ -1303,7 +1303,7 @@ _ZN4lean10mpn_bufferC2EmRKj.exit88:               ; preds = %.lr.ph, %_ZN4lean10
   store ptr %132, ptr %131, align 8, !tbaa !27
   %133 = getelementptr inbounds nuw i8, ptr %130, i64 16
   store i64 0, ptr %133, align 8, !tbaa !30
-  store i8 0, ptr %132, align 1, !tbaa !32
+  store i8 0, ptr %132, align 8, !tbaa !32
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %130, align 8, !tbaa !33
   invoke void @__cxa_throw(ptr nonnull %130, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #15
           to label %.noexc unwind label %.loopexit.split-lp

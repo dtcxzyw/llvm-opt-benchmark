@@ -423,9 +423,9 @@ default.unreachable1:                             ; preds = %19
 83:                                               ; preds = %76, %65, %53, %44, %28, %24, %14, %10
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 244
   %85 = load i8, ptr %84, align 4
-  %86 = load i8, ptr %4, align 1
+  %86 = load i8, ptr %4, align 4
   %87 = or i8 %86, %85
-  store i8 %87, ptr %4, align 1
+  store i8 %87, ptr %4, align 4
   tail call void @psmouse_report_standard_packet(ptr noundef %3, ptr noundef nonnull %4)
   tail call void @input_event(ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
   br label %88

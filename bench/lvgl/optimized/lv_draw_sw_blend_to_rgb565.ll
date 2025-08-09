@@ -191,7 +191,7 @@ define void @lv_draw_sw_blend_color_to_rgb565(ptr noundef readonly captures(none
   %86 = load volatile i32, ptr %73, align 4
   %87 = trunc i32 %86 to i16
   %88 = tail call zeroext i16 @lv_color_16_16_mix(i16 noundef zeroext %7, i16 noundef zeroext %87, i8 noundef zeroext %9) #3
-  store i16 %88, ptr %73, align 2, !tbaa !18
+  store i16 %88, ptr %73, align 4, !tbaa !18
   store i16 %88, ptr %75, align 2, !tbaa !18
   %89 = load volatile i32, ptr %73, align 4, !tbaa !20
   br label %90

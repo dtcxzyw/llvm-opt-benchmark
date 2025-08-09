@@ -5795,7 +5795,7 @@ _ZNSt10_HashtableIN5arrow20DeviceAllocationTypeESt4pairIKS1_St8functionIFNS0_6Re
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIN5arrow20DeviceAllocationTypeESt4pairIKS1_St8functionIFNS0_6ResultISt10shared_ptrINS0_13MemoryManagerEEEElEEESaISC_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !234
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i8, ptr %15, align 1, !tbaa !215
+  %16 = load i8, ptr %15, align 8, !tbaa !215
   %17 = sext i8 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18

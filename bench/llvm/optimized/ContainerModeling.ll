@@ -3014,7 +3014,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4ento31shouldRegisterContainerMode
   store ptr %25, ptr %.ptr.i.i.i.i, align 8, !tbaa !20
   %26 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
   store i64 0, ptr %26, align 8, !tbaa !24
-  store i8 0, ptr %25, align 1, !tbaa !26
+  store i8 0, ptr %25, align 8, !tbaa !26
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 32
   %27 = icmp eq i64 %.add.i.i.i.i, 416
   br i1 %27, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %24

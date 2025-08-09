@@ -11002,7 +11002,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_av1_read_loop_filter_p
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 736
   store i8 -1, ptr %35, align 2, !tbaa !20
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 740
-  store i16 0, ptr %36, align 1
+  store i16 0, ptr %36, align 2
   br label %.thread206
 
 37:                                               ; preds = %23

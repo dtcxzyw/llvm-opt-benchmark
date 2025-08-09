@@ -87,9 +87,9 @@ define hidden void @_ZN12ZNMethodData4swapEP18GrowableArrayCHeapI19ZNMethodDataB
   store ptr %21, ptr %18, align 8
   store ptr %20, ptr %19, align 8
   %22 = load i32, ptr %17, align 8
-  %23 = load i32, ptr %1, align 4
+  %23 = load i32, ptr %1, align 8
   store i32 %23, ptr %17, align 8
-  store i32 %22, ptr %1, align 4
+  store i32 %22, ptr %1, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %26 = load i32, ptr %24, align 4
@@ -104,9 +104,9 @@ define hidden void @_ZN12ZNMethodData4swapEP18GrowableArrayCHeapI19ZNMethodDataB
   store ptr %32, ptr %29, align 8
   store ptr %31, ptr %30, align 8
   %33 = load i32, ptr %28, align 8
-  %34 = load i32, ptr %2, align 4
+  %34 = load i32, ptr %2, align 8
   store i32 %34, ptr %28, align 8
-  store i32 %33, ptr %2, align 4
+  store i32 %33, ptr %2, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %37 = load i32, ptr %35, align 4

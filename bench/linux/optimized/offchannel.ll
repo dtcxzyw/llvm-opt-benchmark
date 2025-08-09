@@ -1333,7 +1333,7 @@ define dso_local i32 @ieee80211_mgmt_tx(ptr noundef readnone captures(none) %0, 
   %87 = getelementptr i8, ptr %1, i64 4126
   %88 = load i16, ptr %87, align 2
   %89 = getelementptr i8, ptr %9, i64 8
-  %90 = load i16, ptr %89, align 2
+  %90 = load i16, ptr %89, align 4
   %91 = xor i16 %90, %88
   %92 = zext i16 %91 to i32
   %93 = or i32 %86, %92
@@ -1430,7 +1430,7 @@ define dso_local i32 @ieee80211_mgmt_tx(ptr noundef readnone captures(none) %0, 
   %147 = load i32, ptr %146, align 4
   %148 = xor i32 %.pre, %147
   %149 = getelementptr i8, ptr %127, i64 24
-  %150 = load i16, ptr %149, align 2
+  %150 = load i16, ptr %149, align 4
   %151 = xor i16 %.pre38, %150
   %152 = zext i16 %151 to i32
   %153 = or i32 %148, %152
@@ -1466,7 +1466,7 @@ define dso_local i32 @ieee80211_mgmt_tx(ptr noundef readnone captures(none) %0, 
   %174 = load i32, ptr %121, align 4
   %175 = xor i32 %174, %173
   %176 = getelementptr i8, ptr %165, i64 24
-  %177 = load i16, ptr %176, align 2
+  %177 = load i16, ptr %176, align 4
   %178 = load i16, ptr %120, align 2
   %179 = xor i16 %178, %177
   %180 = zext i16 %179 to i32

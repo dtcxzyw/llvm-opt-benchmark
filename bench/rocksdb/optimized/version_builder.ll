@@ -7862,7 +7862,7 @@ common.resume:                                    ; preds = %145, %111
   store ptr %142, ptr %141, align 8, !tbaa !251
   %143 = getelementptr inbounds nuw i8, ptr %139, i64 24
   store i64 0, ptr %143, align 8, !tbaa !16
-  store i8 0, ptr %142, align 1, !tbaa !17
+  store i8 0, ptr %142, align 8, !tbaa !17
   store ptr %139, ptr %138, align 8, !tbaa !709
   %144 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN7rocksdb11InternalKeyEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS6_10_Hash_nodeIS4_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %117, i64 noundef %121, i64 noundef %118, ptr noundef nonnull %139, i64 noundef 1)
           to label %_ZNSt10_HashtableIiSt4pairIKiN7rocksdb11InternalKeyEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i.i unwind label %145
@@ -11690,7 +11690,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %16
   store i64 %23, ptr %25, align 8, !tbaa !16
   store ptr %14, ptr %4, align 8, !tbaa !11
   store i64 0, ptr %24, align 8, !tbaa !16
-  store i8 0, ptr %14, align 1, !tbaa !17
+  store i8 0, ptr %14, align 8, !tbaa !17
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %27 = load ptr, ptr %5, align 8, !tbaa !11
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -11722,7 +11722,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit6: ; preds = %3
   store i64 %37, ptr %39, align 8, !tbaa !16
   store ptr %28, ptr %5, align 8, !tbaa !11
   store i64 0, ptr %38, align 8, !tbaa !16
-  store i8 0, ptr %28, align 1, !tbaa !17
+  store i8 0, ptr %28, align 8, !tbaa !17
   store i64 %1, ptr %11, align 8, !tbaa !724
   %40 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %2, ptr %40, align 8, !tbaa !639
@@ -12289,7 +12289,7 @@ _ZSt19__relocate_object_aIN7rocksdb20ObsoleteBlobFileInfoES1_SaIS1_EEvPT_PT0_RT1
   store i64 %52, ptr %54, align 8, !tbaa !16, !alias.scope !864, !noalias !867
   store ptr %44, ptr %41, align 8, !tbaa !11, !alias.scope !867, !noalias !864
   store i64 0, ptr %53, align 8, !tbaa !16, !alias.scope !867, !noalias !864
-  store i8 0, ptr %44, align 1, !tbaa !17, !alias.scope !867, !noalias !864
+  store i8 0, ptr %44, align 8, !tbaa !17, !alias.scope !867, !noalias !864
   %55 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
   %56 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
   %.not.i.i.i = icmp eq ptr %55, %1
@@ -12341,7 +12341,7 @@ _ZSt19__relocate_object_aIN7rocksdb20ObsoleteBlobFileInfoES1_SaIS1_EEvPT_PT0_RT1
   store i64 %71, ptr %73, align 8, !tbaa !16, !alias.scope !871, !noalias !874
   store ptr %63, ptr %60, align 8, !tbaa !11, !alias.scope !874, !noalias !871
   store i64 0, ptr %72, align 8, !tbaa !16, !alias.scope !874, !noalias !871
-  store i8 0, ptr %63, align 1, !tbaa !17, !alias.scope !874, !noalias !871
+  store i8 0, ptr %63, align 8, !tbaa !17, !alias.scope !874, !noalias !871
   %74 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 40
   %75 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 40
   %.not.i.i.i35 = icmp eq ptr %74, %6
@@ -14212,7 +14212,7 @@ _ZNSt10_HashtableIiSt4pairIKimESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKimESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !211
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !27
+  %16 = load i32, ptr %15, align 8, !tbaa !27
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -14895,7 +14895,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !16, !alias.scope !909, !noalias !912
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !11, !alias.scope !912, !noalias !909
   store i64 0, ptr %48, align 8, !tbaa !16, !alias.scope !912, !noalias !909
-  store i8 0, ptr %39, align 1, !tbaa !17, !alias.scope !912, !noalias !909
+  store i8 0, ptr %39, align 8, !tbaa !17, !alias.scope !912, !noalias !909
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -14943,7 +14943,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !16, !alias.scope !916, !noalias !919
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !11, !alias.scope !919, !noalias !916
   store i64 0, ptr %64, align 8, !tbaa !16, !alias.scope !919, !noalias !916
-  store i8 0, ptr %55, align 1, !tbaa !17, !alias.scope !919, !noalias !916
+  store i8 0, ptr %55, align 8, !tbaa !17, !alias.scope !919, !noalias !916
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5
@@ -15963,7 +15963,7 @@ _ZNSt10_HashtableIiSt4pairIKiN7rocksdb11InternalKeyEESaIS4_ENSt8__detail10_Selec
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiN7rocksdb11InternalKeyEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !211
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !27
+  %16 = load i32, ptr %15, align 8, !tbaa !27
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -22345,7 +22345,7 @@ _ZNSt16allocator_traitsISaIN7rocksdb6StatusEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0
   store i8 %47, ptr %48, align 1, !tbaa !289, !alias.scope !1008, !noalias !1011
   store i8 0, ptr %46, align 1, !tbaa !289, !alias.scope !1011, !noalias !1008
   %49 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 2
-  %50 = load i8, ptr %49, align 1, !tbaa !290, !alias.scope !1011, !noalias !1008
+  %50 = load i8, ptr %49, align 2, !tbaa !290, !alias.scope !1011, !noalias !1008
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 2
   store i8 %50, ptr %51, align 2, !tbaa !291, !alias.scope !1008, !noalias !1011
   store i8 0, ptr %49, align 2, !tbaa !291, !alias.scope !1011, !noalias !1008
@@ -22355,7 +22355,7 @@ _ZNSt16allocator_traitsISaIN7rocksdb6StatusEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0
   store i8 %53, ptr %54, align 1, !tbaa !293, !alias.scope !1008, !noalias !1011
   store i8 0, ptr %52, align 1, !tbaa !293, !alias.scope !1011, !noalias !1008
   %55 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 4
-  %56 = load i8, ptr %55, align 1, !tbaa !292, !range !209, !alias.scope !1011, !noalias !1008, !noundef !210
+  %56 = load i8, ptr %55, align 4, !tbaa !292, !range !209, !alias.scope !1011, !noalias !1008, !noundef !210
   %57 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 4
   store i8 %56, ptr %57, align 4, !tbaa !294, !alias.scope !1008, !noalias !1011
   store i8 0, ptr %55, align 4, !tbaa !294, !alias.scope !1011, !noalias !1008
@@ -22414,7 +22414,7 @@ _ZNSt16allocator_traitsISaIN7rocksdb6StatusEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0
   store i8 %70, ptr %71, align 1, !tbaa !289, !alias.scope !1015, !noalias !1018
   store i8 0, ptr %69, align 1, !tbaa !289, !alias.scope !1018, !noalias !1015
   %72 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i21, i64 2
-  %73 = load i8, ptr %72, align 1, !tbaa !290, !alias.scope !1018, !noalias !1015
+  %73 = load i8, ptr %72, align 2, !tbaa !290, !alias.scope !1018, !noalias !1015
   %74 = getelementptr inbounds nuw i8, ptr %.012.i.i.i20, i64 2
   store i8 %73, ptr %74, align 2, !tbaa !291, !alias.scope !1015, !noalias !1018
   store i8 0, ptr %72, align 2, !tbaa !291, !alias.scope !1018, !noalias !1015
@@ -22424,7 +22424,7 @@ _ZNSt16allocator_traitsISaIN7rocksdb6StatusEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0
   store i8 %76, ptr %77, align 1, !tbaa !293, !alias.scope !1015, !noalias !1018
   store i8 0, ptr %75, align 1, !tbaa !293, !alias.scope !1018, !noalias !1015
   %78 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i21, i64 4
-  %79 = load i8, ptr %78, align 1, !tbaa !292, !range !209, !alias.scope !1018, !noalias !1015, !noundef !210
+  %79 = load i8, ptr %78, align 4, !tbaa !292, !range !209, !alias.scope !1018, !noalias !1015, !noundef !210
   %80 = getelementptr inbounds nuw i8, ptr %.012.i.i.i20, i64 4
   store i8 %79, ptr %80, align 4, !tbaa !294, !alias.scope !1015, !noalias !1018
   store i8 0, ptr %78, align 4, !tbaa !294, !alias.scope !1018, !noalias !1015
@@ -25857,7 +25857,7 @@ _ZNSt10_HashtableIiSt4pairIKimESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   store ptr %22, ptr %26, align 8, !tbaa !586
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load i64, ptr %27, align 8, !tbaa !169
-  %29 = load i32, ptr %25, align 4, !tbaa !27
+  %29 = load i32, ptr %25, align 8, !tbaa !27
   %30 = sext i32 %29 to i64
   %31 = urem i64 %30, %28
   %32 = getelementptr inbounds nuw ptr, ptr %18, i64 %31
@@ -25878,7 +25878,7 @@ _ZNSt10_HashtableIiSt4pairIKimESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false)
   store ptr %33, ptr %.02636, align 8, !tbaa !211
-  %37 = load i32, ptr %36, align 4, !tbaa !27
+  %37 = load i32, ptr %36, align 8, !tbaa !27
   %38 = sext i32 %37 to i64
   %39 = urem i64 %38, %28
   %40 = getelementptr inbounds nuw ptr, ptr %18, i64 %39

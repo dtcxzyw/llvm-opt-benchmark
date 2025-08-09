@@ -2872,7 +2872,7 @@ _ZN3nix9StorePathC2EOS0_.exit:                    ; preds = %13, %_ZNKSt7__cxx11
   store i64 %19, ptr %21, align 8
   store ptr %11, ptr %8, align 8
   store i64 0, ptr %20, align 8
-  store i8 0, ptr %11, align 1
+  store i8 0, ptr %11, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #27
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.7, ptr noundef nonnull align 1 dereferenceable(1) %3)
@@ -18223,7 +18223,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i: ; pre
   store i64 %22, ptr %23, align 8
   store ptr %13, ptr %8, align 8
   store i64 0, ptr %21, align 8
-  store i8 0, ptr %13, align 1
+  store i8 0, ptr %13, align 8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(33) %24, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %30 unwind label %.body
@@ -20795,7 +20795,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %23, ptr %25, align 8
   store ptr %15, ptr %10, align 8
   store i64 0, ptr %24, align 8
-  store i8 0, ptr %15, align 1
+  store i8 0, ptr %15, align 8
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 80
   tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(33) %26, ptr noundef nonnull align 8 dereferenceable(32) %12) #27
@@ -20830,7 +20830,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %38, ptr %41, align 8
   store ptr %29, ptr %12, align 8
   store i64 0, ptr %40, align 8
-  store i8 0, ptr %29, align 1
+  store i8 0, ptr %29, align 8
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store i8 0, ptr %42, align 8
   store ptr %7, ptr %39, align 8
@@ -20986,7 +20986,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %23, ptr %27, align 8
   store ptr %14, ptr %10, align 8
   store i64 0, ptr %26, align 8
-  store i8 0, ptr %14, align 1
+  store i8 0, ptr %14, align 8
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %29 = load i64, ptr %25, align 8
   store i64 %29, ptr %28, align 8
@@ -25904,7 +25904,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %23, ptr %27, align 8
   store ptr %14, ptr %10, align 8
   store i64 0, ptr %26, align 8
-  store i8 0, ptr %14, align 1
+  store i8 0, ptr %14, align 8
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %29 = load i64, ptr %25, align 8
   store i64 %29, ptr %28, align 8
@@ -26622,7 +26622,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %23, ptr %25, align 8
   store ptr %15, ptr %10, align 8
   store i64 0, ptr %24, align 8
-  store i8 0, ptr %15, align 1
+  store i8 0, ptr %15, align 8
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 80
   tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %12) #27
@@ -26657,7 +26657,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i3.i.
   store i64 %38, ptr %41, align 8
   store ptr %29, ptr %12, align 8
   store i64 0, ptr %40, align 8
-  store i8 0, ptr %29, align 1
+  store i8 0, ptr %29, align 8
   store ptr %7, ptr %39, align 8
   %42 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %43 unwind label %64

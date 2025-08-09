@@ -2224,7 +2224,7 @@ _ZNSt10_HashtableIjSt4pairIKjSt13unordered_mapINSt7__cxx1112basic_stringIcSt11ch
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIjSt4pairIKjSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7rocksdb14TrackedKeyInfoESt4hashIS8_ESt8equal_toIS8_ESaIS0_IKS8_SA_EEEESaISJ_ENSt8__detail10_Select1stESD_IjESB_IjENSL_18_Mod_range_hashingENSL_20_Default_ranged_hashENSL_20_Prime_rehash_policyENSL_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !32
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !33
+  %16 = load i32, ptr %15, align 8, !tbaa !33
   %17 = zext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18

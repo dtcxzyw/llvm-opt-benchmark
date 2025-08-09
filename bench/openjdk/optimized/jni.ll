@@ -41143,9 +41143,9 @@ define linkonce_odr hidden void @_ZN23JNI_ArgumentPusherArray7do_typeE9BasicType
   store i8 0, ptr %16, align 1
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 88
   %18 = load ptr, ptr %17, align 8
-  %19 = load i32, ptr %13, align 4
+  %19 = load i32, ptr %13, align 8
   %20 = add nsw i32 %19, 1
-  store i32 %20, ptr %13, align 4
+  store i32 %20, ptr %13, align 8
   %21 = sext i32 %19 to i64
   %22 = getelementptr inbounds i64, ptr %18, i64 %21
   store i32 %8, ptr %22, align 4
@@ -41169,9 +41169,9 @@ define linkonce_odr hidden void @_ZN23JNI_ArgumentPusherArray7do_typeE9BasicType
   store i8 0, ptr %36, align 1
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 88
   %38 = load ptr, ptr %37, align 8
-  %39 = load i32, ptr %33, align 4
+  %39 = load i32, ptr %33, align 8
   %40 = add nsw i32 %39, 1
-  store i32 %40, ptr %33, align 4
+  store i32 %40, ptr %33, align 8
   %41 = sext i32 %39 to i64
   %42 = getelementptr inbounds i64, ptr %38, i64 %41
   store i32 %28, ptr %42, align 4
@@ -41195,9 +41195,9 @@ define linkonce_odr hidden void @_ZN23JNI_ArgumentPusherArray7do_typeE9BasicType
   store i8 0, ptr %56, align 1
   %57 = getelementptr inbounds nuw i8, ptr %50, i64 88
   %58 = load ptr, ptr %57, align 8
-  %59 = load i32, ptr %53, align 4
+  %59 = load i32, ptr %53, align 8
   %60 = add nsw i32 %59, 1
-  store i32 %60, ptr %53, align 4
+  store i32 %60, ptr %53, align 8
   %61 = sext i32 %59 to i64
   %62 = getelementptr inbounds i64, ptr %58, i64 %61
   store i32 %48, ptr %62, align 4
@@ -41220,9 +41220,9 @@ define linkonce_odr hidden void @_ZN23JNI_ArgumentPusherArray7do_typeE9BasicType
   store i8 0, ptr %75, align 1
   %76 = getelementptr inbounds nuw i8, ptr %69, i64 88
   %77 = load ptr, ptr %76, align 8
-  %78 = load i32, ptr %72, align 4
+  %78 = load i32, ptr %72, align 8
   %79 = add nsw i32 %78, 1
-  store i32 %79, ptr %72, align 4
+  store i32 %79, ptr %72, align 8
   %80 = sext i32 %78 to i64
   %81 = getelementptr inbounds i64, ptr %77, i64 %80
   store i32 %67, ptr %81, align 4
@@ -41247,9 +41247,9 @@ define linkonce_odr hidden void @_ZN23JNI_ArgumentPusherArray7do_typeE9BasicType
   store i8 0, ptr %96, align 1
   %97 = getelementptr inbounds nuw i8, ptr %90, i64 88
   %98 = load ptr, ptr %97, align 8
-  %99 = load i32, ptr %93, align 4
+  %99 = load i32, ptr %93, align 8
   %100 = add nsw i32 %99, 1
-  store i32 %100, ptr %93, align 4
+  store i32 %100, ptr %93, align 8
   %101 = sext i32 %99 to i64
   %102 = getelementptr inbounds i64, ptr %98, i64 %101
   store i32 %88, ptr %102, align 4
@@ -41279,13 +41279,13 @@ define linkonce_odr hidden void @_ZN23JNI_ArgumentPusherArray7do_typeE9BasicType
   %121 = getelementptr inbounds nuw i8, ptr %109, i64 88
   %122 = load ptr, ptr %121, align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  %124 = load i32, ptr %112, align 4
+  %124 = load i32, ptr %112, align 8
   %125 = sext i32 %124 to i64
   %126 = getelementptr inbounds i64, ptr %123, i64 %125
   store i64 %107, ptr %126, align 8
-  %127 = load i32, ptr %112, align 4
+  %127 = load i32, ptr %112, align 8
   %128 = add nsw i32 %127, 2
-  store i32 %128, ptr %112, align 4
+  store i32 %128, ptr %112, align 8
   br label %196
 
 129:                                              ; preds = %2
@@ -41305,9 +41305,9 @@ define linkonce_odr hidden void @_ZN23JNI_ArgumentPusherArray7do_typeE9BasicType
   store i8 0, ptr %141, align 1
   %142 = getelementptr inbounds nuw i8, ptr %135, i64 88
   %143 = load ptr, ptr %142, align 8
-  %144 = load i32, ptr %138, align 4
+  %144 = load i32, ptr %138, align 8
   %145 = add nsw i32 %144, 1
-  store i32 %145, ptr %138, align 4
+  store i32 %145, ptr %138, align 8
   %146 = sext i32 %144 to i64
   %147 = getelementptr inbounds i64, ptr %143, i64 %146
   store float %133, ptr %147, align 4
@@ -41337,13 +41337,13 @@ define linkonce_odr hidden void @_ZN23JNI_ArgumentPusherArray7do_typeE9BasicType
   %166 = getelementptr inbounds nuw i8, ptr %154, i64 88
   %167 = load ptr, ptr %166, align 8
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
-  %169 = load i32, ptr %157, align 4
+  %169 = load i32, ptr %157, align 8
   %170 = sext i32 %169 to i64
   %171 = getelementptr inbounds i64, ptr %168, i64 %170
   store double %152, ptr %171, align 8
-  %172 = load i32, ptr %157, align 4
+  %172 = load i32, ptr %157, align 8
   %173 = add nsw i32 %172, 2
-  store i32 %173, ptr %157, align 4
+  store i32 %173, ptr %157, align 8
   br label %196
 
 174:                                              ; preds = %2, %2
@@ -41364,9 +41364,9 @@ define linkonce_odr hidden void @_ZN23JNI_ArgumentPusherArray7do_typeE9BasicType
   %187 = getelementptr inbounds nuw i8, ptr %180, i64 88
   %188 = load ptr, ptr %187, align 8
   %189 = ptrtoint ptr %178 to i64
-  %190 = load i32, ptr %183, align 4
+  %190 = load i32, ptr %183, align 8
   %191 = add nsw i32 %190, 1
-  store i32 %191, ptr %183, align 4
+  store i32 %191, ptr %183, align 8
   %192 = sext i32 %190 to i64
   %193 = getelementptr inbounds i64, ptr %188, i64 %192
   store i64 %189, ptr %193, align 8
@@ -41523,9 +41523,9 @@ define linkonce_odr hidden void @_ZN23JNI_ArgumentPusherVaArg7do_typeE9BasicType
   store i8 0, ptr %27, align 1
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 88
   %29 = load ptr, ptr %28, align 8
-  %30 = load i32, ptr %24, align 4
+  %30 = load i32, ptr %24, align 8
   %31 = add nsw i32 %30, 1
-  store i32 %31, ptr %24, align 4
+  store i32 %31, ptr %24, align 8
   %32 = sext i32 %30 to i64
   %33 = getelementptr inbounds i64, ptr %29, i64 %32
   store i32 %19, ptr %33, align 4
@@ -41570,9 +41570,9 @@ define linkonce_odr hidden void @_ZN23JNI_ArgumentPusherVaArg7do_typeE9BasicType
   store i8 0, ptr %61, align 1
   %62 = getelementptr inbounds nuw i8, ptr %55, i64 88
   %63 = load ptr, ptr %62, align 8
-  %64 = load i32, ptr %58, align 4
+  %64 = load i32, ptr %58, align 8
   %65 = add nsw i32 %64, 1
-  store i32 %65, ptr %58, align 4
+  store i32 %65, ptr %58, align 8
   %66 = sext i32 %64 to i64
   %67 = getelementptr inbounds i64, ptr %63, i64 %66
   store i32 %53, ptr %67, align 4
@@ -41621,13 +41621,13 @@ define linkonce_odr hidden void @_ZN23JNI_ArgumentPusherVaArg7do_typeE9BasicType
   %98 = getelementptr inbounds nuw i8, ptr %86, i64 88
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  %101 = load i32, ptr %89, align 4
+  %101 = load i32, ptr %89, align 8
   %102 = sext i32 %101 to i64
   %103 = getelementptr inbounds i64, ptr %100, i64 %102
   store i64 %84, ptr %103, align 8
-  %104 = load i32, ptr %89, align 4
+  %104 = load i32, ptr %89, align 8
   %105 = add nsw i32 %104, 2
-  store i32 %105, ptr %89, align 4
+  store i32 %105, ptr %89, align 8
   br label %210
 
 106:                                              ; preds = %2
@@ -41667,9 +41667,9 @@ define linkonce_odr hidden void @_ZN23JNI_ArgumentPusherVaArg7do_typeE9BasicType
   store i8 0, ptr %131, align 1
   %132 = getelementptr inbounds nuw i8, ptr %125, i64 88
   %133 = load ptr, ptr %132, align 8
-  %134 = load i32, ptr %128, align 4
+  %134 = load i32, ptr %128, align 8
   %135 = add nsw i32 %134, 1
-  store i32 %135, ptr %128, align 4
+  store i32 %135, ptr %128, align 8
   %136 = sext i32 %134 to i64
   %137 = getelementptr inbounds i64, ptr %133, i64 %136
   store float %123, ptr %137, align 4
@@ -41718,13 +41718,13 @@ define linkonce_odr hidden void @_ZN23JNI_ArgumentPusherVaArg7do_typeE9BasicType
   %168 = getelementptr inbounds nuw i8, ptr %156, i64 88
   %169 = load ptr, ptr %168, align 8
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  %171 = load i32, ptr %159, align 4
+  %171 = load i32, ptr %159, align 8
   %172 = sext i32 %171 to i64
   %173 = getelementptr inbounds i64, ptr %170, i64 %172
   store double %154, ptr %173, align 8
-  %174 = load i32, ptr %159, align 4
+  %174 = load i32, ptr %159, align 8
   %175 = add nsw i32 %174, 2
-  store i32 %175, ptr %159, align 4
+  store i32 %175, ptr %159, align 8
   br label %210
 
 176:                                              ; preds = %2, %2
@@ -41764,9 +41764,9 @@ define linkonce_odr hidden void @_ZN23JNI_ArgumentPusherVaArg7do_typeE9BasicType
   %201 = getelementptr inbounds nuw i8, ptr %194, i64 88
   %202 = load ptr, ptr %201, align 8
   %203 = ptrtoint ptr %192 to i64
-  %204 = load i32, ptr %197, align 4
+  %204 = load i32, ptr %197, align 8
   %205 = add nsw i32 %204, 1
-  store i32 %205, ptr %197, align 4
+  store i32 %205, ptr %197, align 8
   %206 = sext i32 %204 to i64
   %207 = getelementptr inbounds i64, ptr %202, i64 %206
   store i64 %203, ptr %207, align 8

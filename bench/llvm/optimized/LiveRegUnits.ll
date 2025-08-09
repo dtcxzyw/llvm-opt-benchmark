@@ -1064,7 +1064,7 @@ _ZNK4llvm17MachineBasicBlock13isReturnBlockEv.exit: ; preds = %_ZNK4llvm17Machin
   %.sroa.07.012.i = phi ptr [ %40, %.lr.ph.split.i ], [ %82, %_ZN4llvm12LiveRegUnits12addRegMaskedEtNS_11LaneBitmaskE.exit.loopexit.i ]
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.07.012.i, i64 8
   %.sroa.0.0.copyload.i = load i64, ptr %50, align 8, !tbaa !39
-  %51 = load i32, ptr %.sroa.07.012.i, align 4, !tbaa !277
+  %51 = load i32, ptr %.sroa.07.012.i, align 8, !tbaa !277
   %52 = and i32 %51, 65535
   %53 = zext nneg i32 %52 to i64
   %54 = getelementptr inbounds nuw %"struct.llvm::MCRegisterDesc", ptr %48, i64 %53, i32 4
@@ -1168,7 +1168,7 @@ define dso_local void @_ZN4llvm12LiveRegUnits10addLiveInsERKNS_17MachineBasicBlo
   %.sroa.07.012.i = phi ptr [ %5, %.lr.ph.split.i ], [ %48, %_ZN4llvm12LiveRegUnits12addRegMaskedEtNS_11LaneBitmaskE.exit.loopexit.i ]
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.07.012.i, i64 8
   %.sroa.0.0.copyload.i = load i64, ptr %16, align 8, !tbaa !39
-  %17 = load i32, ptr %.sroa.07.012.i, align 4, !tbaa !277
+  %17 = load i32, ptr %.sroa.07.012.i, align 8, !tbaa !277
   %18 = and i32 %17, 65535
   %19 = zext nneg i32 %18 to i64
   %20 = getelementptr inbounds nuw %"struct.llvm::MCRegisterDesc", ptr %14, i64 %19, i32 4

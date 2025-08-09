@@ -2995,7 +2995,7 @@ _ZSt19__relocate_object_aI4AreaS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %if
   store i64 %14, ptr %_M_string_length.i24.i.i.i.i.i.i.i.i, align 8, !tbaa !52, !alias.scope !108, !noalias !111
   store ptr %11, ptr %data3.i.i.i.i.i.i.i, align 8, !tbaa !55, !alias.scope !111, !noalias !108
   store i64 0, ptr %_M_string_length.i23.i.i.i.i.i.i.i.i, align 8, !tbaa !52, !alias.scope !111, !noalias !108
-  store i8 0, ptr %11, align 1, !tbaa !48, !alias.scope !111, !noalias !108
+  store i8 0, ptr %11, align 8, !tbaa !48, !alias.scope !111, !noalias !108
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 48
   %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 48
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
@@ -3046,7 +3046,7 @@ _ZSt19__relocate_object_aI4AreaS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i42: ; preds = %
   store i64 %20, ptr %_M_string_length.i24.i.i.i.i.i.i.i.i44, align 8, !tbaa !52, !alias.scope !115, !noalias !118
   store ptr %17, ptr %data3.i.i.i.i.i.i.i37, align 8, !tbaa !55, !alias.scope !118, !noalias !115
   store i64 0, ptr %_M_string_length.i23.i.i.i.i.i.i.i.i43, align 8, !tbaa !52, !alias.scope !118, !noalias !115
-  store i8 0, ptr %17, align 1, !tbaa !48, !alias.scope !118, !noalias !115
+  store i8 0, ptr %17, align 8, !tbaa !48, !alias.scope !118, !noalias !115
   %incdec.ptr.i.i.i45 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i35, i64 48
   %incdec.ptr1.i.i.i46 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i34, i64 48
   %cmp.not.i.i.i47 = icmp eq ptr %incdec.ptr.i.i.i45, %0

@@ -304,7 +304,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %37 = load ptr, ptr %36, align 8, !tbaa !65
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %39 = load i32, ptr %38, align 4, !tbaa !28
+  %39 = load i32, ptr %38, align 8, !tbaa !28
   %40 = tail call i32 @ff_filter_get_nb_threads(ptr noundef nonnull %5) #9
   %. = tail call i32 @llvm.smin.i32(i32 %39, i32 %40)
   %41 = tail call i32 @ff_filter_execute(ptr noundef nonnull %5, ptr noundef %37, ptr noundef %.026, ptr noundef null, i32 noundef %.) #8

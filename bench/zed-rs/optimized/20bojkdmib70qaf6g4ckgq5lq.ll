@@ -6362,8 +6362,8 @@ default.unreachable6:                             ; preds = %1
   store ptr %24, ptr %26, align 8, !noalias !1366
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store ptr %25, ptr %42, align 8, !noalias !1366
-  store atomic i8 0, ptr %27 seq_cst, align 1, !noalias !1385
-  %43 = load atomic i8, ptr %14 seq_cst, align 1, !noalias !1366
+  store atomic i8 0, ptr %27 seq_cst, align 8, !noalias !1385
+  %43 = load atomic i8, ptr %14 seq_cst, align 8, !noalias !1366
   %44 = icmp eq i8 %43, 0
   br i1 %44, label %57, label %.noexc14
 
@@ -6372,7 +6372,7 @@ default.unreachable6:                             ; preds = %1
           cleanup
   store ptr %24, ptr %26, align 8, !noalias !1366
   store ptr %25, ptr %37, align 8, !noalias !1366
-  store atomic i8 0, ptr %27 seq_cst, align 1, !noalias !1390
+  store atomic i8 0, ptr %27 seq_cst, align 8, !noalias !1390
   br label %.body
 
 .noexc14:                                         ; preds = %39, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h152d07f28d5f751eE.llvm.9856359229311746364.exit.i.i", %10
@@ -6387,7 +6387,7 @@ default.unreachable6:                             ; preds = %1
   %52 = load ptr, ptr %51, align 8, !noalias !1366
   store i64 2, ptr %13, align 8, !noalias !1366
   %53 = icmp eq i64 %50, 2
-  store atomic i8 0, ptr %47 seq_cst, align 1, !noalias !1366
+  store atomic i8 0, ptr %47 seq_cst, align 8, !noalias !1366
   %..i.i = select i1 %53, ptr undef, ptr %52
   br label %56
 

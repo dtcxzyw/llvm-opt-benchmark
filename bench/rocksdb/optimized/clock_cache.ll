@@ -2142,7 +2142,7 @@ common.resume:                                    ; preds = %30, %33, %_ZZN7rock
   store i64 16, ptr %47, align 8
   %64 = load ptr, ptr %.017.i, align 64, !tbaa !30
   %65 = getelementptr inbounds nuw i8, ptr %.017.i, i64 32
-  %66 = load i64, ptr %65, align 8, !tbaa !35
+  %66 = load i64, ptr %65, align 32, !tbaa !35
   %67 = getelementptr inbounds nuw i8, ptr %.017.i, i64 8
   %68 = load ptr, ptr %67, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -3508,7 +3508,7 @@ _ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %39 = load i64, ptr %38, align 32, !tbaa !35
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %41 = load atomic i64, ptr %40 acquire, align 8
+  %41 = load atomic i64, ptr %40 acquire, align 16
   %42 = icmp eq i64 %41, -1
   br i1 %42, label %43, label %46, !prof !69
 
@@ -3645,7 +3645,7 @@ _ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %34 = load i64, ptr %33, align 32, !tbaa !35
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %36 = load atomic i64, ptr %35 acquire, align 8
+  %36 = load atomic i64, ptr %35 acquire, align 16
   %37 = icmp eq i64 %36, -1
   br i1 %37, label %38, label %40, !prof !69
 
@@ -3968,7 +3968,7 @@ common.resume:                                    ; preds = %32, %35, %_ZZN7rock
   store i64 16, ptr %49, align 8
   %66 = load ptr, ptr %.017.i, align 64, !tbaa !30
   %67 = getelementptr inbounds nuw i8, ptr %.017.i, i64 32
-  %68 = load i64, ptr %67, align 8, !tbaa !35
+  %68 = load i64, ptr %67, align 32, !tbaa !35
   %69 = getelementptr inbounds nuw i8, ptr %.017.i, i64 8
   %70 = load ptr, ptr %69, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -6945,7 +6945,7 @@ _ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %37 = load i64, ptr %36, align 32, !tbaa !35
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %39 = load atomic i64, ptr %38 acquire, align 8
+  %39 = load atomic i64, ptr %38 acquire, align 16
   %40 = icmp eq i64 %39, -1
   br i1 %40, label %41, label %44, !prof !69
 
@@ -11162,7 +11162,7 @@ define linkonce_odr noundef ptr @_ZN7rocksdb12ShardedCacheINS_11clock_cache15Clo
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 256
   %32 = load atomic i64, ptr %31 monotonic, align 8
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 264
-  %34 = load atomic i32, ptr %33 monotonic, align 4
+  %34 = load atomic i32, ptr %33 monotonic, align 8
   %35 = call noundef ptr @_ZN7rocksdb11clock_cache14BaseClockTable16CreateStandaloneINS0_20FixedHyperClockTableEEEPNT_10HandleImplERNS0_20ClockHandleBasicDataEmjb(ptr noundef nonnull align 64 dereferenceable(160) %30, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 noundef %32, i32 noundef %34, i1 noundef zeroext %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE16CreateStandaloneERKNS_5SliceERKSt5arrayImLm2EEPvPKNS_5Cache15CacheItemHelperEmb.exit
@@ -12154,7 +12154,7 @@ define linkonce_odr void @_ZN7rocksdb11clock_cache19BaseHyperClockCacheINS0_20Fi
   store i64 16, ptr %29, align 8
   %30 = load ptr, ptr %2, align 64, !tbaa !30
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %32 = load i64, ptr %31, align 8, !tbaa !35
+  %32 = load i64, ptr %31, align 32, !tbaa !35
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -12416,7 +12416,7 @@ define linkonce_odr noundef ptr @_ZN7rocksdb12ShardedCacheINS_11clock_cache15Clo
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 320
   %32 = load atomic i64, ptr %31 monotonic, align 8
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 328
-  %34 = load atomic i32, ptr %33 monotonic, align 4
+  %34 = load atomic i32, ptr %33 monotonic, align 8
   %35 = call noundef ptr @_ZN7rocksdb11clock_cache14BaseClockTable16CreateStandaloneINS0_19AutoHyperClockTableEEEPNT_10HandleImplERNS0_20ClockHandleBasicDataEmjb(ptr noundef nonnull align 64 dereferenceable(160) %30, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 noundef %32, i32 noundef %34, i1 noundef zeroext %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN7rocksdb11clock_cache15ClockCacheShardINS0_19AutoHyperClockTableEE16CreateStandaloneERKNS_5SliceERKSt5arrayImLm2EEPvPKNS_5Cache15CacheItemHelperEmb.exit
@@ -13345,7 +13345,7 @@ define linkonce_odr void @_ZN7rocksdb11clock_cache19BaseHyperClockCacheINS0_19Au
   store i64 16, ptr %29, align 8
   %30 = load ptr, ptr %2, align 64, !tbaa !30
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %32 = load i64, ptr %31, align 8, !tbaa !35
+  %32 = load i64, ptr %31, align 32, !tbaa !35
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

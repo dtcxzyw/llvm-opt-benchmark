@@ -1182,7 +1182,7 @@ _ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_111ChrootStateEEENS0_17ProgramSt
   %127 = lshr i32 %126, 22
   %128 = and i32 %127, 7
   %129 = getelementptr inbounds nuw i8, ptr %125, i64 16
-  %130 = load i32, ptr %129, align 4, !tbaa !255
+  %130 = load i32, ptr %129, align 8, !tbaa !255
   %131 = mul i32 %128, %130
   %.not.i.i12.i = icmp eq i32 %131, 1
   br i1 %.not.i.i12.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i11.i

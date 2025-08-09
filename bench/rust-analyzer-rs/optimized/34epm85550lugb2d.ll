@@ -7498,7 +7498,7 @@ define hidden noundef i32 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
   store ptr %25, ptr %.sroa.5.0..sroa_idx2.i.i.i, align 8, !alias.scope !2773, !noalias !2774
   %.sroa.0.0.copyload4.i.i.i.i.i = load i8, ptr %24, align 4, !noalias !2777
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx5.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 4
-  %.sroa.8.sroa.6.0.copyload.i.i.i.i.i = load i32, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx5.sroa_idx.i.i.i.i.i, align 1, !noalias !2777
+  %.sroa.8.sroa.6.0.copyload.i.i.i.i.i = load i32, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx5.sroa_idx.i.i.i.i.i, align 4, !noalias !2777
   %.not.i.i.i.i.i = icmp eq i8 %.sroa.0.0.copyload4.i.i.i.i.i, 11
   br i1 %.not.i.i.i.i.i, label %.loopexit.i, label %26
 
@@ -45439,7 +45439,7 @@ define hidden noundef i32 @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb9b
   store ptr %28, ptr %.sroa.5.0..sroa_idx2.i.i, align 8, !alias.scope !14801, !noalias !14802
   %.sroa.0.0.copyload4.i.i.i.i = load i8, ptr %27, align 4, !noalias !14805
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx5.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %27, i64 4
-  %.sroa.8.sroa.6.0.copyload.i.i.i.i = load i32, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx5.sroa_idx.i.i.i.i, align 1, !noalias !14805
+  %.sroa.8.sroa.6.0.copyload.i.i.i.i = load i32, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx5.sroa_idx.i.i.i.i, align 4, !noalias !14805
   %.not.i.i.i.i = icmp eq i8 %.sroa.0.0.copyload4.i.i.i.i, 11
   br i1 %.not.i.i.i.i, label %.loopexit, label %29
 
@@ -49843,7 +49843,7 @@ define hidden noundef i32 @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b
   store ptr %21, ptr %.sroa.5.0..sroa_idx2.i, align 8, !alias.scope !16446, !noalias !16447
   %.sroa.0.0.copyload4.i.i.i = load i8, ptr %20, align 4, !noalias !16450
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx5.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %.sroa.8.sroa.6.0.copyload.i.i.i = load i32, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx5.sroa_idx.i.i.i, align 1, !noalias !16450
+  %.sroa.8.sroa.6.0.copyload.i.i.i = load i32, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx5.sroa_idx.i.i.i, align 4, !noalias !16450
   %.not.i.i.i = icmp eq i8 %.sroa.0.0.copyload4.i.i.i, 11
   br i1 %.not.i.i.i, label %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hbda7f8e3006ca912E.llvm.15005499655690089915.exit", label %22
 
@@ -54635,7 +54635,7 @@ define hidden noundef i32 @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C
   store ptr %16, ptr %.sroa.5.0..sroa_idx2, align 8, !alias.scope !18738, !noalias !18739
   %.sroa.0.0.copyload4.i.i = load i8, ptr %15, align 4, !noalias !18742
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx5.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %.sroa.8.sroa.6.0.copyload.i.i = load i32, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx5.sroa_idx.i.i, align 1, !noalias !18742
+  %.sroa.8.sroa.6.0.copyload.i.i = load i32, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx5.sroa_idx.i.i, align 4, !noalias !18742
   %.not.i.i = icmp eq i8 %.sroa.0.0.copyload4.i.i, 11
   br i1 %.not.i.i, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h3e27977e2a384467E.exit", label %17
 

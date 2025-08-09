@@ -926,7 +926,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %11, %15
   store ptr %35, ptr %.ptr.i.i.i.i, align 8, !tbaa !89
   %36 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
   store i64 0, ptr %36, align 8, !tbaa !90
-  store i8 0, ptr %35, align 1, !tbaa !91
+  store i8 0, ptr %35, align 8, !tbaa !91
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 32
   %37 = icmp eq i64 %.add.i.i.i.i, 416
   br i1 %37, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %34
@@ -10432,7 +10432,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llv
   store ptr %16, ptr %.ptr.i.i.i, align 8, !tbaa !89
   %17 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %17, align 8, !tbaa !90
-  store i8 0, ptr %16, align 1, !tbaa !91
+  store i8 0, ptr %16, align 8, !tbaa !91
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %18 = icmp eq i64 %.add.i.i.i, 416
   br i1 %18, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %15

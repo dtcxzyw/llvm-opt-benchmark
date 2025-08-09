@@ -84,7 +84,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %10
   store i64 %17, ptr %18, align 8, !tbaa !13
   store ptr %8, ptr %1, align 8, !tbaa !10
   store i64 0, ptr %16, align 8, !tbaa !13
-  store i8 0, ptr %8, align 1, !tbaa !14
+  store i8 0, ptr %8, align 8, !tbaa !14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -118,7 +118,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit2: ; preds = %2
   store i64 %33, ptr %34, align 8, !tbaa !13
   store ptr %23, ptr %4, align 8, !tbaa !10
   store i64 0, ptr %32, align 8, !tbaa !13
-  store i8 0, ptr %23, align 1, !tbaa !14
+  store i8 0, ptr %23, align 8, !tbaa !14
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 %31, ptr %35, align 8, !tbaa !15
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -176,7 +176,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %15
   store i64 %23, ptr %24, align 8, !tbaa !13
   store ptr %13, ptr %4, align 8, !tbaa !10
   store i64 0, ptr %22, align 8, !tbaa !13
-  store i8 0, ptr %13, align 1, !tbaa !14
+  store i8 0, ptr %13, align 8, !tbaa !14
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 %21, ptr %25, align 8, !tbaa !15
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -390,7 +390,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
   store i64 %14, ptr %15, align 8, !tbaa !13
   store ptr %5, ptr %1, align 8, !tbaa !10
   store i64 0, ptr %13, align 8, !tbaa !13
-  store i8 0, ptr %5, align 1, !tbaa !14
+  store i8 0, ptr %5, align 8, !tbaa !14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %17, i64 16, i1 false)
@@ -425,7 +425,7 @@ _ZN10cmLinkItemC2EOS_.exit:                       ; preds = %24, %_ZNKSt7__cxx11
   store i64 %31, ptr %32, align 8, !tbaa !13
   store ptr %22, ptr %19, align 8, !tbaa !10
   store i64 0, ptr %30, align 8, !tbaa !13
-  store i8 0, ptr %22, align 1, !tbaa !14
+  store i8 0, ptr %22, align 8, !tbaa !14
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %35 = load i8, ptr %34, align 8, !tbaa !15, !range !31, !noundef !32

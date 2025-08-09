@@ -18409,10 +18409,10 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt
   store ptr %54, ptr %52, align 8
   store ptr %55, ptr %58, align 8
   store ptr %56, ptr %60, align 8
-  %62 = load i16, ptr %46, align 2
-  store i16 %.013.i, ptr %46, align 2
-  %63 = load i32, ptr %45, align 4
-  store i32 %.012.i, ptr %45, align 4
+  %62 = load i16, ptr %46, align 4
+  store i16 %.013.i, ptr %46, align 4
+  %63 = load i32, ptr %45, align 8
+  store i32 %.012.i, ptr %45, align 8
   %.pre = load i64, ptr %3, align 8
   br label %64
 
@@ -18436,7 +18436,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   %73 = load ptr, ptr %41, align 8
   store ptr %73, ptr %72, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false)
-  store i32 %.012.i, ptr %45, align 4
+  store i32 %.012.i, ptr %45, align 8
   store i16 %.013.i, ptr %46, align 4
   br label %74
 
@@ -18638,10 +18638,10 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_ts
   store ptr %14, ptr %18, align 8
   store ptr %16, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %23 = load i16, ptr %22, align 2
-  store i16 %2, ptr %22, align 2
-  %24 = load i32, ptr %8, align 4
-  store i32 %3, ptr %8, align 4
+  %23 = load i16, ptr %22, align 4
+  store i16 %2, ptr %22, align 4
+  %24 = load i32, ptr %8, align 8
+  store i32 %3, ptr %8, align 8
   %25 = add i64 %1, 1
   %26 = load i64, ptr %0, align 8
   %27 = and i64 %26, %25
@@ -18697,8 +18697,8 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_ts
   store ptr %49, ptr %53, align 8
   %55 = load i16, ptr %38, align 2
   store i16 %storemerge25, ptr %38, align 2
-  %56 = load i32, ptr %39, align 4
-  store i32 %.01823, ptr %39, align 4
+  %56 = load i32, ptr %39, align 8
+  store i32 %.01823, ptr %39, align 8
   %.pre = load i64, ptr %0, align 8
   %.pre32 = load ptr, ptr %6, align 8
   br label %57
@@ -18734,7 +18734,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_ts
   %72 = load ptr, ptr %15, align 8
   store ptr %72, ptr %71, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
-  store i32 %.018.lcssa, ptr %.lcssa21, align 4
+  store i32 %.018.lcssa, ptr %.lcssa21, align 8
   store i16 %storemerge.lcssa, ptr %.lcssa, align 4
   ret void
 }
@@ -25657,10 +25657,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   store ptr %97, ptr %101, align 8
   store ptr %99, ptr %103, align 8
   %105 = getelementptr inbounds nuw i8, ptr %92, i64 4
-  %106 = load i16, ptr %105, align 2
-  store i16 %.134.i.i.i, ptr %105, align 2
-  %107 = load i32, ptr %92, align 4
-  store i32 %85, ptr %92, align 4
+  %106 = load i16, ptr %105, align 4
+  store i16 %.134.i.i.i, ptr %105, align 4
+  %107 = load i32, ptr %92, align 8
+  store i32 %85, ptr %92, align 8
   %.val12.i.i.i.i.i = load i64, ptr %0, align 8
   %108 = add i64 %.1.i.i.i, 1
   %109 = and i64 %.val12.i.i.i.i.i, %108
@@ -25712,8 +25712,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   store ptr %126, ptr %130, align 8
   %132 = load i16, ptr %115, align 2
   store i16 %storemerge29.i.i.i.i.i, ptr %115, align 2
-  %133 = load i32, ptr %116, align 4
-  store i32 %.02127.i.i.i.i.i, ptr %116, align 4
+  %133 = load i32, ptr %116, align 8
+  store i32 %.02127.i.i.i.i.i, ptr %116, align 8
   %.val11.pre.i.i.i.i.i = load i64, ptr %0, align 8
   %.pre.i.i.i.i.i = load ptr, ptr %11, align 8
   br label %134
@@ -25749,7 +25749,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   %147 = load ptr, ptr %98, align 8
   store ptr %147, ptr %146, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %90, i8 0, i64 24, i1 false)
-  store i32 %.021.lcssa.i.i.i.i.i, ptr %.lcssa24.i.i.i.i.i, align 4
+  store i32 %.021.lcssa.i.i.i.i.i, ptr %.lcssa24.i.i.i.i.i, align 8
   store i16 %storemerge.lcssa.i.i.i.i.i, ptr %.lcssa.i.i.i.i.i, align 4
   %148 = load ptr, ptr %90, align 8
   %149 = load ptr, ptr %96, align 8
@@ -26429,10 +26429,10 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt
   store ptr %96, ptr %94, align 8
   store ptr %97, ptr %100, align 8
   store ptr %98, ptr %102, align 8
-  %104 = load i16, ptr %89, align 2
-  store i16 %.015.i, ptr %89, align 2
-  %105 = load i32, ptr %88, align 4
-  store i32 %.014.i, ptr %88, align 4
+  %104 = load i16, ptr %89, align 4
+  store i16 %.015.i, ptr %89, align 4
+  %105 = load i32, ptr %88, align 8
+  store i32 %.014.i, ptr %88, align 8
   br label %106
 
 106:                                              ; preds = %95, %87
@@ -26453,7 +26453,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   %113 = load ptr, ptr %86, align 8
   store ptr %113, ptr %112, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %84, i8 0, i64 24, i1 false)
-  store i32 %.014.i, ptr %88, align 4
+  store i32 %.014.i, ptr %88, align 8
   store i16 %.015.i, ptr %89, align 4
   br label %114
 

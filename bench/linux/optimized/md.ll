@@ -1576,7 +1576,7 @@ define internal void @submit_flushes(ptr noundef initializes((-16, -8), (0, 8)) 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @md_submit_flush_data, ptr %6, align 8
   %7 = getelementptr i8, ptr %0, i64 -24
-  store volatile i32 1, ptr %7, align 4
+  store volatile i32 1, ptr %7, align 8
   tail call void @__rcu_read_lock() #32
   %8 = getelementptr i8, ptr %0, i64 -1824
   %9 = load volatile ptr, ptr %8, align 8
@@ -1794,15 +1794,15 @@ define dso_local noundef range(i32 -12, 1) i32 @mddev_init(ptr noundef %0) #0 al
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 792
   tail call void @init_timer_key(ptr noundef nonnull %38, ptr noundef nonnull @md_safemode_timeout, i32 noundef 0, ptr noundef null, ptr noundef null) #32
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  store volatile i32 1, ptr %39, align 4
+  store volatile i32 1, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 572
   store volatile i32 0, ptr %40, align 4
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 1992
-  store volatile i32 0, ptr %41, align 4
+  store volatile i32 0, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 744
   store i32 0, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 1824
-  store volatile i32 0, ptr %43, align 4
+  store volatile i32 0, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 752
   tail call void @__init_waitqueue_head(ptr noundef nonnull %44, ptr noundef nonnull @.str.13, ptr noundef nonnull @mddev_init.__key.12) #32
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 592
@@ -4008,11 +4008,11 @@ define dso_local i32 @md_rdev_init(ptr noundef initializes((72, 84), (88, 112), 
   store ptr null, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  store volatile i32 0, ptr %10, align 4
+  store volatile i32 0, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 252
   store volatile i32 0, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store volatile i32 0, ptr %12, align 4
+  store volatile i32 0, ptr %12, align 8
   store volatile ptr %0, ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store volatile ptr %0, ptr %13, align 8
@@ -10285,7 +10285,7 @@ define dso_local void @md_do_sync(ptr noundef readonly captures(none) %0) #0 ali
   %321 = getelementptr inbounds nuw i8, ptr %13, i64 424
   store i64 0, ptr %321, align 8
   %322 = getelementptr inbounds nuw i8, ptr %13, i64 584
-  store volatile i32 0, ptr %322, align 4
+  store volatile i32 0, ptr %322, align 8
   %323 = call i64 @llvm.umax.i64(i64 %304, i64 3)
   store i64 %323, ptr %85, align 8
   %324 = getelementptr inbounds nuw i8, ptr %13, i64 408
@@ -10569,7 +10569,7 @@ define dso_local void @md_do_sync(ptr noundef readonly captures(none) %0) #0 ali
   store i64 %477, ptr %321, align 8
   %478 = load volatile i64, ptr @jiffies, align 64
   store i64 %478, ptr %474, align 8
-  %479 = load volatile i32, ptr %322, align 4
+  %479 = load volatile i32, ptr %322, align 8
   %480 = sext i32 %479 to i64
   %481 = sub i64 %444, %480
   store i64 %481, ptr %476, align 8
@@ -10667,7 +10667,7 @@ define dso_local void @md_do_sync(ptr noundef readonly captures(none) %0) #0 ali
   %539 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.66, ptr noundef nonnull %534, ptr noundef nonnull %83, ptr noundef nonnull %538) #33
   call void @blk_finish_plug(ptr noundef nonnull %6) #32
   %540 = call i32 @__SCT__might_resched() #32
-  %541 = load volatile i32, ptr %322, align 4
+  %541 = load volatile i32, ptr %322, align 8
   %542 = icmp eq i32 %541, 0
   br i1 %542, label %550, label %543
 
@@ -14790,7 +14790,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @sync_speed_show(
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %9 = load i64, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %11 = load volatile i32, ptr %10, align 4
+  %11 = load volatile i32, ptr %10, align 8
   %12 = sext i32 %11 to i64
   %13 = load volatile i64, ptr @jiffies, align 64
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 416
@@ -22400,19 +22400,19 @@ define internal noundef range(i32 -22, 1) i32 @super_90_validate(ptr noundef cap
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 324
   %120 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %121 = load i32, ptr %120, align 4
-  store i32 %121, ptr %119, align 1
+  store i32 %121, ptr %119, align 4
   %122 = getelementptr i8, ptr %0, i64 328
   %123 = getelementptr inbounds nuw i8, ptr %12, i64 52
   %124 = load i32, ptr %123, align 4
-  store i32 %124, ptr %122, align 1
+  store i32 %124, ptr %122, align 8
   %125 = getelementptr i8, ptr %0, i64 332
   %126 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %127 = load i32, ptr %126, align 8
-  store i32 %127, ptr %125, align 1
+  store i32 %127, ptr %125, align 4
   %128 = getelementptr i8, ptr %0, i64 336
   %129 = getelementptr inbounds nuw i8, ptr %12, i64 60
   %130 = load i32, ptr %129, align 4
-  store i32 %130, ptr %128, align 1
+  store i32 %130, ptr %128, align 8
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 284
   store i32 27, ptr %131, align 4
   %132 = load i32, ptr %98, align 4
@@ -22588,19 +22588,19 @@ define internal void @super_90_sync(ptr noundef captures(address) initializes((2
   store i32 0, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 324
-  %24 = load i32, ptr %23, align 1
+  %24 = load i32, ptr %23, align 4
   store i32 %24, ptr %22, align 4
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 52
   %26 = getelementptr i8, ptr %0, i64 328
-  %27 = load i32, ptr %26, align 1
+  %27 = load i32, ptr %26, align 8
   store i32 %27, ptr %25, align 4
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %29 = getelementptr i8, ptr %0, i64 332
-  %30 = load i32, ptr %29, align 1
+  %30 = load i32, ptr %29, align 4
   store i32 %30, ptr %28, align 8
   %31 = getelementptr inbounds nuw i8, ptr %14, i64 60
   %32 = getelementptr i8, ptr %0, i64 336
-  %33 = load i32, ptr %32, align 1
+  %33 = load i32, ptr %32, align 8
   store i32 %33, ptr %31, align 4
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %35 = load i64, ptr %34, align 8
@@ -26686,7 +26686,7 @@ define internal noundef i32 @md_seq_show(ptr noundef %0, ptr noundef %1) #0 alig
   %271 = getelementptr i8, ptr %1, i64 -616
   %272 = load i64, ptr %271, align 8
   %273 = getelementptr i8, ptr %1, i64 -464
-  %274 = load volatile i32, ptr %273, align 4
+  %274 = load volatile i32, ptr %273, align 8
   %275 = getelementptr i8, ptr %1, i64 -624
   %276 = load i64, ptr %275, align 8
   %277 = sext i32 %274 to i64

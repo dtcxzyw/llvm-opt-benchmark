@@ -1658,7 +1658,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146: ; preds = %_Z
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %446, i8 0, i64 1024, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %445, i8 0, i64 16, i1 false)
   store ptr %441, ptr %439, align 8
-  store i32 11, ptr %441, align 4
+  store i32 11, ptr %441, align 8
   %447 = getelementptr inbounds nuw i8, ptr %441, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %447, ptr noundef nonnull align 1 dereferenceable(11) @.str.29, i64 11, i1 false)
   %448 = getelementptr inbounds nuw i8, ptr %441, i64 15
@@ -1715,11 +1715,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146: ; preds = %_Z
   %474 = phi ptr [ %468, %471 ], [ %480, %473 ]
   store double 0.000000e+00, ptr %474, align 8
   %475 = getelementptr inbounds nuw i8, ptr %474, i64 8
-  store float 1.000000e+00, ptr %475, align 4
+  store float 1.000000e+00, ptr %475, align 8
   %476 = getelementptr inbounds nuw i8, ptr %474, i64 12
   store float 0.000000e+00, ptr %476, align 4
   %477 = getelementptr inbounds nuw i8, ptr %474, i64 16
-  store float 0.000000e+00, ptr %477, align 4
+  store float 0.000000e+00, ptr %477, align 8
   %478 = getelementptr inbounds nuw i8, ptr %474, i64 20
   store float 0.000000e+00, ptr %478, align 4
   %479 = getelementptr inbounds nuw i8, ptr %474, i64 24
@@ -2328,7 +2328,7 @@ _ZN6Assimp11MD5Importer18LoadFileIntoMemoryEPNS_8IOStreamE.exit: ; preds = %.noe
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %168, ptr nonnull align 4 %186, i64 %187, i1 false)
   %188 = getelementptr inbounds nuw [1024 x i8], ptr %168, i64 0, i64 %187
   store i8 0, ptr %188, align 1
-  store i32 %spec.select.i, ptr %176, align 4
+  store i32 %spec.select.i, ptr %176, align 8
   %189 = getelementptr inbounds nuw i8, ptr %176, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %189, ptr nonnull align 4 %168, i64 %187, i1 false)
   %190 = getelementptr inbounds nuw [1024 x i8], ptr %189, i64 0, i64 %187
@@ -2383,11 +2383,11 @@ _ZN6Assimp11MD5Importer18LoadFileIntoMemoryEPNS_8IOStreamE.exit: ; preds = %.noe
   %219 = phi ptr [ %214, %216 ], [ %225, %218 ]
   store double 0.000000e+00, ptr %219, align 8
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 8
-  store float 1.000000e+00, ptr %220, align 4
+  store float 1.000000e+00, ptr %220, align 8
   %221 = getelementptr inbounds nuw i8, ptr %219, i64 12
   store float 0.000000e+00, ptr %221, align 4
   %222 = getelementptr inbounds nuw i8, ptr %219, i64 16
-  store float 0.000000e+00, ptr %222, align 4
+  store float 0.000000e+00, ptr %222, align 8
   %223 = getelementptr inbounds nuw i8, ptr %219, i64 20
   store float 0.000000e+00, ptr %223, align 4
   %224 = getelementptr inbounds nuw i8, ptr %219, i64 24
@@ -3343,7 +3343,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit251: ; preds = %_Z
   %158 = getelementptr inbounds nuw i8, ptr %150, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %158, ptr noundef nonnull align 1 dereferenceable(10) @.str.13, i64 10, i1 false)
   %159 = getelementptr inbounds nuw i8, ptr %150, i64 14
-  store i8 0, ptr %159, align 1
+  store i8 0, ptr %159, align 2
   %160 = load ptr, ptr %114, align 8
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %162 = load ptr, ptr %161, align 8
@@ -4069,7 +4069,7 @@ _ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; pr
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %239, ptr nonnull align 4 %495, i64 %496, i1 false)
   %497 = getelementptr inbounds nuw [1024 x i8], ptr %239, i64 0, i64 %496
   store i8 0, ptr %497, align 1
-  store i32 %spec.select.i, ptr %472, align 4
+  store i32 %spec.select.i, ptr %472, align 8
   %498 = getelementptr inbounds nuw i8, ptr %472, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %498, ptr nonnull align 4 %239, i64 %496, i1 false)
   %499 = getelementptr inbounds nuw [1024 x i8], ptr %498, i64 0, i64 %496

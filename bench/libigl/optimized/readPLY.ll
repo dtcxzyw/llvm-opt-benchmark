@@ -28028,7 +28028,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !tbaa !31, !alias.scope !155, !noalias !158
   store ptr %43, ptr %.0911.i.i.i, align 8, !tbaa !27, !alias.scope !158, !noalias !155
   store i64 0, ptr %52, align 8, !tbaa !31, !alias.scope !158, !noalias !155
-  store i8 0, ptr %43, align 1, !tbaa !32, !alias.scope !158, !noalias !155
+  store i8 0, ptr %43, align 8, !tbaa !32, !alias.scope !158, !noalias !155
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %54, %1
@@ -28076,7 +28076,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !tbaa !31, !alias.scope !162, !noalias !165
   store ptr %59, ptr %.0911.i.i.i29, align 8, !tbaa !27, !alias.scope !165, !noalias !162
   store i64 0, ptr %68, align 8, !tbaa !31, !alias.scope !165, !noalias !162
-  store i8 0, ptr %59, align 1, !tbaa !32, !alias.scope !165, !noalias !162
+  store i8 0, ptr %59, align 8, !tbaa !32, !alias.scope !165, !noalias !162
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %.not.i.i.i34 = icmp eq ptr %70, %6
@@ -30690,7 +30690,7 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeIN3igl7tinyply4TypeESt4pairIKS2
   store ptr %15, ptr %14, align 8, !tbaa !72
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store i64 0, ptr %16, align 8, !tbaa !31
-  store i8 0, ptr %15, align 1, !tbaa !32
+  store i8 0, ptr %15, align 8, !tbaa !32
   store ptr %8, ptr %7, align 8, !tbaa !241
   %17 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN3igl7tinyply4TypeESt4pairIKS2_NS1_12PropertyInfoEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 1 dereferenceable(1) %9)
           to label %18 unwind label %33

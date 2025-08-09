@@ -2660,7 +2660,7 @@ define internal noundef i32 @_preview_write_image(ptr noundef captures(none) ini
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %14 = load ptr, ptr %13, align 8, !tbaa !232
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !208
+  %16 = load i32, ptr %15, align 8, !tbaa !208
   %17 = sext i32 %16 to i64
   %18 = shl nsw i64 %17, 2
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -2668,7 +2668,7 @@ define internal noundef i32 @_preview_write_image(ptr noundef captures(none) ini
   %21 = sext i32 %20 to i64
   %22 = mul i64 %18, %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr align 1 %2, i64 %22, i1 false)
-  %23 = load i32, ptr %15, align 4, !tbaa !208
+  %23 = load i32, ptr %15, align 8, !tbaa !208
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i32 %23, ptr %24, align 8, !tbaa !238
   %25 = load i32, ptr %19, align 4, !tbaa !209

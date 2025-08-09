@@ -5936,7 +5936,7 @@ _ZNSt7variantIJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES
   store i64 %5, ptr %_M_string_length.i13.i.i.i.i, align 8
   store ptr %2, ptr %protobuf_payload, align 8
   store i64 0, ptr %_M_string_length.i12.i.i.i.i, align 8
-  store i8 0, ptr %2, align 1
+  store i8 0, ptr %2, align 8
   store i8 5, ptr %_M_index.i.i.i, align 8
   ret void
 }

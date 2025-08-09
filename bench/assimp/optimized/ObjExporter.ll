@@ -6947,7 +6947,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %38, ptr %40, align 8, !alias.scope !70, !noalias !73
   store ptr %30, ptr %.0911.i.i.i, align 8, !alias.scope !73, !noalias !70
   store i64 0, ptr %39, align 8, !alias.scope !73, !noalias !70
-  store i8 0, ptr %30, align 1, !alias.scope !73, !noalias !70
+  store i8 0, ptr %30, align 8, !alias.scope !73, !noalias !70
   %41 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %42 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %43 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 48
@@ -6981,7 +6981,7 @@ _ZSt19__relocate_object_aIN6Assimp11ObjExporter12MeshInstanceES2_SaIS2_EEvPT_PT0
   store i64 %53, ptr %55, align 8, !alias.scope !70, !noalias !73
   store ptr %45, ptr %42, align 8, !alias.scope !73, !noalias !70
   store i64 0, ptr %54, align 8, !alias.scope !73, !noalias !70
-  store i8 0, ptr %45, align 1, !alias.scope !73, !noalias !70
+  store i8 0, ptr %45, align 8, !alias.scope !73, !noalias !70
   %56 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 64
   %57 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 64
   %58 = load ptr, ptr %57, align 8, !alias.scope !73, !noalias !70
@@ -7043,7 +7043,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i2
   store i64 %78, ptr %80, align 8, !alias.scope !77, !noalias !80
   store ptr %70, ptr %.0911.i.i.i18, align 8, !alias.scope !80, !noalias !77
   store i64 0, ptr %79, align 8, !alias.scope !80, !noalias !77
-  store i8 0, ptr %70, align 1, !alias.scope !80, !noalias !77
+  store i8 0, ptr %70, align 8, !alias.scope !80, !noalias !77
   %81 = getelementptr inbounds nuw i8, ptr %.012.i.i.i17, i64 32
   %82 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i18, i64 32
   %83 = getelementptr inbounds nuw i8, ptr %.012.i.i.i17, i64 48
@@ -7077,7 +7077,7 @@ _ZSt19__relocate_object_aIN6Assimp11ObjExporter12MeshInstanceES2_SaIS2_EEvPT_PT0
   store i64 %93, ptr %95, align 8, !alias.scope !77, !noalias !80
   store ptr %85, ptr %82, align 8, !alias.scope !80, !noalias !77
   store i64 0, ptr %94, align 8, !alias.scope !80, !noalias !77
-  store i8 0, ptr %85, align 1, !alias.scope !80, !noalias !77
+  store i8 0, ptr %85, align 8, !alias.scope !80, !noalias !77
   %96 = getelementptr inbounds nuw i8, ptr %.012.i.i.i17, i64 64
   %97 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i18, i64 64
   %98 = load ptr, ptr %97, align 8, !alias.scope !80, !noalias !77

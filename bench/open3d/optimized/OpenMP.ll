@@ -1282,7 +1282,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIiSt4pairIKijESaIS2_
   %45 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #44
   store ptr null, ptr %45, align 8, !tbaa !17
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store i32 %43, ptr %46, align 4, !tbaa !34
+  store i32 %43, ptr %46, align 8, !tbaa !34
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %48 = load i32, ptr %44, align 4, !tbaa !29
   store i32 %48, ptr %47, align 4, !tbaa !36
@@ -1466,7 +1466,7 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !17
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !29
+  %16 = load i32, ptr %15, align 8, !tbaa !29
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -2694,7 +2694,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %82, %79
   %89 = getelementptr inbounds nuw %"struct.Eigen::internal::GemmParallelInfo", ptr %87, i64 %.06.i.i
   store i64 -1, ptr %89, align 8, !tbaa !148
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  store i32 0, ptr %90, align 4, !tbaa !150
+  store i32 0, ptr %90, align 8, !tbaa !150
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, i8 0, i64 16, i1 false)
   %92 = add nuw i64 %.06.i.i, 1
@@ -20692,7 +20692,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %82, %79
   %89 = getelementptr inbounds nuw %"struct.Eigen::internal::GemmParallelInfo", ptr %87, i64 %.06.i.i
   store i64 -1, ptr %89, align 8, !tbaa !148
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  store i32 0, ptr %90, align 4, !tbaa !150
+  store i32 0, ptr %90, align 8, !tbaa !150
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, i8 0, i64 16, i1 false)
   %92 = add nuw i64 %.06.i.i, 1
@@ -54275,7 +54275,7 @@ define linkonce_odr dso_local void @_Z16ComputeSomethingiRN5Eigen6MatrixIdLi6ELi
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store double %30, ptr %31, align 16, !tbaa !47
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %33 = load <2 x double>, ptr %7, align 1, !tbaa !57
+  %33 = load <2 x double>, ptr %7, align 8, !tbaa !57
   store <2 x double> %33, ptr %32, align 8, !tbaa !57
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %35 = load double, ptr %13, align 8, !tbaa !47

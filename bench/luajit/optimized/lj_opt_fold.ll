@@ -3045,7 +3045,7 @@ define internal i32 @fold_cse_conv(ptr noundef %0) #0 {
   %11 = load i8, ptr %10, align 4, !tbaa !28
   %12 = and i8 %11, -128
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %.022.in33 = load i16, ptr %13, align 2, !tbaa !28
+  %.022.in33 = load i16, ptr %13, align 8, !tbaa !28
   %14 = icmp ugt i16 %.022.in33, %7
   br i1 %14, label %.lr.ph, label %.thread29
 
@@ -5229,7 +5229,7 @@ define internal range(i32 0, 5) i32 @fold_abc_invar(ptr noundef readonly capture
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %8 = load i16, ptr %7, align 8, !tbaa !28
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 436
-  %10 = load i16, ptr %9, align 2, !tbaa !38
+  %10 = load i16, ptr %9, align 4, !tbaa !38
   %11 = icmp ult i16 %8, %10
   br i1 %11, label %12, label %24
 
@@ -6868,7 +6868,7 @@ define internal range(i32 0, 5) i32 @fold_barrier_tnew_tdup(ptr noundef readonly
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load i16, ptr %2, align 8, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 436
-  %5 = load i16, ptr %4, align 2, !tbaa !38
+  %5 = load i16, ptr %4, align 4, !tbaa !38
   %6 = icmp ult i16 %3, %5
   %. = select i1 %6, i32 0, i32 4
   ret i32 %.

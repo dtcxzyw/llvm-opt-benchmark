@@ -215,7 +215,7 @@ define void @_Z13set_mat_entryP5t_matiif(ptr noundef captures(none) %0, i32 noun
   %14 = getelementptr inbounds float, ptr %13, i64 %7
   store float %3, ptr %14, align 4, !tbaa !31
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = load float, ptr %15, align 4, !tbaa !31
+  %16 = load float, ptr %15, align 8, !tbaa !31
   %17 = fcmp olt float %16, %3
   %.sroa.speculated25 = select i1 %17, float %3, float %16
   store float %.sroa.speculated25, ptr %15, align 8, !tbaa !18

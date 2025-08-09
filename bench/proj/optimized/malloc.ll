@@ -478,19 +478,19 @@ define hidden noundef ptr @_Z6pj_newv() local_unnamed_addr #10 personality ptr @
   store ptr %13, ptr %12, align 8, !tbaa !41
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 688
   store i64 0, ptr %14, align 8, !tbaa !42
-  store i8 0, ptr %13, align 1, !tbaa !43
+  store i8 0, ptr %13, align 8, !tbaa !43
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 712
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 728
   store ptr %16, ptr %15, align 8, !tbaa !41
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 720
   store i64 0, ptr %17, align 8, !tbaa !42
-  store i8 0, ptr %16, align 1, !tbaa !43
+  store i8 0, ptr %16, align 8, !tbaa !43
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 744
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 760
   store ptr %19, ptr %18, align 8, !tbaa !41
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 752
   store i64 0, ptr %20, align 8, !tbaa !42
-  store i8 0, ptr %19, align 1, !tbaa !43
+  store i8 0, ptr %19, align 8, !tbaa !43
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 776
   store i8 0, ptr %21, align 8, !tbaa !44
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 784

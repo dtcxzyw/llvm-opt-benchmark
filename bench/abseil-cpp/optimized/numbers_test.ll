@@ -3675,7 +3675,7 @@ define linkonce_odr dso_local void @_ZN7testing12MatchesRegexIA12_cEENS_18Polymo
   store ptr %20, ptr %5, align 8, !tbaa !94
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %21, align 8, !tbaa !24
-  store i8 0, ptr %20, align 1, !tbaa !25
+  store i8 0, ptr %20, align 8, !tbaa !25
   %22 = load ptr, ptr %4, align 8, !tbaa !20
   invoke void @_ZN7testing8internal2RE4InitEPKc(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef %22)
           to label %_ZN7testing8internal2REC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %23
@@ -6033,7 +6033,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %35
   store i64 %41, ptr %43, align 8, !tbaa !24
   store ptr %33, ptr %1, align 8, !tbaa !20
   store i64 0, ptr %42, align 8, !tbaa !24
-  store i8 0, ptr %33, align 1, !tbaa !25
+  store i8 0, ptr %33, align 8, !tbaa !25
   ret void
 }
 
@@ -6068,7 +6068,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %7, ptr %6, align 8, !tbaa !94, !noalias !180
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %8, align 8, !tbaa !24, !noalias !180
-  store i8 0, ptr %7, align 1, !tbaa !25, !noalias !180
+  store i8 0, ptr %7, align 8, !tbaa !25, !noalias !180
   store ptr %6, ptr %4, align 8, !tbaa !38
   br label %9
 
@@ -63725,7 +63725,7 @@ define internal void @_ZN12_GLOBAL__N_124NumbersTest_HexAtoi_Test8TestBodyEv(ptr
   %273 = load i32, ptr %272, align 8, !tbaa !942
   %274 = and i32 %273, -75
   %275 = or disjoint i32 %274, 8
-  store i32 %275, ptr %272, align 4, !tbaa !943
+  store i32 %275, ptr %272, align 8, !tbaa !943
   %276 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %205, i64 noundef 4294967295)
           to label %_ZNSolsEj.exit.i unwind label %277
 
@@ -63783,7 +63783,7 @@ _ZNSolsEj.exit.i:                                 ; preds = %264
   %303 = load i32, ptr %302, align 8, !tbaa !942
   %304 = and i32 %303, -75
   %305 = or disjoint i32 %304, 8
-  store i32 %305, ptr %302, align 4, !tbaa !943
+  store i32 %305, ptr %302, align 8, !tbaa !943
   %306 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %297, i64 noundef 4294967295)
           to label %_ZN7testing7MessagelsIjEERS0_RKT_.exit.i unwind label %341
 
@@ -64538,7 +64538,7 @@ _ZN12_GLOBAL__N_123VerifySimpleHexAtoiGoodIjjEEvT0_T_.exit: ; preds = %_ZNKSt7__
   %560 = load i32, ptr %559, align 8, !tbaa !942
   %561 = and i32 %560, -75
   %562 = or disjoint i32 %561, 8
-  store i32 %562, ptr %559, align 4, !tbaa !943
+  store i32 %562, ptr %559, align 8, !tbaa !943
   %563 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %192, i64 noundef -1)
           to label %_ZNSolsEm.exit.i unwind label %564
 
@@ -65000,7 +65000,7 @@ _ZN12_GLOBAL__N_122VerifySimpleHexAtoiBadIjmEEvT0_.exit: ; preds = %_ZNKSt7__cxx
   %716 = load i32, ptr %715, align 8, !tbaa !942
   %717 = and i32 %716, -75
   %718 = or disjoint i32 %717, 8
-  store i32 %718, ptr %715, align 4, !tbaa !943
+  store i32 %718, ptr %715, align 8, !tbaa !943
   %719 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %173, i64 noundef 4294967295)
           to label %_ZNSolsEj.exit.i76 unwind label %720
 
@@ -65058,7 +65058,7 @@ _ZNSolsEj.exit.i76:                               ; preds = %707
   %746 = load i32, ptr %745, align 8, !tbaa !942
   %747 = and i32 %746, -75
   %748 = or disjoint i32 %747, 8
-  store i32 %748, ptr %745, align 4, !tbaa !943
+  store i32 %748, ptr %745, align 8, !tbaa !943
   %749 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %740, i64 noundef 4294967295)
           to label %_ZN7testing7MessagelsIjEERS0_RKT_.exit.i81 unwind label %783
 
@@ -65808,7 +65808,7 @@ _ZN12_GLOBAL__N_123VerifySimpleHexAtoiGoodIljEEvT0_T_.exit: ; preds = %_ZNKSt7__
   %1002 = load i32, ptr %1001, align 8, !tbaa !942
   %1003 = and i32 %1002, -75
   %1004 = or disjoint i32 %1003, 8
-  store i32 %1004, ptr %1001, align 4, !tbaa !943
+  store i32 %1004, ptr %1001, align 8, !tbaa !943
   %1005 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %160, i64 noundef -1)
           to label %_ZNSolsEm.exit.i115 unwind label %1006
 
@@ -66270,7 +66270,7 @@ _ZN12_GLOBAL__N_122VerifySimpleHexAtoiBadIlmEEvT0_.exit: ; preds = %_ZNKSt7__cxx
   %1158 = load i32, ptr %1157, align 8, !tbaa !942
   %1159 = and i32 %1158, -75
   %1160 = or disjoint i32 %1159, 8
-  store i32 %1160, ptr %1157, align 4, !tbaa !943
+  store i32 %1160, ptr %1157, align 8, !tbaa !943
   %1161 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %141, i64 noundef 4294967295)
           to label %_ZNSolsEj.exit.i166 unwind label %1162
 
@@ -66328,7 +66328,7 @@ _ZNSolsEj.exit.i166:                              ; preds = %1149
   %1188 = load i32, ptr %1187, align 8, !tbaa !942
   %1189 = and i32 %1188, -75
   %1190 = or disjoint i32 %1189, 8
-  store i32 %1190, ptr %1187, align 4, !tbaa !943
+  store i32 %1190, ptr %1187, align 8, !tbaa !943
   %1191 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1182, i64 noundef 4294967295)
           to label %_ZN7testing7MessagelsIjEERS0_RKT_.exit.i174 unwind label %1225
 
@@ -67085,7 +67085,7 @@ _ZN12_GLOBAL__N_123VerifySimpleHexAtoiGoodImjEEvT0_T_.exit: ; preds = %_ZNKSt7__
   %1448 = load i32, ptr %1447, align 8, !tbaa !942
   %1449 = and i32 %1448, -75
   %1450 = or disjoint i32 %1449, 8
-  store i32 %1450, ptr %1447, align 4, !tbaa !943
+  store i32 %1450, ptr %1447, align 8, !tbaa !943
   %1451 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absllsERSoNS_7uint128E(ptr noundef nonnull align 8 dereferenceable(8) %128, i64 -9223372036854775808, i64 0)
           to label %_ZNSolsEl.exit.i unwind label %1440
 
@@ -67537,7 +67537,7 @@ _ZN12_GLOBAL__N_122VerifySimpleHexAtoiBadImlEEvT0_.exit: ; preds = %_ZNKSt7__cxx
   %1602 = load i32, ptr %1601, align 8, !tbaa !942
   %1603 = and i32 %1602, -75
   %1604 = or disjoint i32 %1603, 8
-  store i32 %1604, ptr %1601, align 4, !tbaa !943
+  store i32 %1604, ptr %1601, align 8, !tbaa !943
   %1605 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %109, i64 noundef 9223372036854775807)
           to label %_ZNSolsEl.exit.i275 unwind label %1606
 
@@ -67595,7 +67595,7 @@ _ZNSolsEl.exit.i275:                              ; preds = %1593
   %1632 = load i32, ptr %1631, align 8, !tbaa !942
   %1633 = and i32 %1632, -75
   %1634 = or disjoint i32 %1633, 8
-  store i32 %1634, ptr %1631, align 4, !tbaa !943
+  store i32 %1634, ptr %1631, align 8, !tbaa !943
   %1635 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1626, i64 noundef 9223372036854775807)
           to label %_ZN7testing7MessagelsIlEERS0_RKT_.exit.i281 unwind label %1669
 
@@ -68345,7 +68345,7 @@ _ZN12_GLOBAL__N_123VerifySimpleHexAtoiGoodImlEEvT0_T_.exit: ; preds = %_ZNKSt7__
   %1888 = load i32, ptr %1887, align 8, !tbaa !942
   %1889 = and i32 %1888, -75
   %1890 = or disjoint i32 %1889, 8
-  store i32 %1890, ptr %1887, align 4, !tbaa !943
+  store i32 %1890, ptr %1887, align 8, !tbaa !943
   %1891 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %89, i64 noundef -1)
           to label %_ZNSolsEm.exit.i329 unwind label %1892
 
@@ -68403,7 +68403,7 @@ _ZNSolsEm.exit.i329:                              ; preds = %1879
   %1918 = load i32, ptr %1917, align 8, !tbaa !942
   %1919 = and i32 %1918, -75
   %1920 = or disjoint i32 %1919, 8
-  store i32 %1920, ptr %1917, align 4, !tbaa !943
+  store i32 %1920, ptr %1917, align 8, !tbaa !943
   %1921 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1912, i64 noundef -1)
           to label %_ZN7testing7MessagelsImEERS0_RKT_.exit.i337 unwind label %1955
 
@@ -69160,7 +69160,7 @@ _ZN12_GLOBAL__N_123VerifySimpleHexAtoiGoodImmEEvT0_T_.exit: ; preds = %_ZNKSt7__
   %2175 = load i32, ptr %2174, align 8, !tbaa !942
   %2176 = and i32 %2175, -75
   %2177 = or disjoint i32 %2176, 8
-  store i32 %2177, ptr %2174, align 4, !tbaa !943
+  store i32 %2177, ptr %2174, align 8, !tbaa !943
   %2178 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %69, i64 noundef 4294967295)
           to label %2181 unwind label %2179
 
@@ -69224,7 +69224,7 @@ _ZN4absl13SimpleHexAtoiESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128E.
   %2204 = load i32, ptr %2203, align 8, !tbaa !942
   %2205 = and i32 %2204, -75
   %2206 = or disjoint i32 %2205, 8
-  store i32 %2206, ptr %2203, align 4, !tbaa !943
+  store i32 %2206, ptr %2203, align 8, !tbaa !943
   %2207 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %2198, i64 noundef 4294967295)
           to label %_ZN7testing7MessagelsIjEERS0_RKT_.exit.i420 unwind label %2240
 
@@ -70007,7 +70007,7 @@ _ZN12_GLOBAL__N_123VerifySimpleHexAtoiGoodIN4absl7uint128EjEEvT0_T_.exit: ; pred
   %2457 = load i32, ptr %2456, align 8, !tbaa !942
   %2458 = and i32 %2457, -75
   %2459 = or disjoint i32 %2458, 8
-  store i32 %2459, ptr %2456, align 4, !tbaa !943
+  store i32 %2459, ptr %2456, align 8, !tbaa !943
   %2460 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absllsERSoNS_7uint128E(ptr noundef nonnull align 8 dereferenceable(8) %57, i64 -9223372036854775808, i64 0)
           to label %_ZNSolsEl.exit.i460 unwind label %2449
 
@@ -70464,7 +70464,7 @@ _ZN12_GLOBAL__N_122VerifySimpleHexAtoiBadIN4absl7uint128ElEEvT0_.exit: ; preds =
   %2611 = load i32, ptr %2610, align 8, !tbaa !942
   %2612 = and i32 %2611, -75
   %2613 = or disjoint i32 %2612, 8
-  store i32 %2613, ptr %2610, align 4, !tbaa !943
+  store i32 %2613, ptr %2610, align 8, !tbaa !943
   %2614 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %40, i64 noundef 9223372036854775807)
           to label %2617 unwind label %2615
 
@@ -70528,7 +70528,7 @@ _ZN4absl13SimpleHexAtoiESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128E.
   %2640 = load i32, ptr %2639, align 8, !tbaa !942
   %2641 = and i32 %2640, -75
   %2642 = or disjoint i32 %2641, 8
-  store i32 %2642, ptr %2639, align 4, !tbaa !943
+  store i32 %2642, ptr %2639, align 8, !tbaa !943
   %2643 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %2634, i64 noundef 9223372036854775807)
           to label %_ZN7testing7MessagelsIlEERS0_RKT_.exit.i522 unwind label %2676
 
@@ -71306,7 +71306,7 @@ _ZN12_GLOBAL__N_123VerifySimpleHexAtoiGoodIN4absl7uint128ElEEvT0_T_.exit: ; pred
   %2890 = load i32, ptr %2889, align 8, !tbaa !942
   %2891 = and i32 %2890, -75
   %2892 = or disjoint i32 %2891, 8
-  store i32 %2892, ptr %2889, align 4, !tbaa !943
+  store i32 %2892, ptr %2889, align 8, !tbaa !943
   %2893 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %22, i64 noundef -1)
           to label %2896 unwind label %2894
 
@@ -71370,7 +71370,7 @@ _ZN4absl13SimpleHexAtoiESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128E.
   %2919 = load i32, ptr %2918, align 8, !tbaa !942
   %2920 = and i32 %2919, -75
   %2921 = or disjoint i32 %2920, 8
-  store i32 %2921, ptr %2918, align 4, !tbaa !943
+  store i32 %2921, ptr %2918, align 8, !tbaa !943
   %2922 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %2913, i64 noundef -1)
           to label %_ZN7testing7MessagelsImEERS0_RKT_.exit.i605 unwind label %2955
 
@@ -72147,7 +72147,7 @@ _ZN12_GLOBAL__N_123VerifySimpleHexAtoiGoodIN4absl7uint128EmEEvT0_T_.exit: ; pred
   %3169 = load i32, ptr %3168, align 8, !tbaa !942
   %3170 = and i32 %3169, -75
   %3171 = or disjoint i32 %3170, 8
-  store i32 %3171, ptr %3168, align 4, !tbaa !943
+  store i32 %3171, ptr %3168, align 8, !tbaa !943
   %3172 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absllsERSoNS_7uint128E(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 -1, i64 -1)
           to label %3175 unwind label %3173
 
@@ -72211,7 +72211,7 @@ _ZN4absl13SimpleHexAtoiESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128E.
   %3198 = load i32, ptr %3197, align 8, !tbaa !942
   %3199 = and i32 %3198, -75
   %3200 = or disjoint i32 %3199, 8
-  store i32 %3200, ptr %3197, align 4, !tbaa !943
+  store i32 %3200, ptr %3197, align 8, !tbaa !943
   %3201 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absllsERSoNS_7uint128E(ptr noundef nonnull align 8 dereferenceable(8) %3192, i64 -1, i64 -1)
           to label %_ZN7testing7MessagelsIN4absl7uint128EEERS0_RKT_.exit.i728 unwind label %3234
 
@@ -74183,7 +74183,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_123VerifySimpleHexAtoiGoodIiiEEvT0_
   %44 = load i32, ptr %43, align 8, !tbaa !942
   %45 = and i32 %44, -75
   %46 = or disjoint i32 %45, 8
-  store i32 %46, ptr %43, align 4, !tbaa !943
+  store i32 %46, ptr %43, align 8, !tbaa !943
   %47 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %0)
           to label %63 unwind label %48
 
@@ -74205,7 +74205,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_123VerifySimpleHexAtoiGoodIiiEEvT0_
   %58 = load i32, ptr %57, align 8, !tbaa !942
   %59 = and i32 %58, -75
   %60 = or disjoint i32 %59, 8
-  store i32 %60, ptr %57, align 4, !tbaa !943
+  store i32 %60, ptr %57, align 8, !tbaa !943
   %61 = sext i32 %0 to i64
   %.sroa.01.0.insert.insert.neg.i = sub nsw i64 0, %61
   %62 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absllsERSoNS_7uint128E(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 %.sroa.01.0.insert.insert.neg.i, i64 0)
@@ -74260,7 +74260,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_123VerifySimpleHexAtoiGoodIiiEEvT0_
   %88 = load i32, ptr %87, align 8, !tbaa !942
   %89 = and i32 %88, -75
   %90 = or disjoint i32 %89, 8
-  store i32 %90, ptr %87, align 4, !tbaa !943
+  store i32 %90, ptr %87, align 8, !tbaa !943
   %91 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %82, i32 noundef %0)
           to label %_ZN7testing7MessagelsIiEERS0_RKT_.exit unwind label %125
 
@@ -75037,7 +75037,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_123VerifySimpleHexAtoiGoodIjiEEvT0_
   %44 = load i32, ptr %43, align 8, !tbaa !942
   %45 = and i32 %44, -75
   %46 = or disjoint i32 %45, 8
-  store i32 %46, ptr %43, align 4, !tbaa !943
+  store i32 %46, ptr %43, align 8, !tbaa !943
   %47 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %0)
           to label %63 unwind label %48
 
@@ -75059,7 +75059,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_123VerifySimpleHexAtoiGoodIjiEEvT0_
   %58 = load i32, ptr %57, align 8, !tbaa !942
   %59 = and i32 %58, -75
   %60 = or disjoint i32 %59, 8
-  store i32 %60, ptr %57, align 4, !tbaa !943
+  store i32 %60, ptr %57, align 8, !tbaa !943
   %61 = sext i32 %0 to i64
   %.sroa.01.0.insert.insert.neg.i = sub nsw i64 0, %61
   %62 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absllsERSoNS_7uint128E(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 %.sroa.01.0.insert.insert.neg.i, i64 0)
@@ -75114,7 +75114,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_123VerifySimpleHexAtoiGoodIjiEEvT0_
   %88 = load i32, ptr %87, align 8, !tbaa !942
   %89 = and i32 %88, -75
   %90 = or disjoint i32 %89, 8
-  store i32 %90, ptr %87, align 4, !tbaa !943
+  store i32 %90, ptr %87, align 8, !tbaa !943
   %91 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %82, i32 noundef %0)
           to label %_ZN7testing7MessagelsIiEERS0_RKT_.exit unwind label %126
 
@@ -75883,7 +75883,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122VerifySimpleHexAtoiBadIjiEEvT0_(
   %35 = load i32, ptr %34, align 8, !tbaa !942
   %36 = and i32 %35, -75
   %37 = or disjoint i32 %36, 8
-  store i32 %37, ptr %34, align 4, !tbaa !943
+  store i32 %37, ptr %34, align 8, !tbaa !943
   %38 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %0)
           to label %54 unwind label %39
 
@@ -75905,7 +75905,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122VerifySimpleHexAtoiBadIjiEEvT0_(
   %49 = load i32, ptr %48, align 8, !tbaa !942
   %50 = and i32 %49, -75
   %51 = or disjoint i32 %50, 8
-  store i32 %51, ptr %48, align 4, !tbaa !943
+  store i32 %51, ptr %48, align 8, !tbaa !943
   %52 = sext i32 %0 to i64
   %.sroa.01.0.insert.insert.neg.i = sub nsw i64 0, %52
   %53 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absllsERSoNS_7uint128E(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 %.sroa.01.0.insert.insert.neg.i, i64 0)
@@ -76378,7 +76378,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122VerifySimpleHexAtoiBadIjlEEvT0_(
   %35 = load i32, ptr %34, align 8, !tbaa !942
   %36 = and i32 %35, -75
   %37 = or disjoint i32 %36, 8
-  store i32 %37, ptr %34, align 4, !tbaa !943
+  store i32 %37, ptr %34, align 8, !tbaa !943
   %38 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %0)
           to label %_ZNSolsEl.exit unwind label %39
 
@@ -76400,7 +76400,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122VerifySimpleHexAtoiBadIjlEEvT0_(
   %49 = load i32, ptr %48, align 8, !tbaa !942
   %50 = and i32 %49, -75
   %51 = or disjoint i32 %50, 8
-  store i32 %51, ptr %48, align 4, !tbaa !943
+  store i32 %51, ptr %48, align 8, !tbaa !943
   %.sroa.01.0.insert.insert.neg.i = sub i64 0, %0
   %52 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absllsERSoNS_7uint128E(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 %.sroa.01.0.insert.insert.neg.i, i64 0)
           to label %_ZNSolsEl.exit unwind label %39
@@ -76881,7 +76881,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_123VerifySimpleHexAtoiGoodIliEEvT0_
   %44 = load i32, ptr %43, align 8, !tbaa !942
   %45 = and i32 %44, -75
   %46 = or disjoint i32 %45, 8
-  store i32 %46, ptr %43, align 4, !tbaa !943
+  store i32 %46, ptr %43, align 8, !tbaa !943
   %47 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %0)
           to label %63 unwind label %48
 
@@ -76903,7 +76903,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_123VerifySimpleHexAtoiGoodIliEEvT0_
   %58 = load i32, ptr %57, align 8, !tbaa !942
   %59 = and i32 %58, -75
   %60 = or disjoint i32 %59, 8
-  store i32 %60, ptr %57, align 4, !tbaa !943
+  store i32 %60, ptr %57, align 8, !tbaa !943
   %61 = sext i32 %0 to i64
   %.sroa.01.0.insert.insert.neg.i = sub nsw i64 0, %61
   %62 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absllsERSoNS_7uint128E(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 %.sroa.01.0.insert.insert.neg.i, i64 0)
@@ -76958,7 +76958,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_123VerifySimpleHexAtoiGoodIliEEvT0_
   %88 = load i32, ptr %87, align 8, !tbaa !942
   %89 = and i32 %88, -75
   %90 = or disjoint i32 %89, 8
-  store i32 %90, ptr %87, align 4, !tbaa !943
+  store i32 %90, ptr %87, align 8, !tbaa !943
   %91 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %82, i32 noundef %0)
           to label %_ZN7testing7MessagelsIiEERS0_RKT_.exit unwind label %125
 
@@ -77735,7 +77735,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_123VerifySimpleHexAtoiGoodIllEEvT0_
   %44 = load i32, ptr %43, align 8, !tbaa !942
   %45 = and i32 %44, -75
   %46 = or disjoint i32 %45, 8
-  store i32 %46, ptr %43, align 4, !tbaa !943
+  store i32 %46, ptr %43, align 8, !tbaa !943
   %47 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef %0)
           to label %_ZNSolsEl.exit unwind label %48
 
@@ -77757,7 +77757,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_123VerifySimpleHexAtoiGoodIllEEvT0_
   %58 = load i32, ptr %57, align 8, !tbaa !942
   %59 = and i32 %58, -75
   %60 = or disjoint i32 %59, 8
-  store i32 %60, ptr %57, align 4, !tbaa !943
+  store i32 %60, ptr %57, align 8, !tbaa !943
   %.sroa.01.0.insert.insert.neg.i = sub i64 0, %0
   %61 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absllsERSoNS_7uint128E(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 %.sroa.01.0.insert.insert.neg.i, i64 0)
           to label %_ZNSolsEl.exit unwind label %48
@@ -77811,7 +77811,7 @@ _ZNSolsEl.exit:                                   ; preds = %38, %52
   %86 = load i32, ptr %85, align 8, !tbaa !942
   %87 = and i32 %86, -75
   %88 = or disjoint i32 %87, 8
-  store i32 %88, ptr %85, align 4, !tbaa !943
+  store i32 %88, ptr %85, align 8, !tbaa !943
   %89 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %80, i64 noundef %0)
           to label %_ZN7testing7MessagelsIlEERS0_RKT_.exit unwind label %123
 
@@ -78588,7 +78588,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_123VerifySimpleHexAtoiGoodImiEEvT0_
   %44 = load i32, ptr %43, align 8, !tbaa !942
   %45 = and i32 %44, -75
   %46 = or disjoint i32 %45, 8
-  store i32 %46, ptr %43, align 4, !tbaa !943
+  store i32 %46, ptr %43, align 8, !tbaa !943
   %47 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %0)
           to label %63 unwind label %48
 
@@ -78610,7 +78610,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_123VerifySimpleHexAtoiGoodImiEEvT0_
   %58 = load i32, ptr %57, align 8, !tbaa !942
   %59 = and i32 %58, -75
   %60 = or disjoint i32 %59, 8
-  store i32 %60, ptr %57, align 4, !tbaa !943
+  store i32 %60, ptr %57, align 8, !tbaa !943
   %61 = sext i32 %0 to i64
   %.sroa.01.0.insert.insert.neg.i = sub nsw i64 0, %61
   %62 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absllsERSoNS_7uint128E(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 %.sroa.01.0.insert.insert.neg.i, i64 0)
@@ -78665,7 +78665,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_123VerifySimpleHexAtoiGoodImiEEvT0_
   %88 = load i32, ptr %87, align 8, !tbaa !942
   %89 = and i32 %88, -75
   %90 = or disjoint i32 %89, 8
-  store i32 %90, ptr %87, align 4, !tbaa !943
+  store i32 %90, ptr %87, align 8, !tbaa !943
   %91 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %82, i32 noundef %0)
           to label %_ZN7testing7MessagelsIiEERS0_RKT_.exit unwind label %125
 
@@ -79433,7 +79433,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122VerifySimpleHexAtoiBadImiEEvT0_(
   %35 = load i32, ptr %34, align 8, !tbaa !942
   %36 = and i32 %35, -75
   %37 = or disjoint i32 %36, 8
-  store i32 %37, ptr %34, align 4, !tbaa !943
+  store i32 %37, ptr %34, align 8, !tbaa !943
   %38 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %0)
           to label %54 unwind label %39
 
@@ -79455,7 +79455,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122VerifySimpleHexAtoiBadImiEEvT0_(
   %49 = load i32, ptr %48, align 8, !tbaa !942
   %50 = and i32 %49, -75
   %51 = or disjoint i32 %50, 8
-  store i32 %51, ptr %48, align 4, !tbaa !943
+  store i32 %51, ptr %48, align 8, !tbaa !943
   %52 = sext i32 %0 to i64
   %.sroa.01.0.insert.insert.neg.i = sub nsw i64 0, %52
   %53 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absllsERSoNS_7uint128E(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 %.sroa.01.0.insert.insert.neg.i, i64 0)
@@ -79937,7 +79937,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_123VerifySimpleHexAtoiGoodIN4absl7u
   %44 = load i32, ptr %43, align 8, !tbaa !942
   %45 = and i32 %44, -75
   %46 = or disjoint i32 %45, 8
-  store i32 %46, ptr %43, align 4, !tbaa !943
+  store i32 %46, ptr %43, align 8, !tbaa !943
   %47 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %0)
           to label %63 unwind label %48
 
@@ -79959,7 +79959,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_123VerifySimpleHexAtoiGoodIN4absl7u
   %58 = load i32, ptr %57, align 8, !tbaa !942
   %59 = and i32 %58, -75
   %60 = or disjoint i32 %59, 8
-  store i32 %60, ptr %57, align 4, !tbaa !943
+  store i32 %60, ptr %57, align 8, !tbaa !943
   %61 = sext i32 %0 to i64
   %.sroa.01.0.insert.insert.neg.i = sub nsw i64 0, %61
   %62 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absllsERSoNS_7uint128E(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 %.sroa.01.0.insert.insert.neg.i, i64 0)
@@ -80020,7 +80020,7 @@ _ZN4absl13SimpleHexAtoiESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128E.
   %86 = load i32, ptr %85, align 8, !tbaa !942
   %87 = and i32 %86, -75
   %88 = or disjoint i32 %87, 8
-  store i32 %88, ptr %85, align 4, !tbaa !943
+  store i32 %88, ptr %85, align 8, !tbaa !943
   %89 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %80, i32 noundef %0)
           to label %_ZN7testing7MessagelsIiEERS0_RKT_.exit unwind label %122
 
@@ -80813,7 +80813,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122VerifySimpleHexAtoiBadIN4absl7ui
   %34 = load i32, ptr %33, align 8, !tbaa !942
   %35 = and i32 %34, -75
   %36 = or disjoint i32 %35, 8
-  store i32 %36, ptr %33, align 4, !tbaa !943
+  store i32 %36, ptr %33, align 8, !tbaa !943
   %37 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %0)
           to label %53 unwind label %38
 
@@ -80835,7 +80835,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122VerifySimpleHexAtoiBadIN4absl7ui
   %48 = load i32, ptr %47, align 8, !tbaa !942
   %49 = and i32 %48, -75
   %50 = or disjoint i32 %49, 8
-  store i32 %50, ptr %47, align 4, !tbaa !943
+  store i32 %50, ptr %47, align 8, !tbaa !943
   %51 = sext i32 %0 to i64
   %.sroa.01.0.insert.insert.neg.i = sub nsw i64 0, %51
   %52 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absllsERSoNS_7uint128E(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 %.sroa.01.0.insert.insert.neg.i, i64 0)
@@ -107137,7 +107137,7 @@ define internal void @_ZN12_GLOBAL__N_134stringtest_safe_strtou32_base_Test8Test
   %20 = call noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou32_baseESt17basic_string_viewIcSt11char_traitsIcEEPji(i64 %17, ptr nonnull %14, ptr noundef nonnull %2, i32 noundef %19)
   %21 = zext i1 %20 to i8
   store i8 %21, ptr %4, align 1, !tbaa !1421
-  %22 = load i8, ptr %16, align 1, !tbaa !1421, !range !36, !noalias !1422, !noundef !37
+  %22 = load i8, ptr %16, align 4, !tbaa !1421, !range !36, !noalias !1422, !noundef !37
   %23 = icmp eq i8 %22, %21
   br i1 %23, label %24, label %25
 
@@ -108340,7 +108340,7 @@ define internal void @_ZN12_GLOBAL__N_134stringtest_safe_strtou64_base_Test8Test
   %20 = call noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou64_baseESt17basic_string_viewIcSt11char_traitsIcEEPmi(i64 %17, ptr nonnull %14, ptr noundef nonnull %2, i32 noundef %19)
   %21 = zext i1 %20 to i8
   store i8 %21, ptr %4, align 1, !tbaa !1421
-  %22 = load i8, ptr %16, align 1, !tbaa !1421, !range !36, !noalias !1454, !noundef !37
+  %22 = load i8, ptr %16, align 4, !tbaa !1421, !range !36, !noalias !1454, !noundef !37
   %23 = icmp eq i8 %22, %21
   br i1 %23, label %24, label %25
 

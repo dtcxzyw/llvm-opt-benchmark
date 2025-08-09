@@ -8034,7 +8034,7 @@ _ZSt19__relocate_object_aIN3ue211hwlmLiteralES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.
   store i64 %44, ptr %46, align 8, !alias.scope !399, !noalias !402
   store ptr %36, ptr %.0911.i.i.i.i, align 8, !alias.scope !402, !noalias !399
   store i64 0, ptr %45, align 8, !alias.scope !402, !noalias !399
-  store i8 0, ptr %36, align 1, !alias.scope !402, !noalias !399
+  store i8 0, ptr %36, align 8, !alias.scope !402, !noalias !399
   %47 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %48 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(24) %48, i64 24, i1 false), !alias.scope !404
@@ -8111,7 +8111,7 @@ _ZSt19__relocate_object_aIN3ue211hwlmLiteralES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.
   store i64 %80, ptr %82, align 8, !alias.scope !406, !noalias !409
   store ptr %72, ptr %.0911.i.i.i.i35, align 8, !alias.scope !409, !noalias !406
   store i64 0, ptr %81, align 8, !alias.scope !409, !noalias !406
-  store i8 0, ptr %72, align 1, !alias.scope !409, !noalias !406
+  store i8 0, ptr %72, align 8, !alias.scope !409, !noalias !406
   %83 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i34, i64 32
   %84 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i35, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %83, ptr noundef nonnull align 8 dereferenceable(24) %84, i64 24, i1 false), !alias.scope !411
@@ -8420,7 +8420,7 @@ _ZSt19__relocate_object_aIN3ue211AccelStringES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.
   store i64 %38, ptr %40, align 8, !alias.scope !412, !noalias !415
   store ptr %30, ptr %.0911.i.i.i.i, align 8, !alias.scope !415, !noalias !412
   store i64 0, ptr %39, align 8, !alias.scope !415, !noalias !412
-  store i8 0, ptr %30, align 1, !alias.scope !415, !noalias !412
+  store i8 0, ptr %30, align 8, !alias.scope !415, !noalias !412
   %41 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %42 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %43 = load i8, ptr %42, align 8, !range !5, !alias.scope !415, !noalias !412, !noundef !6
@@ -8502,7 +8502,7 @@ _ZSt19__relocate_object_aIN3ue211AccelStringES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.
   store i64 %78, ptr %80, align 8, !alias.scope !419, !noalias !422
   store ptr %70, ptr %.0911.i.i.i.i33, align 8, !alias.scope !422, !noalias !419
   store i64 0, ptr %79, align 8, !alias.scope !422, !noalias !419
-  store i8 0, ptr %70, align 1, !alias.scope !422, !noalias !419
+  store i8 0, ptr %70, align 8, !alias.scope !422, !noalias !419
   %81 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i32, i64 32
   %82 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i33, i64 32
   %83 = load i8, ptr %82, align 8, !range !5, !alias.scope !422, !noalias !419, !noundef !6
@@ -9212,7 +9212,7 @@ _ZN3ue211hwlmLiteralC2EOS0_.exit:                 ; preds = %37, %_ZNKSt7__cxx11
   %45 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %35, ptr %33, align 8
   store i64 0, ptr %45, align 8
-  store i8 0, ptr %35, align 1
+  store i8 0, ptr %35, align 8
   %46 = getelementptr inbounds nuw i8, ptr %33, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %46, i64 24, i1 false)
   %47 = getelementptr inbounds nuw i8, ptr %33, i64 56
@@ -9389,7 +9389,7 @@ _ZN3ue211hwlmLiteralC2EOS0_.exit:                 ; preds = %11, %_ZNKSt7__cxx11
   store i64 %17, ptr %19, align 8
   store ptr %9, ptr %2, align 8
   store i64 0, ptr %18, align 8
-  store i8 0, ptr %9, align 1
+  store i8 0, ptr %9, align 8
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 24, i1 false)
@@ -9707,7 +9707,7 @@ _ZN3ue211hwlmLiteralC2EOS0_.exit:                 ; preds = %73, %_ZNKSt7__cxx11
   store i64 %79, ptr %81, align 8
   store ptr %71, ptr %3, align 8
   store i64 0, ptr %80, align 8
-  store i8 0, ptr %71, align 1
+  store i8 0, ptr %71, align 8
   %82 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %82, ptr noundef nonnull align 8 dereferenceable(24) %83, i64 24, i1 false)
@@ -11089,7 +11089,7 @@ _ZN3ue211hwlmLiteralC2EOS0_.exit:                 ; preds = %52, %_ZNKSt7__cxx11
   store i64 %59, ptr %26, align 8
   store ptr %50, ptr %.sroa.0.022, align 8
   store i64 0, ptr %58, align 8
-  store i8 0, ptr %50, align 1
+  store i8 0, ptr %50, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %36, i64 24, i1 false)
   %60 = load ptr, ptr %40, align 8
   store ptr %60, ptr %28, align 8
@@ -11351,7 +11351,7 @@ _ZN3ue211hwlmLiteralC2EOS0_.exit:                 ; preds = %9, %_ZNKSt7__cxx111
   store i64 %15, ptr %17, align 8
   store ptr %7, ptr %0, align 8
   store i64 0, ptr %16, align 8
-  store i8 0, ptr %7, align 1
+  store i8 0, ptr %7, align 8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false)
@@ -11852,7 +11852,7 @@ _ZN3ue211AccelStringC2EOS0_.exit:                 ; preds = %39, %_ZNKSt7__cxx11
   %47 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %37, ptr %35, align 8
   store i64 0, ptr %47, align 8
-  store i8 0, ptr %37, align 1
+  store i8 0, ptr %37, align 8
   %48 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %49 = load i8, ptr %48, align 8, !range !5, !noundef !6
   store i8 %49, ptr %16, align 8
@@ -12034,7 +12034,7 @@ _ZN3ue211AccelStringC2EOS0_.exit:                 ; preds = %11, %_ZNKSt7__cxx11
   store i64 %17, ptr %19, align 8
   store ptr %9, ptr %2, align 8
   store i64 0, ptr %18, align 8
-  store i8 0, ptr %9, align 1
+  store i8 0, ptr %9, align 8
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %22 = load i8, ptr %21, align 8, !range !5, !noundef !6
@@ -12323,7 +12323,7 @@ _ZN3ue211AccelStringC2EOS0_.exit:                 ; preds = %57, %_ZNKSt7__cxx11
   store i64 %63, ptr %65, align 8
   store ptr %55, ptr %3, align 8
   store i64 0, ptr %64, align 8
-  store i8 0, ptr %55, align 1
+  store i8 0, ptr %55, align 8
   %66 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %68 = load i8, ptr %67, align 8, !range !5, !noundef !6
@@ -13517,7 +13517,7 @@ _ZN3ue211AccelStringC2EOS0_.exit:                 ; preds = %40, %_ZNKSt7__cxx11
   store i64 %47, ptr %20, align 8
   store ptr %38, ptr %.sroa.0.021, align 8
   store i64 0, ptr %46, align 8
-  store i8 0, ptr %38, align 1
+  store i8 0, ptr %38, align 8
   %48 = load i8, ptr %31, align 8, !range !5, !noundef !6
   store i8 %48, ptr %21, align 8
   %49 = load ptr, ptr %32, align 8
@@ -13787,7 +13787,7 @@ _ZN3ue211AccelStringC2EOS0_.exit:                 ; preds = %9, %_ZNKSt7__cxx111
   store i64 %15, ptr %17, align 8
   store ptr %7, ptr %0, align 8
   store i64 0, ptr %16, align 8
-  store i8 0, ptr %7, align 1
+  store i8 0, ptr %7, align 8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load i8, ptr %19, align 8, !range !5, !noundef !6
@@ -14068,7 +14068,7 @@ _ZSt10_ConstructIN3ue211hwlmLiteralEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %
   store i64 %35, ptr %36, align 8
   store ptr %26, ptr %.sroa.08.012.i.i.i.i.i, align 8
   store i64 0, ptr %34, align 8
-  store i8 0, ptr %26, align 1
+  store i8 0, ptr %26, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 32
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %38, i64 24, i1 false)
@@ -14248,7 +14248,7 @@ _ZSt10_ConstructIN3ue211hwlmLiteralEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i59: ; preds =
   store i64 %112, ptr %113, align 8
   store ptr %103, ptr %.sroa.08.012.i.i.i.i.i57, align 8
   store i64 0, ptr %111, align 8
-  store i8 0, ptr %103, align 1
+  store i8 0, ptr %103, align 8
   %114 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i56, i64 32
   %115 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i57, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %114, ptr noundef nonnull align 8 dereferenceable(24) %115, i64 24, i1 false)
@@ -14382,7 +14382,7 @@ _ZSt10_ConstructIN3ue211hwlmLiteralEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i75: ; preds =
   store i64 %179, ptr %180, align 8
   store ptr %170, ptr %.sroa.08.012.i.i.i.i.i73, align 8
   store i64 0, ptr %178, align 8
-  store i8 0, ptr %170, align 1
+  store i8 0, ptr %170, align 8
   %181 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i72, i64 32
   %182 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i73, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %181, ptr noundef nonnull align 8 dereferenceable(24) %182, i64 24, i1 false)
@@ -14497,7 +14497,7 @@ _ZSt10_ConstructIN3ue211hwlmLiteralEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i91: ; preds =
   store i64 %227, ptr %228, align 8
   store ptr %218, ptr %.sroa.08.012.i.i.i.i.i89, align 8
   store i64 0, ptr %226, align 8
-  store i8 0, ptr %218, align 1
+  store i8 0, ptr %218, align 8
   %229 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i88, i64 32
   %230 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i89, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %229, ptr noundef nonnull align 8 dereferenceable(24) %230, i64 24, i1 false)
@@ -14884,7 +14884,7 @@ _ZSt10_ConstructIN3ue211AccelStringEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %
   store i64 %35, ptr %36, align 8
   store ptr %26, ptr %.sroa.08.012.i.i.i.i.i, align 8
   store i64 0, ptr %34, align 8
-  store i8 0, ptr %26, align 1
+  store i8 0, ptr %26, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 32
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 32
   %39 = load i8, ptr %38, align 8, !range !5, !noundef !6
@@ -15074,7 +15074,7 @@ _ZSt10_ConstructIN3ue211AccelStringEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i59: ; preds =
   store i64 %120, ptr %121, align 8
   store ptr %111, ptr %.sroa.08.012.i.i.i.i.i57, align 8
   store i64 0, ptr %119, align 8
-  store i8 0, ptr %111, align 1
+  store i8 0, ptr %111, align 8
   %122 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i56, i64 32
   %123 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i57, i64 32
   %124 = load i8, ptr %123, align 8, !range !5, !noundef !6
@@ -15218,7 +15218,7 @@ _ZSt10_ConstructIN3ue211AccelStringEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i75: ; preds =
   store i64 %195, ptr %196, align 8
   store ptr %186, ptr %.sroa.08.012.i.i.i.i.i73, align 8
   store i64 0, ptr %194, align 8
-  store i8 0, ptr %186, align 1
+  store i8 0, ptr %186, align 8
   %197 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i72, i64 32
   %198 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i73, i64 32
   %199 = load i8, ptr %198, align 8, !range !5, !noundef !6
@@ -15338,7 +15338,7 @@ _ZSt10_ConstructIN3ue211AccelStringEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i91: ; preds =
   store i64 %247, ptr %248, align 8
   store ptr %238, ptr %.sroa.08.012.i.i.i.i.i89, align 8
   store i64 0, ptr %246, align 8
-  store i8 0, ptr %238, align 1
+  store i8 0, ptr %238, align 8
   %249 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i88, i64 32
   %250 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i89, i64 32
   %251 = load i8, ptr %250, align 8, !range !5, !noundef !6

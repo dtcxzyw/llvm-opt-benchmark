@@ -6569,7 +6569,7 @@ define hidden noundef zeroext i1 @_ZN8ciMethod18is_consistent_infoEPS_S0_(ptr no
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 48
   %38 = load i32, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %40 = load i32, ptr %39, align 4
+  %40 = load i32, ptr %39, align 8
   %41 = lshr i32 %40, 3
   %.lobit.i = and i32 %41, 1
   %42 = xor i32 %.lobit.i, 1
@@ -6579,7 +6579,7 @@ define hidden noundef zeroext i1 @_ZN8ciMethod18is_consistent_infoEPS_S0_(ptr no
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %47 = load i32, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %49 = load i32, ptr %48, align 4
+  %49 = load i32, ptr %48, align 8
   %50 = lshr i32 %49, 3
   %.lobit.i48 = and i32 %50, 1
   %51 = xor i32 %.lobit.i48, 1

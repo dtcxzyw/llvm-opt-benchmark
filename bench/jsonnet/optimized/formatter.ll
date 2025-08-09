@@ -5359,7 +5359,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8, !tbaa !35
   store ptr %13, ptr %10, align 8, !tbaa !31
   store i64 0, ptr %24, align 8, !tbaa !35
-  store i8 0, ptr %13, align 1, !tbaa !36
+  store i8 0, ptr %13, align 8, !tbaa !36
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i32 0, ptr %26, align 8, !tbaa !288
   store ptr %7, ptr %23, align 8, !tbaa !290
@@ -5967,7 +5967,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8, !tbaa !35
   store ptr %13, ptr %10, align 8, !tbaa !31
   store i64 0, ptr %24, align 8, !tbaa !35
-  store i8 0, ptr %13, align 1, !tbaa !36
+  store i8 0, ptr %13, align 8, !tbaa !36
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i32 0, ptr %26, align 8, !tbaa !301
   store ptr %7, ptr %23, align 8, !tbaa !303
@@ -14163,7 +14163,7 @@ _ZSt10_ConstructIN7jsonnet8internal11SortImports10ImportElemEJS3_EEvPT_DpOT0_.ex
   store i64 %16, ptr %17, align 8, !tbaa !159
   store ptr %6, ptr %.sroa.08.012, align 8, !tbaa !155
   store i64 0, ptr %15, align 8, !tbaa !159
-  store i32 0, ptr %6, align 4, !tbaa !167
+  store i32 0, ptr %6, align 8, !tbaa !167
   %18 = getelementptr inbounds nuw i8, ptr %.013, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 32
   %20 = load ptr, ptr %19, align 8, !tbaa !19
@@ -16132,7 +16132,7 @@ _ZSt4swapIN7jsonnet8internal11SortImports10ImportElemEENSt9enable_ifIXsr6__and_I
   store i64 %96, ptr %14, align 8, !tbaa !159
   store ptr %89, ptr %.sroa.018.1.i.i, align 8, !tbaa !155
   store i64 0, ptr %70, align 8, !tbaa !159
-  store i32 0, ptr %89, align 4, !tbaa !167
+  store i32 0, ptr %89, align 8, !tbaa !167
   %97 = getelementptr inbounds nuw i8, ptr %.sroa.018.1.i.i, i64 32
   %98 = load ptr, ptr %97, align 8, !tbaa !19
   store ptr %98, ptr %15, align 8, !tbaa !19
@@ -16766,7 +16766,7 @@ _ZN7jsonnet8internal11SortImports10ImportElemC2EOS2_.exit: ; preds = %71, %_ZNKS
   store i64 %79, ptr %15, align 8, !tbaa !159
   store ptr %69, ptr %67, align 8, !tbaa !155
   store i64 0, ptr %80, align 8, !tbaa !159
-  store i32 0, ptr %69, align 4, !tbaa !167
+  store i32 0, ptr %69, align 8, !tbaa !167
   %81 = getelementptr inbounds nuw i8, ptr %67, i64 32
   %82 = load ptr, ptr %81, align 8, !tbaa !19
   store ptr %82, ptr %16, align 8, !tbaa !19
@@ -16959,7 +16959,7 @@ _ZN7jsonnet8internal11SortImports10ImportElemC2EOS2_.exit: ; preds = %11, %_ZNKS
   store i64 %18, ptr %20, align 8, !tbaa !159
   store ptr %9, ptr %2, align 8, !tbaa !155
   store i64 0, ptr %19, align 8, !tbaa !159
-  store i32 0, ptr %9, align 4, !tbaa !167
+  store i32 0, ptr %9, align 8, !tbaa !167
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %23 = load ptr, ptr %22, align 8, !tbaa !19
@@ -17306,7 +17306,7 @@ _ZN7jsonnet8internal11SortImports10ImportElemC2EOS2_.exit: ; preds = %53, %_ZNKS
   store i64 %60, ptr %62, align 8, !tbaa !159
   store ptr %51, ptr %3, align 8, !tbaa !155
   store i64 0, ptr %61, align 8, !tbaa !159
-  store i32 0, ptr %51, align 4, !tbaa !167
+  store i32 0, ptr %51, align 8, !tbaa !167
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %65 = load ptr, ptr %64, align 8, !tbaa !19
@@ -17881,7 +17881,7 @@ _ZN7jsonnet8internal11SortImports10ImportElemC2EOS2_.exit: ; preds = %52, %_ZNKS
   store i64 %57, ptr %7, align 8, !tbaa !159
   store ptr %50, ptr %.sroa.0.024, align 8, !tbaa !155
   store i64 0, ptr %34, align 8, !tbaa !159
-  store i32 0, ptr %50, align 4, !tbaa !167
+  store i32 0, ptr %50, align 8, !tbaa !167
   %58 = getelementptr inbounds nuw i8, ptr %.pn23, i64 264
   %59 = load ptr, ptr %58, align 8, !tbaa !19
   store ptr %59, ptr %8, align 8, !tbaa !19
@@ -18217,7 +18217,7 @@ _ZN7jsonnet8internal11SortImports10ImportElemC2EOS2_.exit: ; preds = %7, %_ZNKSt
   store i64 %14, ptr %16, align 8, !tbaa !159
   store ptr %5, ptr %0, align 8, !tbaa !155
   store i64 0, ptr %15, align 8, !tbaa !159
-  store i32 0, ptr %5, align 4, !tbaa !167
+  store i32 0, ptr %5, align 8, !tbaa !167
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8, !tbaa !19

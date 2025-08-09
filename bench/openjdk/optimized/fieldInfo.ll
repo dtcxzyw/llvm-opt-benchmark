@@ -98,7 +98,7 @@ define hidden void @_ZN9FieldInfo25print_from_growable_arrayEP12outputStreamP13G
   %9 = getelementptr inbounds nuw %class.FieldInfo, ptr %8, i64 %indvars.iv
   tail call void @_ZN9FieldInfo5printEP12outputStreamP12ConstantPool(ptr noundef nonnull align 4 dereferenceable(26) %9, ptr noundef %0, ptr noundef %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %10 = load i32, ptr %1, align 4
+  %10 = load i32, ptr %1, align 8
   %11 = sext i32 %10 to i64
   %12 = icmp slt i64 %indvars.iv.next, %11
   br i1 %12, label %7, label %._crit_edge, !llvm.loop !6
@@ -183,7 +183,7 @@ _ZN9UNSIGNED55SizerIiE11accept_uintEj.exit29:     ; preds = %_ZN9UNSIGNED55Sizer
   %39 = getelementptr inbounds nuw %class.FieldInfo, ptr %38, i64 %indvars.iv
   call void @_ZN6MapperIN9UNSIGNED55SizerIiEEE14map_field_infoERK9FieldInfo(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(26) %39)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %40 = load i32, ptr %0, align 4
+  %40 = load i32, ptr %0, align 8
   %41 = sext i32 %40 to i64
   %42 = icmp slt i64 %indvars.iv.next, %41
   br i1 %42, label %37, label %._crit_edge.loopexit, !llvm.loop !9
@@ -309,7 +309,7 @@ _ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit43: ; pr
   %88 = getelementptr inbounds nuw %class.FieldInfo, ptr %87, i64 %indvars.iv51
   call void @_ZN6MapperIN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS4_iEEEE14map_field_infoERK9FieldInfo(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(26) %88)
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
-  %89 = load i32, ptr %0, align 4
+  %89 = load i32, ptr %0, align 8
   %90 = sext i32 %89 to i64
   %91 = icmp slt i64 %indvars.iv.next52, %90
   br i1 %91, label %86, label %._crit_edge48.loopexit, !llvm.loop !11
@@ -656,7 +656,7 @@ define linkonce_odr hidden void @_ZN6MapperIN9UNSIGNED56WriterIP5ArrayIhEi11Arra
   %10 = load ptr, ptr %6, align 8
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %13 = load i32, ptr %12, align 4
+  %13 = load i32, ptr %12, align 8
   %14 = icmp ult i16 %8, 191
   br i1 %14, label %_ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit, label %.preheader.i.i
 
@@ -704,7 +704,7 @@ _ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit: ; pred
   %34 = load ptr, ptr %30, align 8
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %37 = load i32, ptr %36, align 4
+  %37 = load i32, ptr %36, align 8
   %38 = icmp ult i16 %32, 191
   br i1 %38, label %_ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit25, label %.preheader.i.i13
 
@@ -751,7 +751,7 @@ _ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit25: ; pr
   %57 = load ptr, ptr %54, align 8
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  %60 = load i32, ptr %59, align 4
+  %60 = load i32, ptr %59, align 8
   %61 = icmp ult i32 %56, 191
   br i1 %61, label %_ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit38, label %.preheader.i.i26
 
@@ -798,7 +798,7 @@ _ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit38: ; pr
   %79 = load ptr, ptr %77, align 8
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %82 = load i32, ptr %81, align 4
+  %82 = load i32, ptr %81, align 8
   %83 = icmp ult i32 %.sroa.0.0.copyload.i, 191
   br i1 %83, label %_ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit51, label %.preheader.i.i39
 
@@ -845,7 +845,7 @@ _ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit51: ; pr
   %101 = load ptr, ptr %99, align 8
   %102 = load ptr, ptr %101, align 8
   %103 = getelementptr inbounds nuw i8, ptr %99, i64 16
-  %104 = load i32, ptr %103, align 4
+  %104 = load i32, ptr %103, align 8
   %105 = icmp ult i32 %.sroa.0.0.copyload.i52, 191
   br i1 %105, label %_ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit65, label %.preheader.i.i53
 
@@ -904,7 +904,7 @@ _ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit65: ; pr
   %129 = load ptr, ptr %125, align 8
   %130 = load ptr, ptr %129, align 8
   %131 = getelementptr inbounds nuw i8, ptr %125, i64 16
-  %132 = load i32, ptr %131, align 4
+  %132 = load i32, ptr %131, align 8
   %133 = icmp ult i16 %127, 191
   br i1 %133, label %_ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit80, label %.preheader.i.i68
 
@@ -962,7 +962,7 @@ _ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit80: ; pr
   %156 = load ptr, ptr %152, align 8
   %157 = load ptr, ptr %156, align 8
   %158 = getelementptr inbounds nuw i8, ptr %152, i64 16
-  %159 = load i32, ptr %158, align 4
+  %159 = load i32, ptr %158, align 8
   %160 = icmp ult i16 %154, 191
   br i1 %160, label %_ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit94, label %.preheader.i.i82
 
@@ -1020,7 +1020,7 @@ _ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit94: ; pr
   %183 = load ptr, ptr %179, align 8
   %184 = load ptr, ptr %183, align 8
   %185 = getelementptr inbounds nuw i8, ptr %179, i64 16
-  %186 = load i32, ptr %185, align 4
+  %186 = load i32, ptr %185, align 8
   %187 = icmp ult i16 %181, 191
   br i1 %187, label %_ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit108, label %.preheader.i.i96
 

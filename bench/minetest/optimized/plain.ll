@@ -880,7 +880,7 @@ invoke.cont44:                                    ; preds = %_ZNSt7__cxx1112basi
   %upstream.i6.i = getelementptr inbounds nuw i8, ptr %call42, i64 88
   store ptr null, ptr %upstream.i6.i, align 8, !tbaa !208
   %scale.i = getelementptr inbounds nuw i8, ptr %call42, i64 96
-  store <2 x float> splat (float 1.000000e+00), ptr %scale.i, align 4, !tbaa !210
+  store <2 x float> splat (float 1.000000e+00), ptr %scale.i, align 8, !tbaa !210
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp46)
   store ptr %call, ptr %ref.tmp46, align 8, !tbaa !199
   %call49 = invoke noundef ptr @_ZN14RenderPipeline3ownI10RenderStepEEPT_OSt10unique_ptrIS2_St14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(104) %call42, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp46)
@@ -1408,7 +1408,7 @@ if.end43:                                         ; preds = %_ZNSt7__cxx1112basi
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8, !noalias !234
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i109, i64 %vbase.offset.i.i.i.i
   store ptr %20, ptr %add.ptr.i.i.i.i, align 8, !tbaa !15, !noalias !234
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13TextureBuffer, i64 40), ptr %call.i.i109, align 8, !tbaa !15, !noalias !234
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13TextureBuffer, i64 40), ptr %call.i.i109, align 16, !tbaa !15, !noalias !234
   %m_driver.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i109, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %m_driver.i.i.i, i8 0, i64 56, i1 false), !noalias !234
   store ptr %call.i.i109, ptr %ref.tmp.i, align 8, !tbaa !199, !alias.scope !234
@@ -1897,7 +1897,7 @@ _ZN14RenderPipeline7addStepEP10RenderStep.exit:   ; preds = %_ZNSt6vectorIP10Ren
   %size.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   store i32 0, ptr %size.i.i.i, align 4, !tbaa !246, !noalias !243
   %Height.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
-  store i32 0, ptr %Height.i.i.i.i, align 4, !tbaa !248, !noalias !243
+  store i32 0, ptr %Height.i.i.i.i, align 8, !tbaa !248, !noalias !243
   store ptr %call.i.i, ptr %ref.tmp.i20, align 8, !tbaa !199, !alias.scope !243
   %call.i21 = invoke noundef ptr @_ZN14RenderPipeline3ownI12ScreenTargetEEPT_OSt10unique_ptrIS2_St14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(104) %pipeline, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i20)
           to label %invoke.cont.i unwind label %lpad.i

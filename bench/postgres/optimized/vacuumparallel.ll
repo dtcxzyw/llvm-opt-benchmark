@@ -341,7 +341,7 @@ parallel_vacuum_compute_workers.exit.thread:      ; preds = %._crit_edge.i, %7, 
   %175 = getelementptr inbounds nuw i8, ptr %119, i64 36
   store volatile i32 0, ptr %175, align 4
   %176 = getelementptr inbounds nuw i8, ptr %119, i64 40
-  store volatile i32 0, ptr %176, align 4
+  store volatile i32 0, ptr %176, align 8
   %177 = getelementptr inbounds nuw i8, ptr %119, i64 44
   store volatile i32 0, ptr %177, align 4
   %178 = load ptr, ptr %95, align 8

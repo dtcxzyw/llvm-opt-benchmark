@@ -4679,7 +4679,7 @@ _ZN4LIEF8optionalINS_2PE22ResourceStringFileInfoEECI2N2tl8expectedIS2_11lief_err
   store i64 %20, ptr %22, align 8, !tbaa !56
   store ptr %11, ptr %8, align 8, !tbaa !72
   store i64 0, ptr %21, align 8, !tbaa !56
-  store i16 0, ptr %11, align 2, !tbaa !57
+  store i16 0, ptr %11, align 8, !tbaa !57
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %25 = load ptr, ptr %24, align 8, !tbaa !94

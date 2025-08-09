@@ -5304,9 +5304,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12ObjCIvarDeclEN12_GLOBAL__N_127Iva
   store ptr null, ptr %67, align 8, !tbaa !296
   %69 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 24
   %70 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 24
-  %71 = load i32, ptr %70, align 4, !tbaa !297
-  store i32 %71, ptr %69, align 4, !tbaa !297
-  store i32 0, ptr %70, align 4, !tbaa !297
+  %71 = load i32, ptr %70, align 8, !tbaa !297
+  store i32 %71, ptr %69, align 8, !tbaa !297
+  store i32 0, ptr %70, align 8, !tbaa !297
   %72 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 28
   %73 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 28
   %74 = load i32, ptr %72, align 4, !tbaa !297
@@ -5315,10 +5315,10 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12ObjCIvarDeclEN12_GLOBAL__N_127Iva
   store i32 %74, ptr %73, align 4, !tbaa !297
   %76 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 32
   %77 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 32
-  %78 = load i32, ptr %76, align 4, !tbaa !297
-  %79 = load i32, ptr %77, align 4, !tbaa !297
-  store i32 %79, ptr %76, align 4, !tbaa !297
-  store i32 %78, ptr %77, align 4, !tbaa !297
+  %78 = load i32, ptr %76, align 8, !tbaa !297
+  %79 = load i32, ptr %77, align 8, !tbaa !297
+  store i32 %79, ptr %76, align 8, !tbaa !297
+  store i32 %78, ptr %77, align 8, !tbaa !297
   %80 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 40
   %81 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 56
   store ptr %81, ptr %80, align 8, !tbaa !80

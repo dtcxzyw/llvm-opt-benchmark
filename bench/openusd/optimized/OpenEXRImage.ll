@@ -4777,7 +4777,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %.sroa.2325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %664, i64 8
   store double %663, ptr %.sroa.2325.0..sroa_idx, align 8
   %665 = getelementptr inbounds nuw i8, ptr %664, i64 16
-  store atomic i32 0, ptr %665 seq_cst, align 4
+  store atomic i32 0, ptr %665 seq_cst, align 8
   store ptr %664, ptr %43, align 8
   %666 = atomicrmw add ptr %665, i32 1 monotonic, align 4
   %667 = load ptr, ptr %118, align 8
@@ -5001,7 +5001,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit259: ; preds = %_ZN32pxrIn
   %.sroa.2320.0..sroa_idx = getelementptr inbounds nuw i8, ptr %735, i64 8
   store double %734, ptr %.sroa.2320.0..sroa_idx, align 8
   %736 = getelementptr inbounds nuw i8, ptr %735, i64 16
-  store atomic i32 0, ptr %736 seq_cst, align 4
+  store atomic i32 0, ptr %736 seq_cst, align 8
   store ptr %735, ptr %49, align 8
   %737 = atomicrmw add ptr %736, i32 1 monotonic, align 4
   %738 = load ptr, ptr %118, align 8
@@ -5123,7 +5123,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit269: ; preds = %_ZN32pxrIn
   %.sroa.3318.0..sroa_idx = getelementptr inbounds nuw i8, ptr %777, i64 16
   store double %776, ptr %.sroa.3318.0..sroa_idx, align 8
   %778 = getelementptr inbounds nuw i8, ptr %777, i64 24
-  store atomic i32 0, ptr %778 seq_cst, align 4
+  store atomic i32 0, ptr %778 seq_cst, align 8
   store ptr %777, ptr %52, align 8
   %779 = atomicrmw add ptr %778, i32 1 monotonic, align 4
   %780 = load ptr, ptr %118, align 8
@@ -5361,7 +5361,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit289: ; preds = %_ZN32pxrIn
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %855, i64 16
   store double %854, ptr %.sroa.3.0..sroa_idx, align 8
   %856 = getelementptr inbounds nuw i8, ptr %855, i64 24
-  store atomic i32 0, ptr %856 seq_cst, align 4
+  store atomic i32 0, ptr %856 seq_cst, align 8
   store ptr %855, ptr %58, align 8
   %857 = atomicrmw add ptr %856, i32 1 monotonic, align 4
   %858 = load ptr, ptr %118, align 8

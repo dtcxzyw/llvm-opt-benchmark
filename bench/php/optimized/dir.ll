@@ -166,7 +166,7 @@ define hidden noundef i32 @zm_startup_dir(i32 noundef %0, i32 noundef %1) local_
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %26, ptr noundef nonnull align 1 dereferenceable(6) @.str.23, i64 6, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 30
-  store i8 0, ptr %27, align 1, !tbaa !10
+  store i8 0, ptr %27, align 2, !tbaa !10
   store ptr null, ptr %7, align 8, !tbaa !35
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 1022, ptr %28, align 8, !tbaa !37

@@ -4315,7 +4315,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %26, ptr %29, align 8, !tbaa !51
   store ptr %17, ptr %12, align 8, !tbaa !50
   store i64 0, ptr %28, align 8, !tbaa !51
-  store i8 0, ptr %17, align 1, !tbaa !52
+  store i8 0, ptr %17, align 8, !tbaa !52
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %31 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %32 = load i64, ptr %31, align 8, !tbaa !67

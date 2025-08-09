@@ -11453,7 +11453,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_8RegisterENS_7SDValueEELb1EE9push_b
   %.fca.1.extract364 = extractvalue { ptr, i32 } %768, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %63)
   %769 = getelementptr inbounds nuw i8, ptr %.08781533, i64 4
-  %770 = load i16, ptr %769, align 2, !tbaa !150, !noalias !869
+  %770 = load i16, ptr %769, align 4, !tbaa !150, !noalias !869
   %771 = zext i16 %770 to i32
   store i32 %771, ptr %63, align 8, !tbaa !652
   store ptr %.fca.0.extract363, ptr %760, align 8, !tbaa !625

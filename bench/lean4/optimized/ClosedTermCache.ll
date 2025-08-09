@@ -5393,7 +5393,7 @@ _init_l_Lean_initFn____x40_Lean_Compiler_ClosedTermCache___hyg_63____closed__1.e
   %.val13 = load ptr, ptr %57, align 8, !tbaa !9
   store ptr %.val13, ptr @l_Lean_closedTermCacheExt, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %.val13) #4
-  %58 = load i32, ptr %53, align 4, !tbaa !4
+  %58 = load i32, ptr %53, align 8, !tbaa !4
   %59 = icmp sgt i32 %58, 1
   br i1 %59, label %60, label %62, !prof !11
 

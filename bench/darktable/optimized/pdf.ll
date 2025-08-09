@@ -269,7 +269,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef %0, ptr noundef %1, ptr noun
   %87 = load i32, ptr %86, align 8, !tbaa !42
   %88 = icmp eq i32 %87, 8
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %90 = load i32, ptr %89, align 4, !tbaa !43
+  %90 = load i32, ptr %89, align 8, !tbaa !43
   br i1 %88, label %91, label %115
 
 91:                                               ; preds = %85

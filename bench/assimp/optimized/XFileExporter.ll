@@ -1446,7 +1446,7 @@ define hidden void @_ZN6Assimp13XFileExporter9WriteFileEv(ptr noundef nonnull al
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = or i32 %9, 4
-  store i32 %10, ptr %8, align 4
+  store i32 %10, ptr %8, align 8
   %11 = load ptr, ptr %3, align 8
   %12 = getelementptr i8, ptr %11, i64 -24
   %13 = load i64, ptr %12, align 8

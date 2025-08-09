@@ -1659,7 +1659,7 @@ invoke.cont57:                                    ; preds = %_ZN5boost10shared_p
   %105 = load i32, ptr %_M_flags.i.i, align 8, !tbaa !84
   %and.i.i.i.i = and i32 %105, -261
   %or.i.i.i.i = or disjoint i32 %and.i.i.i.i, 4
-  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 4, !tbaa !85
+  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 8, !tbaa !85
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp59)
   %106 = load ptr, ptr %swapIndex1_, align 8, !tbaa !67
   %cmp.not.i224 = icmp eq ptr %106, null

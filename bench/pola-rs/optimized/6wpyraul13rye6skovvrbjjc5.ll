@@ -5753,7 +5753,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.sroa.7.0..sroa_idx9.i.i.i = getelementptr inbounds i8, ptr %35, i64 -12
   %.sroa.7.sroa.0.0.copyload.i.i.i = load i32, ptr %.sroa.7.0..sroa_idx9.i.i.i, align 4, !noalias !1221
   %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx9.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %35, i64 -8
-  %.sroa.7.sroa.5.0.copyload.i.i.i = load i64, ptr %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx9.sroa_idx.i.i.i, align 4, !noalias !1221
+  %.sroa.7.sroa.5.0.copyload.i.i.i = load i64, ptr %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx9.sroa_idx.i.i.i, align 8, !noalias !1221
   %.not.i.i.i = icmp eq i32 %.sroa.07.0.copyload8.i.i.i, 0
   br i1 %.not.i.i.i, label %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h78e80ef4f1ea6e22E.exit.thread.i.loopexit.i.i", label %38
 
@@ -11799,7 +11799,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.sroa.7.0..sroa_idx10.i.i.i = getelementptr inbounds i8, ptr %39, i64 -20
   %.sroa.7.sroa.0.0.copyload.i.i.i = load i32, ptr %.sroa.7.0..sroa_idx10.i.i.i, align 4, !noalias !2483
   %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx10.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %39, i64 -16
-  %.sroa.7.sroa.5.0.copyload.i.i.i = load i64, ptr %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx10.sroa_idx.i.i.i, align 4, !noalias !2483
+  %.sroa.7.sroa.5.0.copyload.i.i.i = load i64, ptr %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx10.sroa_idx.i.i.i, align 8, !noalias !2483
   %.not.i.i.i = icmp eq i32 %.sroa.08.0.copyload9.i.i.i, 0
   br i1 %.not.i.i.i, label %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a41944f4fbde7e0E.exit.thread.i.loopexit.i.i", label %42
 

@@ -925,7 +925,7 @@ _ZNSt6vectorIN10cmDebugger26cmDebuggerSourceBreakpointESaIS1_EE12emplace_backIJl
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 112
   store i8 1, ptr %87, align 8, !tbaa !83
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 528
-  store i8 1, ptr %88, align 1, !tbaa !86
+  store i8 1, ptr %88, align 8, !tbaa !86
   br label %106
 
 89:                                               ; preds = %56, %49
@@ -1098,7 +1098,7 @@ _ZNSt6vectorIN10cmDebugger26cmDebuggerSourceBreakpointESaIS1_EE12emplace_backIJl
   %169 = getelementptr inbounds nuw i8, ptr %167, i64 112
   store i8 1, ptr %169, align 8, !tbaa !83
   %170 = getelementptr inbounds nuw i8, ptr %167, i64 528
-  store i8 0, ptr %170, align 1, !tbaa !86
+  store i8 0, ptr %170, align 8, !tbaa !86
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN3dap6SourceC2Ev(ptr noundef nonnull align 8 dereferenceable(304) %10)
           to label %171 unwind label %193

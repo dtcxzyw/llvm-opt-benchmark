@@ -455,7 +455,7 @@ define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noun
   %115 = load i64, ptr %114, align 8
   tail call fastcc void @TransactionIdSetPageStatusInternal(i32 noundef %107, i32 noundef %110, ptr noundef nonnull %111, i32 noundef %113, i64 noundef %115, i64 noundef %105)
   %116 = getelementptr inbounds nuw i8, ptr %90, i64 720
-  %117 = load volatile i32, ptr %116, align 4
+  %117 = load volatile i32, ptr %116, align 8
   %.not63.i = icmp eq i32 %117, -1
   br i1 %.not63.i, label %._crit_edge.i, label %.lr.ph81.i, !llvm.loop !12
 

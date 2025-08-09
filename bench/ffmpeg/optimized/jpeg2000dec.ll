@@ -2631,13 +2631,13 @@ jpeg2000_read_main_headers.exit:                  ; preds = %466, %583, %._crit_
   %1266 = load i32, ptr %1226, align 4, !tbaa !47
   %1267 = getelementptr inbounds nuw i8, ptr %1263, i64 384
   store i32 %1266, ptr %1267, align 8, !tbaa !47
-  %1268 = load i32, ptr %1235, align 4, !tbaa !47
+  %1268 = load i32, ptr %1235, align 8, !tbaa !47
   %1269 = getelementptr inbounds nuw i8, ptr %1263, i64 388
   store i32 %1268, ptr %1269, align 4, !tbaa !47
   %1270 = load i32, ptr %1243, align 4, !tbaa !47
   %1271 = getelementptr inbounds nuw i8, ptr %1263, i64 392
   store i32 %1270, ptr %1271, align 8, !tbaa !47
-  %1272 = load i32, ptr %1252, align 4, !tbaa !47
+  %1272 = load i32, ptr %1252, align 8, !tbaa !47
   %1273 = getelementptr inbounds nuw i8, ptr %1263, i64 396
   store i32 %1272, ptr %1273, align 4, !tbaa !47
   %1274 = getelementptr inbounds nuw [4 x i32], ptr %1195, i64 0, i64 %indvars.iv.i.i107

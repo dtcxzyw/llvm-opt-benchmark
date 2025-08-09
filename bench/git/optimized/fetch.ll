@@ -5497,7 +5497,7 @@ _.exit74.i:                                       ; preds = %75, %73
   %117 = getelementptr inbounds nuw i8, ptr %109, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %116, ptr noundef nonnull readonly align 4 dereferenceable(32) %117, i64 32, i1 false)
   %118 = getelementptr inbounds nuw i8, ptr %109, i64 40
-  %119 = load i32, ptr %118, align 4, !tbaa !137
+  %119 = load i32, ptr %118, align 8, !tbaa !137
   %120 = getelementptr inbounds nuw i8, ptr %107, i64 76
   store i32 %119, ptr %120, align 4, !tbaa !137
   %121 = load ptr, ptr %110, align 8, !tbaa !122
@@ -6445,7 +6445,7 @@ ends_with.exit.thread:                            ; preds = %24, %ends_with.exit
   %94 = getelementptr inbounds nuw i8, ptr %82, i64 48
   %95 = load i32, ptr %94, align 4, !tbaa !137
   %96 = getelementptr inbounds nuw i8, ptr %89, i64 40
-  store i32 %95, ptr %96, align 4, !tbaa !137
+  store i32 %95, ptr %96, align 8, !tbaa !137
   %97 = load ptr, ptr %3, align 8, !tbaa !123
   store ptr %89, ptr %97, align 8, !tbaa !122
   store ptr %89, ptr %3, align 8, !tbaa !123
@@ -6698,7 +6698,7 @@ st_add.exit12:                                    ; preds = %st_add.exit
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %16 = load i32, ptr %15, align 4, !tbaa !137
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  store i32 %16, ptr %17, align 4, !tbaa !137
+  store i32 %16, ptr %17, align 8, !tbaa !137
   tail call void @hashmap_add(ptr noundef %0, ptr noundef nonnull %10) #20
   ret ptr %10
 }

@@ -265,8 +265,8 @@ define dso_local ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) local_unna
   %gepdiff.us = sub nsw i64 %184, %180
   %185 = trunc nsw i64 %gepdiff.us to i32
   %186 = getelementptr i8, ptr %164, i64 80
-  %187 = load i32, ptr %186, align 4
-  store i32 %161, ptr %186, align 4
+  %187 = load i32, ptr %186, align 8
+  store i32 %161, ptr %186, align 8
   store i16 %179, ptr %182, align 4
   %188 = tail call i32 @csum_partial(ptr noundef %181, i32 noundef %185, i32 noundef %187) #7
   %189 = shl i32 %188, 16
@@ -368,8 +368,8 @@ define dso_local ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) local_unna
   %gepdiff = sub nsw i64 %258, %254
   %259 = trunc nsw i64 %gepdiff to i32
   %260 = getelementptr i8, ptr %229, i64 80
-  %261 = load i32, ptr %260, align 4
-  store i32 %161, ptr %260, align 4
+  %261 = load i32, ptr %260, align 8
+  store i32 %161, ptr %260, align 8
   store i16 %253, ptr %256, align 4
   %262 = tail call i32 @csum_partial(ptr noundef %255, i32 noundef %259, i32 noundef %261) #7
   %263 = shl i32 %262, 16
@@ -524,8 +524,8 @@ define dso_local ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) local_unna
   %gepdiff10 = sub nsw i64 %369, %365
   %370 = trunc nsw i64 %gepdiff10 to i32
   %371 = getelementptr i8, ptr %287, i64 80
-  %372 = load i32, ptr %371, align 4
-  store i32 %362, ptr %371, align 4
+  %372 = load i32, ptr %371, align 8
+  store i32 %362, ptr %371, align 8
   store i16 %364, ptr %367, align 4
   %373 = tail call i32 @csum_partial(ptr noundef %366, i32 noundef %370, i32 noundef %372) #7
   %374 = shl i32 %373, 16

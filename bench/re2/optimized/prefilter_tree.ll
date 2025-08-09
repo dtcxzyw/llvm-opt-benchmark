@@ -3602,7 +3602,7 @@ for.body28:                                       ; preds = %for.body16, %for.in
   %19 = load i32, ptr %add.ptr.i49, align 4
   %20 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i51, align 8
   %cmp.not.i.i.i52 = icmp ne ptr %20, null
-  %21 = load i32, ptr %dense_.i.i.i50, align 4
+  %21 = load i32, ptr %dense_.i.i.i50, align 8
   %cmp.not23.i.i53 = icmp ugt i32 %21, %19
   %cmp.not.i.i54 = select i1 %cmp.not.i.i.i52, i1 %cmp.not23.i.i53, i1 false
   br i1 %cmp.not.i.i54, label %if.end.i.i56, label %for.inc34
@@ -5687,7 +5687,7 @@ for.end.i.i.i:                                    ; preds = %for.body.i.i.i, %if
   %0 = load i64, ptr %__prev.0.lcssa.i.i.i, align 8
   store i64 %0, ptr %__first.coerce, align 8
   %second.i.i.i.i = getelementptr inbounds nuw i8, ptr %__prev.0.lcssa.i.i.i, i64 8
-  %1 = load i32, ptr %second.i.i.i.i, align 4
+  %1 = load i32, ptr %second.i.i.i.i, align 8
   %second3.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 8
   store i32 %1, ptr %second3.i.i.i.i, align 8
   invoke void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS3_SaIS3_EEEES4_lNS0_5__ops15_Iter_less_iterEEvT_SB_T0_T1_T2_(ptr nonnull %__first.coerce, ptr %__last.coerce, ptr noundef nonnull %call.i.i, i64 noundef %storemerge27.i.i)
@@ -5784,7 +5784,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %3 = load i64, ptr %incdec.ptr.i.i.i.i.i.i, align 8
   store i64 %3, ptr %incdec.ptr1.i.i.i.i.i.i, align 8
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i.i.i, i64 -8
-  %4 = load i32, ptr %second.i.i.i.i.i.i.i, align 4
+  %4 = load i32, ptr %second.i.i.i.i.i.i.i, align 8
   %second3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i.i, i64 -8
   store i32 %4, ptr %second3.i.i.i.i.i.i.i, align 8
   %dec.i.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i.i, -1
@@ -5959,10 +5959,10 @@ if.then9:                                         ; preds = %if.then5, %_ZNK9__g
   store i64 %1, ptr %__middle.coerce.tr71, align 8
   %second.i.i.i = getelementptr inbounds nuw i8, ptr %__first.coerce.tr70, i64 8
   %second3.i.i.i = getelementptr inbounds nuw i8, ptr %__middle.coerce.tr71, i64 8
-  %4 = load i32, ptr %second.i.i.i, align 4
-  %5 = load i32, ptr %second3.i.i.i, align 4
-  store i32 %5, ptr %second.i.i.i, align 4
-  store i32 %4, ptr %second3.i.i.i, align 4
+  %4 = load i32, ptr %second.i.i.i, align 8
+  %5 = load i32, ptr %second3.i.i.i, align 8
+  store i32 %5, ptr %second.i.i.i, align 8
+  store i32 %4, ptr %second3.i.i.i, align 8
   br label %return
 
 if.end15:                                         ; preds = %if.end
@@ -6132,10 +6132,10 @@ for.body.i:                                       ; preds = %if.end5, %for.body.
   store i64 %0, ptr %__first2.sroa.0.05.i, align 8
   %second.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first1.sroa.0.04.i, i64 8
   %second3.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first2.sroa.0.05.i, i64 8
-  %2 = load i32, ptr %second.i.i.i.i, align 4
-  %3 = load i32, ptr %second3.i.i.i.i, align 4
-  store i32 %3, ptr %second.i.i.i.i, align 4
-  store i32 %2, ptr %second3.i.i.i.i, align 4
+  %2 = load i32, ptr %second.i.i.i.i, align 8
+  %3 = load i32, ptr %second3.i.i.i.i, align 8
+  store i32 %3, ptr %second.i.i.i.i, align 8
+  store i32 %2, ptr %second3.i.i.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__first1.sroa.0.04.i, i64 16
   %incdec.ptr.i1.i = getelementptr inbounds nuw i8, ptr %__first2.sroa.0.05.i, i64 16
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %__middle.coerce
@@ -6172,10 +6172,10 @@ for.body:                                         ; preds = %for.body.preheader,
   store i64 %4, ptr %__q.sroa.0.054, align 8
   %second.i.i.i = getelementptr inbounds nuw i8, ptr %__p.sroa.0.153, i64 8
   %second3.i.i.i = getelementptr inbounds nuw i8, ptr %__q.sroa.0.054, i64 8
-  %6 = load i32, ptr %second.i.i.i, align 4
-  %7 = load i32, ptr %second3.i.i.i, align 4
-  store i32 %7, ptr %second.i.i.i, align 4
-  store i32 %6, ptr %second3.i.i.i, align 4
+  %6 = load i32, ptr %second.i.i.i, align 8
+  %7 = load i32, ptr %second3.i.i.i, align 8
+  store i32 %7, ptr %second.i.i.i, align 8
+  store i32 %6, ptr %second3.i.i.i, align 8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__p.sroa.0.153, i64 16
   %incdec.ptr.i15 = getelementptr inbounds nuw i8, ptr %__q.sroa.0.054, i64 16
   %inc = add nuw nsw i64 %__i.055, 1
@@ -6211,10 +6211,10 @@ for.body49:                                       ; preds = %if.else38, %for.bod
   store i64 %8, ptr %incdec.ptr.i19, align 8
   %second.i.i.i20 = getelementptr inbounds i8, ptr %__p.sroa.0.349, i64 -8
   %second3.i.i.i21 = getelementptr inbounds i8, ptr %__q40.sroa.0.050, i64 -8
-  %10 = load i32, ptr %second.i.i.i20, align 4
-  %11 = load i32, ptr %second3.i.i.i21, align 4
-  store i32 %11, ptr %second.i.i.i20, align 4
-  store i32 %10, ptr %second3.i.i.i21, align 4
+  %10 = load i32, ptr %second.i.i.i20, align 8
+  %11 = load i32, ptr %second3.i.i.i21, align 8
+  store i32 %11, ptr %second.i.i.i20, align 8
+  store i32 %10, ptr %second3.i.i.i21, align 8
   %inc57 = add nuw nsw i64 %__i45.051, 1
   %exitcond.not = icmp eq i64 %inc57, %__k.0
   br i1 %exitcond.not, label %for.end58, label %for.body49, !llvm.loop !74
@@ -6265,7 +6265,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.then, %for.body.
   %0 = load i64, ptr %__first.addr.07.i.i.i.i.i, align 8
   store i64 %0, ptr %__result.addr.08.i.i.i.i.i, align 8
   %second.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i, i64 8
-  %1 = load i32, ptr %second.i.i.i.i.i.i, align 4
+  %1 = load i32, ptr %second.i.i.i.i.i.i, align 8
   %second3.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i, i64 8
   store i32 %1, ptr %second3.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i, i64 16
@@ -6339,7 +6339,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.then13.i, %for.b
   %8 = load i64, ptr %__first.addr.07.i.i.i.i.i.i, align 8
   store i64 %8, ptr %__result.addr.08.i.i.i.i.i.i, align 8
   %second.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i.i, i64 8
-  %9 = load i32, ptr %second.i.i.i.i.i.i.i, align 4
+  %9 = load i32, ptr %second.i.i.i.i.i.i.i, align 8
   %second3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i.i, i64 8
   store i32 %9, ptr %second3.i.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i.i, i64 16
@@ -6371,7 +6371,7 @@ for.body.i.i.i.i.i32:                             ; preds = %if.then15, %for.bod
   %10 = load i64, ptr %__first.addr.07.i.i.i.i.i35, align 8
   store i64 %10, ptr %__result.addr.08.i.i.i.i.i34, align 8
   %second.i.i.i.i.i.i36 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i35, i64 8
-  %11 = load i32, ptr %second.i.i.i.i.i.i36, align 4
+  %11 = load i32, ptr %second.i.i.i.i.i.i36, align 8
   %second3.i.i.i.i.i.i37 = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i34, i64 8
   store i32 %11, ptr %second3.i.i.i.i.i.i37, align 8
   %incdec.ptr.i.i.i.i.i38 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i35, i64 16
@@ -6402,7 +6402,7 @@ for.body.i.i.i.i.i.i60:                           ; preds = %if.then.i55, %for.b
   %12 = load i64, ptr %incdec.ptr.i.i.i.i.i.i61, align 8
   store i64 %12, ptr %incdec.ptr1.i.i.i.i.i.i62, align 8
   %second.i.i.i.i.i.i.i63 = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i.i.i, i64 -8
-  %13 = load i32, ptr %second.i.i.i.i.i.i.i63, align 4
+  %13 = load i32, ptr %second.i.i.i.i.i.i.i63, align 8
   %second3.i.i.i.i.i.i.i64 = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i.i, i64 -8
   store i32 %13, ptr %second3.i.i.i.i.i.i.i64, align 8
   %dec.i.i.i.i.i.i65 = add nsw i64 %__n.07.i.i.i.i.i.i, -1
@@ -6472,7 +6472,7 @@ for.body.i.i.i.i.i23.i:                           ; preds = %if.then18.i, %for.b
   %19 = load i64, ptr %incdec.ptr.i.i.i.i.i27.i, align 8
   store i64 %19, ptr %incdec.ptr1.i.i.i.i.i28.i, align 8
   %second.i.i.i.i.i.i29.i = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i.i26.i, i64 -8
-  %20 = load i32, ptr %second.i.i.i.i.i.i29.i, align 4
+  %20 = load i32, ptr %second.i.i.i.i.i.i29.i, align 8
   %second3.i.i.i.i.i.i30.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i25.i, i64 -8
   store i32 %20, ptr %second3.i.i.i.i.i.i30.i, align 8
   %dec.i.i.i.i.i31.i = add nsw i64 %__n.07.i.i.i.i.i24.i, -1
@@ -6707,7 +6707,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %3 = load i64, ptr %incdec.ptr.i.i.i.i.i.i, align 8
   store i64 %3, ptr %incdec.ptr1.i.i.i.i.i.i, align 8
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i.i.i, i64 -8
-  %4 = load i32, ptr %second.i.i.i.i.i.i.i, align 4
+  %4 = load i32, ptr %second.i.i.i.i.i.i.i, align 8
   %second3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i.i, i64 -8
   store i32 %4, ptr %second3.i.i.i.i.i.i.i, align 8
   %dec.i.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i.i, -1
@@ -6829,7 +6829,7 @@ for.body.i.i.i.i.i.i50:                           ; preds = %for.body.i.i.i.i.i.
   %11 = load i64, ptr %incdec.ptr.i.i.i.i.i.i54, align 8
   store i64 %11, ptr %incdec.ptr1.i.i.i.i.i.i55, align 8
   %second.i.i.i.i.i.i.i56 = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i.i.i53, i64 -8
-  %12 = load i32, ptr %second.i.i.i.i.i.i.i56, align 4
+  %12 = load i32, ptr %second.i.i.i.i.i.i.i56, align 8
   %second3.i.i.i.i.i.i.i57 = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i.i52, i64 -8
   store i32 %12, ptr %second3.i.i.i.i.i.i.i57, align 8
   %dec.i.i.i.i.i.i58 = add nsw i64 %__n.07.i.i.i.i.i.i51, -1
@@ -6975,7 +6975,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %while.end.i, %for.b
   %6 = load i64, ptr %__first.addr.07.i.i.i.i.i.i, align 8
   store i64 %6, ptr %__result.addr.08.i.i.i.i.i.i, align 8
   %second.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i.i, i64 8
-  %7 = load i32, ptr %second.i.i.i.i.i.i.i, align 4
+  %7 = load i32, ptr %second.i.i.i.i.i.i.i, align 8
   %second3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i.i, i64 8
   store i32 %7, ptr %second3.i.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i.i, i64 16
@@ -7000,7 +7000,7 @@ for.body.i.i.i.i.i14.i:                           ; preds = %_ZSt4moveIN9__gnu_c
   %8 = load i64, ptr %__first.addr.07.i.i.i.i.i17.i, align 8
   store i64 %8, ptr %__result.addr.08.i.i.i.i.i16.i, align 8
   %second.i.i.i.i.i.i18.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i17.i, i64 8
-  %9 = load i32, ptr %second.i.i.i.i.i.i18.i, align 4
+  %9 = load i32, ptr %second.i.i.i.i.i.i18.i, align 8
   %second3.i.i.i.i.i.i19.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i16.i, i64 8
   store i32 %9, ptr %second3.i.i.i.i.i.i19.i, align 8
   %incdec.ptr.i.i.i.i.i20.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i17.i, i64 16
@@ -7094,7 +7094,7 @@ for.body.i.i.i.i.i.i43:                           ; preds = %while.end.i16, %for
   %16 = load i64, ptr %__first.addr.07.i.i.i.i.i.i46, align 8
   store i64 %16, ptr %__result.addr.08.i.i.i.i.i.i45, align 8
   %second.i.i.i.i.i.i.i47 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i.i46, i64 8
-  %17 = load i32, ptr %second.i.i.i.i.i.i.i47, align 4
+  %17 = load i32, ptr %second.i.i.i.i.i.i.i47, align 8
   %second3.i.i.i.i.i.i.i48 = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i.i45, i64 8
   store i32 %17, ptr %second3.i.i.i.i.i.i.i48, align 8
   %incdec.ptr.i.i.i.i.i.i49 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i.i46, i64 16
@@ -7118,7 +7118,7 @@ for.body.i.i.i.i.i14.i33:                         ; preds = %_ZSt4moveIN9__gnu_c
   %18 = load i64, ptr %__first.addr.07.i.i.i.i.i17.i36, align 8
   store i64 %18, ptr %__result.addr.08.i.i.i.i.i16.i35, align 8
   %second.i.i.i.i.i.i18.i37 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i17.i36, i64 8
-  %19 = load i32, ptr %second.i.i.i.i.i.i18.i37, align 4
+  %19 = load i32, ptr %second.i.i.i.i.i.i18.i37, align 8
   %second3.i.i.i.i.i.i19.i38 = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i16.i35, i64 8
   store i32 %19, ptr %second3.i.i.i.i.i.i19.i38, align 8
   %incdec.ptr.i.i.i.i.i20.i39 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i17.i36, i64 16
@@ -7221,7 +7221,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %while.end.i, %for.b
   %7 = load i64, ptr %__first.addr.07.i.i.i.i.i.i, align 8
   store i64 %7, ptr %__result.addr.08.i.i.i.i.i.i, align 8
   %second.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i.i, i64 8
-  %8 = load i32, ptr %second.i.i.i.i.i.i.i, align 4
+  %8 = load i32, ptr %second.i.i.i.i.i.i.i, align 8
   %second3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i.i, i64 8
   store i32 %8, ptr %second3.i.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i.i, i64 16
@@ -7250,7 +7250,7 @@ for.body.i.i.i.i.i23.i:                           ; preds = %_ZSt4moveIPSt4pairI
   %9 = load i64, ptr %__first.addr.07.i.i.i.i.i26.i, align 8
   store i64 %9, ptr %__result.addr.08.i.i.i.i.i25.i, align 8
   %second.i.i.i.i.i.i27.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i26.i, i64 8
-  %10 = load i32, ptr %second.i.i.i.i.i.i27.i, align 4
+  %10 = load i32, ptr %second.i.i.i.i.i.i27.i, align 8
   %second3.i.i.i.i.i.i28.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i25.i, i64 8
   store i32 %10, ptr %second3.i.i.i.i.i.i28.i, align 8
   %incdec.ptr.i.i.i.i.i29.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i26.i, i64 16
@@ -7350,7 +7350,7 @@ for.body.i.i.i.i.i.i51:                           ; preds = %while.end.i17, %for
   %20 = load i64, ptr %__first.addr.07.i.i.i.i.i.i54, align 8
   store i64 %20, ptr %__result.addr.08.i.i.i.i.i.i53, align 8
   %second.i.i.i.i.i.i.i55 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i.i54, i64 8
-  %21 = load i32, ptr %second.i.i.i.i.i.i.i55, align 4
+  %21 = load i32, ptr %second.i.i.i.i.i.i.i55, align 8
   %second3.i.i.i.i.i.i.i56 = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i.i53, i64 8
   store i32 %21, ptr %second3.i.i.i.i.i.i.i56, align 8
   %incdec.ptr.i.i.i.i.i.i57 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i.i54, i64 16
@@ -7381,7 +7381,7 @@ for.body.i.i.i.i.i23.i40:                         ; preds = %for.body.i.i.i.i.i2
   %22 = load i64, ptr %__first.addr.07.i.i.i.i.i26.i43, align 8
   store i64 %22, ptr %__result.addr.08.i.i.i.i.i25.i42, align 8
   %second.i.i.i.i.i.i27.i44 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i26.i43, i64 8
-  %23 = load i32, ptr %second.i.i.i.i.i.i27.i44, align 4
+  %23 = load i32, ptr %second.i.i.i.i.i.i27.i44, align 8
   %second3.i.i.i.i.i.i28.i45 = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i25.i42, i64 8
   store i32 %23, ptr %second3.i.i.i.i.i.i28.i45, align 8
   %incdec.ptr.i.i.i.i.i29.i46 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i26.i43, i64 16
@@ -7421,7 +7421,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.then4, %for.body
   %0 = load i64, ptr %__first.addr.07.i.i.i.i.i, align 8
   store i64 %0, ptr %__result.addr.08.i.i.i.i.i, align 8
   %second.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i, i64 8
-  %1 = load i32, ptr %second.i.i.i.i.i.i, align 4
+  %1 = load i32, ptr %second.i.i.i.i.i.i, align 8
   %second3.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i, i64 8
   store i32 %1, ptr %second3.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i, i64 16
@@ -7447,7 +7447,7 @@ for.body.i.i.i.i.i15:                             ; preds = %_ZSt4moveIN9__gnu_c
   %2 = load i64, ptr %incdec.ptr.i.i.i.i.i16, align 8
   store i64 %2, ptr %incdec.ptr1.i.i.i.i.i17, align 8
   %second.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i.i, i64 -8
-  %3 = load i32, ptr %second.i.i.i.i.i.i18, align 4
+  %3 = load i32, ptr %second.i.i.i.i.i.i18, align 8
   %second3.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i, i64 -8
   store i32 %3, ptr %second3.i.i.i.i.i.i19, align 8
   %dec.i.i.i.i.i20 = add nsw i64 %__n.07.i.i.i.i.i, -1
@@ -7469,7 +7469,7 @@ for.body.i.i.i.i.i32:                             ; preds = %_ZSt13move_backward
   %4 = load i64, ptr %__first.addr.07.i.i.i.i.i35, align 8
   store i64 %4, ptr %__result.addr.08.i.i.i.i.i34, align 8
   %second.i.i.i.i.i.i36 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i35, i64 8
-  %5 = load i32, ptr %second.i.i.i.i.i.i36, align 4
+  %5 = load i32, ptr %second.i.i.i.i.i.i36, align 8
   %second3.i.i.i.i.i.i37 = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i34, i64 8
   store i32 %5, ptr %second3.i.i.i.i.i.i37, align 8
   %incdec.ptr.i.i.i.i.i38 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i35, i64 16
@@ -7511,7 +7511,7 @@ for.body.i.i.i.i.i48:                             ; preds = %if.then24, %for.bod
   %6 = load i64, ptr %__first.addr.07.i.i.i.i.i51, align 8
   store i64 %6, ptr %__result.addr.08.i.i.i.i.i50, align 8
   %second.i.i.i.i.i.i52 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i51, i64 8
-  %7 = load i32, ptr %second.i.i.i.i.i.i52, align 4
+  %7 = load i32, ptr %second.i.i.i.i.i.i52, align 8
   %second3.i.i.i.i.i.i53 = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i50, i64 8
   store i32 %7, ptr %second3.i.i.i.i.i.i53, align 8
   %incdec.ptr.i.i.i.i.i54 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i51, i64 16
@@ -7535,7 +7535,7 @@ for.body.i.i.i.i.i69:                             ; preds = %_ZSt4moveIN9__gnu_c
   %8 = load i64, ptr %__first.addr.07.i.i.i.i.i72, align 8
   store i64 %8, ptr %__result.addr.08.i.i.i.i.i71, align 8
   %second.i.i.i.i.i.i73 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i72, i64 8
-  %9 = load i32, ptr %second.i.i.i.i.i.i73, align 4
+  %9 = load i32, ptr %second.i.i.i.i.i.i73, align 8
   %second3.i.i.i.i.i.i74 = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i71, i64 8
   store i32 %9, ptr %second3.i.i.i.i.i.i74, align 8
   %incdec.ptr.i.i.i.i.i75 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i72, i64 16
@@ -7561,7 +7561,7 @@ for.body.i.i.i.i.i89:                             ; preds = %_ZSt4moveIN9__gnu_c
   %10 = load i64, ptr %incdec.ptr.i.i.i.i.i93, align 8
   store i64 %10, ptr %incdec.ptr1.i.i.i.i.i94, align 8
   %second.i.i.i.i.i.i95 = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i.i92, i64 -8
-  %11 = load i32, ptr %second.i.i.i.i.i.i95, align 4
+  %11 = load i32, ptr %second.i.i.i.i.i.i95, align 8
   %second3.i.i.i.i.i.i96 = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i91, i64 -8
   store i32 %11, ptr %second3.i.i.i.i.i.i96, align 8
   %dec.i.i.i.i.i97 = add nsw i64 %__n.07.i.i.i.i.i90, -1

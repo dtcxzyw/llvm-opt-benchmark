@@ -6200,7 +6200,7 @@ _ZNK5Yosys7hashlib4poolINS_7SigPool8bitDef_tENS0_8hash_opsIS3_EEE9do_lookupERKS3
   %2129 = load ptr, ptr %2126, align 8, !tbaa !212
   store ptr %2129, ptr %2128, align 8, !tbaa !239
   %2130 = getelementptr inbounds nuw i8, ptr %2126, i64 8
-  %2131 = load i32, ptr %2130, align 4, !tbaa !52
+  %2131 = load i32, ptr %2130, align 8, !tbaa !52
   %2132 = getelementptr inbounds nuw i8, ptr %2128, i64 8
   store i32 %2131, ptr %2132, align 8, !tbaa !241
   %2133 = getelementptr inbounds nuw i8, ptr %2126, i64 16

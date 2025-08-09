@@ -684,7 +684,7 @@ lean_dec.exit455:                                 ; preds = %258, %257, %255, %l
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 8
   store ptr %264, ptr %266, align 8, !tbaa !4
   %267 = getelementptr inbounds nuw i8, ptr %265, i64 16
-  store i8 3, ptr %267, align 1, !tbaa !12
+  store i8 3, ptr %267, align 8, !tbaa !12
   %268 = getelementptr i8, ptr %99, i64 8
   %.val562 = load i64, ptr %268, align 8, !tbaa !13
   %269 = shl i64 %.val562, 1
@@ -782,7 +782,7 @@ lean_dec.exit456:                                 ; preds = %305, %304, %302, %l
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 8
   store ptr %306, ptr %308, align 8, !tbaa !4
   %309 = getelementptr inbounds nuw i8, ptr %307, i64 16
-  store i8 3, ptr %309, align 1, !tbaa !12
+  store i8 3, ptr %309, align 8, !tbaa !12
   %310 = getelementptr i8, ptr %99, i64 8
   %.val561 = load i64, ptr %310, align 8, !tbaa !13
   %311 = shl i64 %.val561, 1
@@ -1347,7 +1347,7 @@ lean_dec_ref.exit538:                             ; preds = %521, %520, %518, %5
   %524 = getelementptr inbounds nuw i8, ptr %523, i64 8
   store ptr %522, ptr %524, align 8, !tbaa !4
   %525 = getelementptr inbounds nuw i8, ptr %523, i64 16
-  store i8 3, ptr %525, align 1, !tbaa !12
+  store i8 3, ptr %525, align 8, !tbaa !12
   %526 = getelementptr i8, ptr %99, i64 8
   %.val560 = load i64, ptr %526, align 8, !tbaa !13
   %527 = shl i64 %.val560, 1
@@ -2075,7 +2075,7 @@ lean_alloc_ctor.exit703:                          ; preds = %lean_dec_ref.exit54
   %801 = getelementptr inbounds nuw i8, ptr %798, i64 4
   %802 = getelementptr inbounds nuw i8, ptr %798, i64 16
   store i64 3, ptr %802, align 8, !tbaa !13
-  store i32 1, ptr %798, align 4, !tbaa !8
+  store i32 1, ptr %798, align 8, !tbaa !8
   store i32 65560, ptr %801, align 4
   %803 = getelementptr inbounds nuw i8, ptr %798, i64 8
   store ptr %797, ptr %803, align 8, !tbaa !4
@@ -4322,7 +4322,7 @@ lean_alloc_ctor.exit524:                          ; preds = %lean_dec.exit278
   %582 = getelementptr inbounds nuw i8, ptr %579, i64 4
   %583 = getelementptr inbounds nuw i8, ptr %579, i64 16
   store i64 3, ptr %583, align 8, !tbaa !13
-  store i32 1, ptr %579, align 4, !tbaa !8
+  store i32 1, ptr %579, align 8, !tbaa !8
   store i32 65560, ptr %582, align 4
   %584 = getelementptr inbounds nuw i8, ptr %579, i64 8
   store ptr %578, ptr %584, align 8, !tbaa !4

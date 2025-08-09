@@ -21162,13 +21162,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %84 = bitcast <4 x i16> %83 to <4 x half>
   %85 = fpext <4 x half> %84 to <4 x float>
   %86 = getelementptr i8, ptr %78, i64 2
-  %.val114.us = load <32 x i8>, ptr %86, align 1, !tbaa !53
+  %.val114.us = load <32 x i8>, ptr %86, align 2, !tbaa !53
   %87 = getelementptr i8, ptr %76, i64 2
-  %.val107115.us = load <32 x i8>, ptr %87, align 1, !tbaa !53
+  %.val107115.us = load <32 x i8>, ptr %87, align 2, !tbaa !53
   %88 = getelementptr i8, ptr %74, i64 2
-  %.val108116.us = load <32 x i8>, ptr %88, align 1, !tbaa !53
+  %.val108116.us = load <32 x i8>, ptr %88, align 2, !tbaa !53
   %89 = getelementptr i8, ptr %72, i64 2
-  %.val109117.us = load <32 x i8>, ptr %89, align 1, !tbaa !53
+  %.val109117.us = load <32 x i8>, ptr %89, align 2, !tbaa !53
   %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %31, i64 %.0104121.us
   %90 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val114.us, <32 x i8> %.val114.us)
   %91 = bitcast <32 x i8> %90 to <8 x i32>
@@ -21199,7 +21199,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %109 = fmul <4 x float> %108, %85
   %110 = shufflevector <4 x float> %109, <4 x float> poison, <8 x i32> zeroinitializer
   %111 = getelementptr i8, ptr %gep.us, i64 2
-  %.val110118.us = load <32 x i8>, ptr %111, align 1, !tbaa !53
+  %.val110118.us = load <32 x i8>, ptr %111, align 2, !tbaa !53
   %112 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val110118.us, <32 x i8> %.val114.us)
   %113 = bitcast <32 x i8> %112 to <8 x i32>
   %114 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %91, <8 x i32> %113)
@@ -21417,13 +21417,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %84 = bitcast <4 x i16> %83 to <4 x half>
   %85 = fpext <4 x half> %84 to <4 x float>
   %86 = getelementptr i8, ptr %78, i64 2
-  %.val114.us = load <32 x i8>, ptr %86, align 1, !tbaa !53
+  %.val114.us = load <32 x i8>, ptr %86, align 2, !tbaa !53
   %87 = getelementptr i8, ptr %76, i64 2
-  %.val107115.us = load <32 x i8>, ptr %87, align 1, !tbaa !53
+  %.val107115.us = load <32 x i8>, ptr %87, align 2, !tbaa !53
   %88 = getelementptr i8, ptr %74, i64 2
-  %.val108116.us = load <32 x i8>, ptr %88, align 1, !tbaa !53
+  %.val108116.us = load <32 x i8>, ptr %88, align 2, !tbaa !53
   %89 = getelementptr i8, ptr %72, i64 2
-  %.val109117.us = load <32 x i8>, ptr %89, align 1, !tbaa !53
+  %.val109117.us = load <32 x i8>, ptr %89, align 2, !tbaa !53
   %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %31, i64 %.0104121.us
   %90 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val114.us, <32 x i8> %.val114.us)
   %91 = bitcast <32 x i8> %90 to <8 x i32>
@@ -21454,7 +21454,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %109 = fmul <4 x float> %108, %85
   %110 = shufflevector <4 x float> %109, <4 x float> poison, <8 x i32> zeroinitializer
   %111 = getelementptr i8, ptr %gep.us, i64 2
-  %.val110118.us = load <32 x i8>, ptr %111, align 1, !tbaa !53
+  %.val110118.us = load <32 x i8>, ptr %111, align 2, !tbaa !53
   %112 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val110118.us, <32 x i8> %.val114.us)
   %113 = bitcast <32 x i8> %112 to <8 x i32>
   %114 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %91, <8 x i32> %113)
@@ -21675,13 +21675,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %87 = bitcast <4 x i16> %86 to <4 x half>
   %88 = fpext <4 x half> %87 to <4 x float>
   %89 = getelementptr i8, ptr %81, i64 2
-  %.val138.us = load <32 x i8>, ptr %89, align 1, !tbaa !53
+  %.val138.us = load <32 x i8>, ptr %89, align 2, !tbaa !53
   %90 = getelementptr i8, ptr %79, i64 2
-  %.val123139.us = load <32 x i8>, ptr %90, align 1, !tbaa !53
+  %.val123139.us = load <32 x i8>, ptr %90, align 2, !tbaa !53
   %91 = getelementptr i8, ptr %77, i64 2
-  %.val124140.us = load <32 x i8>, ptr %91, align 1, !tbaa !53
+  %.val124140.us = load <32 x i8>, ptr %91, align 2, !tbaa !53
   %92 = getelementptr i8, ptr %75, i64 2
-  %.val125141.us = load <32 x i8>, ptr %92, align 1, !tbaa !53
+  %.val125141.us = load <32 x i8>, ptr %92, align 2, !tbaa !53
   %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %31, i64 %.0120145.us
   br label %95
 
@@ -21704,7 +21704,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %104 = fmul <4 x float> %103, %88
   %105 = shufflevector <4 x float> %104, <4 x float> poison, <8 x i32> zeroinitializer
   %106 = getelementptr i8, ptr %gep.us, i64 2
-  %.val126142.us = load <32 x i8>, ptr %106, align 1, !tbaa !53
+  %.val126142.us = load <32 x i8>, ptr %106, align 2, !tbaa !53
   %107 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val126142.us, <32 x i8> %.val126142.us)
   %108 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val138.us, <32 x i8> %.val126142.us)
   %109 = bitcast <32 x i8> %107 to <8 x i32>
@@ -22133,13 +22133,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %83 = bitcast <4 x i16> %82 to <4 x half>
   %84 = fpext <4 x half> %83 to <4 x float>
   %85 = getelementptr i8, ptr %77, i64 2
-  %.val114.us = load <32 x i8>, ptr %85, align 1, !tbaa !53
+  %.val114.us = load <32 x i8>, ptr %85, align 2, !tbaa !53
   %86 = getelementptr i8, ptr %75, i64 2
-  %.val107115.us = load <32 x i8>, ptr %86, align 1, !tbaa !53
+  %.val107115.us = load <32 x i8>, ptr %86, align 2, !tbaa !53
   %87 = getelementptr i8, ptr %73, i64 2
-  %.val108116.us = load <32 x i8>, ptr %87, align 1, !tbaa !53
+  %.val108116.us = load <32 x i8>, ptr %87, align 2, !tbaa !53
   %88 = getelementptr i8, ptr %71, i64 2
-  %.val109117.us = load <32 x i8>, ptr %88, align 1, !tbaa !53
+  %.val109117.us = load <32 x i8>, ptr %88, align 2, !tbaa !53
   %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %31, i64 %.0104121.us
   %89 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val114.us, <32 x i8> %.val114.us)
   %90 = bitcast <32 x i8> %89 to <8 x i32>
@@ -22172,7 +22172,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %109 = fmul <4 x float> %108, %84
   %110 = shufflevector <4 x float> %109, <4 x float> poison, <8 x i32> zeroinitializer
   %111 = getelementptr i8, ptr %gep.us, i64 2
-  %.val110118.us = load <32 x i8>, ptr %111, align 1, !tbaa !53
+  %.val110118.us = load <32 x i8>, ptr %111, align 2, !tbaa !53
   %112 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val110118.us, <32 x i8> %.val114.us)
   %113 = bitcast <32 x i8> %112 to <8 x i32>
   %114 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %90, <8 x i32> %113)
@@ -22390,13 +22390,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %87 = bitcast <4 x i16> %86 to <4 x half>
   %88 = fpext <4 x half> %87 to <4 x float>
   %89 = getelementptr i8, ptr %81, i64 2
-  %.val138.us = load <32 x i8>, ptr %89, align 1, !tbaa !53
+  %.val138.us = load <32 x i8>, ptr %89, align 2, !tbaa !53
   %90 = getelementptr i8, ptr %79, i64 2
-  %.val123139.us = load <32 x i8>, ptr %90, align 1, !tbaa !53
+  %.val123139.us = load <32 x i8>, ptr %90, align 2, !tbaa !53
   %91 = getelementptr i8, ptr %77, i64 2
-  %.val124140.us = load <32 x i8>, ptr %91, align 1, !tbaa !53
+  %.val124140.us = load <32 x i8>, ptr %91, align 2, !tbaa !53
   %92 = getelementptr i8, ptr %75, i64 2
-  %.val125141.us = load <32 x i8>, ptr %92, align 1, !tbaa !53
+  %.val125141.us = load <32 x i8>, ptr %92, align 2, !tbaa !53
   %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %31, i64 %.0120145.us
   br label %95
 
@@ -22421,7 +22421,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %105 = fmul <4 x float> %104, %88
   %106 = shufflevector <4 x float> %105, <4 x float> poison, <8 x i32> zeroinitializer
   %107 = getelementptr i8, ptr %gep.us, i64 2
-  %.val126142.us = load <32 x i8>, ptr %107, align 1, !tbaa !53
+  %.val126142.us = load <32 x i8>, ptr %107, align 2, !tbaa !53
   %108 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val126142.us, <32 x i8> %.val126142.us)
   %109 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val138.us, <32 x i8> %.val126142.us)
   %110 = bitcast <32 x i8> %108 to <8 x i32>
@@ -23047,13 +23047,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %87 = bitcast <4 x i16> %86 to <4 x half>
   %88 = fpext <4 x half> %87 to <4 x float>
   %89 = getelementptr i8, ptr %81, i64 2
-  %.val116.us = load <32 x i8>, ptr %89, align 1, !tbaa !53
+  %.val116.us = load <32 x i8>, ptr %89, align 2, !tbaa !53
   %90 = getelementptr i8, ptr %79, i64 2
-  %.val109117.us = load <32 x i8>, ptr %90, align 1, !tbaa !53
+  %.val109117.us = load <32 x i8>, ptr %90, align 2, !tbaa !53
   %91 = getelementptr i8, ptr %77, i64 2
-  %.val110118.us = load <32 x i8>, ptr %91, align 1, !tbaa !53
+  %.val110118.us = load <32 x i8>, ptr %91, align 2, !tbaa !53
   %92 = getelementptr i8, ptr %75, i64 2
-  %.val111119.us = load <32 x i8>, ptr %92, align 1, !tbaa !53
+  %.val111119.us = load <32 x i8>, ptr %92, align 2, !tbaa !53
   %93 = getelementptr %struct.block_q8_0, ptr %57, i64 %.0104121.us
   %94 = load i16, ptr %93, align 2, !tbaa !404
   %95 = zext i16 %94 to i64
@@ -23065,7 +23065,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %101 = shufflevector <4 x float> %100, <4 x float> poison, <8 x i32> zeroinitializer
   %102 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val116.us, <32 x i8> %.val116.us)
   %103 = getelementptr i8, ptr %93, i64 2
-  %.val112120.us = load <32 x i8>, ptr %103, align 1, !tbaa !53
+  %.val112120.us = load <32 x i8>, ptr %103, align 2, !tbaa !53
   %104 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val112120.us, <32 x i8> %.val116.us)
   %105 = bitcast <32 x i8> %102 to <8 x i32>
   %106 = bitcast <32 x i8> %104 to <8 x i32>
@@ -23473,13 +23473,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %88 = bitcast <4 x i16> %87 to <4 x half>
   %89 = fpext <4 x half> %88 to <4 x float>
   %90 = getelementptr i8, ptr %82, i64 2
-  %.val140.us = load <32 x i8>, ptr %90, align 1, !tbaa !53
+  %.val140.us = load <32 x i8>, ptr %90, align 2, !tbaa !53
   %91 = getelementptr i8, ptr %80, i64 2
-  %.val125141.us = load <32 x i8>, ptr %91, align 1, !tbaa !53
+  %.val125141.us = load <32 x i8>, ptr %91, align 2, !tbaa !53
   %92 = getelementptr i8, ptr %78, i64 2
-  %.val126142.us = load <32 x i8>, ptr %92, align 1, !tbaa !53
+  %.val126142.us = load <32 x i8>, ptr %92, align 2, !tbaa !53
   %93 = getelementptr i8, ptr %76, i64 2
-  %.val127143.us = load <32 x i8>, ptr %93, align 1, !tbaa !53
+  %.val127143.us = load <32 x i8>, ptr %93, align 2, !tbaa !53
   %94 = getelementptr %struct.block_q8_0, ptr %57, i64 %.0120145.us
   %95 = load i16, ptr %94, align 2, !tbaa !404
   %96 = zext i16 %95 to i64
@@ -23490,7 +23490,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %101 = fmul <4 x float> %100, %89
   %102 = shufflevector <4 x float> %101, <4 x float> poison, <8 x i32> zeroinitializer
   %103 = getelementptr i8, ptr %94, i64 2
-  %.val128144.us = load <32 x i8>, ptr %103, align 1, !tbaa !53
+  %.val128144.us = load <32 x i8>, ptr %103, align 2, !tbaa !53
   %104 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val128144.us, <32 x i8> %.val128144.us)
   %105 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val140.us, <32 x i8> %.val128144.us)
   %106 = bitcast <32 x i8> %104 to <8 x i32>
@@ -24606,7 +24606,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %84 = bitcast <4 x i16> %83 to <4 x half>
   %85 = fpext <4 x half> %84 to <4 x float>
   %86 = getelementptr i8, ptr %78, i64 2
-  %.val.us = load <2 x i64>, ptr %86, align 1, !tbaa !53
+  %.val.us = load <2 x i64>, ptr %86, align 2, !tbaa !53
   %87 = bitcast <2 x i64> %.val.us to <4 x i32>
   %88 = bitcast <2 x i64> %.val.us to <8 x i16>
   %89 = lshr <8 x i16> %88, splat (i16 4)
@@ -24616,7 +24616,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %93 = and <32 x i8> %92, splat (i8 15)
   %94 = add nsw <32 x i8> %93, splat (i8 -8)
   %95 = getelementptr i8, ptr %76, i64 2
-  %.val107.us = load <2 x i64>, ptr %95, align 1, !tbaa !53
+  %.val107.us = load <2 x i64>, ptr %95, align 2, !tbaa !53
   %96 = bitcast <2 x i64> %.val107.us to <4 x i32>
   %97 = bitcast <2 x i64> %.val107.us to <8 x i16>
   %98 = lshr <8 x i16> %97, splat (i16 4)
@@ -24626,7 +24626,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %102 = and <32 x i8> %101, splat (i8 15)
   %103 = add nsw <32 x i8> %102, splat (i8 -8)
   %104 = getelementptr i8, ptr %74, i64 2
-  %.val108.us = load <2 x i64>, ptr %104, align 1, !tbaa !53
+  %.val108.us = load <2 x i64>, ptr %104, align 2, !tbaa !53
   %105 = bitcast <2 x i64> %.val108.us to <4 x i32>
   %106 = bitcast <2 x i64> %.val108.us to <8 x i16>
   %107 = lshr <8 x i16> %106, splat (i16 4)
@@ -24636,7 +24636,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %111 = and <32 x i8> %110, splat (i8 15)
   %112 = add nsw <32 x i8> %111, splat (i8 -8)
   %113 = getelementptr i8, ptr %72, i64 2
-  %.val109.us = load <2 x i64>, ptr %113, align 1, !tbaa !53
+  %.val109.us = load <2 x i64>, ptr %113, align 2, !tbaa !53
   %114 = bitcast <2 x i64> %.val109.us to <4 x i32>
   %115 = bitcast <2 x i64> %.val109.us to <8 x i16>
   %116 = lshr <8 x i16> %115, splat (i16 4)
@@ -24675,7 +24675,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %141 = fmul <4 x float> %140, %85
   %142 = shufflevector <4 x float> %141, <4 x float> poison, <8 x i32> zeroinitializer
   %143 = getelementptr i8, ptr %gep.us, i64 2
-  %.val110114.us = load <32 x i8>, ptr %143, align 1, !tbaa !53
+  %.val110114.us = load <32 x i8>, ptr %143, align 2, !tbaa !53
   %144 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val110114.us, <32 x i8> %94)
   %145 = bitcast <32 x i8> %144 to <8 x i32>
   %146 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %123, <8 x i32> %145)
@@ -24893,7 +24893,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %84 = bitcast <4 x i16> %83 to <4 x half>
   %85 = fpext <4 x half> %84 to <4 x float>
   %86 = getelementptr i8, ptr %78, i64 2
-  %.val.us = load <2 x i64>, ptr %86, align 1, !tbaa !53
+  %.val.us = load <2 x i64>, ptr %86, align 2, !tbaa !53
   %87 = bitcast <2 x i64> %.val.us to <4 x i32>
   %88 = bitcast <2 x i64> %.val.us to <8 x i16>
   %89 = lshr <8 x i16> %88, splat (i16 4)
@@ -24903,7 +24903,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %93 = and <32 x i8> %92, splat (i8 15)
   %94 = add nsw <32 x i8> %93, splat (i8 -8)
   %95 = getelementptr i8, ptr %76, i64 2
-  %.val107.us = load <2 x i64>, ptr %95, align 1, !tbaa !53
+  %.val107.us = load <2 x i64>, ptr %95, align 2, !tbaa !53
   %96 = bitcast <2 x i64> %.val107.us to <4 x i32>
   %97 = bitcast <2 x i64> %.val107.us to <8 x i16>
   %98 = lshr <8 x i16> %97, splat (i16 4)
@@ -24913,7 +24913,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %102 = and <32 x i8> %101, splat (i8 15)
   %103 = add nsw <32 x i8> %102, splat (i8 -8)
   %104 = getelementptr i8, ptr %74, i64 2
-  %.val108.us = load <2 x i64>, ptr %104, align 1, !tbaa !53
+  %.val108.us = load <2 x i64>, ptr %104, align 2, !tbaa !53
   %105 = bitcast <2 x i64> %.val108.us to <4 x i32>
   %106 = bitcast <2 x i64> %.val108.us to <8 x i16>
   %107 = lshr <8 x i16> %106, splat (i16 4)
@@ -24923,7 +24923,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %111 = and <32 x i8> %110, splat (i8 15)
   %112 = add nsw <32 x i8> %111, splat (i8 -8)
   %113 = getelementptr i8, ptr %72, i64 2
-  %.val109.us = load <2 x i64>, ptr %113, align 1, !tbaa !53
+  %.val109.us = load <2 x i64>, ptr %113, align 2, !tbaa !53
   %114 = bitcast <2 x i64> %.val109.us to <4 x i32>
   %115 = bitcast <2 x i64> %.val109.us to <8 x i16>
   %116 = lshr <8 x i16> %115, splat (i16 4)
@@ -24962,7 +24962,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %141 = fmul <4 x float> %140, %85
   %142 = shufflevector <4 x float> %141, <4 x float> poison, <8 x i32> zeroinitializer
   %143 = getelementptr i8, ptr %gep.us, i64 2
-  %.val110114.us = load <32 x i8>, ptr %143, align 1, !tbaa !53
+  %.val110114.us = load <32 x i8>, ptr %143, align 2, !tbaa !53
   %144 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val110114.us, <32 x i8> %94)
   %145 = bitcast <32 x i8> %144 to <8 x i32>
   %146 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %123, <8 x i32> %145)
@@ -25183,13 +25183,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %87 = bitcast <4 x i16> %86 to <4 x half>
   %88 = fpext <4 x half> %87 to <4 x float>
   %89 = getelementptr i8, ptr %81, i64 2
-  %.val134138.us = load <32 x i8>, ptr %89, align 1, !tbaa !53
+  %.val134138.us = load <32 x i8>, ptr %89, align 2, !tbaa !53
   %90 = getelementptr i8, ptr %79, i64 2
-  %.val135139.us = load <32 x i8>, ptr %90, align 1, !tbaa !53
+  %.val135139.us = load <32 x i8>, ptr %90, align 2, !tbaa !53
   %91 = getelementptr i8, ptr %77, i64 2
-  %.val136140.us = load <32 x i8>, ptr %91, align 1, !tbaa !53
+  %.val136140.us = load <32 x i8>, ptr %91, align 2, !tbaa !53
   %92 = getelementptr i8, ptr %75, i64 2
-  %.val137141.us = load <32 x i8>, ptr %92, align 1, !tbaa !53
+  %.val137141.us = load <32 x i8>, ptr %92, align 2, !tbaa !53
   %invariant.gep.us = getelementptr %struct.block_q4_0, ptr %31, i64 %.0120144.us
   br label %95
 
@@ -25212,7 +25212,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %104 = fmul <4 x float> %103, %88
   %105 = shufflevector <4 x float> %104, <4 x float> poison, <8 x i32> zeroinitializer
   %106 = getelementptr i8, ptr %gep.us, i64 2
-  %.val.us = load <2 x i64>, ptr %106, align 1, !tbaa !53
+  %.val.us = load <2 x i64>, ptr %106, align 2, !tbaa !53
   %107 = bitcast <2 x i64> %.val.us to <4 x i32>
   %108 = bitcast <2 x i64> %.val.us to <8 x i16>
   %109 = lshr <8 x i16> %108, splat (i16 4)
@@ -25657,7 +25657,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %83 = bitcast <4 x i16> %82 to <4 x half>
   %84 = fpext <4 x half> %83 to <4 x float>
   %85 = getelementptr i8, ptr %77, i64 2
-  %.val.us = load <2 x i64>, ptr %85, align 1, !tbaa !53
+  %.val.us = load <2 x i64>, ptr %85, align 2, !tbaa !53
   %86 = bitcast <2 x i64> %.val.us to <4 x i32>
   %87 = bitcast <2 x i64> %.val.us to <8 x i16>
   %88 = lshr <8 x i16> %87, splat (i16 4)
@@ -25667,7 +25667,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %92 = and <32 x i8> %91, splat (i8 15)
   %93 = add nsw <32 x i8> %92, splat (i8 -8)
   %94 = getelementptr i8, ptr %75, i64 2
-  %.val107.us = load <2 x i64>, ptr %94, align 1, !tbaa !53
+  %.val107.us = load <2 x i64>, ptr %94, align 2, !tbaa !53
   %95 = bitcast <2 x i64> %.val107.us to <4 x i32>
   %96 = bitcast <2 x i64> %.val107.us to <8 x i16>
   %97 = lshr <8 x i16> %96, splat (i16 4)
@@ -25677,7 +25677,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %101 = and <32 x i8> %100, splat (i8 15)
   %102 = add nsw <32 x i8> %101, splat (i8 -8)
   %103 = getelementptr i8, ptr %73, i64 2
-  %.val108.us = load <2 x i64>, ptr %103, align 1, !tbaa !53
+  %.val108.us = load <2 x i64>, ptr %103, align 2, !tbaa !53
   %104 = bitcast <2 x i64> %.val108.us to <4 x i32>
   %105 = bitcast <2 x i64> %.val108.us to <8 x i16>
   %106 = lshr <8 x i16> %105, splat (i16 4)
@@ -25687,7 +25687,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %110 = and <32 x i8> %109, splat (i8 15)
   %111 = add nsw <32 x i8> %110, splat (i8 -8)
   %112 = getelementptr i8, ptr %71, i64 2
-  %.val109.us = load <2 x i64>, ptr %112, align 1, !tbaa !53
+  %.val109.us = load <2 x i64>, ptr %112, align 2, !tbaa !53
   %113 = bitcast <2 x i64> %.val109.us to <4 x i32>
   %114 = bitcast <2 x i64> %.val109.us to <8 x i16>
   %115 = lshr <8 x i16> %114, splat (i16 4)
@@ -25728,7 +25728,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %141 = fmul <4 x float> %140, %84
   %142 = shufflevector <4 x float> %141, <4 x float> poison, <8 x i32> zeroinitializer
   %143 = getelementptr i8, ptr %gep.us, i64 2
-  %.val110114.us = load <32 x i8>, ptr %143, align 1, !tbaa !53
+  %.val110114.us = load <32 x i8>, ptr %143, align 2, !tbaa !53
   %144 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val110114.us, <32 x i8> %93)
   %145 = bitcast <32 x i8> %144 to <8 x i32>
   %146 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %122, <8 x i32> %145)
@@ -25946,13 +25946,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %87 = bitcast <4 x i16> %86 to <4 x half>
   %88 = fpext <4 x half> %87 to <4 x float>
   %89 = getelementptr i8, ptr %81, i64 2
-  %.val134138.us = load <32 x i8>, ptr %89, align 1, !tbaa !53
+  %.val134138.us = load <32 x i8>, ptr %89, align 2, !tbaa !53
   %90 = getelementptr i8, ptr %79, i64 2
-  %.val135139.us = load <32 x i8>, ptr %90, align 1, !tbaa !53
+  %.val135139.us = load <32 x i8>, ptr %90, align 2, !tbaa !53
   %91 = getelementptr i8, ptr %77, i64 2
-  %.val136140.us = load <32 x i8>, ptr %91, align 1, !tbaa !53
+  %.val136140.us = load <32 x i8>, ptr %91, align 2, !tbaa !53
   %92 = getelementptr i8, ptr %75, i64 2
-  %.val137141.us = load <32 x i8>, ptr %92, align 1, !tbaa !53
+  %.val137141.us = load <32 x i8>, ptr %92, align 2, !tbaa !53
   %invariant.gep.us = getelementptr %struct.block_q4_0, ptr %31, i64 %.0120144.us
   br label %95
 
@@ -25977,7 +25977,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %105 = fmul <4 x float> %104, %88
   %106 = shufflevector <4 x float> %105, <4 x float> poison, <8 x i32> zeroinitializer
   %107 = getelementptr i8, ptr %gep.us, i64 2
-  %.val.us = load <2 x i64>, ptr %107, align 1, !tbaa !53
+  %.val.us = load <2 x i64>, ptr %107, align 2, !tbaa !53
   %108 = bitcast <2 x i64> %.val.us to <4 x i32>
   %109 = bitcast <2 x i64> %.val.us to <8 x i16>
   %110 = lshr <8 x i16> %109, splat (i16 4)
@@ -26627,7 +26627,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %87 = bitcast <4 x i16> %86 to <4 x half>
   %88 = fpext <4 x half> %87 to <4 x float>
   %89 = getelementptr i8, ptr %81, i64 2
-  %.val.us = load <2 x i64>, ptr %89, align 1, !tbaa !53
+  %.val.us = load <2 x i64>, ptr %89, align 2, !tbaa !53
   %90 = bitcast <2 x i64> %.val.us to <4 x i32>
   %91 = bitcast <2 x i64> %.val.us to <8 x i16>
   %92 = lshr <8 x i16> %91, splat (i16 4)
@@ -26637,7 +26637,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %96 = and <32 x i8> %95, splat (i8 15)
   %97 = add nsw <32 x i8> %96, splat (i8 -8)
   %98 = getelementptr i8, ptr %79, i64 2
-  %.val109.us = load <2 x i64>, ptr %98, align 1, !tbaa !53
+  %.val109.us = load <2 x i64>, ptr %98, align 2, !tbaa !53
   %99 = bitcast <2 x i64> %.val109.us to <4 x i32>
   %100 = bitcast <2 x i64> %.val109.us to <8 x i16>
   %101 = lshr <8 x i16> %100, splat (i16 4)
@@ -26647,7 +26647,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %105 = and <32 x i8> %104, splat (i8 15)
   %106 = add nsw <32 x i8> %105, splat (i8 -8)
   %107 = getelementptr i8, ptr %77, i64 2
-  %.val110.us = load <2 x i64>, ptr %107, align 1, !tbaa !53
+  %.val110.us = load <2 x i64>, ptr %107, align 2, !tbaa !53
   %108 = bitcast <2 x i64> %.val110.us to <4 x i32>
   %109 = bitcast <2 x i64> %.val110.us to <8 x i16>
   %110 = lshr <8 x i16> %109, splat (i16 4)
@@ -26657,7 +26657,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %114 = and <32 x i8> %113, splat (i8 15)
   %115 = add nsw <32 x i8> %114, splat (i8 -8)
   %116 = getelementptr i8, ptr %75, i64 2
-  %.val111.us = load <2 x i64>, ptr %116, align 1, !tbaa !53
+  %.val111.us = load <2 x i64>, ptr %116, align 2, !tbaa !53
   %117 = bitcast <2 x i64> %.val111.us to <4 x i32>
   %118 = bitcast <2 x i64> %.val111.us to <8 x i16>
   %119 = lshr <8 x i16> %118, splat (i16 4)
@@ -26677,7 +26677,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %133 = shufflevector <4 x float> %132, <4 x float> poison, <8 x i32> zeroinitializer
   %134 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %97, <32 x i8> %97)
   %135 = getelementptr i8, ptr %125, i64 2
-  %.val112116.us = load <32 x i8>, ptr %135, align 1, !tbaa !53
+  %.val112116.us = load <32 x i8>, ptr %135, align 2, !tbaa !53
   %136 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val112116.us, <32 x i8> %97)
   %137 = bitcast <32 x i8> %134 to <8 x i32>
   %138 = bitcast <32 x i8> %136 to <8 x i32>
@@ -27093,13 +27093,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %88 = bitcast <4 x i16> %87 to <4 x half>
   %89 = fpext <4 x half> %88 to <4 x float>
   %90 = getelementptr i8, ptr %82, i64 2
-  %.val136140.us = load <32 x i8>, ptr %90, align 1, !tbaa !53
+  %.val136140.us = load <32 x i8>, ptr %90, align 2, !tbaa !53
   %91 = getelementptr i8, ptr %80, i64 2
-  %.val137141.us = load <32 x i8>, ptr %91, align 1, !tbaa !53
+  %.val137141.us = load <32 x i8>, ptr %91, align 2, !tbaa !53
   %92 = getelementptr i8, ptr %78, i64 2
-  %.val138142.us = load <32 x i8>, ptr %92, align 1, !tbaa !53
+  %.val138142.us = load <32 x i8>, ptr %92, align 2, !tbaa !53
   %93 = getelementptr i8, ptr %76, i64 2
-  %.val139143.us = load <32 x i8>, ptr %93, align 1, !tbaa !53
+  %.val139143.us = load <32 x i8>, ptr %93, align 2, !tbaa !53
   %94 = getelementptr %struct.block_q4_0, ptr %57, i64 %.0120144.us
   %95 = load i16, ptr %94, align 2, !tbaa !496
   %96 = zext i16 %95 to i64
@@ -27110,7 +27110,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %101 = fmul <4 x float> %100, %89
   %102 = shufflevector <4 x float> %101, <4 x float> poison, <8 x i32> zeroinitializer
   %103 = getelementptr i8, ptr %94, i64 2
-  %.val.us = load <2 x i64>, ptr %103, align 1, !tbaa !53
+  %.val.us = load <2 x i64>, ptr %103, align 2, !tbaa !53
   %104 = bitcast <2 x i64> %.val.us to <4 x i32>
   %105 = bitcast <2 x i64> %.val.us to <8 x i16>
   %106 = lshr <8 x i16> %105, splat (i16 4)
@@ -28265,9 +28265,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %84 = bitcast <4 x i16> %83 to <4 x half>
   %85 = fpext <4 x half> %84 to <4 x float>
   %86 = getelementptr i8, ptr %78, i64 2
-  %.val.us = load i32, ptr %86, align 1
+  %.val.us = load i32, ptr %86, align 2
   %87 = getelementptr i8, ptr %78, i64 6
-  %.val107.us = load <2 x i64>, ptr %87, align 1, !tbaa !53
+  %.val107.us = load <2 x i64>, ptr %87, align 2, !tbaa !53
   %88 = bitcast <2 x i64> %.val107.us to <8 x i16>
   %89 = lshr <8 x i16> %88, splat (i16 4)
   %90 = bitcast <8 x i16> %89 to <2 x i64>
@@ -28283,9 +28283,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %100 = and <4 x i64> %99, splat (i64 -1085102592571150096)
   %101 = or disjoint <4 x i64> %100, %92
   %102 = getelementptr i8, ptr %76, i64 2
-  %.val108.us = load i32, ptr %102, align 1
+  %.val108.us = load i32, ptr %102, align 2
   %103 = getelementptr i8, ptr %76, i64 6
-  %.val109.us = load <2 x i64>, ptr %103, align 1, !tbaa !53
+  %.val109.us = load <2 x i64>, ptr %103, align 2, !tbaa !53
   %104 = bitcast <2 x i64> %.val109.us to <8 x i16>
   %105 = lshr <8 x i16> %104, splat (i16 4)
   %106 = bitcast <8 x i16> %105 to <2 x i64>
@@ -28301,9 +28301,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %116 = and <4 x i64> %115, splat (i64 -1085102592571150096)
   %117 = or disjoint <4 x i64> %116, %108
   %118 = getelementptr i8, ptr %74, i64 2
-  %.val110.us = load i32, ptr %118, align 1
+  %.val110.us = load i32, ptr %118, align 2
   %119 = getelementptr i8, ptr %74, i64 6
-  %.val111.us = load <2 x i64>, ptr %119, align 1, !tbaa !53
+  %.val111.us = load <2 x i64>, ptr %119, align 2, !tbaa !53
   %120 = bitcast <2 x i64> %.val111.us to <8 x i16>
   %121 = lshr <8 x i16> %120, splat (i16 4)
   %122 = bitcast <8 x i16> %121 to <2 x i64>
@@ -28319,9 +28319,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %132 = and <4 x i64> %131, splat (i64 -1085102592571150096)
   %133 = or disjoint <4 x i64> %132, %124
   %134 = getelementptr i8, ptr %72, i64 2
-  %.val112.us = load i32, ptr %134, align 1
+  %.val112.us = load i32, ptr %134, align 2
   %135 = getelementptr i8, ptr %72, i64 6
-  %.val113.us = load <2 x i64>, ptr %135, align 1, !tbaa !53
+  %.val113.us = load <2 x i64>, ptr %135, align 2, !tbaa !53
   %136 = bitcast <2 x i64> %.val113.us to <8 x i16>
   %137 = lshr <8 x i16> %136, splat (i16 4)
   %138 = bitcast <8 x i16> %137 to <2 x i64>
@@ -28370,7 +28370,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %173 = fmul <4 x float> %172, %85
   %174 = shufflevector <4 x float> %173, <4 x float> poison, <8 x i32> zeroinitializer
   %175 = getelementptr i8, ptr %gep.us, i64 2
-  %.val114118.us = load <32 x i8>, ptr %175, align 1, !tbaa !53
+  %.val114118.us = load <32 x i8>, ptr %175, align 2, !tbaa !53
   %176 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val114118.us, <32 x i8> %150)
   %177 = bitcast <32 x i8> %176 to <8 x i32>
   %178 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %152, <8 x i32> %177)
@@ -28588,9 +28588,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %84 = bitcast <4 x i16> %83 to <4 x half>
   %85 = fpext <4 x half> %84 to <4 x float>
   %86 = getelementptr i8, ptr %78, i64 2
-  %.val.us = load i32, ptr %86, align 1
+  %.val.us = load i32, ptr %86, align 2
   %87 = getelementptr i8, ptr %78, i64 6
-  %.val107.us = load <2 x i64>, ptr %87, align 1, !tbaa !53
+  %.val107.us = load <2 x i64>, ptr %87, align 2, !tbaa !53
   %88 = bitcast <2 x i64> %.val107.us to <8 x i16>
   %89 = lshr <8 x i16> %88, splat (i16 4)
   %90 = bitcast <8 x i16> %89 to <2 x i64>
@@ -28606,9 +28606,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %100 = and <4 x i64> %99, splat (i64 -1085102592571150096)
   %101 = or disjoint <4 x i64> %100, %92
   %102 = getelementptr i8, ptr %76, i64 2
-  %.val108.us = load i32, ptr %102, align 1
+  %.val108.us = load i32, ptr %102, align 2
   %103 = getelementptr i8, ptr %76, i64 6
-  %.val109.us = load <2 x i64>, ptr %103, align 1, !tbaa !53
+  %.val109.us = load <2 x i64>, ptr %103, align 2, !tbaa !53
   %104 = bitcast <2 x i64> %.val109.us to <8 x i16>
   %105 = lshr <8 x i16> %104, splat (i16 4)
   %106 = bitcast <8 x i16> %105 to <2 x i64>
@@ -28624,9 +28624,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %116 = and <4 x i64> %115, splat (i64 -1085102592571150096)
   %117 = or disjoint <4 x i64> %116, %108
   %118 = getelementptr i8, ptr %74, i64 2
-  %.val110.us = load i32, ptr %118, align 1
+  %.val110.us = load i32, ptr %118, align 2
   %119 = getelementptr i8, ptr %74, i64 6
-  %.val111.us = load <2 x i64>, ptr %119, align 1, !tbaa !53
+  %.val111.us = load <2 x i64>, ptr %119, align 2, !tbaa !53
   %120 = bitcast <2 x i64> %.val111.us to <8 x i16>
   %121 = lshr <8 x i16> %120, splat (i16 4)
   %122 = bitcast <8 x i16> %121 to <2 x i64>
@@ -28642,9 +28642,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %132 = and <4 x i64> %131, splat (i64 -1085102592571150096)
   %133 = or disjoint <4 x i64> %132, %124
   %134 = getelementptr i8, ptr %72, i64 2
-  %.val112.us = load i32, ptr %134, align 1
+  %.val112.us = load i32, ptr %134, align 2
   %135 = getelementptr i8, ptr %72, i64 6
-  %.val113.us = load <2 x i64>, ptr %135, align 1, !tbaa !53
+  %.val113.us = load <2 x i64>, ptr %135, align 2, !tbaa !53
   %136 = bitcast <2 x i64> %.val113.us to <8 x i16>
   %137 = lshr <8 x i16> %136, splat (i16 4)
   %138 = bitcast <8 x i16> %137 to <2 x i64>
@@ -28693,7 +28693,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %173 = fmul <4 x float> %172, %85
   %174 = shufflevector <4 x float> %173, <4 x float> poison, <8 x i32> zeroinitializer
   %175 = getelementptr i8, ptr %gep.us, i64 2
-  %.val114118.us = load <32 x i8>, ptr %175, align 1, !tbaa !53
+  %.val114118.us = load <32 x i8>, ptr %175, align 2, !tbaa !53
   %176 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val114118.us, <32 x i8> %150)
   %177 = bitcast <32 x i8> %176 to <8 x i32>
   %178 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %152, <8 x i32> %177)
@@ -28914,13 +28914,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %87 = bitcast <4 x i16> %86 to <4 x half>
   %88 = fpext <4 x half> %87 to <4 x float>
   %89 = getelementptr i8, ptr %81, i64 2
-  %.val146150.us = load <32 x i8>, ptr %89, align 1, !tbaa !53
+  %.val146150.us = load <32 x i8>, ptr %89, align 2, !tbaa !53
   %90 = getelementptr i8, ptr %79, i64 2
-  %.val147151.us = load <32 x i8>, ptr %90, align 1, !tbaa !53
+  %.val147151.us = load <32 x i8>, ptr %90, align 2, !tbaa !53
   %91 = getelementptr i8, ptr %77, i64 2
-  %.val148152.us = load <32 x i8>, ptr %91, align 1, !tbaa !53
+  %.val148152.us = load <32 x i8>, ptr %91, align 2, !tbaa !53
   %92 = getelementptr i8, ptr %75, i64 2
-  %.val149153.us = load <32 x i8>, ptr %92, align 1, !tbaa !53
+  %.val149153.us = load <32 x i8>, ptr %92, align 2, !tbaa !53
   %invariant.gep.us = getelementptr %struct.block_q5_0, ptr %31, i64 %.0120156.us
   br label %95
 
@@ -28943,9 +28943,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %104 = fmul <4 x float> %103, %88
   %105 = shufflevector <4 x float> %104, <4 x float> poison, <8 x i32> zeroinitializer
   %106 = getelementptr i8, ptr %gep.us, i64 2
-  %.val.us = load i32, ptr %106, align 1
+  %.val.us = load i32, ptr %106, align 2
   %107 = getelementptr i8, ptr %gep.us, i64 6
-  %.val123.us = load <2 x i64>, ptr %107, align 1, !tbaa !53
+  %.val123.us = load <2 x i64>, ptr %107, align 2, !tbaa !53
   %108 = bitcast <2 x i64> %.val123.us to <8 x i16>
   %109 = lshr <8 x i16> %108, splat (i16 4)
   %110 = bitcast <8 x i16> %109 to <2 x i64>
@@ -29406,9 +29406,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %83 = bitcast <4 x i16> %82 to <4 x half>
   %84 = fpext <4 x half> %83 to <4 x float>
   %85 = getelementptr i8, ptr %77, i64 2
-  %.val.us = load i32, ptr %85, align 1
+  %.val.us = load i32, ptr %85, align 2
   %86 = getelementptr i8, ptr %77, i64 6
-  %.val107.us = load <2 x i64>, ptr %86, align 1, !tbaa !53
+  %.val107.us = load <2 x i64>, ptr %86, align 2, !tbaa !53
   %87 = bitcast <2 x i64> %.val107.us to <8 x i16>
   %88 = lshr <8 x i16> %87, splat (i16 4)
   %89 = bitcast <8 x i16> %88 to <2 x i64>
@@ -29424,9 +29424,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %99 = and <4 x i64> %98, splat (i64 -1085102592571150096)
   %100 = or disjoint <4 x i64> %99, %91
   %101 = getelementptr i8, ptr %75, i64 2
-  %.val108.us = load i32, ptr %101, align 1
+  %.val108.us = load i32, ptr %101, align 2
   %102 = getelementptr i8, ptr %75, i64 6
-  %.val109.us = load <2 x i64>, ptr %102, align 1, !tbaa !53
+  %.val109.us = load <2 x i64>, ptr %102, align 2, !tbaa !53
   %103 = bitcast <2 x i64> %.val109.us to <8 x i16>
   %104 = lshr <8 x i16> %103, splat (i16 4)
   %105 = bitcast <8 x i16> %104 to <2 x i64>
@@ -29442,9 +29442,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %115 = and <4 x i64> %114, splat (i64 -1085102592571150096)
   %116 = or disjoint <4 x i64> %115, %107
   %117 = getelementptr i8, ptr %73, i64 2
-  %.val110.us = load i32, ptr %117, align 1
+  %.val110.us = load i32, ptr %117, align 2
   %118 = getelementptr i8, ptr %73, i64 6
-  %.val111.us = load <2 x i64>, ptr %118, align 1, !tbaa !53
+  %.val111.us = load <2 x i64>, ptr %118, align 2, !tbaa !53
   %119 = bitcast <2 x i64> %.val111.us to <8 x i16>
   %120 = lshr <8 x i16> %119, splat (i16 4)
   %121 = bitcast <8 x i16> %120 to <2 x i64>
@@ -29460,9 +29460,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %131 = and <4 x i64> %130, splat (i64 -1085102592571150096)
   %132 = or disjoint <4 x i64> %131, %123
   %133 = getelementptr i8, ptr %71, i64 2
-  %.val112.us = load i32, ptr %133, align 1
+  %.val112.us = load i32, ptr %133, align 2
   %134 = getelementptr i8, ptr %71, i64 6
-  %.val113.us = load <2 x i64>, ptr %134, align 1, !tbaa !53
+  %.val113.us = load <2 x i64>, ptr %134, align 2, !tbaa !53
   %135 = bitcast <2 x i64> %.val113.us to <8 x i16>
   %136 = lshr <8 x i16> %135, splat (i16 4)
   %137 = bitcast <8 x i16> %136 to <2 x i64>
@@ -29513,7 +29513,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %173 = fmul <4 x float> %172, %84
   %174 = shufflevector <4 x float> %173, <4 x float> poison, <8 x i32> zeroinitializer
   %175 = getelementptr i8, ptr %gep.us, i64 2
-  %.val114118.us = load <32 x i8>, ptr %175, align 1, !tbaa !53
+  %.val114118.us = load <32 x i8>, ptr %175, align 2, !tbaa !53
   %176 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val114118.us, <32 x i8> %149)
   %177 = bitcast <32 x i8> %176 to <8 x i32>
   %178 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %151, <8 x i32> %177)
@@ -29731,13 +29731,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %87 = bitcast <4 x i16> %86 to <4 x half>
   %88 = fpext <4 x half> %87 to <4 x float>
   %89 = getelementptr i8, ptr %81, i64 2
-  %.val146150.us = load <32 x i8>, ptr %89, align 1, !tbaa !53
+  %.val146150.us = load <32 x i8>, ptr %89, align 2, !tbaa !53
   %90 = getelementptr i8, ptr %79, i64 2
-  %.val147151.us = load <32 x i8>, ptr %90, align 1, !tbaa !53
+  %.val147151.us = load <32 x i8>, ptr %90, align 2, !tbaa !53
   %91 = getelementptr i8, ptr %77, i64 2
-  %.val148152.us = load <32 x i8>, ptr %91, align 1, !tbaa !53
+  %.val148152.us = load <32 x i8>, ptr %91, align 2, !tbaa !53
   %92 = getelementptr i8, ptr %75, i64 2
-  %.val149153.us = load <32 x i8>, ptr %92, align 1, !tbaa !53
+  %.val149153.us = load <32 x i8>, ptr %92, align 2, !tbaa !53
   %invariant.gep.us = getelementptr %struct.block_q5_0, ptr %31, i64 %.0120156.us
   br label %95
 
@@ -29762,9 +29762,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %105 = fmul <4 x float> %104, %88
   %106 = shufflevector <4 x float> %105, <4 x float> poison, <8 x i32> zeroinitializer
   %107 = getelementptr i8, ptr %gep.us, i64 2
-  %.val.us = load i32, ptr %107, align 1
+  %.val.us = load i32, ptr %107, align 2
   %108 = getelementptr i8, ptr %gep.us, i64 6
-  %.val123.us = load <2 x i64>, ptr %108, align 1, !tbaa !53
+  %.val123.us = load <2 x i64>, ptr %108, align 2, !tbaa !53
   %109 = bitcast <2 x i64> %.val123.us to <8 x i16>
   %110 = lshr <8 x i16> %109, splat (i16 4)
   %111 = bitcast <8 x i16> %110 to <2 x i64>
@@ -30439,9 +30439,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %87 = bitcast <4 x i16> %86 to <4 x half>
   %88 = fpext <4 x half> %87 to <4 x float>
   %89 = getelementptr i8, ptr %81, i64 2
-  %.val.us = load i32, ptr %89, align 1
+  %.val.us = load i32, ptr %89, align 2
   %90 = getelementptr i8, ptr %81, i64 6
-  %.val109.us = load <2 x i64>, ptr %90, align 1, !tbaa !53
+  %.val109.us = load <2 x i64>, ptr %90, align 2, !tbaa !53
   %91 = bitcast <2 x i64> %.val109.us to <8 x i16>
   %92 = lshr <8 x i16> %91, splat (i16 4)
   %93 = bitcast <8 x i16> %92 to <2 x i64>
@@ -30457,9 +30457,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %103 = and <4 x i64> %102, splat (i64 -1085102592571150096)
   %104 = or disjoint <4 x i64> %103, %95
   %105 = getelementptr i8, ptr %79, i64 2
-  %.val110.us = load i32, ptr %105, align 1
+  %.val110.us = load i32, ptr %105, align 2
   %106 = getelementptr i8, ptr %79, i64 6
-  %.val111.us = load <2 x i64>, ptr %106, align 1, !tbaa !53
+  %.val111.us = load <2 x i64>, ptr %106, align 2, !tbaa !53
   %107 = bitcast <2 x i64> %.val111.us to <8 x i16>
   %108 = lshr <8 x i16> %107, splat (i16 4)
   %109 = bitcast <8 x i16> %108 to <2 x i64>
@@ -30475,9 +30475,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %119 = and <4 x i64> %118, splat (i64 -1085102592571150096)
   %120 = or disjoint <4 x i64> %119, %111
   %121 = getelementptr i8, ptr %77, i64 2
-  %.val112.us = load i32, ptr %121, align 1
+  %.val112.us = load i32, ptr %121, align 2
   %122 = getelementptr i8, ptr %77, i64 6
-  %.val113.us = load <2 x i64>, ptr %122, align 1, !tbaa !53
+  %.val113.us = load <2 x i64>, ptr %122, align 2, !tbaa !53
   %123 = bitcast <2 x i64> %.val113.us to <8 x i16>
   %124 = lshr <8 x i16> %123, splat (i16 4)
   %125 = bitcast <8 x i16> %124 to <2 x i64>
@@ -30493,9 +30493,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %135 = and <4 x i64> %134, splat (i64 -1085102592571150096)
   %136 = or disjoint <4 x i64> %135, %127
   %137 = getelementptr i8, ptr %75, i64 2
-  %.val114.us = load i32, ptr %137, align 1
+  %.val114.us = load i32, ptr %137, align 2
   %138 = getelementptr i8, ptr %75, i64 6
-  %.val115.us = load <2 x i64>, ptr %138, align 1, !tbaa !53
+  %.val115.us = load <2 x i64>, ptr %138, align 2, !tbaa !53
   %139 = bitcast <2 x i64> %.val115.us to <8 x i16>
   %140 = lshr <8 x i16> %139, splat (i16 4)
   %141 = bitcast <8 x i16> %140 to <2 x i64>
@@ -30522,7 +30522,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %162 = bitcast <4 x i64> %104 to <32 x i8>
   %163 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %162, <32 x i8> %162)
   %164 = getelementptr i8, ptr %153, i64 2
-  %.val116120.us = load <32 x i8>, ptr %164, align 1, !tbaa !53
+  %.val116120.us = load <32 x i8>, ptr %164, align 2, !tbaa !53
   %165 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val116120.us, <32 x i8> %162)
   %166 = bitcast <32 x i8> %163 to <8 x i32>
   %167 = bitcast <32 x i8> %165 to <8 x i32>
@@ -30950,13 +30950,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %88 = bitcast <4 x i16> %87 to <4 x half>
   %89 = fpext <4 x half> %88 to <4 x float>
   %90 = getelementptr i8, ptr %82, i64 2
-  %.val148152.us = load <32 x i8>, ptr %90, align 1, !tbaa !53
+  %.val148152.us = load <32 x i8>, ptr %90, align 2, !tbaa !53
   %91 = getelementptr i8, ptr %80, i64 2
-  %.val149153.us = load <32 x i8>, ptr %91, align 1, !tbaa !53
+  %.val149153.us = load <32 x i8>, ptr %91, align 2, !tbaa !53
   %92 = getelementptr i8, ptr %78, i64 2
-  %.val150154.us = load <32 x i8>, ptr %92, align 1, !tbaa !53
+  %.val150154.us = load <32 x i8>, ptr %92, align 2, !tbaa !53
   %93 = getelementptr i8, ptr %76, i64 2
-  %.val151155.us = load <32 x i8>, ptr %93, align 1, !tbaa !53
+  %.val151155.us = load <32 x i8>, ptr %93, align 2, !tbaa !53
   %94 = getelementptr %struct.block_q5_0, ptr %57, i64 %.0120156.us
   %95 = load i16, ptr %94, align 2, !tbaa !587
   %96 = zext i16 %95 to i64
@@ -30967,9 +30967,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %101 = fmul <4 x float> %100, %89
   %102 = shufflevector <4 x float> %101, <4 x float> poison, <8 x i32> zeroinitializer
   %103 = getelementptr i8, ptr %94, i64 2
-  %.val.us = load i32, ptr %103, align 1
+  %.val.us = load i32, ptr %103, align 2
   %104 = getelementptr i8, ptr %94, i64 6
-  %.val125.us = load <2 x i64>, ptr %104, align 1, !tbaa !53
+  %.val125.us = load <2 x i64>, ptr %104, align 2, !tbaa !53
   %105 = bitcast <2 x i64> %.val125.us to <8 x i16>
   %106 = lshr <8 x i16> %105, splat (i16 4)
   %107 = bitcast <8 x i16> %106 to <2 x i64>
@@ -32178,7 +32178,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %85 = bitcast <4 x i16> %84 to <4 x half>
   %86 = fpext <4 x half> %85 to <4 x float>
   %87 = getelementptr i8, ptr %79, i64 2
-  %.val107.us = load <2 x i64>, ptr %87, align 1, !tbaa !53
+  %.val107.us = load <2 x i64>, ptr %87, align 2, !tbaa !53
   %88 = bitcast <2 x i64> %.val107.us to <16 x i8>
   %89 = and <16 x i8> %88, splat (i8 15)
   %90 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %.val118.us, <16 x i8> %89)
@@ -32188,7 +32188,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %94 = and <16 x i8> %93, splat (i8 15)
   %95 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %.val118.us, <16 x i8> %94)
   %96 = getelementptr i8, ptr %77, i64 2
-  %.val109.us = load <2 x i64>, ptr %96, align 1, !tbaa !53
+  %.val109.us = load <2 x i64>, ptr %96, align 2, !tbaa !53
   %97 = bitcast <2 x i64> %.val109.us to <16 x i8>
   %98 = and <16 x i8> %97, splat (i8 15)
   %99 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %.val118.us, <16 x i8> %98)
@@ -32198,7 +32198,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %103 = and <16 x i8> %102, splat (i8 15)
   %104 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %.val118.us, <16 x i8> %103)
   %105 = getelementptr i8, ptr %75, i64 2
-  %.val111.us = load <2 x i64>, ptr %105, align 1, !tbaa !53
+  %.val111.us = load <2 x i64>, ptr %105, align 2, !tbaa !53
   %106 = bitcast <2 x i64> %.val111.us to <16 x i8>
   %107 = and <16 x i8> %106, splat (i8 15)
   %108 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %.val118.us, <16 x i8> %107)
@@ -32208,7 +32208,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %112 = and <16 x i8> %111, splat (i8 15)
   %113 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %.val118.us, <16 x i8> %112)
   %114 = getelementptr i8, ptr %73, i64 2
-  %.val113.us = load <2 x i64>, ptr %114, align 1, !tbaa !53
+  %.val113.us = load <2 x i64>, ptr %114, align 2, !tbaa !53
   %115 = bitcast <2 x i64> %.val113.us to <16 x i8>
   %116 = and <16 x i8> %115, splat (i8 15)
   %117 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %.val118.us, <16 x i8> %116)
@@ -32251,7 +32251,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %146 = fmul <4 x float> %145, %86
   %147 = shufflevector <4 x float> %146, <4 x float> poison, <8 x i32> zeroinitializer
   %148 = getelementptr i8, ptr %gep.us, i64 2
-  %.val114119.us = load <32 x i8>, ptr %148, align 1, !tbaa !53
+  %.val114119.us = load <32 x i8>, ptr %148, align 2, !tbaa !53
   %149 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val114119.us, <32 x i8> %123)
   %150 = bitcast <32 x i8> %149 to <8 x i32>
   %151 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %125, <8 x i32> %150)
@@ -32471,7 +32471,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %85 = bitcast <4 x i16> %84 to <4 x half>
   %86 = fpext <4 x half> %85 to <4 x float>
   %87 = getelementptr i8, ptr %79, i64 2
-  %.val107.us = load <2 x i64>, ptr %87, align 1, !tbaa !53
+  %.val107.us = load <2 x i64>, ptr %87, align 2, !tbaa !53
   %88 = bitcast <2 x i64> %.val107.us to <16 x i8>
   %89 = and <16 x i8> %88, splat (i8 15)
   %90 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %.val118.us, <16 x i8> %89)
@@ -32481,7 +32481,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %94 = and <16 x i8> %93, splat (i8 15)
   %95 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %.val118.us, <16 x i8> %94)
   %96 = getelementptr i8, ptr %77, i64 2
-  %.val109.us = load <2 x i64>, ptr %96, align 1, !tbaa !53
+  %.val109.us = load <2 x i64>, ptr %96, align 2, !tbaa !53
   %97 = bitcast <2 x i64> %.val109.us to <16 x i8>
   %98 = and <16 x i8> %97, splat (i8 15)
   %99 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %.val118.us, <16 x i8> %98)
@@ -32491,7 +32491,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %103 = and <16 x i8> %102, splat (i8 15)
   %104 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %.val118.us, <16 x i8> %103)
   %105 = getelementptr i8, ptr %75, i64 2
-  %.val111.us = load <2 x i64>, ptr %105, align 1, !tbaa !53
+  %.val111.us = load <2 x i64>, ptr %105, align 2, !tbaa !53
   %106 = bitcast <2 x i64> %.val111.us to <16 x i8>
   %107 = and <16 x i8> %106, splat (i8 15)
   %108 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %.val118.us, <16 x i8> %107)
@@ -32501,7 +32501,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %112 = and <16 x i8> %111, splat (i8 15)
   %113 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %.val118.us, <16 x i8> %112)
   %114 = getelementptr i8, ptr %73, i64 2
-  %.val113.us = load <2 x i64>, ptr %114, align 1, !tbaa !53
+  %.val113.us = load <2 x i64>, ptr %114, align 2, !tbaa !53
   %115 = bitcast <2 x i64> %.val113.us to <16 x i8>
   %116 = and <16 x i8> %115, splat (i8 15)
   %117 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %.val118.us, <16 x i8> %116)
@@ -32544,7 +32544,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %146 = fmul <4 x float> %145, %86
   %147 = shufflevector <4 x float> %146, <4 x float> poison, <8 x i32> zeroinitializer
   %148 = getelementptr i8, ptr %gep.us, i64 2
-  %.val114119.us = load <32 x i8>, ptr %148, align 1, !tbaa !53
+  %.val114119.us = load <32 x i8>, ptr %148, align 2, !tbaa !53
   %149 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val114119.us, <32 x i8> %123)
   %150 = bitcast <32 x i8> %149 to <8 x i32>
   %151 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %125, <8 x i32> %150)
@@ -32767,13 +32767,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %88 = bitcast <4 x i16> %87 to <4 x half>
   %89 = fpext <4 x half> %88 to <4 x float>
   %90 = getelementptr i8, ptr %82, i64 2
-  %.val146150.us = load <32 x i8>, ptr %90, align 1, !tbaa !53
+  %.val146150.us = load <32 x i8>, ptr %90, align 2, !tbaa !53
   %91 = getelementptr i8, ptr %80, i64 2
-  %.val147151.us = load <32 x i8>, ptr %91, align 1, !tbaa !53
+  %.val147151.us = load <32 x i8>, ptr %91, align 2, !tbaa !53
   %92 = getelementptr i8, ptr %78, i64 2
-  %.val148152.us = load <32 x i8>, ptr %92, align 1, !tbaa !53
+  %.val148152.us = load <32 x i8>, ptr %92, align 2, !tbaa !53
   %93 = getelementptr i8, ptr %76, i64 2
-  %.val149153.us = load <32 x i8>, ptr %93, align 1, !tbaa !53
+  %.val149153.us = load <32 x i8>, ptr %93, align 2, !tbaa !53
   %invariant.gep.us = getelementptr %struct.block_iq4_nl, ptr %31, i64 %.0120157.us
   br label %96
 
@@ -32796,7 +32796,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %105 = fmul <4 x float> %104, %89
   %106 = shufflevector <4 x float> %105, <4 x float> poison, <8 x i32> zeroinitializer
   %107 = getelementptr i8, ptr %gep.us, i64 2
-  %.val123.us = load <2 x i64>, ptr %107, align 1, !tbaa !53
+  %.val123.us = load <2 x i64>, ptr %107, align 2, !tbaa !53
   %108 = bitcast <2 x i64> %.val123.us to <16 x i8>
   %109 = and <16 x i8> %108, splat (i8 15)
   %110 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %.val154.us, <16 x i8> %109)
@@ -33247,7 +33247,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %84 = bitcast <4 x i16> %83 to <4 x half>
   %85 = fpext <4 x half> %84 to <4 x float>
   %86 = getelementptr i8, ptr %78, i64 2
-  %.val107.us = load <2 x i64>, ptr %86, align 1, !tbaa !53
+  %.val107.us = load <2 x i64>, ptr %86, align 2, !tbaa !53
   %87 = bitcast <2 x i64> %.val107.us to <16 x i8>
   %88 = and <16 x i8> %87, splat (i8 15)
   %89 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %.val118.us, <16 x i8> %88)
@@ -33257,7 +33257,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %93 = and <16 x i8> %92, splat (i8 15)
   %94 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %.val118.us, <16 x i8> %93)
   %95 = getelementptr i8, ptr %76, i64 2
-  %.val109.us = load <2 x i64>, ptr %95, align 1, !tbaa !53
+  %.val109.us = load <2 x i64>, ptr %95, align 2, !tbaa !53
   %96 = bitcast <2 x i64> %.val109.us to <16 x i8>
   %97 = and <16 x i8> %96, splat (i8 15)
   %98 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %.val118.us, <16 x i8> %97)
@@ -33267,7 +33267,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %102 = and <16 x i8> %101, splat (i8 15)
   %103 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %.val118.us, <16 x i8> %102)
   %104 = getelementptr i8, ptr %74, i64 2
-  %.val111.us = load <2 x i64>, ptr %104, align 1, !tbaa !53
+  %.val111.us = load <2 x i64>, ptr %104, align 2, !tbaa !53
   %105 = bitcast <2 x i64> %.val111.us to <16 x i8>
   %106 = and <16 x i8> %105, splat (i8 15)
   %107 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %.val118.us, <16 x i8> %106)
@@ -33277,7 +33277,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %111 = and <16 x i8> %110, splat (i8 15)
   %112 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %.val118.us, <16 x i8> %111)
   %113 = getelementptr i8, ptr %72, i64 2
-  %.val113.us = load <2 x i64>, ptr %113, align 1, !tbaa !53
+  %.val113.us = load <2 x i64>, ptr %113, align 2, !tbaa !53
   %114 = bitcast <2 x i64> %.val113.us to <16 x i8>
   %115 = and <16 x i8> %114, splat (i8 15)
   %116 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %.val118.us, <16 x i8> %115)
@@ -33322,7 +33322,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %146 = fmul <4 x float> %145, %85
   %147 = shufflevector <4 x float> %146, <4 x float> poison, <8 x i32> zeroinitializer
   %148 = getelementptr i8, ptr %gep.us, i64 2
-  %.val114119.us = load <32 x i8>, ptr %148, align 1, !tbaa !53
+  %.val114119.us = load <32 x i8>, ptr %148, align 2, !tbaa !53
   %149 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val114119.us, <32 x i8> %122)
   %150 = bitcast <32 x i8> %149 to <8 x i32>
   %151 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %124, <8 x i32> %150)
@@ -33542,13 +33542,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %88 = bitcast <4 x i16> %87 to <4 x half>
   %89 = fpext <4 x half> %88 to <4 x float>
   %90 = getelementptr i8, ptr %82, i64 2
-  %.val146150.us = load <32 x i8>, ptr %90, align 1, !tbaa !53
+  %.val146150.us = load <32 x i8>, ptr %90, align 2, !tbaa !53
   %91 = getelementptr i8, ptr %80, i64 2
-  %.val147151.us = load <32 x i8>, ptr %91, align 1, !tbaa !53
+  %.val147151.us = load <32 x i8>, ptr %91, align 2, !tbaa !53
   %92 = getelementptr i8, ptr %78, i64 2
-  %.val148152.us = load <32 x i8>, ptr %92, align 1, !tbaa !53
+  %.val148152.us = load <32 x i8>, ptr %92, align 2, !tbaa !53
   %93 = getelementptr i8, ptr %76, i64 2
-  %.val149153.us = load <32 x i8>, ptr %93, align 1, !tbaa !53
+  %.val149153.us = load <32 x i8>, ptr %93, align 2, !tbaa !53
   %invariant.gep.us = getelementptr %struct.block_iq4_nl, ptr %31, i64 %.0120157.us
   br label %96
 
@@ -33573,7 +33573,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %106 = fmul <4 x float> %105, %89
   %107 = shufflevector <4 x float> %106, <4 x float> poison, <8 x i32> zeroinitializer
   %108 = getelementptr i8, ptr %gep.us, i64 2
-  %.val123.us = load <2 x i64>, ptr %108, align 1, !tbaa !53
+  %.val123.us = load <2 x i64>, ptr %108, align 2, !tbaa !53
   %109 = bitcast <2 x i64> %.val123.us to <16 x i8>
   %110 = and <16 x i8> %109, splat (i8 15)
   %111 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %.val154.us, <16 x i8> %110)
@@ -34232,7 +34232,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %88 = bitcast <4 x i16> %87 to <4 x half>
   %89 = fpext <4 x half> %88 to <4 x float>
   %90 = getelementptr i8, ptr %82, i64 2
-  %.val109.us = load <2 x i64>, ptr %90, align 1, !tbaa !53
+  %.val109.us = load <2 x i64>, ptr %90, align 2, !tbaa !53
   %91 = bitcast <2 x i64> %.val109.us to <16 x i8>
   %92 = and <16 x i8> %91, splat (i8 15)
   %93 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %.val120.us, <16 x i8> %92)
@@ -34242,7 +34242,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %97 = and <16 x i8> %96, splat (i8 15)
   %98 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %.val120.us, <16 x i8> %97)
   %99 = getelementptr i8, ptr %80, i64 2
-  %.val111.us = load <2 x i64>, ptr %99, align 1, !tbaa !53
+  %.val111.us = load <2 x i64>, ptr %99, align 2, !tbaa !53
   %100 = bitcast <2 x i64> %.val111.us to <16 x i8>
   %101 = and <16 x i8> %100, splat (i8 15)
   %102 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %.val120.us, <16 x i8> %101)
@@ -34252,7 +34252,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %106 = and <16 x i8> %105, splat (i8 15)
   %107 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %.val120.us, <16 x i8> %106)
   %108 = getelementptr i8, ptr %78, i64 2
-  %.val113.us = load <2 x i64>, ptr %108, align 1, !tbaa !53
+  %.val113.us = load <2 x i64>, ptr %108, align 2, !tbaa !53
   %109 = bitcast <2 x i64> %.val113.us to <16 x i8>
   %110 = and <16 x i8> %109, splat (i8 15)
   %111 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %.val120.us, <16 x i8> %110)
@@ -34262,7 +34262,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %115 = and <16 x i8> %114, splat (i8 15)
   %116 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %.val120.us, <16 x i8> %115)
   %117 = getelementptr i8, ptr %76, i64 2
-  %.val115.us = load <2 x i64>, ptr %117, align 1, !tbaa !53
+  %.val115.us = load <2 x i64>, ptr %117, align 2, !tbaa !53
   %118 = bitcast <2 x i64> %.val115.us to <16 x i8>
   %119 = and <16 x i8> %118, splat (i8 15)
   %120 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %.val120.us, <16 x i8> %119)
@@ -34283,7 +34283,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %135 = shufflevector <16 x i8> %93, <16 x i8> %98, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   %136 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %135, <32 x i8> %135)
   %137 = getelementptr i8, ptr %126, i64 2
-  %.val116121.us = load <32 x i8>, ptr %137, align 1, !tbaa !53
+  %.val116121.us = load <32 x i8>, ptr %137, align 2, !tbaa !53
   %138 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val116121.us, <32 x i8> %135)
   %139 = bitcast <32 x i8> %136 to <8 x i32>
   %140 = bitcast <32 x i8> %138 to <8 x i32>
@@ -34707,13 +34707,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %89 = bitcast <4 x i16> %88 to <4 x half>
   %90 = fpext <4 x half> %89 to <4 x float>
   %91 = getelementptr i8, ptr %83, i64 2
-  %.val148152.us = load <32 x i8>, ptr %91, align 1, !tbaa !53
+  %.val148152.us = load <32 x i8>, ptr %91, align 2, !tbaa !53
   %92 = getelementptr i8, ptr %81, i64 2
-  %.val149153.us = load <32 x i8>, ptr %92, align 1, !tbaa !53
+  %.val149153.us = load <32 x i8>, ptr %92, align 2, !tbaa !53
   %93 = getelementptr i8, ptr %79, i64 2
-  %.val150154.us = load <32 x i8>, ptr %93, align 1, !tbaa !53
+  %.val150154.us = load <32 x i8>, ptr %93, align 2, !tbaa !53
   %94 = getelementptr i8, ptr %77, i64 2
-  %.val151155.us = load <32 x i8>, ptr %94, align 1, !tbaa !53
+  %.val151155.us = load <32 x i8>, ptr %94, align 2, !tbaa !53
   %95 = getelementptr %struct.block_iq4_nl, ptr %58, i64 %.0120157.us
   %96 = load i16, ptr %95, align 2, !tbaa !678
   %97 = zext i16 %96 to i64
@@ -34724,7 +34724,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %102 = fmul <4 x float> %101, %90
   %103 = shufflevector <4 x float> %102, <4 x float> poison, <8 x i32> zeroinitializer
   %104 = getelementptr i8, ptr %95, i64 2
-  %.val125.us = load <2 x i64>, ptr %104, align 1, !tbaa !53
+  %.val125.us = load <2 x i64>, ptr %104, align 2, !tbaa !53
   %105 = bitcast <2 x i64> %.val125.us to <16 x i8>
   %106 = and <16 x i8> %105, splat (i8 15)
   %107 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %.val156.us, <16 x i8> %106)

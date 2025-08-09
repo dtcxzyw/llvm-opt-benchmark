@@ -159,7 +159,7 @@ define dso_local range(i64 -9223372036854775, 9223372036854776) i64 @get_cpu_idl
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !11
   %28 = load i64, ptr %8, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !12
-  %29 = load volatile i32, ptr %19, align 4
+  %29 = load volatile i32, ptr %19, align 8
   %30 = icmp eq i32 %29, %27
   br i1 %30, label %.split3.us, label %.split.us, !llvm.loop !13
 
@@ -263,7 +263,7 @@ define dso_local range(i64 -9223372036854775, 9223372036854776) i64 @get_cpu_iow
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !11
   %27 = load i64, ptr %8, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !12
-  %28 = load volatile i32, ptr %18, align 4
+  %28 = load volatile i32, ptr %18, align 8
   %29 = icmp eq i32 %28, %26
   br i1 %29, label %.split3.us, label %.split.us, !llvm.loop !16
 
@@ -762,9 +762,9 @@ define dso_local void @tick_nohz_idle_enter() local_unnamed_addr #4 align 16 {
   %9 = or i8 %8, 1
   store i8 %9, ptr %2, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %11 = load i32, ptr %10, align 4
+  %11 = load i32, ptr %10, align 8
   %12 = add i32 %11, 1
-  store i32 %12, ptr %10, align 4
+  store i32 %12, ptr %10, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !49
   %13 = tail call i64 @ktime_get() #14
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 120
@@ -773,9 +773,9 @@ define dso_local void @tick_nohz_idle_enter() local_unnamed_addr #4 align 16 {
   %16 = or i8 %15, 4
   store i8 %16, ptr %2, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !50
-  %17 = load i32, ptr %10, align 4
+  %17 = load i32, ptr %10, align 8
   %18 = add i32 %17, 1
-  store i32 %18, ptr %10, align 4
+  store i32 %18, ptr %10, align 8
   tail call void @sched_clock_idle_sleep_event() #14
   tail call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !51
   ret void
@@ -803,9 +803,9 @@ define dso_local void @tick_nohz_irq_exit() local_unnamed_addr #4 align 16 {
   %13 = or i8 %12, 4
   store i8 %13, ptr %2, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !50
-  %14 = load i32, ptr %7, align 4
+  %14 = load i32, ptr %7, align 8
   %15 = add i32 %14, 1
-  store i32 %15, ptr %7, align 4
+  store i32 %15, ptr %7, align 8
   tail call void @sched_clock_idle_sleep_event() #14
   br label %18
 
@@ -1125,9 +1125,9 @@ define dso_local void @tick_nohz_idle_exit() local_unnamed_addr #4 align 16 {
   %32 = load i64, ptr %31, align 8
   %33 = sub i64 %24, %32
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %35 = load i32, ptr %34, align 4
+  %35 = load i32, ptr %34, align 8
   %36 = add i32 %35, 1
-  store i32 %36, ptr %34, align 4
+  store i32 %36, ptr %34, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !49
   %37 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !74
   %38 = tail call i32 @nr_iowait_cpu(i32 noundef %37) #14
@@ -1142,9 +1142,9 @@ define dso_local void @tick_nohz_idle_exit() local_unnamed_addr #4 align 16 {
   %45 = and i8 %44, -5
   store i8 %45, ptr %2, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !50
-  %46 = load i32, ptr %34, align 4
+  %46 = load i32, ptr %34, align 8
   %47 = add i32 %46, 1
-  store i32 %47, ptr %34, align 4
+  store i32 %47, ptr %34, align 8
   tail call void @sched_clock_idle_wakeup_event() #14
   br label %48
 
@@ -1197,9 +1197,9 @@ define dso_local void @tick_irq_enter() local_unnamed_addr #4 align 16 {
   %14 = load i64, ptr %13, align 8
   %15 = sub i64 %8, %14
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %17 = load i32, ptr %16, align 4
+  %17 = load i32, ptr %16, align 8
   %18 = add i32 %17, 1
-  store i32 %18, ptr %16, align 4
+  store i32 %18, ptr %16, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !49
   %19 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !74
   %20 = tail call i32 @nr_iowait_cpu(i32 noundef %19) #14
@@ -1214,9 +1214,9 @@ define dso_local void @tick_irq_enter() local_unnamed_addr #4 align 16 {
   %27 = and i8 %26, -5
   store i8 %27, ptr %3, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !50
-  %28 = load i32, ptr %16, align 4
+  %28 = load i32, ptr %16, align 8
   %29 = add i32 %28, 1
-  store i32 %29, ptr %16, align 4
+  store i32 %29, ptr %16, align 8
   tail call void @sched_clock_idle_wakeup_event() #14
   %.pre = load i8, ptr %3, align 8
   br label %30

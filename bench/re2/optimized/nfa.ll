@@ -600,7 +600,7 @@ if.end9:                                          ; preds = %if.end.i, %if.then7
 if.end14:                                         ; preds = %if.end9
   %5 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i = icmp ne ptr %5, null
-  %6 = load i32, ptr %dense_.i.i, align 4
+  %6 = load i32, ptr %dense_.i.i, align 8
   %cmp.not11.i = icmp ugt i32 %6, %a.sroa.0.0
   %cmp.not.i = select i1 %cmp.not.i.i, i1 %cmp.not11.i, i1 false
   %.pre158 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i4.i, align 8
@@ -2167,7 +2167,7 @@ _ZN3re210SparseSetTIvEC2Ei.exit:                  ; preds = %if.end4.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %fanout, i64 32
   %5 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i = icmp ne ptr %5, null
-  %6 = load i32, ptr %dense_.i.i.i, align 4
+  %6 = load i32, ptr %dense_.i.i.i, align 8
   %cmp.not23.i.i = icmp ugt i32 %6, %4
   %cmp.not.i.i = select i1 %cmp.not.i.i.i, i1 %cmp.not23.i.i, i1 false
   br i1 %cmp.not.i.i, label %invoke.cont4, label %_ZN3re28PODArrayIiED2Ev.exit.i215
@@ -2394,7 +2394,7 @@ if.end:                                           ; preds = %_ZNK3re210SparseSet
   %shr.i70 = lshr i32 %48, 4
   %49 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i72 = icmp ne ptr %49, null
-  %50 = load i32, ptr %dense_.i.i.i, align 4
+  %50 = load i32, ptr %dense_.i.i.i, align 8
   %cmp.not11.i = icmp ugt i32 %50, %shr.i70
   %cmp.not.i = select i1 %cmp.not.i.i72, i1 %cmp.not11.i, i1 false
   br i1 %cmp.not.i, label %if.end.i, label %for.inc

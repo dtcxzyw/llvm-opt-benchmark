@@ -341,7 +341,7 @@ define internal noundef i32 @color_balance8_p(ptr noundef readonly captures(none
   %154 = fcmp nsz ogt float %153, 1.000000e+00
   %..i17.i = select nsz i1 %154, float 1.000000e+00, float %153
   %155 = load float, ptr %33, align 4, !tbaa !63
-  %156 = load float, ptr %34, align 4, !tbaa !64
+  %156 = load float, ptr %34, align 8, !tbaa !64
   %157 = load float, ptr %35, align 4, !tbaa !65
   %158 = fmul nsz float %155, %125
   %159 = fmul nsz float %156, %139
@@ -726,7 +726,7 @@ define internal noundef i32 @color_balance16_p(ptr noundef readonly captures(non
   %116 = load float, ptr %113, align 4, !tbaa !61
   %117 = load float, ptr %112, align 8, !tbaa !62
   %118 = load float, ptr %111, align 4, !tbaa !63
-  %119 = load float, ptr %110, align 4, !tbaa !64
+  %119 = load float, ptr %110, align 8, !tbaa !64
   %120 = load float, ptr %109, align 4, !tbaa !65
   %121 = load float, ptr %108, align 8, !tbaa !66
   %122 = load float, ptr %107, align 4, !tbaa !67
@@ -1178,7 +1178,7 @@ define internal noundef i32 @color_balance8(ptr noundef readonly captures(none) 
   %128 = fcmp nsz ogt float %127, 1.000000e+00
   %..i17.i = select nsz i1 %128, float 1.000000e+00, float %127
   %129 = load float, ptr %50, align 4, !tbaa !63
-  %130 = load float, ptr %51, align 4, !tbaa !64
+  %130 = load float, ptr %51, align 8, !tbaa !64
   %131 = load float, ptr %52, align 4, !tbaa !65
   %132 = fmul nsz float %129, %99
   %133 = fmul nsz float %130, %113
@@ -1492,7 +1492,7 @@ define internal noundef i32 @color_balance16(ptr noundef readonly captures(none)
   %74 = load float, ptr %71, align 4, !tbaa !61
   %75 = load float, ptr %70, align 8, !tbaa !62
   %76 = load float, ptr %69, align 4, !tbaa !63
-  %77 = load float, ptr %68, align 4, !tbaa !64
+  %77 = load float, ptr %68, align 8, !tbaa !64
   %78 = load float, ptr %67, align 4, !tbaa !65
   %79 = load float, ptr %66, align 8, !tbaa !66
   %80 = load float, ptr %65, align 4, !tbaa !67

@@ -5958,7 +5958,7 @@ lean_inc.exit:                                    ; preds = %6
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !11
   %23 = tail call ptr @l_Lean_PersistentArray_findSomeRevM_x3f___at_Lean_Meta_findLocalDeclWithType_x3f___spec__2(ptr noundef %0, ptr noundef %22, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
-  %24 = load i32, ptr %8, align 4, !tbaa !5
+  %24 = load i32, ptr %8, align 8, !tbaa !5
   %25 = icmp sgt i32 %24, 1
   br i1 %25, label %26, label %28, !prof !10
 
@@ -6540,7 +6540,7 @@ lean_inc.exit.i:                                  ; preds = %lean_inc.exit194
   %134 = getelementptr inbounds nuw i8, ptr %121, i64 16
   %135 = load ptr, ptr %134, align 8, !tbaa !11
   %136 = tail call ptr @l_Lean_PersistentArray_findSomeRevM_x3f___at_Lean_Meta_findLocalDeclWithType_x3f___spec__2(ptr noundef %62, ptr noundef %135, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %72)
-  %137 = load i32, ptr %121, align 4, !tbaa !5
+  %137 = load i32, ptr %121, align 8, !tbaa !5
   %138 = icmp sgt i32 %137, 1
   br i1 %138, label %139, label %141, !prof !10
 

@@ -4009,7 +4009,7 @@ _ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i.i2.i: ; preds = %1019, %1012, %
   %1044 = getelementptr inbounds nuw i8, ptr %1043, i64 8
   %1045 = load i32, ptr %1044, align 8, !tbaa !244
   call void @llvm.experimental.noalias.scope.decl(metadata !252)
-  %1046 = load i32, ptr %1043, align 4, !tbaa !10, !noalias !252
+  %1046 = load i32, ptr %1043, align 8, !tbaa !10, !noalias !252
   %.not.i.i.i.i505 = icmp eq i32 %1046, 0
   br i1 %.not.i.i.i.i505, label %1053, label %1047
 
@@ -13156,7 +13156,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %4870, ptr %4872, align 8, !tbaa !36, !alias.scope !389, !noalias !392
   store ptr %4862, ptr %.0911.i.i.i.i.i, align 8, !tbaa !41, !alias.scope !392, !noalias !389
   store i64 0, ptr %4871, align 8, !tbaa !36, !alias.scope !392, !noalias !389
-  store i8 0, ptr %4862, align 1, !tbaa !42, !alias.scope !392, !noalias !389
+  store i8 0, ptr %4862, align 8, !tbaa !42, !alias.scope !392, !noalias !389
   %4873 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 32
   %4874 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 32
   %.not.i.i.i.i571.i = icmp eq ptr %4873, %.sroa.133274.9
@@ -35812,7 +35812,7 @@ _ZSt19__relocate_object_aIN5Yosys7hashlib4poolINSt7__cxx1112basic_stringIcSt11ch
   store i64 %51, ptr %53, align 8, !tbaa !36, !alias.scope !529, !noalias !532
   store ptr %43, ptr %.0911.i.i.i, align 8, !tbaa !41, !alias.scope !532, !noalias !529
   store i64 0, ptr %52, align 8, !tbaa !36, !alias.scope !532, !noalias !529
-  store i8 0, ptr %43, align 1, !tbaa !42, !alias.scope !532, !noalias !529
+  store i8 0, ptr %43, align 8, !tbaa !42, !alias.scope !532, !noalias !529
   %54 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %56 = load i32, ptr %55, align 8, !tbaa !418, !alias.scope !532, !noalias !529
@@ -35864,7 +35864,7 @@ _ZSt19__relocate_object_aIN5Yosys7hashlib4poolINSt7__cxx1112basic_stringIcSt11ch
   store i64 %70, ptr %72, align 8, !tbaa !36, !alias.scope !536, !noalias !539
   store ptr %62, ptr %.0911.i.i.i30, align 8, !tbaa !41, !alias.scope !539, !noalias !536
   store i64 0, ptr %71, align 8, !tbaa !36, !alias.scope !539, !noalias !536
-  store i8 0, ptr %62, align 1, !tbaa !42, !alias.scope !539, !noalias !536
+  store i8 0, ptr %62, align 8, !tbaa !42, !alias.scope !539, !noalias !536
   %73 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 32
   %74 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 32
   %75 = load i32, ptr %74, align 8, !tbaa !418, !alias.scope !539, !noalias !536
@@ -36004,7 +36004,7 @@ _ZSt19__relocate_object_aIN5Yosys7hashlib4poolINSt7__cxx1112basic_stringIcSt11ch
   store i64 %51, ptr %53, align 8, !tbaa !36, !alias.scope !542, !noalias !545
   store ptr %43, ptr %.0911.i.i.i, align 8, !tbaa !41, !alias.scope !545, !noalias !542
   store i64 0, ptr %52, align 8, !tbaa !36, !alias.scope !545, !noalias !542
-  store i8 0, ptr %43, align 1, !tbaa !42, !alias.scope !545, !noalias !542
+  store i8 0, ptr %43, align 8, !tbaa !42, !alias.scope !545, !noalias !542
   %54 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %56 = load i32, ptr %55, align 8, !tbaa !418, !alias.scope !545, !noalias !542
@@ -36056,7 +36056,7 @@ _ZSt19__relocate_object_aIN5Yosys7hashlib4poolINSt7__cxx1112basic_stringIcSt11ch
   store i64 %70, ptr %72, align 8, !tbaa !36, !alias.scope !548, !noalias !551
   store ptr %62, ptr %.0911.i.i.i30, align 8, !tbaa !41, !alias.scope !551, !noalias !548
   store i64 0, ptr %71, align 8, !tbaa !36, !alias.scope !551, !noalias !548
-  store i8 0, ptr %62, align 1, !tbaa !42, !alias.scope !551, !noalias !548
+  store i8 0, ptr %62, align 8, !tbaa !42, !alias.scope !551, !noalias !548
   %73 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 32
   %74 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 32
   %75 = load i32, ptr %74, align 8, !tbaa !418, !alias.scope !551, !noalias !548

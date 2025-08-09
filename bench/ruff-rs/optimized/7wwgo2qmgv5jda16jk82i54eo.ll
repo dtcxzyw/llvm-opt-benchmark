@@ -5022,7 +5022,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h1747
   %156 = getelementptr i8, ptr %155, i64 256
   store i32 %95, ptr %156, align 4
   %157 = getelementptr i8, ptr %155, i64 260
-  store atomic i8 1, ptr %157 release, align 1
+  store atomic i8 1, ptr %157 release, align 4
   %158 = atomicrmw add ptr %85, i64 1 release, align 8
   br label %159
 
@@ -5474,7 +5474,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h3d1e
   %159 = getelementptr i8, ptr %158, i64 256
   store i32 %98, ptr %159, align 4
   %160 = getelementptr i8, ptr %158, i64 260
-  store atomic i8 1, ptr %160 release, align 1
+  store atomic i8 1, ptr %160 release, align 4
   %161 = atomicrmw add ptr %88, i64 1 release, align 8
   br label %162
 
@@ -5923,7 +5923,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h6cd1
   %156 = getelementptr i8, ptr %155, i64 256
   store i32 %95, ptr %156, align 4
   %157 = getelementptr i8, ptr %155, i64 260
-  store atomic i8 1, ptr %157 release, align 1
+  store atomic i8 1, ptr %157 release, align 4
   %158 = atomicrmw add ptr %85, i64 1 release, align 8
   br label %159
 
@@ -6375,7 +6375,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h8b93
   %159 = getelementptr i8, ptr %158, i64 256
   store i32 %98, ptr %159, align 4
   %160 = getelementptr i8, ptr %158, i64 260
-  store atomic i8 1, ptr %160 release, align 1
+  store atomic i8 1, ptr %160 release, align 4
   %161 = atomicrmw add ptr %88, i64 1 release, align 8
   br label %162
 
@@ -6827,7 +6827,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17hb516
   %159 = getelementptr i8, ptr %158, i64 256
   store i32 %98, ptr %159, align 4
   %160 = getelementptr i8, ptr %158, i64 260
-  store atomic i8 1, ptr %160 release, align 1
+  store atomic i8 1, ptr %160 release, align 4
   %161 = atomicrmw add ptr %88, i64 1 release, align 8
   br label %162
 
@@ -7010,7 +7010,7 @@ define internal fastcc noundef range(i64 0, -32) i64 @"_ZN6boxcar3raw12Vec$LT$T$
   %43 = getelementptr i8, ptr %41, i64 776
   store ptr %2, ptr %43, align 8, !noalias !553
   %44 = getelementptr i8, ptr %41, i64 784
-  store atomic i8 1, ptr %44 release, align 1
+  store atomic i8 1, ptr %44 release, align 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %46 = atomicrmw add ptr %45, i64 1 release, align 8, !noalias !553
   ret i64 %5
@@ -8886,7 +8886,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h76
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val5 = load i32, ptr %37, align 8, !noundef !4
-  %.val6 = load i32, ptr %36, align 4, !range !290, !noundef !4
+  %.val6 = load i32, ptr %36, align 8, !range !290, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val5, ptr %15, align 4
   store i32 %.val6, ptr %3, align 4
@@ -9006,7 +9006,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h89
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val6 = load i32, ptr %37, align 8, !noundef !4
-  %.val7 = load i32, ptr %36, align 4, !range !290, !noundef !4
+  %.val7 = load i32, ptr %36, align 8, !range !290, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val6, ptr %15, align 4
   store i32 %.val7, ptr %3, align 4
@@ -9126,7 +9126,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h9e
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val6 = load i32, ptr %37, align 8, !noundef !4
-  %.val7 = load i32, ptr %36, align 4, !range !290, !noundef !4
+  %.val7 = load i32, ptr %36, align 8, !range !290, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val6, ptr %15, align 4
   store i32 %.val7, ptr %3, align 4

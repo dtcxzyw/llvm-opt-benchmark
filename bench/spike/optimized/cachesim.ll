@@ -710,7 +710,7 @@ define void @_ZN11cache_sim_t11print_statsEv(ptr noundef nonnull readonly align 
   %25 = load i32, ptr %24, align 8, !tbaa !46
   %26 = and i32 %25, -261
   %27 = or disjoint i32 %26, 4
-  store i32 %27, ptr %24, align 4, !tbaa !47
+  store i32 %27, ptr %24, align 8, !tbaa !47
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -1241,7 +1241,7 @@ define void @_ZN11cache_sim_t6accessEmmb(ptr noundef nonnull align 8 dereference
   %39 = load i32, ptr %38, align 8, !tbaa !46
   %40 = and i32 %39, -75
   %41 = or disjoint i32 %40, 8
-  store i32 %41, ptr %38, align 4, !tbaa !47
+  store i32 %41, ptr %38, align 8, !tbaa !47
   %42 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %28, i64 noundef %1)
   %43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8) %42)
   br label %44

@@ -1829,7 +1829,7 @@ GetASN_UTF8String.exit:                           ; preds = %._crit_edge.i191, %
   %339 = getelementptr inbounds nuw i8, ptr %21, i64 20
   %340 = load i32, ptr %339, align 4, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store i32 0, ptr %338, align 4, !tbaa !22
+  store i32 0, ptr %338, align 8, !tbaa !22
   %.not30.i.i = icmp eq i32 %.0232, 0
   br i1 %.not30.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 

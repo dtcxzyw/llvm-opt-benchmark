@@ -330,7 +330,7 @@ define hidden void @av1_decoder_remove(ptr noundef %0) local_unnamed_addr #0 {
   %69 = load i32, ptr %25, align 32
   tail call void @av1_loop_restoration_dealloc(ptr noundef nonnull %68, i32 noundef %69) #10
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 431760
-  %71 = load ptr, ptr %70, align 8
+  %71 = load ptr, ptr %70, align 16
   %.not7.i = icmp eq ptr %71, null
   br i1 %.not7.i, label %av1_dealloc_dec_jobs.exit, label %72
 

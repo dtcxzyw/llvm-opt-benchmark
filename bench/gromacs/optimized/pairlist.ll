@@ -3383,7 +3383,7 @@ _ZN3gmxL13nonlocal_vol2ERKNS_11DomdecZonesEPKff.exit.i: ; preds = %181, %120
   %.0.i.i = load i32, ptr %.0.in.i.i, align 8, !tbaa !101
   %211 = sitofp i32 %.0.i.i to float
   %212 = fmul float %211, %208
-  %213 = load float, ptr %109, align 4, !tbaa !322
+  %213 = load float, ptr %109, align 8, !tbaa !322
   %214 = fmul float %213, %212
   %215 = fdiv float %214, %108
   %216 = fsub float %215, %.0.i
@@ -3844,7 +3844,7 @@ _ZN3gmxL11getGridListENS_8ArrayRefIKNS_4GridEEERKNS_5RangeIiEE.exit149: ; preds 
   %427 = load i32, ptr %26, align 4, !tbaa !101
   %428 = load i32, ptr %407, align 8, !tbaa !298
   %429 = mul nsw i32 %428, 5
-  %430 = load i32, ptr %374, align 4, !tbaa !101
+  %430 = load i32, ptr %374, align 8, !tbaa !101
   %431 = mul i32 %427, 11
   %432 = mul i32 %431, %430
   %433 = sdiv i32 %429, %432
@@ -11835,10 +11835,10 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %56, %58, %60, %62
   store ptr %88, ptr %27, align 8, !tbaa !99
   store ptr %89, ptr %28, align 8, !tbaa !149
   store ptr %91, ptr %93, align 8, !tbaa !150
-  %95 = load i64, ptr %11, align 4
+  %95 = load i64, ptr %11, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %26, i64 5, i1 false)
   %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i64 %95 to i40
-  store i40 %.sroa.0.0.extract.trunc.i.i.i.i.i, ptr %26, align 4
+  store i40 %.sroa.0.0.extract.trunc.i.i.i.i.i, ptr %26, align 8
   br label %109
 
 .lr.ph76:                                         ; preds = %._crit_edge72, %.lr.ph76
@@ -12168,7 +12168,7 @@ define internal fastcc void @_ZN3gmxL23print_nblist_statisticsILNS_12PairlistTyp
   %50 = getelementptr inbounds nuw i8, ptr %.24.val, i64 52
   %51 = load float, ptr %50, align 4, !tbaa !51
   %52 = getelementptr inbounds nuw i8, ptr %.24.val, i64 56
-  %53 = load float, ptr %52, align 4, !tbaa !51
+  %53 = load float, ptr %52, align 8, !tbaa !51
   %54 = fmul float %51, %53
   %55 = getelementptr inbounds nuw i8, ptr %.24.val, i64 60
   %56 = load float, ptr %55, align 4, !tbaa !51

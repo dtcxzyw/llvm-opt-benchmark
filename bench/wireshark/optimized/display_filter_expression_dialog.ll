@@ -2903,11 +2903,11 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i167:   ; preds = %233
   %246 = getelementptr inbounds nuw i8, ptr %242, i64 20
   store i32 1507328, ptr %246, align 4
   %247 = getelementptr inbounds nuw i8, ptr %242, i64 24
-  store i32 0, ptr %247, align 4
+  store i32 0, ptr %247, align 8
   %248 = getelementptr inbounds nuw i8, ptr %242, i64 28
   store i32 0, ptr %248, align 4
   %249 = getelementptr inbounds nuw i8, ptr %242, i64 32
-  store i32 -1, ptr %249, align 4
+  store i32 -1, ptr %249, align 8
   %250 = getelementptr inbounds nuw i8, ptr %242, i64 36
   store i32 -1, ptr %250, align 4
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -2934,11 +2934,11 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i167:   ; preds = %233
   %264 = getelementptr inbounds nuw i8, ptr %260, i64 20
   store i32 7405568, ptr %264, align 4
   %265 = getelementptr inbounds nuw i8, ptr %260, i64 24
-  store i32 0, ptr %265, align 4
+  store i32 0, ptr %265, align 8
   %266 = getelementptr inbounds nuw i8, ptr %260, i64 28
   store i32 0, ptr %266, align 4
   %267 = getelementptr inbounds nuw i8, ptr %260, i64 32
-  store i32 -1, ptr %267, align 4
+  store i32 -1, ptr %267, align 8
   %268 = getelementptr inbounds nuw i8, ptr %260, i64 36
   store i32 -1, ptr %268, align 4
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -3151,11 +3151,11 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i203:   ; preds = %325
   %339 = getelementptr inbounds nuw i8, ptr %335, i64 20
   store i32 7405568, ptr %339, align 4
   %340 = getelementptr inbounds nuw i8, ptr %335, i64 24
-  store i32 0, ptr %340, align 4
+  store i32 0, ptr %340, align 8
   %341 = getelementptr inbounds nuw i8, ptr %335, i64 28
   store i32 0, ptr %341, align 4
   %342 = getelementptr inbounds nuw i8, ptr %335, i64 32
-  store i32 -1, ptr %342, align 4
+  store i32 -1, ptr %342, align 8
   %343 = getelementptr inbounds nuw i8, ptr %335, i64 36
   store i32 -1, ptr %343, align 4
   %344 = getelementptr inbounds nuw i8, ptr %0, i64 200

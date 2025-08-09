@@ -104803,11 +104803,11 @@ _ZN4gpui8platform5linux7wayland6client21WaylandClientStatePtr10get_client17h26d0
   %156 = getelementptr inbounds i8, ptr %128, i64 -8
   %157 = load i32, ptr %156, align 8, !alias.scope !28552, !noalias !28553, !noundef !5
   %158 = getelementptr inbounds i8, ptr %128, i64 -24
-  %159 = load i32, ptr %158, align 4, !alias.scope !28567, !noalias !28574, !noundef !5
+  %159 = load i32, ptr %158, align 8, !alias.scope !28567, !noalias !28574, !noundef !5
   %160 = getelementptr inbounds i8, ptr %128, i64 -20
   %161 = load i32, ptr %160, align 4, !alias.scope !28576, !noalias !28574, !noundef !5
   %162 = getelementptr inbounds i8, ptr %128, i64 -16
-  %.val.i.i.i.i.i.i.i = load i32, ptr %162, align 4, !alias.scope !28579, !noalias !28574, !noundef !5
+  %.val.i.i.i.i.i.i.i = load i32, ptr %162, align 8, !alias.scope !28579, !noalias !28574, !noundef !5
   %163 = getelementptr inbounds i8, ptr %128, i64 -12
   %.val1.i.i.i.i.i.i.i = load i32, ptr %163, align 4, !alias.scope !28579, !noalias !28574, !noundef !5
   store i64 %.sroa.0.0.i.i.i.i.i.i, ptr %107, align 8, !alias.scope !28580, !noalias !28581
@@ -127910,9 +127910,9 @@ default.unreachable491:                           ; preds = %673
   %316 = getelementptr inbounds nuw i8, ptr %.0.val, i64 1776
   %317 = load i32, ptr %316, align 8, !noundef !5
   %318 = getelementptr i8, ptr %.0.val, i64 1608
-  %.val632 = load i32, ptr %318, align 4, !noundef !5
+  %.val632 = load i32, ptr %318, align 8, !noundef !5
   %319 = getelementptr i8, ptr %.0.val, i64 1616
-  %.val633 = load i32, ptr %319, align 4, !noundef !5
+  %.val633 = load i32, ptr %319, align 8, !noundef !5
   invoke fastcc void @_ZN4gpui8platform5linux3x116client18xdnd_send_finished17h4f0e681516a25508E(ptr noundef nonnull align 8 %315, i32 %.val632, i32 %.val633, i32 noundef %121, i32 noundef %317)
           to label %320 unwind label %276
 
@@ -128018,7 +128018,7 @@ default.unreachable491:                           ; preds = %673
   %366 = getelementptr inbounds nuw i8, ptr %.0.val, i64 1776
   %367 = load i32, ptr %366, align 8, !noundef !5
   %368 = getelementptr i8, ptr %.0.val, i64 1584
-  %.val634 = load i32, ptr %368, align 4, !noundef !5
+  %.val634 = load i32, ptr %368, align 8, !noundef !5
   invoke fastcc void @_ZN4gpui8platform5linux3x116client16xdnd_send_status17he7e7baf57dfc670aE(ptr noundef nonnull align 8 %365, i32 %.val634, i32 noundef %121, i32 noundef %367, i32 noundef %251)
           to label %385 unwind label %276
 
@@ -129389,7 +129389,7 @@ default.unreachable491:                           ; preds = %673
   %805 = getelementptr inbounds nuw i8, ptr %.0.val, i64 1804
   %806 = load i32, ptr %805, align 4, !noundef !5
   %807 = getelementptr inbounds nuw i8, ptr %.0.val, i64 1808
-  %808 = load i32, ptr %807, align 4, !noundef !5
+  %808 = load i32, ptr %807, align 8, !noundef !5
   %809 = getelementptr inbounds nuw i8, ptr %.0.val, i64 1812
   %810 = load i32, ptr %809, align 4, !noundef !5
   %811 = getelementptr inbounds nuw i8, ptr %.0.val, i64 1744
@@ -131559,9 +131559,9 @@ switch.lookup7:                                   ; preds = %1129
   %1570 = load i32, ptr %1569, align 4
   store i8 %.sroa.0472.0.extract.trunc, ptr %1543, align 1
   %.sroa.497.0..sroa_idx98 = getelementptr inbounds nuw i8, ptr %.0.val, i64 1818
-  store i16 %.sroa.3.0.insert.insert.i815, ptr %.sroa.497.0..sroa_idx98, align 1
+  store i16 %.sroa.3.0.insert.insert.i815, ptr %.sroa.497.0..sroa_idx98, align 2
   %.sroa.6107.0..sroa_idx108 = getelementptr inbounds nuw i8, ptr %.0.val, i64 1820
-  store i8 %.sroa.0472.3.extract.trunc, ptr %.sroa.6107.0..sroa_idx108, align 1
+  store i8 %.sroa.0472.3.extract.trunc, ptr %.sroa.6107.0..sroa_idx108, align 4
   %.sroa.7112.0..sroa_idx113 = getelementptr inbounds nuw i8, ptr %.0.val, i64 1821
   store i8 0, ptr %.sroa.7112.0..sroa_idx113, align 1
   %1571 = load i64, ptr %227, align 8, !noalias !35216, !noundef !5
@@ -134335,7 +134335,7 @@ define void @"_ZN110_$LT$gpui..platform..linux..x11..client..X11Client$u20$as$u2
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 556
   %14 = load i32, ptr %13, align 4, !noundef !5
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 576
-  %16 = load i32, ptr %15, align 4, !noundef !5
+  %16 = load i32, ptr %15, align 8, !noundef !5
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 564
   %18 = load i32, ptr %17, align 4, !noundef !5
   invoke void @_ZN13x11_clipboard9Clipboard4load17h93796b8249c53c12E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %5, ptr noundef nonnull align 8 %12, i32 noundef %14, i32 noundef %16, i32 noundef %18, i64 noundef 3, i32 noundef 0)

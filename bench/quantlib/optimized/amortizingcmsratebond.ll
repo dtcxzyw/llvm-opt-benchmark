@@ -739,7 +739,7 @@ _ZN8QuantLib8CalendarD2Ev.exit:                   ; preds = %_ZNSt6vectorIN5boos
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11)
   store i8 0, ptr %agg.tmp12, align 8, !tbaa !51
-  %29 = load i8, ptr %schedule, align 4, !tbaa !51, !range !26, !noundef !27
+  %29 = load i8, ptr %schedule, align 8, !tbaa !51, !range !26, !noundef !27
   %loadedv.i.i.i.i = trunc nuw i8 %29 to i1
   br i1 %loadedv.i.i.i.i, label %invoke.cont.i.i.i, label %_ZN8QuantLib8ScheduleC2EOS0_.exit
 
@@ -2688,7 +2688,7 @@ _ZN8QuantLib8CalendarD2Ev.exit:                   ; preds = %_ZNSt6vectorIN5boos
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp8)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9)
   store i8 0, ptr %agg.tmp10, align 8, !tbaa !51
-  %27 = load i8, ptr %schedule, align 4, !tbaa !51, !range !26, !noundef !27
+  %27 = load i8, ptr %schedule, align 8, !tbaa !51, !range !26, !noundef !27
   %loadedv.i.i.i.i = trunc nuw i8 %27 to i1
   br i1 %loadedv.i.i.i.i, label %invoke.cont.i.i.i, label %_ZN8QuantLib8ScheduleC2EOS0_.exit
 

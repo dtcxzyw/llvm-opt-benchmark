@@ -41,11 +41,11 @@ define dso_local void @dm_io_rewind(ptr noundef captures(none) %0, ptr noundef %
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %26 = load i32, ptr %25, align 1
+  %26 = load i32, ptr %25, align 8
   %27 = add i32 %26, %13
-  store i32 %27, ptr %25, align 1
+  store i32 %27, ptr %25, align 8
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %29 = load i32, ptr %28, align 1
+  %29 = load i32, ptr %28, align 8
   %30 = icmp ult i32 %29, %13
   br i1 %30, label %37, label %35
 

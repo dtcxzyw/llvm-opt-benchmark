@@ -551,9 +551,9 @@ unreachable.i:                                    ; preds = %lpad.i37
   store i8 0, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1, !tbaa !60
   call void @llvm.lifetime.end.p0(ptr nonnull %__dnew.i.i.i.i.i.i.i)
   %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i667, i64 64
-  store <2 x float> zeroinitializer, ptr %second.i.i.i.i.i, align 4, !tbaa !51
+  store <2 x float> zeroinitializer, ptr %second.i.i.i.i.i, align 8, !tbaa !51
   %color2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i667, i64 72
-  store i32 -1, ptr %color2.i.i.i.i.i.i, align 4, !tbaa !61
+  store i32 -1, ptr %color2.i.i.i.i.i.i, align 8, !tbaa !61
   store ptr %call5.i.i.i.i.i.i667, ptr %_M_node.i.i646, align 8, !tbaa !62
   %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N13ProfilerGraph4MetaEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %m_meta, ptr %__y.addr.0.lcssa.i.i.i23.i, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i33)
           to label %invoke.cont7.i unwind label %lpad.i

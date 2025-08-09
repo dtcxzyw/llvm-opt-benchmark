@@ -242,7 +242,7 @@ define range(i32 -9998, 806) i32 @SUNLinSolSolve_SPTFQMR(ptr noundef readonly ca
   %.not503 = icmp eq ptr %31, null
   %47 = and i32 %46, -2
   %switch536 = icmp eq i32 %47, 2
-  %48 = load i32, ptr %42, align 4, !tbaa !53
+  %48 = load i32, ptr %42, align 8, !tbaa !53
   %.not504 = icmp eq i32 %48, 0
   br i1 %switch536, label %49, label %52
 

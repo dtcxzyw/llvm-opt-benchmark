@@ -165,11 +165,11 @@ define internal range(i32 -2147483648, 268435453) i32 @decode_frame(ptr noundef 
   store i32 %.018.i.i, ptr %42, align 4, !tbaa !51
   %43 = add nuw nsw i32 %.018.i.i, 8
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  store i32 %43, ptr %44, align 8, !tbaa !52
+  store i32 %43, ptr %44, align 16, !tbaa !52
   %45 = zext nneg i32 %41 to i64
   %46 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store ptr %46, ptr %47, align 8, !tbaa !53
+  store ptr %46, ptr %47, align 16, !tbaa !53
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i32 0, ptr %48, align 8, !tbaa !54
   br i1 %or.cond3.i.i, label %select.unfold, label %.thread
@@ -568,7 +568,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_mb(ptr noundef capt
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %12 = load i32, ptr %11, align 8, !tbaa !52
+  %12 = load i32, ptr %11, align 16, !tbaa !52
   %13 = load ptr, ptr %9, align 8, !tbaa !50
   br i1 %8, label %.preheader, label %.preheader23
 

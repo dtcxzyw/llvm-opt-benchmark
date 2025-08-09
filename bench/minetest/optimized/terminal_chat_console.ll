@@ -3364,7 +3364,7 @@ _ZNSt4pairI8LogLevelNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS7_
   store i64 %7, ptr %_M_string_length.i29.i.i, align 8, !tbaa !9
   store ptr %4, ptr %second3.i, align 8, !tbaa !13
   store i64 0, ptr %_M_string_length.i28.i.i, align 8, !tbaa !9
-  store i8 0, ptr %4, align 1, !tbaa !12
+  store i8 0, ptr %4, align 8, !tbaa !12
   %8 = load ptr, ptr %_M_start.i.i, align 8, !tbaa !162
   %_M_last.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %9 = load ptr, ptr %_M_last.i, align 8, !tbaa !163

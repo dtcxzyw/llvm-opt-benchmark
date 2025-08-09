@@ -5049,7 +5049,7 @@ _init_l_Lean_initFn____x40_Lean_Util_PPExt___hyg_5____closed__5.exit: ; preds = 
   %.val74 = load ptr, ptr %79, align 8, !tbaa !4
   store ptr %.val74, ptr @l_Lean_pp_raw, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val74) #5
-  %80 = load i32, ptr %75, align 4, !tbaa !8
+  %80 = load i32, ptr %75, align 8, !tbaa !8
   %81 = icmp sgt i32 %80, 1
   br i1 %81, label %82, label %84, !prof !11
 
@@ -5127,7 +5127,7 @@ _init_l_Lean_initFn____x40_Lean_Util_PPExt___hyg_45____closed__4.exit: ; preds =
   %.val75 = load ptr, ptr %114, align 8, !tbaa !4
   store ptr %.val75, ptr @l_Lean_pp_raw_showInfo, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val75) #5
-  %115 = load i32, ptr %110, align 4, !tbaa !8
+  %115 = load i32, ptr %110, align 8, !tbaa !8
   %116 = icmp sgt i32 %115, 1
   br i1 %116, label %117, label %119, !prof !11
 
@@ -5185,7 +5185,7 @@ lean_dec_ref.exit56:                              ; preds = %120, %119, %117, %_
   %.val76 = load ptr, ptr %141, align 8, !tbaa !4
   store ptr %.val76, ptr @l_Lean_pp_raw_maxDepth, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val76) #5
-  %142 = load i32, ptr %137, align 4, !tbaa !8
+  %142 = load i32, ptr %137, align 8, !tbaa !8
   %143 = icmp sgt i32 %142, 1
   br i1 %143, label %144, label %146, !prof !11
 
@@ -5241,7 +5241,7 @@ lean_dec_ref.exit58:                              ; preds = %147, %146, %144, %l
   %.val77 = load ptr, ptr %166, align 8, !tbaa !4
   store ptr %.val77, ptr @l_Lean_pp_rawOnError, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val77) #5
-  %167 = load i32, ptr %162, align 4, !tbaa !8
+  %167 = load i32, ptr %162, align 8, !tbaa !8
   %168 = icmp sgt i32 %167, 1
   br i1 %168, label %169, label %171, !prof !11
 
@@ -5325,7 +5325,7 @@ lean_dec_ref.exit60:                              ; preds = %172, %171, %169, %l
   %.val78 = load ptr, ptr %195, align 8, !tbaa !4
   store ptr %.val78, ptr @l_Lean_ppFnsRef, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val78) #5
-  %196 = load i32, ptr %191, align 4, !tbaa !8
+  %196 = load i32, ptr %191, align 8, !tbaa !8
   %197 = icmp sgt i32 %196, 1
   br i1 %197, label %198, label %200, !prof !11
 
@@ -5362,7 +5362,7 @@ lean_dec_ref.exit60:                              ; preds = %172, %171, %169, %l
   %.val79 = load ptr, ptr %210, align 8, !tbaa !4
   store ptr %.val79, ptr @l_Lean_ppExt, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val79) #5
-  %211 = load i32, ptr %206, align 4, !tbaa !8
+  %211 = load i32, ptr %206, align 8, !tbaa !8
   %212 = icmp sgt i32 %211, 1
   br i1 %212, label %213, label %215, !prof !11
 

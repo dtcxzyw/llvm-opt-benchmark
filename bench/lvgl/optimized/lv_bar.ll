@@ -73,7 +73,7 @@ define internal void @lv_bar_constructor(ptr readnone captures(none) %0, ptr nou
 26:                                               ; preds = %21
   %27 = tail call zeroext i1 @lv_anim_delete(ptr noundef nonnull %11, ptr noundef null) #7
   store i32 -1, ptr %14, align 8, !tbaa !24
-  store i32 %.31.i, ptr %6, align 4, !tbaa !26
+  store i32 %.31.i, ptr %6, align 8, !tbaa !26
   tail call void @lv_obj_invalidate(ptr noundef nonnull %1) #7
   %28 = tail call zeroext i1 @lv_anim_delete(ptr noundef nonnull %11, ptr noundef null) #7
   store ptr %1, ptr %11, align 8, !tbaa !21

@@ -1225,11 +1225,11 @@ _ZL12b3CreateNodeP12b3DynamicBvhP10b3DbvtNodeRK12b3DbvtAabbMmPv.exit: ; preds = 
   %184 = getelementptr inbounds ptr, ptr %1, i64 %183
   %185 = sub nsw i32 %2, %.055
   %186 = tail call fastcc noundef ptr @_ZL9b3TopDownP12b3DynamicBvhPP10b3DbvtNodeii(ptr noundef %0, ptr noundef %184, i32 noundef %185, i32 noundef %3)
-  store ptr %186, ptr %181, align 8, !tbaa !31
+  store ptr %186, ptr %181, align 16, !tbaa !31
   %187 = load ptr, ptr %180, align 8, !tbaa !31
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 32
   store ptr %.0.i.i, ptr %188, align 16, !tbaa !45
-  %189 = load ptr, ptr %181, align 8, !tbaa !31
+  %189 = load ptr, ptr %181, align 16, !tbaa !31
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 32
   store ptr %.0.i.i, ptr %190, align 16, !tbaa !45
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1316,7 +1316,7 @@ define dso_local void @_ZN12b3DynamicBvh19optimizeIncrementalEi(ptr noundef nonn
   %40 = load ptr, ptr %39, align 8, !tbaa !31
   store ptr %40, ptr %23, align 8, !tbaa !31
   %41 = load ptr, ptr %14, align 8, !tbaa !31
-  store ptr %41, ptr %19, align 8, !tbaa !31
+  store ptr %41, ptr %19, align 16, !tbaa !31
   %42 = load ptr, ptr %39, align 8, !tbaa !31
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
   store ptr %16, ptr %43, align 16, !tbaa !45
@@ -1429,7 +1429,7 @@ _ZL12b3CreateNodeP12b3DynamicBvhP10b3DbvtNodeRK12b3DbvtAabbMmPv.exit: ; preds = 
   %10 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
   store ptr %2, ptr %10, align 8, !tbaa !31
   %11 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 48
-  store ptr null, ptr %11, align 8, !tbaa !31
+  store ptr null, ptr %11, align 16, !tbaa !31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.0.i.i, ptr noundef nonnull readonly align 16 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !58
   %12 = load ptr, ptr %0, align 8, !tbaa !28
   tail call fastcc void @_ZL12b3InsertLeafP12b3DynamicBvhP10b3DbvtNodeS2_(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %.0.i.i)
@@ -1722,7 +1722,7 @@ define internal fastcc noundef ptr @_ZL12b3RemoveLeafP12b3DynamicBvhP10b3DbvtNod
   %10 = load ptr, ptr %9, align 16, !tbaa !45
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %13 = load ptr, ptr %12, align 8, !tbaa !31
+  %13 = load ptr, ptr %12, align 16, !tbaa !31
   %14 = icmp ne ptr %13, %1
   %15 = zext i1 %14 to i64
   %16 = getelementptr inbounds nuw [2 x ptr], ptr %11, i64 0, i64 %15
@@ -1762,7 +1762,7 @@ define internal fastcc noundef ptr @_ZL12b3RemoveLeafP12b3DynamicBvhP10b3DbvtNod
   %29 = getelementptr inbounds nuw i8, ptr %.03347, i64 40
   %30 = load ptr, ptr %29, align 8, !tbaa !31
   %31 = getelementptr inbounds nuw i8, ptr %.03347, i64 48
-  %32 = load ptr, ptr %31, align 8, !tbaa !31
+  %32 = load ptr, ptr %31, align 16, !tbaa !31
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 16
   br label %35
@@ -2769,7 +2769,7 @@ _ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i: ; pr
   %54 = getelementptr inbounds nuw i8, ptr %.0.i.i35, i64 40
   store ptr %47, ptr %54, align 8, !tbaa !31
   %55 = getelementptr inbounds nuw i8, ptr %.0.i.i35, i64 48
-  store ptr null, ptr %55, align 8, !tbaa !31
+  store ptr null, ptr %55, align 16, !tbaa !31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.0.i.i35, ptr noundef nonnull readonly align 16 dereferenceable(32) %.sroa.0.0.copyload, i64 32, i1 false), !tbaa.struct !58
   store i32 %43, ptr %24, align 4, !tbaa !83
   %.not21 = icmp eq ptr %.sroa.9.0.copyload, null

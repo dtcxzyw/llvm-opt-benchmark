@@ -146,7 +146,7 @@ define void @quantize_row_q8_0(ptr noalias noundef readonly captures(none) %0, p
   %55 = bitcast <32 x i8> %54 to <8 x i32>
   %56 = shufflevector <8 x i32> %55, <8 x i32> poison, <8 x i32> <i32 0, i32 4, i32 1, i32 5, i32 2, i32 6, i32 3, i32 7>
   %57 = getelementptr inbounds nuw i8, ptr %34, i64 2
-  store <8 x i32> %56, ptr %57, align 1, !tbaa !4
+  store <8 x i32> %56, ptr %57, align 2, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
@@ -263,7 +263,7 @@ define void @quantize_row_q8_1(ptr noalias noundef readonly captures(none) %0, p
   %72 = bitcast <32 x i8> %71 to <8 x i32>
   %73 = shufflevector <8 x i32> %72, <8 x i32> poison, <8 x i32> <i32 0, i32 4, i32 1, i32 5, i32 2, i32 6, i32 3, i32 7>
   %74 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  store <8 x i32> %73, ptr %74, align 1, !tbaa !4
+  store <8 x i32> %73, ptr %74, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
@@ -360,7 +360,7 @@ define void @ggml_vec_dot_q4_0_q8_0(i32 noundef %0, ptr noalias noundef writeonl
   %22 = insertelement <8 x float> poison, float %21, i64 0
   %23 = shufflevector <8 x float> %22, <8 x float> poison, <8 x i32> zeroinitializer
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 2
-  %.val = load <2 x i64>, ptr %24, align 1, !tbaa !4
+  %.val = load <2 x i64>, ptr %24, align 2, !tbaa !4
   %25 = bitcast <2 x i64> %.val to <4 x i32>
   %26 = bitcast <2 x i64> %.val to <8 x i16>
   %27 = lshr <8 x i16> %26, splat (i16 4)
@@ -370,7 +370,7 @@ define void @ggml_vec_dot_q4_0_q8_0(i32 noundef %0, ptr noalias noundef writeonl
   %31 = and <32 x i8> %30, splat (i8 15)
   %32 = add nsw <32 x i8> %31, splat (i8 -8)
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 2
-  %34 = load <32 x i8>, ptr %33, align 1, !tbaa !4
+  %34 = load <32 x i8>, ptr %33, align 2, !tbaa !4
   %35 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %32, <32 x i8> %32)
   %36 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %34, <32 x i8> %32)
   %37 = bitcast <32 x i8> %35 to <8 x i32>
@@ -510,14 +510,14 @@ define void @ggml_vec_dot_q4_1_q8_1(i32 noundef %0, ptr noalias noundef writeonl
   %32 = insertelement <8 x float> poison, float %.scalar, i64 0
   %33 = shufflevector <8 x float> %32, <8 x float> poison, <8 x i32> zeroinitializer
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %.val = load <2 x i64>, ptr %34, align 1, !tbaa !4
+  %.val = load <2 x i64>, ptr %34, align 4, !tbaa !4
   %35 = bitcast <2 x i64> %.val to <4 x i32>
   %36 = bitcast <2 x i64> %.val to <8 x i16>
   %37 = lshr <8 x i16> %36, splat (i16 4)
   %38 = bitcast <8 x i16> %37 to <4 x i32>
   %39 = shufflevector <4 x i32> %35, <4 x i32> %38, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %40 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %41 = load <8 x i32>, ptr %40, align 1, !tbaa !4
+  %41 = load <8 x i32>, ptr %40, align 4, !tbaa !4
   %42 = and <8 x i32> %39, splat (i32 252645135)
   %43 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %42, <8 x i32> %41)
   %44 = sitofp <8 x i32> %43 to <8 x float>
@@ -642,14 +642,14 @@ define void @ggml_vec_dot_q5_0_q8_0(i32 noundef %0, ptr noalias noundef writeonl
   %22 = insertelement <8 x float> poison, float %21, i64 0
   %23 = shufflevector <8 x float> %22, <8 x float> poison, <8 x i32> zeroinitializer
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 6
-  %.val = load <2 x i64>, ptr %24, align 1, !tbaa !4
+  %.val = load <2 x i64>, ptr %24, align 2, !tbaa !4
   %25 = bitcast <2 x i64> %.val to <8 x i16>
   %26 = lshr <8 x i16> %25, splat (i16 4)
   %27 = bitcast <8 x i16> %26 to <2 x i64>
   %28 = shufflevector <2 x i64> %.val, <2 x i64> %27, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %29 = and <4 x i64> %28, splat (i64 1085102592571150095)
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 2
-  %.val71 = load i32, ptr %30, align 1
+  %.val71 = load i32, ptr %30, align 2
   %31 = insertelement <8 x i32> poison, i32 %.val71, i64 0
   %32 = bitcast <8 x i32> %31 to <32 x i8>
   %33 = shufflevector <32 x i8> %32, <32 x i8> poison, <32 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
@@ -660,7 +660,7 @@ define void @ggml_vec_dot_q5_0_q8_0(i32 noundef %0, ptr noalias noundef writeonl
   %38 = and <4 x i64> %37, splat (i64 -1085102592571150096)
   %39 = or disjoint <4 x i64> %38, %29
   %40 = getelementptr inbounds nuw i8, ptr %16, i64 2
-  %41 = load <32 x i8>, ptr %40, align 1, !tbaa !4
+  %41 = load <32 x i8>, ptr %40, align 2, !tbaa !4
   %42 = bitcast <4 x i64> %39 to <32 x i8>
   %43 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %42, <32 x i8> %42)
   %44 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %41, <32 x i8> %42)
@@ -800,14 +800,14 @@ define void @ggml_vec_dot_q5_1_q8_1(i32 noundef %0, ptr noalias noundef writeonl
   %26 = load float, ptr %25, align 4, !tbaa !13
   %27 = tail call float @llvm.fmuladd.f32(float %20, float %26, float %.07682)
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.val = load <2 x i64>, ptr %28, align 1, !tbaa !4
+  %.val = load <2 x i64>, ptr %28, align 4, !tbaa !4
   %29 = bitcast <2 x i64> %.val to <8 x i16>
   %30 = lshr <8 x i16> %29, splat (i16 4)
   %31 = bitcast <8 x i16> %30 to <2 x i64>
   %32 = shufflevector <2 x i64> %.val, <2 x i64> %31, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %33 = and <4 x i64> %32, splat (i64 1085102592571150095)
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %.val81 = load i32, ptr %34, align 1
+  %.val81 = load i32, ptr %34, align 4
   %35 = insertelement <8 x i32> poison, i32 %.val81, i64 0
   %36 = bitcast <8 x i32> %35 to <32 x i8>
   %37 = shufflevector <32 x i8> %36, <32 x i8> poison, <32 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
@@ -822,7 +822,7 @@ define void @ggml_vec_dot_q5_1_q8_1(i32 noundef %0, ptr noalias noundef writeonl
   %46 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %45
   %47 = load float, ptr %46, align 4, !tbaa !13
   %48 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %49 = load <8 x i32>, ptr %48, align 1, !tbaa !4
+  %49 = load <8 x i32>, ptr %48, align 4, !tbaa !4
   %50 = bitcast <4 x i64> %43 to <8 x i32>
   %51 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %50, <8 x i32> %49)
   %52 = sitofp <8 x i32> %51 to <8 x float>
@@ -962,9 +962,9 @@ define void @ggml_vec_dot_q8_0_q8_0(i32 noundef %0, ptr noalias noundef writeonl
   %22 = insertelement <8 x float> poison, float %21, i64 0
   %23 = shufflevector <8 x float> %22, <8 x float> poison, <8 x i32> zeroinitializer
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 2
-  %25 = load <32 x i8>, ptr %24, align 1, !tbaa !4
+  %25 = load <32 x i8>, ptr %24, align 2, !tbaa !4
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 2
-  %27 = load <32 x i8>, ptr %26, align 1, !tbaa !4
+  %27 = load <32 x i8>, ptr %26, align 2, !tbaa !4
   %28 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %25, <32 x i8> %25)
   %29 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %27, <32 x i8> %25)
   %30 = bitcast <32 x i8> %28 to <8 x i32>
@@ -1386,9 +1386,9 @@ define void @ggml_vec_dot_q2_K_q8_K(i32 noundef %0, ptr noalias noundef writeonl
   %31 = load float, ptr %30, align 4, !tbaa !13
   %32 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %33 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %34 = load <2 x i64>, ptr %21, align 1, !tbaa !4
+  %34 = load <2 x i64>, ptr %21, align 4, !tbaa !4
   %35 = getelementptr inbounds nuw i8, ptr %19, i64 260
-  %36 = load <16 x i16>, ptr %35, align 1, !tbaa !4
+  %36 = load <16 x i16>, ptr %35, align 4, !tbaa !4
   %37 = bitcast <2 x i64> %34 to <16 x i8>
   %38 = and <16 x i8> %37, splat (i8 15)
   %39 = zext nneg <16 x i8> %38 to <16 x i16>
@@ -1540,7 +1540,7 @@ define void @ggml_vec_dot_q3_K_q8_K(i32 noundef %0, ptr noalias noundef writeonl
   %53 = shufflevector <16 x i16> %52, <16 x i16> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %54 = bitcast <16 x i16> %52 to <8 x i32>
   %55 = shufflevector <8 x i32> %54, <8 x i32> poison, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 4, i32 5, i32 6, i32 7>
-  %56 = load <16 x i16>, ptr %21, align 1, !tbaa !4
+  %56 = load <16 x i16>, ptr %21, align 2, !tbaa !4
   %57 = xor <16 x i16> %56, splat (i16 -1)
   %58 = bitcast <16 x i16> %53 to <32 x i8>
   %59 = bitcast <8 x i32> %55 to <32 x i8>
@@ -1711,7 +1711,7 @@ define void @ggml_vec_dot_q4_K_q8_K(i32 noundef %0, ptr noalias noundef writeonl
   %52 = bitcast <4 x i32> %51 to <16 x i8>
   %53 = zext nneg <16 x i8> %52 to <16 x i16>
   %54 = getelementptr inbounds nuw i8, ptr %22, i64 260
-  %55 = load <4 x i64>, ptr %54, align 1, !tbaa !4
+  %55 = load <4 x i64>, ptr %54, align 4, !tbaa !4
   %56 = shufflevector <16 x i16> %53, <16 x i16> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %57 = bitcast <16 x i16> %56 to <32 x i8>
   br label %77
@@ -1852,10 +1852,10 @@ define void @ggml_vec_dot_q5_K_q8_K(i32 noundef %0, ptr noalias noundef writeonl
   %49 = bitcast <4 x i32> %48 to <16 x i8>
   %50 = zext nneg <16 x i8> %49 to <16 x i16>
   %51 = getelementptr inbounds nuw i8, ptr %21, i64 260
-  %52 = load <4 x i64>, ptr %51, align 1, !tbaa !4
+  %52 = load <4 x i64>, ptr %51, align 4, !tbaa !4
   %53 = shufflevector <16 x i16> %50, <16 x i16> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %54 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %55 = load <4 x i64>, ptr %54, align 1, !tbaa !4
+  %55 = load <4 x i64>, ptr %54, align 4, !tbaa !4
   %56 = bitcast <16 x i16> %53 to <32 x i8>
   %57 = bitcast <4 x i64> %55 to <16 x i16>
   br label %78
@@ -1980,7 +1980,7 @@ define void @ggml_vec_dot_q6_K_q8_K(i32 noundef %0, ptr noalias noundef writeonl
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 128
   %27 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 192
-  %29 = load <16 x i8>, ptr %28, align 1, !tbaa !4
+  %29 = load <16 x i8>, ptr %28, align 2, !tbaa !4
   br label %36
 
 30:                                               ; preds = %36

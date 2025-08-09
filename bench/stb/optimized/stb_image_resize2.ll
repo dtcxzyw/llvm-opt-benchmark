@@ -2043,8 +2043,8 @@ define noundef i32 @stbir__pack_coefficients(i32 noundef %0, ptr noundef capture
   %22 = getelementptr inbounds nuw i8, ptr %.2, i64 8
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %22) #24, !srcloc !76
   %23 = getelementptr inbounds nuw i8, ptr %.2254, i64 8
-  %24 = load i32, ptr %23, align 4, !tbaa !18
-  store i32 %24, ptr %22, align 4, !tbaa !18
+  %24 = load i32, ptr %23, align 8, !tbaa !18
+  store i32 %24, ptr %22, align 8, !tbaa !18
   %25 = getelementptr inbounds nuw i8, ptr %.2, i64 12
   %26 = getelementptr inbounds float, ptr %.2254, i64 %11
   %27 = icmp ult ptr %25, %10
@@ -2107,8 +2107,8 @@ define noundef i32 @stbir__pack_coefficients(i32 noundef %0, ptr noundef capture
   %50 = getelementptr inbounds nuw i8, ptr %.6, i64 24
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %50) #24, !srcloc !88
   %51 = getelementptr inbounds nuw i8, ptr %.6258, i64 24
-  %52 = load i32, ptr %51, align 4, !tbaa !18
-  store i32 %52, ptr %50, align 4, !tbaa !18
+  %52 = load i32, ptr %51, align 8, !tbaa !18
+  store i32 %52, ptr %50, align 8, !tbaa !18
   %53 = getelementptr inbounds nuw i8, ptr %.6, i64 28
   %54 = getelementptr inbounds float, ptr %.6258, i64 %11
   %55 = icmp ult ptr %53, %10
@@ -2191,8 +2191,8 @@ define noundef i32 @stbir__pack_coefficients(i32 noundef %0, ptr noundef capture
   %90 = getelementptr inbounds nuw i8, ptr %.10, i64 40
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %90) #24, !srcloc !104
   %91 = getelementptr inbounds nuw i8, ptr %.10262, i64 40
-  %92 = load i32, ptr %91, align 4, !tbaa !18
-  store i32 %92, ptr %90, align 4, !tbaa !18
+  %92 = load i32, ptr %91, align 8, !tbaa !18
+  store i32 %92, ptr %90, align 8, !tbaa !18
   %93 = getelementptr inbounds nuw i8, ptr %.10, i64 44
   %94 = getelementptr inbounds float, ptr %.10262, i64 %11
   %95 = icmp ult ptr %93, %10
@@ -2562,7 +2562,7 @@ stbir__calculate_coefficients_for_gather_upsample.exit: ; preds = %stbir__calcul
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 %119, ptr %120, align 4, !tbaa !125
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %122 = load i32, ptr %121, align 4, !tbaa !126
+  %122 = load i32, ptr %121, align 8, !tbaa !126
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %122, ptr %123, align 4, !tbaa !126
   %124 = getelementptr inbounds nuw i8, ptr %1, i64 124
@@ -14154,11 +14154,11 @@ define void @stbir__simple_flip_3ch(ptr noundef %0, i32 noundef %1) #0 {
   store <4 x float> %21, ptr %8, align 1, !tbaa !4
   %29 = getelementptr inbounds nuw i8, ptr %.053, i64 92
   %30 = load float, ptr %29, align 4, !tbaa !50
-  store <4 x float> %22, ptr %10, align 1, !tbaa !4
-  store <4 x float> %23, ptr %12, align 1, !tbaa !4
-  store <4 x float> %24, ptr %14, align 1, !tbaa !4
-  store <4 x float> %25, ptr %16, align 1, !tbaa !4
-  store <4 x float> %26, ptr %18, align 1, !tbaa !4
+  store <4 x float> %22, ptr %10, align 4, !tbaa !4
+  store <4 x float> %23, ptr %12, align 4, !tbaa !4
+  store <4 x float> %24, ptr %14, align 4, !tbaa !4
+  store <4 x float> %25, ptr %16, align 4, !tbaa !4
+  store <4 x float> %26, ptr %18, align 4, !tbaa !4
   store float %30, ptr %27, align 4, !tbaa !50
   store float %28, ptr %29, align 4, !tbaa !50
   %31 = getelementptr inbounds nuw i8, ptr %.053, i64 96

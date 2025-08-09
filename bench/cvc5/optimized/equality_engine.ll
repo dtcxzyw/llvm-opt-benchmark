@@ -29307,9 +29307,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN4
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4cvc57context11CDOhash_mapISt4pairIjjEjNS_8internal16PairHashFunctionIjjSt4hashIjES7_EEEE, i64 16), ptr %10, align 8, !tbaa !206
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %14 = load i64, ptr %1, align 4
-  store i64 %14, ptr %13, align 4
+  store i64 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  store i32 0, ptr %15, align 4, !tbaa !436
+  store i32 0, ptr %15, align 8, !tbaa !436
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store ptr null, ptr %16, align 8, !tbaa !288
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -36356,10 +36356,10 @@ define linkonce_odr hidden noundef ptr @_ZN4cvc57context11CDOhash_mapISt4pairIjj
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4cvc57context11CDOhash_mapISt4pairIjjEjNS_8internal16PairHashFunctionIjjSt4hashIjES7_EEEE, i64 16), ptr %3, align 8, !tbaa !206
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 0, ptr %6, align 4
+  store i64 0, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load i32, ptr %7, align 8, !tbaa !197
-  store i32 %9, ptr %8, align 4, !tbaa !436
+  store i32 %9, ptr %8, align 8, !tbaa !436
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load ptr, ptr %11, align 8, !tbaa !288
@@ -36696,9 +36696,9 @@ _ZNKSt8__detail15_Hashtable_baseISt4pairIjjES1_IKS2_N4cvc58internal6theory2eq20D
   store ptr null, ptr %36, align 8, !tbaa !160
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load i64, ptr %1, align 4
-  store i64 %38, ptr %37, align 4
+  store i64 %38, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  store i32 0, ptr %39, align 4, !tbaa !1031
+  store i32 0, ptr %39, align 8, !tbaa !1031
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 20
   store i32 0, ptr %40, align 4, !tbaa !1033
   %41 = invoke ptr @_ZNSt10_HashtableISt4pairIjjES0_IKS1_N4cvc58internal6theory2eq20DisequalityReasonRefEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS4_16PairHashFunctionIjjSt4hashIjESG_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %14, i64 noundef %11, ptr noundef nonnull %36, i64 noundef 1)

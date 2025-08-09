@@ -599,7 +599,7 @@ define ptr @ff_rtp_parse_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, i3
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 496
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 512
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %13, i8 0, i64 40, i1 false)
-  store i32 1, ptr %14, align 4, !tbaa !61
+  store i32 1, ptr %14, align 8, !tbaa !61
   %.not28 = icmp eq ptr %1, null
   br i1 %.not28, label %44, label %15
 
@@ -940,8 +940,8 @@ define i32 @ff_rtp_parse_packet(ptr noundef %0, ptr noundef %1, ptr noundef capt
   %107 = call i32 @llvm.bswap.i32(i32 %106)
   %108 = sub i32 %104, %107
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %110 = load i32, ptr %109, align 4, !tbaa !88
-  store i32 %108, ptr %109, align 4, !tbaa !88
+  %110 = load i32, ptr %109, align 8, !tbaa !88
+  store i32 %108, ptr %109, align 8, !tbaa !88
   %.not.i76.i = icmp eq i32 %110, 0
   br i1 %.not.i76.i, label %rtcp_update_jitter.exit.i, label %111
 
@@ -1479,9 +1479,9 @@ define internal fastcc i32 @rtp_parse_packet_internal(ptr noundef captures(none)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !59
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  %30 = load i16, ptr %29, align 4, !tbaa !35
+  %30 = load i16, ptr %29, align 8, !tbaa !35
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %32 = load i32, ptr %31, align 4, !tbaa !61
+  %32 = load i32, ptr %31, align 8, !tbaa !61
   %.not.i = icmp eq i32 %32, 0
   br i1 %.not.i, label %48, label %33
 

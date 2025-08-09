@@ -969,7 +969,7 @@ define void @_ZN2cv32createNormHistogramCostExtractorEiif(ptr dead_on_unwind noa
   store ptr %7, ptr %6, align 8, !tbaa !90
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 0, ptr %8, align 8, !tbaa !91
-  store i8 0, ptr %7, align 1, !tbaa !92
+  store i8 0, ptr %7, align 8, !tbaa !92
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %1, ptr %9, align 8, !tbaa !76
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -1912,7 +1912,7 @@ define void @_ZN2cv31createEMDHistogramCostExtractorEiif(ptr dead_on_unwind noal
   store ptr %7, ptr %6, align 8, !tbaa !90
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 0, ptr %8, align 8, !tbaa !91
-  store i8 0, ptr %7, align 1, !tbaa !92
+  store i8 0, ptr %7, align 8, !tbaa !92
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %1, ptr %9, align 8, !tbaa !139
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -2580,7 +2580,7 @@ define void @_ZN2cv31createChiHistogramCostExtractorEif(ptr dead_on_unwind noali
   store ptr %6, ptr %5, align 8, !tbaa !90
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8, !tbaa !91
-  store i8 0, ptr %6, align 1, !tbaa !92
+  store i8 0, ptr %6, align 8, !tbaa !92
   %8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.7, i64 noundef 26)
           to label %15 unwind label %9
 
@@ -3447,7 +3447,7 @@ define void @_ZN2cv33createEMDL1HistogramCostExtractorEif(ptr dead_on_unwind noa
   store ptr %6, ptr %5, align 8, !tbaa !90
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8, !tbaa !91
-  store i8 0, ptr %6, align 1, !tbaa !92
+  store i8 0, ptr %6, align 8, !tbaa !92
   %8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.7, i64 noundef 26)
           to label %15 unwind label %9
 

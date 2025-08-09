@@ -522,12 +522,12 @@ invoke.cont26:                                    ; preds = %invoke.cont26.lr.ph
   %inc.i.i103 = add nsw i64 %17, 1
   store i64 %inc.i.i103, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   %second3.i = getelementptr inbounds nuw i8, ptr %add.ptr.i102, i64 8
-  store i32 %conv4.i, ptr %second3.i, align 4
+  store i32 %conv4.i, ptr %second3.i, align 8
   %mMagicValue.i.i106 = getelementptr inbounds nuw i8, ptr %add.ptr.i102, i64 24
-  %18 = load i32, ptr %mMagicValue.i.i106, align 4
-  store i32 32623592, ptr %mMagicValue.i.i106, align 4
+  %18 = load i32, ptr %mMagicValue.i.i106, align 8
+  store i32 32623592, ptr %mMagicValue.i.i106, align 8
   %mbThrowOnCopy.i.i107 = getelementptr inbounds nuw i8, ptr %add.ptr.i102, i64 12
-  store i8 0, ptr %mbThrowOnCopy.i.i107, align 1
+  store i8 0, ptr %mbThrowOnCopy.i.i107, align 4
   %cmp.not.i.i109 = icmp eq i32 %18, 32623592
   br i1 %cmp.not.i.i109, label %invoke.cont36, label %if.then.i.i110
 
@@ -558,12 +558,12 @@ invoke.cont36:                                    ; preds = %invoke.cont26, %if.
   %inc.i.i133 = add nsw i64 %25, 1
   store i64 %inc.i.i133, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   %second.i136 = getelementptr inbounds nuw i8, ptr %add.ptr.i132, i64 8
-  store i32 %conv4.i, ptr %second.i136, align 4
+  store i32 %conv4.i, ptr %second.i136, align 8
   %mMagicValue.i.i138 = getelementptr inbounds nuw i8, ptr %add.ptr.i132, i64 24
-  %26 = load i32, ptr %mMagicValue.i.i138, align 4
-  store i32 32623592, ptr %mMagicValue.i.i138, align 4
+  %26 = load i32, ptr %mMagicValue.i.i138, align 8
+  store i32 32623592, ptr %mMagicValue.i.i138, align 8
   %mbThrowOnCopy.i.i140 = getelementptr inbounds nuw i8, ptr %add.ptr.i132, i64 12
-  store i8 0, ptr %mbThrowOnCopy.i.i140, align 1
+  store i8 0, ptr %mbThrowOnCopy.i.i140, align 4
   %cmp.not.i.i145 = icmp eq i32 %26, 32623592
   br i1 %cmp.not.i.i145, label %_ZN10TestObjectD2Ev.exit156, label %if.then.i.i146
 
@@ -4482,7 +4482,7 @@ for.body.i:                                       ; preds = %_ZN2EA4StdC9Stopwat
   %560 = load ptr, ptr %retval.sroa.0.0.copyload.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.copyload.i.i, i64 8
   %561 = load i64, ptr %_M_bucket_count.i.i, align 8
-  %562 = load i32, ptr %add.ptr.i.i.i.i, align 4
+  %562 = load i32, ptr %add.ptr.i.i.i.i, align 8
   %conv.i.i.i.i.i.i.i.i1206 = zext i32 %562 to i64
   %rem.i.i.i.i.i.i.i1207 = urem i64 %conv.i.i.i.i.i.i.i.i1206, %561
   %563 = load ptr, ptr %stdMapUint32TO, align 8
@@ -7538,7 +7538,7 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIj
   %__bbegin_bkt.021 = phi i64 [ %__bbegin_bkt.1, %if.end22 ], [ 0, %_ZNSt10_HashtableIjSt4pairIKj10TestObjectESaIS3_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %1 = load ptr, ptr %__p.022, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %__p.022, i64 8
-  %2 = load i32, ptr %add.ptr, align 4
+  %2 = load i32, ptr %add.ptr, align 8
   %conv.i.i.i = zext i32 %2 to i64
   %rem.i.i = urem i64 %conv.i.i.i, %__bkt_count
   %arrayidx = getelementptr inbounds nuw ptr, ptr %retval.0.i, i64 %rem.i.i
@@ -7729,7 +7729,7 @@ entry:
   store i64 %inc5.i.i.i, ptr %mId.i.i.i, align 8
   %mpNext.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store ptr null, ptr %mpNext.i, align 8
-  %7 = load i32, ptr %call.i.i.i, align 4
+  %7 = load i32, ptr %call.i.i.i, align 8
   %conv.i.i = zext i32 %7 to i64
   %mnBucketCount = getelementptr inbounds nuw i8, ptr %this, i64 16
   %8 = load i64, ptr %mnBucketCount, align 8

@@ -4414,7 +4414,7 @@ _ZnwmRKSt9nothrow_t.exit.i.i.i.i.i.i:             ; preds = %8, %5
   store ptr %23, ptr %22, align 8, !tbaa !69
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store i64 0, ptr %24, align 8, !tbaa !45
-  store i8 0, ptr %23, align 1, !tbaa !59
+  store i8 0, ptr %23, align 8, !tbaa !59
   store ptr %12, ptr %17, align 8, !tbaa !216
   %25 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIiESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %18)
           to label %26 unwind label %41
@@ -5548,7 +5548,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES
   store ptr %22, ptr %21, align 8, !tbaa !69
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store i64 0, ptr %23, align 8, !tbaa !45
-  store i8 0, ptr %22, align 1, !tbaa !59
+  store i8 0, ptr %22, align 8, !tbaa !59
   store ptr %12, ptr %16, align 8, !tbaa !235
   %24 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt7greaterIvESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %17)
           to label %25 unwind label %40

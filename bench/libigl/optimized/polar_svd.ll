@@ -2006,9 +2006,9 @@ define linkonce_odr dso_local void @_ZN3igl9polar_svdIN5Eigen6MatrixIdLi3ELi3ELi
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %55 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %57 = load <2 x double>, ptr %4, align 1, !tbaa !28
-  %58 = load <2 x double>, ptr %54, align 1, !tbaa !28
-  %59 = load <2 x double>, ptr %29, align 1, !tbaa !28
+  %57 = load <2 x double>, ptr %4, align 8, !tbaa !28
+  %58 = load <2 x double>, ptr %54, align 8, !tbaa !28
+  %59 = load <2 x double>, ptr %29, align 8, !tbaa !28
   %60 = load double, ptr %23, align 8, !tbaa !25
   %61 = load double, ptr %56, align 8, !tbaa !25
   %62 = load double, ptr %32, align 8, !tbaa !25
@@ -2393,13 +2393,13 @@ define linkonce_odr dso_local void @_ZN3igl9polar_svdIN5Eigen6MatrixIfLi2ELi2ELi
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %22 = load float, ptr %21, align 4, !tbaa !84
   store float %22, ptr %20, align 4, !tbaa !84
-  %23 = load float, ptr %4, align 4, !tbaa !84
-  %24 = load float, ptr %6, align 4, !tbaa !84
+  %23 = load float, ptr %4, align 16, !tbaa !84
+  %24 = load float, ptr %6, align 16, !tbaa !84
   %25 = fmul float %23, %24
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %27 = load float, ptr %26, align 4, !tbaa !84
+  %27 = load float, ptr %26, align 8, !tbaa !84
   %28 = getelementptr i8, ptr %6, i64 8
-  %29 = load float, ptr %28, align 4, !tbaa !84
+  %29 = load float, ptr %28, align 8, !tbaa !84
   %30 = fmul float %27, %29
   %31 = fadd float %25, %30
   %.sroa.0.0.vec.insert.i.i.i.i = insertelement <4 x float> poison, float %31, i64 0
@@ -2460,11 +2460,11 @@ define linkonce_odr dso_local void @_ZN3igl9polar_svdIN5Eigen6MatrixIfLi2ELi2ELi
   %.sroa.0.12.vec.insert.i.i.i.i40 = insertelement <4 x float> %.sroa.0.8.vec.insert.i.i.i.i39, float %70, i64 3
   store <4 x float> %.sroa.0.12.vec.insert.i.i.i.i40, ptr %2, align 16, !tbaa !28
   %71 = load float, ptr %5, align 4, !tbaa !84
-  %72 = load float, ptr %6, align 4, !tbaa !84
+  %72 = load float, ptr %6, align 16, !tbaa !84
   %73 = fmul float %71, %72
   %74 = fmul float %.sroa.0.0.copyload, %73
   %75 = load float, ptr %20, align 4, !tbaa !84
-  %76 = load float, ptr %28, align 4, !tbaa !84
+  %76 = load float, ptr %28, align 8, !tbaa !84
   %77 = fmul float %75, %76
   %78 = fmul float %.sroa.5.0.copyload, %77
   %79 = fsub float %74, %78
@@ -2557,11 +2557,11 @@ define weak_odr dso_local void @_ZN3igl9polar_svdIN5Eigen6MatrixIdLi2ELi2ELi0ELi
   %24 = load <2 x double>, ptr %23, align 16, !tbaa !28
   store <2 x double> %24, ptr %4, align 16, !tbaa !28
   %25 = load <2 x double>, ptr %3, align 16, !tbaa !28
-  %26 = load <2 x double>, ptr %5, align 8
+  %26 = load <2 x double>, ptr %5, align 16
   %27 = shufflevector <2 x double> %26, <2 x double> poison, <2 x i32> zeroinitializer
   %28 = fmul <2 x double> %25, %27
   %29 = load <2 x double>, ptr %15, align 16, !tbaa !28
-  %30 = load <2 x double>, ptr %20, align 8
+  %30 = load <2 x double>, ptr %20, align 16
   %31 = shufflevector <2 x double> %30, <2 x double> poison, <2 x i32> zeroinitializer
   %32 = fmul <2 x double> %29, %31
   %33 = fadd <2 x double> %28, %32
@@ -2604,14 +2604,14 @@ define weak_odr dso_local void @_ZN3igl9polar_svdIN5Eigen6MatrixIdLi2ELi2ELi0ELi
   store <2 x double> %58, ptr %1, align 16, !tbaa !28
   store <2 x double> %63, ptr %39, align 16, !tbaa !28
   %64 = load double, ptr %4, align 8, !tbaa !25
-  %65 = load double, ptr %5, align 8, !tbaa !25
+  %65 = load double, ptr %5, align 16, !tbaa !25
   %66 = fmul double %64, %65
   %67 = insertelement <2 x double> poison, double %66, i64 0
   %68 = shufflevector <2 x double> %67, <2 x double> poison, <2 x i32> zeroinitializer
   %69 = fmul <2 x double> %.sroa.0.0.copyload.i, %68
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %71 = load double, ptr %70, align 8, !tbaa !25
-  %72 = load double, ptr %20, align 8, !tbaa !25
+  %72 = load double, ptr %20, align 16, !tbaa !25
   %73 = fmul double %71, %72
   %74 = insertelement <2 x double> poison, double %73, i64 0
   %75 = shufflevector <2 x double> %74, <2 x double> poison, <2 x i32> zeroinitializer
@@ -28331,7 +28331,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal55copy_using_evaluator_Def
   %6 = load ptr, ptr %5, align 8, !tbaa !1224
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load float, ptr %6, align 4, !tbaa !84
-  %9 = load float, ptr %7, align 4, !tbaa !84
+  %9 = load float, ptr %7, align 8, !tbaa !84
   %10 = fmul float %8, %9
   %11 = getelementptr i8, ptr %6, i64 12
   %12 = load float, ptr %11, align 4, !tbaa !84
@@ -28341,7 +28341,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal55copy_using_evaluator_Def
   %16 = getelementptr i8, ptr %6, i64 24
   %17 = load float, ptr %16, align 4, !tbaa !84
   %18 = getelementptr i8, ptr %5, i64 32
-  %19 = load float, ptr %18, align 4, !tbaa !84
+  %19 = load float, ptr %18, align 8, !tbaa !84
   %20 = fmul float %17, %19
   %21 = fadd float %15, %20
   %22 = fadd float %10, %21
@@ -28349,7 +28349,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal55copy_using_evaluator_Def
   %23 = getelementptr i8, ptr %3, i64 4
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %25 = load float, ptr %24, align 4, !tbaa !84
-  %26 = load float, ptr %7, align 4, !tbaa !84
+  %26 = load float, ptr %7, align 8, !tbaa !84
   %27 = fmul float %25, %26
   %28 = getelementptr i8, ptr %6, i64 16
   %29 = load float, ptr %28, align 4, !tbaa !84
@@ -28357,7 +28357,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal55copy_using_evaluator_Def
   %31 = fmul float %29, %30
   %32 = getelementptr i8, ptr %6, i64 28
   %33 = load float, ptr %32, align 4, !tbaa !84
-  %34 = load float, ptr %18, align 4, !tbaa !84
+  %34 = load float, ptr %18, align 8, !tbaa !84
   %35 = fmul float %33, %34
   %36 = fadd float %31, %35
   %37 = fadd float %27, %36
@@ -28365,7 +28365,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal55copy_using_evaluator_Def
   %38 = getelementptr i8, ptr %3, i64 8
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %40 = load float, ptr %39, align 4, !tbaa !84
-  %41 = load float, ptr %7, align 4, !tbaa !84
+  %41 = load float, ptr %7, align 8, !tbaa !84
   %42 = fmul float %40, %41
   %43 = getelementptr i8, ptr %6, i64 20
   %44 = load float, ptr %43, align 4, !tbaa !84
@@ -28373,7 +28373,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal55copy_using_evaluator_Def
   %46 = fmul float %44, %45
   %47 = getelementptr i8, ptr %6, i64 32
   %48 = load float, ptr %47, align 4, !tbaa !84
-  %49 = load float, ptr %18, align 4, !tbaa !84
+  %49 = load float, ptr %18, align 8, !tbaa !84
   %50 = fmul float %48, %49
   %51 = fadd float %46, %50
   %52 = fadd float %42, %51
@@ -28385,7 +28385,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal55copy_using_evaluator_Def
   %57 = fmul float %55, %56
   %58 = load float, ptr %11, align 4, !tbaa !84
   %59 = getelementptr i8, ptr %5, i64 24
-  %60 = load float, ptr %59, align 4, !tbaa !84
+  %60 = load float, ptr %59, align 8, !tbaa !84
   %61 = fmul float %58, %60
   %62 = load float, ptr %16, align 4, !tbaa !84
   %63 = getelementptr i8, ptr %5, i64 36
@@ -28399,7 +28399,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal55copy_using_evaluator_Def
   %70 = load float, ptr %54, align 4, !tbaa !84
   %71 = fmul float %69, %70
   %72 = load float, ptr %28, align 4, !tbaa !84
-  %73 = load float, ptr %59, align 4, !tbaa !84
+  %73 = load float, ptr %59, align 8, !tbaa !84
   %74 = fmul float %72, %73
   %75 = load float, ptr %32, align 4, !tbaa !84
   %76 = load float, ptr %63, align 4, !tbaa !84
@@ -28412,7 +28412,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal55copy_using_evaluator_Def
   %82 = load float, ptr %54, align 4, !tbaa !84
   %83 = fmul float %81, %82
   %84 = load float, ptr %43, align 4, !tbaa !84
-  %85 = load float, ptr %59, align 4, !tbaa !84
+  %85 = load float, ptr %59, align 8, !tbaa !84
   %86 = fmul float %84, %85
   %87 = load float, ptr %47, align 4, !tbaa !84
   %88 = load float, ptr %63, align 4, !tbaa !84
@@ -28423,7 +28423,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal55copy_using_evaluator_Def
   %92 = getelementptr i8, ptr %3, i64 24
   %93 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %94 = load float, ptr %6, align 4, !tbaa !84
-  %95 = load float, ptr %93, align 4, !tbaa !84
+  %95 = load float, ptr %93, align 8, !tbaa !84
   %96 = fmul float %94, %95
   %97 = load float, ptr %11, align 4, !tbaa !84
   %98 = getelementptr i8, ptr %5, i64 28
@@ -28431,33 +28431,33 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal55copy_using_evaluator_Def
   %100 = fmul float %97, %99
   %101 = load float, ptr %16, align 4, !tbaa !84
   %102 = getelementptr i8, ptr %5, i64 40
-  %103 = load float, ptr %102, align 4, !tbaa !84
+  %103 = load float, ptr %102, align 8, !tbaa !84
   %104 = fmul float %101, %103
   %105 = fadd float %100, %104
   %106 = fadd float %96, %105
   store float %106, ptr %92, align 4, !tbaa !84
   %107 = getelementptr i8, ptr %3, i64 28
   %108 = load float, ptr %24, align 4, !tbaa !84
-  %109 = load float, ptr %93, align 4, !tbaa !84
+  %109 = load float, ptr %93, align 8, !tbaa !84
   %110 = fmul float %108, %109
   %111 = load float, ptr %28, align 4, !tbaa !84
   %112 = load float, ptr %98, align 4, !tbaa !84
   %113 = fmul float %111, %112
   %114 = load float, ptr %32, align 4, !tbaa !84
-  %115 = load float, ptr %102, align 4, !tbaa !84
+  %115 = load float, ptr %102, align 8, !tbaa !84
   %116 = fmul float %114, %115
   %117 = fadd float %113, %116
   %118 = fadd float %110, %117
   store float %118, ptr %107, align 4, !tbaa !84
   %119 = getelementptr i8, ptr %3, i64 32
   %120 = load float, ptr %39, align 4, !tbaa !84
-  %121 = load float, ptr %93, align 4, !tbaa !84
+  %121 = load float, ptr %93, align 8, !tbaa !84
   %122 = fmul float %120, %121
   %123 = load float, ptr %43, align 4, !tbaa !84
   %124 = load float, ptr %98, align 4, !tbaa !84
   %125 = fmul float %123, %124
   %126 = load float, ptr %47, align 4, !tbaa !84
-  %127 = load float, ptr %102, align 4, !tbaa !84
+  %127 = load float, ptr %102, align 8, !tbaa !84
   %128 = fmul float %126, %127
   %129 = fadd float %125, %128
   %130 = fadd float %122, %129

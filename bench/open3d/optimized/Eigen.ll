@@ -38843,7 +38843,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %82, %79
   %89 = getelementptr inbounds nuw %"struct.Eigen::internal::GemmParallelInfo", ptr %87, i64 %.06.i.i
   store i64 -1, ptr %89, align 8, !tbaa !1021
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  store i32 0, ptr %90, align 4, !tbaa !1023
+  store i32 0, ptr %90, align 8, !tbaa !1023
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, i8 0, i64 16, i1 false)
   %92 = add nuw i64 %.06.i.i, 1

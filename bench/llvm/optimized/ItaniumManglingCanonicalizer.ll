@@ -55639,7 +55639,7 @@ define linkonce_odr hidden { i32, ptr } @_ZNK4llvm16itanium_demangle13ReferenceT
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !162
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %21 = load i32, ptr %20, align 4, !tbaa !407
+  %21 = load i32, ptr %20, align 8, !tbaa !407
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %21, i32 %.sroa.0.017)
   %22 = load ptr, ptr %8, align 8, !tbaa !410
   %23 = load ptr, ptr %9, align 8, !tbaa !411

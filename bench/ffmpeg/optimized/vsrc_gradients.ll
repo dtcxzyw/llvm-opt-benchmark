@@ -177,7 +177,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   %78 = getelementptr inbounds nuw i8, ptr %24, i64 124
   store i32 1, ptr %78, align 4, !tbaa !50
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 128
-  store i32 1, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !50
+  store i32 1, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !50
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %80 = load i64, ptr %79, align 8, !tbaa !29
   %81 = add nsw i64 %80, 1

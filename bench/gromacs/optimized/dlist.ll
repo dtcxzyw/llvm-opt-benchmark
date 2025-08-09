@@ -1337,7 +1337,7 @@ _ZSt19__relocate_object_aI7t_dlistS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = 
   store i64 %47, ptr %49, align 8, !tbaa !54, !alias.scope !64, !noalias !67
   store ptr %39, ptr %36, align 8, !tbaa !56, !alias.scope !67, !noalias !64
   store i64 0, ptr %48, align 8, !tbaa !54, !alias.scope !67, !noalias !64
-  store i8 0, ptr %39, align 1, !tbaa !53, !alias.scope !67, !noalias !64
+  store i8 0, ptr %39, align 8, !tbaa !53, !alias.scope !67, !noalias !64
   %50 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 48
   %51 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %50, ptr noundef nonnull align 8 dereferenceable(352) %51, i64 352, i1 false), !alias.scope !69

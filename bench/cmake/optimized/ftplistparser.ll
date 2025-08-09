@@ -418,7 +418,7 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr noundef readonly captures(n
   store i64 %115, ptr %37, align 8, !tbaa !110
   store i32 0, ptr %29, align 8, !tbaa !99
   store i32 3, ptr %30, align 4, !tbaa !97
-  store i32 0, ptr %31, align 4, !tbaa !97
+  store i32 0, ptr %31, align 8, !tbaa !97
   br label %520
 
 125:                                              ; preds = %56
@@ -442,7 +442,7 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr noundef readonly captures(n
   %132 = add i64 %53, -1
   store i64 %132, ptr %28, align 8, !tbaa !98
   store i32 1, ptr %29, align 8, !tbaa !99
-  store i32 1, ptr %31, align 4, !tbaa !97
+  store i32 1, ptr %31, align 8, !tbaa !97
   br label %520
 
 133:                                              ; preds = %129
@@ -490,7 +490,7 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr noundef readonly captures(n
   store i32 0, ptr %29, align 8, !tbaa !99
   store i64 0, ptr %28, align 8, !tbaa !98
   store i32 4, ptr %30, align 4, !tbaa !97
-  store i32 0, ptr %31, align 4, !tbaa !97
+  store i32 0, ptr %31, align 8, !tbaa !97
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %520
 
@@ -519,7 +519,7 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr noundef readonly captures(n
   %168 = add i64 %53, -1
   store i64 %168, ptr %28, align 8, !tbaa !98
   store i32 1, ptr %29, align 8, !tbaa !99
-  store i32 1, ptr %31, align 4, !tbaa !97
+  store i32 1, ptr %31, align 8, !tbaa !97
   br label %520
 
 169:                                              ; preds = %163
@@ -540,7 +540,7 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr noundef readonly captures(n
   %180 = load i64, ptr %28, align 8, !tbaa !98
   store i64 %180, ptr %36, align 8, !tbaa !113
   store i32 5, ptr %30, align 4, !tbaa !97
-  store i32 0, ptr %31, align 4, !tbaa !97
+  store i32 0, ptr %31, align 8, !tbaa !97
   store i64 0, ptr %28, align 8, !tbaa !98
   store i32 0, ptr %29, align 8, !tbaa !99
   br label %520
@@ -561,7 +561,7 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr noundef readonly captures(n
   %186 = add i64 %53, -1
   store i64 %186, ptr %28, align 8, !tbaa !98
   store i32 1, ptr %29, align 8, !tbaa !99
-  store i32 1, ptr %31, align 4, !tbaa !97
+  store i32 1, ptr %31, align 8, !tbaa !97
   br label %520
 
 187:                                              ; preds = %181
@@ -582,7 +582,7 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr noundef readonly captures(n
   %198 = load i64, ptr %28, align 8, !tbaa !98
   store i64 %198, ptr %35, align 8, !tbaa !114
   store i32 6, ptr %30, align 4, !tbaa !97
-  store i32 0, ptr %31, align 4, !tbaa !97
+  store i32 0, ptr %31, align 8, !tbaa !97
   store i64 0, ptr %28, align 8, !tbaa !98
   store i32 0, ptr %29, align 8, !tbaa !99
   br label %520
@@ -608,7 +608,7 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr noundef readonly captures(n
   %206 = add i64 %53, -1
   store i64 %206, ptr %28, align 8, !tbaa !98
   store i32 1, ptr %29, align 8, !tbaa !99
-  store i32 1, ptr %31, align 4, !tbaa !97
+  store i32 1, ptr %31, align 8, !tbaa !97
   br label %520
 
 207:                                              ; preds = %203
@@ -662,7 +662,7 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr noundef readonly captures(n
   store i32 0, ptr %29, align 8, !tbaa !99
   store i64 0, ptr %28, align 8, !tbaa !98
   store i32 7, ptr %30, align 4, !tbaa !97
-  store i32 0, ptr %31, align 4, !tbaa !97
+  store i32 0, ptr %31, align 8, !tbaa !97
   br label %236
 
 236:                                              ; preds = %235, %213
@@ -708,7 +708,7 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr noundef readonly captures(n
   %250 = add i64 %53, -1
   store i64 %250, ptr %28, align 8, !tbaa !98
   store i32 1, ptr %29, align 8, !tbaa !99
-  store i32 1, ptr %31, align 4, !tbaa !97
+  store i32 1, ptr %31, align 8, !tbaa !97
   br label %520
 
 251:                                              ; preds = %244
@@ -896,7 +896,7 @@ switch.early.test:                                ; preds = %317
   %328 = add i64 %53, -1
   store i64 %328, ptr %28, align 8, !tbaa !98
   store i32 1, ptr %29, align 8, !tbaa !99
-  store i32 1, ptr %31, align 4, !tbaa !97
+  store i32 1, ptr %31, align 8, !tbaa !97
   br label %520
 
 329:                                              ; preds = %323
@@ -971,7 +971,7 @@ switch.early.test:                                ; preds = %317
   %358 = add i64 %53, -1
   store i64 %358, ptr %28, align 8, !tbaa !98
   store i32 1, ptr %29, align 8, !tbaa !99
-  store i32 1, ptr %31, align 4, !tbaa !97
+  store i32 1, ptr %31, align 8, !tbaa !97
   br label %520
 
 359:                                              ; preds = %353
@@ -1196,7 +1196,7 @@ switch.early.test:                                ; preds = %317
   %442 = load i32, ptr %29, align 8, !tbaa !99
   %443 = add i32 %442, 1
   store i32 %443, ptr %29, align 8, !tbaa !99
-  %444 = load i32, ptr %31, align 4, !tbaa !97
+  %444 = load i32, ptr %31, align 8, !tbaa !97
   switch i32 %444, label %520 [
     i32 0, label %445
     i32 1, label %448
@@ -1227,7 +1227,7 @@ switch.early.test:                                ; preds = %317
   %456 = getelementptr i8, ptr %455, i64 -1
   store i8 0, ptr %456, align 1, !tbaa !97
   store i32 2, ptr %30, align 4, !tbaa !97
-  store i32 0, ptr %31, align 4, !tbaa !97
+  store i32 0, ptr %31, align 8, !tbaa !97
   store i32 0, ptr %29, align 8, !tbaa !99
   br label %520
 
@@ -1257,7 +1257,7 @@ switch.early.test:                                ; preds = %317
   %465 = add i64 %53, -1
   store i64 %465, ptr %28, align 8, !tbaa !98
   store i32 1, ptr %29, align 8, !tbaa !99
-  store i32 1, ptr %31, align 4, !tbaa !97
+  store i32 1, ptr %31, align 8, !tbaa !97
   br label %520
 
 466:                                              ; preds = %460
@@ -1316,7 +1316,7 @@ switch.early.test:                                ; preds = %317
   store i32 %494, ptr %492, align 8, !tbaa !107
   store i32 0, ptr %29, align 8, !tbaa !99
   store i32 3, ptr %30, align 4, !tbaa !97
-  store i32 0, ptr %31, align 4, !tbaa !97
+  store i32 0, ptr %31, align 8, !tbaa !97
   br label %520
 
 495:                                              ; preds = %421
@@ -1336,7 +1336,7 @@ switch.early.test:                                ; preds = %317
   %500 = add i64 %53, -1
   store i64 %500, ptr %28, align 8, !tbaa !98
   store i32 1, ptr %29, align 8, !tbaa !99
-  store i32 1, ptr %31, align 4, !tbaa !97
+  store i32 1, ptr %31, align 8, !tbaa !97
   br label %520
 
 501:                                              ; preds = %495
@@ -1364,7 +1364,7 @@ switch.early.test:                                ; preds = %317
   store i8 0, ptr %511, align 1, !tbaa !97
   call fastcc void @ftp_pl_insert_finfo(ptr noundef %3, ptr noundef nonnull %48)
   store i32 0, ptr %30, align 4, !tbaa !97
-  store i32 0, ptr %31, align 4, !tbaa !97
+  store i32 0, ptr %31, align 8, !tbaa !97
   br label %520
 
 512:                                              ; preds = %495
@@ -1377,7 +1377,7 @@ switch.early.test:                                ; preds = %317
   store i64 %516, ptr %32, align 8, !tbaa !117
   call fastcc void @ftp_pl_insert_finfo(ptr noundef %3, ptr noundef nonnull %48)
   store i32 0, ptr %30, align 4, !tbaa !97
-  store i32 0, ptr %31, align 4, !tbaa !97
+  store i32 0, ptr %31, align 8, !tbaa !97
   br label %520
 
 517:                                              ; preds = %512

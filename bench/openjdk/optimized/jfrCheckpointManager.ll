@@ -3818,7 +3818,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %106 = tail call noundef i64 @llvm.bswap.i64(i64 %.val27.i.i)
   tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeIlEEvT_(ptr noundef nonnull align 8 dereferenceable(88) %5, i64 noundef %106)
   tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeIlEEvT_(ptr noundef nonnull align 8 dereferenceable(88) %5, i64 noundef %24)
-  %.val28.i.i = load i32, ptr %51, align 4
+  %.val28.i.i = load i32, ptr %51, align 8
   %107 = tail call noundef i32 @llvm.bswap.i32(i32 %.val28.i.i)
   %108 = load i32, ptr %10, align 8
   %.not.i.i.i32.i.i = icmp eq i32 %108, -1

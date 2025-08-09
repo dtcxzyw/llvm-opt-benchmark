@@ -3596,7 +3596,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit99.i: ; preds = %432, %419
   %463 = getelementptr inbounds nuw i8, ptr %461, i64 144
   %464 = load i64, ptr %463, align 8
   %465 = icmp eq i64 %454, %464
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %462, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %462, align 8
   %466 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i
   %467 = select i1 %465, i1 %466, i1 false
   br i1 %467, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_10GfMatrix4dENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S2_EEE4findERS7_.exit.i, label %.lr.ph.i.i.i.i.i
@@ -5125,7 +5125,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit99: ; preds = %440, %441, 
   %485 = getelementptr inbounds nuw i8, ptr %483, i64 144
   %486 = load i64, ptr %485, align 8
   %487 = icmp eq i64 %476, %486
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i = load i64, ptr %484, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i = load i64, ptr %484, align 8
   %488 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i
   %489 = select i1 %487, i1 %488, i1 false
   br i1 %489, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_10GfMatrix4dENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S2_EEE4findERS7_.exit, label %.lr.ph.i.i.i.i
@@ -15719,7 +15719,7 @@ _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache12_Pri
   store ptr null, ptr %972, align 8
   %1257 = getelementptr inbounds nuw i8, ptr %1252, i64 16
   %1258 = load i32, ptr %973, align 8
-  store i32 %1258, ptr %1257, align 4
+  store i32 %1258, ptr %1257, align 8
   store i32 0, ptr %973, align 8
   %1259 = getelementptr inbounds nuw i8, ptr %1252, i64 20
   %1260 = load i32, ptr %974, align 4
@@ -15742,7 +15742,7 @@ _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache12_Pri
   store ptr null, ptr %978, align 8
   %1269 = getelementptr inbounds nuw i8, ptr %1252, i64 56
   %1270 = load i32, ptr %979, align 8
-  store i32 %1270, ptr %1269, align 4
+  store i32 %1270, ptr %1269, align 8
   store i32 0, ptr %979, align 8
   %1271 = getelementptr inbounds nuw i8, ptr %1252, i64 60
   %1272 = load i32, ptr %981, align 4
@@ -16179,7 +16179,7 @@ _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache12_Pri
   store ptr null, ptr %991, align 8
   %1491 = getelementptr inbounds nuw i8, ptr %1437, i64 56
   %1492 = load i32, ptr %992, align 8
-  store i32 %1492, ptr %1491, align 4
+  store i32 %1492, ptr %1491, align 8
   store i32 0, ptr %992, align 8
   %1493 = getelementptr inbounds nuw i8, ptr %1437, i64 60
   %1494 = load i32, ptr %993, align 4
@@ -22670,14 +22670,14 @@ _ZN3tbb6detail2d115task_group_base12prepare_taskIN32pxrInternal_v0_24__pxrReserv
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS3_16UsdGeomBBoxCache9_BBoxTaskEEEEE, i64 16), ptr %30, align 64
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 64
   %33 = load i32, ptr %4, align 8
-  store i32 %33, ptr %32, align 8
+  store i32 %33, ptr %32, align 64
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 72
   %35 = load ptr, ptr %8, align 8
   store ptr %35, ptr %34, align 8
   store ptr null, ptr %8, align 8
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 80
   %37 = load i32, ptr %11, align 8
-  store i32 %37, ptr %36, align 4
+  store i32 %37, ptr %36, align 16
   store i32 0, ptr %11, align 8
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 84
   %39 = load i32, ptr %14, align 4
@@ -22689,7 +22689,7 @@ _ZN3tbb6detail2d115task_group_base12prepare_taskIN32pxrInternal_v0_24__pxrReserv
   store i64 0, ptr %17, align 8
   %42 = getelementptr inbounds nuw i8, ptr %30, i64 96
   %43 = load i64, ptr %20, align 8
-  store i64 %43, ptr %42, align 8
+  store i64 %43, ptr %42, align 32
   store i64 0, ptr %20, align 8
   %44 = getelementptr inbounds nuw i8, ptr %30, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %44, ptr noundef nonnull align 8 dereferenceable(144) %23, i64 144, i1 false)
@@ -24900,28 +24900,28 @@ _ZN3tbb6detail2d115task_group_base12prepare_taskIN32pxrInternal_v0_24__pxrReserv
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 64
   %.unpack.i.i.i.i.i.i = load i64, ptr %4, align 8
   %.unpack4.i.i.i.i.i.i = load i64, ptr %.repack5.i.i, align 8
-  store i64 %.unpack.i.i.i.i.i.i, ptr %44, align 8
+  store i64 %.unpack.i.i.i.i.i.i, ptr %44, align 64
   %.repack5.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %42, i64 72
   store i64 %.unpack4.i.i.i.i.i.i, ptr %.repack5.i.i.i.i.i.i, align 8
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 80
   %46 = load i64, ptr %7, align 8
-  store i64 %46, ptr %45, align 8
+  store i64 %46, ptr %45, align 16
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 88
   %48 = load i64, ptr %10, align 8
   store i64 %48, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %42, i64 96
   %50 = load i64, ptr %13, align 8
-  store i64 %50, ptr %49, align 8
+  store i64 %50, ptr %49, align 32
   %51 = getelementptr inbounds nuw i8, ptr %42, i64 104
   %52 = load i32, ptr %16, align 8
   store i32 %52, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %42, i64 112
   %54 = load ptr, ptr %19, align 8
-  store ptr %54, ptr %53, align 8
+  store ptr %54, ptr %53, align 16
   store ptr null, ptr %19, align 8
   %55 = getelementptr inbounds nuw i8, ptr %42, i64 120
   %56 = load i32, ptr %22, align 8
-  store i32 %56, ptr %55, align 4
+  store i32 %56, ptr %55, align 8
   store i32 0, ptr %22, align 8
   %57 = getelementptr inbounds nuw i8, ptr %42, i64 124
   %58 = load i32, ptr %25, align 4
@@ -24929,7 +24929,7 @@ _ZN3tbb6detail2d115task_group_base12prepare_taskIN32pxrInternal_v0_24__pxrReserv
   store i32 0, ptr %25, align 4
   %59 = getelementptr inbounds nuw i8, ptr %42, i64 128
   %60 = load i64, ptr %28, align 8
-  store i64 %60, ptr %59, align 8
+  store i64 %60, ptr %59, align 64
   store i64 0, ptr %28, align 8
   %61 = getelementptr inbounds nuw i8, ptr %42, i64 136
   %62 = load i64, ptr %31, align 8
@@ -24937,7 +24937,7 @@ _ZN3tbb6detail2d115task_group_base12prepare_taskIN32pxrInternal_v0_24__pxrReserv
   store i64 0, ptr %31, align 8
   %63 = getelementptr inbounds nuw i8, ptr %42, i64 144
   %64 = load i64, ptr %34, align 8
-  store i64 %64, ptr %63, align 8
+  store i64 %64, ptr %63, align 16
   %65 = getelementptr inbounds nuw i8, ptr %42, i64 152
   %66 = load ptr, ptr %37, align 8
   store ptr %66, ptr %65, align 8
@@ -29273,14 +29273,14 @@ _ZN3tbb6detail2d115task_group_base12prepare_taskIN32pxrInternal_v0_24__pxrReserv
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS3_16UsdGeomBBoxCache9_BBoxTaskEEEEE, i64 16), ptr %58, align 64
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 64
   %61 = load i32, ptr %4, align 8
-  store i32 %61, ptr %60, align 8
+  store i32 %61, ptr %60, align 64
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 72
   %63 = load ptr, ptr %8, align 8
   store ptr %63, ptr %62, align 8
   store ptr null, ptr %8, align 8
   %64 = getelementptr inbounds nuw i8, ptr %58, i64 80
   %65 = load i32, ptr %14, align 8
-  store i32 %65, ptr %64, align 4
+  store i32 %65, ptr %64, align 16
   store i32 0, ptr %14, align 8
   %66 = getelementptr inbounds nuw i8, ptr %58, i64 84
   %67 = load i32, ptr %28, align 4
@@ -29292,7 +29292,7 @@ _ZN3tbb6detail2d115task_group_base12prepare_taskIN32pxrInternal_v0_24__pxrReserv
   store i64 0, ptr %31, align 8
   %70 = getelementptr inbounds nuw i8, ptr %58, i64 96
   %71 = load i64, ptr %41, align 8
-  store i64 %71, ptr %70, align 8
+  store i64 %71, ptr %70, align 32
   store i64 0, ptr %41, align 8
   %72 = getelementptr inbounds nuw i8, ptr %58, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %72, ptr noundef nonnull align 8 dereferenceable(144) %51, i64 144, i1 false)
@@ -29609,9 +29609,9 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache
   store ptr null, ptr %68, align 8, !alias.scope !237, !noalias !234
   %70 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %71 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
-  %72 = load i32, ptr %71, align 4, !alias.scope !237, !noalias !234
-  store i32 %72, ptr %70, align 4, !alias.scope !234, !noalias !237
-  store i32 0, ptr %71, align 4, !alias.scope !237, !noalias !234
+  %72 = load i32, ptr %71, align 8, !alias.scope !237, !noalias !234
+  store i32 %72, ptr %70, align 8, !alias.scope !234, !noalias !237
+  store i32 0, ptr %71, align 8, !alias.scope !237, !noalias !234
   %73 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 20
   %74 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 20
   %75 = load i32, ptr %74, align 4, !alias.scope !237, !noalias !234
@@ -29653,9 +29653,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache12_PrimContext
   store ptr null, ptr %87, align 8, !alias.scope !243, !noalias !240
   %89 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 16
   %90 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 16
-  %91 = load i32, ptr %90, align 4, !alias.scope !243, !noalias !240
-  store i32 %91, ptr %89, align 4, !alias.scope !240, !noalias !243
-  store i32 0, ptr %90, align 4, !alias.scope !243, !noalias !240
+  %91 = load i32, ptr %90, align 8, !alias.scope !243, !noalias !240
+  store i32 %91, ptr %89, align 8, !alias.scope !240, !noalias !243
+  store i32 0, ptr %90, align 8, !alias.scope !243, !noalias !240
   %92 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 20
   %93 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 20
   %94 = load i32, ptr %93, align 4, !alias.scope !243, !noalias !240
@@ -30727,7 +30727,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableIbE
   %.0912.i = phi ptr [ %13, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableIbE6_EntryD2Ev.exit.i ], [ %11, %.lr.ph16.i ]
   %12 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = load i32, ptr %.0912.i, align 4
+  %14 = load i32, ptr %.0912.i, align 8
   %.not.i.i.i.i.i = icmp eq i32 %14, 0
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableIbE6_EntryD2Ev.exit.i, label %15
 
@@ -31211,7 +31211,7 @@ _ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableIbE6_EntryESaIS4_
   %.01642 = phi ptr [ %45, %.lr.ph ], [ %43, %.lr.ph45 ]
   %44 = getelementptr inbounds nuw i8, ptr %.01642, i64 16
   %45 = load ptr, ptr %44, align 8
-  %46 = load i32, ptr %.01642, align 4
+  %46 = load i32, ptr %.01642, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.01642, i64 4
   %48 = load i32, ptr %47, align 4
   %49 = zext i32 %46 to i64
@@ -35548,7 +35548,7 @@ _ZNKSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache12_Pr
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %28 = load i32, ptr %27, align 8
-  store i32 %28, ptr %26, align 4
+  store i32 %28, ptr %26, align 8
   store i32 0, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 20
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -35577,7 +35577,7 @@ _ZNKSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache12_Pr
   %44 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %46 = load i32, ptr %45, align 8
-  store i32 %46, ptr %44, align 4
+  store i32 %46, ptr %44, align 8
   store i32 0, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %21, i64 60
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 60
@@ -35614,9 +35614,9 @@ _ZNKSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache12_Pr
   store ptr null, ptr %60, align 8, !alias.scope !264, !noalias !261
   %62 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %63 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
-  %64 = load i32, ptr %63, align 4, !alias.scope !264, !noalias !261
-  store i32 %64, ptr %62, align 4, !alias.scope !261, !noalias !264
-  store i32 0, ptr %63, align 4, !alias.scope !264, !noalias !261
+  %64 = load i32, ptr %63, align 8, !alias.scope !264, !noalias !261
+  store i32 %64, ptr %62, align 8, !alias.scope !261, !noalias !264
+  store i32 0, ptr %63, align 8, !alias.scope !264, !noalias !261
   %65 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 20
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 20
   %67 = load i32, ptr %66, align 4, !alias.scope !264, !noalias !261
@@ -35643,9 +35643,9 @@ _ZNKSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache12_Pr
   store ptr null, ptr %78, align 8, !alias.scope !264, !noalias !261
   %80 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 56
   %81 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 56
-  %82 = load i32, ptr %81, align 4, !alias.scope !264, !noalias !261
-  store i32 %82, ptr %80, align 4, !alias.scope !261, !noalias !264
-  store i32 0, ptr %81, align 4, !alias.scope !264, !noalias !261
+  %82 = load i32, ptr %81, align 8, !alias.scope !264, !noalias !261
+  store i32 %82, ptr %80, align 8, !alias.scope !261, !noalias !264
+  store i32 0, ptr %81, align 8, !alias.scope !264, !noalias !261
   %83 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 60
   %84 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 60
   %85 = load i32, ptr %84, align 4, !alias.scope !264, !noalias !261
@@ -35691,9 +35691,9 @@ _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache12_Pri
   store ptr null, ptr %99, align 8, !alias.scope !271, !noalias !268
   %101 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 16
   %102 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 16
-  %103 = load i32, ptr %102, align 4, !alias.scope !271, !noalias !268
-  store i32 %103, ptr %101, align 4, !alias.scope !268, !noalias !271
-  store i32 0, ptr %102, align 4, !alias.scope !271, !noalias !268
+  %103 = load i32, ptr %102, align 8, !alias.scope !271, !noalias !268
+  store i32 %103, ptr %101, align 8, !alias.scope !268, !noalias !271
+  store i32 0, ptr %102, align 8, !alias.scope !271, !noalias !268
   %104 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 20
   %105 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 20
   %106 = load i32, ptr %105, align 4, !alias.scope !271, !noalias !268
@@ -35720,9 +35720,9 @@ _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache12_Pri
   store ptr null, ptr %117, align 8, !alias.scope !271, !noalias !268
   %119 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 56
   %120 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 56
-  %121 = load i32, ptr %120, align 4, !alias.scope !271, !noalias !268
-  store i32 %121, ptr %119, align 4, !alias.scope !268, !noalias !271
-  store i32 0, ptr %120, align 4, !alias.scope !271, !noalias !268
+  %121 = load i32, ptr %120, align 8, !alias.scope !271, !noalias !268
+  store i32 %121, ptr %119, align 8, !alias.scope !268, !noalias !271
+  store i32 0, ptr %120, align 8, !alias.scope !271, !noalias !268
   %122 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 60
   %123 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 60
   %124 = load i32, ptr %123, align 4, !alias.scope !271, !noalias !268
@@ -35816,9 +35816,9 @@ _ZNKSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache12_Pr
   store ptr null, ptr %25, align 8, !alias.scope !277, !noalias !274
   %27 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
-  %29 = load i32, ptr %28, align 4, !alias.scope !277, !noalias !274
-  store i32 %29, ptr %27, align 4, !alias.scope !274, !noalias !277
-  store i32 0, ptr %28, align 4, !alias.scope !277, !noalias !274
+  %29 = load i32, ptr %28, align 8, !alias.scope !277, !noalias !274
+  store i32 %29, ptr %27, align 8, !alias.scope !274, !noalias !277
+  store i32 0, ptr %28, align 8, !alias.scope !277, !noalias !274
   %30 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 20
   %31 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 20
   %32 = load i32, ptr %31, align 4, !alias.scope !277, !noalias !274
@@ -35845,9 +35845,9 @@ _ZNKSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache12_Pr
   store ptr null, ptr %43, align 8, !alias.scope !277, !noalias !274
   %45 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 56
   %46 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 56
-  %47 = load i32, ptr %46, align 4, !alias.scope !277, !noalias !274
-  store i32 %47, ptr %45, align 4, !alias.scope !274, !noalias !277
-  store i32 0, ptr %46, align 4, !alias.scope !277, !noalias !274
+  %47 = load i32, ptr %46, align 8, !alias.scope !277, !noalias !274
+  store i32 %47, ptr %45, align 8, !alias.scope !274, !noalias !277
+  store i32 0, ptr %46, align 8, !alias.scope !277, !noalias !274
   %48 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 60
   %49 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 60
   %50 = load i32, ptr %49, align 4, !alias.scope !277, !noalias !274
@@ -35893,9 +35893,9 @@ _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache12_Pri
   store ptr null, ptr %64, align 8, !alias.scope !283, !noalias !280
   %66 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 16
   %67 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 16
-  %68 = load i32, ptr %67, align 4, !alias.scope !283, !noalias !280
-  store i32 %68, ptr %66, align 4, !alias.scope !280, !noalias !283
-  store i32 0, ptr %67, align 4, !alias.scope !283, !noalias !280
+  %68 = load i32, ptr %67, align 8, !alias.scope !283, !noalias !280
+  store i32 %68, ptr %66, align 8, !alias.scope !280, !noalias !283
+  store i32 0, ptr %67, align 8, !alias.scope !283, !noalias !280
   %69 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 20
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 20
   %71 = load i32, ptr %70, align 4, !alias.scope !283, !noalias !280
@@ -35922,9 +35922,9 @@ _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache12_Pri
   store ptr null, ptr %82, align 8, !alias.scope !283, !noalias !280
   %84 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 56
   %85 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 56
-  %86 = load i32, ptr %85, align 4, !alias.scope !283, !noalias !280
-  store i32 %86, ptr %84, align 4, !alias.scope !280, !noalias !283
-  store i32 0, ptr %85, align 4, !alias.scope !283, !noalias !280
+  %86 = load i32, ptr %85, align 8, !alias.scope !283, !noalias !280
+  store i32 %86, ptr %84, align 8, !alias.scope !280, !noalias !283
+  store i32 0, ptr %85, align 8, !alias.scope !283, !noalias !280
   %87 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 60
   %88 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 60
   %89 = load i32, ptr %88, align 4, !alias.scope !283, !noalias !280

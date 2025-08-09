@@ -3377,7 +3377,7 @@ tailrecurse.outer._crit_edge:                     ; preds = %_ZNK4toku3omtIPNS_1
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 -1, ptr %18, align 4, !tbaa !74
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i32 -1, ptr %19, align 4, !tbaa !74
+  store i32 -1, ptr %19, align 8, !tbaa !74
   %20 = load ptr, ptr %2, align 8, !tbaa !52
   store ptr %20, ptr %16, align 8, !tbaa !160
   store i32 %11, ptr %.tr40.lcssa, align 4, !tbaa !74

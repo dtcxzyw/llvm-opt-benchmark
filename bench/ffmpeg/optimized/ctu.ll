@@ -9103,7 +9103,7 @@ tu_y_coded_flag_decode.exit:                      ; preds = %169, %170
   %228 = getelementptr inbounds i32, ptr %224, i64 %227
   store ptr %228, ptr %223, align 8, !tbaa !71
   %229 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store i8 1, ptr %229, align 1, !tbaa !351
+  store i8 1, ptr %229, align 2, !tbaa !351
   br i1 %.not212, label %326, label %.thread
 
 .thread:                                          ; preds = %126, %191

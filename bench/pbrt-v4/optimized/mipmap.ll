@@ -1459,7 +1459,7 @@ define dso_local { <2 x float>, float } @_ZNK4pbrt6MIPMap6BilerpINS_3RGBEEET_iNS
   %18 = fadd float %17, -5.000000e-01
   %.sroa.040.4.vec.extract.i = extractelement <2 x float> %2, i64 1
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %20 = load i32, ptr %19, align 4, !tbaa !34
+  %20 = load i32, ptr %19, align 8, !tbaa !34
   %21 = sitofp i32 %20 to float
   %22 = fmul float %.sroa.040.4.vec.extract.i, %21
   %23 = fadd float %22, -5.000000e-01
@@ -5715,7 +5715,7 @@ _ZN4pstd3pmr21polymorphic_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIc
   store i64 %41, ptr %42, align 8, !tbaa !74
   store ptr %32, ptr %29, align 8, !tbaa !79
   store i64 0, ptr %40, align 8, !tbaa !74
-  store i8 0, ptr %32, align 1, !tbaa !63
+  store i8 0, ptr %32, align 8, !tbaa !63
   %43 = load ptr, ptr %16, align 8, !tbaa !83
   %44 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %43, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8, !tbaa !79
@@ -6642,7 +6642,7 @@ _ZN4pstd3pmr21polymorphic_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIc
   store i64 %60, ptr %61, align 8, !tbaa !74
   store ptr %51, ptr %48, align 8, !tbaa !79
   store i64 0, ptr %59, align 8, !tbaa !74
-  store i8 0, ptr %51, align 1, !tbaa !63
+  store i8 0, ptr %51, align 8, !tbaa !63
   %62 = add nuw i64 %.017, 1
   %63 = load i64, ptr %39, align 8, !tbaa !28
   %64 = icmp ult i64 %62, %63

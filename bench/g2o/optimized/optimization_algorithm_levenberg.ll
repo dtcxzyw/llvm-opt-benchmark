@@ -1071,7 +1071,7 @@ define void @_ZNK3g2o30OptimizationAlgorithmLevenberg12printVerboseERSo(ptr noun
   %17 = load i32, ptr %16, align 8, !tbaa !155
   %18 = and i32 %17, -261
   %19 = or disjoint i32 %18, 4
-  store i32 %19, ptr %16, align 4, !tbaa !164
+  store i32 %19, ptr %16, align 8, !tbaa !164
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %21 = load double, ptr %20, align 8, !tbaa !10
   %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %10, double noundef %21)
@@ -1082,7 +1082,7 @@ define void @_ZNK3g2o30OptimizationAlgorithmLevenberg12printVerboseERSo(ptr noun
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load i32, ptr %27, align 8, !tbaa !155
   %29 = and i32 %28, -5
-  store i32 %29, ptr %27, align 4, !tbaa !164
+  store i32 %29, ptr %27, align 8, !tbaa !164
   %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.7, i64 noundef 17)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %32 = load i32, ptr %31, align 8, !tbaa !41

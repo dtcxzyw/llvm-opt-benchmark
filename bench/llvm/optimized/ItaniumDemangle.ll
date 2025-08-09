@@ -1656,7 +1656,7 @@ _ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit.i:   ; preds = %12, %5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4112) %6, i8 0, i64 16, i1 false)
   store ptr %6, ptr %7, align 16, !tbaa !50
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 720
-  %15 = load ptr, ptr %14, align 8, !tbaa !39
+  %15 = load ptr, ptr %14, align 16, !tbaa !39
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 744
   %17 = icmp eq ptr %15, %16
   br i1 %17, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EED2Ev.exit.i, label %18
@@ -1757,17 +1757,17 @@ define dso_local noundef zeroext i1 @_ZN4llvm23ItaniumPartialDemangler15partialD
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %7, align 8, !tbaa !25
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !26
+  %9 = load ptr, ptr %8, align 16, !tbaa !26
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %9, ptr %10, align 8, !tbaa !27
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 296
   %12 = load ptr, ptr %11, align 8, !tbaa !26
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 304
-  store ptr %12, ptr %13, align 8, !tbaa !27
+  store ptr %12, ptr %13, align 16, !tbaa !27
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 664
   %15 = load ptr, ptr %14, align 8, !tbaa !34
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 672
-  store ptr %15, ptr %16, align 8, !tbaa !35
+  store ptr %15, ptr %16, align 16, !tbaa !35
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 784
   store i64 -1, ptr %17, align 16, !tbaa !47
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 776
@@ -38009,7 +38009,7 @@ define linkonce_odr hidden { i32, ptr } @_ZNK4llvm16itanium_demangle13ReferenceT
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !350
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %21 = load i32, ptr %20, align 4, !tbaa !363
+  %21 = load i32, ptr %20, align 8, !tbaa !363
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %21, i32 %.sroa.0.017)
   %22 = load ptr, ptr %8, align 8, !tbaa !366
   %23 = load ptr, ptr %9, align 8, !tbaa !367

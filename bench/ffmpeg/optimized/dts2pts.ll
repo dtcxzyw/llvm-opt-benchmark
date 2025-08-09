@@ -689,7 +689,7 @@ define internal i32 @h264_filter(ptr noundef %0) #0 {
   store i32 %111, ptr %39, align 4, !tbaa !78
   %112 = getelementptr inbounds nuw i8, ptr %55, i64 28
   %113 = load i32, ptr %112, align 4, !tbaa !78
-  store i32 %113, ptr %40, align 4, !tbaa !78
+  store i32 %113, ptr %40, align 8, !tbaa !78
   store i32 2147483647, ptr %41, align 4, !tbaa !78
   store i32 2147483647, ptr %6, align 4, !tbaa !78
   %114 = load i8, ptr %55, align 4, !tbaa !127

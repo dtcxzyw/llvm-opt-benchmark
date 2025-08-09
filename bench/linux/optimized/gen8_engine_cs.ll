@@ -26,7 +26,7 @@ define dso_local i32 @gen8_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local_
   %.fr = freeze i8 %14
   %15 = icmp eq i8 %.fr, 9
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 7184
-  %17 = load i32, ptr %16, align 4
+  %17 = load i32, ptr %16, align 8
   %18 = and i32 %17, 134217728
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %42, label %20

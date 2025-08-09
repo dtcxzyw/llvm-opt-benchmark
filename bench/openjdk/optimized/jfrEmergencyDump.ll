@@ -815,7 +815,7 @@ _ZL25close_emergency_dump_filev.exit:             ; preds = %_ZL25write_emergenc
   %61 = load ptr, ptr %60, align 8
   tail call void @_ZN2os4freeEPv(ptr noundef %61) #17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %62 = load i32, ptr %55, align 4
+  %62 = load i32, ptr %55, align 8
   %63 = sext i32 %62 to i64
   %64 = icmp slt i64 %indvars.iv.next.i, %63
   br i1 %64, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8

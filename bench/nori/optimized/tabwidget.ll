@@ -1184,9 +1184,9 @@ define hidden void @_ZN7nanogui13TabWidgetBase4drawEP10NVGcontext(ptr noundef no
   %137 = add i32 %102, 1
   %138 = add i32 %137, %136
   %139 = getelementptr inbounds nuw i8, ptr %131, i64 168
-  %.sroa.024.0.copyload = load <2 x float>, ptr %139, align 4
+  %.sroa.024.0.copyload = load <2 x float>, ptr %139, align 8
   %.sroa.225.0..sroa_idx = getelementptr inbounds nuw i8, ptr %131, i64 176
-  %.sroa.225.0.copyload = load <2 x float>, ptr %.sroa.225.0..sroa_idx, align 4
+  %.sroa.225.0.copyload = load <2 x float>, ptr %.sroa.225.0..sroa_idx, align 8
   call void @nvgFillColor(ptr noundef %1, <2 x float> %.sroa.024.0.copyload, <2 x float> %.sroa.225.0.copyload)
   %140 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %91) #21
   call void @nvgFontFace(ptr noundef %1, ptr noundef %140)
@@ -3293,7 +3293,7 @@ _ZNSt10_HashtableIiSt4pairIKiPN7nanogui6WidgetEESaIS5_ENSt8__detail10_Select1stE
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiPN7nanogui6WidgetEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4
+  %16 = load i32, ptr %15, align 8
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds ptr, ptr %.0.i, i64 %18

@@ -456,7 +456,7 @@ _ZNK5XPage22object_alignment_shiftEv.exit.i.i.i:  ; preds = %_ZNK5XPage22object_
   %28 = or disjoint i64 %26, 1
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %30 = load i64, ptr %29, align 8
-  %31 = load volatile i32, ptr %27, align 4
+  %31 = load volatile i32, ptr %27, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !9
   %32 = load i32, ptr @XGlobalSeqNum, align 4
   %33 = icmp eq i32 %31, %32
@@ -632,7 +632,7 @@ _ZNK5XPage22object_alignment_shiftEv.exit.i.i.i.i: ; preds = %_ZNK5XPage22object
   %71 = or disjoint i64 %69, 1
   %72 = getelementptr inbounds nuw i8, ptr %54, i64 88
   %73 = load i64, ptr %72, align 8
-  %74 = load volatile i32, ptr %70, align 4
+  %74 = load volatile i32, ptr %70, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !9
   %75 = load i32, ptr @XGlobalSeqNum, align 4
   %76 = icmp eq i32 %74, %75

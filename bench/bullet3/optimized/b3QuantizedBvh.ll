@@ -232,7 +232,7 @@ _ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE6resizeEiRKS0_.exit: ; preds = %3
   %56 = getelementptr inbounds nuw i8, ptr %44, i64 6
   store i16 %55, ptr %56, align 2, !tbaa !46
   %57 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %58 = load i16, ptr %57, align 2, !tbaa !46
+  %58 = load i16, ptr %57, align 8, !tbaa !46
   %59 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i16 %58, ptr %59, align 8, !tbaa !46
   %60 = getelementptr inbounds nuw i8, ptr %46, i64 10
@@ -1763,7 +1763,7 @@ define dso_local void @_ZN14b3QuantizedBvh20updateSubtreeHeadersEii(ptr noundef 
   %34 = getelementptr inbounds nuw i8, ptr %24, i64 6
   store i16 %33, ptr %34, align 2, !tbaa !46
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %36 = load i16, ptr %35, align 2, !tbaa !46
+  %36 = load i16, ptr %35, align 8, !tbaa !46
   %37 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i16 %36, ptr %37, align 8, !tbaa !46
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 10
@@ -1800,7 +1800,7 @@ define dso_local void @_ZN14b3QuantizedBvh20updateSubtreeHeadersEii(ptr noundef 
   %57 = getelementptr inbounds nuw i8, ptr %47, i64 6
   store i16 %56, ptr %57, align 2, !tbaa !46
   %58 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %59 = load i16, ptr %58, align 2, !tbaa !46
+  %59 = load i16, ptr %58, align 8, !tbaa !46
   %60 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i16 %59, ptr %60, align 8, !tbaa !46
   %61 = getelementptr inbounds nuw i8, ptr %15, i64 10
@@ -3291,7 +3291,7 @@ define dso_local noundef zeroext i1 @_ZNK14b3QuantizedBvh9serializeEPvjb(ptr nou
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store i8 1, ptr %10, align 8, !tbaa !25
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  store ptr null, ptr %11, align 8, !tbaa !26
+  store ptr null, ptr %11, align 16, !tbaa !26
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 84
   store i32 0, ptr %12, align 4, !tbaa !27
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -3299,7 +3299,7 @@ define dso_local noundef zeroext i1 @_ZNK14b3QuantizedBvh9serializeEPvjb(ptr nou
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 136
   store i8 1, ptr %14, align 8, !tbaa !25
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  store ptr null, ptr %15, align 8, !tbaa !26
+  store ptr null, ptr %15, align 16, !tbaa !26
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 116
   store i32 0, ptr %16, align 4, !tbaa !27
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -3307,7 +3307,7 @@ define dso_local noundef zeroext i1 @_ZNK14b3QuantizedBvh9serializeEPvjb(ptr nou
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 168
   store i8 1, ptr %18, align 8, !tbaa !29
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr null, ptr %19, align 8, !tbaa !30
+  store ptr null, ptr %19, align 16, !tbaa !30
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 148
   store i32 0, ptr %20, align 4, !tbaa !31
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 152
@@ -3315,7 +3315,7 @@ define dso_local noundef zeroext i1 @_ZNK14b3QuantizedBvh9serializeEPvjb(ptr nou
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 200
   store i8 1, ptr %22, align 8, !tbaa !29
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  store ptr null, ptr %23, align 8, !tbaa !30
+  store ptr null, ptr %23, align 16, !tbaa !30
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 180
   store i32 0, ptr %24, align 4, !tbaa !31
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 184
@@ -3323,13 +3323,13 @@ define dso_local noundef zeroext i1 @_ZNK14b3QuantizedBvh9serializeEPvjb(ptr nou
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 208
   store i32 1, ptr %26, align 16, !tbaa !33
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  store i8 1, ptr %27, align 8, !tbaa !34
+  store i8 1, ptr %27, align 16, !tbaa !34
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store ptr null, ptr %28, align 8, !tbaa !35
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 220
   store i32 0, ptr %29, align 4, !tbaa !36
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 224
-  store i32 0, ptr %30, align 8, !tbaa !37
+  store i32 0, ptr %30, align 16, !tbaa !37
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store i32 0, ptr %31, align 8, !tbaa !38
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -3529,10 +3529,10 @@ _ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE20initializeFromBufferEPvii.exit:
   %131 = getelementptr inbounds nuw i8, ptr %122, i64 6
   store i16 %rev.i204, ptr %131, align 2, !tbaa !46
   %132 = getelementptr inbounds nuw i8, ptr %120, i64 8
-  %133 = load i16, ptr %132, align 2, !tbaa !46
+  %133 = load i16, ptr %132, align 8, !tbaa !46
   %rev.i205 = tail call noundef i16 @llvm.bswap.i16(i16 %133)
   %134 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  store i16 %rev.i205, ptr %134, align 2, !tbaa !46
+  store i16 %rev.i205, ptr %134, align 8, !tbaa !46
   %135 = getelementptr inbounds nuw i8, ptr %120, i64 10
   %136 = load i16, ptr %135, align 2, !tbaa !46
   %rev.i206 = tail call noundef i16 @llvm.bswap.i16(i16 %136)
@@ -3566,9 +3566,9 @@ _ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE20initializeFromBufferEPvii.exit:
   %154 = getelementptr inbounds nuw i8, ptr %145, i64 6
   store i16 %153, ptr %154, align 2, !tbaa !46
   %155 = getelementptr inbounds nuw i8, ptr %143, i64 8
-  %156 = load i16, ptr %155, align 2, !tbaa !46
+  %156 = load i16, ptr %155, align 8, !tbaa !46
   %157 = getelementptr inbounds nuw i8, ptr %145, i64 8
-  store i16 %156, ptr %157, align 2, !tbaa !46
+  store i16 %156, ptr %157, align 8, !tbaa !46
   %158 = getelementptr inbounds nuw i8, ptr %143, i64 10
   %159 = load i16, ptr %158, align 2, !tbaa !46
   %160 = getelementptr inbounds nuw i8, ptr %145, i64 10
@@ -3822,10 +3822,10 @@ _ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE20initializeFromBufferEPvii.exit: ;
   %276 = getelementptr inbounds nuw i8, ptr %267, i64 6
   store i16 %rev.i228, ptr %276, align 2, !tbaa !46
   %277 = getelementptr inbounds nuw i8, ptr %265, i64 8
-  %278 = load i16, ptr %277, align 2, !tbaa !46
+  %278 = load i16, ptr %277, align 8, !tbaa !46
   %rev.i229 = tail call noundef i16 @llvm.bswap.i16(i16 %278)
   %279 = getelementptr inbounds nuw i8, ptr %267, i64 8
-  store i16 %rev.i229, ptr %279, align 2, !tbaa !46
+  store i16 %rev.i229, ptr %279, align 8, !tbaa !46
   %280 = getelementptr inbounds nuw i8, ptr %265, i64 10
   %281 = load i16, ptr %280, align 2, !tbaa !46
   %rev.i230 = tail call noundef i16 @llvm.bswap.i16(i16 %281)
@@ -3864,9 +3864,9 @@ _ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE20initializeFromBufferEPvii.exit: ;
   %303 = getelementptr inbounds nuw i8, ptr %294, i64 6
   store i16 %302, ptr %303, align 2, !tbaa !46
   %304 = getelementptr inbounds nuw i8, ptr %292, i64 8
-  %305 = load i16, ptr %304, align 2, !tbaa !46
+  %305 = load i16, ptr %304, align 8, !tbaa !46
   %306 = getelementptr inbounds nuw i8, ptr %294, i64 8
-  store i16 %305, ptr %306, align 2, !tbaa !46
+  store i16 %305, ptr %306, align 8, !tbaa !46
   %307 = getelementptr inbounds nuw i8, ptr %292, i64 10
   %308 = load i16, ptr %307, align 2, !tbaa !46
   %309 = getelementptr inbounds nuw i8, ptr %294, i64 10
@@ -3882,7 +3882,7 @@ _ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE20initializeFromBufferEPvii.exit: ;
   %316 = getelementptr inbounds nuw i8, ptr %294, i64 20
   store i32 0, ptr %316, align 4, !tbaa !54
   %317 = getelementptr inbounds nuw i8, ptr %294, i64 24
-  store i32 0, ptr %317, align 4, !tbaa !54
+  store i32 0, ptr %317, align 8, !tbaa !54
   %318 = getelementptr inbounds nuw i8, ptr %294, i64 28
   store i32 0, ptr %318, align 4, !tbaa !54
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 1
@@ -4045,7 +4045,7 @@ _Z21b3UnSwapVector3EndianR9b3Vector3.exit144:     ; preds = %44
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i8 1, ptr %76, align 8, !tbaa !25
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr null, ptr %77, align 8, !tbaa !26
+  store ptr null, ptr %77, align 16, !tbaa !26
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 0, ptr %78, align 4, !tbaa !27
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -4053,7 +4053,7 @@ _Z21b3UnSwapVector3EndianR9b3Vector3.exit144:     ; preds = %44
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i8 1, ptr %80, align 8, !tbaa !25
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store ptr null, ptr %81, align 8, !tbaa !26
+  store ptr null, ptr %81, align 16, !tbaa !26
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 0, ptr %82, align 4, !tbaa !27
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -4061,7 +4061,7 @@ _Z21b3UnSwapVector3EndianR9b3Vector3.exit144:     ; preds = %44
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i8 1, ptr %84, align 8, !tbaa !29
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store ptr null, ptr %85, align 8, !tbaa !30
+  store ptr null, ptr %85, align 16, !tbaa !30
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 0, ptr %86, align 4, !tbaa !31
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -4069,19 +4069,19 @@ _Z21b3UnSwapVector3EndianR9b3Vector3.exit144:     ; preds = %44
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i8 1, ptr %88, align 8, !tbaa !29
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store ptr null, ptr %89, align 8, !tbaa !30
+  store ptr null, ptr %89, align 16, !tbaa !30
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 180
   store i32 0, ptr %90, align 4, !tbaa !31
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i32 0, ptr %91, align 8, !tbaa !32
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i8 1, ptr %92, align 8, !tbaa !34
+  store i8 1, ptr %92, align 16, !tbaa !34
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr null, ptr %93, align 8, !tbaa !35
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 220
   store i32 0, ptr %94, align 4, !tbaa !36
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store i32 0, ptr %95, align 8, !tbaa !37
+  store i32 0, ptr %95, align 16, !tbaa !37
   %96 = icmp sgt i32 %64, 0
   %or.cond = and i1 %2, %96
   br i1 %69, label %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE20initializeFromBufferEPvii.exit, label %_ZN20b3AlignedObjectArrayI18b3OptimizedBvhNodeE20initializeFromBufferEPvii.exit
@@ -4116,9 +4116,9 @@ _ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE20initializeFromBufferEPvii.exit:
   %rev.i147 = tail call noundef i16 @llvm.bswap.i16(i16 %104)
   store i16 %rev.i147, ptr %103, align 2, !tbaa !46
   %105 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  %106 = load i16, ptr %105, align 2, !tbaa !46
+  %106 = load i16, ptr %105, align 8, !tbaa !46
   %rev.i148 = tail call noundef i16 @llvm.bswap.i16(i16 %106)
-  store i16 %rev.i148, ptr %105, align 2, !tbaa !46
+  store i16 %rev.i148, ptr %105, align 8, !tbaa !46
   %107 = getelementptr inbounds nuw i8, ptr %97, i64 10
   %108 = load i16, ptr %107, align 2, !tbaa !46
   %rev.i149 = tail call noundef i16 @llvm.bswap.i16(i16 %108)
@@ -4287,9 +4287,9 @@ _ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE20initializeFromBufferEPvii.exit: ;
   %rev.i165 = tail call noundef i16 @llvm.bswap.i16(i16 %172)
   store i16 %rev.i165, ptr %171, align 2, !tbaa !46
   %173 = getelementptr inbounds nuw i8, ptr %165, i64 8
-  %174 = load i16, ptr %173, align 2, !tbaa !46
+  %174 = load i16, ptr %173, align 8, !tbaa !46
   %rev.i166 = tail call noundef i16 @llvm.bswap.i16(i16 %174)
-  store i16 %rev.i166, ptr %173, align 2, !tbaa !46
+  store i16 %rev.i166, ptr %173, align 8, !tbaa !46
   %175 = getelementptr inbounds nuw i8, ptr %165, i64 10
   %176 = load i16, ptr %175, align 2, !tbaa !46
   %rev.i167 = tail call noundef i16 @llvm.bswap.i16(i16 %176)
@@ -4691,9 +4691,9 @@ _ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE6resizeEiRKS0_.exit: ; preds = %1
   %134 = getelementptr inbounds nuw i8, ptr %130, i64 6
   store i16 %133, ptr %134, align 2, !tbaa !46
   %135 = getelementptr inbounds nuw i8, ptr %.073136, i64 8
-  %136 = load i16, ptr %135, align 2, !tbaa !46
+  %136 = load i16, ptr %135, align 4, !tbaa !46
   %137 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  store i16 %136, ptr %137, align 2, !tbaa !46
+  store i16 %136, ptr %137, align 4, !tbaa !46
   %138 = getelementptr inbounds nuw i8, ptr %.073136, i64 10
   %139 = load i16, ptr %138, align 2, !tbaa !46
   %140 = getelementptr inbounds nuw i8, ptr %130, i64 10
@@ -5174,9 +5174,9 @@ _ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE6resizeEiRKS0_.exit: ; preds = %1
   %139 = getelementptr inbounds nuw i8, ptr %135, i64 6
   store i16 %138, ptr %139, align 2, !tbaa !46
   %140 = getelementptr inbounds nuw i8, ptr %.073136, i64 8
-  %141 = load i16, ptr %140, align 2, !tbaa !46
+  %141 = load i16, ptr %140, align 4, !tbaa !46
   %142 = getelementptr inbounds nuw i8, ptr %135, i64 8
-  store i16 %141, ptr %142, align 2, !tbaa !46
+  store i16 %141, ptr %142, align 4, !tbaa !46
   %143 = getelementptr inbounds nuw i8, ptr %.073136, i64 10
   %144 = load i16, ptr %143, align 2, !tbaa !46
   %145 = getelementptr inbounds nuw i8, ptr %135, i64 10

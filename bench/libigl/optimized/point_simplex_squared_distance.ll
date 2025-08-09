@@ -4473,7 +4473,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #4
 define linkonce_odr dso_local void @_ZN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEC2INS_13CwiseBinaryOpINS_8internal13scalar_sum_opIffEEKS1_KNS3_INS4_17scalar_product_opIffEEKNS_14CwiseNullaryOpINS4_18scalar_constant_opIfEES7_EEKNS3_INS4_20scalar_difference_opIffEES7_S7_EEEEEEEERKNS_9EigenBaseIT_EE(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !324
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load float, ptr %4, align 4, !tbaa !319
+  %5 = load float, ptr %4, align 8, !tbaa !319
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !334
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32

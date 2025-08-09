@@ -4706,7 +4706,7 @@ _ZNK4llvm19MachineRegisterInfo20getRegAllocationHintENS_8RegisterE.exit.i.i: ; p
   %1127 = getelementptr inbounds nuw i8, ptr %1124, i64 8
   %1128 = load ptr, ptr %1127, align 8, !tbaa !70
   %1129 = load i32, ptr %1128, align 4, !tbaa !130
-  %1130 = load i32, ptr %1124, align 4, !tbaa !130
+  %1130 = load i32, ptr %1124, align 8, !tbaa !130
   %.not.i28.i = icmp ne i32 %1130, 0
   %1131 = icmp eq i32 %1129, 0
   %or.cond.i = select i1 %.not.i28.i, i1 true, i1 %1131
@@ -6834,7 +6834,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_
   %14 = getelementptr inbounds nuw float, ptr %11, i64 %13
   %15 = tail call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS4_S8_(ptr noundef %11, ptr noundef %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
-  %16 = load i32, ptr %9, align 4, !tbaa !130
+  %16 = load i32, ptr %9, align 8, !tbaa !130
   store i32 %16, ptr %.sroa.0.i.i.i, align 8
   %.sroa.0.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i, i64 4
   store i64 %15, ptr %.sroa.0.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx, align 4
@@ -7066,7 +7066,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %15 = getelementptr inbounds nuw float, ptr %12, i64 %14
   %16 = tail call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS4_S8_(ptr noundef %12, ptr noundef %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
-  %17 = load i32, ptr %10, align 4, !tbaa !130
+  %17 = load i32, ptr %10, align 8, !tbaa !130
   store i32 %17, ptr %.sroa.0.i.i.i, align 8
   %.sroa.0.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i, i64 4
   store i64 %16, ptr %.sroa.0.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx, align 4
@@ -7724,8 +7724,8 @@ _ZNSt6vectorISt5tupleIJPN4llvm12LiveIntervalEmjEESaIS4_EE9push_backEOS4_.exit.i:
   %214 = load i64, ptr %213, align 8, !tbaa !55
   %215 = getelementptr inbounds nuw i8, ptr %209, i64 8
   store i64 %214, ptr %215, align 8, !tbaa !55
-  %216 = load i32, ptr %206, align 4, !tbaa !130
-  store i32 %216, ptr %209, align 4, !tbaa !130
+  %216 = load i32, ptr %206, align 8, !tbaa !130
+  store i32 %216, ptr %209, align 8, !tbaa !130
   %.not.i.i = icmp ult i64 %.0919.in.i.i.i, 2
   br i1 %.not.i.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJPN4llvm12LiveIntervalEmjEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_comp_valIPFbRKS6_SF_EEEEvT_T0_SK_T1_RT2_.exit.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !721
 
@@ -7746,7 +7746,7 @@ _ZNSt14priority_queueISt5tupleIJPN4llvm12LiveIntervalEmjEESt6vectorIS4_SaIS4_EEP
   store ptr %219, ptr %221, align 8, !tbaa !445
   %222 = getelementptr inbounds nuw i8, ptr %220, i64 8
   store i64 %218, ptr %222, align 8, !tbaa !55
-  store i32 %217, ptr %220, align 4, !tbaa !130
+  store i32 %217, ptr %220, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %223
 
@@ -7792,7 +7792,7 @@ _ZNSt3setISt5tupleIJPN4llvm12LiveIntervalEmjEEPFbRKS4_S6_ESaIS4_EE5eraseB5cxx11E
   %235 = getelementptr inbounds nuw i8, ptr %232, i64 8
   %236 = load i64, ptr %235, align 8, !tbaa !55
   store i64 %236, ptr %64, align 8, !tbaa !55
-  %237 = load i32, ptr %232, align 4, !tbaa !130
+  %237 = load i32, ptr %232, align 8, !tbaa !130
   store i32 %237, ptr %21, align 8, !tbaa !130
   %238 = load ptr, ptr %29, align 8, !tbaa !697
   %239 = ptrtoint ptr %238 to i64
@@ -7812,7 +7812,7 @@ _ZNSt3setISt5tupleIJPN4llvm12LiveIntervalEmjEEPFbRKS4_S6_ESaIS4_EE5eraseB5cxx11E
   %250 = load i64, ptr %249, align 8, !tbaa !445
   store ptr %234, ptr %249, align 8, !tbaa !445
   store i64 %236, ptr %247, align 8, !tbaa !55
-  store i32 %237, ptr %245, align 4, !tbaa !130
+  store i32 %237, ptr %245, align 8, !tbaa !130
   %251 = ptrtoint ptr %245 to i64
   %252 = sub i64 %251, %240
   %253 = sdiv exact i64 %252, 24
@@ -8441,7 +8441,7 @@ _ZN4llvm4PBQP5GraphINS0_8RegAlloc18RegAllocSolverImplEE9EdgeEntry10connectToNERS
   %601 = getelementptr inbounds nuw i8, ptr %567, i64 32
   store i64 %580, ptr %601, align 8, !tbaa !55
   %602 = getelementptr inbounds nuw i8, ptr %567, i64 24
-  %603 = load i32, ptr %602, align 4, !tbaa !130
+  %603 = load i32, ptr %602, align 8, !tbaa !130
   %604 = zext i32 %603 to i64
   %605 = getelementptr inbounds nuw %"class.llvm::PBQP::Graph<llvm::PBQP::RegAlloc::RegAllocSolverImpl>::NodeEntry", ptr %600, i64 %604
   %606 = getelementptr inbounds nuw i8, ptr %605, i64 64
@@ -9561,8 +9561,8 @@ _ZNSt6vectorISt5tupleIJPN4llvm12LiveIntervalEmjEESaIS4_EE9push_backEOS4_.exit: ;
   %45 = load i64, ptr %44, align 8, !tbaa !55
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i64 %45, ptr %46, align 8, !tbaa !55
-  %47 = load i32, ptr %37, align 4, !tbaa !130
-  store i32 %47, ptr %40, align 4, !tbaa !130
+  %47 = load i32, ptr %37, align 8, !tbaa !130
+  store i32 %47, ptr %40, align 8, !tbaa !130
   %.not.i = icmp ult i64 %.0919.in.i.i, 2
   br i1 %.not.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJPN4llvm12LiveIntervalEmjEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_comp_valIPFbRKS6_SF_EEEEvT_T0_SK_T1_RT2_.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !721
 
@@ -9583,7 +9583,7 @@ _ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJPN4llvm12LiveIntervalEm
   store ptr %50, ptr %52, align 8, !tbaa !445
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i64 %49, ptr %53, align 8, !tbaa !55
-  store i32 %48, ptr %51, align 4, !tbaa !130
+  store i32 %48, ptr %51, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -9615,8 +9615,8 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt
   %22 = load i64, ptr %21, align 8, !tbaa !55
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %22, ptr %23, align 8, !tbaa !55
-  %24 = load i32, ptr %16, align 4, !tbaa !130
-  store i32 %24, ptr %17, align 4, !tbaa !130
+  %24 = load i32, ptr %16, align 8, !tbaa !130
+  store i32 %24, ptr %17, align 8, !tbaa !130
   %25 = icmp slt i64 %spec.select, %8
   br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !801
 
@@ -9645,8 +9645,8 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt
   %41 = load i64, ptr %40, align 8, !tbaa !55
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i64 %41, ptr %42, align 8, !tbaa !55
-  %43 = load i32, ptr %35, align 4, !tbaa !130
-  store i32 %43, ptr %36, align 4, !tbaa !130
+  %43 = load i32, ptr %35, align 8, !tbaa !130
+  store i32 %43, ptr %36, align 8, !tbaa !130
   br label %44
 
 44:                                               ; preds = %32, %28, %._crit_edge
@@ -9683,8 +9683,8 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt
   %62 = load i64, ptr %61, align 8, !tbaa !55
   %63 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store i64 %62, ptr %63, align 8, !tbaa !55
-  %64 = load i32, ptr %54, align 4, !tbaa !130
-  store i32 %64, ptr %57, align 4, !tbaa !130
+  %64 = load i32, ptr %54, align 8, !tbaa !130
+  store i32 %64, ptr %57, align 8, !tbaa !130
   %65 = icmp sgt i64 %.0919.i, %1
   br i1 %65, label %.lr.ph.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJPN4llvm12LiveIntervalEmjEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_comp_valIPFbRKS6_SF_EEEEvT_T0_SK_T1_RT2_.exit.loopexit, !llvm.loop !721
 
@@ -9705,7 +9705,7 @@ _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJPN4llvm12LiveInterva
   store ptr %68, ptr %70, align 8, !tbaa !445
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i64 %67, ptr %71, align 8, !tbaa !55
-  store i32 %66, ptr %69, align 4, !tbaa !130
+  store i32 %66, ptr %69, align 8, !tbaa !130
   ret void
 }
 
@@ -11323,7 +11323,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_
   %16 = zext i32 %15 to i64
   %17 = getelementptr inbounds nuw float, ptr %11, i64 %16
   %18 = tail call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS4_S8_(ptr noundef %11, ptr noundef %17)
-  %19 = load i64, ptr %9, align 4
+  %19 = load i64, ptr %9, align 8
   %20 = add i64 %18, 16
   %21 = tail call i64 @llvm.fshl.i64(i64 %20, i64 %20, i64 48)
   %22 = xor i64 %19, %21
@@ -11557,7 +11557,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %17 = zext i32 %16 to i64
   %18 = getelementptr inbounds nuw float, ptr %12, i64 %17
   %19 = tail call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS4_S8_(ptr noundef %12, ptr noundef %18)
-  %20 = load i64, ptr %10, align 4
+  %20 = load i64, ptr %10, align 8
   %21 = add i64 %19, 16
   %22 = tail call i64 @llvm.fshl.i64(i64 %21, i64 %21, i64 48)
   %23 = xor i64 %20, %22
@@ -15994,7 +15994,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_
   %14 = getelementptr inbounds nuw %"class.llvm::MCRegister", ptr %11, i64 %13
   %15 = tail call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIPNS_10MCRegisterEEENS_9hash_codeET_S6_(ptr noundef %11, ptr noundef %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
-  %16 = load i32, ptr %9, align 4, !tbaa !130
+  %16 = load i32, ptr %9, align 8, !tbaa !130
   store i32 %16, ptr %.sroa.0.i.i.i, align 8
   %.sroa.0.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i, i64 4
   store i64 %15, ptr %.sroa.0.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx, align 4
@@ -16223,7 +16223,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %15 = getelementptr inbounds nuw %"class.llvm::MCRegister", ptr %12, i64 %14
   %16 = tail call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIPNS_10MCRegisterEEENS_9hash_codeET_S6_(ptr noundef %12, ptr noundef %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
-  %17 = load i32, ptr %10, align 4, !tbaa !130
+  %17 = load i32, ptr %10, align 8, !tbaa !130
   store i32 %17, ptr %.sroa.0.i.i.i, align 8
   %.sroa.0.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i, i64 4
   store i64 %16, ptr %.sroa.0.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx, align 4

@@ -4011,7 +4011,7 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i200.i: ; preds = %558,
   %582 = getelementptr inbounds nuw i8, ptr %579, i64 8
   %583 = load i64, ptr %582, align 8, !tbaa !72, !alias.scope !188, !noalias !199
   %584 = getelementptr inbounds nuw i8, ptr %579, i64 16
-  %585 = load i32, ptr %584, align 4, !tbaa !126, !alias.scope !188, !noalias !199
+  %585 = load i32, ptr %584, align 8, !tbaa !126, !alias.scope !188, !noalias !199
   %586 = add nsw i32 %580, 1
   %.not.i.i.i.i189.i = icmp eq ptr %571, %570
   br i1 %.not.i.i.i.i189.i, label %588, label %587
@@ -6215,7 +6215,7 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i200.i213: ; preds = %1
   %1262 = getelementptr inbounds nuw i8, ptr %1259, i64 8
   %1263 = load i64, ptr %1262, align 8, !tbaa !72, !alias.scope !302, !noalias !309
   %1264 = getelementptr inbounds nuw i8, ptr %1259, i64 16
-  %1265 = load i32, ptr %1264, align 4, !tbaa !126, !alias.scope !302, !noalias !309
+  %1265 = load i32, ptr %1264, align 8, !tbaa !126, !alias.scope !302, !noalias !309
   %1266 = add nsw i32 %1260, 1
   %.not.i.i.i.i189.i198 = icmp eq ptr %1251, %1250
   br i1 %.not.i.i.i.i189.i198, label %1268, label %1267
@@ -8425,7 +8425,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingCo
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %6, ptr %7, align 8, !tbaa !387
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load i32, ptr %8, align 4, !tbaa !126
+  %9 = load i32, ptr %8, align 8, !tbaa !126
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %9, ptr %10, align 8, !tbaa !388
   ret void
@@ -8455,7 +8455,7 @@ define internal noundef range(i32 0, 161) i32 @_ZNK5faiss12_GLOBAL__N_118IVFBina
   %15 = trunc nuw nsw i64 %14 to i32
   %16 = add nuw nsw i32 %15, %8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %18 = load i32, ptr %17, align 4, !tbaa !126
+  %18 = load i32, ptr %17, align 8, !tbaa !126
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load i32, ptr %19, align 8, !tbaa !388
   %21 = xor i32 %20, %18
@@ -8509,7 +8509,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17H
   %34 = trunc nuw nsw i64 %33 to i32
   %35 = add nuw nsw i32 %34, %29
   %36 = getelementptr inbounds nuw i8, ptr %.023, i64 16
-  %37 = load i32, ptr %36, align 4, !tbaa !126
+  %37 = load i32, ptr %36, align 8, !tbaa !126
   %38 = xor i32 %13, %37
   %39 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %38)
   %40 = add nuw nsw i32 %35, %39
@@ -8648,7 +8648,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingC
   %24 = trunc nuw nsw i64 %23 to i32
   %25 = add nuw nsw i32 %24, %18
   %26 = getelementptr inbounds nuw i8, ptr %.017, i64 16
-  %27 = load i32, ptr %26, align 4, !tbaa !126
+  %27 = load i32, ptr %26, align 8, !tbaa !126
   %28 = load i32, ptr %9, align 8, !tbaa !388
   %29 = xor i32 %28, %27
   %30 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %29)
@@ -14244,7 +14244,7 @@ _ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i446: ; preds = %_ZN5faiss13I
   %2011 = getelementptr inbounds nuw i8, ptr %2009, i64 8
   %2012 = load i64, ptr %2011, align 8, !tbaa !72, !alias.scope !743, !noalias !744
   %2013 = getelementptr inbounds nuw i8, ptr %2009, i64 16
-  %2014 = load i32, ptr %2013, align 4, !tbaa !126, !alias.scope !743, !noalias !744
+  %2014 = load i32, ptr %2013, align 8, !tbaa !126, !alias.scope !743, !noalias !744
   %2015 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer20"], ptr %32, i64 0, i64 %.019.i.i.i508
   store i64 %2010, ptr %2015, align 8, !tbaa !72, !noalias !745
   %.sroa.4.0..sroa_idx.i.i.i509 = getelementptr inbounds nuw i8, ptr %2015, i64 8
@@ -14317,7 +14317,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi1EEC2EmPKhPKiP
   %2050 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2049)
   %2051 = trunc nuw nsw i64 %2050 to i32
   %2052 = add nuw nsw i32 %2051, %2045
-  %2053 = load i32, ptr %2038, align 4, !tbaa !126, !noalias !729
+  %2053 = load i32, ptr %2038, align 8, !tbaa !126, !noalias !729
   %2054 = getelementptr inbounds nuw i8, ptr %2040, i64 16
   %2055 = load i32, ptr %2054, align 8, !tbaa !388, !noalias !728
   %2056 = xor i32 %2055, %2053
@@ -14369,7 +14369,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi1EE9add_bcodeE
   %2079 = getelementptr inbounds nuw i8, ptr %2077, i64 8
   %2080 = load i64, ptr %2079, align 8, !tbaa !72, !alias.scope !761, !noalias !762
   %2081 = getelementptr inbounds nuw i8, ptr %2077, i64 16
-  %2082 = load i32, ptr %2081, align 4, !tbaa !126, !alias.scope !761, !noalias !762
+  %2082 = load i32, ptr %2081, align 8, !tbaa !126, !alias.scope !761, !noalias !762
   %2083 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer20"], ptr %33, i64 0, i64 %.019.i237.i.i492
   store i64 %2078, ptr %2083, align 8, !tbaa !72, !noalias !763
   %.sroa.4.0..sroa_idx.i238.i.i493 = getelementptr inbounds nuw i8, ptr %2083, i64 8
@@ -14424,7 +14424,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi2EEC2EmPKhPKiP
   %2110 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2109)
   %2111 = trunc nuw nsw i64 %2110 to i32
   %2112 = add nuw nsw i32 %2111, %2105
-  %2113 = load i32, ptr %2098, align 4, !tbaa !126, !noalias !729
+  %2113 = load i32, ptr %2098, align 8, !tbaa !126, !noalias !729
   %2114 = getelementptr inbounds nuw i8, ptr %2100, i64 16
   %2115 = load i32, ptr %2114, align 8, !tbaa !388, !noalias !728
   %2116 = xor i32 %2115, %2113
@@ -14501,7 +14501,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi2EE9add_bcodeE
   %2150 = getelementptr inbounds nuw i8, ptr %2148, i64 8
   %2151 = load i64, ptr %2150, align 8, !tbaa !72, !alias.scope !779, !noalias !780
   %2152 = getelementptr inbounds nuw i8, ptr %2148, i64 16
-  %2153 = load i32, ptr %2152, align 4, !tbaa !126, !alias.scope !779, !noalias !780
+  %2153 = load i32, ptr %2152, align 8, !tbaa !126, !alias.scope !779, !noalias !780
   %2154 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer20"], ptr %34, i64 0, i64 %.019.i244.i.i
   store i64 %2149, ptr %2154, align 8, !tbaa !72, !noalias !781
   %.sroa.4.0..sroa_idx.i245.i.i = getelementptr inbounds nuw i8, ptr %2154, i64 8
@@ -14556,7 +14556,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi4EEC2EmPKhPKiP
   %2181 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2180)
   %2182 = trunc nuw nsw i64 %2181 to i32
   %2183 = add nuw nsw i32 %2182, %2176
-  %2184 = load i32, ptr %2169, align 4, !tbaa !126, !noalias !729
+  %2184 = load i32, ptr %2169, align 8, !tbaa !126, !noalias !729
   %2185 = getelementptr inbounds nuw i8, ptr %2171, i64 16
   %2186 = load i32, ptr %2185, align 8, !tbaa !388, !noalias !728
   %2187 = xor i32 %2186, %2184
@@ -14683,7 +14683,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi4EE9add_bcodeE
   %2249 = getelementptr inbounds nuw i8, ptr %2247, i64 8
   %2250 = load i64, ptr %2249, align 8, !tbaa !72, !alias.scope !797, !noalias !798
   %2251 = getelementptr inbounds nuw i8, ptr %2247, i64 16
-  %2252 = load i32, ptr %2251, align 4, !tbaa !126, !alias.scope !797, !noalias !798
+  %2252 = load i32, ptr %2251, align 8, !tbaa !126, !alias.scope !797, !noalias !798
   %2253 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer20"], ptr %.ptr21.i.i.i412, i64 0, i64 %.022.i.i.i521
   store i64 %2248, ptr %2253, align 8, !tbaa !72, !noalias !799
   %.sroa.4.0..sroa_idx.i257.i.i = getelementptr inbounds nuw i8, ptr %2253, i64 8
@@ -14738,7 +14738,7 @@ _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer20ELi4EEC2EmiP
   %2280 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2279)
   %2281 = trunc nuw nsw i64 %2280 to i32
   %2282 = add nuw nsw i32 %2281, %2275
-  %2283 = load i32, ptr %2268, align 4, !tbaa !126, !noalias !729
+  %2283 = load i32, ptr %2268, align 8, !tbaa !126, !noalias !729
   %2284 = getelementptr inbounds nuw i8, ptr %2270, i64 16
   %2285 = load i32, ptr %2284, align 8, !tbaa !388, !noalias !728
   %2286 = xor i32 %2285, %2283
@@ -14868,7 +14868,7 @@ _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer20ELi4EE9add_b
   %2348 = getelementptr inbounds nuw i8, ptr %2346, i64 8
   %2349 = load i64, ptr %2348, align 8, !tbaa !72, !alias.scope !719, !noalias !806
   %2350 = getelementptr inbounds nuw i8, ptr %2346, i64 16
-  %2351 = load i32, ptr %2350, align 4, !tbaa !126, !alias.scope !719, !noalias !806
+  %2351 = load i32, ptr %2350, align 8, !tbaa !126, !alias.scope !719, !noalias !806
   %2352 = mul nsw i64 %4, %2344
   %2353 = getelementptr inbounds i64, ptr %7, i64 %2352
   %2354 = getelementptr inbounds i32, ptr %6, i64 %2352
@@ -14902,7 +14902,7 @@ _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer20ELi4EE9add_b
   %2371 = trunc nuw nsw i64 %2370 to i32
   %2372 = add nuw nsw i32 %2371, %2366
   %2373 = getelementptr inbounds nuw i8, ptr %2362, i64 16
-  %2374 = load i32, ptr %2373, align 4, !tbaa !126, !noalias !729
+  %2374 = load i32, ptr %2373, align 8, !tbaa !126, !noalias !729
   %2375 = xor i32 %2374, %2351
   %2376 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2375)
   %2377 = add nuw nsw i32 %2372, %2376
@@ -20422,7 +20422,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.preheader: ; preds = %77
   %113 = load i32, ptr %43, align 8, !tbaa !1095
   %114 = add nsw i32 %113, 1
   %115 = load i32, ptr %40, align 8, !tbaa !1092
-  %.promoted.i = load i32, ptr %39, align 1
+  %.promoted.i = load i32, ptr %39, align 4
   store i32 %114, ptr %43, align 8, !tbaa !1095
   %116 = icmp eq i32 %114, %115
   br i1 %116, label %.lr.ph.i, label %_ZN5faiss13HCounterStateINS_16HammingComputer4EE14update_counterEPKhm.exit
@@ -20880,7 +20880,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.preheader: ; preds = %77
   %113 = load i32, ptr %43, align 4, !tbaa !1108
   %114 = add nsw i32 %113, 1
   %115 = load i32, ptr %40, align 4, !tbaa !1105
-  %.promoted.i = load i32, ptr %39, align 1
+  %.promoted.i = load i32, ptr %39, align 8
   store i32 %114, ptr %43, align 4, !tbaa !1108
   %116 = icmp eq i32 %114, %115
   br i1 %116, label %.lr.ph.i, label %_ZN5faiss13HCounterStateINS_16HammingComputer8EE14update_counterEPKhm.exit
@@ -21346,7 +21346,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.preheader: ; preds = %78
   %122 = load i32, ptr %44, align 4, !tbaa !1121
   %123 = add nsw i32 %122, 1
   %124 = load i32, ptr %41, align 4, !tbaa !1118
-  %.promoted.i = load i32, ptr %40, align 1
+  %.promoted.i = load i32, ptr %40, align 8
   store i32 %123, ptr %44, align 4, !tbaa !1121
   %125 = icmp eq i32 %123, %124
   br i1 %125, label %.lr.ph.i, label %_ZN5faiss13HCounterStateINS_17HammingComputer16EE14update_counterEPKhm.exit
@@ -21790,7 +21790,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.preheader: ; preds = %79
   %106 = trunc nuw nsw i64 %105 to i32
   %107 = add nuw nsw i32 %106, %100
   %108 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  %109 = load i32, ptr %108, align 4, !tbaa !126
+  %109 = load i32, ptr %108, align 8, !tbaa !126
   %110 = load i32, ptr %40, align 8, !tbaa !388
   %111 = xor i32 %110, %109
   %112 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %111)
@@ -21820,7 +21820,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.preheader: ; preds = %79
   %129 = load i32, ptr %45, align 4, !tbaa !1134
   %130 = add nsw i32 %129, 1
   %131 = load i32, ptr %42, align 4, !tbaa !1131
-  %.promoted.i = load i32, ptr %41, align 1
+  %.promoted.i = load i32, ptr %41, align 8
   store i32 %130, ptr %45, align 4, !tbaa !1134
   %132 = icmp eq i32 %130, %131
   br i1 %132, label %.lr.ph.i, label %_ZN5faiss13HCounterStateINS_17HammingComputer20EE14update_counterEPKhm.exit
@@ -22303,7 +22303,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.preheader: ; preds = %80
   %138 = load i32, ptr %46, align 4, !tbaa !1147
   %139 = add nsw i32 %138, 1
   %140 = load i32, ptr %43, align 4, !tbaa !1144
-  %.promoted.i = load i32, ptr %42, align 1
+  %.promoted.i = load i32, ptr %42, align 8
   store i32 %139, ptr %46, align 4, !tbaa !1147
   %141 = icmp eq i32 %139, %140
   br i1 %141, label %.lr.ph.i, label %_ZN5faiss13HCounterStateINS_17HammingComputer32EE14update_counterEPKhm.exit
@@ -22818,7 +22818,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.preheader: ; preds = %84
   %170 = load i32, ptr %50, align 4, !tbaa !1160
   %171 = add nsw i32 %170, 1
   %172 = load i32, ptr %47, align 4, !tbaa !1157
-  %.promoted.i = load i32, ptr %46, align 1
+  %.promoted.i = load i32, ptr %46, align 8
   store i32 %171, ptr %50, align 4, !tbaa !1160
   %173 = icmp eq i32 %171, %172
   br i1 %173, label %.lr.ph.i, label %_ZN5faiss13HCounterStateINS_17HammingComputer64EE14update_counterEPKhm.exit
@@ -23273,7 +23273,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.preheader: ; preds = %77
   %110 = load i32, ptr %43, align 4, !tbaa !1173
   %111 = add nsw i32 %110, 1
   %112 = load i32, ptr %40, align 4, !tbaa !1170
-  %.promoted.i = load i32, ptr %39, align 1
+  %.promoted.i = load i32, ptr %39, align 8
   store i32 %111, ptr %43, align 4, !tbaa !1173
   %113 = icmp eq i32 %111, %112
   br i1 %113, label %.lr.ph.i, label %_ZN5faiss13HCounterStateINS_22HammingComputerDefaultEE14update_counterEPKhm.exit
@@ -23745,7 +23745,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit: ; preds = %77
   %120 = load i32, ptr %43, align 8, !tbaa !1095
   %121 = add nsw i32 %120, 1
   %122 = load i32, ptr %40, align 8, !tbaa !1092
-  %.promoted.i = load i32, ptr %39, align 1
+  %.promoted.i = load i32, ptr %39, align 4
   store i32 %121, ptr %43, align 8, !tbaa !1095
   %123 = icmp eq i32 %121, %122
   br i1 %123, label %.lr.ph.i, label %_ZN5faiss13HCounterStateINS_16HammingComputer4EE14update_counterEPKhm.exit
@@ -24227,7 +24227,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit: ; preds = %77
   %120 = load i32, ptr %43, align 4, !tbaa !1108
   %121 = add nsw i32 %120, 1
   %122 = load i32, ptr %40, align 4, !tbaa !1105
-  %.promoted.i = load i32, ptr %39, align 1
+  %.promoted.i = load i32, ptr %39, align 8
   store i32 %121, ptr %43, align 4, !tbaa !1108
   %123 = icmp eq i32 %121, %122
   br i1 %123, label %.lr.ph.i, label %_ZN5faiss13HCounterStateINS_16HammingComputer8EE14update_counterEPKhm.exit
@@ -24717,7 +24717,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit: ; preds = %78
   %129 = load i32, ptr %44, align 4, !tbaa !1121
   %130 = add nsw i32 %129, 1
   %131 = load i32, ptr %41, align 4, !tbaa !1118
-  %.promoted.i = load i32, ptr %40, align 1
+  %.promoted.i = load i32, ptr %40, align 8
   store i32 %130, ptr %44, align 4, !tbaa !1121
   %132 = icmp eq i32 %130, %131
   br i1 %132, label %.lr.ph.i, label %_ZN5faiss13HCounterStateINS_17HammingComputer16EE14update_counterEPKhm.exit
@@ -25185,7 +25185,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit: ; preds = %79
   %113 = trunc nuw nsw i64 %112 to i32
   %114 = add nuw nsw i32 %113, %107
   %115 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  %116 = load i32, ptr %115, align 4, !tbaa !126
+  %116 = load i32, ptr %115, align 8, !tbaa !126
   %117 = load i32, ptr %40, align 8, !tbaa !388
   %118 = xor i32 %117, %116
   %119 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %118)
@@ -25215,7 +25215,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit: ; preds = %79
   %136 = load i32, ptr %45, align 4, !tbaa !1134
   %137 = add nsw i32 %136, 1
   %138 = load i32, ptr %42, align 4, !tbaa !1131
-  %.promoted.i = load i32, ptr %41, align 1
+  %.promoted.i = load i32, ptr %41, align 8
   store i32 %137, ptr %45, align 4, !tbaa !1134
   %139 = icmp eq i32 %137, %138
   br i1 %139, label %.lr.ph.i, label %_ZN5faiss13HCounterStateINS_17HammingComputer20EE14update_counterEPKhm.exit
@@ -25722,7 +25722,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit: ; preds = %80
   %145 = load i32, ptr %46, align 4, !tbaa !1147
   %146 = add nsw i32 %145, 1
   %147 = load i32, ptr %43, align 4, !tbaa !1144
-  %.promoted.i = load i32, ptr %42, align 1
+  %.promoted.i = load i32, ptr %42, align 8
   store i32 %146, ptr %46, align 4, !tbaa !1147
   %148 = icmp eq i32 %146, %147
   br i1 %148, label %.lr.ph.i, label %_ZN5faiss13HCounterStateINS_17HammingComputer32EE14update_counterEPKhm.exit
@@ -26261,7 +26261,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit: ; preds = %84
   %177 = load i32, ptr %50, align 4, !tbaa !1160
   %178 = add nsw i32 %177, 1
   %179 = load i32, ptr %47, align 4, !tbaa !1157
-  %.promoted.i = load i32, ptr %46, align 1
+  %.promoted.i = load i32, ptr %46, align 8
   store i32 %178, ptr %50, align 4, !tbaa !1160
   %180 = icmp eq i32 %178, %179
   br i1 %180, label %.lr.ph.i, label %_ZN5faiss13HCounterStateINS_17HammingComputer64EE14update_counterEPKhm.exit
@@ -26737,7 +26737,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit: ; preds = %77
   %116 = load i32, ptr %43, align 4, !tbaa !1173
   %117 = add nsw i32 %116, 1
   %118 = load i32, ptr %40, align 4, !tbaa !1170
-  %.promoted.i = load i32, ptr %39, align 1
+  %.promoted.i = load i32, ptr %39, align 8
   store i32 %117, ptr %43, align 4, !tbaa !1173
   %119 = icmp eq i32 %117, %118
   br i1 %119, label %.lr.ph.i, label %_ZN5faiss13HCounterStateINS_22HammingComputerDefaultEE14update_counterEPKhm.exit

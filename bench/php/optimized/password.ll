@@ -1302,7 +1302,7 @@ php_password_algo_find.exit19:                    ; preds = %13, %21, %24
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 24
   store i64 7235369726244254305, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 32
-  store i8 0, ptr %43, align 1, !tbaa !8
+  store i8 0, ptr %43, align 8, !tbaa !8
   %44 = tail call ptr @zend_hash_find(ptr noundef nonnull @php_password_algos, ptr noundef nonnull %38) #12
   %.not8.i21 = icmp eq ptr %44, null
   br i1 %.not8.i21, label %php_password_algo_find.exit24, label %45

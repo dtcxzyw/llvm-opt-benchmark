@@ -933,7 +933,7 @@ _ZN8rawspeed8RawImageC2ERKS0_.exit:               ; preds = %90, %100, %103
   %156 = getelementptr inbounds nuw i8, ptr %150, i64 164
   %157 = load i8, ptr %156, align 4, !tbaa !176, !range !177, !noundef !178
   %158 = trunc nuw i8 %157 to i1
-  %.val.i.i = load i32, ptr %155, align 4
+  %.val.i.i = load i32, ptr %155, align 8
   %.0.i.i = select i1 %158, i32 %.val.i.i, i32 65535
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 1728
   store i32 %.0.i.i, ptr %159, align 16, !tbaa !179

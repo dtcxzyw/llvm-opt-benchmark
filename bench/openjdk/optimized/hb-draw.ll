@@ -701,7 +701,7 @@ define hidden nonnull ptr @hb_draw_funcs_create() local_unnamed_addr #2 {
   store atomic i32 1, ptr %3 monotonic, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store atomic i64 0, ptr %4 monotonic, align 8
-  %5 = load atomic i32, ptr %1 monotonic, align 4
+  %5 = load atomic i32, ptr %1 monotonic, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_hb_Null_hb_draw_funcs_t, i64 16), i64 40, i1 false)
   br label %7

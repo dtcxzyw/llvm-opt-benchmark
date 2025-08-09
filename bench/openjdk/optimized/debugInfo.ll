@@ -585,7 +585,7 @@ _ZN20CompressedReadStream8read_intEv.exit:        ; preds = %2, %.preheader.i.i,
   store ptr null, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %37 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #11
-  store i32 0, ptr %36, align 4
+  store i32 0, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 28
   store i32 2, ptr %38, align 4
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 32
@@ -765,7 +765,7 @@ define hidden void @_ZN11ObjectValue11read_objectEP19DebugInfoReadStream(ptr nou
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %13, ptr %14, align 8
   %15 = load ptr, ptr %1, align 8
-  %16 = load i32, ptr %4, align 4
+  %16 = load i32, ptr %4, align 8
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds i8, ptr %15, i64 %17
   %19 = load i8, ptr %18, align 1
@@ -920,7 +920,7 @@ _ZN20CompressedReadStream8read_intEv.exit:        ; preds = %1, %.preheader.i.i,
   store ptr null, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %36 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #11
-  store i32 0, ptr %35, align 4
+  store i32 0, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 28
   store i32 2, ptr %37, align 4
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 32
@@ -935,7 +935,7 @@ _ZN20CompressedReadStream8read_intEv.exit:        ; preds = %1, %.preheader.i.i,
   %42 = getelementptr inbounds nuw i8, ptr %32, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
   %43 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #11
-  store i32 0, ptr %42, align 4
+  store i32 0, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %32, i64 84
   store i32 2, ptr %44, align 4
   %45 = getelementptr inbounds nuw i8, ptr %32, i64 88
@@ -988,7 +988,7 @@ define hidden void @_ZN16ObjectMergeValue11read_objectEP19DebugInfoReadStream(pt
   store ptr %5, ptr %6, align 8
   %7 = load ptr, ptr %1, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load i32, ptr %8, align 4
+  %9 = load i32, ptr %8, align 8
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds i8, ptr %7, i64 %10
   %12 = load i8, ptr %11, align 1
@@ -1176,7 +1176,7 @@ define hidden noundef ptr @_ZN10ScopeValue9read_fromEP19DebugInfoReadStream(ptr 
   %2 = alloca %class.Location, align 4
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds i8, ptr %3, i64 %6
   %8 = load i8, ptr %7, align 1
@@ -1242,7 +1242,7 @@ _ZN20CompressedReadStream8read_intEv.exit:        ; preds = %1, %.preheader.i.i,
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV13LocationValue, i64 16), ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store i32 0, ptr %35, align 4
+  store i32 0, ptr %35, align 8
   call void @_ZN8LocationC1EP19DebugInfoReadStream(ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull %0) #11
   %36 = load i32, ptr %2, align 4
   store i32 %36, ptr %35, align 8
@@ -1342,7 +1342,7 @@ _ZN20CompressedReadStream8read_intEv.exit21:      ; preds = %55, %.preheader.i.i
   store ptr null, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %87 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #11
-  store i32 0, ptr %86, align 4
+  store i32 0, ptr %86, align 8
   %88 = getelementptr inbounds nuw i8, ptr %83, i64 28
   store i32 2, ptr %88, align 4
   %89 = getelementptr inbounds nuw i8, ptr %83, i64 32
@@ -1357,7 +1357,7 @@ _ZN20CompressedReadStream8read_intEv.exit21:      ; preds = %55, %.preheader.i.i
   %93 = getelementptr inbounds nuw i8, ptr %83, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %92, i8 0, i64 16, i1 false)
   %94 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #11
-  store i32 0, ptr %93, align 4
+  store i32 0, ptr %93, align 8
   %95 = getelementptr inbounds nuw i8, ptr %83, i64 84
   store i32 2, ptr %95, align 4
   %96 = getelementptr inbounds nuw i8, ptr %83, i64 88
@@ -1531,7 +1531,7 @@ _ZN21CompressedWriteStream9write_intEj.exit:      ; preds = %2, %8
   %12 = getelementptr inbounds i8, ptr %10, i64 %11
   store i8 1, ptr %12, align 1
   %storemerge.i.i.i = add nsw i32 %9, 1
-  store i32 %storemerge.i.i.i, ptr %4, align 4
+  store i32 %storemerge.i.i.i, ptr %4, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload.i = load i32, ptr %13, align 8
   store i32 %.sroa.0.0.copyload.i, ptr %3, align 4
@@ -1574,7 +1574,7 @@ _ZN21CompressedWriteStream9write_intEj.exit:      ; preds = %2, %7
   %11 = getelementptr inbounds i8, ptr %9, i64 %10
   store i8 9, ptr %11, align 1
   %storemerge.i.i.i = add nsw i32 %8, 1
-  store i32 %storemerge.i.i.i, ptr %3, align 4
+  store i32 %storemerge.i.i.i, ptr %3, align 8
   ret void
 }
 
@@ -1656,7 +1656,7 @@ _ZN21CompressedWriteStream9write_intEj.exit:      ; preds = %6, %11
   %15 = getelementptr inbounds i8, ptr %13, i64 %14
   store i8 7, ptr %15, align 1
   %storemerge.i.i.i = add nsw i32 %12, 1
-  store i32 %storemerge.i.i.i, ptr %7, align 4
+  store i32 %storemerge.i.i.i, ptr %7, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = load i32, ptr %8, align 4
@@ -1767,7 +1767,7 @@ _ZN21CompressedWriteStream9write_intEj.exit41:    ; preds = %50, %59
   %64 = getelementptr inbounds i8, ptr %61, i64 %63
   store i8 %62, ptr %64, align 1
   %storemerge.i.i.i30 = add nsw i32 %60, 1
-  store i32 %storemerge.i.i.i30, ptr %55, align 4
+  store i32 %storemerge.i.i.i30, ptr %55, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %66 = load i32, ptr %65, align 8
   %67 = load i32, ptr %56, align 4
@@ -1878,7 +1878,7 @@ _ZN21CompressedWriteStream10write_boolEh.exit:    ; preds = %_ZN21CompressedWrit
   tail call void %113(ptr noundef nonnull align 8 dereferenceable(8) %110, ptr noundef nonnull %1) #11
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %115 = load i32, ptr %114, align 8
-  %116 = load i32, ptr %55, align 4
+  %116 = load i32, ptr %55, align 8
   %117 = load i32, ptr %56, align 4
   %118 = add nsw i32 %116, 5
   %.not.i.i.i68 = icmp sgt i32 %118, %117
@@ -2037,7 +2037,7 @@ define hidden noundef ptr @_ZN16ObjectMergeValue6selectER5frameR11RegisterMap(pt
   store ptr null, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %20 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #11
-  store i32 0, ptr %19, align 4
+  store i32 0, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 28
   store i32 2, ptr %21, align 4
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 32
@@ -2130,7 +2130,7 @@ _ZN21CompressedWriteStream9write_intEj.exit:      ; preds = %6, %11
   %15 = getelementptr inbounds i8, ptr %13, i64 %14
   store i8 7, ptr %15, align 1
   %storemerge.i.i.i = add nsw i32 %12, 1
-  store i32 %storemerge.i.i.i, ptr %7, align 4
+  store i32 %storemerge.i.i.i, ptr %7, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = load i32, ptr %8, align 4
@@ -2236,7 +2236,7 @@ _ZN21CompressedWriteStream9write_intEj.exit27:    ; preds = %50, %55
   %59 = getelementptr inbounds i8, ptr %57, i64 %58
   store i8 10, ptr %59, align 1
   %storemerge.i.i.i22 = add nsw i32 %56, 1
-  store i32 %storemerge.i.i.i22, ptr %51, align 4
+  store i32 %storemerge.i.i.i22, ptr %51, align 8
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %61 = load i32, ptr %60, align 8
   %62 = load i32, ptr %52, align 4
@@ -2471,7 +2471,7 @@ _ZN21CompressedWriteStream9write_intEj.exit:      ; preds = %2, %7
   %11 = getelementptr inbounds i8, ptr %9, i64 %10
   store i8 2, ptr %11, align 1
   %storemerge.i.i.i = add nsw i32 %8, 1
-  store i32 %storemerge.i.i.i, ptr %3, align 4
+  store i32 %storemerge.i.i.i, ptr %3, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = shl i32 %13, 1
@@ -2600,7 +2600,7 @@ _ZN21CompressedWriteStream9write_intEj.exit:      ; preds = %2, %7
   %11 = getelementptr inbounds i8, ptr %9, i64 %10
   store i8 4, ptr %11, align 1
   %storemerge.i.i.i = add nsw i32 %8, 1
-  store i32 %storemerge.i.i.i, ptr %3, align 4
+  store i32 %storemerge.i.i.i, ptr %3, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8
   tail call void @_ZN21CompressedWriteStream10write_longEl(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %13) #11
@@ -2649,7 +2649,7 @@ _ZN21CompressedWriteStream9write_intEj.exit:      ; preds = %2, %7
   %11 = getelementptr inbounds i8, ptr %9, i64 %10
   store i8 5, ptr %11, align 1
   %storemerge.i.i.i = add nsw i32 %8, 1
-  store i32 %storemerge.i.i.i, ptr %3, align 4
+  store i32 %storemerge.i.i.i, ptr %3, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load double, ptr %12, align 8
   tail call void @_ZN21CompressedWriteStream12write_doubleEd(ptr noundef nonnull align 8 dereferenceable(16) %1, double noundef %13) #11
@@ -2687,7 +2687,7 @@ _ZN21CompressedWriteStream9write_intEj.exit:      ; preds = %2, %7
   %11 = getelementptr inbounds i8, ptr %9, i64 %10
   store i8 3, ptr %11, align 1
   %storemerge.i.i.i = add nsw i32 %8, 1
-  store i32 %storemerge.i.i.i, ptr %3, align 4
+  store i32 %storemerge.i.i.i, ptr %3, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @_ZN20DebugInfoWriteStream12write_handleEP8_jobject(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %13)
@@ -2806,7 +2806,7 @@ define hidden void @_ZN20ConstantOopReadValueC2EP19DebugInfoReadStream(ptr nound
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load i32, ptr %9, align 4
+  %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %8, i64 %11
   %13 = load i8, ptr %12, align 1

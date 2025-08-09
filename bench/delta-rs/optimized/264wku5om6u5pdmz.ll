@@ -74309,7 +74309,7 @@ define internal fastcc void @"_ZN14datafusion_sql6select60_$LT$impl$u20$datafusi
   %223 = getelementptr inbounds nuw i8, ptr %.sroa.01.069, i64 16
   %224 = load i64, ptr %223, align 16, !range !5491, !noundef !5
   %225 = getelementptr i8, ptr %.sroa.01.069, i64 32
-  %226 = load ptr, ptr %225, align 8, !nonnull !5, !noundef !5
+  %226 = load ptr, ptr %225, align 16, !nonnull !5, !noundef !5
   %227 = getelementptr i8, ptr %.sroa.01.069, i64 40
   %228 = load i64, ptr %227, align 8, !noundef !5
   %switch = icmp samesign ult i64 %224, 2
@@ -75177,7 +75177,7 @@ define internal fastcc void @"_ZN14datafusion_sql6select60_$LT$impl$u20$datafusi
   %223 = getelementptr inbounds nuw i8, ptr %.sroa.01.069, i64 16
   %224 = load i64, ptr %223, align 16, !range !5491, !noundef !5
   %225 = getelementptr i8, ptr %.sroa.01.069, i64 32
-  %226 = load ptr, ptr %225, align 8, !nonnull !5, !noundef !5
+  %226 = load ptr, ptr %225, align 16, !nonnull !5, !noundef !5
   %227 = getelementptr i8, ptr %.sroa.01.069, i64 40
   %228 = load i64, ptr %227, align 8, !noundef !5
   %switch = icmp samesign ult i64 %224, 2

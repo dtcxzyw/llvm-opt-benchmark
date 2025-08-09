@@ -923,11 +923,11 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i63:  ; preds = %_ZN9QtPrivate8RefCo
   %106 = getelementptr inbounds nuw i8, ptr %102, i64 20
   store i32 7405568, ptr %106, align 4
   %107 = getelementptr inbounds nuw i8, ptr %102, i64 24
-  store i32 0, ptr %107, align 4
+  store i32 0, ptr %107, align 8
   %108 = getelementptr inbounds nuw i8, ptr %102, i64 28
   store i32 0, ptr %108, align 4
   %109 = getelementptr inbounds nuw i8, ptr %102, i64 32
-  store i32 -1, ptr %109, align 4
+  store i32 -1, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %102, i64 36
   store i32 -1, ptr %110, align 4
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1096,11 +1096,11 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i87:  ; preds = %_ZN9QtPrivate8RefCo
   %161 = getelementptr inbounds nuw i8, ptr %157, i64 20
   store i32 1507328, ptr %161, align 4
   %162 = getelementptr inbounds nuw i8, ptr %157, i64 24
-  store i32 0, ptr %162, align 4
+  store i32 0, ptr %162, align 8
   %163 = getelementptr inbounds nuw i8, ptr %157, i64 28
   store i32 0, ptr %163, align 4
   %164 = getelementptr inbounds nuw i8, ptr %157, i64 32
-  store i32 -1, ptr %164, align 4
+  store i32 -1, ptr %164, align 8
   %165 = getelementptr inbounds nuw i8, ptr %157, i64 36
   store i32 -1, ptr %165, align 4
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1385,7 +1385,7 @@ _ZN5QListI29FilterNameParameterValuesPairE5beginEv.exit: ; preds = %1, %13
   %19 = load i32, ptr %18, align 8, !noalias !10
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds ptr, ptr %17, i64 %20
-  %22 = load atomic i32, ptr %16 monotonic, align 4, !noalias !13
+  %22 = load atomic i32, ptr %16 monotonic, align 8, !noalias !13
   %23 = icmp ugt i32 %22, 1
   br i1 %23, label %24, label %_ZN5QListI29FilterNameParameterValuesPairE3endEv.exit
 

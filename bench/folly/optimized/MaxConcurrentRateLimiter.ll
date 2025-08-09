@@ -965,7 +965,7 @@ _ZN5folly8channels24MaxConcurrentRateLimiter9QueueItemC2EOS2_.exit: ; preds = %_
   %201 = load i64, ptr %183, align 16, !tbaa !95
   store i64 0, ptr %183, align 16, !tbaa !95
   store i64 %201, ptr %200, align 8, !tbaa !60
-  store atomic i32 1, ptr %192 release, align 4
+  store atomic i32 1, ptr %192 release, align 8
   switch i64 %190, label %_ZN5folly14UnboundedQueueINS_8channels24MaxConcurrentRateLimiter9QueueItemELb1ELb1ELb0ELm6ELm6ESt6atomicE7enqueueEOS3_.exit [
     i64 0, label %202
     i64 63, label %223

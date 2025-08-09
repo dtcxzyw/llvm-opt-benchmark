@@ -7181,7 +7181,7 @@ define void @_ZN3gmx20constrain_velocitiesEPNS_11ConstraintsEblP7t_statePfbPA3_f
   %38 = getelementptr inbounds i8, ptr %27, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %41 = load float, ptr %40, align 4, !tbaa !207
+  %41 = load float, ptr %40, align 8, !tbaa !207
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -7242,7 +7242,7 @@ define void @_ZN3gmx21constrain_coordinatesEPNS_11ConstraintsEblP7t_stateNS_19Ar
   %31 = load ptr, ptr %30, align 8, !tbaa !78
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %34 = load float, ptr %33, align 4, !tbaa !207
+  %34 = load float, ptr %33, align 8, !tbaa !207
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 456
   %36 = load ptr, ptr %35, align 8, !tbaa !528, !noalias !540
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 480

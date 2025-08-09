@@ -765,11 +765,11 @@ define linkonce_odr { i64, ptr } @_ZNK21grpc_alts_credentials4typeEv(ptr noundef
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %9, ptr %7, align 8, !tbaa !39
-  store i32 1937009729, ptr %9, align 1
+  store i32 1937009729, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 4, ptr %10, align 8, !tbaa !38
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store i8 0, ptr %11, align 1, !tbaa !41
+  store i8 0, ptr %11, align 4, !tbaa !41
   store ptr %7, ptr @_ZZN21grpc_alts_credentials4TypeEvE8kFactory, align 8, !tbaa !32
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN21grpc_alts_credentials4TypeEvE8kFactory) #21
   br label %_ZN21grpc_alts_credentials4TypeEv.exit
@@ -817,11 +817,11 @@ define linkonce_odr { i64, ptr } @_ZNK28grpc_alts_server_credentials4typeEv(ptr 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %9, ptr %7, align 8, !tbaa !39
-  store i32 1937009729, ptr %9, align 1
+  store i32 1937009729, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 4, ptr %10, align 8, !tbaa !38
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store i8 0, ptr %11, align 1, !tbaa !41
+  store i8 0, ptr %11, align 4, !tbaa !41
   store ptr %7, ptr @_ZZN28grpc_alts_server_credentials4TypeEvE8kFactory, align 8, !tbaa !32
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN28grpc_alts_server_credentials4TypeEvE8kFactory) #21
   br label %_ZN28grpc_alts_server_credentials4TypeEv.exit

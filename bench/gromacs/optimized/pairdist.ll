@@ -286,7 +286,7 @@ define void @_ZN3gmx15analysismodules16PairDistanceInfo6createEv(ptr dead_on_unw
   store ptr %8, ptr %7, align 8, !tbaa !7
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i64 0, ptr %9, align 8, !tbaa !12
-  store i8 0, ptr %8, align 1, !tbaa !15
+  store i8 0, ptr %8, align 8, !tbaa !15
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %10, i8 0, i64 36, i1 false)

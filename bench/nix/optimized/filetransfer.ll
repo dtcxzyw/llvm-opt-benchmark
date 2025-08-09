@@ -22416,11 +22416,11 @@ define linkonce_odr void @_ZN3nix8CallbackINS_18FileTransferResultEEclEOS1_(ptr 
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr null, ptr %13, align 8, !noalias !136
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i32 0, ptr %14, align 4, !noalias !136
+  store i32 0, ptr %14, align 8, !noalias !136
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 36
-  store i8 0, ptr %15, align 1, !noalias !136
+  store i8 0, ptr %15, align 4, !noalias !136
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store i32 0, ptr %16, align 4, !noalias !136
+  store i32 0, ptr %16, align 8, !noalias !136
   store ptr %9, ptr %8, align 8, !alias.scope !136
   store ptr %12, ptr %4, align 8, !alias.scope !136
   %17 = invoke noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #37
@@ -25477,7 +25477,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !alias.scope !148, !noalias !151
   store ptr %39, ptr %.0911.i.i.i, align 8, !alias.scope !151, !noalias !148
   store i64 0, ptr %48, align 8, !alias.scope !151, !noalias !148
-  store i8 0, ptr %39, align 1, !alias.scope !151, !noalias !148
+  store i8 0, ptr %39, align 8, !alias.scope !151, !noalias !148
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i) #33
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
@@ -25527,7 +25527,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !alias.scope !155, !noalias !158
   store ptr %55, ptr %.0911.i.i.i19, align 8, !alias.scope !158, !noalias !155
   store i64 0, ptr %64, align 8, !alias.scope !158, !noalias !155
-  store i8 0, ptr %55, align 1, !alias.scope !158, !noalias !155
+  store i8 0, ptr %55, align 8, !alias.scope !158, !noalias !155
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i19) #33
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
@@ -25576,11 +25576,11 @@ define linkonce_odr void @_ZN3nix8CallbackINS_18FileTransferResultEE7rethrowERKN
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr null, ptr %14, align 8, !noalias !161
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store i32 0, ptr %15, align 4, !noalias !161
+  store i32 0, ptr %15, align 8, !noalias !161
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 36
-  store i8 0, ptr %16, align 1, !noalias !161
+  store i8 0, ptr %16, align 4, !noalias !161
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  store i32 0, ptr %17, align 4, !noalias !161
+  store i32 0, ptr %17, align 8, !noalias !161
   store ptr %10, ptr %9, align 8, !alias.scope !161
   store ptr %13, ptr %4, align 8, !alias.scope !161
   %18 = invoke noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #37
@@ -27435,7 +27435,7 @@ _ZSt19__relocate_object_aIN3nix6Logger5FieldES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i:
   store i64 %49, ptr %51, align 8, !alias.scope !190, !noalias !193
   store ptr %41, ptr %38, align 8, !alias.scope !193, !noalias !190
   store i64 0, ptr %50, align 8, !alias.scope !193, !noalias !190
-  store i8 0, ptr %41, align 1, !alias.scope !193, !noalias !190
+  store i8 0, ptr %41, align 8, !alias.scope !193, !noalias !190
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #33
   %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 48
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 48
@@ -27488,7 +27488,7 @@ _ZSt19__relocate_object_aIN3nix6Logger5FieldES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i2
   store i64 %67, ptr %69, align 8, !alias.scope !197, !noalias !200
   store ptr %59, ptr %56, align 8, !alias.scope !200, !noalias !197
   store i64 0, ptr %68, align 8, !alias.scope !200, !noalias !197
-  store i8 0, ptr %59, align 1, !alias.scope !200, !noalias !197
+  store i8 0, ptr %59, align 8, !alias.scope !200, !noalias !197
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #33
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 48
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 48
@@ -51394,7 +51394,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %32, ptr %34, align 8, !alias.scope !432, !noalias !435
   store ptr %24, ptr %.0911.i.i.i, align 8, !alias.scope !435, !noalias !432
   store i64 0, ptr %33, align 8, !alias.scope !435, !noalias !432
-  store i8 0, ptr %24, align 1, !alias.scope !435, !noalias !432
+  store i8 0, ptr %24, align 8, !alias.scope !435, !noalias !432
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i) #33
   %35 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %36 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
@@ -51444,7 +51444,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %48, ptr %50, align 8, !alias.scope !438, !noalias !441
   store ptr %40, ptr %.0911.i.i.i29, align 8, !alias.scope !441, !noalias !438
   store i64 0, ptr %49, align 8, !alias.scope !441, !noalias !438
-  store i8 0, ptr %40, align 1, !alias.scope !441, !noalias !438
+  store i8 0, ptr %40, align 8, !alias.scope !441, !noalias !438
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i29) #33
   %51 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
@@ -53165,7 +53165,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i: ; preds
   store i64 %14, ptr %16, align 8
   store ptr %6, ptr %1, align 8
   store i64 0, ptr %15, align 8
-  store i8 0, ptr %6, align 1
+  store i8 0, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -53200,7 +53200,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = 
   store i64 %29, ptr %31, align 8
   store ptr %21, ptr %18, align 8
   store i64 0, ptr %30, align 8
-  store i8 0, ptr %21, align 1
+  store i8 0, ptr %21, align 8
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #33
   %32 = load ptr, ptr %1, align 8
   %33 = icmp eq ptr %32, %6
@@ -64467,11 +64467,11 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr null, ptr %13, align 8, !noalias !504
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i32 0, ptr %14, align 4, !noalias !504
+  store i32 0, ptr %14, align 8, !noalias !504
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 36
-  store i8 0, ptr %15, align 1, !noalias !504
+  store i8 0, ptr %15, align 4, !noalias !504
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store i32 0, ptr %16, align 4, !noalias !504
+  store i32 0, ptr %16, align 8, !noalias !504
   store ptr %8, ptr %9, align 8, !alias.scope !504
   store ptr %12, ptr %7, align 8, !alias.scope !504
   %17 = invoke noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #37
@@ -64588,7 +64588,7 @@ _ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit: ; 
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(28) %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load atomic i32, ptr %8 acquire, align 4
+  %9 = load atomic i32, ptr %8 acquire, align 8
   %10 = and i32 %9, 2147483647
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %.preheader.i

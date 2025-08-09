@@ -3587,9 +3587,9 @@ rv_alloc.exit.i:                                  ; preds = %29, %27
   store i32 0, ptr %33, align 4, !tbaa !38
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 0, ptr %34, align 8, !tbaa !36
-  store i32 0, ptr %.0.i.i.i, align 4, !tbaa !37
+  store i32 0, ptr %.0.i.i.i, align 8, !tbaa !37
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 4
-  store i8 73, ptr %35, align 1, !tbaa !19
+  store i8 73, ptr %35, align 4, !tbaa !19
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %rv_alloc.exit.i
@@ -3629,9 +3629,9 @@ rv_alloc.exit.i598:                               ; preds = %41, %39
   store i32 0, ptr %45, align 4, !tbaa !38
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i599, i64 16
   store i32 0, ptr %46, align 8, !tbaa !36
-  store i32 0, ptr %.0.i.i.i599, align 4, !tbaa !37
+  store i32 0, ptr %.0.i.i.i599, align 8, !tbaa !37
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i599, i64 4
-  store i8 78, ptr %47, align 1, !tbaa !19
+  store i8 78, ptr %47, align 4, !tbaa !19
   br label %.lr.ph.i600
 
 .lr.ph.i600:                                      ; preds = %.lr.ph.i600, %rv_alloc.exit.i598
@@ -3679,9 +3679,9 @@ rv_alloc.exit.i608:                               ; preds = %57, %55
   store i32 0, ptr %61, align 4, !tbaa !38
   %62 = getelementptr inbounds nuw i8, ptr %.0.i.i.i609, i64 16
   store i32 0, ptr %62, align 8, !tbaa !36
-  store i32 0, ptr %.0.i.i.i609, align 4, !tbaa !37
+  store i32 0, ptr %.0.i.i.i609, align 8, !tbaa !37
   %63 = getelementptr inbounds nuw i8, ptr %.0.i.i.i609, i64 4
-  store i8 48, ptr %63, align 1, !tbaa !19
+  store i8 48, ptr %63, align 4, !tbaa !19
   %64 = getelementptr inbounds nuw i8, ptr %.0.i.i.i609, i64 5
   store i8 0, ptr %64, align 1, !tbaa !19
   %.not10.i615 = icmp eq ptr %6, null
@@ -3909,7 +3909,7 @@ rv_alloc.exit:                                    ; preds = %153, %155
   store i32 0, ptr %164, align 4, !tbaa !38
   %165 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   store i32 0, ptr %165, align 8, !tbaa !36
-  store i32 %.08.lcssa15.i, ptr %.0.i.i, align 4, !tbaa !37
+  store i32 %.08.lcssa15.i, ptr %.0.i.i, align 8, !tbaa !37
   %.ptr747.ptr = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %or.cond6 = icmp ult i32 %.0511701, 15
   %or.cond8 = and i1 %138, %or.cond6

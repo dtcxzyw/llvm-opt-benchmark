@@ -8820,7 +8820,7 @@ _init_l_Lean_Linter_registerSet___closed__1.exit: ; preds = %_init_l___auto____x
   %148 = getelementptr inbounds nuw i8, ptr %145, i64 4
   %149 = getelementptr inbounds nuw i8, ptr %145, i64 8
   store i64 0, ptr %149, align 8, !tbaa !14
-  store i32 1, ptr %145, align 4, !tbaa !4
+  store i32 1, ptr %145, align 8, !tbaa !4
   store i32 16777232, ptr %148, align 4
   store ptr %145, ptr @l_Lean_Linter_registerSet___closed__1, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %145) #4

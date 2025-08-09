@@ -152,7 +152,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hdac_device_init(ptr noundef
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 432
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %31, ptr nonnull elementtype(i32) %31) #9, !srcloc !5
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 832
-  store volatile i32 0, ptr %32, align 4
+  store volatile i32 0, ptr %32, align 8
   %33 = tail call i32 @snd_hdac_bus_add_device(ptr noundef %1, ptr noundef %0) #9
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %176, label %35

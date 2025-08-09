@@ -11,7 +11,7 @@ define void @ZSTD_fillHashTable(ptr noundef readonly captures(none) %0, ptr noun
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %9 = load i32, ptr %8, align 4, !tbaa !16
+  %9 = load i32, ptr %8, align 8, !tbaa !16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !17
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -5998,7 +5998,7 @@ define i64 @ZSTD_compressBlock_fast_dictMatchState(ptr noundef readonly captures
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %11 = load i32, ptr %10, align 4, !tbaa !19
+  %11 = load i32, ptr %10, align 8, !tbaa !19
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %13 = load i32, ptr %12, align 4, !tbaa !40
   %14 = tail call i32 @llvm.umax.i32(i32 %13, i32 1)
@@ -6038,7 +6038,7 @@ define i64 @ZSTD_compressBlock_fast_dictMatchState(ptr noundef readonly captures
   %46 = ptrtoint ptr %36 to i64
   %47 = sub i64 %45, %46
   %48 = getelementptr inbounds nuw i8, ptr %28, i64 264
-  %49 = load i32, ptr %48, align 4, !tbaa !19
+  %49 = load i32, ptr %48, align 8, !tbaa !19
   %50 = ptrtoint ptr %16 to i64
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %52 = load i32, ptr %51, align 8, !tbaa !71
@@ -9655,7 +9655,7 @@ define internal fastcc i64 @ZSTD_compressBlock_fast_extDict_generic(ptr noundef 
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %11 = load i32, ptr %10, align 4, !tbaa !19
+  %11 = load i32, ptr %10, align 8, !tbaa !19
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %13 = load i32, ptr %12, align 4, !tbaa !40
   %14 = tail call i32 @llvm.umax.i32(i32 %13, i32 1)
@@ -9670,7 +9670,7 @@ define internal fastcc i64 @ZSTD_compressBlock_fast_extDict_generic(ptr noundef 
   %23 = sub i64 %21, %22
   %24 = add i64 %23, %4
   %25 = trunc i64 %24 to i32
-  %26 = load i32, ptr %7, align 4, !tbaa !76
+  %26 = load i32, ptr %7, align 8, !tbaa !76
   %27 = getelementptr i8, ptr %0, i64 28
   %.val429 = load i32, ptr %27, align 4, !tbaa !77
   %28 = getelementptr i8, ptr %0, i64 40

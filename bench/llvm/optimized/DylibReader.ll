@@ -390,7 +390,7 @@ _ZN4llvm5ErrorD2Ev.exit60:                        ; preds = %37
   store ptr %52, ptr %51, align 8, !tbaa !46, !noalias !32
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 24
   store i64 0, ptr %53, align 8, !tbaa !47, !noalias !32
-  store i8 0, ptr %52, align 1, !tbaa !48, !noalias !32
+  store i8 0, ptr %52, align 8, !tbaa !48, !noalias !32
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %55 = load i8, ptr %54, align 8
   %56 = or i8 %55, 1
@@ -429,7 +429,7 @@ _ZN4llvm5ErrorD2Ev.exit61:                        ; preds = %63
   store ptr %69, ptr %68, align 8, !tbaa !46, !noalias !54
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 24
   store i64 0, ptr %70, align 8, !tbaa !47, !noalias !54
-  store i8 0, ptr %69, align 1, !tbaa !48, !noalias !54
+  store i8 0, ptr %69, align 8, !tbaa !48, !noalias !54
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %72 = load i8, ptr %71, align 8
   %73 = or i8 %72, 1
@@ -991,7 +991,7 @@ _ZN4llvm5ErrorD2Ev.exit102:                       ; preds = %._crit_edge
   store ptr %296, ptr %295, align 8, !tbaa !46, !noalias !125
   %297 = getelementptr inbounds nuw i8, ptr %293, i64 24
   store i64 0, ptr %297, align 8, !tbaa !47, !noalias !125
-  store i8 0, ptr %296, align 1, !tbaa !48, !noalias !125
+  store i8 0, ptr %296, align 8, !tbaa !48, !noalias !125
   %298 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %299 = load i8, ptr %298, align 8
   %300 = or i8 %299, 1
@@ -3456,7 +3456,7 @@ define internal fastcc void @_ZL4loadPN4llvm6object15MachOObjectFileERNS_5MachO1
   store ptr %29, ptr %28, align 8, !tbaa !46, !noalias !193
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store i64 0, ptr %30, align 8, !tbaa !47, !noalias !193
-  store i8 0, ptr %29, align 1, !tbaa !48, !noalias !193
+  store i8 0, ptr %29, align 8, !tbaa !48, !noalias !193
   br label %.sink.split
 
 31:                                               ; preds = %5
@@ -4063,14 +4063,14 @@ _ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St8_SetfillIS3_E.exit.i: 
   %309 = getelementptr inbounds nuw i8, ptr %308, i64 24
   %310 = load i32, ptr %309, align 8, !tbaa !276, !noalias !203
   %311 = or i32 %310, 16384
-  store i32 %311, ptr %309, align 4, !tbaa !277, !noalias !203
+  store i32 %311, ptr %309, align 8, !tbaa !277, !noalias !203
   %312 = load i64, ptr %303, align 8, !noalias !203
   %313 = getelementptr inbounds i8, ptr %63, i64 %312
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 24
   %315 = load i32, ptr %314, align 8, !tbaa !276, !noalias !203
   %316 = and i32 %315, -75
   %317 = or disjoint i32 %316, 8
-  store i32 %317, ptr %314, align 4, !tbaa !277, !noalias !203
+  store i32 %317, ptr %314, align 8, !tbaa !277, !noalias !203
   %318 = getelementptr inbounds nuw [16 x i8], ptr %77, i64 0, i64 %indvars.iv.i
   %319 = load i8, ptr %318, align 1, !tbaa !48, !noalias !203
   %320 = zext i8 %319 to i32
@@ -6891,7 +6891,7 @@ _ZNSt16allocator_traitsISaIN4llvm6TripleEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.e
   store i64 %17, ptr %19, align 8, !tbaa !47
   store ptr %9, ptr %6, align 8, !tbaa !91
   store i64 0, ptr %18, align 8, !tbaa !47
-  store i8 0, ptr %9, align 1, !tbaa !48
+  store i8 0, ptr %9, align 8, !tbaa !48
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %21 = getelementptr inbounds i8, ptr %5, i64 -24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 24, i1 false)
@@ -7226,7 +7226,7 @@ _ZSt19__relocate_object_aIN4llvm6TripleES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i: ; pr
   store i64 %53, ptr %55, align 8, !tbaa !47, !alias.scope !466, !noalias !469
   store ptr %45, ptr %.0911.i.i.i, align 8, !tbaa !91, !alias.scope !469, !noalias !466
   store i64 0, ptr %54, align 8, !tbaa !47, !alias.scope !469, !noalias !466
-  store i8 0, ptr %45, align 1, !tbaa !48, !alias.scope !469, !noalias !466
+  store i8 0, ptr %45, align 8, !tbaa !48, !alias.scope !469, !noalias !466
   %56 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %57 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr noundef nonnull align 8 dereferenceable(24) %57, i64 24, i1 false), !alias.scope !471
@@ -7277,7 +7277,7 @@ _ZSt19__relocate_object_aIN4llvm6TripleES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i23: ; 
   store i64 %71, ptr %73, align 8, !tbaa !47, !alias.scope !473, !noalias !476
   store ptr %63, ptr %.0911.i.i.i19, align 8, !tbaa !91, !alias.scope !476, !noalias !473
   store i64 0, ptr %72, align 8, !tbaa !47, !alias.scope !476, !noalias !473
-  store i8 0, ptr %63, align 1, !tbaa !48, !alias.scope !476, !noalias !473
+  store i8 0, ptr %63, align 8, !tbaa !48, !alias.scope !476, !noalias !473
   %74 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %75 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %74, ptr noundef nonnull align 8 dereferenceable(24) %75, i64 24, i1 false), !alias.scope !478
@@ -7756,7 +7756,7 @@ _ZN4llvm14StringMapEntryISt4pairINS_5MachO11SymbolFlagsENS2_13RecordLinkageEEE6c
   store i8 0, ptr %21, align 1, !tbaa !48
   store i64 %2, ptr %18, align 8, !tbaa !375
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i8 0, ptr %22, align 1, !tbaa !340
+  store i8 0, ptr %22, align 8, !tbaa !340
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 9
   store i8 0, ptr %23, align 1, !tbaa !344
   store ptr %18, ptr %8, align 8, !tbaa !338

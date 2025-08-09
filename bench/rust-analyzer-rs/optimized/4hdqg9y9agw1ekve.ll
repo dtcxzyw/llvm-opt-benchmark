@@ -27573,7 +27573,7 @@ define hidden void @_ZN11ide_assists8handlers35convert_tuple_return_type_to_stru
   %30 = load ptr, ptr %29, align 8, !alias.scope !7674, !noalias !7679, !nonnull !23, !noundef !23
   %31 = getelementptr inbounds i8, ptr %23, i64 -8
   %32 = load i64, ptr %31, align 8, !alias.scope !7674, !noalias !7679, !noundef !23
-  %33 = load i32, ptr %28, align 4, !noundef !23
+  %33 = load i32, ptr %28, align 8, !noundef !23
   call void @_ZN6ide_db13source_change19SourceChangeBuilder9edit_file17hbf30d86f324466b5E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %33)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !7684

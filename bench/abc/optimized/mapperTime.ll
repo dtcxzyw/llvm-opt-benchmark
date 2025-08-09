@@ -596,7 +596,7 @@ define void @Map_TimePropagateRequired(ptr noundef readonly captures(none) %0) l
   store float %.66, ptr %76, align 8, !tbaa !24
   %77 = getelementptr inbounds nuw i8, ptr %13, i64 132
   %78 = getelementptr inbounds nuw i8, ptr %13, i64 136
-  %79 = load float, ptr %78, align 4, !tbaa !39
+  %79 = load float, ptr %78, align 8, !tbaa !39
   %80 = load float, ptr %77, align 4, !tbaa !40
   %81 = fcmp olt float %79, %80
   %82 = select i1 %81, float %79, float %80
@@ -910,7 +910,7 @@ Map_TimeComputeArrivalMax.exit:                   ; preds = %42, %17
   %143 = getelementptr inbounds nuw i8, ptr %139, i64 132
   store float 0x47B9999980000000, ptr %143, align 4, !tbaa !40
   %144 = getelementptr inbounds nuw i8, ptr %139, i64 136
-  store float 0x47B9999980000000, ptr %144, align 4, !tbaa !39
+  store float 0x47B9999980000000, ptr %144, align 8, !tbaa !39
   %145 = getelementptr inbounds nuw i8, ptr %139, i64 140
   store float 0x47B9999980000000, ptr %145, align 4, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

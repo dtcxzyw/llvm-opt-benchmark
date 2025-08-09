@@ -708,14 +708,14 @@ _ZStlsIwSt11char_traitsIwEERSt13basic_ostreamIT_T0_ES6_S3_.exit40: ; preds = %73
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %88 = load i32, ptr %87, align 8, !tbaa !54
   %89 = or i32 %88, 16384
-  store i32 %89, ptr %87, align 4, !tbaa !55
+  store i32 %89, ptr %87, align 8, !tbaa !55
   %90 = load i64, ptr %81, align 8
   %91 = getelementptr inbounds i8, ptr %76, i64 %90
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %93 = load i32, ptr %92, align 8, !tbaa !54
   %94 = and i32 %93, -75
   %95 = or disjoint i32 %94, 8
-  store i32 %95, ptr %92, align 4, !tbaa !55
+  store i32 %95, ptr %92, align 8, !tbaa !55
   %96 = zext nneg i32 %23 to i64
   %97 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic_ostreamIwSt11char_traitsIwEE9_M_insertImEERS2_T_(ptr noundef nonnull align 8 dereferenceable(8) %76, i64 noundef %96)
           to label %_ZNSt13basic_ostreamIwSt11char_traitsIwEElsEj.exit.invoke unwind label %36

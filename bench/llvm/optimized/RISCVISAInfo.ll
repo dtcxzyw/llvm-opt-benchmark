@@ -15951,7 +15951,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
   store i64 %20, ptr %22, align 8, !tbaa !38
   store ptr %12, ptr %9, align 8, !tbaa !35
   store i64 0, ptr %21, align 8, !tbaa !38
-  store i8 0, ptr %12, align 1, !tbaa !37
+  store i8 0, ptr %12, align 8, !tbaa !37
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i64 0, ptr %23, align 8
   %24 = tail call { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4llvm13RISCVISAUtils16ExtensionVersionEESt10_Select1stISB_ENS9_19ExtensionComparatorESaISB_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %7)
@@ -16419,7 +16419,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !38, !alias.scope !793, !noalias !796
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !35, !alias.scope !796, !noalias !793
   store i64 0, ptr %48, align 8, !tbaa !38, !alias.scope !796, !noalias !793
-  store i8 0, ptr %39, align 1, !tbaa !37, !alias.scope !796, !noalias !793
+  store i8 0, ptr %39, align 8, !tbaa !37, !alias.scope !796, !noalias !793
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -16467,7 +16467,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !38, !alias.scope !800, !noalias !803
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !35, !alias.scope !803, !noalias !800
   store i64 0, ptr %64, align 8, !tbaa !38, !alias.scope !803, !noalias !800
-  store i8 0, ptr %55, align 1, !tbaa !37, !alias.scope !803, !noalias !800
+  store i8 0, ptr %55, align 8, !tbaa !37, !alias.scope !803, !noalias !800
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5

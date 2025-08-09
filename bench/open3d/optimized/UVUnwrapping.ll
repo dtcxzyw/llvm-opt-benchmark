@@ -1306,7 +1306,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__det
   %45 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #36
   store ptr null, ptr %45, align 8, !tbaa !16
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store i32 %43, ptr %46, align 4, !tbaa !33
+  store i32 %43, ptr %46, align 8, !tbaa !33
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %48 = load i32, ptr %44, align 4, !tbaa !28
   store i32 %48, ptr %47, align 4, !tbaa !35
@@ -1490,7 +1490,7 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !16
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !28
+  %16 = load i32, ptr %15, align 8, !tbaa !28
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -3801,7 +3801,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit354: ; preds = %_Z
   %878 = trunc i64 %877 to i32
   store i32 %878, ptr %876, align 4, !tbaa !161
   %879 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %880 = load float, ptr %873, align 4, !tbaa !38
+  %880 = load float, ptr %873, align 8, !tbaa !38
   store float %880, ptr %879, align 4, !tbaa !163
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6open3d4core6TensorE, i64 16), ptr %48, align 8, !tbaa !48
   %881 = getelementptr inbounds nuw i8, ptr %48, i64 152
@@ -5369,7 +5369,7 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPjmjET_
   %365 = getelementptr inbounds nuw i8, ptr %364, i64 8
   store i64 %326, ptr %365, align 8, !tbaa !238
   %366 = getelementptr inbounds nuw i8, ptr %364, i64 16
-  store i32 0, ptr %366, align 4, !tbaa !241
+  store i32 0, ptr %366, align 8, !tbaa !241
   %367 = getelementptr inbounds nuw i8, ptr %364, i64 20
   store i32 0, ptr %367, align 4, !tbaa !242
   %368 = load i64, ptr %65, align 8, !tbaa !36
@@ -5723,7 +5723,7 @@ _ZNSt13unordered_mapImSt4pairIjjESt4hashImESt8equal_toImESaIS0_IKmS1_EEED2Ev.exi
   %488 = getelementptr inbounds nuw i8, ptr %487, i64 8
   store i64 %470, ptr %488, align 8, !tbaa !238
   %489 = getelementptr inbounds nuw i8, ptr %487, i64 16
-  store i32 0, ptr %489, align 4, !tbaa !241
+  store i32 0, ptr %489, align 8, !tbaa !241
   %490 = getelementptr inbounds nuw i8, ptr %487, i64 20
   store i32 0, ptr %490, align 4, !tbaa !242
   %491 = load i64, ptr %65, align 8, !tbaa !36
@@ -39664,7 +39664,7 @@ define linkonce_odr hidden void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt
   %.06.i = phi ptr [ %4, %_ZNSt8__detail16_Hashtable_allocIN5Eigen17aligned_allocatorINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_6MatrixIfLi4ELi1ELi0ELi4ELi1EEEELb1EEEEEE18_M_deallocate_nodeEPSF_.exit.i ], [ %3, %1 ]
   %4 = load ptr, ptr %.06.i, align 16, !tbaa !16
   %5 = getelementptr inbounds nuw i8, ptr %.06.i, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !45
+  %6 = load ptr, ptr %5, align 16, !tbaa !45
   %7 = getelementptr inbounds nuw i8, ptr %.06.i, i64 32
   %8 = icmp eq ptr %6, %7
   br i1 %8, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
@@ -40247,7 +40247,7 @@ define linkonce_odr hidden void @_ZN6open3d13visualization9rendering8MaterialD2E
   %.06.i.i.i.i = phi ptr [ %5, %_ZNSt8__detail16_Hashtable_allocIN5Eigen17aligned_allocatorINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_6MatrixIfLi4ELi1ELi0ELi4ELi1EEEELb1EEEEEE18_M_deallocate_nodeEPSF_.exit.i.i.i.i ], [ %4, %1 ]
   %5 = load ptr, ptr %.06.i.i.i.i, align 16, !tbaa !16
   %6 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !45
+  %7 = load ptr, ptr %6, align 16, !tbaa !45
   %8 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 32
   %9 = icmp eq ptr %7, %8
   br i1 %9, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i
@@ -41203,7 +41203,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d1t8geometry6kernel12uvunwrapping14ComputeUVAtlasERNS7_12TriangleMeshEmmffiiE3$_0KNS1_16auto_partitionerEEE", i64 16), ptr %51, align 64, !tbaa !48
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !106
-  store i64 %54, ptr %53, align 8, !tbaa !106
+  store i64 %54, ptr %53, align 64, !tbaa !106
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !108
   %57 = sub i64 %54, %56
@@ -41213,7 +41213,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !108
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !109
-  store i64 %61, ptr %60, align 8, !tbaa !109
+  store i64 %61, ptr %60, align 16, !tbaa !109
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull align 8 dereferenceable(32) %49, i64 32, i1 false), !tbaa.struct !197
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 120
@@ -41222,7 +41222,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %65 = load i64, ptr %13, align 64, !tbaa !210
   %66 = lshr i64 %65, 1
   store i64 %66, ptr %13, align 64, !tbaa !210
-  store i64 %66, ptr %64, align 8, !tbaa !210
+  store i64 %66, ptr %64, align 64, !tbaa !210
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 136
   store i32 2, ptr %67, align 8, !tbaa !208
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 140
@@ -41235,12 +41235,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 8, !tbaa !923
   store ptr %73, ptr %72, align 8, !tbaa !212
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !216
+  store i32 2, ptr %74, align 8, !tbaa !216
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !211
   store i64 %76, ptr %75, align 8, !tbaa !211
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !924
+  store i8 0, ptr %77, align 8, !tbaa !924
   store ptr %72, ptr %50, align 8, !tbaa !198
   store ptr %72, ptr %63, align 8, !tbaa !198
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !926
@@ -41425,7 +41425,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %162 = load i64, ptr %13, align 64, !tbaa !210
   %163 = lshr i64 %162, 1
   store i64 %163, ptr %13, align 64, !tbaa !210
-  store i64 %163, ptr %161, align 8, !tbaa !210
+  store i64 %163, ptr %161, align 64, !tbaa !210
   %164 = getelementptr inbounds nuw i8, ptr %155, i64 136
   store i32 2, ptr %164, align 8, !tbaa !208
   %165 = getelementptr inbounds nuw i8, ptr %155, i64 140
@@ -41439,12 +41439,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %171 = load ptr, ptr %103, align 8, !tbaa !923
   store ptr %171, ptr %170, align 8, !tbaa !212
   %172 = getelementptr inbounds nuw i8, ptr %170, i64 8
-  store i32 2, ptr %172, align 4, !tbaa !216
+  store i32 2, ptr %172, align 8, !tbaa !216
   %173 = getelementptr inbounds nuw i8, ptr %170, i64 16
   %174 = load i64, ptr %3, align 8, !tbaa !211
   store i64 %174, ptr %173, align 8, !tbaa !211
   %175 = getelementptr inbounds nuw i8, ptr %170, i64 24
-  store i8 0, ptr %175, align 1, !tbaa !924
+  store i8 0, ptr %175, align 8, !tbaa !924
   store ptr %170, ptr %103, align 8, !tbaa !198
   store ptr %170, ptr %160, align 8, !tbaa !198
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !926

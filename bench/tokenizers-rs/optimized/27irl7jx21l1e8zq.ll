@@ -18668,7 +18668,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h3059f3ae4d82c1baE(ptr noalia
   %4 = load ptr, ptr %3, align 8, !noalias !3720
   store i64 0, ptr %.val.i, align 8, !noalias !3720
   %5 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
-  store i8 2, ptr %5, align 1, !noalias !3720
+  store i8 2, ptr %5, align 8, !noalias !3720
   %6 = icmp eq i64 %2, 0
   br i1 %6, label %26, label %7
 
@@ -18724,7 +18724,7 @@ __rust_try.llvm.1299376021755125212.exit:
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !3730, !noundef !4
   store i32 0, ptr %.val.i, align 4, !noalias !3733
   %1 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
-  store i8 2, ptr %1, align 1, !noalias !3733
+  store i8 2, ptr %1, align 4, !noalias !3733
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
@@ -18822,7 +18822,7 @@ __rust_try.llvm.1299376021755125212.exit:
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !3748, !noundef !4
   store i64 0, ptr %.val.i, align 8, !noalias !3751
   %1 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
-  store i8 2, ptr %1, align 1, !noalias !3751
+  store i8 2, ptr %1, align 8, !noalias !3751
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
@@ -18832,7 +18832,7 @@ __rust_try.llvm.1299376021755125212.exit:
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !3754, !noundef !4
   store i64 0, ptr %.val.i, align 8, !noalias !3757
   %1 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
-  store i8 2, ptr %1, align 1, !noalias !3757
+  store i8 2, ptr %1, align 8, !noalias !3757
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
@@ -18845,7 +18845,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h31122582833ac9bdE.llvm.12993
   %5 = load ptr, ptr %4, align 8, !noalias !3763
   store i64 0, ptr %.val, align 8, !noalias !3763
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  store i8 2, ptr %6, align 1, !noalias !3763
+  store i8 2, ptr %6, align 8, !noalias !3763
   %7 = icmp eq i64 %3, 0
   br i1 %7, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17he83d7c2f14542aedE.exit", label %8
 
@@ -18875,7 +18875,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h7fb2a08bac5cb870E.llvm.12993
   %.val = load ptr, ptr %2, align 8, !alias.scope !3773, !noundef !4
   store i32 0, ptr %.val, align 4, !noalias !3776
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  store i8 2, ptr %3, align 1, !noalias !3776
+  store i8 2, ptr %3, align 4, !noalias !3776
   ret void
 }
 
@@ -18885,7 +18885,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h8c02b33c4b75985fE.llvm.12993
   %.val = load ptr, ptr %2, align 8, !alias.scope !3779, !noundef !4
   store i64 0, ptr %.val, align 8, !noalias !3782
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  store i8 2, ptr %3, align 1, !noalias !3782
+  store i8 2, ptr %3, align 8, !noalias !3782
   ret void
 }
 
@@ -18895,7 +18895,7 @@ define hidden void @_ZN3std9panicking3try7do_call17haa03f51769e10bb8E.llvm.12993
   %.val = load ptr, ptr %2, align 8, !alias.scope !3785, !noundef !4
   store i64 0, ptr %.val, align 8, !noalias !3788
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  store i8 2, ptr %3, align 1, !noalias !3788
+  store i8 2, ptr %3, align 8, !noalias !3788
   ret void
 }
 

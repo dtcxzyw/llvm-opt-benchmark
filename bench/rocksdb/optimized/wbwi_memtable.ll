@@ -6405,7 +6405,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIN7rocksdb9WriteTypeESt4pairIK
   %45 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
   store ptr null, ptr %45, align 8, !tbaa !26
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store i32 %43, ptr %46, align 4, !tbaa !397
+  store i32 %43, ptr %46, align 8, !tbaa !397
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %48 = load i8, ptr %44, align 4, !tbaa !398
   store i8 %48, ptr %47, align 4, !tbaa !331
@@ -6570,7 +6570,7 @@ _ZNSt10_HashtableIN7rocksdb9WriteTypeESt4pairIKS1_NS0_9ValueTypeEESaIS5_ENSt8__d
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIN7rocksdb9WriteTypeESt4pairIKS1_NS0_9ValueTypeEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !26
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !316
+  %16 = load i32, ptr %15, align 8, !tbaa !316
   %17 = zext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18

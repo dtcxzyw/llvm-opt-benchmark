@@ -15979,7 +15979,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !tbaa !55, !alias.scope !903, !noalias !906
   store ptr %43, ptr %.0911.i.i.i, align 8, !tbaa !62, !alias.scope !906, !noalias !903
   store i64 0, ptr %52, align 8, !tbaa !55, !alias.scope !906, !noalias !903
-  store i8 0, ptr %43, align 1, !tbaa !57, !alias.scope !906, !noalias !903
+  store i8 0, ptr %43, align 8, !tbaa !57, !alias.scope !906, !noalias !903
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %54, %1
@@ -16027,7 +16027,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !tbaa !55, !alias.scope !910, !noalias !913
   store ptr %59, ptr %.0911.i.i.i19, align 8, !tbaa !62, !alias.scope !913, !noalias !910
   store i64 0, ptr %68, align 8, !tbaa !55, !alias.scope !913, !noalias !910
-  store i8 0, ptr %59, align 1, !tbaa !57, !alias.scope !913, !noalias !910
+  store i8 0, ptr %59, align 8, !tbaa !57, !alias.scope !913, !noalias !910
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %70, %6
@@ -33297,7 +33297,7 @@ define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_trait
   store ptr %19, ptr %.08.i.i.i, align 8, !tbaa !53
   %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 8
   store i64 0, ptr %20, align 8, !tbaa !55
-  store i8 0, ptr %19, align 1, !tbaa !57
+  store i8 0, ptr %19, align 8, !tbaa !57
   %21 = add i64 %.057.i.i.i, -1
   %22 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 32
   %.not.i.i.i = icmp eq i64 %21, 0
@@ -33331,7 +33331,7 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
   store ptr %31, ptr %.08.i.i.i26, align 8, !tbaa !53
   %32 = getelementptr inbounds nuw i8, ptr %.08.i.i.i26, i64 8
   store i64 0, ptr %32, align 8, !tbaa !55
-  store i8 0, ptr %31, align 1, !tbaa !57
+  store i8 0, ptr %31, align 8, !tbaa !57
   %33 = add i64 %.057.i.i.i27, -1
   %34 = getelementptr inbounds nuw i8, ptr %.08.i.i.i26, i64 32
   %.not.i.i.i28 = icmp eq i64 %33, 0
@@ -33377,7 +33377,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %45, ptr %47, align 8, !tbaa !55, !alias.scope !1384, !noalias !1387
   store ptr %37, ptr %.0911.i.i.i, align 8, !tbaa !62, !alias.scope !1387, !noalias !1384
   store i64 0, ptr %46, align 8, !tbaa !55, !alias.scope !1387, !noalias !1384
-  store i8 0, ptr %37, align 1, !tbaa !57, !alias.scope !1387, !noalias !1384
+  store i8 0, ptr %37, align 8, !tbaa !57, !alias.scope !1387, !noalias !1384
   %48 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i32 = icmp eq ptr %48, %5
@@ -43830,7 +43830,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
   store i64 %20, ptr %22, align 8, !tbaa !55
   store ptr %12, ptr %9, align 8, !tbaa !62
   store i64 0, ptr %21, align 8, !tbaa !55
-  store i8 0, ptr %12, align 1, !tbaa !57
+  store i8 0, ptr %12, align 8, !tbaa !57
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store ptr null, ptr %23, align 8, !tbaa !734
   %24 = tail call { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN4llvm11GlobalValueEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %7)
@@ -46291,7 +46291,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_17P
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.014, i64 32
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %21 = load i32, ptr %19, align 4, !tbaa !73
+  %21 = load i32, ptr %19, align 8, !tbaa !73
   store ptr %.sroa.01.0.copyload, ptr %3, align 8, !tbaa !47
   store i64 %.sroa.22.0.copyload, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !tbaa !48
   store ptr %.sroa.0.0.copyload, ptr %9, align 8, !tbaa !47
@@ -46616,7 +46616,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optI12WPDC
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.014, i64 32
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %21 = load i32, ptr %19, align 4, !tbaa !73
+  %21 = load i32, ptr %19, align 8, !tbaa !73
   store ptr %.sroa.01.0.copyload, ptr %3, align 8, !tbaa !47
   store i64 %.sroa.22.0.copyload, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !tbaa !48
   store ptr %.sroa.0.0.copyload, ptr %9, align 8, !tbaa !47

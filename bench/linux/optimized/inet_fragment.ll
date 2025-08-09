@@ -973,13 +973,13 @@ define dso_local ptr @inet_frag_find(ptr noundef %0, ptr noundef %1) #0 align 16
   %158 = call i32 @mod_timer(ptr noundef nonnull %148, i64 noundef %157) #11
   %159 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %160 = getelementptr inbounds nuw i8, ptr %137, i64 50
-  %161 = load i16, ptr %160, align 1
+  %161 = load i16, ptr %160, align 2
   %162 = getelementptr inbounds nuw i8, ptr %137, i64 52
-  %163 = load i16, ptr %162, align 1
+  %163 = load i16, ptr %162, align 4
   %164 = getelementptr inbounds nuw i8, ptr %137, i64 72
-  %165 = load ptr, ptr %164, align 1
+  %165 = load ptr, ptr %164, align 8
   %166 = getelementptr inbounds nuw i8, ptr %137, i64 80
-  %167 = load ptr, ptr %166, align 1
+  %167 = load ptr, ptr %166, align 8
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %169 = load ptr, ptr %168, align 8
   %170 = icmp eq ptr %169, null

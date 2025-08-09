@@ -2657,9 +2657,9 @@ init_rangecoder3.exit.i164:                       ; preds = %1082, %1081
 .critedge4.i:                                     ; preds = %1256, %1250, %1239
   %.0225.lcssa.i = phi i32 [ %1246, %1239 ], [ %.0225310.i, %1250 ], [ %1261, %1256 ]
   store i32 %.0225.lcssa.i, ptr %1077, align 8, !tbaa !93
-  %1263 = load i32, ptr %1085, align 4, !tbaa !63
+  %1263 = load i32, ptr %1085, align 8, !tbaa !63
   %1264 = add i32 %1263, 1
-  store i32 %1264, ptr %1085, align 4, !tbaa !63
+  store i32 %1264, ptr %1085, align 8, !tbaa !63
   %1265 = icmp eq i32 %1264, 131072
   br i1 %1265, label %1266, label %sync_code3.exit.i
 
@@ -3464,7 +3464,7 @@ reinit_tables.exit:                               ; preds = %70
   %83 = getelementptr inbounds i8, ptr %79, i64 %..i
   %84 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %85 = getelementptr inbounds nuw i8, ptr %17, i64 56
-  store i32 0, ptr %85, align 4, !tbaa !63
+  store i32 0, ptr %85, align 8, !tbaa !63
   %86 = getelementptr inbounds nuw i8, ptr %17, i64 52
   store i32 -1, ptr %86, align 4, !tbaa !80
   %87 = ptrtoint ptr %83 to i64

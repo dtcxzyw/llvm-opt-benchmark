@@ -1493,7 +1493,7 @@ define linkonce_odr hidden void @_ZN5boost6fibers19context_initializer10initiali
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr null, ptr %9, align 8, !tbaa !95
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i32 1, ptr %10, align 4, !tbaa !104
+  store i32 1, ptr %10, align 8, !tbaa !104
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 28
   store i8 0, ptr %11, align 4, !tbaa !69
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 32

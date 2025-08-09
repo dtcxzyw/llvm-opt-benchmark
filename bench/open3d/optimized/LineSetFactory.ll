@@ -125,7 +125,7 @@ define void @_ZN6open3d8geometry7LineSet35CreateFromPointCloudCorrespondencesERK
   store ptr %13, ptr %12, align 8, !tbaa !24, !noalias !4
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 0, ptr %14, align 8, !tbaa !25, !noalias !4
-  store i8 0, ptr %13, align 1, !tbaa !26, !noalias !4
+  store i8 0, ptr %13, align 8, !tbaa !26, !noalias !4
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry7LineSetE, i64 16), ptr %9, align 8, !tbaa !13, !noalias !4
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %15, i8 0, i64 72, i1 false), !noalias !4
@@ -659,7 +659,7 @@ define void @_ZN6open3d8geometry7LineSet22CreateFromTriangleMeshERKNS0_12Triangl
   store ptr %12, ptr %11, align 8, !tbaa !24, !noalias !70
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 0, ptr %13, align 8, !tbaa !25, !noalias !70
-  store i8 0, ptr %12, align 1, !tbaa !26, !noalias !70
+  store i8 0, ptr %12, align 8, !tbaa !26, !noalias !70
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry7LineSetE, i64 16), ptr %8, align 8, !tbaa !13, !noalias !70
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %14, i8 0, i64 72, i1 false), !noalias !70
@@ -1241,7 +1241,7 @@ _ZNKSt8__detail15_Hashtable_baseIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEES3_NS_9_I
   store ptr null, ptr %59, align 8, !tbaa !86
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i64, ptr %1, align 4, !tbaa !26
-  store i64 %61, ptr %60, align 4, !tbaa !26
+  store i64 %61, ptr %60, align 8, !tbaa !26
   %62 = invoke ptr @_ZNSt10_HashtableIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_EN6open3d7utility10hash_eigenIS2_EENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS4_10_Hash_nodeIS2_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %33, i64 noundef %30, ptr noundef nonnull %59, i64 noundef 1)
           to label %_ZNKSt10_HashtableIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_EN6open3d7utility10hash_eigenIS2_EENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS2_EEPNS4_10_Hash_nodeIS2_Lb1EEEmRKT_m.exit unwind label %_ZNSt10_HashtableIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_EN6open3d7utility10hash_eigenIS2_EENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit20
 
@@ -1481,7 +1481,7 @@ define void @_ZN6open3d8geometry7LineSet29CreateFromOrientedBoundingBoxERKNS0_19
   store ptr %12, ptr %11, align 8, !tbaa !24, !noalias !112
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 0, ptr %13, align 8, !tbaa !25, !noalias !112
-  store i8 0, ptr %12, align 1, !tbaa !26, !noalias !112
+  store i8 0, ptr %12, align 8, !tbaa !26, !noalias !112
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry7LineSetE, i64 16), ptr %8, align 8, !tbaa !13, !noalias !112
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %14, i8 0, i64 72, i1 false), !noalias !112
@@ -2656,7 +2656,7 @@ define void @_ZN6open3d8geometry7LineSet32CreateFromAxisAlignedBoundingBoxERKNS0
   store ptr %12, ptr %11, align 8, !tbaa !24, !noalias !175
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 0, ptr %13, align 8, !tbaa !25, !noalias !175
-  store i8 0, ptr %12, align 1, !tbaa !26, !noalias !175
+  store i8 0, ptr %12, align 8, !tbaa !26, !noalias !175
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry7LineSetE, i64 16), ptr %8, align 8, !tbaa !13, !noalias !175
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %14, i8 0, i64 72, i1 false), !noalias !175
@@ -3829,7 +3829,7 @@ define void @_ZN6open3d8geometry7LineSet19CreateFromTetraMeshERKNS0_9TetraMeshE(
   store ptr %12, ptr %11, align 8, !tbaa !24, !noalias !238
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 0, ptr %13, align 8, !tbaa !25, !noalias !238
-  store i8 0, ptr %12, align 1, !tbaa !26, !noalias !238
+  store i8 0, ptr %12, align 8, !tbaa !26, !noalias !238
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry7LineSetE, i64 16), ptr %8, align 8, !tbaa !13, !noalias !238
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %14, i8 0, i64 72, i1 false), !noalias !238
@@ -4227,7 +4227,7 @@ _ZNKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE12_M_check_lenEmPKc.
   store ptr %52, ptr %51, align 8, !tbaa !24, !noalias !251
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
   store i64 0, ptr %53, align 8, !tbaa !25, !noalias !251
-  store i8 0, ptr %52, align 1, !tbaa !26, !noalias !251
+  store i8 0, ptr %52, align 8, !tbaa !26, !noalias !251
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry7LineSetE, i64 16), ptr %48, align 8, !tbaa !13, !noalias !251
   %54 = getelementptr inbounds nuw i8, ptr %45, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %54, i8 0, i64 72, i1 false), !noalias !251

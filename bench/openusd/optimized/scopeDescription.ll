@@ -154,7 +154,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %27, %_ZN3tbb6
 
 .loopexit:                                        ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_FastThreadLocalBaseINS0_6_StackEE3GetEv.exit.i
   store ptr %0, ptr %.0.i.i, align 8
-  store atomic i8 0, ptr %18 release, align 1
+  store atomic i8 0, ptr %18 release, align 8
   ret void
 
 31:                                               ; preds = %11
@@ -258,7 +258,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %27, %_ZN3tbb6
 
 .loopexit:                                        ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_FastThreadLocalBaseINS0_6_StackEE3GetEv.exit.i
   store ptr %0, ptr %.0.i.i, align 8
-  store atomic i8 0, ptr %18 release, align 1
+  store atomic i8 0, ptr %18 release, align 8
   ret void
 
 31:                                               ; preds = %11
@@ -352,7 +352,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %26, %_ZN3tbb6
 
 .loopexit:                                        ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_FastThreadLocalBaseINS0_6_StackEE3GetEv.exit.i
   store ptr %0, ptr %.0.i.i, align 8
-  store atomic i8 0, ptr %17 release, align 1
+  store atomic i8 0, ptr %17 release, align 8
   ret void
 
 30:                                               ; preds = %10
@@ -440,7 +440,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %18, %_ZN3tbb6
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %23 = load ptr, ptr %22, align 8
   store ptr %23, ptr %4, align 8
-  store atomic i8 0, ptr %9 release, align 1
+  store atomic i8 0, ptr %9 release, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load i8, ptr %24, align 8
   %26 = trunc i8 %25 to i1

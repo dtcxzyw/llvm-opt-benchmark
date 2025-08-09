@@ -19857,7 +19857,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitESt4pairIPNS2_4CellEiENS0_8hash_opsIS3_E
   %66 = load ptr, ptr %64, align 8, !tbaa !417
   store ptr %66, ptr %65, align 8, !tbaa !131
   %67 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %68 = load i32, ptr %67, align 4, !tbaa !56
+  %68 = load i32, ptr %67, align 8, !tbaa !56
   %69 = getelementptr inbounds nuw i8, ptr %63, i64 24
   store i32 %68, ptr %69, align 8, !tbaa !133
   %70 = getelementptr inbounds nuw i8, ptr %38, i64 32

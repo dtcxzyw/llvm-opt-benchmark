@@ -819,7 +819,7 @@ define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_5dev17CDLRendererFwdSSEILb
   %.01018 = phi ptr [ %78, %.lr.ph ], [ %1, %4 ]
   %16 = getelementptr inbounds nuw i8, ptr %.01018, i64 12
   %17 = load float, ptr %16, align 4, !tbaa !10
-  %18 = load <4 x float>, ptr %.01018, align 1, !tbaa !46
+  %18 = load <4 x float>, ptr %.01018, align 4, !tbaa !46
   %19 = fmul <4 x float> %6, %18
   %20 = fadd <4 x float> %8, %19
   %21 = tail call noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %20, <4 x float> zeroinitializer)
@@ -1161,7 +1161,7 @@ define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_5dev17CDLRendererFwdSSEILb
   %.01017 = phi ptr [ %76, %.lr.ph ], [ %1, %4 ]
   %16 = getelementptr inbounds nuw i8, ptr %.01017, i64 12
   %17 = load float, ptr %16, align 4, !tbaa !10
-  %18 = load <4 x float>, ptr %.01017, align 1, !tbaa !46
+  %18 = load <4 x float>, ptr %.01017, align 4, !tbaa !46
   %19 = fmul <4 x float> %6, %18
   %20 = fadd <4 x float> %8, %19
   %21 = fcmp olt <4 x float> %20, zeroinitializer
@@ -1490,7 +1490,7 @@ define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_5dev17CDLRendererRevSSEILb
   %.01020 = phi ptr [ %80, %.lr.ph ], [ %1, %4 ]
   %16 = getelementptr inbounds nuw i8, ptr %.01020, i64 12
   %17 = load float, ptr %16, align 4, !tbaa !10
-  %18 = load <4 x float>, ptr %.01020, align 1, !tbaa !46
+  %18 = load <4 x float>, ptr %.01020, align 4, !tbaa !46
   %19 = tail call noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %18, <4 x float> zeroinitializer)
   %20 = tail call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %19, <4 x float> splat (float 1.000000e+00))
   %21 = fmul <4 x float> %20, <float 0x3FCB367A00000000, float 0x3FE6E2EB20000000, float 0x3FB27BB300000000, float 0.000000e+00>
@@ -1828,7 +1828,7 @@ define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_5dev17CDLRendererRevSSEILb
   %.01018 = phi ptr [ %76, %.lr.ph ], [ %1, %4 ]
   %16 = getelementptr inbounds nuw i8, ptr %.01018, i64 12
   %17 = load float, ptr %16, align 4, !tbaa !10
-  %18 = load <4 x float>, ptr %.01018, align 1, !tbaa !46
+  %18 = load <4 x float>, ptr %.01018, align 4, !tbaa !46
   %19 = fmul <4 x float> %18, <float 0x3FCB367A00000000, float 0x3FE6E2EB20000000, float 0x3FB27BB300000000, float 0.000000e+00>
   %20 = shufflevector <4 x float> %19, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %21 = fadd <4 x float> %19, %20

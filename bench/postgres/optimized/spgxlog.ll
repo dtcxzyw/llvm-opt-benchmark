@@ -1867,7 +1867,7 @@ BufferGetPage.exit.i58:                           ; preds = %1051, %1045
   %1074 = getelementptr inbounds nuw i8, ptr %1071, i64 6
   store i16 -1, ptr %1074, align 2
   %1075 = getelementptr inbounds nuw i8, ptr %1071, i64 8
-  store i16 -1, ptr %1075, align 2
+  store i16 -1, ptr %1075, align 4
   %1076 = getelementptr inbounds nuw i8, ptr %1071, i64 10
   store i16 0, ptr %1076, align 2
   %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i62, 1

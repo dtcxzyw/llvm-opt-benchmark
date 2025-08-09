@@ -187,7 +187,7 @@ upb_Arena_Malloc.exit.i.i6:                       ; preds = %41, %39
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @grpc__lb__v1__InitialLoadBalanceRequest_msg_init) #20, !srcloc !23
   store i32 1, ptr %23, align 4, !tbaa !24
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store i64 %.pre-phi, ptr %43, align 1
+  store i64 %.pre-phi, ptr %43, align 4
   br label %grpc_lb_v1_LoadBalanceRequest_mutable_initial_request.exit
 
 grpc_lb_v1_LoadBalanceRequest_mutable_initial_request.exit: ; preds = %grpc_lb_v1_LoadBalanceRequest_initial_request.exit.i, %upb_Arena_Malloc.exit.i.i6
@@ -291,7 +291,7 @@ upb_Arena_Malloc.exit.i.i35:                      ; preds = %45, %43
   store i32 2, ptr %27, align 4, !tbaa !24
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   %49 = ptrtoint ptr %.0.i.i.i36 to i64
-  store i64 %49, ptr %48, align 1
+  store i64 %49, ptr %48, align 4
   br label %grpc_lb_v1_LoadBalanceRequest_mutable_client_stats.exit
 
 grpc_lb_v1_LoadBalanceRequest_mutable_client_stats.exit: ; preds = %grpc_lb_v1_LoadBalanceRequest_client_stats.exit.i, %upb_Arena_Malloc.exit.i.i35, %47

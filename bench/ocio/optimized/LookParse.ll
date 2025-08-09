@@ -2651,7 +2651,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4.
   store i64 %27, ptr %7, align 8, !tbaa !3
   store ptr %19, ptr %.sroa.05.09.i.i, align 8, !tbaa !11
   store i64 0, ptr %28, align 8, !tbaa !3
-  store i8 0, ptr %19, align 1, !tbaa !12
+  store i8 0, ptr %19, align 8, !tbaa !12
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i.i, i64 32
   %30 = load i32, ptr %29, align 8, !tbaa !24
   store i32 %30, ptr %8, align 8, !tbaa !24
@@ -3146,7 +3146,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !3, !alias.scope !86, !noalias !89
   store ptr %39, ptr %.0911.i.i.i.i, align 8, !tbaa !11, !alias.scope !89, !noalias !86
   store i64 0, ptr %48, align 8, !tbaa !3, !alias.scope !89, !noalias !86
-  store i8 0, ptr %39, align 1, !tbaa !12, !alias.scope !89, !noalias !86
+  store i8 0, ptr %39, align 8, !tbaa !12, !alias.scope !89, !noalias !86
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %50, %1
@@ -3194,7 +3194,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !3, !alias.scope !93, !noalias !96
   store ptr %55, ptr %.0911.i.i.i.i19, align 8, !tbaa !11, !alias.scope !96, !noalias !93
   store i64 0, ptr %64, align 8, !tbaa !3, !alias.scope !96, !noalias !93
-  store i8 0, ptr %55, align 1, !tbaa !12, !alias.scope !96, !noalias !93
+  store i8 0, ptr %55, align 8, !tbaa !12, !alias.scope !96, !noalias !93
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 32
   %.not.i.i.i.i24 = icmp eq ptr %66, %5
@@ -3386,7 +3386,7 @@ _ZSt19__relocate_object_aIN19OpenColorIO_v2_5dev15LookParseResult5TokenES2_SaIS2
   store i64 %54, ptr %56, align 8, !tbaa !3, !alias.scope !99, !noalias !102
   store ptr %46, ptr %.0911.i.i.i.i, align 8, !tbaa !11, !alias.scope !102, !noalias !99
   store i64 0, ptr %55, align 8, !tbaa !3, !alias.scope !102, !noalias !99
-  store i8 0, ptr %46, align 1, !tbaa !12, !alias.scope !102, !noalias !99
+  store i8 0, ptr %46, align 8, !tbaa !12, !alias.scope !102, !noalias !99
   %57 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %58 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %59 = load i32, ptr %58, align 8, !tbaa !24, !alias.scope !102, !noalias !99
@@ -3438,7 +3438,7 @@ _ZSt19__relocate_object_aIN19OpenColorIO_v2_5dev15LookParseResult5TokenES2_SaIS2
   store i64 %73, ptr %75, align 8, !tbaa !3, !alias.scope !106, !noalias !109
   store ptr %65, ptr %.0911.i.i.i.i29, align 8, !tbaa !11, !alias.scope !109, !noalias !106
   store i64 0, ptr %74, align 8, !tbaa !3, !alias.scope !109, !noalias !106
-  store i8 0, ptr %65, align 1, !tbaa !12, !alias.scope !109, !noalias !106
+  store i8 0, ptr %65, align 8, !tbaa !12, !alias.scope !109, !noalias !106
   %76 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 32
   %77 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 32
   %78 = load i32, ptr %77, align 8, !tbaa !24, !alias.scope !109, !noalias !106

@@ -1616,7 +1616,7 @@ _init_l_Lean_IR_UnboxResult_initFn____x40_Lean_Compiler_IR_UnboxResult___hyg_3__
   %.val20 = load ptr, ptr %69, align 8, !tbaa !4
   store ptr %.val20, ptr @l_Lean_IR_UnboxResult_unboxAttr, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val20) #3
-  %70 = load i32, ptr %65, align 4, !tbaa !8
+  %70 = load i32, ptr %65, align 8, !tbaa !8
   %71 = icmp sgt i32 %70, 1
   br i1 %71, label %72, label %74, !prof !11
 

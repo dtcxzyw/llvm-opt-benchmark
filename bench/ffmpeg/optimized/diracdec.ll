@@ -2197,9 +2197,9 @@ get_interleaved_ue_golomb.exit206.i.i:            ; preds = %1013, %.loopexit.i2
   %1173 = getelementptr inbounds nuw i8, ptr %126, i64 4890
   store i16 1, ptr %1173, align 2, !tbaa !95
   %1174 = getelementptr inbounds nuw i8, ptr %126, i64 4892
-  store i16 1, ptr %1174, align 2, !tbaa !95
-  %1175 = load i32, ptr %142, align 8, !tbaa !67
-  %1176 = load ptr, ptr %131, align 8, !tbaa !63
+  store i16 1, ptr %1174, align 4, !tbaa !95
+  %1175 = load i32, ptr %142, align 16, !tbaa !67
+  %1176 = load ptr, ptr %131, align 16, !tbaa !63
   %1177 = lshr i32 %1175, 3
   %1178 = zext nneg i32 %1177 to i64
   %1179 = getelementptr inbounds nuw i8, ptr %1176, i64 %1178
@@ -2210,7 +2210,7 @@ get_interleaved_ue_golomb.exit206.i.i:            ; preds = %1013, %.loopexit.i2
   %spec.select.i211.i.i = add i32 %1175, %1183
   %1184 = zext i8 %1180 to i32
   %1185 = and i32 %1175, 7
-  store i32 %spec.select.i211.i.i, ptr %142, align 8, !tbaa !67
+  store i32 %spec.select.i211.i.i, ptr %142, align 16, !tbaa !67
   %1186 = lshr exact i32 128, %1185
   %1187 = and i32 %1186, %1184
   %.not137.i.i = icmp eq i32 %1187, 0
@@ -3400,7 +3400,7 @@ dirac_get_arith_bit.exit96.i.us.i.i:              ; preds = %1853, %renorm.exit.
   %1886 = getelementptr inbounds nuw i8, ptr %1880, i64 24
   %1887 = shl nuw i32 1, %1884
   %1888 = sext i32 %1887 to i64
-  %1889 = load i32, ptr %1886, align 4, !tbaa !56
+  %1889 = load i32, ptr %1886, align 8, !tbaa !56
   %1890 = sext i32 %1889 to i64
   %1891 = getelementptr inbounds nuw i8, ptr %1880, i64 28
   %1892 = load i32, ptr %1891, align 4, !tbaa !56
@@ -3409,7 +3409,7 @@ dirac_get_arith_bit.exit96.i.us.i.i:              ; preds = %1853, %renorm.exit.
   %1895 = mul i64 %1589, %1893
   %1896 = add i64 %1895, %1894
   %1897 = sub i64 %1888, %1896
-  %1898 = load i32, ptr %1885, align 4, !tbaa !56
+  %1898 = load i32, ptr %1885, align 8, !tbaa !56
   %1899 = sext i32 %1898 to i64
   %1900 = mul nsw i64 %1593, %1899
   %1901 = getelementptr inbounds nuw i8, ptr %1880, i64 12
@@ -3418,13 +3418,13 @@ dirac_get_arith_bit.exit96.i.us.i.i:              ; preds = %1853, %renorm.exit.
   %1904 = mul nsw i64 %1589, %1903
   %1905 = add nsw i64 %1904, %1900
   %1906 = zext nneg i32 %1882 to i64
-  %1907 = load i32, ptr %1880, align 4, !tbaa !56
+  %1907 = load i32, ptr %1880, align 8, !tbaa !56
   %1908 = sext i32 %1907 to i64
   %1909 = shl i64 %1908, %1906
   %1910 = add nsw i64 %1905, %1909
   %1911 = mul i64 %1910, %1897
   %1912 = getelementptr inbounds nuw i8, ptr %1880, i64 16
-  %1913 = load i32, ptr %1912, align 4, !tbaa !56
+  %1913 = load i32, ptr %1912, align 8, !tbaa !56
   %1914 = sext i32 %1913 to i64
   %1915 = mul nsw i64 %1593, %1914
   %1916 = getelementptr inbounds nuw i8, ptr %1880, i64 20
@@ -9608,7 +9608,7 @@ define internal fastcc i32 @codeblock(ptr noundef readonly captures(none) %0, pt
   %32 = getelementptr inbounds nuw [2 x i16], ptr %30, i64 0, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !95
   %34 = add i16 %33, %15
-  store i16 %34, ptr %14, align 2, !tbaa !95
+  store i16 %34, ptr %14, align 4, !tbaa !95
   store i32 %.024.i, ptr %3, align 8, !tbaa !166
   %35 = trunc i32 %.0.i to i16
   store i16 %35, ptr %18, align 4, !tbaa !168
@@ -11024,7 +11024,7 @@ define internal fastcc void @block_mc(ptr noundef readonly captures(none) %0, pt
   %76 = load i16, ptr %75, align 2, !tbaa !95
   %77 = sext i16 %76 to i32
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 4892
-  %79 = load i16, ptr %78, align 2, !tbaa !95
+  %79 = load i16, ptr %78, align 4, !tbaa !95
   %80 = sext i16 %79 to i32
   %81 = add nsw i32 %80, %77
   %82 = load i8, ptr %64, align 1, !tbaa !143
@@ -11075,7 +11075,7 @@ define internal fastcc void @block_mc(ptr noundef readonly captures(none) %0, pt
   %119 = load i16, ptr %118, align 2, !tbaa !95
   %120 = sext i16 %119 to i32
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 4892
-  %122 = load i16, ptr %121, align 2, !tbaa !95
+  %122 = load i16, ptr %121, align 4, !tbaa !95
   %123 = sext i16 %122 to i32
   %124 = load i8, ptr %95, align 1, !tbaa !143
   %125 = zext i8 %124 to i32

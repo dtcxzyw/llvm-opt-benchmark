@@ -1007,39 +1007,39 @@ define dso_local void @_ZN16btRaycastVehicle20updateWheelTransformEib(ptr nounde
   %209 = fmul float %166, %188
   %210 = tail call float @llvm.fmuladd.f32(float %186, float %163, float %209)
   %211 = tail call noundef float @llvm.fmuladd.f32(float %192, float %169, float %210)
-  store float %175, ptr %142, align 4
+  store float %175, ptr %142, align 8
   %.sroa.437.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 100
   store float %184, ptr %.sroa.437.0..sroa_idx, align 4
   %.sroa.538.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 104
-  store float %193, ptr %.sroa.538.0..sroa_idx, align 4
+  store float %193, ptr %.sroa.538.0..sroa_idx, align 8
   %.sroa.639.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 108
   store float 0.000000e+00, ptr %.sroa.639.0..sroa_idx, align 4, !tbaa !62
   %212 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  store float %196, ptr %212, align 4
+  store float %196, ptr %212, align 8
   %.sroa.940.16..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 116
   store float %199, ptr %.sroa.940.16..sroa_idx, align 4
   %.sroa.10.16..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 120
-  store float %202, ptr %.sroa.10.16..sroa_idx, align 4
+  store float %202, ptr %.sroa.10.16..sroa_idx, align 8
   %.sroa.1141.16..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 124
   store float 0.000000e+00, ptr %.sroa.1141.16..sroa_idx, align 4, !tbaa !62
   %213 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  store float %205, ptr %213, align 4
+  store float %205, ptr %213, align 8
   %.sroa.14.32..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 132
   store float %208, ptr %.sroa.14.32..sroa_idx, align 4
   %.sroa.1542.32..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 136
-  store float %211, ptr %.sroa.1542.32..sroa_idx, align 4
+  store float %211, ptr %.sroa.1542.32..sroa_idx, align 8
   %.sroa.1643.32..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 140
   store float 0.000000e+00, ptr %.sroa.1643.32..sroa_idx, align 4, !tbaa !62
   %214 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %215 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %216 = load float, ptr %215, align 4, !tbaa !63
+  %216 = load float, ptr %215, align 8, !tbaa !63
   %217 = fmul float %10, %216
   %218 = fmul float %13, %216
   %219 = fmul float %16, %216
   %220 = load float, ptr %214, align 4, !tbaa !63
   %221 = fadd float %220, %217
   %222 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %223 = load float, ptr %222, align 4, !tbaa !63
+  %223 = load float, ptr %222, align 8, !tbaa !63
   %224 = fadd float %218, %223
   %225 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %226 = load float, ptr %225, align 4, !tbaa !63
@@ -1048,9 +1048,9 @@ define dso_local void @_ZN16btRaycastVehicle20updateWheelTransformEib(ptr nounde
   %.sroa.0.4.vec.insert.i29 = insertelement <2 x float> %.sroa.0.0.vec.insert.i28, float %224, i64 1
   %.sroa.3.12.vec.insert.i30 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %227, i64 0
   %228 = getelementptr inbounds nuw i8, ptr %8, i64 144
-  store <2 x float> %.sroa.0.4.vec.insert.i29, ptr %228, align 4
+  store <2 x float> %.sroa.0.4.vec.insert.i29, ptr %228, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 152
-  store <2 x float> %.sroa.3.12.vec.insert.i30, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !62
+  store <2 x float> %.sroa.3.12.vec.insert.i30, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !62
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -1088,7 +1088,7 @@ define dso_local void @_ZN16btRaycastVehicle15resetSuspensionEv(ptr noundef nonn
   %13 = load float, ptr %12, align 4, !tbaa !63
   %14 = fneg float %13
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %16 = load float, ptr %15, align 4, !tbaa !63
+  %16 = load float, ptr %15, align 8, !tbaa !63
   %17 = fneg float %16
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 60
   %19 = load float, ptr %18, align 4, !tbaa !63
@@ -1553,13 +1553,13 @@ _ZN16btRaycastVehicle16updateSuspensionEf.exit:   ; preds = %86
   %102 = fcmp ogt float %99, %101
   %.076 = select i1 %102, float %101, float %99
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %103 = load float, ptr %97, align 4, !tbaa !63
+  %103 = load float, ptr %97, align 8, !tbaa !63
   %104 = fmul float %103, %.076
   %105 = getelementptr inbounds nuw i8, ptr %97, i64 4
   %106 = load float, ptr %105, align 4, !tbaa !63
   %107 = fmul float %.076, %106
   %108 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  %109 = load float, ptr %108, align 4, !tbaa !63
+  %109 = load float, ptr %108, align 8, !tbaa !63
   %110 = fmul float %.076, %109
   %111 = fmul float %1, %104
   %112 = fmul float %1, %107
@@ -1573,7 +1573,7 @@ _ZN16btRaycastVehicle16updateSuspensionEf.exit:   ; preds = %86
   %114 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %115 = load ptr, ptr %10, align 8, !tbaa !48
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 56
-  %117 = load float, ptr %114, align 4, !tbaa !63
+  %117 = load float, ptr %114, align 8, !tbaa !63
   %118 = load float, ptr %116, align 4, !tbaa !63
   %119 = fsub float %117, %118
   %120 = getelementptr inbounds nuw i8, ptr %97, i64 20
@@ -1582,7 +1582,7 @@ _ZN16btRaycastVehicle16updateSuspensionEf.exit:   ; preds = %86
   %123 = load float, ptr %122, align 4, !tbaa !63
   %124 = fsub float %121, %123
   %125 = getelementptr inbounds nuw i8, ptr %97, i64 24
-  %126 = load float, ptr %125, align 4, !tbaa !63
+  %126 = load float, ptr %125, align 8, !tbaa !63
   %127 = getelementptr inbounds nuw i8, ptr %115, i64 64
   %128 = load float, ptr %127, align 4, !tbaa !63
   %129 = fsub float %126, %128

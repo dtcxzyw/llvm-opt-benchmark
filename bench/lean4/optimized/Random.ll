@@ -378,7 +378,7 @@ lean_alloc_ctor.exit78:                           ; preds = %lean_alloc_ctor.exi
   %131 = getelementptr inbounds nuw i8, ptr %.sink100, i64 4
   %132 = getelementptr inbounds nuw i8, ptr %.sink100, i64 16
   store i64 0, ptr %132, align 8, !tbaa !12
-  store i32 1, ptr %.sink100, align 4, !tbaa !4
+  store i32 1, ptr %.sink100, align 8, !tbaa !4
   store i32 100728856, ptr %131, align 4
   %133 = getelementptr inbounds nuw i8, ptr %.sink100, i64 8
   store ptr %.sink, ptr %133, align 8, !tbaa !9
@@ -12436,7 +12436,7 @@ _init_l_instRandomGenStdGen___closed__4.exit:     ; preds = %_init_l_instRandomG
   %.val12 = load ptr, ptr %101, align 8, !tbaa !9
   store ptr %.val12, ptr @l_IO_stdGenRef, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %.val12) #5
-  %102 = load i32, ptr %97, align 4, !tbaa !4
+  %102 = load i32, ptr %97, align 8, !tbaa !4
   %103 = icmp sgt i32 %102, 1
   br i1 %103, label %104, label %106, !prof !11
 

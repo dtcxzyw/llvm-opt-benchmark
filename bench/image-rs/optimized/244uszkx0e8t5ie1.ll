@@ -7059,13 +7059,13 @@ define void @_ZN5image6codecs3ico7decoder10best_entry17hf2af43a31171e0ccE(ptr no
   %.sroa.653.4..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %.sroa.6, ptr noundef nonnull align 1 dereferenceable(9) %.sroa.653.4..sroa_idx, i64 9, i1 false)
   %.sroa.653.sroa.4.0..sroa.653.4..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 10
-  %.sroa.653.sroa.4.0.copyload = load i16, ptr %.sroa.653.sroa.4.0..sroa.653.4..sroa_idx.sroa_idx, align 1, !noalias !942
+  %.sroa.653.sroa.4.0.copyload = load i16, ptr %.sroa.653.sroa.4.0..sroa.653.4..sroa_idx.sroa_idx, align 2, !noalias !942
   %.sroa.653.sroa.5.0..sroa.653.4..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 12
-  %.sroa.653.sroa.5.0.copyload = load i8, ptr %.sroa.653.sroa.5.0..sroa.653.4..sroa_idx.sroa_idx, align 1, !noalias !942
+  %.sroa.653.sroa.5.0.copyload = load i8, ptr %.sroa.653.sroa.5.0..sroa.653.4..sroa_idx.sroa_idx, align 4, !noalias !942
   %.sroa.653.sroa.6.0..sroa.653.4..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 13
   %.sroa.653.sroa.6.0.copyload = load i8, ptr %.sroa.653.sroa.6.0..sroa.653.4..sroa_idx.sroa_idx, align 1, !noalias !942
   %.sroa.653.sroa.7.0..sroa.653.4..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 14
-  %.sroa.653.sroa.7.0.copyload = load i16, ptr %.sroa.653.sroa.7.0..sroa.653.4..sroa_idx.sroa_idx, align 1, !noalias !942
+  %.sroa.653.sroa.7.0.copyload = load i16, ptr %.sroa.653.sroa.7.0..sroa.653.4..sroa_idx.sroa_idx, align 2, !noalias !942
   %.idx = shl nsw i64 %17, 4
   %23 = getelementptr inbounds i8, ptr %21, i64 %.idx
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

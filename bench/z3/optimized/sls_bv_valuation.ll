@@ -311,7 +311,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3slslsERSoRKNS_
   %8 = load i32, ptr %7, align 8, !tbaa !22
   %9 = and i32 %8, -75
   %10 = or disjoint i32 %9, 8
-  store i32 %10, ptr %7, align 4, !tbaa !32
+  store i32 %10, ptr %7, align 8, !tbaa !32
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %12 = load i32, ptr %11, align 4, !tbaa !12
   %.not23 = icmp eq i32 %12, 0
@@ -416,7 +416,7 @@ _ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St8_SetfillIS3_E.exit: ; 
   %61 = load i32, ptr %60, align 8, !tbaa !22
   %62 = and i32 %61, -75
   %63 = or disjoint i32 %62, 2
-  store i32 %63, ptr %60, align 4, !tbaa !32
+  store i32 %63, ptr %60, align 8, !tbaa !32
   ret ptr %0
 }
 
@@ -6156,8 +6156,8 @@ define hidden void @_ZN3sls12bv_valuation9add_rangeE8rationalS1_(ptr noundef non
   %38 = or disjoint i8 %34, %37
   store i8 %38, ptr %16, align 4
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %40 = load i32, ptr %39, align 4, !tbaa !15
-  store i32 1, ptr %39, align 4, !tbaa !15
+  %40 = load i32, ptr %39, align 8, !tbaa !15
+  store i32 1, ptr %39, align 8, !tbaa !15
   store i32 %40, ptr %18, align 8, !tbaa !15
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %42 = load ptr, ptr %41, align 8, !tbaa !123
@@ -6269,8 +6269,8 @@ _ZN8rationalD2Ev.exit16:                          ; preds = %.noexc.i15
   %88 = or disjoint i8 %84, %87
   store i8 %88, ptr %62, align 4
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %90 = load i32, ptr %89, align 4, !tbaa !15
-  store i32 1, ptr %89, align 4, !tbaa !15
+  %90 = load i32, ptr %89, align 8, !tbaa !15
+  store i32 1, ptr %89, align 8, !tbaa !15
   store i32 %90, ptr %66, align 8, !tbaa !15
   %91 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %92 = load ptr, ptr %91, align 8, !tbaa !123

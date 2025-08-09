@@ -1365,7 +1365,7 @@ if.then:                                          ; preds = %while.body, %if.the
   %13 = load ptr, ptr %BB, align 8, !noalias !15
   store ptr %13, ptr %call.i.i, align 8, !noalias !15
   %second.i.i7.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
-  store i32 %dfsTime.0.ph1353, ptr %second.i.i7.i, align 4, !noalias !15
+  store i32 %dfsTime.0.ph1353, ptr %second.i.i7.i, align 8, !noalias !15
   %inc = add nuw nsw i32 %dfsTime.0.ph1353, 1
   %call.i = call noundef ptr @_ZN6hermes10BasicBlock13getTerminatorEv(ptr noundef nonnull align 8 dereferenceable(80) %13) #12
   %14 = load ptr, ptr %BB, align 8
@@ -2904,7 +2904,7 @@ if.then17.i1152:                                  ; preds = %for.body.i1137
   %second.i.i1153 = getelementptr inbounds nuw i8, ptr %TmpEnd.035.i1138, i64 8
   %second.i22.i1154 = getelementptr inbounds nuw i8, ptr %P.0.ptr36.i1140, i64 8
   %203 = load i32, ptr %second.i22.i1154, align 8
-  store i32 %203, ptr %second.i.i1153, align 4
+  store i32 %203, ptr %second.i.i1153, align 8
   %incdec.ptr.i1155 = getelementptr inbounds nuw i8, ptr %TmpEnd.035.i1138, i64 16
   br label %if.end23.i1142
 
@@ -3034,7 +3034,7 @@ _ZN4llvh12DenseMapBaseINS_13SmallDenseMapIPKN6hermes10BasicBlockEiLj16ENS_12Dens
   %second.i.i1238 = getelementptr inbounds nuw i8, ptr %cond.sink.i.i.i1237, i64 8
   %second.i16.i = getelementptr inbounds nuw i8, ptr %B.024.i, i64 8
   %213 = load i32, ptr %second.i16.i, align 4
-  store i32 %213, ptr %second.i.i1238, align 4
+  store i32 %213, ptr %second.i.i1238, align 8
   %bf.load.i.i.i17.i = load i32, ptr %discovered, align 8
   %bf.lshr.i.i.i.i1239 = and i32 %bf.load.i.i.i17.i, -2
   %bf.value.i.i.i.i1240 = add i32 %bf.lshr.i.i.i.i1239, 2
@@ -3162,7 +3162,7 @@ if.then17.i:                                      ; preds = %for.body.i
   %second.i.i = getelementptr inbounds nuw i8, ptr %TmpEnd.035.i, i64 8
   %second.i22.i = getelementptr inbounds nuw i8, ptr %P.0.ptr36.i, i64 8
   %223 = load i32, ptr %second.i22.i, align 8
-  store i32 %223, ptr %second.i.i, align 4
+  store i32 %223, ptr %second.i.i, align 8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %TmpEnd.035.i, i64 16
   br label %if.end23.i
 
@@ -3283,7 +3283,7 @@ if.then16.i1065:                                  ; preds = %if.end12.i1057
 _ZN4llvh12DenseMapBaseINS_13SmallDenseMapIPKN6hermes10BasicBlockEiLj16ENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_iEEEES5_iS7_SA_E20InsertIntoBucketImplIS5_EEPSA_RKS5_RKT_SE_.exit: ; preds = %if.end12.i1057, %if.then16.i1065
   store ptr %194, ptr %TheBucket.addr.0.i1060, align 8
   %second.i.i.i.i813 = getelementptr inbounds nuw i8, ptr %TheBucket.addr.0.i1060, i64 8
-  store i32 0, ptr %second.i.i.i.i813, align 4
+  store i32 0, ptr %second.i.i.i.i813, align 8
   br label %_ZN4llvh12DenseMapBaseINS_13SmallDenseMapIPKN6hermes10BasicBlockEiLj16ENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_iEEEES5_iS7_SA_EixERKS5_.exit
 
 _ZN4llvh12DenseMapBaseINS_13SmallDenseMapIPKN6hermes10BasicBlockEiLj16ENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_iEEEES5_iS7_SA_EixERKS5_.exit: ; preds = %if.end13.i.i.i.i794, %if.end.i.i.i.i778, %_ZN4llvh12DenseMapBaseINS_13SmallDenseMapIPKN6hermes10BasicBlockEiLj16ENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_iEEEES5_iS7_SA_E20InsertIntoBucketImplIS5_EEPSA_RKS5_RKT_SE_.exit
@@ -4082,7 +4082,7 @@ if.end.i.i43:                                     ; preds = %if.then12.i.i.i.i, 
   %25 = load ptr, ptr %scopeDesc.addr, align 8
   store ptr %25, ptr %call.i.i.i, align 8
   %second.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
-  store i32 0, ptr %second.i.i.i.i, align 4
+  store i32 0, ptr %second.i.i.i.i, align 8
   %orphaned3.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 12
   store i8 0, ptr %orphaned3.i.i.i.i, align 4
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPKN6hermes9ScopeDescENS2_21FunctionScopeAnalysis9ScopeDataENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixERKS5_.exit
@@ -4392,7 +4392,7 @@ if.then17:                                        ; preds = %for.body
   %second.i = getelementptr inbounds nuw i8, ptr %TmpEnd.035, i64 8
   %second.i22 = getelementptr inbounds nuw i8, ptr %P.0.ptr36, i64 8
   %2 = load i32, ptr %second.i22, align 8
-  store i32 %2, ptr %second.i, align 4
+  store i32 %2, ptr %second.i, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %TmpEnd.035, i64 16
   br label %if.end23
 
@@ -4544,7 +4544,7 @@ _ZN4llvh12DenseMapBaseINS_13SmallDenseMapIPKN6hermes10BasicBlockEiLj16ENS_12Dens
   %second.i = getelementptr inbounds nuw i8, ptr %cond.sink.i.i, i64 8
   %second.i16 = getelementptr inbounds nuw i8, ptr %B.024, i64 8
   %8 = load i32, ptr %second.i16, align 4
-  store i32 %8, ptr %second.i, align 4
+  store i32 %8, ptr %second.i, align 8
   %bf.load.i.i.i17 = load i32, ptr %this, align 8
   %bf.lshr.i.i.i = and i32 %bf.load.i.i.i17, -2
   %bf.value.i.i.i = add i32 %bf.lshr.i.i.i, 2
@@ -5636,7 +5636,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPKN6hermes9ScopeDescENS2_21FunctionScopeAnal
   %second.i.i = getelementptr inbounds nuw i8, ptr %cond.sink.i.i.i, i64 8
   %second.i13.i = getelementptr inbounds nuw i8, ptr %B.020.i, i64 8
   %11 = load i64, ptr %second.i13.i, align 4
-  store i64 %11, ptr %second.i.i, align 4
+  store i64 %11, ptr %second.i.i, align 8
   %12 = load i32, ptr %NumEntries.i.i.i.i, align 8
   %add.i.i = add i32 %12, 1
   store i32 %add.i.i, ptr %NumEntries.i.i.i.i, align 8

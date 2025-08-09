@@ -5246,7 +5246,7 @@ define dso_local i32 @ip_tunnel_init(ptr noundef initializes((1308, 1309), (1312
   store ptr %38, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %41 = tail call ptr @strcpy(ptr noundef %2, ptr noundef nonnull dereferenceable(1) %40) #16
-  store i8 69, ptr %3, align 4
+  store i8 69, ptr %3, align 8
   %42 = getelementptr i8, ptr %0, i64 2492
   %43 = load i8, ptr %42, align 4, !range !40, !noundef !41
   %44 = icmp eq i8 %43, 0

@@ -331,14 +331,14 @@ define dso_local void @_ZNK11V3Statistic4dumpERSt14basic_ofstreamIcSt11char_trai
   %9 = load i32, ptr %8, align 8, !tbaa !23
   %10 = and i32 %9, -177
   %11 = or disjoint i32 %10, 128
-  store i32 %11, ptr %8, align 4, !tbaa !33
+  store i32 %11, ptr %8, align 8, !tbaa !33
   %12 = load i64, ptr %5, align 8
   %13 = getelementptr inbounds i8, ptr %1, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load i32, ptr %14, align 8, !tbaa !23
   %16 = and i32 %15, -261
   %17 = or disjoint i32 %16, 4
-  store i32 %17, ptr %14, align 4, !tbaa !33
+  store i32 %17, ptr %14, align 8, !tbaa !33
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = load i32, ptr %18, align 8, !tbaa !34
   %20 = load i64, ptr %5, align 8
@@ -3053,7 +3053,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %43 = load i32, ptr %42, align 8, !tbaa !23
   %44 = and i32 %43, -261
   %45 = or disjoint i32 %44, 4
-  store i32 %45, ptr %42, align 4, !tbaa !33
+  store i32 %45, ptr %42, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %46 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %46, ptr %12, align 8, !tbaa !45
@@ -5826,7 +5826,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %._crit_
   %187 = load i32, ptr %186, align 8, !tbaa !23
   %188 = and i32 %187, -177
   %189 = or disjoint i32 %188, 32
-  store i32 %189, ptr %186, align 4, !tbaa !33
+  store i32 %189, ptr %186, align 8, !tbaa !33
   %190 = load i64, ptr %183, align 8
   %191 = getelementptr inbounds i8, ptr %179, i64 %190
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 16
@@ -5913,14 +5913,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit86: ; preds = %_ZN
   %224 = load i32, ptr %223, align 8, !tbaa !23
   %225 = and i32 %224, -177
   %226 = or disjoint i32 %225, 128
-  store i32 %226, ptr %223, align 4, !tbaa !33
+  store i32 %226, ptr %223, align 8, !tbaa !33
   %227 = load i64, ptr %220, align 8
   %228 = getelementptr inbounds i8, ptr %217, i64 %227
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 24
   %230 = load i32, ptr %229, align 8, !tbaa !23
   %231 = and i32 %230, -261
   %232 = or disjoint i32 %231, 4
-  store i32 %232, ptr %229, align 4, !tbaa !33
+  store i32 %232, ptr %229, align 8, !tbaa !33
   %233 = getelementptr inbounds nuw i8, ptr %172, i64 48
   %234 = load i32, ptr %233, align 8, !tbaa !34
   %235 = load i64, ptr %220, align 8
@@ -6055,7 +6055,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit75: ; preds = %._cri
   %299 = load i32, ptr %298, align 8, !tbaa !23
   %300 = and i32 %299, -177
   %301 = or disjoint i32 %300, 32
-  store i32 %301, ptr %298, align 4, !tbaa !33
+  store i32 %301, ptr %298, align 8, !tbaa !33
   %302 = load i64, ptr %295, align 8
   %303 = getelementptr inbounds i8, ptr %291, i64 %302
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 16
@@ -6142,14 +6142,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit111: ; preds = %_Z
   %336 = load i32, ptr %335, align 8, !tbaa !23
   %337 = and i32 %336, -177
   %338 = or disjoint i32 %337, 128
-  store i32 %338, ptr %335, align 4, !tbaa !33
+  store i32 %338, ptr %335, align 8, !tbaa !33
   %339 = load i64, ptr %332, align 8
   %340 = getelementptr inbounds i8, ptr %329, i64 %339
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 24
   %342 = load i32, ptr %341, align 8, !tbaa !23
   %343 = and i32 %342, -261
   %344 = or disjoint i32 %343, 4
-  store i32 %344, ptr %341, align 4, !tbaa !33
+  store i32 %344, ptr %341, align 8, !tbaa !33
   %345 = getelementptr inbounds nuw i8, ptr %284, i64 48
   %346 = load i32, ptr %345, align 8, !tbaa !34
   %347 = load i64, ptr %332, align 8
@@ -6963,7 +6963,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit119: ; preds = %_Z
   %281 = load i32, ptr %280, align 8, !tbaa !23
   %282 = and i32 %281, -177
   %283 = or disjoint i32 %282, 32
-  store i32 %283, ptr %280, align 4, !tbaa !33
+  store i32 %283, ptr %280, align 8, !tbaa !33
   %284 = load i64, ptr %277, align 8
   %285 = getelementptr inbounds i8, ptr %64, i64 %284
   %sext = add i64 %.0.lcssa, -30064771072
@@ -7021,7 +7021,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit122: ; preds = %275
   %313 = load i32, ptr %312, align 8, !tbaa !23
   %314 = and i32 %313, -177
   %315 = or disjoint i32 %314, 32
-  store i32 %315, ptr %312, align 4, !tbaa !33
+  store i32 %315, ptr %312, align 8, !tbaa !33
   %316 = load i64, ptr %309, align 8
   %317 = getelementptr inbounds i8, ptr %305, i64 %316
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 16
@@ -7057,7 +7057,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   %335 = load i32, ptr %334, align 8, !tbaa !23
   %336 = and i32 %335, -177
   %337 = or disjoint i32 %336, 32
-  store i32 %337, ptr %334, align 4, !tbaa !33
+  store i32 %337, ptr %334, align 8, !tbaa !33
   %338 = load i64, ptr %331, align 8
   %339 = getelementptr inbounds i8, ptr %327, i64 %338
   %340 = getelementptr inbounds nuw i8, ptr %339, i64 16
@@ -7121,7 +7121,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit135: ; preds = %329
   %370 = load i32, ptr %369, align 8, !tbaa !23
   %371 = and i32 %370, -177
   %372 = or disjoint i32 %371, 32
-  store i32 %372, ptr %369, align 4, !tbaa !33
+  store i32 %372, ptr %369, align 8, !tbaa !33
   %373 = load i64, ptr %366, align 8
   %374 = getelementptr inbounds i8, ptr %362, i64 %373
   %375 = getelementptr inbounds nuw i8, ptr %374, i64 16
@@ -7601,7 +7601,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit184: ; preds = %_Z
   %547 = load i32, ptr %546, align 8, !tbaa !23
   %548 = and i32 %547, -177
   %549 = or disjoint i32 %548, 32
-  store i32 %549, ptr %546, align 4, !tbaa !33
+  store i32 %549, ptr %546, align 8, !tbaa !33
   %550 = load i64, ptr %543, align 8
   %551 = getelementptr inbounds i8, ptr %539, i64 %550
   %552 = getelementptr inbounds nuw i8, ptr %551, i64 16
@@ -7870,14 +7870,14 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit218: ; preds = %628
   %654 = load i32, ptr %653, align 8, !tbaa !23
   %655 = and i32 %654, -177
   %656 = or disjoint i32 %655, 128
-  store i32 %656, ptr %653, align 4, !tbaa !33
+  store i32 %656, ptr %653, align 8, !tbaa !33
   %657 = load i64, ptr %650, align 8
   %658 = getelementptr inbounds i8, ptr %647, i64 %657
   %659 = getelementptr inbounds nuw i8, ptr %658, i64 24
   %660 = load i32, ptr %659, align 8, !tbaa !23
   %661 = and i32 %660, -261
   %662 = or disjoint i32 %661, 4
-  store i32 %662, ptr %659, align 4, !tbaa !33
+  store i32 %662, ptr %659, align 8, !tbaa !33
   %663 = getelementptr inbounds nuw i8, ptr %394, i64 48
   %664 = load i32, ptr %663, align 8, !tbaa !34
   %665 = load i64, ptr %650, align 8
@@ -9219,7 +9219,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !16, !alias.scope !256, !noalias !259
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !11, !alias.scope !259, !noalias !256
   store i64 0, ptr %48, align 8, !tbaa !16, !alias.scope !259, !noalias !256
-  store i8 0, ptr %39, align 1, !tbaa !17, !alias.scope !259, !noalias !256
+  store i8 0, ptr %39, align 8, !tbaa !17, !alias.scope !259, !noalias !256
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -9267,7 +9267,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !16, !alias.scope !263, !noalias !266
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !11, !alias.scope !266, !noalias !263
   store i64 0, ptr %64, align 8, !tbaa !16, !alias.scope !266, !noalias !263
-  store i8 0, ptr %55, align 1, !tbaa !17, !alias.scope !266, !noalias !263
+  store i8 0, ptr %55, align 8, !tbaa !17, !alias.scope !266, !noalias !263
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5

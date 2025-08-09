@@ -6046,7 +6046,7 @@ _ZNK14core_hashtableI14obj_hash_entryI10quantifierE12obj_ptr_hashIS1_E6ptr_eqIS1
   %96 = load i32, ptr %95, align 8, !tbaa !330
   %97 = and i32 %96, -75
   %98 = or disjoint i32 %97, 8
-  store i32 %98, ptr %95, align 4, !tbaa !331
+  store i32 %98, ptr %95, align 8, !tbaa !331
   %99 = ptrtoint ptr %90 to i64
   %100 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %99)
   %101 = load ptr, ptr %100, align 8, !tbaa !170

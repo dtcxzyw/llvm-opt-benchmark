@@ -31238,7 +31238,7 @@ _ZN4fish8complete16CompleteEntryOpt19expected_dash_count17h313fa3b413dc4c95E.exi
   call void @llvm.assume(i1 %808)
   %809 = icmp eq i64 %807, 0
   %810 = getelementptr inbounds nuw i8, ptr %.sroa.099.0648.i, i64 100
-  %811 = load i8, ptr %810, align 2, !range !494, !noalias !2636, !noundef !7
+  %811 = load i8, ptr %810, align 4, !range !494, !noalias !2636, !noundef !7
   %812 = trunc nuw i8 %811 to i1
   %813 = load i8, ptr %727, align 1, !range !2457, !noalias !2636, !noundef !7
   %814 = icmp ne i8 %813, 3

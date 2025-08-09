@@ -12322,7 +12322,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSINS_14SdfVariabilityEEENSt9enable
   %16 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_14SdfVariabilityEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %17 = inttoptr i64 %16 to ptr
   store ptr %17, ptr %6, align 8
-  store i32 %5, ptr %1, align 4
+  store i32 %5, ptr %1, align 8
   ret i1 true
 }
 

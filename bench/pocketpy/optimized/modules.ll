@@ -4653,7 +4653,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_12PyStructTimeEJ
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %14 = load i32, ptr %13, align 4
   %15 = add nsw i32 %14, 1900
-  store i32 %15, ptr %10, align 4
+  store i32 %15, ptr %10, align 8
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %17 = load i32, ptr %16, align 8
   %18 = add nsw i32 %17, 1
@@ -4662,7 +4662,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_12PyStructTimeEJ
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %21 = load i32, ptr %20, align 4
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 %21, ptr %22, align 4
+  store i32 %21, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %24 = load i32, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 36
@@ -4670,7 +4670,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_12PyStructTimeEJ
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i32 %27, ptr %28, align 4
+  store i32 %27, ptr %28, align 8
   %29 = load i32, ptr %12, align 8
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 44
   store i32 %29, ptr %30, align 4
@@ -4679,7 +4679,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_12PyStructTimeEJ
   %33 = add nsw i32 %32, 6
   %34 = srem i32 %33, 7
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i32 %34, ptr %35, align 4
+  store i32 %34, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %37 = load i32, ptr %36, align 4
   %38 = add nsw i32 %37, 1
@@ -4688,7 +4688,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_12PyStructTimeEJ
   %40 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %41 = load i32, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store i32 %41, ptr %42, align 4
+  store i32 %41, ptr %42, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -7995,7 +7995,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIKSt10type_indexSt4pairIS1_N4pkpy4TypeEES
   %10 = load i64, ptr %9, align 8
   store i64 %10, ptr %7, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i16 -1, ptr %11, align 2
+  store i16 -1, ptr %11, align 8
   %12 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIKSt10type_indexSt4pairIS1_N4pkpy4TypeEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %13 unwind label %_ZNSt8_Rb_treeIKSt10type_indexSt4pairIS1_N4pkpy4TypeEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE10_Auto_nodeD2Ev.exit
 

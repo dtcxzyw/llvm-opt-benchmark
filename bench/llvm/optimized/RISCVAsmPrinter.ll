@@ -7697,7 +7697,7 @@ _ZSt10_ConstructIN4llvm18RISCVOptionArchArgEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ;
   store i64 %73, ptr %74, align 8, !tbaa !275
   store ptr %64, ptr %61, align 8, !tbaa !272
   store i64 0, ptr %72, align 8, !tbaa !275
-  store i8 0, ptr %64, align 1, !tbaa !276
+  store i8 0, ptr %64, align 8, !tbaa !276
   %75 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 40
   %76 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 40
   %.not.i.i.i.i.i.i = icmp eq ptr %75, %58

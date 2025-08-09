@@ -18237,7 +18237,7 @@ _init_l_Lean_Parser_Tactic_tacticIterate___________closed__6.exit: ; preds = %_i
   %201 = getelementptr inbounds nuw i8, ptr %198, i64 4
   %202 = getelementptr inbounds nuw i8, ptr %198, i64 16
   store i64 0, ptr %202, align 8, !tbaa !13
-  store i32 1, ptr %198, align 4, !tbaa !8
+  store i32 1, ptr %198, align 8, !tbaa !8
   store i32 100728856, ptr %201, align 4
   %203 = getelementptr inbounds nuw i8, ptr %198, i64 8
   store ptr %197, ptr %203, align 8, !tbaa !4
@@ -18515,7 +18515,7 @@ _init_l_Lean_Parser_Tactic_tacticRw__mod__cast_________closed__4.exit: ; preds =
   %315 = getelementptr inbounds nuw i8, ptr %312, i64 4
   %316 = getelementptr inbounds nuw i8, ptr %312, i64 16
   store i64 0, ptr %316, align 8, !tbaa !13
-  store i32 1, ptr %312, align 4, !tbaa !8
+  store i32 1, ptr %312, align 8, !tbaa !8
   store i32 100728856, ptr %315, align 4
   %317 = getelementptr inbounds nuw i8, ptr %312, i64 8
   store ptr %311, ptr %317, align 8, !tbaa !4
@@ -18749,7 +18749,7 @@ _init_l_Lean_Parser_Tactic_tacticExact__mod__cast_____closed__4.exit: ; preds = 
   %421 = getelementptr inbounds nuw i8, ptr %418, i64 4
   %422 = getelementptr inbounds nuw i8, ptr %418, i64 16
   store i64 0, ptr %422, align 8, !tbaa !13
-  store i32 1, ptr %418, align 4, !tbaa !8
+  store i32 1, ptr %418, align 8, !tbaa !8
   store i32 100728856, ptr %421, align 4
   %423 = getelementptr inbounds nuw i8, ptr %418, i64 8
   store ptr %417, ptr %423, align 8, !tbaa !4
@@ -18893,7 +18893,7 @@ _init_l_Lean_Parser_Tactic_tacticApply__mod__cast_____closed__4.exit: ; preds = 
   %483 = getelementptr inbounds nuw i8, ptr %480, i64 4
   %484 = getelementptr inbounds nuw i8, ptr %480, i64 16
   store i64 0, ptr %484, align 8, !tbaa !13
-  store i32 1, ptr %480, align 4, !tbaa !8
+  store i32 1, ptr %480, align 8, !tbaa !8
   store i32 100728856, ptr %483, align 4
   %485 = getelementptr inbounds nuw i8, ptr %480, i64 8
   store ptr %479, ptr %485, align 8, !tbaa !4

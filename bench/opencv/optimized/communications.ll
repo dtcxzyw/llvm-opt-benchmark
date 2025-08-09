@@ -4920,7 +4920,7 @@ _ZNK3ade4util5Range13IterableRangeINS1_10ChainRangeINS1_9IterRangeIN9__gnu_cxx17
 1845:                                             ; preds = %1844
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN12_GLOBAL__N_114HostBufferImplE, i64 16), ptr %1841, align 8, !tbaa !61
   %1846 = getelementptr inbounds nuw i8, ptr %1841, i64 8
-  store i32 0, ptr %1846, align 4, !tbaa !300
+  store i32 0, ptr %1846, align 8, !tbaa !300
   %1847 = getelementptr inbounds nuw i8, ptr %1841, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1847, ptr noundef nonnull readonly align 8 dereferenceable(32) %62, i64 32, i1 false), !tbaa.struct !302
   %1848 = getelementptr inbounds nuw i8, ptr %1841, i64 48
@@ -4937,7 +4937,7 @@ _ZNK3ade4util5Range13IterableRangeINS1_10ChainRangeINS1_9IterRangeIN9__gnu_cxx17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1856, i8 0, i64 64, i1 false), !alias.scope !303
   %1857 = getelementptr inbounds nuw i8, ptr %1841, i64 128
   store i64 %1850, ptr %1857, align 8, !tbaa !306, !alias.scope !303
-  store i32 %1853, ptr %1849, align 4, !tbaa !309, !alias.scope !303
+  store i32 %1853, ptr %1849, align 8, !tbaa !309, !alias.scope !303
   %1858 = trunc i64 %1843 to i32
   %1859 = getelementptr inbounds nuw i8, ptr %1841, i64 84
   store i32 %1858, ptr %1859, align 4, !tbaa !311, !alias.scope !303
@@ -5068,7 +5068,7 @@ _ZNSt10unique_ptrIN3ade11IDataBufferESt14default_deleteIS1_EE5resetEPS1_.exit: ;
 1903:                                             ; preds = %1901
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN12_GLOBAL__N_114HostBufferImplE, i64 16), ptr %1902, align 8, !tbaa !61
   %1904 = getelementptr inbounds nuw i8, ptr %1902, i64 8
-  store i32 0, ptr %1904, align 4, !tbaa !300
+  store i32 0, ptr %1904, align 8, !tbaa !300
   %1905 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZNK3ade19MemoryDescriptorRef4spanEv(ptr noundef nonnull align 8 dereferenceable(64) %1293)
           to label %.noexc398 unwind label %1923
 

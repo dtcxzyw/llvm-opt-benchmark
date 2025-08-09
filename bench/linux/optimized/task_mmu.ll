@@ -201,7 +201,7 @@ define dso_local void @task_mem(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %33 = tail call i64 @llvm.umin.i64(i64 %29, i64 %32)
   %34 = sub i64 %32, %33
   %35 = getelementptr i8, ptr %1, i64 912
-  %36 = load volatile i64, ptr %35, align 8
+  %36 = load volatile i64, ptr %35, align 16
   %37 = tail call i64 @llvm.smax.i64(i64 %36, i64 0)
   %38 = shl i64 %16, 2
   tail call void @seq_put_decimal_ull_width(ptr noundef %0, ptr noundef nonnull @.str, i64 noundef %38, i32 noundef 8) #13
@@ -212,7 +212,7 @@ define dso_local void @task_mem(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %42 = shl i64 %41, 2
   tail call void @seq_put_decimal_ull_width(ptr noundef %0, ptr noundef nonnull @.str.2, i64 noundef %42, i32 noundef 8) #13
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %44 = load volatile i64, ptr %43, align 8
+  %44 = load volatile i64, ptr %43, align 16
   %45 = shl i64 %44, 2
   tail call void @seq_put_decimal_ull_width(ptr noundef %0, ptr noundef nonnull @.str.3, i64 noundef %45, i32 noundef 8) #13
   %46 = shl i64 %21, 2
@@ -238,7 +238,7 @@ define dso_local void @task_mem(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %58 = lshr exact i64 %34, 10
   tail call void @seq_put_decimal_ull_width(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef %58, i32 noundef 8) #13
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %60 = load volatile i64, ptr %59, align 8
+  %60 = load volatile i64, ptr %59, align 32
   %61 = lshr i64 %60, 10
   tail call void @seq_put_decimal_ull_width(ptr noundef %0, ptr noundef nonnull @.str.13, i64 noundef %61, i32 noundef 8) #13
   %62 = shl i64 %37, 2
@@ -6252,7 +6252,7 @@ define internal noundef i32 @gather_pte_stats(ptr noundef %0, i64 noundef %1, i6
 
 25:                                               ; preds = %22
   %26 = load i64, ptr %23, align 16
-  %27 = load volatile i64, ptr %23, align 8
+  %27 = load volatile i64, ptr %23, align 16
   %28 = and i64 %27, 16384
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %30, label %.thread

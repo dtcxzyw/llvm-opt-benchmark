@@ -19701,7 +19701,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg3tri12CurvEdgeFlipI6CMeshO10MeanC
   %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %32)
   %33 = load float, ptr %24, align 4
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %35 = load float, ptr %34, align 4
+  %35 = load float, ptr %34, align 8
   %36 = fmul float %35, %35
   %37 = tail call float @llvm.fmuladd.f32(float %33, float %33, float %36)
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 44
@@ -20145,7 +20145,7 @@ define linkonce_odr noundef float @_ZN3vcg3tri12CurvEdgeFlipI6CMeshO10MeanCEFlip
   %126 = load float, ptr %125, align 4
   %127 = fsub float %.sroa.0331.0.copyload, %126
   %128 = getelementptr inbounds nuw i8, ptr %21, i64 40
-  %129 = load float, ptr %128, align 4
+  %129 = load float, ptr %128, align 8
   %130 = fsub float %.sroa.3333.0.copyload, %129
   %131 = getelementptr inbounds nuw i8, ptr %21, i64 44
   %132 = load float, ptr %131, align 4
@@ -20168,7 +20168,7 @@ define linkonce_odr noundef float @_ZN3vcg3tri12CurvEdgeFlipI6CMeshO10MeanCEFlip
   store float %145, ptr %.sroa.4336.0..sroa_idx, align 4
   %146 = load float, ptr %125, align 4
   %147 = fsub float %.sroa.0323.0.copyload, %146
-  %148 = load float, ptr %128, align 4
+  %148 = load float, ptr %128, align 8
   %149 = fsub float %.sroa.3325.0.copyload, %148
   %150 = load float, ptr %131, align 4
   %151 = fsub float %.sroa.4328.0.copyload, %150
@@ -20187,7 +20187,7 @@ define linkonce_odr noundef float @_ZN3vcg3tri12CurvEdgeFlipI6CMeshO10MeanCEFlip
   store float %160, ptr %.sroa.4328.0..sroa_idx, align 4
   %161 = load float, ptr %125, align 4
   %162 = fsub float %.sroa.0315.0.copyload, %161
-  %163 = load float, ptr %128, align 4
+  %163 = load float, ptr %128, align 8
   %164 = fsub float %.sroa.3317.0.copyload, %163
   %165 = load float, ptr %131, align 4
   %166 = fsub float %.sroa.4320.0.copyload, %165
@@ -20420,7 +20420,7 @@ define linkonce_odr void @_ZN3vcg3tri12CurvEdgeFlipI6CMeshO10MeanCEFlipNS_9MeanC
   %113 = getelementptr inbounds nuw i8, ptr %26, i64 28
   %114 = load float, ptr %113, align 4
   %115 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %116 = load float, ptr %115, align 4
+  %116 = load float, ptr %115, align 8
   %117 = fsub float %114, %116
   %118 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %119 = load float, ptr %118, align 4
@@ -20449,7 +20449,7 @@ define linkonce_odr void @_ZN3vcg3tri12CurvEdgeFlipI6CMeshO10MeanCEFlipNS_9MeanC
   %138 = fsub float %136, %137
   %139 = getelementptr inbounds nuw i8, ptr %31, i64 28
   %140 = load float, ptr %139, align 4
-  %141 = load float, ptr %115, align 4
+  %141 = load float, ptr %115, align 8
   %142 = fsub float %140, %141
   %143 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %144 = load float, ptr %143, align 4
@@ -20474,7 +20474,7 @@ define linkonce_odr void @_ZN3vcg3tri12CurvEdgeFlipI6CMeshO10MeanCEFlipNS_9MeanC
   %159 = fsub float %157, %158
   %160 = getelementptr inbounds nuw i8, ptr %36, i64 28
   %161 = load float, ptr %160, align 4
-  %162 = load float, ptr %115, align 4
+  %162 = load float, ptr %115, align 8
   %163 = fsub float %161, %162
   %164 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %165 = load float, ptr %164, align 4
@@ -22023,7 +22023,7 @@ define linkonce_odr void @_ZN3vcg4face8VFDetachI6CFaceOEEvRT_i(ptr noundef nonnu
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, %0
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %20 = load i32, ptr %19, align 4
+  %20 = load i32, ptr %19, align 8
   br i1 %18, label %21, label %.preheader
 
 21:                                               ; preds = %2

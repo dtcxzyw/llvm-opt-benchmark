@@ -800,13 +800,13 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %28 = load i32, ptr %27, align 4, !tbaa !61
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i32 %28, ptr %30, align 4, !tbaa !48
+  store i32 %28, ptr %30, align 8, !tbaa !48
   store i32 %28, ptr %29, align 4, !tbaa !48
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %32 = load i32, ptr %31, align 8, !tbaa !60
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 %32, ptr %34, align 4, !tbaa !48
+  store i32 %32, ptr %34, align 8, !tbaa !48
   store i32 %32, ptr %33, align 4, !tbaa !48
   %35 = load i32, ptr %27, align 4, !tbaa !61
   %36 = sub nsw i32 0, %35
@@ -816,7 +816,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 44
   store i32 %39, ptr %40, align 4, !tbaa !48
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i32 %39, ptr %41, align 4, !tbaa !48
+  store i32 %39, ptr %41, align 8, !tbaa !48
   %42 = load i32, ptr %31, align 8, !tbaa !60
   %43 = sub nsw i32 0, %42
   %44 = ashr i32 %43, %24
@@ -824,7 +824,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 %45, ptr %46, align 4, !tbaa !48
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i32 %45, ptr %47, align 4, !tbaa !48
+  store i32 %45, ptr %47, align 8, !tbaa !48
   %48 = load i32, ptr %15, align 8, !tbaa !63
   %49 = shl nuw i32 1, %48
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 80

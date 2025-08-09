@@ -307,7 +307,7 @@ define dso_local ptr @Curl_str2addr(ptr noundef %0, i32 noundef %1) local_unname
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 52
   %22 = load i32, ptr %3, align 4
   store i32 %22, ptr %21, align 4
-  store i16 2, ptr %14, align 4, !tbaa !35
+  store i16 2, ptr %14, align 8, !tbaa !35
   %23 = trunc i32 %1 to i16
   %rev.i.i = call noundef i16 @llvm.bswap.i16(i16 %23)
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 50
@@ -345,7 +345,7 @@ define dso_local ptr @Curl_str2addr(ptr noundef %0, i32 noundef %1) local_unname
   store i32 28, ptr %41, align 8, !tbaa !31
   %42 = getelementptr inbounds nuw i8, ptr %32, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %42, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
-  store i16 10, ptr %35, align 4, !tbaa !35
+  store i16 10, ptr %35, align 8, !tbaa !35
   %43 = trunc i32 %1 to i16
   %rev.i.i9 = call noundef i16 @llvm.bswap.i16(i16 %43)
   %44 = getelementptr inbounds nuw i8, ptr %32, i64 50

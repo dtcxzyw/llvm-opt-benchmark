@@ -4763,7 +4763,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %20, ptr %21, align 8, !tbaa !47
   store ptr %11, ptr %.sroa.06.08.i.i.i.i.i.i, align 8, !tbaa !44
   store i64 0, ptr %19, align 8, !tbaa !47
-  store i8 0, ptr %11, align 1, !tbaa !11
+  store i8 0, ptr %11, align 8, !tbaa !11
   %22 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
@@ -4899,7 +4899,7 @@ _ZN4llvm14StringMapEntryINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6c
   store ptr %23, ptr %22, align 8, !tbaa !161
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i64 0, ptr %24, align 8, !tbaa !47
-  store i8 0, ptr %23, align 1, !tbaa !11
+  store i8 0, ptr %23, align 8, !tbaa !11
   store ptr %18, ptr %8, align 8, !tbaa !230
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %26 = load i32, ptr %25, align 4, !tbaa !245

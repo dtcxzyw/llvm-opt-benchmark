@@ -285,7 +285,7 @@ _ZN7rocksdb23PartitionedIndexBuilder18CreateIndexBuilderEPKNS_21InternalKeyCompa
   store ptr %66, ptr %65, align 8, !tbaa !80
   %67 = getelementptr inbounds nuw i8, ptr %.sink57, i64 424
   store i64 0, ptr %67, align 8, !tbaa !81
-  store i8 0, ptr %66, align 1, !tbaa !82
+  store i8 0, ptr %66, align 8, !tbaa !82
   %68 = icmp ult i32 %.sink39, 3
   %69 = getelementptr inbounds nuw i8, ptr %.sink57, i64 393
   %70 = zext i1 %68 to i8
@@ -778,7 +778,7 @@ define void @_ZN7rocksdb23PartitionedIndexBuilder22MakeNewSubIndexBuilderEv(ptr 
   %14 = load i32, ptr %6, align 4, !tbaa !141, !noalias !137
   %15 = load i8, ptr %7, align 1, !tbaa !142, !range !143, !noalias !137, !noundef !144
   %16 = trunc nuw i8 %15 to i1
-  %17 = load i8, ptr %8, align 1, !tbaa !145, !noalias !137
+  %17 = load i8, ptr %8, align 2, !tbaa !145, !noalias !137
   %18 = load i64, ptr %9, align 8, !tbaa !85, !noalias !137
   %19 = load i8, ptr %10, align 8, !tbaa !142, !range !143, !noalias !137, !noundef !144
   %20 = trunc nuw i8 %19 to i1
@@ -830,7 +830,7 @@ _ZSt11make_uniqueIN7rocksdb21ShortenedIndexBuilderEJRPKNS0_21InternalKeyComparat
   store ptr %36, ptr %35, align 8, !tbaa !80, !noalias !137
   %37 = getelementptr inbounds nuw i8, ptr %11, i64 424
   store i64 0, ptr %37, align 8, !tbaa !81, !noalias !137
-  store i8 0, ptr %36, align 1, !tbaa !82, !noalias !137
+  store i8 0, ptr %36, align 8, !tbaa !82, !noalias !137
   %38 = icmp ult i32 %14, 3
   %39 = getelementptr inbounds nuw i8, ptr %11, i64 393
   %40 = zext i1 %38 to i8

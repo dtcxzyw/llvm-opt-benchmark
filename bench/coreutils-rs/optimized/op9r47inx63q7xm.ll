@@ -1578,7 +1578,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.9555640969677938857.exit.
   %.sroa.636.0..val.sroa_idx = getelementptr inbounds nuw i8, ptr %.val, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(84) %.sroa.636.0..val.sroa_idx, ptr noundef nonnull align 4 dereferenceable(84) %.sroa.636.0..sroa_idx, i64 84, i1 false)
   %60 = getelementptr inbounds nuw i8, ptr %.val, i64 96
-  store atomic i8 1, ptr %60 release, align 1, !noalias !266
+  store atomic i8 1, ptr %60 release, align 16, !noalias !266
   br label %62
 
 "_ZN3std4sync4mpmc4zero16Channel$LT$T$GT$5write17hbfc0f6281e0dcd97E.exit": ; preds = %"_ZN4core3ptr85drop_in_place$LT$std..sync..mutex..MutexGuard$LT$std..sync..mpmc..zero..Inner$GT$$GT$17hc608ff5155af3643E.llvm.9555640969677938857.exit"

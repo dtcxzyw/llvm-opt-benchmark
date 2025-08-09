@@ -1521,7 +1521,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %8,
   store i64 %15, ptr %16, align 8, !tbaa !39
   store ptr %6, ptr %1, align 8, !tbaa !35
   store i64 0, ptr %14, align 8, !tbaa !39
-  store i8 0, ptr %6, align 1, !tbaa !97
+  store i8 0, ptr %6, align 8, !tbaa !97
   ret void
 }
 
@@ -22179,7 +22179,7 @@ _ZSt19__relocate_object_aIN6duckdb20ExceptionFormatValueES1_SaIS1_EEvPT_PT0_RT1_
   store i64 %49, ptr %51, align 8, !tbaa !39, !alias.scope !1102, !noalias !1105
   store ptr %41, ptr %38, align 8, !tbaa !35, !alias.scope !1105, !noalias !1102
   store i64 0, ptr %50, align 8, !tbaa !39, !alias.scope !1105, !noalias !1102
-  store i8 0, ptr %41, align 1, !tbaa !97, !alias.scope !1105, !noalias !1102
+  store i8 0, ptr %41, align 8, !tbaa !97, !alias.scope !1105, !noalias !1102
   %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 56
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 56
   %.not.i.i.i.i = icmp eq ptr %52, %1
@@ -22230,7 +22230,7 @@ _ZSt19__relocate_object_aIN6duckdb20ExceptionFormatValueES1_SaIS1_EEvPT_PT0_RT1_
   store i64 %67, ptr %69, align 8, !tbaa !39, !alias.scope !1109, !noalias !1112
   store ptr %59, ptr %56, align 8, !tbaa !35, !alias.scope !1112, !noalias !1109
   store i64 0, ptr %68, align 8, !tbaa !39, !alias.scope !1112, !noalias !1109
-  store i8 0, ptr %59, align 1, !tbaa !97, !alias.scope !1112, !noalias !1109
+  store i8 0, ptr %59, align 8, !tbaa !97, !alias.scope !1112, !noalias !1109
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 56
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 56
   %.not.i.i.i.i24 = icmp eq ptr %70, %5

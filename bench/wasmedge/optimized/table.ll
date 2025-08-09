@@ -27646,7 +27646,7 @@ _ZSt11make_uniqueIN8WasmEdge7Runtime8Instance13TableInstanceEJRKNS0_3AST9TableTy
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %.0.lcssa.i.i.i.i.i.i.i.i, ptr %21, align 8, !noalias !202
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store i64 %11, ptr %22, align 4, !noalias !202
+  store i64 %11, ptr %22, align 8, !noalias !202
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i64 0, ptr %23, align 8, !noalias !202
   %24 = and i64 %11, 16711680

@@ -77309,7 +77309,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(176) ptr @_ZNSt6vect
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %29 = load i32, ptr %28, align 8, !tbaa !48
-  store i32 %29, ptr %27, align 4, !tbaa !48
+  store i32 %29, ptr %27, align 8, !tbaa !48
   store i32 0, ptr %28, align 8, !tbaa !48
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 68
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 68
@@ -77429,7 +77429,7 @@ _ZNKSt6vectorIN5Yosys3MemESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %3
   %41 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %43 = load i32, ptr %42, align 8, !tbaa !48
-  store i32 %43, ptr %41, align 4, !tbaa !48
+  store i32 %43, ptr %41, align 8, !tbaa !48
   store i32 0, ptr %42, align 8, !tbaa !48
   %44 = getelementptr inbounds nuw i8, ptr %21, i64 68
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 68

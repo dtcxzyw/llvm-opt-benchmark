@@ -4556,7 +4556,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.011.051.i, i64 44
   %52 = load i32, ptr %51, align 4, !alias.scope !632, !noalias !633
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.011.051.i, i64 48
-  %54 = load i32, ptr %53, align 4, !alias.scope !632, !noalias !633
+  %54 = load i32, ptr %53, align 8, !alias.scope !632, !noalias !633
   %.sroa.63.0.i.i.i = select i1 %50, i32 %54, i32 undef
   %.sroa.52.0.i.i.i = select i1 %50, i32 %52, i32 undef
   store i32 %.sroa.0.0.i.i.i, ptr %6, align 8, !alias.scope !626, !noalias !636

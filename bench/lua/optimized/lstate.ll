@@ -242,7 +242,7 @@ define dso_local ptr @lua_newthread(ptr noundef %0) local_unnamed_addr #1 {
   %39 = load ptr, ptr %38, align 8, !tbaa !47
   %40 = getelementptr inbounds i8, ptr %39, i64 -8
   %41 = load i64, ptr %40, align 1
-  store i64 %41, ptr %37, align 1
+  store i64 %41, ptr %37, align 8
   %42 = tail call ptr @luaM_malloc_(ptr noundef nonnull %0, i64 noundef 720, i32 noundef 0) #8
   store ptr %42, ptr %16, align 8, !tbaa !30
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 64
@@ -561,7 +561,7 @@ define dso_local ptr @lua_newstate(ptr noundef %0, ptr noundef %1, i32 noundef %
   store i8 %46, ptr %48, align 1, !tbaa !30
   %49 = tail call zeroext i8 @luaO_codeparam(i32 noundef 200) #8
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 320
-  store i8 %49, ptr %50, align 4, !tbaa !30
+  store i8 %49, ptr %50, align 8, !tbaa !30
   %51 = tail call zeroext i8 @luaO_codeparam(i32 noundef 9600) #8
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 321
   store i8 %51, ptr %52, align 1, !tbaa !30

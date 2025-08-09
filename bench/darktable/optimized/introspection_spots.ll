@@ -724,7 +724,7 @@ masks_form_is_in_roi.exit:                        ; preds = %91
   %117 = fmul reassoc nsz arcp contract afn float %116, %112
   store float %117, ptr %42, align 4, !tbaa !37
   %118 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  %119 = load float, ptr %118, align 4, !tbaa !37
+  %119 = load float, ptr %118, align 8, !tbaa !37
   %120 = fmul reassoc nsz arcp contract afn float %119, %110
   store float %120, ptr %43, align 8, !tbaa !37
   %121 = getelementptr inbounds nuw i8, ptr %66, i64 28
@@ -990,7 +990,7 @@ dt_masks_get_mask.exit:                           ; preds = %249, %252
   %.val32.i = load float, ptr %278, align 4, !tbaa !37
   %280 = getelementptr i8, ptr %278, i64 4
   %.val33.i = load float, ptr %280, align 4, !tbaa !37
-  %.val34.i = load float, ptr %279, align 4, !tbaa !37
+  %.val34.i = load float, ptr %279, align 8, !tbaa !37
   %281 = getelementptr i8, ptr %66, i64 28
   %.val35.i = load float, ptr %281, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -1047,7 +1047,7 @@ masks_point_calc_delta.exit.i:                    ; preds = %294, %276
   %.val40.i = load float, ptr %307, align 4, !tbaa !37
   %309 = getelementptr i8, ptr %307, i64 4
   %.val41.i = load float, ptr %309, align 4, !tbaa !37
-  %.val42.i = load float, ptr %308, align 4, !tbaa !37
+  %.val42.i = load float, ptr %308, align 8, !tbaa !37
   %310 = getelementptr i8, ptr %66, i64 28
   %.val43.i = load float, ptr %310, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -1104,7 +1104,7 @@ masks_point_calc_delta.exit55.i:                  ; preds = %323, %305
   %.val48.i = load float, ptr %336, align 4, !tbaa !37
   %338 = getelementptr i8, ptr %336, i64 4
   %.val49.i = load float, ptr %338, align 4, !tbaa !37
-  %.val50.i = load float, ptr %337, align 4, !tbaa !37
+  %.val50.i = load float, ptr %337, align 8, !tbaa !37
   %339 = getelementptr i8, ptr %66, i64 28
   %.val51.i = load float, ptr %339, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(ptr nonnull %8)

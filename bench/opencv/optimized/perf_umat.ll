@@ -6307,7 +6307,7 @@ _ZNK7testing8internal13ParamIteratorIiEdeEv.exit: ; preds = %_ZNK7testing8intern
   store i32 %49, ptr %33, align 4, !tbaa !297
   %50 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %51 = load i8, ptr %43, align 1, !tbaa !21, !range !47, !noundef !48
-  store i8 %51, ptr %50, align 1, !tbaa !299
+  store i8 %51, ptr %50, align 4, !tbaa !299
   %52 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %53 = load i64, ptr %38, align 4
   store i64 %53, ptr %52, align 4
@@ -9992,7 +9992,7 @@ _ZSt19__relocate_object_aIN7testing8internal25ParameterizedTestCaseInfoIN11openc
   store i64 %49, ptr %51, align 8, !tbaa !15, !alias.scope !356, !noalias !359
   store ptr %41, ptr %.0911.i.i.i.i, align 8, !tbaa !12, !alias.scope !359, !noalias !356
   store i64 0, ptr %50, align 8, !tbaa !15, !alias.scope !359, !noalias !356
-  store i8 0, ptr %41, align 1, !tbaa !14, !alias.scope !359, !noalias !356
+  store i8 0, ptr %41, align 8, !tbaa !14, !alias.scope !359, !noalias !356
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %52, ptr noundef nonnull align 8 dereferenceable(28) %53, i64 28, i1 false), !alias.scope !361
@@ -10043,7 +10043,7 @@ _ZSt19__relocate_object_aIN7testing8internal25ParameterizedTestCaseInfoIN11openc
   store i64 %67, ptr %69, align 8, !tbaa !15, !alias.scope !363, !noalias !366
   store ptr %59, ptr %.0911.i.i.i.i19, align 8, !tbaa !12, !alias.scope !366, !noalias !363
   store i64 0, ptr %68, align 8, !tbaa !15, !alias.scope !366, !noalias !363
-  store i8 0, ptr %59, align 1, !tbaa !14, !alias.scope !366, !noalias !363
+  store i8 0, ptr %59, align 8, !tbaa !14, !alias.scope !366, !noalias !363
   %70 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %70, ptr noundef nonnull align 8 dereferenceable(28) %71, i64 28, i1 false), !alias.scope !368

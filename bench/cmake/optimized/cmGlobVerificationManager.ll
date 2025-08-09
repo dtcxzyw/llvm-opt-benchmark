@@ -401,7 +401,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57: ; preds = %_ZN
   %92 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %93 = load i32, ptr %92, align 8, !tbaa !47
   %94 = or i32 %93, 1
-  store i32 %94, ptr %92, align 4, !tbaa !48
+  store i32 %94, ptr %92, align 8, !tbaa !48
   %95 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @.str.5, i64 noundef 37)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %77
 
@@ -1893,7 +1893,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 24
   %129 = load i32, ptr %128, align 8, !tbaa !47
   %130 = or i32 %129, 1
-  store i32 %130, ptr %128, align 4, !tbaa !48
+  store i32 %130, ptr %128, align 8, !tbaa !48
   %131 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull @.str.31, i64 noundef 21)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %165
 
@@ -4660,7 +4660,7 @@ _ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store i64 %64, ptr %66, align 8, !tbaa !20, !alias.scope !130, !noalias !133
   store ptr %56, ptr %.0911.i.i.i, align 8, !tbaa !16, !alias.scope !133, !noalias !130
   store i64 0, ptr %65, align 8, !tbaa !20, !alias.scope !133, !noalias !130
-  store i8 0, ptr %56, align 1, !tbaa !34, !alias.scope !133, !noalias !130
+  store i8 0, ptr %56, align 8, !tbaa !34, !alias.scope !133, !noalias !130
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %68 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %69 = load ptr, ptr %68, align 8, !tbaa !100, !alias.scope !133, !noalias !130
@@ -4718,7 +4718,7 @@ _ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store i64 %86, ptr %88, align 8, !tbaa !20, !alias.scope !137, !noalias !140
   store ptr %78, ptr %.0911.i.i.i30, align 8, !tbaa !16, !alias.scope !140, !noalias !137
   store i64 0, ptr %87, align 8, !tbaa !20, !alias.scope !140, !noalias !137
-  store i8 0, ptr %78, align 1, !tbaa !34, !alias.scope !140, !noalias !137
+  store i8 0, ptr %78, align 8, !tbaa !34, !alias.scope !140, !noalias !137
   %89 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 32
   %90 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 32
   %91 = load ptr, ptr %90, align 8, !tbaa !100, !alias.scope !140, !noalias !137

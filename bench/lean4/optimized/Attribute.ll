@@ -2894,7 +2894,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit110
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 48
   store i64 258, ptr %27, align 8, !tbaa !12
-  store i32 1, ptr %23, align 4, !tbaa !8
+  store i32 1, ptr %23, align 8, !tbaa !8
   store i32 327736, ptr %26, align 4
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %2, ptr %28, align 8, !tbaa !4
@@ -3015,7 +3015,7 @@ lean_alloc_ctor.exit150:                          ; preds = %lean_dec.exit119
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %75 = getelementptr inbounds nuw i8, ptr %71, i64 32
   store i64 0, ptr %75, align 8, !tbaa !12
-  store i32 1, ptr %71, align 4, !tbaa !8
+  store i32 1, ptr %71, align 8, !tbaa !8
   store i32 196648, ptr %74, align 4
   %76 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store ptr %2, ptr %76, align 8, !tbaa !4
@@ -6322,7 +6322,7 @@ _init_l_Lean_ParserCompiler_instInhabitedCombinatorAttribute___closed__2.exit: ;
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 32
   store i64 0, ptr %64, align 8, !tbaa !12
-  store i32 1, ptr %60, align 4, !tbaa !8
+  store i32 1, ptr %60, align 8, !tbaa !8
   store i32 196648, ptr %63, align 4
   %65 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %65, align 8, !tbaa !4
@@ -6433,7 +6433,7 @@ _init_l_Lean_ParserCompiler_instInhabitedCombinatorAttribute___closed__7.exit: ;
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 4
   %104 = getelementptr inbounds nuw i8, ptr %100, i64 32
   store i64 0, ptr %104, align 8, !tbaa !12
-  store i32 1, ptr %100, align 4, !tbaa !8
+  store i32 1, ptr %100, align 8, !tbaa !8
   store i32 196648, ptr %103, align 4
   %105 = getelementptr inbounds nuw i8, ptr %100, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %105, align 8, !tbaa !4

@@ -2328,7 +2328,7 @@ common.resume.i:                                  ; preds = %101, %82, %62, %43
   %45 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %46 = load i64, ptr %45, align 8, !noalias !322, !noundef !3
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 108
-  %48 = load i16, ptr %47, align 2, !noalias !322, !noundef !3
+  %48 = load i16, ptr %47, align 4, !noalias !322, !noundef !3
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 110
   %50 = getelementptr inbounds nuw i8, ptr %20, i64 100
   %51 = shl nuw nsw i64 %39, 1
@@ -2366,7 +2366,7 @@ common.resume.i:                                  ; preds = %101, %82, %62, %43
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %65 = load i64, ptr %64, align 8, !noalias !338, !noundef !3
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 112
-  %67 = load i16, ptr %66, align 2, !noalias !338, !noundef !3
+  %67 = load i16, ptr %66, align 8, !noalias !338, !noundef !3
   %68 = getelementptr inbounds nuw i8, ptr %10, i64 114
   %69 = getelementptr inbounds nuw i8, ptr %20, i64 100
   %70 = shl nuw nsw i64 %58, 1
@@ -4087,7 +4087,7 @@ _ZN5alloc11collections5btree4node12slice_insert17h20571628e92ed06dE.exit.i63.thr
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %196, ptr nonnull align 4 %195, i64 %197, i1 false), !alias.scope !769, !noalias !772
   store i32 %.sroa.24.sroa.0.0195, ptr %195, align 4, !noalias !774
   %.sroa.998.0..sroa_idx103 = getelementptr inbounds nuw i8, ptr %185, i64 248
-  store i64 %.sroa.24.sroa.7.0196, ptr %.sroa.998.0..sroa_idx103, align 4, !noalias !774
+  store i64 %.sroa.24.sroa.7.0196, ptr %.sroa.998.0..sroa_idx103, align 8, !noalias !774
   %198 = getelementptr inbounds nuw i8, ptr %185, i64 368
   %199 = getelementptr inbounds nuw i8, ptr %185, i64 376
   %200 = shl nuw nsw i64 %188, 3
@@ -4104,7 +4104,7 @@ _ZN5alloc11collections5btree4node12slice_insert17h20571628e92ed06dE.exit.i63.i: 
   %203 = getelementptr inbounds nuw i8, ptr %185, i64 244
   store i32 %.sroa.24.sroa.0.0195, ptr %203, align 4, !noalias !774
   %.sroa.998.0..sroa_idx101 = getelementptr inbounds nuw i8, ptr %185, i64 248
-  store i64 %.sroa.24.sroa.7.0196, ptr %.sroa.998.0..sroa_idx101, align 4, !noalias !774
+  store i64 %.sroa.24.sroa.7.0196, ptr %.sroa.998.0..sroa_idx101, align 8, !noalias !774
   %204 = getelementptr inbounds nuw i8, ptr %185, i64 368
   store ptr %.sroa.935.0202, ptr %204, align 8, !alias.scope !775, !noalias !778
   store i16 %189, ptr %186, align 2, !noalias !778

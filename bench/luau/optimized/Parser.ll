@@ -32049,7 +32049,7 @@ _ZSt19__relocate_object_aIN4Luau10ParseErrorES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i:
   store i64 %57, ptr %59, align 8, !tbaa !18, !alias.scope !778, !noalias !781
   store ptr %49, ptr %46, align 8, !tbaa !15, !alias.scope !781, !noalias !778
   store i64 0, ptr %58, align 8, !tbaa !18, !alias.scope !781, !noalias !778
-  store i8 0, ptr %49, align 1, !tbaa !20, !alias.scope !781, !noalias !778
+  store i8 0, ptr %49, align 8, !tbaa !20, !alias.scope !781, !noalias !778
   %60 = load ptr, ptr %.0911.i.i.i, align 8, !tbaa !8, !alias.scope !781, !noalias !778
   %61 = load ptr, ptr %60, align 8
   call void %61(ptr noundef nonnull align 8 dereferenceable(56) %.0911.i.i.i) #29
@@ -32106,7 +32106,7 @@ _ZSt19__relocate_object_aIN4Luau10ParseErrorES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i3
   store i64 %79, ptr %81, align 8, !tbaa !18, !alias.scope !785, !noalias !788
   store ptr %71, ptr %68, align 8, !tbaa !15, !alias.scope !788, !noalias !785
   store i64 0, ptr %80, align 8, !tbaa !18, !alias.scope !788, !noalias !785
-  store i8 0, ptr %71, align 1, !tbaa !20, !alias.scope !788, !noalias !785
+  store i8 0, ptr %71, align 8, !tbaa !20, !alias.scope !788, !noalias !785
   %82 = load ptr, ptr %.0911.i.i.i29, align 8, !tbaa !8, !alias.scope !788, !noalias !785
   %83 = load ptr, ptr %82, align 8
   call void %83(ptr noundef nonnull align 8 dereferenceable(56) %.0911.i.i.i29) #29
@@ -32905,7 +32905,7 @@ _ZSt19__relocate_object_aIN4Luau10ParseErrorES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i:
   store i64 %56, ptr %58, align 8, !tbaa !18, !alias.scope !801, !noalias !804
   store ptr %48, ptr %45, align 8, !tbaa !15, !alias.scope !804, !noalias !801
   store i64 0, ptr %57, align 8, !tbaa !18, !alias.scope !804, !noalias !801
-  store i8 0, ptr %48, align 1, !tbaa !20, !alias.scope !804, !noalias !801
+  store i8 0, ptr %48, align 8, !tbaa !20, !alias.scope !804, !noalias !801
   %59 = load ptr, ptr %.0911.i.i.i, align 8, !tbaa !8, !alias.scope !804, !noalias !801
   %60 = load ptr, ptr %59, align 8
   call void %60(ptr noundef nonnull align 8 dereferenceable(56) %.0911.i.i.i) #29
@@ -32962,7 +32962,7 @@ _ZSt19__relocate_object_aIN4Luau10ParseErrorES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i3
   store i64 %78, ptr %80, align 8, !tbaa !18, !alias.scope !807, !noalias !810
   store ptr %70, ptr %67, align 8, !tbaa !15, !alias.scope !810, !noalias !807
   store i64 0, ptr %79, align 8, !tbaa !18, !alias.scope !810, !noalias !807
-  store i8 0, ptr %70, align 1, !tbaa !20, !alias.scope !810, !noalias !807
+  store i8 0, ptr %70, align 8, !tbaa !20, !alias.scope !810, !noalias !807
   %81 = load ptr, ptr %.0911.i.i.i30, align 8, !tbaa !8, !alias.scope !810, !noalias !807
   %82 = load ptr, ptr %81, align 8
   call void %82(ptr noundef nonnull align 8 dereferenceable(56) %.0911.i.i.i30) #29
@@ -33131,7 +33131,7 @@ _ZSt19__relocate_object_aIN4Luau10HotCommentES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i:
   store i64 %49, ptr %51, align 8, !tbaa !18, !alias.scope !813, !noalias !816
   store ptr %41, ptr %38, align 8, !tbaa !15, !alias.scope !816, !noalias !813
   store i64 0, ptr %50, align 8, !tbaa !18, !alias.scope !816, !noalias !813
-  store i8 0, ptr %41, align 1, !tbaa !20, !alias.scope !816, !noalias !813
+  store i8 0, ptr %41, align 8, !tbaa !20, !alias.scope !816, !noalias !813
   %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 56
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 56
   %.not.i.i.i = icmp eq ptr %52, %1
@@ -33182,7 +33182,7 @@ _ZSt19__relocate_object_aIN4Luau10HotCommentES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i2
   store i64 %67, ptr %69, align 8, !tbaa !18, !alias.scope !820, !noalias !823
   store ptr %59, ptr %56, align 8, !tbaa !15, !alias.scope !823, !noalias !820
   store i64 0, ptr %68, align 8, !tbaa !18, !alias.scope !823, !noalias !820
-  store i8 0, ptr %59, align 1, !tbaa !20, !alias.scope !823, !noalias !820
+  store i8 0, ptr %59, align 8, !tbaa !20, !alias.scope !823, !noalias !820
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 56
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 56
   %.not.i.i.i24 = icmp eq ptr %70, %5

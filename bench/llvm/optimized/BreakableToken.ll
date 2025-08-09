@@ -3439,7 +3439,7 @@ _ZN4llvm15SmallVectorImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7
   store ptr %160, ptr %.012.i.i, align 8, !tbaa !225
   %161 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 8
   store i64 0, ptr %161, align 8, !tbaa !227
-  store i8 0, ptr %160, align 1, !tbaa !131
+  store i8 0, ptr %160, align 8, !tbaa !131
   %162 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 32
   %.not.i.i = icmp eq ptr %162, %158
   br i1 %.not.i.i, label %.sink.split.i.i111, label %.lr.ph.i.i, !llvm.loop !237
@@ -5682,7 +5682,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %22, ptr %23, align 8, !tbaa !227
   store ptr %13, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !226
   store i64 0, ptr %21, align 8, !tbaa !227
-  store i8 0, ptr %13, align 1, !tbaa !131
+  store i8 0, ptr %13, align 8, !tbaa !131
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq ptr %24, %10

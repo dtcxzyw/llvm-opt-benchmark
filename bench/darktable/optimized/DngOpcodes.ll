@@ -1305,7 +1305,7 @@ _ZNSt10unique_ptrIN8rawspeed10DngOpcodes10TrimBoundsESt14default_deleteIS2_EED2E
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN8rawspeed10DngOpcodes10TrimBoundsE, i64 16), ptr %5, align 8, !tbaa !122, !noalias !141
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load i32, ptr %3, align 4, !tbaa !144, !noalias !141
-  %10 = load i32, ptr %8, align 4, !tbaa !144, !noalias !141
+  %10 = load i32, ptr %8, align 8, !tbaa !144, !noalias !141
   %11 = add nsw i32 %10, %9
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %13 = load i32, ptr %12, align 4, !tbaa !145, !noalias !141
@@ -1319,7 +1319,7 @@ _ZNSt10unique_ptrIN8rawspeed10DngOpcodes10TrimBoundsESt14default_deleteIS2_EED2E
   store i64 %.sroa.0.0.insert.insert.i.i.i.i, ptr %3, align 4, !noalias !141
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %19 = load i64, ptr %17, align 4, !noalias !141
+  %19 = load i64, ptr %17, align 8, !noalias !141
   store i64 %19, ptr %18, align 4, !noalias !141
   store ptr %5, ptr %0, align 8, !tbaa !136
   ret void

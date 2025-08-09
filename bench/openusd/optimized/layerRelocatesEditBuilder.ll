@@ -1476,7 +1476,7 @@ _ZNSt13unordered_setIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_6TfHashESt8
   %117 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %118 = load i64, ptr %117, align 8
   %119 = icmp eq i64 %107, %118
-  %.0.copyload.i2.i.i.i.i18.i.i.i = load i64, ptr %116, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i = load i64, ptr %116, align 8
   %120 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i
   %121 = select i1 %119, i1 %120, i1 false
   br i1 %121, label %.loopexit212, label %.lr.ph.i.i.i
@@ -1512,7 +1512,7 @@ _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_SaIS1_ENSt8__d
 .noexc129:                                        ; preds = %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ENS0_6TfHashENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit.thread.i
   store ptr null, ptr %132, align 8
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
-  store i32 %97, ptr %133, align 4
+  store i32 %97, ptr %133, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %97, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKN32pxrInternal_v0_24__pxrReserved__7SdfPathES7_NS_10_AllocNodeISaINS_10_Hash_nodeIS5_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSD_.exit.i, label %134
 
@@ -2064,7 +2064,7 @@ _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ESaIS3_EE5er
   %366 = getelementptr inbounds nuw i8, ptr %364, i64 16
   %367 = load i64, ptr %366, align 8
   %368 = icmp eq i64 %358, %367
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %365, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %365, align 8
   %369 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i.i.i.i.i.i.i
   %370 = select i1 %368, i1 %369, i1 false
   br i1 %370, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZNS3_28PcpLayerRelocatesEditBuilder26_RemoveRelocatesWithErrorsERKS7_ISt10shared_ptrINS3_12PcpErrorBaseEESaISG_EEE3$_1EEET_SN_SN_T0_.exit.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
@@ -2144,7 +2144,7 @@ _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ESaIS3_EE5er
   %407 = getelementptr inbounds nuw i8, ptr %405, i64 16
   %408 = load i64, ptr %407, align 8
   %409 = icmp eq i64 %399, %408
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i.i.i25.i.i.i.i = load i64, ptr %406, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i.i.i25.i.i.i.i = load i64, ptr %406, align 8
   %410 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i.i.i25.i.i.i.i
   %411 = select i1 %409, i1 %410, i1 false
   br i1 %411, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZNS3_28PcpLayerRelocatesEditBuilder26_RemoveRelocatesWithErrorsERKS7_ISt10shared_ptrINS3_12PcpErrorBaseEESaISG_EEE3$_1EEET_SN_SN_T0_.exit.i.i", label %.lr.ph.i.i.i.i.i.i.i26.i.i.i.i
@@ -2225,7 +2225,7 @@ _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ESaIS3_EE5er
   %448 = getelementptr inbounds nuw i8, ptr %446, i64 16
   %449 = load i64, ptr %448, align 8
   %450 = icmp eq i64 %440, %449
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i.i.i43.i.i.i.i = load i64, ptr %447, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i.i.i43.i.i.i.i = load i64, ptr %447, align 8
   %451 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i42.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i.i.i43.i.i.i.i
   %452 = select i1 %450, i1 %451, i1 false
   br i1 %452, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZNS3_28PcpLayerRelocatesEditBuilder26_RemoveRelocatesWithErrorsERKS7_ISt10shared_ptrINS3_12PcpErrorBaseEESaISG_EEE3$_1EEET_SN_SN_T0_.exit.i.i", label %.lr.ph.i.i.i.i.i.i.i44.i.i.i.i
@@ -2302,7 +2302,7 @@ _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ESaIS3_EE5er
   %488 = getelementptr inbounds nuw i8, ptr %486, i64 16
   %489 = load i64, ptr %488, align 8
   %490 = icmp eq i64 %481, %489
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i.i.i61.i.i.i.i = load i64, ptr %487, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i.i.i61.i.i.i.i = load i64, ptr %487, align 8
   %491 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i60.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i.i.i61.i.i.i.i
   %492 = select i1 %490, i1 %491, i1 false
   br i1 %492, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZNS3_28PcpLayerRelocatesEditBuilder26_RemoveRelocatesWithErrorsERKS7_ISt10shared_ptrINS3_12PcpErrorBaseEESaISG_EEE3$_1EEET_SN_SN_T0_.exit.i.i", label %.lr.ph.i.i.i.i.i.i.i62.i.i.i.i
@@ -2410,7 +2410,7 @@ _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ESaIS3_EE5er
   %535 = getelementptr inbounds nuw i8, ptr %533, i64 16
   %536 = load i64, ptr %535, align 8
   %537 = icmp eq i64 %526, %536
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i.i.i79.i.i.i.i = load i64, ptr %534, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i.i.i79.i.i.i.i = load i64, ptr %534, align 8
   %538 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i78.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i.i.i79.i.i.i.i
   %539 = select i1 %537, i1 %538, i1 false
   br i1 %539, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZNS3_28PcpLayerRelocatesEditBuilder26_RemoveRelocatesWithErrorsERKS7_ISt10shared_ptrINS3_12PcpErrorBaseEESaISG_EEE3$_1EEET_SN_SN_T0_.exit.i.i", label %.lr.ph.i.i.i.i.i.i.i80.i.i.i.i
@@ -2493,7 +2493,7 @@ _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ESaIS3_EE5er
   %579 = getelementptr inbounds nuw i8, ptr %577, i64 16
   %580 = load i64, ptr %579, align 8
   %581 = icmp eq i64 %570, %580
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i.i.i97.i.i.i.i = load i64, ptr %578, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i.i.i97.i.i.i.i = load i64, ptr %578, align 8
   %582 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i96.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i.i.i97.i.i.i.i
   %583 = select i1 %581, i1 %582, i1 false
   br i1 %583, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZNS3_28PcpLayerRelocatesEditBuilder26_RemoveRelocatesWithErrorsERKS7_ISt10shared_ptrINS3_12PcpErrorBaseEESaISG_EEE3$_1EEET_SN_SN_T0_.exit.i.i", label %.lr.ph.i.i.i.i.i.i.i98.i.i.i.i
@@ -2576,7 +2576,7 @@ _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ESaIS3_EE5er
   %623 = getelementptr inbounds nuw i8, ptr %621, i64 16
   %624 = load i64, ptr %623, align 8
   %625 = icmp eq i64 %614, %624
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i.i.i115.i.i.i.i = load i64, ptr %622, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i.i.i115.i.i.i.i = load i64, ptr %622, align 8
   %626 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i114.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i.i.i115.i.i.i.i
   %627 = select i1 %625, i1 %626, i1 false
   br i1 %627, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZNS3_28PcpLayerRelocatesEditBuilder26_RemoveRelocatesWithErrorsERKS7_ISt10shared_ptrINS3_12PcpErrorBaseEESaISG_EEE3$_1EEET_SN_SN_T0_.exit.i.i", label %.lr.ph.i.i.i.i.i.i.i116.i.i.i.i
@@ -2665,7 +2665,7 @@ _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ESaIS3_EE5er
   %666 = getelementptr inbounds nuw i8, ptr %664, i64 16
   %667 = load i64, ptr %666, align 8
   %668 = icmp eq i64 %657, %667
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i.i.i.i.i = load i64, ptr %665, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i.i.i.i.i = load i64, ptr %665, align 8
   %669 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i.i.i.i.i
   %670 = select i1 %668, i1 %669, i1 false
   br i1 %670, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__28PcpLayerRelocatesEditBuilder26_RemoveRelocatesWithErrorsERKSt6vectorISt10shared_ptrINS2_12PcpErrorBaseEESaIS7_EEE3$_1EclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathESH_ES4_ISI_SaISI_EEEEEEbT_.exit.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i
@@ -2770,7 +2770,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerEEESt13unor
   %.06.i.i.i = phi ptr [ %702, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIN32pxrInternal_v0_24__pxrReserved__7SdfPathELb1EEEEE18_M_deallocate_nodeEPS4_.exit.i.i.i ], [ %701, %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerEEESt13unordered_setISt4pairINS0_7SdfPathES6_ENS0_6TfHashESt8equal_toIS7_ESaIS7_EESt4lessIS3_ESaIS5_IKS3_SC_EEED2Ev.exit ]
   %702 = load ptr, ptr %.06.i.i.i, align 8
   %703 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 8
-  %704 = load i32, ptr %703, align 4
+  %704 = load i32, ptr %703, align 8
   %.not.i.i.i.i.i.i.i.i138 = icmp eq i32 %704, 0
   br i1 %.not.i.i.i.i.i.i.i.i138, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIN32pxrInternal_v0_24__pxrReserved__7SdfPathELb1EEEEE18_M_deallocate_nodeEPS4_.exit.i.i.i, label %705
 
@@ -5475,7 +5475,7 @@ define linkonce_odr void @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7
   %.06.i.i = phi ptr [ %4, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIN32pxrInternal_v0_24__pxrReserved__7SdfPathELb1EEEEE18_M_deallocate_nodeEPS4_.exit.i.i ], [ %3, %1 ]
   %4 = load ptr, ptr %.06.i.i, align 8
   %5 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 8
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIN32pxrInternal_v0_24__pxrReserved__7SdfPathELb1EEEEE18_M_deallocate_nodeEPS4_.exit.i.i, label %7
 
@@ -7871,7 +7871,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt4pairIN32pxrInternal_v0_24_
   store ptr null, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %1, align 4
-  store i32 %7, ptr %6, align 4
+  store i32 %7, ptr %6, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i, label %8
 
@@ -8354,7 +8354,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrRese
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %40 = load i64, ptr %39, align 8
   %41 = icmp eq i64 %28, %40
-  %.0.copyload.i2.i.i.i.i18.i.i = load i64, ptr %38, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i = load i64, ptr %38, align 8
   %42 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i
   %43 = select i1 %41, i1 %42, i1 false
   br i1 %43, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ENS0_6TfHashENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit, label %.lr.ph.i.i
@@ -8387,7 +8387,7 @@ _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_SaIS1_ENSt8__d
   %54 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
   store ptr null, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  store i32 %18, ptr %55, align 4
+  store i32 %18, ptr %55, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %18, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKN32pxrInternal_v0_24__pxrReserved__7SdfPathES7_NS_10_AllocNodeISaINS_10_Hash_nodeIS5_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSD_.exit, label %56
 

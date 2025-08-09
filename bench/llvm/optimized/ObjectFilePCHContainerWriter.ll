@@ -3244,7 +3244,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %19, ptr %20, align 8, !tbaa !31
   store ptr %10, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !28
   store i64 0, ptr %18, align 8, !tbaa !31
-  store i8 0, ptr %10, align 1, !tbaa !11
+  store i8 0, ptr %10, align 8, !tbaa !11
   %21 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 48
@@ -3276,7 +3276,7 @@ _ZSt10_ConstructISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_
   store i64 %34, ptr %35, align 8, !tbaa !31
   store ptr %25, ptr %22, align 8, !tbaa !28
   store i64 0, ptr %33, align 8, !tbaa !31
-  store i8 0, ptr %25, align 1, !tbaa !11
+  store i8 0, ptr %25, align 8, !tbaa !11
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 64
   %37 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 64
   %.not.i.i.i.i.i = icmp eq ptr %36, %7

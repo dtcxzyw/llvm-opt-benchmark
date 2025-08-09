@@ -96,7 +96,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !4
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !4
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !4
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !4
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48

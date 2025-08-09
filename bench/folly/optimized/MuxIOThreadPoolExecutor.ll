@@ -1439,7 +1439,7 @@ _ZN5folly18ThreadPoolExecutor4TaskC2EOS1_.exit:   ; preds = %38, %47
   store ptr %94, ptr %97, align 8, !tbaa !90
   %98 = getelementptr inbounds nuw i8, ptr %83, i64 96
   store ptr null, ptr %76, align 16, !tbaa !46
-  store ptr %93, ptr %98, align 8, !tbaa !46
+  store ptr %93, ptr %98, align 16, !tbaa !46
   store ptr null, ptr %74, align 8, !tbaa !90
   %99 = getelementptr inbounds nuw i8, ptr %83, i64 104
   store i64 %92, ptr %99, align 8, !tbaa !91
@@ -3306,7 +3306,7 @@ _ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueIPNS_6detail15Eve
   %49 = getelementptr inbounds nuw [256 x %"class.folly::UnboundedQueue<folly::detail::EventBasePoller::Handle *, true, false, false>::Entry"], ptr %48, i64 0, i64 %47
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr null, ptr %50, align 8, !tbaa !116
-  store atomic i32 1, ptr %49 release, align 4
+  store atomic i32 1, ptr %49 release, align 8
   %trunc = trunc i64 %44 to i8
   switch i8 %trunc, label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE13enqueueCommonIS4_EEvPNS6_7SegmentEOT_.exit [
     i8 0, label %51
@@ -8158,7 +8158,7 @@ _ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueIPNS_6detail15Eve
   %55 = getelementptr inbounds nuw [256 x %"class.folly::UnboundedQueue<folly::detail::EventBasePoller::Handle *, true, false, false>::Entry"], ptr %54, i64 0, i64 %53
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %34, ptr %56, align 8, !tbaa !116
-  store atomic i32 1, ptr %55 release, align 4
+  store atomic i32 1, ptr %55 release, align 8
   %trunc.i = trunc i64 %50 to i8
   switch i8 %trunc.i, label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE11enqueueImplIRKS4_EEvOT_.exit.i [
     i8 0, label %57

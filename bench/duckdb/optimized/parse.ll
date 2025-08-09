@@ -2560,7 +2560,7 @@ _ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEEvDp
 
 67:                                               ; preds = %61
   %68 = load ptr, ptr %64, align 8, !tbaa !103
-  %69 = load i32, ptr %65, align 4, !tbaa !3
+  %69 = load i32, ptr %65, align 8, !tbaa !3
   store ptr %68, ptr %39, align 8, !tbaa !111
   %70 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i32 %69, ptr %70, align 8, !tbaa !117
@@ -2794,7 +2794,7 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   %148 = getelementptr inbounds nuw i8, ptr %.sroa.099.0141, i64 24
   %149 = load ptr, ptr %46, align 8, !tbaa !107
   %150 = icmp eq ptr %148, %149
-  %.pre = load i32, ptr %41, align 4, !tbaa !3
+  %.pre = load i32, ptr %41, align 8, !tbaa !3
   %151 = icmp slt i32 %.2, %.pre
   %or.cond = select i1 %150, i1 %151, i1 false
   br i1 %or.cond, label %.lr.ph138, label %.loopexit
@@ -2839,19 +2839,19 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
 
 163:                                              ; preds = %161
   %164 = load ptr, ptr %40, align 8, !tbaa !103
-  %165 = load i32, ptr %41, align 4, !tbaa !3
+  %165 = load i32, ptr %41, align 8, !tbaa !3
   invoke void @_ZN10duckdb_re221FactorAlternationImpl6Round1EPPNS_6RegexpEiNS1_10ParseFlagsEPSt6vectorINS_6SpliceESaIS6_EE(ptr noundef %164, i32 noundef %165, i32 poison, ptr noundef nonnull %43)
           to label %209 unwind label %74
 
 166:                                              ; preds = %161
   %167 = load ptr, ptr %40, align 8, !tbaa !103
-  %168 = load i32, ptr %41, align 4, !tbaa !3
+  %168 = load i32, ptr %41, align 8, !tbaa !3
   invoke void @_ZN10duckdb_re221FactorAlternationImpl6Round2EPPNS_6RegexpEiNS1_10ParseFlagsEPSt6vectorINS_6SpliceESaIS6_EE(ptr noundef %167, i32 noundef %168, i32 poison, ptr noundef nonnull %43)
           to label %209 unwind label %74
 
 169:                                              ; preds = %161
   %170 = load ptr, ptr %40, align 8, !tbaa !103
-  %171 = load i32, ptr %41, align 4, !tbaa !3
+  %171 = load i32, ptr %41, align 8, !tbaa !3
   invoke void @_ZN10duckdb_re221FactorAlternationImpl6Round3EPPNS_6RegexpEiNS1_10ParseFlagsEPSt6vectorINS_6SpliceESaIS6_EE(ptr noundef %170, i32 noundef %171, i32 noundef %2, ptr noundef nonnull %43)
           to label %209 unwind label %74
 
@@ -6827,7 +6827,7 @@ define hidden noundef ptr @_ZN10duckdb_re26Regexp5ParseERKNS_11StringPieceENS0_1
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %31, align 8, !tbaa !31
-  store i8 0, ptr %30, align 1, !tbaa !27
+  store i8 0, ptr %30, align 8, !tbaa !27
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !97
   %.not.i121 = icmp eq i64 %33, 0

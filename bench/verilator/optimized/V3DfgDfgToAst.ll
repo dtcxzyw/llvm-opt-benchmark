@@ -23531,7 +23531,7 @@ _ZN12AstNodeUniopC2E6VNTypeP8FileLineP11AstNodeExpr.exit.i.i: ; preds = %16, %11
 19:                                               ; preds = %_ZN12AstNodeUniopC2E6VNTypeP8FileLineP11AstNodeExpr.exit.i.i
   store ptr getelementptr inbounds nuw inrange(-16, 400) (i8, ptr @_ZTV13AstTimeImport, i64 16), ptr %7, align 8, !tbaa !38
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 160
-  store i8 18, ptr %20, align 1, !tbaa !160
+  store i8 18, ptr %20, align 8, !tbaa !160
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %22 = load ptr, ptr %21, align 8, !tbaa !123
   %.not.i.i = icmp eq ptr %22, null

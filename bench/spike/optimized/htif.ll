@@ -3560,7 +3560,7 @@ define internal fastcc void @_ZL11bad_addressRKNSt7__cxx1112basic_stringIcSt11ch
   %12 = load i32, ptr %11, align 8, !tbaa !121
   %13 = and i32 %12, -75
   %14 = or disjoint i32 %13, 8
-  store i32 %14, ptr %11, align 4, !tbaa !130
+  store i32 %14, ptr %11, align 8, !tbaa !130
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %1)
   %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull @.str.58)
   tail call void @exit(i32 noundef -1) #39
@@ -4979,7 +4979,7 @@ _ZNSolsEPFRSt8ios_baseS0_E.exit:                  ; preds = %22, %_ZNKSt9basic_i
   %47 = load i32, ptr %46, align 8, !tbaa !121
   %48 = and i32 %47, -75
   %49 = or disjoint i32 %48, 8
-  store i32 %49, ptr %46, align 4, !tbaa !130
+  store i32 %49, ptr %46, align 8, !tbaa !130
   %50 = load i64, ptr %9, align 8, !tbaa !137
   %.not55 = icmp eq i64 %50, 0
   br i1 %.not55, label %._crit_edge54, label %.lr.ph53
@@ -5646,7 +5646,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79: ; preds = %_ZN
   %195 = load i32, ptr %194, align 8, !tbaa !121
   %196 = and i32 %195, -75
   %197 = or disjoint i32 %196, 8
-  store i32 %197, ptr %194, align 4, !tbaa !130
+  store i32 %197, ptr %194, align 8, !tbaa !130
   %198 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %189, i64 noundef %spec.select.i)
           to label %_ZNSolsEm.exit unwind label %241
 
@@ -7402,7 +7402,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !81, !alias.scope !226, !noalias !229
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !90, !alias.scope !229, !noalias !226
   store i64 0, ptr %48, align 8, !tbaa !81, !alias.scope !229, !noalias !226
-  store i8 0, ptr %39, align 1, !tbaa !82, !alias.scope !229, !noalias !226
+  store i8 0, ptr %39, align 8, !tbaa !82, !alias.scope !229, !noalias !226
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -7450,7 +7450,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !81, !alias.scope !233, !noalias !236
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !90, !alias.scope !236, !noalias !233
   store i64 0, ptr %64, align 8, !tbaa !81, !alias.scope !236, !noalias !233
-  store i8 0, ptr %55, align 1, !tbaa !82, !alias.scope !236, !noalias !233
+  store i8 0, ptr %55, align 8, !tbaa !82, !alias.scope !236, !noalias !233
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5
@@ -7520,7 +7520,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8, !tbaa !81
   store ptr %13, ptr %10, align 8, !tbaa !90
   store i64 0, ptr %24, align 8, !tbaa !81
-  store i8 0, ptr %13, align 1, !tbaa !82
+  store i8 0, ptr %13, align 8, !tbaa !82
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i64 0, ptr %26, align 8, !tbaa !140
   store ptr %7, ptr %23, align 8, !tbaa !241
@@ -8068,7 +8068,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeImSt4pairIKmNSt7__cxx1112basic_stringIcSt
   store ptr %14, ptr %13, align 8, !tbaa !80
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i64 0, ptr %15, align 8, !tbaa !81
-  store i8 0, ptr %14, align 1, !tbaa !82
+  store i8 0, ptr %14, align 8, !tbaa !82
   store ptr %8, ptr %7, align 8, !tbaa !250
   %16 = invoke { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %17 unwind label %32

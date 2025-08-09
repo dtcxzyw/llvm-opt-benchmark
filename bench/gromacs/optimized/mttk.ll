@@ -1072,7 +1072,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59: ; preds = %_ZN
   %162 = fmul double %161, %159
   %163 = fptrunc double %162 to float
   %164 = getelementptr inbounds nuw i8, ptr %156, i64 216
-  %165 = load float, ptr %164, align 4, !tbaa !221
+  %165 = load float, ptr %164, align 8, !tbaa !221
   %166 = load float, ptr %8, align 4, !tbaa !115
   %167 = getelementptr inbounds nuw i8, ptr %156, i64 768
   %168 = load ptr, ptr %167, align 8, !tbaa !222
@@ -10926,7 +10926,7 @@ define void @_ZN3gmx11MttkElement20propagateEtaVelocityEl(ptr noundef nonnull re
   %52 = fptrunc double %51 to float
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  %54 = load float, ptr %53, align 4, !tbaa !115
+  %54 = load float, ptr %53, align 8, !tbaa !115
   %55 = fmul float %54, %52
   store float %55, ptr %3, align 16, !tbaa !115
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 84
@@ -10935,7 +10935,7 @@ define void @_ZN3gmx11MttkElement20propagateEtaVelocityEl(ptr noundef nonnull re
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store float %58, ptr %59, align 4, !tbaa !115
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  %61 = load float, ptr %60, align 4, !tbaa !115
+  %61 = load float, ptr %60, align 8, !tbaa !115
   %62 = fmul float %61, %52
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store float %62, ptr %63, align 8, !tbaa !115
@@ -10945,7 +10945,7 @@ define void @_ZN3gmx11MttkElement20propagateEtaVelocityEl(ptr noundef nonnull re
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store float %66, ptr %67, align 4, !tbaa !115
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  %69 = load float, ptr %68, align 4, !tbaa !115
+  %69 = load float, ptr %68, align 8, !tbaa !115
   %70 = fmul float %69, %52
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store float %70, ptr %71, align 16, !tbaa !115
@@ -10955,7 +10955,7 @@ define void @_ZN3gmx11MttkElement20propagateEtaVelocityEl(ptr noundef nonnull re
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store float %74, ptr %75, align 4, !tbaa !115
   %76 = getelementptr inbounds nuw i8, ptr %7, i64 104
-  %77 = load float, ptr %76, align 4, !tbaa !115
+  %77 = load float, ptr %76, align 8, !tbaa !115
   %78 = fmul float %77, %52
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store float %78, ptr %79, align 8, !tbaa !115
@@ -10965,7 +10965,7 @@ define void @_ZN3gmx11MttkElement20propagateEtaVelocityEl(ptr noundef nonnull re
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store float %82, ptr %83, align 4, !tbaa !115
   %84 = getelementptr inbounds nuw i8, ptr %7, i64 112
-  %85 = load float, ptr %84, align 4, !tbaa !115
+  %85 = load float, ptr %84, align 8, !tbaa !115
   %86 = fmul float %85, %52
   %87 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store float %86, ptr %87, align 16, !tbaa !115
@@ -11209,8 +11209,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %_ZN
   %68 = load i32, ptr %54, align 4, !tbaa !68, !noalias !506
   %69 = fptrunc double %61 to float
   %70 = load i64, ptr %62, align 8, !tbaa !53, !noalias !506
-  %71 = load i32, ptr %63, align 4, !tbaa !509, !noalias !506
-  %72 = load i32, ptr %64, align 4, !tbaa !68, !noalias !506
+  %71 = load i32, ptr %63, align 8, !tbaa !509, !noalias !506
+  %72 = load i32, ptr %64, align 8, !tbaa !68, !noalias !506
   %73 = load float, ptr %66, align 4, !tbaa !115, !noalias !506
   invoke void @_ZN3gmx11MttkElementC1EiifNS_18ScheduleOnInitStepElPKNS_19StatePropagatorDataEPNS_10EnergyDataEPNS_8MttkDataE7PbcTypeif(ptr noundef nonnull align 8 dereferenceable(72) %67, i32 noundef %68, i32 noundef %7, float noundef %69, i32 noundef %8, i64 noundef %70, ptr noundef %2, ptr noundef %3, ptr noundef %42, i32 noundef %71, i32 noundef %72, float noundef %73)
           to label %_ZSt11make_uniqueIN3gmx11MttkElementEJRKiRNS0_6OffsetEdRNS0_18ScheduleOnInitStepERKlRPNS0_19StatePropagatorDataERPNS0_10EnergyDataERPNS0_8MttkDataERK7PbcTypeS3_RfEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %74, !noalias !506

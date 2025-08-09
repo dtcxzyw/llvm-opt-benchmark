@@ -7936,7 +7936,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.013.029, i64 8
   %.val3.i = load i64, ptr %14, align 8, !alias.scope !2312, !noalias !2315, !noundef !28
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.013.029, i64 16
-  %16 = load i8, ptr %15, align 1, !range !127, !alias.scope !2317, !noalias !2315, !noundef !28
+  %16 = load i8, ptr %15, align 8, !range !127, !alias.scope !2317, !noalias !2315, !noundef !28
   %17 = getelementptr inbounds nuw [0 x { [3 x i64] }], ptr %6, i64 0, i64 %.sroa.7.028
   store ptr %.val.i, ptr %17, align 8
   %.sroa.07.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -8782,7 +8782,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %269 = getelementptr inbounds nuw i8, ptr %.sroa.013.029.i.i143.i, i64 8
   %.val3.i.i.i.i = load i64, ptr %269, align 8, !alias.scope !2484, !noalias !2487, !noundef !28
   %270 = getelementptr inbounds nuw i8, ptr %.sroa.013.029.i.i143.i, i64 16
-  %271 = load i8, ptr %270, align 1, !range !127, !alias.scope !2490, !noalias !2487, !noundef !28
+  %271 = load i8, ptr %270, align 8, !range !127, !alias.scope !2490, !noalias !2487, !noundef !28
   %272 = getelementptr inbounds nuw [0 x { [3 x i64] }], ptr %261, i64 0, i64 %.sroa.7.028.i.i144.i
   store ptr %.val.i.i.i145.i, ptr %272, align 8, !noalias !2493
   %.sroa.07.sroa.4.0..sroa_idx.i.i146.i = getelementptr inbounds nuw i8, ptr %272, i64 8
@@ -9844,7 +9844,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.013.029.i.i33, i64 8
   %.val3.i.i.i36 = load i64, ptr %169, align 8, !alias.scope !2597, !noalias !2600, !noundef !28
   %170 = getelementptr inbounds nuw i8, ptr %.sroa.013.029.i.i33, i64 16
-  %171 = load i8, ptr %170, align 1, !range !127, !alias.scope !2603, !noalias !2600, !noundef !28
+  %171 = load i8, ptr %170, align 8, !range !127, !alias.scope !2603, !noalias !2600, !noundef !28
   %172 = getelementptr inbounds nuw [0 x { [3 x i64] }], ptr %161, i64 0, i64 %.sroa.7.028.i.i34
   store ptr %.val.i.i.i35, ptr %172, align 8, !noalias !2606
   %.sroa.07.sroa.4.0..sroa_idx.i.i37 = getelementptr inbounds nuw i8, ptr %172, i64 8
@@ -9947,7 +9947,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %208 = getelementptr inbounds nuw i8, ptr %.sroa.013.029.i.i, i64 8
   %.val3.i.i.i = load i64, ptr %208, align 8, !alias.scope !2630, !noalias !2633, !noundef !28
   %209 = getelementptr inbounds nuw i8, ptr %.sroa.013.029.i.i, i64 16
-  %210 = load i8, ptr %209, align 1, !range !127, !alias.scope !2636, !noalias !2633, !noundef !28
+  %210 = load i8, ptr %209, align 8, !range !127, !alias.scope !2636, !noalias !2633, !noundef !28
   %211 = getelementptr inbounds nuw [0 x { [3 x i64] }], ptr %200, i64 0, i64 %.sroa.7.028.i.i
   store ptr %.val.i.i.i, ptr %211, align 8, !noalias !2639
   %.sroa.07.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %211, i64 8
@@ -12658,7 +12658,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.013.029.i, i64 8
   %.val3.i.i = load i64, ptr %17, align 8, !alias.scope !3025, !noalias !3028, !noundef !28
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.013.029.i, i64 16
-  %19 = load i8, ptr %18, align 1, !range !127, !alias.scope !3030, !noalias !3028, !noundef !28
+  %19 = load i8, ptr %18, align 8, !range !127, !alias.scope !3030, !noalias !3028, !noundef !28
   %20 = getelementptr inbounds nuw [0 x { [3 x i64] }], ptr %9, i64 0, i64 %.sroa.7.028.i
   store ptr %.val.i.i, ptr %20, align 8, !noalias !3023
   %.sroa.07.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 8

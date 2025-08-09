@@ -52,7 +52,7 @@ define dso_local noundef i32 @Curl_initinfo(ptr noundef initializes((2720, 2728)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 4972
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(100) %22, i8 0, i64 92, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 5064
-  store i32 -1, ptr %23, align 4, !tbaa !27
+  store i32 -1, ptr %23, align 8, !tbaa !27
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 5068
   store i32 -1, ptr %24, align 4, !tbaa !28
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 4960

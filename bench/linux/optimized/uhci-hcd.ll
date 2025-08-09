@@ -542,9 +542,9 @@ define internal noundef range(i32 -16, 1) i32 @uhci_start(ptr noundef initialize
   %52 = getelementptr inbounds nuw i8, ptr %46, i64 24
   store volatile ptr %52, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  store volatile ptr %52, ptr %53, align 8
+  store volatile ptr %52, ptr %53, align 16
   %54 = getelementptr inbounds nuw i8, ptr %46, i64 48
-  store volatile ptr %54, ptr %54, align 8
+  store volatile ptr %54, ptr %54, align 16
   %55 = getelementptr inbounds nuw i8, ptr %46, i64 56
   store volatile ptr %54, ptr %55, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -569,11 +569,11 @@ define internal noundef range(i32 -16, 1) i32 @uhci_start(ptr noundef initialize
   store i32 1, ptr %64, align 4
   store i32 1, ptr %79, align 16
   %65 = getelementptr inbounds nuw i8, ptr %79, i64 48
-  store volatile ptr %65, ptr %65, align 8
+  store volatile ptr %65, ptr %65, align 16
   %66 = getelementptr inbounds nuw i8, ptr %79, i64 56
   store volatile ptr %65, ptr %66, align 8
   %67 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  store volatile ptr %67, ptr %67, align 8
+  store volatile ptr %67, ptr %67, align 16
   %68 = getelementptr inbounds nuw i8, ptr %79, i64 24
   store volatile ptr %67, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %79, i64 112
@@ -1197,11 +1197,11 @@ define internal i32 @uhci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 %2) #2
   store i32 1, ptr %40, align 4
   store i32 1, ptr %35, align 16
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 48
-  store volatile ptr %41, ptr %41, align 8
+  store volatile ptr %41, ptr %41, align 16
   %42 = getelementptr inbounds nuw i8, ptr %35, i64 56
   store volatile ptr %41, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  store volatile ptr %43, ptr %43, align 8
+  store volatile ptr %43, ptr %43, align 16
   %44 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store volatile ptr %43, ptr %44, align 8
   %45 = icmp eq ptr %32, null
@@ -1235,9 +1235,9 @@ define internal i32 @uhci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 %2) #2
   %62 = getelementptr inbounds nuw i8, ptr %56, i64 24
   store volatile ptr %62, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  store volatile ptr %62, ptr %63, align 8
+  store volatile ptr %62, ptr %63, align 16
   %64 = getelementptr inbounds nuw i8, ptr %56, i64 48
-  store volatile ptr %64, ptr %64, align 8
+  store volatile ptr %64, ptr %64, align 16
   %65 = getelementptr inbounds nuw i8, ptr %56, i64 56
   store volatile ptr %64, ptr %65, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1405,9 +1405,9 @@ uhci_alloc_qh.exit:                               ; preds = %30, %67
   %167 = getelementptr inbounds nuw i8, ptr %157, i64 24
   store volatile ptr %167, ptr %167, align 8
   %168 = getelementptr inbounds nuw i8, ptr %157, i64 32
-  store volatile ptr %167, ptr %168, align 8
+  store volatile ptr %167, ptr %168, align 16
   %169 = getelementptr inbounds nuw i8, ptr %157, i64 48
-  store volatile ptr %169, ptr %169, align 8
+  store volatile ptr %169, ptr %169, align 16
   %170 = getelementptr inbounds nuw i8, ptr %157, i64 56
   store volatile ptr %169, ptr %170, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1417,7 +1417,7 @@ uhci_alloc_qh.exit:                               ; preds = %30, %67
   %173 = load ptr, ptr %129, align 8
   store ptr %167, ptr %129, align 8
   store ptr %128, ptr %167, align 8
-  store ptr %173, ptr %168, align 8
+  store ptr %173, ptr %168, align 16
   store volatile ptr %167, ptr %173, align 8
   %174 = trunc nuw nsw i64 %163 to i32
   %175 = shl nuw i32 %160, 21
@@ -1461,9 +1461,9 @@ uhci_alloc_qh.exit:                               ; preds = %30, %67
   %194 = getelementptr inbounds nuw i8, ptr %188, i64 24
   store volatile ptr %194, ptr %194, align 8
   %195 = getelementptr inbounds nuw i8, ptr %188, i64 32
-  store volatile ptr %194, ptr %195, align 8
+  store volatile ptr %194, ptr %195, align 16
   %196 = getelementptr inbounds nuw i8, ptr %188, i64 48
-  store volatile ptr %196, ptr %196, align 8
+  store volatile ptr %196, ptr %196, align 16
   %197 = getelementptr inbounds nuw i8, ptr %188, i64 56
   store volatile ptr %196, ptr %197, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1472,7 +1472,7 @@ uhci_alloc_qh.exit:                               ; preds = %30, %67
   %199 = load ptr, ptr %129, align 8
   store ptr %194, ptr %129, align 8
   store ptr %128, ptr %194, align 8
-  store ptr %199, ptr %195, align 8
+  store ptr %199, ptr %195, align 16
   store volatile ptr %194, ptr %199, align 8
   %200 = trunc nuw nsw i64 %.lcssa59 to i32
   %201 = or i32 %200, 16777216
@@ -1505,9 +1505,9 @@ uhci_alloc_qh.exit:                               ; preds = %30, %67
   %215 = getelementptr inbounds nuw i8, ptr %209, i64 24
   store volatile ptr %215, ptr %215, align 8
   %216 = getelementptr inbounds nuw i8, ptr %209, i64 32
-  store volatile ptr %215, ptr %216, align 8
+  store volatile ptr %215, ptr %216, align 16
   %217 = getelementptr inbounds nuw i8, ptr %209, i64 48
-  store volatile ptr %217, ptr %217, align 8
+  store volatile ptr %217, ptr %217, align 16
   %218 = getelementptr inbounds nuw i8, ptr %209, i64 56
   store volatile ptr %217, ptr %218, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2033,16 +2033,16 @@ uhci_alloc_qh.exit:                               ; preds = %30, %67
   %557 = getelementptr inbounds nuw i8, ptr %551, i64 24
   store volatile ptr %557, ptr %557, align 8
   %558 = getelementptr inbounds nuw i8, ptr %551, i64 32
-  store volatile ptr %557, ptr %558, align 8
+  store volatile ptr %557, ptr %558, align 16
   %559 = getelementptr inbounds nuw i8, ptr %551, i64 48
-  store volatile ptr %559, ptr %559, align 8
+  store volatile ptr %559, ptr %559, align 16
   %560 = getelementptr inbounds nuw i8, ptr %551, i64 56
   store volatile ptr %559, ptr %560, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %561 = load ptr, ptr %545, align 8
   store ptr %557, ptr %545, align 8
   store ptr %544, ptr %557, align 8
-  store ptr %561, ptr %558, align 8
+  store ptr %561, ptr %558, align 16
   store volatile ptr %557, ptr %561, align 8
   %562 = getelementptr [0 x %struct.usb_iso_packet_descriptor], ptr %546, i64 0, i64 %549
   %563 = getelementptr inbounds nuw i8, ptr %562, i64 4
@@ -6098,9 +6098,9 @@ define internal fastcc range(i32 -22, 1) i32 @uhci_submit_common(ptr noundef rea
   %95 = getelementptr inbounds nuw i8, ptr %89, i64 24
   store volatile ptr %95, ptr %95, align 8
   %96 = getelementptr inbounds nuw i8, ptr %89, i64 32
-  store volatile ptr %95, ptr %96, align 8
+  store volatile ptr %95, ptr %96, align 16
   %97 = getelementptr inbounds nuw i8, ptr %89, i64 48
-  store volatile ptr %97, ptr %97, align 8
+  store volatile ptr %97, ptr %97, align 16
   %98 = getelementptr inbounds nuw i8, ptr %89, i64 56
   store volatile ptr %97, ptr %98, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -6194,9 +6194,9 @@ define internal fastcc range(i32 -22, 1) i32 @uhci_submit_common(ptr noundef rea
   %154 = getelementptr inbounds nuw i8, ptr %148, i64 24
   store volatile ptr %154, ptr %154, align 8
   %155 = getelementptr inbounds nuw i8, ptr %148, i64 32
-  store volatile ptr %154, ptr %155, align 8
+  store volatile ptr %154, ptr %155, align 16
   %156 = getelementptr inbounds nuw i8, ptr %148, i64 48
-  store volatile ptr %156, ptr %156, align 8
+  store volatile ptr %156, ptr %156, align 16
   %157 = getelementptr inbounds nuw i8, ptr %148, i64 56
   store volatile ptr %156, ptr %157, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -6205,7 +6205,7 @@ define internal fastcc range(i32 -22, 1) i32 @uhci_submit_common(ptr noundef rea
   %159 = load ptr, ptr %67, align 8
   store ptr %154, ptr %67, align 8
   store ptr %66, ptr %154, align 8
-  store ptr %159, ptr %155, align 8
+  store ptr %159, ptr %155, align 16
   store volatile ptr %154, ptr %159, align 8
   %160 = trunc nuw nsw i64 %115 to i32
   %161 = shl nuw nsw i32 %116, 19
@@ -6247,9 +6247,9 @@ define internal fastcc range(i32 -22, 1) i32 @uhci_submit_common(ptr noundef rea
   %181 = getelementptr inbounds nuw i8, ptr %175, i64 24
   store volatile ptr %181, ptr %181, align 8
   %182 = getelementptr inbounds nuw i8, ptr %175, i64 32
-  store volatile ptr %181, ptr %182, align 8
+  store volatile ptr %181, ptr %182, align 16
   %183 = getelementptr inbounds nuw i8, ptr %175, i64 48
-  store volatile ptr %183, ptr %183, align 8
+  store volatile ptr %183, ptr %183, align 16
   %184 = getelementptr inbounds nuw i8, ptr %175, i64 56
   store volatile ptr %183, ptr %184, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

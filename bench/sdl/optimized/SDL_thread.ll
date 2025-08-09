@@ -567,7 +567,7 @@ define hidden void @SDL_RunThread(ptr noundef initializes((0, 8), (16, 20)) %0) 
   %9 = tail call i64 @SDL_GetCurrentThreadID_REAL() #6
   store i64 %9, ptr %0, align 8
   %10 = tail call i32 %5(ptr noundef %3) #6
-  store i32 %10, ptr %6, align 4
+  store i32 %10, ptr %6, align 8
   %11 = tail call ptr @SDL_SYS_GetTLSData() #6
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %SDL_CleanupTLS_REAL.exit, label %.preheader.i

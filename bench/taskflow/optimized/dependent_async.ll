@@ -896,7 +896,7 @@ _ZN2tf8Executor19_increment_topologyEv.exit.i.i.i: ; preds = %_ZNSt12__shared_pt
   store ptr %76, ptr %75, align 8, !tbaa !119, !noalias !28
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 16
   store i64 0, ptr %77, align 8, !tbaa !120, !noalias !28
-  store i8 0, ptr %76, align 1, !tbaa !16, !noalias !28
+  store i8 0, ptr %76, align 8, !tbaa !16, !noalias !28
   %78 = getelementptr inbounds nuw i8, ptr %73, i64 40
   %79 = getelementptr inbounds nuw i8, ptr %73, i64 64
   %80 = getelementptr inbounds nuw i8, ptr %73, i64 88
@@ -940,7 +940,7 @@ _ZN2tf8Executor19_increment_topologyEv.exit.i.i.i: ; preds = %_ZNSt12__shared_pt
   %97 = getelementptr inbounds nuw i8, ptr %73, i64 192
   store i64 1, ptr %97, align 8, !tbaa !132, !noalias !28
   %98 = getelementptr inbounds nuw i8, ptr %73, i64 200
-  store i32 0, ptr %98, align 4, !tbaa !118, !noalias !28
+  store i32 0, ptr %98, align 8, !tbaa !118, !noalias !28
   %99 = getelementptr inbounds nuw i8, ptr %73, i64 208
   store i8 8, ptr %99, align 8, !tbaa !133, !noalias !28
   %100 = getelementptr inbounds nuw i8, ptr %73, i64 216
@@ -1061,7 +1061,7 @@ _ZN2tf8Executor19_increment_topologyEv.exit.i.i.i47: ; preds = %_ZN2tf9AsyncTask
   store ptr %130, ptr %129, align 8, !tbaa !119, !noalias !153
   %131 = getelementptr inbounds nuw i8, ptr %127, i64 16
   store i64 0, ptr %131, align 8, !tbaa !120, !noalias !153
-  store i8 0, ptr %130, align 1, !tbaa !16, !noalias !153
+  store i8 0, ptr %130, align 8, !tbaa !16, !noalias !153
   %132 = getelementptr inbounds nuw i8, ptr %127, i64 40
   %133 = getelementptr inbounds nuw i8, ptr %127, i64 64
   %134 = getelementptr inbounds nuw i8, ptr %127, i64 88
@@ -1106,7 +1106,7 @@ _ZN2tf8Executor19_increment_topologyEv.exit.i.i.i47: ; preds = %_ZN2tf9AsyncTask
   %150 = getelementptr inbounds nuw i8, ptr %127, i64 192
   store i64 1, ptr %150, align 8, !tbaa !132, !noalias !153
   %151 = getelementptr inbounds nuw i8, ptr %127, i64 200
-  store i32 0, ptr %151, align 4, !tbaa !118, !noalias !153
+  store i32 0, ptr %151, align 8, !tbaa !118, !noalias !153
   %152 = getelementptr inbounds nuw i8, ptr %127, i64 208
   store i8 8, ptr %152, align 8, !tbaa !133, !noalias !153
   %153 = getelementptr inbounds nuw i8, ptr %127, i64 216
@@ -1337,7 +1337,7 @@ _ZN2tf8Executor19_increment_topologyEv.exit.i.i.i64: ; preds = %_ZN2tf9AsyncTask
   store ptr %226, ptr %225, align 8, !tbaa !119, !noalias !173
   %227 = getelementptr inbounds nuw i8, ptr %223, i64 16
   store i64 0, ptr %227, align 8, !tbaa !120, !noalias !173
-  store i8 0, ptr %226, align 1, !tbaa !16, !noalias !173
+  store i8 0, ptr %226, align 8, !tbaa !16, !noalias !173
   %228 = getelementptr inbounds nuw i8, ptr %223, i64 40
   %229 = getelementptr inbounds nuw i8, ptr %223, i64 64
   %230 = getelementptr inbounds nuw i8, ptr %223, i64 88
@@ -1382,7 +1382,7 @@ _ZN2tf8Executor19_increment_topologyEv.exit.i.i.i64: ; preds = %_ZN2tf9AsyncTask
   %246 = getelementptr inbounds nuw i8, ptr %223, i64 192
   store i64 1, ptr %246, align 8, !tbaa !132, !noalias !173
   %247 = getelementptr inbounds nuw i8, ptr %223, i64 200
-  store i32 0, ptr %247, align 4, !tbaa !118, !noalias !173
+  store i32 0, ptr %247, align 8, !tbaa !118, !noalias !173
   %248 = getelementptr inbounds nuw i8, ptr %223, i64 208
   store i8 8, ptr %248, align 8, !tbaa !133, !noalias !173
   %249 = getelementptr inbounds nuw i8, ptr %223, i64 216
@@ -1633,7 +1633,7 @@ _ZN2tf8Executor19_increment_topologyEv.exit.i.i.i99: ; preds = %_ZN2tf9AsyncTask
   store ptr %334, ptr %333, align 8, !tbaa !119, !noalias !192
   %335 = getelementptr inbounds nuw i8, ptr %331, i64 16
   store i64 0, ptr %335, align 8, !tbaa !120, !noalias !192
-  store i8 0, ptr %334, align 1, !tbaa !16, !noalias !192
+  store i8 0, ptr %334, align 8, !tbaa !16, !noalias !192
   %336 = getelementptr inbounds nuw i8, ptr %331, i64 40
   %337 = getelementptr inbounds nuw i8, ptr %331, i64 64
   %338 = getelementptr inbounds nuw i8, ptr %331, i64 88
@@ -1678,7 +1678,7 @@ _ZN2tf8Executor19_increment_topologyEv.exit.i.i.i99: ; preds = %_ZN2tf9AsyncTask
   %355 = getelementptr inbounds nuw i8, ptr %331, i64 192
   store i64 1, ptr %355, align 8, !tbaa !132, !noalias !192
   %356 = getelementptr inbounds nuw i8, ptr %331, i64 200
-  store i32 0, ptr %356, align 4, !tbaa !118, !noalias !192
+  store i32 0, ptr %356, align 8, !tbaa !118, !noalias !192
   %357 = getelementptr inbounds nuw i8, ptr %331, i64 208
   store i8 8, ptr %357, align 8, !tbaa !133, !noalias !192
   %358 = getelementptr inbounds nuw i8, ptr %331, i64 216
@@ -1965,7 +1965,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %442,
   store ptr %457, ptr %456, align 8, !tbaa !119, !noalias !215
   %458 = getelementptr inbounds nuw i8, ptr %454, i64 16
   store i64 0, ptr %458, align 8, !tbaa !120, !noalias !215
-  store i8 0, ptr %457, align 1, !tbaa !16, !noalias !215
+  store i8 0, ptr %457, align 8, !tbaa !16, !noalias !215
   %459 = getelementptr inbounds nuw i8, ptr %454, i64 40
   %460 = getelementptr inbounds nuw i8, ptr %454, i64 64
   %461 = getelementptr inbounds nuw i8, ptr %454, i64 88
@@ -1993,7 +1993,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %442,
   %472 = getelementptr inbounds nuw i8, ptr %454, i64 192
   store i64 1, ptr %472, align 8, !tbaa !132, !noalias !215
   %473 = getelementptr inbounds nuw i8, ptr %454, i64 200
-  store i32 0, ptr %473, align 4, !tbaa !118, !noalias !215
+  store i32 0, ptr %473, align 8, !tbaa !118, !noalias !215
   %474 = getelementptr inbounds nuw i8, ptr %454, i64 208
   store i8 8, ptr %474, align 8, !tbaa !133, !noalias !215
   %475 = getelementptr inbounds nuw i8, ptr %454, i64 216
@@ -2087,7 +2087,7 @@ _ZN2tf9AsyncTaskC2ERKS0_.exit.i.i138:             ; preds = %491, %_ZN2tf9AsyncT
   store ptr %506, ptr %505, align 8, !tbaa !119, !noalias !227
   %507 = getelementptr inbounds nuw i8, ptr %503, i64 16
   store i64 0, ptr %507, align 8, !tbaa !120, !noalias !227
-  store i8 0, ptr %506, align 1, !tbaa !16, !noalias !227
+  store i8 0, ptr %506, align 8, !tbaa !16, !noalias !227
   %508 = getelementptr inbounds nuw i8, ptr %503, i64 40
   %509 = getelementptr inbounds nuw i8, ptr %503, i64 64
   %510 = getelementptr inbounds nuw i8, ptr %503, i64 88
@@ -2117,7 +2117,7 @@ _ZN2tf9AsyncTaskC2ERKS0_.exit.i.i138:             ; preds = %491, %_ZN2tf9AsyncT
   %522 = getelementptr inbounds nuw i8, ptr %503, i64 192
   store i64 1, ptr %522, align 8, !tbaa !132, !noalias !227
   %523 = getelementptr inbounds nuw i8, ptr %503, i64 200
-  store i32 0, ptr %523, align 4, !tbaa !118, !noalias !227
+  store i32 0, ptr %523, align 8, !tbaa !118, !noalias !227
   %524 = getelementptr inbounds nuw i8, ptr %503, i64 208
   store i8 8, ptr %524, align 8, !tbaa !133, !noalias !227
   %525 = getelementptr inbounds nuw i8, ptr %503, i64 216
@@ -2313,7 +2313,7 @@ _ZN2tf9AsyncTaskC2ERKS0_.exit.i.i169:             ; preds = %583, %_ZN2tf9AsyncT
   store ptr %598, ptr %597, align 8, !tbaa !119, !noalias !238
   %599 = getelementptr inbounds nuw i8, ptr %595, i64 16
   store i64 0, ptr %599, align 8, !tbaa !120, !noalias !238
-  store i8 0, ptr %598, align 1, !tbaa !16, !noalias !238
+  store i8 0, ptr %598, align 8, !tbaa !16, !noalias !238
   %600 = getelementptr inbounds nuw i8, ptr %595, i64 40
   %601 = getelementptr inbounds nuw i8, ptr %595, i64 64
   %602 = getelementptr inbounds nuw i8, ptr %595, i64 88
@@ -2343,7 +2343,7 @@ _ZN2tf9AsyncTaskC2ERKS0_.exit.i.i169:             ; preds = %583, %_ZN2tf9AsyncT
   %614 = getelementptr inbounds nuw i8, ptr %595, i64 192
   store i64 1, ptr %614, align 8, !tbaa !132, !noalias !238
   %615 = getelementptr inbounds nuw i8, ptr %595, i64 200
-  store i32 0, ptr %615, align 4, !tbaa !118, !noalias !238
+  store i32 0, ptr %615, align 8, !tbaa !118, !noalias !238
   %616 = getelementptr inbounds nuw i8, ptr %595, i64 208
   store i8 8, ptr %616, align 8, !tbaa !133, !noalias !238
   %617 = getelementptr inbounds nuw i8, ptr %595, i64 216
@@ -2556,7 +2556,7 @@ _ZN2tf9AsyncTaskC2ERKS0_.exit8.i.i203:            ; preds = %683, %_ZN2tf9AsyncT
   store ptr %699, ptr %698, align 8, !tbaa !119, !noalias !249
   %700 = getelementptr inbounds nuw i8, ptr %696, i64 16
   store i64 0, ptr %700, align 8, !tbaa !120, !noalias !249
-  store i8 0, ptr %699, align 1, !tbaa !16, !noalias !249
+  store i8 0, ptr %699, align 8, !tbaa !16, !noalias !249
   %701 = getelementptr inbounds nuw i8, ptr %696, i64 40
   %702 = getelementptr inbounds nuw i8, ptr %696, i64 64
   %703 = getelementptr inbounds nuw i8, ptr %696, i64 88
@@ -2586,7 +2586,7 @@ _ZN2tf9AsyncTaskC2ERKS0_.exit8.i.i203:            ; preds = %683, %_ZN2tf9AsyncT
   %715 = getelementptr inbounds nuw i8, ptr %696, i64 192
   store i64 1, ptr %715, align 8, !tbaa !132, !noalias !249
   %716 = getelementptr inbounds nuw i8, ptr %696, i64 200
-  store i32 0, ptr %716, align 4, !tbaa !118, !noalias !249
+  store i32 0, ptr %716, align 8, !tbaa !118, !noalias !249
   %717 = getelementptr inbounds nuw i8, ptr %696, i64 208
   store i8 8, ptr %717, align 8, !tbaa !133, !noalias !249
   %718 = getelementptr inbounds nuw i8, ptr %696, i64 216
@@ -13742,7 +13742,7 @@ define linkonce_odr dso_local noundef i64 @_ZN2tf10SerializerISt14basic_ofstream
   %53 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef %51, i64 noundef %52)
   %54 = load i64, ptr %46, align 8, !tbaa !120
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %55 = load i32, ptr %43, align 4, !tbaa !666
+  %55 = load i32, ptr %43, align 8, !tbaa !666
   store i32 %55, ptr %5, align 4, !tbaa !17
   %56 = load ptr, ptr %0, align 8, !tbaa !579
   %57 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef nonnull align 4 dereferenceable(4) %5, i64 noundef 4)
@@ -17423,7 +17423,7 @@ _ZSt19__relocate_object_aIN2tf7SegmentES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i: ; pre
   store i64 %58, ptr %60, align 8, !tbaa !120, !alias.scope !756, !noalias !759
   store ptr %50, ptr %.0911.i.i.i, align 8, !tbaa !288, !alias.scope !759, !noalias !756
   store i64 0, ptr %59, align 8, !tbaa !120, !alias.scope !759, !noalias !756
-  store i8 0, ptr %50, align 1, !tbaa !16, !alias.scope !759, !noalias !756
+  store i8 0, ptr %50, align 8, !tbaa !16, !alias.scope !759, !noalias !756
   %61 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %62 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) %62, i64 24, i1 false), !alias.scope !761
@@ -17474,7 +17474,7 @@ _ZSt19__relocate_object_aIN2tf7SegmentES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i36: ; p
   store i64 %76, ptr %78, align 8, !tbaa !120, !alias.scope !763, !noalias !766
   store ptr %68, ptr %.0911.i.i.i32, align 8, !tbaa !288, !alias.scope !766, !noalias !763
   store i64 0, ptr %77, align 8, !tbaa !120, !alias.scope !766, !noalias !763
-  store i8 0, ptr %68, align 1, !tbaa !16, !alias.scope !766, !noalias !763
+  store i8 0, ptr %68, align 8, !tbaa !16, !alias.scope !766, !noalias !763
   %79 = getelementptr inbounds nuw i8, ptr %.012.i.i.i31, i64 32
   %80 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i32, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, ptr noundef nonnull align 8 dereferenceable(24) %80, i64 24, i1 false), !alias.scope !768
@@ -19167,11 +19167,11 @@ define internal fastcc void @"_ZStL19__create_task_stateIFvvEZ4mainE3$_0SaIiEESt
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr null, ptr %6, align 8, !tbaa !503, !noalias !811
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 0, ptr %7, align 4, !tbaa !814, !noalias !811
+  store i32 0, ptr %7, align 8, !tbaa !814, !noalias !811
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  store i8 0, ptr %8, align 1, !tbaa !816, !noalias !811
+  store i8 0, ptr %8, align 4, !tbaa !816, !noalias !811
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 0, ptr %9, align 4, !tbaa !818, !noalias !811
+  store i32 0, ptr %9, align 8, !tbaa !818, !noalias !811
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %5, align 8, !tbaa !14, !noalias !811
   tail call void @llvm.experimental.noalias.scope.decl(metadata !820)
   %10 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #39
@@ -20352,11 +20352,11 @@ define internal fastcc void @"_ZStL19__create_task_stateIFvvEZ4mainE3$_1SaIiEESt
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr null, ptr %6, align 8, !tbaa !503, !noalias !874
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 0, ptr %7, align 4, !tbaa !814, !noalias !874
+  store i32 0, ptr %7, align 8, !tbaa !814, !noalias !874
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  store i8 0, ptr %8, align 1, !tbaa !816, !noalias !874
+  store i8 0, ptr %8, align 4, !tbaa !816, !noalias !874
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 0, ptr %9, align 4, !tbaa !818, !noalias !874
+  store i32 0, ptr %9, align 8, !tbaa !818, !noalias !874
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %5, align 8, !tbaa !14, !noalias !874
   tail call void @llvm.experimental.noalias.scope.decl(metadata !877)
   %10 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #39
@@ -20934,11 +20934,11 @@ define internal fastcc void @"_ZStL19__create_task_stateIFvvEZ4mainE3$_2SaIiEESt
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr null, ptr %6, align 8, !tbaa !503, !noalias !910
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 0, ptr %7, align 4, !tbaa !814, !noalias !910
+  store i32 0, ptr %7, align 8, !tbaa !814, !noalias !910
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  store i8 0, ptr %8, align 1, !tbaa !816, !noalias !910
+  store i8 0, ptr %8, align 4, !tbaa !816, !noalias !910
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 0, ptr %9, align 4, !tbaa !818, !noalias !910
+  store i32 0, ptr %9, align 8, !tbaa !818, !noalias !910
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %5, align 8, !tbaa !14, !noalias !910
   tail call void @llvm.experimental.noalias.scope.decl(metadata !913)
   %10 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #39
@@ -21557,11 +21557,11 @@ define internal fastcc void @"_ZStL19__create_task_stateIFvvEZ4mainE3$_3SaIiEESt
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr null, ptr %6, align 8, !tbaa !503, !noalias !946
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 0, ptr %7, align 4, !tbaa !814, !noalias !946
+  store i32 0, ptr %7, align 8, !tbaa !814, !noalias !946
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  store i8 0, ptr %8, align 1, !tbaa !816, !noalias !946
+  store i8 0, ptr %8, align 4, !tbaa !816, !noalias !946
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 0, ptr %9, align 4, !tbaa !818, !noalias !946
+  store i32 0, ptr %9, align 8, !tbaa !818, !noalias !946
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %5, align 8, !tbaa !14, !noalias !946
   tail call void @llvm.experimental.noalias.scope.decl(metadata !949)
   %10 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #39
@@ -22144,7 +22144,7 @@ _ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit: ; 
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(28) %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load atomic i32, ptr %8 acquire, align 4
+  %9 = load atomic i32, ptr %8 acquire, align 8
   %10 = and i32 %9, 2147483647
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit.us.i.i

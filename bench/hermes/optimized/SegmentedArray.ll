@@ -830,7 +830,7 @@ _ZN6hermes2vm7Runtime13makeAVariableINS0_18SegmentedArrayBaseINS0_11HermesValueE
   store i64 0, ptr %cond.i.i.i.i.i, align 8
   %bf.value.i.i.i.i.i.i = and i32 %sub.i.i.i.i, 16777208
   %bf.set7.i.i.i.i.i.i = or disjoint i32 %bf.value.i.i.i.i.i.i, 268435456
-  store i32 %bf.set7.i.i.i.i.i.i, ptr %cond.i.i.i.i.i, align 4
+  store i32 %bf.set7.i.i.i.i.i.i, ptr %cond.i.i.i.i.i, align 8
   br label %return
 
 return:                                           ; preds = %_ZN6hermes2vm7Runtime13makeAVariableINS0_18SegmentedArrayBaseINS0_11HermesValueEEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJEEEPT_jDpOT2_.exit, %if.then
@@ -985,7 +985,7 @@ if.end:                                           ; preds = %entry
   store i64 0, ptr %call.i.i.i.i, align 8
   %bf.value.i.i.i.i.i.i = and i32 %sub.i.i.i.i, 16777208
   %bf.set7.i.i.i.i.i.i = or disjoint i32 %bf.value.i.i.i.i.i.i, 268435456
-  store i32 %bf.set7.i.i.i.i.i.i, ptr %call.i.i.i.i, align 4
+  store i32 %bf.set7.i.i.i.i.i.i, ptr %call.i.i.i.i, align 8
   %2 = load ptr, ptr %lk.i.i.i.i, align 8
   %call1.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %lk.i.i.i.i)
@@ -4514,7 +4514,7 @@ _ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i: ; preds = %cond.fals
   %cond.i.i.i.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i.i.i ], [ %12, %cond.false.i.i.i.i.i.i.i.i ]
   %value_.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i.i.i, i64 8
   store i64 %retval.sroa.0.0.copyload.i.i.i, ptr %value_.i.i.i.i.i.i.i.i.i, align 8
-  store i32 402653200, ptr %cond.i.i.i.i.i.i.i.i, align 4
+  store i32 402653200, ptr %cond.i.i.i.i.i.i.i.i, align 8
   %14 = ptrtoint ptr %cond.i.i.i.i.i.i.i.i to i64
   %15 = ptrtoint ptr %runtime to i64
   %sub.i.i.i.i.i13.i = sub i64 %14, %15

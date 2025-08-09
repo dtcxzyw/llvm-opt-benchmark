@@ -120,7 +120,7 @@ _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERK
   %53 = load <8 x float>, ptr %52, align 4
   %54 = shufflevector <8 x float> %53, <8 x float> poison, <8 x i32> zeroinitializer
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %56 = load <8 x float>, ptr %55, align 4
+  %56 = load <8 x float>, ptr %55, align 8
   %57 = shufflevector <8 x float> %56, <8 x float> poison, <8 x i32> zeroinitializer
   %58 = fmul <8 x float> %47, <float 0xBFD5555560000000, float poison, float poison, float poison, float poison, float poison, float poison, float poison>
   %59 = shufflevector <8 x float> %58, <8 x float> poison, <8 x i32> zeroinitializer

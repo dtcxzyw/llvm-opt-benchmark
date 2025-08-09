@@ -1994,7 +1994,7 @@ if.end.i4:                                        ; preds = %if.then20.i.i.i, %_
   %10 = load i64, ptr %name, align 8, !noalias !34
   store i64 %10, ptr %call.i.i, align 8, !noalias !34
   %second.i.i2.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
-  store i32 %id, ptr %second.i.i2.i, align 4, !noalias !34
+  store i32 %id, ptr %second.i.i2.i, align 8, !noalias !34
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E11try_emplaceIJRjEEESt4pairINS_16DenseMapIteratorIS3_jS5_S8_Lb0EEEbERKS3_DpOT_.exit
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E11try_emplaceIJRjEEESt4pairINS_16DenseMapIteratorIS3_jS5_S8_Lb0EEEbERKS3_DpOT_.exit: ; preds = %if.end21.i.i.i, %if.end.i.i.i, %if.end.i4
@@ -7153,7 +7153,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEjNS_12DenseMapInfoIS3_E
   %second.i.i = getelementptr inbounds nuw i8, ptr %cond.sink.i.i.i, i64 8
   %second.i14.i = getelementptr inbounds nuw i8, ptr %B.021.i, i64 8
   %7 = load i32, ptr %second.i14.i, align 4
-  store i32 %7, ptr %second.i.i, align 4
+  store i32 %7, ptr %second.i.i, align 8
   %8 = load i32, ptr %NumEntries.i.i.i.i, align 8
   %add.i.i = add i32 %8, 1
   store i32 %add.i.i, ptr %NumEntries.i.i.i.i, align 8

@@ -9470,7 +9470,7 @@ lean_ensure_exclusive_array.exit.i.i:             ; preds = %94, %lean_dec.exit1
 
 lean_array_fset.exit:                             ; preds = %lean_ensure_exclusive_array.exit.i.i, %103, %105, %106
   store ptr inttoptr (i64 1 to ptr), ptr %96, align 8, !tbaa !9
-  %.val.i.i.i213 = load i32, ptr %.0.i.i.i, align 4, !tbaa !4
+  %.val.i.i.i213 = load i32, ptr %.0.i.i.i, align 8, !tbaa !4
   %107 = icmp eq i32 %.val.i.i.i213, 1
   br i1 %107, label %lean_ensure_exclusive_array.exit.i.i214, label %108
 

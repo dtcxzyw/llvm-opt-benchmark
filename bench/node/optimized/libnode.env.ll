@@ -72149,7 +72149,7 @@ if.end39:                                         ; preds = %if.then36, %_ZNSt10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp40) #24
   %call.i53 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #24
   store ptr %call.i53, ptr %ref.tmp42, align 8
-  %36 = load i8, ptr %arrayidx.i.i118, align 1
+  %36 = load i8, ptr %arrayidx.i.i118, align 8
   %tobool.i.i175 = trunc i8 %36 to i1
   br i1 %tobool.i.i175, label %if.end.i178, label %_ZN4node5DebugIJPKcEEEvPNS_16EnabledDebugListENS_13DebugCategoryES2_DpOT_.exit
 
@@ -72173,7 +72173,7 @@ _ZN4node5DebugIJPKcEEEvPNS_16EnabledDebugListENS_13DebugCategoryES2_DpOT_.exit: 
   %add46 = add i32 %38, 1
   store i32 %add46, ptr %heap_limit_snapshot_taken_, align 4
   %heap_snapshot_near_heap_limit_ = getelementptr inbounds nuw i8, ptr %data, i64 1816
-  %39 = load i8, ptr %arrayidx.i.i118, align 1
+  %39 = load i8, ptr %arrayidx.i.i118, align 4
   %tobool.i.i189 = trunc i8 %39 to i1
   br i1 %tobool.i.i189, label %if.end.i192, label %_ZN4node5DebugIJRjS1_EEEvPNS_16EnabledDebugListENS_13DebugCategoryEPKcDpOT_.exit
 
@@ -77057,7 +77057,7 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIt
   %__bbegin_bkt.021 = phi i64 [ %__bbegin_bkt.1, %if.end22 ], [ 0, %_ZNSt10_HashtableItSt4pairIKtSt10unique_ptrIN4node21PerIsolateWrapperDataESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %1 = load ptr, ptr %__p.022, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %__p.022, i64 8
-  %2 = load i16, ptr %add.ptr, align 2
+  %2 = load i16, ptr %add.ptr, align 8
   %conv.i.i.i = zext i16 %2 to i64
   %rem.i.i = urem i64 %conv.i.i.i, %__bkt_count
   %arrayidx = getelementptr inbounds nuw ptr, ptr %retval.0.i, i64 %rem.i.i
@@ -79083,7 +79083,7 @@ if.end25:                                         ; preds = %if.end3.i.i, %if.en
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
   store ptr null, ptr %call5.i.i.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 8
-  store i32 %13, ptr %add.ptr.i.i.i, align 4
+  store i32 %13, ptr %add.ptr.i.i.i, align 8
   %_M_rehash_policy.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %call3.i = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy.i, i64 noundef %12, i64 noundef %0, i64 noundef 1) #24
   %14 = extractvalue { i8, i64 } %call3.i, 0
@@ -79197,7 +79197,7 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIi
   %__bbegin_bkt.021 = phi i64 [ %__bbegin_bkt.1, %if.end22 ], [ 0, %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %1 = load ptr, ptr %__p.022, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %__p.022, i64 8
-  %2 = load i32, ptr %add.ptr, align 4
+  %2 = load i32, ptr %add.ptr, align 8
   %conv.i.i.i = sext i32 %2 to i64
   %rem.i.i = urem i64 %conv.i.i.i, %__bkt_count
   %arrayidx = getelementptr inbounds ptr, ptr %retval.0.i, i64 %rem.i.i

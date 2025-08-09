@@ -6941,7 +6941,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_6MDNodeENSt7__cxx1112basic_string
   store ptr %65, ptr %64, align 8, !tbaa !308
   %66 = getelementptr inbounds nuw i8, ptr %52, i64 16
   store i64 0, ptr %66, align 8, !tbaa !270
-  store i8 0, ptr %65, align 1, !tbaa !143
+  store i8 0, ptr %65, align 8, !tbaa !143
   br label %.loopexit
 
 .loopexit:                                        ; preds = %30, %13, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_6MDNodeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj8ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E16InsertIntoBucketIRKS4_JEEEPSF_SL_OT_DpOT0_.exit
@@ -7448,7 +7448,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %54
   store i64 %61, ptr %62, align 8, !tbaa !270
   store ptr %52, ptr %49, align 8, !tbaa !269
   store i64 0, ptr %60, align 8, !tbaa !270
-  store i8 0, ptr %52, align 1, !tbaa !143
+  store i8 0, ptr %52, align 8, !tbaa !143
   %63 = load i32, ptr %0, align 8
   %64 = and i32 %63, -2
   %65 = add i32 %64, 2

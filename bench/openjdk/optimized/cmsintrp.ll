@@ -674,7 +674,7 @@ define internal void @BilinearInterpFloat(ptr noundef readonly captures(none) %0
   %42 = select i1 %41, i32 %39, i32 0
   %43 = add i32 %40, %42
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 144
-  %45 = load i32, ptr %44, align 4
+  %45 = load i32, ptr %44, align 8
   %46 = mul i32 %45, %28
   %47 = fcmp ult float %11, 1.000000e+00
   %48 = select i1 %47, i32 %45, i32 0
@@ -758,7 +758,7 @@ define internal void @BilinearInterp16(ptr noundef readonly captures(none) %0, p
   %34 = add i32 %31, %33
   %35 = ashr i32 %13, 16
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 144
-  %37 = load i32, ptr %36, align 4
+  %37 = load i32, ptr %36, align 8
   %38 = mul i32 %35, %37
   %39 = icmp eq i16 %6, -1
   %spec.select = select i1 %39, i32 0, i32 %37
@@ -886,7 +886,7 @@ define internal void @TrilinearInterpFloat(ptr noundef readonly captures(none) %
   %57 = select i1 %56, i32 %54, i32 0
   %58 = add i32 %55, %57
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 144
-  %60 = load i32, ptr %59, align 4
+  %60 = load i32, ptr %59, align 8
   %61 = mul i32 %60, %43
   %62 = fcmp ult float %22, 1.000000e+00
   %63 = select i1 %62, i32 %60, i32 0
@@ -1018,7 +1018,7 @@ define internal void @TrilinearInterp16(ptr noundef readonly captures(none) %0, 
   %44 = add i32 %41, %43
   %45 = ashr i32 %23, 16
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 144
-  %47 = load i32, ptr %46, align 4
+  %47 = load i32, ptr %46, align 8
   %48 = mul i32 %45, %47
   %49 = icmp eq i16 %16, -1
   %50 = select i1 %49, i32 0, i32 %47
@@ -1454,7 +1454,7 @@ define internal void @TetrahedralInterp16(ptr noundef readonly captures(none) %0
   %44 = icmp eq i16 %8, -1
   %spec.select = select i1 %44, i32 0, i32 %42
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 144
-  %46 = load i32, ptr %45, align 4
+  %46 = load i32, ptr %45, align 8
   %47 = mul i32 %35, %46
   %48 = icmp eq i16 %17, -1
   %49 = select i1 %48, i32 0, i32 %46
@@ -1798,7 +1798,7 @@ define internal void @Eval4InputsFloat(ptr noundef readonly captures(none) %0, p
   %21 = sitofp i32 %20 to float
   %22 = fsub float %18, %21
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 152
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 8
   %25 = mul i32 %24, %20
   %26 = fcmp ult float %14, 1.000000e+00
   %27 = select i1 %26, i32 %24, i32 0
@@ -1891,7 +1891,7 @@ define internal void @Eval4Inputs(ptr noundef readonly captures(none) %0, ptr no
   %48 = and i32 %40, 65535
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 140
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 152
-  %51 = load i32, ptr %50, align 4
+  %51 = load i32, ptr %50, align 8
   %52 = mul i32 %51, %41
   %53 = icmp eq i16 %6, -1
   %spec.select = select i1 %53, i32 0, i32 %51
@@ -1903,7 +1903,7 @@ define internal void @Eval4Inputs(ptr noundef readonly captures(none) %0, ptr no
   %59 = select i1 %58, i32 0, i32 %56
   %60 = add i32 %57, %59
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 144
-  %62 = load i32, ptr %61, align 4
+  %62 = load i32, ptr %61, align 8
   %63 = mul i32 %62, %43
   %64 = icmp eq i16 %24, -1
   %65 = select i1 %64, i32 0, i32 %62
@@ -2695,7 +2695,7 @@ define internal void @Eval6InputsFloat(ptr noundef readonly captures(none) %0, p
   %21 = sitofp i32 %20 to float
   %22 = fsub float %18, %21
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 160
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 8
   %25 = mul i32 %24, %20
   %26 = fcmp ult float %14, 1.000000e+00
   %27 = select i1 %26, i32 %24, i32 0
@@ -2762,7 +2762,7 @@ define internal void @Eval6Inputs(ptr noundef readonly captures(none) %0, ptr no
   %22 = ashr i32 %21, 16
   %23 = and i32 %21, 65535
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 160
-  %25 = load i32, ptr %24, align 4
+  %25 = load i32, ptr %24, align 8
   %26 = mul i32 %22, %25
   %.not = icmp ne i16 %14, -1
   %27 = zext i1 %.not to i32
@@ -3241,7 +3241,7 @@ define internal void @Eval8InputsFloat(ptr noundef readonly captures(none) %0, p
   %21 = sitofp i32 %20 to float
   %22 = fsub float %18, %21
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 168
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 8
   %25 = mul i32 %24, %20
   %26 = fcmp ult float %14, 1.000000e+00
   %27 = select i1 %26, i32 %24, i32 0
@@ -3308,7 +3308,7 @@ define internal void @Eval8Inputs(ptr noundef readonly captures(none) %0, ptr no
   %22 = ashr i32 %21, 16
   %23 = and i32 %21, 65535
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 168
-  %25 = load i32, ptr %24, align 4
+  %25 = load i32, ptr %24, align 8
   %26 = mul i32 %22, %25
   %.not = icmp ne i16 %14, -1
   %27 = zext i1 %.not to i32
@@ -3787,7 +3787,7 @@ define internal void @Eval10InputsFloat(ptr noundef readonly captures(none) %0, 
   %21 = sitofp i32 %20 to float
   %22 = fsub float %18, %21
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 176
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 8
   %25 = mul i32 %24, %20
   %26 = fcmp ult float %14, 1.000000e+00
   %27 = select i1 %26, i32 %24, i32 0
@@ -3854,7 +3854,7 @@ define internal void @Eval10Inputs(ptr noundef readonly captures(none) %0, ptr n
   %22 = ashr i32 %21, 16
   %23 = and i32 %21, 65535
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 176
-  %25 = load i32, ptr %24, align 4
+  %25 = load i32, ptr %24, align 8
   %26 = mul i32 %22, %25
   %.not = icmp ne i16 %14, -1
   %27 = zext i1 %.not to i32
@@ -4333,7 +4333,7 @@ define internal void @Eval12InputsFloat(ptr noundef readonly captures(none) %0, 
   %21 = sitofp i32 %20 to float
   %22 = fsub float %18, %21
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 184
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 8
   %25 = mul i32 %24, %20
   %26 = fcmp ult float %14, 1.000000e+00
   %27 = select i1 %26, i32 %24, i32 0
@@ -4400,7 +4400,7 @@ define internal void @Eval12Inputs(ptr noundef readonly captures(none) %0, ptr n
   %22 = ashr i32 %21, 16
   %23 = and i32 %21, 65535
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 184
-  %25 = load i32, ptr %24, align 4
+  %25 = load i32, ptr %24, align 8
   %26 = mul i32 %22, %25
   %.not = icmp ne i16 %14, -1
   %27 = zext i1 %.not to i32
@@ -4879,7 +4879,7 @@ define internal void @Eval14InputsFloat(ptr noundef readonly captures(none) %0, 
   %21 = sitofp i32 %20 to float
   %22 = fsub float %18, %21
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 8
   %25 = mul i32 %24, %20
   %26 = fcmp ult float %14, 1.000000e+00
   %27 = select i1 %26, i32 %24, i32 0
@@ -4946,7 +4946,7 @@ define internal void @Eval14Inputs(ptr noundef readonly captures(none) %0, ptr n
   %22 = ashr i32 %21, 16
   %23 = and i32 %21, 65535
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  %25 = load i32, ptr %24, align 4
+  %25 = load i32, ptr %24, align 8
   %26 = mul i32 %22, %25
   %.not = icmp ne i16 %14, -1
   %27 = zext i1 %.not to i32

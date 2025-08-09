@@ -1372,7 +1372,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr %339, ptr %335, align 8, !tbaa !39
   %340 = getelementptr inbounds nuw i8, ptr %335, i64 8
   store i64 0, ptr %340, align 8, !tbaa !41
-  store i8 0, ptr %339, align 1, !tbaa !43
+  store i8 0, ptr %339, align 8, !tbaa !43
   br label %360
 
 341:                                              ; preds = %318, %320

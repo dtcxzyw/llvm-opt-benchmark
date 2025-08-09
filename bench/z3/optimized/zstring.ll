@@ -1541,7 +1541,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %26, %25
   %40 = load i32, ptr %39, align 8, !tbaa !31
   %41 = and i32 %40, -75
   %42 = or disjoint i32 %41, 8
-  store i32 %42, ptr %39, align 4, !tbaa !40
+  store i32 %42, ptr %39, align 8, !tbaa !40
   %43 = zext i32 %13 to i64
   %44 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef %43)
           to label %45 unwind label %31
@@ -1555,7 +1555,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %26, %25
   %51 = load i32, ptr %50, align 8, !tbaa !31
   %52 = and i32 %51, -75
   %53 = or disjoint i32 %52, 2
-  store i32 %53, ptr %50, align 4, !tbaa !40
+  store i32 %53, ptr %50, align 8, !tbaa !40
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 125, ptr %3, align 1, !tbaa !8
   %54 = load i64, ptr %47, align 8

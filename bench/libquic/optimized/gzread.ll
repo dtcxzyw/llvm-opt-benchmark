@@ -277,7 +277,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_fetch(ptr noundef nonnull %0) un
   %17 = load ptr, ptr %5, align 8, !tbaa !34
   %18 = load i32, ptr %3, align 8, !tbaa !27
   %19 = shl i32 %18, 1
-  store i32 0, ptr %0, align 4, !tbaa !30
+  store i32 0, ptr %0, align 8, !tbaa !30
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 28
   br label %21
 

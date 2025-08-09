@@ -1029,7 +1029,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.thr
   %244 = add i32 %235, 1
   %245 = and i32 %244, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  store volatile i32 %245, ptr %234, align 4
+  store volatile i32 %245, ptr %234, align 8
   br label %_ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit
 
 _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i: ; preds = %231
@@ -1053,7 +1053,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i
   %258 = add i32 %248, 1
   %259 = and i32 %258, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  store volatile i32 %259, ptr %247, align 4
+  store volatile i32 %259, ptr %247, align 8
   br label %_ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit
 
 _ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit: ; preds = %89, %46, %253, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i, %230, %226, %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i, %199, %.lr.ph
@@ -1416,7 +1416,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.thr
   %235 = add i32 %226, 1
   %236 = and i32 %235, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  store volatile i32 %236, ptr %225, align 4
+  store volatile i32 %236, ptr %225, align 8
   br label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i: ; preds = %222
@@ -1440,7 +1440,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i
   %249 = add i32 %239, 1
   %250 = and i32 %249, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  store volatile i32 %250, ptr %238, align 4
+  store volatile i32 %250, ptr %238, align 8
   br label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 _ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit: ; preds = %80, %37, %244, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i, %221, %217, %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i, %190, %.lr.ph
@@ -1561,7 +1561,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.thr
   %63 = add i32 %54, 1
   %64 = and i32 %63, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  store volatile i32 %64, ptr %53, align 4
+  store volatile i32 %64, ptr %53, align 8
   br label %_ZN8G1CMTask23process_grey_task_entryILb0EEEv16G1TaskQueueEntry.exit
 
 _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i: ; preds = %50
@@ -1585,7 +1585,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i: 
   %77 = add i32 %67, 1
   %78 = and i32 %77, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  store volatile i32 %78, ptr %66, align 4
+  store volatile i32 %78, ptr %66, align 8
   br label %_ZN8G1CMTask23process_grey_task_entryILb0EEEv16G1TaskQueueEntry.exit
 
 _ZN8G1CMTask23process_grey_task_entryILb0EEEv16G1TaskQueueEntry.exit: ; preds = %16, %72, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i, %49, %44, %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit, %2
@@ -2178,7 +2178,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.thr
   %245 = add i32 %236, 1
   %246 = and i32 %245, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  store volatile i32 %246, ptr %235, align 4
+  store volatile i32 %246, ptr %235, align 8
   br label %_ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit
 
 _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i: ; preds = %232
@@ -2202,7 +2202,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i
   %259 = add i32 %249, 1
   %260 = and i32 %259, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  store volatile i32 %260, ptr %248, align 4
+  store volatile i32 %260, ptr %248, align 8
   br label %_ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit
 
 _ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit: ; preds = %90, %47, %254, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i, %231, %227, %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i, %200, %.lr.ph
@@ -4258,7 +4258,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.thr
   %236 = add i32 %227, 1
   %237 = and i32 %236, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  store volatile i32 %237, ptr %226, align 4
+  store volatile i32 %237, ptr %226, align 8
   br label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i: ; preds = %223
@@ -4282,7 +4282,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i
   %250 = add i32 %240, 1
   %251 = and i32 %250, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  store volatile i32 %251, ptr %239, align 4
+  store volatile i32 %251, ptr %239, align 8
   br label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 _ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit: ; preds = %81, %38, %245, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i, %222, %218, %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i, %191, %.lr.ph
@@ -4836,7 +4836,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.thr
   %244 = add i32 %235, 1
   %245 = and i32 %244, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  store volatile i32 %245, ptr %234, align 4
+  store volatile i32 %245, ptr %234, align 8
   br label %_ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit
 
 _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i: ; preds = %231
@@ -4860,7 +4860,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i
   %258 = add i32 %248, 1
   %259 = and i32 %258, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  store volatile i32 %259, ptr %247, align 4
+  store volatile i32 %259, ptr %247, align 8
   br label %_ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit
 
 _ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit: ; preds = %89, %46, %253, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i, %230, %226, %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i, %199, %.lr.ph
@@ -5297,7 +5297,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.thr
   %235 = add i32 %226, 1
   %236 = and i32 %235, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  store volatile i32 %236, ptr %225, align 4
+  store volatile i32 %236, ptr %225, align 8
   br label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i: ; preds = %222
@@ -5321,7 +5321,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i
   %249 = add i32 %239, 1
   %250 = and i32 %249, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  store volatile i32 %250, ptr %238, align 4
+  store volatile i32 %250, ptr %238, align 8
   br label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 _ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit: ; preds = %80, %37, %244, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i, %221, %217, %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i, %190, %.lr.ph
@@ -5769,7 +5769,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.thr
   %244 = add i32 %235, 1
   %245 = and i32 %244, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  store volatile i32 %245, ptr %234, align 4
+  store volatile i32 %245, ptr %234, align 8
   br label %_ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit
 
 _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i: ; preds = %231
@@ -5793,7 +5793,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i
   %258 = add i32 %248, 1
   %259 = and i32 %258, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  store volatile i32 %259, ptr %247, align 4
+  store volatile i32 %259, ptr %247, align 8
   br label %_ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit
 
 _ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit: ; preds = %89, %46, %253, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i, %230, %226, %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i, %199, %.lr.ph
@@ -6168,7 +6168,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.thr
   %235 = add i32 %226, 1
   %236 = and i32 %235, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  store volatile i32 %236, ptr %225, align 4
+  store volatile i32 %236, ptr %225, align 8
   br label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i: ; preds = %222
@@ -6192,7 +6192,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i
   %249 = add i32 %239, 1
   %250 = and i32 %249, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  store volatile i32 %250, ptr %238, align 4
+  store volatile i32 %250, ptr %238, align 8
   br label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 _ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit: ; preds = %80, %37, %244, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i, %221, %217, %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i, %190, %.lr.ph
@@ -7412,7 +7412,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.thr
   %254 = add i32 %245, 1
   %255 = and i32 %254, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  store volatile i32 %255, ptr %244, align 4
+  store volatile i32 %255, ptr %244, align 8
   br label %_ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit
 
 _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i: ; preds = %241
@@ -7436,7 +7436,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i
   %268 = add i32 %258, 1
   %269 = and i32 %268, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  store volatile i32 %269, ptr %257, align 4
+  store volatile i32 %269, ptr %257, align 8
   br label %_ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit
 
 _ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit: ; preds = %99, %56, %263, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i, %240, %236, %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i, %209, %.lr.ph
@@ -7812,7 +7812,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.thr
   %245 = add i32 %236, 1
   %246 = and i32 %245, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  store volatile i32 %246, ptr %235, align 4
+  store volatile i32 %246, ptr %235, align 8
   br label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i: ; preds = %232
@@ -7836,7 +7836,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i
   %259 = add i32 %249, 1
   %260 = and i32 %259, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  store volatile i32 %260, ptr %248, align 4
+  store volatile i32 %260, ptr %248, align 8
   br label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 _ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit: ; preds = %90, %47, %254, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i, %231, %227, %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i, %200, %.lr.ph
@@ -8244,7 +8244,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.thr
   %255 = add i32 %246, 1
   %256 = and i32 %255, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  store volatile i32 %256, ptr %245, align 4
+  store volatile i32 %256, ptr %245, align 8
   br label %_ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit
 
 _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i: ; preds = %242
@@ -8268,7 +8268,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i
   %269 = add i32 %259, 1
   %270 = and i32 %269, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  store volatile i32 %270, ptr %258, align 4
+  store volatile i32 %270, ptr %258, align 8
   br label %_ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit
 
 _ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit: ; preds = %100, %57, %264, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i, %241, %237, %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i, %210, %.lr.ph
@@ -8917,7 +8917,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.thr
   %246 = add i32 %237, 1
   %247 = and i32 %246, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  store volatile i32 %247, ptr %236, align 4
+  store volatile i32 %247, ptr %236, align 8
   br label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i: ; preds = %233
@@ -8941,7 +8941,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i
   %260 = add i32 %250, 1
   %261 = and i32 %260, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  store volatile i32 %261, ptr %249, align 4
+  store volatile i32 %261, ptr %249, align 8
   br label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 _ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit: ; preds = %91, %48, %255, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i, %232, %228, %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i, %201, %.lr.ph
@@ -9570,7 +9570,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.thr
   %254 = add i32 %245, 1
   %255 = and i32 %254, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  store volatile i32 %255, ptr %244, align 4
+  store volatile i32 %255, ptr %244, align 8
   br label %_ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit
 
 _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i: ; preds = %241
@@ -9594,7 +9594,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i
   %268 = add i32 %258, 1
   %269 = and i32 %268, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  store volatile i32 %269, ptr %257, align 4
+  store volatile i32 %269, ptr %257, align 8
   br label %_ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit
 
 _ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit: ; preds = %99, %56, %263, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i, %240, %236, %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i, %209, %.lr.ph
@@ -10043,7 +10043,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.thr
   %245 = add i32 %236, 1
   %246 = and i32 %245, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  store volatile i32 %246, ptr %235, align 4
+  store volatile i32 %246, ptr %235, align 8
   br label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i: ; preds = %232
@@ -10067,7 +10067,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i
   %259 = add i32 %249, 1
   %260 = and i32 %259, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  store volatile i32 %260, ptr %248, align 4
+  store volatile i32 %260, ptr %248, align 8
   br label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 _ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit: ; preds = %90, %47, %254, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i, %231, %227, %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i, %200, %.lr.ph
@@ -10531,7 +10531,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.thr
   %254 = add i32 %245, 1
   %255 = and i32 %254, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  store volatile i32 %255, ptr %244, align 4
+  store volatile i32 %255, ptr %244, align 8
   br label %_ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit
 
 _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i: ; preds = %241
@@ -10555,7 +10555,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i
   %268 = add i32 %258, 1
   %269 = and i32 %268, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  store volatile i32 %269, ptr %257, align 4
+  store volatile i32 %269, ptr %257, align 8
   br label %_ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit
 
 _ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit: ; preds = %99, %56, %263, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i, %240, %236, %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i, %209, %.lr.ph
@@ -10945,7 +10945,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.thr
   %245 = add i32 %236, 1
   %246 = and i32 %245, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  store volatile i32 %246, ptr %235, align 4
+  store volatile i32 %246, ptr %235, align 8
   br label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i: ; preds = %232
@@ -10969,7 +10969,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i
   %259 = add i32 %249, 1
   %260 = and i32 %259, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  store volatile i32 %260, ptr %248, align 4
+  store volatile i32 %260, ptr %248, align 8
   br label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 _ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit: ; preds = %90, %47, %254, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i, %231, %227, %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i, %200, %.lr.ph

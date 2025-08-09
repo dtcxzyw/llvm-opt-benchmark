@@ -3710,7 +3710,7 @@ _ZN8facebook5velox15checkedMultiplyImEET_RKS2_S4_PKc.exit.i.i: ; preds = %if.end
   %capacity_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 32
   store i64 %sub.i.i, ptr %capacity_.i.i.i.i, align 8, !noalias !37
   %referenceCount_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i.i, align 4, !noalias !37
+  store i32 0, ptr %referenceCount_.i.i.i.i, align 8, !noalias !37
   %podType_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 44
   store i8 1, ptr %podType_.i.i.i.i, align 4, !noalias !37
   %padding_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 48
@@ -3809,7 +3809,7 @@ call6.i.i.i.noexc:                                ; preds = %call3.i.i.i.noexc
   %capacity_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i.i12, i64 32
   store i64 %sub.i.i.i, ptr %capacity_.i.i.i.i.i, align 8, !noalias !47
   %referenceCount_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i.i12, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i.i.i, align 4, !noalias !47
+  store i32 0, ptr %referenceCount_.i.i.i.i.i, align 8, !noalias !47
   %podType_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i.i12, i64 44
   store i8 1, ptr %podType_.i.i.i.i.i, align 4, !noalias !47
   %padding_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i.i12, i64 48

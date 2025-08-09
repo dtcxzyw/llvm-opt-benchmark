@@ -6939,7 +6939,7 @@ _ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store i64 %76, ptr %78, align 8, !alias.scope !67, !noalias !70
   store ptr %68, ptr %.092.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !70, !noalias !67
   store i64 0, ptr %77, align 8, !alias.scope !70, !noalias !67
-  store i8 0, ptr %68, align 1, !alias.scope !70, !noalias !67
+  store i8 0, ptr %68, align 8, !alias.scope !70, !noalias !67
   %79 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i.i.i.i, i64 32
   %80 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i.i.i.i, i64 32
   %81 = load ptr, ptr %80, align 8, !alias.scope !70, !noalias !67

@@ -158,7 +158,7 @@ define void @_ZN19OpenColorIO_v2_5dev12CDLTransform6CreateEv(ptr dead_on_unwind 
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %5, ptr %4, align 8, !tbaa !6
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i8 0, ptr %5, align 1, !tbaa !11
+  store i8 0, ptr %5, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 40
   invoke void @_ZN19OpenColorIO_v2_5dev9CDLOpDataC1Ev(ptr noundef nonnull align 8 dereferenceable(256) %7)
           to label %_ZN19OpenColorIO_v2_5dev16CDLTransformImplC2Ev.exit unwind label %8
@@ -276,7 +276,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev16CDLTransformImpl6CreateEv(ptr dead
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %5, ptr %4, align 8, !tbaa !6
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i8 0, ptr %5, align 1, !tbaa !11
+  store i8 0, ptr %5, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 40
   invoke void @_ZN19OpenColorIO_v2_5dev9CDLOpDataC1Ev(ptr noundef nonnull align 8 dereferenceable(256) %7)
           to label %_ZN19OpenColorIO_v2_5dev16CDLTransformImplC2Ev.exit unwind label %8

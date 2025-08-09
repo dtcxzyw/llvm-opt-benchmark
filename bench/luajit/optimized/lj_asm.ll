@@ -1665,7 +1665,7 @@ checkmclim.exit.i:                                ; preds = %asm_baseslot.exit.i
   %645 = getelementptr inbounds i8, ptr %643, i64 -5
   store i8 -61, ptr %645, align 1, !tbaa !20
   %646 = getelementptr i8, ptr %643, i64 -6
-  store i8 -57, ptr %646, align 1, !tbaa !20
+  store i8 -57, ptr %646, align 2, !tbaa !20
   %647 = getelementptr inbounds i8, ptr %643, i64 -7
   store i8 72, ptr %647, align 1, !tbaa !20
   br label %emit_loadu64.exit
@@ -1734,7 +1734,7 @@ emit_rmro.exit.i:                                 ; preds = %664, %661, %655
   %683 = getelementptr inbounds i8, ptr %670, i64 -5
   store i8 29, ptr %683, align 1, !tbaa !20
   %684 = getelementptr i8, ptr %670, i64 -6
-  store i8 -115, ptr %684, align 1, !tbaa !20
+  store i8 -115, ptr %684, align 2, !tbaa !20
   %685 = getelementptr i8, ptr %670, i64 -7
   store i8 72, ptr %685, align 1, !tbaa !20
   br label %emit_loadu64.exit
@@ -1745,7 +1745,7 @@ emit_rmro.exit.i:                                 ; preds = %664, %661, %655
   %688 = getelementptr inbounds i8, ptr %670, i64 -9
   store i8 -69, ptr %688, align 1, !tbaa !20
   %689 = getelementptr inbounds i8, ptr %670, i64 -10
-  store i8 72, ptr %689, align 1, !tbaa !20
+  store i8 72, ptr %689, align 2, !tbaa !20
   br label %emit_loadu64.exit
 
 emit_loadu64.exit:                                ; preds = %.thread.i.i291, %._crit_edge.i.i289, %642, %emit_rmro.exit.i, %681, %686
@@ -2335,7 +2335,7 @@ emit_movmroi.exit103.thread.i.i:                  ; preds = %970
   %978 = getelementptr inbounds i8, ptr %974, i64 -9
   store i8 -126, ptr %978, align 1, !tbaa !20
   %979 = getelementptr i8, ptr %974, i64 -10
-  store i8 -57, ptr %979, align 1, !tbaa !20
+  store i8 -57, ptr %979, align 2, !tbaa !20
   store ptr %979, ptr %89, align 8, !tbaa !60
   %980 = load i32, ptr %26, align 8, !tbaa !20
   %981 = getelementptr i8, ptr %974, i64 -14
@@ -6175,7 +6175,7 @@ ra_dest.exit53.i:                                 ; preds = %2915, %2912
   %2970 = getelementptr i8, ptr %2939, i64 -7
   store i8 -64, ptr %2970, align 1, !tbaa !20
   %2971 = getelementptr i8, ptr %2939, i64 -8
-  store i8 -57, ptr %2971, align 1, !tbaa !20
+  store i8 -57, ptr %2971, align 2, !tbaa !20
   %2972 = getelementptr i8, ptr %2939, i64 -9
   store i8 72, ptr %2972, align 1, !tbaa !20
   br label %emit_call_.exit.i
@@ -6242,7 +6242,7 @@ emit_rmro.exit.i1173:                             ; preds = %2988, %2985, %2980
   %3006 = getelementptr i8, ptr %2939, i64 -7
   store i8 5, ptr %3006, align 1, !tbaa !20
   %3007 = getelementptr i8, ptr %2939, i64 -8
-  store i8 -115, ptr %3007, align 1, !tbaa !20
+  store i8 -115, ptr %3007, align 2, !tbaa !20
   %3008 = getelementptr i8, ptr %2939, i64 -9
   store i8 72, ptr %3008, align 1, !tbaa !20
   br label %emit_call_.exit.i
@@ -6253,7 +6253,7 @@ emit_rmro.exit.i1173:                             ; preds = %2988, %2985, %2980
   %3011 = getelementptr i8, ptr %2939, i64 -11
   store i8 -72, ptr %3011, align 1, !tbaa !20
   %3012 = getelementptr i8, ptr %2939, i64 -12
-  store i8 72, ptr %3012, align 1, !tbaa !20
+  store i8 72, ptr %3012, align 2, !tbaa !20
   br label %emit_call_.exit.i
 
 3013:                                             ; preds = %2932
@@ -11983,7 +11983,7 @@ asm_tnew.exit:                                    ; preds = %.thread.i.i428, %._
   %5965 = getelementptr inbounds i8, ptr %5963, i64 -5
   store i8 16, ptr %5965, align 1, !tbaa !20
   %5966 = getelementptr inbounds i8, ptr %5963, i64 -6
-  store i8 64, ptr %5966, align 1, !tbaa !20
+  store i8 64, ptr %5966, align 2, !tbaa !20
   %5967 = getelementptr i8, ptr %5963, i64 -7
   store i8 -57, ptr %5967, align 1, !tbaa !20
   %5968 = and i32 %5940, 512
@@ -12121,7 +12121,7 @@ emit_rmro.exit.i414:                              ; preds = %6018, %6015, %6010
   %6036 = getelementptr inbounds i8, ptr %.046.i.i56.i.i, i64 -5
   store i8 13, ptr %6036, align 1, !tbaa !20
   %6037 = getelementptr i8, ptr %.046.i.i56.i.i, i64 -6
-  store i8 -115, ptr %6037, align 1, !tbaa !20
+  store i8 -115, ptr %6037, align 2, !tbaa !20
   %6038 = getelementptr i8, ptr %.046.i.i56.i.i, i64 -7
   store i8 72, ptr %6038, align 1, !tbaa !20
   br label %emit_gri.exit.i.i200
@@ -12132,7 +12132,7 @@ emit_rmro.exit.i414:                              ; preds = %6018, %6015, %6010
   %6041 = getelementptr inbounds i8, ptr %.046.i.i56.i.i, i64 -9
   store i8 -71, ptr %6041, align 1, !tbaa !20
   %6042 = getelementptr inbounds i8, ptr %.046.i.i56.i.i, i64 -10
-  store i8 72, ptr %6042, align 1, !tbaa !20
+  store i8 72, ptr %6042, align 2, !tbaa !20
   br label %emit_gri.exit.i.i200
 
 6043:                                             ; preds = %5937
@@ -14477,7 +14477,7 @@ ra_scratch.exit.i:                                ; preds = %7202, %ra_evict.exi
   store i32 %7148, ptr %7251, align 4, !tbaa !21
   %7252 = getelementptr i8, ptr %7231, i64 -9
   store i8 %7226, ptr %7252, align 1, !tbaa !20
-  store i8 %7228, ptr %7251, align 1, !tbaa !20
+  store i8 %7228, ptr %7251, align 2, !tbaa !20
   store ptr %7251, ptr %89, align 8, !tbaa !60
   call fastcc void @ra_left(ptr noundef nonnull %29, i32 noundef %7210, i32 noundef %6903)
   br label %asm_ir.exit
@@ -17591,7 +17591,7 @@ asm_guardcc.exit:                                 ; preds = %31, %35, %47
   %76 = getelementptr inbounds i8, ptr %71, i64 -5
   store i8 %75, ptr %76, align 1, !tbaa !20
   %77 = getelementptr i8, ptr %71, i64 -6
-  store i8 -115, ptr %77, align 1, !tbaa !20
+  store i8 -115, ptr %77, align 2, !tbaa !20
   %78 = lshr i8 %61, 1
   %79 = and i8 %78, 4
   %80 = or disjoint i8 %79, 73
@@ -17943,7 +17943,7 @@ emit_rr.exit.i:                                   ; preds = %32, %.thread.i
   %57 = getelementptr inbounds i8, ptr %52, i64 -5
   store i8 %56, ptr %57, align 1, !tbaa !20
   %58 = getelementptr i8, ptr %52, i64 -6
-  store i8 -57, ptr %58, align 1, !tbaa !20
+  store i8 -57, ptr %58, align 2, !tbaa !20
   %59 = lshr i8 %54, 3
   %60 = and i8 %59, 1
   %61 = or disjoint i8 %60, 72
@@ -18036,7 +18036,7 @@ emit_rmro.exit:                                   ; preds = %71, %78, %81
   %116 = getelementptr inbounds i8, ptr %99, i64 -5
   store i8 %115, ptr %116, align 1, !tbaa !20
   %117 = getelementptr i8, ptr %99, i64 -6
-  store i8 -115, ptr %117, align 1, !tbaa !20
+  store i8 -115, ptr %117, align 2, !tbaa !20
   %118 = lshr i32 %1, 1
   %119 = and i32 %118, 4
   %120 = lshr i32 %1, 16
@@ -18060,7 +18060,7 @@ emit_rmro.exit:                                   ; preds = %71, %78, %81
   %132 = and i8 %131, 1
   %133 = or disjoint i8 %132, 72
   %134 = getelementptr inbounds i8, ptr %99, i64 -10
-  store i8 %133, ptr %134, align 1, !tbaa !20
+  store i8 %133, ptr %134, align 2, !tbaa !20
   store ptr %134, ptr %98, align 8, !tbaa !60
   br label %emit_loadi.exit
 
@@ -18459,7 +18459,7 @@ emit_rmro.exit83:                                 ; preds = %197, %172, %130, %1
   %205 = and i8 %204, 56
   %206 = or disjoint i8 %205, 4
   %207 = getelementptr inbounds i8, ptr %63, i64 -6
-  store i8 %206, ptr %207, align 1, !tbaa !20
+  store i8 %206, ptr %207, align 2, !tbaa !20
   %sext.i = shl i32 %1, 24
   %208 = icmp eq i32 %sext.i, -1006632960
   br i1 %208, label %209, label %214
@@ -18561,7 +18561,7 @@ define internal fastcc void @asm_stack_check(ptr noundef nonnull captures(none) 
   %32 = getelementptr inbounds i8, ptr %26, i64 -5
   store i8 -126, ptr %32, align 1, !tbaa !20
   %33 = getelementptr inbounds i8, ptr %26, i64 -6
-  store i8 15, ptr %33, align 1, !tbaa !20
+  store i8 15, ptr %33, align 2, !tbaa !20
   br i1 %.not34, label %34, label %39
 
 34:                                               ; preds = %10
@@ -24985,7 +24985,7 @@ emit_rr.exit406:                                  ; preds = %970, %980
   %988 = getelementptr inbounds i8, ptr %.046.i.i405, i64 -5
   store i8 %987, ptr %988, align 1, !tbaa !20
   %989 = getelementptr i8, ptr %.046.i.i405, i64 -6
-  store i8 -127, ptr %989, align 1, !tbaa !20
+  store i8 -127, ptr %989, align 2, !tbaa !20
   %.not.i.i409 = icmp eq i32 %226, 0
   br i1 %.not.i.i409, label %emit_gri.exit411, label %990
 
@@ -30077,7 +30077,7 @@ emit_rmro.exit:                                   ; preds = %43, %58
   %75 = getelementptr inbounds i8, ptr %70, i64 -9
   store i8 5, ptr %75, align 1, !tbaa !20
   %76 = getelementptr i8, ptr %70, i64 -10
-  store i8 -57, ptr %76, align 1, !tbaa !20
+  store i8 -57, ptr %76, align 2, !tbaa !20
   store ptr %76, ptr %69, align 8, !tbaa !60
   %77 = load i32, ptr %5, align 8, !tbaa !20
   %78 = getelementptr i8, ptr %70, i64 -14
@@ -30134,7 +30134,7 @@ emit_rmro.exit:                                   ; preds = %43, %58
   %100 = getelementptr inbounds i8, ptr %70, i64 -9
   store i8 37, ptr %100, align 1, !tbaa !20
   %101 = getelementptr inbounds i8, ptr %70, i64 -10
-  store i8 4, ptr %101, align 1, !tbaa !20
+  store i8 4, ptr %101, align 2, !tbaa !20
   %102 = getelementptr i8, ptr %70, i64 -11
   store i8 -57, ptr %102, align 1, !tbaa !20
   store ptr %102, ptr %69, align 8, !tbaa !60
@@ -30144,7 +30144,7 @@ emit_rmro.exit:                                   ; preds = %43, %58
   %105 = getelementptr i8, ptr %70, i64 -19
   store i32 0, ptr %105, align 4, !tbaa !21
   %106 = getelementptr i8, ptr %70, i64 -20
-  store i8 37, ptr %106, align 1, !tbaa !20
+  store i8 37, ptr %106, align 4, !tbaa !20
   br label %.thread.i48
 
 .thread.i48:                                      ; preds = %98, %.thread103

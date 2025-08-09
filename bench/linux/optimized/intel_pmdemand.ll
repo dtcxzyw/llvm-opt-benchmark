@@ -629,7 +629,7 @@ intel_pmdemand_update_active_non_tc_phys.exit:    ; preds = %311, %intel_pmdeman
   %321 = tail call i32 @llvm.umin.i32(i32 %320, i32 7)
   %322 = trunc nuw nsw i32 %321 to i8
   %323 = getelementptr inbounds nuw i8, ptr %128, i64 48
-  store i8 %322, ptr %323, align 2
+  store i8 %322, ptr %323, align 8
   %324 = tail call i8 @llvm.umin.i8(i8 %322, i8 6)
   %325 = add nuw nsw i8 %324, 1
   %326 = getelementptr inbounds nuw i8, ptr %128, i64 49

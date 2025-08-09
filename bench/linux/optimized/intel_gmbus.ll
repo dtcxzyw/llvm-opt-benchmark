@@ -1020,7 +1020,7 @@ define dso_local i32 @intel_gmbus_setup(ptr noundef %0) local_unnamed_addr #1 al
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 7184
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 18874368
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %15
@@ -2826,7 +2826,7 @@ define internal noundef i32 @intel_gpio_pre_xfer(ptr noundef readonly captures(n
   %12 = load ptr, ptr %8, align 8
   tail call void %12(ptr noundef nonnull %7, i32 %11, i32 noundef 0, i1 noundef zeroext true) #12
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 7184
-  %14 = load i32, ptr %13, align 4
+  %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 8192
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %28, label %17

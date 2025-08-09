@@ -469,7 +469,7 @@ define dso_local void @_ZNK4i18n12phonenumbers11UnicodeText4Repr11DebugStringB5c
   %12 = load i32, ptr %11, align 8, !tbaa !24
   %13 = and i32 %12, -75
   %14 = or disjoint i32 %13, 8
-  store i32 %14, ptr %11, align 4, !tbaa !34
+  store i32 %14, ptr %11, align 8, !tbaa !34
   %15 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %1)
           to label %_ZNSolsEPKv.exit unwind label %57
 
@@ -511,7 +511,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit7: ; preds = %18, %2
   %36 = load i32, ptr %35, align 8, !tbaa !24
   %37 = and i32 %36, -75
   %38 = or disjoint i32 %37, 2
-  store i32 %38, ptr %35, align 4, !tbaa !34
+  store i32 %38, ptr %35, align 8, !tbaa !34
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %40 = load i32, ptr %39, align 8, !tbaa !19
   %41 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %15, i32 noundef %40)
@@ -2636,7 +2636,7 @@ define dso_local void @_ZNK4i18n12phonenumbers11UnicodeText11DebugStringB5cxx11E
   %13 = load i32, ptr %12, align 8, !tbaa !24
   %14 = and i32 %13, -75
   %15 = or disjoint i32 %14, 8
-  store i32 %15, ptr %12, align 4, !tbaa !34
+  store i32 %15, ptr %12, align 8, !tbaa !34
   %16 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %1)
           to label %17 unwind label %57
 
@@ -2649,7 +2649,7 @@ define dso_local void @_ZNK4i18n12phonenumbers11UnicodeText11DebugStringB5cxx11E
   %23 = load i32, ptr %22, align 8, !tbaa !24
   %24 = and i32 %23, -75
   %25 = or disjoint i32 %24, 2
-  store i32 %25, ptr %22, align 4, !tbaa !34
+  store i32 %25, ptr %22, align 8, !tbaa !34
   %26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull @.str.13, i64 noundef 7)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit9 unwind label %57
 
@@ -3030,7 +3030,7 @@ define dso_local void @_ZNK4i18n12phonenumbers11UnicodeText14const_iterator11Deb
   %12 = load i32, ptr %11, align 8, !tbaa !24
   %13 = and i32 %12, -75
   %14 = or disjoint i32 %13, 8
-  store i32 %14, ptr %11, align 4, !tbaa !34
+  store i32 %14, ptr %11, align 8, !tbaa !34
   %15 = load ptr, ptr %1, align 8, !tbaa !4
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %16, label %22

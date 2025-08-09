@@ -9255,7 +9255,7 @@ _ZSt16__insertion_sortIPSt4pairIjP3appEN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp2
   %.sroa.511.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %.sroa.511.0.copyload.i.i = load ptr, ptr %.sroa.511.0..sroa_idx.i.i, align 8
   %.013.i.i = getelementptr inbounds i8, ptr %.07.i, i64 -16
-  %47 = load i32, ptr %.013.i.i, align 4, !tbaa !43
+  %47 = load i32, ptr %.013.i.i, align 8, !tbaa !43
   %48 = icmp eq i32 %.sroa.0.0.copyload.i.i, %47
   %49 = icmp ult i32 %.sroa.0.0.copyload.i.i, %47
   %50 = getelementptr inbounds i8, ptr %.07.i, i64 -8

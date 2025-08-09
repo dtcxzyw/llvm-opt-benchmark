@@ -11065,7 +11065,7 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
   %108 = getelementptr inbounds nuw i8, ptr %106, i64 48
   %109 = load i64, ptr %108, align 8, !tbaa !47
   %110 = icmp eq i64 %109, %98
-  %111 = load i32, ptr %107, align 4
+  %111 = load i32, ptr %107, align 8
   %112 = icmp eq i32 %97, %111
   %113 = select i1 %110, i1 %112, i1 false
   br i1 %113, label %.loopexit, label %.lr.ph.i.i.i.i.i
@@ -17321,7 +17321,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN2cv6GShapeESt4pairIKS
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %33 = load i64, ptr %32, align 8, !tbaa !47
   %34 = icmp eq i64 %33, %9
-  %35 = load i32, ptr %31, align 4
+  %35 = load i32, ptr %31, align 8
   %36 = icmp eq i32 %8, %35
   %37 = select i1 %34, i1 %36, i1 false
   br i1 %37, label %_ZNKSt10_HashtableIN2cv6GShapeESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS1_EEPNSC_10_Hash_nodeISA_Lb1EEEmRKT_m.exit, label %.lr.ph.i.i
@@ -18435,7 +18435,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !tbaa !15, !alias.scope !526, !noalias !529
   store ptr %43, ptr %.0911.i.i.i.i, align 8, !tbaa !19, !alias.scope !529, !noalias !526
   store i64 0, ptr %52, align 8, !tbaa !15, !alias.scope !529, !noalias !526
-  store i8 0, ptr %43, align 1, !tbaa !17, !alias.scope !529, !noalias !526
+  store i8 0, ptr %43, align 8, !tbaa !17, !alias.scope !529, !noalias !526
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %54, %1
@@ -18483,7 +18483,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !tbaa !15, !alias.scope !533, !noalias !536
   store ptr %59, ptr %.0911.i.i.i.i29, align 8, !tbaa !19, !alias.scope !536, !noalias !533
   store i64 0, ptr %68, align 8, !tbaa !15, !alias.scope !536, !noalias !533
-  store i8 0, ptr %59, align 1, !tbaa !17, !alias.scope !536, !noalias !533
+  store i8 0, ptr %59, align 8, !tbaa !17, !alias.scope !536, !noalias !533
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 32
   %.not.i.i.i.i34 = icmp eq ptr %70, %6

@@ -11374,7 +11374,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_11AssertingVHINS_11InstructionEEEN12_GLOB
   %49 = load ptr, ptr %1, align 8, !tbaa !406
   store ptr %49, ptr %42, align 8, !tbaa !406
   %50 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store i32 0, ptr %50, align 4, !tbaa !74
+  store i32 0, ptr %50, align 8, !tbaa !74
   br label %.loopexit
 
 .loopexit:                                        ; preds = %22, %6, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_11AssertingVHINS_11InstructionEEEN12_GLOBAL__N_17WidenIV10ExtendKindENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E16InsertIntoBucketIS4_JEEEPSC_SG_OT_DpOT0_.exit
@@ -11569,7 +11569,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_11AssertingVHINS_11InstructionEEEN12_GLOB
   %63 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 8
   %64 = getelementptr inbounds nuw i8, ptr %.024.i.i, i64 8
   %65 = load i32, ptr %64, align 4, !tbaa !74
-  store i32 %65, ptr %63, align 4, !tbaa !74
+  store i32 %65, ptr %63, align 8, !tbaa !74
   %.val.i17.i.i = load i32, ptr %32, align 8, !tbaa !537
   %66 = add i32 %.val.i17.i.i, 1
   store i32 %66, ptr %32, align 8, !tbaa !537

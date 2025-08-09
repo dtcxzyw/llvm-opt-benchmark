@@ -3352,7 +3352,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit277: ; preds = %.
   %864 = getelementptr inbounds nuw i8, ptr %862, i64 24
   %865 = load i64, ptr %864, align 8
   %866 = icmp eq i64 %855, %865
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %863, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i = load i64, ptr %863, align 8
   %867 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i
   %868 = select i1 %866, i1 %867, i1 false
   br i1 %868, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_7TfTokenENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S2_EEE4findERS7_.exit.i, label %.lr.ph.i.i.i.i.i
@@ -4082,7 +4082,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit321: ; preds = %1134, %113
   %1182 = getelementptr inbounds nuw i8, ptr %1180, i64 24
   %1183 = load i64, ptr %1182, align 8
   %1184 = icmp eq i64 %1173, %1183
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i326 = load i64, ptr %1181, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i.i326 = load i64, ptr %1181, align 8
   %1185 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i325, %.0.copyload.i2.i.i.i.i18.i.i.i.i.i326
   %1186 = select i1 %1184, i1 %1185, i1 false
   br i1 %1186, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_7TfTokenENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S2_EEE4findERS7_.exit.i333, label %.lr.ph.i.i.i.i.i327
@@ -7968,7 +7968,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZN32pxrInter
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %68 = load i64, ptr %67, align 8
   %69 = icmp eq i64 %58, %68
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i = load i64, ptr %66, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i = load i64, ptr %66, align 8
   %70 = icmp eq i64 %.0.copyload.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i
   %71 = select i1 %69, i1 %70, i1 false
   br i1 %71, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_7TfTokenENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S2_EEE4findERS7_.exit, label %.lr.ph.i.i.i.i
@@ -8421,7 +8421,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit123: ; preds = %_ZN32pxrIn
   %281 = getelementptr inbounds nuw i8, ptr %279, i64 24
   %282 = load i64, ptr %281, align 8
   %283 = icmp eq i64 %272, %282
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i66 = load i64, ptr %280, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i66 = load i64, ptr %280, align 8
   %284 = icmp eq i64 %.0.copyload.i.i.i61, %.0.copyload.i2.i.i.i.i18.i.i.i.i66
   %285 = select i1 %283, i1 %284, i1 false
   br i1 %285, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_7TfTokenENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S2_EEE4findERS7_.exit79, label %.lr.ph.i.i.i.i67
@@ -8943,7 +8943,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__33Usd_Collectio
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %49 = load i64, ptr %48, align 8
   %50 = icmp eq i64 %38, %49
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i = load i64, ptr %47, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i = load i64, ptr %47, align 8
   %51 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i
   %52 = select i1 %50, i1 %51, i1 false
   br i1 %52, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_7TfTokenENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S2_EEE4findERS7_.exit, label %.lr.ph.i.i.i.i
@@ -14887,7 +14887,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7Sdf
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 8
   %.not.i.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS1_E.exit, label %9
 
@@ -14985,7 +14985,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_7T
   store ptr null, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load i32, ptr %22, align 4
-  store i32 %24, ptr %23, align 4
+  store i32 %24, ptr %23, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %24, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i, label %25
 
@@ -15055,7 +15055,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i: ; preds = 
   store ptr null, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %62 = load i32, ptr %60, align 4
-  store i32 %62, ptr %61, align 4
+  store i32 %62, ptr %61, align 8
   %.not.i.i.i.i.i.i.i32 = icmp eq i32 %62, 0
   br i1 %.not.i.i.i.i.i.i.i32, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i33, label %63
 
@@ -19731,8 +19731,8 @@ define linkonce_odr void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pa
   store i64 0, ptr %12, align 8
   %14 = load i32, ptr %0, align 4
   store i32 0, ptr %0, align 4
-  %15 = load i32, ptr %2, align 4
-  store i32 %14, ptr %2, align 4
+  %15 = load i32, ptr %2, align 8
+  store i32 %14, ptr %2, align 8
   %.not.i.i.i.i = icmp eq i32 %15, 0
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit.i, label %16
 
@@ -22943,7 +22943,7 @@ define internal fastcc noundef ptr @_ZNSt6vectorIZN32pxrInternal_v0_24__pxrReser
   %39 = load i32, ptr %38, align 8, !alias.scope !231, !noalias !228
   store i32 %39, ptr %37, align 8, !alias.scope !228, !noalias !231
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %9) #23
-  %40 = load i32, ptr %.093.i.i, align 4, !alias.scope !231, !noalias !228
+  %40 = load i32, ptr %.093.i.i, align 8, !alias.scope !231, !noalias !228
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %40, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIZN32pxrInternal_v0_24__pxrReserved__60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapERKSt13unordered_mapINS0_7SdfPathENS0_7TfTokenENS2_4HashESt8equal_toIS2_ESaISt4pairIKS2_S3_EEEE10StackEntrySE_SaISE_EEvPT_PT0_RT1_.exit.i.i, label %41
 

@@ -30,7 +30,7 @@ define hidden range(i64 -1, 1) i64 @roseCatchUpMPV_i(ptr noundef %0, i64 noundef
   %16 = zext i32 %15 to i64
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 320
-  %19 = load i64, ptr %18, align 8
+  %19 = load i64, ptr %18, align 16
   %20 = add i64 %19, %1
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 264
   %22 = load ptr, ptr %21, align 8
@@ -5463,7 +5463,7 @@ define internal fastcc range(i64 -1, 1) i64 @roseCatchUpNfas(ptr noundef %0, i64
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 224
-  %15 = load i32, ptr %14, align 8
+  %15 = load i32, ptr %14, align 16
   %.not336 = icmp eq i32 %15, 0
   br i1 %.not336, label %runExistingNfaToNextMatch.exit.thread226, label %.lr.ph338
 

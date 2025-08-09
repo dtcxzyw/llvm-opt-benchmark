@@ -9613,7 +9613,7 @@ _ZNSt12_Vector_baseIN11OpenImageIO6v3_1_010ParamValueESaIS2_EE11_M_allocateEm.ex
   %.sroa.04.08.i.i.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i.i.i ], [ %6, %_ZNSt12_Vector_baseIN11OpenImageIO6v3_1_010ParamValueESaIS2_EE11_M_allocateEm.exit.i ]
   store ptr null, ptr %.09.i.i.i.i.i, align 8, !tbaa !310
   %22 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 8
-  store i8 0, ptr %22, align 4, !tbaa !130
+  store i8 0, ptr %22, align 8, !tbaa !130
   %23 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 9
   store i8 1, ptr %23, align 1, !tbaa !143
   %24 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 10
@@ -9779,7 +9779,7 @@ _ZSt4copyIPN11OpenImageIO6v3_1_010ParamValueES3_ET0_T_S5_S4_.exit: ; preds = %_Z
   %.0810.i.i.i.i = phi ptr [ %100, %.lr.ph.i.i.i.i ], [ %81, %_ZSt4copyIPN11OpenImageIO6v3_1_010ParamValueES3_ET0_T_S5_S4_.exit ]
   store ptr null, ptr %.011.i.i.i.i, align 8, !tbaa !310
   %82 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
-  store i8 0, ptr %82, align 4, !tbaa !130
+  store i8 0, ptr %82, align 8, !tbaa !130
   %83 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 9
   store i8 1, ptr %83, align 1, !tbaa !143
   %84 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 10
@@ -35422,7 +35422,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   store ptr %42, ptr %41, align 8, !tbaa !84
   %43 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store i64 0, ptr %43, align 8, !tbaa !33
-  store i8 0, ptr %42, align 1, !tbaa !34
+  store i8 0, ptr %42, align 8, !tbaa !34
   store i16 %.135.lcssa, ptr %33, align 8, !tbaa !4
   br label %58
 
@@ -35779,8 +35779,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %91, ptr %90, align 8, !tbaa !86
   %106 = getelementptr inbounds nuw i8, ptr %85, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef nonnull align 8 dereferenceable(32) %106) #6
-  %107 = load i16, ptr %85, align 2, !tbaa !742
-  store i16 %.011.i, ptr %85, align 2, !tbaa !742
+  %107 = load i16, ptr %85, align 8, !tbaa !742
+  store i16 %.011.i, ptr %85, align 8, !tbaa !742
   %.pre = load i64, ptr %3, align 8, !tbaa !87
   br label %108
 
@@ -35799,7 +35799,7 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairImNSt7__cxx1112basic_stringIcSt11c
   store i64 %114, ptr %115, align 8, !tbaa !33
   store ptr %96, ptr %81, align 8, !tbaa !29
   store i64 0, ptr %113, align 8, !tbaa !33
-  store i8 0, ptr %96, align 1, !tbaa !34
+  store i8 0, ptr %96, align 8, !tbaa !34
   store i16 %.011.i, ptr %85, align 8, !tbaa !4
   br label %116
 
@@ -35828,8 +35828,8 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairI
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %13) #6
-  %14 = load i16, ptr %8, align 2, !tbaa !742
-  store i16 %2, ptr %8, align 2, !tbaa !742
+  %14 = load i16, ptr %8, align 8, !tbaa !742
+  store i16 %2, ptr %8, align 8, !tbaa !742
   %15 = add i64 %1, 1
   %16 = load i64, ptr %0, align 8, !tbaa !87
   %17 = and i64 %16, %15
@@ -35870,8 +35870,8 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairI
   store i64 %34, ptr %33, align 8, !tbaa !86
   %36 = getelementptr inbounds nuw i8, ptr %27, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %36) #6
-  %37 = load i16, ptr %27, align 2, !tbaa !742
-  store i16 %storemerge19, ptr %27, align 2, !tbaa !742
+  %37 = load i16, ptr %27, align 8, !tbaa !742
+  store i16 %storemerge19, ptr %27, align 8, !tbaa !742
   %.pre = load i64, ptr %0, align 8, !tbaa !87
   %.pre23 = load ptr, ptr %6, align 8, !tbaa !11
   br label %38
@@ -36023,7 +36023,7 @@ _ZN3tsl17detail_robin_hash12bucket_entryISt4pairImNSt7__cxx1112basic_stringIcSt1
   store i64 %51, ptr %52, align 8, !tbaa !33
   store ptr %42, ptr %39, align 8, !tbaa !29
   store i64 0, ptr %50, align 8, !tbaa !33
-  store i8 0, ptr %42, align 1, !tbaa !34
+  store i8 0, ptr %42, align 8, !tbaa !34
   store i16 %33, ptr %34, align 8, !tbaa !4
   %53 = load ptr, ptr %18, align 8, !tbaa !11
   %54 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %53, i64 %.01116

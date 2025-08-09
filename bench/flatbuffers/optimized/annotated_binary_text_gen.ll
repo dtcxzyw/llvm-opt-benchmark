@@ -7042,13 +7042,13 @@ define internal fastcc void @_ZN11flatbuffersL5ToHexImEENSt7__cxx1112basic_strin
   %11 = load i32, ptr %10, align 8, !tbaa !257
   %12 = and i32 %11, -75
   %13 = or disjoint i32 %12, 8
-  store i32 %13, ptr %10, align 4, !tbaa !258
+  store i32 %13, ptr %10, align 8, !tbaa !258
   %14 = load i64, ptr %7, align 8
   %15 = getelementptr inbounds i8, ptr %5, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load i32, ptr %16, align 8, !tbaa !257
   %18 = or i32 %17, 16384
-  store i32 %18, ptr %16, align 4, !tbaa !258
+  store i32 %18, ptr %16, align 8, !tbaa !258
   %19 = load i64, ptr %7, align 8
   %20 = getelementptr inbounds i8, ptr %5, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 225
@@ -7240,13 +7240,13 @@ define internal fastcc void @_ZN11flatbuffersL5ToHexB5cxx11Eh(ptr dead_on_unwind
   %11 = load i32, ptr %10, align 8, !tbaa !257, !noalias !269
   %12 = and i32 %11, -75
   %13 = or disjoint i32 %12, 8
-  store i32 %13, ptr %10, align 4, !tbaa !258, !noalias !269
+  store i32 %13, ptr %10, align 8, !tbaa !258, !noalias !269
   %14 = load i64, ptr %7, align 8, !noalias !269
   %15 = getelementptr inbounds i8, ptr %5, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load i32, ptr %16, align 8, !tbaa !257, !noalias !269
   %18 = or i32 %17, 16384
-  store i32 %18, ptr %16, align 4, !tbaa !258, !noalias !269
+  store i32 %18, ptr %16, align 8, !tbaa !258, !noalias !269
   %19 = load i64, ptr %7, align 8, !noalias !269
   %20 = getelementptr inbounds i8, ptr %5, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 225
@@ -8227,7 +8227,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96.i: ; preds = %_
   %356 = load i32, ptr %355, align 8, !tbaa !257
   %357 = and i32 %356, -177
   %358 = or disjoint i32 %357, 32
-  store i32 %358, ptr %355, align 4, !tbaa !258
+  store i32 %358, ptr %355, align 8, !tbaa !258
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %.val.i = load i32, ptr %52, align 8, !tbaa !43
   %.val78.i = load i64, ptr %53, align 8
@@ -8490,7 +8490,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit120.i: ; preds = %440,
   %457 = load i32, ptr %456, align 8, !tbaa !257
   %458 = and i32 %457, -177
   %459 = or disjoint i32 %458, 32
-  store i32 %459, ptr %456, align 4, !tbaa !258
+  store i32 %459, ptr %456, align 8, !tbaa !258
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %460 = load i64, ptr %38, align 8, !tbaa !27
   call void @llvm.experimental.noalias.scope.decl(metadata !302)
@@ -9000,7 +9000,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit187.i: ; preds = %
   %634 = load i32, ptr %633, align 8, !tbaa !257
   %635 = and i32 %634, -177
   %636 = or disjoint i32 %635, 32
-  store i32 %636, ptr %633, align 4, !tbaa !258
+  store i32 %636, ptr %633, align 8, !tbaa !258
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_113ToValueStringB5cxx11ERKNS_12BinaryRegionEPKhRKNS0_12OutputConfigE(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef readonly %2, ptr noundef nonnull readonly align 8 dereferenceable(34) %3)
           to label %637 unwind label %684

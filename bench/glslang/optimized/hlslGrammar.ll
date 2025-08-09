@@ -2068,7 +2068,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEaSE
   store ptr %105, ptr %107, align 8
   %108 = getelementptr inbounds nuw i8, ptr %73, i64 272
   store i64 0, ptr %108, align 8
-  store i8 0, ptr %105, align 1
+  store i8 0, ptr %105, align 8
   %109 = getelementptr inbounds nuw i8, ptr %73, i64 296
   store i8 0, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %73, i64 304
@@ -7706,10 +7706,10 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar22acceptStructBufferTypeERNS_
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
-  %22 = load i32, ptr %21, align 4
+  %22 = load i32, ptr %21, align 8
   %23 = and i32 %22, -2147483648
   %24 = or disjoint i32 %23, 520093696
-  store i32 %24, ptr %21, align 4
+  store i32 %24, ptr %21, align 8
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %27 = load i64, ptr %26, align 8
@@ -9015,10 +9015,10 @@ _ZNSt6vectorIN7glslang19TFunctionDeclaratorENS0_14pool_allocatorIS1_EEE6resizeEm
   %106 = getelementptr inbounds nuw i8, ptr %99, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %104, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %105, i8 0, i64 16, i1 false)
-  %107 = load i32, ptr %106, align 4
+  %107 = load i32, ptr %106, align 8
   %108 = and i32 %107, -2147483648
   %109 = or disjoint i32 %108, 520093696
-  store i32 %109, ptr %106, align 4
+  store i32 %109, ptr %106, align 8
   %110 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %111 = getelementptr inbounds nuw i8, ptr %99, i64 24
   %112 = load i64, ptr %111, align 8
@@ -9426,10 +9426,10 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar26acceptParameterDeclarationE
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
-  %22 = load i32, ptr %21, align 4
+  %22 = load i32, ptr %21, align 8
   %23 = and i32 %22, -2147483648
   %24 = or disjoint i32 %23, 520093696
-  store i32 %24, ptr %21, align 4
+  store i32 %24, ptr %21, align 8
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %27 = load i64, ptr %26, align 8

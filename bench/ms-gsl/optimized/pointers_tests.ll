@@ -295,7 +295,7 @@ _ZN7testing15AssertionResultD2Ev.exit181:         ; preds = %_ZNSt10unique_ptrIi
   store i32 1, ptr %8, align 4, !noalias !10
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126NotMoveAssignableCustomPtrESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !10
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 0, ptr %9, align 4, !noalias !10
+  store i32 0, ptr %9, align 8, !noalias !10
   %10 = load atomic i64, ptr %7 acquire, align 8
   %11 = icmp eq i64 %10, 4294967297
   %12 = trunc i64 %10 to i32

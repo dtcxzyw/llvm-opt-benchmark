@@ -714,7 +714,7 @@ define internal void @packet_net_exit(ptr noundef %0) #2 align 16 {
   %3 = load ptr, ptr %2, align 32
   tail call void @remove_proc_entry(ptr noundef nonnull @.str.2, ptr noundef %3) #19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %5 = load volatile ptr, ptr %4, align 8
+  %5 = load volatile ptr, ptr %4, align 32
   %6 = icmp eq ptr %5, null
   br i1 %6, label %8, label %7, !prof !22
 
@@ -790,7 +790,7 @@ define internal noundef i32 @packet_seq_show(ptr noundef %0, ptr noundef %1) #2 
   %21 = lshr i32 %20, 4
   %22 = and i32 %21, 1
   %23 = getelementptr i8, ptr %1, i64 136
-  %24 = load volatile i32, ptr %23, align 4
+  %24 = load volatile i32, ptr %23, align 8
   %25 = tail call i32 @sock_i_uid(ptr noundef %6) #19
   %26 = icmp eq i32 %25, -1
   %27 = load i32, ptr @overflowuid, align 4
@@ -902,7 +902,7 @@ define internal noundef range(i32 -105, 1) i32 @packet_create(ptr noundef %0, pt
   %38 = getelementptr inbounds nuw i8, ptr %13, i64 1392
   store ptr %13, ptr %38, align 16
   %39 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  %40 = load ptr, ptr %39, align 8
+  %40 = load ptr, ptr %39, align 16
   %41 = getelementptr inbounds nuw i8, ptr %13, i64 1384
   store ptr %40, ptr %41, align 8
   %42 = icmp eq i16 %5, 0
@@ -1338,7 +1338,7 @@ define internal noundef i32 @packet_rcv(ptr noundef %0, ptr noundef %1, ptr noun
   %188 = add i32 %187, 1
   store i32 %188, ptr %186, align 16
   %189 = getelementptr inbounds nuw i8, ptr %15, i64 96
-  %190 = load volatile i64, ptr %189, align 8
+  %190 = load volatile i64, ptr %189, align 16
   %191 = and i64 %190, 131072
   %192 = icmp eq i64 %191, 0
   br i1 %192, label %196, label %193
@@ -1532,14 +1532,14 @@ define internal noundef i32 @packet_rcv_spkt(ptr noundef %0, ptr noundef %1, ptr
   %63 = tail call ptr @skb_push(ptr noundef nonnull %27, i32 noundef %62) #19
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %65 = load i16, ptr %64, align 8
-  store i16 %65, ptr %50, align 2
+  store i16 %65, ptr %50, align 8
   %66 = getelementptr inbounds nuw i8, ptr %27, i64 42
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %68 = tail call i64 @strscpy(ptr noundef nonnull %66, ptr noundef nonnull %67, i64 noundef 14) #19
   %69 = getelementptr inbounds nuw i8, ptr %27, i64 176
   %70 = load i16, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %27, i64 56
-  store i16 %70, ptr %71, align 2
+  store i16 %70, ptr %71, align 8
   %72 = tail call i32 @sock_queue_rcv_skb_reason(ptr noundef %6, ptr noundef nonnull %27, ptr noundef null) #19
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %74, label %.sink.split
@@ -1596,7 +1596,7 @@ define internal noundef i32 @packet_release(ptr noundef captures(none) %0) #2 al
 19:                                               ; preds = %17, %13
   store ptr null, ptr %10, align 8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 128
-  %21 = load volatile i32, ptr %20, align 4
+  %21 = load volatile i32, ptr %20, align 8
   %22 = icmp eq i32 %21, 1
   br i1 %22, label %23, label %24, !prof !18
 
@@ -1671,7 +1671,7 @@ define internal noundef i32 @packet_release(ptr noundef captures(none) %0) #2 al
   %59 = phi ptr [ %93, %packet_dev_mc.exit ], [ %57, %56 ]
   %60 = load ptr, ptr %59, align 8
   store ptr %60, ptr %53, align 16
-  %61 = load ptr, ptr %7, align 8
+  %61 = load ptr, ptr %7, align 16
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %63 = load i32, ptr %62, align 8
   %64 = tail call ptr @__dev_get_by_index(ptr noundef %61, i32 noundef %63) #19
@@ -1925,7 +1925,7 @@ define internal range(i32 -95, 268) i32 @packet_getname(ptr noundef readonly cap
   store i8 0, ptr %14, align 2
   tail call void @__rcu_read_lock() #19
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %16 = load ptr, ptr %15, align 8
+  %16 = load ptr, ptr %15, align 16
   %17 = tail call ptr @dev_get_by_index_rcu(ptr noundef %16, i32 noundef %9) #19
   %18 = icmp eq ptr %17, null
   br i1 %18, label %30, label %19
@@ -4057,12 +4057,12 @@ define internal i32 @packet_sendmsg(ptr noundef readonly captures(none) %0, ptr 
 611:                                              ; preds = %.thread
   %.val = load i32, ptr %126, align 32
   call fastcc void @__packet_set_status(i32 %.val, ptr noundef nonnull %.us-phi, i32 noundef 0)
-  %612 = load i32, ptr %123, align 8
+  %612 = load i32, ptr %123, align 16
   %613 = load i32, ptr %142, align 4
   %614 = icmp eq i32 %612, %613
   %615 = add i32 %612, 1
   %616 = select i1 %614, i32 0, i32 %615
-  store i32 %616, ptr %123, align 8
+  store i32 %616, ptr %123, align 16
   call void @kfree_skb_reason(ptr noundef %607, i32 noundef 2) #19
   br label %.outer, !llvm.loop !72
 
@@ -4104,7 +4104,7 @@ define internal i32 @packet_sendmsg(ptr noundef readonly captures(none) %0, ptr 
   store ptr @tpacket_destruct_skb, ptr %632, align 8
   %.val64 = load i32, ptr %126, align 32
   call fastcc void @__packet_set_status(i32 %.val64, ptr noundef nonnull %.us-phi, i32 noundef 2)
-  %633 = load ptr, ptr %141, align 8
+  %633 = load ptr, ptr %141, align 16
   call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %633, ptr elementtype(i32) %633) #19, !srcloc !73
   %634 = call fastcc i32 @packet_xmit(ptr noundef %10, ptr noundef nonnull %312)
   store i32 %634, ptr %8, align 4
@@ -4995,7 +4995,7 @@ define internal i32 @packet_recvmsg(ptr noundef readonly captures(none) %0, ptr 
 126:                                              ; preds = %122
   %127 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %128 = load i32, ptr %127, align 8
-  store i16 17, ptr %127, align 4
+  store i16 17, ptr %127, align 8
   %129 = getelementptr inbounds nuw i8, ptr %22, i64 176
   %130 = load i16, ptr %129, align 8
   %131 = getelementptr inbounds nuw i8, ptr %22, i64 42
@@ -7562,7 +7562,7 @@ define internal fastcc range(i32 0, 3) i32 @__packet_rcv_has_room(ptr noundef %0
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %8 = load volatile i32, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %10 = load volatile i32, ptr %9, align 4
+  %10 = load volatile i32, ptr %9, align 8
   %11 = icmp eq ptr %1, null
   br i1 %11, label %15, label %12
 
@@ -7600,7 +7600,7 @@ define internal fastcc range(i32 0, 3) i32 @__packet_rcv_has_room(ptr noundef %0
   %37 = select i1 %36, i32 0, i32 %30
   %38 = sub i32 %35, %37
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 816
-  %40 = load ptr, ptr %39, align 8
+  %40 = load ptr, ptr %39, align 16
   %41 = zext i32 %38 to i64
   %42 = getelementptr %struct.pgv, ptr %40, i64 %41
   %43 = load ptr, ptr %42, align 8
@@ -8880,7 +8880,7 @@ define internal fastcc noundef range(i32 -114, 1) i32 @fanout_add(ptr noundef %0
   %114 = getelementptr inbounds nuw i8, ptr %107, i64 19
   store i8 %65, ptr %114, align 1
   %115 = getelementptr inbounds nuw i8, ptr %107, i64 32
-  store volatile ptr %115, ptr %115, align 8
+  store volatile ptr %115, ptr %115, align 16
   %116 = getelementptr inbounds nuw i8, ptr %107, i64 40
   store volatile ptr %115, ptr %116, align 8
   %117 = getelementptr inbounds nuw i8, ptr %107, i64 48
@@ -8931,7 +8931,7 @@ define internal fastcc noundef range(i32 -114, 1) i32 @fanout_add(ptr noundef %0
   %140 = load ptr, ptr @fanout_list, align 8
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
   store ptr %115, ptr %141, align 8
-  store ptr %140, ptr %115, align 8
+  store ptr %140, ptr %115, align 32
   store ptr @fanout_list, ptr %116, align 8
   store volatile ptr %115, ptr @fanout_list, align 8
   br label %142
@@ -10086,7 +10086,7 @@ define internal void @tpacket_destruct_skb(ptr noundef %0) #2 align 16 {
   %76 = getelementptr i8, ptr %3, i64 1248
   %.val = load i32, ptr %76, align 32
   tail call fastcc void @__packet_set_status(i32 %.val, ptr noundef %18, i32 noundef %75)
-  %77 = load ptr, ptr %19, align 8
+  %77 = load ptr, ptr %19, align 16
   %78 = icmp eq ptr %77, null
   br i1 %78, label %104, label %79
 

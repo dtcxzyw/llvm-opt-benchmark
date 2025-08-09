@@ -2028,7 +2028,7 @@ _ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit647.i: ; preds
   %call5.i.i.i.i.i915.i = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
   store ptr null, ptr %call5.i.i.i.i.i915.i, align 8
   %add.ptr.i.i.i916.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i915.i, i64 8
-  store i32 %call155.i, ptr %add.ptr.i.i.i916.i, align 4
+  store i32 %call155.i, ptr %add.ptr.i.i.i916.i, align 8
   %second.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i915.i, i64 12
   store i32 %retval.0.i642.i, ptr %second.i.i.i.i.i.i.i, align 4
   %187 = load i64, ptr %_M_element_count.i.i917.i, align 8
@@ -3663,7 +3663,7 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIj
   %__bbegin_bkt.021 = phi i64 [ %__bbegin_bkt.1, %if.end22 ], [ 0, %_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %1 = load ptr, ptr %__p.022, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %__p.022, i64 8
-  %2 = load i32, ptr %add.ptr, align 4
+  %2 = load i32, ptr %add.ptr, align 8
   %conv.i.i.i = zext i32 %2 to i64
   %rem.i.i = urem i64 %conv.i.i.i, %__bkt_count
   %arrayidx = getelementptr inbounds nuw ptr, ptr %retval.0.i, i64 %rem.i.i

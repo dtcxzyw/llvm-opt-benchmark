@@ -3221,43 +3221,43 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev24
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev24GammaMoncurveOpCPUFwdSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !tbaa !95
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store float 1.000000e+00, ptr %8, align 4, !tbaa !135
+  store float 1.000000e+00, ptr %8, align 8, !tbaa !135
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store float 0.000000e+00, ptr %9, align 4, !tbaa !137
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store float 0.000000e+00, ptr %10, align 4, !tbaa !138
+  store float 0.000000e+00, ptr %10, align 8, !tbaa !138
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store float 1.000000e+00, ptr %11, align 4, !tbaa !139
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store float 1.000000e+00, ptr %12, align 4, !tbaa !140
+  store float 1.000000e+00, ptr %12, align 8, !tbaa !140
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store float 1.000000e+00, ptr %13, align 4, !tbaa !135
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store float 0.000000e+00, ptr %14, align 4, !tbaa !137
+  store float 0.000000e+00, ptr %14, align 8, !tbaa !137
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store float 0.000000e+00, ptr %15, align 4, !tbaa !138
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store float 1.000000e+00, ptr %16, align 4, !tbaa !139
+  store float 1.000000e+00, ptr %16, align 8, !tbaa !139
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 60
   store float 1.000000e+00, ptr %17, align 4, !tbaa !140
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store float 1.000000e+00, ptr %18, align 4, !tbaa !135
+  store float 1.000000e+00, ptr %18, align 8, !tbaa !135
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 68
   store float 0.000000e+00, ptr %19, align 4, !tbaa !137
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store float 0.000000e+00, ptr %20, align 4, !tbaa !138
+  store float 0.000000e+00, ptr %20, align 8, !tbaa !138
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 76
   store float 1.000000e+00, ptr %21, align 4, !tbaa !139
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store float 1.000000e+00, ptr %22, align 4, !tbaa !140
+  store float 1.000000e+00, ptr %22, align 8, !tbaa !140
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 84
   store float 1.000000e+00, ptr %23, align 4, !tbaa !135
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  store float 0.000000e+00, ptr %24, align 4, !tbaa !137
+  store float 0.000000e+00, ptr %24, align 8, !tbaa !137
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 92
   store float 0.000000e+00, ptr %25, align 4, !tbaa !138
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  store float 1.000000e+00, ptr %26, align 4, !tbaa !139
+  store float 1.000000e+00, ptr %26, align 8, !tbaa !139
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 100
   store float 1.000000e+00, ptr %27, align 4, !tbaa !140
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev21GammaMoncurveOpCPUFwdE, i64 16), ptr %7, align 8, !tbaa !95
@@ -3367,43 +3367,43 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev21
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev21GammaMoncurveOpCPUFwdESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !tbaa !95
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store float 1.000000e+00, ptr %8, align 4, !tbaa !135
+  store float 1.000000e+00, ptr %8, align 8, !tbaa !135
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store float 0.000000e+00, ptr %9, align 4, !tbaa !137
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store float 0.000000e+00, ptr %10, align 4, !tbaa !138
+  store float 0.000000e+00, ptr %10, align 8, !tbaa !138
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store float 1.000000e+00, ptr %11, align 4, !tbaa !139
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store float 1.000000e+00, ptr %12, align 4, !tbaa !140
+  store float 1.000000e+00, ptr %12, align 8, !tbaa !140
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store float 1.000000e+00, ptr %13, align 4, !tbaa !135
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store float 0.000000e+00, ptr %14, align 4, !tbaa !137
+  store float 0.000000e+00, ptr %14, align 8, !tbaa !137
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store float 0.000000e+00, ptr %15, align 4, !tbaa !138
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store float 1.000000e+00, ptr %16, align 4, !tbaa !139
+  store float 1.000000e+00, ptr %16, align 8, !tbaa !139
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 60
   store float 1.000000e+00, ptr %17, align 4, !tbaa !140
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store float 1.000000e+00, ptr %18, align 4, !tbaa !135
+  store float 1.000000e+00, ptr %18, align 8, !tbaa !135
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 68
   store float 0.000000e+00, ptr %19, align 4, !tbaa !137
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store float 0.000000e+00, ptr %20, align 4, !tbaa !138
+  store float 0.000000e+00, ptr %20, align 8, !tbaa !138
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 76
   store float 1.000000e+00, ptr %21, align 4, !tbaa !139
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store float 1.000000e+00, ptr %22, align 4, !tbaa !140
+  store float 1.000000e+00, ptr %22, align 8, !tbaa !140
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 84
   store float 1.000000e+00, ptr %23, align 4, !tbaa !135
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  store float 0.000000e+00, ptr %24, align 4, !tbaa !137
+  store float 0.000000e+00, ptr %24, align 8, !tbaa !137
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 92
   store float 0.000000e+00, ptr %25, align 4, !tbaa !138
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  store float 1.000000e+00, ptr %26, align 4, !tbaa !139
+  store float 1.000000e+00, ptr %26, align 8, !tbaa !139
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 100
   store float 1.000000e+00, ptr %27, align 4, !tbaa !140
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev21GammaMoncurveOpCPUFwdE, i64 16), ptr %7, align 8, !tbaa !95
@@ -3506,43 +3506,43 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev24
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev24GammaMoncurveOpCPURevSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !tbaa !95
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store float 1.000000e+00, ptr %8, align 4, !tbaa !135
+  store float 1.000000e+00, ptr %8, align 8, !tbaa !135
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store float 0.000000e+00, ptr %9, align 4, !tbaa !137
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store float 0.000000e+00, ptr %10, align 4, !tbaa !138
+  store float 0.000000e+00, ptr %10, align 8, !tbaa !138
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store float 1.000000e+00, ptr %11, align 4, !tbaa !139
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store float 1.000000e+00, ptr %12, align 4, !tbaa !140
+  store float 1.000000e+00, ptr %12, align 8, !tbaa !140
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store float 1.000000e+00, ptr %13, align 4, !tbaa !135
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store float 0.000000e+00, ptr %14, align 4, !tbaa !137
+  store float 0.000000e+00, ptr %14, align 8, !tbaa !137
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store float 0.000000e+00, ptr %15, align 4, !tbaa !138
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store float 1.000000e+00, ptr %16, align 4, !tbaa !139
+  store float 1.000000e+00, ptr %16, align 8, !tbaa !139
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 60
   store float 1.000000e+00, ptr %17, align 4, !tbaa !140
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store float 1.000000e+00, ptr %18, align 4, !tbaa !135
+  store float 1.000000e+00, ptr %18, align 8, !tbaa !135
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 68
   store float 0.000000e+00, ptr %19, align 4, !tbaa !137
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store float 0.000000e+00, ptr %20, align 4, !tbaa !138
+  store float 0.000000e+00, ptr %20, align 8, !tbaa !138
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 76
   store float 1.000000e+00, ptr %21, align 4, !tbaa !139
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store float 1.000000e+00, ptr %22, align 4, !tbaa !140
+  store float 1.000000e+00, ptr %22, align 8, !tbaa !140
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 84
   store float 1.000000e+00, ptr %23, align 4, !tbaa !135
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  store float 0.000000e+00, ptr %24, align 4, !tbaa !137
+  store float 0.000000e+00, ptr %24, align 8, !tbaa !137
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 92
   store float 0.000000e+00, ptr %25, align 4, !tbaa !138
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  store float 1.000000e+00, ptr %26, align 4, !tbaa !139
+  store float 1.000000e+00, ptr %26, align 8, !tbaa !139
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 100
   store float 1.000000e+00, ptr %27, align 4, !tbaa !140
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev21GammaMoncurveOpCPURevE, i64 16), ptr %7, align 8, !tbaa !95
@@ -3646,43 +3646,43 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev21
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev21GammaMoncurveOpCPURevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !tbaa !95
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store float 1.000000e+00, ptr %8, align 4, !tbaa !135
+  store float 1.000000e+00, ptr %8, align 8, !tbaa !135
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store float 0.000000e+00, ptr %9, align 4, !tbaa !137
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store float 0.000000e+00, ptr %10, align 4, !tbaa !138
+  store float 0.000000e+00, ptr %10, align 8, !tbaa !138
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store float 1.000000e+00, ptr %11, align 4, !tbaa !139
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store float 1.000000e+00, ptr %12, align 4, !tbaa !140
+  store float 1.000000e+00, ptr %12, align 8, !tbaa !140
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store float 1.000000e+00, ptr %13, align 4, !tbaa !135
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store float 0.000000e+00, ptr %14, align 4, !tbaa !137
+  store float 0.000000e+00, ptr %14, align 8, !tbaa !137
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store float 0.000000e+00, ptr %15, align 4, !tbaa !138
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store float 1.000000e+00, ptr %16, align 4, !tbaa !139
+  store float 1.000000e+00, ptr %16, align 8, !tbaa !139
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 60
   store float 1.000000e+00, ptr %17, align 4, !tbaa !140
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store float 1.000000e+00, ptr %18, align 4, !tbaa !135
+  store float 1.000000e+00, ptr %18, align 8, !tbaa !135
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 68
   store float 0.000000e+00, ptr %19, align 4, !tbaa !137
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store float 0.000000e+00, ptr %20, align 4, !tbaa !138
+  store float 0.000000e+00, ptr %20, align 8, !tbaa !138
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 76
   store float 1.000000e+00, ptr %21, align 4, !tbaa !139
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store float 1.000000e+00, ptr %22, align 4, !tbaa !140
+  store float 1.000000e+00, ptr %22, align 8, !tbaa !140
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 84
   store float 1.000000e+00, ptr %23, align 4, !tbaa !135
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  store float 0.000000e+00, ptr %24, align 4, !tbaa !137
+  store float 0.000000e+00, ptr %24, align 8, !tbaa !137
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 92
   store float 0.000000e+00, ptr %25, align 4, !tbaa !138
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  store float 1.000000e+00, ptr %26, align 4, !tbaa !139
+  store float 1.000000e+00, ptr %26, align 8, !tbaa !139
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 100
   store float 1.000000e+00, ptr %27, align 4, !tbaa !140
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev21GammaMoncurveOpCPURevE, i64 16), ptr %7, align 8, !tbaa !95
@@ -3785,43 +3785,43 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev30
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev30GammaMoncurveMirrorOpCPUFwdSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !tbaa !95
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store float 1.000000e+00, ptr %8, align 4, !tbaa !135
+  store float 1.000000e+00, ptr %8, align 8, !tbaa !135
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store float 0.000000e+00, ptr %9, align 4, !tbaa !137
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store float 0.000000e+00, ptr %10, align 4, !tbaa !138
+  store float 0.000000e+00, ptr %10, align 8, !tbaa !138
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store float 1.000000e+00, ptr %11, align 4, !tbaa !139
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store float 1.000000e+00, ptr %12, align 4, !tbaa !140
+  store float 1.000000e+00, ptr %12, align 8, !tbaa !140
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store float 1.000000e+00, ptr %13, align 4, !tbaa !135
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store float 0.000000e+00, ptr %14, align 4, !tbaa !137
+  store float 0.000000e+00, ptr %14, align 8, !tbaa !137
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store float 0.000000e+00, ptr %15, align 4, !tbaa !138
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store float 1.000000e+00, ptr %16, align 4, !tbaa !139
+  store float 1.000000e+00, ptr %16, align 8, !tbaa !139
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 60
   store float 1.000000e+00, ptr %17, align 4, !tbaa !140
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store float 1.000000e+00, ptr %18, align 4, !tbaa !135
+  store float 1.000000e+00, ptr %18, align 8, !tbaa !135
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 68
   store float 0.000000e+00, ptr %19, align 4, !tbaa !137
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store float 0.000000e+00, ptr %20, align 4, !tbaa !138
+  store float 0.000000e+00, ptr %20, align 8, !tbaa !138
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 76
   store float 1.000000e+00, ptr %21, align 4, !tbaa !139
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store float 1.000000e+00, ptr %22, align 4, !tbaa !140
+  store float 1.000000e+00, ptr %22, align 8, !tbaa !140
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 84
   store float 1.000000e+00, ptr %23, align 4, !tbaa !135
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  store float 0.000000e+00, ptr %24, align 4, !tbaa !137
+  store float 0.000000e+00, ptr %24, align 8, !tbaa !137
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 92
   store float 0.000000e+00, ptr %25, align 4, !tbaa !138
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  store float 1.000000e+00, ptr %26, align 4, !tbaa !139
+  store float 1.000000e+00, ptr %26, align 8, !tbaa !139
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 100
   store float 1.000000e+00, ptr %27, align 4, !tbaa !140
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev27GammaMoncurveMirrorOpCPUFwdE, i64 16), ptr %7, align 8, !tbaa !95
@@ -3925,43 +3925,43 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev27
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev27GammaMoncurveMirrorOpCPUFwdESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !tbaa !95
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store float 1.000000e+00, ptr %8, align 4, !tbaa !135
+  store float 1.000000e+00, ptr %8, align 8, !tbaa !135
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store float 0.000000e+00, ptr %9, align 4, !tbaa !137
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store float 0.000000e+00, ptr %10, align 4, !tbaa !138
+  store float 0.000000e+00, ptr %10, align 8, !tbaa !138
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store float 1.000000e+00, ptr %11, align 4, !tbaa !139
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store float 1.000000e+00, ptr %12, align 4, !tbaa !140
+  store float 1.000000e+00, ptr %12, align 8, !tbaa !140
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store float 1.000000e+00, ptr %13, align 4, !tbaa !135
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store float 0.000000e+00, ptr %14, align 4, !tbaa !137
+  store float 0.000000e+00, ptr %14, align 8, !tbaa !137
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store float 0.000000e+00, ptr %15, align 4, !tbaa !138
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store float 1.000000e+00, ptr %16, align 4, !tbaa !139
+  store float 1.000000e+00, ptr %16, align 8, !tbaa !139
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 60
   store float 1.000000e+00, ptr %17, align 4, !tbaa !140
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store float 1.000000e+00, ptr %18, align 4, !tbaa !135
+  store float 1.000000e+00, ptr %18, align 8, !tbaa !135
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 68
   store float 0.000000e+00, ptr %19, align 4, !tbaa !137
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store float 0.000000e+00, ptr %20, align 4, !tbaa !138
+  store float 0.000000e+00, ptr %20, align 8, !tbaa !138
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 76
   store float 1.000000e+00, ptr %21, align 4, !tbaa !139
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store float 1.000000e+00, ptr %22, align 4, !tbaa !140
+  store float 1.000000e+00, ptr %22, align 8, !tbaa !140
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 84
   store float 1.000000e+00, ptr %23, align 4, !tbaa !135
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  store float 0.000000e+00, ptr %24, align 4, !tbaa !137
+  store float 0.000000e+00, ptr %24, align 8, !tbaa !137
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 92
   store float 0.000000e+00, ptr %25, align 4, !tbaa !138
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  store float 1.000000e+00, ptr %26, align 4, !tbaa !139
+  store float 1.000000e+00, ptr %26, align 8, !tbaa !139
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 100
   store float 1.000000e+00, ptr %27, align 4, !tbaa !140
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev27GammaMoncurveMirrorOpCPUFwdE, i64 16), ptr %7, align 8, !tbaa !95
@@ -4064,43 +4064,43 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev30
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev30GammaMoncurveMirrorOpCPURevSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !tbaa !95
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store float 1.000000e+00, ptr %8, align 4, !tbaa !135
+  store float 1.000000e+00, ptr %8, align 8, !tbaa !135
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store float 0.000000e+00, ptr %9, align 4, !tbaa !137
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store float 0.000000e+00, ptr %10, align 4, !tbaa !138
+  store float 0.000000e+00, ptr %10, align 8, !tbaa !138
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store float 1.000000e+00, ptr %11, align 4, !tbaa !139
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store float 1.000000e+00, ptr %12, align 4, !tbaa !140
+  store float 1.000000e+00, ptr %12, align 8, !tbaa !140
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store float 1.000000e+00, ptr %13, align 4, !tbaa !135
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store float 0.000000e+00, ptr %14, align 4, !tbaa !137
+  store float 0.000000e+00, ptr %14, align 8, !tbaa !137
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store float 0.000000e+00, ptr %15, align 4, !tbaa !138
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store float 1.000000e+00, ptr %16, align 4, !tbaa !139
+  store float 1.000000e+00, ptr %16, align 8, !tbaa !139
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 60
   store float 1.000000e+00, ptr %17, align 4, !tbaa !140
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store float 1.000000e+00, ptr %18, align 4, !tbaa !135
+  store float 1.000000e+00, ptr %18, align 8, !tbaa !135
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 68
   store float 0.000000e+00, ptr %19, align 4, !tbaa !137
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store float 0.000000e+00, ptr %20, align 4, !tbaa !138
+  store float 0.000000e+00, ptr %20, align 8, !tbaa !138
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 76
   store float 1.000000e+00, ptr %21, align 4, !tbaa !139
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store float 1.000000e+00, ptr %22, align 4, !tbaa !140
+  store float 1.000000e+00, ptr %22, align 8, !tbaa !140
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 84
   store float 1.000000e+00, ptr %23, align 4, !tbaa !135
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  store float 0.000000e+00, ptr %24, align 4, !tbaa !137
+  store float 0.000000e+00, ptr %24, align 8, !tbaa !137
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 92
   store float 0.000000e+00, ptr %25, align 4, !tbaa !138
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  store float 1.000000e+00, ptr %26, align 4, !tbaa !139
+  store float 1.000000e+00, ptr %26, align 8, !tbaa !139
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 100
   store float 1.000000e+00, ptr %27, align 4, !tbaa !140
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev27GammaMoncurveMirrorOpCPURevE, i64 16), ptr %7, align 8, !tbaa !95
@@ -4204,43 +4204,43 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev27
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev27GammaMoncurveMirrorOpCPURevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !tbaa !95
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store float 1.000000e+00, ptr %8, align 4, !tbaa !135
+  store float 1.000000e+00, ptr %8, align 8, !tbaa !135
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store float 0.000000e+00, ptr %9, align 4, !tbaa !137
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store float 0.000000e+00, ptr %10, align 4, !tbaa !138
+  store float 0.000000e+00, ptr %10, align 8, !tbaa !138
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store float 1.000000e+00, ptr %11, align 4, !tbaa !139
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store float 1.000000e+00, ptr %12, align 4, !tbaa !140
+  store float 1.000000e+00, ptr %12, align 8, !tbaa !140
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store float 1.000000e+00, ptr %13, align 4, !tbaa !135
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store float 0.000000e+00, ptr %14, align 4, !tbaa !137
+  store float 0.000000e+00, ptr %14, align 8, !tbaa !137
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store float 0.000000e+00, ptr %15, align 4, !tbaa !138
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store float 1.000000e+00, ptr %16, align 4, !tbaa !139
+  store float 1.000000e+00, ptr %16, align 8, !tbaa !139
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 60
   store float 1.000000e+00, ptr %17, align 4, !tbaa !140
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store float 1.000000e+00, ptr %18, align 4, !tbaa !135
+  store float 1.000000e+00, ptr %18, align 8, !tbaa !135
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 68
   store float 0.000000e+00, ptr %19, align 4, !tbaa !137
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store float 0.000000e+00, ptr %20, align 4, !tbaa !138
+  store float 0.000000e+00, ptr %20, align 8, !tbaa !138
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 76
   store float 1.000000e+00, ptr %21, align 4, !tbaa !139
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store float 1.000000e+00, ptr %22, align 4, !tbaa !140
+  store float 1.000000e+00, ptr %22, align 8, !tbaa !140
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 84
   store float 1.000000e+00, ptr %23, align 4, !tbaa !135
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  store float 0.000000e+00, ptr %24, align 4, !tbaa !137
+  store float 0.000000e+00, ptr %24, align 8, !tbaa !137
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 92
   store float 0.000000e+00, ptr %25, align 4, !tbaa !138
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  store float 1.000000e+00, ptr %26, align 4, !tbaa !139
+  store float 1.000000e+00, ptr %26, align 8, !tbaa !139
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 100
   store float 1.000000e+00, ptr %27, align 4, !tbaa !140
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev27GammaMoncurveMirrorOpCPURevE, i64 16), ptr %7, align 8, !tbaa !95

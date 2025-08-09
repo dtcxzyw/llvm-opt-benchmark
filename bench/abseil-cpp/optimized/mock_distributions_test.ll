@@ -18460,7 +18460,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %7, ptr %6, align 8, !tbaa !4, !noalias !374
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %8, align 8, !tbaa !15, !noalias !374
-  store i8 0, ptr %7, align 1, !tbaa !14, !noalias !374
+  store i8 0, ptr %7, align 8, !tbaa !14, !noalias !374
   store ptr %6, ptr %4, align 8, !tbaa !47
   br label %9
 
@@ -133505,7 +133505,7 @@ define linkonce_odr dso_local void @_ZN7testing13ContainsRegexIPKcEENS_18Polymor
   store ptr %24, ptr %5, align 8, !tbaa !4
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %25, align 8, !tbaa !15
-  store i8 0, ptr %24, align 1, !tbaa !14
+  store i8 0, ptr %24, align 8, !tbaa !14
   %26 = load ptr, ptr %4, align 8, !tbaa !12
   invoke void @_ZN7testing8internal2RE4InitEPKc(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef %26)
           to label %_ZN7testing8internal2REC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %27

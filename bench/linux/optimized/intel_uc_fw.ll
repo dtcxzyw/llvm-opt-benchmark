@@ -812,11 +812,11 @@ define dso_local noundef range(i32 -8, 1) i32 @intel_uc_check_file_version(ptr n
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %56 = load i32, ptr %55, align 4
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %58 = load i32, ptr %57, align 4
+  %58 = load i32, ptr %57, align 8
   %59 = getelementptr i8, ptr %0, i64 -1716
   %60 = load i32, ptr %59, align 4
   %61 = getelementptr i8, ptr %0, i64 -1712
-  %62 = load i32, ptr %61, align 4
+  %62 = load i32, ptr %61, align 8
   tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %52, ptr noundef nonnull @.str.51, i32 noundef %54, i32 noundef %17, i32 noundef %56, i32 noundef %58, i32 noundef %34, i32 noundef %60, i32 noundef %62) #10
   %63 = load ptr, ptr %9, align 8
   %64 = icmp eq ptr %63, null
@@ -1229,7 +1229,7 @@ __uc_fw_auto_select.exit:                         ; preds = %66
   %176 = getelementptr i8, ptr %0, i64 4320
   %177 = load i32, ptr %176, align 8
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  %179 = load i32, ptr %178, align 4
+  %179 = load i32, ptr %178, align 8
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 1276
   %181 = load i32, ptr %180, align 4
   call void (ptr, ptr, ...) @_dev_warn(ptr noundef %175, ptr noundef nonnull @.str.65, i32 noundef %177, ptr noundef nonnull @.str.53, i32 noundef %158, i32 noundef %179, i32 noundef %181) #10

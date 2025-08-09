@@ -9135,7 +9135,7 @@ _ZN5salsa5zalsa5Zalsa28unwind_if_revision_cancelled17haa0efb5c5af470c5E.exit: ; 
   %98 = load ptr, ptr %97, align 8, !align !4, !noundef !3
   %99 = icmp ne ptr %98, null
   %100 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i938, i64 81
-  %101 = load atomic i8, ptr %84 monotonic, align 1
+  %101 = load atomic i8, ptr %84 monotonic, align 2
   %.not.i = icmp eq i8 %101, 0
   br i1 %.not.i, label %106, label %102
 
@@ -9660,7 +9660,7 @@ _ZN5salsa5zalsa5Zalsa28unwind_if_revision_cancelled17haa0efb5c5af470c5E.exit: ; 
   %98 = load ptr, ptr %97, align 8, !align !4, !noundef !3
   %99 = icmp ne ptr %98, null
   %100 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i938, i64 81
-  %101 = load atomic i8, ptr %84 monotonic, align 1
+  %101 = load atomic i8, ptr %84 monotonic, align 2
   %.not.i = icmp eq i8 %101, 0
   br i1 %.not.i, label %106, label %102
 
@@ -10185,7 +10185,7 @@ _ZN5salsa5zalsa5Zalsa28unwind_if_revision_cancelled17haa0efb5c5af470c5E.exit: ; 
   %98 = load ptr, ptr %97, align 8, !align !4, !noundef !3
   %99 = icmp ne ptr %98, null
   %100 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i938, i64 81
-  %101 = load atomic i8, ptr %84 monotonic, align 1
+  %101 = load atomic i8, ptr %84 monotonic, align 2
   %.not.i = icmp eq i8 %101, 0
   br i1 %.not.i, label %106, label %102
 
@@ -11373,7 +11373,7 @@ define noundef nonnull align 8 ptr @"_ZN5salsa8function7execute58_$LT$impl$u20$s
   %352 = load ptr, ptr %17, align 8, !noalias !361, !nonnull !3, !noundef !3
   store ptr %352, ptr %351, align 8, !noalias !361
   %353 = getelementptr i8, ptr %350, i64 520
-  store atomic i8 1, ptr %353 release, align 1, !noalias !361
+  store atomic i8 1, ptr %353 release, align 8, !noalias !361
   %354 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %355 = atomicrmw add ptr %354, i64 1 release, align 8, !noalias !361
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !361
@@ -12608,7 +12608,7 @@ define noundef nonnull align 8 ptr @"_ZN5salsa8function7execute58_$LT$impl$u20$s
   %352 = load ptr, ptr %17, align 8, !noalias !468, !nonnull !3, !noundef !3
   store ptr %352, ptr %351, align 8, !noalias !468
   %353 = getelementptr i8, ptr %350, i64 520
-  store atomic i8 1, ptr %353 release, align 1, !noalias !468
+  store atomic i8 1, ptr %353 release, align 8, !noalias !468
   %354 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %355 = atomicrmw add ptr %354, i64 1 release, align 8, !noalias !468
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !468
@@ -13843,7 +13843,7 @@ define noundef nonnull align 8 ptr @"_ZN5salsa8function7execute58_$LT$impl$u20$s
   %352 = load ptr, ptr %17, align 8, !noalias !573, !nonnull !3, !noundef !3
   store ptr %352, ptr %351, align 8, !noalias !573
   %353 = getelementptr i8, ptr %350, i64 520
-  store atomic i8 1, ptr %353 release, align 1, !noalias !573
+  store atomic i8 1, ptr %353 release, align 8, !noalias !573
   %354 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %355 = atomicrmw add ptr %354, i64 1 release, align 8, !noalias !573
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !573

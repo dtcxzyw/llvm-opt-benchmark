@@ -10022,7 +10022,7 @@ zval_get_tmp_string.exit:                         ; preds = %49, %51
   %54 = getelementptr inbounds nuw i8, ptr %.0.i78, i64 24
   %55 = getelementptr inbounds nuw i8, ptr %.0.i78, i64 16
   %56 = load i64, ptr %55, align 8, !tbaa !122
-  %57 = load i8, ptr %54, align 1, !tbaa !8
+  %57 = load i8, ptr %54, align 8, !tbaa !8
   %58 = icmp sgt i8 %57, 57
   br i1 %58, label %_zend_handle_numeric_str.exit.thread, label %59, !prof !10
 
@@ -14195,11 +14195,11 @@ define dso_local noundef range(i32 0, 2) i32 @php_array_merge_recursive(ptr noun
   %67 = load i32, ptr %66, align 8, !tbaa !8
   store ptr %65, ptr %25, align 8, !tbaa !8
   store i32 %67, ptr %33, align 8, !tbaa !8
-  %68 = load i32, ptr %63, align 4, !tbaa !11
+  %68 = load i32, ptr %63, align 8, !tbaa !11
   %69 = icmp ne i32 %68, 0
   call void @llvm.assume(i1 %69)
   %70 = add i32 %68, -1
-  store i32 %70, ptr %63, align 4, !tbaa !11
+  store i32 %70, ptr %63, align 8, !tbaa !11
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %73
 
@@ -14815,11 +14815,11 @@ define dso_local noundef range(i32 0, 2) i32 @php_array_replace_recursive(ptr no
   %88 = load i32, ptr %87, align 8, !tbaa !8
   store ptr %86, ptr %.0103157, align 8, !tbaa !8
   store i32 %88, ptr %61, align 8, !tbaa !8
-  %89 = load i32, ptr %84, align 4, !tbaa !11
+  %89 = load i32, ptr %84, align 8, !tbaa !11
   %90 = icmp ne i32 %89, 0
   tail call void @llvm.assume(i1 %90)
   %91 = add i32 %89, -1
-  store i32 %91, ptr %84, align 4, !tbaa !11
+  store i32 %91, ptr %84, align 8, !tbaa !11
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %93, label %94
 
@@ -16957,7 +16957,7 @@ define hidden void @zif_array_count_values(ptr noundef %0, ptr noundef captures(
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %56 = load i64, ptr %55, align 8, !tbaa !122
-  %57 = load i8, ptr %54, align 1, !tbaa !8
+  %57 = load i8, ptr %54, align 8, !tbaa !8
   %58 = icmp sgt i8 %57, 57
   br i1 %58, label %_zend_handle_numeric_str.exit.thread, label %59, !prof !10
 
@@ -17005,7 +17005,7 @@ zend_symtable_find.exit:                          ; preds = %67, %_zend_handle_n
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %77 = load i64, ptr %76, align 8, !tbaa !122
-  %78 = load i8, ptr %75, align 1, !tbaa !8
+  %78 = load i8, ptr %75, align 8, !tbaa !8
   %79 = icmp sgt i8 %78, 57
   br i1 %79, label %_zend_handle_numeric_str.exit82.thread, label %80, !prof !10
 
@@ -17611,7 +17611,7 @@ zend_string_copy.exit:                            ; preds = %17, %13, %11
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %73 = load i64, ptr %72, align 8, !tbaa !122
-  %74 = load i8, ptr %71, align 1, !tbaa !8
+  %74 = load i8, ptr %71, align 8, !tbaa !8
   %75 = icmp sgt i8 %74, 57
   br i1 %75, label %_zend_handle_numeric_str.exit.thread, label %76, !prof !10
 
@@ -18541,7 +18541,7 @@ define hidden void @zif_array_flip(ptr noundef %0, ptr noundef captures(none) %1
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %74 = load i64, ptr %73, align 8, !tbaa !122
-  %75 = load i8, ptr %72, align 1, !tbaa !8
+  %75 = load i8, ptr %72, align 8, !tbaa !8
   %76 = icmp sgt i8 %75, 57
   br i1 %76, label %_zend_handle_numeric_str.exit.thread, label %77, !prof !10
 
@@ -25597,7 +25597,7 @@ zend_parse_arg_array_ht.exit:                     ; preds = %7, %6
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %20 = load i64, ptr %19, align 8, !tbaa !122
-  %21 = load i8, ptr %18, align 1, !tbaa !8
+  %21 = load i8, ptr %18, align 8, !tbaa !8
   %22 = icmp sgt i8 %21, 57
   br i1 %22, label %_zend_handle_numeric_str.exit.thread, label %23, !prof !10
 
@@ -26124,7 +26124,7 @@ zval_get_tmp_string.exit:                         ; preds = %68, %70
   %73 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %74 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %75 = load i64, ptr %74, align 8, !tbaa !122
-  %76 = load i8, ptr %73, align 1, !tbaa !8
+  %76 = load i8, ptr %73, align 8, !tbaa !8
   %77 = icmp sgt i8 %76, 57
   br i1 %77, label %_zend_handle_numeric_str.exit.thread, label %78, !prof !10
 

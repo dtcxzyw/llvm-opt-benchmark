@@ -1585,9 +1585,9 @@ define void @_ZN3net23CachedNetworkParameters4SwapEPS0_(ptr noundef nonnull alig
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %11 = load i32, ptr %9, align 8, !tbaa !22
-  %12 = load i32, ptr %10, align 4, !tbaa !22
+  %12 = load i32, ptr %10, align 8, !tbaa !22
   store i32 %12, ptr %9, align 8, !tbaa !22
-  store i32 %11, ptr %10, align 4, !tbaa !22
+  store i32 %11, ptr %10, align 8, !tbaa !22
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %15 = load i32, ptr %13, align 4, !tbaa !22
@@ -1603,9 +1603,9 @@ define void @_ZN3net23CachedNetworkParameters4SwapEPS0_(ptr noundef nonnull alig
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %23 = load i32, ptr %21, align 8, !tbaa !22
-  %24 = load i32, ptr %22, align 4, !tbaa !22
+  %24 = load i32, ptr %22, align 8, !tbaa !22
   store i32 %24, ptr %21, align 8, !tbaa !22
-  store i32 %23, ptr %22, align 4, !tbaa !22
+  store i32 %23, ptr %22, align 8, !tbaa !22
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %27 = load i32, ptr %25, align 4, !tbaa !22
@@ -1621,9 +1621,9 @@ define void @_ZN3net23CachedNetworkParameters4SwapEPS0_(ptr noundef nonnull alig
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load i32, ptr %33, align 8, !tbaa !22
-  %36 = load i32, ptr %34, align 4, !tbaa !22
+  %36 = load i32, ptr %34, align 8, !tbaa !22
   store i32 %36, ptr %33, align 8, !tbaa !22
-  store i32 %35, ptr %34, align 4, !tbaa !22
+  store i32 %35, ptr %34, align 8, !tbaa !22
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = load ptr, ptr %37, align 8, !tbaa !19
@@ -1653,9 +1653,9 @@ define void @_ZN3net23CachedNetworkParameters12InternalSwapEPS0_(ptr noundef non
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %9 = load i32, ptr %7, align 8, !tbaa !22
-  %10 = load i32, ptr %8, align 4, !tbaa !22
+  %10 = load i32, ptr %8, align 8, !tbaa !22
   store i32 %10, ptr %7, align 8, !tbaa !22
-  store i32 %9, ptr %8, align 4, !tbaa !22
+  store i32 %9, ptr %8, align 8, !tbaa !22
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %13 = load i32, ptr %11, align 4, !tbaa !22
@@ -1671,9 +1671,9 @@ define void @_ZN3net23CachedNetworkParameters12InternalSwapEPS0_(ptr noundef non
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %21 = load i32, ptr %19, align 8, !tbaa !22
-  %22 = load i32, ptr %20, align 4, !tbaa !22
+  %22 = load i32, ptr %20, align 8, !tbaa !22
   store i32 %22, ptr %19, align 8, !tbaa !22
-  store i32 %21, ptr %20, align 4, !tbaa !22
+  store i32 %21, ptr %20, align 8, !tbaa !22
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %25 = load i32, ptr %23, align 4, !tbaa !22
@@ -1689,9 +1689,9 @@ define void @_ZN3net23CachedNetworkParameters12InternalSwapEPS0_(ptr noundef non
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %33 = load i32, ptr %31, align 8, !tbaa !22
-  %34 = load i32, ptr %32, align 4, !tbaa !22
+  %34 = load i32, ptr %32, align 8, !tbaa !22
   store i32 %34, ptr %31, align 8, !tbaa !22
-  store i32 %33, ptr %32, align 4, !tbaa !22
+  store i32 %33, ptr %32, align 8, !tbaa !22
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %37 = load ptr, ptr %35, align 8, !tbaa !19

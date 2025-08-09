@@ -459,7 +459,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv4gapi4onnx8PyParam
 9:                                                ; preds = %2
   store i64 4, ptr %6, align 8, !tbaa !30
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %1, ptr %10, align 4, !tbaa !37
+  store i32 %1, ptr %10, align 8, !tbaa !37
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 136
   store ptr %11, ptr %5, align 8, !tbaa !26
   br label %_ZN2cv4gapi4onnx6ParamsINS0_7GenericEE23cfgAddExecutionProviderEONS1_2ep4CUDAE.exit
@@ -488,7 +488,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv4gapi4onnx8PyParam
 9:                                                ; preds = %2
   store i64 5, ptr %6, align 8, !tbaa !30
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %1, ptr %10, align 4, !tbaa !37
+  store i32 %1, ptr %10, align 8, !tbaa !37
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 136
   store ptr %11, ptr %5, align 8, !tbaa !26
   br label %_ZN2cv4gapi4onnx6ParamsINS0_7GenericEE23cfgAddExecutionProviderEONS1_2ep8TensorRTE.exit
@@ -2028,7 +2028,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %7,
   store i64 %14, ptr %15, align 8, !tbaa !104
   store ptr %5, ptr %1, align 8, !tbaa !103
   store i64 0, ptr %13, align 8, !tbaa !104
-  store i8 0, ptr %5, align 1, !tbaa !106
+  store i8 0, ptr %5, align 8, !tbaa !106
   ret void
 }
 
@@ -2071,7 +2071,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
   store i64 %14, ptr %15, align 8, !tbaa !104
   store ptr %5, ptr %1, align 8, !tbaa !103
   store i64 0, ptr %13, align 8, !tbaa !104
-  store i8 0, ptr %5, align 1, !tbaa !106
+  store i8 0, ptr %5, align 8, !tbaa !106
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2103,7 +2103,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit6.i: ; preds = 
   store i64 %29, ptr %30, align 8, !tbaa !104
   store ptr %20, ptr %17, align 8, !tbaa !103
   store i64 0, ptr %28, align 8, !tbaa !104
-  store i8 0, ptr %20, align 1, !tbaa !106
+  store i8 0, ptr %20, align 8, !tbaa !106
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %31, ptr noundef nonnull align 8 dereferenceable(10) %32, i64 10, i1 false)
@@ -2740,7 +2740,7 @@ _ZNKSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8
   store i64 4, ptr %21, align 8, !tbaa !30
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %2, align 4, !tbaa !37
-  store i32 %23, ptr %22, align 4, !tbaa !37
+  store i32 %23, ptr %22, align 8, !tbaa !37
   %.not12.i.i.i.i = icmp eq ptr %6, %1
   br i1 %.not12.i.i.i.i, label %_ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit, label %.lr.ph.i.i.i.i
 
@@ -2882,7 +2882,7 @@ _ZNKSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8
   store i64 5, ptr %21, align 8, !tbaa !30
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %2, align 4, !tbaa !37
-  store i32 %23, ptr %22, align 4, !tbaa !37
+  store i32 %23, ptr %22, align 8, !tbaa !37
   %.not12.i.i.i.i = icmp eq ptr %6, %1
   br i1 %.not12.i.i.i.i, label %_ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_4gapi4onnx2ep8OpenVINOENS6_8DirectMLENS6_6CoreMLENS6_4CUDAENS6_8TensorRTEEEESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit, label %.lr.ph.i.i.i.i
 

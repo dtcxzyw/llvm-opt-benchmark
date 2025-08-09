@@ -801,7 +801,7 @@ _ZNSt10unique_ptrIN4llvm7remarks22YAMLStrTabRemarkParserESt14default_deleteIS2_E
   store ptr %204, ptr %203, align 8, !tbaa !6, !noalias !138
   %205 = getelementptr inbounds nuw i8, ptr %193, i64 24
   store i64 0, ptr %205, align 8, !tbaa !11, !noalias !138
-  store i8 0, ptr %204, align 1, !tbaa !14, !noalias !138
+  store i8 0, ptr %204, align 8, !tbaa !14, !noalias !138
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7remarks16YAMLRemarkParserE, i64 16), ptr %193, align 8, !tbaa !3, !noalias !138
   %206 = getelementptr inbounds nuw i8, ptr %193, i64 88
   %207 = getelementptr inbounds nuw i8, ptr %193, i64 64
@@ -816,7 +816,7 @@ _ZNSt10unique_ptrIN4llvm7remarks22YAMLStrTabRemarkParserESt14default_deleteIS2_E
   store ptr %211, ptr %210, align 8, !tbaa !6, !noalias !138
   %212 = getelementptr inbounds nuw i8, ptr %193, i64 104
   store i64 0, ptr %212, align 8, !tbaa !11, !noalias !138
-  store i8 0, ptr %211, align 1, !tbaa !14, !noalias !138
+  store i8 0, ptr %211, align 8, !tbaa !14, !noalias !138
   %213 = getelementptr inbounds nuw i8, ptr %193, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %213, i8 0, i64 48, i1 false), !alias.scope !149, !noalias !138
   %214 = getelementptr inbounds nuw i8, ptr %193, i64 176

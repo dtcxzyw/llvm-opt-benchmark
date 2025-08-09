@@ -7830,7 +7830,7 @@ if.then.i.i.i42:                                  ; preds = %_ZNK5folly8Optional
   store i64 %23, ptr %add.ptr.i2.i.i.i.i.i, align 8
   %add.ptr.i2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %20, i64 585
   store i8 %frombool.i.i.i.i.i, ptr %add.ptr.i2.i.i.i.i.i.i, align 1
-  store i8 %21, ptr %h2Pri_.i, align 1
+  store i8 %21, ptr %h2Pri_.i, align 8
   br label %if.end
 
 if.else.i.i.i:                                    ; preds = %_ZNK5folly8OptionalIN8proxygen5http214PriorityUpdateEEptEv.exit41

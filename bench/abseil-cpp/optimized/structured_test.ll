@@ -656,7 +656,7 @@ define internal void @_ZN12_GLOBAL__N_137StreamingFormatTest_LogAsLiteral_Test8T
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load i32, ptr %21, align 8, !tbaa !26
   %23 = or i32 %22, 529
-  store i32 %23, ptr %21, align 4, !tbaa !27
+  store i32 %23, ptr %21, align 8, !tbaa !27
   %24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %14, i64 noundef 11)
           to label %_ZN4absl12log_internallsERSoONS0_13AsLiteralImplE.exit unwind label %244
 

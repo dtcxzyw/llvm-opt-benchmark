@@ -4440,7 +4440,7 @@ _ZN4llvm9ListScopeD2Ev.exit:                      ; preds = %_ZNSt7__cxx1112basi
   store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %5, align 8, !tbaa !3, !noalias !298
   store ptr %6, ptr %22, align 8, !tbaa !232, !noalias !298
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef null, i64 noundef 0, i32 noundef 0) #28
-  %37 = load i32, ptr %34, align 4, !tbaa !47, !noalias !298
+  %37 = load i32, ptr %34, align 8, !tbaa !47, !noalias !298
   %38 = zext i32 %37 to i64
   %39 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %38) #28
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #28
@@ -9017,7 +9017,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !209, !alias.scope !493, !noalias !496
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !207, !alias.scope !496, !noalias !493
   store i64 0, ptr %48, align 8, !tbaa !209, !alias.scope !496, !noalias !493
-  store i8 0, ptr %39, align 1, !tbaa !21, !alias.scope !496, !noalias !493
+  store i8 0, ptr %39, align 8, !tbaa !21, !alias.scope !496, !noalias !493
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -9065,7 +9065,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !209, !alias.scope !500, !noalias !503
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !207, !alias.scope !503, !noalias !500
   store i64 0, ptr %64, align 8, !tbaa !209, !alias.scope !503, !noalias !500
-  store i8 0, ptr %55, align 1, !tbaa !21, !alias.scope !503, !noalias !500
+  store i8 0, ptr %55, align 8, !tbaa !21, !alias.scope !503, !noalias !500
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5

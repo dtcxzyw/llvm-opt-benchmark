@@ -1189,7 +1189,7 @@ define weak_odr void @_ZN7mitsuba10ImageBlockIfN5drjit6MatrixINS_8SpectrumIfLm4E
   %19 = load i32, ptr %15, align 4
   %20 = add i32 %18, %19
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %22 = load i32, ptr %21, align 4
+  %22 = load i32, ptr %21, align 8
   %23 = add i32 %22, %18
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1203,7 +1203,7 @@ define weak_odr void @_ZN7mitsuba10ImageBlockIfN5drjit6MatrixINS_8SpectrumIfLm4E
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %34 = load i32, ptr %33, align 4
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %36 = load i32, ptr %35, align 4
+  %36 = load i32, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %38 = load i32, ptr %37, align 4
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16

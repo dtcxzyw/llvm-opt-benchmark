@@ -295,7 +295,7 @@ _ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticOptionsEEC2EPS2_.exit.i.i.i.i.i.
 55:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticOptionsEEC2EPS2_.exit.i.i.i.i.i.i.i.i.i.i
   %56 = getelementptr inbounds nuw i8, ptr %34, i64 1232
   store i64 0, ptr %56, align 8, !tbaa !83, !alias.scope !77, !noalias !36
-  store i8 0, ptr %54, align 1, !tbaa !85, !alias.scope !77, !noalias !36
+  store i8 0, ptr %54, align 8, !tbaa !85, !alias.scope !77, !noalias !36
   br label %_ZSt11make_sharedIN12_GLOBAL__N_112SDiagsWriter11SharedStateEJRN4llvm9StringRefERPN5clang17DiagnosticOptionsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_.exit.i.i
 
 57:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticOptionsEEC2EPS2_.exit.i.i.i.i.i.i.i.i.i.i
@@ -707,14 +707,14 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit10.i.i.i.i.i: ; preds =
   %239 = getelementptr inbounds nuw i8, ptr %233, i64 24
   %240 = getelementptr inbounds nuw i8, ptr %233, i64 28
   store i32 32, ptr %240, align 4, !tbaa !92, !noalias !156
-  store i64 1, ptr %237, align 1, !noalias !3
+  store i64 1, ptr %237, align 8, !noalias !3
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %233, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 1, !noalias !3
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8, !noalias !3
   %.pre.i.i.i.i = load i8, ptr @__libc_single_threaded, align 1, !tbaa !85, !noalias !3
   %241 = getelementptr inbounds nuw i8, ptr %233, i64 48
-  store i64 32, ptr %241, align 1, !noalias !3
+  store i64 32, ptr %241, align 8, !noalias !3
   %.sroa.2.0..sroa_idx.i.i43.i.i.i.i = getelementptr inbounds nuw i8, ptr %233, i64 56
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i43.i.i.i.i, align 1, !noalias !3
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i43.i.i.i.i, align 8, !noalias !3
   store i32 2, ptr %239, align 8, !tbaa !91, !noalias !3
   store ptr %236, ptr %15, align 8, !tbaa !157, !noalias !3
   %242 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -10848,7 +10848,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKcjNS_12DenseMapInfoIS3_vEENS_6detail12Dens
   %57 = load ptr, ptr %1, align 8, !tbaa !401
   store ptr %57, ptr %48, align 8, !tbaa !401
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !160
+  store i32 0, ptr %58, align 8, !tbaa !160
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKcjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E16InsertIntoBucketIRKS3_JEEEPS8_SE_OT_DpOT0_.exit
@@ -11049,7 +11049,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKcjNS_12DenseMapInfoIS3_vEENS_6detail12Dens
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !160
-  store i32 %68, ptr %66, align 4, !tbaa !160
+  store i32 %68, ptr %66, align 8, !tbaa !160
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !423
   br label %70
@@ -11106,7 +11106,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llv
   store ptr %16, ptr %.ptr.i.i.i, align 8, !tbaa !80
   %17 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %17, align 8, !tbaa !83
-  store i8 0, ptr %16, align 1, !tbaa !85
+  store i8 0, ptr %16, align 8, !tbaa !85
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %18 = icmp eq i64 %.add.i.i.i, 416
   br i1 %18, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %15

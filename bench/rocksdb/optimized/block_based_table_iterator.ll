@@ -3873,7 +3873,7 @@ _ZN7rocksdb13DataBlockIterC2Ev.exit:              ; preds = %70
   store ptr %82, ptr %81, align 8, !tbaa !107
   %83 = getelementptr inbounds nuw i8, ptr %43, i64 616
   store i64 0, ptr %83, align 8, !tbaa !108
-  store i8 0, ptr %82, align 1, !tbaa !109
+  store i8 0, ptr %82, align 8, !tbaa !109
   %84 = getelementptr inbounds nuw i8, ptr %43, i64 640
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %84, i8 0, i64 24, i1 false)
   %85 = getelementptr inbounds nuw i8, ptr %43, i64 664
@@ -5028,7 +5028,7 @@ _ZN7rocksdb13DataBlockIterC2Ev.exit:              ; preds = %82
   store ptr %94, ptr %93, align 8, !tbaa !107
   %95 = getelementptr inbounds nuw i8, ptr %55, i64 616
   store i64 0, ptr %95, align 8, !tbaa !108
-  store i8 0, ptr %94, align 1, !tbaa !109
+  store i8 0, ptr %94, align 8, !tbaa !109
   %96 = getelementptr inbounds nuw i8, ptr %55, i64 640
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %96, i8 0, i64 24, i1 false)
   %97 = getelementptr inbounds nuw i8, ptr %55, i64 664

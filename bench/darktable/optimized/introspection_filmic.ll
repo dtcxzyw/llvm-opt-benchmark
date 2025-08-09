@@ -1360,11 +1360,11 @@ define void @color_picker_apply(ptr noundef %0, ptr noundef readnone captures(ad
   %40 = load float, ptr %39, align 4, !tbaa !104
   store float %40, ptr %22, align 16, !tbaa !104
   %41 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %42 = load float, ptr %38, align 4, !tbaa !104
+  %42 = load float, ptr %38, align 8, !tbaa !104
   store float %42, ptr %41, align 4, !tbaa !104
   %43 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %45 = load float, ptr %44, align 4, !tbaa !104
+  %45 = load float, ptr %44, align 8, !tbaa !104
   store float %45, ptr %43, align 8, !tbaa !104
   %46 = getelementptr inbounds nuw i8, ptr %22, i64 12
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 524
@@ -1502,11 +1502,11 @@ Log2.exit.i:                                      ; preds = %91, %dt_Lab_to_XYZ.
   %126 = load float, ptr %125, align 4, !tbaa !104
   store float %126, ptr %18, align 16, !tbaa !104
   %127 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %128 = load float, ptr %124, align 4, !tbaa !104
+  %128 = load float, ptr %124, align 8, !tbaa !104
   store float %128, ptr %127, align 4, !tbaa !104
   %129 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %131 = load float, ptr %130, align 4, !tbaa !104
+  %131 = load float, ptr %130, align 8, !tbaa !104
   store float %131, ptr %129, align 8, !tbaa !104
   %132 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 540
@@ -1651,11 +1651,11 @@ sanitize_latitude.exit.i:                         ; preds = %197, %dt_Lab_to_XYZ
   %219 = load float, ptr %218, align 4, !tbaa !104
   store float %219, ptr %14, align 16, !tbaa !104
   %220 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %221 = load float, ptr %217, align 4, !tbaa !104
+  %221 = load float, ptr %217, align 8, !tbaa !104
   store float %221, ptr %220, align 4, !tbaa !104
   %222 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %224 = load float, ptr %223, align 4, !tbaa !104
+  %224 = load float, ptr %223, align 8, !tbaa !104
   store float %224, ptr %222, align 8, !tbaa !104
   %225 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %226 = getelementptr inbounds nuw i8, ptr %0, i64 556
@@ -1794,11 +1794,11 @@ sanitize_latitude.exit.i31:                       ; preds = %290, %dt_Lab_to_XYZ
   %309 = load float, ptr %308, align 4, !tbaa !104
   store float %309, ptr %10, align 16, !tbaa !104
   %310 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %311 = load float, ptr %307, align 4, !tbaa !104
+  %311 = load float, ptr %307, align 8, !tbaa !104
   store float %311, ptr %310, align 4, !tbaa !104
   %312 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %313 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %314 = load float, ptr %313, align 4, !tbaa !104
+  %314 = load float, ptr %313, align 8, !tbaa !104
   store float %314, ptr %312, align 8, !tbaa !104
   %315 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %316 = getelementptr inbounds nuw i8, ptr %0, i64 524

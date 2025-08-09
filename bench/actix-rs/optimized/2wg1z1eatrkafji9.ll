@@ -553,7 +553,7 @@ define internal void @_ZN3std3sys3pal6common12thread_local10fast_local13destroy_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false), !noalias !107
   store i64 0, ptr %0, align 8, !noalias !107
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 2, ptr %5, align 1, !noalias !107
+  store i8 2, ptr %5, align 8, !noalias !107
   %6 = load i64, ptr %3, align 8, !range !40, !alias.scope !112, !noalias !107, !noundef !42
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %34, label %8

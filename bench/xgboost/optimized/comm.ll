@@ -668,7 +668,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %50
   store i64 %57, ptr %58, align 8, !tbaa !40
   store ptr %48, ptr %5, align 8, !tbaa !39
   store i64 0, ptr %56, align 8, !tbaa !40
-  store i8 0, ptr %48, align 1, !tbaa !41
+  store i8 0, ptr %48, align 8, !tbaa !41
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %59, i8 0, i64 40, i1 false)
   ret void
@@ -1656,7 +1656,7 @@ define void @_ZN7xgboost10collective14ConnectWorkersERKNS0_4CommEPNS0_9TCPSocket
   store i32 1, ptr %74, align 4, !tbaa !102, !noalias !97
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7xgboost10collective9TCPSocketESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %72, align 8, !tbaa !3, !noalias !97
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  store i64 4294967295, ptr %75, align 4, !noalias !97
+  store i64 4294967295, ptr %75, align 8, !noalias !97
   store ptr %72, ptr %71, align 8, !tbaa !103, !alias.scope !97
   store ptr %75, ptr %30, align 8, !tbaa !104, !alias.scope !97
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
@@ -1672,7 +1672,7 @@ define void @_ZN7xgboost10collective14ConnectWorkersERKNS0_4CommEPNS0_9TCPSocket
   store i32 1, ptr %80, align 4, !tbaa !102, !noalias !106
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7xgboost10collective9TCPSocketESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %77, align 8, !tbaa !3, !noalias !106
   %81 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  store i64 4294967295, ptr %81, align 4, !noalias !106
+  store i64 4294967295, ptr %81, align 8, !noalias !106
   store ptr %77, ptr %76, align 8, !tbaa !103, !alias.scope !106
   store ptr %81, ptr %31, align 8, !tbaa !104, !alias.scope !106
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
@@ -3770,7 +3770,7 @@ _ZNSt6vectorISt10shared_ptrIN7xgboost10collective9TCPSocketEESaIS4_EE6resizeEm.e
   store i32 1, ptr %794, align 4, !tbaa !102, !noalias !223
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7xgboost10collective9TCPSocketESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %791, align 8, !tbaa !3, !noalias !223
   %795 = getelementptr inbounds nuw i8, ptr %791, i64 16
-  store i64 4294967295, ptr %795, align 4, !noalias !223
+  store i64 4294967295, ptr %795, align 8, !noalias !223
   store ptr %791, ptr %779, align 8, !tbaa !103, !alias.scope !223
   store ptr %795, ptr %54, align 8, !tbaa !104, !alias.scope !223
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
@@ -4208,7 +4208,7 @@ _ZNSt12__shared_ptrIN7xgboost10collective9TCPSocketELN9__gnu_cxx12_Lock_policyE2
   store i32 1, ptr %937, align 4, !tbaa !102, !noalias !236
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7xgboost10collective9TCPSocketESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %934, align 8, !tbaa !3, !noalias !236
   %938 = getelementptr inbounds nuw i8, ptr %934, i64 16
-  store i64 4294967295, ptr %938, align 4, !noalias !236
+  store i64 4294967295, ptr %938, align 8, !noalias !236
   store ptr %934, ptr %784, align 8, !tbaa !103, !alias.scope !236
   store ptr %938, ptr %62, align 8, !tbaa !104, !alias.scope !236
   call void @llvm.lifetime.start.p0(ptr nonnull %63)
@@ -5585,7 +5585,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %28
   store i64 %34, ptr %36, align 8, !tbaa !40
   store ptr %26, ptr %5, align 8, !tbaa !39
   store i64 0, ptr %35, align 8, !tbaa !40
-  store i8 0, ptr %26, align 1, !tbaa !41
+  store i8 0, ptr %26, align 8, !tbaa !41
   invoke void @_ZN7xgboost10collective4CommC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNSt6chrono8durationIlSt5ratioILl1ELl1EEEEiS7_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i64 %3, i32 noundef %4, ptr noundef nonnull %15)
           to label %37 unwind label %130
 
@@ -13145,7 +13145,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit6: ; preds = %12
   store ptr %16, ptr %14, align 8, !tbaa !38, !alias.scope !515
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 0, ptr %17, align 8, !tbaa !40, !alias.scope !515
-  store i8 0, ptr %16, align 1, !tbaa !41, !alias.scope !515
+  store i8 0, ptr %16, align 8, !tbaa !41, !alias.scope !515
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %19 = load ptr, ptr %18, align 8, !tbaa !493, !noalias !515
   %.not.i.not.i.i = icmp eq ptr %19, null
@@ -13282,7 +13282,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %9,
   store i64 %15, ptr %17, align 8, !tbaa !40
   store ptr %7, ptr %1, align 8, !tbaa !39
   store i64 0, ptr %16, align 8, !tbaa !40
-  store i8 0, ptr %7, align 1, !tbaa !41
+  store i8 0, ptr %7, align 8, !tbaa !41
   %18 = tail call ptr @__errno_location() #34
   %19 = load i32, ptr %18, align 4, !tbaa !47
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #34
@@ -16140,7 +16140,7 @@ _ZNK7xgboost4JsonixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit4
   store ptr %119, ptr %118, align 8, !tbaa !38
   %120 = getelementptr inbounds nuw i8, ptr %115, i64 32
   store i64 0, ptr %120, align 8, !tbaa !40
-  store i8 0, ptr %119, align 1, !tbaa !41
+  store i8 0, ptr %119, align 8, !tbaa !41
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %92, ptr noundef nonnull align 8 dereferenceable(32) %118) #13
   %121 = atomicrmw add ptr %116, i32 1 monotonic, align 4
   %122 = load ptr, ptr %114, align 8, !tbaa !638
@@ -22782,7 +22782,7 @@ _ZN7xgboost10JsonStringC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.
   store i64 %70, ptr %72, align 8, !tbaa !40
   store ptr %62, ptr %3, align 8, !tbaa !39
   store i64 0, ptr %71, align 8, !tbaa !40
-  store i8 0, ptr %62, align 1, !tbaa !41
+  store i8 0, ptr %62, align 8, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %73 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %73, ptr %11, align 8, !tbaa !38
@@ -22812,7 +22812,7 @@ _ZNK7xgboost4JsonixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2
   store ptr %84, ptr %83, align 8, !tbaa !38
   %85 = getelementptr inbounds nuw i8, ptr %80, i64 32
   store i64 0, ptr %85, align 8, !tbaa !40
-  store i8 0, ptr %84, align 1, !tbaa !41
+  store i8 0, ptr %84, align 8, !tbaa !41
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(32) %83) #13
   %86 = atomicrmw add ptr %81, i32 1 monotonic, align 4
   %87 = load ptr, ptr %79, align 8, !tbaa !638
@@ -23420,7 +23420,7 @@ _ZNK7xgboost4JsonixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit:
   store ptr %68, ptr %67, align 8, !tbaa !38
   %69 = getelementptr inbounds nuw i8, ptr %64, i64 32
   store i64 0, ptr %69, align 8, !tbaa !40
-  store i8 0, ptr %68, align 1, !tbaa !41
+  store i8 0, ptr %68, align 8, !tbaa !41
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %67) #13
   %70 = atomicrmw add ptr %65, i32 1 monotonic, align 4
   %71 = load ptr, ptr %63, align 8, !tbaa !638

@@ -8874,7 +8874,7 @@ _ZZL30nanobind_init_test_classes_extRN8nanobind7module_EEN3DogC2EOS2_.exit: ; pr
   store i64 %16, ptr %17, align 8, !tbaa !282
   store ptr %7, ptr %4, align 8, !tbaa !291
   store i64 0, ptr %15, align 8, !tbaa !282
-  store i8 0, ptr %7, align 1, !tbaa !61
+  store i8 0, ptr %7, align 8, !tbaa !61
   ret void
 }
 
@@ -9415,7 +9415,7 @@ _ZZL30nanobind_init_test_classes_extRN8nanobind7module_EEN3CatC2EOS2_.exit: ; pr
   store i64 %16, ptr %17, align 8, !tbaa !282
   store ptr %7, ptr %4, align 8, !tbaa !291
   store i64 0, ptr %15, align 8, !tbaa !282
-  store i8 0, ptr %7, align 1, !tbaa !61
+  store i8 0, ptr %7, align 8, !tbaa !61
   ret void
 }
 
@@ -9629,7 +9629,7 @@ _ZZL30nanobind_init_test_classes_extRN8nanobind7module_EEN10SiameseCatC2EOS2_.ex
   store i64 %16, ptr %17, align 8, !tbaa !282
   store ptr %7, ptr %4, align 8, !tbaa !291
   store i64 0, ptr %15, align 8, !tbaa !282
-  store i8 0, ptr %7, align 1, !tbaa !61
+  store i8 0, ptr %7, align 8, !tbaa !61
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVZL30nanobind_init_test_classes_extRN8nanobind7module_EE10SiameseCat, i64 16), ptr %0, align 8, !tbaa !24
   ret void
 }

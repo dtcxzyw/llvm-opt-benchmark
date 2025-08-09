@@ -17968,7 +17968,7 @@ _ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit: ; preds = %92
 97:                                               ; preds = %54
   %98 = load float, ptr %55, align 8
   %99 = call float @llvm.fmuladd.f32(float %50, float %98, float %45)
-  %100 = load i32, ptr %63, align 4
+  %100 = load i32, ptr %63, align 8
   %.not808 = icmp eq i32 %100, 0
   br i1 %.not808, label %129, label %101
 
@@ -18135,7 +18135,7 @@ _ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit847: ; preds = %1
 184:                                              ; preds = %135
   %185 = load float, ptr %142, align 8
   %186 = call float @llvm.fmuladd.f32(float %141, float %185, float %138)
-  %187 = load i32, ptr %150, align 4
+  %187 = load i32, ptr %150, align 8
   %.not806 = icmp eq i32 %187, 0
   br i1 %.not806, label %216, label %188
 
@@ -18296,7 +18296,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit: ; preds = %_ZN15hb_d
   %271 = call float @llvm.fmuladd.f32(float %230, float %270, float %229)
   %272 = call float @llvm.fmuladd.f32(float %232, float %270, float %231)
   %273 = call float @llvm.fmuladd.f32(float %50, float %270, float %45)
-  %274 = load i32, ptr %240, align 4
+  %274 = load i32, ptr %240, align 8
   %.not816 = icmp eq i32 %274, 0
   br i1 %.not816, label %275, label %291
 
@@ -18436,7 +18436,7 @@ _ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit: ; preds =
   %345 = load float, ptr %227, align 8
   %346 = call float @llvm.fmuladd.f32(float %305, float %345, float %304)
   %347 = call float @llvm.fmuladd.f32(float %50, float %345, float %45)
-  %348 = load i32, ptr %313, align 4
+  %348 = load i32, ptr %313, align 8
   %.not814 = icmp eq i32 %348, 0
   br i1 %.not814, label %349, label %365
 
@@ -18576,7 +18576,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit876: ; preds = %_ZN15h
   %423 = load float, ptr %385, align 8
   %424 = call float @llvm.fmuladd.f32(float %382, float %423, float %379)
   %425 = call float @llvm.fmuladd.f32(float %384, float %423, float %381)
-  %426 = load i32, ptr %393, align 4
+  %426 = load i32, ptr %393, align 8
   %.not812 = icmp eq i32 %426, 0
   br i1 %.not812, label %427, label %443
 
@@ -18719,7 +18719,7 @@ _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit888: ; preds = %49
 496:                                              ; preds = %456
   %497 = load float, ptr %457, align 8
   %498 = call float @llvm.fmuladd.f32(float %50, float %497, float %45)
-  %499 = load i32, ptr %465, align 4
+  %499 = load i32, ptr %465, align 8
   %.not810 = icmp eq i32 %499, 0
   br i1 %.not810, label %500, label %516
 
@@ -18892,7 +18892,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit903: ; preds = %_ZN15h
   %593 = call float @llvm.fmuladd.f32(float %554, float %592, float %553)
   %594 = call float @llvm.fmuladd.f32(float %546, float %592, float %543)
   %595 = call float @llvm.fmuladd.f32(float %548, float %592, float %545)
-  %596 = load i32, ptr %562, align 4
+  %596 = load i32, ptr %562, align 8
   %.not820 = icmp eq i32 %596, 0
   br i1 %.not820, label %597, label %613
 
@@ -19014,7 +19014,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit913: ; preds = %_ZN15h
   %661 = load float, ptr %551, align 8
   %662 = call float @llvm.fmuladd.f32(float %546, float %661, float %543)
   %663 = call float @llvm.fmuladd.f32(float %548, float %661, float %545)
-  %664 = load i32, ptr %631, align 4
+  %664 = load i32, ptr %631, align 8
   %.not818 = icmp eq i32 %664, 0
   br i1 %.not818, label %665, label %681
 
@@ -19168,7 +19168,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit923: ; preds = %_ZN15h
   %748 = call float @llvm.fmuladd.f32(float %705, float %747, float %704)
   %749 = call float @llvm.fmuladd.f32(float %707, float %747, float %706)
   %750 = call float @llvm.fmuladd.f32(float %709, float %747, float %708)
-  %751 = load i32, ptr %717, align 4
+  %751 = load i32, ptr %717, align 8
   %.not834 = icmp eq i32 %751, 0
   br i1 %.not834, label %752, label %768
 
@@ -19294,7 +19294,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit933: ; preds = %_ZN15h
   %820 = load float, ptr %702, align 8
   %821 = call float @llvm.fmuladd.f32(float %780, float %820, float %779)
   %822 = call float @llvm.fmuladd.f32(float %782, float %820, float %781)
-  %823 = load i32, ptr %790, align 4
+  %823 = load i32, ptr %790, align 8
   %.not832 = icmp eq i32 %823, 0
   br i1 %.not832, label %824, label %840
 
@@ -19434,7 +19434,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit943: ; preds = %_ZN15h
   %901 = call float @llvm.fmuladd.f32(float %858, float %900, float %857)
   %902 = call float @llvm.fmuladd.f32(float %860, float %900, float %859)
   %903 = call float @llvm.fmuladd.f32(float %862, float %900, float %861)
-  %904 = load i32, ptr %870, align 4
+  %904 = load i32, ptr %870, align 8
   %.not830 = icmp eq i32 %904, 0
   br i1 %.not830, label %905, label %921
 
@@ -19560,7 +19560,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit953: ; preds = %_ZN15h
   %973 = load float, ptr %855, align 8
   %974 = call float @llvm.fmuladd.f32(float %933, float %973, float %932)
   %975 = call float @llvm.fmuladd.f32(float %935, float %973, float %934)
-  %976 = load i32, ptr %943, align 4
+  %976 = load i32, ptr %943, align 8
   %.not828 = icmp eq i32 %976, 0
   br i1 %.not828, label %977, label %993
 
@@ -19687,7 +19687,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit963: ; preds = %_ZN15h
 1044:                                             ; preds = %1004
   %1045 = load float, ptr %1005, align 8
   %1046 = call float @llvm.fmuladd.f32(float %1007, float %1045, float %1006)
-  %1047 = load i32, ptr %1015, align 4
+  %1047 = load i32, ptr %1015, align 8
   %.not826 = icmp eq i32 %1047, 0
   br i1 %.not826, label %1048, label %1064
 
@@ -19817,7 +19817,7 @@ _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit972: ; preds = %11
 1117:                                             ; preds = %1075
   %1118 = load float, ptr %1078, align 8
   %1119 = call float @llvm.fmuladd.f32(float %1077, float %1118, float %1076)
-  %1120 = load i32, ptr %1086, align 4
+  %1120 = load i32, ptr %1086, align 8
   %.not822 = icmp eq i32 %1120, 0
   br i1 %.not822, label %1149, label %1121
 
@@ -19952,7 +19952,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit981: ; preds = %_ZN15h
 1189:                                             ; preds = %1149
   %1190 = load float, ptr %1152, align 8
   %1191 = call float @llvm.fmuladd.f32(float %1077, float %1190, float %1076)
-  %1192 = load i32, ptr %1160, align 4
+  %1192 = load i32, ptr %1160, align 8
   %.not824 = icmp eq i32 %1192, 0
   br i1 %.not824, label %1193, label %1209
 
@@ -20026,7 +20026,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit986: ; preds = %_ZN15h
   %1225 = getelementptr inbounds nuw i8, ptr %1222, i64 16
   %1226 = load ptr, ptr %1225, align 8
   %1227 = getelementptr inbounds nuw i8, ptr %1222, i64 24
-  %1228 = load i32, ptr %1227, align 4
+  %1228 = load i32, ptr %1227, align 8
   %.not836 = icmp eq i32 %1228, 0
   br i1 %.not836, label %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit992, label %1229
 
@@ -23422,9 +23422,9 @@ define linkonce_odr hidden noundef ptr @_ZN11hb_vector_tIN3CFF31cff2_private_dic
   %15 = load i32, ptr %14, align 8
   store i32 %15, ptr %11, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = load i32, ptr %16, align 4
-  store i32 %17, ptr %12, align 4
-  store i32 0, ptr %16, align 4
+  %17 = load i32, ptr %16, align 8
+  store i32 %17, ptr %12, align 8
+  store i32 0, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %20 = load i32, ptr %19, align 4
@@ -23636,9 +23636,9 @@ define linkonce_odr hidden noundef ptr @_ZN11hb_vector_tIN3CFF23cff2_font_dict_v
   %15 = load i32, ptr %14, align 8
   store i32 %15, ptr %11, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = load i32, ptr %16, align 4
-  store i32 %17, ptr %12, align 4
-  store i32 0, ptr %16, align 4
+  %17 = load i32, ptr %16, align 8
+  store i32 %17, ptr %12, align 8
+  store i32 0, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %20 = load i32, ptr %19, align 4
@@ -27614,9 +27614,9 @@ define linkonce_odr hidden noundef ptr @_ZN11hb_vector_tIN3CFF31cff1_private_dic
   %15 = load i32, ptr %14, align 8
   store i32 %15, ptr %11, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = load i32, ptr %16, align 4
-  store i32 %17, ptr %12, align 4
-  store i32 0, ptr %16, align 4
+  %17 = load i32, ptr %16, align 8
+  store i32 %17, ptr %12, align 8
+  store i32 0, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %20 = load i32, ptr %19, align 4
@@ -27828,9 +27828,9 @@ define linkonce_odr hidden noundef ptr @_ZN11hb_vector_tIN3CFF23cff1_font_dict_v
   %15 = load i32, ptr %14, align 8
   store i32 %15, ptr %11, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = load i32, ptr %16, align 4
-  store i32 %17, ptr %12, align 4
-  store i32 0, ptr %16, align 4
+  %17 = load i32, ptr %16, align 8
+  store i32 %17, ptr %12, align 8
+  store i32 0, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %20 = load i32, ptr %19, align 4

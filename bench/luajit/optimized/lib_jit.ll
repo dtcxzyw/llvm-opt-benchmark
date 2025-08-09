@@ -510,7 +510,7 @@ define internal noundef i32 @lj_cf_jit_attach(ptr noundef %0) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %8 = load i32, ptr %7, align 4, !tbaa !37
-  %9 = load i8, ptr %6, align 1, !tbaa !34
+  %9 = load i8, ptr %6, align 4, !tbaa !34
   %.not2730 = icmp eq i8 %9, 0
   br i1 %.not2730, label %._crit_edge, label %.lr.ph
 

@@ -4533,7 +4533,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %31
   store i64 %324, ptr %325, align 8, !tbaa !18
   store ptr %315, ptr %311, align 8, !tbaa !15
   store i64 0, ptr %323, align 8, !tbaa !18
-  store i8 0, ptr %315, align 1, !tbaa !20
+  store i8 0, ptr %315, align 8, !tbaa !20
   invoke void @_ZN4Luau15BytecodeBuilder19setFunctionTypeInfoENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(840) %312, ptr noundef nonnull %6)
           to label %326 unwind label %333
 
@@ -23083,7 +23083,7 @@ define linkonce_odr dso_local void @_ZN4Luau6detail14DenseHashTableIPNS_12AstExp
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = add nuw i64 %.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %14, %spec.select
-  store i64 0, ptr %13, align 4
+  store i64 0, ptr %13, align 8
   br i1 %exitcond.not.i.i, label %_ZN4Luau6detail14DenseHashTableIPNS_12AstExprTableESt4pairIS3_NS_7Compile10TableShapeEES4_IKS3_S6_ENS0_16ItemInterfaceMapIS3_S6_EENS_16DenseHashPointerESt8equal_toIS3_EEC2ERS8_m.exit.loopexit, label %.lr.ph.i.i, !llvm.loop !736
 
 _ZN4Luau6detail14DenseHashTableIPNS_12AstExprTableESt4pairIS3_NS_7Compile10TableShapeEES4_IKS3_S6_ENS0_16ItemInterfaceMapIS3_S6_EENS_16DenseHashPointerESt8equal_toIS3_EEC2ERS8_m.exit.loopexit: ; preds = %.lr.ph.i.i

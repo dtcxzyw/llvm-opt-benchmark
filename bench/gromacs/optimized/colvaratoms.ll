@@ -291,7 +291,7 @@ define noundef i32 @_ZN12colvarmodule10atom_group17init_dependenciesEv(ptr nound
   store ptr %21, ptr %20, align 8, !tbaa !14
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 0, ptr %22, align 8, !tbaa !17
-  store i8 0, ptr %21, align 1, !tbaa !20
+  store i8 0, ptr %21, align 8, !tbaa !20
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(100) %23, i8 0, i64 100, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 8

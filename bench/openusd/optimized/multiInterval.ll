@@ -792,7 +792,7 @@ define noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__15GfMultiInterval4Hash
   %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq double %11, 0.000000e+00
   %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, double 0.000000e+00, double %11
   %12 = bitcast double %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %13 = load i8, ptr %10, align 1
+  %13 = load i8, ptr %10, align 8
   %14 = and i8 %13, 1
   %15 = zext nneg i8 %14 to i64
   %16 = add i64 %12, %15
@@ -807,7 +807,7 @@ define noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__15GfMultiInterval4Hash
   %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, double 0.000000e+00, double %23
   %24 = bitcast double %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.02.04.i.i.i.i.i, i64 56
-  %26 = load i8, ptr %25, align 1
+  %26 = load i8, ptr %25, align 8
   %27 = and i8 %26, 1
   %28 = zext nneg i8 %27 to i64
   %29 = add i64 %24, %28

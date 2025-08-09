@@ -322,7 +322,7 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   store ptr %56, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %50, i64 24
   store i64 0, ptr %57, align 8
-  store i8 0, ptr %56, align 1
+  store i8 0, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %50, i64 48
   %59 = getelementptr inbounds nuw i8, ptr %50, i64 56
   store ptr %58, ptr %59, align 8
@@ -1232,7 +1232,7 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   store ptr %55, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %49, i64 24
   store i64 0, ptr %56, align 8
-  store i8 0, ptr %55, align 1
+  store i8 0, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %49, i64 48
   %58 = getelementptr inbounds nuw i8, ptr %49, i64 56
   store ptr %57, ptr %58, align 8
@@ -1940,7 +1940,7 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE17getFloatAttributeERS2_PKcRf.exit67: ; 
   store ptr %106, ptr %105, align 8
   %107 = getelementptr inbounds nuw i8, ptr %100, i64 24
   store i64 0, ptr %107, align 8
-  store i8 0, ptr %106, align 1
+  store i8 0, ptr %106, align 8
   %108 = getelementptr inbounds nuw i8, ptr %100, i64 48
   %109 = getelementptr inbounds nuw i8, ptr %100, i64 56
   store ptr %108, ptr %109, align 8
@@ -1969,19 +1969,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %1
   store float %.099, ptr %113, align 8
   %118 = getelementptr inbounds nuw i8, ptr %100, i64 80
   %119 = load float, ptr %5, align 4
-  store float %119, ptr %118, align 4
+  store float %119, ptr %118, align 8
   %120 = load float, ptr %13, align 4
   %121 = getelementptr inbounds nuw i8, ptr %100, i64 84
   store float %120, ptr %121, align 4
   %122 = load float, ptr %14, align 4
   %123 = getelementptr inbounds nuw i8, ptr %100, i64 88
-  store float %122, ptr %123, align 4
+  store float %122, ptr %123, align 8
   %124 = getelementptr inbounds nuw i8, ptr %100, i64 92
   %125 = load float, ptr %6, align 4
   store float %125, ptr %124, align 4
   %126 = load float, ptr %15, align 4
   %127 = getelementptr inbounds nuw i8, ptr %100, i64 96
-  store float %126, ptr %127, align 4
+  store float %126, ptr %127, align 8
   %128 = load float, ptr %16, align 4
   %129 = getelementptr inbounds nuw i8, ptr %100, i64 100
   store float %128, ptr %129, align 4
@@ -1990,7 +1990,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %1
   store float %131, ptr %130, align 4
   %132 = load float, ptr %17, align 4
   %133 = getelementptr inbounds nuw i8, ptr %100, i64 112
-  store float %132, ptr %133, align 4
+  store float %132, ptr %133, align 8
   %134 = load float, ptr %18, align 4
   %135 = getelementptr inbounds nuw i8, ptr %100, i64 116
   store float %134, ptr %135, align 4

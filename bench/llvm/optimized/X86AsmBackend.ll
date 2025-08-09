@@ -1057,7 +1057,7 @@ _ZNK4llvm6Target17createMCInstrInfoEv.exit.i.i:   ; preds = %21, %15
   %.0.i.i.i = phi ptr [ %22, %21 ], [ null, %15 ]
   store ptr %.0.i.i.i, ptr %18, align 8, !tbaa !85
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  store i8 0, ptr %23, align 1, !tbaa !87
+  store i8 0, ptr %23, align 8, !tbaa !87
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 33
   store i8 0, ptr %24, align 1, !tbaa !89
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 36
@@ -1153,7 +1153,7 @@ _ZNK4llvm6Target17createMCInstrInfoEv.exit.i.i.i: ; preds = %61, %55
   %.0.i.i.i.i = phi ptr [ %62, %61 ], [ null, %55 ]
   store ptr %.0.i.i.i.i, ptr %58, align 8, !tbaa !85
   %63 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  store i8 0, ptr %63, align 1, !tbaa !87
+  store i8 0, ptr %63, align 8, !tbaa !87
   %64 = getelementptr inbounds nuw i8, ptr %56, i64 33
   store i8 0, ptr %64, align 1, !tbaa !89
   %65 = getelementptr inbounds nuw i8, ptr %56, i64 36
@@ -1244,7 +1244,7 @@ _ZNK4llvm6Target17createMCInstrInfoEv.exit.i.i.i19: ; preds = %97, %_ZN4llvm23MC
   %.0.i.i.i.i20 = phi ptr [ %98, %97 ], [ null, %_ZN4llvm23MCELFObjectTargetWriter8getOSABIENS_6Triple6OSTypeE.exit.thread28 ]
   store ptr %.0.i.i.i.i20, ptr %94, align 8, !tbaa !85
   %99 = getelementptr inbounds nuw i8, ptr %92, i64 32
-  store i8 0, ptr %99, align 1, !tbaa !87
+  store i8 0, ptr %99, align 8, !tbaa !87
   %100 = getelementptr inbounds nuw i8, ptr %92, i64 33
   store i8 0, ptr %100, align 1, !tbaa !89
   %101 = getelementptr inbounds nuw i8, ptr %92, i64 36
@@ -1517,7 +1517,7 @@ _ZNK4llvm6Target17createMCInstrInfoEv.exit.i.i:   ; preds = %21, %15
   %.0.i.i.i = phi ptr [ %22, %21 ], [ null, %15 ]
   store ptr %.0.i.i.i, ptr %18, align 8, !tbaa !85
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  store i8 0, ptr %23, align 1, !tbaa !87
+  store i8 0, ptr %23, align 8, !tbaa !87
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 33
   store i8 0, ptr %24, align 1, !tbaa !89
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 36
@@ -1604,7 +1604,7 @@ _ZNK4llvm6Target17createMCInstrInfoEv.exit.i.i21: ; preds = %58, %52
   %.0.i.i.i22 = phi ptr [ %59, %58 ], [ null, %52 ]
   store ptr %.0.i.i.i22, ptr %55, align 8, !tbaa !85
   %60 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  store i8 0, ptr %60, align 1, !tbaa !87
+  store i8 0, ptr %60, align 8, !tbaa !87
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 33
   store i8 0, ptr %61, align 1, !tbaa !89
   %62 = getelementptr inbounds nuw i8, ptr %53, i64 36
@@ -1712,7 +1712,7 @@ _ZNK4llvm6Target17createMCInstrInfoEv.exit.i.i.i: ; preds = %100, %94
   %.0.i.i.i.i = phi ptr [ %101, %100 ], [ null, %94 ]
   store ptr %.0.i.i.i.i, ptr %97, align 8, !tbaa !85
   %102 = getelementptr inbounds nuw i8, ptr %95, i64 32
-  store i8 0, ptr %102, align 1, !tbaa !87
+  store i8 0, ptr %102, align 8, !tbaa !87
   %103 = getelementptr inbounds nuw i8, ptr %95, i64 33
   store i8 0, ptr %103, align 1, !tbaa !89
   %104 = getelementptr inbounds nuw i8, ptr %95, i64 36
@@ -1799,7 +1799,7 @@ _ZNK4llvm6Target17createMCInstrInfoEv.exit.i.i.i31: ; preds = %137, %131
   %.0.i.i.i.i32 = phi ptr [ %138, %137 ], [ null, %131 ]
   store ptr %.0.i.i.i.i32, ptr %134, align 8, !tbaa !85
   %139 = getelementptr inbounds nuw i8, ptr %132, i64 32
-  store i8 0, ptr %139, align 1, !tbaa !87
+  store i8 0, ptr %139, align 8, !tbaa !87
   %140 = getelementptr inbounds nuw i8, ptr %132, i64 33
   store i8 0, ptr %140, align 1, !tbaa !89
   %141 = getelementptr inbounds nuw i8, ptr %132, i64 36
@@ -2443,7 +2443,7 @@ _ZN4llvm6MCInstaSERKS0_.exit.i:                   ; preds = %.sink.split.i.i.i.i
   %282 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.val16.i = load ptr, ptr %282, align 8, !tbaa !85
   %283 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.val17.i = load i8, ptr %283, align 1
+  %.val17.i = load i8, ptr %283, align 8
   %.val18.i15 = load i32, ptr %1, align 8, !tbaa !207
   %.val16.val.i = load ptr, ptr %.val16.i, align 8, !tbaa !208
   %284 = zext i32 %.val18.i15 to i64
@@ -8140,7 +8140,7 @@ _ZSt10_ConstructIN4llvm13MCELFStreamer13AttributeItemEJS2_EEvPT_DpOT0_.exit.i.i.
   store i64 %24, ptr %25, align 8, !tbaa !121
   store ptr %15, ptr %12, align 8, !tbaa !120
   store i64 0, ptr %23, align 8, !tbaa !121
-  store i8 0, ptr %15, align 1, !tbaa !111
+  store i8 0, ptr %15, align 8, !tbaa !111
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 48
   %27 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 48
   %.not.i.i.i.i.i.i = icmp eq ptr %26, %10

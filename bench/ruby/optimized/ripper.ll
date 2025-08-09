@@ -14720,7 +14720,7 @@ define internal fastcc void @clear_block_exit(ptr noundef captures(none) %0, i1 
   %21 = and i32 %20, 127
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %23 = load i32, ptr %8, align 4, !tbaa !42
-  %24 = load i32, ptr %22, align 4, !tbaa !51
+  %24 = load i32, ptr %22, align 8, !tbaa !51
   %25 = icmp eq i32 %23, %24
   switch i32 %21, label %95 [
     i32 14, label %26

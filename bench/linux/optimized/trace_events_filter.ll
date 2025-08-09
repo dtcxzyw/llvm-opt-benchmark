@@ -4011,7 +4011,7 @@ define internal fastcc void @filter_build_regex(ptr noundef nonnull captures(non
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 256
   %8 = load i32, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %10 = load i8, ptr %2, align 1
+  %10 = load i8, ptr %2, align 8
   %11 = icmp eq i8 %10, 33
   %.sink = zext i1 %11 to i32
   %12 = sext i1 %11 to i32

@@ -736,7 +736,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %25
   store i64 %31, ptr %33, align 8, !tbaa !25
   store ptr %23, ptr %2, align 8, !tbaa !21
   store i64 0, ptr %32, align 8, !tbaa !25
-  store i8 0, ptr %23, align 1, !tbaa !26
+  store i8 0, ptr %23, align 8, !tbaa !26
   invoke void @_ZN29cmCompiledGeneratorExpressionC2ER5cmake19cmListFileBacktraceNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(360) %6, ptr noundef nonnull align 8 dereferenceable(2312) %7, ptr noundef nonnull %4, ptr noundef nonnull %5)
           to label %34 unwind label %63
 
@@ -1029,7 +1029,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %72
   store i64 %77, ptr %78, align 8, !tbaa !25
   store ptr %70, ptr %1, align 8, !tbaa !21
   store i64 0, ptr %18, align 8, !tbaa !25
-  store i8 0, ptr %70, align 1, !tbaa !26
+  store i8 0, ptr %70, align 8, !tbaa !26
   invoke void @_ZN29cmCompiledGeneratorExpressionC2ER5cmake19cmListFileBacktraceNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(360) %14, ptr noundef nonnull align 8 dereferenceable(2312) %66, ptr noundef nonnull %15, ptr noundef nonnull %16)
           to label %79 unwind label %142
 
@@ -1273,7 +1273,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit33: ; preds = %
   store i64 %19, ptr %163, align 8, !tbaa !25
   store ptr %157, ptr %1, align 8, !tbaa !21
   store i64 0, ptr %18, align 8, !tbaa !25
-  store i8 0, ptr %157, align 1, !tbaa !26
+  store i8 0, ptr %157, align 8, !tbaa !26
   br label %164
 
 164:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit33, %_ZNSt14_Optional_baseIN23cmMakefileProfilingData4RAIIELb0ELb0EED2Ev.exit
@@ -2138,7 +2138,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %22
   store i64 %29, ptr %30, align 8, !tbaa !25
   store ptr %20, ptr %3, align 8, !tbaa !21
   store i64 0, ptr %28, align 8, !tbaa !25
-  store i8 0, ptr %20, align 1, !tbaa !26
+  store i8 0, ptr %20, align 8, !tbaa !26
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 73
   store i8 0, ptr %31, align 1, !tbaa !97
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 74
@@ -6288,7 +6288,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %13
   store i64 %19, ptr %21, align 8, !tbaa !25
   store ptr %11, ptr %1, align 8, !tbaa !21
   store i64 0, ptr %20, align 8, !tbaa !25
-  store i8 0, ptr %11, align 1, !tbaa !26
+  store i8 0, ptr %11, align 8, !tbaa !26
   invoke void @_ZNK21cmGeneratorExpression5ParseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.130") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %6)
           to label %22 unwind label %117
 
@@ -9056,7 +9056,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !25, !alias.scope !324, !noalias !327
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !21, !alias.scope !327, !noalias !324
   store i64 0, ptr %48, align 8, !tbaa !25, !alias.scope !327, !noalias !324
-  store i8 0, ptr %39, align 1, !tbaa !26, !alias.scope !327, !noalias !324
+  store i8 0, ptr %39, align 8, !tbaa !26, !alias.scope !327, !noalias !324
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -9104,7 +9104,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !25, !alias.scope !331, !noalias !334
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !21, !alias.scope !334, !noalias !331
   store i64 0, ptr %64, align 8, !tbaa !25, !alias.scope !334, !noalias !331
-  store i8 0, ptr %55, align 1, !tbaa !26, !alias.scope !334, !noalias !331
+  store i8 0, ptr %55, align 8, !tbaa !26, !alias.scope !334, !noalias !331
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5

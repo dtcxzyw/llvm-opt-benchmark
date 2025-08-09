@@ -1552,7 +1552,7 @@ define dso_local i32 @ieee80211_do_open(ptr noundef %0, i1 noundef zeroext %1) l
   %64 = load ptr, ptr %63, align 8
   %65 = load i32, ptr %64, align 4
   %66 = getelementptr i8, ptr %64, i64 4
-  %67 = load i16, ptr %66, align 2
+  %67 = load i16, ptr %66, align 4
   %68 = zext i16 %67 to i32
   %69 = or i32 %65, %68
   %70 = icmp eq i32 %69, 0
@@ -2961,7 +2961,7 @@ define dso_local i32 @ieee80211_if_add(ptr noundef %0, ptr noundef %1, i8 nounde
   %113 = getelementptr i8, ptr %48, i64 7370
   %114 = load i16, ptr %113, align 2
   %115 = getelementptr i8, ptr %48, i64 6472
-  store i16 %114, ptr %115, align 2
+  store i16 %114, ptr %115, align 8
   %116 = getelementptr i8, ptr %48, i64 3584
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %116, ptr noundef nonnull align 8 dereferenceable(16) %79, i64 16, i1 false)
   %117 = icmp eq i32 %46, 0
@@ -3300,7 +3300,7 @@ define internal fastcc void @ieee80211_assign_perm_addr(ptr noundef %0, ptr noun
   %76 = load i32, ptr %68, align 4
   %77 = load i32, ptr %75, align 4
   %78 = xor i32 %77, %76
-  %79 = load i16, ptr %69, align 2
+  %79 = load i16, ptr %69, align 4
   %80 = getelementptr i8, ptr %72, i64 5066
   %81 = load i16, ptr %80, align 2
   %82 = xor i16 %81, %79
@@ -4974,7 +4974,7 @@ define internal i32 @ieee80211_change_mac(ptr noundef %0, ptr noundef %1) #0 ali
   %173 = getelementptr i8, ptr %0, i64 7370
   %174 = load i16, ptr %173, align 2
   %175 = getelementptr i8, ptr %0, i64 6472
-  store i16 %174, ptr %175, align 2
+  store i16 %174, ptr %175, align 4
   br label %176
 
 176:                                              ; preds = %169, %164

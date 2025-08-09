@@ -108,7 +108,7 @@ define hidden void @_ZN4lean15event_loop_initEPNS_12event_loop_tE(ptr noundef in
   %9 = tail call i32 @uv_async_init(ptr noundef %7, ptr noundef nonnull %8, ptr noundef null)
   tail call fastcc void @_ZN4leanL8check_uvEiPKc(i32 noundef %9, ptr noundef nonnull @.str.2)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store atomic i32 0, ptr %10 seq_cst, align 4
+  store atomic i32 0, ptr %10 seq_cst, align 8
   ret void
 }
 

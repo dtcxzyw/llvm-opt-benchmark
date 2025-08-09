@@ -822,9 +822,9 @@ define dso_local void @__cfg80211_connect_result(ptr noundef %0, ptr noundef %1,
   %215 = load i32, ptr %49, align 4
   store i32 %215, ptr %214, align 4
   %216 = getelementptr i8, ptr %49, i64 4
-  %217 = load i16, ptr %216, align 2
+  %217 = load i16, ptr %216, align 4
   %218 = getelementptr i8, ptr %5, i64 300
-  store i16 %217, ptr %218, align 2
+  store i16 %217, ptr %218, align 4
   %219 = load i16, ptr %10, align 8
   %220 = icmp eq i16 %219, 0
   br i1 %220, label %.loopexit38, label %.preheader
@@ -2324,9 +2324,9 @@ define dso_local void @__cfg80211_roamed(ptr noundef captures(none) %0, ptr noun
   %95 = load i32, ptr %93, align 4
   store i32 %95, ptr %94, align 4
   %96 = getelementptr i8, ptr %93, i64 4
-  %97 = load i16, ptr %96, align 2
+  %97 = load i16, ptr %96, align 4
   %98 = getelementptr i8, ptr %0, i64 300
-  store i16 %97, ptr %98, align 2
+  store i16 %97, ptr %98, align 4
   %99 = load i16, ptr %13, align 8
   %100 = icmp eq i16 %99, 0
   br i1 %100, label %.loopexit14, label %.preheader
@@ -2800,9 +2800,9 @@ define dso_local void @__cfg80211_port_authorized(ptr noundef readonly captures(
   %17 = load i32, ptr %1, align 4
   %18 = xor i32 %17, %16
   %19 = getelementptr i8, ptr %0, i64 300
-  %20 = load i16, ptr %19, align 2
+  %20 = load i16, ptr %19, align 4
   %21 = getelementptr i8, ptr %1, i64 4
-  %22 = load i16, ptr %21, align 2
+  %22 = load i16, ptr %21, align 4
   %23 = xor i16 %22, %20
   %24 = zext i16 %23 to i32
   %25 = or i32 %18, %24
@@ -3355,9 +3355,9 @@ define dso_local i32 @cfg80211_connect(ptr noundef %0, ptr noundef %1, ptr nound
   %33 = load i32, ptr %9, align 4
   %34 = xor i32 %33, %32
   %35 = getelementptr i8, ptr %4, i64 4
-  %36 = load i16, ptr %35, align 2
+  %36 = load i16, ptr %35, align 4
   %37 = getelementptr i8, ptr %8, i64 300
-  %38 = load i16, ptr %37, align 2
+  %38 = load i16, ptr %37, align 4
   %39 = xor i16 %38, %36
   %40 = zext i16 %39 to i32
   %41 = or i32 %34, %40

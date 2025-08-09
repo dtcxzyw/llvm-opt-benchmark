@@ -2058,7 +2058,7 @@ define range(i32 -22, 1) i32 @ff_silk_init(ptr noundef %0, ptr noundef writeonly
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %2, ptr %9, align 8, !tbaa !27
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %11 = load i32, ptr %10, align 4, !tbaa !16
+  %11 = load i32, ptr %10, align 8, !tbaa !16
   %.not.i.i = icmp eq i32 %11, 0
   br i1 %.not.i.i, label %silk_flush_frame.exit.i, label %12
 

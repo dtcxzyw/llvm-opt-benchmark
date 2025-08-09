@@ -1292,7 +1292,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117: ; preds = %_Z
   %222 = load i32, ptr %221, align 8, !tbaa !75
   %223 = and i32 %222, -75
   %224 = or disjoint i32 %223, 8
-  store i32 %224, ptr %221, align 4, !tbaa !76
+  store i32 %224, ptr %221, align 8, !tbaa !76
   %225 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIjEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(4) %10)
           to label %_ZNSirsERj.exit unwind label %.loopexit164
 
@@ -1980,7 +1980,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %76, %74
   %85 = load i32, ptr %84, align 8, !tbaa !75
   %86 = and i32 %85, -75
   %87 = or disjoint i32 %86, 8
-  store i32 %87, ptr %84, align 4, !tbaa !76
+  store i32 %87, ptr %84, align 8, !tbaa !76
   %88 = load ptr, ptr %1, align 8, !tbaa !12
   %89 = getelementptr inbounds nuw i32, ptr %88, i64 %60
   %90 = load i32, ptr %89, align 4, !tbaa !18

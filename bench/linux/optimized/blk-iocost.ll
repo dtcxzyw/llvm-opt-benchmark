@@ -1705,7 +1705,7 @@ define internal void @ioc_pd_init(ptr noundef %0) #1 align 16 {
   %37 = load i64, ptr %27, align 8
   %38 = load i64, ptr %28, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !26
-  %39 = load volatile i32, ptr %26, align 4
+  %39 = load volatile i32, ptr %26, align 8
   %40 = icmp eq i32 %39, %36
   br i1 %40, label %41, label %29, !llvm.loop !27
 
@@ -2267,7 +2267,7 @@ define internal i64 @ioc_weight_write(ptr noundef %0, ptr noundef %1, i64 nounde
   %72 = load i64, ptr %62, align 8
   %73 = load i64, ptr %63, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !26
-  %74 = load volatile i32, ptr %61, align 4
+  %74 = load volatile i32, ptr %61, align 8
   %75 = icmp eq i32 %74, %71
   br i1 %75, label %76, label %64, !llvm.loop !27
 
@@ -2438,7 +2438,7 @@ define internal i64 @ioc_weight_write(ptr noundef %0, ptr noundef %1, i64 nounde
   %178 = load i64, ptr %168, align 8
   %179 = load i64, ptr %169, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !26
-  %180 = load volatile i32, ptr %167, align 4
+  %180 = load volatile i32, ptr %167, align 8
   %181 = icmp eq i32 %180, %177
   br i1 %181, label %182, label %170, !llvm.loop !27
 
@@ -3704,7 +3704,7 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   %104 = add i64 %103, %99
   store i64 %104, ptr %90, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !26
-  %105 = load volatile i32, ptr %87, align 4
+  %105 = load volatile i32, ptr %87, align 8
   %106 = icmp eq i32 %105, %98
   br i1 %106, label %107, label %91, !llvm.loop !27
 
@@ -6194,9 +6194,9 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   %1714 = load i64, ptr %90, align 8
   store i64 %1714, ptr %88, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !122
-  %1715 = load i32, ptr %87, align 4
+  %1715 = load i32, ptr %87, align 8
   %1716 = add i32 %1715, 1
-  store i32 %1716, ptr %87, align 4
+  store i32 %1716, ptr %87, align 8
   %1717 = load volatile i64, ptr @jiffies, align 64
   %1718 = load i32, ptr %75, align 8
   %1719 = call i64 @__usecs_to_jiffies(i32 noundef %1718) #21
@@ -6656,9 +6656,9 @@ define internal fastcc void @ioc_start_period(ptr noundef initializes((248, 256)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store i64 %15, ptr %16, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !122
-  %17 = load i32, ptr %8, align 4
+  %17 = load i32, ptr %8, align 8
   %18 = add i32 %17, 1
-  store i32 %18, ptr %8, align 4
+  store i32 %18, ptr %8, align 8
   %19 = load volatile i64, ptr @jiffies, align 64
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %21 = load i32, ptr %20, align 8
@@ -7483,7 +7483,7 @@ define internal void @ioc_rqos_throttle(ptr noundef readonly captures(none) %0, 
   %89 = load i64, ptr %79, align 8
   %90 = load i64, ptr %80, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !26
-  %91 = load volatile i32, ptr %78, align 4
+  %91 = load volatile i32, ptr %78, align 8
   %92 = icmp eq i32 %91, %88
   br i1 %92, label %93, label %81, !llvm.loop !27
 
@@ -7544,7 +7544,7 @@ define internal void @ioc_rqos_throttle(ptr noundef readonly captures(none) %0, 
   %126 = load i64, ptr %116, align 8
   %127 = load i64, ptr %117, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !26
-  %128 = load volatile i32, ptr %115, align 4
+  %128 = load volatile i32, ptr %115, align 8
   %129 = icmp eq i32 %128, %125
   br i1 %129, label %130, label %118, !llvm.loop !27
 
@@ -7601,7 +7601,7 @@ define internal void @ioc_rqos_throttle(ptr noundef readonly captures(none) %0, 
   %167 = getelementptr inbounds nuw i8, ptr %15, i64 72
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %167, i64 %166, ptr nonnull elementtype(i64) %167) #21, !srcloc !75
   %168 = getelementptr inbounds nuw i8, ptr %27, i64 368
-  %169 = load volatile i32, ptr %168, align 4
+  %169 = load volatile i32, ptr %168, align 8
   %170 = add i32 %169, -1
   %171 = getelementptr inbounds nuw i8, ptr %15, i64 152
   store i32 %170, ptr %171, align 8
@@ -7996,7 +7996,7 @@ define internal void @ioc_rqos_merge(ptr noundef %0, ptr noundef readonly captur
   %67 = load i64, ptr %57, align 8
   %68 = load i64, ptr %58, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !26
-  %69 = load volatile i32, ptr %56, align 4
+  %69 = load volatile i32, ptr %56, align 8
   %70 = icmp eq i32 %69, %66
   br i1 %70, label %71, label %59, !llvm.loop !27
 
@@ -8939,7 +8939,7 @@ define internal noundef i32 @iocg_waitq_timer_fn(ptr noundef %0) #1 align 16 {
   %23 = load i64, ptr %13, align 8
   %24 = load i64, ptr %14, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !26
-  %25 = load volatile i32, ptr %12, align 4
+  %25 = load volatile i32, ptr %12, align 8
   %26 = icmp eq i32 %25, %22
   br i1 %26, label %27, label %15, !llvm.loop !27
 

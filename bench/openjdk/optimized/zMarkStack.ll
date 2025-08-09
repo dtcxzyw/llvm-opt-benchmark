@@ -505,7 +505,7 @@ _ZN10ZStackListI6ZStackI15ZMarkStackEntryLm254EEE4pushEPS2_.exit: ; preds = %.sp
 91:                                               ; preds = %84
   %92 = load volatile i32, ptr %78, align 8
   %93 = add i32 %92, 1
-  store volatile i32 %93, ptr %78, align 4
+  store volatile i32 %93, ptr %78, align 8
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %95 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %94) #11
   br label %_ZN7ZLockerI14ZConditionLockED2Ev.exit.i
@@ -762,7 +762,7 @@ _ZN10ZStackListI6ZStackI15ZMarkStackEntryLm254EEE4pushEPS2_.exit.i: ; preds = %.
 60:                                               ; preds = %54
   %61 = load volatile i32, ptr %8, align 8
   %62 = add i32 %61, 1
-  store volatile i32 %62, ptr %8, align 4
+  store volatile i32 %62, ptr %8, align 8
   %63 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %10) #11
   br label %_ZN7ZLockerI14ZConditionLockED2Ev.exit.i.i
 

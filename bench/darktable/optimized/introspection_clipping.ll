@@ -474,7 +474,7 @@ define noundef i32 @distort_transform(ptr noundef %0, ptr noundef %1, ptr noalia
   call void %32(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %6) #27
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = load ptr, ptr %33, align 16, !tbaa !110
-  %35 = load i32, ptr %19, align 8, !tbaa !95
+  %35 = load i32, ptr %19, align 16, !tbaa !95
   %36 = sitofp i32 %35 to float
   %37 = load i32, ptr %25, align 4, !tbaa !97
   %38 = sitofp i32 %37 to float
@@ -872,7 +872,7 @@ define noundef i32 @distort_backtransform(ptr noundef %0, ptr noundef %1, ptr no
   call void %32(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %6) #27
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = load ptr, ptr %33, align 16, !tbaa !110
-  %35 = load i32, ptr %19, align 8, !tbaa !95
+  %35 = load i32, ptr %19, align 16, !tbaa !95
   %36 = sitofp i32 %35 to float
   %37 = load i32, ptr %25, align 4, !tbaa !97
   %38 = sitofp i32 %37 to float
@@ -2106,7 +2106,7 @@ define void @modify_roi_in(ptr noundef readnone captures(none) %0, ptr noundef r
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load float, ptr %8, align 4, !tbaa !137
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %11 = load i32, ptr %10, align 8, !tbaa !95
+  %11 = load i32, ptr %10, align 16, !tbaa !95
   %12 = sitofp i32 %11 to float
   %13 = fmul reassoc nsz arcp contract afn float %9, %12
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 148

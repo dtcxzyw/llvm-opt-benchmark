@@ -4438,7 +4438,7 @@ if.end.i.i63.i:                                   ; preds = %if.then12.i.i.i.i.i
   %379 = load ptr, ptr %add.ptr.i.i, align 8
   store ptr %379, ptr %call.i.i.i64.i, align 8
   %second.i.i.i.i65.i = getelementptr inbounds nuw i8, ptr %call.i.i.i64.i, i64 8
-  store i32 0, ptr %second.i.i.i.i65.i, align 4
+  store i32 0, ptr %second.i.i.i.i65.i, align 8
   %second.i6.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i64.i, i64 12
   store i32 0, ptr %second.i6.i.i.i.i, align 4
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPKN6hermes11InstructionESt4pairIjjENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixERKS5_.exit.i
@@ -4541,7 +4541,7 @@ if.end.i.i126.i:                                  ; preds = %if.then12.i.i.i.i12
   %396 = load ptr, ptr %add.ptr.i91.i, align 8
   store ptr %396, ptr %call.i.i.i128.i, align 8
   %second.i.i.i.i129.i = getelementptr inbounds nuw i8, ptr %call.i.i.i128.i, i64 8
-  store i32 0, ptr %second.i.i.i.i129.i, align 4
+  store i32 0, ptr %second.i.i.i.i129.i, align 8
   %second.i6.i.i.i130.i = getelementptr inbounds nuw i8, ptr %call.i.i.i128.i, i64 12
   store i32 0, ptr %second.i6.i.i.i130.i, align 4
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPKN6hermes11InstructionESt4pairIjjENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixERKS5_.exit131.i
@@ -5037,7 +5037,7 @@ _ZNSt10unique_ptrIN6hermes3hbc25BytecodeFunctionGeneratorESt14default_deleteIS2_
   %exceptionHandlers_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   %envReg.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %exceptionHandlers_.i.i, i8 0, i64 56, i1 false)
-  store i32 -1, ptr %envReg.i.i.i, align 4, !noalias !171
+  store i32 -1, ptr %envReg.i.i.i, align 8, !noalias !171
   %debugLocations_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 104
   %lazyFunctions_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   store i8 0, ptr %lazyFunctions_.i.i, align 8, !noalias !171
@@ -5376,7 +5376,7 @@ _ZNSt10unique_ptrIN6hermes3hbc25BytecodeFunctionGeneratorESt14default_deleteIS2_
   %sourceLocation_.i.i366 = getelementptr inbounds nuw i8, ptr %call.i362, i64 68
   %envReg.i.i.i367 = getelementptr inbounds nuw i8, ptr %call.i362, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %sourceLocation_.i.i366, i8 0, i64 28, i1 false), !noalias !206
-  store i32 -1, ptr %envReg.i.i.i367, align 4, !noalias !206
+  store i32 -1, ptr %envReg.i.i.i367, align 8, !noalias !206
   %debugLocations_.i.i368 = getelementptr inbounds nuw i8, ptr %call.i362, i64 104
   %lazyFunctions_.i.i369 = getelementptr inbounds nuw i8, ptr %call.i362, i64 160
   store i8 0, ptr %lazyFunctions_.i.i369, align 8, !noalias !206
@@ -7908,7 +7908,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPKN6hermes11InstructionESt4pairIjjENS_12Dens
   %second.i.i = getelementptr inbounds nuw i8, ptr %cond.sink.i.i.i, i64 8
   %second.i13.i = getelementptr inbounds nuw i8, ptr %B.020.i, i64 8
   %11 = load i64, ptr %second.i13.i, align 4
-  store i64 %11, ptr %second.i.i, align 4
+  store i64 %11, ptr %second.i.i, align 8
   %12 = load i32, ptr %NumEntries.i.i.i.i, align 8
   %add.i.i = add i32 %12, 1
   store i32 %add.i.i, ptr %NumEntries.i.i.i.i, align 8

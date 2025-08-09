@@ -4997,7 +4997,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueENS_20FunctionLoweringInfo26State
   %57 = load ptr, ptr %1, align 8, !tbaa !428
   store ptr %57, ptr %48, align 8, !tbaa !428
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i64 -4294967296, ptr %58, align 4
+  store i64 -4294967296, ptr %58, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueENS_20FunctionLoweringInfo26StatepointRelocationRecordENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E16InsertIntoBucketIS4_JEEEPSB_SF_OT_DpOT0_.exit
@@ -6788,7 +6788,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueENS_8RegisterENS_12DenseMapInfoIS
   %57 = load ptr, ptr %1, align 8, !tbaa !428
   store ptr %57, ptr %48, align 8, !tbaa !428
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !562
+  store i32 0, ptr %58, align 8, !tbaa !562
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueENS_8RegisterENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E16InsertIntoBucketIS4_JEEEPSA_SE_OT_DpOT0_.exit
@@ -13220,9 +13220,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionENS1_IPKNS_5ValueENS_20Fun
   store ptr null, ptr %41, align 8, !tbaa !577
   %43 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 16
   %44 = getelementptr inbounds nuw i8, ptr %.022, i64 16
-  %45 = load i32, ptr %44, align 4, !tbaa !66
-  store i32 %45, ptr %43, align 4, !tbaa !66
-  store i32 0, ptr %44, align 4, !tbaa !66
+  %45 = load i32, ptr %44, align 8, !tbaa !66
+  store i32 %45, ptr %43, align 8, !tbaa !66
+  store i32 0, ptr %44, align 8, !tbaa !66
   %46 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 20
   %47 = getelementptr inbounds nuw i8, ptr %.022, i64 20
   %48 = load i32, ptr %46, align 4, !tbaa !66
@@ -13231,10 +13231,10 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionENS1_IPKNS_5ValueENS_20Fun
   store i32 %48, ptr %47, align 4, !tbaa !66
   %50 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 24
   %51 = getelementptr inbounds nuw i8, ptr %.022, i64 24
-  %52 = load i32, ptr %50, align 4, !tbaa !66
-  %53 = load i32, ptr %51, align 4, !tbaa !66
-  store i32 %53, ptr %50, align 4, !tbaa !66
-  store i32 %52, ptr %51, align 4, !tbaa !66
+  %52 = load i32, ptr %50, align 8, !tbaa !66
+  %53 = load i32, ptr %51, align 8, !tbaa !66
+  store i32 %53, ptr %50, align 8, !tbaa !66
+  store i32 %52, ptr %51, align 8, !tbaa !66
   %54 = load i32, ptr %4, align 8, !tbaa !570
   %55 = add i32 %54, 1
   store i32 %55, ptr %4, align 8, !tbaa !570
@@ -13401,7 +13401,7 @@ _ZNKSt4lessIN4llvm7SDValueEEclERKS1_S4_.exit.thread79.i: ; preds = %_ZNKSt4lessI
 .lr.ph.i.i:                                       ; preds = %_ZNKSt4lessIN4llvm7SDValueEEclERKS1_S4_.exit.thread79.i
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i, i64 8
   %25 = load ptr, ptr %.sroa.04.08.i, align 8, !tbaa !75
-  %26 = load i32, ptr %24, align 4
+  %26 = load i32, ptr %24, align 8
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.backedge.i.backedge, %.lr.ph.i.i
@@ -14282,7 +14282,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueENS_20FunctionLoweringInfo26State
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i64, ptr %67, align 4
-  store i64 %68, ptr %66, align 4
+  store i64 %68, ptr %66, align 8
   %69 = load i32, ptr %32, align 8, !tbaa !578
   %70 = add i32 %69, 1
   store i32 %70, ptr %32, align 8, !tbaa !578
@@ -14722,7 +14722,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueENS_8RegisterENS_12DenseMapInfoIS
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !66
-  store i32 %68, ptr %66, align 4, !tbaa !66
+  store i32 %68, ptr %66, align 8, !tbaa !66
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !722
   br label %70

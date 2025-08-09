@@ -1823,7 +1823,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.thread.i.i.i
   %15 = add nuw nsw i64 %14, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(1) %10, i64 %15, i1 false), !noalias !44
   store i64 0, ptr %13, align 8, !tbaa !56, !noalias !44
-  store i8 0, ptr %10, align 1, !tbaa !6, !noalias !44
+  store i8 0, ptr %10, align 8, !tbaa !6, !noalias !44
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5arrow8internal12_GLOBAL__N_123StrptimeTimestampParserE, i64 16), ptr %7, align 8, !tbaa !51, !noalias !44
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -1837,7 +1837,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   %.pre.i.i.i.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i.i.i.i, align 8, !tbaa !56, !noalias !44
   store ptr %10, ptr %1, align 8, !tbaa !53, !noalias !44
   store i64 0, ptr %.phi.trans.insert.i.i.i.i.i.i.i, align 8, !tbaa !56, !noalias !44
-  store i8 0, ptr %10, align 1, !tbaa !6, !noalias !44
+  store i8 0, ptr %10, align 8, !tbaa !6, !noalias !44
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5arrow8internal12_GLOBAL__N_123StrptimeTimestampParserE, i64 16), ptr %7, align 8, !tbaa !51, !noalias !44
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 40

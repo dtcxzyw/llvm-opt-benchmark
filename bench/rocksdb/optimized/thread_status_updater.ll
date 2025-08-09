@@ -332,17 +332,17 @@ define void @_ZN7rocksdb19ThreadStatusUpdater14RegisterThreadENS_12ThreadStatus1
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store atomic i64 0, ptr %10 seq_cst, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store atomic i32 2, ptr %11 seq_cst, align 4
+  store atomic i32 2, ptr %11 seq_cst, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store atomic i64 0, ptr %12 seq_cst, align 8
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store atomic i32 0, ptr %13 seq_cst, align 4
+  store atomic i32 0, ptr %13 seq_cst, align 8
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store atomic i64 0, ptr %14 seq_cst, align 8
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 104
-  store atomic i32 0, ptr %15 seq_cst, align 4
+  store atomic i32 0, ptr %15 seq_cst, align 8
   store ptr %9, ptr %5, align 8, !tbaa !14
-  store atomic i32 %1, ptr %11 seq_cst, align 4
+  store atomic i32 %1, ptr %11 seq_cst, align 8
   store atomic i64 %2, ptr %10 seq_cst, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %16) #26
@@ -505,7 +505,7 @@ _ZN7rocksdb19ThreadStatusUpdater16ClearThreadStateEv.exit: ; preds = %_ZN7rocksd
   store atomic i32 0, ptr %12 monotonic, align 4
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store atomic i32 0, ptr %13 monotonic, align 4
-  %14 = load atomic i8, ptr %3 monotonic, align 1
+  %14 = load atomic i8, ptr %3 monotonic, align 4
   %15 = trunc i8 %14 to i1
   br i1 %15, label %_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.preheader.i.i, label %_ZN7rocksdb19ThreadStatusUpdater20ClearThreadOperationEv.exit.thread
 
@@ -574,7 +574,7 @@ define void @_ZN7rocksdb19ThreadStatusUpdater20ClearThreadOperationEv(ptr nounde
   store atomic i32 0, ptr %9 monotonic, align 4
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store atomic i32 0, ptr %10 monotonic, align 4
-  %11 = load atomic i8, ptr %3 monotonic, align 1
+  %11 = load atomic i8, ptr %3 monotonic, align 4
   %12 = trunc i8 %11 to i1
   br i1 %12, label %_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.preheader.i, label %_ZN7rocksdb19ThreadStatusUpdater30ClearThreadOperationPropertiesEv.exit
 
@@ -689,7 +689,7 @@ _ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit: ; preds = %6
 11:                                               ; preds = %_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store atomic i32 0, ptr %12 monotonic, align 4
-  %13 = load atomic i8, ptr %4 monotonic, align 1
+  %13 = load atomic i8, ptr %4 monotonic, align 4
   %14 = trunc i8 %13 to i1
   br i1 %14, label %_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.preheader.i, label %_ZN7rocksdb19ThreadStatusUpdater30ClearThreadOperationPropertiesEv.exit
 
@@ -976,7 +976,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %45
   store i64 %67, ptr %7, align 8, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  %69 = load atomic i32, ptr %68 monotonic, align 4
+  %69 = load atomic i32, ptr %68 monotonic, align 8
   store i32 %69, ptr %8, align 4, !tbaa !37
   %70 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %71 = load atomic i64, ptr %70 monotonic, align 8
@@ -1058,10 +1058,10 @@ _ZNSt13unordered_mapIPKvN7rocksdb24ConstantColumnFamilyInfoESt4hashIS1_ESt8equal
   %101 = sub i64 %44, %100
   store i64 %101, ptr %12, align 8, !tbaa !36
   %102 = getelementptr inbounds nuw i8, ptr %65, i64 48
-  %103 = load atomic i32, ptr %102 monotonic, align 4
+  %103 = load atomic i32, ptr %102 monotonic, align 8
   store i32 %103, ptr %10, align 4, !tbaa !41
   %104 = getelementptr inbounds nuw i8, ptr %65, i64 104
-  %105 = load atomic i32, ptr %104 monotonic, align 4
+  %105 = load atomic i32, ptr %104 monotonic, align 8
   store i32 %105, ptr %11, align 4, !tbaa !43
   %106 = getelementptr inbounds nuw i8, ptr %65, i64 56
   br label %107

@@ -12036,7 +12036,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit: ; preds = %_ZNKS
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 24
   %84 = load i32, ptr %83, align 8, !tbaa !309
   %85 = or i32 %84, %27
-  store i32 %85, ptr %83, align 4, !tbaa !312
+  store i32 %85, ptr %83, align 8, !tbaa !312
   br label %86
 
 86:                                               ; preds = %2, %._crit_edge, %16
@@ -12071,13 +12071,13 @@ define linkonce_odr hidden void @_ZN5boost6nowide4test11print_valueERKNSt7__cxx1
   %12 = load i32, ptr %11, align 8, !tbaa !309
   %13 = and i32 %12, -75
   %14 = or disjoint i32 %13, 8
-  store i32 %14, ptr %11, align 4, !tbaa !312
+  store i32 %14, ptr %11, align 8, !tbaa !312
   %15 = load i64, ptr %6, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load i32, ptr %17, align 8, !tbaa !309
   %19 = or i32 %18, 16384
-  store i32 %19, ptr %17, align 4, !tbaa !312
+  store i32 %19, ptr %17, align 8, !tbaa !312
   %20 = load i64, ptr %6, align 8
   %21 = getelementptr inbounds i8, ptr %4, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 225
@@ -12439,7 +12439,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEpLEw.exit: ; preds = %_ZNKS
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 24
   %83 = load i32, ptr %82, align 8, !tbaa !309
   %84 = or i32 %83, %27
-  store i32 %84, ptr %82, align 4, !tbaa !312
+  store i32 %84, ptr %82, align 8, !tbaa !312
   br label %85
 
 85:                                               ; preds = %2, %._crit_edge, %16

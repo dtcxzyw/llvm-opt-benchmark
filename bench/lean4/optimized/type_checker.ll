@@ -4283,7 +4283,7 @@ _ZN4lean10object_refD2Ev.exit93:                  ; preds = %152, %142, %149, %1
   store ptr %167, ptr %166, align 8, !tbaa !108
   %168 = getelementptr inbounds nuw i8, ptr %165, i64 16
   store i64 0, ptr %168, align 8, !tbaa !84
-  store i8 0, ptr %167, align 1, !tbaa !85
+  store i8 0, ptr %167, align 8, !tbaa !85
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %165, align 8, !tbaa !75
   br label %.invoke
 
@@ -13421,7 +13421,7 @@ _ZNSt13unordered_mapIN4lean4exprES1_NS0_9expr_hashESt8equal_toIS1_ESaISt4pairIKS
   store ptr %108, ptr %107, align 8, !tbaa !108
   %109 = getelementptr inbounds nuw i8, ptr %106, i64 16
   store i64 0, ptr %109, align 8, !tbaa !84
-  store i8 0, ptr %108, align 1, !tbaa !85
+  store i8 0, ptr %108, align 8, !tbaa !85
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %106, align 8, !tbaa !75
   invoke void @__cxa_throw(ptr nonnull %106, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #20
           to label %402 unwind label %103
@@ -19429,7 +19429,7 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %39, %47, %49, %50
   store ptr %87, ptr %86, align 8, !tbaa !108
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 16
   store i64 0, ptr %88, align 8, !tbaa !84
-  store i8 0, ptr %87, align 1, !tbaa !85
+  store i8 0, ptr %87, align 8, !tbaa !85
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %85, align 8, !tbaa !75
   tail call void @__cxa_throw(ptr nonnull %85, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #20
   unreachable

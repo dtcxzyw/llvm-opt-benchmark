@@ -3331,7 +3331,7 @@ entry:
   %3 = load i32, ptr %labelCount.i.i, align 4
   %inc.i.i = add i32 %3, 1
   store i32 %inc.i.i, ptr %labelCount.i.i, align 4
-  store i32 %3, ptr %add.ptr, align 4
+  store i32 %3, ptr %add.ptr, align 8
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %entry
@@ -7997,7 +7997,7 @@ _ZSt9make_pairIRKPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS0_6ESTree23Func
   store ptr %8, ptr %call.i.i.i, align 8, !noalias !251
   %second.i.i2.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   %9 = load i32, ptr %second.i, align 8, !noalias !251
-  store i32 %9, ptr %second.i.i2.i.i, align 4, !noalias !251
+  store i32 %9, ptr %second.i.i2.i.i, align 8, !noalias !251
   %Vector = getelementptr inbounds nuw i8, ptr %this, i64 24
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp6, i64 16
   store ptr %add.ptr.i.i.i.i.i, ptr %ref.tmp6, align 8
@@ -16613,7 +16613,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPKN6hermes12UniqueStringEjNS_12DenseMapInfoI
   %second.i.i = getelementptr inbounds nuw i8, ptr %cond.sink.i.i.i, i64 8
   %second.i13.i = getelementptr inbounds nuw i8, ptr %B.020.i, i64 8
   %11 = load i32, ptr %second.i13.i, align 4
-  store i32 %11, ptr %second.i.i, align 4
+  store i32 %11, ptr %second.i.i, align 8
   %12 = load i32, ptr %NumEntries.i.i.i.i, align 8
   %add.i.i = add i32 %12, 1
   store i32 %add.i.i, ptr %NumEntries.i.i.i.i, align 8

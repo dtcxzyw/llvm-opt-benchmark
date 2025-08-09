@@ -84,7 +84,7 @@ define hidden range(i32 -2147483648, 1) i32 @ff_aac_sbr_ctx_alloc_init(ptr nound
   store ptr %9, ptr %10, align 16, !tbaa !9
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 160548
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 160552
-  %13 = load i32, ptr %12, align 4, !tbaa !10
+  %13 = load i32, ptr %12, align 8, !tbaa !10
   store i32 %13, ptr %11, align 4, !tbaa !10
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 160476
   store i32 %2, ptr %14, align 4, !tbaa !12
@@ -94,13 +94,13 @@ define hidden range(i32 -2147483648, 1) i32 @ff_aac_sbr_ctx_alloc_init(ptr nound
   store i32 0, ptr %16, align 16, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 160472
   store i32 0, ptr %17, align 8, !tbaa !23
-  store i32 32, ptr %12, align 4, !tbaa !10
+  store i32 32, ptr %12, align 8, !tbaa !10
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 160560
-  store i32 0, ptr %18, align 4, !tbaa !10
+  store i32 0, ptr %18, align 16, !tbaa !10
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 263912
-  store i32 -1, ptr %19, align 4, !tbaa !10
+  store i32 -1, ptr %19, align 8, !tbaa !10
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 175160
-  store i32 -1, ptr %20, align 4, !tbaa !10
+  store i32 -1, ptr %20, align 8, !tbaa !10
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 160492
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %21, i8 -1, i64 6, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 175152
@@ -404,12 +404,12 @@ read_sbr_single_channel_element.exit.i:           ; preds = %109, %read_sbr_invf
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 160480
   store i32 0, ptr %146, align 16, !tbaa !22
   store i32 0, ptr %64, align 8, !tbaa !23
-  store i32 32, ptr %36, align 4, !tbaa !10
-  store i32 0, ptr %39, align 4, !tbaa !10
+  store i32 32, ptr %36, align 8, !tbaa !10
+  store i32 0, ptr %39, align 16, !tbaa !10
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 263912
-  store i32 -1, ptr %147, align 4, !tbaa !10
+  store i32 -1, ptr %147, align 8, !tbaa !10
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 175160
-  store i32 -1, ptr %148, align 4, !tbaa !10
+  store i32 -1, ptr %148, align 8, !tbaa !10
   %149 = getelementptr inbounds nuw i8, ptr %1, i64 160492
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %149, i8 -1, i64 6, i1 false)
   br label %read_sbr_data.exit
@@ -476,7 +476,7 @@ read_sbr_single_channel_element.exit.i:           ; preds = %109, %read_sbr_invf
   store i8 %192, ptr %193, align 1, !tbaa !57
   %194 = getelementptr inbounds nuw i8, ptr %1, i64 263908
   %195 = getelementptr inbounds nuw i8, ptr %1, i64 263912
-  %196 = load i32, ptr %195, align 4, !tbaa !10
+  %196 = load i32, ptr %195, align 8, !tbaa !10
   %197 = icmp ne i32 %196, %186
   %.neg.i.i.i = sext i1 %197 to i32
   store i32 %.neg.i.i.i, ptr %194, align 4, !tbaa !10
@@ -503,8 +503,8 @@ read_sbr_single_channel_element.exit.i:           ; preds = %109, %read_sbr_invf
   %212 = load i32, ptr %179, align 16, !tbaa !60
   store i32 %212, ptr %183, align 16, !tbaa !60
   %213 = getelementptr inbounds nuw i8, ptr %1, i64 175160
-  %214 = load i32, ptr %213, align 4, !tbaa !10
-  store i32 %214, ptr %195, align 4, !tbaa !10
+  %214 = load i32, ptr %213, align 8, !tbaa !10
+  store i32 %214, ptr %195, align 8, !tbaa !10
   %215 = getelementptr i8, ptr %1, i64 160480
   %.val111.i.i = load i32, ptr %215, align 16, !tbaa !22
   call fastcc void @read_sbr_dtdf(i32 %.val111.i.i, ptr noundef nonnull %7, ptr noundef nonnull %179, i32 noundef 0)
@@ -788,12 +788,12 @@ get_bits1_vector.exit108.i.i:                     ; preds = %.lr.ph.i56.i, %326,
   %376 = getelementptr inbounds nuw i8, ptr %1, i64 160480
   store i32 0, ptr %376, align 16, !tbaa !22
   store i32 0, ptr %64, align 8, !tbaa !23
-  store i32 32, ptr %36, align 4, !tbaa !10
-  store i32 0, ptr %39, align 4, !tbaa !10
+  store i32 32, ptr %36, align 8, !tbaa !10
+  store i32 0, ptr %39, align 16, !tbaa !10
   %377 = getelementptr inbounds nuw i8, ptr %1, i64 263912
-  store i32 -1, ptr %377, align 4, !tbaa !10
+  store i32 -1, ptr %377, align 8, !tbaa !10
   %378 = getelementptr inbounds nuw i8, ptr %1, i64 175160
-  store i32 -1, ptr %378, align 4, !tbaa !10
+  store i32 -1, ptr %378, align 8, !tbaa !10
   %379 = getelementptr inbounds nuw i8, ptr %1, i64 160492
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %379, i8 -1, i64 6, i1 false)
   br label %read_sbr_data.exit
@@ -806,12 +806,12 @@ get_bits1_vector.exit108.i.i:                     ; preds = %.lr.ph.i56.i, %326,
   %383 = getelementptr inbounds nuw i8, ptr %1, i64 160480
   store i32 0, ptr %383, align 16, !tbaa !22
   store i32 0, ptr %64, align 8, !tbaa !23
-  store i32 32, ptr %36, align 4, !tbaa !10
-  store i32 0, ptr %39, align 4, !tbaa !10
+  store i32 32, ptr %36, align 8, !tbaa !10
+  store i32 0, ptr %39, align 16, !tbaa !10
   %384 = getelementptr inbounds nuw i8, ptr %1, i64 263912
-  store i32 -1, ptr %384, align 4, !tbaa !10
+  store i32 -1, ptr %384, align 8, !tbaa !10
   %385 = getelementptr inbounds nuw i8, ptr %1, i64 175160
-  store i32 -1, ptr %385, align 4, !tbaa !10
+  store i32 -1, ptr %385, align 8, !tbaa !10
   %386 = getelementptr inbounds nuw i8, ptr %1, i64 160492
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %386, i8 -1, i64 6, i1 false)
   br label %read_sbr_data.exit
@@ -1011,12 +1011,12 @@ read_sbr_data.exit:                               ; preds = %read_sbr_single_cha
   store i32 0, ptr %499, align 16, !tbaa !22
   %500 = getelementptr inbounds nuw i8, ptr %1, i64 160472
   store i32 0, ptr %500, align 8, !tbaa !23
-  store i32 32, ptr %36, align 4, !tbaa !10
-  store i32 0, ptr %39, align 4, !tbaa !10
+  store i32 32, ptr %36, align 8, !tbaa !10
+  store i32 0, ptr %39, align 16, !tbaa !10
   %501 = getelementptr inbounds nuw i8, ptr %1, i64 263912
-  store i32 -1, ptr %501, align 4, !tbaa !10
+  store i32 -1, ptr %501, align 8, !tbaa !10
   %502 = getelementptr inbounds nuw i8, ptr %1, i64 175160
-  store i32 -1, ptr %502, align 4, !tbaa !10
+  store i32 -1, ptr %502, align 8, !tbaa !10
   %503 = getelementptr inbounds nuw i8, ptr %1, i64 160492
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %503, i8 -1, i64 6, i1 false)
   br label %504
@@ -2888,9 +2888,9 @@ sbr_make_f_master.exit.thread:                    ; preds = %17, %157, %143, %.c
   %613 = zext i16 %612 to i32
   %614 = sub nsw i32 %611, %613
   %615 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  store i32 %614, ptr %615, align 4, !tbaa !10
+  store i32 %614, ptr %615, align 16, !tbaa !10
   %616 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store i32 %613, ptr %616, align 4, !tbaa !10
+  store i32 %613, ptr %616, align 8, !tbaa !10
   %617 = icmp ugt i16 %610, 64
   br i1 %617, label %618, label %621
 
@@ -3145,13 +3145,13 @@ sbr_make_f_derived.exit:                          ; preds = %719, %721, %727
   %734 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 0, ptr %734, align 8, !tbaa !23
   %735 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store i32 32, ptr %735, align 4, !tbaa !10
+  store i32 32, ptr %735, align 8, !tbaa !10
   %736 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  store i32 0, ptr %736, align 4, !tbaa !10
+  store i32 0, ptr %736, align 16, !tbaa !10
   %737 = getelementptr inbounds nuw i8, ptr %1, i64 103448
-  store i32 -1, ptr %737, align 4, !tbaa !10
+  store i32 -1, ptr %737, align 8, !tbaa !10
   %738 = getelementptr inbounds nuw i8, ptr %1, i64 14696
-  store i32 -1, ptr %738, align 4, !tbaa !10
+  store i32 -1, ptr %738, align 8, !tbaa !10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %10, i8 -1, i64 6, i1 false)
   br label %739
 
@@ -3170,13 +3170,13 @@ define hidden noundef i32 @ff_aac_sbr_config_usac(ptr noundef readnone captures(
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 160472
   store i32 0, ptr %6, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 160552
-  store i32 32, ptr %7, align 4, !tbaa !10
+  store i32 32, ptr %7, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 160560
-  store i32 0, ptr %8, align 4, !tbaa !10
+  store i32 0, ptr %8, align 16, !tbaa !10
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 263912
-  store i32 -1, ptr %9, align 4, !tbaa !10
+  store i32 -1, ptr %9, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 175160
-  store i32 -1, ptr %10, align 4, !tbaa !10
+  store i32 -1, ptr %10, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 160492
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %11, i8 -1, i64 6, i1 false)
   ret i32 0
@@ -3326,7 +3326,7 @@ define hidden range(i32 -1094995529, 1) i32 @ff_aac_sbr_decode_usac_data(ptr nou
   %106 = load i8, ptr %105, align 1, !tbaa !141
   store i8 %106, ptr %98, align 4, !tbaa !89
   %107 = getelementptr inbounds nuw i8, ptr %2, i64 14
-  %108 = load i8, ptr %107, align 1, !tbaa !147
+  %108 = load i8, ptr %107, align 2, !tbaa !147
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 160493
   store i8 %108, ptr %109, align 1, !tbaa !90
   %110 = getelementptr inbounds nuw i8, ptr %2, i64 15
@@ -3334,7 +3334,7 @@ define hidden range(i32 -1094995529, 1) i32 @ff_aac_sbr_decode_usac_data(ptr nou
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 160495
   store i8 %111, ptr %112, align 1, !tbaa !92
   %113 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %114 = load i8, ptr %113, align 1
+  %114 = load i8, ptr %113, align 4
   %115 = and i8 %114, 1
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 160496
   store i8 %115, ptr %116, align 4, !tbaa !93
@@ -3343,7 +3343,7 @@ define hidden range(i32 -1094995529, 1) i32 @ff_aac_sbr_decode_usac_data(ptr nou
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 160497
   store i8 %118, ptr %119, align 1, !tbaa !94
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  %121 = load i8, ptr %120, align 1, !tbaa !150
+  %121 = load i8, ptr %120, align 2, !tbaa !150
   %122 = zext i8 %121 to i32
   store i32 %122, ptr %96, align 4, !tbaa !87
   %123 = getelementptr inbounds nuw i8, ptr %2, i64 19
@@ -3352,12 +3352,12 @@ define hidden range(i32 -1094995529, 1) i32 @ff_aac_sbr_decode_usac_data(ptr nou
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 160512
   store i32 %125, ptr %126, align 16, !tbaa !95
   %127 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %128 = load i8, ptr %127, align 1
+  %128 = load i8, ptr %127, align 4
   %129 = and i8 %128, 1
   %130 = zext nneg i8 %129 to i32
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 160516
   store i32 %130, ptr %131, align 4, !tbaa !96
-  %132 = load i8, ptr %127, align 1
+  %132 = load i8, ptr %127, align 4
   %133 = lshr i8 %132, 1
   %134 = and i8 %133, 1
   %135 = zext nneg i8 %134 to i32
@@ -3407,11 +3407,11 @@ define hidden range(i32 -1094995529, 1) i32 @ff_aac_sbr_decode_usac_data(ptr nou
   %149 = icmp eq i32 %.pre290, 0
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 160548
   %151 = getelementptr inbounds nuw i8, ptr %1, i64 160552
-  %152 = load i32, ptr %151, align 4, !tbaa !10
+  %152 = load i32, ptr %151, align 8, !tbaa !10
   store i32 %152, ptr %150, align 4, !tbaa !10
   %153 = getelementptr inbounds nuw i8, ptr %1, i64 160556
   %154 = getelementptr inbounds nuw i8, ptr %1, i64 160560
-  %155 = load i32, ptr %154, align 4, !tbaa !10
+  %155 = load i32, ptr %154, align 8, !tbaa !10
   store i32 %155, ptr %153, align 4, !tbaa !10
   %156 = getelementptr inbounds nuw i8, ptr %1, i64 160564
   store i32 1, ptr %156, align 4, !tbaa !48
@@ -3586,7 +3586,7 @@ read_sbr_invf.exit:                               ; preds = %171, %164
   store i8 %262, ptr %263, align 1, !tbaa !57
   %264 = getelementptr inbounds nuw i8, ptr %1, i64 263908
   %265 = getelementptr inbounds nuw i8, ptr %1, i64 263912
-  %266 = load i32, ptr %265, align 4, !tbaa !10
+  %266 = load i32, ptr %265, align 8, !tbaa !10
   %267 = icmp ne i32 %266, %256
   %.neg.i = sext i1 %267 to i32
   store i32 %.neg.i, ptr %264, align 4, !tbaa !10
@@ -3613,8 +3613,8 @@ read_sbr_invf.exit:                               ; preds = %171, %164
   %282 = load i32, ptr %249, align 16, !tbaa !60
   store i32 %282, ptr %253, align 16, !tbaa !60
   %283 = getelementptr inbounds nuw i8, ptr %1, i64 175160
-  %284 = load i32, ptr %283, align 4, !tbaa !10
-  store i32 %284, ptr %265, align 4, !tbaa !10
+  %284 = load i32, ptr %283, align 8, !tbaa !10
+  store i32 %284, ptr %265, align 8, !tbaa !10
   %.val212 = load i32, ptr %10, align 16, !tbaa !22
   tail call fastcc void @read_sbr_dtdf(i32 %.val212, ptr noundef nonnull %3, ptr noundef nonnull %249, i32 noundef %5)
   %.val213 = load i32, ptr %10, align 16, !tbaa !22
@@ -4466,7 +4466,7 @@ in_table_int16.exit217:                           ; preds = %.lr.ph.i212
   %182 = getelementptr inbounds nuw [25 x i16], ptr %176, i64 0, i64 %181
   %183 = load i16, ptr %182, align 2, !tbaa !100
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 312004
-  store i16 %183, ptr %184, align 2, !tbaa !100
+  store i16 %183, ptr %184, align 4, !tbaa !100
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 311740
   store i32 1, ptr %185, align 4, !tbaa !158
   br label %186
@@ -6316,13 +6316,13 @@ define hidden void @ff_aac_sbr_apply(ptr noundef readonly captures(none) %0, ptr
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 160472
   store i32 0, ptr %21, align 8, !tbaa !23
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 160552
-  store i32 32, ptr %22, align 4, !tbaa !10
+  store i32 32, ptr %22, align 8, !tbaa !10
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 160560
-  store i32 0, ptr %23, align 4, !tbaa !10
+  store i32 0, ptr %23, align 16, !tbaa !10
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 263912
-  store i32 -1, ptr %24, align 4, !tbaa !10
+  store i32 -1, ptr %24, align 8, !tbaa !10
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 175160
-  store i32 -1, ptr %25, align 4, !tbaa !10
+  store i32 -1, ptr %25, align 8, !tbaa !10
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 160492
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %26, i8 -1, i64 6, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 160468
@@ -6350,13 +6350,13 @@ define hidden void @ff_aac_sbr_apply(ptr noundef readonly captures(none) %0, ptr
   store i32 0, ptr %37, align 16, !tbaa !22
   store i32 0, ptr %32, align 8, !tbaa !23
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 160552
-  store i32 32, ptr %38, align 4, !tbaa !10
+  store i32 32, ptr %38, align 8, !tbaa !10
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 160560
-  store i32 0, ptr %39, align 4, !tbaa !10
+  store i32 0, ptr %39, align 16, !tbaa !10
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 263912
-  store i32 -1, ptr %40, align 4, !tbaa !10
+  store i32 -1, ptr %40, align 8, !tbaa !10
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 175160
-  store i32 -1, ptr %41, align 4, !tbaa !10
+  store i32 -1, ptr %41, align 8, !tbaa !10
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 160492
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %42, i8 -1, i64 6, i1 false)
   br label %43
@@ -7399,10 +7399,10 @@ sbr_mapping.exit:                                 ; preds = %474
   store i32 0, ptr %44, align 4, !tbaa !21
   store i32 0, ptr %314, align 16, !tbaa !22
   store i32 0, ptr %315, align 8, !tbaa !23
-  store i32 32, ptr %299, align 4, !tbaa !10
-  store i32 0, ptr %306, align 4, !tbaa !10
-  store i32 -1, ptr %316, align 4, !tbaa !10
-  store i32 -1, ptr %317, align 4, !tbaa !10
+  store i32 32, ptr %299, align 8, !tbaa !10
+  store i32 0, ptr %306, align 16, !tbaa !10
+  store i32 -1, ptr %316, align 8, !tbaa !10
+  store i32 -1, ptr %317, align 8, !tbaa !10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %318, i8 -1, i64 6, i1 false)
   br label %807
 
@@ -7482,7 +7482,7 @@ sbr_mapping.exit:                                 ; preds = %474
   %605 = getelementptr inbounds nuw [48 x float], ptr %598, i64 0, i64 %indvars.iv.i194
   store float %604, ptr %605, align 4, !tbaa !26
   %indvars.iv.next.i195 = add nuw nsw i64 %indvars.iv.i194, 1
-  %606 = load i32, ptr %306, align 4, !tbaa !10
+  %606 = load i32, ptr %306, align 8, !tbaa !10
   %607 = trunc nsw i64 %indvars.iv.next.i195 to i32
   %608 = icmp ugt i32 %606, %607
   br i1 %608, label %599, label %.loopexit86.loopexit.i, !llvm.loop !218
@@ -8171,9 +8171,9 @@ define internal void @sbr_hf_assemble(ptr noundef %0, ptr noundef %1, ptr nounde
   %.not = icmp eq i32 %9, 0
   %10 = select i1 %.not, i32 4, i32 0
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %12 = load i32, ptr %11, align 4, !tbaa !10
+  %12 = load i32, ptr %11, align 8, !tbaa !10
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %14 = load i32, ptr %13, align 4, !tbaa !10
+  %14 = load i32, ptr %13, align 8, !tbaa !10
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 69920
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 77984
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 88732

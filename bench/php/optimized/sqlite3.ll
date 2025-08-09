@@ -5061,7 +5061,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %14
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 24
   %115 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %116 = load i64, ptr %115, align 8, !tbaa !73
-  %117 = load i8, ptr %114, align 1, !tbaa !8
+  %117 = load i8, ptr %114, align 8, !tbaa !8
   %118 = icmp sgt i8 %117, 57
   br i1 %118, label %_zend_handle_numeric_str.exit.thread, label %119, !prof !75
 

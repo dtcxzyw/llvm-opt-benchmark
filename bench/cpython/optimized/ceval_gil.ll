@@ -2357,7 +2357,7 @@ define internal fastcc void @create_gil(ptr noundef %0) unnamed_addr #3 {
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store atomic i64 0, ptr %18 monotonic, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store atomic i32 0, ptr %19 release, align 4
+  store atomic i32 0, ptr %19 release, align 8
   ret void
 }
 

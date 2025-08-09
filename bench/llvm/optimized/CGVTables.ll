@@ -5602,7 +5602,7 @@ _ZSt19__relocate_object_aIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadat
   store i64 %160, ptr %162, align 8, !tbaa !973, !alias.scope !979, !noalias !982
   store ptr %152, ptr %149, align 8, !tbaa !978, !alias.scope !982, !noalias !979
   store i64 0, ptr %161, align 8, !tbaa !973, !alias.scope !982, !noalias !979
-  store i8 0, ptr %152, align 1, !tbaa !347, !alias.scope !982, !noalias !979
+  store i8 0, ptr %152, align 8, !tbaa !347, !alias.scope !982, !noalias !979
   %163 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i, i64 48
   %164 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i, i64 48
   %.not.i.i.i.i.i.i40 = icmp eq ptr %163, %.sroa.9.072
@@ -10641,7 +10641,7 @@ _ZZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS_13CXXRecordDeclEP
   %54 = getelementptr inbounds nuw i8, ptr %41, i64 24
   store ptr %44, ptr %42, align 8, !tbaa !978
   store i64 0, ptr %54, align 8, !tbaa !973
-  store i8 0, ptr %44, align 1, !tbaa !347
+  store i8 0, ptr %44, align 8, !tbaa !347
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %41, i64 16, i1 false)
   store ptr %38, ptr %37, align 8, !tbaa !972
   %55 = icmp eq ptr %52, %35
@@ -10751,7 +10751,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5.
   store i64 %90, ptr %75, align 8, !tbaa !973
   store ptr %82, ptr %80, align 8, !tbaa !978
   store i64 0, ptr %91, align 8, !tbaa !973
-  store i8 0, ptr %82, align 1, !tbaa !347
+  store i8 0, ptr %82, align 8, !tbaa !347
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %79, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 16, i1 false)
   %92 = load ptr, ptr %19, align 8, !tbaa !978
   %93 = icmp eq ptr %92, %21
@@ -11100,7 +11100,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4.
   store i64 %219, ptr %22, align 8, !tbaa !973
   store ptr %21, ptr %19, align 8, !tbaa !978
   store i64 0, ptr %.phi.trans.insert.i.i15, align 8, !tbaa !973
-  store i8 0, ptr %21, align 1, !tbaa !347
+  store i8 0, ptr %21, align 8, !tbaa !347
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %.sink.i.i, i64 16, i1 false)
   %220 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 16
   %221 = load ptr, ptr %220, align 8, !tbaa !978
@@ -11385,7 +11385,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4.
   store i64 %319, ptr %26, align 8, !tbaa !973
   store ptr %313, ptr %311, align 8, !tbaa !978
   store i64 0, ptr %292, align 8, !tbaa !973
-  store i8 0, ptr %313, align 1, !tbaa !347
+  store i8 0, ptr %313, align 8, !tbaa !347
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.020.1.i.i, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.1.i.i, i64 16, i1 false)
   %320 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -32
   %321 = load ptr, ptr %320, align 8, !tbaa !978
@@ -11855,7 +11855,7 @@ _ZZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS_13CXXRecordDeclEP
   store i64 %141, ptr %143, align 8, !tbaa !973
   store ptr %133, ptr %130, align 8, !tbaa !978
   store i64 0, ptr %142, align 8, !tbaa !973
-  store i8 0, ptr %133, align 1, !tbaa !347
+  store i8 0, ptr %133, align 8, !tbaa !347
   %144 = icmp sgt i64 %.1, %1
   br i1 %144, label %.lr.ph.i, label %.critedge.i
 
@@ -12200,7 +12200,7 @@ _ZZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS_13CXXRecordDeclEP
   store i64 %38, ptr %10, align 8, !tbaa !973
   store ptr %32, ptr %30, align 8, !tbaa !978
   store i64 0, ptr %14, align 8, !tbaa !973
-  store i8 0, ptr %32, align 1, !tbaa !347
+  store i8 0, ptr %32, align 8, !tbaa !347
   %39 = ptrtoint ptr %.sroa.0.021 to i64
   %40 = sub i64 %39, %11
   %41 = icmp sgt i64 %40, 0
@@ -12463,7 +12463,7 @@ _ZZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS_13CXXRecordDeclEP
   store i64 %15, ptr %17, align 8, !tbaa !973
   store ptr %7, ptr %4, align 8, !tbaa !978
   store i64 0, ptr %16, align 8, !tbaa !973
-  store i8 0, ptr %7, align 1, !tbaa !347
+  store i8 0, ptr %7, align 8, !tbaa !347
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %19
 

@@ -2750,19 +2750,19 @@ define internal fastcc void @sendsuboption(ptr noundef %0, i32 noundef range(i32
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 7244
   store i8 %.sroa.0.0.extract.trunc, ptr %12, align 1, !tbaa !79
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 7245
-  store i8 %.sroa.4.0.extract.trunc, ptr %17, align 1, !tbaa !79
+  store i8 %.sroa.4.0.extract.trunc, ptr %17, align 4, !tbaa !79
   store i8 %.sroa.057.0.extract.trunc, ptr %18, align 1, !tbaa !79
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 7246
   %.sroa.458.0.extract.shift = lshr i16 %rev.i66, 8
   %.sroa.458.0.extract.trunc = trunc nuw i16 %.sroa.458.0.extract.shift to i8
-  store i8 %.sroa.458.0.extract.trunc, ptr %19, align 1, !tbaa !79
+  store i8 %.sroa.458.0.extract.trunc, ptr %19, align 2, !tbaa !79
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 7247
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 7248
   store ptr %21, ptr %9, align 8, !tbaa !82
   store i8 -1, ptr %20, align 1, !tbaa !79
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 7249
   store ptr %22, ptr %9, align 8, !tbaa !82
-  store i8 -16, ptr %21, align 1, !tbaa !79
+  store i8 -16, ptr %21, align 8, !tbaa !79
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 7760
   store ptr %22, ptr %23, align 8, !tbaa !116
   store ptr %8, ptr %9, align 8, !tbaa !82

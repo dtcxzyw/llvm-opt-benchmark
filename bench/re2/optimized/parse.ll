@@ -2521,7 +2521,7 @@ if.then15:                                        ; preds = %if.else
 
 if.then.i68:                                      ; preds = %if.then15
   %6 = load ptr, ptr %sub18, align 8
-  %7 = load i32, ptr %nsub21, align 4
+  %7 = load i32, ptr %nsub21, align 8
   store ptr %6, ptr %0, align 8
   %nsub3.i.i.i.i69 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %7, ptr %nsub3.i.i.i.i69, align 8
@@ -2706,7 +2706,7 @@ sw.epilog:                                        ; preds = %_ZN10LogMessageD2Ev
   %incdec.ptr.i81 = getelementptr inbounds nuw i8, ptr %iter.sroa.0.0165, i64 24
   %32 = load ptr, ptr %_M_finish.i.i62, align 8
   %cmp.i = icmp eq ptr %incdec.ptr.i81, %32
-  %.pre = load i32, ptr %nsub6, align 4
+  %.pre = load i32, ptr %nsub6, align 8
   %cmp74159 = icmp slt i32 %i.2, %.pre
   %or.cond = select i1 %cmp.i, i1 %cmp74159, i1 false
   br i1 %or.cond, label %while.body75.preheader, label %if.end
@@ -2726,7 +2726,7 @@ while.body75:                                     ; preds = %while.body75.prehea
   %indvars.iv.next188 = add nsw i64 %indvars.iv187, 1
   %arrayidx81 = getelementptr inbounds ptr, ptr %35, i64 %indvars.iv187
   store ptr %36, ptr %arrayidx81, align 8
-  %37 = load i32, ptr %nsub6, align 4
+  %37 = load i32, ptr %nsub6, align 8
   %38 = sext i32 %37 to i64
   %cmp74 = icmp slt i64 %indvars.iv.next186, %38
   br i1 %cmp74, label %while.body75, label %if.end.loopexit, !llvm.loop !19
@@ -2773,19 +2773,19 @@ if.end85:                                         ; preds = %for.cond, %_ZNSt6ve
 
 sw.bb86:                                          ; preds = %if.end85
   %44 = load ptr, ptr %add.ptr.i.i, align 8
-  %45 = load i32, ptr %nsub6, align 4
+  %45 = load i32, ptr %nsub6, align 8
   invoke void @_ZN3re221FactorAlternationImpl6Round1EPPNS_6RegexpEiNS1_10ParseFlagsEPSt6vectorINS_6SpliceESaIS6_EE(ptr noundef %44, i32 noundef %45, i32 poison, ptr noundef nonnull %splices10)
           to label %sw.epilog118 unwind label %lpad.loopexit.split-lp.loopexit
 
 sw.bb88:                                          ; preds = %if.end85
   %46 = load ptr, ptr %add.ptr.i.i, align 8
-  %47 = load i32, ptr %nsub6, align 4
+  %47 = load i32, ptr %nsub6, align 8
   invoke void @_ZN3re221FactorAlternationImpl6Round2EPPNS_6RegexpEiNS1_10ParseFlagsEPSt6vectorINS_6SpliceESaIS6_EE(ptr noundef %46, i32 noundef %47, i32 poison, ptr noundef nonnull %splices10)
           to label %sw.epilog118 unwind label %lpad.loopexit.split-lp.loopexit
 
 sw.bb90:                                          ; preds = %if.end85
   %48 = load ptr, ptr %add.ptr.i.i, align 8
-  %49 = load i32, ptr %nsub6, align 4
+  %49 = load i32, ptr %nsub6, align 8
   invoke void @_ZN3re221FactorAlternationImpl6Round3EPPNS_6RegexpEiNS1_10ParseFlagsEPSt6vectorINS_6SpliceESaIS6_EE(ptr noundef %48, i32 noundef %49, i32 noundef %flags, ptr noundef nonnull %splices10)
           to label %sw.epilog118 unwind label %lpad.loopexit.split-lp.loopexit
 

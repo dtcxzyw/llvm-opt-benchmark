@@ -2095,7 +2095,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i22: ; preds = %_ZN9QtPrivate8
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %105 = load i32, ptr %104, align 8
   %106 = icmp sgt i32 %103, %105
-  %107 = load atomic i32, ptr %101 monotonic, align 4
+  %107 = load atomic i32, ptr %101 monotonic, align 8
   switch i32 %107, label %_ZN9QtPrivate8RefCount5derefEv.exit.i [
     i32 0, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
     i32 -1, label %_ZN5QListIP7QActionED2Ev.exit
@@ -11979,7 +11979,7 @@ _ZN7QVectorIP17MLRenderingActionE3endEv.exit5:    ; preds = %51, %56, %58
   %64 = load i32, ptr %63, align 4
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds ptr, ptr %62, i64 %65
-  %67 = load atomic i32, ptr %59 monotonic, align 4
+  %67 = load atomic i32, ptr %59 monotonic, align 8
   %68 = icmp ult i32 %67, 2
   br i1 %68, label %_ZN7QVectorIP17MLRenderingActionE5beginEv.exit8, label %69
 
@@ -12176,7 +12176,7 @@ _ZN5QListIP17MLRenderingActionEixEi.exit:         ; preds = %.lr.ph, %_ZN5QListI
   %48 = load i32, ptr %47, align 8
   %49 = and i32 %48, 2147483647
   %50 = icmp ule i32 %46, %49
-  %51 = load atomic i32, ptr %43 monotonic, align 4
+  %51 = load atomic i32, ptr %43 monotonic, align 8
   %52 = icmp ult i32 %51, 2
   %or.cond.not.i.i = select i1 %52, i1 %50, i1 false
   %53 = load ptr, ptr %42, align 8

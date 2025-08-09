@@ -3378,7 +3378,7 @@ _ZL19foreachMemoryAccessPN4llvm9MemorySSAEPNS_4LoopENS_12function_refIFvPNS_11In
   store ptr null, ptr %18, align 8, !tbaa !298, !noalias !220
   %754 = getelementptr inbounds nuw i8, ptr %752, i64 8
   %755 = load i32, ptr %429, align 8, !tbaa !66, !noalias !220
-  store i32 %755, ptr %754, align 4, !tbaa !66
+  store i32 %755, ptr %754, align 8, !tbaa !66
   store i32 0, ptr %429, align 8, !tbaa !66, !noalias !220
   %756 = getelementptr inbounds nuw i8, ptr %752, i64 12
   %757 = load i32, ptr %756, align 4, !tbaa !66
@@ -3386,9 +3386,9 @@ _ZL19foreachMemoryAccessPN4llvm9MemorySSAEPNS_4LoopENS_12function_refIFvPNS_11In
   store i32 %758, ptr %756, align 4, !tbaa !66
   store i32 %757, ptr %430, align 4, !tbaa !66, !noalias !220
   %759 = getelementptr inbounds nuw i8, ptr %752, i64 16
-  %760 = load i32, ptr %759, align 4, !tbaa !66
+  %760 = load i32, ptr %759, align 8, !tbaa !66
   %761 = load i32, ptr %431, align 8, !tbaa !66, !noalias !220
-  store i32 %761, ptr %759, align 4, !tbaa !66
+  store i32 %761, ptr %759, align 8, !tbaa !66
   store i32 %760, ptr %431, align 8, !tbaa !66, !noalias !220
   %762 = getelementptr inbounds nuw i8, ptr %752, i64 24
   %763 = getelementptr inbounds nuw i8, ptr %752, i64 40
@@ -4451,7 +4451,7 @@ define dso_local noalias noundef nonnull ptr @_ZN4llvm14createLICMPassEv() local
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 %4, ptr %9, align 4, !tbaa !114
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i32 %5, ptr %10, align 4, !tbaa !116
+  store i32 %5, ptr %10, align 8, !tbaa !116
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i8 1, ptr %11, align 4, !tbaa !117
   %12 = tail call noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() #25
@@ -6830,7 +6830,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_17OperandBundleDefTIPNS_5ValueEEELb0EE18gro
   store ptr %975, ptr %974, align 8, !tbaa !518
   %976 = getelementptr inbounds nuw i8, ptr %974, i64 8
   store i64 0, ptr %976, align 8, !tbaa !484
-  store i8 0, ptr %975, align 1, !tbaa !296
+  store i8 0, ptr %975, align 8, !tbaa !296
   %977 = getelementptr inbounds nuw i8, ptr %974, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %977, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -17313,7 +17313,7 @@ define internal noalias noundef nonnull ptr @_ZN4llvm15callDefaultCtorIN12_GLOBA
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 %4, ptr %9, align 4, !tbaa !114
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i32 %5, ptr %10, align 4, !tbaa !116
+  store i32 %5, ptr %10, align 8, !tbaa !116
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i8 1, ptr %11, align 4, !tbaa !117
   %12 = tail call noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() #25
@@ -18826,7 +18826,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(105) ptr @_ZN
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !66
-  store i32 %14, ptr %12, align 4, !tbaa !66
+  store i32 %14, ptr %12, align 8, !tbaa !66
   store i32 0, ptr %13, align 8, !tbaa !66
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -18836,9 +18836,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(105) ptr @_ZN
   store i32 %17, ptr %16, align 4, !tbaa !66
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %21 = load i32, ptr %19, align 4, !tbaa !66
+  %21 = load i32, ptr %19, align 8, !tbaa !66
   %22 = load i32, ptr %20, align 8, !tbaa !66
-  store i32 %22, ptr %19, align 4, !tbaa !66
+  store i32 %22, ptr %19, align 8, !tbaa !66
   store i32 %21, ptr %20, align 8, !tbaa !66
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -18906,9 +18906,9 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_14SmallSe
   store ptr null, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !298
   %9 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 8
-  %11 = load i32, ptr %10, align 4, !tbaa !66
-  store i32 %11, ptr %9, align 4, !tbaa !66
-  store i32 0, ptr %10, align 4, !tbaa !66
+  %11 = load i32, ptr %10, align 8, !tbaa !66
+  store i32 %11, ptr %9, align 8, !tbaa !66
+  store i32 0, ptr %10, align 8, !tbaa !66
   %12 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 12
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 12
   %14 = load i32, ptr %12, align 4, !tbaa !66
@@ -18917,10 +18917,10 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_14SmallSe
   store i32 %14, ptr %13, align 4, !tbaa !66
   %16 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 16
-  %18 = load i32, ptr %16, align 4, !tbaa !66
-  %19 = load i32, ptr %17, align 4, !tbaa !66
-  store i32 %19, ptr %16, align 4, !tbaa !66
-  store i32 %18, ptr %17, align 4, !tbaa !66
+  %18 = load i32, ptr %16, align 8, !tbaa !66
+  %19 = load i32, ptr %17, align 8, !tbaa !66
+  store i32 %19, ptr %16, align 8, !tbaa !66
+  store i32 %18, ptr %17, align 8, !tbaa !66
   %20 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 40
   store ptr %21, ptr %20, align 8, !tbaa !25
@@ -21611,7 +21611,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %19, ptr %20, align 8, !tbaa !484
   store ptr %10, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !481
   store i64 0, ptr %18, align 8, !tbaa !484
-  store i8 0, ptr %10, align 1, !tbaa !296
+  store i8 0, ptr %10, align 8, !tbaa !296
   %21 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 48
@@ -21643,7 +21643,7 @@ _ZSt10_ConstructIN4llvm30DiagnosticInfoOptimizationBase8ArgumentEJS2_EEvPT_DpOT0
   store i64 %34, ptr %35, align 8, !tbaa !484
   store ptr %25, ptr %22, align 8, !tbaa !481
   store i64 0, ptr %33, align 8, !tbaa !484
-  store i8 0, ptr %25, align 1, !tbaa !296
+  store i8 0, ptr %25, align 8, !tbaa !296
   %36 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 64
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 16, i1 false), !tbaa.struct !962
@@ -22838,7 +22838,7 @@ _ZSt10_ConstructIN4llvm17OperandBundleDefTIPNS0_5ValueEEEJS4_EEvPT_DpOT0_.exit.i
   store i64 %19, ptr %20, align 8, !tbaa !484
   store ptr %10, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !481
   store i64 0, ptr %18, align 8, !tbaa !484
-  store i8 0, ptr %10, align 1, !tbaa !296
+  store i8 0, ptr %10, align 8, !tbaa !296
   %21 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 32
   %23 = load ptr, ptr %22, align 8, !tbaa !530

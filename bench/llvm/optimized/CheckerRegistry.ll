@@ -3156,7 +3156,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit50:          ; preds = %_ZNSt7__cxx1112basi
   store ptr %1175, ptr %.ptr.i.i.i.i, align 8, !tbaa !21
   %1176 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
   store i64 0, ptr %1176, align 8, !tbaa !23
-  store i8 0, ptr %1175, align 1, !tbaa !25
+  store i8 0, ptr %1175, align 8, !tbaa !25
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 32
   %1177 = icmp eq i64 %.add.i.i.i.i, 416
   br i1 %1177, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %1174
@@ -13607,7 +13607,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llv
   store ptr %16, ptr %.ptr.i.i.i, align 8, !tbaa !21
   %17 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %17, align 8, !tbaa !23
-  store i8 0, ptr %16, align 1, !tbaa !25
+  store i8 0, ptr %16, align 8, !tbaa !25
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %18 = icmp eq i64 %.add.i.i.i, 416
   br i1 %18, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %15
@@ -18528,7 +18528,7 @@ _ZN4llvmneENS_9StringRefES0_.exit25.thread:       ; preds = %_ZN4llvmneENS_9Stri
   store ptr %104, ptr %.ptr.i.i.i.i, align 8, !tbaa !21
   %105 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
   store i64 0, ptr %105, align 8, !tbaa !23
-  store i8 0, ptr %104, align 1, !tbaa !25
+  store i8 0, ptr %104, align 8, !tbaa !25
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 32
   %106 = icmp eq i64 %.add.i.i.i.i, 416
   br i1 %106, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %103
@@ -18813,7 +18813,7 @@ _ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit:  ; preds = %203
   store ptr %223, ptr %.ptr.i.i.i.i71, align 8, !tbaa !21
   %224 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i71, i64 8
   store i64 0, ptr %224, align 8, !tbaa !23
-  store i8 0, ptr %223, align 1, !tbaa !25
+  store i8 0, ptr %223, align 8, !tbaa !25
   %.add.i.i.i.i72 = add nuw nsw i64 %.idx.i.i.i.i70, 32
   %225 = icmp eq i64 %.add.i.i.i.i72, 416
   br i1 %225, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i73, label %222

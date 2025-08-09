@@ -326,7 +326,7 @@ common.resume:                                    ; preds = %122, %299, %25
   store ptr %30, ptr %27, align 8, !tbaa !20, !alias.scope !34
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i64 0, ptr %31, align 8, !tbaa !24, !alias.scope !34
-  store i8 0, ptr %30, align 1, !tbaa !26, !alias.scope !34
+  store i8 0, ptr %30, align 8, !tbaa !26, !alias.scope !34
   br label %_ZNK10duckdb_re211StringPiececvNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EEISaIcEEEv.exit
 
 32:                                               ; preds = %"_ZSt9call_onceIZN10duckdb_re23RE24InitERKNS0_11StringPieceERKNS1_7OptionsEE3$_0JEEvRSt9once_flagOT_DpOT0_.exit"
@@ -679,7 +679,7 @@ _ZN10duckdb_re2L16RegexpErrorToRE2ENS_16RegexpStatusCodeE.exit: ; preds = %155
   store ptr %165, ptr %161, align 8, !tbaa !20, !alias.scope !69
   %166 = getelementptr inbounds nuw i8, ptr %161, i64 8
   store i64 0, ptr %166, align 8, !tbaa !24, !alias.scope !69
-  store i8 0, ptr %165, align 1, !tbaa !26, !alias.scope !69
+  store i8 0, ptr %165, align 8, !tbaa !26, !alias.scope !69
   br label %_ZNK10duckdb_re211StringPiececvNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EEISaIcEEEv.exit52
 
 167:                                              ; preds = %162

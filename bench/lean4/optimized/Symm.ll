@@ -3202,7 +3202,7 @@ _init_l_Lean_Elab_Tactic_evalSymm___closed__9.exit: ; preds = %_init_l_Lean_Elab
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 16
   store i64 1, ptr %62, align 8, !tbaa !14
-  store i32 1, ptr %58, align 4, !tbaa !8
+  store i32 1, ptr %58, align 8, !tbaa !8
   store i32 16842776, ptr %61, align 4
   %63 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store ptr %57, ptr %63, align 8, !tbaa !4

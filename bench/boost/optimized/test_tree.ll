@@ -1578,7 +1578,7 @@ define void @_ZNK5boost9unit_test9test_unit19check_preconditionsEv(ptr dead_on_u
   store ptr %27, ptr %26, align 8, !tbaa !63
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 384
   store i64 0, ptr %28, align 8, !tbaa !67
-  store i8 0, ptr %27, align 1, !tbaa !66
+  store i8 0, ptr %27, align 8, !tbaa !66
   invoke void @_ZN5boost10shared_ptrINS_23basic_wrap_stringstreamIcEEE5resetIS2_EEvPT_(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull %24)
           to label %.noexc103 unwind label %48
 
@@ -1703,7 +1703,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit111: ; preds = %_Z
   store ptr %70, ptr %69, align 8, !tbaa !63
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 384
   store i64 0, ptr %71, align 8, !tbaa !67
-  store i8 0, ptr %70, align 1, !tbaa !66
+  store i8 0, ptr %70, align 8, !tbaa !66
   invoke void @_ZN5boost10shared_ptrINS_23basic_wrap_stringstreamIcEEE5resetIS2_EEvPT_(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull %67)
           to label %.noexc115 unwind label %95
 
@@ -1843,7 +1843,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit134: ; preds = %_Z
   store ptr %118, ptr %117, align 8, !tbaa !63
   %119 = getelementptr inbounds nuw i8, ptr %115, i64 384
   store i64 0, ptr %119, align 8, !tbaa !67
-  store i8 0, ptr %118, align 1, !tbaa !66
+  store i8 0, ptr %118, align 8, !tbaa !66
   invoke void @_ZN5boost10shared_ptrINS_23basic_wrap_stringstreamIcEEE5resetIS2_EEvPT_(ptr noundef nonnull align 8 dereferenceable(16) %114, ptr noundef nonnull %115)
           to label %.noexc138 unwind label %139
 
@@ -2052,7 +2052,7 @@ _ZN5boost9unit_test8for_each5derefINS_8functionIFNS_10test_tools16assertion_resu
   store ptr %190, ptr %189, align 8, !tbaa !63
   %191 = getelementptr inbounds nuw i8, ptr %187, i64 384
   store i64 0, ptr %191, align 8, !tbaa !67
-  store i8 0, ptr %190, align 1, !tbaa !66
+  store i8 0, ptr %190, align 8, !tbaa !66
   invoke void @_ZN5boost10shared_ptrINS_23basic_wrap_stringstreamIcEEE5resetIS2_EEvPT_(ptr noundef nonnull align 8 dereferenceable(16) %160, ptr noundef nonnull %187)
           to label %.noexc165 unwind label %223
 
@@ -2091,7 +2091,7 @@ _ZN5boostlsIcA20_cEERNS_23basic_wrap_stringstreamIT_EES5_RKT0_.exit: ; preds = %
   store ptr %202, ptr %201, align 8, !tbaa !63
   %203 = getelementptr inbounds nuw i8, ptr %199, i64 384
   store i64 0, ptr %203, align 8, !tbaa !67
-  store i8 0, ptr %202, align 1, !tbaa !66
+  store i8 0, ptr %202, align 8, !tbaa !66
   invoke void @_ZN5boost10shared_ptrINS_23basic_wrap_stringstreamIcEEE5resetIS2_EEvPT_(ptr noundef nonnull align 8 dereferenceable(16) %160, ptr noundef nonnull %199)
           to label %.noexc174 unwind label %223
 
@@ -2129,7 +2129,7 @@ _ZN5boostlsIcA3_cEERNS_23basic_wrap_stringstreamIT_EES5_RKT0_.exit179: ; preds =
   store ptr %213, ptr %212, align 8, !tbaa !63
   %214 = getelementptr inbounds nuw i8, ptr %210, i64 384
   store i64 0, ptr %214, align 8, !tbaa !67
-  store i8 0, ptr %213, align 1, !tbaa !66
+  store i8 0, ptr %213, align 8, !tbaa !66
   invoke void @_ZN5boost10shared_ptrINS_23basic_wrap_stringstreamIcEEE5resetIS2_EEvPT_(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull %210)
           to label %.noexc183 unwind label %223
 
@@ -7820,7 +7820,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !67, !alias.scope !205, !noalias !208
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !65, !alias.scope !208, !noalias !205
   store i64 0, ptr %48, align 8, !tbaa !67, !alias.scope !208, !noalias !205
-  store i8 0, ptr %39, align 1, !tbaa !66, !alias.scope !208, !noalias !205
+  store i8 0, ptr %39, align 8, !tbaa !66, !alias.scope !208, !noalias !205
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -7868,7 +7868,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !67, !alias.scope !212, !noalias !215
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !65, !alias.scope !215, !noalias !212
   store i64 0, ptr %64, align 8, !tbaa !67, !alias.scope !215, !noalias !212
-  store i8 0, ptr %55, align 1, !tbaa !66, !alias.scope !215, !noalias !212
+  store i8 0, ptr %55, align 8, !tbaa !66, !alias.scope !215, !noalias !212
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5

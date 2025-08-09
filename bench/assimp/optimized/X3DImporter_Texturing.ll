@@ -418,7 +418,7 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit51: ; p
   store ptr %81, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %75, i64 24
   store i64 0, ptr %82, align 8
-  store i8 0, ptr %81, align 1
+  store i8 0, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %75, i64 48
   %84 = getelementptr inbounds nuw i8, ptr %75, i64 56
   store ptr %83, ptr %84, align 8
@@ -433,7 +433,7 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit51: ; p
   store ptr %88, ptr %87, align 8
   %89 = getelementptr inbounds nuw i8, ptr %75, i64 88
   store i64 0, ptr %89, align 8
-  store i8 0, ptr %88, align 1
+  store i8 0, ptr %88, align 8
   %90 = load i64, ptr %10, align 8
   %91 = icmp eq i64 %90, 0
   br i1 %91, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit, label %92
@@ -1067,7 +1067,7 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   store ptr %58, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %52, i64 24
   store i64 0, ptr %59, align 8
-  store i8 0, ptr %58, align 1
+  store i8 0, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %52, i64 48
   %61 = getelementptr inbounds nuw i8, ptr %52, i64 56
   store ptr %60, ptr %61, align 8
@@ -1556,7 +1556,7 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE17getFloatAttributeERS2_PKcRf.exit: ; pr
   store ptr %80, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %74, i64 24
   store i64 0, ptr %81, align 8
-  store i8 0, ptr %80, align 1
+  store i8 0, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %74, i64 48
   %83 = getelementptr inbounds nuw i8, ptr %74, i64 56
   store ptr %82, ptr %83, align 8
@@ -1569,7 +1569,7 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE17getFloatAttributeERS2_PKcRf.exit: ; pr
   %86 = getelementptr inbounds nuw i8, ptr %74, i64 76
   store float 0.000000e+00, ptr %86, align 4
   %87 = getelementptr inbounds nuw i8, ptr %74, i64 80
-  store float 0.000000e+00, ptr %87, align 4
+  store float 0.000000e+00, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %74, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %88, i8 0, i64 16, i1 false)
   %89 = load i64, ptr %13, align 8

@@ -660,7 +660,7 @@ define internal fastcc i32 @setup_net(ptr noundef %0, ptr noundef %1) unnamed_ad
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %1, ptr %36, align 16
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i32 0, ptr %37, align 8
+  store i32 0, ptr %37, align 16
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 67108868, ptr %38, align 4
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -2934,7 +2934,7 @@ rtnl_net_notifyid.exit:                           ; preds = %83, %72, %85
   %168 = getelementptr inbounds nuw i8, ptr %165, i64 8
   store ptr %167, ptr %168, align 8
   store volatile ptr %165, ptr %167, align 8
-  store volatile ptr %163, ptr %163, align 8
+  store volatile ptr %163, ptr %163, align 16
   store volatile ptr %163, ptr %166, align 8
   %169 = getelementptr i8, ptr %163, i64 40
   %170 = load ptr, ptr %169, align 8

@@ -7128,7 +7128,7 @@ define linkonce_odr void @_ZZN9grpc_core14filters_detail9AddOpImplINS_16ServerAu
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !214
   %.not.i.i.i = icmp ne ptr %3, null
-  %4 = load i8, ptr %0, align 1, !range !69
+  %4 = load i8, ptr %0, align 8, !range !69
   %5 = trunc nuw i8 %4 to i1
   %or.cond.i.i.i = select i1 %.not.i.i.i, i1 %5, i1 false
   br i1 %or.cond.i.i.i, label %6, label %_ZZN9grpc_core14filters_detail9AddOpImplINS_16ServerAuthFilterESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEMNS2_4CallEFNS_2IfIbNS_17ImmediateOkStatusEZNS8_23OnClientInitialMetadataERS4_PS2_EUlvE_EESB_SC_EXadL_ZNS8_23OnClientInitialMetadataESB_SC_EEvE3AddESC_mRNS0_6LayoutIS7_EEENKUlPvE0_clESL_.exit

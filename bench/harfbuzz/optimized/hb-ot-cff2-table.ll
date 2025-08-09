@@ -9962,7 +9962,7 @@ _ZN15hb_draw_funcs_t10close_pathEPvR15hb_draw_state_t.exit7: ; preds = %50, %45
 54:                                               ; preds = %2
   %55 = load float, ptr %3, align 8, !tbaa !214
   %56 = tail call float @llvm.fmuladd.f32(float %16, float %55, float %10)
-  %57 = load i32, ptr %24, align 4, !tbaa !201
+  %57 = load i32, ptr %24, align 8, !tbaa !201
   %.not.i3 = icmp eq i32 %57, 0
   br i1 %.not.i3, label %_ZN17hb_draw_session_t7move_toEff.exit, label %58, !prof !105
 
@@ -10091,7 +10091,7 @@ _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit: ; preds = %_ZN15
 36:                                               ; preds = %2
   %37 = load float, ptr %3, align 8, !tbaa !214
   %38 = tail call float @llvm.fmuladd.f32(float %16, float %37, float %10)
-  %39 = load i32, ptr %24, align 4, !tbaa !201
+  %39 = load i32, ptr %24, align 8, !tbaa !201
   %.not.i3 = icmp eq i32 %39, 0
   br i1 %.not.i3, label %40, label %_ZN15hb_draw_funcs_t7line_toEPvR15hb_draw_state_tff.exit4, !prof !30
 
@@ -10228,7 +10228,7 @@ _ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit: ; preds = %
   %54 = tail call float @llvm.fmuladd.f32(float %18, float %53, float %12)
   %55 = tail call float @llvm.fmuladd.f32(float %25, float %53, float %21)
   %56 = tail call float @llvm.fmuladd.f32(float %32, float %53, float %28)
-  %57 = load i32, ptr %40, align 4, !tbaa !201
+  %57 = load i32, ptr %40, align 8, !tbaa !201
   %.not.i7 = icmp eq i32 %57, 0
   br i1 %.not.i7, label %58, label %_ZN15hb_draw_funcs_t8cubic_toEPvR15hb_draw_state_tffffff.exit8, !prof !30
 

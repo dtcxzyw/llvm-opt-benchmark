@@ -475,7 +475,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !4
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !4
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !4
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !4
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -1030,8 +1030,6 @@ if.then2:                                         ; preds = %if.end
   %idxprom = sext i32 %idx to i64
   %arrayidx = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %9, i64 %idxprom
   store i64 %value.coerce0, ptr %arrayidx, align 8
-  %value.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
-  store ptr %value.coerce1, ptr %value.sroa.3.0.arrayidx.sroa_idx, align 8
   br label %if.end16
 
 if.else:                                          ; preds = %if.end
@@ -1074,11 +1072,13 @@ _ZN8facebook5velox10StringViewC2EPKci.exit:       ; preds = %_ZNK8facebook5velox
   store i32 %value.sroa.0.sroa.0.0.extract.trunc, ptr %arrayidx15, align 8
   %ref.tmp.sroa.2.0.arrayidx15.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx15, i64 4
   store i32 %14, ptr %ref.tmp.sroa.2.0.arrayidx15.sroa_idx, align 4
-  %ref.tmp.sroa.2.sroa.2.0.ref.tmp.sroa.2.0.arrayidx15.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx15, i64 8
-  store ptr %add.ptr, ptr %ref.tmp.sroa.2.sroa.2.0.ref.tmp.sroa.2.0.arrayidx15.sroa_idx.sroa_idx, align 4
   br label %if.end16
 
 if.end16:                                         ; preds = %_ZN8facebook5velox10StringViewC2EPKci.exit, %if.then2
+  %arrayidx15.sink = phi ptr [ %arrayidx15, %_ZN8facebook5velox10StringViewC2EPKci.exit ], [ %arrayidx, %if.then2 ]
+  %add.ptr.sink = phi ptr [ %add.ptr, %_ZN8facebook5velox10StringViewC2EPKci.exit ], [ %value.coerce1, %if.then2 ]
+  %ref.tmp.sroa.2.sroa.2.0.ref.tmp.sroa.2.0.arrayidx15.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx15.sink, i64 8
+  store ptr %add.ptr.sink, ptr %ref.tmp.sroa.2.sroa.2.0.ref.tmp.sroa.2.0.arrayidx15.sroa_idx.sroa_idx, align 8
   ret void
 }
 
@@ -3282,7 +3282,7 @@ _ZN8facebook5velox10StringViewC2EPKci.exit.i.i.i.i.i: ; preds = %if.then4.i.i.i.
   %ref.tmp.sroa.2.0.arrayidx9.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx9.i.i.i.i.i, i64 4
   store i32 %255, ptr %ref.tmp.sroa.2.0.arrayidx9.sroa_idx.i.i.i.i.i, align 4
   %ref.tmp.sroa.2.sroa.2.0.ref.tmp.sroa.2.0.arrayidx9.sroa_idx.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx9.i.i.i.i.i, i64 8
-  store ptr %254, ptr %ref.tmp.sroa.2.sroa.2.0.ref.tmp.sroa.2.0.arrayidx9.sroa_idx.sroa_idx.i.i.i.i.i, align 4
+  store ptr %254, ptr %ref.tmp.sroa.2.sroa.2.0.ref.tmp.sroa.2.0.arrayidx9.sroa_idx.sroa_idx.i.i.i.i.i, align 8
   %257 = load ptr, ptr %231, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %257, i64 %conv.i.i.i.i.i.i506
   store ptr %add.ptr.i.i.i.i.i, ptr %231, align 8
@@ -4887,7 +4887,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i.i: ; preds = %
   %capacity_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 32
   store i64 %sub.i.i, ptr %capacity_.i.i.i.i, align 8, !noalias !134
   %referenceCount_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i.i, align 4, !noalias !134
+  store i32 0, ptr %referenceCount_.i.i.i.i, align 8, !noalias !134
   %podType_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 44
   store i8 1, ptr %podType_.i.i.i.i, align 4, !noalias !134
   %padding_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 48
@@ -6476,7 +6476,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !159
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !159
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !159
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !159
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -11406,7 +11406,7 @@ _ZN8facebook5velox10StringViewC2EPKci.exit:       ; preds = %if.then4
   %ref.tmp.sroa.2.0.arrayidx9.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx9, i64 4
   store i32 %25, ptr %ref.tmp.sroa.2.0.arrayidx9.sroa_idx, align 4
   %ref.tmp.sroa.2.sroa.2.0.ref.tmp.sroa.2.0.arrayidx9.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx9, i64 8
-  store ptr %24, ptr %ref.tmp.sroa.2.sroa.2.0.ref.tmp.sroa.2.0.arrayidx9.sroa_idx.sroa_idx, align 4
+  store ptr %24, ptr %ref.tmp.sroa.2.sroa.2.0.ref.tmp.sroa.2.0.arrayidx9.sroa_idx.sroa_idx, align 8
   %27 = load ptr, ptr %20, align 8
   %28 = load ptr, ptr %27, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %28, i64 %conv.i

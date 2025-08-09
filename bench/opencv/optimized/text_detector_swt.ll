@@ -1574,7 +1574,7 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.thread.i.i: ; preds 
 .noexc140.i:                                      ; preds = %.loopexit.i.i.i
   store ptr null, ptr %602, align 8, !tbaa !103, !noalias !83
   %603 = getelementptr inbounds nuw i8, ptr %602, i64 8
-  store i32 %582, ptr %603, align 4, !tbaa !105, !noalias !83
+  store i32 %582, ptr %603, align 8, !tbaa !105, !noalias !83
   %604 = getelementptr inbounds nuw i8, ptr %602, i64 12
   store i32 0, ptr %604, align 4, !tbaa !107, !noalias !83
   %605 = load i64, ptr %537, align 8, !tbaa !108, !noalias !83
@@ -1643,7 +1643,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %.02530.i254 = phi i64 [ %.1.i256, %636 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i249 ]
   %621 = load ptr, ptr %.031.i253, align 8, !tbaa !103, !noalias !83
   %622 = getelementptr inbounds nuw i8, ptr %.031.i253, i64 8
-  %623 = load i32, ptr %622, align 4, !tbaa !19, !noalias !83
+  %623 = load i32, ptr %622, align 8, !tbaa !19, !noalias !83
   %624 = sext i32 %623 to i64
   %625 = urem i64 %624, %611
   %626 = getelementptr inbounds nuw ptr, ptr %.0.i.i250, i64 %625
@@ -1948,7 +1948,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc143.i
 .noexc154.i:                                      ; preds = %.loopexit.i.i150.i
   store ptr null, ptr %745, align 8, !tbaa !103, !noalias !83
   %746 = getelementptr inbounds nuw i8, ptr %745, i64 8
-  store i32 %725, ptr %746, align 4, !tbaa !105, !noalias !83
+  store i32 %725, ptr %746, align 8, !tbaa !105, !noalias !83
   %747 = getelementptr inbounds nuw i8, ptr %745, i64 12
   store i32 0, ptr %747, align 4, !tbaa !107, !noalias !83
   %748 = load i64, ptr %537, align 8, !tbaa !108, !noalias !83
@@ -2017,7 +2017,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %.02530.i = phi i64 [ %.1.i, %779 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i ]
   %764 = load ptr, ptr %.031.i, align 8, !tbaa !103, !noalias !83
   %765 = getelementptr inbounds nuw i8, ptr %.031.i, i64 8
-  %766 = load i32, ptr %765, align 4, !tbaa !19, !noalias !83
+  %766 = load i32, ptr %765, align 8, !tbaa !19, !noalias !83
   %767 = sext i32 %766 to i64
   %768 = urem i64 %767, %754
   %769 = getelementptr inbounds nuw ptr, ptr %.0.i.i, i64 %768
@@ -4218,11 +4218,11 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv4text12_GLOB
   %1657 = load float, ptr %1656, align 4, !tbaa !199, !noalias !164
   %1658 = fsub float %1655, %1657
   %1659 = call float @llvm.fmuladd.f32(float %1658, float %1658, float %1654)
-  %1660 = load i32, ptr %1614, align 4, !tbaa !19, !noalias !164
+  %1660 = load i32, ptr %1614, align 8, !tbaa !19, !noalias !164
   %1661 = icmp slt i32 %1626, %1660
   %..i.i = select i1 %1661, ptr %1608, ptr %1614
   %1662 = getelementptr inbounds nuw i8, ptr %1617, i64 40
-  %1663 = load i32, ptr %1662, align 4, !tbaa !19, !noalias !164
+  %1663 = load i32, ptr %1662, align 8, !tbaa !19, !noalias !164
   %1664 = icmp slt i32 %1628, %1663
   %..i492.i = select i1 %1664, ptr %1627, ptr %1662
   %1665 = load i32, ptr %..i.i, align 4, !tbaa !19, !noalias !164
@@ -4955,7 +4955,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit556.i:     ; preds = %_ZNSt6vectorIiSaIiE
   %1960 = fdiv float %1952, %sqrt119.i
   %1961 = fdiv float %1957, %sqrt119.i
   store float %1960, ptr %1712, align 4, !tbaa !41, !noalias !164
-  store float %1961, ptr %1713, align 4, !tbaa !41, !noalias !164
+  store float %1961, ptr %1713, align 8, !tbaa !41, !noalias !164
   store i8 1, ptr %1726, align 4, !tbaa !206, !noalias !164
   %1962 = add nsw i32 %.2348284.i, 1
   br label %1963
@@ -6127,7 +6127,7 @@ _ZN2cv4text12_GLOBAL__N_118renderComponentBBsERKSt6vectorINS1_9ComponentESaIS3_E
   %2356 = getelementptr inbounds nuw i8, ptr %2351, i64 4
   %2357 = load i32, ptr %2356, align 4, !tbaa !261, !noalias !257
   %2358 = getelementptr inbounds nuw i8, ptr %2351, i64 16
-  %2359 = load i32, ptr %2358, align 4, !tbaa !262, !noalias !257
+  %2359 = load i32, ptr %2358, align 8, !tbaa !262, !noalias !257
   %2360 = sub nsw i32 %2357, %2359
   %spec.select.i.i = call i32 @llvm.abs.i32(i32 %2355, i1 true)
   %.021.i.i = call i32 @llvm.abs.i32(i32 %2360, i1 true)
@@ -8726,7 +8726,7 @@ define internal fastcc noundef nonnull align 4 dereferenceable(12) ptr @_ZNSt13u
   %18 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
   store ptr null, ptr %18, align 8, !tbaa !103
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i32 %.0.val, ptr %19, align 4, !tbaa !299
+  store i32 %.0.val, ptr %19, align 8, !tbaa !299
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %20, i8 0, i64 12, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -8800,7 +8800,7 @@ _ZNSt10_HashtableIiSt4pairIKiN2cv4text12_GLOBAL__N_18SWTPointEESaIS6_ENSt8__deta
   %.02531.i.i.i.i = phi i64 [ %.1.i.i.i.i, %54 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiN2cv4text12_GLOBAL__N_18SWTPointEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i.i.i.i ]
   %.0.val.i.i.i.i = load ptr, ptr %.032.i.i.i.i, align 8, !tbaa !103
   %41 = getelementptr inbounds nuw i8, ptr %.032.i.i.i.i, i64 8
-  %.val.i.i.i.i = load i32, ptr %41, align 4, !tbaa !19
+  %.val.i.i.i.i = load i32, ptr %41, align 8, !tbaa !19
   %42 = sext i32 %.val.i.i.i.i to i64
   %43 = urem i64 %42, %30
   %44 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i.i.i, i64 %43

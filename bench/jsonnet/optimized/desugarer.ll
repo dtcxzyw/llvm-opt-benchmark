@@ -10731,7 +10731,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8, !tbaa !27
   store ptr %13, ptr %10, align 8, !tbaa !23
   store i64 0, ptr %24, align 8, !tbaa !27
-  store i8 0, ptr %13, align 1, !tbaa !28
+  store i8 0, ptr %13, align 8, !tbaa !28
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i32 0, ptr %26, align 8, !tbaa !173
   store ptr %7, ptr %23, align 8, !tbaa !176
@@ -11345,7 +11345,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8, !tbaa !27
   store ptr %13, ptr %10, align 8, !tbaa !23
   store i64 0, ptr %24, align 8, !tbaa !27
-  store i8 0, ptr %13, align 1, !tbaa !28
+  store i8 0, ptr %13, align 8, !tbaa !28
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i32 0, ptr %26, align 8, !tbaa !187
   store ptr %7, ptr %23, align 8, !tbaa !189
@@ -28879,7 +28879,7 @@ _ZNSt6vectorIN7jsonnet8internal11ObjectFieldESaIS2_EE5clearEv.exit: ; preds = %.
   %134 = getelementptr inbounds nuw i8, ptr %.sroa.0174.0238, i64 80
   %135 = load ptr, ptr %1, align 8, !tbaa !47
   %136 = call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #28
-  %137 = load i8, ptr %133, align 1, !tbaa !205, !range !126, !noundef !127
+  %137 = load i8, ptr %133, align 8, !tbaa !205, !range !126, !noundef !127
   %138 = trunc nuw i8 %137 to i1
   %139 = load ptr, ptr %128, align 8, !tbaa !54
   invoke void @_ZN7jsonnet8internal8FunctionC2ERKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS6_EESA_RKS5_INS0_8ArgParamESaISB_EEbSA_PNS0_3ASTE(ptr noundef nonnull align 8 dereferenceable(216) %136, ptr noundef nonnull align 8 dereferenceable(64) %130, ptr noundef nonnull align 8 dereferenceable(24) @_ZN7jsonnet8internalL2EFE, ptr noundef nonnull align 8 dereferenceable(24) %131, ptr noundef nonnull align 8 dereferenceable(24) %132, i1 noundef zeroext %138, ptr noundef nonnull align 8 dereferenceable(24) %134, ptr noundef %139)

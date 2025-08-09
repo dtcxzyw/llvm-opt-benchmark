@@ -1639,7 +1639,7 @@ define void @_ZNK8PmeSolve25getCoulombEnergyAndVirialEP9PmeOutput(ptr noundef no
   %10 = load float, ptr %8, align 4, !tbaa !15
   store float %10, ptr %9, align 4, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 256
-  %12 = load float, ptr %11, align 4, !tbaa !15
+  %12 = load float, ptr %11, align 8, !tbaa !15
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store float %12, ptr %13, align 4, !tbaa !15
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 260
@@ -1648,14 +1648,14 @@ define void @_ZNK8PmeSolve25getCoulombEnergyAndVirialEP9PmeOutput(ptr noundef no
   store float %15, ptr %16, align 4, !tbaa !15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 264
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %19 = load float, ptr %17, align 4, !tbaa !15
+  %19 = load float, ptr %17, align 8, !tbaa !15
   store float %19, ptr %18, align 4, !tbaa !15
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 268
   %21 = load float, ptr %20, align 4, !tbaa !15
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store float %21, ptr %22, align 4, !tbaa !15
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 272
-  %24 = load float, ptr %23, align 4, !tbaa !15
+  %24 = load float, ptr %23, align 8, !tbaa !15
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 44
   store float %24, ptr %25, align 4, !tbaa !15
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 276
@@ -1663,7 +1663,7 @@ define void @_ZNK8PmeSolve25getCoulombEnergyAndVirialEP9PmeOutput(ptr noundef no
   %28 = load float, ptr %26, align 4, !tbaa !15
   store float %28, ptr %27, align 4, !tbaa !15
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 280
-  %30 = load float, ptr %29, align 4, !tbaa !15
+  %30 = load float, ptr %29, align 8, !tbaa !15
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store float %30, ptr %31, align 4, !tbaa !15
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 284
@@ -1710,7 +1710,7 @@ define void @_ZNK8PmeSolve25getCoulombEnergyAndVirialEP9PmeOutput(ptr noundef no
   %61 = fadd float %52, %60
   store float %61, ptr %9, align 4, !tbaa !15
   %62 = getelementptr inbounds nuw i8, ptr %55, i64 256
-  %63 = load float, ptr %62, align 4, !tbaa !15
+  %63 = load float, ptr %62, align 8, !tbaa !15
   %64 = fadd float %51, %63
   store float %64, ptr %13, align 4, !tbaa !15
   %65 = getelementptr inbounds nuw i8, ptr %55, i64 260
@@ -1718,7 +1718,7 @@ define void @_ZNK8PmeSolve25getCoulombEnergyAndVirialEP9PmeOutput(ptr noundef no
   %67 = fadd float %50, %66
   store float %67, ptr %16, align 4, !tbaa !15
   %68 = getelementptr inbounds nuw i8, ptr %55, i64 264
-  %69 = load float, ptr %68, align 4, !tbaa !15
+  %69 = load float, ptr %68, align 8, !tbaa !15
   %70 = fadd float %49, %69
   store float %70, ptr %18, align 4, !tbaa !15
   %71 = getelementptr inbounds nuw i8, ptr %55, i64 268
@@ -1726,7 +1726,7 @@ define void @_ZNK8PmeSolve25getCoulombEnergyAndVirialEP9PmeOutput(ptr noundef no
   %73 = fadd float %48, %72
   store float %73, ptr %22, align 4, !tbaa !15
   %74 = getelementptr inbounds nuw i8, ptr %55, i64 272
-  %75 = load float, ptr %74, align 4, !tbaa !15
+  %75 = load float, ptr %74, align 8, !tbaa !15
   %76 = fadd float %47, %75
   store float %76, ptr %25, align 4, !tbaa !15
   %77 = getelementptr inbounds nuw i8, ptr %55, i64 276
@@ -1734,7 +1734,7 @@ define void @_ZNK8PmeSolve25getCoulombEnergyAndVirialEP9PmeOutput(ptr noundef no
   %79 = fadd float %46, %78
   store float %79, ptr %27, align 4, !tbaa !15
   %80 = getelementptr inbounds nuw i8, ptr %55, i64 280
-  %81 = load float, ptr %80, align 4, !tbaa !15
+  %81 = load float, ptr %80, align 8, !tbaa !15
   %82 = fadd float %45, %81
   store float %82, ptr %31, align 4, !tbaa !15
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 284
@@ -1759,7 +1759,7 @@ define void @_ZNK8PmeSolve20getLJEnergyAndVirialEP9PmeOutput(ptr noundef nonnull
   %10 = load float, ptr %8, align 4, !tbaa !15
   store float %10, ptr %9, align 4, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 296
-  %12 = load float, ptr %11, align 4, !tbaa !15
+  %12 = load float, ptr %11, align 8, !tbaa !15
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 76
   store float %12, ptr %13, align 4, !tbaa !15
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 300
@@ -1768,14 +1768,14 @@ define void @_ZNK8PmeSolve20getLJEnergyAndVirialEP9PmeOutput(ptr noundef nonnull
   store float %15, ptr %16, align 4, !tbaa !15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 304
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  %19 = load float, ptr %17, align 4, !tbaa !15
+  %19 = load float, ptr %17, align 8, !tbaa !15
   store float %19, ptr %18, align 4, !tbaa !15
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 308
   %21 = load float, ptr %20, align 4, !tbaa !15
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store float %21, ptr %22, align 4, !tbaa !15
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 312
-  %24 = load float, ptr %23, align 4, !tbaa !15
+  %24 = load float, ptr %23, align 8, !tbaa !15
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 92
   store float %24, ptr %25, align 4, !tbaa !15
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 316
@@ -1783,7 +1783,7 @@ define void @_ZNK8PmeSolve20getLJEnergyAndVirialEP9PmeOutput(ptr noundef nonnull
   %28 = load float, ptr %26, align 4, !tbaa !15
   store float %28, ptr %27, align 4, !tbaa !15
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 320
-  %30 = load float, ptr %29, align 4, !tbaa !15
+  %30 = load float, ptr %29, align 8, !tbaa !15
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 100
   store float %30, ptr %31, align 4, !tbaa !15
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 324
@@ -1830,7 +1830,7 @@ define void @_ZNK8PmeSolve20getLJEnergyAndVirialEP9PmeOutput(ptr noundef nonnull
   %61 = fadd float %52, %60
   store float %61, ptr %9, align 4, !tbaa !15
   %62 = getelementptr inbounds nuw i8, ptr %55, i64 296
-  %63 = load float, ptr %62, align 4, !tbaa !15
+  %63 = load float, ptr %62, align 8, !tbaa !15
   %64 = fadd float %51, %63
   store float %64, ptr %13, align 4, !tbaa !15
   %65 = getelementptr inbounds nuw i8, ptr %55, i64 300
@@ -1838,7 +1838,7 @@ define void @_ZNK8PmeSolve20getLJEnergyAndVirialEP9PmeOutput(ptr noundef nonnull
   %67 = fadd float %50, %66
   store float %67, ptr %16, align 4, !tbaa !15
   %68 = getelementptr inbounds nuw i8, ptr %55, i64 304
-  %69 = load float, ptr %68, align 4, !tbaa !15
+  %69 = load float, ptr %68, align 8, !tbaa !15
   %70 = fadd float %49, %69
   store float %70, ptr %18, align 4, !tbaa !15
   %71 = getelementptr inbounds nuw i8, ptr %55, i64 308
@@ -1846,7 +1846,7 @@ define void @_ZNK8PmeSolve20getLJEnergyAndVirialEP9PmeOutput(ptr noundef nonnull
   %73 = fadd float %48, %72
   store float %73, ptr %22, align 4, !tbaa !15
   %74 = getelementptr inbounds nuw i8, ptr %55, i64 312
-  %75 = load float, ptr %74, align 4, !tbaa !15
+  %75 = load float, ptr %74, align 8, !tbaa !15
   %76 = fadd float %47, %75
   store float %76, ptr %25, align 4, !tbaa !15
   %77 = getelementptr inbounds nuw i8, ptr %55, i64 316
@@ -1854,7 +1854,7 @@ define void @_ZNK8PmeSolve20getLJEnergyAndVirialEP9PmeOutput(ptr noundef nonnull
   %79 = fadd float %46, %78
   store float %79, ptr %27, align 4, !tbaa !15
   %80 = getelementptr inbounds nuw i8, ptr %55, i64 320
-  %81 = load float, ptr %80, align 4, !tbaa !15
+  %81 = load float, ptr %80, align 8, !tbaa !15
   %82 = fadd float %45, %81
   store float %82, ptr %31, align 4, !tbaa !15
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 324

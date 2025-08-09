@@ -1801,7 +1801,7 @@ if.then.i.i173:                                   ; preds = %_ZN3irr5video23COpe
   store ptr %53, ptr %51, align 8, !tbaa !63
   %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i.i, align 8, !tbaa !56
-  store i8 0, ptr %53, align 1, !tbaa !64
+  store i8 0, ptr %53, align 8, !tbaa !64
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %51, %ui
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN3irr5video25COpenGLSLMaterialRenderer12SUniformInfoEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i, label %if.end.i.i.i.i.i.i.i
 
@@ -2203,7 +2203,7 @@ if.then.i.i269:                                   ; preds = %_ZN3irr5video23COpe
   store ptr %111, ptr %109, align 8, !tbaa !63
   %_M_string_length.i.i.i.i.i.i.i.i.i270 = getelementptr inbounds nuw i8, ptr %109, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i.i270, align 8, !tbaa !56
-  store i8 0, ptr %111, align 1, !tbaa !64
+  store i8 0, ptr %111, align 8, !tbaa !64
   %cmp.i.i.i.i.i.i.i271 = icmp eq ptr %109, %ui101
   br i1 %cmp.i.i.i.i.i.i.i271, label %_ZNSt16allocator_traitsISaIN3irr5video25COpenGLSLMaterialRenderer12SUniformInfoEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i273, label %if.end.i.i.i.i.i.i.i272
 
@@ -4036,7 +4036,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   store ptr %3, ptr %__cur.08.i.i.i.i.i, align 8, !tbaa !63
   %_M_string_length.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !56
-  store i8 0, ptr %3, align 1, !tbaa !64
+  store i8 0, ptr %3, align 8, !tbaa !64
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %__cur.08.i.i.i.i.i, %__first.addr.07.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN3irr5video25COpenGLSLMaterialRenderer12SUniformInfoEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i
 
@@ -4284,7 +4284,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZSt27__uninitializ
   store ptr %18, ptr %__cur.08.i.i.i.i.i, align 8, !tbaa !63
   %_M_string_length.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !56
-  store i8 0, ptr %18, align 1, !tbaa !64
+  store i8 0, ptr %18, align 8, !tbaa !64
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %__cur.08.i.i.i.i.i, %__first.addr.07.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN3irr5video25COpenGLSLMaterialRenderer12SUniformInfoEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i
 
@@ -4384,7 +4384,7 @@ _ZNKSt6vectorIN3irr5video25COpenGLSLMaterialRenderer12SUniformInfoESaIS3_EE12_M_
   store ptr %3, ptr %add.ptr, align 8, !tbaa !63
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !56
-  store i8 0, ptr %3, align 1, !tbaa !64
+  store i8 0, ptr %3, align 8, !tbaa !64
   %cmp.i.i.i.i.i = icmp eq ptr %add.ptr, %__args
   br i1 %cmp.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN3irr5video25COpenGLSLMaterialRenderer12SUniformInfoEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit, label %if.end.i.i.i.i.i
 
@@ -4407,7 +4407,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt16allocator_tr
   store ptr %5, ptr %__cur.08.i.i.i.i.i, align 8, !tbaa !63
   %_M_string_length.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !56
-  store i8 0, ptr %5, align 1, !tbaa !64
+  store i8 0, ptr %5, align 8, !tbaa !64
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %__cur.08.i.i.i.i.i, %__first.addr.07.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN3irr5video25COpenGLSLMaterialRenderer12SUniformInfoEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i
 
@@ -4438,7 +4438,7 @@ for.body.i.i.i.i.i36:                             ; preds = %_ZSt34__uninitializ
   store ptr %7, ptr %__cur.08.i.i.i.i.i37, align 8, !tbaa !63
   %_M_string_length.i.i.i.i.i.i.i.i.i.i.i39 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i37, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i39, align 8, !tbaa !56
-  store i8 0, ptr %7, align 1, !tbaa !64
+  store i8 0, ptr %7, align 8, !tbaa !64
   %cmp.i.i.i.i.i.i.i.i.i40 = icmp eq ptr %__cur.08.i.i.i.i.i37, %__first.addr.07.i.i.i.i.i38
   br i1 %cmp.i.i.i.i.i.i.i.i.i40, label %_ZSt10_ConstructIN3irr5video25COpenGLSLMaterialRenderer12SUniformInfoEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i42, label %if.end.i.i.i.i.i.i.i.i.i41
 

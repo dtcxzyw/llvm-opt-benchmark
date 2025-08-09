@@ -4919,7 +4919,7 @@ _ZN7QVectorI7QPointFEC2Ei.exit:                   ; preds = %82, %.lr.ph.prehead
   %320 = sext i32 %.0158 to i64
   %321 = getelementptr inbounds %class.QPointF, ptr %319, i64 %320
   %322 = load double, ptr %321, align 8
-  %323 = load atomic i32, ptr %316 monotonic, align 4
+  %323 = load atomic i32, ptr %316 monotonic, align 8
   %324 = icmp ult i32 %323, 2
   br i1 %324, label %332, label %325
 
@@ -8035,7 +8035,7 @@ _ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEENS3_6Color4IhEEEE8containsERKS1_.ex
   %167 = getelementptr inbounds i8, ptr %165, i64 %166
   %168 = load ptr, ptr %167, align 8
   %169 = getelementptr inbounds nuw i8, ptr %167, i64 8
-  %170 = load i32, ptr %169, align 4
+  %170 = load i32, ptr %169, align 8
   br label %171
 
 171:                                              ; preds = %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEENS3_6Color4IhEEEE8containsERKS1_.exit, %322
@@ -12326,7 +12326,7 @@ define linkonce_odr void @_ZN5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE13dupli
   %9 = load ptr, ptr %3, align 8
   store ptr %9, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %11 = load i64, ptr %4, align 4
+  %11 = load i64, ptr %4, align 8
   store i64 %11, ptr %10, align 8
   ret void
 }
@@ -12559,13 +12559,13 @@ define linkonce_odr void @_Z12updateNormalP8CVertexO(ptr noundef %0) local_unnam
   %11 = getelementptr inbounds i8, ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %14 = load i32, ptr %13, align 4
+  %14 = load i32, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float 0.000000e+00, ptr %15, align 4
+  store float 0.000000e+00, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store float 0.000000e+00, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store float 0.000000e+00, ptr %17, align 4
+  store float 0.000000e+00, ptr %17, align 8
   br label %18
 
 18:                                               ; preds = %107, %1
@@ -13126,7 +13126,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.015.0, i64 32
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %.sroa.015.0, i64 80
-  %66 = load i32, ptr %65, align 4
+  %66 = load i32, ptr %65, align 8
   br label %67
 
 67:                                               ; preds = %_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit, %13, %62
@@ -13215,7 +13215,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %36 = load i32, ptr %35, align 4
+  %36 = load i32, ptr %35, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %34, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %36, 1

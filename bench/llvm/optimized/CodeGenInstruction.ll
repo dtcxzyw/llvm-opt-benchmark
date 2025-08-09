@@ -3132,7 +3132,7 @@ _ZN4llvm14StringMapEntryISt4pairIjjEE6createINS_15MallocAllocatorEJEEEPS3_NS_9St
   store i8 0, ptr %1190, align 1, !tbaa !84
   store i64 %.sroa.2.0.copyload.i.i390, ptr %1188, align 8, !tbaa !170
   %1191 = getelementptr inbounds nuw i8, ptr %1188, i64 8
-  store i32 0, ptr %1191, align 4, !tbaa !172
+  store i32 0, ptr %1191, align 8, !tbaa !172
   %1192 = getelementptr inbounds nuw i8, ptr %1188, i64 12
   store i32 0, ptr %1192, align 4, !tbaa !174
   store ptr %1188, ptr %1180, align 8, !tbaa !166
@@ -7262,7 +7262,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %36, ptr %.08.i.i.i.i.i, align 8, !tbaa !112
   %37 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 8
   store i64 0, ptr %37, align 8, !tbaa !114
-  store i8 0, ptr %36, align 1, !tbaa !84
+  store i8 0, ptr %36, align 8, !tbaa !84
   %38 = add nsw i64 %.057.i.i.i.i.i, -1
   %39 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq i64 %38, 0
@@ -7337,7 +7337,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %63, ptr %.08.i.i.i.i.i16, align 8, !tbaa !112
   %64 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i16, i64 8
   store i64 0, ptr %64, align 8, !tbaa !114
-  store i8 0, ptr %63, align 1, !tbaa !84
+  store i8 0, ptr %63, align 8, !tbaa !84
   %65 = add nsw i64 %.057.i.i.i.i.i17, -1
   %66 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i16, i64 32
   %.not.i.i.i.i.i18 = icmp eq i64 %65, 0

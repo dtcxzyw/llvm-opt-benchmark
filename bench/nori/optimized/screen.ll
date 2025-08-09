@@ -680,9 +680,9 @@ define internal void @_ZL18glnvg__renderFlushPv(ptr noundef %0) #3 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 164
   store i32 1280, ptr %13, align 4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i32 1280, ptr %14, align 4
+  store i32 1280, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store i32 1280, ptr %15, align 4
+  store i32 1280, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %17 = load i32, ptr %16, align 4
   tail call void @glBindBuffer(i32 noundef 35345, i32 noundef %17)
@@ -714,7 +714,7 @@ define internal void @_ZL18glnvg__renderFlushPv(ptr noundef %0) #3 {
   tail call void @glVertexAttribPointer(i32 noundef 1, i32 noundef 2, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 16, ptr noundef nonnull inttoptr (i64 8 to ptr))
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %38 = load i32, ptr %37, align 4
+  %38 = load i32, ptr %37, align 8
   tail call void @glUniform1i(i32 noundef %38, i32 noundef 0)
   %39 = load i32, ptr %36, align 4
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32

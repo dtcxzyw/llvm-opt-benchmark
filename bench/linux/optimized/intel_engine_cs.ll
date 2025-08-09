@@ -4919,7 +4919,7 @@ define dso_local void @intel_engine_dump(ptr noundef %0, ptr noundef %1, ptr nou
   %351 = icmp eq i64 %350, 0
   %352 = select i1 %351, ptr @.str.56, ptr @.str.55
   %353 = getelementptr inbounds nuw i8, ptr %347, i64 56
-  %354 = load volatile i32, ptr %353, align 4
+  %354 = load volatile i32, ptr %353, align 8
   %355 = icmp eq i32 %354, 0
   %356 = select i1 %355, ptr @.str.94, ptr @.str.95
   %357 = getelementptr inbounds nuw i8, ptr %0, i64 1024

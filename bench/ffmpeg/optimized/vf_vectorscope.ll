@@ -300,7 +300,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 128
   store i32 %25, ptr %26, align 8, !tbaa !44
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %28 = load float, ptr %27, align 4, !tbaa !60
+  %28 = load float, ptr %27, align 8, !tbaa !60
   %29 = fadd nsz float %28, 1.000000e+00
   %30 = fmul nsz float %29, 5.000000e-01
   %31 = fmul nsz float %30, %16
@@ -641,11 +641,11 @@ define internal range(i32 -22, 1) i32 @config_input(ptr noundef readonly capture
   %99 = getelementptr inbounds nuw i8, ptr %8, i64 60
   store i32 %97, ptr %99, align 4, !tbaa !44
   %100 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  store i32 %97, ptr %100, align 4, !tbaa !44
+  store i32 %97, ptr %100, align 8, !tbaa !44
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %102 = load i32, ptr %101, align 4, !tbaa !71
   %103 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  store i32 %102, ptr %103, align 4, !tbaa !44
+  store i32 %102, ptr %103, align 8, !tbaa !44
   store i32 %102, ptr %98, align 4, !tbaa !44
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %105 = load i32, ptr %104, align 8, !tbaa !70
@@ -656,11 +656,11 @@ define internal range(i32 -22, 1) i32 @config_input(ptr noundef readonly capture
   %110 = getelementptr inbounds nuw i8, ptr %8, i64 44
   store i32 %108, ptr %110, align 4, !tbaa !44
   %111 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store i32 %108, ptr %111, align 4, !tbaa !44
+  store i32 %108, ptr %111, align 8, !tbaa !44
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %113 = load i32, ptr %112, align 8, !tbaa !70
   %114 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store i32 %113, ptr %114, align 4, !tbaa !44
+  store i32 %113, ptr %114, align 8, !tbaa !44
   store i32 %113, ptr %109, align 4, !tbaa !44
   br label %115
 

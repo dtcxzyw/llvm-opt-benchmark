@@ -3568,7 +3568,7 @@ zend_hash_get_current_data_ptr_ex.exit:           ; preds = %zend_hash_get_curre
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %74 = load i64, ptr %73, align 8, !tbaa !83
-  %75 = load i8, ptr %72, align 1, !tbaa !4
+  %75 = load i8, ptr %72, align 8, !tbaa !4
   %76 = icmp sgt i8 %75, 57
   br i1 %76, label %_zend_handle_numeric_str.exit.thread, label %77, !prof !8
 

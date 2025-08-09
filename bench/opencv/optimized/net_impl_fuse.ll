@@ -8582,7 +8582,7 @@ _ZN2cv10AutoBufferIlLm1EE8allocateEm.exit.i:      ; preds = %5
   store ptr %32, ptr %.ptr.i, align 8, !tbaa !320
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store i64 0, ptr %33, align 8, !tbaa !145
-  store i8 0, ptr %32, align 1, !tbaa !123
+  store i8 0, ptr %32, align 8, !tbaa !123
   store ptr %.ptr.i, ptr %29, align 8, !tbaa !333
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -8611,7 +8611,7 @@ _ZN2cv10AutoBufferIlLm1EE8allocateEm.exit.i:      ; preds = %5
   store ptr %47, ptr %46, align 8, !tbaa !320
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i64 0, ptr %48, align 8, !tbaa !145
-  store i8 0, ptr %47, align 1, !tbaa !123
+  store i8 0, ptr %47, align 8, !tbaa !123
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %50 = icmp eq ptr %49, %44
   br i1 %50, label %_ZN2cv10AutoBufferINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm1EE8allocateEm.exit.thread.i, label %45
@@ -9878,13 +9878,13 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIiSt4pairIKiN2cv3dnn14dnn4_v202412
   store ptr %15, ptr %14, align 8, !tbaa !320
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store i64 0, ptr %16, align 8, !tbaa !145
-  store i8 0, ptr %15, align 1, !tbaa !123
+  store i8 0, ptr %15, align 8, !tbaa !123
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store ptr %18, ptr %17, align 8, !tbaa !320
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 88
   store i64 0, ptr %19, align 8, !tbaa !145
-  store i8 0, ptr %18, align 1, !tbaa !123
+  store i8 0, ptr %18, align 8, !tbaa !123
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 112
   store i32 5, ptr %20, align 8, !tbaa !354
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 128
@@ -9902,13 +9902,13 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIiSt4pairIKiN2cv3dnn14dnn4_v202412
   store ptr %27, ptr %26, align 8, !tbaa !320
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 200
   store i64 0, ptr %28, align 8, !tbaa !145
-  store i8 0, ptr %27, align 1, !tbaa !123
+  store i8 0, ptr %27, align 8, !tbaa !123
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 224
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 240
   store ptr %30, ptr %29, align 8, !tbaa !320
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 232
   store i64 0, ptr %31, align 8, !tbaa !145
-  store i8 0, ptr %30, align 1, !tbaa !123
+  store i8 0, ptr %30, align 8, !tbaa !123
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 256
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 288

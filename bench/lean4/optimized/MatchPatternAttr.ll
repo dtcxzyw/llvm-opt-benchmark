@@ -319,7 +319,7 @@ _init_l_Lean_initFn____x40_Lean_Meta_Match_MatchPatternAttr___hyg_3____closed__7
   %.val13 = load ptr, ptr %43, align 8, !tbaa !9
   store ptr %.val13, ptr @l_Lean_matchPatternAttr, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %.val13) #3
-  %44 = load i32, ptr %39, align 4, !tbaa !4
+  %44 = load i32, ptr %39, align 8, !tbaa !4
   %45 = icmp sgt i32 %44, 1
   br i1 %45, label %46, label %48, !prof !11
 

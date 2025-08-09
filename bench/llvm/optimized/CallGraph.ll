@@ -8036,7 +8036,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %23
   store i64 %237, ptr %238, align 8, !tbaa !104
   store ptr %230, ptr %5, align 8, !tbaa !106
   store i64 0, ptr %17, align 8, !tbaa !104
-  store i8 0, ptr %230, align 1, !tbaa !92
+  store i8 0, ptr %230, align 8, !tbaa !92
   br label %239
 
 239:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit27

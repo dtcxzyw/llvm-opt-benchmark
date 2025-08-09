@@ -69,7 +69,7 @@ _ZN6hermes2vm7Runtime10makeAFixedINS0_12HashMapEntryELNS0_12HasFinalizerE0ELNS0_
   store i64 -1688849860263936, ptr %key.i.i.i.i.i.i, align 8
   %value.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i, i64 16
   store i64 -1688849860263936, ptr %value.i.i.i.i.i.i, align 8
-  store i32 369098792, ptr %cond.i.i.i.i.i, align 4
+  store i32 369098792, ptr %cond.i.i.i.i.i, align 8
   ret ptr %cond.i.i.i.i.i
 }
 
@@ -1076,7 +1076,7 @@ _ZN6hermes2vm12HashMapEntry6createERNS0_7RuntimeE.exit: ; preds = %cond.true.i.i
   store i64 -1688849860263936, ptr %key.i.i.i.i.i.i.i, align 8
   %value.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i, i64 16
   store i64 -1688849860263936, ptr %value.i.i.i.i.i.i.i, align 8
-  store i32 369098792, ptr %cond.i.i.i.i.i.i, align 4
+  store i32 369098792, ptr %cond.i.i.i.i.i.i, align 8
   %cmp.i.i.not = icmp eq ptr %cond.i.i.i.i.i.i, inttoptr (i64 -1 to ptr)
   br i1 %cmp.i.i.not, label %return, label %if.end29
 
@@ -1724,7 +1724,7 @@ if.then.i.i9.i:                                   ; preds = %_ZN6hermes2vm17GCHe
 _ZN6hermes2vm12HashMapEntry11markDeletedERNS0_7RuntimeE.exit: ; preds = %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit.i, %if.then.i.i9.i
   store i64 -1970324836974592, ptr %value.i, align 8
   %nextEntryInBucket = getelementptr inbounds nuw i8, ptr %entry2.051, i64 32
-  %agg.tmp.sroa.0.0.copyload.i.i18 = load i32, ptr %nextEntryInBucket, align 4
+  %agg.tmp.sroa.0.0.copyload.i.i18 = load i32, ptr %nextEntryInBucket, align 8
   %cmp.i.not.i.i.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i18, 0
   %conv.i.i.i.i.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i18 to i64
   %add.i.i.i.i.i = add i64 %conv.i.i.i.i.i, %2

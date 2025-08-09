@@ -1659,7 +1659,7 @@ _ZN17ciSignatureStream4typeEv.exit:               ; preds = %_ZN17ciSignatureStr
   %187 = getelementptr inbounds nuw ptr, ptr %185, i64 %186
   %.0.i = load ptr, ptr %187, align 8
   tail call void @_ZN10ciTypeFlow11StateVector14push_translateEP6ciType(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef %.0.i)
-  %188 = load i32, ptr %179, align 4
+  %188 = load i32, ptr %179, align 8
   %.not.i34 = icmp sle i32 %.sroa.4.049, %188
   %189 = zext i1 %.not.i34 to i32
   %spec.select = add nuw nsw i32 %.sroa.4.049, %189
@@ -3121,7 +3121,7 @@ _ZN10ciTypeFlow11StateVector4trapEP16ciBytecodeStreamP7ciKlassi.exit: ; preds = 
   %47 = load i32, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %50 = load i32, ptr %49, align 4
+  %50 = load i32, ptr %49, align 8
   %51 = icmp sgt i32 %47, 0
   %52 = or i1 %51, %2
   br i1 %52, label %53, label %57
@@ -6429,7 +6429,7 @@ _ZN10ciTypeFlow6JsrSetC2EP5Arenai.exit:           ; preds = %_ZN10ciTypeFlow11St
   %67 = ptrtoint ptr %54 to i64
   store i64 %67, ptr %66, align 8
   %68 = load i32, ptr %55, align 4
-  store i32 0, ptr %57, align 4
+  store i32 0, ptr %57, align 8
   %69 = icmp sgt i32 %68, 0
   br i1 %69, label %.lr.ph.i11, label %_ZN10ciTypeFlow6JsrSet9copy_intoEPS0_.exit
 

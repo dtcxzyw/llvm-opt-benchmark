@@ -3860,7 +3860,7 @@ define internal i32 @trace_raw_output_pm_qos_update_flags(ptr noundef %0, i32 %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8296
   store i64 8156, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8304
-  store i8 0, ptr %12, align 1
+  store i8 0, ptr %12, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %15, i8 0, i64 20, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %17 = load i32, ptr %16, align 4

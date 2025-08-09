@@ -2940,17 +2940,17 @@ _ZNSt13unordered_mapIPKN8WasmEdge6Plugin12PluginModule16ModuleDescriptorEPK25Was
   %152 = getelementptr inbounds nuw i8, ptr %106, i64 20
   store i32 %151, ptr %152, align 4, !noalias !37
   %153 = getelementptr inbounds nuw i8, ptr %104, i64 24
-  %154 = load i32, ptr %153, align 4, !noalias !37
+  %154 = load i32, ptr %153, align 8, !noalias !37
   %155 = getelementptr inbounds nuw i8, ptr %106, i64 24
-  store i32 %154, ptr %155, align 4, !noalias !37
+  store i32 %154, ptr %155, align 8, !noalias !37
   %156 = getelementptr inbounds nuw i8, ptr %104, i64 28
   %157 = load i32, ptr %156, align 4, !noalias !37
   %158 = getelementptr inbounds nuw i8, ptr %106, i64 28
   store i32 %157, ptr %158, align 4, !noalias !37
   %159 = getelementptr inbounds nuw i8, ptr %104, i64 32
-  %160 = load i32, ptr %159, align 4, !noalias !37
+  %160 = load i32, ptr %159, align 8, !noalias !37
   %161 = getelementptr inbounds nuw i8, ptr %106, i64 32
-  store i32 %160, ptr %161, align 4, !noalias !37
+  store i32 %160, ptr %161, align 8, !noalias !37
   %162 = load i32, ptr %110, align 4, !noalias !37
   %163 = zext i32 %162 to i64
   %164 = getelementptr inbounds nuw i8, ptr %106, i64 40

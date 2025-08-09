@@ -216,7 +216,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %82 = getelementptr inbounds nuw i8, ptr %.1.i, i64 124
   store i32 1, ptr %82, align 4, !tbaa !44
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.1.i, i64 128
-  store i32 1, ptr %.sroa.2.0..sroa_idx.i, align 4, !tbaa !44
+  store i32 1, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !44
   %83 = getelementptr inbounds nuw i8, ptr %22, i64 116
   %84 = load i32, ptr %83, align 4, !tbaa !54
   switch i32 %84, label %.loopexit.i [

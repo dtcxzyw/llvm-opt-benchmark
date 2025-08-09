@@ -33873,7 +33873,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse.backedg
   %214 = mul i64 %213, 5871781006564002453
   %215 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
   %216 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %.val1.i.i = load i32, ptr %216, align 4, !alias.scope !8380, !noalias !8383, !noundef !12
+  %.val1.i.i = load i32, ptr %216, align 8, !alias.scope !8380, !noalias !8383, !noundef !12
   %217 = zext i32 %.val1.i.i to i64
   %218 = tail call i64 @llvm.fshl.i64(i64 %214, i64 %214, i64 5)
   %219 = xor i64 %218, %217
@@ -38112,10 +38112,10 @@ tailrecurse.backedge:                             ; preds = %16, %47
   %155 = getelementptr inbounds nuw i8, ptr %.tr2254, i64 16
   %.val6.i.i.i = load ptr, ptr %154, align 8, !alias.scope !9597, !noalias !9598
   %156 = getelementptr inbounds nuw i8, ptr %.tr53, i64 24
-  %.val7.i.i.i = load i32, ptr %156, align 4, !alias.scope !9597, !noalias !9598, !noundef !12
+  %.val7.i.i.i = load i32, ptr %156, align 8, !alias.scope !9597, !noalias !9598, !noundef !12
   %.val8.i.i.i = load ptr, ptr %155, align 8, !alias.scope !9598, !noalias !9597
   %157 = getelementptr inbounds nuw i8, ptr %.tr2254, i64 24
-  %.val9.i.i.i = load i32, ptr %157, align 4, !alias.scope !9598, !noalias !9597, !noundef !12
+  %.val9.i.i.i = load i32, ptr %157, align 8, !alias.scope !9598, !noalias !9597, !noundef !12
   %158 = icmp eq i32 %.val7.i.i.i, %.val9.i.i.i
   %159 = icmp eq ptr %.val6.i.i.i, %.val8.i.i.i
   %spec.select.i10.i.i.i = select i1 %158, i1 %159, i1 false
@@ -38166,10 +38166,10 @@ tailrecurse.backedge:                             ; preds = %16, %47
   %186 = getelementptr inbounds nuw i8, ptr %.tr2254, i64 8
   %.val4.i14 = load ptr, ptr %185, align 8, !alias.scope !9554, !noalias !9557
   %187 = getelementptr inbounds nuw i8, ptr %.tr53, i64 16
-  %.val5.i15 = load i32, ptr %187, align 4, !alias.scope !9554, !noalias !9557, !noundef !12
+  %.val5.i15 = load i32, ptr %187, align 8, !alias.scope !9554, !noalias !9557, !noundef !12
   %.val6.i16 = load ptr, ptr %186, align 8, !alias.scope !9557, !noalias !9554
   %188 = getelementptr inbounds nuw i8, ptr %.tr2254, i64 16
-  %.val7.i17 = load i32, ptr %188, align 4, !alias.scope !9557, !noalias !9554, !noundef !12
+  %.val7.i17 = load i32, ptr %188, align 8, !alias.scope !9557, !noalias !9554, !noundef !12
   %189 = icmp eq i32 %.val5.i15, %.val7.i17
   %190 = icmp eq ptr %.val4.i14, %.val6.i16
   %spec.select.i.i18 = select i1 %189, i1 %190, i1 false
@@ -77541,7 +77541,7 @@ define noundef ptr @"_ZN13rust_analyzer3cli9run_tests53_$LT$impl$u20$rust_analyz
   store ptr %217, ptr %166, align 8, !alias.scope !17952, !noalias !17955
   %.sroa.0.0.copyload4.i.i.i = load i8, ptr %216, align 4, !noalias !17960
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx5.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %216, i64 4
-  %.sroa.8.sroa.6.0.copyload.i.i.i = load i32, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx5.sroa_idx.i.i.i, align 1, !noalias !17960
+  %.sroa.8.sroa.6.0.copyload.i.i.i = load i32, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx5.sroa_idx.i.i.i, align 4, !noalias !17960
   %.not.i.i.i = icmp eq i8 %.sroa.0.0.copyload4.i.i.i, 11
   br i1 %.not.i.i.i, label %.loopexit53.i, label %218
 
@@ -77727,7 +77727,7 @@ define noundef ptr @"_ZN13rust_analyzer3cli9run_tests53_$LT$impl$u20$rust_analyz
   store ptr %258, ptr %174, align 8, !alias.scope !18015, !noalias !18018
   %.sroa.0.0.copyload4.i.i34.i = load i8, ptr %257, align 4, !noalias !18022
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx5.sroa_idx.i.i35.i = getelementptr inbounds nuw i8, ptr %257, i64 4
-  %.sroa.8.sroa.6.0.copyload.i.i36.i = load i32, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx5.sroa_idx.i.i35.i, align 1, !noalias !18022
+  %.sroa.8.sroa.6.0.copyload.i.i36.i = load i32, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx5.sroa_idx.i.i35.i, align 4, !noalias !18022
   %.not.i.i37.i = icmp eq i8 %.sroa.0.0.copyload4.i.i34.i, 11
   br i1 %.not.i.i37.i, label %.loopexit.i, label %259
 

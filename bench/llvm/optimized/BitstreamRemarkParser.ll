@@ -2715,7 +2715,7 @@ _ZN4llvm5ErrorD2Ev.exit2:                         ; preds = %27
   store ptr %46, ptr %45, align 8, !tbaa !57, !noalias !346
   %47 = getelementptr inbounds nuw i8, ptr %37, i64 24
   store i64 0, ptr %47, align 8, !tbaa !59, !noalias !346
-  store i8 0, ptr %46, align 1, !tbaa !62, !noalias !346
+  store i8 0, ptr %46, align 8, !tbaa !62, !noalias !346
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm7remarks21BitstreamRemarkParserE, i64 16), ptr %37, align 8, !tbaa !69, !noalias !346
   %48 = getelementptr inbounds nuw i8, ptr %37, i64 48
   call void @_ZN4llvm7remarks21BitstreamParserHelperC1ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(368) %48, ptr %1, i64 %2) #22, !noalias !346
@@ -2747,7 +2747,7 @@ _ZN4llvm5ErrorD2Ev.exit2:                         ; preds = %27
   store ptr %61, ptr %60, align 8, !tbaa !57, !noalias !378
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 24
   store i64 0, ptr %62, align 8, !tbaa !59, !noalias !378
-  store i8 0, ptr %61, align 1, !tbaa !62, !noalias !378
+  store i8 0, ptr %61, align 8, !tbaa !62, !noalias !378
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm7remarks21BitstreamRemarkParserE, i64 16), ptr %58, align 8, !tbaa !69, !noalias !378
   %63 = getelementptr inbounds nuw i8, ptr %58, i64 48
   call void @_ZN4llvm7remarks21BitstreamParserHelperC1ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(368) %63, ptr %1, i64 %2) #22, !noalias !378

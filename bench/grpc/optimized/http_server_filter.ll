@@ -472,7 +472,7 @@ define void @_ZN9grpc_core16HttpServerFilter4Call23OnClientInitialMetadataER19gr
   store i16 128, ptr %19, align 2, !tbaa !3, !noalias !14
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i32 2, ptr %20, align 4, !tbaa !26, !noalias !14
-  store i16 2048, ptr %17, align 2, !tbaa !3, !noalias !14
+  store i16 2048, ptr %17, align 4, !tbaa !3, !noalias !14
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 168
   store ptr inttoptr (i64 1 to ptr), ptr %21, align 8, !tbaa !29, !noalias !14
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 176
@@ -480,7 +480,7 @@ define void @_ZN9grpc_core16HttpServerFilter4Call23OnClientInitialMetadataER19gr
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 184
   store ptr @.str, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !14
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  store i16 1, ptr %22, align 2, !tbaa !3, !noalias !14
+  store i16 1, ptr %22, align 4, !tbaa !3, !noalias !14
   br label %109
 
 23:                                               ; preds = %4
@@ -495,7 +495,7 @@ define void @_ZN9grpc_core16HttpServerFilter4Call23OnClientInitialMetadataER19gr
   store i16 128, ptr %26, align 2, !tbaa !3, !noalias !31
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 20
   store i32 2, ptr %27, align 4, !tbaa !26, !noalias !31
-  store i16 2048, ptr %24, align 2, !tbaa !3, !noalias !31
+  store i16 2048, ptr %24, align 4, !tbaa !3, !noalias !31
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 168
   store ptr inttoptr (i64 1 to ptr), ptr %28, align 8, !tbaa !29, !noalias !31
   %.sroa.4.0..sroa_idx.i14 = getelementptr inbounds nuw i8, ptr %24, i64 176
@@ -503,7 +503,7 @@ define void @_ZN9grpc_core16HttpServerFilter4Call23OnClientInitialMetadataER19gr
   %.sroa.5.0..sroa_idx.i15 = getelementptr inbounds nuw i8, ptr %24, i64 184
   store ptr @.str.2, ptr %.sroa.5.0..sroa_idx.i15, align 8, !noalias !31
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  store i16 1, ptr %29, align 2, !tbaa !3, !noalias !31
+  store i16 1, ptr %29, align 4, !tbaa !3, !noalias !31
   br label %109
 
 30:                                               ; preds = %9, %12
@@ -533,7 +533,7 @@ _ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21Http
   store i16 128, ptr %40, align 2, !tbaa !3, !noalias !40
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 20
   store i32 2, ptr %41, align 4, !tbaa !26, !noalias !40
-  store i16 2048, ptr %38, align 2, !tbaa !3, !noalias !40
+  store i16 2048, ptr %38, align 4, !tbaa !3, !noalias !40
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 168
   store ptr inttoptr (i64 1 to ptr), ptr %42, align 8, !tbaa !29, !noalias !40
   %.sroa.4.0..sroa_idx.i19 = getelementptr inbounds nuw i8, ptr %38, i64 176
@@ -541,7 +541,7 @@ _ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21Http
   %.sroa.5.0..sroa_idx.i20 = getelementptr inbounds nuw i8, ptr %38, i64 184
   store ptr @.str.3, ptr %.sroa.5.0..sroa_idx.i20, align 8, !noalias !40
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 4
-  store i16 1, ptr %43, align 2, !tbaa !3, !noalias !40
+  store i16 1, ptr %43, align 4, !tbaa !3, !noalias !40
   br label %109
 
 .critedge:                                        ; preds = %_ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21HttpAuthorityMetadataENS_18HttpMethodMetadataENS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEE4TakeIS8_EENSt9enable_ifIXeqsrT_11kRepeatableLb0EESt8optionalINS15
@@ -556,7 +556,7 @@ _ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21Http
   store i16 128, ptr %46, align 2, !tbaa !3, !noalias !47
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 20
   store i32 2, ptr %47, align 4, !tbaa !26, !noalias !47
-  store i16 2048, ptr %44, align 2, !tbaa !3, !noalias !47
+  store i16 2048, ptr %44, align 4, !tbaa !3, !noalias !47
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 168
   store ptr inttoptr (i64 1 to ptr), ptr %48, align 8, !tbaa !29, !noalias !47
   %.sroa.4.0..sroa_idx.i21 = getelementptr inbounds nuw i8, ptr %44, i64 176
@@ -564,7 +564,7 @@ _ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21Http
   %.sroa.5.0..sroa_idx.i22 = getelementptr inbounds nuw i8, ptr %44, i64 184
   store ptr @.str.4, ptr %.sroa.5.0..sroa_idx.i22, align 8, !noalias !47
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  store i16 1, ptr %49, align 2, !tbaa !3, !noalias !47
+  store i16 1, ptr %49, align 4, !tbaa !3, !noalias !47
   br label %109
 
 50:                                               ; preds = %_ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21HttpAuthorityMetadataENS_18HttpMethodMetadataENS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEE4TakeIS8_EENSt9enable_ifIXeqsrT_11kRepeatableLb0EESt8optionalINS15
@@ -591,7 +591,7 @@ _ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21Http
   store i16 128, ptr %59, align 2, !tbaa !3, !noalias !56
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 20
   store i32 2, ptr %60, align 4, !tbaa !26, !noalias !56
-  store i16 2048, ptr %57, align 2, !tbaa !3, !noalias !56
+  store i16 2048, ptr %57, align 4, !tbaa !3, !noalias !56
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 168
   store ptr inttoptr (i64 1 to ptr), ptr %61, align 8, !tbaa !29, !noalias !56
   %.sroa.4.0..sroa_idx.i26 = getelementptr inbounds nuw i8, ptr %57, i64 176
@@ -599,7 +599,7 @@ _ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21Http
   %.sroa.5.0..sroa_idx.i27 = getelementptr inbounds nuw i8, ptr %57, i64 184
   store ptr @.str.5, ptr %.sroa.5.0..sroa_idx.i27, align 8, !noalias !56
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  store i16 1, ptr %62, align 2, !tbaa !3, !noalias !56
+  store i16 1, ptr %62, align 4, !tbaa !3, !noalias !56
   br label %109
 
 .critedge63:                                      ; preds = %50
@@ -614,7 +614,7 @@ _ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21Http
   store i16 128, ptr %65, align 2, !tbaa !3, !noalias !63
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 20
   store i32 2, ptr %66, align 4, !tbaa !26, !noalias !63
-  store i16 2048, ptr %63, align 2, !tbaa !3, !noalias !63
+  store i16 2048, ptr %63, align 4, !tbaa !3, !noalias !63
   %67 = getelementptr inbounds nuw i8, ptr %63, i64 168
   store ptr inttoptr (i64 1 to ptr), ptr %67, align 8, !tbaa !29, !noalias !63
   %.sroa.4.0..sroa_idx.i28 = getelementptr inbounds nuw i8, ptr %63, i64 176
@@ -622,7 +622,7 @@ _ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21Http
   %.sroa.5.0..sroa_idx.i29 = getelementptr inbounds nuw i8, ptr %63, i64 184
   store ptr @.str.6, ptr %.sroa.5.0..sroa_idx.i29, align 8, !noalias !63
   %68 = getelementptr inbounds nuw i8, ptr %63, i64 4
-  store i16 1, ptr %68, align 2, !tbaa !3, !noalias !63
+  store i16 1, ptr %68, align 4, !tbaa !3, !noalias !63
   br label %109
 
 69:                                               ; preds = %_ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21HttpAuthorityMetadataENS_18HttpMethodMetadataENS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEE4TakeIS6_EENSt9enable_ifIXeqsrT_11kRepeatableLb0EESt8optionalINS15
@@ -645,7 +645,7 @@ _ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21Http
   store i16 128, ptr %76, align 2, !tbaa !3, !noalias !70
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 20
   store i32 2, ptr %77, align 4, !tbaa !26, !noalias !70
-  store i16 2048, ptr %74, align 2, !tbaa !3, !noalias !70
+  store i16 2048, ptr %74, align 4, !tbaa !3, !noalias !70
   %78 = getelementptr inbounds nuw i8, ptr %74, i64 168
   store ptr inttoptr (i64 1 to ptr), ptr %78, align 8, !tbaa !29, !noalias !70
   %.sroa.4.0..sroa_idx.i30 = getelementptr inbounds nuw i8, ptr %74, i64 176
@@ -653,7 +653,7 @@ _ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21Http
   %.sroa.5.0..sroa_idx.i31 = getelementptr inbounds nuw i8, ptr %74, i64 184
   store ptr @.str.7, ptr %.sroa.5.0..sroa_idx.i31, align 8, !noalias !70
   %79 = getelementptr inbounds nuw i8, ptr %74, i64 4
-  store i16 1, ptr %79, align 2, !tbaa !3, !noalias !70
+  store i16 1, ptr %79, align 4, !tbaa !3, !noalias !70
   br label %109
 
 80:                                               ; preds = %69
@@ -715,7 +715,7 @@ _ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21Http
   store i16 128, ptr %98, align 2, !tbaa !3, !noalias !85
   %99 = getelementptr inbounds nuw i8, ptr %96, i64 20
   store i32 2, ptr %99, align 4, !tbaa !26, !noalias !85
-  store i16 2048, ptr %96, align 2, !tbaa !3, !noalias !85
+  store i16 2048, ptr %96, align 4, !tbaa !3, !noalias !85
   %100 = getelementptr inbounds nuw i8, ptr %96, i64 168
   store ptr inttoptr (i64 1 to ptr), ptr %100, align 8, !tbaa !29, !noalias !85
   %.sroa.4.0..sroa_idx.i37 = getelementptr inbounds nuw i8, ptr %96, i64 176
@@ -723,7 +723,7 @@ _ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21Http
   %.sroa.5.0..sroa_idx.i38 = getelementptr inbounds nuw i8, ptr %96, i64 184
   store ptr @.str.8, ptr %.sroa.5.0..sroa_idx.i38, align 8, !noalias !85
   %101 = getelementptr inbounds nuw i8, ptr %96, i64 4
-  store i16 1, ptr %101, align 2, !tbaa !3, !noalias !85
+  store i16 1, ptr %101, align 4, !tbaa !3, !noalias !85
   br label %109
 
 102:                                              ; preds = %92
@@ -3030,7 +3030,7 @@ _ZN9grpc_core14promise_detail7CurriedIZNS_21promise_filter_detail30InterceptServ
   store ptr null, ptr %6, align 8, !tbaa !142, !noalias !295
   store i64 %4, ptr %2, align 8, !tbaa !249
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i8 %5, ptr %8, align 1, !tbaa !21
+  store i8 %5, ptr %8, align 8, !tbaa !21
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %7, ptr %9, align 8, !tbaa !142
   ret void
@@ -3042,7 +3042,7 @@ define linkonce_odr void @_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_m
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !142
   %.not.i.i.i = icmp ne ptr %5, null
-  %6 = load i8, ptr %3, align 1, !range !12
+  %6 = load i8, ptr %3, align 8, !range !12
   %7 = trunc nuw i8 %6 to i1
   %or.cond.i.i.i = select i1 %.not.i.i.i, i1 %7, i1 false
   br i1 %or.cond.i.i.i, label %8, label %_ZN9grpc_core14promise_detail11PromiseLikeINS0_7CurriedIZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_16HttpServerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS3_14FilterCallDataIS6_EERKNS_8CallArgsEEUlSt10unique_ptrIS8_NS_5Arena13PooledDeleterEEE_SL_EEvED2Ev.exit
@@ -3269,7 +3269,7 @@ define linkonce_odr void @_ZN9grpc_core20arena_promise_detail7InlinedISt10unique
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !142
   %.not.i.i = icmp ne ptr %3, null
-  %4 = load i8, ptr %0, align 1, !range !12
+  %4 = load i8, ptr %0, align 8, !range !12
   %5 = trunc nuw i8 %4 to i1
   %or.cond.i.i = select i1 %.not.i.i, i1 %5, i1 false
   br i1 %or.cond.i.i, label %6, label %_ZN9grpc_core14promise_detail9ImmediateISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit

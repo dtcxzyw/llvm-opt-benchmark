@@ -876,7 +876,7 @@ _ZN7rocksdb11ReadOptionsC2ERKS0_.exit:            ; preds = %54, %63
   %98 = getelementptr inbounds nuw i8, ptr %83, i64 792
   %99 = load atomic i64, ptr %98 acquire, align 8
   %100 = getelementptr inbounds nuw i8, ptr %83, i64 1056
-  %101 = load atomic i8, ptr %100 seq_cst, align 1
+  %101 = load atomic i8, ptr %100 seq_cst, align 8
   %102 = trunc i8 %101 to i1
   br i1 %102, label %117, label %103
 
@@ -1289,7 +1289,7 @@ define void @_ZN7rocksdb16WritePreparedTxn7GetImplERKNS_11ReadOptionsEPNS_18Colu
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 792
   %26 = load atomic i64, ptr %25 acquire, align 8
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 1056
-  %28 = load atomic i8, ptr %27 seq_cst, align 1
+  %28 = load atomic i8, ptr %27 seq_cst, align 8
   %29 = trunc i8 %28 to i1
   br i1 %29, label %44, label %30
 

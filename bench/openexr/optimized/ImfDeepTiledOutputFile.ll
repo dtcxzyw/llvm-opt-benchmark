@@ -1404,7 +1404,7 @@ _ZN7Imf_3_411TileOffsetsD2Ev.exit:                ; preds = %_ZSt8_DestroyIPSt6v
   store ptr %165, ptr %164, align 8, !tbaa !164
   %166 = getelementptr inbounds nuw i8, ptr %161, i64 120
   store i64 0, ptr %166, align 8, !tbaa !116
-  store i8 0, ptr %165, align 1, !tbaa !117
+  store i8 0, ptr %165, align 8, !tbaa !117
   %167 = getelementptr inbounds nuw i8, ptr %161, i64 144
   invoke void @_ZN13IlmThread_3_49SemaphoreC1Ej(ptr noundef nonnull align 8 dereferenceable(40) %167, i32 noundef 1)
           to label %_ZN7Imf_3_412_GLOBAL__N_110TileBufferC2Ev.exit unwind label %168
@@ -3826,8 +3826,8 @@ _ZN7Imf_3_412_GLOBAL__N_112BufferedTileD2Ev.exit.i: ; preds = %351, %347
   %354 = load i64, ptr %322, align 8, !tbaa !27
   %355 = add i64 %354, -1
   store i64 %355, ptr %322, align 8, !tbaa !27
-  %.val91.i = load i64, ptr %255, align 4
-  %.val92.i = load i64, ptr %256, align 4
+  %.val91.i = load i64, ptr %255, align 8
+  %.val92.i = load i64, ptr %256, align 8
   %356 = invoke fastcc { i64, i64 } @_ZN7Imf_3_419DeepTiledOutputFile4Data13nextTileCoordERKNS_12_GLOBAL__N_19TileCoordE(ptr noundef nonnull align 8 dereferenceable(457) %148, i64 %.val91.i, i64 %.val92.i)
           to label %.noexc154 unwind label %.loopexit
 

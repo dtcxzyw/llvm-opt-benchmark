@@ -14016,7 +14016,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7Sdf
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 8
   %.not.i.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS1_E.exit, label %9
 
@@ -22949,7 +22949,7 @@ define linkonce_odr noundef ptr @_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrIn
   store i64 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load i32, ptr %1, align 4
-  store i32 %7, ptr %6, align 4
+  store i32 %7, ptr %6, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_22HdDataSourceLocatorSetENS3_25UsdImagingStageSceneIndex13_StageGlobals16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S5_EEEE11create_nodeIJRKSt21piecewise_construct_tSt5tupleIJRSC_EESK_IJEEEEEPNSF_4nodeERNSA_INS1_13hash_map_baseISE_NS9_13spin_rw_mutexEE6bucketEEEDpOT_.exit, label %8
 

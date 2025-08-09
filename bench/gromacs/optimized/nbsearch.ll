@@ -611,15 +611,15 @@ _ZNKSt12__shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplELN9__gnu
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 60
   store float 0.000000e+00, ptr %28, align 4, !tbaa !77
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 64
-  store float 0.000000e+00, ptr %29, align 4, !tbaa !77
+  store float 0.000000e+00, ptr %29, align 8, !tbaa !77
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 68
   store float 0.000000e+00, ptr %30, align 4, !tbaa !77
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 96
-  store float 0.000000e+00, ptr %31, align 4, !tbaa !77
+  store float 0.000000e+00, ptr %31, align 8, !tbaa !77
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 100
   store float 0.000000e+00, ptr %32, align 4, !tbaa !77
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 104
-  store float 0.000000e+00, ptr %33, align 4, !tbaa !77
+  store float 0.000000e+00, ptr %33, align 8, !tbaa !77
   %34 = getelementptr inbounds nuw i8, ptr %24, i64 112
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %27, i8 0, i64 44, i1 false)
@@ -933,7 +933,7 @@ _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl18mapPointToGridCellEPKfPfS4_.e
   %118 = fsub float %112, %117
   %119 = fadd float %112, %117
   %120 = getelementptr inbounds nuw i8, ptr %23, i64 444
-  %121 = load i8, ptr %120, align 1, !tbaa !38, !range !88, !noundef !89
+  %121 = load i8, ptr %120, align 4, !tbaa !38, !range !88, !noundef !89
   %122 = trunc nuw i8 %121 to i1
   br i1 %122, label %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl13initCellRangeEPKfPiS4_i.exit, label %123
 
@@ -6569,11 +6569,11 @@ define noundef zeroext i1 @_ZN3gmx30AnalysisNeighborhoodPairSearch12findNextPair
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 76
   %14 = load float, ptr %13, align 4, !tbaa !184
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %16 = load float, ptr %15, align 4, !tbaa !77
+  %16 = load float, ptr %15, align 8, !tbaa !77
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 84
   %18 = load float, ptr %17, align 4, !tbaa !77
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %20 = load float, ptr %19, align 4, !tbaa !77
+  %20 = load float, ptr %19, align 8, !tbaa !77
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %12, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !39
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8

@@ -299,7 +299,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @init_srcu_struct_fields(pt
   %80 = getelementptr inbounds nuw i8, ptr %65, i64 264
   store volatile ptr %80, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %65, i64 272
-  store volatile ptr %80, ptr %81, align 8
+  store volatile ptr %80, ptr %81, align 16
   %82 = getelementptr inbounds nuw i8, ptr %65, i64 280
   store ptr @srcu_invoke_callbacks, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %65, i64 216

@@ -1352,7 +1352,7 @@ define hidden void @_ZN5Parse7do_callEv(ptr noundef nonnull align 8 dereferencea
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %34 = load i32, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %36 = load i32, ptr %35, align 4
+  %36 = load i32, ptr %35, align 8
   %37 = lshr i32 %36, 3
   %.lobit.i = and i32 %37, 1
   %38 = xor i32 %.lobit.i, 1

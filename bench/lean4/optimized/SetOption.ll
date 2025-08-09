@@ -2307,7 +2307,7 @@ _init_l_Lean_Elab_elabSetOption___rarg___lambda__2___closed__7.exit: ; preds = %
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i64 0, ptr %43, align 8, !tbaa !14
-  store i32 1, ptr %39, align 4, !tbaa !8
+  store i32 1, ptr %39, align 8, !tbaa !8
   store i32 16777232, ptr %42, align 4
   store ptr %39, ptr @l_Lean_Elab_elabSetOption___rarg___lambda__2___closed__7, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %39) #4
@@ -2324,7 +2324,7 @@ _init_l_Lean_Elab_elabSetOption___rarg___lambda__2___closed__8.exit: ; preds = %
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i64 1, ptr %48, align 8, !tbaa !14
-  store i32 1, ptr %44, align 4, !tbaa !8
+  store i32 1, ptr %44, align 8, !tbaa !8
   store i32 16777232, ptr %47, align 4
   store ptr %44, ptr @l_Lean_Elab_elabSetOption___rarg___lambda__2___closed__8, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %44) #4

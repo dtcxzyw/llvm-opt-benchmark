@@ -1460,11 +1460,11 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4a
   %9 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #38, !noalias !134
   store ptr %9, ptr %9, align 8, !tbaa !11, !noalias !134
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i8 0, ptr %10, align 1, !tbaa !13, !noalias !134
+  store i8 0, ptr %10, align 8, !tbaa !13, !noalias !134
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 9
   store i8 0, ptr %11, align 1, !tbaa !13, !noalias !134
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 10
-  store i8 0, ptr %12, align 1, !tbaa !13, !noalias !134
+  store i8 0, ptr %12, align 2, !tbaa !13, !noalias !134
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 11
   store i8 1, ptr %13, align 1, !tbaa !13, !noalias !134
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4677,11 +4677,11 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN4a
   %9 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #38, !noalias !305
   store ptr %9, ptr %9, align 8, !tbaa !185, !noalias !305
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i8 0, ptr %10, align 1, !tbaa !13, !noalias !305
+  store i8 0, ptr %10, align 8, !tbaa !13, !noalias !305
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 9
   store i8 0, ptr %11, align 1, !tbaa !13, !noalias !305
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 10
-  store i8 0, ptr %12, align 1, !tbaa !13, !noalias !305
+  store i8 0, ptr %12, align 2, !tbaa !13, !noalias !305
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 11
   store i8 1, ptr %13, align 1, !tbaa !13, !noalias !305
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4800,11 +4800,11 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN4a
   %9 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #38, !noalias !318
   store ptr %9, ptr %9, align 8, !tbaa !195, !noalias !318
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i8 0, ptr %10, align 1, !tbaa !13, !noalias !318
+  store i8 0, ptr %10, align 8, !tbaa !13, !noalias !318
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 9
   store i8 0, ptr %11, align 1, !tbaa !13, !noalias !318
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 10
-  store i8 0, ptr %12, align 1, !tbaa !13, !noalias !318
+  store i8 0, ptr %12, align 2, !tbaa !13, !noalias !318
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 11
   store i8 1, ptr %13, align 1, !tbaa !13, !noalias !318
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15210,7 +15210,7 @@ _ZN4absl12lts_2024011618container_internal14btree_iteratorINS1_10btree_nodeINS1_
   %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #38
   store ptr %43, ptr %43, align 8, !tbaa !11
   %44 = getelementptr i8, ptr %43, i64 8
-  store i8 0, ptr %44, align 1, !tbaa !13
+  store i8 0, ptr %44, align 8, !tbaa !13
   %45 = getelementptr i8, ptr %43, i64 9
   store i8 0, ptr %45, align 1, !tbaa !13
   %46 = getelementptr i8, ptr %43, i64 11
@@ -15467,7 +15467,7 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal5btre
   store ptr %6, ptr %83, align 8, !tbaa !11
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 256
-  store i32 0, ptr %84, align 1
+  store i32 0, ptr %84, align 8
   store ptr %5, ptr %85, align 8, !tbaa !11
   %86 = getelementptr i8, ptr %5, i64 8
   store i8 0, ptr %86, align 1, !tbaa !13
@@ -15492,11 +15492,11 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal5btre
   %96 = call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #38
   store ptr %.082, ptr %96, align 8, !tbaa !11
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  store i8 %93, ptr %97, align 1, !tbaa !13
+  store i8 %93, ptr %97, align 8, !tbaa !13
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 9
   store i8 0, ptr %98, align 1, !tbaa !13
   %99 = getelementptr inbounds nuw i8, ptr %96, i64 10
-  store i8 0, ptr %99, align 1, !tbaa !13
+  store i8 0, ptr %99, align 2, !tbaa !13
   %100 = getelementptr inbounds nuw i8, ptr %96, i64 11
   store i8 15, ptr %100, align 1, !tbaa !13
   %101 = load i32, ptr %4, align 4, !tbaa !9
@@ -15514,11 +15514,11 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal5btre
   %107 = call noalias noundef nonnull dereferenceable(384) ptr @_Znwm(i64 noundef 384) #38
   store ptr %.082, ptr %107, align 8, !tbaa !11
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  store i8 %93, ptr %108, align 1, !tbaa !13
+  store i8 %93, ptr %108, align 8, !tbaa !13
   %109 = getelementptr inbounds nuw i8, ptr %107, i64 9
   store i8 0, ptr %109, align 1, !tbaa !13
   %110 = getelementptr inbounds nuw i8, ptr %107, i64 10
-  store i8 0, ptr %110, align 1, !tbaa !13
+  store i8 0, ptr %110, align 2, !tbaa !13
   %111 = getelementptr inbounds nuw i8, ptr %107, i64 11
   store i8 0, ptr %111, align 1, !tbaa !13
   %112 = load i32, ptr %4, align 4, !tbaa !9
@@ -15585,7 +15585,7 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal10btr
 
 _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPdPN5ceres8internal14ParameterBlockESt4lessIS4_ESaISt4pairIKS4_S8_EELi256ELb0EEEE10transfer_nEmmmPSG_PSE_.exit.loopexit: ; preds = %.lr.ph.i
   %.pre = load ptr, ptr %0, align 8, !tbaa !11
-  %.pre60 = load i8, ptr %8, align 1, !tbaa !13
+  %.pre60 = load i8, ptr %8, align 8, !tbaa !13
   %.pre61 = zext i8 %.pre60 to i64
   br label %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPdPN5ceres8internal14ParameterBlockESt4lessIS4_ESaISt4pairIKS4_S8_EELi256ELb0EEEE10transfer_nEmmmPSG_PSE_.exit
 
@@ -15727,7 +15727,7 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPdPN5cer
   %24 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.214", ptr %23, i64 %20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %22, ptr noundef nonnull align 1 dereferenceable(16) %24, i64 16, i1 false)
   %25 = getelementptr i8, ptr %0, i64 10
-  %26 = load i8, ptr %25, align 1, !tbaa !13
+  %26 = load i8, ptr %25, align 2, !tbaa !13
   %27 = zext i8 %26 to i32
   %28 = sub nsw i32 %27, %16
   %29 = sext i32 %28 to i64
@@ -15755,7 +15755,7 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPdPN5cer
 _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPdPN5ceres8internal14ParameterBlockESt4lessIS4_ESaISt4pairIKS4_S8_EELi256ELb0EEEE10transfer_nEmmmPSG_PSE_.exit: ; preds = %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPdPN5ceres8internal14ParameterBlockESt4lessIS4_ESaISt4pairIKS4_S8_EELi256ELb0EEEE10transfer_nEmmmPSG_PSE_.exit.loopexit, %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPdPN5ceres8internal14ParameterBlockESt4lessIS4_ESaISt4pairIKS4_S8_EELi256ELb0EEEE19transfer_n_backwardEmmmPSG_PSE_.exit
   %.pre-phi = phi i32 [ %.pre63, %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPdPN5ceres8internal14ParameterBlockESt4lessIS4_ESaISt4pairIKS4_S8_EELi256ELb0EEEE10transfer_nEmmmPSG_PSE_.exit.loopexit ], [ %27, %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPdPN5ceres8internal14ParameterBlockESt4lessIS4_ESaISt4pairIKS4_S8_EELi256ELb0EEEE19transfer_n_backwardEmmmPSG_PSE_.exit ]
   %35 = load ptr, ptr %0, align 8, !tbaa !11
-  %36 = load i8, ptr %18, align 1, !tbaa !13
+  %36 = load i8, ptr %18, align 8, !tbaa !13
   %37 = zext i8 %36 to i64
   %38 = sub nsw i32 %.pre-phi, %7
   %39 = sext i32 %38 to i64
@@ -15896,7 +15896,7 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPdPN5cer
   store i8 %27, ptr %15, align 1, !tbaa !13
   %28 = load ptr, ptr %0, align 8, !tbaa !11
   %29 = getelementptr i8, ptr %0, i64 8
-  %30 = load i8, ptr %29, align 1, !tbaa !13
+  %30 = load i8, ptr %29, align 8, !tbaa !13
   %31 = zext i8 %27 to i64
   %32 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.214", ptr %22, i64 %31
   %33 = zext i8 %30 to i32
@@ -15969,7 +15969,7 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPdPN5cer
 
 _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPdPN5ceres8internal14ParameterBlockESt4lessIS4_ESaISt4pairIKS4_S8_EELi256ELb0EEEE13emplace_valueIJPNS1_13map_slot_typeIS4_S8_EEEEEvhPSE_DpOT_.exit: ; preds = %57, %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPdPN5ceres8internal14ParameterBlockESt4lessIS4_ESaISt4pairIKS4_S8_EELi256ELb0EEEE19transfer_n_backwardEmmmPSG_PSE_.exit.i, %52
   %67 = load ptr, ptr %0, align 8, !tbaa !11
-  %68 = load i8, ptr %29, align 1, !tbaa !13
+  %68 = load i8, ptr %29, align 8, !tbaa !13
   %69 = add i8 %68, 1
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 256
   %71 = zext i8 %69 to i64
@@ -16319,7 +16319,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4absl12lts_2024011618container
   %3 = load ptr, ptr %1, align 8, !tbaa !577
   %4 = load ptr, ptr %3, align 8, !tbaa !185
   %5 = getelementptr i8, ptr %3, i64 8
-  %6 = load i8, ptr %5, align 1, !tbaa !13
+  %6 = load i8, ptr %5, align 8, !tbaa !13
   %.not = icmp eq i8 %6, 0
   br i1 %.not, label %.critedge, label %7
 
@@ -16501,7 +16501,7 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal10btr
 
 _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPN5ceres12CostFunctionEiSt4lessIS6_ESaISt4pairIKS6_iEELi256ELb0EEEE10transfer_nEmmmPSE_PSC_.exit.loopexit: ; preds = %.lr.ph.i
   %.pre = load ptr, ptr %0, align 8, !tbaa !185
-  %.pre60 = load i8, ptr %8, align 1, !tbaa !13
+  %.pre60 = load i8, ptr %8, align 8, !tbaa !13
   %.pre61 = zext i8 %.pre60 to i64
   br label %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPN5ceres12CostFunctionEiSt4lessIS6_ESaISt4pairIKS6_iEELi256ELb0EEEE10transfer_nEmmmPSE_PSC_.exit
 
@@ -16643,7 +16643,7 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPN5ceres
   %24 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.204", ptr %23, i64 %20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %22, ptr noundef nonnull align 1 dereferenceable(16) %24, i64 16, i1 false)
   %25 = getelementptr i8, ptr %0, i64 10
-  %26 = load i8, ptr %25, align 1, !tbaa !13
+  %26 = load i8, ptr %25, align 2, !tbaa !13
   %27 = zext i8 %26 to i32
   %28 = sub nsw i32 %27, %16
   %29 = sext i32 %28 to i64
@@ -16671,7 +16671,7 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPN5ceres
 _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPN5ceres12CostFunctionEiSt4lessIS6_ESaISt4pairIKS6_iEELi256ELb0EEEE10transfer_nEmmmPSE_PSC_.exit: ; preds = %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPN5ceres12CostFunctionEiSt4lessIS6_ESaISt4pairIKS6_iEELi256ELb0EEEE10transfer_nEmmmPSE_PSC_.exit.loopexit, %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPN5ceres12CostFunctionEiSt4lessIS6_ESaISt4pairIKS6_iEELi256ELb0EEEE19transfer_n_backwardEmmmPSE_PSC_.exit
   %.pre-phi = phi i32 [ %.pre63, %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPN5ceres12CostFunctionEiSt4lessIS6_ESaISt4pairIKS6_iEELi256ELb0EEEE10transfer_nEmmmPSE_PSC_.exit.loopexit ], [ %27, %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPN5ceres12CostFunctionEiSt4lessIS6_ESaISt4pairIKS6_iEELi256ELb0EEEE19transfer_n_backwardEmmmPSE_PSC_.exit ]
   %35 = load ptr, ptr %0, align 8, !tbaa !185
-  %36 = load i8, ptr %18, align 1, !tbaa !13
+  %36 = load i8, ptr %18, align 8, !tbaa !13
   %37 = zext i8 %36 to i64
   %38 = sub nsw i32 %.pre-phi, %7
   %39 = sext i32 %38 to i64
@@ -16761,7 +16761,7 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal10btr
   %5 = load i8, ptr %4, align 1, !tbaa !13
   %6 = load ptr, ptr %0, align 8, !tbaa !185
   %7 = getelementptr i8, ptr %0, i64 8
-  %8 = load i8, ptr %7, align 1, !tbaa !13
+  %8 = load i8, ptr %7, align 8, !tbaa !13
   %9 = zext i8 %8 to i64
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.204", ptr %10, i64 %9
@@ -16837,7 +16837,7 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPN5ceres
   store i8 %38, ptr %4, align 1, !tbaa !13
   store i8 0, ptr %15, align 1, !tbaa !13
   %39 = load ptr, ptr %0, align 8, !tbaa !185
-  %40 = load i8, ptr %7, align 1, !tbaa !13
+  %40 = load i8, ptr %7, align 8, !tbaa !13
   %41 = getelementptr i8, ptr %39, i64 10
   %42 = load i8, ptr %41, align 1, !tbaa !13
   %43 = zext i8 %40 to i32
@@ -17208,7 +17208,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4absl12lts_2024011618container
   %3 = load ptr, ptr %1, align 8, !tbaa !589
   %4 = load ptr, ptr %3, align 8, !tbaa !195
   %5 = getelementptr i8, ptr %3, i64 8
-  %6 = load i8, ptr %5, align 1, !tbaa !13
+  %6 = load i8, ptr %5, align 8, !tbaa !13
   %.not = icmp eq i8 %6, 0
   br i1 %.not, label %.critedge, label %7
 
@@ -17390,7 +17390,7 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal10btr
 
 _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPN5ceres12LossFunctionEiSt4lessIS6_ESaISt4pairIKS6_iEELi256ELb0EEEE10transfer_nEmmmPSE_PSC_.exit.loopexit: ; preds = %.lr.ph.i
   %.pre = load ptr, ptr %0, align 8, !tbaa !195
-  %.pre60 = load i8, ptr %8, align 1, !tbaa !13
+  %.pre60 = load i8, ptr %8, align 8, !tbaa !13
   %.pre61 = zext i8 %.pre60 to i64
   br label %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPN5ceres12LossFunctionEiSt4lessIS6_ESaISt4pairIKS6_iEELi256ELb0EEEE10transfer_nEmmmPSE_PSC_.exit
 
@@ -17532,7 +17532,7 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPN5ceres
   %24 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type", ptr %23, i64 %20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %22, ptr noundef nonnull align 1 dereferenceable(16) %24, i64 16, i1 false)
   %25 = getelementptr i8, ptr %0, i64 10
-  %26 = load i8, ptr %25, align 1, !tbaa !13
+  %26 = load i8, ptr %25, align 2, !tbaa !13
   %27 = zext i8 %26 to i32
   %28 = sub nsw i32 %27, %16
   %29 = sext i32 %28 to i64
@@ -17560,7 +17560,7 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPN5ceres
 _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPN5ceres12LossFunctionEiSt4lessIS6_ESaISt4pairIKS6_iEELi256ELb0EEEE10transfer_nEmmmPSE_PSC_.exit: ; preds = %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPN5ceres12LossFunctionEiSt4lessIS6_ESaISt4pairIKS6_iEELi256ELb0EEEE10transfer_nEmmmPSE_PSC_.exit.loopexit, %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPN5ceres12LossFunctionEiSt4lessIS6_ESaISt4pairIKS6_iEELi256ELb0EEEE19transfer_n_backwardEmmmPSE_PSC_.exit
   %.pre-phi = phi i32 [ %.pre63, %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPN5ceres12LossFunctionEiSt4lessIS6_ESaISt4pairIKS6_iEELi256ELb0EEEE10transfer_nEmmmPSE_PSC_.exit.loopexit ], [ %27, %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPN5ceres12LossFunctionEiSt4lessIS6_ESaISt4pairIKS6_iEELi256ELb0EEEE19transfer_n_backwardEmmmPSE_PSC_.exit ]
   %35 = load ptr, ptr %0, align 8, !tbaa !195
-  %36 = load i8, ptr %18, align 1, !tbaa !13
+  %36 = load i8, ptr %18, align 8, !tbaa !13
   %37 = zext i8 %36 to i64
   %38 = sub nsw i32 %.pre-phi, %7
   %39 = sext i32 %38 to i64
@@ -17650,7 +17650,7 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal10btr
   %5 = load i8, ptr %4, align 1, !tbaa !13
   %6 = load ptr, ptr %0, align 8, !tbaa !195
   %7 = getelementptr i8, ptr %0, i64 8
-  %8 = load i8, ptr %7, align 1, !tbaa !13
+  %8 = load i8, ptr %7, align 8, !tbaa !13
   %9 = zext i8 %8 to i64
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type", ptr %10, i64 %9
@@ -17726,7 +17726,7 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPN5ceres
   store i8 %38, ptr %4, align 1, !tbaa !13
   store i8 0, ptr %15, align 1, !tbaa !13
   %39 = load ptr, ptr %0, align 8, !tbaa !195
-  %40 = load i8, ptr %7, align 1, !tbaa !13
+  %40 = load i8, ptr %7, align 8, !tbaa !13
   %41 = getelementptr i8, ptr %39, i64 10
   %42 = load i8, ptr %41, align 1, !tbaa !13
   %43 = zext i8 %40 to i32
@@ -18523,7 +18523,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4absl12lts_2024011618container
   %3 = load ptr, ptr %1, align 8, !tbaa !559
   %4 = load ptr, ptr %3, align 8, !tbaa !11
   %5 = getelementptr i8, ptr %3, i64 8
-  %6 = load i8, ptr %5, align 1, !tbaa !13
+  %6 = load i8, ptr %5, align 8, !tbaa !13
   %.not = icmp eq i8 %6, 0
   br i1 %.not, label %.critedge, label %7
 
@@ -18677,7 +18677,7 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal10btr
   %5 = load i8, ptr %4, align 1, !tbaa !13
   %6 = load ptr, ptr %0, align 8, !tbaa !11
   %7 = getelementptr i8, ptr %0, i64 8
-  %8 = load i8, ptr %7, align 1, !tbaa !13
+  %8 = load i8, ptr %7, align 8, !tbaa !13
   %9 = zext i8 %8 to i64
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.214", ptr %10, i64 %9
@@ -18753,7 +18753,7 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPdPN5cer
   store i8 %38, ptr %4, align 1, !tbaa !13
   store i8 0, ptr %15, align 1, !tbaa !13
   %39 = load ptr, ptr %0, align 8, !tbaa !11
-  %40 = load i8, ptr %7, align 1, !tbaa !13
+  %40 = load i8, ptr %7, align 8, !tbaa !13
   %41 = getelementptr i8, ptr %39, i64 10
   %42 = load i8, ptr %41, align 1, !tbaa !13
   %43 = zext i8 %40 to i32
@@ -19622,7 +19622,7 @@ _ZN4absl12lts_2024011618container_internal14btree_iteratorINS1_10btree_nodeINS1_
   %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #38
   store ptr %43, ptr %43, align 8, !tbaa !185
   %44 = getelementptr i8, ptr %43, i64 8
-  store i8 0, ptr %44, align 1, !tbaa !13
+  store i8 0, ptr %44, align 8, !tbaa !13
   %45 = getelementptr i8, ptr %43, i64 9
   store i8 0, ptr %45, align 1, !tbaa !13
   %46 = getelementptr i8, ptr %43, i64 11
@@ -19879,7 +19879,7 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal5btre
   store ptr %6, ptr %83, align 8, !tbaa !185
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 256
-  store i32 0, ptr %84, align 1
+  store i32 0, ptr %84, align 8
   store ptr %5, ptr %85, align 8, !tbaa !185
   %86 = getelementptr i8, ptr %5, i64 8
   store i8 0, ptr %86, align 1, !tbaa !13
@@ -19904,11 +19904,11 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal5btre
   %96 = call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #38
   store ptr %.082, ptr %96, align 8, !tbaa !185
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  store i8 %93, ptr %97, align 1, !tbaa !13
+  store i8 %93, ptr %97, align 8, !tbaa !13
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 9
   store i8 0, ptr %98, align 1, !tbaa !13
   %99 = getelementptr inbounds nuw i8, ptr %96, i64 10
-  store i8 0, ptr %99, align 1, !tbaa !13
+  store i8 0, ptr %99, align 2, !tbaa !13
   %100 = getelementptr inbounds nuw i8, ptr %96, i64 11
   store i8 15, ptr %100, align 1, !tbaa !13
   %101 = load i32, ptr %4, align 4, !tbaa !9
@@ -19926,11 +19926,11 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal5btre
   %107 = call noalias noundef nonnull dereferenceable(384) ptr @_Znwm(i64 noundef 384) #38
   store ptr %.082, ptr %107, align 8, !tbaa !185
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  store i8 %93, ptr %108, align 1, !tbaa !13
+  store i8 %93, ptr %108, align 8, !tbaa !13
   %109 = getelementptr inbounds nuw i8, ptr %107, i64 9
   store i8 0, ptr %109, align 1, !tbaa !13
   %110 = getelementptr inbounds nuw i8, ptr %107, i64 10
-  store i8 0, ptr %110, align 1, !tbaa !13
+  store i8 0, ptr %110, align 2, !tbaa !13
   %111 = getelementptr inbounds nuw i8, ptr %107, i64 11
   store i8 0, ptr %111, align 1, !tbaa !13
   %112 = load i32, ptr %4, align 4, !tbaa !9
@@ -20020,7 +20020,7 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPN5ceres
   store i8 %27, ptr %15, align 1, !tbaa !13
   %28 = load ptr, ptr %0, align 8, !tbaa !185
   %29 = getelementptr i8, ptr %0, i64 8
-  %30 = load i8, ptr %29, align 1, !tbaa !13
+  %30 = load i8, ptr %29, align 8, !tbaa !13
   %31 = zext i8 %27 to i64
   %32 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.204", ptr %22, i64 %31
   %33 = zext i8 %30 to i32
@@ -20093,7 +20093,7 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPN5ceres
 
 _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPN5ceres12CostFunctionEiSt4lessIS6_ESaISt4pairIKS6_iEELi256ELb0EEEE13emplace_valueIJPNS1_13map_slot_typeIS6_iEEEEEvhPSC_DpOT_.exit: ; preds = %57, %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPN5ceres12CostFunctionEiSt4lessIS6_ESaISt4pairIKS6_iEELi256ELb0EEEE19transfer_n_backwardEmmmPSE_PSC_.exit.i, %52
   %67 = load ptr, ptr %0, align 8, !tbaa !185
-  %68 = load i8, ptr %29, align 1, !tbaa !13
+  %68 = load i8, ptr %29, align 8, !tbaa !13
   %69 = add i8 %68, 1
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 256
   %71 = zext i8 %69 to i64
@@ -20206,7 +20206,7 @@ _ZN4absl12lts_2024011618container_internal14btree_iteratorINS1_10btree_nodeINS1_
   %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #38
   store ptr %43, ptr %43, align 8, !tbaa !195
   %44 = getelementptr i8, ptr %43, i64 8
-  store i8 0, ptr %44, align 1, !tbaa !13
+  store i8 0, ptr %44, align 8, !tbaa !13
   %45 = getelementptr i8, ptr %43, i64 9
   store i8 0, ptr %45, align 1, !tbaa !13
   %46 = getelementptr i8, ptr %43, i64 11
@@ -20463,7 +20463,7 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal5btre
   store ptr %6, ptr %83, align 8, !tbaa !195
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 256
-  store i32 0, ptr %84, align 1
+  store i32 0, ptr %84, align 8
   store ptr %5, ptr %85, align 8, !tbaa !195
   %86 = getelementptr i8, ptr %5, i64 8
   store i8 0, ptr %86, align 1, !tbaa !13
@@ -20488,11 +20488,11 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal5btre
   %96 = call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #38
   store ptr %.082, ptr %96, align 8, !tbaa !195
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  store i8 %93, ptr %97, align 1, !tbaa !13
+  store i8 %93, ptr %97, align 8, !tbaa !13
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 9
   store i8 0, ptr %98, align 1, !tbaa !13
   %99 = getelementptr inbounds nuw i8, ptr %96, i64 10
-  store i8 0, ptr %99, align 1, !tbaa !13
+  store i8 0, ptr %99, align 2, !tbaa !13
   %100 = getelementptr inbounds nuw i8, ptr %96, i64 11
   store i8 15, ptr %100, align 1, !tbaa !13
   %101 = load i32, ptr %4, align 4, !tbaa !9
@@ -20510,11 +20510,11 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal5btre
   %107 = call noalias noundef nonnull dereferenceable(384) ptr @_Znwm(i64 noundef 384) #38
   store ptr %.082, ptr %107, align 8, !tbaa !195
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  store i8 %93, ptr %108, align 1, !tbaa !13
+  store i8 %93, ptr %108, align 8, !tbaa !13
   %109 = getelementptr inbounds nuw i8, ptr %107, i64 9
   store i8 0, ptr %109, align 1, !tbaa !13
   %110 = getelementptr inbounds nuw i8, ptr %107, i64 10
-  store i8 0, ptr %110, align 1, !tbaa !13
+  store i8 0, ptr %110, align 2, !tbaa !13
   %111 = getelementptr inbounds nuw i8, ptr %107, i64 11
   store i8 0, ptr %111, align 1, !tbaa !13
   %112 = load i32, ptr %4, align 4, !tbaa !9
@@ -20604,7 +20604,7 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPN5ceres
   store i8 %27, ptr %15, align 1, !tbaa !13
   %28 = load ptr, ptr %0, align 8, !tbaa !195
   %29 = getelementptr i8, ptr %0, i64 8
-  %30 = load i8, ptr %29, align 1, !tbaa !13
+  %30 = load i8, ptr %29, align 8, !tbaa !13
   %31 = zext i8 %27 to i64
   %32 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type", ptr %22, i64 %31
   %33 = zext i8 %30 to i32
@@ -20677,7 +20677,7 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPN5ceres
 
 _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPN5ceres12LossFunctionEiSt4lessIS6_ESaISt4pairIKS6_iEELi256ELb0EEEE13emplace_valueIJPNS1_13map_slot_typeIS6_iEEEEEvhPSC_DpOT_.exit: ; preds = %57, %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPN5ceres12LossFunctionEiSt4lessIS6_ESaISt4pairIKS6_iEELi256ELb0EEEE19transfer_n_backwardEmmmPSE_PSC_.exit.i, %52
   %67 = load ptr, ptr %0, align 8, !tbaa !195
-  %68 = load i8, ptr %29, align 1, !tbaa !13
+  %68 = load i8, ptr %29, align 8, !tbaa !13
   %69 = add i8 %68, 1
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 256
   %71 = zext i8 %69 to i64

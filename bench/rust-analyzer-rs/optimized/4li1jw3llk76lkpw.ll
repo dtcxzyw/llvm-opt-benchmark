@@ -7625,7 +7625,7 @@ define hidden void @"_ZN46_$LT$hir..Type$u20$as$u20$core..hash..Hash$GT$4hash17h
   %37 = xor i64 %36, %35
   %38 = mul i64 %37, 5871781006564002453
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i.i, i64 8
-  %40 = load i32, ptr %39, align 4, !alias.scope !940, !noalias !943, !noundef !12
+  %40 = load i32, ptr %39, align 8, !alias.scope !940, !noalias !943, !noundef !12
   %41 = zext i32 %40 to i64
   %42 = tail call i64 @llvm.fshl.i64(i64 %38, i64 %38, i64 5)
   %43 = xor i64 %42, %41
@@ -9532,7 +9532,7 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17hb468b5b2917db82cE(ptr noali
   %42 = xor i64 %41, %40
   %43 = mul i64 %42, 5871781006564002453
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i.i.i, i64 8
-  %45 = load i32, ptr %44, align 4, !alias.scope !1602, !noalias !1605, !noundef !12
+  %45 = load i32, ptr %44, align 8, !alias.scope !1602, !noalias !1605, !noundef !12
   %46 = zext i32 %45 to i64
   %47 = tail call i64 @llvm.fshl.i64(i64 %43, i64 %43, i64 5)
   %48 = xor i64 %47, %46
@@ -14068,7 +14068,7 @@ define hidden void @"_ZN69_$LT$hir_ty..traits..TraitEnvironment$u20$as$u20$core.
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !2774
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !2777)
-  %28 = load i32, ptr %27, align 4, !alias.scope !2780, !noalias !2781, !noundef !12
+  %28 = load i32, ptr %27, align 8, !alias.scope !2780, !noalias !2781, !noundef !12
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2783
   store i32 %28, ptr %4, align 4, !noalias !2783
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h7f8b085d6326c141E.llvm.8330083114956406873"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef 4), !noalias !2780
@@ -14133,7 +14133,7 @@ define hidden void @"_ZN69_$LT$hir_ty..traits..TraitEnvironment$u20$as$u20$core.
   %35 = xor i64 %34, %33
   %36 = mul i64 %35, 5871781006564002453
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i, i64 8
-  %38 = load i32, ptr %37, align 4, !alias.scope !2811, !noalias !2814, !noundef !12
+  %38 = load i32, ptr %37, align 8, !alias.scope !2811, !noalias !2814, !noundef !12
   %39 = zext i32 %38 to i64
   %40 = tail call i64 @llvm.fshl.i64(i64 %36, i64 %36, i64 5)
   %41 = xor i64 %40, %39

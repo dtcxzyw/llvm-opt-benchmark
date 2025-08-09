@@ -87,7 +87,7 @@ malloc_mutex_lock.exit:                           ; preds = %13, %19
   %.1 = phi ptr [ %40, %.thread ], [ %35, %34 ]
   store ptr %storemerge, ptr %23, align 8, !tbaa !15
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store atomic i8 0, ptr %42 monotonic, align 1
+  store atomic i8 0, ptr %42 monotonic, align 8
   %43 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %9) #5
   %.not60 = icmp eq ptr %.054, null
   br i1 %.not60, label %45, label %44

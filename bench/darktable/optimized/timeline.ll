@@ -510,9 +510,9 @@ _time_compare.exit:                               ; preds = %22, %26, %30, %34, 
   %42 = load i32, ptr %14, align 8, !tbaa !64
   call fastcc void @_time_add(ptr noundef nonnull %5, i32 noundef %13, i32 noundef %42)
   %.sroa.0.0.copyload = load i32, ptr %15, align 4, !tbaa !63
-  %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !63
+  %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !63
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !63
-  %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !63
+  %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !63
   %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !63
   %43 = load i32, ptr %5, align 8, !tbaa !71
   %.not.i14 = icmp eq i32 %43, %.sroa.0.0.copyload
@@ -634,7 +634,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 0, ptr %23, align 4, !tbaa !63
   %.sroa.445.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i32 1, ptr %.sroa.445.0..sroa_idx, align 4, !tbaa !63
+  store i32 1, ptr %.sroa.445.0..sroa_idx, align 8, !tbaa !63
   %.sroa.546.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i32 1, ptr %.sroa.546.0..sroa_idx, align 4, !tbaa !63
   %.sroa.647.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -642,7 +642,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 148
   store i32 0, ptr %24, align 4, !tbaa !63
   %.sroa.441.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 152
-  store i32 1, ptr %.sroa.441.0..sroa_idx, align 4, !tbaa !63
+  store i32 1, ptr %.sroa.441.0..sroa_idx, align 8, !tbaa !63
   %.sroa.542.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 156
   store i32 1, ptr %.sroa.542.0..sroa_idx, align 4, !tbaa !63
   %.sroa.643.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 160
@@ -915,11 +915,11 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
   %48 = load i32, ptr %47, align 8, !tbaa !64
   %.sroa.07.0.copyload.i = load i32, ptr %45, align 4, !tbaa !63
   %.sroa.48.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.val, i64 152
-  %.sroa.48.0.copyload.i = load i32, ptr %.sroa.48.0..sroa_idx.i, align 4, !tbaa !63
+  %.sroa.48.0.copyload.i = load i32, ptr %.sroa.48.0..sroa_idx.i, align 8, !tbaa !63
   %.sroa.59.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.val, i64 156
   %.sroa.59.0.copyload.i = load i32, ptr %.sroa.59.0..sroa_idx.i, align 4, !tbaa !63
   %.sroa.610.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.val, i64 160
-  %.sroa.610.0.copyload.i = load i32, ptr %.sroa.610.0..sroa_idx.i, align 4, !tbaa !63
+  %.sroa.610.0.copyload.i = load i32, ptr %.sroa.610.0..sroa_idx.i, align 8, !tbaa !63
   %.sroa.711.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.val, i64 164
   %.sroa.711.0.copyload.i = load i32, ptr %.sroa.711.0..sroa_idx.i, align 4, !tbaa !63
   %.sroa.013.0.copyload.i = load i32, ptr %46, align 8
@@ -2080,9 +2080,9 @@ _time_add.exit.i:                                 ; preds = %478, %477, %476, %4
 482:                                              ; preds = %._crit_edge.i
   %483 = load i32, ptr %47, align 8, !tbaa !64
   %.sroa.0.0.copyload.i = load i32, ptr %45, align 4, !tbaa !63
-  %.sroa.4.0.copyload.i = load i32, ptr %.sroa.48.0..sroa_idx.i, align 4, !tbaa !63
+  %.sroa.4.0.copyload.i = load i32, ptr %.sroa.48.0..sroa_idx.i, align 8, !tbaa !63
   %.sroa.5.0.copyload.i = load i32, ptr %.sroa.59.0..sroa_idx.i, align 4, !tbaa !63
-  %.sroa.6.0.copyload.i = load i32, ptr %.sroa.610.0..sroa_idx.i, align 4, !tbaa !63
+  %.sroa.6.0.copyload.i = load i32, ptr %.sroa.610.0..sroa_idx.i, align 8, !tbaa !63
   %.sroa.7.0.copyload.i = load i32, ptr %.sroa.711.0..sroa_idx.i, align 4, !tbaa !63
   %484 = load i32, ptr %7, align 8, !tbaa !71
   %.not.i169.i = icmp eq i32 %.sroa.0.0.copyload.i, %484
@@ -4760,11 +4760,11 @@ define internal fastcc void @_selection_collect(ptr noundef readonly captures(no
   %38 = and i32 %37, -2
   %.sroa.083.0.copyload = load i32, ptr %33, align 4, !tbaa !63
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !63
+  %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !63
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 156
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !63
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !63
+  %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !63
   switch i32 %38, label %47 [
     i32 -2, label %39
     i32 0, label %41

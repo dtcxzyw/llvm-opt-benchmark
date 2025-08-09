@@ -2252,7 +2252,7 @@ define hidden noundef zeroext i1 @_ZN3smt15theory_intblast16internalize_termEP3a
   tail call void @_ZN17bv2int_translator14internalize_bvEP3app(ptr noundef nonnull align 8 dereferenceable(177) %8, ptr noundef nonnull %1)
   %9 = load ptr, ptr %3, align 8, !tbaa !543
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8656
-  %11 = load i32, ptr %1, align 4, !tbaa !544
+  %11 = load i32, ptr %1, align 8, !tbaa !544
   %12 = load ptr, ptr %10, align 8, !tbaa !541
   %13 = icmp eq ptr %12, null
   br i1 %13, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i

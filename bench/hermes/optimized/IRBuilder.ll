@@ -1212,7 +1212,7 @@ entry:
   %valueType.i.i1.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 138
   store i16 1023, ptr %valueType.i.i1.i.i, align 2
   %numBitmask_.i.i.i2.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 140
-  store i16 7, ptr %numBitmask_.i.i.i2.i.i, align 2
+  store i16 7, ptr %numBitmask_.i.i.i2.i.i, align 4
   %Users.i.i3.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 144
   %add.ptr.i.i.i.i.i.i.i4.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   store ptr %add.ptr.i.i.i.i.i.i.i4.i.i, ptr %Users.i.i3.i.i, align 8
@@ -1308,7 +1308,7 @@ entry:
   %valueType.i.i1.i = getelementptr inbounds nuw i8, ptr %call, i64 138
   store i16 1023, ptr %valueType.i.i1.i, align 2
   %numBitmask_.i.i.i2.i = getelementptr inbounds nuw i8, ptr %call, i64 140
-  store i16 7, ptr %numBitmask_.i.i.i2.i, align 2
+  store i16 7, ptr %numBitmask_.i.i.i2.i, align 4
   %Users.i.i3.i = getelementptr inbounds nuw i8, ptr %call, i64 144
   %add.ptr.i.i.i.i.i.i.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 160
   store ptr %add.ptr.i.i.i.i.i.i.i4.i, ptr %Users.i.i3.i, align 8

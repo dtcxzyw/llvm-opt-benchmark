@@ -10318,7 +10318,7 @@ define linkonce_odr hidden noundef double @_ZN6casadi7printmeEdd(double noundef 
   %23 = load i32, ptr %22, align 8, !tbaa !204
   %24 = and i32 %23, -261
   %25 = or disjoint i32 %24, 256
-  store i32 %25, ptr %22, align 4, !tbaa !206
+  store i32 %25, ptr %22, align 8, !tbaa !206
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi4uoutEv()
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %26, double noundef %0)
   %28 = load ptr, ptr %27, align 8, !tbaa !3

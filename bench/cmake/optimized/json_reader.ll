@@ -18207,7 +18207,7 @@ define dso_local noundef nonnull ptr @_ZNK4Json17CharReaderBuilder13newCharReade
   store ptr %46, ptr %45, align 8, !tbaa !15
   %47 = getelementptr inbounds nuw i8, ptr %27, i64 184
   store i64 0, ptr %47, align 8, !tbaa !19
-  store i8 0, ptr %46, align 1, !tbaa !12
+  store i8 0, ptr %46, align 8, !tbaa !12
   %48 = getelementptr inbounds nuw i8, ptr %27, i64 208
   %49 = getelementptr inbounds nuw i8, ptr %27, i64 256
   %50 = getelementptr inbounds nuw i8, ptr %27, i64 272
@@ -18215,7 +18215,7 @@ define dso_local noundef nonnull ptr @_ZNK4Json17CharReaderBuilder13newCharReade
   store ptr %50, ptr %49, align 8, !tbaa !15
   %51 = getelementptr inbounds nuw i8, ptr %27, i64 264
   store i64 0, ptr %51, align 8, !tbaa !19
-  store i8 0, ptr %50, align 1, !tbaa !12
+  store i8 0, ptr %50, align 8, !tbaa !12
   %52 = getelementptr inbounds nuw i8, ptr %27, i64 288
   store i8 %44, ptr %52, align 8, !tbaa !293
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 289
@@ -21641,7 +21641,7 @@ _ZSt19__relocate_object_aIN4Json6Reader15StructuredErrorES2_SaIS2_EEvPT_PT0_RT1_
   store i64 %53, ptr %55, align 8, !tbaa !19, !alias.scope !614, !noalias !617
   store ptr %45, ptr %42, align 8, !tbaa !46, !alias.scope !617, !noalias !614
   store i64 0, ptr %54, align 8, !tbaa !19, !alias.scope !617, !noalias !614
-  store i8 0, ptr %45, align 1, !tbaa !12, !alias.scope !617, !noalias !614
+  store i8 0, ptr %45, align 8, !tbaa !12, !alias.scope !617, !noalias !614
   %56 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 48
   %57 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 48
   %.not.i.i.i = icmp eq ptr %56, %1
@@ -21692,7 +21692,7 @@ _ZSt19__relocate_object_aIN4Json6Reader15StructuredErrorES2_SaIS2_EEvPT_PT0_RT1_
   store i64 %71, ptr %73, align 8, !tbaa !19, !alias.scope !621, !noalias !624
   store ptr %63, ptr %60, align 8, !tbaa !46, !alias.scope !624, !noalias !621
   store i64 0, ptr %72, align 8, !tbaa !19, !alias.scope !624, !noalias !621
-  store i8 0, ptr %63, align 1, !tbaa !12, !alias.scope !624, !noalias !621
+  store i8 0, ptr %63, align 8, !tbaa !12, !alias.scope !624, !noalias !621
   %74 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 48
   %75 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 48
   %.not.i.i.i34 = icmp eq ptr %74, %6
@@ -22262,7 +22262,7 @@ _ZSt19__relocate_object_aIN4Json9OurReader15StructuredErrorES2_SaIS2_EEvPT_PT0_R
   store i64 %53, ptr %55, align 8, !tbaa !19, !alias.scope !629, !noalias !632
   store ptr %45, ptr %42, align 8, !tbaa !46, !alias.scope !632, !noalias !629
   store i64 0, ptr %54, align 8, !tbaa !19, !alias.scope !632, !noalias !629
-  store i8 0, ptr %45, align 1, !tbaa !12, !alias.scope !632, !noalias !629
+  store i8 0, ptr %45, align 8, !tbaa !12, !alias.scope !632, !noalias !629
   %56 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 48
   %57 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 48
   %.not.i.i.i = icmp eq ptr %56, %1
@@ -22313,7 +22313,7 @@ _ZSt19__relocate_object_aIN4Json9OurReader15StructuredErrorES2_SaIS2_EEvPT_PT0_R
   store i64 %71, ptr %73, align 8, !tbaa !19, !alias.scope !636, !noalias !639
   store ptr %63, ptr %60, align 8, !tbaa !46, !alias.scope !639, !noalias !636
   store i64 0, ptr %72, align 8, !tbaa !19, !alias.scope !639, !noalias !636
-  store i8 0, ptr %63, align 1, !tbaa !12, !alias.scope !639, !noalias !636
+  store i8 0, ptr %63, align 8, !tbaa !12, !alias.scope !639, !noalias !636
   %74 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 48
   %75 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 48
   %.not.i.i.i34 = icmp eq ptr %74, %6

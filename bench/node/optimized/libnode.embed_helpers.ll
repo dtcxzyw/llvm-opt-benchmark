@@ -181,7 +181,7 @@ do.end14:                                         ; preds = %do.end4
   call void @_ZN2v87Context5EnterEv(ptr noundef nonnull align 1 dereferenceable(1) %call2.i) #22
   call void @_ZN2v815SealHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(20) %seal, ptr noundef %0) #22
   %is_stopping_.i = getelementptr inbounds nuw i8, ptr %env, i64 872
-  %3 = load atomic i8, ptr %is_stopping_.i seq_cst, align 1
+  %3 = load atomic i8, ptr %is_stopping_.i seq_cst, align 8
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %cleanup81, label %if.end25
 
@@ -308,7 +308,7 @@ if.end32:                                         ; preds = %do.body29
   %event_loop_.i.i = getelementptr inbounds nuw i8, ptr %23, i64 4064
   %24 = load ptr, ptr %event_loop_.i.i, align 8
   %call34 = call i32 @uv_run(ptr noundef %24, i32 noundef 0) #22
-  %25 = load atomic i8, ptr %is_stopping_.i seq_cst, align 1
+  %25 = load atomic i8, ptr %is_stopping_.i seq_cst, align 8
   %tobool.i.i.i34 = trunc i8 %25 to i1
   br i1 %tobool.i.i.i34, label %do.end68, label %if.end37
 
@@ -358,7 +358,7 @@ do.end68:                                         ; preds = %if.end49, %cleanup.
   %33 = load ptr, ptr %performance_state_.i, align 8
   %call70 = call i64 @uv_hrtime() #22
   call void @_ZN4node11performance16PerformanceState4MarkENS0_20PerformanceMilestoneEm(ptr noundef nonnull align 8 dereferenceable(178) %33, i32 noundef 5, i64 noundef %call70) #22
-  %34 = load atomic i8, ptr %is_stopping_.i seq_cst, align 1
+  %34 = load atomic i8, ptr %is_stopping_.i seq_cst, align 8
   %tobool.i.i.i45 = trunc i8 %34 to i1
   br i1 %tobool.i.i.i45, label %cleanup81, label %if.end74
 

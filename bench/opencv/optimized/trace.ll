@@ -6584,7 +6584,7 @@ define linkonce_odr hidden noundef ptr @_ZNK2cv18TLSDataAccumulatorINS_5utils5tr
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 120
   store i64 0, ptr %10, align 8, !tbaa !92
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  store i32 -1, ptr %11, align 4, !tbaa !95
+  store i32 -1, ptr %11, align 8, !tbaa !95
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 16, i1 false)
@@ -6594,7 +6594,7 @@ define linkonce_odr hidden noundef ptr @_ZNK2cv18TLSDataAccumulatorINS_5utils5tr
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 168
   store i64 0, ptr %15, align 8, !tbaa !92
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 176
-  store i32 -1, ptr %16, align 4, !tbaa !95
+  store i32 -1, ptr %16, align 8, !tbaa !95
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
   ret ptr %2
@@ -6859,7 +6859,7 @@ define linkonce_odr hidden noundef ptr @_ZNK2cv7TLSDataINS_5utils5trace7details2
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 120
   store i64 0, ptr %10, align 8, !tbaa !92
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  store i32 -1, ptr %11, align 4, !tbaa !95
+  store i32 -1, ptr %11, align 8, !tbaa !95
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 16, i1 false)
@@ -6869,7 +6869,7 @@ define linkonce_odr hidden noundef ptr @_ZNK2cv7TLSDataINS_5utils5trace7details2
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 168
   store i64 0, ptr %15, align 8, !tbaa !92
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 176
-  store i32 -1, ptr %16, align 4, !tbaa !95
+  store i32 -1, ptr %16, align 8, !tbaa !95
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
   ret ptr %2

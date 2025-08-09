@@ -433,7 +433,7 @@ define hidden i32 @lj_ir_kint(ptr noundef captures(none) %0, i32 noundef %1) loc
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !30
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %.0.in19 = load i16, ptr %5, align 2, !tbaa !33
+  %.0.in19 = load i16, ptr %5, align 8, !tbaa !33
   %.not20 = icmp eq i16 %.0.in19, 0
   br i1 %.not20, label %._crit_edge, label %.lr.ph
 
@@ -475,11 +475,11 @@ ir_nextk.exit:                                    ; preds = %._crit_edge, %16
   store i8 19, ptr %21, align 4, !tbaa !33
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 5
   store i8 23, ptr %22, align 1, !tbaa !33
-  %23 = load i16, ptr %5, align 2, !tbaa !34
+  %23 = load i16, ptr %5, align 8, !tbaa !34
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 6
   store i16 %23, ptr %24, align 2, !tbaa !33
   %25 = trunc i32 %18 to i16
-  store i16 %25, ptr %5, align 2, !tbaa !34
+  store i16 %25, ptr %5, align 8, !tbaa !34
   br label %26
 
 .loopexit:                                        ; preds = %.lr.ph
@@ -638,7 +638,7 @@ define hidden i32 @lj_ir_kint64(ptr noundef captures(none) %0, i64 noundef %1) l
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !30
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 460
-  %.0.in27.i = load i16, ptr %5, align 2, !tbaa !33
+  %.0.in27.i = load i16, ptr %5, align 4, !tbaa !33
   %.not28.i = icmp eq i16 %.0.in27.i, 0
   br i1 %.not28.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -683,11 +683,11 @@ ir_nextk64.exit.i:                                ; preds = %19, %._crit_edge.i
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 5
   store i8 29, ptr %25, align 1, !tbaa !33
   store i32 0, ptr %22, align 8, !tbaa !33
-  %26 = load i16, ptr %5, align 2, !tbaa !34
+  %26 = load i16, ptr %5, align 4, !tbaa !34
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 %26, ptr %27, align 2, !tbaa !33
   %28 = trunc i32 %15 to i16
-  store i16 %28, ptr %5, align 2, !tbaa !34
+  store i16 %28, ptr %5, align 4, !tbaa !34
   br label %lj_ir_k64.exit
 
 .loopexit.i:                                      ; preds = %.lr.ph.i
@@ -722,7 +722,7 @@ numistrueint.exit:                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !30
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %.0.in19.i = load i16, ptr %11, align 2, !tbaa !33
+  %.0.in19.i = load i16, ptr %11, align 8, !tbaa !33
   %.not20.i = icmp eq i16 %.0.in19.i, 0
   br i1 %.not20.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -764,11 +764,11 @@ ir_nextk.exit.i:                                  ; preds = %22, %._crit_edge.i
   store i8 19, ptr %27, align 4, !tbaa !33
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 5
   store i8 23, ptr %28, align 1, !tbaa !33
-  %29 = load i16, ptr %11, align 2, !tbaa !34
+  %29 = load i16, ptr %11, align 8, !tbaa !34
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 6
   store i16 %29, ptr %30, align 2, !tbaa !33
   %31 = trunc i32 %24 to i16
-  store i16 %31, ptr %11, align 2, !tbaa !34
+  store i16 %31, ptr %11, align 8, !tbaa !34
   br label %lj_ir_kint.exit
 
 .loopexit.i:                                      ; preds = %.lr.ph.i
@@ -1030,7 +1030,7 @@ define hidden i32 @lj_ir_knull(ptr noundef captures(none) %0, i32 noundef %1) lo
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !30
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %.0.in20 = load i16, ptr %5, align 2, !tbaa !33
+  %.0.in20 = load i16, ptr %5, align 8, !tbaa !33
   %.not21 = icmp eq i16 %.0.in20, 0
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
@@ -1075,11 +1075,11 @@ ir_nextk.exit:                                    ; preds = %._crit_edge, %18
   store i8 %23, ptr %24, align 4, !tbaa !33
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 5
   store i8 27, ptr %25, align 1, !tbaa !33
-  %26 = load i16, ptr %5, align 2, !tbaa !34
+  %26 = load i16, ptr %5, align 8, !tbaa !34
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 %26, ptr %27, align 2, !tbaa !33
   %28 = trunc i32 %20 to i16
-  store i16 %28, ptr %5, align 2, !tbaa !34
+  store i16 %28, ptr %5, align 8, !tbaa !34
   br label %29
 
 .loopexit:                                        ; preds = %.lr.ph

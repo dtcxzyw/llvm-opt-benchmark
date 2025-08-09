@@ -377,11 +377,11 @@ define internal void @rlc_lte_stat_draw(ptr noundef readonly captures(none) %0) 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load i32, ptr %11, align 4
+  %12 = load i32, ptr %11, align 8
   %13 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.6, i32 noundef %6, i32 noundef %8, i32 noundef %10, i32 noundef %12)
   %.not45 = icmp eq ptr %2, null
   br i1 %.not45, label %._crit_edge, label %.lr.ph

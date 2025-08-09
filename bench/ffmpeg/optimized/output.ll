@@ -31911,7 +31911,7 @@ define internal void @yuv2rgb24_X_c(ptr noundef readonly captures(none) %0, ptr 
   %indvars.iv = phi i64 [ 0, %.preheader11.lr.ph.split.split ], [ %indvars.iv.next, %.preheader11 ]
   %145 = load ptr, ptr %141, align 8, !tbaa !114
   %146 = load ptr, ptr %142, align 8, !tbaa !114
-  %147 = load i32, ptr %143, align 4, !tbaa !53
+  %147 = load i32, ptr %143, align 8, !tbaa !53
   %148 = sext i32 %147 to i64
   %149 = getelementptr inbounds i8, ptr %146, i64 %148
   %150 = load ptr, ptr %144, align 8, !tbaa !114
@@ -32475,7 +32475,7 @@ define internal void @yuv2bgr24_X_c(ptr noundef readonly captures(none) %0, ptr 
   %indvars.iv = phi i64 [ 0, %.preheader11.lr.ph.split.split ], [ %indvars.iv.next, %.preheader11 ]
   %145 = load ptr, ptr %141, align 8, !tbaa !114
   %146 = load ptr, ptr %142, align 8, !tbaa !114
-  %147 = load i32, ptr %143, align 4, !tbaa !53
+  %147 = load i32, ptr %143, align 8, !tbaa !53
   %148 = sext i32 %147 to i64
   %149 = getelementptr inbounds i8, ptr %146, i64 %148
   %150 = load ptr, ptr %144, align 8, !tbaa !114

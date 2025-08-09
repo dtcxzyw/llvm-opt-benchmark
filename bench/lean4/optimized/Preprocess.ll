@@ -28190,7 +28190,7 @@ lean_inc.exit945:                                 ; preds = %781, %780, %778, %l
   %784 = getelementptr inbounds nuw i8, ptr %782, i64 16
   store ptr %309, ptr %784, align 8, !tbaa !4
   %785 = getelementptr inbounds nuw i8, ptr %782, i64 24
-  store i8 %686, ptr %785, align 1, !tbaa !19
+  store i8 %686, ptr %785, align 8, !tbaa !19
   %786 = load ptr, ptr @l_Lean_Elab_WF_preprocess___lambda__4___closed__12, align 8, !tbaa !4
   %787 = tail call ptr @l_Lean_isTracingEnabledFor___at_Lean_Meta_processPostponed_loop___spec__1(ptr noundef %786, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %760) #5
   %788 = getelementptr inbounds nuw i8, ptr %787, i64 8
@@ -29206,7 +29206,7 @@ lean_inc.exit927:                                 ; preds = %1156, %1155, %1153,
   %1163 = getelementptr inbounds nuw i8, ptr %.0868, i64 16
   store ptr %1068, ptr %1163, align 8, !tbaa !4
   %1164 = getelementptr inbounds nuw i8, ptr %.0868, i64 24
-  store i8 %1078, ptr %1164, align 1, !tbaa !19
+  store i8 %1078, ptr %1164, align 8, !tbaa !19
   %1165 = load ptr, ptr @l_Lean_Elab_WF_preprocess___lambda__4___closed__12, align 8, !tbaa !4
   %1166 = tail call ptr @l_Lean_isTracingEnabledFor___at_Lean_Meta_processPostponed_loop___spec__1(ptr noundef %1165, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %1135) #5
   %1167 = getelementptr inbounds nuw i8, ptr %1166, i64 8
@@ -30697,7 +30697,7 @@ lean_inc.exit899:                                 ; preds = %1703, %1702, %1700,
   %1710 = getelementptr inbounds nuw i8, ptr %.0875, i64 16
   store ptr %1615, ptr %1710, align 8, !tbaa !4
   %1711 = getelementptr inbounds nuw i8, ptr %.0875, i64 24
-  store i8 %1625, ptr %1711, align 1, !tbaa !19
+  store i8 %1625, ptr %1711, align 8, !tbaa !19
   %1712 = load ptr, ptr @l_Lean_Elab_WF_preprocess___lambda__4___closed__12, align 8, !tbaa !4
   %1713 = tail call ptr @l_Lean_isTracingEnabledFor___at_Lean_Meta_processPostponed_loop___spec__1(ptr noundef %1712, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %1682) #5
   %1714 = getelementptr inbounds nuw i8, ptr %1713, i64 8
@@ -32792,7 +32792,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 24
   store i64 1, ptr %71, align 8, !tbaa !12
-  store i32 1, ptr %67, align 4, !tbaa !8
+  store i32 1, ptr %67, align 8, !tbaa !8
   store i32 131104, ptr %70, align 4
   %72 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %0, ptr %72, align 8, !tbaa !4
@@ -33499,7 +33499,7 @@ _init_l_initFn____x40_Lean_Elab_PreDefinition_WF_Preprocess___hyg_6____closed__6
   %.val81 = load ptr, ptr %64, align 8, !tbaa !4
   store ptr %.val81, ptr @l_wf_preprocess, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val81) #5
-  %65 = load i32, ptr %60, align 4, !tbaa !8
+  %65 = load i32, ptr %60, align 8, !tbaa !8
   %66 = icmp sgt i32 %65, 1
   br i1 %66, label %67, label %69, !prof !11
 
@@ -33564,7 +33564,7 @@ lean_dec_ref.exit64:                              ; preds = %70, %69, %67, %_ini
   %.val82 = load ptr, ptr %92, align 8, !tbaa !4
   store ptr %.val82, ptr @l_Lean_Elab_WF_wfPreprocessSimpExtension, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val82) #5
-  %93 = load i32, ptr %88, align 4, !tbaa !8
+  %93 = load i32, ptr %88, align 8, !tbaa !8
   %94 = icmp sgt i32 %93, 1
   br i1 %94, label %95, label %97, !prof !11
 
@@ -33599,24 +33599,24 @@ _init_l___private_Lean_Elab_PreDefinition_WF_Preprocess_0__Lean_Elab_WF_getSimpC
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 4
   %105 = getelementptr inbounds nuw i8, ptr %101, i64 40
   store i64 65792, ptr %105, align 8, !tbaa !12
-  store i32 1, ptr %101, align 4, !tbaa !8
+  store i32 1, ptr %101, align 8, !tbaa !8
   store i32 131120, ptr %104, align 4
   %106 = getelementptr inbounds nuw i8, ptr %101, i64 8
   store ptr %100, ptr %106, align 8, !tbaa !4
   %107 = getelementptr inbounds nuw i8, ptr %101, i64 16
   store ptr inttoptr (i64 5 to ptr), ptr %107, align 8, !tbaa !4
   %108 = getelementptr inbounds nuw i8, ptr %101, i64 24
-  store i8 0, ptr %108, align 1, !tbaa !19
+  store i8 0, ptr %108, align 8, !tbaa !19
   %109 = getelementptr inbounds nuw i8, ptr %101, i64 25
   store i8 1, ptr %109, align 1, !tbaa !19
   %110 = getelementptr inbounds nuw i8, ptr %101, i64 26
   %111 = getelementptr inbounds nuw i8, ptr %101, i64 36
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %110, i8 0, i64 10, i1 false)
-  store i8 1, ptr %111, align 1, !tbaa !19
+  store i8 1, ptr %111, align 4, !tbaa !19
   %112 = getelementptr inbounds nuw i8, ptr %101, i64 37
   store i8 1, ptr %112, align 1, !tbaa !19
   %113 = getelementptr inbounds nuw i8, ptr %101, i64 38
-  store i8 0, ptr %113, align 1, !tbaa !19
+  store i8 0, ptr %113, align 2, !tbaa !19
   %114 = getelementptr inbounds nuw i8, ptr %101, i64 39
   store i8 0, ptr %114, align 1, !tbaa !19
   store ptr %101, ptr @l___private_Lean_Elab_PreDefinition_WF_Preprocess_0__Lean_Elab_WF_getSimpContext___closed__2, align 8, !tbaa !4
@@ -33684,7 +33684,7 @@ _init_l___private_Lean_Elab_PreDefinition_WF_Preprocess_0__Lean_Elab_WF_getSimpC
   %137 = getelementptr inbounds nuw i8, ptr %134, i64 4
   %138 = getelementptr inbounds nuw i8, ptr %134, i64 24
   store i64 1, ptr %138, align 8, !tbaa !12
-  store i32 1, ptr %134, align 4, !tbaa !8
+  store i32 1, ptr %134, align 8, !tbaa !8
   store i32 131104, ptr %137, align 4
   %139 = getelementptr inbounds nuw i8, ptr %134, i64 8
   store ptr %132, ptr %139, align 8, !tbaa !4

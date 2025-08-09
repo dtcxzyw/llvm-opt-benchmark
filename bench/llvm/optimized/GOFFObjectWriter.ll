@@ -43,7 +43,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_116GOFFObjectWriterESt14default_deleteIS1_EED2Ev
   store ptr %9, ptr %6, align 8, !tbaa !16, !noalias !3
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 0, ptr %10, align 8, !tbaa !19, !noalias !3
-  store i8 0, ptr %9, align 1, !tbaa !22, !noalias !3
+  store i8 0, ptr %9, align 8, !tbaa !22, !noalias !3
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 104

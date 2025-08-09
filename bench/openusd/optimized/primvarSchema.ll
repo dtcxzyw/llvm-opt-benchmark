@@ -30073,7 +30073,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6Appen
   %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq double %24, 0.000000e+00
   %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, double 0.000000e+00, double %24
   %25 = bitcast double %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %26 = load i8, ptr %23, align 1
+  %26 = load i8, ptr %23, align 8
   %27 = and i8 %26, 1
   %28 = zext nneg i8 %27 to i64
   %29 = add i64 %25, %28
@@ -30088,7 +30088,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6Appen
   %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, double 0.000000e+00, double %36
   %37 = bitcast double %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %38 = getelementptr inbounds nuw i8, ptr %.024.i.i, i64 24
-  %39 = load i8, ptr %38, align 1
+  %39 = load i8, ptr %38, align 8
   %40 = and i8 %39, 1
   %41 = zext nneg i8 %40 to i64
   %42 = add i64 %37, %41

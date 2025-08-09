@@ -206,11 +206,11 @@ define internal range(i32 -2147483648, 1) i32 @encode_superframe(ptr noundef %0,
   %13 = getelementptr i8, ptr %2, i64 112
   %.val78 = load i32, ptr %13, align 8, !tbaa !67
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 66784
-  %15 = load ptr, ptr %14, align 8, !tbaa !68
+  %15 = load ptr, ptr %14, align 16, !tbaa !68
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 66824
   %17 = load ptr, ptr %16, align 8, !tbaa !70
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 66864
-  %19 = load ptr, ptr %18, align 8, !tbaa !71
+  %19 = load ptr, ptr %18, align 16, !tbaa !71
   %20 = sitofp i32 %10 to double
   %21 = fdiv nsz double 6.553600e+04, %20
   %22 = fptrunc nsz double %21 to float
@@ -602,7 +602,7 @@ define internal fastcc i32 @encode_frame(ptr noundef initializes((40, 72)) %0, p
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 1196
   store i32 %31, ptr %32, align 4, !tbaa !61
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  %34 = load i32, ptr %33, align 4, !tbaa !94
+  %34 = load i32, ptr %33, align 16, !tbaa !94
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 412
   %36 = load i32, ptr %35, align 4, !tbaa !97
   %37 = sub nsw i32 %34, %36

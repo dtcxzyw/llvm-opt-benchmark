@@ -1483,7 +1483,7 @@ _ZSt19__relocate_object_aI9DataBlockS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i.i: ; pred
   store i64 %67, ptr %69, align 8, !alias.scope !12, !noalias !15
   store ptr %59, ptr %56, align 8, !alias.scope !15, !noalias !12
   store i64 0, ptr %68, align 8, !alias.scope !15, !noalias !12
-  store i8 0, ptr %59, align 1, !alias.scope !15, !noalias !12
+  store i8 0, ptr %59, align 8, !alias.scope !15, !noalias !12
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 48
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 48
   %.not.i.i.i.i = icmp eq ptr %70, %1
@@ -1534,7 +1534,7 @@ _ZSt19__relocate_object_aI9DataBlockS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i.i36: ; pr
   store i64 %85, ptr %87, align 8, !alias.scope !19, !noalias !22
   store ptr %77, ptr %74, align 8, !alias.scope !22, !noalias !19
   store i64 0, ptr %86, align 8, !alias.scope !22, !noalias !19
-  store i8 0, ptr %77, align 1, !alias.scope !22, !noalias !19
+  store i8 0, ptr %77, align 8, !alias.scope !22, !noalias !19
   %88 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i32, i64 48
   %89 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i31, i64 48
   %.not.i.i.i.i37 = icmp eq ptr %88, %9

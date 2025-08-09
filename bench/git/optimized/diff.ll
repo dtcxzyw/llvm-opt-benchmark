@@ -2981,7 +2981,7 @@ canon_mode.exit:                                  ; preds = %5, %5, %6, %9
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load i32, ptr %11, align 4, !tbaa !126
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %12, ptr %13, align 4, !tbaa !126
+  store i32 %12, ptr %13, align 8, !tbaa !126
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 82
   %15 = trunc i32 %2 to i16
   %16 = load i16, ptr %14, align 2
@@ -3424,7 +3424,7 @@ canon_mode.exit.i:                                ; preds = %63, %67, %64, %63
   %69 = getelementptr inbounds nuw i8, ptr %.062, i64 32
   %70 = load i32, ptr %69, align 4, !tbaa !126
   %71 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  store i32 %70, ptr %71, align 4, !tbaa !126
+  store i32 %70, ptr %71, align 8, !tbaa !126
   %72 = trunc i32 %.064 to i16
   %73 = load i16, ptr %46, align 2
   %74 = and i16 %72, 1
@@ -3463,7 +3463,7 @@ canon_mode.exit.i82:                              ; preds = %78, %82, %79, %78
   %84 = getelementptr inbounds nuw i8, ptr %.063, i64 32
   %85 = load i32, ptr %84, align 4, !tbaa !126
   %86 = getelementptr inbounds nuw i8, ptr %55, i64 32
-  store i32 %85, ptr %86, align 4, !tbaa !126
+  store i32 %85, ptr %86, align 8, !tbaa !126
   %87 = trunc i32 %.065 to i16
   %88 = load i16, ptr %59, align 2
   %89 = and i16 %87, 1
@@ -3808,7 +3808,7 @@ canon_mode.exit.i:                                ; preds = %60, %64, %61, %60
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %67 = load i32, ptr %66, align 4, !tbaa !126
   %68 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  store i32 %67, ptr %68, align 4, !tbaa !126
+  store i32 %67, ptr %68, align 8, !tbaa !126
   %69 = trunc i32 %4 to i16
   %70 = load i16, ptr %43, align 2
   %71 = and i16 %69, 1
@@ -3854,7 +3854,7 @@ canon_mode.exit.i40:                              ; preds = %74, %78, %75, %74
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %81 = load i32, ptr %80, align 4, !tbaa !126
   %82 = getelementptr inbounds nuw i8, ptr %52, i64 32
-  store i32 %81, ptr %82, align 4, !tbaa !126
+  store i32 %81, ptr %82, align 8, !tbaa !126
   %83 = trunc i32 %4 to i16
   %84 = load i16, ptr %56, align 2
   %85 = and i16 %83, 1
@@ -15546,7 +15546,7 @@ fill_filespec.exit.thread:                        ; preds = %22, %22, %23, %26
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %29 = load i32, ptr %28, align 4, !tbaa !126
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store i32 %29, ptr %30, align 4, !tbaa !126
+  store i32 %29, ptr %30, align 8, !tbaa !126
   %31 = trunc i32 %4 to i16
   %32 = and i16 %31, 1
   %33 = and i16 %20, -2

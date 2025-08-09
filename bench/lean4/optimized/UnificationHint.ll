@@ -364,7 +364,7 @@ lean_alloc_ctor.exit166:                          ; preds = %lean_alloc_ctor.exi
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %66 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store i64 0, ptr %66, align 8, !tbaa !12
-  store i32 1, ptr %62, align 4, !tbaa !4
+  store i32 1, ptr %62, align 8, !tbaa !4
   store i32 100728856, ptr %65, align 4
   %67 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store ptr %56, ptr %67, align 8, !tbaa !9
@@ -571,7 +571,7 @@ lean_alloc_ctor.exit179:                          ; preds = %lean_alloc_ctor.exi
   %139 = getelementptr inbounds nuw i8, ptr %136, i64 4
   %140 = getelementptr inbounds nuw i8, ptr %136, i64 16
   store i64 0, ptr %140, align 8, !tbaa !12
-  store i32 1, ptr %136, align 4, !tbaa !4
+  store i32 1, ptr %136, align 8, !tbaa !4
   store i32 100728856, ptr %139, align 4
   %141 = getelementptr inbounds nuw i8, ptr %136, i64 8
   store ptr %130, ptr %141, align 8, !tbaa !9
@@ -920,7 +920,7 @@ lean_alloc_ctor.exit203:                          ; preds = %lean_alloc_ctor.exi
   %270 = getelementptr inbounds nuw i8, ptr %267, i64 4
   %271 = getelementptr inbounds nuw i8, ptr %267, i64 16
   store i64 0, ptr %271, align 8, !tbaa !12
-  store i32 1, ptr %267, align 4, !tbaa !4
+  store i32 1, ptr %267, align 8, !tbaa !4
   store i32 100728856, ptr %270, align 4
   %272 = getelementptr inbounds nuw i8, ptr %267, i64 8
   store ptr %261, ptr %272, align 8, !tbaa !9
@@ -1114,7 +1114,7 @@ lean_alloc_ctor.exit165:                          ; preds = %lean_alloc_ctor.exi
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %66 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store i64 0, ptr %66, align 8, !tbaa !12
-  store i32 1, ptr %62, align 4, !tbaa !4
+  store i32 1, ptr %62, align 8, !tbaa !4
   store i32 100728856, ptr %65, align 4
   %67 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store ptr %56, ptr %67, align 8, !tbaa !9
@@ -1227,7 +1227,7 @@ lean_alloc_ctor.exit172:                          ; preds = %lean_alloc_ctor.exi
   %110 = getelementptr inbounds nuw i8, ptr %107, i64 4
   %111 = getelementptr inbounds nuw i8, ptr %107, i64 16
   store i64 0, ptr %111, align 8, !tbaa !12
-  store i32 1, ptr %107, align 4, !tbaa !4
+  store i32 1, ptr %107, align 8, !tbaa !4
   store i32 100728856, ptr %110, align 4
   %112 = getelementptr inbounds nuw i8, ptr %107, i64 8
   store ptr %101, ptr %112, align 8, !tbaa !9
@@ -1461,7 +1461,7 @@ lean_alloc_ctor.exit187:                          ; preds = %lean_alloc_ctor.exi
   %201 = getelementptr inbounds nuw i8, ptr %198, i64 4
   %202 = getelementptr inbounds nuw i8, ptr %198, i64 16
   store i64 0, ptr %202, align 8, !tbaa !12
-  store i32 1, ptr %198, align 4, !tbaa !4
+  store i32 1, ptr %198, align 8, !tbaa !4
   store i32 100728856, ptr %201, align 4
   %203 = getelementptr inbounds nuw i8, ptr %198, i64 8
   store ptr %192, ptr %203, align 8, !tbaa !9
@@ -1581,7 +1581,7 @@ lean_alloc_ctor.exit195:                          ; preds = %lean_alloc_ctor.exi
   %246 = getelementptr inbounds nuw i8, ptr %243, i64 4
   %247 = getelementptr inbounds nuw i8, ptr %243, i64 16
   store i64 0, ptr %247, align 8, !tbaa !12
-  store i32 1, ptr %243, align 4, !tbaa !4
+  store i32 1, ptr %243, align 8, !tbaa !4
   store i32 100728856, ptr %246, align 4
   %248 = getelementptr inbounds nuw i8, ptr %243, i64 8
   store ptr %237, ptr %248, align 8, !tbaa !9
@@ -1600,7 +1600,7 @@ lean_alloc_ctor.exit167:                          ; preds = %lean_alloc_ctor.exi
   %252 = getelementptr inbounds nuw i8, ptr %.sink207, i64 4
   %253 = getelementptr inbounds nuw i8, ptr %.sink207, i64 16
   store i64 0, ptr %253, align 8, !tbaa !12
-  store i32 1, ptr %.sink207, align 4, !tbaa !4
+  store i32 1, ptr %.sink207, align 8, !tbaa !4
   store i32 100728856, ptr %252, align 4
   %254 = getelementptr inbounds nuw i8, ptr %.sink207, i64 8
   store ptr %.sink, ptr %254, align 8, !tbaa !9
@@ -2381,7 +2381,7 @@ lean_alloc_ctor.exit57:                           ; preds = %lean_alloc_ctor.exi
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 16
   store i64 0, ptr %69, align 8, !tbaa !12
-  store i32 1, ptr %65, align 4, !tbaa !4
+  store i32 1, ptr %65, align 8, !tbaa !4
   store i32 100728856, ptr %68, align 4
   %70 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store ptr %59, ptr %70, align 8, !tbaa !9
@@ -2473,7 +2473,7 @@ lean_alloc_ctor.exit62:                           ; preds = %lean_alloc_ctor.exi
   %102 = getelementptr inbounds nuw i8, ptr %99, i64 4
   %103 = getelementptr inbounds nuw i8, ptr %99, i64 16
   store i64 0, ptr %103, align 8, !tbaa !12
-  store i32 1, ptr %99, align 4, !tbaa !4
+  store i32 1, ptr %99, align 8, !tbaa !4
   store i32 100728856, ptr %102, align 4
   %104 = getelementptr inbounds nuw i8, ptr %99, i64 8
   store ptr %93, ptr %104, align 8, !tbaa !9
@@ -2608,7 +2608,7 @@ lean_alloc_ctor.exit65:                           ; preds = %lean_alloc_ctor.exi
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store i64 0, ptr %48, align 8, !tbaa !12
-  store i32 1, ptr %44, align 4, !tbaa !4
+  store i32 1, ptr %44, align 8, !tbaa !4
   store i32 100728856, ptr %47, align 4
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %38, ptr %49, align 8, !tbaa !9
@@ -2831,7 +2831,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i64 0, ptr %28, align 8, !tbaa !12
-  store i32 1, ptr %24, align 4, !tbaa !4
+  store i32 1, ptr %24, align 8, !tbaa !4
   store i32 100728856, ptr %27, align 4
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %6, ptr %29, align 8, !tbaa !9
@@ -16985,7 +16985,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit426
   %403 = getelementptr inbounds nuw i8, ptr %400, i64 4
   %404 = getelementptr inbounds nuw i8, ptr %400, i64 72
   store i64 0, ptr %404, align 8, !tbaa !12
-  store i32 1, ptr %400, align 4, !tbaa !4
+  store i32 1, ptr %400, align 8, !tbaa !4
   store i32 458832, ptr %403, align 4
   %405 = getelementptr inbounds nuw i8, ptr %400, i64 8
   store ptr %323, ptr %405, align 8, !tbaa !9
@@ -17003,11 +17003,11 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit426
   store ptr %387, ptr %411, align 8, !tbaa !9
   %412 = getelementptr inbounds nuw i8, ptr %400, i64 64
   store i64 %333, ptr %412, align 8, !tbaa !12
-  store i8 %335, ptr %404, align 1, !tbaa !16
+  store i8 %335, ptr %404, align 8, !tbaa !16
   %413 = getelementptr inbounds nuw i8, ptr %400, i64 73
   store i8 %397, ptr %413, align 1, !tbaa !16
   %414 = getelementptr inbounds nuw i8, ptr %400, i64 74
-  store i8 %399, ptr %414, align 1, !tbaa !16
+  store i8 %399, ptr %414, align 2, !tbaa !16
   %415 = ptrtoint ptr %5 to i64
   %416 = and i64 %415, 1
   %.not941 = icmp eq i64 %416, 0
@@ -18392,7 +18392,7 @@ lean_alloc_ctor.exit818:                          ; preds = %lean_inc.exit400
   %921 = getelementptr inbounds nuw i8, ptr %918, i64 4
   %922 = getelementptr inbounds nuw i8, ptr %918, i64 72
   store i64 0, ptr %922, align 8, !tbaa !12
-  store i32 1, ptr %918, align 4, !tbaa !4
+  store i32 1, ptr %918, align 8, !tbaa !4
   store i32 458832, ptr %921, align 4
   %923 = getelementptr inbounds nuw i8, ptr %918, i64 8
   store ptr %841, ptr %923, align 8, !tbaa !9
@@ -18410,11 +18410,11 @@ lean_alloc_ctor.exit818:                          ; preds = %lean_inc.exit400
   store ptr %905, ptr %929, align 8, !tbaa !9
   %930 = getelementptr inbounds nuw i8, ptr %918, i64 64
   store i64 %851, ptr %930, align 8, !tbaa !12
-  store i8 %853, ptr %922, align 1, !tbaa !16
+  store i8 %853, ptr %922, align 8, !tbaa !16
   %931 = getelementptr inbounds nuw i8, ptr %918, i64 73
   store i8 %915, ptr %931, align 1, !tbaa !16
   %932 = getelementptr inbounds nuw i8, ptr %918, i64 74
-  store i8 %917, ptr %932, align 1, !tbaa !16
+  store i8 %917, ptr %932, align 2, !tbaa !16
   %933 = ptrtoint ptr %5 to i64
   %934 = and i64 %933, 1
   %.not910 = icmp eq i64 %934, 0
@@ -20905,41 +20905,41 @@ lean_alloc_ctor.exit368:                          ; preds = %lean_dec.exit328
   %141 = getelementptr inbounds nuw i8, ptr %138, i64 4
   %142 = getelementptr inbounds nuw i8, ptr %138, i64 24
   store i64 0, ptr %142, align 8, !tbaa !12
-  store i32 1, ptr %138, align 4, !tbaa !4
+  store i32 1, ptr %138, align 8, !tbaa !4
   store i32 32, ptr %141, align 4
   %143 = getelementptr inbounds nuw i8, ptr %138, i64 8
-  store i8 %97, ptr %143, align 1, !tbaa !16
+  store i8 %97, ptr %143, align 8, !tbaa !16
   %144 = getelementptr inbounds nuw i8, ptr %138, i64 9
   store i8 %99, ptr %144, align 1, !tbaa !16
   %145 = getelementptr inbounds nuw i8, ptr %138, i64 10
-  store i8 %101, ptr %145, align 1, !tbaa !16
+  store i8 %101, ptr %145, align 2, !tbaa !16
   %146 = getelementptr inbounds nuw i8, ptr %138, i64 11
   store i8 %103, ptr %146, align 1, !tbaa !16
   %147 = getelementptr inbounds nuw i8, ptr %138, i64 12
-  store i8 %105, ptr %147, align 1, !tbaa !16
+  store i8 %105, ptr %147, align 4, !tbaa !16
   %148 = getelementptr inbounds nuw i8, ptr %138, i64 13
   store i8 %107, ptr %148, align 1, !tbaa !16
   %149 = getelementptr inbounds nuw i8, ptr %138, i64 14
-  store i8 %109, ptr %149, align 1, !tbaa !16
+  store i8 %109, ptr %149, align 2, !tbaa !16
   %150 = getelementptr inbounds nuw i8, ptr %138, i64 15
   store i8 %111, ptr %150, align 1, !tbaa !16
   %151 = getelementptr inbounds nuw i8, ptr %138, i64 16
-  store i8 %113, ptr %151, align 1, !tbaa !16
+  store i8 %113, ptr %151, align 8, !tbaa !16
   %152 = getelementptr inbounds nuw i8, ptr %138, i64 17
   store i8 2, ptr %152, align 1, !tbaa !16
   %153 = getelementptr inbounds nuw i8, ptr %138, i64 18
-  store i8 %115, ptr %153, align 1, !tbaa !16
+  store i8 %115, ptr %153, align 2, !tbaa !16
   %154 = getelementptr inbounds nuw i8, ptr %138, i64 19
   store i8 %117, ptr %154, align 1, !tbaa !16
   %155 = getelementptr inbounds nuw i8, ptr %138, i64 20
-  store i8 %119, ptr %155, align 1, !tbaa !16
+  store i8 %119, ptr %155, align 4, !tbaa !16
   %156 = getelementptr inbounds nuw i8, ptr %138, i64 21
   store i8 %121, ptr %156, align 1, !tbaa !16
   %157 = getelementptr inbounds nuw i8, ptr %138, i64 22
-  store i8 %123, ptr %157, align 1, !tbaa !16
+  store i8 %123, ptr %157, align 2, !tbaa !16
   %158 = getelementptr inbounds nuw i8, ptr %138, i64 23
   store i8 %125, ptr %158, align 1, !tbaa !16
-  store i8 %127, ptr %142, align 1, !tbaa !16
+  store i8 %127, ptr %142, align 8, !tbaa !16
   %159 = getelementptr inbounds nuw i8, ptr %138, i64 25
   store i8 %129, ptr %159, align 1, !tbaa !16
   %160 = and i64 %14, -4
@@ -21260,7 +21260,7 @@ lean_dec_ref.exit344:                             ; preds = %272, %271, %269, %l
   %280 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %281 = load i64, ptr %280, align 8, !tbaa !12
   %282 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %283 = load i8, ptr %282, align 1, !tbaa !16
+  %283 = load i8, ptr %282, align 8, !tbaa !16
   %284 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %285 = load ptr, ptr %284, align 8, !tbaa !9
   %286 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -21276,7 +21276,7 @@ lean_dec_ref.exit344:                             ; preds = %272, %271, %269, %l
   %296 = getelementptr inbounds nuw i8, ptr %2, i64 73
   %297 = load i8, ptr %296, align 1, !tbaa !16
   %298 = getelementptr inbounds nuw i8, ptr %2, i64 74
-  %299 = load i8, ptr %298, align 1, !tbaa !16
+  %299 = load i8, ptr %298, align 2, !tbaa !16
   %300 = ptrtoint ptr %295 to i64
   %301 = and i64 %300, 1
   %.not = icmp eq i64 %301, 0
@@ -21545,7 +21545,7 @@ lean_alloc_ctor.exit419:                          ; preds = %408
   %412 = getelementptr inbounds nuw i8, ptr %409, i64 4
   %413 = getelementptr inbounds nuw i8, ptr %409, i64 24
   store i64 0, ptr %413, align 8, !tbaa !12
-  store i32 1, ptr %409, align 4, !tbaa !4
+  store i32 1, ptr %409, align 8, !tbaa !4
   store i32 32, ptr %412, align 4
   br label %414
 
@@ -21603,7 +21603,7 @@ lean_alloc_ctor.exit421:                          ; preds = %414
   %439 = getelementptr inbounds nuw i8, ptr %434, i64 4
   %440 = getelementptr inbounds nuw i8, ptr %434, i64 72
   store i64 0, ptr %440, align 8, !tbaa !12
-  store i32 1, ptr %434, align 4, !tbaa !4
+  store i32 1, ptr %434, align 8, !tbaa !4
   store i32 458832, ptr %439, align 4
   %441 = getelementptr inbounds nuw i8, ptr %434, i64 8
   store ptr %.0309, ptr %441, align 8, !tbaa !9
@@ -21621,11 +21621,11 @@ lean_alloc_ctor.exit421:                          ; preds = %414
   store ptr %295, ptr %447, align 8, !tbaa !9
   %448 = getelementptr inbounds nuw i8, ptr %434, i64 64
   store i64 %438, ptr %448, align 8, !tbaa !12
-  store i8 %283, ptr %440, align 1, !tbaa !16
+  store i8 %283, ptr %440, align 8, !tbaa !16
   %449 = getelementptr inbounds nuw i8, ptr %434, i64 73
   store i8 %297, ptr %449, align 1, !tbaa !16
   %450 = getelementptr inbounds nuw i8, ptr %434, i64 74
-  store i8 %299, ptr %450, align 1, !tbaa !16
+  store i8 %299, ptr %450, align 2, !tbaa !16
   %451 = tail call ptr @lean_is_expr_def_eq(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %434, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #6
   %452 = ptrtoint ptr %451 to i64
   %453 = and i64 %452, 1
@@ -34197,11 +34197,11 @@ lean_inc.exit2958:                                ; preds = %507, %506, %504, %l
   %524 = getelementptr inbounds nuw i8, ptr %516, i64 64
   store i64 %515, ptr %524, align 8, !tbaa !12
   %525 = getelementptr inbounds nuw i8, ptr %516, i64 72
-  store i8 %447, ptr %525, align 1, !tbaa !16
+  store i8 %447, ptr %525, align 8, !tbaa !16
   %526 = getelementptr inbounds nuw i8, ptr %516, i64 73
   store i8 %510, ptr %526, align 1, !tbaa !16
   %527 = getelementptr inbounds nuw i8, ptr %516, i64 74
-  store i8 %512, ptr %527, align 1, !tbaa !16
+  store i8 %512, ptr %527, align 2, !tbaa !16
   %528 = getelementptr inbounds nuw i8, ptr %444, i64 8
   %529 = load ptr, ptr %528, align 8, !tbaa !9
   %530 = ptrtoint ptr %529 to i64
@@ -35546,11 +35546,11 @@ lean_dec.exit3391:                                ; preds = %1017, %1016, %1014,
   %1046 = getelementptr inbounds nuw i8, ptr %1038, i64 64
   store i64 %1037, ptr %1046, align 8, !tbaa !12
   %1047 = getelementptr inbounds nuw i8, ptr %1038, i64 72
-  store i8 %447, ptr %1047, align 1, !tbaa !16
+  store i8 %447, ptr %1047, align 8, !tbaa !16
   %1048 = getelementptr inbounds nuw i8, ptr %1038, i64 73
   store i8 %510, ptr %1048, align 1, !tbaa !16
   %1049 = getelementptr inbounds nuw i8, ptr %1038, i64 74
-  store i8 %512, ptr %1049, align 1, !tbaa !16
+  store i8 %512, ptr %1049, align 2, !tbaa !16
   %1050 = getelementptr inbounds nuw i8, ptr %444, i64 8
   %1051 = load ptr, ptr %1050, align 8, !tbaa !9
   %1052 = ptrtoint ptr %1051 to i64
@@ -37115,11 +37115,11 @@ lean_dec_ref.exit4379:                            ; preds = %1621, %1620, %1618,
   %1654 = getelementptr inbounds nuw i8, ptr %1646, i64 64
   store i64 %1645, ptr %1654, align 8, !tbaa !12
   %1655 = getelementptr inbounds nuw i8, ptr %1646, i64 72
-  store i8 %1516, ptr %1655, align 1, !tbaa !16
+  store i8 %1516, ptr %1655, align 8, !tbaa !16
   %1656 = getelementptr inbounds nuw i8, ptr %1646, i64 73
   store i8 %1578, ptr %1656, align 1, !tbaa !16
   %1657 = getelementptr inbounds nuw i8, ptr %1646, i64 74
-  store i8 %1580, ptr %1657, align 1, !tbaa !16
+  store i8 %1580, ptr %1657, align 2, !tbaa !16
   %1658 = getelementptr inbounds nuw i8, ptr %444, i64 8
   %1659 = load ptr, ptr %1658, align 8, !tbaa !9
   %1660 = ptrtoint ptr %1659 to i64
@@ -43519,7 +43519,7 @@ lean_alloc_ctor.exit5024:                         ; preds = %4047
   %4070 = getelementptr inbounds nuw i8, ptr %4067, i64 4
   %4071 = getelementptr inbounds nuw i8, ptr %4067, i64 72
   store i64 0, ptr %4071, align 8, !tbaa !12
-  store i32 1, ptr %4067, align 4, !tbaa !4
+  store i32 1, ptr %4067, align 8, !tbaa !4
   store i32 458832, ptr %4070, align 4
   %4072 = getelementptr inbounds nuw i8, ptr %4067, i64 8
   store ptr %.02579, ptr %4072, align 8, !tbaa !9
@@ -43537,11 +43537,11 @@ lean_alloc_ctor.exit5024:                         ; preds = %4047
   store ptr %3989, ptr %4078, align 8, !tbaa !9
   %4079 = getelementptr inbounds nuw i8, ptr %4067, i64 64
   store i64 %4066, ptr %4079, align 8, !tbaa !12
-  store i8 %3937, ptr %4071, align 1, !tbaa !16
+  store i8 %3937, ptr %4071, align 8, !tbaa !16
   %4080 = getelementptr inbounds nuw i8, ptr %4067, i64 73
   store i8 %3999, ptr %4080, align 1, !tbaa !16
   %4081 = getelementptr inbounds nuw i8, ptr %4067, i64 74
-  store i8 %4001, ptr %4081, align 1, !tbaa !16
+  store i8 %4001, ptr %4081, align 2, !tbaa !16
   %4082 = getelementptr inbounds nuw i8, ptr %3919, i64 8
   %4083 = load ptr, ptr %4082, align 8, !tbaa !9
   %4084 = ptrtoint ptr %4083 to i64
@@ -49853,7 +49853,7 @@ lean_alloc_ctor.exit5387:                         ; preds = %6439
   %6443 = getelementptr inbounds nuw i8, ptr %6440, i64 4
   %6444 = getelementptr inbounds nuw i8, ptr %6440, i64 24
   store i64 0, ptr %6444, align 8, !tbaa !12
-  store i32 1, ptr %6440, align 4, !tbaa !4
+  store i32 1, ptr %6440, align 8, !tbaa !4
   store i32 32, ptr %6443, align 4
   br label %6445
 
@@ -49909,7 +49909,7 @@ lean_alloc_ctor.exit5389:                         ; preds = %6445
   %6468 = getelementptr inbounds nuw i8, ptr %6465, i64 4
   %6469 = getelementptr inbounds nuw i8, ptr %6465, i64 72
   store i64 0, ptr %6469, align 8, !tbaa !12
-  store i32 1, ptr %6465, align 4, !tbaa !4
+  store i32 1, ptr %6465, align 8, !tbaa !4
   store i32 458832, ptr %6468, align 4
   %6470 = getelementptr inbounds nuw i8, ptr %6465, i64 8
   store ptr %.02645, ptr %6470, align 8, !tbaa !9
@@ -49927,11 +49927,11 @@ lean_alloc_ctor.exit5389:                         ; preds = %6445
   store ptr %6383, ptr %6476, align 8, !tbaa !9
   %6477 = getelementptr inbounds nuw i8, ptr %6465, i64 64
   store i64 %6464, ptr %6477, align 8, !tbaa !12
-  store i8 %6331, ptr %6469, align 1, !tbaa !16
+  store i8 %6331, ptr %6469, align 8, !tbaa !16
   %6478 = getelementptr inbounds nuw i8, ptr %6465, i64 73
   store i8 %6393, ptr %6478, align 1, !tbaa !16
   %6479 = getelementptr inbounds nuw i8, ptr %6465, i64 74
-  store i8 %6395, ptr %6479, align 1, !tbaa !16
+  store i8 %6395, ptr %6479, align 2, !tbaa !16
   %6480 = getelementptr inbounds nuw i8, ptr %6303, i64 8
   %6481 = load ptr, ptr %6480, align 8, !tbaa !9
   %6482 = ptrtoint ptr %6481 to i64
@@ -57235,7 +57235,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit197
   %178 = getelementptr inbounds nuw i8, ptr %175, i64 4
   %179 = getelementptr inbounds nuw i8, ptr %175, i64 72
   store i64 0, ptr %179, align 8, !tbaa !12
-  store i32 1, ptr %175, align 4, !tbaa !4
+  store i32 1, ptr %175, align 8, !tbaa !4
   store i32 458832, ptr %178, align 4
   %180 = getelementptr inbounds nuw i8, ptr %175, i64 8
   store ptr %98, ptr %180, align 8, !tbaa !9
@@ -57253,11 +57253,11 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit197
   store ptr %162, ptr %186, align 8, !tbaa !9
   %187 = getelementptr inbounds nuw i8, ptr %175, i64 64
   store i64 %108, ptr %187, align 8, !tbaa !12
-  store i8 %110, ptr %179, align 1, !tbaa !16
+  store i8 %110, ptr %179, align 8, !tbaa !16
   %188 = getelementptr inbounds nuw i8, ptr %175, i64 73
   store i8 %172, ptr %188, align 1, !tbaa !16
   %189 = getelementptr inbounds nuw i8, ptr %175, i64 74
-  store i8 %174, ptr %189, align 1, !tbaa !16
+  store i8 %174, ptr %189, align 2, !tbaa !16
   %190 = ptrtoint ptr %6 to i64
   %191 = and i64 %190, 1
   %.not412 = icmp eq i64 %191, 0
@@ -60387,7 +60387,7 @@ _init_l_List_format___at_Lean_Meta_instToFormatUnificationHints___spec__4___clos
   %.val55 = load ptr, ptr %153, align 8, !tbaa !9
   store ptr %.val55, ptr @l_Lean_Meta_unificationHintExtension, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %.val55) #6
-  %154 = load i32, ptr %149, align 4, !tbaa !4
+  %154 = load i32, ptr %149, align 8, !tbaa !4
   %155 = icmp sgt i32 %154, 1
   br i1 %155, label %156, label %158, !prof !11
 
@@ -61193,30 +61193,30 @@ lean_alloc_ctor.exit:                             ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 257, ptr %5, align 8, !tbaa !12
-  store i32 1, ptr %1, align 4, !tbaa !4
+  store i32 1, ptr %1, align 8, !tbaa !4
   store i32 32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %6, i8 0, i64 5, i1 false)
   store i8 1, ptr %7, align 1, !tbaa !16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 14
-  store i8 1, ptr %8, align 1, !tbaa !16
+  store i8 1, ptr %8, align 2, !tbaa !16
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 15
   store i8 0, ptr %9, align 1, !tbaa !16
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i8 1, ptr %10, align 1, !tbaa !16
+  store i8 1, ptr %10, align 8, !tbaa !16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 17
   store i8 1, ptr %11, align 1, !tbaa !16
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i8 0, ptr %12, align 1, !tbaa !16
+  store i8 0, ptr %12, align 2, !tbaa !16
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 19
   store i8 1, ptr %13, align 1, !tbaa !16
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store i8 0, ptr %14, align 1, !tbaa !16
+  store i8 0, ptr %14, align 4, !tbaa !16
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 21
   store i8 1, ptr %15, align 1, !tbaa !16
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 22
-  store i8 0, ptr %16, align 1, !tbaa !16
+  store i8 0, ptr %16, align 2, !tbaa !16
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 23
   store i8 1, ptr %17, align 1, !tbaa !16
   ret ptr %1
@@ -61410,30 +61410,30 @@ lean_alloc_ctor.exit:                             ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 257, ptr %5, align 8, !tbaa !12
-  store i32 1, ptr %1, align 4, !tbaa !4
+  store i32 1, ptr %1, align 8, !tbaa !4
   store i32 32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %6, i8 0, i64 5, i1 false)
   store i8 1, ptr %7, align 1, !tbaa !16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 14
-  store i8 1, ptr %8, align 1, !tbaa !16
+  store i8 1, ptr %8, align 2, !tbaa !16
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 15
   store i8 0, ptr %9, align 1, !tbaa !16
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i8 1, ptr %10, align 1, !tbaa !16
+  store i8 1, ptr %10, align 8, !tbaa !16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 17
   store i8 1, ptr %11, align 1, !tbaa !16
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i8 0, ptr %12, align 1, !tbaa !16
+  store i8 0, ptr %12, align 2, !tbaa !16
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 19
   store i8 1, ptr %13, align 1, !tbaa !16
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store i8 1, ptr %14, align 1, !tbaa !16
+  store i8 1, ptr %14, align 4, !tbaa !16
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 21
   store i8 1, ptr %15, align 1, !tbaa !16
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 22
-  store i8 2, ptr %16, align 1, !tbaa !16
+  store i8 2, ptr %16, align 2, !tbaa !16
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 23
   store i8 1, ptr %17, align 1, !tbaa !16
   ret ptr %1
@@ -61535,7 +61535,7 @@ lean_alloc_ctor.exit:                             ; preds = %0
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store i64 0, ptr %9, align 8, !tbaa !12
-  store i32 1, ptr %5, align 4, !tbaa !4
+  store i32 1, ptr %5, align 8, !tbaa !4
   store i32 458832, ptr %8, align 4
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %10, align 8, !tbaa !9
@@ -61672,7 +61672,7 @@ lean_alloc_ctor.exit:                             ; preds = %0
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 0, ptr %8, align 8, !tbaa !12
-  store i32 1, ptr %4, align 4, !tbaa !4
+  store i32 1, ptr %4, align 8, !tbaa !4
   store i32 196648, ptr %7, align 4
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %9, align 8, !tbaa !9

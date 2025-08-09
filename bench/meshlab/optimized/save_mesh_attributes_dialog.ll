@@ -1513,11 +1513,11 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i85:  ; preds = %_ZN9QtPrivate8RefCo
   %172 = getelementptr inbounds nuw i8, ptr %168, i64 20
   store i32 7405568, ptr %172, align 4
   %173 = getelementptr inbounds nuw i8, ptr %168, i64 24
-  store i32 0, ptr %173, align 4
+  store i32 0, ptr %173, align 8
   %174 = getelementptr inbounds nuw i8, ptr %168, i64 28
   store i32 0, ptr %174, align 4
   %175 = getelementptr inbounds nuw i8, ptr %168, i64 32
-  store i32 -1, ptr %175, align 4
+  store i32 -1, ptr %175, align 8
   %176 = getelementptr inbounds nuw i8, ptr %168, i64 36
   store i32 -1, ptr %176, align 4
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1764,11 +1764,11 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i121: ; preds = %_ZN9QtPrivate8RefCo
   %251 = getelementptr inbounds nuw i8, ptr %247, i64 20
   store i32 7405568, ptr %251, align 4
   %252 = getelementptr inbounds nuw i8, ptr %247, i64 24
-  store i32 0, ptr %252, align 4
+  store i32 0, ptr %252, align 8
   %253 = getelementptr inbounds nuw i8, ptr %247, i64 28
   store i32 0, ptr %253, align 4
   %254 = getelementptr inbounds nuw i8, ptr %247, i64 32
-  store i32 -1, ptr %254, align 4
+  store i32 -1, ptr %254, align 8
   %255 = getelementptr inbounds nuw i8, ptr %247, i64 36
   store i32 -1, ptr %255, align 4
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -1977,11 +1977,11 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i151: ; preds = %_ZN9QtPrivate8RefCo
   %319 = getelementptr inbounds nuw i8, ptr %315, i64 20
   store i32 7405568, ptr %319, align 4
   %320 = getelementptr inbounds nuw i8, ptr %315, i64 24
-  store i32 0, ptr %320, align 4
+  store i32 0, ptr %320, align 8
   %321 = getelementptr inbounds nuw i8, ptr %315, i64 28
   store i32 0, ptr %321, align 4
   %322 = getelementptr inbounds nuw i8, ptr %315, i64 32
-  store i32 -1, ptr %322, align 4
+  store i32 -1, ptr %322, align 8
   %323 = getelementptr inbounds nuw i8, ptr %315, i64 36
   store i32 -1, ptr %323, align 4
   %324 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -2802,11 +2802,11 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i271: ; preds = %_ZN9QtPrivate8RefCo
   %571 = getelementptr inbounds nuw i8, ptr %567, i64 20
   store i32 1507328, ptr %571, align 4
   %572 = getelementptr inbounds nuw i8, ptr %567, i64 24
-  store i32 0, ptr %572, align 4
+  store i32 0, ptr %572, align 8
   %573 = getelementptr inbounds nuw i8, ptr %567, i64 28
   store i32 0, ptr %573, align 4
   %574 = getelementptr inbounds nuw i8, ptr %567, i64 32
-  store i32 -1, ptr %574, align 4
+  store i32 -1, ptr %574, align 8
   %575 = getelementptr inbounds nuw i8, ptr %567, i64 36
   store i32 -1, ptr %575, align 4
   %576 = getelementptr inbounds nuw i8, ptr %0, i64 352

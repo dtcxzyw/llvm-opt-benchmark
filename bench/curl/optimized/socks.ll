@@ -390,15 +390,15 @@ socksstate.exit472.thread534.i.i:                 ; preds = %96
 
 .thread.i.i:                                      ; preds = %141
   store ptr null, ptr %143, align 8, !tbaa !54
-  store i8 5, ptr %97, align 1, !tbaa !118
+  store i8 5, ptr %97, align 8, !tbaa !118
   br label %.sink.split.i.i
 
 144:                                              ; preds = %141
   %.pre.i.i = load ptr, ptr %143, align 8, !tbaa !54
   %145 = icmp eq ptr %.pre.i.i, null
-  store i8 5, ptr %97, align 1, !tbaa !118
+  store i8 5, ptr %97, align 8, !tbaa !118
   %146 = getelementptr inbounds nuw i8, ptr %.0, i64 18
-  store i8 0, ptr %146, align 1, !tbaa !118
+  store i8 0, ptr %146, align 2, !tbaa !118
   br i1 %145, label %148, label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %144, %.thread.i.i
@@ -1609,7 +1609,7 @@ do_SOCKS5.exit.i:                                 ; preds = %587, %583, %socksst
   %635 = lshr i32 %634, 8
   %636 = trunc i32 %635 to i8
   %637 = getelementptr inbounds nuw i8, ptr %.0, i64 18
-  store i8 %636, ptr %637, align 1, !tbaa !118
+  store i8 %636, ptr %637, align 2, !tbaa !118
   %638 = trunc i32 %634 to i8
   %639 = getelementptr inbounds nuw i8, ptr %.0, i64 19
   store i8 %638, ptr %639, align 1, !tbaa !118

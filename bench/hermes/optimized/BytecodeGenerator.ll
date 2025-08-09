@@ -1149,11 +1149,11 @@ sw.epilog:                                        ; preds = %switch.lookup, %sw.
   %header.sroa.10.0.header_.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i, i64 54
   store i8 %bf.set22, ptr %header.sroa.10.0.header_.i.i.sroa_idx, align 2, !noalias !99
   %debugOffsets_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 56
-  store i32 -1, ptr %debugOffsets_.i.i, align 4, !noalias !99
+  store i32 -1, ptr %debugOffsets_.i.i, align 8, !noalias !99
   %scopeDescData.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 60
   store i32 -1, ptr %scopeDescData.i.i.i, align 4, !noalias !99
   %textifiedCallees.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
-  store i32 -1, ptr %textifiedCallees.i.i.i, align 4, !noalias !99
+  store i32 -1, ptr %textifiedCallees.i.i.i, align 8, !noalias !99
   %exceptions_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 72
   store ptr %9, ptr %exceptions_.i.i, align 8, !noalias !99
   %_M_finish.i.i.i.i1.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 80
@@ -1632,7 +1632,7 @@ if.end.i.i:                                       ; preds = %if.then12.i.i.i.i, 
   %14 = load ptr, ptr %val.addr, align 8
   store ptr %14, ptr %call.i.i.i, align 8
   %second.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
-  store i32 0, ptr %second.i.i.i.i, align 4
+  store i32 0, ptr %second.i.i.i.i, align 8
   %15 = ptrtoint ptr %14 to i64
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8FunctionEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit
 
@@ -1924,7 +1924,7 @@ if.end.i.i:                                       ; preds = %if.then12.i.i.i.i, 
   %14 = load ptr, ptr %val.addr, align 8
   store ptr %14, ptr %call.i.i.i, align 8
   %second.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
-  store i32 0, ptr %second.i.i.i.i, align 4
+  store i32 0, ptr %second.i.i.i.i, align 8
   %15 = ptrtoint ptr %14 to i64
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9ScopeDescEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit
 
@@ -3809,11 +3809,11 @@ _ZN6hermes3hbc25BytecodeFunctionGenerator24generateBytecodeFunctionENS_8Function
   %header.sroa.10.0.header_.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 54
   store i8 %bf.set22.i, ptr %header.sroa.10.0.header_.i.i.sroa_idx.i, align 2, !noalias !197
   %debugOffsets_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 56
-  store i32 -1, ptr %debugOffsets_.i.i.i, align 4, !noalias !197
+  store i32 -1, ptr %debugOffsets_.i.i.i, align 8, !noalias !197
   %scopeDescData.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 60
   store i32 -1, ptr %scopeDescData.i.i.i.i, align 4, !noalias !197
   %textifiedCallees.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 64
-  store i32 -1, ptr %textifiedCallees.i.i.i.i, align 4, !noalias !197
+  store i32 -1, ptr %textifiedCallees.i.i.i.i, align 8, !noalias !197
   %exceptions_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 72
   store ptr %115, ptr %exceptions_.i.i.i, align 8, !noalias !197
   %_M_finish.i.i.i.i1.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 80
@@ -8401,7 +8401,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8FunctionEjNS_12DenseMapInfoIS4_EEN
   %second.i.i = getelementptr inbounds nuw i8, ptr %cond.sink.i.i.i, i64 8
   %second.i13.i = getelementptr inbounds nuw i8, ptr %B.020.i, i64 8
   %11 = load i32, ptr %second.i13.i, align 4
-  store i32 %11, ptr %second.i.i, align 4
+  store i32 %11, ptr %second.i.i, align 8
   %12 = load i32, ptr %NumEntries.i.i.i.i, align 8
   %add.i.i = add i32 %12, 1
   store i32 %add.i.i, ptr %NumEntries.i.i.i.i, align 8
@@ -8991,7 +8991,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9ScopeDescEjNS_12DenseMapInfoIS4_EE
   %second.i.i = getelementptr inbounds nuw i8, ptr %cond.sink.i.i.i, i64 8
   %second.i13.i = getelementptr inbounds nuw i8, ptr %B.020.i, i64 8
   %11 = load i32, ptr %second.i13.i, align 4
-  store i32 %11, ptr %second.i.i, align 4
+  store i32 %11, ptr %second.i.i, align 8
   %12 = load i32, ptr %NumEntries.i.i.i.i, align 8
   %add.i.i = add i32 %12, 1
   store i32 %add.i.i, ptr %NumEntries.i.i.i.i, align 8

@@ -2821,13 +2821,13 @@ lean_alloc_ctor.exit199:                          ; preds = %lean_dec.exit122
   %183 = getelementptr inbounds nuw i8, ptr %180, i64 4
   %184 = getelementptr inbounds nuw i8, ptr %180, i64 24
   store i64 0, ptr %184, align 8, !tbaa !13
-  store i32 1, ptr %180, align 4, !tbaa !5
+  store i32 1, ptr %180, align 8, !tbaa !5
   store i32 131104, ptr %183, align 4
   %185 = getelementptr inbounds nuw i8, ptr %180, i64 8
   store ptr %162, ptr %185, align 8, !tbaa !10
   %186 = getelementptr inbounds nuw i8, ptr %180, i64 16
   store ptr %105, ptr %186, align 8, !tbaa !10
-  store i8 %172, ptr %184, align 1, !tbaa !17
+  store i8 %172, ptr %184, align 8, !tbaa !17
   store ptr %180, ptr %150, align 8, !tbaa !10
   br label %358
 
@@ -2941,13 +2941,13 @@ lean_alloc_ctor.exit207:                          ; preds = %lean_dec.exit120
   %227 = getelementptr inbounds nuw i8, ptr %224, i64 4
   %228 = getelementptr inbounds nuw i8, ptr %224, i64 24
   store i64 0, ptr %228, align 8, !tbaa !13
-  store i32 1, ptr %224, align 4, !tbaa !5
+  store i32 1, ptr %224, align 8, !tbaa !5
   store i32 131104, ptr %227, align 4
   %229 = getelementptr inbounds nuw i8, ptr %224, i64 8
   store ptr %206, ptr %229, align 8, !tbaa !10
   %230 = getelementptr inbounds nuw i8, ptr %224, i64 16
   store ptr %105, ptr %230, align 8, !tbaa !10
-  store i8 %216, ptr %228, align 1, !tbaa !17
+  store i8 %216, ptr %228, align 8, !tbaa !17
   tail call void @lean_inc_heartbeat() #5
   %231 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #5
   %232 = icmp eq ptr %231, null
@@ -10213,7 +10213,7 @@ lean_alloc_ctor.exit:                             ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !13
-  store i32 1, ptr %2, align 4, !tbaa !5
+  store i32 1, ptr %2, align 8, !tbaa !5
   store i32 131104, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %7, align 8, !tbaa !10

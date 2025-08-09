@@ -278,7 +278,7 @@ thread-pre-split:                                 ; preds = %8
   %17 = load i32, ptr %16, align 8, !tbaa !25
   %18 = shl i32 %17, 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %19, align 4, !tbaa !28
+  store i32 0, ptr %19, align 8, !tbaa !28
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %21
 
@@ -380,7 +380,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_decomp(ptr noundef nonnull %0) u
 21:                                               ; preds = %18
   %22 = load ptr, ptr %10, align 8, !tbaa !33
   %23 = load i32, ptr %11, align 8, !tbaa !25
-  store i32 0, ptr %7, align 4, !tbaa !28
+  store i32 0, ptr %7, align 8, !tbaa !28
   br label %24
 
 24:                                               ; preds = %34, %21
@@ -1035,7 +1035,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_head(ptr noundef nonnull %0) unn
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %43 = load ptr, ptr %42, align 8, !tbaa !33
   %44 = load i32, ptr %3, align 8, !tbaa !25
-  store i32 0, ptr %31, align 4, !tbaa !28
+  store i32 0, ptr %31, align 8, !tbaa !28
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %46
 
@@ -1123,7 +1123,7 @@ gz_avail.exit:                                    ; preds = %56, %62
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %92 = load ptr, ptr %91, align 8, !tbaa !33
   %93 = load i32, ptr %3, align 8, !tbaa !25
-  store i32 0, ptr %31, align 4, !tbaa !28
+  store i32 0, ptr %31, align 8, !tbaa !28
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %95
 
@@ -1200,7 +1200,7 @@ gz_avail.exit182.thread190:                       ; preds = %79, %gz_avail.exit1
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %133 = load ptr, ptr %132, align 8, !tbaa !33
   %134 = load i32, ptr %3, align 8, !tbaa !25
-  store i32 0, ptr %31, align 4, !tbaa !28
+  store i32 0, ptr %31, align 8, !tbaa !28
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %136
 
@@ -1798,7 +1798,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_avail(ptr noundef nonnull %0) un
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i32, ptr %12, align 8, !tbaa !25
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i32 0, ptr %14, align 4, !tbaa !28
+  store i32 0, ptr %14, align 8, !tbaa !28
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %16
 
@@ -1875,7 +1875,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_next4(ptr noundef nonnull %0, pt
   %16 = load ptr, ptr %15, align 8, !tbaa !33
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load i32, ptr %17, align 8, !tbaa !25
-  store i32 0, ptr %4, align 4, !tbaa !28
+  store i32 0, ptr %4, align 8, !tbaa !28
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %20
 
@@ -1961,7 +1961,7 @@ gz_avail.exit37.thread.thread:                    ; preds = %.thread
   %59 = load ptr, ptr %58, align 8, !tbaa !33
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %61 = load i32, ptr %60, align 8, !tbaa !25
-  store i32 0, ptr %4, align 4, !tbaa !28
+  store i32 0, ptr %4, align 8, !tbaa !28
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %63
 
@@ -2055,7 +2055,7 @@ gz_avail.exit42.thread.thread:                    ; preds = %96
   %107 = load ptr, ptr %106, align 8, !tbaa !33
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %109 = load i32, ptr %108, align 8, !tbaa !25
-  store i32 0, ptr %4, align 4, !tbaa !28
+  store i32 0, ptr %4, align 8, !tbaa !28
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %111
 
@@ -2145,7 +2145,7 @@ gz_avail.exit42.thread:                           ; preds = %gz_load.exit.i41, %
   %154 = load ptr, ptr %153, align 8, !tbaa !33
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %156 = load i32, ptr %155, align 8, !tbaa !25
-  store i32 0, ptr %4, align 4, !tbaa !28
+  store i32 0, ptr %4, align 8, !tbaa !28
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %158
 

@@ -798,7 +798,7 @@ zend_string_init.exit:                            ; preds = %140, %142
   store i8 0, ptr %150, align 1, !tbaa !12
   store i64 %100, ptr %147, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i32 1, ptr %145, align 4, !tbaa !19
+  store i32 1, ptr %145, align 8, !tbaa !19
   store i32 %144, ptr %146, align 4, !tbaa !12
   store ptr %145, ptr %4, align 8, !tbaa !12
   %151 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1373,7 +1373,7 @@ zend_string_equals_cstr.exit.thread:              ; preds = %112, %zend_string_e
   store i8 0, ptr %127, align 1, !tbaa !12
   store i64 %100, ptr %124, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i32 1, ptr %122, align 4, !tbaa !19
+  store i32 1, ptr %122, align 8, !tbaa !19
   store i32 470, ptr %123, align 4, !tbaa !12
   store ptr %122, ptr %4, align 8, !tbaa !12
   %128 = getelementptr inbounds nuw i8, ptr %4, i64 8

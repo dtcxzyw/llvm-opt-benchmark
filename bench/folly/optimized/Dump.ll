@@ -210,8 +210,8 @@ _ZN5folly5IOBuf7advanceEm.exit:                   ; preds = %13, %16
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %.sroa.2.0.copyload.i.i.i.i.i.i.i.i, ptr %29, align 8, !tbaa !41
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %31 = load i8, ptr %30, align 1, !tbaa !42, !range !43, !noundef !44
-  store i8 0, ptr %30, align 1, !tbaa !42
+  %31 = load i8, ptr %30, align 8, !tbaa !42, !range !43, !noundef !44
+  store i8 0, ptr %30, align 8, !tbaa !42
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i8 %31, ptr %32, align 8, !tbaa !45
   store ptr %8, ptr %26, align 8, !tbaa !30
@@ -456,8 +456,8 @@ _ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i:  ; preds = %121, %114
   %137 = getelementptr inbounds nuw i8, ptr %115, i64 48
   store ptr %.sroa.2.0.copyload.i.i.i.i.i.i, ptr %137, align 8, !tbaa !41
   %138 = getelementptr inbounds nuw i8, ptr %119, i64 16
-  %139 = load i8, ptr %138, align 1, !tbaa !42, !range !43, !noundef !44
-  store i8 0, ptr %138, align 1, !tbaa !42
+  %139 = load i8, ptr %138, align 8, !tbaa !42, !range !43, !noundef !44
+  store i8 0, ptr %138, align 8, !tbaa !42
   %140 = getelementptr inbounds nuw i8, ptr %115, i64 56
   store i8 %139, ptr %140, align 8, !tbaa !45
   store ptr %135, ptr %118, align 8, !tbaa !30
@@ -1390,8 +1390,8 @@ _ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i:    ; preds = %13, %5
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %.sroa.2.0.copyload.i.i.i.i.i, ptr %29, align 8, !tbaa !41
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %31 = load i8, ptr %30, align 1, !tbaa !42, !range !43, !noundef !44
-  store i8 0, ptr %30, align 1, !tbaa !42
+  %31 = load i8, ptr %30, align 8, !tbaa !42, !range !43, !noundef !44
+  store i8 0, ptr %30, align 8, !tbaa !42
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i8 %31, ptr %32, align 8, !tbaa !45
   store ptr %27, ptr %10, align 8, !tbaa !30
@@ -1617,8 +1617,8 @@ define linkonce_odr void @_ZN5folly2io13QueueAppender10ensureSlowEm(ptr noundef 
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.2.0.copyload.i.i.i.i.i, ptr %9, align 8, !tbaa !41
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %11 = load i8, ptr %10, align 1, !tbaa !42, !range !43, !noundef !44
-  store i8 0, ptr %10, align 1, !tbaa !42
+  %11 = load i8, ptr %10, align 8, !tbaa !42, !range !43, !noundef !44
+  store i8 0, ptr %10, align 8, !tbaa !42
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %11, ptr %12, align 8, !tbaa !45
   store ptr %0, ptr %6, align 8, !tbaa !30

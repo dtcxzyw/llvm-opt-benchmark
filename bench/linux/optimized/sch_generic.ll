@@ -387,7 +387,7 @@ define dso_local void @__qdisc_run(ptr noundef %0) local_unnamed_addr #0 align 1
 16:                                               ; preds = %222, %1
   %17 = phi i32 [ %2, %1 ], [ %223, %222 ]
   %18 = load ptr, ptr %3, align 64
-  %19 = load ptr, ptr %4, align 8
+  %19 = load ptr, ptr %4, align 64
   %20 = icmp eq ptr %19, %4
   %.pre43 = load i32, ptr %5, align 16
   br i1 %20, label %.thread12, label %21, !prof !10
@@ -447,7 +447,7 @@ define dso_local void @__qdisc_run(ptr noundef %0) local_unnamed_addr #0 align 1
   %54 = and i32 %53, 32
   %55 = icmp eq i32 %54, 0
   %56 = getelementptr inbounds nuw i8, ptr %31, i64 40
-  %57 = load i32, ptr %56, align 4
+  %57 = load i32, ptr %56, align 8
   br i1 %55, label %63, label %58
 
 58:                                               ; preds = %46
@@ -627,7 +627,7 @@ define dso_local void @__qdisc_run(ptr noundef %0) local_unnamed_addr #0 align 1
   %159 = and i32 %158, 32
   %160 = icmp eq i32 %159, 0
   %161 = getelementptr inbounds nuw i8, ptr %141, i64 40
-  %162 = load i32, ptr %161, align 4
+  %162 = load i32, ptr %161, align 8
   br i1 %160, label %167, label %163
 
 163:                                              ; preds = %152
@@ -4107,7 +4107,7 @@ define dso_local void @psched_ratecfg_precompute(ptr noundef writeonly captures(
   store i8 %16, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  store i32 1, ptr %18, align 4
+  store i32 1, ptr %18, align 8
   store i8 0, ptr %19, align 1
   %20 = icmp eq i64 %13, 0
   br i1 %20, label %31, label %.preheader
@@ -4138,8 +4138,8 @@ define dso_local void @psched_ppscfg_precompute(ptr noundef writeonly captures(n
   store i64 %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 1, ptr %3, align 4
-  store i8 0, ptr %4, align 1
+  store i32 1, ptr %3, align 8
+  store i8 0, ptr %4, align 4
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %16, label %.preheader
 
@@ -4358,7 +4358,7 @@ define internal fastcc ptr @__skb_dequeue_bad_txq(ptr noundef %0) unnamed_addr #
   %37 = and i32 %36, 32
   %38 = icmp eq i32 %37, 0
   %39 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %40 = load i32, ptr %39, align 4
+  %40 = load i32, ptr %39, align 8
   br i1 %38, label %47, label %41
 
 41:                                               ; preds = %28

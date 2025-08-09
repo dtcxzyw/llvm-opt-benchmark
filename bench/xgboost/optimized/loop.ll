@@ -768,7 +768,7 @@ _ZNSt5dequeIN7xgboost10collective4Loop2OpESaIS3_EE9pop_frontEv.exit: ; preds = %
 .noexc139:                                        ; preds = %.loopexit.i.i.i.i
   store ptr null, ptr %198, align 8, !tbaa !74
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 8
-  store i32 %178, ptr %199, align 4, !tbaa !107
+  store i32 %178, ptr %199, align 8, !tbaa !107
   %200 = getelementptr inbounds nuw i8, ptr %198, i64 12
   store i64 0, ptr %200, align 4
   %201 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKi6pollfdESaIS3_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS5_10_Hash_nodeIS3_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %181, i64 noundef %179, ptr noundef nonnull %198, i64 noundef 1)
@@ -827,7 +827,7 @@ _ZNSt10_HashtableIiSt4pairIKi6pollfdESaIS3_ENSt8__detail10_Select1stESt8equal_to
 .noexc150:                                        ; preds = %.loopexit.i.i.i.i146
   store ptr null, ptr %225, align 8, !tbaa !74
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 8
-  store i32 %205, ptr %226, align 4, !tbaa !107
+  store i32 %205, ptr %226, align 8, !tbaa !107
   %227 = getelementptr inbounds nuw i8, ptr %225, i64 12
   store i64 0, ptr %227, align 4
   %228 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKi6pollfdESaIS3_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS5_10_Hash_nodeIS3_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %208, i64 noundef %206, ptr noundef nonnull %225, i64 noundef 1)
@@ -4267,7 +4267,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99: ; preds = %_ZN
 .noexc101:                                        ; preds = %.loopexit.i.i
   store ptr null, ptr %346, align 8, !tbaa !74
   %347 = getelementptr inbounds nuw i8, ptr %346, i64 8
-  store i32 %326, ptr %347, align 4, !tbaa !107
+  store i32 %326, ptr %347, align 8, !tbaa !107
   %348 = getelementptr inbounds nuw i8, ptr %346, i64 12
   store i64 0, ptr %348, align 4
   %349 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKi6pollfdESaIS3_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS5_10_Hash_nodeIS3_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %329, i64 noundef %327, ptr noundef nonnull %346, i64 noundef 1)
@@ -4798,7 +4798,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %9,
   store i64 %15, ptr %17, align 8, !tbaa !9
   store ptr %7, ptr %1, align 8, !tbaa !13
   store i64 0, ptr %16, align 8, !tbaa !9
-  store i8 0, ptr %7, align 1, !tbaa !12
+  store i8 0, ptr %7, align 8, !tbaa !12
   %18 = tail call ptr @__errno_location() #32
   %19 = load i32, ptr %18, align 4, !tbaa !104
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #32
@@ -7799,7 +7799,7 @@ _ZNSt10_HashtableIiSt4pairIKi6pollfdESaIS3_ENSt8__detail10_Select1stESt8equal_to
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKi6pollfdESaIS3_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !74
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !104
+  %16 = load i32, ptr %15, align 8, !tbaa !104
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -10888,7 +10888,7 @@ _ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit: ; 
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(28) %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load atomic i32, ptr %8 acquire, align 4
+  %9 = load atomic i32, ptr %8 acquire, align 8
   %10 = and i32 %9, 2147483647
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit.us.i.i
@@ -11184,7 +11184,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit7: ; preds = %_ZNSol
   store ptr %14, ptr %12, align 8, !tbaa !3, !alias.scope !419
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 0, ptr %15, align 8, !tbaa !9, !alias.scope !419
-  store i8 0, ptr %14, align 1, !tbaa !12, !alias.scope !419
+  store i8 0, ptr %14, align 8, !tbaa !12, !alias.scope !419
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %17 = load ptr, ptr %16, align 8, !tbaa !353, !noalias !419
   %.not.i.not.i.i = icmp eq ptr %17, null
@@ -11677,7 +11677,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit7: ; preds = %_ZNSol
   store ptr %16, ptr %14, align 8, !tbaa !3, !alias.scope !427
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 0, ptr %17, align 8, !tbaa !9, !alias.scope !427
-  store i8 0, ptr %16, align 1, !tbaa !12, !alias.scope !427
+  store i8 0, ptr %16, align 8, !tbaa !12, !alias.scope !427
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %19 = load ptr, ptr %18, align 8, !tbaa !353, !noalias !427
   %.not.i.not.i.i = icmp eq ptr %19, null
@@ -11805,11 +11805,11 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceISt7promiseIvESaIvELN9__g
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr null, ptr %12, align 8, !tbaa !391, !noalias !428
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i32 0, ptr %13, align 4, !tbaa !431, !noalias !428
+  store i32 0, ptr %13, align 8, !tbaa !431, !noalias !428
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  store i8 0, ptr %14, align 1, !tbaa !433, !noalias !428
+  store i8 0, ptr %14, align 4, !tbaa !433, !noalias !428
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store i32 0, ptr %15, align 4, !tbaa !435, !noalias !428
+  store i32 0, ptr %15, align 8, !tbaa !435, !noalias !428
   store ptr %7, ptr %8, align 8, !tbaa !91, !alias.scope !428
   store ptr %11, ptr %6, align 8, !tbaa !182, !alias.scope !428
   %16 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
@@ -12613,7 +12613,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit6: ; preds = %11
   store ptr %15, ptr %13, align 8, !tbaa !3, !alias.scope !466
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %16, align 8, !tbaa !9, !alias.scope !466
-  store i8 0, ptr %15, align 1, !tbaa !12, !alias.scope !466
+  store i8 0, ptr %15, align 8, !tbaa !12, !alias.scope !466
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %18 = load ptr, ptr %17, align 8, !tbaa !353, !noalias !466
   %.not.i.not.i.i = icmp eq ptr %18, null

@@ -233,7 +233,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   %105 = load float, ptr %79, align 4, !tbaa !55
   %106 = fneg nsz float %104
   %107 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  %108 = load float, ptr %107, align 4, !tbaa !55
+  %108 = load float, ptr %107, align 8, !tbaa !55
   %109 = fneg nsz float %98
   %110 = fneg nsz float %92
   %111 = getelementptr inbounds nuw i8, ptr %29, i64 44
@@ -269,7 +269,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   %141 = call nsz float @llvm.fmuladd.f32(float %91, float %114, float %140)
   %142 = call nsz float @llvm.fmuladd.f32(float %130, float 0.000000e+00, float %141)
   %143 = call nsz float @llvm.fmuladd.f32(float %137, float 0.000000e+00, float %142)
-  store float %143, ptr %86, align 4, !tbaa !55
+  store float %143, ptr %86, align 8, !tbaa !55
   %144 = fmul nsz float %124, %110
   %145 = call nsz float @llvm.fmuladd.f32(float %91, float %116, float %144)
   %146 = call nsz float @llvm.fmuladd.f32(float %132, float 0.000000e+00, float %145)
@@ -281,7 +281,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   %151 = call nsz float @llvm.fmuladd.f32(float %134, float 0.000000e+00, float %150)
   %152 = call nsz float @llvm.fmuladd.f32(float %139, float 0.000000e+00, float %151)
   %153 = getelementptr inbounds nuw i8, ptr %29, i64 80
-  store float %152, ptr %153, align 4, !tbaa !55
+  store float %152, ptr %153, align 8, !tbaa !55
   %154 = fmul nsz float %127, %110
   %155 = call nsz float @llvm.fmuladd.f32(float %91, float %119, float %154)
   %156 = call nsz float @llvm.fmuladd.f32(float %135, float 0.000000e+00, float %155)
@@ -292,7 +292,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   %160 = call nsz float @llvm.fmuladd.f32(float %92, float %114, float %159)
   %161 = call nsz float @llvm.fmuladd.f32(float %130, float 0.000000e+00, float %160)
   %162 = call nsz float @llvm.fmuladd.f32(float %137, float 0.000000e+00, float %161)
-  store float %162, ptr %158, align 4, !tbaa !55
+  store float %162, ptr %158, align 8, !tbaa !55
   %163 = fmul nsz float %91, %124
   %164 = call nsz float @llvm.fmuladd.f32(float %92, float %116, float %163)
   %165 = call nsz float @llvm.fmuladd.f32(float %132, float 0.000000e+00, float %164)
@@ -304,7 +304,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   %170 = call nsz float @llvm.fmuladd.f32(float %134, float 0.000000e+00, float %169)
   %171 = call nsz float @llvm.fmuladd.f32(float %139, float 0.000000e+00, float %170)
   %172 = getelementptr inbounds nuw i8, ptr %29, i64 96
-  store float %171, ptr %172, align 4, !tbaa !55
+  store float %171, ptr %172, align 8, !tbaa !55
   %173 = fmul nsz float %91, %127
   %174 = call nsz float @llvm.fmuladd.f32(float %92, float %119, float %173)
   %175 = call nsz float @llvm.fmuladd.f32(float %135, float 0.000000e+00, float %174)
@@ -315,7 +315,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   %179 = call nsz float @llvm.fmuladd.f32(float %114, float 0.000000e+00, float %178)
   %180 = call nsz float @llvm.fmuladd.f32(float %112, float %130, float %179)
   %181 = call nsz float @llvm.fmuladd.f32(float %137, float 0.000000e+00, float %180)
-  store float %181, ptr %177, align 4, !tbaa !55
+  store float %181, ptr %177, align 8, !tbaa !55
   %182 = fmul nsz float %124, 0.000000e+00
   %183 = call nsz float @llvm.fmuladd.f32(float %116, float 0.000000e+00, float %182)
   %184 = call nsz float @llvm.fmuladd.f32(float %112, float %132, float %183)
@@ -327,7 +327,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   %189 = call nsz float @llvm.fmuladd.f32(float %112, float %134, float %188)
   %190 = call nsz float @llvm.fmuladd.f32(float %139, float 0.000000e+00, float %189)
   %191 = getelementptr inbounds nuw i8, ptr %29, i64 112
-  store float %190, ptr %191, align 4, !tbaa !55
+  store float %190, ptr %191, align 8, !tbaa !55
   %192 = fmul nsz float %127, 0.000000e+00
   %193 = call nsz float @llvm.fmuladd.f32(float %119, float 0.000000e+00, float %192)
   %194 = call nsz float @llvm.fmuladd.f32(float %112, float %135, float %193)
@@ -340,16 +340,16 @@ define internal i32 @activate(ptr noundef %0) #1 {
   %200 = fadd nsz float %199, 1.000000e+00
   %201 = getelementptr inbounds nuw i8, ptr %29, i64 132
   store float %200, ptr %201, align 4, !tbaa !55
-  %202 = load float, ptr %78, align 4, !tbaa !55
+  %202 = load float, ptr %78, align 8, !tbaa !55
   %203 = getelementptr inbounds nuw i8, ptr %29, i64 52
   %204 = load float, ptr %203, align 4, !tbaa !55
   %205 = fmul nsz float %147, %204
   %206 = call nsz float @llvm.fmuladd.f32(float %143, float %202, float %205)
   %207 = getelementptr inbounds nuw i8, ptr %29, i64 56
-  %208 = load float, ptr %207, align 4, !tbaa !55
+  %208 = load float, ptr %207, align 8, !tbaa !55
   %209 = call nsz float @llvm.fmuladd.f32(float %152, float %208, float %206)
   %210 = fneg nsz float %209
-  store float %210, ptr %196, align 4, !tbaa !55
+  store float %210, ptr %196, align 8, !tbaa !55
   %211 = fmul nsz float %166, %204
   %212 = call nsz float @llvm.fmuladd.f32(float %162, float %202, float %211)
   %213 = call nsz float @llvm.fmuladd.f32(float %171, float %208, float %212)
@@ -359,12 +359,12 @@ define internal i32 @activate(ptr noundef %0) #1 {
   %216 = call nsz float @llvm.fmuladd.f32(float %181, float %202, float %215)
   %217 = call nsz float @llvm.fmuladd.f32(float %190, float %208, float %216)
   %218 = fneg nsz float %217
-  store float %218, ptr %198, align 4, !tbaa !55
+  store float %218, ptr %198, align 8, !tbaa !55
   %219 = load float, ptr %65, align 4, !tbaa !55
   %220 = fmul nsz float %162, %219
   %221 = call nsz float @llvm.fmuladd.f32(float %73, float %143, float %220)
   %222 = getelementptr inbounds nuw i8, ptr %29, i64 144
-  %223 = load float, ptr %222, align 4, !tbaa !55
+  %223 = load float, ptr %222, align 8, !tbaa !55
   %224 = call nsz float @llvm.fmuladd.f32(float %223, float %181, float %221)
   %225 = getelementptr inbounds nuw i8, ptr %29, i64 148
   %226 = load float, ptr %225, align 4, !tbaa !55
@@ -378,11 +378,11 @@ define internal i32 @activate(ptr noundef %0) #1 {
   %234 = call nsz float @llvm.fmuladd.f32(float %223, float %194, float %233)
   %235 = call nsz float @llvm.fmuladd.f32(float %226, float %200, float %234)
   %236 = getelementptr inbounds nuw i8, ptr %29, i64 152
-  %237 = load float, ptr %236, align 4, !tbaa !55
+  %237 = load float, ptr %236, align 8, !tbaa !55
   %238 = fmul nsz float %72, %162
   %239 = call nsz float @llvm.fmuladd.f32(float %237, float %143, float %238)
   %240 = getelementptr inbounds nuw i8, ptr %29, i64 160
-  %241 = load float, ptr %240, align 4, !tbaa !55
+  %241 = load float, ptr %240, align 8, !tbaa !55
   %242 = call nsz float @llvm.fmuladd.f32(float %241, float %181, float %239)
   %243 = getelementptr inbounds nuw i8, ptr %29, i64 164
   %244 = load float, ptr %243, align 4, !tbaa !55
@@ -396,7 +396,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   %252 = call nsz float @llvm.fmuladd.f32(float %241, float %194, float %251)
   %253 = call nsz float @llvm.fmuladd.f32(float %244, float %200, float %252)
   %254 = getelementptr inbounds nuw i8, ptr %29, i64 168
-  %255 = load float, ptr %254, align 4, !tbaa !55
+  %255 = load float, ptr %254, align 8, !tbaa !55
   %256 = getelementptr inbounds nuw i8, ptr %29, i64 172
   %257 = load float, ptr %256, align 4, !tbaa !55
   %258 = fmul nsz float %162, %257
@@ -412,7 +412,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   %268 = call nsz float @llvm.fmuladd.f32(float %194, float 0xBFF0000040000000, float %267)
   %269 = fsub nsz float %268, %200
   %270 = getelementptr inbounds nuw i8, ptr %29, i64 184
-  %271 = load float, ptr %270, align 4, !tbaa !55
+  %271 = load float, ptr %270, align 8, !tbaa !55
   %272 = getelementptr inbounds nuw i8, ptr %29, i64 188
   %273 = load float, ptr %272, align 4, !tbaa !55
   %274 = fmul nsz float %162, %273

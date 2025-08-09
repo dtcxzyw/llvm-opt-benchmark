@@ -15512,7 +15512,7 @@ define internal fastcc i32 @internal_exr_alloc_context(ptr noundef nonnull write
   %52 = getelementptr inbounds nuw i8, ptr %14, i64 116
   store i32 %.sink148, ptr %52, align 4
   %53 = getelementptr inbounds nuw i8, ptr %14, i64 120
-  store i32 -1, ptr %53, align 4
+  store i32 -1, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %14, i64 124
   store float 4.500000e+01, ptr %54, align 4
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -32617,7 +32617,7 @@ define internal fastcc void @deflate_flush_block(ptr noundef initializes((6052, 
   %138 = shl i64 %136, %137
   %139 = add i32 %9, 17
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 4768
-  %141 = load i8, ptr %140, align 1
+  %141 = load i8, ptr %140, align 8
   %142 = zext i8 %141 to i64
   %143 = zext nneg i32 %139 to i64
   %144 = shl i64 %142, %143
@@ -48885,7 +48885,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_default(ptr noalias noun
   %72 = lshr i64 %.3738, 17
   %73 = trunc i64 %72 to i8
   %74 = and i8 %73, 7
-  store i8 %74, ptr %19, align 1
+  store i8 %74, ptr %19, align 4
   %75 = lshr i64 %.3738, 20
   %76 = add i32 %.2763, -20
   %77 = ptrtoint ptr %.3731 to i64
@@ -49255,7 +49255,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_default(ptr noalias noun
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(144) %0, i8 8, i64 144, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(112) %scevgep, i8 9, i64 112, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %scevgep1033, i8 7, i64 24, i1 false)
-  store i64 578721382704613384, ptr %scevgep1035, align 1
+  store i64 578721382704613384, ptr %scevgep1035, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %scevgep1037, i8 5, i64 32, i1 false)
   br label %.loopexit901
 
@@ -50080,7 +50080,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_bmi2(ptr noalias noundef
   %72 = lshr i64 %.3738, 17
   %73 = trunc i64 %72 to i8
   %74 = and i8 %73, 7
-  store i8 %74, ptr %19, align 1
+  store i8 %74, ptr %19, align 4
   %75 = lshr i64 %.3738, 20
   %76 = add i32 %.2763, -20
   %77 = ptrtoint ptr %.3731 to i64
@@ -50450,7 +50450,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_bmi2(ptr noalias noundef
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(144) %0, i8 8, i64 144, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(112) %scevgep, i8 9, i64 112, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %scevgep1033, i8 7, i64 24, i1 false)
-  store i64 578721382704613384, ptr %scevgep1035, align 1
+  store i64 578721382704613384, ptr %scevgep1035, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %scevgep1037, i8 5, i64 32, i1 false)
   br label %.loopexit901
 

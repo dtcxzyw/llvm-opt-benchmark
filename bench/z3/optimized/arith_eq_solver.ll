@@ -2861,9 +2861,9 @@ _ZN6vectorI8rationalLb1EjE3endEv.exit90:          ; preds = %_ZN8rationalD2Ev.ex
   %196 = or disjoint i8 %195, %190
   store i8 %196, ptr %152, align 4
   %197 = getelementptr inbounds nuw i8, ptr %.067119, i64 16
-  %198 = load i32, ptr %197, align 4, !tbaa !70
+  %198 = load i32, ptr %197, align 8, !tbaa !70
   %199 = load i32, ptr %153, align 8, !tbaa !70
-  store i32 %199, ptr %197, align 4, !tbaa !70
+  store i32 %199, ptr %197, align 8, !tbaa !70
   store i32 %198, ptr %153, align 8, !tbaa !70
   %200 = getelementptr inbounds nuw i8, ptr %.067119, i64 24
   %201 = load ptr, ptr %200, align 8, !tbaa !87
@@ -4279,9 +4279,9 @@ _ZN8rationalD2Ev.exit101:                         ; preds = %.noexc.i100
   %335 = or disjoint i8 %334, %329
   store i8 %335, ptr %298, align 4
   %336 = getelementptr inbounds nuw i8, ptr %312, i64 16
-  %337 = load i32, ptr %336, align 4, !tbaa !70
+  %337 = load i32, ptr %336, align 8, !tbaa !70
   %338 = load i32, ptr %302, align 8, !tbaa !70
-  store i32 %338, ptr %336, align 4, !tbaa !70
+  store i32 %338, ptr %336, align 8, !tbaa !70
   store i32 %337, ptr %302, align 8, !tbaa !70
   %339 = getelementptr inbounds nuw i8, ptr %312, i64 24
   %340 = load ptr, ptr %339, align 8, !tbaa !87
@@ -6156,9 +6156,9 @@ _ZN8rationalD2Ev.exit267.us:                      ; preds = %.noexc.i266.us
   %682 = or disjoint i8 %681, %676
   store i8 %682, ptr %125, align 4
   %683 = getelementptr inbounds nuw i8, ptr %659, i64 16
-  %684 = load i32, ptr %683, align 4, !tbaa !70
+  %684 = load i32, ptr %683, align 8, !tbaa !70
   %685 = load i32, ptr %126, align 8, !tbaa !70
-  store i32 %685, ptr %683, align 4, !tbaa !70
+  store i32 %685, ptr %683, align 8, !tbaa !70
   store i32 %684, ptr %126, align 8, !tbaa !70
   %686 = getelementptr inbounds nuw i8, ptr %659, i64 24
   %687 = load ptr, ptr %686, align 8, !tbaa !87
@@ -8960,9 +8960,9 @@ _ZNK6vectorI8rationalLb1EjE4sizeEv.exit155:       ; preds = %420, %429
   %484 = or disjoint i8 %483, %478
   store i8 %484, ptr %19, align 4
   %485 = getelementptr inbounds nuw i8, ptr %461, i64 16
-  %486 = load i32, ptr %485, align 4, !tbaa !70
+  %486 = load i32, ptr %485, align 8, !tbaa !70
   %487 = load i32, ptr %21, align 8, !tbaa !70
-  store i32 %487, ptr %485, align 4, !tbaa !70
+  store i32 %487, ptr %485, align 8, !tbaa !70
   store i32 %486, ptr %21, align 8, !tbaa !70
   %488 = getelementptr inbounds nuw i8, ptr %461, i64 24
   %489 = load ptr, ptr %488, align 8, !tbaa !87

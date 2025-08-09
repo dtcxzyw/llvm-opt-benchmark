@@ -789,7 +789,7 @@ lean_dec_ref.exit15:                              ; preds = %24, %26, %27
   %.val20 = load ptr, ptr %41, align 8, !tbaa !4
   store ptr %.val20, ptr @l_Lean_Meta_completionBlackListExt, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val20) #3
-  %42 = load i32, ptr %37, align 4, !tbaa !8
+  %42 = load i32, ptr %37, align 8, !tbaa !8
   %43 = icmp sgt i32 %42, 1
   br i1 %43, label %44, label %46, !prof !11
 

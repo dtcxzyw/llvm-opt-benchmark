@@ -592,7 +592,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %17, 
   %47 = load i32, ptr %46, align 8, !tbaa !42
   %48 = and i32 %47, -261
   %49 = or disjoint i32 %48, 4
-  store i32 %49, ptr %46, align 4, !tbaa !43
+  store i32 %49, ptr %46, align 8, !tbaa !43
   %50 = load i64, ptr %43, align 8
   %51 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
@@ -662,7 +662,7 @@ _Z3getImdiET0_RKSt3mapIT_S0_St4lessIS2_ESaISt4pairIKS2_S0_EEERKT1_.exit: ; preds
   %78 = load i32, ptr %77, align 8, !tbaa !42
   %79 = and i32 %78, -261
   %80 = or disjoint i32 %79, 4
-  store i32 %80, ptr %77, align 4, !tbaa !43
+  store i32 %80, ptr %77, align 8, !tbaa !43
   %81 = load i64, ptr %74, align 8
   %82 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
@@ -725,7 +725,7 @@ _Z3getImdiET0_RKSt3mapIT_S0_St4lessIS2_ESaISt4pairIKS2_S0_EEERKT1_.exit21: ; pre
   %108 = load i32, ptr %107, align 8, !tbaa !42
   %109 = and i32 %108, -261
   %110 = or disjoint i32 %109, 4
-  store i32 %110, ptr %107, align 4, !tbaa !43
+  store i32 %110, ptr %107, align 8, !tbaa !43
   %111 = load i64, ptr %104, align 8
   %112 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %111
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
@@ -3720,7 +3720,7 @@ _ZN5boost6nowide4test8test_monEv.exit.i69:        ; preds = %53, %51, %47
   %89 = load i32, ptr %88, align 8, !tbaa !42
   %90 = and i32 %89, -261
   %91 = or disjoint i32 %90, 4
-  store i32 %91, ptr %88, align 4, !tbaa !43
+  store i32 %91, ptr %88, align 8, !tbaa !43
   %92 = load i64, ptr %85, align 8
   %93 = getelementptr inbounds i8, ptr %80, i64 %92
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
@@ -3996,7 +3996,7 @@ _ZN5boost6nowide4test8test_monEv.exit.i92:        ; preds = %168, %166, %163
   %201 = load i32, ptr %200, align 8, !tbaa !42
   %202 = and i32 %201, -261
   %203 = or disjoint i32 %202, 4
-  store i32 %203, ptr %200, align 4, !tbaa !43
+  store i32 %203, ptr %200, align 8, !tbaa !43
   %204 = load i64, ptr %197, align 8
   %205 = getelementptr inbounds i8, ptr %192, i64 %204
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 8
@@ -5503,7 +5503,7 @@ _ZN10io_fstreamISt13basic_fstreamIcSt11char_traitsIcEEE5flushEv.exit: ; preds = 
   %96 = load i32, ptr %95, align 8, !tbaa !42
   %97 = and i32 %96, -261
   %98 = or disjoint i32 %97, 4
-  store i32 %98, ptr %95, align 4, !tbaa !43
+  store i32 %98, ptr %95, align 8, !tbaa !43
   %99 = load i64, ptr %92, align 8
   %100 = getelementptr inbounds i8, ptr %87, i64 %99
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
@@ -5806,7 +5806,7 @@ _ZN10io_fstreamISt13basic_fstreamIcSt11char_traitsIcEEE4readEPci.exit: ; preds =
   %221 = load i32, ptr %220, align 8, !tbaa !42
   %222 = and i32 %221, -261
   %223 = or disjoint i32 %222, 4
-  store i32 %223, ptr %220, align 4, !tbaa !43
+  store i32 %223, ptr %220, align 8, !tbaa !43
   %224 = load i64, ptr %217, align 8
   %225 = getelementptr inbounds i8, ptr %212, i64 %224
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 8
@@ -6279,7 +6279,7 @@ _ZN10io_fstreamIN5boost6nowide13basic_fstreamIcSt11char_traitsIcEEEE5flushEv.exi
   %92 = load i32, ptr %91, align 8, !tbaa !42
   %93 = and i32 %92, -261
   %94 = or disjoint i32 %93, 4
-  store i32 %94, ptr %91, align 4, !tbaa !43
+  store i32 %94, ptr %91, align 8, !tbaa !43
   %95 = load i64, ptr %88, align 8
   %96 = getelementptr inbounds i8, ptr %83, i64 %95
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
@@ -6555,7 +6555,7 @@ _ZN10io_fstreamIN5boost6nowide13basic_fstreamIcSt11char_traitsIcEEEE4readEPci.ex
   %205 = load i32, ptr %204, align 8, !tbaa !42
   %206 = and i32 %205, -261
   %207 = or disjoint i32 %206, 4
-  store i32 %207, ptr %204, align 4, !tbaa !43
+  store i32 %207, ptr %204, align 8, !tbaa !43
   %208 = load i64, ptr %201, align 8
   %209 = getelementptr inbounds i8, ptr %196, i64 %208
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 8

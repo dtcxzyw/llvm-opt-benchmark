@@ -4175,9 +4175,9 @@ _ZNK6vectorI16inf_eps_rationalI12inf_rationalELb1EjE4sizeEv.exit: ; preds = %_ZN
   %592 = or disjoint i8 %591, %586
   store i8 %592, ptr %529, align 4
   %593 = getelementptr inbounds nuw i8, ptr %569, i64 16
-  %594 = load i32, ptr %593, align 4, !tbaa !9
+  %594 = load i32, ptr %593, align 8, !tbaa !9
   %595 = load i32, ptr %530, align 8, !tbaa !9
-  store i32 %595, ptr %593, align 4, !tbaa !9
+  store i32 %595, ptr %593, align 8, !tbaa !9
   store i32 %594, ptr %530, align 8, !tbaa !9
   %596 = getelementptr inbounds nuw i8, ptr %569, i64 24
   %597 = load ptr, ptr %596, align 8, !tbaa !160
@@ -4207,9 +4207,9 @@ _ZNK6vectorI16inf_eps_rationalI12inf_rationalELb1EjE4sizeEv.exit: ; preds = %_ZN
   %616 = or disjoint i8 %615, %610
   store i8 %616, ptr %532, align 4
   %617 = getelementptr inbounds nuw i8, ptr %569, i64 32
-  %618 = load i32, ptr %617, align 4, !tbaa !9
+  %618 = load i32, ptr %617, align 8, !tbaa !9
   %619 = load i32, ptr %533, align 8, !tbaa !9
-  store i32 %619, ptr %617, align 4, !tbaa !9
+  store i32 %619, ptr %617, align 8, !tbaa !9
   store i32 %618, ptr %533, align 8, !tbaa !9
   %620 = getelementptr inbounds nuw i8, ptr %569, i64 40
   %621 = load ptr, ptr %620, align 8, !tbaa !160
@@ -4239,9 +4239,9 @@ _ZNK6vectorI16inf_eps_rationalI12inf_rationalELb1EjE4sizeEv.exit: ; preds = %_ZN
   %640 = or disjoint i8 %639, %634
   store i8 %640, ptr %535, align 4
   %641 = getelementptr inbounds nuw i8, ptr %569, i64 48
-  %642 = load i32, ptr %641, align 4, !tbaa !9
+  %642 = load i32, ptr %641, align 8, !tbaa !9
   %643 = load i32, ptr %536, align 8, !tbaa !9
-  store i32 %643, ptr %641, align 4, !tbaa !9
+  store i32 %643, ptr %641, align 8, !tbaa !9
   store i32 %642, ptr %536, align 8, !tbaa !9
   %644 = getelementptr inbounds nuw i8, ptr %569, i64 56
   %645 = load ptr, ptr %644, align 8, !tbaa !160
@@ -4271,9 +4271,9 @@ _ZNK6vectorI16inf_eps_rationalI12inf_rationalELb1EjE4sizeEv.exit: ; preds = %_ZN
   %664 = or disjoint i8 %663, %658
   store i8 %664, ptr %538, align 4
   %665 = getelementptr inbounds nuw i8, ptr %569, i64 64
-  %666 = load i32, ptr %665, align 4, !tbaa !9
+  %666 = load i32, ptr %665, align 8, !tbaa !9
   %667 = load i32, ptr %539, align 8, !tbaa !9
-  store i32 %667, ptr %665, align 4, !tbaa !9
+  store i32 %667, ptr %665, align 8, !tbaa !9
   store i32 %666, ptr %539, align 8, !tbaa !9
   %668 = getelementptr inbounds nuw i8, ptr %569, i64 72
   %669 = load ptr, ptr %668, align 8, !tbaa !160
@@ -4303,9 +4303,9 @@ _ZNK6vectorI16inf_eps_rationalI12inf_rationalELb1EjE4sizeEv.exit: ; preds = %_ZN
   %688 = or disjoint i8 %687, %682
   store i8 %688, ptr %541, align 4
   %689 = getelementptr inbounds nuw i8, ptr %569, i64 80
-  %690 = load i32, ptr %689, align 4, !tbaa !9
+  %690 = load i32, ptr %689, align 8, !tbaa !9
   %691 = load i32, ptr %542, align 8, !tbaa !9
-  store i32 %691, ptr %689, align 4, !tbaa !9
+  store i32 %691, ptr %689, align 8, !tbaa !9
   store i32 %690, ptr %542, align 8, !tbaa !9
   %692 = getelementptr inbounds nuw i8, ptr %569, i64 88
   %693 = load ptr, ptr %692, align 8, !tbaa !160

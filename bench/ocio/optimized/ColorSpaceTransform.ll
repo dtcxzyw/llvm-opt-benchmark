@@ -220,13 +220,13 @@ define void @_ZN19OpenColorIO_v2_5dev19ColorSpaceTransformC2Ev(ptr noundef nonnu
   store ptr %5, ptr %4, align 8, !tbaa !30
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 0, ptr %6, align 8, !tbaa !31
-  store i8 0, ptr %5, align 1, !tbaa !32
+  store i8 0, ptr %5, align 8, !tbaa !32
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store ptr %8, ptr %7, align 8, !tbaa !30
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i64 0, ptr %9, align 8, !tbaa !31
-  store i8 0, ptr %8, align 1, !tbaa !32
+  store i8 0, ptr %8, align 8, !tbaa !32
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store i8 1, ptr %10, align 8, !tbaa !33
   store ptr %2, ptr %3, align 8, !tbaa !34

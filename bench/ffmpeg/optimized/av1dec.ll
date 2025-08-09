@@ -2384,7 +2384,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @set_context_with_sequence(
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 692
   store i32 %16, ptr %17, align 4, !tbaa !210
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 582
-  %19 = load i8, ptr %18, align 1, !tbaa !211
+  %19 = load i8, ptr %18, align 2, !tbaa !211
   %.not = icmp eq i8 %19, 0
   %20 = select i1 %.not, i32 1, i32 2
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 156
@@ -2400,7 +2400,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @set_context_with_sequence(
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 %28, ptr %29, align 8, !tbaa !216
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 580
-  %31 = load i8, ptr %30, align 1, !tbaa !217
+  %31 = load i8, ptr %30, align 4, !tbaa !217
   %32 = zext i8 %31 to i32
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 %32, ptr %33, align 4, !tbaa !218
@@ -3137,7 +3137,7 @@ export_metadata.exit:                             ; preds = %export_itut_t35.exi
   %221 = load i8, ptr %220, align 1, !tbaa !280
   %222 = zext i8 %221 to i32
   %223 = getelementptr inbounds nuw i8, ptr %187, i64 88
-  store i32 %222, ptr %223, align 4, !tbaa !281
+  store i32 %222, ptr %223, align 8, !tbaa !281
   %224 = getelementptr inbounds nuw i8, ptr %.val, i64 4336
   %225 = load i8, ptr %224, align 2, !tbaa !283
   %226 = zext i8 %225 to i32
@@ -3148,13 +3148,13 @@ export_metadata.exit:                             ; preds = %export_itut_t35.exi
   %230 = load i8, ptr %229, align 1, !tbaa !285
   %231 = zext i8 %230 to i32
   %232 = getelementptr inbounds nuw i8, ptr %187, i64 144
-  store i32 %231, ptr %232, align 4, !tbaa !286
+  store i32 %231, ptr %232, align 8, !tbaa !286
   %233 = getelementptr inbounds nuw i8, ptr %.val, i64 4412
   %234 = load i8, ptr %233, align 2, !tbaa !287
   %235 = zext i8 %234 to i32
   %236 = add nuw nsw i32 %235, 6
   %237 = getelementptr inbounds nuw i8, ptr %187, i64 224
-  store i32 %236, ptr %237, align 4, !tbaa !288
+  store i32 %236, ptr %237, align 8, !tbaa !288
   %238 = getelementptr inbounds nuw i8, ptr %.val, i64 4413
   %239 = load i8, ptr %238, align 1, !tbaa !289
   %240 = zext i8 %239 to i32
@@ -3164,7 +3164,7 @@ export_metadata.exit:                             ; preds = %export_itut_t35.exi
   %243 = load i8, ptr %242, align 2, !tbaa !291
   %244 = zext i8 %243 to i32
   %245 = getelementptr inbounds nuw i8, ptr %187, i64 256
-  store i32 %244, ptr %245, align 4, !tbaa !292
+  store i32 %244, ptr %245, align 8, !tbaa !292
   %246 = getelementptr inbounds nuw i8, ptr %.val, i64 4423
   %247 = load i8, ptr %246, align 1, !tbaa !293
   %248 = zext i8 %247 to i32
@@ -3173,7 +3173,7 @@ export_metadata.exit:                             ; preds = %export_itut_t35.exi
   %250 = getelementptr inbounds nuw i8, ptr %.val, i64 4264
   %251 = load i8, ptr %250, align 2, !tbaa !295
   %252 = zext i8 %251 to i32
-  store i32 %252, ptr %219, align 4, !tbaa !296
+  store i32 %252, ptr %219, align 8, !tbaa !296
   %.not12.i = icmp eq i8 %251, 0
   br i1 %.not12.i, label %._crit_edge.i, label %.lr.ph.i33
 

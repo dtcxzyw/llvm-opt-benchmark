@@ -176,7 +176,7 @@ define dso_local i32 @bdi_init(ptr noundef initializes((728, 736)) %0) local_unn
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 728
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store volatile i32 1, ptr %3, align 4
+  store volatile i32 1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 76

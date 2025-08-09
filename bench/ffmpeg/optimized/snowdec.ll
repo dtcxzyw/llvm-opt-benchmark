@@ -180,7 +180,7 @@ get_rac.exit.i:                                   ; preds = %61, %56, %45
   %85 = getelementptr inbounds nuw i8, ptr %14, i64 6408
   store i32 0, ptr %85, align 8, !tbaa !62
   %86 = load i32, ptr %19, align 4, !tbaa !48
-  %87 = load i8, ptr %78, align 1, !tbaa !52
+  %87 = load i8, ptr %78, align 8, !tbaa !52
   %88 = zext i8 %87 to i32
   %89 = mul nsw i32 %86, %88
   %90 = ashr i32 %89, 8
@@ -234,7 +234,7 @@ get_rac.exit.i:                                   ; preds = %61, %56, %45
   %120 = zext i8 %87 to i64
   %121 = getelementptr inbounds nuw [256 x i8], ptr %119, i64 0, i64 %120
   %122 = load i8, ptr %121, align 1, !tbaa !52
-  store i8 %122, ptr %78, align 1, !tbaa !52
+  store i8 %122, ptr %78, align 8, !tbaa !52
   store i32 %90, ptr %19, align 4, !tbaa !48
   %123 = icmp slt i32 %90, 256
   br i1 %123, label %124, label %get_rac.exit213.i
@@ -360,7 +360,7 @@ get_rac.exit213.i:                                ; preds = %137, %132, %117, %1
   %183 = getelementptr inbounds nuw i8, ptr %14, i64 6672
   store i32 %.sink264.i, ptr %183, align 8, !tbaa !70
   %184 = load i32, ptr %19, align 4, !tbaa !48
-  %185 = load i8, ptr %78, align 1, !tbaa !52
+  %185 = load i8, ptr %78, align 8, !tbaa !52
   %186 = zext i8 %185 to i32
   %187 = mul nsw i32 %184, %186
   %188 = ashr i32 %187, 8
@@ -414,7 +414,7 @@ get_rac.exit213.i:                                ; preds = %137, %132, %117, %1
   %218 = zext i8 %185 to i64
   %219 = getelementptr inbounds nuw [256 x i8], ptr %217, i64 0, i64 %218
   %220 = load i8, ptr %219, align 1, !tbaa !52
-  store i8 %220, ptr %78, align 1, !tbaa !52
+  store i8 %220, ptr %78, align 8, !tbaa !52
   store i32 %188, ptr %19, align 4, !tbaa !48
   %221 = icmp slt i32 %188, 256
   br i1 %221, label %222, label %get_rac.exit215.i
@@ -574,7 +574,7 @@ decode_qlogs.exit.i:                              ; preds = %._crit_edge.i.i, %.
 decode_qlogs.exit.thread.i:                       ; preds = %decode_qlogs.exit.i, %70, %66
   %285 = getelementptr inbounds nuw i8, ptr %14, i64 2144
   %286 = load i32, ptr %19, align 4, !tbaa !48
-  %287 = load i8, ptr %285, align 1, !tbaa !52
+  %287 = load i8, ptr %285, align 4, !tbaa !52
   %288 = zext i8 %287 to i32
   %289 = mul nsw i32 %286, %288
   %290 = ashr i32 %289, 8
@@ -628,7 +628,7 @@ decode_qlogs.exit.thread.i:                       ; preds = %decode_qlogs.exit.i
   %320 = zext i8 %287 to i64
   %321 = getelementptr inbounds nuw [256 x i8], ptr %319, i64 0, i64 %320
   %322 = load i8, ptr %321, align 1, !tbaa !52
-  store i8 %322, ptr %285, align 1, !tbaa !52
+  store i8 %322, ptr %285, align 8, !tbaa !52
   store i32 %290, ptr %19, align 4, !tbaa !48
   %323 = icmp slt i32 %290, 256
   br i1 %323, label %324, label %get_rac.exit218.i
@@ -681,7 +681,7 @@ get_rac.exit218.i:                                ; preds = %337, %332, %317
   %indvars.iv249.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next250.i, %421 ]
   %350 = getelementptr inbounds nuw [4 x %struct.Plane], ptr %344, i64 0, i64 %indvars.iv249.i
   %351 = load i32, ptr %19, align 4, !tbaa !48
-  %352 = load i8, ptr %285, align 1, !tbaa !52
+  %352 = load i8, ptr %285, align 4, !tbaa !52
   %353 = zext i8 %352 to i32
   %354 = mul nsw i32 %351, %353
   %355 = ashr i32 %354, 8
@@ -730,7 +730,7 @@ get_rac.exit218.i:                                ; preds = %337, %332, %317
   %380 = zext i8 %352 to i64
   %381 = getelementptr inbounds nuw [256 x i8], ptr %319, i64 0, i64 %380
   %382 = load i8, ptr %381, align 1, !tbaa !52
-  store i8 %382, ptr %285, align 1, !tbaa !52
+  store i8 %382, ptr %285, align 8, !tbaa !52
   store i32 %355, ptr %19, align 4, !tbaa !48
   %383 = icmp slt i32 %355, 256
   br i1 %383, label %384, label %get_rac.exit220.i
@@ -812,7 +812,7 @@ get_rac.exit220.i:                                ; preds = %395, %390, %378, %3
 
 ._crit_edge.loopexit.i:                           ; preds = %421
   %.pre.pre.i = load i32, ptr %19, align 4, !tbaa !48
-  %.pre252.pre.i = load i8, ptr %285, align 1, !tbaa !52
+  %.pre252.pre.i = load i8, ptr %285, align 4, !tbaa !52
   %.pre253.pre.i = load i32, ptr %15, align 8, !tbaa !49
   br label %._crit_edge.i
 
@@ -890,7 +890,7 @@ get_rac.exit218.thread.i:                         ; preds = %._crit_edge.i, %313
   %470 = zext i8 %437 to i64
   %471 = getelementptr inbounds nuw [256 x i8], ptr %469, i64 0, i64 %470
   %472 = load i8, ptr %471, align 1, !tbaa !52
-  store i8 %472, ptr %285, align 1, !tbaa !52
+  store i8 %472, ptr %285, align 8, !tbaa !52
   store i32 %441, ptr %19, align 4, !tbaa !48
   %473 = icmp slt i32 %441, 256
   br i1 %473, label %474, label %get_rac.exit222.i

@@ -1079,11 +1079,11 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_cx0pll_calc_state(ptr noun
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 938
   store i16 1280, ptr %109, align 2
   %110 = getelementptr i8, ptr %0, i64 940
-  store i16 5, ptr %110, align 2
+  store i16 5, ptr %110, align 4
   %111 = getelementptr i8, ptr %0, i64 942
   store i16 0, ptr %111, align 2
   %112 = getelementptr i8, ptr %0, i64 944
-  store i16 0, ptr %112, align 2
+  store i16 0, ptr %112, align 4
   %113 = shl i32 %83, 13
   %114 = trunc nuw nsw i64 %91 to i32
   %115 = and i32 %114, 4094
@@ -1094,25 +1094,25 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_cx0pll_calc_state(ptr noun
   %119 = and i16 %97, 255
   %120 = or disjoint i16 %119, 32000
   %121 = getelementptr i8, ptr %0, i64 948
-  store i16 %120, ptr %121, align 2
+  store i16 %120, ptr %121, align 4
   %122 = getelementptr i8, ptr %0, i64 950
   store i16 %105, ptr %122, align 2
   %123 = getelementptr i8, ptr %0, i64 952
-  store i16 -28900, ptr %123, align 2
+  store i16 -28900, ptr %123, align 4
   %124 = getelementptr i8, ptr %0, i64 954
   store i16 0, ptr %124, align 2
   %125 = getelementptr i8, ptr %0, i64 956
-  store i16 0, ptr %125, align 2
+  store i16 0, ptr %125, align 4
   %126 = getelementptr i8, ptr %0, i64 958
   store i16 8704, ptr %126, align 2
   %127 = getelementptr i8, ptr %0, i64 960
-  store i16 -1, ptr %127, align 2
+  store i16 -1, ptr %127, align 4
   %128 = trunc i64 %92 to i16
   %129 = getelementptr i8, ptr %0, i64 962
   store i16 %128, ptr %129, align 2
   %130 = trunc i64 %90 to i16
   %131 = getelementptr i8, ptr %0, i64 964
-  store i16 %130, ptr %131, align 2
+  store i16 %130, ptr %131, align 4
   %132 = getelementptr i8, ptr %0, i64 966
   store i16 1, ptr %132, align 2
   br label %.loopexit

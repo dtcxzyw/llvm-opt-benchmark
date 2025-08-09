@@ -2813,7 +2813,7 @@ _ZNSt12__shared_ptrIN2cv3mcc12CCheckerImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.ex
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 252
   store float 0.000000e+00, ptr %8, align 4, !tbaa !121, !noalias !113
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  store float 0.000000e+00, ptr %9, align 4, !tbaa !123, !noalias !113
+  store float 0.000000e+00, ptr %9, align 8, !tbaa !123, !noalias !113
   store ptr %4, ptr %0, align 8, !tbaa !124
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %10, align 8, !tbaa !129

@@ -1120,7 +1120,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %7 = load ptr, ptr %Name.i, align 8
   store ptr %7, ptr %ref.tmp8, align 8
   %Value.i = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %8 = load atomic i32, ptr %Value.i monotonic, align 4
+  %8 = load atomic i32, ptr %Value.i monotonic, align 8
   store i32 %8, ptr %ref.tmp10, align 4
   %9 = load ptr, ptr %_M_finish.i, align 8
   %10 = load ptr, ptr %_M_end_of_storage.i, align 8

@@ -3201,7 +3201,7 @@ define dso_local range(i32 -34, 1) i32 @intel_fill_fb_info(ptr noundef readonly 
   %435 = load i8, ptr %434, align 1
   %436 = zext i8 %435 to i32
   %437 = mul i32 %432, %436
-  %438 = load i32, ptr %76, align 4
+  %438 = load i32, ptr %76, align 8
   %439 = icmp ugt i32 %437, %438
   br i1 %439, label %440, label %449
 
@@ -4576,7 +4576,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_plane_compute_gtt(ptr noun
   %115 = select i1 %114, i32 52, i32 24
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 244
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %116, i8 0, i64 132, i1 false)
-  store i32 %115, ptr %112, align 4
+  store i32 %115, ptr %112, align 8
   br i1 %114, label %117, label %128
 
 117:                                              ; preds = %103

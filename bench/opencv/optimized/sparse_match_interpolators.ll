@@ -16310,7 +16310,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_8ximgproc19
   %11 = fptosi double %10 to i32
   %12 = load i32, ptr %1, align 4, !tbaa !105
   %13 = mul i32 %12, %11
-  %14 = load i32, ptr %4, align 4, !tbaa !68
+  %14 = load i32, ptr %4, align 8, !tbaa !68
   %.sroa.speculated15.i.i.i = tail call i32 @llvm.smin.i32(i32 %14, i32 %13)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !107

@@ -2105,7 +2105,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   store i32 1, ptr %205, align 4, !tbaa !21, !noalias !156
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly5BatonILb1ESt6atomicEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %202, align 8, !tbaa !7, !noalias !156
   %206 = getelementptr inbounds nuw i8, ptr %202, i64 16
-  store i32 0, ptr %206, align 4, !tbaa !159, !noalias !156
+  store i32 0, ptr %206, align 8, !tbaa !159, !noalias !156
   store ptr %202, ptr %201, align 8, !tbaa !17, !alias.scope !156
   store ptr %206, ptr %27, align 8, !tbaa !160, !alias.scope !156
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
@@ -2121,7 +2121,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   store i32 1, ptr %211, align 4, !tbaa !21, !noalias !161
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6atomicIbESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %208, align 8, !tbaa !7, !noalias !161
   %212 = getelementptr inbounds nuw i8, ptr %208, i64 16
-  store i8 0, ptr %212, align 1, !tbaa !164, !noalias !161
+  store i8 0, ptr %212, align 8, !tbaa !164, !noalias !161
   store ptr %208, ptr %207, align 8, !tbaa !17, !alias.scope !161
   store ptr %212, ptr %28, align 8, !tbaa !165, !alias.scope !161
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 2240
@@ -4368,7 +4368,7 @@ _ZNK5folly11ThreadLocalINS_10TLRefCount13LocalRefCountES1_vEdeEv.exit: ; preds =
   %22 = load atomic i64, ptr %17 monotonic, align 8
   %23 = add nsw i64 %22, -1
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store atomic i8 1, ptr %24 monotonic, align 1
+  store atomic i8 1, ptr %24 monotonic, align 8
   store atomic i64 %23, ptr %17 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !271
   %25 = load ptr, ptr %18, align 8, !tbaa !265
@@ -8511,7 +8511,7 @@ _ZNK5folly11ThreadLocalINS_10TLRefCount13LocalRefCountES1_vEdeEv.exit: ; preds =
   %22 = load atomic i64, ptr %17 monotonic, align 8
   %23 = add nsw i64 %22, 1
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store atomic i8 1, ptr %24 monotonic, align 1
+  store atomic i8 1, ptr %24 monotonic, align 8
   store atomic i64 %23, ptr %17 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !271
   %25 = load ptr, ptr %18, align 8, !tbaa !265
@@ -15600,7 +15600,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   store i32 1, ptr %203, align 4, !tbaa !21, !noalias !613
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly5BatonILb1ESt6atomicEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %200, align 8, !tbaa !7, !noalias !613
   %204 = getelementptr inbounds nuw i8, ptr %200, i64 16
-  store i32 0, ptr %204, align 4, !tbaa !159, !noalias !613
+  store i32 0, ptr %204, align 8, !tbaa !159, !noalias !613
   store ptr %200, ptr %199, align 8, !tbaa !17, !alias.scope !613
   store ptr %204, ptr %23, align 8, !tbaa !160, !alias.scope !613
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
@@ -15616,7 +15616,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   store i32 1, ptr %209, align 4, !tbaa !21, !noalias !616
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6atomicIbESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %206, align 8, !tbaa !7, !noalias !616
   %210 = getelementptr inbounds nuw i8, ptr %206, i64 16
-  store i8 0, ptr %210, align 1, !tbaa !164, !noalias !616
+  store i8 0, ptr %210, align 8, !tbaa !164, !noalias !616
   store ptr %206, ptr %205, align 8, !tbaa !17, !alias.scope !616
   store ptr %210, ptr %24, align 8, !tbaa !165, !alias.scope !616
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
@@ -21018,7 +21018,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   store i32 1, ptr %203, align 4, !tbaa !21, !noalias !728
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly5BatonILb1ESt6atomicEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %200, align 8, !tbaa !7, !noalias !728
   %204 = getelementptr inbounds nuw i8, ptr %200, i64 16
-  store i32 0, ptr %204, align 4, !tbaa !159, !noalias !728
+  store i32 0, ptr %204, align 8, !tbaa !159, !noalias !728
   store ptr %200, ptr %199, align 8, !tbaa !17, !alias.scope !728
   store ptr %204, ptr %23, align 8, !tbaa !160, !alias.scope !728
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
@@ -21034,7 +21034,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   store i32 1, ptr %209, align 4, !tbaa !21, !noalias !731
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6atomicIbESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %206, align 8, !tbaa !7, !noalias !731
   %210 = getelementptr inbounds nuw i8, ptr %206, i64 16
-  store i8 0, ptr %210, align 1, !tbaa !164, !noalias !731
+  store i8 0, ptr %210, align 8, !tbaa !164, !noalias !731
   store ptr %206, ptr %205, align 8, !tbaa !17, !alias.scope !731
   store ptr %210, ptr %24, align 8, !tbaa !165, !alias.scope !731
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
@@ -27217,7 +27217,7 @@ _ZNKSt8functionIFPN12_GLOBAL__N_114GlobalExecutorIN5folly8ExecutorEEEvEEclEv.exi
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %29 = ptrtoint ptr %27 to i64
   store atomic i64 %29, ptr %28 seq_cst, align 8
-  store atomic i32 2, ptr %4 seq_cst, align 4
+  store atomic i32 2, ptr %4 seq_cst, align 8
   br label %30
 
 30:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNKSt8functionIFPN12_GLOBAL__N_114GlobalExecutorIN5folly8ExecutorEEEvEEclEv.exit
@@ -27307,8 +27307,8 @@ _ZN5folly8FunctionIFSt10shared_ptrINS_8ExecutorEEvEEaSIZN12_GLOBAL__N_114GlobalE
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr null, ptr %28, align 8, !tbaa !901
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !36
-  store ptr null, ptr %29, align 8, !tbaa !36
+  %30 = load ptr, ptr %29, align 16, !tbaa !36
+  store ptr null, ptr %29, align 16, !tbaa !36
   %.not.i.i.i.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt10__weak_ptrIN5folly8ExecutorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, label %31
 
@@ -28097,7 +28097,7 @@ _ZNKSt8functionIFPN12_GLOBAL__N_114GlobalExecutorIN5folly10IOExecutorEEEvEEclEv.
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %29 = ptrtoint ptr %27 to i64
   store atomic i64 %29, ptr %28 seq_cst, align 8
-  store atomic i32 2, ptr %4 seq_cst, align 4
+  store atomic i32 2, ptr %4 seq_cst, align 8
   br label %30
 
 30:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNKSt8functionIFPN12_GLOBAL__N_114GlobalExecutorIN5folly10IOExecutorEEEvEEclEv.exit

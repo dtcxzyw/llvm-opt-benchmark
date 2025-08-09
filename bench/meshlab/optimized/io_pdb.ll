@@ -5090,7 +5090,7 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit474:             ; preds = %957
   %977 = and i32 %storemerge.i.i, -524290
   %978 = or i32 %storemerge.i.i, 524288
   %storemerge18.i.i = select i1 %.not17.i.i, i32 %977, i32 %978
-  store i32 %storemerge18.i.i, ptr %965, align 4
+  store i32 %storemerge18.i.i, ptr %965, align 8
   %979 = load i8, ptr %963, align 1
   %980 = trunc i8 %979 to i1
   br i1 %980, label %981, label %992
@@ -28906,8 +28906,8 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %49, %52
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %110 = load float, ptr %109, align 4
   %111 = getelementptr inbounds nuw i8, ptr %63, i64 48
-  %112 = load float, ptr %111, align 4
-  %113 = load float, ptr %63, align 4
+  %112 = load float, ptr %111, align 8
+  %113 = load float, ptr %63, align 8
   %114 = call float @llvm.fmuladd.f32(float %110, float %112, float %113)
   store float %114, ptr %109, align 4
   %115 = getelementptr inbounds nuw i8, ptr %108, i64 12
@@ -28921,9 +28921,9 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %49, %52
   %122 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %123 = load float, ptr %122, align 4
   %124 = getelementptr inbounds nuw i8, ptr %63, i64 56
-  %125 = load float, ptr %124, align 4
+  %125 = load float, ptr %124, align 8
   %126 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %127 = load float, ptr %126, align 4
+  %127 = load float, ptr %126, align 8
   %128 = call float @llvm.fmuladd.f32(float %123, float %125, float %127)
   store float %128, ptr %122, align 4
   br label %243
@@ -29048,8 +29048,8 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit30: ; preds = %156, %159
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %217 = load float, ptr %216, align 4
   %218 = getelementptr inbounds nuw i8, ptr %170, i64 48
-  %219 = load float, ptr %218, align 4
-  %220 = load float, ptr %170, align 4
+  %219 = load float, ptr %218, align 8
+  %220 = load float, ptr %170, align 8
   %221 = call float @llvm.fmuladd.f32(float %217, float %219, float %220)
   store float %221, ptr %216, align 4
   %222 = getelementptr inbounds nuw i8, ptr %215, i64 12
@@ -29063,9 +29063,9 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit30: ; preds = %156, %159
   %229 = getelementptr inbounds nuw i8, ptr %215, i64 16
   %230 = load float, ptr %229, align 4
   %231 = getelementptr inbounds nuw i8, ptr %170, i64 56
-  %232 = load float, ptr %231, align 4
+  %232 = load float, ptr %231, align 8
   %233 = getelementptr inbounds nuw i8, ptr %170, i64 8
-  %234 = load float, ptr %233, align 4
+  %234 = load float, ptr %233, align 8
   %235 = call float @llvm.fmuladd.f32(float %230, float %232, float %234)
   store float %235, ptr %229, align 4
   br label %243
@@ -29227,8 +29227,8 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %42, %45
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load float, ptr %105, align 4
   %107 = getelementptr inbounds nuw i8, ptr %57, i64 48
-  %108 = load float, ptr %107, align 4
-  %109 = load float, ptr %57, align 4
+  %108 = load float, ptr %107, align 8
+  %109 = load float, ptr %57, align 8
   %110 = call float @llvm.fmuladd.f32(float %106, float %108, float %109)
   store float %110, ptr %105, align 4
   %111 = getelementptr inbounds nuw i8, ptr %104, i64 12
@@ -29242,9 +29242,9 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %42, %45
   %118 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %119 = load float, ptr %118, align 4
   %120 = getelementptr inbounds nuw i8, ptr %57, i64 56
-  %121 = load float, ptr %120, align 4
+  %121 = load float, ptr %120, align 8
   %122 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %123 = load float, ptr %122, align 4
+  %123 = load float, ptr %122, align 8
   %124 = call float @llvm.fmuladd.f32(float %119, float %121, float %123)
   store float %124, ptr %118, align 4
   br label %125
@@ -29409,8 +29409,8 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %49, %52
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %111 = load float, ptr %110, align 4
   %112 = getelementptr inbounds nuw i8, ptr %63, i64 48
-  %113 = load float, ptr %112, align 4
-  %114 = load float, ptr %63, align 4
+  %113 = load float, ptr %112, align 8
+  %114 = load float, ptr %63, align 8
   %115 = call float @llvm.fmuladd.f32(float %111, float %113, float %114)
   store float %115, ptr %110, align 4
   %116 = getelementptr inbounds nuw i8, ptr %109, i64 12
@@ -29424,9 +29424,9 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %49, %52
   %123 = getelementptr inbounds nuw i8, ptr %109, i64 16
   %124 = load float, ptr %123, align 4
   %125 = getelementptr inbounds nuw i8, ptr %63, i64 56
-  %126 = load float, ptr %125, align 4
+  %126 = load float, ptr %125, align 8
   %127 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %128 = load float, ptr %127, align 4
+  %128 = load float, ptr %127, align 8
   %129 = call float @llvm.fmuladd.f32(float %124, float %126, float %128)
   store float %129, ptr %123, align 4
   br label %245
@@ -29552,8 +29552,8 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit30: ; preds = %157, %160
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 8
   %219 = load float, ptr %218, align 4
   %220 = getelementptr inbounds nuw i8, ptr %171, i64 48
-  %221 = load float, ptr %220, align 4
-  %222 = load float, ptr %171, align 4
+  %221 = load float, ptr %220, align 8
+  %222 = load float, ptr %171, align 8
   %223 = call float @llvm.fmuladd.f32(float %219, float %221, float %222)
   store float %223, ptr %218, align 4
   %224 = getelementptr inbounds nuw i8, ptr %217, i64 12
@@ -29567,9 +29567,9 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit30: ; preds = %157, %160
   %231 = getelementptr inbounds nuw i8, ptr %217, i64 16
   %232 = load float, ptr %231, align 4
   %233 = getelementptr inbounds nuw i8, ptr %171, i64 56
-  %234 = load float, ptr %233, align 4
+  %234 = load float, ptr %233, align 8
   %235 = getelementptr inbounds nuw i8, ptr %171, i64 8
-  %236 = load float, ptr %235, align 4
+  %236 = load float, ptr %235, align 8
   %237 = call float @llvm.fmuladd.f32(float %232, float %234, float %236)
   store float %237, ptr %231, align 4
   br label %245

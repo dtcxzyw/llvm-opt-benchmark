@@ -251,7 +251,7 @@ define dso_local i32 @intel_lpe_audio_init(ptr noundef %0) local_unnamed_addr #0
   %94 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %93) #11, !srcloc !11
   %95 = getelementptr inbounds nuw i8, ptr %62, i64 436
   store i32 %94, ptr %95, align 4
-  %96 = load i32, ptr %3, align 4
+  %96 = load i32, ptr %3, align 8
   %97 = and i32 %96, 16777216
   %98 = icmp eq i32 %97, 0
   %99 = select i1 %98, i32 2, i32 3

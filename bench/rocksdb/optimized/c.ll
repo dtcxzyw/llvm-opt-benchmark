@@ -11376,7 +11376,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %28, ptr %.08.i.i.i.i.i, align 8, !tbaa !4
   %29 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 8
   store i64 0, ptr %29, align 8, !tbaa !15
-  store i8 0, ptr %28, align 1, !tbaa !14
+  store i8 0, ptr %28, align 8, !tbaa !14
   %30 = add i64 %.057.i.i.i.i.i, -1
   %31 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i50 = icmp eq i64 %30, 0
@@ -11979,7 +11979,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %31, ptr %.08.i.i.i.i.i, align 8, !tbaa !4
   %32 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 8
   store i64 0, ptr %32, align 8, !tbaa !15
-  store i8 0, ptr %31, align 1, !tbaa !14
+  store i8 0, ptr %31, align 8, !tbaa !14
   %33 = add i64 %.057.i.i.i.i.i, -1
   %34 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i65 = icmp eq i64 %33, 0
@@ -12029,7 +12029,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %47, ptr %.08.i.i.i.i.i73, align 8, !tbaa !4
   %48 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i73, i64 8
   store i64 0, ptr %48, align 8, !tbaa !15
-  store i8 0, ptr %47, align 1, !tbaa !14
+  store i8 0, ptr %47, align 8, !tbaa !14
   %49 = add i64 %.057.i.i.i.i.i74, -1
   %50 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i73, i64 32
   %.not.i.i.i.i.i75 = icmp eq i64 %49, 0
@@ -12620,7 +12620,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %41, ptr %.08.i.i.i.i.i, align 8, !tbaa !4
   %42 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 8
   store i64 0, ptr %42, align 8, !tbaa !15
-  store i8 0, ptr %41, align 1, !tbaa !14
+  store i8 0, ptr %41, align 8, !tbaa !14
   %43 = add i64 %.057.i.i.i.i.i, -1
   %44 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i59 = icmp eq i64 %43, 0
@@ -13088,7 +13088,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %44, ptr %.08.i.i.i.i.i, align 8, !tbaa !4
   %45 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 8
   store i64 0, ptr %45, align 8, !tbaa !15
-  store i8 0, ptr %44, align 1, !tbaa !14
+  store i8 0, ptr %44, align 8, !tbaa !14
   %46 = add i64 %.057.i.i.i.i.i, -1
   %47 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i74 = icmp eq i64 %46, 0
@@ -13150,7 +13150,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %66, ptr %.08.i.i.i.i.i82, align 8, !tbaa !4
   %67 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i82, i64 8
   store i64 0, ptr %67, align 8, !tbaa !15
-  store i8 0, ptr %66, align 1, !tbaa !14
+  store i8 0, ptr %66, align 8, !tbaa !14
   %68 = add i64 %.057.i.i.i.i.i83, -1
   %69 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i82, i64 32
   %.not.i.i.i.i.i84 = icmp eq i64 %68, 0
@@ -13604,7 +13604,7 @@ _ZNSt12_Vector_baseIN7rocksdb13PinnableSliceESaIS1_EEC2EmRKS2_.exit.i: ; preds =
   store ptr %39, ptr %38, align 8, !tbaa !4
   %40 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 56
   store i64 0, ptr %40, align 8, !tbaa !15
-  store i8 0, ptr %39, align 1, !tbaa !14
+  store i8 0, ptr %39, align 8, !tbaa !14
   %41 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 88
   store i8 0, ptr %41, align 8, !tbaa !257
   %42 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 80
@@ -13939,7 +13939,7 @@ define void @rocksdb_batched_multi_get_cf(ptr noundef readonly captures(none) %0
   store ptr %33, ptr %32, align 8, !tbaa !4
   %34 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 56
   store i64 0, ptr %34, align 8, !tbaa !15
-  store i8 0, ptr %33, align 1, !tbaa !14
+  store i8 0, ptr %33, align 8, !tbaa !14
   %35 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 88
   store i8 0, ptr %35, align 8, !tbaa !257
   %36 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 80
@@ -14038,7 +14038,7 @@ define void @rocksdb_batched_multi_get_cf(ptr noundef readonly captures(none) %0
   store ptr %75, ptr %74, align 8, !tbaa !4
   %76 = getelementptr inbounds nuw i8, ptr %70, i64 56
   store i64 0, ptr %76, align 8, !tbaa !15
-  store i8 0, ptr %75, align 1, !tbaa !14
+  store i8 0, ptr %75, align 8, !tbaa !14
   %77 = getelementptr inbounds nuw i8, ptr %70, i64 88
   store i8 0, ptr %77, align 8, !tbaa !257
   %78 = getelementptr inbounds nuw i8, ptr %70, i64 80
@@ -22558,7 +22558,7 @@ define noundef nonnull ptr @rocksdb_block_based_options_create() local_unnamed_a
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store i64 4096, ptr %14, align 8, !tbaa !484
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store i32 2, ptr %15, align 4, !tbaa !485
+  store i32 2, ptr %15, align 8, !tbaa !485
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 136
   store i32 0, ptr %16, align 8, !tbaa !486
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -24214,7 +24214,7 @@ _ZNSt12_Vector_baseIN7rocksdb6DbPathESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6
   store ptr %11, ptr %.013.i.i.i.i.i, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 8
   store i64 0, ptr %12, align 8, !tbaa !15
-  store i8 0, ptr %11, align 1, !tbaa !14
+  store i8 0, ptr %11, align 8, !tbaa !14
   %13 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 32
   store i64 0, ptr %13, align 8, !tbaa !626
   %14 = add i64 %.01012.i.i.i.i.i, -1
@@ -24616,7 +24616,7 @@ _ZNSt12_Vector_baseIN7rocksdb6DbPathESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6
   store ptr %11, ptr %.013.i.i.i.i.i, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 8
   store i64 0, ptr %12, align 8, !tbaa !15
-  store i8 0, ptr %11, align 1, !tbaa !14
+  store i8 0, ptr %11, align 8, !tbaa !14
   %13 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 32
   store i64 0, ptr %13, align 8, !tbaa !626
   %14 = add i64 %.01012.i.i.i.i.i, -1
@@ -31217,7 +31217,7 @@ define noundef nonnull ptr @rocksdb_dbpath_create(ptr noundef readonly captures(
   store ptr %6, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %7, align 8, !tbaa !15
-  store i8 0, ptr %6, align 1, !tbaa !14
+  store i8 0, ptr %6, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 0, ptr %8, align 8, !tbaa !626
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -32524,7 +32524,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %16, ptr %.08.i.i.i.i.i, align 8, !tbaa !4
   %17 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 8
   store i64 0, ptr %17, align 8, !tbaa !15
-  store i8 0, ptr %16, align 1, !tbaa !14
+  store i8 0, ptr %16, align 8, !tbaa !14
   %18 = add i64 %.057.i.i.i.i.i, -1
   %19 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq i64 %18, 0
@@ -32862,7 +32862,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %17, ptr %.08.i.i.i.i.i, align 8, !tbaa !4
   %18 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 8
   store i64 0, ptr %18, align 8, !tbaa !15
-  store i8 0, ptr %17, align 1, !tbaa !14
+  store i8 0, ptr %17, align 8, !tbaa !14
   %19 = add i64 %.057.i.i.i.i.i, -1
   %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq i64 %19, 0
@@ -33991,7 +33991,7 @@ define noundef nonnull ptr @rocksdb_get_column_family_metadata(ptr noundef reado
   store ptr %4, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %5, align 8, !tbaa !15
-  store i8 0, ptr %4, align 1, !tbaa !14
+  store i8 0, ptr %4, align 8, !tbaa !14
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false)
   %7 = load ptr, ptr %0, align 8, !tbaa !26
@@ -34015,7 +34015,7 @@ define noundef nonnull ptr @rocksdb_get_column_family_metadata_cf(ptr noundef re
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %6, align 8, !tbaa !15
-  store i8 0, ptr %5, align 1, !tbaa !14
+  store i8 0, ptr %5, align 8, !tbaa !14
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 64, i1 false)
   %8 = load ptr, ptr %0, align 8, !tbaa !26
@@ -36320,7 +36320,7 @@ define noundef ptr @rocksdb_transaction_get_pinned(ptr noundef readonly captures
   store ptr %13, ptr %12, align 8, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store i64 0, ptr %14, align 8, !tbaa !15
-  store i8 0, ptr %13, align 1, !tbaa !14
+  store i8 0, ptr %13, align 8, !tbaa !14
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 88
   store i8 0, ptr %15, align 8, !tbaa !257
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 80
@@ -36550,7 +36550,7 @@ define noundef ptr @rocksdb_transaction_get_pinned_cf(ptr noundef readonly captu
   store ptr %14, ptr %13, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store i64 0, ptr %15, align 8, !tbaa !15
-  store i8 0, ptr %14, align 1, !tbaa !14
+  store i8 0, ptr %14, align 8, !tbaa !14
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 88
   store i8 0, ptr %16, align 8, !tbaa !257
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 80
@@ -36781,7 +36781,7 @@ define noundef ptr @rocksdb_transaction_get_pinned_for_update(ptr noundef readon
   store ptr %14, ptr %13, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store i64 0, ptr %15, align 8, !tbaa !15
-  store i8 0, ptr %14, align 1, !tbaa !14
+  store i8 0, ptr %14, align 8, !tbaa !14
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 88
   store i8 0, ptr %16, align 8, !tbaa !257
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 80
@@ -37019,7 +37019,7 @@ define noundef ptr @rocksdb_transaction_get_pinned_for_update_cf(ptr noundef rea
   store ptr %15, ptr %14, align 8, !tbaa !4
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store i64 0, ptr %16, align 8, !tbaa !15
-  store i8 0, ptr %15, align 1, !tbaa !14
+  store i8 0, ptr %15, align 8, !tbaa !14
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 88
   store i8 0, ptr %17, align 8, !tbaa !257
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 80
@@ -37191,7 +37191,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %28, ptr %.08.i.i.i.i.i, align 8, !tbaa !4
   %29 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 8
   store i64 0, ptr %29, align 8, !tbaa !15
-  store i8 0, ptr %28, align 1, !tbaa !14
+  store i8 0, ptr %28, align 8, !tbaa !14
   %30 = add i64 %.057.i.i.i.i.i, -1
   %31 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i50 = icmp eq i64 %30, 0
@@ -37538,7 +37538,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %28, ptr %.08.i.i.i.i.i, align 8, !tbaa !4
   %29 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 8
   store i64 0, ptr %29, align 8, !tbaa !15
-  store i8 0, ptr %28, align 1, !tbaa !14
+  store i8 0, ptr %28, align 8, !tbaa !14
   %30 = add i64 %.057.i.i.i.i.i, -1
   %31 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i50 = icmp eq i64 %30, 0
@@ -37915,7 +37915,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %41, ptr %.08.i.i.i.i.i, align 8, !tbaa !4
   %42 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 8
   store i64 0, ptr %42, align 8, !tbaa !15
-  store i8 0, ptr %41, align 1, !tbaa !14
+  store i8 0, ptr %41, align 8, !tbaa !14
   %43 = add i64 %.057.i.i.i.i.i, -1
   %44 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i59 = icmp eq i64 %43, 0
@@ -38333,7 +38333,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %41, ptr %.08.i.i.i.i.i, align 8, !tbaa !4
   %42 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 8
   store i64 0, ptr %42, align 8, !tbaa !15
-  store i8 0, ptr %41, align 1, !tbaa !14
+  store i8 0, ptr %41, align 8, !tbaa !14
   %43 = add i64 %.057.i.i.i.i.i, -1
   %44 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i59 = icmp eq i64 %43, 0
@@ -38784,7 +38784,7 @@ define noundef ptr @rocksdb_transactiondb_get_pinned(ptr noundef readonly captur
   store ptr %13, ptr %12, align 8, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store i64 0, ptr %14, align 8, !tbaa !15
-  store i8 0, ptr %13, align 1, !tbaa !14
+  store i8 0, ptr %13, align 8, !tbaa !14
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 88
   store i8 0, ptr %15, align 8, !tbaa !257
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 80
@@ -39015,7 +39015,7 @@ define noundef ptr @rocksdb_transactiondb_get_pinned_cf(ptr noundef readonly cap
   store ptr %14, ptr %13, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store i64 0, ptr %15, align 8, !tbaa !15
-  store i8 0, ptr %14, align 1, !tbaa !14
+  store i8 0, ptr %14, align 8, !tbaa !14
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 88
   store i8 0, ptr %16, align 8, !tbaa !257
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 80
@@ -39186,7 +39186,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %28, ptr %.08.i.i.i.i.i, align 8, !tbaa !4
   %29 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 8
   store i64 0, ptr %29, align 8, !tbaa !15
-  store i8 0, ptr %28, align 1, !tbaa !14
+  store i8 0, ptr %28, align 8, !tbaa !14
   %30 = add i64 %.057.i.i.i.i.i, -1
   %31 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i50 = icmp eq i64 %30, 0
@@ -39560,7 +39560,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %41, ptr %.08.i.i.i.i.i, align 8, !tbaa !4
   %42 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 8
   store i64 0, ptr %42, align 8, !tbaa !15
-  store i8 0, ptr %41, align 1, !tbaa !14
+  store i8 0, ptr %41, align 8, !tbaa !14
   %43 = add i64 %.057.i.i.i.i.i, -1
   %44 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i59 = icmp eq i64 %43, 0
@@ -41957,7 +41957,7 @@ define noundef ptr @rocksdb_get_pinned(ptr noundef readonly captures(none) %0, p
   store ptr %13, ptr %12, align 8, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store i64 0, ptr %14, align 8, !tbaa !15
-  store i8 0, ptr %13, align 1, !tbaa !14
+  store i8 0, ptr %13, align 8, !tbaa !14
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 88
   store i8 0, ptr %15, align 8, !tbaa !257
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 80
@@ -42069,7 +42069,7 @@ define noundef ptr @rocksdb_get_pinned_cf(ptr noundef readonly captures(none) %0
   store ptr %14, ptr %13, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store i64 0, ptr %15, align 8, !tbaa !15
-  store i8 0, ptr %14, align 1, !tbaa !14
+  store i8 0, ptr %14, align 8, !tbaa !14
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 88
   store i8 0, ptr %16, align 8, !tbaa !257
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 80
@@ -44158,7 +44158,7 @@ define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_trait
   store ptr %19, ptr %.08.i.i.i, align 8, !tbaa !4
   %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 8
   store i64 0, ptr %20, align 8, !tbaa !15
-  store i8 0, ptr %19, align 1, !tbaa !14
+  store i8 0, ptr %19, align 8, !tbaa !14
   %21 = add i64 %.057.i.i.i, -1
   %22 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 32
   %.not.i.i.i = icmp eq i64 %21, 0
@@ -44192,7 +44192,7 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
   store ptr %31, ptr %.08.i.i.i31, align 8, !tbaa !4
   %32 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 8
   store i64 0, ptr %32, align 8, !tbaa !15
-  store i8 0, ptr %31, align 1, !tbaa !14
+  store i8 0, ptr %31, align 8, !tbaa !14
   %33 = add i64 %.057.i.i.i32, -1
   %34 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 32
   %.not.i.i.i33 = icmp eq i64 %33, 0
@@ -44238,7 +44238,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %45, ptr %47, align 8, !tbaa !15, !alias.scope !1336, !noalias !1339
   store ptr %37, ptr %.0911.i.i.i, align 8, !tbaa !12, !alias.scope !1339, !noalias !1336
   store i64 0, ptr %46, align 8, !tbaa !15, !alias.scope !1339, !noalias !1336
-  store i8 0, ptr %37, align 1, !tbaa !14, !alias.scope !1339, !noalias !1336
+  store i8 0, ptr %37, align 8, !tbaa !14, !alias.scope !1339, !noalias !1336
   %48 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i38 = icmp eq ptr %48, %5
@@ -50778,7 +50778,7 @@ _ZNSt16allocator_traitsISaIN7rocksdb22ColumnFamilyDescriptorEEE9constructIS1_JS1
   store i64 %60, ptr %62, align 8, !tbaa !15, !alias.scope !1443, !noalias !1446
   store ptr %52, ptr %.0911.i.i.i, align 8, !tbaa !12, !alias.scope !1446, !noalias !1443
   store i64 0, ptr %61, align 8, !tbaa !15, !alias.scope !1446, !noalias !1443
-  store i8 0, ptr %52, align 1, !tbaa !14, !alias.scope !1446, !noalias !1443
+  store i8 0, ptr %52, align 8, !tbaa !14, !alias.scope !1446, !noalias !1443
   %63 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %64 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   call void @_ZN7rocksdb19ColumnFamilyOptionsC2EOS0_(ptr noundef nonnull align 8 dereferenceable(832) %63, ptr noundef nonnull align 8 dereferenceable(832) %64) #44
@@ -50847,7 +50847,7 @@ _ZNSt16allocator_traitsISaIN7rocksdb22ColumnFamilyDescriptorEEE9constructIS1_JS1
   store i64 %84, ptr %86, align 8, !tbaa !15, !alias.scope !1450, !noalias !1453
   store ptr %76, ptr %.0911.i.i.i30, align 8, !tbaa !12, !alias.scope !1453, !noalias !1450
   store i64 0, ptr %85, align 8, !tbaa !15, !alias.scope !1453, !noalias !1450
-  store i8 0, ptr %76, align 1, !tbaa !14, !alias.scope !1453, !noalias !1450
+  store i8 0, ptr %76, align 8, !tbaa !14, !alias.scope !1453, !noalias !1450
   %87 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 32
   %88 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 32
   call void @_ZN7rocksdb19ColumnFamilyOptionsC2EOS0_(ptr noundef nonnull align 8 dereferenceable(832) %87, ptr noundef nonnull align 8 dereferenceable(832) %88) #44
@@ -51531,7 +51531,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %52, ptr %54, align 8, !tbaa !15, !alias.scope !1460, !noalias !1463
   store ptr %44, ptr %.0911.i.i.i, align 8, !tbaa !12, !alias.scope !1463, !noalias !1460
   store i64 0, ptr %53, align 8, !tbaa !15, !alias.scope !1463, !noalias !1460
-  store i8 0, ptr %44, align 1, !tbaa !14, !alias.scope !1463, !noalias !1460
+  store i8 0, ptr %44, align 8, !tbaa !14, !alias.scope !1463, !noalias !1460
   %55 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %56 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %55, %1
@@ -51579,7 +51579,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %68, ptr %70, align 8, !tbaa !15, !alias.scope !1466, !noalias !1469
   store ptr %60, ptr %.0911.i.i.i30, align 8, !tbaa !12, !alias.scope !1469, !noalias !1466
   store i64 0, ptr %69, align 8, !tbaa !15, !alias.scope !1469, !noalias !1466
-  store i8 0, ptr %60, align 1, !tbaa !14, !alias.scope !1469, !noalias !1466
+  store i8 0, ptr %60, align 8, !tbaa !14, !alias.scope !1469, !noalias !1466
   %71 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 32
   %72 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 32
   %.not.i.i.i35 = icmp eq ptr %71, %6
@@ -51963,7 +51963,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   store ptr %60, ptr %59, align 8, !tbaa !4
   %61 = getelementptr inbounds nuw i8, ptr %46, i64 48
   store i64 0, ptr %61, align 8, !tbaa !15
-  store i8 0, ptr %60, align 1, !tbaa !14
+  store i8 0, ptr %60, align 8, !tbaa !14
   store ptr %46, ptr %57, align 8, !tbaa !1488
   %62 = invoke ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %13, i64 noundef %7, ptr noundef nonnull %46, i64 noundef 1)
           to label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %63

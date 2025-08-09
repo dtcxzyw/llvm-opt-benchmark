@@ -1014,7 +1014,7 @@ pgstat_get_entry_ref_cached.exit:                 ; preds = %299
   %335 = getelementptr inbounds nuw i8, ptr %310, i64 8
   store ptr %330, ptr %335, align 8
   store ptr %316, ptr %310, align 8
-  %336 = load volatile i32, ptr %321, align 4
+  %336 = load volatile i32, ptr %321, align 8
   %337 = getelementptr inbounds nuw i8, ptr %310, i64 16
   store i32 %336, ptr %337, align 8
   br i1 %.not35, label %.thread, label %338
@@ -1075,7 +1075,7 @@ pgstat_get_entry_ref_cached.exit:                 ; preds = %299
   %368 = getelementptr inbounds nuw i8, ptr %310, i64 8
   store ptr %352, ptr %368, align 8
   store ptr %.031, ptr %310, align 8
-  %369 = load volatile i32, ptr %355, align 4
+  %369 = load volatile i32, ptr %355, align 8
   %370 = getelementptr inbounds nuw i8, ptr %310, i64 16
   store i32 %369, ptr %370, align 8
   br i1 %.not35, label %389, label %371
@@ -1108,7 +1108,7 @@ pgstat_get_entry_ref_cached.exit:                 ; preds = %299
   store ptr %381, ptr %385, align 8
   store ptr %.031, ptr %310, align 8
   %386 = getelementptr inbounds nuw i8, ptr %.031, i64 24
-  %387 = load volatile i32, ptr %386, align 4
+  %387 = load volatile i32, ptr %386, align 8
   %388 = getelementptr inbounds nuw i8, ptr %310, i64 16
   store i32 %387, ptr %388, align 8
   br label %389

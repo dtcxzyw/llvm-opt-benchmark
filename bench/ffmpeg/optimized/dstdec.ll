@@ -200,7 +200,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %70 = load i8, ptr %32, align 1, !tbaa !47
   store i32 5, ptr %44, align 8, !tbaa !46
   %71 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  store i32 1, ptr %71, align 4, !tbaa !48
+  store i32 1, ptr %71, align 8, !tbaa !48
   store i32 0, ptr %5, align 16, !tbaa !50
   %72 = load i8, ptr %32, align 1, !tbaa !47
   store i32 6, ptr %44, align 8, !tbaa !46

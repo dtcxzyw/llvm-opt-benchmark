@@ -30,7 +30,7 @@ define ptr @av_frame_alloc() local_unnamed_addr #0 {
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 156
   store i32 1, ptr %.sroa.22.0..sroa_idx.i, align 4, !tbaa !22
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 128
-  store i32 1, ptr %.sroa.2.0..sroa_idx.i, align 4, !tbaa !22
+  store i32 1, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !22
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 116
   store i32 -1, ptr %7, align 4, !tbaa !23
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -144,7 +144,7 @@ define void @av_frame_unref(ptr noundef %0) local_unnamed_addr #0 {
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i32 1, ptr %.sroa.22.0..sroa_idx.i, align 4, !tbaa !22
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i32 1, ptr %.sroa.2.0..sroa_idx.i, align 4, !tbaa !22
+  store i32 1, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !22
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 -1, ptr %32, align 4, !tbaa !23
   store ptr %0, ptr %17, align 8, !tbaa !24
@@ -1411,7 +1411,7 @@ define ptr @av_frame_clone(ptr noundef %0) local_unnamed_addr #0 {
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 156
   store i32 1, ptr %.sroa.22.0..sroa_idx.i.i, align 4, !tbaa !22
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 128
-  store i32 1, ptr %.sroa.2.0..sroa_idx.i.i, align 4, !tbaa !22
+  store i32 1, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 116
   store i32 -1, ptr %9, align 4, !tbaa !23
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 96
@@ -1469,7 +1469,7 @@ define void @av_frame_move_ref(ptr noundef initializes((0, 416)) %0, ptr noundef
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 156
   store i32 1, ptr %.sroa.22.0..sroa_idx.i, align 4, !tbaa !22
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 128
-  store i32 1, ptr %.sroa.2.0..sroa_idx.i, align 4, !tbaa !22
+  store i32 1, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !22
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 116
   store i32 -1, ptr %13, align 4, !tbaa !23
   store ptr %1, ptr %3, align 8, !tbaa !24

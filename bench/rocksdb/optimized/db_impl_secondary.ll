@@ -1171,7 +1171,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %25
   store i64 %32, ptr %33, align 32, !tbaa !16
   store ptr %23, ptr %3, align 8, !tbaa !11
   store i64 0, ptr %31, align 8, !tbaa !16
-  store i8 0, ptr %23, align 1, !tbaa !17
+  store i8 0, ptr %23, align 8, !tbaa !17
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 928
   invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull @.str.40, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.41, i64 93))
           to label %35 unwind label %37
@@ -6379,7 +6379,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i:
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %9, ptr %8, align 8, !tbaa !39
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i8 0, ptr %9, align 1, !tbaa !17
+  store i8 0, ptr %9, align 8, !tbaa !17
   %11 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #29
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr null, ptr %12, align 8, !tbaa !51
@@ -13295,19 +13295,19 @@ define linkonce_odr void @_ZN7rocksdb19SuperVersionContext15NewSuperVersionEv(pt
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 280
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 312
-  store i32 1, ptr %5, align 4, !tbaa !1201
+  store i32 1, ptr %5, align 8, !tbaa !1201
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 316
   store i32 2, ptr %6, align 4, !tbaa !1202
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 320
-  store i32 -1, ptr %7, align 4, !tbaa !1203
+  store i32 -1, ptr %7, align 8, !tbaa !1203
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 324
   store i32 200, ptr %8, align 4, !tbaa !1204
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 328
-  store i32 -1, ptr %9, align 4, !tbaa !1205
+  store i32 -1, ptr %9, align 8, !tbaa !1205
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 332
   store i32 -1, ptr %10, align 4, !tbaa !1206
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 336
-  store i32 1, ptr %11, align 4, !tbaa !1207
+  store i32 1, ptr %11, align 8, !tbaa !1207
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 341
   store i8 0, ptr %12, align 1, !tbaa !1208
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 344
@@ -13363,7 +13363,7 @@ define linkonce_odr void @_ZN7rocksdb19SuperVersionContext15NewSuperVersionEv(pt
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 656
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 672
   store ptr %39, ptr %38, align 8, !tbaa !39
-  store i8 0, ptr %39, align 1, !tbaa !17
+  store i8 0, ptr %39, align 8, !tbaa !17
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 688
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 784
@@ -16422,19 +16422,19 @@ define linkonce_odr void @_ZN7rocksdb19SuperVersionContextC2Eb(ptr noundef nonnu
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 280
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 312
-  store i32 1, ptr %14, align 4, !tbaa !1201
+  store i32 1, ptr %14, align 8, !tbaa !1201
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 316
   store i32 2, ptr %15, align 4, !tbaa !1202
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 320
-  store i32 -1, ptr %16, align 4, !tbaa !1203
+  store i32 -1, ptr %16, align 8, !tbaa !1203
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 324
   store i32 200, ptr %17, align 4, !tbaa !1204
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 328
-  store i32 -1, ptr %18, align 4, !tbaa !1205
+  store i32 -1, ptr %18, align 8, !tbaa !1205
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 332
   store i32 -1, ptr %19, align 4, !tbaa !1206
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 336
-  store i32 1, ptr %20, align 4, !tbaa !1207
+  store i32 1, ptr %20, align 8, !tbaa !1207
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 341
   store i8 0, ptr %21, align 1, !tbaa !1208
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 344
@@ -16490,7 +16490,7 @@ define linkonce_odr void @_ZN7rocksdb19SuperVersionContextC2Eb(ptr noundef nonnu
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 656
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 672
   store ptr %48, ptr %47, align 8, !tbaa !39
-  store i8 0, ptr %48, align 1, !tbaa !17
+  store i8 0, ptr %48, align 8, !tbaa !17
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 688
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false)
   %50 = getelementptr inbounds nuw i8, ptr %10, i64 784
@@ -22761,7 +22761,7 @@ _ZNSt12_Vector_baseIN7rocksdb13PinnableSliceESaIS1_EEC2EmRKS2_.exit.i: ; preds =
   store ptr %39, ptr %38, align 8, !tbaa !39
   %40 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 56
   store i64 0, ptr %40, align 8, !tbaa !16
-  store i8 0, ptr %39, align 1, !tbaa !17
+  store i8 0, ptr %39, align 8, !tbaa !17
   %41 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 88
   store i8 0, ptr %41, align 8, !tbaa !1421
   %42 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 80
@@ -29569,7 +29569,7 @@ define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_trait
   store ptr %19, ptr %.08.i.i.i, align 8, !tbaa !39
   %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 8
   store i64 0, ptr %20, align 8, !tbaa !16
-  store i8 0, ptr %19, align 1, !tbaa !17
+  store i8 0, ptr %19, align 8, !tbaa !17
   %21 = add i64 %.057.i.i.i, -1
   %22 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 32
   %.not.i.i.i = icmp eq i64 %21, 0
@@ -29603,7 +29603,7 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
   store ptr %31, ptr %.08.i.i.i31, align 8, !tbaa !39
   %32 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 8
   store i64 0, ptr %32, align 8, !tbaa !16
-  store i8 0, ptr %31, align 1, !tbaa !17
+  store i8 0, ptr %31, align 8, !tbaa !17
   %33 = add i64 %.057.i.i.i32, -1
   %34 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 32
   %.not.i.i.i33 = icmp eq i64 %33, 0
@@ -29649,7 +29649,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %45, ptr %47, align 8, !tbaa !16, !alias.scope !1541, !noalias !1544
   store ptr %37, ptr %.0911.i.i.i, align 8, !tbaa !11, !alias.scope !1544, !noalias !1541
   store i64 0, ptr %46, align 8, !tbaa !16, !alias.scope !1544, !noalias !1541
-  store i8 0, ptr %37, align 1, !tbaa !17, !alias.scope !1544, !noalias !1541
+  store i8 0, ptr %37, align 8, !tbaa !17, !alias.scope !1544, !noalias !1541
   %48 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i38 = icmp eq ptr %48, %5
@@ -31175,7 +31175,7 @@ _ZNSt16allocator_traitsISaIN7rocksdb22ColumnFamilyDescriptorEEE9constructIS1_JS1
   store i64 %60, ptr %62, align 8, !tbaa !16, !alias.scope !1568, !noalias !1571
   store ptr %52, ptr %.0911.i.i.i, align 8, !tbaa !11, !alias.scope !1571, !noalias !1568
   store i64 0, ptr %61, align 8, !tbaa !16, !alias.scope !1571, !noalias !1568
-  store i8 0, ptr %52, align 1, !tbaa !17, !alias.scope !1571, !noalias !1568
+  store i8 0, ptr %52, align 8, !tbaa !17, !alias.scope !1571, !noalias !1568
   %63 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %64 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   call void @_ZN7rocksdb19ColumnFamilyOptionsC2EOS0_(ptr noundef nonnull align 8 dereferenceable(832) %63, ptr noundef nonnull align 8 dereferenceable(832) %64) #27
@@ -31244,7 +31244,7 @@ _ZNSt16allocator_traitsISaIN7rocksdb22ColumnFamilyDescriptorEEE9constructIS1_JS1
   store i64 %84, ptr %86, align 8, !tbaa !16, !alias.scope !1575, !noalias !1578
   store ptr %76, ptr %.0911.i.i.i30, align 8, !tbaa !11, !alias.scope !1578, !noalias !1575
   store i64 0, ptr %85, align 8, !tbaa !16, !alias.scope !1578, !noalias !1575
-  store i8 0, ptr %76, align 1, !tbaa !17, !alias.scope !1578, !noalias !1575
+  store i8 0, ptr %76, align 8, !tbaa !17, !alias.scope !1578, !noalias !1575
   %87 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 32
   %88 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 32
   call void @_ZN7rocksdb19ColumnFamilyOptionsC2EOS0_(ptr noundef nonnull align 8 dereferenceable(832) %87, ptr noundef nonnull align 8 dereferenceable(832) %88) #27
@@ -32747,7 +32747,7 @@ _ZNSt16allocator_traitsISaIN7rocksdb22ColumnFamilyDescriptorEEE9constructIS1_JS1
   store i64 %60, ptr %62, align 8, !tbaa !16, !alias.scope !1598, !noalias !1601
   store ptr %52, ptr %.0911.i.i.i, align 8, !tbaa !11, !alias.scope !1601, !noalias !1598
   store i64 0, ptr %61, align 8, !tbaa !16, !alias.scope !1601, !noalias !1598
-  store i8 0, ptr %52, align 1, !tbaa !17, !alias.scope !1601, !noalias !1598
+  store i8 0, ptr %52, align 8, !tbaa !17, !alias.scope !1601, !noalias !1598
   %63 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %64 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   call void @_ZN7rocksdb19ColumnFamilyOptionsC2EOS0_(ptr noundef nonnull align 8 dereferenceable(832) %63, ptr noundef nonnull align 8 dereferenceable(832) %64) #27
@@ -32816,7 +32816,7 @@ _ZNSt16allocator_traitsISaIN7rocksdb22ColumnFamilyDescriptorEEE9constructIS1_JS1
   store i64 %84, ptr %86, align 8, !tbaa !16, !alias.scope !1604, !noalias !1607
   store ptr %76, ptr %.0911.i.i.i29, align 8, !tbaa !11, !alias.scope !1607, !noalias !1604
   store i64 0, ptr %85, align 8, !tbaa !16, !alias.scope !1607, !noalias !1604
-  store i8 0, ptr %76, align 1, !tbaa !17, !alias.scope !1607, !noalias !1604
+  store i8 0, ptr %76, align 8, !tbaa !17, !alias.scope !1607, !noalias !1604
   %87 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %88 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   call void @_ZN7rocksdb19ColumnFamilyOptionsC2EOS0_(ptr noundef nonnull align 8 dereferenceable(832) %87, ptr noundef nonnull align 8 dereferenceable(832) %88) #27

@@ -2966,7 +2966,7 @@ define hidden void @"_ZN76_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
   %62 = getelementptr inbounds i8, ptr %55, i64 -16
   %.val2.i.i.i = load ptr, ptr %62, align 8, !alias.scope !1168, !noalias !1171, !nonnull !4, !noundef !4
   %63 = getelementptr inbounds i8, ptr %55, i64 -8
-  %.val3.i.i.i = load i8, ptr %63, align 1, !alias.scope !1168, !noalias !1171
+  %.val3.i.i.i = load i8, ptr %63, align 8, !alias.scope !1168, !noalias !1171
   %64 = atomicrmw add ptr %.val2.i.i.i, i64 1 monotonic, align 8, !noalias !1173
   %65 = icmp slt i64 %64, 0
   br i1 %65, label %66, label %67
@@ -3472,7 +3472,7 @@ define hidden void @"_ZN87_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
   %41 = getelementptr inbounds i8, ptr %34, i64 -16
   %.val2.i.i = load ptr, ptr %41, align 8, !alias.scope !1195, !noalias !1198, !nonnull !4, !noundef !4
   %42 = getelementptr inbounds i8, ptr %34, i64 -8
-  %.val3.i.i = load i8, ptr %42, align 1, !alias.scope !1195, !noalias !1198
+  %.val3.i.i = load i8, ptr %42, align 8, !alias.scope !1195, !noalias !1198
   %43 = atomicrmw add ptr %.val2.i.i, i64 1 monotonic, align 8, !noalias !1200
   %44 = icmp slt i64 %43, 0
   br i1 %44, label %45, label %46
@@ -13674,7 +13674,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   %45 = getelementptr inbounds i8, ptr %38, i64 -16
   %.val2.i = load ptr, ptr %45, align 8, !alias.scope !3383, !noalias !3386, !nonnull !4, !noundef !4
   %46 = getelementptr inbounds i8, ptr %38, i64 -8
-  %.val3.i = load i8, ptr %46, align 1, !alias.scope !3383, !noalias !3386
+  %.val3.i = load i8, ptr %46, align 8, !alias.scope !3383, !noalias !3386
   %47 = atomicrmw add ptr %.val2.i, i64 1 monotonic, align 8, !noalias !3388
   %48 = icmp slt i64 %47, 0
   br i1 %48, label %49, label %50

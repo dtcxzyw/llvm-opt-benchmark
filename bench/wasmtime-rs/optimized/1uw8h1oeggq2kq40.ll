@@ -2645,7 +2645,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %40 = load i128, ptr %39, align 16, !alias.scope !648, !noalias !652
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !654
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.013.062, i64 64
-  %.val5.i = load ptr, ptr %41, align 8, !alias.scope !648, !noalias !652, !nonnull !24, !noundef !24
+  %.val5.i = load ptr, ptr %41, align 16, !alias.scope !648, !noalias !652, !nonnull !24, !noundef !24
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.013.062, i64 72
   %.val6.i = load i64, ptr %42, align 8, !alias.scope !648, !noalias !652, !noundef !24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !666)

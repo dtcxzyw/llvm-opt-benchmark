@@ -24772,7 +24772,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %62, ptr %64, align 8, !tbaa !21, !alias.scope !352, !noalias !355
   store ptr %54, ptr %.0911.i.i.i, align 8, !tbaa !13, !alias.scope !355, !noalias !352
   store i64 0, ptr %63, align 8, !tbaa !21, !alias.scope !355, !noalias !352
-  store i8 0, ptr %54, align 1, !tbaa !20, !alias.scope !355, !noalias !352
+  store i8 0, ptr %54, align 8, !tbaa !20, !alias.scope !355, !noalias !352
   %65 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 48
@@ -24806,7 +24806,7 @@ _ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store i64 %77, ptr %79, align 8, !tbaa !21, !alias.scope !352, !noalias !355
   store ptr %69, ptr %66, align 8, !tbaa !13, !alias.scope !355, !noalias !352
   store i64 0, ptr %78, align 8, !tbaa !21, !alias.scope !355, !noalias !352
-  store i8 0, ptr %69, align 1, !tbaa !20, !alias.scope !355, !noalias !352
+  store i8 0, ptr %69, align 8, !tbaa !20, !alias.scope !355, !noalias !352
   %80 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 64
   %81 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 64
   %.not.i.i.i = icmp eq ptr %80, %1
@@ -24854,7 +24854,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i2
   store i64 %93, ptr %95, align 8, !tbaa !21, !alias.scope !359, !noalias !362
   store ptr %85, ptr %.0911.i.i.i19, align 8, !tbaa !13, !alias.scope !362, !noalias !359
   store i64 0, ptr %94, align 8, !tbaa !21, !alias.scope !362, !noalias !359
-  store i8 0, ptr %85, align 1, !tbaa !20, !alias.scope !362, !noalias !359
+  store i8 0, ptr %85, align 8, !tbaa !20, !alias.scope !362, !noalias !359
   %96 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %97 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %98 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 48
@@ -24888,7 +24888,7 @@ _ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store i64 %108, ptr %110, align 8, !tbaa !21, !alias.scope !359, !noalias !362
   store ptr %100, ptr %97, align 8, !tbaa !13, !alias.scope !362, !noalias !359
   store i64 0, ptr %109, align 8, !tbaa !21, !alias.scope !362, !noalias !359
-  store i8 0, ptr %100, align 1, !tbaa !20, !alias.scope !362, !noalias !359
+  store i8 0, ptr %100, align 8, !tbaa !20, !alias.scope !362, !noalias !359
   %111 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 64
   %112 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 64
   %.not.i.i.i28 = icmp eq ptr %111, %5
@@ -25046,7 +25046,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !tbaa !21, !alias.scope !365, !noalias !368
   store ptr %43, ptr %.0911.i.i.i, align 8, !tbaa !13, !alias.scope !368, !noalias !365
   store i64 0, ptr %52, align 8, !tbaa !21, !alias.scope !368, !noalias !365
-  store i8 0, ptr %43, align 1, !tbaa !20, !alias.scope !368, !noalias !365
+  store i8 0, ptr %43, align 8, !tbaa !20, !alias.scope !368, !noalias !365
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %54, %1
@@ -25094,7 +25094,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !tbaa !21, !alias.scope !372, !noalias !375
   store ptr %59, ptr %.0911.i.i.i29, align 8, !tbaa !13, !alias.scope !375, !noalias !372
   store i64 0, ptr %68, align 8, !tbaa !21, !alias.scope !375, !noalias !372
-  store i8 0, ptr %59, align 1, !tbaa !20, !alias.scope !375, !noalias !372
+  store i8 0, ptr %59, align 8, !tbaa !20, !alias.scope !375, !noalias !372
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %.not.i.i.i34 = icmp eq ptr %70, %6
@@ -68132,7 +68132,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !21, !alias.scope !873, !noalias !876
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !13, !alias.scope !876, !noalias !873
   store i64 0, ptr %48, align 8, !tbaa !21, !alias.scope !876, !noalias !873
-  store i8 0, ptr %39, align 1, !tbaa !20, !alias.scope !876, !noalias !873
+  store i8 0, ptr %39, align 8, !tbaa !20, !alias.scope !876, !noalias !873
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -68180,7 +68180,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !21, !alias.scope !879, !noalias !882
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !13, !alias.scope !882, !noalias !879
   store i64 0, ptr %64, align 8, !tbaa !21, !alias.scope !882, !noalias !879
-  store i8 0, ptr %55, align 1, !tbaa !20, !alias.scope !882, !noalias !879
+  store i8 0, ptr %55, align 8, !tbaa !20, !alias.scope !882, !noalias !879
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5

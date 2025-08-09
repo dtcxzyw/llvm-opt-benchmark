@@ -4841,7 +4841,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi18EEERS2_RAT__Kc.exit: ; pr
   store i64 1, ptr %186, align 8, !tbaa !61, !noalias !209
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_117XdsOverrideHostLb15SubchannelEntryE, i64 16), ptr %183, align 8, !tbaa !6, !noalias !209
   %187 = getelementptr inbounds nuw i8, ptr %183, i64 40
-  store i32 0, ptr %187, align 4, !tbaa !212, !noalias !209
+  store i32 0, ptr %187, align 8, !tbaa !212, !noalias !209
   %188 = getelementptr inbounds nuw i8, ptr %183, i64 48
   store ptr null, ptr %188, align 8, !tbaa !179, !noalias !209
   %189 = getelementptr inbounds nuw i8, ptr %183, i64 56
@@ -9168,7 +9168,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !31, !alias.scope !342, !noalias !345
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !39, !alias.scope !345, !noalias !342
   store i64 0, ptr %48, align 8, !tbaa !31, !alias.scope !345, !noalias !342
-  store i8 0, ptr %39, align 1, !tbaa !16, !alias.scope !345, !noalias !342
+  store i8 0, ptr %39, align 8, !tbaa !16, !alias.scope !345, !noalias !342
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -9216,7 +9216,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !31, !alias.scope !349, !noalias !352
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !39, !alias.scope !352, !noalias !349
   store i64 0, ptr %64, align 8, !tbaa !31, !alias.scope !352, !noalias !349
-  store i8 0, ptr %55, align 1, !tbaa !16, !alias.scope !352, !noalias !349
+  store i8 0, ptr %55, align 8, !tbaa !16, !alias.scope !352, !noalias !349
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5

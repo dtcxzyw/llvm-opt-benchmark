@@ -13524,7 +13524,7 @@ _ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev.exi
   store ptr %13, ptr %9, align 8, !tbaa !42
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %14, align 8, !tbaa !46
-  store i8 0, ptr %13, align 1, !tbaa !47
+  store i8 0, ptr %13, align 8, !tbaa !47
   %15 = load ptr, ptr %8, align 8, !tbaa !376
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %16, ptr %8, align 8, !tbaa !376
@@ -17951,7 +17951,7 @@ define linkonce_odr dso_local void @_ZN12V3ConfigFile6updateERKS_(ptr noundef no
 .lr.ph.i.i.i:                                     ; preds = %47
   %49 = load i32, ptr %48, align 4, !tbaa !4
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.019.031, i64 36
-  %51 = load i8, ptr %50, align 1
+  %51 = load i8, ptr %50, align 4
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.019.031, i64 37
   %53 = load i8, ptr %52, align 1, !range !17
   br label %54

@@ -1834,7 +1834,7 @@ entry:
   %2 = load i16, ptr %m_limits.i, align 2, !tbaa !109
   %add.i.i = add i16 %2, %ipos.sroa.0.0.extract.trunc.i
   %Y.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load i16, ptr %Y.i.i, align 2, !tbaa !15
+  %3 = load i16, ptr %Y.i.i, align 8, !tbaa !15
   %add8.i.i = add i16 %3, %ipos.sroa.2.0.extract.trunc.i
   %Z.i.i = getelementptr inbounds nuw i8, ptr %0, i64 42
   %4 = load i16, ptr %Z.i.i, align 2, !tbaa !16
@@ -1961,7 +1961,7 @@ if.end46:                                         ; preds = %_ZNK14NodeDefManage
   %pos = getelementptr inbounds nuw i8, ptr %p_node, i64 18
   store i16 %add.i.i, ptr %pos, align 2, !tbaa !14
   %realpos.sroa.9.0.pos.sroa_idx = getelementptr inbounds nuw i8, ptr %p_node, i64 20
-  store i16 %add8.i.i, ptr %realpos.sroa.9.0.pos.sroa_idx, align 2, !tbaa !14
+  store i16 %add8.i.i, ptr %realpos.sroa.9.0.pos.sroa_idx, align 4, !tbaa !14
   %realpos.sroa.10.0.pos.sroa_idx = getelementptr inbounds nuw i8, ptr %p_node, i64 22
   store i16 %add13.i.i, ptr %realpos.sroa.10.0.pos.sroa_idx, align 2, !tbaa !14
   %type47 = getelementptr inbounds nuw i8, ptr %p_node, i64 91

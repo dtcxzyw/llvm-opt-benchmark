@@ -11424,7 +11424,7 @@ _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache
   tail call void @llvm.assume(i1 %cmp.i.i)
   %conv.i.i.i = trunc i64 %newCapacityScale to i16
   %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i2.i.i7.i, i64 12
-  store i16 %conv.i.i.i, ptr %arrayidx.i.i.i.i.i, align 1
+  store i16 %conv.i.i.i, ptr %arrayidx.i.i.i.i.i, align 2
   store ptr %call5.i.i2.i.i7.i, ptr %chunks_, align 8
   %3 = trunc i64 %newChunkCount to i32
   %conv = add i32 %3, -1
@@ -14046,7 +14046,7 @@ invoke.cont95:                                    ; preds = %if.end94
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !278
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly5BatonILb1ESt6atomicEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i28, align 8, !noalias !278
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i28, i64 16
-  store i32 0, ptr %_M_impl.i.i.i.i.i.i, align 4, !noalias !278
+  store i32 0, ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !278
   store ptr %call5.i.i.i2.i.i.i.i28, ptr %_M_refcount.i.i.i, align 8, !alias.scope !278
   store ptr %_M_impl.i.i.i.i.i.i, ptr %destroy_baton, align 8, !alias.scope !278
   tail call void @llvm.experimental.noalias.scope.decl(metadata !281)
@@ -14062,7 +14062,7 @@ invoke.cont98:                                    ; preds = %invoke.cont95
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i31, align 4, !noalias !281
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6atomicIbESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i33, align 8, !noalias !281
   %_M_impl.i.i.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i33, i64 16
-  store i8 0, ptr %_M_impl.i.i.i.i.i.i32, align 1, !noalias !281
+  store i8 0, ptr %_M_impl.i.i.i.i.i.i32, align 8, !noalias !281
   store ptr %call5.i.i.i2.i.i.i.i33, ptr %_M_refcount.i.i.i29, align 8, !alias.scope !281
   store ptr %_M_impl.i.i.i.i.i.i32, ptr %print_destructor_stack_trace, align 8, !alias.scope !281
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %this, i64 2240

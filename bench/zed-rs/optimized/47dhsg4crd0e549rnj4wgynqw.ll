@@ -104214,7 +104214,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.2840939845381089846.exit.
 69:                                               ; preds = %"_ZN4core3ptr85drop_in_place$LT$std..sync..mutex..MutexGuard$LT$std..sync..mpmc..zero..Inner$GT$$GT$17h54d763187bf0b526E.llvm.2840939845381089846.exit"
   store ptr %67, ptr %.val, align 8
   %70 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  store atomic i8 1, ptr %70 release, align 1
+  store atomic i8 1, ptr %70 release, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22782)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22785)
@@ -105309,7 +105309,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.2840939845381089846.exit.
   %65 = getelementptr inbounds nuw i8, ptr %.val, i64 4
   store i32 %1, ptr %65, align 4
   %66 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  store atomic i8 1, ptr %66 release, align 1
+  store atomic i8 1, ptr %66 release, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23043)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23046)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23049)
@@ -105784,7 +105784,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.2840939845381089846.exit.
   %.sroa.638.0..val.sroa_idx = getelementptr inbounds nuw i8, ptr %.val, i64 16
   store i64 %.sroa.638.0.copyload, ptr %.sroa.638.0..val.sroa_idx, align 8, !noalias !23144
   %68 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  store atomic i8 1, ptr %68 release, align 1, !noalias !23147
+  store atomic i8 1, ptr %68 release, align 8, !noalias !23147
   br label %70
 
 "_ZN3std4sync4mpmc4zero16Channel$LT$T$GT$5write17h0ae5a19a034d4cf1E.exit": ; preds = %"_ZN4core3ptr85drop_in_place$LT$std..sync..mutex..MutexGuard$LT$std..sync..mpmc..zero..Inner$GT$$GT$17h54d763187bf0b526E.llvm.2840939845381089846.exit"

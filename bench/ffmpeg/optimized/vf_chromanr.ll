@@ -154,7 +154,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %65 = load ptr, ptr %64, align 8, !tbaa !38
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 96
-  %67 = load i32, ptr %66, align 4, !tbaa !50
+  %67 = load i32, ptr %66, align 8, !tbaa !50
   %68 = getelementptr inbounds nuw i8, ptr %10, i64 100
   %69 = load i32, ptr %68, align 4, !tbaa !50
   %. = tail call i32 @llvm.smin.i32(i32 %67, i32 %69)
@@ -209,11 +209,11 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 100
   store i32 %30, ptr %32, align 4, !tbaa !50
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  store i32 %30, ptr %33, align 4, !tbaa !50
+  store i32 %30, ptr %33, align 8, !tbaa !50
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %35 = load i32, ptr %34, align 4, !tbaa !48
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  store i32 %35, ptr %36, align 4, !tbaa !50
+  store i32 %35, ptr %36, align 8, !tbaa !50
   store i32 %35, ptr %31, align 4, !tbaa !50
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load i32, ptr %37, align 8, !tbaa !47
@@ -224,11 +224,11 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 116
   store i32 %41, ptr %43, align 4, !tbaa !50
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  store i32 %41, ptr %44, align 4, !tbaa !50
+  store i32 %41, ptr %44, align 8, !tbaa !50
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %46 = load i32, ptr %45, align 8, !tbaa !47
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  store i32 %46, ptr %47, align 4, !tbaa !50
+  store i32 %46, ptr %47, align 8, !tbaa !50
   store i32 %46, ptr %42, align 4, !tbaa !50
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 76
   %49 = load i32, ptr %6, align 4, !tbaa !51
@@ -271,9 +271,9 @@ define internal noundef i32 @manhattan_slice8(ptr noundef readonly captures(none
   %33 = load i32, ptr %32, align 4, !tbaa !40
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 92
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %36 = load i32, ptr %35, align 4, !tbaa !50
+  %36 = load i32, ptr %35, align 8, !tbaa !50
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  %38 = load i32, ptr %37, align 4, !tbaa !50
+  %38 = load i32, ptr %37, align 8, !tbaa !50
   %39 = mul nsw i32 %36, %2
   %40 = sdiv i32 %39, %3
   %41 = add nsw i32 %2, 1
@@ -556,9 +556,9 @@ define internal noundef i32 @manhattan_slice16(ptr noundef readonly captures(non
   %33 = load i32, ptr %32, align 4, !tbaa !40
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 92
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %36 = load i32, ptr %35, align 4, !tbaa !50
+  %36 = load i32, ptr %35, align 8, !tbaa !50
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  %38 = load i32, ptr %37, align 4, !tbaa !50
+  %38 = load i32, ptr %37, align 8, !tbaa !50
   %39 = mul nsw i32 %36, %2
   %40 = sdiv i32 %39, %3
   %41 = add nsw i32 %2, 1
@@ -840,9 +840,9 @@ define internal noundef i32 @euclidean_slice8(ptr noundef readonly captures(none
   %33 = load i32, ptr %32, align 4, !tbaa !40
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 92
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %36 = load i32, ptr %35, align 4, !tbaa !50
+  %36 = load i32, ptr %35, align 8, !tbaa !50
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  %38 = load i32, ptr %37, align 4, !tbaa !50
+  %38 = load i32, ptr %37, align 8, !tbaa !50
   %39 = mul nsw i32 %36, %2
   %40 = sdiv i32 %39, %3
   %41 = add nsw i32 %2, 1
@@ -1128,9 +1128,9 @@ define internal noundef i32 @euclidean_slice16(ptr noundef readonly captures(non
   %33 = load i32, ptr %32, align 4, !tbaa !40
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 92
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %36 = load i32, ptr %35, align 4, !tbaa !50
+  %36 = load i32, ptr %35, align 8, !tbaa !50
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  %38 = load i32, ptr %37, align 4, !tbaa !50
+  %38 = load i32, ptr %37, align 8, !tbaa !50
   %39 = mul nsw i32 %36, %2
   %40 = sdiv i32 %39, %3
   %41 = add nsw i32 %2, 1
@@ -1425,9 +1425,9 @@ define internal noundef i32 @manhattan_e_slice8(ptr noundef readonly captures(no
   %39 = load i32, ptr %38, align 8, !tbaa !46
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 92
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %42 = load i32, ptr %41, align 4, !tbaa !50
+  %42 = load i32, ptr %41, align 8, !tbaa !50
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  %44 = load i32, ptr %43, align 4, !tbaa !50
+  %44 = load i32, ptr %43, align 8, !tbaa !50
   %45 = mul nsw i32 %42, %2
   %46 = sdiv i32 %45, %3
   %47 = add nsw i32 %2, 1
@@ -1722,9 +1722,9 @@ define internal noundef i32 @manhattan_e_slice16(ptr noundef readonly captures(n
   %39 = load i32, ptr %38, align 8, !tbaa !46
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 92
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %42 = load i32, ptr %41, align 4, !tbaa !50
+  %42 = load i32, ptr %41, align 8, !tbaa !50
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  %44 = load i32, ptr %43, align 4, !tbaa !50
+  %44 = load i32, ptr %43, align 8, !tbaa !50
   %45 = mul nsw i32 %42, %2
   %46 = sdiv i32 %45, %3
   %47 = add nsw i32 %2, 1
@@ -2018,9 +2018,9 @@ define internal noundef i32 @euclidean_e_slice8(ptr noundef readonly captures(no
   %39 = load i32, ptr %38, align 8, !tbaa !46
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 92
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %42 = load i32, ptr %41, align 4, !tbaa !50
+  %42 = load i32, ptr %41, align 8, !tbaa !50
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  %44 = load i32, ptr %43, align 4, !tbaa !50
+  %44 = load i32, ptr %43, align 8, !tbaa !50
   %45 = mul nsw i32 %42, %2
   %46 = sdiv i32 %45, %3
   %47 = add nsw i32 %2, 1
@@ -2321,9 +2321,9 @@ define internal noundef i32 @euclidean_e_slice16(ptr noundef readonly captures(n
   %39 = load i32, ptr %38, align 8, !tbaa !46
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 92
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %42 = load i32, ptr %41, align 4, !tbaa !50
+  %42 = load i32, ptr %41, align 8, !tbaa !50
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  %44 = load i32, ptr %43, align 4, !tbaa !50
+  %44 = load i32, ptr %43, align 8, !tbaa !50
   %45 = mul nsw i32 %42, %2
   %46 = sdiv i32 %45, %3
   %47 = add nsw i32 %2, 1

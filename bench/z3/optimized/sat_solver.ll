@@ -29148,7 +29148,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit:     ; preds = %_ZNK3sat6solver8num
   %122 = load i32, ptr %121, align 8, !tbaa !712
   %123 = and i32 %122, -261
   %124 = or disjoint i32 %123, 4
-  store i32 %124, ptr %121, align 4, !tbaa !713
+  store i32 %124, ptr %121, align 8, !tbaa !713
   %125 = load i64, ptr %118, align 8
   %126 = getelementptr inbounds i8, ptr %1, i64 %125
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
@@ -46992,7 +46992,7 @@ _ZNK3sat6solver15init_trail_sizeEv.exit:          ; preds = %84, %88, %91
   %124 = load i32, ptr %123, align 8, !tbaa !712
   %125 = and i32 %124, -261
   %126 = or disjoint i32 %125, 4
-  store i32 %126, ptr %123, align 4, !tbaa !713
+  store i32 %126, ptr %123, align 8, !tbaa !713
   %127 = load i64, ptr %120, align 8
   %128 = getelementptr inbounds i8, ptr %1, i64 %127
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 8

@@ -1043,7 +1043,7 @@ b2JointSimArray_RemoveSwap.exit:                  ; preds = %b2JointSimArray_Add
   store i32 -1, ptr %254, align 4, !tbaa !162
   store i32 %292, ptr %256, align 8, !tbaa !163
   %320 = getelementptr inbounds nuw i8, ptr %253, i64 56
-  %.0179 = load i32, ptr %320, align 4, !tbaa !92
+  %.0179 = load i32, ptr %320, align 8, !tbaa !92
   %.not182 = icmp eq i32 %.0179, -1
   br i1 %.not182, label %._crit_edge291, label %251, !llvm.loop !171
 

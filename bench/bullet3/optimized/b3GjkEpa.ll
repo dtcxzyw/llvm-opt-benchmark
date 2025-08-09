@@ -2061,9 +2061,9 @@ _ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit: ; preds = %_ZN13g
   store ptr %44, ptr %62, align 8, !tbaa !38
   %101 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %102 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  %103 = load float, ptr %101, align 4, !tbaa !37
+  %103 = load float, ptr %101, align 8, !tbaa !37
   %104 = load float, ptr %102, align 4, !tbaa !37
-  store float %104, ptr %101, align 4, !tbaa !37
+  store float %104, ptr %101, align 8, !tbaa !37
   store float %103, ptr %102, align 4, !tbaa !37
   br label %105
 
@@ -2112,7 +2112,7 @@ _ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit: ; preds = %_ZN13g
   %.115.i = select i1 %131, float %130, float %.01420.i
   %.1.i = select i1 %131, ptr %.01322.i, ptr %.021.i
   %.013.in.i = getelementptr inbounds nuw i8, ptr %.01322.i, i64 80
-  %.013.i = load ptr, ptr %.013.in.i, align 8, !tbaa !73
+  %.013.i = load ptr, ptr %.013.in.i, align 16, !tbaa !73
   %.not.i99 = icmp eq ptr %.013.i, null
   br i1 %.not.i99, label %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit, label %.lr.ph.i, !llvm.loop !85
 
@@ -2150,7 +2150,7 @@ _ZN13gjkepa2_impl25b3EPA8findbestEv.exit:         ; preds = %.lr.ph.i, %123
   %139 = getelementptr inbounds nuw i8, ptr %116, i64 48
   store ptr %108, ptr %139, align 8, !tbaa !73
   %140 = getelementptr inbounds nuw i8, ptr %108, i64 90
-  store i8 0, ptr %140, align 1, !tbaa !33
+  store i8 0, ptr %140, align 2, !tbaa !33
   %141 = getelementptr inbounds nuw i8, ptr %108, i64 64
   store ptr %120, ptr %141, align 8, !tbaa !73
   %142 = getelementptr inbounds nuw i8, ptr %120, i64 88
@@ -2162,11 +2162,11 @@ _ZN13gjkepa2_impl25b3EPA8findbestEv.exit:         ; preds = %.lr.ph.i, %123
   %145 = getelementptr inbounds nuw i8, ptr %112, i64 56
   store ptr %120, ptr %145, align 8, !tbaa !73
   %146 = getelementptr inbounds nuw i8, ptr %120, i64 90
-  store i8 1, ptr %146, align 1, !tbaa !33
+  store i8 1, ptr %146, align 2, !tbaa !33
   %147 = getelementptr inbounds nuw i8, ptr %120, i64 64
   store ptr %112, ptr %147, align 8, !tbaa !73
   %148 = getelementptr inbounds nuw i8, ptr %112, i64 90
-  store i8 1, ptr %148, align 1, !tbaa !33
+  store i8 1, ptr %148, align 2, !tbaa !33
   %149 = getelementptr inbounds nuw i8, ptr %112, i64 64
   store ptr %116, ptr %149, align 8, !tbaa !73
   %150 = getelementptr inbounds nuw i8, ptr %116, i64 89
@@ -2174,7 +2174,7 @@ _ZN13gjkepa2_impl25b3EPA8findbestEv.exit:         ; preds = %.lr.ph.i, %123
   %151 = getelementptr inbounds nuw i8, ptr %116, i64 56
   store ptr %112, ptr %151, align 8, !tbaa !73
   %152 = getelementptr inbounds nuw i8, ptr %116, i64 90
-  store i8 1, ptr %152, align 1, !tbaa !33
+  store i8 1, ptr %152, align 2, !tbaa !33
   %153 = getelementptr inbounds nuw i8, ptr %116, i64 64
   store ptr %120, ptr %153, align 8, !tbaa !73
   %154 = getelementptr inbounds nuw i8, ptr %120, i64 89
@@ -2482,7 +2482,7 @@ _ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit105: ; preds = %_ZN
   %.115.i114 = select i1 %315, float %314, float %.01420.i113
   %.1.i115 = select i1 %315, ptr %.01322.i111, ptr %.021.i112
   %.013.in.i116 = getelementptr inbounds nuw i8, ptr %.01322.i111, i64 80
-  %.013.i117 = load ptr, ptr %.013.in.i116, align 8, !tbaa !73
+  %.013.i117 = load ptr, ptr %.013.in.i116, align 16, !tbaa !73
   %.not.i118 = icmp eq ptr %.013.i117, null
   br i1 %.not.i118, label %.loopexit, label %.lr.ph.i110, !llvm.loop !85
 

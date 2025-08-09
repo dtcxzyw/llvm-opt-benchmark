@@ -2398,7 +2398,7 @@ define void @_ZN6open3d2io23CreateVoxelGridFromFileERKNSt7__cxx1112basic_stringI
   store ptr %13, ptr %12, align 8, !tbaa !53, !noalias !80
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 0, ptr %14, align 8, !tbaa !14, !noalias !80
-  store i8 0, ptr %13, align 1, !tbaa !15, !noalias !80
+  store i8 0, ptr %13, align 8, !tbaa !15, !noalias !80
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry9VoxelGridE, i64 16), ptr %9, align 8, !tbaa !87, !noalias !80
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 96

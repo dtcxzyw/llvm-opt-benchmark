@@ -652,7 +652,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %12
   store i64 %19, ptr %20, align 8, !tbaa !46
   store ptr %10, ptr %1, align 8, !tbaa !44
   store i64 0, ptr %18, align 8, !tbaa !46
-  store i8 0, ptr %10, align 1, !tbaa !18
+  store i8 0, ptr %10, align 8, !tbaa !18
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
   %22 = invoke noundef ptr @_ZNK9grpc_core11ChannelArgs14GetVoidPointerESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 35, ptr nonnull @.str.34)

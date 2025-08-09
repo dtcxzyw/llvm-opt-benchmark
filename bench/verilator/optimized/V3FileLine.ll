@@ -2774,7 +2774,7 @@ define dso_local void @_ZN12VFileContent8pushTextERKNSt7__cxx1112basic_stringIcS
   store ptr %45, ptr %24, align 8, !tbaa !9
   %46 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 0, ptr %46, align 8, !tbaa !17
-  store i8 0, ptr %45, align 1, !tbaa !4
+  store i8 0, ptr %45, align 8, !tbaa !4
   %47 = load ptr, ptr %11, align 8, !tbaa !33
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   store ptr %48, ptr %11, align 8, !tbaa !33
@@ -2797,7 +2797,7 @@ _ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplac
   store ptr %53, ptr %50, align 8, !tbaa !9
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i64 0, ptr %54, align 8, !tbaa !17
-  store i8 0, ptr %53, align 1, !tbaa !4
+  store i8 0, ptr %53, align 8, !tbaa !4
   %55 = load ptr, ptr %11, align 8, !tbaa !33
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
   store ptr %56, ptr %11, align 8, !tbaa !33
@@ -12532,7 +12532,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   %15 = load i32, ptr %14, align 8, !tbaa !373
   %16 = and i32 %15, -75
   %17 = or disjoint i32 %16, 8
-  store i32 %17, ptr %14, align 4, !tbaa !374
+  store i32 %17, ptr %14, align 8, !tbaa !374
   %18 = load ptr, ptr %3, align 8, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %20 = icmp eq ptr %18, %19

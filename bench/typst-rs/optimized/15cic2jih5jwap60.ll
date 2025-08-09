@@ -1037,7 +1037,7 @@ define { i64, i64 } @_ZN12typst_syntax6source6Source4edit17h5c4e916e908c5c9fE(pt
   store i128 %146, ptr %144, align 16, !alias.scope !171, !noalias !170
   %147 = getelementptr inbounds nuw i8, ptr %143, i64 112
   %148 = getelementptr inbounds nuw i8, ptr %143, i64 128
-  %149 = load i64, ptr %148, align 8, !alias.scope !173, !noundef !4
+  %149 = load i64, ptr %148, align 16, !alias.scope !173, !noundef !4
   %150 = icmp ugt i64 %.sroa.3.0.i.ph, %149
   br i1 %150, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h3973f417a8ac25efE.exit", label %151
 

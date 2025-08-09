@@ -455,7 +455,7 @@ define void @tiling_callback(ptr noundef readnone captures(none) %0, ptr noundef
   %11 = load float, ptr %10, align 4, !tbaa !35
   %12 = fdiv reassoc nsz arcp contract afn float %9, %11
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %14 = load i32, ptr %13, align 8, !tbaa !33
+  %14 = load i32, ptr %13, align 16, !tbaa !33
   %15 = sitofp i32 %14 to float
   %16 = fdiv reassoc nsz arcp contract afn float %15, %12
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 148

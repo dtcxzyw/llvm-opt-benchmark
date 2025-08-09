@@ -2681,7 +2681,7 @@ invoke.cont20:                                    ; preds = %sw.bb15
   %m_end_tag.i = getelementptr inbounds nuw i8, ptr %call18, i64 112
   %42 = getelementptr inbounds nuw i8, ptr %call18, i64 128
   store ptr %42, ptr %m_end_tag.i, align 8, !tbaa !27
-  store i8 125, ptr %42, align 1, !tbaa !29
+  store i8 125, ptr %42, align 8, !tbaa !29
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call18, i64 120
   store i64 1, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !19
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call18, i64 129
@@ -9589,7 +9589,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %8, ptr %_M_string_length.i24.i.i.i.i.i.i.i, align 8, !tbaa !19, !alias.scope !172, !noalias !175
   store ptr %5, ptr %__first.addr.07.i.i.i, align 8, !tbaa !16, !alias.scope !175, !noalias !172
   store i64 0, ptr %_M_string_length.i23.i.i.i.i.i.i.i, align 8, !tbaa !19, !alias.scope !175, !noalias !172
-  store i8 0, ptr %5, align 1, !tbaa !29, !alias.scope !175, !noalias !172
+  store i8 0, ptr %5, align 8, !tbaa !29, !alias.scope !175, !noalias !172
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 32
   %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %2
@@ -10163,7 +10163,7 @@ invoke.cont:
   store ptr %0, ptr %m_end_tag.i, align 8, !tbaa !27
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 120
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !19
-  store i8 0, ptr %0, align 1, !tbaa !29
+  store i8 0, ptr %0, align 8, !tbaa !29
   %m_callback_mutex.i = getelementptr inbounds nuw i8, ptr %call, i64 144
   %m_settingslayer.i = getelementptr inbounds nuw i8, ptr %call, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %m_callback_mutex.i, i8 0, i64 88, i1 false)
@@ -11488,7 +11488,7 @@ invoke.cont:
   store ptr %0, ptr %m_end_tag.i, align 8, !tbaa !27
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 120
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !19
-  store i8 0, ptr %0, align 1, !tbaa !29
+  store i8 0, ptr %0, align 8, !tbaa !29
   %m_callback_mutex.i = getelementptr inbounds nuw i8, ptr %call, i64 144
   %m_settingslayer.i = getelementptr inbounds nuw i8, ptr %call, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %m_callback_mutex.i, i8 0, i64 88, i1 false)
@@ -15614,7 +15614,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %16, ptr %_M_string_length.i24.i.i.i.i.i.i.i, align 8, !tbaa !19, !alias.scope !265, !noalias !268
   store ptr %13, ptr %__first.addr.07.i.i.i, align 8, !tbaa !16, !alias.scope !268, !noalias !265
   store i64 0, ptr %_M_string_length.i23.i.i.i.i.i.i.i, align 8, !tbaa !19, !alias.scope !268, !noalias !265
-  store i8 0, ptr %13, align 1, !tbaa !29, !alias.scope !268, !noalias !265
+  store i8 0, ptr %13, align 8, !tbaa !29, !alias.scope !268, !noalias !265
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 32
   %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
@@ -15662,7 +15662,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %22, ptr %_M_string_length.i24.i.i.i.i.i.i.i59, align 8, !tbaa !19, !alias.scope !270, !noalias !273
   store ptr %19, ptr %__first.addr.07.i.i.i52, align 8, !tbaa !16, !alias.scope !273, !noalias !270
   store i64 0, ptr %_M_string_length.i23.i.i.i.i.i.i.i58, align 8, !tbaa !19, !alias.scope !273, !noalias !270
-  store i8 0, ptr %19, align 1, !tbaa !29, !alias.scope !273, !noalias !270
+  store i8 0, ptr %19, align 8, !tbaa !29, !alias.scope !273, !noalias !270
   %incdec.ptr.i.i.i60 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i52, i64 32
   %incdec.ptr1.i.i.i61 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i51, i64 32
   %cmp.not.i.i.i62 = icmp eq ptr %incdec.ptr.i.i.i60, %0

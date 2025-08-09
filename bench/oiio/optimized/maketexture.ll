@@ -12917,7 +12917,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1673: ; preds = %_ZNSt12__shared_p
   %4739 = zext i1 %4738 to i8
   store ptr @_ZL12resize_blockRN11OpenImageIO6v3_1_08ImageBufERKS1_NS0_3ROIEbb, ptr %4733, align 8, !tbaa !325
   %4740 = getelementptr inbounds nuw i8, ptr %4733, i64 8
-  store i8 %4739, ptr %4740, align 1, !tbaa !337
+  store i8 %4739, ptr %4740, align 8, !tbaa !337
   %4741 = getelementptr inbounds nuw i8, ptr %4733, i64 9
   store i8 %1198, ptr %4741, align 1, !tbaa !337
   %4742 = getelementptr inbounds nuw i8, ptr %4733, i64 16
@@ -51352,7 +51352,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %1248
   %1260 = ptrtoint ptr %1256 to i64
   store ptr @_ZL12resize_blockRN11OpenImageIO6v3_1_08ImageBufERKS1_NS0_3ROIEbb, ptr %1257, align 8, !tbaa !325
   %1261 = getelementptr inbounds nuw i8, ptr %1257, i64 8
-  store i8 %907, ptr %1261, align 1, !tbaa !337
+  store i8 %907, ptr %1261, align 8, !tbaa !337
   %1262 = getelementptr inbounds nuw i8, ptr %1257, i64 9
   store i8 %178, ptr %1262, align 1, !tbaa !337
   %1263 = getelementptr inbounds nuw i8, ptr %1257, i64 16
@@ -54582,7 +54582,7 @@ _ZNSt16allocator_traitsISaIN11OpenImageIO6v3_1_010ParamValueEEE8allocateERS3_m.e
   %.sroa.04.08.i.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i.i ], [ %18, %13 ]
   store ptr null, ptr %.09.i.i.i.i, align 8, !tbaa !913
   %20 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i, i64 8
-  store i8 0, ptr %20, align 4, !tbaa !112
+  store i8 0, ptr %20, align 8, !tbaa !112
   %21 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i, i64 9
   store i8 1, ptr %21, align 1, !tbaa !323
   %22 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i, i64 10
@@ -59756,7 +59756,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !20, !alias.scope !1175, !noalias !1178
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !17, !alias.scope !1178, !noalias !1175
   store i64 0, ptr %48, align 8, !tbaa !20, !alias.scope !1178, !noalias !1175
-  store i8 0, ptr %39, align 1, !tbaa !19, !alias.scope !1178, !noalias !1175
+  store i8 0, ptr %39, align 8, !tbaa !19, !alias.scope !1178, !noalias !1175
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -59804,7 +59804,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !20, !alias.scope !1182, !noalias !1185
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !17, !alias.scope !1185, !noalias !1182
   store i64 0, ptr %64, align 8, !tbaa !20, !alias.scope !1185, !noalias !1182
-  store i8 0, ptr %55, align 1, !tbaa !19, !alias.scope !1185, !noalias !1182
+  store i8 0, ptr %55, align 8, !tbaa !19, !alias.scope !1185, !noalias !1182
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5
@@ -69556,7 +69556,7 @@ define linkonce_odr hidden void @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3_1_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 4 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !1112
   %12 = load i8, ptr %10, align 1, !tbaa !337, !range !113, !noundef !114
   %13 = trunc nuw i8 %12 to i1
-  %14 = load i8, ptr %5, align 1, !tbaa !337, !range !113, !noundef !114
+  %14 = load i8, ptr %5, align 8, !tbaa !337, !range !113, !noundef !114
   %15 = trunc nuw i8 %14 to i1
   %16 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull byval(%"struct.OpenImageIO::v3_1_0::ROI") align 8 %3, i1 noundef zeroext %13, i1 noundef zeroext %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -70333,7 +70333,7 @@ _ZNSt12_Vector_baseIN11OpenImageIO6v3_1_010ParamValueESaIS2_EE11_M_allocateEm.ex
   %.sroa.04.08.i.i.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i.i.i ], [ %6, %_ZNSt12_Vector_baseIN11OpenImageIO6v3_1_010ParamValueESaIS2_EE11_M_allocateEm.exit.i ]
   store ptr null, ptr %.09.i.i.i.i.i, align 8, !tbaa !913
   %22 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 8
-  store i8 0, ptr %22, align 4, !tbaa !112
+  store i8 0, ptr %22, align 8, !tbaa !112
   %23 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 9
   store i8 1, ptr %23, align 1, !tbaa !323
   %24 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 10
@@ -70499,7 +70499,7 @@ _ZSt4copyIPN11OpenImageIO6v3_1_010ParamValueES3_ET0_T_S5_S4_.exit: ; preds = %_Z
   %.0810.i.i.i.i = phi ptr [ %100, %.lr.ph.i.i.i.i ], [ %81, %_ZSt4copyIPN11OpenImageIO6v3_1_010ParamValueES3_ET0_T_S5_S4_.exit ]
   store ptr null, ptr %.011.i.i.i.i, align 8, !tbaa !913
   %82 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
-  store i8 0, ptr %82, align 4, !tbaa !112
+  store i8 0, ptr %82, align 8, !tbaa !112
   %83 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 9
   store i8 1, ptr %83, align 1, !tbaa !323
   %84 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 10
@@ -70727,7 +70727,7 @@ _ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EEC2ISt13move_iteratorIN9__
   %.sroa.09.012.i.i.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i.i.i ], [ %2, %.lr.ph.i.i.i.i.preheader.i ]
   store ptr null, ptr %.013.i.i.i.i.i, align 8, !tbaa !913
   %15 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 8
-  store i8 0, ptr %15, align 4, !tbaa !112
+  store i8 0, ptr %15, align 8, !tbaa !112
   %16 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 9
   store i8 1, ptr %16, align 1, !tbaa !323
   %17 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 10

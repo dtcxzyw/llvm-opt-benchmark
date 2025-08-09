@@ -447,7 +447,7 @@ _ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18
   %164 = load i32, ptr %163, align 8, !tbaa !57
   %165 = and i32 %164, -75
   %166 = or disjoint i32 %165, 8
-  store i32 %166, ptr %163, align 4, !tbaa !58
+  store i32 %166, ptr %163, align 8, !tbaa !58
   %167 = load i64, ptr %160, align 8
   %168 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %167
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 225
@@ -521,7 +521,7 @@ _ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St8_SetfillIS3_E.exit68: 
   %209 = load i32, ptr %208, align 8, !tbaa !57
   %210 = and i32 %209, -75
   %211 = or disjoint i32 %210, 2
-  store i32 %211, ptr %208, align 4, !tbaa !58
+  store i32 %211, ptr %208, align 8, !tbaa !58
   %212 = load i64, ptr %205, align 8
   %213 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %212
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 240
@@ -570,7 +570,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit158: ; preds = %2
   %237 = load i32, ptr %236, align 8, !tbaa !57
   %238 = and i32 %237, -75
   %239 = or disjoint i32 %238, 8
-  store i32 %239, ptr %236, align 4, !tbaa !58
+  store i32 %239, ptr %236, align 8, !tbaa !58
   %240 = load i64, ptr %233, align 8
   %241 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %240
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 225

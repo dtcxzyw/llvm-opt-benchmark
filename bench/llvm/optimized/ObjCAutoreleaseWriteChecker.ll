@@ -4519,7 +4519,7 @@ _ZNO5clang12ast_matchers8internal18PolymorphicMatcherINS1_31matcher_hasOperatorN
   %469 = getelementptr inbounds nuw i8, ptr %466, i64 32
   store ptr %469, ptr %468, align 8, !tbaa !41, !noalias !273
   %470 = load i8, ptr %463, align 8, !tbaa !16, !noalias !273
-  store i8 %470, ptr %469, align 1, !tbaa !16, !noalias !273
+  store i8 %470, ptr %469, align 8, !tbaa !16, !noalias !273
   %471 = getelementptr inbounds nuw i8, ptr %466, i64 24
   store i64 1, ptr %471, align 8, !tbaa !48, !noalias !273
   %472 = getelementptr inbounds nuw i8, ptr %466, i64 33

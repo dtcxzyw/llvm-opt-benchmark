@@ -251,19 +251,19 @@ define void @_ZN19OpenColorIO_v2_5dev13LookTransformC2Ev(ptr noundef nonnull wri
   store ptr %6, ptr %5, align 8, !tbaa !31
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 0, ptr %7, align 8, !tbaa !32
-  store i8 0, ptr %6, align 1, !tbaa !33
+  store i8 0, ptr %6, align 8, !tbaa !33
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store ptr %9, ptr %8, align 8, !tbaa !31
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i64 0, ptr %10, align 8, !tbaa !32
-  store i8 0, ptr %9, align 1, !tbaa !33
+  store i8 0, ptr %9, align 8, !tbaa !33
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store ptr %12, ptr %11, align 8, !tbaa !31
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i64 0, ptr %13, align 8, !tbaa !32
-  store i8 0, ptr %12, align 1, !tbaa !33
+  store i8 0, ptr %12, align 8, !tbaa !33
   store ptr %2, ptr %3, align 8, !tbaa !34
   ret void
 }

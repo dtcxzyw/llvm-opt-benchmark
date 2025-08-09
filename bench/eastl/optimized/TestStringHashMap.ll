@@ -2900,7 +2900,7 @@ entry:
   %mpBucket.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %position.coerce1, ptr %mpBucket.i.i.i, align 8, !alias.scope !172
   %mpNext.i.i.i = getelementptr inbounds nuw i8, ptr %position.coerce0, i64 64
-  %storemerge1.i.i.i = load ptr, ptr %mpNext.i.i.i, align 8, !noalias !172
+  %storemerge1.i.i.i = load ptr, ptr %mpNext.i.i.i, align 32, !noalias !172
   store ptr %storemerge1.i.i.i, ptr %agg.result, align 8, !alias.scope !172
   %cmp2.i.i.i = icmp eq ptr %storemerge1.i.i.i, null
   br i1 %cmp2.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIKPKc7Align32EELb0ELb0EEppEv.exit.i

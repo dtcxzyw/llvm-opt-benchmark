@@ -1407,7 +1407,7 @@ _init_l___private_Std_Time_Time_HourMarker_0__Std_Time_reprHourMarker____x40_Std
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store i64 0, ptr %44, align 8, !tbaa !17
-  store i32 1, ptr %40, align 4, !tbaa !4
+  store i32 1, ptr %40, align 8, !tbaa !4
   store i32 100728856, ptr %43, align 4
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %39, ptr %45, align 8, !tbaa !10
@@ -1448,7 +1448,7 @@ _init_l___private_Std_Time_Time_HourMarker_0__Std_Time_reprHourMarker____x40_Std
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store i64 0, ptr %58, align 8, !tbaa !17
-  store i32 1, ptr %54, align 4, !tbaa !4
+  store i32 1, ptr %54, align 8, !tbaa !4
   store i32 100728856, ptr %57, align 4
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store ptr %53, ptr %59, align 8, !tbaa !10
@@ -1509,7 +1509,7 @@ _init_l___private_Std_Time_Time_HourMarker_0__Std_Time_reprHourMarker____x40_Std
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %79 = getelementptr inbounds nuw i8, ptr %75, i64 16
   store i64 0, ptr %79, align 8, !tbaa !17
-  store i32 1, ptr %75, align 4, !tbaa !4
+  store i32 1, ptr %75, align 8, !tbaa !4
   store i32 100728856, ptr %78, align 4
   %80 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store ptr %74, ptr %80, align 8, !tbaa !10
@@ -1549,7 +1549,7 @@ _init_l___private_Std_Time_Time_HourMarker_0__Std_Time_reprHourMarker____x40_Std
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 4
   %93 = getelementptr inbounds nuw i8, ptr %89, i64 16
   store i64 0, ptr %93, align 8, !tbaa !17
-  store i32 1, ptr %89, align 4, !tbaa !4
+  store i32 1, ptr %89, align 8, !tbaa !4
   store i32 100728856, ptr %92, align 4
   %94 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store ptr %88, ptr %94, align 8, !tbaa !10

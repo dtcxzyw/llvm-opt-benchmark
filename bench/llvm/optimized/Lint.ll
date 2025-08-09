@@ -2778,11 +2778,11 @@ _ZNSt10unique_ptrIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15Analysi
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 20
   store i32 4, ptr %26, align 4, !tbaa !27
-  store i64 ptrtoint (ptr @_ZN4llvm9AAManager23getFunctionAAResultImplINS_7BasicAAEEEvRNS_8FunctionERNS_15AnalysisManagerIS3_JEEERNS_9AAResultsE to i64), ptr %24, align 1
+  store i64 ptrtoint (ptr @_ZN4llvm9AAManager23getFunctionAAResultImplINS_7BasicAAEEEvRNS_8FunctionERNS_15AnalysisManagerIS3_JEEERNS_9AAResultsE to i64), ptr %24, align 8
   %.sroa.4.16..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 32
-  store i64 ptrtoint (ptr @_ZN4llvm9AAManager23getFunctionAAResultImplINS_15ScopedNoAliasAAEEEvRNS_8FunctionERNS_15AnalysisManagerIS3_JEEERNS_9AAResultsE to i64), ptr %.sroa.4.16..sroa_idx, align 1
+  store i64 ptrtoint (ptr @_ZN4llvm9AAManager23getFunctionAAResultImplINS_15ScopedNoAliasAAEEEvRNS_8FunctionERNS_15AnalysisManagerIS3_JEEERNS_9AAResultsE to i64), ptr %.sroa.4.16..sroa_idx, align 8
   %.sroa.5.16..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 40
-  store i64 ptrtoint (ptr @_ZN4llvm9AAManager23getFunctionAAResultImplINS_11TypeBasedAAEEEvRNS_8FunctionERNS_15AnalysisManagerIS3_JEEERNS_9AAResultsE to i64), ptr %.sroa.5.16..sroa_idx, align 1
+  store i64 ptrtoint (ptr @_ZN4llvm9AAManager23getFunctionAAResultImplINS_11TypeBasedAAEEEvRNS_8FunctionERNS_15AnalysisManagerIS3_JEEERNS_9AAResultsE to i64), ptr %.sroa.5.16..sroa_idx, align 8
   store i32 3, ptr %25, align 8, !tbaa !26
   store ptr %22, ptr %20, align 8, !tbaa !168
   br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_12lintFunctionERKS1_E3$_3EEbOT_.exit"
@@ -7653,13 +7653,13 @@ _ZN4llvm6detail19AnalysisResultModelINS_8FunctionENS_18AssumptionAnalysisENS_15A
   store ptr %41, ptr %42, align 8, !tbaa !390
   store ptr null, ptr %15, align 8, !tbaa !390
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 176
-  store i32 %40, ptr %43, align 4, !tbaa !344
+  store i32 %40, ptr %43, align 8, !tbaa !344
   store i32 0, ptr %18, align 8, !tbaa !344
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 180
   store i32 %39, ptr %44, align 4, !tbaa !344
   store i32 0, ptr %21, align 4, !tbaa !344
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 184
-  store i32 %38, ptr %45, align 4, !tbaa !344
+  store i32 %38, ptr %45, align 8, !tbaa !344
   store i32 0, ptr %24, align 8, !tbaa !344
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 192
   store i8 %37, ptr %46, align 8, !tbaa !391

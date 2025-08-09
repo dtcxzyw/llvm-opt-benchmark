@@ -1143,7 +1143,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__det
   %45 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #37
   store ptr null, ptr %45, align 8, !tbaa !63
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store i32 %43, ptr %46, align 4, !tbaa !78
+  store i32 %43, ptr %46, align 8, !tbaa !78
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %48 = load i32, ptr %44, align 4, !tbaa !74
   store i32 %48, ptr %47, align 4, !tbaa !80
@@ -1327,7 +1327,7 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !63
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !74
+  %16 = load i32, ptr %15, align 8, !tbaa !74
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -1724,32 +1724,32 @@ define linkonce_odr ptr @_ZNSt6vectorIN6open3d13visualization14ViewParametersESa
   store double %74, ptr %72, align 8, !tbaa !89
   %75 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -96
   %76 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -96
-  %77 = load <2 x double>, ptr %76, align 1, !tbaa !25
-  store <2 x double> %77, ptr %75, align 1, !tbaa !25
+  %77 = load <2 x double>, ptr %76, align 8, !tbaa !25
+  store <2 x double> %77, ptr %75, align 8, !tbaa !25
   %78 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -80
   %79 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -80
   %80 = load double, ptr %79, align 8, !tbaa !89
   store double %80, ptr %78, align 8, !tbaa !89
   %81 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -72
   %82 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -72
-  %83 = load <2 x double>, ptr %82, align 1, !tbaa !25
-  store <2 x double> %83, ptr %81, align 1, !tbaa !25
+  %83 = load <2 x double>, ptr %82, align 8, !tbaa !25
+  store <2 x double> %83, ptr %81, align 8, !tbaa !25
   %84 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -56
   %85 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -56
   %86 = load double, ptr %85, align 8, !tbaa !89
   store double %86, ptr %84, align 8, !tbaa !89
   %87 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -48
   %88 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -48
-  %89 = load <2 x double>, ptr %88, align 1, !tbaa !25
-  store <2 x double> %89, ptr %87, align 1, !tbaa !25
+  %89 = load <2 x double>, ptr %88, align 8, !tbaa !25
+  store <2 x double> %89, ptr %87, align 8, !tbaa !25
   %90 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -32
   %91 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -32
   %92 = load double, ptr %91, align 8, !tbaa !89
   store double %92, ptr %90, align 8, !tbaa !89
   %93 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -24
   %94 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -24
-  %95 = load <2 x double>, ptr %94, align 1, !tbaa !25
-  store <2 x double> %95, ptr %93, align 1, !tbaa !25
+  %95 = load <2 x double>, ptr %94, align 8, !tbaa !25
+  store <2 x double> %95, ptr %93, align 8, !tbaa !25
   %96 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -8
   %97 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -8
   %98 = load double, ptr %97, align 8, !tbaa !89
@@ -1770,28 +1770,28 @@ define linkonce_odr ptr @_ZNSt6vectorIN6open3d13visualization14ViewParametersESa
   store double %106, ptr %104, align 8, !tbaa !89
   %107 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %108 = load <2 x double>, ptr %38, align 8, !tbaa !25
-  store <2 x double> %108, ptr %107, align 1, !tbaa !25
+  store <2 x double> %108, ptr %107, align 8, !tbaa !25
   %109 = getelementptr inbounds nuw i8, ptr %32, i64 64
   %110 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %111 = load double, ptr %110, align 8, !tbaa !89
   store double %111, ptr %109, align 8, !tbaa !89
   %112 = getelementptr inbounds nuw i8, ptr %32, i64 72
   %113 = load <2 x double>, ptr %40, align 8, !tbaa !25
-  store <2 x double> %113, ptr %112, align 1, !tbaa !25
+  store <2 x double> %113, ptr %112, align 8, !tbaa !25
   %114 = getelementptr inbounds nuw i8, ptr %32, i64 88
   %115 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %116 = load double, ptr %115, align 8, !tbaa !89
   store double %116, ptr %114, align 8, !tbaa !89
   %117 = getelementptr inbounds nuw i8, ptr %32, i64 96
   %118 = load <2 x double>, ptr %42, align 8, !tbaa !25
-  store <2 x double> %118, ptr %117, align 1, !tbaa !25
+  store <2 x double> %118, ptr %117, align 8, !tbaa !25
   %119 = getelementptr inbounds nuw i8, ptr %32, i64 112
   %120 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %121 = load double, ptr %120, align 8, !tbaa !89
   store double %121, ptr %119, align 8, !tbaa !89
   %122 = getelementptr inbounds nuw i8, ptr %32, i64 120
   %123 = load <2 x double>, ptr %44, align 8, !tbaa !25
-  store <2 x double> %123, ptr %122, align 1, !tbaa !25
+  store <2 x double> %123, ptr %122, align 8, !tbaa !25
   %124 = getelementptr inbounds nuw i8, ptr %32, i64 136
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %126 = load double, ptr %125, align 8, !tbaa !89
@@ -2044,32 +2044,32 @@ define void @_ZN6open3d13visualization30ViewControlWithCustomAnimation14DeleteKe
   store double %31, ptr %29, align 8, !tbaa !89
   %32 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 48
   %33 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 48
-  %34 = load <2 x double>, ptr %33, align 1, !tbaa !25
-  store <2 x double> %34, ptr %32, align 1, !tbaa !25
+  %34 = load <2 x double>, ptr %33, align 8, !tbaa !25
+  store <2 x double> %34, ptr %32, align 8, !tbaa !25
   %35 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 64
   %36 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 64
   %37 = load double, ptr %36, align 8, !tbaa !89
   store double %37, ptr %35, align 8, !tbaa !89
   %38 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 72
   %39 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 72
-  %40 = load <2 x double>, ptr %39, align 1, !tbaa !25
-  store <2 x double> %40, ptr %38, align 1, !tbaa !25
+  %40 = load <2 x double>, ptr %39, align 8, !tbaa !25
+  store <2 x double> %40, ptr %38, align 8, !tbaa !25
   %41 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 88
   %42 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 88
   %43 = load double, ptr %42, align 8, !tbaa !89
   store double %43, ptr %41, align 8, !tbaa !89
   %44 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 96
   %45 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 96
-  %46 = load <2 x double>, ptr %45, align 1, !tbaa !25
-  store <2 x double> %46, ptr %44, align 1, !tbaa !25
+  %46 = load <2 x double>, ptr %45, align 8, !tbaa !25
+  store <2 x double> %46, ptr %44, align 8, !tbaa !25
   %47 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 112
   %48 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 112
   %49 = load double, ptr %48, align 8, !tbaa !89
   store double %49, ptr %47, align 8, !tbaa !89
   %50 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 120
   %51 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 120
-  %52 = load <2 x double>, ptr %51, align 1, !tbaa !25
-  store <2 x double> %52, ptr %50, align 1, !tbaa !25
+  %52 = load <2 x double>, ptr %51, align 8, !tbaa !25
+  store <2 x double> %52, ptr %50, align 8, !tbaa !25
   %53 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 136
   %54 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 136
   %55 = load double, ptr %54, align 8, !tbaa !89

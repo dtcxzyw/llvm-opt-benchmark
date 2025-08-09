@@ -1902,7 +1902,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_alloc_closure.
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 72
   store i64 2, ptr %22, align 8, !tbaa !12
-  store i32 1, ptr %18, align 4, !tbaa !8
+  store i32 1, ptr %18, align 8, !tbaa !8
   store i32 524368, ptr %21, align 4
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %13, ptr %23, align 8, !tbaa !4
@@ -17779,7 +17779,7 @@ _init_l_Lean_CodeAction_initFn____x40_Lean_Server_CodeActions_Attr___hyg_83____c
   %.val50 = load ptr, ptr %73, align 8, !tbaa !4
   store ptr %.val50, ptr @l_Lean_CodeAction_holeCodeActionExt, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val50) #5
-  %74 = load i32, ptr %69, align 4, !tbaa !8
+  %74 = load i32, ptr %69, align 8, !tbaa !8
   %75 = icmp sgt i32 %74, 1
   br i1 %75, label %76, label %78, !prof !11
 
@@ -17947,7 +17947,7 @@ _init_l_Lean_CodeAction_initFn____x40_Lean_Server_CodeActions_Attr___hyg_297____
   %145 = getelementptr inbounds nuw i8, ptr %142, i64 4
   %146 = getelementptr inbounds nuw i8, ptr %142, i64 32
   store i64 1, ptr %146, align 8, !tbaa !12
-  store i32 1, ptr %142, align 4, !tbaa !8
+  store i32 1, ptr %142, align 8, !tbaa !8
   store i32 196648, ptr %145, align 4
   %147 = getelementptr inbounds nuw i8, ptr %142, i64 8
   store ptr %139, ptr %147, align 8, !tbaa !4
@@ -18134,7 +18134,7 @@ _init_l_Lean_CodeAction_instInhabitedCommandCodeActions___closed__1.exit: ; pred
   %.val51 = load ptr, ptr %218, align 8, !tbaa !4
   store ptr %.val51, ptr @l_Lean_CodeAction_builtinCmdCodeActions, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val51) #5
-  %219 = load i32, ptr %214, align 4, !tbaa !8
+  %219 = load i32, ptr %214, align 8, !tbaa !8
   %220 = icmp sgt i32 %219, 1
   br i1 %220, label %221, label %223, !prof !11
 
@@ -18294,7 +18294,7 @@ _init_l_Lean_CodeAction_initFn____x40_Lean_Server_CodeActions_Attr___hyg_799____
   %279 = getelementptr inbounds nuw i8, ptr %276, i64 4
   %280 = getelementptr inbounds nuw i8, ptr %276, i64 72
   store i64 2, ptr %280, align 8, !tbaa !12
-  store i32 1, ptr %276, align 4, !tbaa !8
+  store i32 1, ptr %276, align 8, !tbaa !8
   store i32 524368, ptr %279, align 4
   %281 = getelementptr inbounds nuw i8, ptr %276, i64 8
   store ptr %270, ptr %281, align 8, !tbaa !4
@@ -18330,7 +18330,7 @@ _init_l_Lean_CodeAction_initFn____x40_Lean_Server_CodeActions_Attr___hyg_799____
   %.val52 = load ptr, ptr %295, align 8, !tbaa !4
   store ptr %.val52, ptr @l_Lean_CodeAction_cmdCodeActionExt, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val52) #5
-  %296 = load i32, ptr %291, align 4, !tbaa !8
+  %296 = load i32, ptr %291, align 8, !tbaa !8
   %297 = icmp sgt i32 %296, 1
   br i1 %297, label %298, label %300, !prof !11
 
@@ -18393,7 +18393,7 @@ _init_l_Lean_CodeAction_initFn____x40_Lean_Server_CodeActions_Attr___hyg_1057___
   %321 = getelementptr inbounds nuw i8, ptr %318, i64 4
   %322 = getelementptr inbounds nuw i8, ptr %318, i64 32
   store i64 1, ptr %322, align 8, !tbaa !12
-  store i32 1, ptr %318, align 4, !tbaa !8
+  store i32 1, ptr %318, align 8, !tbaa !8
   store i32 196648, ptr %321, align 4
   %323 = getelementptr inbounds nuw i8, ptr %318, i64 8
   store ptr %315, ptr %323, align 8, !tbaa !4
@@ -18796,7 +18796,7 @@ _init_l_Lean_CodeAction_initFn____x40_Lean_Server_CodeActions_Attr___hyg_1437___
   %494 = getelementptr inbounds nuw i8, ptr %491, i64 4
   %495 = getelementptr inbounds nuw i8, ptr %491, i64 32
   store i64 1, ptr %495, align 8, !tbaa !12
-  store i32 1, ptr %491, align 4, !tbaa !8
+  store i32 1, ptr %491, align 8, !tbaa !8
   store i32 196648, ptr %494, align 4
   %496 = getelementptr inbounds nuw i8, ptr %491, i64 8
   store ptr %488, ptr %496, align 8, !tbaa !4

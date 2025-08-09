@@ -632,7 +632,7 @@ define void @_ZN11llama_modelC2ERK18llama_model_params(ptr noundef nonnull align
   store ptr %38, ptr %37, align 8, !tbaa !82, !noalias !107
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store i64 0, ptr %39, align 8, !tbaa !83, !noalias !107
-  store i8 0, ptr %38, align 1, !tbaa !84, !noalias !107
+  store i8 0, ptr %38, align 8, !tbaa !84, !noalias !107
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 48
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 200
   store i32 0, ptr %41, align 8, !tbaa !3, !noalias !107
@@ -42904,7 +42904,7 @@ _ZNSt10_HashtableIjSt4pairIKjP19ggml_backend_bufferESaIS4_ENSt8__detail10_Select
   %.02530.i = phi i64 [ %.1.i, %14058 ], [ 0, %_ZNSt10_HashtableIjSt4pairIKjP19ggml_backend_bufferESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i ]
   %14043 = load ptr, ptr %.031.i, align 8, !tbaa !3317
   %14044 = getelementptr inbounds nuw i8, ptr %.031.i, i64 8
-  %14045 = load i32, ptr %14044, align 4, !tbaa !98
+  %14045 = load i32, ptr %14044, align 8, !tbaa !98
   %14046 = zext i32 %14045 to i64
   %14047 = urem i64 %14046, %14033
   %14048 = getelementptr inbounds nuw ptr, ptr %.0.i.i3789, i64 %14047
@@ -50638,7 +50638,7 @@ _ZNSt10_HashtableIjSt4pairIKjP19ggml_backend_bufferESaIS4_ENSt8__detail10_Select
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIjSt4pairIKjP19ggml_backend_bufferESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !3317
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !98
+  %16 = load i32, ptr %15, align 8, !tbaa !98
   %17 = zext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -51001,7 +51001,7 @@ _ZNSt10_HashtableIjSt4pairIKjP19ggml_backend_bufferESaIS4_ENSt8__detail10_Select
   store ptr %22, ptr %26, align 8, !tbaa !3326
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load i64, ptr %27, align 8, !tbaa !3307
-  %29 = load i32, ptr %25, align 4, !tbaa !98
+  %29 = load i32, ptr %25, align 8, !tbaa !98
   %30 = zext i32 %29 to i64
   %31 = urem i64 %30, %28
   %32 = getelementptr inbounds nuw ptr, ptr %18, i64 %31
@@ -51022,7 +51022,7 @@ _ZNSt10_HashtableIjSt4pairIKjP19ggml_backend_bufferESaIS4_ENSt8__detail10_Select
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false)
   store ptr %33, ptr %.02636, align 8, !tbaa !3317
-  %37 = load i32, ptr %36, align 4, !tbaa !98
+  %37 = load i32, ptr %36, align 8, !tbaa !98
   %38 = zext i32 %37 to i64
   %39 = urem i64 %38, %28
   %40 = getelementptr inbounds nuw ptr, ptr %18, i64 %39
@@ -51228,7 +51228,7 @@ _ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store i64 %55, ptr %57, align 8, !tbaa !83, !alias.scope !3519, !noalias !3522
   store ptr %47, ptr %.0911.i.i.i, align 8, !tbaa !115, !alias.scope !3522, !noalias !3519
   store i64 0, ptr %56, align 8, !tbaa !83, !alias.scope !3522, !noalias !3519
-  store i8 0, ptr %47, align 1, !tbaa !84, !alias.scope !3522, !noalias !3519
+  store i8 0, ptr %47, align 8, !tbaa !84, !alias.scope !3522, !noalias !3519
   %58 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %59 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %60 = load ptr, ptr %59, align 8, !tbaa !3362, !alias.scope !3522, !noalias !3519
@@ -51280,7 +51280,7 @@ _ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store i64 %74, ptr %76, align 8, !tbaa !83, !alias.scope !3526, !noalias !3529
   store ptr %66, ptr %.0911.i.i.i31, align 8, !tbaa !115, !alias.scope !3529, !noalias !3526
   store i64 0, ptr %75, align 8, !tbaa !83, !alias.scope !3529, !noalias !3526
-  store i8 0, ptr %66, align 1, !tbaa !84, !alias.scope !3529, !noalias !3526
+  store i8 0, ptr %66, align 8, !tbaa !84, !alias.scope !3529, !noalias !3526
   %77 = getelementptr inbounds nuw i8, ptr %.012.i.i.i30, i64 32
   %78 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i31, i64 32
   %79 = load ptr, ptr %78, align 8, !tbaa !3362, !alias.scope !3529, !noalias !3526

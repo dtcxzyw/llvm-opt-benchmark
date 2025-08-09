@@ -11964,7 +11964,7 @@ _ZNK4absl7debian218container_internal12raw_hash_setINS1_17NodeHashMapPolicyINSt7
   store i64 0, ptr %160, align 8, !tbaa !61
   store i8 0, ptr %159, align 8, !tbaa !60
   %161 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %162 = load i32, ptr %161, align 4, !tbaa !124
+  %162 = load i32, ptr %161, align 8, !tbaa !124
   %163 = and i32 %162, 64
   %.not112 = icmp eq i32 %163, 0
   br i1 %.not112, label %171, label %164
@@ -42563,7 +42563,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i: ; preds =
   store i64 %21, ptr %22, align 8, !tbaa !61
   store ptr %12, ptr %7, align 8, !tbaa !63
   store i64 0, ptr %20, align 8, !tbaa !61
-  store i8 0, ptr %12, align 1, !tbaa !60
+  store i8 0, ptr %12, align 8, !tbaa !60
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   invoke void @_ZN4i18n12phonenumbers13PhoneMetadataC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(280) %23, ptr noundef null)
           to label %_ZN4i18n12phonenumbers13PhoneMetadataC2Ev.exit.i.i.i unwind label %47

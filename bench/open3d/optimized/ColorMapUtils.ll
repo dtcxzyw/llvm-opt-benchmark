@@ -32910,35 +32910,35 @@ define internal void @_ZN6open3d9pipelines9color_map30CreateVertexAndImageVisibi
   store double %.sroa.449.0.copyload, ptr %.sroa.0.i.8.i.8.i.8..sroa_idx77, align 8, !tbaa !638, !noalias !659
   store double %.sroa.5.0.copyload, ptr %.sroa.0.i.16.i.16.i.16..sroa_idx78, align 16, !tbaa !638, !noalias !659
   store double 1.000000e+00, ptr %.sroa.0.i.24.i.24.i.24..sroa_idx, align 8, !tbaa !638, !noalias !659
-  %52 = load <2 x double>, ptr %51, align 1, !tbaa !26, !noalias !659
+  %52 = load <2 x double>, ptr %51, align 8, !tbaa !26, !noalias !659
   %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i = load <2 x double>, ptr %.sroa.0.i, align 16, !noalias !659
   %53 = shufflevector <2 x double> %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i, <2 x double> poison, <2 x i32> zeroinitializer
   %54 = fmul <2 x double> %52, %53
   %55 = getelementptr inbounds nuw i8, ptr %42, i64 128
-  %56 = load <2 x double>, ptr %55, align 1, !tbaa !26, !noalias !659
+  %56 = load <2 x double>, ptr %55, align 8, !tbaa !26, !noalias !659
   %.sroa.0.i.8..sroa.0.i.8..sroa.0.i.8..sroa.0.8..sroa.0.8..i = load <2 x double>, ptr %.sroa.0.i.8.i.8.i.8..sroa_idx, align 8, !noalias !659
   %57 = shufflevector <2 x double> %.sroa.0.i.8..sroa.0.i.8..sroa.0.i.8..sroa.0.8..sroa.0.8..i, <2 x double> poison, <2 x i32> zeroinitializer
   %58 = fmul <2 x double> %56, %57
   %59 = fadd <2 x double> %54, %58
   %60 = getelementptr inbounds nuw i8, ptr %42, i64 160
-  %61 = load <2 x double>, ptr %60, align 1, !tbaa !26, !noalias !659
+  %61 = load <2 x double>, ptr %60, align 8, !tbaa !26, !noalias !659
   %.sroa.0.i.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i = load <2 x double>, ptr %.sroa.0.i.16.i.16.i.16..sroa_idx, align 16, !noalias !659
   %62 = shufflevector <2 x double> %.sroa.0.i.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i, <2 x double> poison, <2 x i32> zeroinitializer
   %63 = fmul <2 x double> %61, %62
   %64 = fadd <2 x double> %59, %63
   %65 = getelementptr inbounds nuw i8, ptr %42, i64 192
-  %66 = load <2 x double>, ptr %65, align 1, !tbaa !26, !noalias !659
+  %66 = load <2 x double>, ptr %65, align 8, !tbaa !26, !noalias !659
   %67 = shufflevector <2 x double> %.sroa.0.i.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %68 = fmul <2 x double> %66, %67
   %69 = fadd <2 x double> %68, %64
   %70 = getelementptr inbounds nuw i8, ptr %42, i64 112
-  %71 = load <2 x double>, ptr %70, align 1, !tbaa !26, !noalias !659
+  %71 = load <2 x double>, ptr %70, align 8, !tbaa !26, !noalias !659
   %72 = getelementptr inbounds nuw i8, ptr %42, i64 144
-  %73 = load <2 x double>, ptr %72, align 1, !tbaa !26, !noalias !659
+  %73 = load <2 x double>, ptr %72, align 8, !tbaa !26, !noalias !659
   %74 = getelementptr inbounds nuw i8, ptr %42, i64 176
-  %75 = load <2 x double>, ptr %74, align 1, !tbaa !26, !noalias !659
+  %75 = load <2 x double>, ptr %74, align 8, !tbaa !26, !noalias !659
   %76 = getelementptr inbounds nuw i8, ptr %42, i64 208
-  %77 = load <2 x double>, ptr %76, align 1, !tbaa !26, !noalias !659
+  %77 = load <2 x double>, ptr %76, align 8, !tbaa !26, !noalias !659
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   %.sroa.010.0.vec.extract.i = extractelement <2 x double> %69, i64 0
   %78 = fmul double %45, %.sroa.010.0.vec.extract.i
@@ -33901,35 +33901,35 @@ _ZN5Eigen8internal28conditional_aligned_new_autoIdLb1EEEPT_m.exit.i: ; preds = %
   store double %.sroa.2.0.copyload.i, ptr %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx126, align 8, !tbaa !638, !noalias !692
   store double %.sroa.3.0.copyload.i, ptr %.sroa.0.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx127, align 16, !tbaa !638, !noalias !692
   store double 1.000000e+00, ptr %.sroa.0.i.i.24.i.i.24.i.i.24.i.24.i.24..sroa_idx, align 8, !tbaa !638, !noalias !692
-  %90 = load <2 x double>, ptr %89, align 1, !tbaa !26, !noalias !692
+  %90 = load <2 x double>, ptr %89, align 8, !tbaa !26, !noalias !692
   %.sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i.i = load <2 x double>, ptr %.sroa.0.i.i, align 16, !noalias !692
   %91 = shufflevector <2 x double> %.sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %92 = fmul <2 x double> %90, %91
   %93 = getelementptr inbounds nuw i8, ptr %79, i64 128
-  %94 = load <2 x double>, ptr %93, align 1, !tbaa !26, !noalias !692
+  %94 = load <2 x double>, ptr %93, align 8, !tbaa !26, !noalias !692
   %.sroa.0.i.i.8..sroa.0.i.i.8..sroa.0.i.i.8..sroa.0.i.8..sroa.0.i.8..sroa.0.8..sroa.0.8..i.i = load <2 x double>, ptr %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx, align 8, !noalias !692
   %95 = shufflevector <2 x double> %.sroa.0.i.i.8..sroa.0.i.i.8..sroa.0.i.i.8..sroa.0.i.8..sroa.0.i.8..sroa.0.8..sroa.0.8..i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %96 = fmul <2 x double> %94, %95
   %97 = fadd <2 x double> %92, %96
   %98 = getelementptr inbounds nuw i8, ptr %79, i64 160
-  %99 = load <2 x double>, ptr %98, align 1, !tbaa !26, !noalias !692
+  %99 = load <2 x double>, ptr %98, align 8, !tbaa !26, !noalias !692
   %.sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i.i = load <2 x double>, ptr %.sroa.0.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx, align 16, !noalias !692
   %100 = shufflevector <2 x double> %.sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %101 = fmul <2 x double> %99, %100
   %102 = fadd <2 x double> %97, %101
   %103 = getelementptr inbounds nuw i8, ptr %79, i64 192
-  %104 = load <2 x double>, ptr %103, align 1, !tbaa !26, !noalias !692
+  %104 = load <2 x double>, ptr %103, align 8, !tbaa !26, !noalias !692
   %105 = shufflevector <2 x double> %.sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i.i, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %106 = fmul <2 x double> %104, %105
   %107 = fadd <2 x double> %106, %102
   %108 = getelementptr inbounds nuw i8, ptr %79, i64 112
-  %109 = load <2 x double>, ptr %108, align 1, !tbaa !26, !noalias !692
+  %109 = load <2 x double>, ptr %108, align 8, !tbaa !26, !noalias !692
   %110 = getelementptr inbounds nuw i8, ptr %79, i64 144
-  %111 = load <2 x double>, ptr %110, align 1, !tbaa !26, !noalias !692
+  %111 = load <2 x double>, ptr %110, align 8, !tbaa !26, !noalias !692
   %112 = getelementptr inbounds nuw i8, ptr %79, i64 176
-  %113 = load <2 x double>, ptr %112, align 1, !tbaa !26, !noalias !692
+  %113 = load <2 x double>, ptr %112, align 8, !tbaa !26, !noalias !692
   %114 = getelementptr inbounds nuw i8, ptr %79, i64 208
-  %115 = load <2 x double>, ptr %114, align 1, !tbaa !26, !noalias !692
+  %115 = load <2 x double>, ptr %114, align 8, !tbaa !26, !noalias !692
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   %.sroa.010.0.vec.extract.i.i = extractelement <2 x double> %107, i64 0
   %116 = fmul double %83, %.sroa.010.0.vec.extract.i.i
@@ -34047,35 +34047,35 @@ _ZN6open3d7utility13optional_baseINS_9pipelines9color_map17ImageWarpingFieldEED2
   store double %.sroa.2.0.copyload.i59, ptr %.sroa.0.i.i56.8.i.i56.8.i.i56.8.i.8.i.8..sroa_idx128, align 8, !tbaa !638, !noalias !698
   store double %.sroa.3.0.copyload.i61, ptr %.sroa.0.i.i56.16.i.i56.16.i.i56.16.i.16.i.16..sroa_idx129, align 16, !tbaa !638, !noalias !698
   store double 1.000000e+00, ptr %.sroa.0.i.i56.24.i.i56.24.i.i56.24.i.24.i.24..sroa_idx, align 8, !tbaa !638, !noalias !698
-  %175 = load <2 x double>, ptr %174, align 1, !tbaa !26, !noalias !698
+  %175 = load <2 x double>, ptr %174, align 8, !tbaa !26, !noalias !698
   %.sroa.0.i.i56.0..sroa.0.i.i56.0..sroa.0.i.i56.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i.i65 = load <2 x double>, ptr %.sroa.0.i.i56, align 16, !noalias !698
   %176 = shufflevector <2 x double> %.sroa.0.i.i56.0..sroa.0.i.i56.0..sroa.0.i.i56.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i.i65, <2 x double> poison, <2 x i32> zeroinitializer
   %177 = fmul <2 x double> %175, %176
   %178 = getelementptr inbounds nuw i8, ptr %164, i64 128
-  %179 = load <2 x double>, ptr %178, align 1, !tbaa !26, !noalias !698
+  %179 = load <2 x double>, ptr %178, align 8, !tbaa !26, !noalias !698
   %.sroa.0.i.i56.8..sroa.0.i.i56.8..sroa.0.i.i56.8..sroa.0.i.8..sroa.0.i.8..sroa.0.8..sroa.0.8..i.i66 = load <2 x double>, ptr %.sroa.0.i.i56.8.i.i56.8.i.i56.8.i.8.i.8..sroa_idx, align 8, !noalias !698
   %180 = shufflevector <2 x double> %.sroa.0.i.i56.8..sroa.0.i.i56.8..sroa.0.i.i56.8..sroa.0.i.8..sroa.0.i.8..sroa.0.8..sroa.0.8..i.i66, <2 x double> poison, <2 x i32> zeroinitializer
   %181 = fmul <2 x double> %179, %180
   %182 = fadd <2 x double> %177, %181
   %183 = getelementptr inbounds nuw i8, ptr %164, i64 160
-  %184 = load <2 x double>, ptr %183, align 1, !tbaa !26, !noalias !698
+  %184 = load <2 x double>, ptr %183, align 8, !tbaa !26, !noalias !698
   %.sroa.0.i.i56.16..sroa.0.i.i56.16..sroa.0.i.i56.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i.i67 = load <2 x double>, ptr %.sroa.0.i.i56.16.i.i56.16.i.i56.16.i.16.i.16..sroa_idx, align 16, !noalias !698
   %185 = shufflevector <2 x double> %.sroa.0.i.i56.16..sroa.0.i.i56.16..sroa.0.i.i56.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i.i67, <2 x double> poison, <2 x i32> zeroinitializer
   %186 = fmul <2 x double> %184, %185
   %187 = fadd <2 x double> %182, %186
   %188 = getelementptr inbounds nuw i8, ptr %164, i64 192
-  %189 = load <2 x double>, ptr %188, align 1, !tbaa !26, !noalias !698
+  %189 = load <2 x double>, ptr %188, align 8, !tbaa !26, !noalias !698
   %190 = shufflevector <2 x double> %.sroa.0.i.i56.16..sroa.0.i.i56.16..sroa.0.i.i56.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i.i67, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %191 = fmul <2 x double> %189, %190
   %192 = fadd <2 x double> %191, %187
   %193 = getelementptr inbounds nuw i8, ptr %164, i64 112
-  %194 = load <2 x double>, ptr %193, align 1, !tbaa !26, !noalias !698
+  %194 = load <2 x double>, ptr %193, align 8, !tbaa !26, !noalias !698
   %195 = getelementptr inbounds nuw i8, ptr %164, i64 144
-  %196 = load <2 x double>, ptr %195, align 1, !tbaa !26, !noalias !698
+  %196 = load <2 x double>, ptr %195, align 8, !tbaa !26, !noalias !698
   %197 = getelementptr inbounds nuw i8, ptr %164, i64 176
-  %198 = load <2 x double>, ptr %197, align 1, !tbaa !26, !noalias !698
+  %198 = load <2 x double>, ptr %197, align 8, !tbaa !26, !noalias !698
   %199 = getelementptr inbounds nuw i8, ptr %164, i64 208
-  %200 = load <2 x double>, ptr %199, align 1, !tbaa !26, !noalias !698
+  %200 = load <2 x double>, ptr %199, align 8, !tbaa !26, !noalias !698
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i56)
   %.sroa.010.0.vec.extract.i.i68 = extractelement <2 x double> %192, i64 0
   %201 = fmul double %168, %.sroa.010.0.vec.extract.i.i68
@@ -34843,35 +34843,35 @@ _ZN6open3d7utility8optionalINS_9pipelines9color_map17ImageWarpingFieldEEaSENS0_9
   store double %.sroa.2.0.copyload.i, ptr %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx208, align 8, !tbaa !638, !noalias !719
   store double %.sroa.3.0.copyload.i, ptr %.sroa.0.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx209, align 16, !tbaa !638, !noalias !719
   store double 1.000000e+00, ptr %.sroa.0.i.i.24.i.i.24.i.i.24.i.24.i.24..sroa_idx, align 8, !tbaa !638, !noalias !719
-  %93 = load <2 x double>, ptr %92, align 1, !tbaa !26, !noalias !719
+  %93 = load <2 x double>, ptr %92, align 8, !tbaa !26, !noalias !719
   %.sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i.i = load <2 x double>, ptr %.sroa.0.i.i, align 16, !noalias !719
   %94 = shufflevector <2 x double> %.sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %95 = fmul <2 x double> %93, %94
   %96 = getelementptr inbounds nuw i8, ptr %82, i64 128
-  %97 = load <2 x double>, ptr %96, align 1, !tbaa !26, !noalias !719
+  %97 = load <2 x double>, ptr %96, align 8, !tbaa !26, !noalias !719
   %.sroa.0.i.i.8..sroa.0.i.i.8..sroa.0.i.i.8..sroa.0.i.8..sroa.0.i.8..sroa.0.8..sroa.0.8..i.i = load <2 x double>, ptr %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx, align 8, !noalias !719
   %98 = shufflevector <2 x double> %.sroa.0.i.i.8..sroa.0.i.i.8..sroa.0.i.i.8..sroa.0.i.8..sroa.0.i.8..sroa.0.8..sroa.0.8..i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %99 = fmul <2 x double> %97, %98
   %100 = fadd <2 x double> %95, %99
   %101 = getelementptr inbounds nuw i8, ptr %82, i64 160
-  %102 = load <2 x double>, ptr %101, align 1, !tbaa !26, !noalias !719
+  %102 = load <2 x double>, ptr %101, align 8, !tbaa !26, !noalias !719
   %.sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i.i = load <2 x double>, ptr %.sroa.0.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx, align 16, !noalias !719
   %103 = shufflevector <2 x double> %.sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %104 = fmul <2 x double> %102, %103
   %105 = fadd <2 x double> %100, %104
   %106 = getelementptr inbounds nuw i8, ptr %82, i64 192
-  %107 = load <2 x double>, ptr %106, align 1, !tbaa !26, !noalias !719
+  %107 = load <2 x double>, ptr %106, align 8, !tbaa !26, !noalias !719
   %108 = shufflevector <2 x double> %.sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i.i, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %109 = fmul <2 x double> %107, %108
   %110 = fadd <2 x double> %109, %105
   %111 = getelementptr inbounds nuw i8, ptr %82, i64 112
-  %112 = load <2 x double>, ptr %111, align 1, !tbaa !26, !noalias !719
+  %112 = load <2 x double>, ptr %111, align 8, !tbaa !26, !noalias !719
   %113 = getelementptr inbounds nuw i8, ptr %82, i64 144
-  %114 = load <2 x double>, ptr %113, align 1, !tbaa !26, !noalias !719
+  %114 = load <2 x double>, ptr %113, align 8, !tbaa !26, !noalias !719
   %115 = getelementptr inbounds nuw i8, ptr %82, i64 176
-  %116 = load <2 x double>, ptr %115, align 1, !tbaa !26, !noalias !719
+  %116 = load <2 x double>, ptr %115, align 8, !tbaa !26, !noalias !719
   %117 = getelementptr inbounds nuw i8, ptr %82, i64 208
-  %118 = load <2 x double>, ptr %117, align 1, !tbaa !26, !noalias !719
+  %118 = load <2 x double>, ptr %117, align 8, !tbaa !26, !noalias !719
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   %.sroa.010.0.vec.extract.i.i = extractelement <2 x double> %110, i64 0
   %119 = fmul double %86, %.sroa.010.0.vec.extract.i.i
@@ -34973,35 +34973,35 @@ _ZNR6open3d7utility8optionalIiE5valueEv.exit.i:   ; preds = %.noexc64
   store double %.sroa.2.0.copyload.i70, ptr %.sroa.0.i.i67.8.i.i67.8.i.i67.8.i.8.i.8..sroa_idx210, align 8, !tbaa !638, !noalias !725
   store double %.sroa.3.0.copyload.i72, ptr %.sroa.0.i.i67.16.i.i67.16.i.i67.16.i.16.i.16..sroa_idx211, align 16, !tbaa !638, !noalias !725
   store double 1.000000e+00, ptr %.sroa.0.i.i67.24.i.i67.24.i.i67.24.i.24.i.24..sroa_idx, align 8, !tbaa !638, !noalias !725
-  %176 = load <2 x double>, ptr %175, align 1, !tbaa !26, !noalias !725
+  %176 = load <2 x double>, ptr %175, align 8, !tbaa !26, !noalias !725
   %.sroa.0.i.i67.0..sroa.0.i.i67.0..sroa.0.i.i67.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i.i76 = load <2 x double>, ptr %.sroa.0.i.i67, align 16, !noalias !725
   %177 = shufflevector <2 x double> %.sroa.0.i.i67.0..sroa.0.i.i67.0..sroa.0.i.i67.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i.i76, <2 x double> poison, <2 x i32> zeroinitializer
   %178 = fmul <2 x double> %176, %177
   %179 = getelementptr inbounds nuw i8, ptr %165, i64 128
-  %180 = load <2 x double>, ptr %179, align 1, !tbaa !26, !noalias !725
+  %180 = load <2 x double>, ptr %179, align 8, !tbaa !26, !noalias !725
   %.sroa.0.i.i67.8..sroa.0.i.i67.8..sroa.0.i.i67.8..sroa.0.i.8..sroa.0.i.8..sroa.0.8..sroa.0.8..i.i77 = load <2 x double>, ptr %.sroa.0.i.i67.8.i.i67.8.i.i67.8.i.8.i.8..sroa_idx, align 8, !noalias !725
   %181 = shufflevector <2 x double> %.sroa.0.i.i67.8..sroa.0.i.i67.8..sroa.0.i.i67.8..sroa.0.i.8..sroa.0.i.8..sroa.0.8..sroa.0.8..i.i77, <2 x double> poison, <2 x i32> zeroinitializer
   %182 = fmul <2 x double> %180, %181
   %183 = fadd <2 x double> %178, %182
   %184 = getelementptr inbounds nuw i8, ptr %165, i64 160
-  %185 = load <2 x double>, ptr %184, align 1, !tbaa !26, !noalias !725
+  %185 = load <2 x double>, ptr %184, align 8, !tbaa !26, !noalias !725
   %.sroa.0.i.i67.16..sroa.0.i.i67.16..sroa.0.i.i67.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i.i78 = load <2 x double>, ptr %.sroa.0.i.i67.16.i.i67.16.i.i67.16.i.16.i.16..sroa_idx, align 16, !noalias !725
   %186 = shufflevector <2 x double> %.sroa.0.i.i67.16..sroa.0.i.i67.16..sroa.0.i.i67.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i.i78, <2 x double> poison, <2 x i32> zeroinitializer
   %187 = fmul <2 x double> %185, %186
   %188 = fadd <2 x double> %183, %187
   %189 = getelementptr inbounds nuw i8, ptr %165, i64 192
-  %190 = load <2 x double>, ptr %189, align 1, !tbaa !26, !noalias !725
+  %190 = load <2 x double>, ptr %189, align 8, !tbaa !26, !noalias !725
   %191 = shufflevector <2 x double> %.sroa.0.i.i67.16..sroa.0.i.i67.16..sroa.0.i.i67.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i.i78, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %192 = fmul <2 x double> %190, %191
   %193 = fadd <2 x double> %192, %188
   %194 = getelementptr inbounds nuw i8, ptr %165, i64 112
-  %195 = load <2 x double>, ptr %194, align 1, !tbaa !26, !noalias !725
+  %195 = load <2 x double>, ptr %194, align 8, !tbaa !26, !noalias !725
   %196 = getelementptr inbounds nuw i8, ptr %165, i64 144
-  %197 = load <2 x double>, ptr %196, align 1, !tbaa !26, !noalias !725
+  %197 = load <2 x double>, ptr %196, align 8, !tbaa !26, !noalias !725
   %198 = getelementptr inbounds nuw i8, ptr %165, i64 176
-  %199 = load <2 x double>, ptr %198, align 1, !tbaa !26, !noalias !725
+  %199 = load <2 x double>, ptr %198, align 8, !tbaa !26, !noalias !725
   %200 = getelementptr inbounds nuw i8, ptr %165, i64 208
-  %201 = load <2 x double>, ptr %200, align 1, !tbaa !26, !noalias !725
+  %201 = load <2 x double>, ptr %200, align 8, !tbaa !26, !noalias !725
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i67)
   %.sroa.010.0.vec.extract.i.i79 = extractelement <2 x double> %193, i64 0
   %202 = fmul double %169, %.sroa.010.0.vec.extract.i.i79
@@ -35103,35 +35103,35 @@ _ZNR6open3d7utility8optionalIiE5valueEv.exit.i88: ; preds = %.noexc92
   store double %.sroa.2.0.copyload.i99, ptr %.sroa.0.i.i96.8.i.i96.8.i.i96.8.i.8.i.8..sroa_idx212, align 8, !tbaa !638, !noalias !731
   store double %.sroa.3.0.copyload.i101, ptr %.sroa.0.i.i96.16.i.i96.16.i.i96.16.i.16.i.16..sroa_idx213, align 16, !tbaa !638, !noalias !731
   store double 1.000000e+00, ptr %.sroa.0.i.i96.24.i.i96.24.i.i96.24.i.24.i.24..sroa_idx, align 8, !tbaa !638, !noalias !731
-  %259 = load <2 x double>, ptr %258, align 1, !tbaa !26, !noalias !731
+  %259 = load <2 x double>, ptr %258, align 8, !tbaa !26, !noalias !731
   %.sroa.0.i.i96.0..sroa.0.i.i96.0..sroa.0.i.i96.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i.i105 = load <2 x double>, ptr %.sroa.0.i.i96, align 16, !noalias !731
   %260 = shufflevector <2 x double> %.sroa.0.i.i96.0..sroa.0.i.i96.0..sroa.0.i.i96.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i.i105, <2 x double> poison, <2 x i32> zeroinitializer
   %261 = fmul <2 x double> %259, %260
   %262 = getelementptr inbounds nuw i8, ptr %248, i64 128
-  %263 = load <2 x double>, ptr %262, align 1, !tbaa !26, !noalias !731
+  %263 = load <2 x double>, ptr %262, align 8, !tbaa !26, !noalias !731
   %.sroa.0.i.i96.8..sroa.0.i.i96.8..sroa.0.i.i96.8..sroa.0.i.8..sroa.0.i.8..sroa.0.8..sroa.0.8..i.i106 = load <2 x double>, ptr %.sroa.0.i.i96.8.i.i96.8.i.i96.8.i.8.i.8..sroa_idx, align 8, !noalias !731
   %264 = shufflevector <2 x double> %.sroa.0.i.i96.8..sroa.0.i.i96.8..sroa.0.i.i96.8..sroa.0.i.8..sroa.0.i.8..sroa.0.8..sroa.0.8..i.i106, <2 x double> poison, <2 x i32> zeroinitializer
   %265 = fmul <2 x double> %263, %264
   %266 = fadd <2 x double> %261, %265
   %267 = getelementptr inbounds nuw i8, ptr %248, i64 160
-  %268 = load <2 x double>, ptr %267, align 1, !tbaa !26, !noalias !731
+  %268 = load <2 x double>, ptr %267, align 8, !tbaa !26, !noalias !731
   %.sroa.0.i.i96.16..sroa.0.i.i96.16..sroa.0.i.i96.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i.i107 = load <2 x double>, ptr %.sroa.0.i.i96.16.i.i96.16.i.i96.16.i.16.i.16..sroa_idx, align 16, !noalias !731
   %269 = shufflevector <2 x double> %.sroa.0.i.i96.16..sroa.0.i.i96.16..sroa.0.i.i96.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i.i107, <2 x double> poison, <2 x i32> zeroinitializer
   %270 = fmul <2 x double> %268, %269
   %271 = fadd <2 x double> %266, %270
   %272 = getelementptr inbounds nuw i8, ptr %248, i64 192
-  %273 = load <2 x double>, ptr %272, align 1, !tbaa !26, !noalias !731
+  %273 = load <2 x double>, ptr %272, align 8, !tbaa !26, !noalias !731
   %274 = shufflevector <2 x double> %.sroa.0.i.i96.16..sroa.0.i.i96.16..sroa.0.i.i96.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i.i107, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %275 = fmul <2 x double> %273, %274
   %276 = fadd <2 x double> %275, %271
   %277 = getelementptr inbounds nuw i8, ptr %248, i64 112
-  %278 = load <2 x double>, ptr %277, align 1, !tbaa !26, !noalias !731
+  %278 = load <2 x double>, ptr %277, align 8, !tbaa !26, !noalias !731
   %279 = getelementptr inbounds nuw i8, ptr %248, i64 144
-  %280 = load <2 x double>, ptr %279, align 1, !tbaa !26, !noalias !731
+  %280 = load <2 x double>, ptr %279, align 8, !tbaa !26, !noalias !731
   %281 = getelementptr inbounds nuw i8, ptr %248, i64 176
-  %282 = load <2 x double>, ptr %281, align 1, !tbaa !26, !noalias !731
+  %282 = load <2 x double>, ptr %281, align 8, !tbaa !26, !noalias !731
   %283 = getelementptr inbounds nuw i8, ptr %248, i64 208
-  %284 = load <2 x double>, ptr %283, align 1, !tbaa !26, !noalias !731
+  %284 = load <2 x double>, ptr %283, align 8, !tbaa !26, !noalias !731
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i96)
   %.sroa.010.0.vec.extract.i.i108 = extractelement <2 x double> %276, i64 0
   %285 = fmul double %252, %.sroa.010.0.vec.extract.i.i108

@@ -97,13 +97,13 @@ define noundef ptr @Cbs2_ManAlloc(ptr noundef %0) local_unnamed_addr #2 {
   store ptr %19, ptr %23, align 8, !tbaa !37
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %0, ptr %24, align 8, !tbaa !38
-  store i32 1000, ptr %2, align 4, !tbaa !3
+  store i32 1000, ptr %2, align 8, !tbaa !3
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 500, ptr %25, align 4, !tbaa !8
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 1, ptr %26, align 4, !tbaa !9
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 1, ptr %27, align 4, !tbaa !12
+  store i32 1, ptr %27, align 8, !tbaa !12
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 44
   store i32 1, ptr %28, align 4, !tbaa !13
   %29 = getelementptr i8, ptr %0, i64 24
@@ -2338,9 +2338,9 @@ define i32 @Cbs2_ManSolve1_rec(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %22 = icmp sgt i32 %20, %21
   %23 = zext i1 %22 to i32
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %25 = load i32, ptr %24, align 4, !tbaa !60
+  %25 = load i32, ptr %24, align 8, !tbaa !60
   %26 = add nsw i32 %25, %23
-  store i32 %26, ptr %24, align 4, !tbaa !60
+  store i32 %26, ptr %24, align 8, !tbaa !60
   %27 = select i1 %14, i1 true, i1 %22
   br i1 %27, label %143, label %28
 
@@ -3015,9 +3015,9 @@ define i32 @Cbs2_ManSolve2_rec(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %28 = icmp sgt i32 %26, %27
   %29 = zext i1 %28 to i32
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %31 = load i32, ptr %30, align 4, !tbaa !60
+  %31 = load i32, ptr %30, align 8, !tbaa !60
   %32 = add nsw i32 %31, %29
-  store i32 %32, ptr %30, align 4, !tbaa !60
+  store i32 %32, ptr %30, align 8, !tbaa !60
   %33 = select i1 %20, i1 true, i1 %28
   br i1 %33, label %126, label %34
 
@@ -3325,9 +3325,9 @@ Cbs2_ManSolve_rec.exit.Cbs2_ManSaveModel.exit_crit_edge: ; preds = %Cbs2_ManSolv
   %59 = icmp sgt i32 %57, %58
   %60 = zext i1 %59 to i32
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %62 = load i32, ptr %61, align 4, !tbaa !60
+  %62 = load i32, ptr %61, align 8, !tbaa !60
   %63 = add nsw i32 %62, %60
-  store i32 %63, ptr %61, align 4, !tbaa !60
+  store i32 %63, ptr %61, align 8, !tbaa !60
   %64 = select i1 %52, i1 true, i1 %59
   %.pre44 = load i32, ptr %13, align 4, !tbaa !62
   br i1 %64, label %Cbs2_ManSaveModel.exit, label %65
@@ -3578,9 +3578,9 @@ Cbs2_ManBumpClean.exit:                           ; preds = %158, %Cbs2_ManClean
   %185 = icmp sgt i32 %169, %184
   %186 = zext i1 %185 to i32
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %188 = load i32, ptr %187, align 4, !tbaa !60
+  %188 = load i32, ptr %187, align 8, !tbaa !60
   %189 = add nsw i32 %188, %186
-  store i32 %189, ptr %187, align 4, !tbaa !60
+  store i32 %189, ptr %187, align 8, !tbaa !60
   %190 = select i1 %179, i1 true, i1 %185
   %spec.select = select i1 %190, i32 -1, i32 %.046
   ret i32 %spec.select
@@ -3762,9 +3762,9 @@ Cbs2_ManSolve_rec.exit.Cbs2_ManSaveModelAll.exit_crit_edge: ; preds = %Cbs2_ManS
   %93 = icmp sgt i32 %91, %92
   %94 = zext i1 %93 to i32
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %96 = load i32, ptr %95, align 4, !tbaa !60
+  %96 = load i32, ptr %95, align 8, !tbaa !60
   %97 = add nsw i32 %96, %94
-  store i32 %97, ptr %95, align 4, !tbaa !60
+  store i32 %97, ptr %95, align 8, !tbaa !60
   %98 = select i1 %86, i1 true, i1 %93
   %.pre58 = load i32, ptr %14, align 4, !tbaa !62
   br i1 %98, label %Cbs2_ManSaveModelAll.exit, label %99
@@ -4004,9 +4004,9 @@ Cbs2_ManBumpClean.exit:                           ; preds = %186, %Cbs2_ManClean
   %213 = icmp sgt i32 %197, %212
   %214 = zext i1 %213 to i32
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %216 = load i32, ptr %215, align 4, !tbaa !60
+  %216 = load i32, ptr %215, align 8, !tbaa !60
   %217 = add nsw i32 %216, %214
-  store i32 %217, ptr %215, align 4, !tbaa !60
+  store i32 %217, ptr %215, align 8, !tbaa !60
   %218 = select i1 %207, i1 true, i1 %213
   %spec.select = select i1 %218, i32 -1, i32 %.060
   ret i32 %spec.select
@@ -5004,7 +5004,7 @@ Abc_Clock.exit116:                                ; preds = %Vec_IntFree.exit, %
   %272 = getelementptr inbounds nuw i8, ptr %17, i64 388
   %273 = load i32, ptr %272, align 4, !tbaa !60
   %274 = getelementptr inbounds nuw i8, ptr %17, i64 392
-  %275 = load i32, ptr %274, align 4, !tbaa !60
+  %275 = load i32, ptr %274, align 8, !tbaa !60
   %276 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %265, i32 noundef %267, i32 noundef %269, i32 noundef %271, i32 noundef %273, i32 noundef %275)
   %277 = getelementptr inbounds nuw i8, ptr %17, i64 336
   %278 = load i64, ptr %277, align 8, !tbaa !82

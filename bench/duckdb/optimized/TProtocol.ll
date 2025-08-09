@@ -238,7 +238,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol4skipINS1_9TP
   store ptr %31, ptr %30, align 8, !tbaa !24
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i64 0, ptr %32, align 8, !tbaa !27
-  store i8 0, ptr %31, align 1, !tbaa !15
+  store i8 0, ptr %31, align 8, !tbaa !15
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %29, align 8, !tbaa !3
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 40
   store i32 6, ptr %33, align 8, !tbaa !30

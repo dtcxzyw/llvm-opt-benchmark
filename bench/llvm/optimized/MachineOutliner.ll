@@ -2678,7 +2678,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEjNS_27MachineInstrExpress
   store ptr %311, ptr %300, align 8, !tbaa !376, !noalias !372
   %312 = getelementptr inbounds nuw i8, ptr %300, i64 8
   %313 = load i32, ptr %.sroa.2.0..sroa_idx.i28.i, align 8, !tbaa !66, !noalias !372
-  store i32 %313, ptr %312, align 4, !tbaa !66, !noalias !372
+  store i32 %313, ptr %312, align 8, !tbaa !66, !noalias !372
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   %314 = load i32, ptr %312, align 8, !tbaa !382
   %315 = load i32, ptr %64, align 4, !tbaa !384
@@ -2879,7 +2879,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEjNS_27MachineInstrExpress
   store ptr %396, ptr %385, align 8, !tbaa !376, !noalias !385
   %397 = getelementptr inbounds nuw i8, ptr %385, i64 8
   %398 = load i32, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !66, !noalias !385
-  store i32 %398, ptr %397, align 4, !tbaa !66, !noalias !385
+  store i32 %398, ptr %397, align 8, !tbaa !66, !noalias !385
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   %399 = load i32, ptr %397, align 8, !tbaa !382
   %400 = load i32, ptr %64, align 4, !tbaa !384
@@ -4499,7 +4499,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEjNS_12DenseMapInfoIS
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E16InsertIntoBucketIRKS3_JEEEPS8_SE_OT_DpOT0_.exit.i.i: ; preds = %1162, %1156
   store ptr %1083, ptr %1157, align 8, !tbaa !361
   %1165 = getelementptr inbounds nuw i8, ptr %1157, i64 8
-  store i32 0, ptr %1165, align 4, !tbaa !66
+  store i32 0, ptr %1165, align 8, !tbaa !66
   %.pre161.i = load ptr, ptr %868, align 8, !tbaa !417
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixERKS3_.exit.i
 
@@ -11128,7 +11128,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEjNS_12DenseMapInfoIS
   %57 = load ptr, ptr %1, align 8, !tbaa !361
   store ptr %57, ptr %48, align 8, !tbaa !361
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !66
+  store i32 0, ptr %58, align 8, !tbaa !66
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E16InsertIntoBucketIS3_JEEEPS8_SC_OT_DpOT0_.exit
@@ -11331,7 +11331,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEjNS_12DenseMapInfoIS
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !66
-  store i32 %68, ptr %66, align 4, !tbaa !66
+  store i32 %68, ptr %66, align 8, !tbaa !66
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !517
   br label %70
@@ -11567,8 +11567,8 @@ _ZN4llvm27MachineInstrExpressionTrait7isEqualERKPKNS_12MachineInstrES5_.exit.i: 
   store ptr %42, ptr %43, align 8, !tbaa !376
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %.019.i, i64 8
-  %46 = load i32, ptr %45, align 4, !tbaa !66
-  store i32 %46, ptr %44, align 4, !tbaa !66
+  %46 = load i32, ptr %45, align 8, !tbaa !66
+  store i32 %46, ptr %44, align 8, !tbaa !66
   %47 = load i32, ptr %33, align 8, !tbaa !380
   %48 = add i32 %47, 1
   store i32 %48, ptr %33, align 8, !tbaa !380
@@ -12071,7 +12071,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEjNS_12DenseMapInfoIS
   %57 = load ptr, ptr %1, align 8, !tbaa !361
   store ptr %57, ptr %48, align 8, !tbaa !361
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !66
+  store i32 0, ptr %58, align 8, !tbaa !66
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E16InsertIntoBucketIRKS3_JEEEPS8_SE_OT_DpOT0_.exit

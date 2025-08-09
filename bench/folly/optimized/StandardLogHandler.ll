@@ -319,7 +319,7 @@ _ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9constru
   store i64 %34, ptr %35, align 8, !tbaa !33
   store ptr %25, ptr %1, align 8, !tbaa !32
   store i64 0, ptr %33, align 8, !tbaa !33
-  store i8 0, ptr %25, align 1, !tbaa !34
+  store i8 0, ptr %25, align 8, !tbaa !34
   store i8 1, ptr %19, align 8, !tbaa !38
   %36 = load i8, ptr %20, align 8, !tbaa !35, !range !40, !noundef !41
   %37 = trunc nuw i8 %36 to i1

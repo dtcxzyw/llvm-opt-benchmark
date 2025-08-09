@@ -16944,9 +16944,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10AllocaInstENS_14SmallSetVectorINS_2at
   store ptr null, ptr %41, align 8, !tbaa !706
   %43 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 16
   %44 = getelementptr inbounds nuw i8, ptr %.022, i64 16
-  %45 = load i32, ptr %44, align 4, !tbaa !365
-  store i32 %45, ptr %43, align 4, !tbaa !365
-  store i32 0, ptr %44, align 4, !tbaa !365
+  %45 = load i32, ptr %44, align 8, !tbaa !365
+  store i32 %45, ptr %43, align 8, !tbaa !365
+  store i32 0, ptr %44, align 8, !tbaa !365
   %46 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 20
   %47 = getelementptr inbounds nuw i8, ptr %.022, i64 20
   %48 = load i32, ptr %46, align 4, !tbaa !365
@@ -16955,10 +16955,10 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10AllocaInstENS_14SmallSetVectorINS_2at
   store i32 %48, ptr %47, align 4, !tbaa !365
   %50 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 24
   %51 = getelementptr inbounds nuw i8, ptr %.022, i64 24
-  %52 = load i32, ptr %50, align 4, !tbaa !365
-  %53 = load i32, ptr %51, align 4, !tbaa !365
-  store i32 %53, ptr %50, align 4, !tbaa !365
-  store i32 %52, ptr %51, align 4, !tbaa !365
+  %52 = load i32, ptr %50, align 8, !tbaa !365
+  %53 = load i32, ptr %51, align 8, !tbaa !365
+  store i32 %53, ptr %50, align 8, !tbaa !365
+  store i32 %52, ptr %51, align 8, !tbaa !365
   %54 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 48
   store ptr %55, ptr %54, align 8, !tbaa !45

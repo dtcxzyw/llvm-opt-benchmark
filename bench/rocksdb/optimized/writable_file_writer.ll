@@ -1301,7 +1301,7 @@ _ZN7rocksdb22GetFileWriteHistogramsENS_10HistogramsENS_3Env10IOActivityE.exit: ;
   store i8 1, ptr %53, align 8, !tbaa !174
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 33
   %55 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  %56 = load atomic i8, ptr %55 monotonic, align 1
+  %56 = load atomic i8, ptr %55 monotonic, align 8
   %57 = icmp ugt i8 %56, 2
   br i1 %57, label %58, label %.thread
 

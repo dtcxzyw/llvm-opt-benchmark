@@ -890,14 +890,14 @@ define dso_local void @drm_atomic_helper_connector_tv_margins_reset(ptr noundef 
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 60
   store i32 %6, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1632
-  %10 = load i32, ptr %9, align 4
+  %10 = load i32, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 %10, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1636
   %13 = load i32, ptr %12, align 4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 68
   store i32 %13, ptr %14, align 4
-  %15 = load i32, ptr %4, align 4
+  %15 = load i32, ptr %4, align 8
   store i32 %15, ptr %7, align 8
   ret void
 }
@@ -1102,14 +1102,14 @@ define dso_local void @drm_atomic_helper_connector_tv_reset(ptr noundef %0) #1 a
   %127 = getelementptr inbounds nuw i8, ptr %122, i64 60
   store i32 %125, ptr %127, align 4
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 1632
-  %129 = load i32, ptr %128, align 4
+  %129 = load i32, ptr %128, align 8
   %130 = getelementptr inbounds nuw i8, ptr %122, i64 64
   store i32 %129, ptr %130, align 8
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 1636
   %132 = load i32, ptr %131, align 4
   %133 = getelementptr inbounds nuw i8, ptr %122, i64 68
   store i32 %132, ptr %133, align 4
-  %134 = load i32, ptr %123, align 4
+  %134 = load i32, ptr %123, align 8
   store i32 %134, ptr %126, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void

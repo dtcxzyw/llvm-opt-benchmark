@@ -6459,7 +6459,7 @@ _ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit: ; preds = %4
   %54 = trunc nuw i64 %53 to i32
   %55 = add nsw i32 %49, %54
   %56 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %57 = load i8, ptr %56, align 1
+  %57 = load i8, ptr %56, align 4
   %58 = zext i8 %57 to i32
   %59 = shl nuw i32 1, %58
   %60 = icmp eq i32 %48, 0
@@ -10699,7 +10699,7 @@ _ZNK5drjit9ArrayBaseINS_5ArrayIiLm8EEELb0ENS1_IS2_Lm3EEEE4add_ERKS3_.exit: ; pre
   %121 = bitcast <4 x i64> %108 to <8 x i32>
   %122 = add <8 x i32> %120, %121
   %123 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  %124 = load i8, ptr %123, align 1
+  %124 = load i8, ptr %123, align 4
   %125 = zext i8 %124 to i32
   %126 = shl nuw i32 1, %125
   %127 = icmp eq i32 %104, 0

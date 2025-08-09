@@ -11398,7 +11398,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   store ptr %33, ptr %32, align 8, !tbaa !37
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i64 0, ptr %34, align 8, !tbaa !24
-  store i8 0, ptr %33, align 1, !tbaa !25
+  store i8 0, ptr %33, align 8, !tbaa !25
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 100
   store i8 0, ptr %35, align 4, !tbaa !42
   ret void

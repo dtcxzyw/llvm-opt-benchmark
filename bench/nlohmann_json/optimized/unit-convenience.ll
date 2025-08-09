@@ -1202,7 +1202,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr %310, ptr %308, align 8, !tbaa !16
   %311 = getelementptr inbounds nuw i8, ptr %308, i64 8
   store i64 0, ptr %311, align 8, !tbaa !20
-  store i8 0, ptr %310, align 1, !tbaa !9
+  store i8 0, ptr %310, align 8, !tbaa !9
   store ptr %308, ptr %307, align 8, !tbaa !9
   %312 = getelementptr inbounds nuw i8, ptr %46, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %312, ptr noundef nonnull align 1 dereferenceable(6) @.str.20, i64 6, i1 false)

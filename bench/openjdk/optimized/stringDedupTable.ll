@@ -1238,7 +1238,7 @@ _ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEiS0_.exit.i.i.us: ; preds = %.l
   tail call void @llvm.memset.p0.i64(ptr align 4 %12, i8 0, i64 %8, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %16 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %5, i32 noundef 8, i8 noundef zeroext 25) #14
-  store i32 0, ptr %15, align 4
+  store i32 0, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store i32 %5, ptr %17, align 4
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -1259,7 +1259,7 @@ _ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEiS0_.exit.i.i: ; preds = %.lr.p
   store ptr %21, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %25 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %5, i32 noundef 8, i8 noundef zeroext 25) #14
-  store i32 0, ptr %24, align 4
+  store i32 0, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i32 %5, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 24
@@ -1309,7 +1309,7 @@ define hidden void @_ZN11StringDedup5Table12free_bucketsEPNS0_6BucketEm(ptr noun
   store ptr %.sroa.0.0.copyload.i.i, ptr %3, align 8
   %16 = load ptr, ptr @_ZN11StringDedup5Table14_table_storageE, align 8
   call void @_ZN10WeakHandle7releaseEP10OopStorage(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %16) #14
-  %17 = load i32, ptr %6, align 4
+  %17 = load i32, ptr %6, align 8
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %._crit_edge.i, label %10, !llvm.loop !18
 

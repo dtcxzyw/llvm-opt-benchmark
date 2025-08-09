@@ -1382,7 +1382,7 @@ define hidden void @"_ZN105_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow
   %.sroa.6.0..sroa_idx2.i.i = getelementptr inbounds i8, ptr %52, i64 -23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %.sroa.6.i.sroa.0.i, ptr noundef nonnull align 1 dereferenceable(19) %.sroa.6.0..sroa_idx2.i.i, i64 19, i1 false), !noalias !261
   %.sroa.6.i.sroa.5.0..sroa.6.0..sroa_idx2.i.sroa_idx.i = getelementptr inbounds i8, ptr %52, i64 -4
-  %.sroa.6.i.sroa.5.0.copyload.i = load i32, ptr %.sroa.6.i.sroa.5.0..sroa.6.0..sroa_idx2.i.sroa_idx.i, align 1, !noalias !261
+  %.sroa.6.i.sroa.5.0.copyload.i = load i32, ptr %.sroa.6.i.sroa.5.0..sroa.6.0..sroa_idx2.i.sroa_idx.i, align 4, !noalias !261
   %.not.i.i = icmp eq i8 %.sroa.0.0.copyload1.i.i, 2
   br i1 %.not.i.i, label %.thread18.i, label %55
 
@@ -3239,7 +3239,7 @@ define hidden void @"_ZN105_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow
   %.sroa.6.0..sroa_idx2.i.i = getelementptr inbounds i8, ptr %52, i64 -22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %.sroa.6.i.sroa.0.i, ptr noundef nonnull align 2 dereferenceable(18) %.sroa.6.0..sroa_idx2.i.i, i64 18, i1 false), !noalias !612
   %.sroa.6.i.sroa.5.0..sroa.6.0..sroa_idx2.i.sroa_idx.i = getelementptr inbounds i8, ptr %52, i64 -4
-  %.sroa.6.i.sroa.5.0.copyload.i = load i32, ptr %.sroa.6.i.sroa.5.0..sroa.6.0..sroa_idx2.i.sroa_idx.i, align 2, !noalias !612
+  %.sroa.6.i.sroa.5.0.copyload.i = load i32, ptr %.sroa.6.i.sroa.5.0..sroa.6.0..sroa_idx2.i.sroa_idx.i, align 4, !noalias !612
   %.not.i.i = icmp eq i16 %.sroa.0.0.copyload1.i.i, 2
   br i1 %.not.i.i, label %.thread18.i, label %55
 

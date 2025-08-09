@@ -3121,7 +3121,7 @@ define i32 @uchar_swapNames_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   %107 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %109 = load ptr, ptr %108, align 8, !tbaa !89
-  %110 = load i16, ptr %106, align 2, !tbaa !33
+  %110 = load i16, ptr %106, align 4, !tbaa !33
   %111 = tail call noundef zeroext i16 %109(i16 noundef zeroext %110)
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %113 = load ptr, ptr %112, align 8, !tbaa !92

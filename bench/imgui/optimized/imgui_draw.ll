@@ -11195,7 +11195,7 @@ _ZN14ImTriangulator10BuildNodesEPK6ImVec2i.exit:  ; preds = %18
   %46 = getelementptr inbounds nuw i8, ptr %.0811.i, i64 16
   %47 = load ptr, ptr %46, align 8, !tbaa !194
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %49 = load float, ptr %45, align 4, !tbaa !103
+  %49 = load float, ptr %45, align 8, !tbaa !103
   %50 = load float, ptr %44, align 4, !tbaa !103
   %51 = fsub float %49, %50
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 12
@@ -11386,7 +11386,7 @@ define void @_ZN14ImTriangulator13BuildReflexesEv(ptr noundef nonnull align 8 ca
   %14 = getelementptr inbounds nuw i8, ptr %.0811, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !194
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load float, ptr %13, align 4, !tbaa !103
+  %17 = load float, ptr %13, align 8, !tbaa !103
   %18 = load float, ptr %12, align 4, !tbaa !103
   %19 = fsub float %17, %18
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 12
@@ -11611,7 +11611,7 @@ _ZN14ImTriangulator12FlipNodeListEv.exit:         ; preds = %.lr.ph.i, %7
   %29 = getelementptr inbounds nuw i8, ptr %.0811.i, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !194
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %32 = load float, ptr %28, align 4, !tbaa !103
+  %32 = load float, ptr %28, align 8, !tbaa !103
   %33 = load float, ptr %27, align 4, !tbaa !103
   %34 = fsub float %32, %33
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 12
@@ -11822,7 +11822,7 @@ define void @_ZN14ImTriangulator14ReclassifyNodeEP18ImTriangulatorNode(ptr nound
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %10 = load float, ptr %8, align 4, !tbaa !103
+  %10 = load float, ptr %8, align 8, !tbaa !103
   %11 = load float, ptr %7, align 4, !tbaa !103
   %12 = fsub float %10, %11
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -15361,7 +15361,7 @@ define noundef zeroext i1 @_Z32ImFontAtlasGetMouseCursorTexDataP11ImFontAtlasiP6
   %32 = load i64, ptr %31, align 8
   store i64 %32, ptr %2, align 4
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %.val38 = load float, ptr %33, align 4, !tbaa !103
+  %.val38 = load float, ptr %33, align 8, !tbaa !103
   %34 = getelementptr i8, ptr %0, i64 68
   %.val39 = load float, ptr %34, align 4, !tbaa !104
   %35 = fmul float %25, %.val38
@@ -15371,7 +15371,7 @@ define noundef zeroext i1 @_Z32ImFontAtlasGetMouseCursorTexDataP11ImFontAtlasiP6
   store <2 x float> %.sroa.0.4.vec.insert.i53, ptr %4, align 4
   %37 = fadd float %25, %28
   %38 = fadd float %26, %29
-  %.val42 = load float, ptr %33, align 4, !tbaa !103
+  %.val42 = load float, ptr %33, align 8, !tbaa !103
   %.val43 = load float, ptr %34, align 4, !tbaa !104
   %39 = fmul float %37, %.val42
   %40 = fmul float %38, %.val43
@@ -15380,7 +15380,7 @@ define noundef zeroext i1 @_Z32ImFontAtlasGetMouseCursorTexDataP11ImFontAtlasiP6
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store <2 x float> %.sroa.0.4.vec.insert.i57, ptr %41, align 4
   %42 = fadd float %25, 1.230000e+02
-  %.val46 = load float, ptr %33, align 4, !tbaa !103
+  %.val46 = load float, ptr %33, align 8, !tbaa !103
   %.val47 = load float, ptr %34, align 4, !tbaa !104
   %43 = fmul float %42, %.val46
   %44 = fmul float %26, %.val47
@@ -15388,7 +15388,7 @@ define noundef zeroext i1 @_Z32ImFontAtlasGetMouseCursorTexDataP11ImFontAtlasiP6
   %.sroa.0.4.vec.insert.i59 = insertelement <2 x float> %.sroa.0.0.vec.insert.i58, float %44, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i59, ptr %5, align 4
   %45 = fadd float %42, %28
-  %.val50 = load float, ptr %33, align 4, !tbaa !103
+  %.val50 = load float, ptr %33, align 8, !tbaa !103
   %.val51 = load float, ptr %34, align 4, !tbaa !104
   %46 = fmul float %45, %.val50
   %47 = fmul float %38, %.val51

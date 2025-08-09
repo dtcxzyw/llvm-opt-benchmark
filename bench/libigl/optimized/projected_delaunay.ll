@@ -18695,10 +18695,10 @@ _ZNK4CGAL20CommonKernelFunctors18Construct_vertex_3INS_16Simple_cartesianINS_11I
   %41 = getelementptr inbounds nuw i8, ptr %19, i64 64
   store ptr null, ptr %41, align 8, !tbaa !289
   %42 = getelementptr inbounds nuw i8, ptr %19, i64 72
-  store i32 0, ptr %42, align 4, !tbaa !292
+  store i32 0, ptr %42, align 8, !tbaa !292
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL10Lazy_rep_nINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS_20CommonKernelFunctors18Construct_vertex_3IS5_EENSN_ISK_EENS_19Cartesian_converterISK_S5_NS_12NT_converterISJ_S4_EEEELb0EJNS_10Triangle_3INS_5EpeckEEEiEEE, i64 16), ptr %19, align 16, !tbaa !28
   %43 = getelementptr inbounds nuw i8, ptr %19, i64 80
-  store i32 %24, ptr %43, align 4, !tbaa !294
+  store i32 %24, ptr %43, align 16, !tbaa !294
   %44 = getelementptr inbounds nuw i8, ptr %19, i64 88
   %45 = load ptr, ptr %2, align 8, !tbaa !23
   store ptr %45, ptr %44, align 8, !tbaa !23
@@ -20247,11 +20247,11 @@ define linkonce_odr dso_local void @_ZNK4CGAL17Lazy_constructionINS_5EpeckENS_20
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 64
   store ptr null, ptr %25, align 8, !tbaa !289
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 72
-  store i32 0, ptr %26, align 4, !tbaa !292
+  store i32 0, ptr %26, align 8, !tbaa !292
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL10Lazy_rep_nINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS_20CommonKernelFunctors18Construct_source_3IS5_EENSN_ISK_EENS_19Cartesian_converterISK_S5_NS_12NT_converterISJ_S4_EEEELb0EJNS_9Segment_3INS_5EpeckEEEEEE, i64 16), ptr %18, align 16, !tbaa !28
   %27 = getelementptr inbounds nuw i8, ptr %18, i64 80
   %28 = load ptr, ptr %2, align 8, !tbaa !23
-  store ptr %28, ptr %27, align 8, !tbaa !23
+  store ptr %28, ptr %27, align 16, !tbaa !23
   %29 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !27
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %29, 0
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -20755,11 +20755,11 @@ define linkonce_odr dso_local void @_ZNK4CGAL17Lazy_constructionINS_5EpeckENS_20
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 64
   store ptr null, ptr %26, align 8, !tbaa !289
   %27 = getelementptr inbounds nuw i8, ptr %18, i64 72
-  store i32 0, ptr %27, align 4, !tbaa !292
+  store i32 0, ptr %27, align 8, !tbaa !292
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL10Lazy_rep_nINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS_20CommonKernelFunctors18Construct_target_3IS5_EENSN_ISK_EENS_19Cartesian_converterISK_S5_NS_12NT_converterISJ_S4_EEEELb0EJNS_9Segment_3INS_5EpeckEEEEEE, i64 16), ptr %18, align 16, !tbaa !28
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 80
   %29 = load ptr, ptr %2, align 8, !tbaa !23
-  store ptr %29, ptr %28, align 8, !tbaa !23
+  store ptr %29, ptr %28, align 16, !tbaa !23
   %30 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !27
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %30, 0
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -22347,11 +22347,11 @@ define linkonce_odr dso_local void @_ZNK4CGAL17Lazy_constructionINS_5EpeckENS_20
   %49 = getelementptr inbounds nuw i8, ptr %30, i64 80
   store ptr %47, ptr %49, align 8, !tbaa !350
   %50 = getelementptr inbounds nuw i8, ptr %30, i64 88
-  store i32 0, ptr %50, align 4, !tbaa !292
+  store i32 0, ptr %50, align 8, !tbaa !292
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL10Lazy_rep_nINS_7Plane_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS_20CommonKernelFunctors17Construct_plane_3IS5_EENSN_ISK_EENS_19Cartesian_converterISK_S5_NS_12NT_converterISJ_S4_EEEELb0EJNS_15Return_base_tagENS_7Point_3INS_5EpeckEEESX_SX_EEE, i64 16), ptr %30, align 16, !tbaa !28
   %51 = getelementptr inbounds nuw i8, ptr %30, i64 96
   %52 = load ptr, ptr %5, align 8, !tbaa !23
-  store ptr %52, ptr %51, align 8, !tbaa !23
+  store ptr %52, ptr %51, align 16, !tbaa !23
   %53 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !27
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %53, 0
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -49400,7 +49400,7 @@ define linkonce_odr dso_local ptr @_ZN4CGAL30Triangulation_data_structure_2INS_2
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 48
   store ptr null, ptr %23, align 8, !tbaa !481
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 56
-  store i32 0, ptr %24, align 4, !tbaa !292
+  store i32 0, ptr %24, align 8, !tbaa !292
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL10Lazy_rep_0INS_7Point_2INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISK_S5_NS_12NT_converterISJ_S4_EEEEEE, i64 16), ptr %21, align 16, !tbaa !28
   store ptr %21, ptr @_ZZN4CGAL4LazyINS_7Point_2INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISK_S5_NS_12NT_converterISJ_S4_EEEEE4zeroEvE1z, align 8, !tbaa !23
   %25 = tail call i32 @__cxa_thread_atexit(ptr nonnull @_ZN4CGAL6HandleD2Ev, ptr nonnull @_ZZN4CGAL4LazyINS_7Point_2INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISK_S5_NS_12NT_converterISJ_S4_EEEEE4zeroEvE1z, ptr nonnull @__dso_handle) #22
@@ -49468,7 +49468,7 @@ _ZN4CGAL30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5Ep
   %54 = getelementptr inbounds nuw i8, ptr %46, i64 49
   store i8 0, ptr %54, align 1, !tbaa !125
   %55 = getelementptr inbounds nuw i8, ptr %46, i64 50
-  store i8 0, ptr %55, align 1, !tbaa !125
+  store i8 0, ptr %55, align 2, !tbaa !125
   %56 = getelementptr inbounds nuw i8, ptr %46, i64 51
   store i8 0, ptr %56, align 1, !tbaa !125
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -49563,7 +49563,7 @@ _ZN4CGAL30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5Ep
   %101 = getelementptr inbounds nuw i8, ptr %93, i64 49
   store i8 0, ptr %101, align 1, !tbaa !125
   %102 = getelementptr inbounds nuw i8, ptr %93, i64 50
-  store i8 0, ptr %102, align 1, !tbaa !125
+  store i8 0, ptr %102, align 2, !tbaa !125
   %103 = getelementptr inbounds nuw i8, ptr %93, i64 51
   store i8 0, ptr %103, align 1, !tbaa !125
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %100, i8 0, i64 40, i1 false)
@@ -49764,7 +49764,7 @@ _ZN4CGAL8internal11CC_iteratorINS_17Compact_containerINS_37Constrained_triangula
   %189 = getelementptr inbounds nuw i8, ptr %178, i64 49
   store i8 0, ptr %189, align 1, !tbaa !125
   %190 = getelementptr inbounds nuw i8, ptr %178, i64 50
-  store i8 0, ptr %190, align 1, !tbaa !125
+  store i8 0, ptr %190, align 2, !tbaa !125
   %191 = getelementptr inbounds nuw i8, ptr %178, i64 51
   store i8 0, ptr %191, align 1, !tbaa !125
   %192 = load i64, ptr %110, align 8, !tbaa !1182
@@ -49898,10 +49898,10 @@ _ZNSt7__cxx114listIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Co
   store ptr %.sroa.01.0.copyload.i.i106.us, ptr %236, align 8, !tbaa !71
   %237 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i102.us, i64 49
   %238 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i102.us, i64 50
-  %239 = load i8, ptr %238, align 1, !tbaa !125, !range !10, !noundef !11
+  %239 = load i8, ptr %238, align 2, !tbaa !125, !range !10, !noundef !11
   %240 = load i8, ptr %237, align 1, !tbaa !125, !range !10, !noundef !11
   store i8 %239, ptr %237, align 1, !tbaa !125
-  store i8 %240, ptr %238, align 1, !tbaa !125
+  store i8 %240, ptr %238, align 2, !tbaa !125
   %241 = load ptr, ptr %.sroa.0160.2226.us, align 8, !tbaa !1254
   %.not200.us = icmp eq ptr %241, %4
   br i1 %.not200.us, label %.loopexit, label %.lr.ph227.split.us, !llvm.loop !1318
@@ -49925,10 +49925,10 @@ _ZNSt7__cxx114listIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Co
   store ptr %.sroa.01.0.copyload.i.i, ptr %248, align 8, !tbaa !71
   %249 = getelementptr inbounds nuw i8, ptr %244, i64 49
   %250 = getelementptr inbounds nuw i8, ptr %244, i64 50
-  %251 = load i8, ptr %250, align 1, !tbaa !125, !range !10, !noundef !11
+  %251 = load i8, ptr %250, align 2, !tbaa !125, !range !10, !noundef !11
   %252 = load i8, ptr %249, align 1, !tbaa !125, !range !10, !noundef !11
   store i8 %251, ptr %249, align 1, !tbaa !125
-  store i8 %252, ptr %250, align 1, !tbaa !125
+  store i8 %252, ptr %250, align 2, !tbaa !125
   %253 = load ptr, ptr %228, align 8, !tbaa !1254
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 16
   %255 = load ptr, ptr %254, align 8, !tbaa !686
@@ -49951,10 +49951,10 @@ _ZNSt7__cxx114listIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Co
   store ptr %.sroa.01.0.copyload.i.i97, ptr %261, align 8, !tbaa !71
   %262 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i93, i64 49
   %263 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i93, i64 50
-  %264 = load i8, ptr %263, align 1, !tbaa !125, !range !10, !noundef !11
+  %264 = load i8, ptr %263, align 2, !tbaa !125, !range !10, !noundef !11
   %265 = load i8, ptr %262, align 1, !tbaa !125, !range !10, !noundef !11
   store i8 %264, ptr %262, align 1, !tbaa !125
-  store i8 %265, ptr %263, align 1, !tbaa !125
+  store i8 %265, ptr %263, align 2, !tbaa !125
   %266 = load ptr, ptr %228, align 8, !tbaa !1254
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 16
   br label %.loopexit.sink.split
@@ -49976,10 +49976,10 @@ _ZNSt7__cxx114listIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Co
   store ptr %.sroa.01.0.copyload.i.i110, ptr %272, align 8, !tbaa !71
   %273 = getelementptr inbounds nuw i8, ptr %269, i64 49
   %274 = getelementptr inbounds nuw i8, ptr %269, i64 50
-  %275 = load i8, ptr %274, align 1, !tbaa !125, !range !10, !noundef !11
+  %275 = load i8, ptr %274, align 2, !tbaa !125, !range !10, !noundef !11
   %276 = load i8, ptr %273, align 1, !tbaa !125, !range !10, !noundef !11
   store i8 %275, ptr %273, align 1, !tbaa !125
-  store i8 %276, ptr %274, align 1, !tbaa !125
+  store i8 %276, ptr %274, align 2, !tbaa !125
   %277 = load ptr, ptr %.sroa.0160.2226, align 8, !tbaa !1254
   %.not200 = icmp eq ptr %277, %4
   br i1 %.not200, label %.loopexit, label %.lr.ph227.split, !llvm.loop !1319
@@ -50000,10 +50000,10 @@ _ZNSt7__cxx114listIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Co
   store ptr %.sroa.01.0.copyload.i.i101, ptr %280, align 8, !tbaa !71
   %281 = getelementptr inbounds nuw i8, ptr %.sink270, i64 49
   %282 = getelementptr inbounds nuw i8, ptr %.sink270, i64 50
-  %283 = load i8, ptr %282, align 1, !tbaa !125, !range !10, !noundef !11
+  %283 = load i8, ptr %282, align 2, !tbaa !125, !range !10, !noundef !11
   %284 = load i8, ptr %281, align 1, !tbaa !125, !range !10, !noundef !11
   store i8 %283, ptr %281, align 1, !tbaa !125
-  store i8 %284, ptr %282, align 1, !tbaa !125
+  store i8 %284, ptr %282, align 2, !tbaa !125
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph227.split, %.lr.ph227.split.us, %.loopexit.sink.split, %.preheader
@@ -50556,7 +50556,7 @@ define linkonce_odr dso_local ptr @_ZN4CGAL30Triangulation_data_structure_2INS_2
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 48
   store ptr null, ptr %20, align 8, !tbaa !481
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 56
-  store i32 0, ptr %21, align 4, !tbaa !292
+  store i32 0, ptr %21, align 8, !tbaa !292
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL10Lazy_rep_0INS_7Point_2INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISK_S5_NS_12NT_converterISJ_S4_EEEEEE, i64 16), ptr %18, align 16, !tbaa !28
   store ptr %18, ptr @_ZZN4CGAL4LazyINS_7Point_2INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISK_S5_NS_12NT_converterISJ_S4_EEEEE4zeroEvE1z, align 8, !tbaa !23
   %22 = tail call i32 @__cxa_thread_atexit(ptr nonnull @_ZN4CGAL6HandleD2Ev, ptr nonnull @_ZZN4CGAL4LazyINS_7Point_2INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISK_S5_NS_12NT_converterISJ_S4_EEEEE4zeroEvE1z, ptr nonnull @__dso_handle) #22
@@ -50630,7 +50630,7 @@ _ZN4CGAL30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5Ep
   %55 = getelementptr inbounds nuw i8, ptr %44, i64 49
   store i8 0, ptr %55, align 1, !tbaa !125
   %56 = getelementptr inbounds nuw i8, ptr %44, i64 50
-  store i8 0, ptr %56, align 1, !tbaa !125
+  store i8 0, ptr %56, align 2, !tbaa !125
   %57 = getelementptr inbounds nuw i8, ptr %44, i64 51
   store i8 0, ptr %57, align 1, !tbaa !125
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -50669,7 +50669,7 @@ _ZN4CGAL30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5Ep
   %76 = getelementptr inbounds nuw i8, ptr %65, i64 49
   store i8 0, ptr %76, align 1, !tbaa !125
   %77 = getelementptr inbounds nuw i8, ptr %65, i64 50
-  store i8 0, ptr %77, align 1, !tbaa !125
+  store i8 0, ptr %77, align 2, !tbaa !125
   %78 = getelementptr inbounds nuw i8, ptr %65, i64 51
   store i8 0, ptr %78, align 1, !tbaa !125
   %79 = load i64, ptr %58, align 8, !tbaa !1182
@@ -50809,7 +50809,7 @@ define linkonce_odr dso_local ptr @_ZN4CGAL30Triangulation_data_structure_2INS_2
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 48
   store ptr null, ptr %24, align 8, !tbaa !481
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 56
-  store i32 0, ptr %25, align 4, !tbaa !292
+  store i32 0, ptr %25, align 8, !tbaa !292
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL10Lazy_rep_0INS_7Point_2INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISK_S5_NS_12NT_converterISJ_S4_EEEEEE, i64 16), ptr %22, align 16, !tbaa !28
   store ptr %22, ptr @_ZZN4CGAL4LazyINS_7Point_2INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISK_S5_NS_12NT_converterISJ_S4_EEEEE4zeroEvE1z, align 8, !tbaa !23
   %26 = tail call i32 @__cxa_thread_atexit(ptr nonnull @_ZN4CGAL6HandleD2Ev, ptr nonnull @_ZZN4CGAL4LazyINS_7Point_2INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISK_S5_NS_12NT_converterISJ_S4_EEEEE4zeroEvE1z, ptr nonnull @__dso_handle) #22
@@ -50878,7 +50878,7 @@ _ZN4CGAL30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5Ep
   %57 = getelementptr inbounds nuw i8, ptr %46, i64 49
   store i8 0, ptr %57, align 1, !tbaa !125
   %58 = getelementptr inbounds nuw i8, ptr %46, i64 50
-  store i8 0, ptr %58, align 1, !tbaa !125
+  store i8 0, ptr %58, align 2, !tbaa !125
   %59 = getelementptr inbounds nuw i8, ptr %46, i64 51
   store i8 0, ptr %59, align 1, !tbaa !125
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -62472,7 +62472,7 @@ _ZN4CGAL8internal11chained_mapIbSaIbEE10init_tableEm.exit.i: ; preds = %.lr.ph24
   store i64 %80, ptr %110, align 8, !tbaa !1922
   %118 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %119 = load i8, ptr %8, align 8, !tbaa !1899, !range !10, !noundef !11
-  store i8 %119, ptr %118, align 1, !tbaa !125
+  store i8 %119, ptr %118, align 8, !tbaa !125
   br label %_ZN4CGAL15Unique_hash_mapINS_8internal11CC_iteratorINS_17Compact_containerINS_37Constrained_triangulation_face_base_2INS_5EpeckENS_25Triangulation_face_base_2IS5_NS_28Triangulation_ds_face_base_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS5_NS_30Triangulation_ds_vertex_base_2IvEEEENS4_IS5_NS6_IS5_NS7_IvEEEEEEEEEEEEEENS_7DefaultESK_SK_EELb0EEEbNS_20Handle_hash_functionESaIbEEixERKSM_.exit19
 
 .preheader.i:                                     ; preds = %115, %120
@@ -62518,7 +62518,7 @@ _ZN4CGAL8internal11chained_mapIbSaIbEE10init_tableEm.exit.i: ; preds = %.lr.ph24
   store i64 %80, ptr %130, align 8, !tbaa !1922
   %133 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %134 = load i8, ptr %8, align 8, !tbaa !1899, !range !10, !noundef !11
-  store i8 %134, ptr %133, align 1, !tbaa !125
+  store i8 %134, ptr %133, align 8, !tbaa !125
   br label %_ZN4CGAL15Unique_hash_mapINS_8internal11CC_iteratorINS_17Compact_containerINS_37Constrained_triangulation_face_base_2INS_5EpeckENS_25Triangulation_face_base_2IS5_NS_28Triangulation_ds_face_base_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS5_NS_30Triangulation_ds_vertex_base_2IvEEEENS4_IS5_NS6_IS5_NS7_IvEEEEEEEEEEEEEENS_7DefaultESK_SK_EELb0EEEbNS_20Handle_hash_functionESaIbEEixERKSM_.exit19
 
 .thread.i:                                        ; preds = %.noexc31..thread.i_crit_edge, %.critedge25.i.i
@@ -62529,7 +62529,7 @@ _ZN4CGAL8internal11chained_mapIbSaIbEE10init_tableEm.exit.i: ; preds = %.lr.ph24
   store i64 %80, ptr %135, align 8, !tbaa !1922
   %137 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %138 = load i8, ptr %8, align 8, !tbaa !1899, !range !10, !noundef !11
-  store i8 %138, ptr %137, align 1, !tbaa !125
+  store i8 %138, ptr %137, align 8, !tbaa !125
   %139 = getelementptr inbounds nuw i8, ptr %.023.i19.i, i64 16
   %140 = load ptr, ptr %139, align 8, !tbaa !1920
   %141 = getelementptr inbounds nuw i8, ptr %135, i64 16
@@ -63138,7 +63138,7 @@ define linkonce_odr dso_local void @_ZN4CGAL36Triangulation_line_face_circulator
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 48
   store ptr null, ptr %25, align 8, !tbaa !481
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 56
-  store i32 0, ptr %26, align 4, !tbaa !292
+  store i32 0, ptr %26, align 8, !tbaa !292
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL10Lazy_rep_0INS_7Point_2INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISK_S5_NS_12NT_converterISJ_S4_EEEEEE, i64 16), ptr %23, align 16, !tbaa !28
   store ptr %23, ptr @_ZZN4CGAL4LazyINS_7Point_2INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISK_S5_NS_12NT_converterISJ_S4_EEEEE4zeroEvE1z, align 8, !tbaa !23
   %27 = tail call i32 @__cxa_thread_atexit(ptr nonnull @_ZN4CGAL6HandleD2Ev, ptr nonnull @_ZZN4CGAL4LazyINS_7Point_2INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISK_S5_NS_12NT_converterISJ_S4_EEEEE4zeroEvE1z, ptr nonnull @__dso_handle) #22
@@ -72107,7 +72107,7 @@ _ZN4CGAL8internal11chained_mapIbSaIbEE10init_tableEm.exit: ; preds = %.lr.ph24.i
   %46 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %48 = load i8, ptr %47, align 8, !tbaa !1899, !range !10, !noundef !11
-  store i8 %48, ptr %46, align 1, !tbaa !125
+  store i8 %48, ptr %46, align 8, !tbaa !125
   br label %_ZN4CGAL8internal11chained_mapIbSaIbEE6accessEPNS0_16chained_map_elemIbEEm.exit
 
 .preheader:                                       ; preds = %43, %49
@@ -72149,7 +72149,7 @@ _ZN4CGAL8internal11chained_mapIbSaIbEE10init_tableEm.exit: ; preds = %.lr.ph24.i
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %66 = load i8, ptr %65, align 8, !tbaa !1899, !range !10, !noundef !11
-  store i8 %66, ptr %64, align 1, !tbaa !125
+  store i8 %66, ptr %64, align 8, !tbaa !125
   br label %_ZN4CGAL8internal11chained_mapIbSaIbEE6accessEPNS0_16chained_map_elemIbEEm.exit
 
 .thread:                                          ; preds = %.critedge25.i, %57
@@ -72161,7 +72161,7 @@ _ZN4CGAL8internal11chained_mapIbSaIbEE10init_tableEm.exit: ; preds = %.lr.ph24.i
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %71 = load i8, ptr %70, align 8, !tbaa !1899, !range !10, !noundef !11
-  store i8 %71, ptr %69, align 1, !tbaa !125
+  store i8 %71, ptr %69, align 8, !tbaa !125
   %72 = getelementptr inbounds nuw i8, ptr %.023.i19, i64 16
   %73 = load ptr, ptr %72, align 8, !tbaa !1920
   %74 = getelementptr inbounds nuw i8, ptr %67, i64 16
@@ -75554,7 +75554,7 @@ _ZN4CGAL30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5Ep
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 49
   store i8 0, ptr %35, align 1, !tbaa !125
   %36 = getelementptr inbounds nuw i8, ptr %27, i64 50
-  store i8 0, ptr %36, align 1, !tbaa !125
+  store i8 0, ptr %36, align 2, !tbaa !125
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 51
   store i8 0, ptr %37, align 1, !tbaa !125
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -75649,7 +75649,7 @@ _ZN4CGAL30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5Ep
   %82 = getelementptr inbounds nuw i8, ptr %74, i64 49
   store i8 0, ptr %82, align 1, !tbaa !125
   %83 = getelementptr inbounds nuw i8, ptr %74, i64 50
-  store i8 0, ptr %83, align 1, !tbaa !125
+  store i8 0, ptr %83, align 2, !tbaa !125
   %84 = getelementptr inbounds nuw i8, ptr %74, i64 51
   store i8 0, ptr %84, align 1, !tbaa !125
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %81, i8 0, i64 40, i1 false)
@@ -75850,7 +75850,7 @@ _ZN4CGAL8internal11CC_iteratorINS_17Compact_containerINS_37Constrained_triangula
   %170 = getelementptr inbounds nuw i8, ptr %159, i64 49
   store i8 0, ptr %170, align 1, !tbaa !125
   %171 = getelementptr inbounds nuw i8, ptr %159, i64 50
-  store i8 0, ptr %171, align 1, !tbaa !125
+  store i8 0, ptr %171, align 2, !tbaa !125
   %172 = getelementptr inbounds nuw i8, ptr %159, i64 51
   store i8 0, ptr %172, align 1, !tbaa !125
   %173 = load i64, ptr %91, align 8, !tbaa !2392
@@ -75984,10 +75984,10 @@ _ZNSt7__cxx114listIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Co
   store ptr %.sroa.01.0.copyload.i.i106.us, ptr %217, align 8, !tbaa !158
   %218 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i102.us, i64 49
   %219 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i102.us, i64 50
-  %220 = load i8, ptr %219, align 1, !tbaa !125, !range !10, !noundef !11
+  %220 = load i8, ptr %219, align 2, !tbaa !125, !range !10, !noundef !11
   %221 = load i8, ptr %218, align 1, !tbaa !125, !range !10, !noundef !11
   store i8 %220, ptr %218, align 1, !tbaa !125
-  store i8 %221, ptr %219, align 1, !tbaa !125
+  store i8 %221, ptr %219, align 2, !tbaa !125
   %222 = load ptr, ptr %.sroa.0160.2226.us, align 8, !tbaa !1254
   %.not200.us = icmp eq ptr %222, %4
   br i1 %.not200.us, label %.loopexit, label %.lr.ph227.split.us, !llvm.loop !2448
@@ -76011,10 +76011,10 @@ _ZNSt7__cxx114listIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Co
   store ptr %.sroa.01.0.copyload.i.i, ptr %229, align 8, !tbaa !158
   %230 = getelementptr inbounds nuw i8, ptr %225, i64 49
   %231 = getelementptr inbounds nuw i8, ptr %225, i64 50
-  %232 = load i8, ptr %231, align 1, !tbaa !125, !range !10, !noundef !11
+  %232 = load i8, ptr %231, align 2, !tbaa !125, !range !10, !noundef !11
   %233 = load i8, ptr %230, align 1, !tbaa !125, !range !10, !noundef !11
   store i8 %232, ptr %230, align 1, !tbaa !125
-  store i8 %233, ptr %231, align 1, !tbaa !125
+  store i8 %233, ptr %231, align 2, !tbaa !125
   %234 = load ptr, ptr %209, align 8, !tbaa !1254
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 16
   %236 = load ptr, ptr %235, align 8, !tbaa !2349
@@ -76037,10 +76037,10 @@ _ZNSt7__cxx114listIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Co
   store ptr %.sroa.01.0.copyload.i.i97, ptr %242, align 8, !tbaa !158
   %243 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i93, i64 49
   %244 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i93, i64 50
-  %245 = load i8, ptr %244, align 1, !tbaa !125, !range !10, !noundef !11
+  %245 = load i8, ptr %244, align 2, !tbaa !125, !range !10, !noundef !11
   %246 = load i8, ptr %243, align 1, !tbaa !125, !range !10, !noundef !11
   store i8 %245, ptr %243, align 1, !tbaa !125
-  store i8 %246, ptr %244, align 1, !tbaa !125
+  store i8 %246, ptr %244, align 2, !tbaa !125
   %247 = load ptr, ptr %209, align 8, !tbaa !1254
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 16
   br label %.loopexit.sink.split
@@ -76062,10 +76062,10 @@ _ZNSt7__cxx114listIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Co
   store ptr %.sroa.01.0.copyload.i.i110, ptr %253, align 8, !tbaa !158
   %254 = getelementptr inbounds nuw i8, ptr %250, i64 49
   %255 = getelementptr inbounds nuw i8, ptr %250, i64 50
-  %256 = load i8, ptr %255, align 1, !tbaa !125, !range !10, !noundef !11
+  %256 = load i8, ptr %255, align 2, !tbaa !125, !range !10, !noundef !11
   %257 = load i8, ptr %254, align 1, !tbaa !125, !range !10, !noundef !11
   store i8 %256, ptr %254, align 1, !tbaa !125
-  store i8 %257, ptr %255, align 1, !tbaa !125
+  store i8 %257, ptr %255, align 2, !tbaa !125
   %258 = load ptr, ptr %.sroa.0160.2226, align 8, !tbaa !1254
   %.not200 = icmp eq ptr %258, %4
   br i1 %.not200, label %.loopexit, label %.lr.ph227.split, !llvm.loop !2449
@@ -76086,10 +76086,10 @@ _ZNSt7__cxx114listIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Co
   store ptr %.sroa.01.0.copyload.i.i101, ptr %261, align 8, !tbaa !158
   %262 = getelementptr inbounds nuw i8, ptr %.sink270, i64 49
   %263 = getelementptr inbounds nuw i8, ptr %.sink270, i64 50
-  %264 = load i8, ptr %263, align 1, !tbaa !125, !range !10, !noundef !11
+  %264 = load i8, ptr %263, align 2, !tbaa !125, !range !10, !noundef !11
   %265 = load i8, ptr %262, align 1, !tbaa !125, !range !10, !noundef !11
   store i8 %264, ptr %262, align 1, !tbaa !125
-  store i8 %265, ptr %263, align 1, !tbaa !125
+  store i8 %265, ptr %263, align 2, !tbaa !125
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph227.split, %.lr.ph227.split.us, %.loopexit.sink.split, %.preheader
@@ -76677,7 +76677,7 @@ _ZN4CGAL30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5Ep
   %36 = getelementptr inbounds nuw i8, ptr %25, i64 49
   store i8 0, ptr %36, align 1, !tbaa !125
   %37 = getelementptr inbounds nuw i8, ptr %25, i64 50
-  store i8 0, ptr %37, align 1, !tbaa !125
+  store i8 0, ptr %37, align 2, !tbaa !125
   %38 = getelementptr inbounds nuw i8, ptr %25, i64 51
   store i8 0, ptr %38, align 1, !tbaa !125
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -76716,7 +76716,7 @@ _ZN4CGAL30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5Ep
   %57 = getelementptr inbounds nuw i8, ptr %46, i64 49
   store i8 0, ptr %57, align 1, !tbaa !125
   %58 = getelementptr inbounds nuw i8, ptr %46, i64 50
-  store i8 0, ptr %58, align 1, !tbaa !125
+  store i8 0, ptr %58, align 2, !tbaa !125
   %59 = getelementptr inbounds nuw i8, ptr %46, i64 51
   store i8 0, ptr %59, align 1, !tbaa !125
   %60 = load i64, ptr %39, align 8, !tbaa !2392
@@ -76886,7 +76886,7 @@ _ZN4CGAL30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5Ep
   %38 = getelementptr inbounds nuw i8, ptr %27, i64 49
   store i8 0, ptr %38, align 1, !tbaa !125
   %39 = getelementptr inbounds nuw i8, ptr %27, i64 50
-  store i8 0, ptr %39, align 1, !tbaa !125
+  store i8 0, ptr %39, align 2, !tbaa !125
   %40 = getelementptr inbounds nuw i8, ptr %27, i64 51
   store i8 0, ptr %40, align 1, !tbaa !125
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -82512,7 +82512,7 @@ _ZN4CGAL8internal11chained_mapIbSaIbEE10init_tableEm.exit.i: ; preds = %.lr.ph24
   store i64 %80, ptr %110, align 8, !tbaa !1922
   %118 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %119 = load i8, ptr %8, align 8, !tbaa !1899, !range !10, !noundef !11
-  store i8 %119, ptr %118, align 1, !tbaa !125
+  store i8 %119, ptr %118, align 8, !tbaa !125
   br label %_ZN4CGAL15Unique_hash_mapINS_8internal11CC_iteratorINS_17Compact_containerINS_37Constrained_triangulation_face_base_2INS_5EpickENS_25Triangulation_face_base_2IS5_NS_28Triangulation_ds_face_base_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS5_NS_30Triangulation_ds_vertex_base_2IvEEEENS4_IS5_NS6_IS5_NS7_IvEEEEEEEEEEEEEENS_7DefaultESK_SK_EELb0EEEbNS_20Handle_hash_functionESaIbEEixERKSM_.exit19
 
 .preheader.i:                                     ; preds = %115, %120
@@ -82558,7 +82558,7 @@ _ZN4CGAL8internal11chained_mapIbSaIbEE10init_tableEm.exit.i: ; preds = %.lr.ph24
   store i64 %80, ptr %130, align 8, !tbaa !1922
   %133 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %134 = load i8, ptr %8, align 8, !tbaa !1899, !range !10, !noundef !11
-  store i8 %134, ptr %133, align 1, !tbaa !125
+  store i8 %134, ptr %133, align 8, !tbaa !125
   br label %_ZN4CGAL15Unique_hash_mapINS_8internal11CC_iteratorINS_17Compact_containerINS_37Constrained_triangulation_face_base_2INS_5EpickENS_25Triangulation_face_base_2IS5_NS_28Triangulation_ds_face_base_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS5_NS_30Triangulation_ds_vertex_base_2IvEEEENS4_IS5_NS6_IS5_NS7_IvEEEEEEEEEEEEEENS_7DefaultESK_SK_EELb0EEEbNS_20Handle_hash_functionESaIbEEixERKSM_.exit19
 
 .thread.i:                                        ; preds = %.noexc31..thread.i_crit_edge, %.critedge25.i.i
@@ -82569,7 +82569,7 @@ _ZN4CGAL8internal11chained_mapIbSaIbEE10init_tableEm.exit.i: ; preds = %.lr.ph24
   store i64 %80, ptr %135, align 8, !tbaa !1922
   %137 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %138 = load i8, ptr %8, align 8, !tbaa !1899, !range !10, !noundef !11
-  store i8 %138, ptr %137, align 1, !tbaa !125
+  store i8 %138, ptr %137, align 8, !tbaa !125
   %139 = getelementptr inbounds nuw i8, ptr %.023.i19.i, i64 16
   %140 = load ptr, ptr %139, align 8, !tbaa !1920
   %141 = getelementptr inbounds nuw i8, ptr %135, i64 16

@@ -230,7 +230,7 @@ define dso_local i32 @intel_guc_ct_init(ptr noundef %0) local_unnamed_addr #1 al
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 0, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store volatile i32 1023, ptr %29, align 4
+  store volatile i32 1023, ptr %29, align 8
   call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(64) %20, i8 0, i64 64, i1 false)
   %30 = getelementptr i8, ptr %20, i64 2048
   %31 = getelementptr i8, ptr %20, i64 8192
@@ -249,7 +249,7 @@ define dso_local i32 @intel_guc_ct_init(ptr noundef %0) local_unnamed_addr #1 al
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 0, ptr %38, align 4
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store volatile i32 3071, ptr %39, align 4
+  store volatile i32 3071, ptr %39, align 8
   call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(64) %30, i8 0, i64 64, i1 false)
   br label %40
 
@@ -308,7 +308,7 @@ define dso_local i32 @intel_guc_ct_enable(ptr noundef initializes((48, 56), (60,
   %20 = xor i32 %19, -1
   %21 = add i32 %17, %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store volatile i32 %21, ptr %22, align 4
+  store volatile i32 %21, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(64) %24, i8 0, i64 64, i1 false)
@@ -325,7 +325,7 @@ define dso_local i32 @intel_guc_ct_enable(ptr noundef initializes((48, 56), (60,
   %32 = xor i32 %31, -1
   %33 = add i32 %29, %32
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store volatile i32 %33, ptr %34, align 4
+  store volatile i32 %33, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %36 = load ptr, ptr %35, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(64) %36, i8 0, i64 64, i1 false)
@@ -587,7 +587,7 @@ define dso_local i32 @intel_guc_ct_send(ptr noundef %0, ptr noundef readonly cap
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %33 = load volatile i32, ptr %32, align 4
+  %33 = load volatile i32, ptr %32, align 8
   %34 = icmp ult i32 %33, %29
   br i1 %34, label %35, label %62
 
@@ -628,7 +628,7 @@ define dso_local i32 @intel_guc_ct_send(ptr noundef %0, ptr noundef readonly cap
   %58 = add i32 %36, %57
   %59 = add i32 %38, -1
   %60 = and i32 %58, %59
-  store volatile i32 %60, ptr %32, align 4
+  store volatile i32 %60, ptr %32, align 8
   %61 = icmp uge i32 %60, %29
   br label %62
 
@@ -743,7 +743,7 @@ define dso_local i32 @intel_guc_ct_send(ptr noundef %0, ptr noundef readonly cap
   %127 = phi i32 [ %125, %123 ], [ %169, %168 ]
   %128 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %23) #13
   %129 = load ptr, ptr %104, align 8
-  %130 = load volatile i32, ptr %105, align 4
+  %130 = load volatile i32, ptr %105, align 8
   %131 = icmp ult i32 %130, %103
   br i1 %131, label %132, label %155
 
@@ -780,7 +780,7 @@ define dso_local i32 @intel_guc_ct_send(ptr noundef %0, ptr noundef readonly cap
   %151 = add i32 %133, %150
   %152 = add i32 %134, -1
   %153 = and i32 %151, %152
-  store volatile i32 %153, ptr %105, align 4
+  store volatile i32 %153, ptr %105, align 8
   %154 = icmp ult i32 %153, %103
   br i1 %154, label %158, label %155, !prof !13
 
@@ -1617,7 +1617,7 @@ define dso_local void @intel_guc_ct_print_info(ptr noundef %0, ptr noundef %1) l
   %18 = load i32, ptr %17, align 1
   tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %1, ptr noundef nonnull @.str.11, i32 noundef %18) #13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %20 = load volatile i32, ptr %19, align 4
+  %20 = load volatile i32, ptr %19, align 8
   %21 = shl i32 %20, 2
   tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %1, ptr noundef nonnull @.str.12, i32 noundef %21) #13
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1798,7 +1798,7 @@ define internal fastcc noundef zeroext i1 @ct_deadlocked(ptr noundef %0) unnamed
   %32 = phi ptr [ %30, %28 ], [ null, %16 ]
   %33 = load i32, ptr %18, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %35 = load volatile i32, ptr %34, align 4
+  %35 = load volatile i32, ptr %34, align 8
   %36 = shl i32 %35, 2
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %32, ptr noundef nonnull @.str.21, i32 noundef %33, i32 noundef %36) #14
   %37 = load ptr, ptr %10, align 8
@@ -1845,7 +1845,7 @@ define internal fastcc noundef zeroext i1 @ct_deadlocked(ptr noundef %0) unnamed
   %64 = phi ptr [ %62, %60 ], [ null, %52 ]
   %65 = load i32, ptr %18, align 8
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %67 = load volatile i32, ptr %66, align 4
+  %67 = load volatile i32, ptr %66, align 8
   %68 = shl i32 %67, 2
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %64, ptr noundef nonnull @.str.24, i32 noundef %65, i32 noundef %68) #14
   %69 = load ptr, ptr %10, align 8
@@ -1934,7 +1934,7 @@ define internal fastcc i32 @ct_process_request(ptr noundef %0, ptr noundef nonnu
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr i8, ptr %1, i64 28
-  %8 = load i32, ptr %4, align 4
+  %8 = load i32, ptr %4, align 8
   %9 = and i32 %8, 65535
   %10 = add i32 %6, -2
   %11 = trunc i32 %8 to i16

@@ -104,7 +104,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %19
   store i64 %24, ptr %25, align 8, !tbaa !26
   store ptr %17, ptr %1, align 8, !tbaa !29
   store i64 0, ptr %3, align 8, !tbaa !26
-  store i8 0, ptr %17, align 1, !tbaa !28
+  store i8 0, ptr %17, align 8, !tbaa !28
   %26 = load i32, ptr %12, align 8, !tbaa !20
   %.not.i.i.i.i = icmp eq i32 %26, 0
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit, label %27

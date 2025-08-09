@@ -4953,7 +4953,7 @@ define dso_local ptr @GetLockStatusData() local_unnamed_addr #0 {
   %71 = load i32, ptr %25, align 4
   %72 = getelementptr inbounds nuw i8, ptr %57, i64 24
   store i32 %71, ptr %72, align 8
-  %73 = load i32, ptr %26, align 4
+  %73 = load i32, ptr %26, align 8
   %74 = getelementptr inbounds nuw i8, ptr %57, i64 28
   store i32 %73, ptr %74, align 4
   %75 = load i32, ptr %15, align 4

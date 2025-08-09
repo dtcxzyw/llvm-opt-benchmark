@@ -1546,19 +1546,19 @@ enc_uint64.exit:                                  ; preds = %300, %compression_e
   store i64 61440, ptr %342, align 8, !tbaa !99
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %341, ptr noundef nonnull align 1 dereferenceable(6) @.str.48, i64 6, i1 false)
   %343 = getelementptr inbounds nuw i8, ptr %16, i64 270
-  store i8 0, ptr %343, align 1, !tbaa !46
+  store i8 0, ptr %343, align 2, !tbaa !46
   %344 = getelementptr inbounds nuw i8, ptr %16, i64 271
   store i8 3, ptr %344, align 1, !tbaa !46
   %345 = getelementptr inbounds nuw i8, ptr %16, i64 276
-  store i64 %.2, ptr %345, align 1
+  store i64 %.2, ptr %345, align 4
   %346 = getelementptr inbounds nuw i8, ptr %16, i64 284
-  store i64 %.2118, ptr %346, align 1
+  store i64 %.2118, ptr %346, align 4
   %347 = getelementptr inbounds nuw i8, ptr %16, i64 292
-  store i32 %.2122, ptr %347, align 1
+  store i32 %.2122, ptr %347, align 4
   %348 = getelementptr inbounds nuw i8, ptr %16, i64 272
   %349 = call i64 @cm_zlib_crc32(i64 noundef 0, ptr noundef nonnull %345, i32 noundef 20) #18
   %350 = trunc i64 %349 to i32
-  store i32 %350, ptr %348, align 1
+  store i32 %350, ptr %348, align 8
   %351 = load i64, ptr %342, align 8, !tbaa !99
   %352 = add i64 %351, -32
   store i64 %352, ptr %342, align 8, !tbaa !99

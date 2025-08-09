@@ -471,7 +471,7 @@ define dso_local void @_ZN11flatbuffers19NewLuaBfbsGeneratorERKNSt7__cxx1112basi
   store ptr %10, ptr %9, align 8, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %11, align 8, !tbaa !10
-  store i8 0, ptr %10, align 1, !tbaa !13
+  store i8 0, ptr %10, align 8, !tbaa !13
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr null, ptr %12, align 8, !tbaa !14
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN11flatbuffers12_GLOBAL__N_116LuaBfbsGeneratorE, i64 16), ptr %8, align 8, !tbaa !18
@@ -500,7 +500,7 @@ define dso_local void @_ZN11flatbuffers19NewLuaBfbsGeneratorERKNSt7__cxx1112basi
   store ptr %25, ptr %24, align 8, !tbaa !4
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 160
   store i64 0, ptr %26, align 8, !tbaa !10
-  store i8 0, ptr %25, align 1, !tbaa !13
+  store i8 0, ptr %25, align 8, !tbaa !13
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 184
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 200
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 216
@@ -21954,7 +21954,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
   store ptr %33, ptr %32, align 8, !tbaa !4
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i64 0, ptr %34, align 8, !tbaa !10
-  store i8 0, ptr %33, align 1, !tbaa !13
+  store i8 0, ptr %33, align 8, !tbaa !13
   ret void
 
 35:                                               ; preds = %25
@@ -31502,7 +31502,7 @@ define linkonce_odr dso_local void @_ZN11flatbuffers13FloatToStringIdEENSt7__cxx
   %11 = load i32, ptr %10, align 8, !tbaa !616
   %12 = and i32 %11, -261
   %13 = or disjoint i32 %12, 4
-  store i32 %13, ptr %10, align 4, !tbaa !623
+  store i32 %13, ptr %10, align 8, !tbaa !623
   %14 = load i64, ptr %7, align 8
   %15 = getelementptr inbounds i8, ptr %5, i64 %14
   %16 = sext i32 %2 to i64

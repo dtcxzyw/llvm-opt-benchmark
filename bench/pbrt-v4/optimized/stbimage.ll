@@ -1852,7 +1852,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL14stbi__hdr_testP13stbi__
 
 37:                                               ; preds = %23
   store i32 0, ptr %4, align 8, !tbaa !17
-  store i8 0, ptr %7, align 1, !tbaa !22
+  store i8 0, ptr %7, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i
 
 38:                                               ; preds = %23
@@ -1935,7 +1935,7 @@ _ZL19stbi__hdr_test_coreP13stbi__contextPKc.exit: ; preds = %12
 
 79:                                               ; preds = %65
   store i32 0, ptr %4, align 8, !tbaa !17
-  store i8 0, ptr %7, align 1, !tbaa !22
+  store i8 0, ptr %7, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i11
 
 80:                                               ; preds = %65
@@ -3112,7 +3112,7 @@ define internal fastcc noundef ptr @_ZL15stbi__load_mainP13stbi__contextPiS1_S1_
 48:                                               ; preds = %28
   store i32 0, ptr %26, align 8, !tbaa !17
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %33, align 1, !tbaa !22
+  store i8 0, ptr %33, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i
 
 50:                                               ; preds = %28
@@ -3178,7 +3178,7 @@ _ZL10stbi__get8P13stbi__context.exit.i.i:         ; preds = %_ZL19stbi__refill_b
 85:                                               ; preds = %65
   store i32 0, ptr %63, align 8, !tbaa !17
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %70, align 1, !tbaa !22
+  store i8 0, ptr %70, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i22.i.i
 
 87:                                               ; preds = %65
@@ -3504,7 +3504,7 @@ _ZL17stbi__malloc_mad3iiii.exit.thread.i:         ; preds = %_ZL17stbi__malloc_m
 
 253:                                              ; preds = %239
   store i32 0, ptr %219, align 8, !tbaa !17
-  store i8 0, ptr %222, align 1, !tbaa !22
+  store i8 0, ptr %222, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i
 
 254:                                              ; preds = %239
@@ -3562,7 +3562,7 @@ _ZL10stbi__get8P13stbi__context.exit.i:           ; preds = %_ZL19stbi__refill_b
 
 284:                                              ; preds = %270
   store i32 0, ptr %219, align 8, !tbaa !17
-  store i8 0, ptr %222, align 1, !tbaa !22
+  store i8 0, ptr %222, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i371.i
 
 285:                                              ; preds = %270
@@ -3619,7 +3619,7 @@ _ZL10stbi__get8P13stbi__context.exit374.i:        ; preds = %_ZL19stbi__refill_b
 
 314:                                              ; preds = %300
   store i32 0, ptr %219, align 8, !tbaa !17
-  store i8 0, ptr %222, align 1, !tbaa !22
+  store i8 0, ptr %222, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i377.i
 
 315:                                              ; preds = %300
@@ -3676,7 +3676,7 @@ _ZL10stbi__get8P13stbi__context.exit380.i:        ; preds = %_ZL19stbi__refill_b
 
 343:                                              ; preds = %329
   store i32 0, ptr %219, align 8, !tbaa !17
-  store i8 0, ptr %222, align 1, !tbaa !22
+  store i8 0, ptr %222, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i383.i
 
 344:                                              ; preds = %329
@@ -3823,7 +3823,7 @@ _ZL10stbi__get8P13stbi__context.exit386.i:        ; preds = %_ZL10stbi__get8P13s
 
 423:                                              ; preds = %409
   store i32 0, ptr %389, align 8, !tbaa !17
-  store i8 0, ptr %392, align 1, !tbaa !22
+  store i8 0, ptr %392, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i389.i
 
 424:                                              ; preds = %409
@@ -3931,7 +3931,7 @@ _ZL10stbi__get8P13stbi__context.exit392.i:        ; preds = %_ZL19stbi__refill_b
 
 481:                                              ; preds = %467
   store i32 0, ptr %389, align 8, !tbaa !17
-  store i8 0, ptr %392, align 1, !tbaa !22
+  store i8 0, ptr %392, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i395.i
 
 482:                                              ; preds = %467
@@ -4056,7 +4056,7 @@ _ZL10stbi__skipP13stbi__contexti.exit.i:          ; preds = %.thread.i.i, %503, 
 
 537:                                              ; preds = %523
   store i32 0, ptr %369, align 8, !tbaa !17
-  store i8 0, ptr %372, align 1, !tbaa !22
+  store i8 0, ptr %372, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i403.i
 
 538:                                              ; preds = %523
@@ -4151,7 +4151,7 @@ _ZL10stbi__get8P13stbi__context.exit406.i:        ; preds = %_ZL19stbi__refill_b
 
 591:                                              ; preds = %577
   store i32 0, ptr %369, align 8, !tbaa !17
-  store i8 0, ptr %372, align 1, !tbaa !22
+  store i8 0, ptr %372, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i409.i
 
 592:                                              ; preds = %577
@@ -4494,7 +4494,7 @@ _ZL10stbi__skipP13stbi__contexti.exit424.i:       ; preds = %.thread.i420.i, %66
 
 774:                                              ; preds = %760
   store i32 0, ptr %711, align 8, !tbaa !17
-  store i8 0, ptr %714, align 1, !tbaa !22
+  store i8 0, ptr %714, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i427.i
 
 775:                                              ; preds = %760
@@ -4553,7 +4553,7 @@ _ZL10stbi__get8P13stbi__context.exit430.i:        ; preds = %_ZL19stbi__refill_b
 
 806:                                              ; preds = %792
   store i32 0, ptr %711, align 8, !tbaa !17
-  store i8 0, ptr %714, align 1, !tbaa !22
+  store i8 0, ptr %714, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i433.i
 
 807:                                              ; preds = %792
@@ -4610,7 +4610,7 @@ _ZL10stbi__get8P13stbi__context.exit436.i:        ; preds = %_ZL19stbi__refill_b
 
 836:                                              ; preds = %822
   store i32 0, ptr %711, align 8, !tbaa !17
-  store i8 0, ptr %714, align 1, !tbaa !22
+  store i8 0, ptr %714, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i439.i
 
 837:                                              ; preds = %822
@@ -4670,7 +4670,7 @@ _ZL10stbi__get8P13stbi__context.exit442.i:        ; preds = %_ZL19stbi__refill_b
 
 867:                                              ; preds = %853
   store i32 0, ptr %711, align 8, !tbaa !17
-  store i8 0, ptr %714, align 1, !tbaa !22
+  store i8 0, ptr %714, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i445.i
 
 868:                                              ; preds = %853
@@ -5434,7 +5434,7 @@ _ZL10stbi__skipP13stbi__contexti.exit.i76:        ; preds = %.thread.i.i75, %106
 
 1201:                                             ; preds = %1187
   store i32 0, ptr %1126, align 8, !tbaa !17
-  store i8 0, ptr %1128, align 1, !tbaa !22
+  store i8 0, ptr %1128, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i86
 
 1202:                                             ; preds = %1187
@@ -5794,7 +5794,7 @@ _ZL10stbi__get8P13stbi__context.exit.thread.i.i.i.i: ; preds = %1355
 1378:                                             ; preds = %1358
   store i32 0, ptr %1356, align 8, !tbaa !17
   %1379 = getelementptr inbounds nuw i8, ptr %1346, i64 57
-  store i8 0, ptr %1363, align 1, !tbaa !22
+  store i8 0, ptr %1363, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i.i.i
 
 1380:                                             ; preds = %1358
@@ -5880,7 +5880,7 @@ _ZL10stbi__get8P13stbi__context.exit.i.i.i.i:     ; preds = %_ZL19stbi__refill_b
 1427:                                             ; preds = %1407
   store i32 0, ptr %1405, align 8, !tbaa !17
   %1428 = getelementptr inbounds nuw i8, ptr %1395, i64 57
-  store i8 0, ptr %1412, align 1, !tbaa !22
+  store i8 0, ptr %1412, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i74.i.i.i.i
 
 1429:                                             ; preds = %1407
@@ -5951,7 +5951,7 @@ _ZL10stbi__get8P13stbi__context.exit77.i.i.i.i:   ; preds = %_ZL19stbi__refill_b
 1467:                                             ; preds = %1447
   store i32 0, ptr %1445, align 8, !tbaa !17
   %1468 = getelementptr inbounds nuw i8, ptr %1434, i64 57
-  store i8 0, ptr %1452, align 1, !tbaa !22
+  store i8 0, ptr %1452, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i80.i.i.i.i
 
 1469:                                             ; preds = %1447
@@ -6074,7 +6074,7 @@ _ZL10stbi__get8P13stbi__context.exit83.i.i.i.i:   ; preds = %_ZL19stbi__refill_b
 1531:                                             ; preds = %1511
   store i32 0, ptr %1509, align 8, !tbaa !17
   %1532 = getelementptr inbounds nuw i8, ptr %1474, i64 57
-  store i8 0, ptr %1516, align 1, !tbaa !22
+  store i8 0, ptr %1516, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i86.i.i.i.i
 
 1533:                                             ; preds = %1511
@@ -6146,7 +6146,7 @@ _ZL10stbi__get8P13stbi__context.exit89.i.i.i.i:   ; preds = %_ZL19stbi__refill_b
 1571:                                             ; preds = %1551
   store i32 0, ptr %1549, align 8, !tbaa !17
   %1572 = getelementptr inbounds nuw i8, ptr %1540, i64 57
-  store i8 0, ptr %1556, align 1, !tbaa !22
+  store i8 0, ptr %1556, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i92.i.i.i.i
 
 1573:                                             ; preds = %1551
@@ -6218,7 +6218,7 @@ _ZL10stbi__get8P13stbi__context.exit95.i.i.i.i:   ; preds = %_ZL19stbi__refill_b
 1611:                                             ; preds = %1591
   store i32 0, ptr %1589, align 8, !tbaa !17
   %1612 = getelementptr inbounds nuw i8, ptr %1580, i64 57
-  store i8 0, ptr %1596, align 1, !tbaa !22
+  store i8 0, ptr %1596, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i98.i.i.i.i
 
 1613:                                             ; preds = %1591
@@ -7578,7 +7578,7 @@ _ZL12stbi__at_eofP13stbi__context.exit.thread.i.i.i: ; preds = %_ZL12stbi__at_eo
 2287:                                             ; preds = %2267
   store i32 0, ptr %2265, align 8, !tbaa !17
   %2288 = getelementptr inbounds nuw i8, ptr %2255, i64 57
-  store i8 0, ptr %2272, align 1, !tbaa !22
+  store i8 0, ptr %2272, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i.i
 
 2289:                                             ; preds = %2267
@@ -7650,7 +7650,7 @@ _ZL10stbi__get8P13stbi__context.exit.i.i.i:       ; preds = %_ZL19stbi__refill_b
 2328:                                             ; preds = %2308
   store i32 0, ptr %2306, align 8, !tbaa !17
   %2329 = getelementptr inbounds nuw i8, ptr %2296, i64 57
-  store i8 0, ptr %2313, align 1, !tbaa !22
+  store i8 0, ptr %2313, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i61.i.i.i
 
 2330:                                             ; preds = %2308
@@ -8981,7 +8981,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL14stbi__gif_testP13stbi__
 33:                                               ; preds = %13
   store i32 0, ptr %11, align 8, !tbaa !17
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %18, align 1, !tbaa !22
+  store i8 0, ptr %18, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i
 
 35:                                               ; preds = %13
@@ -9047,7 +9047,7 @@ _ZL10stbi__get8P13stbi__context.exit.i:           ; preds = %_ZL19stbi__refill_b
 70:                                               ; preds = %50
   store i32 0, ptr %48, align 8, !tbaa !17
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %55, align 1, !tbaa !22
+  store i8 0, ptr %55, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i15.i
 
 72:                                               ; preds = %50
@@ -9113,7 +9113,7 @@ _ZL10stbi__get8P13stbi__context.exit18.i:         ; preds = %_ZL19stbi__refill_b
 107:                                              ; preds = %87
   store i32 0, ptr %85, align 8, !tbaa !17
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %92, align 1, !tbaa !22
+  store i8 0, ptr %92, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i21.i
 
 109:                                              ; preds = %87
@@ -9179,7 +9179,7 @@ _ZL10stbi__get8P13stbi__context.exit24.i:         ; preds = %_ZL19stbi__refill_b
 144:                                              ; preds = %124
   store i32 0, ptr %122, align 8, !tbaa !17
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %129, align 1, !tbaa !22
+  store i8 0, ptr %129, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i27.i
 
 146:                                              ; preds = %124
@@ -9245,7 +9245,7 @@ _ZL10stbi__get8P13stbi__context.exit30.i:         ; preds = %_ZL19stbi__refill_b
 181:                                              ; preds = %161
   store i32 0, ptr %159, align 8, !tbaa !17
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %166, align 1, !tbaa !22
+  store i8 0, ptr %166, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i33.i
 
 183:                                              ; preds = %161
@@ -9313,7 +9313,7 @@ _ZL10stbi__get8P13stbi__context.exit36.i:         ; preds = %_ZL19stbi__refill_b
 218:                                              ; preds = %198
   store i32 0, ptr %196, align 8, !tbaa !17
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %203, align 1, !tbaa !22
+  store i8 0, ptr %203, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i39.i
 
 220:                                              ; preds = %198
@@ -9395,7 +9395,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL14stbi__pnm_testP13stbi__
 33:                                               ; preds = %13
   store i32 0, ptr %11, align 8, !tbaa !17
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %18, align 1, !tbaa !22
+  store i8 0, ptr %18, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i
 
 35:                                               ; preds = %13
@@ -9457,7 +9457,7 @@ _ZL10stbi__get8P13stbi__context.exit:             ; preds = %7, %10, %_ZL19stbi_
 69:                                               ; preds = %49
   store i32 0, ptr %47, align 8, !tbaa !17
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %54, align 1, !tbaa !22
+  store i8 0, ptr %54, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i11
 
 71:                                               ; preds = %49
@@ -10161,7 +10161,7 @@ _ZL17stbi__malloc_mad2iii.exit.thread:            ; preds = %_ZL17stbi__malloc_m
 
 219:                                              ; preds = %205
   store i32 0, ptr %71, align 8, !tbaa !17
-  store i8 0, ptr %74, align 1, !tbaa !22
+  store i8 0, ptr %74, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i
 
 220:                                              ; preds = %205
@@ -10219,7 +10219,7 @@ _ZL10stbi__get8P13stbi__context.exit:             ; preds = %200, %_ZL19stbi__re
 
 249:                                              ; preds = %235
   store i32 0, ptr %71, align 8, !tbaa !17
-  store i8 0, ptr %74, align 1, !tbaa !22
+  store i8 0, ptr %74, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i156
 
 250:                                              ; preds = %235
@@ -10325,7 +10325,7 @@ _ZL10stbi__get8P13stbi__context.exit.thread:      ; preds = %_ZL10stbi__get8P13s
 
 288:                                              ; preds = %274
   store i32 0, ptr %71, align 8, !tbaa !17
-  store i8 0, ptr %74, align 1, !tbaa !22
+  store i8 0, ptr %74, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i162
 
 289:                                              ; preds = %274
@@ -10690,7 +10690,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL14stbi__tga_testP13stbi__
 32:                                               ; preds = %12
   store i32 0, ptr %10, align 8, !tbaa !17
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %17, align 1, !tbaa !22
+  store i8 0, ptr %17, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i
 
 34:                                               ; preds = %12
@@ -10754,7 +10754,7 @@ _ZL10stbi__get8P13stbi__context.exit:             ; preds = %_ZL10stbi__get8P13s
 67:                                               ; preds = %47
   store i32 0, ptr %45, align 8, !tbaa !17
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %52, align 1, !tbaa !22
+  store i8 0, ptr %52, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i62
 
 69:                                               ; preds = %47
@@ -10823,7 +10823,7 @@ _ZL10stbi__get8P13stbi__context.exit65.thread:    ; preds = %44, %_ZL10stbi__get
 106:                                              ; preds = %86
   store i32 0, ptr %84, align 8, !tbaa !17
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %91, align 1, !tbaa !22
+  store i8 0, ptr %91, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i68
 
 108:                                              ; preds = %86
@@ -10925,7 +10925,7 @@ _ZL10stbi__skipP13stbi__contexti.exit:            ; preds = %125, %.thread.i
 160:                                              ; preds = %141
   store i32 0, ptr %139, align 8, !tbaa !17
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %145, align 1, !tbaa !22
+  store i8 0, ptr %145, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i76
 
 162:                                              ; preds = %141
@@ -11069,7 +11069,7 @@ _ZL10stbi__skipP13stbi__contexti.exit85:          ; preds = %.thread.i87, %194, 
 236:                                              ; preds = %216
   store i32 0, ptr %214, align 8, !tbaa !17
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %221, align 1, !tbaa !22
+  store i8 0, ptr %221, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i94
 
 238:                                              ; preds = %216
@@ -11166,7 +11166,7 @@ define internal fastcc noundef ptr @_ZL14stbi__tga_loadP13stbi__contextPiS1_S1_i
 38:                                               ; preds = %18
   store i32 0, ptr %16, align 8, !tbaa !17
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %23, align 1, !tbaa !22
+  store i8 0, ptr %23, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i
 
 40:                                               ; preds = %18
@@ -11229,7 +11229,7 @@ _ZL10stbi__get8P13stbi__context.exit:             ; preds = %12, %15, %_ZL19stbi
 75:                                               ; preds = %55
   store i32 0, ptr %53, align 8, !tbaa !17
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %60, align 1, !tbaa !22
+  store i8 0, ptr %60, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i225
 
 77:                                               ; preds = %55
@@ -11291,7 +11291,7 @@ _ZL10stbi__get8P13stbi__context.exit228:          ; preds = %49, %52, %_ZL19stbi
 111:                                              ; preds = %91
   store i32 0, ptr %89, align 8, !tbaa !17
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %96, align 1, !tbaa !22
+  store i8 0, ptr %96, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i231
 
 113:                                              ; preds = %91
@@ -11356,7 +11356,7 @@ _ZL10stbi__get8P13stbi__context.exit234:          ; preds = %85, %88, %_ZL19stbi
 150:                                              ; preds = %130
   store i32 0, ptr %128, align 8, !tbaa !17
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %135, align 1, !tbaa !22
+  store i8 0, ptr %135, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i237
 
 152:                                              ; preds = %130
@@ -11422,7 +11422,7 @@ _ZL10stbi__get8P13stbi__context.exit240:          ; preds = %124, %127, %_ZL19st
 190:                                              ; preds = %170
   store i32 0, ptr %168, align 8, !tbaa !17
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %175, align 1, !tbaa !22
+  store i8 0, ptr %175, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i243
 
 192:                                              ; preds = %170
@@ -11484,7 +11484,7 @@ _ZL10stbi__get8P13stbi__context.exit246:          ; preds = %164, %167, %_ZL19st
 226:                                              ; preds = %206
   store i32 0, ptr %204, align 8, !tbaa !17
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %211, align 1, !tbaa !22
+  store i8 0, ptr %211, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i249
 
 228:                                              ; preds = %206
@@ -11947,7 +11947,7 @@ _ZL17stbi__malloc_mad2iii.exit.thread:            ; preds = %_ZL10stbi__skipP13s
 
 429:                                              ; preds = %415
   store i32 0, ptr %387, align 8, !tbaa !17
-  store i8 0, ptr %390, align 1, !tbaa !22
+  store i8 0, ptr %390, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i278
 
 430:                                              ; preds = %415
@@ -12022,7 +12022,7 @@ _ZL10stbi__get8P13stbi__context.exit281:          ; preds = %410, %413, %_ZL19st
 
 463:                                              ; preds = %449
   store i32 0, ptr %387, align 8, !tbaa !17
-  store i8 0, ptr %390, align 1, !tbaa !22
+  store i8 0, ptr %390, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i284
 
 464:                                              ; preds = %449
@@ -12131,7 +12131,7 @@ _ZL10stbi__get8P13stbi__context.exit287:          ; preds = %444, %447, %_ZL19st
 
 513:                                              ; preds = %499
   store i32 0, ptr %387, align 8, !tbaa !17
-  store i8 0, ptr %390, align 1, !tbaa !22
+  store i8 0, ptr %390, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i293
 
 514:                                              ; preds = %499
@@ -12310,7 +12310,7 @@ define internal fastcc noundef zeroext i8 @_ZL10stbi__get8P13stbi__context(ptr n
 33:                                               ; preds = %13
   store i32 0, ptr %11, align 8, !tbaa !17
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %18, align 1, !tbaa !22
+  store i8 0, ptr %18, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit
 
 35:                                               ; preds = %13
@@ -12388,7 +12388,7 @@ define internal fastcc noundef range(i32 0, 65536) i32 @_ZL13stbi__get16leP13stb
 33:                                               ; preds = %13
   store i32 0, ptr %11, align 8, !tbaa !17
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %18, align 1, !tbaa !22
+  store i8 0, ptr %18, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i
 
 35:                                               ; preds = %13
@@ -12450,7 +12450,7 @@ _ZL10stbi__get8P13stbi__context.exit:             ; preds = %7, %10, %_ZL19stbi_
 69:                                               ; preds = %49
   store i32 0, ptr %47, align 8, !tbaa !17
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %54, align 1, !tbaa !22
+  store i8 0, ptr %54, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i4
 
 71:                                               ; preds = %49
@@ -12523,7 +12523,7 @@ define internal fastcc noundef ptr @_ZL22stbi__bmp_parse_headerP13stbi__contextP
 34:                                               ; preds = %14
   store i32 0, ptr %12, align 8, !tbaa !17
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %19, align 1, !tbaa !22
+  store i8 0, ptr %19, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i
 
 36:                                               ; preds = %14
@@ -12589,7 +12589,7 @@ _ZL10stbi__get8P13stbi__context.exit:             ; preds = %8, %_ZL19stbi__refi
 71:                                               ; preds = %51
   store i32 0, ptr %49, align 8, !tbaa !17
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %56, align 1, !tbaa !22
+  store i8 0, ptr %56, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i122
 
 73:                                               ; preds = %51
@@ -15502,7 +15502,7 @@ _ZL10stbi__skipP13stbi__contexti.exit225:         ; preds = %_ZL10stbi__skipP13s
 
 117:                                              ; preds = %103
   store i32 0, ptr %82, align 8, !tbaa !17
-  store i8 0, ptr %85, align 1, !tbaa !22
+  store i8 0, ptr %85, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i
 
 118:                                              ; preds = %103
@@ -15606,7 +15606,7 @@ _ZL10stbi__get8P13stbi__context.exit190.thread:   ; preds = %156
 
 173:                                              ; preds = %159
   store i32 0, ptr %82, align 8, !tbaa !17
-  store i8 0, ptr %85, align 1, !tbaa !22
+  store i8 0, ptr %85, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i187
 
 174:                                              ; preds = %159
@@ -15722,7 +15722,7 @@ _ZL10stbi__get8P13stbi__context.exit190:          ; preds = %153, %_ZL19stbi__re
 
 231:                                              ; preds = %217
   store i32 0, ptr %82, align 8, !tbaa !17
-  store i8 0, ptr %85, align 1, !tbaa !22
+  store i8 0, ptr %85, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i
 
 232:                                              ; preds = %217
@@ -15830,7 +15830,7 @@ _ZL10stbi__get8P13stbi__context.exit.thread.i:    ; preds = %_ZL10stbi__get8P13s
 
 276:                                              ; preds = %262
   store i32 0, ptr %82, align 8, !tbaa !17
-  store i8 0, ptr %85, align 1, !tbaa !22
+  store i8 0, ptr %85, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i122.i
 
 277:                                              ; preds = %262
@@ -15892,7 +15892,7 @@ _ZL10stbi__get8P13stbi__context.exit125.i:        ; preds = %_ZL19stbi__refill_b
 
 309:                                              ; preds = %295
   store i32 0, ptr %82, align 8, !tbaa !17
-  store i8 0, ptr %85, align 1, !tbaa !22
+  store i8 0, ptr %85, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i128.i
 
 310:                                              ; preds = %295
@@ -16020,7 +16020,7 @@ _ZL10stbi__skipP13stbi__contexti.exit.i:          ; preds = %_ZL10stbi__skipP13s
 
 370:                                              ; preds = %356
   store i32 0, ptr %82, align 8, !tbaa !17
-  store i8 0, ptr %85, align 1, !tbaa !22
+  store i8 0, ptr %85, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i136.i
 
 371:                                              ; preds = %356
@@ -16226,7 +16226,7 @@ _ZL24stbi__process_gif_rasterP13stbi__contextP9stbi__gif.exit: ; preds = %260, %
 
 473:                                              ; preds = %459
   store i32 0, ptr %82, align 8, !tbaa !17
-  store i8 0, ptr %85, align 1, !tbaa !22
+  store i8 0, ptr %85, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i196
 
 474:                                              ; preds = %459
@@ -16289,7 +16289,7 @@ _ZL10stbi__skipP13stbi__contexti.exit225.backedge: ; preds = %_ZL10stbi__get8P13
 
 502:                                              ; preds = %488
   store i32 0, ptr %82, align 8, !tbaa !17
-  store i8 0, ptr %85, align 1, !tbaa !22
+  store i8 0, ptr %85, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i202
 
 503:                                              ; preds = %488
@@ -16346,7 +16346,7 @@ _ZL10stbi__get8P13stbi__context.exit205:          ; preds = %483, %_ZL19stbi__re
 
 531:                                              ; preds = %517
   store i32 0, ptr %82, align 8, !tbaa !17
-  store i8 0, ptr %85, align 1, !tbaa !22
+  store i8 0, ptr %85, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i208
 
 532:                                              ; preds = %517
@@ -16422,7 +16422,7 @@ _ZL10stbi__get8P13stbi__context.exit211:          ; preds = %512, %515, %_ZL19st
 
 570:                                              ; preds = %556
   store i32 0, ptr %82, align 8, !tbaa !17
-  store i8 0, ptr %85, align 1, !tbaa !22
+  store i8 0, ptr %85, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i214
 
 571:                                              ; preds = %556
@@ -16553,7 +16553,7 @@ _ZL10stbi__get8P13stbi__context.exit199.thread:   ; preds = %_ZL10stbi__get8P13s
 
 633:                                              ; preds = %619
   store i32 0, ptr %82, align 8, !tbaa !17
-  store i8 0, ptr %85, align 1, !tbaa !22
+  store i8 0, ptr %85, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i228
 
 634:                                              ; preds = %619
@@ -16665,7 +16665,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL16stbi__gif_headerP13stbi
 36:                                               ; preds = %16
   store i32 0, ptr %14, align 8, !tbaa !17
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %21, align 1, !tbaa !22
+  store i8 0, ptr %21, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i
 
 38:                                               ; preds = %16
@@ -16731,7 +16731,7 @@ _ZL10stbi__get8P13stbi__context.exit:             ; preds = %10, %_ZL19stbi__ref
 73:                                               ; preds = %53
   store i32 0, ptr %51, align 8, !tbaa !17
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %58, align 1, !tbaa !22
+  store i8 0, ptr %58, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i40
 
 75:                                               ; preds = %53
@@ -16797,7 +16797,7 @@ _ZL10stbi__get8P13stbi__context.exit43:           ; preds = %47, %_ZL19stbi__ref
 110:                                              ; preds = %90
   store i32 0, ptr %88, align 8, !tbaa !17
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %95, align 1, !tbaa !22
+  store i8 0, ptr %95, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i46
 
 112:                                              ; preds = %90
@@ -16863,7 +16863,7 @@ _ZL10stbi__get8P13stbi__context.exit49:           ; preds = %84, %_ZL19stbi__ref
 147:                                              ; preds = %127
   store i32 0, ptr %125, align 8, !tbaa !17
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %132, align 1, !tbaa !22
+  store i8 0, ptr %132, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i52
 
 149:                                              ; preds = %127
@@ -16934,7 +16934,7 @@ _ZL10stbi__get8P13stbi__context.exit.thread:      ; preds = %124, %87, %50, %13,
 185:                                              ; preds = %165
   store i32 0, ptr %163, align 8, !tbaa !17
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %170, align 1, !tbaa !22
+  store i8 0, ptr %170, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i58
 
 187:                                              ; preds = %165
@@ -17007,7 +17007,7 @@ _ZL10stbi__get8P13stbi__context.exit61.thread:    ; preds = %162, %_ZL10stbi__ge
 223:                                              ; preds = %203
   store i32 0, ptr %201, align 8, !tbaa !17
   %224 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %208, align 1, !tbaa !22
+  store i8 0, ptr %208, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i64
 
 225:                                              ; preds = %203
@@ -17085,7 +17085,7 @@ _ZL10stbi__get8P13stbi__context.exit67.thread:    ; preds = %200, %_ZL10stbi__ge
 265:                                              ; preds = %245
   store i32 0, ptr %243, align 8, !tbaa !17
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %250, align 1, !tbaa !22
+  store i8 0, ptr %250, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i70
 
 267:                                              ; preds = %245
@@ -17150,7 +17150,7 @@ _ZL10stbi__get8P13stbi__context.exit73:           ; preds = %239, %242, %_ZL19st
 303:                                              ; preds = %283
   store i32 0, ptr %281, align 8, !tbaa !17
   %304 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %288, align 1, !tbaa !22
+  store i8 0, ptr %288, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i76
 
 305:                                              ; preds = %283
@@ -17215,7 +17215,7 @@ _ZL10stbi__get8P13stbi__context.exit79:           ; preds = %277, %280, %_ZL19st
 341:                                              ; preds = %321
   store i32 0, ptr %319, align 8, !tbaa !17
   %342 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %326, align 1, !tbaa !22
+  store i8 0, ptr %326, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i82
 
 343:                                              ; preds = %321
@@ -17342,7 +17342,7 @@ define internal fastcc void @_ZL26stbi__gif_parse_colortableP13stbi__contextPA4_
 
 39:                                               ; preds = %25
   store i32 0, ptr %7, align 8, !tbaa !17
-  store i8 0, ptr %10, align 1, !tbaa !22
+  store i8 0, ptr %10, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i
 
 40:                                               ; preds = %25
@@ -17398,7 +17398,7 @@ _ZL10stbi__get8P13stbi__context.exit:             ; preds = %20, %23, %_ZL19stbi
 
 68:                                               ; preds = %54
   store i32 0, ptr %7, align 8, !tbaa !17
-  store i8 0, ptr %10, align 1, !tbaa !22
+  store i8 0, ptr %10, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i17
 
 69:                                               ; preds = %54
@@ -17453,7 +17453,7 @@ _ZL10stbi__get8P13stbi__context.exit20:           ; preds = %49, %52, %_ZL19stbi
 
 96:                                               ; preds = %82
   store i32 0, ptr %7, align 8, !tbaa !17
-  store i8 0, ptr %10, align 1, !tbaa !22
+  store i8 0, ptr %10, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i23
 
 97:                                               ; preds = %82
@@ -17654,7 +17654,7 @@ define internal fastcc noundef range(i32 0, 65536) i32 @_ZL13stbi__get16beP13stb
 33:                                               ; preds = %13
   store i32 0, ptr %11, align 8, !tbaa !17
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %18, align 1, !tbaa !22
+  store i8 0, ptr %18, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i
 
 35:                                               ; preds = %13
@@ -17716,7 +17716,7 @@ _ZL10stbi__get8P13stbi__context.exit:             ; preds = %7, %10, %_ZL19stbi_
 69:                                               ; preds = %49
   store i32 0, ptr %47, align 8, !tbaa !17
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %54, align 1, !tbaa !22
+  store i8 0, ptr %54, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i4
 
 71:                                               ; preds = %49
@@ -17799,7 +17799,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL20stbi__psd_decode_rleP13
 
 39:                                               ; preds = %25
   store i32 0, ptr %7, align 8, !tbaa !17
-  store i8 0, ptr %10, align 1, !tbaa !22
+  store i8 0, ptr %10, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i
 
 40:                                               ; preds = %25
@@ -17874,7 +17874,7 @@ _ZL10stbi__get8P13stbi__context.exit:             ; preds = %20, %_ZL19stbi__ref
 
 76:                                               ; preds = %62
   store i32 0, ptr %7, align 8, !tbaa !17
-  store i8 0, ptr %10, align 1, !tbaa !22
+  store i8 0, ptr %10, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i47
 
 77:                                               ; preds = %62
@@ -17937,7 +17937,7 @@ _ZL10stbi__get8P13stbi__context.exit50:           ; preds = %57, %60, %_ZL19stbi
 
 106:                                              ; preds = %92
   store i32 0, ptr %7, align 8, !tbaa !17
-  store i8 0, ptr %10, align 1, !tbaa !22
+  store i8 0, ptr %10, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i53
 
 107:                                              ; preds = %92
@@ -18961,7 +18961,7 @@ define internal fastcc noundef zeroext i8 @_ZL16stbi__get_markerP10stbi__jpeg(pt
 38:                                               ; preds = %18
   store i32 0, ptr %16, align 8, !tbaa !17
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 57
-  store i8 0, ptr %23, align 1, !tbaa !22
+  store i8 0, ptr %23, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i
 
 40:                                               ; preds = %18
@@ -19030,7 +19030,7 @@ _ZL10stbi__get8P13stbi__context.exit:             ; preds = %12, %_ZL19stbi__ref
 77:                                               ; preds = %57
   store i32 0, ptr %55, align 8, !tbaa !17
   %78 = getelementptr inbounds nuw i8, ptr %45, i64 57
-  store i8 0, ptr %62, align 1, !tbaa !22
+  store i8 0, ptr %62, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i13
 
 79:                                               ; preds = %57
@@ -19150,7 +19150,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL20stbi__process_markerP10
 54:                                               ; preds = %34
   store i32 0, ptr %32, align 8, !tbaa !17
   %55 = getelementptr inbounds nuw i8, ptr %22, i64 57
-  store i8 0, ptr %39, align 1, !tbaa !22
+  store i8 0, ptr %39, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i
 
 56:                                               ; preds = %34
@@ -19262,7 +19262,7 @@ _ZL10stbi__get8P13stbi__context.exit.thread:      ; preds = %_ZL10stbi__get8P13s
 112:                                              ; preds = %92
   store i32 0, ptr %90, align 8, !tbaa !17
   %113 = getelementptr inbounds nuw i8, ptr %80, i64 57
-  store i8 0, ptr %97, align 1, !tbaa !22
+  store i8 0, ptr %97, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i144
 
 114:                                              ; preds = %92
@@ -19364,7 +19364,7 @@ _ZL10stbi__get8P13stbi__context.exit147:          ; preds = %86, %89, %_ZL19stbi
 168:                                              ; preds = %148
   store i32 0, ptr %146, align 8, !tbaa !17
   %169 = getelementptr inbounds nuw i8, ptr %136, i64 57
-  store i8 0, ptr %153, align 1, !tbaa !22
+  store i8 0, ptr %153, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i150
 
 170:                                              ; preds = %148
@@ -19443,7 +19443,7 @@ _ZL10stbi__get8P13stbi__context.exit153:          ; preds = %142, %145, %_ZL19st
 212:                                              ; preds = %192
   store i32 0, ptr %190, align 8, !tbaa !17
   %213 = getelementptr inbounds nuw i8, ptr %180, i64 57
-  store i8 0, ptr %197, align 1, !tbaa !22
+  store i8 0, ptr %197, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i156
 
 214:                                              ; preds = %192
@@ -19549,7 +19549,7 @@ _ZL10stbi__get8P13stbi__context.exit159:          ; preds = %186, %189, %_ZL19st
 268:                                              ; preds = %248
   store i32 0, ptr %246, align 8, !tbaa !17
   %269 = getelementptr inbounds nuw i8, ptr %236, i64 57
-  store i8 0, ptr %253, align 1, !tbaa !22
+  store i8 0, ptr %253, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i162
 
 270:                                              ; preds = %248
@@ -19731,7 +19731,7 @@ _ZL19stbi__build_fast_acPsP13stbi__huffman.exit:  ; preds = %315, %._crit_edge
 365:                                              ; preds = %345
   store i32 0, ptr %343, align 8, !tbaa !17
   %366 = getelementptr inbounds nuw i8, ptr %333, i64 57
-  store i8 0, ptr %350, align 1, !tbaa !22
+  store i8 0, ptr %350, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i169
 
 367:                                              ; preds = %345
@@ -19824,7 +19824,7 @@ _ZL10stbi__get8P13stbi__context.exit172:          ; preds = %339, %342, %_ZL19st
 414:                                              ; preds = %394
   store i32 0, ptr %392, align 8, !tbaa !17
   %415 = getelementptr inbounds nuw i8, ptr %382, i64 57
-  store i8 0, ptr %399, align 1, !tbaa !22
+  store i8 0, ptr %399, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i175
 
 416:                                              ; preds = %394
@@ -20002,7 +20002,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL26stbi__process_frame_hea
 40:                                               ; preds = %20
   store i32 0, ptr %18, align 8, !tbaa !17
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 57
-  store i8 0, ptr %25, align 1, !tbaa !22
+  store i8 0, ptr %25, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i
 
 42:                                               ; preds = %20
@@ -20106,7 +20106,7 @@ _ZL10stbi__get8P13stbi__context.exit.thread:      ; preds = %17, %_ZL10stbi__get
 94:                                               ; preds = %74
   store i32 0, ptr %72, align 8, !tbaa !17
   %95 = getelementptr inbounds nuw i8, ptr %3, i64 57
-  store i8 0, ptr %79, align 1, !tbaa !22
+  store i8 0, ptr %79, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i200
 
 96:                                               ; preds = %74
@@ -20220,7 +20220,7 @@ _ZL10stbi__get8P13stbi__context.exit203.thread:   ; preds = %71, %_ZL10stbi__get
 
 149:                                              ; preds = %135
   store i32 0, ptr %116, align 8, !tbaa !17
-  store i8 0, ptr %119, align 1, !tbaa !22
+  store i8 0, ptr %119, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i206
 
 150:                                              ; preds = %135
@@ -20299,7 +20299,7 @@ _ZL10stbi__get8P13stbi__context.exit215.thread:   ; preds = %172
 
 189:                                              ; preds = %175
   store i32 0, ptr %116, align 8, !tbaa !17
-  store i8 0, ptr %119, align 1, !tbaa !22
+  store i8 0, ptr %119, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i212
 
 190:                                              ; preds = %175
@@ -20384,7 +20384,7 @@ _ZL10stbi__get8P13stbi__context.exit221.thread:   ; preds = %212
 
 229:                                              ; preds = %215
   store i32 0, ptr %116, align 8, !tbaa !17
-  store i8 0, ptr %119, align 1, !tbaa !22
+  store i8 0, ptr %119, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i218
 
 230:                                              ; preds = %215
@@ -21498,7 +21498,7 @@ define internal fastcc void @_ZL24stbi__grow_buffer_unsafeP10stbi__jpeg(ptr noun
 46:                                               ; preds = %26
   store i32 0, ptr %24, align 8, !tbaa !17
   %47 = getelementptr inbounds nuw i8, ptr %14, i64 57
-  store i8 0, ptr %31, align 1, !tbaa !22
+  store i8 0, ptr %31, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i
 
 48:                                               ; preds = %26
@@ -21567,7 +21567,7 @@ _ZL19stbi__refill_bufferP13stbi__context.exit.i:  ; preds = %48, %46
 88:                                               ; preds = %68
   store i32 0, ptr %66, align 8, !tbaa !17
   %89 = getelementptr inbounds nuw i8, ptr %56, i64 57
-  store i8 0, ptr %73, align 1, !tbaa !22
+  store i8 0, ptr %73, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i20
 
 90:                                               ; preds = %68
@@ -21646,7 +21646,7 @@ _ZL10stbi__get8P13stbi__context.exit23.backedge:  ; preds = %102, %105, %_ZL19st
 128:                                              ; preds = %108
   store i32 0, ptr %106, align 8, !tbaa !17
   %129 = getelementptr inbounds nuw i8, ptr %96, i64 57
-  store i8 0, ptr %113, align 1, !tbaa !22
+  store i8 0, ptr %113, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i26
 
 130:                                              ; preds = %108
@@ -22537,7 +22537,7 @@ define internal fastcc noundef range(i32 0, 17) i32 @_ZL14stbi__pnm_infoP13stbi_
 38:                                               ; preds = %19
   store i32 0, ptr %17, align 8, !tbaa !17
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %24, align 1, !tbaa !22
+  store i8 0, ptr %24, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i
 
 40:                                               ; preds = %19
@@ -22599,7 +22599,7 @@ _ZL10stbi__get8P13stbi__context.exit:             ; preds = %13, %16, %_ZL19stbi
 74:                                               ; preds = %55
   store i32 0, ptr %53, align 8, !tbaa !17
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %60, align 1, !tbaa !22
+  store i8 0, ptr %60, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i34
 
 76:                                               ; preds = %55
@@ -22684,7 +22684,7 @@ _ZL10stbi__get8P13stbi__context.exit37.thread:    ; preds = %52, %_ZL10stbi__get
 116:                                              ; preds = %97
   store i32 0, ptr %95, align 8, !tbaa !17
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %102, align 1, !tbaa !22
+  store i8 0, ptr %102, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i40
 
 118:                                              ; preds = %97
@@ -22798,7 +22798,7 @@ _ZL12stbi__at_eofP13stbi__context.exit.thread.i:  ; preds = %132
 
 174:                                              ; preds = %160
   store i32 0, ptr %123, align 8, !tbaa !17
-  store i8 0, ptr %127, align 1, !tbaa !22
+  store i8 0, ptr %127, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i
 
 175:                                              ; preds = %160
@@ -22914,7 +22914,7 @@ _ZL12stbi__at_eofP13stbi__context.exit.thread.i50: ; preds = %180
 
 222:                                              ; preds = %208
   store i32 0, ptr %123, align 8, !tbaa !17
-  store i8 0, ptr %127, align 1, !tbaa !22
+  store i8 0, ptr %127, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i53
 
 223:                                              ; preds = %208
@@ -23030,7 +23030,7 @@ _ZL12stbi__at_eofP13stbi__context.exit.thread.i63: ; preds = %228
 
 270:                                              ; preds = %256
   store i32 0, ptr %123, align 8, !tbaa !17
-  store i8 0, ptr %127, align 1, !tbaa !22
+  store i8 0, ptr %127, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i66
 
 271:                                              ; preds = %256
@@ -23328,7 +23328,7 @@ _ZL17stbi__pnm_isspacec.exit.thread:              ; preds = %_ZL12stbi__at_eofP1
 
 47:                                               ; preds = %33
   store i32 0, ptr %3, align 8, !tbaa !17
-  store i8 0, ptr %9, align 1, !tbaa !22
+  store i8 0, ptr %9, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i
 
 48:                                               ; preds = %33
@@ -23446,7 +23446,7 @@ _ZL12stbi__at_eofP13stbi__context.exit28.thread:  ; preds = %64, %_ZL12stbi__at_
 
 97:                                               ; preds = %83
   store i32 0, ptr %3, align 8, !tbaa !17
-  store i8 0, ptr %9, align 1, !tbaa !22
+  store i8 0, ptr %9, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i31
 
 98:                                               ; preds = %83
@@ -23518,7 +23518,7 @@ define internal fastcc noundef nonnull ptr @_ZL18stbi__hdr_gettokenP13stbi__cont
 34:                                               ; preds = %14
   store i32 0, ptr %12, align 8, !tbaa !17
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %19, align 1, !tbaa !22
+  store i8 0, ptr %19, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i
 
 36:                                               ; preds = %14
@@ -23655,7 +23655,7 @@ _ZL12stbi__at_eofP13stbi__context.exit21.thread.thread: ; preds = %_ZL12stbi__at
 
 100:                                              ; preds = %86
   store i32 0, ptr %46, align 8, !tbaa !17
-  store i8 0, ptr %47, align 1, !tbaa !22
+  store i8 0, ptr %47, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i24
 
 101:                                              ; preds = %86
@@ -23718,7 +23718,7 @@ _ZL10stbi__get8P13stbi__context.exit33.backedge:  ; preds = %109, %112, %_ZL19st
 
 128:                                              ; preds = %114
   store i32 0, ptr %46, align 8, !tbaa !17
-  store i8 0, ptr %47, align 1, !tbaa !22
+  store i8 0, ptr %47, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i30
 
 129:                                              ; preds = %114
@@ -25099,7 +25099,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL14stbi__tga_infoP13stbi__
 35:                                               ; preds = %15
   store i32 0, ptr %13, align 8, !tbaa !17
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %20, align 1, !tbaa !22
+  store i8 0, ptr %20, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i
 
 37:                                               ; preds = %15
@@ -25163,7 +25163,7 @@ _ZL10stbi__get8P13stbi__context.exit:             ; preds = %_ZL10stbi__get8P13s
 70:                                               ; preds = %50
   store i32 0, ptr %48, align 8, !tbaa !17
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %55, align 1, !tbaa !22
+  store i8 0, ptr %55, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i83
 
 72:                                               ; preds = %50
@@ -25241,7 +25241,7 @@ _ZL10stbi__get8P13stbi__context.exit86.thread:    ; preds = %47, %_ZL10stbi__get
 114:                                              ; preds = %94
   store i32 0, ptr %92, align 8, !tbaa !17
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %99, align 1, !tbaa !22
+  store i8 0, ptr %99, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i89
 
 116:                                              ; preds = %94
@@ -25353,7 +25353,7 @@ _ZL10stbi__skipP13stbi__contexti.exit:            ; preds = %138, %.thread.i
 173:                                              ; preds = %154
   store i32 0, ptr %152, align 8, !tbaa !17
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %158, align 1, !tbaa !22
+  store i8 0, ptr %158, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i97
 
 175:                                              ; preds = %154
@@ -25535,7 +25535,7 @@ _ZL10stbi__skipP13stbi__contexti.exit106:         ; preds = %.thread.i108, %216,
 268:                                              ; preds = %248
   store i32 0, ptr %246, align 8, !tbaa !17
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %253, align 1, !tbaa !22
+  store i8 0, ptr %253, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i115
 
 270:                                              ; preds = %248
@@ -25595,7 +25595,7 @@ _ZL10stbi__get8P13stbi__context.exit118:          ; preds = %242, %245, %_ZL19st
 303:                                              ; preds = %283
   store i32 0, ptr %281, align 8, !tbaa !17
   %304 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %288, align 1, !tbaa !22
+  store i8 0, ptr %288, align 8, !tbaa !22
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i121
 
 305:                                              ; preds = %283

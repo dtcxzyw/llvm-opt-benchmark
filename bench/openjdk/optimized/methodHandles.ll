@@ -2072,7 +2072,7 @@ define hidden noundef zeroext i1 @_ZN13MethodHandles23is_basic_type_signatureEP6
   %4 = load i16, ptr %3, align 4
   %.not.i.i = icmp ne i16 %4, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %6 = load i8, ptr %5, align 1
+  %6 = load i8, ptr %5, align 2
   %7 = icmp eq i8 %6, 40
   %.0.i.i = select i1 %.not.i.i, i1 %7, i1 false
   call void @_ZN15SignatureStreamC1EPK6Symbolb(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull %0, i1 noundef zeroext %.0.i.i) #14
@@ -2144,7 +2144,7 @@ define hidden noundef ptr @_ZN13MethodHandles27lookup_basic_type_signatureEP6Sym
   %10 = load i16, ptr %9, align 4
   %.not.i.i.i = icmp ne i16 %10, 0
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %12 = load i8, ptr %11, align 1
+  %12 = load i8, ptr %11, align 2
   %13 = icmp eq i8 %12, 40
   %.0.i.i.i = select i1 %.not.i.i.i, i1 %13, i1 false
   call void @_ZN15SignatureStreamC1EPK6Symbolb(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull %0, i1 noundef zeroext %.0.i.i.i) #14
@@ -2196,7 +2196,7 @@ define hidden noundef ptr @_ZN13MethodHandles27lookup_basic_type_signatureEP6Sym
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %32 = load i16, ptr %9, align 4
   %.not.i.i = icmp ne i16 %32, 0
-  %33 = load i8, ptr %11, align 1
+  %33 = load i8, ptr %11, align 2
   %34 = icmp eq i8 %33, 40
   %.0.i.i = select i1 %.not.i.i, i1 %34, i1 false
   br i1 %.0.i.i, label %43, label %35

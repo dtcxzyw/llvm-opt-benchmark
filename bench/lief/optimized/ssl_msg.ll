@@ -1016,7 +1016,7 @@ ssl_parse_inner_plaintext.exit.thread:            ; preds = %238
   %243 = getelementptr inbounds nuw i8, ptr %.2261344, i64 %239
   store i64 %239, ptr %25, align 8, !tbaa !56
   %244 = load i8, ptr %243, align 1, !tbaa !32
-  store i8 %244, ptr %234, align 1, !tbaa !32
+  store i8 %244, ptr %234, align 8, !tbaa !32
   br label %245
 
 245:                                              ; preds = %ssl_parse_inner_plaintext.exit.thread, %229
@@ -1045,7 +1045,7 @@ ssl_parse_inner_plaintext.exit314.thread:         ; preds = %252
   %257 = getelementptr inbounds nuw i8, ptr %.2261344, i64 %253
   store i64 %253, ptr %25, align 8, !tbaa !56
   %258 = load i8, ptr %257, align 1, !tbaa !32
-  store i8 %258, ptr %248, align 1, !tbaa !32
+  store i8 %258, ptr %248, align 8, !tbaa !32
   br label %259
 
 259:                                              ; preds = %ssl_parse_inner_plaintext.exit314.thread, %245

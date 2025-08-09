@@ -2222,7 +2222,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !16, !alias.scope !787, !noalias !790
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !13, !alias.scope !790, !noalias !787
   store i64 0, ptr %48, align 8, !tbaa !16, !alias.scope !790, !noalias !787
-  store i8 0, ptr %39, align 1, !tbaa !15, !alias.scope !790, !noalias !787
+  store i8 0, ptr %39, align 8, !tbaa !15, !alias.scope !790, !noalias !787
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -2270,7 +2270,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !16, !alias.scope !794, !noalias !797
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !13, !alias.scope !797, !noalias !794
   store i64 0, ptr %64, align 8, !tbaa !16, !alias.scope !797, !noalias !794
-  store i8 0, ptr %55, align 1, !tbaa !15, !alias.scope !797, !noalias !794
+  store i8 0, ptr %55, align 8, !tbaa !15, !alias.scope !797, !noalias !794
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5
@@ -3625,7 +3625,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llv
   store ptr %16, ptr %.ptr.i.i.i, align 8, !tbaa !6
   %17 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %17, align 8, !tbaa !16
-  store i8 0, ptr %16, align 1, !tbaa !15
+  store i8 0, ptr %16, align 8, !tbaa !15
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %18 = icmp eq i64 %.add.i.i.i, 416
   br i1 %18, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %15

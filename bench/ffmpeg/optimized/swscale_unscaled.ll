@@ -2843,11 +2843,11 @@ define internal noundef i32 @planarToP01xWrapper(ptr noundef readonly captures(n
   %37 = getelementptr inbounds nuw i8, ptr %13, i64 60
   %38 = load i32, ptr %37, align 4, !tbaa !41
   %39 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  %40 = load i32, ptr %39, align 4, !tbaa !53
+  %40 = load i32, ptr %39, align 8, !tbaa !53
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 60
   %42 = load i32, ptr %41, align 4, !tbaa !41
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %44 = load i32, ptr %43, align 4, !tbaa !53
+  %44 = load i32, ptr %43, align 8, !tbaa !53
   %.neg77 = add i32 %40, %38
   %45 = add i32 %42, %44
   %46 = sub i32 %.neg77, %45

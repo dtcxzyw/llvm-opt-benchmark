@@ -1853,7 +1853,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !tbaa !15, !alias.scope !124, !noalias !127
   store ptr %43, ptr %.0911.i.i.i, align 8, !tbaa !10, !alias.scope !127, !noalias !124
   store i64 0, ptr %52, align 8, !tbaa !15, !alias.scope !127, !noalias !124
-  store i8 0, ptr %43, align 1, !tbaa !16, !alias.scope !127, !noalias !124
+  store i8 0, ptr %43, align 8, !tbaa !16, !alias.scope !127, !noalias !124
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %54, %1
@@ -1901,7 +1901,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !tbaa !15, !alias.scope !131, !noalias !134
   store ptr %59, ptr %.0911.i.i.i19, align 8, !tbaa !10, !alias.scope !134, !noalias !131
   store i64 0, ptr %68, align 8, !tbaa !15, !alias.scope !134, !noalias !131
-  store i8 0, ptr %59, align 1, !tbaa !16, !alias.scope !134, !noalias !131
+  store i8 0, ptr %59, align 8, !tbaa !16, !alias.scope !134, !noalias !131
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %70, %6
@@ -8286,7 +8286,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS2_vEE
   %66 = load i64, ptr %1, align 8, !tbaa !16
   store i64 %66, ptr %56, align 8, !tbaa !16
   %67 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  store i32 0, ptr %67, align 4, !tbaa !115
+  store i32 0, ptr %67, align 8, !tbaa !115
   br label %.loopexit
 
 .loopexit:                                        ; preds = %35, %13, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E16InsertIntoBucketIRKS2_JEEEPS7_SD_OT_DpOT0_.exit
@@ -8422,7 +8422,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapINS_3LLTEjLj64ENS_12Dens
   %30 = getelementptr inbounds nuw i8, ptr %.02538, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %.026.ptr39, i64 8
   %32 = load i32, ptr %31, align 8, !tbaa !115
-  store i32 %32, ptr %30, align 4, !tbaa !115
+  store i32 %32, ptr %30, align 8, !tbaa !115
   %33 = getelementptr inbounds nuw i8, ptr %.02538, i64 16
   br label %34
 
@@ -8587,7 +8587,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS2_vEE
   %53 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
   %54 = getelementptr inbounds nuw i8, ptr %.023, i64 8
   %55 = load i32, ptr %54, align 4, !tbaa !115
-  store i32 %55, ptr %53, align 4, !tbaa !115
+  store i32 %55, ptr %53, align 8, !tbaa !115
   %56 = load i32, ptr %0, align 8
   %57 = and i32 %56, -2
   %58 = add i32 %57, 2
@@ -22468,7 +22468,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !15, !alias.scope !1320, !noalias !1323
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !10, !alias.scope !1323, !noalias !1320
   store i64 0, ptr %48, align 8, !tbaa !15, !alias.scope !1323, !noalias !1320
-  store i8 0, ptr %39, align 1, !tbaa !16, !alias.scope !1323, !noalias !1320
+  store i8 0, ptr %39, align 8, !tbaa !16, !alias.scope !1323, !noalias !1320
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -22516,7 +22516,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !15, !alias.scope !1326, !noalias !1329
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !10, !alias.scope !1329, !noalias !1326
   store i64 0, ptr %64, align 8, !tbaa !15, !alias.scope !1329, !noalias !1326
-  store i8 0, ptr %55, align 1, !tbaa !16, !alias.scope !1329, !noalias !1326
+  store i8 0, ptr %55, align 8, !tbaa !16, !alias.scope !1329, !noalias !1326
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5

@@ -14145,11 +14145,11 @@ define linkonce_odr void @_ZSt5asyncISt8functionIFvvEEJEESt6futureINSt15__invoke
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr null, ptr %15, align 8, !tbaa !907, !noalias !906
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store i32 0, ptr %16, align 4, !tbaa !910, !noalias !906
+  store i32 0, ptr %16, align 8, !tbaa !910, !noalias !906
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 36
-  store i8 0, ptr %17, align 1, !tbaa !912, !noalias !906
+  store i8 0, ptr %17, align 4, !tbaa !912, !noalias !906
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store i32 0, ptr %18, align 4, !tbaa !914, !noalias !906
+  store i32 0, ptr %18, align 8, !tbaa !914, !noalias !906
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base15_Deferred_stateINSt6thread8_InvokerISt5tupleIJSt8functionIFvvEEEEEEvEE, i64 16), ptr %14, align 8, !tbaa !3, !noalias !906
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %20 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30, !noalias !906
@@ -15360,7 +15360,7 @@ _ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit.i.i
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(28) %3) #27
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load atomic i32, ptr %8 acquire, align 4
+  %9 = load atomic i32, ptr %8 acquire, align 8
   %10 = and i32 %9, 2147483647
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %_ZSt10__invoke_rIvRZN4llvm19ThreadPoolInterface9asyncImplIvEESt13shared_futureIT_ESt8functionIFS4_vEEPNS0_19ThreadPoolTaskGroupEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIS4_T0_DpT1_EES4_E4typeEOSE_DpOSF_.exit, label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit.us.i.i.i.i.i.i
@@ -16114,7 +16114,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optI19LTOB
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.014, i64 32
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !53
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %21 = load i32, ptr %19, align 4, !tbaa !155
+  %21 = load i32, ptr %19, align 8, !tbaa !155
   store ptr %.sroa.01.0.copyload, ptr %3, align 8, !tbaa !52
   store i64 %.sroa.22.0.copyload, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !tbaa !53
   store ptr %.sroa.0.0.copyload, ptr %9, align 8, !tbaa !52

@@ -1778,10 +1778,10 @@ pitch_enhancer.exit:                              ; preds = %981
 synthesis.exit:                                   ; preds = %pitch_enhancer.exit, %996, %1013
   %1014 = load ptr, ptr %315, align 8, !tbaa !115
   call void %1014(ptr noundef nonnull %313, ptr noundef nonnull %991, ptr noundef nonnull %14, i32 noundef 64, i32 noundef 16) #9
-  %1015 = load float, ptr %313, align 4, !tbaa !45
-  %1016 = load float, ptr %317, align 4, !tbaa !45
+  %1015 = load float, ptr %313, align 8, !tbaa !45
+  %1016 = load float, ptr %317, align 8, !tbaa !45
   %1017 = call nsz float @llvm.fmuladd.f32(float %1016, float 0x3FE5C28F60000000, float %1015)
-  store float %1017, ptr %316, align 4, !tbaa !45
+  store float %1017, ptr %316, align 8, !tbaa !45
   %load_initial = load float, ptr %scevgep, align 4
   br label %1018
 
@@ -1844,7 +1844,7 @@ de_emphasis.exit:                                 ; preds = %1018
 upsample_5_4.exit:                                ; preds = %1039
   %1042 = load ptr, ptr %319, align 8, !tbaa !117
   call void %1042(ptr noundef nonnull %16, ptr noundef nonnull %316, ptr noundef nonnull @hpf_zeros, ptr noundef nonnull @hpf_400_poles, float noundef 0x3FEC980000000000, ptr noundef nonnull %323, i32 noundef 64) #9
-  %1043 = load i16, ptr %42, align 2, !tbaa !120
+  %1043 = load i16, ptr %42, align 8, !tbaa !120
   %1044 = and i16 %1043, 255
   %1045 = icmp ne i16 %1044, 0
   %1046 = load i32, ptr %50, align 8, !tbaa !60

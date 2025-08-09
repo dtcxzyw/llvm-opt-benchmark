@@ -2384,7 +2384,7 @@ define noundef i64 @test_support_func(ptr noundef readonly captures(none) %0) lo
   %.038 = phi double [ %22, %17 ], [ %26, %23 ]
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store double %.038, ptr %28, align 8
-  %.pr = load i32, ptr %4, align 4
+  %.pr = load i32, ptr %4, align 8
   br label %29
 
 29:                                               ; preds = %27, %1

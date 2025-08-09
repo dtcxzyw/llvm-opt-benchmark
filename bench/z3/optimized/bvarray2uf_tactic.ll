@@ -1470,7 +1470,7 @@ _ZN15ref_buffer_coreI4goal21ref_unmanaged_wrapperIS0_ELj16EE7dec_refEPS0_.exit.i
   %40 = getelementptr inbounds nuw i8, ptr %31, i64 48
   store i64 10, ptr %40, align 8, !tbaa !143
   %41 = getelementptr inbounds nuw i8, ptr %31, i64 66
-  store i8 0, ptr %41, align 1, !tbaa !139
+  store i8 0, ptr %41, align 2, !tbaa !139
   %42 = getelementptr inbounds nuw i8, ptr %31, i64 72
   store ptr null, ptr %42, align 8, !tbaa !184
   store i32 1, ptr %34, align 8, !tbaa !187

@@ -758,13 +758,13 @@ define signext range(i8 0, 2) i8 @ubidi_getRuns_77(ptr noundef %0, ptr readnone 
   %15 = and i8 %12, 1
   %16 = zext nneg i8 %15 to i32
   %17 = shl nuw i32 %16, 31
-  store i32 %17, ptr %13, align 4, !tbaa !55
+  store i32 %17, ptr %13, align 8, !tbaa !55
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %19 = load i32, ptr %18, align 4, !tbaa !23
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 316
   store i32 %19, ptr %20, align 4, !tbaa !57
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  store i32 0, ptr %21, align 4, !tbaa !58
+  store i32 0, ptr %21, align 8, !tbaa !58
   br label %.critedge159.thread
 
 22:                                               ; preds = %7
@@ -809,11 +809,11 @@ define signext range(i8 0, 2) i8 @ubidi_getRuns_77(ptr noundef %0, ptr readnone 
   %39 = and i8 %36, 1
   %40 = zext nneg i8 %39 to i32
   %41 = shl nuw i32 %40, 31
-  store i32 %41, ptr %37, align 4, !tbaa !55
+  store i32 %41, ptr %37, align 8, !tbaa !55
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 316
   store i32 %24, ptr %42, align 4, !tbaa !57
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  store i32 0, ptr %43, align 4, !tbaa !58
+  store i32 0, ptr %43, align 8, !tbaa !58
   br label %.critedge159.thread
 
 ._crit_edge.thread:                               ; preds = %22, %._crit_edge

@@ -2113,7 +2113,7 @@ define dso_local void @addrconf_join_solict(ptr noundef %0, ptr noundef readonly
   store i64 767, ptr %3, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = or i32 %10, 255
-  store i32 16777216, ptr %11, align 4
+  store i32 16777216, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %12, ptr %13, align 4
   %14 = call i32 @ipv6_dev_mc_inc(ptr noundef %0, ptr noundef nonnull %3) #20
@@ -2144,7 +2144,7 @@ define dso_local void @addrconf_leave_solict(ptr noundef %0, ptr noundef readonl
   store i64 767, ptr %3, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = or i32 %11, 255
-  store i32 16777216, ptr %12, align 4
+  store i32 16777216, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %13, ptr %14, align 4
   %15 = call i32 @__ipv6_dev_mc_dec(ptr noundef %0, ptr noundef nonnull %3) #20
@@ -6646,7 +6646,7 @@ define internal i32 @inet6_netconf_dump_devconf(ptr noundef %0, ptr noundef capt
   %46 = load ptr, ptr %34, align 16
   %47 = getelementptr %struct.hlist_head, ptr %46, i64 %44
   tail call void @__rcu_read_lock() #20
-  %48 = load volatile i32, ptr %35, align 4
+  %48 = load volatile i32, ptr %35, align 16
   %49 = load i32, ptr %36, align 4
   %50 = add i32 %49, %48
   %51 = icmp eq i32 %50, 0
@@ -7387,7 +7387,7 @@ define internal fastcc void @addrconf_ifdown(ptr noundef %0, i1 noundef zeroext 
   %295 = load i32, ptr %294, align 4
   store i64 767, ptr %3, align 8
   %296 = or i32 %295, 255
-  store i32 16777216, ptr %207, align 4
+  store i32 16777216, ptr %207, align 8
   store i32 %296, ptr %208, align 4
   %297 = call i32 @__ipv6_dev_mc_dec(ptr noundef %287, ptr noundef nonnull %3) #20
   br label %298
@@ -7903,7 +7903,7 @@ define internal void @addrconf_dad_work(ptr noundef %0) #0 align 16 {
   store i64 767, ptr %3, align 8
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %67 = or i32 %65, 255
-  store i32 16777216, ptr %66, align 4
+  store i32 16777216, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %67, ptr %68, align 4
   %69 = call i32 @ipv6_dev_mc_inc(ptr noundef %58, ptr noundef nonnull %3) #20
@@ -8176,7 +8176,7 @@ define internal void @addrconf_dad_work(ptr noundef %0) #0 align 16 {
   store i64 767, ptr %4, align 8
   %217 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %218 = or i32 %216, 255
-  store i32 16777216, ptr %217, align 4
+  store i32 16777216, ptr %217, align 8
   %219 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %218, ptr %219, align 4
   %220 = load ptr, ptr %7, align 8
@@ -11256,7 +11256,7 @@ define internal fastcc void @__ipv6_ifa_notify(i32 noundef range(i32 0, 22) %0, 
   store i64 767, ptr %3, align 8
   %174 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %175 = or i32 %173, 255
-  store i32 16777216, ptr %174, align 4
+  store i32 16777216, ptr %174, align 8
   %176 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %175, ptr %176, align 4
   %177 = call i32 @__ipv6_dev_mc_dec(ptr noundef %165, ptr noundef nonnull %3) #20
@@ -11587,11 +11587,11 @@ define internal noundef range(i32 -105, 1) i32 @addrconf_init_net(ptr noundef in
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2056
   store i64 68719476704, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2064
-  store volatile ptr %4, ptr %4, align 8
+  store volatile ptr %4, ptr %4, align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2072
   store volatile ptr %4, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2080
-  store ptr @addrconf_verify_work, ptr %6, align 8
+  store ptr @addrconf_verify_work, ptr %6, align 32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2088
   tail call void @init_timer_key(ptr noundef nonnull %7, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2621440, ptr noundef null, ptr noundef null) #20
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
@@ -12703,7 +12703,7 @@ define internal i32 @addrconf_sysctl_addr_gen_mode(ptr noundef readonly captures
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 188
   store i32 %31, ptr %62, align 4
   %63 = getelementptr inbounds nuw i8, ptr %11, i64 144
-  %64 = load ptr, ptr %63, align 8
+  %64 = load ptr, ptr %63, align 16
   %65 = icmp eq ptr %64, %63
   br i1 %65, label %.loopexit, label %.preheader
 

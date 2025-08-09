@@ -3093,7 +3093,7 @@ X11_FindWindow.exit:                              ; preds = %292
   %949 = load i32, ptr %948, align 4
   %950 = sub nsw i32 %947, %949
   %951 = getelementptr inbounds nuw i8, ptr %291, i64 472
-  store i32 %950, ptr %951, align 4
+  store i32 %950, ptr %951, align 8
   %952 = load ptr, ptr @X11_XMoveWindow, align 8
   %953 = load i64, ptr %373, align 8
   %954 = tail call i32 %952(ptr noundef %27, i64 noundef %953, i32 noundef %944, i32 noundef %950) #12
@@ -3118,7 +3118,7 @@ X11_FindWindow.exit:                              ; preds = %292
   %966 = getelementptr inbounds nuw i8, ptr %962, i64 148
   %967 = load i32, ptr %966, align 4
   %968 = getelementptr inbounds nuw i8, ptr %291, i64 480
-  store i32 %967, ptr %968, align 4
+  store i32 %967, ptr %968, align 8
   %969 = load ptr, ptr @X11_XResizeWindow, align 8
   %970 = load i64, ptr %373, align 8
   %971 = load i32, ptr %963, align 8

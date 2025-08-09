@@ -8499,7 +8499,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7emplaceIJEE
   store ptr %9, ptr %5, align 8, !tbaa !9
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %10, align 8, !tbaa !17
-  store i8 0, ptr %9, align 1, !tbaa !16
+  store i8 0, ptr %9, align 8, !tbaa !16
   store i8 1, ptr %6, align 8, !tbaa !30
   br label %_ZSt10__invoke_rIvRZN16cmArgumentParserIZ23cmExecuteProcessCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindIMSE_St8optionalIS7_ESE_SI_vvEERSF_N2cm18static_string_viewET_EUlRN14ArgumentParser8InstanceEE_JSQ_EENSt9enable_ifIX16is_invocable_r_vISN_T0_DpT1_EESN_E4typeEOSU_DpOSV_.exit
 
@@ -9375,7 +9375,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !17, !alias.scope !302, !noalias !305
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !14, !alias.scope !305, !noalias !302
   store i64 0, ptr %48, align 8, !tbaa !17, !alias.scope !305, !noalias !302
-  store i8 0, ptr %39, align 1, !tbaa !16, !alias.scope !305, !noalias !302
+  store i8 0, ptr %39, align 8, !tbaa !16, !alias.scope !305, !noalias !302
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -9423,7 +9423,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !17, !alias.scope !309, !noalias !312
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !14, !alias.scope !312, !noalias !309
   store i64 0, ptr %64, align 8, !tbaa !17, !alias.scope !312, !noalias !309
-  store i8 0, ptr %55, align 1, !tbaa !16, !alias.scope !312, !noalias !309
+  store i8 0, ptr %55, align 8, !tbaa !16, !alias.scope !312, !noalias !309
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5
@@ -9569,7 +9569,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !tbaa !17, !alias.scope !315, !noalias !318
   store ptr %43, ptr %.0911.i.i.i, align 8, !tbaa !14, !alias.scope !318, !noalias !315
   store i64 0, ptr %52, align 8, !tbaa !17, !alias.scope !318, !noalias !315
-  store i8 0, ptr %43, align 1, !tbaa !16, !alias.scope !318, !noalias !315
+  store i8 0, ptr %43, align 8, !tbaa !16, !alias.scope !318, !noalias !315
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %54, %1
@@ -9617,7 +9617,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !tbaa !17, !alias.scope !321, !noalias !324
   store ptr %59, ptr %.0911.i.i.i29, align 8, !tbaa !14, !alias.scope !324, !noalias !321
   store i64 0, ptr %68, align 8, !tbaa !17, !alias.scope !324, !noalias !321
-  store i8 0, ptr %59, align 1, !tbaa !16, !alias.scope !324, !noalias !321
+  store i8 0, ptr %59, align 8, !tbaa !16, !alias.scope !324, !noalias !321
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %.not.i.i.i34 = icmp eq ptr %70, %6
@@ -9920,7 +9920,7 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeImSt4pairIKmNSt7__cxx1112basic_
   store ptr %14, ptr %13, align 8, !tbaa !9
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i64 0, ptr %15, align 8, !tbaa !17
-  store i8 0, ptr %14, align 1, !tbaa !16
+  store i8 0, ptr %14, align 8, !tbaa !16
   store ptr %8, ptr %7, align 8, !tbaa !330
   %16 = invoke { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %17 unwind label %32

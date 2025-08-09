@@ -152,7 +152,7 @@ define range(i32 -1094995529, 1) i32 @ff_aom_apply_film_grain(ptr noundef readon
   %86 = load i32, ptr %85, align 4, !tbaa !35
   %87 = add nsw i32 %86, 4
   %88 = getelementptr inbounds nuw i8, ptr %2, i64 144
-  %89 = load i32, ptr %88, align 4, !tbaa !37
+  %89 = load i32, ptr %88, align 8, !tbaa !37
   %90 = shl nuw i32 1, %87
   %91 = ashr i32 %90, 1
   br label %.preheader55.i.i
@@ -1249,7 +1249,7 @@ define internal fastcc void @apply_film_grain_16(ptr noundef readonly captures(n
   %reass.sub.i = sub i32 %22, %3
   %23 = add i32 %reass.sub.i, 12
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 144
-  %25 = load i32, ptr %24, align 4, !tbaa !37
+  %25 = load i32, ptr %24, align 8, !tbaa !37
   %26 = shl nuw i32 1, %23
   %27 = ashr i32 %26, 1
   br label %.preheader62.i
@@ -3442,7 +3442,7 @@ define internal fastcc void @generate_grain_uv_c_8(ptr noundef nonnull captures(
   %.not89 = icmp eq i32 %5, 0
   %wide.trip.count147 = select i1 %.not89, i64 73, i64 38
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 144
-  %17 = load i32, ptr %16, align 4, !tbaa !37
+  %17 = load i32, ptr %16, align 8, !tbaa !37
   %18 = shl nuw i32 1, %14
   %19 = ashr i32 %18, 1
   %wide.trip.count = zext nneg i32 %15 to i64
@@ -4382,7 +4382,7 @@ define internal fastcc void @generate_grain_uv_c_16(ptr noundef nonnull captures
   %.not96 = icmp eq i32 %5, 0
   %wide.trip.count155 = select i1 %.not96, i64 73, i64 38
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 144
-  %18 = load i32, ptr %17, align 4, !tbaa !37
+  %18 = load i32, ptr %17, align 8, !tbaa !37
   %19 = shl nuw i32 1, %15
   %20 = ashr i32 %19, 1
   %wide.trip.count = zext nneg i32 %16 to i64

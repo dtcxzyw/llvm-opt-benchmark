@@ -7375,7 +7375,7 @@ define hidden void @_ZN5osgeo4proj8metadata10IdentifierC2Ev(ptr noundef nonnull 
   store ptr %11, ptr %10, align 8, !tbaa !9, !noalias !213
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 0, ptr %12, align 8, !tbaa !25, !noalias !213
-  store i8 0, ptr %11, align 1, !tbaa !26, !noalias !213
+  store i8 0, ptr %11, align 8, !tbaa !26, !noalias !213
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 0, ptr %13, align 8, !tbaa !19, !noalias !213
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 72
@@ -7383,7 +7383,7 @@ define hidden void @_ZN5osgeo4proj8metadata10IdentifierC2Ev(ptr noundef nonnull 
   store ptr %15, ptr %14, align 8, !tbaa !9, !noalias !213
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store i64 0, ptr %16, align 8, !tbaa !25, !noalias !213
-  store i8 0, ptr %15, align 1, !tbaa !26, !noalias !213
+  store i8 0, ptr %15, align 8, !tbaa !26, !noalias !213
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   store i8 0, ptr %17, align 8, !tbaa !19, !noalias !213
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -7391,7 +7391,7 @@ define hidden void @_ZN5osgeo4proj8metadata10IdentifierC2Ev(ptr noundef nonnull 
   store ptr %19, ptr %18, align 8, !tbaa !9, !noalias !213
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i64 0, ptr %20, align 8, !tbaa !25, !noalias !213
-  store i8 0, ptr %19, align 1, !tbaa !26, !noalias !213
+  store i8 0, ptr %19, align 8, !tbaa !26, !noalias !213
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 144
   store i8 0, ptr %21, align 8, !tbaa !19, !noalias !213
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 152
@@ -7399,7 +7399,7 @@ define hidden void @_ZN5osgeo4proj8metadata10IdentifierC2Ev(ptr noundef nonnull 
   store ptr %23, ptr %22, align 8, !tbaa !9, !noalias !213
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store i64 0, ptr %24, align 8, !tbaa !25, !noalias !213
-  store i8 0, ptr %23, align 1, !tbaa !26, !noalias !213
+  store i8 0, ptr %23, align 8, !tbaa !26, !noalias !213
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 184
   store i8 0, ptr %25, align 8, !tbaa !19, !noalias !213
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 192
@@ -7407,7 +7407,7 @@ define hidden void @_ZN5osgeo4proj8metadata10IdentifierC2Ev(ptr noundef nonnull 
   store ptr %27, ptr %26, align 8, !tbaa !9, !noalias !213
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 200
   store i64 0, ptr %28, align 8, !tbaa !25, !noalias !213
-  store i8 0, ptr %27, align 1, !tbaa !26, !noalias !213
+  store i8 0, ptr %27, align 8, !tbaa !26, !noalias !213
   store ptr %4, ptr %9, align 8, !tbaa !211, !alias.scope !213
   ret void
 

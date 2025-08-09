@@ -14862,7 +14862,7 @@ define internal fastcc void @_ZL12yyuserActioniiP14yyGLRStackItemP10yyGLRStacklP
   %211 = getelementptr inbounds nuw i8, ptr %197, i64 12
   store i32 0, ptr %211, align 4
   %212 = getelementptr inbounds nuw i8, ptr %197, i64 16
-  store i32 0, ptr %212, align 4
+  store i32 0, ptr %212, align 8
   %213 = getelementptr inbounds nuw i8, ptr %197, i64 24
   store ptr %203, ptr %213, align 8
   %214 = getelementptr inbounds nuw i8, ptr %197, i64 32
@@ -15235,7 +15235,7 @@ define internal fastcc void @_ZL12yyuserActioniiP14yyGLRStackItemP10yyGLRStacklP
   store i64 %401, ptr @_ZN3nix4Expr7nrExprsE, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix7ExprVarE, i64 16), ptr %396, align 8
   %402 = getelementptr inbounds nuw i8, ptr %396, i64 8
-  store i32 0, ptr %402, align 4
+  store i32 0, ptr %402, align 8
   %403 = getelementptr inbounds nuw i8, ptr %396, i64 12
   store i32 %.sroa.0133.0.copyload, ptr %403, align 4
   %404 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #42
@@ -15313,7 +15313,7 @@ _ZNSt6vectorIPN3nix4ExprESaIS2_EED2Ev.exit1175:   ; preds = %420, %422, %425, %4
   store i64 %435, ptr @_ZN3nix4Expr7nrExprsE, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix8ExprOpEqE, i64 16), ptr %427, align 8
   %436 = getelementptr inbounds nuw i8, ptr %427, i64 8
-  store i32 0, ptr %436, align 4
+  store i32 0, ptr %436, align 8
   %437 = getelementptr inbounds nuw i8, ptr %427, i64 16
   store ptr %430, ptr %437, align 8
   %438 = getelementptr inbounds nuw i8, ptr %427, i64 24
@@ -15334,7 +15334,7 @@ _ZNSt6vectorIPN3nix4ExprESaIS2_EED2Ev.exit1175:   ; preds = %420, %422, %425, %4
   store i64 %448, ptr @_ZN3nix4Expr7nrExprsE, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix9ExprOpNEqE, i64 16), ptr %440, align 8
   %449 = getelementptr inbounds nuw i8, ptr %440, i64 8
-  store i32 0, ptr %449, align 4
+  store i32 0, ptr %449, align 8
   %450 = getelementptr inbounds nuw i8, ptr %440, i64 16
   store ptr %443, ptr %450, align 8
   %451 = getelementptr inbounds nuw i8, ptr %440, i64 24
@@ -15364,7 +15364,7 @@ _ZNSt6vectorIPN3nix4ExprESaIS2_EED2Ev.exit1175:   ; preds = %420, %422, %425, %4
   store i64 %464, ptr @_ZN3nix4Expr7nrExprsE, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix7ExprVarE, i64 16), ptr %458, align 8
   %465 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  store i32 0, ptr %465, align 4
+  store i32 0, ptr %465, align 8
   %466 = getelementptr inbounds nuw i8, ptr %458, i64 12
   store i32 %.sroa.0129.0.copyload, ptr %466, align 4
   %467 = call fastcc noundef i32 @_ZL6yyfillP14yyGLRStackItemPiib(ptr noundef nonnull %2, ptr noundef %8, i32 noundef -2, i1 noundef zeroext %116)
@@ -15445,7 +15445,7 @@ _ZNSt6vectorIPN3nix4ExprESaIS2_EED2Ev.exit1179:   ; preds = %480, %482, %485, %4
   store i64 %500, ptr @_ZN3nix4Expr7nrExprsE, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix7ExprVarE, i64 16), ptr %494, align 8
   %501 = getelementptr inbounds nuw i8, ptr %494, i64 8
-  store i32 0, ptr %501, align 4
+  store i32 0, ptr %501, align 8
   %502 = getelementptr inbounds nuw i8, ptr %494, i64 12
   store i32 %.sroa.0125.0.copyload, ptr %502, align 4
   %503 = call fastcc noundef i32 @_ZL6yyfillP14yyGLRStackItemPiib(ptr noundef nonnull %2, ptr noundef %8, i32 noundef 0, i1 noundef zeroext %116)
@@ -15538,7 +15538,7 @@ _ZNSt6vectorIPN3nix4ExprESaIS2_EED2Ev.exit1183:   ; preds = %521, %523, %526, %5
   store i64 %540, ptr @_ZN3nix4Expr7nrExprsE, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix7ExprVarE, i64 16), ptr %534, align 8
   %541 = getelementptr inbounds nuw i8, ptr %534, i64 8
-  store i32 0, ptr %541, align 4
+  store i32 0, ptr %541, align 8
   %542 = getelementptr inbounds nuw i8, ptr %534, i64 12
   store i32 %.sroa.0120.0.copyload, ptr %542, align 4
   %543 = call fastcc noundef i32 @_ZL6yyfillP14yyGLRStackItemPiib(ptr noundef nonnull %2, ptr noundef %8, i32 noundef 0, i1 noundef zeroext %116)
@@ -15619,7 +15619,7 @@ _ZNSt6vectorIPN3nix4ExprESaIS2_EED2Ev.exit1187:   ; preds = %556, %558, %561, %5
   store i64 %576, ptr @_ZN3nix4Expr7nrExprsE, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix7ExprVarE, i64 16), ptr %570, align 8
   %577 = getelementptr inbounds nuw i8, ptr %570, i64 8
-  store i32 0, ptr %577, align 4
+  store i32 0, ptr %577, align 8
   %578 = getelementptr inbounds nuw i8, ptr %570, i64 12
   store i32 %.sroa.0116.0.copyload, ptr %578, align 4
   %579 = call fastcc noundef i32 @_ZL6yyfillP14yyGLRStackItemPiib(ptr noundef nonnull %2, ptr noundef %8, i32 noundef -2, i1 noundef zeroext %116)
@@ -15967,7 +15967,7 @@ _ZNSt6vectorIN3nix8AttrNameESaIS1_EED2Ev.exit1194: ; preds = %701, %703
   store i64 %754, ptr @_ZN3nix4Expr7nrExprsE, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix7ExprVarE, i64 16), ptr %749, align 8
   %755 = getelementptr inbounds nuw i8, ptr %749, i64 8
-  store i32 0, ptr %755, align 4
+  store i32 0, ptr %755, align 8
   %756 = getelementptr inbounds nuw i8, ptr %749, i64 12
   store i32 %.sroa.0106.0.copyload, ptr %756, align 4
   %757 = call fastcc noundef i32 @_ZL6yyfillP14yyGLRStackItemPiib(ptr noundef nonnull %2, ptr noundef %8, i32 noundef -2, i1 noundef zeroext %116)
@@ -16044,7 +16044,7 @@ _ZNSt6vectorIPN3nix4ExprESaIS2_EED2Ev.exit1198:   ; preds = %770, %772, %775, %7
   store i64 %788, ptr @_ZN3nix4Expr7nrExprsE, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix7ExprVarE, i64 16), ptr %782, align 8
   %789 = getelementptr inbounds nuw i8, ptr %782, i64 8
-  store i32 0, ptr %789, align 4
+  store i32 0, ptr %789, align 8
   %790 = getelementptr inbounds nuw i8, ptr %782, i64 12
   store i32 %.sroa.0102.0.copyload, ptr %790, align 4
   %791 = call fastcc noundef i32 @_ZL6yyfillP14yyGLRStackItemPiib(ptr noundef nonnull %2, ptr noundef %8, i32 noundef -2, i1 noundef zeroext %116)
@@ -16121,7 +16121,7 @@ _ZNSt6vectorIPN3nix4ExprESaIS2_EED2Ev.exit1202:   ; preds = %804, %806, %809, %8
   store i64 %822, ptr @_ZN3nix4Expr7nrExprsE, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix7ExprVarE, i64 16), ptr %816, align 8
   %823 = getelementptr inbounds nuw i8, ptr %816, i64 8
-  store i32 0, ptr %823, align 4
+  store i32 0, ptr %823, align 8
   %824 = getelementptr inbounds nuw i8, ptr %816, i64 12
   store i32 %.sroa.098.0.copyload, ptr %824, align 4
   %825 = call fastcc noundef i32 @_ZL6yyfillP14yyGLRStackItemPiib(ptr noundef nonnull %2, ptr noundef %8, i32 noundef -2, i1 noundef zeroext %116)
@@ -16704,7 +16704,7 @@ _ZNSt6vectorISt4pairIN3nix6PosIdxESt7variantIJPNS1_4ExprENS1_11StringTokenEEEESa
   store i64 %1110, ptr @_ZN3nix4Expr7nrExprsE, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix7ExprVarE, i64 16), ptr %1104, align 8
   %1111 = getelementptr inbounds nuw i8, ptr %1104, i64 8
-  store i32 0, ptr %1111, align 4
+  store i32 0, ptr %1111, align 8
   %1112 = getelementptr inbounds nuw i8, ptr %1104, i64 12
   store i32 %.sroa.078.0.copyload, ptr %1112, align 4
   %1113 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #42
@@ -16717,7 +16717,7 @@ _ZNSt6vectorISt4pairIN3nix6PosIdxESt7variantIJPNS1_4ExprENS1_11StringTokenEEEESa
   store i64 %1116, ptr @_ZN3nix4Expr7nrExprsE, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix7ExprVarE, i64 16), ptr %1113, align 8
   %1117 = getelementptr inbounds nuw i8, ptr %1113, i64 8
-  store i32 0, ptr %1117, align 4
+  store i32 0, ptr %1117, align 8
   %1118 = getelementptr inbounds nuw i8, ptr %1113, i64 12
   store i32 %.sroa.075.0.copyload, ptr %1118, align 4
   store ptr %1113, ptr %60, align 8
@@ -20111,7 +20111,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %24
   store i64 %31, ptr %32, align 8
   store ptr %22, ptr %2, align 8
   store i64 0, ptr %30, align 8
-  store i8 0, ptr %22, align 1
+  store i8 0, ptr %22, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %34 = load ptr, ptr %1, align 8
   %35 = load ptr, ptr %19, align 8
@@ -21324,7 +21324,7 @@ _ZNSt3mapIN3nix6SymbolENS0_9ExprAttrs7AttrDefESt4lessIS1_ESaISt4pairIKS1_S3_EEE1
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i32 %.pre, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  store i32 0, ptr %15, align 4
+  store i32 0, ptr %15, align 8
   %16 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN3nix6SymbolESt4pairIKS1_NS0_9ExprAttrs7AttrDefEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i13, ptr noundef nonnull align 4 dereferenceable(4) %14)
           to label %17 unwind label %_ZNSt8_Rb_treeIN3nix6SymbolESt4pairIKS1_NS0_9ExprAttrs7AttrDefEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE10_Auto_nodeD2Ev.exit.i
 
@@ -21751,7 +21751,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   store i64 %45, ptr %46, align 8
   store ptr %36, ptr %1, align 8
   store i64 0, ptr %44, align 8
-  store i8 0, ptr %36, align 1
+  store i8 0, ptr %36, align 8
   %47 = load ptr, ptr %29, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   store ptr %48, ptr %29, align 8
@@ -21985,7 +21985,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %30, ptr %32, align 8, !alias.scope !133, !noalias !136
   store ptr %22, ptr %.0911.i.i.i, align 8, !alias.scope !136, !noalias !133
   store i64 0, ptr %31, align 8, !alias.scope !136, !noalias !133
-  store i8 0, ptr %22, align 1, !alias.scope !136, !noalias !133
+  store i8 0, ptr %22, align 8, !alias.scope !136, !noalias !133
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i) #38
   %33 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %34 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
@@ -22224,7 +22224,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !alias.scope !151, !noalias !154
   store ptr %39, ptr %.0911.i.i.i, align 8, !alias.scope !154, !noalias !151
   store i64 0, ptr %48, align 8, !alias.scope !154, !noalias !151
-  store i8 0, ptr %39, align 1, !alias.scope !154, !noalias !151
+  store i8 0, ptr %39, align 8, !alias.scope !154, !noalias !151
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i) #38
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
@@ -22274,7 +22274,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !alias.scope !157, !noalias !160
   store ptr %55, ptr %.0911.i.i.i19, align 8, !alias.scope !160, !noalias !157
   store i64 0, ptr %64, align 8, !alias.scope !160, !noalias !157
-  store i8 0, ptr %55, align 1, !alias.scope !160, !noalias !157
+  store i8 0, ptr %55, align 8, !alias.scope !160, !noalias !157
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i19) #38
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
@@ -22817,7 +22817,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3nix6FormalESt6vectorIS3_Sa
   %.sroa.01.0.copyload.i.i.i.i.i13.i.i = load i32, ptr %18, align 4
   %19 = icmp eq i32 %12, %.sroa.01.0.copyload.i.i.i.i.i13.i.i
   %20 = icmp ult i32 %12, %.sroa.01.0.copyload.i.i.i.i.i13.i.i
-  %.sroa.01.0.copyload.i.i.i.i.i.i14.i.i = load i32, ptr %.pn18.i, align 4
+  %.sroa.01.0.copyload.i.i.i.i.i.i14.i.i = load i32, ptr %.pn18.i, align 8
   %21 = icmp ult i32 %15, %.sroa.01.0.copyload.i.i.i.i.i.i14.i.i
   %.sroa.05.0.i.i.i.i15.i.i = select i1 %19, i1 %21, i1 %20
   br i1 %.sroa.05.0.i.i.i.i15.i.i, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3nix6FormalESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_11ParserState15validateFormalsEPNS2_7FormalsENS2_6PosIdxENS2_6SymbolEEUlRKT_RKT0_E_EEEvSG_SJ_.exit.i
@@ -22868,7 +22868,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3nix6FormalESt6vectorIS3
   %.sroa.01.0.copyload.i.i.i.i.i13.i.i15 = load i32, ptr %30, align 4
   %31 = icmp eq i32 %.sroa.3.0.copyload.i.i, %.sroa.01.0.copyload.i.i.i.i.i13.i.i15
   %32 = icmp ult i32 %.sroa.3.0.copyload.i.i, %.sroa.01.0.copyload.i.i.i.i.i13.i.i15
-  %.sroa.01.0.copyload.i.i.i.i.i.i14.i.i16 = load i32, ptr %.sroa.0.012.i.i, align 4
+  %.sroa.01.0.copyload.i.i.i.i.i.i14.i.i16 = load i32, ptr %.sroa.0.012.i.i, align 8
   %33 = icmp ult i32 %.sroa.03.0.copyload.i.i, %.sroa.01.0.copyload.i.i.i.i.i.i14.i.i16
   %.sroa.05.0.i.i.i.i15.i.i17 = select i1 %31, i1 %33, i1 %32
   br i1 %.sroa.05.0.i.i.i.i15.i.i17, label %.lr.ph.i.i22, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3nix6FormalESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_11ParserState15validateFormalsEPNS2_7FormalsENS2_6PosIdxENS2_6SymbolEEUlRKT_RKT0_E_EEEvSG_SJ_.exit.i18
@@ -22945,7 +22945,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3nix6FormalESt6vectorIS3_Sa
   %.sroa.01.0.copyload.i.i.i.i.i13.i.i39 = load i32, ptr %58, align 4
   %59 = icmp eq i32 %46, %.sroa.01.0.copyload.i.i.i.i.i13.i.i39
   %60 = icmp ult i32 %46, %.sroa.01.0.copyload.i.i.i.i.i13.i.i39
-  %.sroa.01.0.copyload.i.i.i.i.i.i14.i.i40 = load i32, ptr %.pn18.i33, align 4
+  %.sroa.01.0.copyload.i.i.i.i.i.i14.i.i40 = load i32, ptr %.pn18.i33, align 8
   %61 = icmp ult i32 %49, %.sroa.01.0.copyload.i.i.i.i.i.i14.i.i40
   %.sroa.05.0.i.i.i.i15.i.i41 = select i1 %59, i1 %61, i1 %60
   br i1 %.sroa.05.0.i.i.i.i15.i.i41, label %.lr.ph.i.i47, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3nix6FormalESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_11ParserState15validateFormalsEPNS2_7FormalsENS2_6PosIdxENS2_6SymbolEEUlRKT_RKT0_E_EEEvSG_SJ_.exit.i42

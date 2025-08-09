@@ -7317,7 +7317,7 @@ mem_zalloc.exit.i:                                ; preds = %20, %17
   %39 = and i32 %38, -32780
   store i32 %39, ptr %37, align 4, !tbaa !196
   %40 = getelementptr inbounds nuw i8, ptr %19, i64 290
-  store i8 0, ptr %40, align 1, !tbaa !4
+  store i8 0, ptr %40, align 2, !tbaa !4
   %41 = getelementptr inbounds nuw i8, ptr %19, i64 291
   store i8 1, ptr %41, align 1, !tbaa !4
   store ptr %19, ptr @sig_tty, align 8, !tbaa !191

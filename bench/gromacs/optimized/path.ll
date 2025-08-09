@@ -2508,7 +2508,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i: ;
   store i64 %20, ptr %18, align 8, !tbaa !26, !alias.scope !71, !noalias !74
   store ptr null, ptr %19, align 8, !tbaa !26, !alias.scope !74, !noalias !71
   store i64 0, ptr %16, align 8, !tbaa !4, !alias.scope !74, !noalias !71
-  store i8 0, ptr %7, align 1, !tbaa !22, !alias.scope !74, !noalias !71
+  store i8 0, ptr %7, align 8, !tbaa !22, !alias.scope !74, !noalias !71
   invoke void @_ZNSt10filesystem7__cxx114path14_M_split_cmptsEv(ptr noundef nonnull align 8 dereferenceable(40) %.0912.i.i)
           to label %_ZNSt16allocator_traitsISaINSt10filesystem7__cxx114pathEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i unwind label %21
 

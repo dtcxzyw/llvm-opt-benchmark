@@ -1874,7 +1874,7 @@ _ZN4LIEF12ref_iteratorIRKSt6vectorINS_5MachO17DyldChainedFixups25chained_starts_
   %401 = getelementptr inbounds nuw i8, ptr %400, i64 56
   call void @llvm.lifetime.start.p0(ptr nonnull %31), !noalias !187
   call void @llvm.experimental.noalias.scope.decl(metadata !190)
-  %402 = load i32, ptr %398, align 4, !tbaa !193, !noalias !194
+  %402 = load i32, ptr %398, align 8, !tbaa !193, !noalias !194
   %.sroa.029.0.insert.ext.i = zext i32 %402 to i64
   %403 = load ptr, ptr %401, align 8, !tbaa !105, !noalias !194
   %404 = getelementptr inbounds nuw i8, ptr %400, i64 64

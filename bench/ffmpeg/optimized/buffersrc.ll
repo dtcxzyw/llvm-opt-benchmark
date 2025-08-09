@@ -902,7 +902,7 @@ define internal range(i32 -22, 1) i32 @init_video(ptr noundef %0) #4 {
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %41 = load i32, ptr %40, align 4, !tbaa !106
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %43 = load i32, ptr %42, align 4, !tbaa !107
+  %43 = load i32, ptr %42, align 8, !tbaa !107
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %45 = load i32, ptr %44, align 4, !tbaa !51
   %46 = tail call ptr @av_color_space_name(i32 noundef %45) #6

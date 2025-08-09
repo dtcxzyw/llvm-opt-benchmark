@@ -5921,7 +5921,7 @@ _ZL10copy_rvecnPA3_KfPA3_fii.exit90:              ; preds = %.lr.ph.i86, %105, %
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %131 = load float, ptr %130, align 8, !tbaa !10
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store float %131, ptr %132, align 4, !tbaa !10
+  store float %131, ptr %132, align 8, !tbaa !10
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %134 = load float, ptr %133, align 4, !tbaa !10
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 124
@@ -5929,7 +5929,7 @@ _ZL10copy_rvecnPA3_KfPA3_fii.exit90:              ; preds = %.lr.ph.i86, %105, %
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %137 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %138 = load float, ptr %136, align 8, !tbaa !10
-  store float %138, ptr %137, align 4, !tbaa !10
+  store float %138, ptr %137, align 8, !tbaa !10
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %140 = load float, ptr %139, align 4, !tbaa !10
   %141 = getelementptr inbounds nuw i8, ptr %1, i64 132
@@ -5937,7 +5937,7 @@ _ZL10copy_rvecnPA3_KfPA3_fii.exit90:              ; preds = %.lr.ph.i86, %105, %
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %143 = load float, ptr %142, align 8, !tbaa !10
   %144 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  store float %143, ptr %144, align 4, !tbaa !10
+  store float %143, ptr %144, align 8, !tbaa !10
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %147 = load float, ptr %145, align 4, !tbaa !10
@@ -5945,7 +5945,7 @@ _ZL10copy_rvecnPA3_KfPA3_fii.exit90:              ; preds = %.lr.ph.i86, %105, %
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %149 = load float, ptr %148, align 8, !tbaa !10
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  store float %149, ptr %150, align 4, !tbaa !10
+  store float %149, ptr %150, align 8, !tbaa !10
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %152 = load float, ptr %151, align 4, !tbaa !10
   %153 = getelementptr inbounds nuw i8, ptr %1, i64 148

@@ -980,9 +980,9 @@ define dso_local i32 @tcf_idr_create(ptr noundef readonly captures(none) %0, i32
   store i64 %65, ptr %66, align 8
   %67 = load volatile i64, ptr @jiffies, align 64
   %68 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  store i64 %67, ptr %68, align 8
+  store i64 %67, ptr %68, align 16
   %69 = getelementptr inbounds nuw i8, ptr %11, i64 64
-  store i64 0, ptr %69, align 8
+  store i64 0, ptr %69, align 16
   %70 = getelementptr inbounds nuw i8, ptr %11, i64 192
   store i32 %7, ptr %70, align 16
   %71 = icmp eq ptr %2, null
@@ -1663,7 +1663,7 @@ define dso_local noundef range(i32 -1, 2) i32 @tcf_action_destroy(ptr noundef ca
   store ptr null, ptr %8, align 8
   %9 = load ptr, ptr %6, align 16
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %11 = load volatile i32, ptr %10, align 4
+  %11 = load volatile i32, ptr %10, align 16
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %.thread8, label %13
 

@@ -199,7 +199,7 @@ define linkonce_odr noundef ptr @_ZNK6google8protobuf8internal19ImplicitWeakMess
   store ptr %5, ptr %4, align 8, !tbaa !13
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !16
-  store i8 0, ptr %5, align 1, !tbaa !19
+  store i8 0, ptr %5, align 8, !tbaa !19
   ret ptr %2
 }
 
@@ -245,7 +245,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalINS0_8internal19ImplicitWeakMess
   store ptr %21, ptr %20, align 8, !tbaa !13
   %22 = getelementptr inbounds nuw i8, ptr %.sink10, i64 24
   store i64 0, ptr %22, align 8, !tbaa !16
-  store i8 0, ptr %21, align 1, !tbaa !19
+  store i8 0, ptr %21, align 8, !tbaa !19
   ret ptr %.sink10
 }
 

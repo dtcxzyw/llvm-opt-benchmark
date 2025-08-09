@@ -1868,7 +1868,7 @@ define void @_Z15write_tpx_stateRKNSt10filesystem7__cxx114pathEPK10t_inputrecPK7
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 %16, ptr %17, align 4, !tbaa !89, !alias.scope !45
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %19 = load float, ptr %18, align 4, !tbaa !16, !noalias !45
+  %19 = load float, ptr %18, align 8, !tbaa !16, !noalias !45
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store float %19, ptr %20, align 8, !tbaa !90, !alias.scope !45
   %21 = icmp ne ptr %1, null
@@ -13723,7 +13723,7 @@ _ZN3gmx11ISerializer10doIntArrayEPii.exit.i105.i: ; preds = %.noexc627, %.noexc6
   %2233 = select i1 %2232, i32 4, i32 2
   store i32 %2233, ptr %2220, align 8, !tbaa !562
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
-  %2234 = load i32, ptr %2156, align 4, !tbaa !560
+  %2234 = load i32, ptr %2156, align 8, !tbaa !560
   store i32 %2234, ptr %32, align 4, !tbaa !14
   %2235 = load ptr, ptr %0, align 8, !tbaa !19
   %2236 = getelementptr inbounds nuw i8, ptr %2235, i64 56
@@ -13787,7 +13787,7 @@ _ZN3gmx11ISerializer10doIntArrayEPii.exit.i105.i: ; preds = %.noexc627, %.noexc6
   store i32 %2262, ptr %2261, align 4, !tbaa !14
   %2263 = load i32, ptr %2072, align 4, !tbaa !14
   %2264 = getelementptr inbounds nuw i8, ptr %2156, i64 120
-  store i32 %2263, ptr %2264, align 4, !tbaa !14
+  store i32 %2263, ptr %2264, align 8, !tbaa !14
   %2265 = load i32, ptr %2073, align 4, !tbaa !14
   %2266 = getelementptr inbounds nuw i8, ptr %2156, i64 124
   store i32 %2265, ptr %2266, align 4, !tbaa !14
@@ -18727,7 +18727,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %60, ptr %62, align 8, !tbaa !12, !alias.scope !722, !noalias !725
   store ptr %52, ptr %49, align 8, !tbaa !4, !alias.scope !725, !noalias !722
   store i64 0, ptr %61, align 8, !tbaa !12, !alias.scope !725, !noalias !722
-  store i8 0, ptr %52, align 1, !tbaa !13, !alias.scope !725, !noalias !722
+  store i8 0, ptr %52, align 8, !tbaa !13, !alias.scope !725, !noalias !722
   %63 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
   %64 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
   %65 = load i32, ptr %64, align 8, !tbaa !563, !alias.scope !725, !noalias !722
@@ -18765,7 +18765,7 @@ _ZSt19__relocate_object_aI12t_pull_coordS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i: ; pr
   store i64 %78, ptr %80, align 8, !tbaa !12, !alias.scope !722, !noalias !725
   store ptr %70, ptr %67, align 8, !tbaa !4, !alias.scope !725, !noalias !722
   store i64 0, ptr %79, align 8, !tbaa !12, !alias.scope !725, !noalias !722
-  store i8 0, ptr %70, align 1, !tbaa !13, !alias.scope !725, !noalias !722
+  store i8 0, ptr %70, align 8, !tbaa !13, !alias.scope !725, !noalias !722
   %81 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 80
   %82 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %81, ptr noundef nonnull align 8 dereferenceable(96) %82, i64 96, i1 false), !alias.scope !727
@@ -20912,7 +20912,7 @@ _ZL15doTpxBodyBufferPN3gmx11ISerializerENS_8ArrayRefIcEE.exit: ; preds = %25
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %57 = load i32, ptr %56, align 4, !tbaa !88, !noalias !803
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %59 = load float, ptr %58, align 4, !tbaa !16, !noalias !803
+  %59 = load float, ptr %58, align 8, !tbaa !16, !noalias !803
   %60 = icmp ne ptr %3, null
   %61 = zext i1 %60 to i8
   %62 = icmp ne ptr %7, null

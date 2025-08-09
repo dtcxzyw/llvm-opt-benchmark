@@ -381,9 +381,9 @@ define dso_local noalias noundef ptr @ziplistNew() local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 10, ptr %2, align 4, !tbaa !5
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i16 0, ptr %3, align 2, !tbaa !12
+  store i16 0, ptr %3, align 4, !tbaa !12
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  store i8 -1, ptr %4, align 1, !tbaa !9
+  store i8 -1, ptr %4, align 2, !tbaa !9
   ret ptr %1
 }
 
@@ -1516,7 +1516,7 @@ ziplistResize.exit:                               ; preds = %89
   store i8 -1, ptr %100, align 1, !tbaa !9
   %101 = getelementptr inbounds nuw i8, ptr %97, i64 %96
   %102 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  %103 = load i16, ptr %102, align 2, !tbaa !12
+  %103 = load i16, ptr %102, align 4, !tbaa !12
   %.not69 = icmp eq i16 %103, -1
   br i1 %.not69, label %106, label %104
 
@@ -1993,12 +1993,12 @@ define dso_local noundef ptr @ziplistMerge(ptr noundef captures(address_is_null)
   %13 = load i32, ptr %5, align 4, !tbaa !5
   %14 = zext i32 %13 to i64
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %16 = load i16, ptr %15, align 2, !tbaa !12
+  %16 = load i16, ptr %15, align 4, !tbaa !12
   %17 = zext i16 %16 to i64
   %18 = load i32, ptr %9, align 4, !tbaa !5
   %19 = zext i32 %18 to i64
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %21 = load i16, ptr %20, align 2, !tbaa !12
+  %21 = load i16, ptr %20, align 4, !tbaa !12
   %22 = zext i16 %21 to i64
   %23 = add nsw i64 %14, -11
   %24 = add nsw i64 %23, %19
@@ -2045,7 +2045,7 @@ define dso_local noundef ptr @ziplistMerge(ptr noundef captures(address_is_null)
   store i32 %44, ptr %35, align 4, !tbaa !5
   %45 = trunc nuw i64 %26 to i16
   %46 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store i16 %45, ptr %46, align 2, !tbaa !12
+  store i16 %45, ptr %46, align 4, !tbaa !12
   %47 = add i32 %13, -11
   %48 = add i32 %47, %34
   %49 = getelementptr inbounds nuw i8, ptr %35, i64 4
@@ -3376,7 +3376,7 @@ define dso_local i32 @ziplistLen(ptr noundef %0) local_unnamed_addr #4 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %9 = load i32, ptr %0, align 4, !tbaa !5
   %10 = zext i32 %9 to i64
-  %11 = load i8, ptr %8, align 1, !tbaa !9
+  %11 = load i8, ptr %8, align 2, !tbaa !9
   %.not1517 = icmp eq i8 %11, -1
   br i1 %.not1517, label %._crit_edge.thread, label %.lr.ph
 
@@ -3432,13 +3432,13 @@ define dso_local void @ziplistRepr(ptr noundef %0) local_unnamed_addr #4 {
   %3 = load i32, ptr %0, align 4, !tbaa !5
   %4 = zext i32 %3 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i16, ptr %5, align 2, !tbaa !12
+  %6 = load i16, ptr %5, align 4, !tbaa !12
   %7 = zext i16 %6 to i32
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !5
   %10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %3, i32 noundef %7, i32 noundef %9)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %12 = load i8, ptr %11, align 1, !tbaa !9
+  %12 = load i8, ptr %11, align 2, !tbaa !9
   %.not30 = icmp eq i8 %12, -1
   br i1 %.not30, label %._crit_edge35, label %.lr.ph34
 
@@ -3644,7 +3644,7 @@ define dso_local range(i32 0, 2) i32 @ziplistValidateIntegrity(ptr noundef %0, i
   %23 = load i16, ptr %22, align 2, !tbaa !12
   %24 = zext i16 %23 to i32
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %26 = load i8, ptr %25, align 1, !tbaa !9
+  %26 = load i8, ptr %25, align 2, !tbaa !9
   %.not5066 = icmp eq i8 %26, -1
   br i1 %.not5066, label %._crit_edge.thread, label %.lr.ph
 
@@ -3842,7 +3842,7 @@ define dso_local void @ziplistRandomPairs(ptr noundef %0, i32 noundef %1, ptr no
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %21 = load i32, ptr %0, align 4, !tbaa !5
   %22 = zext i32 %21 to i64
-  %23 = load i8, ptr %20, align 1, !tbaa !9
+  %23 = load i8, ptr %20, align 2, !tbaa !9
   %.not1517.i = icmp eq i8 %23, -1
   br i1 %.not1517.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
@@ -4092,7 +4092,7 @@ define dso_local i32 @ziplistRandomPairsUnique(ptr noundef %0, i32 noundef %1, p
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %15 = load i32, ptr %0, align 4, !tbaa !5
   %16 = zext i32 %15 to i64
-  %17 = load i8, ptr %14, align 1, !tbaa !9
+  %17 = load i8, ptr %14, align 2, !tbaa !9
   %.not1517.i = icmp eq i8 %17, -1
   br i1 %.not1517.i, label %._crit_edge.thread.i, label %.lr.ph.i
 

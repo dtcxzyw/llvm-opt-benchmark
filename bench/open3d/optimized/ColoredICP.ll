@@ -1341,7 +1341,7 @@ _ZNSt5tupleIJRbRN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEaSIbNS2_IdLin1ELi1EL
   store <2 x double> %271, ptr %270, align 1, !tbaa !16, !noalias !66
   %272 = getelementptr inbounds nuw i8, ptr %270, i64 16
   %273 = getelementptr i8, ptr %.sroa.040.351, i64 16
-  %274 = load double, ptr %273, align 8, !tbaa !35, !noalias !66
+  %274 = load double, ptr %273, align 16, !tbaa !35, !noalias !66
   store double %274, ptr %272, align 8, !tbaa !35, !noalias !66
   br label %286
 
@@ -1926,7 +1926,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit51.i.i.i:       ; preds = %_ZSt8_DestroyIPddEv
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 24
   %.sroa.3.8.vec.insert.i.i.i.i.i.i.i.i.i52.i.i.i = insertelement <2 x double> poison, double %99, i64 0
   %102 = shufflevector <2 x double> %.sroa.3.8.vec.insert.i.i.i.i.i.i.i.i.i52.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %103 = load <2 x double>, ptr %30, align 1, !tbaa !16
+  %103 = load <2 x double>, ptr %30, align 8, !tbaa !16
   %104 = fmul <2 x double> %102, %103
   store <2 x double> %104, ptr %101, align 1, !tbaa !16
   %105 = getelementptr i8, ptr %100, i64 40
@@ -1935,10 +1935,10 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit51.i.i.i:       ; preds = %_ZSt8_DestroyIPddEv
   store double %107, ptr %105, align 8, !tbaa !35
   %108 = load ptr, ptr %71, align 8, !tbaa !119
   %109 = load double, ptr %108, align 8, !tbaa !35
-  %110 = load <2 x double>, ptr %22, align 1, !tbaa !16
+  %110 = load <2 x double>, ptr %22, align 8, !tbaa !16
   %111 = load <2 x double>, ptr %27, align 1, !tbaa !16
   %112 = fsub <2 x double> %110, %111
-  %113 = load <2 x double>, ptr %30, align 1, !tbaa !16
+  %113 = load <2 x double>, ptr %30, align 8, !tbaa !16
   %114 = fmul <2 x double> %112, %113
   %shift = shufflevector <2 x double> %114, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %115 = fadd <2 x double> %114, %shift
@@ -1961,9 +1961,9 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit51.i.i.i:       ; preds = %_ZSt8_DestroyIPddEv
   %131 = tail call noundef double %130(ptr noundef nonnull align 8 dereferenceable(8) %127, double noundef %124)
   %132 = load ptr, ptr %4, align 8, !tbaa !94
   store double %131, ptr %132, align 8, !tbaa !35
-  %133 = load <2 x double>, ptr %22, align 1
-  %134 = load <2 x double>, ptr %27, align 1, !tbaa !16
-  %135 = load <2 x double>, ptr %30, align 1, !tbaa !16
+  %133 = load <2 x double>, ptr %22, align 8
+  %134 = load <2 x double>, ptr %27, align 8, !tbaa !16
+  %135 = load <2 x double>, ptr %30, align 8, !tbaa !16
   %136 = load double, ptr %77, align 8, !tbaa !35
   %137 = load double, ptr %117, align 8, !tbaa !35
   %138 = load double, ptr %75, align 8, !tbaa !35
@@ -4268,7 +4268,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %81, %78
   %88 = getelementptr inbounds nuw %"struct.Eigen::internal::GemmParallelInfo", ptr %86, i64 %.06.i.i
   store i64 -1, ptr %88, align 8, !tbaa !239
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  store i32 0, ptr %89, align 4, !tbaa !241
+  store i32 0, ptr %89, align 8, !tbaa !241
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %90, i8 0, i64 16, i1 false)
   %91 = add nuw i64 %.06.i.i, 1

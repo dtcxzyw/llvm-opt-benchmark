@@ -2225,7 +2225,7 @@ zend_string_copy.exit406:                         ; preds = %zend_string_release
   %224 = getelementptr inbounds nuw i8, ptr %220, i64 24
   store i32 1802398060, ptr %224, align 8
   %225 = getelementptr inbounds nuw i8, ptr %220, i64 28
-  store i8 0, ptr %225, align 1, !tbaa !34
+  store i8 0, ptr %225, align 4, !tbaa !34
   store ptr %220, ptr %2, align 8, !tbaa !34
   %226 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 262, ptr %226, align 8, !tbaa !34
@@ -2255,7 +2255,7 @@ zend_string_copy.exit406:                         ; preds = %zend_string_release
   %235 = getelementptr inbounds nuw i8, ptr %231, i64 24
   store i32 1868982630, ptr %235, align 8
   %236 = getelementptr inbounds nuw i8, ptr %231, i64 28
-  store i8 0, ptr %236, align 1, !tbaa !34
+  store i8 0, ptr %236, align 4, !tbaa !34
   store ptr %231, ptr %2, align 8, !tbaa !34
   %237 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 262, ptr %237, align 8, !tbaa !34
@@ -2273,7 +2273,7 @@ zend_string_copy.exit406:                         ; preds = %zend_string_release
   %243 = getelementptr inbounds nuw i8, ptr %239, i64 24
   store i32 1918986339, ptr %243, align 8
   %244 = getelementptr inbounds nuw i8, ptr %239, i64 28
-  store i8 0, ptr %244, align 1, !tbaa !34
+  store i8 0, ptr %244, align 4, !tbaa !34
   store ptr %239, ptr %2, align 8, !tbaa !34
   %245 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 262, ptr %245, align 8, !tbaa !34
@@ -2340,7 +2340,7 @@ zend_string_copy.exit406:                         ; preds = %zend_string_release
   %275 = getelementptr inbounds nuw i8, ptr %271, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %275, ptr noundef nonnull align 1 dereferenceable(6) @.str.18, i64 6, i1 false)
   %276 = getelementptr inbounds nuw i8, ptr %271, i64 30
-  store i8 0, ptr %276, align 1, !tbaa !34
+  store i8 0, ptr %276, align 2, !tbaa !34
   store ptr %271, ptr %2, align 8, !tbaa !34
   %277 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 262, ptr %277, align 8, !tbaa !34

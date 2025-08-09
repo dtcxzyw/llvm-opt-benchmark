@@ -6862,7 +6862,7 @@ _ZSt19__relocate_object_aI8AlgoWrapS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i.i: ; preds
   store i64 %40, ptr %42, align 8, !tbaa !15, !alias.scope !183, !noalias !186
   store ptr %32, ptr %29, align 8, !tbaa !12, !alias.scope !186, !noalias !183
   store i64 0, ptr %41, align 8, !tbaa !15, !alias.scope !186, !noalias !183
-  store i8 0, ptr %32, align 1, !tbaa !14, !alias.scope !186, !noalias !183
+  store i8 0, ptr %32, align 8, !tbaa !14, !alias.scope !186, !noalias !183
   %43 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 72
   %44 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 72
   %45 = load double, ptr %44, align 8, !tbaa !82, !alias.scope !186, !noalias !183
@@ -6955,7 +6955,7 @@ _ZSt19__relocate_object_aI8AlgoWrapS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i.i33: ; pre
   store i64 %87, ptr %89, align 8, !tbaa !15, !alias.scope !190, !noalias !193
   store ptr %79, ptr %76, align 8, !tbaa !12, !alias.scope !193, !noalias !190
   store i64 0, ptr %88, align 8, !tbaa !15, !alias.scope !193, !noalias !190
-  store i8 0, ptr %79, align 1, !tbaa !14, !alias.scope !193, !noalias !190
+  store i8 0, ptr %79, align 8, !tbaa !14, !alias.scope !193, !noalias !190
   %90 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 72
   %91 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 72
   %92 = load double, ptr %91, align 8, !tbaa !82, !alias.scope !193, !noalias !190

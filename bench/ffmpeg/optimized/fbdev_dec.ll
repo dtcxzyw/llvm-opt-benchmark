@@ -190,7 +190,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @fbdev_read_header(ptr n
   %105 = tail call ptr @av_get_pix_fmt_name(i32 noundef %47) #8
   %106 = load i32, ptr %88, align 4, !tbaa !60
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %108 = load i32, ptr %107, align 4, !tbaa !61
+  %108 = load i32, ptr %107, align 8, !tbaa !61
   %109 = load ptr, ptr %79, align 8, !tbaa !46
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 48
   %111 = load i64, ptr %110, align 8, !tbaa !59
@@ -334,7 +334,7 @@ define internal i32 @fbdev_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %80 = getelementptr inbounds nuw i8, ptr %73, i64 %79
   %81 = load i32, ptr %66, align 8, !tbaa !70
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %83 = load i32, ptr %82, align 4, !tbaa !71
+  %83 = load i32, ptr %82, align 8, !tbaa !71
   %84 = mul i32 %81, %83
   %85 = zext i32 %84 to i64
   %86 = getelementptr inbounds nuw i8, ptr %80, i64 %85

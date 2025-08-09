@@ -1084,7 +1084,7 @@ define linkonce_odr dso_local void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonIS
   store ptr %12, ptr %11, align 8, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %13, align 8, !tbaa !10
-  store i8 0, ptr %12, align 1, !tbaa !17
+  store i8 0, ptr %12, align 8, !tbaa !17
   store ptr %11, ptr %0, align 8, !tbaa !17
   br label %22
 
@@ -13459,7 +13459,7 @@ define linkonce_odr dso_local { i8, ptr } @_ZN8nlohmann16json_abi_v3_11_36detail
   store ptr %32, ptr %31, align 8, !tbaa !4
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 0, ptr %33, align 8, !tbaa !10
-  store i8 0, ptr %32, align 1, !tbaa !17
+  store i8 0, ptr %32, align 8, !tbaa !17
   store ptr %31, ptr %22, align 8, !tbaa !17
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_valueC2ENS0_6detail7value_tE.exit
 
@@ -20976,7 +20976,7 @@ define linkonce_odr dso_local noundef nonnull ptr @_ZN8nlohmann16json_abi_v3_11_
   store ptr %24, ptr %23, align 8, !tbaa !4
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %25, align 8, !tbaa !10
-  store i8 0, ptr %24, align 1, !tbaa !17
+  store i8 0, ptr %24, align 8, !tbaa !17
   %26 = ptrtoint ptr %23 to i64
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_valueC2ENS0_6detail7value_tE.exit
 
@@ -21093,7 +21093,7 @@ _ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic
   store ptr %79, ptr %78, align 8, !tbaa !4
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store i64 0, ptr %80, align 8, !tbaa !10
-  store i8 0, ptr %79, align 1, !tbaa !17
+  store i8 0, ptr %79, align 8, !tbaa !17
   %81 = ptrtoint ptr %78 to i64
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_valueC2ENS0_6detail7value_tE.exit8
 

@@ -1893,7 +1893,7 @@ define internal range(i32 -2147483648, 1) i32 @tiff_init(ptr noundef %0) #0 {
   store i32 0, ptr %5, align 4, !tbaa !35
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 1140
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 1144
-  store i32 1, ptr %7, align 4, !tbaa !36
+  store i32 1, ptr %7, align 8, !tbaa !36
   store i32 1, ptr %6, align 4, !tbaa !36
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %8, align 8, !tbaa !37
@@ -4829,7 +4829,7 @@ bytestream2_init.exit823:                         ; preds = %1263
   %1409 = sdiv i32 %1407, %1408
   %1410 = add nsw i32 %1409, 1
   %1411 = load i32, ptr %50, align 8, !tbaa !56
-  %1412 = load i32, ptr %1307, align 4, !tbaa !36
+  %1412 = load i32, ptr %1307, align 8, !tbaa !36
   %1413 = mul i32 %1411, %1408
   %1414 = mul i32 %1413, %1410
   %1415 = mul i32 %1414, %1412
@@ -4853,7 +4853,7 @@ bytestream2_init.exit823:                         ; preds = %1263
   %1425 = sdiv i32 %1423, %1424
   %1426 = add nsw i32 %1425, 1
   %1427 = mul nsw i32 %1426, %1424
-  %1428 = load i32, ptr %1307, align 4, !tbaa !36
+  %1428 = load i32, ptr %1307, align 8, !tbaa !36
   %1429 = mul nsw i32 %1427, %1428
   %1430 = shl nsw i32 %1426, 1
   %1431 = add nsw i32 %1429, %1430
@@ -9363,7 +9363,7 @@ define internal fastcc void @unpack_yuv(ptr noundef readonly captures(none) %0, 
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !101
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  %14 = load i32, ptr %13, align 4, !tbaa !36
+  %14 = load i32, ptr %13, align 8, !tbaa !36
   %15 = sdiv i32 %3, %14
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 68

@@ -104985,7 +104985,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringES2_St9_IdentityI
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !141
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
-  %8 = load i32, ptr %7, align 4, !tbaa !44
+  %8 = load i32, ptr %7, align 8, !tbaa !44
   %9 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !56, !range !58, !noundef !59
   %10 = trunc nuw i8 %9 to i1
   %11 = icmp ne i32 %8, 0
@@ -105393,7 +105393,7 @@ define internal fastcc void @_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N
   %4 = getelementptr inbounds nuw i8, ptr %.02, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %.02, i64 40
   tail call fastcc void @_ZN12_GLOBAL__N_114dff_map_info_tD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %5) #27
-  %6 = load i32, ptr %4, align 4, !tbaa !44
+  %6 = load i32, ptr %4, align 8, !tbaa !44
   %7 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !56, !range !58, !noundef !59
   %8 = trunc nuw i8 %7 to i1
   %9 = icmp ne i32 %6, 0
@@ -107182,7 +107182,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIPN5Yosys5RTLIL4WireESt4pairIKS3_NS1_8IdS
   %12 = load ptr, ptr %11, align 8, !tbaa !157
   store ptr %12, ptr %9, align 8, !tbaa !159
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store i32 0, ptr %13, align 4, !tbaa !44
+  store i32 0, ptr %13, align 8, !tbaa !44
   store ptr %8, ptr %7, align 8, !tbaa !999
   %14 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIPN5Yosys5RTLIL4WireESt4pairIKS3_NS1_8IdStringEESt10_Select1stIS7_ESt4lessIS3_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %15 unwind label %30
@@ -110300,7 +110300,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIPN5Yosys5RTLIL4WireESt4pairIKS3_NS1_8Id
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !141
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 40
-  %8 = load i32, ptr %7, align 4, !tbaa !44
+  %8 = load i32, ptr %7, align 8, !tbaa !44
   %9 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !56, !range !58, !noundef !59
   %10 = trunc nuw i8 %9 to i1
   %11 = icmp ne i32 %8, 0

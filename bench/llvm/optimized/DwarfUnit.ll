@@ -2750,7 +2750,7 @@ _ZNK4llvm10DIVariable7getFileEv.exit:             ; preds = %9, %12
 define dso_local void @_ZN4llvm9DwarfUnit13addSourceLineERNS_3DIEEPKNS_12DISubprogramE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8, !tbaa !648
-  %6 = load i8, ptr %2, align 4, !tbaa !243
+  %6 = load i8, ptr %2, align 8, !tbaa !243
   %7 = icmp eq i8 %6, 16
   br i1 %7, label %_ZNK4llvm7DIScope7getFileEv.exit, label %8
 
@@ -2818,7 +2818,7 @@ _ZNK4llvm7DILabel7getFileEv.exit:                 ; preds = %9, %12
 define dso_local void @_ZN4llvm9DwarfUnit13addSourceLineERNS_3DIEEPKNS_6DITypeE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8, !tbaa !650
-  %6 = load i8, ptr %2, align 4, !tbaa !243
+  %6 = load i8, ptr %2, align 8, !tbaa !243
   %7 = icmp eq i8 %6, 16
   br i1 %7, label %_ZNK4llvm7DIScope7getFileEv.exit, label %8
 
@@ -6303,7 +6303,7 @@ _ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS
 695:                                              ; preds = %691
   %696 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %697 = load i32, ptr %696, align 8, !tbaa !650
-  %698 = load i8, ptr %2, align 4, !tbaa !243
+  %698 = load i8, ptr %2, align 8, !tbaa !243
   %699 = icmp eq i8 %698, 16
   br i1 %699, label %_ZN4llvm9DwarfUnit13addSourceLineERNS_3DIEEPKNS_6DITypeE.exit, label %700
 
@@ -8135,7 +8135,7 @@ _ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS
 135:                                              ; preds = %130
   %136 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %137 = load i32, ptr %136, align 8, !tbaa !650
-  %138 = load i8, ptr %2, align 4, !tbaa !243
+  %138 = load i8, ptr %2, align 8, !tbaa !243
   %139 = icmp eq i8 %138, 16
   br i1 %139, label %_ZN4llvm9DwarfUnit13addSourceLineERNS_3DIEEPKNS_6DITypeE.exit, label %140
 
@@ -10429,7 +10429,7 @@ _ZNK4llvm13DIDerivedType11getBaseTypeEv.exit:     ; preds = %89, %92
 104:                                              ; preds = %99, %_ZNK4llvm13DIDerivedType11getBaseTypeEv.exit
   %105 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %106 = load i32, ptr %105, align 8, !tbaa !650
-  %107 = load i8, ptr %2, align 4, !tbaa !243
+  %107 = load i8, ptr %2, align 8, !tbaa !243
   %108 = icmp eq i8 %107, 16
   br i1 %108, label %_ZN4llvm9DwarfUnit13addSourceLineERNS_3DIEEPKNS_6DITypeE.exit, label %109
 
@@ -11239,7 +11239,7 @@ _ZNK4llvm6DIType7getNameEv.exit:                  ; preds = %_ZNK4llvm6DINode12g
   tail call void @_ZN4llvm9DwarfUnit11addDIEEntryERNS_3DIEENS_5dwarf9AttributeENS_8DIEEntryE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(48) %26, i16 noundef zeroext 73, ptr %47)
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %49 = load i32, ptr %48, align 8, !tbaa !650
-  %50 = load i8, ptr %1, align 4, !tbaa !243
+  %50 = load i8, ptr %1, align 8, !tbaa !243
   %51 = icmp eq i8 %50, 16
   br i1 %51, label %_ZN4llvm9DwarfUnit13addSourceLineERNS_3DIEEPKNS_6DITypeE.exit, label %52
 
@@ -11560,7 +11560,7 @@ _ZNK4llvm12DISubprogram14getAnnotationsEv.exit:   ; preds = %_ZNK4llvm6MDNode14g
 70:                                               ; preds = %_ZNK4llvm12DISubprogram14getAnnotationsEv.exit
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %72 = load i32, ptr %71, align 8, !tbaa !648
-  %73 = load i8, ptr %1, align 4, !tbaa !243
+  %73 = load i8, ptr %1, align 8, !tbaa !243
   %74 = icmp eq i8 %73, 16
   br i1 %74, label %_ZN4llvm9DwarfUnit13addSourceLineERNS_3DIEEPKNS_12DISubprogramE.exit, label %75
 

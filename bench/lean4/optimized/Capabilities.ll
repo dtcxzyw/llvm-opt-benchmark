@@ -5713,9 +5713,9 @@ lean_alloc_ctor.exit:                             ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %6, align 8, !tbaa !11
-  store i32 1, ptr %2, align 4, !tbaa !8
+  store i32 1, ptr %2, align 8, !tbaa !8
   store i32 16777232, ptr %5, align 4
-  store i8 %0, ptr %6, align 1, !tbaa !14
+  store i8 %0, ptr %6, align 8, !tbaa !14
   %7 = load ptr, ptr @l___private_Lean_Data_Lsp_Capabilities_0__Lean_Lsp_toJsonShowDocumentClientCapabilities____x40_Lean_Data_Lsp_Capabilities___hyg_451____closed__1, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #6
   %8 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
@@ -17380,9 +17380,9 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit205
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 0, ptr %32, align 8, !tbaa !11
-  store i32 1, ptr %28, align 4, !tbaa !8
+  store i32 1, ptr %28, align 8, !tbaa !8
   store i32 16777232, ptr %31, align 4
-  store i8 %27, ptr %32, align 1, !tbaa !14
+  store i8 %27, ptr %32, align 8, !tbaa !14
   %33 = load ptr, ptr @l___private_Lean_Data_Lsp_Capabilities_0__Lean_Lsp_toJsonServerCapabilities____x40_Lean_Data_Lsp_Capabilities___hyg_1745____closed__3, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #6
   %34 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
@@ -17433,9 +17433,9 @@ lean_alloc_ctor.exit214:                          ; preds = %lean_alloc_ctor.exi
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store i64 0, ptr %52, align 8, !tbaa !11
-  store i32 1, ptr %48, align 4, !tbaa !8
+  store i32 1, ptr %48, align 8, !tbaa !8
   store i32 16777232, ptr %51, align 4
-  store i8 %47, ptr %52, align 1, !tbaa !14
+  store i8 %47, ptr %52, align 8, !tbaa !14
   %53 = load ptr, ptr @l___private_Lean_Data_Lsp_Capabilities_0__Lean_Lsp_toJsonServerCapabilities____x40_Lean_Data_Lsp_Capabilities___hyg_1745____closed__4, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #6
   %54 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
@@ -17486,9 +17486,9 @@ lean_alloc_ctor.exit218:                          ; preds = %lean_alloc_ctor.exi
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store i64 0, ptr %72, align 8, !tbaa !11
-  store i32 1, ptr %68, align 4, !tbaa !8
+  store i32 1, ptr %68, align 8, !tbaa !8
   store i32 16777232, ptr %71, align 4
-  store i8 %67, ptr %72, align 1, !tbaa !14
+  store i8 %67, ptr %72, align 8, !tbaa !14
   %73 = load ptr, ptr @l___private_Lean_Data_Lsp_Capabilities_0__Lean_Lsp_toJsonServerCapabilities____x40_Lean_Data_Lsp_Capabilities___hyg_1745____closed__5, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #6
   %74 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
@@ -17539,9 +17539,9 @@ lean_alloc_ctor.exit222:                          ; preds = %lean_alloc_ctor.exi
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 4
   %92 = getelementptr inbounds nuw i8, ptr %88, i64 8
   store i64 0, ptr %92, align 8, !tbaa !11
-  store i32 1, ptr %88, align 4, !tbaa !8
+  store i32 1, ptr %88, align 8, !tbaa !8
   store i32 16777232, ptr %91, align 4
-  store i8 %87, ptr %92, align 1, !tbaa !14
+  store i8 %87, ptr %92, align 8, !tbaa !14
   %93 = load ptr, ptr @l___private_Lean_Data_Lsp_Capabilities_0__Lean_Lsp_toJsonServerCapabilities____x40_Lean_Data_Lsp_Capabilities___hyg_1745____closed__6, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #6
   %94 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
@@ -17592,9 +17592,9 @@ lean_alloc_ctor.exit226:                          ; preds = %lean_alloc_ctor.exi
   %111 = getelementptr inbounds nuw i8, ptr %108, i64 4
   %112 = getelementptr inbounds nuw i8, ptr %108, i64 8
   store i64 0, ptr %112, align 8, !tbaa !11
-  store i32 1, ptr %108, align 4, !tbaa !8
+  store i32 1, ptr %108, align 8, !tbaa !8
   store i32 16777232, ptr %111, align 4
-  store i8 %107, ptr %112, align 1, !tbaa !14
+  store i8 %107, ptr %112, align 8, !tbaa !14
   %113 = load ptr, ptr @l___private_Lean_Data_Lsp_Capabilities_0__Lean_Lsp_toJsonServerCapabilities____x40_Lean_Data_Lsp_Capabilities___hyg_1745____closed__7, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #6
   %114 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
@@ -17645,9 +17645,9 @@ lean_alloc_ctor.exit230:                          ; preds = %lean_alloc_ctor.exi
   %131 = getelementptr inbounds nuw i8, ptr %128, i64 4
   %132 = getelementptr inbounds nuw i8, ptr %128, i64 8
   store i64 0, ptr %132, align 8, !tbaa !11
-  store i32 1, ptr %128, align 4, !tbaa !8
+  store i32 1, ptr %128, align 8, !tbaa !8
   store i32 16777232, ptr %131, align 4
-  store i8 %127, ptr %132, align 1, !tbaa !14
+  store i8 %127, ptr %132, align 8, !tbaa !14
   %133 = load ptr, ptr @l___private_Lean_Data_Lsp_Capabilities_0__Lean_Lsp_toJsonServerCapabilities____x40_Lean_Data_Lsp_Capabilities___hyg_1745____closed__8, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #6
   %134 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
@@ -17698,9 +17698,9 @@ lean_alloc_ctor.exit234:                          ; preds = %lean_alloc_ctor.exi
   %151 = getelementptr inbounds nuw i8, ptr %148, i64 4
   %152 = getelementptr inbounds nuw i8, ptr %148, i64 8
   store i64 0, ptr %152, align 8, !tbaa !11
-  store i32 1, ptr %148, align 4, !tbaa !8
+  store i32 1, ptr %148, align 8, !tbaa !8
   store i32 16777232, ptr %151, align 4
-  store i8 %147, ptr %152, align 1, !tbaa !14
+  store i8 %147, ptr %152, align 8, !tbaa !14
   %153 = load ptr, ptr @l___private_Lean_Data_Lsp_Capabilities_0__Lean_Lsp_toJsonServerCapabilities____x40_Lean_Data_Lsp_Capabilities___hyg_1745____closed__9, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #6
   %154 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
@@ -17751,9 +17751,9 @@ lean_alloc_ctor.exit238:                          ; preds = %lean_alloc_ctor.exi
   %171 = getelementptr inbounds nuw i8, ptr %168, i64 4
   %172 = getelementptr inbounds nuw i8, ptr %168, i64 8
   store i64 0, ptr %172, align 8, !tbaa !11
-  store i32 1, ptr %168, align 4, !tbaa !8
+  store i32 1, ptr %168, align 8, !tbaa !8
   store i32 16777232, ptr %171, align 4
-  store i8 %167, ptr %172, align 1, !tbaa !14
+  store i8 %167, ptr %172, align 8, !tbaa !14
   %173 = load ptr, ptr @l___private_Lean_Data_Lsp_Capabilities_0__Lean_Lsp_toJsonServerCapabilities____x40_Lean_Data_Lsp_Capabilities___hyg_1745____closed__10, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #6
   %174 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
@@ -17832,9 +17832,9 @@ lean_alloc_ctor.exit245:                          ; preds = %lean_inc.exit204
   %203 = getelementptr inbounds nuw i8, ptr %200, i64 4
   %204 = getelementptr inbounds nuw i8, ptr %200, i64 8
   store i64 0, ptr %204, align 8, !tbaa !11
-  store i32 1, ptr %200, align 4, !tbaa !8
+  store i32 1, ptr %200, align 8, !tbaa !8
   store i32 16777232, ptr %203, align 4
-  store i8 %199, ptr %204, align 1, !tbaa !14
+  store i8 %199, ptr %204, align 8, !tbaa !14
   %205 = load ptr, ptr @l___private_Lean_Data_Lsp_Capabilities_0__Lean_Lsp_toJsonServerCapabilities____x40_Lean_Data_Lsp_Capabilities___hyg_1745____closed__12, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #6
   %206 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
@@ -17885,9 +17885,9 @@ lean_alloc_ctor.exit249:                          ; preds = %lean_alloc_ctor.exi
   %223 = getelementptr inbounds nuw i8, ptr %220, i64 4
   %224 = getelementptr inbounds nuw i8, ptr %220, i64 8
   store i64 0, ptr %224, align 8, !tbaa !11
-  store i32 1, ptr %220, align 4, !tbaa !8
+  store i32 1, ptr %220, align 8, !tbaa !8
   store i32 16777232, ptr %223, align 4
-  store i8 %219, ptr %224, align 1, !tbaa !14
+  store i8 %219, ptr %224, align 8, !tbaa !14
   %225 = load ptr, ptr @l___private_Lean_Data_Lsp_Capabilities_0__Lean_Lsp_toJsonServerCapabilities____x40_Lean_Data_Lsp_Capabilities___hyg_1745____closed__13, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #6
   %226 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6

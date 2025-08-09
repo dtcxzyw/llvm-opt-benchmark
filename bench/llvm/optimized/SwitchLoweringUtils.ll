@@ -1940,7 +1940,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockENS_17BranchProbabili
   %57 = load ptr, ptr %1, align 8, !tbaa !212
   store ptr %57, ptr %48, align 8, !tbaa !212
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 -1, ptr %58, align 4, !tbaa !81
+  store i32 -1, ptr %58, align 8, !tbaa !81
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockENS_17BranchProbabilityENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E16InsertIntoBucketIRKS3_JEEEPS9_SF_OT_DpOT0_.exit
@@ -4330,14 +4330,14 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %.critedge.thread
   %133 = getelementptr inbounds nuw i8, ptr %91, i64 32
   %.sroa.0.0.copyload = load i32, ptr %133, align 8, !tbaa !24
   %134 = getelementptr inbounds nuw i8, ptr %131, i64 32
-  %135 = load i32, ptr %134, align 4, !tbaa !81
+  %135 = load i32, ptr %134, align 8, !tbaa !81
   %136 = zext i32 %135 to i64
   %137 = zext i32 %.sroa.0.0.copyload to i64
   %138 = add nuw nsw i64 %136, %137
   %139 = icmp samesign ugt i64 %138, 2147483648
   %140 = add i32 %135, %.sroa.0.0.copyload
   %spec.select.i = select i1 %139, i32 -2147483648, i32 %140
-  store i32 %spec.select.i, ptr %134, align 4, !tbaa !81
+  store i32 %spec.select.i, ptr %134, align 8, !tbaa !81
   br label %146
 
 .critedge34.thread:                               ; preds = %.critedge, %129, %_ZN4llvm5APIntD2Ev.exit.thread, %89, %94, %.critedge34
@@ -5058,7 +5058,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockENS_17BranchProbabili
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !24
-  store i32 %68, ptr %66, align 4, !tbaa !24
+  store i32 %68, ptr %66, align 8, !tbaa !24
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !201
   br label %70

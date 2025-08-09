@@ -1270,7 +1270,7 @@ define dso_local void @_ZNK3tev14ExrImageLoader4loadERNSt3__113basic_istreamIcNS
   store ptr %2, ptr %40, align 8
   store ptr %3, ptr %41, align 8
   store ptr %4, ptr %42, align 8
-  store i32 %5, ptr %43, align 4
+  store i32 %5, ptr %43, align 8
   %63 = invoke noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #26
           to label %.noexc unwind label %68
 
@@ -1303,7 +1303,7 @@ define dso_local void @_ZNK3tev14ExrImageLoader4loadERNSt3__113basic_istreamIcNS
   %73 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %74 = getelementptr inbounds nuw i8, ptr %65, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %73, i8 0, i64 16, i1 false), !noalias !11
-  store i32 2, ptr %74, align 4, !noalias !11
+  store i32 2, ptr %74, align 8, !noalias !11
   store ptr %73, ptr %71, align 8, !alias.scope !12
   %75 = getelementptr inbounds nuw i8, ptr %38, i64 32
   store ptr %65, ptr %75, align 8, !alias.scope !12
@@ -1915,7 +1915,7 @@ _ZN3tev10ThreadPool6globalEv.exit:                ; preds = %307, %304, %301
   %315 = sub i64 %313, %314
   %316 = sdiv exact i64 %315, 104
   %317 = trunc i64 %316 to i32
-  %318 = load i32, ptr %43, align 4
+  %318 = load i32, ptr %43, align 8
   invoke fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNKS_14ExrImageLoader4loadERNSt3__113basic_istreamIcNS3_11char_traitsIcEEEERKNS3_4__fs10filesystem4pathERKNS3_12basic_stringIcS6_NS3_9allocatorIcEEEEiE3$_1EENS_4TaskIvEET_SN_T0_i"(ptr dead_on_unwind noalias writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(256) @_ZZN3tev10ThreadPool6globalEvE4pool, i32 noundef %317, ptr %50, i32 noundef %318)
           to label %319 unwind label %341
 
@@ -3590,7 +3590,7 @@ _ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS_9ImageDataENS2_9allocatorIS4_EEE
 1034:                                             ; preds = %_ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS_9ImageDataENS2_9allocatorIS4_EEEEEES7_E13final_suspendEv.exit
   store ptr null, ptr %38, align 8
   %1035 = getelementptr inbounds nuw i8, ptr %38, i64 408
-  store i2 -1, ptr %1035, align 1
+  store i2 -1, ptr %1035, align 8
   %1036 = load ptr, ptr %1033, align 8
   call fastcc void %1036(ptr nonnull %1033)
   br label %.loopexit
@@ -4099,10 +4099,10 @@ define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNKS_14ExrI
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %29 = getelementptr inbounds nuw i8, ptr %13, i64 120
   store ptr %1, ptr %29, align 8
-  store i32 0, ptr %15, align 4
+  store i32 0, ptr %15, align 8
   store i32 %2, ptr %16, align 4
   store ptr %3, ptr %17, align 8
-  store i32 %4, ptr %18, align 4
+  store i32 %4, ptr %18, align 8
   invoke void @_ZNSt3__17promiseIvEC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28)
           to label %.noexc unwind label %52
 
@@ -4126,7 +4126,7 @@ define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNKS_14ExrI
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false), !noalias !81
-  store i32 2, ptr %37, align 4, !noalias !81
+  store i32 2, ptr %37, align 8, !noalias !81
   store ptr %36, ptr %34, align 8, !alias.scope !82
   %38 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr %30, ptr %38, align 8, !alias.scope !82
@@ -4172,14 +4172,14 @@ define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNKS_14ExrI
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %54 = load ptr, ptr %29, align 8
   %55 = load i32, ptr %16, align 4
-  %56 = load i32, ptr %15, align 4
+  %56 = load i32, ptr %15, align 8
   %57 = sub nsw i32 %55, %56
   store i32 %57, ptr %19, align 4
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %59 = load i64, ptr %58, align 8
   %60 = trunc i64 %59 to i32
   %spec.select = call i32 @llvm.smin.i32(i32 %57, i32 %60)
-  store i32 %spec.select, ptr %20, align 4
+  store i32 %spec.select, ptr %20, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   %61 = icmp sgt i32 %spec.select, 0
   br i1 %61, label %.lr.ph, label %._crit_edge67.thread
@@ -4272,7 +4272,7 @@ define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNKS_14ExrI
   %92 = load ptr, ptr %29, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %.sroa.02.0.copyload = load ptr, ptr %17, align 8
-  %93 = load i32, ptr %18, align 4
+  %93 = load i32, ptr %18, align 8
   invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS_14ExrImageLoader4loadERNSt3__113basic_istreamIcNS3_11char_traitsIcEEEERKNS3_4__fs10filesystem4pathERKNS3_12basic_stringIcS6_NS3_9allocatorIcEEEEiE3$_1EENS_4TaskIvEET_SN_T0_iENKUliiSK_iPS0_E_clEiiSK_iSP_"(ptr dead_on_unwind noalias writable align 8 %12, i32 noundef %91, i32 noundef %90, ptr %.sroa.02.0.copyload, i32 noundef %93, ptr noundef %92)
           to label %94 unwind label %122
 
@@ -4334,7 +4334,7 @@ _ZNSt3__16vectorIN3tev4TaskIvEENS_9allocatorIS3_EEE22__construct_one_at_endB8ne1
   store ptr %.0.i, ptr %62, align 8
   call void @_ZN3tev4TaskIvED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %120 = load i32, ptr %20, align 4
+  %120 = load i32, ptr %20, align 8
   %121 = icmp slt i32 %76, %120
   br i1 %121, label %71, label %._crit_edge, !llvm.loop !88
 
@@ -4553,7 +4553,7 @@ _ZN3tev11TaskPromiseINS_4TaskIvEEvE13final_suspendEv.exit: ; preds = %_ZN3tev5La
 190:                                              ; preds = %_ZN3tev11TaskPromiseINS_4TaskIvEEvE13final_suspendEv.exit
   store ptr null, ptr %13, align 8
   %191 = getelementptr inbounds nuw i8, ptr %13, i64 156
-  store i2 -2, ptr %191, align 1
+  store i2 -2, ptr %191, align 4
   %192 = load ptr, ptr %189, align 8
   call fastcc void %192(ptr nonnull %189)
   br label %.loopexit
@@ -4892,7 +4892,7 @@ define linkonce_odr dso_local void @_ZNK3tev10RawChannel6copyToERNS_7ChannelEi(p
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 152
   store ptr %1, ptr %19, align 8
   store ptr %2, ptr %12, align 8
-  store i32 %3, ptr %13, align 4
+  store i32 %3, ptr %13, align 8
   invoke void @_ZNSt3__17promiseIvEC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18)
           to label %.noexc unwind label %42
 
@@ -4916,7 +4916,7 @@ define linkonce_odr dso_local void @_ZNK3tev10RawChannel6copyToERNS_7ChannelEi(p
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false), !noalias !107
-  store i32 2, ptr %27, align 4, !noalias !107
+  store i32 2, ptr %27, align 8, !noalias !107
   store ptr %26, ptr %24, align 8, !alias.scope !108
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %20, ptr %28, align 8, !alias.scope !108
@@ -4971,7 +4971,7 @@ define linkonce_odr dso_local void @_ZNK3tev10RawChannel6copyToERNS_7ChannelEi(p
 
 48:                                               ; preds = %44
   %49 = load ptr, ptr %12, align 8
-  %50 = load i32, ptr %13, align 4
+  %50 = load i32, ptr %13, align 8
   invoke void @_ZNK3tev10RawChannel11copyToTypedI4halfEENS_4TaskIvEERNS_7ChannelEi(ptr dead_on_unwind nonnull writable sret(%"class.tev::Task.67") align 8 %14, ptr noundef nonnull align 8 dereferenceable(104) %45, ptr noundef nonnull align 8 dereferenceable(56) %49, i32 noundef %50)
           to label %51 unwind label %73
 
@@ -5060,7 +5060,7 @@ _ZN3tev4TaskIvE11await_readyEv.exit:              ; preds = %51
 
 83:                                               ; preds = %44
   %84 = load ptr, ptr %12, align 8
-  %85 = load i32, ptr %13, align 4
+  %85 = load i32, ptr %13, align 8
   invoke void @_ZNK3tev10RawChannel11copyToTypedIfEENS_4TaskIvEERNS_7ChannelEi(ptr dead_on_unwind nonnull writable sret(%"class.tev::Task.67") align 8 %15, ptr noundef nonnull align 8 dereferenceable(104) %45, ptr noundef nonnull align 8 dereferenceable(56) %84, i32 noundef %85)
           to label %86 unwind label %108
 
@@ -5149,7 +5149,7 @@ _ZN3tev4TaskIvE11await_readyEv.exit21:            ; preds = %86
 
 118:                                              ; preds = %44
   %119 = load ptr, ptr %12, align 8
-  %120 = load i32, ptr %13, align 4
+  %120 = load i32, ptr %13, align 8
   invoke void @_ZNK3tev10RawChannel11copyToTypedIjEENS_4TaskIvEERNS_7ChannelEi(ptr dead_on_unwind nonnull writable sret(%"class.tev::Task.67") align 8 %16, ptr noundef nonnull align 8 dereferenceable(104) %45, ptr noundef nonnull align 8 dereferenceable(56) %119, i32 noundef %120)
           to label %121 unwind label %143
 
@@ -5322,7 +5322,7 @@ _ZN3tev11TaskPromiseINS_4TaskIvEEvE13final_suspendEv.exit: ; preds = %_ZN3tev5La
 180:                                              ; preds = %_ZN3tev11TaskPromiseINS_4TaskIvEEvE13final_suspendEv.exit
   store ptr null, ptr %10, align 8
   %181 = getelementptr inbounds nuw i8, ptr %10, i64 164
-  store i3 -4, ptr %181, align 1
+  store i3 -4, ptr %181, align 4
   %182 = load ptr, ptr %179, align 8
   call fastcc void %182(ptr nonnull %179)
   br label %200
@@ -11438,7 +11438,7 @@ define linkonce_odr dso_local void @_ZNK3tev10RawChannel11copyToTypedI4halfEENS_
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 136
   store ptr %1, ptr %19, align 8
   store ptr %2, ptr %10, align 8
-  store i32 %3, ptr %11, align 4
+  store i32 %3, ptr %11, align 8
   invoke void @_ZNSt3__17promiseIvEC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18)
           to label %.noexc unwind label %42
 
@@ -11462,7 +11462,7 @@ define linkonce_odr dso_local void @_ZNK3tev10RawChannel11copyToTypedI4halfEENS_
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false), !noalias !354
-  store i32 2, ptr %27, align 4, !noalias !354
+  store i32 2, ptr %27, align 8, !noalias !354
   store ptr %26, ptr %24, align 8, !alias.scope !355
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %20, ptr %28, align 8, !alias.scope !355
@@ -11514,7 +11514,7 @@ define linkonce_odr dso_local void @_ZNK3tev10RawChannel11copyToTypedI4halfEENS_
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 64
   %50 = load i32, ptr %49, align 8
   %51 = sdiv i32 %48, %50
-  store i32 %51, ptr %13, align 4
+  store i32 %51, ptr %13, align 8
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 80
   %53 = load ptr, ptr %52, align 8
   store ptr %53, ptr %14, align 8
@@ -11557,7 +11557,7 @@ _ZN3tev10ThreadPool6globalEv.exit:                ; preds = %59, %56, %44
   store ptr %65, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 72
   store ptr %13, ptr %71, align 8
-  %72 = load i32, ptr %11, align 4
+  %72 = load i32, ptr %11, align 8
   invoke void @_ZN3tev10ThreadPool16parallelForAsyncIiZNKS_10RawChannel11copyToTypedI4halfEENS_4TaskIvEERNS_7ChannelEiEUliE_EES6_T_SA_T0_i(ptr dead_on_unwind nonnull writable sret(%"class.tev::Task.67") align 8 %15, ptr noundef nonnull align 8 dereferenceable(256) @_ZZN3tev10ThreadPool6globalEvE4pool, i32 noundef 0, i32 noundef %66, ptr noundef nonnull byval(%class.anon.288) align 8 %16, i32 noundef %72)
           to label %73 unwind label %95
 
@@ -11722,7 +11722,7 @@ _ZN3tev11TaskPromiseINS_4TaskIvEEvE13final_suspendEv.exit: ; preds = %_ZN3tev5La
 127:                                              ; preds = %_ZN3tev11TaskPromiseINS_4TaskIvEEvE13final_suspendEv.exit
   store ptr null, ptr %8, align 8
   %128 = getelementptr inbounds nuw i8, ptr %8, i64 156
-  store i2 -2, ptr %128, align 1
+  store i2 -2, ptr %128, align 4
   %129 = load ptr, ptr %126, align 8
   call fastcc void %129(ptr nonnull %126)
   br label %144
@@ -11804,7 +11804,7 @@ define linkonce_odr dso_local void @_ZNK3tev10RawChannel11copyToTypedIfEENS_4Tas
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 136
   store ptr %1, ptr %19, align 8
   store ptr %2, ptr %10, align 8
-  store i32 %3, ptr %11, align 4
+  store i32 %3, ptr %11, align 8
   invoke void @_ZNSt3__17promiseIvEC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18)
           to label %.noexc unwind label %42
 
@@ -11828,7 +11828,7 @@ define linkonce_odr dso_local void @_ZNK3tev10RawChannel11copyToTypedIfEENS_4Tas
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false), !noalias !373
-  store i32 2, ptr %27, align 4, !noalias !373
+  store i32 2, ptr %27, align 8, !noalias !373
   store ptr %26, ptr %24, align 8, !alias.scope !374
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %20, ptr %28, align 8, !alias.scope !374
@@ -11880,7 +11880,7 @@ define linkonce_odr dso_local void @_ZNK3tev10RawChannel11copyToTypedIfEENS_4Tas
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 64
   %50 = load i32, ptr %49, align 8
   %51 = sdiv i32 %48, %50
-  store i32 %51, ptr %13, align 4
+  store i32 %51, ptr %13, align 8
   %52 = getelementptr inbounds nuw i8, ptr %45, i64 80
   %53 = load ptr, ptr %52, align 8
   store ptr %53, ptr %14, align 8
@@ -11923,7 +11923,7 @@ _ZN3tev10ThreadPool6globalEv.exit:                ; preds = %59, %56, %44
   store ptr %63, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 72
   store ptr %13, ptr %71, align 8
-  %72 = load i32, ptr %11, align 4
+  %72 = load i32, ptr %11, align 8
   invoke void @_ZN3tev10ThreadPool16parallelForAsyncIiZNKS_10RawChannel11copyToTypedIfEENS_4TaskIvEERNS_7ChannelEiEUliE_EES5_T_S9_T0_i(ptr dead_on_unwind nonnull writable sret(%"class.tev::Task.67") align 8 %15, ptr noundef nonnull align 8 dereferenceable(256) @_ZZN3tev10ThreadPool6globalEvE4pool, i32 noundef 0, i32 noundef %66, ptr noundef nonnull byval(%class.anon.461) align 8 %16, i32 noundef %72)
           to label %73 unwind label %95
 
@@ -12088,7 +12088,7 @@ _ZN3tev11TaskPromiseINS_4TaskIvEEvE13final_suspendEv.exit: ; preds = %_ZN3tev5La
 127:                                              ; preds = %_ZN3tev11TaskPromiseINS_4TaskIvEEvE13final_suspendEv.exit
   store ptr null, ptr %8, align 8
   %128 = getelementptr inbounds nuw i8, ptr %8, i64 156
-  store i2 -2, ptr %128, align 1
+  store i2 -2, ptr %128, align 4
   %129 = load ptr, ptr %126, align 8
   call fastcc void %129(ptr nonnull %126)
   br label %144
@@ -12170,7 +12170,7 @@ define linkonce_odr dso_local void @_ZNK3tev10RawChannel11copyToTypedIjEENS_4Tas
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 136
   store ptr %1, ptr %19, align 8
   store ptr %2, ptr %10, align 8
-  store i32 %3, ptr %11, align 4
+  store i32 %3, ptr %11, align 8
   invoke void @_ZNSt3__17promiseIvEC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18)
           to label %.noexc unwind label %42
 
@@ -12194,7 +12194,7 @@ define linkonce_odr dso_local void @_ZNK3tev10RawChannel11copyToTypedIjEENS_4Tas
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false), !noalias !392
-  store i32 2, ptr %27, align 4, !noalias !392
+  store i32 2, ptr %27, align 8, !noalias !392
   store ptr %26, ptr %24, align 8, !alias.scope !393
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %20, ptr %28, align 8, !alias.scope !393
@@ -12246,7 +12246,7 @@ define linkonce_odr dso_local void @_ZNK3tev10RawChannel11copyToTypedIjEENS_4Tas
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 64
   %50 = load i32, ptr %49, align 8
   %51 = sdiv i32 %48, %50
-  store i32 %51, ptr %13, align 4
+  store i32 %51, ptr %13, align 8
   %52 = getelementptr inbounds nuw i8, ptr %45, i64 80
   %53 = load ptr, ptr %52, align 8
   store ptr %53, ptr %14, align 8
@@ -12289,7 +12289,7 @@ _ZN3tev10ThreadPool6globalEv.exit:                ; preds = %59, %56, %44
   store ptr %63, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 72
   store ptr %13, ptr %71, align 8
-  %72 = load i32, ptr %11, align 4
+  %72 = load i32, ptr %11, align 8
   invoke void @_ZN3tev10ThreadPool16parallelForAsyncIiZNKS_10RawChannel11copyToTypedIjEENS_4TaskIvEERNS_7ChannelEiEUliE_EES5_T_S9_T0_i(ptr dead_on_unwind nonnull writable sret(%"class.tev::Task.67") align 8 %15, ptr noundef nonnull align 8 dereferenceable(256) @_ZZN3tev10ThreadPool6globalEvE4pool, i32 noundef 0, i32 noundef %66, ptr noundef nonnull byval(%class.anon.464) align 8 %16, i32 noundef %72)
           to label %73 unwind label %95
 
@@ -12454,7 +12454,7 @@ _ZN3tev11TaskPromiseINS_4TaskIvEEvE13final_suspendEv.exit: ; preds = %_ZN3tev5La
 127:                                              ; preds = %_ZN3tev11TaskPromiseINS_4TaskIvEEvE13final_suspendEv.exit
   store ptr null, ptr %8, align 8
   %128 = getelementptr inbounds nuw i8, ptr %8, i64 156
-  store i2 -2, ptr %128, align 1
+  store i2 -2, ptr %128, align 4
   %129 = load ptr, ptr %126, align 8
   call fastcc void %129(ptr nonnull %126)
   br label %144
@@ -12597,10 +12597,10 @@ define linkonce_odr dso_local void @_ZN3tev10ThreadPool16parallelForAsyncIiZNKS_
   %31 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 192
   store ptr %1, ptr %32, align 8
-  store i32 %2, ptr %17, align 4
+  store i32 %2, ptr %17, align 8
   store i32 %3, ptr %18, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
-  store i32 %5, ptr %20, align 4
+  store i32 %5, ptr %20, align 8
   invoke void @_ZNSt3__17promiseIvEC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %31)
           to label %.noexc unwind label %55
 
@@ -12624,7 +12624,7 @@ define linkonce_odr dso_local void @_ZN3tev10ThreadPool16parallelForAsyncIiZNKS_
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false), !noalias !411
-  store i32 2, ptr %40, align 4, !noalias !411
+  store i32 2, ptr %40, align 8, !noalias !411
   store ptr %39, ptr %37, align 8, !alias.scope !412
   %41 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %33, ptr %41, align 8, !alias.scope !412
@@ -12670,14 +12670,14 @@ define linkonce_odr dso_local void @_ZN3tev10ThreadPool16parallelForAsyncIiZNKS_
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %57 = load ptr, ptr %32, align 8
   %58 = load i32, ptr %18, align 4
-  %59 = load i32, ptr %17, align 4
+  %59 = load i32, ptr %17, align 8
   %60 = sub nsw i32 %58, %59
   store i32 %60, ptr %21, align 4
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %62 = load i64, ptr %61, align 8
   %63 = trunc i64 %62 to i32
   %spec.select = call i32 @llvm.smin.i32(i32 %60, i32 %63)
-  store i32 %spec.select, ptr %22, align 4
+  store i32 %spec.select, ptr %22, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
   %64 = icmp sgt i32 %spec.select, 0
   br i1 %64, label %.lr.ph, label %._crit_edge64.thread
@@ -12771,7 +12771,7 @@ define linkonce_odr dso_local void @_ZN3tev10ThreadPool16parallelForAsyncIiZNKS_
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %19, i64 40, i1 false)
-  %96 = load i32, ptr %20, align 4
+  %96 = load i32, ptr %20, align 8
   invoke void @_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS_10RawChannel11copyToTypedI4halfEENS_4TaskIvEERNS_7ChannelEiEUliE_EES6_T_SA_T0_iENKUliiS9_iPS0_E_clEiiS9_iSC_(ptr dead_on_unwind nonnull writable sret(%"class.tev::Task.67") align 8 %13, ptr noundef nonnull align 1 dereferenceable(1) %14, i32 noundef %94, i32 noundef %93, ptr noundef nonnull byval(%class.anon.288) align 8 %19, i32 noundef %96, ptr noundef %95)
           to label %97 unwind label %125
 
@@ -12834,7 +12834,7 @@ _ZNSt3__16vectorIN3tev4TaskIvEENS_9allocatorIS3_EEE22__construct_one_at_endB8ne1
   call void @_ZN3tev4TaskIvED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %123 = load i32, ptr %22, align 4
+  %123 = load i32, ptr %22, align 8
   %124 = icmp slt i32 %79, %123
   br i1 %124, label %74, label %._crit_edge, !llvm.loop !418
 
@@ -13054,7 +13054,7 @@ _ZN3tev11TaskPromiseINS_4TaskIvEEvE13final_suspendEv.exit: ; preds = %_ZN3tev5La
 193:                                              ; preds = %_ZN3tev11TaskPromiseINS_4TaskIvEEvE13final_suspendEv.exit
   store ptr null, ptr %15, align 8
   %194 = getelementptr inbounds nuw i8, ptr %15, i64 228
-  store i2 -2, ptr %194, align 1
+  store i2 -2, ptr %194, align 4
   %195 = load ptr, ptr %192, align 8
   call fastcc void %195(ptr nonnull %192)
   br label %.loopexit
@@ -13136,10 +13136,10 @@ define linkonce_odr dso_local void @_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i32 %2, ptr %13, align 4
+  store i32 %2, ptr %13, align 8
   store i32 %3, ptr %14, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
-  store i32 %5, ptr %16, align 4
+  store i32 %5, ptr %16, align 8
   store ptr %6, ptr %17, align 8
   invoke void @_ZNSt3__17promiseIvEC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19)
           to label %.noexc unwind label %42
@@ -13164,7 +13164,7 @@ define linkonce_odr dso_local void @_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false), !noalias !431
-  store i32 2, ptr %27, align 4, !noalias !431
+  store i32 2, ptr %27, align 8, !noalias !431
   store ptr %26, ptr %24, align 8, !alias.scope !432
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %20, ptr %28, align 8, !alias.scope !432
@@ -13209,12 +13209,12 @@ define linkonce_odr dso_local void @_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS
   call void @_ZNSt3__16futureIvED1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #23, !noalias !435
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %45 = load ptr, ptr %17, align 8
-  %46 = load i32, ptr %16, align 4
+  %46 = load i32, ptr %16, align 8
   store ptr %45, ptr %18, align 8
   %47 = getelementptr inbounds nuw i8, ptr %11, i64 88
   store i32 %46, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %11, i64 124
-  store i2 1, ptr %48, align 1
+  store i2 1, ptr %48, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %11, ptr %8, align 8
@@ -47174,7 +47174,7 @@ define linkonce_odr dso_local void @_ZN3tev10ThreadPool11enqueueTaskIRNSt3__116c
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt3__120__shared_ptr_emplaceINS_13packaged_taskIFvvEEENS_9allocatorIS3_EEEE, i64 16), ptr %12, align 16, !noalias !669
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt3__120__packaged_task_funcINS_16coroutine_handleIvEENS_9allocatorIS2_EEFvvEEE, i64 16), ptr %14, align 8, !noalias !669
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt3__120__packaged_task_funcINS_16coroutine_handleIvEENS_9allocatorIS2_EEFvvEEE, i64 16), ptr %14, align 16, !noalias !669
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %17 = load i64, ptr %2, align 8, !noalias !669
   store i64 %17, ptr %16, align 8, !noalias !669
@@ -48274,10 +48274,10 @@ define linkonce_odr dso_local void @_ZN3tev10ThreadPool16parallelForAsyncIiZNKS_
   %31 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 192
   store ptr %1, ptr %32, align 8
-  store i32 %2, ptr %17, align 4
+  store i32 %2, ptr %17, align 8
   store i32 %3, ptr %18, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
-  store i32 %5, ptr %20, align 4
+  store i32 %5, ptr %20, align 8
   invoke void @_ZNSt3__17promiseIvEC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %31)
           to label %.noexc unwind label %55
 
@@ -48301,7 +48301,7 @@ define linkonce_odr dso_local void @_ZN3tev10ThreadPool16parallelForAsyncIiZNKS_
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false), !noalias !682
-  store i32 2, ptr %40, align 4, !noalias !682
+  store i32 2, ptr %40, align 8, !noalias !682
   store ptr %39, ptr %37, align 8, !alias.scope !683
   %41 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %33, ptr %41, align 8, !alias.scope !683
@@ -48347,14 +48347,14 @@ define linkonce_odr dso_local void @_ZN3tev10ThreadPool16parallelForAsyncIiZNKS_
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %57 = load ptr, ptr %32, align 8
   %58 = load i32, ptr %18, align 4
-  %59 = load i32, ptr %17, align 4
+  %59 = load i32, ptr %17, align 8
   %60 = sub nsw i32 %58, %59
   store i32 %60, ptr %21, align 4
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %62 = load i64, ptr %61, align 8
   %63 = trunc i64 %62 to i32
   %spec.select = call i32 @llvm.smin.i32(i32 %60, i32 %63)
-  store i32 %spec.select, ptr %22, align 4
+  store i32 %spec.select, ptr %22, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
   %64 = icmp sgt i32 %spec.select, 0
   br i1 %64, label %.lr.ph, label %._crit_edge64.thread
@@ -48448,7 +48448,7 @@ define linkonce_odr dso_local void @_ZN3tev10ThreadPool16parallelForAsyncIiZNKS_
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %19, i64 40, i1 false)
-  %96 = load i32, ptr %20, align 4
+  %96 = load i32, ptr %20, align 8
   invoke void @_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS_10RawChannel11copyToTypedIfEENS_4TaskIvEERNS_7ChannelEiEUliE_EES5_T_S9_T0_iENKUliiS8_iPS0_E_clEiiS8_iSB_(ptr dead_on_unwind nonnull writable sret(%"class.tev::Task.67") align 8 %13, ptr noundef nonnull align 1 dereferenceable(1) %14, i32 noundef %94, i32 noundef %93, ptr noundef nonnull byval(%class.anon.461) align 8 %19, i32 noundef %96, ptr noundef %95)
           to label %97 unwind label %125
 
@@ -48511,7 +48511,7 @@ _ZNSt3__16vectorIN3tev4TaskIvEENS_9allocatorIS3_EEE22__construct_one_at_endB8ne1
   call void @_ZN3tev4TaskIvED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %123 = load i32, ptr %22, align 4
+  %123 = load i32, ptr %22, align 8
   %124 = icmp slt i32 %79, %123
   br i1 %124, label %74, label %._crit_edge, !llvm.loop !689
 
@@ -48731,7 +48731,7 @@ _ZN3tev11TaskPromiseINS_4TaskIvEEvE13final_suspendEv.exit: ; preds = %_ZN3tev5La
 193:                                              ; preds = %_ZN3tev11TaskPromiseINS_4TaskIvEEvE13final_suspendEv.exit
   store ptr null, ptr %15, align 8
   %194 = getelementptr inbounds nuw i8, ptr %15, i64 228
-  store i2 -2, ptr %194, align 1
+  store i2 -2, ptr %194, align 4
   %195 = load ptr, ptr %192, align 8
   call fastcc void %195(ptr nonnull %192)
   br label %.loopexit
@@ -48811,10 +48811,10 @@ define linkonce_odr dso_local void @_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i32 %2, ptr %13, align 4
+  store i32 %2, ptr %13, align 8
   store i32 %3, ptr %14, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
-  store i32 %5, ptr %16, align 4
+  store i32 %5, ptr %16, align 8
   store ptr %6, ptr %17, align 8
   invoke void @_ZNSt3__17promiseIvEC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19)
           to label %.noexc unwind label %42
@@ -48839,7 +48839,7 @@ define linkonce_odr dso_local void @_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false), !noalias !702
-  store i32 2, ptr %27, align 4, !noalias !702
+  store i32 2, ptr %27, align 8, !noalias !702
   store ptr %26, ptr %24, align 8, !alias.scope !703
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %20, ptr %28, align 8, !alias.scope !703
@@ -48884,12 +48884,12 @@ define linkonce_odr dso_local void @_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS
   call void @_ZNSt3__16futureIvED1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #23, !noalias !706
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %45 = load ptr, ptr %17, align 8
-  %46 = load i32, ptr %16, align 4
+  %46 = load i32, ptr %16, align 8
   store ptr %45, ptr %18, align 8
   %47 = getelementptr inbounds nuw i8, ptr %11, i64 88
   store i32 %46, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %11, i64 124
-  store i2 1, ptr %48, align 1
+  store i2 1, ptr %48, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %11, ptr %8, align 8
@@ -48946,10 +48946,10 @@ define linkonce_odr dso_local void @_ZN3tev10ThreadPool16parallelForAsyncIiZNKS_
   %31 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 192
   store ptr %1, ptr %32, align 8
-  store i32 %2, ptr %17, align 4
+  store i32 %2, ptr %17, align 8
   store i32 %3, ptr %18, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
-  store i32 %5, ptr %20, align 4
+  store i32 %5, ptr %20, align 8
   invoke void @_ZNSt3__17promiseIvEC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %31)
           to label %.noexc unwind label %55
 
@@ -48973,7 +48973,7 @@ define linkonce_odr dso_local void @_ZN3tev10ThreadPool16parallelForAsyncIiZNKS_
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false), !noalias !715
-  store i32 2, ptr %40, align 4, !noalias !715
+  store i32 2, ptr %40, align 8, !noalias !715
   store ptr %39, ptr %37, align 8, !alias.scope !716
   %41 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %33, ptr %41, align 8, !alias.scope !716
@@ -49019,14 +49019,14 @@ define linkonce_odr dso_local void @_ZN3tev10ThreadPool16parallelForAsyncIiZNKS_
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %57 = load ptr, ptr %32, align 8
   %58 = load i32, ptr %18, align 4
-  %59 = load i32, ptr %17, align 4
+  %59 = load i32, ptr %17, align 8
   %60 = sub nsw i32 %58, %59
   store i32 %60, ptr %21, align 4
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %62 = load i64, ptr %61, align 8
   %63 = trunc i64 %62 to i32
   %spec.select = call i32 @llvm.smin.i32(i32 %60, i32 %63)
-  store i32 %spec.select, ptr %22, align 4
+  store i32 %spec.select, ptr %22, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
   %64 = icmp sgt i32 %spec.select, 0
   br i1 %64, label %.lr.ph, label %._crit_edge64.thread
@@ -49120,7 +49120,7 @@ define linkonce_odr dso_local void @_ZN3tev10ThreadPool16parallelForAsyncIiZNKS_
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %19, i64 40, i1 false)
-  %96 = load i32, ptr %20, align 4
+  %96 = load i32, ptr %20, align 8
   invoke void @_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS_10RawChannel11copyToTypedIjEENS_4TaskIvEERNS_7ChannelEiEUliE_EES5_T_S9_T0_iENKUliiS8_iPS0_E_clEiiS8_iSB_(ptr dead_on_unwind nonnull writable sret(%"class.tev::Task.67") align 8 %13, ptr noundef nonnull align 1 dereferenceable(1) %14, i32 noundef %94, i32 noundef %93, ptr noundef nonnull byval(%class.anon.464) align 8 %19, i32 noundef %96, ptr noundef %95)
           to label %97 unwind label %125
 
@@ -49183,7 +49183,7 @@ _ZNSt3__16vectorIN3tev4TaskIvEENS_9allocatorIS3_EEE22__construct_one_at_endB8ne1
   call void @_ZN3tev4TaskIvED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %123 = load i32, ptr %22, align 4
+  %123 = load i32, ptr %22, align 8
   %124 = icmp slt i32 %79, %123
   br i1 %124, label %74, label %._crit_edge, !llvm.loop !722
 
@@ -49403,7 +49403,7 @@ _ZN3tev11TaskPromiseINS_4TaskIvEEvE13final_suspendEv.exit: ; preds = %_ZN3tev5La
 193:                                              ; preds = %_ZN3tev11TaskPromiseINS_4TaskIvEEvE13final_suspendEv.exit
   store ptr null, ptr %15, align 8
   %194 = getelementptr inbounds nuw i8, ptr %15, i64 228
-  store i2 -2, ptr %194, align 1
+  store i2 -2, ptr %194, align 4
   %195 = load ptr, ptr %192, align 8
   call fastcc void %195(ptr nonnull %192)
   br label %.loopexit
@@ -49483,10 +49483,10 @@ define linkonce_odr dso_local void @_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i32 %2, ptr %13, align 4
+  store i32 %2, ptr %13, align 8
   store i32 %3, ptr %14, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
-  store i32 %5, ptr %16, align 4
+  store i32 %5, ptr %16, align 8
   store ptr %6, ptr %17, align 8
   invoke void @_ZNSt3__17promiseIvEC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19)
           to label %.noexc unwind label %42
@@ -49511,7 +49511,7 @@ define linkonce_odr dso_local void @_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false), !noalias !735
-  store i32 2, ptr %27, align 4, !noalias !735
+  store i32 2, ptr %27, align 8, !noalias !735
   store ptr %26, ptr %24, align 8, !alias.scope !736
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %20, ptr %28, align 8, !alias.scope !736
@@ -49556,12 +49556,12 @@ define linkonce_odr dso_local void @_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS
   call void @_ZNSt3__16futureIvED1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #23, !noalias !739
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %45 = load ptr, ptr %17, align 8
-  %46 = load i32, ptr %16, align 4
+  %46 = load i32, ptr %16, align 8
   store ptr %45, ptr %18, align 8
   %47 = getelementptr inbounds nuw i8, ptr %11, i64 88
   store i32 %46, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %11, i64 124
-  store i2 1, ptr %48, align 1
+  store i2 1, ptr %48, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %11, ptr %8, align 8
@@ -49637,10 +49637,10 @@ define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS_14Exr
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i32 %1, ptr %12, align 4
+  store i32 %1, ptr %12, align 8
   store i32 %2, ptr %13, align 4
   store ptr %3, ptr %14, align 8
-  store i32 %4, ptr %15, align 4
+  store i32 %4, ptr %15, align 8
   store ptr %5, ptr %16, align 8
   invoke void @_ZNSt3__17promiseIvEC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18)
           to label %.noexc unwind label %41
@@ -49665,7 +49665,7 @@ define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS_14Exr
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false), !noalias !748
-  store i32 2, ptr %26, align 4, !noalias !748
+  store i32 2, ptr %26, align 8, !noalias !748
   store ptr %25, ptr %23, align 8, !alias.scope !749
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %19, ptr %27, align 8, !alias.scope !749
@@ -49710,12 +49710,12 @@ define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS_14Exr
   call void @_ZNSt3__16futureIvED1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #23, !noalias !752
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %44 = load ptr, ptr %16, align 8
-  %45 = load i32, ptr %15, align 4
+  %45 = load i32, ptr %15, align 8
   store ptr %44, ptr %17, align 8
   %46 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store i32 %45, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 92
-  store i2 1, ptr %47, align 1
+  store i2 1, ptr %47, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %10, ptr %7, align 8

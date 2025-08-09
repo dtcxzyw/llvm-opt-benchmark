@@ -193,7 +193,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   %70 = load i32, ptr %69, align 8, !tbaa !32
   %71 = and i32 %70, -75
   %72 = or disjoint i32 %71, 2
-  store i32 %72, ptr %69, align 4, !tbaa !33
+  store i32 %72, ptr %69, align 8, !tbaa !33
   %73 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, i64 noundef %64)
           to label %_ZNSolsEm.exit unwind label %97
 

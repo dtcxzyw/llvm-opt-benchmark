@@ -5187,11 +5187,11 @@ define hidden noalias noundef ptr @_ZN6Assimp11MDLImporter19LoadBones_3DGS_MDL7E
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 1120
   store i64 65535, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 1128
-  store float 0.000000e+00, ptr %23, align 4
+  store float 0.000000e+00, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 1132
   store float 0.000000e+00, ptr %24, align 4
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 1136
-  store float 0.000000e+00, ptr %25, align 4
+  store float 0.000000e+00, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 1144
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 1168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %26, i8 0, i64 72, i1 false)
@@ -8216,7 +8216,7 @@ define hidden void @_ZN6Assimp11MDLImporter26BuildOutputAnims_3DGS_MDL7EPPKNS_3M
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %47, ptr nonnull align 4 %75, i64 %76, i1 false)
   %77 = getelementptr inbounds nuw [1024 x i8], ptr %47, i64 0, i64 %76
   store i8 0, ptr %77, align 1
-  store i32 %spec.select.i, ptr %66, align 4
+  store i32 %spec.select.i, ptr %66, align 8
   %78 = getelementptr inbounds nuw i8, ptr %66, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %78, ptr nonnull align 4 %47, i64 %76, i1 false)
   %79 = getelementptr inbounds nuw [1024 x i8], ptr %78, i64 0, i64 %76
@@ -8305,11 +8305,11 @@ define hidden void @_ZN6Assimp11MDLImporter26BuildOutputAnims_3DGS_MDL7EPPKNS_3M
   %131 = phi ptr [ %128, %126 ], [ %137, %130 ]
   store double 0.000000e+00, ptr %131, align 8
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
-  store float 1.000000e+00, ptr %132, align 4
+  store float 1.000000e+00, ptr %132, align 8
   %133 = getelementptr inbounds nuw i8, ptr %131, i64 12
   store float 0.000000e+00, ptr %133, align 4
   %134 = getelementptr inbounds nuw i8, ptr %131, i64 16
-  store float 0.000000e+00, ptr %134, align 4
+  store float 0.000000e+00, ptr %134, align 8
   %135 = getelementptr inbounds nuw i8, ptr %131, i64 20
   store float 0.000000e+00, ptr %135, align 4
   %136 = getelementptr inbounds nuw i8, ptr %131, i64 24

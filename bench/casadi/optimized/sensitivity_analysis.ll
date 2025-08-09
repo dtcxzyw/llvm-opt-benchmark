@@ -21235,7 +21235,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %69, ptr %71, align 8, !tbaa !15, !alias.scope !185, !noalias !188
   store ptr %61, ptr %.0911.i.i.i, align 8, !tbaa !10, !alias.scope !188, !noalias !185
   store i64 0, ptr %70, align 8, !tbaa !15, !alias.scope !188, !noalias !185
-  store i8 0, ptr %61, align 1, !tbaa !16, !alias.scope !188, !noalias !185
+  store i8 0, ptr %61, align 8, !tbaa !16, !alias.scope !188, !noalias !185
   %72 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %73 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %74 = load i8, ptr %73, align 8, !tbaa !99, !range !108, !alias.scope !188, !noalias !185, !noundef !109
@@ -21329,7 +21329,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i2
   store i64 %107, ptr %109, align 8, !tbaa !15, !alias.scope !192, !noalias !195
   store ptr %99, ptr %.0911.i.i.i19, align 8, !tbaa !10, !alias.scope !195, !noalias !192
   store i64 0, ptr %108, align 8, !tbaa !15, !alias.scope !195, !noalias !192
-  store i8 0, ptr %99, align 1, !tbaa !16, !alias.scope !195, !noalias !192
+  store i8 0, ptr %99, align 8, !tbaa !16, !alias.scope !195, !noalias !192
   %110 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %111 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %112 = load i8, ptr %111, align 8, !tbaa !99, !range !108, !alias.scope !195, !noalias !192, !noundef !109
@@ -22115,7 +22115,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i: ; pre
   store i64 %20, ptr %21, align 8, !tbaa !15
   store ptr %11, ptr %8, align 8, !tbaa !10
   store i64 0, ptr %19, align 8, !tbaa !15
-  store i8 0, ptr %11, align 1, !tbaa !16
+  store i8 0, ptr %11, align 8, !tbaa !16
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 64
   invoke void @_ZN6casadi6MatrixIdEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %22)
           to label %_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi6MatrixIdEEEEEE9constructISC_JRKSt21piecewise_construct_tSt5tupleIJOS7_EESK_IJEEEEEvRSE_PT_DpOT0_.exit unwind label %23

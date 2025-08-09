@@ -1442,7 +1442,7 @@ define internal void @test_fill_picture(ptr noundef readonly captures(none) %0, 
   %63 = load i32, ptr %57, align 4, !tbaa !86
   %64 = mul i32 %62, %63
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %66 = load i32, ptr %65, align 4, !tbaa !87
+  %66 = load i32, ptr %65, align 8, !tbaa !87
   %67 = udiv i32 %64, %66
   %68 = urem i32 %67, 1536
   br label %.lr.ph
@@ -2905,7 +2905,7 @@ define internal fastcc void @rgbtest_put_pixel(ptr noundef readonly captures(non
   %233 = load i32, ptr %232, align 4, !tbaa !116
   %234 = shl nsw i32 %233, 3
   %235 = getelementptr inbounds nuw i8, ptr %11, i64 56
-  %236 = load i32, ptr %235, align 4, !tbaa !117
+  %236 = load i32, ptr %235, align 8, !tbaa !117
   %237 = add nsw i32 %234, %236
   %238 = shl i32 %5, %237
   %239 = add i32 %238, %231
@@ -2921,7 +2921,7 @@ define internal fastcc void @rgbtest_put_pixel(ptr noundef readonly captures(non
   %249 = load i32, ptr %248, align 4, !tbaa !116
   %250 = shl nsw i32 %249, 3
   %251 = getelementptr inbounds nuw i8, ptr %11, i64 96
-  %252 = load i32, ptr %251, align 4, !tbaa !117
+  %252 = load i32, ptr %251, align 8, !tbaa !117
   %253 = add nsw i32 %250, %252
   %254 = shl i32 3, %253
   %255 = add i32 %247, %254
@@ -3163,7 +3163,7 @@ define internal void @yuvtest_fill_picture(ptr noundef readonly captures(none) %
   %50 = trunc i32 %49 to i16
   %51 = load ptr, ptr %1, align 8, !tbaa !69
   %52 = shl nuw nsw i32 %.03642.us, 1
-  %53 = load i32, ptr %22, align 4, !tbaa !70
+  %53 = load i32, ptr %22, align 8, !tbaa !70
   %54 = mul nsw i32 %53, %.03743.us
   %55 = add nsw i32 %54, %52
   %56 = sext i32 %55 to i64
@@ -3199,7 +3199,7 @@ define internal void @yuvtest_fill_picture(ptr noundef readonly captures(none) %
 81:                                               ; preds = %37
   %82 = trunc i32 %.035.us to i8
   %83 = load ptr, ptr %1, align 8, !tbaa !69
-  %84 = load i32, ptr %22, align 4, !tbaa !70
+  %84 = load i32, ptr %22, align 8, !tbaa !70
   %85 = mul nsw i32 %84, %.03743.us
   %86 = add nsw i32 %85, %.03642.us
   %87 = sext i32 %86 to i64
@@ -3228,7 +3228,7 @@ define internal void @yuvtest_fill_picture(ptr noundef readonly captures(none) %
 105:                                              ; preds = %37
   %106 = trunc i32 %.035.us to i8
   %107 = load ptr, ptr %1, align 8, !tbaa !69
-  %108 = load i32, ptr %22, align 4, !tbaa !70
+  %108 = load i32, ptr %22, align 8, !tbaa !70
   %109 = mul nsw i32 %108, %.03743.us
   %110 = add nsw i32 %109, %.03642.us
   %111 = sext i32 %110 to i64
@@ -3270,7 +3270,7 @@ define internal void @yuvtest_fill_picture(ptr noundef readonly captures(none) %
   %139 = trunc i32 %.035.us to i16
   %140 = load ptr, ptr %1, align 8, !tbaa !69
   %141 = shl nuw nsw i32 %.03642.us, 1
-  %142 = load i32, ptr %22, align 4, !tbaa !70
+  %142 = load i32, ptr %22, align 8, !tbaa !70
   %143 = mul nsw i32 %142, %.03743.us
   %144 = add nsw i32 %143, %141
   %145 = sext i32 %144 to i64
@@ -3286,7 +3286,7 @@ define internal void @yuvtest_fill_picture(ptr noundef readonly captures(none) %
   store i16 %147, ptr %153, align 2, !tbaa !76
   %154 = trunc i32 %.0.us to i16
   %155 = load ptr, ptr %28, align 8, !tbaa !69
-  %156 = load i32, ptr %29, align 4, !tbaa !70
+  %156 = load i32, ptr %29, align 8, !tbaa !70
   %157 = mul nsw i32 %156, %.03743.us
   %158 = add nsw i32 %157, %141
   %159 = sext i32 %158 to i64
@@ -3308,7 +3308,7 @@ define internal void @yuvtest_fill_picture(ptr noundef readonly captures(none) %
 169:                                              ; preds = %161, %37, %37
   %170 = trunc i32 %.035.us to i8
   %171 = load ptr, ptr %1, align 8, !tbaa !69
-  %172 = load i32, ptr %22, align 4, !tbaa !70
+  %172 = load i32, ptr %22, align 8, !tbaa !70
   %173 = mul nsw i32 %172, %.03743.us
   %174 = add nsw i32 %173, %.03642.us
   %175 = sext i32 %174 to i64
@@ -3324,7 +3324,7 @@ define internal void @yuvtest_fill_picture(ptr noundef readonly captures(none) %
   store i8 %177, ptr %183, align 1, !tbaa !76
   %184 = trunc i32 %.0.us to i8
   %185 = load ptr, ptr %28, align 8, !tbaa !69
-  %186 = load i32, ptr %29, align 4, !tbaa !70
+  %186 = load i32, ptr %29, align 8, !tbaa !70
   %187 = mul nsw i32 %186, %.03743.us
   %188 = add nsw i32 %187, %.03642.us
   %189 = sext i32 %188 to i64
@@ -3358,7 +3358,7 @@ define internal void @yuvtest_fill_picture(ptr noundef readonly captures(none) %
   %211 = add i32 %206, %210
   %212 = load ptr, ptr %1, align 8, !tbaa !69
   %213 = shl nsw i32 %.03642.us, 2
-  %214 = load i32, ptr %22, align 4, !tbaa !70
+  %214 = load i32, ptr %22, align 8, !tbaa !70
   %215 = mul nsw i32 %214, %.03743.us
   %216 = add nsw i32 %215, %213
   %217 = sext i32 %216 to i64
@@ -3381,7 +3381,7 @@ define internal void @yuvtest_fill_picture(ptr noundef readonly captures(none) %
   %228 = zext i8 %227 to i32
   %229 = shl nuw nsw i32 %228, 1
   %230 = add nuw nsw i32 %229, %226
-  %231 = load i32, ptr %22, align 4, !tbaa !70
+  %231 = load i32, ptr %22, align 8, !tbaa !70
   %232 = mul nsw i32 %231, %.03743.us
   %233 = add nsw i32 %230, %232
   %234 = sext i32 %233 to i64
@@ -3396,7 +3396,7 @@ define internal void @yuvtest_fill_picture(ptr noundef readonly captures(none) %
   %242 = zext i8 %241 to i32
   %243 = shl nuw nsw i32 %242, 1
   %244 = add nuw nsw i32 %243, %226
-  %245 = load i32, ptr %22, align 4, !tbaa !70
+  %245 = load i32, ptr %22, align 8, !tbaa !70
   %246 = mul nsw i32 %245, %.03743.us
   %247 = add nsw i32 %244, %246
   %248 = sext i32 %247 to i64
@@ -3411,7 +3411,7 @@ define internal void @yuvtest_fill_picture(ptr noundef readonly captures(none) %
   %256 = zext i8 %255 to i32
   %257 = shl nuw nsw i32 %256, 1
   %258 = add nuw nsw i32 %257, %226
-  %259 = load i32, ptr %22, align 4, !tbaa !70
+  %259 = load i32, ptr %22, align 8, !tbaa !70
   %260 = mul nsw i32 %259, %.03743.us
   %261 = add nsw i32 %258, %260
   %262 = sext i32 %261 to i64
@@ -3426,7 +3426,7 @@ define internal void @yuvtest_fill_picture(ptr noundef readonly captures(none) %
   %270 = zext i8 %269 to i32
   %271 = shl nuw nsw i32 %270, 1
   %272 = add nuw nsw i32 %271, %226
-  %273 = load i32, ptr %22, align 4, !tbaa !70
+  %273 = load i32, ptr %22, align 8, !tbaa !70
   %274 = mul nsw i32 %273, %.03743.us
   %275 = add nsw i32 %272, %274
   %276 = sext i32 %275 to i64
@@ -3446,7 +3446,7 @@ define internal void @yuvtest_fill_picture(ptr noundef readonly captures(none) %
   %287 = load i32, ptr %286, align 4, !tbaa !116
   %288 = shl nsw i32 %287, 3
   %289 = getelementptr inbounds nuw i8, ptr %44, i64 56
-  %290 = load i32, ptr %289, align 4, !tbaa !117
+  %290 = load i32, ptr %289, align 8, !tbaa !117
   %291 = add nsw i32 %288, %290
   %292 = shl i32 %.034.us, %291
   %293 = add i32 %292, %285
@@ -3462,13 +3462,13 @@ define internal void @yuvtest_fill_picture(ptr noundef readonly captures(none) %
   %303 = load i32, ptr %302, align 4, !tbaa !116
   %304 = shl nsw i32 %303, 3
   %305 = getelementptr inbounds nuw i8, ptr %44, i64 96
-  %306 = load i32, ptr %305, align 4, !tbaa !117
+  %306 = load i32, ptr %305, align 8, !tbaa !117
   %307 = add nsw i32 %304, %306
   %308 = shl i32 3, %307
   %309 = add i32 %301, %308
   %310 = load ptr, ptr %1, align 8, !tbaa !69
   %311 = shl nsw i32 %.03642.us, 2
-  %312 = load i32, ptr %22, align 4, !tbaa !70
+  %312 = load i32, ptr %22, align 8, !tbaa !70
   %313 = mul nsw i32 %312, %.03743.us
   %314 = add nsw i32 %313, %311
   %315 = sext i32 %314 to i64
@@ -3494,7 +3494,7 @@ define internal void @yuvtest_fill_picture(ptr noundef readonly captures(none) %
   %332 = trunc i32 %331 to i8
   %333 = load ptr, ptr %1, align 8, !tbaa !69
   %334 = mul nuw nsw i32 %.03642.us, 3
-  %335 = load i32, ptr %22, align 4, !tbaa !70
+  %335 = load i32, ptr %22, align 8, !tbaa !70
   %336 = mul nsw i32 %335, %.03743.us
   %337 = add nsw i32 %336, %334
   %338 = sext i32 %337 to i64
@@ -3503,7 +3503,7 @@ define internal void @yuvtest_fill_picture(ptr noundef readonly captures(none) %
   %340 = lshr i32 %331, 8
   %341 = trunc i32 %340 to i8
   %342 = load ptr, ptr %1, align 8, !tbaa !69
-  %343 = load i32, ptr %22, align 4, !tbaa !70
+  %343 = load i32, ptr %22, align 8, !tbaa !70
   %344 = mul nsw i32 %343, %.03743.us
   %345 = add nsw i32 %344, %334
   %346 = sext i32 %345 to i64
@@ -3513,7 +3513,7 @@ define internal void @yuvtest_fill_picture(ptr noundef readonly captures(none) %
   %349 = lshr i32 %331, 16
   %350 = trunc i32 %349 to i8
   %351 = load ptr, ptr %1, align 8, !tbaa !69
-  %352 = load i32, ptr %22, align 4, !tbaa !70
+  %352 = load i32, ptr %22, align 8, !tbaa !70
   %353 = mul nsw i32 %352, %.03743.us
   %354 = add nsw i32 %353, %334
   %355 = sext i32 %354 to i64

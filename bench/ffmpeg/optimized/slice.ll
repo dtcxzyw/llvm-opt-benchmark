@@ -431,7 +431,7 @@ get_min_buffer_size.exit:                         ; preds = %94, %usePal.exit
   store i32 %131, ptr %132, align 4, !tbaa !17
   %133 = add nuw nsw i32 %125, %130
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  store i32 %133, ptr %134, align 4, !tbaa !17
+  store i32 %133, ptr %134, align 8, !tbaa !17
   %135 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %69) #8
   %.not.i232 = icmp eq ptr %135, null
   br i1 %.not.i232, label %136, label %137

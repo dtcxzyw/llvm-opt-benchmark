@@ -2176,9 +2176,9 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit143.i: ; 
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %515, i64 24
   store i8 %.fca.1.extract81.i, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !292
   %.sroa.6.i.sroa.3.0..sroa.6.0..sroa_idx.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %515, i64 32
-  store ptr %.fca.0.extract66.i, ptr %.sroa.6.i.sroa.3.0..sroa.6.0..sroa_idx.i.sroa_idx.i, align 1, !tbaa !3
+  store ptr %.fca.0.extract66.i, ptr %.sroa.6.i.sroa.3.0..sroa.6.0..sroa_idx.i.sroa_idx.i, align 16, !tbaa !3
   %.sroa.6.i.sroa.4.0..sroa.6.0..sroa_idx.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %515, i64 40
-  store i8 %.fca.1.extract67.i, ptr %.sroa.6.i.sroa.4.0..sroa.6.0..sroa_idx.i.sroa_idx.i, align 1, !tbaa !292
+  store i8 %.fca.1.extract67.i, ptr %.sroa.6.i.sroa.4.0..sroa.6.0..sroa_idx.i.sroa_idx.i, align 8, !tbaa !292
   %.sroa.71.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %515, i64 48
   store i8 %514, ptr %.sroa.71.0..sroa_idx.i.i, align 16, !tbaa !342
   call void @llvm.lifetime.start.p0(ptr nonnull %9)

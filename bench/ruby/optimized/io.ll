@@ -1432,7 +1432,7 @@ rb_io_check_closed.exit:                          ; preds = %rb_io_check_initial
   %18 = tail call ptr @rb_errno_ptr() #28
   store i32 0, ptr %18, align 4, !tbaa !20
   %19 = load i32, ptr %5, align 8, !tbaa !7
-  %20 = load i32, ptr %10, align 4, !tbaa !42
+  %20 = load i32, ptr %10, align 8, !tbaa !42
   %21 = sub i32 0, %20
   %22 = sext i32 %21 to i64
   %23 = tail call i64 @lseek(i32 noundef %19, i64 noundef %22, i32 noundef 1) #28
@@ -4651,7 +4651,7 @@ define internal fastcc void @rb_io_fptr_cleanup_all(ptr noundef initializes((32,
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i64 4, ptr %8, align 8, !tbaa !37
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %10 = load ptr, ptr %9, align 1, !tbaa !45
+  %10 = load ptr, ptr %9, align 4, !tbaa !45
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %free_io_buffer.exit, label %11
 
@@ -17498,7 +17498,7 @@ flush_before_seek.exit:                           ; preds = %rb_io_check_closed.
   tail call void @rb_econv_close(ptr noundef nonnull %57) #28
   store ptr null, ptr %56, align 8, !tbaa !44
   %59 = getelementptr inbounds nuw i8, ptr %15, i64 136
-  %60 = load ptr, ptr %59, align 1, !tbaa !45
+  %60 = load ptr, ptr %59, align 8, !tbaa !45
   %.not.i.i10 = icmp eq ptr %60, null
   br i1 %.not.i.i10, label %clear_readconv.exit, label %61
 
@@ -26522,9 +26522,9 @@ define internal fastcc i64 @fill_cbuf(ptr noundef %0, i32 noundef range(i32 0, 2
   store i32 %60, ptr %29, align 4, !tbaa !43
   %.neg = sub i64 %56, %55
   %.neg72 = trunc i64 %.neg to i32
-  %61 = load i32, ptr %30, align 4, !tbaa !42
+  %61 = load i32, ptr %30, align 8, !tbaa !42
   %62 = add i32 %61, %.neg72
-  store i32 %62, ptr %30, align 4, !tbaa !42
+  store i32 %62, ptr %30, align 8, !tbaa !42
   %63 = load ptr, ptr %4, align 8, !tbaa !156
   %64 = ptrtoint ptr %63 to i64
   %65 = ptrtoint ptr %48 to i64
@@ -26551,9 +26551,9 @@ define internal fastcc i64 @fill_cbuf(ptr noundef %0, i32 noundef range(i32 0, 2
   %81 = load i32, ptr %29, align 4, !tbaa !43
   %82 = sub i32 %81, %71
   store i32 %82, ptr %29, align 4, !tbaa !43
-  %83 = load i32, ptr %30, align 4, !tbaa !42
+  %83 = load i32, ptr %30, align 8, !tbaa !42
   %84 = add i32 %83, %71
-  store i32 %84, ptr %30, align 4, !tbaa !42
+  store i32 %84, ptr %30, align 8, !tbaa !42
   br label %85
 
 85:                                               ; preds = %72, %34

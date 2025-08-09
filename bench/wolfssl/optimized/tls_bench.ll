@@ -803,7 +803,7 @@ SetupSupportedGroups.exit:                        ; preds = %168, %169
   %246 = getelementptr inbounds nuw i8, ptr %227, i64 48
   store i32 %217, ptr %246, align 8, !tbaa !44
   %247 = getelementptr inbounds nuw i8, ptr %227, i64 56
-  store i32 -1, ptr %247, align 4, !tbaa !45
+  store i32 -1, ptr %247, align 8, !tbaa !45
   %248 = getelementptr inbounds nuw i8, ptr %227, i64 68
   store i32 -1, ptr %248, align 4, !tbaa !46
   br i1 %.not982, label %252, label %249

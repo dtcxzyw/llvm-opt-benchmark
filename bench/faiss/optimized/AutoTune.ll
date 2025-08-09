@@ -3832,7 +3832,7 @@ _ZNSt6vectorIN5faiss14OperatingPointESaIS1_EE9push_backERKS1_.exit.thread: ; pre
   store ptr %38, ptr %37, align 8, !tbaa !31
   %39 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store i64 0, ptr %39, align 8, !tbaa !34
-  store i8 0, ptr %38, align 1, !tbaa !36
+  store i8 0, ptr %38, align 8, !tbaa !36
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 48
   store i64 -1, ptr %40, align 8, !tbaa !167
   %41 = load ptr, ptr %18, align 8, !tbaa !165
@@ -4076,7 +4076,7 @@ _ZSt19__relocate_object_aIN5faiss14OperatingPointES1_SaIS1_EEvPT_PT0_RT1_.exit.i
   store i64 %56, ptr %58, align 8, !tbaa !34, !alias.scope !170, !noalias !173
   store ptr %48, ptr %45, align 8, !tbaa !37, !alias.scope !173, !noalias !170
   store i64 0, ptr %57, align 8, !tbaa !34, !alias.scope !173, !noalias !170
-  store i8 0, ptr %48, align 1, !tbaa !36, !alias.scope !173, !noalias !170
+  store i8 0, ptr %48, align 8, !tbaa !36, !alias.scope !173, !noalias !170
   %59 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 48
   %60 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 48
   %61 = load i64, ptr %60, align 8, !tbaa !167, !alias.scope !173, !noalias !170
@@ -4131,7 +4131,7 @@ _ZSt19__relocate_object_aIN5faiss14OperatingPointES1_SaIS1_EEvPT_PT0_RT1_.exit.i
   store i64 %77, ptr %79, align 8, !tbaa !34, !alias.scope !177, !noalias !180
   store ptr %69, ptr %66, align 8, !tbaa !37, !alias.scope !180, !noalias !177
   store i64 0, ptr %78, align 8, !tbaa !34, !alias.scope !180, !noalias !177
-  store i8 0, ptr %69, align 1, !tbaa !36, !alias.scope !180, !noalias !177
+  store i8 0, ptr %69, align 8, !tbaa !36, !alias.scope !180, !noalias !177
   %80 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 48
   %81 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 48
   %82 = load i64, ptr %81, align 8, !tbaa !167, !alias.scope !180, !noalias !177
@@ -4798,7 +4798,7 @@ _ZNSt16allocator_traitsISaIN5faiss14OperatingPointEEE9constructIS1_JS1_EEEvRS2_P
   store i64 %19, ptr %21, align 8, !tbaa !34
   store ptr %11, ptr %8, align 8, !tbaa !37
   store i64 0, ptr %20, align 8, !tbaa !34
-  store i8 0, ptr %11, align 1, !tbaa !36
+  store i8 0, ptr %11, align 8, !tbaa !36
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %23 = getelementptr inbounds i8, ptr %5, i64 -8
   %24 = load i64, ptr %23, align 8, !tbaa !167
@@ -6047,7 +6047,7 @@ _ZSt19__relocate_object_aIN5faiss14ParameterRangeES1_SaIS1_EEvPT_PT0_RT1_.exit.i
   store i64 %36, ptr %38, align 8, !tbaa !34, !alias.scope !210, !noalias !213
   store ptr %28, ptr %.0911.i.i.i, align 8, !tbaa !37, !alias.scope !213, !noalias !210
   store i64 0, ptr %37, align 8, !tbaa !34, !alias.scope !213, !noalias !210
-  store i8 0, ptr %28, align 1, !tbaa !36, !alias.scope !213, !noalias !210
+  store i8 0, ptr %28, align 8, !tbaa !36, !alias.scope !213, !noalias !210
   %39 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %40 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %41 = load ptr, ptr %40, align 8, !tbaa !70, !alias.scope !213, !noalias !210
@@ -6108,7 +6108,7 @@ _ZSt19__relocate_object_aIN5faiss14ParameterRangeES1_SaIS1_EEvPT_PT0_RT1_.exit.i
   store i64 %61, ptr %63, align 8, !tbaa !34, !alias.scope !217, !noalias !220
   store ptr %53, ptr %.0911.i.i.i18, align 8, !tbaa !37, !alias.scope !220, !noalias !217
   store i64 0, ptr %62, align 8, !tbaa !34, !alias.scope !220, !noalias !217
-  store i8 0, ptr %53, align 1, !tbaa !36, !alias.scope !220, !noalias !217
+  store i8 0, ptr %53, align 8, !tbaa !36, !alias.scope !220, !noalias !217
   %64 = getelementptr inbounds nuw i8, ptr %.012.i.i.i17, i64 32
   %65 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i18, i64 32
   %66 = load ptr, ptr %65, align 8, !tbaa !70, !alias.scope !220, !noalias !217
@@ -8215,7 +8215,7 @@ _ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit: ; 
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(28) %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load atomic i32, ptr %8 acquire, align 4
+  %9 = load atomic i32, ptr %8 acquire, align 8
   %10 = and i32 %9, 2147483647
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit.us.i.i

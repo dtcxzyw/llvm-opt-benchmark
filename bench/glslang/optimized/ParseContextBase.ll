@@ -3625,10 +3625,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %275 = getelementptr inbounds nuw i8, ptr %268, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %273, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %274, i8 0, i64 16, i1 false)
-  %276 = load i32, ptr %275, align 4
+  %276 = load i32, ptr %275, align 8
   %277 = and i32 %276, -2147483648
   %278 = or disjoint i32 %277, 520093696
-  store i32 %278, ptr %275, align 4
+  store i32 %278, ptr %275, align 8
   %279 = getelementptr inbounds nuw i8, ptr %268, i64 16
   %280 = getelementptr inbounds nuw i8, ptr %268, i64 24
   %281 = load i64, ptr %280, align 8
@@ -11648,10 +11648,10 @@ _ZNSt3mapIiiSt4lessIiEN7glslang14pool_allocatorISt4pairIKiiEEEEixERS5_.exit: ; p
   %272 = getelementptr inbounds nuw i8, ptr %265, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %270, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %271, i8 0, i64 16, i1 false)
-  %273 = load i32, ptr %272, align 4
+  %273 = load i32, ptr %272, align 8
   %274 = and i32 %273, -2147483648
   %275 = or disjoint i32 %274, 520093696
-  store i32 %275, ptr %272, align 4
+  store i32 %275, ptr %272, align 8
   %276 = getelementptr inbounds nuw i8, ptr %265, i64 16
   %277 = getelementptr inbounds nuw i8, ptr %265, i64 24
   %278 = load i64, ptr %277, align 8
@@ -12309,7 +12309,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   store ptr %171, ptr %173, align 8
   %174 = getelementptr inbounds nuw i8, ptr %139, i64 272
   store i64 0, ptr %174, align 8
-  store i8 0, ptr %171, align 1
+  store i8 0, ptr %171, align 8
   %175 = getelementptr inbounds nuw i8, ptr %139, i64 296
   store i8 0, ptr %175, align 8
   %176 = getelementptr inbounds nuw i8, ptr %139, i64 304

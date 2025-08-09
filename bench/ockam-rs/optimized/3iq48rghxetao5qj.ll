@@ -4423,7 +4423,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h3f5b57ed9b74693aE(ptr noalia
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false), !noalias !614
   store i64 0, ptr %3, align 8, !noalias !614
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store i8 2, ptr %4, align 1, !noalias !614
+  store i8 2, ptr %4, align 8, !noalias !614
   tail call void @llvm.experimental.noalias.scope.decl(metadata !615)
   %5 = load i64, ptr %2, align 8, !range !103, !alias.scope !615, !noalias !614, !noundef !11
   %6 = icmp eq i64 %5, 0
@@ -4842,7 +4842,7 @@ __rust_try.llvm.16952266373119996706.exit:
   %1 = load ptr, ptr %0, align 8, !alias.scope !726, !noalias !727, !noundef !11
   store i64 0, ptr %1, align 8, !noalias !730
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i8 2, ptr %2, align 1, !noalias !730
+  store i8 2, ptr %2, align 8, !noalias !730
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
@@ -6918,7 +6918,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h56eedc7336283476E.llvm.16952
   %3 = load ptr, ptr %2, align 8, !alias.scope !1140, !noalias !1141, !noundef !11
   store i64 0, ptr %3, align 8, !noalias !1144
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i8 2, ptr %4, align 1, !noalias !1144
+  store i8 2, ptr %4, align 8, !noalias !1144
   ret void
 }
 
@@ -7781,7 +7781,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hfd737540606167e0E.llvm.16952
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false), !noalias !1500
   store i64 0, ptr %4, align 8, !noalias !1500
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store i8 2, ptr %5, align 1, !noalias !1500
+  store i8 2, ptr %5, align 8, !noalias !1500
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1501)
   %6 = load i64, ptr %2, align 8, !range !103, !alias.scope !1501, !noalias !1500, !noundef !11
   %7 = icmp eq i64 %6, 0

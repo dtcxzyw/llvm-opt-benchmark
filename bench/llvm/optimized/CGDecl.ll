@@ -10556,7 +10556,7 @@ switch.lookup:
   %18 = call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %16, i32 noundef 1, i64 noundef 72) #20
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen12EHScopeStack18ConditionalCleanupIN12_GLOBAL__N_113DestroyObjectEJNS0_7AddressENS_8QualTypeEPFvRNS0_15CodeGenFunctionES5_S6_EbEEE, i64 16), ptr %18, align 8, !tbaa !653
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i8 1, ptr %19, align 1, !tbaa !1487
+  store i8 1, ptr %19, align 8, !tbaa !1487
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i64 %17, ptr %20, align 8, !tbaa !1488
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 24
@@ -10607,7 +10607,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction11pushDestroyENS0_11Cle
   %22 = call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %20, i32 noundef %1, i64 noundef 72) #20
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen12EHScopeStack18ConditionalCleanupIN12_GLOBAL__N_113DestroyObjectEJNS0_7AddressENS_8QualTypeEPFvRNS0_15CodeGenFunctionES5_S6_EbEEE, i64 16), ptr %22, align 8, !tbaa !653
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store i8 %19, ptr %23, align 1, !tbaa !1487
+  store i8 %19, ptr %23, align 8, !tbaa !1487
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i64 %21, ptr %24, align 8, !tbaa !1488
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
@@ -10719,7 +10719,7 @@ _ZN5clang7CodeGen15CodeGenFunction12getDestroyerENS_8QualType15DestructionKindE.
   %42 = call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %40, i32 noundef %26, i64 noundef 72) #20
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen12EHScopeStack18ConditionalCleanupIN12_GLOBAL__N_113DestroyObjectEJNS0_7AddressENS_8QualTypeEPFvRNS0_15CodeGenFunctionES5_S6_EbEEE, i64 16), ptr %42, align 8, !tbaa !653
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store i8 %39, ptr %43, align 1, !tbaa !1487
+  store i8 %39, ptr %43, align 8, !tbaa !1487
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store i64 %41, ptr %44, align 8, !tbaa !1488
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 24
@@ -10848,7 +10848,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction31pushDestroyAndDeferDe
   %29 = call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %27, i32 noundef %1, i64 noundef 72) #20
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen12EHScopeStack18ConditionalCleanupIN12_GLOBAL__N_113DestroyObjectEJNS0_7AddressENS_8QualTypeEPFvRNS0_15CodeGenFunctionES5_S6_EbEEE, i64 16), ptr %29, align 8, !tbaa !653
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store i8 %26, ptr %30, align 1, !tbaa !1487
+  store i8 %26, ptr %30, align 8, !tbaa !1487
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i64 %28, ptr %31, align 8, !tbaa !1488
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -11063,7 +11063,7 @@ _ZN5clang7CodeGen15CodeGenFunction38pushCleanupAfterFullExprWithActiveFlagIN12_G
   %60 = zext i1 %5 to i8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen12EHScopeStack18ConditionalCleanupIN12_GLOBAL__N_113DestroyObjectEJNS0_7AddressENS_8QualTypeEPFvRNS0_15CodeGenFunctionES5_S6_EbEEE, i64 16), ptr %59, align 8, !tbaa !653
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  store i8 %60, ptr %61, align 1, !tbaa !1498
+  store i8 %60, ptr %61, align 8, !tbaa !1498
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 16
   store ptr %4, ptr %62, align 8, !tbaa !1500
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 24
@@ -11299,7 +11299,7 @@ _ZN4llvm15SmallVectorImplIcE6resizeEm.exit.i51:   ; preds = %_ZN5clang7CodeGen14
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen12EHScopeStack18ConditionalCleanupIN12_GLOBAL__N_113DestroyObjectEJNS0_7AddressENS_8QualTypeEPFvRNS0_15CodeGenFunctionES5_S6_EbEEE, i64 16), ptr %157, align 8, !tbaa !653
   %158 = getelementptr inbounds nuw i8, ptr %156, i64 16
-  store i8 %60, ptr %158, align 1, !tbaa !1498
+  store i8 %60, ptr %158, align 8, !tbaa !1498
   %159 = getelementptr inbounds nuw i8, ptr %156, i64 24
   store ptr %4, ptr %159, align 8, !tbaa !1500
   %160 = getelementptr inbounds nuw i8, ptr %156, i64 32
@@ -12767,7 +12767,7 @@ _ZNK5clang4Decl7hasAttrINS_23ObjCPreciseLifetimeAttrEEEbv.exit.thread17.i: ; pre
   %404 = call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %402, i32 noundef %388, i64 noundef 72) #20
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen12EHScopeStack18ConditionalCleanupIN12_GLOBAL__N_113DestroyObjectEJNS0_7AddressENS_8QualTypeEPFvRNS0_15CodeGenFunctionES5_S6_EbEEE, i64 16), ptr %404, align 8, !tbaa !653
   %405 = getelementptr inbounds nuw i8, ptr %404, i64 8
-  store i8 %401, ptr %405, align 1, !tbaa !1487
+  store i8 %401, ptr %405, align 8, !tbaa !1487
   %406 = getelementptr inbounds nuw i8, ptr %404, i64 16
   store i64 %403, ptr %406, align 8, !tbaa !1488
   %407 = getelementptr inbounds nuw i8, ptr %404, i64 24
@@ -12800,7 +12800,7 @@ _ZNK5clang4Decl7hasAttrINS_23ObjCPreciseLifetimeAttrEEEbv.exit.thread17.i: ; pre
   %418 = call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %417, i32 noundef 3, i64 noundef 72) #20
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen12EHScopeStack18ConditionalCleanupIN12_GLOBAL__N_113DestroyObjectEJNS0_7AddressENS_8QualTypeEPFvRNS0_15CodeGenFunctionES5_S6_EbEEE, i64 16), ptr %418, align 8, !tbaa !653
   %419 = getelementptr inbounds nuw i8, ptr %418, i64 8
-  store i8 1, ptr %419, align 1, !tbaa !1487
+  store i8 1, ptr %419, align 8, !tbaa !1487
   %420 = getelementptr inbounds nuw i8, ptr %418, i64 16
   store i64 ptrtoint (ptr @_ZN5clang7CodeGen15CodeGenFunction14destroyARCWeakERS1_NS0_7AddressENS_8QualTypeE to i64), ptr %420, align 8, !tbaa !1488
   %421 = getelementptr inbounds nuw i8, ptr %418, i64 24

@@ -175,7 +175,7 @@ lj_snap_grow_map.exit.i:                          ; preds = %59, %44
   %62 = zext i32 %.0 to i64
   %63 = getelementptr inbounds nuw i32, ptr %61, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %65 = load i16, ptr %64, align 2, !tbaa !47
+  %65 = load i16, ptr %64, align 8, !tbaa !47
   %66 = zext i16 %65 to i32
   %.not62.i.i = icmp eq i32 %53, 0
   br i1 %.not62.i.i, label %snapshot_slots.exit.i, label %.lr.ph.i.i

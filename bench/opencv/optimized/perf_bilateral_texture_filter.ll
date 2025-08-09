@@ -6225,7 +6225,7 @@ _ZNK7testing8internal13ParamIteratorIiEdeEv.exit3: ; preds = %_ZNK7testing8inter
   store double %50, ptr %49, align 8, !tbaa !351
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %52 = load i32, ptr %11, align 4, !tbaa !182
-  store i32 %52, ptr %51, align 4, !tbaa !353
+  store i32 %52, ptr %51, align 8, !tbaa !353
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @_ZN7testing8internal9MutexBase4LockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
   %54 = load ptr, ptr %53, align 8, !tbaa !45
@@ -10644,7 +10644,7 @@ define internal void @_GLOBAL__sub_I_perf_bilateral_texture_filter.cpp() #23 sec
   %71 = getelementptr inbounds nuw i8, ptr %61, i64 40
   store i64 4, ptr %71, align 8, !tbaa !20
   %72 = getelementptr inbounds nuw i8, ptr %61, i64 52
-  store i8 0, ptr %72, align 1, !tbaa !22
+  store i8 0, ptr %72, align 4, !tbaa !22
   %73 = getelementptr inbounds nuw i8, ptr %61, i64 64
   store ptr %59, ptr %73, align 8, !tbaa !52
   %74 = getelementptr inbounds nuw i8, ptr %57, i64 80
@@ -11203,7 +11203,7 @@ _ZSt19__relocate_object_aIN7testing8internal25ParameterizedTestCaseInfoIN11openc
   store i64 %253, ptr %255, align 8, !tbaa !20, !alias.scope !434, !noalias !437
   store ptr %245, ptr %.092.i.i.i.i.i.i.i.i.i, align 8, !tbaa !17, !alias.scope !437, !noalias !434
   store i64 0, ptr %254, align 8, !tbaa !20, !alias.scope !437, !noalias !434
-  store i8 0, ptr %245, align 1, !tbaa !22, !alias.scope !437, !noalias !434
+  store i8 0, ptr %245, align 8, !tbaa !22, !alias.scope !437, !noalias !434
   %256 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i.i.i.i, i64 32
   %257 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %256, ptr noundef nonnull align 8 dereferenceable(28) %257, i64 28, i1 false), !alias.scope !439

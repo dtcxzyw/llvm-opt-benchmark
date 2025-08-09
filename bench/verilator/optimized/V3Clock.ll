@@ -1759,7 +1759,7 @@ _ZN6AstXorC2EP8FileLineP11AstNodeExprS3_.exit:    ; preds = %39, %43, %_ZN7AstNo
 .noexc35:                                         ; preds = %_ZN6AstXorC2EP8FileLineP11AstNodeExprS3_.exit
   store ptr getelementptr inbounds nuw inrange(-16, 296) (i8, ptr @_ZTV9AstNodeIf, i64 16), ptr %51, align 8, !tbaa !15
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 152
-  store i8 0, ptr %54, align 1, !tbaa !111
+  store i8 0, ptr %54, align 8, !tbaa !111
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(160) %51, ptr noundef %.128)
           to label %.noexc36 unwind label %71
 
@@ -3087,7 +3087,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12ClockVisitor12makeActiveIfEP10As
 .noexc:                                           ; preds = %10
   store ptr getelementptr inbounds nuw inrange(-16, 296) (i8, ptr @_ZTV9AstNodeIf, i64 16), ptr %11, align 8, !tbaa !15
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 152
-  store i8 0, ptr %14, align 1, !tbaa !111
+  store i8 0, ptr %14, align 8, !tbaa !111
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(160) %11, ptr noundef nonnull %5)
           to label %15 unwind label %20
 

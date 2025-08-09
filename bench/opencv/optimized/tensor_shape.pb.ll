@@ -1977,7 +1977,7 @@ define hidden void @_ZN17opencv_tensorflow16TensorShapeProto12InternalSwapEPS0_(
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !70, !noalias !71
   %13 = load i32, ptr %10, align 4, !tbaa !74, !noalias !71
-  %14 = load i32, ptr %9, align 4, !tbaa !74, !noalias !71
+  %14 = load i32, ptr %9, align 8, !tbaa !74, !noalias !71
   %15 = load ptr, ptr %8, align 8, !tbaa !75, !noalias !71
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -1987,7 +1987,7 @@ define hidden void @_ZN17opencv_tensorflow16TensorShapeProto12InternalSwapEPS0_(
   %21 = load i32, ptr %16, align 8, !tbaa !74, !noalias !76
   %22 = load ptr, ptr %7, align 8, !tbaa !75, !noalias !76
   store ptr %22, ptr %8, align 8, !tbaa !75
-  store i32 %21, ptr %9, align 4, !tbaa !74
+  store i32 %21, ptr %9, align 8, !tbaa !74
   store i32 %20, ptr %10, align 4, !tbaa !74
   store ptr %19, ptr %11, align 8, !tbaa !70
   store ptr %15, ptr %7, align 8, !tbaa !75
@@ -1997,9 +1997,9 @@ define hidden void @_ZN17opencv_tensorflow16TensorShapeProto12InternalSwapEPS0_(
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %25 = load i8, ptr %23, align 8, !tbaa !79, !range !64, !noundef !65
-  %26 = load i8, ptr %24, align 1, !tbaa !79, !range !64, !noundef !65
+  %26 = load i8, ptr %24, align 8, !tbaa !79, !range !64, !noundef !65
   store i8 %26, ptr %23, align 8, !tbaa !79
-  store i8 %25, ptr %24, align 1, !tbaa !79
+  store i8 %25, ptr %24, align 8, !tbaa !79
   ret void
 }
 
@@ -2031,7 +2031,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN17opencv_tensorflow20TensorSha
   %.sink = phi ptr [ %3, %_ZN6google8protobuf5Arena14InternalHelperIN17opencv_tensorflow20TensorShapeProto_DimEE3NewEv.exit ], [ %6, %5 ]
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow20TensorShapeProto_DimE, i64 16), ptr %.sink, align 8, !tbaa !8
   %9 = getelementptr inbounds nuw i8, ptr %.sink, i64 32
-  store i32 0, ptr %9, align 4, !tbaa !10
+  store i32 0, ptr %9, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %.sink, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %10, align 8, !tbaa !13
   %11 = getelementptr inbounds nuw i8, ptr %.sink, i64 24

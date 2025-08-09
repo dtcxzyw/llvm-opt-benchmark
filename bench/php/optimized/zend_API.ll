@@ -8925,7 +8925,7 @@ define dso_local range(i32 -1, 1) i32 @array_set_zval_key(ptr noundef %0, ptr no
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = load i64, ptr %10, align 8, !tbaa !96
-  %12 = load i8, ptr %9, align 1, !tbaa !42
+  %12 = load i8, ptr %9, align 8, !tbaa !42
   %13 = icmp sgt i8 %12, 57
   br i1 %13, label %_zend_handle_numeric_str.exit.thread, label %14, !prof !45
 
@@ -19349,7 +19349,7 @@ zend_string_alloc.exit:
   store ptr %9, ptr %5, align 8, !tbaa !42
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 262, ptr %15, align 8, !tbaa !42
-  store i32 0, ptr %9, align 4, !tbaa !43
+  store i32 0, ptr %9, align 8, !tbaa !43
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 520), align 8, !tbaa !123
   store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 520), align 8, !tbaa !123
   %17 = and i64 %3, -8
@@ -19416,7 +19416,7 @@ zend_string_alloc.exit:
   store ptr %9, ptr %6, align 8, !tbaa !42
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 262, ptr %15, align 8, !tbaa !42
-  store i32 0, ptr %9, align 4, !tbaa !43
+  store i32 0, ptr %9, align 8, !tbaa !43
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 520), align 8, !tbaa !123
   store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 520), align 8, !tbaa !123
   %17 = and i64 %3, -8
@@ -19771,7 +19771,7 @@ zend_string_alloc.exit:
   store ptr %8, ptr %4, align 8, !tbaa !42
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 262, ptr %14, align 8, !tbaa !42
-  store i32 0, ptr %8, align 4, !tbaa !43
+  store i32 0, ptr %8, align 8, !tbaa !43
   %15 = and i64 %2, -8
   %16 = add i64 %15, 32
   %17 = tail call noalias ptr @_emalloc(i64 noundef %16) #37
@@ -19813,7 +19813,7 @@ zend_string_alloc.exit:
   store ptr %8, ptr %5, align 8, !tbaa !42
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 262, ptr %14, align 8, !tbaa !42
-  store i32 0, ptr %8, align 4, !tbaa !43
+  store i32 0, ptr %8, align 8, !tbaa !43
   %15 = and i64 %2, -8
   %16 = add i64 %15, 32
   %17 = tail call noalias ptr @_emalloc(i64 noundef %16) #37

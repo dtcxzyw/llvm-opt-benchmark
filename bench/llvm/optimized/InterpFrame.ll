@@ -237,7 +237,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %40
   %70 = getelementptr inbounds i8, ptr %63, i64 -32
   store ptr null, ptr %70, align 8, !tbaa !141
   %71 = getelementptr inbounds i8, ptr %63, i64 -24
-  store i32 -1, ptr %71, align 4, !tbaa !142
+  store i32 -1, ptr %71, align 8, !tbaa !142
   %72 = getelementptr inbounds i8, ptr %63, i64 -20
   store i8 1, ptr %72, align 4, !tbaa !143
   %73 = getelementptr inbounds i8, ptr %63, i64 -16
@@ -2150,7 +2150,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjSt10unique_ptrIA_cSt14default_deleteIS3_EEN
   %51 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr null, ptr %51, align 8, !tbaa !141
   %52 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  store i32 -1, ptr %52, align 4, !tbaa !142
+  store i32 -1, ptr %52, align 8, !tbaa !142
   %53 = getelementptr inbounds nuw i8, ptr %44, i64 20
   store i8 1, ptr %53, align 4, !tbaa !143
   %54 = getelementptr inbounds nuw i8, ptr %44, i64 24

@@ -217,7 +217,7 @@ define internal fastcc range(i32 -12, 1) i32 @mov_cenc_start_packet(ptr noundef 
 34:                                               ; preds = %31
   store i64 %..i.i17, ptr %7, align 8, !tbaa !20
   %.pre.i19 = load i64, ptr %4, align 8, !tbaa !19
-  %.pre = load i16, ptr %27, align 1
+  %.pre = load i16, ptr %27, align 8
   br label %35
 
 35:                                               ; preds = %34, %25

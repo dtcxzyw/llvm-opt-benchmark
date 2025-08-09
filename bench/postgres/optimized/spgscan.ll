@@ -1742,7 +1742,7 @@ define internal fastcc zeroext range(i16 0, 16384) i16 @spgTestLeafTuple(ptr nou
   %60 = load i8, ptr %59, align 2, !range !9, !noundef !10
   %61 = trunc nuw i8 %60 to i1
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %63 = load i16, ptr %62, align 4
+  %63 = load i16, ptr %62, align 8
   br i1 %61, label %64, label %80
 
 64:                                               ; preds = %31

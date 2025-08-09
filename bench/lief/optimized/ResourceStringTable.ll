@@ -2498,7 +2498,7 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEC2EOS4_.exit.i.i.i.i.i.i
   store i64 %65, ptr %67, align 8, !tbaa !26, !alias.scope !95, !noalias !98
   store ptr %56, ptr %.0911.i.i.i, align 8, !tbaa !33, !alias.scope !98, !noalias !95
   store i64 0, ptr %66, align 8, !tbaa !26, !alias.scope !98, !noalias !95
-  store i16 0, ptr %56, align 2, !tbaa !28, !alias.scope !98, !noalias !95
+  store i16 0, ptr %56, align 8, !tbaa !28, !alias.scope !98, !noalias !95
   %68 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %69 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %70 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 48
@@ -2533,7 +2533,7 @@ _ZSt19__relocate_object_aIN4LIEF2PE19ResourceStringTable7entry_tES3_SaIS3_EEvPT_
   store i64 %81, ptr %83, align 8, !tbaa !26, !alias.scope !95, !noalias !98
   store ptr %72, ptr %69, align 8, !tbaa !33, !alias.scope !98, !noalias !95
   store i64 0, ptr %82, align 8, !tbaa !26, !alias.scope !98, !noalias !95
-  store i16 0, ptr %72, align 2, !tbaa !28, !alias.scope !98, !noalias !95
+  store i16 0, ptr %72, align 8, !tbaa !28, !alias.scope !98, !noalias !95
   %84 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 64
   %85 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 64
   %.not.i.i.i = icmp eq ptr %84, %1
@@ -2582,7 +2582,7 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEC2EOS4_.exit.i.i.i.i.i.i
   store i64 %98, ptr %100, align 8, !tbaa !26, !alias.scope !102, !noalias !105
   store ptr %89, ptr %.0911.i.i.i19, align 8, !tbaa !33, !alias.scope !105, !noalias !102
   store i64 0, ptr %99, align 8, !tbaa !26, !alias.scope !105, !noalias !102
-  store i16 0, ptr %89, align 2, !tbaa !28, !alias.scope !105, !noalias !102
+  store i16 0, ptr %89, align 8, !tbaa !28, !alias.scope !105, !noalias !102
   %101 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %102 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %103 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 48
@@ -2617,7 +2617,7 @@ _ZSt19__relocate_object_aIN4LIEF2PE19ResourceStringTable7entry_tES3_SaIS3_EEvPT_
   store i64 %114, ptr %116, align 8, !tbaa !26, !alias.scope !102, !noalias !105
   store ptr %105, ptr %102, align 8, !tbaa !33, !alias.scope !105, !noalias !102
   store i64 0, ptr %115, align 8, !tbaa !26, !alias.scope !105, !noalias !102
-  store i16 0, ptr %105, align 2, !tbaa !28, !alias.scope !105, !noalias !102
+  store i16 0, ptr %105, align 8, !tbaa !28, !alias.scope !105, !noalias !102
   %117 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 64
   %118 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 64
   %.not.i.i.i28 = icmp eq ptr %117, %5

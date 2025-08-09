@@ -113,9 +113,9 @@ define range(i32 -12, 1) i32 @ff_append_inpad(ptr noundef captures(none) %0, ptr
   %22 = load ptr, ptr %5, align 8, !tbaa !11
   %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %20
   store ptr null, ptr %23, align 8, !tbaa !17
-  %24 = load i32, ptr %3, align 4, !tbaa !4
+  %24 = load i32, ptr %3, align 8, !tbaa !4
   %25 = add i32 %24, 1
-  store i32 %25, ptr %3, align 4, !tbaa !4
+  store i32 %25, ptr %3, align 8, !tbaa !4
   br label %append_pad.exit
 
 append_pad.exit:                                  ; preds = %.thread.i, %18, %19
@@ -173,9 +173,9 @@ define range(i32 -12, 1) i32 @ff_append_inpad_free_name(ptr noundef captures(non
   %24 = load ptr, ptr %8, align 8, !tbaa !11
   %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %22
   store ptr null, ptr %25, align 8, !tbaa !17
-  %26 = load i32, ptr %6, align 4, !tbaa !4
+  %26 = load i32, ptr %6, align 8, !tbaa !4
   %27 = add i32 %26, 1
-  store i32 %27, ptr %6, align 4, !tbaa !4
+  store i32 %27, ptr %6, align 8, !tbaa !4
   br label %ff_append_inpad.exit
 
 ff_append_inpad.exit:                             ; preds = %.thread.i.i, %20, %21
@@ -230,9 +230,9 @@ define range(i32 -12, 1) i32 @ff_append_outpad(ptr noundef captures(none) %0, pt
   %22 = load ptr, ptr %5, align 8, !tbaa !11
   %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %20
   store ptr null, ptr %23, align 8, !tbaa !17
-  %24 = load i32, ptr %3, align 4, !tbaa !4
+  %24 = load i32, ptr %3, align 8, !tbaa !4
   %25 = add i32 %24, 1
-  store i32 %25, ptr %3, align 4, !tbaa !4
+  store i32 %25, ptr %3, align 8, !tbaa !4
   br label %append_pad.exit
 
 append_pad.exit:                                  ; preds = %.thread.i, %18, %19
@@ -290,9 +290,9 @@ define range(i32 -12, 1) i32 @ff_append_outpad_free_name(ptr noundef captures(no
   %24 = load ptr, ptr %8, align 8, !tbaa !11
   %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %22
   store ptr null, ptr %25, align 8, !tbaa !17
-  %26 = load i32, ptr %6, align 4, !tbaa !4
+  %26 = load i32, ptr %6, align 8, !tbaa !4
   %27 = add i32 %26, 1
-  store i32 %27, ptr %6, align 4, !tbaa !4
+  store i32 %27, ptr %6, align 8, !tbaa !4
   br label %ff_append_outpad.exit
 
 ff_append_outpad.exit:                            ; preds = %.thread.i.i, %20, %21

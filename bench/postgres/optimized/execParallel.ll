@@ -1703,7 +1703,7 @@ define internal zeroext i1 @ExecParallelRetrieveInstrumentation(ptr noundef %0, 
   %48 = load ptr, ptr %46, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %49, ptr nonnull align 8 %28, i64 %43, i1 false)
-  %50 = load i32, ptr %0, align 4
+  %50 = load i32, ptr %0, align 8
   switch i32 %50, label %57 [
     i32 425, label %51
     i32 426, label %52

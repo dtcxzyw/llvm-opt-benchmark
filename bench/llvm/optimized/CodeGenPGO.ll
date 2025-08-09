@@ -3215,7 +3215,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS2_7CodeGen11CounterPairENS_
   %57 = load ptr, ptr %1, align 8, !tbaa !829
   store ptr %57, ptr %48, align 8, !tbaa !829
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !967
+  store i32 0, ptr %58, align 8, !tbaa !967
   %59 = getelementptr inbounds nuw i8, ptr %48, i64 12
   store i32 -2147483648, ptr %59, align 4, !tbaa !967
   br label %.loopexit
@@ -10504,7 +10504,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS2_7CodeGen11CounterPairENS_
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i64, ptr %67, align 4
-  store i64 %68, ptr %66, align 4
+  store i64 %68, ptr %66, align 8
   %69 = load i32, ptr %32, align 8, !tbaa !996
   %70 = add i32 %69, 1
   store i32 %70, ptr %32, align 8, !tbaa !996
@@ -23674,10 +23674,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
   %129 = load ptr, ptr %40, align 8, !tbaa !1647
   %130 = call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %67) #25
   call void @_ZN5clang17DiagnosticBuilderC1EPNS_17DiagnosticsEngineENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(66) %9, ptr noundef nonnull align 8 dereferenceable(15248) %129, i32 %130, i32 noundef %128) #22
-  %131 = load i32, ptr %38, align 4, !tbaa !776
+  %131 = load i32, ptr %38, align 8, !tbaa !776
   %132 = zext i32 %131 to i64
   call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(66) %9, i64 noundef %132, i32 noundef 3)
-  %133 = load i32, ptr %35, align 4, !tbaa !776
+  %133 = load i32, ptr %35, align 8, !tbaa !776
   %134 = zext i32 %133 to i64
   call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(66) %9, i64 noundef %134, i32 noundef 3)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(66) %9) #22
@@ -29037,7 +29037,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEm
   store ptr %14, ptr %.ptr.i.i.i, align 8, !tbaa !816
   %15 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %15, align 8, !tbaa !428
-  store i8 0, ptr %14, align 1, !tbaa !430
+  store i8 0, ptr %14, align 8, !tbaa !430
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %16 = icmp eq i64 %.add.i.i.i, 416
   br i1 %16, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %13
@@ -54014,7 +54014,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS2_7CodeGen11CounterPairENS_
   %57 = load ptr, ptr %1, align 8, !tbaa !829
   store ptr %57, ptr %48, align 8, !tbaa !829
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !967
+  store i32 0, ptr %58, align 8, !tbaa !967
   %59 = getelementptr inbounds nuw i8, ptr %48, i64 12
   store i32 -2147483648, ptr %59, align 4, !tbaa !967
   br label %.loopexit

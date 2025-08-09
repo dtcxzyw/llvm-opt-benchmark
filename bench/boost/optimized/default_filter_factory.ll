@@ -16116,7 +16116,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix14filter_factoryIcE14
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr @_ZN5boost3log11v2_mt_posix3aux14light_functionIFbRKNS1_19attribute_value_setEEE4implINS_7phoenix5actorINS1_11expressions3aux23unary_function_terminalINSC_13has_attributeIvEEEEEEE12destroy_implEPv, ptr %7, align 8, !tbaa !31
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i32 %4, ptr %8, align 4, !tbaa !26
+  store i32 %4, ptr %8, align 8, !tbaa !26
   store ptr %5, ptr %0, align 8, !tbaa !32
   ret void
 }
@@ -16142,7 +16142,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix14filter_factoryIwE14
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr @_ZN5boost3log11v2_mt_posix3aux14light_functionIFbRKNS1_19attribute_value_setEEE4implINS_7phoenix5actorINS1_11expressions3aux23unary_function_terminalINSC_13has_attributeIvEEEEEEE12destroy_implEPv, ptr %7, align 8, !tbaa !31
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i32 %4, ptr %8, align 4, !tbaa !26
+  store i32 %4, ptr %8, align 8, !tbaa !26
   store ptr %5, ptr %0, align 8, !tbaa !32
   ret void
 }
@@ -37592,7 +37592,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux14light_fu
   store ptr @_ZN5boost3log11v2_mt_posix3aux14light_functionIFbRKNS1_19attribute_value_setEEE4implINS_7phoenix5actorINS1_11expressions3aux23unary_function_terminalINSC_13has_attributeIvEEEEEEE12destroy_implEPv, ptr %5, align 8, !tbaa !31
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = load i32, ptr %3, align 4, !tbaa !26
-  store i32 %7, ptr %6, align 4, !tbaa !26
+  store i32 %7, ptr %6, align 8, !tbaa !26
   ret ptr %2
 }
 

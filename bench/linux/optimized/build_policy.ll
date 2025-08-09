@@ -6048,7 +6048,7 @@ define dso_local void @thread_group_cputime(ptr noundef readonly captures(none) 
   %54 = load i64, ptr %53, align 8
   %55 = add i64 %43, %54
   store i64 %55, ptr %19, align 8
-  %56 = load volatile ptr, ptr %46, align 8
+  %56 = load volatile ptr, ptr %46, align 16
   %57 = load ptr, ptr %3, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = icmp eq ptr %56, %58
@@ -6385,7 +6385,7 @@ define dso_local void @task_cputime_adjusted(ptr noundef %0, ptr noundef writeon
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1576
   %12 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %11) #29
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1568
-  %14 = load i64, ptr %13, align 8
+  %14 = load i64, ptr %13, align 32
   %15 = load i64, ptr %10, align 8
   %16 = add i64 %15, %14
   %17 = icmp ult i64 %16, %5
@@ -8381,7 +8381,7 @@ define internal void @set_next_task_dl(ptr noundef %0, ptr noundef initializes((
   %6 = load i64, ptr %5, align 64
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 208
   store i64 %6, ptr %7, align 16
-  %8 = load i64, ptr %4, align 8
+  %8 = load i64, ptr %4, align 16
   %9 = ptrtoint ptr %4 to i64
   %10 = icmp eq i64 %8, %9
   br i1 %10, label %20, label %11
@@ -9094,7 +9094,7 @@ define internal void @rq_online_dl(ptr noundef readonly captures(none) %0) #1 al
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 88
   %31 = load i32, ptr %20, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 2224
-  %33 = load i64, ptr %32, align 8
+  %33 = load i64, ptr %32, align 16
   tail call void @cpudl_set(ptr noundef nonnull %30, i32 noundef %31, i64 noundef %33)
   br label %34
 

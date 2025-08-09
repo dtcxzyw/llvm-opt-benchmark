@@ -19244,9 +19244,9 @@ accept2.exit2261.backedge:                        ; preds = %accept2.exit2261, %
   %396 = load ptr, ptr %395, align 8, !tbaa !244
   call void @free(ptr noundef %394) #31
   store ptr %396, ptr %279, align 8, !tbaa !240
-  %397 = load i32, ptr %270, align 4, !tbaa !7
+  %397 = load i32, ptr %270, align 8, !tbaa !7
   %398 = lshr i32 %397, 1
-  store i32 %398, ptr %270, align 4, !tbaa !7
+  store i32 %398, ptr %270, align 8, !tbaa !7
   call fastcc void @expect1(ptr noundef nonnull %0, i32 noundef 125, i32 noundef 105)
   %399 = load ptr, ptr %354, align 8, !tbaa !99
   %400 = load i64, ptr %351, align 8, !tbaa !102
@@ -19333,9 +19333,9 @@ context_p.exit:                                   ; preds = %.lr.ph.i, %327, %32
   %441 = load ptr, ptr %440, align 8, !tbaa !300
   store ptr null, ptr %440, align 8, !tbaa !300
   %442 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %443 = load i32, ptr %442, align 4, !tbaa !7
+  %443 = load i32, ptr %442, align 8, !tbaa !7
   %444 = shl i32 %443, 1
-  store i32 %444, ptr %442, align 4, !tbaa !7
+  store i32 %444, ptr %442, align 8, !tbaa !7
   tail call fastcc void @parser_lex(ptr noundef nonnull %0)
   %445 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %446 = tail call fastcc ptr @pm_hash_node_create(ptr noundef nonnull %0, ptr noundef nonnull %445)
@@ -25231,9 +25231,9 @@ accept1.exit2710:                                 ; preds = %2590
   store i32 %2616, ptr %2613, align 4, !tbaa !201
   %2617 = tail call fastcc i64 @token_newline_index(ptr noundef nonnull %0)
   %2618 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %2619 = load i32, ptr %2618, align 4, !tbaa !7
+  %2619 = load i32, ptr %2618, align 8, !tbaa !7
   %2620 = shl i32 %2619, 1
-  store i32 %2620, ptr %2618, align 4, !tbaa !7
+  store i32 %2620, ptr %2618, align 8, !tbaa !7
   tail call fastcc void @parser_lex(ptr noundef nonnull %0)
   call void @llvm.lifetime.start.p0(ptr nonnull %108)
   %2621 = getelementptr inbounds nuw i8, ptr %0, i64 320
@@ -25316,9 +25316,9 @@ accept1.exit2712:                                 ; preds = %2630, %2632
   store ptr %.val2097, ptr %2644, align 8, !tbaa !126, !alias.scope !418
   %2645 = add i16 %5, 1
   %2646 = call fastcc ptr @parse_block_parameters(ptr noundef nonnull %0, i1 noundef zeroext false, ptr noundef %110, i1 noundef zeroext true, i1 noundef zeroext false, i16 noundef zeroext %2645)
-  %2647 = load i32, ptr %2618, align 4, !tbaa !7
+  %2647 = load i32, ptr %2618, align 8, !tbaa !7
   %2648 = lshr i32 %2647, 1
-  store i32 %2648, ptr %2618, align 4, !tbaa !7
+  store i32 %2648, ptr %2618, align 8, !tbaa !7
   call void @llvm.lifetime.end.p0(ptr nonnull %110)
   br label %thread-pre-split3058
 
@@ -40484,13 +40484,13 @@ parse_predicate.exit107:                          ; preds = %accept2.exit151, %.
   %113 = load ptr, ptr %112, align 8, !tbaa !244
   call void @free(ptr noundef %111) #31
   store ptr %113, ptr %42, align 8, !tbaa !240
-  %114 = load i32, ptr %79, align 4, !tbaa !7
+  %114 = load i32, ptr %79, align 8, !tbaa !7
   %115 = shl i32 %114, 1
-  store i32 %115, ptr %79, align 4, !tbaa !7
+  store i32 %115, ptr %79, align 8, !tbaa !7
   %116 = call fastcc ptr @parse_statements(ptr noundef nonnull %0, i32 noundef 24, i16 noundef zeroext %19)
-  %117 = load i32, ptr %79, align 4, !tbaa !7
+  %117 = load i32, ptr %79, align 8, !tbaa !7
   %118 = lshr i32 %117, 1
-  store i32 %118, ptr %79, align 4, !tbaa !7
+  store i32 %118, ptr %79, align 8, !tbaa !7
   %.val.i108 = load i32, ptr %34, align 8, !tbaa !171
   switch i32 %.val.i108, label %accept2.exit110 [
     i32 142, label %119

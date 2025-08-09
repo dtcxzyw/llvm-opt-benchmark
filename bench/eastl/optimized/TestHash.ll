@@ -53995,7 +53995,7 @@ for.body:                                         ; preds = %if.end, %_ZN5eastl1
   %conv.i.i.i3 = sext i32 %16 to i64
   %call3.i = tail call { ptr, ptr } @_ZN5eastl9hashtableI7Align32S1_NS_9allocatorENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE18DoInsertValueExtraINS_17integral_constantIbLb0EEEEENS_18hashtable_iteratorIS1_Lb1ELb0EEET_RKS1_mPNS_9hash_nodeIS1_Lb0EEESK_PNS_9enable_ifIXntsrSI_5valueEvE4typeE(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 32 dereferenceable(4) %first.sroa.0.09, i64 noundef %conv.i.i.i3, ptr noundef null, ptr noundef nonnull align 32 dereferenceable(4) %first.sroa.0.09, ptr noundef null)
   %mpNext.i.i = getelementptr inbounds nuw i8, ptr %first.sroa.0.09, i64 32
-  %storemerge1.i.i = load ptr, ptr %mpNext.i.i, align 8
+  %storemerge1.i.i = load ptr, ptr %mpNext.i.i, align 32
   %cmp2.i.i = icmp eq ptr %storemerge1.i.i, null
   br i1 %cmp2.i.i, label %while.body.i.i, label %_ZN5eastl18hashtable_iteratorI7Align32Lb1ELb0EEppEv.exit
 
@@ -55003,7 +55003,7 @@ for.body:                                         ; preds = %if.end, %_ZN5eastl1
   %conv.i.i.i3 = sext i32 %16 to i64
   call void @_ZN5eastl9hashtableI7Align32NS_4pairIKS1_S1_EENS_9allocatorENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE18DoInsertValueExtraINS_17integral_constantIbLb0EEEEENS_18hashtable_iteratorIS4_Lb0ELb0EEET_RS3_mPNS_9hash_nodeIS4_Lb0EEERKS4_PNS_9enable_ifIXntsrSL_5valueEvE4typeE(ptr nonnull sret(%"struct.eastl::hashtable_iterator.57") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 32 dereferenceable(64) %first.sroa.0.09, i64 noundef %conv.i.i.i3, ptr noundef null, ptr noundef nonnull align 32 dereferenceable(64) %first.sroa.0.09, ptr noundef null)
   %mpNext.i.i = getelementptr inbounds nuw i8, ptr %first.sroa.0.09, i64 64
-  %storemerge1.i.i = load ptr, ptr %mpNext.i.i, align 8
+  %storemerge1.i.i = load ptr, ptr %mpNext.i.i, align 32
   %cmp2.i.i = icmp eq ptr %storemerge1.i.i, null
   br i1 %cmp2.i.i, label %while.body.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIK7Align32S2_EELb1ELb0EEppEv.exit
 
@@ -56671,7 +56671,7 @@ entry:
   store i64 %inc5.i.i.i, ptr %mId.i.i.i, align 8
   %mpNext.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store ptr null, ptr %mpNext.i, align 8
-  %7 = load i32, ptr %call.i.i.i, align 4
+  %7 = load i32, ptr %call.i.i.i, align 8
   %conv.i.i = sext i32 %7 to i64
   %mnBucketCount = getelementptr inbounds nuw i8, ptr %this, i64 16
   %8 = load i64, ptr %mnBucketCount, align 8
@@ -56761,7 +56761,7 @@ entry:
   store i64 %inc5.i.i.i, ptr %mId.i.i.i, align 8
   %mpNext.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store ptr null, ptr %mpNext.i, align 8
-  %7 = load i32, ptr %call.i.i.i, align 4
+  %7 = load i32, ptr %call.i.i.i, align 8
   %conv.i.i = sext i32 %7 to i64
   %mnBucketCount = getelementptr inbounds nuw i8, ptr %this, i64 16
   %8 = load i64, ptr %mnBucketCount, align 8
@@ -56852,7 +56852,7 @@ entry:
   store i32 0, ptr %args1, align 8
   %mpNext.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store ptr null, ptr %mpNext.i, align 8
-  %7 = load i32, ptr %call.i.i.i, align 4
+  %7 = load i32, ptr %call.i.i.i, align 8
   %conv.i.i = sext i32 %7 to i64
   %mnBucketCount = getelementptr inbounds nuw i8, ptr %this, i64 16
   %8 = load i64, ptr %mnBucketCount, align 8
@@ -56946,7 +56946,7 @@ entry:
   store i64 %inc4.i.i.i.i, ptr %mId.i.i.i.i, align 8
   %mpNext.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store ptr null, ptr %mpNext.i, align 8
-  %7 = load i32, ptr %call.i.i.i, align 4
+  %7 = load i32, ptr %call.i.i.i, align 8
   %conv.i.i = sext i32 %7 to i64
   %mnBucketCount = getelementptr inbounds nuw i8, ptr %this, i64 16
   %8 = load i64, ptr %mnBucketCount, align 8
@@ -57842,7 +57842,7 @@ if.end:                                           ; preds = %_ZN5eastl9hashtable
   store i64 %inc5.i.i.i, ptr %mId.i.i.i, align 8
   %mpNext.i18 = getelementptr inbounds nuw i8, ptr %call.i.i.i17, i64 32
   store ptr null, ptr %mpNext.i18, align 8
-  %22 = load i32, ptr %call.i.i.i17, align 4
+  %22 = load i32, ptr %call.i.i.i17, align 8
   %conv.i.i = sext i32 %22 to i64
   %23 = load i64, ptr %mnBucketCount, align 8
   %conv.i.i19 = and i64 %23, 4294967295
@@ -58004,7 +58004,7 @@ if.end:                                           ; preds = %_ZN5eastl9hashtable
   store i64 %inc5.i.i.i, ptr %mId.i.i.i, align 8
   %mpNext.i18 = getelementptr inbounds nuw i8, ptr %call.i.i.i17, i64 32
   store ptr null, ptr %mpNext.i18, align 8
-  %22 = load i32, ptr %call.i.i.i17, align 4
+  %22 = load i32, ptr %call.i.i.i17, align 8
   %conv.i.i = sext i32 %22 to i64
   %23 = load i64, ptr %mnBucketCount, align 8
   %conv.i.i19 = and i64 %23, 4294967295
@@ -58167,7 +58167,7 @@ if.end:                                           ; preds = %_ZN5eastl9hashtable
   store i32 0, ptr %args1, align 8
   %mpNext.i18 = getelementptr inbounds nuw i8, ptr %call.i.i.i17, i64 32
   store ptr null, ptr %mpNext.i18, align 8
-  %22 = load i32, ptr %call.i.i.i17, align 4
+  %22 = load i32, ptr %call.i.i.i17, align 8
   %conv.i.i = sext i32 %22 to i64
   %23 = load i64, ptr %mnBucketCount, align 8
   %conv.i.i19 = and i64 %23, 4294967295
@@ -58330,7 +58330,7 @@ if.end:                                           ; preds = %_ZN5eastl9hashtable
   store i64 %inc4.i.i.i.i, ptr %mId.i.i.i.i, align 8
   %mpNext.i18 = getelementptr inbounds nuw i8, ptr %call.i.i.i17, i64 32
   store ptr null, ptr %mpNext.i18, align 8
-  %22 = load i32, ptr %call.i.i.i17, align 4
+  %22 = load i32, ptr %call.i.i.i17, align 8
   %conv.i.i = sext i32 %22 to i64
   %23 = load i64, ptr %mnBucketCount, align 8
   %conv.i.i19 = and i64 %23, 4294967295
@@ -59453,11 +59453,11 @@ if.then.i:                                        ; preds = %if.else
   store i32 %25, ptr %mMagicValue3.i, align 8
   %mbThrowOnCopy.i = getelementptr inbounds nuw i8, ptr %pNode.addr.05.i.i, i64 12
   %mbThrowOnCopy4.i = getelementptr inbounds nuw i8, ptr %obj, i64 4
-  %27 = load i8, ptr %mbThrowOnCopy.i, align 1
+  %27 = load i8, ptr %mbThrowOnCopy.i, align 4
   %frombool.i.i = and i8 %27, 1
   %28 = load i8, ptr %mbThrowOnCopy4.i, align 4
   %frombool3.i.i = and i8 %28, 1
-  store i8 %frombool3.i.i, ptr %mbThrowOnCopy.i, align 1
+  store i8 %frombool3.i.i, ptr %mbThrowOnCopy.i, align 4
   store i8 %frombool.i.i, ptr %mbThrowOnCopy4.i, align 4
   br label %_ZN10TestObjectaSEOS_.exit
 
@@ -63058,7 +63058,7 @@ entry:
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   %second.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   %second3.i.i = getelementptr inbounds nuw i8, ptr %args, i64 32
-  store i8 0, ptr %second.i.i, align 1
+  store i8 0, ptr %second.i.i, align 8
   %mRemainingSizeField.i.i.i.i.i.i3.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 55
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i3.i.i, align 1
   %mSecond.i.i.i4.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 56
@@ -63347,7 +63347,7 @@ entry:
   %mRemainingSizeField.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %args, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   %second.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
-  store i8 0, ptr %second.i.i, align 1
+  store i8 0, ptr %second.i.i, align 8
   %mRemainingSizeField.i.i.i.i.i.i2.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 55
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i2.i.i, align 1
   %mSecond.i.i.i3.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 56
@@ -63520,7 +63520,7 @@ entry:
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   %second.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %second3.i.i = getelementptr inbounds nuw i8, ptr %args, i64 32
-  store i8 0, ptr %second.i.i, align 1
+  store i8 0, ptr %second.i.i, align 8
   %mRemainingSizeField.i.i.i.i.i.i3.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 87
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i3.i.i, align 1
   %mSecond.i.i.i4.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 88
@@ -63744,7 +63744,7 @@ entry:
   %mRemainingSizeField.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %args, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   %second.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
-  store i8 0, ptr %second.i.i, align 1
+  store i8 0, ptr %second.i.i, align 8
   %mRemainingSizeField.i.i.i.i.i.i2.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 87
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i2.i.i, align 1
   %mSecond.i.i.i3.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 88

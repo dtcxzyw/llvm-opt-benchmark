@@ -10509,7 +10509,7 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   %storemerge.i.i.i.i = or i16 %258, 4096
   store i16 %storemerge.i.i.i.i, ptr %257, align 2, !tbaa !759
   %259 = getelementptr inbounds nuw i8, ptr %256, i64 1014
-  store i8 1, ptr %259, align 1, !tbaa !760
+  store i8 1, ptr %259, align 2, !tbaa !760
   %260 = load ptr, ptr %256, align 8, !tbaa !355
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 1856
   %262 = load i64, ptr %261, align 8, !tbaa !19
@@ -10890,7 +10890,7 @@ define internal fastcc void @_ZL24cancel_unstarted_streamsP21grpc_chttp2_transpo
   %storemerge.i.i.i.i = or i16 %8, 4096
   store i16 %storemerge.i.i.i.i, ptr %7, align 2, !tbaa !759
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1014
-  store i8 0, ptr %9, align 1, !tbaa !760
+  store i8 0, ptr %9, align 2, !tbaa !760
   %10 = load i64, ptr %1, align 8, !tbaa !19
   store i64 %10, ptr %4, align 8, !tbaa !19
   %11 = and i64 %10, 1
@@ -14491,7 +14491,7 @@ _ZL17trace_annotationsP18grpc_chttp2_stream.exit.i: ; preds = %370, %313, %_ZN9g
   %storemerge.i.i.i.i.i = or i16 %452, 4096
   store i16 %storemerge.i.i.i.i.i, ptr %451, align 2, !tbaa !759
   %453 = getelementptr inbounds nuw i8, ptr %237, i64 1014
-  store i8 0, ptr %453, align 1, !tbaa !760
+  store i8 0, ptr %453, align 2, !tbaa !760
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @_Z18grpc_status_createN4absl12lts_2024072210StatusCodeESt17basic_string_viewIcSt11char_traitsIcEERKN9grpc_core13DebugLocationEmPNS0_6StatusE(ptr dead_on_unwind nonnull writable sret(%"class.absl::lts_20240722::Status") align 8 %19, i32 noundef 2, i64 16, ptr nonnull @.str.227, ptr noundef nonnull align 1 dereferenceable(1) %20, i64 noundef 1, ptr noundef nonnull %426)
   invoke void @_Z18grpc_error_set_intN4absl12lts_202407226StatusEN9grpc_core17StatusIntPropertyEl(ptr dead_on_unwind nonnull writable sret(%"class.absl::lts_20240722::Status") align 8 %18, ptr noundef nonnull %19, i32 noundef 2, i64 noundef 8)
@@ -14569,7 +14569,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit79.i:       ; preds = %465, %_ZN4absl12lts
   %storemerge.i.i.i.i80.i = or i16 %478, 4096
   store i16 %storemerge.i.i.i.i80.i, ptr %477, align 2, !tbaa !759
   %479 = getelementptr inbounds nuw i8, ptr %237, i64 1014
-  store i8 0, ptr %479, align 1, !tbaa !760
+  store i8 0, ptr %479, align 2, !tbaa !760
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @_Z18grpc_status_createN4absl12lts_2024072210StatusCodeESt17basic_string_viewIcSt11char_traitsIcEERKN9grpc_core13DebugLocationEmPNS0_6StatusE(ptr dead_on_unwind nonnull writable sret(%"class.absl::lts_20240722::Status") align 8 %22, i32 noundef 2, i64 16, ptr nonnull @.str.228, ptr noundef nonnull align 1 dereferenceable(1) %23, i64 noundef 1, ptr noundef nonnull %426)
   invoke void @_Z18grpc_error_set_intN4absl12lts_202407226StatusEN9grpc_core17StatusIntPropertyEl(ptr dead_on_unwind nonnull writable sret(%"class.absl::lts_20240722::Status") align 8 %21, ptr noundef nonnull %22, i32 noundef 2, i64 noundef 14)
@@ -27603,7 +27603,7 @@ _Z32grpc_chttp2_mark_stream_writableP21grpc_chttp2_transportP18grpc_chttp2_strea
   %storemerge.i.i.i.i = or i16 %191, 4096
   store i16 %storemerge.i.i.i.i, ptr %190, align 2, !tbaa !759
   %192 = getelementptr inbounds nuw i8, ptr %189, i64 1014
-  store i8 0, ptr %192, align 1, !tbaa !760
+  store i8 0, ptr %192, align 2, !tbaa !760
   %193 = load ptr, ptr %3, align 8, !tbaa !327
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
@@ -30322,7 +30322,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_
   store i64 %42, ptr %43, align 8, !tbaa !90
   store ptr %33, ptr %30, align 8, !tbaa !88
   store i64 0, ptr %41, align 8, !tbaa !90
-  store i8 0, ptr %33, align 1, !tbaa !33
+  store i8 0, ptr %33, align 8, !tbaa !33
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.010.0.i.i, i64 40
   %45 = add nuw nsw i64 %.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %45, %25
@@ -30643,7 +30643,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_
   store i64 %85, ptr %86, align 8, !tbaa !90
   store ptr %76, ptr %73, align 8, !tbaa !88
   store i64 0, ptr %84, align 8, !tbaa !90
-  store i8 0, ptr %76, align 1, !tbaa !33
+  store i8 0, ptr %76, align 8, !tbaa !33
   %87 = getelementptr inbounds nuw i8, ptr %.sroa.067.2, i64 40
   %88 = add nuw i64 %.06.i, 1
   %exitcond.not.i27 = icmp eq i64 %88, %.sroa.747.08097
@@ -30808,7 +30808,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__c
   store i64 %39, ptr %40, align 8, !tbaa !90
   store ptr %30, ptr %.sroa.010.0.i.i, align 8, !tbaa !88
   store i64 0, ptr %38, align 8, !tbaa !90
-  store i8 0, ptr %30, align 1, !tbaa !33
+  store i8 0, ptr %30, align 8, !tbaa !33
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.010.0.i.i, i64 32
   %42 = add nuw nsw i64 %.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %42, %25
@@ -31120,7 +31120,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__c
   store i64 %79, ptr %80, align 8, !tbaa !90
   store ptr %70, ptr %.sroa.067.2, align 8, !tbaa !88
   store i64 0, ptr %78, align 8, !tbaa !90
-  store i8 0, ptr %70, align 1, !tbaa !33
+  store i8 0, ptr %70, align 8, !tbaa !33
   %81 = getelementptr inbounds nuw i8, ptr %.sroa.067.2, i64 32
   %82 = add nuw i64 %.06.i, 1
   %exitcond.not.i27 = icmp eq i64 %82, %.sroa.747.08097
@@ -32755,7 +32755,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %53, ptr %55, align 8, !tbaa !90
   store ptr %44, ptr %41, align 8, !tbaa !88
   store i64 0, ptr %54, align 8, !tbaa !90
-  store i8 0, ptr %44, align 1, !tbaa !33
+  store i8 0, ptr %44, align 8, !tbaa !33
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %58 = load ptr, ptr %57, align 8, !tbaa !355

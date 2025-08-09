@@ -4783,7 +4783,7 @@ _ZN4entt9dense_mapIjSt10shared_ptrIiENS_8identityESt8equal_toIvESaISt4pairIKjS2_
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %27, align 8, !tbaa !4, !noalias !92
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %31 = load i32, ptr %2, align 4, !tbaa !68, !noalias !92
-  store i32 %31, ptr %30, align 4, !tbaa !68, !noalias !92
+  store i32 %31, ptr %30, align 8, !tbaa !68, !noalias !92
   store ptr %27, ptr %26, align 8, !tbaa !96, !alias.scope !92
   store ptr %30, ptr %5, align 8, !tbaa !99, !alias.scope !92
   %32 = invoke { ptr, i8 } @_ZN4entt9dense_mapIjSt10shared_ptrIiENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE20insert_or_do_nothingIRS7_JS2_EEEDaOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
@@ -5540,7 +5540,7 @@ _ZN4entt9dense_mapIjSt10shared_ptrIiENS_8identityESt8equal_toIvESaISt4pairIKjS2_
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %27, align 8, !tbaa !4, !noalias !108
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %31 = load i32, ptr %2, align 4, !tbaa !68, !noalias !108
-  store i32 %31, ptr %30, align 4, !tbaa !68, !noalias !108
+  store i32 %31, ptr %30, align 8, !tbaa !68, !noalias !108
   store ptr %27, ptr %26, align 8, !tbaa !96, !alias.scope !108
   store ptr %30, ptr %5, align 8, !tbaa !99, !alias.scope !108
   %32 = invoke { ptr, i8 } @_ZN4entt9dense_mapIjSt10shared_ptrIiENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE20insert_or_do_nothingIRS7_JS2_EEEDaOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
@@ -25326,7 +25326,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4entt14resource_cacheIiNS_15resource_
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8, !tbaa !4, !noalias !441
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %11 = load i32, ptr %2, align 4, !tbaa !68, !noalias !441
-  store i32 %11, ptr %10, align 4, !tbaa !68, !noalias !441
+  store i32 %11, ptr %10, align 8, !tbaa !68, !noalias !441
   store ptr %7, ptr %6, align 8, !tbaa !96, !alias.scope !441
   store ptr %10, ptr %5, align 8, !tbaa !99, !alias.scope !441
   %12 = invoke { ptr, i8 } @_ZN4entt9dense_mapIjSt10shared_ptrIiENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE19insert_or_overwriteIRS7_S2_EEDaOT_OT0_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
@@ -30731,7 +30731,7 @@ _ZN4entt8literalsli3_hsEPKcm.exit117:             ; preds = %_ZNKSt14default_del
   store i32 1, ptr %225, align 4, !tbaa !95, !noalias !537
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %223, align 8, !tbaa !4, !noalias !537
   %226 = getelementptr inbounds nuw i8, ptr %223, i64 16
-  store i32 2, ptr %226, align 4, !tbaa !68, !noalias !537
+  store i32 2, ptr %226, align 8, !tbaa !68, !noalias !537
   store ptr %223, ptr %222, align 8, !tbaa !96, !alias.scope !537
   store ptr %226, ptr %3, align 8, !tbaa !99, !alias.scope !537
   %227 = invoke { ptr, i8 } @_ZN4entt9dense_mapIjSt10shared_ptrIiENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE19insert_or_overwriteIRS7_S2_EEDaOT_OT0_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
@@ -31272,7 +31272,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4entt14resource_cacheIi6loaderIiESaIi
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8, !tbaa !4, !noalias !552
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %11 = load i32, ptr %2, align 4, !tbaa !68, !noalias !552
-  store i32 %11, ptr %10, align 4, !tbaa !68, !noalias !552
+  store i32 %11, ptr %10, align 8, !tbaa !68, !noalias !552
   store ptr %7, ptr %6, align 8, !tbaa !96, !alias.scope !552
   store ptr %10, ptr %5, align 8, !tbaa !99, !alias.scope !552
   %12 = invoke { ptr, i8 } @_ZN4entt9dense_mapIjSt10shared_ptrIiENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE19insert_or_overwriteIRS7_S2_EEDaOT_OT0_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
@@ -38538,7 +38538,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %8, ptr %7, align 8, !tbaa !43
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %9, align 8, !tbaa !46
-  store i8 0, ptr %8, align 1, !tbaa !49
+  store i8 0, ptr %8, align 8, !tbaa !49
   store ptr %7, ptr %4, align 8, !tbaa !64
   br label %10
 

@@ -1395,13 +1395,13 @@ xfrm_parse_spi.exit:                              ; preds = %110, %119, %138, %3
   store i8 %674, ptr %675, align 2
   %676 = getelementptr inbounds nuw i8, ptr %0, i64 77
   %677 = load i8, ptr %676, align 1
-  %678 = load i16, ptr %668, align 2
+  %678 = load i16, ptr %668, align 4
   %679 = and i16 %678, 4080
   %680 = zext i8 %677 to i16
   %681 = shl nuw nsw i16 %680, 4
   %682 = tail call i16 @llvm.bswap.i16(i16 %681)
   %683 = or disjoint i16 %682, %679
-  store i16 %683, ptr %668, align 2
+  store i16 %683, ptr %668, align 4
   %684 = getelementptr inbounds nuw i8, ptr %0, i64 78
   %685 = load i8, ptr %684, align 2
   %686 = getelementptr inbounds nuw i8, ptr %668, i64 7

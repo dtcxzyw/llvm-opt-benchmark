@@ -21633,7 +21633,7 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17h27621fdedc855ea1E(ptr noali
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !4775
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.06, i64 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4780)
-  %12 = load i8, ptr %11, align 1, !range !421, !alias.scope !4783, !noalias !4784, !noundef !5
+  %12 = load i8, ptr %11, align 4, !range !421, !alias.scope !4783, !noalias !4784, !noundef !5
   %13 = icmp ne i8 %12, 3
   %14 = zext i1 %13 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !4786
@@ -115015,7 +115015,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.exit.i43: 
   %115 = icmp ugt i64 %114, 1
   %116 = load ptr, ptr %112, align 8, !alias.scope !22909, !noalias !22912, !nonnull !5
   %117 = getelementptr inbounds nuw i8, ptr %109, i64 48
-  %118 = load i64, ptr %117, align 8, !alias.scope !22909, !noalias !22912
+  %118 = load i64, ptr %117, align 16, !alias.scope !22909, !noalias !22912
   %.sink5.i = select i1 %115, ptr %116, ptr %112
   %.sink4.i = select i1 %115, i64 %118, i64 %114
   %119 = getelementptr inbounds { { ptr, [2 x i64] }, i32, i8, [3 x i8] }, ptr %.sink5.i, i64 %.sink4.i

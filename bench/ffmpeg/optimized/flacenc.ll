@@ -707,7 +707,7 @@ define internal range(i32 -2147483648, 1) i32 @flac_encode_frame(ptr noundef %0,
   %59 = getelementptr inbounds nuw i8, ptr %8, i64 7349924
   store i32 %58, ptr %59, align 4, !tbaa !45
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 7349928
-  store i32 0, ptr %60, align 4, !tbaa !45
+  store i32 0, ptr %60, align 8, !tbaa !45
   br label %69
 
 61:                                               ; preds = %54
@@ -1491,7 +1491,7 @@ remove_wasted_bits.exit:                          ; preds = %.preheader74.i, %.p
   %409 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %410 = load i32, ptr %409, align 16, !tbaa !45
   %411 = getelementptr inbounds nuw i8, ptr %8, i64 7349936
-  %412 = load i32, ptr %411, align 8, !tbaa !100
+  %412 = load i32, ptr %411, align 16, !tbaa !100
   %413 = icmp eq i32 %412, 0
   br i1 %413, label %414, label %417
 
@@ -3319,7 +3319,7 @@ write_frame.exit:                                 ; preds = %1376, %put_bits.exi
   %1395 = add i64 %1394, %1392
   store i64 %1395, ptr %1393, align 16, !tbaa !146
   %1396 = load ptr, ptr %2, align 8, !tbaa !93
-  %1397 = load i32, ptr %35, align 8, !tbaa !81
+  %1397 = load i32, ptr %35, align 16, !tbaa !81
   %1398 = load i32, ptr %70, align 8, !tbaa !44
   %1399 = mul nsw i32 %1398, %1397
   %1400 = load ptr, ptr %88, align 16, !tbaa !29
@@ -3626,10 +3626,10 @@ define internal fastcc void @dprint_compression_options(ptr noundef readonly cap
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 7350000
   %3 = load ptr, ptr %2, align 16, !tbaa !29
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 7349944
-  %5 = load i32, ptr %4, align 4, !tbaa !152
+  %5 = load i32, ptr %4, align 8, !tbaa !152
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 48, ptr noundef nonnull @.str.63, i32 noundef %5) #11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 7349952
-  %7 = load i32, ptr %6, align 4, !tbaa !153
+  %7 = load i32, ptr %6, align 16, !tbaa !153
   switch i32 %7, label %16 [
     i32 0, label %8
     i32 1, label %9

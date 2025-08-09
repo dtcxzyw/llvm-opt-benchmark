@@ -554,7 +554,7 @@ define hidden nonnull ptr @hb_shape_plan_create2(ptr noundef %0, ptr noundef rea
   store atomic i32 1, ptr %13 monotonic, align 4
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store atomic i64 0, ptr %14 monotonic, align 8
-  %15 = load atomic i32, ptr %11 monotonic, align 4
+  %15 = load atomic i32, ptr %11 monotonic, align 8
   %.not27 = icmp eq ptr %0, null
   br i1 %.not27, label %16, label %18
 
@@ -915,7 +915,7 @@ define hidden ptr @hb_shape_plan_create_cached2(ptr noundef %0, ptr noundef read
   %8 = alloca %struct.hb_shape_plan_key_t, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %10 = load atomic i64, ptr %9 acquire, align 8
-  %11 = load atomic i32, ptr %0 monotonic, align 4
+  %11 = load atomic i32, ptr %0 monotonic, align 8
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %.lr.ph51, label %.thread
 
@@ -980,7 +980,7 @@ define hidden ptr @hb_shape_plan_create_cached2(ptr noundef %0, ptr noundef read
   call void @hb_shape_plan_destroy(ptr noundef nonnull %30)
   call void @free(ptr noundef nonnull %31) #19
   %38 = load atomic i64, ptr %9 acquire, align 8
-  %39 = load atomic i32, ptr %0 monotonic, align 4
+  %39 = load atomic i32, ptr %0 monotonic, align 8
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %.lr.ph51, label %.thread
 

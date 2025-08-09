@@ -21953,7 +21953,7 @@ define internal fastcc void @"_ZN4core3ptr190drop_in_place$LT$alloc..boxed..Box$
   %4 = add nuw i64 %.sroa.0.010.i, 1
   %.val8.i = load ptr, ptr %3, align 8, !alias.scope !4918
   %5 = getelementptr i8, ptr %3, i64 8
-  %.val9.i = load i8, ptr %5, align 1, !range !4921, !alias.scope !4918, !noundef !8
+  %.val9.i = load i8, ptr %5, align 8, !range !4921, !alias.scope !4918, !noundef !8
   %6 = trunc nuw i8 %.val9.i to i1
   br i1 %6, label %7, label %"_ZN4core3ptr155drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$ty_python_semantic..types..Type$GT$$GT$$GT$$GT$17h774b55541fbeef13E.exit.i"
 
@@ -21987,7 +21987,7 @@ define internal fastcc void @"_ZN4core3ptr190drop_in_place$LT$alloc..boxed..Box$
   %15 = add i64 %.sroa.0.1.i, 1
   %.val.i = load ptr, ptr %14, align 8, !alias.scope !4918
   %16 = getelementptr i8, ptr %14, i64 8
-  %.val7.i = load i8, ptr %16, align 1, !range !4921, !alias.scope !4918, !noundef !8
+  %.val7.i = load i8, ptr %16, align 8, !range !4921, !alias.scope !4918, !noundef !8
   invoke fastcc void @"_ZN4core3ptr155drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$ty_python_semantic..types..Type$GT$$GT$$GT$$GT$17h774b55541fbeef13E"(ptr %.val.i, i8 %.val7.i) #28
           to label %11 unwind label %17, !noalias !4918
 
@@ -22720,7 +22720,7 @@ define internal fastcc void @"_ZN4core3ptr203drop_in_place$LT$alloc..boxed..Box$
   %4 = add nuw i64 %.sroa.0.013.i, 1
   %.val8.i = load ptr, ptr %3, align 8, !alias.scope !5043
   %5 = getelementptr i8, ptr %3, i64 8
-  %.val9.i = load i8, ptr %5, align 1, !range !4921, !alias.scope !5043, !noundef !8
+  %.val9.i = load i8, ptr %5, align 8, !range !4921, !alias.scope !5043, !noundef !8
   %6 = trunc nuw i8 %.val9.i to i1
   br i1 %6, label %7, label %"_ZN4core3ptr168drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$ty_python_semantic..types..FunctionSignature$GT$$GT$$GT$$GT$17hcae8ea8f3f50e0ccE.exit.i"
 
@@ -22781,7 +22781,7 @@ define internal fastcc void @"_ZN4core3ptr203drop_in_place$LT$alloc..boxed..Box$
   %25 = add i64 %.sroa.0.1.i, 1
   %.val.i = load ptr, ptr %24, align 8, !alias.scope !5043
   %26 = getelementptr i8, ptr %24, i64 8
-  %.val7.i = load i8, ptr %26, align 1, !range !4921, !alias.scope !5043, !noundef !8
+  %.val7.i = load i8, ptr %26, align 8, !range !4921, !alias.scope !5043, !noundef !8
   invoke fastcc void @"_ZN4core3ptr168drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$ty_python_semantic..types..FunctionSignature$GT$$GT$$GT$$GT$17hcae8ea8f3f50e0ccE"(ptr %.val.i, i8 %.val7.i) #28
           to label %21 unwind label %27, !noalias !5043
 
@@ -22845,7 +22845,7 @@ define internal fastcc void @"_ZN4core3ptr204drop_in_place$LT$alloc..boxed..Box$
   %4 = add nuw i64 %.sroa.0.013.i, 1
   %.val8.i = load ptr, ptr %3, align 8, !alias.scope !5057
   %5 = getelementptr i8, ptr %3, i64 8
-  %.val9.i = load i8, ptr %5, align 1, !range !4921, !alias.scope !5057, !noundef !8
+  %.val9.i = load i8, ptr %5, align 8, !range !4921, !alias.scope !5057, !noundef !8
   %6 = trunc nuw i8 %.val9.i to i1
   br i1 %6, label %7, label %"_ZN4core3ptr169drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$ty_python_semantic..suppression..Suppressions$GT$$GT$$GT$$GT$17h463a9bd4b4962239E.exit.i"
 
@@ -22906,7 +22906,7 @@ define internal fastcc void @"_ZN4core3ptr204drop_in_place$LT$alloc..boxed..Box$
   %25 = add i64 %.sroa.0.1.i, 1
   %.val.i = load ptr, ptr %24, align 8, !alias.scope !5057
   %26 = getelementptr i8, ptr %24, i64 8
-  %.val7.i = load i8, ptr %26, align 1, !range !4921, !alias.scope !5057, !noundef !8
+  %.val7.i = load i8, ptr %26, align 8, !range !4921, !alias.scope !5057, !noundef !8
   invoke fastcc void @"_ZN4core3ptr169drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$ty_python_semantic..suppression..Suppressions$GT$$GT$$GT$$GT$17h463a9bd4b4962239E"(ptr %.val.i, i8 %.val7.i) #28
           to label %21 unwind label %27, !noalias !5057
 
@@ -23084,7 +23084,7 @@ define internal fastcc void @"_ZN4core3ptr206drop_in_place$LT$alloc..boxed..Box$
   %4 = add nuw i64 %.sroa.0.010.i, 1
   %.val8.i = load ptr, ptr %3, align 8, !alias.scope !5099
   %5 = getelementptr i8, ptr %3, i64 8
-  %.val9.i = load i8, ptr %5, align 1, !range !4921, !alias.scope !5099, !noundef !8
+  %.val9.i = load i8, ptr %5, align 8, !range !4921, !alias.scope !5099, !noundef !8
   %6 = trunc nuw i8 %.val9.i to i1
   br i1 %6, label %7, label %"_ZN4core3ptr171drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$ty_python_semantic..symbol..SymbolAndQualifiers$GT$$GT$$GT$$GT$17he667a92a2c32aedaE.exit.i"
 
@@ -23118,7 +23118,7 @@ define internal fastcc void @"_ZN4core3ptr206drop_in_place$LT$alloc..boxed..Box$
   %15 = add i64 %.sroa.0.1.i, 1
   %.val.i = load ptr, ptr %14, align 8, !alias.scope !5099
   %16 = getelementptr i8, ptr %14, i64 8
-  %.val7.i = load i8, ptr %16, align 1, !range !4921, !alias.scope !5099, !noundef !8
+  %.val7.i = load i8, ptr %16, align 8, !range !4921, !alias.scope !5099, !noundef !8
   invoke fastcc void @"_ZN4core3ptr171drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$ty_python_semantic..symbol..SymbolAndQualifiers$GT$$GT$$GT$$GT$17he667a92a2c32aedaE"(ptr %.val.i, i8 %.val7.i) #28
           to label %11 unwind label %17, !noalias !5099
 
@@ -23156,7 +23156,7 @@ define internal fastcc void @"_ZN4core3ptr206drop_in_place$LT$alloc..boxed..Box$
   %4 = add nuw i64 %.sroa.0.013.i, 1
   %.val8.i = load ptr, ptr %3, align 8, !alias.scope !5105
   %5 = getelementptr i8, ptr %3, i64 8
-  %.val9.i = load i8, ptr %5, align 1, !range !4921, !alias.scope !5105, !noundef !8
+  %.val9.i = load i8, ptr %5, align 8, !range !4921, !alias.scope !5105, !noundef !8
   %6 = trunc nuw i8 %.val9.i to i1
   br i1 %6, label %7, label %"_ZN4core3ptr171drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$ty_python_semantic..types..infer..TypeInference$GT$$GT$$GT$$GT$17ha49fecc4dbb151d1E.exit.i"
 
@@ -23217,7 +23217,7 @@ define internal fastcc void @"_ZN4core3ptr206drop_in_place$LT$alloc..boxed..Box$
   %25 = add i64 %.sroa.0.1.i, 1
   %.val.i = load ptr, ptr %24, align 8, !alias.scope !5105
   %26 = getelementptr i8, ptr %24, i64 8
-  %.val7.i = load i8, ptr %26, align 1, !range !4921, !alias.scope !5105, !noundef !8
+  %.val7.i = load i8, ptr %26, align 8, !range !4921, !alias.scope !5105, !noundef !8
   invoke fastcc void @"_ZN4core3ptr171drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$ty_python_semantic..types..infer..TypeInference$GT$$GT$$GT$$GT$17ha49fecc4dbb151d1E"(ptr %.val.i, i8 %.val7.i) #28
           to label %21 unwind label %27, !noalias !5105
 
@@ -23278,7 +23278,7 @@ define internal fastcc void @"_ZN4core3ptr208drop_in_place$LT$alloc..boxed..Box$
   %4 = add nuw i64 %.sroa.0.013.i, 1
   %.val8.i = load ptr, ptr %3, align 8, !alias.scope !5121
   %5 = getelementptr i8, ptr %3, i64 8
-  %.val9.i = load i8, ptr %5, align 1, !range !4921, !alias.scope !5121, !noundef !8
+  %.val9.i = load i8, ptr %5, align 8, !range !4921, !alias.scope !5121, !noundef !8
   %6 = trunc nuw i8 %.val9.i to i1
   br i1 %6, label %7, label %"_ZN4core3ptr173drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$ty_python_semantic..semantic_index..SemanticIndex$GT$$GT$$GT$$GT$17ha34c02541193a35bE.exit.i"
 
@@ -23339,7 +23339,7 @@ define internal fastcc void @"_ZN4core3ptr208drop_in_place$LT$alloc..boxed..Box$
   %25 = add i64 %.sroa.0.1.i, 1
   %.val.i = load ptr, ptr %24, align 8, !alias.scope !5121
   %26 = getelementptr i8, ptr %24, i64 8
-  %.val7.i = load i8, ptr %26, align 1, !range !4921, !alias.scope !5121, !noundef !8
+  %.val7.i = load i8, ptr %26, align 8, !range !4921, !alias.scope !5121, !noundef !8
   invoke fastcc void @"_ZN4core3ptr173drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$ty_python_semantic..semantic_index..SemanticIndex$GT$$GT$$GT$$GT$17ha34c02541193a35bE"(ptr %.val.i, i8 %.val7.i) #28
           to label %21 unwind label %27, !noalias !5121
 
@@ -23377,7 +23377,7 @@ define internal fastcc void @"_ZN4core3ptr208drop_in_place$LT$alloc..boxed..Box$
   %4 = add nuw i64 %.sroa.0.013.i, 1
   %.val8.i = load ptr, ptr %3, align 8, !alias.scope !5132
   %5 = getelementptr i8, ptr %3, i64 8
-  %.val9.i = load i8, ptr %5, align 1, !range !4921, !alias.scope !5132, !noundef !8
+  %.val9.i = load i8, ptr %5, align 8, !range !4921, !alias.scope !5132, !noundef !8
   %6 = trunc nuw i8 %.val9.i to i1
   br i1 %6, label %7, label %"_ZN4core3ptr173drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$ty_python_semantic..types..unpacker..UnpackResult$GT$$GT$$GT$$GT$17h4df81fdb131dcf29E.exit.i"
 
@@ -23438,7 +23438,7 @@ define internal fastcc void @"_ZN4core3ptr208drop_in_place$LT$alloc..boxed..Box$
   %25 = add i64 %.sroa.0.1.i, 1
   %.val.i = load ptr, ptr %24, align 8, !alias.scope !5132
   %26 = getelementptr i8, ptr %24, i64 8
-  %.val7.i = load i8, ptr %26, align 1, !range !4921, !alias.scope !5132, !noundef !8
+  %.val7.i = load i8, ptr %26, align 8, !range !4921, !alias.scope !5132, !noundef !8
   invoke fastcc void @"_ZN4core3ptr173drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$ty_python_semantic..types..unpacker..UnpackResult$GT$$GT$$GT$$GT$17h4df81fdb131dcf29E"(ptr %.val.i, i8 %.val7.i) #28
           to label %21 unwind label %27, !noalias !5132
 
@@ -23493,7 +23493,7 @@ define internal fastcc void @"_ZN4core3ptr210drop_in_place$LT$alloc..boxed..Box$
   %4 = add nuw i64 %.sroa.0.010.i, 1
   %.val8.i = load ptr, ptr %3, align 8, !alias.scope !5143
   %5 = getelementptr i8, ptr %3, i64 8
-  %.val9.i = load i8, ptr %5, align 1, !range !4921, !alias.scope !5143, !noundef !8
+  %.val9.i = load i8, ptr %5, align 8, !range !4921, !alias.scope !5143, !noundef !8
   %6 = trunc nuw i8 %.val9.i to i1
   br i1 %6, label %7, label %"_ZN4core3ptr175drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$ty_python_semantic..semantic_index..symbol..ScopeId$GT$$GT$$GT$$GT$17hdab19faf0a2770feE.exit.i"
 
@@ -23527,7 +23527,7 @@ define internal fastcc void @"_ZN4core3ptr210drop_in_place$LT$alloc..boxed..Box$
   %15 = add i64 %.sroa.0.1.i, 1
   %.val.i = load ptr, ptr %14, align 8, !alias.scope !5143
   %16 = getelementptr i8, ptr %14, i64 8
-  %.val7.i = load i8, ptr %16, align 1, !range !4921, !alias.scope !5143, !noundef !8
+  %.val7.i = load i8, ptr %16, align 8, !range !4921, !alias.scope !5143, !noundef !8
   invoke fastcc void @"_ZN4core3ptr175drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$ty_python_semantic..semantic_index..symbol..ScopeId$GT$$GT$$GT$$GT$17hdab19faf0a2770feE"(ptr %.val.i, i8 %.val7.i) #28
           to label %11 unwind label %17, !noalias !5143
 
@@ -23957,7 +23957,7 @@ define internal fastcc void @"_ZN4core3ptr218drop_in_place$LT$alloc..boxed..Box$
   %4 = add nuw i64 %.sroa.0.010.i, 1
   %.val8.i = load ptr, ptr %3, align 8, !alias.scope !5255
   %5 = getelementptr i8, ptr %3, i64 8
-  %.val9.i = load i8, ptr %5, align 1, !range !4921, !alias.scope !5255, !noundef !8
+  %.val9.i = load i8, ptr %5, align 8, !range !4921, !alias.scope !5255, !noundef !8
   %6 = trunc nuw i8 %.val9.i to i1
   br i1 %6, label %7, label %"_ZN4core3ptr183drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$ty_python_semantic..types..diagnostic..TypeCheckDiagnostics$GT$$GT$$GT$$GT$17hb64b26311f3fad34E.exit.i"
 
@@ -23991,7 +23991,7 @@ define internal fastcc void @"_ZN4core3ptr218drop_in_place$LT$alloc..boxed..Box$
   %15 = add i64 %.sroa.0.1.i, 1
   %.val.i = load ptr, ptr %14, align 8, !alias.scope !5255
   %16 = getelementptr i8, ptr %14, i64 8
-  %.val7.i = load i8, ptr %16, align 1, !range !4921, !alias.scope !5255, !noundef !8
+  %.val7.i = load i8, ptr %16, align 8, !range !4921, !alias.scope !5255, !noundef !8
   invoke fastcc void @"_ZN4core3ptr183drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$ty_python_semantic..types..diagnostic..TypeCheckDiagnostics$GT$$GT$$GT$$GT$17hb64b26311f3fad34E"(ptr %.val.i, i8 %.val7.i) #28
           to label %11 unwind label %17, !noalias !5255
 
@@ -24078,7 +24078,7 @@ define internal fastcc void @"_ZN4core3ptr219drop_in_place$LT$alloc..boxed..Box$
   %4 = add nuw i64 %.sroa.0.010.i, 1
   %.val8.i = load ptr, ptr %3, align 8, !alias.scope !5281
   %5 = getelementptr i8, ptr %3, i64 8
-  %.val9.i = load i8, ptr %5, align 1, !range !4921, !alias.scope !5281, !noundef !8
+  %.val9.i = load i8, ptr %5, align 8, !range !4921, !alias.scope !5281, !noundef !8
   %6 = trunc nuw i8 %.val9.i to i1
   br i1 %6, label %7, label %"_ZN4core3ptr184drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$ty_python_semantic..types..protocol_class..ProtocolInterface$GT$$GT$$GT$$GT$17hff328bb3e2229579E.exit.i"
 
@@ -24113,7 +24113,7 @@ define internal fastcc void @"_ZN4core3ptr219drop_in_place$LT$alloc..boxed..Box$
   %16 = add i64 %.sroa.0.1.i, 1
   %.val.i = load ptr, ptr %15, align 8, !alias.scope !5281
   %17 = getelementptr i8, ptr %15, i64 8
-  %.val7.i = load i8, ptr %17, align 1, !range !4921, !alias.scope !5281, !noundef !8
+  %.val7.i = load i8, ptr %17, align 8, !range !4921, !alias.scope !5281, !noundef !8
   invoke fastcc void @"_ZN4core3ptr184drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$ty_python_semantic..types..protocol_class..ProtocolInterface$GT$$GT$$GT$$GT$17hff328bb3e2229579E"(ptr %.val.i, i8 %.val7.i) #28
           to label %12 unwind label %18, !noalias !5281
 
@@ -24200,7 +24200,7 @@ define internal fastcc void @"_ZN4core3ptr221drop_in_place$LT$alloc..boxed..Box$
   %4 = add nuw i64 %.sroa.0.010.i, 1
   %.val8.i = load ptr, ptr %3, align 8, !alias.scope !5287
   %5 = getelementptr i8, ptr %3, i64 8
-  %.val9.i = load i8, ptr %5, align 1, !range !4921, !alias.scope !5287, !noundef !8
+  %.val9.i = load i8, ptr %5, align 8, !range !4921, !alias.scope !5287, !noundef !8
   %6 = trunc nuw i8 %.val9.i to i1
   br i1 %6, label %7, label %"_ZN4core3ptr186drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$alloc..boxed..Box$LT$$u5b$ruff_python_ast..name..Name$u5d$$GT$$GT$$GT$$GT$$GT$17h63cabddfd28b4a1dE.exit.i"
 
@@ -24234,7 +24234,7 @@ define internal fastcc void @"_ZN4core3ptr221drop_in_place$LT$alloc..boxed..Box$
   %15 = add i64 %.sroa.0.1.i, 1
   %.val.i = load ptr, ptr %14, align 8, !alias.scope !5287
   %16 = getelementptr i8, ptr %14, i64 8
-  %.val7.i = load i8, ptr %16, align 1, !range !4921, !alias.scope !5287, !noundef !8
+  %.val7.i = load i8, ptr %16, align 8, !range !4921, !alias.scope !5287, !noundef !8
   invoke fastcc void @"_ZN4core3ptr186drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$alloc..boxed..Box$LT$$u5b$ruff_python_ast..name..Name$u5d$$GT$$GT$$GT$$GT$$GT$17h63cabddfd28b4a1dE"(ptr %.val.i, i8 %.val7.i) #28
           to label %11 unwind label %17, !noalias !5287
 
@@ -24322,7 +24322,7 @@ define internal fastcc void @"_ZN4core3ptr225drop_in_place$LT$alloc..boxed..Box$
   %4 = add nuw i64 %.sroa.0.010.i, 1
   %.val8.i = load ptr, ptr %3, align 8, !alias.scope !5302
   %5 = getelementptr i8, ptr %3, i64 8
-  %.val9.i = load i8, ptr %5, align 1, !range !4921, !alias.scope !5302, !noundef !8
+  %.val9.i = load i8, ptr %5, align 8, !range !4921, !alias.scope !5302, !noundef !8
   %6 = trunc nuw i8 %.val9.i to i1
   br i1 %6, label %7, label %"_ZN4core3ptr190drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$alloc..boxed..Box$LT$$u5b$ty_python_semantic..types..Type$u5d$$GT$$GT$$GT$$GT$$GT$17h4cb4dd7acd9fe457E.exit.i"
 
@@ -24372,7 +24372,7 @@ define internal fastcc void @"_ZN4core3ptr225drop_in_place$LT$alloc..boxed..Box$
   %20 = add i64 %.sroa.0.1.i, 1
   %.val.i = load ptr, ptr %19, align 8, !alias.scope !5302
   %21 = getelementptr i8, ptr %19, i64 8
-  %.val7.i = load i8, ptr %21, align 1, !range !4921, !alias.scope !5302, !noundef !8
+  %.val7.i = load i8, ptr %21, align 8, !range !4921, !alias.scope !5302, !noundef !8
   invoke fastcc void @"_ZN4core3ptr190drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$alloc..boxed..Box$LT$$u5b$ty_python_semantic..types..Type$u5d$$GT$$GT$$GT$$GT$$GT$17h4cb4dd7acd9fe457E"(ptr %.val.i, i8 %.val7.i) #28
           to label %16 unwind label %22, !noalias !5302
 
@@ -24636,7 +24636,7 @@ define internal fastcc void @"_ZN4core3ptr232drop_in_place$LT$alloc..boxed..Box$
   %4 = add nuw i64 %.sroa.0.013.i, 1
   %.val8.i = load ptr, ptr %3, align 8, !alias.scope !5357
   %5 = getelementptr i8, ptr %3, i64 8
-  %.val9.i = load i8, ptr %5, align 1, !range !4921, !alias.scope !5357, !noundef !8
+  %.val9.i = load i8, ptr %5, align 8, !range !4921, !alias.scope !5357, !noundef !8
   %6 = trunc nuw i8 %.val9.i to i1
   br i1 %6, label %7, label %"_ZN4core3ptr197drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$core..option..Option$LT$ty_python_semantic..types..OverloadedFunction$GT$$GT$$GT$$GT$$GT$17h41ac30d2dd91d155E.exit.i"
 
@@ -24697,7 +24697,7 @@ define internal fastcc void @"_ZN4core3ptr232drop_in_place$LT$alloc..boxed..Box$
   %24 = add i64 %.sroa.0.1.i, 1
   %.val.i = load ptr, ptr %23, align 8, !alias.scope !5357
   %25 = getelementptr i8, ptr %23, i64 8
-  %.val7.i = load i8, ptr %25, align 1, !range !4921, !alias.scope !5357, !noundef !8
+  %.val7.i = load i8, ptr %25, align 8, !range !4921, !alias.scope !5357, !noundef !8
   invoke fastcc void @"_ZN4core3ptr197drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$core..option..Option$LT$ty_python_semantic..types..OverloadedFunction$GT$$GT$$GT$$GT$$GT$17h41ac30d2dd91d155E"(ptr %.val.i, i8 %.val7.i) #28
           to label %20 unwind label %26, !noalias !5357
 
@@ -24735,7 +24735,7 @@ define internal fastcc void @"_ZN4core3ptr233drop_in_place$LT$alloc..boxed..Box$
   %4 = add nuw i64 %.sroa.0.013.i, 1
   %.val8.i = load ptr, ptr %3, align 8, !alias.scope !5368
   %5 = getelementptr i8, ptr %3, i64 8
-  %.val9.i = load i8, ptr %5, align 1, !range !4921, !alias.scope !5368, !noundef !8
+  %.val9.i = load i8, ptr %5, align 8, !range !4921, !alias.scope !5368, !noundef !8
   %6 = trunc nuw i8 %.val9.i to i1
   br i1 %6, label %7, label %"_ZN4core3ptr198drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$smallvec..SmallVec$LT$$u5b$ruff_python_ast..name..Name$u3b$$u20$8$u5d$$GT$$GT$$GT$$GT$$GT$17hae812168c2e05cdbE.exit.i"
 
@@ -24797,7 +24797,7 @@ define internal fastcc void @"_ZN4core3ptr233drop_in_place$LT$alloc..boxed..Box$
   %26 = add i64 %.sroa.0.1.i, 1
   %.val.i = load ptr, ptr %25, align 8, !alias.scope !5368
   %27 = getelementptr i8, ptr %25, i64 8
-  %.val7.i = load i8, ptr %27, align 1, !range !4921, !alias.scope !5368, !noundef !8
+  %.val7.i = load i8, ptr %27, align 8, !range !4921, !alias.scope !5368, !noundef !8
   invoke fastcc void @"_ZN4core3ptr198drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$smallvec..SmallVec$LT$$u5b$ruff_python_ast..name..Name$u3b$$u20$8$u5d$$GT$$GT$$GT$$GT$$GT$17hae812168c2e05cdbE"(ptr %.val.i, i8 %.val7.i) #28
           to label %22 unwind label %28, !noalias !5368
 
@@ -24920,7 +24920,7 @@ define internal fastcc void @"_ZN4core3ptr235drop_in_place$LT$alloc..boxed..Box$
   %4 = add nuw i64 %.sroa.0.013.i, 1
   %.val8.i = load ptr, ptr %3, align 8, !alias.scope !5389
   %5 = getelementptr i8, ptr %3, i64 8
-  %.val9.i = load i8, ptr %5, align 1, !range !4921, !alias.scope !5389, !noundef !8
+  %.val9.i = load i8, ptr %5, align 8, !range !4921, !alias.scope !5389, !noundef !8
   %6 = trunc nuw i8 %.val9.i to i1
   br i1 %6, label %7, label %"_ZN4core3ptr200drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$alloc..vec..Vec$LT$ty_python_semantic..module_resolver..path..SearchPath$GT$$GT$$GT$$GT$$GT$17hccd5579e21b2fde6E.exit.i"
 
@@ -24981,7 +24981,7 @@ define internal fastcc void @"_ZN4core3ptr235drop_in_place$LT$alloc..boxed..Box$
   %25 = add i64 %.sroa.0.1.i, 1
   %.val.i = load ptr, ptr %24, align 8, !alias.scope !5389
   %26 = getelementptr i8, ptr %24, i64 8
-  %.val7.i = load i8, ptr %26, align 1, !range !4921, !alias.scope !5389, !noundef !8
+  %.val7.i = load i8, ptr %26, align 8, !range !4921, !alias.scope !5389, !noundef !8
   invoke fastcc void @"_ZN4core3ptr200drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$alloc..vec..Vec$LT$ty_python_semantic..module_resolver..path..SearchPath$GT$$GT$$GT$$GT$$GT$17hccd5579e21b2fde6E"(ptr %.val.i, i8 %.val7.i) #28
           to label %21 unwind label %27, !noalias !5389
 
@@ -25243,7 +25243,7 @@ define internal fastcc void @"_ZN4core3ptr237drop_in_place$LT$alloc..boxed..Box$
   %4 = add nuw i64 %.sroa.0.010.i, 1
   %.val8.i = load ptr, ptr %3, align 8, !alias.scope !5436
   %5 = getelementptr i8, ptr %3, i64 8
-  %.val9.i = load i8, ptr %5, align 1, !range !4921, !alias.scope !5436, !noundef !8
+  %.val9.i = load i8, ptr %5, align 8, !range !4921, !alias.scope !5436, !noundef !8
   %6 = trunc nuw i8 %.val9.i to i1
   br i1 %6, label %7, label %"_ZN4core3ptr202drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$core..option..Option$LT$ty_python_semantic..types..class..InheritanceCycle$GT$$GT$$GT$$GT$$GT$17h3b8e984809471e37E.exit.i"
 
@@ -25277,7 +25277,7 @@ define internal fastcc void @"_ZN4core3ptr237drop_in_place$LT$alloc..boxed..Box$
   %15 = add i64 %.sroa.0.1.i, 1
   %.val.i = load ptr, ptr %14, align 8, !alias.scope !5436
   %16 = getelementptr i8, ptr %14, i64 8
-  %.val7.i = load i8, ptr %16, align 1, !range !4921, !alias.scope !5436, !noundef !8
+  %.val7.i = load i8, ptr %16, align 8, !range !4921, !alias.scope !5436, !noundef !8
   invoke fastcc void @"_ZN4core3ptr202drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$core..option..Option$LT$ty_python_semantic..types..class..InheritanceCycle$GT$$GT$$GT$$GT$$GT$17h3b8e984809471e37E"(ptr %.val.i, i8 %.val7.i) #28
           to label %11 unwind label %17, !noalias !5436
 
@@ -25574,7 +25574,7 @@ define internal fastcc void @"_ZN4core3ptr238drop_in_place$LT$alloc..boxed..Box$
   %4 = add nuw i64 %.sroa.0.010.i, 1
   %.val8.i = load ptr, ptr %3, align 8, !alias.scope !5494
   %5 = getelementptr i8, ptr %3, i64 8
-  %.val9.i = load i8, ptr %5, align 1, !range !4921, !alias.scope !5494, !noundef !8
+  %.val9.i = load i8, ptr %5, align 8, !range !4921, !alias.scope !5494, !noundef !8
   %6 = trunc nuw i8 %.val9.i to i1
   br i1 %6, label %7, label %"_ZN4core3ptr203drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$core..option..Option$LT$ty_python_semantic..types..generics..GenericContext$GT$$GT$$GT$$GT$$GT$17h6bac264c39fd48cdE.exit.i"
 
@@ -25609,7 +25609,7 @@ define internal fastcc void @"_ZN4core3ptr238drop_in_place$LT$alloc..boxed..Box$
   %16 = add i64 %.sroa.0.1.i, 1
   %.val.i = load ptr, ptr %15, align 8, !alias.scope !5494
   %17 = getelementptr i8, ptr %15, i64 8
-  %.val7.i = load i8, ptr %17, align 1, !range !4921, !alias.scope !5494, !noundef !8
+  %.val7.i = load i8, ptr %17, align 8, !range !4921, !alias.scope !5494, !noundef !8
   invoke fastcc void @"_ZN4core3ptr203drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$core..option..Option$LT$ty_python_semantic..types..generics..GenericContext$GT$$GT$$GT$$GT$$GT$17h6bac264c39fd48cdE"(ptr %.val.i, i8 %.val7.i) #28
           to label %12 unwind label %18, !noalias !5494
 
@@ -26262,7 +26262,7 @@ define internal fastcc void @"_ZN4core3ptr265drop_in_place$LT$alloc..boxed..Box$
   %4 = add nuw i64 %.sroa.0.010.i, 1
   %.val8.i = load ptr, ptr %3, align 8, !alias.scope !5586
   %5 = getelementptr i8, ptr %3, i64 8
-  %.val9.i = load i8, ptr %5, align 1, !range !4921, !alias.scope !5586, !noundef !8
+  %.val9.i = load i8, ptr %5, align 8, !range !4921, !alias.scope !5586, !noundef !8
   %6 = trunc nuw i8 %.val9.i to i1
   br i1 %6, label %7, label %"_ZN4core3ptr230drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$core..result..Result$LT$ty_python_semantic..types..mro..Mro$C$ty_python_semantic..types..mro..MroError$GT$$GT$$GT$$GT$$GT$17h88e80eeeecd55944E.exit.i"
 
@@ -26327,7 +26327,7 @@ define internal fastcc void @"_ZN4core3ptr265drop_in_place$LT$alloc..boxed..Box$
   %26 = add i64 %.sroa.0.1.i, 1
   %.val.i = load ptr, ptr %25, align 8, !alias.scope !5586
   %27 = getelementptr i8, ptr %25, i64 8
-  %.val7.i = load i8, ptr %27, align 1, !range !4921, !alias.scope !5586, !noundef !8
+  %.val7.i = load i8, ptr %27, align 8, !range !4921, !alias.scope !5586, !noundef !8
   invoke fastcc void @"_ZN4core3ptr230drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$core..result..Result$LT$ty_python_semantic..types..mro..Mro$C$ty_python_semantic..types..mro..MroError$GT$$GT$$GT$$GT$$GT$17h88e80eeeecd55944E"(ptr %.val.i, i8 %.val7.i) #28
           to label %22 unwind label %28, !noalias !5586
 
@@ -26380,7 +26380,7 @@ define internal fastcc void @"_ZN4core3ptr269drop_in_place$LT$alloc..boxed..Box$
   %4 = add nuw i64 %.sroa.0.010.i, 1
   %.val8.i = load ptr, ptr %3, align 8, !alias.scope !5617
   %5 = getelementptr i8, ptr %3, i64 8
-  %.val9.i = load i8, ptr %5, align 1, !range !4921, !alias.scope !5617, !noundef !8
+  %.val9.i = load i8, ptr %5, align 8, !range !4921, !alias.scope !5617, !noundef !8
   %6 = trunc nuw i8 %.val9.i to i1
   br i1 %6, label %7, label %"_ZN4core3ptr234drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$core..option..Option$LT$$LP$ty_python_semantic..types..Type$C$ty_python_semantic..types..AttributeKind$RP$$GT$$GT$$GT$$GT$$GT$17h2212f879ac0a8487E.exit.i"
 
@@ -26414,7 +26414,7 @@ define internal fastcc void @"_ZN4core3ptr269drop_in_place$LT$alloc..boxed..Box$
   %15 = add i64 %.sroa.0.1.i, 1
   %.val.i = load ptr, ptr %14, align 8, !alias.scope !5617
   %16 = getelementptr i8, ptr %14, i64 8
-  %.val7.i = load i8, ptr %16, align 1, !range !4921, !alias.scope !5617, !noundef !8
+  %.val7.i = load i8, ptr %16, align 8, !range !4921, !alias.scope !5617, !noundef !8
   invoke fastcc void @"_ZN4core3ptr234drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$core..option..Option$LT$$LP$ty_python_semantic..types..Type$C$ty_python_semantic..types..AttributeKind$RP$$GT$$GT$$GT$$GT$$GT$17h2212f879ac0a8487E"(ptr %.val.i, i8 %.val7.i) #28
           to label %11 unwind label %17, !noalias !5617
 
@@ -27447,7 +27447,7 @@ define internal fastcc void @"_ZN4core3ptr361drop_in_place$LT$alloc..boxed..Box$
   %4 = add nuw i64 %.sroa.0.010.i, 1
   %.val8.i = load ptr, ptr %3, align 8, !alias.scope !5821
   %5 = getelementptr i8, ptr %3, i64 8
-  %.val9.i = load i8, ptr %5, align 1, !range !4921, !alias.scope !5821, !noundef !8
+  %.val9.i = load i8, ptr %5, align 8, !range !4921, !alias.scope !5821, !noundef !8
   %6 = trunc nuw i8 %.val9.i to i1
   br i1 %6, label %7, label %"_ZN4core3ptr326drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$core..result..Result$LT$$LP$ty_python_semantic..types..Type$C$core..option..Option$LT$ty_python_semantic..types..DataclassTransformerParams$GT$$RP$$C$ty_python_semantic..types..class..MetaclassError$GT$$GT$$GT$$GT$$GT$17h083bee4cf31434abE.exit.i"
 
@@ -27481,7 +27481,7 @@ define internal fastcc void @"_ZN4core3ptr361drop_in_place$LT$alloc..boxed..Box$
   %15 = add i64 %.sroa.0.1.i, 1
   %.val.i = load ptr, ptr %14, align 8, !alias.scope !5821
   %16 = getelementptr i8, ptr %14, i64 8
-  %.val7.i = load i8, ptr %16, align 1, !range !4921, !alias.scope !5821, !noundef !8
+  %.val7.i = load i8, ptr %16, align 8, !range !4921, !alias.scope !5821, !noundef !8
   invoke fastcc void @"_ZN4core3ptr326drop_in_place$LT$boxcar..raw..Entry$LT$salsa..function..delete..SharedBox$LT$salsa..function..memo..Memo$LT$core..result..Result$LT$$LP$ty_python_semantic..types..Type$C$core..option..Option$LT$ty_python_semantic..types..DataclassTransformerParams$GT$$RP$$C$ty_python_semantic..types..class..MetaclassError$GT$$GT$$GT$$GT$$GT$17h083bee4cf31434abE"(ptr %.val.i, i8 %.val7.i) #28
           to label %11 unwind label %17, !noalias !5821
 

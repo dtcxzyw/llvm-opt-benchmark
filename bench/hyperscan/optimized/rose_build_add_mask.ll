@@ -8125,7 +8125,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZN3ue29ue2_graphINS_9RoseGraphENS_15Ro
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %26, i8 0, i64 84, i1 false)
   store i32 -1, ptr %27, align 4
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 208
-  store i32 0, ptr %28, align 4
+  store i32 0, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 212
   store i32 2147483647, ptr %29, align 4
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 216
@@ -10050,7 +10050,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZN3ue29ue2_graphINS_11RoseInGraphENS_1
   store ptr %13, ptr %12, align 8
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 0, ptr %15, align 8
-  store i8 0, ptr %13, align 1
+  store i8 0, ptr %13, align 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 120

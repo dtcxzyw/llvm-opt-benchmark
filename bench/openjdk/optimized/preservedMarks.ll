@@ -561,7 +561,7 @@ define hidden noundef ptr @_ZN17PreservedMarksSet11create_taskEv(ptr noundef non
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
-  store i32 %9, ptr %7, align 4
+  store i32 %9, ptr %7, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 36
   store volatile i32 0, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 40

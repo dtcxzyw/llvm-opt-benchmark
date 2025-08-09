@@ -23926,8 +23926,8 @@ _ZN8rationalD2Ev.exit93:                          ; preds = %.noexc.i92
   %278 = and i8 %272, 3
   %279 = or disjoint i8 %275, %278
   store i8 %279, ptr %147, align 4
-  %280 = load i32, ptr %23, align 4, !tbaa !98
-  store i32 1, ptr %23, align 4, !tbaa !98
+  %280 = load i32, ptr %23, align 8, !tbaa !98
+  store i32 1, ptr %23, align 8, !tbaa !98
   store i32 %280, ptr %149, align 8, !tbaa !98
   %281 = load ptr, ptr %154, align 8, !tbaa !254
   %282 = load ptr, ptr %151, align 8, !tbaa !254
@@ -24283,9 +24283,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
   %428 = or disjoint i8 %427, %422
   store i8 %428, ptr %160, align 4
   %429 = getelementptr inbounds nuw i8, ptr %327, i64 16
-  %430 = load i32, ptr %429, align 4, !tbaa !98
+  %430 = load i32, ptr %429, align 8, !tbaa !98
   %431 = load i32, ptr %162, align 8, !tbaa !98
-  store i32 %431, ptr %429, align 4, !tbaa !98
+  store i32 %431, ptr %429, align 8, !tbaa !98
   store i32 %430, ptr %162, align 8, !tbaa !98
   %432 = getelementptr inbounds nuw i8, ptr %327, i64 24
   %433 = load ptr, ptr %432, align 8, !tbaa !254

@@ -1619,7 +1619,7 @@ define void @_ZN22MeshShaderRenderPlugin11loadShadersERK4QDir(ptr noundef nonnul
   %25 = load i32, ptr %24, align 8, !noalias !20
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds ptr, ptr %23, i64 %26
-  %28 = load atomic i32, ptr %22 monotonic, align 4, !noalias !23
+  %28 = load atomic i32, ptr %22 monotonic, align 8, !noalias !23
   %29 = icmp ugt i32 %28, 1
   br i1 %29, label %30, label %_ZN5QListI7QStringE3endEv.exit
 
@@ -14648,7 +14648,7 @@ _ZN7QStringD2Ev.exit31:                           ; preds = %58, %_ZN9QtPrivate8
   %90 = getelementptr inbounds nuw i8, ptr %.sroa.0177.0219, i64 60
   %91 = load float, ptr %90, align 4
   %92 = getelementptr inbounds nuw i8, ptr %.sroa.0177.0219, i64 64
-  %93 = load float, ptr %92, align 4
+  %93 = load float, ptr %92, align 8
   invoke void %87(i32 noundef %89, float noundef %91, float noundef %93)
           to label %116 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -14659,7 +14659,7 @@ _ZN7QStringD2Ev.exit31:                           ; preds = %58, %_ZN9QtPrivate8
   %98 = getelementptr inbounds nuw i8, ptr %.sroa.0177.0219, i64 60
   %99 = load float, ptr %98, align 4
   %100 = getelementptr inbounds nuw i8, ptr %.sroa.0177.0219, i64 64
-  %101 = load float, ptr %100, align 4
+  %101 = load float, ptr %100, align 8
   %102 = getelementptr inbounds nuw i8, ptr %.sroa.0177.0219, i64 68
   %103 = load float, ptr %102, align 4
   invoke void %95(i32 noundef %97, float noundef %99, float noundef %101, float noundef %103)
@@ -14672,11 +14672,11 @@ _ZN7QStringD2Ev.exit31:                           ; preds = %58, %_ZN9QtPrivate8
   %108 = getelementptr inbounds nuw i8, ptr %.sroa.0177.0219, i64 60
   %109 = load float, ptr %108, align 4
   %110 = getelementptr inbounds nuw i8, ptr %.sroa.0177.0219, i64 64
-  %111 = load float, ptr %110, align 4
+  %111 = load float, ptr %110, align 8
   %112 = getelementptr inbounds nuw i8, ptr %.sroa.0177.0219, i64 68
   %113 = load float, ptr %112, align 4
   %114 = getelementptr inbounds nuw i8, ptr %.sroa.0177.0219, i64 72
-  %115 = load float, ptr %114, align 4
+  %115 = load float, ptr %114, align 8
   invoke void %105(i32 noundef %107, float noundef %109, float noundef %111, float noundef %113, float noundef %115)
           to label %116 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 

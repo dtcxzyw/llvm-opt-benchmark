@@ -147,7 +147,7 @@ define noalias nonnull ptr @l_Std_Time_Database_Windows_getZoneRules_toLocalTime
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !12
   %8 = getelementptr i8, ptr %0, i64 32
-  %.val = load i8, ptr %8, align 1, !tbaa !14
+  %.val = load i8, ptr %8, align 8, !tbaa !14
   %9 = ptrtoint ptr %5 to i64
   %10 = and i64 %9, 1
   %.not = icmp eq i64 %10, 0
@@ -233,7 +233,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit20
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store i64 65536, ptr %37, align 8, !tbaa !4
-  store i32 1, ptr %33, align 4, !tbaa !8
+  store i32 1, ptr %33, align 8, !tbaa !8
   store i32 196648, ptr %36, align 4
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %3, ptr %38, align 8, !tbaa !12
@@ -241,7 +241,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit20
   store ptr %7, ptr %39, align 8, !tbaa !12
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store ptr %5, ptr %40, align 8, !tbaa !12
-  store i8 %.val, ptr %37, align 1, !tbaa !14
+  store i8 %.val, ptr %37, align 8, !tbaa !14
   ret ptr %33
 }
 

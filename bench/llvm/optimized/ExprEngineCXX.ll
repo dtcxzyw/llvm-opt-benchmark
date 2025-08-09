@@ -8180,7 +8180,7 @@ _ZN5clang4ento15AnyFunctionCallC2EPKNS_4ExprEN4llvm18IntrusiveRefCntPtrIKNS0_12P
   %45 = getelementptr inbounds nuw i8, ptr %.0.i, i64 49
   store i8 0, ptr %45, align 1, !tbaa !955
   %46 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
-  store i32 0, ptr %46, align 4, !tbaa !956
+  store i32 0, ptr %46, align 8, !tbaa !956
   %47 = getelementptr inbounds nuw i8, ptr %.0.i, i64 68
   store i32 0, ptr %47, align 4, !tbaa !425
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN5clang4ento15AnyFunctionCallE, i64 16), ptr %.0.i, align 8, !tbaa !150
@@ -8538,7 +8538,7 @@ _ZN5clang4ento14ObjCMethodCallC2EPKNS_15ObjCMessageExprEN4llvm18IntrusiveRefCntP
   %45 = getelementptr inbounds nuw i8, ptr %.0.i, i64 49
   store i8 0, ptr %45, align 1, !tbaa !955
   %46 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
-  store i32 0, ptr %46, align 4, !tbaa !956
+  store i32 0, ptr %46, align 8, !tbaa !956
   %47 = getelementptr inbounds nuw i8, ptr %.0.i, i64 68
   store i32 0, ptr %47, align 4, !tbaa !425
   store ptr getelementptr inbounds nuw inrange(-16, 160) (i8, ptr @_ZTVN5clang4ento14ObjCMethodCallE, i64 16), ptr %.0.i, align 8, !tbaa !150
@@ -8650,7 +8650,7 @@ _ZN5clang4ento15AnyFunctionCallC2EPKNS_4ExprEN4llvm18IntrusiveRefCntPtrIKNS0_12P
   %45 = getelementptr inbounds nuw i8, ptr %.0.i, i64 49
   store i8 0, ptr %45, align 1, !tbaa !955
   %46 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
-  store i32 0, ptr %46, align 4, !tbaa !956
+  store i32 0, ptr %46, align 8, !tbaa !956
   %47 = getelementptr inbounds nuw i8, ptr %.0.i, i64 68
   store i32 0, ptr %47, align 4, !tbaa !425
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN5clang4ento15AnyFunctionCallE, i64 16), ptr %.0.i, align 8, !tbaa !150
@@ -9701,7 +9701,7 @@ _ZN5clang4ento15AnyFunctionCallC2EPKNS_4DeclEN4llvm18IntrusiveRefCntPtrIKNS0_12P
   %47 = getelementptr inbounds nuw i8, ptr %.0.i, i64 49
   store i8 0, ptr %47, align 1, !tbaa !955
   %48 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
-  store i32 0, ptr %48, align 4, !tbaa !956
+  store i32 0, ptr %48, align 8, !tbaa !956
   %49 = getelementptr inbounds nuw i8, ptr %.0.i, i64 68
   store i32 0, ptr %49, align 4, !tbaa !425
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN5clang4ento15AnyFunctionCallE, i64 16), ptr %.0.i, align 8, !tbaa !150
@@ -9818,7 +9818,7 @@ _ZN5clang4ento15AnyFunctionCallC2EPKNS_4ExprEN4llvm18IntrusiveRefCntPtrIKNS0_12P
   %45 = getelementptr inbounds nuw i8, ptr %.0.i, i64 49
   store i8 0, ptr %45, align 1, !tbaa !955
   %46 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
-  store i32 0, ptr %46, align 4, !tbaa !956
+  store i32 0, ptr %46, align 8, !tbaa !956
   %47 = getelementptr inbounds nuw i8, ptr %.0.i, i64 68
   store i32 0, ptr %47, align 4, !tbaa !425
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN5clang4ento15AnyFunctionCallE, i64 16), ptr %.0.i, align 8, !tbaa !150
@@ -10086,7 +10086,7 @@ _ZN5clang4ento15AnyFunctionCallC2EPKNS_4ExprEN4llvm18IntrusiveRefCntPtrIKNS0_12P
   %45 = getelementptr inbounds nuw i8, ptr %.0.i, i64 49
   store i8 0, ptr %45, align 1, !tbaa !955
   %46 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
-  store i32 0, ptr %46, align 4, !tbaa !956
+  store i32 0, ptr %46, align 8, !tbaa !956
   %47 = getelementptr inbounds nuw i8, ptr %.0.i, i64 68
   store i32 0, ptr %47, align 4, !tbaa !425
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN5clang4ento15AnyFunctionCallE, i64 16), ptr %.0.i, align 8, !tbaa !150

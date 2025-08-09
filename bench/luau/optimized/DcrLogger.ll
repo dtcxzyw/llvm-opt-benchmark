@@ -19035,7 +19035,7 @@ define linkonce_odr dso_local void @_ZN4Luau6detail14DenseHashTableIPKvSt4pairIS
   store ptr %14, ptr %13, align 8, !tbaa !16
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 0, ptr %15, align 8, !tbaa !24
-  store i8 0, ptr %14, align 1, !tbaa !25
+  store i8 0, ptr %14, align 8, !tbaa !25
   %16 = add nuw i64 %.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %16, %spec.select
   br i1 %exitcond.not.i.i, label %_ZN4Luau6detail14DenseHashTableIPKvSt4pairIS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES4_IKS3_SA_ENS0_16ItemInterfaceMapIS3_SA_EENS_16DenseHashPointerESt8equal_toIS3_EEC2ERSC_m.exit.loopexit, label %.lr.ph.i.i, !llvm.loop !361
@@ -22022,7 +22022,7 @@ _ZSt19__relocate_object_aIN4Luau13ErrorSnapshotES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i
   store i64 %49, ptr %51, align 8, !tbaa !24, !alias.scope !395, !noalias !398
   store ptr %41, ptr %.0911.i.i.i, align 8, !tbaa !21, !alias.scope !398, !noalias !395
   store i64 0, ptr %50, align 8, !tbaa !24, !alias.scope !398, !noalias !395
-  store i8 0, ptr %41, align 1, !tbaa !25, !alias.scope !398, !noalias !395
+  store i8 0, ptr %41, align 8, !tbaa !25, !alias.scope !398, !noalias !395
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %53, i64 16, i1 false), !tbaa.struct !230, !alias.scope !400
@@ -22073,7 +22073,7 @@ _ZSt19__relocate_object_aIN4Luau13ErrorSnapshotES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i
   store i64 %67, ptr %69, align 8, !tbaa !24, !alias.scope !402, !noalias !405
   store ptr %59, ptr %.0911.i.i.i19, align 8, !tbaa !21, !alias.scope !405, !noalias !402
   store i64 0, ptr %68, align 8, !tbaa !24, !alias.scope !405, !noalias !402
-  store i8 0, ptr %59, align 1, !tbaa !25, !alias.scope !405, !noalias !402
+  store i8 0, ptr %59, align 8, !tbaa !25, !alias.scope !405, !noalias !402
   %70 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(16) %71, i64 16, i1 false), !tbaa.struct !230, !alias.scope !407

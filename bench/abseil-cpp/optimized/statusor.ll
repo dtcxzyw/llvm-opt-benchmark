@@ -685,13 +685,13 @@ define dso_local void @_ZN4absl17internal_statusor22ThrowBadStatusOrAccessENS_6S
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %3, ptr %4, align 8, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 0, ptr %5, align 4, !tbaa !11
+  store i32 0, ptr %5, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %7, ptr %6, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 0, ptr %8, align 8, !tbaa !18
-  store i8 0, ptr %7, align 1, !tbaa !20
+  store i8 0, ptr %7, align 8, !tbaa !20
   tail call void @__cxa_throw(ptr nonnull %2, ptr nonnull @_ZTIN4absl17BadStatusOrAccessE, ptr nonnull @_ZN4absl17BadStatusOrAccessD2Ev) #23
   unreachable
 }

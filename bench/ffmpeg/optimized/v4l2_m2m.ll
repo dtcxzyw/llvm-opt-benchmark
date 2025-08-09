@@ -518,7 +518,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @v4l2_prepare_contexts(ptr 
   store ptr @.str.15, ptr %8, align 8, !tbaa !32
   store ptr @.str.16, ptr %6, align 8, !tbaa !31
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4688
-  store i32 0, ptr %10, align 4, !tbaa !59
+  store i32 0, ptr %10, align 8, !tbaa !59
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4656
   %12 = tail call i32 @sem_init(ptr noundef nonnull %11, i32 noundef 0, i32 noundef 0) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(104) %3, i8 0, i64 104, i1 false)

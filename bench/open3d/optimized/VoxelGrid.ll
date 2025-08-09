@@ -1886,7 +1886,7 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEneIS2_EEbRKNS0_IT_EE.e
   %67 = load i32, ptr %66, align 4, !tbaa !31
   store i32 %67, ptr %65, align 4, !tbaa !31
   %68 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %69 = load <2 x double>, ptr %42, align 1, !tbaa !28
+  %69 = load <2 x double>, ptr %42, align 4, !tbaa !28
   %70 = load <2 x double>, ptr %68, align 8, !tbaa !28
   %71 = fadd <2 x double> %69, %70
   store <2 x double> %71, ptr %68, align 8, !tbaa !28
@@ -1995,7 +1995,7 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEneIS2_EEbRKNS0_IT_EE.e
   %114 = load i32, ptr %113, align 4, !tbaa !31
   store i32 %114, ptr %112, align 4, !tbaa !31
   %115 = getelementptr inbounds nuw i8, ptr %88, i64 16
-  %116 = load <2 x double>, ptr %89, align 1, !tbaa !28
+  %116 = load <2 x double>, ptr %89, align 4, !tbaa !28
   %117 = load <2 x double>, ptr %115, align 8, !tbaa !28
   %118 = fadd <2 x double> %116, %117
   store <2 x double> %118, ptr %115, align 8, !tbaa !28
@@ -33174,11 +33174,11 @@ _ZNKSt8__detail15_Hashtable_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIK
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %46, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false), !tbaa.struct !61
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  store i32 0, ptr %47, align 4, !tbaa !31
+  store i32 0, ptr %47, align 8, !tbaa !31
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 28
   store i32 0, ptr %48, align 4, !tbaa !31
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  store i32 0, ptr %49, align 4, !tbaa !31
+  store i32 0, ptr %49, align 8, !tbaa !31
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false)
   %51 = invoke ptr @_ZNSt10_HashtableIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS2_N6open3d8geometry5VoxelEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_ENS5_7utility10hash_eigenIS2_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %15, i64 noundef %12, ptr noundef nonnull %45, i64 noundef 1)
@@ -35287,7 +35287,7 @@ define void @_ZNK6open3d8geometry9VoxelGrid8ToOctreeERKm(ptr dead_on_unwind noal
   store ptr %12, ptr %11, align 8, !tbaa !53, !noalias !786
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 0, ptr %13, align 8, !tbaa !27, !noalias !786
-  store i8 0, ptr %12, align 1, !tbaa !28, !noalias !786
+  store i8 0, ptr %12, align 8, !tbaa !28, !noalias !786
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN6open3d8geometry6OctreeE, i64 16), ptr %8, align 8, !tbaa !4, !noalias !786
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6open3d8geometry6OctreeE, i64 168), ptr %14, align 8, !tbaa !4, !noalias !786

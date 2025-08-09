@@ -6160,7 +6160,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit31:    ; preds = %_ZN5clang15ASTRecor
   %104 = load i32, ptr %1, align 8
   %105 = lshr i32 %104, 22
   %106 = and i32 %105, 7
-  %107 = load i32, ptr %22, align 4, !tbaa !3
+  %107 = load i32, ptr %22, align 8, !tbaa !3
   %108 = mul i32 %106, %107
   %.not1937 = icmp eq i32 %108, 0
   br i1 %.not1937, label %._crit_edge41, label %.lr.ph40.preheader
@@ -22335,7 +22335,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang10SwitchCaseEjNS_12DenseMapInfoIS4_v
   %57 = load ptr, ptr %1, align 8, !tbaa !218
   store ptr %57, ptr %48, align 8, !tbaa !218
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !3
+  store i32 0, ptr %58, align 8, !tbaa !3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang10SwitchCaseEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E16InsertIntoBucketIRKS4_JEEEPS9_SF_OT_DpOT0_.exit
@@ -30802,7 +30802,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang10SwitchCaseEjNS_12DenseMapInfoIS4_v
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !3
-  store i32 %68, ptr %66, align 4, !tbaa !3
+  store i32 %68, ptr %66, align 8, !tbaa !3
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !239
   br label %70

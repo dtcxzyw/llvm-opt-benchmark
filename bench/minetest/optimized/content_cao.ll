@@ -1201,9 +1201,9 @@ entry:
   %m_node.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store ptr null, ptr %m_node.i.i, align 8, !tbaa !44, !noalias !50
   %m_position.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
-  store <2 x float> <float 0.000000e+00, float 1.000000e+02>, ptr %m_position.i.i, align 4, !tbaa !34, !noalias !50
+  store <2 x float> <float 0.000000e+00, float 1.000000e+02>, ptr %m_position.i.i, align 8, !tbaa !34, !noalias !50
   %Z.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 48
-  store float 0.000000e+00, ptr %Z.i.i.i, align 4, !tbaa !49, !noalias !50
+  store float 0.000000e+00, ptr %Z.i.i.i, align 8, !tbaa !49, !noalias !50
   invoke void @_ZN18ClientActiveObject12registerTypeEtPFSt10unique_ptrIS_St14default_deleteIS_EEP6ClientP17ClientEnvironmentE(i16 noundef zeroext 1, ptr noundef nonnull @_ZN7TestCAO6createEP6ClientP17ClientEnvironment)
           to label %_ZNSt10unique_ptrI7TestCAOSt14default_deleteIS0_EED2Ev.exit unwind label %lpad.i.i, !noalias !50
 
@@ -1256,9 +1256,9 @@ invoke.cont4:                                     ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %MeshBuffers.i, i8 0, i64 24, i1 false)
   store i8 1, ptr %is_sorted.i.i, align 8, !tbaa !59
   %BoundingBox.i = getelementptr inbounds nuw i8, ptr %call, i64 40
-  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i, align 4, !tbaa !34
+  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i, align 8, !tbaa !34
   %Y.i2.i.i = getelementptr inbounds nuw i8, ptr %call, i64 56
-  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 4, !tbaa !34
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 8, !tbaa !34
   %call2 = tail call noalias noundef nonnull dereferenceable(336) ptr @_Znwm(i64 noundef 336) #37
   %2 = getelementptr inbounds nuw i8, ptr %call2, i64 312
   %DebugName.i.i90 = getelementptr inbounds nuw i8, ptr %call2, i64 320
@@ -1316,7 +1316,7 @@ invoke.cont4:                                     ; preds = %entry
   %arrayctor.end.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 160
   store <4 x i32> <i32 0, i32 -1, i32 -1, i32 0>, ptr %arrayctor.end.i.i, align 8, !tbaa !13
   %SpecularColor.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 176
-  store i32 -1, ptr %SpecularColor.i.i, align 4, !tbaa !95
+  store i32 -1, ptr %SpecularColor.i.i, align 8, !tbaa !95
   %Shininess.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 180
   store <2 x float> zeroinitializer, ptr %Shininess.i.i, align 4, !tbaa !34
   %Thickness.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 188
@@ -1342,9 +1342,9 @@ invoke.cont4:                                     ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Indices.i, i8 0, i64 24, i1 false)
   store i8 1, ptr %is_sorted.i13.i, align 8, !tbaa !101
   %BoundingBox.i93 = getelementptr inbounds nuw i8, ptr %call2, i64 280
-  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i93, align 4, !tbaa !34
+  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i93, align 8, !tbaa !34
   %Y.i2.i.i97 = getelementptr inbounds nuw i8, ptr %call2, i64 296
-  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i97, align 4, !tbaa !34
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i97, align 8, !tbaa !34
   %PrimitiveType.i = getelementptr inbounds nuw i8, ptr %call2, i64 304
   store i32 6, ptr %PrimitiveType.i, align 8, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %vertices)
@@ -5229,9 +5229,9 @@ invoke.cont114:                                   ; preds = %if.else93
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %MeshBuffers.i, i8 0, i64 24, i1 false)
   store i8 1, ptr %is_sorted.i.i, align 8, !tbaa !59
   %BoundingBox.i = getelementptr inbounds nuw i8, ptr %call98, i64 40
-  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i, align 4, !tbaa !34
+  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i, align 8, !tbaa !34
   %Y.i2.i.i = getelementptr inbounds nuw i8, ptr %call98, i64 56
-  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 4, !tbaa !34
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 8, !tbaa !34
   %visual_size103 = getelementptr inbounds nuw i8, ptr %this, i64 360
   %call112 = call noalias noundef nonnull dereferenceable(336) ptr @_Znwm(i64 noundef 336) #37
   %68 = getelementptr inbounds nuw i8, ptr %call112, i64 312
@@ -5290,7 +5290,7 @@ invoke.cont114:                                   ; preds = %if.else93
   %arrayctor.end.i.i = getelementptr inbounds nuw i8, ptr %call112, i64 160
   store <4 x i32> <i32 0, i32 -1, i32 -1, i32 0>, ptr %arrayctor.end.i.i, align 8, !tbaa !13
   %SpecularColor.i.i = getelementptr inbounds nuw i8, ptr %call112, i64 176
-  store i32 -1, ptr %SpecularColor.i.i, align 4, !tbaa !95
+  store i32 -1, ptr %SpecularColor.i.i, align 8, !tbaa !95
   %Shininess.i.i = getelementptr inbounds nuw i8, ptr %call112, i64 180
   store <2 x float> zeroinitializer, ptr %Shininess.i.i, align 4, !tbaa !34
   %Thickness.i.i = getelementptr inbounds nuw i8, ptr %call112, i64 188
@@ -5316,9 +5316,9 @@ invoke.cont114:                                   ; preds = %if.else93
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Indices.i, i8 0, i64 24, i1 false)
   store i8 1, ptr %is_sorted.i13.i, align 8, !tbaa !101
   %BoundingBox.i770 = getelementptr inbounds nuw i8, ptr %call112, i64 280
-  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i770, align 4, !tbaa !34
+  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i770, align 8, !tbaa !34
   %Y.i2.i.i774 = getelementptr inbounds nuw i8, ptr %call112, i64 296
-  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i774, align 4, !tbaa !34
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i774, align 8, !tbaa !34
   %PrimitiveType.i = getelementptr inbounds nuw i8, ptr %call112, i64 304
   store i32 6, ptr %PrimitiveType.i, align 8, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %vertices)
@@ -5593,7 +5593,7 @@ invoke.cont169:                                   ; preds = %delete.notnull.i, %
   %arrayctor.end.i.i861 = getelementptr inbounds nuw i8, ptr %call167, i64 160
   store <4 x i32> <i32 0, i32 -1, i32 -1, i32 0>, ptr %arrayctor.end.i.i861, align 8, !tbaa !13
   %SpecularColor.i.i865 = getelementptr inbounds nuw i8, ptr %call167, i64 176
-  store i32 -1, ptr %SpecularColor.i.i865, align 4, !tbaa !95
+  store i32 -1, ptr %SpecularColor.i.i865, align 8, !tbaa !95
   %Shininess.i.i866 = getelementptr inbounds nuw i8, ptr %call167, i64 180
   store <2 x float> zeroinitializer, ptr %Shininess.i.i866, align 4, !tbaa !34
   %Thickness.i.i868 = getelementptr inbounds nuw i8, ptr %call167, i64 188
@@ -5619,9 +5619,9 @@ invoke.cont169:                                   ; preds = %delete.notnull.i, %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Indices.i884, i8 0, i64 24, i1 false)
   store i8 1, ptr %is_sorted.i13.i885, align 8, !tbaa !101
   %BoundingBox.i886 = getelementptr inbounds nuw i8, ptr %call167, i64 280
-  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i886, align 4, !tbaa !34
+  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i886, align 8, !tbaa !34
   %Y.i2.i.i890 = getelementptr inbounds nuw i8, ptr %call167, i64 296
-  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i890, align 4, !tbaa !34
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i890, align 8, !tbaa !34
   %PrimitiveType.i892 = getelementptr inbounds nuw i8, ptr %call167, i64 304
   store i32 6, ptr %PrimitiveType.i892, align 8, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %vertices171)
@@ -10629,7 +10629,7 @@ if.then9:                                         ; preds = %if.then
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %m_velocity, i8 0, i64 24, i1 false)
   %7 = load float, ptr %local_animation_speed, align 8, !tbaa !464
   %movement_speed = getelementptr inbounds nuw i8, ptr %2, i64 256
-  %8 = load float, ptr %movement_speed, align 4, !tbaa !465
+  %8 = load float, ptr %movement_speed, align 8, !tbaa !465
   %cmp = fcmp nsz ule float %8, 0x3F50624DE0000000
   %mul = fmul nsz float %7, %8
   %new_speed.0 = select i1 %cmp, float %7, float %mul
@@ -19476,7 +19476,7 @@ invoke.cont15:                                    ; preds = %if.end5
   store ptr null, ptr %call5.i.i.i.i64, align 8, !tbaa !20
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i64, i64 8
   %4 = load i64, ptr %add.ptr, align 4
-  store i64 %4, ptr %add.ptr.i.i, align 4
+  store i64 %4, ptr %add.ptr.i.i, align 8
   %_M_before_begin.i65 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i.i64, ptr %_M_before_begin.i65, align 8, !tbaa !594
   %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -19501,7 +19501,7 @@ invoke.cont22:                                    ; preds = %for.body
   store ptr null, ptr %call5.i.i.i.i68, align 8, !tbaa !20
   %add.ptr.i.i67 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i68, i64 8
   %6 = load i64, ptr %add.ptr18, align 4
-  store i64 %6, ptr %add.ptr.i.i67, align 4
+  store i64 %6, ptr %add.ptr.i.i67, align 8
   store ptr %call5.i.i.i.i68, ptr %__prev_n.072, align 8, !tbaa !20
   %sext74 = shl i64 %6, 32
   %conv.i.i.i.i = ashr exact i64 %sext74, 32
@@ -24232,7 +24232,7 @@ if.end27:                                         ; preds = %lor.lhs.false.i.i, 
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #37
   store ptr null, ptr %call5.i.i.i.i.i, align 8, !tbaa !20
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 8
-  store i32 %12, ptr %add.ptr.i.i.i, align 4, !tbaa !103
+  store i32 %12, ptr %add.ptr.i.i.i, align 8, !tbaa !103
   %call30 = invoke ptr @_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIiLb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %rem.i.i.i75, i64 noundef %conv.i.i73, ptr noundef nonnull %call5.i.i.i.i.i, i64 noundef 1)
           to label %return unwind label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit62
 
@@ -24400,7 +24400,7 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIi
   %__bbegin_bkt.043 = phi i64 [ %__bbegin_bkt.1, %if.end22 ], [ 0, %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %1 = load ptr, ptr %__p.044, align 8, !tbaa !20
   %add.ptr = getelementptr inbounds nuw i8, ptr %__p.044, i64 8
-  %2 = load i32, ptr %add.ptr, align 4, !tbaa !103
+  %2 = load i32, ptr %add.ptr, align 8, !tbaa !103
   %conv.i.i.i = sext i32 %2 to i64
   %rem.i.i = urem i64 %conv.i.i.i, %__bkt_count
   %arrayidx = getelementptr inbounds ptr, ptr %retval.0.i, i64 %rem.i.i
@@ -25371,7 +25371,7 @@ invoke.cont10:                                    ; preds = %if.end.i.i.i.i.i.i.
   %Z.i3.i6.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i, i64 132
   store float 1.000000e+00, ptr %Z.i3.i6.i.i.i.i.i, align 4, !tbaa !49
   %dtime_passed.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i, i64 144
-  store float 0.000000e+00, ptr %dtime_passed.i.i.i.i.i, align 4, !tbaa !424
+  store float 0.000000e+00, ptr %dtime_passed.i.i.i.i.i, align 8, !tbaa !424
   ret ptr %call5.i.i
 
 invoke.cont14:                                    ; preds = %if.then.i.i.i.i.i.i

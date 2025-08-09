@@ -2145,7 +2145,7 @@ pmix_obj_update.exit121:                          ; preds = %.loopexit156
   %117 = load i32, ptr %116, align 4, !tbaa !160
   %118 = tail call noundef i32 @llvm.bswap.i32(i32 %117)
   %119 = getelementptr inbounds nuw i8, ptr %111, i64 288
-  store i32 %118, ptr %119, align 4, !tbaa !174
+  store i32 %118, ptr %119, align 8, !tbaa !174
   %120 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %121 = load i32, ptr %120, align 4, !tbaa !156
   %122 = tail call noundef i32 @llvm.bswap.i32(i32 %121)
@@ -3489,7 +3489,7 @@ pmix_obj_update.exit132:                          ; preds = %pmix_obj_new_tma.ex
   %155 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %156 = load i32, ptr %155, align 8, !tbaa !194
   %157 = getelementptr inbounds nuw i8, ptr %126, i64 288
-  store i32 %156, ptr %157, align 4, !tbaa !174
+  store i32 %156, ptr %157, align 8, !tbaa !174
   %158 = load ptr, ptr %93, align 8, !tbaa !193
   %.not121 = icmp eq ptr %158, null
   br i1 %.not121, label %193, label %159
@@ -4327,7 +4327,7 @@ pmix_obj_update.exit101:                          ; preds = %pmix_obj_new_tma.ex
   %199 = getelementptr inbounds nuw i8, ptr %171, i64 284
   store i32 %198, ptr %199, align 4, !tbaa !173
   %200 = getelementptr inbounds nuw i8, ptr %171, i64 288
-  store i32 %spec.store.select, ptr %200, align 4, !tbaa !174
+  store i32 %spec.store.select, ptr %200, align 8, !tbaa !174
   %201 = load ptr, ptr %74, align 8, !tbaa !199
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 160
   %203 = load i64, ptr %202, align 8, !tbaa !184

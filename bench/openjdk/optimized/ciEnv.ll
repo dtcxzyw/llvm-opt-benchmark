@@ -7034,7 +7034,7 @@ define hidden void @_ZN5ciEnv23dump_replay_data_helperEP12outputStream(ptr nound
   %50 = load ptr, ptr %49, align 8
   tail call void %50(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull %1) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %51 = load i32, ptr %29, align 4
+  %51 = load i32, ptr %29, align 8
   %52 = sext i32 %51 to i64
   %53 = icmp slt i64 %indvars.iv.next, %52
   br i1 %53, label %44, label %._crit_edge, !llvm.loop !20

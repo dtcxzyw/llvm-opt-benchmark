@@ -3509,13 +3509,13 @@ define internal void @MatShaperEval16(ptr noundef readonly captures(none) %0, pt
   %41 = load i32, ptr %40, align 4
   %42 = mul nsw i32 %41, %15
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 3096
-  %44 = load i32, ptr %43, align 4
+  %44 = load i32, ptr %43, align 8
   %45 = mul nsw i32 %44, %19
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 3100
   %47 = load i32, ptr %46, align 4
   %48 = mul nsw i32 %47, %23
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 3120
-  %50 = load i32, ptr %49, align 4
+  %50 = load i32, ptr %49, align 8
   %51 = add i32 %42, 8192
   %52 = add i32 %51, %45
   %53 = add i32 %52, %48
@@ -3661,7 +3661,7 @@ define internal fastcc ptr @PrelinOpt8alloc(ptr noundef %0, ptr noundef %1, ptr 
   %54 = mul i32 %53, %52
   %55 = getelementptr inbounds nuw [256 x i32], ptr %13, i64 0, i64 %indvars.iv
   store i32 %54, ptr %55, align 4
-  %56 = load i32, ptr %14, align 4
+  %56 = load i32, ptr %14, align 8
   %57 = ashr i32 %45, 16
   %58 = mul i32 %57, %56
   %59 = getelementptr inbounds nuw [256 x i32], ptr %15, i64 0, i64 %indvars.iv

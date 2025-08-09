@@ -2092,7 +2092,7 @@ _ZSt10_ConstructIN5clang7tooling13FileByteRangeEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i.
   store i64 %22, ptr %23, align 8, !tbaa !14
   store ptr %13, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !11
   store i64 0, ptr %21, align 8, !tbaa !14
-  store i8 0, ptr %13, align 1, !tbaa !13
+  store i8 0, ptr %13, align 8, !tbaa !13
   %24 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 32
   %26 = load i64, ptr %25, align 8
@@ -2682,7 +2682,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i: ; preds =
   store i64 %15, ptr %16, align 8, !tbaa !14
   store ptr %6, ptr %.sroa.04.08, align 8, !tbaa !11
   store i64 0, ptr %14, align 8, !tbaa !14
-  store i8 0, ptr %6, align 1, !tbaa !13
+  store i8 0, ptr %6, align 8, !tbaa !13
   %17 = getelementptr inbounds nuw i8, ptr %.09, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.04.08, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %.09, i64 48
@@ -2714,7 +2714,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit7.i.i: ; preds 
   store i64 %30, ptr %31, align 8, !tbaa !14
   store ptr %21, ptr %18, align 8, !tbaa !11
   store i64 0, ptr %29, align 8, !tbaa !14
-  store i8 0, ptr %21, align 1, !tbaa !13
+  store i8 0, ptr %21, align 8, !tbaa !13
   %32 = getelementptr inbounds nuw i8, ptr %.09, i64 64
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.04.08, i64 64
   %34 = load i32, ptr %33, align 8, !tbaa !15
@@ -3253,7 +3253,7 @@ _ZSt10_ConstructIN5clang7tooling13FileByteRangeEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i:
   store i64 %192, ptr %193, align 8, !tbaa !14
   store ptr %183, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !11
   store i64 0, ptr %191, align 8, !tbaa !14
-  store i8 0, ptr %183, align 1, !tbaa !13
+  store i8 0, ptr %183, align 8, !tbaa !13
   %194 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 32
   %195 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 32
   %196 = load i64, ptr %195, align 8

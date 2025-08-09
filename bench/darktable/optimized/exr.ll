@@ -3083,7 +3083,7 @@ define linkonce_odr hidden noundef ptr @_ZNK7Imf_2_514TypedAttributeINSt7__cxx11
   store ptr %5, ptr %4, align 8, !tbaa !43
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 0, ptr %6, align 8, !tbaa !49
-  store i8 0, ptr %5, align 1, !tbaa !30
+  store i8 0, ptr %5, align 8, !tbaa !30
   %7 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(8) %0, ptr nonnull @_ZTIN7Imf_2_59AttributeE, ptr nonnull @_ZTIN7Imf_2_514TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0) #29
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.thread.i.i.i, label %_ZN7Imf_2_514TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13copyValueFromERKNS_9AttributeE.exit

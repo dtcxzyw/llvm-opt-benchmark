@@ -1713,7 +1713,7 @@ _ZN5folly14RequestContext11saveContextEv.exit.i.i.i: ; preds = %32, %29, %.noexc
   store ptr @"_ZN5folly6detail8function5call_IZNS_9EventBase16keepAliveReleaseEvE3$_0Lb1ELb0EvJEEET2_DpT3_RNS1_4DataE", ptr %38, align 16, !tbaa !161
   store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %39, align 8, !tbaa !162
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 64
-  store ptr %35, ptr %40, align 8, !tbaa !172
+  store ptr %35, ptr %40, align 16, !tbaa !172
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 72
   store ptr %34, ptr %41, align 8, !tbaa !175
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 80
@@ -5296,8 +5296,8 @@ _ZN5folly32EventBaseAtomicNotificationQueueINS_8FunctionIFvvEEENS_9EventBase10Fu
   %313 = getelementptr inbounds nuw i8, ptr %311, i64 24
   store ptr null, ptr %313, align 8, !tbaa !375
   %314 = getelementptr inbounds nuw i8, ptr %311, i64 32
-  %315 = load ptr, ptr %314, align 8, !tbaa !175
-  store ptr null, ptr %314, align 8, !tbaa !175
+  %315 = load ptr, ptr %314, align 16, !tbaa !175
+  store ptr null, ptr %314, align 16, !tbaa !175
   %.not.i.i.i.i.i31 = icmp eq ptr %315, null
   br i1 %.not.i.i.i.i.i31, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit.i.i, label %316
 
@@ -6182,8 +6182,8 @@ define void @_ZN5folly9EventBase18applyLoopKeepAliveEv(ptr noundef nonnull align
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store ptr null, ptr %23, align 8, !tbaa !375
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %25 = load ptr, ptr %24, align 8, !tbaa !175
-  store ptr null, ptr %24, align 8, !tbaa !175
+  %25 = load ptr, ptr %24, align 16, !tbaa !175
+  store ptr null, ptr %24, align 16, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit.i.i, label %26
 
@@ -6303,8 +6303,8 @@ _ZN5folly32EventBaseAtomicNotificationQueueINS_8FunctionIFvvEEENS_9EventBase10Fu
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 24
   store ptr null, ptr %84, align 8, !tbaa !375
   %85 = getelementptr inbounds nuw i8, ptr %82, i64 32
-  %86 = load ptr, ptr %85, align 8, !tbaa !175
-  store ptr null, ptr %85, align 8, !tbaa !175
+  %86 = load ptr, ptr %85, align 16, !tbaa !175
+  store ptr null, ptr %85, align 16, !tbaa !175
   %.not.i.i.i.i.i11 = icmp eq ptr %86, null
   br i1 %.not.i.i.i.i.i11, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit.i.i15, label %87
 
@@ -7503,7 +7503,7 @@ _ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit: ; 
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(28) %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load atomic i32, ptr %8 acquire, align 4
+  %9 = load atomic i32, ptr %8 acquire, align 8
   %10 = and i32 %9, 2147483647
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %_ZNSt23__atomic_futex_unsignedILj2147483648EE7_M_loadESt12memory_order.exit.us.i.i
@@ -8477,7 +8477,7 @@ _ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integ
   %49 = icmp eq i8 %48, 0
   tail call void @llvm.assume(i1 %49)
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 12
-  store i16 %.0.copyload.i.pre, ptr %50, align 1
+  store i16 %.0.copyload.i.pre, ptr %50, align 2
   %.pre29 = load i64, ptr %8, align 8, !tbaa !208
   br label %.thread20
 
@@ -10291,8 +10291,8 @@ define noundef zeroext i1 @_ZN5folly9EventBase19loopIgnoreKeepAliveEv(ptr nounde
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr null, ptr %9, align 8, !tbaa !375
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !175
-  store ptr null, ptr %10, align 8, !tbaa !175
+  %11 = load ptr, ptr %10, align 16, !tbaa !175
+  store ptr null, ptr %10, align 16, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit.i.i, label %12
 
@@ -13942,7 +13942,7 @@ _ZN5folly6detail9futexWaitISt6atomicIjEEENS0_11FutexResultEPKT_jj.exit.i.i.i.i.i
   %33 = load i8, ptr %32, align 8, !tbaa !194, !range !23, !noundef !24
   %34 = trunc nuw i8 %33 to i1
   %35 = select i1 %34, i32 -2, i32 -1
-  store atomic i32 %35, ptr %31 release, align 4
+  store atomic i32 %35, ptr %31 release, align 8
   br label %36
 
 36:                                               ; preds = %"_ZN5folly6detail14ScopeGuardImplIZNS_9EventBase8loopBodyEiNS2_11LoopOptionsEE3$_0Lb1EE7executeEv.exit", %0
@@ -14237,7 +14237,7 @@ _ZN5folly6detail9futexWaitISt6atomicIjEEENS0_11FutexResultEPKT_jj.exit.i.i.i.i.i
   %33 = load i8, ptr %32, align 8, !tbaa !194, !range !23, !noundef !24
   %34 = trunc nuw i8 %33 to i1
   %35 = select i1 %34, i32 -2, i32 -1
-  store atomic i32 %35, ptr %31 release, align 4
+  store atomic i32 %35, ptr %31 release, align 8
   br label %36
 
 36:                                               ; preds = %"_ZN5folly6detail14ScopeGuardImplIZNS_9EventBase18loopWithSuspensionEvE3$_0Lb1EE7executeEv.exit", %0
@@ -15242,7 +15242,7 @@ _ZN5folly14RequestContext11saveContextEv.exit.i.i.i: ; preds = %50, %47, %.noexc
   store ptr @"_ZN5folly6detail8function5call_IZNS_9EventBase17terminateLoopSoonEvE3$_0Lb1ELb0EvJEEET2_DpT3_RNS1_4DataE", ptr %56, align 16, !tbaa !161
   store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %57, align 8, !tbaa !162
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 64
-  store ptr %53, ptr %58, align 8, !tbaa !172
+  store ptr %53, ptr %58, align 16, !tbaa !172
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 72
   store ptr %52, ptr %59, align 8, !tbaa !175
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 80
@@ -16181,7 +16181,7 @@ _ZN5folly8FunctionIFvvEEC2EOS2_.exit:             ; preds = %2, %13
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 88
   store ptr null, ptr %19, align 8, !tbaa !25
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  store i8 0, ptr %20, align 4, !tbaa !613
+  store i8 0, ptr %20, align 16, !tbaa !613
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 100
   store i32 0, ptr %21, align 4, !tbaa !198
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5folly9EventBase29FunctionOnDestructionCallbackE, i64 16), ptr %6, align 16, !tbaa !28
@@ -16774,7 +16774,7 @@ _ZN5folly8FunctionIFvvEEC2EOS2_.exit:             ; preds = %2, %13
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 88
   store ptr null, ptr %19, align 8, !tbaa !25
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  store i8 0, ptr %20, align 4, !tbaa !613
+  store i8 0, ptr %20, align 16, !tbaa !613
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 100
   store i32 0, ptr %21, align 4, !tbaa !198
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5folly9EventBase29FunctionOnDestructionCallbackE, i64 16), ptr %6, align 16, !tbaa !28

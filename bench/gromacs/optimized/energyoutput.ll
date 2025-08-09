@@ -4700,7 +4700,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %579, ptr %.08.i.i.i.i.i, align 8, !tbaa !288
   %580 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 8
   store i64 0, ptr %580, align 8, !tbaa !238
-  store i8 0, ptr %579, align 1, !tbaa !239
+  store i8 0, ptr %579, align 8, !tbaa !239
   %581 = add nsw i64 %.057.i.i.i.i.i, -1
   %582 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq i64 %581, 0

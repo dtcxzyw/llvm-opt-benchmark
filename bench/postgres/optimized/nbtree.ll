@@ -1664,7 +1664,7 @@ BTreeTupleIsPosting.exit.thread.i:                ; preds = %BTreeTupleIsPosting
   %189 = trunc i64 %indvars.iv.i.i to i16
   %190 = getelementptr inbounds nuw i8, ptr %186, i64 12
   store i16 1, ptr %188, align 2
-  store i16 %189, ptr %190, align 2
+  store i16 %189, ptr %190, align 4
   br label %199
 
 191:                                              ; preds = %183

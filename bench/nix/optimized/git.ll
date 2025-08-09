@@ -16697,7 +16697,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %25, ptr %28, align 8
   store ptr %16, ptr %12, align 8
   store i64 0, ptr %27, align 8
-  store i8 0, ptr %16, align 1
+  store i8 0, ptr %16, align 8
   store ptr %7, ptr %26, align 8
   %29 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN3nix4HashESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(73) %8)
           to label %30 unwind label %43

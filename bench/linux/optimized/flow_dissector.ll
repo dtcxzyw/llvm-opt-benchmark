@@ -1902,7 +1902,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   %704 = load i32, ptr %690, align 4
   store i32 %704, ptr %703, align 4
   %705 = getelementptr i8, ptr %690, i64 4
-  %706 = load i16, ptr %705, align 2
+  %706 = load i16, ptr %705, align 4
   %707 = getelementptr i8, ptr %693, i64 13
   store i16 %706, ptr %707, align 2
   %708 = getelementptr inbounds nuw i8, ptr %693, i64 15
@@ -3078,7 +3078,7 @@ define dso_local void @make_flow_keys_digest(ptr noundef writeonly captures(none
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %12, ptr %13, align 4
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %15 = load i32, ptr %14, align 4
+  %15 = load i32, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %15, ptr %16, align 4
   ret void

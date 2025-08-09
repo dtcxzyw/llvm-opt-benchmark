@@ -454,7 +454,7 @@ define dso_local void @tcp_time_wait(ptr noundef %0, i32 noundef %1, i32 noundef
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 216
   store i32 %50, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 1704
-  %53 = load i32, ptr %52, align 4
+  %53 = load i32, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 224
   store i32 %53, ptr %54, align 8
   %55 = load i32, ptr %30, align 4
@@ -903,13 +903,13 @@ define dso_local ptr @tcp_create_openreq_child(ptr noundef %0, ptr noundef %1, p
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 1680
   store i32 %17, ptr %21, align 16
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 1840
-  store volatile ptr %22, ptr %22, align 8
+  store volatile ptr %22, ptr %22, align 16
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 1848
   store volatile ptr %22, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 1624
   store volatile ptr %24, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 1632
-  store volatile ptr %24, ptr %25, align 8
+  store volatile ptr %24, ptr %25, align 32
   %26 = load i32, ptr %8, align 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 1448
   store i32 %26, ptr %27, align 8
@@ -918,16 +918,16 @@ define dso_local ptr @tcp_create_openreq_child(ptr noundef %0, ptr noundef %1, p
   %30 = trunc i64 %29 to i32
   %31 = getelementptr i8, ptr %4, i64 1488
   %32 = getelementptr i8, ptr %4, i64 1480
-  store i32 %30, ptr %28, align 4
+  store i32 %30, ptr %28, align 64
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 1476
   store i32 -1, ptr %33, align 4
-  %34 = load i64, ptr %28, align 4
-  store i64 %34, ptr %32, align 4
-  store i64 %34, ptr %31, align 4
+  %34 = load i64, ptr %28, align 64
+  store i64 %34, ptr %32, align 8
+  store i64 %34, ptr %31, align 16
   %35 = load volatile i64, ptr @jiffies, align 64
   %36 = trunc i64 %35 to i32
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 1232
-  store i32 %36, ptr %37, align 8
+  store i32 %36, ptr %37, align 16
   %38 = load volatile i64, ptr @jiffies, align 64
   %39 = trunc i64 %38 to i32
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 1580
@@ -949,7 +949,7 @@ define dso_local ptr @tcp_create_openreq_child(ptr noundef %0, ptr noundef %1, p
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 1572
   store volatile i32 %49, ptr %51, align 4
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %53 = load volatile i64, ptr %52, align 8
+  %53 = load volatile i64, ptr %52, align 32
   %54 = and i64 %53, 8
   %55 = icmp eq i64 %54, 0
   br i1 %55, label %68, label %56

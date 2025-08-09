@@ -618,11 +618,11 @@ trace_ahci_reset_port.exit:                       ; preds = %2, %9, %11, %17, %2
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 2420
   store i32 0, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 2424
-  store i32 0, ptr %27, align 4
+  store i32 0, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 2404
   store i32 127, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 2408
-  store i32 -1, ptr %29, align 4
+  store i32 -1, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 2428
   store i32 0, ptr %30, align 4
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 2476
@@ -2414,7 +2414,7 @@ define internal fastcc void @ahci_init_d2h(ptr noundef captures(none) %0) unname
   %70 = and i32 %69, 255
   %71 = or disjoint i32 %68, %70
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 2408
-  store i32 %71, ptr %72, align 4
+  store i32 %71, ptr %72, align 8
   br label %ahci_write_fis_d2h.exit.thread
 
 ahci_write_fis_d2h.exit.thread:                   ; preds = %5, %8, %12, %1
@@ -3645,7 +3645,7 @@ define internal fastcc void @ahci_trigger_irq(ptr noundef %0, ptr noundef captur
   %12 = getelementptr inbounds nuw [32 x ptr], ptr @AHCIPortIRQ_lookup, i64 0, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 2392
-  %15 = load i32, ptr %14, align 4
+  %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, %8
   %17 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i = icmp eq i32 %17, 0
@@ -4510,9 +4510,9 @@ define internal void @ncq_cb(ptr noundef initializes((8, 16)) %0, i32 noundef %1
   %81 = load i32, ptr %67, align 8
   %82 = xor i32 %81, -1
   %83 = getelementptr inbounds nuw i8, ptr %48, i64 2424
-  %84 = load i32, ptr %83, align 4
+  %84 = load i32, ptr %83, align 8
   %85 = and i32 %84, %82
-  store i32 %85, ptr %83, align 4
+  store i32 %85, ptr %83, align 8
   store i32 0, ptr %67, align 8
   %86 = load i8, ptr %63, align 1
   %87 = and i8 %86, 1

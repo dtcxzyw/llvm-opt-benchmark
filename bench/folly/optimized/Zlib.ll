@@ -211,11 +211,11 @@ define internal fastcc void @_ZSt11make_uniqueIN5folly11compression4zlib12_GLOBA
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 52
   store i32 0, ptr %18, align 4, !tbaa !28
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store i32 15, ptr %19, align 4, !tbaa !31
+  store i32 15, ptr %19, align 8, !tbaa !31
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 60
   store i32 8, ptr %20, align 4, !tbaa !32
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  store i32 0, ptr %21, align 4, !tbaa !33
+  store i32 0, ptr %21, align 8, !tbaa !33
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store i8 0, ptr %22, align 8, !tbaa !34
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 184
@@ -233,7 +233,7 @@ define internal fastcc void @_ZSt11make_uniqueIN5folly11compression4zlib12_GLOBA
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 316
   store i8 1, ptr %28, align 4, !tbaa !40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !41
-  %29 = load i32, ptr %19, align 4, !tbaa !43
+  %29 = load i32, ptr %19, align 8, !tbaa !43
   %30 = add i32 %29, -9
   %31 = icmp ult i32 %30, 7
   br i1 %31, label %48, label %32
@@ -932,7 +932,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %91, ptr %93, align 8, !tbaa !48, !alias.scope !69, !noalias !72
   store ptr %83, ptr %.0911.i.i.i.i74, align 8, !tbaa !44, !alias.scope !72, !noalias !69
   store i64 0, ptr %92, align 8, !tbaa !48, !alias.scope !72, !noalias !69
-  store i8 0, ptr %83, align 1, !tbaa !34, !alias.scope !72, !noalias !69
+  store i8 0, ptr %83, align 8, !tbaa !34, !alias.scope !72, !noalias !69
   %94 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i74, i64 32
   %95 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i73, i64 32
   %.not.i.i.i.i79 = icmp eq ptr %94, %23
@@ -1146,7 +1146,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %172, ptr %174, align 8, !tbaa !48, !alias.scope !79, !noalias !82
   store ptr %164, ptr %.0911.i.i.i.i95, align 8, !tbaa !44, !alias.scope !82, !noalias !79
   store i64 0, ptr %173, align 8, !tbaa !48, !alias.scope !82, !noalias !79
-  store i8 0, ptr %164, align 1, !tbaa !34, !alias.scope !82, !noalias !79
+  store i8 0, ptr %164, align 8, !tbaa !34, !alias.scope !82, !noalias !79
   %175 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i95, i64 32
   %176 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i94, i64 32
   %.not.i.i.i.i100 = icmp eq ptr %175, %105

@@ -1651,7 +1651,7 @@ if.then.i155:                                     ; preds = %_ZTW11tracestream.e
   %29 = load i32, ptr %_M_flags.i.i, align 8, !tbaa !61
   %and.i.i.i.i = and i32 %29, -75
   %or.i.i.i.i = or disjoint i32 %and.i.i.i.i, 8
-  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 4, !tbaa !61
+  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 8, !tbaa !61
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %28, i64 %vbase.offset.i.i
   %_M_width.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 16
@@ -2284,7 +2284,7 @@ if.then.i124:                                     ; preds = %_ZTW11tracestream.e
   %36 = load i32, ptr %_M_flags.i.i, align 8, !tbaa !61
   %and.i.i.i.i = and i32 %36, -75
   %or.i.i.i.i = or disjoint i32 %and.i.i.i.i, 8
-  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 4, !tbaa !61
+  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 8, !tbaa !61
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %35, i64 %vbase.offset.i.i
   %_M_width.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 16

@@ -66,7 +66,7 @@ define dso_local noundef nonnull ptr @_ZN7Metrics9NewMetricERKNSt7__cxx1112basic
   store ptr %4, ptr %3, align 8, !tbaa !19
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %5, align 8, !tbaa !20
-  store i8 0, ptr %4, align 1, !tbaa !21
+  store i8 0, ptr %4, align 8, !tbaa !21
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 0, ptr %6, align 8, !tbaa !12

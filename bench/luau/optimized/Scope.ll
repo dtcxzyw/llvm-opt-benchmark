@@ -1648,7 +1648,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %14,
   store i8 0, ptr %27, align 8, !tbaa !75
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 120
-  %30 = load i32, ptr %29, align 4, !tbaa !96
+  %30 = load i32, ptr %29, align 8, !tbaa !96
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 144

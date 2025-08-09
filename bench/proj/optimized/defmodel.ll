@@ -11107,7 +11107,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i229:
   %500 = getelementptr inbounds nuw i8, ptr %497, i64 24
   store ptr %500, ptr %499, align 8, !tbaa !11
   %501 = getelementptr inbounds nuw i8, ptr %497, i64 16
-  store i8 0, ptr %500, align 1, !tbaa !13
+  store i8 0, ptr %500, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN16DeformationModel9Component20ConstantTimeFunctionE, i64 16), ptr %497, align 8, !tbaa !30
   %502 = load ptr, ptr %24, align 8, !tbaa !3
   %503 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -11214,7 +11214,7 @@ _ZNKSt14default_deleteIN16DeformationModel9Component12TimeFunctionEEclEPS2_.exit
   %543 = getelementptr inbounds nuw i8, ptr %539, i64 24
   store ptr %543, ptr %542, align 8, !tbaa !11
   %544 = getelementptr inbounds nuw i8, ptr %539, i64 16
-  store i8 0, ptr %543, align 1, !tbaa !13
+  store i8 0, ptr %543, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN16DeformationModel9Component20VelocityTimeFunctionE, i64 16), ptr %539, align 8, !tbaa !30
   %545 = getelementptr inbounds nuw i8, ptr %539, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -11579,7 +11579,7 @@ _ZNSt10unique_ptrIN16DeformationModel9Component20VelocityTimeFunctionESt14defaul
   %688 = getelementptr inbounds nuw i8, ptr %684, i64 24
   store ptr %688, ptr %687, align 8, !tbaa !11
   %689 = getelementptr inbounds nuw i8, ptr %684, i64 16
-  store i8 0, ptr %688, align 1, !tbaa !13
+  store i8 0, ptr %688, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN16DeformationModel9Component16StepTimeFunctionE, i64 16), ptr %684, align 8, !tbaa !30
   %690 = getelementptr inbounds nuw i8, ptr %684, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -11944,7 +11944,7 @@ _ZNSt10unique_ptrIN16DeformationModel9Component16StepTimeFunctionESt14default_de
   %833 = getelementptr inbounds nuw i8, ptr %829, i64 24
   store ptr %833, ptr %832, align 8, !tbaa !11
   %834 = getelementptr inbounds nuw i8, ptr %829, i64 16
-  store i8 0, ptr %833, align 1, !tbaa !13
+  store i8 0, ptr %833, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN16DeformationModel9Component23ReverseStepTimeFunctionE, i64 16), ptr %829, align 8, !tbaa !30
   %835 = getelementptr inbounds nuw i8, ptr %829, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -12309,18 +12309,18 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i352:
   %977 = getelementptr inbounds nuw i8, ptr %974, i64 24
   store ptr %977, ptr %976, align 8, !tbaa !11
   %978 = getelementptr inbounds nuw i8, ptr %974, i64 16
-  store i8 0, ptr %977, align 1, !tbaa !13
+  store i8 0, ptr %977, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN16DeformationModel9Component21PiecewiseTimeFunctionE, i64 16), ptr %974, align 8, !tbaa !30
   %979 = getelementptr inbounds nuw i8, ptr %974, i64 40
   %980 = getelementptr inbounds nuw i8, ptr %974, i64 56
   store ptr %980, ptr %979, align 8, !tbaa !11
   %981 = getelementptr inbounds nuw i8, ptr %974, i64 48
-  store i8 0, ptr %980, align 1, !tbaa !13
+  store i8 0, ptr %980, align 8, !tbaa !13
   %982 = getelementptr inbounds nuw i8, ptr %974, i64 72
   %983 = getelementptr inbounds nuw i8, ptr %974, i64 88
   store ptr %983, ptr %982, align 8, !tbaa !11
   %984 = getelementptr inbounds nuw i8, ptr %974, i64 80
-  store i8 0, ptr %983, align 1, !tbaa !13
+  store i8 0, ptr %983, align 8, !tbaa !13
   %985 = getelementptr inbounds nuw i8, ptr %974, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %985, i8 0, i64 24, i1 false)
   %986 = load ptr, ptr %24, align 8, !tbaa !3
@@ -23838,7 +23838,7 @@ define linkonce_odr hidden void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__c
   store ptr %12, ptr %11, align 8, !tbaa !11
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %13, align 8, !tbaa !14
-  store i8 0, ptr %12, align 1, !tbaa !13
+  store i8 0, ptr %12, align 8, !tbaa !13
   store ptr %11, ptr %0, align 8, !tbaa !13
   br label %22
 
@@ -36952,7 +36952,7 @@ define linkonce_odr hidden { i8, ptr } @_ZN8nlohmann6detail28json_sax_dom_callba
   store ptr %32, ptr %31, align 8, !tbaa !11
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 0, ptr %33, align 8, !tbaa !14
-  store i8 0, ptr %32, align 1, !tbaa !13
+  store i8 0, ptr %32, align 8, !tbaa !13
   store ptr %31, ptr %22, align 8, !tbaa !13
   br label %_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEE10json_valueC2ENS_6detail7value_tE.exit
 
@@ -41639,7 +41639,7 @@ define linkonce_odr hidden noundef nonnull ptr @_ZN8nlohmann6detail19json_sax_do
   store ptr %24, ptr %23, align 8, !tbaa !11
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %25, align 8, !tbaa !14
-  store i8 0, ptr %24, align 1, !tbaa !13
+  store i8 0, ptr %24, align 8, !tbaa !13
   %26 = ptrtoint ptr %23 to i64
   br label %_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEE10json_valueC2ENS_6detail7value_tE.exit
 
@@ -41756,7 +41756,7 @@ _ZNSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_
   store ptr %79, ptr %78, align 8, !tbaa !11
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store i64 0, ptr %80, align 8, !tbaa !14
-  store i8 0, ptr %79, align 1, !tbaa !13
+  store i8 0, ptr %79, align 8, !tbaa !13
   %81 = ptrtoint ptr %78 to i64
   br label %_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEE10json_valueC2ENS_6detail7value_tE.exit8
 
@@ -43358,7 +43358,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8, !tbaa !14
   store ptr %13, ptr %10, align 8, !tbaa !3
   store i64 0, ptr %24, align 8, !tbaa !14
-  store i8 0, ptr %13, align 1, !tbaa !13
+  store i8 0, ptr %13, align 8, !tbaa !13
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i8 0, ptr %26, align 8, !tbaa !24
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 72
@@ -44288,7 +44288,7 @@ _ZSt19__relocate_object_aIN16DeformationModel9Component21PiecewiseTimeFunction21
   store i64 %53, ptr %55, align 8, !tbaa !14, !alias.scope !712, !noalias !715
   store ptr %45, ptr %.0911.i.i.i, align 8, !tbaa !3, !alias.scope !715, !noalias !712
   store i64 0, ptr %54, align 8, !tbaa !14, !alias.scope !715, !noalias !712
-  store i8 0, ptr %45, align 1, !tbaa !13, !alias.scope !715, !noalias !712
+  store i8 0, ptr %45, align 8, !tbaa !13, !alias.scope !715, !noalias !712
   %56 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %57 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %58 = load double, ptr %57, align 8, !tbaa !15, !alias.scope !715, !noalias !712
@@ -44344,7 +44344,7 @@ _ZSt19__relocate_object_aIN16DeformationModel9Component21PiecewiseTimeFunction21
   store i64 %75, ptr %77, align 8, !tbaa !14, !alias.scope !719, !noalias !722
   store ptr %67, ptr %.0911.i.i.i19, align 8, !tbaa !3, !alias.scope !722, !noalias !719
   store i64 0, ptr %76, align 8, !tbaa !14, !alias.scope !722, !noalias !719
-  store i8 0, ptr %67, align 1, !tbaa !13, !alias.scope !722, !noalias !719
+  store i8 0, ptr %67, align 8, !tbaa !13, !alias.scope !722, !noalias !719
   %78 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %79 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %80 = load double, ptr %79, align 8, !tbaa !15, !alias.scope !722, !noalias !719

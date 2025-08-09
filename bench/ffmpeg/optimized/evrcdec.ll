@@ -338,7 +338,7 @@ define internal i32 @evrc_decode_frame(ptr noundef %0, ptr noundef initializes((
   %77 = load i8, ptr %.0238, align 1, !tbaa !28
   store i32 1, ptr %73, align 8, !tbaa !62
   %78 = lshr i8 %77, 7
-  store i8 %78, ptr %75, align 2, !tbaa !63
+  store i8 %78, ptr %75, align 8, !tbaa !63
   %79 = load i32, ptr %.0238, align 1, !tbaa !28
   store i32 7, ptr %73, align 8, !tbaa !62
   %80 = trunc i32 %79 to i16
@@ -354,7 +354,7 @@ define internal i32 @evrc_decode_frame(ptr noundef %0, ptr noundef initializes((
   %88 = trunc nuw nsw i32 %86 to i16
   %89 = and i16 %88, 63
   %90 = getelementptr inbounds nuw i8, ptr %16, i64 60
-  store i16 %89, ptr %90, align 2, !tbaa !64
+  store i16 %89, ptr %90, align 4, !tbaa !64
   %91 = getelementptr inbounds nuw i8, ptr %.0238, i64 1
   %92 = load i32, ptr %91, align 1, !tbaa !28
   %93 = tail call i32 @llvm.bswap.i32(i32 %92)
@@ -380,7 +380,7 @@ define internal i32 @evrc_decode_frame(ptr noundef %0, ptr noundef initializes((
   store i32 %110, ptr %73, align 8, !tbaa !62
   %111 = trunc nuw nsw i32 %108 to i16
   %112 = getelementptr inbounds nuw i8, ptr %16, i64 64
-  store i16 %111, ptr %112, align 2, !tbaa !64
+  store i16 %111, ptr %112, align 8, !tbaa !64
   %113 = lshr i32 %110, 3
   %114 = zext nneg i32 %113 to i64
   %115 = getelementptr inbounds nuw i8, ptr %.0238, i64 %114
@@ -422,7 +422,7 @@ define internal i32 @evrc_decode_frame(ptr noundef %0, ptr noundef initializes((
   store i32 %146, ptr %73, align 8, !tbaa !62
   %147 = trunc nuw nsw i32 %144 to i8
   %148 = getelementptr inbounds nuw i8, ptr %16, i64 68
-  store i8 %147, ptr %148, align 2, !tbaa !28
+  store i8 %147, ptr %148, align 4, !tbaa !28
   %149 = lshr i32 %146, 3
   %150 = zext nneg i32 %149 to i64
   %151 = getelementptr inbounds nuw i8, ptr %.0238, i64 %150
@@ -436,7 +436,7 @@ define internal i32 @evrc_decode_frame(ptr noundef %0, ptr noundef initializes((
   store i32 %158, ptr %73, align 8, !tbaa !62
   %159 = trunc nuw nsw i32 %156 to i16
   %160 = getelementptr inbounds nuw i8, ptr %16, i64 72
-  store i16 %159, ptr %160, align 2, !tbaa !64
+  store i16 %159, ptr %160, align 8, !tbaa !64
   %161 = lshr i32 %158, 3
   %162 = zext nneg i32 %161 to i64
   %163 = getelementptr inbounds nuw i8, ptr %.0238, i64 %162
@@ -464,7 +464,7 @@ define internal i32 @evrc_decode_frame(ptr noundef %0, ptr noundef initializes((
   store i32 %182, ptr %73, align 8, !tbaa !62
   %183 = trunc nuw nsw i32 %180 to i16
   %184 = getelementptr inbounds nuw i8, ptr %16, i64 76
-  store i16 %183, ptr %184, align 2, !tbaa !64
+  store i16 %183, ptr %184, align 4, !tbaa !64
   %185 = lshr i32 %182, 3
   %186 = zext nneg i32 %185 to i64
   %187 = getelementptr inbounds nuw i8, ptr %.0238, i64 %186
@@ -492,7 +492,7 @@ define internal i32 @evrc_decode_frame(ptr noundef %0, ptr noundef initializes((
   store i32 %206, ptr %73, align 8, !tbaa !62
   %207 = trunc nuw nsw i32 %204 to i8
   %208 = getelementptr inbounds nuw i8, ptr %16, i64 96
-  store i8 %207, ptr %208, align 2, !tbaa !28
+  store i8 %207, ptr %208, align 8, !tbaa !28
   %209 = lshr i32 %206, 3
   %210 = zext nneg i32 %209 to i64
   %211 = getelementptr inbounds nuw i8, ptr %.0238, i64 %210
@@ -520,7 +520,7 @@ define internal i32 @evrc_decode_frame(ptr noundef %0, ptr noundef initializes((
   store i32 %230, ptr %73, align 8, !tbaa !62
   %231 = trunc nuw nsw i32 %228 to i16
   %232 = getelementptr inbounds nuw i8, ptr %16, i64 80
-  store i16 %231, ptr %232, align 2, !tbaa !64
+  store i16 %231, ptr %232, align 8, !tbaa !64
   %233 = lshr i32 %230, 3
   %234 = zext nneg i32 %233 to i64
   %235 = getelementptr inbounds nuw i8, ptr %.0238, i64 %234
@@ -548,7 +548,7 @@ define internal i32 @evrc_decode_frame(ptr noundef %0, ptr noundef initializes((
   store i32 %254, ptr %73, align 8, !tbaa !62
   %255 = trunc nuw nsw i32 %252 to i16
   %256 = getelementptr inbounds nuw i8, ptr %16, i64 84
-  store i16 %255, ptr %256, align 2, !tbaa !64
+  store i16 %255, ptr %256, align 4, !tbaa !64
   %257 = lshr i32 %254, 3
   %258 = zext nneg i32 %257 to i64
   %259 = getelementptr inbounds nuw i8, ptr %.0238, i64 %258
@@ -604,7 +604,7 @@ define internal i32 @evrc_decode_frame(ptr noundef %0, ptr noundef initializes((
   store i32 %302, ptr %73, align 8, !tbaa !62
   %303 = trunc nuw nsw i32 %300 to i16
   %304 = getelementptr inbounds nuw i8, ptr %16, i64 88
-  store i16 %303, ptr %304, align 2, !tbaa !64
+  store i16 %303, ptr %304, align 8, !tbaa !64
   %305 = lshr i32 %302, 3
   %306 = zext nneg i32 %305 to i64
   %307 = getelementptr inbounds nuw i8, ptr %.0238, i64 %306
@@ -632,7 +632,7 @@ define internal i32 @evrc_decode_frame(ptr noundef %0, ptr noundef initializes((
   store i32 %326, ptr %73, align 8, !tbaa !62
   %327 = trunc nuw nsw i32 %324 to i16
   %328 = getelementptr inbounds nuw i8, ptr %16, i64 92
-  store i16 %327, ptr %328, align 2, !tbaa !64
+  store i16 %327, ptr %328, align 4, !tbaa !64
   %329 = lshr i32 %326, 3
   %330 = zext nneg i32 %329 to i64
   %331 = getelementptr inbounds nuw i8, ptr %.0238, i64 %330
@@ -675,7 +675,7 @@ define internal i32 @evrc_decode_frame(ptr noundef %0, ptr noundef initializes((
   %362 = trunc i32 %361 to i8
   %363 = lshr i8 %362, 7
   %364 = getelementptr inbounds nuw i8, ptr %16, i64 100
-  store i8 %363, ptr %364, align 2, !tbaa !68
+  store i8 %363, ptr %364, align 4, !tbaa !68
   br label %unpack_frame.exit
 
 365:                                              ; preds = %74
@@ -694,7 +694,7 @@ define internal i32 @evrc_decode_frame(ptr noundef %0, ptr noundef initializes((
   %375 = trunc nuw nsw i32 %373 to i16
   %376 = and i16 %375, 127
   %377 = getelementptr inbounds nuw i8, ptr %16, i64 60
-  store i16 %376, ptr %377, align 2, !tbaa !64
+  store i16 %376, ptr %377, align 4, !tbaa !64
   %378 = getelementptr inbounds nuw i8, ptr %.0238, i64 1
   %379 = load i32, ptr %378, align 1, !tbaa !28
   %380 = tail call i32 @llvm.bswap.i32(i32 %379)
@@ -734,7 +734,7 @@ define internal i32 @evrc_decode_frame(ptr noundef %0, ptr noundef initializes((
   store i32 %409, ptr %73, align 8, !tbaa !62
   %410 = trunc nuw nsw i32 %407 to i8
   %411 = getelementptr inbounds nuw i8, ptr %16, i64 68
-  store i8 %410, ptr %411, align 2, !tbaa !28
+  store i8 %410, ptr %411, align 4, !tbaa !28
   %412 = lshr i32 %409, 3
   %413 = zext nneg i32 %412 to i64
   %414 = getelementptr inbounds nuw i8, ptr %.0238, i64 %413
@@ -748,7 +748,7 @@ define internal i32 @evrc_decode_frame(ptr noundef %0, ptr noundef initializes((
   store i32 %421, ptr %73, align 8, !tbaa !62
   %422 = trunc nuw nsw i32 %419 to i16
   %423 = getelementptr inbounds nuw i8, ptr %16, i64 72
-  store i16 %422, ptr %423, align 2, !tbaa !64
+  store i16 %422, ptr %423, align 8, !tbaa !64
   %424 = lshr i32 %421, 3
   %425 = zext nneg i32 %424 to i64
   %426 = getelementptr inbounds nuw i8, ptr %.0238, i64 %425
@@ -762,7 +762,7 @@ define internal i32 @evrc_decode_frame(ptr noundef %0, ptr noundef initializes((
   store i32 %433, ptr %73, align 8, !tbaa !62
   %434 = trunc nuw nsw i32 %431 to i8
   %435 = getelementptr inbounds nuw i8, ptr %16, i64 96
-  store i8 %434, ptr %435, align 2, !tbaa !28
+  store i8 %434, ptr %435, align 8, !tbaa !28
   %436 = lshr i32 %433, 3
   %437 = zext nneg i32 %436 to i64
   %438 = getelementptr inbounds nuw i8, ptr %.0238, i64 %437
@@ -790,7 +790,7 @@ define internal i32 @evrc_decode_frame(ptr noundef %0, ptr noundef initializes((
   store i32 %457, ptr %73, align 8, !tbaa !62
   %458 = trunc nuw nsw i32 %455 to i16
   %459 = getelementptr inbounds nuw i8, ptr %16, i64 80
-  store i16 %458, ptr %459, align 2, !tbaa !64
+  store i16 %458, ptr %459, align 8, !tbaa !64
   %460 = lshr i32 %457, 3
   %461 = zext nneg i32 %460 to i64
   %462 = getelementptr inbounds nuw i8, ptr %.0238, i64 %461
@@ -832,7 +832,7 @@ define internal i32 @evrc_decode_frame(ptr noundef %0, ptr noundef initializes((
   store i32 %493, ptr %73, align 8, !tbaa !62
   %494 = trunc nuw nsw i32 %491 to i16
   %495 = getelementptr inbounds nuw i8, ptr %16, i64 88
-  store i16 %494, ptr %495, align 2, !tbaa !64
+  store i16 %494, ptr %495, align 8, !tbaa !64
   %496 = lshr i32 %493, 3
   %497 = zext nneg i32 %496 to i64
   %498 = getelementptr inbounds nuw i8, ptr %.0238, i64 %497
@@ -862,7 +862,7 @@ define internal i32 @evrc_decode_frame(ptr noundef %0, ptr noundef initializes((
   %515 = trunc i32 %514 to i16
   %516 = and i16 %515, 15
   %517 = getelementptr inbounds nuw i8, ptr %16, i64 60
-  store i16 %516, ptr %517, align 2, !tbaa !64
+  store i16 %516, ptr %517, align 4, !tbaa !64
   %518 = getelementptr inbounds nuw i8, ptr %.0238, i64 1
   %519 = load i32, ptr %518, align 1, !tbaa !28
   %520 = tail call i32 @llvm.umin.i32(i32 %68, i32 16)

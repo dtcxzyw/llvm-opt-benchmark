@@ -12110,7 +12110,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9MCSectionEjNS_12DenseMapInfoIS3_vEENS_6
   store ptr %60, ptr %50, align 8, !tbaa !386
   %61 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %62 = load i32, ptr %3, align 4, !tbaa !287
-  store i32 %62, ptr %61, align 4, !tbaa !287
+  store i32 %62, ptr %61, align 8, !tbaa !287
   %63 = load ptr, ptr %1, align 8, !tbaa !682
   %64 = load i32, ptr %7, align 8, !tbaa !683
   br label %.loopexit
@@ -12322,7 +12322,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9MCSectionEjNS_12DenseMapInfoIS3_vEENS_6
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !287
-  store i32 %68, ptr %66, align 4, !tbaa !287
+  store i32 %68, ptr %66, align 8, !tbaa !287
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !707
   br label %70
@@ -12993,7 +12993,7 @@ _ZSt19__relocate_object_aIN4llvm16MCCFIInstructionES1_SaIS1_EEvPT_PT0_RT1_.exit.
   store i64 %67, ptr %69, align 8, !tbaa !215, !alias.scope !749, !noalias !752
   store ptr %59, ptr %56, align 8, !tbaa !214, !alias.scope !752, !noalias !749
   store i64 0, ptr %68, align 8, !tbaa !215, !alias.scope !752, !noalias !749
-  store i8 0, ptr %59, align 1, !tbaa !210, !alias.scope !752, !noalias !749
+  store i8 0, ptr %59, align 8, !tbaa !210, !alias.scope !752, !noalias !749
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 104
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 104
   %.not.i.i.i = icmp eq ptr %70, %1
@@ -13057,7 +13057,7 @@ _ZSt19__relocate_object_aIN4llvm16MCCFIInstructionES1_SaIS1_EEvPT_PT0_RT1_.exit.
   store i64 %94, ptr %96, align 8, !tbaa !215, !alias.scope !756, !noalias !759
   store ptr %86, ptr %83, align 8, !tbaa !214, !alias.scope !759, !noalias !756
   store i64 0, ptr %95, align 8, !tbaa !215, !alias.scope !759, !noalias !756
-  store i8 0, ptr %86, align 1, !tbaa !210, !alias.scope !759, !noalias !756
+  store i8 0, ptr %86, align 8, !tbaa !210, !alias.scope !759, !noalias !756
   %97 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 104
   %98 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 104
   %.not.i.i.i24 = icmp eq ptr %97, %5
@@ -13316,7 +13316,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MCSymbolEjNS_12DenseMapInfoIS3_vEENS_6d
   store ptr %60, ptr %50, align 8, !tbaa !510
   %61 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %62 = load i32, ptr %3, align 4, !tbaa !287
-  store i32 %62, ptr %61, align 4, !tbaa !287
+  store i32 %62, ptr %61, align 8, !tbaa !287
   %63 = load ptr, ptr %1, align 8, !tbaa !764
   %64 = load i32, ptr %7, align 8, !tbaa !765
   br label %.loopexit
@@ -13528,7 +13528,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MCSymbolEjNS_12DenseMapInfoIS3_vEENS_6d
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !287
-  store i32 %68, ptr %66, align 4, !tbaa !287
+  store i32 %68, ptr %66, align 8, !tbaa !287
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !771
   br label %70

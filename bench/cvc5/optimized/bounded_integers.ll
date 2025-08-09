@@ -3049,7 +3049,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(72) ptr @_ZN4
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4cvc57context11CDOhash_mapIibSt4hashIiEEE, i64 16), ptr %10, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %14 = load i32, ptr %1, align 4, !tbaa !298
-  store i32 %14, ptr %13, align 4, !tbaa !343
+  store i32 %14, ptr %13, align 8, !tbaa !343
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 44
   store i8 0, ptr %15, align 4, !tbaa !344
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 48
@@ -38228,7 +38228,7 @@ _ZNSt10_HashtableIiSt4pairIKiPN4cvc57context11CDOhash_mapIibSt4hashIiEEEESaIS9_E
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiPN4cvc57context11CDOhash_mapIibSt4hashIiEEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIiES6_NSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !271
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !298
+  %16 = load i32, ptr %15, align 8, !tbaa !298
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -38292,7 +38292,7 @@ define linkonce_odr hidden noundef ptr @_ZN4cvc57context11CDOhash_mapIibSt4hashI
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4cvc57context11CDOhash_mapIibSt4hashIiEEE, i64 16), ptr %3, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 0, ptr %6, align 4, !tbaa !343
+  store i32 0, ptr %6, align 8, !tbaa !343
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %9 = load i8, ptr %7, align 4, !tbaa !323, !range !258, !noundef !259
   store i8 %9, ptr %8, align 4, !tbaa !344

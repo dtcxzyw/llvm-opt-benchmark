@@ -350,7 +350,7 @@ define hidden noundef ptr @_ZN15ConnectionGraph15add_java_objectEP4NodeN12Points
   %26 = load ptr, ptr %12, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 296
   %28 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 2, i32 noundef 8, ptr noundef nonnull %27) #12
-  store i32 0, ptr %25, align 4
+  store i32 0, ptr %25, align 8
   %29 = getelementptr inbounds nuw i8, ptr %15, i64 28
   store i32 2, ptr %29, align 4
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 32
@@ -9319,7 +9319,7 @@ define hidden noundef zeroext i1 @_ZN15ConnectionGraph14has_arg_escapeEP12CallJa
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %11 = load i32, ptr %10, align 4
+  %11 = load i32, ptr %10, align 8
   %12 = lshr i32 %11, 3
   %.lobit.i = and i32 %12, 1
   %13 = xor i32 %.lobit.i, 1
@@ -13094,7 +13094,7 @@ define hidden void @_ZN15ConnectionGraph9add_fieldEP4NodeN12PointsToNode11Escape
   %32 = load ptr, ptr %16, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 296
   %34 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 2, i32 noundef 8, ptr noundef nonnull %33) #12
-  store i32 0, ptr %31, align 4
+  store i32 0, ptr %31, align 8
   %35 = getelementptr inbounds nuw i8, ptr %19, i64 28
   store i32 2, ptr %35, align 4
   %36 = getelementptr inbounds nuw i8, ptr %19, i64 32
@@ -13128,7 +13128,7 @@ define hidden void @_ZN15ConnectionGraph9add_fieldEP4NodeN12PointsToNode11Escape
   %53 = load ptr, ptr %16, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 296
   %55 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 2, i32 noundef 8, ptr noundef nonnull %54) #12
-  store i32 0, ptr %52, align 4
+  store i32 0, ptr %52, align 8
   %56 = getelementptr inbounds nuw i8, ptr %19, i64 76
   store i32 2, ptr %56, align 4
   %57 = getelementptr inbounds nuw i8, ptr %19, i64 80
@@ -13393,7 +13393,7 @@ define hidden void @_ZN15ConnectionGraph13add_local_varEP4NodeN12PointsToNode11E
   %26 = load ptr, ptr %12, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 296
   %28 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 2, i32 noundef 8, ptr noundef nonnull %27) #12
-  store i32 0, ptr %25, align 4
+  store i32 0, ptr %25, align 8
   %29 = getelementptr inbounds nuw i8, ptr %15, i64 28
   store i32 2, ptr %29, align 4
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 32
@@ -16920,7 +16920,7 @@ define hidden void @_ZN15ConnectionGraph13add_arraycopyEP4NodeN12PointsToNode11E
   %28 = load ptr, ptr %14, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 296
   %30 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 2, i32 noundef 8, ptr noundef nonnull %29) #12
-  store i32 0, ptr %27, align 4
+  store i32 0, ptr %27, align 8
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 28
   store i32 2, ptr %31, align 4
   %32 = getelementptr inbounds nuw i8, ptr %17, i64 32

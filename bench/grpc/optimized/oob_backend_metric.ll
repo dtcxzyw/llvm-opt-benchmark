@@ -1462,11 +1462,11 @@ define void @_ZN9grpc_core11OrcaWatcher13SetSubchannelEPNS_10SubchannelE(ptr nou
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %13, ptr %11, align 8, !tbaa !166
-  store i32 1633907311, ptr %13, align 1
+  store i32 1633907311, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 4, ptr %14, align 8, !tbaa !169
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  store i8 0, ptr %15, align 1, !tbaa !171
+  store i8 0, ptr %15, align 4, !tbaa !171
   store ptr %11, ptr @_ZZN9grpc_core12OrcaProducer4TypeEvE8kFactory, align 8, !tbaa !172
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core12OrcaProducer4TypeEvE8kFactory) #27
   br label %_ZN9grpc_core12OrcaProducer4TypeEv.exit
@@ -1678,11 +1678,11 @@ define linkonce_odr { i64, ptr } @_ZNK9grpc_core11OrcaWatcher4typeEv(ptr noundef
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %9, ptr %7, align 8, !tbaa !166
-  store i32 1633907311, ptr %9, align 1
+  store i32 1633907311, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 4, ptr %10, align 8, !tbaa !169
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store i8 0, ptr %11, align 1, !tbaa !171
+  store i8 0, ptr %11, align 4, !tbaa !171
   store ptr %7, ptr @_ZZN9grpc_core12OrcaProducer4TypeEvE8kFactory, align 8, !tbaa !172
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core12OrcaProducer4TypeEvE8kFactory) #27
   br label %_ZN9grpc_core12OrcaProducer4TypeEv.exit
@@ -1821,11 +1821,11 @@ define linkonce_odr { i64, ptr } @_ZNK9grpc_core12OrcaProducer4typeEv(ptr nounde
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %9, ptr %7, align 8, !tbaa !166
-  store i32 1633907311, ptr %9, align 1
+  store i32 1633907311, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 4, ptr %10, align 8, !tbaa !169
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store i8 0, ptr %11, align 1, !tbaa !171
+  store i8 0, ptr %11, align 4, !tbaa !171
   store ptr %7, ptr @_ZZN9grpc_core12OrcaProducer4TypeEvE8kFactory, align 8, !tbaa !172
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core12OrcaProducer4TypeEvE8kFactory) #27
   br label %_ZN9grpc_core12OrcaProducer4TypeEv.exit

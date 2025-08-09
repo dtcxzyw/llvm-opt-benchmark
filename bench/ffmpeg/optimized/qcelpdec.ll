@@ -918,7 +918,7 @@ define internal fastcc void @decode_gain_and_index(ptr noundef captures(none) %0
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 4020
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 4024
   store i32 %140, ptr %164, align 4, !tbaa !27
-  store i32 %storemerge, ptr %165, align 4, !tbaa !27
+  store i32 %storemerge, ptr %165, align 8, !tbaa !27
   br label %166
 
 166:                                              ; preds = %111, %160, %.split88.us, %81

@@ -2205,19 +2205,19 @@ define hidden i32 @SDL_GetEventDescription_REAL(ptr noundef readonly %0, ptr nou
   %1394 = load float, ptr %1393, align 4
   %1395 = fpext float %1394 to double
   %1396 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %1397 = load float, ptr %1396, align 4
+  %1397 = load float, ptr %1396, align 8
   %1398 = fpext float %1397 to double
   %1399 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1400 = load float, ptr %1399, align 4
   %1401 = fpext float %1400 to double
   %1402 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1403 = load float, ptr %1402, align 4
+  %1403 = load float, ptr %1402, align 8
   %1404 = fpext float %1403 to double
   %1405 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %1406 = load float, ptr %1405, align 4
   %1407 = fpext float %1406 to double
   %1408 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %1409 = load float, ptr %1408, align 4
+  %1409 = load float, ptr %1408, align 8
   %1410 = fpext float %1409 to double
   %1411 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %5, i64 noundef 128, ptr noundef nonnull @.str.157, i32 noundef %1390, i32 noundef %1392, double noundef %1395, double noundef %1398, double noundef %1401, double noundef %1404, double noundef %1407, double noundef %1410) #8
   br label %1419

@@ -982,7 +982,7 @@ define dso_local noundef range(i32 -95, 1) i32 @drm_mode_rmfb(ptr noundef %0, i3
   tail call void @mutex_unlock(ptr noundef nonnull %21) #6
   tail call void @drm_mode_object_put(ptr noundef nonnull %15) #6
   %41 = getelementptr i8, ptr %15, i64 16
-  %42 = load volatile i32, ptr %41, align 4
+  %42 = load volatile i32, ptr %41, align 8
   %43 = icmp ugt i32 %42, 1
   br i1 %43, label %44, label %69
 
@@ -1674,7 +1674,7 @@ define dso_local void @drm_fb_release(ptr noundef readonly captures(address) %0)
   %8 = phi ptr [ %9, %20 ], [ %6, %1 ]
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %8, i64 -104
-  %11 = load volatile i32, ptr %10, align 4
+  %11 = load volatile i32, ptr %10, align 8
   %12 = icmp ugt i32 %11, 1
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %14 = load ptr, ptr %13, align 8

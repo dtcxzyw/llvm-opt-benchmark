@@ -103,7 +103,7 @@ define range(i32 -22, 1) i32 @ff_hw_base_encode_init_params_h265(ptr noundef rea
   %47 = load i32, ptr %3, align 4, !tbaa !60
   %48 = trunc i32 %47 to i8
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 10
-  store i8 %48, ptr %49, align 1, !tbaa !62
+  store i8 %48, ptr %49, align 2, !tbaa !62
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %.mask = and i32 %44, 255
   %51 = zext nneg i32 %.mask to i64
@@ -553,7 +553,7 @@ define range(i32 -22, 1) i32 @ff_hw_base_encode_init_params_h265(ptr noundef rea
   %301 = getelementptr inbounds nuw i8, ptr %2, i64 65000
   %302 = load i32, ptr %301, align 8, !tbaa !98
   %303 = getelementptr inbounds nuw i8, ptr %2, i64 7935240
-  store i32 %302, ptr %303, align 4, !tbaa !169
+  store i32 %302, ptr %303, align 8, !tbaa !169
   %304 = getelementptr inbounds nuw i8, ptr %2, i64 65004
   %305 = load i8, ptr %304, align 4, !tbaa !99
   %306 = getelementptr inbounds nuw i8, ptr %2, i64 7935244
@@ -561,11 +561,11 @@ define range(i32 -22, 1) i32 @ff_hw_base_encode_init_params_h265(ptr noundef rea
   %307 = getelementptr inbounds nuw i8, ptr %2, i64 65008
   %308 = load i32, ptr %307, align 8, !tbaa !100
   %309 = getelementptr inbounds nuw i8, ptr %2, i64 7935248
-  store i32 %308, ptr %309, align 4, !tbaa !171
+  store i32 %308, ptr %309, align 8, !tbaa !171
   %310 = getelementptr inbounds nuw i8, ptr %2, i64 7935252
   store i8 0, ptr %310, align 4, !tbaa !172
   %311 = getelementptr inbounds nuw i8, ptr %2, i64 7942928
-  store i8 1, ptr %311, align 4, !tbaa !173
+  store i8 1, ptr %311, align 8, !tbaa !173
   %312 = getelementptr inbounds nuw i8, ptr %2, i64 7942930
   store i8 1, ptr %312, align 2, !tbaa !174
   %313 = getelementptr inbounds nuw i8, ptr %2, i64 7942931
@@ -575,7 +575,7 @@ define range(i32 -22, 1) i32 @ff_hw_base_encode_init_params_h265(ptr noundef rea
   %315 = getelementptr inbounds nuw i8, ptr %2, i64 7942935
   store i8 0, ptr %315, align 1, !tbaa !177
   %316 = getelementptr inbounds nuw i8, ptr %2, i64 7942936
-  store i8 15, ptr %316, align 4, !tbaa !178
+  store i8 15, ptr %316, align 8, !tbaa !178
   %317 = getelementptr inbounds nuw i8, ptr %2, i64 7942937
   store i8 15, ptr %317, align 1, !tbaa !179
   store i8 34, ptr %8, align 8, !tbaa !31

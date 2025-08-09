@@ -221,7 +221,7 @@ _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit:           ; preds = %_ZNK4pugi8xml_node4
   store ptr %28, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store i64 0, ptr %29, align 8
-  store i8 0, ptr %28, align 1
+  store i8 0, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %23, i64 48
   store ptr %25, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 56
@@ -373,7 +373,7 @@ define hidden void @_ZN6Assimp11AMFImporter18ParseNode_VerticesERN4pugi8xml_node
   store ptr %11, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %12, align 8
-  store i8 0, ptr %11, align 1
+  store i8 0, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %8, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -579,7 +579,7 @@ define hidden void @_ZN6Assimp11AMFImporter16ParseNode_VolumeERN4pugi8xml_nodeE(
   store ptr %22, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i64 0, ptr %23, align 8
-  store i8 0, ptr %22, align 1
+  store i8 0, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 48
   store ptr %19, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 56
@@ -594,13 +594,13 @@ define hidden void @_ZN6Assimp11AMFImporter16ParseNode_VolumeERN4pugi8xml_nodeE(
   store ptr %29, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 88
   store i64 0, ptr %30, align 8
-  store i8 0, ptr %29, align 1
+  store i8 0, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %16, i64 112
   %32 = getelementptr inbounds nuw i8, ptr %16, i64 128
   store ptr %32, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 120
   store i64 0, ptr %33, align 8
-  store i8 0, ptr %32, align 1
+  store i8 0, ptr %32, align 8
   %34 = load ptr, ptr %1, align 8
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit, label %35
@@ -1108,7 +1108,7 @@ define hidden void @_ZN6Assimp11AMFImporter16ParseNode_VertexERN4pugi8xml_nodeE(
   store ptr %10, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %11, align 8
-  store i8 0, ptr %10, align 1
+  store i8 0, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %7, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -1257,7 +1257,7 @@ define hidden void @_ZN6Assimp11AMFImporter21ParseNode_CoordinatesERN4pugi8xml_n
   store ptr %12, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 0, ptr %13, align 8
-  store i8 0, ptr %12, align 1
+  store i8 0, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %9, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 56
@@ -1268,11 +1268,11 @@ define hidden void @_ZN6Assimp11AMFImporter21ParseNode_CoordinatesERN4pugi8xml_n
   store i64 0, ptr %17, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV14AMFCoordinates, i64 16), ptr %7, align 8
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store float 0.000000e+00, ptr %18, align 4
+  store float 0.000000e+00, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 84
   store float 0.000000e+00, ptr %19, align 4
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  store float 0.000000e+00, ptr %20, align 4
+  store float 0.000000e+00, ptr %20, align 8
   tail call void @_ZN6Assimp11AMFImporter22ParseHelper_Node_EnterEP18AMFNodeElementBase(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull %7)
   %21 = load ptr, ptr %1, align 8, !noalias !13
   %.not.i.i = icmp eq ptr %21, null
@@ -1563,7 +1563,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56: ; preds = %_ZN
   store ptr %145, ptr %144, align 8
   %146 = getelementptr inbounds nuw i8, ptr %142, i64 24
   store i64 0, ptr %146, align 8
-  store i8 0, ptr %145, align 1
+  store i8 0, ptr %145, align 8
   %147 = getelementptr inbounds nuw i8, ptr %142, i64 48
   store ptr %140, ptr %147, align 8
   %148 = getelementptr inbounds nuw i8, ptr %142, i64 56
@@ -1574,11 +1574,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56: ; preds = %_ZN
   store i64 0, ptr %150, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV14AMFCoordinates, i64 16), ptr %142, align 8
   %151 = getelementptr inbounds nuw i8, ptr %142, i64 80
-  store float 0.000000e+00, ptr %151, align 4
+  store float 0.000000e+00, ptr %151, align 8
   %152 = getelementptr inbounds nuw i8, ptr %142, i64 84
   store float 0.000000e+00, ptr %152, align 4
   %153 = getelementptr inbounds nuw i8, ptr %142, i64 88
-  store float 0.000000e+00, ptr %153, align 4
+  store float 0.000000e+00, ptr %153, align 8
   %154 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 16
   store ptr %142, ptr %155, align 8
@@ -1626,7 +1626,7 @@ define hidden void @_ZN6Assimp11AMFImporter18ParseNode_TriangleERN4pugi8xml_node
   store ptr %16, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 0, ptr %17, align 8
-  store i8 0, ptr %16, align 1
+  store i8 0, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store ptr %13, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 56

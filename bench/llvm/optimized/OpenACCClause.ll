@@ -417,7 +417,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %20, %23
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   store i32 %2, ptr %26, align 4, !tbaa !29
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store i32 %4, ptr %27, align 4, !tbaa !29
+  store i32 %4, ptr %27, align 8, !tbaa !29
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
   store i32 %3, ptr %28, align 4, !tbaa !29
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang20OpenACCDefaultClauseE, i64 16), ptr %.0.i.i.i, align 8, !tbaa !30
@@ -1793,7 +1793,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %27, %30
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   store i32 %1, ptr %33, align 4, !tbaa !29
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store i32 %6, ptr %34, align 4, !tbaa !29
+  store i32 %6, ptr %34, align 8, !tbaa !29
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
   store i32 %2, ptr %35, align 4, !tbaa !29
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
@@ -1859,7 +1859,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %23, %26
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   store i32 %1, ptr %29, align 4, !tbaa !29
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store i32 %5, ptr %30, align 4, !tbaa !29
+  store i32 %5, ptr %30, align 8, !tbaa !29
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
   store i32 %2, ptr %31, align 4, !tbaa !29
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
@@ -1919,7 +1919,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %23, %26
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   store i32 %1, ptr %29, align 4, !tbaa !29
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store i32 %5, ptr %30, align 4, !tbaa !29
+  store i32 %5, ptr %30, align 8, !tbaa !29
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
   store i32 %2, ptr %31, align 4, !tbaa !29
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
@@ -1979,7 +1979,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %23, %26
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   store i32 %1, ptr %29, align 4, !tbaa !29
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store i32 %5, ptr %30, align 4, !tbaa !29
+  store i32 %5, ptr %30, align 8, !tbaa !29
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
   store i32 %2, ptr %31, align 4, !tbaa !29
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
@@ -2039,7 +2039,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %23, %26
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   store i32 %1, ptr %29, align 4, !tbaa !29
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store i32 %5, ptr %30, align 4, !tbaa !29
+  store i32 %5, ptr %30, align 8, !tbaa !29
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
   store i32 %2, ptr %31, align 4, !tbaa !29
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
@@ -2099,7 +2099,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %23, %26
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   store i32 %1, ptr %29, align 4, !tbaa !29
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store i32 %5, ptr %30, align 4, !tbaa !29
+  store i32 %5, ptr %30, align 8, !tbaa !29
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
   store i32 %2, ptr %31, align 4, !tbaa !29
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
@@ -2159,7 +2159,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %23, %26
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   store i32 %1, ptr %29, align 4, !tbaa !29
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store i32 %5, ptr %30, align 4, !tbaa !29
+  store i32 %5, ptr %30, align 8, !tbaa !29
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
   store i32 %2, ptr %31, align 4, !tbaa !29
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
@@ -2219,7 +2219,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %23, %26
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   store i32 %1, ptr %29, align 4, !tbaa !29
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store i32 %5, ptr %30, align 4, !tbaa !29
+  store i32 %5, ptr %30, align 8, !tbaa !29
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
   store i32 %2, ptr %31, align 4, !tbaa !29
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
@@ -2279,7 +2279,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %23, %26
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   store i32 %1, ptr %29, align 4, !tbaa !29
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store i32 %5, ptr %30, align 4, !tbaa !29
+  store i32 %5, ptr %30, align 8, !tbaa !29
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
   store i32 %2, ptr %31, align 4, !tbaa !29
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
@@ -2339,7 +2339,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %23, %26
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   store i32 %1, ptr %29, align 4, !tbaa !29
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store i32 %5, ptr %30, align 4, !tbaa !29
+  store i32 %5, ptr %30, align 8, !tbaa !29
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
   store i32 %2, ptr %31, align 4, !tbaa !29
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
@@ -2399,7 +2399,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %23, %26
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   store i32 %1, ptr %29, align 4, !tbaa !29
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store i32 %5, ptr %30, align 4, !tbaa !29
+  store i32 %5, ptr %30, align 8, !tbaa !29
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
   store i32 %2, ptr %31, align 4, !tbaa !29
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
@@ -2459,7 +2459,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %23, %26
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   store i32 %1, ptr %29, align 4, !tbaa !29
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store i32 %5, ptr %30, align 4, !tbaa !29
+  store i32 %5, ptr %30, align 8, !tbaa !29
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
   store i32 %2, ptr %31, align 4, !tbaa !29
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
@@ -2519,7 +2519,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %23, %26
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   store i32 %1, ptr %29, align 4, !tbaa !29
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store i32 %5, ptr %30, align 4, !tbaa !29
+  store i32 %5, ptr %30, align 8, !tbaa !29
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
   store i32 %2, ptr %31, align 4, !tbaa !29
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
@@ -2579,7 +2579,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %23, %26
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   store i32 %1, ptr %29, align 4, !tbaa !29
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store i32 %5, ptr %30, align 4, !tbaa !29
+  store i32 %5, ptr %30, align 8, !tbaa !29
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
   store i32 %2, ptr %31, align 4, !tbaa !29
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
@@ -2639,7 +2639,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %24, %27
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   store i32 %2, ptr %30, align 4, !tbaa !29
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store i32 %6, ptr %31, align 4, !tbaa !29
+  store i32 %6, ptr %31, align 8, !tbaa !29
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
   store i32 %3, ptr %32, align 4, !tbaa !29
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
@@ -2703,7 +2703,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %26, %29
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   store i32 %2, ptr %33, align 4, !tbaa !29
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store i32 %6, ptr %34, align 4, !tbaa !29
+  store i32 %6, ptr %34, align 8, !tbaa !29
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
   store i32 %3, ptr %35, align 4, !tbaa !29
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
@@ -2769,7 +2769,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %26, %29
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   store i32 %2, ptr %33, align 4, !tbaa !29
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store i32 %6, ptr %34, align 4, !tbaa !29
+  store i32 %6, ptr %34, align 8, !tbaa !29
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
   store i32 %3, ptr %35, align 4, !tbaa !29
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
@@ -2835,7 +2835,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %26, %29
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   store i32 %2, ptr %33, align 4, !tbaa !29
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store i32 %6, ptr %34, align 4, !tbaa !29
+  store i32 %6, ptr %34, align 8, !tbaa !29
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
   store i32 %3, ptr %35, align 4, !tbaa !29
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
@@ -2897,7 +2897,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %24, %27
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   store i32 %2, ptr %30, align 4, !tbaa !29
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store i32 %6, ptr %31, align 4, !tbaa !29
+  store i32 %6, ptr %31, align 8, !tbaa !29
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
   store i32 %3, ptr %32, align 4, !tbaa !29
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang23OpenACCDeviceTypeClauseE, i64 16), ptr %.0.i.i.i, align 8, !tbaa !30
@@ -2964,7 +2964,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %24, %27
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   store i32 %1, ptr %30, align 4, !tbaa !29
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store i32 %6, ptr %31, align 4, !tbaa !29
+  store i32 %6, ptr %31, align 8, !tbaa !29
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
   store i32 %2, ptr %32, align 4, !tbaa !29
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
@@ -3024,7 +3024,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %18, %21
   %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   store i32 %1, ptr %24, align 4, !tbaa !29
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store i32 %2, ptr %25, align 4, !tbaa !29
+  store i32 %2, ptr %25, align 8, !tbaa !29
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang17OpenACCAutoClauseE, i64 16), ptr %.0.i.i.i, align 8, !tbaa !30
   ret ptr %.0.i.i.i
 }
@@ -3066,7 +3066,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %18, %21
   %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   store i32 %1, ptr %24, align 4, !tbaa !29
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store i32 %2, ptr %25, align 4, !tbaa !29
+  store i32 %2, ptr %25, align 8, !tbaa !29
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang24OpenACCIndependentClauseE, i64 16), ptr %.0.i.i.i, align 8, !tbaa !30
   ret ptr %.0.i.i.i
 }
@@ -3108,7 +3108,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %18, %21
   %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   store i32 %1, ptr %24, align 4, !tbaa !29
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store i32 %2, ptr %25, align 4, !tbaa !29
+  store i32 %2, ptr %25, align 8, !tbaa !29
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang16OpenACCSeqClauseE, i64 16), ptr %.0.i.i.i, align 8, !tbaa !30
   ret ptr %.0.i.i.i
 }
@@ -3319,7 +3319,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %18, %21
   %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   store i32 %1, ptr %24, align 4, !tbaa !29
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store i32 %2, ptr %25, align 4, !tbaa !29
+  store i32 %2, ptr %25, align 8, !tbaa !29
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang21OpenACCFinalizeClauseE, i64 16), ptr %.0.i.i.i, align 8, !tbaa !30
   ret ptr %.0.i.i.i
 }
@@ -3361,7 +3361,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %18, %21
   %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   store i32 %1, ptr %24, align 4, !tbaa !29
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store i32 %2, ptr %25, align 4, !tbaa !29
+  store i32 %2, ptr %25, align 8, !tbaa !29
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang22OpenACCIfPresentClauseE, i64 16), ptr %.0.i.i.i, align 8, !tbaa !30
   ret ptr %.0.i.i.i
 }

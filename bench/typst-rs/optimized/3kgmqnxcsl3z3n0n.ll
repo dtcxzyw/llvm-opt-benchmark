@@ -2898,7 +2898,7 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I
   %.sroa.512.0..8.val.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.8.val, i64 4
   store i32 %.sroa.8.sroa.7.05464.i.i, ptr %.sroa.512.0..8.val.sroa_idx.i.i.i, align 4, !alias.scope !668, !noalias !723
   %.sroa.57.sroa.8.0..sroa.512.0..8.val.sroa_idx.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
-  store i8 %.sroa.11.05166.i.i, ptr %.sroa.57.sroa.8.0..sroa.512.0..8.val.sroa_idx.i.sroa_idx.i.i, align 4, !alias.scope !668, !noalias !723
+  store i8 %.sroa.11.05166.i.i, ptr %.sroa.57.sroa.8.0..sroa.512.0..8.val.sroa_idx.i.sroa_idx.i.i, align 8, !alias.scope !668, !noalias !723
   %.sroa.57.sroa.9.0..sroa.512.0..8.val.sroa_idx.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.8.val, i64 9
   store i8 %.sroa.12.05067.i.i, ptr %.sroa.57.sroa.9.0..sroa.512.0..8.val.sroa_idx.i.sroa_idx.i.i, align 1, !alias.scope !668, !noalias !723
   %.sroa.57.sroa.10.0..sroa.512.0..8.val.sroa_idx.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.8.val, i64 10
@@ -2908,7 +2908,7 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I
   %.sroa.57.sroa.12.0..sroa.512.0..8.val.sroa_idx.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.8.val, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.57.sroa.12.0..sroa.512.0..8.val.sroa_idx.i.sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(24) %.sroa.57.sroa.12.i.i, i64 24, i1 false), !noalias !723
   %.sroa.57.sroa.13.0..sroa.512.0..8.val.sroa_idx.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.8.val, i64 40
-  store i64 %.sroa.16.04770.i.i, ptr %.sroa.57.sroa.13.0..sroa.512.0..8.val.sroa_idx.i.sroa_idx.i.i, align 4, !alias.scope !668, !noalias !723
+  store i64 %.sroa.16.04770.i.i, ptr %.sroa.57.sroa.13.0..sroa.512.0..8.val.sroa_idx.i.sroa_idx.i.i, align 8, !alias.scope !668, !noalias !723
   resume { ptr, i32 } %71
 
 "_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2559222f4d65c506E.exit.thread218": ; preds = %.loopexit71.i.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h91029dacccfeb0acE.exit.i.i.i.i.i.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h91029dacccfeb0acE.exit2.i.i.i.i.i.i.i"
@@ -2916,7 +2916,7 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I
   %.sroa.512.0..8.val.sroa_idx13.i.i.i = getelementptr inbounds nuw i8, ptr %.8.val, i64 4
   store i32 %.sroa.8.sroa.7.05464.i.i, ptr %.sroa.512.0..8.val.sroa_idx13.i.i.i, align 4, !alias.scope !668, !noalias !723
   %.sroa.57.sroa.8.0..sroa.512.0..8.val.sroa_idx13.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
-  store i8 %.sroa.11.05166.i.i, ptr %.sroa.57.sroa.8.0..sroa.512.0..8.val.sroa_idx13.i.sroa_idx.i.i, align 4, !alias.scope !668, !noalias !723
+  store i8 %.sroa.11.05166.i.i, ptr %.sroa.57.sroa.8.0..sroa.512.0..8.val.sroa_idx13.i.sroa_idx.i.i, align 8, !alias.scope !668, !noalias !723
   %.sroa.57.sroa.9.0..sroa.512.0..8.val.sroa_idx13.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.8.val, i64 9
   store i8 %.sroa.12.05067.i.i, ptr %.sroa.57.sroa.9.0..sroa.512.0..8.val.sroa_idx13.i.sroa_idx.i.i, align 1, !alias.scope !668, !noalias !723
   %.sroa.57.sroa.10.0..sroa.512.0..8.val.sroa_idx13.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.8.val, i64 10
@@ -2926,7 +2926,7 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I
   %.sroa.57.sroa.12.0..sroa.512.0..8.val.sroa_idx13.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.8.val, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.57.sroa.12.0..sroa.512.0..8.val.sroa_idx13.i.sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(24) %.sroa.57.sroa.12.i.i, i64 24, i1 false), !noalias !723
   %.sroa.57.sroa.13.0..sroa.512.0..8.val.sroa_idx13.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.8.val, i64 40
-  store i64 %.sroa.16.04770.i.i, ptr %.sroa.57.sroa.13.0..sroa.512.0..8.val.sroa_idx13.i.sroa_idx.i.i, align 4, !alias.scope !668, !noalias !723
+  store i64 %.sroa.16.04770.i.i, ptr %.sroa.57.sroa.13.0..sroa.512.0..8.val.sroa_idx13.i.sroa_idx.i.i, align 8, !alias.scope !668, !noalias !723
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.57.sroa.12.i.i)
   br label %"_ZN4core3ptr107drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$time..format_description..parse..ast..Item$GT$$GT$17h9e463f7092d5e48cE.exit"
 
@@ -68226,7 +68226,7 @@ default.unreachable:                              ; preds = %335, %330, %309, %2
   %227 = getelementptr inbounds nuw i8, ptr %.sroa.013.032.i.i.i.i.i, i64 24
   %228 = load double, ptr %227, align 8, !alias.scope !18692, !noalias !18695, !noundef !4
   %229 = getelementptr inbounds nuw i8, ptr %.sroa.013.032.i.i.i.i.i, i64 32
-  %.val.i.i.i.i.i.i = load i16, ptr %229, align 2, !alias.scope !18698, !noalias !18695, !noundef !4
+  %.val.i.i.i.i.i.i = load i16, ptr %229, align 8, !alias.scope !18698, !noalias !18695, !noundef !4
   %230 = getelementptr inbounds nuw i8, ptr %.sroa.013.032.i.i.i.i.i, i64 34
   %.val1.i.i.i.i.i.i = load i16, ptr %230, align 2, !alias.scope !18701, !noalias !18695, !noundef !4
   %231 = load i64, ptr %.sroa.013.032.i.i.i.i.i, align 8, !range !1072, !alias.scope !18692, !noalias !18695, !noundef !4
@@ -70661,7 +70661,7 @@ default.unreachable:                              ; preds = %22
   %.sroa.06.sroa.7.sroa.5.sroa.0.sroa.4.0..sroa.06.sroa.7.sroa.5.0..sroa.06.sroa.7.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.06.sroa.7.sroa.5.sroa.0.sroa.4.0..sroa.06.sroa.7.sroa.5.0..sroa.06.sroa.7.0..sroa_idx.sroa_idx.sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.14.sroa.8.sroa.0.sroa.6, i64 3, i1 false)
   %.sroa.06.sroa.7.sroa.5.sroa.4.0..sroa.06.sroa.7.sroa.5.0..sroa.06.sroa.7.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 40
-  store i64 %.sroa.14.sroa.8.sroa.6.1, ptr %.sroa.06.sroa.7.sroa.5.sroa.4.0..sroa.06.sroa.7.sroa.5.0..sroa.06.sroa.7.0..sroa_idx.sroa_idx.sroa_idx, align 1
+  store i64 %.sroa.14.sroa.8.sroa.6.1, ptr %.sroa.06.sroa.7.sroa.5.sroa.4.0..sroa.06.sroa.7.sroa.5.0..sroa.06.sroa.7.0..sroa_idx.sroa_idx.sroa_idx, align 8
   %.sroa.06.sroa.7.sroa.6.0..sroa.06.sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 48
   store i8 %.sroa.14.sroa.10.1, ptr %.sroa.06.sroa.7.sroa.6.0..sroa.06.sroa.7.0..sroa_idx.sroa_idx, align 8
   %.sroa.06.sroa.7.sroa.7.0..sroa.06.sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 49
@@ -71503,7 +71503,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.013.032, i64 24
   %19 = load double, ptr %18, align 8, !alias.scope !19017, !noalias !19020, !noundef !4
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.013.032, i64 32
-  %.val.i = load i16, ptr %20, align 2, !alias.scope !19022, !noalias !19020, !noundef !4
+  %.val.i = load i16, ptr %20, align 8, !alias.scope !19022, !noalias !19020, !noundef !4
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.013.032, i64 34
   %.val1.i = load i16, ptr %21, align 2, !alias.scope !19025, !noalias !19020, !noundef !4
   %22 = load i64, ptr %.sroa.013.032, align 8, !range !1072, !alias.scope !19017, !noalias !19020, !noundef !4
@@ -100057,7 +100057,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.013.032.i, i64 24
   %22 = load double, ptr %21, align 8, !alias.scope !25623, !noalias !25626, !noundef !4
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.013.032.i, i64 32
-  %.val.i.i = load i16, ptr %23, align 2, !alias.scope !25628, !noalias !25626, !noundef !4
+  %.val.i.i = load i16, ptr %23, align 8, !alias.scope !25628, !noalias !25626, !noundef !4
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.013.032.i, i64 34
   %.val1.i.i = load i16, ptr %24, align 2, !alias.scope !25631, !noalias !25626, !noundef !4
   %25 = load i64, ptr %.sroa.013.032.i, align 8, !range !1072, !alias.scope !25623, !noalias !25626, !noundef !4

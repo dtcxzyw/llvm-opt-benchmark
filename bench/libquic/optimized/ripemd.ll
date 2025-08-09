@@ -1754,11 +1754,11 @@ define hidden noundef i32 @RIPEMD160_Final(ptr noundef writeonly captures(none) 
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %18 = load i32, ptr %17, align 4, !tbaa !6
-  store i32 %18, ptr %16, align 1
+  store i32 %18, ptr %16, align 4
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load i32, ptr %20, align 4, !tbaa !11
-  store i32 %21, ptr %19, align 1
+  store i32 %21, ptr %19, align 4
   tail call fastcc void @ripemd160_block_data_order(ptr noundef nonnull %1, ptr noundef nonnull %6, i64 noundef 1)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %6, i8 0, i64 68, i1 false)
   %22 = load i32, ptr %1, align 4, !tbaa !13

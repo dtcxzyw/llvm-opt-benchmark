@@ -2868,12 +2868,12 @@ vp8_alloc_frame.exit:                             ; preds = %1478
   %1592 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store ptr %1385, ptr %1592, align 8, !tbaa !163
   %1593 = getelementptr inbounds nuw i8, ptr %8, i64 136
-  store i32 -64, ptr %1593, align 4, !tbaa !164
+  store i32 -64, ptr %1593, align 8, !tbaa !164
   %1594 = load i16, ptr %1472, align 2, !tbaa !93
   %1595 = zext i16 %1594 to i32
   %1596 = shl nuw nsw i32 %1595, 6
   %1597 = getelementptr inbounds nuw i8, ptr %8, i64 144
-  store i32 %1596, ptr %1597, align 4, !tbaa !165
+  store i32 %1596, ptr %1597, align 8, !tbaa !165
   br label %1598
 
 1598:                                             ; preds = %1589, %1598
@@ -4872,7 +4872,7 @@ vpx_rac_renorm.exit.i.i363.i:                     ; preds = %1187, %1183, %1170
   %1201 = sub i32 %1179, %1198
   %narrow.i.i367.i = sub nuw i32 %.0.i.i.i365.i, %1199
   store i32 %narrow.i.i367.i, ptr %146, align 8, !tbaa !67
-  %1202 = load i8, ptr %166, align 1, !tbaa !56
+  %1202 = load i8, ptr %166, align 2, !tbaa !56
   %1203 = zext i8 %1202 to i32
   %1204 = sext i32 %1201 to i64
   %1205 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %1204
@@ -5105,7 +5105,7 @@ vpx_rac_renorm.exit54.i529.i:                     ; preds = %1329, %1325, %1315
 
 1351:                                             ; preds = %vpx_rac_renorm.exit.i.i516.i
   store i32 %.0.i.i.i518.i, ptr %146, align 8, !tbaa !67
-  %1352 = load i8, ptr %168, align 1, !tbaa !56
+  %1352 = load i8, ptr %168, align 4, !tbaa !56
   %1353 = sext i32 %1227 to i64
   %1354 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %1353
   %1355 = load i8, ptr %1354, align 1, !tbaa !56
@@ -14611,7 +14611,7 @@ vpx_rac_renorm.exit.i.i48.i:                      ; preds = %2326, %2322, %2312
   %2340 = sub i32 %2318, %2337
   %narrow.i.i52.i = sub nuw i32 %.0.i.i.i50.i, %2338
   store i32 %narrow.i.i52.i, ptr %1489, align 8, !tbaa !67
-  %2341 = load i8, ptr %1503, align 1, !tbaa !56
+  %2341 = load i8, ptr %1503, align 2, !tbaa !56
   %2342 = zext i8 %2341 to i32
   %2343 = sext i32 %2340 to i64
   %2344 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %2343
@@ -14844,7 +14844,7 @@ vpx_rac_renorm.exit54.i83.i:                      ; preds = %2468, %2464, %2454
 
 2490:                                             ; preds = %vpx_rac_renorm.exit.i.i70.i
   store i32 %.0.i.i.i72.i, ptr %1489, align 8, !tbaa !67
-  %2491 = load i8, ptr %1505, align 1, !tbaa !56
+  %2491 = load i8, ptr %1505, align 4, !tbaa !56
   %2492 = sext i32 %2366 to i64
   %2493 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %2492
   %2494 = load i8, ptr %2493, align 1, !tbaa !56
@@ -15906,12 +15906,12 @@ vp7_decode_mv_mb_modes.exit.thread:               ; preds = %._crit_edge.i, %147
   %3148 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store ptr %1302, ptr %3148, align 8, !tbaa !163
   %3149 = getelementptr inbounds nuw i8, ptr %6, i64 136
-  store i32 -64, ptr %3149, align 4, !tbaa !164
+  store i32 -64, ptr %3149, align 8, !tbaa !164
   %3150 = load i16, ptr %1391, align 2, !tbaa !93
   %3151 = zext i16 %3150 to i32
   %3152 = shl nuw nsw i32 %3151, 6
   %3153 = getelementptr inbounds nuw i8, ptr %6, i64 144
-  store i32 %3152, ptr %3153, align 4, !tbaa !165
+  store i32 %3152, ptr %3153, align 8, !tbaa !165
   br label %3154
 
 3154:                                             ; preds = %3145, %3154
@@ -17322,10 +17322,10 @@ vpx_rac_renorm.exit.i118.i:                       ; preds = %676, %672, %659
   %.val = load i16, ptr %52, align 2
   %700 = select i1 %.not37, i16 %.sroa.gep.val, i16 %.val
   %701 = sext i16 %700 to i32
-  %702 = load i32, ptr %6, align 4, !tbaa !188
+  %702 = load i32, ptr %6, align 8, !tbaa !188
   %703 = tail call i32 @llvm.smax.i32(i32 %702, i32 -32768)
   %.0.i113 = tail call i32 @llvm.smin.i32(i32 %703, i32 32767)
-  %704 = load i32, ptr %12, align 4, !tbaa !189
+  %704 = load i32, ptr %12, align 8, !tbaa !189
   %705 = tail call i32 @llvm.smax.i32(i32 %704, i32 -32768)
   %706 = icmp sgt i32 %.0.i113, %701
   %.0.i111 = tail call i32 @llvm.smin.i32(i32 %705, i32 %701)
@@ -17760,7 +17760,7 @@ vpx_rac_renorm.exit.i.i46:                        ; preds = %961, %957, %944
   %975 = sub i32 %953, %972
   %narrow.i.i50 = sub nuw i32 %.0.i.i.i48, %973
   store i32 %narrow.i.i50, ptr %25, align 8, !tbaa !67
-  %976 = load i8, ptr %43, align 1, !tbaa !56
+  %976 = load i8, ptr %43, align 2, !tbaa !56
   %977 = zext i8 %976 to i32
   %978 = sext i32 %975 to i64
   %979 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %978
@@ -17993,7 +17993,7 @@ vpx_rac_renorm.exit54.i81:                        ; preds = %1103, %1099, %1089
 
 1125:                                             ; preds = %vpx_rac_renorm.exit.i.i68
   store i32 %.0.i.i.i70, ptr %25, align 8, !tbaa !67
-  %1126 = load i8, ptr %45, align 1, !tbaa !56
+  %1126 = load i8, ptr %45, align 4, !tbaa !56
   %1127 = sext i32 %1001 to i64
   %1128 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %1127
   %1129 = load i8, ptr %1128, align 1, !tbaa !56
@@ -18738,10 +18738,10 @@ decode_splitmvs.exit:                             ; preds = %1584
   store i16 %1609, ptr %1601, align 4, !tbaa !187
   %1610 = load i16, ptr %51, align 2, !tbaa !190
   %1611 = sext i16 %1610 to i32
-  %1612 = load i32, ptr %6, align 4, !tbaa !188
+  %1612 = load i32, ptr %6, align 8, !tbaa !188
   %1613 = tail call i32 @llvm.smax.i32(i32 %1612, i32 -32768)
   %.0.i125 = tail call i32 @llvm.smin.i32(i32 %1613, i32 32767)
-  %1614 = load i32, ptr %12, align 4, !tbaa !189
+  %1614 = load i32, ptr %12, align 8, !tbaa !189
   %1615 = tail call i32 @llvm.smax.i32(i32 %1614, i32 -32768)
   %1616 = icmp sgt i32 %.0.i125, %1611
   %.0.i123 = tail call i32 @llvm.smin.i32(i32 %1615, i32 %1611)
@@ -18774,10 +18774,10 @@ decode_splitmvs.exit:                             ; preds = %1584
   store i16 %1630, ptr %1622, align 4, !tbaa !187
   %1631 = load i16, ptr %52, align 2, !tbaa !190
   %1632 = sext i16 %1631 to i32
-  %1633 = load i32, ptr %6, align 4, !tbaa !188
+  %1633 = load i32, ptr %6, align 8, !tbaa !188
   %1634 = tail call i32 @llvm.smax.i32(i32 %1633, i32 -32768)
   %.0.i137 = tail call i32 @llvm.smin.i32(i32 %1634, i32 32767)
-  %1635 = load i32, ptr %12, align 4, !tbaa !189
+  %1635 = load i32, ptr %12, align 8, !tbaa !189
   %1636 = tail call i32 @llvm.smax.i32(i32 %1635, i32 -32768)
   %1637 = icmp sgt i32 %.0.i137, %1632
   %.0.i135 = tail call i32 @llvm.smin.i32(i32 %1636, i32 %1632)
@@ -24875,7 +24875,7 @@ vpx_rac_renorm.exit.i.i411.i:                     ; preds = %1087, %1083, %1073
   %1101 = sub i32 %1079, %1098
   %narrow.i.i415.i = sub nuw i32 %.0.i.i.i413.i, %1099
   store i32 %narrow.i.i415.i, ptr %145, align 8, !tbaa !67
-  %1102 = load i8, ptr %160, align 1, !tbaa !56
+  %1102 = load i8, ptr %160, align 2, !tbaa !56
   %1103 = zext i8 %1102 to i32
   %1104 = sext i32 %1101 to i64
   %1105 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %1104
@@ -25108,7 +25108,7 @@ vpx_rac_renorm.exit54.i449.i:                     ; preds = %1229, %1225, %1215
 
 1251:                                             ; preds = %vpx_rac_renorm.exit.i.i436.i
   store i32 %.0.i.i.i438.i, ptr %145, align 8, !tbaa !67
-  %1252 = load i8, ptr %162, align 1, !tbaa !56
+  %1252 = load i8, ptr %162, align 4, !tbaa !56
   %1253 = sext i32 %1127 to i64
   %1254 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %1253
   %1255 = load i8, ptr %1254, align 1, !tbaa !56

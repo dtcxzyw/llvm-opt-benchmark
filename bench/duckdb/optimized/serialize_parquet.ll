@@ -4487,7 +4487,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i: ; pre
   store i64 %19, ptr %21, align 8, !tbaa !89
   store ptr %11, ptr %8, align 8, !tbaa !88
   store i64 0, ptr %20, align 8, !tbaa !89
-  store i8 0, ptr %11, align 1, !tbaa !130
+  store i8 0, ptr %11, align 8, !tbaa !130
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 40
   invoke void @_ZN6duckdb7FieldIDC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %22)
           to label %_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb7FieldIDEELb1EEEEE9constructISC_JRKSt21piecewise_construct_tSt5tupleIJOS8_EESK_IJEEEEEvRSE_PT_DpOT0_.exit unwind label %23
@@ -5510,7 +5510,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   store ptr %60, ptr %59, align 8, !tbaa !129
   %61 = getelementptr inbounds nuw i8, ptr %46, i64 48
   store i64 0, ptr %61, align 8, !tbaa !89
-  store i8 0, ptr %60, align 1, !tbaa !130
+  store i8 0, ptr %60, align 8, !tbaa !130
   store ptr %46, ptr %57, align 8, !tbaa !265
   %62 = invoke ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %13, i64 noundef %7, ptr noundef nonnull %46, i64 noundef 1)
           to label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %63
@@ -6538,7 +6538,7 @@ _ZNSt16allocator_traitsISaIN6duckdb23ParquetColumnDefinitionEEE9constructIS1_JS1
   store i64 %18, ptr %20, align 8, !tbaa !89, !alias.scope !282, !noalias !285
   store ptr %10, ptr %7, align 8, !tbaa !88, !alias.scope !285, !noalias !282
   store i64 0, ptr %19, align 8, !tbaa !89, !alias.scope !285, !noalias !282
-  store i8 0, ptr %10, align 1, !tbaa !130, !alias.scope !285, !noalias !282
+  store i8 0, ptr %10, align 8, !tbaa !130, !alias.scope !285, !noalias !282
   %21 = getelementptr inbounds nuw i8, ptr %.012, i64 40
   %22 = getelementptr inbounds nuw i8, ptr %.0911, i64 40
   tail call void @_ZN6duckdb11LogicalTypeC1EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %22) #22

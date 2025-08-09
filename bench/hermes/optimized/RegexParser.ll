@@ -5708,7 +5708,7 @@ _ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_15AlternationInsnE
   %ref.tmp.sroa.2.0.call.i.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 8
   store ptr %bcs, ptr %ref.tmp.sroa.2.0.call.i.i.i.i.sroa_idx, align 8
   %ref.tmp.sroa.2.sroa.2.0.ref.tmp.sroa.2.0.call.i.i.i.i.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
-  store i32 %conv.i, ptr %ref.tmp.sroa.2.sroa.2.0.ref.tmp.sroa.2.0.call.i.i.i.i.sroa_idx.sroa_idx, align 8
+  store i32 %conv.i, ptr %ref.tmp.sroa.2.sroa.2.0.ref.tmp.sroa.2.0.call.i.i.i.i.sroa_idx.sroa_idx, align 16
   %ref.tmp.sroa.356.0.call.i.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 24
   store ptr %bcs, ptr %ref.tmp.sroa.356.0.call.i.i.i.i.sroa_idx, align 8
   store ptr %call.i.i.i.i, ptr %ref.tmp.i37, align 8

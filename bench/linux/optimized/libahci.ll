@@ -5468,9 +5468,9 @@ define internal fastcc void @ahci_error_intr(ptr noundef %0, i32 noundef %1) unn
   %99 = getelementptr i8, ptr %98, i64 48
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %85, ptr elementtype(i32) %99) #12, !srcloc !10
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 9040
-  %101 = load i32, ptr %100, align 8
+  %101 = load i32, ptr %100, align 16
   %102 = or i32 %101, %85
-  store i32 %102, ptr %100, align 8
+  store i32 %102, ptr %100, align 16
   %103 = load i32, ptr %6, align 8
   %104 = and i32 %103, 2
   %105 = icmp eq i32 %104, 0

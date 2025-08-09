@@ -250,8 +250,8 @@ define internal fastcc void @guc_log_init_sizes(ptr noundef captures(none) %0) u
   %102 = phi ptr [ %100, %98 ], [ null, %95 ]
   %103 = load i32, ptr %21, align 8
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %102, ptr noundef nonnull @.str.23, i32 noundef %103, i32 noundef %91, i32 noundef %93) #11
-  %104 = load i32, ptr %92, align 4
-  store i32 %104, ptr %90, align 4
+  %104 = load i32, ptr %92, align 8
+  store i32 %104, ptr %90, align 8
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %105, align 4
   br label %106

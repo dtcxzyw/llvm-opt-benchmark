@@ -2601,7 +2601,7 @@ BufferGetPage.exit93.i:                           ; preds = %54, %48
   store i32 %170, ptr %.0.i.i90.i, align 4
   %173 = getelementptr inbounds nuw i8, ptr %.0.i.i90.i, i64 4
   store i32 %171, ptr %173, align 4
-  store i32 %170, ptr %.0.i.i92.i, align 4
+  store i32 %170, ptr %.0.i.i92.i, align 8
   %174 = getelementptr inbounds nuw i8, ptr %.0.i.i92.i, i64 4
   store i32 %171, ptr %174, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

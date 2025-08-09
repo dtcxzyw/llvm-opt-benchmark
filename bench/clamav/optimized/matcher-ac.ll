@@ -4936,9 +4936,9 @@ sub_0699:                                         ; preds = %.tail694.thread
   %489 = load ptr, ptr %488, align 8, !tbaa !75
   %490 = getelementptr inbounds nuw i8, ptr %489, i64 8
   %491 = load i16, ptr %490, align 8, !tbaa !26
-  %492 = load i16, ptr %469, align 2, !tbaa !26
+  %492 = load i16, ptr %469, align 8, !tbaa !26
   %493 = add i16 %492, %491
-  store i16 %493, ptr %469, align 2, !tbaa !26
+  store i16 %493, ptr %469, align 8, !tbaa !26
   %494 = getelementptr inbounds nuw i8, ptr %489, i64 10
   %495 = load i16, ptr %494, align 2, !tbaa !26
   %496 = load i16, ptr %470, align 2, !tbaa !26

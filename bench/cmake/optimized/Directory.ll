@@ -43,7 +43,7 @@ define dso_local void @_ZN5cmsys9DirectoryC2Ev(ptr noundef nonnull writeonly ali
   store ptr %4, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 0, ptr %5, align 8, !tbaa !10
-  store i8 0, ptr %4, align 1, !tbaa !13
+  store i8 0, ptr %4, align 8, !tbaa !13
   store ptr %2, ptr %0, align 8, !tbaa !14
   ret void
 }
@@ -1557,7 +1557,7 @@ _ZSt19__relocate_object_aIN5cmsys18DirectoryInternals8FileDataES2_SaIS2_EEvPT_PT
   store i64 %61, ptr %63, align 8, !tbaa !10, !alias.scope !33, !noalias !36
   store ptr %53, ptr %.0911.i.i.i, align 8, !tbaa !18, !alias.scope !36, !noalias !33
   store i64 0, ptr %62, align 8, !tbaa !10, !alias.scope !36, !noalias !33
-  store i8 0, ptr %53, align 1, !tbaa !13, !alias.scope !36, !noalias !33
+  store i8 0, ptr %53, align 8, !tbaa !13, !alias.scope !36, !noalias !33
   %64 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %65 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %64, %1
@@ -1605,7 +1605,7 @@ _ZSt19__relocate_object_aIN5cmsys18DirectoryInternals8FileDataES2_SaIS2_EEvPT_PT
   store i64 %77, ptr %79, align 8, !tbaa !10, !alias.scope !40, !noalias !43
   store ptr %69, ptr %.0911.i.i.i29, align 8, !tbaa !18, !alias.scope !43, !noalias !40
   store i64 0, ptr %78, align 8, !tbaa !10, !alias.scope !43, !noalias !40
-  store i8 0, ptr %69, align 1, !tbaa !13, !alias.scope !43, !noalias !40
+  store i8 0, ptr %69, align 8, !tbaa !13, !alias.scope !43, !noalias !40
   %80 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   %81 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %.not.i.i.i34 = icmp eq ptr %80, %7

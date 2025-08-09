@@ -21464,19 +21464,19 @@ define void @_ZN6duckdb20ExtensionInstallInfo11DeserializeERNS_12DeserializerE(p
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4, i8 0, i64 136, i1 false)
   store ptr %6, ptr %5, align 8, !tbaa !128
-  store i8 0, ptr %6, align 1, !tbaa !132
+  store i8 0, ptr %6, align 8, !tbaa !132
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %8, ptr %7, align 8, !tbaa !128
-  store i8 0, ptr %8, align 1, !tbaa !132
+  store i8 0, ptr %8, align 8, !tbaa !132
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store ptr %10, ptr %9, align 8, !tbaa !128
-  store i8 0, ptr %10, align 1, !tbaa !132
+  store i8 0, ptr %10, align 8, !tbaa !132
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store ptr %12, ptr %11, align 8, !tbaa !128
-  store i8 0, ptr %12, align 1, !tbaa !132
+  store i8 0, ptr %12, align 8, !tbaa !132
   store ptr %4, ptr %0, align 8, !tbaa !584
   %13 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_20ExtensionInstallInfoESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %14 unwind label %65
@@ -28039,19 +28039,19 @@ _ZN6duckdb12Deserializer12ReadPropertyINS_11ExplainTypeEEET_tPKc.exit: ; preds =
   store ptr %44, ptr %43, align 8, !tbaa !128
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 112
   store i64 0, ptr %45, align 8, !tbaa !88
-  store i8 0, ptr %44, align 1, !tbaa !132
+  store i8 0, ptr %44, align 8, !tbaa !132
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 136
   %47 = getelementptr inbounds nuw i8, ptr %40, i64 152
   store ptr %47, ptr %46, align 8, !tbaa !128
   %48 = getelementptr inbounds nuw i8, ptr %40, i64 144
   store i64 0, ptr %48, align 8, !tbaa !88
-  store i8 0, ptr %47, align 1, !tbaa !132
+  store i8 0, ptr %47, align 8, !tbaa !132
   %49 = getelementptr inbounds nuw i8, ptr %40, i64 168
   %50 = getelementptr inbounds nuw i8, ptr %40, i64 184
   store ptr %50, ptr %49, align 8, !tbaa !128
   %51 = getelementptr inbounds nuw i8, ptr %40, i64 176
   store i64 0, ptr %51, align 8, !tbaa !88
-  store i8 0, ptr %50, align 1, !tbaa !132
+  store i8 0, ptr %50, align 8, !tbaa !132
   store ptr %40, ptr %4, align 8, !tbaa !752
   %52 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_14LogicalExplainESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %53 unwind label %66
@@ -29901,7 +29901,7 @@ define void @_ZN6duckdb22LogicalMaterializedCTE11DeserializeERNS_12DeserializerE
   store ptr %7, ptr %6, align 8, !tbaa !128
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 128
   store i64 0, ptr %8, align 8, !tbaa !88
-  store i8 0, ptr %7, align 1, !tbaa !132
+  store i8 0, ptr %7, align 8, !tbaa !132
   store ptr %4, ptr %3, align 8, !tbaa !822
   %9 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_22LogicalMaterializedCTEESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %10 unwind label %45
@@ -30508,7 +30508,7 @@ define void @_ZN6duckdb19LogicalRecursiveCTE11DeserializeERNS_12DeserializerE(pt
   store ptr %7, ptr %6, align 8, !tbaa !128
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 112
   store i64 0, ptr %8, align 8, !tbaa !88
-  store i8 0, ptr %7, align 1, !tbaa !132
+  store i8 0, ptr %7, align 8, !tbaa !132
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   store ptr %4, ptr %3, align 8, !tbaa !842
@@ -76218,13 +76218,13 @@ define void @_ZN6duckdb10AttachInfo11DeserializeERNS_12DeserializerE(ptr dead_on
   store ptr %8, ptr %7, align 8, !tbaa !128
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8, !tbaa !88
-  store i8 0, ptr %8, align 1, !tbaa !132
+  store i8 0, ptr %8, align 8, !tbaa !132
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store ptr %11, ptr %10, align 8, !tbaa !128
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i64 0, ptr %12, align 8, !tbaa !88
-  store i8 0, ptr %11, align 1, !tbaa !132
+  store i8 0, ptr %11, align 8, !tbaa !132
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 128
   store ptr %14, ptr %13, align 8, !tbaa !1696
@@ -76443,7 +76443,7 @@ define void @_ZN6duckdb16CopyDatabaseInfo11DeserializeERNS_12DeserializerE(ptr d
   store ptr %7, ptr %6, align 8, !tbaa !128
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %8, align 8, !tbaa !88
-  store i8 0, ptr %7, align 1, !tbaa !132
+  store i8 0, ptr %7, align 8, !tbaa !132
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   store ptr %4, ptr %3, align 8, !tbaa !926
@@ -76505,7 +76505,7 @@ define void @_ZN6duckdb8CopyInfo11DeserializeERNS_12DeserializerE(ptr dead_on_un
   store ptr %10, ptr %9, align 8, !tbaa !128
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 0, ptr %11, align 8, !tbaa !88
-  store i8 0, ptr %10, align 1, !tbaa !132
+  store i8 0, ptr %10, align 8, !tbaa !132
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store ptr %13, ptr %12, align 8, !tbaa !128
@@ -76513,13 +76513,13 @@ define void @_ZN6duckdb8CopyInfo11DeserializeERNS_12DeserializerE(ptr dead_on_un
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i64 4, ptr %14, align 8, !tbaa !88
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 68
-  store i8 0, ptr %15, align 1, !tbaa !132
+  store i8 0, ptr %15, align 4, !tbaa !132
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store ptr %17, ptr %16, align 8, !tbaa !128
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 88
   store i64 0, ptr %18, align 8, !tbaa !88
-  store i8 0, ptr %17, align 1, !tbaa !132
+  store i8 0, ptr %17, align 8, !tbaa !132
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 144
@@ -76527,13 +76527,13 @@ define void @_ZN6duckdb8CopyInfo11DeserializeERNS_12DeserializerE(ptr dead_on_un
   store ptr %21, ptr %20, align 8, !tbaa !128
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 152
   store i64 0, ptr %22, align 8, !tbaa !88
-  store i8 0, ptr %21, align 1, !tbaa !132
+  store i8 0, ptr %21, align 8, !tbaa !132
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 176
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 192
   store ptr %24, ptr %23, align 8, !tbaa !128
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 184
   store i64 0, ptr %25, align 8, !tbaa !88
-  store i8 0, ptr %24, align 1, !tbaa !132
+  store i8 0, ptr %24, align 8, !tbaa !132
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 208
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 256
   store ptr %27, ptr %26, align 8, !tbaa !1701
@@ -77411,19 +77411,19 @@ define void @_ZN6duckdb8LoadInfo11DeserializeERNS_12DeserializerE(ptr dead_on_un
   store ptr %8, ptr %7, align 8, !tbaa !128
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8, !tbaa !88
-  store i8 0, ptr %8, align 1, !tbaa !132
+  store i8 0, ptr %8, align 8, !tbaa !132
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store ptr %11, ptr %10, align 8, !tbaa !128
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i64 0, ptr %12, align 8, !tbaa !88
-  store i8 0, ptr %11, align 1, !tbaa !132
+  store i8 0, ptr %11, align 8, !tbaa !132
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store ptr %14, ptr %13, align 8, !tbaa !128
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store i64 0, ptr %15, align 8, !tbaa !88
-  store i8 0, ptr %14, align 1, !tbaa !132
+  store i8 0, ptr %14, align 8, !tbaa !132
   store ptr %5, ptr %4, align 8, !tbaa !1718
   %16 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_8LoadInfoESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %17 unwind label %84
@@ -77619,7 +77619,7 @@ define void @_ZN6duckdb10PragmaInfo11DeserializeERNS_12DeserializerE(ptr dead_on
   store ptr %7, ptr %6, align 8, !tbaa !128
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %8, align 8, !tbaa !88
-  store i8 0, ptr %7, align 1, !tbaa !132
+  store i8 0, ptr %7, align 8, !tbaa !132
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
@@ -87654,7 +87654,7 @@ define void @_ZN6duckdb7CTENode11DeserializeERNS_12DeserializerE(ptr dead_on_unw
   store ptr %13, ptr %12, align 8, !tbaa !128
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 128
   store i64 0, ptr %14, align 8, !tbaa !88
-  store i8 0, ptr %13, align 1, !tbaa !132
+  store i8 0, ptr %13, align 8, !tbaa !132
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, i8 0, i64 40, i1 false)
   store ptr %6, ptr %5, align 8, !tbaa !1863
@@ -87927,7 +87927,7 @@ define void @_ZN6duckdb16RecursiveCTENode11DeserializeERNS_12DeserializerE(ptr d
   store ptr %13, ptr %12, align 8, !tbaa !128
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 128
   store i64 0, ptr %14, align 8, !tbaa !88
-  store i8 0, ptr %13, align 1, !tbaa !132
+  store i8 0, ptr %13, align 8, !tbaa !132
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, i8 0, i64 40, i1 false)
   store ptr %6, ptr %5, align 8, !tbaa !1871
@@ -93323,7 +93323,7 @@ define void @_ZN6duckdb15SelectStatement11DeserializeERNS_12DeserializerE(ptr de
   store ptr %14, ptr %13, align 8, !tbaa !128
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store i64 0, ptr %15, align 8, !tbaa !88
-  store i8 0, ptr %14, align 1, !tbaa !132
+  store i8 0, ptr %14, align 8, !tbaa !132
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN6duckdb15SelectStatementE, i64 16), ptr %4, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store ptr null, ptr %16, align 8, !tbaa !1394
@@ -96748,7 +96748,7 @@ _ZNSt10unique_ptrIN6duckdb8TableRefESt14default_deleteIS1_EED2Ev.exit46: ; preds
   store ptr %153, ptr %152, align 8, !tbaa !128, !noalias !2033
   %154 = getelementptr inbounds nuw i8, ptr %150, i64 24
   store i64 0, ptr %154, align 8, !tbaa !88, !noalias !2033
-  store i8 0, ptr %153, align 1, !tbaa !132, !noalias !2033
+  store i8 0, ptr %153, align 8, !tbaa !132, !noalias !2033
   %155 = getelementptr inbounds nuw i8, ptr %150, i64 48
   store ptr null, ptr %155, align 8, !tbaa !994, !noalias !2033
   %156 = getelementptr inbounds nuw i8, ptr %150, i64 56
@@ -97207,7 +97207,7 @@ define void @_ZN6duckdb12BaseTableRef11DeserializeERNS_12DeserializerE(ptr dead_
   store ptr %7, ptr %6, align 8, !tbaa !128
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %8, align 8, !tbaa !88
-  store i8 0, ptr %7, align 1, !tbaa !132
+  store i8 0, ptr %7, align 8, !tbaa !132
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr null, ptr %9, align 8, !tbaa !994
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -97220,19 +97220,19 @@ define void @_ZN6duckdb12BaseTableRef11DeserializeERNS_12DeserializerE(ptr dead_
   store ptr %13, ptr %12, align 8, !tbaa !128
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 112
   store i64 0, ptr %14, align 8, !tbaa !88
-  store i8 0, ptr %13, align 1, !tbaa !132
+  store i8 0, ptr %13, align 8, !tbaa !132
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store ptr %16, ptr %15, align 8, !tbaa !128
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 144
   store i64 0, ptr %17, align 8, !tbaa !88
-  store i8 0, ptr %16, align 1, !tbaa !132
+  store i8 0, ptr %16, align 8, !tbaa !132
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 168
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 184
   store ptr %19, ptr %18, align 8, !tbaa !128
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 176
   store i64 0, ptr %20, align 8, !tbaa !88
-  store i8 0, ptr %19, align 1, !tbaa !132
+  store i8 0, ptr %19, align 8, !tbaa !132
   store ptr %4, ptr %3, align 8, !tbaa !2037
   %21 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_12BaseTableRefESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %22 unwind label %37
@@ -97392,7 +97392,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   store ptr %42, ptr %41, align 8, !tbaa !128
   %43 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store i64 0, ptr %43, align 8, !tbaa !88
-  store i8 0, ptr %42, align 1, !tbaa !132
+  store i8 0, ptr %42, align 8, !tbaa !132
   %44 = getelementptr inbounds nuw i8, ptr %31, i64 48
   store ptr null, ptr %44, align 8, !tbaa !994
   %45 = getelementptr inbounds nuw i8, ptr %31, i64 56
@@ -97445,7 +97445,7 @@ _ZNSt10unique_ptrIN6duckdb13EmptyTableRefESt14default_deleteIS1_EED2Ev.exit:
   store ptr %5, ptr %4, align 8, !tbaa !128
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !88
-  store i8 0, ptr %5, align 1, !tbaa !132
+  store i8 0, ptr %5, align 8, !tbaa !132
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr null, ptr %7, align 8, !tbaa !994
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -97470,7 +97470,7 @@ define void @_ZN6duckdb17ExpressionListRef11DeserializeERNS_12DeserializerE(ptr 
   store ptr %8, ptr %7, align 8, !tbaa !128
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8, !tbaa !88
-  store i8 0, ptr %8, align 1, !tbaa !132
+  store i8 0, ptr %8, align 8, !tbaa !132
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr null, ptr %10, align 8, !tbaa !994
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -97767,7 +97767,7 @@ define void @_ZN6duckdb7JoinRef11DeserializeERNS_12DeserializerE(ptr dead_on_unw
   store ptr %13, ptr %12, align 8, !tbaa !128
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 0, ptr %14, align 8, !tbaa !88
-  store i8 0, ptr %13, align 1, !tbaa !132
+  store i8 0, ptr %13, align 8, !tbaa !132
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr null, ptr %15, align 8, !tbaa !994
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 56
@@ -98498,7 +98498,7 @@ define void @_ZN6duckdb8PivotRef11DeserializeERNS_12DeserializerE(ptr dead_on_un
   store ptr %10, ptr %9, align 8, !tbaa !128
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 0, ptr %11, align 8, !tbaa !88
-  store i8 0, ptr %10, align 1, !tbaa !132
+  store i8 0, ptr %10, align 8, !tbaa !132
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr null, ptr %12, align 8, !tbaa !994
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 56
@@ -119991,7 +119991,7 @@ _ZSt19__relocate_object_aIN6duckdb20ExceptionFormatValueES1_SaIS1_EEvPT_PT0_RT1_
   store i64 %49, ptr %51, align 8, !tbaa !88, !alias.scope !2389, !noalias !2392
   store ptr %41, ptr %38, align 8, !tbaa !87, !alias.scope !2392, !noalias !2389
   store i64 0, ptr %50, align 8, !tbaa !88, !alias.scope !2392, !noalias !2389
-  store i8 0, ptr %41, align 1, !tbaa !132, !alias.scope !2392, !noalias !2389
+  store i8 0, ptr %41, align 8, !tbaa !132, !alias.scope !2392, !noalias !2389
   %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 56
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 56
   %.not.i.i.i.i = icmp eq ptr %52, %1
@@ -120042,7 +120042,7 @@ _ZSt19__relocate_object_aIN6duckdb20ExceptionFormatValueES1_SaIS1_EEvPT_PT0_RT1_
   store i64 %67, ptr %69, align 8, !tbaa !88, !alias.scope !2396, !noalias !2399
   store ptr %59, ptr %56, align 8, !tbaa !87, !alias.scope !2399, !noalias !2396
   store i64 0, ptr %68, align 8, !tbaa !88, !alias.scope !2399, !noalias !2396
-  store i8 0, ptr %59, align 1, !tbaa !132, !alias.scope !2399, !noalias !2396
+  store i8 0, ptr %59, align 8, !tbaa !132, !alias.scope !2399, !noalias !2396
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 56
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 56
   %.not.i.i.i.i24 = icmp eq ptr %70, %5
@@ -122058,7 +122058,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !88, !alias.scope !2425, !noalias !2428
   store ptr %39, ptr %.0911.i.i.i.i, align 8, !tbaa !87, !alias.scope !2428, !noalias !2425
   store i64 0, ptr %48, align 8, !tbaa !88, !alias.scope !2428, !noalias !2425
-  store i8 0, ptr %39, align 1, !tbaa !132, !alias.scope !2428, !noalias !2425
+  store i8 0, ptr %39, align 8, !tbaa !132, !alias.scope !2428, !noalias !2425
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %50, %1
@@ -122106,7 +122106,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !88, !alias.scope !2432, !noalias !2435
   store ptr %55, ptr %.0911.i.i.i.i19, align 8, !tbaa !87, !alias.scope !2435, !noalias !2432
   store i64 0, ptr %64, align 8, !tbaa !88, !alias.scope !2435, !noalias !2432
-  store i8 0, ptr %55, align 1, !tbaa !132, !alias.scope !2435, !noalias !2432
+  store i8 0, ptr %55, align 8, !tbaa !132, !alias.scope !2435, !noalias !2432
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 32
   %.not.i.i.i.i24 = icmp eq ptr %66, %5
@@ -122853,7 +122853,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   store ptr %60, ptr %59, align 8, !tbaa !128
   %61 = getelementptr inbounds nuw i8, ptr %46, i64 48
   store i64 0, ptr %61, align 8, !tbaa !88
-  store i8 0, ptr %60, align 1, !tbaa !132
+  store i8 0, ptr %60, align 8, !tbaa !132
   store ptr %46, ptr %57, align 8, !tbaa !2467
   %62 = invoke ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %13, i64 noundef %7, ptr noundef nonnull %46, i64 noundef 1)
           to label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %63
@@ -124465,7 +124465,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i: ; pre
   store i64 %20, ptr %22, align 8, !tbaa !88
   store ptr %12, ptr %9, align 8, !tbaa !87
   store i64 0, ptr %21, align 8, !tbaa !88
-  store i8 0, ptr %12, align 1, !tbaa !132
+  store i8 0, ptr %12, align 8, !tbaa !132
   invoke void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 noundef zeroext 1)
           to label %23 unwind label %25
 
@@ -136240,7 +136240,7 @@ _ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store i64 %54, ptr %56, align 8, !tbaa !88, !alias.scope !2801, !noalias !2804
   store ptr %46, ptr %.0911.i.i.i.i, align 8, !tbaa !87, !alias.scope !2804, !noalias !2801
   store i64 0, ptr %55, align 8, !tbaa !88, !alias.scope !2804, !noalias !2801
-  store i8 0, ptr %46, align 1, !tbaa !132, !alias.scope !2804, !noalias !2801
+  store i8 0, ptr %46, align 8, !tbaa !132, !alias.scope !2804, !noalias !2801
   %57 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %58 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %59 = load i64, ptr %58, align 8, !tbaa !1300, !alias.scope !2804, !noalias !2801
@@ -136293,7 +136293,7 @@ _ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store i64 %73, ptr %75, align 8, !tbaa !88, !alias.scope !2808, !noalias !2811
   store ptr %65, ptr %.0911.i.i.i.i30, align 8, !tbaa !87, !alias.scope !2811, !noalias !2808
   store i64 0, ptr %74, align 8, !tbaa !88, !alias.scope !2811, !noalias !2808
-  store i8 0, ptr %65, align 1, !tbaa !132, !alias.scope !2811, !noalias !2808
+  store i8 0, ptr %65, align 8, !tbaa !132, !alias.scope !2811, !noalias !2808
   %76 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i29, i64 32
   %77 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i30, i64 32
   %78 = load i64, ptr %77, align 8, !tbaa !1300, !alias.scope !2811, !noalias !2808
@@ -136926,7 +136926,7 @@ _ZSt19__relocate_object_aIN6duckdb21HivePartitioningIndexES1_SaIS1_EEvPT_PT0_RT1
   store i64 %50, ptr %52, align 8, !tbaa !88, !alias.scope !2820, !noalias !2823
   store ptr %42, ptr %.0911.i.i.i.i, align 8, !tbaa !87, !alias.scope !2823, !noalias !2820
   store i64 0, ptr %51, align 8, !tbaa !88, !alias.scope !2823, !noalias !2820
-  store i8 0, ptr %42, align 1, !tbaa !132, !alias.scope !2823, !noalias !2820
+  store i8 0, ptr %42, align 8, !tbaa !132, !alias.scope !2823, !noalias !2820
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %55 = load i64, ptr %54, align 8, !tbaa !2817, !alias.scope !2823, !noalias !2820
@@ -136978,7 +136978,7 @@ _ZSt19__relocate_object_aIN6duckdb21HivePartitioningIndexES1_SaIS1_EEvPT_PT0_RT1
   store i64 %69, ptr %71, align 8, !tbaa !88, !alias.scope !2827, !noalias !2830
   store ptr %61, ptr %.0911.i.i.i.i19, align 8, !tbaa !87, !alias.scope !2830, !noalias !2827
   store i64 0, ptr %70, align 8, !tbaa !88, !alias.scope !2830, !noalias !2827
-  store i8 0, ptr %61, align 1, !tbaa !132, !alias.scope !2830, !noalias !2827
+  store i8 0, ptr %61, align 8, !tbaa !132, !alias.scope !2830, !noalias !2827
   %72 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 32
   %73 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 32
   %74 = load i64, ptr %73, align 8, !tbaa !2817, !alias.scope !2830, !noalias !2827
@@ -137766,7 +137766,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i: ; pre
   store i64 %19, ptr %21, align 8, !tbaa !88
   store ptr %11, ptr %8, align 8, !tbaa !87
   store i64 0, ptr %20, align 8, !tbaa !88
-  store i8 0, ptr %11, align 1, !tbaa !132
+  store i8 0, ptr %11, align 8, !tbaa !132
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 40
   invoke void @_ZN6duckdb11LogicalTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22)
           to label %_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEELb1EEEEE9constructISC_JRKSt21piecewise_construct_tSt5tupleIJOS8_EESK_IJEEEEEvRSE_PT_DpOT0_.exit unwind label %23
@@ -138441,7 +138441,7 @@ _ZSt19__relocate_object_aIN6duckdb16PivotColumnEntryES1_SaIS1_EEvPT_PT0_RT1_.exi
   store i64 %69, ptr %71, align 8, !tbaa !88, !alias.scope !2859, !noalias !2862
   store ptr %61, ptr %58, align 8, !tbaa !87, !alias.scope !2862, !noalias !2859
   store i64 0, ptr %70, align 8, !tbaa !88, !alias.scope !2862, !noalias !2859
-  store i8 0, ptr %61, align 1, !tbaa !132, !alias.scope !2862, !noalias !2859
+  store i8 0, ptr %61, align 8, !tbaa !132, !alias.scope !2862, !noalias !2859
   store ptr null, ptr %55, align 8, !tbaa !100, !alias.scope !2862, !noalias !2859
   %72 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 64
   %73 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 64
@@ -138507,7 +138507,7 @@ _ZSt19__relocate_object_aIN6duckdb16PivotColumnEntryES1_SaIS1_EEvPT_PT0_RT1_.exi
   store i64 %97, ptr %99, align 8, !tbaa !88, !alias.scope !2866, !noalias !2869
   store ptr %89, ptr %86, align 8, !tbaa !87, !alias.scope !2869, !noalias !2866
   store i64 0, ptr %98, align 8, !tbaa !88, !alias.scope !2869, !noalias !2866
-  store i8 0, ptr %89, align 1, !tbaa !132, !alias.scope !2869, !noalias !2866
+  store i8 0, ptr %89, align 8, !tbaa !132, !alias.scope !2869, !noalias !2866
   store ptr null, ptr %83, align 8, !tbaa !100, !alias.scope !2869, !noalias !2866
   %100 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 64
   %101 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 64
@@ -143858,7 +143858,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i: ; preds
   store i64 %19, ptr %20, align 8, !tbaa !88
   store ptr %10, ptr %7, align 8, !tbaa !87
   store i64 0, ptr %18, align 8, !tbaa !88
-  store i8 0, ptr %10, align 1, !tbaa !132
+  store i8 0, ptr %10, align 8, !tbaa !132
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -143890,7 +143890,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit6.i.i.i: ; pred
   store i64 %34, ptr %35, align 8, !tbaa !88
   store ptr %25, ptr %22, align 8, !tbaa !87
   store i64 0, ptr %33, align 8, !tbaa !88
-  store i8 0, ptr %25, align 1, !tbaa !132
+  store i8 0, ptr %25, align 8, !tbaa !132
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -143922,7 +143922,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit8.i.i.i: ; pred
   store i64 %49, ptr %50, align 8, !tbaa !88
   store ptr %40, ptr %37, align 8, !tbaa !87
   store i64 0, ptr %48, align 8, !tbaa !88
-  store i8 0, ptr %40, align 1, !tbaa !132
+  store i8 0, ptr %40, align 8, !tbaa !132
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -143954,13 +143954,13 @@ _ZNSt4pairIKN6duckdb19QualifiedColumnNameENSt7__cxx1112basic_stringIcSt11char_tr
   store i64 %64, ptr %65, align 8, !tbaa !88
   store ptr %55, ptr %52, align 8, !tbaa !87
   store i64 0, ptr %63, align 8, !tbaa !88
-  store i8 0, ptr %55, align 1, !tbaa !132
+  store i8 0, ptr %55, align 8, !tbaa !132
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store ptr %67, ptr %66, align 8, !tbaa !128
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 136
   store i64 0, ptr %68, align 8, !tbaa !88
-  store i8 0, ptr %67, align 1, !tbaa !132
+  store i8 0, ptr %67, align 8, !tbaa !132
   ret void
 }
 
@@ -149061,7 +149061,7 @@ _ZSt19__relocate_object_aIN6duckdb11PivotColumnES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i
   store i64 %102, ptr %104, align 8, !tbaa !88, !alias.scope !3117, !noalias !3120
   store ptr %94, ptr %91, align 8, !tbaa !87, !alias.scope !3120, !noalias !3117
   store i64 0, ptr %103, align 8, !tbaa !88, !alias.scope !3120, !noalias !3117
-  store i8 0, ptr %94, align 1, !tbaa !132, !alias.scope !3120, !noalias !3117
+  store i8 0, ptr %94, align 8, !tbaa !132, !alias.scope !3120, !noalias !3117
   %105 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 104
   %106 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 104
   %107 = load i64, ptr %106, align 8, !tbaa !1020, !alias.scope !3120, !noalias !3117
@@ -149154,7 +149154,7 @@ _ZSt19__relocate_object_aIN6duckdb11PivotColumnES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i
   store i64 %148, ptr %150, align 8, !tbaa !88, !alias.scope !3124, !noalias !3127
   store ptr %140, ptr %137, align 8, !tbaa !87, !alias.scope !3127, !noalias !3124
   store i64 0, ptr %149, align 8, !tbaa !88, !alias.scope !3127, !noalias !3124
-  store i8 0, ptr %140, align 1, !tbaa !132, !alias.scope !3127, !noalias !3124
+  store i8 0, ptr %140, align 8, !tbaa !132, !alias.scope !3127, !noalias !3124
   %151 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 104
   %152 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 104
   %153 = load i64, ptr %152, align 8, !tbaa !1020, !alias.scope !3127, !noalias !3124
@@ -149756,7 +149756,7 @@ _ZSt19__relocate_object_aIN6duckdb19LogicalTypeModifierES1_SaIS1_EEvPT_PT0_RT1_.
   store i64 %49, ptr %51, align 8, !tbaa !88, !alias.scope !3134, !noalias !3137
   store ptr %41, ptr %38, align 8, !tbaa !87, !alias.scope !3137, !noalias !3134
   store i64 0, ptr %50, align 8, !tbaa !88, !alias.scope !3137, !noalias !3134
-  store i8 0, ptr %41, align 1, !tbaa !132, !alias.scope !3137, !noalias !3134
+  store i8 0, ptr %41, align 8, !tbaa !132, !alias.scope !3137, !noalias !3134
   tail call void @_ZN6duckdb5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.0911.i.i.i.i) #27
   %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 96
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 96
@@ -149808,7 +149808,7 @@ _ZSt19__relocate_object_aIN6duckdb19LogicalTypeModifierES1_SaIS1_EEvPT_PT0_RT1_.
   store i64 %67, ptr %69, align 8, !tbaa !88, !alias.scope !3141, !noalias !3144
   store ptr %59, ptr %56, align 8, !tbaa !87, !alias.scope !3144, !noalias !3141
   store i64 0, ptr %68, align 8, !tbaa !88, !alias.scope !3144, !noalias !3141
-  store i8 0, ptr %59, align 1, !tbaa !132, !alias.scope !3144, !noalias !3141
+  store i8 0, ptr %59, align 8, !tbaa !132, !alias.scope !3144, !noalias !3141
   tail call void @_ZN6duckdb5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.0911.i.i.i.i19) #27
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 96
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 96
@@ -150552,7 +150552,7 @@ _ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcE
   store i64 %49, ptr %51, align 8, !tbaa !88, !alias.scope !3166, !noalias !3169
   store ptr %41, ptr %.0911.i.i.i.i, align 8, !tbaa !87, !alias.scope !3169, !noalias !3166
   store i64 0, ptr %50, align 8, !tbaa !88, !alias.scope !3169, !noalias !3166
-  store i8 0, ptr %41, align 1, !tbaa !132, !alias.scope !3169, !noalias !3166
+  store i8 0, ptr %41, align 8, !tbaa !132, !alias.scope !3169, !noalias !3166
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   tail call void @_ZN6duckdb11LogicalTypeC1EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(24) %53) #27
@@ -150619,7 +150619,7 @@ _ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcE
   store i64 %71, ptr %73, align 8, !tbaa !88, !alias.scope !3173, !noalias !3176
   store ptr %63, ptr %.0911.i.i.i.i19, align 8, !tbaa !87, !alias.scope !3176, !noalias !3173
   store i64 0, ptr %72, align 8, !tbaa !88, !alias.scope !3176, !noalias !3173
-  store i8 0, ptr %63, align 1, !tbaa !132, !alias.scope !3176, !noalias !3173
+  store i8 0, ptr %63, align 8, !tbaa !132, !alias.scope !3176, !noalias !3173
   %74 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 32
   %75 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 32
   tail call void @_ZN6duckdb11LogicalTypeC1EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %74, ptr noundef nonnull align 8 dereferenceable(24) %75) #27
@@ -150862,7 +150862,7 @@ define linkonce_odr void @_ZN6duckdb10Serializer10WriteValueINS_12BlockPointerEE
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.06.010, i64 8
   %34 = load i8, ptr %15, align 1, !tbaa !117, !range !83, !noundef !84
   %35 = trunc nuw i8 %34 to i1
-  %36 = load i32, ptr %33, align 4
+  %36 = load i32, ptr %33, align 8
   %37 = icmp ne i32 %36, 0
   %or.cond.not.i.i.i = select i1 %35, i1 true, i1 %37
   %38 = load ptr, ptr %0, align 8, !tbaa !3

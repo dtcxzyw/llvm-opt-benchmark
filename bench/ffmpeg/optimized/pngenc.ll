@@ -524,15 +524,15 @@ define internal range(i32 -2147483648, 1) i32 @encode_apng(ptr noundef %0, ptr n
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !58
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.15.i)
-  %.sroa.0.0.copyload.i = load i32, ptr %119, align 4, !tbaa !60
+  %.sroa.0.0.copyload.i = load i32, ptr %119, align 8, !tbaa !60
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 4356
   %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !60
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 4360
-  %.sroa.5.0.copyload.i = load i32, ptr %.sroa.5.0..sroa_idx.i, align 4, !tbaa !60
+  %.sroa.5.0.copyload.i = load i32, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !60
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 4364
   %.sroa.6.0.copyload.i = load i32, ptr %.sroa.6.0..sroa_idx.i, align 4, !tbaa !60
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 4368
-  %.sroa.7.0.copyload.i = load i32, ptr %.sroa.7.0..sroa_idx.i, align 4, !tbaa !60
+  %.sroa.7.0.copyload.i = load i32, ptr %.sroa.7.0..sroa_idx.i, align 8, !tbaa !60
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 4372
   %125 = load i32, ptr %.sroa.9.0..sroa_idx.i, align 4
   %.sroa.918.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 4376
@@ -1386,7 +1386,7 @@ define internal fastcc range(i32 -542398533, 1) i32 @encode_headers(ptr noundef 
   %23 = load i32, ptr %22, align 4, !tbaa !47
   %24 = tail call i32 @llvm.bswap.i32(i32 %23)
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 188
-  store i32 %24, ptr %25, align 1, !tbaa !57
+  store i32 %24, ptr %25, align 4, !tbaa !57
   %26 = getelementptr inbounds nuw i8, ptr %17, i64 4292
   %27 = load i32, ptr %26, align 4, !tbaa !42
   %28 = trunc i32 %27 to i8
@@ -1811,7 +1811,7 @@ png_write_chunk.exit167:                          ; preds = %205, %225
   %242 = load i32, ptr %241, align 4, !tbaa !123
   %243 = mul i32 %242, 10000
   %244 = call i32 @llvm.bswap.i32(i32 %243)
-  store i32 %244, ptr %25, align 1, !tbaa !57
+  store i32 %244, ptr %25, align 4, !tbaa !57
   %245 = call ptr @av_crc_get_table(i32 noundef 4) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %246 = load ptr, ptr %40, align 8, !tbaa !58

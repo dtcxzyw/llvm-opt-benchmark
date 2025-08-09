@@ -1492,7 +1492,7 @@ _ZN11GLTrianglesD2Ev.exit:                        ; preds = %81, %83
   store i32 0, ptr %92, align 8, !tbaa !103
   store i32 0, ptr %97, align 4, !tbaa !106
   %98 = getelementptr inbounds nuw i8, ptr %91, i64 32
-  store i32 0, ptr %98, align 4, !tbaa !106
+  store i32 0, ptr %98, align 8, !tbaa !106
   br label %99
 
 99:                                               ; preds = %94, %89
@@ -1548,7 +1548,7 @@ _ZN9GLCirclesD2Ev.exit:                           ; preds = %106, %108
   store i32 0, ptr %117, align 8, !tbaa !116
   store i32 0, ptr %122, align 4, !tbaa !106
   %123 = getelementptr inbounds nuw i8, ptr %116, i64 32
-  store i32 0, ptr %123, align 4, !tbaa !106
+  store i32 0, ptr %123, align 8, !tbaa !106
   br label %124
 
 124:                                              ; preds = %119, %114
@@ -1604,7 +1604,7 @@ _ZN14GLSolidCirclesD2Ev.exit:                     ; preds = %131, %133
   store i32 0, ptr %142, align 8, !tbaa !126
   store i32 0, ptr %147, align 4, !tbaa !106
   %148 = getelementptr inbounds nuw i8, ptr %141, i64 32
-  store i32 0, ptr %148, align 4, !tbaa !106
+  store i32 0, ptr %148, align 8, !tbaa !106
   br label %149
 
 149:                                              ; preds = %144, %139

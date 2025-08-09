@@ -6100,14 +6100,14 @@ define linkonce_odr void @_ZN3nix8make_refINS_12TestResourceEJEEENS_3refIT_EEDpO
   store i32 1, ptr %6, align 4, !noalias !91
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3nix12TestResourceESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !noalias !91
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 1, ptr %7, align 4, !noalias !91
+  store i32 1, ptr %7, align 8, !noalias !91
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i8 1, ptr %8, align 4, !noalias !91
   %9 = load i32, ptr @_ZZN3nix12TestResourceC1EvE7counter, align 4, !noalias !91
   %10 = add nsw i32 %9, 1
   store i32 %10, ptr @_ZZN3nix12TestResourceC1EvE7counter, align 4, !noalias !91
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 %9, ptr %11, align 4, !noalias !91
+  store i32 %9, ptr %11, align 8, !noalias !91
   store ptr %4, ptr %3, align 8, !alias.scope !91
   store ptr %7, ptr %2, align 8, !alias.scope !91
   store ptr %7, ptr %0, align 8

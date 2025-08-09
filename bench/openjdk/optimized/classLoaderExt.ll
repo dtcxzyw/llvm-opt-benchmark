@@ -287,7 +287,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
   %27 = load ptr, ptr %26, align 8
   call void @_ZN11ClassLoader24setup_module_search_pathEP10JavaThreadPKc(ptr noundef nonnull %0, ptr noundef %27) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %28 = load i32, ptr %14, align 4
+  %28 = load i32, ptr %14, align 8
   %29 = sext i32 %28 to i64
   %30 = icmp slt i64 %indvars.iv.next, %29
   br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !9

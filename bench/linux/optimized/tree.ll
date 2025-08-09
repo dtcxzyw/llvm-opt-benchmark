@@ -2635,7 +2635,7 @@ define dso_local void @synchronize_rcu() #1 align 16 {
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 16
   store i64 %69, ptr %71, align 16
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 128
-  %73 = load ptr, ptr %72, align 8
+  %73 = load ptr, ptr %72, align 16
   %74 = icmp eq ptr %73, null
   br i1 %74, label %.loopexit, label %.preheader, !llvm.loop !126
 
@@ -6116,7 +6116,7 @@ define internal fastcc void @rcu_init_one() unnamed_addr #8 section ".init.text"
   %106 = getelementptr inbounds nuw i8, ptr %66, i64 136
   store volatile ptr %106, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %66, i64 144
-  store volatile ptr %106, ptr %107, align 8
+  store volatile ptr %106, ptr %107, align 16
   %108 = getelementptr inbounds nuw i8, ptr %66, i64 400
   tail call void @__init_waitqueue_head(ptr noundef nonnull %108, ptr noundef nonnull @.str.174, ptr noundef nonnull @rcu_init_one.__key) #29
   %109 = getelementptr i8, ptr %66, i64 424
@@ -6136,11 +6136,11 @@ define internal fastcc void @rcu_init_one() unnamed_addr #8 section ".init.text"
   %116 = getelementptr inbounds nuw i8, ptr %66, i64 552
   store i64 68719476704, ptr %116, align 8
   %117 = getelementptr inbounds nuw i8, ptr %66, i64 560
-  store volatile ptr %117, ptr %117, align 8
+  store volatile ptr %117, ptr %117, align 16
   %118 = getelementptr inbounds nuw i8, ptr %66, i64 568
   store volatile ptr %117, ptr %118, align 8
   %119 = getelementptr inbounds nuw i8, ptr %66, i64 576
-  store ptr @sync_rcu_do_polled_gp, ptr %119, align 8
+  store ptr @sync_rcu_do_polled_gp, ptr %119, align 64
   %120 = getelementptr i8, ptr %66, i64 640
   %121 = load i32, ptr %52, align 4
   %122 = icmp slt i32 %77, %121
@@ -9327,7 +9327,7 @@ rcu_qs.exit:                                      ; preds = %52, %25, %23
   %112 = getelementptr inbounds nuw i8, ptr %106, i64 8
   store ptr %111, ptr %112, align 8
   store volatile ptr %106, ptr %111, align 8
-  store volatile ptr %105, ptr %105, align 8
+  store volatile ptr %105, ptr %105, align 64
   store volatile ptr %105, ptr %110, align 8
   store ptr null, ptr %67, align 16
   %113 = load ptr, ptr @rcu_preempt_deferred_qs_irqrestore.___tp_str, align 8
@@ -16655,7 +16655,7 @@ define internal void @kfree_rcu_monitor(ptr noundef %0) #1 align 16 {
   call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !148
   %59 = load ptr, ptr %47, align 8
   %60 = getelementptr i8, ptr %0, i64 -296
-  store volatile i32 0, ptr %60, align 4
+  store volatile i32 0, ptr %60, align 8
   store volatile ptr null, ptr %47, align 8
   br label %61
 
@@ -16789,7 +16789,7 @@ define internal void @kfree_rcu_monitor(ptr noundef %0) #1 align 16 {
   call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !110
   %129 = getelementptr inbounds nuw i8, ptr %81, i64 72
   store i64 %128, ptr %129, align 8
-  store volatile i32 0, ptr %77, align 4
+  store volatile i32 0, ptr %77, align 8
   store volatile ptr null, ptr %47, align 8
   br label %130
 
@@ -16973,7 +16973,7 @@ define internal i64 @kfree_rcu_shrink_count(ptr readnone captures(none) %0, ptr 
   %35 = sext i32 %34 to i64
   %36 = add i64 %32, %35
   %37 = getelementptr inbounds nuw i8, ptr %19, i64 496
-  store volatile i32 1, ptr %37, align 4
+  store volatile i32 1, ptr %37, align 8
   %38 = add nuw nsw i64 %11, 1
   %39 = and i64 %38, 127
   %40 = icmp samesign ugt i64 %39, 63

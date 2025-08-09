@@ -2365,7 +2365,7 @@ define hidden void @"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false), !noalias !580
   store i64 0, ptr %3, align 8, !noalias !580
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store i8 2, ptr %4, align 1, !noalias !580
+  store i8 2, ptr %4, align 8, !noalias !580
   %5 = load i64, ptr %2, align 8, !range !66, !alias.scope !581, !noalias !580, !noundef !9
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %_ZN4core3ops8function6FnOnce9call_once17hbf54ad1fba4f980aE.llvm.2123743330159991533.exit, label %7
@@ -2394,7 +2394,7 @@ define hidden void @"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$
   %2 = load ptr, ptr %0, align 8, !alias.scope !593, !noalias !596, !noundef !9
   store i64 0, ptr %2, align 8, !noalias !599
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i8 2, ptr %3, align 1, !noalias !599
+  store i8 2, ptr %3, align 8, !noalias !599
   ret void
 }
 
@@ -2407,7 +2407,7 @@ define hidden void @"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !606
   store i64 0, ptr %3, align 8, !noalias !606
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i8 2, ptr %4, align 1, !noalias !606
+  store i8 2, ptr %4, align 8, !noalias !606
   %5 = load i64, ptr %2, align 8, !range !66, !alias.scope !607, !noalias !606, !noundef !9
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %_ZN4core3ops8function6FnOnce9call_once17h32d269b106ed89ceE.llvm.2123743330159991533.exit, label %7
@@ -2431,7 +2431,7 @@ define hidden void @"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false), !noalias !616
   store i64 0, ptr %3, align 8, !noalias !616
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store i8 2, ptr %4, align 1, !noalias !616
+  store i8 2, ptr %4, align 8, !noalias !616
   tail call void @llvm.experimental.noalias.scope.decl(metadata !617)
   %5 = load i64, ptr %2, align 8, !range !66, !alias.scope !617, !noalias !616, !noundef !9
   %6 = icmp eq i64 %5, 0
@@ -2495,7 +2495,7 @@ define hidden void @"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$
   %2 = load ptr, ptr %0, align 8, !alias.scope !647, !noalias !650, !noundef !9
   store i64 0, ptr %2, align 8, !noalias !653
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i8 2, ptr %3, align 1, !noalias !653
+  store i8 2, ptr %3, align 8, !noalias !653
   ret void
 }
 
@@ -3817,7 +3817,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17h32d269b106ed89ceE.l
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !895
   store i64 0, ptr %3, align 8, !noalias !895
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i8 2, ptr %4, align 1, !noalias !895
+  store i8 2, ptr %4, align 8, !noalias !895
   %5 = load i64, ptr %2, align 8, !range !66, !alias.scope !898, !noalias !895, !noundef !9
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %"_ZN3std3sys6common12thread_local10fast_local13destroy_value28_$u7b$$u7b$closure$u7d$$u7d$17hd8d6a88c9a481f48E.llvm.2123743330159991533.exit", label %7
@@ -3840,7 +3840,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17h3d1313ae060b2a7fE.l
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false), !noalias !901
   store i64 0, ptr %3, align 8, !noalias !901
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store i8 2, ptr %4, align 1, !noalias !901
+  store i8 2, ptr %4, align 8, !noalias !901
   tail call void @llvm.experimental.noalias.scope.decl(metadata !904)
   %5 = load i64, ptr %2, align 8, !range !66, !alias.scope !904, !noalias !901, !noundef !9
   %6 = icmp eq i64 %5, 0
@@ -3903,7 +3903,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17h721c11c9b47eeca6E.l
   %2 = load ptr, ptr %0, align 8, !noalias !934, !noundef !9
   store i64 0, ptr %2, align 8, !noalias !934
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i8 2, ptr %3, align 1, !noalias !934
+  store i8 2, ptr %3, align 8, !noalias !934
   ret void
 }
 
@@ -3912,7 +3912,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17h7f4b8088797b6a8cE.l
   %2 = load ptr, ptr %0, align 8, !noalias !937, !noundef !9
   store i64 0, ptr %2, align 8, !noalias !937
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i8 2, ptr %3, align 1, !noalias !937
+  store i8 2, ptr %3, align 8, !noalias !937
   ret void
 }
 
@@ -3924,7 +3924,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17hbf54ad1fba4f980aE.l
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false), !noalias !940
   store i64 0, ptr %3, align 8, !noalias !940
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store i8 2, ptr %4, align 1, !noalias !940
+  store i8 2, ptr %4, align 8, !noalias !940
   %5 = load i64, ptr %2, align 8, !range !66, !alias.scope !943, !noalias !940, !noundef !9
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %"_ZN3std3sys6common12thread_local10fast_local13destroy_value28_$u7b$$u7b$closure$u7d$$u7d$17h45c2ae612e1fecc8E.llvm.2123743330159991533.exit", label %7

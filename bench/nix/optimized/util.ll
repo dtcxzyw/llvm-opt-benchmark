@@ -1965,7 +1965,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %15
   store i64 %21, ptr %23, align 8
   store ptr %13, ptr %1, align 8
   store i64 0, ptr %22, align 8
-  store i8 0, ptr %13, align 1
+  store i8 0, ptr %13, align 8
   br label %63
 
 .lr.ph:                                           ; preds = %.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceISt17basic_string_viewIcS2_EEENSt9enable_ifIXsr6__and_ISt14is_convertibleIRKT_S7_ESt6__not_IS9_IPSB_PKS4_EESE_IS9_ISC_PKcEEEE5valueERS4_E4typeEmmSC_.exit
@@ -2063,7 +2063,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit8: ; preds = %5
   store i64 %61, ptr %62, align 8
   store ptr %54, ptr %1, align 8
   store i64 0, ptr %8, align 8
-  store i8 0, ptr %54, align 1
+  store i8 0, ptr %54, align 8
   br label %63
 
 63:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
@@ -2524,7 +2524,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %16
   store i64 %170, ptr %172, align 8
   store ptr %162, ptr %1, align 8
   store i64 0, ptr %171, align 8
-  store i8 0, ptr %162, align 1
+  store i8 0, ptr %162, align 8
   ret void
 }
 
@@ -2622,7 +2622,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %18
   store i64 %23, ptr %24, align 8
   store ptr %16, ptr %1, align 8
   store i64 0, ptr %4, align 8
-  store i8 0, ptr %16, align 1
+  store i8 0, ptr %16, align 8
   ret void
 }
 
@@ -4180,7 +4180,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   store i64 %17, ptr %19, align 8
   store ptr %9, ptr %6, align 8
   store i64 0, ptr %18, align 8
-  store i8 0, ptr %9, align 1
+  store i8 0, ptr %9, align 8
   %20 = load ptr, ptr %4, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr %21, ptr %4, align 8
@@ -4492,7 +4492,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !alias.scope !25, !noalias !28
   store ptr %39, ptr %.0911.i.i.i, align 8, !alias.scope !28, !noalias !25
   store i64 0, ptr %48, align 8, !alias.scope !28, !noalias !25
-  store i8 0, ptr %39, align 1, !alias.scope !28, !noalias !25
+  store i8 0, ptr %39, align 8, !alias.scope !28, !noalias !25
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i) #27
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
@@ -4542,7 +4542,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !alias.scope !32, !noalias !35
   store ptr %55, ptr %.0911.i.i.i19, align 8, !alias.scope !35, !noalias !32
   store i64 0, ptr %64, align 8, !alias.scope !35, !noalias !32
-  store i8 0, ptr %55, align 1, !alias.scope !35, !noalias !32
+  store i8 0, ptr %55, align 8, !alias.scope !35, !noalias !32
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i19) #27
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32

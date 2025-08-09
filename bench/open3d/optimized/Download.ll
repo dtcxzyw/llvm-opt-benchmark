@@ -718,7 +718,7 @@ _ZNSt14basic_ifstreamIcSt11char_traitsIcEE5closeEv.exit: ; preds = %.noexc, %49
   %63 = load i32, ptr %62, align 8, !tbaa !28
   %64 = and i32 %63, -75
   %65 = or disjoint i32 %64, 8
-  store i32 %65, ptr %62, align 4, !tbaa !29
+  store i32 %65, ptr %62, align 8, !tbaa !29
   %66 = load i64, ptr %59, align 8
   %67 = getelementptr inbounds i8, ptr %8, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 225

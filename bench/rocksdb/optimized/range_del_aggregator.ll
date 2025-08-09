@@ -5835,13 +5835,13 @@ define void @_ZN7rocksdb28CompactionRangeDelAggregator11NewIteratorEPKNS_5SliceE
   store ptr %25, ptr %24, align 8, !tbaa !57, !noalias !473
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 216
   store i64 0, ptr %26, align 8, !tbaa !16, !noalias !473
-  store i8 0, ptr %25, align 1, !tbaa !17, !noalias !473
+  store i8 0, ptr %25, align 8, !tbaa !17, !noalias !473
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 240
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 256
   store ptr %28, ptr %27, align 8, !tbaa !57, !noalias !473
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 248
   store i64 0, ptr %29, align 8, !tbaa !16, !noalias !473
-  store i8 0, ptr %28, align 1, !tbaa !17, !noalias !473
+  store i8 0, ptr %28, align 8, !tbaa !17, !noalias !473
   %30 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !106, !noalias !473
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 272

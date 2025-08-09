@@ -837,7 +837,7 @@ define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__deta
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %15 = load i64, ptr %14, align 8, !tbaa !69
   %16 = icmp eq i64 %15, %4
-  %17 = load i32, ptr %13, align 4
+  %17 = load i32, ptr %13, align 8
   %18 = icmp eq i32 %3, %17
   %19 = select i1 %16, i1 %18, i1 false
   br i1 %19, label %.loopexit30, label %.lr.ph.i.i

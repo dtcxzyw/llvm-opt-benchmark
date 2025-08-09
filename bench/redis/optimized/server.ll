@@ -7884,7 +7884,7 @@ define dso_local void @populateCommandLegacyRangeSpec(ptr noundef captures(none)
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 276
   store i32 %80, ptr %81, align 4, !tbaa !38
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store i32 1, ptr %82, align 4, !tbaa !38
+  store i32 1, ptr %82, align 8, !tbaa !38
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 284
   store i32 0, ptr %83, align 4, !tbaa !38
   br label %84
@@ -12625,7 +12625,7 @@ commandVisibleForClient.exit.thread:              ; preds = %3, %commandVisibleF
   %18 = select i1 %17, i32 0, i32 %14
   %spec.select = add nsw i32 %18, %16
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %20 = load i32, ptr %19, align 4, !tbaa !38
+  %20 = load i32, ptr %19, align 8, !tbaa !38
   %21 = sext i32 %14 to i64
   %22 = sext i32 %spec.select to i64
   %23 = sext i32 %20 to i64

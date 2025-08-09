@@ -561,7 +561,7 @@ _ZNSt10shared_ptrIZN17grpc_event_engine12experimental18ThreadyEventEngine14Creat
   %67 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %68 = load ptr, ptr %47, align 16, !tbaa !49
   store ptr null, ptr %47, align 16, !tbaa !49
-  store ptr %68, ptr %67, align 8, !tbaa !49
+  store ptr %68, ptr %67, align 16, !tbaa !49
   store ptr null, ptr %46, align 8, !tbaa !48
   %69 = getelementptr inbounds nuw i8, ptr %62, i64 32
   call void %57(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %54, ptr noundef nonnull align 16 dereferenceable(32) %69) #26
@@ -3766,7 +3766,7 @@ define internal void @"_ZN4absl12lts_2024072222internal_any_invocable13RemoteInv
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.val.i.i.i.i.i = load ptr, ptr %8, align 8, !tbaa !48
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.val4.i.i.i.i.i = load ptr, ptr %9, align 8, !tbaa !49
+  %.val4.i.i.i.i.i = load ptr, ptr %9, align 16, !tbaa !49
   store ptr %.val.i.i.i.i.i, ptr %4, align 16, !tbaa !48
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.val4.i.i.i.i.i, ptr %10, align 8, !tbaa !49
@@ -3832,7 +3832,7 @@ _ZNSt10shared_ptrIZN17grpc_event_engine12experimental18ThreadyEventEngine14Creat
   store ptr null, ptr %28, align 8, !tbaa !66
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %41 = load i64, ptr %29, align 16, !tbaa !79
-  store i64 %41, ptr %40, align 8, !tbaa !79
+  store i64 %41, ptr %40, align 16, !tbaa !79
   store i64 55, ptr %29, align 16, !tbaa !79
   store ptr %30, ptr %3, align 16, !tbaa !50
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -3976,7 +3976,7 @@ define internal void @"_ZN4absl12lts_2024072222internal_any_invocable23RemoteMan
   %11 = load ptr, ptr %10, align 16, !tbaa !65
   tail call void %11(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %9) #26
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.val.i = load ptr, ptr %12, align 8, !tbaa !49
+  %.val.i = load ptr, ptr %12, align 16, !tbaa !49
   %.not.i.i.i = icmp eq ptr %.val.i, null
   br i1 %.not.i.i.i, label %"_ZZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerEN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrINS0_11EventEngine8EndpointESt14default_deleteIS7_EENS0_15MemoryAllocatorEEEENS4_IFvNS3_6StatusEEEERKNS0_14EndpointConfigES5_INS0_22MemoryAllocatorFactoryES8_ISK_EEEN3$_1D2Ev.exit", label %13
 

@@ -8146,7 +8146,7 @@ define internal void @drm_dp_mst_up_req_work(ptr noundef %0) #2 align 16 {
   tail call void @mutex_unlock(ptr noundef %4) #21
   %24 = getelementptr i8, ptr %18, i64 -120
   %25 = getelementptr i8, ptr %18, i64 -126
-  %26 = load i8, ptr %25, align 1, !range !9, !noundef !10
+  %26 = load i8, ptr %25, align 2, !range !9, !noundef !10
   %27 = icmp eq i8 %26, 0
   br i1 %27, label %70, label %28
 

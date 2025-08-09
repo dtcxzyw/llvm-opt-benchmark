@@ -530,7 +530,7 @@ define hidden void @mlib_c_ImageLookUp_U8_U8(ptr noundef %0, i32 noundef %1, ptr
   %309 = zext nneg i32 %308 to i64
   %310 = getelementptr inbounds nuw i8, ptr %145, i64 %309
   %311 = load i8, ptr %310, align 1
-  store i8 %311, ptr %307, align 1
+  store i8 %311, ptr %307, align 4
   %312 = icmp slt i32 %.3875.lcssa, %.0858.lcssa
   br i1 %312, label %.lr.ph1102.preheader, label %.loopexit909
 
@@ -854,7 +854,7 @@ define hidden void @mlib_c_ImageLookUp_U8_U8(ptr noundef %0, i32 noundef %1, ptr
   %515 = getelementptr inbounds nuw i8, ptr %.0841, i64 %514
   %516 = load i8, ptr %515, align 1
   %517 = getelementptr inbounds nuw i8, ptr %.1845.lcssa, i64 5
-  store i8 %516, ptr %512, align 1
+  store i8 %516, ptr %512, align 4
   %518 = add nsw i32 %.1830, -1
   %519 = icmp slt i32 %.3850.lcssa, %518
   br i1 %519, label %.lr.ph1036, label %._crit_edge1037
@@ -1239,7 +1239,7 @@ default.unreachable:                              ; preds = %787
   %756 = getelementptr inbounds nuw i8, ptr %.2806.lcssa, i64 %755
   %757 = load i8, ptr %756, align 1
   %758 = getelementptr inbounds nuw i8, ptr %.1813.lcssa, i64 5
-  store i8 %757, ptr %753, align 1
+  store i8 %757, ptr %753, align 4
   %759 = add nuw nsw i32 %.3818.lcssa, 5
   %760 = icmp slt i32 %759, %.0789
   br i1 %760, label %761, label %769
@@ -1609,7 +1609,7 @@ default.unreachable:                              ; preds = %787
   %1001 = getelementptr inbounds nuw i8, ptr %.0767, i64 %1000
   %1002 = load i8, ptr %1001, align 1
   %1003 = getelementptr inbounds nuw i8, ptr %.1771.lcssa, i64 5
-  store i8 %1002, ptr %998, align 1
+  store i8 %1002, ptr %998, align 4
   %1004 = add nuw nsw i32 %.3776.lcssa, 5
   %1005 = icmp slt i32 %1004, %.0753
   br i1 %1005, label %1006, label %1014
@@ -2863,7 +2863,7 @@ define hidden void @mlib_c_ImageLookUp_U8_S16(ptr noundef %0, i32 noundef %1, pt
   %333 = getelementptr inbounds nuw i8, ptr %.1928.lcssa, i64 8
   store i32 %332, ptr %333, align 4
   %334 = getelementptr inbounds nuw i8, ptr %.1928.lcssa, i64 12
-  store i16 %330, ptr %334, align 2
+  store i16 %330, ptr %334, align 4
   %335 = icmp slt i32 %.3935.lcssa, %242
   br i1 %335, label %.lr.ph1131.preheader, label %.loopexit969
 
@@ -3203,7 +3203,7 @@ define hidden void @mlib_c_ImageLookUp_U8_S16(ptr noundef %0, i32 noundef %1, pt
   store i32 %560, ptr %561, align 4
   %562 = getelementptr inbounds nuw i8, ptr %.1905.lcssa, i64 12
   %563 = getelementptr inbounds nuw i8, ptr %.1905.lcssa, i64 14
-  store i16 %558, ptr %562, align 2
+  store i16 %558, ptr %562, align 4
   %564 = add nsw i32 %.1894, -2
   %565 = icmp slt i32 %.3912.lcssa, %564
   br i1 %565, label %.lr.ph1074, label %._crit_edge1075
@@ -3603,7 +3603,7 @@ default.unreachable:                              ; preds = %856
   store i32 %824, ptr %825, align 4
   %826 = getelementptr inbounds nuw i8, ptr %.1875.lcssa, i64 12
   %827 = getelementptr inbounds nuw i8, ptr %.1875.lcssa, i64 14
-  store i16 %822, ptr %826, align 2
+  store i16 %822, ptr %826, align 4
   %828 = add nuw nsw i32 %.3882.lcssa, 7
   %829 = icmp slt i32 %828, %734
   br i1 %829, label %830, label %838
@@ -3989,7 +3989,7 @@ default.unreachable:                              ; preds = %856
   store i32 %1092, ptr %1093, align 4
   %1094 = getelementptr inbounds nuw i8, ptr %.1835.lcssa, i64 12
   %1095 = getelementptr inbounds nuw i8, ptr %.1835.lcssa, i64 14
-  store i16 %1090, ptr %1094, align 2
+  store i16 %1090, ptr %1094, align 4
   %1096 = add nuw nsw i32 %.3842.lcssa, 7
   %1097 = icmp slt i32 %1096, %1002
   br i1 %1097, label %1098, label %1106
@@ -7478,7 +7478,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noun
   %243 = getelementptr inbounds nuw i8, ptr %.1507.lcssa, i64 4
   %244 = lshr i16 %236, 8
   %245 = trunc nuw i16 %244 to i8
-  store i8 %245, ptr %243, align 1
+  store i8 %245, ptr %243, align 4
   %246 = and i32 %.1494, 1
   %247 = icmp eq i32 %246, 0
   br i1 %247, label %248, label %254
@@ -9963,7 +9963,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S16(ptr noundef readonly captures(no
   %205 = getelementptr inbounds nuw i8, ptr %.1489.lcssa, i64 8
   %206 = lshr i32 %201, 16
   %207 = trunc nuw i32 %206 to i16
-  store i16 %207, ptr %205, align 2
+  store i16 %207, ptr %205, align 4
   br i1 %131, label %208, label %214
 
 208:                                              ; preds = %._crit_edge606
@@ -10447,7 +10447,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S16(ptr noundef readonly captures(no
   %488 = getelementptr inbounds nuw i8, ptr %.1447.lcssa, i64 16
   %489 = lshr i32 %480, 16
   %490 = trunc nuw i32 %489 to i16
-  store i16 %490, ptr %488, align 2
+  store i16 %490, ptr %488, align 4
   br i1 %371, label %491, label %505
 
 491:                                              ; preds = %._crit_edge

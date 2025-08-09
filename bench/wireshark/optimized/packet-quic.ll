@@ -2800,7 +2800,7 @@ quic_connection_equal.exit.thread.i:              ; preds = %quic_connection_equ
   store i32 %627, ptr %628, align 4
   %631 = load ptr, ptr %.0171.i, align 8
   call void @gcry_cipher_close(ptr noundef %631)
-  store i64 0, ptr %.0171.i, align 1
+  store i64 0, ptr %.0171.i, align 8
   %632 = getelementptr inbounds nuw i8, ptr %.0171.i, i64 8
   %633 = load ptr, ptr %632, align 8
   call void @gcry_cipher_close(ptr noundef %633)
@@ -2978,7 +2978,7 @@ quic_ciphers_prepare.exit.i.i:                    ; preds = %710
 .critedge.i.i:                                    ; preds = %quic_ciphers_prepare.exit.i.i, %710, %706, %701
   %716 = load ptr, ptr %.0171.i, align 8
   call void @gcry_cipher_close(ptr noundef %716)
-  store i64 0, ptr %.0171.i, align 1
+  store i64 0, ptr %.0171.i, align 8
   %717 = load ptr, ptr %697, align 8
   call void @gcry_cipher_close(ptr noundef %717)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %697, i8 noundef 0, i64 noundef 24, i1 noundef false) #19
@@ -8079,7 +8079,7 @@ define internal fastcc noundef zeroext i1 @quic_hp_cipher_prepare(ptr noundef no
   %9 = alloca [32 x i8], align 16
   %10 = load ptr, ptr %0, align 8
   tail call void @gcry_cipher_close(ptr noundef %10)
-  store i64 0, ptr %0, align 1
+  store i64 0, ptr %0, align 8
   switch i32 %2, label %.critedge.sink.split [
     i32 7, label %.sink.split.i
     i32 9, label %.sink.split.i
@@ -8576,7 +8576,7 @@ define internal void @quic_connection_destroy(ptr noundef %0, ptr readnone captu
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   tail call void @gcry_cipher_close(ptr noundef %4)
-  store i64 0, ptr %3, align 1
+  store i64 0, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   tail call void @gcry_cipher_close(ptr noundef %6)
@@ -8584,7 +8584,7 @@ define internal void @quic_connection_destroy(ptr noundef %0, ptr readnone captu
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load ptr, ptr %7, align 8
   tail call void @gcry_cipher_close(ptr noundef %8)
-  store i64 0, ptr %7, align 1
+  store i64 0, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8
   tail call void @gcry_cipher_close(ptr noundef %10)
@@ -8592,7 +8592,7 @@ define internal void @quic_connection_destroy(ptr noundef %0, ptr readnone captu
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %12 = load ptr, ptr %11, align 8
   tail call void @gcry_cipher_close(ptr noundef %12)
-  store i64 0, ptr %11, align 1
+  store i64 0, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %14 = load ptr, ptr %13, align 8
   tail call void @gcry_cipher_close(ptr noundef %14)
@@ -8600,7 +8600,7 @@ define internal void @quic_connection_destroy(ptr noundef %0, ptr readnone captu
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %16 = load ptr, ptr %15, align 8
   tail call void @gcry_cipher_close(ptr noundef %16)
-  store i64 0, ptr %15, align 1
+  store i64 0, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %18 = load ptr, ptr %17, align 8
   tail call void @gcry_cipher_close(ptr noundef %18)
@@ -8608,7 +8608,7 @@ define internal void @quic_connection_destroy(ptr noundef %0, ptr readnone captu
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %20 = load ptr, ptr %19, align 8
   tail call void @gcry_cipher_close(ptr noundef %20)
-  store i64 0, ptr %19, align 1
+  store i64 0, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %22 = load ptr, ptr %21, align 8
   tail call void @gcry_cipher_close(ptr noundef %22)
@@ -8616,7 +8616,7 @@ define internal void @quic_connection_destroy(ptr noundef %0, ptr readnone captu
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %24 = load ptr, ptr %23, align 8
   tail call void @gcry_cipher_close(ptr noundef %24)
-  store i64 0, ptr %23, align 1
+  store i64 0, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %26 = load ptr, ptr %25, align 8
   tail call void @gcry_cipher_close(ptr noundef %26)
@@ -8628,7 +8628,7 @@ define internal void @quic_connection_destroy(ptr noundef %0, ptr readnone captu
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %30 = load ptr, ptr %29, align 8
   tail call void @gcry_cipher_close(ptr noundef %30)
-  store i64 0, ptr %29, align 1
+  store i64 0, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %32 = load ptr, ptr %31, align 8
   tail call void @gcry_cipher_close(ptr noundef %32)

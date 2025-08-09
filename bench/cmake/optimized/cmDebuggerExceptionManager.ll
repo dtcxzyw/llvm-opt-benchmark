@@ -4593,7 +4593,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(64) ptr @_
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 80
   %16 = load i64, ptr %15, align 8, !tbaa !152
   %17 = icmp eq i64 %16, %5
-  %18 = load i32, ptr %14, align 4
+  %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %4, %18
   %20 = select i1 %17, i1 %19, i1 false
   br i1 %20, label %.loopexit28, label %.lr.ph.i.i
@@ -6539,8 +6539,8 @@ _ZNSt12_Vector_baseIN3dap26ExceptionBreakpointsFilterESaIS1_EE13_M_deallocateEPS
   store i8 %75, ptr %76, align 8, !tbaa !62
   %77 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 40
   %78 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 40
-  %79 = load i8, ptr %78, align 1, !tbaa !52
-  store i8 %79, ptr %77, align 1, !tbaa !52
+  %79 = load i8, ptr %78, align 8, !tbaa !52
+  store i8 %79, ptr %77, align 8, !tbaa !52
   %80 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 41
   %81 = load i8, ptr %80, align 1, !tbaa !75, !range !54, !noundef !55
   %82 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 41
@@ -6560,8 +6560,8 @@ _ZNSt12_Vector_baseIN3dap26ExceptionBreakpointsFilterESaIS1_EE13_M_deallocateEPS
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef nonnull align 8 dereferenceable(32) %91)
   %92 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 152
   %93 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 152
-  %94 = load i8, ptr %93, align 1, !tbaa !52
-  store i8 %94, ptr %92, align 1, !tbaa !52
+  %94 = load i8, ptr %93, align 8, !tbaa !52
+  store i8 %94, ptr %92, align 8, !tbaa !52
   %95 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 153
   %96 = load i8, ptr %95, align 1, !tbaa !75, !range !54, !noundef !55
   %97 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 153
@@ -6693,8 +6693,8 @@ _ZSt8_DestroyIN3dap26ExceptionBreakpointsFilterEEvPT_.exit.i.i.i34: ; preds = %_
   store i8 %145, ptr %146, align 8, !tbaa !62
   %147 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i44, i64 40
   %148 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i45, i64 40
-  %149 = load i8, ptr %148, align 1, !tbaa !52
-  store i8 %149, ptr %147, align 1, !tbaa !52
+  %149 = load i8, ptr %148, align 8, !tbaa !52
+  store i8 %149, ptr %147, align 8, !tbaa !52
   %150 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i45, i64 41
   %151 = load i8, ptr %150, align 1, !tbaa !75, !range !54, !noundef !55
   %152 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i44, i64 41
@@ -6714,8 +6714,8 @@ _ZSt8_DestroyIN3dap26ExceptionBreakpointsFilterEEvPT_.exit.i.i.i34: ; preds = %_
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %160, ptr noundef nonnull align 8 dereferenceable(32) %161)
   %162 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i44, i64 152
   %163 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i45, i64 152
-  %164 = load i8, ptr %163, align 1, !tbaa !52
-  store i8 %164, ptr %162, align 1, !tbaa !52
+  %164 = load i8, ptr %163, align 8, !tbaa !52
+  store i8 %164, ptr %162, align 8, !tbaa !52
   %165 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i45, i64 153
   %166 = load i8, ptr %165, align 1, !tbaa !75, !range !54, !noundef !55
   %167 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i44, i64 153
@@ -6928,7 +6928,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(64) ptr @_
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 80
   %16 = load i64, ptr %15, align 8, !tbaa !152
   %17 = icmp eq i64 %16, %5
-  %18 = load i32, ptr %14, align 4
+  %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %4, %18
   %20 = select i1 %17, i1 %19, i1 false
   br i1 %20, label %.loopexit28, label %.lr.ph.i.i

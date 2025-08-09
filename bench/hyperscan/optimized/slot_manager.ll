@@ -2170,7 +2170,7 @@ _ZNKSt8__detail15_Hashtable_baseIN3ue214SlotCacheEntryES2_NS_9_IdentityENS1_14Sl
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 52
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %42 = load i32, ptr %39, align 4
-  %43 = load i8, ptr %40, align 1, !range !5, !noundef !6
+  %43 = load i8, ptr %40, align 4, !range !5, !noundef !6
   br label %44
 
 44:                                               ; preds = %44, %.noexc32

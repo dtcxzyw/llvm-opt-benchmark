@@ -191,7 +191,7 @@ define dso_local i32 @drm_gem_object_init(ptr noundef %0, ptr noundef %1, i64 no
   store ptr %0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr null, ptr %9, align 8
-  store volatile i32 1, ptr %1, align 4
+  store volatile i32 1, ptr %1, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 216
@@ -267,7 +267,7 @@ define dso_local void @drm_gem_private_object_init(ptr noundef %0, ptr noundef %
   store ptr %0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr null, ptr %9, align 8
-  store volatile i32 1, ptr %1, align 4
+  store volatile i32 1, ptr %1, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 216
@@ -2196,7 +2196,7 @@ define dso_local void @drm_gem_print_info(ptr noundef %0, i32 noundef %1, ptr no
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 224
   %5 = load i32, ptr %4, align 8
   tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %1, ptr noundef nonnull @.str.8, i32 noundef %5) #11
-  %6 = load volatile i32, ptr %2, align 4
+  %6 = load volatile i32, ptr %2, align 8
   tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef %1, ptr noundef nonnull @.str.8, i32 noundef %6) #11
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %8 = load i64, ptr %7, align 8
@@ -2733,7 +2733,7 @@ define dso_local range(i64 0, 4294967296) i64 @drm_gem_lru_scan(ptr noundef %0, 
   store ptr %46, ptr %47, align 8
   store volatile ptr %14, ptr %46, align 8
   store ptr %5, ptr %20, align 8
-  %48 = load volatile i32, ptr %16, align 4
+  %48 = load volatile i32, ptr %16, align 8
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %.thread, label %.preheader12
 

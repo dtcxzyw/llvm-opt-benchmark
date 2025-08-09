@@ -3730,10 +3730,10 @@ _ZN6dmg_fpL8rv_allocEi.exit.i:                    ; preds = %51, %40
   store i32 0, ptr %54, align 4, !tbaa !37
   %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 0, ptr %55, align 8, !tbaa !36
-  store i32 0, ptr %.0.i.i.i, align 4, !tbaa !20
+  store i32 0, ptr %.0.i.i.i, align 8, !tbaa !20
   %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 4
   store ptr %56, ptr @_ZN6dmg_fpL11dtoa_resultE, align 8, !tbaa !6
-  store i8 73, ptr %56, align 1, !tbaa !3
+  store i8 73, ptr %56, align 4, !tbaa !3
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %_ZN6dmg_fpL8rv_allocEi.exit.i
@@ -3789,10 +3789,10 @@ _ZN6dmg_fpL8rv_allocEi.exit.i549:                 ; preds = %71, %60
   store i32 0, ptr %74, align 4, !tbaa !37
   %75 = getelementptr inbounds nuw i8, ptr %.0.i.i.i550, i64 16
   store i32 0, ptr %75, align 8, !tbaa !36
-  store i32 0, ptr %.0.i.i.i550, align 4, !tbaa !20
+  store i32 0, ptr %.0.i.i.i550, align 8, !tbaa !20
   %76 = getelementptr inbounds nuw i8, ptr %.0.i.i.i550, i64 4
   store ptr %76, ptr @_ZN6dmg_fpL11dtoa_resultE, align 8, !tbaa !6
-  store i8 78, ptr %76, align 1, !tbaa !3
+  store i8 78, ptr %76, align 4, !tbaa !3
   br label %.lr.ph.i551
 
 .lr.ph.i551:                                      ; preds = %.lr.ph.i551, %_ZN6dmg_fpL8rv_allocEi.exit.i549
@@ -3856,10 +3856,10 @@ _ZN6dmg_fpL8rv_allocEi.exit.i561:                 ; preds = %95, %84
   store i32 0, ptr %98, align 4, !tbaa !37
   %99 = getelementptr inbounds nuw i8, ptr %.0.i.i.i562, i64 16
   store i32 0, ptr %99, align 8, !tbaa !36
-  store i32 0, ptr %.0.i.i.i562, align 4, !tbaa !20
+  store i32 0, ptr %.0.i.i.i562, align 8, !tbaa !20
   %100 = getelementptr inbounds nuw i8, ptr %.0.i.i.i562, i64 4
   store ptr %100, ptr @_ZN6dmg_fpL11dtoa_resultE, align 8, !tbaa !6
-  store i8 48, ptr %100, align 1, !tbaa !3
+  store i8 48, ptr %100, align 4, !tbaa !3
   %101 = getelementptr inbounds nuw i8, ptr %.0.i.i.i562, i64 5
   store i8 0, ptr %101, align 1, !tbaa !3
   %.not12.i569 = icmp eq ptr %5, null
@@ -4110,7 +4110,7 @@ _ZN6dmg_fpL8rv_allocEi.exit:                      ; preds = %181, %209
   store i32 0, ptr %213, align 4, !tbaa !37
   %214 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   store i32 0, ptr %214, align 8, !tbaa !36
-  store i32 %.07.lcssa15.i, ptr %.0.i.i, align 4, !tbaa !20
+  store i32 %.07.lcssa15.i, ptr %.0.i.i, align 8, !tbaa !20
   %.ptr714.ptr = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   store ptr %.ptr714.ptr, ptr @_ZN6dmg_fpL11dtoa_resultE, align 8, !tbaa !6
   %or.cond6 = icmp ult i32 %.0461664, 15

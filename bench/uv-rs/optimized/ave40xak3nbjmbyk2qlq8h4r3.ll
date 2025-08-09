@@ -7979,14 +7979,14 @@ define void @"_ZN88_$LT$uv_pep440..version_specifier..VersionSpecifier$u20$as$u2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !977)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i8, ptr %16, align 8, !alias.scope !980, !noundef !3
-  store i8 %17, ptr %15, align 1, !noalias !980
+  store i8 %17, ptr %15, align 8, !noalias !980
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %19 = load i64, ptr %0, align 8, !alias.scope !980, !noundef !3
   store i64 %19, ptr %18, align 8, !noalias !980
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %22 = load i8, ptr %21, align 1, !range !981, !alias.scope !980, !noundef !3
-  store i8 %22, ptr %20, align 1, !noalias !980
+  store i8 %22, ptr %20, align 8, !noalias !980
   br label %"_ZN69_$LT$uv_pep440..version..Version$u20$as$u20$rkyv..traits..Archive$GT$7resolve17h3fa1168dfe755ec1E.exit"
 
 "_ZN69_$LT$uv_pep440..version..Version$u20$as$u20$rkyv..traits..Archive$GT$7resolve17h3fa1168dfe755ec1E.exit": ; preds = %10, %14

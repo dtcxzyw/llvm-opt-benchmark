@@ -24988,7 +24988,7 @@ _ZNSt10unique_ptrIN4llvm6RecordESt14default_deleteIS1_EED2Ev.exit: ; preds = %17
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 20
   store i32 4, ptr %29, align 4, !tbaa !64, !noalias !920
-  store ptr %4, ptr %27, align 1, !noalias !920
+  store ptr %4, ptr %27, align 8, !noalias !920
   store i32 1, ptr %28, align 8, !tbaa !54, !noalias !920
   br label %35
 
@@ -25001,7 +25001,7 @@ _ZNSt10unique_ptrIN4llvm6RecordESt14default_deleteIS1_EED2Ev.exit8: ; preds = %1
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 20
   store i32 4, ptr %34, align 4, !tbaa !64, !noalias !923
-  store i64 %storemerge, ptr %32, align 1, !noalias !923
+  store i64 %storemerge, ptr %32, align 8, !noalias !923
   store i32 1, ptr %33, align 8, !tbaa !54, !noalias !923
   br label %35
 
@@ -27579,7 +27579,7 @@ _ZNK4llvm12RecordKeeper8getClassENS_9StringRefE.exit.thread: ; preds = %_ZNKSt8_
   %134 = getelementptr inbounds nuw i8, ptr %128, i64 16
   %135 = getelementptr inbounds nuw i8, ptr %128, i64 20
   store i32 4, ptr %135, align 4, !tbaa !64, !noalias !986
-  store ptr %126, ptr %133, align 1, !noalias !986
+  store ptr %126, ptr %133, align 8, !noalias !986
   store i32 1, ptr %134, align 8, !tbaa !54, !noalias !986
   %136 = getelementptr inbounds nuw i8, ptr %128, i64 56
   %137 = getelementptr inbounds nuw i8, ptr %128, i64 72
@@ -28792,7 +28792,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %61 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %62 = getelementptr inbounds nuw i8, ptr %55, i64 20
   store i32 4, ptr %62, align 4, !tbaa !64, !noalias !1013
-  store ptr %52, ptr %60, align 1, !noalias !1013
+  store ptr %52, ptr %60, align 8, !noalias !1013
   store i32 1, ptr %61, align 8, !tbaa !54, !noalias !1013
   %63 = getelementptr inbounds nuw i8, ptr %55, i64 56
   %64 = getelementptr inbounds nuw i8, ptr %55, i64 72
@@ -31316,7 +31316,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
   store i64 %21, ptr %24, align 8, !tbaa !14
   store ptr %13, ptr %9, align 8, !tbaa !17
   store i64 0, ptr %23, align 8, !tbaa !14
-  store i8 0, ptr %13, align 1, !tbaa !133
+  store i8 0, ptr %13, align 8, !tbaa !133
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %26 = load i64, ptr %22, align 8, !tbaa !310
   store i64 %26, ptr %25, align 8, !tbaa !310
@@ -32055,7 +32055,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
   store i64 %21, ptr %24, align 8, !tbaa !14
   store ptr %13, ptr %9, align 8, !tbaa !17
   store i64 0, ptr %23, align 8, !tbaa !14
-  store i8 0, ptr %13, align 1, !tbaa !133
+  store i8 0, ptr %13, align 8, !tbaa !133
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %26 = load ptr, ptr %22, align 8, !tbaa !118
   store ptr %26, ptr %25, align 8, !tbaa !20
@@ -36009,7 +36009,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
   store i64 %20, ptr %22, align 8, !tbaa !14
   store ptr %12, ptr %9, align 8, !tbaa !17
   store i64 0, ptr %21, align 8, !tbaa !14
-  store i8 0, ptr %12, align 1, !tbaa !133
+  store i8 0, ptr %12, align 8, !tbaa !133
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store ptr null, ptr %23, align 8, !tbaa !1106
   %24 = tail call { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN4llvm10MultiClassESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISE_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %7)

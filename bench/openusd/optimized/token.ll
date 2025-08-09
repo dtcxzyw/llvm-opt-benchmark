@@ -2145,7 +2145,7 @@ define linkonce_odr noundef ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load atomic i32, ptr %1 monotonic, align 8
-  store i32 %5, ptr %4, align 4
+  store i32 %5, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4

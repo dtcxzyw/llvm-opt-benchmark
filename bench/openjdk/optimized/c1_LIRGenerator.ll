@@ -1181,7 +1181,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %51, %53
   store i64 %1, ptr %.0.i.i.i, align 8
   %57 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %58 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #17
-  store i32 0, ptr %57, align 4
+  store i32 0, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   store i32 2, ptr %59, align 4
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
@@ -1290,7 +1290,7 @@ _ZN22CompilationResourceObjnwEm.exit14:           ; preds = %108, %110
   store i64 %1, ptr %.0.i.i.i13, align 8
   %114 = getelementptr inbounds nuw i8, ptr %.0.i.i.i13, i64 8
   %115 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #17
-  store i32 0, ptr %114, align 4
+  store i32 0, ptr %114, align 8
   %116 = getelementptr inbounds nuw i8, ptr %.0.i.i.i13, i64 12
   store i32 2, ptr %116, align 4
   %117 = getelementptr inbounds nuw i8, ptr %.0.i.i.i13, i64 16
@@ -25266,7 +25266,7 @@ _ZN8ciMethod16java_code_at_bciEi.exit:            ; preds = %_ZN8ciMethod4codeEv
   %63 = load ptr, ptr %62, align 8
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %66 = load i32, ptr %65, align 4
+  %66 = load i32, ptr %65, align 8
   %67 = and i32 %66, 1
   %.not59 = icmp eq i32 %67, 0
   br label %68
@@ -25385,7 +25385,7 @@ _ZN17ciSignatureStream10next_klassEv.exit:        ; preds = %_ZN17ciSignatureStr
   %122 = getelementptr inbounds nuw ptr, ptr %121, i64 %indvars.iv
   %123 = load ptr, ptr %122, align 8
   %or.cond.i.i = icmp samesign ult i64 %indvars.iv, 32
-  %124 = load i32, ptr %75, align 4
+  %124 = load i32, ptr %75, align 8
   %125 = sext i32 %124 to i64
   %126 = shl nuw nsw i64 1, %indvars.iv
   %127 = and i64 %126, %125

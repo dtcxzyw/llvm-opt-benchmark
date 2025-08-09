@@ -5221,7 +5221,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %.sroa.1153.0..sroa_idx = getelementptr inbounds nuw i8, ptr %388, i64 50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(38) %.sroa.1153.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(38) %.sroa.24.sroa.0, i64 38, i1 false)
   %.sroa.1153.sroa.4.0..sroa.1153.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %388, i64 88
-  store i64 %.sroa.24.sroa.5.1, ptr %.sroa.1153.sroa.4.0..sroa.1153.0..sroa_idx.sroa_idx, align 2
+  store i64 %.sroa.24.sroa.5.1, ptr %.sroa.1153.sroa.4.0..sroa.1153.0..sroa_idx.sroa_idx, align 8
   %.sroa.1254.0..sroa_idx = getelementptr inbounds nuw i8, ptr %388, i64 96
   store ptr %.sroa.25.1, ptr %.sroa.1254.0..sroa_idx, align 8
   %.sroa.1355.0..sroa_idx = getelementptr inbounds nuw i8, ptr %388, i64 104

@@ -492,35 +492,35 @@ define hidden noundef zeroext i1 @_ZN6Assimp12AC3DImporter17LoadObjectSectionERS
   store ptr %35, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i64 0, ptr %36, align 8
-  store i8 0, ptr %35, align 1
+  store i8 0, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %37, i8 0, i64 48, i1 false)
-  store float 1.000000e+00, ptr %38, align 4
+  store float 1.000000e+00, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %30, i64 92
   store float 1.000000e+00, ptr %39, align 4
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 96
-  store float 0.000000e+00, ptr %40, align 4
+  store float 0.000000e+00, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %30, i64 100
   store float 0.000000e+00, ptr %41, align 4
   %42 = getelementptr inbounds nuw i8, ptr %30, i64 104
-  store float 1.000000e+00, ptr %42, align 4
+  store float 1.000000e+00, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %30, i64 108
   store float 0.000000e+00, ptr %43, align 4
   %44 = getelementptr inbounds nuw i8, ptr %30, i64 112
-  store float 0.000000e+00, ptr %44, align 4
+  store float 0.000000e+00, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %30, i64 116
   store float 0.000000e+00, ptr %45, align 4
   %46 = getelementptr inbounds nuw i8, ptr %30, i64 120
-  store float 1.000000e+00, ptr %46, align 4
+  store float 1.000000e+00, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %30, i64 124
   store float 0.000000e+00, ptr %47, align 4
   %48 = getelementptr inbounds nuw i8, ptr %30, i64 128
-  store float 0.000000e+00, ptr %48, align 4
+  store float 0.000000e+00, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %30, i64 132
   store float 0.000000e+00, ptr %49, align 4
   %50 = getelementptr inbounds nuw i8, ptr %30, i64 136
-  store float 1.000000e+00, ptr %50, align 4
+  store float 1.000000e+00, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %30, i64 140
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %51, i8 0, i64 72, i1 false)
   %52 = load ptr, ptr %29, align 8
@@ -3558,7 +3558,7 @@ _ZSt19__relocate_object_aIN6Assimp12AC3DImporter6ObjectES2_SaIS2_EEvPT_PT0_RT1_.
   store i64 %33, ptr %35, align 8, !alias.scope !35, !noalias !38
   store ptr %25, ptr %22, align 8, !alias.scope !38, !noalias !35
   store i64 0, ptr %34, align 8, !alias.scope !38, !noalias !35
-  store i8 0, ptr %25, align 1, !alias.scope !38, !noalias !35
+  store i8 0, ptr %25, align 8, !alias.scope !38, !noalias !35
   %36 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
   %37 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
   %38 = load ptr, ptr %37, align 8, !alias.scope !38, !noalias !35
@@ -7063,7 +7063,7 @@ _ZN6Assimp8SkipLineIcEEbPPKT_S3_.exit.i:          ; preds = %143, %141
   store ptr %173, ptr %172, align 8
   %174 = getelementptr inbounds nuw i8, ptr %161, i64 64
   store i64 0, ptr %174, align 8
-  store i8 0, ptr %173, align 1
+  store i8 0, ptr %173, align 8
   %175 = load ptr, ptr %95, align 8
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 88
   store ptr %176, ptr %95, align 8
@@ -7348,7 +7348,7 @@ _ZN6Assimp12AC3DImporter11GetNextLineEv.exit:     ; preds = %.critedge.i.i3.i, %
   store ptr %275, ptr %274, align 8
   %276 = getelementptr inbounds nuw i8, ptr %263, i64 64
   store i64 0, ptr %276, align 8
-  store i8 0, ptr %275, align 1
+  store i8 0, ptr %275, align 8
   %277 = load ptr, ptr %95, align 8
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 88
   store ptr %278, ptr %95, align 8
@@ -7420,35 +7420,35 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE7reserveEm.exit:     ; preds = %.noexc93, %_ZNSt6ve
   store ptr %303, ptr %302, align 8
   %304 = getelementptr inbounds nuw i8, ptr %300, i64 16
   store i64 0, ptr %304, align 8
-  store i8 0, ptr %303, align 1
+  store i8 0, ptr %303, align 8
   %305 = getelementptr inbounds nuw i8, ptr %300, i64 40
   %306 = getelementptr inbounds nuw i8, ptr %300, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %305, i8 0, i64 48, i1 false)
-  store float 1.000000e+00, ptr %306, align 4
+  store float 1.000000e+00, ptr %306, align 8
   %307 = getelementptr inbounds nuw i8, ptr %300, i64 92
   store float 1.000000e+00, ptr %307, align 4
   %308 = getelementptr inbounds nuw i8, ptr %300, i64 96
-  store float 0.000000e+00, ptr %308, align 4
+  store float 0.000000e+00, ptr %308, align 8
   %309 = getelementptr inbounds nuw i8, ptr %300, i64 100
   store float 0.000000e+00, ptr %309, align 4
   %310 = getelementptr inbounds nuw i8, ptr %300, i64 104
-  store float 1.000000e+00, ptr %310, align 4
+  store float 1.000000e+00, ptr %310, align 8
   %311 = getelementptr inbounds nuw i8, ptr %300, i64 108
   store float 0.000000e+00, ptr %311, align 4
   %312 = getelementptr inbounds nuw i8, ptr %300, i64 112
-  store float 0.000000e+00, ptr %312, align 4
+  store float 0.000000e+00, ptr %312, align 8
   %313 = getelementptr inbounds nuw i8, ptr %300, i64 116
   store float 0.000000e+00, ptr %313, align 4
   %314 = getelementptr inbounds nuw i8, ptr %300, i64 120
-  store float 1.000000e+00, ptr %314, align 4
+  store float 1.000000e+00, ptr %314, align 8
   %315 = getelementptr inbounds nuw i8, ptr %300, i64 124
   store float 0.000000e+00, ptr %315, align 4
   %316 = getelementptr inbounds nuw i8, ptr %300, i64 128
-  store float 0.000000e+00, ptr %316, align 4
+  store float 0.000000e+00, ptr %316, align 8
   %317 = getelementptr inbounds nuw i8, ptr %300, i64 132
   store float 0.000000e+00, ptr %317, align 4
   %318 = getelementptr inbounds nuw i8, ptr %300, i64 136
-  store float 1.000000e+00, ptr %318, align 4
+  store float 1.000000e+00, ptr %318, align 8
   %319 = getelementptr inbounds nuw i8, ptr %300, i64 140
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %319, i8 0, i64 72, i1 false)
   br label %322
@@ -8954,7 +8954,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !alias.scope !80, !noalias !83
   store ptr %43, ptr %.0911.i.i.i, align 8, !alias.scope !83, !noalias !80
   store i64 0, ptr %52, align 8, !alias.scope !83, !noalias !80
-  store i8 0, ptr %43, align 1, !alias.scope !83, !noalias !80
+  store i8 0, ptr %43, align 8, !alias.scope !83, !noalias !80
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %54, %1
@@ -9002,7 +9002,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !alias.scope !87, !noalias !90
   store ptr %59, ptr %.0911.i.i.i29, align 8, !alias.scope !90, !noalias !87
   store i64 0, ptr %68, align 8, !alias.scope !90, !noalias !87
-  store i8 0, ptr %59, align 1, !alias.scope !90, !noalias !87
+  store i8 0, ptr %59, align 8, !alias.scope !90, !noalias !87
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %.not.i.i.i34 = icmp eq ptr %70, %6
@@ -9106,35 +9106,35 @@ _ZNKSt6vectorIN6Assimp12AC3DImporter6ObjectESaIS2_EE12_M_check_lenEmPKc.exit: ; 
   store ptr %22, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i64 0, ptr %23, align 8
-  store i8 0, ptr %22, align 1
+  store i8 0, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %24, i8 0, i64 48, i1 false)
-  store float 1.000000e+00, ptr %25, align 4
+  store float 1.000000e+00, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 92
   store float 1.000000e+00, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 96
-  store float 0.000000e+00, ptr %27, align 4
+  store float 0.000000e+00, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 100
   store float 0.000000e+00, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %20, i64 104
-  store float 1.000000e+00, ptr %29, align 4
+  store float 1.000000e+00, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 108
   store float 0.000000e+00, ptr %30, align 4
   %31 = getelementptr inbounds nuw i8, ptr %20, i64 112
-  store float 0.000000e+00, ptr %31, align 4
+  store float 0.000000e+00, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 116
   store float 0.000000e+00, ptr %32, align 4
   %33 = getelementptr inbounds nuw i8, ptr %20, i64 120
-  store float 1.000000e+00, ptr %33, align 4
+  store float 1.000000e+00, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %20, i64 124
   store float 0.000000e+00, ptr %34, align 4
   %35 = getelementptr inbounds nuw i8, ptr %20, i64 128
-  store float 0.000000e+00, ptr %35, align 4
+  store float 0.000000e+00, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %20, i64 132
   store float 0.000000e+00, ptr %36, align 4
   %37 = getelementptr inbounds nuw i8, ptr %20, i64 136
-  store float 1.000000e+00, ptr %37, align 4
+  store float 1.000000e+00, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %20, i64 140
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %38, i8 0, i64 72, i1 false)
   %.not10.i.i.i = icmp eq ptr %5, %1
@@ -9180,7 +9180,7 @@ _ZSt19__relocate_object_aIN6Assimp12AC3DImporter6ObjectES2_SaIS2_EEvPT_PT0_RT1_.
   store i64 %52, ptr %54, align 8, !alias.scope !93, !noalias !96
   store ptr %44, ptr %41, align 8, !alias.scope !96, !noalias !93
   store i64 0, ptr %53, align 8, !alias.scope !96, !noalias !93
-  store i8 0, ptr %44, align 1, !alias.scope !96, !noalias !93
+  store i8 0, ptr %44, align 8, !alias.scope !96, !noalias !93
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
   %56 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
   %57 = load ptr, ptr %56, align 8, !alias.scope !96, !noalias !93
@@ -9291,7 +9291,7 @@ _ZSt19__relocate_object_aIN6Assimp12AC3DImporter6ObjectES2_SaIS2_EEvPT_PT0_RT1_.
   store i64 %111, ptr %113, align 8, !alias.scope !99, !noalias !102
   store ptr %103, ptr %100, align 8, !alias.scope !102, !noalias !99
   store i64 0, ptr %112, align 8, !alias.scope !102, !noalias !99
-  store i8 0, ptr %103, align 1, !alias.scope !102, !noalias !99
+  store i8 0, ptr %103, align 8, !alias.scope !102, !noalias !99
   %114 = getelementptr inbounds nuw i8, ptr %.012.i.i.i27, i64 40
   %115 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i28, i64 40
   %116 = load ptr, ptr %115, align 8, !alias.scope !102, !noalias !99
@@ -11872,7 +11872,7 @@ _ZNKSt6vectorIN6Assimp12AC3DImporter8MaterialESaIS2_EE12_M_check_lenEmPKc.exit: 
   store ptr %30, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %20, i64 64
   store i64 0, ptr %31, align 8
-  store i8 0, ptr %30, align 1
+  store i8 0, ptr %30, align 8
   %32 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKN6Assimp12AC3DImporter8MaterialEPS2_ET0_T_S7_S6_(ptr noundef %5, ptr noundef %1, ptr noundef nonnull %19)
           to label %_ZSt34__uninitialized_move_if_noexcept_aIPN6Assimp12AC3DImporter8MaterialES3_SaIS2_EET0_T_S6_S5_RT1_.exit unwind label %51
 

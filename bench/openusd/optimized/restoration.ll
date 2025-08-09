@@ -1515,7 +1515,7 @@ define hidden void @av1_loop_restoration_filter_frame_init(ptr noundef captures(
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 25284
   %20 = load i32, ptr %19, align 4
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 1056
-  %22 = load i32, ptr %21, align 4
+  %22 = load i32, ptr %21, align 8
   %23 = tail call i32 @aom_realloc_frame_buffer(ptr noundef nonnull %11, i32 noundef %14, i32 noundef %16, i32 noundef %18, i32 noundef %20, i32 noundef %10, i32 noundef 32, i32 noundef %22, ptr noundef null, ptr noundef null, ptr noundef null) #12
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %25, label %27

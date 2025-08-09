@@ -5886,7 +5886,7 @@ define linkonce_odr dso_local void @_ZN4Luau6detail14DenseHashTableIPNS_15AstExp
   store ptr %14, ptr %13, align 8, !tbaa !154
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 0, ptr %15, align 8, !tbaa !156
-  store i8 0, ptr %14, align 1, !tbaa !158
+  store i8 0, ptr %14, align 8, !tbaa !158
   %16 = add nuw i64 %.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %16, %spec.select
   br i1 %exitcond.not.i.i, label %_ZN4Luau6detail14DenseHashTableIPNS_15AstExprFunctionESt4pairIS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES4_IKS3_SA_ENS0_16ItemInterfaceMapIS3_SA_EENS_16DenseHashPointerESt8equal_toIS3_EEC2ERSC_m.exit.loopexit, label %.lr.ph.i.i, !llvm.loop !290

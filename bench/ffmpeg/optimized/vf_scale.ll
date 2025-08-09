@@ -1898,7 +1898,7 @@ define internal fastcc i32 @scale_frame(ptr noundef readonly captures(none) %0, 
   %157 = getelementptr inbounds nuw i8, ptr %144, i64 60
   store i32 %156, ptr %157, align 4, !tbaa !102
   %158 = getelementptr inbounds nuw i8, ptr %137, i64 128
-  %159 = load i32, ptr %158, align 4, !tbaa !120
+  %159 = load i32, ptr %158, align 8, !tbaa !120
   %160 = getelementptr inbounds nuw i8, ptr %144, i64 52
   store i32 %159, ptr %160, align 4, !tbaa !94
   %161 = getelementptr inbounds nuw i8, ptr %137, i64 124

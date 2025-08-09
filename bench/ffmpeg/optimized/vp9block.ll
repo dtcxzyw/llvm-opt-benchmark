@@ -4434,9 +4434,9 @@ vp89_rac_get_tree.exit1452.i:                     ; preds = %vpx_rac_renorm.exit
   %2880 = load i32, ptr %2879, align 4, !tbaa !38
   %2881 = getelementptr inbounds nuw i8, ptr %11, i64 36
   store i32 %2880, ptr %2881, align 4, !tbaa !38
-  %2882 = load i8, ptr %2732, align 1, !tbaa !38
+  %2882 = load i8, ptr %2732, align 2, !tbaa !38
   %2883 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i8 %2882, ptr %2883, align 1, !tbaa !38
+  store i8 %2882, ptr %2883, align 4, !tbaa !38
   %2884 = load i32, ptr %2739, align 4, !tbaa !38
   %2885 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store i32 %2884, ptr %2885, align 4, !tbaa !38
@@ -4552,7 +4552,7 @@ vp89_rac_get_tree.exit1452.i:                     ; preds = %vpx_rac_renorm.exit
   %2957 = getelementptr inbounds i8, ptr %2956, i64 %2929
   store i8 %2954, ptr %2957, align 1, !tbaa !38
   %2958 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %2959 = load i8, ptr %2958, align 1, !tbaa !38
+  %2959 = load i8, ptr %2958, align 2, !tbaa !38
   %2960 = getelementptr inbounds nuw i8, ptr %9, i64 18336
   %2961 = load ptr, ptr %2960, align 8, !tbaa !100
   %2962 = getelementptr inbounds i8, ptr %2961, i64 %2929
@@ -4634,7 +4634,7 @@ vp89_rac_get_tree.exit1452.i:                     ; preds = %vpx_rac_renorm.exit
   %3018 = getelementptr inbounds i8, ptr %3017, i64 %2983
   store i16 %3015, ptr %3018, align 2, !tbaa !38
   %3019 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %3020 = load i8, ptr %3019, align 1, !tbaa !38
+  %3020 = load i8, ptr %3019, align 2, !tbaa !38
   %3021 = zext i8 %3020 to i16
   %3022 = mul nuw i16 %3021, 257
   %3023 = getelementptr inbounds nuw i8, ptr %9, i64 18336
@@ -4719,7 +4719,7 @@ vp89_rac_get_tree.exit1452.i:                     ; preds = %vpx_rac_renorm.exit
   %3082 = getelementptr inbounds i8, ptr %3081, i64 %3048
   store i32 %3079, ptr %3082, align 4, !tbaa !38
   %3083 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %3084 = load i8, ptr %3083, align 1, !tbaa !38
+  %3084 = load i8, ptr %3083, align 2, !tbaa !38
   %3085 = zext i8 %3084 to i32
   %3086 = mul nuw nsw i32 %3085, 16843009
   %3087 = getelementptr inbounds nuw i8, ptr %9, i64 18336
@@ -4822,7 +4822,7 @@ vp89_rac_get_tree.exit1452.i:                     ; preds = %vpx_rac_renorm.exit
   %3159 = getelementptr inbounds nuw i8, ptr %3158, i64 4
   store i32 %3153, ptr %3159, align 4, !tbaa !38
   %3160 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %3161 = load i8, ptr %3160, align 1, !tbaa !38
+  %3161 = load i8, ptr %3160, align 2, !tbaa !38
   %3162 = zext i8 %3161 to i32
   %3163 = mul nuw nsw i32 %3162, 16843009
   %3164 = getelementptr inbounds nuw i8, ptr %9, i64 18336
@@ -4918,7 +4918,7 @@ vp89_rac_get_tree.exit1452.i:                     ; preds = %vpx_rac_renorm.exit
   %3223 = getelementptr inbounds nuw [8 x i8], ptr %3222, i64 0, i64 %3199
   store i8 %3221, ptr %3223, align 1, !tbaa !38
   %3224 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %3225 = load i8, ptr %3224, align 1, !tbaa !38
+  %3225 = load i8, ptr %3224, align 2, !tbaa !38
   %3226 = getelementptr inbounds nuw i8, ptr %0, i64 52208
   %3227 = getelementptr inbounds nuw [16 x i8], ptr %3226, i64 0, i64 %3199
   store i8 %3225, ptr %3227, align 1, !tbaa !38
@@ -4992,7 +4992,7 @@ vp89_rac_get_tree.exit1452.i:                     ; preds = %vpx_rac_renorm.exit
   %3276 = getelementptr inbounds nuw [8 x i8], ptr %3275, i64 0, i64 %3245
   store i16 %3274, ptr %3276, align 1, !tbaa !38
   %3277 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %3278 = load i8, ptr %3277, align 1, !tbaa !38
+  %3278 = load i8, ptr %3277, align 2, !tbaa !38
   %3279 = zext i8 %3278 to i16
   %3280 = mul nuw i16 %3279, 257
   %3281 = getelementptr inbounds nuw i8, ptr %0, i64 52208
@@ -5069,7 +5069,7 @@ vp89_rac_get_tree.exit1452.i:                     ; preds = %vpx_rac_renorm.exit
   %3332 = getelementptr inbounds nuw [8 x i8], ptr %3331, i64 0, i64 %3302
   store i32 %3330, ptr %3332, align 1, !tbaa !38
   %3333 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %3334 = load i8, ptr %3333, align 1, !tbaa !38
+  %3334 = load i8, ptr %3333, align 2, !tbaa !38
   %3335 = zext i8 %3334 to i32
   %3336 = mul nuw nsw i32 %3335, 16843009
   %3337 = getelementptr inbounds nuw i8, ptr %0, i64 52208
@@ -5154,7 +5154,7 @@ vp89_rac_get_tree.exit1452.i:                     ; preds = %vpx_rac_renorm.exit
   %3391 = getelementptr inbounds nuw i8, ptr %3390, i64 4
   store i32 %3388, ptr %3391, align 1, !tbaa !38
   %3392 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %3393 = load i8, ptr %3392, align 1, !tbaa !38
+  %3393 = load i8, ptr %3392, align 2, !tbaa !38
   %3394 = zext i8 %3393 to i32
   %3395 = mul nuw nsw i32 %3394, 16843009
   %3396 = getelementptr inbounds nuw i8, ptr %0, i64 52208
@@ -5686,7 +5686,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %3694 = load i16, ptr %3693, align 2, !tbaa !38
   %3695 = icmp ne i16 %3694, 0
   %3696 = zext i1 %3695 to i8
-  store i8 %3696, ptr %3693, align 1, !tbaa !38
+  store i8 %3696, ptr %3693, align 2, !tbaa !38
   %indvars.iv.next367.i = add nuw nsw i64 %indvars.iv366.i, 2
   %3697 = icmp samesign ult i64 %indvars.iv.next367.i, %3653
   br i1 %3697, label %.lr.ph124.i, label %.preheader51.thread.i, !llvm.loop !132
@@ -5761,7 +5761,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %3734 = load i16, ptr %3733, align 2, !tbaa !38
   %3735 = icmp ne i16 %3734, 0
   %3736 = zext i1 %3735 to i8
-  store i8 %3736, ptr %3733, align 1, !tbaa !38
+  store i8 %3736, ptr %3733, align 2, !tbaa !38
   %indvars.iv.next370.i = add nuw nsw i64 %indvars.iv369.i, 2
   %3737 = icmp samesign ult i64 %indvars.iv.next370.i, %3692
   br i1 %3737, label %.lr.ph126.i, label %.preheader50.thread.i, !llvm.loop !135
@@ -5820,7 +5820,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %3748 = load i32, ptr %3747, align 4, !tbaa !38
   %3749 = icmp ne i32 %3748, 0
   %3750 = zext i1 %3749 to i8
-  store i8 %3750, ptr %3747, align 1, !tbaa !38
+  store i8 %3750, ptr %3747, align 4, !tbaa !38
   %indvars.iv.next339.i = add nuw nsw i64 %indvars.iv338.i, 4
   %3751 = icmp samesign ult i64 %indvars.iv.next339.i, %3652
   br i1 %3751, label %.lr.ph99.i, label %.preheader63.thread.i, !llvm.loop !138
@@ -5895,7 +5895,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %3788 = load i32, ptr %3787, align 4, !tbaa !38
   %3789 = icmp ne i32 %3788, 0
   %3790 = zext i1 %3789 to i8
-  store i8 %3790, ptr %3787, align 1, !tbaa !38
+  store i8 %3790, ptr %3787, align 4, !tbaa !38
   %indvars.iv.next342.i = add nuw nsw i64 %indvars.iv341.i, 4
   %3791 = icmp samesign ult i64 %indvars.iv.next342.i, %3746
   br i1 %3791, label %.lr.ph101.i, label %.preheader62.thread.i, !llvm.loop !141
@@ -6015,7 +6015,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %3825 = load i64, ptr %3824, align 8, !tbaa !38
   %3826 = icmp ne i64 %3825, 0
   %3827 = zext i1 %3826 to i8
-  store i8 %3827, ptr %3824, align 1, !tbaa !38
+  store i8 %3827, ptr %3824, align 8, !tbaa !38
   %indvars.iv.next.i497 = add nuw nsw i64 %indvars.iv.i496, 8
   %3828 = icmp samesign ult i64 %indvars.iv.next.i497, %3651
   br i1 %3828, label %.lr.ph.i495, label %.preheader75.thread.i, !llvm.loop !146
@@ -6090,7 +6090,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %3865 = load i64, ptr %3864, align 8, !tbaa !38
   %3866 = icmp ne i64 %3865, 0
   %3867 = zext i1 %3866 to i8
-  store i8 %3867, ptr %3864, align 1, !tbaa !38
+  store i8 %3867, ptr %3864, align 8, !tbaa !38
   %indvars.iv.next314.i = add nuw nsw i64 %indvars.iv313.i, 8
   %3868 = icmp samesign ult i64 %indvars.iv.next314.i, %3823
   br i1 %3868, label %.lr.ph79.i, label %.preheader74.thread.i, !llvm.loop !149
@@ -6346,7 +6346,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %3976 = load i16, ptr %3975, align 2, !tbaa !38
   %3977 = icmp ne i16 %3976, 0
   %3978 = zext i1 %3977 to i8
-  store i8 %3978, ptr %3975, align 1, !tbaa !38
+  store i8 %3978, ptr %3975, align 2, !tbaa !38
   %indvars.iv.next457.i = add nuw nsw i64 %indvars.iv456.i, 2
   %3979 = icmp samesign ult i64 %indvars.iv.next457.i, %3935
   br i1 %3979, label %.lr.ph202.i, label %.preheader19.i, !llvm.loop !156
@@ -6365,7 +6365,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %3983 = load i16, ptr %3982, align 2, !tbaa !38
   %3984 = icmp ne i16 %3983, 0
   %3985 = zext i1 %3984 to i8
-  store i8 %3985, ptr %3982, align 1, !tbaa !38
+  store i8 %3985, ptr %3982, align 2, !tbaa !38
   %indvars.iv.next460.i = add nuw nsw i64 %indvars.iv459.i, 2
   %3986 = icmp samesign ult i64 %indvars.iv.next460.i, %3936
   br i1 %3986, label %.lr.ph204.i, label %.preheader18.i, !llvm.loop !157
@@ -6458,7 +6458,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %4018 = load i32, ptr %4017, align 4, !tbaa !38
   %4019 = icmp ne i32 %4018, 0
   %4020 = zext i1 %4019 to i8
-  store i8 %4020, ptr %4017, align 1, !tbaa !38
+  store i8 %4020, ptr %4017, align 4, !tbaa !38
   %indvars.iv.next429.i = add nuw nsw i64 %indvars.iv428.i, 4
   %4021 = icmp samesign ult i64 %indvars.iv.next429.i, %3935
   br i1 %4021, label %.lr.ph178.i, label %.preheader30.i, !llvm.loop !162
@@ -6477,7 +6477,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %4025 = load i32, ptr %4024, align 4, !tbaa !38
   %4026 = icmp ne i32 %4025, 0
   %4027 = zext i1 %4026 to i8
-  store i8 %4027, ptr %4024, align 1, !tbaa !38
+  store i8 %4027, ptr %4024, align 4, !tbaa !38
   %indvars.iv.next432.i = add nuw nsw i64 %indvars.iv431.i, 4
   %4028 = icmp samesign ult i64 %indvars.iv.next432.i, %3936
   br i1 %4028, label %.lr.ph180.i, label %.preheader29.i, !llvm.loop !163
@@ -6614,7 +6614,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %4080 = load i64, ptr %4079, align 8, !tbaa !38
   %4081 = icmp ne i64 %4080, 0
   %4082 = zext i1 %4081 to i8
-  store i8 %4082, ptr %4079, align 1, !tbaa !38
+  store i8 %4082, ptr %4079, align 8, !tbaa !38
   %indvars.iv.next401.i = add nuw nsw i64 %indvars.iv400.i, 8
   %4083 = icmp samesign ult i64 %indvars.iv.next401.i, %3935
   br i1 %4083, label %.lr.ph156.i, label %.preheader41.i, !llvm.loop !170
@@ -6633,7 +6633,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %4087 = load i64, ptr %4086, align 8, !tbaa !38
   %4088 = icmp ne i64 %4087, 0
   %4089 = zext i1 %4088 to i8
-  store i8 %4089, ptr %4086, align 1, !tbaa !38
+  store i8 %4089, ptr %4086, align 8, !tbaa !38
   %indvars.iv.next404.i = add nuw nsw i64 %indvars.iv403.i, 8
   %4090 = icmp samesign ult i64 %indvars.iv.next404.i, %3936
   br i1 %4090, label %.lr.ph158.i, label %.preheader40.i, !llvm.loop !171
@@ -6900,7 +6900,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %4191 = load i16, ptr %4190, align 2, !tbaa !38
   %4192 = icmp ne i16 %4191, 0
   %4193 = zext i1 %4192 to i8
-  store i8 %4193, ptr %4190, align 1, !tbaa !38
+  store i8 %4193, ptr %4190, align 2, !tbaa !38
   %indvars.iv.next375.i605 = add nuw nsw i64 %indvars.iv374.i604, 2
   %4194 = icmp samesign ult i64 %indvars.iv.next375.i605, %4146
   br i1 %4194, label %.lr.ph132.i, label %.preheader59.thread.i, !llvm.loop !132
@@ -6980,7 +6980,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %4235 = load i16, ptr %4234, align 2, !tbaa !38
   %4236 = icmp ne i16 %4235, 0
   %4237 = zext i1 %4236 to i8
-  store i8 %4237, ptr %4234, align 1, !tbaa !38
+  store i8 %4237, ptr %4234, align 2, !tbaa !38
   %indvars.iv.next378.i = add nuw nsw i64 %indvars.iv377.i, 2
   %4238 = icmp samesign ult i64 %indvars.iv.next378.i, %4189
   br i1 %4238, label %.lr.ph134.i, label %.preheader58.thread.i, !llvm.loop !135
@@ -7039,7 +7039,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %4249 = load i32, ptr %4248, align 4, !tbaa !38
   %4250 = icmp ne i32 %4249, 0
   %4251 = zext i1 %4250 to i8
-  store i8 %4251, ptr %4248, align 1, !tbaa !38
+  store i8 %4251, ptr %4248, align 4, !tbaa !38
   %indvars.iv.next347.i589 = add nuw nsw i64 %indvars.iv346.i588, 4
   %4252 = icmp samesign ult i64 %indvars.iv.next347.i589, %4145
   br i1 %4252, label %.lr.ph107.i, label %.preheader71.thread.i, !llvm.loop !138
@@ -7119,7 +7119,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %4293 = load i32, ptr %4292, align 4, !tbaa !38
   %4294 = icmp ne i32 %4293, 0
   %4295 = zext i1 %4294 to i8
-  store i8 %4295, ptr %4292, align 1, !tbaa !38
+  store i8 %4295, ptr %4292, align 4, !tbaa !38
   %indvars.iv.next350.i = add nuw nsw i64 %indvars.iv349.i, 4
   %4296 = icmp samesign ult i64 %indvars.iv.next350.i, %4247
   br i1 %4296, label %.lr.ph109.i, label %.preheader70.thread.i, !llvm.loop !141
@@ -7239,7 +7239,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %4330 = load i64, ptr %4329, align 8, !tbaa !38
   %4331 = icmp ne i64 %4330, 0
   %4332 = zext i1 %4331 to i8
-  store i8 %4332, ptr %4329, align 1, !tbaa !38
+  store i8 %4332, ptr %4329, align 8, !tbaa !38
   %indvars.iv.next.i512 = add nuw nsw i64 %indvars.iv.i511, 8
   %4333 = icmp samesign ult i64 %indvars.iv.next.i512, %4144
   br i1 %4333, label %.lr.ph.i510, label %.preheader83.thread.i, !llvm.loop !146
@@ -7319,7 +7319,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %4374 = load i64, ptr %4373, align 8, !tbaa !38
   %4375 = icmp ne i64 %4374, 0
   %4376 = zext i1 %4375 to i8
-  store i8 %4376, ptr %4373, align 1, !tbaa !38
+  store i8 %4376, ptr %4373, align 8, !tbaa !38
   %indvars.iv.next322.i = add nuw nsw i64 %indvars.iv321.i, 8
   %4377 = icmp samesign ult i64 %indvars.iv.next322.i, %4328
   br i1 %4377, label %.lr.ph87.i, label %.preheader82.thread.i, !llvm.loop !149
@@ -7580,7 +7580,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %4489 = load i16, ptr %4488, align 2, !tbaa !38
   %4490 = icmp ne i16 %4489, 0
   %4491 = zext i1 %4490 to i8
-  store i8 %4491, ptr %4488, align 1, !tbaa !38
+  store i8 %4491, ptr %4488, align 2, !tbaa !38
   %indvars.iv.next465.i565 = add nuw nsw i64 %indvars.iv464.i564, 2
   %4492 = icmp samesign ult i64 %indvars.iv.next465.i565, %4444
   br i1 %4492, label %.lr.ph210.i, label %.preheader27.i566, !llvm.loop !156
@@ -7599,7 +7599,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %4496 = load i16, ptr %4495, align 2, !tbaa !38
   %4497 = icmp ne i16 %4496, 0
   %4498 = zext i1 %4497 to i8
-  store i8 %4498, ptr %4495, align 1, !tbaa !38
+  store i8 %4498, ptr %4495, align 2, !tbaa !38
   %indvars.iv.next468.i = add nuw nsw i64 %indvars.iv467.i, 2
   %4499 = icmp samesign ult i64 %indvars.iv.next468.i, %4445
   br i1 %4499, label %.lr.ph212.i, label %.preheader26.i, !llvm.loop !157
@@ -7697,7 +7697,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %4535 = load i32, ptr %4534, align 4, !tbaa !38
   %4536 = icmp ne i32 %4535, 0
   %4537 = zext i1 %4536 to i8
-  store i8 %4537, ptr %4534, align 1, !tbaa !38
+  store i8 %4537, ptr %4534, align 4, !tbaa !38
   %indvars.iv.next437.i551 = add nuw nsw i64 %indvars.iv436.i550, 4
   %4538 = icmp samesign ult i64 %indvars.iv.next437.i551, %4444
   br i1 %4538, label %.lr.ph186.i, label %.preheader38.i552, !llvm.loop !162
@@ -7716,7 +7716,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %4542 = load i32, ptr %4541, align 4, !tbaa !38
   %4543 = icmp ne i32 %4542, 0
   %4544 = zext i1 %4543 to i8
-  store i8 %4544, ptr %4541, align 1, !tbaa !38
+  store i8 %4544, ptr %4541, align 4, !tbaa !38
   %indvars.iv.next440.i = add nuw nsw i64 %indvars.iv439.i, 4
   %4545 = icmp samesign ult i64 %indvars.iv.next440.i, %4445
   br i1 %4545, label %.lr.ph188.i, label %.preheader37.i, !llvm.loop !163
@@ -7858,7 +7858,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %4601 = load i64, ptr %4600, align 8, !tbaa !38
   %4602 = icmp ne i64 %4601, 0
   %4603 = zext i1 %4602 to i8
-  store i8 %4603, ptr %4600, align 1, !tbaa !38
+  store i8 %4603, ptr %4600, align 8, !tbaa !38
   %indvars.iv.next409.i530 = add nuw nsw i64 %indvars.iv408.i529, 8
   %4604 = icmp samesign ult i64 %indvars.iv.next409.i530, %4444
   br i1 %4604, label %.lr.ph164.i, label %.preheader49.i, !llvm.loop !170
@@ -7877,7 +7877,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %4608 = load i64, ptr %4607, align 8, !tbaa !38
   %4609 = icmp ne i64 %4608, 0
   %4610 = zext i1 %4609 to i8
-  store i8 %4610, ptr %4607, align 1, !tbaa !38
+  store i8 %4610, ptr %4607, align 8, !tbaa !38
   %indvars.iv.next412.i = add nuw nsw i64 %indvars.iv411.i, 8
   %4611 = icmp samesign ult i64 %indvars.iv.next412.i, %4445
   br i1 %4611, label %.lr.ph166.i, label %.preheader48.i, !llvm.loop !171

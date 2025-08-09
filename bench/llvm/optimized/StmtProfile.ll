@@ -3124,7 +3124,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitStringLiteral
   %11 = lshr i32 %10, 22
   %12 = and i32 %11, 7
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %14 = load i32, ptr %13, align 4, !tbaa !121
+  %14 = load i32, ptr %13, align 8, !tbaa !121
   %15 = mul i32 %12, %14
   %16 = zext i32 %15 to i64
   tail call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr nonnull %9, i64 %16) #12
@@ -8094,7 +8094,7 @@ _ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit42:  ; preds = %_ZN4llvm16FoldingSe
   %49 = lshr i32 %48, 22
   %50 = and i32 %49, 7
   %51 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %52 = load i32, ptr %51, align 4, !tbaa !121
+  %52 = load i32, ptr %51, align 8, !tbaa !121
   %53 = mul i32 %50, %52
   %54 = zext i32 %53 to i64
   tail call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %42, ptr nonnull %47, i64 %54) #12
@@ -8235,7 +8235,7 @@ _ZNK5clang10GCCAsmStmt13getOutputNameEj.exit:     ; preds = %114, %119
   %135 = lshr i32 %134, 22
   %136 = and i32 %135, 7
   %137 = getelementptr inbounds nuw i8, ptr %127, i64 16
-  %138 = load i32, ptr %137, align 4, !tbaa !121
+  %138 = load i32, ptr %137, align 8, !tbaa !121
   %139 = mul i32 %136, %138
   %140 = zext i32 %139 to i64
   tail call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %128, ptr nonnull %133, i64 %140) #12
@@ -8349,7 +8349,7 @@ _ZNK5clang10GCCAsmStmt12getInputNameEj.exit:      ; preds = %179, %187
   %206 = lshr i32 %205, 22
   %207 = and i32 %206, 7
   %208 = getelementptr inbounds nuw i8, ptr %198, i64 16
-  %209 = load i32, ptr %208, align 4, !tbaa !121
+  %209 = load i32, ptr %208, align 8, !tbaa !121
   %210 = mul i32 %207, %209
   %211 = zext i32 %210 to i64
   tail call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %199, ptr nonnull %204, i64 %211) #12
@@ -8444,7 +8444,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit56:  ; preds = %._crit_edge93, %238
   %270 = lshr i32 %269, 22
   %271 = and i32 %270, 7
   %272 = getelementptr inbounds nuw i8, ptr %262, i64 16
-  %273 = load i32, ptr %272, align 4, !tbaa !121
+  %273 = load i32, ptr %272, align 8, !tbaa !121
   %274 = mul i32 %271, %273
   %275 = zext i32 %274 to i64
   tail call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %263, ptr nonnull %268, i64 %275) #12
@@ -11220,7 +11220,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler25VisitOMPInRed
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(18) %8, i64 %.sroa.0.0.copyload.i68, i1 noundef zeroext false) #12
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %15 = load i32, ptr %14, align 4, !tbaa !491
+  %15 = load i32, ptr %14, align 8, !tbaa !491
   %16 = zext i32 %15 to i64
   %.idx = shl nuw nsw i64 %16, 3
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
@@ -12267,7 +12267,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler23VisitOMPReduc
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(18) %8, i64 %.sroa.0.0.copyload.i95, i1 noundef zeroext false) #12
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %15 = load i32, ptr %14, align 4, !tbaa !533
+  %15 = load i32, ptr %14, align 8, !tbaa !533
   %16 = zext i32 %15 to i64
   %.idx = shl nuw nsw i64 %16, 3
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
@@ -12625,7 +12625,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler27VisitOMPTaskR
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(18) %8, i64 %.sroa.0.0.copyload.i55, i1 noundef zeroext false) #12
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %15 = load i32, ptr %14, align 4, !tbaa !545
+  %15 = load i32, ptr %14, align 8, !tbaa !545
   %16 = zext i32 %15 to i64
   %.idx = shl nuw nsw i64 %16, 3
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx

@@ -1054,7 +1054,7 @@ _ZNSt6vectorISt10shared_ptrISt6atomicIbEESaIS3_EE6resizeEm.exit: ; preds = %63, 
   store i32 1, ptr %97, align 4, !tbaa !85, !noalias !92
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6atomicIbESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %95, align 8, !tbaa !86, !noalias !92
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  store i8 0, ptr %98, align 1, !tbaa !95, !noalias !92
+  store i8 0, ptr %98, align 8, !tbaa !95, !noalias !92
   %99 = load ptr, ptr %54, align 8, !tbaa !79
   %100 = getelementptr inbounds nuw %"class.std::shared_ptr.59", ptr %99, i64 %indvars.iv
   store ptr %98, ptr %100, align 8, !tbaa !96
@@ -1589,7 +1589,7 @@ _ZNK11OpenImageIO6v3_1_011thread_pool4Impl13jobs_in_queueEv.exit: ; preds = %16,
   %46 = sub i64 %44, %45
   %47 = ashr exact i64 %46, 3
   %48 = add nsw i64 %40, %47
-  store atomic i8 0, ptr %4 release, align 1
+  store atomic i8 0, ptr %4 release, align 8
   ret i64 %48
 }
 
@@ -2580,7 +2580,7 @@ _ZNK11OpenImageIO6v3_1_011thread_pool4Impl9very_busyEv.exit: ; preds = %16, %1
   %46 = sub i64 %44, %45
   %47 = ashr exact i64 %46, 3
   %48 = add nsw i64 %40, %47
-  store atomic i8 0, ptr %4 release, align 1
+  store atomic i8 0, ptr %4 release, align 8
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %50 = load i32, ptr %49, align 8, !tbaa !11
   %51 = shl nsw i32 %50, 2
@@ -2799,7 +2799,7 @@ _ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit.i: 
   %50 = load ptr, ptr %49, align 8
   call void %50(ptr noundef nonnull align 8 dereferenceable(28) %46)
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %52 = load atomic i32, ptr %51 acquire, align 4
+  %52 = load atomic i32, ptr %51 acquire, align 8
   %53 = and i32 %52, 2147483647
   %54 = icmp eq i32 %53, 1
   br i1 %54, label %_ZNKSt14__basic_futureIvE4waitEv.exit, label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit.us.i.i.i
@@ -3132,7 +3132,7 @@ _ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit.i20
   %71 = load ptr, ptr %70, align 8
   call void %71(ptr noundef nonnull align 8 dereferenceable(28) %67)
   %72 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  %73 = load atomic i32, ptr %72 acquire, align 4
+  %73 = load atomic i32, ptr %72 acquire, align 8
   %74 = and i32 %73, 2147483647
   %75 = icmp eq i32 %74, 1
   br i1 %75, label %_ZNKSt14__basic_futureIvE4waitEv.exit, label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit.us.i.i.i21
@@ -3427,7 +3427,7 @@ _ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i.i.i: ; preds = %86, %
   %120 = sub i64 %118, %119
   %121 = ashr exact i64 %120, 3
   %122 = add nsw i64 %114, %121
-  store atomic i8 0, ptr %78 release, align 1
+  store atomic i8 0, ptr %78 release, align 8
   %123 = getelementptr inbounds nuw i8, ptr %77, i64 144
   %124 = load i32, ptr %123, align 8, !tbaa !11
   %125 = shl nsw i32 %124, 2
@@ -5174,7 +5174,7 @@ _ZNK11OpenImageIO6v3_1_011thread_pool9very_busyEv.exit: ; preds = %65, %51
   %95 = sub i64 %93, %94
   %96 = ashr exact i64 %95, 3
   %97 = add nsw i64 %89, %96
-  store atomic i8 0, ptr %53 release, align 1
+  store atomic i8 0, ptr %53 release, align 8
   %98 = getelementptr inbounds nuw i8, ptr %52, i64 144
   %99 = load i32, ptr %98, align 8, !tbaa !11
   %100 = shl nsw i32 %99, 2
@@ -5600,11 +5600,11 @@ _ZSt4bindIRSt8functionIFvillllEEJRKSt12_PlaceholderILi1EERlS8_S8_S8_EENSt12_Bind
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 24
   store ptr null, ptr %48, align 8, !tbaa !280, !noalias !277
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  store i32 0, ptr %49, align 4, !tbaa !283, !noalias !277
+  store i32 0, ptr %49, align 8, !tbaa !283, !noalias !277
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 36
-  store i8 0, ptr %50, align 1, !tbaa !8, !noalias !277
+  store i8 0, ptr %50, align 4, !tbaa !8, !noalias !277
   %51 = getelementptr inbounds nuw i8, ptr %44, i64 40
-  store i32 0, ptr %51, align 4, !tbaa !285, !noalias !277
+  store i32 0, ptr %51, align 8, !tbaa !285, !noalias !277
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFviEEE, i64 16), ptr %47, align 8, !tbaa !86, !noalias !277
   call void @llvm.experimental.noalias.scope.decl(metadata !287), !noalias !277
   %52 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #29
@@ -8478,7 +8478,7 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairINSt6thread2idEiENS_9robin_mapIS4
   store i64 %46, ptr %43, align 8, !tbaa !75
   %47 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store i32 0, ptr %47, align 8, !tbaa !363
-  store i32 %41, ptr %37, align 4, !tbaa !365
+  store i32 %41, ptr %37, align 8, !tbaa !365
   store i16 %.135.lcssa, ptr %38, align 4, !tbaa !56
   br label %89
 
@@ -8490,11 +8490,11 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairINSt6thread2idEiENS_9robin_mapIS4
   %53 = load i64, ptr %52, align 8, !tbaa !75
   store i64 %51, ptr %52, align 8, !tbaa !75
   %54 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %55 = load i32, ptr %54, align 4, !tbaa !89
-  store i32 0, ptr %54, align 4, !tbaa !89
-  store i16 %.135.lcssa, ptr %38, align 2, !tbaa !366
-  %56 = load i32, ptr %37, align 4, !tbaa !365
-  store i32 %41, ptr %37, align 4, !tbaa !365
+  %55 = load i32, ptr %54, align 8, !tbaa !89
+  store i32 0, ptr %54, align 8, !tbaa !89
+  store i16 %.135.lcssa, ptr %38, align 4, !tbaa !366
+  %56 = load i32, ptr %37, align 8, !tbaa !365
+  store i32 %41, ptr %37, align 8, !tbaa !365
   %57 = add i64 %.1.lcssa, 1
   %58 = load i64, ptr %0, align 8, !tbaa !316
   %59 = and i64 %58, %57
@@ -8535,11 +8535,11 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairINSt6thread2idEiENS_9robin_mapIS4
   %76 = load i64, ptr %75, align 8, !tbaa !75
   store i64 %.sroa.04.0.i, ptr %75, align 8, !tbaa !75
   %77 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  %78 = load i32, ptr %77, align 4, !tbaa !89
-  store i32 %.sroa.8.0.i, ptr %77, align 4, !tbaa !89
+  %78 = load i32, ptr %77, align 8, !tbaa !89
+  store i32 %.sroa.8.0.i, ptr %77, align 8, !tbaa !89
   store i16 %storemerge26.i.i, ptr %68, align 2, !tbaa !366
-  %79 = load i32, ptr %69, align 4, !tbaa !365
-  store i32 %.01924.i.i, ptr %69, align 4, !tbaa !365
+  %79 = load i32, ptr %69, align 8, !tbaa !365
+  store i32 %.01924.i.i, ptr %69, align 8, !tbaa !365
   %.pre.i.i = load i64, ptr %0, align 8, !tbaa !316
   br label %80
 
@@ -8569,7 +8569,7 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairINSt6thread2idEiENS_9robin_mapIS4_
   store i64 %.sroa.04.2.i, ptr %88, align 8
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.lcssa22.i.i, i64 16
   store i32 %.sroa.8.2.i, ptr %.sroa.8.0..sroa_idx.i, align 8
-  store i32 %.019.lcssa.i.i, ptr %.lcssa22.i.i, align 4, !tbaa !365
+  store i32 %.019.lcssa.i.i, ptr %.lcssa22.i.i, align 8, !tbaa !365
   store i16 %storemerge.lcssa.i.i, ptr %.lcssa.i.i, align 4, !tbaa !56
   %.pre = load ptr, ptr %11, align 8, !tbaa !61
   br label %89
@@ -8748,13 +8748,13 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairINSt6thread2idEiENS_9robin_mapIS4
   store i64 %37, ptr %24, align 8, !tbaa !75
   store i64 %.sroa.0.0.copyload.i.i.i.i.i.us, ptr %35, align 8, !tbaa !75
   %38 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %39 = load i32, ptr %26, align 4, !tbaa !89
-  %40 = load i32, ptr %38, align 4, !tbaa !89
-  store i32 %40, ptr %26, align 4, !tbaa !89
-  store i32 %39, ptr %38, align 4, !tbaa !89
-  store i16 %.013.i.us, ptr %30, align 2, !tbaa !366
-  %41 = load i32, ptr %29, align 4, !tbaa !365
-  store i32 %.012.i.us, ptr %29, align 4, !tbaa !365
+  %39 = load i32, ptr %26, align 8, !tbaa !89
+  %40 = load i32, ptr %38, align 8, !tbaa !89
+  store i32 %40, ptr %26, align 8, !tbaa !89
+  store i32 %39, ptr %38, align 8, !tbaa !89
+  store i16 %.013.i.us, ptr %30, align 4, !tbaa !366
+  %41 = load i32, ptr %29, align 8, !tbaa !365
+  store i32 %.012.i.us, ptr %29, align 8, !tbaa !365
   %.pre26 = load i64, ptr %3, align 8, !tbaa !316
   br label %42
 
@@ -8925,13 +8925,13 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairINSt6thread2idEiENS_9robin_mapIS4
   store i64 %121, ptr %101, align 8, !tbaa !75
   store i64 %.sroa.0.0.copyload.i.i.i.i.i, ptr %119, align 8, !tbaa !75
   %122 = getelementptr inbounds nuw i8, ptr %113, i64 16
-  %123 = load i32, ptr %110, align 4, !tbaa !89
-  %124 = load i32, ptr %122, align 4, !tbaa !89
-  store i32 %124, ptr %110, align 4, !tbaa !89
-  store i32 %123, ptr %122, align 4, !tbaa !89
-  store i16 %.013.i, ptr %114, align 2, !tbaa !366
-  %125 = load i32, ptr %113, align 4, !tbaa !365
-  store i32 %.012.i, ptr %113, align 4, !tbaa !365
+  %123 = load i32, ptr %110, align 8, !tbaa !89
+  %124 = load i32, ptr %122, align 8, !tbaa !89
+  store i32 %124, ptr %110, align 8, !tbaa !89
+  store i32 %123, ptr %122, align 8, !tbaa !89
+  store i16 %.013.i, ptr %114, align 4, !tbaa !366
+  %125 = load i32, ptr %113, align 8, !tbaa !365
+  store i32 %.012.i, ptr %113, align 8, !tbaa !365
   %.pre = load i64, ptr %3, align 8, !tbaa !316
   br label %126
 
@@ -10008,11 +10008,11 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceINSt13__future_base11_Tas
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr null, ptr %9, align 8, !tbaa !280
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 0, ptr %10, align 4, !tbaa !283
+  store i32 0, ptr %10, align 8, !tbaa !283
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  store i8 0, ptr %11, align 1, !tbaa !8
+  store i8 0, ptr %11, align 4, !tbaa !8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i32 0, ptr %12, align 4, !tbaa !285
+  store i32 0, ptr %12, align 8, !tbaa !285
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFviEEE, i64 16), ptr %8, align 8, !tbaa !86
   tail call void @llvm.experimental.noalias.scope.decl(metadata !383)
   %13 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #29

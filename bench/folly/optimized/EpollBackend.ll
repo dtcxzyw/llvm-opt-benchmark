@@ -1900,9 +1900,9 @@ _ZN5folly7get_ptrISt3mapIiSt3setIP5eventSt4lessIS4_ESaIS4_EES5_IiESaISt4pairIKiS
   %42 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %43 = load ptr, ptr %42, align 8, !tbaa !78
   call void %39(i32 noundef %41, i16 noundef signext 0, ptr noundef %43)
-  %44 = load i16, ptr %35, align 2, !tbaa !73
+  %44 = load i16, ptr %35, align 8, !tbaa !73
   %45 = and i16 %44, -9
-  store i16 %45, ptr %35, align 2, !tbaa !73
+  store i16 %45, ptr %35, align 8, !tbaa !73
   %46 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.022.027) #27
   %.not = icmp eq ptr %46, %31
   br i1 %.not, label %_ZN5folly7get_ptrISt3mapIiSt3setIP5eventSt4lessIS4_ESaIS4_EES5_IiESaISt4pairIKiS8_EEEiEEDaRT_RKT0_.exit.thread, label %.lr.ph
@@ -2229,7 +2229,7 @@ _ZNSt3setIP5eventSt4lessIS1_ESaIS1_EE6insertEOS1_.exit: ; preds = %31, %_ZNSt8_R
   %56 = getelementptr inbounds nuw i8, ptr %50, i64 48
   store i64 0, ptr %56, align 8, !tbaa !112
   %57 = getelementptr inbounds nuw i8, ptr %50, i64 56
-  store i32 -1, ptr %57, align 4, !tbaa !137
+  store i32 -1, ptr %57, align 8, !tbaa !137
   store ptr %50, ptr @_ZZN5folly12_GLOBAL__N_117getSignalRegistryEvE9sInstance, align 8, !tbaa !139
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly12_GLOBAL__N_117getSignalRegistryEvE9sInstance) #21
   br label %_ZN5folly12_GLOBAL__N_117getSignalRegistryEv.exit
@@ -2440,7 +2440,7 @@ _ZN5folly7get_ptrISt3mapIiSt3setIP5eventSt4lessIS4_ESaIS4_EES5_IiESaISt4pairIKiS
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 48
   store i64 0, ptr %33, align 8, !tbaa !112
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 56
-  store i32 -1, ptr %34, align 4, !tbaa !137
+  store i32 -1, ptr %34, align 8, !tbaa !137
   store ptr %27, ptr @_ZZN5folly12_GLOBAL__N_117getSignalRegistryEvE9sInstance, align 8, !tbaa !139
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly12_GLOBAL__N_117getSignalRegistryEvE9sInstance) #21
   br label %_ZN5folly12_GLOBAL__N_117getSignalRegistryEv.exit
@@ -3511,7 +3511,7 @@ define internal void @_ZN5folly12_GLOBAL__N_112evSigHandlerEi(i32 noundef %0) #1
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i64 0, ptr %14, align 8, !tbaa !112
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  store i32 -1, ptr %15, align 4, !tbaa !137
+  store i32 -1, ptr %15, align 8, !tbaa !137
   store ptr %8, ptr @_ZZN5folly12_GLOBAL__N_117getSignalRegistryEvE9sInstance, align 8, !tbaa !139
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly12_GLOBAL__N_117getSignalRegistryEvE9sInstance) #21
   br label %_ZN5folly12_GLOBAL__N_117getSignalRegistryEv.exit

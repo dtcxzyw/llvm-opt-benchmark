@@ -32191,7 +32191,7 @@ default.unreachable:                              ; preds = %55
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i), !noalias !7231
   %115 = getelementptr inbounds nuw i8, ptr %56, i64 328
   %116 = getelementptr inbounds nuw i8, ptr %56, i64 320
-  %117 = load ptr, ptr %116, align 8, !alias.scope !7232, !noalias !7235, !nonnull !11, !noundef !11
+  %117 = load ptr, ptr %116, align 16, !alias.scope !7232, !noalias !7235, !nonnull !11, !noundef !11
   %118 = load i64, ptr %115, align 8, !alias.scope !7232, !noalias !7235, !noundef !11
   invoke void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h923c813beed5ced0E.llvm.3826311623555120709"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %.sroa.0.i.i, ptr noalias noundef nonnull readonly align 16 %117, i64 noundef %118)
           to label %.noexc.i unwind label %119, !noalias !7186

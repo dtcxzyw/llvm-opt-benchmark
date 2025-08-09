@@ -2171,7 +2171,7 @@ _ZL8lean_incP11lean_object.exit.i.i.i:            ; preds = %25, %24, %22, %_ZL8
   store ptr %39, ptr %38, align 8, !tbaa !76
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store i64 0, ptr %40, align 8, !tbaa !79
-  store i8 0, ptr %39, align 1, !tbaa !81
+  store i8 0, ptr %39, align 8, !tbaa !81
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %37, align 8, !tbaa !82
   tail call void @__cxa_throw(ptr nonnull %37, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #18
   unreachable

@@ -12214,7 +12214,7 @@ _ZSt19__relocate_object_aIN7rocksdb16LiveFileMetaDataES1_SaIS1_EEvPT_PT0_RT1_.ex
   store i64 %60, ptr %62, align 8, !tbaa !16, !alias.scope !420, !noalias !423
   store ptr %52, ptr %49, align 8, !tbaa !11, !alias.scope !423, !noalias !420
   store i64 0, ptr %61, align 8, !tbaa !16, !alias.scope !423, !noalias !420
-  store i8 0, ptr %52, align 1, !tbaa !17, !alias.scope !423, !noalias !420
+  store i8 0, ptr %52, align 8, !tbaa !17, !alias.scope !423, !noalias !420
   %63 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 464
   %64 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 464
   %65 = load i32, ptr %64, align 8, !tbaa !214, !alias.scope !423, !noalias !420
@@ -12270,7 +12270,7 @@ _ZSt19__relocate_object_aIN7rocksdb16LiveFileMetaDataES1_SaIS1_EEvPT_PT0_RT1_.ex
   store i64 %81, ptr %83, align 8, !tbaa !16, !alias.scope !427, !noalias !430
   store ptr %73, ptr %70, align 8, !tbaa !11, !alias.scope !430, !noalias !427
   store i64 0, ptr %82, align 8, !tbaa !16, !alias.scope !430, !noalias !427
-  store i8 0, ptr %73, align 1, !tbaa !17, !alias.scope !430, !noalias !427
+  store i8 0, ptr %73, align 8, !tbaa !17, !alias.scope !430, !noalias !427
   %84 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 464
   %85 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 464
   %86 = load i32, ptr %85, align 8, !tbaa !214, !alias.scope !430, !noalias !427

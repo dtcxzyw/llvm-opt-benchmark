@@ -716,35 +716,35 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %177 = getelementptr inbounds nuw i8, ptr %76, i64 1028
   store float %141, ptr %177, align 4
   %.sroa.6119.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 1032
-  store float %145, ptr %.sroa.6119.0..sroa_idx, align 4
+  store float %145, ptr %.sroa.6119.0..sroa_idx, align 8
   %.sroa.9120.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 1036
   store float %149, ptr %.sroa.9120.0..sroa_idx, align 4
   %.sroa.11121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 1040
-  store float %150, ptr %.sroa.11121.0..sroa_idx, align 4
+  store float %150, ptr %.sroa.11121.0..sroa_idx, align 8
   %.sroa.14122.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 1044
   store float %153, ptr %.sroa.14122.0..sroa_idx, align 4
   %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 1048
-  store float %156, ptr %.sroa.17.0..sroa_idx, align 4
+  store float %156, ptr %.sroa.17.0..sroa_idx, align 8
   %.sroa.20123.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 1052
   store float %159, ptr %.sroa.20123.0..sroa_idx, align 4
   %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 1056
-  store float %160, ptr %.sroa.23.0..sroa_idx, align 4
+  store float %160, ptr %.sroa.23.0..sroa_idx, align 8
   %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 1060
   store float %163, ptr %.sroa.26.0..sroa_idx, align 4
   %.sroa.29124.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 1064
-  store float %166, ptr %.sroa.29124.0..sroa_idx, align 4
+  store float %166, ptr %.sroa.29124.0..sroa_idx, align 8
   %.sroa.31125.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 1068
   store float %169, ptr %.sroa.31125.0..sroa_idx, align 4
   %.sroa.34.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 1072
-  store float %170, ptr %.sroa.34.0..sroa_idx, align 4
+  store float %170, ptr %.sroa.34.0..sroa_idx, align 8
   %.sroa.37.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 1076
   store float %172, ptr %.sroa.37.0..sroa_idx, align 4
   %.sroa.40.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 1080
-  store float %174, ptr %.sroa.40.0..sroa_idx, align 4
+  store float %174, ptr %.sroa.40.0..sroa_idx, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 1084
   store float %176, ptr %.sroa.42.0..sroa_idx, align 4
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 1088
-  store float 1.000000e+00, ptr %.sroa.44.0..sroa_idx, align 4
+  store float 1.000000e+00, ptr %.sroa.44.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %8, ptr noundef nonnull align 4 dereferenceable(64) %4, i64 64, i1 false)
   %178 = load float, ptr %8, align 4
@@ -5183,7 +5183,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit796: ; preds = %_Z
   %1555 = getelementptr inbounds nuw i8, ptr %1545, i64 1088
   store ptr null, ptr %1555, align 8
   store ptr %1545, ptr %1542, align 8
-  store i32 16, ptr %1545, align 4
+  store i32 16, ptr %1545, align 8
   %1556 = getelementptr inbounds nuw i8, ptr %1545, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1556, ptr noundef nonnull align 1 dereferenceable(16) @.str.25, i64 16, i1 false)
   %1557 = fpext float %492 to double
@@ -5266,7 +5266,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit796: ; preds = %_Z
   %1598 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.0942.01242) #29
   %1599 = trunc i64 %1598 to i32
   %spec.store.select.i799 = call i32 @llvm.smin.i32(i32 %1599, i32 1023)
-  store i32 %spec.store.select.i799, ptr %1588, align 4
+  store i32 %spec.store.select.i799, ptr %1588, align 8
   %1600 = getelementptr inbounds nuw i8, ptr %1588, i64 4
   %1601 = sext i32 %spec.store.select.i799 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1600, ptr nonnull align 1 %.sroa.0942.01242, i64 %1601, i1 false)
@@ -5296,11 +5296,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit796: ; preds = %_Z
   %1617 = phi ptr [ %1613, %1614 ], [ %1623, %1616 ]
   store double 0.000000e+00, ptr %1617, align 8
   %1618 = getelementptr inbounds nuw i8, ptr %1617, i64 8
-  store float 1.000000e+00, ptr %1618, align 4
+  store float 1.000000e+00, ptr %1618, align 8
   %1619 = getelementptr inbounds nuw i8, ptr %1617, i64 12
   store float 0.000000e+00, ptr %1619, align 4
   %1620 = getelementptr inbounds nuw i8, ptr %1617, i64 16
-  store float 0.000000e+00, ptr %1620, align 4
+  store float 0.000000e+00, ptr %1620, align 8
   %1621 = getelementptr inbounds nuw i8, ptr %1617, i64 20
   store float 0.000000e+00, ptr %1621, align 4
   %1622 = getelementptr inbounds nuw i8, ptr %1617, i64 24
@@ -8645,7 +8645,7 @@ _ZSt19__relocate_object_aIN6Assimp12MS3DImporter12TempMaterialES2_SaIS2_EEvPT_PT
   store i64 %35, ptr %37, align 8, !alias.scope !76, !noalias !79
   store ptr %27, ptr %24, align 8, !alias.scope !79, !noalias !76
   store i64 0, ptr %36, align 8, !alias.scope !79, !noalias !76
-  store i8 0, ptr %27, align 1, !alias.scope !79, !noalias !76
+  store i8 0, ptr %27, align 8, !alias.scope !79, !noalias !76
   %38 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 400
   %39 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 400
   %.not.i.i.i = icmp eq ptr %38, %1
@@ -8696,7 +8696,7 @@ _ZSt19__relocate_object_aIN6Assimp12MS3DImporter12TempMaterialES2_SaIS2_EEvPT_PT
   store i64 %53, ptr %55, align 8, !alias.scope !83, !noalias !86
   store ptr %45, ptr %42, align 8, !alias.scope !86, !noalias !83
   store i64 0, ptr %54, align 8, !alias.scope !86, !noalias !83
-  store i8 0, ptr %45, align 1, !alias.scope !86, !noalias !83
+  store i8 0, ptr %45, align 8, !alias.scope !86, !noalias !83
   %56 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i18, i64 400
   %57 = getelementptr inbounds nuw i8, ptr %.012.i.i.i17, i64 400
   %.not.i.i.i23 = icmp eq ptr %56, %4

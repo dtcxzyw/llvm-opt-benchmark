@@ -2677,7 +2677,7 @@ _ZN7rocksdb12_GLOBAL__N_19VectorRep8IteratorC2EPS1_St10shared_ptrISt6vectorIPKcS
   store ptr %56, ptr %55, align 8, !tbaa !62
   %57 = getelementptr inbounds nuw i8, ptr %19, i64 56
   store i64 0, ptr %57, align 8, !tbaa !16
-  store i8 0, ptr %56, align 1, !tbaa !17
+  store i8 0, ptr %56, align 8, !tbaa !17
   %58 = getelementptr inbounds nuw i8, ptr %19, i64 80
   store i8 0, ptr %58, align 8, !tbaa !107
   br i1 %.not.i.i.i, label %_ZNSt12__shared_ptrISt6vectorIPKcSaIS2_EELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %59
@@ -2808,7 +2808,7 @@ _ZN7rocksdb12_GLOBAL__N_19VectorRep8IteratorC2EPS1_St10shared_ptrISt6vectorIPKcS
   store ptr %118, ptr %117, align 8, !tbaa !62
   %119 = getelementptr inbounds nuw i8, ptr %13, i64 56
   store i64 0, ptr %119, align 8, !tbaa !16
-  store i8 0, ptr %118, align 1, !tbaa !17
+  store i8 0, ptr %118, align 8, !tbaa !17
   %120 = getelementptr inbounds nuw i8, ptr %13, i64 80
   store i8 0, ptr %120, align 8, !tbaa !107
   br i1 %.not.i.i.i27, label %_ZNSt12__shared_ptrISt6vectorIPKcSaIS2_EELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %121
@@ -3009,7 +3009,7 @@ _ZN7rocksdb12_GLOBAL__N_19VectorRep8IteratorC2EPS1_St10shared_ptrISt6vectorIPKcS
   store ptr %208, ptr %207, align 8, !tbaa !62
   %209 = getelementptr inbounds nuw i8, ptr %175, i64 56
   store i64 0, ptr %209, align 8, !tbaa !16
-  store i8 0, ptr %208, align 1, !tbaa !17
+  store i8 0, ptr %208, align 8, !tbaa !17
   %210 = getelementptr inbounds nuw i8, ptr %175, i64 80
   store i8 0, ptr %210, align 8, !tbaa !107
   br i1 %.not.i.i.i44, label %_ZNSt12__shared_ptrISt6vectorIPKcSaIS2_EELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit55, label %211
@@ -3142,7 +3142,7 @@ _ZN7rocksdb12_GLOBAL__N_19VectorRep8IteratorC2EPS1_St10shared_ptrISt6vectorIPKcS
   store ptr %268, ptr %267, align 8, !tbaa !62
   %269 = getelementptr inbounds nuw i8, ptr %.0984, i64 56
   store i64 0, ptr %269, align 8, !tbaa !16
-  store i8 0, ptr %268, align 1, !tbaa !17
+  store i8 0, ptr %268, align 8, !tbaa !17
   %270 = getelementptr inbounds nuw i8, ptr %.0984, i64 80
   store i8 0, ptr %270, align 8, !tbaa !107
   br i1 %.not.i.i.i56, label %_ZNSt12__shared_ptrISt6vectorIPKcSaIS2_EELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit55, label %271

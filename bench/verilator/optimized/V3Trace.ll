@@ -4079,7 +4079,7 @@ define linkonce_odr dso_local void @_ZN15VNUserInUseBase8allocateEiRjRb(i32 noun
   %19 = load i32, ptr %18, align 8, !tbaa !183
   %20 = and i32 %19, -75
   %21 = or disjoint i32 %20, 2
-  store i32 %21, ptr %18, align 4, !tbaa !192
+  store i32 %21, ptr %18, align 8, !tbaa !192
   %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i32 noundef 1776)
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.7, i64 noundef 1)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -4478,7 +4478,7 @@ define linkonce_odr dso_local void @_ZN15VNUserInUseBase8clearcntEiRjRKb(i32 nou
   %19 = load i32, ptr %18, align 8, !tbaa !183
   %20 = and i32 %19, -75
   %21 = or disjoint i32 %20, 2
-  store i32 %21, ptr %18, align 4, !tbaa !192
+  store i32 %21, ptr %18, align 8, !tbaa !192
   %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i32 noundef 1786)
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.7, i64 noundef 1)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -4661,7 +4661,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %_ZN
   %95 = load i32, ptr %94, align 8, !tbaa !183
   %96 = and i32 %95, -75
   %97 = or disjoint i32 %96, 2
-  store i32 %97, ptr %94, align 4, !tbaa !192
+  store i32 %97, ptr %94, align 8, !tbaa !192
   %98 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i32 noundef 1790)
   %99 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %98, ptr noundef nonnull @.str.7, i64 noundef 1)
   %100 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %98, ptr noundef nonnull @.str.15, i64 noundef 19)
@@ -5219,7 +5219,7 @@ define linkonce_odr dso_local void @_ZN15VNUserInUseBase4freeEiRjRb(i32 noundef 
   %19 = load i32, ptr %18, align 8, !tbaa !183
   %20 = and i32 %19, -75
   %21 = or disjoint i32 %20, 2
-  store i32 %21, ptr %18, align 4, !tbaa !192
+  store i32 %21, ptr %18, align 8, !tbaa !192
   %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i32 noundef 1781)
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.7, i64 noundef 1)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -7619,7 +7619,7 @@ _ZN12TraceVisitor21assignactivityNumbersEv.exit:  ; preds = %22, %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %29, i8 0, i64 10, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 408) (i8, ptr @_ZTV13AstBasicDType, i64 16), ptr %28, align 8, !tbaa !57
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 164
-  store i8 0, ptr %30, align 1, !tbaa !278
+  store i8 0, ptr %30, align 4, !tbaa !278
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %31, i8 0, i64 9, i1 false)
   invoke void @_ZN13AstBasicDType4initE14VBasicDTypeKwd8VSigningiiP8AstRange(ptr noundef nonnull align 8 dereferenceable(184) %28, i8 1, i8 2, i32 noundef 1, i32 noundef -1, ptr noundef null)
@@ -9682,7 +9682,7 @@ _ZN8AstConstC2EP8FileLinej.exit.us:               ; preds = %_ZN5AstOrC2EP8FileL
 .noexc167.us:                                     ; preds = %_ZN8AstConstC2EP8FileLinej.exit.us
   store ptr getelementptr inbounds nuw inrange(-16, 296) (i8, ptr @_ZTV9AstNodeIf, i64 16), ptr %168, align 8, !tbaa !57
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 152
-  store i8 0, ptr %169, align 1, !tbaa !344
+  store i8 0, ptr %169, align 8, !tbaa !344
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(160) %168, ptr noundef %.0111.us)
           to label %170 unwind label %.split405.us
 
@@ -11922,7 +11922,7 @@ _ZN8AstCFunc9addStmtspEP7AstNode.exit:            ; preds = %.lr.ph, %62
   store ptr %72, ptr %71, align 8, !tbaa !15
   %73 = getelementptr inbounds nuw i8, ptr %68, i64 160
   store i64 0, ptr %73, align 8, !tbaa !13
-  store i8 0, ptr %72, align 1, !tbaa !14
+  store i8 0, ptr %72, align 8, !tbaa !14
   %74 = getelementptr inbounds nuw i8, ptr %68, i64 184
   store i8 0, ptr %74, align 8, !tbaa !399
   %75 = getelementptr inbounds nuw i8, ptr %68, i64 192
@@ -16582,7 +16582,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit380: ; preds = %_Z
   store ptr %797, ptr %796, align 8, !tbaa !15
   %798 = getelementptr inbounds nuw i8, ptr %792, i64 160
   store i64 0, ptr %798, align 8, !tbaa !13
-  store i8 0, ptr %797, align 1, !tbaa !14
+  store i8 0, ptr %797, align 8, !tbaa !14
   %799 = getelementptr inbounds nuw i8, ptr %792, i64 184
   store i8 0, ptr %799, align 8, !tbaa !399
   %800 = getelementptr inbounds nuw i8, ptr %792, i64 192

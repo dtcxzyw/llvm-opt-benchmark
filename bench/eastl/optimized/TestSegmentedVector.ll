@@ -3287,15 +3287,15 @@ invoke.cont11:                                    ; preds = %entry
   store ptr %call.i.i.i11.i.i6, ptr %mLastSegment.i.i, align 8
   store ptr %call.i.i.i11.i.i6, ptr %mFirstSegment.i, align 8
   %mData11.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i11.i.i6, i64 16
-  store i32 0, ptr %mData11.i.i, align 4
+  store i32 0, ptr %mData11.i.i, align 8
   %add.ptr.i.i21 = getelementptr inbounds nuw i8, ptr %call.i.i.i11.i.i6, i64 20
   store i32 1, ptr %add.ptr.i.i21, align 4
   %add.ptr.i.i46 = getelementptr inbounds nuw i8, ptr %call.i.i.i11.i.i6, i64 24
-  store i32 2, ptr %add.ptr.i.i46, align 4
+  store i32 2, ptr %add.ptr.i.i46, align 8
   store i64 4, ptr %0, align 8
   %add.ptr.i.i71 = getelementptr inbounds nuw i8, ptr %call.i.i.i11.i.i6, i64 28
   store i32 3, ptr %add.ptr.i.i71, align 4
-  %1 = load i32, ptr %mData11.i.i, align 4
+  %1 = load i32, ptr %mData11.i.i, align 8
   %cmp = icmp eq i32 %1, 0
   %call15 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 32, ptr noundef nonnull @.str.1)
           to label %invoke.cont14 unwind label %lpad
@@ -3335,7 +3335,7 @@ invoke.cont45:                                    ; preds = %invoke.cont35
   %add.ptr.i.i148 = getelementptr inbounds i32, ptr %mData11.i.i, i64 %7
   %add.ptr4.i.i149 = getelementptr inbounds nuw i8, ptr %call.i.i.i11.i.i6, i64 48
   %retval.0.i.i150 = select i1 %tobool.not.i.i147, ptr %add.ptr4.i.i149, ptr %add.ptr.i.i148
-  %8 = load i32, ptr %mData11.i.i, align 4
+  %8 = load i32, ptr %mData11.i.i, align 8
   %cmp48 = icmp eq i32 %8, 0
   %call50 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp48, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 41, ptr noundef nonnull @.str.1)
           to label %invoke.cont49 unwind label %lpad
@@ -3471,7 +3471,7 @@ _ZNK5eastl16segmented_vectorIiLm4ENS_9allocatorEE4sizeEv.exit: ; preds = %_ZN5ea
   store ptr %call.i.i.i11.i.i246, ptr %mLastSegment.i.i223, align 8
   store ptr %call.i.i.i11.i.i246, ptr %mFirstSegment.i222, align 8
   %mData11.i.i242 = getelementptr inbounds nuw i8, ptr %call.i.i.i11.i.i246, i64 16
-  store i32 42, ptr %mData11.i.i242, align 4
+  store i32 42, ptr %mData11.i.i242, align 8
   %call105 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 64, ptr noundef nonnull @.str.12)
           to label %invoke.cont104 unwind label %lpad98
 

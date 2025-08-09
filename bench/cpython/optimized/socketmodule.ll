@@ -9363,7 +9363,7 @@ define internal ptr @sock_sendmsg_afalg(ptr noundef %0, ptr noundef %1, ptr noun
   store i32 3, ptr %65, align 4, !tbaa !35
   store i64 20, ptr %56, align 8, !tbaa !47
   %66 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  store i32 %22, ptr %66, align 4, !tbaa !35
+  store i32 %22, ptr %66, align 8, !tbaa !35
   %67 = load ptr, ptr %7, align 8, !tbaa !27
   %.not69 = icmp eq ptr %67, null
   br i1 %.not69, label %.thread84, label %68
@@ -9400,7 +9400,7 @@ __cmsg_nxthdr.exit.thread:                        ; preds = %73, %68
   store i64 %86, ptr %69, align 8, !tbaa !47
   %87 = load i64, ptr %37, align 8, !tbaa !31
   %88 = trunc i64 %87 to i32
-  store i32 %88, ptr %70, align 4, !tbaa !196
+  store i32 %88, ptr %70, align 8, !tbaa !196
   %89 = getelementptr i8, ptr %56, i64 44
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %89, ptr nonnull align 1 %67, i64 %87, i1 false)
   br i1 %42, label %90, label %109
@@ -9442,7 +9442,7 @@ __cmsg_nxthdr.exit73.thread:                      ; preds = %99, %.thread87, %90
   %108 = getelementptr inbounds nuw i8, ptr %95, i64 12
   store i32 4, ptr %108, align 4, !tbaa !35
   store i64 20, ptr %95, align 8, !tbaa !47
-  store i32 %.049, ptr %96, align 4, !tbaa !35
+  store i32 %.049, ptr %96, align 8, !tbaa !35
   br label %109
 
 109:                                              ; preds = %.thread84, %106, %80

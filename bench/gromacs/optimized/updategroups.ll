@@ -3567,7 +3567,7 @@ _ZNSt18unordered_multimapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEEC2EmRKS1_RK
   %.sroa.5.0.insert.shift.i.i = shl nuw i64 %.sroa.5.0.insert.ext.i.i, 32
   %.sroa.0.0.insert.ext.i.i = zext i32 %90 to i64
   %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.5.0.insert.shift.i.i, %.sroa.0.0.insert.ext.i.i
-  store i64 %.sroa.0.0.insert.insert.i.i, ptr %92, align 4
+  store i64 %.sroa.0.0.insert.insert.i.i, ptr %92, align 8
   %93 = load i64, ptr %32, align 8, !tbaa !149, !alias.scope !136
   %.not.not.i.i.i.i.i.i.i = icmp eq i64 %93, 0
   br i1 %.not.not.i.i.i.i.i.i.i, label %.preheader.i.i, label %.loopexit.i.i.i.i.i.i
@@ -3656,7 +3656,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %.05568.i = phi i8 [ %.156.i, %144 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb0EEEE19_M_allocate_bucketsEm.exit.i ]
   %114 = load ptr, ptr %.072.i, align 8, !tbaa !148
   %115 = getelementptr inbounds nuw i8, ptr %.072.i, i64 8
-  %116 = load i32, ptr %115, align 4, !tbaa !31
+  %116 = load i32, ptr %115, align 8, !tbaa !31
   %117 = sext i32 %116 to i64
   %118 = urem i64 %117, %104
   %.not62.i = icmp ne ptr %.05469.i, null

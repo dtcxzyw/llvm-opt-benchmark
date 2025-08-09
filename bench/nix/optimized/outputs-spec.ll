@@ -2430,7 +2430,7 @@ _ZN2rc3GenISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7
   store i64 %18, ptr %20, align 8
   store ptr %10, ptr %7, align 8
   store i64 0, ptr %19, align 8
-  store i8 0, ptr %10, align 1
+  store i8 0, ptr %10, align 8
   store ptr null, ptr %1, align 8
   invoke void @_ZN2rc3gen8suchThatISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEZNS0_8nonEmptyISC_EENS_3GenIT_EESG_EUlRKSC_E_EESG_SG_OT0_(ptr dead_on_unwind writable sret(%"class.rc::Gen.7") align 8 %0, ptr noundef nonnull %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %21 unwind label %35
@@ -3715,7 +3715,7 @@ define linkonce_odr void @_ZZN2rc3gen7inRangeIhEENS_3GenIT_EES3_S3_ENKUlRKNS_6Ra
   %60 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23, !noalias !37
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN2rc10ShrinkableIhE14ShrinkableImplINS_10shrinkable6detail20JustShrinkShrinkableINS_2fn8ConstantIhEEZNS3_11shrinkRecurIRKhZZNS_3gen7inRangeIhEENS_3GenIT_EESF_SF_ENKUlRKNS_6RandomEiE_clESJ_iEUlhE_EENS0_INSt5decayISF_E4typeEEEOSF_RKT0_EUlOhE_EEEE, i64 16), ptr %60, align 8, !noalias !37
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store i8 %59, ptr %61, align 1, !noalias !37
+  store i8 %59, ptr %61, align 8, !noalias !37
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 9
   store i8 %57, ptr %62, align 1, !noalias !37
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 16
@@ -4462,7 +4462,7 @@ define linkonce_odr void @_ZNK2rc10ShrinkableIhE14ShrinkableImplINS_10shrinkable
   %7 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23, !noalias !49
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN2rc3SeqIhE7SeqImplINS_6shrink6detail10TowardsSeqIhEEEE, i64 16), ptr %7, align 8, !noalias !49
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i8 %5, ptr %8, align 1, !noalias !49
+  store i8 %5, ptr %8, align 8, !noalias !49
   %9 = icmp ult i8 %6, %5
   %10 = sub nuw i8 %5, %6
   %11 = sub nuw i8 %6, %5
@@ -4471,7 +4471,7 @@ define linkonce_odr void @_ZNK2rc10ShrinkableIhE14ShrinkableImplINS_10shrinkable
   store i8 %12, ptr %13, align 1, !noalias !49
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 10
   %15 = zext i1 %9 to i8
-  store i8 %15, ptr %14, align 1, !noalias !49
+  store i8 %15, ptr %14, align 2, !noalias !49
   tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
   %16 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -4694,7 +4694,7 @@ _ZN2rc10ShrinkableIhED2Ev.exit:                   ; preds = %_ZN2rc3SeqIhE4nextE
   %34 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN2rc10ShrinkableIhE14ShrinkableImplINS_10shrinkable6detail20JustShrinkShrinkableINS_2fn8ConstantIhEEZNS3_11shrinkRecurIhZZNS_3gen7inRangeIhEENS_3GenIT_EESD_SD_ENKUlRKNS_6RandomEiE_clESH_iEUlhE_EENS0_INSt5decayISD_E4typeEEEOSD_RKT0_EUlOhE_EEEE, i64 16), ptr %34, align 8, !noalias !70
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store i8 %32, ptr %35, align 1, !noalias !70
+  store i8 %32, ptr %35, align 8, !noalias !70
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 9
   store i8 %33, ptr %36, align 1, !noalias !70
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -4726,7 +4726,7 @@ define linkonce_odr void @_ZNK2rc10ShrinkableIhE14ShrinkableImplINS_10shrinkable
   %7 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23, !noalias !84
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN2rc3SeqIhE7SeqImplINS_6shrink6detail10TowardsSeqIhEEEE, i64 16), ptr %7, align 8, !noalias !84
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i8 %5, ptr %8, align 1, !noalias !84
+  store i8 %5, ptr %8, align 8, !noalias !84
   %9 = icmp ult i8 %6, %5
   %10 = sub nuw i8 %5, %6
   %11 = sub nuw i8 %6, %5
@@ -4735,7 +4735,7 @@ define linkonce_odr void @_ZNK2rc10ShrinkableIhE14ShrinkableImplINS_10shrinkable
   store i8 %12, ptr %13, align 1, !noalias !84
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 10
   %15 = zext i1 %9 to i8
-  store i8 %15, ptr %14, align 1, !noalias !84
+  store i8 %15, ptr %14, align 2, !noalias !84
   tail call void @llvm.experimental.noalias.scope.decl(metadata !89)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
   %16 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -4958,7 +4958,7 @@ _ZN2rc10ShrinkableIhED2Ev.exit:                   ; preds = %_ZN2rc3SeqIhE4nextE
   %34 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN2rc10ShrinkableIhE14ShrinkableImplINS_10shrinkable6detail20JustShrinkShrinkableINS_2fn8ConstantIhEEZNS3_11shrinkRecurIhZZNS_3gen7inRangeIhEENS_3GenIT_EESD_SD_ENKUlRKNS_6RandomEiE_clESH_iEUlhE_EENS0_INSt5decayISD_E4typeEEEOSD_RKT0_EUlOhE_EEEE, i64 16), ptr %34, align 8, !noalias !105
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store i8 %32, ptr %35, align 1, !noalias !105
+  store i8 %32, ptr %35, align 8, !noalias !105
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 9
   store i8 %33, ptr %36, align 1, !noalias !105
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -5236,7 +5236,7 @@ _ZN2rc3GenIhEC2EOS1_.exit:                        ; preds = %13, %_ZNKSt7__cxx11
   store i64 %19, ptr %21, align 8
   store ptr %11, ptr %8, align 8
   store i64 0, ptr %20, align 8
-  store i8 0, ptr %11, align 1
+  store i8 0, ptr %11, align 8
   store ptr null, ptr %1, align 8
   %22 = load ptr, ptr %2, align 8
   store ptr %22, ptr %4, align 8
@@ -13826,7 +13826,7 @@ _ZN2rc3GenISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7
   store i64 %19, ptr %21, align 8
   store ptr %11, ptr %8, align 8
   store i64 0, ptr %20, align 8
-  store i8 0, ptr %11, align 1
+  store i8 0, ptr %11, align 8
   store ptr null, ptr %1, align 8
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = load ptr, ptr %5, align 8
@@ -15724,7 +15724,7 @@ _ZN2rc3GenISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7
   store i64 %19, ptr %21, align 8
   store ptr %11, ptr %8, align 8
   store i64 0, ptr %20, align 8
-  store i8 0, ptr %11, align 1
+  store i8 0, ptr %11, align 8
   store ptr null, ptr %1, align 8
   %22 = load ptr, ptr %2, align 8
   store ptr %22, ptr %4, align 8

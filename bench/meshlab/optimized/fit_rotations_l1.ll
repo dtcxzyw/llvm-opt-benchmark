@@ -3305,7 +3305,7 @@ _ZN5Eigen8internal28conditional_aligned_new_autoIdLb1EEEPT_m.exit.i.i.i77.thread
   %319 = getelementptr inbounds nuw i8, ptr %315, i64 16
   %320 = load double, ptr %319, align 8
   %321 = fadd double %314, %320
-  store double %321, ptr %318, align 8
+  store double %321, ptr %318, align 16
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %322 = load ptr, ptr %.0.val, align 8
   %323 = load double, ptr %322, align 8
@@ -9274,7 +9274,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit.i:      ; preds = %17, %20
 _ZN5Eigen8internal25local_nested_eval_wrapperINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEESA_EELin1ELb1EEC2ERKSD_Pd.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i
   %44 = load <2 x double>, ptr %24, align 16
   %45 = getelementptr i8, ptr %24, i64 16
-  %46 = load double, ptr %45, align 8
+  %46 = load double, ptr %45, align 16
   br label %47
 
 47:                                               ; preds = %_ZN5Eigen8internal25local_nested_eval_wrapperINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEESA_EELin1ELb1EEC2ERKSD_Pd.exit, %47

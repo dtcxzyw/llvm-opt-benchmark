@@ -108,7 +108,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %38 = getelementptr inbounds [2 x ptr], ptr %34, i64 0, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !42
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  %41 = load i32, ptr %40, align 4, !tbaa !40
+  %41 = load i32, ptr %40, align 8, !tbaa !40
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 76
   %43 = load i32, ptr %42, align 4, !tbaa !40
   %. = tail call i32 @llvm.smin.i32(i32 %41, i32 %43)
@@ -174,11 +174,11 @@ define internal i32 @config_input(ptr noundef readonly captures(none) %0) #1 {
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 76
   store i32 %36, ptr %38, align 4, !tbaa !40
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store i32 %36, ptr %39, align 4, !tbaa !40
+  store i32 %36, ptr %39, align 8, !tbaa !40
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %41 = load i32, ptr %40, align 4, !tbaa !35
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store i32 %41, ptr %42, align 4, !tbaa !40
+  store i32 %41, ptr %42, align 8, !tbaa !40
   store i32 %41, ptr %37, align 4, !tbaa !40
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %44 = load i32, ptr %43, align 8, !tbaa !34
@@ -192,11 +192,11 @@ define internal i32 @config_input(ptr noundef readonly captures(none) %0) #1 {
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 92
   store i32 %50, ptr %52, align 4, !tbaa !40
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  store i32 %50, ptr %53, align 4, !tbaa !40
+  store i32 %50, ptr %53, align 8, !tbaa !40
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %55 = load i32, ptr %54, align 8, !tbaa !34
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  store i32 %55, ptr %56, align 4, !tbaa !40
+  store i32 %55, ptr %56, align 8, !tbaa !40
   store i32 %55, ptr %51, align 4, !tbaa !40
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 100
   %58 = load i32, ptr %6, align 4, !tbaa !43
@@ -250,9 +250,9 @@ define internal noundef i32 @rgbawrap_slice16(ptr noundef readonly captures(none
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %26 = load i32, ptr %25, align 4, !tbaa !58
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %28 = load i32, ptr %27, align 4, !tbaa !40
+  %28 = load i32, ptr %27, align 8, !tbaa !40
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  %30 = load i32, ptr %29, align 4, !tbaa !40
+  %30 = load i32, ptr %29, align 8, !tbaa !40
   %31 = mul nsw i32 %28, %2
   %32 = sdiv i32 %31, %3
   %33 = add nsw i32 %2, 1
@@ -471,9 +471,9 @@ define internal noundef i32 @rgbawrap_slice8(ptr noundef readonly captures(none)
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %22 = load i32, ptr %21, align 4, !tbaa !58
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %24 = load i32, ptr %23, align 4, !tbaa !40
+  %24 = load i32, ptr %23, align 8, !tbaa !40
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  %26 = load i32, ptr %25, align 4, !tbaa !40
+  %26 = load i32, ptr %25, align 8, !tbaa !40
   %27 = mul nsw i32 %24, %2
   %28 = sdiv i32 %27, %3
   %29 = add nsw i32 %2, 1
@@ -696,7 +696,7 @@ define internal noundef i32 @rgbasmear_slice16(ptr noundef readonly captures(non
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 52
   %28 = load i32, ptr %27, align 4, !tbaa !59
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %30 = load i32, ptr %29, align 4, !tbaa !40
+  %30 = load i32, ptr %29, align 8, !tbaa !40
   %31 = mul nsw i32 %30, %2
   %32 = sdiv i32 %31, %3
   %33 = add nsw i32 %2, 1
@@ -914,7 +914,7 @@ define internal noundef i32 @rgbasmear_slice8(ptr noundef readonly captures(none
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 52
   %24 = load i32, ptr %23, align 4, !tbaa !59
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %26 = load i32, ptr %25, align 4, !tbaa !40
+  %26 = load i32, ptr %25, align 8, !tbaa !40
   %27 = mul nsw i32 %26, %2
   %28 = sdiv i32 %27, %3
   %29 = add nsw i32 %2, 1
@@ -1114,9 +1114,9 @@ define internal noundef i32 @wrap_slice16(ptr noundef readonly captures(none) %0
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %22 = load i32, ptr %21, align 4, !tbaa !83
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %24 = load i32, ptr %23, align 4, !tbaa !40
+  %24 = load i32, ptr %23, align 8, !tbaa !40
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  %26 = load i32, ptr %25, align 4, !tbaa !40
+  %26 = load i32, ptr %25, align 8, !tbaa !40
   %27 = mul nsw i32 %24, %2
   %28 = sdiv i32 %27, %3
   %29 = add nsw i32 %2, 1
@@ -1233,9 +1233,9 @@ define internal noundef i32 @wrap_slice8(ptr noundef readonly captures(none) %0,
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %20 = load i32, ptr %19, align 4, !tbaa !83
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %22 = load i32, ptr %21, align 4, !tbaa !40
+  %22 = load i32, ptr %21, align 8, !tbaa !40
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  %24 = load i32, ptr %23, align 4, !tbaa !40
+  %24 = load i32, ptr %23, align 8, !tbaa !40
   %25 = mul nsw i32 %22, %2
   %26 = sdiv i32 %25, %3
   %27 = add nsw i32 %2, 1
@@ -1352,9 +1352,9 @@ define internal noundef i32 @smear_slice16(ptr noundef readonly captures(none) %
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %22 = load i32, ptr %21, align 4, !tbaa !83
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %24 = load i32, ptr %23, align 4, !tbaa !40
+  %24 = load i32, ptr %23, align 8, !tbaa !40
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  %26 = load i32, ptr %25, align 4, !tbaa !40
+  %26 = load i32, ptr %25, align 8, !tbaa !40
   %27 = mul nsw i32 %24, %2
   %28 = sdiv i32 %27, %3
   %29 = add nsw i32 %2, 1
@@ -1471,9 +1471,9 @@ define internal noundef i32 @smear_slice8(ptr noundef readonly captures(none) %0
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %20 = load i32, ptr %19, align 4, !tbaa !83
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %22 = load i32, ptr %21, align 4, !tbaa !40
+  %22 = load i32, ptr %21, align 8, !tbaa !40
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  %24 = load i32, ptr %23, align 4, !tbaa !40
+  %24 = load i32, ptr %23, align 8, !tbaa !40
   %25 = mul nsw i32 %22, %2
   %26 = sdiv i32 %25, %3
   %27 = add nsw i32 %2, 1

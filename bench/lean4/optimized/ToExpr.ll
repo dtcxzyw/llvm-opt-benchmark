@@ -104962,7 +104962,7 @@ define ptr @l_Lean_Elab_Deriving_ToExpr_mkToExprInstanceHandler___lambda__1(ptr 
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %26 = load ptr, ptr %25, align 8, !tbaa !4
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %28 = load i8, ptr %27, align 1, !tbaa !20
+  %28 = load i8, ptr %27, align 8, !tbaa !20
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %30 = load ptr, ptr %29, align 8, !tbaa !4
   %31 = ptrtoint ptr %30 to i64
@@ -105244,7 +105244,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
   %125 = getelementptr inbounds nuw i8, ptr %122, i64 4
   %126 = getelementptr inbounds nuw i8, ptr %122, i64 88
   store i64 0, ptr %126, align 8, !tbaa !12
-  store i32 1, ptr %122, align 4, !tbaa !8
+  store i32 1, ptr %122, align 8, !tbaa !8
   store i32 655456, ptr %125, align 4
   %127 = getelementptr inbounds nuw i8, ptr %122, i64 8
   store ptr %10, ptr %127, align 8, !tbaa !4
@@ -105266,7 +105266,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
   store ptr %26, ptr %135, align 8, !tbaa !4
   %136 = getelementptr inbounds nuw i8, ptr %122, i64 80
   store ptr %30, ptr %136, align 8, !tbaa !4
-  store i8 %28, ptr %126, align 1, !tbaa !20
+  store i8 %28, ptr %126, align 8, !tbaa !20
   br label %137
 
 137:                                              ; preds = %lean_alloc_ctor.exit, %3

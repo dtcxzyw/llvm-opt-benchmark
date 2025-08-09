@@ -8623,9 +8623,9 @@ define linkonce_odr hidden void @_ZN7datalog15vector_relationI12old_intervalNS_2
   store ptr %12, ptr %11, align 8, !tbaa !321
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %16 = load i8, ptr %14, align 1, !tbaa !75, !range !68, !noundef !69
+  %16 = load i8, ptr %14, align 8, !tbaa !75, !range !68, !noundef !69
   %17 = load i8, ptr %15, align 8, !tbaa !75, !range !68, !noundef !69
-  store i8 %17, ptr %14, align 1, !tbaa !75
+  store i8 %17, ptr %14, align 8, !tbaa !75
   store i8 %16, ptr %15, align 8, !tbaa !75
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 144

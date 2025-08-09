@@ -1055,53 +1055,53 @@ define hidden void @_ZN12TestTINShift12TINShiftFile5parseERKNSt7__cxx1112basic_s
   %131 = getelementptr inbounds nuw i8, ptr %127, i64 32
   %132 = getelementptr inbounds nuw i8, ptr %127, i64 48
   store ptr %132, ptr %131, align 8, !tbaa !12
-  store i8 0, ptr %132, align 1, !tbaa !14
+  store i8 0, ptr %132, align 8, !tbaa !14
   %133 = getelementptr inbounds nuw i8, ptr %127, i64 64
   %134 = getelementptr inbounds nuw i8, ptr %127, i64 80
   store ptr %134, ptr %133, align 8, !tbaa !12
-  store i8 0, ptr %134, align 1, !tbaa !14
+  store i8 0, ptr %134, align 8, !tbaa !14
   %135 = getelementptr inbounds nuw i8, ptr %127, i64 96
   %136 = getelementptr inbounds nuw i8, ptr %127, i64 112
   store ptr %136, ptr %135, align 8, !tbaa !12
-  store i8 0, ptr %136, align 1, !tbaa !14
+  store i8 0, ptr %136, align 8, !tbaa !14
   %137 = getelementptr inbounds nuw i8, ptr %127, i64 128
   %138 = getelementptr inbounds nuw i8, ptr %127, i64 144
   store ptr %138, ptr %137, align 8, !tbaa !12
-  store i8 0, ptr %138, align 1, !tbaa !14
+  store i8 0, ptr %138, align 8, !tbaa !14
   %139 = getelementptr inbounds nuw i8, ptr %127, i64 160
   %140 = getelementptr inbounds nuw i8, ptr %127, i64 176
   store ptr %140, ptr %139, align 8, !tbaa !12
-  store i8 0, ptr %140, align 1, !tbaa !14
+  store i8 0, ptr %140, align 8, !tbaa !14
   %141 = getelementptr inbounds nuw i8, ptr %127, i64 192
   %142 = getelementptr inbounds nuw i8, ptr %127, i64 208
   store ptr %142, ptr %141, align 8, !tbaa !12
-  store i8 0, ptr %142, align 1, !tbaa !14
+  store i8 0, ptr %142, align 8, !tbaa !14
   %143 = getelementptr inbounds nuw i8, ptr %127, i64 232
   %144 = getelementptr inbounds nuw i8, ptr %127, i64 248
   store ptr %144, ptr %143, align 8, !tbaa !12
-  store i8 0, ptr %144, align 1, !tbaa !14
+  store i8 0, ptr %144, align 8, !tbaa !14
   %145 = getelementptr inbounds nuw i8, ptr %127, i64 264
   %146 = getelementptr inbounds nuw i8, ptr %127, i64 280
   store ptr %146, ptr %145, align 8, !tbaa !12
-  store i8 0, ptr %146, align 1, !tbaa !14
+  store i8 0, ptr %146, align 8, !tbaa !14
   %147 = getelementptr inbounds nuw i8, ptr %127, i64 296
   %148 = getelementptr inbounds nuw i8, ptr %127, i64 312
   store ptr %148, ptr %147, align 8, !tbaa !12
-  store i8 0, ptr %148, align 1, !tbaa !14
+  store i8 0, ptr %148, align 8, !tbaa !14
   %149 = getelementptr inbounds nuw i8, ptr %127, i64 328
   %150 = getelementptr inbounds nuw i8, ptr %127, i64 344
   store ptr %150, ptr %149, align 8, !tbaa !12
-  store i8 0, ptr %150, align 1, !tbaa !14
+  store i8 0, ptr %150, align 8, !tbaa !14
   %151 = getelementptr inbounds nuw i8, ptr %127, i64 360
   %152 = getelementptr inbounds nuw i8, ptr %127, i64 384
   %153 = getelementptr inbounds nuw i8, ptr %127, i64 400
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %151, i8 0, i64 24, i1 false)
   store ptr %153, ptr %152, align 8, !tbaa !12
-  store i8 0, ptr %153, align 1, !tbaa !14
+  store i8 0, ptr %153, align 8, !tbaa !14
   %154 = getelementptr inbounds nuw i8, ptr %127, i64 416
   %155 = getelementptr inbounds nuw i8, ptr %127, i64 432
   store ptr %155, ptr %154, align 8, !tbaa !12
-  store i8 0, ptr %155, align 1, !tbaa !14
+  store i8 0, ptr %155, align 8, !tbaa !14
   %156 = getelementptr inbounds nuw i8, ptr %127, i64 449
   store i8 0, ptr %156, align 1, !tbaa !15
   %157 = getelementptr inbounds nuw i8, ptr %127, i64 452
@@ -15645,7 +15645,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN13proj_n
   %870 = getelementptr inbounds nuw i8, ptr %867, i64 8
   store i64 10, ptr %870, align 8, !tbaa !13
   %871 = getelementptr inbounds nuw i8, ptr %867, i64 26
-  store i8 0, ptr %871, align 1, !tbaa !14
+  store i8 0, ptr %871, align 2, !tbaa !14
   store ptr %867, ptr %868, align 8, !tbaa !14, !noalias !319
   %872 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %10, ptr %872, align 8, !tbaa !322, !noalias !319
@@ -15682,11 +15682,11 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN13proj_n
   %884 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %885 = getelementptr inbounds nuw i8, ptr %883, i64 16
   store ptr %885, ptr %883, align 8, !tbaa !12
-  store i64 8673762885135331187, ptr %885, align 1
+  store i64 8673762885135331187, ptr %885, align 8
   %886 = getelementptr inbounds nuw i8, ptr %883, i64 8
   store i64 8, ptr %886, align 8, !tbaa !13
   %887 = getelementptr inbounds nuw i8, ptr %883, i64 24
-  store i8 0, ptr %887, align 1, !tbaa !14
+  store i8 0, ptr %887, align 8, !tbaa !14
   store ptr %883, ptr %884, align 8, !tbaa !14, !noalias !319
   %888 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %12, ptr %888, align 8, !tbaa !322, !noalias !319
@@ -15702,11 +15702,11 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN13proj_n
 .noexc137.i:                                      ; preds = %.noexc130.i
   %893 = getelementptr inbounds nuw i8, ptr %892, i64 16
   store ptr %893, ptr %892, align 8, !tbaa !12
-  store i64 8745820479173259123, ptr %893, align 1
+  store i64 8745820479173259123, ptr %893, align 8
   %894 = getelementptr inbounds nuw i8, ptr %892, i64 8
   store i64 8, ptr %894, align 8, !tbaa !13
   %895 = getelementptr inbounds nuw i8, ptr %892, i64 24
-  store i8 0, ptr %895, align 1, !tbaa !14
+  store i8 0, ptr %895, align 8, !tbaa !14
   store ptr %892, ptr %891, align 8, !tbaa !14, !noalias !319
   %896 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store ptr %890, ptr %896, align 8, !tbaa !322, !noalias !319
@@ -15722,11 +15722,11 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN13proj_n
 .noexc146.i:                                      ; preds = %.noexc137.i
   %901 = getelementptr inbounds nuw i8, ptr %900, i64 16
   store ptr %901, ptr %900, align 8, !tbaa !12
-  store i64 8673779386214932852, ptr %901, align 1
+  store i64 8673779386214932852, ptr %901, align 8
   %902 = getelementptr inbounds nuw i8, ptr %900, i64 8
   store i64 8, ptr %902, align 8, !tbaa !13
   %903 = getelementptr inbounds nuw i8, ptr %900, i64 24
-  store i8 0, ptr %903, align 1, !tbaa !14
+  store i8 0, ptr %903, align 8, !tbaa !14
   store ptr %900, ptr %899, align 8, !tbaa !14, !noalias !319
   %904 = getelementptr inbounds nuw i8, ptr %12, i64 80
   store ptr %898, ptr %904, align 8, !tbaa !322, !noalias !319
@@ -15742,11 +15742,11 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN13proj_n
 .noexc155.i:                                      ; preds = %.noexc146.i
   %909 = getelementptr inbounds nuw i8, ptr %908, i64 16
   store ptr %909, ptr %908, align 8, !tbaa !12
-  store i64 8745836980252860788, ptr %909, align 1
+  store i64 8745836980252860788, ptr %909, align 8
   %910 = getelementptr inbounds nuw i8, ptr %908, i64 8
   store i64 8, ptr %910, align 8, !tbaa !13
   %911 = getelementptr inbounds nuw i8, ptr %908, i64 24
-  store i8 0, ptr %911, align 1, !tbaa !14
+  store i8 0, ptr %911, align 8, !tbaa !14
   store ptr %908, ptr %907, align 8, !tbaa !14, !noalias !319
   %912 = getelementptr inbounds nuw i8, ptr %12, i64 112
   store ptr %906, ptr %912, align 8, !tbaa !322, !noalias !319
@@ -21640,11 +21640,11 @@ _ZNSt10unique_ptrIN12TestTINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exi
   %2890 = getelementptr inbounds nuw i8, ptr %182, i64 8
   %2891 = getelementptr inbounds nuw i8, ptr %2889, i64 16
   store ptr %2891, ptr %2889, align 8, !tbaa !12
-  store i64 7809632533413520758, ptr %2891, align 1
+  store i64 7809632533413520758, ptr %2891, align 8
   %2892 = getelementptr inbounds nuw i8, ptr %2889, i64 8
   store i64 8, ptr %2892, align 8, !tbaa !13
   %2893 = getelementptr inbounds nuw i8, ptr %2889, i64 24
-  store i8 0, ptr %2893, align 1, !tbaa !14
+  store i8 0, ptr %2893, align 8, !tbaa !14
   store ptr %2889, ptr %2890, align 8, !tbaa !14
   %2894 = getelementptr inbounds nuw i8, ptr %182, i64 16
   store ptr %182, ptr %2894, align 8, !tbaa !322
@@ -21683,11 +21683,11 @@ _ZNSt10unique_ptrIN12TestTINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exi
 .noexc1863:                                       ; preds = %2898
   %2908 = getelementptr inbounds nuw i8, ptr %2907, i64 16
   store ptr %2908, ptr %2907, align 8, !tbaa !12
-  store i64 8673762885135331187, ptr %2908, align 1
+  store i64 8673762885135331187, ptr %2908, align 8
   %2909 = getelementptr inbounds nuw i8, ptr %2907, i64 8
   store i64 8, ptr %2909, align 8, !tbaa !13
   %2910 = getelementptr inbounds nuw i8, ptr %2907, i64 24
-  store i8 0, ptr %2910, align 1, !tbaa !14
+  store i8 0, ptr %2910, align 8, !tbaa !14
   store ptr %2907, ptr %2906, align 8, !tbaa !14
   %2911 = getelementptr inbounds nuw i8, ptr %184, i64 16
   store ptr %184, ptr %2911, align 8, !tbaa !322
@@ -21703,11 +21703,11 @@ _ZNSt10unique_ptrIN12TestTINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exi
 .noexc1871:                                       ; preds = %.noexc1863
   %2916 = getelementptr inbounds nuw i8, ptr %2915, i64 16
   store ptr %2916, ptr %2915, align 8, !tbaa !12
-  store i64 8745820479173259123, ptr %2916, align 1
+  store i64 8745820479173259123, ptr %2916, align 8
   %2917 = getelementptr inbounds nuw i8, ptr %2915, i64 8
   store i64 8, ptr %2917, align 8, !tbaa !13
   %2918 = getelementptr inbounds nuw i8, ptr %2915, i64 24
-  store i8 0, ptr %2918, align 1, !tbaa !14
+  store i8 0, ptr %2918, align 8, !tbaa !14
   store ptr %2915, ptr %2914, align 8, !tbaa !14
   %2919 = getelementptr inbounds nuw i8, ptr %184, i64 48
   store ptr %2913, ptr %2919, align 8, !tbaa !322
@@ -21723,11 +21723,11 @@ _ZNSt10unique_ptrIN12TestTINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exi
 .noexc1880:                                       ; preds = %.noexc1871
   %2924 = getelementptr inbounds nuw i8, ptr %2923, i64 16
   store ptr %2924, ptr %2923, align 8, !tbaa !12
-  store i64 8817878073211187059, ptr %2924, align 1
+  store i64 8817878073211187059, ptr %2924, align 8
   %2925 = getelementptr inbounds nuw i8, ptr %2923, i64 8
   store i64 8, ptr %2925, align 8, !tbaa !13
   %2926 = getelementptr inbounds nuw i8, ptr %2923, i64 24
-  store i8 0, ptr %2926, align 1, !tbaa !14
+  store i8 0, ptr %2926, align 8, !tbaa !14
   store ptr %2923, ptr %2922, align 8, !tbaa !14
   %2927 = getelementptr inbounds nuw i8, ptr %184, i64 80
   store ptr %2921, ptr %2927, align 8, !tbaa !322
@@ -21743,11 +21743,11 @@ _ZNSt10unique_ptrIN12TestTINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exi
 .noexc1889:                                       ; preds = %.noexc1880
   %2932 = getelementptr inbounds nuw i8, ptr %2931, i64 16
   store ptr %2932, ptr %2931, align 8, !tbaa !12
-  store i64 8817894574290788724, ptr %2932, align 1
+  store i64 8817894574290788724, ptr %2932, align 8
   %2933 = getelementptr inbounds nuw i8, ptr %2931, i64 8
   store i64 8, ptr %2933, align 8, !tbaa !13
   %2934 = getelementptr inbounds nuw i8, ptr %2931, i64 24
-  store i8 0, ptr %2934, align 1, !tbaa !14
+  store i8 0, ptr %2934, align 8, !tbaa !14
   store ptr %2931, ptr %2930, align 8, !tbaa !14
   %2935 = getelementptr inbounds nuw i8, ptr %184, i64 112
   store ptr %2929, ptr %2935, align 8, !tbaa !322
@@ -24354,11 +24354,11 @@ _ZNSt10unique_ptrIN12TestTINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exi
   %3846 = getelementptr inbounds nuw i8, ptr %251, i64 8
   %3847 = getelementptr inbounds nuw i8, ptr %3845, i64 16
   store ptr %3847, ptr %3845, align 8, !tbaa !12
-  store i64 7809632533413520758, ptr %3847, align 1
+  store i64 7809632533413520758, ptr %3847, align 8
   %3848 = getelementptr inbounds nuw i8, ptr %3845, i64 8
   store i64 8, ptr %3848, align 8, !tbaa !13
   %3849 = getelementptr inbounds nuw i8, ptr %3845, i64 24
-  store i8 0, ptr %3849, align 1, !tbaa !14
+  store i8 0, ptr %3849, align 8, !tbaa !14
   store ptr %3845, ptr %3846, align 8, !tbaa !14
   %3850 = getelementptr inbounds nuw i8, ptr %251, i64 16
   store ptr %251, ptr %3850, align 8, !tbaa !322
@@ -24397,11 +24397,11 @@ _ZNSt10unique_ptrIN12TestTINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exi
 .noexc2146:                                       ; preds = %3854
   %3864 = getelementptr inbounds nuw i8, ptr %3863, i64 16
   store ptr %3864, ptr %3863, align 8, !tbaa !12
-  store i64 8673762885135331187, ptr %3864, align 1
+  store i64 8673762885135331187, ptr %3864, align 8
   %3865 = getelementptr inbounds nuw i8, ptr %3863, i64 8
   store i64 8, ptr %3865, align 8, !tbaa !13
   %3866 = getelementptr inbounds nuw i8, ptr %3863, i64 24
-  store i8 0, ptr %3866, align 1, !tbaa !14
+  store i8 0, ptr %3866, align 8, !tbaa !14
   store ptr %3863, ptr %3862, align 8, !tbaa !14
   %3867 = getelementptr inbounds nuw i8, ptr %253, i64 16
   store ptr %253, ptr %3867, align 8, !tbaa !322
@@ -24417,11 +24417,11 @@ _ZNSt10unique_ptrIN12TestTINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exi
 .noexc2154:                                       ; preds = %.noexc2146
   %3872 = getelementptr inbounds nuw i8, ptr %3871, i64 16
   store ptr %3872, ptr %3871, align 8, !tbaa !12
-  store i64 8745820479173259123, ptr %3872, align 1
+  store i64 8745820479173259123, ptr %3872, align 8
   %3873 = getelementptr inbounds nuw i8, ptr %3871, i64 8
   store i64 8, ptr %3873, align 8, !tbaa !13
   %3874 = getelementptr inbounds nuw i8, ptr %3871, i64 24
-  store i8 0, ptr %3874, align 1, !tbaa !14
+  store i8 0, ptr %3874, align 8, !tbaa !14
   store ptr %3871, ptr %3870, align 8, !tbaa !14
   %3875 = getelementptr inbounds nuw i8, ptr %253, i64 48
   store ptr %3869, ptr %3875, align 8, !tbaa !322
@@ -24437,11 +24437,11 @@ _ZNSt10unique_ptrIN12TestTINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exi
 .noexc2163:                                       ; preds = %.noexc2154
   %3880 = getelementptr inbounds nuw i8, ptr %3879, i64 16
   store ptr %3880, ptr %3879, align 8, !tbaa !12
-  store i64 8817894574491330159, ptr %3880, align 1
+  store i64 8817894574491330159, ptr %3880, align 8
   %3881 = getelementptr inbounds nuw i8, ptr %3879, i64 8
   store i64 8, ptr %3881, align 8, !tbaa !13
   %3882 = getelementptr inbounds nuw i8, ptr %3879, i64 24
-  store i8 0, ptr %3882, align 1, !tbaa !14
+  store i8 0, ptr %3882, align 8, !tbaa !14
   store ptr %3879, ptr %3878, align 8, !tbaa !14
   %3883 = getelementptr inbounds nuw i8, ptr %253, i64 80
   store ptr %3877, ptr %3883, align 8, !tbaa !322
@@ -27041,7 +27041,7 @@ _ZNSt10unique_ptrIN12TestTINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exi
   %4788 = getelementptr inbounds nuw i8, ptr %4784, i64 8
   store i64 10, ptr %4788, align 8, !tbaa !13
   %4789 = getelementptr inbounds nuw i8, ptr %4784, i64 26
-  store i8 0, ptr %4789, align 1, !tbaa !14
+  store i8 0, ptr %4789, align 2, !tbaa !14
   store ptr %4784, ptr %4786, align 8, !tbaa !14
   %4790 = getelementptr inbounds nuw i8, ptr %320, i64 16
   store ptr %320, ptr %4790, align 8, !tbaa !322
@@ -27057,11 +27057,11 @@ _ZNSt10unique_ptrIN12TestTINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exi
 .noexc2420:                                       ; preds = %.noexc2413
   %4795 = getelementptr inbounds nuw i8, ptr %4794, i64 16
   store ptr %4795, ptr %4794, align 8, !tbaa !12
-  store i64 7809632533413520758, ptr %4795, align 1
+  store i64 7809632533413520758, ptr %4795, align 8
   %4796 = getelementptr inbounds nuw i8, ptr %4794, i64 8
   store i64 8, ptr %4796, align 8, !tbaa !13
   %4797 = getelementptr inbounds nuw i8, ptr %4794, i64 24
-  store i8 0, ptr %4797, align 1, !tbaa !14
+  store i8 0, ptr %4797, align 8, !tbaa !14
   store ptr %4794, ptr %4793, align 8, !tbaa !14
   %4798 = getelementptr inbounds nuw i8, ptr %320, i64 48
   store ptr %4792, ptr %4798, align 8, !tbaa !322
@@ -27110,11 +27110,11 @@ _ZNSt10unique_ptrIN12TestTINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exi
 .noexc2430:                                       ; preds = %4815
   %4818 = getelementptr inbounds nuw i8, ptr %4817, i64 16
   store ptr %4818, ptr %4817, align 8, !tbaa !12
-  store i64 8673762885135331187, ptr %4818, align 1
+  store i64 8673762885135331187, ptr %4818, align 8
   %4819 = getelementptr inbounds nuw i8, ptr %4817, i64 8
   store i64 8, ptr %4819, align 8, !tbaa !13
   %4820 = getelementptr inbounds nuw i8, ptr %4817, i64 24
-  store i8 0, ptr %4820, align 1, !tbaa !14
+  store i8 0, ptr %4820, align 8, !tbaa !14
   store ptr %4817, ptr %4816, align 8, !tbaa !14
   %4821 = getelementptr inbounds nuw i8, ptr %322, i64 16
   store ptr %322, ptr %4821, align 8, !tbaa !322
@@ -27130,11 +27130,11 @@ _ZNSt10unique_ptrIN12TestTINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exi
 .noexc2438:                                       ; preds = %.noexc2430
   %4826 = getelementptr inbounds nuw i8, ptr %4825, i64 16
   store ptr %4826, ptr %4825, align 8, !tbaa !12
-  store i64 8745820479173259123, ptr %4826, align 1
+  store i64 8745820479173259123, ptr %4826, align 8
   %4827 = getelementptr inbounds nuw i8, ptr %4825, i64 8
   store i64 8, ptr %4827, align 8, !tbaa !13
   %4828 = getelementptr inbounds nuw i8, ptr %4825, i64 24
-  store i8 0, ptr %4828, align 1, !tbaa !14
+  store i8 0, ptr %4828, align 8, !tbaa !14
   store ptr %4825, ptr %4824, align 8, !tbaa !14
   %4829 = getelementptr inbounds nuw i8, ptr %322, i64 48
   store ptr %4823, ptr %4829, align 8, !tbaa !322
@@ -27150,11 +27150,11 @@ _ZNSt10unique_ptrIN12TestTINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exi
 .noexc2447:                                       ; preds = %.noexc2438
   %4834 = getelementptr inbounds nuw i8, ptr %4833, i64 16
   store ptr %4834, ptr %4833, align 8, !tbaa !12
-  store i64 8673779386214932852, ptr %4834, align 1
+  store i64 8673779386214932852, ptr %4834, align 8
   %4835 = getelementptr inbounds nuw i8, ptr %4833, i64 8
   store i64 8, ptr %4835, align 8, !tbaa !13
   %4836 = getelementptr inbounds nuw i8, ptr %4833, i64 24
-  store i8 0, ptr %4836, align 1, !tbaa !14
+  store i8 0, ptr %4836, align 8, !tbaa !14
   store ptr %4833, ptr %4832, align 8, !tbaa !14
   %4837 = getelementptr inbounds nuw i8, ptr %322, i64 80
   store ptr %4831, ptr %4837, align 8, !tbaa !322
@@ -27170,11 +27170,11 @@ _ZNSt10unique_ptrIN12TestTINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exi
 .noexc2456:                                       ; preds = %.noexc2447
   %4842 = getelementptr inbounds nuw i8, ptr %4841, i64 16
   store ptr %4842, ptr %4841, align 8, !tbaa !12
-  store i64 8745836980252860788, ptr %4842, align 1
+  store i64 8745836980252860788, ptr %4842, align 8
   %4843 = getelementptr inbounds nuw i8, ptr %4841, i64 8
   store i64 8, ptr %4843, align 8, !tbaa !13
   %4844 = getelementptr inbounds nuw i8, ptr %4841, i64 24
-  store i8 0, ptr %4844, align 1, !tbaa !14
+  store i8 0, ptr %4844, align 8, !tbaa !14
   store ptr %4841, ptr %4840, align 8, !tbaa !14
   %4845 = getelementptr inbounds nuw i8, ptr %322, i64 112
   store ptr %4839, ptr %4845, align 8, !tbaa !322
@@ -27190,11 +27190,11 @@ _ZNSt10unique_ptrIN12TestTINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exi
 .noexc2465:                                       ; preds = %.noexc2456
   %4850 = getelementptr inbounds nuw i8, ptr %4849, i64 16
   store ptr %4850, ptr %4849, align 8, !tbaa !12
-  store i64 8817894574491330159, ptr %4850, align 1
+  store i64 8817894574491330159, ptr %4850, align 8
   %4851 = getelementptr inbounds nuw i8, ptr %4849, i64 8
   store i64 8, ptr %4851, align 8, !tbaa !13
   %4852 = getelementptr inbounds nuw i8, ptr %4849, i64 24
-  store i8 0, ptr %4852, align 1, !tbaa !14
+  store i8 0, ptr %4852, align 8, !tbaa !14
   store ptr %4849, ptr %4848, align 8, !tbaa !14
   %4853 = getelementptr inbounds nuw i8, ptr %322, i64 144
   store ptr %4847, ptr %4853, align 8, !tbaa !322
@@ -29843,11 +29843,11 @@ _ZNSt10unique_ptrIN12TestTINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exi
 .noexc2712:                                       ; preds = %5784
   %5787 = getelementptr inbounds nuw i8, ptr %5786, i64 16
   store ptr %5787, ptr %5786, align 8, !tbaa !12
-  store i32 1701736302, ptr %5787, align 1
+  store i32 1701736302, ptr %5787, align 8
   %5788 = getelementptr inbounds nuw i8, ptr %5786, i64 8
   store i64 4, ptr %5788, align 8, !tbaa !13
   %5789 = getelementptr inbounds nuw i8, ptr %5786, i64 20
-  store i8 0, ptr %5789, align 1, !tbaa !14
+  store i8 0, ptr %5789, align 4, !tbaa !14
   store ptr %5786, ptr %5785, align 8, !tbaa !14
   %5790 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEixIKcEERSC_PT_(ptr noundef nonnull align 8 dereferenceable(16) %387, ptr noundef @.str.8)
           to label %5791 unwind label %5824
@@ -30758,7 +30758,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit2784: ; preds = %_ZNKSt7__cxx1112ba
   %6114 = getelementptr inbounds nuw i8, ptr %6112, i64 8
   store i64 12, ptr %6114, align 8, !tbaa !13
   %6115 = getelementptr inbounds nuw i8, ptr %6112, i64 28
-  store i8 0, ptr %6115, align 1, !tbaa !14
+  store i8 0, ptr %6115, align 4, !tbaa !14
   store ptr %6112, ptr %6111, align 8, !tbaa !14
   %6116 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEixIKcEERSC_PT_(ptr noundef nonnull align 8 dereferenceable(16) %404, ptr noundef @.str.8)
           to label %6117 unwind label %6166
@@ -31172,7 +31172,7 @@ _ZNSt10unique_ptrIN12TestTINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exi
   %6253 = getelementptr inbounds nuw i8, ptr %6251, i64 8
   store i64 12, ptr %6253, align 8, !tbaa !13
   %6254 = getelementptr inbounds nuw i8, ptr %6251, i64 28
-  store i8 0, ptr %6254, align 1, !tbaa !14
+  store i8 0, ptr %6254, align 4, !tbaa !14
   store ptr %6251, ptr %6250, align 8, !tbaa !14
   %6255 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEixIKcEERSC_PT_(ptr noundef nonnull align 8 dereferenceable(16) %418, ptr noundef @.str.8)
           to label %6256 unwind label %6386
@@ -31855,7 +31855,7 @@ _ZNSt10unique_ptrIN12TestTINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exi
   %6523 = getelementptr inbounds nuw i8, ptr %6521, i64 8
   store i64 12, ptr %6523, align 8, !tbaa !13
   %6524 = getelementptr inbounds nuw i8, ptr %6521, i64 28
-  store i8 0, ptr %6524, align 1, !tbaa !14
+  store i8 0, ptr %6524, align 4, !tbaa !14
   store ptr %6521, ptr %6520, align 8, !tbaa !14
   %6525 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEixIKcEERSC_PT_(ptr noundef nonnull align 8 dereferenceable(16) %436, ptr noundef @.str.8)
           to label %6526 unwind label %6656
@@ -37602,7 +37602,7 @@ define linkonce_odr hidden void @_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorN
   store ptr %12, ptr %11, align 8, !tbaa !12
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %13, align 8, !tbaa !13
-  store i8 0, ptr %12, align 1, !tbaa !14
+  store i8 0, ptr %12, align 8, !tbaa !14
   store ptr %11, ptr %0, align 8, !tbaa !14
   br label %22
 
@@ -52802,7 +52802,7 @@ define linkonce_odr hidden { i8, ptr } @_ZN13proj_nlohmann6detail28json_sax_dom_
   store ptr %32, ptr %31, align 8, !tbaa !12
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 0, ptr %33, align 8, !tbaa !13
-  store i8 0, ptr %32, align 1, !tbaa !14
+  store i8 0, ptr %32, align 8, !tbaa !14
   store ptr %31, ptr %22, align 8, !tbaa !14
   br label %_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEE10json_valueC2ENS_6detail7value_tE.exit
 
@@ -56584,7 +56584,7 @@ define linkonce_odr hidden noundef nonnull ptr @_ZN13proj_nlohmann6detail19json_
   store ptr %24, ptr %23, align 8, !tbaa !12
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %25, align 8, !tbaa !13
-  store i8 0, ptr %24, align 1, !tbaa !14
+  store i8 0, ptr %24, align 8, !tbaa !14
   %26 = ptrtoint ptr %23 to i64
   br label %_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEE10json_valueC2ENS_6detail7value_tE.exit
 
@@ -56691,7 +56691,7 @@ _ZNSt6vectorIN13proj_nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt1
   store ptr %76, ptr %75, align 8, !tbaa !12
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store i64 0, ptr %77, align 8, !tbaa !13
-  store i8 0, ptr %76, align 1, !tbaa !14
+  store i8 0, ptr %76, align 8, !tbaa !14
   %78 = ptrtoint ptr %75 to i64
   br label %_ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEE10json_valueC2ENS_6detail7value_tE.exit7
 
@@ -58403,7 +58403,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8, !tbaa !13
   store ptr %13, ptr %10, align 8, !tbaa !4
   store i64 0, ptr %24, align 8, !tbaa !13
-  store i8 0, ptr %13, align 1, !tbaa !14
+  store i8 0, ptr %13, align 8, !tbaa !14
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i8 0, ptr %26, align 8, !tbaa !38
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 72

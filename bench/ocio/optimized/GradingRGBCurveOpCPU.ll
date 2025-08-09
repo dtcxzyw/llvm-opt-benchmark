@@ -678,7 +678,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_129GradingRGBCurveLi
   %50 = load float, ptr %43, align 4, !tbaa !77
   %51 = tail call noundef float @_ZNK19OpenColorIO_v2_5dev23GradingBSplineCurveImpl10KnotsCoefs9evalCurveEif(ptr noundef nonnull align 8 dereferenceable(104) %37, i32 noundef 3, float noundef %50)
   store float %51, ptr %43, align 4, !tbaa !77
-  %52 = load <4 x float>, ptr %.01925, align 1, !tbaa !63
+  %52 = load <4 x float>, ptr %.01925, align 4, !tbaa !63
   %53 = fcmp ule <4 x float> %52, splat (float -5.500000e+00)
   %54 = fadd <4 x float> %52, splat (float 7.000000e+00)
   %55 = fmul <4 x float> %54, splat (float 0x3F6690BA40000000)
@@ -708,7 +708,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_129GradingRGBCurveLi
   %79 = select <4 x i1> %75, <4 x float> %78, <4 x float> splat (float 0x3F24B08FE0000000)
   %80 = select <4 x i1> %76, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %79
   %.v.i23 = select <4 x i1> %53, <4 x float> %55, <4 x float> %80
-  store <4 x float> %.v.i23, ptr %.01925, align 1, !tbaa !63
+  store <4 x float> %.v.i23, ptr %.01925, align 4, !tbaa !63
   %81 = getelementptr inbounds nuw i8, ptr %.02024, i64 12
   %82 = load float, ptr %81, align 4, !tbaa !77
   %83 = getelementptr inbounds nuw i8, ptr %.01925, i64 12
@@ -1317,7 +1317,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_129GradingRGBCurveLi
   %50 = load float, ptr %43, align 4, !tbaa !77
   %51 = tail call noundef float @_ZNK19OpenColorIO_v2_5dev23GradingBSplineCurveImpl10KnotsCoefs12evalCurveRevEif(ptr noundef nonnull align 8 dereferenceable(104) %37, i32 noundef 2, float noundef %50)
   store float %51, ptr %43, align 4, !tbaa !77
-  %52 = load <4 x float>, ptr %.01925, align 1, !tbaa !63
+  %52 = load <4 x float>, ptr %.01925, align 4, !tbaa !63
   %53 = fcmp ule <4 x float> %52, splat (float -5.500000e+00)
   %54 = fadd <4 x float> %52, splat (float 7.000000e+00)
   %55 = fmul <4 x float> %54, splat (float 0x3F6690BA40000000)
@@ -1347,7 +1347,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_129GradingRGBCurveLi
   %79 = select <4 x i1> %75, <4 x float> %78, <4 x float> splat (float 0x3F24B08FE0000000)
   %80 = select <4 x i1> %76, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %79
   %.v.i23 = select <4 x i1> %53, <4 x float> %55, <4 x float> %80
-  store <4 x float> %.v.i23, ptr %.01925, align 1, !tbaa !63
+  store <4 x float> %.v.i23, ptr %.01925, align 4, !tbaa !63
   %81 = getelementptr inbounds nuw i8, ptr %.02024, i64 12
   %82 = load float, ptr %81, align 4, !tbaa !77
   %83 = getelementptr inbounds nuw i8, ptr %.01925, i64 12

@@ -34245,10 +34245,10 @@ _ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE10_row_entryELb1EjE4sizeEv.ex
   store i8 %41, ptr %26, align 4
   %42 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %44 = load i32, ptr %42, align 4, !tbaa !48
-  %45 = load i32, ptr %43, align 4, !tbaa !48
-  store i32 %45, ptr %42, align 4, !tbaa !48
-  store i32 %44, ptr %43, align 4, !tbaa !48
+  %44 = load i32, ptr %42, align 8, !tbaa !48
+  %45 = load i32, ptr %43, align 8, !tbaa !48
+  store i32 %45, ptr %42, align 8, !tbaa !48
+  store i32 %44, ptr %43, align 8, !tbaa !48
   %46 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %48 = load ptr, ptr %46, align 8, !tbaa !89

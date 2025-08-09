@@ -8287,9 +8287,9 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQueryESaIS1
   store ptr null, ptr %22, align 8, !alias.scope !61, !noalias !58
   %24 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
-  %26 = load i32, ptr %25, align 4, !alias.scope !61, !noalias !58
-  store i32 %26, ptr %24, align 4, !alias.scope !58, !noalias !61
-  store i32 0, ptr %25, align 4, !alias.scope !61, !noalias !58
+  %26 = load i32, ptr %25, align 8, !alias.scope !61, !noalias !58
+  store i32 %26, ptr %24, align 8, !alias.scope !58, !noalias !61
+  store i32 0, ptr %25, align 8, !alias.scope !61, !noalias !58
   %27 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 20
   %28 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 20
   %29 = load i32, ptr %28, align 4, !alias.scope !61, !noalias !58
@@ -8323,9 +8323,9 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQueryESaIS1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %46, i64 32, i1 false), !alias.scope !63
   %47 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 96
   %48 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 96
-  %49 = load i32, ptr %48, align 4, !alias.scope !61, !noalias !58
-  store i32 %49, ptr %47, align 4, !alias.scope !58, !noalias !61
-  store i32 0, ptr %48, align 4, !alias.scope !61, !noalias !58
+  %49 = load i32, ptr %48, align 8, !alias.scope !61, !noalias !58
+  store i32 %49, ptr %47, align 8, !alias.scope !58, !noalias !61
+  store i32 0, ptr %48, align 8, !alias.scope !61, !noalias !58
   %50 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 100
   %51 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 100
   %52 = load i32, ptr %51, align 4, !alias.scope !61, !noalias !58
@@ -10519,7 +10519,7 @@ _ZNSt8__detail9__variant9__emplaceILm0ELb0EJN32pxrInternal_v0_24__pxrReserved__1
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load i32, ptr %21, align 8
-  store i32 %22, ptr %20, align 4
+  store i32 %22, ptr %20, align 8
   store i32 0, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -10769,7 +10769,7 @@ _ZNSt8__detail9__variant9__emplaceILm1ELb0EJN32pxrInternal_v0_24__pxrReserved__1
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load i32, ptr %17, align 8
-  store i32 %18, ptr %16, align 4
+  store i32 %18, ptr %16, align 8
   store i32 0, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -10805,7 +10805,7 @@ _ZNSt8__detail9__variant9__emplaceILm1ELb0EJN32pxrInternal_v0_24__pxrReserved__1
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %41 = load i32, ptr %40, align 8
-  store i32 %41, ptr %39, align 4
+  store i32 %41, ptr %39, align 8
   store i32 0, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 100
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 100
@@ -14932,9 +14932,9 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeEEE9
   store ptr null, ptr %58, align 8, !alias.scope !110, !noalias !107
   %60 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %61 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
-  %62 = load i32, ptr %61, align 4, !alias.scope !110, !noalias !107
-  store i32 %62, ptr %60, align 4, !alias.scope !107, !noalias !110
-  store i32 0, ptr %61, align 4, !alias.scope !110, !noalias !107
+  %62 = load i32, ptr %61, align 8, !alias.scope !110, !noalias !107
+  store i32 %62, ptr %60, align 8, !alias.scope !107, !noalias !110
+  store i32 0, ptr %61, align 8, !alias.scope !110, !noalias !107
   %63 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 20
   %64 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 20
   %65 = load i32, ptr %64, align 4, !alias.scope !110, !noalias !107
@@ -14970,9 +14970,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESaIS1_EE11_S_relo
   store ptr null, ptr %74, align 8, !alias.scope !116, !noalias !113
   %76 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 16
   %77 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 16
-  %78 = load i32, ptr %77, align 4, !alias.scope !116, !noalias !113
-  store i32 %78, ptr %76, align 4, !alias.scope !113, !noalias !116
-  store i32 0, ptr %77, align 4, !alias.scope !116, !noalias !113
+  %78 = load i32, ptr %77, align 8, !alias.scope !116, !noalias !113
+  store i32 %78, ptr %76, align 8, !alias.scope !113, !noalias !116
+  store i32 0, ptr %77, align 8, !alias.scope !116, !noalias !113
   %79 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 20
   %80 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 20
   %81 = load i32, ptr %80, align 4, !alias.scope !116, !noalias !113
@@ -15059,9 +15059,9 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuer
   store ptr null, ptr %24, align 8, !alias.scope !121, !noalias !118
   %26 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %27 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
-  %28 = load i32, ptr %27, align 4, !alias.scope !121, !noalias !118
-  store i32 %28, ptr %26, align 4, !alias.scope !118, !noalias !121
-  store i32 0, ptr %27, align 4, !alias.scope !121, !noalias !118
+  %28 = load i32, ptr %27, align 8, !alias.scope !121, !noalias !118
+  store i32 %28, ptr %26, align 8, !alias.scope !118, !noalias !121
+  store i32 0, ptr %27, align 8, !alias.scope !121, !noalias !118
   %29 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 20
   %30 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 20
   %31 = load i32, ptr %30, align 4, !alias.scope !121, !noalias !118
@@ -15095,9 +15095,9 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuer
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 8 dereferenceable(32) %48, i64 32, i1 false), !alias.scope !123
   %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 96
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 96
-  %51 = load i32, ptr %50, align 4, !alias.scope !121, !noalias !118
-  store i32 %51, ptr %49, align 4, !alias.scope !118, !noalias !121
-  store i32 0, ptr %50, align 4, !alias.scope !121, !noalias !118
+  %51 = load i32, ptr %50, align 8, !alias.scope !121, !noalias !118
+  store i32 %51, ptr %49, align 8, !alias.scope !118, !noalias !121
+  store i32 0, ptr %50, align 8, !alias.scope !121, !noalias !118
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 100
   %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 100
   %54 = load i32, ptr %53, align 4, !alias.scope !121, !noalias !118
@@ -15137,9 +15137,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQueryESaIS1_EE11_S
   store ptr null, ptr %65, align 8, !alias.scope !127, !noalias !124
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 16
   %68 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 16
-  %69 = load i32, ptr %68, align 4, !alias.scope !127, !noalias !124
-  store i32 %69, ptr %67, align 4, !alias.scope !124, !noalias !127
-  store i32 0, ptr %68, align 4, !alias.scope !127, !noalias !124
+  %69 = load i32, ptr %68, align 8, !alias.scope !127, !noalias !124
+  store i32 %69, ptr %67, align 8, !alias.scope !124, !noalias !127
+  store i32 0, ptr %68, align 8, !alias.scope !127, !noalias !124
   %70 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 20
   %71 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 20
   %72 = load i32, ptr %71, align 4, !alias.scope !127, !noalias !124
@@ -15173,9 +15173,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQueryESaIS1_EE11_S
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %88, ptr noundef nonnull align 8 dereferenceable(32) %89, i64 32, i1 false), !alias.scope !129
   %90 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 96
   %91 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 96
-  %92 = load i32, ptr %91, align 4, !alias.scope !127, !noalias !124
-  store i32 %92, ptr %90, align 4, !alias.scope !124, !noalias !127
-  store i32 0, ptr %91, align 4, !alias.scope !127, !noalias !124
+  %92 = load i32, ptr %91, align 8, !alias.scope !127, !noalias !124
+  store i32 %92, ptr %90, align 8, !alias.scope !124, !noalias !127
+  store i32 0, ptr %91, align 8, !alias.scope !127, !noalias !124
   %93 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 100
   %94 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 100
   %95 = load i32, ptr %94, align 4, !alias.scope !127, !noalias !124

@@ -833,7 +833,7 @@ _ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEEaSEPS2_.exit: ; pre
   store i32 %51, ptr %23, align 4, !tbaa !362
   %52 = getelementptr inbounds nuw i8, ptr %43, i64 24
   store i32 %47, ptr %52, align 8, !tbaa !364
-  store i32 1, ptr %48, align 4, !tbaa !362
+  store i32 1, ptr %48, align 8, !tbaa !362
   br label %57
 
 53:                                               ; preds = %40

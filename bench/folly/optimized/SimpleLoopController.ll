@@ -252,7 +252,7 @@ define linkonce_odr void @_ZN5folly6fibers20SimpleLoopController7runLoopEv(ptr n
   %19 = add nsw i64 %18, -1
   store i64 %19, ptr %17, align 16, !tbaa !36
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 448
-  %21 = load atomic i64, ptr %20 acquire, align 8
+  %21 = load atomic i64, ptr %20 acquire, align 16
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZN5folly6fibers12FiberManager19shouldRunLoopRemoteEv.exit, label %_ZN5folly6fibers12FiberManager19shouldRunLoopRemoteEv.exit.thread
 
@@ -2238,7 +2238,7 @@ _ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.e
   %298 = load ptr, ptr %297, align 8, !tbaa !175
   %299 = getelementptr inbounds nuw i8, ptr %1, i64 904
   store ptr %298, ptr %299, align 8, !tbaa !175
-  store ptr %295, ptr %296, align 8, !tbaa !174
+  store ptr %295, ptr %296, align 64, !tbaa !174
   store ptr %296, ptr %297, align 8, !tbaa !175
   store ptr %296, ptr %298, align 8, !tbaa !174
   br label %.loopexit

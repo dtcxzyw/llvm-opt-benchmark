@@ -19583,8 +19583,8 @@ define hidden void @"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$GT$$u20$a
   store ptr %16, ptr %18, align 8, !noalias !4635
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 464
   store ptr %17, ptr %34, align 8, !noalias !4635
-  store atomic i8 0, ptr %19 seq_cst, align 1, !noalias !4652
-  %35 = load atomic i8, ptr %6 seq_cst, align 1, !noalias !4635
+  store atomic i8 0, ptr %19 seq_cst, align 8, !noalias !4652
+  %35 = load atomic i8, ptr %6 seq_cst, align 8, !noalias !4635
   %36 = icmp eq i8 %35, 0
   br i1 %36, label %42, label %39
 
@@ -19593,7 +19593,7 @@ define hidden void @"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$GT$$u20$a
           cleanup
   store ptr %16, ptr %18, align 8, !noalias !4635
   store ptr %17, ptr %29, align 8, !noalias !4635
-  store atomic i8 0, ptr %19 seq_cst, align 1, !noalias !4657
+  store atomic i8 0, ptr %19 seq_cst, align 8, !noalias !4657
   resume { ptr, i32 } %38
 
 39:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hb2d881794beb6cb1E.llvm.12416795407365802493.exit.i", %31, %3
@@ -19684,8 +19684,8 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN92_$LT$futures_channel..oneshot..Re
   store ptr %15, ptr %4, align 8, !noalias !4672
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %16, ptr %32, align 8, !noalias !4672
-  store atomic i8 0, ptr %17 seq_cst, align 1, !noalias !4691
-  %33 = load atomic i8, ptr %5 seq_cst, align 1, !noalias !4672
+  store atomic i8 0, ptr %17 seq_cst, align 8, !noalias !4691
+  %33 = load atomic i8, ptr %5 seq_cst, align 2, !noalias !4672
   %34 = icmp eq i8 %33, 0
   br i1 %34, label %"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17hfa12716ba528b2c6E.llvm.12416795407365802493.exit", label %37
 
@@ -19694,7 +19694,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN92_$LT$futures_channel..oneshot..Re
           cleanup
   store ptr %15, ptr %4, align 8, !noalias !4672
   store ptr %16, ptr %27, align 8, !noalias !4672
-  store atomic i8 0, ptr %17 seq_cst, align 1, !noalias !4696
+  store atomic i8 0, ptr %17 seq_cst, align 8, !noalias !4696
   resume { ptr, i32 } %36
 
 37:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hb2d881794beb6cb1E.llvm.12416795407365802493.exit.i", %29, %2

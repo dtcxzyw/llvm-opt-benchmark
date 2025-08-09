@@ -503,7 +503,7 @@ define i32 @ff_jpeg2000_init_component(ptr noundef %0, ptr noundef readonly capt
   %. = select i1 %105, i8 1, i8 3
   store i8 %., ptr %75, align 8, !tbaa !45
   %106 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %107 = load i32, ptr %106, align 4, !tbaa !18
+  %107 = load i32, ptr %106, align 8, !tbaa !18
   %108 = load i32, ptr %80, align 4, !tbaa !18
   %109 = icmp eq i32 %107, %108
   br i1 %109, label %120, label %110
@@ -874,23 +874,23 @@ init_band_stepsize.exit.i:                        ; preds = %214, %211
   %343 = add i32 %331, 1
   %344 = shl i32 %343, %309
   %345 = getelementptr inbounds nuw i8, ptr %322, i64 40
-  store i32 %344, ptr %345, align 4, !tbaa !18
+  store i32 %344, ptr %345, align 8, !tbaa !18
   %346 = load i32, ptr %161, align 8, !tbaa !18
   %..i.i = tail call i32 @llvm.smax.i32(i32 %332, i32 %346)
   store i32 %..i.i, ptr %333, align 4, !tbaa !18
   %347 = load i32, ptr %311, align 4, !tbaa !18
   %348 = tail call i32 @llvm.smin.i32(i32 %344, i32 %347)
-  store i32 %348, ptr %345, align 4, !tbaa !18
+  store i32 %348, ptr %345, align 8, !tbaa !18
   %349 = add i32 %340, 1
   %350 = shl i32 %349, %310
   %351 = getelementptr inbounds nuw i8, ptr %322, i64 48
-  store i32 %350, ptr %351, align 4, !tbaa !18
+  store i32 %350, ptr %351, align 8, !tbaa !18
   %352 = load i32, ptr %312, align 8, !tbaa !18
   %353 = tail call i32 @llvm.smax.i32(i32 %341, i32 %352)
   store i32 %353, ptr %342, align 4, !tbaa !18
   %354 = load i32, ptr %313, align 4, !tbaa !18
   %355 = tail call i32 @llvm.smin.i32(i32 %350, i32 %354)
-  store i32 %355, ptr %351, align 4, !tbaa !18
+  store i32 %355, ptr %351, align 8, !tbaa !18
   %356 = load i16, ptr %314, align 8, !tbaa !74
   %357 = zext nneg i16 %356 to i32
   %358 = sext i32 %348 to i64
@@ -992,14 +992,14 @@ init_band_stepsize.exit.i:                        ; preds = %214, %211
   %424 = add nuw i32 %409, 1
   %425 = shl i32 %424, %404
   %426 = add i32 %425, %406
-  %427 = load i32, ptr %345, align 4, !tbaa !18
+  %427 = load i32, ptr %345, align 8, !tbaa !18
   %428 = tail call i32 @llvm.smin.i32(i32 %426, i32 %427)
   %429 = getelementptr inbounds nuw i8, ptr %401, i64 76
   store i32 %428, ptr %429, align 4, !tbaa !18
   %430 = add i32 %419, 1
   %431 = shl i32 %430, %415
   %432 = add i32 %431, %417
-  %433 = load i32, ptr %351, align 4, !tbaa !18
+  %433 = load i32, ptr %351, align 8, !tbaa !18
   %434 = tail call i32 @llvm.smin.i32(i32 %432, i32 %433)
   %435 = getelementptr inbounds nuw i8, ptr %401, i64 84
   store i32 %434, ptr %435, align 4, !tbaa !18

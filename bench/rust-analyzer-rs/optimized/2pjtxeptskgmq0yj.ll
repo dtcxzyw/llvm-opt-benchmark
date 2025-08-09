@@ -5933,7 +5933,7 @@ define internal fastcc { i64, i32 } @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..i
   %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
   %4 = load ptr, ptr %.0.val, align 8, !alias.scope !1646, !noalias !1653, !nonnull !4, !noundef !4
   %.promoted.i.i.i.i = load ptr, ptr %3, align 8, !alias.scope !1654, !noalias !1653
-  %.promoted18.i.i.i.i = load i8, ptr %2, align 1, !alias.scope !1655, !noalias !1656
+  %.promoted18.i.i.i.i = load i8, ptr %2, align 8, !alias.scope !1655, !noalias !1656
   %5 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !1657, !noalias !1653
   %7 = ptrtoint ptr %4 to i64

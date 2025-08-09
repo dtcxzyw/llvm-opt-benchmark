@@ -64555,7 +64555,7 @@ _ZNK4cvc58internal6theory5arith6linear7Tableau7isBasicEj.exit.thread: ; preds = 
   %47 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ColumnVector", ptr %46, i64 %19
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !1135
-  %.sroa.0107.0128 = load i32, ptr %47, align 4, !tbaa !411
+  %.sroa.0107.0128 = load i32, ptr %47, align 8, !tbaa !411
   %50 = icmp eq i32 %.sroa.0107.0128, -1
   br i1 %50, label %.loopexit, label %.lr.ph.preheader
 
@@ -68446,7 +68446,7 @@ _ZNK4cvc58internal6theory5arith6linear7Tableau7isBasicEj.exit.thread: ; preds = 
   %29 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ColumnVector", ptr %28, i64 %15
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !1135
-  %.sroa.0.016 = load i32, ptr %29, align 4, !tbaa !411
+  %.sroa.0.016 = load i32, ptr %29, align 8, !tbaa !411
   %32 = icmp eq i32 %.sroa.0.016, -1
   br i1 %32, label %.loopexit, label %.lr.ph.preheader
 

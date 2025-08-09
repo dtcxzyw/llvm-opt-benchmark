@@ -9268,7 +9268,7 @@ _ZN17algebraic_numbers7manager3imp3delERNS_4anumE.exit: ; preds = %.noexc14, %29
   %54 = getelementptr inbounds nuw i8, ptr %49, i64 24
   store ptr null, ptr %54, align 8, !tbaa !26
   %55 = load i32, ptr %23, align 8, !tbaa !102
-  store i32 %55, ptr %49, align 4, !tbaa !102
+  store i32 %55, ptr %49, align 8, !tbaa !102
   store i32 0, ptr %23, align 8, !tbaa !102
   %56 = load ptr, ptr %25, align 8, !tbaa !135
   store ptr %56, ptr %51, align 8, !tbaa !135
@@ -9295,7 +9295,7 @@ _ZN17algebraic_numbers7manager3imp3delERNS_4anumE.exit: ; preds = %.noexc14, %29
   %73 = or disjoint i8 %72, %67
   store i8 %73, ptr %24, align 4
   %74 = load i32, ptr %26, align 8, !tbaa !102
-  store i32 %74, ptr %52, align 4, !tbaa !102
+  store i32 %74, ptr %52, align 8, !tbaa !102
   store i32 1, ptr %26, align 8, !tbaa !102
   %75 = load ptr, ptr %28, align 8, !tbaa !135
   store ptr %75, ptr %54, align 8, !tbaa !135
@@ -9867,7 +9867,7 @@ define linkonce_odr hidden noundef ptr @_ZN17algebraic_numbers7manager3imp13mk_b
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr null, ptr %13, align 8, !tbaa !26
   %14 = load i32, ptr %1, align 8, !tbaa !102
-  store i32 %14, ptr %8, align 4, !tbaa !102
+  store i32 %14, ptr %8, align 8, !tbaa !102
   store i32 0, ptr %1, align 8, !tbaa !102
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !135
@@ -9896,9 +9896,9 @@ define linkonce_odr hidden noundef ptr @_ZN17algebraic_numbers7manager3imp13mk_b
   %34 = or disjoint i8 %33, %28
   store i8 %34, ptr %19, align 4
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %36 = load i32, ptr %11, align 4, !tbaa !102
+  %36 = load i32, ptr %11, align 8, !tbaa !102
   %37 = load i32, ptr %35, align 8, !tbaa !102
-  store i32 %37, ptr %11, align 4, !tbaa !102
+  store i32 %37, ptr %11, align 8, !tbaa !102
   store i32 %36, ptr %35, align 8, !tbaa !102
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %39 = load ptr, ptr %13, align 8, !tbaa !135
@@ -10305,7 +10305,7 @@ _ZN17algebraic_numbers7manager3imp3delERNS_4anumE.exit: ; preds = %.noexc10, %32
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 24
   store ptr null, ptr %57, align 8, !tbaa !26
   %58 = load i32, ptr %26, align 8, !tbaa !102
-  store i32 %58, ptr %52, align 4, !tbaa !102
+  store i32 %58, ptr %52, align 8, !tbaa !102
   store i32 0, ptr %26, align 8, !tbaa !102
   %59 = load ptr, ptr %28, align 8, !tbaa !135
   store ptr %59, ptr %54, align 8, !tbaa !135
@@ -10332,7 +10332,7 @@ _ZN17algebraic_numbers7manager3imp3delERNS_4anumE.exit: ; preds = %.noexc10, %32
   %76 = or disjoint i8 %75, %70
   store i8 %76, ptr %27, align 4
   %77 = load i32, ptr %29, align 8, !tbaa !102
-  store i32 %77, ptr %55, align 4, !tbaa !102
+  store i32 %77, ptr %55, align 8, !tbaa !102
   store i32 1, ptr %29, align 8, !tbaa !102
   %78 = load ptr, ptr %31, align 8, !tbaa !135
   store ptr %78, ptr %57, align 8, !tbaa !135
@@ -11013,7 +11013,7 @@ _ZN11mpq_managerILb0EE3negER3mpq.exit:            ; preds = %121
   %132 = getelementptr inbounds nuw i8, ptr %127, i64 24
   store ptr null, ptr %132, align 8, !tbaa !26
   %133 = load i32, ptr %50, align 8, !tbaa !102
-  store i32 %133, ptr %127, align 4, !tbaa !102
+  store i32 %133, ptr %127, align 8, !tbaa !102
   store i32 0, ptr %50, align 8, !tbaa !102
   %134 = load ptr, ptr %52, align 8, !tbaa !135
   store ptr %134, ptr %129, align 8, !tbaa !135
@@ -11040,7 +11040,7 @@ _ZN11mpq_managerILb0EE3negER3mpq.exit:            ; preds = %121
   %151 = or disjoint i8 %150, %145
   store i8 %151, ptr %51, align 4
   %152 = load i32, ptr %53, align 8, !tbaa !102
-  store i32 %152, ptr %130, align 4, !tbaa !102
+  store i32 %152, ptr %130, align 8, !tbaa !102
   store i32 1, ptr %53, align 8, !tbaa !102
   %153 = load ptr, ptr %55, align 8, !tbaa !135
   store ptr %153, ptr %132, align 8, !tbaa !135
@@ -11259,7 +11259,7 @@ _ZN11mpq_managerILb0EE3invER3mpq.exit.i:          ; preds = %.noexc88, %.noexc86
   %246 = getelementptr inbounds nuw i8, ptr %241, i64 24
   store ptr null, ptr %246, align 8, !tbaa !26
   %247 = load i32, ptr %50, align 8, !tbaa !102
-  store i32 %247, ptr %241, align 4, !tbaa !102
+  store i32 %247, ptr %241, align 8, !tbaa !102
   store i32 0, ptr %50, align 8, !tbaa !102
   %248 = load ptr, ptr %52, align 8, !tbaa !135
   store ptr %248, ptr %243, align 8, !tbaa !135
@@ -11286,7 +11286,7 @@ _ZN11mpq_managerILb0EE3invER3mpq.exit.i:          ; preds = %.noexc88, %.noexc86
   %265 = or disjoint i8 %264, %259
   store i8 %265, ptr %51, align 4
   %266 = load i32, ptr %53, align 8, !tbaa !102
-  store i32 %266, ptr %244, align 4, !tbaa !102
+  store i32 %266, ptr %244, align 8, !tbaa !102
   store i32 1, ptr %53, align 8, !tbaa !102
   %267 = load ptr, ptr %55, align 8, !tbaa !135
   store ptr %267, ptr %246, align 8, !tbaa !135
@@ -11637,7 +11637,7 @@ _ZN11mpq_managerILb0EE3invER3mpq.exit.i104:       ; preds = %.noexc108, %.noexc1
   %411 = getelementptr inbounds nuw i8, ptr %406, i64 24
   store ptr null, ptr %411, align 8, !tbaa !26
   %412 = load i32, ptr %50, align 8, !tbaa !102
-  store i32 %412, ptr %406, align 4, !tbaa !102
+  store i32 %412, ptr %406, align 8, !tbaa !102
   store i32 0, ptr %50, align 8, !tbaa !102
   %413 = load ptr, ptr %52, align 8, !tbaa !135
   store ptr %413, ptr %408, align 8, !tbaa !135
@@ -11664,7 +11664,7 @@ _ZN11mpq_managerILb0EE3invER3mpq.exit.i104:       ; preds = %.noexc108, %.noexc1
   %430 = or disjoint i8 %429, %424
   store i8 %430, ptr %51, align 4
   %431 = load i32, ptr %53, align 8, !tbaa !102
-  store i32 %431, ptr %409, align 4, !tbaa !102
+  store i32 %431, ptr %409, align 8, !tbaa !102
   store i32 1, ptr %53, align 8, !tbaa !102
   %432 = load ptr, ptr %55, align 8, !tbaa !135
   store ptr %432, ptr %411, align 8, !tbaa !135

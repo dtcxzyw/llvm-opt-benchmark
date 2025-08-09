@@ -922,15 +922,15 @@ define linkonce_odr void @_ZN5draco26CreateMeshPredictionSchemeINS_11MeshDecoder
   %48 = getelementptr inbounds nuw i8, ptr %41, i64 128
   store i32 1, ptr %48, align 8, !tbaa !120, !noalias !108
   %49 = getelementptr inbounds nuw i8, ptr %41, i64 136
-  store i32 -1, ptr %49, align 4, !tbaa !54, !noalias !108
+  store i32 -1, ptr %49, align 8, !tbaa !54, !noalias !108
   %50 = getelementptr inbounds nuw i8, ptr %41, i64 140
   store i32 -1, ptr %50, align 4, !tbaa !57, !noalias !108
   %51 = getelementptr inbounds nuw i8, ptr %41, i64 144
-  store i32 -1, ptr %51, align 4, !tbaa !58, !noalias !108
+  store i32 -1, ptr %51, align 8, !tbaa !58, !noalias !108
   %52 = getelementptr inbounds nuw i8, ptr %41, i64 148
   store float 1.000000e+00, ptr %52, align 4, !tbaa !59, !noalias !108
   %53 = getelementptr inbounds nuw i8, ptr %41, i64 152
-  store i32 -1, ptr %53, align 4, !tbaa !60, !noalias !108
+  store i32 -1, ptr %53, align 8, !tbaa !60, !noalias !108
   %54 = getelementptr inbounds nuw i8, ptr %41, i64 160
   invoke void @_ZN5draco14RAnsBitDecoderC1Ev(ptr noundef nonnull align 8 dereferenceable(17) %54)
           to label %.critedge58 unwind label %55, !noalias !108
@@ -980,15 +980,15 @@ common.resume:                                    ; preds = %74, %55
   %67 = getelementptr inbounds nuw i8, ptr %60, i64 128
   store i32 1, ptr %67, align 8, !tbaa !133, !noalias !126
   %68 = getelementptr inbounds nuw i8, ptr %60, i64 136
-  store i32 -1, ptr %68, align 4, !tbaa !54, !noalias !126
+  store i32 -1, ptr %68, align 8, !tbaa !54, !noalias !126
   %69 = getelementptr inbounds nuw i8, ptr %60, i64 140
   store i32 -1, ptr %69, align 4, !tbaa !57, !noalias !126
   %70 = getelementptr inbounds nuw i8, ptr %60, i64 144
-  store i32 -1, ptr %70, align 4, !tbaa !58, !noalias !126
+  store i32 -1, ptr %70, align 8, !tbaa !58, !noalias !126
   %71 = getelementptr inbounds nuw i8, ptr %60, i64 148
   store float 1.000000e+00, ptr %71, align 4, !tbaa !59, !noalias !126
   %72 = getelementptr inbounds nuw i8, ptr %60, i64 152
-  store i32 -1, ptr %72, align 4, !tbaa !60, !noalias !126
+  store i32 -1, ptr %72, align 8, !tbaa !60, !noalias !126
   %73 = getelementptr inbounds nuw i8, ptr %60, i64 160
   invoke void @_ZN5draco14RAnsBitDecoderC1Ev(ptr noundef nonnull align 8 dereferenceable(17) %73)
           to label %.critedge58 unwind label %74, !noalias !126
@@ -4369,15 +4369,15 @@ define linkonce_odr void @_ZN5draco26CreateMeshPredictionSchemeINS_11MeshDecoder
   %48 = getelementptr inbounds nuw i8, ptr %41, i64 128
   store i32 1, ptr %48, align 8, !tbaa !333, !noalias !328
   %49 = getelementptr inbounds nuw i8, ptr %41, i64 136
-  store i32 -1, ptr %49, align 4, !tbaa !54, !noalias !328
+  store i32 -1, ptr %49, align 8, !tbaa !54, !noalias !328
   %50 = getelementptr inbounds nuw i8, ptr %41, i64 140
   store i32 -1, ptr %50, align 4, !tbaa !57, !noalias !328
   %51 = getelementptr inbounds nuw i8, ptr %41, i64 144
-  store i32 -1, ptr %51, align 4, !tbaa !58, !noalias !328
+  store i32 -1, ptr %51, align 8, !tbaa !58, !noalias !328
   %52 = getelementptr inbounds nuw i8, ptr %41, i64 148
   store float 1.000000e+00, ptr %52, align 4, !tbaa !59, !noalias !328
   %53 = getelementptr inbounds nuw i8, ptr %41, i64 152
-  store i32 -1, ptr %53, align 4, !tbaa !60, !noalias !328
+  store i32 -1, ptr %53, align 8, !tbaa !60, !noalias !328
   %54 = getelementptr inbounds nuw i8, ptr %41, i64 160
   invoke void @_ZN5draco14RAnsBitDecoderC1Ev(ptr noundef nonnull align 8 dereferenceable(17) %54)
           to label %.critedge58 unwind label %55, !noalias !328
@@ -4427,15 +4427,15 @@ common.resume:                                    ; preds = %74, %55
   %67 = getelementptr inbounds nuw i8, ptr %60, i64 128
   store i32 1, ptr %67, align 8, !tbaa !340, !noalias !335
   %68 = getelementptr inbounds nuw i8, ptr %60, i64 136
-  store i32 -1, ptr %68, align 4, !tbaa !54, !noalias !335
+  store i32 -1, ptr %68, align 8, !tbaa !54, !noalias !335
   %69 = getelementptr inbounds nuw i8, ptr %60, i64 140
   store i32 -1, ptr %69, align 4, !tbaa !57, !noalias !335
   %70 = getelementptr inbounds nuw i8, ptr %60, i64 144
-  store i32 -1, ptr %70, align 4, !tbaa !58, !noalias !335
+  store i32 -1, ptr %70, align 8, !tbaa !58, !noalias !335
   %71 = getelementptr inbounds nuw i8, ptr %60, i64 148
   store float 1.000000e+00, ptr %71, align 4, !tbaa !59, !noalias !335
   %72 = getelementptr inbounds nuw i8, ptr %60, i64 152
-  store i32 -1, ptr %72, align 4, !tbaa !60, !noalias !335
+  store i32 -1, ptr %72, align 8, !tbaa !60, !noalias !335
   %73 = getelementptr inbounds nuw i8, ptr %60, i64 160
   invoke void @_ZN5draco14RAnsBitDecoderC1Ev(ptr noundef nonnull align 8 dereferenceable(17) %73)
           to label %.critedge58 unwind label %74, !noalias !335

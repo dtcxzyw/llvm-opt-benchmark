@@ -2451,7 +2451,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %22, ptr %23, align 8, !tbaa !27
   store ptr %13, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !31
   store i64 0, ptr %21, align 8, !tbaa !27
-  store i8 0, ptr %13, align 1, !tbaa !29
+  store i8 0, ptr %13, align 8, !tbaa !29
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq ptr %24, %10
@@ -2999,7 +2999,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %187, ptr %188, align 8, !tbaa !27
   store ptr %178, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !31
   store i64 0, ptr %186, align 8, !tbaa !27
-  store i8 0, ptr %178, align 1, !tbaa !29
+  store i8 0, ptr %178, align 8, !tbaa !29
   %189 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 32
   %190 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq ptr %189, %172
@@ -3722,7 +3722,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %46, ptr %47, align 8, !tbaa !27
   store ptr %37, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !31
   store i64 0, ptr %45, align 8, !tbaa !27
-  store i8 0, ptr %37, align 1, !tbaa !29
+  store i8 0, ptr %37, align 8, !tbaa !29
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 32
   %49 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq ptr %48, %34

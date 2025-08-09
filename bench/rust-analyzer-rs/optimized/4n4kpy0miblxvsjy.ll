@@ -7453,7 +7453,7 @@ _ZN12tracing_core10dispatcher13CURRENT_STATE7__getit17h825c2f088e92a0fcE.llvm.17
   %77 = load i64, ptr %.0.i.i13, align 8, !noalias !525, !noundef !5
   %78 = add i64 %77, -1
   store i64 %78, ptr %.0.i.i13, align 8, !noalias !525
-  store i8 1, ptr %24, align 1, !noalias !500
+  store i8 1, ptr %24, align 8, !noalias !500
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3c14a973a96337b0E.llvm.17769526770162137697.exit"
 
 79:                                               ; preds = %72, %52
@@ -7645,7 +7645,7 @@ _ZN12tracing_core10dispatcher13CURRENT_STATE7__getit17h825c2f088e92a0fcE.llvm.17
   %77 = load i64, ptr %.0.i.i13, align 8, !noalias !574, !noundef !5
   %78 = add i64 %77, -1
   store i64 %78, ptr %.0.i.i13, align 8, !noalias !574
-  store i8 1, ptr %24, align 1, !noalias !550
+  store i8 1, ptr %24, align 8, !noalias !550
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h23f06102d2e139c3E.llvm.17769526770162137697.exit"
 
 79:                                               ; preds = %72, %52
@@ -7837,7 +7837,7 @@ _ZN12tracing_core10dispatcher13CURRENT_STATE7__getit17h825c2f088e92a0fcE.llvm.17
   %77 = load i64, ptr %.0.i.i13, align 8, !noalias !623, !noundef !5
   %78 = add i64 %77, -1
   store i64 %78, ptr %.0.i.i13, align 8, !noalias !623
-  store i8 1, ptr %24, align 1, !noalias !599
+  store i8 1, ptr %24, align 8, !noalias !599
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h415a30c1fd16f2e3E.llvm.17769526770162137697.exit"
 
 79:                                               ; preds = %72, %52

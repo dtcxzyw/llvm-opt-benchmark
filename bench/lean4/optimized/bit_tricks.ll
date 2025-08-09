@@ -63,7 +63,7 @@ define hidden noundef double @_ZN4lean4log2Ei(i32 noundef %0) local_unnamed_addr
   store ptr %4, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 0, ptr %5, align 8, !tbaa !9
-  store i8 0, ptr %4, align 1, !tbaa !12
+  store i8 0, ptr %4, align 8, !tbaa !12
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %2, align 8, !tbaa !13
   tail call void @__cxa_throw(ptr nonnull %2, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #7
   unreachable

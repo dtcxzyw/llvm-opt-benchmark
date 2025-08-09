@@ -89,7 +89,7 @@ define noundef ptr @Sbl_ManAlloc(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 36
   store i32 %26, ptr %27, align 4, !tbaa !37
   %28 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %29 = load i32, ptr %28, align 4, !tbaa !37
+  %29 = load i32, ptr %28, align 8, !tbaa !37
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %31 = load i32, ptr %30, align 8, !tbaa !38
   %32 = shl i32 %29, %31
@@ -539,7 +539,7 @@ Abc_Clock.exit:                                   ; preds = %1, %5
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 36
   store i32 %24, ptr %25, align 4, !tbaa !37
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  %27 = load i32, ptr %26, align 4, !tbaa !37
+  %27 = load i32, ptr %26, align 8, !tbaa !37
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %29 = load i32, ptr %28, align 8, !tbaa !38
   %30 = shl i32 %27, %29

@@ -6108,7 +6108,7 @@ define hidden void @_ZNK12mpfx_manager11display_rawERSoRK4mpfx(ptr noundef nonnu
   %33 = load i32, ptr %32, align 8, !tbaa !81
   %34 = and i32 %33, -75
   %35 = or disjoint i32 %34, 8
-  store i32 %35, ptr %32, align 4, !tbaa !90
+  store i32 %35, ptr %32, align 8, !tbaa !90
   %36 = load i64, ptr %29, align 8
   %37 = getelementptr inbounds i8, ptr %1, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 225

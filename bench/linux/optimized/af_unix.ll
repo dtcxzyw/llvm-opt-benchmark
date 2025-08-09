@@ -1809,7 +1809,7 @@ define internal fastcc ptr @unix_create1(ptr noundef %0, ptr noundef %1, i32 nou
   %36 = getelementptr inbounds nuw i8, ptr %12, i64 840
   store volatile ptr %36, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %12, i64 848
-  store volatile ptr %36, ptr %37, align 8
+  store volatile ptr %36, ptr %37, align 16
   %38 = getelementptr inbounds nuw i8, ptr %12, i64 768
   tail call void @__mutex_init(ptr noundef nonnull %38, ptr noundef nonnull @.str.6, ptr noundef nonnull @unix_create1.__key) #19
   %39 = getelementptr inbounds nuw i8, ptr %12, i64 800
@@ -1817,11 +1817,11 @@ define internal fastcc ptr @unix_create1(ptr noundef %0, ptr noundef %1, i32 nou
   %40 = getelementptr inbounds nuw i8, ptr %12, i64 896
   tail call void @__init_waitqueue_head(ptr noundef nonnull %40, ptr noundef nonnull @.str.10, ptr noundef nonnull @unix_create1.__key.9) #19
   %41 = getelementptr inbounds nuw i8, ptr %12, i64 960
-  store i32 0, ptr %41, align 8
+  store i32 0, ptr %41, align 32
   %42 = getelementptr inbounds nuw i8, ptr %12, i64 968
   store ptr null, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %12, i64 976
-  store ptr @unix_dgram_peer_wake_relay, ptr %43, align 8
+  store ptr @unix_dgram_peer_wake_relay, ptr %43, align 16
   %44 = getelementptr inbounds nuw i8, ptr %12, i64 1000
   store i32 0, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 552
@@ -4008,7 +4008,7 @@ define internal fastcc void @unix_release_sock(ptr noundef %0, i32 noundef range
 21:                                               ; preds = %19, %15
   store ptr null, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %23 = load volatile i32, ptr %22, align 4
+  %23 = load volatile i32, ptr %22, align 8
   %24 = icmp eq i32 %23, 1
   br i1 %24, label %25, label %26, !prof !7
 
@@ -4582,7 +4582,7 @@ define internal fastcc void @__unix_set_addr_hash(ptr noundef readonly captures(
 14:                                               ; preds = %12, %8
   store ptr null, ptr %5, align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %16 = load volatile i32, ptr %15, align 4
+  %16 = load volatile i32, ptr %15, align 8
   %17 = icmp eq i32 %16, 1
   br i1 %17, label %18, label %19, !prof !7
 

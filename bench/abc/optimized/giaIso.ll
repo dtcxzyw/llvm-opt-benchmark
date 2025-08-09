@@ -1021,7 +1021,7 @@ define range(i32 0, 2) i32 @Gia_IsoSort(ptr noundef captures(none) initializes((
   %35 = ashr i64 %34, 32
   %36 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val100, i64 %35, i32 1
   %37 = load i32, ptr %36, align 4, !tbaa !44
-  store i32 %37, ptr %gep, align 4, !tbaa !43
+  store i32 %37, ptr %gep, align 8, !tbaa !43
   %38 = load i32, ptr %32, align 4, !tbaa !44
   %.not97 = icmp eq i32 %37, %38
   %spec.select = select i1 %.not97, i32 %.091151, i32 0

@@ -69,10 +69,10 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 47
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %8 = load i16, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4772
-  store i16 %8, ptr %9, align 2
+  store i16 %8, ptr %9, align 4
   %10 = zext i16 %8 to i32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4760
-  %12 = load i8, ptr %11, align 4
+  %12 = load i8, ptr %11, align 8
   %13 = zext i8 %12 to i32
   %14 = add nsw i32 %10, -1
   %15 = add nsw i32 %14, %13
@@ -887,7 +887,7 @@ define dso_local void @intel_dsc_enable(ptr noundef %0) local_unnamed_addr #1 al
   %34 = icmp ne i8 %33, 0
   %35 = zext i1 %34 to i32
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 4888
-  %37 = load i8, ptr %36, align 2
+  %37 = load i8, ptr %36, align 8
   %38 = zext i8 %37 to i32
   %39 = shl nuw nsw i32 %38, 4
   %40 = and i32 %39, 240
@@ -3366,12 +3366,12 @@ intel_dsc_power_domain.exit:                      ; preds = %19, %28, %.thread.i
   %140 = lshr i32 %131, 16
   %141 = trunc i32 %140 to i8
   %142 = and i8 %141, 1
-  store i8 %142, ptr %139, align 2
+  store i8 %142, ptr %139, align 4
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 4764
   %144 = lshr i32 %131, 17
   %145 = trunc i32 %144 to i8
   %146 = and i8 %145, 1
-  store i8 %146, ptr %143, align 2
+  store i8 %146, ptr %143, align 4
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 4770
   %148 = lshr i32 %131, 18
   %149 = trunc i32 %148 to i8

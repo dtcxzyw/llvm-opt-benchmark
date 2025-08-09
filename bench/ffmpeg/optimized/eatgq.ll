@@ -23,7 +23,7 @@ define internal range(i32 -12, 1) i32 @tgq_decode_init(ptr noundef %0) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 15, ptr %4, align 4, !tbaa !31
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i32 1, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !31
+  store i32 1, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !31
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 0, ptr %5, align 8, !tbaa !32
   %6 = tail call ptr @av_frame_alloc() #7

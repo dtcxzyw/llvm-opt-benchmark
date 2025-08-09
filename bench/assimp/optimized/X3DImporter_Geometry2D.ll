@@ -447,7 +447,7 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE17getFloatAttributeERS2_PKcRf.exit66.thr
   store ptr %90, ptr %89, align 8
   %91 = getelementptr inbounds nuw i8, ptr %84, i64 24
   store i64 0, ptr %91, align 8
-  store i8 0, ptr %90, align 1
+  store i8 0, ptr %90, align 8
   %92 = getelementptr inbounds nuw i8, ptr %84, i64 48
   %93 = getelementptr inbounds nuw i8, ptr %84, i64 56
   store ptr %92, ptr %93, align 8
@@ -1328,7 +1328,7 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE17getFloatAttributeERS2_PKcRf.exit120: ;
   store ptr %136, ptr %135, align 8
   %137 = getelementptr inbounds nuw i8, ptr %130, i64 24
   store i64 0, ptr %137, align 8
-  store i8 0, ptr %136, align 1
+  store i8 0, ptr %136, align 8
   %138 = getelementptr inbounds nuw i8, ptr %130, i64 48
   %139 = getelementptr inbounds nuw i8, ptr %130, i64 56
   store ptr %138, ptr %139, align 8
@@ -2212,7 +2212,7 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE17getFloatAttributeERS2_PKcRf.exit.threa
   store ptr %64, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %58, i64 24
   store i64 0, ptr %65, align 8
-  store i8 0, ptr %64, align 1
+  store i8 0, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %58, i64 48
   %67 = getelementptr inbounds nuw i8, ptr %58, i64 56
   store ptr %66, ptr %67, align 8
@@ -2836,7 +2836,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit86: ; preds = %_ZN
   store ptr %127, ptr %126, align 8
   %128 = getelementptr inbounds nuw i8, ptr %121, i64 24
   store i64 0, ptr %128, align 8
-  store i8 0, ptr %127, align 1
+  store i8 0, ptr %127, align 8
   %129 = getelementptr inbounds nuw i8, ptr %121, i64 48
   %130 = getelementptr inbounds nuw i8, ptr %121, i64 56
   store ptr %129, ptr %130, align 8
@@ -3528,7 +3528,7 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   store ptr %58, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %52, i64 24
   store i64 0, ptr %59, align 8
-  store i8 0, ptr %58, align 1
+  store i8 0, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %52, i64 48
   %61 = getelementptr inbounds nuw i8, ptr %52, i64 56
   store ptr %60, ptr %61, align 8
@@ -3974,7 +3974,7 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   store ptr %57, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %51, i64 24
   store i64 0, ptr %58, align 8
-  store i8 0, ptr %57, align 1
+  store i8 0, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %51, i64 48
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 56
   store ptr %59, ptr %60, align 8
@@ -4420,7 +4420,7 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit: ; pre
   store ptr %71, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %65, i64 24
   store i64 0, ptr %72, align 8
-  store i8 0, ptr %71, align 1
+  store i8 0, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %65, i64 48
   %74 = getelementptr inbounds nuw i8, ptr %65, i64 56
   store ptr %73, ptr %74, align 8
@@ -4921,7 +4921,7 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit: ; pre
   store ptr %80, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %74, i64 24
   store i64 0, ptr %81, align 8
-  store i8 0, ptr %80, align 1
+  store i8 0, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %74, i64 48
   %83 = getelementptr inbounds nuw i8, ptr %74, i64 56
   store ptr %82, ptr %83, align 8

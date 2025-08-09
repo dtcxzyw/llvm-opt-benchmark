@@ -264,7 +264,7 @@ define noundef ptr @_ZN5folly16EventBaseManager3getEv() local_unnamed_addr #0 al
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i64 0, ptr %8, align 8, !tbaa !19
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store i32 -1, ptr %9, align 4, !tbaa !20
+  store i32 -1, ptr %9, align 8, !tbaa !20
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 88

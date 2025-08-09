@@ -111,7 +111,7 @@ define void @ff_big_div(ptr noundef captures(none) %0, i8 noundef zeroext %1, pt
   %12 = add nsw i32 %6, -1
   store i32 %12, ptr %0, align 4, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %14 = load i8, ptr %13, align 1, !tbaa !9
+  %14 = load i8, ptr %13, align 4, !tbaa !9
   store i8 %14, ptr %2, align 1, !tbaa !9
   %.not3643 = icmp eq i32 %12, 0
   br i1 %.not3643, label %._crit_edge, label %.lr.ph.preheader

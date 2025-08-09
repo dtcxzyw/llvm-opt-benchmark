@@ -1856,7 +1856,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %47
   store i64 %53, ptr %55, align 8, !tbaa !28
   store ptr %45, ptr %1, align 8, !tbaa !22
   store i64 0, ptr %54, align 8, !tbaa !28
-  store i8 0, ptr %45, align 1, !tbaa !29
+  store i8 0, ptr %45, align 8, !tbaa !29
   ret void
 
 56:                                               ; preds = %33, %9

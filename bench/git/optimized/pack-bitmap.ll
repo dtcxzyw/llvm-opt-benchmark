@@ -6603,7 +6603,7 @@ define internal fastcc noundef ptr @store_bitmap(ptr noundef readonly captures(n
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %13 = load i32, ptr %12, align 4, !tbaa !302
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i32 %13, ptr %14, align 4, !tbaa !302
+  store i32 %13, ptr %14, align 8, !tbaa !302
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load ptr, ptr %15, align 8, !tbaa !58
   call void @llvm.lifetime.start.p0(ptr nonnull %7)

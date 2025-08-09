@@ -51,7 +51,7 @@ define dso_local void @RelationInitLockInfo(ptr noundef captures(none) initializ
   %10 = load i32, ptr @MyDatabaseId, align 4
   %spec.select = select i1 %9, i32 0, i32 %10
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 %spec.select, ptr %11, align 4
+  store i32 %spec.select, ptr %11, align 8
   ret void
 }
 

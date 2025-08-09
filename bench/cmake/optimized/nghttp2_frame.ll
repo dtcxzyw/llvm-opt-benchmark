@@ -794,10 +794,10 @@ define dso_local noundef i32 @nghttp2_frame_pack_priority(ptr noundef readonly c
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = load ptr, ptr %18, align 8, !tbaa !71
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %21 = load i32, ptr %20, align 4, !tbaa !72
+  %21 = load i32, ptr %20, align 8, !tbaa !72
   tail call void @nghttp2_put_uint32be(ptr noundef %19, i32 noundef %21) #17
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %23 = load i8, ptr %22, align 4, !tbaa !73
+  %23 = load i8, ptr %22, align 8, !tbaa !73
   %.not.i = icmp eq i8 %23, 0
   br i1 %.not.i, label %nghttp2_frame_pack_priority_spec.exit, label %24
 

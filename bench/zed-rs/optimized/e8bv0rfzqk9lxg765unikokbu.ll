@@ -141,15 +141,15 @@ common.resume:                                    ; preds = %58, %.body, %73, %6
           cleanup
   store ptr %19, ptr %21, align 8, !noalias !11
   store ptr %20, ptr %29, align 8, !noalias !11
-  store atomic i8 0, ptr %22 seq_cst, align 1, !noalias !16
+  store atomic i8 0, ptr %22 seq_cst, align 8, !noalias !16
   br label %common.resume
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h51c9b1a955128911E.exit.i.i": ; preds = %28, %26
   store ptr %19, ptr %21, align 8, !noalias !11
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %20, ptr %37, align 8, !noalias !11
-  store atomic i8 0, ptr %22 seq_cst, align 1, !noalias !21
-  %38 = load atomic i8, ptr %9 seq_cst, align 1, !noalias !11
+  store atomic i8 0, ptr %22 seq_cst, align 8, !noalias !21
+  %38 = load atomic i8, ptr %9 seq_cst, align 8, !noalias !11
   %39 = icmp eq i8 %38, 0
   br i1 %39, label %63, label %40
 
@@ -165,7 +165,7 @@ common.resume:                                    ; preds = %58, %.body, %73, %6
   %46 = load ptr, ptr %45, align 8, !noalias !11
   store i64 0, ptr %8, align 8, !noalias !11
   %trunc.i.i = trunc nuw i64 %44 to i1
-  store atomic i8 0, ptr %41 seq_cst, align 1, !noalias !11
+  store atomic i8 0, ptr %41 seq_cst, align 8, !noalias !11
   %..i.i = select i1 %trunc.i.i, ptr %46, ptr undef
   %not.trunc.i.i = xor i64 %44, 1
   br label %48

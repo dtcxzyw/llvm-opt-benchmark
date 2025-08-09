@@ -3798,7 +3798,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
   store i32 %136, ptr %33, align 16, !tbaa !214
   store i8 0, ptr %34, align 8, !tbaa !61
   %138 = load ptr, ptr %35, align 8, !tbaa !216
-  %139 = load i32, ptr %31, align 4, !tbaa !217
+  %139 = load i32, ptr %31, align 8, !tbaa !217
   %140 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %138, i32 noundef %139, i32 noundef 40, i32 noundef 2, ptr noundef nonnull %9, i32 noundef 1, ptr noundef nonnull %8, ptr noundef null)
           to label %.preheader unwind label %141
 
@@ -4145,7 +4145,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i113:         ; preds = %269
   store i32 %276, ptr %40, align 16, !tbaa !214
   store i8 0, ptr %41, align 8, !tbaa !61
   %278 = load ptr, ptr %35, align 8, !tbaa !216
-  %279 = load i32, ptr %31, align 4, !tbaa !217
+  %279 = load i32, ptr %31, align 8, !tbaa !217
   %280 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %278, i32 noundef %279, i32 noundef 40, i32 noundef 2, ptr noundef nonnull %7, i32 noundef 1, ptr noundef nonnull %6, ptr noundef null)
           to label %.preheader163 unwind label %281
 
@@ -8003,7 +8003,7 @@ _ZNK7datalog11udoc_plugin13num_sort_bitsEP4expr.exit61: ; preds = %.noexc59
   store i32 %94, ptr %71, align 16, !tbaa !214
   store i8 0, ptr %72, align 8, !tbaa !61
   %95 = load ptr, ptr %73, align 8, !tbaa !216
-  %96 = load i32, ptr %23, align 4, !tbaa !217
+  %96 = load i32, ptr %23, align 8, !tbaa !217
   %97 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %95, i32 noundef %96, i32 noundef 40, i32 noundef 2, ptr noundef nonnull %10, i32 noundef 1, ptr noundef nonnull %9, ptr noundef null)
           to label %.preheader unwind label %98
 
@@ -10346,7 +10346,7 @@ _ZNK7datalog11udoc_plugin13num_sort_bitsEP4expr.exit58: ; preds = %.noexc56
   store i32 %87, ptr %75, align 16, !tbaa !214
   store i8 0, ptr %76, align 8, !tbaa !61
   %88 = load ptr, ptr %77, align 8, !tbaa !216
-  %89 = load i32, ptr %26, align 4, !tbaa !217
+  %89 = load i32, ptr %26, align 8, !tbaa !217
   %90 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %88, i32 noundef %89, i32 noundef 40, i32 noundef 2, ptr noundef nonnull %10, i32 noundef 1, ptr noundef nonnull %9, ptr noundef null)
           to label %.preheader unwind label %91
 

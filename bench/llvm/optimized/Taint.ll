@@ -6468,8 +6468,8 @@ _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymEx
   %61 = icmp eq i32 %58, %60
   %62 = getelementptr inbounds nuw i8, ptr %47, i64 56
   %63 = getelementptr inbounds nuw i8, ptr %52, i64 56
-  %64 = load i32, ptr %62, align 4
-  %65 = load i32, ptr %63, align 4
+  %64 = load i32, ptr %62, align 8
+  %65 = load i32, ptr %63, align 8
   %66 = icmp eq i32 %64, %65
   %.0.i.i = select i1 %61, i1 %66, i1 false
   br i1 %.0.i.i, label %.preheader, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEjEEEneERKS8_.exit.thread36
@@ -8476,8 +8476,8 @@ _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9SubRe
   %57 = icmp eq ptr %55, %56
   %58 = getelementptr inbounds nuw i8, ptr %47, i64 56
   %59 = getelementptr inbounds nuw i8, ptr %52, i64 56
-  %60 = load i32, ptr %58, align 4
-  %61 = load i32, ptr %59, align 4
+  %60 = load i32, ptr %58, align 8
+  %61 = load i32, ptr %59, align 8
   %62 = icmp eq i32 %60, %61
   %.0.i.i = select i1 %57, i1 %62, i1 false
   br i1 %.0.i.i, label %.preheader, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9SubRegionEjEEEneERKS8_.exit.thread36
@@ -10372,8 +10372,8 @@ _ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9SubReg
   %113 = icmp eq ptr %111, %112
   %114 = getelementptr inbounds nuw i8, ptr %108, i64 56
   %115 = getelementptr inbounds nuw i8, ptr %107, i64 56
-  %116 = load i32, ptr %114, align 4
-  %117 = load i32, ptr %115, align 4
+  %116 = load i32, ptr %114, align 8
+  %117 = load i32, ptr %115, align 8
   %118 = icmp eq i32 %116, %117
   %.0.i.i = select i1 %113, i1 %118, i1 false
   br i1 %.0.i.i, label %.preheader, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9SubRegionEjEEEeqERKS8_.exit37

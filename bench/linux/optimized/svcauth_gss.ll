@@ -3169,7 +3169,7 @@ define internal fastcc zeroext i1 @svcauth_gss_proc_init_verf(ptr noundef %0, pt
   %28 = load ptr, ptr %27, align 8
   %29 = tail call fastcc zeroext i1 @svcauth_gss_encode_verf(ptr noundef %1, ptr noundef %28, i32 noundef 128)
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %31 = load volatile i32, ptr %30, align 4
+  %31 = load volatile i32, ptr %30, align 8
   %32 = icmp ult i32 %31, 3
   br i1 %32, label %33, label %40
 

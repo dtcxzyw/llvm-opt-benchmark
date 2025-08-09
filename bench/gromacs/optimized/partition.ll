@@ -2129,7 +2129,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i: ; preds = %259, %2
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 48
   store float %282, ptr %285, align 8, !tbaa !389
   %286 = getelementptr inbounds nuw i8, ptr %274, i64 1576
-  %287 = load float, ptr %286, align 4, !tbaa !209
+  %287 = load float, ptr %286, align 8, !tbaa !209
   %288 = getelementptr inbounds nuw i8, ptr %284, i64 52
   store float %287, ptr %288, align 4, !tbaa !391
   br label %._crit_edge260.i
@@ -2699,7 +2699,7 @@ _ZL13dd_force_loadP17gmx_domdec_comm_t.exit.i:    ; preds = %405, %394, %392, %3
   %628 = add nsw i32 %627, %625
   store i32 %628, ptr %626, align 4, !tbaa !338
   %629 = getelementptr inbounds nuw i8, ptr %274, i64 1560
-  %630 = load float, ptr %629, align 4, !tbaa !209
+  %630 = load float, ptr %629, align 8, !tbaa !209
   %631 = fpext float %630 to double
   %632 = getelementptr inbounds nuw i8, ptr %274, i64 1704
   %633 = load double, ptr %632, align 8, !tbaa !345
@@ -2722,7 +2722,7 @@ _ZL13dd_force_loadP17gmx_domdec_comm_t.exit.i:    ; preds = %405, %394, %392, %3
   %648 = fadd double %647, %645
   store double %648, ptr %646, align 8, !tbaa !343
   %649 = getelementptr inbounds nuw i8, ptr %274, i64 368
-  %.val202.i = load i32, ptr %649, align 4, !tbaa !346
+  %.val202.i = load i32, ptr %649, align 8, !tbaa !346
   %650 = and i32 %.val202.i, -2
   %spec.select.i219.i = icmp eq i32 %650, 4
   br i1 %spec.select.i219.i, label %.preheader.i, label %.loopexit.i
@@ -3062,7 +3062,7 @@ _ZL21dd_print_load_verboseP12gmx_domdec_t.exit:   ; preds = %810, %806, %770, %_
   %816 = load i32, ptr %815, align 8, !tbaa !383
   %817 = add nsw i32 %816, 1
   store i32 %817, ptr %815, align 8, !tbaa !383
-  %.val464 = load i32, ptr %185, align 4, !tbaa !346
+  %.val464 = load i32, ptr %185, align 8, !tbaa !346
   %818 = and i32 %.val464, -2
   %spec.select.i485 = icmp eq i32 %818, 4
   br i1 %spec.select.i485, label %819, label %854
@@ -3077,7 +3077,7 @@ _ZL21dd_print_load_verboseP12gmx_domdec_t.exit:   ; preds = %810, %806, %770, %_
   %822 = getelementptr inbounds nuw i8, ptr %164, i64 1648
   %823 = load float, ptr %822, align 8, !tbaa !437
   %824 = getelementptr inbounds nuw i8, ptr %164, i64 1560
-  %825 = load float, ptr %824, align 4, !tbaa !209
+  %825 = load float, ptr %824, align 8, !tbaa !209
   %826 = fmul float %825, 0x3FB99999A0000000
   %827 = getelementptr inbounds nuw i8, ptr %164, i64 1580
   %828 = load i32, ptr %827, align 4, !tbaa !208
@@ -3863,11 +3863,11 @@ _ZL13ddSetAtominfoN3gmx8ArrayRefIKiEERKNS_5RangeIiEEP10t_forcerec.exit496: ; pre
   %1271 = getelementptr inbounds [3 x float], ptr %1270, i64 0, i64 %1242
   %1272 = load float, ptr %1271, align 4, !tbaa !209
   %1273 = fpext float %1272 to double
-  %1274 = load i32, ptr %1220, align 4, !tbaa !208
+  %1274 = load i32, ptr %1220, align 8, !tbaa !208
   %1275 = getelementptr inbounds nuw i8, ptr %162, i64 20
   %1276 = load i32, ptr %1275, align 4, !tbaa !208
   %1277 = getelementptr inbounds nuw i8, ptr %162, i64 24
-  %1278 = load i32, ptr %1277, align 4, !tbaa !208
+  %1278 = load i32, ptr %1277, align 8, !tbaa !208
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %81, i32 noundef 754, ptr noundef nonnull @.str.133, ptr noundef %1258, i32 noundef %1262, double noundef %1266, double noundef %1268, double noundef %1273, i32 noundef %1274, i32 noundef %1276, i32 noundef %1278) #28
           to label %1279 unwind label %1280
 
@@ -5863,7 +5863,7 @@ _ZL14set_dd_cornersPK12gmx_domdec_tiiibP12dd_corners_t.exit.thread.i: ; preds = 
   %2259 = getelementptr inbounds nuw i8, ptr %162, i64 336
   %2260 = getelementptr inbounds nuw i8, ptr %162, i64 340
   store i32 %2258, ptr %2260, align 4, !tbaa !208
-  %2261 = load i32, ptr %2259, align 4, !tbaa !208
+  %2261 = load i32, ptr %2259, align 8, !tbaa !208
   %2262 = sub nsw i32 %2258, %2261
   %2263 = getelementptr inbounds nuw i8, ptr %162, i64 372
   store i32 %2262, ptr %2263, align 4, !tbaa !208
@@ -7858,7 +7858,7 @@ _ZL22setup_dd_communicationP12gmx_domdec_tPA3_fP11gmx_ddbox_tP10t_forcerecP7t_st
   %3146 = load i32, ptr %1208, align 8, !tbaa !468
   %3147 = call fastcc noundef i32 @_ZL15make_dd_indicesP12gmx_domdec_ti(ptr noundef nonnull %162, i32 noundef %3146)
   %3148 = zext i1 %1176 to i32
-  %3149 = load i32, ptr %2018, align 4, !tbaa !488
+  %3149 = load i32, ptr %2018, align 8, !tbaa !488
   %.not.i580 = icmp slt i32 %3149, %3148
   br i1 %.not.i580, label %3150, label %_ZN3gmx5RangeIiEC2Eii.exit581
 

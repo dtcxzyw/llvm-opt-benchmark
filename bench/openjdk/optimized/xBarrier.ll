@@ -796,7 +796,7 @@ _ZNK5XPage22object_alignment_shiftEv.exit.i.i.i:  ; preds = %_ZNK5XPage22object_
   %66 = or disjoint i64 %64, 1
   %67 = getelementptr inbounds nuw i8, ptr %49, i64 88
   %68 = load i64, ptr %67, align 8
-  %69 = load volatile i32, ptr %65, align 4
+  %69 = load volatile i32, ptr %65, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   %70 = load i32, ptr @XGlobalSeqNum, align 4
   %71 = icmp eq i32 %69, %70
@@ -939,7 +939,7 @@ _ZNK5XPage22object_alignment_shiftEv.exit.i.i.i:  ; preds = %_ZNK5XPage22object_
   %65 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %66 = getelementptr inbounds nuw i8, ptr %49, i64 88
   %67 = load i64, ptr %66, align 8
-  %68 = load volatile i32, ptr %65, align 4
+  %68 = load volatile i32, ptr %65, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   %69 = load i32, ptr @XGlobalSeqNum, align 4
   %70 = icmp eq i32 %68, %69
@@ -1637,7 +1637,7 @@ _ZNK5XPage22object_alignment_shiftEv.exit.i.i:    ; preds = %_ZNK5XPage22object_
   %28 = or disjoint i64 %26, 1
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %30 = load i64, ptr %29, align 8
-  %31 = load volatile i32, ptr %27, align 4
+  %31 = load volatile i32, ptr %27, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   %32 = load i32, ptr @XGlobalSeqNum, align 4
   %33 = icmp eq i32 %31, %32
@@ -1758,7 +1758,7 @@ _ZNK5XPage22object_alignment_shiftEv.exit.i.i:    ; preds = %_ZNK5XPage22object_
   %28 = or disjoint i64 %26, 1
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %30 = load i64, ptr %29, align 8
-  %31 = load volatile i32, ptr %27, align 4
+  %31 = load volatile i32, ptr %27, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   %32 = load i32, ptr @XGlobalSeqNum, align 4
   %33 = icmp eq i32 %31, %32
@@ -2058,7 +2058,7 @@ _ZNK5XPage22object_alignment_shiftEv.exit.i.i.i:  ; preds = %_ZNK5XPage22object_
   %116 = or disjoint i64 %114, 1
   %117 = getelementptr inbounds nuw i8, ptr %100, i64 88
   %118 = load i64, ptr %117, align 8
-  %119 = load volatile i32, ptr %115, align 4
+  %119 = load volatile i32, ptr %115, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   %120 = load i32, ptr @XGlobalSeqNum, align 4
   %121 = icmp eq i32 %119, %120
@@ -3901,7 +3901,7 @@ _ZNK5XPage22object_alignment_shiftEv.exit.i.i.i:  ; preds = %_ZNK5XPage22object_
   %117 = or disjoint i64 %115, 1
   %118 = getelementptr inbounds nuw i8, ptr %101, i64 88
   %119 = load i64, ptr %118, align 8
-  %120 = load volatile i32, ptr %116, align 4
+  %120 = load volatile i32, ptr %116, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   %121 = load i32, ptr @XGlobalSeqNum, align 4
   %122 = icmp eq i32 %120, %121
@@ -4506,7 +4506,7 @@ _ZNK5XPage22object_alignment_shiftEv.exit.i.i.i:  ; preds = %_ZNK5XPage22object_
   %115 = or disjoint i64 %113, 1
   %116 = getelementptr inbounds nuw i8, ptr %99, i64 88
   %117 = load i64, ptr %116, align 8
-  %118 = load volatile i32, ptr %114, align 4
+  %118 = load volatile i32, ptr %114, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   %119 = load i32, ptr @XGlobalSeqNum, align 4
   %120 = icmp eq i32 %118, %119
@@ -4891,7 +4891,7 @@ _ZNK5XPage22object_alignment_shiftEv.exit.i.i.i:  ; preds = %_ZNK5XPage22object_
   %116 = or disjoint i64 %114, 1
   %117 = getelementptr inbounds nuw i8, ptr %100, i64 88
   %118 = load i64, ptr %117, align 8
-  %119 = load volatile i32, ptr %115, align 4
+  %119 = load volatile i32, ptr %115, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   %120 = load i32, ptr @XGlobalSeqNum, align 4
   %121 = icmp eq i32 %119, %120
@@ -5705,7 +5705,7 @@ _ZNK5XPage22object_alignment_shiftEv.exit.i.i:    ; preds = %_ZNK5XPage22object_
   %28 = or disjoint i64 %26, 1
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %30 = load i64, ptr %29, align 8
-  %31 = load volatile i32, ptr %27, align 4
+  %31 = load volatile i32, ptr %27, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   %32 = load i32, ptr @XGlobalSeqNum, align 4
   %33 = icmp eq i32 %31, %32

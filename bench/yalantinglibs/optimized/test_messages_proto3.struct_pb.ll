@@ -10184,7 +10184,7 @@ _ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i4138: ; preds = %while.body.i6
   %add1351 = add i64 %420, %inc2.i6472
   %arrayidx3.i6457 = getelementptr inbounds i8, ptr %data, i64 %add1351
   store i8 18, ptr %arrayidx3.i6457, align 1
-  %421 = load i32, ptr %second1332, align 4
+  %421 = load i32, ptr %second1332, align 8
   %cmp.not.i4140 = icmp eq i32 %421, 0
   br i1 %cmp.not.i4140, label %_ZN9struct_pb13UnknownFieldsD2Ev.exit4157.thread, label %if.then.i4141
 
@@ -76964,7 +76964,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %14, ptr %_M_string_length.i13.i.i.i.i.i.i.i, align 8, !alias.scope !141, !noalias !144
   store ptr %11, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !144, !noalias !141
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i, align 8, !alias.scope !144, !noalias !141
-  store i8 0, ptr %11, align 1, !alias.scope !144, !noalias !141
+  store i8 0, ptr %11, align 8, !alias.scope !144, !noalias !141
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #23
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 32
   %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 32
@@ -77014,7 +77014,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %20, ptr %_M_string_length.i13.i.i.i.i.i.i.i21, align 8, !alias.scope !148, !noalias !151
   store ptr %17, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !151, !noalias !148
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i20, align 8, !alias.scope !151, !noalias !148
-  store i8 0, ptr %17, align 1, !alias.scope !151, !noalias !148
+  store i8 0, ptr %17, align 8, !alias.scope !151, !noalias !148
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #23
   %incdec.ptr.i.i.i22 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i14, i64 32
   %incdec.ptr1.i.i.i23 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i13, i64 32
@@ -77217,7 +77217,7 @@ _ZSt19__relocate_object_aIN6google8protobuf11StringValueES2_SaIS2_EEvPT_PT0_RT1_
   store i64 %10, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i, align 8, !alias.scope !165, !noalias !168
   store ptr %7, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !168, !noalias !165
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i, align 8, !alias.scope !168, !noalias !165
-  store i8 0, ptr %7, align 1, !alias.scope !168, !noalias !165
+  store i8 0, ptr %7, align 8, !alias.scope !168, !noalias !165
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #23
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 32
   %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 32
@@ -77267,7 +77267,7 @@ _ZSt19__relocate_object_aIN6google8protobuf11StringValueES2_SaIS2_EEvPT_PT0_RT1_
   store i64 %16, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i21, align 8, !alias.scope !172, !noalias !175
   store ptr %13, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !175, !noalias !172
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i20, align 8, !alias.scope !175, !noalias !172
-  store i8 0, ptr %13, align 1, !alias.scope !175, !noalias !172
+  store i8 0, ptr %13, align 8, !alias.scope !175, !noalias !172
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #23
   %incdec.ptr.i.i.i22 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i14, i64 32
   %incdec.ptr1.i.i.i23 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i13, i64 32
@@ -77375,7 +77375,7 @@ _ZSt19__relocate_object_aIN6google8protobuf10BytesValueES2_SaIS2_EEvPT_PT0_RT1_.
   store i64 %10, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i, align 8, !alias.scope !178, !noalias !181
   store ptr %7, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !181, !noalias !178
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i, align 8, !alias.scope !181, !noalias !178
-  store i8 0, ptr %7, align 1, !alias.scope !181, !noalias !178
+  store i8 0, ptr %7, align 8, !alias.scope !181, !noalias !178
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #23
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 32
   %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 32
@@ -77425,7 +77425,7 @@ _ZSt19__relocate_object_aIN6google8protobuf10BytesValueES2_SaIS2_EEvPT_PT0_RT1_.
   store i64 %16, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i21, align 8, !alias.scope !185, !noalias !188
   store ptr %13, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !188, !noalias !185
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i20, align 8, !alias.scope !188, !noalias !185
-  store i8 0, ptr %13, align 1, !alias.scope !188, !noalias !185
+  store i8 0, ptr %13, align 8, !alias.scope !188, !noalias !185
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #23
   %incdec.ptr.i.i.i22 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i14, i64 32
   %incdec.ptr1.i.i.i23 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i13, i64 32
@@ -77851,7 +77851,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i: ; preds
   store i64 %5, ptr %_M_string_length.i13.i.i.i.i, align 8
   store ptr %2, ptr %__orig, align 8
   store i64 0, ptr %_M_string_length.i12.i.i.i.i, align 8
-  store i8 0, ptr %2, align 1
+  store i8 0, ptr %2, align 8
   %value.i.i.i = getelementptr inbounds nuw i8, ptr %__dest, i64 32
   %value3.i.i.i = getelementptr inbounds nuw i8, ptr %__orig, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %__dest, i64 48
@@ -77886,7 +77886,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = 
   store i64 %11, ptr %_M_string_length.i13.i5.i.i.i, align 8
   store ptr %8, ptr %value3.i.i.i, align 8
   store i64 0, ptr %_M_string_length.i12.i4.i.i.i, align 8
-  store i8 0, ptr %8, align 1
+  store i8 0, ptr %8, align 8
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i) #23
   %12 = load ptr, ptr %__orig, align 8
   %cmp.i.i.i1.i.i.i = icmp eq ptr %12, %2
@@ -78044,7 +78044,7 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant
   store i64 %8, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   store ptr %5, ptr %__orig, align 8
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  store i8 0, ptr %5, align 1
+  store i8 0, ptr %5, align 8
   %.pre3 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZNSt16allocator_traitsISaIN6google8protobuf5ValueEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit
 

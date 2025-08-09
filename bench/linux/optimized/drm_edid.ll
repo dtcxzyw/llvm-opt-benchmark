@@ -5248,7 +5248,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %157
   %293 = load ptr, ptr %292, align 8
   %294 = load i16, ptr %13, align 2
   %295 = zext i16 %294 to i32
-  %296 = load i16, ptr %75, align 2
+  %296 = load i16, ptr %75, align 4
   %297 = zext i16 %296 to i32
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %289, i32 noundef 2, ptr noundef nonnull @.str.34, i32 noundef %291, ptr noundef %293, i32 noundef %295, i32 noundef %297) #21
   br label %298
@@ -6796,13 +6796,13 @@ thread-pre-split.thread:                          ; preds = %991, %.loopexit89, 
   %1194 = getelementptr i8, ptr %0, i64 1724
   %1195 = trunc i32 %1179 to i8
   %1196 = or i8 %1193, %1195
-  store i8 %1196, ptr %1194, align 1
-  store i8 16, ptr %21, align 1
+  store i8 %1196, ptr %1194, align 4
+  store i8 16, ptr %21, align 8
   %1197 = load ptr, ptr %25, align 8
   %1198 = getelementptr inbounds nuw i8, ptr %1197, i64 8
   %1199 = load i8, ptr %1198, align 1
   %1200 = getelementptr i8, ptr %0, i64 1736
-  store i8 %1199, ptr %1200, align 1
+  store i8 %1199, ptr %1200, align 8
   %1201 = load ptr, ptr %25, align 8
   %1202 = getelementptr i8, ptr %1201, i64 9
   %1203 = load i8, ptr %1202, align 1
@@ -6812,7 +6812,7 @@ thread-pre-split.thread:                          ; preds = %991, %.loopexit89, 
   %1206 = getelementptr inbounds nuw i8, ptr %1205, i64 10
   %1207 = load i8, ptr %1206, align 1
   %1208 = getelementptr i8, ptr %0, i64 1738
-  store i8 %1207, ptr %1208, align 1
+  store i8 %1207, ptr %1208, align 2
   %1209 = load ptr, ptr %25, align 8
   %1210 = getelementptr i8, ptr %1209, i64 11
   %1211 = load i8, ptr %1210, align 1
@@ -6980,9 +6980,9 @@ thread-pre-split.thread:                          ; preds = %991, %.loopexit89, 
   %1313 = load i8, ptr %1221, align 1, !range !17, !noundef !18
   %1314 = zext nneg i8 %1313 to i32
   %1315 = load i32, ptr %22, align 4
-  %1316 = load i32, ptr %1222, align 4
+  %1316 = load i32, ptr %1222, align 8
   %1317 = load i32, ptr %1220, align 4
-  %1318 = load i32, ptr %1223, align 4
+  %1318 = load i32, ptr %1223, align 8
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %1308, i32 noundef 2, ptr noundef nonnull @.str.56, i32 noundef %1309, ptr noundef %1310, i32 noundef %1312, i32 noundef %1314, i32 noundef %1315, i32 noundef %1316, i32 noundef %1317, i32 noundef %1318) #21
   br label %1319
 

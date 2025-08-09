@@ -861,7 +861,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @set_channel_params(ptr nou
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 65831
   store i8 0, ptr %27, align 1, !tbaa !71
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 65832
-  store i8 0, ptr %28, align 4, !tbaa !71
+  store i8 0, ptr %28, align 8, !tbaa !71
   br label %36
 
 29:                                               ; preds = %2
@@ -881,7 +881,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @set_channel_params(ptr nou
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 65831
   store i8 1, ptr %33, align 1, !tbaa !71
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 65832
-  store i8 0, ptr %34, align 4, !tbaa !71
+  store i8 0, ptr %34, align 8, !tbaa !71
   br label %36
 
 35:                                               ; preds = %2

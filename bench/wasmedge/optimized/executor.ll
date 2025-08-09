@@ -3332,11 +3332,11 @@ define linkonce_odr hidden void @_ZN8WasmEdge5AsyncIN5cxx208expectedISt6vectorIS
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr null, ptr %23, align 8, !noalias !34
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  store i32 0, ptr %24, align 4, !noalias !34
+  store i32 0, ptr %24, align 8, !noalias !34
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 36
-  store i8 0, ptr %25, align 1, !noalias !34
+  store i8 0, ptr %25, align 4, !noalias !34
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  store i32 0, ptr %26, align 4, !noalias !34
+  store i32 0, ptr %26, align 8, !noalias !34
   store ptr %19, ptr %18, align 8, !alias.scope !34
   store ptr %22, ptr %9, align 8, !alias.scope !34
   %27 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #23

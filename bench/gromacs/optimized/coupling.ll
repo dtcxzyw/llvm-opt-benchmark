@@ -1944,33 +1944,33 @@ _Z11do_per_stepll.exit144:                        ; preds = %94
   %207 = fmul float %205, %206
   store float %207, ptr %201, align 4, !tbaa !114
   %208 = getelementptr inbounds nuw i8, ptr %14, i64 56
-  %209 = load float, ptr %208, align 4, !tbaa !114
+  %209 = load float, ptr %208, align 8, !tbaa !114
   %210 = fmul float %205, %209
-  store float %210, ptr %208, align 4, !tbaa !114
+  store float %210, ptr %208, align 8, !tbaa !114
   %211 = getelementptr inbounds nuw i8, ptr %14, i64 60
   %212 = load float, ptr %211, align 4, !tbaa !114
   %213 = fmul float %205, %212
   store float %213, ptr %211, align 4, !tbaa !114
   %214 = getelementptr inbounds nuw i8, ptr %14, i64 64
-  %215 = load float, ptr %214, align 4, !tbaa !114
+  %215 = load float, ptr %214, align 8, !tbaa !114
   %216 = fmul float %205, %215
-  store float %216, ptr %214, align 4, !tbaa !114
+  store float %216, ptr %214, align 8, !tbaa !114
   %217 = getelementptr inbounds nuw i8, ptr %14, i64 68
   %218 = load float, ptr %217, align 4, !tbaa !114
   %219 = fmul float %205, %218
   store float %219, ptr %217, align 4, !tbaa !114
   %220 = getelementptr inbounds nuw i8, ptr %14, i64 72
-  %221 = load float, ptr %220, align 4, !tbaa !114
+  %221 = load float, ptr %220, align 8, !tbaa !114
   %222 = fmul float %205, %221
-  store float %222, ptr %220, align 4, !tbaa !114
+  store float %222, ptr %220, align 8, !tbaa !114
   %223 = getelementptr inbounds nuw i8, ptr %14, i64 76
   %224 = load float, ptr %223, align 4, !tbaa !114
   %225 = fmul float %205, %224
   store float %225, ptr %223, align 4, !tbaa !114
   %226 = getelementptr inbounds nuw i8, ptr %14, i64 80
-  %227 = load float, ptr %226, align 4, !tbaa !114
+  %227 = load float, ptr %226, align 8, !tbaa !114
   %228 = fmul float %205, %227
-  store float %228, ptr %226, align 4, !tbaa !114
+  store float %228, ptr %226, align 8, !tbaa !114
   %229 = getelementptr inbounds nuw i8, ptr %14, i64 84
   %230 = load float, ptr %229, align 4, !tbaa !114
   %231 = fmul float %205, %230
@@ -1980,25 +1980,25 @@ _Z11do_per_stepll.exit144:                        ; preds = %94
   store float %233, ptr %232, align 4, !tbaa !114
   %234 = fmul float %203, %210
   %235 = getelementptr inbounds nuw i8, ptr %14, i64 128
-  store float %234, ptr %235, align 4, !tbaa !114
+  store float %234, ptr %235, align 8, !tbaa !114
   %236 = fmul float %203, %213
   %237 = getelementptr inbounds nuw i8, ptr %14, i64 132
   store float %236, ptr %237, align 4, !tbaa !114
   %238 = fmul float %203, %216
   %239 = getelementptr inbounds nuw i8, ptr %14, i64 136
-  store float %238, ptr %239, align 4, !tbaa !114
+  store float %238, ptr %239, align 8, !tbaa !114
   %240 = fmul float %203, %219
   %241 = getelementptr inbounds nuw i8, ptr %14, i64 140
   store float %240, ptr %241, align 4, !tbaa !114
   %242 = fmul float %203, %222
   %243 = getelementptr inbounds nuw i8, ptr %14, i64 144
-  store float %242, ptr %243, align 4, !tbaa !114
+  store float %242, ptr %243, align 8, !tbaa !114
   %244 = fmul float %203, %225
   %245 = getelementptr inbounds nuw i8, ptr %14, i64 148
   store float %244, ptr %245, align 4, !tbaa !114
   %246 = fmul float %203, %228
   %247 = getelementptr inbounds nuw i8, ptr %14, i64 152
-  store float %246, ptr %247, align 4, !tbaa !114
+  store float %246, ptr %247, align 8, !tbaa !114
   %248 = fmul float %203, %231
   %249 = getelementptr inbounds nuw i8, ptr %14, i64 156
   store float %248, ptr %249, align 4, !tbaa !114
@@ -5533,31 +5533,31 @@ _ZL12boxv_trotterPK10t_inputrecPffPA3_KfPK14gmx_ekindata_tS5_PK9t_extmass.exit: 
   %111 = load double, ptr %110, align 8, !tbaa !352
   %112 = fmul double %108, %111
   %113 = fptrunc double %112 to float
-  %114 = load float, ptr %61, align 4, !tbaa !114
+  %114 = load float, ptr %61, align 8, !tbaa !114
   %115 = fmul float %114, %113
   store float %115, ptr %12, align 16, !tbaa !114
   %116 = load float, ptr %62, align 4, !tbaa !114
   %117 = fmul float %116, %113
   store float %117, ptr %63, align 4, !tbaa !114
-  %118 = load float, ptr %64, align 4, !tbaa !114
+  %118 = load float, ptr %64, align 8, !tbaa !114
   %119 = fmul float %118, %113
   store float %119, ptr %65, align 8, !tbaa !114
   %120 = load float, ptr %66, align 4, !tbaa !114
   %121 = fmul float %120, %113
   store float %121, ptr %67, align 4, !tbaa !114
-  %122 = load float, ptr %68, align 4, !tbaa !114
+  %122 = load float, ptr %68, align 8, !tbaa !114
   %123 = fmul float %122, %113
   store float %123, ptr %69, align 16, !tbaa !114
   %124 = load float, ptr %70, align 4, !tbaa !114
   %125 = fmul float %124, %113
   store float %125, ptr %71, align 4, !tbaa !114
-  %126 = load float, ptr %72, align 4, !tbaa !114
+  %126 = load float, ptr %72, align 8, !tbaa !114
   %127 = fmul float %126, %113
   store float %127, ptr %73, align 8, !tbaa !114
   %128 = load float, ptr %74, align 4, !tbaa !114
   %129 = fmul float %128, %113
   store float %129, ptr %75, align 4, !tbaa !114
-  %130 = load float, ptr %76, align 4, !tbaa !114
+  %130 = load float, ptr %76, align 8, !tbaa !114
   %131 = fmul float %130, %113
   store float %131, ptr %77, align 16, !tbaa !114
   %132 = load i32, ptr %78, align 8, !tbaa !353

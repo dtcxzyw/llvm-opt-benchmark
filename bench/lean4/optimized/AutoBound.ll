@@ -48,12 +48,12 @@ lean_alloc_ctor.exit:                             ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %15, align 8, !tbaa !8
-  store i32 1, ptr %11, align 4, !tbaa !10
+  store i32 1, ptr %11, align 8, !tbaa !10
   store i32 16777232, ptr %14, align 4
   %16 = ptrtoint ptr %6 to i64
   %17 = lshr i64 %16, 1
   %18 = trunc i64 %17 to i8
-  store i8 %18, ptr %15, align 1, !tbaa !13
+  store i8 %18, ptr %15, align 8, !tbaa !13
   %19 = ptrtoint ptr %10 to i64
   %20 = and i64 %19, 1
   %.not = icmp eq i64 %20, 0
@@ -1641,7 +1641,7 @@ _init_l_Lean_Elab_initFn____x40_Lean_Elab_AutoBound___hyg_6____closed__5.exit: ;
   %.val21 = load ptr, ptr %46, align 8, !tbaa !4
   store ptr %.val21, ptr @l_Lean_Elab_autoImplicit, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val21) #3
-  %47 = load i32, ptr %42, align 4, !tbaa !10
+  %47 = load i32, ptr %42, align 8, !tbaa !10
   %48 = icmp sgt i32 %47, 1
   br i1 %48, label %49, label %51, !prof !14
 
@@ -1716,7 +1716,7 @@ _init_l_Lean_Elab_initFn____x40_Lean_Elab_AutoBound___hyg_40____closed__4.exit: 
   %.val22 = load ptr, ptr %78, align 8, !tbaa !4
   store ptr %.val22, ptr @l_Lean_Elab_relaxedAutoImplicit, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val22) #3
-  %79 = load i32, ptr %74, align 4, !tbaa !10
+  %79 = load i32, ptr %74, align 8, !tbaa !10
   %80 = icmp sgt i32 %79, 1
   br i1 %80, label %81, label %83, !prof !14
 

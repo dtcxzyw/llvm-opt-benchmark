@@ -6517,7 +6517,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %.sroa.0.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 %.sroa.03.0.copyload.i.i, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i.i, align 4, !noalias !2035
   %.sroa.0.sroa.4.0..sroa.0.sroa.4.0..sroa_idx.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i64 %.sroa.0.sroa.4.i.sroa.0.0.copyload.i, ptr %.sroa.0.sroa.4.0..sroa.0.sroa.4.0..sroa_idx.i.sroa_idx.i.i, align 4, !noalias !2035
+  store i64 %.sroa.0.sroa.4.i.sroa.0.0.copyload.i, ptr %.sroa.0.sroa.4.0..sroa.0.sroa.4.0..sroa_idx.i.sroa_idx.i.i, align 8, !noalias !2035
   %.sroa.0.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %.sroa.85.0.copyload.i.i, ptr %.sroa.0.sroa.5.0..sroa_idx.i.i.i, align 8, !noalias !2030
   %.sroa.0.sroa.6.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 24
@@ -19793,7 +19793,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit108.i.i.i: ; preds = %297
   %.sroa.6.0..8.val.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.val288, i64 10
   store i48 %.sroa.13.2.extract.trunc52.i.i, ptr %.sroa.6.0..8.val.sroa_idx.i.i.i, align 2, !noalias !7071
   %.sroa.9.sroa.6.0..sroa.6.0..8.val.sroa_idx.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.val288, i64 16
-  store i64 %.sroa.21.sroa.0.0.insert.insert53.i.i, ptr %.sroa.9.sroa.6.0..sroa.6.0..8.val.sroa_idx.i.sroa_idx.i.i, align 2, !noalias !7071
+  store i64 %.sroa.21.sroa.0.0.insert.insert53.i.i, ptr %.sroa.9.sroa.6.0..sroa.6.0..8.val.sroa_idx.i.sroa_idx.i.i, align 8, !noalias !7071
   br label %common.resume.i
 
 "_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hfc560dddd19c8c34E.exit.thread45": ; preds = %347, %"_ZN4core3ptr104drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$ide_db..rename..RenameError$GT$$GT$17ha31684e307bd59c0E.exit.i.i.i.i"
@@ -19803,7 +19803,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit108.i.i.i: ; preds = %297
   %.sroa.6.0..8.val.sroa_idx21.i.i.i = getelementptr inbounds nuw i8, ptr %.val288, i64 10
   store i48 %.sroa.13.2.extract.trunc52.i.i, ptr %.sroa.6.0..8.val.sroa_idx21.i.i.i, align 2, !noalias !7071
   %.sroa.9.sroa.6.0..sroa.6.0..8.val.sroa_idx21.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.val288, i64 16
-  store i64 %.sroa.21.sroa.0.0.insert.insert53.i.i, ptr %.sroa.9.sroa.6.0..sroa.6.0..8.val.sroa_idx21.i.sroa_idx.i.i, align 2, !noalias !7071
+  store i64 %.sroa.21.sroa.0.0.insert.insert53.i.i, ptr %.sroa.9.sroa.6.0..sroa.6.0..8.val.sroa_idx21.i.sroa_idx.i.i, align 8, !noalias !7071
   br label %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h12f6dce61817a578E.exit"
 
 "_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hfc560dddd19c8c34E.exit": ; preds = %344

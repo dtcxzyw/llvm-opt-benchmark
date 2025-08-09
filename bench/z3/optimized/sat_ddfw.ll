@@ -1647,7 +1647,7 @@ _ZNK9stopwatch19get_current_secondsEv.exit:       ; preds = %1, %_ZN9stopwatch4s
   %83 = load i32, ptr %82, align 8, !tbaa !119
   %84 = and i32 %83, -261
   %85 = or disjoint i32 %84, 4
-  store i32 %85, ptr %82, align 4, !tbaa !120
+  store i32 %85, ptr %82, align 8, !tbaa !120
   %86 = load i64, ptr %76, align 8
   %87 = getelementptr inbounds i8, ptr %74, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
@@ -1741,7 +1741,7 @@ _ZNK9stopwatch19get_current_secondsEv.exit:       ; preds = %1, %_ZN9stopwatch4s
   %164 = load i32, ptr %163, align 8, !tbaa !119
   %165 = and i32 %164, -261
   %166 = or disjoint i32 %165, 4
-  store i32 %166, ptr %163, align 4, !tbaa !120
+  store i32 %166, ptr %163, align 8, !tbaa !120
   %167 = load i64, ptr %157, align 8
   %168 = getelementptr inbounds i8, ptr %155, i64 %167
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 8

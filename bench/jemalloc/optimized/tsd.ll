@@ -580,7 +580,7 @@ tsd_set.exit29:                                   ; preds = %57, %60
   tail call void @je_tsd_te_init(ptr noundef nonnull %0) #7
   tail call void @je_tsd_san_init(ptr noundef nonnull %0) #7
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 1, ptr %68, align 1, !tbaa !44
+  store i8 1, ptr %68, align 2, !tbaa !44
   br label %110
 
 69:                                               ; preds = %2

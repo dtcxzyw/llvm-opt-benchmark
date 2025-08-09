@@ -838,7 +838,7 @@ sha256_update.exit462:                            ; preds = %273, %274
   store i32 %470, ptr %291, align 4, !tbaa !18
   %471 = getelementptr inbounds nuw i8, ptr %0, i64 616
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %8, ptr noundef nonnull align 8 dereferenceable(112) %471, i64 112, i1 false), !tbaa.struct !17
-  %472 = load i32, ptr %9, align 4, !tbaa !29
+  %472 = load i32, ptr %9, align 8, !tbaa !29
   %.not.i463 = icmp eq i32 %472, 0
   br i1 %.not.i463, label %.thread492, label %473
 

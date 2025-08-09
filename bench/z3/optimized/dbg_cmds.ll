@@ -5340,7 +5340,7 @@ _ZNK9used_vars28get_max_found_var_idx_plus_1Ev.exit: ; preds = %_ZStlsISt11char_
   %63 = load i32, ptr %62, align 8, !tbaa !335
   %64 = and i32 %63, -177
   %65 = or disjoint i32 %64, 32
-  store i32 %65, ptr %62, align 4, !tbaa !336
+  store i32 %65, ptr %62, align 8, !tbaa !336
   %66 = load i64, ptr %59, align 8
   %67 = getelementptr inbounds i8, ptr %54, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 16

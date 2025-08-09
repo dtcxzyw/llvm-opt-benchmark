@@ -40296,7 +40296,7 @@ _ZN10polars_sql8sql_expr14SQLExprVisitor25visit_compound_identifier17ha7887fde50
   %262 = getelementptr inbounds nuw i8, ptr %.tr413, i64 152
   %263 = load ptr, ptr %262, align 8, !nonnull !4, !align !21, !noundef !4
   %.val275 = load i64, ptr %261, align 8, !range !1952, !noundef !4
-  %.val276 = load i8, ptr %259, align 1
+  %.val276 = load i8, ptr %259, align 8
   tail call fastcc void @_ZN10polars_sql8sql_expr14SQLExprVisitor10visit_cast17h04d1f3103d5c7fa7E(ptr noalias noundef align 16 captures(none) dereferenceable(192) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias noundef readonly align 8 dereferenceable(328) %263, ptr noalias noundef readonly align 8 dereferenceable(48) %260, i64 %.val275, i8 %.val276)
   br label %331
 
@@ -40358,7 +40358,7 @@ _ZN10polars_sql8sql_expr14SQLExprVisitor25visit_compound_identifier17ha7887fde50
   %290 = getelementptr inbounds nuw i8, ptr %.tr413, i64 8
   %291 = getelementptr inbounds nuw i8, ptr %.tr413, i64 32
   %292 = load ptr, ptr %291, align 8, !nonnull !4, !align !21, !noundef !4
-  %.val273 = load i8, ptr %288, align 1
+  %.val273 = load i8, ptr %288, align 8
   %.val274 = load i64, ptr %290, align 8, !range !3, !noundef !4
   tail call fastcc void @_ZN10polars_sql8sql_expr14SQLExprVisitor10visit_trim17h4dd78226ccde531cE(ptr noalias noundef align 16 captures(none) dereferenceable(192) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias noundef readonly align 8 dereferenceable(328) %292, i8 %.val273, ptr noalias noundef readonly align 8 dereferenceable(8) %289, i64 %.val274)
   br label %331

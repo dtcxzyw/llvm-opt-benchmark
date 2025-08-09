@@ -929,7 +929,7 @@ define internal fastcc void @compute_box_stats(ptr noundef readonly captures(non
   %17 = sdiv i64 %42, %48
   %18 = trunc i64 %17 to i32
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %18, ptr %19, align 4, !tbaa !94
+  store i32 %18, ptr %19, align 8, !tbaa !94
   %20 = sdiv i64 %47, %48
   %21 = trunc i64 %20 to i32
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -956,7 +956,7 @@ define internal fastcc void @compute_box_stats(ptr noundef readonly captures(non
   %36 = mul nsw i64 %35, %33
   %37 = add nsw i64 %36, %.082
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %39 = load i32, ptr %38, align 4, !tbaa !97
+  %39 = load i32, ptr %38, align 8, !tbaa !97
   %40 = sext i32 %39 to i64
   %41 = mul nsw i64 %35, %40
   %42 = add nsw i64 %41, %.07581

@@ -480,11 +480,11 @@ define zeroext range(i8 0, 2) i8 @l___private_Std_Net_Addr_0__Std_Net_decEqSocke
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr i8, ptr %0, i64 16
-  %.val = load i16, ptr %5, align 2, !tbaa !11
+  %.val = load i16, ptr %5, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr i8, ptr %1, i64 16
-  %.val12 = load i16, ptr %8, align 2, !tbaa !11
+  %.val12 = load i16, ptr %8, align 8, !tbaa !11
   %9 = load ptr, ptr @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29____spec__1___rarg___closed__1, align 8, !tbaa !4
   %10 = tail call zeroext i8 @l_Array_instDecidableEq___rarg(ptr noundef %9, ptr noundef %4, ptr noundef %7) #7
   %11 = icmp ne i8 %10, 0
@@ -499,11 +499,11 @@ define nonnull ptr @l___private_Std_Net_Addr_0__Std_Net_decEqSocketAddressV4____
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr i8, ptr %0, i64 16
-  %.val.i = load i16, ptr %5, align 2, !tbaa !11
+  %.val.i = load i16, ptr %5, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr i8, ptr %1, i64 16
-  %.val12.i = load i16, ptr %8, align 2, !tbaa !11
+  %.val12.i = load i16, ptr %8, align 8, !tbaa !11
   %9 = load ptr, ptr @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29____spec__1___rarg___closed__1, align 8, !tbaa !4
   %10 = tail call zeroext i8 @l_Array_instDecidableEq___rarg(ptr noundef %9, ptr noundef %4, ptr noundef %7) #7
   %11 = ptrtoint ptr %1 to i64
@@ -566,11 +566,11 @@ define zeroext range(i8 0, 2) i8 @l_Std_Net_instDecidableEqSocketAddressV4(ptr n
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr i8, ptr %0, i64 16
-  %.val.i = load i16, ptr %5, align 2, !tbaa !11
+  %.val.i = load i16, ptr %5, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr i8, ptr %1, i64 16
-  %.val12.i = load i16, ptr %8, align 2, !tbaa !11
+  %.val12.i = load i16, ptr %8, align 8, !tbaa !11
   %9 = load ptr, ptr @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29____spec__1___rarg___closed__1, align 8, !tbaa !4
   %10 = tail call zeroext i8 @l_Array_instDecidableEq___rarg(ptr noundef %9, ptr noundef %4, ptr noundef %7) #7
   %11 = icmp ne i8 %10, 0
@@ -585,11 +585,11 @@ define nonnull ptr @l_Std_Net_instDecidableEqSocketAddressV4___boxed(ptr noundef
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr i8, ptr %0, i64 16
-  %.val.i.i = load i16, ptr %5, align 2, !tbaa !11
+  %.val.i.i = load i16, ptr %5, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr i8, ptr %1, i64 16
-  %.val12.i.i = load i16, ptr %8, align 2, !tbaa !11
+  %.val12.i.i = load i16, ptr %8, align 8, !tbaa !11
   %9 = load ptr, ptr @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29____spec__1___rarg___closed__1, align 8, !tbaa !4
   %10 = tail call zeroext i8 @l_Array_instDecidableEq___rarg(ptr noundef %9, ptr noundef %4, ptr noundef %7) #7
   %11 = ptrtoint ptr %1 to i64
@@ -960,11 +960,11 @@ define zeroext range(i8 0, 2) i8 @l___private_Std_Net_Addr_0__Std_Net_decEqSocke
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr i8, ptr %0, i64 16
-  %.val12 = load i16, ptr %5, align 2, !tbaa !11
+  %.val12 = load i16, ptr %5, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr i8, ptr %1, i64 16
-  %.val = load i16, ptr %8, align 2, !tbaa !11
+  %.val = load i16, ptr %8, align 8, !tbaa !11
   %9 = load ptr, ptr @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1, align 8, !tbaa !4
   %10 = tail call zeroext i8 @l_Array_instDecidableEq___rarg(ptr noundef %9, ptr noundef %4, ptr noundef %7) #7
   %11 = icmp ne i8 %10, 0
@@ -979,11 +979,11 @@ define nonnull ptr @l___private_Std_Net_Addr_0__Std_Net_decEqSocketAddressV6____
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr i8, ptr %0, i64 16
-  %.val12.i = load i16, ptr %5, align 2, !tbaa !11
+  %.val12.i = load i16, ptr %5, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr i8, ptr %1, i64 16
-  %.val.i = load i16, ptr %8, align 2, !tbaa !11
+  %.val.i = load i16, ptr %8, align 8, !tbaa !11
   %9 = load ptr, ptr @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1, align 8, !tbaa !4
   %10 = tail call zeroext i8 @l_Array_instDecidableEq___rarg(ptr noundef %9, ptr noundef %4, ptr noundef %7) #7
   %11 = ptrtoint ptr %1 to i64
@@ -1046,11 +1046,11 @@ define zeroext range(i8 0, 2) i8 @l_Std_Net_instDecidableEqSocketAddressV6(ptr n
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr i8, ptr %0, i64 16
-  %.val12.i = load i16, ptr %5, align 2, !tbaa !11
+  %.val12.i = load i16, ptr %5, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr i8, ptr %1, i64 16
-  %.val.i = load i16, ptr %8, align 2, !tbaa !11
+  %.val.i = load i16, ptr %8, align 8, !tbaa !11
   %9 = load ptr, ptr @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1, align 8, !tbaa !4
   %10 = tail call zeroext i8 @l_Array_instDecidableEq___rarg(ptr noundef %9, ptr noundef %4, ptr noundef %7) #7
   %11 = icmp ne i8 %10, 0
@@ -1065,11 +1065,11 @@ define nonnull ptr @l_Std_Net_instDecidableEqSocketAddressV6___boxed(ptr noundef
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr i8, ptr %0, i64 16
-  %.val12.i.i = load i16, ptr %5, align 2, !tbaa !11
+  %.val12.i.i = load i16, ptr %5, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr i8, ptr %1, i64 16
-  %.val.i.i = load i16, ptr %8, align 2, !tbaa !11
+  %.val.i.i = load i16, ptr %8, align 8, !tbaa !11
   %9 = load ptr, ptr @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1, align 8, !tbaa !4
   %10 = tail call zeroext i8 @l_Array_instDecidableEq___rarg(ptr noundef %9, ptr noundef %4, ptr noundef %7) #7
   %11 = ptrtoint ptr %1 to i64
@@ -1608,11 +1608,11 @@ lean_obj_tag.exit24:                              ; preds = %23, %26
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !4
   %36 = getelementptr i8, ptr %31, i64 16
-  %.val12.i25 = load i16, ptr %36, align 2, !tbaa !11
+  %.val12.i25 = load i16, ptr %36, align 8, !tbaa !11
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !4
   %39 = getelementptr i8, ptr %33, i64 16
-  %.val.i26 = load i16, ptr %39, align 2, !tbaa !11
+  %.val.i26 = load i16, ptr %39, align 8, !tbaa !11
   %40 = load ptr, ptr %l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1.sink, align 8, !tbaa !4
   %41 = tail call zeroext i8 @l_Array_instDecidableEq___rarg(ptr noundef %40, ptr noundef %35, ptr noundef %38) #7
   %42 = icmp ne i8 %41, 0
@@ -1699,11 +1699,11 @@ lean_obj_tag.exit24.i:                            ; preds = %26, %23
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !4
   %36 = getelementptr i8, ptr %31, i64 16
-  %.val12.i25.i = load i16, ptr %36, align 2, !tbaa !11
+  %.val12.i25.i = load i16, ptr %36, align 8, !tbaa !11
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !4
   %39 = getelementptr i8, ptr %33, i64 16
-  %.val.i26.i = load i16, ptr %39, align 2, !tbaa !11
+  %.val.i26.i = load i16, ptr %39, align 8, !tbaa !11
   %40 = load ptr, ptr %l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1.sink.i, align 8, !tbaa !4
   %41 = tail call zeroext i8 @l_Array_instDecidableEq___rarg(ptr noundef %40, ptr noundef %35, ptr noundef %38) #7
   %42 = icmp ne i8 %41, 0
@@ -1833,11 +1833,11 @@ lean_obj_tag.exit24.i:                            ; preds = %26, %23
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !4
   %36 = getelementptr i8, ptr %31, i64 16
-  %.val12.i25.i = load i16, ptr %36, align 2, !tbaa !11
+  %.val12.i25.i = load i16, ptr %36, align 8, !tbaa !11
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !4
   %39 = getelementptr i8, ptr %33, i64 16
-  %.val.i26.i = load i16, ptr %39, align 2, !tbaa !11
+  %.val.i26.i = load i16, ptr %39, align 8, !tbaa !11
   %40 = load ptr, ptr %l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1.sink.i, align 8, !tbaa !4
   %41 = tail call zeroext i8 @l_Array_instDecidableEq___rarg(ptr noundef %40, ptr noundef %35, ptr noundef %38) #7
   %42 = icmp ne i8 %41, 0
@@ -1924,11 +1924,11 @@ lean_obj_tag.exit24.i.i:                          ; preds = %26, %23
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !4
   %36 = getelementptr i8, ptr %31, i64 16
-  %.val12.i25.i.i = load i16, ptr %36, align 2, !tbaa !11
+  %.val12.i25.i.i = load i16, ptr %36, align 8, !tbaa !11
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !4
   %39 = getelementptr i8, ptr %33, i64 16
-  %.val.i26.i.i = load i16, ptr %39, align 2, !tbaa !11
+  %.val.i26.i.i = load i16, ptr %39, align 8, !tbaa !11
   %40 = load ptr, ptr %l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1.sink.i.i, align 8, !tbaa !4
   %41 = tail call zeroext i8 @l_Array_instDecidableEq___rarg(ptr noundef %40, ptr noundef %35, ptr noundef %38) #7
   %42 = icmp ne i8 %41, 0
@@ -3755,7 +3755,7 @@ define zeroext i8 @l___private_Std_Net_Addr_0__Std_Net_decEqInterfaceAddress____
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr i8, ptr %0, i64 40
-  %.val = load i8, ptr %7, align 1, !tbaa !16
+  %.val = load i8, ptr %7, align 8, !tbaa !16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3765,7 +3765,7 @@ define zeroext i8 @l___private_Std_Net_Addr_0__Std_Net_decEqInterfaceAddress____
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !4
   %16 = getelementptr i8, ptr %1, i64 40
-  %.val37 = load i8, ptr %16, align 1, !tbaa !16
+  %.val37 = load i8, ptr %16, align 8, !tbaa !16
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !4
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -4200,7 +4200,7 @@ _init_l_Std_Net_instInhabitedSocketAddressV4___closed__2.exit: ; preds = %_init_
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store i64 0, ptr %44, align 8, !tbaa !17
-  store i32 1, ptr %40, align 4, !tbaa !8
+  store i32 1, ptr %40, align 8, !tbaa !8
   store i32 65560, ptr %43, align 4
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %39, ptr %45, align 8, !tbaa !4
@@ -4250,11 +4250,11 @@ _init_l_Std_Net_instInhabitedSocketAddressV6___closed__1.exit: ; preds = %_init_
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 16
   store i64 0, ptr %61, align 8, !tbaa !17
-  store i32 1, ptr %57, align 4, !tbaa !8
+  store i32 1, ptr %57, align 8, !tbaa !8
   store i32 65560, ptr %60, align 4
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %56, ptr %62, align 8, !tbaa !4
-  store i16 0, ptr %61, align 2, !tbaa !11
+  store i16 0, ptr %61, align 8, !tbaa !11
   store ptr %57, ptr @l_Std_Net_instInhabitedSocketAddressV6___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %57) #7
   %63 = load ptr, ptr @l_Std_Net_instInhabitedSocketAddressV6___closed__1, align 8, !tbaa !4
@@ -4415,7 +4415,7 @@ _init_l_Std_Net_instInhabitedInterfaceAddress___closed__2.exit: ; preds = %_init
   %116 = getelementptr inbounds nuw i8, ptr %113, i64 4
   %117 = getelementptr inbounds nuw i8, ptr %113, i64 40
   store i64 0, ptr %117, align 8, !tbaa !17
-  store i32 1, ptr %113, align 4, !tbaa !8
+  store i32 1, ptr %113, align 8, !tbaa !8
   store i32 262192, ptr %116, align 4
   %118 = getelementptr inbounds nuw i8, ptr %113, i64 8
   store ptr %110, ptr %118, align 8, !tbaa !4

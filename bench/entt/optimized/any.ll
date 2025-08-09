@@ -148429,7 +148429,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %8, ptr %7, align 8, !tbaa !1249
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %9, align 8, !tbaa !39
-  store i8 0, ptr %8, align 1, !tbaa !20
+  store i8 0, ptr %8, align 8, !tbaa !20
   store ptr %7, ptr %4, align 8, !tbaa !32
   br label %10
 
@@ -150685,7 +150685,7 @@ _ZNSt10_HashtableIiSt4pairIKiN4test14non_comparableEESaIS4_ENSt8__detail10_Selec
   store ptr null, ptr %.sink12.i, align 8, !tbaa !987
   %28 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 8
   %29 = load i64, ptr %21, align 4
-  store i64 %29, ptr %28, align 4
+  store i64 %29, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sink12.i, ptr %30, align 8, !tbaa !986
   %31 = load ptr, ptr %0, align 8, !tbaa !963
@@ -150722,7 +150722,7 @@ _ZNSt10_HashtableIiSt4pairIKiN4test14non_comparableEESaIS4_ENSt8__detail10_Selec
   store ptr null, ptr %.sink12.i34, align 8, !tbaa !987
   %44 = getelementptr inbounds nuw i8, ptr %.sink12.i34, i64 8
   %45 = load i64, ptr %37, align 4
-  store i64 %45, ptr %44, align 4
+  store i64 %45, ptr %44, align 8
   store ptr %.sink12.i34, ptr %.02639, align 8, !tbaa !987
   %46 = load i64, ptr %32, align 8, !tbaa !970
   %sext41 = shl i64 %45, 32
@@ -150866,7 +150866,7 @@ _ZNSt10_HashtableIiSt4pairIKiN4test14non_comparableEESaIS4_ENSt8__detail10_Selec
   store ptr null, ptr %22, align 8, !tbaa !987
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %26 = load i64, ptr %24, align 4
-  store i64 %26, ptr %25, align 4
+  store i64 %26, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %27, align 8, !tbaa !986
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -150891,7 +150891,7 @@ _ZNSt10_HashtableIiSt4pairIKiN4test14non_comparableEESaIS4_ENSt8__detail10_Selec
   store ptr null, ptr %33, align 8, !tbaa !987
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %37 = load i64, ptr %35, align 4
-  store i64 %37, ptr %36, align 4
+  store i64 %37, ptr %36, align 8
   store ptr %33, ptr %.02636, align 8, !tbaa !987
   %sext38 = shl i64 %37, 32
   %38 = ashr exact i64 %sext38, 32

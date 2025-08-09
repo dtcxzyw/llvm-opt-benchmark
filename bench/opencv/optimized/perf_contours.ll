@@ -22116,7 +22116,7 @@ define internal void @_GLOBAL__sub_I_perf_contours.cpp() #24 section ".text.star
   %95 = getelementptr inbounds nuw i8, ptr %85, i64 40
   store i64 12, ptr %95, align 8, !tbaa !20
   %96 = getelementptr inbounds nuw i8, ptr %85, i64 60
-  store i8 0, ptr %96, align 1, !tbaa !22
+  store i8 0, ptr %96, align 4, !tbaa !22
   %97 = getelementptr inbounds nuw i8, ptr %85, i64 64
   store ptr %83, ptr %97, align 8, !tbaa !222
   %98 = getelementptr inbounds nuw i8, ptr %81, i64 80
@@ -22675,7 +22675,7 @@ _ZSt19__relocate_object_aIN7testing8internal25ParameterizedTestCaseInfoIN11openc
   store i64 %277, ptr %279, align 8, !tbaa !20, !alias.scope !738, !noalias !741
   store ptr %269, ptr %.092.i.i.i.i.i.i.i.i.i, align 8, !tbaa !17, !alias.scope !741, !noalias !738
   store i64 0, ptr %278, align 8, !tbaa !20, !alias.scope !741, !noalias !738
-  store i8 0, ptr %269, align 1, !tbaa !22, !alias.scope !741, !noalias !738
+  store i8 0, ptr %269, align 8, !tbaa !22, !alias.scope !741, !noalias !738
   %280 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i.i.i.i, i64 32
   %281 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %280, ptr noundef nonnull align 8 dereferenceable(28) %281, i64 28, i1 false), !alias.scope !743
@@ -22952,7 +22952,7 @@ __cxx_global_var_init.22.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   %362 = getelementptr inbounds nuw i8, ptr %352, i64 40
   store i64 12, ptr %362, align 8, !tbaa !20
   %363 = getelementptr inbounds nuw i8, ptr %352, i64 60
-  store i8 0, ptr %363, align 1, !tbaa !22
+  store i8 0, ptr %363, align 4, !tbaa !22
   %364 = getelementptr inbounds nuw i8, ptr %352, i64 64
   store ptr %350, ptr %364, align 8, !tbaa !430
   %365 = getelementptr inbounds nuw i8, ptr %348, i64 80
@@ -23507,7 +23507,7 @@ _ZSt19__relocate_object_aIN7testing8internal25ParameterizedTestCaseInfoIN11openc
   store i64 %544, ptr %546, align 8, !tbaa !20, !alias.scope !748, !noalias !751
   store ptr %536, ptr %.092.i.i.i.i.i.i.i.i.i96, align 8, !tbaa !17, !alias.scope !751, !noalias !748
   store i64 0, ptr %545, align 8, !tbaa !20, !alias.scope !751, !noalias !748
-  store i8 0, ptr %536, align 1, !tbaa !22, !alias.scope !751, !noalias !748
+  store i8 0, ptr %536, align 8, !tbaa !22, !alias.scope !751, !noalias !748
   %547 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i.i.i.i95, i64 32
   %548 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i.i.i.i96, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %547, ptr noundef nonnull align 8 dereferenceable(28) %548, i64 28, i1 false), !alias.scope !753
@@ -23784,7 +23784,7 @@ __cxx_global_var_init.26.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   %629 = getelementptr inbounds nuw i8, ptr %619, i64 40
   store i64 12, ptr %629, align 8, !tbaa !20
   %630 = getelementptr inbounds nuw i8, ptr %619, i64 60
-  store i8 0, ptr %630, align 1, !tbaa !22
+  store i8 0, ptr %630, align 4, !tbaa !22
   %631 = getelementptr inbounds nuw i8, ptr %619, i64 64
   store ptr %617, ptr %631, align 8, !tbaa !491
   %632 = getelementptr inbounds nuw i8, ptr %615, i64 80
@@ -24339,7 +24339,7 @@ _ZSt19__relocate_object_aIN7testing8internal25ParameterizedTestCaseInfoIN11openc
   store i64 %811, ptr %813, align 8, !tbaa !20, !alias.scope !758, !noalias !761
   store ptr %803, ptr %.092.i.i.i.i.i.i.i.i.i197, align 8, !tbaa !17, !alias.scope !761, !noalias !758
   store i64 0, ptr %812, align 8, !tbaa !20, !alias.scope !761, !noalias !758
-  store i8 0, ptr %803, align 1, !tbaa !22, !alias.scope !761, !noalias !758
+  store i8 0, ptr %803, align 8, !tbaa !22, !alias.scope !761, !noalias !758
   %814 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i.i.i.i196, i64 32
   %815 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i.i.i.i197, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %814, ptr noundef nonnull align 8 dereferenceable(28) %815, i64 28, i1 false), !alias.scope !763

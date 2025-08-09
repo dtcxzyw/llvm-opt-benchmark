@@ -1271,7 +1271,7 @@ define noundef ptr @_ZN3gmx27AndersenTemperatureCoupling21getElementPointerImplE
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #30, !noalias !278
   %37 = load double, ptr %21, align 8, !tbaa !281, !noalias !278
-  %38 = load i32, ptr %23, align 4, !tbaa !114, !noalias !278
+  %38 = load i32, ptr %23, align 8, !tbaa !114, !noalias !278
   %39 = sext i32 %38 to i64
   %40 = load ptr, ptr %34, align 8, !tbaa !282, !noalias !278
   %41 = load ptr, ptr %35, align 8, !tbaa !283, !noalias !278

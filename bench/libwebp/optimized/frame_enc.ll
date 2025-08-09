@@ -854,9 +854,9 @@ define internal fastcc void @StoreSideInfo(ptr noundef nonnull readonly captures
   %49 = icmp eq i8 %48, 1
   %50 = zext i1 %49 to i32
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 23608
-  %52 = load i32, ptr %51, align 4, !tbaa !51
+  %52 = load i32, ptr %51, align 8, !tbaa !51
   %53 = add nsw i32 %52, %50
-  store i32 %53, ptr %51, align 4, !tbaa !51
+  store i32 %53, ptr %51, align 8, !tbaa !51
   %54 = load i8, ptr %5, align 4
   %55 = lshr i8 %54, 4
   %.lobit = and i8 %55, 1

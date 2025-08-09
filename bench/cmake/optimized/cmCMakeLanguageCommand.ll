@@ -9261,7 +9261,7 @@ _ZSt19__relocate_object_aI18cmListFileArgumentS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i
   store i64 %53, ptr %55, align 8, !tbaa !23, !alias.scope !490, !noalias !493
   store ptr %45, ptr %.0911.i.i.i, align 8, !tbaa !20, !alias.scope !493, !noalias !490
   store i64 0, ptr %54, align 8, !tbaa !23, !alias.scope !493, !noalias !490
-  store i8 0, ptr %45, align 1, !tbaa !22, !alias.scope !493, !noalias !490
+  store i8 0, ptr %45, align 8, !tbaa !22, !alias.scope !493, !noalias !490
   %56 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %57 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 16, i1 false), !alias.scope !495
@@ -9312,7 +9312,7 @@ _ZSt19__relocate_object_aI18cmListFileArgumentS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i
   store i64 %71, ptr %73, align 8, !tbaa !23, !alias.scope !497, !noalias !500
   store ptr %63, ptr %.0911.i.i.i29, align 8, !tbaa !20, !alias.scope !500, !noalias !497
   store i64 0, ptr %72, align 8, !tbaa !23, !alias.scope !500, !noalias !497
-  store i8 0, ptr %63, align 1, !tbaa !22, !alias.scope !500, !noalias !497
+  store i8 0, ptr %63, align 8, !tbaa !22, !alias.scope !500, !noalias !497
   %74 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %75 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef nonnull align 8 dereferenceable(16) %75, i64 16, i1 false), !alias.scope !502
@@ -11747,7 +11747,7 @@ _ZSt19__relocate_object_aI18cmListFileArgumentS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i
   store i64 %68, ptr %70, align 8, !tbaa !23, !alias.scope !556, !noalias !559
   store ptr %60, ptr %.0911.i.i.i, align 8, !tbaa !20, !alias.scope !559, !noalias !556
   store i64 0, ptr %69, align 8, !tbaa !23, !alias.scope !559, !noalias !556
-  store i8 0, ptr %60, align 1, !tbaa !22, !alias.scope !559, !noalias !556
+  store i8 0, ptr %60, align 8, !tbaa !22, !alias.scope !559, !noalias !556
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %72 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false), !alias.scope !561
@@ -11798,7 +11798,7 @@ _ZSt19__relocate_object_aI18cmListFileArgumentS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i
   store i64 %86, ptr %88, align 8, !tbaa !23, !alias.scope !562, !noalias !565
   store ptr %78, ptr %.0911.i.i.i31, align 8, !tbaa !20, !alias.scope !565, !noalias !562
   store i64 0, ptr %87, align 8, !tbaa !23, !alias.scope !565, !noalias !562
-  store i8 0, ptr %78, align 1, !tbaa !22, !alias.scope !565, !noalias !562
+  store i8 0, ptr %78, align 8, !tbaa !22, !alias.scope !565, !noalias !562
   %89 = getelementptr inbounds nuw i8, ptr %.012.i.i.i30, i64 32
   %90 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i31, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef nonnull align 8 dereferenceable(16) %90, i64 16, i1 false), !alias.scope !567

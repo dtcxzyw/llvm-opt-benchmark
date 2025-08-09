@@ -5386,7 +5386,7 @@ define internal fastcc void @update_stat(ptr noundef readonly captures(none) %0,
   %203 = getelementptr inbounds nuw i8, ptr %1, i64 65832
   %204 = getelementptr inbounds nuw i8, ptr %1, i64 65836
   %205 = tail call nsz double @llvm.fabs.f64(double %3)
-  %206 = load i32, ptr %203, align 4, !tbaa !132
+  %206 = load i32, ptr %203, align 8, !tbaa !132
   %207 = load i32, ptr %204, align 4, !tbaa !132
   %208 = icmp eq i32 %206, %207
   %209 = sext i32 %206 to i64

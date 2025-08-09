@@ -484,7 +484,7 @@ gmc1_motion.exit:                                 ; preds = %145, %158
   %186 = load i32, ptr %185, align 4, !tbaa !40
   %187 = mul nsw i32 %186, %184
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %189 = load i32, ptr %188, align 4, !tbaa !39
+  %189 = load i32, ptr %188, align 8, !tbaa !39
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 3352
   %191 = load i32, ptr %190, align 8, !tbaa !42
   %192 = mul nsw i32 %191, %189
@@ -492,12 +492,12 @@ gmc1_motion.exit:                                 ; preds = %145, %158
   %194 = shl i32 %193, 4
   %195 = add i32 %194, %182
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 4848
-  %197 = load i32, ptr %196, align 4, !tbaa !39
+  %197 = load i32, ptr %196, align 8, !tbaa !39
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 4868
   %199 = load i32, ptr %198, align 4, !tbaa !39
   %200 = mul nsw i32 %199, %186
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 4872
-  %202 = load i32, ptr %201, align 4, !tbaa !39
+  %202 = load i32, ptr %201, align 8, !tbaa !39
   %203 = mul nsw i32 %202, %191
   %204 = add i32 %203, %200
   %205 = shl i32 %204, 4
@@ -523,8 +523,8 @@ gmc1_motion.exit:                                 ; preds = %145, %158
   %224 = load i32, ptr %198, align 4, !tbaa !39
   %225 = shl nsw i32 %224, 3
   %226 = add nsw i32 %225, %206
-  %227 = load i32, ptr %188, align 4, !tbaa !39
-  %228 = load i32, ptr %201, align 4, !tbaa !39
+  %227 = load i32, ptr %188, align 8, !tbaa !39
+  %228 = load i32, ptr %201, align 8, !tbaa !39
   %229 = load i32, ptr %212, align 8, !tbaa !52
   %230 = sub nsw i32 %211, %229
   %231 = load i32, ptr %215, align 4, !tbaa !48
@@ -535,17 +535,17 @@ gmc1_motion.exit:                                 ; preds = %145, %158
   %235 = load i32, ptr %183, align 4, !tbaa !39
   %236 = load i32, ptr %185, align 4, !tbaa !40
   %237 = mul nsw i32 %236, %235
-  %238 = load i32, ptr %188, align 4, !tbaa !39
+  %238 = load i32, ptr %188, align 8, !tbaa !39
   %239 = load i32, ptr %190, align 8, !tbaa !42
   %240 = mul nsw i32 %239, %238
   %241 = add i32 %240, %237
   %242 = shl i32 %241, 3
   %243 = add i32 %242, %234
   %244 = getelementptr inbounds nuw i8, ptr %0, i64 4856
-  %245 = load i32, ptr %244, align 4, !tbaa !39
+  %245 = load i32, ptr %244, align 8, !tbaa !39
   %246 = load i32, ptr %198, align 4, !tbaa !39
   %247 = mul nsw i32 %246, %236
-  %248 = load i32, ptr %201, align 4, !tbaa !39
+  %248 = load i32, ptr %201, align 8, !tbaa !39
   %249 = mul nsw i32 %248, %239
   %250 = add i32 %249, %247
   %251 = shl i32 %250, 3
@@ -566,9 +566,9 @@ gmc1_motion.exit:                                 ; preds = %145, %158
   %265 = load ptr, ptr %264, align 8, !tbaa !47
   %266 = load ptr, ptr %207, align 8, !tbaa !55
   %267 = load i32, ptr %183, align 4, !tbaa !39
-  %268 = load i32, ptr %188, align 4, !tbaa !39
+  %268 = load i32, ptr %188, align 8, !tbaa !39
   %269 = load i32, ptr %198, align 4, !tbaa !39
-  %270 = load i32, ptr %201, align 4, !tbaa !39
+  %270 = load i32, ptr %201, align 8, !tbaa !39
   %271 = load i32, ptr %212, align 8, !tbaa !52
   %272 = sub nsw i32 %211, %271
   %273 = load i32, ptr %215, align 4, !tbaa !48
@@ -2585,7 +2585,7 @@ mpeg_get_qscale.exit:                             ; preds = %74, %79
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 1292
   store i32 %113, ptr %115, align 4, !tbaa !39
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 1288
-  store i32 %113, ptr %116, align 4, !tbaa !39
+  store i32 %113, ptr %116, align 8, !tbaa !39
   store i32 %113, ptr %114, align 4, !tbaa !39
   br label %117
 
@@ -2669,21 +2669,21 @@ define range(i32 -2147483648, 1) i32 @ff_mpeg4_decode_partitions(ptr noundef ini
   %60 = load i32, ptr %21, align 4, !tbaa !39
   %61 = add nsw i32 %60, 2
   store i32 %61, ptr %21, align 4, !tbaa !39
-  %62 = load i32, ptr %22, align 4, !tbaa !39
+  %62 = load i32, ptr %22, align 8, !tbaa !39
   %63 = add nsw i32 %62, 2
-  store i32 %63, ptr %22, align 4, !tbaa !39
+  store i32 %63, ptr %22, align 8, !tbaa !39
   %64 = load i32, ptr %23, align 4, !tbaa !39
   %65 = add nsw i32 %64, 2
   store i32 %65, ptr %23, align 4, !tbaa !39
-  %66 = load i32, ptr %24, align 4, !tbaa !39
+  %66 = load i32, ptr %24, align 8, !tbaa !39
   %67 = add nsw i32 %66, 2
-  store i32 %67, ptr %24, align 4, !tbaa !39
+  store i32 %67, ptr %24, align 8, !tbaa !39
   %68 = load i32, ptr %25, align 4, !tbaa !39
   %69 = add nsw i32 %68, 1
   store i32 %69, ptr %25, align 4, !tbaa !39
-  %70 = load i32, ptr %26, align 4, !tbaa !39
+  %70 = load i32, ptr %26, align 8, !tbaa !39
   %71 = add nsw i32 %70, 1
-  store i32 %71, ptr %26, align 4, !tbaa !39
+  store i32 %71, ptr %26, align 8, !tbaa !39
   %72 = shl nuw nsw i32 %59, 1
   %73 = load ptr, ptr %27, align 8, !tbaa !47
   %74 = zext nneg i32 %72 to i64
@@ -3395,21 +3395,21 @@ mpeg4_decode_partition_a.exit.thread:             ; preds = %1, %131, %171, %360
   %455 = load i32, ptr %21, align 4, !tbaa !39
   %456 = add nsw i32 %455, 2
   store i32 %456, ptr %21, align 4, !tbaa !39
-  %457 = load i32, ptr %22, align 4, !tbaa !39
+  %457 = load i32, ptr %22, align 8, !tbaa !39
   %458 = add nsw i32 %457, 2
-  store i32 %458, ptr %22, align 4, !tbaa !39
+  store i32 %458, ptr %22, align 8, !tbaa !39
   %459 = load i32, ptr %23, align 4, !tbaa !39
   %460 = add nsw i32 %459, 2
   store i32 %460, ptr %23, align 4, !tbaa !39
-  %461 = load i32, ptr %24, align 4, !tbaa !39
+  %461 = load i32, ptr %24, align 8, !tbaa !39
   %462 = add nsw i32 %461, 2
-  store i32 %462, ptr %24, align 4, !tbaa !39
+  store i32 %462, ptr %24, align 8, !tbaa !39
   %463 = load i32, ptr %25, align 4, !tbaa !39
   %464 = add nsw i32 %463, 1
   store i32 %464, ptr %25, align 4, !tbaa !39
-  %465 = load i32, ptr %26, align 4, !tbaa !39
+  %465 = load i32, ptr %26, align 8, !tbaa !39
   %466 = add nsw i32 %465, 1
-  store i32 %466, ptr %26, align 4, !tbaa !39
+  store i32 %466, ptr %26, align 8, !tbaa !39
   %467 = shl nuw nsw i32 %454, 1
   %468 = load ptr, ptr %27, align 8, !tbaa !47
   %469 = zext nneg i32 %467 to i64
@@ -7613,7 +7613,7 @@ decode_smpte_tc.exit.i:                           ; preds = %1980, %check_marker
   %2045 = getelementptr inbounds nuw i8, ptr %0, i64 1292
   store i32 %2043, ptr %2045, align 4, !tbaa !39
   %2046 = getelementptr inbounds nuw i8, ptr %0, i64 1288
-  store i32 %2043, ptr %2046, align 4, !tbaa !39
+  store i32 %2043, ptr %2046, align 8, !tbaa !39
   store i32 %2043, ptr %2044, align 4, !tbaa !39
   br label %2047
 

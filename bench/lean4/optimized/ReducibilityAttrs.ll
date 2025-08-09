@@ -1481,7 +1481,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_alloc_closure.
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 72
   store i64 3, ptr %19, align 8, !tbaa !16
-  store i32 1, ptr %15, align 4, !tbaa !4
+  store i32 1, ptr %15, align 8, !tbaa !4
   store i32 524368, ptr %18, align 4
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %10, ptr %20, align 8, !tbaa !9
@@ -5157,7 +5157,7 @@ define ptr @l_Lean_SMap_insert___at_Lean_initFn____x40_Lean_ReducibilityAttrs___
   %13 = tail call i64 @l_Lean_Name_hash___override(ptr noundef %1) #6
   %14 = tail call ptr @l_Lean_PersistentHashMap_insertAux___at_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_335____spec__3(ptr noundef %12, i64 noundef %13, i64 noundef 1, ptr noundef %1, i8 noundef zeroext %2)
   store ptr %14, ptr %11, align 8, !tbaa !9
-  store i8 0, ptr %5, align 1, !tbaa !19
+  store i8 0, ptr %5, align 8, !tbaa !19
   br label %750
 
 15:                                               ; preds = %9
@@ -5251,7 +5251,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit346
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 24
   store i64 0, ptr %50, align 8, !tbaa !16
-  store i32 1, ptr %46, align 4, !tbaa !4
+  store i32 1, ptr %46, align 8, !tbaa !4
   store i32 131104, ptr %49, align 4
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %16, ptr %51, align 8, !tbaa !9
@@ -6064,7 +6064,7 @@ lean_alloc_ctor.exit472:                          ; preds = %l_Std_DHashMap_Inte
   %406 = getelementptr inbounds nuw i8, ptr %401, i64 16
   store ptr %400, ptr %406, align 8, !tbaa !9
   store ptr %401, ptr %4, align 8, !tbaa !9
-  store i8 1, ptr %5, align 1, !tbaa !19
+  store i8 1, ptr %5, align 8, !tbaa !19
   br label %750
 
 407:                                              ; preds = %384, %381, %lean_dec.exit336.thread, %lean_dec.exit335
@@ -6086,7 +6086,7 @@ lean_alloc_ctor.exit473:                          ; preds = %407
   %413 = getelementptr inbounds nuw i8, ptr %408, i64 16
   store ptr %.0.i.i460, ptr %413, align 8, !tbaa !9
   store ptr %408, ptr %4, align 8, !tbaa !9
-  store i8 1, ptr %5, align 1, !tbaa !19
+  store i8 1, ptr %5, align 8, !tbaa !19
   br label %750
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_335____spec__6.exit454: ; preds = %290
@@ -6185,7 +6185,7 @@ lean_alloc_ctor.exit486:                          ; preds = %lean_array_uset.exi
   %450 = getelementptr inbounds nuw i8, ptr %445, i64 16
   store ptr %.0.i.i482, ptr %450, align 8, !tbaa !9
   store ptr %445, ptr %4, align 8, !tbaa !9
-  store i8 1, ptr %5, align 1, !tbaa !19
+  store i8 1, ptr %5, align 8, !tbaa !19
   br label %750
 
 451:                                              ; preds = %53
@@ -6735,7 +6735,7 @@ lean_alloc_ctor.exit535:                          ; preds = %674
   %680 = getelementptr inbounds nuw i8, ptr %677, i64 4
   %681 = getelementptr inbounds nuw i8, ptr %677, i64 24
   store i64 1, ptr %681, align 8, !tbaa !16
-  store i32 1, ptr %677, align 4, !tbaa !4
+  store i32 1, ptr %677, align 8, !tbaa !4
   store i32 131104, ptr %680, align 4
   %682 = getelementptr inbounds nuw i8, ptr %677, i64 8
   store ptr %.0309, ptr %682, align 8, !tbaa !9
@@ -6784,7 +6784,7 @@ lean_alloc_ctor.exit538:                          ; preds = %692
   %698 = getelementptr inbounds nuw i8, ptr %695, i64 4
   %699 = getelementptr inbounds nuw i8, ptr %695, i64 24
   store i64 1, ptr %699, align 8, !tbaa !16
-  store i32 1, ptr %695, align 4, !tbaa !4
+  store i32 1, ptr %695, align 8, !tbaa !4
   store i32 131104, ptr %698, align 4
   %700 = getelementptr inbounds nuw i8, ptr %695, i64 8
   store ptr %.0310, ptr %700, align 8, !tbaa !9
@@ -6910,7 +6910,7 @@ lean_alloc_ctor.exit553:                          ; preds = %740
   %746 = getelementptr inbounds nuw i8, ptr %743, i64 4
   %747 = getelementptr inbounds nuw i8, ptr %743, i64 24
   store i64 1, ptr %747, align 8, !tbaa !16
-  store i32 1, ptr %743, align 4, !tbaa !4
+  store i32 1, ptr %743, align 8, !tbaa !4
   store i32 131104, ptr %746, align 4
   %748 = getelementptr inbounds nuw i8, ptr %743, i64 8
   store ptr %.0307, ptr %748, align 8, !tbaa !9
@@ -7029,7 +7029,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 24
   store i64 0, ptr %42, align 8, !tbaa !16
-  store i32 1, ptr %38, align 4, !tbaa !4
+  store i32 1, ptr %38, align 8, !tbaa !4
   store i32 131104, ptr %41, align 4
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %10, ptr %43, align 8, !tbaa !9
@@ -18011,7 +18011,7 @@ _init_l___private_Lean_ReducibilityAttrs_0__Lean_reprReducibilityStatus____x40_L
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store i64 0, ptr %57, align 8, !tbaa !16
-  store i32 1, ptr %53, align 4, !tbaa !4
+  store i32 1, ptr %53, align 8, !tbaa !4
   store i32 100728856, ptr %56, align 4
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store ptr %52, ptr %58, align 8, !tbaa !9
@@ -18052,7 +18052,7 @@ _init_l___private_Lean_ReducibilityAttrs_0__Lean_reprReducibilityStatus____x40_L
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store i64 0, ptr %71, align 8, !tbaa !16
-  store i32 1, ptr %67, align 4, !tbaa !4
+  store i32 1, ptr %67, align 8, !tbaa !4
   store i32 100728856, ptr %70, align 4
   %72 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %66, ptr %72, align 8, !tbaa !9
@@ -18113,7 +18113,7 @@ _init_l___private_Lean_ReducibilityAttrs_0__Lean_reprReducibilityStatus____x40_L
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 4
   %92 = getelementptr inbounds nuw i8, ptr %88, i64 16
   store i64 0, ptr %92, align 8, !tbaa !16
-  store i32 1, ptr %88, align 4, !tbaa !4
+  store i32 1, ptr %88, align 8, !tbaa !4
   store i32 100728856, ptr %91, align 4
   %93 = getelementptr inbounds nuw i8, ptr %88, i64 8
   store ptr %87, ptr %93, align 8, !tbaa !9
@@ -18153,7 +18153,7 @@ _init_l___private_Lean_ReducibilityAttrs_0__Lean_reprReducibilityStatus____x40_L
   %105 = getelementptr inbounds nuw i8, ptr %102, i64 4
   %106 = getelementptr inbounds nuw i8, ptr %102, i64 16
   store i64 0, ptr %106, align 8, !tbaa !16
-  store i32 1, ptr %102, align 4, !tbaa !4
+  store i32 1, ptr %102, align 8, !tbaa !4
   store i32 100728856, ptr %105, align 4
   %107 = getelementptr inbounds nuw i8, ptr %102, i64 8
   store ptr %101, ptr %107, align 8, !tbaa !9
@@ -18214,7 +18214,7 @@ _init_l___private_Lean_ReducibilityAttrs_0__Lean_reprReducibilityStatus____x40_L
   %126 = getelementptr inbounds nuw i8, ptr %123, i64 4
   %127 = getelementptr inbounds nuw i8, ptr %123, i64 16
   store i64 0, ptr %127, align 8, !tbaa !16
-  store i32 1, ptr %123, align 4, !tbaa !4
+  store i32 1, ptr %123, align 8, !tbaa !4
   store i32 100728856, ptr %126, align 4
   %128 = getelementptr inbounds nuw i8, ptr %123, i64 8
   store ptr %122, ptr %128, align 8, !tbaa !9
@@ -18254,7 +18254,7 @@ _init_l___private_Lean_ReducibilityAttrs_0__Lean_reprReducibilityStatus____x40_L
   %140 = getelementptr inbounds nuw i8, ptr %137, i64 4
   %141 = getelementptr inbounds nuw i8, ptr %137, i64 16
   store i64 0, ptr %141, align 8, !tbaa !16
-  store i32 1, ptr %137, align 4, !tbaa !4
+  store i32 1, ptr %137, align 8, !tbaa !4
   store i32 100728856, ptr %140, align 4
   %142 = getelementptr inbounds nuw i8, ptr %137, i64 8
   store ptr %136, ptr %142, align 8, !tbaa !9
@@ -18533,7 +18533,7 @@ _init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_186____closed__6.exit: ;
   %.val57 = load ptr, ptr %236, align 8, !tbaa !9
   store ptr %.val57, ptr @l_Lean_reducibilityCoreExt, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %.val57) #6
-  %237 = load i32, ptr %232, align 4, !tbaa !4
+  %237 = load i32, ptr %232, align 8, !tbaa !4
   %238 = icmp sgt i32 %237, 1
   br i1 %238, label %239, label %241, !prof !11
 
@@ -18625,7 +18625,7 @@ _init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_335____closed__8.exit: ;
   %269 = getelementptr inbounds nuw i8, ptr %266, i64 4
   %270 = getelementptr inbounds nuw i8, ptr %266, i64 24
   store i64 1, ptr %270, align 8, !tbaa !16
-  store i32 1, ptr %266, align 4, !tbaa !4
+  store i32 1, ptr %266, align 8, !tbaa !4
   store i32 131104, ptr %269, align 4
   %271 = getelementptr inbounds nuw i8, ptr %266, i64 8
   store ptr %264, ptr %271, align 8, !tbaa !9
@@ -18718,7 +18718,7 @@ _init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_335____closed__11.exit: 
   %.val58 = load ptr, ptr %305, align 8, !tbaa !9
   store ptr %.val58, ptr @l_Lean_reducibilityExtraExt, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %.val58) #6
-  %306 = load i32, ptr %301, align 4, !tbaa !4
+  %306 = load i32, ptr %301, align 8, !tbaa !4
   %307 = icmp sgt i32 %306, 1
   br i1 %307, label %308, label %310, !prof !11
 
@@ -18832,7 +18832,7 @@ _init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_645____closed__5.exit: ;
   %.val59 = load ptr, ptr %354, align 8, !tbaa !9
   store ptr %.val59, ptr @l_Lean_allowUnsafeReducibility, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %.val59) #6
-  %355 = load i32, ptr %350, align 4, !tbaa !4
+  %355 = load i32, ptr %350, align 8, !tbaa !4
   %356 = icmp sgt i32 %355, 1
   br i1 %356, label %357, label %359, !prof !11
 
@@ -19102,7 +19102,7 @@ _init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_1409____closed__15.exit:
   %470 = getelementptr inbounds nuw i8, ptr %467, i64 4
   %471 = getelementptr inbounds nuw i8, ptr %467, i64 32
   store i64 0, ptr %471, align 8, !tbaa !16
-  store i32 1, ptr %467, align 4, !tbaa !4
+  store i32 1, ptr %467, align 8, !tbaa !4
   store i32 196648, ptr %470, align 4
   %472 = getelementptr inbounds nuw i8, ptr %467, i64 8
   store ptr %464, ptr %472, align 8, !tbaa !9
@@ -19240,7 +19240,7 @@ _init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_1450____closed__5.exit: 
   %524 = getelementptr inbounds nuw i8, ptr %521, i64 4
   %525 = getelementptr inbounds nuw i8, ptr %521, i64 32
   store i64 0, ptr %525, align 8, !tbaa !16
-  store i32 1, ptr %521, align 4, !tbaa !4
+  store i32 1, ptr %521, align 8, !tbaa !4
   store i32 196648, ptr %524, align 4
   %526 = getelementptr inbounds nuw i8, ptr %521, i64 8
   store ptr %518, ptr %526, align 8, !tbaa !9
@@ -19491,7 +19491,7 @@ lean_alloc_ctor.exit:                             ; preds = %0
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 0, ptr %8, align 8, !tbaa !16
-  store i32 1, ptr %4, align 4, !tbaa !4
+  store i32 1, ptr %4, align 8, !tbaa !4
   store i32 196648, ptr %7, align 4
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %9, align 8, !tbaa !9

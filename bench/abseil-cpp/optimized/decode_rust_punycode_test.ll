@@ -975,13 +975,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18debugging_internal12_GLOBAL__N_144DecodeRustPunycodeTest_MapsEmptyToEmpty_TestE, i64 16), ptr %2, align 8, !tbaa !14
   ret ptr %2
 
@@ -2287,7 +2287,7 @@ define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatche
   store i64 0, ptr %24, align 8, !alias.scope !102, !noalias !92
   store ptr @_ZZN7testing8internal11MatcherBaseIRKcE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherIcEELb1EEEEEPKNS4_6VTableEvE7kVTable, ptr %23, align 8, !tbaa !103, !alias.scope !102, !noalias !92
   %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i8, ptr %21, align 8, !noalias !107
-  store i8 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %24, align 1, !alias.scope !102, !noalias !92
+  store i8 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %24, align 8, !alias.scope !102, !noalias !92
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing7MatcherIRKcEE, i64 16), ptr %22, align 8, !tbaa !14, !alias.scope !102, !noalias !92
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -6283,7 +6283,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %35
   store i64 %41, ptr %43, align 8, !tbaa !10
   store ptr %33, ptr %1, align 8, !tbaa !16
   store i64 0, ptr %42, align 8, !tbaa !10
-  store i8 0, ptr %33, align 1, !tbaa !13
+  store i8 0, ptr %33, align 8, !tbaa !13
   ret void
 }
 
@@ -9070,7 +9070,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %7, ptr %6, align 8, !tbaa !4, !noalias !305
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %8, align 8, !tbaa !10, !noalias !305
-  store i8 0, ptr %7, align 1, !tbaa !13, !noalias !305
+  store i8 0, ptr %7, align 8, !tbaa !13, !noalias !305
   store ptr %6, ptr %4, align 8, !tbaa !41
   br label %9
 
@@ -9196,13 +9196,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18debugging_internal12_GLOBAL__N_178DecodeRustPunycodeTest_StripsTheTrailingDelimiterFromAPureRunOfBasicChars_TestE, i64 16), ptr %2, align 8, !tbaa !14
   ret ptr %2
 
@@ -10080,13 +10080,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18debugging_internal12_GLOBAL__N_165DecodeRustPunycodeTest_TreatsTheLastUnderscoreAsTheDelimiter_TestE, i64 16), ptr %2, align 8, !tbaa !14
   ret ptr %2
 
@@ -10964,13 +10964,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18debugging_internal12_GLOBAL__N_170DecodeRustPunycodeTest_AcceptsALeadingUnderscoreIfNotTheDelimiter_TestE, i64 16), ptr %2, align 8, !tbaa !14
   ret ptr %2
 
@@ -11848,13 +11848,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18debugging_internal12_GLOBAL__N_162DecodeRustPunycodeTest_RejectsALeadingUnderscoreDelimiter_TestE, i64 16), ptr %2, align 8, !tbaa !14
   ret ptr %2
 
@@ -12083,13 +12083,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18debugging_internal12_GLOBAL__N_146DecodeRustPunycodeTest_RejectsEmbeddedNul_TestE, i64 16), ptr %2, align 8, !tbaa !14
   ret ptr %2
 
@@ -12377,13 +12377,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18debugging_internal12_GLOBAL__N_169DecodeRustPunycodeTest_RejectsAsciiCharsOtherThanIdentifierChars_TestE, i64 16), ptr %2, align 8, !tbaa !14
   ret ptr %2
 
@@ -13045,13 +13045,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18debugging_internal12_GLOBAL__N_151DecodeRustPunycodeTest_RejectsRawNonAsciiChars_TestE, i64 16), ptr %2, align 8, !tbaa !14
   ret ptr %2
 
@@ -13713,13 +13713,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18debugging_internal12_GLOBAL__N_143DecodeRustPunycodeTest_RecognizesU0080_TestE, i64 16), ptr %2, align 8, !tbaa !14
   ret ptr %2
 
@@ -14597,13 +14597,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18debugging_internal12_GLOBAL__N_156DecodeRustPunycodeTest_OneByteDeltaSequencesMustBeA_TestE, i64 16), ptr %2, align 8, !tbaa !14
   ret ptr %2
 
@@ -15265,13 +15265,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18debugging_internal12_GLOBAL__N_150DecodeRustPunycodeTest_AcceptsDeltaSequenceBA_TestE, i64 16), ptr %2, align 8, !tbaa !14
   ret ptr %2
 
@@ -16149,13 +16149,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18debugging_internal12_GLOBAL__N_169DecodeRustPunycodeTest_AcceptsOtherDeltaSequencesWithSecondByteA_TestE, i64 16), ptr %2, align 8, !tbaa !14
   ret ptr %2
 
@@ -17847,13 +17847,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18debugging_internal12_GLOBAL__N_172DecodeRustPunycodeTest_RejectsDeltaWhereTheSecondAndLastDigitIsNotA_TestE, i64 16), ptr %2, align 8, !tbaa !14
   ret ptr %2
 
@@ -18515,13 +18515,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18debugging_internal12_GLOBAL__N_167DecodeRustPunycodeTest_AcceptsDeltasWithSecondByteBFollowedByA_TestE, i64 16), ptr %2, align 8, !tbaa !14
   ret ptr %2
 
@@ -20533,13 +20533,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18debugging_internal12_GLOBAL__N_151DecodeRustPunycodeTest_AcceptsTwoByteCharAlone_TestE, i64 16), ptr %2, align 8, !tbaa !14
   ret ptr %2
 
@@ -21417,13 +21417,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18debugging_internal12_GLOBAL__N_162DecodeRustPunycodeTest_AcceptsTwoByteCharBeforeBasicChars_TestE, i64 16), ptr %2, align 8, !tbaa !14
   ret ptr %2
 
@@ -22301,13 +22301,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18debugging_internal12_GLOBAL__N_160DecodeRustPunycodeTest_AcceptsTwoByteCharAmidBasicChars_TestE, i64 16), ptr %2, align 8, !tbaa !14
   ret ptr %2
 
@@ -23185,13 +23185,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18debugging_internal12_GLOBAL__N_161DecodeRustPunycodeTest_AcceptsTwoByteCharAfterBasicChars_TestE, i64 16), ptr %2, align 8, !tbaa !14
   ret ptr %2
 
@@ -24069,13 +24069,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18debugging_internal12_GLOBAL__N_154DecodeRustPunycodeTest_AcceptsRepeatedTwoByteChar_TestE, i64 16), ptr %2, align 8, !tbaa !14
   ret ptr %2
 
@@ -24953,13 +24953,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18debugging_internal12_GLOBAL__N_160DecodeRustPunycodeTest_AcceptsNearbyTwoByteCharsInOrder_TestE, i64 16), ptr %2, align 8, !tbaa !14
   ret ptr %2
 
@@ -25837,13 +25837,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18debugging_internal12_GLOBAL__N_163DecodeRustPunycodeTest_AcceptsNearbyTwoByteCharsOutOfOrder_TestE, i64 16), ptr %2, align 8, !tbaa !14
   ret ptr %2
 
@@ -26721,13 +26721,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18debugging_internal12_GLOBAL__N_153DecodeRustPunycodeTest_AcceptsThreeByteCharAlone_TestE, i64 16), ptr %2, align 8, !tbaa !14
   ret ptr %2
 
@@ -27605,13 +27605,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18debugging_internal12_GLOBAL__N_156DecodeRustPunycodeTest_AcceptsRepeatedThreeByteChar_TestE, i64 16), ptr %2, align 8, !tbaa !14
   ret ptr %2
 
@@ -28489,13 +28489,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18debugging_internal12_GLOBAL__N_156DecodeRustPunycodeTest_AcceptsThreeByteCharsInOrder_TestE, i64 16), ptr %2, align 8, !tbaa !14
   ret ptr %2
 
@@ -29373,13 +29373,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18debugging_internal12_GLOBAL__N_165DecodeRustPunycodeTest_AcceptsNearbyThreeByteCharsOutOfOrder_TestE, i64 16), ptr %2, align 8, !tbaa !14
   ret ptr %2
 
@@ -30257,13 +30257,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18debugging_internal12_GLOBAL__N_152DecodeRustPunycodeTest_AcceptsFourByteCharAlone_TestE, i64 16), ptr %2, align 8, !tbaa !14
   ret ptr %2
 
@@ -31141,13 +31141,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18debugging_internal12_GLOBAL__N_163DecodeRustPunycodeTest_AcceptsFourByteCharBeforeBasicChars_TestE, i64 16), ptr %2, align 8, !tbaa !14
   ret ptr %2
 
@@ -32025,13 +32025,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18debugging_internal12_GLOBAL__N_161DecodeRustPunycodeTest_AcceptsFourByteCharAmidBasicChars_TestE, i64 16), ptr %2, align 8, !tbaa !14
   ret ptr %2
 
@@ -32909,13 +32909,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18debugging_internal12_GLOBAL__N_162DecodeRustPunycodeTest_AcceptsFourByteCharAfterBasicChars_TestE, i64 16), ptr %2, align 8, !tbaa !14
   ret ptr %2
 
@@ -33793,13 +33793,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18debugging_internal12_GLOBAL__N_155DecodeRustPunycodeTest_AcceptsRepeatedFourByteChar_TestE, i64 16), ptr %2, align 8, !tbaa !14
   ret ptr %2
 
@@ -34677,13 +34677,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18debugging_internal12_GLOBAL__N_161DecodeRustPunycodeTest_AcceptsNearbyFourByteCharsInOrder_TestE, i64 16), ptr %2, align 8, !tbaa !14
   ret ptr %2
 
@@ -35561,13 +35561,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18debugging_internal12_GLOBAL__N_164DecodeRustPunycodeTest_AcceptsNearbyFourByteCharsOutOfOrder_TestE, i64 16), ptr %2, align 8, !tbaa !14
   ret ptr %2
 
@@ -36445,13 +36445,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18debugging_internal12_GLOBAL__N_156DecodeRustPunycodeTest_AcceptsAMixtureOfByteLengths_TestE, i64 16), ptr %2, align 8, !tbaa !14
   ret ptr %2
 
@@ -37329,13 +37329,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18debugging_internal12_GLOBAL__N_150DecodeRustPunycodeTest_RejectsOverlargeDeltas_TestE, i64 16), ptr %2, align 8, !tbaa !14
   ret ptr %2
 
@@ -37564,13 +37564,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18debugging_internal12_GLOBAL__N_135DecodeRustPunycodeTest_Beowulf_TestE, i64 16), ptr %2, align 8, !tbaa !14
   ret ptr %2
 
@@ -38448,13 +38448,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18debugging_internal12_GLOBAL__N_138DecodeRustPunycodeTest_MengHaoran_TestE, i64 16), ptr %2, align 8, !tbaa !14
   ret ptr %2
 
@@ -39332,13 +39332,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18debugging_internal12_GLOBAL__N_143DecodeRustPunycodeTest_YamanoueNoOkura_TestE, i64 16), ptr %2, align 8, !tbaa !14
   ret ptr %2
 
@@ -40221,13 +40221,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4abs
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %9, align 8, !tbaa !10
-  store i8 0, ptr %8, align 1, !tbaa !13
+  store i8 0, ptr %8, align 8, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4absl18debugging_internal12_GLOBAL__N_149DecodeRustPunycodeTest_EshmunazarSarcophagus_TestE, i64 16), ptr %2, align 8, !tbaa !14
   ret ptr %2
 

@@ -4826,7 +4826,7 @@ define internal fastcc range(i32 -1, 1) i32 @get_hash_key(ptr noundef nonnull in
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i64, ptr %13, align 8, !tbaa !106
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load i8, ptr %12, align 1, !tbaa !4
+  %16 = load i8, ptr %12, align 8, !tbaa !4
   %17 = icmp sgt i8 %16, 57
   br i1 %17, label %_zend_handle_numeric_str.exit.thread, label %18, !prof !79
 

@@ -5217,7 +5217,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %9,
   store i64 %15, ptr %17, align 8
   store ptr %7, ptr %4, align 8
   store i64 0, ptr %16, align 8
-  store i8 0, ptr %7, align 1
+  store i8 0, ptr %7, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
   %.not.i.i = icmp eq ptr %19, null
@@ -19800,7 +19800,7 @@ _ZSt19__relocate_object_aIN3nix6Logger5FieldES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i:
   store i64 %49, ptr %51, align 8, !alias.scope !73, !noalias !76
   store ptr %41, ptr %38, align 8, !alias.scope !76, !noalias !73
   store i64 0, ptr %50, align 8, !alias.scope !76, !noalias !73
-  store i8 0, ptr %41, align 1, !alias.scope !76, !noalias !73
+  store i8 0, ptr %41, align 8, !alias.scope !76, !noalias !73
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #28
   %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 48
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 48
@@ -19853,7 +19853,7 @@ _ZSt19__relocate_object_aIN3nix6Logger5FieldES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i2
   store i64 %67, ptr %69, align 8, !alias.scope !80, !noalias !83
   store ptr %59, ptr %56, align 8, !alias.scope !83, !noalias !80
   store i64 0, ptr %68, align 8, !alias.scope !83, !noalias !80
-  store i8 0, ptr %59, align 1, !alias.scope !83, !noalias !80
+  store i8 0, ptr %59, align 8, !alias.scope !83, !noalias !80
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #28
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 48
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 48

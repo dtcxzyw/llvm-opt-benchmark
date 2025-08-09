@@ -355,7 +355,7 @@ define internal void @cpu_common_initfn(ptr noundef %0) #0 {
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 488
   store ptr null, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  store ptr %12, ptr %13, align 8
+  store ptr %12, ptr %13, align 16
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 576
   store ptr null, ptr %14, align 16
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 584

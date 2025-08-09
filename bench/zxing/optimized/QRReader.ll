@@ -548,7 +548,7 @@ _ZN5ZXing5ErrorC2EOS0_.exit.i:                    ; preds = %_ZNKSt7__cxx1112bas
   store i64 %39, ptr %41, align 8, !tbaa !39
   store ptr %31, ptr %28, align 8, !tbaa !36
   store i64 0, ptr %40, align 8, !tbaa !39
-  store i8 0, ptr %31, align 1, !tbaa !40
+  store i8 0, ptr %31, align 8, !tbaa !40
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %42, ptr noundef nonnull align 8 dereferenceable(11) %43, i64 11, i1 false)
@@ -592,7 +592,7 @@ _ZN5ZXing6ResultC2EOS0_.exit:                     ; preds = %55, %_ZNKSt7__cxx11
   store i64 %61, ptr %63, align 8, !tbaa !39
   store ptr %53, ptr %50, align 8, !tbaa !36
   store i64 0, ptr %62, align 8, !tbaa !39
-  store i8 0, ptr %53, align 1, !tbaa !40
+  store i8 0, ptr %53, align 8, !tbaa !40
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 192
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %64, ptr noundef nonnull align 8 dereferenceable(19) %65, i64 19, i1 false)

@@ -11316,7 +11316,7 @@ define internal void @_GLOBAL__sub_I_perf_dnn_superres.cpp() #24 section ".text.
   %72 = getelementptr inbounds nuw i8, ptr %62, i64 40
   store i64 8, ptr %72, align 8, !tbaa !20
   %73 = getelementptr inbounds nuw i8, ptr %62, i64 56
-  store i8 0, ptr %73, align 1, !tbaa !22
+  store i8 0, ptr %73, align 8, !tbaa !22
   %74 = getelementptr inbounds nuw i8, ptr %62, i64 64
   store ptr %60, ptr %74, align 8, !tbaa !49
   %75 = getelementptr inbounds nuw i8, ptr %58, i64 80
@@ -11875,7 +11875,7 @@ _ZSt19__relocate_object_aIN7testing8internal25ParameterizedTestCaseInfoIN11openc
   store i64 %254, ptr %256, align 8, !tbaa !20, !alias.scope !304, !noalias !307
   store ptr %246, ptr %.092.i.i.i.i.i.i.i.i.i, align 8, !tbaa !17, !alias.scope !307, !noalias !304
   store i64 0, ptr %255, align 8, !tbaa !20, !alias.scope !307, !noalias !304
-  store i8 0, ptr %246, align 1, !tbaa !22, !alias.scope !307, !noalias !304
+  store i8 0, ptr %246, align 8, !tbaa !22, !alias.scope !307, !noalias !304
   %257 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i.i.i.i, i64 32
   %258 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %257, ptr noundef nonnull align 8 dereferenceable(28) %258, i64 28, i1 false), !alias.scope !309

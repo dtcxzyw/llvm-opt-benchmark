@@ -422,7 +422,7 @@ default.unreachable:                              ; preds = %95
   call void @_ZN13CollectedHeap36record_whole_heap_examined_timestampEv(ptr noundef nonnull align 8 dereferenceable(104) %10) #10
   call void @_ZN14ShenandoahHeap28handle_force_counters_updateEv(ptr noundef nonnull align 8 dereferenceable(2657) %10) #10
   call void @_ZN14ShenandoahHeap26set_forced_counters_updateEb(ptr noundef nonnull align 8 dereferenceable(2657) %10, i1 noundef zeroext false) #10
-  store i8 0, ptr %28, align 1
+  store i8 0, ptr %28, align 8
   %109 = call noundef zeroext i1 @_ZNK14ShenandoahHeap14unload_classesEv(ptr noundef nonnull align 8 dereferenceable(2657) %10) #10
   br i1 %109, label %110, label %112
 

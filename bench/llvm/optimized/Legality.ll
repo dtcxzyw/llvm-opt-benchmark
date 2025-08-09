@@ -1521,7 +1521,7 @@ _ZNK4llvm9sandboxir9InstrMaps11getOrigLaneEPNS0_5ValueES3_.exit: ; preds = %_ZNK
   %136 = getelementptr inbounds nuw %"class.llvm::sandboxir::CollectDescr::ExtractElementDescr", ptr %135, i64 %134
   store ptr %63, ptr %136, align 8, !tbaa !124
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
-  store i32 %.sroa.2.0.i, ptr %137, align 4, !tbaa !130
+  store i32 %.sroa.2.0.i, ptr %137, align 8, !tbaa !130
   %138 = getelementptr inbounds nuw i8, ptr %136, i64 12
   store i8 1, ptr %138, align 4, !tbaa !131
   %139 = load i32, ptr %9, align 8, !tbaa !100

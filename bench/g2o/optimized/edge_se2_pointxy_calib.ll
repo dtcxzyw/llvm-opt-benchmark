@@ -701,7 +701,7 @@ define linkonce_odr void @_ZN3g2o19EdgeSE2PointXYCalib12computeErrorEv(ptr nound
   %21 = fmul <2 x double> %.sroa.5.24.vec.insert.i.i.i, %20
   %22 = fadd <2 x double> %19, %21
   %23 = fadd <2 x double> %.sroa.44.16.copyload, %22
-  %24 = load double, ptr %10, align 8, !tbaa !49, !noalias !104
+  %24 = load double, ptr %10, align 16, !tbaa !49, !noalias !104
   %25 = fadd double %11, %24
   %26 = fadd double %25, 0x400921FB54442D18
   %27 = tail call double @fmod(double noundef %26, double noundef 0x401921FB54442D18) #30, !tbaa !59, !noalias !104

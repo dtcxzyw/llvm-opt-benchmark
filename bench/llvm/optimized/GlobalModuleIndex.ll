@@ -1397,7 +1397,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
   store i64 %37, ptr %38, align 8, !tbaa !75
   store ptr %28, ptr %25, align 8, !tbaa !73
   store i64 0, ptr %36, align 8, !tbaa !75
-  store i8 0, ptr %28, align 1, !tbaa !51
+  store i8 0, ptr %28, align 8, !tbaa !51
   %39 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %40 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false)
@@ -3259,7 +3259,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang13serialization10ModuleFileEjNS_12De
   %57 = load ptr, ptr %1, align 8, !tbaa !269
   store ptr %57, ptr %48, align 8, !tbaa !269
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !36
+  store i32 0, ptr %58, align 8, !tbaa !36
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang13serialization10ModuleFileEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E16InsertIntoBucketIRKS5_JEEEPSA_SG_OT_DpOT0_.exit
@@ -6589,17 +6589,17 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit142.i: ; preds = %.lr.ph
   %1301 = getelementptr inbounds nuw i8, ptr %1295, i64 24
   %1302 = getelementptr inbounds nuw i8, ptr %1295, i64 28
   store i32 32, ptr %1302, align 4, !tbaa !30, !noalias !578
-  store i64 2, ptr %1299, align 1
+  store i64 2, ptr %1299, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %1295, i64 40
-  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i.i, align 1
+  store i64 255, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %1303 = getelementptr inbounds nuw i8, ptr %1295, i64 48
-  store i64 32, ptr %1303, align 1
+  store i64 32, ptr %1303, align 8
   %.sroa.2.0..sroa_idx.i.i134.i = getelementptr inbounds nuw i8, ptr %1295, i64 56
-  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i134.i, align 1
+  store i64 2, ptr %.sroa.2.0..sroa_idx.i.i134.i, align 8
   %1304 = getelementptr inbounds nuw i8, ptr %1295, i64 64
-  store i64 0, ptr %1304, align 1
+  store i64 0, ptr %1304, align 8
   %.sroa.2.0..sroa_idx.i.i141.i = getelementptr inbounds nuw i8, ptr %1295, i64 72
-  store i64 10, ptr %.sroa.2.0..sroa_idx.i.i141.i, align 1
+  store i64 10, ptr %.sroa.2.0..sroa_idx.i.i141.i, align 8
   store i32 3, ptr %1301, align 8, !tbaa !29
   store ptr %1298, ptr %33, align 8, !tbaa !579
   %1305 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -9799,7 +9799,7 @@ _ZN4llvm12DenseMapInfoIN5clang12FileEntryRefEvE7isEqualES2_S2_.exit.i.i: ; preds
   store i64 %36, ptr %28, align 8, !tbaa !401
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %38 = load i32, ptr %3, align 4, !tbaa !36
-  store i32 %38, ptr %37, align 4, !tbaa !36
+  store i32 %38, ptr %37, align 8, !tbaa !36
   br label %39
 
 39:                                               ; preds = %35, %9
@@ -10069,8 +10069,8 @@ _ZN4llvm12DenseMapInfoIN5clang12FileEntryRefEvE7isEqualES2_S2_.exit20.i: ; preds
   store i64 %41, ptr %40, align 8, !tbaa !401
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %.024.i, i64 8
-  %44 = load i32, ptr %43, align 4, !tbaa !36
-  store i32 %44, ptr %42, align 4, !tbaa !36
+  %44 = load i32, ptr %43, align 8, !tbaa !36
+  store i32 %44, ptr %42, align 8, !tbaa !36
   %45 = load i32, ptr %33, align 8, !tbaa !717
   %46 = add i32 %45, 1
   store i32 %46, ptr %33, align 8, !tbaa !717
@@ -14863,7 +14863,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %22, ptr %23, align 8, !tbaa !75
   store ptr %13, ptr %10, align 8, !tbaa !73
   store i64 0, ptr %21, align 8, !tbaa !75
-  store i8 0, ptr %13, align 1, !tbaa !51
+  store i8 0, ptr %13, align 8, !tbaa !51
   %24 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 40
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %25, i64 16, i1 false)
@@ -15050,7 +15050,7 @@ _ZN4llvm15SmallVectorImplIN5clang17GlobalModuleIndex10ModuleInfoEE7reserveEm.exi
   %45 = getelementptr inbounds nuw i8, ptr %.012, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.012, i8 0, i64 88, i1 false)
   store ptr %45, ptr %44, align 8, !tbaa !70
-  store i8 0, ptr %45, align 1, !tbaa !51
+  store i8 0, ptr %45, align 8, !tbaa !51
   %46 = getelementptr inbounds nuw i8, ptr %.012, i64 40
   %47 = getelementptr inbounds nuw i8, ptr %.012, i64 56
   %48 = getelementptr inbounds nuw i8, ptr %.012, i64 72
@@ -15352,7 +15352,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang13serialization10ModuleFileEjNS_12De
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !36
-  store i32 %68, ptr %66, align 4, !tbaa !36
+  store i32 %68, ptr %66, align 8, !tbaa !36
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !324
   br label %70

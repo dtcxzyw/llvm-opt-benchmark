@@ -8545,11 +8545,11 @@ define noundef ptr @_ZN3gmx34VelocityScalingTemperatureCoupling21getElementPoint
   tail call void @llvm.experimental.noalias.scope.decl(metadata !476)
   %32 = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #38, !noalias !476
   %33 = load i64, ptr %21, align 8, !tbaa !43, !noalias !476
-  %34 = load i32, ptr %22, align 4, !tbaa !123, !noalias !476
+  %34 = load i32, ptr %22, align 8, !tbaa !123, !noalias !476
   %35 = load ptr, ptr %28, align 8, !tbaa !285, !noalias !476
   %36 = load ptr, ptr %29, align 8, !tbaa !285, !noalias !476
   %37 = load ptr, ptr %30, align 8, !tbaa !285, !noalias !476
-  %38 = load i32, ptr %31, align 4, !tbaa !479, !noalias !476
+  %38 = load i32, ptr %31, align 8, !tbaa !479, !noalias !476
   invoke void @_ZN3gmx34VelocityScalingTemperatureCouplingC1EiiNS_13UseFullStepKEENS_33ReportPreviousStepConservedEnergyElidPKfS4_S4_PNS_10EnergyDataE19TemperatureCoupling(ptr noundef nonnull align 8 dereferenceable(256) %32, i32 noundef %25, i32 noundef %7, i32 noundef %8, i32 noundef %9, i64 noundef %33, i32 noundef %34, double noundef %27, ptr noundef %35, ptr noundef %36, ptr noundef %37, ptr noundef %3, i32 noundef %38)
           to label %_ZSt11make_uniqueIN3gmx34VelocityScalingTemperatureCouplingEJRKiRNS0_6OffsetERNS0_13UseFullStepKEERNS0_33ReportPreviousStepConservedEnergyERKlS3_dRKPfSE_SE_RPNS0_10EnergyDataERK19TemperatureCouplingEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %39, !noalias !476
 

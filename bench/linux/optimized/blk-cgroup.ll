@@ -2805,7 +2805,7 @@ define dso_local void @blkcg_maybe_throttle_current() local_unnamed_addr #1 alig
 77:                                               ; preds = %.preheader
   %78 = getelementptr inbounds nuw i8, ptr %71, i64 304
   %79 = load volatile i64, ptr %78, align 8
-  %80 = load volatile i32, ptr %74, align 4
+  %80 = load volatile i32, ptr %74, align 8
   %81 = icmp sgt i32 %80, -1
   %reass.sub = sub i64 %79, %65
   %82 = add i64 %reass.sub, 1000000000
@@ -2828,7 +2828,7 @@ define dso_local void @blkcg_maybe_throttle_current() local_unnamed_addr #1 alig
   %94 = load i64, ptr %93, align 8
   %95 = sub i64 %65, %79
   %96 = tail call i64 @llvm.umin.i64(i64 %94, i64 %95)
-  %97 = load volatile i32, ptr %74, align 4
+  %97 = load volatile i32, ptr %74, align 8
   %98 = getelementptr inbounds nuw i8, ptr %71, i64 320
   %99 = load i32, ptr %98, align 8
   %100 = icmp slt i32 %97, %99
@@ -3042,7 +3042,7 @@ define dso_local void @blkcg_add_delay(ptr noundef %0, i64 noundef %1, i64 nound
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %10 = load volatile i64, ptr %9, align 8
-  %11 = load volatile i32, ptr %4, align 4
+  %11 = load volatile i32, ptr %4, align 8
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %.thread, label %13
 
@@ -3067,7 +3067,7 @@ define dso_local void @blkcg_add_delay(ptr noundef %0, i64 noundef %1, i64 nound
   %25 = load i64, ptr %24, align 8
   %26 = sub i64 %1, %10
   %27 = tail call i64 @llvm.umin.i64(i64 %25, i64 %26)
-  %28 = load volatile i32, ptr %4, align 4
+  %28 = load volatile i32, ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %30 = load i32, ptr %29, align 8
   %31 = icmp slt i32 %28, %30

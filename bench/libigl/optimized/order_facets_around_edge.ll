@@ -50911,10 +50911,10 @@ define linkonce_odr dso_local void @_ZNK4CGAL17Lazy_constructionINS_5EpeckENS_23
   %36 = getelementptr inbounds nuw i8, ptr %26, i64 64
   store ptr null, ptr %36, align 8, !tbaa !808
   %37 = getelementptr inbounds nuw i8, ptr %26, i64 72
-  store i32 0, ptr %37, align 4, !tbaa !811
+  store i32 0, ptr %37, align 8, !tbaa !811
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL10Lazy_rep_nINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS_23CartesianKernelFunctors17Construct_point_3IS5_EENSN_ISK_EENS_19Cartesian_converterISK_S5_NS_12NT_converterISJ_S4_EEEELb0EJNS_15Return_base_tagENS_13Lazy_exact_ntISJ_EESW_SW_EEE, i64 16), ptr %26, align 16, !tbaa !21
   %38 = getelementptr inbounds nuw i8, ptr %26, i64 80
-  store ptr %32, ptr %38, align 8, !tbaa !17
+  store ptr %32, ptr %38, align 16, !tbaa !17
   %39 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %39, 0
   %40 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -61698,7 +61698,7 @@ define linkonce_odr dso_local noundef ptr @_ZN5Eigen8internal27construct_element
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr null, ptr %11, align 8, !tbaa !1025
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store i32 0, ptr %12, align 4, !tbaa !811
+  store i32 0, ptr %12, align 8, !tbaa !811
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL10Lazy_rep_0INS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEEE, i64 16), ptr %9, align 16, !tbaa !21
   store ptr %9, ptr @_ZZN4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE4zeroEvE1z, align 8, !tbaa !17
   %13 = tail call i32 @__cxa_thread_atexit(ptr nonnull @_ZN4CGAL6HandleD2Ev, ptr nonnull @_ZZN4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE4zeroEvE1z, ptr nonnull @__dso_handle) #23
@@ -70573,11 +70573,11 @@ define linkonce_odr dso_local void @_ZNK4CGAL17Lazy_constructionINS_5EpeckENS_20
   %49 = getelementptr inbounds nuw i8, ptr %30, i64 80
   store ptr %47, ptr %49, align 8, !tbaa !1312
   %50 = getelementptr inbounds nuw i8, ptr %30, i64 88
-  store i32 0, ptr %50, align 4, !tbaa !811
+  store i32 0, ptr %50, align 8, !tbaa !811
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL10Lazy_rep_nINS_7Plane_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS_20CommonKernelFunctors17Construct_plane_3IS5_EENSN_ISK_EENS_19Cartesian_converterISK_S5_NS_12NT_converterISJ_S4_EEEELb0EJNS_15Return_base_tagENS_7Point_3INS_5EpeckEEESX_SX_EEE, i64 16), ptr %30, align 16, !tbaa !21
   %51 = getelementptr inbounds nuw i8, ptr %30, i64 96
   %52 = load ptr, ptr %5, align 8, !tbaa !17
-  store ptr %52, ptr %51, align 8, !tbaa !17
+  store ptr %52, ptr %51, align 16, !tbaa !17
   %53 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %53, 0
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -76807,11 +76807,11 @@ define linkonce_odr dso_local void @_ZNK4CGAL20Lazy_construction_ntINS_5EpeckENS
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr null, ptr %26, align 8, !tbaa !1025
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  store i32 0, ptr %27, align 4, !tbaa !811
+  store i32 0, ptr %27, align 8, !tbaa !811
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL10Lazy_rep_nINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_20CommonKernelFunctors11Compute_a_3INS_16Simple_cartesianIS2_EEEENSH_INSI_ISF_EEEENS_11To_intervalISF_EELb0EJNS_7Plane_3INS_5EpeckEEEEEE, i64 16), ptr %19, align 16, !tbaa !21
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %29 = load ptr, ptr %2, align 8, !tbaa !17
-  store ptr %29, ptr %28, align 8, !tbaa !17
+  store ptr %29, ptr %28, align 16, !tbaa !17
   %30 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %30, 0
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -76941,7 +76941,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %46
   %76 = getelementptr inbounds nuw i8, ptr %50, i64 32
   store ptr %72, ptr %76, align 8, !tbaa !1025
   %77 = getelementptr inbounds nuw i8, ptr %50, i64 40
-  store i32 0, ptr %77, align 4, !tbaa !811
+  store i32 0, ptr %77, align 8, !tbaa !811
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL10Lazy_rep_0INS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEEE, i64 16), ptr %50, align 16, !tbaa !21
   store ptr %50, ptr %0, align 8, !tbaa !17
@@ -77383,11 +77383,11 @@ define linkonce_odr dso_local void @_ZNK4CGAL20Lazy_construction_ntINS_5EpeckENS
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr null, ptr %27, align 8, !tbaa !1025
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  store i32 0, ptr %28, align 4, !tbaa !811
+  store i32 0, ptr %28, align 8, !tbaa !811
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL10Lazy_rep_nINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_20CommonKernelFunctors11Compute_b_3INS_16Simple_cartesianIS2_EEEENSH_INSI_ISF_EEEENS_11To_intervalISF_EELb0EJNS_7Plane_3INS_5EpeckEEEEEE, i64 16), ptr %19, align 16, !tbaa !21
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %30 = load ptr, ptr %2, align 8, !tbaa !17
-  store ptr %30, ptr %29, align 8, !tbaa !17
+  store ptr %30, ptr %29, align 16, !tbaa !17
   %31 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %31, 0
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -77517,7 +77517,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %47
   %77 = getelementptr inbounds nuw i8, ptr %51, i64 32
   store ptr %73, ptr %77, align 8, !tbaa !1025
   %78 = getelementptr inbounds nuw i8, ptr %51, i64 40
-  store i32 0, ptr %78, align 4, !tbaa !811
+  store i32 0, ptr %78, align 8, !tbaa !811
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL10Lazy_rep_0INS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEEE, i64 16), ptr %51, align 16, !tbaa !21
   store ptr %51, ptr %0, align 8, !tbaa !17
@@ -77959,11 +77959,11 @@ define linkonce_odr dso_local void @_ZNK4CGAL20Lazy_construction_ntINS_5EpeckENS
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr null, ptr %27, align 8, !tbaa !1025
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  store i32 0, ptr %28, align 4, !tbaa !811
+  store i32 0, ptr %28, align 8, !tbaa !811
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL10Lazy_rep_nINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_20CommonKernelFunctors11Compute_c_3INS_16Simple_cartesianIS2_EEEENSH_INSI_ISF_EEEENS_11To_intervalISF_EELb0EJNS_7Plane_3INS_5EpeckEEEEEE, i64 16), ptr %19, align 16, !tbaa !21
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %30 = load ptr, ptr %2, align 8, !tbaa !17
-  store ptr %30, ptr %29, align 8, !tbaa !17
+  store ptr %30, ptr %29, align 16, !tbaa !17
   %31 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %31, 0
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -78093,7 +78093,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %47
   %77 = getelementptr inbounds nuw i8, ptr %51, i64 32
   store ptr %73, ptr %77, align 8, !tbaa !1025
   %78 = getelementptr inbounds nuw i8, ptr %51, i64 40
-  store i32 0, ptr %78, align 4, !tbaa !811
+  store i32 0, ptr %78, align 8, !tbaa !811
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL10Lazy_rep_0INS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEEE, i64 16), ptr %51, align 16, !tbaa !21
   store ptr %51, ptr %0, align 8, !tbaa !17
@@ -78547,11 +78547,11 @@ define linkonce_odr dso_local void @_ZNK4CGAL17Lazy_constructionINS_5EpeckENS_23
   %36 = getelementptr inbounds nuw i8, ptr %26, i64 64
   store ptr %35, ptr %36, align 8, !tbaa !1474
   %37 = getelementptr inbounds nuw i8, ptr %26, i64 72
-  store i32 0, ptr %37, align 4, !tbaa !811
+  store i32 0, ptr %37, align 8, !tbaa !811
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL10Lazy_rep_nINS_11Direction_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS_23CartesianKernelFunctors21Construct_direction_3IS5_EENSN_ISK_EENS_19Cartesian_converterISK_S5_NS_12NT_converterISJ_S4_EEEELb0EJNS_15Return_base_tagENS_13Lazy_exact_ntISJ_EESW_SW_EEE, i64 16), ptr %26, align 16, !tbaa !21
   %38 = getelementptr inbounds nuw i8, ptr %26, i64 80
-  store ptr %32, ptr %38, align 8, !tbaa !17
+  store ptr %32, ptr %38, align 16, !tbaa !17
   %39 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %39, 0
   %40 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -86235,16 +86235,16 @@ _ZN4CGAL6HandleD2Ev.exit:                         ; preds = %6
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %23, i64 48
   store <2 x double> %35, ptr %.sroa.5.0..sroa_idx.i, align 16
   %38 = getelementptr inbounds nuw i8, ptr %23, i64 64
-  store ptr null, ptr %38, align 8, !tbaa !808
+  store ptr null, ptr %38, align 16, !tbaa !808
   %39 = getelementptr inbounds nuw i8, ptr %23, i64 72
-  store i32 0, ptr %39, align 4, !tbaa !811
+  store i32 0, ptr %39, align 8, !tbaa !811
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL10Lazy_rep_nINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS_23CartesianKernelFunctors17Construct_point_3IS5_EENSN_ISK_EENS_19Cartesian_converterISK_S5_NS_12NT_converterISJ_S4_EEEELb0EJNS_15Return_base_tagEdddEEE, i64 16), ptr %23, align 16, !tbaa !21
   %40 = getelementptr inbounds nuw i8, ptr %23, i64 80
-  store double %26, ptr %40, align 8, !tbaa !1619
+  store double %26, ptr %40, align 16, !tbaa !1619
   %41 = getelementptr inbounds nuw i8, ptr %23, i64 88
   store double %25, ptr %41, align 8, !tbaa !1621
   %42 = getelementptr inbounds nuw i8, ptr %23, i64 96
-  store double %24, ptr %42, align 8, !tbaa !1623
+  store double %24, ptr %42, align 16, !tbaa !1623
   store ptr %23, ptr %0, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)

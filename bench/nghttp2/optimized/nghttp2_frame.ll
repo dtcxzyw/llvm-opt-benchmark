@@ -858,10 +858,10 @@ define hidden void @nghttp2_frame_pack_priority(ptr noundef readonly captures(no
   tail call void @nghttp2_put_uint32be(ptr noundef nonnull %30, i32 noundef %32) #18
   %33 = load ptr, ptr %11, align 8, !tbaa !71
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %35 = load i32, ptr %34, align 4, !tbaa !72
+  %35 = load i32, ptr %34, align 8, !tbaa !72
   tail call void @nghttp2_put_uint32be(ptr noundef %33, i32 noundef %35) #18
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %37 = load i8, ptr %36, align 4, !tbaa !73
+  %37 = load i8, ptr %36, align 8, !tbaa !73
   %.not.i = icmp eq i8 %37, 0
   br i1 %.not.i, label %nghttp2_frame_pack_priority_spec.exit, label %38
 

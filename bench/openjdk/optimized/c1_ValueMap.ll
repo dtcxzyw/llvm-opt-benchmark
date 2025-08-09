@@ -202,7 +202,7 @@ define hidden void @_ZN8ValueMapC2EPS_(ptr noundef nonnull align 8 dereferenceab
   store i32 %4, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 8
   %8 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %7, i32 noundef 8) #7
   store i32 %7, ptr %5, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -2242,7 +2242,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %120, %122
   %127 = load i64, ptr @ValueMapInitialSize, align 8
   %128 = trunc i64 %127 to i32
   %129 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %128, i32 noundef 8) #7
-  store i32 %128, ptr %126, align 4
+  store i32 %128, ptr %126, align 8
   %130 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   store i32 %128, ptr %130, align 4
   %131 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
@@ -2338,9 +2338,9 @@ _ZN22CompilationResourceObjnwEm.exit128:          ; preds = %172, %174
   store i32 %185, ptr %.0.i.i.i127, align 8
   %186 = getelementptr inbounds nuw i8, ptr %.0.i.i.i127, i64 8
   %187 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  %188 = load i32, ptr %187, align 4
+  %188 = load i32, ptr %187, align 8
   %189 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %188, i32 noundef 8) #7
-  store i32 %188, ptr %186, align 4
+  store i32 %188, ptr %186, align 8
   %190 = getelementptr inbounds nuw i8, ptr %.0.i.i.i127, i64 12
   store i32 %188, ptr %190, align 4
   %191 = getelementptr inbounds nuw i8, ptr %.0.i.i.i127, i64 16
@@ -2371,7 +2371,7 @@ _ZN13GrowableArrayIP13ValueMapEntryEC2EiiRKS1_.exit.i: ; preds = %.lr.ph.prehead
   %205 = getelementptr inbounds nuw i8, ptr %183, i64 48
   %206 = load i32, ptr %205, align 8
   store i32 %206, ptr %204, align 8
-  %207 = load i32, ptr %186, align 4
+  %207 = load i32, ptr %186, align 8
   %208 = icmp sgt i32 %207, 0
   br i1 %208, label %.lr.ph.i, label %_ZN8ValueMapC2EPS_.exit
 

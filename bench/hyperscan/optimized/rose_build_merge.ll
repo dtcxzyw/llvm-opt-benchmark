@@ -14274,7 +14274,7 @@ _ZNSt3setIjSt4lessIjESaIjEED2Ev.exit:             ; preds = %43
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.02.010.i, i64 56
   %79 = load i64, ptr %77, align 8, !noalias !522
-  %80 = load i32, ptr %78, align 4, !noalias !522
+  %80 = load i32, ptr %78, align 8, !noalias !522
   %81 = load ptr, ptr %8, align 8, !alias.scope !519, !noalias !525
   %82 = load i64, ptr %27, align 8, !alias.scope !519, !noalias !530
   %83 = getelementptr inbounds nuw %"struct.std::pair.811", ptr %81, i64 %82
@@ -14487,7 +14487,7 @@ _ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorISt4pa
   %160 = load i64, ptr %158, align 8, !noalias !540
   store i64 %160, ptr %159, align 8, !noalias !540
   %161 = getelementptr inbounds i8, ptr %.079.i.i.i, i64 -8
-  %162 = load i32, ptr %161, align 4, !noalias !540
+  %162 = load i32, ptr %161, align 8, !noalias !540
   %163 = getelementptr inbounds i8, ptr %.010.i.i.i, i64 -8
   store i32 %162, ptr %163, align 8, !noalias !540
   %.not.i.i.i209 = icmp eq ptr %100, %158
@@ -18194,7 +18194,7 @@ define internal fastcc void @_ZN3ue2L13get_pred_topsENS_12graph_detail17vertex_d
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !693
   %16 = load i64, ptr %14, align 8, !noalias !693
   store i64 %16, ptr %5, align 8, !noalias !693
-  %17 = load i32, ptr %15, align 4, !noalias !693
+  %17 = load i32, ptr %15, align 8, !noalias !693
   store i32 %17, ptr %9, align 8, !noalias !693
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !693
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !693
@@ -29443,7 +29443,7 @@ _ZNSt6vectorIPN3ue28NGHolderESaIS2_EED2Ev.exit14.i.i: ; preds = %107, %105
   store i32 %168, ptr %164, align 4
   %169 = getelementptr inbounds nuw i8, ptr %158, i64 120
   %170 = getelementptr inbounds nuw i8, ptr %145, i64 120
-  %171 = load i32, ptr %169, align 4
+  %171 = load i32, ptr %169, align 8
   %172 = load i32, ptr %170, align 4
   %173 = call i32 @llvm.umax.i32(i32 %171, i32 %172)
   store i32 %173, ptr %169, align 8
@@ -32304,7 +32304,7 @@ _ZN5boost7variantINS_5blankEJSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS4
   store i32 %622, ptr %618, align 4
   %623 = getelementptr inbounds nuw i8, ptr %229, i64 120
   %624 = getelementptr inbounds nuw i8, ptr %324, i64 120
-  %625 = load i32, ptr %623, align 4
+  %625 = load i32, ptr %623, align 8
   %626 = load i32, ptr %624, align 4
   %627 = call i32 @llvm.umax.i32(i32 %625, i32 %626)
   store i32 %627, ptr %623, align 8
@@ -38376,7 +38376,7 @@ _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorISt4pairImj
   %40 = load i64, ptr %.sroa.0.04.i.i, align 8
   store i64 %40, ptr %.0.i, align 8
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i, i64 8
-  %42 = load i32, ptr %41, align 4
+  %42 = load i32, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   store i32 %42, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i, i64 16
@@ -38404,7 +38404,7 @@ _ZN5boost9container18copy_n_source_destINS_13move_iteratorIPSt4pairImjEEEmS5_EEN
   %50 = load i64, ptr %.sroa.0.07.i.i, align 8
   store i64 %50, ptr %.09.i.i, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i, i64 8
-  %52 = load i32, ptr %51, align 4
+  %52 = load i32, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 8
   store i32 %52, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i, i64 16
@@ -38491,7 +38491,7 @@ _ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorISt4pa
   %36 = load i64, ptr %34, align 8
   store i64 %36, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %.079.i.i, i64 -8
-  %38 = load i32, ptr %37, align 4
+  %38 = load i32, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %.010.i.i, i64 -8
   store i32 %38, ptr %39, align 8
   %.not.i.i = icmp eq ptr %13, %34
@@ -38501,7 +38501,7 @@ _ZN5boost9container13move_backwardIPSt4pairImjES4_EENS0_3dtl38disable_if_memtran
   %40 = load i64, ptr %4, align 8
   store i64 %40, ptr %13, align 8
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %42 = load i32, ptr %41, align 4
+  %42 = load i32, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 %42, ptr %43, align 8
   br label %_ZN5boost9container6vectorISt4pairImjENS0_22small_vector_allocatorIS3_SaIvEvEEvE40priv_forward_range_insert_expand_forwardINS0_3dtl17insert_move_proxyIS6_PS3_EEEEvSB_mT_.exit
@@ -38519,7 +38519,7 @@ _ZN5boost9container13move_backwardIPSt4pairImjES4_EENS0_3dtl38disable_if_memtran
   %48 = load i64, ptr %4, align 8
   store i64 %48, ptr %13, align 8
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %50 = load i32, ptr %49, align 4
+  %50 = load i32, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 %50, ptr %51, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
@@ -49832,7 +49832,7 @@ _ZN5boost7variantINS_5blankEJSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS4
   store i32 %601, ptr %597, align 4
   %602 = getelementptr inbounds nuw i8, ptr %208, i64 120
   %603 = getelementptr inbounds nuw i8, ptr %303, i64 120
-  %604 = load i32, ptr %602, align 4
+  %604 = load i32, ptr %602, align 8
   %605 = load i32, ptr %603, align 4
   %606 = call i32 @llvm.umax.i32(i32 %604, i32 %605)
   store i32 %606, ptr %602, align 8
@@ -51022,7 +51022,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRepeatEESt1
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %13, i8 0, i64 72, i1 false)
-  store i32 2147483647, ptr %14, align 4
+  store i32 2147483647, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 104
   store ptr %16, ptr %15, align 8

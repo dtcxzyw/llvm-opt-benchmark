@@ -17638,7 +17638,7 @@ define dso_local noundef ptr @zend_proptable_to_symtable(ptr noundef captures(ad
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %23 = load i64, ptr %22, align 8, !tbaa !25
-  %24 = load i8, ptr %21, align 1, !tbaa !5
+  %24 = load i8, ptr %21, align 8, !tbaa !5
   %25 = icmp sgt i8 %24, 57
   br i1 %25, label %_zend_handle_numeric_str.exit.thread, label %26, !prof !22
 
@@ -17814,7 +17814,7 @@ _zend_new_array.exit:                             ; preds = %44, %61
   %110 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %111 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %112 = load i64, ptr %111, align 8, !tbaa !25
-  %113 = load i8, ptr %110, align 1, !tbaa !5
+  %113 = load i8, ptr %110, align 8, !tbaa !5
   %114 = icmp sgt i8 %113, 57
   br i1 %114, label %_zend_handle_numeric_str.exit72.thread, label %115, !prof !22
 

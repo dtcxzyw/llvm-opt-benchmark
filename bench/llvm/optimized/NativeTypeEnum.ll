@@ -832,8 +832,8 @@ _ZNSt10unique_ptrIN4llvm3pdb14NullEnumeratorINS1_9PDBSymbolEEESt14default_delete
   %34 = load ptr, ptr %33, align 8, !tbaa !71, !noalias !48
   %35 = getelementptr inbounds nuw i8, ptr %.0, i64 38
   %36 = load i32, ptr %35, align 1, !tbaa !6, !noalias !48
-  store i8 1, ptr %24, align 1, !tbaa !73, !noalias !48
-  store i32 %36, ptr %23, align 1, !tbaa !6, !noalias !48
+  store i8 1, ptr %24, align 4, !tbaa !73, !noalias !48
+  store i32 %36, ptr %23, align 8, !tbaa !6, !noalias !48
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16

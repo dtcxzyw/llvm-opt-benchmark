@@ -6433,7 +6433,7 @@ thread-pre-split.i590:                            ; preds = %2168
   %2238 = and i64 %.val394, 65535
   %2239 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %2237, i64 %2238
   store i64 %2236, ptr %2239, align 8, !tbaa !263
-  %2240 = load i16, ptr %190, align 2, !tbaa !298
+  %2240 = load i16, ptr %190, align 8, !tbaa !298
   %2241 = sext i16 %2240 to i32
   %2242 = call fastcc i32 @TT_MulFix14_long_long(i32 noundef %2232, i32 noundef %2241) #23
   %2243 = sext i32 %2242 to i64
@@ -10117,7 +10117,7 @@ define internal fastcc void @Ins_MIRP(ptr noundef %0, i64 %.0.val, i64 %.8.val) 
   %59 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %44, i64 %45, i32 1
   %60 = load i64, ptr %59, align 8, !tbaa !331
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %62 = load i16, ptr %61, align 2, !tbaa !298
+  %62 = load i16, ptr %61, align 8, !tbaa !298
   %63 = sext i16 %62 to i32
   %64 = tail call fastcc i32 @TT_MulFix14_long_long(i32 noundef %48, i32 noundef %63) #23
   %65 = sext i32 %64 to i64
@@ -20167,7 +20167,7 @@ define internal fastcc i32 @TT_Hint_Glyph(ptr noundef nonnull captures(none) %0,
   %87 = getelementptr inbounds nuw i8, ptr %8, i64 546
   store i16 16384, ptr %87, align 2, !tbaa !296
   %88 = getelementptr inbounds nuw i8, ptr %8, i64 548
-  store i16 0, ptr %88, align 2, !tbaa !299
+  store i16 0, ptr %88, align 4, !tbaa !299
   %89 = getelementptr inbounds nuw i8, ptr %8, i64 550
   %90 = load i32, ptr %87, align 2
   store i32 %90, ptr %89, align 2
@@ -21306,7 +21306,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @Compute_Point_Displacement(ptr
   %37 = tail call i64 @FT_MulDiv(i64 noundef %31, i64 noundef %34, i64 noundef %36) #22
   store i64 %37, ptr %1, align 8, !tbaa !223
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %39 = load i16, ptr %38, align 2, !tbaa !298
+  %39 = load i16, ptr %38, align 8, !tbaa !298
   %40 = sext i16 %39 to i64
   %41 = load i64, ptr %35, align 8, !tbaa !297
   %42 = tail call i64 @FT_MulDiv(i64 noundef %31, i64 noundef %40, i64 noundef %41) #22

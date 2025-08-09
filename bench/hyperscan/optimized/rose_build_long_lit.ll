@@ -7093,7 +7093,7 @@ _ZSt10_ConstructIN3ue215ue2_case_stringEJS1_EEvPT_DpOT0_.exit: ; preds = %10, %_
   store i64 %17, ptr %18, align 8
   store ptr %8, ptr %2, align 8
   store i64 0, ptr %16, align 8
-  store i8 0, ptr %8, align 1
+  store i8 0, ptr %8, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %21 = load i8, ptr %20, align 8, !range !5, !noundef !6
@@ -7136,7 +7136,7 @@ _ZSt10_ConstructIN3ue215ue2_case_stringEJS1_EEvPT_DpOT0_.exit17: ; preds = %26, 
   store i64 %32, ptr %34, align 8
   store ptr %24, ptr %.022, align 8
   store i64 0, ptr %33, align 8
-  store i8 0, ptr %24, align 1
+  store i8 0, ptr %24, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.022, i64 72
   %36 = getelementptr inbounds nuw i8, ptr %.022, i64 32
   %37 = load i8, ptr %36, align 8, !range !5, !noundef !6
@@ -7339,7 +7339,7 @@ _ZN3ue215ue2_case_stringC2EOS0_.exit:             ; preds = %36, %_ZNKSt7__cxx11
   store i64 %43, ptr %12, align 8
   store ptr %34, ptr %.sroa.0.026, align 8
   store i64 0, ptr %42, align 8
-  store i8 0, ptr %34, align 1
+  store i8 0, ptr %34, align 8
   %44 = load i8, ptr %17, align 8, !range !5, !noundef !6
   store i8 %44, ptr %13, align 8
   %45 = ptrtoint ptr %.sroa.0.026 to i64
@@ -7584,7 +7584,7 @@ _ZN3ue215ue2_case_stringC2EOS0_.exit.i:           ; preds = %_ZNKSt7__cxx1112bas
   store i64 %134, ptr %9, align 8
   store ptr %126, ptr %.sroa.0.026, align 8
   store i64 0, ptr %135, align 8
-  store i8 0, ptr %126, align 1
+  store i8 0, ptr %126, align 8
   %136 = load i8, ptr %17, align 8, !range !5, !noundef !6
   store i8 %136, ptr %10, align 8
   br label %137
@@ -8376,7 +8376,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4.
   store i64 %46, ptr %28, align 8
   store ptr %38, ptr %.sroa.046.182, align 8
   store i64 0, ptr %47, align 8
-  store i8 0, ptr %38, align 1
+  store i8 0, ptr %38, align 8
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.046.182, i64 32
   %49 = load i8, ptr %48, align 8, !range !5, !noundef !6
   store i8 %49, ptr %29, align 8
@@ -8597,7 +8597,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4.
   store i64 %125, ptr %25, align 8
   store ptr %117, ptr %114, align 8
   store i64 0, ptr %126, align 8
-  store i8 0, ptr %117, align 1
+  store i8 0, ptr %117, align 8
   %127 = getelementptr inbounds i8, ptr %.sroa.046.379, i64 -8
   %128 = load i8, ptr %127, align 8, !range !5, !noundef !6
   store i8 %128, ptr %26, align 8

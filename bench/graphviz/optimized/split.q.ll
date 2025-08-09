@@ -120,9 +120,9 @@ GetBranches.exit:                                 ; preds = %19
 Classify.exit.i.i:                                ; preds = %50, %49
   %54 = call i64 @RectArea(ptr noundef nonnull %30) #6
   store i64 %54, ptr %35, align 8, !tbaa !23
-  %55 = load i32, ptr %28, align 4, !tbaa !22
+  %55 = load i32, ptr %28, align 8, !tbaa !22
   %56 = add nsw i32 %55, 1
-  store i32 %56, ptr %28, align 4, !tbaa !22
+  store i32 %56, ptr %28, align 8, !tbaa !22
   %57 = sext i32 %.232.i.i to i64
   %58 = getelementptr inbounds [65 x i32], ptr %27, i64 0, i64 %57
   store i32 1, ptr %58, align 4, !tbaa !22

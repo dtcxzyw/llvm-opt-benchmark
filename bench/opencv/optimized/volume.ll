@@ -193,7 +193,7 @@ _ZN2cv3VecIiLi3EE3allEi.exit:                     ; preds = %21
   store i32 1, ptr %28, align 4, !tbaa !40, !noalias !33
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv5kinfu12VolumeParamsESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %26, align 8, !tbaa !41, !noalias !33
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  store i32 0, ptr %29, align 4, !tbaa !43, !noalias !33
+  store i32 0, ptr %29, align 8, !tbaa !43, !noalias !33
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %30, ptr noundef nonnull readonly align 4 dereferenceable(12) %9, i64 12, i1 false), !tbaa !25, !noalias !33
   br label %61
@@ -213,7 +213,7 @@ _ZN2cv3VecIiLi3EE3allEi.exit:                     ; preds = %21
   store i32 1, ptr %37, align 4, !tbaa !40, !noalias !44
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv5kinfu12VolumeParamsESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %35, align 8, !tbaa !41, !noalias !44
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  store i32 1, ptr %38, align 4, !tbaa !43, !noalias !44
+  store i32 1, ptr %38, align 8, !tbaa !43, !noalias !44
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %39, i8 0, i64 12, i1 false)
   br label %61
@@ -247,7 +247,7 @@ _ZN2cv3VecIiLi3EE3allEi.exit13:                   ; preds = %41
   store i32 1, ptr %48, align 4, !tbaa !40, !noalias !52
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv5kinfu12VolumeParamsESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %46, align 8, !tbaa !41, !noalias !52
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  store i32 2, ptr %49, align 4, !tbaa !43, !noalias !52
+  store i32 2, ptr %49, align 8, !tbaa !43, !noalias !52
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %50, ptr noundef nonnull readonly align 4 dereferenceable(12) %9, i64 12, i1 false), !tbaa !25, !noalias !52
   br label %61

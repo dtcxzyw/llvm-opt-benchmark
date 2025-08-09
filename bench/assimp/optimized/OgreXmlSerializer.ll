@@ -26295,7 +26295,7 @@ _ZSt19__relocate_object_aIN6Assimp4Ogre20VertexAnimationTrackES2_SaIS2_EEvPT_PT0
   store i64 %34, ptr %36, align 8, !alias.scope !394, !noalias !397
   store ptr %26, ptr %23, align 8, !alias.scope !397, !noalias !394
   store i64 0, ptr %35, align 8, !alias.scope !397, !noalias !394
-  store i8 0, ptr %26, align 1, !alias.scope !397, !noalias !394
+  store i8 0, ptr %26, align 8, !alias.scope !397, !noalias !394
   %37 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
   %38 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
   %39 = load ptr, ptr %38, align 8, !alias.scope !397, !noalias !394
@@ -26386,7 +26386,7 @@ _ZSt19__relocate_object_aIN6Assimp4Ogre20VertexAnimationTrackES2_SaIS2_EEvPT_PT0
   store i64 %79, ptr %81, align 8, !alias.scope !401, !noalias !404
   store ptr %71, ptr %68, align 8, !alias.scope !404, !noalias !401
   store i64 0, ptr %80, align 8, !alias.scope !404, !noalias !401
-  store i8 0, ptr %71, align 1, !alias.scope !404, !noalias !401
+  store i8 0, ptr %71, align 8, !alias.scope !404, !noalias !401
   %82 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 40
   %83 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 40
   %84 = load ptr, ptr %83, align 8, !alias.scope !404, !noalias !401

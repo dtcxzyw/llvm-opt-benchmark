@@ -1903,7 +1903,7 @@ _init_l_Lean_instBEqInternalExceptionId___closed__1.exit: ; preds = %lean_dec_re
   %.val13 = load ptr, ptr %32, align 8, !tbaa !11
   store ptr %.val13, ptr @l_Lean_internalExceptionsRef, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %.val13) #4
-  %33 = load i32, ptr %28, align 4, !tbaa !5
+  %33 = load i32, ptr %28, align 8, !tbaa !5
   %34 = icmp sgt i32 %33, 1
   br i1 %34, label %35, label %37, !prof !10
 

@@ -1139,7 +1139,7 @@ lean_alloc_ctor.exit23:                           ; preds = %lean_alloc_ctor.exi
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 48
   store i64 0, ptr %27, align 8, !tbaa !18
-  store i32 1, ptr %23, align 4, !tbaa !8
+  store i32 1, ptr %23, align 8, !tbaa !8
   store i32 327736, ptr %26, align 4
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %0, ptr %28, align 8, !tbaa !4
@@ -1331,7 +1331,7 @@ lean_dec_ref.exit48:                              ; preds = %24, %26, %27
   %.val68 = load ptr, ptr %37, align 8, !tbaa !4
   store ptr %.val68, ptr @l_Lean_Elab_postponeExceptionId, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val68) #3
-  %38 = load i32, ptr %33, align 4, !tbaa !8
+  %38 = load i32, ptr %33, align 8, !tbaa !8
   %39 = icmp sgt i32 %38, 1
   br i1 %39, label %40, label %42, !prof !11
 
@@ -1369,7 +1369,7 @@ lean_dec_ref.exit48:                              ; preds = %24, %26, %27
   %.val69 = load ptr, ptr %53, align 8, !tbaa !4
   store ptr %.val69, ptr @l_Lean_Elab_unsupportedSyntaxExceptionId, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val69) #3
-  %54 = load i32, ptr %49, align 4, !tbaa !8
+  %54 = load i32, ptr %49, align 8, !tbaa !8
   %55 = icmp sgt i32 %54, 1
   br i1 %55, label %56, label %58, !prof !11
 
@@ -1420,7 +1420,7 @@ lean_dec_ref.exit52:                              ; preds = %59, %58, %56, %.cri
   %.val70 = load ptr, ptr %72, align 8, !tbaa !4
   store ptr %.val70, ptr @l_Lean_Elab_abortCommandExceptionId, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val70) #3
-  %73 = load i32, ptr %68, align 4, !tbaa !8
+  %73 = load i32, ptr %68, align 8, !tbaa !8
   %74 = icmp sgt i32 %73, 1
   br i1 %74, label %75, label %77, !prof !11
 
@@ -1458,7 +1458,7 @@ lean_dec_ref.exit52:                              ; preds = %59, %58, %56, %.cri
   %.val71 = load ptr, ptr %88, align 8, !tbaa !4
   store ptr %.val71, ptr @l_Lean_Elab_abortTermExceptionId, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val71) #3
-  %89 = load i32, ptr %84, align 4, !tbaa !8
+  %89 = load i32, ptr %84, align 8, !tbaa !8
   %90 = icmp sgt i32 %89, 1
   br i1 %90, label %91, label %93, !prof !11
 
@@ -1509,7 +1509,7 @@ lean_dec_ref.exit56:                              ; preds = %94, %93, %91, %.cri
   %.val72 = load ptr, ptr %107, align 8, !tbaa !4
   store ptr %.val72, ptr @l_Lean_Elab_abortTacticExceptionId, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val72) #3
-  %108 = load i32, ptr %103, align 4, !tbaa !8
+  %108 = load i32, ptr %103, align 8, !tbaa !8
   %109 = icmp sgt i32 %108, 1
   br i1 %109, label %110, label %112, !prof !11
 
@@ -1547,7 +1547,7 @@ lean_dec_ref.exit56:                              ; preds = %94, %93, %91, %.cri
   %.val73 = load ptr, ptr %123, align 8, !tbaa !4
   store ptr %.val73, ptr @l_Lean_Elab_autoBoundImplicitExceptionId, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val73) #3
-  %124 = load i32, ptr %119, align 4, !tbaa !8
+  %124 = load i32, ptr %119, align 8, !tbaa !8
   %125 = icmp sgt i32 %124, 1
   br i1 %125, label %126, label %128, !prof !11
 

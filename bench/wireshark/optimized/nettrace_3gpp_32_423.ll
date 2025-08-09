@@ -1087,7 +1087,7 @@ define internal fastcc noundef ptr @nettrace_parse_address(ptr noundef nonnull %
   store i32 %46, ptr %3, align 8
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %48 = load i32, ptr %6, align 4
-  store i32 %48, ptr %47, align 1
+  store i32 %48, ptr %47, align 4
   br label %53
 
 49:                                               ; preds = %43
@@ -1095,7 +1095,7 @@ define internal fastcc noundef ptr @nettrace_parse_address(ptr noundef nonnull %
   store i32 %50, ptr %3, align 8
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %52 = load i32, ptr %6, align 4
-  store i32 %52, ptr %51, align 1
+  store i32 %52, ptr %51, align 4
   br label %53
 
 53:                                               ; preds = %41, %49, %45, %35, %38

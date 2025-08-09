@@ -4964,7 +4964,7 @@ _ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8I
   store ptr %25, ptr %24, align 8, !tbaa !27, !noalias !223
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i64 0, ptr %26, align 8, !tbaa !30, !noalias !223
-  store i8 0, ptr %25, align 1, !tbaa !13, !noalias !223
+  store i8 0, ptr %25, align 8, !tbaa !13, !noalias !223
   call void @llvm.experimental.noalias.scope.decl(metadata !226)
   call void @llvm.experimental.noalias.scope.decl(metadata !229)
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 56
@@ -10599,7 +10599,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %35
   store i64 %41, ptr %43, align 8, !tbaa !30
   store ptr %33, ptr %1, align 8, !tbaa !33
   store i64 0, ptr %42, align 8, !tbaa !30
-  store i8 0, ptr %33, align 1, !tbaa !13
+  store i8 0, ptr %33, align 8, !tbaa !13
   ret void
 }
 

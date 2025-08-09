@@ -157,7 +157,7 @@ define void @Map_MappingEstimateRefsInit(ptr noundef readonly captures(none) %0)
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 52
   store float %13, ptr %15, align 4, !tbaa !10
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  store float %13, ptr %16, align 4, !tbaa !10
+  store float %13, ptr %16, align 8, !tbaa !10
   store float %13, ptr %14, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -196,7 +196,7 @@ define void @Map_MappingEstimateRefs(ptr noundef readonly captures(none) %0) loc
   %19 = fptrunc double %18 to float
   store float %19, ptr %11, align 4, !tbaa !10
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %21 = load float, ptr %20, align 4, !tbaa !10
+  %21 = load float, ptr %20, align 8, !tbaa !10
   %22 = fpext float %21 to double
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 36
   %24 = load i32, ptr %23, align 4, !tbaa !8
@@ -204,7 +204,7 @@ define void @Map_MappingEstimateRefs(ptr noundef readonly captures(none) %0) loc
   %26 = tail call double @llvm.fmuladd.f64(double %22, double 3.000000e+00, double %25)
   %27 = fmul double %26, 2.500000e-01
   %28 = fptrunc double %27 to float
-  store float %28, ptr %20, align 4, !tbaa !10
+  store float %28, ptr %20, align 8, !tbaa !10
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 52
   %30 = load float, ptr %29, align 4, !tbaa !10
   %31 = fpext float %30 to double

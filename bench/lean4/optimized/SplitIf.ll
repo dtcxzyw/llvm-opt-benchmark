@@ -15646,11 +15646,11 @@ lean_alloc_ctor.exit:                             ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %13, align 8, !tbaa !16
-  store i32 1, ptr %9, align 4, !tbaa !4
+  store i32 1, ptr %9, align 8, !tbaa !4
   store i32 65560, ptr %12, align 4
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %1, ptr %14, align 8, !tbaa !10
-  store i8 %0, ptr %13, align 1, !tbaa !18
+  store i8 %0, ptr %13, align 8, !tbaa !18
   %15 = load ptr, ptr @l_Lean_Meta_findSplit_x3f_find_x3f_unsafe__1___closed__1, align 8, !tbaa !10
   %16 = tail call ptr @l_Lean_Meta_FindSplitImpl_visit(ptr noundef %2, ptr noundef nonnull %9, ptr noundef %15, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %17 = ptrtoint ptr %9 to i64
@@ -33183,7 +33183,7 @@ lean_inc.exit:                                    ; preds = %11
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !10
   %28 = tail call ptr @l_Lean_PersistentArray_findSomeRevM_x3f___at___private_Lean_Meta_Tactic_SplitIf_0__Lean_Meta_SplitIf_discharge_x3f___spec__2(ptr noundef %0, ptr noundef %1, ptr noundef %27, ptr noundef readnone %3, ptr noundef readnone %4, ptr noundef readnone %5, ptr noundef nonnull %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10)
-  %29 = load i32, ptr %13, align 4, !tbaa !4
+  %29 = load i32, ptr %13, align 8, !tbaa !4
   %30 = icmp sgt i32 %29, 1
   br i1 %30, label %31, label %33, !prof !9
 
@@ -33568,7 +33568,7 @@ lean_dec.exit493:                                 ; preds = %146, %145, %143, %l
   %147 = getelementptr i8, ptr %7, i64 64
   %.val640 = load i64, ptr %147, align 8, !tbaa !16
   %148 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %149 = load i8, ptr %148, align 1, !tbaa !18
+  %149 = load i8, ptr %148, align 8, !tbaa !18
   %150 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %151 = load ptr, ptr %150, align 8, !tbaa !10
   %152 = ptrtoint ptr %151 to i64
@@ -33757,11 +33757,11 @@ lean_inc.exit520:                                 ; preds = %209, %208, %206, %l
   %228 = getelementptr inbounds nuw i8, ptr %220, i64 64
   store i64 %219, ptr %228, align 8, !tbaa !16
   %229 = getelementptr inbounds nuw i8, ptr %220, i64 72
-  store i8 %149, ptr %229, align 1, !tbaa !18
+  store i8 %149, ptr %229, align 8, !tbaa !18
   %230 = getelementptr inbounds nuw i8, ptr %220, i64 73
   store i8 %212, ptr %230, align 1, !tbaa !18
   %231 = getelementptr inbounds nuw i8, ptr %220, i64 74
-  store i8 %214, ptr %231, align 1, !tbaa !18
+  store i8 %214, ptr %231, align 2, !tbaa !18
   br i1 %.not789, label %232, label %lean_inc.exit519
 
 232:                                              ; preds = %215
@@ -34677,11 +34677,11 @@ lean_dec.exit473:                                 ; preds = %566, %565, %563, %5
   %597 = getelementptr inbounds nuw i8, ptr %589, i64 64
   store i64 %588, ptr %597, align 8, !tbaa !16
   %598 = getelementptr inbounds nuw i8, ptr %589, i64 72
-  store i8 %149, ptr %598, align 1, !tbaa !18
+  store i8 %149, ptr %598, align 8, !tbaa !18
   %599 = getelementptr inbounds nuw i8, ptr %589, i64 73
   store i8 %212, ptr %599, align 1, !tbaa !18
   %600 = getelementptr inbounds nuw i8, ptr %589, i64 74
-  store i8 %214, ptr %600, align 1, !tbaa !18
+  store i8 %214, ptr %600, align 2, !tbaa !18
   br i1 %.not789, label %601, label %lean_inc.exit507
 
 601:                                              ; preds = %lean_dec.exit473
@@ -68087,14 +68087,14 @@ _init_l_Lean_Meta_SplitIf_getSimpContext___closed__13.exit: ; preds = %_init_l_L
   %143 = getelementptr inbounds nuw i8, ptr %140, i64 4
   %144 = getelementptr inbounds nuw i8, ptr %140, i64 40
   store i64 65792, ptr %144, align 8, !tbaa !16
-  store i32 1, ptr %140, align 4, !tbaa !4
+  store i32 1, ptr %140, align 8, !tbaa !4
   store i32 131120, ptr %143, align 4
   %145 = getelementptr inbounds nuw i8, ptr %140, i64 8
   store ptr %139, ptr %145, align 8, !tbaa !10
   %146 = getelementptr inbounds nuw i8, ptr %140, i64 16
   store ptr inttoptr (i64 5 to ptr), ptr %146, align 8, !tbaa !10
   %147 = getelementptr inbounds nuw i8, ptr %140, i64 24
-  store i8 0, ptr %147, align 1, !tbaa !18
+  store i8 0, ptr %147, align 8, !tbaa !18
   %148 = getelementptr inbounds nuw i8, ptr %140, i64 25
   store i8 1, ptr %148, align 1, !tbaa !18
   %149 = getelementptr inbounds nuw i8, ptr %140, i64 26
@@ -68102,7 +68102,7 @@ _init_l_Lean_Meta_SplitIf_getSimpContext___closed__13.exit: ; preds = %_init_l_L
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %149, i8 0, i64 11, i1 false)
   store i8 1, ptr %150, align 1, !tbaa !18
   %151 = getelementptr inbounds nuw i8, ptr %140, i64 38
-  store i8 0, ptr %151, align 1, !tbaa !18
+  store i8 0, ptr %151, align 2, !tbaa !18
   %152 = getelementptr inbounds nuw i8, ptr %140, i64 39
   store i8 0, ptr %152, align 1, !tbaa !18
   store ptr %140, ptr @l_Lean_Meta_SplitIf_getSimpContext___closed__13, align 8, !tbaa !10

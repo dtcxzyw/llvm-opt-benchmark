@@ -21265,7 +21265,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %44, ptr %46, align 8
   store ptr %35, ptr %.sroa.010.014.i.i, align 8
   store i64 0, ptr %45, align 8
-  store i8 0, ptr %35, align 1
+  store i8 0, ptr %35, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i.i, i64 32
   %48 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 32
   %.not.i.i18 = icmp eq ptr %47, %2
@@ -21448,7 +21448,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %63, ptr %64, align 8
   store ptr %53, ptr %.sroa.0.015.i, align 8
   store i64 0, ptr %62, align 8
-  store i8 0, ptr %53, align 1
+  store i8 0, ptr %53, align 8
   %65 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.i, i64 32
   %66 = getelementptr inbounds nuw i8, ptr %.01316.i, i64 32
   %.not.i16 = icmp eq i64 %50, 0
@@ -21931,7 +21931,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %49, ptr %50, align 8
   store ptr %39, ptr %.018.i, align 8
   store i64 0, ptr %48, align 8
-  store i8 0, ptr %39, align 1
+  store i8 0, ptr %39, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.018.i, i64 32
   %52 = getelementptr inbounds nuw i8, ptr %.01517.i, i64 32
   %.not.i = icmp eq ptr %51, %11
@@ -22087,7 +22087,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %109, ptr %110, align 8
   store ptr %99, ptr %.018.i43, align 8
   store i64 0, ptr %108, align 8
-  store i8 0, ptr %99, align 1
+  store i8 0, ptr %99, align 8
   %111 = getelementptr inbounds nuw i8, ptr %.018.i43, i64 32
   %112 = getelementptr inbounds nuw i8, ptr %.01517.i44, i64 32
   %.not.i46 = icmp eq ptr %111, %11
@@ -22256,7 +22256,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %25, ptr %26, align 8
   store ptr %15, ptr %.018.i, align 8
   store i64 0, ptr %24, align 8
-  store i8 0, ptr %15, align 1
+  store i8 0, ptr %15, align 8
   %27 = getelementptr inbounds nuw i8, ptr %.018.i, i64 32
   %28 = getelementptr inbounds nuw i8, ptr %.01517.i, i64 32
   %.not.i = icmp eq ptr %27, %3
@@ -22377,7 +22377,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %72, ptr %73, align 8
   store ptr %62, ptr %.018.i24, align 8
   store i64 0, ptr %71, align 8
-  store i8 0, ptr %62, align 1
+  store i8 0, ptr %62, align 8
   %74 = getelementptr inbounds nuw i8, ptr %.018.i24, i64 32
   %75 = getelementptr inbounds nuw i8, ptr %.01517.i25, i64 32
   %.not.i27 = icmp eq ptr %74, %59

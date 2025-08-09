@@ -824,7 +824,7 @@ _ZNSt12__shared_ptrIN7xgboost10collective9RabitCommELN9__gnu_cxx12_Lock_policyE2
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %7, ptr %6, align 8, !tbaa !59
-  store i8 0, ptr %7, align 1, !tbaa !19
+  store i8 0, ptr %7, align 8, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 -1, ptr %8, align 8, !tbaa !60
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 84
@@ -834,7 +834,7 @@ _ZNSt12__shared_ptrIN7xgboost10collective9RabitCommELN9__gnu_cxx12_Lock_policyE2
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store ptr %12, ptr %11, align 8, !tbaa !59
-  store i8 0, ptr %12, align 1, !tbaa !19
+  store i8 0, ptr %12, align 8, !tbaa !19
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, i8 0, i64 40, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN7xgboost10collective9RabitCommE, i64 16), ptr %2, align 8, !tbaa !11
@@ -9924,7 +9924,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit6: ; preds = %11
   store ptr %15, ptr %13, align 8, !tbaa !59, !alias.scope !267
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %16, align 8, !tbaa !56, !alias.scope !267
-  store i8 0, ptr %15, align 1, !tbaa !19, !alias.scope !267
+  store i8 0, ptr %15, align 8, !tbaa !19, !alias.scope !267
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %18 = load ptr, ptr %17, align 8, !tbaa !168, !noalias !267
   %.not.i.not.i.i = icmp eq ptr %18, null

@@ -3402,7 +3402,7 @@ define linkonce_odr hidden void @_ZN7Example11make_sharedEi(ptr dead_on_unwind n
   store i32 1, ptr %6, align 4, !tbaa !125, !noalias !120
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI7ExampleSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !tbaa !116, !noalias !120
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 %1, ptr %7, align 4, !tbaa !118, !noalias !120
+  store i32 %1, ptr %7, align 8, !tbaa !118, !noalias !120
   %8 = load i32, ptr @_ZL7created, align 4, !tbaa !69, !noalias !120
   %9 = add nsw i32 %8, 1
   store i32 %9, ptr @_ZL7created, align 4, !tbaa !69, !noalias !120
@@ -9860,7 +9860,7 @@ define internal noundef ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nano
   store i32 1, ptr %20, align 4, !tbaa !125, !noalias !443
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI3DogSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18, align 8, !tbaa !116, !noalias !443
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i32 1, ptr %21, align 4, !tbaa !427, !noalias !443
+  store i32 1, ptr %21, align 8, !tbaa !427, !noalias !443
   store ptr %21, ptr %9, align 8, !tbaa !446, !alias.scope !440
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr null, ptr %17, align 8, !tbaa !126, !noalias !440
@@ -9880,7 +9880,7 @@ define internal noundef ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nano
   store i32 1, ptr %27, align 4, !tbaa !125, !noalias !451
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI3CatSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25, align 8, !tbaa !116, !noalias !451
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  store i32 0, ptr %28, align 4, !tbaa !427, !noalias !451
+  store i32 0, ptr %28, align 8, !tbaa !427, !noalias !451
   store ptr %28, ptr %9, align 8, !tbaa !446, !alias.scope !440
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr null, ptr %24, align 8, !tbaa !126, !noalias !440

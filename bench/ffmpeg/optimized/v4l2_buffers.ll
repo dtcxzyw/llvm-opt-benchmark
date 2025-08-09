@@ -306,7 +306,7 @@ buf_to_m2mctx.exit.i.i.i:                         ; preds = %29, %switch.lookup
   %40 = load ptr, ptr %39, align 8, !tbaa !80
   %41 = tail call ptr @av_refstruct_ref(ptr noundef %40) #8
   store ptr %41, ptr %13, align 8, !tbaa !79
-  store atomic i32 1, ptr %14 seq_cst, align 4, !tbaa !81
+  store atomic i32 1, ptr %14 seq_cst, align 8, !tbaa !81
   br label %42
 
 42:                                               ; preds = %38, %36
@@ -765,7 +765,7 @@ buf_to_m2mctx.exit.i.i:                           ; preds = %15, %switch.lookup
   %29 = tail call ptr @av_refstruct_ref(ptr noundef %28) #8
   store ptr %29, ptr %21, align 8, !tbaa !79
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store atomic i32 1, ptr %30 seq_cst, align 4, !tbaa !81
+  store atomic i32 1, ptr %30 seq_cst, align 8, !tbaa !81
   br label %31
 
 31:                                               ; preds = %26, %23

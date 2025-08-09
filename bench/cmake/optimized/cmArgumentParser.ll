@@ -1584,7 +1584,7 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11cha
   store ptr %13, ptr %12, align 8, !tbaa !63
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store i64 0, ptr %14, align 8, !tbaa !46
-  store i8 0, ptr %13, align 1, !tbaa !28
+  store i8 0, ptr %13, align 8, !tbaa !28
   store ptr %8, ptr %7, align 8, !tbaa !99
   %15 = invoke { ptr, ptr } @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_NSt7__cxx1112basic_stringIcS2_SaIcEEEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(16) %9)
           to label %16 unwind label %33
@@ -3651,7 +3651,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !tbaa !46, !alias.scope !164, !noalias !167
   store ptr %43, ptr %.0911.i.i.i, align 8, !tbaa !64, !alias.scope !167, !noalias !164
   store i64 0, ptr %52, align 8, !tbaa !46, !alias.scope !167, !noalias !164
-  store i8 0, ptr %43, align 1, !tbaa !28, !alias.scope !167, !noalias !164
+  store i8 0, ptr %43, align 8, !tbaa !28, !alias.scope !167, !noalias !164
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %54, %1
@@ -3699,7 +3699,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !tbaa !46, !alias.scope !171, !noalias !174
   store ptr %59, ptr %.0911.i.i.i30, align 8, !tbaa !64, !alias.scope !174, !noalias !171
   store i64 0, ptr %68, align 8, !tbaa !46, !alias.scope !174, !noalias !171
-  store i8 0, ptr %59, align 1, !tbaa !28, !alias.scope !174, !noalias !171
+  store i8 0, ptr %59, align 8, !tbaa !28, !alias.scope !174, !noalias !171
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 32
   %.not.i.i.i35 = icmp eq ptr %70, %6

@@ -2451,7 +2451,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8LoadInstEiNS_12DenseMapInfoIS3_vEENS_6d
   %57 = load ptr, ptr %1, align 8, !tbaa !219
   store ptr %57, ptr %48, align 8, !tbaa !219
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !49
+  store i32 0, ptr %58, align 8, !tbaa !49
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8LoadInstEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E16InsertIntoBucketIRKS3_JEEEPS8_SE_OT_DpOT0_.exit
@@ -12000,7 +12000,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8LoadInstEiNS_12DenseMapInfoIS3_vEENS_6d
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !49
-  store i32 %68, ptr %66, align 4, !tbaa !49
+  store i32 %68, ptr %66, align 8, !tbaa !49
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !245
   br label %70
@@ -14998,7 +14998,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11AnalysisKeyEbLj8ENS_12DenseMapIn
   store ptr %66, ptr %54, align 8, !tbaa !524
   %67 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %68 = load i8, ptr %3, align 1, !tbaa !221, !range !54, !noundef !55
-  store i8 %68, ptr %67, align 1, !tbaa !221
+  store i8 %68, ptr %67, align 8, !tbaa !221
   %69 = load i32, ptr %1, align 8
   %70 = and i32 %69, 1
   %.not.i.i.i.i7 = icmp eq i32 %70, 0
@@ -15143,7 +15143,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIPNS_11AnalysisKeyEbLj8E
   %30 = getelementptr inbounds nuw i8, ptr %.02738, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %.028.ptr39, i64 8
   %32 = load i8, ptr %31, align 8, !tbaa !221, !range !54, !noundef !55
-  store i8 %32, ptr %30, align 1, !tbaa !221
+  store i8 %32, ptr %30, align 8, !tbaa !221
   %33 = getelementptr inbounds nuw i8, ptr %.02738, i64 16
   br label %34
 
@@ -15302,7 +15302,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11AnalysisKeyEbLj8ENS_12DenseMapIn
   %48 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %.023, i64 8
   %50 = load i8, ptr %49, align 1, !tbaa !221, !range !54, !noundef !55
-  store i8 %50, ptr %48, align 1, !tbaa !221
+  store i8 %50, ptr %48, align 8, !tbaa !221
   %51 = load i32, ptr %0, align 8
   %52 = and i32 %51, -2
   %53 = add i32 %52, 2

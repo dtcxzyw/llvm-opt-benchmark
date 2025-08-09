@@ -3297,7 +3297,7 @@ define i32 @ff_get_buffer(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
   %122 = shl nsw i32 %117, 1
   %123 = getelementptr inbounds nuw i8, ptr %1, i64 124
   %124 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %125 = load i32, ptr %124, align 4, !tbaa !218
+  %125 = load i32, ptr %124, align 8, !tbaa !218
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %125, i32 1)
   %126 = sdiv i32 %122, %spec.select.i
   store i32 %126, ptr %116, align 8, !tbaa !93
@@ -4133,7 +4133,7 @@ define range(i32 -12, 1) i32 @ff_frame_new_side_data(ptr noundef readonly captur
   %8 = getelementptr i8, ptr %0, i64 40
   %.val = load ptr, ptr %8, align 8, !tbaa !4
   %9 = load ptr, ptr %6, align 8, !tbaa !273
-  %10 = load i32, ptr %7, align 4, !tbaa !69
+  %10 = load i32, ptr %7, align 8, !tbaa !69
   %11 = tail call ptr @av_frame_side_data_get_c(ptr noundef %9, i32 noundef %10, i32 noundef %2) #10
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %20, label %12
@@ -4224,7 +4224,7 @@ define range(i32 -12, 1) i32 @ff_frame_new_side_data_from_buf(ptr noundef readon
   %7 = getelementptr i8, ptr %0, i64 40
   %.val.i = load ptr, ptr %7, align 8, !tbaa !4
   %8 = load ptr, ptr %5, align 8, !tbaa !273
-  %9 = load i32, ptr %6, align 4, !tbaa !69
+  %9 = load i32, ptr %6, align 8, !tbaa !69
   %10 = tail call ptr @av_frame_side_data_get_c(ptr noundef %8, i32 noundef %9, i32 noundef %2) #10
   %.not.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i, label %18, label %11
@@ -4328,7 +4328,7 @@ define range(i32 -12, 1) i32 @ff_decode_mastering_display_new(ptr noundef readon
   %6 = getelementptr i8, ptr %0, i64 40
   %.val = load ptr, ptr %6, align 8, !tbaa !4
   %7 = load ptr, ptr %4, align 8, !tbaa !273
-  %8 = load i32, ptr %5, align 4, !tbaa !69
+  %8 = load i32, ptr %5, align 8, !tbaa !69
   %9 = tail call ptr @av_frame_side_data_get_c(ptr noundef %7, i32 noundef %8, i32 noundef 11) #10
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %15, label %10
@@ -4434,7 +4434,7 @@ define range(i32 -12, 1) i32 @ff_decode_content_light_new(ptr noundef readonly c
   %6 = getelementptr i8, ptr %0, i64 40
   %.val = load ptr, ptr %6, align 8, !tbaa !4
   %7 = load ptr, ptr %4, align 8, !tbaa !273
-  %8 = load i32, ptr %5, align 4, !tbaa !69
+  %8 = load i32, ptr %5, align 8, !tbaa !69
   %9 = tail call ptr @av_frame_side_data_get_c(ptr noundef %7, i32 noundef %8, i32 noundef 14) #10
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %15, label %10

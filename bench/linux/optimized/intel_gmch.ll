@@ -203,7 +203,7 @@ define dso_local void @intel_gmch_bar_setup(ptr noundef %0) local_unnamed_addr #
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store i8 1, ptr %12, align 8
-  %90 = load i32, ptr %5, align 4
+  %90 = load i32, ptr %5, align 8
   %91 = and i32 %90, 768
   %92 = icmp eq i32 %91, 0
   %93 = load ptr, ptr %11, align 8

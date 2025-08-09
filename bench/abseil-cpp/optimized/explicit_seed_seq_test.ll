@@ -6260,7 +6260,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal29PredicateFormatterFro
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i64 0, ptr %18, align 8, !alias.scope !193, !noalias !192
   store ptr @_ZZN7testing8internal11MatcherBaseIRKjE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherIiEELb1EEEEEPKNS4_6VTableEvE7kVTable, ptr %17, align 8, !tbaa !202, !alias.scope !193, !noalias !192
-  store i32 %.sroa.0.0.copyload.i.i.i.i.i, ptr %18, align 4, !alias.scope !193, !noalias !192
+  store i32 %.sroa.0.0.copyload.i.i.i.i.i, ptr %18, align 8, !alias.scope !193, !noalias !192
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing7MatcherIRKjEE, i64 16), ptr %16, align 8, !tbaa !4, !alias.scope !193, !noalias !192
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal15EachMatcherImplIRKSt6vectorIjSaIjEEEE, i64 16), ptr %15, align 8, !tbaa !4, !noalias !192
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -12911,7 +12911,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %35
   store i64 %41, ptr %43, align 8, !tbaa !47
   store ptr %33, ptr %1, align 8, !tbaa !41
   store i64 0, ptr %42, align 8, !tbaa !47
-  store i8 0, ptr %33, align 1, !tbaa !25
+  store i8 0, ptr %33, align 8, !tbaa !25
   ret void
 }
 
@@ -12941,7 +12941,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %7, ptr %6, align 8, !tbaa !68, !noalias !354
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %8, align 8, !tbaa !47, !noalias !354
-  store i8 0, ptr %7, align 1, !tbaa !25, !noalias !354
+  store i8 0, ptr %7, align 8, !tbaa !25, !noalias !354
   store ptr %6, ptr %4, align 8, !tbaa !40
   br label %9
 
@@ -16365,7 +16365,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %29, ptr %.08.i.i.i.i.i, align 8, !tbaa !68
   %30 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 8
   store i64 0, ptr %30, align 8, !tbaa !47
-  store i8 0, ptr %29, align 1, !tbaa !25
+  store i8 0, ptr %29, align 8, !tbaa !25
   %31 = add i64 %.057.i.i.i.i.i, -1
   %32 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq i64 %31, 0

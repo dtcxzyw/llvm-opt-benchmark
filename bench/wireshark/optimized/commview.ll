@@ -555,7 +555,7 @@ define internal fastcc range(i32 0, 2) i32 @commview_ncf_read_packet(ptr noundef
   %34 = or i8 %33, 1
   store i8 %34, ptr %32, align 4
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  store i32 0, ptr %35, align 4
+  store i32 0, ptr %35, align 8
   br label %48
 
 36:                                               ; preds = %15
@@ -574,7 +574,7 @@ define internal fastcc range(i32 0, 2) i32 @commview_ncf_read_packet(ptr noundef
   %44 = or i8 %43, 1
   store i8 %44, ptr %42, align 4
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  store i32 1, ptr %45, align 4
+  store i32 1, ptr %45, align 8
   br label %48
 
 46:                                               ; preds = %15

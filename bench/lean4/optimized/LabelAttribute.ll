@@ -2184,7 +2184,7 @@ lean_alloc_ctor.exit:                             ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 1, ptr %10, align 8, !tbaa !12
-  store i32 1, ptr %6, align 4, !tbaa !8
+  store i32 1, ptr %6, align 8, !tbaa !8
   store i32 196648, ptr %9, align 4
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %3, ptr %11, align 8, !tbaa !4
@@ -10825,7 +10825,7 @@ _init_l_Lean_initFn____x40_Lean_LabelAttribute___hyg_19____closed__3.exit: ; pre
   %.val20 = load ptr, ptr %43, align 8, !tbaa !4
   store ptr %.val20, ptr @l_Lean_labelExtensionMapRef, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val20) #6
-  %44 = load i32, ptr %39, align 4, !tbaa !8
+  %44 = load i32, ptr %39, align 8, !tbaa !8
   %45 = icmp sgt i32 %44, 1
   br i1 %45, label %46, label %48, !prof !11
 

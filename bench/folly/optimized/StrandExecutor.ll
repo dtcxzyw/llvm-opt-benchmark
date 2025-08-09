@@ -5861,7 +5861,7 @@ _ZN5folly8FunctionIFvvEEC2EOS2_.exit.i:           ; preds = %44, %_ZN5folly14Unb
   store i64 0, ptr %47, align 16, !tbaa !25
   store i64 %48, ptr %46, align 8, !tbaa !22
   %49 = getelementptr inbounds nuw i8, ptr %35, i64 88
-  store i8 0, ptr %49, align 1, !tbaa !19
+  store i8 0, ptr %49, align 8, !tbaa !19
   %50 = getelementptr inbounds nuw i8, ptr %35, i64 89
   store i8 0, ptr %50, align 1, !tbaa !232
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 73
@@ -5889,7 +5889,7 @@ _ZN5folly13StrandContext9QueueItemC2EOS1_.exit:   ; preds = %_ZN5folly8FunctionI
   store ptr null, ptr %60, align 8, !tbaa !7
   store ptr %61, ptr %59, align 8, !tbaa !7
   store ptr null, ptr %57, align 16, !tbaa !237
-  store atomic i32 1, ptr %35 release, align 4
+  store atomic i32 1, ptr %35 release, align 8
   %62 = and i64 %23, 63
   switch i64 %62, label %_ZN5folly14UnboundedQueueINS_13StrandContext9QueueItemELb0ELb1ELb0ELm6ELm6ESt6atomicE11enqueueImplIS2_EEvOT_.exit [
     i64 0, label %63
@@ -6526,7 +6526,7 @@ _ZN5folly14UnboundedQueueINS_13StrandContext9QueueItemELb0ELb1ELb0ELm6ELm6ESt6at
   store ptr null, ptr %7, align 8, !tbaa !26
   store ptr @_ZN5folly6detail8function5call_INS_13StrandContext4TaskELb1ELb0EvJEEET2_DpT3_RNS1_4DataE, ptr %43, align 16, !tbaa !29
   store ptr @_ZN5folly6detail8function13DispatchSmall4execINS_13StrandContext4TaskEEEmNS1_2OpEPNS1_4DataES8_, ptr %44, align 8, !tbaa !31
-  %46 = load i8, ptr %37, align 1, !tbaa !19
+  %46 = load i8, ptr %37, align 8, !tbaa !19
   %47 = load ptr, ptr %41, align 8, !tbaa !17
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8

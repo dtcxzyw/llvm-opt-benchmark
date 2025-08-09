@@ -12119,7 +12119,7 @@ define internal range(i32 -2147483648, 1) i32 @xfrm_net_init(ptr noundef initial
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 3404
   store i32 0, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 3400
-  store i32 0, ptr %4, align 4
+  store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 3408
   tail call void @__mutex_init(ptr noundef nonnull %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @xfrm_net_init.__key) #22
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2968
@@ -12225,7 +12225,7 @@ define internal range(i32 -2147483648, 1) i32 @xfrm_net_init(ptr noundef initial
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 2904
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 2908
   store i32 0, ptr %60, align 4
-  store i32 0, ptr %59, align 4
+  store i32 0, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 2712
   store volatile ptr %61, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 2720
@@ -13041,7 +13041,7 @@ define internal void @xfrm_hash_rebuild(ptr noundef %0) #1 align 16 {
   %17 = load i8, ptr %5, align 2
   %18 = load i8, ptr %6, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !75
-  %19 = load volatile i32, ptr %2, align 4
+  %19 = load volatile i32, ptr %2, align 8
   %20 = icmp eq i32 %19, %14
   br i1 %20, label %21, label %7, !llvm.loop !198
 

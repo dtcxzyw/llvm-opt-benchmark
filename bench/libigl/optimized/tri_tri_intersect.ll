@@ -9736,7 +9736,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %248 = getelementptr inbounds i8, ptr %.sroa.5274.56.copyload, i64 %.idx2.i.i.i.i.i.i.i.i.i.i.i106
   %249 = load double, ptr %248, align 8, !tbaa !11
   %250 = fsub double %237, %249
-  %251 = load <2 x double>, ptr %8, align 1, !tbaa !13
+  %251 = load <2 x double>, ptr %8, align 8, !tbaa !13
   %252 = fmul <2 x double> %.sroa.0547.8.vec.insert615, %251
   %shift674 = shufflevector <2 x double> %252, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %253 = fadd <2 x double> %252, %shift674
@@ -9919,7 +9919,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %378 = getelementptr inbounds i8, ptr %.sroa.5198.56.copyload, i64 %.idx2.i.i.i.i.i.i.i.i.i.i.i122
   %379 = load double, ptr %378, align 8, !tbaa !11
   %380 = fsub double %367, %379
-  %381 = load <2 x double>, ptr %9, align 1, !tbaa !13
+  %381 = load <2 x double>, ptr %9, align 8, !tbaa !13
   %382 = fmul <2 x double> %.sroa.0547.8.vec.insert625, %381
   %shift680 = shufflevector <2 x double> %382, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %383 = fadd <2 x double> %382, %shift680
@@ -10408,7 +10408,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %248 = getelementptr inbounds i8, ptr %.sroa.5274.56.copyload, i64 %.idx2.i.i.i.i.i.i.i.i.i.i.i106
   %249 = load double, ptr %248, align 8, !tbaa !11
   %250 = fsub double %237, %249
-  %251 = load <2 x double>, ptr %8, align 1, !tbaa !13
+  %251 = load <2 x double>, ptr %8, align 8, !tbaa !13
   %252 = fmul <2 x double> %.sroa.0547.8.vec.insert615, %251
   %shift674 = shufflevector <2 x double> %252, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %253 = fadd <2 x double> %252, %shift674
@@ -10591,7 +10591,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %378 = getelementptr inbounds i8, ptr %.sroa.5198.56.copyload, i64 %.idx2.i.i.i.i.i.i.i.i.i.i.i122
   %379 = load double, ptr %378, align 8, !tbaa !11
   %380 = fsub double %367, %379
-  %381 = load <2 x double>, ptr %9, align 1, !tbaa !13
+  %381 = load <2 x double>, ptr %9, align 8, !tbaa !13
   %382 = fmul <2 x double> %.sroa.0547.8.vec.insert625, %381
   %shift680 = shufflevector <2 x double> %382, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %383 = fadd <2 x double> %382, %shift680
@@ -11080,7 +11080,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %248 = getelementptr inbounds i8, ptr %.sroa.5274.56.copyload, i64 %.idx2.i.i.i.i.i.i.i.i.i.i.i106
   %249 = load double, ptr %248, align 8, !tbaa !11
   %250 = fsub double %239, %249
-  %251 = load <2 x double>, ptr %8, align 1, !tbaa !13
+  %251 = load <2 x double>, ptr %8, align 8, !tbaa !13
   %252 = fmul <2 x double> %.sroa.0547.8.vec.insert615, %251
   %shift674 = shufflevector <2 x double> %252, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %253 = fadd <2 x double> %252, %shift674
@@ -11263,7 +11263,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %378 = getelementptr inbounds i8, ptr %.sroa.5198.56.copyload, i64 %.idx2.i.i.i.i.i.i.i.i.i.i.i122
   %379 = load double, ptr %378, align 8, !tbaa !11
   %380 = fsub double %367, %379
-  %381 = load <2 x double>, ptr %9, align 1, !tbaa !13
+  %381 = load <2 x double>, ptr %9, align 8, !tbaa !13
   %382 = fmul <2 x double> %.sroa.0547.8.vec.insert625, %381
   %shift680 = shufflevector <2 x double> %382, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %383 = fadd <2 x double> %382, %shift680
@@ -11747,7 +11747,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %247 = getelementptr inbounds i8, ptr %.sroa.5265.56.copyload, i64 %.idx2.i.i.i.i.i.i.i.i.i.i.i104
   %248 = load double, ptr %247, align 8, !tbaa !11
   %249 = fsub double %236, %248
-  %250 = load <2 x double>, ptr %8, align 1, !tbaa !13
+  %250 = load <2 x double>, ptr %8, align 8, !tbaa !13
   %251 = fmul <2 x double> %.sroa.0533.8.vec.insert601, %250
   %shift660 = shufflevector <2 x double> %251, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %252 = fadd <2 x double> %251, %shift660
@@ -11925,7 +11925,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %376 = getelementptr inbounds i8, ptr %.sroa.5192.56.copyload, i64 %.idx2.i.i.i.i.i.i.i.i.i.i.i119
   %377 = load double, ptr %376, align 8, !tbaa !11
   %378 = fsub double %365, %377
-  %379 = load <2 x double>, ptr %9, align 1, !tbaa !13
+  %379 = load <2 x double>, ptr %9, align 8, !tbaa !13
   %380 = fmul <2 x double> %.sroa.0533.8.vec.insert611, %379
   %shift666 = shufflevector <2 x double> %380, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %381 = fadd <2 x double> %380, %shift666
@@ -12395,7 +12395,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %.sroa.0.8.vec.insert502 = insertelement <2 x double> %.sroa.0.0.vec.insert473, double %239, i64 1
   %240 = load double, ptr %34, align 8, !tbaa !11
   %241 = fsub double %232, %240
-  %242 = load <2 x double>, ptr %8, align 1, !tbaa !13
+  %242 = load <2 x double>, ptr %8, align 8, !tbaa !13
   %243 = fmul <2 x double> %.sroa.0537.8.vec.insert605, %242
   %shift664 = shufflevector <2 x double> %243, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %244 = fadd <2 x double> %243, %shift664
@@ -12578,7 +12578,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %369 = getelementptr inbounds i8, ptr %.sroa.5195.56.copyload, i64 %.idx2.i.i.i.i.i.i.i.i.i.i.i119
   %370 = load double, ptr %369, align 8, !tbaa !11
   %371 = fsub double %358, %370
-  %372 = load <2 x double>, ptr %9, align 1, !tbaa !13
+  %372 = load <2 x double>, ptr %9, align 8, !tbaa !13
   %373 = fmul <2 x double> %.sroa.0537.8.vec.insert615, %372
   %shift670 = shufflevector <2 x double> %373, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %374 = fadd <2 x double> %373, %shift670
@@ -12963,7 +12963,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %181 = shufflevector <2 x double> %.sroa.6.16.vec.insert.i.i.i.i.i.i.i91, <2 x double> poison, <2 x i32> zeroinitializer
   %182 = fmul <2 x double> %.sroa.0.8.vec.insert444, %181
   %183 = fmul double %166, %180
-  %184 = load <2 x double>, ptr %47, align 1, !tbaa !13
+  %184 = load <2 x double>, ptr %47, align 8, !tbaa !13
   %185 = fsub <2 x double> %184, %182
   store <2 x double> %185, ptr %7, align 1, !tbaa !13
   %186 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -13041,7 +13041,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %238 = getelementptr inbounds i8, ptr %.sroa.4236.8.copyload, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i96
   %239 = load double, ptr %238, align 8, !tbaa !11
   %240 = fsub double %229, %239
-  %241 = load <2 x double>, ptr %8, align 1, !tbaa !13
+  %241 = load <2 x double>, ptr %8, align 8, !tbaa !13
   %242 = fmul <2 x double> %.sroa.0483.8.vec.insert547, %241
   %shift598 = shufflevector <2 x double> %242, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %243 = fadd <2 x double> %242, %shift598
@@ -13060,7 +13060,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %254 = shufflevector <2 x double> %.sroa.6.16.vec.insert.i.i.i.i.i.i.i97, <2 x double> poison, <2 x i32> zeroinitializer
   %255 = fmul <2 x double> %.sroa.0.8.vec.insert448, %254
   %256 = fmul double %240, %253
-  %257 = load <2 x double>, ptr %215, align 1, !tbaa !13
+  %257 = load <2 x double>, ptr %215, align 8, !tbaa !13
   %258 = fsub <2 x double> %257, %255
   store <2 x double> %258, ptr %7, align 1, !tbaa !13
   %259 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -13212,7 +13212,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %362 = getelementptr inbounds i8, ptr %.sroa.5170.56.copyload, i64 %.idx2.i.i.i.i.i.i.i.i.i.i.i109
   %363 = load double, ptr %362, align 8, !tbaa !11
   %364 = fsub double %352, %363
-  %365 = load <2 x double>, ptr %9, align 1, !tbaa !13
+  %365 = load <2 x double>, ptr %9, align 8, !tbaa !13
   %366 = fmul <2 x double> %.sroa.0483.8.vec.insert557, %365
   %shift604 = shufflevector <2 x double> %366, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %367 = fadd <2 x double> %366, %shift604
@@ -13686,7 +13686,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %246 = getelementptr inbounds i8, ptr %.sroa.5265.56.copyload, i64 %.idx2.i.i.i.i.i.i.i.i.i.i.i104
   %247 = load double, ptr %246, align 8, !tbaa !11
   %248 = fsub double %236, %247
-  %249 = load <2 x double>, ptr %8, align 1, !tbaa !13
+  %249 = load <2 x double>, ptr %8, align 8, !tbaa !13
   %250 = fmul <2 x double> %.sroa.0533.8.vec.insert601, %249
   %shift660 = shufflevector <2 x double> %250, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %251 = fadd <2 x double> %250, %shift660
@@ -13863,7 +13863,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %374 = getelementptr inbounds i8, ptr %.sroa.5192.56.copyload, i64 %.idx2.i.i.i.i.i.i.i.i.i.i.i119
   %375 = load double, ptr %374, align 8, !tbaa !11
   %376 = fsub double %364, %375
-  %377 = load <2 x double>, ptr %9, align 1, !tbaa !13
+  %377 = load <2 x double>, ptr %9, align 8, !tbaa !13
   %378 = fmul <2 x double> %.sroa.0533.8.vec.insert611, %377
   %shift666 = shufflevector <2 x double> %378, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %379 = fadd <2 x double> %378, %shift666
@@ -14332,7 +14332,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %.sroa.0.8.vec.insert502 = insertelement <2 x double> %.sroa.0.0.vec.insert473, double %238, i64 1
   %239 = load double, ptr %33, align 8, !tbaa !11
   %240 = fsub double %232, %239
-  %241 = load <2 x double>, ptr %8, align 1, !tbaa !13
+  %241 = load <2 x double>, ptr %8, align 8, !tbaa !13
   %242 = fmul <2 x double> %.sroa.0537.8.vec.insert605, %241
   %shift664 = shufflevector <2 x double> %242, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %243 = fadd <2 x double> %242, %shift664
@@ -14515,7 +14515,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %368 = getelementptr inbounds i8, ptr %.sroa.5195.56.copyload, i64 %.idx2.i.i.i.i.i.i.i.i.i.i.i119
   %369 = load double, ptr %368, align 8, !tbaa !11
   %370 = fsub double %358, %369
-  %371 = load <2 x double>, ptr %9, align 1, !tbaa !13
+  %371 = load <2 x double>, ptr %9, align 8, !tbaa !13
   %372 = fmul <2 x double> %.sroa.0537.8.vec.insert615, %371
   %shift670 = shufflevector <2 x double> %372, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %373 = fadd <2 x double> %372, %shift670
@@ -14899,7 +14899,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %180 = shufflevector <2 x double> %.sroa.6.16.vec.insert.i.i.i.i.i.i.i91, <2 x double> poison, <2 x i32> zeroinitializer
   %181 = fmul <2 x double> %.sroa.0.8.vec.insert444, %180
   %182 = fmul double %165, %179
-  %183 = load <2 x double>, ptr %3, align 1, !tbaa !13
+  %183 = load <2 x double>, ptr %3, align 8, !tbaa !13
   %184 = fsub <2 x double> %183, %181
   store <2 x double> %184, ptr %7, align 1, !tbaa !13
   %185 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -14974,7 +14974,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %234 = getelementptr inbounds i8, ptr %.sroa.4236.8.copyload, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i96
   %235 = load double, ptr %234, align 8, !tbaa !11
   %236 = fsub double %224, %235
-  %237 = load <2 x double>, ptr %8, align 1, !tbaa !13
+  %237 = load <2 x double>, ptr %8, align 8, !tbaa !13
   %238 = fmul <2 x double> %.sroa.0483.8.vec.insert547, %237
   %shift598 = shufflevector <2 x double> %238, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %239 = fadd <2 x double> %238, %shift598
@@ -14993,7 +14993,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %250 = shufflevector <2 x double> %.sroa.6.16.vec.insert.i.i.i.i.i.i.i97, <2 x double> poison, <2 x i32> zeroinitializer
   %251 = fmul <2 x double> %.sroa.0.8.vec.insert448, %250
   %252 = fmul double %236, %249
-  %253 = load <2 x double>, ptr %3, align 1, !tbaa !13
+  %253 = load <2 x double>, ptr %3, align 8, !tbaa !13
   %254 = fsub <2 x double> %253, %251
   store <2 x double> %254, ptr %7, align 1, !tbaa !13
   %255 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -15145,7 +15145,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %358 = getelementptr inbounds i8, ptr %.sroa.5170.56.copyload, i64 %.idx2.i.i.i.i.i.i.i.i.i.i.i109
   %359 = load double, ptr %358, align 8, !tbaa !11
   %360 = fsub double %348, %359
-  %361 = load <2 x double>, ptr %9, align 1, !tbaa !13
+  %361 = load <2 x double>, ptr %9, align 8, !tbaa !13
   %362 = fmul <2 x double> %.sroa.0483.8.vec.insert557, %361
   %shift604 = shufflevector <2 x double> %362, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %363 = fadd <2 x double> %362, %shift604
@@ -15622,7 +15622,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %248 = getelementptr inbounds i8, ptr %.sroa.5274.56.copyload, i64 %.idx2.i.i.i.i.i.i.i.i.i.i.i106
   %249 = load double, ptr %248, align 8, !tbaa !11
   %250 = fsub double %237, %249
-  %251 = load <2 x double>, ptr %8, align 1, !tbaa !13
+  %251 = load <2 x double>, ptr %8, align 8, !tbaa !13
   %252 = fmul <2 x double> %.sroa.0547.8.vec.insert615, %251
   %shift674 = shufflevector <2 x double> %252, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %253 = fadd <2 x double> %252, %shift674
@@ -15805,7 +15805,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %378 = getelementptr inbounds i8, ptr %.sroa.5198.56.copyload, i64 %.idx2.i.i.i.i.i.i.i.i.i.i.i122
   %379 = load double, ptr %378, align 8, !tbaa !11
   %380 = fsub double %367, %379
-  %381 = load <2 x double>, ptr %9, align 1, !tbaa !13
+  %381 = load <2 x double>, ptr %9, align 8, !tbaa !13
   %382 = fmul <2 x double> %.sroa.0547.8.vec.insert625, %381
   %shift680 = shufflevector <2 x double> %382, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %383 = fadd <2 x double> %382, %shift680
@@ -16084,7 +16084,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %108 = fsub double %107, %104
   store double %108, ptr %106, align 8, !tbaa !11
   %109 = load <2 x double>, ptr %3, align 1, !tbaa !13
-  %110 = load <2 x double>, ptr %0, align 1, !tbaa !13
+  %110 = load <2 x double>, ptr %0, align 8, !tbaa !13
   %111 = fsub <2 x double> %109, %110
   %112 = load double, ptr %35, align 8, !tbaa !11
   %113 = load double, ptr %15, align 8, !tbaa !11
@@ -16150,7 +16150,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %162 = load double, ptr %35, align 8, !tbaa !11
   %163 = fsub double %162, %159
   store double %163, ptr %161, align 8, !tbaa !11
-  %164 = load <2 x double>, ptr %3, align 1, !tbaa !13
+  %164 = load <2 x double>, ptr %3, align 8, !tbaa !13
   %165 = load <2 x double>, ptr %0, align 1, !tbaa !13
   %166 = fsub <2 x double> %164, %165
   %167 = load double, ptr %35, align 8, !tbaa !11
@@ -16160,7 +16160,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %171 = fsub <2 x double> %164, %170
   %172 = load double, ptr %21, align 8, !tbaa !11
   %173 = fsub double %167, %172
-  %174 = load <2 x double>, ptr %8, align 1, !tbaa !13
+  %174 = load <2 x double>, ptr %8, align 8, !tbaa !13
   %175 = fmul <2 x double> %166, %174
   %shift377 = shufflevector <2 x double> %175, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %176 = fadd <2 x double> %175, %shift377
@@ -16271,7 +16271,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %257 = load double, ptr %15, align 8, !tbaa !11
   %258 = fsub double %257, %254
   store double %258, ptr %256, align 8, !tbaa !11
-  %259 = load <2 x double>, ptr %0, align 1, !tbaa !13
+  %259 = load <2 x double>, ptr %0, align 8, !tbaa !13
   %260 = load <2 x double>, ptr %3, align 1, !tbaa !13
   %261 = fsub <2 x double> %259, %260
   %262 = load double, ptr %15, align 8, !tbaa !11
@@ -16281,7 +16281,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %266 = fsub <2 x double> %259, %265
   %267 = load double, ptr %14, align 8, !tbaa !11
   %268 = fsub double %262, %267
-  %269 = load <2 x double>, ptr %9, align 1, !tbaa !13
+  %269 = load <2 x double>, ptr %9, align 8, !tbaa !13
   %270 = fmul <2 x double> %261, %269
   %shift383 = shufflevector <2 x double> %270, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %271 = fadd <2 x double> %270, %shift383
@@ -16338,7 +16338,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %312 = fsub double %311, %308
   store double %312, ptr %310, align 8, !tbaa !11
   %313 = load <2 x double>, ptr %0, align 1, !tbaa !13
-  %314 = load <2 x double>, ptr %3, align 1, !tbaa !13
+  %314 = load <2 x double>, ptr %3, align 8, !tbaa !13
   %315 = fsub <2 x double> %313, %314
   %316 = load double, ptr %15, align 8, !tbaa !11
   %317 = load double, ptr %35, align 8, !tbaa !11

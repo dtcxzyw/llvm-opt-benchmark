@@ -81,7 +81,7 @@ define dso_local i32 @intel_context_reconfigure_sseu(ptr noundef %0, i32 %1) loc
   %43 = load ptr, ptr %42, align 8
   %44 = tail call ptr @i915_request_create(ptr noundef %43) #5
   %45 = tail call i32 @__SCT__might_resched() #5
-  %46 = load volatile i32, ptr %28, align 4
+  %46 = load volatile i32, ptr %28, align 8
   %47 = icmp eq i32 %46, 1
   br i1 %47, label %._crit_edge26, label %.lr.ph25, !prof !5
 

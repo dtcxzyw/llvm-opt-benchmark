@@ -83,7 +83,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  store i16 0, ptr %13, align 2, !tbaa !29
+  store i16 0, ptr %13, align 4, !tbaa !29
   store i16 0, ptr %14, align 2, !tbaa !29
   %17 = load i8, ptr %16, align 1, !tbaa !30
   %18 = sext i8 %17 to i32

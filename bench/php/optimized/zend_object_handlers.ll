@@ -3163,11 +3163,11 @@ zend_should_call_hook.exit.thread:                ; preds = %311, %313, %316, %z
   store i32 %354, ptr %0, align 4, !tbaa !41
   %355 = load ptr, ptr %9, align 8, !tbaa !14
   tail call void @zend_call_known_function(ptr noundef nonnull %299, ptr noundef nonnull %0, ptr noundef %355, ptr noundef null, i32 noundef 1, ptr noundef %2, ptr noundef null) #18
-  %356 = load i32, ptr %0, align 4, !tbaa !41
+  %356 = load i32, ptr %0, align 8, !tbaa !41
   %357 = icmp ne i32 %356, 0
   tail call void @llvm.assume(i1 %357)
   %358 = add i32 %356, -1
-  store i32 %358, ptr %0, align 4, !tbaa !41
+  store i32 %358, ptr %0, align 8, !tbaa !41
   %359 = icmp eq i32 %358, 0
   br i1 %359, label %360, label %361
 
@@ -3266,11 +3266,11 @@ zend_get_property_offset.exit.thread.thread.thread: ; preds = %37, %38, %69, %68
   %401 = load i32, ptr %.3170, align 4, !tbaa !49
   %402 = and i32 %401, -3
   store i32 %402, ptr %.3170, align 4, !tbaa !49
-  %403 = load i32, ptr %0, align 4, !tbaa !41
+  %403 = load i32, ptr %0, align 8, !tbaa !41
   %404 = icmp ne i32 %403, 0
   call void @llvm.assume(i1 %404)
   %405 = add i32 %403, -1
-  store i32 %405, ptr %0, align 4, !tbaa !41
+  store i32 %405, ptr %0, align 8, !tbaa !41
   %406 = icmp eq i32 %405, 0
   br i1 %406, label %407, label %408
 
@@ -3454,11 +3454,11 @@ define internal fastcc noundef zeroext i1 @zend_deprecated_dynamic_property(ptr 
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 8192, ptr noundef nonnull @.str.30, ptr noundef nonnull %9, ptr noundef nonnull %10) #18
-  %11 = load i32, ptr %0, align 4, !tbaa !41
+  %11 = load i32, ptr %0, align 8, !tbaa !41
   %12 = icmp ne i32 %11, 0
   tail call void @llvm.assume(i1 %12)
   %13 = add i32 %11, -1
-  store i32 %13, ptr %0, align 4, !tbaa !41
+  store i32 %13, ptr %0, align 8, !tbaa !41
   %14 = icmp ne i32 %13, 0
   br i1 %14, label %22, label %15, !prof !59
 
@@ -5301,7 +5301,7 @@ define dso_local noundef ptr @zend_get_call_trampoline_func(ptr noundef readonly
   %10 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   store i8 0, ptr %10, align 1, !tbaa !37
   %11 = getelementptr inbounds nuw i8, ptr %.0, i64 2
-  store i8 0, ptr %11, align 1, !tbaa !37
+  store i8 0, ptr %11, align 2, !tbaa !37
   %12 = getelementptr inbounds nuw i8, ptr %.0, i64 3
   store i8 0, ptr %12, align 1, !tbaa !37
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -5478,7 +5478,7 @@ define dso_local noundef ptr @zend_get_property_hook_trampoline(ptr noundef %0, 
   %9 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   store i8 0, ptr %9, align 1, !tbaa !37
   %10 = getelementptr inbounds nuw i8, ptr %.0, i64 2
-  store i8 0, ptr %10, align 1, !tbaa !37
+  store i8 0, ptr %10, align 2, !tbaa !37
   %11 = getelementptr inbounds nuw i8, ptr %.0, i64 3
   store i8 0, ptr %11, align 1, !tbaa !37
   %12 = getelementptr inbounds nuw i8, ptr %.0, i64 4

@@ -1104,7 +1104,7 @@ lean_alloc_ctor.exit126:                          ; preds = %lean_alloc_ctor.exi
   %111 = getelementptr inbounds nuw i8, ptr %108, i64 4
   %112 = getelementptr inbounds nuw i8, ptr %108, i64 16
   store i64 0, ptr %112, align 8, !tbaa !11
-  store i32 1, ptr %108, align 4, !tbaa !8
+  store i32 1, ptr %108, align 8, !tbaa !8
   store i32 100728856, ptr %111, align 4
   %113 = getelementptr inbounds nuw i8, ptr %108, i64 8
   store ptr %102, ptr %113, align 8, !tbaa !4
@@ -1288,7 +1288,7 @@ lean_alloc_ctor.exit139:                          ; preds = %lean_alloc_ctor.exi
   %179 = getelementptr inbounds nuw i8, ptr %176, i64 4
   %180 = getelementptr inbounds nuw i8, ptr %176, i64 16
   store i64 0, ptr %180, align 8, !tbaa !11
-  store i32 1, ptr %176, align 4, !tbaa !8
+  store i32 1, ptr %176, align 8, !tbaa !8
   store i32 100728856, ptr %179, align 4
   %181 = getelementptr inbounds nuw i8, ptr %176, i64 8
   store ptr %170, ptr %181, align 8, !tbaa !4
@@ -1657,7 +1657,7 @@ lean_alloc_ctor.exit:                             ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %13, align 8, !tbaa !11
-  store i32 1, ptr %9, align 4, !tbaa !8
+  store i32 1, ptr %9, align 8, !tbaa !8
   store i32 100728856, ptr %12, align 4
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %1, ptr %14, align 8, !tbaa !4
@@ -32408,7 +32408,7 @@ _init_l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_5____closed__5.exit: ; pr
   %.val37 = load ptr, ptr %48, align 8, !tbaa !4
   store ptr %.val37, ptr @l_Lean_Meta_pp_auxDecls, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val37) #5
-  %49 = load i32, ptr %44, align 4, !tbaa !8
+  %49 = load i32, ptr %44, align 8, !tbaa !8
   %50 = icmp sgt i32 %49, 1
   br i1 %50, label %51, label %53, !prof !13
 
@@ -32485,7 +32485,7 @@ _init_l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_45____closed__4.exit: ; p
   %.val38 = load ptr, ptr %82, align 8, !tbaa !4
   store ptr %.val38, ptr @l_Lean_Meta_pp_implementationDetailHyps, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val38) #5
-  %83 = load i32, ptr %78, align 4, !tbaa !8
+  %83 = load i32, ptr %78, align 8, !tbaa !8
   %84 = icmp sgt i32 %83, 1
   br i1 %84, label %85, label %87, !prof !13
 
@@ -32562,7 +32562,7 @@ _init_l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_85____closed__4.exit: ; p
   %.val39 = load ptr, ptr %116, align 8, !tbaa !4
   store ptr %.val39, ptr @l_Lean_Meta_pp_inaccessibleNames, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val39) #5
-  %117 = load i32, ptr %112, align 4, !tbaa !8
+  %117 = load i32, ptr %112, align 8, !tbaa !8
   %118 = icmp sgt i32 %117, 1
   br i1 %118, label %119, label %121, !prof !13
 
@@ -32639,7 +32639,7 @@ _init_l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_125____closed__4.exit: ; 
   %.val40 = load ptr, ptr %150, align 8, !tbaa !4
   store ptr %.val40, ptr @l_Lean_Meta_pp_showLetValues, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val40) #5
-  %151 = load i32, ptr %146, align 4, !tbaa !8
+  %151 = load i32, ptr %146, align 8, !tbaa !8
   %152 = icmp sgt i32 %151, 1
   br i1 %152, label %153, label %155, !prof !13
 

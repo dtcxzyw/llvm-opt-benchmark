@@ -597,7 +597,7 @@ define internal void @_ZN3std3sys3pal6common12thread_local10fast_local13destroy_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false), !noalias !93
   store i64 0, ptr %0, align 8, !noalias !93
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 2, ptr %6, align 1, !noalias !93
+  store i8 2, ptr %6, align 8, !noalias !93
   tail call void @llvm.experimental.noalias.scope.decl(metadata !98)
   %7 = load i64, ptr %4, align 8, !range !35, !alias.scope !98, !noalias !93, !noundef !4
   %8 = icmp eq i64 %7, 0
@@ -696,7 +696,7 @@ define internal void @_ZN3std3sys3pal6common12thread_local10fast_local13destroy_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false), !noalias !120
   store i64 0, ptr %0, align 8, !noalias !120
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 2, ptr %5, align 1, !noalias !120
+  store i8 2, ptr %5, align 8, !noalias !120
   %6 = load i64, ptr %3, align 8, !range !35, !alias.scope !125, !noalias !120, !noundef !4
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %30, label %8

@@ -912,7 +912,7 @@ define internal fastcc zeroext i1 @SDL_SYS_ToFFEffect(ptr noundef nonnull writeo
   %33 = load i16, ptr %32, align 2
   %34 = tail call i16 @llvm.umin.i16(i16 %33, i16 32767)
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i16 %34, ptr %35, align 2
+  store i16 %34, ptr %35, align 4
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %37 = load i16, ptr %36, align 4
   %38 = tail call i16 @llvm.umin.i16(i16 %37, i16 32767)
@@ -922,7 +922,7 @@ define internal fastcc zeroext i1 @SDL_SYS_ToFFEffect(ptr noundef nonnull writeo
   %41 = load i16, ptr %40, align 2
   %42 = tail call i16 @llvm.umin.i16(i16 %41, i16 32767)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i16 %42, ptr %43, align 2
+  store i16 %42, ptr %43, align 8
   br label %229
 
 44:                                               ; preds = %2, %2, %2, %2, %2
@@ -1016,7 +1016,7 @@ define internal fastcc zeroext i1 @SDL_SYS_ToFFEffect(ptr noundef nonnull writeo
   %93 = load i16, ptr %92, align 4
   %94 = tail call i16 @llvm.umin.i16(i16 %93, i16 32767)
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i16 %94, ptr %95, align 2
+  store i16 %94, ptr %95, align 4
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 42
   %97 = load i16, ptr %96, align 2
   %98 = tail call i16 @llvm.umin.i16(i16 %97, i16 32767)
@@ -1026,7 +1026,7 @@ define internal fastcc zeroext i1 @SDL_SYS_ToFFEffect(ptr noundef nonnull writeo
   %101 = load i16, ptr %100, align 4
   %102 = tail call i16 @llvm.umin.i16(i16 %101, i16 32767)
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i16 %102, ptr %103, align 2
+  store i16 %102, ptr %103, align 8
   br label %229
 
 104:                                              ; preds = %2, %2, %2, %2
@@ -1103,7 +1103,7 @@ switch.lookup:                                    ; preds = %104
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 26
   store i16 %146, ptr %147, align 2
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %149 = load i16, ptr %148, align 2
+  %149 = load i16, ptr %148, align 4
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i16 %149, ptr %150, align 4
   %151 = getelementptr inbounds nuw i8, ptr %1, i64 38
@@ -1111,15 +1111,15 @@ switch.lookup:                                    ; preds = %104
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 30
   store i16 %152, ptr %153, align 2
   %154 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %155 = load i16, ptr %154, align 2
+  %155 = load i16, ptr %154, align 4
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i16 %155, ptr %156, align 4
+  store i16 %155, ptr %156, align 8
   %157 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %158 = load i16, ptr %157, align 2
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 34
   store i16 %158, ptr %159, align 2
   %160 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %161 = load i16, ptr %160, align 2
+  %161 = load i16, ptr %160, align 4
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i16 %161, ptr %162, align 4
   %163 = getelementptr inbounds nuw i8, ptr %1, i64 62
@@ -1183,7 +1183,7 @@ switch.lookup:                                    ; preds = %104
   %202 = load i16, ptr %201, align 2
   %203 = tail call i16 @llvm.umin.i16(i16 %202, i16 32767)
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i16 %203, ptr %204, align 4
+  store i16 %203, ptr %204, align 8
   %205 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %206 = load i16, ptr %205, align 4
   %207 = tail call i16 @llvm.umin.i16(i16 %206, i16 32767)
@@ -1206,7 +1206,7 @@ switch.lookup:                                    ; preds = %104
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i16 0, ptr %216, align 2
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i16 0, ptr %217, align 2
+  store i16 0, ptr %217, align 8
   %218 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %219 = load i16, ptr %218, align 4
   %220 = tail call i16 @llvm.smax.i16(i16 %219, i16 -1)

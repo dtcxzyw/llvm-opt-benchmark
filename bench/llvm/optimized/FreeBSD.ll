@@ -3527,7 +3527,7 @@ _ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store i64 %94, ptr %95, align 8, !tbaa !118
   store ptr %85, ptr %.016.i.i.i, align 8, !tbaa !117
   store i64 0, ptr %93, align 8, !tbaa !118
-  store i8 0, ptr %85, align 1, !tbaa !100
+  store i8 0, ptr %85, align 8, !tbaa !100
   %96 = load i32, ptr %63, align 8, !tbaa !85
   %97 = add i32 %96, 1
   store i32 %97, ptr %63, align 8, !tbaa !85
@@ -3648,7 +3648,7 @@ _ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store i64 %150, ptr %151, align 8, !tbaa !118
   store ptr %141, ptr %.016.i.i.i19, align 8, !tbaa !117
   store i64 0, ptr %149, align 8, !tbaa !118
-  store i8 0, ptr %141, align 1, !tbaa !100
+  store i8 0, ptr %141, align 8, !tbaa !100
   %152 = load i32, ptr %119, align 8, !tbaa !85
   %153 = add i32 %152, 1
   store i32 %153, ptr %119, align 8, !tbaa !85
@@ -5148,7 +5148,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llv
   store ptr %16, ptr %.ptr.i.i.i, align 8, !tbaa !259
   %17 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %17, align 8, !tbaa !118
-  store i8 0, ptr %16, align 1, !tbaa !100
+  store i8 0, ptr %16, align 8, !tbaa !100
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %18 = icmp eq i64 %.add.i.i.i, 416
   br i1 %18, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %15
@@ -5698,7 +5698,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %22, ptr %23, align 8, !tbaa !118
   store ptr %13, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !117
   store i64 0, ptr %21, align 8, !tbaa !118
-  store i8 0, ptr %13, align 1, !tbaa !100
+  store i8 0, ptr %13, align 8, !tbaa !100
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq ptr %24, %10

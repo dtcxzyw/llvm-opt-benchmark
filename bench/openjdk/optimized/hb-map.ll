@@ -83,10 +83,10 @@ _ZL16hb_object_createI8hb_map_tJEEPT_DpT0_.exit:  ; preds = %0
   store i32 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr null, ptr %9, align 8
-  store atomic i32 1, ptr %1 monotonic, align 4
+  store atomic i32 1, ptr %1 monotonic, align 8
   store atomic i32 1, ptr %2 monotonic, align 4
   store atomic i64 0, ptr %3 monotonic, align 8
-  %10 = load atomic i32, ptr %1 monotonic, align 4
+  %10 = load atomic i32, ptr %1 monotonic, align 8
   br label %11
 
 11:                                               ; preds = %0, %_ZL16hb_object_createI8hb_map_tJEEPT_DpT0_.exit
@@ -337,10 +337,10 @@ hb_map_create.exit.thread:                        ; preds = %1
   store i32 0, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr null, ptr %10, align 8
-  store atomic i32 1, ptr %2 monotonic, align 4
+  store atomic i32 1, ptr %2 monotonic, align 8
   store atomic i32 1, ptr %3 monotonic, align 4
   store atomic i64 0, ptr %4 monotonic, align 8
-  %11 = load atomic i32, ptr %2 monotonic, align 4
+  %11 = load atomic i32, ptr %2 monotonic, align 8
   br label %14
 
 hb_map_create.exit:                               ; preds = %1

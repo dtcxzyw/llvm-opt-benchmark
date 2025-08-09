@@ -125,7 +125,7 @@ define dso_local void @snd_pcm_group_init(ptr noundef initializes((0, 4)) %0) lo
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store volatile ptr %3, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store volatile i32 1, ptr %5, align 4
+  store volatile i32 1, ptr %5, align 8
   ret void
 }
 

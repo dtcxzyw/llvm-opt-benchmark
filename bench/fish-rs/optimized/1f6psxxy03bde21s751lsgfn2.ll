@@ -26189,11 +26189,11 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i: ; preds = %85, %.noe
   %102 = getelementptr inbounds nuw i8, ptr %91, i64 31
   store i8 1, ptr %102, align 1, !alias.scope !2263
   %103 = getelementptr inbounds nuw i8, ptr %91, i64 30
-  store i8 0, ptr %103, align 1, !alias.scope !2263
+  store i8 0, ptr %103, align 2, !alias.scope !2263
   %104 = getelementptr inbounds nuw i8, ptr %91, i64 35
   store i8 0, ptr %104, align 1, !alias.scope !2263
   %105 = getelementptr inbounds nuw i8, ptr %91, i64 26
-  store i8 0, ptr %105, align 1, !alias.scope !2263
+  store i8 0, ptr %105, align 2, !alias.scope !2263
   %106 = icmp ne ptr %91, null
   call void @llvm.assume(i1 %106)
   %107 = getelementptr inbounds nuw i8, ptr %91, i64 4

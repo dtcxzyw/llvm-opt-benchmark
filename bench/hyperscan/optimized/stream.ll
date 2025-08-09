@@ -149,7 +149,7 @@ partial_load_u64a.exit:                           ; preds = %17, %27, %29, %42, 
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 208
   store i64 0, ptr %88, align 16
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 224
-  store i32 0, ptr %89, align 8
+  store i32 0, ptr %89, align 16
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 396
   %91 = load i32, ptr %90, align 4
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 400
@@ -492,7 +492,7 @@ mmbit_sparse_iter_begin.exit:                     ; preds = %mmbit_mask_index.ex
   %301 = zext i32 %300 to i64
   %302 = getelementptr inbounds nuw i8, ptr %0, i64 %301
   %303 = load i64, ptr %8, align 8
-  %304 = load i64, ptr %10, align 8
+  %304 = load i64, ptr %10, align 16
   %305 = sub i64 64, %304
   %..i = tail call i64 @llvm.umin.i64(i64 %303, i64 %305)
   %306 = load ptr, ptr %86, align 8
@@ -609,16 +609,16 @@ mmbit_set_i.exit:                                 ; preds = %.thread570, %.lr.ph
   %383 = getelementptr inbounds nuw i8, ptr %.sink1497, i64 %382
   %384 = getelementptr inbounds nuw i8, ptr %362, i64 24
   store ptr %383, ptr %384, align 8
-  %385 = load i64, ptr %10, align 8
+  %385 = load i64, ptr %10, align 16
   %386 = getelementptr inbounds nuw i8, ptr %362, i64 32
   store i64 %385, ptr %386, align 8
-  %387 = load ptr, ptr %272, align 8
+  %387 = load ptr, ptr %272, align 16
   %388 = getelementptr inbounds nuw i8, ptr %362, i64 40
   store ptr %387, ptr %388, align 8
   %389 = load i64, ptr %8, align 8
   %390 = getelementptr inbounds nuw i8, ptr %362, i64 48
   store i64 %389, ptr %390, align 8
-  %391 = load ptr, ptr %273, align 8
+  %391 = load ptr, ptr %273, align 16
   %392 = getelementptr inbounds nuw i8, ptr %362, i64 56
   store ptr %391, ptr %392, align 8
   %393 = load i64, ptr %274, align 8
@@ -628,7 +628,7 @@ mmbit_set_i.exit:                                 ; preds = %.thread570, %.lr.ph
   %396 = getelementptr inbounds nuw i8, ptr %362, i64 80
   store i8 0, ptr %396, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %395, i8 0, i64 16, i1 false)
-  %397 = load i64, ptr %10, align 8
+  %397 = load i64, ptr %10, align 16
   %.not90.i = icmp eq i64 %397, 0
   br i1 %.not90.i, label %460, label %398
 
@@ -3379,16 +3379,16 @@ mmbit_set_i.exit.i390:                            ; preds = %.thread692, %.lr.ph
   %1948 = getelementptr inbounds nuw i8, ptr %.sink, i64 %1947
   %1949 = getelementptr inbounds nuw i8, ptr %1927, i64 24
   store ptr %1948, ptr %1949, align 8
-  %1950 = load i64, ptr %10, align 8
+  %1950 = load i64, ptr %10, align 16
   %1951 = getelementptr inbounds nuw i8, ptr %1927, i64 32
   store i64 %1950, ptr %1951, align 8
-  %1952 = load ptr, ptr %1597, align 8
+  %1952 = load ptr, ptr %1597, align 16
   %1953 = getelementptr inbounds nuw i8, ptr %1927, i64 40
   store ptr %1952, ptr %1953, align 8
   %1954 = load i64, ptr %8, align 8
   %1955 = getelementptr inbounds nuw i8, ptr %1927, i64 48
   store i64 %1954, ptr %1955, align 8
-  %1956 = load ptr, ptr %1598, align 8
+  %1956 = load ptr, ptr %1598, align 16
   %1957 = getelementptr inbounds nuw i8, ptr %1927, i64 56
   store ptr %1956, ptr %1957, align 8
   %1958 = load i64, ptr %1599, align 8
@@ -3556,16 +3556,16 @@ mmbit_set_i.exit.i.thread:                        ; preds = %.lr.ph1010, %2003, 
   %2058 = getelementptr inbounds nuw i8, ptr %.sink1499, i64 %2057
   %2059 = getelementptr inbounds nuw i8, ptr %2037, i64 24
   store ptr %2058, ptr %2059, align 8
-  %2060 = load i64, ptr %10, align 8
+  %2060 = load i64, ptr %10, align 16
   %2061 = getelementptr inbounds nuw i8, ptr %2037, i64 32
   store i64 %2060, ptr %2061, align 8
-  %2062 = load ptr, ptr %1597, align 8
+  %2062 = load ptr, ptr %1597, align 16
   %2063 = getelementptr inbounds nuw i8, ptr %2037, i64 40
   store ptr %2062, ptr %2063, align 8
   %2064 = load i64, ptr %8, align 8
   %2065 = getelementptr inbounds nuw i8, ptr %2037, i64 48
   store i64 %2064, ptr %2065, align 8
-  %2066 = load ptr, ptr %1598, align 8
+  %2066 = load ptr, ptr %1598, align 16
   %2067 = getelementptr inbounds nuw i8, ptr %2037, i64 56
   store ptr %2066, ptr %2067, align 8
   %2068 = load i64, ptr %1599, align 8
@@ -3575,7 +3575,7 @@ mmbit_set_i.exit.i.thread:                        ; preds = %.lr.ph1010, %2003, 
   %2071 = getelementptr inbounds nuw i8, ptr %2037, i64 80
   store i8 0, ptr %2071, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2070, i8 0, i64 16, i1 false)
-  %2072 = load i64, ptr %10, align 8
+  %2072 = load i64, ptr %10, align 16
   %.not120.i = icmp eq i64 %2072, 0
   br i1 %.not120.i, label %2086, label %2073
 

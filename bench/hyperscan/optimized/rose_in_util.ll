@@ -8543,7 +8543,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZN3ue29ue2_graphINS_11RoseInGraphENS_1
   store ptr %13, ptr %12, align 8
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 0, ptr %15, align 8
-  store i8 0, ptr %13, align 1
+  store i8 0, ptr %13, align 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 120

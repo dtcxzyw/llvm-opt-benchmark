@@ -1086,7 +1086,7 @@ define hidden void @b2MergeAwakeIslands(ptr noundef %0) local_unnamed_addr #0 {
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 48
   store i32 %36, ptr %57, align 8, !tbaa !119
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 56
-  %.080.i = load i32, ptr %58, align 4, !tbaa !95
+  %.080.i = load i32, ptr %58, align 8, !tbaa !95
   %.not82.i = icmp eq i32 %.080.i, -1
   br i1 %.not82.i, label %._crit_edge108.i, label %54, !llvm.loop !126
 
@@ -1775,9 +1775,9 @@ define hidden void @b2SplitIslandTask(i32 noundef %0, i32 noundef %1, i32 nounde
   tail call void @b2SplitIsland(ptr noundef %3, i32 noundef %7)
   %8 = tail call float @b2GetMilliseconds(i64 noundef %5) #5
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 1656
-  %10 = load float, ptr %9, align 4, !tbaa !149
+  %10 = load float, ptr %9, align 8, !tbaa !149
   %11 = fadd float %8, %10
-  store float %11, ptr %9, align 4, !tbaa !149
+  store float %11, ptr %9, align 8, !tbaa !149
   ret void
 }
 

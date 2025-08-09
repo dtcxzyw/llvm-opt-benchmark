@@ -9483,7 +9483,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %410 = load i64, ptr %409, align 8, !tbaa !149
   %411 = icmp eq i64 %410, 1
   %412 = getelementptr inbounds nuw i8, ptr %.0, i64 80
-  %413 = load i8, ptr %412, align 4, !tbaa !248, !range !57
+  %413 = load i8, ptr %412, align 8, !tbaa !248, !range !57
   %414 = trunc nuw i8 %413 to i1
   br i1 %411, label %415, label %451
 

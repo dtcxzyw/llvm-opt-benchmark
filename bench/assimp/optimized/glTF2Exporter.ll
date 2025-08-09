@@ -12365,25 +12365,25 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store ptr %61, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 24
   store i64 0, ptr %62, align 8
-  store i8 0, ptr %61, align 1
+  store i8 0, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 48
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 64
   store ptr %64, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %59, i64 56
   store i64 0, ptr %65, align 8
-  store i8 0, ptr %64, align 1
+  store i8 0, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %59, i64 80
   %67 = getelementptr inbounds nuw i8, ptr %59, i64 96
   store ptr %67, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %59, i64 88
   store i64 0, ptr %68, align 8
-  store i8 0, ptr %67, align 1
+  store i8 0, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %59, i64 112
   %70 = getelementptr inbounds nuw i8, ptr %59, i64 128
   store ptr %70, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %59, i64 120
   store i64 0, ptr %71, align 8
-  store i8 0, ptr %70, align 1
+  store i8 0, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %59, i64 144
   store i8 0, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %59, i64 160
@@ -42902,25 +42902,25 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store ptr %61, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 24
   store i64 0, ptr %62, align 8
-  store i8 0, ptr %61, align 1
+  store i8 0, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 48
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 64
   store ptr %64, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %59, i64 56
   store i64 0, ptr %65, align 8
-  store i8 0, ptr %64, align 1
+  store i8 0, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %59, i64 80
   %67 = getelementptr inbounds nuw i8, ptr %59, i64 96
   store ptr %67, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %59, i64 88
   store i64 0, ptr %68, align 8
-  store i8 0, ptr %67, align 1
+  store i8 0, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %59, i64 112
   %70 = getelementptr inbounds nuw i8, ptr %59, i64 128
   store ptr %70, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %59, i64 120
   store i64 0, ptr %71, align 8
-  store i8 0, ptr %70, align 1
+  store i8 0, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %59, i64 144
   store i8 0, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %59, i64 160
@@ -51835,19 +51835,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 32
   store ptr %61, ptr %60, align 8
-  store i8 0, ptr %61, align 1
+  store i8 0, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 48
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 64
   store ptr %63, ptr %62, align 8
-  store i8 0, ptr %63, align 1
+  store i8 0, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 80
   %65 = getelementptr inbounds nuw i8, ptr %59, i64 96
   store ptr %65, ptr %64, align 8
-  store i8 0, ptr %65, align 1
+  store i8 0, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %59, i64 112
   %67 = getelementptr inbounds nuw i8, ptr %59, i64 128
   store ptr %67, ptr %66, align 8
-  store i8 0, ptr %67, align 1
+  store i8 0, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %59, i64 160
   store i8 0, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %59, i64 192
@@ -52504,19 +52504,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 32
   store ptr %61, ptr %60, align 8
-  store i8 0, ptr %61, align 1
+  store i8 0, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 48
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 64
   store ptr %63, ptr %62, align 8
-  store i8 0, ptr %63, align 1
+  store i8 0, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 80
   %65 = getelementptr inbounds nuw i8, ptr %59, i64 96
   store ptr %65, ptr %64, align 8
-  store i8 0, ptr %65, align 1
+  store i8 0, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %59, i64 112
   %67 = getelementptr inbounds nuw i8, ptr %59, i64 128
   store ptr %67, ptr %66, align 8
-  store i8 0, ptr %67, align 1
+  store i8 0, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %59, i64 160
   store i8 0, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %59, i64 192
@@ -59591,19 +59591,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 32
   store ptr %61, ptr %60, align 8
-  store i8 0, ptr %61, align 1
+  store i8 0, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 48
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 64
   store ptr %63, ptr %62, align 8
-  store i8 0, ptr %63, align 1
+  store i8 0, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 80
   %65 = getelementptr inbounds nuw i8, ptr %59, i64 96
   store ptr %65, ptr %64, align 8
-  store i8 0, ptr %65, align 1
+  store i8 0, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %59, i64 112
   %67 = getelementptr inbounds nuw i8, ptr %59, i64 128
   store ptr %67, ptr %66, align 8
-  store i8 0, ptr %67, align 1
+  store i8 0, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %59, i64 160
   store i8 0, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %59, i64 192
@@ -60588,25 +60588,25 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store ptr %61, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 24
   store i64 0, ptr %62, align 8
-  store i8 0, ptr %61, align 1
+  store i8 0, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 48
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 64
   store ptr %64, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %59, i64 56
   store i64 0, ptr %65, align 8
-  store i8 0, ptr %64, align 1
+  store i8 0, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %59, i64 80
   %67 = getelementptr inbounds nuw i8, ptr %59, i64 96
   store ptr %67, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %59, i64 88
   store i64 0, ptr %68, align 8
-  store i8 0, ptr %67, align 1
+  store i8 0, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %59, i64 112
   %70 = getelementptr inbounds nuw i8, ptr %59, i64 128
   store ptr %70, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %59, i64 120
   store i64 0, ptr %71, align 8
-  store i8 0, ptr %70, align 1
+  store i8 0, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %59, i64 144
   store i8 0, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %59, i64 160
@@ -60627,7 +60627,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store ptr %80, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %59, i64 272
   store i64 0, ptr %81, align 8
-  store i8 0, ptr %80, align 1
+  store i8 0, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %59, i64 296
   store ptr null, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %59, i64 304
@@ -60637,7 +60637,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store ptr %85, ptr %84, align 8
   %86 = getelementptr inbounds nuw i8, ptr %59, i64 320
   store i64 0, ptr %86, align 8
-  store i8 0, ptr %85, align 1
+  store i8 0, ptr %85, align 8
   %87 = getelementptr inbounds nuw i8, ptr %59, i64 344
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %87, i8 0, i64 24, i1 false)
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -62419,19 +62419,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 32
   store ptr %61, ptr %60, align 8
-  store i8 0, ptr %61, align 1
+  store i8 0, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 48
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 64
   store ptr %63, ptr %62, align 8
-  store i8 0, ptr %63, align 1
+  store i8 0, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 80
   %65 = getelementptr inbounds nuw i8, ptr %59, i64 96
   store ptr %65, ptr %64, align 8
-  store i8 0, ptr %65, align 1
+  store i8 0, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %59, i64 112
   %67 = getelementptr inbounds nuw i8, ptr %59, i64 128
   store ptr %67, ptr %66, align 8
-  store i8 0, ptr %67, align 1
+  store i8 0, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %59, i64 160
   store i8 0, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %59, i64 192
@@ -62448,7 +62448,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %74 = getelementptr inbounds nuw i8, ptr %59, i64 376
   %75 = getelementptr inbounds nuw i8, ptr %59, i64 392
   store ptr %75, ptr %74, align 8
-  store i8 0, ptr %75, align 1
+  store i8 0, ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %78 = load ptr, ptr %77, align 8
@@ -62817,19 +62817,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 32
   store ptr %61, ptr %60, align 8
-  store i8 0, ptr %61, align 1
+  store i8 0, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 48
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 64
   store ptr %63, ptr %62, align 8
-  store i8 0, ptr %63, align 1
+  store i8 0, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 80
   %65 = getelementptr inbounds nuw i8, ptr %59, i64 96
   store ptr %65, ptr %64, align 8
-  store i8 0, ptr %65, align 1
+  store i8 0, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %59, i64 112
   %67 = getelementptr inbounds nuw i8, ptr %59, i64 128
   store ptr %67, ptr %66, align 8
-  store i8 0, ptr %67, align 1
+  store i8 0, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %59, i64 160
   store i8 0, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %59, i64 192
@@ -63183,7 +63183,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %49, ptr %51, align 8, !alias.scope !604, !noalias !607
   store ptr %41, ptr %.0911.i.i.i, align 8, !alias.scope !607, !noalias !604
   store i64 0, ptr %50, align 8, !alias.scope !607, !noalias !604
-  store i8 0, ptr %41, align 1, !alias.scope !607, !noalias !604
+  store i8 0, ptr %41, align 8, !alias.scope !607, !noalias !604
   %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %52, %1
@@ -63231,7 +63231,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %65, ptr %67, align 8, !alias.scope !611, !noalias !614
   store ptr %57, ptr %.0911.i.i.i29, align 8, !alias.scope !614, !noalias !611
   store i64 0, ptr %66, align 8, !alias.scope !614, !noalias !611
-  store i8 0, ptr %57, align 1, !alias.scope !614, !noalias !611
+  store i8 0, ptr %57, align 8, !alias.scope !614, !noalias !611
   %68 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   %69 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %.not.i.i.i34 = icmp eq ptr %68, %6
@@ -65661,7 +65661,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8
   store ptr %13, ptr %10, align 8
   store i64 0, ptr %24, align 8
-  store i8 0, ptr %13, align 1
+  store i8 0, ptr %13, align 8
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i32 0, ptr %26, align 8
   store ptr %7, ptr %23, align 8
@@ -66515,19 +66515,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 32
   store ptr %61, ptr %60, align 8
-  store i8 0, ptr %61, align 1
+  store i8 0, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 48
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 64
   store ptr %63, ptr %62, align 8
-  store i8 0, ptr %63, align 1
+  store i8 0, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 80
   %65 = getelementptr inbounds nuw i8, ptr %59, i64 96
   store ptr %65, ptr %64, align 8
-  store i8 0, ptr %65, align 1
+  store i8 0, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %59, i64 112
   %67 = getelementptr inbounds nuw i8, ptr %59, i64 128
   store ptr %67, ptr %66, align 8
-  store i8 0, ptr %67, align 1
+  store i8 0, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %59, i64 160
   store i8 0, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %59, i64 192
@@ -66539,7 +66539,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5glTF24NodeE, i64 16), ptr %59, align 8
   %72 = getelementptr inbounds nuw i8, ptr %59, i64 264
   %73 = getelementptr inbounds nuw i8, ptr %59, i64 392
-  store i8 0, ptr %73, align 4
+  store i8 0, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %59, i64 428
   store i8 0, ptr %74, align 4
   %75 = getelementptr inbounds nuw i8, ptr %59, i64 440
@@ -66552,7 +66552,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %72, i8 0, i64 48, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %77, i8 0, i64 36, i1 false)
   store ptr %79, ptr %78, align 8
-  store i8 0, ptr %79, align 1
+  store i8 0, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %59, i64 544
   store i32 0, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -66986,19 +66986,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 32
   store ptr %61, ptr %60, align 8
-  store i8 0, ptr %61, align 1
+  store i8 0, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 48
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 64
   store ptr %63, ptr %62, align 8
-  store i8 0, ptr %63, align 1
+  store i8 0, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 80
   %65 = getelementptr inbounds nuw i8, ptr %59, i64 96
   store ptr %65, ptr %64, align 8
-  store i8 0, ptr %65, align 1
+  store i8 0, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %59, i64 112
   %67 = getelementptr inbounds nuw i8, ptr %59, i64 128
   store ptr %67, ptr %66, align 8
-  store i8 0, ptr %67, align 1
+  store i8 0, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %59, i64 160
   store i8 0, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %59, i64 192
@@ -67011,7 +67011,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %72 = getelementptr inbounds nuw i8, ptr %59, i64 264
   %73 = getelementptr inbounds nuw i8, ptr %59, i64 280
   store ptr %73, ptr %72, align 8
-  store i8 0, ptr %73, align 1
+  store i8 0, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %59, i64 296
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %74, i8 0, i64 24, i1 false)
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -67382,19 +67382,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 32
   store ptr %61, ptr %60, align 8
-  store i8 0, ptr %61, align 1
+  store i8 0, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 48
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 64
   store ptr %63, ptr %62, align 8
-  store i8 0, ptr %63, align 1
+  store i8 0, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 80
   %65 = getelementptr inbounds nuw i8, ptr %59, i64 96
   store ptr %65, ptr %64, align 8
-  store i8 0, ptr %65, align 1
+  store i8 0, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %59, i64 112
   %67 = getelementptr inbounds nuw i8, ptr %59, i64 128
   store ptr %67, ptr %66, align 8
-  store i8 0, ptr %67, align 1
+  store i8 0, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %59, i64 160
   store i8 0, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %59, i64 192

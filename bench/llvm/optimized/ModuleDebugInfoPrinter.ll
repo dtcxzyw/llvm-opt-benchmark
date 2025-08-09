@@ -1411,7 +1411,7 @@ _ZNK4llvm7DIScope12getDirectoryEv.exit342.i:      ; preds = %658, %_ZNK4llvm6DIN
   %662 = getelementptr inbounds nuw i8, ptr %536, i64 16
   %663 = load i32, ptr %662, align 8, !tbaa !91
   tail call fastcc void @_ZL9printFileRN4llvm11raw_ostreamENS_9StringRefES2_j(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %.sroa.0.1.i325132.i, i64 %.sroa.3.1.i324129.i, ptr %.sroa.0.1.i339.i, i64 %.sroa.3.1.i338.i, i32 noundef %663)
-  %664 = load i8, ptr %536, align 4, !tbaa !73
+  %664 = load i8, ptr %536, align 8, !tbaa !73
   %.not83.i = icmp eq i8 %664, 12
   br i1 %.not83.i, label %665, label %710
 

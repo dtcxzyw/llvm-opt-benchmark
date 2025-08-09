@@ -18909,11 +18909,11 @@ define linkonce_odr void @_ZN3nix8CallbackISt10shared_ptrIKNS_13ValidPathInfoEEE
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr null, ptr %13, align 8, !noalias !110
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i32 0, ptr %14, align 4, !noalias !110
+  store i32 0, ptr %14, align 8, !noalias !110
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 36
-  store i8 0, ptr %15, align 1, !noalias !110
+  store i8 0, ptr %15, align 4, !noalias !110
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store i32 0, ptr %16, align 4, !noalias !110
+  store i32 0, ptr %16, align 8, !noalias !110
   store ptr %9, ptr %8, align 8, !alias.scope !110
   store ptr %12, ptr %4, align 8, !alias.scope !110
   %17 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #37
@@ -19184,11 +19184,11 @@ define linkonce_odr void @_ZN3nix8CallbackISt10shared_ptrIKNS_13ValidPathInfoEEE
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr null, ptr %14, align 8, !noalias !116
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store i32 0, ptr %15, align 4, !noalias !116
+  store i32 0, ptr %15, align 8, !noalias !116
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 36
-  store i8 0, ptr %16, align 1, !noalias !116
+  store i8 0, ptr %16, align 4, !noalias !116
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  store i32 0, ptr %17, align 4, !noalias !116
+  store i32 0, ptr %17, align 8, !noalias !116
   store ptr %10, ptr %9, align 8, !alias.scope !116
   store ptr %13, ptr %4, align 8, !alias.scope !116
   %18 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #37
@@ -33355,11 +33355,11 @@ define linkonce_odr void @_ZN3nix8CallbackISt10shared_ptrIKNS_11RealisationEEEcl
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr null, ptr %13, align 8, !noalias !295
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i32 0, ptr %14, align 4, !noalias !295
+  store i32 0, ptr %14, align 8, !noalias !295
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 36
-  store i8 0, ptr %15, align 1, !noalias !295
+  store i8 0, ptr %15, align 4, !noalias !295
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store i32 0, ptr %16, align 4, !noalias !295
+  store i32 0, ptr %16, align 8, !noalias !295
   store ptr %9, ptr %8, align 8, !alias.scope !295
   store ptr %12, ptr %4, align 8, !alias.scope !295
   %17 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #37
@@ -33630,11 +33630,11 @@ define linkonce_odr void @_ZN3nix8CallbackISt10shared_ptrIKNS_11RealisationEEE7r
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr null, ptr %14, align 8, !noalias !301
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store i32 0, ptr %15, align 4, !noalias !301
+  store i32 0, ptr %15, align 8, !noalias !301
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 36
-  store i8 0, ptr %16, align 1, !noalias !301
+  store i8 0, ptr %16, align 4, !noalias !301
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  store i32 0, ptr %17, align 4, !noalias !301
+  store i32 0, ptr %17, align 8, !noalias !301
   store ptr %10, ptr %9, align 8, !alias.scope !301
   store ptr %13, ptr %4, align 8, !alias.scope !301
   %18 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #37
@@ -46659,7 +46659,7 @@ _ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit: ; 
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(28) %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load atomic i32, ptr %8 acquire, align 4
+  %9 = load atomic i32, ptr %8 acquire, align 8
   %10 = and i32 %9, 2147483647
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %.preheader.i
@@ -57671,7 +57671,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %23, ptr %25, align 8
   store ptr %15, ptr %10, align 8
   store i64 0, ptr %24, align 8
-  store i8 0, ptr %15, align 1
+  store i8 0, ptr %15, align 8
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 80
   tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(32) %12) #35
@@ -57706,7 +57706,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %38, ptr %41, align 8
   store ptr %29, ptr %12, align 8
   store i64 0, ptr %40, align 8
-  store i8 0, ptr %29, align 1
+  store i8 0, ptr %29, align 8
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store i8 1, ptr %42, align 8
   store ptr %7, ptr %39, align 8
@@ -59408,7 +59408,7 @@ _ZSt19__relocate_object_aIN3nix9StorePathES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i: ; 
   store i64 %32, ptr %34, align 8, !alias.scope !427, !noalias !430
   store ptr %24, ptr %.0911.i.i.i, align 8, !alias.scope !430, !noalias !427
   store i64 0, ptr %33, align 8, !alias.scope !430, !noalias !427
-  store i8 0, ptr %24, align 1, !alias.scope !430, !noalias !427
+  store i8 0, ptr %24, align 8, !alias.scope !430, !noalias !427
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i) #35
   %35 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %36 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
@@ -59458,7 +59458,7 @@ _ZSt19__relocate_object_aIN3nix9StorePathES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i33: 
   store i64 %48, ptr %50, align 8, !alias.scope !434, !noalias !437
   store ptr %40, ptr %.0911.i.i.i29, align 8, !alias.scope !437, !noalias !434
   store i64 0, ptr %49, align 8, !alias.scope !437, !noalias !434
-  store i8 0, ptr %40, align 1, !alias.scope !437, !noalias !434
+  store i8 0, ptr %40, align 8, !alias.scope !437, !noalias !434
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i29) #35
   %51 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32

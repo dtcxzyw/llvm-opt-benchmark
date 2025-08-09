@@ -28403,7 +28403,7 @@ define internal void @"_ZNK4$_229to_stringB5cxx11E6insn_t"(ptr dead_on_unwind no
   %11 = load i32, ptr %10, align 8, !tbaa !201
   %12 = and i32 %11, -75
   %13 = or disjoint i32 %12, 8
-  store i32 %13, ptr %10, align 4, !tbaa !210
+  store i32 %13, ptr %10, align 8, !tbaa !210
   %14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str.1672, i64 noundef 2)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %66
 
@@ -29045,7 +29045,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %3
   %38 = load i32, ptr %37, align 8, !tbaa !201
   %39 = and i32 %38, -75
   %40 = or disjoint i32 %39, 8
-  store i32 %40, ptr %37, align 4, !tbaa !210
+  store i32 %40, ptr %37, align 8, !tbaa !210
   %41 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.0.i, ptr noundef nonnull @.str.1707, i64 noundef 3)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit7 unwind label %93
 
@@ -30079,7 +30079,7 @@ define internal void @"_ZNK4$_449to_stringB5cxx11E6insn_t"(ptr dead_on_unwind no
   %11 = load i32, ptr %10, align 8, !tbaa !201
   %12 = and i32 %11, -75
   %13 = or disjoint i32 %12, 8
-  store i32 %13, ptr %10, align 4, !tbaa !210
+  store i32 %13, ptr %10, align 8, !tbaa !210
   %14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str.1672, i64 noundef 2)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %70
 
@@ -33911,7 +33911,7 @@ define internal void @"_ZNK4$_619to_stringB5cxx11E6insn_t"(ptr dead_on_unwind no
   %29 = load i32, ptr %28, align 8, !tbaa !201
   %30 = and i32 %29, -75
   %31 = or disjoint i32 %30, 8
-  store i32 %31, ptr %28, align 4, !tbaa !210
+  store i32 %31, ptr %28, align 8, !tbaa !210
   %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %20, i32 noundef %19)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit38 unwind label %33
 

@@ -900,7 +900,7 @@ _ZN9grpc_core19LoadBalancingPolicy10UpdateArgsC2EOS1_.exit: ; preds = %150, %_ZN
   store i64 %156, ptr %158, align 8, !tbaa !61
   store ptr %148, ptr %145, align 8, !tbaa !58
   store i64 0, ptr %157, align 8, !tbaa !61
-  store i8 0, ptr %148, align 1, !tbaa !69
+  store i8 0, ptr %148, align 8, !tbaa !69
   %159 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %160 = getelementptr inbounds nuw i8, ptr %2, i64 64
   call void @_ZN9grpc_core11ChannelArgsC1EOS0_(ptr noundef nonnull align 8 dereferenceable(8) %159, ptr noundef nonnull align 8 dereferenceable(8) %160) #30

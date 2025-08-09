@@ -2004,15 +2004,15 @@ invoke.cont:                                      ; preds = %entry
   %np.i.i = getelementptr inbounds nuw i8, ptr %call, i64 180
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 2.500000e+02>, ptr %fill_ratio.i.i, align 8, !tbaa !96
   %Y.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 192
-  store <2 x float> splat (float 2.500000e+02), ptr %Y.i.i.i.i, align 4, !tbaa !96
+  store <2 x float> splat (float 2.500000e+02), ptr %Y.i.i.i.i, align 8, !tbaa !96
   %seed.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 200
-  store i32 12345, ptr %seed.i.i.i, align 4, !tbaa !104
+  store i32 12345, ptr %seed.i.i.i, align 8, !tbaa !104
   %octaves.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 204
   store i16 3, ptr %octaves.i.i.i, align 4, !tbaa !105
   %persist.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 208
-  store <2 x float> <float 0x3FE3333340000000, float 2.000000e+00>, ptr %persist.i.i.i, align 4, !tbaa !96
+  store <2 x float> <float 0x3FE3333340000000, float 2.000000e+00>, ptr %persist.i.i.i, align 8, !tbaa !96
   %flags.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 216
-  store i32 1, ptr %flags.i.i.i, align 4, !tbaa !106
+  store i32 1, ptr %flags.i.i.i, align 8, !tbaa !106
   %c_spawnby.i.i = getelementptr inbounds nuw i8, ptr %call, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %c_spawnby.i.i, i8 0, i64 24, i1 false)
   %place_offset_y.i.i = getelementptr inbounds nuw i8, ptr %call, i64 250
@@ -2316,21 +2316,21 @@ for.body.us:                                      ; preds = %for.body.us, %for.b
   %idxprom.us = zext i32 %add.i204.us to i64
   %arrayidx.us = getelementptr inbounds nuw %struct.MapNode, ptr %36, i64 %idxprom.us
   store i32 %ref.tmp.sroa.0.0.insert.insert, ptr %arrayidx.us, align 4, !tbaa.struct !117
-  %37 = load i16, ptr %m_cache_extent.i, align 2, !tbaa !85
+  %37 = load i16, ptr %m_cache_extent.i, align 4, !tbaa !85
   %conv1.i202.us.1 = sext i16 %37 to i32
   %add.i204.us.1 = sub i32 %add.i204.us, %conv1.i202.us.1
   %38 = load ptr, ptr %m_data, align 8, !tbaa !79
   %idxprom.us.1 = zext i32 %add.i204.us.1 to i64
   %arrayidx.us.1 = getelementptr inbounds nuw %struct.MapNode, ptr %38, i64 %idxprom.us.1
   store i32 %ref.tmp.sroa.0.0.insert.insert, ptr %arrayidx.us.1, align 4, !tbaa.struct !117
-  %39 = load i16, ptr %m_cache_extent.i, align 2, !tbaa !85
+  %39 = load i16, ptr %m_cache_extent.i, align 4, !tbaa !85
   %conv1.i202.us.2 = sext i16 %39 to i32
   %add.i204.us.2 = sub i32 %add.i204.us.1, %conv1.i202.us.2
   %40 = load ptr, ptr %m_data, align 8, !tbaa !79
   %idxprom.us.2 = zext i32 %add.i204.us.2 to i64
   %arrayidx.us.2 = getelementptr inbounds nuw %struct.MapNode, ptr %40, i64 %idxprom.us.2
   store i32 %ref.tmp.sroa.0.0.insert.insert, ptr %arrayidx.us.2, align 4, !tbaa.struct !117
-  %41 = load i16, ptr %m_cache_extent.i, align 2, !tbaa !85
+  %41 = load i16, ptr %m_cache_extent.i, align 4, !tbaa !85
   %conv1.i202.us.3 = sext i16 %41 to i32
   %add.i204.us.3 = sub i32 %add.i204.us.2, %conv1.i202.us.3
   %42 = load ptr, ptr %m_data, align 8, !tbaa !79
@@ -2395,21 +2395,21 @@ for.body123.us:                                   ; preds = %for.body123.us, %fo
   %idxprom126.us = zext i32 %add.i210.us to i64
   %arrayidx127.us = getelementptr inbounds nuw %struct.MapNode, ptr %50, i64 %idxprom126.us
   store i32 %ref.tmp138.sroa.0.0.insert.insert, ptr %arrayidx127.us, align 4, !tbaa.struct !117
-  %51 = load i16, ptr %m_cache_extent.i, align 2, !tbaa !85
+  %51 = load i16, ptr %m_cache_extent.i, align 4, !tbaa !85
   %conv1.i209.us.1 = sext i16 %51 to i32
   %add.i210.us.1 = add i32 %add.i210.us, %conv1.i209.us.1
   %52 = load ptr, ptr %m_data125, align 8, !tbaa !79
   %idxprom126.us.1 = zext i32 %add.i210.us.1 to i64
   %arrayidx127.us.1 = getelementptr inbounds nuw %struct.MapNode, ptr %52, i64 %idxprom126.us.1
   store i32 %ref.tmp138.sroa.0.0.insert.insert, ptr %arrayidx127.us.1, align 4, !tbaa.struct !117
-  %53 = load i16, ptr %m_cache_extent.i, align 2, !tbaa !85
+  %53 = load i16, ptr %m_cache_extent.i, align 4, !tbaa !85
   %conv1.i209.us.2 = sext i16 %53 to i32
   %add.i210.us.2 = add i32 %add.i210.us.1, %conv1.i209.us.2
   %54 = load ptr, ptr %m_data125, align 8, !tbaa !79
   %idxprom126.us.2 = zext i32 %add.i210.us.2 to i64
   %arrayidx127.us.2 = getelementptr inbounds nuw %struct.MapNode, ptr %54, i64 %idxprom126.us.2
   store i32 %ref.tmp138.sroa.0.0.insert.insert, ptr %arrayidx127.us.2, align 4, !tbaa.struct !117
-  %55 = load i16, ptr %m_cache_extent.i, align 2, !tbaa !85
+  %55 = load i16, ptr %m_cache_extent.i, align 4, !tbaa !85
   %conv1.i209.us.3 = sext i16 %55 to i32
   %add.i210.us.3 = add i32 %add.i210.us.2, %conv1.i209.us.3
   %56 = load ptr, ptr %m_data125, align 8, !tbaa !79
@@ -2648,15 +2648,15 @@ invoke.cont:                                      ; preds = %entry
   %np.i.i = getelementptr inbounds nuw i8, ptr %call, i64 180
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 2.500000e+02>, ptr %fill_ratio.i.i, align 8, !tbaa !96
   %Y.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 192
-  store <2 x float> splat (float 2.500000e+02), ptr %Y.i.i.i.i, align 4, !tbaa !96
+  store <2 x float> splat (float 2.500000e+02), ptr %Y.i.i.i.i, align 8, !tbaa !96
   %seed.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 200
-  store i32 12345, ptr %seed.i.i.i, align 4, !tbaa !104
+  store i32 12345, ptr %seed.i.i.i, align 8, !tbaa !104
   %octaves.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 204
   store i16 3, ptr %octaves.i.i.i, align 4, !tbaa !105
   %persist.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 208
-  store <2 x float> <float 0x3FE3333340000000, float 2.000000e+00>, ptr %persist.i.i.i, align 4, !tbaa !96
+  store <2 x float> <float 0x3FE3333340000000, float 2.000000e+00>, ptr %persist.i.i.i, align 8, !tbaa !96
   %flags.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 216
-  store i32 1, ptr %flags.i.i.i, align 4, !tbaa !106
+  store i32 1, ptr %flags.i.i.i, align 8, !tbaa !106
   %c_spawnby.i.i = getelementptr inbounds nuw i8, ptr %call, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %c_spawnby.i.i, i8 0, i64 24, i1 false)
   %place_offset_y.i.i = getelementptr inbounds nuw i8, ptr %call, i64 250
@@ -2964,15 +2964,15 @@ invoke.cont:                                      ; preds = %entry
   %np.i.i = getelementptr inbounds nuw i8, ptr %call, i64 180
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 2.500000e+02>, ptr %fill_ratio.i.i, align 8, !tbaa !96
   %Y.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 192
-  store <2 x float> splat (float 2.500000e+02), ptr %Y.i.i.i.i, align 4, !tbaa !96
+  store <2 x float> splat (float 2.500000e+02), ptr %Y.i.i.i.i, align 8, !tbaa !96
   %seed.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 200
-  store i32 12345, ptr %seed.i.i.i, align 4, !tbaa !104
+  store i32 12345, ptr %seed.i.i.i, align 8, !tbaa !104
   %octaves.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 204
   store i16 3, ptr %octaves.i.i.i, align 4, !tbaa !105
   %persist.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 208
-  store <2 x float> <float 0x3FE3333340000000, float 2.000000e+00>, ptr %persist.i.i.i, align 4, !tbaa !96
+  store <2 x float> <float 0x3FE3333340000000, float 2.000000e+00>, ptr %persist.i.i.i, align 8, !tbaa !96
   %flags.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 216
-  store i32 1, ptr %flags.i.i.i, align 4, !tbaa !106
+  store i32 1, ptr %flags.i.i.i, align 8, !tbaa !106
   %c_spawnby.i.i = getelementptr inbounds nuw i8, ptr %call, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %c_spawnby.i.i, i8 0, i64 24, i1 false)
   %place_offset_y.i.i = getelementptr inbounds nuw i8, ptr %call, i64 250
@@ -3845,7 +3845,7 @@ invoke.cont13:                                    ; preds = %if.end.i63, %if.the
   store ptr null, ptr %call5.i.i.i.sink16.i, align 8, !tbaa !61
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.sink16.i, i64 8
   %6 = load i16, ptr %add.ptr, align 2, !tbaa !59
-  store i16 %6, ptr %add.ptr.i.i, align 2, !tbaa !59
+  store i16 %6, ptr %add.ptr.i.i, align 8, !tbaa !59
   %_M_before_begin.i65 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i.sink16.i, ptr %_M_before_begin.i65, align 8, !tbaa !142
   %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -3880,7 +3880,7 @@ invoke.cont20:                                    ; preds = %if.end.i71, %if.the
   store ptr null, ptr %call5.i.i.i.sink16.i69, align 8, !tbaa !61
   %add.ptr.i.i70 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.sink16.i69, i64 8
   %10 = load i16, ptr %add.ptr16, align 2, !tbaa !59
-  store i16 %10, ptr %add.ptr.i.i70, align 2, !tbaa !59
+  store i16 %10, ptr %add.ptr.i.i70, align 8, !tbaa !59
   store ptr %call5.i.i.i.sink16.i69, ptr %__prev_n.077, align 8, !tbaa !61
   %conv.i.i.i.i = zext i16 %10 to i64
   %rem.i.i.i = urem i64 %conv.i.i.i.i, %7

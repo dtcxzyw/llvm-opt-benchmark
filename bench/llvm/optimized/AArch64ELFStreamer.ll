@@ -1192,7 +1192,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm30createAArch64AsmTargetStreamerER
   store ptr %7, ptr %6, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 199736
   store i64 0, ptr %8, align 8, !tbaa !9
-  store i8 0, ptr %7, align 1, !tbaa !12
+  store i8 0, ptr %7, align 8, !tbaa !12
   ret ptr %4
 }
 
@@ -5046,7 +5046,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionEN12_GLOBAL__N_118AArch64ELFS
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.sroa.0.0.i, ptr %54, align 8, !tbaa !92
   %61 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  store i32 0, ptr %61, align 4, !tbaa !12
+  store i32 0, ptr %61, align 8, !tbaa !12
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionEN12_GLOBAL__N_118AArch64ELFStreamer16ElfMappingSymbolENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_EixEOS4_.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionEN12_GLOBAL__N_118AArch64ELFStreamer16ElfMappingSymbolENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_EixEOS4_.exit: ; preds = %34, %18, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionEN12_GLOBAL__N_118AArch64ELFStreamer16ElfMappingSymbolENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E16InsertIntoBucketIS4_JEEEPSC_SG_OT_DpOT0_.exit.i
@@ -6009,7 +6009,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionEN12_GLOBAL__N_118AArch64ELFS
   %63 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 8
   %64 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 8
   %65 = load i32, ptr %64, align 4, !tbaa !12
-  store i32 %65, ptr %63, align 4, !tbaa !12
+  store i32 %65, ptr %63, align 8, !tbaa !12
   %.val.i19.i.i = load i32, ptr %32, align 8, !tbaa !342
   %66 = add i32 %.val.i19.i.i, 1
   store i32 %66, ptr %32, align 8, !tbaa !342
@@ -6298,7 +6298,7 @@ _ZSt10_ConstructIN4llvm13MCELFStreamer13AttributeItemEJS2_EEvPT_DpOT0_.exit.i.i.
   store i64 %24, ptr %25, align 8, !tbaa !9
   store ptr %15, ptr %12, align 8, !tbaa !13
   store i64 0, ptr %23, align 8, !tbaa !9
-  store i8 0, ptr %15, align 1, !tbaa !12
+  store i8 0, ptr %15, align 8, !tbaa !12
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 48
   %27 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 48
   %.not.i.i.i.i.i.i = icmp eq ptr %26, %10

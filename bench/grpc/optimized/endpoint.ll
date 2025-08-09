@@ -249,7 +249,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i.i:       ; preds = %_ZNKSt7__cxx1112bas
   store ptr %40, ptr %16, align 8, !tbaa !25, !alias.scope !20
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store i64 0, ptr %41, align 8, !tbaa !30, !alias.scope !20
-  store i8 0, ptr %40, align 1, !tbaa !31
+  store i8 0, ptr %40, align 8, !tbaa !31
   %42 = and i64 %23, 1
   %.not.i.i1.i.i = icmp eq i64 %42, 0
   br i1 %.not.i.i1.i.i, label %43, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i
@@ -324,7 +324,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i39.i:     ; preds = %_ZNKSt7__cxx1112bas
   store ptr %73, ptr %48, align 8, !tbaa !25, !alias.scope !32
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 136
   store i64 0, ptr %74, align 8, !tbaa !30, !alias.scope !32
-  store i8 0, ptr %73, align 1, !tbaa !31
+  store i8 0, ptr %73, align 8, !tbaa !31
   %75 = and i64 %56, 1
   %.not.i.i1.i38.i = icmp eq i64 %75, 0
   br i1 %.not.i.i1.i38.i, label %76, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit42.i
@@ -349,7 +349,7 @@ _ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_strin
   store ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_133grpc_event_engine_endpoint_vtableE, ptr %.val.i, align 8, !tbaa !56
   %82 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
   store ptr %5, ptr %82, align 8, !tbaa !61
-  %83 = load ptr, ptr %5, align 8, !tbaa !3
+  %83 = load ptr, ptr %5, align 16, !tbaa !3
   %84 = icmp eq ptr %83, null
   br i1 %84, label %_ZN17grpc_event_engine12experimental14QueryExtensionINS0_27EndpointSupportsFdExtensionEEEPT_PNS0_11EventEngine8EndpointE.exit.thread.i, label %85
 
@@ -1392,7 +1392,7 @@ _ZN17grpc_event_engine12experimental11SliceBufferD2Ev.exit.i: ; preds = %_ZN17gr
   %87 = getelementptr inbounds nuw i8, ptr %.val.i, i64 248
   %88 = getelementptr inbounds nuw i8, ptr %38, i64 80
   store ptr %2, ptr %88, align 16, !tbaa !105
-  %89 = load ptr, ptr %38, align 8, !tbaa !3
+  %89 = load ptr, ptr %38, align 16, !tbaa !3
   %90 = ptrtoint ptr %38 to i64
   store i64 %90, ptr %11, align 16, !tbaa !74
   %91 = getelementptr inbounds nuw i8, ptr %11, i64 24

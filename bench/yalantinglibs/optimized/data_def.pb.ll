@@ -2539,9 +2539,9 @@ _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2
   %damage_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %damage_5 = getelementptr inbounds nuw i8, ptr %other, i64 24
   %23 = load i32, ptr %damage_, align 8
-  %24 = load i32, ptr %damage_5, align 4
+  %24 = load i32, ptr %damage_5, align 8
   store i32 %24, ptr %damage_, align 8
-  store i32 %23, ptr %damage_5, align 4
+  store i32 %23, ptr %damage_5, align 8
   ret void
 }
 
@@ -5951,19 +5951,19 @@ _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2
   %pos_10 = getelementptr inbounds nuw i8, ptr %other, i64 80
   %tmp.0.copyload.i.i = load i128, ptr %pos_, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pos_, ptr noundef nonnull align 1 dereferenceable(16) %pos_10, i64 16, i1 false)
-  store i128 %tmp.0.copyload.i.i, ptr %pos_10, align 1
+  store i128 %tmp.0.copyload.i.i, ptr %pos_10, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %add.ptr1.i = getelementptr inbounds nuw i8, ptr %other, i64 96
   %tmp.0.copyload.i.i.i = load i64, ptr %add.ptr.i, align 8
-  %25 = load i64, ptr %add.ptr1.i, align 1
+  %25 = load i64, ptr %add.ptr1.i, align 8
   store i64 %25, ptr %add.ptr.i, align 8
-  store i64 %tmp.0.copyload.i.i.i, ptr %add.ptr1.i, align 1
+  store i64 %tmp.0.copyload.i.i.i, ptr %add.ptr1.i, align 8
   %add.ptr.i.i32 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %add.ptr1.i.i = getelementptr inbounds nuw i8, ptr %other, i64 104
   %tmp.0.copyload.i.i.i.i33 = load i32, ptr %add.ptr.i.i32, align 8
-  %26 = load i32, ptr %add.ptr1.i.i, align 1
+  %26 = load i32, ptr %add.ptr1.i.i, align 8
   store i32 %26, ptr %add.ptr.i.i32, align 8
-  store i32 %tmp.0.copyload.i.i.i.i33, ptr %add.ptr1.i.i, align 1
+  store i32 %tmp.0.copyload.i.i.i.i33, ptr %add.ptr1.i.i, align 8
   ret void
 }
 
@@ -10909,7 +10909,7 @@ _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2
   %id_5 = getelementptr inbounds nuw i8, ptr %other, i64 24
   %tmp.0.copyload.i.i = load i128, ptr %id_, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id_, ptr noundef nonnull align 1 dereferenceable(16) %id_5, i64 16, i1 false)
-  store i128 %tmp.0.copyload.i.i, ptr %id_5, align 1
+  store i128 %tmp.0.copyload.i.i, ptr %id_5, align 8
   ret void
 }
 
@@ -12739,7 +12739,7 @@ if.then.i:                                        ; preds = %entry
   store ptr null, ptr %_internal_metadata_.i.i.i.i, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6mygame6personE, i64 16), ptr %call.i, align 8
   %_cached_size_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
-  store i32 0, ptr %_cached_size_.i.i, align 4
+  store i32 0, ptr %_cached_size_.i.i, align 8
   %0 = load atomic i32, ptr @scc_info_person_data_5fdef_2eproto acquire, align 8
   %cmp.not.i.i.i.i = icmp eq i32 %0, 0
   br i1 %cmp.not.i.i.i.i, label %_ZN6google8protobuf5Arena21CreateMessageInternalIN6mygame6personEEEPT_PS1_.exit, label %if.then.i.i.i.i
@@ -12770,7 +12770,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %if.else.i,
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i5, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6mygame6personE, i64 16), ptr %call2.i8, align 8
   %_cached_size_.i.i6 = getelementptr inbounds nuw i8, ptr %call2.i8, i64 40
-  store i32 0, ptr %_cached_size_.i.i6, align 4
+  store i32 0, ptr %_cached_size_.i.i6, align 8
   %3 = load atomic i32, ptr @scc_info_person_data_5fdef_2eproto acquire, align 8
   %cmp.not.i.i.i.i7 = icmp eq i32 %3, 0
   br i1 %cmp.not.i.i.i.i7, label %_ZN6google8protobuf5Arena21CreateMessageInternalIN6mygame6personEEEPT_PS1_.exit, label %if.then.i.i.i.i8
@@ -13195,7 +13195,7 @@ entry:
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6mygame6personE, i64 16), ptr %call.i.i, align 8
   %_cached_size_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 40
-  store i32 0, ptr %_cached_size_.i.i.i, align 4
+  store i32 0, ptr %_cached_size_.i.i.i, align 8
   %0 = load atomic i32, ptr @scc_info_person_data_5fdef_2eproto acquire, align 8
   %cmp.not.i.i.i.i.i = icmp eq i32 %0, 0
   br i1 %cmp.not.i.i.i.i.i, label %_ZN6google8protobuf5Arena18CreateMaybeMessageIN6mygame6personEJEEEPT_PS1_DpOT0_.exit, label %if.then.i.i.i.i.i

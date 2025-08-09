@@ -316,7 +316,7 @@ calc_quant_matrix.exit:                           ; preds = %63
   %.018.i = select i1 %or.cond3.i, i32 %159, i32 0
   %.017.i = select i1 %or.cond.i, ptr %158, ptr null
   %161 = lshr exact i32 %.018.i, 3
-  store ptr %.017.i, ptr %157, align 8, !tbaa !55
+  store ptr %.017.i, ptr %157, align 16, !tbaa !55
   %162 = getelementptr inbounds nuw i8, ptr %10, i64 84
   store i32 %.018.i, ptr %162, align 4, !tbaa !56
   %163 = add nuw nsw i32 %.018.i, 8
@@ -327,7 +327,7 @@ calc_quant_matrix.exit:                           ; preds = %63
   %167 = getelementptr inbounds nuw i8, ptr %10, i64 72
   store ptr %166, ptr %167, align 8, !tbaa !58
   %168 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  store i32 0, ptr %168, align 8, !tbaa !59
+  store i32 0, ptr %168, align 16, !tbaa !59
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %170 = load i32, ptr %169, align 4, !tbaa !45
   %.not90150 = icmp sgt i32 %170, 0
@@ -738,11 +738,11 @@ decode_motion.exit60.i:                           ; preds = %311, %297
   %441 = add i32 %430, 8
   %442 = tail call i32 @llvm.umin.i32(i32 %431, i32 %441)
   store i32 %442, ptr %168, align 8, !tbaa !59
-  %443 = load i16, ptr %62, align 2, !tbaa !40
+  %443 = load i16, ptr %62, align 8, !tbaa !40
   %444 = trunc nsw i32 %440 to i16
   %445 = add nsw i16 %444, 128
   %446 = mul i16 %445, %443
-  store i16 %446, ptr %174, align 2, !tbaa !40
+  store i16 %446, ptr %174, align 8, !tbaa !40
   br label %447
 
 447:                                              ; preds = %537, %428

@@ -4992,7 +4992,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %25
   store i64 %32, ptr %33, align 8, !tbaa !32
   store ptr %23, ptr %1, align 8, !tbaa !35
   store i64 0, ptr %31, align 8, !tbaa !32
-  store i8 0, ptr %23, align 1, !tbaa !34
+  store i8 0, ptr %23, align 8, !tbaa !34
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %35, ptr %34, align 8, !tbaa !26
@@ -10209,7 +10209,7 @@ _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %_ZNKSt7__cxx1112bas
   %1337 = getelementptr inbounds nuw i8, ptr %1318, i64 72
   store i8 0, ptr %1337, align 8, !tbaa !340
   %1338 = getelementptr inbounds nuw i8, ptr %1318, i64 80
-  store i8 0, ptr %1338, align 4, !tbaa !347
+  store i8 0, ptr %1338, align 8, !tbaa !347
   %1339 = getelementptr inbounds nuw i8, ptr %1318, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1339, i8 0, i64 40, i1 false)
   %1340 = getelementptr inbounds nuw i8, ptr %1318, i64 128
@@ -16548,13 +16548,13 @@ _ZN4pstd8optionalIN4pbrt5TokenEEdeEv.exit:        ; preds = %_ZN4pstd8optionalIN
   store ptr %61, ptr %58, align 8, !tbaa !26
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store i64 0, ptr %62, align 8, !tbaa !32
-  store i8 0, ptr %61, align 1, !tbaa !34
+  store i8 0, ptr %61, align 8, !tbaa !34
   %63 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %64 = getelementptr inbounds nuw i8, ptr %58, i64 48
   store ptr %64, ptr %63, align 8, !tbaa !26
   %65 = getelementptr inbounds nuw i8, ptr %58, i64 40
   store i64 0, ptr %65, align 8, !tbaa !32
-  store i8 0, ptr %64, align 1, !tbaa !34
+  store i8 0, ptr %64, align 8, !tbaa !34
   %66 = getelementptr inbounds nuw i8, ptr %58, i64 88
   %67 = call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #38
   %68 = ptrtoint ptr %67 to i64
@@ -18111,7 +18111,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %11
   store i64 %17, ptr %19, align 8, !tbaa !32
   store ptr %9, ptr %1, align 8, !tbaa !35
   store i64 0, ptr %18, align 8, !tbaa !32
-  store i8 0, ptr %9, align 1, !tbaa !34
+  store i8 0, ptr %9, align 8, !tbaa !34
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 16, i1 false)
@@ -56527,7 +56527,7 @@ _ZN4pstd3pmr21polymorphic_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIc
   store i64 %41, ptr %42, align 8, !tbaa !32
   store ptr %32, ptr %29, align 8, !tbaa !35
   store i64 0, ptr %40, align 8, !tbaa !32
-  store i8 0, ptr %32, align 1, !tbaa !34
+  store i8 0, ptr %32, align 8, !tbaa !34
   %43 = load ptr, ptr %16, align 8, !tbaa !51
   %44 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %43, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8, !tbaa !35
@@ -75358,7 +75358,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
   store ptr %33, ptr %32, align 8, !tbaa !26
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i64 0, ptr %34, align 8, !tbaa !32
-  store i8 0, ptr %33, align 1, !tbaa !34
+  store i8 0, ptr %33, align 8, !tbaa !34
   ret void
 
 35:                                               ; preds = %25

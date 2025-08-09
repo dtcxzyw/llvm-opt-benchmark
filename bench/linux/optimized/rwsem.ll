@@ -77,7 +77,7 @@ define dso_local void @__init_rwsem(ptr noundef %0, ptr readnone captures(none) 
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store volatile i64 0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store volatile i32 0, ptr %8, align 4
+  store volatile i32 0, ptr %8, align 8
   ret void
 }
 

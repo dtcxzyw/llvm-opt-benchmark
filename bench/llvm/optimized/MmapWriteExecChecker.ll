@@ -109,11 +109,11 @@ define dso_local void @_ZN5clang4ento28registerMmapWriteExecCheckerERNS0_14Check
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 216
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 232
   store ptr %27, ptr %26, align 8, !tbaa !14
-  store i64 8751735916204352851, ptr %27, align 1
+  store i64 8751735916204352851, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 224
   store i64 8, ptr %28, align 8, !tbaa !20
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 240
-  store i8 0, ptr %29, align 1, !tbaa !19
+  store i8 0, ptr %29, align 8, !tbaa !19
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 248
   store ptr %8, ptr %30, align 8, !tbaa !21
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 256

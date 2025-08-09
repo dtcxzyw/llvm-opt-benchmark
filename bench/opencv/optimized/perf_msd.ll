@@ -550,7 +550,7 @@ common.resume:                                    ; preds = %_ZN7testing8interna
   %104 = getelementptr inbounds nuw i8, ptr %82, i64 16
   store i64 10, ptr %104, align 8, !tbaa !20
   %105 = getelementptr inbounds nuw i8, ptr %82, i64 34
-  store i8 0, ptr %105, align 1, !tbaa !22
+  store i8 0, ptr %105, align 2, !tbaa !22
   %106 = getelementptr inbounds nuw i8, ptr %82, i64 40
   %107 = getelementptr inbounds nuw i8, ptr %82, i64 56
   store ptr %107, ptr %106, align 8, !tbaa !14
@@ -6914,7 +6914,7 @@ define internal void @_GLOBAL__sub_I_perf_msd.cpp() #25 section ".text.startup" 
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store i64 10, ptr %62, align 8, !tbaa !20
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 26
-  store i8 0, ptr %63, align 1, !tbaa !22
+  store i8 0, ptr %63, align 2, !tbaa !22
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %65 = getelementptr inbounds nuw i8, ptr %60, i64 48
   store ptr %65, ptr %64, align 8, !tbaa !14
@@ -6922,7 +6922,7 @@ define internal void @_GLOBAL__sub_I_perf_msd.cpp() #25 section ".text.startup" 
   %66 = getelementptr inbounds nuw i8, ptr %60, i64 40
   store i64 6, ptr %66, align 8, !tbaa !20
   %67 = getelementptr inbounds nuw i8, ptr %60, i64 54
-  store i8 0, ptr %67, align 1, !tbaa !22
+  store i8 0, ptr %67, align 2, !tbaa !22
   %68 = getelementptr inbounds nuw i8, ptr %60, i64 64
   store ptr %58, ptr %68, align 8, !tbaa !47
   %69 = getelementptr inbounds nuw i8, ptr %56, i64 80
@@ -7471,7 +7471,7 @@ _ZSt19__relocate_object_aIN7testing8internal25ParameterizedTestCaseInfoIN11openc
   store i64 %245, ptr %247, align 8, !tbaa !20, !alias.scope !252, !noalias !255
   store ptr %237, ptr %.092.i.i.i.i.i.i.i.i.i, align 8, !tbaa !17, !alias.scope !255, !noalias !252
   store i64 0, ptr %246, align 8, !tbaa !20, !alias.scope !255, !noalias !252
-  store i8 0, ptr %237, align 1, !tbaa !22, !alias.scope !255, !noalias !252
+  store i8 0, ptr %237, align 8, !tbaa !22, !alias.scope !255, !noalias !252
   %248 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i.i.i.i, i64 32
   %249 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %248, ptr noundef nonnull align 8 dereferenceable(28) %249, i64 28, i1 false), !alias.scope !257

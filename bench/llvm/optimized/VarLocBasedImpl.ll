@@ -1700,9 +1700,9 @@ _ZN4llvm8SmallSetINS_23DbgVariableFragmentInfoELj4ESt4lessIS1_EE10insertImplIRKS
   store i64 0, ptr %557, align 8, !tbaa !203, !noalias !367
   %.sroa.05.0.copyload.pre.i = load i64, ptr %31, align 8, !tbaa !379, !noalias !380
   %.sroa.26.0.copyload.pre.i = load i64, ptr %180, align 8, !noalias !380
-  store i64 %.sroa.05.0.copyload.pre.i, ptr %549, align 1, !noalias !380
+  store i64 %.sroa.05.0.copyload.pre.i, ptr %549, align 8, !noalias !380
   %.sroa.2.0..sroa_idx.i.i507 = getelementptr inbounds nuw i8, ptr %540, i64 32
-  store i64 %.sroa.26.0.copyload.pre.i, ptr %.sroa.2.0..sroa_idx.i.i507, align 1, !noalias !380
+  store i64 %.sroa.26.0.copyload.pre.i, ptr %.sroa.2.0..sroa_idx.i.i507, align 8, !noalias !380
   store i32 1, ptr %551, align 8, !tbaa !11, !noalias !380
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %558 = load ptr, ptr %30, align 8, !tbaa !279
@@ -6234,14 +6234,14 @@ _ZNK4llvm13DebugVariableltERKS0_.exit13.thread17.i.i.i.i.i: ; preds = %_ZNK4llvm
   %2593 = load i64, ptr %2592, align 8, !tbaa !529, !noalias !523
   %2594 = getelementptr inbounds nuw i8, ptr %.02050.i.i.i.i.i.i650, i64 24
   %2595 = load i64, ptr %2594, align 8, !tbaa !531, !noalias !523
-  %.val11.i.i.i.i.i.i.i.i690 = load i32, ptr %2591, align 4, !tbaa !207, !noalias !523
+  %.val11.i.i.i.i.i.i.i.i690 = load i32, ptr %2591, align 8, !tbaa !207, !noalias !523
   %2596 = getelementptr inbounds nuw i8, ptr %.01951.i.i.i.i.i.i649, i64 8
   %2597 = getelementptr inbounds nuw i8, ptr %.01951.i.i.i.i.i.i649, i64 16
   %2598 = load i64, ptr %2597, align 8, !tbaa !529, !noalias !523
   %2599 = getelementptr inbounds nuw i8, ptr %.01951.i.i.i.i.i.i649, i64 24
   %2600 = load i64, ptr %2599, align 8, !tbaa !531, !noalias !523
-  %.val14.i.i.i.i.i.i.i.i691 = load i32, ptr %.01951.i.i.i.i.i.i649, align 4, !tbaa !264, !noalias !523
-  %.val15.i.i.i.i.i.i.i.i692 = load i32, ptr %2596, align 4, !tbaa !207, !noalias !523
+  %.val14.i.i.i.i.i.i.i.i691 = load i32, ptr %.01951.i.i.i.i.i.i649, align 8, !tbaa !264, !noalias !523
+  %.val15.i.i.i.i.i.i.i.i692 = load i32, ptr %2596, align 8, !tbaa !207, !noalias !523
   %2601 = icmp sgt i32 %.val14.i.i.i.i.i.i.i.i691, 2
   br i1 %2601, label %.thread27.i, label %2602
 
@@ -6421,14 +6421,14 @@ _ZNK4llvm15SmallVectorImplIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEl
   %2664 = load i64, ptr %2663, align 8, !tbaa !529, !noalias !523
   %2665 = getelementptr inbounds nuw i8, ptr %.02050.i.i.i.i.i.i, i64 24
   %2666 = load i64, ptr %2665, align 8, !tbaa !531, !noalias !523
-  %.val11.i.i.i.i.i.i.i.i = load i32, ptr %2662, align 4, !tbaa !207, !noalias !523
+  %.val11.i.i.i.i.i.i.i.i = load i32, ptr %2662, align 8, !tbaa !207, !noalias !523
   %2667 = getelementptr inbounds nuw i8, ptr %.01951.i.i.i.i.i.i, i64 8
   %2668 = getelementptr inbounds nuw i8, ptr %.01951.i.i.i.i.i.i, i64 16
   %2669 = load i64, ptr %2668, align 8, !tbaa !529, !noalias !523
   %2670 = getelementptr inbounds nuw i8, ptr %.01951.i.i.i.i.i.i, i64 24
   %2671 = load i64, ptr %2670, align 8, !tbaa !531, !noalias !523
-  %.val14.i.i.i.i.i.i.i.i = load i32, ptr %.01951.i.i.i.i.i.i, align 4, !tbaa !264, !noalias !523
-  %.val15.i.i.i.i.i.i.i.i = load i32, ptr %2667, align 4, !tbaa !207, !noalias !523
+  %.val14.i.i.i.i.i.i.i.i = load i32, ptr %.01951.i.i.i.i.i.i, align 8, !tbaa !264, !noalias !523
+  %.val15.i.i.i.i.i.i.i.i = load i32, ptr %2667, align 8, !tbaa !207, !noalias !523
   %2672 = icmp sgt i32 %.val14.i.i.i.i.i.i.i.i, 2
   br i1 %2672, label %.thread27.i, label %2673
 
@@ -7400,7 +7400,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEjNS_12DenseMapInfoIS
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E16InsertIntoBucketIRKS3_JEEEPS8_SE_OT_DpOT0_.exit.i: ; preds = %3073, %3067
   store ptr %2984, ptr %3068, align 8, !tbaa !227
   %3076 = getelementptr inbounds nuw i8, ptr %3068, i64 8
-  store i32 0, ptr %3076, align 4, !tbaa !207
+  store i32 0, ptr %3076, align 8, !tbaa !207
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixERKS3_.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixERKS3_.exit: ; preds = %3020, %3004, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E16InsertIntoBucketIRKS3_JEEEPS8_SE_OT_DpOT0_.exit.i
@@ -9203,7 +9203,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEjNS_12DenseMapInfoIS
   %57 = load ptr, ptr %1, align 8, !tbaa !227
   store ptr %57, ptr %48, align 8, !tbaa !227
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !207
+  store i32 0, ptr %58, align 8, !tbaa !207
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E16InsertIntoBucketIRKS3_JEEEPS8_SE_OT_DpOT0_.exit
@@ -18140,14 +18140,14 @@ define internal fastcc noundef zeroext i1 @_ZNK4llvm15SmallVectorImplIN12_GLOBAL
   %12 = load i64, ptr %11, align 8, !tbaa !529
   %13 = getelementptr inbounds nuw i8, ptr %.02050.i.i.i.i.i, i64 24
   %14 = load i64, ptr %13, align 8, !tbaa !531
-  %.val11.i.i.i.i.i.i.i = load i32, ptr %10, align 4, !tbaa !207
+  %.val11.i.i.i.i.i.i.i = load i32, ptr %10, align 8, !tbaa !207
   %15 = getelementptr inbounds nuw i8, ptr %.01951.i.i.i.i.i, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %.01951.i.i.i.i.i, i64 16
   %17 = load i64, ptr %16, align 8, !tbaa !529
   %18 = getelementptr inbounds nuw i8, ptr %.01951.i.i.i.i.i, i64 24
   %19 = load i64, ptr %18, align 8, !tbaa !531
-  %.val14.i.i.i.i.i.i.i = load i32, ptr %.01951.i.i.i.i.i, align 4, !tbaa !264
-  %.val15.i.i.i.i.i.i.i = load i32, ptr %15, align 4, !tbaa !207
+  %.val14.i.i.i.i.i.i.i = load i32, ptr %.01951.i.i.i.i.i, align 8, !tbaa !264
+  %.val15.i.i.i.i.i.i.i = load i32, ptr %15, align 8, !tbaa !207
   %20 = icmp sgt i32 %.val14.i.i.i.i.i.i.i, 2
   br i1 %20, label %_ZSt23lexicographical_compareIPKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocES5_EbT_S6_T0_S7_.exit, label %21
 
@@ -25313,7 +25313,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEjNS_12DenseMapInfoIS
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !207
-  store i32 %68, ptr %66, align 4, !tbaa !207
+  store i32 %68, ptr %66, align 8, !tbaa !207
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !555
   br label %70
@@ -33552,9 +33552,9 @@ _ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc14CreateSpillLocERKS1_RKNS1_10MachineLoc
   %168 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 8
   store i32 %105, ptr %168, align 8, !tbaa !207
   %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.us-phi, i64 16
-  store i64 %103, ptr %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx.i, align 4, !tbaa !379
+  store i64 %103, ptr %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx.i, align 8, !tbaa !379
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.us-phi, i64 24
-  store i64 %104, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i, align 4, !tbaa !379
+  store i64 %104, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i, align 8, !tbaa !379
   call fastcc void @"_ZZN12_GLOBAL__N_114VarLocBasedLDV23insertTransferDebugPairERN4llvm12MachineInstrERNS0_13OpenRangesSetERNS1_11SmallVectorINS0_17TransferDebugPairELj4EEERNS0_9VarLocMapENS_8LocIndexENS0_12TransferKindERKNS0_6VarLoc10MachineLocENS1_8RegisterEENK3$_0clERSE_"(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(384) %13)
   %169 = load ptr, ptr %118, align 8, !tbaa !6
   %170 = icmp eq ptr %169, %120

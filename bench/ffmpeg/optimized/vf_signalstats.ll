@@ -119,7 +119,7 @@ define internal noundef i32 @init(ptr noundef readonly captures(none) %0) #0 {
   %36 = ashr i32 %35, 8
   %37 = add nsw i32 %36, 128
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store i32 %37, ptr %38, align 4, !tbaa !26
+  store i32 %37, ptr %38, align 8, !tbaa !26
   %39 = mul nuw nsw i32 %18, 112
   %40 = mul nsw i32 %20, -94
   %41 = mul nsw i32 %22, -18
@@ -1752,7 +1752,7 @@ define internal i32 @filter8_tout(ptr noundef readonly captures(none) %0, ptr no
   %174 = getelementptr i8, ptr %170, i64 %173
   %175 = getelementptr i8, ptr %174, i64 %indvars.iv
   store i8 %169, ptr %175, align 1, !tbaa !25
-  %176 = load i32, ptr %30, align 4, !tbaa !26
+  %176 = load i32, ptr %30, align 8, !tbaa !26
   %177 = trunc i32 %176 to i8
   %178 = load ptr, ptr %31, align 8, !tbaa !54
   %179 = load i32, ptr %32, align 4, !tbaa !26
@@ -1877,7 +1877,7 @@ define internal i32 @filter8_tout(ptr noundef readonly captures(none) %0, ptr no
   %269 = getelementptr i8, ptr %265, i64 %268
   %270 = getelementptr i8, ptr %269, i64 %indvars.iv194
   store i8 %264, ptr %270, align 1, !tbaa !25
-  %271 = load i32, ptr %30, align 4, !tbaa !26
+  %271 = load i32, ptr %30, align 8, !tbaa !26
   %272 = trunc i32 %271 to i8
   %273 = load ptr, ptr %31, align 8, !tbaa !54
   %274 = load i32, ptr %32, align 4, !tbaa !26
@@ -2158,7 +2158,7 @@ define internal i32 @filter16_tout(ptr noundef readonly captures(none) %0, ptr n
   %195 = shl nuw nsw i64 %indvars.iv, 1
   %196 = getelementptr inbounds nuw i8, ptr %194, i64 %195
   store i16 %189, ptr %196, align 1, !tbaa !25
-  %197 = load i32, ptr %32, align 4, !tbaa !26
+  %197 = load i32, ptr %32, align 8, !tbaa !26
   %198 = shl i32 %197, %186
   %199 = trunc i32 %198 to i16
   %200 = load ptr, ptr %33, align 8, !tbaa !54
@@ -2300,7 +2300,7 @@ define internal i32 @filter16_tout(ptr noundef readonly captures(none) %0, ptr n
   %307 = shl nuw nsw i64 %indvars.iv194, 1
   %308 = getelementptr inbounds nuw i8, ptr %306, i64 %307
   store i16 %301, ptr %308, align 1, !tbaa !25
-  %309 = load i32, ptr %32, align 4, !tbaa !26
+  %309 = load i32, ptr %32, align 8, !tbaa !26
   %310 = shl i32 %309, %298
   %311 = trunc i32 %310 to i16
   %312 = load ptr, ptr %33, align 8, !tbaa !54
@@ -2476,7 +2476,7 @@ define internal i32 @filter8_vrep(ptr noundef readonly captures(none) %0, ptr no
   %68 = sext i32 %67 to i64
   %69 = getelementptr inbounds i8, ptr %64, i64 %68
   store i8 %63, ptr %69, align 1, !tbaa !25
-  %70 = load i32, ptr %28, align 4, !tbaa !26
+  %70 = load i32, ptr %28, align 8, !tbaa !26
   %71 = trunc i32 %70 to i8
   %72 = load ptr, ptr %29, align 8, !tbaa !54
   %73 = load i32, ptr %30, align 4, !tbaa !26
@@ -2677,7 +2677,7 @@ define internal i32 @filter16_vrep(ptr noundef readonly captures(none) %0, ptr n
   %77 = shl nuw nsw i64 %indvars.iv120, 1
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 %77
   store i16 %71, ptr %78, align 1, !tbaa !25
-  %79 = load i32, ptr %31, align 4, !tbaa !26
+  %79 = load i32, ptr %31, align 8, !tbaa !26
   %80 = shl i32 %79, %68
   %81 = trunc i32 %80 to i16
   %82 = load ptr, ptr %32, align 8, !tbaa !54
@@ -3037,7 +3037,7 @@ define internal i32 @filter16_brng(ptr noundef readonly captures(none) %0, ptr n
   %96 = shl nuw nsw i64 %indvars.iv, 1
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 %96
   store i16 %90, ptr %97, align 1, !tbaa !25
-  %98 = load i32, ptr %36, align 4, !tbaa !26
+  %98 = load i32, ptr %36, align 8, !tbaa !26
   %99 = shl i32 %98, %87
   %100 = trunc i32 %99 to i16
   %101 = load ptr, ptr %37, align 8, !tbaa !54

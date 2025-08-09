@@ -231,7 +231,7 @@ define internal ptr @gre_gso_segment(ptr noundef %0, i64 noundef %1) #2 align 16
   %137 = ptrtoint ptr %136 to i64
   %138 = ptrtoint ptr %133 to i64
   %139 = getelementptr i8, ptr %0, i64 72
-  %140 = load i32, ptr %139, align 4
+  %140 = load i32, ptr %139, align 8
   %141 = zext i32 %140 to i64
   %142 = add i64 %141, %138
   %143 = sub i64 %137, %142
@@ -410,8 +410,8 @@ define internal ptr @gre_gso_segment(ptr noundef %0, i64 noundef %1) #2 align 16
   %gepdiff = sub nsw i64 %268, %264
   %269 = trunc nsw i64 %gepdiff to i32
   %270 = getelementptr i8, ptr %189, i64 80
-  %271 = load i32, ptr %270, align 4
-  store i32 0, ptr %270, align 4
+  %271 = load i32, ptr %270, align 8
+  store i32 0, ptr %270, align 8
   store i16 %263, ptr %266, align 4
   %272 = tail call i32 @csum_partial(ptr noundef %265, i32 noundef %269, i32 noundef %271) #7
   %273 = shl i32 %272, 16

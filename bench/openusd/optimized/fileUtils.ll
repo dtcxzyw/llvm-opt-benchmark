@@ -2237,7 +2237,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__9TfListDirERKNSt7__cxx1112basi
   %10 = zext i1 %2 to i8
   store ptr @_ZN32pxrInternal_v0_24__pxrReserved__L10Tf_ListDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS5_SaIS5_EERKSA_SB_b, ptr %7, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i8 %10, ptr %11, align 1
+  store i8 %10, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %13 = ptrtoint ptr %0 to i64
   store i64 %13, ptr %12, align 8
@@ -3875,7 +3875,7 @@ define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKNSt7__cxx11
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %2, align 8
   %10 = load ptr, ptr %7, align 8
-  %11 = load i8, ptr %6, align 1
+  %11 = load i8, ptr %6, align 8
   %12 = trunc i8 %11 to i1
   %13 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %10, i1 noundef zeroext %12)
   ret i1 %13

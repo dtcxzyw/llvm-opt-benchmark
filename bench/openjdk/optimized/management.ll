@@ -1394,9 +1394,9 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %3, %_ZN10HandleArea
   store i8 2, ptr %65, align 1
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %67 = load ptr, ptr %66, align 8
-  %68 = load i32, ptr %62, align 4
+  %68 = load i32, ptr %62, align 8
   %69 = add nsw i32 %68, 1
-  store i32 %69, ptr %62, align 4
+  store i32 %69, ptr %62, align 8
   %70 = sext i32 %68 to i64
   %71 = getelementptr inbounds i64, ptr %67, i64 %70
   store i64 %storemerge.i, ptr %71, align 8
@@ -1406,9 +1406,9 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %3, %_ZN10HandleArea
   %75 = getelementptr inbounds i8, ptr %72, i64 %74
   store i8 0, ptr %75, align 1
   %76 = load ptr, ptr %66, align 8
-  %77 = load i32, ptr %62, align 4
+  %77 = load i32, ptr %62, align 8
   %78 = add nsw i32 %77, 1
-  store i32 %78, ptr %62, align 4
+  store i32 %78, ptr %62, align 8
   %79 = sext i32 %77 to i64
   %80 = getelementptr inbounds i64, ptr %76, i64 %79
   store i32 %.1, ptr %80, align 4
@@ -1453,9 +1453,9 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit42:            ; preds = %59, %_ZN10HandleAre
   %100 = getelementptr inbounds i8, ptr %97, i64 %99
   store i8 2, ptr %100, align 1
   %101 = load ptr, ptr %66, align 8
-  %102 = load i32, ptr %62, align 4
+  %102 = load i32, ptr %62, align 8
   %103 = add nsw i32 %102, 1
-  store i32 %103, ptr %62, align 4
+  store i32 %103, ptr %62, align 8
   %104 = sext i32 %102 to i64
   %105 = getelementptr inbounds i64, ptr %101, i64 %104
   store i64 %storemerge.i41, ptr %105, align 8
@@ -1500,9 +1500,9 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit47:            ; preds = %_ZN6HandleC2EP6Thre
   %125 = getelementptr inbounds i8, ptr %122, i64 %124
   store i8 2, ptr %125, align 1
   %126 = load ptr, ptr %66, align 8
-  %127 = load i32, ptr %62, align 4
+  %127 = load i32, ptr %62, align 8
   %128 = add nsw i32 %127, 1
-  store i32 %128, ptr %62, align 4
+  store i32 %128, ptr %62, align 8
   %129 = sext i32 %127 to i64
   %130 = getelementptr inbounds i64, ptr %126, i64 %129
   store i64 %storemerge.i46, ptr %130, align 8
@@ -1521,13 +1521,13 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit47:            ; preds = %_ZN6HandleC2EP6Thre
   store i8 0, ptr %141, align 1
   %142 = load ptr, ptr %66, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
-  %144 = load i32, ptr %62, align 4
+  %144 = load i32, ptr %62, align 8
   %145 = sext i32 %144 to i64
   %146 = getelementptr inbounds i64, ptr %143, i64 %145
   store i64 %132, ptr %146, align 8
-  %147 = load i32, ptr %62, align 4
+  %147 = load i32, ptr %62, align 8
   %148 = add nsw i32 %147, 2
-  store i32 %148, ptr %62, align 4
+  store i32 %148, ptr %62, align 8
   %149 = load ptr, ptr %60, align 8
   %150 = sext i32 %148 to i64
   %151 = getelementptr inbounds i8, ptr %149, i64 %150
@@ -1540,13 +1540,13 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit47:            ; preds = %_ZN6HandleC2EP6Thre
   store i8 0, ptr %156, align 1
   %157 = load ptr, ptr %66, align 8
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
-  %159 = load i32, ptr %62, align 4
+  %159 = load i32, ptr %62, align 8
   %160 = sext i32 %159 to i64
   %161 = getelementptr inbounds i64, ptr %158, i64 %160
   store i64 %.0, ptr %161, align 8
-  %162 = load i32, ptr %62, align 4
+  %162 = load i32, ptr %62, align 8
   %163 = add nsw i32 %162, 2
-  store i32 %163, ptr %62, align 4
+  store i32 %163, ptr %62, align 8
   %164 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %165 = load i64, ptr %164, align 8
   %166 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -1564,13 +1564,13 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit47:            ; preds = %_ZN6HandleC2EP6Thre
   store i8 0, ptr %176, align 1
   %177 = load ptr, ptr %66, align 8
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 8
-  %179 = load i32, ptr %62, align 4
+  %179 = load i32, ptr %62, align 8
   %180 = sext i32 %179 to i64
   %181 = getelementptr inbounds i64, ptr %178, i64 %180
   store i64 %168, ptr %181, align 8
-  %182 = load i32, ptr %62, align 4
+  %182 = load i32, ptr %62, align 8
   %183 = add nsw i32 %182, 2
-  store i32 %183, ptr %62, align 4
+  store i32 %183, ptr %62, align 8
   %184 = load ptr, ptr %60, align 8
   %185 = sext i32 %183 to i64
   %186 = getelementptr inbounds i8, ptr %184, i64 %185
@@ -1583,22 +1583,22 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit47:            ; preds = %_ZN6HandleC2EP6Thre
   store i8 0, ptr %191, align 1
   %192 = load ptr, ptr %66, align 8
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 8
-  %194 = load i32, ptr %62, align 4
+  %194 = load i32, ptr %62, align 8
   %195 = sext i32 %194 to i64
   %196 = getelementptr inbounds i64, ptr %193, i64 %195
   store i64 %.035, ptr %196, align 8
-  %197 = load i32, ptr %62, align 4
+  %197 = load i32, ptr %62, align 8
   %198 = add nsw i32 %197, 2
-  store i32 %198, ptr %62, align 4
+  store i32 %198, ptr %62, align 8
   %199 = load ptr, ptr %60, align 8
   %200 = sext i32 %198 to i64
   %201 = getelementptr inbounds i8, ptr %199, i64 %200
   store i8 2, ptr %201, align 1
   %202 = load ptr, ptr %66, align 8
   %203 = ptrtoint ptr %.sroa.050.0 to i64
-  %204 = load i32, ptr %62, align 4
+  %204 = load i32, ptr %62, align 8
   %205 = add nsw i32 %204, 1
-  store i32 %205, ptr %62, align 4
+  store i32 %205, ptr %62, align 8
   %206 = sext i32 %204 to i64
   %207 = getelementptr inbounds i64, ptr %202, i64 %206
   store i64 %203, ptr %207, align 8

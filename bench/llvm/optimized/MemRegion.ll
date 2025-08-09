@@ -6991,7 +6991,7 @@ define dso_local { ptr, i8 } @_ZNK5clang4ento16MemRegionManager13getStaticSizeEP
   %18 = lshr i32 %17, 22
   %19 = and i32 %18, 7
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %21 = load i32, ptr %20, align 4, !tbaa !716
+  %21 = load i32, ptr %20, align 8, !tbaa !716
   %22 = mul i32 %19, %21
   %23 = add i32 %22, 1
   %24 = zext i32 %23 to i64
@@ -14036,7 +14036,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprEhNS_12DenseMapInfoIS6
   %57 = load ptr, ptr %1, align 8, !tbaa !868
   store ptr %57, ptr %48, align 8, !tbaa !868
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i8 0, ptr %58, align 1, !tbaa !48
+  store i8 0, ptr %58, align 8, !tbaa !48
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprEhNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_hEEEES6_hS8_SB_E16InsertIntoBucketIRKS6_JEEEPSB_SH_OT_DpOT0_.exit
@@ -14190,7 +14190,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento9MemRegionEhNS_12DenseMapInfoI
   %57 = load ptr, ptr %1, align 8, !tbaa !254
   store ptr %57, ptr %48, align 8, !tbaa !254
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i8 0, ptr %58, align 1, !tbaa !48
+  store i8 0, ptr %58, align 8, !tbaa !48
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento9MemRegionEhNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_hEEEES6_hS8_SB_E16InsertIntoBucketIRKS6_JEEEPSB_SH_OT_DpOT0_.exit
@@ -17596,7 +17596,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprEhNS_12DenseMapInfoIS6
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i8, ptr %67, align 1, !tbaa !48
-  store i8 %68, ptr %66, align 1, !tbaa !48
+  store i8 %68, ptr %66, align 8, !tbaa !48
   %69 = load i32, ptr %32, align 8, !tbaa !875
   %70 = add i32 %69, 1
   store i32 %70, ptr %32, align 8, !tbaa !875
@@ -17807,7 +17807,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento9MemRegionEhNS_12DenseMapInfoI
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i8, ptr %67, align 1, !tbaa !48
-  store i8 %68, ptr %66, align 1, !tbaa !48
+  store i8 %68, ptr %66, align 8, !tbaa !48
   %69 = load i32, ptr %32, align 8, !tbaa !883
   %70 = add i32 %69, 1
   store i32 %70, ptr %32, align 8, !tbaa !883

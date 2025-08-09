@@ -8986,7 +8986,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit342
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 48
   store i64 1, ptr %47, align 8, !tbaa !13
-  store i32 1, ptr %43, align 4, !tbaa !8
+  store i32 1, ptr %43, align 8, !tbaa !8
   store i32 327736, ptr %46, align 4
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr %40, ptr %48, align 8, !tbaa !4
@@ -16956,11 +16956,11 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store i64 0, ptr %36, align 8, !tbaa !13
-  store i32 1, ptr %32, align 4, !tbaa !8
+  store i32 1, ptr %32, align 8, !tbaa !8
   store i32 65560, ptr %35, align 4
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %31, ptr %37, align 8, !tbaa !4
-  store i8 %.val27, ptr %36, align 1, !tbaa !20
+  store i8 %.val27, ptr %36, align 8, !tbaa !20
   br label %38
 
 38:                                               ; preds = %lean_alloc_ctor.exit, %4
@@ -17607,7 +17607,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit, %lea
   %101 = getelementptr inbounds nuw i8, ptr %.sink95, i64 4
   %102 = getelementptr inbounds nuw i8, ptr %.sink95, i64 16
   store i64 0, ptr %102, align 8, !tbaa !13
-  store i32 1, ptr %.sink95, align 4, !tbaa !8
+  store i32 1, ptr %.sink95, align 8, !tbaa !8
   store i32 65560, ptr %101, align 4
   %103 = getelementptr inbounds nuw i8, ptr %.sink95, i64 8
   store ptr %.sink88, ptr %103, align 8, !tbaa !4
@@ -18711,7 +18711,7 @@ lean_alloc_ctor.exit:                             ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 2, ptr %5, align 8, !tbaa !13
-  store i32 1, ptr %1, align 4, !tbaa !8
+  store i32 1, ptr %1, align 8, !tbaa !8
   store i32 16, ptr %4, align 4
   ret ptr %1
 }

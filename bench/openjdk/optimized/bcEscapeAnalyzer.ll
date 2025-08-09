@@ -850,7 +850,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread.i:       ; preds = %_ZNK10ciMetadata9is
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 48
   %40 = load i32, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %42 = load i32, ptr %41, align 4
+  %42 = load i32, ptr %41, align 8
   %43 = lshr i32 %42, 3
   %.lobit.i.i = and i32 %43, 1
   %44 = xor i32 %.lobit.i.i, 1
@@ -9679,7 +9679,7 @@ define hidden void @_ZN16BCEscapeAnalyzerC2EP8ciMethodPS_(ptr noundef nonnull al
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %22 = load i32, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 8
   %25 = lshr i32 %24, 3
   %.lobit.i = and i32 %25, 1
   %26 = xor i32 %.lobit.i, 1

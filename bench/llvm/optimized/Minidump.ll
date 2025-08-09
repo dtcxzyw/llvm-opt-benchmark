@@ -933,11 +933,11 @@ _ZN4llvm5ErrorD2Ev.exit52:                        ; preds = %.thread145
   %101 = getelementptr inbounds nuw i8, ptr %98, i64 72
   store ptr %97, ptr %101, align 8, !tbaa !196
   %102 = getelementptr inbounds nuw i8, ptr %98, i64 80
-  store i32 %96, ptr %102, align 4, !tbaa !197
+  store i32 %96, ptr %102, align 8, !tbaa !197
   %103 = getelementptr inbounds nuw i8, ptr %98, i64 84
   store i32 %95, ptr %103, align 4, !tbaa !197
   %104 = getelementptr inbounds nuw i8, ptr %98, i64 88
-  store i32 %94, ptr %104, align 4, !tbaa !197
+  store i32 %94, ptr %104, align 8, !tbaa !197
   %105 = getelementptr inbounds nuw i8, ptr %98, i64 96
   store ptr %.sroa.0102.0.lcssa, ptr %105, align 8, !tbaa !97
   %106 = getelementptr inbounds nuw i8, ptr %98, i64 104

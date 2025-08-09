@@ -1501,11 +1501,11 @@ getzname.exit277:                                 ; preds = %.lr.ph.i272, %67
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 18024
   %109 = load i32, ptr %4, align 4
   %110 = sub i32 0, %109
-  store i32 %110, ptr %108, align 4
+  store i32 %110, ptr %108, align 8
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 18028
   store i8 0, ptr %111, align 4
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 18032
-  store i32 0, ptr %112, align 4
+  store i32 0, ptr %112, align 8
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 18036
   store i8 0, ptr %113, align 4
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 18037
@@ -1514,11 +1514,11 @@ getzname.exit277:                                 ; preds = %.lr.ph.i272, %67
   %116 = load i32, ptr %5, align 4
   %117 = sub i32 0, %116
   %118 = trunc nuw nsw i64 %44 to i32
-  store i32 %117, ptr %115, align 4
+  store i32 %117, ptr %115, align 8
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 18044
   store i8 1, ptr %119, align 4
   %120 = getelementptr inbounds nuw i8, ptr %1, i64 18048
-  store i32 %118, ptr %120, align 4
+  store i32 %118, ptr %120, align 8
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 18052
   store i8 0, ptr %121, align 4
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 18053
@@ -1872,11 +1872,11 @@ increment_overflow_time.exit293.thread:           ; preds = %197, %200, %203, %1
   %285 = getelementptr inbounds nuw i8, ptr %1, i64 18024
   %286 = load i32, ptr %4, align 4
   %287 = sub i32 0, %286
-  store i32 %287, ptr %285, align 4
+  store i32 %287, ptr %285, align 8
   %288 = getelementptr inbounds nuw i8, ptr %1, i64 18028
   store i8 0, ptr %288, align 4
   %289 = getelementptr inbounds nuw i8, ptr %1, i64 18032
-  store i32 0, ptr %289, align 4
+  store i32 0, ptr %289, align 8
   %290 = getelementptr inbounds nuw i8, ptr %1, i64 18036
   store i8 0, ptr %290, align 4
   %291 = getelementptr inbounds nuw i8, ptr %1, i64 18037

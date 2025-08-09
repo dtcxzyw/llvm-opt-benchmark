@@ -24924,7 +24924,7 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
   %16 = add nuw nsw i64 %.sroa.8.0.i, 1
   %.val7.i = load i32, ptr %.sroa.03.0.i, align 4, !range !1121, !noundef !4
   %17 = getelementptr i8, ptr %.sroa.03.0.i, i64 4
-  %.val8.i = load i8, ptr %17, align 1
+  %.val8.i = load i8, ptr %17, align 4
   %18 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32 %.val48, i32 %.val7.i)
   %19 = icmp eq i32 %.val48, %.val7.i
   %20 = tail call range(i8 -1, 2) i8 @llvm.ucmp.i8.i8(i8 %.val49, i8 %.val8.i)

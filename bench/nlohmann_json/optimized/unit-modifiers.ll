@@ -2400,7 +2400,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr %1464, ptr %1463, align 8, !tbaa !24
   %1465 = getelementptr inbounds nuw i8, ptr %1463, i64 8
   store i64 0, ptr %1465, align 8, !tbaa !27
-  store i8 0, ptr %1464, align 1, !tbaa !10
+  store i8 0, ptr %1464, align 8, !tbaa !10
   store ptr %1463, ptr %1454, align 8, !tbaa !10
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2ENS0_6detail7value_tE.exit5417
 
@@ -2674,7 +2674,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr %1541, ptr %1539, align 8, !tbaa !24
   %1542 = getelementptr inbounds nuw i8, ptr %1539, i64 8
   store i64 0, ptr %1542, align 8, !tbaa !27
-  store i8 0, ptr %1541, align 1, !tbaa !10
+  store i8 0, ptr %1541, align 8, !tbaa !10
   store ptr %1539, ptr %1538, align 8, !tbaa !10
   invoke void @_ZN7doctest6detail14Expression_lhsIRN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEvEEEeqISG_EEDTcmcvveqclL_ZNS0_7declvalISH_EEOT_vEEclsr7doctest6detailE7declvalISL_EEtlNS0_6ResultEEESM_(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %45, ptr noundef nonnull align 8 dereferenceable(12) %46, ptr noundef nonnull align 8 dereferenceable(16) %48)
           to label %1543 unwind label %1606
@@ -2763,7 +2763,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr %1564, ptr %1563, align 8, !tbaa !24
   %1565 = getelementptr inbounds nuw i8, ptr %1563, i64 8
   store i64 0, ptr %1565, align 8, !tbaa !27
-  store i8 0, ptr %1564, align 1, !tbaa !10
+  store i8 0, ptr %1564, align 8, !tbaa !10
   store ptr %1563, ptr %1554, align 8, !tbaa !10
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2ENS0_6detail7value_tE.exit5427
 
@@ -3197,7 +3197,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr %1688, ptr %1687, align 8, !tbaa !24
   %1689 = getelementptr inbounds nuw i8, ptr %1687, i64 8
   store i64 0, ptr %1689, align 8, !tbaa !27
-  store i8 0, ptr %1688, align 1, !tbaa !10
+  store i8 0, ptr %1688, align 8, !tbaa !10
   store ptr %1687, ptr %1678, align 8, !tbaa !10
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2ENS0_6detail7value_tE.exit5437
 
@@ -3705,7 +3705,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr %1845, ptr %1844, align 8, !tbaa !24
   %1846 = getelementptr inbounds nuw i8, ptr %1844, i64 8
   store i64 0, ptr %1846, align 8, !tbaa !27
-  store i8 0, ptr %1845, align 1, !tbaa !10
+  store i8 0, ptr %1845, align 8, !tbaa !10
   store ptr %1844, ptr %1835, align 8, !tbaa !10
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2ENS0_6detail7value_tE.exit5453
 
@@ -4198,7 +4198,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr %1992, ptr %1991, align 8, !tbaa !24
   %1993 = getelementptr inbounds nuw i8, ptr %1991, i64 8
   store i64 0, ptr %1993, align 8, !tbaa !27
-  store i8 0, ptr %1992, align 1, !tbaa !10
+  store i8 0, ptr %1992, align 8, !tbaa !10
   store ptr %1991, ptr %1982, align 8, !tbaa !10
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2ENS0_6detail7value_tE.exit5469
 
@@ -4848,7 +4848,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr %2206, ptr %2205, align 8, !tbaa !24
   %2207 = getelementptr inbounds nuw i8, ptr %2205, i64 8
   store i64 0, ptr %2207, align 8, !tbaa !27
-  store i8 0, ptr %2206, align 1, !tbaa !10
+  store i8 0, ptr %2206, align 8, !tbaa !10
   store ptr %2205, ptr %2196, align 8, !tbaa !10
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2ENS0_6detail7value_tE.exit5498
 
@@ -5428,7 +5428,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr %2381, ptr %2380, align 8, !tbaa !24
   %2382 = getelementptr inbounds nuw i8, ptr %2380, i64 8
   store i64 0, ptr %2382, align 8, !tbaa !27
-  store i8 0, ptr %2381, align 1, !tbaa !10
+  store i8 0, ptr %2381, align 8, !tbaa !10
   store ptr %2380, ptr %2371, align 8, !tbaa !10
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2ENS0_6detail7value_tE.exit5516
 
@@ -5927,7 +5927,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr %2525, ptr %2524, align 8, !tbaa !24
   %2526 = getelementptr inbounds nuw i8, ptr %2524, i64 8
   store i64 0, ptr %2526, align 8, !tbaa !27
-  store i8 0, ptr %2525, align 1, !tbaa !10
+  store i8 0, ptr %2525, align 8, !tbaa !10
   store ptr %2524, ptr %2515, align 8, !tbaa !10
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2ENS0_6detail7value_tE.exit5542
 
@@ -6316,7 +6316,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr %2629, ptr %2628, align 8, !tbaa !24
   %2630 = getelementptr inbounds nuw i8, ptr %2628, i64 8
   store i64 0, ptr %2630, align 8, !tbaa !27
-  store i8 0, ptr %2629, align 1, !tbaa !10
+  store i8 0, ptr %2629, align 8, !tbaa !10
   store ptr %2628, ptr %2619, align 8, !tbaa !10
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2ENS0_6detail7value_tE.exit5555
 
@@ -6657,7 +6657,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr %2720, ptr %2719, align 8, !tbaa !24
   %2721 = getelementptr inbounds nuw i8, ptr %2719, i64 8
   store i64 0, ptr %2721, align 8, !tbaa !27
-  store i8 0, ptr %2720, align 1, !tbaa !10
+  store i8 0, ptr %2720, align 8, !tbaa !10
   store ptr %2719, ptr %2710, align 8, !tbaa !10
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2ENS0_6detail7value_tE.exit5565
 
@@ -6998,7 +6998,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr %2811, ptr %2810, align 8, !tbaa !24
   %2812 = getelementptr inbounds nuw i8, ptr %2810, i64 8
   store i64 0, ptr %2812, align 8, !tbaa !27
-  store i8 0, ptr %2811, align 1, !tbaa !10
+  store i8 0, ptr %2811, align 8, !tbaa !10
   store ptr %2810, ptr %2801, align 8, !tbaa !10
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2ENS0_6detail7value_tE.exit5575
 
@@ -7338,7 +7338,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr %2903, ptr %2902, align 8, !tbaa !24
   %2904 = getelementptr inbounds nuw i8, ptr %2902, i64 8
   store i64 0, ptr %2904, align 8, !tbaa !27
-  store i8 0, ptr %2903, align 1, !tbaa !10
+  store i8 0, ptr %2903, align 8, !tbaa !10
   store ptr %2902, ptr %2893, align 8, !tbaa !10
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2ENS0_6detail7value_tE.exit5585
 

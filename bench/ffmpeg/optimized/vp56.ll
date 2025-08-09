@@ -1081,7 +1081,7 @@ vp56_parse_mb_type_models.exit:                   ; preds = %397
   %412 = getelementptr inbounds nuw i8, ptr %20, i64 704
   %413 = getelementptr inbounds nuw i8, ptr %20, i64 708
   %414 = getelementptr inbounds nuw i8, ptr %20, i64 728
-  %.promoted.i160 = load i32, ptr %412, align 8, !tbaa !88
+  %.promoted.i160 = load i32, ptr %412, align 16, !tbaa !88
   %.promoted5.i = load i32, ptr %413, align 4, !tbaa !89
   %.promoted7.i = load i32, ptr %414, align 8, !tbaa !90
   %415 = getelementptr inbounds nuw i8, ptr %20, i64 712
@@ -1331,7 +1331,7 @@ vp56_rac_gets.exit:                               ; preds = %vpx_rac_renorm.exit
   %574 = load i32, ptr %494, align 8, !tbaa !64
   %575 = add nsw i32 %574, 8
   store i32 %575, ptr %498, align 4, !tbaa !64
-  %576 = load i32, ptr %499, align 8, !tbaa !64
+  %576 = load i32, ptr %499, align 16, !tbaa !64
   %577 = add nsw i32 %576, 8
   store i32 %577, ptr %500, align 4, !tbaa !64
   %578 = shl nsw i32 %.0142, 3
@@ -2228,11 +2228,11 @@ vp56_decode_mv.exit.i:                            ; preds = %1027, %vp56_decode_
 
 1047:                                             ; preds = %1045
   %1048 = load i64, ptr %532, align 16, !tbaa !69
-  %1049 = load i32, ptr %499, align 8, !tbaa !64
+  %1049 = load i32, ptr %499, align 16, !tbaa !64
   %1050 = trunc i64 %1048 to i32
   %1051 = mul i32 %1050, -7
   %1052 = add i32 %1051, %1049
-  store i32 %1052, ptr %499, align 8, !tbaa !64
+  store i32 %1052, ptr %499, align 16, !tbaa !64
   %1053 = load i32, ptr %500, align 4, !tbaa !64
   %1054 = add i32 %1053, %1051
   store i32 %1054, ptr %500, align 4, !tbaa !64
@@ -2443,11 +2443,11 @@ vp56_idct_add.exit31.i:                           ; preds = %1152, %1151, %1147
   %1160 = load i64, ptr %532, align 16, !tbaa !69
   %1161 = sdiv i64 %1160, 2
   store i64 %1161, ptr %532, align 16, !tbaa !69
-  %1162 = load i32, ptr %499, align 8, !tbaa !64
+  %1162 = load i32, ptr %499, align 16, !tbaa !64
   %1163 = trunc i64 %1161 to i32
   %1164 = mul i32 %1163, 7
   %1165 = add i32 %1164, %1162
-  store i32 %1165, ptr %499, align 8, !tbaa !64
+  store i32 %1165, ptr %499, align 16, !tbaa !64
   %1166 = load i32, ptr %500, align 4, !tbaa !64
   %1167 = add i32 %1166, %1164
   store i32 %1167, ptr %500, align 4, !tbaa !64
@@ -2527,11 +2527,11 @@ vp56_idct_add.exit31.i:                           ; preds = %1152, %1151, %1147
 
 1201:                                             ; preds = %1199
   %1202 = load i64, ptr %532, align 16, !tbaa !69
-  %1203 = load i32, ptr %499, align 8, !tbaa !64
+  %1203 = load i32, ptr %499, align 16, !tbaa !64
   %1204 = trunc i64 %1202 to i32
   %1205 = mul i32 %1204, -7
   %1206 = add i32 %1205, %1203
-  store i32 %1206, ptr %499, align 8, !tbaa !64
+  store i32 %1206, ptr %499, align 16, !tbaa !64
   %1207 = load i32, ptr %500, align 4, !tbaa !64
   %1208 = add i32 %1207, %1205
   store i32 %1208, ptr %500, align 4, !tbaa !64
@@ -2742,11 +2742,11 @@ vp56_idct_add.exit9.i:                            ; preds = %1306, %1305, %1301
   %1314 = load i64, ptr %532, align 16, !tbaa !69
   %1315 = sdiv i64 %1314, 2
   store i64 %1315, ptr %532, align 16, !tbaa !69
-  %1316 = load i32, ptr %499, align 8, !tbaa !64
+  %1316 = load i32, ptr %499, align 16, !tbaa !64
   %1317 = trunc i64 %1315 to i32
   %1318 = mul i32 %1317, 7
   %1319 = add i32 %1318, %1316
-  store i32 %1319, ptr %499, align 8, !tbaa !64
+  store i32 %1319, ptr %499, align 16, !tbaa !64
   %1320 = load i32, ptr %500, align 4, !tbaa !64
   %1321 = add i32 %1320, %1318
   store i32 %1321, ptr %500, align 4, !tbaa !64

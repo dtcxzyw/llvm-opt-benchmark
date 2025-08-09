@@ -851,7 +851,7 @@ _ZNSt12__shared_ptrIN6open3d8geometry12TriangleMeshELN9__gnu_cxx12_Lock_policyE2
   store ptr %98, ptr %97, align 8, !tbaa !63, !noalias !52
   %99 = getelementptr inbounds nuw i8, ptr %91, i64 40
   store i64 0, ptr %99, align 8, !tbaa !64, !noalias !52
-  store i8 0, ptr %98, align 1, !tbaa !65, !noalias !52
+  store i8 0, ptr %98, align 8, !tbaa !65, !noalias !52
   %100 = getelementptr inbounds nuw i8, ptr %91, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %100, i8 0, i64 72, i1 false), !noalias !52
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry12TriangleMeshE, i64 16), ptr %94, align 8, !tbaa !4, !noalias !52
@@ -39343,7 +39343,7 @@ _ZN6open3d8geometry12_GLOBAL__N_118BallPivotingVertex10UpdateTypeEv.exit180: ; p
   %317 = fcmp ogt double %316, 0xBC9CD2B297D889BC
   %318 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %319 = load ptr, ptr %318, align 8, !tbaa !68
-  %320 = load i32, ptr %231, align 4, !tbaa !98
+  %320 = load i32, ptr %231, align 8, !tbaa !98
   %321 = getelementptr inbounds nuw i8, ptr %319, i64 120
   %322 = getelementptr inbounds nuw i8, ptr %319, i64 128
   %323 = load ptr, ptr %322, align 8, !tbaa !97

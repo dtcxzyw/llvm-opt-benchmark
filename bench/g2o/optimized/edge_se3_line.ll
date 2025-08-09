@@ -2719,7 +2719,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %52, ptr %53, align 8, !tbaa !66
   store ptr %43, ptr %.sroa.08.012.i.i.i.i.i, align 8, !tbaa !76
   store i64 0, ptr %51, align 8, !tbaa !66
-  store i8 0, ptr %43, align 1, !tbaa !64
+  store i8 0, ptr %43, align 8, !tbaa !64
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq ptr %54, %33
@@ -2939,7 +2939,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %127, ptr %128, align 8, !tbaa !66
   store ptr %118, ptr %.sroa.08.012.i.i.i.i.i73, align 8, !tbaa !76
   store i64 0, ptr %126, align 8, !tbaa !66
-  store i8 0, ptr %118, align 1, !tbaa !64
+  store i8 0, ptr %118, align 8, !tbaa !64
   %129 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i73, i64 32
   %130 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i72, i64 32
   %.not.i.i.i.i.i76 = icmp eq ptr %129, %33
@@ -3053,7 +3053,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %171, ptr %172, align 8, !tbaa !66
   store ptr %162, ptr %.sroa.08.012.i.i.i.i.i93, align 8, !tbaa !76
   store i64 0, ptr %170, align 8, !tbaa !66
-  store i8 0, ptr %162, align 1, !tbaa !64
+  store i8 0, ptr %162, align 8, !tbaa !64
   %173 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i93, i64 32
   %174 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i92, i64 32
   %.not.i.i.i.i.i96 = icmp eq ptr %173, %1
@@ -3097,7 +3097,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %187, ptr %188, align 8, !tbaa !66
   store ptr %178, ptr %.sroa.08.012.i.i.i.i.i101, align 8, !tbaa !76
   store i64 0, ptr %186, align 8, !tbaa !66
-  store i8 0, ptr %178, align 1, !tbaa !64
+  store i8 0, ptr %178, align 8, !tbaa !64
   %189 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i101, i64 32
   %190 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i100, i64 32
   %.not.i.i.i.i.i104 = icmp eq ptr %189, %11

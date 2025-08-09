@@ -630,7 +630,7 @@ loop_subst_snap.exit.i:                           ; preds = %.lr.ph93.i.i, %._cr
   %300 = load i32, ptr %299, align 4, !tbaa !62
   store i32 %300, ptr %57, align 4, !tbaa !62
   %301 = getelementptr inbounds nuw i8, ptr %5, i64 436
-  %302 = load i16, ptr %301, align 2, !tbaa !52
+  %302 = load i16, ptr %301, align 4, !tbaa !52
   %303 = zext i16 %302 to i32
   %.not210.i.i = icmp eq i32 %.0137.lcssa.i, 0
   br i1 %.not210.i.i, label %.loopexit173.i.i, label %.lr.ph.i163.i

@@ -399,17 +399,17 @@ entry:
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %4 = load i32, ptr %2, align 8
-  %5 = load i32, ptr %3, align 4
+  %5 = load i32, ptr %3, align 8
   store i32 %5, ptr %2, align 8
-  store i32 %4, ptr %3, align 4
+  store i32 %4, ptr %3, align 8
   %legacy_closed_enum_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %legacy_closed_enum_5 = getelementptr inbounds nuw i8, ptr %other, i64 24
   %6 = load i8, ptr %legacy_closed_enum_, align 8
   %frombool.i = and i8 %6, 1
-  %7 = load i8, ptr %legacy_closed_enum_5, align 1
+  %7 = load i8, ptr %legacy_closed_enum_5, align 8
   %frombool2.i = and i8 %7, 1
   store i8 %frombool2.i, ptr %legacy_closed_enum_, align 8
-  store i8 %frombool.i, ptr %legacy_closed_enum_5, align 1
+  store i8 %frombool.i, ptr %legacy_closed_enum_5, align 8
   ret void
 }
 

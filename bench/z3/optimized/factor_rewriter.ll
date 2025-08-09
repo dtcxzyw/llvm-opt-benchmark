@@ -2046,7 +2046,7 @@ _ZN6vectorISt4pairIP4exprbELb1EjE3endEv.exit.i:   ; preds = %_ZN6vectorI10ptr_ve
   %105 = load ptr, ptr %.014.i, align 8, !tbaa !37
   store ptr %105, ptr %.0912.i, align 8, !tbaa !139
   %106 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 24
-  %107 = load i8, ptr %106, align 1, !tbaa !153, !range !137, !noundef !138
+  %107 = load i8, ptr %106, align 8, !tbaa !153, !range !137, !noundef !138
   %108 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 8
   store i8 %107, ptr %108, align 8, !tbaa !135
   %109 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 16

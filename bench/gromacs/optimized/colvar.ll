@@ -1316,7 +1316,7 @@ define noundef i32 @_ZN6colvar17init_dependenciesEv(ptr noundef nonnull align 8 
   store ptr %21, ptr %20, align 8, !tbaa !18
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 0, ptr %22, align 8, !tbaa !21
-  store i8 0, ptr %21, align 1, !tbaa !24
+  store i8 0, ptr %21, align 8, !tbaa !24
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(100) %23, i8 0, i64 100, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -22751,7 +22751,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8, !tbaa !21
   store ptr %13, ptr %10, align 8, !tbaa !45
   store i64 0, ptr %24, align 8, !tbaa !21
-  store i8 0, ptr %13, align 1, !tbaa !24
+  store i8 0, ptr %13, align 8, !tbaa !24
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false)
   store ptr %7, ptr %23, align 8, !tbaa !578
@@ -49946,13 +49946,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8, !tbaa !21
   store ptr %13, ptr %10, align 8, !tbaa !45
   store i64 0, ptr %24, align 8, !tbaa !21
-  store i8 0, ptr %13, align 1, !tbaa !24
+  store i8 0, ptr %13, align 8, !tbaa !24
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store ptr %27, ptr %26, align 8, !tbaa !18
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store i64 0, ptr %28, align 8, !tbaa !21
-  store i8 0, ptr %27, align 1, !tbaa !24
+  store i8 0, ptr %27, align 8, !tbaa !24
   store ptr %7, ptr %23, align 8, !tbaa !602
   %29 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %30 unwind label %51
@@ -80123,7 +80123,7 @@ define noundef range(i32 0, 17) i32 @_ZN6colvar9write_acfERSo(ptr noundef nonnul
   %15 = load i32, ptr %14, align 8, !tbaa !937
   %16 = and i32 %15, -261
   %17 = or disjoint i32 %16, 256
-  store i32 %17, ptr %14, align 4, !tbaa !938
+  store i32 %17, ptr %14, align 8, !tbaa !938
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.391, i64 noundef 2)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4184
   %20 = load i32, ptr %19, align 8, !tbaa !404
@@ -80834,7 +80834,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82: ; preds = %_ZN
   %148 = load i32, ptr %147, align 8, !tbaa !937
   %149 = and i32 %148, -261
   %150 = or disjoint i32 %149, 256
-  store i32 %150, ptr %147, align 4, !tbaa !938
+  store i32 %150, ptr %147, align 8, !tbaa !938
   %151 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %135, ptr noundef nonnull @.str.391, i64 noundef 2)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)

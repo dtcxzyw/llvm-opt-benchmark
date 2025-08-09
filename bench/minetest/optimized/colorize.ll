@@ -1161,7 +1161,7 @@ invoke.cont112:                                   ; preds = %_ZNKSt9basic_iosIcS
   %141 = load i32, ptr %gep695, align 8, !tbaa !62
   %and.i.i.i.i = and i32 %141, -75
   %or.i.i.i.i = or disjoint i32 %and.i.i.i.i, 8
-  store i32 %or.i.i.i.i, ptr %gep695, align 4, !tbaa !62
+  store i32 %or.i.i.i.i, ptr %gep695, align 8, !tbaa !62
   %and = and i32 %conv, 255
   %conv.i = zext nneg i32 %and to i64
   %call.i487 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %os, i64 noundef %conv.i)

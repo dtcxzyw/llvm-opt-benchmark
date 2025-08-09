@@ -95,7 +95,7 @@ define ptr @ssl_cert_new(i64 noundef %0) local_unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr null, ptr %16, align 8, !tbaa !23
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 176
-  store atomic i32 1, ptr %17 seq_cst, align 4, !tbaa !24
+  store atomic i32 1, ptr %17 seq_cst, align 8, !tbaa !24
   br label %18
 
 18:                                               ; preds = %3, %1, %13, %12
@@ -282,7 +282,7 @@ define ptr @ssl_cert_dup(ptr noundef %0) local_unnamed_addr #0 {
   %20 = getelementptr inbounds i8, ptr %9, i64 %19
   store ptr %20, ptr %2, align 8, !tbaa !20
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 176
-  store atomic i32 1, ptr %21 seq_cst, align 4, !tbaa !24
+  store atomic i32 1, ptr %21 seq_cst, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !92
   %.not = icmp eq ptr %23, null

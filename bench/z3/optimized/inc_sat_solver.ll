@@ -964,7 +964,7 @@ define linkonce_odr hidden void @_ZN14inc_sat_solverC2ER11ast_managerRK10params_
   %.01012.i.i.i.i.i.i.i = phi i32 [ %63, %.lr.ph.i.i.i.i.i.i.i ], [ 8, %._crit_edge.i.i ]
   store ptr null, ptr %.013.i.i.i.i.i.i.i, align 8, !tbaa !239
   %62 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i, i64 8
-  store i32 -2, ptr %62, align 4, !tbaa !242
+  store i32 -2, ptr %62, align 8, !tbaa !242
   %63 = add nsw i32 %.01012.i.i.i.i.i.i.i, -1
   %64 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i.i = icmp eq i32 %63, 0
@@ -1617,7 +1617,7 @@ _ZN14core_hashtableIN7obj_mapI4exprN3sat7literalEE13obj_map_entryE8obj_hashINS4_
   %.01012.i.i.i.i.i.i.i = phi i32 [ %66, %.lr.ph.i.i.i.i.i.i.i ], [ %61, %_ZN14core_hashtableIN7obj_mapI4exprN3sat7literalEE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE12delete_tableEv.exit.i.i ]
   store ptr null, ptr %.013.i.i.i.i.i.i.i, align 8, !tbaa !239
   %65 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i, i64 8
-  store i32 -2, ptr %65, align 4, !tbaa !242
+  store i32 -2, ptr %65, align 8, !tbaa !242
   %66 = add nsw i32 %.01012.i.i.i.i.i.i.i, -1
   %67 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i.i = icmp eq i32 %66, 0
@@ -10452,7 +10452,7 @@ _ZN14core_hashtableIN7obj_mapI4exprN3sat7literalEE13obj_map_entryE8obj_hashINS4_
   %.01012.i.i.i.i.i.i.i = phi i32 [ %86, %.lr.ph.i.i.i.i.i.i.i ], [ %81, %.noexc72 ]
   store ptr null, ptr %.013.i.i.i.i.i.i.i, align 8, !tbaa !239
   %85 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i, i64 8
-  store i32 -2, ptr %85, align 4, !tbaa !242
+  store i32 -2, ptr %85, align 8, !tbaa !242
   %86 = add nsw i32 %.01012.i.i.i.i.i.i.i, -1
   %87 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i.i = icmp eq i32 %86, 0
@@ -11349,7 +11349,7 @@ _ZN14core_hashtableIN7obj_mapI4exprN3sat7literalEE13obj_map_entryE8obj_hashINS4_
   %.01012.i.i.i.i.i.i.i = phi i32 [ %47, %.lr.ph.i.i.i.i.i.i.i ], [ %42, %.noexc56 ]
   store ptr null, ptr %.013.i.i.i.i.i.i.i, align 8, !tbaa !239
   %46 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i, i64 8
-  store i32 -2, ptr %46, align 4, !tbaa !242
+  store i32 -2, ptr %46, align 8, !tbaa !242
   %47 = add nsw i32 %.01012.i.i.i.i.i.i.i, -1
   %48 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i.i = icmp eq i32 %47, 0

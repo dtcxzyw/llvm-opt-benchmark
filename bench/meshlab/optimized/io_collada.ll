@@ -19761,7 +19761,7 @@ _ZN5QListI7QStringE3endEv.exit:                   ; preds = %1, %5
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %19 = load i32, ptr %18, align 8, !noalias !184
   %20 = sext i32 %19 to i64
-  %21 = load atomic i32, ptr %8 monotonic, align 4, !noalias !187
+  %21 = load atomic i32, ptr %8 monotonic, align 8, !noalias !187
   %22 = icmp ugt i32 %21, 1
   br i1 %22, label %23, label %_ZN5QListI7QStringE5beginEv.exit.i
 
@@ -25210,7 +25210,7 @@ _ZN11QStringListC2ERKS_.exit282:                  ; preds = %_ZN7QStringC2ERKS_.
   %564 = getelementptr inbounds nuw i8, ptr %467, i64 4
   store float %563, ptr %564, align 4
   %565 = getelementptr inbounds nuw i8, ptr %467, i64 8
-  store i16 %385, ptr %565, align 2
+  store i16 %385, ptr %565, align 4
   br label %_ZN3vcg3tri2io11ImporterDAEI6CMeshOE21WedgeTextureAttributeERNS_9TexCoord2IfLi1EEE11QStringListiS8_8QDomNodeii.exit
 
 _ZN3vcg3tri2io11ImporterDAEI6CMeshOE21WedgeTextureAttributeERNS_9TexCoord2IfLi1EEE11QStringListiS8_8QDomNodeii.exit: ; preds = %.noexc287, %.noexc284
@@ -43154,7 +43154,7 @@ define linkonce_odr noundef ptr @_ZN7Collada15DocumentManager21createColladaDocu
   %127 = load i32, ptr %126, align 8
   %128 = and i32 %127, 2147483647
   %129 = icmp ule i32 %125, %128
-  %130 = load atomic i32, ptr %122 monotonic, align 4
+  %130 = load atomic i32, ptr %122 monotonic, align 8
   %131 = icmp ult i32 %130, 2
   %or.cond.not.i.i = select i1 %131, i1 %129, i1 false
   br i1 %or.cond.not.i.i, label %_ZN7QVectorIP7XMLNodeE9push_backEOS1_.exit, label %132
@@ -43203,7 +43203,7 @@ _ZN7QVectorIP7XMLNodeE9push_backEOS1_.exit:       ; preds = %121, %132
   %155 = load i32, ptr %154, align 8
   %156 = and i32 %155, 2147483647
   %157 = icmp ule i32 %153, %156
-  %158 = load atomic i32, ptr %150 monotonic, align 4
+  %158 = load atomic i32, ptr %150 monotonic, align 8
   %159 = icmp ult i32 %158, 2
   %or.cond.not.i.i939 = select i1 %159, i1 %157, i1 false
   br i1 %or.cond.not.i.i939, label %_ZN7QVectorIP7XMLNodeE9push_backEOS1_.exit944, label %160
@@ -43240,7 +43240,7 @@ _ZN7QVectorIP7XMLNodeE9push_backEOS1_.exit944:    ; preds = %149, %160
   %179 = load i32, ptr %178, align 8
   %180 = and i32 %179, 2147483647
   %181 = icmp ule i32 %177, %180
-  %182 = load atomic i32, ptr %174 monotonic, align 4
+  %182 = load atomic i32, ptr %174 monotonic, align 8
   %183 = icmp ult i32 %182, 2
   %or.cond.not.i.i945 = select i1 %183, i1 %181, i1 false
   br i1 %or.cond.not.i.i945, label %_ZN7QVectorIP7XMLNodeE9push_backEOS1_.exit950, label %184
@@ -43289,7 +43289,7 @@ _ZN7QVectorIP7XMLNodeE9push_backEOS1_.exit950:    ; preds = %_ZN7QVectorIP7XMLNo
   %207 = load i32, ptr %206, align 8
   %208 = and i32 %207, 2147483647
   %209 = icmp ule i32 %205, %208
-  %210 = load atomic i32, ptr %202 monotonic, align 4
+  %210 = load atomic i32, ptr %202 monotonic, align 8
   %211 = icmp ult i32 %210, 2
   %or.cond.not.i.i951 = select i1 %211, i1 %209, i1 false
   br i1 %or.cond.not.i.i951, label %_ZN7QVectorIP7XMLNodeE9push_backEOS1_.exit956, label %212
@@ -43338,7 +43338,7 @@ _ZN7QVectorIP7XMLNodeE9push_backEOS1_.exit956:    ; preds = %201, %212
   %235 = load i32, ptr %234, align 8
   %236 = and i32 %235, 2147483647
   %237 = icmp ule i32 %233, %236
-  %238 = load atomic i32, ptr %230 monotonic, align 4
+  %238 = load atomic i32, ptr %230 monotonic, align 8
   %239 = icmp ult i32 %238, 2
   %or.cond.not.i.i957 = select i1 %239, i1 %237, i1 false
   br i1 %or.cond.not.i.i957, label %_ZN7QVectorIP7XMLNodeE9push_backEOS1_.exit962, label %240
@@ -43398,7 +43398,7 @@ _ZN7QVectorIP7XMLNodeE9push_backEOS1_.exit962:    ; preds = %229, %240
   %265 = load i32, ptr %264, align 8
   %266 = and i32 %265, 2147483647
   %267 = icmp ule i32 %263, %266
-  %268 = load atomic i32, ptr %260 monotonic, align 4
+  %268 = load atomic i32, ptr %260 monotonic, align 8
   %269 = icmp ult i32 %268, 2
   %or.cond.not.i.i963 = select i1 %269, i1 %267, i1 false
   br i1 %or.cond.not.i.i963, label %272, label %270
@@ -43460,7 +43460,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %272, %_ZN9QtPrivate
   %294 = load i32, ptr %293, align 8
   %295 = and i32 %294, 2147483647
   %296 = icmp ule i32 %292, %295
-  %297 = load atomic i32, ptr %289 monotonic, align 4
+  %297 = load atomic i32, ptr %289 monotonic, align 8
   %298 = icmp ult i32 %297, 2
   %or.cond.not.i.i969 = select i1 %298, i1 %296, i1 false
   br i1 %or.cond.not.i.i969, label %_ZN7QVectorIP7XMLNodeE9push_backEOS1_.exit974, label %299
@@ -43914,7 +43914,7 @@ _ZN7QStringD2Ev.exit1014:                         ; preds = %427, %_ZN9QtPrivate
   %438 = load i32, ptr %437, align 8
   %439 = and i32 %438, 2147483647
   %440 = icmp ule i32 %436, %439
-  %441 = load atomic i32, ptr %433 monotonic, align 4
+  %441 = load atomic i32, ptr %433 monotonic, align 8
   %442 = icmp ult i32 %441, 2
   %or.cond.not.i.i1015 = select i1 %442, i1 %440, i1 false
   br i1 %or.cond.not.i.i1015, label %445, label %443
@@ -43954,7 +43954,7 @@ _ZN7QStringD2Ev.exit1014:                         ; preds = %427, %_ZN9QtPrivate
   %463 = load i32, ptr %462, align 8
   %464 = and i32 %463, 2147483647
   %465 = icmp ule i32 %461, %464
-  %466 = load atomic i32, ptr %458 monotonic, align 4
+  %466 = load atomic i32, ptr %458 monotonic, align 8
   %467 = icmp ult i32 %466, 2
   %or.cond.not.i.i1022 = select i1 %467, i1 %465, i1 false
   br i1 %or.cond.not.i.i1022, label %470, label %468
@@ -43996,7 +43996,7 @@ _ZN7QStringD2Ev.exit1014:                         ; preds = %427, %_ZN9QtPrivate
   %488 = load i32, ptr %487, align 8
   %489 = and i32 %488, 2147483647
   %490 = icmp ule i32 %486, %489
-  %491 = load atomic i32, ptr %483 monotonic, align 4
+  %491 = load atomic i32, ptr %483 monotonic, align 8
   %492 = icmp ult i32 %491, 2
   %or.cond.not.i.i1029 = select i1 %492, i1 %490, i1 false
   br i1 %or.cond.not.i.i1029, label %_ZN7QVectorIP7XMLNodeE9push_backEOS1_.exit1035, label %493
@@ -44273,7 +44273,7 @@ _ZN7QStringD2Ev.exit1051:                         ; preds = %569, %_ZN9QtPrivate
   %580 = load i32, ptr %579, align 8
   %581 = and i32 %580, 2147483647
   %582 = icmp ule i32 %578, %581
-  %583 = load atomic i32, ptr %575 monotonic, align 4
+  %583 = load atomic i32, ptr %575 monotonic, align 8
   %584 = icmp ult i32 %583, 2
   %or.cond.not.i.i1052 = select i1 %584, i1 %582, i1 false
   br i1 %or.cond.not.i.i1052, label %587, label %585
@@ -44313,7 +44313,7 @@ _ZN7QStringD2Ev.exit1051:                         ; preds = %569, %_ZN9QtPrivate
   %605 = load i32, ptr %604, align 8
   %606 = and i32 %605, 2147483647
   %607 = icmp ule i32 %603, %606
-  %608 = load atomic i32, ptr %600 monotonic, align 4
+  %608 = load atomic i32, ptr %600 monotonic, align 8
   %609 = icmp ult i32 %608, 2
   %or.cond.not.i.i1059 = select i1 %609, i1 %607, i1 false
   br i1 %or.cond.not.i.i1059, label %612, label %610
@@ -44355,7 +44355,7 @@ _ZN7QStringD2Ev.exit1051:                         ; preds = %569, %_ZN9QtPrivate
   %630 = load i32, ptr %629, align 8
   %631 = and i32 %630, 2147483647
   %632 = icmp ule i32 %628, %631
-  %633 = load atomic i32, ptr %625 monotonic, align 4
+  %633 = load atomic i32, ptr %625 monotonic, align 8
   %634 = icmp ult i32 %633, 2
   %or.cond.not.i.i1066 = select i1 %634, i1 %632, i1 false
   br i1 %or.cond.not.i.i1066, label %_ZN7QVectorIP7XMLNodeE9push_backEOS1_.exit1072, label %635
@@ -45036,7 +45036,7 @@ _ZN7QStringaSEPKc.exit:                           ; preds = %.noexc1137, %_ZN9Qt
   %842 = load i32, ptr %841, align 8
   %843 = and i32 %842, 2147483647
   %844 = icmp ule i32 %840, %843
-  %845 = load atomic i32, ptr %837 monotonic, align 4
+  %845 = load atomic i32, ptr %837 monotonic, align 8
   %846 = icmp ult i32 %845, 2
   %or.cond.not.i.i1138 = select i1 %846, i1 %844, i1 false
   br i1 %or.cond.not.i.i1138, label %849, label %847
@@ -45075,7 +45075,7 @@ _ZN7QStringaSEPKc.exit:                           ; preds = %.noexc1137, %_ZN9Qt
   %866 = load i32, ptr %865, align 8
   %867 = and i32 %866, 2147483647
   %868 = icmp ule i32 %864, %867
-  %869 = load atomic i32, ptr %861 monotonic, align 4
+  %869 = load atomic i32, ptr %861 monotonic, align 8
   %870 = icmp ult i32 %869, 2
   %or.cond.not.i.i1145 = select i1 %870, i1 %868, i1 false
   br i1 %or.cond.not.i.i1145, label %873, label %871
@@ -45115,7 +45115,7 @@ _ZN7QStringaSEPKc.exit:                           ; preds = %.noexc1137, %_ZN9Qt
   %891 = load i32, ptr %890, align 8
   %892 = and i32 %891, 2147483647
   %893 = icmp ule i32 %889, %892
-  %894 = load atomic i32, ptr %886 monotonic, align 4
+  %894 = load atomic i32, ptr %886 monotonic, align 8
   %895 = icmp ult i32 %894, 2
   %or.cond.not.i.i1152 = select i1 %895, i1 %893, i1 false
   br i1 %or.cond.not.i.i1152, label %898, label %896
@@ -45155,7 +45155,7 @@ _ZN7QStringaSEPKc.exit:                           ; preds = %.noexc1137, %_ZN9Qt
   %916 = load i32, ptr %915, align 8
   %917 = and i32 %916, 2147483647
   %918 = icmp ule i32 %914, %917
-  %919 = load atomic i32, ptr %911 monotonic, align 4
+  %919 = load atomic i32, ptr %911 monotonic, align 8
   %920 = icmp ult i32 %919, 2
   %or.cond.not.i.i1159 = select i1 %920, i1 %918, i1 false
   br i1 %or.cond.not.i.i1159, label %923, label %921
@@ -45405,7 +45405,7 @@ _ZN7QStringD2Ev.exit1193:                         ; preds = %986, %_ZN9QtPrivate
   %997 = load i32, ptr %996, align 8
   %998 = and i32 %997, 2147483647
   %999 = icmp ule i32 %995, %998
-  %1000 = load atomic i32, ptr %992 monotonic, align 4
+  %1000 = load atomic i32, ptr %992 monotonic, align 8
   %1001 = icmp ult i32 %1000, 2
   %or.cond.not.i.i1194 = select i1 %1001, i1 %999, i1 false
   br i1 %or.cond.not.i.i1194, label %1004, label %1002
@@ -45444,7 +45444,7 @@ _ZN7QStringD2Ev.exit1193:                         ; preds = %986, %_ZN9QtPrivate
   %1021 = load i32, ptr %1020, align 8
   %1022 = and i32 %1021, 2147483647
   %1023 = icmp ule i32 %1019, %1022
-  %1024 = load atomic i32, ptr %1016 monotonic, align 4
+  %1024 = load atomic i32, ptr %1016 monotonic, align 8
   %1025 = icmp ult i32 %1024, 2
   %or.cond.not.i.i1201 = select i1 %1025, i1 %1023, i1 false
   br i1 %or.cond.not.i.i1201, label %1028, label %1026
@@ -45483,7 +45483,7 @@ _ZN7QStringD2Ev.exit1193:                         ; preds = %986, %_ZN9QtPrivate
   %1045 = load i32, ptr %1044, align 8
   %1046 = and i32 %1045, 2147483647
   %1047 = icmp ule i32 %1043, %1046
-  %1048 = load atomic i32, ptr %1040 monotonic, align 4
+  %1048 = load atomic i32, ptr %1040 monotonic, align 8
   %1049 = icmp ult i32 %1048, 2
   %or.cond.not.i.i1208 = select i1 %1049, i1 %1047, i1 false
   br i1 %or.cond.not.i.i1208, label %1052, label %1050
@@ -45523,7 +45523,7 @@ _ZN7QStringD2Ev.exit1193:                         ; preds = %986, %_ZN9QtPrivate
   %1070 = load i32, ptr %1069, align 8
   %1071 = and i32 %1070, 2147483647
   %1072 = icmp ule i32 %1068, %1071
-  %1073 = load atomic i32, ptr %1065 monotonic, align 4
+  %1073 = load atomic i32, ptr %1065 monotonic, align 8
   %1074 = icmp ult i32 %1073, 2
   %or.cond.not.i.i1215 = select i1 %1074, i1 %1072, i1 false
   br i1 %or.cond.not.i.i1215, label %1077, label %1075
@@ -45562,7 +45562,7 @@ _ZN7QStringD2Ev.exit1193:                         ; preds = %986, %_ZN9QtPrivate
   %1094 = load i32, ptr %1093, align 8
   %1095 = and i32 %1094, 2147483647
   %1096 = icmp ule i32 %1092, %1095
-  %1097 = load atomic i32, ptr %1089 monotonic, align 4
+  %1097 = load atomic i32, ptr %1089 monotonic, align 8
   %1098 = icmp ult i32 %1097, 2
   %or.cond.not.i.i1222 = select i1 %1098, i1 %1096, i1 false
   br i1 %or.cond.not.i.i1222, label %1101, label %1099
@@ -45760,7 +45760,7 @@ _ZN7QStringD2Ev.exit1250:                         ; preds = %_ZN7QStringD2Ev.exi
   %1163 = load i32, ptr %1162, align 8
   %1164 = and i32 %1163, 2147483647
   %1165 = icmp ule i32 %1161, %1164
-  %1166 = load atomic i32, ptr %1158 monotonic, align 4
+  %1166 = load atomic i32, ptr %1158 monotonic, align 8
   %1167 = icmp ult i32 %1166, 2
   %or.cond.not.i.i1251 = select i1 %1167, i1 %1165, i1 false
   br i1 %or.cond.not.i.i1251, label %1170, label %1168
@@ -45800,7 +45800,7 @@ _ZN7QStringD2Ev.exit1250:                         ; preds = %_ZN7QStringD2Ev.exi
   %1188 = load i32, ptr %1187, align 8
   %1189 = and i32 %1188, 2147483647
   %1190 = icmp ule i32 %1186, %1189
-  %1191 = load atomic i32, ptr %1183 monotonic, align 4
+  %1191 = load atomic i32, ptr %1183 monotonic, align 8
   %1192 = icmp ult i32 %1191, 2
   %or.cond.not.i.i1258 = select i1 %1192, i1 %1190, i1 false
   br i1 %or.cond.not.i.i1258, label %1195, label %1193
@@ -45842,7 +45842,7 @@ _ZN7QStringD2Ev.exit1250:                         ; preds = %_ZN7QStringD2Ev.exi
   %1213 = load i32, ptr %1212, align 8
   %1214 = and i32 %1213, 2147483647
   %1215 = icmp ule i32 %1211, %1214
-  %1216 = load atomic i32, ptr %1208 monotonic, align 4
+  %1216 = load atomic i32, ptr %1208 monotonic, align 8
   %1217 = icmp ult i32 %1216, 2
   %or.cond.not.i.i1265 = select i1 %1217, i1 %1215, i1 false
   br i1 %or.cond.not.i.i1265, label %_ZN7QVectorIP7XMLNodeE9push_backEOS1_.exit1271, label %1218
@@ -46740,7 +46740,7 @@ _ZN7QStringD2Ev.exit1380:                         ; preds = %_ZN7QStringD2Ev.exi
   %1475 = load i32, ptr %1474, align 8
   %1476 = and i32 %1475, 2147483647
   %1477 = icmp ule i32 %1473, %1476
-  %1478 = load atomic i32, ptr %1470 monotonic, align 4
+  %1478 = load atomic i32, ptr %1470 monotonic, align 8
   %1479 = icmp ult i32 %1478, 2
   %or.cond.not.i.i1381 = select i1 %1479, i1 %1477, i1 false
   br i1 %or.cond.not.i.i1381, label %1482, label %1480
@@ -46780,7 +46780,7 @@ _ZN7QStringD2Ev.exit1380:                         ; preds = %_ZN7QStringD2Ev.exi
   %1500 = load i32, ptr %1499, align 8
   %1501 = and i32 %1500, 2147483647
   %1502 = icmp ule i32 %1498, %1501
-  %1503 = load atomic i32, ptr %1495 monotonic, align 4
+  %1503 = load atomic i32, ptr %1495 monotonic, align 8
   %1504 = icmp ult i32 %1503, 2
   %or.cond.not.i.i1388 = select i1 %1504, i1 %1502, i1 false
   br i1 %or.cond.not.i.i1388, label %1507, label %1505
@@ -46819,7 +46819,7 @@ _ZN7QStringD2Ev.exit1380:                         ; preds = %_ZN7QStringD2Ev.exi
   %1524 = load i32, ptr %1523, align 8
   %1525 = and i32 %1524, 2147483647
   %1526 = icmp ule i32 %1522, %1525
-  %1527 = load atomic i32, ptr %1519 monotonic, align 4
+  %1527 = load atomic i32, ptr %1519 monotonic, align 8
   %1528 = icmp ult i32 %1527, 2
   %or.cond.not.i.i1395 = select i1 %1528, i1 %1526, i1 false
   br i1 %or.cond.not.i.i1395, label %1531, label %1529
@@ -46858,7 +46858,7 @@ _ZN7QStringD2Ev.exit1380:                         ; preds = %_ZN7QStringD2Ev.exi
   %1548 = load i32, ptr %1547, align 8
   %1549 = and i32 %1548, 2147483647
   %1550 = icmp ule i32 %1546, %1549
-  %1551 = load atomic i32, ptr %1543 monotonic, align 4
+  %1551 = load atomic i32, ptr %1543 monotonic, align 8
   %1552 = icmp ult i32 %1551, 2
   %or.cond.not.i.i1402 = select i1 %1552, i1 %1550, i1 false
   br i1 %or.cond.not.i.i1402, label %1555, label %1553
@@ -46898,7 +46898,7 @@ _ZN7QStringD2Ev.exit1380:                         ; preds = %_ZN7QStringD2Ev.exi
   %1573 = load i32, ptr %1572, align 8
   %1574 = and i32 %1573, 2147483647
   %1575 = icmp ule i32 %1571, %1574
-  %1576 = load atomic i32, ptr %1568 monotonic, align 4
+  %1576 = load atomic i32, ptr %1568 monotonic, align 8
   %1577 = icmp ult i32 %1576, 2
   %or.cond.not.i.i1409 = select i1 %1577, i1 %1575, i1 false
   br i1 %or.cond.not.i.i1409, label %1580, label %1578
@@ -46937,7 +46937,7 @@ _ZN7QStringD2Ev.exit1380:                         ; preds = %_ZN7QStringD2Ev.exi
   %1597 = load i32, ptr %1596, align 8
   %1598 = and i32 %1597, 2147483647
   %1599 = icmp ule i32 %1595, %1598
-  %1600 = load atomic i32, ptr %1592 monotonic, align 4
+  %1600 = load atomic i32, ptr %1592 monotonic, align 8
   %1601 = icmp ult i32 %1600, 2
   %or.cond.not.i.i1416 = select i1 %1601, i1 %1599, i1 false
   br i1 %or.cond.not.i.i1416, label %1604, label %1602
@@ -46977,7 +46977,7 @@ _ZN7QStringD2Ev.exit1380:                         ; preds = %_ZN7QStringD2Ev.exi
   %1622 = load i32, ptr %1621, align 8
   %1623 = and i32 %1622, 2147483647
   %1624 = icmp ule i32 %1620, %1623
-  %1625 = load atomic i32, ptr %1617 monotonic, align 4
+  %1625 = load atomic i32, ptr %1617 monotonic, align 8
   %1626 = icmp ult i32 %1625, 2
   %or.cond.not.i.i1423 = select i1 %1626, i1 %1624, i1 false
   br i1 %or.cond.not.i.i1423, label %1629, label %1627
@@ -47430,7 +47430,7 @@ _ZN7QStringD2Ev.exit1503:                         ; preds = %_ZN7QStringD2Ev.exi
   %1766 = load i32, ptr %1765, align 8
   %1767 = and i32 %1766, 2147483647
   %1768 = icmp ule i32 %1764, %1767
-  %1769 = load atomic i32, ptr %1761 monotonic, align 4
+  %1769 = load atomic i32, ptr %1761 monotonic, align 8
   %1770 = icmp ult i32 %1769, 2
   %or.cond.not.i.i1504 = select i1 %1770, i1 %1768, i1 false
   br i1 %or.cond.not.i.i1504, label %1773, label %1771
@@ -47470,7 +47470,7 @@ _ZN7QStringD2Ev.exit1503:                         ; preds = %_ZN7QStringD2Ev.exi
   %1791 = load i32, ptr %1790, align 8
   %1792 = and i32 %1791, 2147483647
   %1793 = icmp ule i32 %1789, %1792
-  %1794 = load atomic i32, ptr %1786 monotonic, align 4
+  %1794 = load atomic i32, ptr %1786 monotonic, align 8
   %1795 = icmp ult i32 %1794, 2
   %or.cond.not.i.i1511 = select i1 %1795, i1 %1793, i1 false
   br i1 %or.cond.not.i.i1511, label %1798, label %1796
@@ -47509,7 +47509,7 @@ _ZN7QStringD2Ev.exit1503:                         ; preds = %_ZN7QStringD2Ev.exi
   %1815 = load i32, ptr %1814, align 8
   %1816 = and i32 %1815, 2147483647
   %1817 = icmp ule i32 %1813, %1816
-  %1818 = load atomic i32, ptr %1810 monotonic, align 4
+  %1818 = load atomic i32, ptr %1810 monotonic, align 8
   %1819 = icmp ult i32 %1818, 2
   %or.cond.not.i.i1518 = select i1 %1819, i1 %1817, i1 false
   br i1 %or.cond.not.i.i1518, label %1822, label %1820
@@ -47548,7 +47548,7 @@ _ZN7QStringD2Ev.exit1503:                         ; preds = %_ZN7QStringD2Ev.exi
   %1839 = load i32, ptr %1838, align 8
   %1840 = and i32 %1839, 2147483647
   %1841 = icmp ule i32 %1837, %1840
-  %1842 = load atomic i32, ptr %1834 monotonic, align 4
+  %1842 = load atomic i32, ptr %1834 monotonic, align 8
   %1843 = icmp ult i32 %1842, 2
   %or.cond.not.i.i1525 = select i1 %1843, i1 %1841, i1 false
   br i1 %or.cond.not.i.i1525, label %1846, label %1844
@@ -47588,7 +47588,7 @@ _ZN7QStringD2Ev.exit1503:                         ; preds = %_ZN7QStringD2Ev.exi
   %1864 = load i32, ptr %1863, align 8
   %1865 = and i32 %1864, 2147483647
   %1866 = icmp ule i32 %1862, %1865
-  %1867 = load atomic i32, ptr %1859 monotonic, align 4
+  %1867 = load atomic i32, ptr %1859 monotonic, align 8
   %1868 = icmp ult i32 %1867, 2
   %or.cond.not.i.i1532 = select i1 %1868, i1 %1866, i1 false
   br i1 %or.cond.not.i.i1532, label %1871, label %1869
@@ -47627,7 +47627,7 @@ _ZN7QStringD2Ev.exit1503:                         ; preds = %_ZN7QStringD2Ev.exi
   %1888 = load i32, ptr %1887, align 8
   %1889 = and i32 %1888, 2147483647
   %1890 = icmp ule i32 %1886, %1889
-  %1891 = load atomic i32, ptr %1883 monotonic, align 4
+  %1891 = load atomic i32, ptr %1883 monotonic, align 8
   %1892 = icmp ult i32 %1891, 2
   %or.cond.not.i.i1539 = select i1 %1892, i1 %1890, i1 false
   br i1 %or.cond.not.i.i1539, label %1895, label %1893
@@ -47666,7 +47666,7 @@ _ZN7QStringD2Ev.exit1503:                         ; preds = %_ZN7QStringD2Ev.exi
   %1912 = load i32, ptr %1911, align 8
   %1913 = and i32 %1912, 2147483647
   %1914 = icmp ule i32 %1910, %1913
-  %1915 = load atomic i32, ptr %1907 monotonic, align 4
+  %1915 = load atomic i32, ptr %1907 monotonic, align 8
   %1916 = icmp ult i32 %1915, 2
   %or.cond.not.i.i1546 = select i1 %1916, i1 %1914, i1 false
   br i1 %or.cond.not.i.i1546, label %_ZN7QVectorIP7XMLNodeE9push_backEOS1_.exit1552, label %1917
@@ -48666,7 +48666,7 @@ _ZN7QStringD2Ev.exit1642:                         ; preds = %_ZN7QStringD2Ev.exi
   %2196 = load i32, ptr %2195, align 8
   %2197 = and i32 %2196, 2147483647
   %2198 = icmp ule i32 %2194, %2197
-  %2199 = load atomic i32, ptr %2191 monotonic, align 4
+  %2199 = load atomic i32, ptr %2191 monotonic, align 8
   %2200 = icmp ult i32 %2199, 2
   %or.cond.not.i.i1643 = select i1 %2200, i1 %2198, i1 false
   br i1 %or.cond.not.i.i1643, label %2203, label %2201
@@ -48706,7 +48706,7 @@ _ZN7QStringD2Ev.exit1642:                         ; preds = %_ZN7QStringD2Ev.exi
   %2221 = load i32, ptr %2220, align 8
   %2222 = and i32 %2221, 2147483647
   %2223 = icmp ule i32 %2219, %2222
-  %2224 = load atomic i32, ptr %2216 monotonic, align 4
+  %2224 = load atomic i32, ptr %2216 monotonic, align 8
   %2225 = icmp ult i32 %2224, 2
   %or.cond.not.i.i1650 = select i1 %2225, i1 %2223, i1 false
   br i1 %or.cond.not.i.i1650, label %2228, label %2226
@@ -48745,7 +48745,7 @@ _ZN7QStringD2Ev.exit1642:                         ; preds = %_ZN7QStringD2Ev.exi
   %2245 = load i32, ptr %2244, align 8
   %2246 = and i32 %2245, 2147483647
   %2247 = icmp ule i32 %2243, %2246
-  %2248 = load atomic i32, ptr %2240 monotonic, align 4
+  %2248 = load atomic i32, ptr %2240 monotonic, align 8
   %2249 = icmp ult i32 %2248, 2
   %or.cond.not.i.i1657 = select i1 %2249, i1 %2247, i1 false
   br i1 %or.cond.not.i.i1657, label %2252, label %2250
@@ -48784,7 +48784,7 @@ _ZN7QStringD2Ev.exit1642:                         ; preds = %_ZN7QStringD2Ev.exi
   %2269 = load i32, ptr %2268, align 8
   %2270 = and i32 %2269, 2147483647
   %2271 = icmp ule i32 %2267, %2270
-  %2272 = load atomic i32, ptr %2264 monotonic, align 4
+  %2272 = load atomic i32, ptr %2264 monotonic, align 8
   %2273 = icmp ult i32 %2272, 2
   %or.cond.not.i.i1664 = select i1 %2273, i1 %2271, i1 false
   br i1 %or.cond.not.i.i1664, label %2276, label %2274
@@ -48823,7 +48823,7 @@ _ZN7QStringD2Ev.exit1642:                         ; preds = %_ZN7QStringD2Ev.exi
   %2293 = load i32, ptr %2292, align 8
   %2294 = and i32 %2293, 2147483647
   %2295 = icmp ule i32 %2291, %2294
-  %2296 = load atomic i32, ptr %2288 monotonic, align 4
+  %2296 = load atomic i32, ptr %2288 monotonic, align 8
   %2297 = icmp ult i32 %2296, 2
   %or.cond.not.i.i1671 = select i1 %2297, i1 %2295, i1 false
   br i1 %or.cond.not.i.i1671, label %2300, label %2298
@@ -48863,7 +48863,7 @@ _ZN7QStringD2Ev.exit1642:                         ; preds = %_ZN7QStringD2Ev.exi
   %2318 = load i32, ptr %2317, align 8
   %2319 = and i32 %2318, 2147483647
   %2320 = icmp ule i32 %2316, %2319
-  %2321 = load atomic i32, ptr %2313 monotonic, align 4
+  %2321 = load atomic i32, ptr %2313 monotonic, align 8
   %2322 = icmp ult i32 %2321, 2
   %or.cond.not.i.i1678 = select i1 %2322, i1 %2320, i1 false
   br i1 %or.cond.not.i.i1678, label %2325, label %2323
@@ -48902,7 +48902,7 @@ _ZN7QStringD2Ev.exit1642:                         ; preds = %_ZN7QStringD2Ev.exi
   %2342 = load i32, ptr %2341, align 8
   %2343 = and i32 %2342, 2147483647
   %2344 = icmp ule i32 %2340, %2343
-  %2345 = load atomic i32, ptr %2337 monotonic, align 4
+  %2345 = load atomic i32, ptr %2337 monotonic, align 8
   %2346 = icmp ult i32 %2345, 2
   %or.cond.not.i.i1685 = select i1 %2346, i1 %2344, i1 false
   br i1 %or.cond.not.i.i1685, label %2349, label %2347
@@ -48941,7 +48941,7 @@ _ZN7QStringD2Ev.exit1642:                         ; preds = %_ZN7QStringD2Ev.exi
   %2366 = load i32, ptr %2365, align 8
   %2367 = and i32 %2366, 2147483647
   %2368 = icmp ule i32 %2364, %2367
-  %2369 = load atomic i32, ptr %2361 monotonic, align 4
+  %2369 = load atomic i32, ptr %2361 monotonic, align 8
   %2370 = icmp ult i32 %2369, 2
   %or.cond.not.i.i1692 = select i1 %2370, i1 %2368, i1 false
   br i1 %or.cond.not.i.i1692, label %_ZN7QVectorIP7XMLNodeE9push_backEOS1_.exit1698, label %2371
@@ -49566,7 +49566,7 @@ _ZN7QStringD2Ev.exit1756:                         ; preds = %_ZN7QStringD2Ev.exi
   %2554 = load i32, ptr %2553, align 8
   %2555 = and i32 %2554, 2147483647
   %2556 = icmp ule i32 %2552, %2555
-  %2557 = load atomic i32, ptr %2549 monotonic, align 4
+  %2557 = load atomic i32, ptr %2549 monotonic, align 8
   %2558 = icmp ult i32 %2557, 2
   %or.cond.not.i.i1757 = select i1 %2558, i1 %2556, i1 false
   br i1 %or.cond.not.i.i1757, label %2561, label %2559
@@ -49606,7 +49606,7 @@ _ZN7QStringD2Ev.exit1756:                         ; preds = %_ZN7QStringD2Ev.exi
   %2579 = load i32, ptr %2578, align 8
   %2580 = and i32 %2579, 2147483647
   %2581 = icmp ule i32 %2577, %2580
-  %2582 = load atomic i32, ptr %2574 monotonic, align 4
+  %2582 = load atomic i32, ptr %2574 monotonic, align 8
   %2583 = icmp ult i32 %2582, 2
   %or.cond.not.i.i1764 = select i1 %2583, i1 %2581, i1 false
   br i1 %or.cond.not.i.i1764, label %2586, label %2584
@@ -49645,7 +49645,7 @@ _ZN7QStringD2Ev.exit1756:                         ; preds = %_ZN7QStringD2Ev.exi
   %2603 = load i32, ptr %2602, align 8
   %2604 = and i32 %2603, 2147483647
   %2605 = icmp ule i32 %2601, %2604
-  %2606 = load atomic i32, ptr %2598 monotonic, align 4
+  %2606 = load atomic i32, ptr %2598 monotonic, align 8
   %2607 = icmp ult i32 %2606, 2
   %or.cond.not.i.i1771 = select i1 %2607, i1 %2605, i1 false
   br i1 %or.cond.not.i.i1771, label %2610, label %2608
@@ -49685,7 +49685,7 @@ _ZN7QStringD2Ev.exit1756:                         ; preds = %_ZN7QStringD2Ev.exi
   %2628 = load i32, ptr %2627, align 8
   %2629 = and i32 %2628, 2147483647
   %2630 = icmp ule i32 %2626, %2629
-  %2631 = load atomic i32, ptr %2623 monotonic, align 4
+  %2631 = load atomic i32, ptr %2623 monotonic, align 8
   %2632 = icmp ult i32 %2631, 2
   %or.cond.not.i.i1778 = select i1 %2632, i1 %2630, i1 false
   br i1 %or.cond.not.i.i1778, label %2635, label %2633
@@ -49724,7 +49724,7 @@ _ZN7QStringD2Ev.exit1756:                         ; preds = %_ZN7QStringD2Ev.exi
   %2652 = load i32, ptr %2651, align 8
   %2653 = and i32 %2652, 2147483647
   %2654 = icmp ule i32 %2650, %2653
-  %2655 = load atomic i32, ptr %2647 monotonic, align 4
+  %2655 = load atomic i32, ptr %2647 monotonic, align 8
   %2656 = icmp ult i32 %2655, 2
   %or.cond.not.i.i1785 = select i1 %2656, i1 %2654, i1 false
   br i1 %or.cond.not.i.i1785, label %2659, label %2657
@@ -49763,7 +49763,7 @@ _ZN7QStringD2Ev.exit1756:                         ; preds = %_ZN7QStringD2Ev.exi
   %2676 = load i32, ptr %2675, align 8
   %2677 = and i32 %2676, 2147483647
   %2678 = icmp ule i32 %2674, %2677
-  %2679 = load atomic i32, ptr %2671 monotonic, align 4
+  %2679 = load atomic i32, ptr %2671 monotonic, align 8
   %2680 = icmp ult i32 %2679, 2
   %or.cond.not.i.i1792 = select i1 %2680, i1 %2678, i1 false
   br i1 %or.cond.not.i.i1792, label %_ZN7QVectorIP7XMLNodeE9push_backEOS1_.exit1798, label %2681
@@ -50093,7 +50093,7 @@ _ZN7QStringD2Ev.exit1818:                         ; preds = %_ZN7QStringD2Ev.exi
   %2773 = load i32, ptr %2772, align 8
   %2774 = and i32 %2773, 2147483647
   %2775 = icmp ule i32 %2771, %2774
-  %2776 = load atomic i32, ptr %2768 monotonic, align 4
+  %2776 = load atomic i32, ptr %2768 monotonic, align 8
   %2777 = icmp ult i32 %2776, 2
   %or.cond.not.i.i1819 = select i1 %2777, i1 %2775, i1 false
   br i1 %or.cond.not.i.i1819, label %2780, label %2778
@@ -50132,7 +50132,7 @@ _ZN7QStringD2Ev.exit1818:                         ; preds = %_ZN7QStringD2Ev.exi
   %2797 = load i32, ptr %2796, align 8
   %2798 = and i32 %2797, 2147483647
   %2799 = icmp ule i32 %2795, %2798
-  %2800 = load atomic i32, ptr %2792 monotonic, align 4
+  %2800 = load atomic i32, ptr %2792 monotonic, align 8
   %2801 = icmp ult i32 %2800, 2
   %or.cond.not.i.i1826 = select i1 %2801, i1 %2799, i1 false
   br i1 %or.cond.not.i.i1826, label %2804, label %2802
@@ -50569,7 +50569,7 @@ _ZN7QStringD2Ev.exit1868:                         ; preds = %_ZN7QStringD2Ev.exi
   %2945 = load i32, ptr %2944, align 8
   %2946 = and i32 %2945, 2147483647
   %2947 = icmp ule i32 %2943, %2946
-  %2948 = load atomic i32, ptr %2940 monotonic, align 4
+  %2948 = load atomic i32, ptr %2940 monotonic, align 8
   %2949 = icmp ult i32 %2948, 2
   %or.cond.not.i.i1869 = select i1 %2949, i1 %2947, i1 false
   br i1 %or.cond.not.i.i1869, label %2952, label %2950
@@ -50680,7 +50680,7 @@ _ZN7QStringD2Ev.exit1889:                         ; preds = %_ZN7QStringD2Ev.exi
   %2987 = load i32, ptr %2986, align 8
   %2988 = and i32 %2987, 2147483647
   %2989 = icmp ule i32 %2985, %2988
-  %2990 = load atomic i32, ptr %2982 monotonic, align 4
+  %2990 = load atomic i32, ptr %2982 monotonic, align 8
   %2991 = icmp ult i32 %2990, 2
   %or.cond.not.i.i1890 = select i1 %2991, i1 %2989, i1 false
   br i1 %or.cond.not.i.i1890, label %_ZN7QVectorIP7XMLNodeE9push_backEOS1_.exit1896, label %2992
@@ -50863,7 +50863,7 @@ _ZN7QStringD2Ev.exit1910:                         ; preds = %_ZN7QStringD2Ev.exi
   %3045 = load i32, ptr %3044, align 8
   %3046 = and i32 %3045, 2147483647
   %3047 = icmp ule i32 %3043, %3046
-  %3048 = load atomic i32, ptr %3040 monotonic, align 4
+  %3048 = load atomic i32, ptr %3040 monotonic, align 8
   %3049 = icmp ult i32 %3048, 2
   %or.cond.not.i.i1911 = select i1 %3049, i1 %3047, i1 false
   br i1 %or.cond.not.i.i1911, label %3052, label %3050
@@ -51013,7 +51013,7 @@ _ZN7QStringD2Ev.exit1931:                         ; preds = %_ZN7QStringD2Ev.exi
   %3097 = load i32, ptr %3096, align 8
   %3098 = and i32 %3097, 2147483647
   %3099 = icmp ule i32 %3095, %3098
-  %3100 = load atomic i32, ptr %3092 monotonic, align 4
+  %3100 = load atomic i32, ptr %3092 monotonic, align 8
   %3101 = icmp ult i32 %3100, 2
   %or.cond.not.i.i1932 = select i1 %3101, i1 %3099, i1 false
   br i1 %or.cond.not.i.i1932, label %_ZN7QVectorIP7XMLNodeE9push_backEOS1_.exit1938, label %3102
@@ -51192,7 +51192,7 @@ _ZN7QVectorIP7XMLNodeE9push_backEOS1_.exit1938:   ; preds = %_ZN7QStringD2Ev.exi
   %3172 = load i32, ptr %3171, align 8
   %3173 = and i32 %3172, 2147483647
   %3174 = icmp ule i32 %3170, %3173
-  %3175 = load atomic i32, ptr %3167 monotonic, align 4
+  %3175 = load atomic i32, ptr %3167 monotonic, align 8
   %3176 = icmp ult i32 %3175, 2
   %or.cond.not.i.i1942 = select i1 %3176, i1 %3174, i1 false
   br i1 %or.cond.not.i.i1942, label %3179, label %3177
@@ -51231,7 +51231,7 @@ _ZN7QVectorIP7XMLNodeE9push_backEOS1_.exit1938:   ; preds = %_ZN7QStringD2Ev.exi
   %3196 = load i32, ptr %3195, align 8
   %3197 = and i32 %3196, 2147483647
   %3198 = icmp ule i32 %3194, %3197
-  %3199 = load atomic i32, ptr %3191 monotonic, align 4
+  %3199 = load atomic i32, ptr %3191 monotonic, align 8
   %3200 = icmp ult i32 %3199, 2
   %or.cond.not.i.i1949 = select i1 %3200, i1 %3198, i1 false
   br i1 %or.cond.not.i.i1949, label %3203, label %3201
@@ -51300,7 +51300,7 @@ _ZN7QVectorIP7XMLNodeE9push_backEOS1_.exit1938:   ; preds = %_ZN7QStringD2Ev.exi
   %.not827 = icmp eq ptr %.0577, %3233
   %spec.select.idx = select i1 %.not827, i64 0, i64 8
   %spec.select = getelementptr inbounds nuw i8, ptr %.0577, i64 %spec.select.idx
-  %3234 = load atomic i32, ptr %3226 monotonic, align 4
+  %3234 = load atomic i32, ptr %3226 monotonic, align 8
   %3235 = icmp ult i32 %3234, 2
   br i1 %3235, label %3243, label %3236
 
@@ -51349,7 +51349,7 @@ _ZN7QVectorIP7XMLNodeE9push_backEOS1_.exit1938:   ; preds = %_ZN7QStringD2Ev.exi
   %3259 = load i32, ptr %3258, align 8
   %3260 = and i32 %3259, 2147483647
   %3261 = icmp ule i32 %3257, %3260
-  %3262 = load atomic i32, ptr %3254 monotonic, align 4
+  %3262 = load atomic i32, ptr %3254 monotonic, align 8
   %3263 = icmp ult i32 %3262, 2
   %or.cond.not.i.i1964 = select i1 %3263, i1 %3261, i1 false
   br i1 %or.cond.not.i.i1964, label %3266, label %3264
@@ -52146,7 +52146,7 @@ _ZN7QStringD2Ev.exit2066:                         ; preds = %_ZN7QStringD2Ev.exi
   %3483 = load i32, ptr %3482, align 8
   %3484 = and i32 %3483, 2147483647
   %3485 = icmp ule i32 %3481, %3484
-  %3486 = load atomic i32, ptr %3478 monotonic, align 4
+  %3486 = load atomic i32, ptr %3478 monotonic, align 8
   %3487 = icmp ult i32 %3486, 2
   %or.cond.not.i.i2067 = select i1 %3487, i1 %3485, i1 false
   br i1 %or.cond.not.i.i2067, label %3490, label %3488
@@ -52185,7 +52185,7 @@ _ZN7QStringD2Ev.exit2066:                         ; preds = %_ZN7QStringD2Ev.exi
   %3507 = load i32, ptr %3506, align 8
   %3508 = and i32 %3507, 2147483647
   %3509 = icmp ule i32 %3505, %3508
-  %3510 = load atomic i32, ptr %3502 monotonic, align 4
+  %3510 = load atomic i32, ptr %3502 monotonic, align 8
   %3511 = icmp ult i32 %3510, 2
   %or.cond.not.i.i2074 = select i1 %3511, i1 %3509, i1 false
   br i1 %or.cond.not.i.i2074, label %3514, label %3512
@@ -52290,7 +52290,7 @@ _ZN7QStringD2Ev.exit2088:                         ; preds = %3540, %_ZN9QtPrivat
   %3551 = load i32, ptr %3550, align 8
   %3552 = and i32 %3551, 2147483647
   %3553 = icmp ule i32 %3549, %3552
-  %3554 = load atomic i32, ptr %3546 monotonic, align 4
+  %3554 = load atomic i32, ptr %3546 monotonic, align 8
   %3555 = icmp ult i32 %3554, 2
   %or.cond.not.i.i2089 = select i1 %3555, i1 %3553, i1 false
   br i1 %or.cond.not.i.i2089, label %3558, label %3556
@@ -52329,7 +52329,7 @@ _ZN7QStringD2Ev.exit2088:                         ; preds = %3540, %_ZN9QtPrivat
   %3575 = load i32, ptr %3574, align 8
   %3576 = and i32 %3575, 2147483647
   %3577 = icmp ule i32 %3573, %3576
-  %3578 = load atomic i32, ptr %3570 monotonic, align 4
+  %3578 = load atomic i32, ptr %3570 monotonic, align 8
   %3579 = icmp ult i32 %3578, 2
   %or.cond.not.i.i2096 = select i1 %3579, i1 %3577, i1 false
   br i1 %or.cond.not.i.i2096, label %3582, label %3580
@@ -53824,7 +53824,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QSt
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, 2147483647
   %31 = icmp ule i32 %27, %30
-  %32 = load atomic i32, ptr %24 monotonic, align 4
+  %32 = load atomic i32, ptr %24 monotonic, align 8
   %33 = icmp ult i32 %32, 2
   %or.cond.not.i.i = select i1 %33, i1 %31, i1 false
   br i1 %or.cond.not.i.i, label %36, label %34
@@ -53930,7 +53930,7 @@ _ZNSt4pairI7QStringS0_ED2Ev.exit:                 ; preds = %_ZN7QStringD2Ev.exi
   %70 = load i32, ptr %69, align 8
   %71 = and i32 %70, 2147483647
   %72 = icmp ule i32 %68, %71
-  %73 = load atomic i32, ptr %65 monotonic, align 4
+  %73 = load atomic i32, ptr %65 monotonic, align 8
   %74 = icmp ult i32 %73, 2
   %or.cond.not.i.i13 = select i1 %74, i1 %72, i1 false
   br i1 %or.cond.not.i.i13, label %77, label %75
@@ -54311,7 +54311,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QVectorI7QStrin
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 2147483647
   %47 = icmp ule i32 %43, %46
-  %48 = load atomic i32, ptr %40 monotonic, align 4
+  %48 = load atomic i32, ptr %40 monotonic, align 8
   %49 = icmp ult i32 %48, 2
   %or.cond.not.i.i = select i1 %49, i1 %47, i1 false
   br i1 %or.cond.not.i.i, label %52, label %50
@@ -54543,7 +54543,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QVectorI7QStrin
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 2147483647
   %47 = icmp ule i32 %43, %46
-  %48 = load atomic i32, ptr %40 monotonic, align 4
+  %48 = load atomic i32, ptr %40 monotonic, align 8
   %49 = icmp ult i32 %48, 2
   %or.cond.not.i.i = select i1 %49, i1 %47, i1 false
   br i1 %or.cond.not.i.i, label %52, label %50
@@ -55373,7 +55373,7 @@ _ZNSt4pairI7QStringS0_EC2IRA3_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstr
   %32 = load i32, ptr %31, align 8
   %33 = and i32 %32, 2147483647
   %34 = icmp ule i32 %30, %33
-  %35 = load atomic i32, ptr %27 monotonic, align 4
+  %35 = load atomic i32, ptr %27 monotonic, align 8
   %36 = icmp ult i32 %35, 2
   %or.cond.not.i.i = select i1 %36, i1 %34, i1 false
   br i1 %or.cond.not.i.i, label %39, label %37
@@ -55479,7 +55479,7 @@ _ZNSt4pairI7QStringS0_EC2IRA5_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstr
   %73 = load i32, ptr %72, align 8
   %74 = and i32 %73, 2147483647
   %75 = icmp ule i32 %71, %74
-  %76 = load atomic i32, ptr %68 monotonic, align 4
+  %76 = load atomic i32, ptr %68 monotonic, align 8
   %77 = icmp ult i32 %76, 2
   %or.cond.not.i.i15 = select i1 %77, i1 %75, i1 false
   br i1 %or.cond.not.i.i15, label %80, label %78
@@ -55890,7 +55890,7 @@ _ZNSt4pairI7QStringS0_EC2IRA3_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstr
   %32 = load i32, ptr %31, align 8
   %33 = and i32 %32, 2147483647
   %34 = icmp ule i32 %30, %33
-  %35 = load atomic i32, ptr %27 monotonic, align 4
+  %35 = load atomic i32, ptr %27 monotonic, align 8
   %36 = icmp ult i32 %35, 2
   %or.cond.not.i.i = select i1 %36, i1 %34, i1 false
   br i1 %or.cond.not.i.i, label %39, label %37
@@ -55996,7 +55996,7 @@ _ZNSt4pairI7QStringS0_EC2IRA5_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstr
   %73 = load i32, ptr %72, align 8
   %74 = and i32 %73, 2147483647
   %75 = icmp ule i32 %71, %74
-  %76 = load atomic i32, ptr %68 monotonic, align 4
+  %76 = load atomic i32, ptr %68 monotonic, align 8
   %77 = icmp ult i32 %76, 2
   %or.cond.not.i.i15 = select i1 %77, i1 %75, i1 false
   br i1 %or.cond.not.i.i15, label %80, label %78
@@ -56345,7 +56345,7 @@ _ZNSt4pairI7QStringS0_EC2IRA4_KcKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstru
   %53 = load i32, ptr %52, align 8
   %54 = and i32 %53, 2147483647
   %55 = icmp ule i32 %51, %54
-  %56 = load atomic i32, ptr %48 monotonic, align 4
+  %56 = load atomic i32, ptr %48 monotonic, align 8
   %57 = icmp ult i32 %56, 2
   %or.cond.not.i.i = select i1 %57, i1 %55, i1 false
   br i1 %or.cond.not.i.i, label %60, label %58
@@ -56630,7 +56630,7 @@ _ZNSt4pairI7QStringS0_EC2IRA3_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstr
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, 2147483647
   %32 = icmp ule i32 %28, %31
-  %33 = load atomic i32, ptr %25 monotonic, align 4
+  %33 = load atomic i32, ptr %25 monotonic, align 8
   %34 = icmp ult i32 %33, 2
   %or.cond.not.i.i = select i1 %34, i1 %32, i1 false
   br i1 %or.cond.not.i.i, label %37, label %35
@@ -56877,7 +56877,7 @@ _ZNSt4pairI7QStringS0_EC2IRA4_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstr
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, 2147483647
   %32 = icmp ule i32 %28, %31
-  %33 = load atomic i32, ptr %25 monotonic, align 4
+  %33 = load atomic i32, ptr %25 monotonic, align 8
   %34 = icmp ult i32 %33, 2
   %or.cond.not.i.i = select i1 %34, i1 %32, i1 false
   br i1 %or.cond.not.i.i, label %37, label %35
@@ -57064,7 +57064,7 @@ _ZNSt4pairI7QStringS0_EC2IRA5_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstr
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, 2147483647
   %32 = icmp ule i32 %28, %31
-  %33 = load atomic i32, ptr %25 monotonic, align 4
+  %33 = load atomic i32, ptr %25 monotonic, align 8
   %34 = icmp ult i32 %33, 2
   %or.cond.not.i.i = select i1 %34, i1 %32, i1 false
   br i1 %or.cond.not.i.i, label %37, label %35
@@ -57943,7 +57943,7 @@ _ZNSt4pairI7QStringS0_EC2IRA4_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstr
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, 2147483647
   %32 = icmp ule i32 %28, %31
-  %33 = load atomic i32, ptr %25 monotonic, align 4
+  %33 = load atomic i32, ptr %25 monotonic, align 8
   %34 = icmp ult i32 %33, 2
   %or.cond.not.i.i = select i1 %34, i1 %32, i1 false
   br i1 %or.cond.not.i.i, label %37, label %35
@@ -58328,7 +58328,7 @@ _ZNSt4pairI7QStringS0_EC2IRA8_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstr
   %53 = load i32, ptr %52, align 8
   %54 = and i32 %53, 2147483647
   %55 = icmp ule i32 %51, %54
-  %56 = load atomic i32, ptr %48 monotonic, align 4
+  %56 = load atomic i32, ptr %48 monotonic, align 8
   %57 = icmp ult i32 %56, 2
   %or.cond.not.i.i = select i1 %57, i1 %55, i1 false
   br i1 %or.cond.not.i.i, label %60, label %58
@@ -58434,7 +58434,7 @@ _ZNSt4pairI7QStringS0_EC2IRA9_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstr
   %94 = load i32, ptr %93, align 8
   %95 = and i32 %94, 2147483647
   %96 = icmp ule i32 %92, %95
-  %97 = load atomic i32, ptr %89 monotonic, align 4
+  %97 = load atomic i32, ptr %89 monotonic, align 8
   %98 = icmp ult i32 %97, 2
   %or.cond.not.i.i17 = select i1 %98, i1 %96, i1 false
   br i1 %or.cond.not.i.i17, label %101, label %99
@@ -58560,7 +58560,7 @@ define linkonce_odr void @_ZN7Collada15DocumentManager20connectHierarchyNodeEP15
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 2147483647
   %12 = icmp ule i32 %8, %11
-  %13 = load atomic i32, ptr %5 monotonic, align 4
+  %13 = load atomic i32, ptr %5 monotonic, align 8
   %14 = icmp ult i32 %13, 2
   %or.cond.not.i.i = select i1 %14, i1 %12, i1 false
   br i1 %or.cond.not.i.i, label %_ZN7QVectorIP7XMLNodeE9push_backEOS1_.exit, label %15
@@ -58597,7 +58597,7 @@ _ZN7QVectorIP7XMLNodeE9push_backEOS1_.exit:       ; preds = %3, %15
   %34 = load i32, ptr %33, align 8
   %35 = and i32 %34, 2147483647
   %36 = icmp ule i32 %32, %35
-  %37 = load atomic i32, ptr %29 monotonic, align 4
+  %37 = load atomic i32, ptr %29 monotonic, align 8
   %38 = icmp ult i32 %37, 2
   %or.cond.not.i.i4 = select i1 %38, i1 %36, i1 false
   br i1 %or.cond.not.i.i4, label %_ZN7QVectorIP7XMLNodeE9push_backEOS1_.exit9, label %39
@@ -58639,7 +58639,7 @@ define linkonce_odr void @_ZN7Collada15DocumentManager20connectHierarchyNodeEP15
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 2147483647
   %12 = icmp ule i32 %8, %11
-  %13 = load atomic i32, ptr %5 monotonic, align 4
+  %13 = load atomic i32, ptr %5 monotonic, align 8
   %14 = icmp ult i32 %13, 2
   %or.cond.not.i.i = select i1 %14, i1 %12, i1 false
   br i1 %or.cond.not.i.i, label %_ZN7QVectorIP7XMLNodeE9push_backEOS1_.exit, label %15
@@ -58676,7 +58676,7 @@ _ZN7QVectorIP7XMLNodeE9push_backEOS1_.exit:       ; preds = %3, %15
   %34 = load i32, ptr %33, align 8
   %35 = and i32 %34, 2147483647
   %36 = icmp ule i32 %32, %35
-  %37 = load atomic i32, ptr %29 monotonic, align 4
+  %37 = load atomic i32, ptr %29 monotonic, align 8
   %38 = icmp ult i32 %37, 2
   %or.cond.not.i.i4 = select i1 %38, i1 %36, i1 false
   br i1 %or.cond.not.i.i4, label %_ZN7QVectorIP7XMLNodeE9push_backEOS1_.exit9, label %39
@@ -58855,7 +58855,7 @@ _ZNSt4pairI7QStringS0_EC2IRA3_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstr
   %32 = load i32, ptr %31, align 8
   %33 = and i32 %32, 2147483647
   %34 = icmp ule i32 %30, %33
-  %35 = load atomic i32, ptr %27 monotonic, align 4
+  %35 = load atomic i32, ptr %27 monotonic, align 8
   %36 = icmp ult i32 %35, 2
   %or.cond.not.i.i = select i1 %36, i1 %34, i1 false
   br i1 %or.cond.not.i.i, label %39, label %37
@@ -58961,7 +58961,7 @@ _ZNSt4pairI7QStringS0_EC2IRA5_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstr
   %73 = load i32, ptr %72, align 8
   %74 = and i32 %73, 2147483647
   %75 = icmp ule i32 %71, %74
-  %76 = load atomic i32, ptr %68 monotonic, align 4
+  %76 = load atomic i32, ptr %68 monotonic, align 8
   %77 = icmp ult i32 %76, 2
   %or.cond.not.i.i15 = select i1 %77, i1 %75, i1 false
   br i1 %or.cond.not.i.i15, label %80, label %78
@@ -59292,7 +59292,7 @@ _ZNSt4pairI7QStringS0_EC2IRA3_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstr
   %53 = load i32, ptr %52, align 8
   %54 = and i32 %53, 2147483647
   %55 = icmp ule i32 %51, %54
-  %56 = load atomic i32, ptr %48 monotonic, align 4
+  %56 = load atomic i32, ptr %48 monotonic, align 8
   %57 = icmp ult i32 %56, 2
   %or.cond.not.i.i = select i1 %57, i1 %55, i1 false
   br i1 %or.cond.not.i.i, label %60, label %58
@@ -59398,7 +59398,7 @@ _ZNSt4pairI7QStringS0_EC2IRA5_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstr
   %94 = load i32, ptr %93, align 8
   %95 = and i32 %94, 2147483647
   %96 = icmp ule i32 %92, %95
-  %97 = load atomic i32, ptr %89 monotonic, align 4
+  %97 = load atomic i32, ptr %89 monotonic, align 8
   %98 = icmp ult i32 %97, 2
   %or.cond.not.i.i17 = select i1 %98, i1 %96, i1 false
   br i1 %or.cond.not.i.i17, label %101, label %99
@@ -59684,7 +59684,7 @@ _ZNSt4pairI7QStringS0_EC2IRA3_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstr
   %65 = load i32, ptr %64, align 8
   %66 = and i32 %65, 2147483647
   %67 = icmp ule i32 %63, %66
-  %68 = load atomic i32, ptr %60 monotonic, align 4
+  %68 = load atomic i32, ptr %60 monotonic, align 8
   %69 = icmp ult i32 %68, 2
   %or.cond.not.i.i = select i1 %69, i1 %67, i1 false
   br i1 %or.cond.not.i.i, label %72, label %70
@@ -59785,7 +59785,7 @@ _ZNSt4pairI7QStringS0_ED2Ev.exit:                 ; preds = %_ZN7QStringD2Ev.exi
   %104 = load i32, ptr %103, align 8
   %105 = and i32 %104, 2147483647
   %106 = icmp ule i32 %102, %105
-  %107 = load atomic i32, ptr %99 monotonic, align 4
+  %107 = load atomic i32, ptr %99 monotonic, align 8
   %108 = icmp ult i32 %107, 2
   %or.cond.not.i.i50 = select i1 %108, i1 %106, i1 false
   br i1 %or.cond.not.i.i50, label %111, label %109
@@ -59951,7 +59951,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit.us:            ; preds = %152, %.lr.ph.split.
   %166 = load i32, ptr %165, align 8
   %167 = and i32 %166, 2147483647
   %168 = icmp ule i32 %164, %167
-  %169 = load atomic i32, ptr %161 monotonic, align 4
+  %169 = load atomic i32, ptr %161 monotonic, align 8
   %170 = icmp ult i32 %169, 2
   %or.cond.not.i.i100.us = select i1 %170, i1 %168, i1 false
   br i1 %or.cond.not.i.i100.us, label %173, label %171
@@ -60034,7 +60034,7 @@ _ZN7QStringD2Ev.exit86.us197:                     ; preds = %_ZN9QtPrivate8RefCo
   %203 = load i32, ptr %202, align 8
   %204 = and i32 %203, 2147483647
   %205 = icmp ule i32 %201, %204
-  %206 = load atomic i32, ptr %198 monotonic, align 4
+  %206 = load atomic i32, ptr %198 monotonic, align 8
   %207 = icmp ult i32 %206, 2
   %or.cond.not.i.i75.us.us = select i1 %207, i1 %205, i1 false
   br i1 %or.cond.not.i.i75.us.us, label %210, label %208
@@ -60112,7 +60112,7 @@ _ZN7QStringD2Ev.exit86.us.us:                     ; preds = %_ZN9QtPrivate8RefCo
   %239 = load i32, ptr %238, align 8
   %240 = and i32 %239, 2147483647
   %241 = icmp ule i32 %237, %240
-  %242 = load atomic i32, ptr %234 monotonic, align 4
+  %242 = load atomic i32, ptr %234 monotonic, align 8
   %243 = icmp ult i32 %242, 2
   %or.cond.not.i.i87.us.us = select i1 %243, i1 %241, i1 false
   br i1 %or.cond.not.i.i87.us.us, label %246, label %244
@@ -60301,7 +60301,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit114.us:         ; preds = %291, %283
   %305 = load i32, ptr %304, align 8
   %306 = and i32 %305, 2147483647
   %307 = icmp ule i32 %303, %306
-  %308 = load atomic i32, ptr %300 monotonic, align 4
+  %308 = load atomic i32, ptr %300 monotonic, align 8
   %309 = icmp ult i32 %308, 2
   %or.cond.not.i.i115.us = select i1 %309, i1 %307, i1 false
   br i1 %or.cond.not.i.i115.us, label %312, label %310
@@ -60415,7 +60415,7 @@ _ZN7QStringD2Ev.exit127.us:                       ; preds = %_ZN9QtPrivate8RefCo
   %353 = load i32, ptr %352, align 8
   %354 = and i32 %353, 2147483647
   %355 = icmp ule i32 %351, %354
-  %356 = load atomic i32, ptr %348 monotonic, align 4
+  %356 = load atomic i32, ptr %348 monotonic, align 8
   %357 = icmp ult i32 %356, 2
   %or.cond.not.i.i128 = select i1 %357, i1 %355, i1 false
   br i1 %or.cond.not.i.i128, label %360, label %358
@@ -60493,7 +60493,7 @@ _ZN7QStringD2Ev.exit140:                          ; preds = %360, %_ZN9QtPrivate
   %394 = load i32, ptr %393, align 8
   %395 = and i32 %394, 2147483647
   %396 = icmp ule i32 %392, %395
-  %397 = load atomic i32, ptr %389 monotonic, align 4
+  %397 = load atomic i32, ptr %389 monotonic, align 8
   %398 = icmp ult i32 %397, 2
   %or.cond.not.i.i141 = select i1 %398, i1 %396, i1 false
   br i1 %or.cond.not.i.i141, label %401, label %399
@@ -60727,7 +60727,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QSt
   %35 = load i32, ptr %34, align 8
   %36 = and i32 %35, 2147483647
   %37 = icmp ule i32 %33, %36
-  %38 = load atomic i32, ptr %30 monotonic, align 4
+  %38 = load atomic i32, ptr %30 monotonic, align 8
   %39 = icmp ult i32 %38, 2
   %or.cond.not.i.i = select i1 %39, i1 %37, i1 false
   br i1 %or.cond.not.i.i, label %42, label %40
@@ -60857,7 +60857,7 @@ _ZNSt4pairI7QStringS0_EC2IRA7_KcKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstru
   %79 = load i32, ptr %78, align 8
   %80 = and i32 %79, 2147483647
   %81 = icmp ule i32 %77, %80
-  %82 = load atomic i32, ptr %74 monotonic, align 4
+  %82 = load atomic i32, ptr %74 monotonic, align 8
   %83 = icmp ult i32 %82, 2
   %or.cond.not.i.i27 = select i1 %83, i1 %81, i1 false
   br i1 %or.cond.not.i.i27, label %86, label %84
@@ -60980,7 +60980,7 @@ _ZN7QStringD2Ev.exit51:                           ; preds = %_ZNSt4pairI7QString
   %122 = load i32, ptr %121, align 8
   %123 = and i32 %122, 2147483647
   %124 = icmp ule i32 %120, %123
-  %125 = load atomic i32, ptr %117 monotonic, align 4
+  %125 = load atomic i32, ptr %117 monotonic, align 8
   %126 = icmp ult i32 %125, 2
   %or.cond.not.i.i53 = select i1 %126, i1 %124, i1 false
   br i1 %or.cond.not.i.i53, label %129, label %127
@@ -61230,7 +61230,7 @@ _ZNSt4pairI7QStringS0_EC2IRA5_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstr
   %32 = load i32, ptr %31, align 8
   %33 = and i32 %32, 2147483647
   %34 = icmp ule i32 %30, %33
-  %35 = load atomic i32, ptr %27 monotonic, align 4
+  %35 = load atomic i32, ptr %27 monotonic, align 8
   %36 = icmp ult i32 %35, 2
   %or.cond.not.i.i = select i1 %36, i1 %34, i1 false
   br i1 %or.cond.not.i.i, label %39, label %37
@@ -61336,7 +61336,7 @@ _ZNSt4pairI7QStringS0_EC2IRA5_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstr
   %73 = load i32, ptr %72, align 8
   %74 = and i32 %73, 2147483647
   %75 = icmp ule i32 %71, %74
-  %76 = load atomic i32, ptr %68 monotonic, align 4
+  %76 = load atomic i32, ptr %68 monotonic, align 8
   %77 = icmp ult i32 %76, 2
   %or.cond.not.i.i16 = select i1 %77, i1 %75, i1 false
   br i1 %or.cond.not.i.i16, label %80, label %78
@@ -61529,7 +61529,7 @@ _ZNSt4pairI7QStringS0_EC2IRA3_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstr
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, 2147483647
   %32 = icmp ule i32 %28, %31
-  %33 = load atomic i32, ptr %25 monotonic, align 4
+  %33 = load atomic i32, ptr %25 monotonic, align 8
   %34 = icmp ult i32 %33, 2
   %or.cond.not.i.i = select i1 %34, i1 %32, i1 false
   br i1 %or.cond.not.i.i, label %37, label %35
@@ -61718,7 +61718,7 @@ _ZNSt4pairI7QStringS0_EC2IRA9_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstr
   %33 = load i32, ptr %32, align 8
   %34 = and i32 %33, 2147483647
   %35 = icmp ule i32 %31, %34
-  %36 = load atomic i32, ptr %28 monotonic, align 4
+  %36 = load atomic i32, ptr %28 monotonic, align 8
   %37 = icmp ult i32 %36, 2
   %or.cond.not.i.i = select i1 %37, i1 %35, i1 false
   br i1 %or.cond.not.i.i, label %40, label %38
@@ -61828,7 +61828,7 @@ _ZNSt4pairI7QStringS0_EC2IRA7_KcKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstru
   %75 = load i32, ptr %74, align 8
   %76 = and i32 %75, 2147483647
   %77 = icmp ule i32 %73, %76
-  %78 = load atomic i32, ptr %70 monotonic, align 4
+  %78 = load atomic i32, ptr %70 monotonic, align 8
   %79 = icmp ult i32 %78, 2
   %or.cond.not.i.i17 = select i1 %79, i1 %77, i1 false
   br i1 %or.cond.not.i.i17, label %82, label %80
@@ -62038,7 +62038,7 @@ _ZN7QVectorIS_IiEEixEi.exit:                      ; preds = %.lr.ph, %33, %35
   %47 = load i32, ptr %46, align 8
   %48 = and i32 %47, 2147483647
   %49 = icmp ule i32 %45, %48
-  %50 = load atomic i32, ptr %42 monotonic, align 4
+  %50 = load atomic i32, ptr %42 monotonic, align 8
   %51 = icmp ult i32 %50, 2
   %or.cond.not.i.i = select i1 %51, i1 %49, i1 false
   br i1 %or.cond.not.i.i, label %60, label %52
@@ -62162,7 +62162,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QSt
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, 2147483647
   %31 = icmp ule i32 %27, %30
-  %32 = load atomic i32, ptr %24 monotonic, align 4
+  %32 = load atomic i32, ptr %24 monotonic, align 8
   %33 = icmp ult i32 %32, 2
   %or.cond.not.i.i = select i1 %33, i1 %31, i1 false
   br i1 %or.cond.not.i.i, label %36, label %34
@@ -62378,7 +62378,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QSt
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %31, 2147483647
   %33 = icmp ule i32 %29, %32
-  %34 = load atomic i32, ptr %26 monotonic, align 4
+  %34 = load atomic i32, ptr %26 monotonic, align 8
   %35 = icmp ult i32 %34, 2
   %or.cond.not.i.i = select i1 %35, i1 %33, i1 false
   br i1 %or.cond.not.i.i, label %38, label %36
@@ -62504,7 +62504,7 @@ _ZNSt4pairI7QStringS0_EC2IRA9_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstr
   %74 = load i32, ptr %73, align 8
   %75 = and i32 %74, 2147483647
   %76 = icmp ule i32 %72, %75
-  %77 = load atomic i32, ptr %69 monotonic, align 4
+  %77 = load atomic i32, ptr %69 monotonic, align 8
   %78 = icmp ult i32 %77, 2
   %or.cond.not.i.i21 = select i1 %78, i1 %76, i1 false
   br i1 %or.cond.not.i.i21, label %81, label %79
@@ -62706,7 +62706,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QSt
   %34 = load i32, ptr %33, align 8
   %35 = and i32 %34, 2147483647
   %36 = icmp ule i32 %32, %35
-  %37 = load atomic i32, ptr %29 monotonic, align 4
+  %37 = load atomic i32, ptr %29 monotonic, align 8
   %38 = icmp ult i32 %37, 2
   %or.cond.not.i.i = select i1 %38, i1 %36, i1 false
   br i1 %or.cond.not.i.i, label %41, label %39
@@ -62832,7 +62832,7 @@ _ZNSt4pairI7QStringS0_EC2IRA9_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstr
   %77 = load i32, ptr %76, align 8
   %78 = and i32 %77, 2147483647
   %79 = icmp ule i32 %75, %78
-  %80 = load atomic i32, ptr %72 monotonic, align 4
+  %80 = load atomic i32, ptr %72 monotonic, align 8
   %81 = icmp ult i32 %80, 2
   %or.cond.not.i.i24 = select i1 %81, i1 %79, i1 false
   br i1 %or.cond.not.i.i24, label %84, label %82
@@ -62942,7 +62942,7 @@ _ZNSt4pairI7QStringS0_EC2IRA7_KcKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstru
   %119 = load i32, ptr %118, align 8
   %120 = and i32 %119, 2147483647
   %121 = icmp ule i32 %117, %120
-  %122 = load atomic i32, ptr %114 monotonic, align 4
+  %122 = load atomic i32, ptr %114 monotonic, align 8
   %123 = icmp ult i32 %122, 2
   %or.cond.not.i.i46 = select i1 %123, i1 %121, i1 false
   br i1 %or.cond.not.i.i46, label %126, label %124
@@ -63279,7 +63279,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QVectorI7QStrin
   %69 = load i32, ptr %68, align 8
   %70 = and i32 %69, 2147483647
   %71 = icmp ule i32 %67, %70
-  %72 = load atomic i32, ptr %64 monotonic, align 4
+  %72 = load atomic i32, ptr %64 monotonic, align 8
   %73 = icmp ult i32 %72, 2
   %or.cond.not.i.i.us = select i1 %73, i1 %71, i1 false
   br i1 %or.cond.not.i.i.us, label %76, label %74
@@ -63349,7 +63349,7 @@ _ZN7QStringD2Ev.exit36.us:                        ; preds = %_ZN9QtPrivate8RefCo
   %100 = load i32, ptr %99, align 8
   %101 = and i32 %100, 2147483647
   %102 = icmp ule i32 %98, %101
-  %103 = load atomic i32, ptr %95 monotonic, align 4
+  %103 = load atomic i32, ptr %95 monotonic, align 8
   %104 = icmp ult i32 %103, 2
   %or.cond.not.i.i37.us = select i1 %104, i1 %102, i1 false
   br i1 %or.cond.not.i.i37.us, label %107, label %105
@@ -63419,7 +63419,7 @@ _ZN7QStringD2Ev.exit49.us:                        ; preds = %_ZN9QtPrivate8RefCo
   %131 = load i32, ptr %130, align 8
   %132 = and i32 %131, 2147483647
   %133 = icmp ule i32 %129, %132
-  %134 = load atomic i32, ptr %126 monotonic, align 4
+  %134 = load atomic i32, ptr %126 monotonic, align 8
   %135 = icmp ult i32 %134, 2
   %or.cond.not.i.i50.us = select i1 %135, i1 %133, i1 false
   br i1 %or.cond.not.i.i50.us, label %138, label %136
@@ -63490,7 +63490,7 @@ _ZN7QStringD2Ev.exit62.us:                        ; preds = %_ZN9QtPrivate8RefCo
   %163 = load i32, ptr %162, align 8
   %164 = and i32 %163, 2147483647
   %165 = icmp ule i32 %161, %164
-  %166 = load atomic i32, ptr %158 monotonic, align 4
+  %166 = load atomic i32, ptr %158 monotonic, align 8
   %167 = icmp ult i32 %166, 2
   %or.cond.not.i.i63.us = select i1 %167, i1 %165, i1 false
   br i1 %or.cond.not.i.i63.us, label %170, label %168
@@ -63843,7 +63843,7 @@ _ZN7QVectorIiE5beginEv.exit.split.us:             ; preds = %_ZN7QVectorIiE5begi
   %101 = load i32, ptr %100, align 8
   %102 = and i32 %101, 2147483647
   %103 = icmp ule i32 %99, %102
-  %104 = load atomic i32, ptr %96 monotonic, align 4
+  %104 = load atomic i32, ptr %96 monotonic, align 8
   %105 = icmp ult i32 %104, 2
   %or.cond.not.i.i.us = select i1 %105, i1 %103, i1 false
   br i1 %or.cond.not.i.i.us, label %108, label %106
@@ -63913,7 +63913,7 @@ _ZN7QStringD2Ev.exit47.us:                        ; preds = %_ZN9QtPrivate8RefCo
   %132 = load i32, ptr %131, align 8
   %133 = and i32 %132, 2147483647
   %134 = icmp ule i32 %130, %133
-  %135 = load atomic i32, ptr %127 monotonic, align 4
+  %135 = load atomic i32, ptr %127 monotonic, align 8
   %136 = icmp ult i32 %135, 2
   %or.cond.not.i.i48.us = select i1 %136, i1 %134, i1 false
   br i1 %or.cond.not.i.i48.us, label %139, label %137
@@ -63984,7 +63984,7 @@ _ZN7QStringD2Ev.exit60.us:                        ; preds = %_ZN9QtPrivate8RefCo
   %164 = load i32, ptr %163, align 8
   %165 = and i32 %164, 2147483647
   %166 = icmp ule i32 %162, %165
-  %167 = load atomic i32, ptr %159 monotonic, align 4
+  %167 = load atomic i32, ptr %159 monotonic, align 8
   %168 = icmp ult i32 %167, 2
   %or.cond.not.i.i61.us = select i1 %168, i1 %166, i1 false
   br i1 %or.cond.not.i.i61.us, label %171, label %169
@@ -64057,7 +64057,7 @@ _ZN7QStringD2Ev.exit73.us:                        ; preds = %_ZN9QtPrivate8RefCo
   %198 = load i32, ptr %197, align 8
   %199 = and i32 %198, 2147483647
   %200 = icmp ule i32 %196, %199
-  %201 = load atomic i32, ptr %193 monotonic, align 4
+  %201 = load atomic i32, ptr %193 monotonic, align 8
   %202 = icmp ult i32 %201, 2
   %or.cond.not.i.i74.us = select i1 %202, i1 %200, i1 false
   br i1 %or.cond.not.i.i74.us, label %205, label %203
@@ -64369,7 +64369,7 @@ _ZNSt4pairI7QStringS0_EC2IRA3_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstr
   %32 = load i32, ptr %31, align 8
   %33 = and i32 %32, 2147483647
   %34 = icmp ule i32 %30, %33
-  %35 = load atomic i32, ptr %27 monotonic, align 4
+  %35 = load atomic i32, ptr %27 monotonic, align 8
   %36 = icmp ult i32 %35, 2
   %or.cond.not.i.i = select i1 %36, i1 %34, i1 false
   br i1 %or.cond.not.i.i, label %39, label %37
@@ -64475,7 +64475,7 @@ _ZNSt4pairI7QStringS0_EC2IRA5_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstr
   %73 = load i32, ptr %72, align 8
   %74 = and i32 %73, 2147483647
   %75 = icmp ule i32 %71, %74
-  %76 = load atomic i32, ptr %68 monotonic, align 4
+  %76 = load atomic i32, ptr %68 monotonic, align 8
   %77 = icmp ult i32 %76, 2
   %or.cond.not.i.i15 = select i1 %77, i1 %75, i1 false
   br i1 %or.cond.not.i.i15, label %80, label %78
@@ -64669,7 +64669,7 @@ _ZNSt4pairI7QStringS0_EC2IRA3_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstr
   %32 = load i32, ptr %31, align 8
   %33 = and i32 %32, 2147483647
   %34 = icmp ule i32 %30, %33
-  %35 = load atomic i32, ptr %27 monotonic, align 4
+  %35 = load atomic i32, ptr %27 monotonic, align 8
   %36 = icmp ult i32 %35, 2
   %or.cond.not.i.i = select i1 %36, i1 %34, i1 false
   br i1 %or.cond.not.i.i, label %39, label %37
@@ -64775,7 +64775,7 @@ _ZNSt4pairI7QStringS0_EC2IRA5_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstr
   %73 = load i32, ptr %72, align 8
   %74 = and i32 %73, 2147483647
   %75 = icmp ule i32 %71, %74
-  %76 = load atomic i32, ptr %68 monotonic, align 4
+  %76 = load atomic i32, ptr %68 monotonic, align 8
   %77 = icmp ult i32 %76, 2
   %or.cond.not.i.i15 = select i1 %77, i1 %75, i1 false
   br i1 %or.cond.not.i.i15, label %80, label %78
@@ -64973,7 +64973,7 @@ _ZNSt4pairI7QStringS0_EC2IRA4_KcKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstru
   %32 = load i32, ptr %31, align 8
   %33 = and i32 %32, 2147483647
   %34 = icmp ule i32 %30, %33
-  %35 = load atomic i32, ptr %27 monotonic, align 4
+  %35 = load atomic i32, ptr %27 monotonic, align 8
   %36 = icmp ult i32 %35, 2
   %or.cond.not.i.i = select i1 %36, i1 %34, i1 false
   br i1 %or.cond.not.i.i, label %39, label %37
@@ -65254,7 +65254,7 @@ _ZNSt4pairI7QStringS0_EC2IRA7_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstr
   %33 = load i32, ptr %32, align 8
   %34 = and i32 %33, 2147483647
   %35 = icmp ule i32 %31, %34
-  %36 = load atomic i32, ptr %28 monotonic, align 4
+  %36 = load atomic i32, ptr %28 monotonic, align 8
   %37 = icmp ult i32 %36, 2
   %or.cond.not.i.i = select i1 %37, i1 %35, i1 false
   br i1 %or.cond.not.i.i, label %40, label %38
@@ -65364,7 +65364,7 @@ _ZNSt4pairI7QStringS0_EC2IRA7_KcKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstru
   %75 = load i32, ptr %74, align 8
   %76 = and i32 %75, 2147483647
   %77 = icmp ule i32 %73, %76
-  %78 = load atomic i32, ptr %70 monotonic, align 4
+  %78 = load atomic i32, ptr %70 monotonic, align 8
   %79 = icmp ult i32 %78, 2
   %or.cond.not.i.i17 = select i1 %79, i1 %77, i1 false
   br i1 %or.cond.not.i.i17, label %82, label %80
@@ -65590,7 +65590,7 @@ _ZNSt4pairI7QStringS0_EC2IRA9_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstr
   %33 = load i32, ptr %32, align 8
   %34 = and i32 %33, 2147483647
   %35 = icmp ule i32 %31, %34
-  %36 = load atomic i32, ptr %28 monotonic, align 4
+  %36 = load atomic i32, ptr %28 monotonic, align 8
   %37 = icmp ult i32 %36, 2
   %or.cond.not.i.i = select i1 %37, i1 %35, i1 false
   br i1 %or.cond.not.i.i, label %40, label %38
@@ -65696,7 +65696,7 @@ _ZNSt4pairI7QStringS0_EC2IRA15_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConst
   %74 = load i32, ptr %73, align 8
   %75 = and i32 %74, 2147483647
   %76 = icmp ule i32 %72, %75
-  %77 = load atomic i32, ptr %69 monotonic, align 4
+  %77 = load atomic i32, ptr %69 monotonic, align 8
   %78 = icmp ult i32 %77, 2
   %or.cond.not.i.i15 = select i1 %78, i1 %76, i1 false
   br i1 %or.cond.not.i.i15, label %81, label %79
@@ -65816,7 +65816,7 @@ define linkonce_odr void @_ZN7Collada15DocumentManager20connectHierarchyNodeEP15
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 2147483647
   %14 = icmp ule i32 %10, %13
-  %15 = load atomic i32, ptr %7 monotonic, align 4
+  %15 = load atomic i32, ptr %7 monotonic, align 8
   %16 = icmp ult i32 %15, 2
   %or.cond.not.i.i = select i1 %16, i1 %14, i1 false
   br i1 %or.cond.not.i.i, label %25, label %17
@@ -65859,7 +65859,7 @@ _ZN7QVectorIP7XMLNodeE9push_backERKS1_.exit:      ; preds = %17, %25
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 2147483647
   %43 = icmp ule i32 %39, %42
-  %44 = load atomic i32, ptr %36 monotonic, align 4
+  %44 = load atomic i32, ptr %36 monotonic, align 8
   %45 = icmp ult i32 %44, 2
   %or.cond.not.i.i7 = select i1 %45, i1 %43, i1 false
   br i1 %or.cond.not.i.i7, label %_ZN7QVectorIP7XMLNodeE9push_backEOS1_.exit, label %46
@@ -65896,7 +65896,7 @@ _ZN7QVectorIP7XMLNodeE9push_backEOS1_.exit:       ; preds = %_ZN7QVectorIP7XMLNo
   %65 = load i32, ptr %64, align 8
   %66 = and i32 %65, 2147483647
   %67 = icmp ule i32 %63, %66
-  %68 = load atomic i32, ptr %60 monotonic, align 4
+  %68 = load atomic i32, ptr %60 monotonic, align 8
   %69 = icmp ult i32 %68, 2
   %or.cond.not.i.i9 = select i1 %69, i1 %67, i1 false
   br i1 %or.cond.not.i.i9, label %_ZN7QVectorIP7XMLNodeE9push_backEOS1_.exit14, label %70
@@ -65933,7 +65933,7 @@ _ZN7QVectorIP7XMLNodeE9push_backEOS1_.exit14:     ; preds = %_ZN7QVectorIP7XMLNo
   %89 = load i32, ptr %88, align 8
   %90 = and i32 %89, 2147483647
   %91 = icmp ule i32 %87, %90
-  %92 = load atomic i32, ptr %84 monotonic, align 4
+  %92 = load atomic i32, ptr %84 monotonic, align 8
   %93 = icmp ult i32 %92, 2
   %or.cond.not.i.i15 = select i1 %93, i1 %91, i1 false
   br i1 %or.cond.not.i.i15, label %_ZN7QVectorIP7XMLNodeE9push_backEOS1_.exit20, label %94
@@ -66113,7 +66113,7 @@ _ZNSt4pairI7QStringS0_EC2IRA4_KcKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstru
   %32 = load i32, ptr %31, align 8
   %33 = and i32 %32, 2147483647
   %34 = icmp ule i32 %30, %33
-  %35 = load atomic i32, ptr %27 monotonic, align 4
+  %35 = load atomic i32, ptr %27 monotonic, align 8
   %36 = icmp ult i32 %35, 2
   %or.cond.not.i.i = select i1 %36, i1 %34, i1 false
   br i1 %or.cond.not.i.i, label %39, label %37
@@ -67153,7 +67153,7 @@ define linkonce_odr void @_ZN7QVectorI7QStringE6appendERKS0_(ptr noundef nonnull
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 2147483647
   %11 = icmp ule i32 %7, %10
-  %12 = load atomic i32, ptr %4 monotonic, align 4
+  %12 = load atomic i32, ptr %4 monotonic, align 8
   %13 = icmp ult i32 %12, 2
   %or.cond.not = select i1 %13, i1 %11, i1 false
   br i1 %or.cond.not, label %47, label %14
@@ -68878,7 +68878,7 @@ _ZN7QVectorIS_IiEE5beginEv.exit:                  ; preds = %33, %38, %40
   %44 = getelementptr inbounds i8, ptr %41, i64 %43
   %45 = sext i32 %1 to i64
   %46 = getelementptr inbounds %class.QVector.549, ptr %44, i64 %45
-  %47 = load atomic i32, ptr %41 monotonic, align 4
+  %47 = load atomic i32, ptr %41 monotonic, align 8
   %48 = icmp ult i32 %47, 2
   br i1 %48, label %_ZN7QVectorIS_IiEE3endEv.exit, label %49
 
@@ -68968,7 +68968,7 @@ _ZN7QVectorIS_IiEE3endEv.exit7:                   ; preds = %69, %74, %76
   %82 = load i32, ptr %81, align 4
   %83 = sext i32 %82 to i64
   %84 = getelementptr inbounds %class.QVector.549, ptr %80, i64 %83
-  %85 = load atomic i32, ptr %77 monotonic, align 4
+  %85 = load atomic i32, ptr %77 monotonic, align 8
   %86 = icmp ult i32 %85, 2
   br i1 %86, label %_ZN7QVectorIS_IiEE5beginEv.exit10, label %87
 

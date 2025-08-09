@@ -2416,13 +2416,13 @@ _ZN6google8protobuf8internal16InternalMetadata4SwapINSt7__cxx1112basic_stringIcS
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.0.copyload.i.i = load i128, ptr %40, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 1 dereferenceable(16) %41, i64 16, i1 false)
-  store i128 %.0.copyload.i.i, ptr %41, align 1
+  store i128 %.0.copyload.i.i, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.0.copyload.i.i.i = load i32, ptr %42, align 8
-  %44 = load i32, ptr %43, align 1
+  %44 = load i32, ptr %43, align 8
   store i32 %44, ptr %42, align 8
-  store i32 %.0.copyload.i.i.i, ptr %43, align 1
+  store i32 %.0.copyload.i.i.i, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %47 = load i32, ptr %45, align 4, !tbaa !33
@@ -2465,7 +2465,7 @@ define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4i1
   store ptr null, ptr %5, align 8, !tbaa !4
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4i18n12phonenumbers11PhoneNumberE, i64 16), ptr %4, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 0, ptr %6, align 4
+  store i32 0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 0, ptr %7, align 4, !tbaa !11
   %8 = load atomic i32, ptr @scc_info_PhoneNumber_phonenumber_2eproto acquire, align 8
@@ -2498,7 +2498,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %12, %15
   store ptr %0, ptr %17, align 8, !tbaa !4
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4i18n12phonenumbers11PhoneNumberE, i64 16), ptr %16, align 8, !tbaa !9
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i32 0, ptr %18, align 4
+  store i32 0, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i32 0, ptr %19, align 4, !tbaa !11
   %20 = load atomic i32, ptr @scc_info_PhoneNumber_phonenumber_2eproto acquire, align 8
@@ -2780,7 +2780,7 @@ _ZN6google8protobuf5Arena14CreateInternalINS0_8internal16InternalMetadata9Contai
   %17 = getelementptr inbounds nuw i8, ptr %.sink11, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %.sink11, i64 24
   store ptr %18, ptr %17, align 8, !tbaa !66
-  store i8 0, ptr %18, align 1, !tbaa !36
+  store i8 0, ptr %18, align 8, !tbaa !36
   %19 = ptrtoint ptr %.sink11 to i64
   %20 = or i64 %19, 1
   %21 = inttoptr i64 %20 to ptr

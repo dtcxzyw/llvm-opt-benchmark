@@ -3595,7 +3595,7 @@ define noundef ptr @_ZN3gmx11PullElement21getElementPointerImplEPNS_19LegacySimu
   %19 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #29, !noalias !250
   %20 = load i8, ptr %14, align 1, !tbaa !253, !range !21, !noalias !250, !noundef !22
   %21 = trunc nuw i8 %20 to i1
-  %22 = load i32, ptr %15, align 4, !tbaa !254, !noalias !250
+  %22 = load i32, ptr %15, align 8, !tbaa !254, !noalias !250
   %23 = load ptr, ptr %16, align 8, !tbaa !255, !noalias !250
   %24 = load ptr, ptr %17, align 8, !tbaa !256, !noalias !250
   %25 = load ptr, ptr %18, align 8, !tbaa !257, !noalias !250

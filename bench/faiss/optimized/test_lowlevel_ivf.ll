@@ -2674,7 +2674,7 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i122.i: ; preds = %_ZNSt6vector
 .noexc127.i:                                      ; preds = %166
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN12_GLOBAL__N_120test_threaded_searchEPKcN5faiss10MetricTypeEE3$_0iEEEEEE", i64 16), ptr %167, align 8, !tbaa !20
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
-  store i32 %storemerge64.i, ptr %168, align 4, !tbaa !136
+  store i32 %storemerge64.i, ptr %168, align 8, !tbaa !136
   %169 = getelementptr inbounds nuw i8, ptr %167, i64 16
   store ptr %40, ptr %169, align 8, !tbaa !138
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %167, i64 24
@@ -2770,7 +2770,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %183
 .noexc.i.i.i:                                     ; preds = %.noexc129.i
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN12_GLOBAL__N_120test_threaded_searchEPKcN5faiss10MetricTypeEE3$_0iEEEEEE", i64 16), ptr %198, align 8, !tbaa !20
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 8
-  store i32 %storemerge64.i, ptr %199, align 4, !tbaa !136
+  store i32 %storemerge64.i, ptr %199, align 8, !tbaa !136
   %200 = getelementptr inbounds nuw i8, ptr %198, i64 16
   store ptr %40, ptr %200, align 8, !tbaa !138
   %.sroa.6.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %198, i64 24
@@ -8175,7 +8175,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %8, ptr %7, align 8, !tbaa !207
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %9, align 8, !tbaa !77
-  store i8 0, ptr %8, align 1, !tbaa !17
+  store i8 0, ptr %8, align 8, !tbaa !17
   store ptr %7, ptr %4, align 8, !tbaa !89
   br label %10
 

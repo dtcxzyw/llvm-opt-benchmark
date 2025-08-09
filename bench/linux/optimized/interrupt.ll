@@ -160,7 +160,7 @@ select.unfold:                                    ; preds = %21, %7
 
 64:                                               ; preds = %58
   %65 = load ptr, ptr %0, align 8
-  %66 = load i32, ptr %4, align 1
+  %66 = load i32, ptr %4, align 8
   %67 = lshr i32 %66, 16
   %68 = and i32 %67, 511
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %65, ptr noundef nonnull @.str.3, i32 noundef %68) #7
@@ -234,12 +234,12 @@ select.unfold:                                    ; preds = %21, %7
   %115 = load i32, ptr %2, align 4
   %116 = add i32 %115, -1
   store i32 %116, ptr %2, align 4
-  %117 = load i32, ptr %4, align 1
+  %117 = load i32, ptr %4, align 8
   %118 = add i32 %117, 33292288
   %119 = and i32 %118, 33488896
   %120 = and i32 %117, -33488897
   %121 = or disjoint i32 %119, %120
-  store i32 %121, ptr %4, align 1
+  store i32 %121, ptr %4, align 8
   br label %122
 
 122:                                              ; preds = %104, %.loopexit40

@@ -3830,7 +3830,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit: ; preds = %1, %6
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %12, ptr %11, align 8, !tbaa !33
-  store i8 0, ptr %12, align 1, !tbaa !38
+  store i8 0, ptr %12, align 8, !tbaa !38
   br label %_ZN6google8protobuf5Arena14CreateInternalINS0_8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJEEEPT_PS1_St17integral_constantIbLb0EEDpOT0_.exit
 
 13:                                               ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit
@@ -3844,7 +3844,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit: ; preds = %1, %6
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %19, ptr %18, align 8, !tbaa !33
-  store i8 0, ptr %19, align 1, !tbaa !38
+  store i8 0, ptr %19, align 8, !tbaa !38
   %.pre = load i64, ptr %0, align 8, !tbaa !85
   br label %_ZN6google8protobuf5Arena14CreateInternalINS0_8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJEEEPT_PS1_St17integral_constantIbLb0EEDpOT0_.exit
 

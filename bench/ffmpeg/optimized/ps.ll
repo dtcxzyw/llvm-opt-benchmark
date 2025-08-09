@@ -216,7 +216,7 @@ decode_recovery_flag.exit:                        ; preds = %2, %24
   %110 = getelementptr inbounds nuw i8, ptr %102, i64 10
   %111 = load i8, ptr %110, align 2, !tbaa !72
   %112 = getelementptr inbounds nuw i8, ptr %64, i64 12
-  store i8 %111, ptr %112, align 1, !tbaa !69
+  store i8 %111, ptr %112, align 4, !tbaa !69
   %113 = getelementptr inbounds nuw i8, ptr %64, i64 13
   store i8 %111, ptr %113, align 1, !tbaa !69
   %114 = load i8, ptr %70, align 4, !tbaa !63

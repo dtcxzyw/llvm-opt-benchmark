@@ -1026,10 +1026,10 @@ define hidden noundef i32 @mbedtls_sha256_finish(ptr noundef %0, ptr noundef wri
   %24 = shl i32 %20, 3
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %26 = tail call i32 @llvm.bswap.i32(i32 %23)
-  store i32 %26, ptr %25, align 1
+  store i32 %26, ptr %25, align 4
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %28 = tail call i32 @llvm.bswap.i32(i32 %24)
-  store i32 %28, ptr %27, align 1
+  store i32 %28, ptr %27, align 4
   %29 = tail call i32 @mbedtls_internal_sha256_process(ptr noundef nonnull %0, ptr noundef nonnull %0)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %31 = load i32, ptr %30, align 4, !tbaa !7

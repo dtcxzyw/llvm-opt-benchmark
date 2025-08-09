@@ -3155,11 +3155,11 @@ zend_hrtime.exit124:                              ; preds = %._crit_edge371, %11
   %1176 = getelementptr inbounds nuw i8, ptr %1175, i64 16
   %1177 = load ptr, ptr %1176, align 8, !tbaa !72
   call void %1177(ptr noundef nonnull %1166) #19
-  %1178 = load i32, ptr %1166, align 4, !tbaa !40
+  %1178 = load i32, ptr %1166, align 8, !tbaa !40
   %1179 = icmp ne i32 %1178, 0
   call void @llvm.assume(i1 %1179)
   %1180 = add i32 %1178, -1
-  store i32 %1180, ptr %1166, align 4, !tbaa !40
+  store i32 %1180, ptr %1166, align 8, !tbaa !40
   %.pre467 = load ptr, ptr @gc_globals, align 8, !tbaa !16
   br label %.critedge.i
 
@@ -5244,11 +5244,11 @@ define internal void @zif_gc_destructor_fiber(ptr readnone captures(none) %0, pt
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !72
   tail call void %31(ptr noundef nonnull %19) #19
-  %32 = load i32, ptr %19, align 4, !tbaa !40
+  %32 = load i32, ptr %19, align 8, !tbaa !40
   %33 = icmp ne i32 %32, 0
   tail call void @llvm.assume(i1 %33)
   %34 = add i32 %32, -1
-  store i32 %34, ptr %19, align 4, !tbaa !40
+  store i32 %34, ptr %19, align 8, !tbaa !40
   %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 80), align 8
   %36 = icmp eq ptr %35, %3
   %.pre = load ptr, ptr @gc_globals, align 8, !tbaa !16

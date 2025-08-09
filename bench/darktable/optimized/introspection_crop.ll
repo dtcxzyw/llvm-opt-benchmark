@@ -178,7 +178,7 @@ define noundef i32 @distort_transform(ptr noundef readnone captures(none) %0, pt
   %11 = load float, ptr %10, align 4, !tbaa !27
   %12 = fmul reassoc nsz arcp contract afn float %11, %9
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %14 = load i32, ptr %13, align 8, !tbaa !29
+  %14 = load i32, ptr %13, align 16, !tbaa !29
   %15 = sitofp i32 %14 to float
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %17 = load float, ptr %16, align 4, !tbaa !30
@@ -226,7 +226,7 @@ define noundef i32 @distort_backtransform(ptr noundef readnone captures(none) %0
   %11 = load float, ptr %10, align 4, !tbaa !27
   %12 = fmul reassoc nsz arcp contract afn float %11, %9
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %14 = load i32, ptr %13, align 8, !tbaa !29
+  %14 = load i32, ptr %13, align 16, !tbaa !29
   %15 = sitofp i32 %14 to float
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %17 = load float, ptr %16, align 4, !tbaa !30
@@ -405,7 +405,7 @@ define void @modify_roi_in(ptr noundef readnone captures(none) %0, ptr noundef r
   %6 = load ptr, ptr %5, align 16, !tbaa !6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, ptr noundef nonnull align 4 dereferenceable(20) %2, i64 20, i1 false), !tbaa.struct !32
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %8 = load i32, ptr %7, align 8, !tbaa !29
+  %8 = load i32, ptr %7, align 16, !tbaa !29
   %9 = sitofp i32 %8 to float
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load float, ptr %10, align 4, !tbaa !78

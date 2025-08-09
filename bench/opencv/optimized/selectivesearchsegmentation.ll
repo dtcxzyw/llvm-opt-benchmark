@@ -14046,7 +14046,7 @@ _ZNK2cv4Mat_IiE5cloneEv.exit:                     ; preds = %10
   %.sroa.9220.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 8
   store i32 -1, ptr %.sroa.9220.0..sroa_idx, align 8, !tbaa !22
   %.sroa.11223.sroa.6.0..sroa.11223.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 16
-  store i64 0, ptr %.sroa.11223.sroa.6.0..sroa.11223.0..sroa_idx.sroa_idx, align 4, !tbaa !25
+  store i64 0, ptr %.sroa.11223.sroa.6.0..sroa.11223.0..sroa_idx.sroa_idx, align 8, !tbaa !25
   %.sroa.11223.sroa.7.0..sroa.11223.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.11223.sroa.7.0..sroa.11223.0..sroa_idx.sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.11223.sroa.7, i64 16, i1 false), !tbaa.struct !203
   %60 = load ptr, ptr %23, align 8, !tbaa !495
@@ -14091,7 +14091,7 @@ _ZNKSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EE12_M_check_lenEmPKc.exi
   %.sroa.9220.0..sroa_idx221 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store i32 -1, ptr %.sroa.9220.0..sroa_idx221, align 8, !tbaa !22
   %.sroa.11223.sroa.6.0..sroa.11223.0..sroa_idx224.sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 16
-  store i64 0, ptr %.sroa.11223.sroa.6.0..sroa.11223.0..sroa_idx224.sroa_idx, align 4, !tbaa !25
+  store i64 0, ptr %.sroa.11223.sroa.6.0..sroa.11223.0..sroa_idx224.sroa_idx, align 8, !tbaa !25
   %.sroa.11223.sroa.7.0..sroa.11223.0..sroa_idx224.sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.11223.sroa.7.0..sroa.11223.0..sroa_idx224.sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.11223.sroa.7, i64 16, i1 false), !tbaa.struct !203
   %.not10.i.i.i.i.i.i = icmp eq ptr %63, %56
@@ -14376,7 +14376,7 @@ _ZNSt6vectorIN2cv8ximgproc12segmentation9NeighbourESaIS3_EE9push_backERKS3_.exit
   %.sroa.9175.0..sroa_idx = getelementptr inbounds nuw i8, ptr %160, i64 8
   store i32 -1, ptr %.sroa.9175.0..sroa_idx, align 8, !tbaa !22
   %.sroa.11.sroa.5.0..sroa.11.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %160, i64 16
-  store i64 0, ptr %.sroa.11.sroa.5.0..sroa.11.0..sroa_idx.sroa_idx, align 4, !tbaa !25
+  store i64 0, ptr %.sroa.11.sroa.5.0..sroa.11.0..sroa_idx.sroa_idx, align 8, !tbaa !25
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %160, i64 24
   store i64 %.sroa.0.sroa.0.0.insert.insert.i, ptr %.sroa.12.0..sroa_idx, align 8
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %160, i64 32
@@ -14422,7 +14422,7 @@ _ZNKSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EE12_M_check_lenEmPKc.exi
   %.sroa.9175.0..sroa_idx176 = getelementptr inbounds nuw i8, ptr %178, i64 8
   store i32 -1, ptr %.sroa.9175.0..sroa_idx176, align 8, !tbaa !22
   %.sroa.11.sroa.5.0..sroa.11.0..sroa_idx178.sroa_idx = getelementptr inbounds nuw i8, ptr %178, i64 16
-  store i64 0, ptr %.sroa.11.sroa.5.0..sroa.11.0..sroa_idx178.sroa_idx, align 4, !tbaa !25
+  store i64 0, ptr %.sroa.11.sroa.5.0..sroa.11.0..sroa_idx178.sroa_idx, align 8, !tbaa !25
   %.sroa.12.0..sroa_idx179 = getelementptr inbounds nuw i8, ptr %178, i64 24
   store i64 %.sroa.0.sroa.0.0.insert.insert.i, ptr %.sroa.12.0..sroa_idx179, align 8
   %.sroa.13.0..sroa_idx181 = getelementptr inbounds nuw i8, ptr %178, i64 32

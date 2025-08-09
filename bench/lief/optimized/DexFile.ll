@@ -384,13 +384,13 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF3OATlsERSoRKNS0_7
   %14 = load i32, ptr %13, align 8, !tbaa !35
   %15 = and i32 %14, -75
   %16 = or disjoint i32 %15, 8
-  store i32 %16, ptr %13, align 4, !tbaa !44
+  store i32 %16, ptr %13, align 8, !tbaa !44
   %17 = load i64, ptr %10, align 8
   %18 = getelementptr inbounds i8, ptr %7, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i32, ptr %19, align 8, !tbaa !35
   %21 = or i32 %20, 512
-  store i32 %21, ptr %19, align 4, !tbaa !44
+  store i32 %21, ptr %19, align 8, !tbaa !44
   %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.1, i64 noundef 11) #13
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %24 = load i32, ptr %23, align 8, !tbaa !24

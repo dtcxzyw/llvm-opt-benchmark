@@ -1365,7 +1365,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.thread: ; pr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %83, ptr noundef nonnull align 8 dereferenceable(1) %85, i64 %90, i1 false), !noalias !90
   %91 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %87, align 8, !tbaa !93, !noalias !90
-  store i8 0, ptr %85, align 1, !tbaa !39, !noalias !90
+  store i8 0, ptr %85, align 8, !tbaa !39, !noalias !90
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !90
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !90
   store ptr %14, ptr %4, align 8, !tbaa !94, !noalias !90
@@ -1381,7 +1381,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
   %94 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %85, ptr %81, align 8, !tbaa !86, !noalias !90
   store i64 0, ptr %.phi.trans.insert.i, align 8, !tbaa !93, !noalias !90
-  store i8 0, ptr %85, align 1, !tbaa !39, !noalias !90
+  store i8 0, ptr %85, align 8, !tbaa !39, !noalias !90
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !90
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !90
   store ptr %14, ptr %4, align 8, !tbaa !94, !noalias !90
@@ -5386,7 +5386,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !93, !alias.scope !254, !noalias !257
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !86, !alias.scope !257, !noalias !254
   store i64 0, ptr %48, align 8, !tbaa !93, !alias.scope !257, !noalias !254
-  store i8 0, ptr %39, align 1, !tbaa !39, !alias.scope !257, !noalias !254
+  store i8 0, ptr %39, align 8, !tbaa !39, !alias.scope !257, !noalias !254
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -5434,7 +5434,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !93, !alias.scope !261, !noalias !264
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !86, !alias.scope !264, !noalias !261
   store i64 0, ptr %64, align 8, !tbaa !93, !alias.scope !264, !noalias !261
-  store i8 0, ptr %55, align 1, !tbaa !39, !alias.scope !264, !noalias !261
+  store i8 0, ptr %55, align 8, !tbaa !39, !alias.scope !264, !noalias !261
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5

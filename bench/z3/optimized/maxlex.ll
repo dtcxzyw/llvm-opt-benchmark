@@ -1888,9 +1888,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN3opt4softElS1_N9__gnu_cxx5__
   %165 = or disjoint i8 %161, %164
   store i8 %165, ptr %77, align 4
   %166 = getelementptr inbounds nuw i8, ptr %138, i64 32
-  %167 = load i32, ptr %166, align 4, !tbaa !9
+  %167 = load i32, ptr %166, align 8, !tbaa !9
   %168 = load i32, ptr %84, align 8, !tbaa !9
-  store i32 %168, ptr %166, align 4, !tbaa !9
+  store i32 %168, ptr %166, align 8, !tbaa !9
   store i32 %167, ptr %84, align 8, !tbaa !9
   %169 = getelementptr inbounds nuw i8, ptr %138, i64 40
   %170 = load ptr, ptr %169, align 8, !tbaa !51
@@ -2480,9 +2480,9 @@ _ZN3opt4softaSEOS0_.exit18:                       ; preds = %.lr.ph.i.i.i.i.i, %
   %99 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -40
   %100 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -40
   %101 = load i32, ptr %99, align 4, !tbaa !9
-  %102 = load i32, ptr %100, align 4, !tbaa !9
+  %102 = load i32, ptr %100, align 8, !tbaa !9
   store i32 %102, ptr %99, align 4, !tbaa !9
-  store i32 %101, ptr %100, align 4, !tbaa !9
+  store i32 %101, ptr %100, align 8, !tbaa !9
   %103 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -32
   %104 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -32
   %105 = load ptr, ptr %103, align 8, !tbaa !51
@@ -2503,10 +2503,10 @@ _ZN3opt4softaSEOS0_.exit18:                       ; preds = %.lr.ph.i.i.i.i.i, %
   store i8 %116, ptr %109, align 4
   %117 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -24
   %118 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -24
-  %119 = load i32, ptr %117, align 4, !tbaa !9
-  %120 = load i32, ptr %118, align 4, !tbaa !9
-  store i32 %120, ptr %117, align 4, !tbaa !9
-  store i32 %119, ptr %118, align 4, !tbaa !9
+  %119 = load i32, ptr %117, align 8, !tbaa !9
+  %120 = load i32, ptr %118, align 8, !tbaa !9
+  store i32 %120, ptr %117, align 8, !tbaa !9
+  store i32 %119, ptr %118, align 8, !tbaa !9
   %121 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -16
   %122 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -16
   %123 = load ptr, ptr %121, align 8, !tbaa !51
@@ -2585,9 +2585,9 @@ _ZN3opt4softaSEOS0_.exit:                         ; preds = %_ZSt13move_backward
   %162 = and i8 %156, 3
   %163 = or disjoint i8 %159, %162
   store i8 %163, ptr %11, align 4
-  %164 = load i32, ptr %6, align 4, !tbaa !9
+  %164 = load i32, ptr %6, align 8, !tbaa !9
   %165 = load i32, ptr %13, align 8, !tbaa !9
-  store i32 %165, ptr %6, align 4, !tbaa !9
+  store i32 %165, ptr %6, align 8, !tbaa !9
   store i32 %164, ptr %13, align 8, !tbaa !9
   %166 = load ptr, ptr %19, align 8, !tbaa !51
   %167 = load ptr, ptr %15, align 8, !tbaa !51
@@ -2830,9 +2830,9 @@ _ZN3opt4softaSEOS0_.exit:                         ; preds = %70, %73, %79
   %97 = or disjoint i8 %93, %96
   store i8 %97, ptr %10, align 4
   %98 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  %99 = load i32, ptr %98, align 4, !tbaa !9
+  %99 = load i32, ptr %98, align 8, !tbaa !9
   %100 = load i32, ptr %17, align 8, !tbaa !9
-  store i32 %100, ptr %98, align 4, !tbaa !9
+  store i32 %100, ptr %98, align 8, !tbaa !9
   store i32 %99, ptr %17, align 8, !tbaa !9
   %101 = getelementptr inbounds nuw i8, ptr %.0, i64 40
   %102 = load ptr, ptr %101, align 8, !tbaa !51
@@ -4817,9 +4817,9 @@ _ZN3opt4softaSEOS0_.exit18:                       ; preds = %.lr.ph.i.i.i.i.i, %
   %101 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -40
   %102 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -40
   %103 = load i32, ptr %101, align 4, !tbaa !9
-  %104 = load i32, ptr %102, align 4, !tbaa !9
+  %104 = load i32, ptr %102, align 8, !tbaa !9
   store i32 %104, ptr %101, align 4, !tbaa !9
-  store i32 %103, ptr %102, align 4, !tbaa !9
+  store i32 %103, ptr %102, align 8, !tbaa !9
   %105 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -32
   %106 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -32
   %107 = load ptr, ptr %105, align 8, !tbaa !51
@@ -4840,10 +4840,10 @@ _ZN3opt4softaSEOS0_.exit18:                       ; preds = %.lr.ph.i.i.i.i.i, %
   store i8 %118, ptr %111, align 4
   %119 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -24
   %120 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -24
-  %121 = load i32, ptr %119, align 4, !tbaa !9
-  %122 = load i32, ptr %120, align 4, !tbaa !9
-  store i32 %122, ptr %119, align 4, !tbaa !9
-  store i32 %121, ptr %120, align 4, !tbaa !9
+  %121 = load i32, ptr %119, align 8, !tbaa !9
+  %122 = load i32, ptr %120, align 8, !tbaa !9
+  store i32 %122, ptr %119, align 8, !tbaa !9
+  store i32 %121, ptr %120, align 8, !tbaa !9
   %123 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -16
   %124 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -16
   %125 = load ptr, ptr %123, align 8, !tbaa !51
@@ -4922,9 +4922,9 @@ _ZN3opt4softaSEOS0_.exit:                         ; preds = %_ZSt13move_backward
   %164 = and i8 %158, 3
   %165 = or disjoint i8 %161, %164
   store i8 %165, ptr %11, align 4
-  %166 = load i32, ptr %6, align 4, !tbaa !9
+  %166 = load i32, ptr %6, align 8, !tbaa !9
   %167 = load i32, ptr %13, align 8, !tbaa !9
-  store i32 %167, ptr %6, align 4, !tbaa !9
+  store i32 %167, ptr %6, align 8, !tbaa !9
   store i32 %166, ptr %13, align 8, !tbaa !9
   %168 = load ptr, ptr %19, align 8, !tbaa !51
   %169 = load ptr, ptr %15, align 8, !tbaa !51
@@ -5165,9 +5165,9 @@ _ZN3opt4softaSEOS0_.exit:                         ; preds = %70, %73, %79
   %97 = or disjoint i8 %93, %96
   store i8 %97, ptr %10, align 4
   %98 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  %99 = load i32, ptr %98, align 4, !tbaa !9
+  %99 = load i32, ptr %98, align 8, !tbaa !9
   %100 = load i32, ptr %17, align 8, !tbaa !9
-  store i32 %100, ptr %98, align 4, !tbaa !9
+  store i32 %100, ptr %98, align 8, !tbaa !9
   store i32 %99, ptr %17, align 8, !tbaa !9
   %101 = getelementptr inbounds nuw i8, ptr %.0, i64 40
   %102 = load ptr, ptr %101, align 8, !tbaa !51

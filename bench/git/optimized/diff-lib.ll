@@ -1679,9 +1679,9 @@ show_new_file.exit.i:                             ; preds = %96, %.split.i.i, %8
   %151 = getelementptr inbounds nuw i8, ptr %9, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %150, ptr noundef nonnull readonly align 4 dereferenceable(32) %151, i64 32, i1 false)
   %152 = getelementptr inbounds nuw i8, ptr %9, i64 104
-  %153 = load i32, ptr %152, align 4, !tbaa !98
+  %153 = load i32, ptr %152, align 8, !tbaa !98
   %154 = getelementptr inbounds nuw i8, ptr %146, i64 96
-  store i32 %153, ptr %154, align 4, !tbaa !98
+  store i32 %153, ptr %154, align 8, !tbaa !98
   %155 = getelementptr inbounds nuw i8, ptr %146, i64 112
   store i8 77, ptr %155, align 8, !tbaa !101
   %156 = getelementptr inbounds nuw i8, ptr %11, i64 52
@@ -1693,7 +1693,7 @@ show_new_file.exit.i:                             ; preds = %96, %.split.i.i, %8
   %160 = getelementptr inbounds nuw i8, ptr %11, i64 104
   %161 = load i32, ptr %160, align 4, !tbaa !98
   %162 = getelementptr inbounds nuw i8, ptr %146, i64 152
-  store i32 %161, ptr %162, align 4, !tbaa !98
+  store i32 %161, ptr %162, align 8, !tbaa !98
   tail call void @show_combined_diff(ptr noundef %146, i32 noundef 2, ptr noundef nonnull %.val17) #15
   tail call void @free(ptr noundef %146) #15
   br label %show_modified.exit.i

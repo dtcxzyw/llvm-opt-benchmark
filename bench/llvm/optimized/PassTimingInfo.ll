@@ -736,13 +736,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i.i.i: ; 
   store ptr %105, ptr %104, align 8, !tbaa !76
   %106 = getelementptr inbounds nuw i8, ptr %99, i64 88
   store i64 0, ptr %106, align 8, !tbaa !78
-  store i8 0, ptr %105, align 1, !tbaa !49
+  store i8 0, ptr %105, align 8, !tbaa !49
   %107 = getelementptr inbounds nuw i8, ptr %99, i64 112
   %108 = getelementptr inbounds nuw i8, ptr %99, i64 128
   store ptr %108, ptr %107, align 8, !tbaa !76
   %109 = getelementptr inbounds nuw i8, ptr %99, i64 120
   store i64 0, ptr %109, align 8, !tbaa !78
-  store i8 0, ptr %108, align 1, !tbaa !49
+  store i8 0, ptr %108, align 8, !tbaa !49
   %110 = getelementptr inbounds nuw i8, ptr %99, i64 144
   store i8 0, ptr %110, align 8, !tbaa !108
   %111 = getelementptr inbounds nuw i8, ptr %99, i64 145
@@ -876,13 +876,13 @@ define dso_local noundef nonnull align 8 dereferenceable(176) ptr @_ZN4llvm17Tim
   store ptr %29, ptr %28, align 8, !tbaa !76
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 88
   store i64 0, ptr %30, align 8, !tbaa !78
-  store i8 0, ptr %29, align 1, !tbaa !49
+  store i8 0, ptr %29, align 8, !tbaa !49
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 112
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 128
   store ptr %32, ptr %31, align 8, !tbaa !76
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 120
   store i64 0, ptr %33, align 8, !tbaa !78
-  store i8 0, ptr %32, align 1, !tbaa !49
+  store i8 0, ptr %32, align 8, !tbaa !49
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 144
   store i8 0, ptr %34, align 8, !tbaa !108
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 145
@@ -994,13 +994,13 @@ _ZNK4llvm19formatv_object_base3strB5cxx11Ev.exit: ; preds = %50, %72
   store ptr %77, ptr %76, align 8, !tbaa !76
   %78 = getelementptr inbounds nuw i8, ptr %73, i64 88
   store i64 0, ptr %78, align 8, !tbaa !78
-  store i8 0, ptr %77, align 1, !tbaa !49
+  store i8 0, ptr %77, align 8, !tbaa !49
   %79 = getelementptr inbounds nuw i8, ptr %73, i64 112
   %80 = getelementptr inbounds nuw i8, ptr %73, i64 128
   store ptr %80, ptr %79, align 8, !tbaa !76
   %81 = getelementptr inbounds nuw i8, ptr %73, i64 120
   store i64 0, ptr %81, align 8, !tbaa !78
-  store i8 0, ptr %80, align 1, !tbaa !49
+  store i8 0, ptr %80, align 8, !tbaa !49
   %82 = getelementptr inbounds nuw i8, ptr %73, i64 144
   store i8 0, ptr %82, align 8, !tbaa !108
   %83 = getelementptr inbounds nuw i8, ptr %73, i64 145

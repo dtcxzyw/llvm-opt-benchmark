@@ -4341,7 +4341,7 @@ if.then:                                          ; preds = %for.end.i.i.i
   store i32 %1, ptr %add.ptr.i3.i.i, align 8, !noalias !144
   %second.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i3.i.i, i64 8
   %14 = load i8, ptr %value, align 1, !noalias !144
-  store i8 %14, ptr %second.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !144
+  store i8 %14, ptr %second.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !144
   %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i3.i.i, i64 48
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !144
   store i64 0, ptr %agg.result, align 8, !alias.scope !153
@@ -4658,7 +4658,7 @@ if.then:                                          ; preds = %for.end.i.i.i
   store i32 %1, ptr %add.ptr.i3.i.i, align 8, !noalias !165
   %second.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i3.i.i, i64 8
   %14 = load i32, ptr %value, align 4, !noalias !165
-  store i32 %14, ptr %second.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !165
+  store i32 %14, ptr %second.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !165
   %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i3.i.i, i64 48
   store i8 2, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !165
   store i64 0, ptr %agg.result, align 8, !alias.scope !173
@@ -4978,7 +4978,7 @@ if.then:                                          ; preds = %for.end.i.i.i
   store i32 %1, ptr %add.ptr.i3.i.i, align 8, !noalias !185
   %second.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i3.i.i, i64 8
   %14 = load i32, ptr %value, align 4, !noalias !185
-  store i32 %14, ptr %second.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !185
+  store i32 %14, ptr %second.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !185
   %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i3.i.i, i64 48
   store i8 1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !185
   store i64 0, ptr %agg.result, align 8, !alias.scope !193
@@ -6258,7 +6258,7 @@ if.then:                                          ; preds = %for.end.i.i.i
   store i32 %1, ptr %add.ptr.i3.i.i, align 8, !noalias !265
   %second.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i3.i.i, i64 8
   %14 = load float, ptr %value, align 4, !noalias !265
-  store float %14, ptr %second.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !265
+  store float %14, ptr %second.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !265
   %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i3.i.i, i64 48
   store i8 5, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !265
   store i64 0, ptr %agg.result, align 8, !alias.scope !273

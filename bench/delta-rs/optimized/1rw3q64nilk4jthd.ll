@@ -41107,7 +41107,7 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17hc78bed4e0977b1caE.exit.thr
   call void @llvm.experimental.noalias.scope.decl(metadata !8168)
   %.val.i.i.i = load i128, ptr %50, align 16, !alias.scope !8168, !noalias !8171, !noundef !7
   %51 = getelementptr inbounds i8, ptr %49, i64 -16
-  %.val1.i.i.i = load ptr, ptr %51, align 8, !alias.scope !8168, !noalias !8171, !nonnull !7, !noundef !7
+  %.val1.i.i.i = load ptr, ptr %51, align 16, !alias.scope !8168, !noalias !8171, !nonnull !7, !noundef !7
   %52 = getelementptr inbounds i8, ptr %49, i64 -8
   %.val2.i.i.i = load ptr, ptr %52, align 8, !alias.scope !8168, !noalias !8171
   %53 = atomicrmw add ptr %.val1.i.i.i, i64 1 monotonic, align 8, !noalias !8173
@@ -45718,7 +45718,7 @@ define hidden void @"_ZN87_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8934)
   %.val.i.i = load i128, ptr %29, align 16, !alias.scope !8934, !noalias !8937, !noundef !7
   %30 = getelementptr inbounds i8, ptr %28, i64 -16
-  %.val1.i.i = load ptr, ptr %30, align 8, !alias.scope !8934, !noalias !8937, !nonnull !7, !noundef !7
+  %.val1.i.i = load ptr, ptr %30, align 16, !alias.scope !8934, !noalias !8937, !nonnull !7, !noundef !7
   %31 = getelementptr inbounds i8, ptr %28, i64 -8
   %.val2.i.i = load ptr, ptr %31, align 8, !alias.scope !8934, !noalias !8937
   %32 = atomicrmw add ptr %.val1.i.i, i64 1 monotonic, align 8, !noalias !8939
@@ -102747,7 +102747,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23772)
   %.val.i = load i128, ptr %29, align 16, !alias.scope !23772, !noalias !23775, !noundef !7
   %30 = getelementptr inbounds i8, ptr %28, i64 -16
-  %.val1.i = load ptr, ptr %30, align 8, !alias.scope !23772, !noalias !23775, !nonnull !7, !noundef !7
+  %.val1.i = load ptr, ptr %30, align 16, !alias.scope !23772, !noalias !23775, !nonnull !7, !noundef !7
   %31 = getelementptr inbounds i8, ptr %28, i64 -8
   %.val2.i = load ptr, ptr %31, align 8, !alias.scope !23772, !noalias !23775
   %32 = atomicrmw add ptr %.val1.i, i64 1 monotonic, align 8, !noalias !23777
@@ -127019,13 +127019,13 @@ _ZN11arrow_array5array5Array7is_null17h3e5eaa9f656c7176E.exit.thread: ; preds = 
   %.sroa.217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %160, i64 4
   store i32 %.sroa.754.sroa.7.sroa.0.1.ph, ptr %.sroa.217.0..sroa_idx, align 4
   %.sroa.217.sroa.2.0..sroa.217.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %160, i64 8
-  store i64 %.sroa.754.sroa.7.sroa.6.1.ph, ptr %.sroa.217.sroa.2.0..sroa.217.0..sroa_idx.sroa_idx, align 4
+  store i64 %.sroa.754.sroa.7.sroa.6.1.ph, ptr %.sroa.217.sroa.2.0..sroa.217.0..sroa_idx.sroa_idx, align 8
   %.sroa.217.sroa.3.0..sroa.217.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %160, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.217.sroa.3.0..sroa.217.0..sroa_idx.sroa_idx, ptr noundef nonnull align 4 dereferenceable(24) %.sroa.748.sroa.7.sroa.8, i64 24, i1 false)
   %.sroa.217.sroa.4.0..sroa.217.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %160, i64 40
-  store ptr %.sroa.754.sroa.7.sroa.8.1.ph, ptr %.sroa.217.sroa.4.0..sroa.217.0..sroa_idx.sroa_idx, align 4
+  store ptr %.sroa.754.sroa.7.sroa.8.1.ph, ptr %.sroa.217.sroa.4.0..sroa.217.0..sroa_idx.sroa_idx, align 8
   %.sroa.217.sroa.5.0..sroa.217.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %160, i64 48
-  store i64 %.sroa.754.sroa.7.sroa.9.1.ph, ptr %.sroa.217.sroa.5.0..sroa.217.0..sroa_idx.sroa_idx, align 4
+  store i64 %.sroa.754.sroa.7.sroa.9.1.ph, ptr %.sroa.217.sroa.5.0..sroa.217.0..sroa_idx.sroa_idx, align 8
   %161 = load i64, ptr %83, align 8, !alias.scope !28085, !noalias !28088, !noundef !7
   %162 = add i64 %161, 1
   store i64 %162, ptr %83, align 8, !alias.scope !28085, !noalias !28088

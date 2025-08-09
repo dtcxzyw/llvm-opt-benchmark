@@ -8384,7 +8384,7 @@ define hidden void @"_ZN103_$LT$polars_utils..idx_map..bytes_idx_map..BytesIndex
 .noexc.i:                                         ; preds = %41
   store i64 1, ptr %33, align 16, !alias.scope !651, !noalias !645
   %45 = zext i32 %43 to i64
-  %46 = load i32, ptr %32, align 4, !alias.scope !642, !noalias !645, !noundef !6
+  %46 = load i32, ptr %32, align 16, !alias.scope !642, !noalias !645, !noundef !6
   %47 = zext i32 %46 to i64
   %48 = shl nuw i64 %47, 32
   %49 = or disjoint i64 %48, %45
@@ -8397,7 +8397,7 @@ define hidden void @"_ZN103_$LT$polars_utils..idx_map..bytes_idx_map..BytesIndex
 
 .noexc1.i:                                        ; preds = %50
   store i64 2, ptr %33, align 16, !alias.scope !654, !noalias !645
-  %52 = load i64, ptr %32, align 4, !alias.scope !657, !noalias !645
+  %52 = load i64, ptr %32, align 16, !alias.scope !657, !noalias !645
   br label %"_ZN4rand13distributions7integer118_$LT$impl$u20$rand..distributions..distribution..Distribution$LT$u64$GT$$u20$for$u20$rand..distributions..Standard$GT$6sample17hc46f40868dcf2567E.exit.i"
 
 53:                                               ; preds = %50, %41
@@ -8512,7 +8512,7 @@ define hidden void @"_ZN105_$LT$polars_compute..binview_index_map..BinaryViewInd
 .noexc.i:                                         ; preds = %20
   store i64 1, ptr %12, align 16, !alias.scope !669, !noalias !663
   %24 = zext i32 %22 to i64
-  %25 = load i32, ptr %11, align 4, !alias.scope !660, !noalias !663, !noundef !6
+  %25 = load i32, ptr %11, align 16, !alias.scope !660, !noalias !663, !noundef !6
   %26 = zext i32 %25 to i64
   %27 = shl nuw i64 %26, 32
   %28 = or disjoint i64 %27, %24
@@ -8525,7 +8525,7 @@ define hidden void @"_ZN105_$LT$polars_compute..binview_index_map..BinaryViewInd
 
 .noexc1.i:                                        ; preds = %29
   store i64 2, ptr %12, align 16, !alias.scope !672, !noalias !663
-  %31 = load i64, ptr %11, align 4, !alias.scope !675, !noalias !663
+  %31 = load i64, ptr %11, align 16, !alias.scope !675, !noalias !663
   br label %"_ZN4rand13distributions7integer118_$LT$impl$u20$rand..distributions..distribution..Distribution$LT$u64$GT$$u20$for$u20$rand..distributions..Standard$GT$6sample17hc46f40868dcf2567E.exit.i"
 
 32:                                               ; preds = %29, %20
@@ -8641,7 +8641,7 @@ define hidden void @"_ZN105_$LT$polars_compute..binview_index_map..BinaryViewInd
 .noexc.i:                                         ; preds = %20
   store i64 1, ptr %12, align 16, !alias.scope !687, !noalias !681
   %24 = zext i32 %22 to i64
-  %25 = load i32, ptr %11, align 4, !alias.scope !678, !noalias !681, !noundef !6
+  %25 = load i32, ptr %11, align 16, !alias.scope !678, !noalias !681, !noundef !6
   %26 = zext i32 %25 to i64
   %27 = shl nuw i64 %26, 32
   %28 = or disjoint i64 %27, %24
@@ -8654,7 +8654,7 @@ define hidden void @"_ZN105_$LT$polars_compute..binview_index_map..BinaryViewInd
 
 .noexc1.i:                                        ; preds = %29
   store i64 2, ptr %12, align 16, !alias.scope !690, !noalias !681
-  %31 = load i64, ptr %11, align 4, !alias.scope !693, !noalias !681
+  %31 = load i64, ptr %11, align 16, !alias.scope !693, !noalias !681
   br label %"_ZN4rand13distributions7integer118_$LT$impl$u20$rand..distributions..distribution..Distribution$LT$u64$GT$$u20$for$u20$rand..distributions..Standard$GT$6sample17hc46f40868dcf2567E.exit.i"
 
 32:                                               ; preds = %29, %20

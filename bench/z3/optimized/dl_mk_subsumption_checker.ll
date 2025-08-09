@@ -2775,7 +2775,7 @@ _ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_E
   %353 = getelementptr inbounds nuw i8, ptr %344, i64 48
   store i64 14, ptr %353, align 8, !tbaa !104
   %354 = getelementptr inbounds nuw i8, ptr %344, i64 70
-  store i8 0, ptr %354, align 1, !tbaa !105
+  store i8 0, ptr %354, align 2, !tbaa !105
   %355 = getelementptr inbounds nuw i8, ptr %344, i64 72
   store ptr null, ptr %355, align 8, !tbaa !326
   %356 = load ptr, ptr %335, align 8, !tbaa !22

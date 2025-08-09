@@ -383,7 +383,7 @@ define void @_ZN7rocksdb13BlobLogWriter4SyncERKNS_12WriteOptionsE(ptr dead_on_un
   store i8 1, ptr %29, align 8, !tbaa !46
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 33
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %32 = load atomic i8, ptr %31 monotonic, align 1
+  %32 = load atomic i8, ptr %31 monotonic, align 8
   %33 = icmp ugt i8 %32, 2
   %or.cond.not = and i1 %33, %22
   br i1 %or.cond.not, label %.thread21.i, label %40

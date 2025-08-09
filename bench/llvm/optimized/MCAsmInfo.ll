@@ -1618,7 +1618,7 @@ _ZSt19__relocate_object_aIN4llvm16MCCFIInstructionES1_SaIS1_EEvPT_PT0_RT1_.exit.
   store i64 %45, ptr %47, align 8, !tbaa !147, !alias.scope !219, !noalias !222
   store ptr %37, ptr %34, align 8, !tbaa !144, !alias.scope !222, !noalias !219
   store i64 0, ptr %46, align 8, !tbaa !147, !alias.scope !222, !noalias !219
-  store i8 0, ptr %37, align 1, !tbaa !148, !alias.scope !222, !noalias !219
+  store i8 0, ptr %37, align 8, !tbaa !148, !alias.scope !222, !noalias !219
   %48 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 104
   %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 104
   %.not.i.i.i = icmp eq ptr %48, %1
@@ -1682,7 +1682,7 @@ _ZSt19__relocate_object_aIN4llvm16MCCFIInstructionES1_SaIS1_EEvPT_PT0_RT1_.exit.
   store i64 %72, ptr %74, align 8, !tbaa !147, !alias.scope !228, !noalias !231
   store ptr %64, ptr %61, align 8, !tbaa !144, !alias.scope !231, !noalias !228
   store i64 0, ptr %73, align 8, !tbaa !147, !alias.scope !231, !noalias !228
-  store i8 0, ptr %64, align 1, !tbaa !148, !alias.scope !231, !noalias !228
+  store i8 0, ptr %64, align 8, !tbaa !148, !alias.scope !231, !noalias !228
   %75 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 104
   %76 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 104
   %.not.i.i.i24 = icmp eq ptr %75, %5
@@ -1948,7 +1948,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit.i.i: ; pr
   %.sroa.0.0.copyload.i.i.i.i.i.i.i.i = load ptr, ptr %37, align 8, !tbaa !48
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.02.i.i.i.i.i.i.i.i, i64 32
   %.sroa.2.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i, align 8, !tbaa !49
-  %.val.i.i.i.i.i.i.i.i = load i32, ptr %36, align 4, !tbaa !239
+  %.val.i.i.i.i.i.i.i.i = load i32, ptr %36, align 8, !tbaa !239
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %.sroa.01.0.copyload.i.i.i.i.i.i.i.i, ptr %5, align 8, !tbaa !48
   store i64 %.sroa.22.0.copyload.i.i.i.i.i.i.i.i, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !49

@@ -3505,7 +3505,7 @@ define internal fastcc i32 @ip6_dst_lookup_tail(ptr noundef %0, ptr noundef %1, 
 
 106:                                              ; preds = %100
   %107 = load i64, ptr %5, align 8
-  %108 = load i32, ptr %7, align 4
+  %108 = load i32, ptr %7, align 8
   %109 = xor i32 %108, -65536
   %110 = zext i32 %109 to i64
   %111 = or i64 %107, %110
@@ -3516,7 +3516,7 @@ define internal fastcc i32 @ip6_dst_lookup_tail(ptr noundef %0, ptr noundef %1, 
   %114 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %115 = load i64, ptr %114, align 8
   %116 = getelementptr i8, ptr %3, i64 48
-  %117 = load i32, ptr %116, align 4
+  %117 = load i32, ptr %116, align 8
   %118 = xor i32 %117, -65536
   %119 = zext i32 %118 to i64
   %120 = or i64 %115, %119

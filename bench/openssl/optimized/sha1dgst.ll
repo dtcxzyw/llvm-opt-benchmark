@@ -131,7 +131,7 @@ define noundef i32 @SHA1_Final(ptr noundef writeonly captures(none) initializes(
   %19 = lshr i32 %18, 24
   %20 = trunc nuw i32 %19 to i8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 85
-  store i8 %20, ptr %16, align 1, !tbaa !10
+  store i8 %20, ptr %16, align 4, !tbaa !10
   %22 = lshr i32 %18, 16
   %23 = trunc i32 %22 to i8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 86
@@ -139,7 +139,7 @@ define noundef i32 @SHA1_Final(ptr noundef writeonly captures(none) initializes(
   %25 = lshr i32 %18, 8
   %26 = trunc i32 %25 to i8
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 87
-  store i8 %26, ptr %24, align 1, !tbaa !10
+  store i8 %26, ptr %24, align 2, !tbaa !10
   %28 = trunc i32 %18 to i8
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store i8 %28, ptr %27, align 1, !tbaa !10
@@ -148,7 +148,7 @@ define noundef i32 @SHA1_Final(ptr noundef writeonly captures(none) initializes(
   %32 = lshr i32 %31, 24
   %33 = trunc nuw i32 %32 to i8
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 89
-  store i8 %33, ptr %29, align 1, !tbaa !10
+  store i8 %33, ptr %29, align 4, !tbaa !10
   %35 = lshr i32 %31, 16
   %36 = trunc i32 %35 to i8
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 90
@@ -156,7 +156,7 @@ define noundef i32 @SHA1_Final(ptr noundef writeonly captures(none) initializes(
   %38 = lshr i32 %31, 8
   %39 = trunc i32 %38 to i8
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 91
-  store i8 %39, ptr %37, align 1, !tbaa !10
+  store i8 %39, ptr %37, align 2, !tbaa !10
   %41 = trunc i32 %31 to i8
   store i8 %41, ptr %40, align 1, !tbaa !10
   tail call void @sha1_block_data_order(ptr noundef nonnull %1, ptr noundef nonnull %3, i64 noundef 1) #6

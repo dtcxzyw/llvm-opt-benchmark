@@ -162,11 +162,11 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 22076
   store i32 %26, ptr %28, align 4, !tbaa !54
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 22072
-  store i32 %26, ptr %29, align 4, !tbaa !54
+  store i32 %26, ptr %29, align 8, !tbaa !54
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load i32, ptr %30, align 8, !tbaa !52
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 22080
-  store i32 %31, ptr %32, align 4, !tbaa !54
+  store i32 %31, ptr %32, align 8, !tbaa !54
   store i32 %31, ptr %27, align 4, !tbaa !54
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %34 = load i32, ptr %33, align 4, !tbaa !55
@@ -180,11 +180,11 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 22092
   store i32 %40, ptr %42, align 4, !tbaa !54
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 22088
-  store i32 %40, ptr %43, align 4, !tbaa !54
+  store i32 %40, ptr %43, align 8, !tbaa !54
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %45 = load i32, ptr %44, align 4, !tbaa !55
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 22096
-  store i32 %45, ptr %46, align 4, !tbaa !54
+  store i32 %45, ptr %46, align 8, !tbaa !54
   store i32 %45, ptr %41, align 4, !tbaa !54
   ret i32 0
 }

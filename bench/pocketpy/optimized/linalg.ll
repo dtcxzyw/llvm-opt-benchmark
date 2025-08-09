@@ -7206,7 +7206,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec2EJEEEPNS_8P
   store ptr null, ptr %7, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4pkpy3Py_INS_4Vec2EEE, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store float 0.000000e+00, ptr %8, align 4
+  store float 0.000000e+00, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store float 0.000000e+00, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -7995,7 +7995,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec2EJRfS3_EEEP
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %11 = load float, ptr %2, align 4
   %12 = load float, ptr %3, align 4
-  store float %11, ptr %10, align 4
+  store float %11, ptr %10, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store float %12, ptr %13, align 4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -9899,11 +9899,11 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec3EJEEEPNS_8P
   store ptr null, ptr %7, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4pkpy3Py_INS_4Vec3EEE, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store float 0.000000e+00, ptr %8, align 4
+  store float 0.000000e+00, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store float 0.000000e+00, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store float 0.000000e+00, ptr %10, align 4
+  store float 0.000000e+00, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
@@ -10528,11 +10528,11 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec3EJRfS3_S3_E
   %12 = load float, ptr %2, align 4
   %13 = load float, ptr %3, align 4
   %14 = load float, ptr %4, align 4
-  store float %12, ptr %11, align 4
+  store float %12, ptr %11, align 8
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store float %13, ptr %15, align 4
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store float %14, ptr %16, align 4
+  store float %14, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
@@ -12077,11 +12077,11 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec4EJRfS3_S3_S
   %14 = load float, ptr %3, align 4
   %15 = load float, ptr %4, align 4
   %16 = load float, ptr %5, align 4
-  store float %13, ptr %12, align 4
+  store float %13, ptr %12, align 8
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 28
   store float %14, ptr %17, align 4
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store float %15, ptr %18, align 4
+  store float %15, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 36
   store float %16, ptr %19, align 4
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -16281,7 +16281,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec2EJiiEEEPNS_
   %12 = sitofp i32 %11 to float
   %13 = load i32, ptr %3, align 4
   %14 = sitofp i32 %13 to float
-  store float %12, ptr %10, align 4
+  store float %12, ptr %10, align 8
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store float %14, ptr %15, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -16374,11 +16374,11 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec3EJiiiEEEPNS
   %15 = sitofp i32 %14 to float
   %16 = load i32, ptr %4, align 4
   %17 = sitofp i32 %16 to float
-  store float %13, ptr %11, align 4
+  store float %13, ptr %11, align 8
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store float %15, ptr %18, align 4
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store float %17, ptr %19, align 4
+  store float %17, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
@@ -16471,11 +16471,11 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec4EJiiiiEEEPN
   %18 = sitofp i32 %17 to float
   %19 = load i32, ptr %5, align 4
   %20 = sitofp i32 %19 to float
-  store float %14, ptr %12, align 4
+  store float %14, ptr %12, align 8
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 28
   store float %16, ptr %21, align 4
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store float %18, ptr %22, align 4
+  store float %18, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 36
   store float %20, ptr %23, align 4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -17516,7 +17516,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIKSt10type_indexSt4pairIS1_N4pkpy4TypeEES
   %10 = load i64, ptr %9, align 8
   store i64 %10, ptr %7, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i16 -1, ptr %11, align 2
+  store i16 -1, ptr %11, align 8
   %12 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIKSt10type_indexSt4pairIS1_N4pkpy4TypeEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %13 unwind label %_ZNSt8_Rb_treeIKSt10type_indexSt4pairIS1_N4pkpy4TypeEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE10_Auto_nodeD2Ev.exit
 

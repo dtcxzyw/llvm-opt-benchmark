@@ -2399,7 +2399,7 @@ mxf_resolve_strong_ref.exit77.i.i:                ; preds = %962
   %983 = load i32, ptr %982, align 4, !tbaa !139
   %984 = icmp slt i32 %983, 1
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %966, i64 72
-  %.pre.i717.i = load i32, ptr %.phi.trans.insert.i.i, align 4, !tbaa !140
+  %.pre.i717.i = load i32, ptr %.phi.trans.insert.i.i, align 8, !tbaa !140
   %985 = icmp slt i32 %.pre.i717.i, 1
   %or.cond.i718.i = select i1 %984, i1 true, i1 %985
   br i1 %or.cond.i718.i, label %._crit_edge.i.i, label %987

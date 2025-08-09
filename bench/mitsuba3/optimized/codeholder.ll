@@ -2872,7 +2872,7 @@ define dso_local noundef range(i32 0, 68) i32 @_ZN6asmjit9_abi_1_1010CodeHolder1
   %159 = load i64, ptr %158, align 8, !tbaa !154
   %160 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %161 = getelementptr inbounds nuw i8, ptr %134, i64 10
-  %162 = load i8, ptr %161, align 1, !tbaa !155
+  %162 = load i8, ptr %161, align 2, !tbaa !155
   %163 = zext i8 %162 to i64
   %164 = getelementptr inbounds nuw i8, ptr %144, i64 80
   %165 = load i64, ptr %164, align 8, !tbaa !85

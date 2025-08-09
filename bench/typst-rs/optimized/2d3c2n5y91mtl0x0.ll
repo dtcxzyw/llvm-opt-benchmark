@@ -135359,7 +135359,7 @@ define hidden void @"_ZN69_$LT$typst..foundations..scope..Scope$u20$as$u20$core.
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.0.08, i64 64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24178)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24181)
-  %45 = load i8, ptr %44, align 1, !range !1087, !alias.scope !24183, !noalias !24184, !noundef !7
+  %45 = load i8, ptr %44, align 8, !range !1087, !alias.scope !24183, !noalias !24184, !noundef !7
   %46 = icmp ne i8 %45, 2
   %47 = zext i1 %46 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24185)

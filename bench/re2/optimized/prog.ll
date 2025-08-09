@@ -782,7 +782,7 @@ invoke.cont12:                                    ; preds = %invoke.cont10
 if.then.i:                                        ; preds = %invoke.cont12
   %6 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp ne ptr %6, null
-  %7 = load i32, ptr %dense_.i.i.i.i, align 4
+  %7 = load i32, ptr %dense_.i.i.i.i, align 8
   %cmp.not19.i.i.i = icmp ugt i32 %7, %shr.i
   %cmp.not.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp.not19.i.i.i, i1 false
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %invoke.cont15
@@ -830,7 +830,7 @@ if.then:                                          ; preds = %invoke.cont15
 if.then.i16:                                      ; preds = %if.then
   %17 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i19 = icmp ne ptr %17, null
-  %18 = load i32, ptr %dense_.i.i.i.i, align 4
+  %18 = load i32, ptr %dense_.i.i.i.i, align 8
   %cmp.not19.i.i.i20 = icmp ugt i32 %18, %16
   %cmp.not.i.i.i21 = select i1 %cmp.not.i.i.i.i19, i1 %cmp.not19.i.i.i20, i1 false
   br i1 %cmp.not.i.i.i21, label %if.end.i.i.i22, label %for.inc
@@ -3715,7 +3715,7 @@ entry:
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %rootmap, i64 32
   %0 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i = icmp ne ptr %0, null
-  %1 = load i32, ptr %dense_.i.i.i, align 4
+  %1 = load i32, ptr %dense_.i.i.i, align 8
   %cmp.not23.i.i = icmp ne i32 %1, 0
   %cmp.not.i.i = select i1 %cmp.not.i.i.i, i1 %cmp.not23.i.i, i1 false
   br i1 %cmp.not.i.i, label %if.end.i.i, label %_ZN3re211SparseArrayIiE7set_newEiRKi.exit
@@ -3739,7 +3739,7 @@ if.end.i.i:                                       ; preds = %entry
   %value_.i.i.i = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %8, i64 %conv.i2.i20.i.i, i32 1
   store i32 %2, ptr %value_.i.i.i, align 4
   %.pre = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 8
-  %.pre299 = load i32, ptr %dense_.i.i.i, align 4
+  %.pre299 = load i32, ptr %dense_.i.i.i, align 8
   br label %_ZN3re211SparseArrayIiE7set_newEiRKi.exit
 
 _ZN3re211SparseArrayIiE7set_newEiRKi.exit:        ; preds = %entry, %if.end.i.i
@@ -3786,7 +3786,7 @@ if.end.i.i44:                                     ; preds = %_ZNK3re211SparseArr
   %value_.i.i.i50 = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %20, i64 %conv.i2.i20.i.i49, i32 1
   store i32 %14, ptr %value_.i.i.i50, align 4
   %.pre300 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 8
-  %.pre301 = load i32, ptr %dense_.i.i.i, align 4
+  %.pre301 = load i32, ptr %dense_.i.i.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %_ZN3re211SparseArrayIiE7set_newEiRKi.exit, %if.end.i.i44, %_ZNK3re211SparseArrayIiE9has_indexEi.exit
@@ -3940,7 +3940,7 @@ Loop:                                             ; preds = %Loop.backedge, %whi
   %id.0 = phi i32 [ %43, %while.body ], [ %id.0.be, %Loop.backedge ]
   %44 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i98, align 8
   %cmp.not.i.i99 = icmp ne ptr %44, null
-  %45 = load i32, ptr %dense_.i.i97, align 4
+  %45 = load i32, ptr %dense_.i.i97, align 8
   %cmp.not11.i100 = icmp ugt i32 %45, %id.0
   %cmp.not.i101 = select i1 %cmp.not.i.i99, i1 %cmp.not11.i100, i1 false
   %conv.i.i104 = sext i32 %id.0 to i64
@@ -4005,7 +4005,7 @@ for.body:                                         ; preds = %sw.bb, %_ZNSt6vecto
   %56 = load i32, ptr %__begin3.0.ptr, align 4
   %57 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i131, align 8
   %cmp.not.i.i132 = icmp ne ptr %57, null
-  %58 = load i32, ptr %dense_.i.i130, align 4
+  %58 = load i32, ptr %dense_.i.i130, align 8
   %cmp.not11.i133 = icmp ugt i32 %58, %56
   %cmp.not.i134 = select i1 %cmp.not.i.i132, i1 %cmp.not11.i133, i1 false
   br i1 %cmp.not.i134, label %if.end.i136, label %_ZN3re211SparseArrayIiE7set_newEiRKi.exit166
@@ -4290,7 +4290,7 @@ sw.bb55:                                          ; preds = %_ZN3re210SparseSetT
   %shr.i217 = lshr i32 %53, 4
   %93 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i220 = icmp ne ptr %93, null
-  %94 = load i32, ptr %dense_.i.i.i, align 4
+  %94 = load i32, ptr %dense_.i.i.i, align 8
   %cmp.not11.i221 = icmp ugt i32 %94, %shr.i217
   %cmp.not.i222 = select i1 %cmp.not.i.i220, i1 %cmp.not11.i221, i1 false
   br i1 %cmp.not.i222, label %if.end.i224, label %Loop.backedge
@@ -4451,7 +4451,7 @@ Loop:                                             ; preds = %Loop.backedge, %whi
   %id.0 = phi i32 [ %9, %while.body ], [ %id.0.be, %Loop.backedge ]
   %10 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i = icmp ne ptr %10, null
-  %11 = load i32, ptr %dense_.i.i, align 4
+  %11 = load i32, ptr %dense_.i.i, align 8
   %cmp.not11.i = icmp ugt i32 %11, %id.0
   %cmp.not.i34 = select i1 %cmp.not.i.i, i1 %cmp.not11.i, i1 false
   br i1 %cmp.not.i34, label %if.end.i, label %_ZN3re210SparseSetTIvE10insert_newEi.exit
@@ -4490,7 +4490,7 @@ _ZN3re210SparseSetTIvE10insert_newEi.exit:        ; preds = %Loop, %if.end.i.i
 land.lhs.true:                                    ; preds = %_ZN3re210SparseSetTIvE10insert_newEi.exit
   %18 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i39, align 8
   %cmp.not.i.i40 = icmp ne ptr %18, null
-  %19 = load i32, ptr %dense_.i.i38, align 4
+  %19 = load i32, ptr %dense_.i.i38, align 8
   %cmp.not11.i41 = icmp ugt i32 %19, %id.0
   %cmp.not.i42 = select i1 %cmp.not.i.i40, i1 %cmp.not11.i41, i1 false
   br i1 %cmp.not.i42, label %if.end.i44, label %if.end7
@@ -4634,7 +4634,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %40 = load i32, ptr %i.0148, align 4
   %41 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i64, align 8
   %cmp.not.i.i65 = icmp ne ptr %41, null
-  %42 = load i32, ptr %dense_.i.i63, align 4
+  %42 = load i32, ptr %dense_.i.i63, align 8
   %cmp.not11.i66 = icmp ugt i32 %42, %40
   %cmp.not.i67 = select i1 %cmp.not.i.i65, i1 %cmp.not11.i66, i1 false
   br i1 %cmp.not.i67, label %if.end.i69, label %for.inc50
@@ -4672,7 +4672,7 @@ for.body37:                                       ; preds = %if.then29, %for.inc
   %51 = load i32, ptr %__begin3.sroa.0.0144, align 4
   %52 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i86 = icmp ne ptr %52, null
-  %53 = load i32, ptr %dense_.i.i84, align 4
+  %53 = load i32, ptr %dense_.i.i84, align 8
   %cmp.not11.i87 = icmp ugt i32 %53, %51
   %cmp.not.i88 = select i1 %cmp.not.i.i86, i1 %cmp.not11.i87, i1 false
   br i1 %cmp.not.i88, label %if.end.i90, label %if.then40
@@ -4696,7 +4696,7 @@ _ZNK3re210SparseSetTIvE8containsEi.exit99:        ; preds = %if.end.i90
 if.then40:                                        ; preds = %if.end.i90, %for.body37, %_ZNK3re210SparseSetTIvE8containsEi.exit99
   %58 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i101, align 8
   %cmp.not.i.i102 = icmp ne ptr %58, null
-  %59 = load i32, ptr %dense_.i.i100, align 4
+  %59 = load i32, ptr %dense_.i.i100, align 8
   %cmp.not11.i103 = icmp ugt i32 %59, %40
   %cmp.not.i104 = select i1 %cmp.not.i.i102, i1 %cmp.not11.i103, i1 false
   br i1 %cmp.not.i104, label %if.end.i106, label %for.inc
@@ -4862,7 +4862,7 @@ Loop:                                             ; preds = %Loop.backedge, %whi
   %id.0 = phi i32 [ %9, %while.body ], [ %id.0.be, %Loop.backedge ]
   %10 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i = icmp ne ptr %10, null
-  %11 = load i32, ptr %dense_.i.i, align 4
+  %11 = load i32, ptr %dense_.i.i, align 8
   %cmp.not11.i = icmp ugt i32 %11, %id.0
   %cmp.not.i40 = select i1 %cmp.not.i.i, i1 %cmp.not11.i, i1 false
   br i1 %cmp.not.i40, label %if.end.i, label %_ZN3re210SparseSetTIvE10insert_newEi.exit
@@ -4901,7 +4901,7 @@ _ZN3re210SparseSetTIvE10insert_newEi.exit:        ; preds = %Loop, %if.end.i.i
 land.lhs.true:                                    ; preds = %_ZN3re210SparseSetTIvE10insert_newEi.exit
   %18 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i45, align 8
   %cmp.not.i.i46 = icmp ne ptr %18, null
-  %19 = load i32, ptr %dense_.i.i44, align 4
+  %19 = load i32, ptr %dense_.i.i44, align 8
   %cmp.not11.i47 = icmp ugt i32 %19, %id.0
   %cmp.not.i48 = select i1 %cmp.not.i.i46, i1 %cmp.not11.i47, i1 false
   br i1 %cmp.not.i48, label %if.end.i50, label %if.end11

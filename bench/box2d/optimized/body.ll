@@ -1890,7 +1890,7 @@ define void @b2Body_SetTransform(i64 %0, <2 x float> %1, <2 x float> %2) local_u
   %38 = fmul float %36, 0x3F747AE140000000
   %39 = fmul float %38, 4.000000e+00
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %.062 = load i32, ptr %40, align 4, !tbaa !164
+  %.062 = load i32, ptr %40, align 8, !tbaa !164
   %.not63 = icmp eq i32 %.062, -1
   br i1 %.not63, label %._crit_edge, label %.lr.ph
 

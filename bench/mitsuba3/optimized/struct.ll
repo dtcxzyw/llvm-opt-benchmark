@@ -7716,19 +7716,19 @@ _ZNSt3__16__treeINS_12__value_typeIN7mitsuba6detail14StructCompiler3KeyENS4_5Val
   %26 = load i64, ptr %25, align 8, !noalias !356
   store i64 %26, ptr %24, align 8, !noalias !356
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 64
-  store i32 1, ptr %27, align 4, !noalias !356
+  store i32 1, ptr %27, align 8, !noalias !356
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 68
   store i32 255, ptr %28, align 4, !noalias !356
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 72
-  store i32 0, ptr %29, align 4, !noalias !356
+  store i32 0, ptr %29, align 8, !noalias !356
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 76
   store i32 0, ptr %30, align 4, !noalias !356
   %31 = getelementptr inbounds nuw i8, ptr %19, i64 80
-  store i32 268435809, ptr %31, align 4, !noalias !356
+  store i32 268435809, ptr %31, align 8, !noalias !356
   %32 = getelementptr inbounds nuw i8, ptr %19, i64 84
   store i32 255, ptr %32, align 4, !noalias !356
   %33 = getelementptr inbounds nuw i8, ptr %19, i64 88
-  store i32 0, ptr %33, align 4, !noalias !356
+  store i32 0, ptr %33, align 8, !noalias !356
   %34 = getelementptr inbounds nuw i8, ptr %19, i64 92
   store i32 0, ptr %34, align 4, !noalias !356
   store i8 1, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !356

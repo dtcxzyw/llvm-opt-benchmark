@@ -8210,9 +8210,9 @@ _ZNSt4pairI8rationalN3sat7literalEEC2IRKS0_RS2_Qcl16_S_constructibleITL0__TL0_0_
   %64 = or disjoint i8 %63, %58
   store i8 %64, ptr %14, align 4
   %65 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %66 = load i32, ptr %65, align 4, !tbaa !66
+  %66 = load i32, ptr %65, align 8, !tbaa !66
   %67 = load i32, ptr %16, align 8, !tbaa !66
-  store i32 %67, ptr %65, align 4, !tbaa !66
+  store i32 %67, ptr %65, align 8, !tbaa !66
   store i32 %66, ptr %16, align 8, !tbaa !66
   %68 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %69 = load ptr, ptr %68, align 8, !tbaa !138
@@ -9187,7 +9187,7 @@ _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i: ; preds = %184, %182
   %197 = getelementptr inbounds nuw i8, ptr %160, i64 60
   store i32 %.038, ptr %197, align 4, !tbaa !66
   %198 = getelementptr inbounds nuw i8, ptr %160, i64 64
-  store i32 %94, ptr %198, align 4, !tbaa !66
+  store i32 %94, ptr %198, align 8, !tbaa !66
   %199 = load ptr, ptr %8, align 8, !tbaa !349
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 168
   %201 = load i32, ptr %200, align 8, !tbaa !333

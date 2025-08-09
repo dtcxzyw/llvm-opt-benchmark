@@ -13433,7 +13433,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %8, ptr %7, align 8, !tbaa !260
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %9, align 8, !tbaa !44
-  store i8 0, ptr %8, align 1, !tbaa !26
+  store i8 0, ptr %8, align 8, !tbaa !26
   store ptr %7, ptr %4, align 8, !tbaa !56
   br label %10
 

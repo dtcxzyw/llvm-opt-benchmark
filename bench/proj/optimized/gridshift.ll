@@ -193,19 +193,19 @@ define hidden noundef ptr @_Z38pj_projection_specific_setup_gridshiftP8PJconsts(
   store ptr %11, ptr %10, align 8, !tbaa !45
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i64 0, ptr %12, align 8, !tbaa !46
-  store i8 0, ptr %11, align 1, !tbaa !47
+  store i8 0, ptr %11, align 8, !tbaa !47
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 88
   store ptr %14, ptr %13, align 8, !tbaa !45
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 80
   store i64 0, ptr %15, align 8, !tbaa !46
-  store i8 0, ptr %14, align 1, !tbaa !47
+  store i8 0, ptr %14, align 8, !tbaa !47
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 120
   store ptr %17, ptr %16, align 8, !tbaa !45
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 112
   store i64 0, ptr %18, align 8, !tbaa !46
-  store i8 0, ptr %17, align 1, !tbaa !47
+  store i8 0, ptr %17, align 8, !tbaa !47
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 136
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 144
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 160
@@ -4895,7 +4895,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8, !tbaa !46
   store ptr %13, ptr %10, align 8, !tbaa !81
   store i64 0, ptr %24, align 8, !tbaa !46
-  store i8 0, ptr %13, align 1, !tbaa !47
+  store i8 0, ptr %13, align 8, !tbaa !47
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i8 0, ptr %26, align 8, !tbaa !97
   store ptr %7, ptr %23, align 8, !tbaa !196

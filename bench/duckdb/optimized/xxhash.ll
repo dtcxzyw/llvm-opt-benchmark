@@ -401,7 +401,7 @@ define noundef i32 @_ZN11duckdb_zstd12XXH32_updateEPNS_13XXH32_state_sEPKvm(ptr 
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr readonly align 1 %1, i64 %30, i1 false)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load i32, ptr %31, align 4, !tbaa !18
-  %.val = load i32, ptr %27, align 1
+  %.val = load i32, ptr %27, align 4
   %33 = mul i32 %.val, -2048144777
   %34 = add i32 %33, %32
   %35 = tail call i32 @llvm.fshl.i32(i32 %34, i32 %34, i32 13)
@@ -410,7 +410,7 @@ define noundef i32 @_ZN11duckdb_zstd12XXH32_updateEPNS_13XXH32_state_sEPKvm(ptr 
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %39 = load i32, ptr %38, align 4, !tbaa !19
-  %.val7 = load i32, ptr %37, align 1
+  %.val7 = load i32, ptr %37, align 4
   %40 = mul i32 %.val7, -2048144777
   %41 = add i32 %40, %39
   %42 = tail call i32 @llvm.fshl.i32(i32 %41, i32 %41, i32 13)
@@ -419,7 +419,7 @@ define noundef i32 @_ZN11duckdb_zstd12XXH32_updateEPNS_13XXH32_state_sEPKvm(ptr 
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %46 = load i32, ptr %45, align 4, !tbaa !20
-  %.val8 = load i32, ptr %44, align 1
+  %.val8 = load i32, ptr %44, align 4
   %47 = mul i32 %.val8, -2048144777
   %48 = add i32 %47, %46
   %49 = tail call i32 @llvm.fshl.i32(i32 %48, i32 %48, i32 13)
@@ -428,7 +428,7 @@ define noundef i32 @_ZN11duckdb_zstd12XXH32_updateEPNS_13XXH32_state_sEPKvm(ptr 
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %53 = load i32, ptr %52, align 4, !tbaa !21
-  %.val9 = load i32, ptr %51, align 1
+  %.val9 = load i32, ptr %51, align 4
   %54 = mul i32 %.val9, -2048144777
   %55 = add i32 %54, %53
   %56 = tail call i32 @llvm.fshl.i32(i32 %55, i32 %55, i32 13)
@@ -655,7 +655,7 @@ define noundef i32 @_ZN11duckdb_zstd12XXH64_updateEPNS_13XXH64_state_sEPKvm(ptr 
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr readonly align 1 %1, i64 %25, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i64, ptr %26, align 8, !tbaa !29
-  %.val = load i64, ptr %22, align 1
+  %.val = load i64, ptr %22, align 8
   %28 = mul i64 %.val, -4417276706812531889
   %29 = add i64 %28, %27
   %30 = tail call i64 @llvm.fshl.i64(i64 %29, i64 %29, i64 31)
@@ -664,7 +664,7 @@ define noundef i32 @_ZN11duckdb_zstd12XXH64_updateEPNS_13XXH64_state_sEPKvm(ptr 
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load i64, ptr %32, align 8, !tbaa !30
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.val7 = load i64, ptr %34, align 1
+  %.val7 = load i64, ptr %34, align 8
   %35 = mul i64 %.val7, -4417276706812531889
   %36 = add i64 %35, %33
   %37 = tail call i64 @llvm.fshl.i64(i64 %36, i64 %36, i64 31)
@@ -673,7 +673,7 @@ define noundef i32 @_ZN11duckdb_zstd12XXH64_updateEPNS_13XXH64_state_sEPKvm(ptr 
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = load i64, ptr %39, align 8, !tbaa !31
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.val8 = load i64, ptr %41, align 1
+  %.val8 = load i64, ptr %41, align 8
   %42 = mul i64 %.val8, -4417276706812531889
   %43 = add i64 %42, %40
   %44 = tail call i64 @llvm.fshl.i64(i64 %43, i64 %43, i64 31)
@@ -682,7 +682,7 @@ define noundef i32 @_ZN11duckdb_zstd12XXH64_updateEPNS_13XXH64_state_sEPKvm(ptr 
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %47 = load i64, ptr %46, align 8, !tbaa !32
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %.val9 = load i64, ptr %48, align 1
+  %.val9 = load i64, ptr %48, align 8
   %49 = mul i64 %.val9, -4417276706812531889
   %50 = add i64 %49, %47
   %51 = tail call i64 @llvm.fshl.i64(i64 %50, i64 %50, i64 31)

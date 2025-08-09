@@ -1893,15 +1893,15 @@ init_state.exit:                                  ; preds = %99
   %219 = getelementptr inbounds nuw i8, ptr %215, i64 25
   store i8 23, ptr %219, align 1, !tbaa !15
   %220 = getelementptr i8, ptr %215, i64 26
-  store i8 59, ptr %220, align 1, !tbaa !15
+  store i8 59, ptr %220, align 2, !tbaa !15
   %221 = getelementptr i8, ptr %215, i64 27
   store i8 59, ptr %221, align 1, !tbaa !15
   %222 = getelementptr i8, ptr %215, i64 28
-  store i8 15, ptr %222, align 1, !tbaa !15
+  store i8 15, ptr %222, align 4, !tbaa !15
   %223 = getelementptr i8, ptr %215, i64 29
   store i8 66, ptr %223, align 1, !tbaa !15
   %224 = getelementptr i8, ptr %215, i64 30
-  store i8 63, ptr %224, align 1, !tbaa !15
+  store i8 63, ptr %224, align 2, !tbaa !15
   %225 = getelementptr inbounds nuw i8, ptr %215, i64 31
   store i8 0, ptr %225, align 1, !tbaa !48
   %226 = call i32 @PyDict_SetItemString(ptr noundef %198, ptr noundef nonnull @.str.5, ptr noundef nonnull %215) #18
@@ -2404,13 +2404,13 @@ check_date_args.exit:                             ; preds = %days_in_month.exit.
   store i8 %34, ptr %35, align 1, !tbaa !15
   %36 = trunc i32 %0 to i8
   %37 = getelementptr i8, ptr %30, i64 26
-  store i8 %36, ptr %37, align 1, !tbaa !15
+  store i8 %36, ptr %37, align 2, !tbaa !15
   %38 = trunc nuw nsw i32 %1 to i8
   %39 = getelementptr i8, ptr %30, i64 27
   store i8 %38, ptr %39, align 1, !tbaa !15
   %40 = trunc i32 %2 to i8
   %41 = getelementptr i8, ptr %30, i64 28
-  store i8 %40, ptr %41, align 1, !tbaa !15
+  store i8 %40, ptr %41, align 4, !tbaa !15
   br label %check_date_args.exit.thread
 
 check_date_args.exit.thread:                      ; preds = %26, %11, %6, %check_date_args.exit, %31
@@ -2488,21 +2488,21 @@ check_tzinfo_subclass.exit:                       ; preds = %PyObject_TypeCheck.
   store i8 %31, ptr %32, align 1, !tbaa !15
   %33 = trunc nuw nsw i32 %1 to i8
   %34 = getelementptr i8, ptr %27, i64 26
-  store i8 %33, ptr %34, align 1, !tbaa !15
+  store i8 %33, ptr %34, align 2, !tbaa !15
   %35 = trunc nuw nsw i32 %2 to i8
   %36 = getelementptr i8, ptr %27, i64 27
   store i8 %35, ptr %36, align 1, !tbaa !15
   %37 = lshr i32 %3, 16
   %38 = trunc nuw nsw i32 %37 to i8
   %39 = getelementptr i8, ptr %27, i64 28
-  store i8 %38, ptr %39, align 1, !tbaa !15
+  store i8 %38, ptr %39, align 4, !tbaa !15
   %40 = lshr i32 %3, 8
   %41 = trunc i32 %40 to i8
   %42 = getelementptr i8, ptr %27, i64 29
   store i8 %41, ptr %42, align 1, !tbaa !15
   %43 = trunc i32 %3 to i8
   %44 = getelementptr i8, ptr %27, i64 30
-  store i8 %43, ptr %44, align 1, !tbaa !15
+  store i8 %43, ptr %44, align 2, !tbaa !15
   br i1 %8, label %45, label %51
 
 45:                                               ; preds = %28
@@ -2658,33 +2658,33 @@ check_tzinfo_subclass.exit:                       ; preds = %PyObject_TypeCheck.
   store i8 %58, ptr %59, align 1, !tbaa !15
   %60 = trunc i32 %0 to i8
   %61 = getelementptr i8, ptr %53, i64 26
-  store i8 %60, ptr %61, align 1, !tbaa !15
+  store i8 %60, ptr %61, align 2, !tbaa !15
   %62 = trunc nuw nsw i32 %1 to i8
   %63 = getelementptr i8, ptr %53, i64 27
   store i8 %62, ptr %63, align 1, !tbaa !15
   %64 = trunc i32 %2 to i8
   %65 = getelementptr i8, ptr %53, i64 28
-  store i8 %64, ptr %65, align 1, !tbaa !15
+  store i8 %64, ptr %65, align 4, !tbaa !15
   %66 = trunc nuw nsw i32 %3 to i8
   %67 = getelementptr i8, ptr %53, i64 29
   store i8 %66, ptr %67, align 1, !tbaa !15
   %68 = trunc nuw nsw i32 %4 to i8
   %69 = getelementptr i8, ptr %53, i64 30
-  store i8 %68, ptr %69, align 1, !tbaa !15
+  store i8 %68, ptr %69, align 2, !tbaa !15
   %70 = trunc nuw nsw i32 %5 to i8
   %71 = getelementptr i8, ptr %53, i64 31
   store i8 %70, ptr %71, align 1, !tbaa !15
   %72 = lshr i32 %6, 16
   %73 = trunc nuw nsw i32 %72 to i8
   %74 = getelementptr i8, ptr %53, i64 32
-  store i8 %73, ptr %74, align 1, !tbaa !15
+  store i8 %73, ptr %74, align 8, !tbaa !15
   %75 = lshr i32 %6, 8
   %76 = trunc i32 %75 to i8
   %77 = getelementptr i8, ptr %53, i64 33
   store i8 %76, ptr %77, align 1, !tbaa !15
   %78 = trunc i32 %6 to i8
   %79 = getelementptr i8, ptr %53, i64 34
-  store i8 %78, ptr %79, align 1, !tbaa !15
+  store i8 %78, ptr %79, align 2, !tbaa !15
   br i1 %11, label %80, label %86
 
 80:                                               ; preds = %54
@@ -7344,14 +7344,14 @@ define internal ptr @date_repr(ptr noundef readonly captures(none) %0) #0 {
   %7 = zext i8 %6 to i32
   %8 = shl nuw nsw i32 %7, 8
   %9 = getelementptr i8, ptr %0, i64 26
-  %10 = load i8, ptr %9, align 1, !tbaa !15
+  %10 = load i8, ptr %9, align 2, !tbaa !15
   %11 = zext i8 %10 to i32
   %12 = or disjoint i32 %8, %11
   %13 = getelementptr i8, ptr %0, i64 27
   %14 = load i8, ptr %13, align 1, !tbaa !15
   %15 = zext i8 %14 to i32
   %16 = getelementptr i8, ptr %0, i64 28
-  %17 = load i8, ptr %16, align 1, !tbaa !15
+  %17 = load i8, ptr %16, align 4, !tbaa !15
   %18 = zext i8 %17 to i32
   %19 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.90, ptr noundef %4, i32 noundef %12, i32 noundef %15, i32 noundef %18) #18
   ret ptr %19
@@ -10543,13 +10543,13 @@ define internal ptr @time_repr(ptr noundef readonly captures(none) %0) #0 {
   %6 = load i8, ptr %5, align 1, !tbaa !15
   %7 = zext i8 %6 to i32
   %8 = getelementptr i8, ptr %0, i64 26
-  %9 = load i8, ptr %8, align 1, !tbaa !15
+  %9 = load i8, ptr %8, align 2, !tbaa !15
   %10 = zext i8 %9 to i32
   %11 = getelementptr i8, ptr %0, i64 27
   %12 = load i8, ptr %11, align 1, !tbaa !15
   %13 = zext i8 %12 to i32
   %14 = getelementptr i8, ptr %0, i64 28
-  %15 = load i8, ptr %14, align 1, !tbaa !15
+  %15 = load i8, ptr %14, align 4, !tbaa !15
   %16 = zext i8 %15 to i32
   %17 = shl nuw nsw i32 %16, 16
   %18 = getelementptr i8, ptr %0, i64 29
@@ -10558,7 +10558,7 @@ define internal ptr @time_repr(ptr noundef readonly captures(none) %0) #0 {
   %21 = shl nuw nsw i32 %20, 8
   %22 = or disjoint i32 %21, %17
   %23 = getelementptr i8, ptr %0, i64 30
-  %24 = load i8, ptr %23, align 1, !tbaa !15
+  %24 = load i8, ptr %23, align 2, !tbaa !15
   %25 = zext i8 %24 to i32
   %26 = or disjoint i32 %22, %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 31
@@ -13193,7 +13193,7 @@ define internal ptr @datetime_repr(ptr noundef readonly captures(none) %0) #0 {
   %4 = load ptr, ptr %3, align 8, !tbaa !52
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %6 = getelementptr i8, ptr %0, i64 32
-  %7 = load i8, ptr %6, align 1, !tbaa !15
+  %7 = load i8, ptr %6, align 8, !tbaa !15
   %8 = zext i8 %7 to i32
   %9 = shl nuw nsw i32 %8, 16
   %10 = getelementptr i8, ptr %0, i64 33
@@ -13202,7 +13202,7 @@ define internal ptr @datetime_repr(ptr noundef readonly captures(none) %0) #0 {
   %13 = shl nuw nsw i32 %12, 8
   %14 = or disjoint i32 %13, %9
   %15 = getelementptr i8, ptr %0, i64 34
-  %16 = load i8, ptr %15, align 1, !tbaa !15
+  %16 = load i8, ptr %15, align 2, !tbaa !15
   %17 = zext i8 %16 to i32
   %18 = or disjoint i32 %14, %17
   %.not = icmp eq i32 %18, 0
@@ -16318,15 +16318,15 @@ check_time_args.exit.i:                           ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 25
   store i8 %4, ptr %34, align 1, !tbaa !15
   %35 = getelementptr i8, ptr %30, i64 26
-  store i8 %6, ptr %35, align 1, !tbaa !15
+  store i8 %6, ptr %35, align 2, !tbaa !15
   %36 = getelementptr i8, ptr %30, i64 27
   store i8 %8, ptr %36, align 1, !tbaa !15
   %37 = getelementptr i8, ptr %30, i64 28
-  store i8 %10, ptr %37, align 1, !tbaa !15
+  store i8 %10, ptr %37, align 4, !tbaa !15
   %38 = getelementptr i8, ptr %30, i64 29
   store i8 %14, ptr %38, align 1, !tbaa !15
   %39 = getelementptr i8, ptr %30, i64 30
-  store i8 %18, ptr %39, align 1, !tbaa !15
+  store i8 %18, ptr %39, align 2, !tbaa !15
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 31
   store i8 %23, ptr %40, align 1, !tbaa !48
   br label %new_time_ex2.exit

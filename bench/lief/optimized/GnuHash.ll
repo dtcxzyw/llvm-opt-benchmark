@@ -293,14 +293,14 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF3ELFlsERSoRKNS0_7
   %38 = load i32, ptr %37, align 8, !tbaa !37
   %39 = and i32 %38, -75
   %40 = or disjoint i32 %39, 8
-  store i32 %40, ptr %37, align 4, !tbaa !46
+  store i32 %40, ptr %37, align 8, !tbaa !46
   %41 = load i64, ptr %34, align 8
   %42 = getelementptr inbounds i8, ptr %0, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %44 = load i32, ptr %43, align 8, !tbaa !37
   %45 = and i32 %44, -177
   %46 = or disjoint i32 %45, 32
-  store i32 %46, ptr %43, align 4, !tbaa !46
+  store i32 %46, ptr %43, align 8, !tbaa !46
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -398,7 +398,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF3ELFlsERSoRKNS0_7
   %102 = load i32, ptr %101, align 8, !tbaa !37, !noalias !57
   %103 = and i32 %102, -75
   %104 = or disjoint i32 %103, 8
-  store i32 %104, ptr %101, align 4, !tbaa !46, !noalias !57
+  store i32 %104, ptr %101, align 8, !tbaa !46, !noalias !57
   %105 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.7, i64 noundef 2) #11, !noalias !57
   %106 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %22, i64 noundef %86) #11, !noalias !57
   %107 = load i64, ptr %54, align 8, !tbaa !49, !noalias !57
@@ -974,7 +974,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZN
   %330 = load i32, ptr %329, align 8, !tbaa !37, !noalias !112
   %331 = and i32 %330, -75
   %332 = or disjoint i32 %331, 2
-  store i32 %332, ptr %329, align 4, !tbaa !46, !noalias !112
+  store i32 %332, ptr %329, align 8, !tbaa !46, !noalias !112
   %333 = zext i32 %314 to i64
   %334 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %16, i64 noundef %333) #11, !noalias !112
   %335 = load i64, ptr %282, align 8, !tbaa !49, !noalias !112
@@ -1551,7 +1551,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit103: ; preds = %
   %559 = load i32, ptr %558, align 8, !tbaa !37, !noalias !149
   %560 = and i32 %559, -75
   %561 = or disjoint i32 %560, 8
-  store i32 %561, ptr %558, align 4, !tbaa !46, !noalias !149
+  store i32 %561, ptr %558, align 8, !tbaa !46, !noalias !149
   %562 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull @.str.7, i64 noundef 2) #11, !noalias !149
   %563 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %10, i64 noundef range(i64 0, 4294967296) %543) #11, !noalias !149
   %564 = load i64, ptr %510, align 8, !tbaa !49, !noalias !149

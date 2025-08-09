@@ -916,7 +916,7 @@ entry:
   store ptr %1, ptr %Filename.i, align 8, !tbaa !19
   %_M_string_length.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !20
-  store i8 0, ptr %1, align 1, !tbaa !21
+  store i8 0, ptr %1, align 8, !tbaa !21
   %cmp.i.i.i = icmp eq ptr %Filename.i, %fileName
   br i1 %cmp.i.i.i, label %_ZN3irr2io15CMemoryReadFileC1EPKvlRKNS_4core6stringIcEEb.exit, label %if.end.i.i.i
 
@@ -956,7 +956,7 @@ entry:
   store ptr %1, ptr %Filename.i, align 8, !tbaa !19
   %_M_string_length.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !20
-  store i8 0, ptr %1, align 1, !tbaa !21
+  store i8 0, ptr %1, align 8, !tbaa !21
   %cmp.i.i.i = icmp eq ptr %Filename.i, %fileName
   br i1 %cmp.i.i.i, label %_ZN3irr2io16CMemoryWriteFileC1EPvlRKNS_4core6stringIcEEb.exit, label %if.end.i.i.i
 

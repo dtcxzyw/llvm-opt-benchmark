@@ -703,7 +703,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_light17h56cd9baf47bc31b1E.exit28.i: ; pred
   store i128 %.sroa.032.0.copyload50, ptr %38, align 16, !noalias !73
   %.sroa.5.0..val19.sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %.sroa.5.0..val19.sroa_idx, ptr noundef nonnull align 16 dereferenceable(144) %.sroa.5.0..sroa_idx51, i64 144, i1 false)
-  store atomic i64 %85, ptr %84 release, align 8, !noalias !76
+  store atomic i64 %85, ptr %84 release, align 16, !noalias !76
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 320
   call fastcc void @_ZN3std4sync4mpmc5waker9SyncWaker6notify17h0bf8693799c96025E(ptr noundef nonnull align 8 %86)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h183dc2e8a8f46d18E.exit"

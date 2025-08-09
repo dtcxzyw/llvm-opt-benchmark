@@ -270,7 +270,7 @@ malloc_mutex_lock.exit.i.i:                       ; preds = %60, %54
   tail call void @je_hpdata_init(ptr noundef nonnull %71, ptr noundef %78, i64 noundef %48) #8
   %79 = getelementptr inbounds nuw i8, ptr %46, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, i8 0, i64 16, i1 false)
-  store atomic i8 0, ptr %79 monotonic, align 1
+  store atomic i8 0, ptr %79 monotonic, align 8
   %80 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %50) #8
   br label %hpa_central_extract.exit.i
 
@@ -324,7 +324,7 @@ malloc_mutex_lock.exit.i.i:                       ; preds = %60, %54
   %101 = add i64 %100, -2097152
   store i64 %101, ptr %99, align 8, !tbaa !62
   %102 = getelementptr inbounds nuw i8, ptr %46, i64 64
-  store atomic i8 0, ptr %102 monotonic, align 1
+  store atomic i8 0, ptr %102 monotonic, align 8
   %103 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %50) #8
   br label %hpa_central_extract.exit.i
 
@@ -1037,10 +1037,10 @@ malloc_mutex_lock.exit16:                         ; preds = %24, %30
   %59 = add i64 %58, %56
   store i64 %59, ptr %57, align 8, !tbaa !93
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  store atomic i8 0, ptr %60 monotonic, align 1
+  store atomic i8 0, ptr %60 monotonic, align 8
   %61 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %19) #8
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  store atomic i8 0, ptr %62 monotonic, align 1
+  store atomic i8 0, ptr %62 monotonic, align 8
   %63 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #8
   ret void
 }
@@ -1328,7 +1328,7 @@ hpa_should_purge.exit:                            ; preds = %hpa_ndirty_max.exit
   %88 = load i64, ptr %30, align 8, !tbaa !44
   %89 = add i64 %88, %87
   store i64 %89, ptr %30, align 8, !tbaa !44
-  store atomic i8 0, ptr %33 monotonic, align 1
+  store atomic i8 0, ptr %33 monotonic, align 8
   %90 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %34) #8
   br i1 %86, label %91, label %95
 

@@ -120,7 +120,7 @@ define hidden ptr @lj_bcread_proto(ptr noundef %0) local_unnamed_addr #0 {
   %.016.i = select i1 %.not.i, i32 %..i, i32 19
   %73 = shl nuw nsw i32 %11, 8
   %74 = or disjoint i32 %.016.i, %73
-  store i32 %74, ptr %69, align 4, !tbaa !39
+  store i32 %74, ptr %69, align 8, !tbaa !39
   %75 = getelementptr inbounds nuw i8, ptr %43, i64 108
   %76 = add i32 %28, -4
   %77 = load ptr, ptr %3, align 8, !tbaa !4

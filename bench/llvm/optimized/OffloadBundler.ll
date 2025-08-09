@@ -5215,7 +5215,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_115TextFileHandlerESt14default_deleteIS1_EED2Ev.
   store ptr %85, ptr %84, align 8, !tbaa !3, !noalias !281
   %86 = getelementptr inbounds nuw i8, ptr %80, i64 56
   store i64 0, ptr %86, align 8, !tbaa !9, !noalias !281
-  store i8 0, ptr %85, align 1, !tbaa !12, !noalias !281
+  store i8 0, ptr %85, align 8, !tbaa !12, !noalias !281
   %87 = getelementptr inbounds nuw i8, ptr %80, i64 80
   store ptr %2, ptr %87, align 8, !tbaa !13, !noalias !281
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5301,7 +5301,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_111FileHandlerESt14default_deleteIS1_EED2Ev.exit
   store ptr %120, ptr %119, align 8, !tbaa !3, !noalias !290
   %121 = getelementptr inbounds nuw i8, ptr %115, i64 56
   store i64 0, ptr %121, align 8, !tbaa !9, !noalias !290
-  store i8 0, ptr %120, align 1, !tbaa !12, !noalias !290
+  store i8 0, ptr %120, align 8, !tbaa !12, !noalias !290
   %122 = getelementptr inbounds nuw i8, ptr %115, i64 80
   store ptr %2, ptr %122, align 8, !tbaa !13, !noalias !290
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5334,7 +5334,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_111FileHandlerESt14default_deleteIS1_EED2Ev.exit
   store ptr %135, ptr %134, align 8, !tbaa !3, !noalias !293
   %136 = getelementptr inbounds nuw i8, ptr %130, i64 56
   store i64 0, ptr %136, align 8, !tbaa !9, !noalias !293
-  store i8 0, ptr %135, align 1, !tbaa !12, !noalias !293
+  store i8 0, ptr %135, align 8, !tbaa !12, !noalias !293
   %137 = getelementptr inbounds nuw i8, ptr %130, i64 80
   store ptr %2, ptr %137, align 8, !tbaa !13, !noalias !293
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11842,7 +11842,7 @@ _ZN4llvm5ErrorD2Ev.exit3:                         ; preds = %14, %19
   store ptr %33, ptr %32, align 8, !tbaa !3, !noalias !648
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 56
   store i64 0, ptr %34, align 8, !tbaa !9, !noalias !648
-  store i8 0, ptr %33, align 1, !tbaa !12, !noalias !648
+  store i8 0, ptr %33, align 8, !tbaa !12, !noalias !648
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 80
   store ptr %2, ptr %35, align 8, !tbaa !13, !noalias !648
   store ptr null, ptr %9, align 8, !tbaa !287

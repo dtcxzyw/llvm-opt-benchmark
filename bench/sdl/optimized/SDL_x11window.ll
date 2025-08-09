@@ -1901,7 +1901,7 @@ define hidden void @X11_UpdateWindowPosition(ptr noundef %0, i1 noundef zeroext 
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %30 = load i64, ptr %29, align 8
   %31 = load i32, ptr %16, align 4
-  %32 = load i32, ptr %17, align 4
+  %32 = load i32, ptr %17, align 8
   %33 = tail call i32 %28(ptr noundef %7, i64 noundef %30, i32 noundef %31, i32 noundef %32) #12
   br label %34
 
@@ -2001,7 +2001,7 @@ define hidden noundef zeroext i1 @X11_SetWindowPosition(ptr noundef %0, ptr noun
   %55 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %56 = load i64, ptr %55, align 8
   %57 = load i32, ptr %43, align 4
-  %58 = load i32, ptr %44, align 4
+  %58 = load i32, ptr %44, align 8
   %59 = tail call i32 %54(ptr noundef %34, i64 noundef %56, i32 noundef %57, i32 noundef %58) #12
   br label %X11_UpdateWindowPosition.exit
 
@@ -2364,11 +2364,11 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
   %100 = load i32, ptr %9, align 4
   store i32 %100, ptr %39, align 4
   %101 = load i32, ptr %10, align 4
-  store i32 %101, ptr %41, align 4
+  store i32 %101, ptr %41, align 8
   %102 = load i32, ptr %43, align 8
   store i32 %102, ptr %44, align 4
   %103 = load i32, ptr %45, align 4
-  store i32 %103, ptr %46, align 4
+  store i32 %103, ptr %46, align 8
   %.b41.pre.i = load i1, ptr @caught_x11_error, align 1
   br i1 %.b41.pre.i, label %X11_ExternalResizeMoveSync.exit, label %.loopexit.thread.i
 
@@ -2744,7 +2744,7 @@ define hidden void @X11_SetWindowSize(ptr noundef %0, ptr noundef %1) local_unna
   %48 = getelementptr inbounds nuw i8, ptr %35, i64 28
   store i32 %46, ptr %48, align 4
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 480
-  store i32 %46, ptr %49, align 4
+  store i32 %46, ptr %49, align 8
   %50 = load i64, ptr %35, align 8
   %51 = or i64 %50, 48
   store i64 %51, ptr %35, align 8

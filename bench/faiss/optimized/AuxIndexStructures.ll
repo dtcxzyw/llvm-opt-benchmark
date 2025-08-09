@@ -1615,7 +1615,7 @@ define void @_ZN5faiss15TimeoutCallback5resetEd(double noundef %0) local_unnamed
   %2 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 0, ptr %3, align 16
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5faiss15TimeoutCallbackE, i64 16), ptr %2, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5faiss15TimeoutCallbackE, i64 16), ptr %2, align 16, !tbaa !31
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %4, align 8
   %5 = load ptr, ptr @_ZN5faiss17InterruptCallback8instanceE, align 8, !tbaa !80

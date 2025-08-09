@@ -469,7 +469,7 @@ _ZNK9table2mapI17default_map_entryIPKcjE13str_hash_proc11str_eq_procE4findERKS2_
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %49 = load ptr, ptr %.08.i, align 8, !tbaa !22
   store ptr %49, ptr %8, align 8, !tbaa !50
-  %50 = load i32, ptr %48, align 4, !tbaa !9
+  %50 = load i32, ptr %48, align 8, !tbaa !9
   store i32 %50, ptr %37, align 8, !tbaa !51
   invoke void @_ZN14core_hashtableI17default_map_entryIPKcjEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE6insertEO9_key_dataIS2_jE(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %.noexc57 unwind label %.loopexit.split-lp150
@@ -1025,7 +1025,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit128: ; preds = %.lr.
   %222 = load i32, ptr %221, align 8, !tbaa !67
   %223 = and i32 %222, -261
   %224 = or disjoint i32 %223, 4
-  store i32 %224, ptr %221, align 4, !tbaa !77
+  store i32 %224, ptr %221, align 8, !tbaa !77
   %225 = load i64, ptr %218, align 8
   %226 = getelementptr inbounds i8, ptr %1, i64 %225
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
@@ -1356,7 +1356,7 @@ _ZNK9table2mapI17default_map_entryIPKcjE13str_hash_proc11str_eq_procE4findERKS2_
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %49 = load ptr, ptr %.08.i, align 8, !tbaa !22
   store ptr %49, ptr %8, align 8, !tbaa !50
-  %50 = load i32, ptr %48, align 4, !tbaa !9
+  %50 = load i32, ptr %48, align 8, !tbaa !9
   store i32 %50, ptr %37, align 8, !tbaa !51
   invoke void @_ZN14core_hashtableI17default_map_entryIPKcjEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE6insertEO9_key_dataIS2_jE(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %.noexc47 unwind label %.loopexit.split-lp153
@@ -1956,7 +1956,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit125: ; preds = %.lr.
   %240 = load i32, ptr %239, align 8, !tbaa !67
   %241 = and i32 %240, -261
   %242 = or disjoint i32 %241, 4
-  store i32 %242, ptr %239, align 4, !tbaa !77
+  store i32 %242, ptr %239, align 8, !tbaa !77
   %243 = load i64, ptr %236, align 8
   %244 = getelementptr inbounds i8, ptr %1, i64 %243
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 8
@@ -2107,7 +2107,7 @@ _ZNK9table2mapI17default_map_entryIPKcjE13str_hash_proc11str_eq_procE4findERKS2_
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %48 = load ptr, ptr %.08.i, align 8, !tbaa !22
   store ptr %48, ptr %8, align 8, !tbaa !50
-  %49 = load i32, ptr %47, align 4, !tbaa !9
+  %49 = load i32, ptr %47, align 8, !tbaa !9
   store i32 %49, ptr %36, align 8, !tbaa !51
   invoke void @_ZN14core_hashtableI17default_map_entryIPKcjEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE6insertEO9_key_dataIS2_jE(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %.noexc17 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp

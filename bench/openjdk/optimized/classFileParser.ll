@@ -2094,7 +2094,7 @@ _ZNK15ClassFileParser18guarantee_propertyEbPKciP10JavaThread.exit294.thread: ; p
   %354 = load i16, ptr %345, align 4
   %.not.i.i.i = icmp ne i16 %354, 0
   %355 = getelementptr inbounds nuw i8, ptr %344, i64 6
-  %356 = load i8, ptr %355, align 1
+  %356 = load i8, ptr %355, align 2
   %357 = icmp eq i8 %356, 40
   %.0.i.i.i = select i1 %.not.i.i.i, i1 %357, i1 false
   br i1 %.0.i.i.i, label %358, label %363
@@ -2144,7 +2144,7 @@ _ZNK15ClassFileParser18guarantee_propertyEbPKciP10JavaThread.exit294.thread: ; p
   %383 = load i16, ptr %382, align 4
   %.not.i.i.i295 = icmp ne i16 %383, 0
   %384 = getelementptr inbounds nuw i8, ptr %378, i64 6
-  %385 = load i8, ptr %384, align 1
+  %385 = load i8, ptr %384, align 2
   %386 = icmp eq i8 %385, 40
   %.0.i.i.i296 = select i1 %.not.i.i.i295, i1 %386, i1 false
   br i1 %.0.i.i.i296, label %387, label %475
@@ -2180,7 +2180,7 @@ _ZNK15ClassFileParser18guarantee_propertyEbPKciP10JavaThread.exit294.thread: ; p
   %407 = load i16, ptr %406, align 4
   %.not.i.i.i297 = icmp ne i16 %407, 0
   %408 = getelementptr inbounds nuw i8, ptr %400, i64 6
-  %409 = load i8, ptr %408, align 1
+  %409 = load i8, ptr %408, align 2
   %410 = icmp eq i8 %409, 40
   %.0.i.i.i298 = select i1 %.not.i.i.i297, i1 %410, i1 false
   br i1 %.0.i.i.i298, label %411, label %475
@@ -2199,7 +2199,7 @@ _ZNK15ClassFileParser18guarantee_propertyEbPKciP10JavaThread.exit294.thread: ; p
   %416 = load i16, ptr %415, align 4
   %.not.i.i.i299 = icmp ne i16 %416, 0
   %417 = getelementptr inbounds nuw i8, ptr %400, i64 6
-  %418 = load i8, ptr %417, align 1
+  %418 = load i8, ptr %417, align 2
   %419 = icmp eq i8 %418, 40
   %.0.i.i.i300 = select i1 %.not.i.i.i299, i1 %419, i1 false
   br i1 %.0.i.i.i300, label %422, label %420
@@ -17931,7 +17931,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit37:            ; preds = %_ZL12sort_methodsP5
 393:                                              ; preds = %384
   store i32 %387, ptr %391, align 4
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %391, i64 4
-  store i8 0, ptr %.ptr.i.i.i, align 1
+  store i8 0, ptr %.ptr.i.i.i, align 4
   br label %_ZN15MetadataFactory9new_arrayI11FieldStatusEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i
 
 _ZN15MetadataFactory9new_arrayI11FieldStatusEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i: ; preds = %393, %384

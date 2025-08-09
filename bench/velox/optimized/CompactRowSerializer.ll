@@ -2189,7 +2189,7 @@ call6.i.noexc:                                    ; preds = %call3.i.noexc
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i41, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !34
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i41, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !34
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !34
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i41, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !34
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i41, i64 48

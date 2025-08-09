@@ -797,7 +797,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MCSymbolENS_10EHStreamer8PadRangeENS_12
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MCSymbolENS_10EHStreamer8PadRangeENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E16InsertIntoBucketIRKS3_JEEEPSA_SG_OT_DpOT0_.exit.i: ; preds = %103, %97
   store ptr %21, ptr %98, align 8, !tbaa !179
   %106 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  store i64 0, ptr %106, align 4
+  store i64 0, ptr %106, align 8
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MCSymbolENS_10EHStreamer8PadRangeENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_EixERKS3_.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MCSymbolENS_10EHStreamer8PadRangeENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_EixERKS3_.exit: ; preds = %50, %34, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MCSymbolENS_10EHStreamer8PadRangeENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E16InsertIntoBucketIRKS3_JEEEPSA_SG_OT_DpOT0_.exit.i
@@ -3827,7 +3827,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MCSymbolENS_10EHStreamer8PadRangeENS_12
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i64, ptr %67, align 4
-  store i64 %68, ptr %66, align 4
+  store i64 %68, ptr %66, align 8
   %69 = load i32, ptr %32, align 8, !tbaa !190
   %70 = add i32 %69, 1
   store i32 %70, ptr %32, align 8, !tbaa !190

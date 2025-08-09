@@ -4059,7 +4059,7 @@ _ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_trait
 _ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEaSIbEERSR_OT_.exit: ; preds = %35, %44, %47
   %48 = and i8 %36, 1
   store ptr @_ZTIb, ptr %41, align 32
-  store i8 %48, ptr %40, align 1
+  store i8 %48, ptr %40, align 32
   %49 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -4222,7 +4222,7 @@ _ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_trait
 
 _ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEaSIlEERSR_OT_.exit: ; preds = %35, %44, %47
   store ptr @_ZTIl, ptr %41, align 32
-  store i64 %36, ptr %40, align 8
+  store i64 %36, ptr %40, align 32
   %48 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -4603,7 +4603,7 @@ _ZNSt3__110shared_ptrIvEC2B8ne190000ERKS1_.exit:  ; preds = %36, %41
 
 _ZNSt3__110shared_ptrIvED2B8ne190000Ev.exit:      ; preds = %46, %52, %55
   store ptr @_ZTINSt3__110shared_ptrIvEE, ptr %49, align 32
-  store ptr %37, ptr %48, align 8
+  store ptr %37, ptr %48, align 32
   %56 = getelementptr inbounds nuw i8, ptr %47, i64 72
   store ptr %40, ptr %56, align 8
   %57 = load ptr, ptr %0, align 8
@@ -5496,7 +5496,7 @@ _ZN7mitsuba3refINS_6ObjectEEC2ERKS2_.exit:        ; preds = %35, %37
 
 _ZN7mitsuba3refINS_6ObjectEED2Ev.exit:            ; preds = %42, %48, %51
   store ptr @_ZTIN7mitsuba3refINS_6ObjectEEE, ptr %45, align 32
-  store ptr %36, ptr %44, align 8
+  store ptr %36, ptr %44, align 32
   %52 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -5792,7 +5792,7 @@ _ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_trait
 
 _ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEaSISQ_EERSR_OT_.exit: ; preds = %35, %44, %47
   store ptr @_ZTIPKv, ptr %41, align 32
-  store ptr %36, ptr %40, align 8
+  store ptr %36, ptr %40, align 32
   %48 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -8886,7 +8886,7 @@ _ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_trait
 
 _ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEaSIdEERSR_OT_.exit: ; preds = %35, %44, %47
   store ptr @_ZTId, ptr %41, align 32
-  store double %36, ptr %40, align 8
+  store double %36, ptr %40, align 32
   %48 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

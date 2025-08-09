@@ -11689,7 +11689,7 @@ transaction_id_pick.exit.i.i:                     ; preds = %150, %159
   %178 = getelementptr inbounds nuw i8, ptr %167, i64 168
   store i16 %163, ptr %178, align 8
   %rev.i.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %163)
-  store i16 %rev.i.i.i.i, ptr %177, align 2
+  store i16 %rev.i.i.i.i, ptr %177, align 8
   %179 = getelementptr inbounds nuw i8, ptr %167, i64 20
   store i32 0, ptr %179, align 4
   br i1 %144, label %180, label %199
@@ -12327,7 +12327,7 @@ disconnect_and_free_connection.exit:              ; preds = %21, %25
 28:                                               ; preds = %26
   %29 = load i32, ptr %0, align 8
   %30 = call i32 @evutil_closesocket(i32 noundef %29) #21
-  %31 = load i16, ptr %10, align 2
+  %31 = load i16, ptr %10, align 8
   %32 = zext i16 %31 to i32
   %33 = call i32 @evutil_socket_(i32 noundef %32, i32 noundef 526338, i32 noundef 0) #21
   store i32 %33, ptr %0, align 8

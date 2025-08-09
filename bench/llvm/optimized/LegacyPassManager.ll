@@ -15295,7 +15295,7 @@ _ZN4llvm14StringMapEntryISt4pairIjjEE6createINS_15MallocAllocatorEJiRjEEEPS3_NS_
   store i64 %2, ptr %20, align 8, !tbaa !75
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %25 = load i32, ptr %4, align 4, !tbaa !47
-  store i32 %25, ptr %24, align 4, !tbaa !42
+  store i32 %25, ptr %24, align 8, !tbaa !42
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %27 = load i32, ptr %5, align 4, !tbaa !47
   store i32 %27, ptr %26, align 4, !tbaa !44
@@ -16600,7 +16600,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_4PassEjNS_12DenseMapInfoIS3_vEENS_6detai
   store ptr %60, ptr %50, align 8, !tbaa !176
   %61 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %62 = load i32, ptr %3, align 4, !tbaa !47
-  store i32 %62, ptr %61, align 4, !tbaa !47
+  store i32 %62, ptr %61, align 8, !tbaa !47
   %63 = load ptr, ptr %1, align 8, !tbaa !549
   %64 = load i32, ptr %7, align 8, !tbaa !552
   br label %.loopexit
@@ -16812,7 +16812,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_4PassEjNS_12DenseMapInfoIS3_vEENS_6detai
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !47
-  store i32 %68, ptr %66, align 4, !tbaa !47
+  store i32 %68, ptr %66, align 8, !tbaa !47
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !571
   br label %70
@@ -16972,7 +16972,7 @@ _ZN4llvm14StringMapEntryISt4pairIjjEE6createINS_15MallocAllocatorEJEEEPS3_NS_9St
   store i8 0, ptr %21, align 1, !tbaa !37
   store i64 %2, ptr %18, align 8, !tbaa !75
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i32 0, ptr %22, align 4, !tbaa !42
+  store i32 0, ptr %22, align 8, !tbaa !42
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 0, ptr %23, align 4, !tbaa !44
   store ptr %18, ptr %8, align 8, !tbaa !40
@@ -20067,7 +20067,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit.i.i: ; pr
   %.sroa.0.0.copyload.i.i.i.i.i.i.i.i = load ptr, ptr %36, align 8, !tbaa !121
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.02.i.i.i.i.i.i.i.i, i64 32
   %.sroa.2.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i, align 8, !tbaa !38
-  %.val.i.i.i.i.i.i.i.i = load i32, ptr %35, align 4, !tbaa !47
+  %.val.i.i.i.i.i.i.i.i = load i32, ptr %35, align 8, !tbaa !47
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr %.sroa.01.0.copyload.i.i.i.i.i.i.i.i, ptr %1, align 8, !tbaa !121
   store i64 %.sroa.22.0.copyload.i.i.i.i.i.i.i.i, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !38

@@ -112498,7 +112498,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %.sroa.10.0..sroa_idx12, ptr noundef nonnull align 8 dereferenceable(296) %.sroa.10, i64 296, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10)
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %.val = load ptr, ptr %35, align 8, !noundef !9
+  %.val = load ptr, ptr %35, align 16, !noundef !9
   invoke fastcc void @"_ZN81_$LT$rayon_core..latch..LatchRef$LT$L$GT$$u20$as$u20$rayon_core..latch..Latch$GT$3set17h10c7373ed48cf54fE"(ptr %.val)
           to label %36 unwind label %29
 
@@ -115114,7 +115114,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %41 = load i8, ptr %40, align 8, !range !1190, !noundef !9
   %42 = trunc nuw i8 %41 to i1
-  %43 = load ptr, ptr %39, align 8, !nonnull !9, !align !10, !noundef !9
+  %43 = load ptr, ptr %39, align 16, !nonnull !9, !align !10, !noundef !9
   %44 = load ptr, ptr %43, align 8, !nonnull !9, !noundef !9
   br i1 %42, label %51, label %45
 
@@ -116456,7 +116456,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %.sroa.11.0..sroa_idx13, ptr noundef nonnull align 16 dereferenceable(512) %.sroa.11, i64 512, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %.val = load ptr, ptr %29, align 8, !noundef !9
+  %.val = load ptr, ptr %29, align 16, !noundef !9
   invoke fastcc void @"_ZN81_$LT$rayon_core..latch..LatchRef$LT$L$GT$$u20$as$u20$rayon_core..latch..Latch$GT$3set17h10c7373ed48cf54fE"(ptr %.val)
           to label %30 unwind label %22
 
@@ -116893,7 +116893,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %31 = load i8, ptr %30, align 8, !range !1190, !noundef !9
   %32 = trunc nuw i8 %31 to i1
-  %33 = load ptr, ptr %29, align 8, !nonnull !9, !align !10, !noundef !9
+  %33 = load ptr, ptr %29, align 16, !nonnull !9, !align !10, !noundef !9
   %34 = load ptr, ptr %33, align 8, !nonnull !9, !noundef !9
   br i1 %32, label %41, label %35
 
@@ -120327,7 +120327,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %35 = load i8, ptr %34, align 8, !range !1190, !noundef !9
   %36 = trunc nuw i8 %35 to i1
-  %37 = load ptr, ptr %33, align 8, !nonnull !9, !align !10, !noundef !9
+  %37 = load ptr, ptr %33, align 16, !nonnull !9, !align !10, !noundef !9
   %38 = load ptr, ptr %37, align 8, !nonnull !9, !noundef !9
   br i1 %36, label %45, label %39
 
@@ -123704,7 +123704,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %33 = load i8, ptr %32, align 8, !range !1190, !noundef !9
   %34 = trunc nuw i8 %33 to i1
-  %35 = load ptr, ptr %31, align 8, !nonnull !9, !align !10, !noundef !9
+  %35 = load ptr, ptr %31, align 16, !nonnull !9, !align !10, !noundef !9
   %36 = load ptr, ptr %35, align 8, !nonnull !9, !noundef !9
   br i1 %34, label %43, label %37
 
@@ -123946,7 +123946,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %.sroa.11.0..sroa_idx13, ptr noundef nonnull align 16 dereferenceable(512) %.sroa.11, i64 512, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %.val = load ptr, ptr %33, align 8, !noundef !9
+  %.val = load ptr, ptr %33, align 16, !noundef !9
   invoke fastcc void @"_ZN81_$LT$rayon_core..latch..LatchRef$LT$L$GT$$u20$as$u20$rayon_core..latch..Latch$GT$3set17h10c7373ed48cf54fE"(ptr %.val)
           to label %34 unwind label %26
 
@@ -127791,7 +127791,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %34 = load i8, ptr %33, align 8, !range !1190, !noundef !9
   %35 = trunc nuw i8 %34 to i1
-  %36 = load ptr, ptr %32, align 8, !nonnull !9, !align !10, !noundef !9
+  %36 = load ptr, ptr %32, align 16, !nonnull !9, !align !10, !noundef !9
   %37 = load ptr, ptr %36, align 8, !nonnull !9, !noundef !9
   br i1 %35, label %44, label %38
 
@@ -128298,7 +128298,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %.val = load ptr, ptr %39, align 8, !noundef !9
+  %.val = load ptr, ptr %39, align 16, !noundef !9
   invoke fastcc void @"_ZN81_$LT$rayon_core..latch..LatchRef$LT$L$GT$$u20$as$u20$rayon_core..latch..Latch$GT$3set17h10c7373ed48cf54fE"(ptr %.val)
           to label %40 unwind label %32
 
@@ -131543,7 +131543,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %.val = load ptr, ptr %31, align 8, !noundef !9
+  %.val = load ptr, ptr %31, align 16, !noundef !9
   invoke fastcc void @"_ZN81_$LT$rayon_core..latch..LatchRef$LT$L$GT$$u20$as$u20$rayon_core..latch..Latch$GT$3set17h10c7373ed48cf54fE"(ptr %.val)
           to label %32 unwind label %24
 
@@ -136966,7 +136966,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %.sroa.10.0..sroa_idx13, ptr noundef nonnull align 8 dereferenceable(296) %.sroa.10, i64 296, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %.val = load ptr, ptr %32, align 8, !noundef !9
+  %.val = load ptr, ptr %32, align 16, !noundef !9
   invoke fastcc void @"_ZN81_$LT$rayon_core..latch..LatchRef$LT$L$GT$$u20$as$u20$rayon_core..latch..Latch$GT$3set17h10c7373ed48cf54fE"(ptr %.val)
           to label %33 unwind label %26
 
@@ -137141,7 +137141,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %.val = load ptr, ptr %38, align 8, !noundef !9
+  %.val = load ptr, ptr %38, align 16, !noundef !9
   invoke fastcc void @"_ZN81_$LT$rayon_core..latch..LatchRef$LT$L$GT$$u20$as$u20$rayon_core..latch..Latch$GT$3set17h10c7373ed48cf54fE"(ptr %.val)
           to label %39 unwind label %30
 
@@ -139195,7 +139195,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %35 = load i8, ptr %34, align 8, !range !1190, !noundef !9
   %36 = trunc nuw i8 %35 to i1
-  %37 = load ptr, ptr %33, align 8, !nonnull !9, !align !10, !noundef !9
+  %37 = load ptr, ptr %33, align 16, !nonnull !9, !align !10, !noundef !9
   %38 = load ptr, ptr %37, align 8, !nonnull !9, !noundef !9
   br i1 %36, label %45, label %39
 
@@ -140620,7 +140620,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %.val = load ptr, ptr %35, align 8, !noundef !9
+  %.val = load ptr, ptr %35, align 16, !noundef !9
   invoke fastcc void @"_ZN81_$LT$rayon_core..latch..LatchRef$LT$L$GT$$u20$as$u20$rayon_core..latch..Latch$GT$3set17h10c7373ed48cf54fE"(ptr %.val)
           to label %36 unwind label %29
 
@@ -141875,7 +141875,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %40 = load i8, ptr %39, align 8, !range !1190, !noundef !9
   %41 = trunc nuw i8 %40 to i1
-  %42 = load ptr, ptr %38, align 8, !nonnull !9, !align !10, !noundef !9
+  %42 = load ptr, ptr %38, align 16, !nonnull !9, !align !10, !noundef !9
   %43 = load ptr, ptr %42, align 8, !nonnull !9, !noundef !9
   br i1 %41, label %50, label %44
 
@@ -147495,7 +147495,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 184
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %44 = load i8, ptr %43, align 8, !range !1190, !noundef !9
+  %44 = load i8, ptr %43, align 16, !range !1190, !noundef !9
   %45 = trunc nuw i8 %44 to i1
   %46 = load ptr, ptr %42, align 8, !nonnull !9, !align !10, !noundef !9
   %47 = load ptr, ptr %46, align 8, !nonnull !9, !noundef !9
@@ -150598,7 +150598,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %32 = load i8, ptr %31, align 8, !range !1190, !noundef !9
   %33 = trunc nuw i8 %32 to i1
-  %34 = load ptr, ptr %30, align 8, !nonnull !9, !align !10, !noundef !9
+  %34 = load ptr, ptr %30, align 16, !nonnull !9, !align !10, !noundef !9
   %35 = load ptr, ptr %34, align 8, !nonnull !9, !noundef !9
   br i1 %33, label %42, label %36
 
@@ -154735,7 +154735,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %31 = load i8, ptr %30, align 8, !range !1190, !noundef !9
   %32 = trunc nuw i8 %31 to i1
-  %33 = load ptr, ptr %29, align 8, !nonnull !9, !align !10, !noundef !9
+  %33 = load ptr, ptr %29, align 16, !nonnull !9, !align !10, !noundef !9
   %34 = load ptr, ptr %33, align 8, !nonnull !9, !noundef !9
   br i1 %32, label %41, label %35
 
@@ -157964,7 +157964,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %31 = load i8, ptr %30, align 8, !range !1190, !noundef !9
   %32 = trunc nuw i8 %31 to i1
-  %33 = load ptr, ptr %29, align 8, !nonnull !9, !align !10, !noundef !9
+  %33 = load ptr, ptr %29, align 16, !nonnull !9, !align !10, !noundef !9
   %34 = load ptr, ptr %33, align 8, !nonnull !9, !noundef !9
   br i1 %32, label %41, label %35
 
@@ -159026,7 +159026,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %.sroa.11.0..sroa_idx10, ptr noundef nonnull align 16 dereferenceable(512) %.sroa.11, i64 512, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %.val = load ptr, ptr %33, align 8, !noundef !9
+  %.val = load ptr, ptr %33, align 16, !noundef !9
   invoke fastcc void @"_ZN81_$LT$rayon_core..latch..LatchRef$LT$L$GT$$u20$as$u20$rayon_core..latch..Latch$GT$3set17h10c7373ed48cf54fE"(ptr %.val)
           to label %34 unwind label %27
 
@@ -162969,7 +162969,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %42 = load i8, ptr %41, align 8, !range !1190, !noundef !9
   %43 = trunc nuw i8 %42 to i1
-  %44 = load ptr, ptr %40, align 8, !nonnull !9, !align !10, !noundef !9
+  %44 = load ptr, ptr %40, align 16, !nonnull !9, !align !10, !noundef !9
   %45 = load ptr, ptr %44, align 8, !nonnull !9, !noundef !9
   br i1 %43, label %52, label %46
 
@@ -168380,7 +168380,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %.sroa.10.0..sroa_idx13, ptr noundef nonnull align 8 dereferenceable(296) %.sroa.10, i64 296, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %.val = load ptr, ptr %32, align 8, !noundef !9
+  %.val = load ptr, ptr %32, align 16, !noundef !9
   invoke fastcc void @"_ZN81_$LT$rayon_core..latch..LatchRef$LT$L$GT$$u20$as$u20$rayon_core..latch..Latch$GT$3set17h10c7373ed48cf54fE"(ptr %.val)
           to label %33 unwind label %26
 
@@ -171287,9 +171287,9 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 65
   %.sroa.5.sroa.0.0.copyload = load i56, ptr %.sroa.5.0..sroa_idx, align 1
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.sroa.5.sroa.4.0.copyload = load ptr, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 1
+  %.sroa.5.sroa.4.0.copyload = load ptr, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %.sroa.5.sroa.5.0.copyload = load ptr, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx, align 1
+  %.sroa.5.sroa.5.0.copyload = load ptr, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx, align 16
   store i8 28, ptr %12, align 16
   %.not = icmp eq i8 %.sroa.0.0.copyload, 28
   br i1 %.not, label %45, label %13, !prof !18
@@ -178336,7 +178336,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %.sroa.11.0..sroa_idx13, ptr noundef nonnull align 16 dereferenceable(512) %.sroa.11, i64 512, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %.val = load ptr, ptr %29, align 8, !noundef !9
+  %.val = load ptr, ptr %29, align 16, !noundef !9
   invoke fastcc void @"_ZN81_$LT$rayon_core..latch..LatchRef$LT$L$GT$$u20$as$u20$rayon_core..latch..Latch$GT$3set17h10c7373ed48cf54fE"(ptr %.val)
           to label %30 unwind label %22
 
@@ -180564,7 +180564,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %34 = load i8, ptr %33, align 8, !range !1190, !noundef !9
   %35 = trunc nuw i8 %34 to i1
-  %36 = load ptr, ptr %32, align 8, !nonnull !9, !align !10, !noundef !9
+  %36 = load ptr, ptr %32, align 16, !nonnull !9, !align !10, !noundef !9
   %37 = load ptr, ptr %36, align 8, !nonnull !9, !noundef !9
   br i1 %35, label %44, label %38
 
@@ -195346,7 +195346,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %42 = load i8, ptr %41, align 8, !range !1190, !noundef !9
   %43 = trunc nuw i8 %42 to i1
-  %44 = load ptr, ptr %40, align 8, !nonnull !9, !align !10, !noundef !9
+  %44 = load ptr, ptr %40, align 16, !nonnull !9, !align !10, !noundef !9
   %45 = load ptr, ptr %44, align 8, !nonnull !9, !noundef !9
   br i1 %43, label %52, label %46
 
@@ -195821,7 +195821,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %.sroa.10.0..sroa_idx13, ptr noundef nonnull align 8 dereferenceable(296) %.sroa.10, i64 296, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %.val = load ptr, ptr %32, align 8, !noundef !9
+  %.val = load ptr, ptr %32, align 16, !noundef !9
   invoke fastcc void @"_ZN81_$LT$rayon_core..latch..LatchRef$LT$L$GT$$u20$as$u20$rayon_core..latch..Latch$GT$3set17h10c7373ed48cf54fE"(ptr %.val)
           to label %33 unwind label %26
 
@@ -197932,7 +197932,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %.sroa.11.0..sroa_idx13, ptr noundef nonnull align 16 dereferenceable(512) %.sroa.11, i64 512, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %.val = load ptr, ptr %29, align 8, !noundef !9
+  %.val = load ptr, ptr %29, align 16, !noundef !9
   invoke fastcc void @"_ZN81_$LT$rayon_core..latch..LatchRef$LT$L$GT$$u20$as$u20$rayon_core..latch..Latch$GT$3set17h10c7373ed48cf54fE"(ptr %.val)
           to label %30 unwind label %22
 
@@ -201290,7 +201290,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(784) %.sroa.11.0..sroa_idx12, ptr noundef nonnull align 16 dereferenceable(784) %.sroa.11, i64 784, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 816
-  %.val = load ptr, ptr %33, align 8, !noundef !9
+  %.val = load ptr, ptr %33, align 16, !noundef !9
   invoke fastcc void @"_ZN81_$LT$rayon_core..latch..LatchRef$LT$L$GT$$u20$as$u20$rayon_core..latch..Latch$GT$3set17h10c7373ed48cf54fE"(ptr %.val)
           to label %34 unwind label %27
 
@@ -201433,7 +201433,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 184
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %44 = load i8, ptr %43, align 8, !range !1190, !noundef !9
+  %44 = load i8, ptr %43, align 16, !range !1190, !noundef !9
   %45 = trunc nuw i8 %44 to i1
   %46 = load ptr, ptr %42, align 8, !nonnull !9, !align !10, !noundef !9
   %47 = load ptr, ptr %46, align 8, !nonnull !9, !noundef !9
@@ -201653,7 +201653,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 184
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %44 = load i8, ptr %43, align 8, !range !1190, !noundef !9
+  %44 = load i8, ptr %43, align 16, !range !1190, !noundef !9
   %45 = trunc nuw i8 %44 to i1
   %46 = load ptr, ptr %42, align 8, !nonnull !9, !align !10, !noundef !9
   %47 = load ptr, ptr %46, align 8, !nonnull !9, !noundef !9
@@ -203397,7 +203397,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 840
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 864
-  %35 = load i8, ptr %34, align 8, !range !1190, !noundef !9
+  %35 = load i8, ptr %34, align 16, !range !1190, !noundef !9
   %36 = trunc nuw i8 %35 to i1
   %37 = load ptr, ptr %33, align 8, !nonnull !9, !align !10, !noundef !9
   %38 = load ptr, ptr %37, align 8, !nonnull !9, !noundef !9
@@ -204289,7 +204289,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %.sroa.10.0..sroa_idx10, ptr noundef nonnull align 8 dereferenceable(296) %.sroa.10, i64 296, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %.val = load ptr, ptr %37, align 8, !noundef !9
+  %.val = load ptr, ptr %37, align 16, !noundef !9
   invoke fastcc void @"_ZN81_$LT$rayon_core..latch..LatchRef$LT$L$GT$$u20$as$u20$rayon_core..latch..Latch$GT$3set17h10c7373ed48cf54fE"(ptr %.val)
           to label %38 unwind label %31
 
@@ -204608,7 +204608,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %39 = load i8, ptr %38, align 8, !range !1190, !noundef !9
   %40 = trunc nuw i8 %39 to i1
-  %41 = load ptr, ptr %37, align 8, !nonnull !9, !align !10, !noundef !9
+  %41 = load ptr, ptr %37, align 16, !nonnull !9, !align !10, !noundef !9
   %42 = load ptr, ptr %41, align 8, !nonnull !9, !noundef !9
   br i1 %40, label %49, label %43
 
@@ -205872,7 +205872,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %42 = load i8, ptr %41, align 8, !range !1190, !noundef !9
   %43 = trunc nuw i8 %42 to i1
-  %44 = load ptr, ptr %40, align 8, !nonnull !9, !align !10, !noundef !9
+  %44 = load ptr, ptr %40, align 16, !nonnull !9, !align !10, !noundef !9
   %45 = load ptr, ptr %44, align 8, !nonnull !9, !noundef !9
   br i1 %43, label %52, label %46
 
@@ -225214,7 +225214,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %31 = load i8, ptr %30, align 8, !range !1190, !noundef !9
   %32 = trunc nuw i8 %31 to i1
-  %33 = load ptr, ptr %29, align 8, !nonnull !9, !align !10, !noundef !9
+  %33 = load ptr, ptr %29, align 16, !nonnull !9, !align !10, !noundef !9
   %34 = load ptr, ptr %33, align 8, !nonnull !9, !noundef !9
   br i1 %32, label %41, label %35
 
@@ -231754,7 +231754,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %34 = load i8, ptr %33, align 8, !range !1190, !noundef !9
   %35 = trunc nuw i8 %34 to i1
-  %36 = load ptr, ptr %32, align 8, !nonnull !9, !align !10, !noundef !9
+  %36 = load ptr, ptr %32, align 16, !nonnull !9, !align !10, !noundef !9
   %37 = load ptr, ptr %36, align 8, !nonnull !9, !noundef !9
   br i1 %35, label %44, label %38
 
@@ -233033,7 +233033,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %37 = load i8, ptr %36, align 8, !range !1190, !noundef !9
   %38 = trunc nuw i8 %37 to i1
-  %39 = load ptr, ptr %35, align 8, !nonnull !9, !align !10, !noundef !9
+  %39 = load ptr, ptr %35, align 16, !nonnull !9, !align !10, !noundef !9
   %40 = load ptr, ptr %39, align 8, !nonnull !9, !noundef !9
   br i1 %38, label %47, label %41
 
@@ -240407,7 +240407,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(784) %.sroa.11.0..sroa_idx13, ptr noundef nonnull align 16 dereferenceable(784) %.sroa.11, i64 784, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 864
-  %.val = load ptr, ptr %29, align 8, !noundef !9
+  %.val = load ptr, ptr %29, align 16, !noundef !9
   invoke fastcc void @"_ZN81_$LT$rayon_core..latch..LatchRef$LT$L$GT$$u20$as$u20$rayon_core..latch..Latch$GT$3set17h10c7373ed48cf54fE"(ptr %.val)
           to label %30 unwind label %22
 
@@ -244188,9 +244188,9 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 65
   %.sroa.5.sroa.0.0.copyload = load i56, ptr %.sroa.5.0..sroa_idx, align 1
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.sroa.5.sroa.4.0.copyload = load ptr, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 1
+  %.sroa.5.sroa.4.0.copyload = load ptr, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %.sroa.5.sroa.5.0.copyload = load ptr, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx, align 1
+  %.sroa.5.sroa.5.0.copyload = load ptr, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx, align 16
   store i8 28, ptr %13, align 16
   %.not = icmp eq i8 %.sroa.0.0.copyload, 28
   br i1 %.not, label %46, label %14, !prof !18
@@ -246975,7 +246975,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 344
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %37 = load i8, ptr %36, align 8, !range !1190, !noundef !9
+  %37 = load i8, ptr %36, align 16, !range !1190, !noundef !9
   %38 = trunc nuw i8 %37 to i1
   %39 = load ptr, ptr %35, align 8, !nonnull !9, !align !10, !noundef !9
   %40 = load ptr, ptr %39, align 8, !nonnull !9, !noundef !9
@@ -251262,7 +251262,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %39 = load i8, ptr %38, align 8, !range !1190, !noundef !9
   %40 = trunc nuw i8 %39 to i1
-  %41 = load ptr, ptr %37, align 8, !nonnull !9, !align !10, !noundef !9
+  %41 = load ptr, ptr %37, align 16, !nonnull !9, !align !10, !noundef !9
   %42 = load ptr, ptr %41, align 8, !nonnull !9, !noundef !9
   br i1 %40, label %49, label %43
 
@@ -252236,7 +252236,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %.sroa.10.0..sroa_idx10, ptr noundef nonnull align 8 dereferenceable(296) %.sroa.10, i64 296, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %.val = load ptr, ptr %37, align 8, !noundef !9
+  %.val = load ptr, ptr %37, align 16, !noundef !9
   invoke fastcc void @"_ZN81_$LT$rayon_core..latch..LatchRef$LT$L$GT$$u20$as$u20$rayon_core..latch..Latch$GT$3set17h10c7373ed48cf54fE"(ptr %.val)
           to label %38 unwind label %31
 

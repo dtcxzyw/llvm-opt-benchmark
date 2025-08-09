@@ -20722,7 +20722,7 @@ _ZN5boost3log11v2_mt_posix11record_viewD2Ev.exit13: ; preds = %55, %57, %61
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 264
   store i32 0, ptr %66, align 8, !tbaa !948
   %67 = getelementptr inbounds nuw i8, ptr %63, i64 268
-  store atomic volatile i8 0, ptr %67 monotonic, align 1
+  store atomic volatile i8 0, ptr %67 monotonic, align 4
   %68 = getelementptr inbounds nuw i8, ptr %63, i64 248
   %69 = load ptr, ptr %68, align 8, !tbaa !978
   %70 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %69) #29
@@ -21035,7 +21035,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix5sinks17asynchronous_
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 264
   store i32 0, ptr %5, align 8, !tbaa !948
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 268
-  store atomic volatile i8 0, ptr %6 monotonic, align 1
+  store atomic volatile i8 0, ptr %6 monotonic, align 4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 248
   %8 = load ptr, ptr %7, align 8, !tbaa !978
   %9 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %8) #29
@@ -29262,7 +29262,7 @@ _ZN5boost3log11v2_mt_posix11record_viewD2Ev.exit13: ; preds = %55, %57, %61
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 264
   store i32 0, ptr %66, align 8, !tbaa !1305
   %67 = getelementptr inbounds nuw i8, ptr %63, i64 268
-  store atomic volatile i8 0, ptr %67 monotonic, align 1
+  store atomic volatile i8 0, ptr %67 monotonic, align 4
   %68 = getelementptr inbounds nuw i8, ptr %63, i64 248
   %69 = load ptr, ptr %68, align 8, !tbaa !978
   %70 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %69) #29
@@ -29475,7 +29475,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix5sinks17asynchronous_
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 264
   store i32 0, ptr %5, align 8, !tbaa !1305
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 268
-  store atomic volatile i8 0, ptr %6 monotonic, align 1
+  store atomic volatile i8 0, ptr %6 monotonic, align 4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 248
   %8 = load ptr, ptr %7, align 8, !tbaa !978
   %9 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %8) #29
@@ -33562,7 +33562,7 @@ _ZN5boost3log11v2_mt_posix11record_viewD2Ev.exit13: ; preds = %55, %57, %61
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 264
   store i32 0, ptr %66, align 8, !tbaa !1449
   %67 = getelementptr inbounds nuw i8, ptr %63, i64 268
-  store atomic volatile i8 0, ptr %67 monotonic, align 1
+  store atomic volatile i8 0, ptr %67 monotonic, align 4
   %68 = getelementptr inbounds nuw i8, ptr %63, i64 248
   %69 = load ptr, ptr %68, align 8, !tbaa !978
   %70 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %69) #29
@@ -33775,7 +33775,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix5sinks17asynchronous_
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 264
   store i32 0, ptr %5, align 8, !tbaa !1449
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 268
-  store atomic volatile i8 0, ptr %6 monotonic, align 1
+  store atomic volatile i8 0, ptr %6 monotonic, align 4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 248
   %8 = load ptr, ptr %7, align 8, !tbaa !978
   %9 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %8) #29
@@ -34049,9 +34049,9 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous27default_s
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr @_ZN5boost3log11v2_mt_posix3aux14light_functionIFNS1_5sinks6syslog5levelERKNS1_11record_viewEEE4implINS5_23direct_severity_mappingIiEEE12destroy_implEPv, ptr %24, align 8, !tbaa !1469
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store i32 %19, ptr %25, align 4, !tbaa !859
+  store i32 %19, ptr %25, align 8, !tbaa !859
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  store i32 6, ptr %26, align 4, !tbaa !1470
+  store i32 6, ptr %26, align 8, !tbaa !1470
   store ptr %21, ptr %11, align 8, !tbaa !1475
   invoke void @_ZN5boost3log11v2_mt_posix5sinks14syslog_backend19set_severity_mapperERKNS1_3aux14light_functionIFNS2_6syslog5levelERKNS1_11record_viewEEEE(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %27 unwind label %97
@@ -35971,11 +35971,11 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux14light_fu
   store ptr @_ZN5boost3log11v2_mt_posix3aux14light_functionIFNS1_5sinks6syslog5levelERKNS1_11record_viewEEE4implINS5_23direct_severity_mappingIiEEE12destroy_implEPv, ptr %5, align 8, !tbaa !1469
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = load i32, ptr %3, align 4, !tbaa !859
-  store i32 %7, ptr %6, align 4, !tbaa !859
+  store i32 %7, ptr %6, align 8, !tbaa !859
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i32, ptr %9, align 4, !tbaa !1470
-  store i32 %10, ptr %8, align 4, !tbaa !1470
+  store i32 %10, ptr %8, align 8, !tbaa !1470
   ret ptr %2
 }
 
@@ -38735,7 +38735,7 @@ _ZN5boost3log11v2_mt_posix11record_viewD2Ev.exit13: ; preds = %55, %57, %61
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 264
   store i32 0, ptr %66, align 8, !tbaa !1664
   %67 = getelementptr inbounds nuw i8, ptr %63, i64 268
-  store atomic volatile i8 0, ptr %67 monotonic, align 1
+  store atomic volatile i8 0, ptr %67 monotonic, align 4
   %68 = getelementptr inbounds nuw i8, ptr %63, i64 248
   %69 = load ptr, ptr %68, align 8, !tbaa !978
   %70 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %69) #29
@@ -38932,7 +38932,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix5sinks17asynchronous_
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 264
   store i32 0, ptr %5, align 8, !tbaa !1664
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 268
-  store atomic volatile i8 0, ptr %6 monotonic, align 1
+  store atomic volatile i8 0, ptr %6 monotonic, align 4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 248
   %8 = load ptr, ptr %7, align 8, !tbaa !978
   %9 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %8) #29
@@ -39204,7 +39204,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8, !tbaa !13
   store ptr %13, ptr %10, align 8, !tbaa !10
   store i64 0, ptr %24, align 8, !tbaa !13
-  store i8 0, ptr %13, align 1, !tbaa !12
+  store i8 0, ptr %13, align 8, !tbaa !12
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   store ptr %7, ptr %23, align 8, !tbaa !1682
@@ -50297,9 +50297,9 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous27default_s
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr @_ZN5boost3log11v2_mt_posix3aux14light_functionIFNS1_5sinks6syslog5levelERKNS1_11record_viewEEE4implINS5_23direct_severity_mappingIiEEE12destroy_implEPv, ptr %20, align 8, !tbaa !1469
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store i32 %15, ptr %21, align 4, !tbaa !859
+  store i32 %15, ptr %21, align 8, !tbaa !859
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  store i32 6, ptr %22, align 4, !tbaa !1470
+  store i32 6, ptr %22, align 8, !tbaa !1470
   store ptr %17, ptr %7, align 8, !tbaa !1475
   invoke void @_ZN5boost3log11v2_mt_posix5sinks14syslog_backend19set_severity_mapperERKNS1_3aux14light_functionIFNS2_6syslog5levelERKNS1_11record_viewEEEE(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %23 unwind label %72
@@ -52328,7 +52328,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8, !tbaa !13
   store ptr %13, ptr %10, align 8, !tbaa !10
   store i64 0, ptr %24, align 8, !tbaa !13
-  store i8 0, ptr %13, align 1, !tbaa !12
+  store i8 0, ptr %13, align 8, !tbaa !12
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   store ptr %7, ptr %23, align 8, !tbaa !1915

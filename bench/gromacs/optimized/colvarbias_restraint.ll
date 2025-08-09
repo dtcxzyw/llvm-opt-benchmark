@@ -2716,7 +2716,7 @@ define void @_ZNK27colvarbias_restraint_moving16get_state_paramsB5cxx11Ev(ptr de
   %9 = load i32, ptr %8, align 8, !tbaa !108
   %10 = and i32 %9, -261
   %11 = or disjoint i32 %10, 256
-  store i32 %11, ptr %8, align 4, !tbaa !117
+  store i32 %11, ptr %8, align 8, !tbaa !117
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i8, ptr %12, align 8, !tbaa !90, !range !88, !noundef !89
   %14 = trunc nuw i8 %13 to i1
@@ -4281,7 +4281,7 @@ define void @_ZNK35colvarbias_restraint_centers_moving16get_state_paramsB5cxx11E
   %9 = load i32, ptr %8, align 8, !tbaa !108
   %10 = and i32 %9, -261
   %11 = or disjoint i32 %10, 256
-  store i32 %11, ptr %8, align 4, !tbaa !117
+  store i32 %11, ptr %8, align 8, !tbaa !117
   %12 = load ptr, ptr %1, align 8, !tbaa !4
   %13 = getelementptr i8, ptr %12, i64 -168
   %14 = load i64, ptr %13, align 8
@@ -9054,7 +9054,7 @@ define void @_ZNK29colvarbias_restraint_k_moving16get_state_paramsB5cxx11Ev(ptr 
   %9 = load i32, ptr %8, align 8, !tbaa !108
   %10 = and i32 %9, -261
   %11 = or disjoint i32 %10, 256
-  store i32 %11, ptr %8, align 4, !tbaa !117
+  store i32 %11, ptr %8, align 8, !tbaa !117
   %12 = load ptr, ptr %1, align 8, !tbaa !4
   %13 = getelementptr i8, ptr %12, i64 -168
   %14 = load i64, ptr %13, align 8
@@ -25588,7 +25588,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65: ; preds = %_ZN
   %159 = load i32, ptr %158, align 8, !tbaa !108
   %160 = and i32 %159, -261
   %161 = or disjoint i32 %160, 4
-  store i32 %161, ptr %158, align 4, !tbaa !117
+  store i32 %161, ptr %158, align 8, !tbaa !117
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 384

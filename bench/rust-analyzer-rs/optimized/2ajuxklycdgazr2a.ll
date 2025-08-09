@@ -13027,7 +13027,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %24 = mul i64 %23, 5871781006564002453
   %25 = getelementptr inbounds i8, ptr %16, i64 -16
   %26 = getelementptr inbounds i8, ptr %16, i64 -8
-  %27 = load i16, ptr %26, align 2, !range !1168, !alias.scope !4601, !noalias !4608, !noundef !4
+  %27 = load i16, ptr %26, align 4, !range !1168, !alias.scope !4601, !noalias !4608, !noundef !4
   %28 = zext nneg i16 %27 to i64
   %29 = tail call i64 @llvm.fshl.i64(i64 %24, i64 %24, i64 5)
   %30 = xor i64 %29, %28
@@ -14935,7 +14935,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %24 = mul i64 %23, 5871781006564002453
   %25 = getelementptr inbounds i8, ptr %16, i64 -16
   %26 = getelementptr inbounds i8, ptr %16, i64 -8
-  %27 = load i16, ptr %26, align 2, !range !1168, !alias.scope !5351, !noalias !5358, !noundef !4
+  %27 = load i16, ptr %26, align 4, !range !1168, !alias.scope !5351, !noalias !5358, !noundef !4
   %28 = zext nneg i16 %27 to i64
   %29 = tail call i64 @llvm.fshl.i64(i64 %24, i64 %24, i64 5)
   %30 = xor i64 %29, %28
@@ -15477,7 +15477,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5540)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5543)
   %24 = getelementptr inbounds i8, ptr %17, i64 -24
-  %25 = load i32, ptr %24, align 4, !alias.scope !5545, !noalias !5546, !noundef !4
+  %25 = load i32, ptr %24, align 8, !alias.scope !5545, !noalias !5546, !noundef !4
   %26 = zext i32 %25 to i64
   %27 = mul i64 %26, 5871781006564002453
   %28 = getelementptr inbounds i8, ptr %17, i64 -20
@@ -15939,7 +15939,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %24 = mul i64 %23, 5871781006564002453
   %25 = getelementptr inbounds i8, ptr %16, i64 -16
   %26 = getelementptr inbounds i8, ptr %16, i64 -8
-  %27 = load i16, ptr %26, align 2, !range !1168, !alias.scope !5716, !noalias !5723, !noundef !4
+  %27 = load i16, ptr %26, align 4, !range !1168, !alias.scope !5716, !noalias !5723, !noundef !4
   %28 = zext nneg i16 %27 to i64
   %29 = tail call i64 @llvm.fshl.i64(i64 %24, i64 %24, i64 5)
   %30 = xor i64 %29, %28
@@ -17563,7 +17563,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %24 = mul i64 %23, 5871781006564002453
   %25 = getelementptr inbounds i8, ptr %16, i64 -16
   %26 = getelementptr inbounds i8, ptr %16, i64 -8
-  %27 = load i16, ptr %26, align 2, !range !1168, !alias.scope !6424, !noalias !6431, !noundef !4
+  %27 = load i16, ptr %26, align 4, !range !1168, !alias.scope !6424, !noalias !6431, !noundef !4
   %28 = zext nneg i16 %27 to i64
   %29 = tail call i64 @llvm.fshl.i64(i64 %24, i64 %24, i64 5)
   %30 = xor i64 %29, %28

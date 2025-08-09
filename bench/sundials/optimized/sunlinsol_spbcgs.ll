@@ -227,7 +227,7 @@ define range(i32 -9998, 806) i32 @SUNLinSolSolve_SPBCGS(ptr noundef readonly cap
   %.not289 = icmp eq ptr %25, null
   %41 = and i32 %40, -2
   %switch308 = icmp eq i32 %41, 2
-  %42 = load i32, ptr %36, align 4, !tbaa !49
+  %42 = load i32, ptr %36, align 8, !tbaa !49
   %.not290 = icmp eq i32 %42, 0
   br i1 %switch308, label %43, label %46
 

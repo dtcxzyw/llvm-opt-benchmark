@@ -1527,7 +1527,7 @@ _ZN8facebook5velox17CompactDoubleList6removeEv.exit.i: ; preds = %if.end.i
   %29 = inttoptr i64 %or.i.i.i.i to ptr
   %nextHigh_.i5.i.i = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i32 %24, ptr %29, align 4
-  store i16 %25, ptr %nextHigh_.i5.i.i, align 2
+  store i16 %25, ptr %nextHigh_.i5.i.i, align 4
   %30 = load i32, ptr %add.ptr.i.i81, align 4
   %31 = load i16, ptr %nextHigh_.i.i.i.i, align 4
   %conv.i.i8.i.i = zext i32 %30 to i64
@@ -1668,7 +1668,7 @@ _ZN8facebook5velox17CompactDoubleList6removeEv.exit.i116: ; preds = %if.end.i105
   %52 = inttoptr i64 %or.i.i.i.i122 to ptr
   %nextHigh_.i5.i.i123 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i32 %47, ptr %52, align 4
-  store i16 %48, ptr %nextHigh_.i5.i.i123, align 2
+  store i16 %48, ptr %nextHigh_.i5.i.i123, align 4
   %53 = load i32, ptr %add.ptr.i.i109, align 4
   %54 = load i16, ptr %nextHigh_.i.i.i.i110, align 4
   %conv.i.i8.i.i124 = zext i32 %53 to i64
@@ -1758,7 +1758,7 @@ if.end62:                                         ; preds = %if.else60, %_ZN8fac
   %71 = load i16, ptr %nextHigh_.i.i, align 4
   %nextHigh_.i4.i = getelementptr inbounds nuw i8, ptr %header.1, i64 12
   store i32 %70, ptr %add.ptr.i161, align 4
-  store i16 %71, ptr %nextHigh_.i4.i, align 2
+  store i16 %71, ptr %nextHigh_.i4.i, align 4
   %previousLow_.i.i = getelementptr inbounds nuw i8, ptr %header.1, i64 8
   %previousHigh_.i.i = getelementptr inbounds nuw i8, ptr %header.1, i64 14
   %72 = ptrtoint ptr %arrayidx to i64
@@ -2381,7 +2381,7 @@ _ZN8facebook5velox17CompactDoubleList6removeEv.exit: ; preds = %if.end
   %7 = inttoptr i64 %or.i.i.i to ptr
   %nextHigh_.i5.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %2, ptr %7, align 4
-  store i16 %3, ptr %nextHigh_.i5.i, align 2
+  store i16 %3, ptr %nextHigh_.i5.i, align 4
   %8 = load i32, ptr %add.ptr.i, align 4
   %9 = load i16, ptr %nextHigh_.i.i.i, align 4
   %conv.i.i8.i = zext i32 %8 to i64
@@ -2682,7 +2682,7 @@ _ZN8facebook5velox17CompactDoubleList6removeEv.exit.i: ; preds = %if.end.i
   %13 = inttoptr i64 %or.i.i.i.i to ptr
   %nextHigh_.i5.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 %9, ptr %13, align 4
-  store i16 %10, ptr %nextHigh_.i5.i.i, align 2
+  store i16 %10, ptr %nextHigh_.i5.i.i, align 4
   %14 = load i32, ptr %2, align 4
   %15 = load i16, ptr %nextHigh_.i.i.i.i, align 4
   %conv.i.i8.i.i = zext i32 %14 to i64

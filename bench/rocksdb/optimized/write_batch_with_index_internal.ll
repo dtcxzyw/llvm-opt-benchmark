@@ -1272,7 +1272,7 @@ define linkonce_odr void @_ZN7rocksdb16WBWIIteratorImpl10SeekToLastEv(ptr nounde
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8, !tbaa !154
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %24 = load atomic i32, ptr %23 monotonic, align 4
+  %24 = load atomic i32, ptr %23 monotonic, align 8
   %25 = add nsw i32 %24, -1
   br i1 %.not3, label %.preheader.outer, label %.split.us.i.i.outer
 
@@ -5087,7 +5087,7 @@ _ZN7rocksdb16WBWIIteratorImpl10MatchesKeyEjRKNS_5SliceE.exit.us: ; preds = %65, 
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %75 = load ptr, ptr %74, align 8, !tbaa !154
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 32
-  %77 = load atomic i32, ptr %76 monotonic, align 4
+  %77 = load atomic i32, ptr %76 monotonic, align 8
   %78 = add nsw i32 %77, -1
   %79 = getelementptr inbounds nuw i8, ptr %72, i64 8
   br label %.split.us.i.i.i.outer
@@ -5388,7 +5388,7 @@ define linkonce_odr void @_ZN7rocksdb16WBWIIteratorImpl4PrevEv(ptr noundef nonnu
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !154
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %9 = load atomic i32, ptr %8 monotonic, align 4
+  %9 = load atomic i32, ptr %8 monotonic, align 8
   %10 = add nsw i32 %9, -1
   br label %.split.us.i.i.outer
 
@@ -5863,7 +5863,7 @@ _ZNK7rocksdb16WBWIIteratorImpl5ValidEv.exit35:    ; preds = %141
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 24
   %150 = load ptr, ptr %149, align 8, !tbaa !154
   %151 = getelementptr inbounds nuw i8, ptr %148, i64 32
-  %152 = load atomic i32, ptr %151 monotonic, align 4
+  %152 = load atomic i32, ptr %151 monotonic, align 8
   %153 = add nsw i32 %152, -1
   br label %.split.us.i.i.i.outer
 
@@ -9602,7 +9602,7 @@ define linkonce_odr void @_ZN7rocksdb8SkipListIPNS_20WriteBatchIndexEntryERKNS_2
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !154
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %13 = load atomic i32, ptr %12 monotonic, align 4
+  %13 = load atomic i32, ptr %12 monotonic, align 8
   %14 = add nsw i32 %13, -1
   br label %.outer
 
@@ -9661,7 +9661,7 @@ define linkonce_odr void @_ZN7rocksdb8SkipListIPNS_20WriteBatchIndexEntryERKNS_2
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %40 = load ptr, ptr %39, align 8, !tbaa !154
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  %42 = load atomic i32, ptr %41 monotonic, align 4
+  %42 = load atomic i32, ptr %41 monotonic, align 8
   %43 = add nsw i32 %42, -1
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 8
   br label %.split.us.i.i.outer

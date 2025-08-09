@@ -94828,7 +94828,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %30, ptr %32, align 8, !tbaa !417, !alias.scope !2077, !noalias !2080
   store ptr %22, ptr %.0911.i.i.i, align 8, !tbaa !345, !alias.scope !2080, !noalias !2077
   store i64 0, ptr %31, align 8, !tbaa !417, !alias.scope !2080, !noalias !2077
-  store i8 0, ptr %22, align 1, !tbaa !418, !alias.scope !2080, !noalias !2077
+  store i8 0, ptr %22, align 8, !tbaa !418, !alias.scope !2080, !noalias !2077
   %33 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %34 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %33, %15
@@ -95037,7 +95037,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !417, !alias.scope !2087, !noalias !2090
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !345, !alias.scope !2090, !noalias !2087
   store i64 0, ptr %48, align 8, !tbaa !417, !alias.scope !2090, !noalias !2087
-  store i8 0, ptr %39, align 1, !tbaa !418, !alias.scope !2090, !noalias !2087
+  store i8 0, ptr %39, align 8, !tbaa !418, !alias.scope !2090, !noalias !2087
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -95085,7 +95085,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !417, !alias.scope !2093, !noalias !2096
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !345, !alias.scope !2096, !noalias !2093
   store i64 0, ptr %64, align 8, !tbaa !417, !alias.scope !2096, !noalias !2093
-  store i8 0, ptr %55, align 1, !tbaa !418, !alias.scope !2096, !noalias !2093
+  store i8 0, ptr %55, align 8, !tbaa !418, !alias.scope !2096, !noalias !2093
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5

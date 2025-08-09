@@ -123,13 +123,13 @@ define dso_local noundef float @_Z22resolveSingleCollisionP11btRigidBodyP17btCol
   store <2 x float> %.sroa.3.12.vec.insert.i, ptr %28, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %30 = load float, ptr %29, align 4, !tbaa !22
+  %30 = load float, ptr %29, align 8, !tbaa !22
   %31 = fsub float %15, %30
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %33 = load float, ptr %32, align 4, !tbaa !22
   %34 = fsub float %19, %33
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %36 = load float, ptr %35, align 4, !tbaa !22
+  %36 = load float, ptr %35, align 8, !tbaa !22
   %37 = fsub float %24, %36
   %.sroa.0.0.vec.insert.i38 = insertelement <2 x float> poison, float %31, i64 0
   %.sroa.0.4.vec.insert.i39 = insertelement <2 x float> %.sroa.0.0.vec.insert.i38, float %34, i64 1

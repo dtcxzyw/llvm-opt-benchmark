@@ -8502,7 +8502,7 @@ define hidden void @_ZN5State12_sub_Op_AddPEPK4Node(ptr noundef nonnull align 8 
   store i32 %22, ptr %48, align 4
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 1394
   store i16 1571, ptr %49, align 2
-  %.pre = load i16, ptr %6, align 4
+  %.pre = load i16, ptr %6, align 8
   %.pre983 = and i16 %.pre, 1
   %50 = icmp eq i16 %.pre983, 0
   br i1 %50, label %.thread1622, label %.thread
@@ -23557,7 +23557,7 @@ define hidden void @_ZN5State13_sub_Op_AryEqEPK4Node(ptr noundef nonnull align 8
   store i32 %30, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 1368
   store i16 2079, ptr %49, align 8
-  %.pre = load i16, ptr %6, align 4
+  %.pre = load i16, ptr %6, align 8
   %.pre164 = and i16 %.pre, 1
   %50 = icmp eq i16 %.pre164, 0
   br i1 %50, label %.thread174, label %.thread
@@ -24262,7 +24262,7 @@ define hidden void @_ZN5State14_sub_Op_BinaryEPK4Node(ptr noundef nonnull align 
   store i32 %77, ptr %78, align 4
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 1882
   store i16 623, ptr %79, align 2
-  %.pre = load i16, ptr %25, align 4
+  %.pre = load i16, ptr %25, align 8
   %.pre546 = and i16 %.pre, 1
   %80 = icmp eq i16 %.pre546, 0
   br i1 %80, label %.thread568, label %.thread
@@ -24417,7 +24417,7 @@ define hidden void @_ZN5State14_sub_Op_BinaryEPK4Node(ptr noundef nonnull align 
   store i32 %166, ptr %167, align 4
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 1870
   store i16 611, ptr %168, align 2
-  %.pre536 = load i16, ptr %25, align 4
+  %.pre536 = load i16, ptr %25, align 8
   %.pre547 = and i16 %.pre536, 1
   %169 = icmp eq i16 %.pre547, 0
   br i1 %169, label %.thread576, label %.thread571
@@ -24445,7 +24445,7 @@ define hidden void @_ZN5State14_sub_Op_BinaryEPK4Node(ptr noundef nonnull align 
   store i32 %181, ptr %182, align 8
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 1868
   store i16 609, ptr %183, align 4
-  %.pre537 = load i16, ptr %25, align 4
+  %.pre537 = load i16, ptr %25, align 8
   %.pre549 = and i16 %.pre537, 1
   %184 = icmp eq i16 %.pre549, 0
   br i1 %184, label %.thread576, label %.thread579
@@ -24535,7 +24535,7 @@ define hidden void @_ZN5State14_sub_Op_BinaryEPK4Node(ptr noundef nonnull align 
   store i32 %231, ptr %232, align 8
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 1860
   store i16 601, ptr %233, align 4
-  %.pre538 = load i16, ptr %25, align 4
+  %.pre538 = load i16, ptr %25, align 8
   %.pre551 = and i16 %.pre538, 1
   %234 = icmp eq i16 %.pre551, 0
   br i1 %234, label %.thread584, label %.thread582
@@ -24658,7 +24658,7 @@ define hidden void @_ZN5State14_sub_Op_BinaryEPK4Node(ptr noundef nonnull align 
   store i32 %301, ptr %302, align 4
   %303 = getelementptr inbounds nuw i8, ptr %0, i64 1846
   store i16 587, ptr %303, align 2
-  %.pre539 = load i16, ptr %25, align 4
+  %.pre539 = load i16, ptr %25, align 8
   %.pre553 = and i16 %.pre539, 1
   %304 = icmp eq i16 %.pre553, 0
   br i1 %304, label %.thread604, label %.thread587
@@ -24686,7 +24686,7 @@ define hidden void @_ZN5State14_sub_Op_BinaryEPK4Node(ptr noundef nonnull align 
   store i32 %316, ptr %317, align 8
   %318 = getelementptr inbounds nuw i8, ptr %0, i64 1844
   store i16 585, ptr %318, align 4
-  %.pre540 = load i16, ptr %25, align 4
+  %.pre540 = load i16, ptr %25, align 8
   %.pre555 = and i16 %.pre540, 1
   %319 = icmp eq i16 %.pre555, 0
   br i1 %319, label %.thread604, label %.thread595
@@ -24714,7 +24714,7 @@ define hidden void @_ZN5State14_sub_Op_BinaryEPK4Node(ptr noundef nonnull align 
   store i32 %331, ptr %332, align 4
   %333 = getelementptr inbounds nuw i8, ptr %0, i64 1842
   store i16 583, ptr %333, align 2
-  %.pre541 = load i16, ptr %25, align 4
+  %.pre541 = load i16, ptr %25, align 8
   %.pre557 = and i16 %.pre541, 1
   %334 = icmp eq i16 %.pre557, 0
   br i1 %334, label %.thread604, label %.thread601
@@ -24742,7 +24742,7 @@ define hidden void @_ZN5State14_sub_Op_BinaryEPK4Node(ptr noundef nonnull align 
   store i32 %346, ptr %347, align 8
   %348 = getelementptr inbounds nuw i8, ptr %0, i64 1840
   store i16 581, ptr %348, align 8
-  %.pre542 = load i16, ptr %25, align 4
+  %.pre542 = load i16, ptr %25, align 8
   %.pre559 = and i16 %.pre542, 1
   %349 = icmp eq i16 %.pre559, 0
   br i1 %349, label %.thread604, label %.thread607
@@ -25051,7 +25051,7 @@ define hidden void @_ZN5State14_sub_Op_BinaryEPK4Node(ptr noundef nonnull align 
   store i32 %524, ptr %525, align 8
   %526 = getelementptr inbounds nuw i8, ptr %0, i64 1820
   store i16 561, ptr %526, align 4
-  %.pre543 = load i16, ptr %364, align 4
+  %.pre543 = load i16, ptr %364, align 8
   %.pre561 = and i16 %.pre543, 1
   %527 = icmp eq i16 %.pre561, 0
   br i1 %527, label %.thread612, label %.thread610
@@ -26912,7 +26912,7 @@ define hidden void @_ZN5State15_sub_Op_CastP2XEPK4Node(ptr noundef nonnull align
   store i32 %29, ptr %30, align 4
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 1574
   store i16 315, ptr %31, align 2
-  %.pre = load i16, ptr %24, align 4
+  %.pre = load i16, ptr %24, align 8
   %.pre25 = and i16 %.pre, 1
   %32 = icmp eq i16 %.pre25, 0
   br i1 %32, label %.thread, label %33
@@ -35278,7 +35278,7 @@ define hidden void @_ZN5State12_sub_Op_CmpFEPK4Node(ptr noundef nonnull align 8 
   store i32 %22, ptr %23, align 4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1414
   store i16 759, ptr %24, align 2
-  %.pre = load i16, ptr %6, align 4
+  %.pre = load i16, ptr %6, align 8
   %.pre39 = and i16 %.pre, 1
   %25 = icmp eq i16 %.pre39, 0
   br i1 %25, label %.thread57, label %.thread
@@ -35460,7 +35460,7 @@ define hidden void @_ZN5State13_sub_Op_CmpF3EPK4Node(ptr noundef nonnull align 8
   store i32 %22, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 1368
   store i16 1961, ptr %41, align 8
-  %.pre = load i16, ptr %6, align 4
+  %.pre = load i16, ptr %6, align 8
   %.pre110 = and i16 %.pre, 1
   %42 = icmp eq i16 %.pre110, 0
   br i1 %42, label %.thread117, label %.thread
@@ -51962,7 +51962,7 @@ define hidden void @_ZN5State12_sub_Op_DivFEPK4Node(ptr noundef nonnull align 8 
   store i32 %33, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 1472
   store i16 637, ptr %35, align 8
-  %.pre = load i16, ptr %6, align 4
+  %.pre = load i16, ptr %6, align 8
   %.pre112 = and i16 %.pre, 1
   %36 = icmp eq i16 %.pre112, 0
   br i1 %36, label %.thread158, label %.thread
@@ -53505,7 +53505,7 @@ define hidden void @_ZN5State16_sub_Op_FastLockEPK4Node(ptr noundef nonnull alig
   store i32 %25, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1410
   store i16 909, ptr %27, align 2
-  %.pre = load i16, ptr %6, align 4
+  %.pre = load i16, ptr %6, align 8
   %.pre17 = and i16 %.pre, 1
   %28 = icmp eq i16 %.pre17, 0
   br i1 %28, label %.thread19, label %.thread
@@ -53593,7 +53593,7 @@ define hidden void @_ZN5State18_sub_Op_FastUnlockEPK4Node(ptr noundef nonnull al
   store i32 %25, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1410
   store i16 911, ptr %27, align 2
-  %.pre = load i16, ptr %6, align 4
+  %.pre = load i16, ptr %6, align 8
   %.pre17 = and i16 %.pre, 1
   %28 = icmp eq i16 %.pre17, 0
   br i1 %28, label %.thread19, label %.thread
@@ -59579,7 +59579,7 @@ define hidden void @_ZN5State15_sub_Op_MoveF2IEPK4Node(ptr noundef nonnull align
   store i32 %12, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 1368
   store i16 779, ptr %31, align 8
-  %.pre = load i16, ptr %6, align 4
+  %.pre = load i16, ptr %6, align 8
   %.pre80 = and i16 %.pre, 1
   %32 = icmp eq i16 %.pre80, 0
   br i1 %32, label %.thread, label %33
@@ -66542,7 +66542,7 @@ define hidden void @_ZN5State20_sub_Op_OverflowAddIEPK4Node(ptr noundef nonnull 
   store i32 %22, ptr %23, align 4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1410
   store i16 789, ptr %24, align 2
-  %.pre = load i16, ptr %6, align 4
+  %.pre = load i16, ptr %6, align 8
   %.pre15 = and i16 %.pre, 1
   %25 = icmp eq i16 %.pre15, 0
   br i1 %25, label %.thread17, label %.thread
@@ -66834,7 +66834,7 @@ define hidden void @_ZN5State20_sub_Op_OverflowAddLEPK4Node(ptr noundef nonnull 
   store i32 %22, ptr %23, align 4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1410
   store i16 793, ptr %24, align 2
-  %.pre = load i16, ptr %6, align 4
+  %.pre = load i16, ptr %6, align 8
   %.pre15 = and i16 %.pre, 1
   %25 = icmp eq i16 %.pre15, 0
   br i1 %25, label %.thread17, label %.thread
@@ -71613,7 +71613,7 @@ define hidden void @_ZN5State16_sub_Op_ReverseVEPK4Node(ptr noundef nonnull alig
   store i32 %21, ptr %22, align 4
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1490
   store i16 731, ptr %23, align 2
-  %.pre = load i16, ptr %6, align 4
+  %.pre = load i16, ptr %6, align 8
   %.pre20 = and i16 %.pre, 1
   br label %24
 
@@ -84615,7 +84615,7 @@ define hidden void @_ZN5State12_sub_Op_SubFEPK4Node(ptr noundef nonnull align 8 
   store i32 %33, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 1472
   store i16 637, ptr %35, align 8
-  %.pre = load i16, ptr %6, align 4
+  %.pre = load i16, ptr %6, align 8
   %.pre112 = and i16 %.pre, 1
   %36 = icmp eq i16 %.pre112, 0
   br i1 %36, label %.thread158, label %.thread
@@ -86390,7 +86390,7 @@ define hidden void @_ZN5State19_sub_Op_MacroLogicVEPK4Node(ptr noundef nonnull a
   store i32 %25, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1490
   store i16 731, ptr %27, align 2
-  %.pre = load i16, ptr %6, align 4
+  %.pre = load i16, ptr %6, align 8
   %.pre50 = and i16 %.pre, 1
   %28 = icmp eq i16 %.pre50, 0
   br i1 %28, label %.thread60, label %.thread
@@ -101877,7 +101877,7 @@ define hidden void @_ZN5State19_sub_Op_MulAddVS2VIEPK4Node(ptr noundef nonnull a
   store i32 %21, ptr %22, align 4
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1858
   store i16 599, ptr %23, align 2
-  %.pre = load i16, ptr %6, align 4
+  %.pre = load i16, ptr %6, align 8
   %.pre30 = and i16 %.pre, 1
   %24 = icmp eq i16 %.pre30, 0
   br i1 %24, label %.thread39, label %.thread
@@ -101914,7 +101914,7 @@ define hidden void @_ZN5State19_sub_Op_MulAddVS2VIEPK4Node(ptr noundef nonnull a
   store i32 %43, ptr %44, align 4
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 1490
   store i16 731, ptr %45, align 2
-  %.pre29 = load i16, ptr %6, align 4
+  %.pre29 = load i16, ptr %6, align 8
   %.pre31 = and i16 %.pre29, 1
   %46 = icmp eq i16 %.pre31, 0
   br i1 %46, label %.thread39, label %.thread42
@@ -135191,7 +135191,7 @@ define hidden void @_ZN5State22_sub_Op_VectorCastF2HFEPK4Node(ptr noundef nonnul
   store i32 %11, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1812
   store i16 553, ptr %13, align 4
-  %.pre = load i16, ptr %6, align 4
+  %.pre = load i16, ptr %6, align 8
   %.pre7 = and i16 %.pre, 1
   %14 = icmp eq i16 %.pre7, 0
   br i1 %14, label %.thread, label %15

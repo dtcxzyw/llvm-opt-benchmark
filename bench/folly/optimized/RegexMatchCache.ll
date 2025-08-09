@@ -2016,7 +2016,7 @@ _ZN5folly3f146detail21VectorContainerPolicyIPKNS_18RegexMatchCacheKeyENS_15Regex
   %79 = icmp eq i8 %78, 0
   tail call void @llvm.assume(i1 %79)
   %80 = getelementptr inbounds nuw i8, ptr %76, i64 12
-  store i16 %.0.copyload.i.pre, ptr %80, align 1
+  store i16 %.0.copyload.i.pre, ptr %80, align 2
   %.pre29 = load i64, ptr %8, align 8, !tbaa !56
   br label %.thread20
 
@@ -8510,7 +8510,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIiSt4pairIKiNSt7__cxx1112basic_stringIcSt
   store ptr %14, ptr %13, align 8, !tbaa !151
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i64 0, ptr %15, align 8, !tbaa !19
-  store i8 0, ptr %14, align 1, !tbaa !42
+  store i8 0, ptr %14, align 8, !tbaa !42
   store ptr %8, ptr %7, align 8, !tbaa !392
   %16 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIiESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %9)
           to label %17 unwind label %32
@@ -18178,7 +18178,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 16
   store i32 1, ptr %255, align 8, !tbaa !567
   %256 = getelementptr inbounds nuw i8, ptr %254, i64 24
-  store i8 %184, ptr %256, align 1, !tbaa !42
+  store i8 %184, ptr %256, align 8, !tbaa !42
   %257 = load ptr, ptr %139, align 8, !tbaa !459
   %258 = load ptr, ptr %0, align 8, !tbaa !440
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 352
@@ -25552,7 +25552,7 @@ _ZNSt15basic_streambufIcSt11char_traitsIcEE9pubsetbufEPcl.exit: ; preds = %_ZSt4
   %switch.selectcmp48 = icmp eq i32 %87, 16
   %switch.select49 = select i1 %switch.selectcmp48, i32 8, i32 %switch.select
   %95 = or disjoint i32 %94, %switch.select49
-  store i32 %95, ptr %92, align 4, !tbaa !711
+  store i32 %95, ptr %92, align 8, !tbaa !711
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %96 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIlEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %101 unwind label %129
@@ -65213,7 +65213,7 @@ _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKNS_18RegexMatchCache
   tail call void @llvm.assume(i1 %62)
   %63 = trunc i64 %5 to i16
   %64 = getelementptr inbounds nuw i8, ptr %41, i64 12
-  store i16 %63, ptr %64, align 1
+  store i16 %63, ptr %64, align 2
   store ptr %41, ptr %19, align 8, !tbaa !73
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %66 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %4, i1 true)
@@ -66919,7 +66919,7 @@ _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKNSt7__cxx1112basic_s
   tail call void @llvm.assume(i1 %51)
   %52 = trunc i64 %5 to i16
   %53 = getelementptr inbounds nuw i8, ptr %41, i64 12
-  store i16 %52, ptr %53, align 1
+  store i16 %52, ptr %53, align 2
   store ptr %41, ptr %19, align 8, !tbaa !80
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %55 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %4, i1 true)

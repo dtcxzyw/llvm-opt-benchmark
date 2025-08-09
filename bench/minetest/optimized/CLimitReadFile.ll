@@ -529,7 +529,7 @@ entry:
   store ptr %1, ptr %Filename.i, align 8, !tbaa !6
   %_M_string_length.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !10
-  store i8 0, ptr %1, align 1, !tbaa !13
+  store i8 0, ptr %1, align 8, !tbaa !13
   %cmp.i.i.i = icmp eq ptr %Filename.i, %fileName
   br i1 %cmp.i.i.i, label %_ZN3irr4core6stringIcEC2ERKS2_.exit.i, label %if.end.i.i.i
 

@@ -4316,7 +4316,7 @@ advance_multivolume.exit.i54:                     ; preds = %skip_base_block.exi
   %243 = getelementptr inbounds nuw i8, ptr %.val.val.i10, i64 21268
   store i32 0, ptr %243, align 4, !tbaa !104
   store i8 0, ptr %242, align 8, !tbaa !105
-  %.val77.i = load i8, ptr %108, align 1, !tbaa !106
+  %.val77.i = load i8, ptr %108, align 8, !tbaa !106
   %.not69.i = icmp sgt i8 %.val77.i, -1
   br i1 %.not69.i, label %390, label %244
 
@@ -4625,7 +4625,7 @@ parse_tables.exit:                                ; preds = %.thread153.i, %.thr
   %392 = getelementptr inbounds nuw i8, ptr %.val.val.i82.i, i64 104
   %393 = load i64, ptr %392, align 8, !tbaa !88
   %394 = getelementptr inbounds nuw i8, ptr %.val.val.i82.i, i64 21288
-  %.val137.i.i = load i8, ptr %394, align 1, !tbaa !106
+  %.val137.i.i = load i8, ptr %394, align 8, !tbaa !106
   %395 = and i8 %.val137.i.i, 7
   %396 = getelementptr inbounds nuw i8, ptr %.val.val.i82.i, i64 112
   %397 = getelementptr inbounds nuw i8, ptr %.val.val.i82.i, i64 120

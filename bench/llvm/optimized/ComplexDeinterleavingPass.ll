@@ -1313,7 +1313,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEEN
 381:                                              ; preds = %376, %370
   store ptr %296, ptr %371, align 8, !tbaa !154, !noalias !175
   %382 = getelementptr inbounds nuw i8, ptr %371, i64 8
-  store i32 0, ptr %382, align 4, !tbaa !184, !noalias !175
+  store i32 0, ptr %382, align 8, !tbaa !184, !noalias !175
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %88, i8 0, i64 16, i1 false)
   store ptr %296, ptr %18, align 8, !tbaa !172, !alias.scope !185
@@ -1516,7 +1516,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEEN
 484:                                              ; preds = %479, %473
   store ptr %298, ptr %474, align 8, !tbaa !154, !noalias !189
   %485 = getelementptr inbounds nuw i8, ptr %474, i64 8
-  store i32 0, ptr %485, align 4, !tbaa !184, !noalias !189
+  store i32 0, ptr %485, align 8, !tbaa !184, !noalias !189
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, i8 0, i64 16, i1 false)
   store ptr %298, ptr %17, align 8, !tbaa !172, !alias.scope !193
@@ -1724,7 +1724,7 @@ _ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu
   %574 = getelementptr inbounds nuw i8, ptr %568, i64 32
   store ptr %560, ptr %574, align 8, !tbaa !233, !noalias !217
   %575 = getelementptr inbounds nuw i8, ptr %568, i64 48
-  store i8 0, ptr %575, align 4, !tbaa !234, !noalias !217
+  store i8 0, ptr %575, align 8, !tbaa !234, !noalias !217
   %576 = getelementptr inbounds nuw i8, ptr %568, i64 52
   store i32 0, ptr %576, align 4, !tbaa !235, !noalias !217
   %577 = getelementptr inbounds nuw i8, ptr %568, i64 56
@@ -2283,7 +2283,7 @@ _ZNK4llvm4User10getOperandEj.exit117.i.i:         ; preds = %797, %794
   %818 = getelementptr inbounds nuw i8, ptr %812, i64 32
   store ptr null, ptr %818, align 8, !tbaa !233, !noalias !245
   %819 = getelementptr inbounds nuw i8, ptr %812, i64 48
-  store i8 0, ptr %819, align 4, !tbaa !234, !noalias !245
+  store i8 0, ptr %819, align 8, !tbaa !234, !noalias !245
   %820 = getelementptr inbounds nuw i8, ptr %812, i64 52
   store i32 0, ptr %820, align 4, !tbaa !235, !noalias !245
   %821 = getelementptr inbounds nuw i8, ptr %812, i64 56
@@ -5411,7 +5411,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEEN
   store ptr %60, ptr %50, align 8, !tbaa !154
   %61 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %62 = load i32, ptr %3, align 4, !tbaa !184
-  store i32 %62, ptr %61, align 4, !tbaa !184
+  store i32 %62, ptr %61, align 8, !tbaa !184
   %63 = load ptr, ptr %1, align 8, !tbaa !174
   %64 = load i32, ptr %7, align 8, !tbaa !178
   br label %.loopexit
@@ -5623,7 +5623,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEEN
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !184
-  store i32 %68, ptr %66, align 4, !tbaa !184
+  store i32 %68, ptr %66, align 8, !tbaa !184
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !182
   br label %70
@@ -6155,7 +6155,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i44.i: ; preds = %._crit_edge
   %257 = getelementptr inbounds nuw i8, ptr %251, i64 32
   store ptr %3, ptr %257, align 8, !tbaa !233, !noalias !382
   %258 = getelementptr inbounds nuw i8, ptr %251, i64 48
-  store i8 0, ptr %258, align 4, !tbaa !234, !noalias !382
+  store i8 0, ptr %258, align 8, !tbaa !234, !noalias !382
   %259 = getelementptr inbounds nuw i8, ptr %251, i64 52
   store i32 0, ptr %259, align 4, !tbaa !235, !noalias !382
   %260 = getelementptr inbounds nuw i8, ptr %251, i64 56
@@ -6449,7 +6449,7 @@ _ZN4llvm12PatternMatch17IntrinsicID_match5matchINS_11InstructionEEEbPT_.exit.i.i
   %391 = getelementptr inbounds nuw i8, ptr %385, i64 32
   store ptr %3, ptr %391, align 8, !tbaa !233, !noalias !393
   %392 = getelementptr inbounds nuw i8, ptr %385, i64 48
-  store i8 0, ptr %392, align 4, !tbaa !234, !noalias !393
+  store i8 0, ptr %392, align 8, !tbaa !234, !noalias !393
   %393 = getelementptr inbounds nuw i8, ptr %385, i64 52
   store i32 0, ptr %393, align 4, !tbaa !235, !noalias !393
   %394 = getelementptr inbounds nuw i8, ptr %385, i64 56
@@ -6921,7 +6921,7 @@ _ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu
   %582 = getelementptr inbounds nuw i8, ptr %576, i64 32
   store ptr %3, ptr %582, align 8, !tbaa !233, !noalias !411
   %583 = getelementptr inbounds nuw i8, ptr %576, i64 48
-  store i8 0, ptr %583, align 4, !tbaa !234, !noalias !411
+  store i8 0, ptr %583, align 8, !tbaa !234, !noalias !411
   %584 = getelementptr inbounds nuw i8, ptr %576, i64 52
   store i32 0, ptr %584, align 4, !tbaa !235, !noalias !411
   %585 = getelementptr inbounds nuw i8, ptr %576, i64 56
@@ -7743,7 +7743,7 @@ _ZNK4llvm4User10getOperandEj.exit57.i:            ; preds = %928, %925
   %949 = getelementptr inbounds nuw i8, ptr %943, i64 32
   store ptr %3, ptr %949, align 8, !tbaa !233, !noalias !426
   %950 = getelementptr inbounds nuw i8, ptr %943, i64 48
-  store i8 0, ptr %950, align 4, !tbaa !234, !noalias !426
+  store i8 0, ptr %950, align 8, !tbaa !234, !noalias !426
   %951 = getelementptr inbounds nuw i8, ptr %943, i64 52
   %952 = getelementptr inbounds nuw i8, ptr %943, i64 56
   %953 = getelementptr inbounds nuw i8, ptr %943, i64 72
@@ -8398,7 +8398,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEaSEOS2_.e
   %1234 = getelementptr inbounds nuw i8, ptr %1228, i64 32
   store ptr %3, ptr %1234, align 8, !tbaa !233, !noalias !437
   %1235 = getelementptr inbounds nuw i8, ptr %1228, i64 48
-  store i8 0, ptr %1235, align 4, !tbaa !234, !noalias !437
+  store i8 0, ptr %1235, align 8, !tbaa !234, !noalias !437
   %1236 = getelementptr inbounds nuw i8, ptr %1228, i64 52
   store i32 0, ptr %1236, align 4, !tbaa !235, !noalias !437
   %1237 = getelementptr inbounds nuw i8, ptr %1228, i64 56
@@ -9095,7 +9095,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph20prep
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %3, ptr %12, align 8, !tbaa !233, !noalias !440
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store i8 0, ptr %13, align 4, !tbaa !234, !noalias !440
+  store i8 0, ptr %13, align 8, !tbaa !234, !noalias !440
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 52
   store i32 0, ptr %14, align 4, !tbaa !235, !noalias !440
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -10565,7 +10565,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph18iden
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store ptr null, ptr %39, align 8, !tbaa !233, !noalias !471
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 48
-  store i8 0, ptr %40, align 4, !tbaa !234, !noalias !471
+  store i8 0, ptr %40, align 8, !tbaa !234, !noalias !471
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 52
   store i32 0, ptr %41, align 4, !tbaa !235, !noalias !471
   %42 = getelementptr inbounds nuw i8, ptr %33, i64 56
@@ -15404,7 +15404,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.
   store i32 1, ptr %524, align 4, !tbaa !231, !noalias !567
   %525 = getelementptr inbounds nuw i8, ptr %520, i64 24
   %526 = getelementptr inbounds nuw i8, ptr %520, i64 48
-  store i8 0, ptr %526, align 4, !tbaa !234, !noalias !567
+  store i8 0, ptr %526, align 8, !tbaa !234, !noalias !567
   %527 = getelementptr inbounds nuw i8, ptr %520, i64 52
   %528 = getelementptr inbounds nuw i8, ptr %520, i64 56
   %529 = getelementptr inbounds nuw i8, ptr %520, i64 72
@@ -16738,7 +16738,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEaSERKS2_.
   store i32 5, ptr %57, align 4, !tbaa !231, !noalias !51
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %59 = getelementptr inbounds nuw i8, ptr %53, i64 48
-  store i8 0, ptr %59, align 4, !tbaa !234, !noalias !51
+  store i8 0, ptr %59, align 8, !tbaa !234, !noalias !51
   %60 = getelementptr inbounds nuw i8, ptr %53, i64 52
   store i32 0, ptr %60, align 4, !tbaa !235, !noalias !51
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 56
@@ -16760,7 +16760,7 @@ _ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu
 _ZNSt8optionalIN4llvm13FastMathFlagsEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit: ; preds = %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit101
   store i32 14, ptr %66, align 8, !tbaa !438
   %67 = getelementptr inbounds nuw i8, ptr %53, i64 44
-  store i8 1, ptr %59, align 4, !tbaa !234
+  store i8 1, ptr %59, align 8, !tbaa !234
   store i32 %.sroa.0217.0.extract.trunc, ptr %67, align 4, !tbaa !184
   br label %83
 
@@ -16774,7 +16774,7 @@ _ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu
 _ZNSt8optionalIN4llvm13FastMathFlagsEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit112: ; preds = %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit111
   store i32 16, ptr %66, align 8, !tbaa !438
   %69 = getelementptr inbounds nuw i8, ptr %53, i64 44
-  store i8 1, ptr %59, align 4, !tbaa !234
+  store i8 1, ptr %59, align 8, !tbaa !234
   store i32 %.sroa.0217.0.extract.trunc, ptr %69, align 4, !tbaa !184
   br label %83
 
@@ -16793,7 +16793,7 @@ _ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu
   store i8 1, ptr %74, align 8, !tbaa !218, !noalias !578
   %75 = getelementptr inbounds nuw i8, ptr %71, i64 20
   %76 = getelementptr inbounds nuw i8, ptr %71, i64 48
-  store i8 0, ptr %76, align 4, !tbaa !234, !noalias !578
+  store i8 0, ptr %76, align 8, !tbaa !234, !noalias !578
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 52
   %78 = getelementptr inbounds nuw i8, ptr %71, i64 56
   %79 = getelementptr inbounds nuw i8, ptr %71, i64 72

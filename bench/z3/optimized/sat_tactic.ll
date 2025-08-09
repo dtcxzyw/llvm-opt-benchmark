@@ -2037,7 +2037,7 @@ define linkonce_odr hidden void @_ZN10sat_tactic3impclERK3refI4goalER11sref_buff
   %.01012.i.i.i.i.i.i.i = phi i32 [ %23, %.lr.ph.i.i.i.i.i.i.i ], [ 8, %3 ]
   store ptr null, ptr %.013.i.i.i.i.i.i.i, align 8, !tbaa !81
   %22 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i, i64 8
-  store i32 -2, ptr %22, align 4, !tbaa !84
+  store i32 -2, ptr %22, align 8, !tbaa !84
   %23 = add nsw i32 %.01012.i.i.i.i.i.i.i, -1
   %24 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i.i = icmp eq i32 %23, 0

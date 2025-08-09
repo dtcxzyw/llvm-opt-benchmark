@@ -2377,7 +2377,7 @@ _ZNSt14basic_ofstreamIcSt11char_traitsIcEE4openERKNSt7__cxx1112basic_stringIcS1_
   %926 = load i32, ptr %925, align 8, !tbaa !116
   %927 = and i32 %926, -75
   %928 = or disjoint i32 %927, 2
-  store i32 %928, ptr %925, align 4, !tbaa !117
+  store i32 %928, ptr %925, align 8, !tbaa !117
   %929 = load i32, ptr %17, align 8, !tbaa !118
   %930 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %19, i32 noundef %929)
           to label %931 unwind label %.loopexit.split-lp.i.loopexit
@@ -2443,7 +2443,7 @@ _ZNSolsEPFRSoS_E.exit.i:                          ; preds = %.noexc322.i
   %957 = load i32, ptr %956, align 8, !tbaa !116
   %958 = and i32 %957, -75
   %959 = or disjoint i32 %958, 2
-  store i32 %959, ptr %956, align 4, !tbaa !117
+  store i32 %959, ptr %956, align 8, !tbaa !117
   %960 = load i32, ptr %153, align 4, !tbaa !136
   %961 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %19, i32 noundef %960)
           to label %962 unwind label %.loopexit.split-lp.i.loopexit
@@ -2502,7 +2502,7 @@ _ZNSolsEPFRSoS_E.exit131.i:                       ; preds = %.noexc332.i
   %988 = load i32, ptr %987, align 8, !tbaa !116
   %989 = and i32 %988, -75
   %990 = or disjoint i32 %989, 2
-  store i32 %990, ptr %987, align 4, !tbaa !117
+  store i32 %990, ptr %987, align 8, !tbaa !117
   %991 = load ptr, ptr %154, align 8, !tbaa !137
   %992 = load ptr, ptr %121, align 8, !tbaa !138
   %993 = ptrtoint ptr %991 to i64
@@ -2566,7 +2566,7 @@ _ZNSolsEPFRSoS_E.exit138.i:                       ; preds = %.noexc343.i
   %1023 = load i32, ptr %1022, align 8, !tbaa !116
   %1024 = and i32 %1023, -75
   %1025 = or disjoint i32 %1024, 2
-  store i32 %1025, ptr %1022, align 4, !tbaa !117
+  store i32 %1025, ptr %1022, align 8, !tbaa !117
   %1026 = load ptr, ptr %156, align 8, !tbaa !139
   %1027 = load ptr, ptr %155, align 8, !tbaa !140
   %1028 = ptrtoint ptr %1026 to i64
@@ -2847,7 +2847,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
   %1132 = load i32, ptr %1131, align 8, !tbaa !116
   %1133 = and i32 %1132, -75
   %1134 = or disjoint i32 %1133, 2
-  store i32 %1134, ptr %1131, align 4, !tbaa !117
+  store i32 %1134, ptr %1131, align 8, !tbaa !117
   %1135 = load i32, ptr %157, align 4, !tbaa !141
   %1136 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %19, i32 noundef %1135)
           to label %1137 unwind label %.loopexit.split-lp.i.loopexit

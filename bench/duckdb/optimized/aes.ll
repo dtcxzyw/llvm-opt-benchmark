@@ -559,7 +559,7 @@ define hidden range(i32 -32, 1) i32 @mbedtls_aes_setkey_dec(ptr noundef %0, ptr 
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %14, align 4, !tbaa !11
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %16, ptr %5, align 4, !tbaa !11
+  store i32 %16, ptr %5, align 8, !tbaa !11
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %19 = load i32, ptr %15, align 4, !tbaa !11
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -567,7 +567,7 @@ define hidden range(i32 -32, 1) i32 @mbedtls_aes_setkey_dec(ptr noundef %0, ptr 
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %22 = load i32, ptr %18, align 4, !tbaa !11
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %22, ptr %20, align 4, !tbaa !11
+  store i32 %22, ptr %20, align 8, !tbaa !11
   %24 = load i32, ptr %21, align 4, !tbaa !11
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %24, ptr %23, align 4, !tbaa !11

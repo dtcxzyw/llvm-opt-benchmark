@@ -61,7 +61,7 @@ _ZNSolsEPFRSt8ios_baseS0_E.exit:
   %10 = load i32, ptr %9, align 8, !tbaa !13
   %11 = and i32 %10, -261
   %12 = or disjoint i32 %11, 4
-  store i32 %12, ptr %9, align 4, !tbaa !23
+  store i32 %12, ptr %9, align 8, !tbaa !23
   %13 = icmp sgt i32 %2, 0
   br i1 %13, label %.lr.ph, label %._crit_edge
 

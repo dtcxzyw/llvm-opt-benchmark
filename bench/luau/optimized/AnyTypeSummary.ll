@@ -18643,7 +18643,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %64, ptr %66, align 8, !tbaa !119, !alias.scope !398, !noalias !401
   store ptr %56, ptr %53, align 8, !tbaa !120, !alias.scope !401, !noalias !398
   store i64 0, ptr %65, align 8, !tbaa !119, !alias.scope !401, !noalias !398
-  store i8 0, ptr %56, align 1, !tbaa !61, !alias.scope !401, !noalias !398
+  store i8 0, ptr %56, align 8, !tbaa !61, !alias.scope !401, !noalias !398
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
   %68 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
   %69 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 56
@@ -18677,7 +18677,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.
   store i64 %79, ptr %81, align 8, !tbaa !119, !alias.scope !398, !noalias !401
   store ptr %71, ptr %68, align 8, !tbaa !120, !alias.scope !401, !noalias !398
   store i64 0, ptr %80, align 8, !tbaa !119, !alias.scope !401, !noalias !398
-  store i8 0, ptr %71, align 1, !tbaa !61, !alias.scope !401, !noalias !398
+  store i8 0, ptr %71, align 8, !tbaa !61, !alias.scope !401, !noalias !398
   %82 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 72
   %83 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 72
   %84 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 88
@@ -18711,7 +18711,7 @@ _ZSt19__relocate_object_aIN4Luau14AnyTypeSummary8TypeInfoES2_SaIS2_EEvPT_PT0_RT1
   store i64 %94, ptr %96, align 8, !tbaa !119, !alias.scope !398, !noalias !401
   store ptr %86, ptr %83, align 8, !tbaa !120, !alias.scope !401, !noalias !398
   store i64 0, ptr %95, align 8, !tbaa !119, !alias.scope !401, !noalias !398
-  store i8 0, ptr %86, align 1, !tbaa !61, !alias.scope !401, !noalias !398
+  store i8 0, ptr %86, align 8, !tbaa !61, !alias.scope !401, !noalias !398
   %97 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 104
   %98 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 104
   %.not.i.i.i = icmp eq ptr %97, %1
@@ -18763,7 +18763,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i3
   store i64 %113, ptr %115, align 8, !tbaa !119, !alias.scope !405, !noalias !408
   store ptr %105, ptr %102, align 8, !tbaa !120, !alias.scope !408, !noalias !405
   store i64 0, ptr %114, align 8, !tbaa !119, !alias.scope !408, !noalias !405
-  store i8 0, ptr %105, align 1, !tbaa !61, !alias.scope !408, !noalias !405
+  store i8 0, ptr %105, align 8, !tbaa !61, !alias.scope !408, !noalias !405
   %116 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 40
   %117 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 40
   %118 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 56
@@ -18797,7 +18797,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.
   store i64 %128, ptr %130, align 8, !tbaa !119, !alias.scope !405, !noalias !408
   store ptr %120, ptr %117, align 8, !tbaa !120, !alias.scope !408, !noalias !405
   store i64 0, ptr %129, align 8, !tbaa !119, !alias.scope !408, !noalias !405
-  store i8 0, ptr %120, align 1, !tbaa !61, !alias.scope !408, !noalias !405
+  store i8 0, ptr %120, align 8, !tbaa !61, !alias.scope !408, !noalias !405
   %131 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 72
   %132 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 72
   %133 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 88
@@ -18831,7 +18831,7 @@ _ZSt19__relocate_object_aIN4Luau14AnyTypeSummary8TypeInfoES2_SaIS2_EEvPT_PT0_RT1
   store i64 %143, ptr %145, align 8, !tbaa !119, !alias.scope !405, !noalias !408
   store ptr %135, ptr %132, align 8, !tbaa !120, !alias.scope !408, !noalias !405
   store i64 0, ptr %144, align 8, !tbaa !119, !alias.scope !408, !noalias !405
-  store i8 0, ptr %135, align 1, !tbaa !61, !alias.scope !408, !noalias !405
+  store i8 0, ptr %135, align 8, !tbaa !61, !alias.scope !408, !noalias !405
   %146 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 104
   %147 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 104
   %.not.i.i.i42 = icmp eq ptr %146, %6

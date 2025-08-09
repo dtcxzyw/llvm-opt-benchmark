@@ -51975,7 +51975,7 @@ nd_line.exit:                                     ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %13 = load i32, ptr %12, align 4, !tbaa !31
-  %14 = load i32, ptr %11, align 4, !tbaa !53
+  %14 = load i32, ptr %11, align 8, !tbaa !53
   %15 = icmp eq i32 %14, %13
   br i1 %15, label %16, label %parser_show_error_line.exit
 
@@ -52227,7 +52227,7 @@ nd_line.exit:                                     ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %13 = load i32, ptr %12, align 4, !tbaa !31
-  %14 = load i32, ptr %11, align 4, !tbaa !53
+  %14 = load i32, ptr %11, align 8, !tbaa !53
   %15 = icmp eq i32 %14, %13
   br i1 %15, label %16, label %parser_show_error_line.exit
 

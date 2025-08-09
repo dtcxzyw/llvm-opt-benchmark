@@ -201,7 +201,7 @@ PHP_MD5Update.exit:                               ; preds = %25, %40
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 16 dereferenceable(16) %6, i64 16, i1 false)
   %53 = getelementptr inbounds nuw i8, ptr %48, i64 40
-  store i8 0, ptr %53, align 1, !tbaa !4
+  store i8 0, ptr %53, align 8, !tbaa !4
   store ptr %48, ptr %1, align 8, !tbaa !4
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %54, align 8, !tbaa !4
@@ -679,7 +679,7 @@ PHP_MD5Update.exit:                               ; preds = %66, %77
   %92 = getelementptr inbounds nuw i8, ptr %88, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %92, ptr noundef nonnull align 16 dereferenceable(16) %6, i64 16, i1 false)
   %93 = getelementptr inbounds nuw i8, ptr %88, i64 40
-  store i8 0, ptr %93, align 1, !tbaa !4
+  store i8 0, ptr %93, align 8, !tbaa !4
   store ptr %88, ptr %1, align 8, !tbaa !4
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %94, align 8, !tbaa !4

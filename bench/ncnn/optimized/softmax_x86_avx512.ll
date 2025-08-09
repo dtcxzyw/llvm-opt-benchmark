@@ -6869,7 +6869,7 @@ _ZN4ncnn3MatD2Ev.exit2152:                        ; preds = %4302, %4300, %4308,
   %4437 = shl <16 x i32> %4436, splat (i32 23)
   %4438 = bitcast <16 x i32> %4437 to <16 x float>
   %4439 = fmul fast <16 x float> %4434, %4438
-  store <16 x float> %4439, ptr %4415, align 1, !tbaa !33
+  store <16 x float> %4439, ptr %4415, align 64, !tbaa !33
   %4440 = fadd fast <16 x float> %4439, %.017654609
   %indvars.iv.next5137 = add nuw nsw i64 %indvars.iv5136, 16
   %4441 = or disjoint i64 %indvars.iv.next5137, 15
@@ -6931,7 +6931,7 @@ _ZN4ncnn3MatD2Ev.exit2152:                        ; preds = %4302, %4300, %4308,
   %4481 = add <8 x i32> %4480, splat (i32 1065353216)
   %4482 = bitcast <8 x i32> %4481 to <8 x float>
   %4483 = fmul fast <8 x float> %4478, %4482
-  store <8 x float> %4483, ptr %4458, align 1, !tbaa !33
+  store <8 x float> %4483, ptr %4458, align 32, !tbaa !33
   %4484 = fadd fast <8 x float> %4483, %.017604616
   %indvars.iv.next5140 = add nuw nsw i64 %indvars.iv5139, 8
   %4485 = or disjoint i64 %indvars.iv.next5140, 7

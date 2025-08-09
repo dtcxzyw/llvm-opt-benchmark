@@ -1270,9 +1270,9 @@ entry:
   %4 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %other, i64 32
   %6 = load i32, ptr %4, align 8
-  %7 = load i32, ptr %5, align 4
+  %7 = load i32, ptr %5, align 8
   store i32 %7, ptr %4, align 8
-  store i32 %6, ptr %5, align 4
+  store i32 %6, ptr %5, align 8
   %num_buckets_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 36
   %num_buckets_3.i.i.i = getelementptr inbounds nuw i8, ptr %other, i64 36
   %8 = load i32, ptr %num_buckets_.i.i.i, align 4
@@ -1282,9 +1282,9 @@ entry:
   %seed_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %seed_4.i.i.i = getelementptr inbounds nuw i8, ptr %other, i64 40
   %10 = load i32, ptr %seed_.i.i.i, align 8
-  %11 = load i32, ptr %seed_4.i.i.i, align 4
+  %11 = load i32, ptr %seed_4.i.i.i, align 8
   store i32 %11, ptr %seed_.i.i.i, align 8
-  store i32 %10, ptr %seed_4.i.i.i, align 4
+  store i32 %10, ptr %seed_4.i.i.i, align 8
   %index_of_first_non_null_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 44
   %index_of_first_non_null_5.i.i.i = getelementptr inbounds nuw i8, ptr %other, i64 44
   %12 = load i32, ptr %index_of_first_non_null_.i.i.i, align 4
@@ -3289,7 +3289,7 @@ _ZN6google8protobuf5Arena16DefaultConstructINS0_27Struct_FieldsEntry_DoNotUseEEE
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i.i.i.i.i, align 8
   %arrayinit.cur.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i, i64 16
-  store i32 0, ptr %arrayinit.cur.i.ptr.i.i.i.i, align 4
+  store i32 0, ptr %arrayinit.cur.i.ptr.i.i.i.i, align 8
   %_cached_size_.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i, i64 20
   store i32 0, ptr %_cached_size_.i.i.i.i, align 4
   %key_.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i, i64 24

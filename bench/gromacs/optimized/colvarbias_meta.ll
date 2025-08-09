@@ -25936,7 +25936,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30: ; preds = %_ZN
   %77 = load i32, ptr %76, align 8, !tbaa !725
   %78 = and i32 %77, -261
   %79 = or disjoint i32 %78, 256
-  store i32 %79, ptr %76, align 4, !tbaa !726
+  store i32 %79, ptr %76, align 8, !tbaa !726
   br label %90
 
 80:                                               ; preds = %.noexc.i25
@@ -32995,7 +32995,7 @@ define void @_ZN15colvarbias_meta4hill11output_trajB5cxx11Ev(ptr dead_on_unwind 
   %9 = load i32, ptr %8, align 8, !tbaa !725
   %10 = and i32 %9, -261
   %11 = or disjoint i32 %10, 4
-  store i32 %11, ptr %8, align 4, !tbaa !726
+  store i32 %11, ptr %8, align 8, !tbaa !726
   %12 = load i64, ptr @_ZN12colvarmodule8it_widthE, align 8, !tbaa !12
   %13 = load i64, ptr %5, align 8
   %14 = getelementptr inbounds i8, ptr %3, i64 %13
@@ -33020,7 +33020,7 @@ _ZNSolsEx.exit:                                   ; preds = %2
   %26 = load i32, ptr %25, align 8, !tbaa !725
   %27 = and i32 %26, -261
   %28 = or disjoint i32 %27, 256
-  store i32 %28, ptr %25, align 4, !tbaa !726
+  store i32 %28, ptr %25, align 8, !tbaa !726
   %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.215, i64 noundef 2)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17.preheader unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -38090,7 +38090,7 @@ _ZNK11colvar_gridIdE4incrERSt6vectorIiSaIiEE.exit236: ; preds = %447, %.lr.ph.i2
   %469 = load i32, ptr %468, align 8, !tbaa !725
   %470 = and i32 %469, -261
   %471 = or disjoint i32 %470, 4
-  store i32 %471, ptr %468, align 4, !tbaa !726
+  store i32 %471, ptr %468, align 8, !tbaa !726
   %472 = load i64, ptr %465, align 8
   %473 = getelementptr inbounds i8, ptr %20, i64 %472
   %474 = getelementptr inbounds nuw i8, ptr %473, i64 16
@@ -44522,7 +44522,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN15colvarb
   %14 = load i32, ptr %13, align 8, !tbaa !725
   %15 = and i32 %14, -261
   %16 = or disjoint i32 %15, 256
-  store i32 %16, ptr %13, align 4, !tbaa !726
+  store i32 %16, ptr %13, align 8, !tbaa !726
   %17 = load ptr, ptr %0, align 8, !tbaa !4
   %18 = getelementptr i8, ptr %17, i64 -24
   %19 = load i64, ptr %18, align 8

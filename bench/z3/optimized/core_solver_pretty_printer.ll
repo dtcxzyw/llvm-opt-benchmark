@@ -2420,7 +2420,7 @@ _ZNK6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EjE8capacityE
   store ptr %312, ptr %.025.i, align 8, !tbaa !55
   %313 = getelementptr inbounds nuw i8, ptr %.025.i, i64 8
   store i64 0, ptr %313, align 8, !tbaa !11
-  store i8 0, ptr %312, align 1, !tbaa !12
+  store i8 0, ptr %312, align 8, !tbaa !12
   %314 = getelementptr inbounds nuw i8, ptr %.025.i, i64 32
   %.not15.i = icmp eq ptr %314, %309
   br i1 %.not15.i, label %_ZN6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EjE6resizeIPKcEEvjT_z.exit, label %.lr.ph.split.i, !llvm.loop !107
@@ -2543,7 +2543,7 @@ _ZNK6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EjE8capacityE
   store ptr %359, ptr %.025.i94, align 8, !tbaa !55
   %360 = getelementptr inbounds nuw i8, ptr %.025.i94, i64 8
   store i64 0, ptr %360, align 8, !tbaa !11
-  store i8 0, ptr %359, align 1, !tbaa !12
+  store i8 0, ptr %359, align 8, !tbaa !12
   %361 = getelementptr inbounds nuw i8, ptr %.025.i94, i64 32
   %.not15.i96 = icmp eq ptr %361, %356
   br i1 %.not15.i96, label %_ZN6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EjE6resizeIPKcEEvjT_z.exit108, label %.lr.ph.split.i93, !llvm.loop !107
@@ -5733,7 +5733,7 @@ _ZNK6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EjE8capacityE
   store ptr %334, ptr %.025.i, align 8, !tbaa !55
   %335 = getelementptr inbounds nuw i8, ptr %.025.i, i64 8
   store i64 0, ptr %335, align 8, !tbaa !11
-  store i8 0, ptr %334, align 1, !tbaa !12
+  store i8 0, ptr %334, align 8, !tbaa !12
   %336 = getelementptr inbounds nuw i8, ptr %.025.i, i64 32
   %.not15.i = icmp eq ptr %336, %331
   br i1 %.not15.i, label %_ZN6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EjE6resizeIPKcEEvjT_z.exit, label %.lr.ph.split.i, !llvm.loop !107
@@ -5856,7 +5856,7 @@ _ZNK6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EjE8capacityE
   store ptr %381, ptr %.025.i94, align 8, !tbaa !55
   %382 = getelementptr inbounds nuw i8, ptr %.025.i94, i64 8
   store i64 0, ptr %382, align 8, !tbaa !11
-  store i8 0, ptr %381, align 1, !tbaa !12
+  store i8 0, ptr %381, align 8, !tbaa !12
   %383 = getelementptr inbounds nuw i8, ptr %.025.i94, i64 32
   %.not15.i96 = icmp eq ptr %383, %378
   br i1 %.not15.i96, label %_ZN6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EjE6resizeIPKcEEvjT_z.exit108, label %.lr.ph.split.i93, !llvm.loop !107
@@ -7758,7 +7758,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %71, ptr %73, align 8, !tbaa !11
   store ptr %63, ptr %.sroa.04.07.i.i.i.i.i.i, align 8, !tbaa !3
   store i64 0, ptr %72, align 8, !tbaa !11
-  store i8 0, ptr %63, align 1, !tbaa !12
+  store i8 0, ptr %63, align 8, !tbaa !12
   %74 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i.i.i, i64 32
   %75 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 32
   %76 = icmp eq ptr %74, %59

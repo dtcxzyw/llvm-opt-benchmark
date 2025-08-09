@@ -1643,7 +1643,7 @@ define dso_local ptr @zend_get_constant_ex(ptr noundef %0, ptr noundef %1, i32 n
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !52
-  %7 = load i8, ptr %4, align 1, !tbaa !4
+  %7 = load i8, ptr %4, align 8, !tbaa !4
   %8 = icmp eq i8 %7, 92
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %10 = sext i1 %8 to i64

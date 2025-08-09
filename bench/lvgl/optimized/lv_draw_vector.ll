@@ -1220,11 +1220,11 @@ define void @lv_vector_dsc_set_stroke_linear_gradient(ptr noundef writeonly capt
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 324
   store float %1, ptr %8, align 4, !tbaa !89
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  store float %2, ptr %9, align 4, !tbaa !90
+  store float %2, ptr %9, align 8, !tbaa !90
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 332
   store float %3, ptr %10, align 4, !tbaa !91
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  store float %4, ptr %11, align 4, !tbaa !92
+  store float %4, ptr %11, align 8, !tbaa !92
   ret void
 }
 
@@ -1237,7 +1237,7 @@ define void @lv_vector_dsc_set_stroke_radial_gradient(ptr noundef writeonly capt
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 340
   store float %1, ptr %7, align 4, !tbaa !93
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  store float %2, ptr %8, align 4, !tbaa !94
+  store float %2, ptr %8, align 8, !tbaa !94
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 348
   store float %3, ptr %9, align 4, !tbaa !95
   ret void
@@ -1366,9 +1366,9 @@ lv_vector_path_create.exit:                       ; preds = %23
   %59 = getelementptr inbounds nuw i8, ptr %25, i64 340
   store float %58, ptr %59, align 4, !tbaa !105
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %61 = load float, ptr %60, align 4, !tbaa !106
+  %61 = load float, ptr %60, align 8, !tbaa !106
   %62 = getelementptr inbounds nuw i8, ptr %25, i64 344
-  store float %61, ptr %62, align 4, !tbaa !106
+  store float %61, ptr %62, align 8, !tbaa !106
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 348
   %64 = load float, ptr %63, align 4, !tbaa !107
   %65 = getelementptr inbounds nuw i8, ptr %25, i64 348
@@ -1376,7 +1376,7 @@ lv_vector_path_create.exit:                       ; preds = %23
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %67 = load i32, ptr %66, align 4, !tbaa !108
   %68 = getelementptr inbounds nuw i8, ptr %25, i64 352
-  store i32 %67, ptr %68, align 4, !tbaa !109
+  store i32 %67, ptr %68, align 8, !tbaa !109
   %69 = call ptr @lv_memcpy(ptr noundef nonnull %56, ptr noundef nonnull %54, i64 noundef 48) #10
   %70 = getelementptr inbounds nuw i8, ptr %25, i64 356
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 356
@@ -1389,16 +1389,16 @@ lv_vector_path_create.exit:                       ; preds = %23
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %78 = call ptr @lv_memcpy(ptr noundef nonnull %76, ptr noundef nonnull %77, i64 noundef 36) #10
   %79 = getelementptr inbounds nuw i8, ptr %25, i64 432
-  %80 = load i32, ptr %7, align 4, !tbaa !22
-  store i32 %80, ptr %79, align 4, !tbaa !22
+  %80 = load i32, ptr %7, align 8, !tbaa !22
+  store i32 %80, ptr %79, align 8, !tbaa !22
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 436
   %82 = load i32, ptr %81, align 4, !tbaa !24
   %83 = getelementptr inbounds nuw i8, ptr %25, i64 436
   store i32 %82, ptr %83, align 4, !tbaa !24
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %85 = load i32, ptr %84, align 4, !tbaa !25
+  %85 = load i32, ptr %84, align 8, !tbaa !25
   %86 = getelementptr inbounds nuw i8, ptr %25, i64 440
-  store i32 %85, ptr %86, align 4, !tbaa !25
+  store i32 %85, ptr %86, align 8, !tbaa !25
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 444
   %88 = load i32, ptr %87, align 4, !tbaa !26
   %89 = getelementptr inbounds nuw i8, ptr %25, i64 444
@@ -1472,7 +1472,7 @@ define void @lv_vector_clear_area(ptr noundef %0, ptr noundef readonly captures(
   store i8 %21, ptr %22, align 8, !tbaa !111
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 432
   %24 = load i32, ptr %1, align 4, !tbaa !22
-  store i32 %24, ptr %23, align 4, !tbaa !22
+  store i32 %24, ptr %23, align 8, !tbaa !22
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %26 = load i32, ptr %25, align 4, !tbaa !24
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 436
@@ -1480,7 +1480,7 @@ define void @lv_vector_clear_area(ptr noundef %0, ptr noundef readonly captures(
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load i32, ptr %28, align 4, !tbaa !25
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 440
-  store i32 %29, ptr %30, align 4, !tbaa !25
+  store i32 %29, ptr %30, align 8, !tbaa !25
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %32 = load i32, ptr %31, align 4, !tbaa !26
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 444

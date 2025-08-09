@@ -3088,19 +3088,19 @@ define dso_local void @_ZN4absl13time_internal4cctz12TimeZoneInfo3UTCEv(ptr dead
   store ptr %6, ptr %5, align 8, !tbaa !47
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i64 0, ptr %7, align 8, !tbaa !4
-  store i8 0, ptr %6, align 1, !tbaa !33
+  store i8 0, ptr %6, align 8, !tbaa !33
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 112
   store ptr %9, ptr %8, align 8, !tbaa !47
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 104
   store i64 0, ptr %10, align 8, !tbaa !4
-  store i8 0, ptr %9, align 1, !tbaa !33
+  store i8 0, ptr %9, align 8, !tbaa !33
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 144
   store ptr %12, ptr %11, align 8, !tbaa !47
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 136
   store i64 0, ptr %13, align 8, !tbaa !4
-  store i8 0, ptr %12, align 1, !tbaa !33
+  store i8 0, ptr %12, align 8, !tbaa !33
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 176
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   store ptr %3, ptr %0, align 8, !tbaa !153
@@ -3139,19 +3139,19 @@ define dso_local void @_ZN4absl13time_internal4cctz12TimeZoneInfo4MakeERKNSt7__c
   store ptr %6, ptr %5, align 8, !tbaa !47
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i64 0, ptr %7, align 8, !tbaa !4
-  store i8 0, ptr %6, align 1, !tbaa !33
+  store i8 0, ptr %6, align 8, !tbaa !33
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 112
   store ptr %9, ptr %8, align 8, !tbaa !47
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 104
   store i64 0, ptr %10, align 8, !tbaa !4
-  store i8 0, ptr %9, align 1, !tbaa !33
+  store i8 0, ptr %9, align 8, !tbaa !33
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 144
   store ptr %12, ptr %11, align 8, !tbaa !47
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 136
   store i64 0, ptr %13, align 8, !tbaa !4
-  store i8 0, ptr %12, align 1, !tbaa !33
+  store i8 0, ptr %12, align 8, !tbaa !33
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 176
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   store ptr %3, ptr %0, align 8, !tbaa !153

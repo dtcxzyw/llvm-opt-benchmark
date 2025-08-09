@@ -7581,7 +7581,7 @@ _ZN3vcg3tri12UpdateNormalINS_5SMeshEE18NormalizePerVertexERS2_.exit: ; preds = %
   %286 = getelementptr inbounds nuw i8, ptr %.sroa.025.032.i, i64 24
   store ptr null, ptr %286, align 8
   %287 = getelementptr inbounds nuw i8, ptr %.sroa.025.032.i, i64 32
-  store i32 0, ptr %287, align 4
+  store i32 0, ptr %287, align 8
   %288 = getelementptr inbounds nuw i8, ptr %.sroa.025.032.i, i64 48
   %.not.i206 = icmp eq ptr %288, %284
   br i1 %.not.i206, label %._crit_edge.i, label %.lr.ph.i205, !llvm.loop !32
@@ -7615,7 +7615,7 @@ _ZN3vcg3tri12UpdateNormalINS_5SMeshEE18NormalizePerVertexERS2_.exit: ; preds = %
   %302 = getelementptr inbounds nuw [3 x ptr], ptr %295, i64 0, i64 %indvars.iv.i
   store ptr %301, ptr %302, align 8
   %303 = getelementptr inbounds nuw i8, ptr %299, i64 32
-  %304 = load i32, ptr %303, align 4
+  %304 = load i32, ptr %303, align 8
   %305 = trunc i32 %304 to i8
   %306 = getelementptr inbounds nuw [3 x i8], ptr %296, i64 0, i64 %indvars.iv.i
   store i8 %305, ptr %306, align 1
@@ -18280,7 +18280,7 @@ define linkonce_odr void @_ZNSt6vectorIN3vcg7SVertexESaIS1_EE17_M_default_append
   %20 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 36
   store i32 0, ptr %20, align 4
   %21 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 40
-  store i32 -1, ptr %21, align 4
+  store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 44
   store float 0.000000e+00, ptr %22, align 4
   %23 = add i64 %.01012.i.i.i, -1
@@ -18318,7 +18318,7 @@ _ZNKSt6vectorIN3vcg7SVertexESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %25
   %34 = getelementptr inbounds nuw i8, ptr %.013.i.i.i31, i64 36
   store i32 0, ptr %34, align 4
   %35 = getelementptr inbounds nuw i8, ptr %.013.i.i.i31, i64 40
-  store i32 -1, ptr %35, align 4
+  store i32 -1, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %.013.i.i.i31, i64 44
   store float 0.000000e+00, ptr %36, align 4
   %37 = add i64 %.01012.i.i.i32, -1
@@ -19643,7 +19643,7 @@ define linkonce_odr void @_ZZN3vcg3tri6AppendINS_5SMeshE6CMeshOE15MeshAppendCons
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %34 = load i32, ptr %32, align 8
-  store i32 %34, ptr %33, align 1
+  store i32 %34, ptr %33, align 4
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %36 = load i32, ptr %35, align 4
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 36
@@ -19750,7 +19750,7 @@ _ZNK3vcg6vertex8VFAdjOcfINS_6Arity6INS0_9EmptyCoreI11CUsedTypesOEENS0_7InfoOcfEN
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = load i32, ptr %113, align 8
   %115 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  store i32 %114, ptr %115, align 4
+  store i32 %114, ptr %115, align 8
   br label %_ZN3vcg3tri6AppendINS_5SMeshE6CMeshOE15ImportVertexAdjERS2_RKS3_RNS_7SVertexERK8CVertexORNS4_5RemapE.exit
 
 _ZN3vcg3tri6AppendINS_5SMeshE6CMeshOE15ImportVertexAdjERS2_RKS3_RNS_7SVertexERK8CVertexORNS4_5RemapE.exit: ; preds = %101, %_ZNK3vcg6vertex8VFAdjOcfINS_6Arity6INS0_9EmptyCoreI11CUsedTypesOEENS0_7InfoOcfENS0_7Coord3mENS0_8BitFlagsENS0_8Normal3mENS0_8QualitymENS0_7Color4bEEEE4cVFpEv.exit.i, %66, %59, %10
@@ -23152,8 +23152,8 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %10, %21
   %68 = fmul float %25, %sqrt.i.i.i
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %66, i64 0
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %67, i64 1
-  store <2 x float> %.sroa.0.4.vec.insert.i, ptr %11, align 4
-  store float %68, ptr %17, align 4
+  store <2 x float> %.sroa.0.4.vec.insert.i, ptr %11, align 8
+  store float %68, ptr %17, align 8
   %.pre = load ptr, ptr %4, align 8
   br label %69
 
@@ -26863,7 +26863,7 @@ _ZN3vcg3tri12UpdateNormalINS_5SMeshEE36PerVertexNormalizedPerFaceNormalizedERS2_
   %170 = getelementptr inbounds nuw i8, ptr %.sroa.025.032.i, i64 24
   store ptr null, ptr %170, align 8
   %171 = getelementptr inbounds nuw i8, ptr %.sroa.025.032.i, i64 32
-  store i32 0, ptr %171, align 4
+  store i32 0, ptr %171, align 8
   %172 = getelementptr inbounds nuw i8, ptr %.sroa.025.032.i, i64 48
   %173 = load ptr, ptr %168, align 8
   %.not.i51 = icmp eq ptr %172, %173
@@ -26902,7 +26902,7 @@ _ZN3vcg3tri12UpdateNormalINS_5SMeshEE36PerVertexNormalizedPerFaceNormalizedERS2_
   %187 = getelementptr inbounds nuw [3 x ptr], ptr %180, i64 0, i64 %indvars.iv.i
   store ptr %186, ptr %187, align 8
   %188 = getelementptr inbounds nuw i8, ptr %184, i64 32
-  %189 = load i32, ptr %188, align 4
+  %189 = load i32, ptr %188, align 8
   %190 = trunc i32 %189 to i8
   %191 = getelementptr inbounds nuw [3 x i8], ptr %181, i64 0, i64 %indvars.iv.i
   store i8 %190, ptr %191, align 1
@@ -31338,7 +31338,7 @@ _ZN3vcg3tri14UpdateBoundingINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6
   %66 = getelementptr inbounds nuw i8, ptr %.sroa.025.032.i, i64 24
   store ptr null, ptr %66, align 8
   %67 = getelementptr inbounds nuw i8, ptr %.sroa.025.032.i, i64 32
-  store i32 0, ptr %67, align 4
+  store i32 0, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %.sroa.025.032.i, i64 48
   %69 = load ptr, ptr %21, align 8
   %.not.i51 = icmp eq ptr %68, %69
@@ -54012,7 +54012,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.016.0, i64 32
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %.sroa.016.0, i64 80
-  %66 = load i32, ptr %65, align 4
+  %66 = load i32, ptr %65, align 8
   br label %67
 
 67:                                               ; preds = %_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit, %13, %62
@@ -54101,7 +54101,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %36 = load i32, ptr %35, align 4
+  %36 = load i32, ptr %35, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #40
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %34, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %36, 1
@@ -55156,7 +55156,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 32
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 80
-  %47 = load i32, ptr %46, align 4
+  %47 = load i32, ptr %46, align 8
   br label %48
 
 48:                                               ; preds = %_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit, %13, %43
@@ -55303,7 +55303,7 @@ _ZN3vcg14SimpleTempDataISt6vectorINS_5SFaceESaIS2_EEiEC2ERKS4_.exit: ; preds = %
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %61 = load i32, ptr %60, align 4
+  %61 = load i32, ptr %60, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #40
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %59, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %61, 1
@@ -58783,7 +58783,7 @@ _ZN3vcg14SimpleTempDataISt6vectorINS_7SVertexESaIS2_EEcEC2ERKS4_.exit: ; preds =
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %57 = load i32, ptr %56, align 4
+  %57 = load i32, ptr %56, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #40
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %55, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %57, 1
@@ -59288,7 +59288,7 @@ _ZN3vcg14SimpleTempDataISt6vectorINS_7SVertexESaIS2_EEsEC2ERKS4_.exit: ; preds =
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %61 = load i32, ptr %60, align 4
+  %61 = load i32, ptr %60, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #40
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %59, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %61, 1
@@ -59796,7 +59796,7 @@ _ZN3vcg14SimpleTempDataISt6vectorINS_7SVertexESaIS2_EEiEC2ERKS4_.exit: ; preds =
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %61 = load i32, ptr %60, align 4
+  %61 = load i32, ptr %60, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #40
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %59, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %61, 1
@@ -60204,7 +60204,7 @@ _ZN3vcg14SimpleTempDataISt6vectorINS_7SVertexESaIS2_EEdEC2ERKS4_.exit: ; preds =
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %61 = load i32, ptr %60, align 4
+  %61 = load i32, ptr %60, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #40
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %59, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %61, 1
@@ -60862,7 +60862,7 @@ _ZN3vcg14SimpleTempDataISt6vectorINS_7SVertexESaIS2_EElEC2ERKS4_.exit: ; preds =
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %61 = load i32, ptr %60, align 4
+  %61 = load i32, ptr %60, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #40
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %59, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %61, 1
@@ -61480,7 +61480,7 @@ _ZN3vcg14SimpleTempDataISt6vectorINS_7SVertexESaIS2_EENS_3tri2io9DummyTypeILi1EE
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %59 = load i32, ptr %58, align 4
+  %59 = load i32, ptr %58, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #40
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %57, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %59, 1
@@ -62494,7 +62494,7 @@ _ZN3vcg14SimpleTempDataISt6vectorINS_7SVertexESaIS2_EENS_3tri2io9DummyTypeILi8EE
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %61 = load i32, ptr %60, align 4
+  %61 = load i32, ptr %60, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #40
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %59, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %61, 1
@@ -63164,7 +63164,7 @@ _ZN3vcg14SimpleTempDataISt6vectorINS_7SVertexESaIS2_EENS_3tri2io9DummyTypeILi16E
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %61 = load i32, ptr %60, align 4
+  %61 = load i32, ptr %60, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #40
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %59, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %61, 1
@@ -63830,7 +63830,7 @@ _ZN3vcg14SimpleTempDataISt6vectorINS_7SVertexESaIS2_EENS_3tri2io9DummyTypeILi32E
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %61 = load i32, ptr %60, align 4
+  %61 = load i32, ptr %60, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #40
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %59, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %61, 1
@@ -64496,7 +64496,7 @@ _ZN3vcg14SimpleTempDataISt6vectorINS_7SVertexESaIS2_EENS_3tri2io9DummyTypeILi64E
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %61 = load i32, ptr %60, align 4
+  %61 = load i32, ptr %60, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #40
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %59, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %61, 1
@@ -65162,7 +65162,7 @@ _ZN3vcg14SimpleTempDataISt6vectorINS_7SVertexESaIS2_EENS_3tri2io9DummyTypeILi128
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %61 = load i32, ptr %60, align 4
+  %61 = load i32, ptr %60, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #40
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %59, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %61, 1
@@ -65828,7 +65828,7 @@ _ZN3vcg14SimpleTempDataISt6vectorINS_7SVertexESaIS2_EENS_3tri2io9DummyTypeILi256
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %61 = load i32, ptr %60, align 4
+  %61 = load i32, ptr %60, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #40
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %59, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %61, 1
@@ -66494,7 +66494,7 @@ _ZN3vcg14SimpleTempDataISt6vectorINS_7SVertexESaIS2_EENS_3tri2io9DummyTypeILi512
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %61 = load i32, ptr %60, align 4
+  %61 = load i32, ptr %60, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #40
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %59, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %61, 1
@@ -67160,7 +67160,7 @@ _ZN3vcg14SimpleTempDataISt6vectorINS_7SVertexESaIS2_EENS_3tri2io9DummyTypeILi102
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %61 = load i32, ptr %60, align 4
+  %61 = load i32, ptr %60, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #40
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %59, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %61, 1
@@ -67826,7 +67826,7 @@ _ZN3vcg14SimpleTempDataISt6vectorINS_7SVertexESaIS2_EENS_3tri2io9DummyTypeILi204
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %61 = load i32, ptr %60, align 4
+  %61 = load i32, ptr %60, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #40
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %59, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %61, 1
@@ -68488,7 +68488,7 @@ _ZN3vcg14SimpleTempDataISt6vectorINS_7SVertexESaIS2_EENS_3tri2io9DummyTypeILi104
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %61 = load i32, ptr %60, align 4
+  %61 = load i32, ptr %60, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #40
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %59, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %61, 1
@@ -68930,7 +68930,7 @@ _ZN3vcg14SimpleTempDataISt6vectorINS_5SFaceESaIS2_EEcEC2ERKS4_.exit: ; preds = %
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %57 = load i32, ptr %56, align 4
+  %57 = load i32, ptr %56, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #40
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %55, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %57, 1
@@ -69175,7 +69175,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %36 = load i32, ptr %35, align 4
+  %36 = load i32, ptr %35, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #40
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %34, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %36, 1
@@ -69394,7 +69394,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %36 = load i32, ptr %35, align 4
+  %36 = load i32, ptr %35, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #40
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %34, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %36, 1
@@ -69613,7 +69613,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %36 = load i32, ptr %35, align 4
+  %36 = load i32, ptr %35, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #40
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %34, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %36, 1
@@ -69832,7 +69832,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %36 = load i32, ptr %35, align 4
+  %36 = load i32, ptr %35, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #40
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %34, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %36, 1
@@ -70176,7 +70176,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %36 = load i32, ptr %35, align 4
+  %36 = load i32, ptr %35, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #40
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %34, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %36, 1
@@ -70515,7 +70515,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %36 = load i32, ptr %35, align 4
+  %36 = load i32, ptr %35, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #40
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %34, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %36, 1
@@ -71203,7 +71203,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %36 = load i32, ptr %35, align 4
+  %36 = load i32, ptr %35, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #40
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %34, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %36, 1
@@ -71546,7 +71546,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %36 = load i32, ptr %35, align 4
+  %36 = load i32, ptr %35, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #40
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %34, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %36, 1
@@ -71889,7 +71889,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %36 = load i32, ptr %35, align 4
+  %36 = load i32, ptr %35, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #40
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %34, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %36, 1
@@ -72232,7 +72232,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %36 = load i32, ptr %35, align 4
+  %36 = load i32, ptr %35, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #40
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %34, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %36, 1
@@ -72575,7 +72575,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %36 = load i32, ptr %35, align 4
+  %36 = load i32, ptr %35, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #40
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %34, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %36, 1
@@ -72918,7 +72918,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %36 = load i32, ptr %35, align 4
+  %36 = load i32, ptr %35, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #40
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %34, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %36, 1
@@ -73261,7 +73261,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %36 = load i32, ptr %35, align 4
+  %36 = load i32, ptr %35, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #40
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %34, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %36, 1
@@ -73604,7 +73604,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %36 = load i32, ptr %35, align 4
+  %36 = load i32, ptr %35, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #40
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %34, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %36, 1
@@ -73947,7 +73947,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %36 = load i32, ptr %35, align 4
+  %36 = load i32, ptr %35, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #40
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %34, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %36, 1
@@ -74286,7 +74286,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %36 = load i32, ptr %35, align 4
+  %36 = load i32, ptr %35, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #40
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %34, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %36, 1
@@ -76601,8 +76601,8 @@ define linkonce_odr void @_ZN3vcg3tri9AllocatorINS_5SMeshEE21PermutateVertexVect
   store float %24, ptr %25, align 4
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 40
-  %28 = load i32, ptr %26, align 1
-  store i32 %28, ptr %27, align 1
+  %28 = load i32, ptr %26, align 4
+  store i32 %28, ptr %27, align 4
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 36
   %30 = load i32, ptr %29, align 4
   %31 = getelementptr inbounds nuw i8, ptr %21, i64 36
@@ -76667,7 +76667,7 @@ define linkonce_odr void @_ZN3vcg3tri9AllocatorINS_5SMeshEE21PermutateVertexVect
 73:                                               ; preds = %66
   %74 = getelementptr inbounds nuw i8, ptr %70, i64 24
   store ptr null, ptr %74, align 8
-  store i32 -1, ptr %71, align 4
+  store i32 -1, ptr %71, align 8
   br label %_ZN3vcg6vertex9EmptyCoreINS_10SUsedTypesEE7VFClearEv.exit
 
 _ZN3vcg6vertex9EmptyCoreINS_10SUsedTypesEE7VFClearEv.exit: ; preds = %73, %66, %52, %12
@@ -78059,9 +78059,9 @@ define linkonce_odr void @_ZN3vcg3tri12UpdateNormalINS_5SMeshEE26PerVertexNormal
   %.sroa.0.0.vec.insert.i20.i.i.i = insertelement <2 x float> poison, float %39, i64 0
   %.sroa.0.4.vec.insert.i21.i.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i20.i.i.i, float %42, i64 1
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.05.012.i.i, i64 24
-  store <2 x float> %.sroa.0.4.vec.insert.i21.i.i.i, ptr %46, align 4
+  store <2 x float> %.sroa.0.4.vec.insert.i21.i.i.i, ptr %46, align 8
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.05.012.i.i, i64 32
-  store float %45, ptr %.sroa.22.0..sroa_idx.i.i, align 4
+  store float %45, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %.pre.i.i = load ptr, ptr %4, align 8
   br label %47
 
@@ -97865,7 +97865,7 @@ _ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pre
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  %23 = load i32, ptr %22, align 4
+  %23 = load i32, ptr %22, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit, %13, %19
@@ -97922,7 +97922,7 @@ _ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pre
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  %23 = load i32, ptr %22, align 4
+  %23 = load i32, ptr %22, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit, %13, %19
@@ -97979,7 +97979,7 @@ _ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pre
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  %23 = load i32, ptr %22, align 4
+  %23 = load i32, ptr %22, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit, %13, %19
@@ -98036,7 +98036,7 @@ _ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pre
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  %23 = load i32, ptr %22, align 4
+  %23 = load i32, ptr %22, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit, %13, %19
@@ -98093,7 +98093,7 @@ _ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pre
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  %23 = load i32, ptr %22, align 4
+  %23 = load i32, ptr %22, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit, %13, %19
@@ -98150,7 +98150,7 @@ _ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pre
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  %23 = load i32, ptr %22, align 4
+  %23 = load i32, ptr %22, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit, %13, %19
@@ -98207,7 +98207,7 @@ _ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pre
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  %23 = load i32, ptr %22, align 4
+  %23 = load i32, ptr %22, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit, %13, %19
@@ -98264,7 +98264,7 @@ _ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pre
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  %23 = load i32, ptr %22, align 4
+  %23 = load i32, ptr %22, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit, %13, %19
@@ -98321,7 +98321,7 @@ _ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pre
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  %23 = load i32, ptr %22, align 4
+  %23 = load i32, ptr %22, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit, %13, %19
@@ -98378,7 +98378,7 @@ _ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pre
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  %23 = load i32, ptr %22, align 4
+  %23 = load i32, ptr %22, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit, %13, %19
@@ -98435,7 +98435,7 @@ _ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pre
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  %23 = load i32, ptr %22, align 4
+  %23 = load i32, ptr %22, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit, %13, %19
@@ -98492,7 +98492,7 @@ _ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pre
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  %23 = load i32, ptr %22, align 4
+  %23 = load i32, ptr %22, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit, %13, %19
@@ -98549,7 +98549,7 @@ _ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pre
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  %23 = load i32, ptr %22, align 4
+  %23 = load i32, ptr %22, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit, %13, %19
@@ -98606,7 +98606,7 @@ _ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pre
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  %23 = load i32, ptr %22, align 4
+  %23 = load i32, ptr %22, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit, %13, %19
@@ -98663,7 +98663,7 @@ _ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pre
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  %23 = load i32, ptr %22, align 4
+  %23 = load i32, ptr %22, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit, %13, %19
@@ -98720,7 +98720,7 @@ _ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pre
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  %23 = load i32, ptr %22, align 4
+  %23 = load i32, ptr %22, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit, %13, %19
@@ -99987,7 +99987,7 @@ define linkonce_odr void @_ZN3vcg3tri15TriEdgeCollapseINS0_5PlyMCINS_5SMeshENS_1
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.025.032.i, i64 24
   store ptr null, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.025.032.i, i64 32
-  store i32 0, ptr %9, align 4
+  store i32 0, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.025.032.i, i64 48
   %11 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %10, %11
@@ -101650,7 +101650,7 @@ _ZNSt6vectorIPN3vcg3tri5PlyMCINS0_5SMeshENS0_18SimpleMeshProviderIS3_EEE8MCVerte
   %149 = load ptr, ptr %148, align 8
   %150 = icmp eq ptr %149, %36
   %151 = getelementptr inbounds nuw i8, ptr %147, i64 32
-  %152 = load i32, ptr %151, align 4
+  %152 = load i32, ptr %151, align 8
   br i1 %150, label %153, label %.preheader230
 
 153:                                              ; preds = %_ZNSt6vectorIPN3vcg3tri5PlyMCINS0_5SMeshENS0_18SimpleMeshProviderIS3_EEE8MCVertexESaIS8_EE9push_backERKS8_.exit83
@@ -101752,7 +101752,7 @@ _ZN3vcg4face8VFDetachINS_3tri5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCF
   %235 = load ptr, ptr %234, align 8
   %236 = icmp eq ptr %235, %36
   %237 = getelementptr inbounds nuw i8, ptr %233, i64 32
-  %238 = load i32, ptr %237, align 4
+  %238 = load i32, ptr %237, align 8
   br i1 %236, label %239, label %.preheader229
 
 239:                                              ; preds = %_ZN3vcg4face8VFDetachINS_3tri5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCFaceEEEvRT_i.exit
@@ -125312,7 +125312,7 @@ define linkonce_odr void @_ZN3vcg4face8VFDetachI6CFaceOEEvRT_i(ptr noundef nonnu
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, %0
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %20 = load i32, ptr %19, align 4
+  %20 = load i32, ptr %19, align 8
   br i1 %18, label %21, label %.preheader
 
 21:                                               ; preds = %2

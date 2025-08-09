@@ -1915,7 +1915,7 @@ define dso_local noundef range(i32 -105, 1) i32 @netlink_broadcast_filtered(ptr 
   %200 = getelementptr inbounds nuw i8, ptr %31, i64 680
   %201 = load ptr, ptr %200, align 8
   tail call void %201(ptr noundef nonnull %31) #23
-  %202 = load volatile i32, ptr %158, align 4
+  %202 = load volatile i32, ptr %158, align 8
   %203 = load i32, ptr %160, align 8
   %204 = ashr i32 %203, 1
   %205 = icmp sgt i32 %202, %204

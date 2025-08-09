@@ -2561,7 +2561,7 @@ define dso_local noundef range(i32 1, 513) i32 @iomap_page_mkwrite(ptr noundef r
 63:                                               ; preds = %55
   %64 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %65 = load i64, ptr %64, align 16
-  %66 = load volatile i64, ptr %38, align 8
+  %66 = load volatile i64, ptr %38, align 16
   %67 = and i64 %66, 64
   %68 = icmp eq i64 %67, 0
   br i1 %68, label %73, label %69

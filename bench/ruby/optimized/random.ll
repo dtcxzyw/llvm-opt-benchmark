@@ -126,7 +126,7 @@ define internal fastcc i32 @genrand_int32(ptr noundef %0) unnamed_addr #2 {
 
 6:                                                ; preds = %1
   store i32 624, ptr %2, align 8, !tbaa !20
-  %.pre.i = load i32, ptr %0, align 4, !tbaa !22
+  %.pre.i = load i32, ptr %0, align 8, !tbaa !22
   br label %7
 
 7:                                                ; preds = %7, %6

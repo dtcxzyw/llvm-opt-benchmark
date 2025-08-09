@@ -1106,7 +1106,7 @@ define hidden noundef i32 @_ZNK12CodeEmitInfo22interpreter_frame_sizeEv(ptr noun
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 76
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %10 = load i32, ptr %9, align 4
+  %10 = load i32, ptr %9, align 8
   %11 = sub nsw i32 %8, %10
   br label %12
 
@@ -1508,7 +1508,7 @@ _ZN11Compilation12is_profilingEv.exit.thread:     ; preds = %_ZN13GrowableArrayI
   %103 = and i32 %102, -1025
   store i32 %103, ptr %101, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %104 = load i32, ptr %93, align 4
+  %104 = load i32, ptr %93, align 8
   %105 = sext i32 %104 to i64
   %106 = icmp slt i64 %indvars.iv.next.i, %105
   br i1 %106, label %97, label %._crit_edge.i, !llvm.loop !17
@@ -2218,7 +2218,7 @@ define hidden void @_ZN22ComputeLinearScanOrder23clear_non_natural_loopsEP10Bloc
   %39 = and i32 %38, -1025
   store i32 %39, ptr %37, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %40 = load i32, ptr %29, align 4
+  %40 = load i32, ptr %29, align 8
   %41 = sext i32 %40 to i64
   %42 = icmp slt i64 %indvars.iv.next, %41
   br i1 %42, label %33, label %._crit_edge, !llvm.loop !17
@@ -2713,7 +2713,7 @@ _ZN9BlockListC2Ei.exit:                           ; preds = %2, %.lr.ph.preheade
   store i64 0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %13, align 8
-  %14 = load i32, ptr %3, align 4
+  %14 = load i32, ptr %3, align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 116
   store i32 %14, ptr %15, align 4
   %16 = load ptr, ptr %13, align 8
@@ -4294,7 +4294,7 @@ define hidden noundef zeroext i1 @_ZN22ComputeLinearScanOrder23compute_dominator
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 160
-  %18 = load i32, ptr %17, align 4
+  %18 = load i32, ptr %17, align 8
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %.lr.ph69, label %._crit_edge
 

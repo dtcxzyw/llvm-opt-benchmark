@@ -940,43 +940,43 @@ define zeroext i8 @l_Lean_Meta_Simp_beqConfig____x40_Init_MetaTypes___hyg_757_(p
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load i8, ptr %7, align 1, !tbaa !15
+  %8 = load i8, ptr %7, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %10 = load i8, ptr %9, align 1, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  %12 = load i8, ptr %11, align 1, !tbaa !15
+  %12 = load i8, ptr %11, align 2, !tbaa !15
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 27
   %14 = load i8, ptr %13, align 1, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %16 = load i8, ptr %15, align 1, !tbaa !15
+  %16 = load i8, ptr %15, align 4, !tbaa !15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 29
   %18 = load i8, ptr %17, align 1, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 30
-  %20 = load i8, ptr %19, align 1, !tbaa !15
+  %20 = load i8, ptr %19, align 2, !tbaa !15
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 31
   %22 = load i8, ptr %21, align 1, !tbaa !15
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %24 = load i8, ptr %23, align 1, !tbaa !15
+  %24 = load i8, ptr %23, align 8, !tbaa !15
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %26 = load i8, ptr %25, align 1, !tbaa !15
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 34
-  %28 = load i8, ptr %27, align 1, !tbaa !15
+  %28 = load i8, ptr %27, align 2, !tbaa !15
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 35
   %30 = load i8, ptr %29, align 1, !tbaa !15
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %32 = load i8, ptr %31, align 1, !tbaa !15
+  %32 = load i8, ptr %31, align 4, !tbaa !15
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 37
   %34 = load i8, ptr %33, align 1, !tbaa !15
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 38
-  %36 = load i8, ptr %35, align 1, !tbaa !15
+  %36 = load i8, ptr %35, align 2, !tbaa !15
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 39
   %38 = load i8, ptr %37, align 1, !tbaa !15
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %40 = load i8, ptr %39, align 1, !tbaa !15
+  %40 = load i8, ptr %39, align 8, !tbaa !15
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %42 = load i8, ptr %41, align 1, !tbaa !15
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 42
-  %44 = load i8, ptr %43, align 1, !tbaa !15
+  %44 = load i8, ptr %43, align 2, !tbaa !15
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 43
   %46 = load i8, ptr %45, align 1, !tbaa !15
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -984,43 +984,43 @@ define zeroext i8 @l_Lean_Meta_Simp_beqConfig____x40_Init_MetaTypes___hyg_757_(p
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %50 = load ptr, ptr %49, align 8, !tbaa !10
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %52 = load i8, ptr %51, align 1, !tbaa !15
+  %52 = load i8, ptr %51, align 8, !tbaa !15
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 25
   %54 = load i8, ptr %53, align 1, !tbaa !15
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %56 = load i8, ptr %55, align 1, !tbaa !15
+  %56 = load i8, ptr %55, align 2, !tbaa !15
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 27
   %58 = load i8, ptr %57, align 1, !tbaa !15
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %60 = load i8, ptr %59, align 1, !tbaa !15
+  %60 = load i8, ptr %59, align 4, !tbaa !15
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 29
   %62 = load i8, ptr %61, align 1, !tbaa !15
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %64 = load i8, ptr %63, align 1, !tbaa !15
+  %64 = load i8, ptr %63, align 2, !tbaa !15
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 31
   %66 = load i8, ptr %65, align 1, !tbaa !15
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %68 = load i8, ptr %67, align 1, !tbaa !15
+  %68 = load i8, ptr %67, align 8, !tbaa !15
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 33
   %70 = load i8, ptr %69, align 1, !tbaa !15
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 34
-  %72 = load i8, ptr %71, align 1, !tbaa !15
+  %72 = load i8, ptr %71, align 2, !tbaa !15
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 35
   %74 = load i8, ptr %73, align 1, !tbaa !15
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %76 = load i8, ptr %75, align 1, !tbaa !15
+  %76 = load i8, ptr %75, align 4, !tbaa !15
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 37
   %78 = load i8, ptr %77, align 1, !tbaa !15
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 38
-  %80 = load i8, ptr %79, align 1, !tbaa !15
+  %80 = load i8, ptr %79, align 2, !tbaa !15
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 39
   %82 = load i8, ptr %81, align 1, !tbaa !15
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %84 = load i8, ptr %83, align 1, !tbaa !15
+  %84 = load i8, ptr %83, align 8, !tbaa !15
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 41
   %86 = load i8, ptr %85, align 1, !tbaa !15
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 42
-  %88 = load i8, ptr %87, align 1, !tbaa !15
+  %88 = load i8, ptr %87, align 2, !tbaa !15
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 43
   %90 = load i8, ptr %89, align 1, !tbaa !15
   %91 = ptrtoint ptr %4 to i64
@@ -2135,7 +2135,7 @@ _init_l_Lean_Meta_DSimp_instInhabitedConfig___closed__1.exit: ; preds = %_init_l
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store i64 0, ptr %52, align 8, !tbaa !17
-  store i32 1, ptr %48, align 4, !tbaa !4
+  store i32 1, ptr %48, align 8, !tbaa !4
   store i32 24, ptr %51, align 4
   %53 = getelementptr inbounds nuw i8, ptr %48, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %53, i8 0, i64 13, i1 false)
@@ -2183,7 +2183,7 @@ _init_l_Lean_Meta_Simp_instInhabitedConfig___closed__1.exit: ; preds = %_init_l_
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %67 = getelementptr inbounds nuw i8, ptr %63, i64 40
   store i64 0, ptr %67, align 8, !tbaa !17
-  store i32 1, ptr %63, align 4, !tbaa !4
+  store i32 1, ptr %63, align 8, !tbaa !4
   store i32 131120, ptr %66, align 4
   %68 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %68, align 8, !tbaa !10
@@ -2234,24 +2234,24 @@ _init_l_Lean_Meta_Simp_neutralConfig___closed__1.exit: ; preds = %_init_l_Lean_M
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 4
   %85 = getelementptr inbounds nuw i8, ptr %81, i64 40
   store i64 65792, ptr %85, align 8, !tbaa !17
-  store i32 1, ptr %81, align 4, !tbaa !4
+  store i32 1, ptr %81, align 8, !tbaa !4
   store i32 131120, ptr %84, align 4
   %86 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store ptr %80, ptr %86, align 8, !tbaa !10
   %87 = getelementptr inbounds nuw i8, ptr %81, i64 16
   store ptr inttoptr (i64 5 to ptr), ptr %87, align 8, !tbaa !10
   %88 = getelementptr inbounds nuw i8, ptr %81, i64 24
-  store i8 0, ptr %88, align 1, !tbaa !15
+  store i8 0, ptr %88, align 8, !tbaa !15
   %89 = getelementptr inbounds nuw i8, ptr %81, i64 25
   store i8 1, ptr %89, align 1, !tbaa !15
   %90 = getelementptr inbounds nuw i8, ptr %81, i64 26
   %91 = getelementptr inbounds nuw i8, ptr %81, i64 36
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %90, i8 0, i64 10, i1 false)
-  store i8 1, ptr %91, align 1, !tbaa !15
+  store i8 1, ptr %91, align 4, !tbaa !15
   %92 = getelementptr inbounds nuw i8, ptr %81, i64 37
   store i8 1, ptr %92, align 1, !tbaa !15
   %93 = getelementptr inbounds nuw i8, ptr %81, i64 38
-  store i8 0, ptr %93, align 1, !tbaa !15
+  store i8 0, ptr %93, align 2, !tbaa !15
   %94 = getelementptr inbounds nuw i8, ptr %81, i64 39
   store i8 0, ptr %94, align 1, !tbaa !15
   store ptr %81, ptr @l_Lean_Meta_Simp_neutralConfig___closed__1, align 8, !tbaa !10

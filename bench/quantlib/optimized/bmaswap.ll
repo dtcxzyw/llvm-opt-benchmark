@@ -628,7 +628,7 @@ entry:
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp7)
   store i8 0, ptr %agg.tmp, align 8, !tbaa !93
-  %7 = load i8, ptr %liborSchedule, align 4, !tbaa !93, !range !26, !noundef !27
+  %7 = load i8, ptr %liborSchedule, align 8, !tbaa !93, !range !26, !noundef !27
   %loadedv.i.i.i.i = trunc nuw i8 %7 to i1
   br i1 %loadedv.i.i.i.i, label %invoke.cont.i.i.i, label %_ZN8QuantLib8ScheduleC2EOS0_.exit
 
@@ -1015,7 +1015,7 @@ _ZN8QuantLib8ScheduleD2Ev.exit:                   ; preds = %_ZN8QuantLib8Calend
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp37)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp38)
   store i8 0, ptr %agg.tmp39, align 8, !tbaa !93
-  %65 = load i8, ptr %bmaSchedule, align 4, !tbaa !93, !range !26, !noundef !27
+  %65 = load i8, ptr %bmaSchedule, align 8, !tbaa !93, !range !26, !noundef !27
   %loadedv.i.i.i.i39 = trunc nuw i8 %65 to i1
   br i1 %loadedv.i.i.i.i39, label %invoke.cont.i.i.i58, label %_ZN8QuantLib8ScheduleC2EOS0_.exit61
 
@@ -2911,7 +2911,7 @@ invoke.cont:                                      ; preds = %entry
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp5)
   store i8 0, ptr %agg.tmp, align 8, !tbaa !93
-  %5 = load i8, ptr %liborSchedule, align 4, !tbaa !93, !range !26, !noundef !27
+  %5 = load i8, ptr %liborSchedule, align 8, !tbaa !93, !range !26, !noundef !27
   %loadedv.i.i.i.i = trunc nuw i8 %5 to i1
   br i1 %loadedv.i.i.i.i, label %invoke.cont.i.i.i, label %_ZN8QuantLib8ScheduleC2EOS0_.exit
 
@@ -3298,7 +3298,7 @@ _ZN8QuantLib8ScheduleD2Ev.exit:                   ; preds = %_ZN8QuantLib8Calend
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp35)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp36)
   store i8 0, ptr %agg.tmp37, align 8, !tbaa !93
-  %63 = load i8, ptr %bmaSchedule, align 4, !tbaa !93, !range !26, !noundef !27
+  %63 = load i8, ptr %bmaSchedule, align 8, !tbaa !93, !range !26, !noundef !27
   %loadedv.i.i.i.i44 = trunc nuw i8 %63 to i1
   br i1 %loadedv.i.i.i.i44, label %invoke.cont.i.i.i63, label %_ZN8QuantLib8ScheduleC2EOS0_.exit66
 

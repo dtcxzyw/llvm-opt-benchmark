@@ -266,25 +266,25 @@ h261_encode_gob_header.exit:                      ; preds = %102, %113, %118
   %139 = add nsw i32 %138, 2
   store i32 %139, ptr %137, align 4, !tbaa !65
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 3368
-  %141 = load i32, ptr %140, align 4, !tbaa !65
+  %141 = load i32, ptr %140, align 8, !tbaa !65
   %142 = add nsw i32 %141, 2
-  store i32 %142, ptr %140, align 4, !tbaa !65
+  store i32 %142, ptr %140, align 8, !tbaa !65
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 3372
   %144 = load i32, ptr %143, align 4, !tbaa !65
   %145 = add nsw i32 %144, 2
   store i32 %145, ptr %143, align 4, !tbaa !65
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 3376
-  %147 = load i32, ptr %146, align 4, !tbaa !65
+  %147 = load i32, ptr %146, align 8, !tbaa !65
   %148 = add nsw i32 %147, 2
-  store i32 %148, ptr %146, align 4, !tbaa !65
+  store i32 %148, ptr %146, align 8, !tbaa !65
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 3380
   %150 = load i32, ptr %149, align 4, !tbaa !65
   %151 = add nsw i32 %150, 1
   store i32 %151, ptr %149, align 4, !tbaa !65
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 3384
-  %153 = load i32, ptr %152, align 4, !tbaa !65
+  %153 = load i32, ptr %152, align 8, !tbaa !65
   %154 = add nsw i32 %153, 1
-  store i32 %154, ptr %152, align 4, !tbaa !65
+  store i32 %154, ptr %152, align 8, !tbaa !65
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 3416
   %156 = load ptr, ptr %155, align 8, !tbaa !66
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 16
@@ -917,7 +917,7 @@ get_cbp.exit:                                     ; preds = %10
   %reass.sub = sub i32 %45, %39
   %70 = add i32 %reass.sub, 32
   %.pre = load i32, ptr %6, align 8, !tbaa !98
-  %.pre117.pre.pre.pre = load i32, ptr %5, align 4, !tbaa !97
+  %.pre117.pre.pre.pre = load i32, ptr %5, align 8, !tbaa !97
   br label %put_bits.exit
 
 put_bits.exit:                                    ; preds = %47, %69
@@ -1058,7 +1058,7 @@ put_bits.exit83:                                  ; preds = %112, %133
   %134 = getelementptr inbounds [10 x i16], ptr @ff_h261_mtype_map, i64 0, i64 %.pre-phi
   %135 = load i16, ptr %134, align 2, !tbaa !103
   %136 = zext i16 %135 to i32
-  store i32 %136, ptr %5, align 4, !tbaa !97
+  store i32 %136, ptr %5, align 8, !tbaa !97
   %137 = and i32 %136, 2048
   %.not76 = icmp eq i32 %137, 0
   br i1 %.not76, label %169, label %138
@@ -1113,7 +1113,7 @@ put_bits.exit87:                                  ; preds = %159, %167, %147
   %168 = add nsw i32 %145, %.sink
   store i32 %.026.i.i85, ptr %33, align 8, !tbaa !58
   store i32 %168, ptr %44, align 4, !tbaa !59
-  %.pre119 = load i32, ptr %5, align 4, !tbaa !97
+  %.pre119 = load i32, ptr %5, align 8, !tbaa !97
   br label %169
 
 169:                                              ; preds = %put_bits.exit87, %put_bits.exit83
@@ -1242,7 +1242,7 @@ h261_encode_motion.exit92:                        ; preds = %225, %246
   %.0.i.i.i91 = sub i32 %.0.i.i.i.pn, %221
   store i32 %.026.i.i.i90, ptr %33, align 8, !tbaa !58
   store i32 %.0.i.i.i91, ptr %44, align 4, !tbaa !59
-  %.pre120 = load i32, ptr %5, align 4, !tbaa !97
+  %.pre120 = load i32, ptr %5, align 8, !tbaa !97
   br label %247
 
 247:                                              ; preds = %h261_encode_motion.exit92, %169

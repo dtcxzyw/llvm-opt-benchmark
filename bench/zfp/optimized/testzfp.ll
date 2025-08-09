@@ -3031,7 +3031,7 @@ _Z4hashPKvm.exit:                                 ; preds = %_ZSt4endlIcSt11char
   %118 = load i32, ptr %117, align 8, !tbaa !49
   %119 = and i32 %118, -75
   %120 = or disjoint i32 %119, 8
-  store i32 %120, ptr %117, align 4, !tbaa !50
+  store i32 %120, ptr %117, align 8, !tbaa !50
   %121 = zext i32 %102 to i64
   %122 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, i64 noundef %121)
   %123 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %122, ptr noundef nonnull @.str.35, i64 noundef 4)
@@ -3695,7 +3695,7 @@ _Z4hashPKvm.exit:                                 ; preds = %_ZSt4endlIcSt11char
   %118 = load i32, ptr %117, align 8, !tbaa !49
   %119 = and i32 %118, -75
   %120 = or disjoint i32 %119, 8
-  store i32 %120, ptr %117, align 4, !tbaa !50
+  store i32 %120, ptr %117, align 8, !tbaa !50
   %121 = zext i32 %102 to i64
   %122 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, i64 noundef %121)
   %123 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %122, ptr noundef nonnull @.str.35, i64 noundef 4)
@@ -4227,7 +4227,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %5
   %25 = load i32, ptr %24, align 8, !tbaa !49
   %26 = and i32 %25, -261
   %27 = or disjoint i32 %26, 4
-  store i32 %27, ptr %24, align 4, !tbaa !50
+  store i32 %27, ptr %24, align 8, !tbaa !50
   %28 = load i64, ptr %21, align 8
   %29 = getelementptr inbounds i8, ptr %6, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -4353,7 +4353,7 @@ _ZNSolsEm.exit122:                                ; preds = %_ZStlsISt11char_tra
   %93 = load i32, ptr %92, align 8, !tbaa !49
   %94 = and i32 %93, -177
   %95 = or disjoint i32 %94, 32
-  store i32 %95, ptr %92, align 4, !tbaa !50
+  store i32 %95, ptr %92, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !97)
   call void @llvm.experimental.noalias.scope.decl(metadata !100)
@@ -4559,7 +4559,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit135: ; preds = %_ZNS
   %175 = load i32, ptr %174, align 8, !tbaa !49
   %176 = and i32 %175, -261
   %177 = or disjoint i32 %176, 4
-  store i32 %177, ptr %174, align 4, !tbaa !50
+  store i32 %177, ptr %174, align 8, !tbaa !50
   %178 = load i64, ptr %171, align 8
   %179 = getelementptr inbounds i8, ptr %6, i64 %178
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
@@ -4710,7 +4710,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit152: ; preds = %_ZNS
   %249 = load i32, ptr %248, align 8, !tbaa !49
   %250 = and i32 %249, -261
   %251 = or disjoint i32 %250, 256
-  store i32 %251, ptr %248, align 4, !tbaa !50
+  store i32 %251, ptr %248, align 8, !tbaa !50
   %252 = load i64, ptr %245, align 8
   %253 = getelementptr inbounds i8, ptr %6, i64 %252
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 8
@@ -4787,7 +4787,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit143: ; preds = %_ZSt
   %283 = load i32, ptr %282, align 8, !tbaa !49
   %284 = and i32 %283, -177
   %285 = or disjoint i32 %284, 32
-  store i32 %285, ptr %282, align 4, !tbaa !50
+  store i32 %285, ptr %282, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.experimental.noalias.scope.decl(metadata !114)
   call void @llvm.experimental.noalias.scope.decl(metadata !117)
@@ -5042,7 +5042,7 @@ _ZNSolsEj.exit:                                   ; preds = %16
   %38 = load i32, ptr %37, align 8, !tbaa !49
   %39 = and i32 %38, -261
   %40 = or disjoint i32 %39, 4
-  store i32 %40, ptr %37, align 4, !tbaa !50
+  store i32 %40, ptr %37, align 8, !tbaa !50
   %41 = load i64, ptr %34, align 8
   %42 = getelementptr inbounds i8, ptr %5, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -5111,7 +5111,7 @@ _ZNSolsEm.exit80:                                 ; preds = %_ZStlsISt11char_tra
   %71 = load i32, ptr %70, align 8, !tbaa !49
   %72 = and i32 %71, -177
   %73 = or disjoint i32 %72, 32
-  store i32 %73, ptr %70, align 4, !tbaa !50
+  store i32 %73, ptr %70, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !121)
   call void @llvm.experimental.noalias.scope.decl(metadata !124)
@@ -5403,7 +5403,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit99: ; preds = %164, 
   %186 = load i32, ptr %185, align 8, !tbaa !49
   %187 = and i32 %186, -177
   %188 = or disjoint i32 %187, 32
-  store i32 %188, ptr %185, align 4, !tbaa !50
+  store i32 %188, ptr %185, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.experimental.noalias.scope.decl(metadata !128)
   call void @llvm.experimental.noalias.scope.decl(metadata !131)
@@ -5633,7 +5633,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %4
   %24 = load i32, ptr %23, align 8, !tbaa !49
   %25 = and i32 %24, -261
   %26 = or disjoint i32 %25, 256
-  store i32 %26, ptr %23, align 4, !tbaa !50
+  store i32 %26, ptr %23, align 8, !tbaa !50
   %27 = load i64, ptr %20, align 8
   %28 = getelementptr inbounds i8, ptr %5, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -5667,7 +5667,7 @@ _ZNSolsEf.exit:                                   ; preds = %18
   %46 = load i32, ptr %45, align 8, !tbaa !49
   %47 = and i32 %46, -261
   %48 = or disjoint i32 %47, 4
-  store i32 %48, ptr %45, align 4, !tbaa !50
+  store i32 %48, ptr %45, align 8, !tbaa !50
   %49 = load i64, ptr %42, align 8
   %50 = getelementptr inbounds i8, ptr %5, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
@@ -5736,7 +5736,7 @@ _ZNSolsEm.exit103:                                ; preds = %_ZStlsISt11char_tra
   %79 = load i32, ptr %78, align 8, !tbaa !49
   %80 = and i32 %79, -177
   %81 = or disjoint i32 %80, 32
-  store i32 %81, ptr %78, align 4, !tbaa !50
+  store i32 %81, ptr %78, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !135)
   call void @llvm.experimental.noalias.scope.decl(metadata !138)
@@ -5942,7 +5942,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit116: ; preds = %_ZNS
   %161 = load i32, ptr %160, align 8, !tbaa !49
   %162 = and i32 %161, -261
   %163 = or disjoint i32 %162, 256
-  store i32 %163, ptr %160, align 4, !tbaa !50
+  store i32 %163, ptr %160, align 8, !tbaa !50
   %164 = load i64, ptr %157, align 8
   %165 = getelementptr inbounds i8, ptr %5, i64 %164
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
@@ -6052,7 +6052,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit127: ; preds = %_Z
   %210 = load i32, ptr %209, align 8, !tbaa !49
   %211 = and i32 %210, -261
   %212 = or disjoint i32 %211, 256
-  store i32 %212, ptr %209, align 4, !tbaa !50
+  store i32 %212, ptr %209, align 8, !tbaa !50
   %213 = load i64, ptr %206, align 8
   %214 = getelementptr inbounds i8, ptr %5, i64 %213
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 8
@@ -6144,7 +6144,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit124: ; preds = %_ZSt
   %249 = load i32, ptr %248, align 8, !tbaa !49
   %250 = and i32 %249, -177
   %251 = or disjoint i32 %250, 32
-  store i32 %251, ptr %248, align 4, !tbaa !50
+  store i32 %251, ptr %248, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.experimental.noalias.scope.decl(metadata !142)
   call void @llvm.experimental.noalias.scope.decl(metadata !145)
@@ -6388,7 +6388,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit77: ; preds = %_ZStl
   %28 = load i32, ptr %27, align 8, !tbaa !49
   %29 = and i32 %28, -261
   %30 = or disjoint i32 %29, 4
-  store i32 %30, ptr %27, align 4, !tbaa !50
+  store i32 %30, ptr %27, align 8, !tbaa !50
   %31 = load i64, ptr %24, align 8
   %32 = getelementptr inbounds i8, ptr %4, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -6457,7 +6457,7 @@ _ZNSolsEm.exit81:                                 ; preds = %_ZStlsISt11char_tra
   %61 = load i32, ptr %60, align 8, !tbaa !49
   %62 = and i32 %61, -177
   %63 = or disjoint i32 %62, 32
-  store i32 %63, ptr %60, align 4, !tbaa !50
+  store i32 %63, ptr %60, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !149)
   call void @llvm.experimental.noalias.scope.decl(metadata !152)
@@ -6755,7 +6755,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit98: ; preds = %.invo
   %175 = load i32, ptr %174, align 8, !tbaa !49
   %176 = and i32 %175, -177
   %177 = or disjoint i32 %176, 32
-  store i32 %177, ptr %174, align 4, !tbaa !50
+  store i32 %177, ptr %174, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !156)
   call void @llvm.experimental.noalias.scope.decl(metadata !159)
@@ -7152,7 +7152,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit._crit_edge: ; preds
   %32 = load i32, ptr %31, align 8, !tbaa !49
   %33 = and i32 %32, -261
   %34 = or disjoint i32 %33, 256
-  store i32 %34, ptr %31, align 4, !tbaa !50
+  store i32 %34, ptr %31, align 8, !tbaa !50
   %35 = load i64, ptr %28, align 8
   %36 = getelementptr inbounds i8, ptr %6, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -7214,7 +7214,7 @@ _ZNSolsEd.exit58:                                 ; preds = %_ZStlsISt11char_tra
   %61 = load i32, ptr %60, align 8, !tbaa !49
   %62 = and i32 %61, -177
   %63 = or disjoint i32 %62, 32
-  store i32 %63, ptr %60, align 4, !tbaa !50
+  store i32 %63, ptr %60, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !179)
   call void @llvm.experimental.noalias.scope.decl(metadata !182)
@@ -7505,7 +7505,7 @@ _ZNSolsEd.exit93:                                 ; preds = %_ZStlsISt11char_tra
   %176 = load i32, ptr %175, align 8, !tbaa !49
   %177 = and i32 %176, -177
   %178 = or disjoint i32 %177, 32
-  store i32 %178, ptr %175, align 4, !tbaa !50
+  store i32 %178, ptr %175, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.experimental.noalias.scope.decl(metadata !186)
   call void @llvm.experimental.noalias.scope.decl(metadata !189)
@@ -7996,7 +7996,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit._crit_edge: ; preds
   %71 = load i32, ptr %70, align 8, !tbaa !49
   %72 = and i32 %71, -261
   %73 = or disjoint i32 %72, 256
-  store i32 %73, ptr %70, align 4, !tbaa !50
+  store i32 %73, ptr %70, align 8, !tbaa !50
   %74 = load i64, ptr %67, align 8
   %75 = getelementptr inbounds i8, ptr %6, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
@@ -8058,7 +8058,7 @@ _ZNSolsEd.exit67:                                 ; preds = %_ZStlsISt11char_tra
   %100 = load i32, ptr %99, align 8, !tbaa !49
   %101 = and i32 %100, -177
   %102 = or disjoint i32 %101, 32
-  store i32 %102, ptr %99, align 4, !tbaa !50
+  store i32 %102, ptr %99, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !213)
   call void @llvm.experimental.noalias.scope.decl(metadata !216)
@@ -8387,7 +8387,7 @@ _ZNSolsEd.exit113:                                ; preds = %_ZStlsISt11char_tra
   %236 = load i32, ptr %235, align 8, !tbaa !49
   %237 = and i32 %236, -177
   %238 = or disjoint i32 %237, 32
-  store i32 %238, ptr %235, align 4, !tbaa !50
+  store i32 %238, ptr %235, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.experimental.noalias.scope.decl(metadata !220)
   call void @llvm.experimental.noalias.scope.decl(metadata !223)
@@ -8903,7 +8903,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit._crit_edge: ; preds
   %83 = load i32, ptr %82, align 8, !tbaa !49
   %84 = and i32 %83, -261
   %85 = or disjoint i32 %84, 256
-  store i32 %85, ptr %82, align 4, !tbaa !50
+  store i32 %85, ptr %82, align 8, !tbaa !50
   %86 = load i64, ptr %79, align 8
   %87 = getelementptr inbounds i8, ptr %6, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
@@ -8965,7 +8965,7 @@ _ZNSolsEd.exit58:                                 ; preds = %_ZStlsISt11char_tra
   %112 = load i32, ptr %111, align 8, !tbaa !49
   %113 = and i32 %112, -177
   %114 = or disjoint i32 %113, 32
-  store i32 %114, ptr %111, align 4, !tbaa !50
+  store i32 %114, ptr %111, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !249)
   call void @llvm.experimental.noalias.scope.decl(metadata !252)
@@ -9294,7 +9294,7 @@ _ZNSolsEd.exit93:                                 ; preds = %_ZStlsISt11char_tra
   %248 = load i32, ptr %247, align 8, !tbaa !49
   %249 = and i32 %248, -177
   %250 = or disjoint i32 %249, 32
-  store i32 %250, ptr %247, align 4, !tbaa !50
+  store i32 %250, ptr %247, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.experimental.noalias.scope.decl(metadata !256)
   call void @llvm.experimental.noalias.scope.decl(metadata !259)
@@ -9673,7 +9673,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit._crit_edge: ; preds
   %41 = load i32, ptr %40, align 8, !tbaa !49
   %42 = and i32 %41, -261
   %43 = or disjoint i32 %42, 256
-  store i32 %43, ptr %40, align 4, !tbaa !50
+  store i32 %43, ptr %40, align 8, !tbaa !50
   %44 = load i64, ptr %37, align 8
   %45 = getelementptr inbounds i8, ptr %6, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -9735,7 +9735,7 @@ _ZNSolsEd.exit58:                                 ; preds = %_ZStlsISt11char_tra
   %70 = load i32, ptr %69, align 8, !tbaa !49
   %71 = and i32 %70, -177
   %72 = or disjoint i32 %71, 32
-  store i32 %72, ptr %69, align 4, !tbaa !50
+  store i32 %72, ptr %69, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !270)
   call void @llvm.experimental.noalias.scope.decl(metadata !273)
@@ -10025,7 +10025,7 @@ _ZNSolsEd.exit93:                                 ; preds = %_ZStlsISt11char_tra
   %183 = load i32, ptr %182, align 8, !tbaa !49
   %184 = and i32 %183, -177
   %185 = or disjoint i32 %184, 32
-  store i32 %185, ptr %182, align 4, !tbaa !50
+  store i32 %185, ptr %182, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.experimental.noalias.scope.decl(metadata !277)
   call void @llvm.experimental.noalias.scope.decl(metadata !280)
@@ -23553,7 +23553,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %5
   %25 = load i32, ptr %24, align 8, !tbaa !49
   %26 = and i32 %25, -261
   %27 = or disjoint i32 %26, 4
-  store i32 %27, ptr %24, align 4, !tbaa !50
+  store i32 %27, ptr %24, align 8, !tbaa !50
   %28 = load i64, ptr %21, align 8
   %29 = getelementptr inbounds i8, ptr %6, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -23679,7 +23679,7 @@ _ZNSolsEm.exit122:                                ; preds = %_ZStlsISt11char_tra
   %93 = load i32, ptr %92, align 8, !tbaa !49
   %94 = and i32 %93, -177
   %95 = or disjoint i32 %94, 32
-  store i32 %95, ptr %92, align 4, !tbaa !50
+  store i32 %95, ptr %92, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !449)
   call void @llvm.experimental.noalias.scope.decl(metadata !452)
@@ -23885,7 +23885,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit135: ; preds = %_ZNS
   %175 = load i32, ptr %174, align 8, !tbaa !49
   %176 = and i32 %175, -261
   %177 = or disjoint i32 %176, 4
-  store i32 %177, ptr %174, align 4, !tbaa !50
+  store i32 %177, ptr %174, align 8, !tbaa !50
   %178 = load i64, ptr %171, align 8
   %179 = getelementptr inbounds i8, ptr %6, i64 %178
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
@@ -24036,7 +24036,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit152: ; preds = %_ZNS
   %249 = load i32, ptr %248, align 8, !tbaa !49
   %250 = and i32 %249, -261
   %251 = or disjoint i32 %250, 256
-  store i32 %251, ptr %248, align 4, !tbaa !50
+  store i32 %251, ptr %248, align 8, !tbaa !50
   %252 = load i64, ptr %245, align 8
   %253 = getelementptr inbounds i8, ptr %6, i64 %252
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 8
@@ -24109,7 +24109,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit143: ; preds = %_ZSt
   %279 = load i32, ptr %278, align 8, !tbaa !49
   %280 = and i32 %279, -177
   %281 = or disjoint i32 %280, 32
-  store i32 %281, ptr %278, align 4, !tbaa !50
+  store i32 %281, ptr %278, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.experimental.noalias.scope.decl(metadata !456)
   call void @llvm.experimental.noalias.scope.decl(metadata !459)
@@ -24364,7 +24364,7 @@ _ZNSolsEj.exit:                                   ; preds = %16
   %38 = load i32, ptr %37, align 8, !tbaa !49
   %39 = and i32 %38, -261
   %40 = or disjoint i32 %39, 4
-  store i32 %40, ptr %37, align 4, !tbaa !50
+  store i32 %40, ptr %37, align 8, !tbaa !50
   %41 = load i64, ptr %34, align 8
   %42 = getelementptr inbounds i8, ptr %5, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -24433,7 +24433,7 @@ _ZNSolsEm.exit80:                                 ; preds = %_ZStlsISt11char_tra
   %71 = load i32, ptr %70, align 8, !tbaa !49
   %72 = and i32 %71, -177
   %73 = or disjoint i32 %72, 32
-  store i32 %73, ptr %70, align 4, !tbaa !50
+  store i32 %73, ptr %70, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !463)
   call void @llvm.experimental.noalias.scope.decl(metadata !466)
@@ -24725,7 +24725,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit99: ; preds = %164, 
   %186 = load i32, ptr %185, align 8, !tbaa !49
   %187 = and i32 %186, -177
   %188 = or disjoint i32 %187, 32
-  store i32 %188, ptr %185, align 4, !tbaa !50
+  store i32 %188, ptr %185, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.experimental.noalias.scope.decl(metadata !470)
   call void @llvm.experimental.noalias.scope.decl(metadata !473)
@@ -24953,7 +24953,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %4
   %22 = load i32, ptr %21, align 8, !tbaa !49
   %23 = and i32 %22, -261
   %24 = or disjoint i32 %23, 256
-  store i32 %24, ptr %21, align 4, !tbaa !50
+  store i32 %24, ptr %21, align 8, !tbaa !50
   %25 = load i64, ptr %18, align 8
   %26 = getelementptr inbounds i8, ptr %5, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -24986,7 +24986,7 @@ _ZNSolsEd.exit:                                   ; preds = %16
   %43 = load i32, ptr %42, align 8, !tbaa !49
   %44 = and i32 %43, -261
   %45 = or disjoint i32 %44, 4
-  store i32 %45, ptr %42, align 4, !tbaa !50
+  store i32 %45, ptr %42, align 8, !tbaa !50
   %46 = load i64, ptr %39, align 8
   %47 = getelementptr inbounds i8, ptr %5, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
@@ -25055,7 +25055,7 @@ _ZNSolsEm.exit104:                                ; preds = %_ZStlsISt11char_tra
   %76 = load i32, ptr %75, align 8, !tbaa !49
   %77 = and i32 %76, -177
   %78 = or disjoint i32 %77, 32
-  store i32 %78, ptr %75, align 4, !tbaa !50
+  store i32 %78, ptr %75, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !477)
   call void @llvm.experimental.noalias.scope.decl(metadata !480)
@@ -25261,7 +25261,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit117: ; preds = %_ZNS
   %158 = load i32, ptr %157, align 8, !tbaa !49
   %159 = and i32 %158, -261
   %160 = or disjoint i32 %159, 256
-  store i32 %160, ptr %157, align 4, !tbaa !50
+  store i32 %160, ptr %157, align 8, !tbaa !50
   %161 = load i64, ptr %154, align 8
   %162 = getelementptr inbounds i8, ptr %5, i64 %161
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
@@ -25371,7 +25371,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128: ; preds = %_Z
   %207 = load i32, ptr %206, align 8, !tbaa !49
   %208 = and i32 %207, -261
   %209 = or disjoint i32 %208, 256
-  store i32 %209, ptr %206, align 4, !tbaa !50
+  store i32 %209, ptr %206, align 8, !tbaa !50
   %210 = load i64, ptr %203, align 8
   %211 = getelementptr inbounds i8, ptr %5, i64 %210
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
@@ -25460,7 +25460,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit125: ; preds = %_ZSt
   %243 = load i32, ptr %242, align 8, !tbaa !49
   %244 = and i32 %243, -177
   %245 = or disjoint i32 %244, 32
-  store i32 %245, ptr %242, align 4, !tbaa !50
+  store i32 %245, ptr %242, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.experimental.noalias.scope.decl(metadata !484)
   call void @llvm.experimental.noalias.scope.decl(metadata !487)
@@ -25704,7 +25704,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit77: ; preds = %_ZStl
   %28 = load i32, ptr %27, align 8, !tbaa !49
   %29 = and i32 %28, -261
   %30 = or disjoint i32 %29, 4
-  store i32 %30, ptr %27, align 4, !tbaa !50
+  store i32 %30, ptr %27, align 8, !tbaa !50
   %31 = load i64, ptr %24, align 8
   %32 = getelementptr inbounds i8, ptr %4, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -25773,7 +25773,7 @@ _ZNSolsEm.exit81:                                 ; preds = %_ZStlsISt11char_tra
   %61 = load i32, ptr %60, align 8, !tbaa !49
   %62 = and i32 %61, -177
   %63 = or disjoint i32 %62, 32
-  store i32 %63, ptr %60, align 4, !tbaa !50
+  store i32 %63, ptr %60, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !491)
   call void @llvm.experimental.noalias.scope.decl(metadata !494)
@@ -26071,7 +26071,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit98: ; preds = %.invo
   %175 = load i32, ptr %174, align 8, !tbaa !49
   %176 = and i32 %175, -177
   %177 = or disjoint i32 %176, 32
-  store i32 %177, ptr %174, align 4, !tbaa !50
+  store i32 %177, ptr %174, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !498)
   call void @llvm.experimental.noalias.scope.decl(metadata !501)
@@ -26464,7 +26464,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit._crit_edge: ; preds
   %31 = load i32, ptr %30, align 8, !tbaa !49
   %32 = and i32 %31, -261
   %33 = or disjoint i32 %32, 256
-  store i32 %33, ptr %30, align 4, !tbaa !50
+  store i32 %33, ptr %30, align 8, !tbaa !50
   %34 = load i64, ptr %27, align 8
   %35 = getelementptr inbounds i8, ptr %6, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -26526,7 +26526,7 @@ _ZNSolsEd.exit59:                                 ; preds = %_ZStlsISt11char_tra
   %60 = load i32, ptr %59, align 8, !tbaa !49
   %61 = and i32 %60, -177
   %62 = or disjoint i32 %61, 32
-  store i32 %62, ptr %59, align 4, !tbaa !50
+  store i32 %62, ptr %59, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !515)
   call void @llvm.experimental.noalias.scope.decl(metadata !518)
@@ -26816,7 +26816,7 @@ _ZNSolsEd.exit94:                                 ; preds = %_ZStlsISt11char_tra
   %174 = load i32, ptr %173, align 8, !tbaa !49
   %175 = and i32 %174, -177
   %176 = or disjoint i32 %175, 32
-  store i32 %176, ptr %173, align 4, !tbaa !50
+  store i32 %176, ptr %173, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.experimental.noalias.scope.decl(metadata !522)
   call void @llvm.experimental.noalias.scope.decl(metadata !525)
@@ -27303,7 +27303,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit._crit_edge: ; preds
   %70 = load i32, ptr %69, align 8, !tbaa !49
   %71 = and i32 %70, -261
   %72 = or disjoint i32 %71, 256
-  store i32 %72, ptr %69, align 4, !tbaa !50
+  store i32 %72, ptr %69, align 8, !tbaa !50
   %73 = load i64, ptr %66, align 8
   %74 = getelementptr inbounds i8, ptr %6, i64 %73
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
@@ -27365,7 +27365,7 @@ _ZNSolsEd.exit68:                                 ; preds = %_ZStlsISt11char_tra
   %99 = load i32, ptr %98, align 8, !tbaa !49
   %100 = and i32 %99, -177
   %101 = or disjoint i32 %100, 32
-  store i32 %101, ptr %98, align 4, !tbaa !50
+  store i32 %101, ptr %98, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !548)
   call void @llvm.experimental.noalias.scope.decl(metadata !551)
@@ -27693,7 +27693,7 @@ _ZNSolsEd.exit114:                                ; preds = %_ZStlsISt11char_tra
   %234 = load i32, ptr %233, align 8, !tbaa !49
   %235 = and i32 %234, -177
   %236 = or disjoint i32 %235, 32
-  store i32 %236, ptr %233, align 4, !tbaa !50
+  store i32 %236, ptr %233, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.experimental.noalias.scope.decl(metadata !555)
   call void @llvm.experimental.noalias.scope.decl(metadata !558)
@@ -28205,7 +28205,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit._crit_edge: ; preds
   %82 = load i32, ptr %81, align 8, !tbaa !49
   %83 = and i32 %82, -261
   %84 = or disjoint i32 %83, 256
-  store i32 %84, ptr %81, align 4, !tbaa !50
+  store i32 %84, ptr %81, align 8, !tbaa !50
   %85 = load i64, ptr %78, align 8
   %86 = getelementptr inbounds i8, ptr %6, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
@@ -28267,7 +28267,7 @@ _ZNSolsEd.exit59:                                 ; preds = %_ZStlsISt11char_tra
   %111 = load i32, ptr %110, align 8, !tbaa !49
   %112 = and i32 %111, -177
   %113 = or disjoint i32 %112, 32
-  store i32 %113, ptr %110, align 4, !tbaa !50
+  store i32 %113, ptr %110, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !583)
   call void @llvm.experimental.noalias.scope.decl(metadata !586)
@@ -28595,7 +28595,7 @@ _ZNSolsEd.exit94:                                 ; preds = %_ZStlsISt11char_tra
   %246 = load i32, ptr %245, align 8, !tbaa !49
   %247 = and i32 %246, -177
   %248 = or disjoint i32 %247, 32
-  store i32 %248, ptr %245, align 4, !tbaa !50
+  store i32 %248, ptr %245, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.experimental.noalias.scope.decl(metadata !590)
   call void @llvm.experimental.noalias.scope.decl(metadata !593)
@@ -28970,7 +28970,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit._crit_edge: ; preds
   %40 = load i32, ptr %39, align 8, !tbaa !49
   %41 = and i32 %40, -261
   %42 = or disjoint i32 %41, 256
-  store i32 %42, ptr %39, align 4, !tbaa !50
+  store i32 %42, ptr %39, align 8, !tbaa !50
   %43 = load i64, ptr %36, align 8
   %44 = getelementptr inbounds i8, ptr %6, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -29032,7 +29032,7 @@ _ZNSolsEd.exit59:                                 ; preds = %_ZStlsISt11char_tra
   %69 = load i32, ptr %68, align 8, !tbaa !49
   %70 = and i32 %69, -177
   %71 = or disjoint i32 %70, 32
-  store i32 %71, ptr %68, align 4, !tbaa !50
+  store i32 %71, ptr %68, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !603)
   call void @llvm.experimental.noalias.scope.decl(metadata !606)
@@ -29321,7 +29321,7 @@ _ZNSolsEd.exit94:                                 ; preds = %_ZStlsISt11char_tra
   %181 = load i32, ptr %180, align 8, !tbaa !49
   %182 = and i32 %181, -177
   %183 = or disjoint i32 %182, 32
-  store i32 %183, ptr %180, align 4, !tbaa !50
+  store i32 %183, ptr %180, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.experimental.noalias.scope.decl(metadata !610)
   call void @llvm.experimental.noalias.scope.decl(metadata !613)

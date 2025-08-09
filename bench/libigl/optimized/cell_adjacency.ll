@@ -329,7 +329,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt8_Rb_treeISt5tupleIJibmEES1_St9_
   store i64 %7, ptr %6, align 8, !tbaa !46
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %9 = load i8, ptr %2, align 1, !tbaa !26, !range !48, !noundef !49
-  store i8 %9, ptr %8, align 1, !tbaa !50
+  store i8 %9, ptr %8, align 8, !tbaa !50
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %11 = load i32, ptr %1, align 4, !tbaa !24
   store i32 %11, ptr %10, align 4, !tbaa !52

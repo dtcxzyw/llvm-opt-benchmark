@@ -1144,7 +1144,7 @@ _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit8: ; pre
   store ptr %37, ptr %36, align 8, !tbaa !73
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store i64 0, ptr %38, align 8, !tbaa !27
-  store i8 0, ptr %37, align 1, !tbaa !28
+  store i8 0, ptr %37, align 8, !tbaa !28
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 48
   store ptr null, ptr %39, align 8, !tbaa !74
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 56
@@ -1286,7 +1286,7 @@ _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit34: ; pr
   store ptr %96, ptr %95, align 8, !tbaa !73
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 24
   store i64 0, ptr %97, align 8, !tbaa !27
-  store i8 0, ptr %96, align 1, !tbaa !28
+  store i8 0, ptr %96, align 8, !tbaa !28
   %98 = getelementptr inbounds nuw i8, ptr %93, i64 48
   store ptr null, ptr %98, align 8, !tbaa !74
   %99 = getelementptr inbounds nuw i8, ptr %93, i64 56
@@ -1809,7 +1809,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3, %_ZN4llvm22Index
   store ptr %30, ptr %29, align 8, !tbaa !73, !noalias !168
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store i64 0, ptr %31, align 8, !tbaa !27, !noalias !168
-  store i8 0, ptr %30, align 1, !tbaa !28, !noalias !168
+  store i8 0, ptr %30, align 8, !tbaa !28, !noalias !168
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 48
   store ptr null, ptr %32, align 8, !tbaa !74, !noalias !168
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 56

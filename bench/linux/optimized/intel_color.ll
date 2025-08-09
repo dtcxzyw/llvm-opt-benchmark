@@ -4642,7 +4642,7 @@ define internal void @vlv_load_luts(ptr noundef readonly captures(none) %0) #0 a
   %24 = load i16, ptr %23, align 2
   %25 = zext i16 %24 to i32
   %26 = shl nuw i32 %25, 16
-  %27 = load i16, ptr %7, align 2
+  %27 = load i16, ptr %7, align 8
   %28 = zext i16 %27 to i32
   %29 = or disjoint i32 %26, %28
   %30 = zext i32 %29 to i64

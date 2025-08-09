@@ -1365,7 +1365,7 @@ _ZN5boost10shared_ptrIN8QuantLib12NotionalRiskEED2Ev.exit: ; preds = %invoke.con
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10)
   store i8 0, ptr %agg.tmp11, align 8, !tbaa !80
-  %18 = load i8, ptr %schedule, align 4, !tbaa !80, !range !26, !noundef !27
+  %18 = load i8, ptr %schedule, align 8, !tbaa !80, !range !26, !noundef !27
   %loadedv.i.i.i.i = trunc nuw i8 %18 to i1
   br i1 %loadedv.i.i.i.i, label %invoke.cont.i.i.i, label %_ZN8QuantLib8ScheduleC2EOS0_.exit
 
@@ -3433,7 +3433,7 @@ _ZN5boost10shared_ptrIN8QuantLib12NotionalRiskEED2Ev.exit: ; preds = %invoke.con
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp8)
   store i8 0, ptr %agg.tmp9, align 8, !tbaa !80
-  %16 = load i8, ptr %schedule, align 4, !tbaa !80, !range !26, !noundef !27
+  %16 = load i8, ptr %schedule, align 8, !tbaa !80, !range !26, !noundef !27
   %loadedv.i.i.i.i = trunc nuw i8 %16 to i1
   br i1 %loadedv.i.i.i.i, label %invoke.cont.i.i.i, label %_ZN8QuantLib8ScheduleC2EOS0_.exit
 

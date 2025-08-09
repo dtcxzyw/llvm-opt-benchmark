@@ -96396,7 +96396,7 @@ define hidden void @"_ZN5typst11foundations7content15Packed$LT$T$GT$6unpack17h77
   %66 = load i8, ptr %65, align 1, !range !715, !alias.scope !17378, !noalias !17375, !noundef !4
   %67 = icmp eq i8 %66, 2
   %68 = getelementptr i8, ptr %18, i64 90
-  %.val20.i = load i16, ptr %68, align 1, !alias.scope !17378, !noalias !17375
+  %.val20.i = load i16, ptr %68, align 2, !alias.scope !17378, !noalias !17375
   %trunc.i23.i = trunc nuw i8 %66 to i1
   %.1.extract.trunc.i = select i1 %trunc.i23.i, i16 %.val20.i, i16 0
   %.sroa.53.0.i = select i1 %67, i16 undef, i16 %.1.extract.trunc.i
@@ -98938,7 +98938,7 @@ default.unreachable:                              ; preds = %356, %251, %109, %2
   tail call void %128(ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 1 %132, i64 noundef %134), !noalias !17927
   %135 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i.i, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17928)
-  %136 = load i32, ptr %135, align 4, !range !17899, !alias.scope !17931, !noalias !17932, !noundef !4
+  %136 = load i32, ptr %135, align 8, !range !17899, !alias.scope !17931, !noalias !17932, !noundef !4
   %137 = load ptr, ptr %129, align 8, !invariant.load !4, !noalias !17934, !nonnull !4
   tail call void %137(ptr noundef nonnull align 1 %7, i32 noundef %136), !noalias !17934
   %138 = icmp eq ptr %131, %125
@@ -98985,7 +98985,7 @@ default.unreachable:                              ; preds = %356, %251, %109, %2
   tail call void %154(ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 1 %158, i64 noundef %160), !noalias !17965
   %161 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i.i.i, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17966)
-  %162 = load i32, ptr %161, align 4, !range !17899, !alias.scope !17969, !noalias !17970, !noundef !4
+  %162 = load i32, ptr %161, align 8, !range !17899, !alias.scope !17969, !noalias !17970, !noundef !4
   %163 = load ptr, ptr %155, align 8, !invariant.load !4, !noalias !17972, !nonnull !4
   tail call void %163(ptr noundef nonnull align 1 %7, i32 noundef %162), !noalias !17972
   %164 = icmp eq ptr %157, %151
@@ -100487,7 +100487,7 @@ _ZN4core4hash6Hasher19write_length_prefix17h6c42ac5ad87aa19cE.llvm.2456044669961
   tail call void @"_ZN9siphasher6sip12815Hasher$LT$S$GT$11short_write17hdb2b3f7e4e161fbeE.llvm.12777920187102919001"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i8 noundef -1, i64 noundef 255), !noalias !18404
   %599 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i.i, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18405)
-  %600 = load i32, ptr %599, align 4, !range !17899, !alias.scope !18408, !noalias !18409, !noundef !4
+  %600 = load i32, ptr %599, align 8, !range !17899, !alias.scope !18408, !noalias !18409, !noundef !4
   %601 = zext nneg i32 %600 to i64
   tail call void @"_ZN9siphasher6sip12815Hasher$LT$S$GT$11short_write17h020481d204e21f90E.llvm.12777920187102919001"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %600, i64 noundef %601), !noalias !18411
   %602 = icmp eq ptr %595, %593
@@ -100626,7 +100626,7 @@ _ZN4core4hash6Hasher19write_length_prefix17h6c42ac5ad87aa19cE.llvm.2456044669961
   tail call void @"_ZN9siphasher6sip12815Hasher$LT$S$GT$11short_write17hdb2b3f7e4e161fbeE.llvm.12777920187102919001"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i8 noundef -1, i64 noundef 255), !noalias !18454
   %684 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i.i.i, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18455)
-  %685 = load i32, ptr %684, align 4, !range !17899, !alias.scope !18458, !noalias !18459, !noundef !4
+  %685 = load i32, ptr %684, align 8, !range !17899, !alias.scope !18458, !noalias !18459, !noundef !4
   %686 = zext nneg i32 %685 to i64
   tail call void @"_ZN9siphasher6sip12815Hasher$LT$S$GT$11short_write17h020481d204e21f90E.llvm.12777920187102919001"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %685, i64 noundef %686), !noalias !18461
   %687 = icmp eq ptr %680, %678

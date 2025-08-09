@@ -606,7 +606,7 @@ define internal fastcc i32 @__drm_connector_init(ptr noundef %0, ptr noundef %1,
 105:                                              ; preds = %100, %96
   %106 = load ptr, ptr %59, align 8
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 1592
-  %108 = load i32, ptr %107, align 4
+  %108 = load i32, ptr %107, align 8
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 1596
   %110 = load i32, ptr %109, align 4
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 1585

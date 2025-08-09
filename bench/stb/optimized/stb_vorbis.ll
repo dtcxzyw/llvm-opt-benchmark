@@ -12651,7 +12651,7 @@ setup_temp_free.exit1196:                         ; preds = %651, %658, %478
   %782 = shl nuw i32 1, %781
   %783 = trunc i32 %782 to i16
   %784 = getelementptr inbounds nuw i8, ptr %725, i64 340
-  store i16 %783, ptr %784, align 2, !tbaa !36
+  store i16 %783, ptr %784, align 4, !tbaa !36
   %785 = getelementptr inbounds nuw i8, ptr %725, i64 1592
   store i32 2, ptr %785, align 4, !tbaa !156
   %786 = load i8, ptr %725, align 4, !tbaa !168

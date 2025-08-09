@@ -129,15 +129,15 @@ define internal i32 @newque(ptr noundef %0, ptr noundef readonly captures(none) 
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 176
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %27, i8 0, i64 16, i1 false)
-  store volatile ptr %28, ptr %28, align 8
+  store volatile ptr %28, ptr %28, align 16
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 200
   store volatile ptr %28, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 208
-  store volatile ptr %30, ptr %30, align 8
+  store volatile ptr %30, ptr %30, align 16
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 216
   store volatile ptr %30, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 224
-  store volatile ptr %32, ptr %32, align 8
+  store volatile ptr %32, ptr %32, align 16
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 232
   store volatile ptr %32, ptr %33, align 8
   %34 = getelementptr i8, ptr %0, i64 216

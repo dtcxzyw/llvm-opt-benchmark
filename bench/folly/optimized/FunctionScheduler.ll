@@ -5771,7 +5771,7 @@ _ZN6google12Check_EQImplIbbEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %36 = icmp eq i8 %35, 0
   call void @llvm.assume(i1 %36)
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 12
-  store i16 %.0.copyload.i.i.i.i.i, ptr %37, align 1
+  store i16 %.0.copyload.i.i.i.i.i, ptr %37, align 2
   %.pre.i.i.i = load i64, ptr %21, align 8, !tbaa !18
   %.pre21.i.i.i = and i64 %.pre.i.i.i, 255
   br label %44
@@ -8989,7 +8989,7 @@ _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyINS_5RangeIPKcEEPNS_17F
   tail call void @llvm.assume(i1 %53)
   %54 = trunc i64 %5 to i16
   %55 = getelementptr inbounds nuw i8, ptr %43, i64 12
-  store i16 %54, ptr %55, align 1
+  store i16 %54, ptr %55, align 2
   store ptr %43, ptr %21, align 8, !tbaa !7
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %57 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %4, i1 true)

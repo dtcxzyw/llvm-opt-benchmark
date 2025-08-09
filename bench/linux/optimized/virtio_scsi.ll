@@ -718,20 +718,20 @@ define internal noundef range(i32 0, 4182) i32 @virtscsi_queuecommand(ptr nounde
   %37 = trunc i64 %36 to i8
   %38 = or i8 %37, 64
   %39 = getelementptr i8, ptr %1, i64 314
-  store i8 %38, ptr %39, align 1
+  store i8 %38, ptr %39, align 2
   %40 = load i64, ptr %34, align 8
   %41 = trunc i64 %40 to i8
   %42 = getelementptr i8, ptr %1, i64 315
   store i8 %41, ptr %42, align 1
   %43 = ptrtoint ptr %1 to i64
   %44 = getelementptr i8, ptr %1, i64 320
-  store i64 %43, ptr %44, align 1
+  store i64 %43, ptr %44, align 8
   %45 = getelementptr i8, ptr %1, i64 328
-  store i8 0, ptr %45, align 1
+  store i8 0, ptr %45, align 8
   %46 = getelementptr i8, ptr %1, i64 329
   store i8 0, ptr %46, align 1
   %47 = getelementptr i8, ptr %1, i64 330
-  store i8 0, ptr %47, align 1
+  store i8 0, ptr %47, align 2
   %48 = getelementptr i8, ptr %1, i64 331
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 164
   %50 = zext nneg i16 %24 to i64
@@ -1674,7 +1674,7 @@ define internal void @virtscsi_handle_event(ptr noundef %0) #2 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %0, i64 -16
-  %7 = load i32, ptr %6, align 1
+  %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, -1
   br i1 %8, label %45, label %9
 

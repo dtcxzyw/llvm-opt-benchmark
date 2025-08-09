@@ -646,7 +646,7 @@ define internal fastcc void @parse_setup_data() unnamed_addr #0 section ".init.t
   %23 = zext i32 %22 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %18, i8 0, i64 %23, i1 false)
   tail call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %18) #11, !srcloc !20
-  store i32 0, ptr %19, align 1
+  store i32 0, ptr %19, align 4
   tail call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %19) #11, !srcloc !20
   tail call void @early_memunmap(ptr noundef %17, i64 noundef %16) #11
   br label %24

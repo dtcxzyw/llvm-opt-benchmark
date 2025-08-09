@@ -126,7 +126,7 @@ zend_string_alloc.exit.i:                         ; preds = %.critedge
   store i64 %35, ptr %41, align 8, !tbaa !50
   %42 = tail call ptr @__ctype_b_loc() #10
   %43 = load ptr, ptr %42, align 8, !tbaa !54
-  %44 = load i8, ptr %31, align 1, !tbaa !8
+  %44 = load i8, ptr %31, align 8, !tbaa !8
   %45 = sext i8 %44 to i64
   %46 = getelementptr inbounds i16, ptr %43, i64 %45
   %47 = load i16, ptr %46, align 2, !tbaa !56

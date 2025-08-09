@@ -450,7 +450,7 @@ prompeg_init.exit:                                ; preds = %._crit_edge.i
   %194 = getelementptr inbounds nuw i8, ptr %.val, i64 60
   %195 = getelementptr inbounds nuw i8, ptr %149, i64 25
   store i8 1, ptr %195, align 1, !tbaa !53
-  %.in4849.i = load i8, ptr %194, align 1, !tbaa !53
+  %.in4849.i = load i8, ptr %194, align 4, !tbaa !53
   %196 = getelementptr inbounds nuw i8, ptr %149, i64 26
   store i8 %.in4849.i, ptr %196, align 1, !tbaa !53
   %197 = getelementptr inbounds nuw i8, ptr %149, i64 28

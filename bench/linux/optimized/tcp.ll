@@ -360,12 +360,12 @@ define dso_local void @tcp_init_sock(ptr noundef initializes((352, 360), (1496, 
   %15 = trunc i64 %14 to i32
   %16 = getelementptr i8, ptr %0, i64 1488
   %17 = getelementptr i8, ptr %0, i64 1480
-  store i32 %15, ptr %13, align 4
+  store i32 %15, ptr %13, align 16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1476
   store i32 -1, ptr %18, align 4
-  %19 = load i64, ptr %13, align 4
-  store i64 %19, ptr %17, align 4
-  store i64 %19, ptr %16, align 4
+  %19 = load i64, ptr %13, align 16
+  store i64 %19, ptr %17, align 8
+  store i64 %19, ptr %16, align 16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1420
   store i32 10, ptr %20, align 4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 1692
@@ -381,7 +381,7 @@ define dso_local void @tcp_init_sock(ptr noundef initializes((352, 360), (1496, 
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1416
   store i32 536, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %29 = load ptr, ptr %28, align 8
+  %29 = load ptr, ptr %28, align 16
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 740
   %31 = load volatile i32, ptr %30, align 4
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 1376
@@ -392,12 +392,12 @@ define dso_local void @tcp_init_sock(ptr noundef initializes((352, 360), (1496, 
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 1876
   store i8 1, ptr %34, align 4
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  store ptr @sk_stream_write_space, ptr %35, align 8
+  store ptr @sk_stream_write_space, ptr %35, align 16
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %36, i64 9) #22, !srcloc !9
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 1200
-  store ptr @tcp_sync_mss, ptr %37, align 8
-  %38 = load ptr, ptr %28, align 8
+  store ptr @tcp_sync_mss, ptr %37, align 16
+  %38 = load ptr, ptr %28, align 16
   %39 = getelementptr i8, ptr %38, i64 728
   %40 = load volatile i32, ptr %39, align 4
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 332
@@ -409,7 +409,7 @@ define dso_local void @tcp_init_sock(ptr noundef initializes((352, 360), (1496, 
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 1438
   store i8 65, ptr %45, align 2
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %47 = load ptr, ptr %46, align 8
+  %47 = load ptr, ptr %46, align 16
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %48, i32 32, ptr nonnull elementtype(i8) %48) #22, !srcloc !10
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -550,7 +550,7 @@ define dso_local range(i32 0, 8704) i32 @tcp_poll(ptr noundef %0, ptr noundef %1
   %74 = ashr i32 %73, 3
   %75 = sub i32 %73, %74
   %76 = getelementptr inbounds nuw i8, ptr %6, i64 240
-  %77 = load volatile i32, ptr %76, align 4
+  %77 = load volatile i32, ptr %76, align 8
   %78 = icmp sgt i32 %77, %75
   br i1 %78, label %.thread, label %79
 
@@ -4532,7 +4532,7 @@ define dso_local i32 @tcp_read_skb(ptr noundef %0, ptr noundef readonly captures
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
   store volatile ptr %41, ptr %42, align 8
   store volatile ptr %39, ptr %41, align 8
-  %43 = load volatile i32, ptr %10, align 4
+  %43 = load volatile i32, ptr %10, align 8
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %.thread, label %.preheader
 
@@ -7480,7 +7480,7 @@ define dso_local noundef i32 @tcp_disconnect(ptr noundef %0, i32 %1) #0 align 16
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 1148
   store i32 200, ptr %138, align 4
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 1152
-  store i32 200, ptr %139, align 8
+  store i32 200, ptr %139, align 32
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 1504
   store i32 2147483647, ptr %140, align 32
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 1420
@@ -7935,7 +7935,7 @@ define internal fastcc void @__tcp_sock_set_quickack(ptr noundef initializes((12
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 1501, i32 2313, i64 12) #22, !srcloc !43
   tail call void asm sideeffect "993: nop\0A\09.pushsection .discard.instr_end\0A\09.long 993b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 993) #22, !srcloc !44
   tail call void asm sideeffect "994: nop\0A\09.pushsection .discard.instr_end\0A\09.long 994b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 994) #22, !srcloc !45
-  %.pre = load i8, ptr %19, align 8
+  %.pre = load i8, ptr %19, align 32
   br label %42
 
 42:                                               ; preds = %37, %30, %23
@@ -8240,7 +8240,7 @@ define dso_local noundef range(i32 -22, 1) i32 @tcp_set_window_clamp(ptr noundef
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %26 = load i32, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %28 = load volatile i32, ptr %27, align 4
+  %28 = load volatile i32, ptr %27, align 8
   %29 = add i32 %26, %28
   %30 = sub i32 %19, %29
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 1372
@@ -10225,7 +10225,7 @@ define dso_local i32 @do_tcp_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2, 
   %31 = load i32, ptr %30, align 8
   store i32 %31, ptr %7, align 4
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 1720
-  %33 = load i16, ptr %32, align 4
+  %33 = load i16, ptr %32, align 8
   %34 = icmp eq i16 %33, 0
   br i1 %34, label %44, label %35
 

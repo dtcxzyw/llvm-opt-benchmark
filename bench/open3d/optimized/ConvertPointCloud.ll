@@ -3049,7 +3049,7 @@ _ZNK6open3d8geometry10PointCloud10HasNormalsEv.exit: ; preds = %848
   store <2 x double> %871, ptr %48, align 16, !tbaa !27
   %872 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %873 = getelementptr i8, ptr %870, i64 16
-  %874 = load double, ptr %873, align 8, !tbaa !44
+  %874 = load double, ptr %873, align 16, !tbaa !44
   store double %874, ptr %872, align 16, !tbaa !44
   %875 = load ptr, ptr %13, align 8, !tbaa !29
   invoke void @_ZN6open3d8geometry10PointCloud33OrientNormalsToAlignWithDirectionERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr noundef nonnull align 8 dereferenceable(144) %875, ptr noundef nonnull align 8 dereferenceable(24) %48)
@@ -3231,7 +3231,7 @@ _ZNK6open3d8geometry10PointCloud10HasNormalsEv.exit402: ; preds = %917
   store <2 x double> %939, ptr %52, align 16, !tbaa !27
   %940 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %941 = getelementptr i8, ptr %938, i64 16
-  %942 = load double, ptr %941, align 8, !tbaa !44
+  %942 = load double, ptr %941, align 16, !tbaa !44
   store double %942, ptr %940, align 16, !tbaa !44
   %943 = load ptr, ptr %13, align 8, !tbaa !29
   invoke void @_ZN6open3d8geometry10PointCloud34OrientNormalsTowardsCameraLocationERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr noundef nonnull align 8 dereferenceable(144) %943, ptr noundef nonnull align 8 dereferenceable(24) %52)
@@ -35746,7 +35746,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIiSt4pairIKijESaIS2_
   %45 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #38
   store ptr null, ptr %45, align 8, !tbaa !16
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store i32 %43, ptr %46, align 4, !tbaa !696
+  store i32 %43, ptr %46, align 8, !tbaa !696
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %48 = load i32, ptr %44, align 4, !tbaa !54
   store i32 %48, ptr %47, align 4, !tbaa !698
@@ -35911,7 +35911,7 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !16
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !54
+  %16 = load i32, ptr %15, align 8, !tbaa !54
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18

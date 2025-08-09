@@ -15755,7 +15755,7 @@ define linkonce_odr void @_ZNK12Transduction12TransductionIN6NewBdd3ManENS1_5Par
   %59 = load i32, ptr %58, align 8, !tbaa !475
   %60 = and i32 %59, -177
   %61 = or disjoint i32 %60, 32
-  store i32 %61, ptr %58, align 4, !tbaa !476
+  store i32 %61, ptr %58, align 8, !tbaa !476
   %62 = load i64, ptr %55, align 8
   %63 = getelementptr inbounds i8, ptr %28, i64 %62
   %64 = sext i32 %.0 to i64
@@ -15774,7 +15774,7 @@ define linkonce_odr void @_ZNK12Transduction12TransductionIN6NewBdd3ManENS1_5Par
   %76 = load i32, ptr %75, align 8, !tbaa !475
   %77 = and i32 %76, -177
   %78 = or disjoint i32 %77, 128
-  store i32 %78, ptr %75, align 4, !tbaa !476
+  store i32 %78, ptr %75, align 8, !tbaa !476
   %79 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.72, i64 noundef 9) #25
   %80 = load ptr, ptr %28, align 8, !tbaa !29
   %81 = getelementptr i8, ptr %80, i64 -24
@@ -15889,7 +15889,7 @@ _ZNK12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE11CountL
   %155 = load i32, ptr %154, align 8, !tbaa !475
   %156 = and i32 %155, -261
   %157 = or disjoint i32 %156, 4
-  store i32 %157, ptr %154, align 4, !tbaa !476
+  store i32 %157, ptr %154, align 8, !tbaa !476
   %158 = load i64, ptr %148, align 8
   %159 = getelementptr inbounds i8, ptr %28, i64 %158
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 16
@@ -19363,7 +19363,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %54, 
   %140 = load i32, ptr %139, align 8, !tbaa !475
   %141 = and i32 %140, -75
   %142 = or disjoint i32 %141, 8
-  store i32 %142, ptr %139, align 4, !tbaa !476
+  store i32 %142, ptr %139, align 8, !tbaa !476
   %143 = load i32, ptr %80, align 8, !tbaa !490
   %144 = and i32 %143, %79
   %145 = zext i32 %144 to i64
@@ -19376,7 +19376,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %54, 
   %152 = load i32, ptr %151, align 8, !tbaa !475
   %153 = and i32 %152, -75
   %154 = or disjoint i32 %153, 2
-  store i32 %154, ptr %151, align 4, !tbaa !476
+  store i32 %154, ptr %151, align 8, !tbaa !476
   %155 = load i64, ptr %148, align 8
   %156 = getelementptr inbounds i8, ptr %146, i64 %155
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 240
@@ -19592,7 +19592,7 @@ define linkonce_odr void @_ZN6NewBdd5Cache6InsertEjjj(ptr noundef nonnull align 
   %59 = load i32, ptr %58, align 8, !tbaa !475
   %60 = and i32 %59, -75
   %61 = or disjoint i32 %60, 8
-  store i32 %61, ptr %58, align 4, !tbaa !476
+  store i32 %61, ptr %58, align 8, !tbaa !476
   %62 = load i32, ptr %7, align 8, !tbaa !490
   %63 = and i32 %62, %6
   %64 = zext i32 %63 to i64
@@ -19605,7 +19605,7 @@ define linkonce_odr void @_ZN6NewBdd5Cache6InsertEjjj(ptr noundef nonnull align 
   %71 = load i32, ptr %70, align 8, !tbaa !475
   %72 = and i32 %71, -75
   %73 = or disjoint i32 %72, 2
-  store i32 %73, ptr %70, align 4, !tbaa !476
+  store i32 %73, ptr %70, align 8, !tbaa !476
   %74 = load i64, ptr %67, align 8
   %75 = getelementptr inbounds i8, ptr %65, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 240
@@ -19847,7 +19847,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %45, %47, %49, %51
   %132 = load i32, ptr %131, align 8, !tbaa !475
   %133 = and i32 %132, -75
   %134 = or disjoint i32 %133, 8
-  store i32 %134, ptr %131, align 4, !tbaa !476
+  store i32 %134, ptr %131, align 8, !tbaa !476
   %135 = load ptr, ptr %34, align 8, !tbaa !122
   %136 = getelementptr inbounds nuw i32, ptr %135, i64 %57
   %137 = load i32, ptr %136, align 4, !tbaa !123
@@ -19867,7 +19867,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %45, %47, %49, %51
   %151 = load i32, ptr %150, align 8, !tbaa !475
   %152 = and i32 %151, -75
   %153 = or disjoint i32 %152, 2
-  store i32 %153, ptr %150, align 4, !tbaa !476
+  store i32 %153, ptr %150, align 8, !tbaa !476
   %154 = load i64, ptr %147, align 8
   %155 = getelementptr inbounds i8, ptr %145, i64 %154
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 240
@@ -45966,7 +45966,7 @@ define linkonce_odr void @_ZNK12Transduction12TransductionIN5NewTt3ManENS1_5Para
   %59 = load i32, ptr %58, align 8, !tbaa !475
   %60 = and i32 %59, -177
   %61 = or disjoint i32 %60, 32
-  store i32 %61, ptr %58, align 4, !tbaa !476
+  store i32 %61, ptr %58, align 8, !tbaa !476
   %62 = load i64, ptr %55, align 8
   %63 = getelementptr inbounds i8, ptr %28, i64 %62
   %64 = sext i32 %.0 to i64
@@ -45985,7 +45985,7 @@ define linkonce_odr void @_ZNK12Transduction12TransductionIN5NewTt3ManENS1_5Para
   %76 = load i32, ptr %75, align 8, !tbaa !475
   %77 = and i32 %76, -177
   %78 = or disjoint i32 %77, 128
-  store i32 %78, ptr %75, align 4, !tbaa !476
+  store i32 %78, ptr %75, align 8, !tbaa !476
   %79 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.72, i64 noundef 9) #25
   %80 = load ptr, ptr %28, align 8, !tbaa !29
   %81 = getelementptr i8, ptr %80, i64 -24
@@ -46100,7 +46100,7 @@ _ZNK12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE11CountLe
   %155 = load i32, ptr %154, align 8, !tbaa !475
   %156 = and i32 %155, -261
   %157 = or disjoint i32 %156, 4
-  store i32 %157, ptr %154, align 4, !tbaa !476
+  store i32 %157, ptr %154, align 8, !tbaa !476
   %158 = load i64, ptr %148, align 8
   %159 = getelementptr inbounds i8, ptr %28, i64 %158
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 16

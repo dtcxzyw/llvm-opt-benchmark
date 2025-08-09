@@ -2599,7 +2599,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17_
   call void @_ZN2cv4lineERKNS_17_InputOutputArrayENS_6Point_IiEES4_RKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %29, i64 %.sroa.0158.0.insert.insert164.pre-phi, i64 %.sroa.0150.0.insert.insert, ptr noundef nonnull align 8 dereferenceable(32) %30, i32 noundef 2, i32 noundef 8, i32 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
-  %.val84 = load i32, ptr %33, align 4, !tbaa !70
+  %.val84 = load i32, ptr %33, align 8, !tbaa !70
   %.val85 = load i32, ptr %542, align 4
   %.not.i124 = icmp ne i32 %589, %.val84
   %597 = icmp ne i32 %596, %.val85

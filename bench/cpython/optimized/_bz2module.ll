@@ -601,7 +601,7 @@ OutputBuffer_InitAndGrow.exit.thread:             ; preds = %4, %14, %16, %19
   store i64 -1, ptr %23, align 8, !tbaa !48
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %24, ptr %7, align 8, !tbaa !49
-  store i32 32768, ptr %8, align 4, !tbaa !43
+  store i32 32768, ptr %8, align 8, !tbaa !43
   store ptr %1, ptr %6, align 8, !tbaa !50
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %25, align 8, !tbaa !51
@@ -1566,7 +1566,7 @@ OutputBuffer_InitAndGrow.exit.i.i.i:              ; preds = %94
   %106 = getelementptr inbounds nuw i8, ptr %92, i64 32
   store ptr %106, ptr %90, align 8, !tbaa !49
   %107 = trunc nuw nsw i64 %.0.i.i.i.i.i to i32
-  store i32 %107, ptr %91, align 4, !tbaa !43
+  store i32 %107, ptr %91, align 8, !tbaa !43
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %110

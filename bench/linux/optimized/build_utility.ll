@@ -11872,7 +11872,7 @@ define internal noundef i32 @show_schedstat(ptr noundef %0, ptr noundef %1) #0 a
   %27 = load i64, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 2920
   %29 = getelementptr inbounds nuw i8, ptr %15, i64 2928
-  %30 = load i64, ptr %29, align 8
+  %30 = load i64, ptr %29, align 16
   %31 = load i64, ptr %28, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.38, i32 noundef %9, i32 noundef %17, i32 noundef %19, i32 noundef %21, i32 noundef %23, i32 noundef %25, i64 noundef %27, i64 noundef %30, i64 noundef %31) #42
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.15) #42

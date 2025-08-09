@@ -4149,7 +4149,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr %2356, ptr %2354, align 8, !tbaa !27
   %2357 = getelementptr inbounds nuw i8, ptr %2354, i64 8
   store i64 0, ptr %2357, align 8, !tbaa !30
-  store i8 0, ptr %2356, align 1, !tbaa !10
+  store i8 0, ptr %2356, align 8, !tbaa !10
   store ptr %2354, ptr %2353, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(ptr nonnull %74)
   call void @llvm.lifetime.start.p0(ptr nonnull %75)

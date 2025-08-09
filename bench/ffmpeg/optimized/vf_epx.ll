@@ -145,7 +145,7 @@ define internal noundef i32 @epx2_slice(ptr readnone captures(none) %0, ptr noun
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %15 = load i32, ptr %14, align 8, !tbaa !51
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %17 = load i32, ptr %16, align 4, !tbaa !52
+  %17 = load i32, ptr %16, align 8, !tbaa !52
   %18 = sdiv i32 %17, 4
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %20 = load i32, ptr %19, align 4, !tbaa !52
@@ -281,7 +281,7 @@ define internal noundef i32 @epx3_slice(ptr readnone captures(none) %0, ptr noun
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %15 = load i32, ptr %14, align 8, !tbaa !51
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %17 = load i32, ptr %16, align 4, !tbaa !52
+  %17 = load i32, ptr %16, align 8, !tbaa !52
   %18 = sdiv i32 %17, 4
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %20 = load i32, ptr %19, align 4, !tbaa !52

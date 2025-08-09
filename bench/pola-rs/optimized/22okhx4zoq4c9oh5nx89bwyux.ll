@@ -21281,7 +21281,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   %.sroa.01.0.vec.insert.i.i.i.i.i.i.i = insertelement <16 x i8> poison, i8 %83, i64 0
   %.sroa.01.15.vec.insert.i.i.i.i.i.i.i = shufflevector <16 x i8> %.sroa.01.0.vec.insert.i.i.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %86 = getelementptr inbounds i8, ptr %74, i64 -20
-  %.val.i.i.i.i.i.i.i.i = load i32, ptr %76, align 4, !range !221, !alias.scope !2190, !noalias !2203
+  %.val.i.i.i.i.i.i.i.i = load i32, ptr %76, align 8, !range !221, !alias.scope !2190, !noalias !2203
   %.val.i.i.i.i.fr.i.i.i.i = freeze i32 %.val.i.i.i.i.i.i.i.i
   %87 = trunc i32 %.val.i.i.i.i.fr.i.i.i.i to i1
   %.val1.i.i.i.us.i.i.i.i.i = load i32, ptr %86, align 4, !alias.scope !2190, !noalias !2203
@@ -21856,7 +21856,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   %.sroa.01.15.vec.insert.i.i.i.i.i.i.i = shufflevector <16 x i8> %.sroa.01.0.vec.insert.i.i.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %85 = getelementptr inbounds i8, ptr %74, i64 -16
   %86 = getelementptr inbounds i8, ptr %74, i64 -15
-  %.val.i.i.i.i.i.i.i.i = load i8, ptr %85, align 1, !range !136, !alias.scope !2271, !noalias !2284
+  %.val.i.i.i.i.i.i.i.i = load i8, ptr %85, align 8, !range !136, !alias.scope !2271, !noalias !2284
   %.val.i.i.i.i.fr.i.i.i.i = freeze i8 %.val.i.i.i.i.i.i.i.i
   %87 = trunc i8 %.val.i.i.i.i.fr.i.i.i.i to i1
   %.val1.i.i.i.us.i.i.i.i.i = load i8, ptr %86, align 1, !alias.scope !2271, !noalias !2284
@@ -23006,7 +23006,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   %.sroa.01.0.vec.insert.i.i.i.i.i.i.i = insertelement <16 x i8> poison, i8 %83, i64 0
   %.sroa.01.15.vec.insert.i.i.i.i.i.i.i = shufflevector <16 x i8> %.sroa.01.0.vec.insert.i.i.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %86 = getelementptr inbounds i8, ptr %74, i64 -20
-  %.val.i.i.i.i.i.i.i.i = load i32, ptr %76, align 4, !range !221, !alias.scope !2431, !noalias !2444
+  %.val.i.i.i.i.i.i.i.i = load i32, ptr %76, align 8, !range !221, !alias.scope !2431, !noalias !2444
   %.val.i.i.i.i.fr.i.i.i.i = freeze i32 %.val.i.i.i.i.i.i.i.i
   %87 = trunc i32 %.val.i.i.i.i.fr.i.i.i.i to i1
   %.val1.i.i.i.us.i.i.i.i.i = load i32, ptr %86, align 4, !alias.scope !2431, !noalias !2444
@@ -24156,7 +24156,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   %.sroa.01.15.vec.insert.i.i.i.i.i.i.i = shufflevector <16 x i8> %.sroa.01.0.vec.insert.i.i.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %85 = getelementptr inbounds i8, ptr %74, i64 -16
   %86 = getelementptr inbounds i8, ptr %74, i64 -15
-  %.val.i.i.i.i.i.i.i.i = load i8, ptr %85, align 1, !range !136, !alias.scope !2591, !noalias !2604
+  %.val.i.i.i.i.i.i.i.i = load i8, ptr %85, align 8, !range !136, !alias.scope !2591, !noalias !2604
   %.val.i.i.i.i.fr.i.i.i.i = freeze i8 %.val.i.i.i.i.i.i.i.i
   %87 = trunc i8 %.val.i.i.i.i.fr.i.i.i.i to i1
   %.val1.i.i.i.us.i.i.i.i.i = load i8, ptr %86, align 1, !alias.scope !2591, !noalias !2604
@@ -24731,7 +24731,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   %.sroa.01.15.vec.insert.i.i.i.i.i.i.i = shufflevector <16 x i8> %.sroa.01.0.vec.insert.i.i.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %85 = getelementptr inbounds i8, ptr %74, i64 -16
   %86 = getelementptr inbounds i8, ptr %74, i64 -14
-  %.val.i.i.i.i.i.i.i.i = load i16, ptr %85, align 2, !range !107, !alias.scope !2671, !noalias !2684
+  %.val.i.i.i.i.i.i.i.i = load i16, ptr %85, align 8, !range !107, !alias.scope !2671, !noalias !2684
   %.val.i.i.i.i.fr.i.i.i.i = freeze i16 %.val.i.i.i.i.i.i.i.i
   %87 = trunc i16 %.val.i.i.i.i.fr.i.i.i.i to i1
   %.val1.i.i.i.us.i.i.i.i.i = load i16, ptr %86, align 2, !alias.scope !2671, !noalias !2684
@@ -25881,7 +25881,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   %.sroa.01.15.vec.insert.i.i.i.i.i.i.i = shufflevector <16 x i8> %.sroa.01.0.vec.insert.i.i.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %85 = getelementptr inbounds i8, ptr %74, i64 -16
   %86 = getelementptr inbounds i8, ptr %74, i64 -14
-  %.val.i.i.i.i.i.i.i.i = load i16, ptr %85, align 2, !range !107, !alias.scope !2831, !noalias !2844
+  %.val.i.i.i.i.i.i.i.i = load i16, ptr %85, align 8, !range !107, !alias.scope !2831, !noalias !2844
   %.val.i.i.i.i.fr.i.i.i.i = freeze i16 %.val.i.i.i.i.i.i.i.i
   %87 = trunc i16 %.val.i.i.i.i.fr.i.i.i.i to i1
   %.val1.i.i.i.us.i.i.i.i.i = load i16, ptr %86, align 2, !alias.scope !2831, !noalias !2844

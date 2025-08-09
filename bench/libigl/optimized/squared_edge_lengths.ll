@@ -6155,7 +6155,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -6233,7 +6233,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -6384,7 +6384,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -6756,7 +6756,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -7106,7 +7106,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -7184,7 +7184,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -7496,7 +7496,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -7695,7 +7695,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -8094,7 +8094,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -8172,7 +8172,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -8411,7 +8411,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -8610,7 +8610,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -8960,7 +8960,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -9038,7 +9038,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -9381,7 +9381,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -9580,7 +9580,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -10016,7 +10016,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -10094,7 +10094,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -10194,7 +10194,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -10487,7 +10487,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -10837,7 +10837,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -10915,7 +10915,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -11162,7 +11162,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -11361,7 +11361,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -11711,7 +11711,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -11789,7 +11789,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -12028,7 +12028,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -12227,7 +12227,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -12577,7 +12577,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -12655,7 +12655,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -12998,7 +12998,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -13197,7 +13197,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -13614,7 +13614,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -13692,7 +13692,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -13792,7 +13792,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -14059,7 +14059,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -14518,7 +14518,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -14596,7 +14596,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -14696,7 +14696,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -15013,7 +15013,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -15449,7 +15449,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -15527,7 +15527,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -15627,7 +15627,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -15920,7 +15920,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -16270,7 +16270,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -16348,7 +16348,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -16595,7 +16595,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -16794,7 +16794,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -17230,7 +17230,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -17308,7 +17308,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -17408,7 +17408,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -17701,7 +17701,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -18051,7 +18051,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -18129,7 +18129,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -18573,7 +18573,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -18772,7 +18772,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -19122,7 +19122,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -19200,7 +19200,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -19942,7 +19942,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -20141,7 +20141,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -20491,7 +20491,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -20569,7 +20569,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -21013,7 +21013,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -21212,7 +21212,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -21562,7 +21562,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -21640,7 +21640,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -22382,7 +22382,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -22581,7 +22581,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -23015,7 +23015,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -23093,7 +23093,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -23193,7 +23193,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -23484,7 +23484,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -23901,7 +23901,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -23979,7 +23979,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -24079,7 +24079,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -24346,7 +24346,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -24804,7 +24804,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -24882,7 +24882,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -24982,7 +24982,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -25298,7 +25298,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -25734,7 +25734,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -25812,7 +25812,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -25912,7 +25912,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -26205,7 +26205,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -26622,7 +26622,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -26700,7 +26700,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -26800,7 +26800,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -27067,7 +27067,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -27526,7 +27526,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -27604,7 +27604,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -27704,7 +27704,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -28021,7 +28021,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -28438,7 +28438,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -28516,7 +28516,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -28616,7 +28616,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -28883,7 +28883,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -29233,7 +29233,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -29311,7 +29311,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -29550,7 +29550,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -29749,7 +29749,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -30099,7 +30099,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -30177,7 +30177,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -30520,7 +30520,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -30719,7 +30719,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -31069,7 +31069,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -31147,7 +31147,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -31386,7 +31386,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -31585,7 +31585,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -31935,7 +31935,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -32013,7 +32013,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -32356,7 +32356,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -32555,7 +32555,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -32989,7 +32989,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -33067,7 +33067,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -33167,7 +33167,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -33458,7 +33458,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -33808,7 +33808,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -33886,7 +33886,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -34128,7 +34128,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -34327,7 +34327,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -34726,7 +34726,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -34804,7 +34804,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -35043,7 +35043,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -35242,7 +35242,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -35592,7 +35592,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -35670,7 +35670,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -36013,7 +36013,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -36212,7 +36212,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -36562,7 +36562,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -36640,7 +36640,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -36887,7 +36887,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -37086,7 +37086,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -37290,7 +37290,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %59 = zext i32 %58 to i64
   %.idx.i.i.i.i11.i.i = mul nuw nsw i64 %59, 24
   %60 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx.i.i.i.i11.i.i
-  %61 = load <2 x double>, ptr %43, align 1, !tbaa !113
+  %61 = load <2 x double>, ptr %43, align 8, !tbaa !113
   %62 = load <2 x double>, ptr %60, align 1, !tbaa !113
   %63 = fsub <2 x double> %61, %62
   %64 = fmul <2 x double> %63, %63
@@ -37305,8 +37305,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %72 = fadd double %66, %71
   %73 = getelementptr double, ptr %57, i64 %32
   store double %72, ptr %73, align 8, !tbaa !64
-  %74 = load <2 x double>, ptr %60, align 1, !tbaa !113
-  %75 = load <2 x double>, ptr %39, align 1, !tbaa !113
+  %74 = load <2 x double>, ptr %60, align 8, !tbaa !113
+  %75 = load <2 x double>, ptr %39, align 8, !tbaa !113
   %76 = fsub <2 x double> %74, %75
   %77 = fmul <2 x double> %76, %76
   %shift72 = shufflevector <2 x double> %77, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -37513,7 +37513,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -37591,7 +37591,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -37691,7 +37691,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -37889,7 +37889,7 @@ define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tu
   %49 = zext i32 %48 to i64
   %.idx.i.i.i.i11.i.i.i.i.i.i.i = mul nuw nsw i64 %49, 24
   %50 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i.i.i11.i.i.i.i.i.i.i
-  %51 = load <2 x double>, ptr %33, align 1, !tbaa !113
+  %51 = load <2 x double>, ptr %33, align 8, !tbaa !113
   %52 = load <2 x double>, ptr %50, align 1, !tbaa !113
   %53 = fsub <2 x double> %51, %52
   %54 = fmul <2 x double> %53, %53
@@ -37904,8 +37904,8 @@ define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tu
   %62 = fadd double %56, %61
   %63 = getelementptr double, ptr %47, i64 %21
   store double %62, ptr %63, align 8, !tbaa !64
-  %64 = load <2 x double>, ptr %50, align 1, !tbaa !113
-  %65 = load <2 x double>, ptr %29, align 1, !tbaa !113
+  %64 = load <2 x double>, ptr %50, align 8, !tbaa !113
+  %65 = load <2 x double>, ptr %29, align 8, !tbaa !113
   %66 = fsub <2 x double> %64, %65
   %67 = fmul <2 x double> %66, %66
   %shift2 = shufflevector <2 x double> %67, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -37968,7 +37968,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -38175,7 +38175,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %59 = zext i32 %58 to i64
   %.idx.i.i.i.i20.i.i = mul nuw nsw i64 %59, 24
   %60 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx.i.i.i.i20.i.i
-  %61 = load <2 x double>, ptr %39, align 1, !tbaa !113
+  %61 = load <2 x double>, ptr %39, align 8, !tbaa !113
   %62 = load <2 x double>, ptr %60, align 1, !tbaa !113
   %63 = fsub <2 x double> %61, %62
   %64 = fmul <2 x double> %63, %63
@@ -38195,7 +38195,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %76 = zext i32 %75 to i64
   %.idx.i.i.i.i25.i.i = mul nuw nsw i64 %76, 24
   %77 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx.i.i.i.i25.i.i
-  %78 = load <2 x double>, ptr %39, align 1, !tbaa !113
+  %78 = load <2 x double>, ptr %39, align 8, !tbaa !113
   %79 = load <2 x double>, ptr %77, align 1, !tbaa !113
   %80 = fsub <2 x double> %78, %79
   %81 = fmul <2 x double> %80, %80
@@ -38210,8 +38210,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %89 = fadd double %83, %88
   %90 = getelementptr i8, ptr %56, i64 %.idx.i.i
   store double %89, ptr %90, align 8, !tbaa !64
-  %91 = load <2 x double>, ptr %60, align 1, !tbaa !113
-  %92 = load <2 x double>, ptr %77, align 1, !tbaa !113
+  %91 = load <2 x double>, ptr %60, align 8, !tbaa !113
+  %92 = load <2 x double>, ptr %77, align 8, !tbaa !113
   %93 = fsub <2 x double> %91, %92
   %94 = fmul <2 x double> %93, %93
   %shift73 = shufflevector <2 x double> %94, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -38224,8 +38224,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %101 = fadd double %96, %100
   %102 = getelementptr i8, ptr %56, i64 %.idx181.i.i
   store double %101, ptr %102, align 8, !tbaa !64
-  %103 = load <2 x double>, ptr %77, align 1, !tbaa !113
-  %104 = load <2 x double>, ptr %42, align 1, !tbaa !113
+  %103 = load <2 x double>, ptr %77, align 8, !tbaa !113
+  %104 = load <2 x double>, ptr %42, align 8, !tbaa !113
   %105 = fsub <2 x double> %103, %104
   %106 = fmul <2 x double> %105, %105
   %shift74 = shufflevector <2 x double> %106, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -38238,8 +38238,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %113 = fadd double %108, %112
   %114 = getelementptr i8, ptr %56, i64 %.idx182.i.i
   store double %113, ptr %114, align 8, !tbaa !64
-  %115 = load <2 x double>, ptr %42, align 1, !tbaa !113
-  %116 = load <2 x double>, ptr %60, align 1, !tbaa !113
+  %115 = load <2 x double>, ptr %42, align 8, !tbaa !113
+  %116 = load <2 x double>, ptr %60, align 8, !tbaa !113
   %117 = fsub <2 x double> %115, %116
   %118 = fmul <2 x double> %117, %117
   %shift75 = shufflevector <2 x double> %118, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -38446,7 +38446,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -38524,7 +38524,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -38624,7 +38624,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -38832,7 +38832,7 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %49 = zext i32 %48 to i64
   %.idx.i.i.i.i20.i.i.i = mul nuw nsw i64 %49, 24
   %50 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i.i.i20.i.i.i
-  %51 = load <2 x double>, ptr %29, align 1, !tbaa !113
+  %51 = load <2 x double>, ptr %29, align 8, !tbaa !113
   %52 = load <2 x double>, ptr %50, align 1, !tbaa !113
   %53 = fsub <2 x double> %51, %52
   %54 = fmul <2 x double> %53, %53
@@ -38852,7 +38852,7 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %66 = zext i32 %65 to i64
   %.idx.i.i.i.i25.i.i.i = mul nuw nsw i64 %66, 24
   %67 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i.i.i25.i.i.i
-  %68 = load <2 x double>, ptr %29, align 1, !tbaa !113
+  %68 = load <2 x double>, ptr %29, align 8, !tbaa !113
   %69 = load <2 x double>, ptr %67, align 1, !tbaa !113
   %70 = fsub <2 x double> %68, %69
   %71 = fmul <2 x double> %70, %70
@@ -38867,8 +38867,8 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %79 = fadd double %73, %78
   %80 = getelementptr i8, ptr %46, i64 %.idx.i.i.i
   store double %79, ptr %80, align 8, !tbaa !64
-  %81 = load <2 x double>, ptr %50, align 1, !tbaa !113
-  %82 = load <2 x double>, ptr %67, align 1, !tbaa !113
+  %81 = load <2 x double>, ptr %50, align 8, !tbaa !113
+  %82 = load <2 x double>, ptr %67, align 8, !tbaa !113
   %83 = fsub <2 x double> %81, %82
   %84 = fmul <2 x double> %83, %83
   %shift6 = shufflevector <2 x double> %84, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -38881,8 +38881,8 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %91 = fadd double %86, %90
   %92 = getelementptr i8, ptr %46, i64 %.idx181.i.i.i
   store double %91, ptr %92, align 8, !tbaa !64
-  %93 = load <2 x double>, ptr %67, align 1, !tbaa !113
-  %94 = load <2 x double>, ptr %32, align 1, !tbaa !113
+  %93 = load <2 x double>, ptr %67, align 8, !tbaa !113
+  %94 = load <2 x double>, ptr %32, align 8, !tbaa !113
   %95 = fsub <2 x double> %93, %94
   %96 = fmul <2 x double> %95, %95
   %shift7 = shufflevector <2 x double> %96, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -38895,8 +38895,8 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %103 = fadd double %98, %102
   %104 = getelementptr i8, ptr %46, i64 %.idx182.i.i.i
   store double %103, ptr %104, align 8, !tbaa !64
-  %105 = load <2 x double>, ptr %32, align 1, !tbaa !113
-  %106 = load <2 x double>, ptr %50, align 1, !tbaa !113
+  %105 = load <2 x double>, ptr %32, align 8, !tbaa !113
+  %106 = load <2 x double>, ptr %50, align 8, !tbaa !113
   %107 = fsub <2 x double> %105, %106
   %108 = fmul <2 x double> %107, %107
   %shift8 = shufflevector <2 x double> %108, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -38959,7 +38959,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -39395,7 +39395,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -39473,7 +39473,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -39573,7 +39573,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -39866,7 +39866,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -40216,7 +40216,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -40294,7 +40294,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -40541,7 +40541,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -40740,7 +40740,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -40942,7 +40942,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %56 = sext i32 %55 to i64
   %.idx.i.i.i.i11.i.i = mul nsw i64 %56, 24
   %57 = getelementptr inbounds i8, ptr %27, i64 %.idx.i.i.i.i11.i.i
-  %58 = load <2 x double>, ptr %40, align 1, !tbaa !113
+  %58 = load <2 x double>, ptr %40, align 8, !tbaa !113
   %59 = load <2 x double>, ptr %57, align 1, !tbaa !113
   %60 = fsub <2 x double> %58, %59
   %61 = fmul <2 x double> %60, %60
@@ -40957,8 +40957,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %69 = fadd double %63, %68
   %70 = getelementptr i8, ptr %54, i64 8
   store double %69, ptr %70, align 8, !tbaa !64
-  %71 = load <2 x double>, ptr %57, align 1, !tbaa !113
-  %72 = load <2 x double>, ptr %36, align 1, !tbaa !113
+  %71 = load <2 x double>, ptr %57, align 8, !tbaa !113
+  %72 = load <2 x double>, ptr %36, align 8, !tbaa !113
   %73 = fsub <2 x double> %71, %72
   %74 = fmul <2 x double> %73, %73
   %shift72 = shufflevector <2 x double> %74, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -41165,7 +41165,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -41243,7 +41243,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -41343,7 +41343,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -41539,7 +41539,7 @@ define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tu
   %46 = sext i32 %45 to i64
   %.idx.i.i.i.i11.i.i.i.i.i.i.i = mul nsw i64 %46, 24
   %47 = getelementptr inbounds i8, ptr %16, i64 %.idx.i.i.i.i11.i.i.i.i.i.i.i
-  %48 = load <2 x double>, ptr %30, align 1, !tbaa !113
+  %48 = load <2 x double>, ptr %30, align 8, !tbaa !113
   %49 = load <2 x double>, ptr %47, align 1, !tbaa !113
   %50 = fsub <2 x double> %48, %49
   %51 = fmul <2 x double> %50, %50
@@ -41554,8 +41554,8 @@ define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tu
   %59 = fadd double %53, %58
   %60 = getelementptr i8, ptr %44, i64 8
   store double %59, ptr %60, align 8, !tbaa !64
-  %61 = load <2 x double>, ptr %47, align 1, !tbaa !113
-  %62 = load <2 x double>, ptr %26, align 1, !tbaa !113
+  %61 = load <2 x double>, ptr %47, align 8, !tbaa !113
+  %62 = load <2 x double>, ptr %26, align 8, !tbaa !113
   %63 = fsub <2 x double> %61, %62
   %64 = fmul <2 x double> %63, %63
   %shift2 = shufflevector <2 x double> %64, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -41618,7 +41618,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -41821,7 +41821,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %56 = sext i32 %55 to i64
   %.idx.i.i.i.i20.i.i = mul nsw i64 %56, 24
   %57 = getelementptr inbounds i8, ptr %27, i64 %.idx.i.i.i.i20.i.i
-  %58 = load <2 x double>, ptr %36, align 1, !tbaa !113
+  %58 = load <2 x double>, ptr %36, align 8, !tbaa !113
   %59 = load <2 x double>, ptr %57, align 1, !tbaa !113
   %60 = fsub <2 x double> %58, %59
   %61 = fmul <2 x double> %60, %60
@@ -41841,7 +41841,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %73 = sext i32 %72 to i64
   %.idx.i.i.i.i26.i.i = mul nsw i64 %73, 24
   %74 = getelementptr inbounds i8, ptr %27, i64 %.idx.i.i.i.i26.i.i
-  %75 = load <2 x double>, ptr %36, align 1, !tbaa !113
+  %75 = load <2 x double>, ptr %36, align 8, !tbaa !113
   %76 = load <2 x double>, ptr %74, align 1, !tbaa !113
   %77 = fsub <2 x double> %75, %76
   %78 = fmul <2 x double> %77, %77
@@ -41856,8 +41856,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %86 = fadd double %80, %85
   %87 = getelementptr i8, ptr %53, i64 16
   store double %86, ptr %87, align 8, !tbaa !64
-  %88 = load <2 x double>, ptr %57, align 1, !tbaa !113
-  %89 = load <2 x double>, ptr %74, align 1, !tbaa !113
+  %88 = load <2 x double>, ptr %57, align 8, !tbaa !113
+  %89 = load <2 x double>, ptr %74, align 8, !tbaa !113
   %90 = fsub <2 x double> %88, %89
   %91 = fmul <2 x double> %90, %90
   %shift73 = shufflevector <2 x double> %91, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -41870,8 +41870,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %98 = fadd double %93, %97
   %99 = getelementptr i8, ptr %53, i64 24
   store double %98, ptr %99, align 8, !tbaa !64
-  %100 = load <2 x double>, ptr %74, align 1, !tbaa !113
-  %101 = load <2 x double>, ptr %39, align 1, !tbaa !113
+  %100 = load <2 x double>, ptr %74, align 8, !tbaa !113
+  %101 = load <2 x double>, ptr %39, align 8, !tbaa !113
   %102 = fsub <2 x double> %100, %101
   %103 = fmul <2 x double> %102, %102
   %shift74 = shufflevector <2 x double> %103, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -41884,8 +41884,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %110 = fadd double %105, %109
   %111 = getelementptr i8, ptr %53, i64 32
   store double %110, ptr %111, align 8, !tbaa !64
-  %112 = load <2 x double>, ptr %39, align 1, !tbaa !113
-  %113 = load <2 x double>, ptr %57, align 1, !tbaa !113
+  %112 = load <2 x double>, ptr %39, align 8, !tbaa !113
+  %113 = load <2 x double>, ptr %57, align 8, !tbaa !113
   %114 = fsub <2 x double> %112, %113
   %115 = fmul <2 x double> %114, %114
   %shift75 = shufflevector <2 x double> %115, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -42092,7 +42092,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -42170,7 +42170,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -42270,7 +42270,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -42474,7 +42474,7 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %46 = sext i32 %45 to i64
   %.idx.i.i.i.i20.i.i.i = mul nsw i64 %46, 24
   %47 = getelementptr inbounds i8, ptr %16, i64 %.idx.i.i.i.i20.i.i.i
-  %48 = load <2 x double>, ptr %26, align 1, !tbaa !113
+  %48 = load <2 x double>, ptr %26, align 8, !tbaa !113
   %49 = load <2 x double>, ptr %47, align 1, !tbaa !113
   %50 = fsub <2 x double> %48, %49
   %51 = fmul <2 x double> %50, %50
@@ -42494,7 +42494,7 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %63 = sext i32 %62 to i64
   %.idx.i.i.i.i26.i.i.i = mul nsw i64 %63, 24
   %64 = getelementptr inbounds i8, ptr %16, i64 %.idx.i.i.i.i26.i.i.i
-  %65 = load <2 x double>, ptr %26, align 1, !tbaa !113
+  %65 = load <2 x double>, ptr %26, align 8, !tbaa !113
   %66 = load <2 x double>, ptr %64, align 1, !tbaa !113
   %67 = fsub <2 x double> %65, %66
   %68 = fmul <2 x double> %67, %67
@@ -42509,8 +42509,8 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %76 = fadd double %70, %75
   %77 = getelementptr i8, ptr %43, i64 16
   store double %76, ptr %77, align 8, !tbaa !64
-  %78 = load <2 x double>, ptr %47, align 1, !tbaa !113
-  %79 = load <2 x double>, ptr %64, align 1, !tbaa !113
+  %78 = load <2 x double>, ptr %47, align 8, !tbaa !113
+  %79 = load <2 x double>, ptr %64, align 8, !tbaa !113
   %80 = fsub <2 x double> %78, %79
   %81 = fmul <2 x double> %80, %80
   %shift6 = shufflevector <2 x double> %81, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -42523,8 +42523,8 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %88 = fadd double %83, %87
   %89 = getelementptr i8, ptr %43, i64 24
   store double %88, ptr %89, align 8, !tbaa !64
-  %90 = load <2 x double>, ptr %64, align 1, !tbaa !113
-  %91 = load <2 x double>, ptr %29, align 1, !tbaa !113
+  %90 = load <2 x double>, ptr %64, align 8, !tbaa !113
+  %91 = load <2 x double>, ptr %29, align 8, !tbaa !113
   %92 = fsub <2 x double> %90, %91
   %93 = fmul <2 x double> %92, %92
   %shift7 = shufflevector <2 x double> %93, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -42537,8 +42537,8 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %100 = fadd double %95, %99
   %101 = getelementptr i8, ptr %43, i64 32
   store double %100, ptr %101, align 8, !tbaa !64
-  %102 = load <2 x double>, ptr %29, align 1, !tbaa !113
-  %103 = load <2 x double>, ptr %47, align 1, !tbaa !113
+  %102 = load <2 x double>, ptr %29, align 8, !tbaa !113
+  %103 = load <2 x double>, ptr %47, align 8, !tbaa !113
   %104 = fsub <2 x double> %102, %103
   %105 = fmul <2 x double> %104, %104
   %shift8 = shufflevector <2 x double> %105, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -42601,7 +42601,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -42803,7 +42803,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %57 = zext i32 %56 to i64
   %.idx.i.i.i.i11.i.i = mul nuw nsw i64 %57, 24
   %58 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx.i.i.i.i11.i.i
-  %59 = load <2 x double>, ptr %41, align 1, !tbaa !113
+  %59 = load <2 x double>, ptr %41, align 8, !tbaa !113
   %60 = load <2 x double>, ptr %58, align 1, !tbaa !113
   %61 = fsub <2 x double> %59, %60
   %62 = fmul <2 x double> %61, %61
@@ -42818,8 +42818,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %70 = fadd double %64, %69
   %71 = getelementptr i8, ptr %55, i64 8
   store double %70, ptr %71, align 8, !tbaa !64
-  %72 = load <2 x double>, ptr %58, align 1, !tbaa !113
-  %73 = load <2 x double>, ptr %37, align 1, !tbaa !113
+  %72 = load <2 x double>, ptr %58, align 8, !tbaa !113
+  %73 = load <2 x double>, ptr %37, align 8, !tbaa !113
   %74 = fsub <2 x double> %72, %73
   %75 = fmul <2 x double> %74, %74
   %shift72 = shufflevector <2 x double> %75, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -43026,7 +43026,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -43104,7 +43104,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -43204,7 +43204,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -43400,7 +43400,7 @@ define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tu
   %47 = zext i32 %46 to i64
   %.idx.i.i.i.i11.i.i.i.i.i.i.i = mul nuw nsw i64 %47, 24
   %48 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i.i.i11.i.i.i.i.i.i.i
-  %49 = load <2 x double>, ptr %31, align 1, !tbaa !113
+  %49 = load <2 x double>, ptr %31, align 8, !tbaa !113
   %50 = load <2 x double>, ptr %48, align 1, !tbaa !113
   %51 = fsub <2 x double> %49, %50
   %52 = fmul <2 x double> %51, %51
@@ -43415,8 +43415,8 @@ define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tu
   %60 = fadd double %54, %59
   %61 = getelementptr i8, ptr %45, i64 8
   store double %60, ptr %61, align 8, !tbaa !64
-  %62 = load <2 x double>, ptr %48, align 1, !tbaa !113
-  %63 = load <2 x double>, ptr %27, align 1, !tbaa !113
+  %62 = load <2 x double>, ptr %48, align 8, !tbaa !113
+  %63 = load <2 x double>, ptr %27, align 8, !tbaa !113
   %64 = fsub <2 x double> %62, %63
   %65 = fmul <2 x double> %64, %64
   %shift2 = shufflevector <2 x double> %65, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -43479,7 +43479,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -43681,7 +43681,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %57 = zext i32 %56 to i64
   %.idx.i.i.i.i20.i.i = mul nuw nsw i64 %57, 24
   %58 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx.i.i.i.i20.i.i
-  %59 = load <2 x double>, ptr %37, align 1, !tbaa !113
+  %59 = load <2 x double>, ptr %37, align 8, !tbaa !113
   %60 = load <2 x double>, ptr %58, align 1, !tbaa !113
   %61 = fsub <2 x double> %59, %60
   %62 = fmul <2 x double> %61, %61
@@ -43701,7 +43701,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %74 = zext i32 %73 to i64
   %.idx.i.i.i.i26.i.i = mul nuw nsw i64 %74, 24
   %75 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx.i.i.i.i26.i.i
-  %76 = load <2 x double>, ptr %37, align 1, !tbaa !113
+  %76 = load <2 x double>, ptr %37, align 8, !tbaa !113
   %77 = load <2 x double>, ptr %75, align 1, !tbaa !113
   %78 = fsub <2 x double> %76, %77
   %79 = fmul <2 x double> %78, %78
@@ -43716,8 +43716,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %87 = fadd double %81, %86
   %88 = getelementptr i8, ptr %54, i64 16
   store double %87, ptr %88, align 8, !tbaa !64
-  %89 = load <2 x double>, ptr %58, align 1, !tbaa !113
-  %90 = load <2 x double>, ptr %75, align 1, !tbaa !113
+  %89 = load <2 x double>, ptr %58, align 8, !tbaa !113
+  %90 = load <2 x double>, ptr %75, align 8, !tbaa !113
   %91 = fsub <2 x double> %89, %90
   %92 = fmul <2 x double> %91, %91
   %shift73 = shufflevector <2 x double> %92, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -43730,8 +43730,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %99 = fadd double %94, %98
   %100 = getelementptr i8, ptr %54, i64 24
   store double %99, ptr %100, align 8, !tbaa !64
-  %101 = load <2 x double>, ptr %75, align 1, !tbaa !113
-  %102 = load <2 x double>, ptr %40, align 1, !tbaa !113
+  %101 = load <2 x double>, ptr %75, align 8, !tbaa !113
+  %102 = load <2 x double>, ptr %40, align 8, !tbaa !113
   %103 = fsub <2 x double> %101, %102
   %104 = fmul <2 x double> %103, %103
   %shift74 = shufflevector <2 x double> %104, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -43744,8 +43744,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %111 = fadd double %106, %110
   %112 = getelementptr i8, ptr %54, i64 32
   store double %111, ptr %112, align 8, !tbaa !64
-  %113 = load <2 x double>, ptr %40, align 1, !tbaa !113
-  %114 = load <2 x double>, ptr %58, align 1, !tbaa !113
+  %113 = load <2 x double>, ptr %40, align 8, !tbaa !113
+  %114 = load <2 x double>, ptr %58, align 8, !tbaa !113
   %115 = fsub <2 x double> %113, %114
   %116 = fmul <2 x double> %115, %115
   %shift75 = shufflevector <2 x double> %116, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -43952,7 +43952,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -44030,7 +44030,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -44130,7 +44130,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -44333,7 +44333,7 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %47 = zext i32 %46 to i64
   %.idx.i.i.i.i20.i.i.i = mul nuw nsw i64 %47, 24
   %48 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i.i.i20.i.i.i
-  %49 = load <2 x double>, ptr %27, align 1, !tbaa !113
+  %49 = load <2 x double>, ptr %27, align 8, !tbaa !113
   %50 = load <2 x double>, ptr %48, align 1, !tbaa !113
   %51 = fsub <2 x double> %49, %50
   %52 = fmul <2 x double> %51, %51
@@ -44353,7 +44353,7 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %64 = zext i32 %63 to i64
   %.idx.i.i.i.i26.i.i.i = mul nuw nsw i64 %64, 24
   %65 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i.i.i26.i.i.i
-  %66 = load <2 x double>, ptr %27, align 1, !tbaa !113
+  %66 = load <2 x double>, ptr %27, align 8, !tbaa !113
   %67 = load <2 x double>, ptr %65, align 1, !tbaa !113
   %68 = fsub <2 x double> %66, %67
   %69 = fmul <2 x double> %68, %68
@@ -44368,8 +44368,8 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %77 = fadd double %71, %76
   %78 = getelementptr i8, ptr %44, i64 16
   store double %77, ptr %78, align 8, !tbaa !64
-  %79 = load <2 x double>, ptr %48, align 1, !tbaa !113
-  %80 = load <2 x double>, ptr %65, align 1, !tbaa !113
+  %79 = load <2 x double>, ptr %48, align 8, !tbaa !113
+  %80 = load <2 x double>, ptr %65, align 8, !tbaa !113
   %81 = fsub <2 x double> %79, %80
   %82 = fmul <2 x double> %81, %81
   %shift6 = shufflevector <2 x double> %82, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -44382,8 +44382,8 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %89 = fadd double %84, %88
   %90 = getelementptr i8, ptr %44, i64 24
   store double %89, ptr %90, align 8, !tbaa !64
-  %91 = load <2 x double>, ptr %65, align 1, !tbaa !113
-  %92 = load <2 x double>, ptr %30, align 1, !tbaa !113
+  %91 = load <2 x double>, ptr %65, align 8, !tbaa !113
+  %92 = load <2 x double>, ptr %30, align 8, !tbaa !113
   %93 = fsub <2 x double> %91, %92
   %94 = fmul <2 x double> %93, %93
   %shift7 = shufflevector <2 x double> %94, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -44396,8 +44396,8 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %101 = fadd double %96, %100
   %102 = getelementptr i8, ptr %44, i64 32
   store double %101, ptr %102, align 8, !tbaa !64
-  %103 = load <2 x double>, ptr %30, align 1, !tbaa !113
-  %104 = load <2 x double>, ptr %48, align 1, !tbaa !113
+  %103 = load <2 x double>, ptr %30, align 8, !tbaa !113
+  %104 = load <2 x double>, ptr %48, align 8, !tbaa !113
   %105 = fsub <2 x double> %103, %104
   %106 = fmul <2 x double> %105, %105
   %shift8 = shufflevector <2 x double> %106, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -44460,7 +44460,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -44894,7 +44894,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -44972,7 +44972,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -45072,7 +45072,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -45363,7 +45363,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -45713,7 +45713,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -45791,7 +45791,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -46034,7 +46034,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -46233,7 +46233,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -46669,7 +46669,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -46747,7 +46747,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -46847,7 +46847,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -47140,7 +47140,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -47490,7 +47490,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -47568,7 +47568,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -47815,7 +47815,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -48014,7 +48014,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -48218,7 +48218,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %58 = sext i32 %57 to i64
   %.idx.i.i.i.i11.i.i = mul nsw i64 %58, 24
   %59 = getelementptr inbounds i8, ptr %27, i64 %.idx.i.i.i.i11.i.i
-  %60 = load <2 x double>, ptr %42, align 1, !tbaa !113
+  %60 = load <2 x double>, ptr %42, align 8, !tbaa !113
   %61 = load <2 x double>, ptr %59, align 1, !tbaa !113
   %62 = fsub <2 x double> %60, %61
   %63 = fmul <2 x double> %62, %62
@@ -48233,8 +48233,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %71 = fadd double %65, %70
   %72 = getelementptr double, ptr %56, i64 %32
   store double %71, ptr %72, align 8, !tbaa !64
-  %73 = load <2 x double>, ptr %59, align 1, !tbaa !113
-  %74 = load <2 x double>, ptr %38, align 1, !tbaa !113
+  %73 = load <2 x double>, ptr %59, align 8, !tbaa !113
+  %74 = load <2 x double>, ptr %38, align 8, !tbaa !113
   %75 = fsub <2 x double> %73, %74
   %76 = fmul <2 x double> %75, %75
   %shift72 = shufflevector <2 x double> %76, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -48441,7 +48441,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -48519,7 +48519,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -48619,7 +48619,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -48817,7 +48817,7 @@ define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tu
   %48 = sext i32 %47 to i64
   %.idx.i.i.i.i11.i.i.i.i.i.i.i = mul nsw i64 %48, 24
   %49 = getelementptr inbounds i8, ptr %16, i64 %.idx.i.i.i.i11.i.i.i.i.i.i.i
-  %50 = load <2 x double>, ptr %32, align 1, !tbaa !113
+  %50 = load <2 x double>, ptr %32, align 8, !tbaa !113
   %51 = load <2 x double>, ptr %49, align 1, !tbaa !113
   %52 = fsub <2 x double> %50, %51
   %53 = fmul <2 x double> %52, %52
@@ -48832,8 +48832,8 @@ define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tu
   %61 = fadd double %55, %60
   %62 = getelementptr double, ptr %46, i64 %21
   store double %61, ptr %62, align 8, !tbaa !64
-  %63 = load <2 x double>, ptr %49, align 1, !tbaa !113
-  %64 = load <2 x double>, ptr %28, align 1, !tbaa !113
+  %63 = load <2 x double>, ptr %49, align 8, !tbaa !113
+  %64 = load <2 x double>, ptr %28, align 8, !tbaa !113
   %65 = fsub <2 x double> %63, %64
   %66 = fmul <2 x double> %65, %65
   %shift2 = shufflevector <2 x double> %66, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -48896,7 +48896,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -49104,7 +49104,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %58 = sext i32 %57 to i64
   %.idx.i.i.i.i20.i.i = mul nsw i64 %58, 24
   %59 = getelementptr inbounds i8, ptr %27, i64 %.idx.i.i.i.i20.i.i
-  %60 = load <2 x double>, ptr %38, align 1, !tbaa !113
+  %60 = load <2 x double>, ptr %38, align 8, !tbaa !113
   %61 = load <2 x double>, ptr %59, align 1, !tbaa !113
   %62 = fsub <2 x double> %60, %61
   %63 = fmul <2 x double> %62, %62
@@ -49124,7 +49124,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %75 = sext i32 %74 to i64
   %.idx.i.i.i.i25.i.i = mul nsw i64 %75, 24
   %76 = getelementptr inbounds i8, ptr %27, i64 %.idx.i.i.i.i25.i.i
-  %77 = load <2 x double>, ptr %38, align 1, !tbaa !113
+  %77 = load <2 x double>, ptr %38, align 8, !tbaa !113
   %78 = load <2 x double>, ptr %76, align 1, !tbaa !113
   %79 = fsub <2 x double> %77, %78
   %80 = fmul <2 x double> %79, %79
@@ -49139,8 +49139,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %88 = fadd double %82, %87
   %89 = getelementptr i8, ptr %55, i64 %.idx182.i.i
   store double %88, ptr %89, align 8, !tbaa !64
-  %90 = load <2 x double>, ptr %59, align 1, !tbaa !113
-  %91 = load <2 x double>, ptr %76, align 1, !tbaa !113
+  %90 = load <2 x double>, ptr %59, align 8, !tbaa !113
+  %91 = load <2 x double>, ptr %76, align 8, !tbaa !113
   %92 = fsub <2 x double> %90, %91
   %93 = fmul <2 x double> %92, %92
   %shift73 = shufflevector <2 x double> %93, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -49153,8 +49153,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %100 = fadd double %95, %99
   %101 = getelementptr i8, ptr %55, i64 %.idx183.i.i
   store double %100, ptr %101, align 8, !tbaa !64
-  %102 = load <2 x double>, ptr %76, align 1, !tbaa !113
-  %103 = load <2 x double>, ptr %41, align 1, !tbaa !113
+  %102 = load <2 x double>, ptr %76, align 8, !tbaa !113
+  %103 = load <2 x double>, ptr %41, align 8, !tbaa !113
   %104 = fsub <2 x double> %102, %103
   %105 = fmul <2 x double> %104, %104
   %shift74 = shufflevector <2 x double> %105, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -49167,8 +49167,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %112 = fadd double %107, %111
   %113 = getelementptr i8, ptr %55, i64 %.idx184.i.i
   store double %112, ptr %113, align 8, !tbaa !64
-  %114 = load <2 x double>, ptr %41, align 1, !tbaa !113
-  %115 = load <2 x double>, ptr %59, align 1, !tbaa !113
+  %114 = load <2 x double>, ptr %41, align 8, !tbaa !113
+  %115 = load <2 x double>, ptr %59, align 8, !tbaa !113
   %116 = fsub <2 x double> %114, %115
   %117 = fmul <2 x double> %116, %116
   %shift75 = shufflevector <2 x double> %117, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -49375,7 +49375,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -49453,7 +49453,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -49553,7 +49553,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -49762,7 +49762,7 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %48 = sext i32 %47 to i64
   %.idx.i.i.i.i20.i.i.i = mul nsw i64 %48, 24
   %49 = getelementptr inbounds i8, ptr %16, i64 %.idx.i.i.i.i20.i.i.i
-  %50 = load <2 x double>, ptr %28, align 1, !tbaa !113
+  %50 = load <2 x double>, ptr %28, align 8, !tbaa !113
   %51 = load <2 x double>, ptr %49, align 1, !tbaa !113
   %52 = fsub <2 x double> %50, %51
   %53 = fmul <2 x double> %52, %52
@@ -49782,7 +49782,7 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %65 = sext i32 %64 to i64
   %.idx.i.i.i.i25.i.i.i = mul nsw i64 %65, 24
   %66 = getelementptr inbounds i8, ptr %16, i64 %.idx.i.i.i.i25.i.i.i
-  %67 = load <2 x double>, ptr %28, align 1, !tbaa !113
+  %67 = load <2 x double>, ptr %28, align 8, !tbaa !113
   %68 = load <2 x double>, ptr %66, align 1, !tbaa !113
   %69 = fsub <2 x double> %67, %68
   %70 = fmul <2 x double> %69, %69
@@ -49797,8 +49797,8 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %78 = fadd double %72, %77
   %79 = getelementptr i8, ptr %45, i64 %.idx182.i.i.i
   store double %78, ptr %79, align 8, !tbaa !64
-  %80 = load <2 x double>, ptr %49, align 1, !tbaa !113
-  %81 = load <2 x double>, ptr %66, align 1, !tbaa !113
+  %80 = load <2 x double>, ptr %49, align 8, !tbaa !113
+  %81 = load <2 x double>, ptr %66, align 8, !tbaa !113
   %82 = fsub <2 x double> %80, %81
   %83 = fmul <2 x double> %82, %82
   %shift6 = shufflevector <2 x double> %83, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -49811,8 +49811,8 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %90 = fadd double %85, %89
   %91 = getelementptr i8, ptr %45, i64 %.idx183.i.i.i
   store double %90, ptr %91, align 8, !tbaa !64
-  %92 = load <2 x double>, ptr %66, align 1, !tbaa !113
-  %93 = load <2 x double>, ptr %31, align 1, !tbaa !113
+  %92 = load <2 x double>, ptr %66, align 8, !tbaa !113
+  %93 = load <2 x double>, ptr %31, align 8, !tbaa !113
   %94 = fsub <2 x double> %92, %93
   %95 = fmul <2 x double> %94, %94
   %shift7 = shufflevector <2 x double> %95, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -49825,8 +49825,8 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %102 = fadd double %97, %101
   %103 = getelementptr i8, ptr %45, i64 %.idx184.i.i.i
   store double %102, ptr %103, align 8, !tbaa !64
-  %104 = load <2 x double>, ptr %31, align 1, !tbaa !113
-  %105 = load <2 x double>, ptr %49, align 1, !tbaa !113
+  %104 = load <2 x double>, ptr %31, align 8, !tbaa !113
+  %105 = load <2 x double>, ptr %49, align 8, !tbaa !113
   %106 = fsub <2 x double> %104, %105
   %107 = fmul <2 x double> %106, %106
   %shift8 = shufflevector <2 x double> %107, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -49889,7 +49889,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -50325,7 +50325,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -50403,7 +50403,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -50503,7 +50503,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -50796,7 +50796,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -51146,7 +51146,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -51224,7 +51224,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -51472,7 +51472,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -51671,7 +51671,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -52107,7 +52107,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -52185,7 +52185,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -52285,7 +52285,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -52578,7 +52578,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -52928,7 +52928,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -53006,7 +53006,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -53253,7 +53253,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -53452,7 +53452,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -53656,7 +53656,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %59 = zext i32 %58 to i64
   %.idx.i.i.i.i11.i.i = mul nuw nsw i64 %59, 24
   %60 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx.i.i.i.i11.i.i
-  %61 = load <2 x double>, ptr %43, align 1, !tbaa !113
+  %61 = load <2 x double>, ptr %43, align 8, !tbaa !113
   %62 = load <2 x double>, ptr %60, align 1, !tbaa !113
   %63 = fsub <2 x double> %61, %62
   %64 = fmul <2 x double> %63, %63
@@ -53671,8 +53671,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %72 = fadd double %66, %71
   %73 = getelementptr double, ptr %57, i64 %32
   store double %72, ptr %73, align 8, !tbaa !64
-  %74 = load <2 x double>, ptr %60, align 1, !tbaa !113
-  %75 = load <2 x double>, ptr %39, align 1, !tbaa !113
+  %74 = load <2 x double>, ptr %60, align 8, !tbaa !113
+  %75 = load <2 x double>, ptr %39, align 8, !tbaa !113
   %76 = fsub <2 x double> %74, %75
   %77 = fmul <2 x double> %76, %76
   %shift72 = shufflevector <2 x double> %77, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -53879,7 +53879,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -53957,7 +53957,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -54057,7 +54057,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -54255,7 +54255,7 @@ define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tu
   %49 = zext i32 %48 to i64
   %.idx.i.i.i.i11.i.i.i.i.i.i.i = mul nuw nsw i64 %49, 24
   %50 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i.i.i11.i.i.i.i.i.i.i
-  %51 = load <2 x double>, ptr %33, align 1, !tbaa !113
+  %51 = load <2 x double>, ptr %33, align 8, !tbaa !113
   %52 = load <2 x double>, ptr %50, align 1, !tbaa !113
   %53 = fsub <2 x double> %51, %52
   %54 = fmul <2 x double> %53, %53
@@ -54270,8 +54270,8 @@ define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tu
   %62 = fadd double %56, %61
   %63 = getelementptr double, ptr %47, i64 %21
   store double %62, ptr %63, align 8, !tbaa !64
-  %64 = load <2 x double>, ptr %50, align 1, !tbaa !113
-  %65 = load <2 x double>, ptr %29, align 1, !tbaa !113
+  %64 = load <2 x double>, ptr %50, align 8, !tbaa !113
+  %65 = load <2 x double>, ptr %29, align 8, !tbaa !113
   %66 = fsub <2 x double> %64, %65
   %67 = fmul <2 x double> %66, %66
   %shift2 = shufflevector <2 x double> %67, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -54334,7 +54334,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -54541,7 +54541,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %59 = zext i32 %58 to i64
   %.idx.i.i.i.i20.i.i = mul nuw nsw i64 %59, 24
   %60 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx.i.i.i.i20.i.i
-  %61 = load <2 x double>, ptr %39, align 1, !tbaa !113
+  %61 = load <2 x double>, ptr %39, align 8, !tbaa !113
   %62 = load <2 x double>, ptr %60, align 1, !tbaa !113
   %63 = fsub <2 x double> %61, %62
   %64 = fmul <2 x double> %63, %63
@@ -54561,7 +54561,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %76 = zext i32 %75 to i64
   %.idx.i.i.i.i25.i.i = mul nuw nsw i64 %76, 24
   %77 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx.i.i.i.i25.i.i
-  %78 = load <2 x double>, ptr %39, align 1, !tbaa !113
+  %78 = load <2 x double>, ptr %39, align 8, !tbaa !113
   %79 = load <2 x double>, ptr %77, align 1, !tbaa !113
   %80 = fsub <2 x double> %78, %79
   %81 = fmul <2 x double> %80, %80
@@ -54576,8 +54576,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %89 = fadd double %83, %88
   %90 = getelementptr i8, ptr %56, i64 %.idx.i.i
   store double %89, ptr %90, align 8, !tbaa !64
-  %91 = load <2 x double>, ptr %60, align 1, !tbaa !113
-  %92 = load <2 x double>, ptr %77, align 1, !tbaa !113
+  %91 = load <2 x double>, ptr %60, align 8, !tbaa !113
+  %92 = load <2 x double>, ptr %77, align 8, !tbaa !113
   %93 = fsub <2 x double> %91, %92
   %94 = fmul <2 x double> %93, %93
   %shift73 = shufflevector <2 x double> %94, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -54590,8 +54590,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %101 = fadd double %96, %100
   %102 = getelementptr i8, ptr %56, i64 %.idx181.i.i
   store double %101, ptr %102, align 8, !tbaa !64
-  %103 = load <2 x double>, ptr %77, align 1, !tbaa !113
-  %104 = load <2 x double>, ptr %42, align 1, !tbaa !113
+  %103 = load <2 x double>, ptr %77, align 8, !tbaa !113
+  %104 = load <2 x double>, ptr %42, align 8, !tbaa !113
   %105 = fsub <2 x double> %103, %104
   %106 = fmul <2 x double> %105, %105
   %shift74 = shufflevector <2 x double> %106, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -54604,8 +54604,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %113 = fadd double %108, %112
   %114 = getelementptr i8, ptr %56, i64 %.idx182.i.i
   store double %113, ptr %114, align 8, !tbaa !64
-  %115 = load <2 x double>, ptr %42, align 1, !tbaa !113
-  %116 = load <2 x double>, ptr %60, align 1, !tbaa !113
+  %115 = load <2 x double>, ptr %42, align 8, !tbaa !113
+  %116 = load <2 x double>, ptr %60, align 8, !tbaa !113
   %117 = fsub <2 x double> %115, %116
   %118 = fmul <2 x double> %117, %117
   %shift75 = shufflevector <2 x double> %118, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -54812,7 +54812,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -54890,7 +54890,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -54990,7 +54990,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -55198,7 +55198,7 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %49 = zext i32 %48 to i64
   %.idx.i.i.i.i20.i.i.i = mul nuw nsw i64 %49, 24
   %50 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i.i.i20.i.i.i
-  %51 = load <2 x double>, ptr %29, align 1, !tbaa !113
+  %51 = load <2 x double>, ptr %29, align 8, !tbaa !113
   %52 = load <2 x double>, ptr %50, align 1, !tbaa !113
   %53 = fsub <2 x double> %51, %52
   %54 = fmul <2 x double> %53, %53
@@ -55218,7 +55218,7 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %66 = zext i32 %65 to i64
   %.idx.i.i.i.i25.i.i.i = mul nuw nsw i64 %66, 24
   %67 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i.i.i25.i.i.i
-  %68 = load <2 x double>, ptr %29, align 1, !tbaa !113
+  %68 = load <2 x double>, ptr %29, align 8, !tbaa !113
   %69 = load <2 x double>, ptr %67, align 1, !tbaa !113
   %70 = fsub <2 x double> %68, %69
   %71 = fmul <2 x double> %70, %70
@@ -55233,8 +55233,8 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %79 = fadd double %73, %78
   %80 = getelementptr i8, ptr %46, i64 %.idx.i.i.i
   store double %79, ptr %80, align 8, !tbaa !64
-  %81 = load <2 x double>, ptr %50, align 1, !tbaa !113
-  %82 = load <2 x double>, ptr %67, align 1, !tbaa !113
+  %81 = load <2 x double>, ptr %50, align 8, !tbaa !113
+  %82 = load <2 x double>, ptr %67, align 8, !tbaa !113
   %83 = fsub <2 x double> %81, %82
   %84 = fmul <2 x double> %83, %83
   %shift6 = shufflevector <2 x double> %84, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -55247,8 +55247,8 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %91 = fadd double %86, %90
   %92 = getelementptr i8, ptr %46, i64 %.idx181.i.i.i
   store double %91, ptr %92, align 8, !tbaa !64
-  %93 = load <2 x double>, ptr %67, align 1, !tbaa !113
-  %94 = load <2 x double>, ptr %32, align 1, !tbaa !113
+  %93 = load <2 x double>, ptr %67, align 8, !tbaa !113
+  %94 = load <2 x double>, ptr %32, align 8, !tbaa !113
   %95 = fsub <2 x double> %93, %94
   %96 = fmul <2 x double> %95, %95
   %shift7 = shufflevector <2 x double> %96, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -55261,8 +55261,8 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN3igl12parallel_forIiZ
   %103 = fadd double %98, %102
   %104 = getelementptr i8, ptr %46, i64 %.idx182.i.i.i
   store double %103, ptr %104, align 8, !tbaa !64
-  %105 = load <2 x double>, ptr %32, align 1, !tbaa !113
-  %106 = load <2 x double>, ptr %50, align 1, !tbaa !113
+  %105 = load <2 x double>, ptr %32, align 8, !tbaa !113
+  %106 = load <2 x double>, ptr %50, align 8, !tbaa !113
   %107 = fsub <2 x double> %105, %106
   %108 = fmul <2 x double> %107, %107
   %shift8 = shufflevector <2 x double> %108, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -55325,7 +55325,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -55527,7 +55527,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %56 = sext i32 %55 to i64
   %.idx.i.i.i.i14.i.i = mul nsw i64 %56, 24
   %57 = getelementptr inbounds i8, ptr %25, i64 %.idx.i.i.i.i14.i.i
-  %58 = load <2 x double>, ptr %40, align 1, !tbaa !113
+  %58 = load <2 x double>, ptr %40, align 8, !tbaa !113
   %59 = load <2 x double>, ptr %57, align 1, !tbaa !113
   %60 = fsub <2 x double> %58, %59
   %61 = fmul <2 x double> %60, %60
@@ -55542,8 +55542,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12p
   %69 = fadd double %63, %68
   %70 = getelementptr double, ptr %54, i64 %30
   store double %69, ptr %70, align 8, !tbaa !64
-  %71 = load <2 x double>, ptr %57, align 1, !tbaa !113
-  %72 = load <2 x double>, ptr %36, align 1, !tbaa !113
+  %71 = load <2 x double>, ptr %57, align 8, !tbaa !113
+  %72 = load <2 x double>, ptr %36, align 8, !tbaa !113
   %73 = fsub <2 x double> %71, %72
   %74 = fmul <2 x double> %73, %73
   %shift72 = shufflevector <2 x double> %74, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -55750,7 +55750,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -55828,7 +55828,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -55928,7 +55928,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -56124,7 +56124,7 @@ define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tu
   %46 = sext i32 %45 to i64
   %.idx.i.i.i.i14.i.i.i.i.i.i.i = mul nsw i64 %46, 24
   %47 = getelementptr inbounds i8, ptr %14, i64 %.idx.i.i.i.i14.i.i.i.i.i.i.i
-  %48 = load <2 x double>, ptr %30, align 1, !tbaa !113
+  %48 = load <2 x double>, ptr %30, align 8, !tbaa !113
   %49 = load <2 x double>, ptr %47, align 1, !tbaa !113
   %50 = fsub <2 x double> %48, %49
   %51 = fmul <2 x double> %50, %50
@@ -56139,8 +56139,8 @@ define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tu
   %59 = fadd double %53, %58
   %60 = getelementptr double, ptr %44, i64 %19
   store double %59, ptr %60, align 8, !tbaa !64
-  %61 = load <2 x double>, ptr %47, align 1, !tbaa !113
-  %62 = load <2 x double>, ptr %26, align 1, !tbaa !113
+  %61 = load <2 x double>, ptr %47, align 8, !tbaa !113
+  %62 = load <2 x double>, ptr %26, align 8, !tbaa !113
   %63 = fsub <2 x double> %61, %62
   %64 = fmul <2 x double> %63, %63
   %shift2 = shufflevector <2 x double> %64, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -56203,7 +56203,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -56637,7 +56637,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -56715,7 +56715,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -56815,7 +56815,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -57106,7 +57106,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -57588,7 +57588,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -57666,7 +57666,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -57766,7 +57766,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -58127,7 +58127,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -58477,7 +58477,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -58555,7 +58555,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store i64 %14, ptr %13, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %3, align 4, !tbaa !28
-  store i32 %16, ptr %15, align 4, !tbaa !289
+  store i32 %16, ptr %15, align 8, !tbaa !289
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %18 = load i32, ptr %2, align 4, !tbaa !28
   store i32 %18, ptr %17, align 4, !tbaa !291
@@ -58867,7 +58867,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291
@@ -59069,7 +59069,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
   store i64 %28, ptr %27, align 8, !tbaa !287
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  store i32 %30, ptr %29, align 4, !tbaa !289
+  store i32 %30, ptr %29, align 8, !tbaa !289
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %32 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %32, ptr %31, align 4, !tbaa !291

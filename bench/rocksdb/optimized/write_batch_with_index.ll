@@ -663,7 +663,7 @@ _ZNK7rocksdb16WBWIIteratorImpl16BeforeLowerBoundEPKNS_5SliceE.exit.thread: ; pre
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load ptr, ptr %30, align 8, !tbaa !116
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  %33 = load atomic i32, ptr %32 monotonic, align 4
+  %33 = load atomic i32, ptr %32 monotonic, align 8
   %34 = add nsw i32 %33, -1
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 8
   br label %36
@@ -829,7 +829,7 @@ define linkonce_odr noundef nonnull align 4 dereferenceable(8) ptr @_ZNSt13unord
   %24 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
   store ptr null, ptr %24, align 8, !tbaa !126
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store i32 %3, ptr %25, align 4, !tbaa !128
+  store i32 %3, ptr %25, align 8, !tbaa !128
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 12
   store i64 0, ptr %26, align 4
   %27 = invoke ptr @_ZNSt10_HashtableIjSt4pairIKjN7rocksdb19WriteBatchWithIndex6CFStatEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %7, i64 noundef %4, ptr noundef nonnull %24, i64 noundef 1)
@@ -1068,7 +1068,7 @@ _ZN7rocksdb5Arena8AllocateEm.exit:                ; preds = %29, %34
   %81 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
   store ptr null, ptr %81, align 8, !tbaa !126
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  store i32 %1, ptr %82, align 4, !tbaa !128
+  store i32 %1, ptr %82, align 8, !tbaa !128
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 12
   store i64 0, ptr %83, align 4
   %84 = invoke ptr @_ZNSt10_HashtableIjSt4pairIKjN7rocksdb19WriteBatchWithIndex6CFStatEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %60, i64 noundef %64, i64 noundef %61, ptr noundef nonnull %81, i64 noundef 1)
@@ -5985,7 +5985,7 @@ _ZN7rocksdb6StatusaSEOS0_.exit102:                ; preds = %176
   store ptr %193, ptr %192, align 8, !tbaa !197
   %194 = getelementptr inbounds nuw i8, ptr %187, i64 80
   store i64 0, ptr %194, align 8, !tbaa !16
-  store i8 0, ptr %193, align 1, !tbaa !17
+  store i8 0, ptr %193, align 8, !tbaa !17
   %195 = getelementptr inbounds nuw i8, ptr %187, i64 112
   store i8 0, ptr %195, align 8, !tbaa !290
   %196 = getelementptr inbounds nuw i8, ptr %187, i64 104
@@ -6034,7 +6034,7 @@ _ZN7rocksdb6StatusaSEOS0_.exit102:                ; preds = %176
   store ptr %216, ptr %215, align 8, !tbaa !197
   %217 = getelementptr inbounds nuw i8, ptr %208, i64 80
   store i64 0, ptr %217, align 8, !tbaa !16
-  store i8 0, ptr %216, align 1, !tbaa !17
+  store i8 0, ptr %216, align 8, !tbaa !17
   %218 = getelementptr inbounds nuw i8, ptr %208, i64 112
   store i8 0, ptr %218, align 8, !tbaa !290
   %219 = getelementptr inbounds nuw i8, ptr %208, i64 104
@@ -6113,7 +6113,7 @@ _ZNSt12_Vector_baseIZN7rocksdb19WriteBatchWithIndex22MultiGetFromBatchAndDBEPNS0
   store ptr %255, ptr %254, align 8, !tbaa !197
   %256 = getelementptr inbounds nuw i8, ptr %248, i64 80
   store i64 0, ptr %256, align 8, !tbaa !16
-  store i8 0, ptr %255, align 1, !tbaa !17
+  store i8 0, ptr %255, align 8, !tbaa !17
   %257 = getelementptr inbounds nuw i8, ptr %248, i64 112
   store i8 0, ptr %257, align 8, !tbaa !290
   %258 = getelementptr inbounds nuw i8, ptr %248, i64 104
@@ -6161,7 +6161,7 @@ _ZNSt12_Vector_baseIZN7rocksdb19WriteBatchWithIndex22MultiGetFromBatchAndDBEPNS0
   store ptr %275, ptr %274, align 8, !tbaa !197
   %276 = getelementptr inbounds nuw i8, ptr %.018.i.i.i.i.i.i, i64 80
   store i64 0, ptr %276, align 8, !tbaa !16
-  store i8 0, ptr %275, align 1, !tbaa !17
+  store i8 0, ptr %275, align 8, !tbaa !17
   %277 = getelementptr inbounds nuw i8, ptr %.018.i.i.i.i.i.i, i64 112
   store i8 0, ptr %277, align 8, !tbaa !290
   %278 = getelementptr inbounds nuw i8, ptr %.018.i.i.i.i.i.i, i64 104
@@ -9348,7 +9348,7 @@ _ZN7rocksdb6StatusaSEOS0_.exit:                   ; preds = %473
   store ptr %490, ptr %489, align 8, !tbaa !197
   %491 = getelementptr inbounds nuw i8, ptr %484, i64 80
   store i64 0, ptr %491, align 8, !tbaa !16
-  store i8 0, ptr %490, align 1, !tbaa !17
+  store i8 0, ptr %490, align 8, !tbaa !17
   %492 = getelementptr inbounds nuw i8, ptr %484, i64 112
   store i8 0, ptr %492, align 8, !tbaa !290
   %493 = getelementptr inbounds nuw i8, ptr %484, i64 104
@@ -9397,7 +9397,7 @@ _ZN7rocksdb6StatusaSEOS0_.exit:                   ; preds = %473
   store ptr %513, ptr %512, align 8, !tbaa !197
   %514 = getelementptr inbounds nuw i8, ptr %505, i64 80
   store i64 0, ptr %514, align 8, !tbaa !16
-  store i8 0, ptr %513, align 1, !tbaa !17
+  store i8 0, ptr %513, align 8, !tbaa !17
   %515 = getelementptr inbounds nuw i8, ptr %505, i64 112
   store i8 0, ptr %515, align 8, !tbaa !290
   %516 = getelementptr inbounds nuw i8, ptr %505, i64 104
@@ -9476,7 +9476,7 @@ _ZNSt12_Vector_baseIZN7rocksdb19WriteBatchWithIndex28MultiGetEntityFromBatchAndD
   store ptr %552, ptr %551, align 8, !tbaa !197
   %553 = getelementptr inbounds nuw i8, ptr %545, i64 80
   store i64 0, ptr %553, align 8, !tbaa !16
-  store i8 0, ptr %552, align 1, !tbaa !17
+  store i8 0, ptr %552, align 8, !tbaa !17
   %554 = getelementptr inbounds nuw i8, ptr %545, i64 112
   store i8 0, ptr %554, align 8, !tbaa !290
   %555 = getelementptr inbounds nuw i8, ptr %545, i64 104
@@ -9524,7 +9524,7 @@ _ZNSt12_Vector_baseIZN7rocksdb19WriteBatchWithIndex28MultiGetEntityFromBatchAndD
   store ptr %572, ptr %571, align 8, !tbaa !197
   %573 = getelementptr inbounds nuw i8, ptr %.018.i.i.i.i.i.i, i64 80
   store i64 0, ptr %573, align 8, !tbaa !16
-  store i8 0, ptr %572, align 1, !tbaa !17
+  store i8 0, ptr %572, align 8, !tbaa !17
   %574 = getelementptr inbounds nuw i8, ptr %.018.i.i.i.i.i.i, i64 112
   store i8 0, ptr %574, align 8, !tbaa !290
   %575 = getelementptr inbounds nuw i8, ptr %.018.i.i.i.i.i.i, i64 104
@@ -10870,7 +10870,7 @@ define linkonce_odr void @_ZN7rocksdb16WBWIIteratorImpl11SeekToFirstEv(ptr nound
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !116
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %21 = load atomic i32, ptr %20 monotonic, align 4
+  %21 = load atomic i32, ptr %20 monotonic, align 8
   %22 = add nsw i32 %21, -1
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 8
   br label %24
@@ -10940,7 +10940,7 @@ _ZN7rocksdb8SkipListIPNS_20WriteBatchIndexEntryERKNS_25WriteBatchEntryComparator
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %55 = load ptr, ptr %54, align 8, !tbaa !116
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %57 = load atomic i32, ptr %56 monotonic, align 4
+  %57 = load atomic i32, ptr %56 monotonic, align 8
   %58 = add nsw i32 %57, -1
   %59 = getelementptr inbounds nuw i8, ptr %53, i64 8
   br label %60
@@ -11604,7 +11604,7 @@ _ZNSt10_HashtableIjSt4pairIKjN7rocksdb19WriteBatchWithIndex6CFStatEESaIS5_ENSt8_
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIjSt4pairIKjN7rocksdb19WriteBatchWithIndex6CFStatEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !126
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !18
+  %16 = load i32, ptr %15, align 8, !tbaa !18
   %17 = zext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18

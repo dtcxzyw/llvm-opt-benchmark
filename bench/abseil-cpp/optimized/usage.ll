@@ -3085,7 +3085,7 @@ _ZN4absl14flags_internal12_GLOBAL__N_119HelpAttributesMutexEv.exit._crit_edge: ;
   store ptr %13, ptr %11, align 8, !tbaa !63
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %14, align 8, !tbaa !25
-  store i8 0, ptr %13, align 1, !tbaa !26
+  store i8 0, ptr %13, align 8, !tbaa !26
   store ptr %11, ptr @_ZN4absl14flags_internal12_GLOBAL__N_112match_substrB5cxx11E, align 8, !tbaa !56
   br label %20
 
@@ -6056,7 +6056,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8, !tbaa !25
   store ptr %13, ptr %10, align 8, !tbaa !22
   store i64 0, ptr %24, align 8, !tbaa !25
-  store i8 0, ptr %13, align 1, !tbaa !26
+  store i8 0, ptr %13, align 8, !tbaa !26
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 88

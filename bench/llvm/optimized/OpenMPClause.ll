@@ -3637,7 +3637,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %21, %24
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 52
   store i32 0, ptr %33, align 4, !tbaa !306
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
-  store i32 0, ptr %34, align 4, !tbaa !306
+  store i32 0, ptr %34, align 8, !tbaa !306
   ret ptr %.0.i.i.i
 }
 
@@ -5064,7 +5064,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %24, %27
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 52
   store i32 0, ptr %37, align 4, !tbaa !306
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
-  store i32 0, ptr %38, align 4, !tbaa !306
+  store i32 0, ptr %38, align 8, !tbaa !306
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 96
   store i64 0, ptr %40, align 8
@@ -5348,7 +5348,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %21, %24
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %32, align 8, !tbaa !316
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
-  store i32 0, ptr %33, align 4, !tbaa !306
+  store i32 0, ptr %33, align 8, !tbaa !306
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 88
   store i64 0, ptr %35, align 8
@@ -5673,7 +5673,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %21, %24
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %32, align 8, !tbaa !316
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
-  store i32 0, ptr %33, align 4, !tbaa !306
+  store i32 0, ptr %33, align 8, !tbaa !306
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 88
   store i64 0, ptr %35, align 8
@@ -5723,7 +5723,7 @@ _ZN5clang14OMPSizesClause11CreateEmptyERKNS_10ASTContextEj.exit: ; preds = %25, 
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
   store i32 %7, ptr %33, align 8, !tbaa !222
-  store i32 %1, ptr %.0.i.i.i.i, align 4, !tbaa !301
+  store i32 %1, ptr %.0.i.i.i.i, align 8, !tbaa !301
   store i32 %2, ptr %32, align 4, !tbaa !301
   store i32 %3, ptr %30, align 4, !tbaa !301
   %.not.i.i.i.i.i.i = icmp eq i64 %5, 0
@@ -5827,7 +5827,7 @@ _ZN5clang20OMPPermutationClause11CreateEmptyERKNS_10ASTContextEj.exit: ; preds =
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
   store i32 %7, ptr %33, align 8, !tbaa !190
-  store i32 %1, ptr %.0.i.i.i.i, align 4, !tbaa !301
+  store i32 %1, ptr %.0.i.i.i.i, align 8, !tbaa !301
   store i32 %2, ptr %32, align 4, !tbaa !301
   store i32 %3, ptr %30, align 4, !tbaa !301
   %.not.i.i.i.i.i.i.i = icmp eq i64 %5, 0
@@ -6110,15 +6110,15 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %31, %34
   %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 44
   store i32 2, ptr %44, align 4, !tbaa !339
   %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
-  store i32 0, ptr %45, align 4, !tbaa !306
+  store i32 0, ptr %45, align 8, !tbaa !306
   %scevgep.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 60
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 52
   store i32 %6, ptr %46, align 4, !tbaa !340
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
-  store i32 %8, ptr %47, align 4, !tbaa !340
+  store i32 %8, ptr %47, align 8, !tbaa !340
   store i32 %7, ptr %scevgep.i, align 4, !tbaa !301
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
-  store i32 %9, ptr %48, align 4, !tbaa !301
+  store i32 %9, ptr %48, align 8, !tbaa !301
   %.not.i.i.i.i.i.i = icmp eq i64 %14, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZN5clang16OMPVarListClauseINS_17OMPAllocateClauseEE10setVarRefsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %49
 
@@ -7241,7 +7241,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %40, %43
   %61 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 132
   store i8 0, ptr %61, align 4, !tbaa !376
   %62 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 136
-  store i32 0, ptr %62, align 4, !tbaa !306
+  store i32 0, ptr %62, align 8, !tbaa !306
   %63 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 140
   store i32 0, ptr %63, align 4, !tbaa !306
   %64 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 144
@@ -7358,13 +7358,13 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %55, %58
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   %72 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 80
-  store i32 2, ptr %72, align 4, !tbaa !404
+  store i32 2, ptr %72, align 8, !tbaa !404
   %73 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 84
   store i32 2, ptr %73, align 4, !tbaa !404
   %scevgep.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 88
   store i64 0, ptr %scevgep.i, align 8
   %74 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 96
-  store i32 0, ptr %74, align 4, !tbaa !306
+  store i32 0, ptr %74, align 8, !tbaa !306
   %.not.i.i.i.i.i.i.i = icmp eq i64 %.sroa.210.0.copyload, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm4copyIRNS_8ArrayRefIN5clang24OpenMPMotionModifierKindEEEPS3_EET0_OT_S7_.exit.i, label %75
 
@@ -7747,13 +7747,13 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %42, %45
   store i64 0, ptr %60, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %59, i8 0, i64 28, i1 false)
   %61 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 80
-  store i32 2, ptr %61, align 4, !tbaa !404
+  store i32 2, ptr %61, align 8, !tbaa !404
   %62 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 84
   store i32 2, ptr %62, align 4, !tbaa !404
   %scevgep.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 88
   store i64 0, ptr %scevgep.i, align 8
   %63 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 96
-  store i32 0, ptr %63, align 4, !tbaa !306
+  store i32 0, ptr %63, align 8, !tbaa !306
   ret ptr %.0.i.i.i
 }
 
@@ -7864,13 +7864,13 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %55, %58
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   %72 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 80
-  store i32 2, ptr %72, align 4, !tbaa !404
+  store i32 2, ptr %72, align 8, !tbaa !404
   %73 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 84
   store i32 2, ptr %73, align 4, !tbaa !404
   %scevgep.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 88
   store i64 0, ptr %scevgep.i, align 8
   %74 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 96
-  store i32 0, ptr %74, align 4, !tbaa !306
+  store i32 0, ptr %74, align 8, !tbaa !306
   %.not.i.i.i.i.i.i.i = icmp eq i64 %.sroa.210.0.copyload, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm4copyIRNS_8ArrayRefIN5clang24OpenMPMotionModifierKindEEEPS3_EET0_OT_S7_.exit.i, label %75
 
@@ -8253,13 +8253,13 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %42, %45
   store i64 0, ptr %60, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %59, i8 0, i64 28, i1 false)
   %61 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 80
-  store i32 2, ptr %61, align 4, !tbaa !404
+  store i32 2, ptr %61, align 8, !tbaa !404
   %62 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 84
   store i32 2, ptr %62, align 4, !tbaa !404
   %scevgep.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 88
   store i64 0, ptr %scevgep.i, align 8
   %63 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 96
-  store i32 0, ptr %63, align 4, !tbaa !306
+  store i32 0, ptr %63, align 8, !tbaa !306
   ret ptr %.0.i.i.i
 }
 
@@ -13117,7 +13117,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %12, %14
   %26 = lshr i32 %25, 22
   %27 = and i32 %26, 7
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %29 = load i32, ptr %28, align 4, !tbaa !301
+  %29 = load i32, ptr %28, align 8, !tbaa !301
   %30 = mul i32 %27, %29
   %31 = zext i32 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
@@ -25833,7 +25833,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang9ValueDeclEjNS_12DenseMapInfoIS4_vEE
   store ptr %60, ptr %50, align 8, !tbaa !355
   %61 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %62 = load i32, ptr %3, align 4, !tbaa !301
-  store i32 %62, ptr %61, align 4, !tbaa !301
+  store i32 %62, ptr %61, align 8, !tbaa !301
   %63 = load ptr, ptr %1, align 8, !tbaa !381
   %64 = load i32, ptr %7, align 8, !tbaa !384
   br label %.loopexit
@@ -26045,7 +26045,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang9ValueDeclEjNS_12DenseMapInfoIS4_vEE
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !301
-  store i32 %68, ptr %66, align 4, !tbaa !301
+  store i32 %68, ptr %66, align 8, !tbaa !301
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !1074
   br label %70

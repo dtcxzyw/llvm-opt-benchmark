@@ -274,7 +274,7 @@ define void @_ZN19MeshLabRenderRasterC2ERKS_(ptr noundef nonnull align 8 derefer
   %30 = load i32, ptr %29, align 8
   %31 = xor i32 %30, -1
   %32 = add i32 %28, %31
-  %33 = load atomic i32, ptr %26 monotonic, align 4
+  %33 = load atomic i32, ptr %26 monotonic, align 8
   %34 = icmp ugt i32 %33, 1
   br i1 %34, label %35, label %57
 

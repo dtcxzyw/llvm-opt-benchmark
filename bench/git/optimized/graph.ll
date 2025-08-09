@@ -438,10 +438,10 @@ next_interesting_parent.exit:                     ; preds = %45, %graph_is_inter
   store i32 %56, ptr %57, align 8, !tbaa !103
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %.sroa.0.0.copyload.i = load i64, ptr %58, align 1
-  %60 = load i64, ptr %59, align 1
-  store i64 %60, ptr %58, align 1
-  store i64 %.sroa.0.0.copyload.i, ptr %59, align 1
+  %.sroa.0.0.copyload.i = load i64, ptr %58, align 8
+  %60 = load i64, ptr %59, align 8
+  store i64 %60, ptr %58, align 8
+  store i64 %.sroa.0.0.copyload.i, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %62 = load i32, ptr %61, align 8, !tbaa !82
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 60

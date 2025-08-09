@@ -1110,7 +1110,7 @@ lshift64_m128.exit18:                             ; preds = %lshift64_m128.exit1
   call void @llvm.assume(i1 true) [ "align"(ptr %58, i64 16) ]
   %107 = load <2 x i64>, ptr %58, align 16
   %108 = and <2 x i64> %107, %.058.i6657
-  %109 = load i8, ptr %59, align 4
+  %109 = load i8, ptr %59, align 8
   %110 = zext i8 %109 to i32
   %111 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %110, i64 0
   %112 = bitcast <4 x i32> %111 to <2 x i64>
@@ -1664,7 +1664,7 @@ lshift64_m128.exit34:                             ; preds = %lshift64_m128.exit3
   call void @llvm.assume(i1 true) [ "align"(ptr %331, i64 16) ]
   %380 = load <2 x i64>, ptr %331, align 16
   %381 = and <2 x i64> %380, %.058.i670
-  %382 = load i8, ptr %332, align 4
+  %382 = load i8, ptr %332, align 8
   %383 = zext i8 %382 to i32
   %384 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %383, i64 0
   %385 = bitcast <4 x i32> %384 to <2 x i64>
@@ -2256,7 +2256,7 @@ lshift64_m128.exit50:                             ; preds = %lshift64_m128.exit4
   call void @llvm.assume(i1 true) [ "align"(ptr %604, i64 16) ]
   %667 = load <2 x i64>, ptr %604, align 16
   %668 = and <2 x i64> %667, %.1305682
-  %669 = load i8, ptr %605, align 4
+  %669 = load i8, ptr %605, align 8
   %670 = zext i8 %669 to i32
   %671 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %670, i64 0
   %672 = bitcast <4 x i32> %671 to <2 x i64>
@@ -3372,7 +3372,7 @@ lshift64_m128.exit19:                             ; preds = %lshift64_m128.exit1
   call void @llvm.assume(i1 true) [ "align"(ptr %59, i64 16) ]
   %107 = load <2 x i64>, ptr %59, align 16
   %108 = and <2 x i64> %107, %.058.i7457
-  %109 = load i8, ptr %60, align 4
+  %109 = load i8, ptr %60, align 8
   %110 = zext i8 %109 to i32
   %111 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %110, i64 0
   %112 = bitcast <4 x i32> %111 to <2 x i64>
@@ -3861,7 +3861,7 @@ lshift64_m128.exit35:                             ; preds = %lshift64_m128.exit3
   call void @llvm.assume(i1 true) [ "align"(ptr %311, i64 16) ]
   %359 = load <2 x i64>, ptr %311, align 16
   %360 = and <2 x i64> %359, %.058.i463
-  %361 = load i8, ptr %312, align 4
+  %361 = load i8, ptr %312, align 8
   %362 = zext i8 %361 to i32
   %363 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %362, i64 0
   %364 = bitcast <4 x i32> %363 to <2 x i64>
@@ -4388,7 +4388,7 @@ lshift64_m128.exit51:                             ; preds = %lshift64_m128.exit4
   call void @llvm.assume(i1 true) [ "align"(ptr %563, i64 16) ]
   %625 = load <2 x i64>, ptr %563, align 16
   %626 = and <2 x i64> %625, %.1266469
-  %627 = load i8, ptr %564, align 4
+  %627 = load i8, ptr %564, align 8
   %628 = zext i8 %627 to i32
   %629 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %628, i64 0
   %630 = bitcast <4 x i32> %629 to <2 x i64>
@@ -5511,7 +5511,7 @@ lshift64_m128.exit18:                             ; preds = %lshift64_m128.exit1
   call void @llvm.assume(i1 true) [ "align"(ptr %58, i64 16) ]
   %105 = load <2 x i64>, ptr %58, align 16
   %106 = and <2 x i64> %105, %.058.i6413
-  %107 = load i8, ptr %59, align 4
+  %107 = load i8, ptr %59, align 8
   %108 = zext i8 %107 to i32
   %109 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %108, i64 0
   %110 = bitcast <4 x i32> %109 to <2 x i64>
@@ -5982,7 +5982,7 @@ lshift64_m128.exit34:                             ; preds = %lshift64_m128.exit3
   call void @llvm.assume(i1 true) [ "align"(ptr %302, i64 16) ]
   %349 = load <2 x i64>, ptr %302, align 16
   %350 = and <2 x i64> %349, %.058.i419
-  %351 = load i8, ptr %303, align 4
+  %351 = load i8, ptr %303, align 8
   %352 = zext i8 %351 to i32
   %353 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %352, i64 0
   %354 = bitcast <4 x i32> %353 to <2 x i64>
@@ -6491,7 +6491,7 @@ lshift64_m128.exit50:                             ; preds = %lshift64_m128.exit4
   call void @llvm.assume(i1 true) [ "align"(ptr %546, i64 16) ]
   %607 = load <2 x i64>, ptr %546, align 16
   %608 = and <2 x i64> %607, %.1260425
-  %609 = load i8, ptr %547, align 4
+  %609 = load i8, ptr %547, align 8
   %610 = zext i8 %609 to i32
   %611 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %610, i64 0
   %612 = bitcast <4 x i32> %611 to <2 x i64>
@@ -7355,7 +7355,7 @@ lshift64_m128.exit88:                             ; preds = %lshift64_m128.exit8
   call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 16) ]
   %77 = load <2 x i64>, ptr %26, align 16
   %78 = and <2 x i64> %77, %.069209
-  %79 = load i8, ptr %27, align 4
+  %79 = load i8, ptr %27, align 8
   %80 = zext i8 %79 to i32
   %81 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %80, i64 0
   %82 = bitcast <4 x i32> %81 to <2 x i64>

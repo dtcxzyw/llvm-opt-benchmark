@@ -5045,7 +5045,7 @@ for.body.i:                                       ; preds = %for.cond.loopexit.i
   %__begin1.sroa.0.018.i = phi ptr [ %storemerge.i.i, %for.cond.loopexit.i ], [ %retval.sroa.0.1.i.i, %for.body.preheader.i ]
   %add.ptr.i.i.i39 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %14 = load i64, ptr %13, align 8
-  %15 = load i8, ptr %add.ptr.i.i.i39, align 1
+  %15 = load i8, ptr %add.ptr.i.i.i39, align 8
   %cmp.not.i = icmp eq i8 %15, 36
   br i1 %cmp.not.i, label %for.inc.i, label %if.then.i
 

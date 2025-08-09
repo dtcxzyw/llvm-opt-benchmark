@@ -284,7 +284,7 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN12thread_local20ThreadLo
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %47, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  store atomic i8 1, ptr %49 release, align 1
+  store atomic i8 1, ptr %49 release, align 8
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %51 = atomicrmw add ptr %50, i64 1 release, align 8
   ret ptr %45
@@ -502,7 +502,7 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN12thread_local20ThreadLo
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %47, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  store atomic i8 1, ptr %49 release, align 1
+  store atomic i8 1, ptr %49 release, align 8
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %51 = atomicrmw add ptr %50, i64 1 release, align 8
   ret ptr %45

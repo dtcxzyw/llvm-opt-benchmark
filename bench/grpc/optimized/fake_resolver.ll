@@ -1491,7 +1491,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
   store i64 %70, ptr %72, align 8, !tbaa !74
   store ptr %62, ptr %59, align 8, !tbaa !77
   store i64 0, ptr %71, align 8, !tbaa !74
-  store i8 0, ptr %62, align 1, !tbaa !76
+  store i8 0, ptr %62, align 8, !tbaa !76
   %73 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 80
   call void @_ZN9grpc_core11ChannelArgsC1EOS0_(ptr noundef nonnull align 8 dereferenceable(8) %73, ptr noundef nonnull align 8 dereferenceable(8) %74) #27
@@ -1797,7 +1797,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
   store i64 %44, ptr %46, align 8, !tbaa !74
   store ptr %36, ptr %33, align 8, !tbaa !77
   store i64 0, ptr %45, align 8, !tbaa !74
-  store i8 0, ptr %36, align 1, !tbaa !76
+  store i8 0, ptr %36, align 8, !tbaa !76
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 80
   call void @_ZN9grpc_core11ChannelArgsC1EOS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #27

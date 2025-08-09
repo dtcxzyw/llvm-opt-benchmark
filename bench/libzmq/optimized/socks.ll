@@ -626,7 +626,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %10
   store i64 %17, ptr %18, align 8, !tbaa !29
   store ptr %8, ptr %2, align 8, !tbaa !27
   store i64 0, ptr %16, align 8, !tbaa !29
-  store i8 0, ptr %8, align 1, !tbaa !8
+  store i8 0, ptr %8, align 8, !tbaa !8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i16 %3, ptr %19, align 8, !tbaa !41
   %20 = load i64, ptr %18, align 8, !tbaa !29

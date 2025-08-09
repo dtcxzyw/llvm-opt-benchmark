@@ -1084,7 +1084,7 @@ define internal void @rcon(ptr noundef writeonly captures(none) initializes((272
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 284
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  store i32 -1, ptr %4, align 4, !tbaa !118
+  store i32 -1, ptr %4, align 8, !tbaa !118
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr null, ptr %5, align 8, !tbaa !119
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 312

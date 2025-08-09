@@ -3632,7 +3632,7 @@ _ZN4llvm15SmallVectorImplIN5clang17FrontendInputFileEE5clearEv.exit: ; preds = %
   store ptr %286, ptr %285, align 8, !tbaa !22
   %287 = getelementptr inbounds nuw i8, ptr %285, i64 8
   store i64 0, ptr %287, align 8, !tbaa !28
-  store i8 0, ptr %286, align 1, !tbaa !30
+  store i8 0, ptr %286, align 8, !tbaa !30
   %288 = getelementptr inbounds nuw i8, ptr %285, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %288, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !tbaa.struct !249
   %289 = getelementptr inbounds nuw i8, ptr %285, i64 64
@@ -9441,7 +9441,7 @@ _ZN5clang10extractapi13AccessControlC2EOS1_.exit: ; preds = %77, %_ZNKSt7__cxx11
   store i64 %84, ptr %85, align 8, !tbaa !28
   store ptr %75, ptr %14, align 8, !tbaa !25
   store i64 0, ptr %83, align 8, !tbaa !28
-  store i8 0, ptr %75, align 1, !tbaa !30
+  store i8 0, ptr %75, align 8, !tbaa !30
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store i32 %1, ptr %86, align 8, !tbaa !1136
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 356
@@ -11197,7 +11197,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llv
   store ptr %16, ptr %.ptr.i.i.i, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %17, align 8, !tbaa !28
-  store i8 0, ptr %16, align 1, !tbaa !30
+  store i8 0, ptr %16, align 8, !tbaa !30
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %18 = icmp eq i64 %.add.i.i.i, 416
   br i1 %18, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %15
@@ -71171,7 +71171,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %35, ptr %36, align 8, !tbaa !28
   store ptr %26, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !25
   store i64 0, ptr %34, align 8, !tbaa !28
-  store i8 0, ptr %26, align 1, !tbaa !30
+  store i8 0, ptr %26, align 8, !tbaa !30
   %37 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 32
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 32
   %39 = load i32, ptr %38, align 8, !tbaa !1138
@@ -71207,7 +71207,7 @@ _ZSt10_ConstructIN5clang10extractapi20DeclarationFragments8FragmentEJS3_EEvPT_Dp
   store i64 %53, ptr %54, align 8, !tbaa !28
   store ptr %44, ptr %41, align 8, !tbaa !25
   store i64 0, ptr %52, align 8, !tbaa !28
-  store i8 0, ptr %44, align 1, !tbaa !30
+  store i8 0, ptr %44, align 8, !tbaa !30
   %55 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 72
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 72
   %57 = load ptr, ptr %56, align 8, !tbaa !1141
@@ -71297,7 +71297,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i: ;
   store i64 %90, ptr %91, align 8, !tbaa !28
   store ptr %81, ptr %.sroa.04.07.i.i.i.i, align 8, !tbaa !25
   store i64 0, ptr %89, align 8, !tbaa !28
-  store i8 0, ptr %81, align 1, !tbaa !30
+  store i8 0, ptr %81, align 8, !tbaa !30
   %92 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i, i64 32
   %93 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i, i64 32
   %94 = load i32, ptr %93, align 8, !tbaa !1138
@@ -71333,7 +71333,7 @@ _ZSt10_ConstructIN5clang10extractapi20DeclarationFragments8FragmentEJS3_EEvPT_Dp
   store i64 %108, ptr %109, align 8, !tbaa !28
   store ptr %99, ptr %96, align 8, !tbaa !25
   store i64 0, ptr %107, align 8, !tbaa !28
-  store i8 0, ptr %99, align 1, !tbaa !30
+  store i8 0, ptr %99, align 8, !tbaa !30
   %110 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i, i64 72
   %111 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i, i64 72
   %112 = load ptr, ptr %111, align 8, !tbaa !1141
@@ -71387,7 +71387,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i5
   store i64 %129, ptr %130, align 8, !tbaa !28
   store ptr %120, ptr %.sroa.04.08.i.i.i.i.i49, align 8, !tbaa !25
   store i64 0, ptr %128, align 8, !tbaa !28
-  store i8 0, ptr %120, align 1, !tbaa !30
+  store i8 0, ptr %120, align 8, !tbaa !30
   %131 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i48, i64 32
   %132 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i49, i64 32
   %133 = load i32, ptr %132, align 8, !tbaa !1138
@@ -71423,7 +71423,7 @@ _ZSt10_ConstructIN5clang10extractapi20DeclarationFragments8FragmentEJS3_EEvPT_Dp
   store i64 %147, ptr %148, align 8, !tbaa !28
   store ptr %138, ptr %135, align 8, !tbaa !25
   store i64 0, ptr %146, align 8, !tbaa !28
-  store i8 0, ptr %138, align 1, !tbaa !30
+  store i8 0, ptr %138, align 8, !tbaa !30
   %149 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i48, i64 72
   %150 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i49, i64 72
   %151 = load ptr, ptr %150, align 8, !tbaa !1141
@@ -71523,7 +71523,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i6
   store i64 %190, ptr %191, align 8, !tbaa !28
   store ptr %181, ptr %.sroa.04.08.i.i.i.i.i67, align 8, !tbaa !25
   store i64 0, ptr %189, align 8, !tbaa !28
-  store i8 0, ptr %181, align 1, !tbaa !30
+  store i8 0, ptr %181, align 8, !tbaa !30
   %192 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i66, i64 32
   %193 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i67, i64 32
   %194 = load i32, ptr %193, align 8, !tbaa !1138
@@ -71559,7 +71559,7 @@ _ZSt10_ConstructIN5clang10extractapi20DeclarationFragments8FragmentEJS3_EEvPT_Dp
   store i64 %208, ptr %209, align 8, !tbaa !28
   store ptr %199, ptr %196, align 8, !tbaa !25
   store i64 0, ptr %207, align 8, !tbaa !28
-  store i8 0, ptr %199, align 1, !tbaa !30
+  store i8 0, ptr %199, align 8, !tbaa !30
   %210 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i66, i64 72
   %211 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i67, i64 72
   %212 = load ptr, ptr %211, align 8, !tbaa !1141
@@ -71605,7 +71605,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i79:
   store i64 %226, ptr %227, align 8, !tbaa !28
   store ptr %217, ptr %.sroa.04.07.i.i.i.i77, align 8, !tbaa !25
   store i64 0, ptr %225, align 8, !tbaa !28
-  store i8 0, ptr %217, align 1, !tbaa !30
+  store i8 0, ptr %217, align 8, !tbaa !30
   %228 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i76, i64 32
   %229 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i77, i64 32
   %230 = load i32, ptr %229, align 8, !tbaa !1138
@@ -71641,7 +71641,7 @@ _ZSt10_ConstructIN5clang10extractapi20DeclarationFragments8FragmentEJS3_EEvPT_Dp
   store i64 %244, ptr %245, align 8, !tbaa !28
   store ptr %235, ptr %232, align 8, !tbaa !25
   store i64 0, ptr %243, align 8, !tbaa !28
-  store i8 0, ptr %235, align 1, !tbaa !30
+  store i8 0, ptr %235, align 8, !tbaa !30
   %246 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i76, i64 72
   %247 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i77, i64 72
   %248 = load ptr, ptr %247, align 8, !tbaa !1141
@@ -71687,7 +71687,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i9
   store i64 %262, ptr %263, align 8, !tbaa !28
   store ptr %253, ptr %.sroa.04.08.i.i.i.i.i88, align 8, !tbaa !25
   store i64 0, ptr %261, align 8, !tbaa !28
-  store i8 0, ptr %253, align 1, !tbaa !30
+  store i8 0, ptr %253, align 8, !tbaa !30
   %264 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i87, i64 32
   %265 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i88, i64 32
   %266 = load i32, ptr %265, align 8, !tbaa !1138
@@ -71723,7 +71723,7 @@ _ZSt10_ConstructIN5clang10extractapi20DeclarationFragments8FragmentEJS3_EEvPT_Dp
   store i64 %280, ptr %281, align 8, !tbaa !28
   store ptr %271, ptr %268, align 8, !tbaa !25
   store i64 0, ptr %279, align 8, !tbaa !28
-  store i8 0, ptr %271, align 1, !tbaa !30
+  store i8 0, ptr %271, align 8, !tbaa !30
   %282 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i87, i64 72
   %283 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i88, i64 72
   %284 = load ptr, ptr %283, align 8, !tbaa !1141
@@ -72456,7 +72456,7 @@ _ZSt19__relocate_object_aIN5clang10extractapi17FunctionSignature9ParameterES3_Sa
   store i64 %35, ptr %37, align 8, !tbaa !28, !alias.scope !2260, !noalias !2263
   store ptr %27, ptr %.0911.i.i.i, align 8, !tbaa !25, !alias.scope !2263, !noalias !2260
   store i64 0, ptr %36, align 8, !tbaa !28, !alias.scope !2263, !noalias !2260
-  store i8 0, ptr %27, align 1, !tbaa !30, !alias.scope !2263, !noalias !2260
+  store i8 0, ptr %27, align 8, !tbaa !30, !alias.scope !2263, !noalias !2260
   %38 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %39 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %40 = load ptr, ptr %39, align 8, !tbaa !862, !alias.scope !2263, !noalias !2260
@@ -72518,7 +72518,7 @@ _ZSt19__relocate_object_aIN5clang10extractapi17FunctionSignature9ParameterES3_Sa
   store i64 %60, ptr %62, align 8, !tbaa !28, !alias.scope !2267, !noalias !2270
   store ptr %52, ptr %.0911.i.i.i20, align 8, !tbaa !25, !alias.scope !2270, !noalias !2267
   store i64 0, ptr %61, align 8, !tbaa !28, !alias.scope !2270, !noalias !2267
-  store i8 0, ptr %52, align 1, !tbaa !30, !alias.scope !2270, !noalias !2267
+  store i8 0, ptr %52, align 8, !tbaa !30, !alias.scope !2270, !noalias !2267
   %63 = getelementptr inbounds nuw i8, ptr %.012.i.i.i19, i64 32
   %64 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i20, i64 32
   %65 = load ptr, ptr %64, align 8, !tbaa !862, !alias.scope !2270, !noalias !2267
@@ -88465,7 +88465,7 @@ _ZN5clang10extractapi13AccessControlC2EOS1_.exit: ; preds = %100, %_ZNKSt7__cxx1
   store i64 %106, ptr %108, align 8, !tbaa !28
   store ptr %98, ptr %12, align 8, !tbaa !25
   store i64 0, ptr %107, align 8, !tbaa !28
-  store i8 0, ptr %98, align 1, !tbaa !30
+  store i8 0, ptr %98, align 8, !tbaa !30
   call void @_ZN5clang10extractapi15CXXMethodRecordC2ENS0_9APIRecord10RecordKindEN4llvm9StringRefES5_NS0_15SymbolReferenceENS_11PresumedLocENS_16AvailabilityInfoERKSt6vectorINS_10RawComment11CommentLineESaISB_EENS0_20DeclarationFragmentsESG_NS0_17FunctionSignatureENS0_13AccessControlEb(ptr noundef nonnull align 8 dereferenceable(416) %0, i32 noundef 32, ptr %1, i64 %2, ptr %3, i64 %4, ptr noundef nonnull byval(%"struct.clang::extractapi::SymbolReference") align 8 %5, ptr noundef nonnull byval(%"class.clang::PresumedLoc") align 8 %6, ptr noundef nonnull %16, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, i1 noundef zeroext %14)
   %109 = load ptr, ptr %20, align 8, !tbaa !25
   %110 = icmp eq ptr %109, %96
@@ -89148,7 +89148,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %155, ptr %156, align 8, !tbaa !28
   store ptr %146, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !25
   store i64 0, ptr %154, align 8, !tbaa !28
-  store i8 0, ptr %146, align 1, !tbaa !30
+  store i8 0, ptr %146, align 8, !tbaa !30
   %157 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 32
   %158 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 32
   %159 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 48
@@ -89180,7 +89180,7 @@ _ZSt10_ConstructIN5clang10extractapi8Template17TemplateParameterEJS3_EEvPT_DpOT0
   store i64 %170, ptr %171, align 8, !tbaa !28
   store ptr %161, ptr %158, align 8, !tbaa !25
   store i64 0, ptr %169, align 8, !tbaa !28
-  store i8 0, ptr %161, align 1, !tbaa !30
+  store i8 0, ptr %161, align 8, !tbaa !30
   %172 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 64
   %173 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %172, ptr noundef nonnull align 8 dereferenceable(9) %173, i64 9, i1 false)
@@ -89494,7 +89494,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %19, ptr %20, align 8, !tbaa !28
   store ptr %10, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !25
   store i64 0, ptr %18, align 8, !tbaa !28
-  store i8 0, ptr %10, align 1, !tbaa !30
+  store i8 0, ptr %10, align 8, !tbaa !30
   %21 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 48
@@ -89526,7 +89526,7 @@ _ZSt10_ConstructIN5clang10extractapi8Template17TemplateParameterEJS3_EEvPT_DpOT0
   store i64 %34, ptr %35, align 8, !tbaa !28
   store ptr %25, ptr %22, align 8, !tbaa !25
   store i64 0, ptr %33, align 8, !tbaa !28
-  store i8 0, ptr %25, align 1, !tbaa !30
+  store i8 0, ptr %25, align 8, !tbaa !30
   %36 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 64
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %36, ptr noundef nonnull align 8 dereferenceable(9) %37, i64 9, i1 false)
@@ -90562,7 +90562,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i: ; preds =
   store i64 %15, ptr %16, align 8, !tbaa !28
   store ptr %6, ptr %.sroa.04.08, align 8, !tbaa !25
   store i64 0, ptr %14, align 8, !tbaa !28
-  store i8 0, ptr %6, align 1, !tbaa !30
+  store i8 0, ptr %6, align 8, !tbaa !30
   %17 = getelementptr inbounds nuw i8, ptr %.09, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.04.08, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %.09, i64 48
@@ -90594,7 +90594,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit6.i.i: ; preds 
   store i64 %30, ptr %31, align 8, !tbaa !28
   store ptr %21, ptr %18, align 8, !tbaa !25
   store i64 0, ptr %29, align 8, !tbaa !28
-  store i8 0, ptr %21, align 1, !tbaa !30
+  store i8 0, ptr %21, align 8, !tbaa !30
   %32 = getelementptr inbounds nuw i8, ptr %.09, i64 64
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.04.08, i64 64
   %34 = getelementptr inbounds nuw i8, ptr %.09, i64 80
@@ -90626,7 +90626,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit8.i.i: ; preds 
   store i64 %45, ptr %46, align 8, !tbaa !28
   store ptr %36, ptr %33, align 8, !tbaa !25
   store i64 0, ptr %44, align 8, !tbaa !28
-  store i8 0, ptr %36, align 1, !tbaa !30
+  store i8 0, ptr %36, align 8, !tbaa !30
   %47 = getelementptr inbounds nuw i8, ptr %.09, i64 96
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.04.08, i64 96
   %49 = getelementptr inbounds nuw i8, ptr %.09, i64 112
@@ -90658,7 +90658,7 @@ _ZSt10_ConstructIN5clang10extractapi8Template18TemplateConstraintEJS3_EEvPT_DpOT
   store i64 %60, ptr %61, align 8, !tbaa !28
   store ptr %51, ptr %48, align 8, !tbaa !25
   store i64 0, ptr %59, align 8, !tbaa !28
-  store i8 0, ptr %51, align 1, !tbaa !30
+  store i8 0, ptr %51, align 8, !tbaa !30
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.04.08, i64 128
   %63 = getelementptr inbounds nuw i8, ptr %.09, i64 128
   %.not = icmp eq ptr %62, %1
@@ -90787,7 +90787,7 @@ _ZN5clang10extractapi13AccessControlC2EOS1_.exit: ; preds = %65, %_ZNKSt7__cxx11
   store i64 %71, ptr %73, align 8, !tbaa !28
   store ptr %63, ptr %13, align 8, !tbaa !25
   store i64 0, ptr %72, align 8, !tbaa !28
-  store i8 0, ptr %63, align 1, !tbaa !30
+  store i8 0, ptr %63, align 8, !tbaa !30
   call void @_ZN5clang10extractapi9APIRecordC2ENS1_10RecordKindEN4llvm9StringRefES4_NS0_15SymbolReferenceENS_11PresumedLocENS_16AvailabilityInfoENS_11LinkageInfoERKSt6vectorINS_10RawComment11CommentLineESaISB_EENS0_20DeclarationFragmentsESG_bNS0_13AccessControlE(ptr noundef nonnull align 8 dereferenceable(368) %0, i32 noundef %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr noundef nonnull byval(%"struct.clang::extractapi::SymbolReference") align 8 %6, ptr noundef nonnull byval(%"class.clang::PresumedLoc") align 8 %7, ptr noundef nonnull %16, i8 17, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull %17, ptr noundef nonnull %18, i1 noundef zeroext %14, ptr noundef nonnull %19)
   %74 = load ptr, ptr %19, align 8, !tbaa !25
   %75 = icmp eq ptr %74, %61
@@ -92602,7 +92602,7 @@ _ZN5clang10extractapi13AccessControlC2EOS1_.exit: ; preds = %99, %_ZNKSt7__cxx11
   store i64 %105, ptr %107, align 8, !tbaa !28
   store ptr %97, ptr %12, align 8, !tbaa !25
   store i64 0, ptr %106, align 8, !tbaa !28
-  store i8 0, ptr %97, align 1, !tbaa !30
+  store i8 0, ptr %97, align 8, !tbaa !30
   call void @_ZN5clang10extractapi15CXXMethodRecordC2ENS0_9APIRecord10RecordKindEN4llvm9StringRefES5_NS0_15SymbolReferenceENS_11PresumedLocENS_16AvailabilityInfoERKSt6vectorINS_10RawComment11CommentLineESaISB_EENS0_20DeclarationFragmentsESG_NS0_17FunctionSignatureENS0_13AccessControlEb(ptr noundef nonnull align 8 dereferenceable(416) %0, i32 noundef 33, ptr %1, i64 %2, ptr %3, i64 %4, ptr noundef nonnull byval(%"struct.clang::extractapi::SymbolReference") align 8 %5, ptr noundef nonnull byval(%"class.clang::PresumedLoc") align 8 %6, ptr noundef nonnull %15, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, i1 noundef zeroext %13)
   %108 = load ptr, ptr %19, align 8, !tbaa !25
   %109 = icmp eq ptr %108, %95
@@ -93049,7 +93049,7 @@ _ZN5clang10extractapi13AccessControlC2EOS1_.exit: ; preds = %99, %_ZNKSt7__cxx11
   store i64 %105, ptr %107, align 8, !tbaa !28
   store ptr %97, ptr %12, align 8, !tbaa !25
   store i64 0, ptr %106, align 8, !tbaa !28
-  store i8 0, ptr %97, align 1, !tbaa !30
+  store i8 0, ptr %97, align 8, !tbaa !30
   call void @_ZN5clang10extractapi15CXXMethodRecordC2ENS0_9APIRecord10RecordKindEN4llvm9StringRefES5_NS0_15SymbolReferenceENS_11PresumedLocENS_16AvailabilityInfoERKSt6vectorINS_10RawComment11CommentLineESaISB_EENS0_20DeclarationFragmentsESG_NS0_17FunctionSignatureENS0_13AccessControlEb(ptr noundef nonnull align 8 dereferenceable(416) %0, i32 noundef 29, ptr %1, i64 %2, ptr %3, i64 %4, ptr noundef nonnull byval(%"struct.clang::extractapi::SymbolReference") align 8 %5, ptr noundef nonnull byval(%"class.clang::PresumedLoc") align 8 %6, ptr noundef nonnull %15, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, i1 noundef zeroext %13)
   %108 = load ptr, ptr %19, align 8, !tbaa !25
   %109 = icmp eq ptr %108, %95
@@ -93484,7 +93484,7 @@ _ZN5clang10extractapi13AccessControlC2EOS1_.exit: ; preds = %99, %_ZNKSt7__cxx11
   store i64 %105, ptr %107, align 8, !tbaa !28
   store ptr %97, ptr %12, align 8, !tbaa !25
   store i64 0, ptr %106, align 8, !tbaa !28
-  store i8 0, ptr %97, align 1, !tbaa !30
+  store i8 0, ptr %97, align 8, !tbaa !30
   call void @_ZN5clang10extractapi15CXXMethodRecordC2ENS0_9APIRecord10RecordKindEN4llvm9StringRefES5_NS0_15SymbolReferenceENS_11PresumedLocENS_16AvailabilityInfoERKSt6vectorINS_10RawComment11CommentLineESaISB_EENS0_20DeclarationFragmentsESG_NS0_17FunctionSignatureENS0_13AccessControlEb(ptr noundef nonnull align 8 dereferenceable(416) %0, i32 noundef 28, ptr %1, i64 %2, ptr %3, i64 %4, ptr noundef nonnull byval(%"struct.clang::extractapi::SymbolReference") align 8 %5, ptr noundef nonnull byval(%"class.clang::PresumedLoc") align 8 %6, ptr noundef nonnull %15, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, i1 noundef zeroext %13)
   %108 = load ptr, ptr %19, align 8, !tbaa !25
   %109 = icmp eq ptr %108, %95
@@ -95224,7 +95224,7 @@ _ZN5clang10extractapi13AccessControlC2EOS1_.exit: ; preds = %99, %_ZNKSt7__cxx11
   store i64 %105, ptr %107, align 8, !tbaa !28
   store ptr %97, ptr %12, align 8, !tbaa !25
   store i64 0, ptr %106, align 8, !tbaa !28
-  store i8 0, ptr %97, align 1, !tbaa !30
+  store i8 0, ptr %97, align 8, !tbaa !30
   call void @_ZN5clang10extractapi15CXXMethodRecordC2ENS0_9APIRecord10RecordKindEN4llvm9StringRefES5_NS0_15SymbolReferenceENS_11PresumedLocENS_16AvailabilityInfoERKSt6vectorINS_10RawComment11CommentLineESaISB_EENS0_20DeclarationFragmentsESG_NS0_17FunctionSignatureENS0_13AccessControlEb(ptr noundef nonnull align 8 dereferenceable(416) %0, i32 noundef 31, ptr %1, i64 %2, ptr %3, i64 %4, ptr noundef nonnull byval(%"struct.clang::extractapi::SymbolReference") align 8 %5, ptr noundef nonnull byval(%"class.clang::PresumedLoc") align 8 %6, ptr noundef nonnull %15, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, i1 noundef zeroext %13)
   %108 = load ptr, ptr %19, align 8, !tbaa !25
   %109 = icmp eq ptr %108, %95
@@ -98866,7 +98866,7 @@ _ZN5clang10extractapi13AccessControlC2EOS1_.exit: ; preds = %99, %_ZNKSt7__cxx11
   store i64 %105, ptr %107, align 8, !tbaa !28
   store ptr %97, ptr %12, align 8, !tbaa !25
   store i64 0, ptr %106, align 8, !tbaa !28
-  store i8 0, ptr %97, align 1, !tbaa !30
+  store i8 0, ptr %97, align 8, !tbaa !30
   call void @_ZN5clang10extractapi15CXXMethodRecordC2ENS0_9APIRecord10RecordKindEN4llvm9StringRefES5_NS0_15SymbolReferenceENS_11PresumedLocENS_16AvailabilityInfoERKSt6vectorINS_10RawComment11CommentLineESaISB_EENS0_20DeclarationFragmentsESG_NS0_17FunctionSignatureENS0_13AccessControlEb(ptr noundef nonnull align 8 dereferenceable(416) %0, i32 noundef 30, ptr %1, i64 %2, ptr %3, i64 %4, ptr noundef nonnull byval(%"struct.clang::extractapi::SymbolReference") align 8 %5, ptr noundef nonnull byval(%"class.clang::PresumedLoc") align 8 %6, ptr noundef nonnull %15, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, i1 noundef zeroext %13)
   %108 = load ptr, ptr %19, align 8, !tbaa !25
   %109 = icmp eq ptr %108, %95
@@ -100861,7 +100861,7 @@ _ZN5clang10extractapi13AccessControlC2EOS1_.exit: ; preds = %64, %_ZNKSt7__cxx11
   store i64 %70, ptr %72, align 8, !tbaa !28
   store ptr %62, ptr %12, align 8, !tbaa !25
   store i64 0, ptr %71, align 8, !tbaa !28
-  store i8 0, ptr %62, align 1, !tbaa !30
+  store i8 0, ptr %62, align 8, !tbaa !30
   call void @_ZN5clang10extractapi14CXXFieldRecordC2ENS0_9APIRecord10RecordKindEN4llvm9StringRefES5_NS0_15SymbolReferenceENS_11PresumedLocENS_16AvailabilityInfoERKSt6vectorINS_10RawComment11CommentLineESaISB_EENS0_20DeclarationFragmentsESG_NS0_13AccessControlEb(ptr noundef nonnull align 8 dereferenceable(392) %0, i32 noundef 16, ptr %1, i64 %2, ptr %3, i64 %4, ptr noundef nonnull byval(%"struct.clang::extractapi::SymbolReference") align 8 %5, ptr noundef nonnull byval(%"class.clang::PresumedLoc") align 8 %6, ptr noundef nonnull %15, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, i1 noundef zeroext %13)
   %73 = load ptr, ptr %18, align 8, !tbaa !25
   %74 = icmp eq ptr %73, %60
@@ -101147,7 +101147,7 @@ _ZN5clang10extractapi13AccessControlC2EOS1_.exit: ; preds = %64, %_ZNKSt7__cxx11
   store i64 %70, ptr %72, align 8, !tbaa !28
   store ptr %62, ptr %12, align 8, !tbaa !25
   store i64 0, ptr %71, align 8, !tbaa !28
-  store i8 0, ptr %62, align 1, !tbaa !30
+  store i8 0, ptr %62, align 8, !tbaa !30
   call void @_ZN5clang10extractapi9APIRecordC2ENS1_10RecordKindEN4llvm9StringRefES4_NS0_15SymbolReferenceENS_11PresumedLocENS_16AvailabilityInfoENS_11LinkageInfoERKSt6vectorINS_10RawComment11CommentLineESaISB_EENS0_20DeclarationFragmentsESG_bNS0_13AccessControlE(ptr noundef nonnull align 8 dereferenceable(368) %0, i32 noundef %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr noundef nonnull byval(%"struct.clang::extractapi::SymbolReference") align 8 %6, ptr noundef nonnull byval(%"class.clang::PresumedLoc") align 8 %7, ptr noundef nonnull %15, i8 17, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull %16, ptr noundef nonnull %17, i1 noundef zeroext %13, ptr noundef nonnull %18)
   %73 = load ptr, ptr %18, align 8, !tbaa !25
   %74 = icmp eq ptr %73, %60
@@ -106073,7 +106073,7 @@ _ZN5clang10extractapi13AccessControlC2EOS1_.exit: ; preds = %63, %_ZNKSt7__cxx11
   store i64 %69, ptr %71, align 8, !tbaa !28
   store ptr %61, ptr %11, align 8, !tbaa !25
   store i64 0, ptr %70, align 8, !tbaa !28
-  store i8 0, ptr %61, align 1, !tbaa !30
+  store i8 0, ptr %61, align 8, !tbaa !30
   call void @_ZN5clang10extractapi9APIRecordC2ENS1_10RecordKindEN4llvm9StringRefES4_NS0_15SymbolReferenceENS_11PresumedLocENS_16AvailabilityInfoENS_11LinkageInfoERKSt6vectorINS_10RawComment11CommentLineESaISB_EENS0_20DeclarationFragmentsESG_bNS0_13AccessControlE(ptr noundef nonnull align 8 dereferenceable(368) %0, i32 noundef 15, ptr %1, i64 %2, ptr %3, i64 %4, ptr noundef nonnull byval(%"struct.clang::extractapi::SymbolReference") align 8 %5, ptr noundef nonnull byval(%"class.clang::PresumedLoc") align 8 %6, ptr noundef nonnull %14, i8 17, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull %15, ptr noundef nonnull %16, i1 noundef zeroext %12, ptr noundef nonnull %17)
   %72 = load ptr, ptr %17, align 8, !tbaa !25
   %73 = icmp eq ptr %72, %59
@@ -108133,7 +108133,7 @@ _ZN5clang10extractapi13AccessControlC2EOS1_.exit: ; preds = %65, %_ZNKSt7__cxx11
   store i64 %71, ptr %73, align 8, !tbaa !28
   store ptr %63, ptr %14, align 8, !tbaa !25
   store i64 0, ptr %72, align 8, !tbaa !28
-  store i8 0, ptr %63, align 1, !tbaa !30
+  store i8 0, ptr %63, align 8, !tbaa !30
   call void @_ZN5clang10extractapi9TagRecordC2ENS0_9APIRecord10RecordKindEN4llvm9StringRefES5_NS0_15SymbolReferenceENS_11PresumedLocENS_16AvailabilityInfoERKSt6vectorINS_10RawComment11CommentLineESaISB_EENS0_20DeclarationFragmentsESG_bbNS0_13AccessControlE(ptr noundef nonnull align 8 dereferenceable(393) %0, i32 noundef %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr noundef nonnull byval(%"struct.clang::extractapi::SymbolReference") align 8 %6, ptr noundef nonnull byval(%"class.clang::PresumedLoc") align 8 %7, ptr noundef nonnull %16, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull %17, ptr noundef nonnull %18, i1 noundef zeroext %12, i1 noundef zeroext %13, ptr noundef nonnull %19)
   %74 = load ptr, ptr %19, align 8, !tbaa !25
   %75 = icmp eq ptr %74, %61
@@ -108419,7 +108419,7 @@ _ZN5clang10extractapi13AccessControlC2EOS1_.exit: ; preds = %65, %_ZNKSt7__cxx11
   store i64 %71, ptr %73, align 8, !tbaa !28
   store ptr %63, ptr %14, align 8, !tbaa !25
   store i64 0, ptr %72, align 8, !tbaa !28
-  store i8 0, ptr %63, align 1, !tbaa !30
+  store i8 0, ptr %63, align 8, !tbaa !30
   call void @_ZN5clang10extractapi9APIRecordC2ENS1_10RecordKindEN4llvm9StringRefES4_NS0_15SymbolReferenceENS_11PresumedLocENS_16AvailabilityInfoENS_11LinkageInfoERKSt6vectorINS_10RawComment11CommentLineESaISB_EENS0_20DeclarationFragmentsESG_bNS0_13AccessControlE(ptr noundef nonnull align 8 dereferenceable(368) %0, i32 noundef %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr noundef nonnull byval(%"struct.clang::extractapi::SymbolReference") align 8 %6, ptr noundef nonnull byval(%"class.clang::PresumedLoc") align 8 %7, ptr noundef nonnull %16, i8 17, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull %17, ptr noundef nonnull %18, i1 noundef zeroext %12, ptr noundef nonnull %19)
   %74 = load ptr, ptr %19, align 8, !tbaa !25
   %75 = icmp eq ptr %74, %61
@@ -110496,7 +110496,7 @@ _ZN5clang10extractapi13AccessControlC2EOS1_.exit: ; preds = %64, %_ZNKSt7__cxx11
   store i64 %70, ptr %72, align 8, !tbaa !28
   store ptr %62, ptr %12, align 8, !tbaa !25
   store i64 0, ptr %71, align 8, !tbaa !28
-  store i8 0, ptr %62, align 1, !tbaa !30
+  store i8 0, ptr %62, align 8, !tbaa !30
   call void @_ZN5clang10extractapi14CXXClassRecordC2EN4llvm9StringRefES3_NS0_15SymbolReferenceENS_11PresumedLocENS_16AvailabilityInfoERKSt6vectorINS_10RawComment11CommentLineESaIS9_EENS0_20DeclarationFragmentsESE_NS0_9APIRecord10RecordKindENS0_13AccessControlEbb(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr noundef nonnull byval(%"struct.clang::extractapi::SymbolReference") align 8 %5, ptr noundef nonnull byval(%"class.clang::PresumedLoc") align 8 %6, ptr noundef nonnull %15, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull %16, ptr noundef nonnull %17, i32 noundef 10, ptr noundef nonnull %18, i1 noundef zeroext %13, i1 noundef zeroext false)
   %73 = load ptr, ptr %18, align 8, !tbaa !25
   %74 = icmp eq ptr %73, %60
@@ -111011,7 +111011,7 @@ _ZN5clang10extractapi13AccessControlC2EOS1_.exit: ; preds = %65, %_ZNKSt7__cxx11
   store i64 %71, ptr %73, align 8, !tbaa !28
   store ptr %63, ptr %12, align 8, !tbaa !25
   store i64 0, ptr %72, align 8, !tbaa !28
-  store i8 0, ptr %63, align 1, !tbaa !30
+  store i8 0, ptr %63, align 8, !tbaa !30
   call void @_ZN5clang10extractapi12RecordRecordC2ENS0_9APIRecord10RecordKindEN4llvm9StringRefES5_NS0_15SymbolReferenceENS_11PresumedLocENS_16AvailabilityInfoERKSt6vectorINS_10RawComment11CommentLineESaISB_EENS0_20DeclarationFragmentsESG_bbNS0_13AccessControlE(ptr noundef nonnull align 8 dereferenceable(393) %0, i32 noundef %11, ptr %1, i64 %2, ptr %3, i64 %4, ptr noundef nonnull byval(%"struct.clang::extractapi::SymbolReference") align 8 %5, ptr noundef nonnull byval(%"class.clang::PresumedLoc") align 8 %6, ptr noundef nonnull %16, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull %17, ptr noundef nonnull %18, i1 noundef zeroext %13, i1 noundef zeroext %14, ptr noundef nonnull %19)
   %74 = load ptr, ptr %19, align 8, !tbaa !25
   %75 = icmp eq ptr %74, %61
@@ -114257,7 +114257,7 @@ _ZN5clang10extractapi13AccessControlC2EOS1_.exit: ; preds = %64, %_ZNKSt7__cxx11
   store i64 %70, ptr %72, align 8, !tbaa !28
   store ptr %62, ptr %13, align 8, !tbaa !25
   store i64 0, ptr %71, align 8, !tbaa !28
-  store i8 0, ptr %62, align 1, !tbaa !30
+  store i8 0, ptr %62, align 8, !tbaa !30
   call void @_ZN5clang10extractapi9TagRecordC2ENS0_9APIRecord10RecordKindEN4llvm9StringRefES5_NS0_15SymbolReferenceENS_11PresumedLocENS_16AvailabilityInfoERKSt6vectorINS_10RawComment11CommentLineESaISB_EENS0_20DeclarationFragmentsESG_bbNS0_13AccessControlE(ptr noundef nonnull align 8 dereferenceable(393) %0, i32 noundef 3, ptr %1, i64 %2, ptr %3, i64 %4, ptr noundef nonnull byval(%"struct.clang::extractapi::SymbolReference") align 8 %5, ptr noundef nonnull byval(%"class.clang::PresumedLoc") align 8 %6, ptr noundef nonnull %15, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull %16, ptr noundef nonnull %17, i1 noundef zeroext %11, i1 noundef zeroext %12, ptr noundef nonnull %18)
   %73 = load ptr, ptr %18, align 8, !tbaa !25
   %74 = icmp eq ptr %73, %60
@@ -116248,7 +116248,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %37, ptr %39, align 8, !tbaa !28, !alias.scope !2443, !noalias !2446
   store ptr %29, ptr %.0911.i.i.i, align 8, !tbaa !25, !alias.scope !2446, !noalias !2443
   store i64 0, ptr %38, align 8, !tbaa !28, !alias.scope !2446, !noalias !2443
-  store i8 0, ptr %29, align 1, !tbaa !30, !alias.scope !2446, !noalias !2443
+  store i8 0, ptr %29, align 8, !tbaa !30, !alias.scope !2446, !noalias !2443
   %40 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %41 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %42 = load i32, ptr %41, align 8, !tbaa !1138, !alias.scope !2446, !noalias !2443
@@ -116286,7 +116286,7 @@ _ZSt19__relocate_object_aIN5clang10extractapi20DeclarationFragments8FragmentES3_
   store i64 %55, ptr %57, align 8, !tbaa !28, !alias.scope !2443, !noalias !2446
   store ptr %47, ptr %44, align 8, !tbaa !25, !alias.scope !2446, !noalias !2443
   store i64 0, ptr %56, align 8, !tbaa !28, !alias.scope !2446, !noalias !2443
-  store i8 0, ptr %47, align 1, !tbaa !30, !alias.scope !2446, !noalias !2443
+  store i8 0, ptr %47, align 8, !tbaa !30, !alias.scope !2446, !noalias !2443
   %58 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 72
   %59 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 72
   %60 = load ptr, ptr %59, align 8, !tbaa !1141, !alias.scope !2446, !noalias !2443
@@ -116338,7 +116338,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i2
   store i64 %74, ptr %76, align 8, !tbaa !28, !alias.scope !2450, !noalias !2453
   store ptr %66, ptr %.0911.i.i.i22, align 8, !tbaa !25, !alias.scope !2453, !noalias !2450
   store i64 0, ptr %75, align 8, !tbaa !28, !alias.scope !2453, !noalias !2450
-  store i8 0, ptr %66, align 1, !tbaa !30, !alias.scope !2453, !noalias !2450
+  store i8 0, ptr %66, align 8, !tbaa !30, !alias.scope !2453, !noalias !2450
   %77 = getelementptr inbounds nuw i8, ptr %.012.i.i.i21, i64 32
   %78 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i22, i64 32
   %79 = load i32, ptr %78, align 8, !tbaa !1138, !alias.scope !2453, !noalias !2450
@@ -116376,7 +116376,7 @@ _ZSt19__relocate_object_aIN5clang10extractapi20DeclarationFragments8FragmentES3_
   store i64 %92, ptr %94, align 8, !tbaa !28, !alias.scope !2450, !noalias !2453
   store ptr %84, ptr %81, align 8, !tbaa !25, !alias.scope !2453, !noalias !2450
   store i64 0, ptr %93, align 8, !tbaa !28, !alias.scope !2453, !noalias !2450
-  store i8 0, ptr %84, align 1, !tbaa !30, !alias.scope !2453, !noalias !2450
+  store i8 0, ptr %84, align 8, !tbaa !30, !alias.scope !2453, !noalias !2450
   %95 = getelementptr inbounds nuw i8, ptr %.012.i.i.i21, i64 72
   %96 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i22, i64 72
   %97 = load ptr, ptr %96, align 8, !tbaa !1141, !alias.scope !2453, !noalias !2450
@@ -117929,7 +117929,7 @@ _ZN5clang10extractapi13AccessControlC2EOS1_.exit: ; preds = %64, %_ZNKSt7__cxx11
   store i64 %70, ptr %72, align 8, !tbaa !28
   store ptr %62, ptr %11, align 8, !tbaa !25
   store i64 0, ptr %71, align 8, !tbaa !28
-  store i8 0, ptr %62, align 1, !tbaa !30
+  store i8 0, ptr %62, align 8, !tbaa !30
   call void @_ZN5clang10extractapi14CXXFieldRecordC2ENS0_9APIRecord10RecordKindEN4llvm9StringRefES5_NS0_15SymbolReferenceENS_11PresumedLocENS_16AvailabilityInfoERKSt6vectorINS_10RawComment11CommentLineESaISB_EENS0_20DeclarationFragmentsESG_NS0_13AccessControlEb(ptr noundef nonnull align 8 dereferenceable(392) %0, i32 noundef 17, ptr %1, i64 %2, ptr %3, i64 %4, ptr noundef nonnull byval(%"struct.clang::extractapi::SymbolReference") align 8 %5, ptr noundef nonnull byval(%"class.clang::PresumedLoc") align 8 %6, ptr noundef nonnull %15, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, i1 noundef zeroext %13)
   %73 = load ptr, ptr %18, align 8, !tbaa !25
   %74 = icmp eq ptr %73, %60
@@ -121289,7 +121289,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(77) ptr @_ZN4
   store ptr %14, ptr %12, align 8, !tbaa !22
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 0, ptr %15, align 8, !tbaa !28
-  store i8 0, ptr %14, align 1, !tbaa !30
+  store i8 0, ptr %14, align 8, !tbaa !30
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !249
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 64
@@ -121339,7 +121339,7 @@ _ZSt10_ConstructIN5clang17FrontendInputFileEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ;
   store i64 %35, ptr %36, align 8, !tbaa !28
   store ptr %26, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !25
   store i64 0, ptr %34, align 8, !tbaa !28
-  store i8 0, ptr %26, align 1, !tbaa !30
+  store i8 0, ptr %26, align 8, !tbaa !30
   %37 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 32
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(45) %37, ptr noundef nonnull align 8 dereferenceable(45) %38, i64 45, i1 false)

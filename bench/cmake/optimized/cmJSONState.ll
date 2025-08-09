@@ -3287,7 +3287,7 @@ _ZSt19__relocate_object_aIN11cmJSONState5ErrorES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.
   store i64 %67, ptr %69, align 8, !tbaa !10, !alias.scope !188, !noalias !191
   store ptr %59, ptr %56, align 8, !tbaa !27, !alias.scope !191, !noalias !188
   store i64 0, ptr %68, align 8, !tbaa !10, !alias.scope !191, !noalias !188
-  store i8 0, ptr %59, align 1, !tbaa !13, !alias.scope !191, !noalias !188
+  store i8 0, ptr %59, align 8, !tbaa !13, !alias.scope !191, !noalias !188
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
   %.not.i.i.i = icmp eq ptr %70, %1
@@ -3339,7 +3339,7 @@ _ZSt19__relocate_object_aIN11cmJSONState5ErrorES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.
   store i64 %86, ptr %88, align 8, !tbaa !10, !alias.scope !195, !noalias !198
   store ptr %78, ptr %75, align 8, !tbaa !27, !alias.scope !198, !noalias !195
   store i64 0, ptr %87, align 8, !tbaa !10, !alias.scope !198, !noalias !195
-  store i8 0, ptr %78, align 1, !tbaa !13, !alias.scope !198, !noalias !195
+  store i8 0, ptr %78, align 8, !tbaa !13, !alias.scope !198, !noalias !195
   %89 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 40
   %90 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 40
   %.not.i.i.i34 = icmp eq ptr %89, %7
@@ -3584,7 +3584,7 @@ _ZSt19__relocate_object_aIN11cmJSONState5ErrorES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.
   store i64 %67, ptr %69, align 8, !tbaa !10, !alias.scope !201, !noalias !204
   store ptr %59, ptr %56, align 8, !tbaa !27, !alias.scope !204, !noalias !201
   store i64 0, ptr %68, align 8, !tbaa !10, !alias.scope !204, !noalias !201
-  store i8 0, ptr %59, align 1, !tbaa !13, !alias.scope !204, !noalias !201
+  store i8 0, ptr %59, align 8, !tbaa !13, !alias.scope !204, !noalias !201
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
   %.not.i.i.i = icmp eq ptr %70, %1
@@ -3636,7 +3636,7 @@ _ZSt19__relocate_object_aIN11cmJSONState5ErrorES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.
   store i64 %86, ptr %88, align 8, !tbaa !10, !alias.scope !207, !noalias !210
   store ptr %78, ptr %75, align 8, !tbaa !27, !alias.scope !210, !noalias !207
   store i64 0, ptr %87, align 8, !tbaa !10, !alias.scope !210, !noalias !207
-  store i8 0, ptr %78, align 1, !tbaa !13, !alias.scope !210, !noalias !207
+  store i8 0, ptr %78, align 8, !tbaa !13, !alias.scope !210, !noalias !207
   %89 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 40
   %90 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 40
   %.not.i.i.i35 = icmp eq ptr %89, %8

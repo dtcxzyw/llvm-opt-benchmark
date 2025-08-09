@@ -356,9 +356,9 @@ define noundef nonnull align 8 dereferenceable(72) ptr @_ZN4LIEF3ELF24SymbolVers
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load i16, ptr %15, align 8, !tbaa !52
-  %18 = load i16, ptr %16, align 2, !tbaa !52
+  %18 = load i16, ptr %16, align 8, !tbaa !52
   store i16 %18, ptr %15, align 8, !tbaa !52
-  store i16 %17, ptr %16, align 2, !tbaa !52
+  store i16 %17, ptr %16, align 8, !tbaa !52
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %20) #12

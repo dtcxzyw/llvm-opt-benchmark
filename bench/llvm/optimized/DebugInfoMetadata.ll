@@ -18006,7 +18006,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPKNS_12DISubprogramEPKNS_10DIL
   store ptr %41, ptr %31, align 8, !tbaa !142
   %42 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %43 = load i32, ptr %3, align 4, !tbaa !143
-  store i32 %43, ptr %42, align 4, !tbaa !143
+  store i32 %43, ptr %42, align 8, !tbaa !143
   ret ptr %24
 }
 
@@ -18270,7 +18270,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPKNS_12DISubprogramEPKNS_10DIL
   %87 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 16
   %88 = getelementptr inbounds nuw i8, ptr %.023, i64 16
   %89 = load i32, ptr %88, align 4, !tbaa !143
-  store i32 %89, ptr %87, align 4, !tbaa !143
+  store i32 %89, ptr %87, align 8, !tbaa !143
   %90 = load i32, ptr %0, align 8
   %91 = and i32 %90, -2
   %92 = add i32 %91, 2
@@ -28265,7 +28265,7 @@ _ZNK4llvm18DILexicalBlockBase11getRawScopeEv.exit.i.thread.i.i: ; preds = %8
   %22 = load ptr, ptr %21, align 8, !tbaa !25
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !98
-  %25 = load i8, ptr %9, align 4, !tbaa !138
+  %25 = load i8, ptr %9, align 8, !tbaa !138
   %26 = icmp eq i8 %25, 16
   br i1 %26, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_14DILexicalBlockENS_6detail13DenseSetEmptyENS_10MDNodeInfoIS2_EENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E12getHashValueERKS3_.exit, label %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i
 
@@ -28732,7 +28732,7 @@ _ZNK4llvm18DILexicalBlockBase11getRawScopeEv.exit.i.thread.i.i: ; preds = %8
   %22 = load ptr, ptr %21, align 8, !tbaa !25
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !98
-  %25 = load i8, ptr %9, align 4, !tbaa !138
+  %25 = load i8, ptr %9, align 8, !tbaa !138
   %26 = icmp eq i8 %25, 16
   br i1 %26, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_18DILexicalBlockFileENS_6detail13DenseSetEmptyENS_10MDNodeInfoIS2_EENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E12getHashValueERKS3_.exit, label %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i
 

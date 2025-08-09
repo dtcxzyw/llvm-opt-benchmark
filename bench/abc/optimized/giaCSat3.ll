@@ -92,11 +92,11 @@ Vec_IntPush.exit:
   store ptr %18, ptr %22, align 8, !tbaa !35
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %0, ptr %23, align 8, !tbaa !36
-  store i32 1000, ptr %1, align 4, !tbaa !3
+  store i32 1000, ptr %1, align 8, !tbaa !3
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 500, ptr %24, align 4, !tbaa !8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 10, ptr %25, align 4, !tbaa !9
+  store i32 10, ptr %25, align 8, !tbaa !9
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 1, ptr %26, align 4, !tbaa !10
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -2150,9 +2150,9 @@ define i32 @Cbs3_ManSolve2_rec(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %22 = icmp sgt i32 %20, %21
   %23 = zext i1 %22 to i32
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %25 = load i32, ptr %24, align 4, !tbaa !37
+  %25 = load i32, ptr %24, align 8, !tbaa !37
   %26 = add nsw i32 %25, %23
-  store i32 %26, ptr %24, align 4, !tbaa !37
+  store i32 %26, ptr %24, align 8, !tbaa !37
   %27 = select i1 %14, i1 true, i1 %22
   br i1 %27, label %126, label %28
 
@@ -2793,9 +2793,9 @@ Cbs3_ManAssign.exit.Cbs3_ManSaveModel.exit_crit_edge.i: ; preds = %Cbs3_ManAssig
   %64 = load i32, ptr %0, align 8, !tbaa !11
   %65 = icmp sgt i32 %63, %64
   %66 = zext i1 %65 to i32
-  %67 = load i32, ptr %20, align 4, !tbaa !37
+  %67 = load i32, ptr %20, align 8, !tbaa !37
   %68 = add nsw i32 %67, %66
-  store i32 %68, ptr %20, align 4, !tbaa !37
+  store i32 %68, ptr %20, align 8, !tbaa !37
   %69 = select i1 %59, i1 true, i1 %65
   %.pre30.i = load i32, ptr %13, align 4, !tbaa !59
   br i1 %69, label %Cbs3_ManSaveModel.exit.i, label %70
@@ -2967,9 +2967,9 @@ Cbs3_ManSolveInt.exit:                            ; preds = %.lr.ph.i23.i, %129,
   %152 = load i32, ptr %0, align 8, !tbaa !11
   %153 = icmp sgt i32 %141, %152
   %154 = zext i1 %153 to i32
-  %155 = load i32, ptr %20, align 4, !tbaa !37
+  %155 = load i32, ptr %20, align 8, !tbaa !37
   %156 = add nsw i32 %155, %154
-  store i32 %156, ptr %20, align 4, !tbaa !37
+  store i32 %156, ptr %20, align 8, !tbaa !37
   %157 = select i1 %148, i1 true, i1 %153
   br i1 %157, label %29, label %Cbs3_ManSolveInt.exit._crit_edge
 
@@ -4346,7 +4346,7 @@ Abc_Clock.exit102:                                ; preds = %Vec_IntFree.exit, %
   %558 = getelementptr inbounds nuw i8, ptr %18, i64 396
   %559 = load i32, ptr %558, align 4, !tbaa !37
   %560 = getelementptr inbounds nuw i8, ptr %18, i64 400
-  %561 = load i32, ptr %560, align 4, !tbaa !37
+  %561 = load i32, ptr %560, align 8, !tbaa !37
   %562 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %551, i32 noundef %553, i32 noundef %555, i32 noundef %557, i32 noundef %559, i32 noundef %561)
   %563 = call i32 @Cbs3_ManMemory(ptr noundef nonnull %18)
   %564 = sitofp i32 %563 to double

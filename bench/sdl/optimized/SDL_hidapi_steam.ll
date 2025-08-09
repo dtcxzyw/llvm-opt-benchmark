@@ -606,7 +606,7 @@ RemapValClamped.exit.i.i:                         ; preds = %154
   %205 = fmul float %202, %204
   %206 = call float @llvm.fmuladd.f32(float %200, float %201, float %205)
   %207 = fptosi float %206 to i16
-  store i16 %207, ptr %66, align 2
+  store i16 %207, ptr %66, align 8
   %208 = call float @SDL_sinf_REAL(float noundef 0xBFD0C150A0000000) #9
   %209 = call float @SDL_cosf_REAL(float noundef 0xBFD0C150A0000000) #9
   %210 = fmul float %209, %203
@@ -650,7 +650,7 @@ RemapValClamped.exit.i.i:                         ; preds = %154
   %237 = fmul float %234, %236
   %238 = call float @llvm.fmuladd.f32(float %232, float %233, float %237)
   %239 = fptosi float %238 to i16
-  store i16 %239, ptr %68, align 2
+  store i16 %239, ptr %68, align 4
   %240 = call float @SDL_sinf_REAL(float noundef 0x3FD0C150A0000000) #9
   %241 = call float @SDL_cosf_REAL(float noundef 0x3FD0C150A0000000) #9
   %242 = fmul float %241, %235
@@ -711,7 +711,7 @@ RemapValClamped.exit.i.i:                         ; preds = %154
 
 268:                                              ; preds = %266
   %269 = load i32, ptr %56, align 4
-  %270 = load i32, ptr %73, align 1
+  %270 = load i32, ptr %73, align 4
   %.not72.i = icmp eq i32 %269, %270
   br i1 %.not72.i, label %308, label %271
 
@@ -719,33 +719,33 @@ RemapValClamped.exit.i.i:                         ; preds = %154
   call fastcc void @FormatStatePacketUntilGyro(ptr noundef nonnull %55, ptr noundef nonnull readonly %73)
   %272 = load i16, ptr %86, align 1
   store i16 %272, ptr %70, align 8
-  %273 = load i16, ptr %87, align 1
+  %273 = load i16, ptr %87, align 2
   store i16 %273, ptr %80, align 2
-  %274 = load i16, ptr %88, align 1
+  %274 = load i16, ptr %88, align 8
   store i16 %274, ptr %81, align 4
-  %275 = load i16, ptr %89, align 1
+  %275 = load i16, ptr %89, align 8
   %276 = sitofp i16 %275 to float
   store float %276, ptr %72, align 4
-  %277 = load i16, ptr %90, align 1
+  %277 = load i16, ptr %90, align 2
   %278 = sitofp i16 %277 to float
   store float %278, ptr %82, align 8
-  %279 = load i16, ptr %91, align 1
+  %279 = load i16, ptr %91, align 4
   %280 = sitofp i16 %279 to float
   store float %280, ptr %83, align 4
-  %281 = load i16, ptr %92, align 1
+  %281 = load i16, ptr %92, align 2
   %282 = sitofp i16 %281 to float
   store float %282, ptr %85, align 8
-  %283 = load i16, ptr %93, align 1
+  %283 = load i16, ptr %93, align 2
   store i16 %283, ptr %71, align 2
-  %284 = load i16, ptr %94, align 1
+  %284 = load i16, ptr %94, align 4
   store i16 %284, ptr %77, align 8
-  %285 = load i16, ptr %95, align 1
+  %285 = load i16, ptr %95, align 2
   store i16 %285, ptr %79, align 2
   br label %308
 
 286:                                              ; preds = %266
   %287 = load i32, ptr %56, align 4
-  %288 = load i32, ptr %73, align 1
+  %288 = load i32, ptr %73, align 4
   %.not71.i = icmp eq i32 %287, %288
   br i1 %.not71.i, label %308, label %289
 

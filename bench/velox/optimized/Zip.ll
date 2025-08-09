@@ -4219,7 +4219,7 @@ call6.i.i.noexc:                                  ; preds = %call3.i.i.noexc
   %capacity_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i143, i64 32
   store i64 %sub.i.i, ptr %capacity_.i.i.i.i, align 8, !noalias !52
   %referenceCount_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i143, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i.i, align 4, !noalias !52
+  store i32 0, ptr %referenceCount_.i.i.i.i, align 8, !noalias !52
   %podType_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i143, i64 44
   store i8 1, ptr %podType_.i.i.i.i, align 4, !noalias !52
   %padding_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i143, i64 48
@@ -5669,7 +5669,7 @@ call6.i.i.noexc437:                               ; preds = %call3.i.i.noexc435
   %capacity_.i.i.i.i418 = getelementptr inbounds nuw i8, ptr %call6.i.i438, i64 32
   store i64 %sub.i.i413, ptr %capacity_.i.i.i.i418, align 8, !noalias !72
   %referenceCount_.i.i.i.i419 = getelementptr inbounds nuw i8, ptr %call6.i.i438, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i.i419, align 4, !noalias !72
+  store i32 0, ptr %referenceCount_.i.i.i.i419, align 8, !noalias !72
   %podType_.i.i.i.i420 = getelementptr inbounds nuw i8, ptr %call6.i.i438, i64 44
   store i8 1, ptr %podType_.i.i.i.i420, align 4, !noalias !72
   %padding_.i.i.i.i421 = getelementptr inbounds nuw i8, ptr %call6.i.i438, i64 48
@@ -5834,7 +5834,7 @@ call6.i.i.noexc494:                               ; preds = %call3.i.i.noexc492
   %capacity_.i.i.i.i477 = getelementptr inbounds nuw i8, ptr %call6.i.i495, i64 32
   store i64 %sub.i.i472, ptr %capacity_.i.i.i.i477, align 8, !noalias !79
   %referenceCount_.i.i.i.i478 = getelementptr inbounds nuw i8, ptr %call6.i.i495, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i.i478, align 4, !noalias !79
+  store i32 0, ptr %referenceCount_.i.i.i.i478, align 8, !noalias !79
   %podType_.i.i.i.i479 = getelementptr inbounds nuw i8, ptr %call6.i.i495, i64 44
   store i8 1, ptr %podType_.i.i.i.i479, align 4, !noalias !79
   %padding_.i.i.i.i480 = getelementptr inbounds nuw i8, ptr %call6.i.i495, i64 48
@@ -6081,7 +6081,7 @@ call6.i.i.noexc580:                               ; preds = %call3.i.i.noexc578
   %capacity_.i.i.i.i561 = getelementptr inbounds nuw i8, ptr %call6.i.i581, i64 32
   store i64 %sub.i.i556, ptr %capacity_.i.i.i.i561, align 8, !noalias !87
   %referenceCount_.i.i.i.i562 = getelementptr inbounds nuw i8, ptr %call6.i.i581, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i.i562, align 4, !noalias !87
+  store i32 0, ptr %referenceCount_.i.i.i.i562, align 8, !noalias !87
   %podType_.i.i.i.i563 = getelementptr inbounds nuw i8, ptr %call6.i.i581, i64 44
   store i8 1, ptr %podType_.i.i.i.i563, align 4, !noalias !87
   %padding_.i.i.i.i564 = getelementptr inbounds nuw i8, ptr %call6.i.i581, i64 48

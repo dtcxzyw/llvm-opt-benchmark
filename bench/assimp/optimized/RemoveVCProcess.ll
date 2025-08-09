@@ -122,7 +122,7 @@ define void @_ZN6Assimp15RemoveVCProcess7ExecuteEP7aiScene(ptr noundef nonnull a
 
 _Z11ArrayDeleteI11aiAnimationEvRPPT_Rj.exit:      ; preds = %._crit_edge.i, %26
   store ptr null, ptr %11, align 8
-  store i32 0, ptr %12, align 4
+  store i32 0, ptr %12, align 8
   %.pre = load i32, ptr %7, align 8
   br label %27
 
@@ -181,7 +181,7 @@ _ZN9aiTextureD2Ev.exit.i:                         ; preds = %45, %41
 
 _Z11ArrayDeleteI9aiTextureEvRPPT_Rj.exit:         ; preds = %._crit_edge.i51, %50
   store ptr null, ptr %31, align 8
-  store i32 0, ptr %32, align 4
+  store i32 0, ptr %32, align 8
   %.pre79 = load i32, ptr %7, align 8
   br label %51
 
@@ -301,7 +301,7 @@ _Z11ArrayDeleteI9aiTextureEvRPPT_Rj.exit:         ; preds = %._crit_edge.i51, %5
 
 _Z11ArrayDeleteI7aiLightEvRPPT_Rj.exit:           ; preds = %._crit_edge.i57, %98
   store ptr null, ptr %83, align 8
-  store i32 0, ptr %84, align 4
+  store i32 0, ptr %84, align 8
   %.pre82 = load i32, ptr %7, align 8
   br label %99
 
@@ -351,7 +351,7 @@ _Z11ArrayDeleteI7aiLightEvRPPT_Rj.exit:           ; preds = %._crit_edge.i57, %9
 
 _Z11ArrayDeleteI8aiCameraEvRPPT_Rj.exit:          ; preds = %._crit_edge.i63, %118
   store ptr null, ptr %103, align 8
-  store i32 0, ptr %104, align 4
+  store i32 0, ptr %104, align 8
   %.pre83 = load i32, ptr %7, align 8
   br label %119
 
@@ -412,7 +412,7 @@ _Z11ArrayDeleteI8aiCameraEvRPPT_Rj.exit:          ; preds = %._crit_edge.i63, %1
 
 _Z11ArrayDeleteI6aiMeshEvRPPT_Rj.exit:            ; preds = %._crit_edge.i69, %141
   store ptr null, ptr %126, align 8
-  store i32 0, ptr %127, align 4
+  store i32 0, ptr %127, align 8
   br label %.loopexit.thread
 
 142:                                              ; preds = %.lr.ph74, %142
@@ -796,7 +796,7 @@ _ZN6aiBoneD2Ev.exit.i:                            ; preds = %105, %101
 
 _Z11ArrayDeleteI6aiBoneEvRPPT_Rj.exit:            ; preds = %._crit_edge.i, %._crit_edge.i.thread
   store ptr null, ptr %90, align 8
-  store i32 0, ptr %93, align 4
+  store i32 0, ptr %93, align 8
   br label %111
 
 111:                                              ; preds = %_Z11ArrayDeleteI6aiBoneEvRPPT_Rj.exit, %89, %.split102.us

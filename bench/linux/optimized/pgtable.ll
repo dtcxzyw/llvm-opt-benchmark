@@ -67,7 +67,7 @@ define dso_local ptr @pte_alloc_one(ptr noundef readnone captures(none) %0) loca
   %9 = load i32, ptr %8, align 16
   %10 = and i32 %9, -513
   store i32 %10, ptr %8, align 16
-  %11 = load volatile i64, ptr %4, align 8
+  %11 = load volatile i64, ptr %4, align 16
   %12 = and i64 %11, 64
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %18, label %14
@@ -117,7 +117,7 @@ define dso_local void @___pte_free_tlb(ptr noundef %0, ptr noundef %1) local_unn
   %4 = load i32, ptr %3, align 16
   %5 = or i32 %4, 512
   store i32 %5, ptr %3, align 16
-  %6 = load volatile i64, ptr %1, align 8
+  %6 = load volatile i64, ptr %1, align 16
   %7 = and i64 %6, 64
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %12, label %9
@@ -162,7 +162,7 @@ define dso_local void @___pmd_free_tlb(ptr noundef %0, ptr noundef %1) local_unn
   %16 = load i32, ptr %15, align 16
   %17 = or i32 %16, 512
   store i32 %17, ptr %15, align 16
-  %18 = load volatile i64, ptr %14, align 8
+  %18 = load volatile i64, ptr %14, align 16
   %19 = and i64 %18, 64
   %20 = icmp eq i64 %19, 0
   br i1 %20, label %24, label %21
@@ -207,7 +207,7 @@ define dso_local void @___pud_free_tlb(ptr noundef %0, ptr noundef %1) local_unn
   %16 = load i32, ptr %15, align 16
   %17 = or i32 %16, 512
   store i32 %17, ptr %15, align 16
-  %18 = load volatile i64, ptr %14, align 8
+  %18 = load volatile i64, ptr %14, align 16
   %19 = and i64 %18, 64
   %20 = icmp eq i64 %19, 0
   br i1 %20, label %24, label %21
@@ -779,7 +779,7 @@ define dso_local noundef range(i32 0, 2) i32 @pud_free_pmd_page(ptr noundef %0, 
   %57 = load i32, ptr %56, align 16
   %58 = or i32 %57, 512
   store i32 %58, ptr %56, align 16
-  %59 = load volatile i64, ptr %55, align 8
+  %59 = load volatile i64, ptr %55, align 16
   %60 = and i64 %59, 64
   %61 = icmp eq i64 %60, 0
   br i1 %61, label %65, label %62

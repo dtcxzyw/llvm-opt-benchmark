@@ -84920,7 +84920,7 @@ define linkonce_odr hidden ptr @_ZZN8pybind1112cpp_function10initializeIZNOS_6de
   store ptr %8, ptr %7, align 8, !tbaa !126
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %9, align 8, !tbaa !130
-  store i8 0, ptr %8, align 1, !tbaa !131
+  store i8 0, ptr %8, align 8, !tbaa !131
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry9VoxelGridE, i64 16), ptr %4, align 8, !tbaa !585
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 80

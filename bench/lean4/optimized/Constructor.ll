@@ -11524,7 +11524,7 @@ _init_l_Lean_MVarId_existsIntro___lambda__1___closed__2.exit: ; preds = %_init_l
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 4
   %89 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store i64 16777472, ptr %89, align 8, !tbaa !12
-  store i32 1, ptr %85, align 4, !tbaa !4
+  store i32 1, ptr %85, align 8, !tbaa !4
   store i32 16, ptr %88, align 4
   store ptr %85, ptr @l_Lean_MVarId_existsIntro___lambda__1___closed__2, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %85) #4

@@ -3476,7 +3476,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i166: ; preds = %.noexc169, %
   %263 = load i32, ptr %262, align 8, !tbaa !276
   %264 = and i32 %263, -261
   %265 = or disjoint i32 %264, 4
-  store i32 %265, ptr %262, align 4, !tbaa !277
+  store i32 %265, ptr %262, align 8, !tbaa !277
   %266 = load i64, ptr %256, align 8
   %267 = getelementptr inbounds i8, ptr %6, i64 %266
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 240
@@ -13441,7 +13441,7 @@ _ZNSt10_HashtableIiSt4pairIKiPN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEESaIS6_ENSt8
   %.02530.i = phi i64 [ %.1.i, %314 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiPN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i ]
   %299 = load ptr, ptr %.031.i, align 8, !tbaa !554
   %300 = getelementptr inbounds nuw i8, ptr %.031.i, i64 8
-  %301 = load i32, ptr %300, align 4, !tbaa !29
+  %301 = load i32, ptr %300, align 8, !tbaa !29
   %302 = sext i32 %301 to i64
   %303 = urem i64 %302, %287
   %304 = getelementptr inbounds nuw ptr, ptr %.0.i.i, i64 %303
@@ -14468,7 +14468,7 @@ _ZNSt10_HashtableIiSt4pairIKiPN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEESaIS6_ENSt8
   %.02530.i289 = phi i64 [ %.1.i291, %752 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiPN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i284 ]
   %737 = load ptr, ptr %.031.i288, align 8, !tbaa !554
   %738 = getelementptr inbounds nuw i8, ptr %.031.i288, i64 8
-  %739 = load i32, ptr %738, align 4, !tbaa !29
+  %739 = load i32, ptr %738, align 8, !tbaa !29
   %740 = sext i32 %739 to i64
   %741 = urem i64 %740, %725
   %742 = getelementptr inbounds nuw ptr, ptr %.0.i.i285, i64 %741
@@ -16166,7 +16166,7 @@ _ZNK3g2o20SparseBlockMatrixCCSIN5Eigen6MatrixIdLi3ELi2ELi0ELi3ELi2EEEE14rowBaseO
   %473 = fadd double %467, %472
   %.sroa.0.0.vec.insert.i.i.i.i = insertelement <2 x double> poison, double %473, i64 0
   %474 = getelementptr inbounds nuw i8, ptr %451, i64 24
-  %475 = load <2 x double>, ptr %474, align 1, !tbaa !14
+  %475 = load <2 x double>, ptr %474, align 8, !tbaa !14
   %476 = fmul <2 x double> %464, %475
   %shift192 = shufflevector <2 x double> %476, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %477 = fadd <2 x double> %476, %shift192
@@ -22191,7 +22191,7 @@ _ZNK3g2o17SparseBlockMatrixIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEE14rowBaseOfBl
   %107 = fmul double %104, %106
   %108 = fadd double %103, %107
   %.sroa.0.0.vec.insert.i.i.i = insertelement <2 x double> poison, double %108, i64 0
-  %109 = load <2 x double>, ptr %66, align 1, !tbaa !14
+  %109 = load <2 x double>, ptr %66, align 8, !tbaa !14
   %110 = fmul <2 x double> %100, %109
   %shift46 = shufflevector <2 x double> %110, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %111 = fadd <2 x double> %110, %shift46
@@ -22200,7 +22200,7 @@ _ZNK3g2o17SparseBlockMatrixIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEE14rowBaseOfBl
   %114 = fmul double %106, %113
   %115 = fadd double %114, %112
   %.sroa.0.8.vec.insert.i.i.i = insertelement <2 x double> %.sroa.0.0.vec.insert.i.i.i, double %115, i64 1
-  %116 = load <2 x double>, ptr %73, align 1, !tbaa !14
+  %116 = load <2 x double>, ptr %73, align 8, !tbaa !14
   %117 = fmul <2 x double> %100, %116
   %shift47 = shufflevector <2 x double> %117, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %118 = fadd <2 x double> %117, %shift47

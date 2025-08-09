@@ -36263,7 +36263,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr354dro
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8437)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8440)
   %35 = load i32, ptr %34, align 8, !alias.scope !8442, !noalias !8445, !noundef !4
-  store i32 %35, ptr %33, align 4, !alias.scope !8446, !noalias !8447
+  store i32 %35, ptr %33, align 8, !alias.scope !8446, !noalias !8447
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !8448
   call void @"_ZN112_$LT$pubgrub..internal..partial_solution..PackageAssignments$LT$P$C$VS$C$M$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha09646dcfe00723eE.llvm.2441728074051575861"(ptr noalias noundef nonnull sret([256 x i8]) align 8 captures(none) dereferenceable(256) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(272) %29), !noalias !8452
   invoke void @"_ZN4core3ptr246drop_in_place$LT$pubgrub..internal..partial_solution..PackageAssignments$LT$uv_resolver..pubgrub..package..PubGrubPackage$C$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$C$uv_resolver..resolver..availability..UnavailableReason$GT$$GT$17hf3bf1e1176dfcfc3E"(ptr noalias noundef nonnull align 8 dereferenceable(272) %28)

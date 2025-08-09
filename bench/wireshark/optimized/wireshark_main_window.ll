@@ -20616,11 +20616,11 @@ _ZN7QStringD2Ev.exit3662:                         ; preds = %3880, %_ZN17QArrayD
   %3892 = getelementptr inbounds nuw i8, ptr %3887, i64 20
   store i32 1507328, ptr %3892, align 4
   %3893 = getelementptr inbounds nuw i8, ptr %3887, i64 24
-  store i32 0, ptr %3893, align 4
+  store i32 0, ptr %3893, align 8
   %3894 = getelementptr inbounds nuw i8, ptr %3887, i64 28
   store i32 0, ptr %3894, align 4
   %3895 = getelementptr inbounds nuw i8, ptr %3887, i64 32
-  store i32 -1, ptr %3895, align 4
+  store i32 -1, ptr %3895, align 8
   %3896 = getelementptr inbounds nuw i8, ptr %3887, i64 36
   store i32 -1, ptr %3896, align 4
   %3897 = getelementptr inbounds nuw i8, ptr %0, i64 2064

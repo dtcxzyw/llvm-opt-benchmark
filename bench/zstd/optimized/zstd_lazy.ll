@@ -340,7 +340,7 @@ define i32 @ZSTD_insertAndFindFirstIndex(ptr noundef captures(none) %0, ptr noun
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load ptr, ptr %5, align 8, !tbaa !16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %8 = load i32, ptr %7, align 4, !tbaa !33
+  %8 = load i32, ptr %7, align 8, !tbaa !33
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %10 = load ptr, ptr %9, align 8, !tbaa !17
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 260
@@ -28833,7 +28833,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_noDict_4(ptr noundef captures(n
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %17 = trunc i64 %16 to i32
-  %18 = load i32, ptr %5, align 4, !tbaa !115
+  %18 = load i32, ptr %5, align 8, !tbaa !115
   %19 = shl nuw i32 1, %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %21 = load i32, ptr %20, align 4, !tbaa !103
@@ -28854,7 +28854,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_noDict_4(ptr noundef captures(n
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %36 = load ptr, ptr %35, align 8, !tbaa !16
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %38 = load i32, ptr %37, align 4, !tbaa !33
+  %38 = load i32, ptr %37, align 8, !tbaa !33
   %notmask.i.i = shl nsw i32 -1, %9
   %39 = xor i32 %notmask.i.i, -1
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -29240,7 +29240,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_noDict_5(ptr noundef captures(n
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %17 = trunc i64 %16 to i32
-  %18 = load i32, ptr %5, align 4, !tbaa !115
+  %18 = load i32, ptr %5, align 8, !tbaa !115
   %19 = shl nuw i32 1, %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %21 = load i32, ptr %20, align 4, !tbaa !103
@@ -29261,7 +29261,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_noDict_5(ptr noundef captures(n
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %36 = load ptr, ptr %35, align 8, !tbaa !16
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %38 = load i32, ptr %37, align 4, !tbaa !33
+  %38 = load i32, ptr %37, align 8, !tbaa !33
   %notmask.i.i = shl nsw i32 -1, %9
   %39 = xor i32 %notmask.i.i, -1
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -29645,7 +29645,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_noDict_6(ptr noundef captures(n
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %17 = trunc i64 %16 to i32
-  %18 = load i32, ptr %5, align 4, !tbaa !115
+  %18 = load i32, ptr %5, align 8, !tbaa !115
   %19 = shl nuw i32 1, %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %21 = load i32, ptr %20, align 4, !tbaa !103
@@ -29666,7 +29666,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_noDict_6(ptr noundef captures(n
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %36 = load ptr, ptr %35, align 8, !tbaa !16
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %38 = load i32, ptr %37, align 4, !tbaa !33
+  %38 = load i32, ptr %37, align 8, !tbaa !33
   %notmask.i.i = shl nsw i32 -1, %9
   %39 = xor i32 %notmask.i.i, -1
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -30253,7 +30253,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_4(ptr noundef capture
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
   %19 = trunc i64 %18 to i32
-  %20 = load i32, ptr %13, align 4, !tbaa !115
+  %20 = load i32, ptr %13, align 8, !tbaa !115
   %21 = shl nuw i32 1, %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %23 = load i32, ptr %22, align 4, !tbaa !103
@@ -30745,7 +30745,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_5(ptr noundef capture
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
   %19 = trunc i64 %18 to i32
-  %20 = load i32, ptr %13, align 4, !tbaa !115
+  %20 = load i32, ptr %13, align 8, !tbaa !115
   %21 = shl nuw i32 1, %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %23 = load i32, ptr %22, align 4, !tbaa !103
@@ -31253,7 +31253,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr noundef capture
   %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
   %20 = trunc i64 %19 to i32
-  %21 = load i32, ptr %14, align 4, !tbaa !115
+  %21 = load i32, ptr %14, align 8, !tbaa !115
   %22 = shl nuw i32 1, %21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %24 = load i32, ptr %23, align 4, !tbaa !103
@@ -31794,7 +31794,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_4(ptr noundef capture
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
   %19 = trunc i64 %18 to i32
-  %20 = load i32, ptr %13, align 4, !tbaa !115
+  %20 = load i32, ptr %13, align 8, !tbaa !115
   %21 = shl nuw i32 1, %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %23 = load i32, ptr %22, align 4, !tbaa !103
@@ -32287,7 +32287,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_5(ptr noundef capture
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
   %19 = trunc i64 %18 to i32
-  %20 = load i32, ptr %13, align 4, !tbaa !115
+  %20 = load i32, ptr %13, align 8, !tbaa !115
   %21 = shl nuw i32 1, %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %23 = load i32, ptr %22, align 4, !tbaa !103
@@ -32796,7 +32796,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr noundef capture
   %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
   %20 = trunc i64 %19 to i32
-  %21 = load i32, ptr %14, align 4, !tbaa !115
+  %21 = load i32, ptr %14, align 8, !tbaa !115
   %22 = shl nuw i32 1, %21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %24 = load i32, ptr %23, align 4, !tbaa !103
@@ -33338,7 +33338,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_4(ptr noundef capture
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
   %19 = trunc i64 %18 to i32
-  %20 = load i32, ptr %13, align 4, !tbaa !115
+  %20 = load i32, ptr %13, align 8, !tbaa !115
   %21 = shl nuw i32 1, %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %23 = load i32, ptr %22, align 4, !tbaa !103
@@ -33831,7 +33831,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_5(ptr noundef capture
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
   %19 = trunc i64 %18 to i32
-  %20 = load i32, ptr %13, align 4, !tbaa !115
+  %20 = load i32, ptr %13, align 8, !tbaa !115
   %21 = shl nuw i32 1, %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %23 = load i32, ptr %22, align 4, !tbaa !103
@@ -34340,7 +34340,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr noundef capture
   %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
   %20 = trunc i64 %19 to i32
-  %21 = load i32, ptr %14, align 4, !tbaa !115
+  %21 = load i32, ptr %14, align 8, !tbaa !115
   %22 = shl nuw i32 1, %21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %24 = load i32, ptr %23, align 4, !tbaa !103
@@ -34887,7 +34887,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_extDict_4(ptr noundef captures(
   %22 = ptrtoint ptr %13 to i64
   %23 = sub i64 %21, %22
   %24 = trunc i64 %23 to i32
-  %25 = load i32, ptr %5, align 4, !tbaa !115
+  %25 = load i32, ptr %5, align 8, !tbaa !115
   %26 = shl nuw i32 1, %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %28 = load i32, ptr %27, align 4, !tbaa !103
@@ -34908,7 +34908,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_extDict_4(ptr noundef captures(
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %43 = load ptr, ptr %42, align 8, !tbaa !16
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %45 = load i32, ptr %44, align 4, !tbaa !33
+  %45 = load i32, ptr %44, align 8, !tbaa !33
   %notmask.i.i = shl nsw i32 -1, %9
   %46 = xor i32 %notmask.i.i, -1
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -35164,7 +35164,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_extDict_5(ptr noundef captures(
   %22 = ptrtoint ptr %13 to i64
   %23 = sub i64 %21, %22
   %24 = trunc i64 %23 to i32
-  %25 = load i32, ptr %5, align 4, !tbaa !115
+  %25 = load i32, ptr %5, align 8, !tbaa !115
   %26 = shl nuw i32 1, %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %28 = load i32, ptr %27, align 4, !tbaa !103
@@ -35185,7 +35185,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_extDict_5(ptr noundef captures(
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %43 = load ptr, ptr %42, align 8, !tbaa !16
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %45 = load i32, ptr %44, align 4, !tbaa !33
+  %45 = load i32, ptr %44, align 8, !tbaa !33
   %notmask.i.i = shl nsw i32 -1, %9
   %46 = xor i32 %notmask.i.i, -1
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -35440,7 +35440,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_extDict_6(ptr noundef captures(
   %22 = ptrtoint ptr %13 to i64
   %23 = sub i64 %21, %22
   %24 = trunc i64 %23 to i32
-  %25 = load i32, ptr %5, align 4, !tbaa !115
+  %25 = load i32, ptr %5, align 8, !tbaa !115
   %26 = shl nuw i32 1, %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %28 = load i32, ptr %27, align 4, !tbaa !103
@@ -35461,7 +35461,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_extDict_6(ptr noundef captures(
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %43 = load ptr, ptr %42, align 8, !tbaa !16
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %45 = load i32, ptr %44, align 4, !tbaa !33
+  %45 = load i32, ptr %44, align 8, !tbaa !33
   %notmask.i.i = shl nsw i32 -1, %9
   %46 = xor i32 %notmask.i.i, -1
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -35919,7 +35919,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_4(ptr noundef captur
   %24 = ptrtoint ptr %15 to i64
   %25 = sub i64 %23, %24
   %26 = trunc i64 %25 to i32
-  %27 = load i32, ptr %13, align 4, !tbaa !115
+  %27 = load i32, ptr %13, align 8, !tbaa !115
   %28 = shl nuw i32 1, %27
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %30 = load i32, ptr %29, align 4, !tbaa !103
@@ -36438,7 +36438,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_5(ptr noundef captur
   %24 = ptrtoint ptr %15 to i64
   %25 = sub i64 %23, %24
   %26 = trunc i64 %25 to i32
-  %27 = load i32, ptr %13, align 4, !tbaa !115
+  %27 = load i32, ptr %13, align 8, !tbaa !115
   %28 = shl nuw i32 1, %27
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %30 = load i32, ptr %29, align 4, !tbaa !103
@@ -36973,7 +36973,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_6(ptr noundef captur
   %25 = ptrtoint ptr %16 to i64
   %26 = sub i64 %24, %25
   %27 = trunc i64 %26 to i32
-  %28 = load i32, ptr %14, align 4, !tbaa !115
+  %28 = load i32, ptr %14, align 8, !tbaa !115
   %29 = shl nuw i32 1, %28
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %31 = load i32, ptr %30, align 4, !tbaa !103
@@ -37541,7 +37541,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_4(ptr noundef captur
   %24 = ptrtoint ptr %15 to i64
   %25 = sub i64 %23, %24
   %26 = trunc i64 %25 to i32
-  %27 = load i32, ptr %13, align 4, !tbaa !115
+  %27 = load i32, ptr %13, align 8, !tbaa !115
   %28 = shl nuw i32 1, %27
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %30 = load i32, ptr %29, align 4, !tbaa !103
@@ -38061,7 +38061,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_5(ptr noundef captur
   %24 = ptrtoint ptr %15 to i64
   %25 = sub i64 %23, %24
   %26 = trunc i64 %25 to i32
-  %27 = load i32, ptr %13, align 4, !tbaa !115
+  %27 = load i32, ptr %13, align 8, !tbaa !115
   %28 = shl nuw i32 1, %27
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %30 = load i32, ptr %29, align 4, !tbaa !103
@@ -38597,7 +38597,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_6(ptr noundef captur
   %25 = ptrtoint ptr %16 to i64
   %26 = sub i64 %24, %25
   %27 = trunc i64 %26 to i32
-  %28 = load i32, ptr %14, align 4, !tbaa !115
+  %28 = load i32, ptr %14, align 8, !tbaa !115
   %29 = shl nuw i32 1, %28
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %31 = load i32, ptr %30, align 4, !tbaa !103
@@ -39166,7 +39166,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_4(ptr noundef captur
   %24 = ptrtoint ptr %15 to i64
   %25 = sub i64 %23, %24
   %26 = trunc i64 %25 to i32
-  %27 = load i32, ptr %13, align 4, !tbaa !115
+  %27 = load i32, ptr %13, align 8, !tbaa !115
   %28 = shl nuw i32 1, %27
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %30 = load i32, ptr %29, align 4, !tbaa !103
@@ -39686,7 +39686,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_5(ptr noundef captur
   %24 = ptrtoint ptr %15 to i64
   %25 = sub i64 %23, %24
   %26 = trunc i64 %25 to i32
-  %27 = load i32, ptr %13, align 4, !tbaa !115
+  %27 = load i32, ptr %13, align 8, !tbaa !115
   %28 = shl nuw i32 1, %27
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %30 = load i32, ptr %29, align 4, !tbaa !103
@@ -40222,7 +40222,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_6(ptr noundef captur
   %25 = ptrtoint ptr %16 to i64
   %26 = sub i64 %24, %25
   %27 = trunc i64 %26 to i32
-  %28 = load i32, ptr %14, align 4, !tbaa !115
+  %28 = load i32, ptr %14, align 8, !tbaa !115
   %29 = shl nuw i32 1, %28
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %31 = load i32, ptr %30, align 4, !tbaa !103
@@ -40786,7 +40786,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_4(ptr noundef ca
   %19 = ptrtoint ptr %13 to i64
   %20 = sub i64 %18, %19
   %21 = trunc i64 %20 to i32
-  %22 = load i32, ptr %5, align 4, !tbaa !115
+  %22 = load i32, ptr %5, align 8, !tbaa !115
   %23 = shl nuw i32 1, %22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %25 = load i32, ptr %24, align 4, !tbaa !103
@@ -40809,7 +40809,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_4(ptr noundef ca
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %42 = load ptr, ptr %41, align 8, !tbaa !16
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %44 = load i32, ptr %43, align 4, !tbaa !33
+  %44 = load i32, ptr %43, align 8, !tbaa !33
   %notmask.i.i = shl nsw i32 -1, %9
   %45 = xor i32 %notmask.i.i, -1
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -41212,7 +41212,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_5(ptr noundef ca
   %19 = ptrtoint ptr %13 to i64
   %20 = sub i64 %18, %19
   %21 = trunc i64 %20 to i32
-  %22 = load i32, ptr %5, align 4, !tbaa !115
+  %22 = load i32, ptr %5, align 8, !tbaa !115
   %23 = shl nuw i32 1, %22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %25 = load i32, ptr %24, align 4, !tbaa !103
@@ -41235,7 +41235,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_5(ptr noundef ca
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %42 = load ptr, ptr %41, align 8, !tbaa !16
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %44 = load i32, ptr %43, align 4, !tbaa !33
+  %44 = load i32, ptr %43, align 8, !tbaa !33
   %notmask.i.i = shl nsw i32 -1, %9
   %45 = xor i32 %notmask.i.i, -1
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -41640,7 +41640,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_6(ptr noundef ca
   %19 = ptrtoint ptr %13 to i64
   %20 = sub i64 %18, %19
   %21 = trunc i64 %20 to i32
-  %22 = load i32, ptr %5, align 4, !tbaa !115
+  %22 = load i32, ptr %5, align 8, !tbaa !115
   %23 = shl nuw i32 1, %22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %25 = load i32, ptr %24, align 4, !tbaa !103
@@ -41663,7 +41663,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_6(ptr noundef ca
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %42 = load ptr, ptr %41, align 8, !tbaa !16
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %44 = load i32, ptr %43, align 4, !tbaa !33
+  %44 = load i32, ptr %43, align 8, !tbaa !33
   %notmask.i.i = shl nsw i32 -1, %9
   %45 = xor i32 %notmask.i.i, -1
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -42272,7 +42272,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_4(ptr noundef
   %22 = ptrtoint ptr %16 to i64
   %23 = sub i64 %21, %22
   %24 = trunc i64 %23 to i32
-  %25 = load i32, ptr %14, align 4, !tbaa !115
+  %25 = load i32, ptr %14, align 8, !tbaa !115
   %26 = shl nuw i32 1, %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %28 = load i32, ptr %27, align 4, !tbaa !103
@@ -42902,7 +42902,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_5(ptr noundef
   %22 = ptrtoint ptr %16 to i64
   %23 = sub i64 %21, %22
   %24 = trunc i64 %23 to i32
-  %25 = load i32, ptr %14, align 4, !tbaa !115
+  %25 = load i32, ptr %14, align 8, !tbaa !115
   %26 = shl nuw i32 1, %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %28 = load i32, ptr %27, align 4, !tbaa !103
@@ -43558,7 +43558,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_6(ptr noundef
   %24 = ptrtoint ptr %18 to i64
   %25 = sub i64 %23, %24
   %26 = trunc i64 %25 to i32
-  %27 = load i32, ptr %16, align 4, !tbaa !115
+  %27 = load i32, ptr %16, align 8, !tbaa !115
   %28 = shl nuw i32 1, %27
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %30 = load i32, ptr %29, align 4, !tbaa !103
@@ -44277,7 +44277,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_4(ptr noundef
   %22 = ptrtoint ptr %16 to i64
   %23 = sub i64 %21, %22
   %24 = trunc i64 %23 to i32
-  %25 = load i32, ptr %14, align 4, !tbaa !115
+  %25 = load i32, ptr %14, align 8, !tbaa !115
   %26 = shl nuw i32 1, %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %28 = load i32, ptr %27, align 4, !tbaa !103
@@ -44908,7 +44908,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_5(ptr noundef
   %22 = ptrtoint ptr %16 to i64
   %23 = sub i64 %21, %22
   %24 = trunc i64 %23 to i32
-  %25 = load i32, ptr %14, align 4, !tbaa !115
+  %25 = load i32, ptr %14, align 8, !tbaa !115
   %26 = shl nuw i32 1, %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %28 = load i32, ptr %27, align 4, !tbaa !103
@@ -45565,7 +45565,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_6(ptr noundef
   %24 = ptrtoint ptr %18 to i64
   %25 = sub i64 %23, %24
   %26 = trunc i64 %25 to i32
-  %27 = load i32, ptr %16, align 4, !tbaa !115
+  %27 = load i32, ptr %16, align 8, !tbaa !115
   %28 = shl nuw i32 1, %27
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %30 = load i32, ptr %29, align 4, !tbaa !103
@@ -46285,7 +46285,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_4(ptr noundef
   %22 = ptrtoint ptr %16 to i64
   %23 = sub i64 %21, %22
   %24 = trunc i64 %23 to i32
-  %25 = load i32, ptr %14, align 4, !tbaa !115
+  %25 = load i32, ptr %14, align 8, !tbaa !115
   %26 = shl nuw i32 1, %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %28 = load i32, ptr %27, align 4, !tbaa !103
@@ -46916,7 +46916,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_5(ptr noundef
   %22 = ptrtoint ptr %16 to i64
   %23 = sub i64 %21, %22
   %24 = trunc i64 %23 to i32
-  %25 = load i32, ptr %14, align 4, !tbaa !115
+  %25 = load i32, ptr %14, align 8, !tbaa !115
   %26 = shl nuw i32 1, %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %28 = load i32, ptr %27, align 4, !tbaa !103
@@ -47573,7 +47573,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_6(ptr noundef
   %24 = ptrtoint ptr %18 to i64
   %25 = sub i64 %23, %24
   %26 = trunc i64 %25 to i32
-  %27 = load i32, ptr %16, align 4, !tbaa !115
+  %27 = load i32, ptr %16, align 8, !tbaa !115
   %28 = shl nuw i32 1, %27
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %30 = load i32, ptr %29, align 4, !tbaa !103
@@ -48290,7 +48290,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_4(ptr nound
   %19 = ptrtoint ptr %13 to i64
   %20 = sub i64 %18, %19
   %21 = trunc i64 %20 to i32
-  %22 = load i32, ptr %5, align 4, !tbaa !115
+  %22 = load i32, ptr %5, align 8, !tbaa !115
   %23 = shl nuw i32 1, %22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %25 = load i32, ptr %24, align 4, !tbaa !103
@@ -48325,7 +48325,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_4(ptr nound
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %51 = load ptr, ptr %50, align 8, !tbaa !16
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %53 = load i32, ptr %52, align 4, !tbaa !33
+  %53 = load i32, ptr %52, align 8, !tbaa !33
   %notmask.i.i = shl nsw i32 -1, %9
   %54 = xor i32 %notmask.i.i, -1
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -48708,7 +48708,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_5(ptr nound
   %19 = ptrtoint ptr %13 to i64
   %20 = sub i64 %18, %19
   %21 = trunc i64 %20 to i32
-  %22 = load i32, ptr %5, align 4, !tbaa !115
+  %22 = load i32, ptr %5, align 8, !tbaa !115
   %23 = shl nuw i32 1, %22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %25 = load i32, ptr %24, align 4, !tbaa !103
@@ -48743,7 +48743,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_5(ptr nound
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %51 = load ptr, ptr %50, align 8, !tbaa !16
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %53 = load i32, ptr %52, align 4, !tbaa !33
+  %53 = load i32, ptr %52, align 8, !tbaa !33
   %notmask.i.i = shl nsw i32 -1, %9
   %54 = xor i32 %notmask.i.i, -1
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -49124,7 +49124,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_6(ptr nound
   %19 = ptrtoint ptr %13 to i64
   %20 = sub i64 %18, %19
   %21 = trunc i64 %20 to i32
-  %22 = load i32, ptr %5, align 4, !tbaa !115
+  %22 = load i32, ptr %5, align 8, !tbaa !115
   %23 = shl nuw i32 1, %22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %25 = load i32, ptr %24, align 4, !tbaa !103
@@ -49159,7 +49159,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_6(ptr nound
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %51 = load ptr, ptr %50, align 8, !tbaa !16
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %53 = load i32, ptr %52, align 4, !tbaa !33
+  %53 = load i32, ptr %52, align 8, !tbaa !33
   %notmask.i.i = shl nsw i32 -1, %9
   %54 = xor i32 %notmask.i.i, -1
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -49542,7 +49542,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_4(ptr no
   %21 = ptrtoint ptr %15 to i64
   %22 = sub i64 %20, %21
   %23 = trunc i64 %22 to i32
-  %24 = load i32, ptr %13, align 4, !tbaa !115
+  %24 = load i32, ptr %13, align 8, !tbaa !115
   %25 = shl nuw i32 1, %24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %27 = load i32, ptr %26, align 4, !tbaa !103
@@ -50206,7 +50206,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_5(ptr no
   %21 = ptrtoint ptr %15 to i64
   %22 = sub i64 %20, %21
   %23 = trunc i64 %22 to i32
-  %24 = load i32, ptr %13, align 4, !tbaa !115
+  %24 = load i32, ptr %13, align 8, !tbaa !115
   %25 = shl nuw i32 1, %24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %27 = load i32, ptr %26, align 4, !tbaa !103
@@ -50886,7 +50886,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_6(ptr no
   %22 = ptrtoint ptr %16 to i64
   %23 = sub i64 %21, %22
   %24 = trunc i64 %23 to i32
-  %25 = load i32, ptr %14, align 4, !tbaa !115
+  %25 = load i32, ptr %14, align 8, !tbaa !115
   %26 = shl nuw i32 1, %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %28 = load i32, ptr %27, align 4, !tbaa !103
@@ -51599,7 +51599,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_4(ptr no
   %21 = ptrtoint ptr %15 to i64
   %22 = sub i64 %20, %21
   %23 = trunc i64 %22 to i32
-  %24 = load i32, ptr %13, align 4, !tbaa !115
+  %24 = load i32, ptr %13, align 8, !tbaa !115
   %25 = shl nuw i32 1, %24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %27 = load i32, ptr %26, align 4, !tbaa !103
@@ -52264,7 +52264,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_5(ptr no
   %21 = ptrtoint ptr %15 to i64
   %22 = sub i64 %20, %21
   %23 = trunc i64 %22 to i32
-  %24 = load i32, ptr %13, align 4, !tbaa !115
+  %24 = load i32, ptr %13, align 8, !tbaa !115
   %25 = shl nuw i32 1, %24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %27 = load i32, ptr %26, align 4, !tbaa !103
@@ -52945,7 +52945,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_6(ptr no
   %22 = ptrtoint ptr %16 to i64
   %23 = sub i64 %21, %22
   %24 = trunc i64 %23 to i32
-  %25 = load i32, ptr %14, align 4, !tbaa !115
+  %25 = load i32, ptr %14, align 8, !tbaa !115
   %26 = shl nuw i32 1, %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %28 = load i32, ptr %27, align 4, !tbaa !103
@@ -53659,7 +53659,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_4(ptr no
   %21 = ptrtoint ptr %15 to i64
   %22 = sub i64 %20, %21
   %23 = trunc i64 %22 to i32
-  %24 = load i32, ptr %13, align 4, !tbaa !115
+  %24 = load i32, ptr %13, align 8, !tbaa !115
   %25 = shl nuw i32 1, %24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %27 = load i32, ptr %26, align 4, !tbaa !103
@@ -54324,7 +54324,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_5(ptr no
   %21 = ptrtoint ptr %15 to i64
   %22 = sub i64 %20, %21
   %23 = trunc i64 %22 to i32
-  %24 = load i32, ptr %13, align 4, !tbaa !115
+  %24 = load i32, ptr %13, align 8, !tbaa !115
   %25 = shl nuw i32 1, %24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %27 = load i32, ptr %26, align 4, !tbaa !103
@@ -55005,7 +55005,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_6(ptr no
   %22 = ptrtoint ptr %16 to i64
   %23 = sub i64 %21, %22
   %24 = trunc i64 %23 to i32
-  %25 = load i32, ptr %14, align 4, !tbaa !115
+  %25 = load i32, ptr %14, align 8, !tbaa !115
   %26 = shl nuw i32 1, %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %28 = load i32, ptr %27, align 4, !tbaa !103
@@ -55706,7 +55706,7 @@ define internal fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef captures(none) %
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = load ptr, ptr %10, align 8, !tbaa !16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %13 = load i32, ptr %12, align 4, !tbaa !33
+  %13 = load i32, ptr %12, align 8, !tbaa !33
   switch i32 %4, label %14 [
     i32 6, label %24
     i32 5, label %19
@@ -55745,7 +55745,7 @@ ZSTD_hashPtr.exit:                                ; preds = %14, %19, %24
   %33 = ptrtoint ptr %31 to i64
   %34 = sub i64 %32, %33
   %35 = trunc i64 %34 to i32
-  %36 = load i32, ptr %9, align 4, !tbaa !115
+  %36 = load i32, ptr %9, align 8, !tbaa !115
   %37 = getelementptr i8, ptr %0, i64 28
   %.val232 = load i32, ptr %37, align 4, !tbaa !103
   %38 = getelementptr i8, ptr %0, i64 40
@@ -55851,7 +55851,7 @@ ZSTD_hashPtr.exit:                                ; preds = %14, %19, %24
   %89 = load i32, ptr %87, align 4, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %90 = load i32, ptr %37, align 4, !tbaa !103
-  %91 = load i32, ptr %9, align 4, !tbaa !115
+  %91 = load i32, ptr %9, align 8, !tbaa !115
   %92 = shl nuw i32 1, %91
   %93 = sub i32 %.1281, %90
   %94 = icmp ugt i32 %93, %92
@@ -56320,7 +56320,7 @@ ZSTD_count.exit:                                  ; preds = %212, %.thread63.i, 
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 112
   %306 = load ptr, ptr %305, align 8, !tbaa !16
   %307 = getelementptr inbounds nuw i8, ptr %304, i64 264
-  %308 = load i32, ptr %307, align 4, !tbaa !33
+  %308 = load i32, ptr %307, align 8, !tbaa !33
   switch i32 %4, label %309 [
     i32 6, label %319
     i32 5, label %314

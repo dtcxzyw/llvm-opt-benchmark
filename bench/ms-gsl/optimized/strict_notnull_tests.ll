@@ -468,7 +468,7 @@ _ZNSt12__shared_ptrIiLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit:
   store i32 1, ptr %26, align 4, !noalias !4
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24, align 8, !noalias !4
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store i32 10, ptr %27, align 4, !noalias !4
+  store i32 10, ptr %27, align 8, !noalias !4
   store ptr %27, ptr %1, align 8
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %24, ptr %28, align 8

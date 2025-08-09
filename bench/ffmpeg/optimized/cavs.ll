@@ -1515,7 +1515,7 @@ define void @ff_cavs_inter(ptr noundef readonly %0, i32 noundef %1) local_unname
   %32 = zext nneg i16 %24 to i64
   %33 = getelementptr inbounds nuw [2 x %struct.AVSFrame], ptr %31, i64 0, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !60
-  %.val.i = load i16, ptr %27, align 2, !tbaa !41
+  %.val.i = load i16, ptr %27, align 8, !tbaa !41
   %35 = getelementptr i8, ptr %0, i64 938
   %.val49.i = load i16, ptr %35, align 2, !tbaa !42
   tail call fastcc void @mc_dir_part(ptr noundef nonnull readonly %0, ptr noundef %34, i32 noundef 8, ptr noundef %8, ptr noundef %10, ptr noundef %12, i32 noundef %19, i32 noundef %22, ptr noundef nonnull readonly %14, ptr noundef readonly %16, i16 %.val.i, i16 %.val49.i)
@@ -1533,7 +1533,7 @@ define void @ff_cavs_inter(ptr noundef readonly %0, i32 noundef %1) local_unname
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %43 = load ptr, ptr %42, align 8, !tbaa !60
-  %.val50.i = load i16, ptr %41, align 2, !tbaa !41
+  %.val50.i = load i16, ptr %41, align 8, !tbaa !41
   %44 = getelementptr i8, ptr %0, i64 1034
   %.val51.i = load i16, ptr %44, align 2, !tbaa !42
   tail call fastcc void @mc_dir_part(ptr noundef nonnull readonly %0, ptr noundef %43, i32 noundef 8, ptr noundef %8, ptr noundef %10, ptr noundef %12, i32 noundef %19, i32 noundef %22, ptr noundef nonnull %.048.i, ptr noundef %.0.i, i16 %.val50.i, i16 %.val51.i)
@@ -1565,7 +1565,7 @@ define void @ff_cavs_inter(ptr noundef readonly %0, i32 noundef %1) local_unname
   %66 = zext nneg i16 %60 to i64
   %67 = getelementptr inbounds nuw [2 x %struct.AVSFrame], ptr %65, i64 0, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !60
-  %.val.i49 = load i16, ptr %63, align 2, !tbaa !41
+  %.val.i49 = load i16, ptr %63, align 8, !tbaa !41
   %69 = getelementptr i8, ptr %0, i64 938
   %.val49.i50 = load i16, ptr %69, align 2, !tbaa !42
   tail call fastcc void @mc_dir_part(ptr noundef nonnull readonly %0, ptr noundef %68, i32 noundef 4, ptr noundef %8, ptr noundef %10, ptr noundef %12, i32 noundef %55, i32 noundef %58, ptr noundef nonnull readonly %46, ptr noundef readonly %48, i16 %.val.i49, i16 %.val49.i50)
@@ -1583,7 +1583,7 @@ define void @ff_cavs_inter(ptr noundef readonly %0, i32 noundef %1) local_unname
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %77 = load ptr, ptr %76, align 8, !tbaa !60
-  %.val50.i47 = load i16, ptr %75, align 2, !tbaa !41
+  %.val50.i47 = load i16, ptr %75, align 8, !tbaa !41
   %78 = getelementptr i8, ptr %0, i64 1034
   %.val51.i48 = load i16, ptr %78, align 2, !tbaa !42
   tail call fastcc void @mc_dir_part(ptr noundef nonnull readonly %0, ptr noundef %77, i32 noundef 4, ptr noundef %8, ptr noundef %10, ptr noundef %12, i32 noundef %55, i32 noundef %58, ptr noundef nonnull %.048.i45, ptr noundef %.0.i46, i16 %.val50.i47, i16 %.val51.i48)
@@ -1614,7 +1614,7 @@ mc_part_std.exit51:                               ; preds = %70, %74
   %98 = zext nneg i16 %92 to i64
   %99 = getelementptr inbounds nuw [2 x %struct.AVSFrame], ptr %97, i64 0, i64 %98
   %100 = load ptr, ptr %99, align 8, !tbaa !60
-  %.val.i56 = load i16, ptr %95, align 2, !tbaa !41
+  %.val.i56 = load i16, ptr %95, align 8, !tbaa !41
   %101 = getelementptr i8, ptr %0, i64 946
   %.val49.i57 = load i16, ptr %101, align 2, !tbaa !42
   tail call fastcc void @mc_dir_part(ptr noundef nonnull readonly %0, ptr noundef %100, i32 noundef 4, ptr noundef %83, ptr noundef nonnull %84, ptr noundef nonnull %85, i32 noundef %88, i32 noundef %90, ptr noundef nonnull readonly %46, ptr noundef readonly %82, i16 %.val.i56, i16 %.val49.i57)
@@ -1632,7 +1632,7 @@ mc_part_std.exit51:                               ; preds = %70, %74
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %109 = load ptr, ptr %108, align 8, !tbaa !60
-  %.val50.i54 = load i16, ptr %107, align 2, !tbaa !41
+  %.val50.i54 = load i16, ptr %107, align 8, !tbaa !41
   %110 = getelementptr i8, ptr %0, i64 1042
   %.val51.i55 = load i16, ptr %110, align 2, !tbaa !42
   tail call fastcc void @mc_dir_part(ptr noundef nonnull readonly %0, ptr noundef %109, i32 noundef 4, ptr noundef %83, ptr noundef nonnull %84, ptr noundef nonnull %85, i32 noundef %88, i32 noundef %90, ptr noundef nonnull %.048.i52, ptr noundef %.0.i53, i16 %.val50.i54, i16 %.val51.i55)
@@ -1667,7 +1667,7 @@ mc_part_std.exit58:                               ; preds = %102, %106
   %134 = zext nneg i16 %128 to i64
   %135 = getelementptr inbounds nuw [2 x %struct.AVSFrame], ptr %133, i64 0, i64 %134
   %136 = load ptr, ptr %135, align 8, !tbaa !60
-  %.val.i63 = load i16, ptr %131, align 2, !tbaa !41
+  %.val.i63 = load i16, ptr %131, align 8, !tbaa !41
   %137 = getelementptr i8, ptr %0, i64 970
   %.val49.i64 = load i16, ptr %137, align 2, !tbaa !42
   tail call fastcc void @mc_dir_part(ptr noundef nonnull readonly %0, ptr noundef %136, i32 noundef 4, ptr noundef %117, ptr noundef %120, ptr noundef %121, i32 noundef %123, i32 noundef %126, ptr noundef nonnull readonly %46, ptr noundef readonly %114, i16 %.val.i63, i16 %.val49.i64)
@@ -1685,7 +1685,7 @@ mc_part_std.exit58:                               ; preds = %102, %106
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %145 = load ptr, ptr %144, align 8, !tbaa !60
-  %.val50.i61 = load i16, ptr %143, align 2, !tbaa !41
+  %.val50.i61 = load i16, ptr %143, align 8, !tbaa !41
   %146 = getelementptr i8, ptr %0, i64 1066
   %.val51.i62 = load i16, ptr %146, align 2, !tbaa !42
   tail call fastcc void @mc_dir_part(ptr noundef nonnull readonly %0, ptr noundef %145, i32 noundef 4, ptr noundef %117, ptr noundef %120, ptr noundef %121, i32 noundef %123, i32 noundef %126, ptr noundef nonnull %.048.i59, ptr noundef %.0.i60, i16 %.val50.i61, i16 %.val51.i62)
@@ -1723,7 +1723,7 @@ mc_part_std.exit65:                               ; preds = %138, %142
   %173 = zext nneg i16 %167 to i64
   %174 = getelementptr inbounds nuw [2 x %struct.AVSFrame], ptr %172, i64 0, i64 %173
   %175 = load ptr, ptr %174, align 8, !tbaa !60
-  %.val.i70 = load i16, ptr %170, align 2, !tbaa !41
+  %.val.i70 = load i16, ptr %170, align 8, !tbaa !41
   %176 = getelementptr i8, ptr %0, i64 978
   %.val49.i71 = load i16, ptr %176, align 2, !tbaa !42
   tail call fastcc void @mc_dir_part(ptr noundef nonnull readonly %0, ptr noundef %175, i32 noundef 4, ptr noundef %154, ptr noundef %158, ptr noundef %159, i32 noundef %162, i32 noundef %165, ptr noundef nonnull readonly %46, ptr noundef readonly %150, i16 %.val.i70, i16 %.val49.i71)
@@ -1741,7 +1741,7 @@ mc_part_std.exit65:                               ; preds = %138, %142
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %184 = load ptr, ptr %183, align 8, !tbaa !60
-  %.val50.i68 = load i16, ptr %182, align 2, !tbaa !41
+  %.val50.i68 = load i16, ptr %182, align 8, !tbaa !41
   %185 = getelementptr i8, ptr %0, i64 1074
   %.val51.i69 = load i16, ptr %185, align 2, !tbaa !42
   tail call fastcc void @mc_dir_part(ptr noundef nonnull readonly %0, ptr noundef %184, i32 noundef 4, ptr noundef %154, ptr noundef %158, ptr noundef %159, i32 noundef %162, i32 noundef %165, ptr noundef nonnull %.048.i66, ptr noundef %.0.i67, i16 %.val50.i68, i16 %.val51.i69)
@@ -2511,19 +2511,19 @@ define noundef i32 @ff_cavs_init_pic(ptr noundef captures(none) %0) local_unname
   %8 = load i64, ptr @ff_cavs_dir_mv, align 2
   store i64 %8, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  store i64 %8, ptr %9, align 2
+  store i64 %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1072
-  store i64 %8, ptr %10, align 2
+  store i64 %8, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1040
-  store i64 %8, ptr %11, align 2
+  store i64 %8, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i64 %8, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 968
-  store i64 %8, ptr %13, align 2
+  store i64 %8, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 976
-  store i64 %8, ptr %14, align 2
+  store i64 %8, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  store i64 %8, ptr %15, align 2
+  store i64 %8, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   store i32 -1, ptr %16, align 8, !tbaa !56
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1124

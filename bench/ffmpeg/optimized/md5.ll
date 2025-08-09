@@ -769,7 +769,7 @@ av_md5_update.exit25:                             ; preds = %av_md5_update.exit1
   store i64 %32, ptr %0, align 8, !tbaa !4
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i64 %5, ptr %34, align 1
+  store i64 %5, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call fastcc void @body(ptr noundef nonnull %35, ptr noundef nonnull %33, i64 noundef 1)
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 8

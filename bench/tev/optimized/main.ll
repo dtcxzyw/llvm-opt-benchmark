@@ -13358,7 +13358,7 @@ _ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_jE
   %70 = getelementptr inbounds i8, ptr %.079.i.i.i.i.i.i, i64 -31
   store i8 0, ptr %70, align 1
   %71 = getelementptr inbounds i8, ptr %.079.i.i.i.i.i.i, i64 -8
-  %72 = load i32, ptr %71, align 4
+  %72 = load i32, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %.010.i.i.i.i.i.i, i64 -8
   store i32 %72, ptr %73, align 4
   %.not.i.i.i.i.i.i = icmp eq ptr %1, %55
@@ -13406,7 +13406,7 @@ _ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_jE
   %88 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i.i.i.i, i64 25
   store i8 0, ptr %88, align 1
   %89 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i.i.i.i, i64 48
-  %90 = load i32, ptr %89, align 4
+  %90 = load i32, ptr %89, align 8
   %91 = getelementptr inbounds nuw i8, ptr %storemerge7.i.i.i.i.i, i64 48
   store i32 %90, ptr %91, align 4
   %92 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i.i.i.i, i64 56
@@ -17210,7 +17210,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit53:  ; preds = %34, %36
   store i64 %5, ptr %45, align 8, !noalias !162
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %47 = load i8, ptr %2, align 1, !noalias !162
-  store i8 %47, ptr %46, align 1, !noalias !162
+  store i8 %47, ptr %46, align 8, !noalias !162
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %49 = load i64, ptr %48, align 8
   %50 = add i64 %49, 1

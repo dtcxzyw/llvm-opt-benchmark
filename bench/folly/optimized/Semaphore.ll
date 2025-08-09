@@ -1284,11 +1284,11 @@ define void @_ZN5folly6fibers9Semaphore11future_waitEv(ptr dead_on_unwind noalia
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 72
   store ptr null, ptr %20, align 8, !tbaa !62, !noalias !54
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 80
-  store i8 1, ptr %21, align 1, !tbaa !63, !noalias !54
+  store i8 1, ptr %21, align 16, !tbaa !63, !noalias !54
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 81
   store i8 2, ptr %22, align 1, !tbaa !66, !noalias !54
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 82
-  store i8 0, ptr %23, align 1, !tbaa !66, !noalias !54
+  store i8 0, ptr %23, align 2, !tbaa !66, !noalias !54
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 88
   store i32 0, ptr %24, align 8, !tbaa !68, !noalias !54
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 96
@@ -1574,11 +1574,11 @@ _ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit: ; pr
   %118 = getelementptr inbounds nuw i8, ptr %114, i64 72
   store ptr null, ptr %118, align 8, !tbaa !62, !noalias !96
   %119 = getelementptr inbounds nuw i8, ptr %114, i64 80
-  store i8 2, ptr %119, align 1, !tbaa !63, !noalias !96
+  store i8 2, ptr %119, align 16, !tbaa !63, !noalias !96
   %120 = getelementptr inbounds nuw i8, ptr %114, i64 81
   store i8 1, ptr %120, align 1, !tbaa !66, !noalias !96
   %121 = getelementptr inbounds nuw i8, ptr %114, i64 82
-  store i8 0, ptr %121, align 1, !tbaa !66, !noalias !96
+  store i8 0, ptr %121, align 2, !tbaa !66, !noalias !96
   %122 = getelementptr inbounds nuw i8, ptr %114, i64 88
   store i32 0, ptr %122, align 8, !tbaa !68, !noalias !96
   %123 = getelementptr inbounds nuw i8, ptr %114, i64 96

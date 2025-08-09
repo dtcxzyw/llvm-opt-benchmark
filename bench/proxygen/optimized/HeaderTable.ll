@@ -207,7 +207,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %value.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %value3.i.i.i.i.i.i.i.i, i64 24, i1 false), !alias.scope !9
   %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i.i, i64 31
   store i8 23, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i, align 1, !alias.scope !7, !noalias !4
-  store i8 0, ptr %value3.i.i.i.i.i.i.i.i, align 1, !alias.scope !7, !noalias !4
+  store i8 0, ptr %value3.i.i.i.i.i.i.i.i, align 8, !alias.scope !7, !noalias !4
   tail call void @_ZN8proxygen11HPACKHeaderD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i) #29, !noalias !4
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i.i, i64 32
   %incdec.ptr1.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i, i64 32
@@ -257,7 +257,7 @@ if.then.i:                                        ; preds = %for.body
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #29
   %arrayidx.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 31
   store i8 23, ptr %arrayidx.i.i.i.i.i.i.i.i.i, align 1
-  store i8 0, ptr %value.i.i.i.i, align 1
+  store i8 0, ptr %value.i.i.i.i, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i)
   %7 = load ptr, ptr %_M_finish.i, align 8
@@ -2288,7 +2288,7 @@ _ZNKSt6vectorIN8proxygen11HPACKHeaderESaIS1_EE12_M_check_lenEmPKc.exit: ; preds 
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #29
   %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 31
   store i8 23, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1
-  store i8 0, ptr %value.i.i.i, align 1
+  store i8 0, ptr %value.i.i.i, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -2307,7 +2307,7 @@ for.body.i.i.i:                                   ; preds = %_ZNKSt6vectorIN8pro
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %value.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %value3.i.i.i.i.i.i.i, i64 24, i1 false), !alias.scope !41
   %arrayidx.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 31
   store i8 23, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i, align 1, !alias.scope !39, !noalias !36
-  store i8 0, ptr %value3.i.i.i.i.i.i.i, align 1, !alias.scope !39, !noalias !36
+  store i8 0, ptr %value3.i.i.i.i.i.i.i, align 8, !alias.scope !39, !noalias !36
   call void @_ZN8proxygen11HPACKHeaderD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #29, !noalias !36
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 32
   %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 32
@@ -2333,7 +2333,7 @@ for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN8prox
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %value.i.i.i.i.i.i.i22, ptr noundef nonnull align 8 dereferenceable(24) %value3.i.i.i.i.i.i.i23, i64 24, i1 false), !alias.scope !47
   %arrayidx.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i21, i64 31
   store i8 23, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i24, align 1, !alias.scope !45, !noalias !42
-  store i8 0, ptr %value3.i.i.i.i.i.i.i23, align 1, !alias.scope !45, !noalias !42
+  store i8 0, ptr %value3.i.i.i.i.i.i.i23, align 8, !alias.scope !45, !noalias !42
   call void @_ZN8proxygen11HPACKHeaderD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i21) #29, !noalias !42
   %incdec.ptr.i.i.i25 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i21, i64 32
   %incdec.ptr1.i.i.i26 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i20, i64 32
@@ -2438,7 +2438,7 @@ if.end25:                                         ; preds = %for.body
   %cmp.i16 = icmp eq i8 %8, 0
   tail call void @llvm.assume(i1 %cmp.i16)
   %arrayidx.i.i.i.i18 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i16 %v.0.copyload.i, ptr %arrayidx.i.i.i.i18, align 1
+  store i16 %v.0.copyload.i, ptr %arrayidx.i.i.i.i18, align 2
   %.pre = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8
   %conv.i.i19 = and i64 %.pre, 255
   store i64 %conv.i.i19, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8
@@ -2982,7 +2982,7 @@ _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8proxygen15HPACKHeade
   tail call void @llvm.assume(i1 %cmp.i.i)
   %conv.i.i.i = trunc i64 %newCapacityScale to i16
   %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i2.i.i7.i, i64 12
-  store i16 %conv.i.i.i, ptr %arrayidx.i.i.i.i.i, align 1
+  store i16 %conv.i.i.i, ptr %arrayidx.i.i.i.i.i, align 2
   store ptr %call5.i.i2.i.i7.i, ptr %chunks_, align 8
   %sizeAndChunkShiftAndPackedBegin_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %newChunkCount, i1 true)
@@ -4007,7 +4007,7 @@ for.inc.i.i.i:                                    ; preds = %if.then, %for.inc.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i) #29
   %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 31
   store i8 23, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i, align 1
-  store i8 0, ptr %value.i.i.i.i.i, align 1
+  store i8 0, ptr %value.i.i.i.i.i, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i)
   %dec.i.i.i = add i64 %__n.addr.07.i.i.i, -1
@@ -4045,7 +4045,7 @@ for.inc.i.i.i22:                                  ; preds = %_ZNKSt6vectorIN8pro
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i20) #29
   %arrayidx.i.i.i.i.i.i.i.i.i.i26 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i23, i64 31
   store i8 23, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i26, align 1
-  store i8 0, ptr %value.i.i.i.i.i25, align 1
+  store i8 0, ptr %value.i.i.i.i.i25, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i20) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i20)
   %dec.i.i.i27 = add i64 %__n.addr.07.i.i.i24, -1
@@ -4070,7 +4070,7 @@ for.body.i.i.i:                                   ; preds = %try.cont, %for.body
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %value.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %value3.i.i.i.i.i.i.i, i64 24, i1 false), !alias.scope !66
   %arrayidx.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 31
   store i8 23, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i, align 1, !alias.scope !64, !noalias !61
-  store i8 0, ptr %value3.i.i.i.i.i.i.i, align 1, !alias.scope !64, !noalias !61
+  store i8 0, ptr %value3.i.i.i.i.i.i.i, align 8, !alias.scope !64, !noalias !61
   call void @_ZN8proxygen11HPACKHeaderD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #29, !noalias !61
   %incdec.ptr.i.i.i33 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 32
   %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 32

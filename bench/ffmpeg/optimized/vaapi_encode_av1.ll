@@ -1486,7 +1486,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_av1_init_picture_par
   %232 = trunc i32 %231 to i8
   %233 = and i8 %232, 3
   %234 = getelementptr inbounds nuw i8, ptr %4, i64 5344
-  store i8 %233, ptr %234, align 4, !tbaa !206
+  store i8 %233, ptr %234, align 8, !tbaa !206
   %235 = and i32 %231, 64
   %.not313 = icmp eq i32 %235, 0
   br i1 %.not313, label %236, label %239
@@ -1977,7 +1977,7 @@ vaapi_encode_av1_add_obu.exit:                    ; preds = %372
   store i64 1, ptr %529, align 8, !tbaa !254
   %532 = load i32, ptr %523, align 4, !tbaa !268
   %533 = trunc i32 %532 to i16
-  store i16 %533, ptr %530, align 2, !tbaa !270
+  store i16 %533, ptr %530, align 8, !tbaa !270
   %534 = getelementptr inbounds nuw i8, ptr %523, i64 4
   %535 = load i32, ptr %534, align 4, !tbaa !272
   %536 = trunc i32 %535 to i16

@@ -1001,7 +1001,7 @@ define internal fastcc void @_ZL23check_handshake_timeoutlP18HandshakeOperationP
   %21 = load ptr, ptr %20, align 8
   %22 = ptrtoint ptr %1 to i64
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %24 = load volatile i32, ptr %23, align 4
+  %24 = load volatile i32, ptr %23, align 8
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.46, ptr noundef %21, i64 noundef %22, i32 noundef %24)
   br label %25
 

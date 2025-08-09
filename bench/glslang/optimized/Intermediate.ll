@@ -4178,7 +4178,7 @@ define noundef ptr @_ZN7glslang13TIntermediate20setAggregateOperatorEP11TIntermN
   store ptr %49, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %17, i64 272
   store i64 0, ptr %52, align 8
-  store i8 0, ptr %49, align 1
+  store i8 0, ptr %49, align 8
   %53 = getelementptr inbounds nuw i8, ptr %17, i64 296
   store i8 0, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %17, i64 304
@@ -4330,7 +4330,7 @@ _ZNSt6vectorIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE17_M_realloc_insertIJ
   store ptr %129, ptr %131, align 8
   %132 = getelementptr inbounds nuw i8, ptr %97, i64 272
   store i64 0, ptr %132, align 8
-  store i8 0, ptr %129, align 1
+  store i8 0, ptr %129, align 8
   %133 = getelementptr inbounds nuw i8, ptr %97, i64 296
   store i8 0, ptr %133, align 8
   %134 = getelementptr inbounds nuw i8, ptr %97, i64 304
@@ -9072,7 +9072,7 @@ define noundef ptr @_ZN7glslang13TIntermediate13makeAggregateEP11TIntermNode(ptr
   store ptr %38, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 272
   store i64 0, ptr %41, align 8
-  store i8 0, ptr %38, align 1
+  store i8 0, ptr %38, align 8
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 296
   store i8 0, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 304
@@ -9462,7 +9462,7 @@ define noundef ptr @_ZN7glslang13TIntermediate13growAggregateEP11TIntermNodeS2_(
   store ptr %49, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %17, i64 272
   store i64 0, ptr %52, align 8
-  store i8 0, ptr %49, align 1
+  store i8 0, ptr %49, align 8
   %53 = getelementptr inbounds nuw i8, ptr %17, i64 296
   store i8 0, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %17, i64 304
@@ -9735,7 +9735,7 @@ define noundef ptr @_ZN7glslang13TIntermediate14mergeAggregateEP11TIntermNodeS2_
   store ptr %49, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %17, i64 272
   store i64 0, ptr %52, align 8
-  store i8 0, ptr %49, align 1
+  store i8 0, ptr %49, align 8
   %53 = getelementptr inbounds nuw i8, ptr %17, i64 296
   store i8 0, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %17, i64 304
@@ -10032,7 +10032,7 @@ define noundef ptr @_ZN7glslang13TIntermediate13makeAggregateEP11TIntermNodeRKNS
   store ptr %39, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 272
   store i64 0, ptr %42, align 8
-  store i8 0, ptr %39, align 1
+  store i8 0, ptr %39, align 8
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 296
   store i8 0, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 304
@@ -10197,7 +10197,7 @@ define noundef ptr @_ZN7glslang13TIntermediate13makeAggregateERKNS_10TSourceLocE
   store ptr %36, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 272
   store i64 0, ptr %39, align 8
-  store i8 0, ptr %36, align 1
+  store i8 0, ptr %36, align 8
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 296
   store i8 0, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 304
@@ -17096,7 +17096,7 @@ define weak_odr noundef ptr @_ZN7glslang13TIntermediate10addSwizzleIiEEPNS_12TIn
   store ptr %37, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 272
   store i64 0, ptr %40, align 8
-  store i8 0, ptr %37, align 1
+  store i8 0, ptr %37, align 8
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 304
   store ptr null, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 312
@@ -17276,7 +17276,7 @@ define weak_odr noundef ptr @_ZN7glslang13TIntermediate10addSwizzleINS_15TMatrix
   store ptr %38, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 272
   store i64 0, ptr %41, align 8
-  store i8 0, ptr %38, align 1
+  store i8 0, ptr %38, align 8
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 304
   store ptr null, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 312

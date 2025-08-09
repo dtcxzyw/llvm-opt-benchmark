@@ -420,7 +420,7 @@ _ZNSt10shared_ptrIN5ceres8internal9EvaluatorEEaSERKS3_.exit: ; preds = %_ZN5Eige
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 420
   %70 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28, !noalias !174
   %71 = load i32, ptr %5, align 4, !tbaa !3, !noalias !174
-  %72 = load i8, ptr %69, align 1, !tbaa !177, !range !178, !noalias !174, !noundef !7
+  %72 = load i8, ptr %69, align 4, !tbaa !177, !range !178, !noalias !174, !noundef !7
   %73 = trunc nuw i8 %72 to i1
   invoke void @_ZN5ceres8internal15LoggingCallbackC1ENS_13MinimizerTypeEb(ptr noundef nonnull align 8 dereferenceable(16) %70, i32 noundef %71, i1 noundef zeroext %73)
           to label %_ZSt11make_uniqueIN5ceres8internal15LoggingCallbackEJRKNS0_13MinimizerTypeERKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %74, !noalias !174

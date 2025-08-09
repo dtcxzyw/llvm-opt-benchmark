@@ -4763,7 +4763,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit42:               ; preds = %201, %203
   store ptr %232, ptr %231, align 8, !tbaa !9, !noalias !369
   %233 = getelementptr inbounds nuw i8, ptr %228, i64 32
   store i64 0, ptr %233, align 8, !tbaa !17, !noalias !369
-  store i8 0, ptr %232, align 1, !tbaa !16, !noalias !369
+  store i8 0, ptr %232, align 8, !tbaa !16, !noalias !369
   %234 = getelementptr inbounds nuw i8, ptr %228, i64 56
   %235 = getelementptr inbounds nuw i8, ptr %228, i64 72
   store ptr %235, ptr %234, align 8, !tbaa !9, !noalias !369
@@ -4844,7 +4844,7 @@ _ZN5clang4ento9BugReport8addRangeENS_11SourceRangeE.exit: ; preds = %247, %245, 
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 16
   %268 = load ptr, ptr %267, align 8
   %269 = call i64 %268(ptr noundef nonnull align 8 dereferenceable(128) %1) #24
-  store i64 %269, ptr %253, align 1
+  store i64 %269, ptr %253, align 8
   store i32 1, ptr %254, align 8, !tbaa !313
   %270 = load ptr, ptr %205, align 8, !tbaa !211
   store ptr %228, ptr %16, align 8, !tbaa !394

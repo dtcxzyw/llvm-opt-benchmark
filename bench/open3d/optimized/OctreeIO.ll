@@ -1928,7 +1928,7 @@ define void @_ZN6open3d2io20CreateOctreeFromFileERKNSt7__cxx1112basic_stringIcSt
   store ptr %12, ptr %11, align 8, !tbaa !49, !noalias !76
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 0, ptr %13, align 8, !tbaa !14, !noalias !76
-  store i8 0, ptr %12, align 1, !tbaa !15, !noalias !76
+  store i8 0, ptr %12, align 8, !tbaa !15, !noalias !76
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN6open3d8geometry6OctreeE, i64 16), ptr %8, align 8, !tbaa !83, !noalias !76
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6open3d8geometry6OctreeE, i64 168), ptr %14, align 8, !tbaa !83, !noalias !76

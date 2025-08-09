@@ -2678,7 +2678,7 @@ _ZNK7QCPAxis9labelFontEv.exit:                    ; preds = %_ZN7QStringD2Ev.exi
   store ptr @_ZN15QtSharedPointer33ExternalRefCountWithCustomDeleterI15QCPAxisTickerSiNS_13NormalDeleterEE7deleterEPNS_20ExternalRefCountDataE, ptr %877, align 8
   %878 = getelementptr inbounds nuw i8, ptr %873, i64 4
   store atomic i32 1, ptr %878 monotonic, align 4
-  store atomic i32 1, ptr %873 monotonic, align 4
+  store atomic i32 1, ptr %873 monotonic, align 8
   br label %879
 
 879:                                              ; preds = %876, %.noexc406
@@ -2799,7 +2799,7 @@ _ZN7QStringD2Ev.exit415:                          ; preds = %_ZN14QSharedPointer
   store ptr @_ZN15QtSharedPointer33ExternalRefCountWithCustomDeleterI15QCPAxisTickerSiNS_13NormalDeleterEE7deleterEPNS_20ExternalRefCountDataE, ptr %919, align 8
   %920 = getelementptr inbounds nuw i8, ptr %915, i64 4
   store atomic i32 1, ptr %920 monotonic, align 4
-  store atomic i32 1, ptr %915 monotonic, align 4
+  store atomic i32 1, ptr %915 monotonic, align 8
   br label %921
 
 921:                                              ; preds = %918, %.noexc416
@@ -2920,7 +2920,7 @@ _ZN7QStringD2Ev.exit431:                          ; preds = %_ZN14QSharedPointer
   store ptr @_ZN15QtSharedPointer33ExternalRefCountWithCustomDeleterI15QCPAxisTickerSiNS_13NormalDeleterEE7deleterEPNS_20ExternalRefCountDataE, ptr %961, align 8
   %962 = getelementptr inbounds nuw i8, ptr %957, i64 4
   store atomic i32 1, ptr %962 monotonic, align 4
-  store atomic i32 1, ptr %957 monotonic, align 4
+  store atomic i32 1, ptr %957 monotonic, align 8
   br label %963
 
 963:                                              ; preds = %960, %.noexc432
@@ -5346,11 +5346,11 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i311:   ; preds = %400
   %414 = getelementptr inbounds nuw i8, ptr %410, i64 20
   store i32 1507328, ptr %414, align 4
   %415 = getelementptr inbounds nuw i8, ptr %410, i64 24
-  store i32 0, ptr %415, align 4
+  store i32 0, ptr %415, align 8
   %416 = getelementptr inbounds nuw i8, ptr %410, i64 28
   store i32 0, ptr %416, align 4
   %417 = getelementptr inbounds nuw i8, ptr %410, i64 32
-  store i32 -1, ptr %417, align 4
+  store i32 -1, ptr %417, align 8
   %418 = getelementptr inbounds nuw i8, ptr %410, i64 36
   store i32 -1, ptr %418, align 4
   %419 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -5469,11 +5469,11 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i329:   ; preds = %447
   %460 = getelementptr inbounds nuw i8, ptr %456, i64 20
   store i32 1507328, ptr %460, align 4
   %461 = getelementptr inbounds nuw i8, ptr %456, i64 24
-  store i32 0, ptr %461, align 4
+  store i32 0, ptr %461, align 8
   %462 = getelementptr inbounds nuw i8, ptr %456, i64 28
   store i32 0, ptr %462, align 4
   %463 = getelementptr inbounds nuw i8, ptr %456, i64 32
-  store i32 -1, ptr %463, align 4
+  store i32 -1, ptr %463, align 8
   %464 = getelementptr inbounds nuw i8, ptr %456, i64 36
   store i32 -1, ptr %464, align 4
   %465 = getelementptr inbounds nuw i8, ptr %0, i64 336
@@ -5762,11 +5762,11 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i377:   ; preds = %548
   %562 = getelementptr inbounds nuw i8, ptr %558, i64 20
   store i32 1507328, ptr %562, align 4
   %563 = getelementptr inbounds nuw i8, ptr %558, i64 24
-  store i32 0, ptr %563, align 4
+  store i32 0, ptr %563, align 8
   %564 = getelementptr inbounds nuw i8, ptr %558, i64 28
   store i32 0, ptr %564, align 4
   %565 = getelementptr inbounds nuw i8, ptr %558, i64 32
-  store i32 -1, ptr %565, align 4
+  store i32 -1, ptr %565, align 8
   %566 = getelementptr inbounds nuw i8, ptr %558, i64 36
   store i32 -1, ptr %566, align 4
   %567 = getelementptr inbounds nuw i8, ptr %0, i64 400
@@ -6059,11 +6059,11 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i425:   ; preds = %652
   %665 = getelementptr inbounds nuw i8, ptr %661, i64 20
   store i32 1507328, ptr %665, align 4
   %666 = getelementptr inbounds nuw i8, ptr %661, i64 24
-  store i32 0, ptr %666, align 4
+  store i32 0, ptr %666, align 8
   %667 = getelementptr inbounds nuw i8, ptr %661, i64 28
   store i32 0, ptr %667, align 4
   %668 = getelementptr inbounds nuw i8, ptr %661, i64 32
-  store i32 -1, ptr %668, align 4
+  store i32 -1, ptr %668, align 8
   %669 = getelementptr inbounds nuw i8, ptr %661, i64 36
   store i32 -1, ptr %669, align 4
   %670 = getelementptr inbounds nuw i8, ptr %0, i64 472
@@ -8977,7 +8977,7 @@ _ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit:    ; preds = %_Z25qSharedPointerD
   store ptr @_ZN15QtSharedPointer33ExternalRefCountWithCustomDeleterI15QCPAxisTickerSiNS_13NormalDeleterEE7deleterEPNS_20ExternalRefCountDataE, ptr %292, align 8
   %293 = getelementptr inbounds nuw i8, ptr %288, i64 4
   store atomic i32 1, ptr %293 monotonic, align 4
-  store atomic i32 1, ptr %288 monotonic, align 4
+  store atomic i32 1, ptr %288 monotonic, align 8
   br label %294
 
 294:                                              ; preds = %291, %.noexc
@@ -9277,7 +9277,7 @@ _ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit225: ; preds = %_ZN14QSharedPointer
   store ptr @_ZN15QtSharedPointer33ExternalRefCountWithCustomDeleterI15QCPAxisTickerSiNS_13NormalDeleterEE7deleterEPNS_20ExternalRefCountDataE, ptr %401, align 8
   %402 = getelementptr inbounds nuw i8, ptr %397, i64 4
   store atomic i32 1, ptr %402 monotonic, align 4
-  store atomic i32 1, ptr %397 monotonic, align 4
+  store atomic i32 1, ptr %397 monotonic, align 8
   br label %403
 
 403:                                              ; preds = %400, %.noexc227
@@ -15016,7 +15016,7 @@ _ZN7QStringD2Ev.exit149:                          ; preds = %150, %_ZN17QArrayDa
   store ptr @_ZN15QtSharedPointer33ExternalRefCountWithCustomDeleterI15QCPAxisTickerSiNS_13NormalDeleterEE7deleterEPNS_20ExternalRefCountDataE, ptr %171, align 8
   %172 = getelementptr inbounds nuw i8, ptr %167, i64 4
   store atomic i32 1, ptr %172 monotonic, align 4
-  store atomic i32 1, ptr %167 monotonic, align 4
+  store atomic i32 1, ptr %167 monotonic, align 8
   br label %173
 
 173:                                              ; preds = %170, %.noexc
@@ -17588,7 +17588,7 @@ _ZN7QStringD2Ev.exit164:                          ; preds = %_ZN7QStringD2Ev.exi
   store ptr @_ZN15QtSharedPointer33ExternalRefCountWithCustomDeleterI15QCPAxisTickerSiNS_13NormalDeleterEE7deleterEPNS_20ExternalRefCountDataE, ptr %153, align 8
   %154 = getelementptr inbounds nuw i8, ptr %149, i64 4
   store atomic i32 1, ptr %154 monotonic, align 4
-  store atomic i32 1, ptr %149 monotonic, align 4
+  store atomic i32 1, ptr %149 monotonic, align 8
   br label %155
 
 155:                                              ; preds = %152, %.noexc
@@ -17960,7 +17960,7 @@ _ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit205: ; preds = %_Z25qSharedPointerD
   store ptr @_ZN15QtSharedPointer33ExternalRefCountWithCustomDeleterI15QCPAxisTickerSiNS_13NormalDeleterEE7deleterEPNS_20ExternalRefCountDataE, ptr %287, align 8
   %288 = getelementptr inbounds nuw i8, ptr %283, i64 4
   store atomic i32 1, ptr %288 monotonic, align 4
-  store atomic i32 1, ptr %283 monotonic, align 4
+  store atomic i32 1, ptr %283 monotonic, align 8
   br label %289
 
 289:                                              ; preds = %286, %.noexc207
@@ -21216,7 +21216,7 @@ _ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit:    ; preds = %_Z25qSharedPointerD
   store ptr @_ZN15QtSharedPointer33ExternalRefCountWithCustomDeleterI15QCPAxisTickerSiNS_13NormalDeleterEE7deleterEPNS_20ExternalRefCountDataE, ptr %287, align 8
   %288 = getelementptr inbounds nuw i8, ptr %283, i64 4
   store atomic i32 1, ptr %288 monotonic, align 4
-  store atomic i32 1, ptr %283 monotonic, align 4
+  store atomic i32 1, ptr %283 monotonic, align 8
   br label %289
 
 289:                                              ; preds = %286, %.noexc

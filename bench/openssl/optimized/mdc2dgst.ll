@@ -157,10 +157,10 @@ define internal fastcc void @mdc2_body(ptr noundef %0, ptr noundef readonly capt
   %51 = xor i32 %50, %28
   %52 = load i32, ptr %8, align 4, !tbaa !10
   %53 = xor i32 %52, %41
-  store i32 %51, ptr %9, align 1
-  store i32 %49, ptr %11, align 1
-  store i32 %47, ptr %10, align 1
-  store i32 %53, ptr %12, align 1
+  store i32 %51, ptr %9, align 4
+  store i32 %49, ptr %11, align 4
+  store i32 %47, ptr %10, align 4
+  store i32 %53, ptr %12, align 4
   %54 = add nuw i64 %.066, 8
   %55 = icmp ult i64 %54, %2
   %56 = trunc i32 %51 to i8

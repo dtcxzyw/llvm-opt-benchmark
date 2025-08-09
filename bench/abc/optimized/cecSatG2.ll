@@ -2391,9 +2391,9 @@ define i32 @Cec4_ObjGetCnfVar(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %70 = load ptr, ptr %57, align 8, !tbaa !71
   call void @bmcg2_sat_solver_set_var_fanin_lit(ptr noundef %70, i32 noundef %59, i32 noundef %spec.select, i32 noundef %spec.select154) #31
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %72 = load i32, ptr %71, align 4, !tbaa !20
+  %72 = load i32, ptr %71, align 8, !tbaa !20
   %73 = add nsw i32 %72, 1
-  store i32 %73, ptr %71, align 4, !tbaa !20
+  store i32 %73, ptr %71, align 8, !tbaa !20
   br label %160
 
 74:                                               ; preds = %29, %27, %23
@@ -8900,7 +8900,7 @@ Abc_Clock.exit171:                                ; preds = %363, %366
   call void @Cec4_ManSimulate(ptr noundef %370, ptr noundef nonnull %0)
   %371 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %372 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store i32 0, ptr %372, align 4, !tbaa !20
+  store i32 0, ptr %372, align 8, !tbaa !20
   store i32 0, ptr %371, align 4, !tbaa !20
   %373 = load ptr, ptr %20, align 8, !tbaa !70
   %374 = load ptr, ptr %0, align 8, !tbaa !69
@@ -11378,7 +11378,7 @@ Abc_Clock.exit403:                                ; preds = %Vec_IntFill.exit, %
   %582 = add nsw i32 %579, %581
   %583 = getelementptr inbounds nuw i8, ptr %8, i64 220
   %584 = getelementptr inbounds nuw i8, ptr %8, i64 232
-  %585 = load i32, ptr %584, align 4, !tbaa !20
+  %585 = load i32, ptr %584, align 8, !tbaa !20
   %586 = getelementptr inbounds nuw i8, ptr %8, i64 236
   %587 = load i32, ptr %586, align 4, !tbaa !20
   %588 = sitofp i32 %587 to float
@@ -11388,10 +11388,10 @@ Abc_Clock.exit403:                                ; preds = %Vec_IntFill.exit, %
   %592 = fdiv float %588, %591
   %593 = fpext float %592 to double
   %594 = getelementptr inbounds nuw i8, ptr %8, i64 240
-  %595 = load i32, ptr %594, align 4, !tbaa !20
+  %595 = load i32, ptr %594, align 8, !tbaa !20
   %596 = load i32, ptr %583, align 4, !tbaa !20
   %597 = getelementptr inbounds nuw i8, ptr %8, i64 224
-  %598 = load i32, ptr %597, align 4, !tbaa !20
+  %598 = load i32, ptr %597, align 8, !tbaa !20
   %599 = sitofp i32 %598 to float
   %600 = sub nsw i32 %578, %596
   %601 = call noundef i32 @llvm.smax.i32(i32 %600, i32 1)
@@ -11406,7 +11406,7 @@ Abc_Clock.exit403:                                ; preds = %Vec_IntFill.exit, %
   %610 = load i32, ptr %609, align 8, !tbaa !207
   %611 = getelementptr inbounds nuw i8, ptr %8, i64 244
   %612 = getelementptr inbounds nuw i8, ptr %8, i64 248
-  %613 = load i32, ptr %612, align 4, !tbaa !20
+  %613 = load i32, ptr %612, align 8, !tbaa !20
   %614 = sitofp i32 %613 to double
   %615 = fmul double %614, 1.000000e+02
   %616 = load i32, ptr %611, align 4, !tbaa !20
@@ -22133,7 +22133,7 @@ Gia_ObjReprObj.exit.thread:                       ; preds = %188, %Gia_ObjLevel.
   %271 = add nsw i32 %268, %270
   %272 = getelementptr inbounds nuw i8, ptr %1, i64 220
   %273 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  %274 = load i32, ptr %273, align 4, !tbaa !20
+  %274 = load i32, ptr %273, align 8, !tbaa !20
   %275 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %276 = load i32, ptr %275, align 4, !tbaa !20
   %277 = sitofp i32 %276 to float
@@ -22143,10 +22143,10 @@ Gia_ObjReprObj.exit.thread:                       ; preds = %188, %Gia_ObjLevel.
   %281 = fdiv float %277, %280
   %282 = fpext float %281 to double
   %283 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  %284 = load i32, ptr %283, align 4, !tbaa !20
+  %284 = load i32, ptr %283, align 8, !tbaa !20
   %285 = load i32, ptr %272, align 4, !tbaa !20
   %286 = getelementptr inbounds nuw i8, ptr %1, i64 224
-  %287 = load i32, ptr %286, align 4, !tbaa !20
+  %287 = load i32, ptr %286, align 8, !tbaa !20
   %288 = sitofp i32 %287 to float
   %289 = sub nsw i32 %267, %285
   %290 = tail call noundef i32 @llvm.smax.i32(i32 %289, i32 1)
@@ -22161,7 +22161,7 @@ Gia_ObjReprObj.exit.thread:                       ; preds = %188, %Gia_ObjLevel.
   %299 = load i32, ptr %298, align 8, !tbaa !207
   %300 = getelementptr inbounds nuw i8, ptr %1, i64 244
   %301 = getelementptr inbounds nuw i8, ptr %1, i64 248
-  %302 = load i32, ptr %301, align 4, !tbaa !20
+  %302 = load i32, ptr %301, align 8, !tbaa !20
   %303 = sitofp i32 %302 to double
   %304 = fmul double %303, 1.000000e+02
   %305 = load i32, ptr %300, align 4, !tbaa !20

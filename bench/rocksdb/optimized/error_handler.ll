@@ -560,7 +560,7 @@ _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit.thre
 .lr.ph.i.i:                                       ; preds = %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit.thread79.i
   %25 = getelementptr inbounds nuw i8, ptr %.08.i, i64 4
   %26 = load i32, ptr %25, align 4, !tbaa !27
-  %27 = load i8, ptr %.08.i, align 1, !range !33
+  %27 = load i8, ptr %.08.i, align 4, !range !33
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.backedge.i.backedge, %.lr.ph.i.i
@@ -2589,7 +2589,7 @@ _ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit: ; preds = %.lr.ph.split, %16
 23:                                               ; preds = %.lr.ph25.split
   %24 = load i64, ptr %.sroa.012.023, align 8, !tbaa !90
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.012.023, i64 8
-  %26 = load i32, ptr %25, align 4, !tbaa !166
+  %26 = load i32, ptr %25, align 8, !tbaa !166
   %27 = load ptr, ptr %22, align 8, !tbaa !150
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 216
   %29 = load ptr, ptr %28, align 8
@@ -4049,7 +4049,7 @@ _ZN7rocksdb6StatusD2Ev.exit107:                   ; preds = %109, %_ZNKSt14defau
 
 .lr.ph25.split.i122.preheader:                    ; preds = %._crit_edge.i119
   %124 = load i64, ptr %116, align 8, !tbaa !90
-  %125 = load i32, ptr %.sroa.5251.0..sroa_idx, align 4, !tbaa !166
+  %125 = load i32, ptr %.sroa.5251.0..sroa_idx, align 8, !tbaa !166
   %126 = load ptr, ptr %119, align 8, !tbaa !150
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 216
   %128 = load ptr, ptr %127, align 8

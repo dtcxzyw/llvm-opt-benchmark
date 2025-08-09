@@ -14868,7 +14868,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter23VisitUserDefinedLit
   %28 = lshr i32 %27, 22
   %29 = and i32 %28, 7
   %30 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %31 = load i32, ptr %30, align 4, !tbaa !524
+  %31 = load i32, ptr %30, align 8, !tbaa !524
   %32 = mul i32 %29, %31
   %33 = zext i32 %32 to i64
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 24

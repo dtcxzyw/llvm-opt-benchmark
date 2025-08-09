@@ -4168,7 +4168,7 @@ define hidden void @_ZN2cv4gapi5fluid15debugBufferPrivERKNS1_6BufferERSo(ptr nou
   %10 = load i32, ptr %9, align 8, !tbaa !181
   %11 = and i32 %10, -75
   %12 = or disjoint i32 %11, 8
-  store i32 %12, ptr %9, align 4, !tbaa !190
+  store i32 %12, ptr %9, align 8, !tbaa !190
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %0)
   %14 = load ptr, ptr %13, align 8, !tbaa !13
   %15 = getelementptr i8, ptr %14, i64 -24
@@ -4178,7 +4178,7 @@ define hidden void @_ZN2cv4gapi5fluid15debugBufferPrivERKNS1_6BufferERSo(ptr nou
   %19 = load i32, ptr %18, align 8, !tbaa !181
   %20 = and i32 %19, -75
   %21 = or disjoint i32 %20, 2
-  store i32 %21, ptr %18, align 4, !tbaa !190
+  store i32 %21, ptr %18, align 8, !tbaa !190
   %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.7, i64 noundef 1)
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %24 = load i32, ptr %23, align 8, !tbaa !143
@@ -4200,14 +4200,14 @@ define hidden void @_ZN2cv4gapi5fluid15debugBufferPrivERKNS1_6BufferERSo(ptr nou
   %40 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %34, i32 noundef %39)
   %41 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull @.str.8, i64 noundef 3)
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 184
-  %43 = load i32, ptr %42, align 4, !tbaa !116
+  %43 = load i32, ptr %42, align 8, !tbaa !116
   %44 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %40, i32 noundef %43)
   %45 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull @.str.13, i64 noundef 7)
   %46 = load i32, ptr %37, align 4, !tbaa !192
   %47 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %44, i32 noundef %46)
   %48 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull @.str.14, i64 noundef 2)
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 176
-  %50 = load i32, ptr %49, align 4, !tbaa !110
+  %50 = load i32, ptr %49, align 8, !tbaa !110
   %51 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %47, i32 noundef %50)
   %52 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef nonnull @.str.15, i64 noundef 2)
   %53 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef nonnull @.str.16, i64 noundef 7)

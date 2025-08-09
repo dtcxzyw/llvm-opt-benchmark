@@ -1410,7 +1410,7 @@ _ZN26GrowableArrayWithAllocatorIP14compiledVFrame13GrowableArrayIS1_EE4pushERKS1
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 5048
   %123 = load ptr, ptr %122, align 8
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull %0) #22
-  %124 = load i32, ptr %48, align 4
+  %124 = load i32, ptr %48, align 8
   %125 = icmp sgt i32 %124, 0
   br i1 %125, label %.lr.ph.preheader.i, label %_ZL24restore_eliminated_locksP10JavaThreadP13GrowableArrayIP14compiledVFrameEbR5frameiRb.exit
 
@@ -2144,7 +2144,7 @@ define hidden noundef zeroext i1 @_ZN14Deoptimization27deoptimize_objects_intern
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 5048
   %41 = load ptr, ptr %40, align 8
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef %0) #22
-  %42 = load i32, ptr %1, align 4
+  %42 = load i32, ptr %1, align 8
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %.lr.ph.preheader.i, label %_ZL24restore_eliminated_locksP10JavaThreadP13GrowableArrayIP14compiledVFrameEbR5frameiRb.exit
 

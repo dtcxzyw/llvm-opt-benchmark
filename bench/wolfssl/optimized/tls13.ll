@@ -167,7 +167,7 @@ define i32 @DeriveHandshakeSecret(ptr noundef readonly captures(address_is_null)
   %20 = zext i8 %19 to i32
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %22 = load i32, ptr %21, align 8, !tbaa !50
-  %23 = load i8, ptr %10, align 2, !tbaa !46
+  %23 = load i8, ptr %10, align 4, !tbaa !46
   %switch.selectcmp.i = icmp eq i8 %23, 5
   %switch.select.i = select i1 %switch.selectcmp.i, i32 7, i32 0
   %switch.selectcmp2.i = icmp eq i8 %23, 4
@@ -300,7 +300,7 @@ define i32 @DeriveMasterSecret(ptr noundef readonly captures(address_is_null) %0
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 727
   %19 = load i8, ptr %18, align 1, !tbaa !49
   %20 = zext i8 %19 to i32
-  %21 = load i8, ptr %11, align 2, !tbaa !46
+  %21 = load i8, ptr %11, align 4, !tbaa !46
   %switch.selectcmp.i = icmp eq i8 %21, 5
   %switch.select.i = select i1 %switch.selectcmp.i, i32 7, i32 0
   %switch.selectcmp2.i = icmp eq i8 %21, 4
@@ -3236,7 +3236,7 @@ RestartHandshakeHash.exit:                        ; preds = %7, %16, %21, %23
   %113 = load i32, ptr %112, align 16, !tbaa !108
   %114 = add i32 %113, %38
   store i32 %114, ptr %112, align 16, !tbaa !108
-  %115 = load i64, ptr %62, align 8
+  %115 = load i64, ptr %62, align 16
   %116 = and i64 %115, 137438953472
   %117 = icmp eq i64 %116, 0
   %118 = icmp ne i8 %1, 2
@@ -4549,7 +4549,7 @@ define internal fastcc i32 @DoTls13CertificateRequest(ptr noundef %0, ptr nounde
   %64 = or disjoint i64 %63, %.sink49
   store i64 %64, ptr %61, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 1008
-  %66 = load i32, ptr %65, align 4, !tbaa !123
+  %66 = load i32, ptr %65, align 8, !tbaa !123
   %67 = load i32, ptr %2, align 4, !tbaa !109
   %68 = add i32 %67, %66
   store i32 %68, ptr %2, align 4, !tbaa !109
@@ -4946,7 +4946,7 @@ CheckRSASignature.exit:                           ; preds = %172
   store i32 %188, ptr %13, align 4, !tbaa !134
   store i32 %188, ptr %2, align 4, !tbaa !109
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 1008
-  %190 = load i32, ptr %189, align 4, !tbaa !123
+  %190 = load i32, ptr %189, align 8, !tbaa !123
   %191 = add i32 %190, %188
   store i32 %191, ptr %2, align 4, !tbaa !109
   store i8 5, ptr %9, align 2, !tbaa !100
@@ -5103,7 +5103,7 @@ GetHandshakeHeader.exit:                          ; preds = %9
   %36 = load i32, ptr %35, align 16, !tbaa !149
   %37 = load i32, ptr %2, align 4, !tbaa !109
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 1008
-  %39 = load i32, ptr %38, align 4, !tbaa !123
+  %39 = load i32, ptr %38, align 16, !tbaa !123
   %40 = add i32 %37, %39
   %41 = sub i32 %36, %40
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 20
@@ -5172,7 +5172,7 @@ GetHandshakeHeader.exit:                          ; preds = %9
   %87 = load ptr, ptr %6, align 8, !tbaa !45
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
   store i32 %41, ptr %88, align 8, !tbaa !153
-  %89 = load i32, ptr %38, align 4, !tbaa !123
+  %89 = load i32, ptr %38, align 8, !tbaa !123
   %90 = load i32, ptr %2, align 4, !tbaa !109
   %91 = add i32 %65, %89
   %92 = add i32 %91, %90
@@ -5213,7 +5213,7 @@ GetHandshakeHeader.exit:                          ; preds = %9
   %117 = load i32, ptr %116, align 8, !tbaa !153
   %118 = add i32 %117, %spec.select
   store i32 %118, ptr %116, align 8, !tbaa !153
-  %119 = load i32, ptr %38, align 4, !tbaa !123
+  %119 = load i32, ptr %38, align 8, !tbaa !123
   %120 = add i32 %119, %spec.select
   %121 = load i32, ptr %2, align 4, !tbaa !109
   %122 = add i32 %120, %121
@@ -6076,7 +6076,7 @@ NextCert.exit:                                    ; preds = %221
   %284 = add i32 %283, %280
   store i32 %284, ptr %63, align 16, !tbaa !108
   store i8 0, ptr %2, align 8, !tbaa !93
-  %285 = load i64, ptr %3, align 8
+  %285 = load i64, ptr %3, align 16
   %286 = and i64 %285, 137438953472
   %.not244 = icmp eq i64 %286, 0
   br i1 %.not244, label %287, label %289
@@ -6100,7 +6100,7 @@ NextCert.exit:                                    ; preds = %221
   %.0177.lcssa343 = phi i32 [ %.1178, %._crit_edge ], [ 0, %29 ]
   store i8 0, ptr %2, align 8, !tbaa !93
   store i32 0, ptr %30, align 16, !tbaa !154
-  %293 = load i64, ptr %3, align 8
+  %293 = load i64, ptr %3, align 16
   %294 = and i64 %293, 48
   %295 = icmp eq i64 %294, 0
   br i1 %295, label %296, label %.thread310
@@ -6435,7 +6435,7 @@ EncodeSigAlg.exit:                                ; preds = %43, %.thread133
   %194 = add i32 %193, %190
   store i32 %194, ptr %17, align 16, !tbaa !108
   store i8 0, ptr %4, align 8, !tbaa !93
-  %195 = load i64, ptr %6, align 8
+  %195 = load i64, ptr %6, align 16
   %196 = and i64 %195, 137438953472
   %.not110 = icmp eq i64 %196, 0
   br i1 %.not110, label %197, label %.thread
@@ -6617,7 +6617,7 @@ DeriveFinishedSecret.exit105:                     ; preds = %43, %47
   store i32 %59, ptr %57, align 16, !tbaa !108
   store i8 0, ptr %7, align 8, !tbaa !93
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 1024
-  %61 = load i64, ptr %60, align 8
+  %61 = load i64, ptr %60, align 16
   %62 = and i64 %61, 48
   %63 = icmp eq i64 %62, 0
   br i1 %63, label %64, label %76
@@ -7409,7 +7409,7 @@ DeriveHandshakeSecret.exit:                       ; preds = %11
   %22 = zext i8 %21 to i32
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %24 = load i32, ptr %23, align 8, !tbaa !50
-  %25 = load i8, ptr %13, align 2, !tbaa !46
+  %25 = load i8, ptr %13, align 4, !tbaa !46
   %switch.selectcmp.i.i = icmp eq i8 %25, 5
   %switch.select.i.i = select i1 %switch.selectcmp.i.i, i32 7, i32 0
   %switch.selectcmp2.i.i = icmp eq i8 %25, 4
@@ -7498,7 +7498,7 @@ DeriveHandshakeSecret.exit:                       ; preds = %11
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 1043
   store i8 4, ptr %72, align 1, !tbaa !114
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 1024
-  %74 = load i64, ptr %73, align 8
+  %74 = load i64, ptr %73, align 16
   %75 = and i64 %74, 137438953472
   %.not58 = icmp eq i64 %75, 0
   br i1 %.not58, label %76, label %78
@@ -7619,7 +7619,7 @@ define internal fastcc i32 @SendTls13CertificateRequest(ptr noundef nonnull init
   %62 = add i32 %61, %57
   store i32 %62, ptr %60, align 16, !tbaa !108
   store i8 0, ptr %4, align 8, !tbaa !93
-  %63 = load i64, ptr %5, align 8
+  %63 = load i64, ptr %5, align 16
   %64 = and i64 %63, 137438953472
   %.not70 = icmp eq i64 %64, 0
   br i1 %.not70, label %65, label %67

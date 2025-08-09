@@ -13365,7 +13365,7 @@ define internal void @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7r
   store ptr %31, ptr %30, align 8, !tbaa !164
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 120
   store i64 0, ptr %32, align 8, !tbaa !168
-  store i8 0, ptr %31, align 1, !tbaa !85
+  store i8 0, ptr %31, align 8, !tbaa !85
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %.noexc28.i.i.i.i.i unwind label %33
 
@@ -16694,7 +16694,7 @@ _ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store i64 %54, ptr %56, align 8, !tbaa !168, !alias.scope !549, !noalias !552
   store ptr %46, ptr %.0911.i.i.i, align 8, !tbaa !166, !alias.scope !552, !noalias !549
   store i64 0, ptr %55, align 8, !tbaa !168, !alias.scope !552, !noalias !549
-  store i8 0, ptr %46, align 1, !tbaa !85, !alias.scope !552, !noalias !549
+  store i8 0, ptr %46, align 8, !tbaa !85, !alias.scope !552, !noalias !549
   %57 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %58 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %59 = load i32, ptr %58, align 8, !tbaa !520, !alias.scope !552, !noalias !549
@@ -16746,7 +16746,7 @@ _ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store i64 %73, ptr %75, align 8, !tbaa !168, !alias.scope !556, !noalias !559
   store ptr %65, ptr %.0911.i.i.i30, align 8, !tbaa !166, !alias.scope !559, !noalias !556
   store i64 0, ptr %74, align 8, !tbaa !168, !alias.scope !559, !noalias !556
-  store i8 0, ptr %65, align 1, !tbaa !85, !alias.scope !559, !noalias !556
+  store i8 0, ptr %65, align 8, !tbaa !85, !alias.scope !559, !noalias !556
   %76 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 32
   %77 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 32
   %78 = load i32, ptr %77, align 8, !tbaa !520, !alias.scope !559, !noalias !556

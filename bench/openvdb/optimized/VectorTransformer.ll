@@ -4946,7 +4946,7 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i12.i.i.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 304
   %8 = load i32, ptr %mLevel.i.i, align 8
-  store i32 %8, ptr %mLevel.i.i.i.i, align 8
+  store i32 %8, ptr %mLevel.i.i.i.i, align 16
   %mMinLevel.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 308
   %mMinLevel5.i.i.i.i = getelementptr inbounds nuw i8, ptr %range, i64 244
   %9 = load i32, ptr %mMinLevel5.i.i.i.i, align 4
@@ -4958,21 +4958,21 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 320
   %mTree7.i.i.i.i = getelementptr inbounds nuw i8, ptr %range, i64 256
   %11 = load ptr, ptr %mTree7.i.i.i.i, align 8
-  store ptr %11, ptr %mTree.i.i.i.i, align 8
+  store ptr %11, ptr %mTree.i.i.i.i, align 64
   %mPrev.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 176
-  store ptr null, ptr %mPrev.i.i.i.i.i, align 8
+  store ptr null, ptr %mPrev.i.i.i.i.i, align 16
   %mPrev.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   store ptr %my_range.i.i, ptr %mPrev.i.i.i.i.i.i, align 8
   %mPrev.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 160
-  store ptr %mNext.i.i.i.i.i4, ptr %mPrev.i.i.i.i.i.i.i, align 8
+  store ptr %mNext.i.i.i.i.i4, ptr %mPrev.i.i.i.i.i.i.i, align 32
   store ptr %mNext.i.i.i.i.i.i, ptr %mPrev.i.i.i.i.i.i.i.i, align 8
   %mPrev.i16.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 296
   store ptr null, ptr %mPrev.i16.i.i.i.i, align 8
   %mPrev.i.i18.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 288
-  store ptr %mValueIterList.i.i.i.i, ptr %mPrev.i.i18.i.i.i.i, align 8
+  store ptr %mValueIterList.i.i.i.i, ptr %mPrev.i.i18.i.i.i.i, align 32
   %mPrev.i.i.i20.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 280
   store ptr %mNext.i6.i.i.i.i, ptr %mPrev.i.i.i20.i.i.i.i, align 8
-  store ptr %mNext.i.i8.i.i.i.i, ptr %mPrev.i.i.i.i12.i.i.i.i, align 8
+  store ptr %mNext.i.i8.i.i.i.i, ptr %mPrev.i.i.i.i12.i.i.i.i, align 16
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 328
   %mGrainSize3.i.i.i = getelementptr inbounds nuw i8, ptr %range, i64 264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize3.i.i.i, i64 16, i1 false)
@@ -5014,7 +5014,7 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   %mMaxLevel.i.i21.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 592
   %mMaxLevel6.i.i22.i.i = getelementptr inbounds nuw i8, ptr %body, i64 248
   %14 = load i32, ptr %mMaxLevel6.i.i22.i.i, align 8
-  store i32 %14, ptr %mMaxLevel.i.i21.i.i, align 8
+  store i32 %14, ptr %mMaxLevel.i.i21.i.i, align 16
   %mTree.i.i23.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 600
   %mTree7.i.i24.i.i = getelementptr inbounds nuw i8, ptr %body, i64 256
   %15 = load ptr, ptr %mTree7.i.i24.i.i, align 8
@@ -5022,21 +5022,21 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   %mPrev.i.i.i25.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 456
   store ptr null, ptr %mPrev.i.i.i25.i.i, align 8
   %mPrev.i.i.i.i26.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 448
-  store ptr %my_body.i.i, ptr %mPrev.i.i.i.i26.i.i, align 8
+  store ptr %my_body.i.i, ptr %mPrev.i.i.i.i26.i.i, align 64
   %mPrev.i.i.i.i.i27.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 440
   store ptr %mNext.i.i.i1.i.i, ptr %mPrev.i.i.i.i.i27.i.i, align 8
-  store ptr %mNext.i.i.i.i3.i.i, ptr %mPrev.i.i.i.i.i.i7.i.i, align 8
+  store ptr %mNext.i.i.i.i3.i.i, ptr %mPrev.i.i.i.i.i.i7.i.i, align 16
   %mPrev.i16.i.i28.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 576
-  store ptr null, ptr %mPrev.i16.i.i28.i.i, align 8
+  store ptr null, ptr %mPrev.i16.i.i28.i.i, align 64
   %mPrev.i.i18.i.i29.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 568
   store ptr %mValueIterList.i.i8.i.i, ptr %mPrev.i.i18.i.i29.i.i, align 8
   %mPrev.i.i.i20.i.i30.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 560
-  store ptr %mNext.i6.i.i10.i.i, ptr %mPrev.i.i.i20.i.i30.i.i, align 8
+  store ptr %mNext.i6.i.i10.i.i, ptr %mPrev.i.i.i20.i.i30.i.i, align 16
   store ptr %mNext.i.i8.i.i12.i.i, ptr %mPrev.i.i.i.i12.i.i16.i.i, align 8
   %mOp.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 608
   %mOp3.i.i.i = getelementptr inbounds nuw i8, ptr %body, i64 264
   %16 = load ptr, ptr %mOp3.i.i.i, align 8
-  store ptr %16, ptr %mOp.i.i.i, align 8
+  store ptr %16, ptr %mOp.i.i.i, align 32
   %my_partition.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 624
   %call.i.i.i.i.i31.i.i = call noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
   %conv.i.i.i.i.i.i = sext i32 %call.i.i.i.i.i31.i.i to i64
@@ -5046,7 +5046,7 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   store i8 5, ptr %my_max_depth.i.i.i.i, align 4
   %mul.i.i.i.i.i.i = shl nsw i64 %conv.i.i.i.i.i.i, 1
   %mul.i.i.i = and i64 %mul.i.i.i.i.i.i, 9223372036854775806
-  store i64 %mul.i.i.i, ptr %my_partition.i.i, align 8
+  store i64 %mul.i.i.i, ptr %my_partition.i.i, align 16
   %my_allocator.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 640
   %17 = load i64, ptr %alloc, align 8
   store i64 %17, ptr %my_allocator.i.i, align 64
@@ -5313,12 +5313,12 @@ do.body:                                          ; preds = %do.body.backedge, %
   %4 = load ptr, ptr %my_parent.i.i, align 8
   store ptr %4, ptr %call.i4.i.i, align 8
   %m_ref_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i, i64 8
-  store i32 2, ptr %m_ref_count.i.i.i.i.i, align 4
+  store i32 2, ptr %m_ref_count.i.i.i.i.i, align 8
   %m_allocator.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i, i64 16
   %5 = load i64, ptr %alloc.i.i, align 8
   store i64 %5, ptr %m_allocator.i.i.i.i, align 8
   %m_child_stolen.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i, i64 24
-  store i8 0, ptr %m_child_stolen.i.i.i.i, align 1
+  store i8 0, ptr %m_child_stolen.i.i.i.i, align 8
   store ptr %call.i4.i.i, ptr %my_parent.i.i, align 8
   %my_parent6.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 616
   store ptr %call.i4.i.i, ptr %my_parent6.i.i, align 8
@@ -5950,7 +5950,7 @@ entry:
   %mLevel.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 304
   %mLevel4.i.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args1, i64 240
   %2 = load i32, ptr %mLevel4.i.i.i.i, align 8
-  store i32 %2, ptr %mLevel.i.i.i.i, align 8
+  store i32 %2, ptr %mLevel.i.i.i.i, align 16
   %mMinLevel.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 308
   %mMinLevel5.i.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args1, i64 244
   %3 = load i32, ptr %mMinLevel5.i.i.i.i, align 4
@@ -5962,21 +5962,21 @@ entry:
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 320
   %mTree7.i.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args1, i64 256
   %5 = load ptr, ptr %mTree7.i.i.i.i, align 8
-  store ptr %5, ptr %mTree.i.i.i.i, align 8
+  store ptr %5, ptr %mTree.i.i.i.i, align 64
   %mPrev.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 176
-  store ptr null, ptr %mPrev.i.i.i.i.i, align 8
+  store ptr null, ptr %mPrev.i.i.i.i.i, align 16
   %mPrev.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   store ptr %my_range.i.i, ptr %mPrev.i.i.i.i.i.i, align 8
   %mPrev.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 160
-  store ptr %mNext.i.i.i.i.i, ptr %mPrev.i.i.i.i.i.i.i, align 8
+  store ptr %mNext.i.i.i.i.i, ptr %mPrev.i.i.i.i.i.i.i, align 32
   store ptr %mNext.i.i.i.i.i.i, ptr %mPrev.i.i.i.i.i.i.i.i, align 8
   %mPrev.i16.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 296
   store ptr null, ptr %mPrev.i16.i.i.i.i, align 8
   %mPrev.i.i18.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 288
-  store ptr %mValueIterList.i.i.i.i, ptr %mPrev.i.i18.i.i.i.i, align 8
+  store ptr %mValueIterList.i.i.i.i, ptr %mPrev.i.i18.i.i.i.i, align 32
   %mPrev.i.i.i20.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 280
   store ptr %mNext.i6.i.i.i.i, ptr %mPrev.i.i.i20.i.i.i.i, align 8
-  store ptr %mNext.i.i8.i.i.i.i, ptr %mPrev.i.i.i.i12.i.i.i.i, align 8
+  store ptr %mNext.i.i8.i.i.i.i, ptr %mPrev.i.i.i.i12.i.i.i.i, align 16
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 328
   %mGrainSize3.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args1, i64 264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize3.i.i.i, i64 16, i1 false)
@@ -6019,7 +6019,7 @@ entry:
   %mMaxLevel.i.i22.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 592
   %mMaxLevel6.i.i23.i.i = getelementptr inbounds nuw i8, ptr %constructor_args, i64 592
   %8 = load i32, ptr %mMaxLevel6.i.i23.i.i, align 16
-  store i32 %8, ptr %mMaxLevel.i.i22.i.i, align 8
+  store i32 %8, ptr %mMaxLevel.i.i22.i.i, align 16
   %mTree.i.i24.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 600
   %mTree7.i.i25.i.i = getelementptr inbounds nuw i8, ptr %constructor_args, i64 600
   %9 = load ptr, ptr %mTree7.i.i25.i.i, align 8
@@ -6027,27 +6027,27 @@ entry:
   %mPrev.i.i.i26.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 456
   store ptr null, ptr %mPrev.i.i.i26.i.i, align 8
   %mPrev.i.i.i.i27.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 448
-  store ptr %my_body.i.i, ptr %mPrev.i.i.i.i27.i.i, align 8
+  store ptr %my_body.i.i, ptr %mPrev.i.i.i.i27.i.i, align 64
   %mPrev.i.i.i.i.i28.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 440
   store ptr %mNext.i.i.i2.i.i, ptr %mPrev.i.i.i.i.i28.i.i, align 8
-  store ptr %mNext.i.i.i.i4.i.i, ptr %mPrev.i.i.i.i.i.i8.i.i, align 8
+  store ptr %mNext.i.i.i.i4.i.i, ptr %mPrev.i.i.i.i.i.i8.i.i, align 16
   %mPrev.i16.i.i29.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 576
-  store ptr null, ptr %mPrev.i16.i.i29.i.i, align 8
+  store ptr null, ptr %mPrev.i16.i.i29.i.i, align 64
   %mPrev.i.i18.i.i30.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 568
   store ptr %mValueIterList.i.i9.i.i, ptr %mPrev.i.i18.i.i30.i.i, align 8
   %mPrev.i.i.i20.i.i31.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 560
-  store ptr %mNext.i6.i.i11.i.i, ptr %mPrev.i.i.i20.i.i31.i.i, align 8
+  store ptr %mNext.i6.i.i11.i.i, ptr %mPrev.i.i.i20.i.i31.i.i, align 16
   store ptr %mNext.i.i8.i.i13.i.i, ptr %mPrev.i.i.i.i12.i.i17.i.i, align 8
   %mOp.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 608
   %mOp3.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args, i64 608
   %10 = load ptr, ptr %mOp3.i.i.i, align 32
-  store ptr %10, ptr %mOp.i.i.i, align 8
+  store ptr %10, ptr %mOp.i.i.i, align 32
   %my_partition.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 624
   %my_partition4.i.i = getelementptr inbounds nuw i8, ptr %constructor_args, i64 624
   %11 = load i64, ptr %my_partition4.i.i, align 16
   %div1.i.i.i.i.i.i = lshr i64 %11, 1
   store i64 %div1.i.i.i.i.i.i, ptr %my_partition4.i.i, align 16
-  store i64 %div1.i.i.i.i.i.i, ptr %my_partition.i.i, align 8
+  store i64 %div1.i.i.i.i.i.i, ptr %my_partition.i.i, align 16
   %my_delay.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 632
   store i32 2, ptr %my_delay.i.i.i.i, align 8
   %my_max_depth.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 636
@@ -6063,12 +6063,12 @@ entry:
   %14 = load ptr, ptr %my_parent, align 8
   store ptr %14, ptr %call.i4, align 8
   %m_ref_count.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 8
-  store i32 2, ptr %m_ref_count.i.i.i, align 4
+  store i32 2, ptr %m_ref_count.i.i.i, align 8
   %m_allocator.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 16
   %15 = load i64, ptr %alloc, align 8
   store i64 %15, ptr %m_allocator.i.i, align 8
   %m_child_stolen.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 24
-  store i8 0, ptr %m_child_stolen.i.i, align 1
+  store i8 0, ptr %m_child_stolen.i.i, align 8
   store ptr %call.i4, ptr %my_parent, align 8
   %my_parent8 = getelementptr inbounds nuw i8, ptr %call.i, i64 616
   store ptr %call.i4, ptr %my_parent8, align 8
@@ -8647,7 +8647,7 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i12.i.i.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 304
   %8 = load i32, ptr %mLevel.i.i, align 8
-  store i32 %8, ptr %mLevel.i.i.i.i, align 8
+  store i32 %8, ptr %mLevel.i.i.i.i, align 16
   %mMinLevel.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 308
   %mMinLevel5.i.i.i.i = getelementptr inbounds nuw i8, ptr %range, i64 244
   %9 = load i32, ptr %mMinLevel5.i.i.i.i, align 4
@@ -8659,21 +8659,21 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 320
   %mTree7.i.i.i.i = getelementptr inbounds nuw i8, ptr %range, i64 256
   %11 = load ptr, ptr %mTree7.i.i.i.i, align 8
-  store ptr %11, ptr %mTree.i.i.i.i, align 8
+  store ptr %11, ptr %mTree.i.i.i.i, align 64
   %mPrev.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 176
-  store ptr null, ptr %mPrev.i.i.i.i.i, align 8
+  store ptr null, ptr %mPrev.i.i.i.i.i, align 16
   %mPrev.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   store ptr %my_range.i.i, ptr %mPrev.i.i.i.i.i.i, align 8
   %mPrev.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 160
-  store ptr %mNext.i.i.i.i.i4, ptr %mPrev.i.i.i.i.i.i.i, align 8
+  store ptr %mNext.i.i.i.i.i4, ptr %mPrev.i.i.i.i.i.i.i, align 32
   store ptr %mNext.i.i.i.i.i.i, ptr %mPrev.i.i.i.i.i.i.i.i, align 8
   %mPrev.i16.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 296
   store ptr null, ptr %mPrev.i16.i.i.i.i, align 8
   %mPrev.i.i18.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 288
-  store ptr %mValueIterList.i.i.i.i, ptr %mPrev.i.i18.i.i.i.i, align 8
+  store ptr %mValueIterList.i.i.i.i, ptr %mPrev.i.i18.i.i.i.i, align 32
   %mPrev.i.i.i20.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 280
   store ptr %mNext.i6.i.i.i.i, ptr %mPrev.i.i.i20.i.i.i.i, align 8
-  store ptr %mNext.i.i8.i.i.i.i, ptr %mPrev.i.i.i.i12.i.i.i.i, align 8
+  store ptr %mNext.i.i8.i.i.i.i, ptr %mPrev.i.i.i.i12.i.i.i.i, align 16
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 328
   %mGrainSize3.i.i.i = getelementptr inbounds nuw i8, ptr %range, i64 264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize3.i.i.i, i64 16, i1 false)
@@ -8715,7 +8715,7 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   %mMaxLevel.i.i21.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 592
   %mMaxLevel6.i.i22.i.i = getelementptr inbounds nuw i8, ptr %body, i64 248
   %14 = load i32, ptr %mMaxLevel6.i.i22.i.i, align 8
-  store i32 %14, ptr %mMaxLevel.i.i21.i.i, align 8
+  store i32 %14, ptr %mMaxLevel.i.i21.i.i, align 16
   %mTree.i.i23.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 600
   %mTree7.i.i24.i.i = getelementptr inbounds nuw i8, ptr %body, i64 256
   %15 = load ptr, ptr %mTree7.i.i24.i.i, align 8
@@ -8723,21 +8723,21 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   %mPrev.i.i.i25.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 456
   store ptr null, ptr %mPrev.i.i.i25.i.i, align 8
   %mPrev.i.i.i.i26.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 448
-  store ptr %my_body.i.i, ptr %mPrev.i.i.i.i26.i.i, align 8
+  store ptr %my_body.i.i, ptr %mPrev.i.i.i.i26.i.i, align 64
   %mPrev.i.i.i.i.i27.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 440
   store ptr %mNext.i.i.i1.i.i, ptr %mPrev.i.i.i.i.i27.i.i, align 8
-  store ptr %mNext.i.i.i.i3.i.i, ptr %mPrev.i.i.i.i.i.i7.i.i, align 8
+  store ptr %mNext.i.i.i.i3.i.i, ptr %mPrev.i.i.i.i.i.i7.i.i, align 16
   %mPrev.i16.i.i28.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 576
-  store ptr null, ptr %mPrev.i16.i.i28.i.i, align 8
+  store ptr null, ptr %mPrev.i16.i.i28.i.i, align 64
   %mPrev.i.i18.i.i29.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 568
   store ptr %mValueIterList.i.i8.i.i, ptr %mPrev.i.i18.i.i29.i.i, align 8
   %mPrev.i.i.i20.i.i30.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 560
-  store ptr %mNext.i6.i.i10.i.i, ptr %mPrev.i.i.i20.i.i30.i.i, align 8
+  store ptr %mNext.i6.i.i10.i.i, ptr %mPrev.i.i.i20.i.i30.i.i, align 16
   store ptr %mNext.i.i8.i.i12.i.i, ptr %mPrev.i.i.i.i12.i.i16.i.i, align 8
   %mOp.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 608
   %mOp3.i.i.i = getelementptr inbounds nuw i8, ptr %body, i64 264
   %16 = load ptr, ptr %mOp3.i.i.i, align 8
-  store ptr %16, ptr %mOp.i.i.i, align 8
+  store ptr %16, ptr %mOp.i.i.i, align 32
   %my_partition.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 624
   %call.i.i.i.i.i31.i.i = call noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
   %conv.i.i.i.i.i.i = sext i32 %call.i.i.i.i.i31.i.i to i64
@@ -8747,7 +8747,7 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   store i8 5, ptr %my_max_depth.i.i.i.i, align 4
   %mul.i.i.i.i.i.i = shl nsw i64 %conv.i.i.i.i.i.i, 1
   %mul.i.i.i = and i64 %mul.i.i.i.i.i.i, 9223372036854775806
-  store i64 %mul.i.i.i, ptr %my_partition.i.i, align 8
+  store i64 %mul.i.i.i, ptr %my_partition.i.i, align 16
   %my_allocator.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 640
   %17 = load i64, ptr %alloc, align 8
   store i64 %17, ptr %my_allocator.i.i, align 64
@@ -8979,12 +8979,12 @@ do.body:                                          ; preds = %do.body.backedge, %
   %4 = load ptr, ptr %my_parent.i.i, align 8
   store ptr %4, ptr %call.i4.i.i, align 8
   %m_ref_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i, i64 8
-  store i32 2, ptr %m_ref_count.i.i.i.i.i, align 4
+  store i32 2, ptr %m_ref_count.i.i.i.i.i, align 8
   %m_allocator.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i, i64 16
   %5 = load i64, ptr %alloc.i.i, align 8
   store i64 %5, ptr %m_allocator.i.i.i.i, align 8
   %m_child_stolen.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i, i64 24
-  store i8 0, ptr %m_child_stolen.i.i.i.i, align 1
+  store i8 0, ptr %m_child_stolen.i.i.i.i, align 8
   store ptr %call.i4.i.i, ptr %my_parent.i.i, align 8
   %my_parent6.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 616
   store ptr %call.i4.i.i, ptr %my_parent6.i.i, align 8
@@ -9433,7 +9433,7 @@ entry:
   %mLevel.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 304
   %mLevel4.i.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args1, i64 240
   %2 = load i32, ptr %mLevel4.i.i.i.i, align 8
-  store i32 %2, ptr %mLevel.i.i.i.i, align 8
+  store i32 %2, ptr %mLevel.i.i.i.i, align 16
   %mMinLevel.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 308
   %mMinLevel5.i.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args1, i64 244
   %3 = load i32, ptr %mMinLevel5.i.i.i.i, align 4
@@ -9445,21 +9445,21 @@ entry:
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 320
   %mTree7.i.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args1, i64 256
   %5 = load ptr, ptr %mTree7.i.i.i.i, align 8
-  store ptr %5, ptr %mTree.i.i.i.i, align 8
+  store ptr %5, ptr %mTree.i.i.i.i, align 64
   %mPrev.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 176
-  store ptr null, ptr %mPrev.i.i.i.i.i, align 8
+  store ptr null, ptr %mPrev.i.i.i.i.i, align 16
   %mPrev.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   store ptr %my_range.i.i, ptr %mPrev.i.i.i.i.i.i, align 8
   %mPrev.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 160
-  store ptr %mNext.i.i.i.i.i, ptr %mPrev.i.i.i.i.i.i.i, align 8
+  store ptr %mNext.i.i.i.i.i, ptr %mPrev.i.i.i.i.i.i.i, align 32
   store ptr %mNext.i.i.i.i.i.i, ptr %mPrev.i.i.i.i.i.i.i.i, align 8
   %mPrev.i16.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 296
   store ptr null, ptr %mPrev.i16.i.i.i.i, align 8
   %mPrev.i.i18.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 288
-  store ptr %mValueIterList.i.i.i.i, ptr %mPrev.i.i18.i.i.i.i, align 8
+  store ptr %mValueIterList.i.i.i.i, ptr %mPrev.i.i18.i.i.i.i, align 32
   %mPrev.i.i.i20.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 280
   store ptr %mNext.i6.i.i.i.i, ptr %mPrev.i.i.i20.i.i.i.i, align 8
-  store ptr %mNext.i.i8.i.i.i.i, ptr %mPrev.i.i.i.i12.i.i.i.i, align 8
+  store ptr %mNext.i.i8.i.i.i.i, ptr %mPrev.i.i.i.i12.i.i.i.i, align 16
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 328
   %mGrainSize3.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args1, i64 264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize3.i.i.i, i64 16, i1 false)
@@ -9502,7 +9502,7 @@ entry:
   %mMaxLevel.i.i22.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 592
   %mMaxLevel6.i.i23.i.i = getelementptr inbounds nuw i8, ptr %constructor_args, i64 592
   %8 = load i32, ptr %mMaxLevel6.i.i23.i.i, align 16
-  store i32 %8, ptr %mMaxLevel.i.i22.i.i, align 8
+  store i32 %8, ptr %mMaxLevel.i.i22.i.i, align 16
   %mTree.i.i24.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 600
   %mTree7.i.i25.i.i = getelementptr inbounds nuw i8, ptr %constructor_args, i64 600
   %9 = load ptr, ptr %mTree7.i.i25.i.i, align 8
@@ -9510,27 +9510,27 @@ entry:
   %mPrev.i.i.i26.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 456
   store ptr null, ptr %mPrev.i.i.i26.i.i, align 8
   %mPrev.i.i.i.i27.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 448
-  store ptr %my_body.i.i, ptr %mPrev.i.i.i.i27.i.i, align 8
+  store ptr %my_body.i.i, ptr %mPrev.i.i.i.i27.i.i, align 64
   %mPrev.i.i.i.i.i28.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 440
   store ptr %mNext.i.i.i2.i.i, ptr %mPrev.i.i.i.i.i28.i.i, align 8
-  store ptr %mNext.i.i.i.i4.i.i, ptr %mPrev.i.i.i.i.i.i8.i.i, align 8
+  store ptr %mNext.i.i.i.i4.i.i, ptr %mPrev.i.i.i.i.i.i8.i.i, align 16
   %mPrev.i16.i.i29.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 576
-  store ptr null, ptr %mPrev.i16.i.i29.i.i, align 8
+  store ptr null, ptr %mPrev.i16.i.i29.i.i, align 64
   %mPrev.i.i18.i.i30.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 568
   store ptr %mValueIterList.i.i9.i.i, ptr %mPrev.i.i18.i.i30.i.i, align 8
   %mPrev.i.i.i20.i.i31.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 560
-  store ptr %mNext.i6.i.i11.i.i, ptr %mPrev.i.i.i20.i.i31.i.i, align 8
+  store ptr %mNext.i6.i.i11.i.i, ptr %mPrev.i.i.i20.i.i31.i.i, align 16
   store ptr %mNext.i.i8.i.i13.i.i, ptr %mPrev.i.i.i.i12.i.i17.i.i, align 8
   %mOp.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 608
   %mOp3.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args, i64 608
   %10 = load ptr, ptr %mOp3.i.i.i, align 32
-  store ptr %10, ptr %mOp.i.i.i, align 8
+  store ptr %10, ptr %mOp.i.i.i, align 32
   %my_partition.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 624
   %my_partition4.i.i = getelementptr inbounds nuw i8, ptr %constructor_args, i64 624
   %11 = load i64, ptr %my_partition4.i.i, align 16
   %div1.i.i.i.i.i.i = lshr i64 %11, 1
   store i64 %div1.i.i.i.i.i.i, ptr %my_partition4.i.i, align 16
-  store i64 %div1.i.i.i.i.i.i, ptr %my_partition.i.i, align 8
+  store i64 %div1.i.i.i.i.i.i, ptr %my_partition.i.i, align 16
   %my_delay.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 632
   store i32 2, ptr %my_delay.i.i.i.i, align 8
   %my_max_depth.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 636
@@ -9546,12 +9546,12 @@ entry:
   %14 = load ptr, ptr %my_parent, align 8
   store ptr %14, ptr %call.i4, align 8
   %m_ref_count.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 8
-  store i32 2, ptr %m_ref_count.i.i.i, align 4
+  store i32 2, ptr %m_ref_count.i.i.i, align 8
   %m_allocator.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 16
   %15 = load i64, ptr %alloc, align 8
   store i64 %15, ptr %m_allocator.i.i, align 8
   %m_child_stolen.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 24
-  store i8 0, ptr %m_child_stolen.i.i, align 1
+  store i8 0, ptr %m_child_stolen.i.i, align 8
   store ptr %call.i4, ptr %my_parent, align 8
   %my_parent8 = getelementptr inbounds nuw i8, ptr %call.i, i64 616
   store ptr %call.i4, ptr %my_parent8, align 8
@@ -9960,7 +9960,7 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i12.i.i.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 304
   %8 = load i32, ptr %mLevel.i.i, align 8
-  store i32 %8, ptr %mLevel.i.i.i.i, align 8
+  store i32 %8, ptr %mLevel.i.i.i.i, align 16
   %mMinLevel.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 308
   %mMinLevel5.i.i.i.i = getelementptr inbounds nuw i8, ptr %range, i64 244
   %9 = load i32, ptr %mMinLevel5.i.i.i.i, align 4
@@ -9972,21 +9972,21 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 320
   %mTree7.i.i.i.i = getelementptr inbounds nuw i8, ptr %range, i64 256
   %11 = load ptr, ptr %mTree7.i.i.i.i, align 8
-  store ptr %11, ptr %mTree.i.i.i.i, align 8
+  store ptr %11, ptr %mTree.i.i.i.i, align 64
   %mPrev.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 176
-  store ptr null, ptr %mPrev.i.i.i.i.i, align 8
+  store ptr null, ptr %mPrev.i.i.i.i.i, align 16
   %mPrev.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   store ptr %my_range.i.i, ptr %mPrev.i.i.i.i.i.i, align 8
   %mPrev.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 160
-  store ptr %mNext.i.i.i.i.i4, ptr %mPrev.i.i.i.i.i.i.i, align 8
+  store ptr %mNext.i.i.i.i.i4, ptr %mPrev.i.i.i.i.i.i.i, align 32
   store ptr %mNext.i.i.i.i.i.i, ptr %mPrev.i.i.i.i.i.i.i.i, align 8
   %mPrev.i16.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 296
   store ptr null, ptr %mPrev.i16.i.i.i.i, align 8
   %mPrev.i.i18.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 288
-  store ptr %mValueIterList.i.i.i.i, ptr %mPrev.i.i18.i.i.i.i, align 8
+  store ptr %mValueIterList.i.i.i.i, ptr %mPrev.i.i18.i.i.i.i, align 32
   %mPrev.i.i.i20.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 280
   store ptr %mNext.i6.i.i.i.i, ptr %mPrev.i.i.i20.i.i.i.i, align 8
-  store ptr %mNext.i.i8.i.i.i.i, ptr %mPrev.i.i.i.i12.i.i.i.i, align 8
+  store ptr %mNext.i.i8.i.i.i.i, ptr %mPrev.i.i.i.i12.i.i.i.i, align 16
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 328
   %mGrainSize3.i.i.i = getelementptr inbounds nuw i8, ptr %range, i64 264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize3.i.i.i, i64 16, i1 false)
@@ -10028,7 +10028,7 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   %mMaxLevel.i.i21.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 592
   %mMaxLevel6.i.i22.i.i = getelementptr inbounds nuw i8, ptr %body, i64 248
   %14 = load i32, ptr %mMaxLevel6.i.i22.i.i, align 8
-  store i32 %14, ptr %mMaxLevel.i.i21.i.i, align 8
+  store i32 %14, ptr %mMaxLevel.i.i21.i.i, align 16
   %mTree.i.i23.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 600
   %mTree7.i.i24.i.i = getelementptr inbounds nuw i8, ptr %body, i64 256
   %15 = load ptr, ptr %mTree7.i.i24.i.i, align 8
@@ -10036,21 +10036,21 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   %mPrev.i.i.i25.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 456
   store ptr null, ptr %mPrev.i.i.i25.i.i, align 8
   %mPrev.i.i.i.i26.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 448
-  store ptr %my_body.i.i, ptr %mPrev.i.i.i.i26.i.i, align 8
+  store ptr %my_body.i.i, ptr %mPrev.i.i.i.i26.i.i, align 64
   %mPrev.i.i.i.i.i27.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 440
   store ptr %mNext.i.i.i1.i.i, ptr %mPrev.i.i.i.i.i27.i.i, align 8
-  store ptr %mNext.i.i.i.i3.i.i, ptr %mPrev.i.i.i.i.i.i7.i.i, align 8
+  store ptr %mNext.i.i.i.i3.i.i, ptr %mPrev.i.i.i.i.i.i7.i.i, align 16
   %mPrev.i16.i.i28.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 576
-  store ptr null, ptr %mPrev.i16.i.i28.i.i, align 8
+  store ptr null, ptr %mPrev.i16.i.i28.i.i, align 64
   %mPrev.i.i18.i.i29.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 568
   store ptr %mValueIterList.i.i8.i.i, ptr %mPrev.i.i18.i.i29.i.i, align 8
   %mPrev.i.i.i20.i.i30.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 560
-  store ptr %mNext.i6.i.i10.i.i, ptr %mPrev.i.i.i20.i.i30.i.i, align 8
+  store ptr %mNext.i6.i.i10.i.i, ptr %mPrev.i.i.i20.i.i30.i.i, align 16
   store ptr %mNext.i.i8.i.i12.i.i, ptr %mPrev.i.i.i.i12.i.i16.i.i, align 8
   %mOp.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 608
   %mOp3.i.i.i = getelementptr inbounds nuw i8, ptr %body, i64 264
   %16 = load ptr, ptr %mOp3.i.i.i, align 8
-  store ptr %16, ptr %mOp.i.i.i, align 8
+  store ptr %16, ptr %mOp.i.i.i, align 32
   %my_partition.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 624
   %call.i.i.i.i.i31.i.i = call noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
   %conv.i.i.i.i.i.i = sext i32 %call.i.i.i.i.i31.i.i to i64
@@ -10060,7 +10060,7 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   store i8 5, ptr %my_max_depth.i.i.i.i, align 4
   %mul.i.i.i.i.i.i = shl nsw i64 %conv.i.i.i.i.i.i, 1
   %mul.i.i.i = and i64 %mul.i.i.i.i.i.i, 9223372036854775806
-  store i64 %mul.i.i.i, ptr %my_partition.i.i, align 8
+  store i64 %mul.i.i.i, ptr %my_partition.i.i, align 16
   %my_allocator.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 640
   %17 = load i64, ptr %alloc, align 8
   store i64 %17, ptr %my_allocator.i.i, align 64
@@ -10292,12 +10292,12 @@ do.body:                                          ; preds = %do.body.backedge, %
   %4 = load ptr, ptr %my_parent.i.i, align 8
   store ptr %4, ptr %call.i4.i.i, align 8
   %m_ref_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i, i64 8
-  store i32 2, ptr %m_ref_count.i.i.i.i.i, align 4
+  store i32 2, ptr %m_ref_count.i.i.i.i.i, align 8
   %m_allocator.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i, i64 16
   %5 = load i64, ptr %alloc.i.i, align 8
   store i64 %5, ptr %m_allocator.i.i.i.i, align 8
   %m_child_stolen.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i, i64 24
-  store i8 0, ptr %m_child_stolen.i.i.i.i, align 1
+  store i8 0, ptr %m_child_stolen.i.i.i.i, align 8
   store ptr %call.i4.i.i, ptr %my_parent.i.i, align 8
   %my_parent6.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 616
   store ptr %call.i4.i.i, ptr %my_parent6.i.i, align 8
@@ -10746,7 +10746,7 @@ entry:
   %mLevel.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 304
   %mLevel4.i.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args1, i64 240
   %2 = load i32, ptr %mLevel4.i.i.i.i, align 8
-  store i32 %2, ptr %mLevel.i.i.i.i, align 8
+  store i32 %2, ptr %mLevel.i.i.i.i, align 16
   %mMinLevel.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 308
   %mMinLevel5.i.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args1, i64 244
   %3 = load i32, ptr %mMinLevel5.i.i.i.i, align 4
@@ -10758,21 +10758,21 @@ entry:
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 320
   %mTree7.i.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args1, i64 256
   %5 = load ptr, ptr %mTree7.i.i.i.i, align 8
-  store ptr %5, ptr %mTree.i.i.i.i, align 8
+  store ptr %5, ptr %mTree.i.i.i.i, align 64
   %mPrev.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 176
-  store ptr null, ptr %mPrev.i.i.i.i.i, align 8
+  store ptr null, ptr %mPrev.i.i.i.i.i, align 16
   %mPrev.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   store ptr %my_range.i.i, ptr %mPrev.i.i.i.i.i.i, align 8
   %mPrev.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 160
-  store ptr %mNext.i.i.i.i.i, ptr %mPrev.i.i.i.i.i.i.i, align 8
+  store ptr %mNext.i.i.i.i.i, ptr %mPrev.i.i.i.i.i.i.i, align 32
   store ptr %mNext.i.i.i.i.i.i, ptr %mPrev.i.i.i.i.i.i.i.i, align 8
   %mPrev.i16.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 296
   store ptr null, ptr %mPrev.i16.i.i.i.i, align 8
   %mPrev.i.i18.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 288
-  store ptr %mValueIterList.i.i.i.i, ptr %mPrev.i.i18.i.i.i.i, align 8
+  store ptr %mValueIterList.i.i.i.i, ptr %mPrev.i.i18.i.i.i.i, align 32
   %mPrev.i.i.i20.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 280
   store ptr %mNext.i6.i.i.i.i, ptr %mPrev.i.i.i20.i.i.i.i, align 8
-  store ptr %mNext.i.i8.i.i.i.i, ptr %mPrev.i.i.i.i12.i.i.i.i, align 8
+  store ptr %mNext.i.i8.i.i.i.i, ptr %mPrev.i.i.i.i12.i.i.i.i, align 16
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 328
   %mGrainSize3.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args1, i64 264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize3.i.i.i, i64 16, i1 false)
@@ -10815,7 +10815,7 @@ entry:
   %mMaxLevel.i.i22.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 592
   %mMaxLevel6.i.i23.i.i = getelementptr inbounds nuw i8, ptr %constructor_args, i64 592
   %8 = load i32, ptr %mMaxLevel6.i.i23.i.i, align 16
-  store i32 %8, ptr %mMaxLevel.i.i22.i.i, align 8
+  store i32 %8, ptr %mMaxLevel.i.i22.i.i, align 16
   %mTree.i.i24.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 600
   %mTree7.i.i25.i.i = getelementptr inbounds nuw i8, ptr %constructor_args, i64 600
   %9 = load ptr, ptr %mTree7.i.i25.i.i, align 8
@@ -10823,27 +10823,27 @@ entry:
   %mPrev.i.i.i26.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 456
   store ptr null, ptr %mPrev.i.i.i26.i.i, align 8
   %mPrev.i.i.i.i27.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 448
-  store ptr %my_body.i.i, ptr %mPrev.i.i.i.i27.i.i, align 8
+  store ptr %my_body.i.i, ptr %mPrev.i.i.i.i27.i.i, align 64
   %mPrev.i.i.i.i.i28.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 440
   store ptr %mNext.i.i.i2.i.i, ptr %mPrev.i.i.i.i.i28.i.i, align 8
-  store ptr %mNext.i.i.i.i4.i.i, ptr %mPrev.i.i.i.i.i.i8.i.i, align 8
+  store ptr %mNext.i.i.i.i4.i.i, ptr %mPrev.i.i.i.i.i.i8.i.i, align 16
   %mPrev.i16.i.i29.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 576
-  store ptr null, ptr %mPrev.i16.i.i29.i.i, align 8
+  store ptr null, ptr %mPrev.i16.i.i29.i.i, align 64
   %mPrev.i.i18.i.i30.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 568
   store ptr %mValueIterList.i.i9.i.i, ptr %mPrev.i.i18.i.i30.i.i, align 8
   %mPrev.i.i.i20.i.i31.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 560
-  store ptr %mNext.i6.i.i11.i.i, ptr %mPrev.i.i.i20.i.i31.i.i, align 8
+  store ptr %mNext.i6.i.i11.i.i, ptr %mPrev.i.i.i20.i.i31.i.i, align 16
   store ptr %mNext.i.i8.i.i13.i.i, ptr %mPrev.i.i.i.i12.i.i17.i.i, align 8
   %mOp.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 608
   %mOp3.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args, i64 608
   %10 = load ptr, ptr %mOp3.i.i.i, align 32
-  store ptr %10, ptr %mOp.i.i.i, align 8
+  store ptr %10, ptr %mOp.i.i.i, align 32
   %my_partition.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 624
   %my_partition4.i.i = getelementptr inbounds nuw i8, ptr %constructor_args, i64 624
   %11 = load i64, ptr %my_partition4.i.i, align 16
   %div1.i.i.i.i.i.i = lshr i64 %11, 1
   store i64 %div1.i.i.i.i.i.i, ptr %my_partition4.i.i, align 16
-  store i64 %div1.i.i.i.i.i.i, ptr %my_partition.i.i, align 8
+  store i64 %div1.i.i.i.i.i.i, ptr %my_partition.i.i, align 16
   %my_delay.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 632
   store i32 2, ptr %my_delay.i.i.i.i, align 8
   %my_max_depth.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 636
@@ -10859,12 +10859,12 @@ entry:
   %14 = load ptr, ptr %my_parent, align 8
   store ptr %14, ptr %call.i4, align 8
   %m_ref_count.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 8
-  store i32 2, ptr %m_ref_count.i.i.i, align 4
+  store i32 2, ptr %m_ref_count.i.i.i, align 8
   %m_allocator.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 16
   %15 = load i64, ptr %alloc, align 8
   store i64 %15, ptr %m_allocator.i.i, align 8
   %m_child_stolen.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 24
-  store i8 0, ptr %m_child_stolen.i.i, align 1
+  store i8 0, ptr %m_child_stolen.i.i, align 8
   store ptr %call.i4, ptr %my_parent, align 8
   %my_parent8 = getelementptr inbounds nuw i8, ptr %call.i, i64 616
   store ptr %call.i4, ptr %my_parent8, align 8
@@ -13250,7 +13250,7 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i12.i.i.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 304
   %8 = load i32, ptr %mLevel.i.i, align 8
-  store i32 %8, ptr %mLevel.i.i.i.i, align 8
+  store i32 %8, ptr %mLevel.i.i.i.i, align 16
   %mMinLevel.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 308
   %mMinLevel5.i.i.i.i = getelementptr inbounds nuw i8, ptr %range, i64 244
   %9 = load i32, ptr %mMinLevel5.i.i.i.i, align 4
@@ -13262,21 +13262,21 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 320
   %mTree7.i.i.i.i = getelementptr inbounds nuw i8, ptr %range, i64 256
   %11 = load ptr, ptr %mTree7.i.i.i.i, align 8
-  store ptr %11, ptr %mTree.i.i.i.i, align 8
+  store ptr %11, ptr %mTree.i.i.i.i, align 64
   %mPrev.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 176
-  store ptr null, ptr %mPrev.i.i.i.i.i, align 8
+  store ptr null, ptr %mPrev.i.i.i.i.i, align 16
   %mPrev.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   store ptr %my_range.i.i, ptr %mPrev.i.i.i.i.i.i, align 8
   %mPrev.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 160
-  store ptr %mNext.i.i.i.i.i4, ptr %mPrev.i.i.i.i.i.i.i, align 8
+  store ptr %mNext.i.i.i.i.i4, ptr %mPrev.i.i.i.i.i.i.i, align 32
   store ptr %mNext.i.i.i.i.i.i, ptr %mPrev.i.i.i.i.i.i.i.i, align 8
   %mPrev.i16.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 296
   store ptr null, ptr %mPrev.i16.i.i.i.i, align 8
   %mPrev.i.i18.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 288
-  store ptr %mValueIterList.i.i.i.i, ptr %mPrev.i.i18.i.i.i.i, align 8
+  store ptr %mValueIterList.i.i.i.i, ptr %mPrev.i.i18.i.i.i.i, align 32
   %mPrev.i.i.i20.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 280
   store ptr %mNext.i6.i.i.i.i, ptr %mPrev.i.i.i20.i.i.i.i, align 8
-  store ptr %mNext.i.i8.i.i.i.i, ptr %mPrev.i.i.i.i12.i.i.i.i, align 8
+  store ptr %mNext.i.i8.i.i.i.i, ptr %mPrev.i.i.i.i12.i.i.i.i, align 16
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 328
   %mGrainSize3.i.i.i = getelementptr inbounds nuw i8, ptr %range, i64 264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize3.i.i.i, i64 16, i1 false)
@@ -13318,7 +13318,7 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   %mMaxLevel.i.i21.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 592
   %mMaxLevel6.i.i22.i.i = getelementptr inbounds nuw i8, ptr %body, i64 248
   %14 = load i32, ptr %mMaxLevel6.i.i22.i.i, align 8
-  store i32 %14, ptr %mMaxLevel.i.i21.i.i, align 8
+  store i32 %14, ptr %mMaxLevel.i.i21.i.i, align 16
   %mTree.i.i23.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 600
   %mTree7.i.i24.i.i = getelementptr inbounds nuw i8, ptr %body, i64 256
   %15 = load ptr, ptr %mTree7.i.i24.i.i, align 8
@@ -13326,21 +13326,21 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   %mPrev.i.i.i25.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 456
   store ptr null, ptr %mPrev.i.i.i25.i.i, align 8
   %mPrev.i.i.i.i26.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 448
-  store ptr %my_body.i.i, ptr %mPrev.i.i.i.i26.i.i, align 8
+  store ptr %my_body.i.i, ptr %mPrev.i.i.i.i26.i.i, align 64
   %mPrev.i.i.i.i.i27.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 440
   store ptr %mNext.i.i.i1.i.i, ptr %mPrev.i.i.i.i.i27.i.i, align 8
-  store ptr %mNext.i.i.i.i3.i.i, ptr %mPrev.i.i.i.i.i.i7.i.i, align 8
+  store ptr %mNext.i.i.i.i3.i.i, ptr %mPrev.i.i.i.i.i.i7.i.i, align 16
   %mPrev.i16.i.i28.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 576
-  store ptr null, ptr %mPrev.i16.i.i28.i.i, align 8
+  store ptr null, ptr %mPrev.i16.i.i28.i.i, align 64
   %mPrev.i.i18.i.i29.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 568
   store ptr %mValueIterList.i.i8.i.i, ptr %mPrev.i.i18.i.i29.i.i, align 8
   %mPrev.i.i.i20.i.i30.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 560
-  store ptr %mNext.i6.i.i10.i.i, ptr %mPrev.i.i.i20.i.i30.i.i, align 8
+  store ptr %mNext.i6.i.i10.i.i, ptr %mPrev.i.i.i20.i.i30.i.i, align 16
   store ptr %mNext.i.i8.i.i12.i.i, ptr %mPrev.i.i.i.i12.i.i16.i.i, align 8
   %mOp.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 608
   %mOp3.i.i.i = getelementptr inbounds nuw i8, ptr %body, i64 264
   %16 = load ptr, ptr %mOp3.i.i.i, align 8
-  store ptr %16, ptr %mOp.i.i.i, align 8
+  store ptr %16, ptr %mOp.i.i.i, align 32
   %my_partition.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 624
   %call.i.i.i.i.i31.i.i = call noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
   %conv.i.i.i.i.i.i = sext i32 %call.i.i.i.i.i31.i.i to i64
@@ -13350,7 +13350,7 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   store i8 5, ptr %my_max_depth.i.i.i.i, align 4
   %mul.i.i.i.i.i.i = shl nsw i64 %conv.i.i.i.i.i.i, 1
   %mul.i.i.i = and i64 %mul.i.i.i.i.i.i, 9223372036854775806
-  store i64 %mul.i.i.i, ptr %my_partition.i.i, align 8
+  store i64 %mul.i.i.i, ptr %my_partition.i.i, align 16
   %my_allocator.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 640
   %17 = load i64, ptr %alloc, align 8
   store i64 %17, ptr %my_allocator.i.i, align 64
@@ -13582,12 +13582,12 @@ do.body:                                          ; preds = %do.body.backedge, %
   %4 = load ptr, ptr %my_parent.i.i, align 8
   store ptr %4, ptr %call.i4.i.i, align 8
   %m_ref_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i, i64 8
-  store i32 2, ptr %m_ref_count.i.i.i.i.i, align 4
+  store i32 2, ptr %m_ref_count.i.i.i.i.i, align 8
   %m_allocator.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i, i64 16
   %5 = load i64, ptr %alloc.i.i, align 8
   store i64 %5, ptr %m_allocator.i.i.i.i, align 8
   %m_child_stolen.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i, i64 24
-  store i8 0, ptr %m_child_stolen.i.i.i.i, align 1
+  store i8 0, ptr %m_child_stolen.i.i.i.i, align 8
   store ptr %call.i4.i.i, ptr %my_parent.i.i, align 8
   %my_parent6.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 616
   store ptr %call.i4.i.i, ptr %my_parent6.i.i, align 8
@@ -14213,7 +14213,7 @@ entry:
   %mLevel.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 304
   %mLevel4.i.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args1, i64 240
   %2 = load i32, ptr %mLevel4.i.i.i.i, align 8
-  store i32 %2, ptr %mLevel.i.i.i.i, align 8
+  store i32 %2, ptr %mLevel.i.i.i.i, align 16
   %mMinLevel.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 308
   %mMinLevel5.i.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args1, i64 244
   %3 = load i32, ptr %mMinLevel5.i.i.i.i, align 4
@@ -14225,21 +14225,21 @@ entry:
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 320
   %mTree7.i.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args1, i64 256
   %5 = load ptr, ptr %mTree7.i.i.i.i, align 8
-  store ptr %5, ptr %mTree.i.i.i.i, align 8
+  store ptr %5, ptr %mTree.i.i.i.i, align 64
   %mPrev.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 176
-  store ptr null, ptr %mPrev.i.i.i.i.i, align 8
+  store ptr null, ptr %mPrev.i.i.i.i.i, align 16
   %mPrev.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   store ptr %my_range.i.i, ptr %mPrev.i.i.i.i.i.i, align 8
   %mPrev.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 160
-  store ptr %mNext.i.i.i.i.i, ptr %mPrev.i.i.i.i.i.i.i, align 8
+  store ptr %mNext.i.i.i.i.i, ptr %mPrev.i.i.i.i.i.i.i, align 32
   store ptr %mNext.i.i.i.i.i.i, ptr %mPrev.i.i.i.i.i.i.i.i, align 8
   %mPrev.i16.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 296
   store ptr null, ptr %mPrev.i16.i.i.i.i, align 8
   %mPrev.i.i18.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 288
-  store ptr %mValueIterList.i.i.i.i, ptr %mPrev.i.i18.i.i.i.i, align 8
+  store ptr %mValueIterList.i.i.i.i, ptr %mPrev.i.i18.i.i.i.i, align 32
   %mPrev.i.i.i20.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 280
   store ptr %mNext.i6.i.i.i.i, ptr %mPrev.i.i.i20.i.i.i.i, align 8
-  store ptr %mNext.i.i8.i.i.i.i, ptr %mPrev.i.i.i.i12.i.i.i.i, align 8
+  store ptr %mNext.i.i8.i.i.i.i, ptr %mPrev.i.i.i.i12.i.i.i.i, align 16
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 328
   %mGrainSize3.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args1, i64 264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize3.i.i.i, i64 16, i1 false)
@@ -14282,7 +14282,7 @@ entry:
   %mMaxLevel.i.i22.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 592
   %mMaxLevel6.i.i23.i.i = getelementptr inbounds nuw i8, ptr %constructor_args, i64 592
   %8 = load i32, ptr %mMaxLevel6.i.i23.i.i, align 16
-  store i32 %8, ptr %mMaxLevel.i.i22.i.i, align 8
+  store i32 %8, ptr %mMaxLevel.i.i22.i.i, align 16
   %mTree.i.i24.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 600
   %mTree7.i.i25.i.i = getelementptr inbounds nuw i8, ptr %constructor_args, i64 600
   %9 = load ptr, ptr %mTree7.i.i25.i.i, align 8
@@ -14290,27 +14290,27 @@ entry:
   %mPrev.i.i.i26.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 456
   store ptr null, ptr %mPrev.i.i.i26.i.i, align 8
   %mPrev.i.i.i.i27.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 448
-  store ptr %my_body.i.i, ptr %mPrev.i.i.i.i27.i.i, align 8
+  store ptr %my_body.i.i, ptr %mPrev.i.i.i.i27.i.i, align 64
   %mPrev.i.i.i.i.i28.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 440
   store ptr %mNext.i.i.i2.i.i, ptr %mPrev.i.i.i.i.i28.i.i, align 8
-  store ptr %mNext.i.i.i.i4.i.i, ptr %mPrev.i.i.i.i.i.i8.i.i, align 8
+  store ptr %mNext.i.i.i.i4.i.i, ptr %mPrev.i.i.i.i.i.i8.i.i, align 16
   %mPrev.i16.i.i29.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 576
-  store ptr null, ptr %mPrev.i16.i.i29.i.i, align 8
+  store ptr null, ptr %mPrev.i16.i.i29.i.i, align 64
   %mPrev.i.i18.i.i30.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 568
   store ptr %mValueIterList.i.i9.i.i, ptr %mPrev.i.i18.i.i30.i.i, align 8
   %mPrev.i.i.i20.i.i31.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 560
-  store ptr %mNext.i6.i.i11.i.i, ptr %mPrev.i.i.i20.i.i31.i.i, align 8
+  store ptr %mNext.i6.i.i11.i.i, ptr %mPrev.i.i.i20.i.i31.i.i, align 16
   store ptr %mNext.i.i8.i.i13.i.i, ptr %mPrev.i.i.i.i12.i.i17.i.i, align 8
   %mOp.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 608
   %mOp3.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args, i64 608
   %10 = load ptr, ptr %mOp3.i.i.i, align 32
-  store ptr %10, ptr %mOp.i.i.i, align 8
+  store ptr %10, ptr %mOp.i.i.i, align 32
   %my_partition.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 624
   %my_partition4.i.i = getelementptr inbounds nuw i8, ptr %constructor_args, i64 624
   %11 = load i64, ptr %my_partition4.i.i, align 16
   %div1.i.i.i.i.i.i = lshr i64 %11, 1
   store i64 %div1.i.i.i.i.i.i, ptr %my_partition4.i.i, align 16
-  store i64 %div1.i.i.i.i.i.i, ptr %my_partition.i.i, align 8
+  store i64 %div1.i.i.i.i.i.i, ptr %my_partition.i.i, align 16
   %my_delay.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 632
   store i32 2, ptr %my_delay.i.i.i.i, align 8
   %my_max_depth.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 636
@@ -14326,12 +14326,12 @@ entry:
   %14 = load ptr, ptr %my_parent, align 8
   store ptr %14, ptr %call.i4, align 8
   %m_ref_count.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 8
-  store i32 2, ptr %m_ref_count.i.i.i, align 4
+  store i32 2, ptr %m_ref_count.i.i.i, align 8
   %m_allocator.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 16
   %15 = load i64, ptr %alloc, align 8
   store i64 %15, ptr %m_allocator.i.i, align 8
   %m_child_stolen.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 24
-  store i8 0, ptr %m_child_stolen.i.i, align 1
+  store i8 0, ptr %m_child_stolen.i.i, align 8
   store ptr %call.i4, ptr %my_parent, align 8
   %my_parent8 = getelementptr inbounds nuw i8, ptr %call.i, i64 616
   store ptr %call.i4, ptr %my_parent8, align 8
@@ -16435,7 +16435,7 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i12.i.i.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 304
   %8 = load i32, ptr %mLevel.i.i, align 8
-  store i32 %8, ptr %mLevel.i.i.i.i, align 8
+  store i32 %8, ptr %mLevel.i.i.i.i, align 16
   %mMinLevel.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 308
   %mMinLevel5.i.i.i.i = getelementptr inbounds nuw i8, ptr %range, i64 244
   %9 = load i32, ptr %mMinLevel5.i.i.i.i, align 4
@@ -16447,21 +16447,21 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 320
   %mTree7.i.i.i.i = getelementptr inbounds nuw i8, ptr %range, i64 256
   %11 = load ptr, ptr %mTree7.i.i.i.i, align 8
-  store ptr %11, ptr %mTree.i.i.i.i, align 8
+  store ptr %11, ptr %mTree.i.i.i.i, align 64
   %mPrev.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 176
-  store ptr null, ptr %mPrev.i.i.i.i.i, align 8
+  store ptr null, ptr %mPrev.i.i.i.i.i, align 16
   %mPrev.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   store ptr %my_range.i.i, ptr %mPrev.i.i.i.i.i.i, align 8
   %mPrev.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 160
-  store ptr %mNext.i.i.i.i.i4, ptr %mPrev.i.i.i.i.i.i.i, align 8
+  store ptr %mNext.i.i.i.i.i4, ptr %mPrev.i.i.i.i.i.i.i, align 32
   store ptr %mNext.i.i.i.i.i.i, ptr %mPrev.i.i.i.i.i.i.i.i, align 8
   %mPrev.i16.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 296
   store ptr null, ptr %mPrev.i16.i.i.i.i, align 8
   %mPrev.i.i18.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 288
-  store ptr %mValueIterList.i.i.i.i, ptr %mPrev.i.i18.i.i.i.i, align 8
+  store ptr %mValueIterList.i.i.i.i, ptr %mPrev.i.i18.i.i.i.i, align 32
   %mPrev.i.i.i20.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 280
   store ptr %mNext.i6.i.i.i.i, ptr %mPrev.i.i.i20.i.i.i.i, align 8
-  store ptr %mNext.i.i8.i.i.i.i, ptr %mPrev.i.i.i.i12.i.i.i.i, align 8
+  store ptr %mNext.i.i8.i.i.i.i, ptr %mPrev.i.i.i.i12.i.i.i.i, align 16
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 328
   %mGrainSize3.i.i.i = getelementptr inbounds nuw i8, ptr %range, i64 264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize3.i.i.i, i64 16, i1 false)
@@ -16503,7 +16503,7 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   %mMaxLevel.i.i21.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 592
   %mMaxLevel6.i.i22.i.i = getelementptr inbounds nuw i8, ptr %body, i64 248
   %14 = load i32, ptr %mMaxLevel6.i.i22.i.i, align 8
-  store i32 %14, ptr %mMaxLevel.i.i21.i.i, align 8
+  store i32 %14, ptr %mMaxLevel.i.i21.i.i, align 16
   %mTree.i.i23.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 600
   %mTree7.i.i24.i.i = getelementptr inbounds nuw i8, ptr %body, i64 256
   %15 = load ptr, ptr %mTree7.i.i24.i.i, align 8
@@ -16511,21 +16511,21 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   %mPrev.i.i.i25.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 456
   store ptr null, ptr %mPrev.i.i.i25.i.i, align 8
   %mPrev.i.i.i.i26.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 448
-  store ptr %my_body.i.i, ptr %mPrev.i.i.i.i26.i.i, align 8
+  store ptr %my_body.i.i, ptr %mPrev.i.i.i.i26.i.i, align 64
   %mPrev.i.i.i.i.i27.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 440
   store ptr %mNext.i.i.i1.i.i, ptr %mPrev.i.i.i.i.i27.i.i, align 8
-  store ptr %mNext.i.i.i.i3.i.i, ptr %mPrev.i.i.i.i.i.i7.i.i, align 8
+  store ptr %mNext.i.i.i.i3.i.i, ptr %mPrev.i.i.i.i.i.i7.i.i, align 16
   %mPrev.i16.i.i28.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 576
-  store ptr null, ptr %mPrev.i16.i.i28.i.i, align 8
+  store ptr null, ptr %mPrev.i16.i.i28.i.i, align 64
   %mPrev.i.i18.i.i29.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 568
   store ptr %mValueIterList.i.i8.i.i, ptr %mPrev.i.i18.i.i29.i.i, align 8
   %mPrev.i.i.i20.i.i30.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 560
-  store ptr %mNext.i6.i.i10.i.i, ptr %mPrev.i.i.i20.i.i30.i.i, align 8
+  store ptr %mNext.i6.i.i10.i.i, ptr %mPrev.i.i.i20.i.i30.i.i, align 16
   store ptr %mNext.i.i8.i.i12.i.i, ptr %mPrev.i.i.i.i12.i.i16.i.i, align 8
   %mOp.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 608
   %mOp3.i.i.i = getelementptr inbounds nuw i8, ptr %body, i64 264
   %16 = load ptr, ptr %mOp3.i.i.i, align 8
-  store ptr %16, ptr %mOp.i.i.i, align 8
+  store ptr %16, ptr %mOp.i.i.i, align 32
   %my_partition.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 624
   %call.i.i.i.i.i31.i.i = call noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
   %conv.i.i.i.i.i.i = sext i32 %call.i.i.i.i.i31.i.i to i64
@@ -16535,7 +16535,7 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   store i8 5, ptr %my_max_depth.i.i.i.i, align 4
   %mul.i.i.i.i.i.i = shl nsw i64 %conv.i.i.i.i.i.i, 1
   %mul.i.i.i = and i64 %mul.i.i.i.i.i.i, 9223372036854775806
-  store i64 %mul.i.i.i, ptr %my_partition.i.i, align 8
+  store i64 %mul.i.i.i, ptr %my_partition.i.i, align 16
   %my_allocator.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 640
   %17 = load i64, ptr %alloc, align 8
   store i64 %17, ptr %my_allocator.i.i, align 64
@@ -16767,12 +16767,12 @@ do.body:                                          ; preds = %do.body.backedge, %
   %4 = load ptr, ptr %my_parent.i.i, align 8
   store ptr %4, ptr %call.i4.i.i, align 8
   %m_ref_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i, i64 8
-  store i32 2, ptr %m_ref_count.i.i.i.i.i, align 4
+  store i32 2, ptr %m_ref_count.i.i.i.i.i, align 8
   %m_allocator.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i, i64 16
   %5 = load i64, ptr %alloc.i.i, align 8
   store i64 %5, ptr %m_allocator.i.i.i.i, align 8
   %m_child_stolen.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i, i64 24
-  store i8 0, ptr %m_child_stolen.i.i.i.i, align 1
+  store i8 0, ptr %m_child_stolen.i.i.i.i, align 8
   store ptr %call.i4.i.i, ptr %my_parent.i.i, align 8
   %my_parent6.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 616
   store ptr %call.i4.i.i, ptr %my_parent6.i.i, align 8
@@ -17221,7 +17221,7 @@ entry:
   %mLevel.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 304
   %mLevel4.i.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args1, i64 240
   %2 = load i32, ptr %mLevel4.i.i.i.i, align 8
-  store i32 %2, ptr %mLevel.i.i.i.i, align 8
+  store i32 %2, ptr %mLevel.i.i.i.i, align 16
   %mMinLevel.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 308
   %mMinLevel5.i.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args1, i64 244
   %3 = load i32, ptr %mMinLevel5.i.i.i.i, align 4
@@ -17233,21 +17233,21 @@ entry:
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 320
   %mTree7.i.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args1, i64 256
   %5 = load ptr, ptr %mTree7.i.i.i.i, align 8
-  store ptr %5, ptr %mTree.i.i.i.i, align 8
+  store ptr %5, ptr %mTree.i.i.i.i, align 64
   %mPrev.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 176
-  store ptr null, ptr %mPrev.i.i.i.i.i, align 8
+  store ptr null, ptr %mPrev.i.i.i.i.i, align 16
   %mPrev.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   store ptr %my_range.i.i, ptr %mPrev.i.i.i.i.i.i, align 8
   %mPrev.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 160
-  store ptr %mNext.i.i.i.i.i, ptr %mPrev.i.i.i.i.i.i.i, align 8
+  store ptr %mNext.i.i.i.i.i, ptr %mPrev.i.i.i.i.i.i.i, align 32
   store ptr %mNext.i.i.i.i.i.i, ptr %mPrev.i.i.i.i.i.i.i.i, align 8
   %mPrev.i16.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 296
   store ptr null, ptr %mPrev.i16.i.i.i.i, align 8
   %mPrev.i.i18.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 288
-  store ptr %mValueIterList.i.i.i.i, ptr %mPrev.i.i18.i.i.i.i, align 8
+  store ptr %mValueIterList.i.i.i.i, ptr %mPrev.i.i18.i.i.i.i, align 32
   %mPrev.i.i.i20.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 280
   store ptr %mNext.i6.i.i.i.i, ptr %mPrev.i.i.i20.i.i.i.i, align 8
-  store ptr %mNext.i.i8.i.i.i.i, ptr %mPrev.i.i.i.i12.i.i.i.i, align 8
+  store ptr %mNext.i.i8.i.i.i.i, ptr %mPrev.i.i.i.i12.i.i.i.i, align 16
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 328
   %mGrainSize3.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args1, i64 264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize3.i.i.i, i64 16, i1 false)
@@ -17290,7 +17290,7 @@ entry:
   %mMaxLevel.i.i22.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 592
   %mMaxLevel6.i.i23.i.i = getelementptr inbounds nuw i8, ptr %constructor_args, i64 592
   %8 = load i32, ptr %mMaxLevel6.i.i23.i.i, align 16
-  store i32 %8, ptr %mMaxLevel.i.i22.i.i, align 8
+  store i32 %8, ptr %mMaxLevel.i.i22.i.i, align 16
   %mTree.i.i24.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 600
   %mTree7.i.i25.i.i = getelementptr inbounds nuw i8, ptr %constructor_args, i64 600
   %9 = load ptr, ptr %mTree7.i.i25.i.i, align 8
@@ -17298,27 +17298,27 @@ entry:
   %mPrev.i.i.i26.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 456
   store ptr null, ptr %mPrev.i.i.i26.i.i, align 8
   %mPrev.i.i.i.i27.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 448
-  store ptr %my_body.i.i, ptr %mPrev.i.i.i.i27.i.i, align 8
+  store ptr %my_body.i.i, ptr %mPrev.i.i.i.i27.i.i, align 64
   %mPrev.i.i.i.i.i28.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 440
   store ptr %mNext.i.i.i2.i.i, ptr %mPrev.i.i.i.i.i28.i.i, align 8
-  store ptr %mNext.i.i.i.i4.i.i, ptr %mPrev.i.i.i.i.i.i8.i.i, align 8
+  store ptr %mNext.i.i.i.i4.i.i, ptr %mPrev.i.i.i.i.i.i8.i.i, align 16
   %mPrev.i16.i.i29.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 576
-  store ptr null, ptr %mPrev.i16.i.i29.i.i, align 8
+  store ptr null, ptr %mPrev.i16.i.i29.i.i, align 64
   %mPrev.i.i18.i.i30.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 568
   store ptr %mValueIterList.i.i9.i.i, ptr %mPrev.i.i18.i.i30.i.i, align 8
   %mPrev.i.i.i20.i.i31.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 560
-  store ptr %mNext.i6.i.i11.i.i, ptr %mPrev.i.i.i20.i.i31.i.i, align 8
+  store ptr %mNext.i6.i.i11.i.i, ptr %mPrev.i.i.i20.i.i31.i.i, align 16
   store ptr %mNext.i.i8.i.i13.i.i, ptr %mPrev.i.i.i.i12.i.i17.i.i, align 8
   %mOp.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 608
   %mOp3.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args, i64 608
   %10 = load ptr, ptr %mOp3.i.i.i, align 32
-  store ptr %10, ptr %mOp.i.i.i, align 8
+  store ptr %10, ptr %mOp.i.i.i, align 32
   %my_partition.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 624
   %my_partition4.i.i = getelementptr inbounds nuw i8, ptr %constructor_args, i64 624
   %11 = load i64, ptr %my_partition4.i.i, align 16
   %div1.i.i.i.i.i.i = lshr i64 %11, 1
   store i64 %div1.i.i.i.i.i.i, ptr %my_partition4.i.i, align 16
-  store i64 %div1.i.i.i.i.i.i, ptr %my_partition.i.i, align 8
+  store i64 %div1.i.i.i.i.i.i, ptr %my_partition.i.i, align 16
   %my_delay.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 632
   store i32 2, ptr %my_delay.i.i.i.i, align 8
   %my_max_depth.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 636
@@ -17334,12 +17334,12 @@ entry:
   %14 = load ptr, ptr %my_parent, align 8
   store ptr %14, ptr %call.i4, align 8
   %m_ref_count.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 8
-  store i32 2, ptr %m_ref_count.i.i.i, align 4
+  store i32 2, ptr %m_ref_count.i.i.i, align 8
   %m_allocator.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 16
   %15 = load i64, ptr %alloc, align 8
   store i64 %15, ptr %m_allocator.i.i, align 8
   %m_child_stolen.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 24
-  store i8 0, ptr %m_child_stolen.i.i, align 1
+  store i8 0, ptr %m_child_stolen.i.i, align 8
   store ptr %call.i4, ptr %my_parent, align 8
   %my_parent8 = getelementptr inbounds nuw i8, ptr %call.i, i64 616
   store ptr %call.i4, ptr %my_parent8, align 8
@@ -17742,7 +17742,7 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i12.i.i.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 304
   %8 = load i32, ptr %mLevel.i.i, align 8
-  store i32 %8, ptr %mLevel.i.i.i.i, align 8
+  store i32 %8, ptr %mLevel.i.i.i.i, align 16
   %mMinLevel.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 308
   %mMinLevel5.i.i.i.i = getelementptr inbounds nuw i8, ptr %range, i64 244
   %9 = load i32, ptr %mMinLevel5.i.i.i.i, align 4
@@ -17754,21 +17754,21 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 320
   %mTree7.i.i.i.i = getelementptr inbounds nuw i8, ptr %range, i64 256
   %11 = load ptr, ptr %mTree7.i.i.i.i, align 8
-  store ptr %11, ptr %mTree.i.i.i.i, align 8
+  store ptr %11, ptr %mTree.i.i.i.i, align 64
   %mPrev.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 176
-  store ptr null, ptr %mPrev.i.i.i.i.i, align 8
+  store ptr null, ptr %mPrev.i.i.i.i.i, align 16
   %mPrev.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   store ptr %my_range.i.i, ptr %mPrev.i.i.i.i.i.i, align 8
   %mPrev.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 160
-  store ptr %mNext.i.i.i.i.i4, ptr %mPrev.i.i.i.i.i.i.i, align 8
+  store ptr %mNext.i.i.i.i.i4, ptr %mPrev.i.i.i.i.i.i.i, align 32
   store ptr %mNext.i.i.i.i.i.i, ptr %mPrev.i.i.i.i.i.i.i.i, align 8
   %mPrev.i16.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 296
   store ptr null, ptr %mPrev.i16.i.i.i.i, align 8
   %mPrev.i.i18.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 288
-  store ptr %mValueIterList.i.i.i.i, ptr %mPrev.i.i18.i.i.i.i, align 8
+  store ptr %mValueIterList.i.i.i.i, ptr %mPrev.i.i18.i.i.i.i, align 32
   %mPrev.i.i.i20.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 280
   store ptr %mNext.i6.i.i.i.i, ptr %mPrev.i.i.i20.i.i.i.i, align 8
-  store ptr %mNext.i.i8.i.i.i.i, ptr %mPrev.i.i.i.i12.i.i.i.i, align 8
+  store ptr %mNext.i.i8.i.i.i.i, ptr %mPrev.i.i.i.i12.i.i.i.i, align 16
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 328
   %mGrainSize3.i.i.i = getelementptr inbounds nuw i8, ptr %range, i64 264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize3.i.i.i, i64 16, i1 false)
@@ -17810,7 +17810,7 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   %mMaxLevel.i.i21.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 592
   %mMaxLevel6.i.i22.i.i = getelementptr inbounds nuw i8, ptr %body, i64 248
   %14 = load i32, ptr %mMaxLevel6.i.i22.i.i, align 8
-  store i32 %14, ptr %mMaxLevel.i.i21.i.i, align 8
+  store i32 %14, ptr %mMaxLevel.i.i21.i.i, align 16
   %mTree.i.i23.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 600
   %mTree7.i.i24.i.i = getelementptr inbounds nuw i8, ptr %body, i64 256
   %15 = load ptr, ptr %mTree7.i.i24.i.i, align 8
@@ -17818,21 +17818,21 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   %mPrev.i.i.i25.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 456
   store ptr null, ptr %mPrev.i.i.i25.i.i, align 8
   %mPrev.i.i.i.i26.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 448
-  store ptr %my_body.i.i, ptr %mPrev.i.i.i.i26.i.i, align 8
+  store ptr %my_body.i.i, ptr %mPrev.i.i.i.i26.i.i, align 64
   %mPrev.i.i.i.i.i27.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 440
   store ptr %mNext.i.i.i1.i.i, ptr %mPrev.i.i.i.i.i27.i.i, align 8
-  store ptr %mNext.i.i.i.i3.i.i, ptr %mPrev.i.i.i.i.i.i7.i.i, align 8
+  store ptr %mNext.i.i.i.i3.i.i, ptr %mPrev.i.i.i.i.i.i7.i.i, align 16
   %mPrev.i16.i.i28.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 576
-  store ptr null, ptr %mPrev.i16.i.i28.i.i, align 8
+  store ptr null, ptr %mPrev.i16.i.i28.i.i, align 64
   %mPrev.i.i18.i.i29.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 568
   store ptr %mValueIterList.i.i8.i.i, ptr %mPrev.i.i18.i.i29.i.i, align 8
   %mPrev.i.i.i20.i.i30.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 560
-  store ptr %mNext.i6.i.i10.i.i, ptr %mPrev.i.i.i20.i.i30.i.i, align 8
+  store ptr %mNext.i6.i.i10.i.i, ptr %mPrev.i.i.i20.i.i30.i.i, align 16
   store ptr %mNext.i.i8.i.i12.i.i, ptr %mPrev.i.i.i.i12.i.i16.i.i, align 8
   %mOp.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 608
   %mOp3.i.i.i = getelementptr inbounds nuw i8, ptr %body, i64 264
   %16 = load ptr, ptr %mOp3.i.i.i, align 8
-  store ptr %16, ptr %mOp.i.i.i, align 8
+  store ptr %16, ptr %mOp.i.i.i, align 32
   %my_partition.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 624
   %call.i.i.i.i.i31.i.i = call noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
   %conv.i.i.i.i.i.i = sext i32 %call.i.i.i.i.i31.i.i to i64
@@ -17842,7 +17842,7 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   store i8 5, ptr %my_max_depth.i.i.i.i, align 4
   %mul.i.i.i.i.i.i = shl nsw i64 %conv.i.i.i.i.i.i, 1
   %mul.i.i.i = and i64 %mul.i.i.i.i.i.i, 9223372036854775806
-  store i64 %mul.i.i.i, ptr %my_partition.i.i, align 8
+  store i64 %mul.i.i.i, ptr %my_partition.i.i, align 16
   %my_allocator.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 640
   %17 = load i64, ptr %alloc, align 8
   store i64 %17, ptr %my_allocator.i.i, align 64
@@ -18074,12 +18074,12 @@ do.body:                                          ; preds = %do.body.backedge, %
   %4 = load ptr, ptr %my_parent.i.i, align 8
   store ptr %4, ptr %call.i4.i.i, align 8
   %m_ref_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i, i64 8
-  store i32 2, ptr %m_ref_count.i.i.i.i.i, align 4
+  store i32 2, ptr %m_ref_count.i.i.i.i.i, align 8
   %m_allocator.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i, i64 16
   %5 = load i64, ptr %alloc.i.i, align 8
   store i64 %5, ptr %m_allocator.i.i.i.i, align 8
   %m_child_stolen.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i, i64 24
-  store i8 0, ptr %m_child_stolen.i.i.i.i, align 1
+  store i8 0, ptr %m_child_stolen.i.i.i.i, align 8
   store ptr %call.i4.i.i, ptr %my_parent.i.i, align 8
   %my_parent6.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 616
   store ptr %call.i4.i.i, ptr %my_parent6.i.i, align 8
@@ -18528,7 +18528,7 @@ entry:
   %mLevel.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 304
   %mLevel4.i.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args1, i64 240
   %2 = load i32, ptr %mLevel4.i.i.i.i, align 8
-  store i32 %2, ptr %mLevel.i.i.i.i, align 8
+  store i32 %2, ptr %mLevel.i.i.i.i, align 16
   %mMinLevel.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 308
   %mMinLevel5.i.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args1, i64 244
   %3 = load i32, ptr %mMinLevel5.i.i.i.i, align 4
@@ -18540,21 +18540,21 @@ entry:
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 320
   %mTree7.i.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args1, i64 256
   %5 = load ptr, ptr %mTree7.i.i.i.i, align 8
-  store ptr %5, ptr %mTree.i.i.i.i, align 8
+  store ptr %5, ptr %mTree.i.i.i.i, align 64
   %mPrev.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 176
-  store ptr null, ptr %mPrev.i.i.i.i.i, align 8
+  store ptr null, ptr %mPrev.i.i.i.i.i, align 16
   %mPrev.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   store ptr %my_range.i.i, ptr %mPrev.i.i.i.i.i.i, align 8
   %mPrev.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 160
-  store ptr %mNext.i.i.i.i.i, ptr %mPrev.i.i.i.i.i.i.i, align 8
+  store ptr %mNext.i.i.i.i.i, ptr %mPrev.i.i.i.i.i.i.i, align 32
   store ptr %mNext.i.i.i.i.i.i, ptr %mPrev.i.i.i.i.i.i.i.i, align 8
   %mPrev.i16.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 296
   store ptr null, ptr %mPrev.i16.i.i.i.i, align 8
   %mPrev.i.i18.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 288
-  store ptr %mValueIterList.i.i.i.i, ptr %mPrev.i.i18.i.i.i.i, align 8
+  store ptr %mValueIterList.i.i.i.i, ptr %mPrev.i.i18.i.i.i.i, align 32
   %mPrev.i.i.i20.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 280
   store ptr %mNext.i6.i.i.i.i, ptr %mPrev.i.i.i20.i.i.i.i, align 8
-  store ptr %mNext.i.i8.i.i.i.i, ptr %mPrev.i.i.i.i12.i.i.i.i, align 8
+  store ptr %mNext.i.i8.i.i.i.i, ptr %mPrev.i.i.i.i12.i.i.i.i, align 16
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 328
   %mGrainSize3.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args1, i64 264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize3.i.i.i, i64 16, i1 false)
@@ -18597,7 +18597,7 @@ entry:
   %mMaxLevel.i.i22.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 592
   %mMaxLevel6.i.i23.i.i = getelementptr inbounds nuw i8, ptr %constructor_args, i64 592
   %8 = load i32, ptr %mMaxLevel6.i.i23.i.i, align 16
-  store i32 %8, ptr %mMaxLevel.i.i22.i.i, align 8
+  store i32 %8, ptr %mMaxLevel.i.i22.i.i, align 16
   %mTree.i.i24.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 600
   %mTree7.i.i25.i.i = getelementptr inbounds nuw i8, ptr %constructor_args, i64 600
   %9 = load ptr, ptr %mTree7.i.i25.i.i, align 8
@@ -18605,27 +18605,27 @@ entry:
   %mPrev.i.i.i26.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 456
   store ptr null, ptr %mPrev.i.i.i26.i.i, align 8
   %mPrev.i.i.i.i27.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 448
-  store ptr %my_body.i.i, ptr %mPrev.i.i.i.i27.i.i, align 8
+  store ptr %my_body.i.i, ptr %mPrev.i.i.i.i27.i.i, align 64
   %mPrev.i.i.i.i.i28.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 440
   store ptr %mNext.i.i.i2.i.i, ptr %mPrev.i.i.i.i.i28.i.i, align 8
-  store ptr %mNext.i.i.i.i4.i.i, ptr %mPrev.i.i.i.i.i.i8.i.i, align 8
+  store ptr %mNext.i.i.i.i4.i.i, ptr %mPrev.i.i.i.i.i.i8.i.i, align 16
   %mPrev.i16.i.i29.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 576
-  store ptr null, ptr %mPrev.i16.i.i29.i.i, align 8
+  store ptr null, ptr %mPrev.i16.i.i29.i.i, align 64
   %mPrev.i.i18.i.i30.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 568
   store ptr %mValueIterList.i.i9.i.i, ptr %mPrev.i.i18.i.i30.i.i, align 8
   %mPrev.i.i.i20.i.i31.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 560
-  store ptr %mNext.i6.i.i11.i.i, ptr %mPrev.i.i.i20.i.i31.i.i, align 8
+  store ptr %mNext.i6.i.i11.i.i, ptr %mPrev.i.i.i20.i.i31.i.i, align 16
   store ptr %mNext.i.i8.i.i13.i.i, ptr %mPrev.i.i.i.i12.i.i17.i.i, align 8
   %mOp.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 608
   %mOp3.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args, i64 608
   %10 = load ptr, ptr %mOp3.i.i.i, align 32
-  store ptr %10, ptr %mOp.i.i.i, align 8
+  store ptr %10, ptr %mOp.i.i.i, align 32
   %my_partition.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 624
   %my_partition4.i.i = getelementptr inbounds nuw i8, ptr %constructor_args, i64 624
   %11 = load i64, ptr %my_partition4.i.i, align 16
   %div1.i.i.i.i.i.i = lshr i64 %11, 1
   store i64 %div1.i.i.i.i.i.i, ptr %my_partition4.i.i, align 16
-  store i64 %div1.i.i.i.i.i.i, ptr %my_partition.i.i, align 8
+  store i64 %div1.i.i.i.i.i.i, ptr %my_partition.i.i, align 16
   %my_delay.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 632
   store i32 2, ptr %my_delay.i.i.i.i, align 8
   %my_max_depth.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 636
@@ -18641,12 +18641,12 @@ entry:
   %14 = load ptr, ptr %my_parent, align 8
   store ptr %14, ptr %call.i4, align 8
   %m_ref_count.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 8
-  store i32 2, ptr %m_ref_count.i.i.i, align 4
+  store i32 2, ptr %m_ref_count.i.i.i, align 8
   %m_allocator.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 16
   %15 = load i64, ptr %alloc, align 8
   store i64 %15, ptr %m_allocator.i.i, align 8
   %m_child_stolen.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 24
-  store i8 0, ptr %m_child_stolen.i.i, align 1
+  store i8 0, ptr %m_child_stolen.i.i, align 8
   store ptr %call.i4, ptr %my_parent, align 8
   %my_parent8 = getelementptr inbounds nuw i8, ptr %call.i, i64 616
   store ptr %call.i4, ptr %my_parent8, align 8
@@ -21026,7 +21026,7 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i12.i.i.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 304
   %8 = load i32, ptr %mLevel.i.i, align 8
-  store i32 %8, ptr %mLevel.i.i.i.i, align 8
+  store i32 %8, ptr %mLevel.i.i.i.i, align 16
   %mMinLevel.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 308
   %mMinLevel5.i.i.i.i = getelementptr inbounds nuw i8, ptr %range, i64 244
   %9 = load i32, ptr %mMinLevel5.i.i.i.i, align 4
@@ -21038,21 +21038,21 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 320
   %mTree7.i.i.i.i = getelementptr inbounds nuw i8, ptr %range, i64 256
   %11 = load ptr, ptr %mTree7.i.i.i.i, align 8
-  store ptr %11, ptr %mTree.i.i.i.i, align 8
+  store ptr %11, ptr %mTree.i.i.i.i, align 64
   %mPrev.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 176
-  store ptr null, ptr %mPrev.i.i.i.i.i, align 8
+  store ptr null, ptr %mPrev.i.i.i.i.i, align 16
   %mPrev.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   store ptr %my_range.i.i, ptr %mPrev.i.i.i.i.i.i, align 8
   %mPrev.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 160
-  store ptr %mNext.i.i.i.i.i4, ptr %mPrev.i.i.i.i.i.i.i, align 8
+  store ptr %mNext.i.i.i.i.i4, ptr %mPrev.i.i.i.i.i.i.i, align 32
   store ptr %mNext.i.i.i.i.i.i, ptr %mPrev.i.i.i.i.i.i.i.i, align 8
   %mPrev.i16.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 296
   store ptr null, ptr %mPrev.i16.i.i.i.i, align 8
   %mPrev.i.i18.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 288
-  store ptr %mValueIterList.i.i.i.i, ptr %mPrev.i.i18.i.i.i.i, align 8
+  store ptr %mValueIterList.i.i.i.i, ptr %mPrev.i.i18.i.i.i.i, align 32
   %mPrev.i.i.i20.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 280
   store ptr %mNext.i6.i.i.i.i, ptr %mPrev.i.i.i20.i.i.i.i, align 8
-  store ptr %mNext.i.i8.i.i.i.i, ptr %mPrev.i.i.i.i12.i.i.i.i, align 8
+  store ptr %mNext.i.i8.i.i.i.i, ptr %mPrev.i.i.i.i12.i.i.i.i, align 16
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 328
   %mGrainSize3.i.i.i = getelementptr inbounds nuw i8, ptr %range, i64 264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize3.i.i.i, i64 16, i1 false)
@@ -21094,7 +21094,7 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   %mMaxLevel.i.i21.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 592
   %mMaxLevel6.i.i22.i.i = getelementptr inbounds nuw i8, ptr %body, i64 248
   %14 = load i32, ptr %mMaxLevel6.i.i22.i.i, align 8
-  store i32 %14, ptr %mMaxLevel.i.i21.i.i, align 8
+  store i32 %14, ptr %mMaxLevel.i.i21.i.i, align 16
   %mTree.i.i23.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 600
   %mTree7.i.i24.i.i = getelementptr inbounds nuw i8, ptr %body, i64 256
   %15 = load ptr, ptr %mTree7.i.i24.i.i, align 8
@@ -21102,21 +21102,21 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   %mPrev.i.i.i25.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 456
   store ptr null, ptr %mPrev.i.i.i25.i.i, align 8
   %mPrev.i.i.i.i26.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 448
-  store ptr %my_body.i.i, ptr %mPrev.i.i.i.i26.i.i, align 8
+  store ptr %my_body.i.i, ptr %mPrev.i.i.i.i26.i.i, align 64
   %mPrev.i.i.i.i.i27.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 440
   store ptr %mNext.i.i.i1.i.i, ptr %mPrev.i.i.i.i.i27.i.i, align 8
-  store ptr %mNext.i.i.i.i3.i.i, ptr %mPrev.i.i.i.i.i.i7.i.i, align 8
+  store ptr %mNext.i.i.i.i3.i.i, ptr %mPrev.i.i.i.i.i.i7.i.i, align 16
   %mPrev.i16.i.i28.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 576
-  store ptr null, ptr %mPrev.i16.i.i28.i.i, align 8
+  store ptr null, ptr %mPrev.i16.i.i28.i.i, align 64
   %mPrev.i.i18.i.i29.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 568
   store ptr %mValueIterList.i.i8.i.i, ptr %mPrev.i.i18.i.i29.i.i, align 8
   %mPrev.i.i.i20.i.i30.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 560
-  store ptr %mNext.i6.i.i10.i.i, ptr %mPrev.i.i.i20.i.i30.i.i, align 8
+  store ptr %mNext.i6.i.i10.i.i, ptr %mPrev.i.i.i20.i.i30.i.i, align 16
   store ptr %mNext.i.i8.i.i12.i.i, ptr %mPrev.i.i.i.i12.i.i16.i.i, align 8
   %mOp.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 608
   %mOp3.i.i.i = getelementptr inbounds nuw i8, ptr %body, i64 264
   %16 = load ptr, ptr %mOp3.i.i.i, align 8
-  store ptr %16, ptr %mOp.i.i.i, align 8
+  store ptr %16, ptr %mOp.i.i.i, align 32
   %my_partition.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 624
   %call.i.i.i.i.i31.i.i = call noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
   %conv.i.i.i.i.i.i = sext i32 %call.i.i.i.i.i31.i.i to i64
@@ -21126,7 +21126,7 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   store i8 5, ptr %my_max_depth.i.i.i.i, align 4
   %mul.i.i.i.i.i.i = shl nsw i64 %conv.i.i.i.i.i.i, 1
   %mul.i.i.i = and i64 %mul.i.i.i.i.i.i, 9223372036854775806
-  store i64 %mul.i.i.i, ptr %my_partition.i.i, align 8
+  store i64 %mul.i.i.i, ptr %my_partition.i.i, align 16
   %my_allocator.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 640
   %17 = load i64, ptr %alloc, align 8
   store i64 %17, ptr %my_allocator.i.i, align 64
@@ -21358,12 +21358,12 @@ do.body:                                          ; preds = %do.body.backedge, %
   %4 = load ptr, ptr %my_parent.i.i, align 8
   store ptr %4, ptr %call.i4.i.i, align 8
   %m_ref_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i, i64 8
-  store i32 2, ptr %m_ref_count.i.i.i.i.i, align 4
+  store i32 2, ptr %m_ref_count.i.i.i.i.i, align 8
   %m_allocator.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i, i64 16
   %5 = load i64, ptr %alloc.i.i, align 8
   store i64 %5, ptr %m_allocator.i.i.i.i, align 8
   %m_child_stolen.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i, i64 24
-  store i8 0, ptr %m_child_stolen.i.i.i.i, align 1
+  store i8 0, ptr %m_child_stolen.i.i.i.i, align 8
   store ptr %call.i4.i.i, ptr %my_parent.i.i, align 8
   %my_parent6.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 616
   store ptr %call.i4.i.i, ptr %my_parent6.i.i, align 8
@@ -21989,7 +21989,7 @@ entry:
   %mLevel.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 304
   %mLevel4.i.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args1, i64 240
   %2 = load i32, ptr %mLevel4.i.i.i.i, align 8
-  store i32 %2, ptr %mLevel.i.i.i.i, align 8
+  store i32 %2, ptr %mLevel.i.i.i.i, align 16
   %mMinLevel.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 308
   %mMinLevel5.i.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args1, i64 244
   %3 = load i32, ptr %mMinLevel5.i.i.i.i, align 4
@@ -22001,21 +22001,21 @@ entry:
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 320
   %mTree7.i.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args1, i64 256
   %5 = load ptr, ptr %mTree7.i.i.i.i, align 8
-  store ptr %5, ptr %mTree.i.i.i.i, align 8
+  store ptr %5, ptr %mTree.i.i.i.i, align 64
   %mPrev.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 176
-  store ptr null, ptr %mPrev.i.i.i.i.i, align 8
+  store ptr null, ptr %mPrev.i.i.i.i.i, align 16
   %mPrev.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   store ptr %my_range.i.i, ptr %mPrev.i.i.i.i.i.i, align 8
   %mPrev.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 160
-  store ptr %mNext.i.i.i.i.i, ptr %mPrev.i.i.i.i.i.i.i, align 8
+  store ptr %mNext.i.i.i.i.i, ptr %mPrev.i.i.i.i.i.i.i, align 32
   store ptr %mNext.i.i.i.i.i.i, ptr %mPrev.i.i.i.i.i.i.i.i, align 8
   %mPrev.i16.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 296
   store ptr null, ptr %mPrev.i16.i.i.i.i, align 8
   %mPrev.i.i18.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 288
-  store ptr %mValueIterList.i.i.i.i, ptr %mPrev.i.i18.i.i.i.i, align 8
+  store ptr %mValueIterList.i.i.i.i, ptr %mPrev.i.i18.i.i.i.i, align 32
   %mPrev.i.i.i20.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 280
   store ptr %mNext.i6.i.i.i.i, ptr %mPrev.i.i.i20.i.i.i.i, align 8
-  store ptr %mNext.i.i8.i.i.i.i, ptr %mPrev.i.i.i.i12.i.i.i.i, align 8
+  store ptr %mNext.i.i8.i.i.i.i, ptr %mPrev.i.i.i.i12.i.i.i.i, align 16
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 328
   %mGrainSize3.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args1, i64 264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize3.i.i.i, i64 16, i1 false)
@@ -22058,7 +22058,7 @@ entry:
   %mMaxLevel.i.i22.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 592
   %mMaxLevel6.i.i23.i.i = getelementptr inbounds nuw i8, ptr %constructor_args, i64 592
   %8 = load i32, ptr %mMaxLevel6.i.i23.i.i, align 16
-  store i32 %8, ptr %mMaxLevel.i.i22.i.i, align 8
+  store i32 %8, ptr %mMaxLevel.i.i22.i.i, align 16
   %mTree.i.i24.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 600
   %mTree7.i.i25.i.i = getelementptr inbounds nuw i8, ptr %constructor_args, i64 600
   %9 = load ptr, ptr %mTree7.i.i25.i.i, align 8
@@ -22066,27 +22066,27 @@ entry:
   %mPrev.i.i.i26.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 456
   store ptr null, ptr %mPrev.i.i.i26.i.i, align 8
   %mPrev.i.i.i.i27.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 448
-  store ptr %my_body.i.i, ptr %mPrev.i.i.i.i27.i.i, align 8
+  store ptr %my_body.i.i, ptr %mPrev.i.i.i.i27.i.i, align 64
   %mPrev.i.i.i.i.i28.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 440
   store ptr %mNext.i.i.i2.i.i, ptr %mPrev.i.i.i.i.i28.i.i, align 8
-  store ptr %mNext.i.i.i.i4.i.i, ptr %mPrev.i.i.i.i.i.i8.i.i, align 8
+  store ptr %mNext.i.i.i.i4.i.i, ptr %mPrev.i.i.i.i.i.i8.i.i, align 16
   %mPrev.i16.i.i29.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 576
-  store ptr null, ptr %mPrev.i16.i.i29.i.i, align 8
+  store ptr null, ptr %mPrev.i16.i.i29.i.i, align 64
   %mPrev.i.i18.i.i30.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 568
   store ptr %mValueIterList.i.i9.i.i, ptr %mPrev.i.i18.i.i30.i.i, align 8
   %mPrev.i.i.i20.i.i31.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 560
-  store ptr %mNext.i6.i.i11.i.i, ptr %mPrev.i.i.i20.i.i31.i.i, align 8
+  store ptr %mNext.i6.i.i11.i.i, ptr %mPrev.i.i.i20.i.i31.i.i, align 16
   store ptr %mNext.i.i8.i.i13.i.i, ptr %mPrev.i.i.i.i12.i.i17.i.i, align 8
   %mOp.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 608
   %mOp3.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args, i64 608
   %10 = load ptr, ptr %mOp3.i.i.i, align 32
-  store ptr %10, ptr %mOp.i.i.i, align 8
+  store ptr %10, ptr %mOp.i.i.i, align 32
   %my_partition.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 624
   %my_partition4.i.i = getelementptr inbounds nuw i8, ptr %constructor_args, i64 624
   %11 = load i64, ptr %my_partition4.i.i, align 16
   %div1.i.i.i.i.i.i = lshr i64 %11, 1
   store i64 %div1.i.i.i.i.i.i, ptr %my_partition4.i.i, align 16
-  store i64 %div1.i.i.i.i.i.i, ptr %my_partition.i.i, align 8
+  store i64 %div1.i.i.i.i.i.i, ptr %my_partition.i.i, align 16
   %my_delay.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 632
   store i32 2, ptr %my_delay.i.i.i.i, align 8
   %my_max_depth.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 636
@@ -22102,12 +22102,12 @@ entry:
   %14 = load ptr, ptr %my_parent, align 8
   store ptr %14, ptr %call.i4, align 8
   %m_ref_count.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 8
-  store i32 2, ptr %m_ref_count.i.i.i, align 4
+  store i32 2, ptr %m_ref_count.i.i.i, align 8
   %m_allocator.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 16
   %15 = load i64, ptr %alloc, align 8
   store i64 %15, ptr %m_allocator.i.i, align 8
   %m_child_stolen.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 24
-  store i8 0, ptr %m_child_stolen.i.i, align 1
+  store i8 0, ptr %m_child_stolen.i.i, align 8
   store ptr %call.i4, ptr %my_parent, align 8
   %my_parent8 = getelementptr inbounds nuw i8, ptr %call.i, i64 616
   store ptr %call.i4, ptr %my_parent8, align 8
@@ -23940,7 +23940,7 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i12.i.i.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 304
   %8 = load i32, ptr %mLevel.i.i, align 8
-  store i32 %8, ptr %mLevel.i.i.i.i, align 8
+  store i32 %8, ptr %mLevel.i.i.i.i, align 16
   %mMinLevel.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 308
   %mMinLevel5.i.i.i.i = getelementptr inbounds nuw i8, ptr %range, i64 244
   %9 = load i32, ptr %mMinLevel5.i.i.i.i, align 4
@@ -23952,21 +23952,21 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 320
   %mTree7.i.i.i.i = getelementptr inbounds nuw i8, ptr %range, i64 256
   %11 = load ptr, ptr %mTree7.i.i.i.i, align 8
-  store ptr %11, ptr %mTree.i.i.i.i, align 8
+  store ptr %11, ptr %mTree.i.i.i.i, align 64
   %mPrev.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 176
-  store ptr null, ptr %mPrev.i.i.i.i.i, align 8
+  store ptr null, ptr %mPrev.i.i.i.i.i, align 16
   %mPrev.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   store ptr %my_range.i.i, ptr %mPrev.i.i.i.i.i.i, align 8
   %mPrev.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 160
-  store ptr %mNext.i.i.i.i.i4, ptr %mPrev.i.i.i.i.i.i.i, align 8
+  store ptr %mNext.i.i.i.i.i4, ptr %mPrev.i.i.i.i.i.i.i, align 32
   store ptr %mNext.i.i.i.i.i.i, ptr %mPrev.i.i.i.i.i.i.i.i, align 8
   %mPrev.i16.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 296
   store ptr null, ptr %mPrev.i16.i.i.i.i, align 8
   %mPrev.i.i18.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 288
-  store ptr %mValueIterList.i.i.i.i, ptr %mPrev.i.i18.i.i.i.i, align 8
+  store ptr %mValueIterList.i.i.i.i, ptr %mPrev.i.i18.i.i.i.i, align 32
   %mPrev.i.i.i20.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 280
   store ptr %mNext.i6.i.i.i.i, ptr %mPrev.i.i.i20.i.i.i.i, align 8
-  store ptr %mNext.i.i8.i.i.i.i, ptr %mPrev.i.i.i.i12.i.i.i.i, align 8
+  store ptr %mNext.i.i8.i.i.i.i, ptr %mPrev.i.i.i.i12.i.i.i.i, align 16
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 328
   %mGrainSize3.i.i.i = getelementptr inbounds nuw i8, ptr %range, i64 264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize3.i.i.i, i64 16, i1 false)
@@ -24008,7 +24008,7 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   %mMaxLevel.i.i21.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 592
   %mMaxLevel6.i.i22.i.i = getelementptr inbounds nuw i8, ptr %body, i64 248
   %14 = load i32, ptr %mMaxLevel6.i.i22.i.i, align 8
-  store i32 %14, ptr %mMaxLevel.i.i21.i.i, align 8
+  store i32 %14, ptr %mMaxLevel.i.i21.i.i, align 16
   %mTree.i.i23.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 600
   %mTree7.i.i24.i.i = getelementptr inbounds nuw i8, ptr %body, i64 256
   %15 = load ptr, ptr %mTree7.i.i24.i.i, align 8
@@ -24016,21 +24016,21 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   %mPrev.i.i.i25.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 456
   store ptr null, ptr %mPrev.i.i.i25.i.i, align 8
   %mPrev.i.i.i.i26.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 448
-  store ptr %my_body.i.i, ptr %mPrev.i.i.i.i26.i.i, align 8
+  store ptr %my_body.i.i, ptr %mPrev.i.i.i.i26.i.i, align 64
   %mPrev.i.i.i.i.i27.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 440
   store ptr %mNext.i.i.i1.i.i, ptr %mPrev.i.i.i.i.i27.i.i, align 8
-  store ptr %mNext.i.i.i.i3.i.i, ptr %mPrev.i.i.i.i.i.i7.i.i, align 8
+  store ptr %mNext.i.i.i.i3.i.i, ptr %mPrev.i.i.i.i.i.i7.i.i, align 16
   %mPrev.i16.i.i28.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 576
-  store ptr null, ptr %mPrev.i16.i.i28.i.i, align 8
+  store ptr null, ptr %mPrev.i16.i.i28.i.i, align 64
   %mPrev.i.i18.i.i29.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 568
   store ptr %mValueIterList.i.i8.i.i, ptr %mPrev.i.i18.i.i29.i.i, align 8
   %mPrev.i.i.i20.i.i30.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 560
-  store ptr %mNext.i6.i.i10.i.i, ptr %mPrev.i.i.i20.i.i30.i.i, align 8
+  store ptr %mNext.i6.i.i10.i.i, ptr %mPrev.i.i.i20.i.i30.i.i, align 16
   store ptr %mNext.i.i8.i.i12.i.i, ptr %mPrev.i.i.i.i12.i.i16.i.i, align 8
   %mOp.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 608
   %mOp3.i.i.i = getelementptr inbounds nuw i8, ptr %body, i64 264
   %16 = load ptr, ptr %mOp3.i.i.i, align 8
-  store ptr %16, ptr %mOp.i.i.i, align 8
+  store ptr %16, ptr %mOp.i.i.i, align 32
   %my_partition.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 624
   %call.i.i.i.i.i31.i.i = call noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
   %conv.i.i.i.i.i.i = sext i32 %call.i.i.i.i.i31.i.i to i64
@@ -24040,7 +24040,7 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   store i8 5, ptr %my_max_depth.i.i.i.i, align 4
   %mul.i.i.i.i.i.i = shl nsw i64 %conv.i.i.i.i.i.i, 1
   %mul.i.i.i = and i64 %mul.i.i.i.i.i.i, 9223372036854775806
-  store i64 %mul.i.i.i, ptr %my_partition.i.i, align 8
+  store i64 %mul.i.i.i, ptr %my_partition.i.i, align 16
   %my_allocator.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 640
   %17 = load i64, ptr %alloc, align 8
   store i64 %17, ptr %my_allocator.i.i, align 64
@@ -24272,12 +24272,12 @@ do.body:                                          ; preds = %do.body.backedge, %
   %4 = load ptr, ptr %my_parent.i.i, align 8
   store ptr %4, ptr %call.i4.i.i, align 8
   %m_ref_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i, i64 8
-  store i32 2, ptr %m_ref_count.i.i.i.i.i, align 4
+  store i32 2, ptr %m_ref_count.i.i.i.i.i, align 8
   %m_allocator.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i, i64 16
   %5 = load i64, ptr %alloc.i.i, align 8
   store i64 %5, ptr %m_allocator.i.i.i.i, align 8
   %m_child_stolen.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i, i64 24
-  store i8 0, ptr %m_child_stolen.i.i.i.i, align 1
+  store i8 0, ptr %m_child_stolen.i.i.i.i, align 8
   store ptr %call.i4.i.i, ptr %my_parent.i.i, align 8
   %my_parent6.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 616
   store ptr %call.i4.i.i, ptr %my_parent6.i.i, align 8
@@ -24726,7 +24726,7 @@ entry:
   %mLevel.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 304
   %mLevel4.i.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args1, i64 240
   %2 = load i32, ptr %mLevel4.i.i.i.i, align 8
-  store i32 %2, ptr %mLevel.i.i.i.i, align 8
+  store i32 %2, ptr %mLevel.i.i.i.i, align 16
   %mMinLevel.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 308
   %mMinLevel5.i.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args1, i64 244
   %3 = load i32, ptr %mMinLevel5.i.i.i.i, align 4
@@ -24738,21 +24738,21 @@ entry:
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 320
   %mTree7.i.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args1, i64 256
   %5 = load ptr, ptr %mTree7.i.i.i.i, align 8
-  store ptr %5, ptr %mTree.i.i.i.i, align 8
+  store ptr %5, ptr %mTree.i.i.i.i, align 64
   %mPrev.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 176
-  store ptr null, ptr %mPrev.i.i.i.i.i, align 8
+  store ptr null, ptr %mPrev.i.i.i.i.i, align 16
   %mPrev.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   store ptr %my_range.i.i, ptr %mPrev.i.i.i.i.i.i, align 8
   %mPrev.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 160
-  store ptr %mNext.i.i.i.i.i, ptr %mPrev.i.i.i.i.i.i.i, align 8
+  store ptr %mNext.i.i.i.i.i, ptr %mPrev.i.i.i.i.i.i.i, align 32
   store ptr %mNext.i.i.i.i.i.i, ptr %mPrev.i.i.i.i.i.i.i.i, align 8
   %mPrev.i16.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 296
   store ptr null, ptr %mPrev.i16.i.i.i.i, align 8
   %mPrev.i.i18.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 288
-  store ptr %mValueIterList.i.i.i.i, ptr %mPrev.i.i18.i.i.i.i, align 8
+  store ptr %mValueIterList.i.i.i.i, ptr %mPrev.i.i18.i.i.i.i, align 32
   %mPrev.i.i.i20.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 280
   store ptr %mNext.i6.i.i.i.i, ptr %mPrev.i.i.i20.i.i.i.i, align 8
-  store ptr %mNext.i.i8.i.i.i.i, ptr %mPrev.i.i.i.i12.i.i.i.i, align 8
+  store ptr %mNext.i.i8.i.i.i.i, ptr %mPrev.i.i.i.i12.i.i.i.i, align 16
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 328
   %mGrainSize3.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args1, i64 264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize3.i.i.i, i64 16, i1 false)
@@ -24795,7 +24795,7 @@ entry:
   %mMaxLevel.i.i22.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 592
   %mMaxLevel6.i.i23.i.i = getelementptr inbounds nuw i8, ptr %constructor_args, i64 592
   %8 = load i32, ptr %mMaxLevel6.i.i23.i.i, align 16
-  store i32 %8, ptr %mMaxLevel.i.i22.i.i, align 8
+  store i32 %8, ptr %mMaxLevel.i.i22.i.i, align 16
   %mTree.i.i24.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 600
   %mTree7.i.i25.i.i = getelementptr inbounds nuw i8, ptr %constructor_args, i64 600
   %9 = load ptr, ptr %mTree7.i.i25.i.i, align 8
@@ -24803,27 +24803,27 @@ entry:
   %mPrev.i.i.i26.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 456
   store ptr null, ptr %mPrev.i.i.i26.i.i, align 8
   %mPrev.i.i.i.i27.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 448
-  store ptr %my_body.i.i, ptr %mPrev.i.i.i.i27.i.i, align 8
+  store ptr %my_body.i.i, ptr %mPrev.i.i.i.i27.i.i, align 64
   %mPrev.i.i.i.i.i28.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 440
   store ptr %mNext.i.i.i2.i.i, ptr %mPrev.i.i.i.i.i28.i.i, align 8
-  store ptr %mNext.i.i.i.i4.i.i, ptr %mPrev.i.i.i.i.i.i8.i.i, align 8
+  store ptr %mNext.i.i.i.i4.i.i, ptr %mPrev.i.i.i.i.i.i8.i.i, align 16
   %mPrev.i16.i.i29.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 576
-  store ptr null, ptr %mPrev.i16.i.i29.i.i, align 8
+  store ptr null, ptr %mPrev.i16.i.i29.i.i, align 64
   %mPrev.i.i18.i.i30.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 568
   store ptr %mValueIterList.i.i9.i.i, ptr %mPrev.i.i18.i.i30.i.i, align 8
   %mPrev.i.i.i20.i.i31.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 560
-  store ptr %mNext.i6.i.i11.i.i, ptr %mPrev.i.i.i20.i.i31.i.i, align 8
+  store ptr %mNext.i6.i.i11.i.i, ptr %mPrev.i.i.i20.i.i31.i.i, align 16
   store ptr %mNext.i.i8.i.i13.i.i, ptr %mPrev.i.i.i.i12.i.i17.i.i, align 8
   %mOp.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 608
   %mOp3.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args, i64 608
   %10 = load ptr, ptr %mOp3.i.i.i, align 32
-  store ptr %10, ptr %mOp.i.i.i, align 8
+  store ptr %10, ptr %mOp.i.i.i, align 32
   %my_partition.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 624
   %my_partition4.i.i = getelementptr inbounds nuw i8, ptr %constructor_args, i64 624
   %11 = load i64, ptr %my_partition4.i.i, align 16
   %div1.i.i.i.i.i.i = lshr i64 %11, 1
   store i64 %div1.i.i.i.i.i.i, ptr %my_partition4.i.i, align 16
-  store i64 %div1.i.i.i.i.i.i, ptr %my_partition.i.i, align 8
+  store i64 %div1.i.i.i.i.i.i, ptr %my_partition.i.i, align 16
   %my_delay.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 632
   store i32 2, ptr %my_delay.i.i.i.i, align 8
   %my_max_depth.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 636
@@ -24839,12 +24839,12 @@ entry:
   %14 = load ptr, ptr %my_parent, align 8
   store ptr %14, ptr %call.i4, align 8
   %m_ref_count.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 8
-  store i32 2, ptr %m_ref_count.i.i.i, align 4
+  store i32 2, ptr %m_ref_count.i.i.i, align 8
   %m_allocator.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 16
   %15 = load i64, ptr %alloc, align 8
   store i64 %15, ptr %m_allocator.i.i, align 8
   %m_child_stolen.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 24
-  store i8 0, ptr %m_child_stolen.i.i, align 1
+  store i8 0, ptr %m_child_stolen.i.i, align 8
   store ptr %call.i4, ptr %my_parent, align 8
   %my_parent8 = getelementptr inbounds nuw i8, ptr %call.i, i64 616
   store ptr %call.i4, ptr %my_parent8, align 8
@@ -25253,7 +25253,7 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i12.i.i.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 304
   %8 = load i32, ptr %mLevel.i.i, align 8
-  store i32 %8, ptr %mLevel.i.i.i.i, align 8
+  store i32 %8, ptr %mLevel.i.i.i.i, align 16
   %mMinLevel.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 308
   %mMinLevel5.i.i.i.i = getelementptr inbounds nuw i8, ptr %range, i64 244
   %9 = load i32, ptr %mMinLevel5.i.i.i.i, align 4
@@ -25265,21 +25265,21 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 320
   %mTree7.i.i.i.i = getelementptr inbounds nuw i8, ptr %range, i64 256
   %11 = load ptr, ptr %mTree7.i.i.i.i, align 8
-  store ptr %11, ptr %mTree.i.i.i.i, align 8
+  store ptr %11, ptr %mTree.i.i.i.i, align 64
   %mPrev.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 176
-  store ptr null, ptr %mPrev.i.i.i.i.i, align 8
+  store ptr null, ptr %mPrev.i.i.i.i.i, align 16
   %mPrev.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   store ptr %my_range.i.i, ptr %mPrev.i.i.i.i.i.i, align 8
   %mPrev.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 160
-  store ptr %mNext.i.i.i.i.i4, ptr %mPrev.i.i.i.i.i.i.i, align 8
+  store ptr %mNext.i.i.i.i.i4, ptr %mPrev.i.i.i.i.i.i.i, align 32
   store ptr %mNext.i.i.i.i.i.i, ptr %mPrev.i.i.i.i.i.i.i.i, align 8
   %mPrev.i16.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 296
   store ptr null, ptr %mPrev.i16.i.i.i.i, align 8
   %mPrev.i.i18.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 288
-  store ptr %mValueIterList.i.i.i.i, ptr %mPrev.i.i18.i.i.i.i, align 8
+  store ptr %mValueIterList.i.i.i.i, ptr %mPrev.i.i18.i.i.i.i, align 32
   %mPrev.i.i.i20.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 280
   store ptr %mNext.i6.i.i.i.i, ptr %mPrev.i.i.i20.i.i.i.i, align 8
-  store ptr %mNext.i.i8.i.i.i.i, ptr %mPrev.i.i.i.i12.i.i.i.i, align 8
+  store ptr %mNext.i.i8.i.i.i.i, ptr %mPrev.i.i.i.i12.i.i.i.i, align 16
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 328
   %mGrainSize3.i.i.i = getelementptr inbounds nuw i8, ptr %range, i64 264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize3.i.i.i, i64 16, i1 false)
@@ -25321,7 +25321,7 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   %mMaxLevel.i.i21.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 592
   %mMaxLevel6.i.i22.i.i = getelementptr inbounds nuw i8, ptr %body, i64 248
   %14 = load i32, ptr %mMaxLevel6.i.i22.i.i, align 8
-  store i32 %14, ptr %mMaxLevel.i.i21.i.i, align 8
+  store i32 %14, ptr %mMaxLevel.i.i21.i.i, align 16
   %mTree.i.i23.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 600
   %mTree7.i.i24.i.i = getelementptr inbounds nuw i8, ptr %body, i64 256
   %15 = load ptr, ptr %mTree7.i.i24.i.i, align 8
@@ -25329,21 +25329,21 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   %mPrev.i.i.i25.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 456
   store ptr null, ptr %mPrev.i.i.i25.i.i, align 8
   %mPrev.i.i.i.i26.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 448
-  store ptr %my_body.i.i, ptr %mPrev.i.i.i.i26.i.i, align 8
+  store ptr %my_body.i.i, ptr %mPrev.i.i.i.i26.i.i, align 64
   %mPrev.i.i.i.i.i27.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 440
   store ptr %mNext.i.i.i1.i.i, ptr %mPrev.i.i.i.i.i27.i.i, align 8
-  store ptr %mNext.i.i.i.i3.i.i, ptr %mPrev.i.i.i.i.i.i7.i.i, align 8
+  store ptr %mNext.i.i.i.i3.i.i, ptr %mPrev.i.i.i.i.i.i7.i.i, align 16
   %mPrev.i16.i.i28.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 576
-  store ptr null, ptr %mPrev.i16.i.i28.i.i, align 8
+  store ptr null, ptr %mPrev.i16.i.i28.i.i, align 64
   %mPrev.i.i18.i.i29.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 568
   store ptr %mValueIterList.i.i8.i.i, ptr %mPrev.i.i18.i.i29.i.i, align 8
   %mPrev.i.i.i20.i.i30.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 560
-  store ptr %mNext.i6.i.i10.i.i, ptr %mPrev.i.i.i20.i.i30.i.i, align 8
+  store ptr %mNext.i6.i.i10.i.i, ptr %mPrev.i.i.i20.i.i30.i.i, align 16
   store ptr %mNext.i.i8.i.i12.i.i, ptr %mPrev.i.i.i.i12.i.i16.i.i, align 8
   %mOp.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 608
   %mOp3.i.i.i = getelementptr inbounds nuw i8, ptr %body, i64 264
   %16 = load ptr, ptr %mOp3.i.i.i, align 8
-  store ptr %16, ptr %mOp.i.i.i, align 8
+  store ptr %16, ptr %mOp.i.i.i, align 32
   %my_partition.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 624
   %call.i.i.i.i.i31.i.i = call noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
   %conv.i.i.i.i.i.i = sext i32 %call.i.i.i.i.i31.i.i to i64
@@ -25353,7 +25353,7 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   store i8 5, ptr %my_max_depth.i.i.i.i, align 4
   %mul.i.i.i.i.i.i = shl nsw i64 %conv.i.i.i.i.i.i, 1
   %mul.i.i.i = and i64 %mul.i.i.i.i.i.i, 9223372036854775806
-  store i64 %mul.i.i.i, ptr %my_partition.i.i, align 8
+  store i64 %mul.i.i.i, ptr %my_partition.i.i, align 16
   %my_allocator.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 640
   %17 = load i64, ptr %alloc, align 8
   store i64 %17, ptr %my_allocator.i.i, align 64
@@ -25585,12 +25585,12 @@ do.body:                                          ; preds = %do.body.backedge, %
   %4 = load ptr, ptr %my_parent.i.i, align 8
   store ptr %4, ptr %call.i4.i.i, align 8
   %m_ref_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i, i64 8
-  store i32 2, ptr %m_ref_count.i.i.i.i.i, align 4
+  store i32 2, ptr %m_ref_count.i.i.i.i.i, align 8
   %m_allocator.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i, i64 16
   %5 = load i64, ptr %alloc.i.i, align 8
   store i64 %5, ptr %m_allocator.i.i.i.i, align 8
   %m_child_stolen.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i, i64 24
-  store i8 0, ptr %m_child_stolen.i.i.i.i, align 1
+  store i8 0, ptr %m_child_stolen.i.i.i.i, align 8
   store ptr %call.i4.i.i, ptr %my_parent.i.i, align 8
   %my_parent6.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 616
   store ptr %call.i4.i.i, ptr %my_parent6.i.i, align 8
@@ -26039,7 +26039,7 @@ entry:
   %mLevel.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 304
   %mLevel4.i.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args1, i64 240
   %2 = load i32, ptr %mLevel4.i.i.i.i, align 8
-  store i32 %2, ptr %mLevel.i.i.i.i, align 8
+  store i32 %2, ptr %mLevel.i.i.i.i, align 16
   %mMinLevel.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 308
   %mMinLevel5.i.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args1, i64 244
   %3 = load i32, ptr %mMinLevel5.i.i.i.i, align 4
@@ -26051,21 +26051,21 @@ entry:
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 320
   %mTree7.i.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args1, i64 256
   %5 = load ptr, ptr %mTree7.i.i.i.i, align 8
-  store ptr %5, ptr %mTree.i.i.i.i, align 8
+  store ptr %5, ptr %mTree.i.i.i.i, align 64
   %mPrev.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 176
-  store ptr null, ptr %mPrev.i.i.i.i.i, align 8
+  store ptr null, ptr %mPrev.i.i.i.i.i, align 16
   %mPrev.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   store ptr %my_range.i.i, ptr %mPrev.i.i.i.i.i.i, align 8
   %mPrev.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 160
-  store ptr %mNext.i.i.i.i.i, ptr %mPrev.i.i.i.i.i.i.i, align 8
+  store ptr %mNext.i.i.i.i.i, ptr %mPrev.i.i.i.i.i.i.i, align 32
   store ptr %mNext.i.i.i.i.i.i, ptr %mPrev.i.i.i.i.i.i.i.i, align 8
   %mPrev.i16.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 296
   store ptr null, ptr %mPrev.i16.i.i.i.i, align 8
   %mPrev.i.i18.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 288
-  store ptr %mValueIterList.i.i.i.i, ptr %mPrev.i.i18.i.i.i.i, align 8
+  store ptr %mValueIterList.i.i.i.i, ptr %mPrev.i.i18.i.i.i.i, align 32
   %mPrev.i.i.i20.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 280
   store ptr %mNext.i6.i.i.i.i, ptr %mPrev.i.i.i20.i.i.i.i, align 8
-  store ptr %mNext.i.i8.i.i.i.i, ptr %mPrev.i.i.i.i12.i.i.i.i, align 8
+  store ptr %mNext.i.i8.i.i.i.i, ptr %mPrev.i.i.i.i12.i.i.i.i, align 16
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 328
   %mGrainSize3.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args1, i64 264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize3.i.i.i, i64 16, i1 false)
@@ -26108,7 +26108,7 @@ entry:
   %mMaxLevel.i.i22.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 592
   %mMaxLevel6.i.i23.i.i = getelementptr inbounds nuw i8, ptr %constructor_args, i64 592
   %8 = load i32, ptr %mMaxLevel6.i.i23.i.i, align 16
-  store i32 %8, ptr %mMaxLevel.i.i22.i.i, align 8
+  store i32 %8, ptr %mMaxLevel.i.i22.i.i, align 16
   %mTree.i.i24.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 600
   %mTree7.i.i25.i.i = getelementptr inbounds nuw i8, ptr %constructor_args, i64 600
   %9 = load ptr, ptr %mTree7.i.i25.i.i, align 8
@@ -26116,27 +26116,27 @@ entry:
   %mPrev.i.i.i26.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 456
   store ptr null, ptr %mPrev.i.i.i26.i.i, align 8
   %mPrev.i.i.i.i27.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 448
-  store ptr %my_body.i.i, ptr %mPrev.i.i.i.i27.i.i, align 8
+  store ptr %my_body.i.i, ptr %mPrev.i.i.i.i27.i.i, align 64
   %mPrev.i.i.i.i.i28.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 440
   store ptr %mNext.i.i.i2.i.i, ptr %mPrev.i.i.i.i.i28.i.i, align 8
-  store ptr %mNext.i.i.i.i4.i.i, ptr %mPrev.i.i.i.i.i.i8.i.i, align 8
+  store ptr %mNext.i.i.i.i4.i.i, ptr %mPrev.i.i.i.i.i.i8.i.i, align 16
   %mPrev.i16.i.i29.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 576
-  store ptr null, ptr %mPrev.i16.i.i29.i.i, align 8
+  store ptr null, ptr %mPrev.i16.i.i29.i.i, align 64
   %mPrev.i.i18.i.i30.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 568
   store ptr %mValueIterList.i.i9.i.i, ptr %mPrev.i.i18.i.i30.i.i, align 8
   %mPrev.i.i.i20.i.i31.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 560
-  store ptr %mNext.i6.i.i11.i.i, ptr %mPrev.i.i.i20.i.i31.i.i, align 8
+  store ptr %mNext.i6.i.i11.i.i, ptr %mPrev.i.i.i20.i.i31.i.i, align 16
   store ptr %mNext.i.i8.i.i13.i.i, ptr %mPrev.i.i.i.i12.i.i17.i.i, align 8
   %mOp.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 608
   %mOp3.i.i.i = getelementptr inbounds nuw i8, ptr %constructor_args, i64 608
   %10 = load ptr, ptr %mOp3.i.i.i, align 32
-  store ptr %10, ptr %mOp.i.i.i, align 8
+  store ptr %10, ptr %mOp.i.i.i, align 32
   %my_partition.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 624
   %my_partition4.i.i = getelementptr inbounds nuw i8, ptr %constructor_args, i64 624
   %11 = load i64, ptr %my_partition4.i.i, align 16
   %div1.i.i.i.i.i.i = lshr i64 %11, 1
   store i64 %div1.i.i.i.i.i.i, ptr %my_partition4.i.i, align 16
-  store i64 %div1.i.i.i.i.i.i, ptr %my_partition.i.i, align 8
+  store i64 %div1.i.i.i.i.i.i, ptr %my_partition.i.i, align 16
   %my_delay.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 632
   store i32 2, ptr %my_delay.i.i.i.i, align 8
   %my_max_depth.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 636
@@ -26152,12 +26152,12 @@ entry:
   %14 = load ptr, ptr %my_parent, align 8
   store ptr %14, ptr %call.i4, align 8
   %m_ref_count.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 8
-  store i32 2, ptr %m_ref_count.i.i.i, align 4
+  store i32 2, ptr %m_ref_count.i.i.i, align 8
   %m_allocator.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 16
   %15 = load i64, ptr %alloc, align 8
   store i64 %15, ptr %m_allocator.i.i, align 8
   %m_child_stolen.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 24
-  store i8 0, ptr %m_child_stolen.i.i, align 1
+  store i8 0, ptr %m_child_stolen.i.i, align 8
   store ptr %call.i4, ptr %my_parent, align 8
   %my_parent8 = getelementptr inbounds nuw i8, ptr %call.i, i64 616
   store ptr %call.i4, ptr %my_parent8, align 8

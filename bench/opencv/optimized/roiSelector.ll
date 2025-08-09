@@ -763,7 +763,7 @@ define internal void @_ZN12_GLOBAL__N_111ROISelector12mouseHandlerEiiiiPv(i32 no
   %29 = tail call noundef float @llvm.fabs.f32(float %28)
   %30 = fcmp olt float %27, %29
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 160
-  %32 = load i32, ptr %31, align 4, !tbaa !77
+  %32 = load i32, ptr %31, align 8, !tbaa !77
   %33 = sitofp i32 %32 to float
   %34 = fsub float %33, %27
   %.sroa.speculated32.i = select i1 %30, float %27, float %29

@@ -369,7 +369,7 @@ bytestream2_init.exit:                            ; preds = %15
   %50 = load ptr, ptr %49, align 8, !tbaa !42
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %53 = load i32, ptr %52, align 4, !tbaa !43
+  %53 = load i32, ptr %52, align 8, !tbaa !43
   %54 = sext i32 %53 to i64
   %55 = getelementptr inbounds i32, ptr %50, i64 %54
   store i32 0, ptr %55, align 4, !tbaa !43
@@ -378,7 +378,7 @@ bytestream2_init.exit:                            ; preds = %15
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds i32, ptr %50, i64 %58
   store i32 0, ptr %59, align 4, !tbaa !43
-  %60 = load i32, ptr %51, align 4, !tbaa !43
+  %60 = load i32, ptr %51, align 8, !tbaa !43
   %61 = sext i32 %60 to i64
   %62 = getelementptr inbounds i32, ptr %50, i64 %61
   store i32 0, ptr %62, align 4, !tbaa !43
@@ -391,7 +391,7 @@ bytestream2_init.exit:                            ; preds = %15
   %69 = getelementptr inbounds i32, ptr %64, i64 %68
   store i32 0, ptr %69, align 4, !tbaa !43
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %71 = load i32, ptr %70, align 4, !tbaa !43
+  %71 = load i32, ptr %70, align 8, !tbaa !43
   %72 = sext i32 %71 to i64
   %73 = getelementptr inbounds i32, ptr %64, i64 %72
   store i32 0, ptr %73, align 4, !tbaa !43
@@ -403,7 +403,7 @@ bytestream2_init.exit:                            ; preds = %15
   %78 = load ptr, ptr %77, align 8, !tbaa !45
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %80 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %81 = load i32, ptr %80, align 4, !tbaa !43
+  %81 = load i32, ptr %80, align 8, !tbaa !43
   %82 = sext i32 %81 to i64
   %83 = getelementptr inbounds i32, ptr %78, i64 %82
   store i32 0, ptr %83, align 4, !tbaa !43
@@ -412,7 +412,7 @@ bytestream2_init.exit:                            ; preds = %15
   %86 = sext i32 %85 to i64
   %87 = getelementptr inbounds i32, ptr %78, i64 %86
   store i32 0, ptr %87, align 4, !tbaa !43
-  %88 = load i32, ptr %79, align 4, !tbaa !43
+  %88 = load i32, ptr %79, align 8, !tbaa !43
   %89 = sext i32 %88 to i64
   %90 = getelementptr inbounds i32, ptr %78, i64 %89
   store i32 0, ptr %90, align 4, !tbaa !43
@@ -425,7 +425,7 @@ bytestream2_init.exit:                            ; preds = %15
   %97 = getelementptr inbounds i32, ptr %92, i64 %96
   store i32 0, ptr %97, align 4, !tbaa !43
   %98 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  %99 = load i32, ptr %98, align 4, !tbaa !43
+  %99 = load i32, ptr %98, align 8, !tbaa !43
   %100 = sext i32 %99 to i64
   %101 = getelementptr inbounds i32, ptr %92, i64 %100
   store i32 0, ptr %101, align 4, !tbaa !43

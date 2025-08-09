@@ -4444,10 +4444,10 @@ _ZN3irr5scene10ISceneNode22updateAbsolutePositionEv.exit:
   %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 108
   store float 1.000000e+00, ptr %arrayidx.i.i.i.i.i, align 4, !tbaa !10
   %arrayidx4.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 88
-  store float 1.000000e+00, ptr %arrayidx4.i.i.i.i.i, align 4, !tbaa !10
+  store float 1.000000e+00, ptr %arrayidx4.i.i.i.i.i, align 8, !tbaa !10
   %arrayidx6.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 68
   store float 1.000000e+00, ptr %arrayidx6.i.i.i.i.i, align 4, !tbaa !10
-  store float 1.000000e+00, ptr %AbsoluteTransformation.i.i.i, align 4, !tbaa !10
+  store float 1.000000e+00, ptr %AbsoluteTransformation.i.i.i, align 8, !tbaa !10
   %RelativeTranslation.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %RelativeTranslation.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %RelativeTranslation, i64 12, i1 false), !tbaa.struct !12
   %RelativeRotation.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 124
@@ -4487,9 +4487,9 @@ _ZN3irr5scene10ISceneNode22updateAbsolutePositionEv.exit:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Materials.i, i8 0, i64 24, i1 false)
   store i8 1, ptr %is_sorted.i.i, align 8, !tbaa !43
   %Box.i = getelementptr inbounds nuw i8, ptr %call, i64 256
-  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %Box.i, align 4, !tbaa !10
+  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %Box.i, align 8, !tbaa !10
   %Y.i2.i.i = getelementptr inbounds nuw i8, ptr %call, i64 272
-  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 4, !tbaa !10
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 8, !tbaa !10
   %Mesh.i = getelementptr inbounds nuw i8, ptr %call, i64 280
   %FramesPerSecond.i = getelementptr inbounds nuw i8, ptr %call, i64 296
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Mesh.i, i8 0, i64 16, i1 false)
@@ -6143,7 +6143,7 @@ for.body.i:                                       ; preds = %if.then, %for.body.
   %arrayctor.end.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.06.i, i64 128
   store <4 x i32> <i32 0, i32 -1, i32 -1, i32 0>, ptr %arrayctor.end.i.i.i, align 8, !tbaa !98
   %SpecularColor.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.06.i, i64 144
-  store i32 -1, ptr %SpecularColor.i.i.i, align 4, !tbaa !129
+  store i32 -1, ptr %SpecularColor.i.i.i, align 8, !tbaa !129
   %Shininess.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.06.i, i64 148
   store <2 x float> zeroinitializer, ptr %Shininess.i.i.i, align 4, !tbaa !10
   %Thickness.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.06.i, i64 156
@@ -6255,7 +6255,7 @@ for.body.i6:                                      ; preds = %_ZNKSt6vectorIN3irr
   %arrayctor.end.i.i.i41 = getelementptr inbounds nuw i8, ptr %__cur.06.i7, i64 128
   store <4 x i32> <i32 0, i32 -1, i32 -1, i32 0>, ptr %arrayctor.end.i.i.i41, align 8, !tbaa !98
   %SpecularColor.i.i.i42 = getelementptr inbounds nuw i8, ptr %__cur.06.i7, i64 144
-  store i32 -1, ptr %SpecularColor.i.i.i42, align 4, !tbaa !129
+  store i32 -1, ptr %SpecularColor.i.i.i42, align 8, !tbaa !129
   %Shininess.i.i.i43 = getelementptr inbounds nuw i8, ptr %__cur.06.i7, i64 148
   store <2 x float> zeroinitializer, ptr %Shininess.i.i.i43, align 4, !tbaa !10
   %Thickness.i.i.i44 = getelementptr inbounds nuw i8, ptr %__cur.06.i7, i64 156

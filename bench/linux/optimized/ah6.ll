@@ -548,7 +548,7 @@ define internal i32 @ah6_input(ptr noundef readonly captures(none) %0, ptr nound
   %160 = getelementptr inbounds nuw i8, ptr %90, i64 1
   store i8 0, ptr %160, align 1
   %161 = getelementptr i8, ptr %90, i64 2
-  store i8 0, ptr %161, align 1
+  store i8 0, ptr %161, align 2
   %162 = getelementptr i8, ptr %90, i64 3
   store i8 0, ptr %162, align 1
   %163 = getelementptr inbounds nuw i8, ptr %90, i64 7
@@ -822,7 +822,7 @@ define internal i32 @ah6_output(ptr noundef readonly captures(none) %0, ptr noun
   %120 = getelementptr inbounds nuw i8, ptr %97, i64 1
   store i8 0, ptr %120, align 1
   %121 = getelementptr i8, ptr %97, i64 2
-  store i8 0, ptr %121, align 1
+  store i8 0, ptr %121, align 2
   %122 = getelementptr i8, ptr %97, i64 3
   store i8 0, ptr %122, align 1
   %123 = getelementptr inbounds nuw i8, ptr %97, i64 7

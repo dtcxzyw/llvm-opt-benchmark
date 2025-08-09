@@ -1439,7 +1439,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit21.i.i.i:         ; preds = %321, %319
   store ptr %340, ptr %339, align 8, !tbaa !9, !noalias !229
   %341 = getelementptr inbounds nuw i8, ptr %336, i64 32
   store i64 0, ptr %341, align 8, !tbaa !17, !noalias !229
-  store i8 0, ptr %340, align 1, !tbaa !16, !noalias !229
+  store i8 0, ptr %340, align 8, !tbaa !16, !noalias !229
   %342 = getelementptr inbounds nuw i8, ptr %336, i64 56
   %343 = getelementptr inbounds nuw i8, ptr %336, i64 72
   store ptr %343, ptr %342, align 8, !tbaa !9, !noalias !229
@@ -1516,7 +1516,7 @@ _ZN5clang4ento9BugReport8addRangeENS_11SourceRangeE.exit.i.i.i: ; preds = %355, 
   store ptr null, ptr %373, align 8, !tbaa !252, !noalias !229
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.0.0.copyload.i25.i.i.i = load i64, ptr %.077.i.i, align 8
-  store i64 %.sroa.0.0.copyload.i25.i.i.i, ptr %361, align 1
+  store i64 %.sroa.0.0.copyload.i25.i.i.i, ptr %361, align 8
   store i32 1, ptr %362, align 8, !tbaa !79
   %374 = load ptr, ptr %18, align 8, !tbaa !54
   store ptr %336, ptr %10, align 8, !tbaa !254

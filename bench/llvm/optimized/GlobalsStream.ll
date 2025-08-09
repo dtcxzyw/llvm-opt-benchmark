@@ -1464,9 +1464,9 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %150, %_ZN4llvmeqENS
 153:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread
   store i32 %143, ptr %122, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %122, i64 8
-  store ptr %145, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 4
+  store ptr %145, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %122, i64 16
-  store i64 %146, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx, align 4
+  store i64 %146, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %154 = getelementptr inbounds nuw i8, ptr %122, i64 24
   store ptr %154, ptr %114, align 8, !tbaa !139
   br label %_ZNSt6vectorISt4pairIjN4llvm8codeview8CVRecordINS2_10SymbolKindEEEESaIS6_EE9push_backEOS6_.exit
@@ -1497,9 +1497,9 @@ _ZNKSt6vectorISt4pairIjN4llvm8codeview8CVRecordINS2_10SymbolKindEEEESaIS6_EE12_M
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 %158
   store i32 %143, ptr %168, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx38.sroa_idx = getelementptr inbounds nuw i8, ptr %168, i64 8
-  store ptr %145, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx38.sroa_idx, align 4
+  store ptr %145, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx38.sroa_idx, align 8
   %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx38.sroa_idx = getelementptr inbounds nuw i8, ptr %168, i64 16
-  store i64 %146, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx38.sroa_idx, align 4
+  store i64 %146, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx38.sroa_idx, align 8
   %.not10.i.i.i.i.i.i = icmp eq ptr %123, %122
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairIjN4llvm8codeview8CVRecordINS2_10SymbolKindEEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 

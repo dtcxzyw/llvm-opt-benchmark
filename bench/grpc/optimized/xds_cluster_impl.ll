@@ -4922,7 +4922,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %72
   store i64 %726, ptr %728, align 8, !tbaa !36
   store ptr %718, ptr %715, align 8, !tbaa !44
   store i64 0, ptr %727, align 8, !tbaa !36
-  store i8 0, ptr %718, align 1, !tbaa !24
+  store i8 0, ptr %718, align 8, !tbaa !24
   invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_116XdsClusterImplLb23UpdateChildPolicyLockedEN4absl12lts_202407228StatusOrISt10shared_ptrINS_25EndpointAddressesIteratorEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11ChannelArgsE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef %54, ptr noundef %55, ptr noundef nonnull align 8 dereferenceable(8) %85)
           to label %729 unwind label %760
 
@@ -6648,7 +6648,7 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128CircuitBreakerCallCounterMap11Ca
   %137 = getelementptr inbounds nuw i8, ptr %91, i64 56
   store i64 %118, ptr %137, align 8, !tbaa !36, !noalias !284
   %138 = getelementptr inbounds nuw i8, ptr %91, i64 80
-  store i32 0, ptr %138, align 4, !tbaa !287, !noalias !284
+  store i32 0, ptr %138, align 8, !tbaa !287, !noalias !284
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %91, ptr %0, align 8, !tbaa !283
   %139 = getelementptr inbounds nuw i8, ptr %.sroa.041.0, i64 96

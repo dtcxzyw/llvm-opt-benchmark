@@ -1941,7 +1941,7 @@ _ZNSt3__16vectorIN7mitsuba14Hierarchical2DIfLm0EE5LevelENS_9allocatorIS4_EEE22__
   %.pre-phi.i.i.i.i = phi i64 [ 0, %54 ], [ %65, %.noexc.i.i.i.i.i.i ]
   %69 = phi ptr [ null, %54 ], [ %66, %.noexc.i.i.i.i.i.i ]
   store ptr %69, ptr %60, align 8
-  store i8 1, ptr %61, align 1
+  store i8 1, ptr %61, align 8
   %70 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store i64 %63, ptr %70, align 8
   tail call void @llvm.memset.p0.i64(ptr align 4 %69, i8 0, i64 %.pre-phi.i.i.i.i, i1 false)
@@ -2106,7 +2106,7 @@ _ZNSt3__16vectorIN7mitsuba14Hierarchical2DIfLm0EE5LevelENS_9allocatorIS4_EEE22__
   %.pre-phi.i.i.i.i267 = phi i64 [ 0, %120 ], [ %129, %.noexc.i.i.i.i.i.i265 ]
   %133 = phi ptr [ null, %120 ], [ %130, %.noexc.i.i.i.i.i.i265 ]
   store ptr %133, ptr %124, align 8
-  store i8 1, ptr %125, align 1
+  store i8 1, ptr %125, align 8
   %134 = getelementptr inbounds nuw i8, ptr %116, i64 16
   store i64 %127, ptr %134, align 8
   tail call void @llvm.memset.p0.i64(ptr align 4 %133, i8 0, i64 %.pre-phi.i.i.i.i267, i1 false)
@@ -2175,7 +2175,7 @@ _ZNSt3__16vectorIN7mitsuba14Hierarchical2DIfLm0EE5LevelENS_9allocatorIS4_EEE22__
   %.pre-phi.i.i.i.i280 = phi i64 [ 0, %149 ], [ %158, %.noexc.i.i.i.i.i.i279 ]
   %162 = phi ptr [ null, %149 ], [ %159, %.noexc.i.i.i.i.i.i279 ]
   store ptr %162, ptr %153, align 8
-  store i8 1, ptr %154, align 1
+  store i8 1, ptr %154, align 8
   %163 = getelementptr inbounds nuw i8, ptr %140, i64 16
   store i64 %156, ptr %163, align 8
   call void @llvm.memset.p0.i64(ptr align 4 %162, i8 0, i64 %.pre-phi.i.i.i.i280, i1 false)
@@ -7466,7 +7466,7 @@ _ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorI
   %.pre-phi.i.i = phi i64 [ 0, %_ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorIS4_EEEC2EmmS7_.exit ], [ %40, %.noexc.i.i.i.i ]
   %43 = phi ptr [ null, %_ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorIS4_EEEC2EmmS7_.exit ], [ %41, %.noexc.i.i.i.i ]
   store ptr %43, ptr %35, align 8
-  store i8 1, ptr %36, align 1
+  store i8 1, ptr %36, align 8
   %44 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i64 %38, ptr %44, align 8
   tail call void @llvm.memset.p0.i64(ptr align 4 %43, i8 0, i64 %.pre-phi.i.i, i1 false)
@@ -7582,7 +7582,7 @@ _ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorI
   %.pre-phi.i.i = phi i64 [ 0, %_ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorIS4_EEEC2EmmS7_.exit ], [ %40, %.noexc.i.i.i.i ]
   %43 = phi ptr [ null, %_ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorIS4_EEEC2EmmS7_.exit ], [ %41, %.noexc.i.i.i.i ]
   store ptr %43, ptr %35, align 8
-  store i8 1, ptr %36, align 1
+  store i8 1, ptr %36, align 8
   %44 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i64 %38, ptr %44, align 8
   tail call void @llvm.memset.p0.i64(ptr align 4 %43, i8 0, i64 %.pre-phi.i.i, i1 false)

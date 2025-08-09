@@ -2087,7 +2087,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4absl12crc_internal12CrcCordState1
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %6, align 8, !tbaa !81
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 0, ptr %7, align 4, !tbaa !54
+  store i32 0, ptr %7, align 8, !tbaa !54
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, i8 0, i64 80, i1 false)
   invoke void @_ZNSt11_Deque_baseIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %8, i64 noundef 0)
@@ -8147,7 +8147,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %7, ptr %6, align 8, !tbaa !74, !noalias !387
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %8, align 8, !tbaa !49, !noalias !387
-  store i8 0, ptr %7, align 1, !tbaa !50, !noalias !387
+  store i8 0, ptr %7, align 8, !tbaa !50, !noalias !387
   store ptr %6, ptr %4, align 8, !tbaa !53
   br label %9
 

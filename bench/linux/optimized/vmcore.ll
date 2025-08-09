@@ -890,19 +890,19 @@ define internal fastcc range(i32 -2147483648, 1) i32 @merge_note_headers_elf64(p
   %44 = add nsw i64 %43, 4159
   %45 = and i64 %44, -4096
   %46 = getelementptr i8, ptr %0, i64 64
-  store i32 4, ptr %46, align 1
+  store i32 4, ptr %46, align 8
   %47 = getelementptr i8, ptr %0, i64 68
-  store i32 0, ptr %47, align 1
+  store i32 0, ptr %47, align 4
   %48 = getelementptr i8, ptr %0, i64 72
-  store i64 %45, ptr %48, align 1
+  store i64 %45, ptr %48, align 8
   %49 = getelementptr i8, ptr %0, i64 80
   %50 = getelementptr i8, ptr %0, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(16) %49, i8 0, i64 16, i1 false)
-  store i64 %30, ptr %50, align 1
+  store i64 %30, ptr %50, align 8
   %51 = getelementptr i8, ptr %0, i64 104
-  store i64 %30, ptr %51, align 1
+  store i64 %30, ptr %51, align 8
   %52 = getelementptr i8, ptr %0, i64 112
-  store i64 4, ptr %52, align 1
+  store i64 4, ptr %52, align 8
   %53 = getelementptr i8, ptr %0, i64 120
   %54 = mul i32 %29, 56
   %55 = add i32 %54, -56
@@ -1242,21 +1242,21 @@ define internal fastcc range(i32 -2147483648, 1) i32 @merge_note_headers_elf32(p
   %45 = and i32 %44, -4096
   %46 = trunc i64 %31 to i32
   %47 = getelementptr i8, ptr %0, i64 52
-  store i32 4, ptr %47, align 1
+  store i32 4, ptr %47, align 4
   %48 = getelementptr i8, ptr %0, i64 56
-  store i32 %45, ptr %48, align 1
+  store i32 %45, ptr %48, align 4
   %49 = getelementptr i8, ptr %0, i64 60
-  store i32 0, ptr %49, align 1
+  store i32 0, ptr %49, align 4
   %50 = getelementptr i8, ptr %0, i64 64
-  store i32 0, ptr %50, align 1
+  store i32 0, ptr %50, align 4
   %51 = getelementptr i8, ptr %0, i64 68
-  store i32 %46, ptr %51, align 1
+  store i32 %46, ptr %51, align 4
   %52 = getelementptr i8, ptr %0, i64 72
-  store i32 %46, ptr %52, align 1
+  store i32 %46, ptr %52, align 4
   %53 = getelementptr i8, ptr %0, i64 76
-  store i32 0, ptr %53, align 1
+  store i32 0, ptr %53, align 4
   %54 = getelementptr i8, ptr %0, i64 80
-  store i32 4, ptr %54, align 1
+  store i32 4, ptr %54, align 4
   %55 = getelementptr i8, ptr %0, i64 84
   %56 = shl i32 %30, 5
   %57 = add i32 %56, -32

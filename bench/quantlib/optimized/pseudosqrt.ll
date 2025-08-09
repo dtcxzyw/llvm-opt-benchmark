@@ -499,7 +499,7 @@ invoke.cont54:                                    ; preds = %invoke.cont50
   %36 = load i32, ptr %_M_flags.i.i, align 8, !tbaa !26
   %and.i.i.i.i = and i32 %36, -261
   %or.i.i.i.i = or disjoint i32 %and.i.i.i.i, 256
-  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 4, !tbaa !33
+  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 8, !tbaa !33
   %37 = load ptr, ptr %jd, align 8, !tbaa !21
   %arrayidx.i97 = getelementptr inbounds nuw double, ptr %37, i64 %sub
   %38 = load double, ptr %arrayidx.i97, align 8, !tbaa !22
@@ -5775,7 +5775,7 @@ invoke.cont175:                                   ; preds = %invoke.cont171
   %95 = load i32, ptr %_M_flags.i.i, align 8, !tbaa !26
   %and.i.i.i.i = and i32 %95, -261
   %or.i.i.i.i = or disjoint i32 %and.i.i.i.i, 256
-  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 4, !tbaa !33
+  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 8, !tbaa !33
   %96 = load double, ptr %arrayidx.i, align 8, !tbaa !22
   %call.i171 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %_ql_msg_stream169, double noundef %96)
           to label %invoke.cont180 unwind label %lpad172

@@ -20105,7 +20105,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolISt5tupleIJPNS0_5RTLIL4CellENS4_8IdStrin
   %74 = load ptr, ptr %73, align 8, !tbaa !37
   %75 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 8
   store ptr %74, ptr %75, align 8, !tbaa !37
-  %76 = load i32, ptr %.0811.i.i.i.i.i, align 4, !tbaa !43
+  %76 = load i32, ptr %.0811.i.i.i.i.i, align 8, !tbaa !43
   %77 = trunc nuw i8 %72 to i1
   %78 = icmp ne i32 %76, 0
   %or.cond.i.i.i.i.i.i.i.i.i.i.i = and i1 %78, %77
@@ -20223,7 +20223,7 @@ _ZSt8_DestroyIN5Yosys7hashlib4poolISt5tupleIJPNS0_5RTLIL4CellENS4_8IdStringEEENS
   %126 = load ptr, ptr %125, align 8, !tbaa !37
   %127 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i36, i64 8
   store ptr %126, ptr %127, align 8, !tbaa !37
-  %128 = load i32, ptr %.0811.i.i.i.i.i36, align 4, !tbaa !43
+  %128 = load i32, ptr %.0811.i.i.i.i.i36, align 8, !tbaa !43
   %129 = trunc nuw i8 %124 to i1
   %130 = icmp ne i32 %128, 0
   %or.cond.i.i.i.i.i.i.i.i.i.i.i38 = and i1 %130, %129

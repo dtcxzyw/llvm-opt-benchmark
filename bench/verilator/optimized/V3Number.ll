@@ -25746,7 +25746,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit236: ; preds = %182
   %193 = load i32, ptr %192, align 8, !tbaa !345
   %194 = and i32 %193, -75
   %195 = or disjoint i32 %194, 8
-  store i32 %195, ptr %192, align 4, !tbaa !346
+  store i32 %195, ptr %192, align 8, !tbaa !346
   %196 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %184, i64 noundef %154)
           to label %197 unwind label %214
 
@@ -25759,7 +25759,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit236: ; preds = %182
   %203 = load i32, ptr %202, align 8, !tbaa !345
   %204 = and i32 %203, -75
   %205 = or disjoint i32 %204, 2
-  store i32 %205, ptr %202, align 4, !tbaa !346
+  store i32 %205, ptr %202, align 8, !tbaa !346
   %206 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8) %196)
           to label %_ZNSolsEPFRSoS_E.exit239 unwind label %214
 

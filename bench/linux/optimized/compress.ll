@@ -41,7 +41,7 @@ define internal range(i32 -12, 1) i32 @zisofs_read_folio(ptr noundef readonly ca
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %5, i64 -26
-  %9 = load i8, ptr %8, align 1
+  %9 = load i8, ptr %8, align 2
   %10 = zext i8 %9 to i32
   %11 = add nsw i32 %10, -12
   %12 = shl nuw i32 1, %11

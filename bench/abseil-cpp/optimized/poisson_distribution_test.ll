@@ -1282,7 +1282,7 @@ _ZN7testing8internal12CodeLocationC2EOS1_.exit:   ; preds = %52, %_ZNKSt7__cxx11
   store i64 %59, ptr %61, align 8, !tbaa !16
   store ptr %50, ptr %2, align 8, !tbaa !11
   store i64 0, ptr %60, align 8, !tbaa !16
-  store i8 0, ptr %50, align 1, !tbaa !17
+  store i8 0, ptr %50, align 8, !tbaa !17
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %64 = load i32, ptr %63, align 8, !tbaa !32
@@ -1729,7 +1729,7 @@ _ZN7testing8internal12CodeLocationC2EOS1_.exit:   ; preds = %52, %_ZNKSt7__cxx11
   store i64 %59, ptr %61, align 8, !tbaa !16
   store ptr %50, ptr %2, align 8, !tbaa !11
   store i64 0, ptr %60, align 8, !tbaa !16
-  store i8 0, ptr %50, align 1, !tbaa !17
+  store i8 0, ptr %50, align 8, !tbaa !17
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %64 = load i32, ptr %63, align 8, !tbaa !32
@@ -4905,7 +4905,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %7, ptr %6, align 8, !tbaa !30, !noalias !173
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %8, align 8, !tbaa !16, !noalias !173
-  store i8 0, ptr %7, align 1, !tbaa !17, !noalias !173
+  store i8 0, ptr %7, align 8, !tbaa !17, !noalias !173
   store ptr %6, ptr %4, align 8, !tbaa !147
   br label %9
 
@@ -7650,7 +7650,7 @@ define internal void @_ZThn16_N12_GLOBAL__N_162PoissonDistributionChiSquaredTest
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_133PoissonDistributionChiSquaredTestE, i64 16), ptr %2, align 16, !tbaa !28
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN12_GLOBAL__N_133PoissonDistributionChiSquaredTestE, i64 80), ptr %0, align 16, !tbaa !28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %4 = load ptr, ptr %3, align 8, !tbaa !247
+  %4 = load ptr, ptr %3, align 16, !tbaa !247
   %.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit.i, label %5
 
@@ -7704,7 +7704,7 @@ define internal void @_ZThn16_N12_GLOBAL__N_162PoissonDistributionChiSquaredTest
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_133PoissonDistributionChiSquaredTestE, i64 16), ptr %2, align 16, !tbaa !28
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN12_GLOBAL__N_133PoissonDistributionChiSquaredTestE, i64 80), ptr %0, align 16, !tbaa !28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %4 = load ptr, ptr %3, align 8, !tbaa !247
+  %4 = load ptr, ptr %3, align 16, !tbaa !247
   %.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i, label %5
 
@@ -7804,7 +7804,7 @@ define internal void @_ZThn16_N12_GLOBAL__N_133PoissonDistributionChiSquaredTest
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_133PoissonDistributionChiSquaredTestE, i64 16), ptr %2, align 16, !tbaa !28
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN12_GLOBAL__N_133PoissonDistributionChiSquaredTestE, i64 80), ptr %0, align 16, !tbaa !28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %4 = load ptr, ptr %3, align 8, !tbaa !247
+  %4 = load ptr, ptr %3, align 16, !tbaa !247
   %.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit.i, label %5
 
@@ -13539,7 +13539,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %29, ptr %.08.i.i.i.i.i, align 8, !tbaa !30
   %30 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 8
   store i64 0, ptr %30, align 8, !tbaa !16
-  store i8 0, ptr %29, align 1, !tbaa !17
+  store i8 0, ptr %29, align 8, !tbaa !17
   %31 = add i64 %.057.i.i.i.i.i, -1
   %32 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq i64 %31, 0
@@ -15148,7 +15148,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %35
   store i64 %41, ptr %43, align 8, !tbaa !16
   store ptr %33, ptr %1, align 8, !tbaa !11
   store i64 0, ptr %42, align 8, !tbaa !16
-  store i8 0, ptr %33, align 1, !tbaa !17
+  store i8 0, ptr %33, align 8, !tbaa !17
   ret void
 }
 
@@ -30977,7 +30977,7 @@ _ZN7testing8internal12CodeLocationC2EOS1_.exit:   ; preds = %299, %_ZNKSt7__cxx1
   store i64 %304, ptr %305, align 8, !tbaa !16
   store ptr %297, ptr %0, align 8, !tbaa !11
   store i64 0, ptr %175, align 8, !tbaa !16
-  store i8 0, ptr %297, align 1, !tbaa !17
+  store i8 0, ptr %297, align 8, !tbaa !17
   %306 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %307 = load i32, ptr %190, align 8, !tbaa !32
   store i32 %307, ptr %306, align 8, !tbaa !32
@@ -56191,7 +56191,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !16, !alias.scope !1057, !noalias !1060
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !11, !alias.scope !1060, !noalias !1057
   store i64 0, ptr %48, align 8, !tbaa !16, !alias.scope !1060, !noalias !1057
-  store i8 0, ptr %39, align 1, !tbaa !17, !alias.scope !1060, !noalias !1057
+  store i8 0, ptr %39, align 8, !tbaa !17, !alias.scope !1060, !noalias !1057
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -56239,7 +56239,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !16, !alias.scope !1064, !noalias !1067
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !11, !alias.scope !1067, !noalias !1064
   store i64 0, ptr %64, align 8, !tbaa !16, !alias.scope !1067, !noalias !1064
-  store i8 0, ptr %55, align 1, !tbaa !17, !alias.scope !1067, !noalias !1064
+  store i8 0, ptr %55, align 8, !tbaa !17, !alias.scope !1067, !noalias !1064
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5
@@ -66662,7 +66662,7 @@ _ZSt19__relocate_object_aIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLO
   store i64 %1686, ptr %1688, align 8, !tbaa !16, !alias.scope !1295, !noalias !1298
   store ptr %1678, ptr %.092.i.i.i.i.i.i.i, align 8, !tbaa !11, !alias.scope !1298, !noalias !1295
   store i64 0, ptr %1687, align 8, !tbaa !16, !alias.scope !1298, !noalias !1295
-  store i8 0, ptr %1678, align 1, !tbaa !17, !alias.scope !1298, !noalias !1295
+  store i8 0, ptr %1678, align 8, !tbaa !17, !alias.scope !1298, !noalias !1295
   %1689 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i.i, i64 32
   %1690 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %1689, ptr noundef nonnull align 8 dereferenceable(28) %1690, i64 28, i1 false), !alias.scope !1300
@@ -67635,7 +67635,7 @@ _ZSt19__relocate_object_aIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLO
   store i64 %2036, ptr %2038, align 8, !tbaa !16, !alias.scope !1308, !noalias !1311
   store ptr %2028, ptr %.092.i.i.i.i.i.i.i141, align 8, !tbaa !11, !alias.scope !1311, !noalias !1308
   store i64 0, ptr %2037, align 8, !tbaa !16, !alias.scope !1311, !noalias !1308
-  store i8 0, ptr %2028, align 1, !tbaa !17, !alias.scope !1311, !noalias !1308
+  store i8 0, ptr %2028, align 8, !tbaa !17, !alias.scope !1311, !noalias !1308
   %2039 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i.i140, i64 32
   %2040 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i.i141, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2039, ptr noundef nonnull align 8 dereferenceable(28) %2040, i64 28, i1 false), !alias.scope !1313

@@ -454,7 +454,7 @@ if.then6.i.i:                                     ; preds = %if.then
 if.end.i.i:                                       ; preds = %if.then6.i.i, %if.then
   %mbIntraProcess12.i.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   store i8 1, ptr %mbIntraProcess12.i.i, align 8
-  %4 = load atomic i32, ptr %mnCount.i.i seq_cst, align 4
+  %4 = load atomic i32, ptr %mnCount.i.i seq_cst, align 8
   %call20.i.i = tail call i32 @sem_init(ptr noundef nonnull align 8 dereferenceable(48) %call, i32 noundef 1, i32 noundef %4) #13
   %cmp21.i.i = icmp eq i32 %call20.i.i, -1
   %5 = load i8, ptr %mbIntraProcess12.i.i, align 8
@@ -496,7 +496,7 @@ if.then6.i.i15:                                   ; preds = %if.else
 if.end.i.i4:                                      ; preds = %if.then6.i.i15, %if.else
   %mbIntraProcess12.i.i5 = getelementptr inbounds nuw i8, ptr %call1, i64 40
   store i8 1, ptr %mbIntraProcess12.i.i5, align 8
-  %9 = load atomic i32, ptr %mnCount.i.i1 seq_cst, align 4
+  %9 = load atomic i32, ptr %mnCount.i.i1 seq_cst, align 8
   %call20.i.i6 = tail call i32 @sem_init(ptr noundef nonnull align 8 dereferenceable(48) %call1, i32 noundef 1, i32 noundef %9) #13
   %cmp21.i.i7 = icmp eq i32 %call20.i.i6, -1
   %10 = load i8, ptr %mbIntraProcess12.i.i5, align 8
@@ -627,7 +627,7 @@ if.then6.i.i:                                     ; preds = %entry
 if.end.i.i:                                       ; preds = %if.then6.i.i, %entry
   %mbIntraProcess12.i.i = getelementptr inbounds nuw i8, ptr %pMemory, i64 40
   store i8 1, ptr %mbIntraProcess12.i.i, align 8
-  %2 = load atomic i32, ptr %mnCount.i.i seq_cst, align 4
+  %2 = load atomic i32, ptr %mnCount.i.i seq_cst, align 8
   %call20.i.i = tail call i32 @sem_init(ptr noundef nonnull align 8 dereferenceable(48) %pMemory, i32 noundef 1, i32 noundef %2) #13
   %cmp21.i.i = icmp eq i32 %call20.i.i, -1
   %3 = load i8, ptr %mbIntraProcess12.i.i, align 8

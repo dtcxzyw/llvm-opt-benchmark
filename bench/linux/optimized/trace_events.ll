@@ -4287,7 +4287,7 @@ __put_system.exit:                                ; preds = %48, %63
   %75 = or i64 %74, 2048
   store i64 %75, ptr %73, align 8
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %77 = load volatile i32, ptr %76, align 4
+  %77 = load volatile i32, ptr %76, align 8
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %79, label %85, !prof !9
 

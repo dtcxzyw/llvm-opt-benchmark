@@ -2758,7 +2758,7 @@ define internal fastcc noundef ptr @engine_coredump_add_context(ptr noundef %0, 
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 1752
   store i32 %43, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 248
-  %46 = load volatile i32, ptr %45, align 4
+  %46 = load volatile i32, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 1748
   store i32 %46, ptr %47, align 4
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 112

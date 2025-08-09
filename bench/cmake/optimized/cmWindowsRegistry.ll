@@ -2097,7 +2097,7 @@ _ZNSt10_HashtableIN17cmWindowsRegistry4ViewESt4pairIKS1_St17basic_string_viewIcS
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIN17cmWindowsRegistry4ViewESt4pairIKS1_St17basic_string_viewIcSt11char_traitsIcEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !30
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !22
+  %16 = load i32, ptr %15, align 8, !tbaa !22
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18

@@ -2043,9 +2043,9 @@ invoke.cont52:                                    ; preds = %if.end48
   %MaxFar.i = getelementptr inbounds nuw i8, ptr %call50, i64 8
   store <4 x float> <float 2.048000e+03, float 1.024000e+03, float 0x3FECCCCCC0000000, float 5.000000e-01>, ptr %MaxFar.i, align 8, !tbaa !32
   %CameraPos.i = getelementptr inbounds nuw i8, ptr %call50, i64 24
-  store <2 x float> zeroinitializer, ptr %CameraPos.i, align 4, !tbaa !32
+  store <2 x float> zeroinitializer, ptr %CameraPos.i, align 8, !tbaa !32
   %Z.i.i = getelementptr inbounds nuw i8, ptr %call50, i64 32
-  store float 0.000000e+00, ptr %Z.i.i, align 4, !tbaa !48
+  store float 0.000000e+00, ptr %Z.i.i, align 8, !tbaa !48
   %m_light_mvp_setting.i = getelementptr inbounds nuw i8, ptr %call50, i64 40
   store ptr @.str.59, ptr %m_light_mvp_setting.i, align 8, !tbaa !97
   %has_been_set.i.i.i = getelementptr inbounds nuw i8, ptr %call50, i64 112
@@ -2843,9 +2843,9 @@ invoke.cont161:                                   ; preds = %if.end157
   %MaxFar.i860 = getelementptr inbounds nuw i8, ptr %call159, i64 8
   store <4 x float> <float 2.048000e+03, float 1.024000e+03, float 0x3FECCCCCC0000000, float 5.000000e-01>, ptr %MaxFar.i860, align 8, !tbaa !32
   %CameraPos.i864 = getelementptr inbounds nuw i8, ptr %call159, i64 24
-  store <2 x float> zeroinitializer, ptr %CameraPos.i864, align 4, !tbaa !32
+  store <2 x float> zeroinitializer, ptr %CameraPos.i864, align 8, !tbaa !32
   %Z.i.i866 = getelementptr inbounds nuw i8, ptr %call159, i64 32
-  store float 0.000000e+00, ptr %Z.i.i866, align 4, !tbaa !48
+  store float 0.000000e+00, ptr %Z.i.i866, align 8, !tbaa !48
   %m_light_mvp_setting.i867 = getelementptr inbounds nuw i8, ptr %call159, i64 40
   store ptr @.str.59, ptr %m_light_mvp_setting.i867, align 8, !tbaa !97
   %has_been_set.i.i.i868 = getelementptr inbounds nuw i8, ptr %call159, i64 112
@@ -4334,9 +4334,9 @@ invoke.cont410:                                   ; preds = %if.end406
   %MaxFar.i1312 = getelementptr inbounds nuw i8, ptr %call408, i64 8
   store <4 x float> <float 2.048000e+03, float 1.024000e+03, float 0x3FECCCCCC0000000, float 5.000000e-01>, ptr %MaxFar.i1312, align 8, !tbaa !32
   %CameraPos.i1316 = getelementptr inbounds nuw i8, ptr %call408, i64 24
-  store <2 x float> zeroinitializer, ptr %CameraPos.i1316, align 4, !tbaa !32
+  store <2 x float> zeroinitializer, ptr %CameraPos.i1316, align 8, !tbaa !32
   %Z.i.i1318 = getelementptr inbounds nuw i8, ptr %call408, i64 32
-  store float 0.000000e+00, ptr %Z.i.i1318, align 4, !tbaa !48
+  store float 0.000000e+00, ptr %Z.i.i1318, align 8, !tbaa !48
   %m_light_mvp_setting.i1319 = getelementptr inbounds nuw i8, ptr %call408, i64 40
   store ptr @.str.59, ptr %m_light_mvp_setting.i1319, align 8, !tbaa !97
   %has_been_set.i.i.i1320 = getelementptr inbounds nuw i8, ptr %call408, i64 112

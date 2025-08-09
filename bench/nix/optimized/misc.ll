@@ -7694,7 +7694,7 @@ _ZNSt22_Optional_payload_baseIN3nix9StorePathEE12_M_constructIJS1_EEEvDpOT_.exit
   store i64 %28, ptr %29, align 8
   store ptr %19, ptr %10, align 8
   store i64 0, ptr %27, align 8
-  store i8 0, ptr %19, align 1
+  store i8 0, ptr %19, align 8
   store i8 1, ptr %13, align 8
   br label %_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIN3nix9StorePathEEEEEE9constructISD_JRKSt21piecewise_construct_tSt5tupleIJRS8_EESL_IJOSC_EEEEEvRSF_PT_DpOT0_.exit
 
@@ -18678,7 +18678,7 @@ _ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit: ; 
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(28) %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load atomic i32, ptr %8 acquire, align 4
+  %9 = load atomic i32, ptr %8 acquire, align 8
   %10 = and i32 %9, 2147483647
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %.preheader.i
@@ -19700,7 +19700,7 @@ _ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit: ; 
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(28) %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load atomic i32, ptr %8 acquire, align 4
+  %9 = load atomic i32, ptr %8 acquire, align 8
   %10 = and i32 %9, 2147483647
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %.preheader.i
@@ -19890,11 +19890,11 @@ _ZNSt8functionIFvRSt7promiseISt3setIN3nix9StorePathESt4lessIS3_ESaIS3_EEEEEC2EOS
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr null, ptr %22, align 8, !noalias !193
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  store i32 0, ptr %23, align 4, !noalias !193
+  store i32 0, ptr %23, align 8, !noalias !193
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 36
-  store i8 0, ptr %24, align 1, !noalias !193
+  store i8 0, ptr %24, align 4, !noalias !193
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  store i32 0, ptr %25, align 4, !noalias !193
+  store i32 0, ptr %25, align 8, !noalias !193
   store ptr %17, ptr %18, align 8, !alias.scope !193
   store ptr %21, ptr %4, align 8, !alias.scope !193
   %26 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #33
@@ -31854,7 +31854,7 @@ _ZSt19__relocate_object_aIN3nix9StorePathES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i: ; 
   store i64 %32, ptr %34, align 8, !alias.scope !307, !noalias !310
   store ptr %24, ptr %.0911.i.i.i, align 8, !alias.scope !310, !noalias !307
   store i64 0, ptr %33, align 8, !alias.scope !310, !noalias !307
-  store i8 0, ptr %24, align 1, !alias.scope !310, !noalias !307
+  store i8 0, ptr %24, align 8, !alias.scope !310, !noalias !307
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i) #31
   %35 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %36 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
@@ -31904,7 +31904,7 @@ _ZSt19__relocate_object_aIN3nix9StorePathES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i33: 
   store i64 %48, ptr %50, align 8, !alias.scope !314, !noalias !317
   store ptr %40, ptr %.0911.i.i.i29, align 8, !alias.scope !317, !noalias !314
   store i64 0, ptr %49, align 8, !alias.scope !317, !noalias !314
-  store i8 0, ptr %40, align 1, !alias.scope !317, !noalias !314
+  store i8 0, ptr %40, align 8, !alias.scope !317, !noalias !314
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i29) #31
   %51 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32

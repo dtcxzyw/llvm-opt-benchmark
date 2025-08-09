@@ -2202,7 +2202,7 @@ zend_hash_update_mem.exit259:                     ; preds = %70, %72
   %118 = getelementptr inbounds nuw i8, ptr %114, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %118, ptr noundef nonnull align 1 dereferenceable(14) @.str.20, i64 14, i1 false)
   %119 = getelementptr inbounds nuw i8, ptr %114, i64 38
-  store i8 0, ptr %119, align 1, !tbaa !4
+  store i8 0, ptr %119, align 2, !tbaa !4
   store ptr %114, ptr %26, align 8, !tbaa !42
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 68
@@ -2273,7 +2273,7 @@ zend_hash_update_mem.exit257:                     ; preds = %124, %126
   %151 = getelementptr inbounds nuw i8, ptr %147, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %151, ptr noundef nonnull align 1 dereferenceable(14) @.str.20, i64 14, i1 false)
   %152 = getelementptr inbounds nuw i8, ptr %147, i64 38
-  store i8 0, ptr %152, align 1, !tbaa !4
+  store i8 0, ptr %152, align 2, !tbaa !4
   store ptr %147, ptr %26, align 8, !tbaa !42
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br i1 %2, label %177, label %154

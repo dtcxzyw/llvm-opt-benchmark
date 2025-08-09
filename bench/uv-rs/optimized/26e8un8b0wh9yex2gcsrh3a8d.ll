@@ -14252,7 +14252,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN3std6thread5local17LocalKey$LT$T$GT
   %62 = load i64, ptr %4, align 8, !noalias !4848, !noundef !3
   %63 = add i64 %62, -1
   store i64 %63, ptr %4, align 8, !noalias !4848
-  store i8 1, ptr %7, align 1, !noalias !4820
+  store i8 1, ptr %7, align 8, !noalias !4820
   br label %"_ZN12tracing_core10dispatcher11get_default28_$u7b$$u7b$closure$u7d$$u7d$17h20f3c58c1ff72193E.llvm.11984584770032924863.exit"
 
 64:                                               ; preds = %57, %36
@@ -14387,7 +14387,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN3std6thread5local17LocalKey$LT$T$GT
   %62 = load i64, ptr %4, align 8, !noalias !4883, !noundef !3
   %63 = add i64 %62, -1
   store i64 %63, ptr %4, align 8, !noalias !4883
-  store i8 1, ptr %7, align 1, !noalias !4855
+  store i8 1, ptr %7, align 8, !noalias !4855
   br label %"_ZN12tracing_core10dispatcher11get_default28_$u7b$$u7b$closure$u7d$$u7d$17hb5228d1e7ca0310fE.llvm.11984584770032924863.exit"
 
 64:                                               ; preds = %57, %36

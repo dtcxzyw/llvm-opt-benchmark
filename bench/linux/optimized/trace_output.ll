@@ -602,7 +602,7 @@ define dso_local i32 @trace_raw_output_prep(ptr noundef %0, ptr noundef readonly
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8296
   store i64 8156, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8304
-  store i8 0, ptr %12, align 1
+  store i8 0, ptr %12, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %16, i8 0, i64 20, i1 false)
   %17 = getelementptr i8, ptr %1, i64 64
   %18 = load i32, ptr %17, align 8

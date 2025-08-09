@@ -282,7 +282,7 @@ define dso_local void @_ZN31btDefaultCollisionConfigurationC2ERK34btDefaultColli
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 4
   store i32 %57, ptr %58, align 4, !tbaa !45
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 32
-  store i32 0, ptr %59, align 4, !tbaa !46
+  store i32 0, ptr %59, align 8, !tbaa !46
   %60 = mul nsw i32 %57, 880
   %61 = zext i32 %60 to i64
   %62 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %61, i32 noundef 16)
@@ -342,7 +342,7 @@ define dso_local void @_ZN31btDefaultCollisionConfigurationC2ERK34btDefaultColli
   %86 = getelementptr inbounds nuw i8, ptr %83, i64 4
   store i32 %85, ptr %86, align 4, !tbaa !45
   %87 = getelementptr inbounds nuw i8, ptr %83, i64 32
-  store i32 0, ptr %87, align 4, !tbaa !46
+  store i32 0, ptr %87, align 8, !tbaa !46
   %88 = mul nsw i32 %85, %81
   %89 = zext i32 %88 to i64
   %90 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %89, i32 noundef 16)

@@ -682,7 +682,7 @@ _Z11as_TosState9BasicType.exit:                   ; preds = %6, %switch.lookup
   store i16 %22, ptr %24, align 2
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 22
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !6
-  store volatile i8 -71, ptr %25, align 1
+  store volatile i8 -71, ptr %25, align 2
   ret void
 }
 
@@ -795,7 +795,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %_Z11as_TosState9Bas
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !6
   store volatile ptr %34, ptr %29, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !6
-  store volatile i8 -23, ptr %30, align 1
+  store volatile i8 -23, ptr %30, align 2
   br label %64
 
 64:                                               ; preds = %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit, %63
@@ -1309,7 +1309,7 @@ define hidden void @_ZN17ConstantPoolCache50remove_resolved_field_entries_if_non
   %21 = load i16, ptr %20, align 2
   %22 = zext i16 %21 to i32
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 18
-  %24 = load volatile i8, ptr %23, align 1
+  %24 = load volatile i8, ptr %23, align 2
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !6
   %.0.i = icmp eq i8 %24, -76
   br i1 %.0.i, label %.thread, label %25

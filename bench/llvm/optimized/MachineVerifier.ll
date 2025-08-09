@@ -22032,9 +22032,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEN12_GLOBAL__N_115Ma
   store ptr null, ptr %67, align 8, !tbaa !969
   %69 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 24
   %70 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 24
-  %71 = load i32, ptr %70, align 4, !tbaa !348
-  store i32 %71, ptr %69, align 4, !tbaa !348
-  store i32 0, ptr %70, align 4, !tbaa !348
+  %71 = load i32, ptr %70, align 8, !tbaa !348
+  store i32 %71, ptr %69, align 8, !tbaa !348
+  store i32 0, ptr %70, align 8, !tbaa !348
   %72 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 28
   %73 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 28
   %74 = load i32, ptr %72, align 4, !tbaa !348
@@ -22043,10 +22043,10 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEN12_GLOBAL__N_115Ma
   store i32 %74, ptr %73, align 4, !tbaa !348
   %76 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 32
   %77 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 32
-  %78 = load i32, ptr %76, align 4, !tbaa !348
-  %79 = load i32, ptr %77, align 4, !tbaa !348
-  store i32 %79, ptr %76, align 4, !tbaa !348
-  store i32 %78, ptr %77, align 4, !tbaa !348
+  %78 = load i32, ptr %76, align 8, !tbaa !348
+  %79 = load i32, ptr %77, align 8, !tbaa !348
+  store i32 %79, ptr %76, align 8, !tbaa !348
+  store i32 %78, ptr %77, align 8, !tbaa !348
   %80 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 40
   %81 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %80, i8 0, i64 20, i1 false)
@@ -22055,9 +22055,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEN12_GLOBAL__N_115Ma
   store ptr null, ptr %81, align 8, !tbaa !970
   %83 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 48
   %84 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 48
-  %85 = load i32, ptr %84, align 4, !tbaa !348
-  store i32 %85, ptr %83, align 4, !tbaa !348
-  store i32 0, ptr %84, align 4, !tbaa !348
+  %85 = load i32, ptr %84, align 8, !tbaa !348
+  store i32 %85, ptr %83, align 8, !tbaa !348
+  store i32 0, ptr %84, align 8, !tbaa !348
   %86 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 52
   %87 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 52
   %88 = load i32, ptr %86, align 4, !tbaa !348
@@ -22066,10 +22066,10 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEN12_GLOBAL__N_115Ma
   store i32 %88, ptr %87, align 4, !tbaa !348
   %90 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 56
   %91 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 56
-  %92 = load i32, ptr %90, align 4, !tbaa !348
-  %93 = load i32, ptr %91, align 4, !tbaa !348
-  store i32 %93, ptr %90, align 4, !tbaa !348
-  store i32 %92, ptr %91, align 4, !tbaa !348
+  %92 = load i32, ptr %90, align 8, !tbaa !348
+  %93 = load i32, ptr %91, align 8, !tbaa !348
+  store i32 %93, ptr %90, align 8, !tbaa !348
+  store i32 %92, ptr %91, align 8, !tbaa !348
   %94 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 64
   %95 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %94, i8 0, i64 20, i1 false)
@@ -22078,9 +22078,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEN12_GLOBAL__N_115Ma
   store ptr null, ptr %95, align 8, !tbaa !970
   %97 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 72
   %98 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 72
-  %99 = load i32, ptr %98, align 4, !tbaa !348
-  store i32 %99, ptr %97, align 4, !tbaa !348
-  store i32 0, ptr %98, align 4, !tbaa !348
+  %99 = load i32, ptr %98, align 8, !tbaa !348
+  store i32 %99, ptr %97, align 8, !tbaa !348
+  store i32 0, ptr %98, align 8, !tbaa !348
   %100 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 76
   %101 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 76
   %102 = load i32, ptr %100, align 4, !tbaa !348
@@ -22089,10 +22089,10 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEN12_GLOBAL__N_115Ma
   store i32 %102, ptr %101, align 4, !tbaa !348
   %104 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 80
   %105 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 80
-  %106 = load i32, ptr %104, align 4, !tbaa !348
-  %107 = load i32, ptr %105, align 4, !tbaa !348
-  store i32 %107, ptr %104, align 4, !tbaa !348
-  store i32 %106, ptr %105, align 4, !tbaa !348
+  %106 = load i32, ptr %104, align 8, !tbaa !348
+  %107 = load i32, ptr %105, align 8, !tbaa !348
+  store i32 %107, ptr %104, align 8, !tbaa !348
+  store i32 %106, ptr %105, align 8, !tbaa !348
   %108 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 88
   %109 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %108, i8 0, i64 20, i1 false)
@@ -22101,9 +22101,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEN12_GLOBAL__N_115Ma
   store ptr null, ptr %109, align 8, !tbaa !970
   %111 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 96
   %112 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 96
-  %113 = load i32, ptr %112, align 4, !tbaa !348
-  store i32 %113, ptr %111, align 4, !tbaa !348
-  store i32 0, ptr %112, align 4, !tbaa !348
+  %113 = load i32, ptr %112, align 8, !tbaa !348
+  store i32 %113, ptr %111, align 8, !tbaa !348
+  store i32 0, ptr %112, align 8, !tbaa !348
   %114 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 100
   %115 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 100
   %116 = load i32, ptr %114, align 4, !tbaa !348
@@ -22112,10 +22112,10 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEN12_GLOBAL__N_115Ma
   store i32 %116, ptr %115, align 4, !tbaa !348
   %118 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 104
   %119 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 104
-  %120 = load i32, ptr %118, align 4, !tbaa !348
-  %121 = load i32, ptr %119, align 4, !tbaa !348
-  store i32 %121, ptr %118, align 4, !tbaa !348
-  store i32 %120, ptr %119, align 4, !tbaa !348
+  %120 = load i32, ptr %118, align 8, !tbaa !348
+  %121 = load i32, ptr %119, align 8, !tbaa !348
+  store i32 %121, ptr %118, align 8, !tbaa !348
+  store i32 %120, ptr %119, align 8, !tbaa !348
   %122 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 112
   %123 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %122, i8 0, i64 20, i1 false)
@@ -22124,9 +22124,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEN12_GLOBAL__N_115Ma
   store ptr null, ptr %123, align 8, !tbaa !970
   %125 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 120
   %126 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 120
-  %127 = load i32, ptr %126, align 4, !tbaa !348
-  store i32 %127, ptr %125, align 4, !tbaa !348
-  store i32 0, ptr %126, align 4, !tbaa !348
+  %127 = load i32, ptr %126, align 8, !tbaa !348
+  store i32 %127, ptr %125, align 8, !tbaa !348
+  store i32 0, ptr %126, align 8, !tbaa !348
   %128 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 124
   %129 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 124
   %130 = load i32, ptr %128, align 4, !tbaa !348
@@ -22135,10 +22135,10 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEN12_GLOBAL__N_115Ma
   store i32 %130, ptr %129, align 4, !tbaa !348
   %132 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 128
   %133 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 128
-  %134 = load i32, ptr %132, align 4, !tbaa !348
-  %135 = load i32, ptr %133, align 4, !tbaa !348
-  store i32 %135, ptr %132, align 4, !tbaa !348
-  store i32 %134, ptr %133, align 4, !tbaa !348
+  %134 = load i32, ptr %132, align 8, !tbaa !348
+  %135 = load i32, ptr %133, align 8, !tbaa !348
+  store i32 %135, ptr %132, align 8, !tbaa !348
+  store i32 %134, ptr %133, align 8, !tbaa !348
   %136 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 136
   %137 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 136
   %138 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 160

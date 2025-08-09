@@ -5869,7 +5869,7 @@ define hidden void @zim_SplTempFileObject___construct(ptr noundef readonly captu
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %29, ptr noundef nonnull align 1 dereferenceable(12) @.str.19, i64 12, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 36
-  store i8 0, ptr %30, align 1, !tbaa !18
+  store i8 0, ptr %30, align 4, !tbaa !18
   br label %42
 
 31:                                               ; preds = %21
@@ -5893,7 +5893,7 @@ define hidden void @zim_SplTempFileObject___construct(ptr noundef readonly captu
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %40, ptr noundef nonnull align 1 dereferenceable(10) @.str.21, i64 10, i1 false)
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 34
-  store i8 0, ptr %41, align 1, !tbaa !18
+  store i8 0, ptr %41, align 2, !tbaa !18
   br label %42
 
 42:                                               ; preds = %33, %35, %24
@@ -5911,7 +5911,7 @@ define hidden void @zim_SplTempFileObject___construct(ptr noundef readonly captu
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 24
   store i16 25207, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 26
-  store i8 0, ptr %49, align 1, !tbaa !18
+  store i8 0, ptr %49, align 2, !tbaa !18
   %50 = getelementptr inbounds i8, ptr %6, i64 -4128
   store ptr %44, ptr %50, align 8, !tbaa !18
   %51 = load ptr, ptr @spl_ce_RuntimeException, align 8, !tbaa !66

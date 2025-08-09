@@ -3530,7 +3530,7 @@ define hidden void @_ZN11user_solver6solver21propagate_consequenceERKNS0_9prop_i
   %23 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %22, i64 noundef 12), !noalias !493
   store ptr %0, ptr %23, align 8, !tbaa !496, !noalias !493
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store i32 %21, ptr %24, align 4, !tbaa !498, !noalias !493
+  store i32 %21, ptr %24, align 8, !tbaa !498, !noalias !493
   %25 = load ptr, ptr %12, align 8, !tbaa !443, !noalias !493
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 3612
   %27 = load i32, ptr %26, align 4, !tbaa !500, !noalias !493
@@ -3603,7 +3603,7 @@ define hidden void @_ZN11user_solver6solver16mk_justificationEj(ptr dead_on_unwi
   %5 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %4, i64 noundef 12)
   store ptr %1, ptr %5, align 8, !tbaa !496
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %2, ptr %6, align 4, !tbaa !498
+  store i32 %2, ptr %6, align 8, !tbaa !498
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !443
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 3612

@@ -2833,7 +2833,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
   %106 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store ptr %106, ptr %4, align 8, !tbaa !78
   %107 = getelementptr inbounds nuw i8, ptr %78, i64 4
-  store i8 0, ptr %106, align 1, !tbaa !81
+  store i8 0, ptr %106, align 4, !tbaa !81
   store i32 1, ptr %107, align 4, !tbaa !10
   br label %.split37.us
 

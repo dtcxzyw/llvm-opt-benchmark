@@ -858,7 +858,7 @@ _ZNK21JfrThreadGroupsHelper8is_validEv.exit:
   %10 = add nsw i32 %9, -1
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %10, ptr %11, align 8
-  %12 = load i32, ptr %4, align 4
+  %12 = load i32, ptr %4, align 8
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %14, label %_ZN21JfrThreadGroupsHelperD2Ev.exit
 

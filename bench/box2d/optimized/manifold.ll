@@ -3152,7 +3152,7 @@ b2ClassifyNormal.exit.thread:                     ; preds = %181, %176
   %233 = load i8, ptr %232, align 1, !tbaa !49
   %234 = zext i8 %233 to i32
   %235 = getelementptr inbounds nuw i8, ptr %7, i64 6
-  %236 = load i8, ptr %235, align 1, !tbaa !49
+  %236 = load i8, ptr %235, align 2, !tbaa !49
   %237 = zext i8 %236 to i32
   %238 = icmp eq i8 %229, %231
   br i1 %238, label %239, label %361

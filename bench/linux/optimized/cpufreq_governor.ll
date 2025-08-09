@@ -337,7 +337,7 @@ define dso_local i32 @cpufreq_dbs_governor_init(ptr noundef %0) #0 align 16 {
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   tail call void @__mutex_init(ptr noundef nonnull %13, ptr noundef nonnull @.str.4, ptr noundef nonnull @alloc_policy_dbs_info.__key) #9
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  store volatile i32 0, ptr %14, align 4
+  store volatile i32 0, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 80
@@ -889,7 +889,7 @@ define internal void @dbs_work_handler(ptr noundef %0) #0 align 16 {
   store i64 %11, ptr %12, align 8
   tail call void @mutex_unlock(ptr noundef %6) #9
   %13 = getelementptr i8, ptr %0, i64 -40
-  store volatile i32 0, ptr %13, align 4
+  store volatile i32 0, ptr %13, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !28
   %14 = getelementptr i8, ptr %0, i64 65
   store i8 0, ptr %14, align 1

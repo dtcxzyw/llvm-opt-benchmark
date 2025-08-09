@@ -284,7 +284,7 @@ define dso_local void @dm_region_hash_destroy(ptr noundef %0) #2 align 16 {
   %20 = phi ptr [ %21, %26 ], [ %18, %13 ]
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr i8, ptr %20, i64 32
-  %23 = load volatile i32, ptr %22, align 4
+  %23 = load volatile i32, ptr %22, align 8
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %26, label %25, !prof !10
 
@@ -606,7 +606,7 @@ define internal fastcc ptr @__rh_find(ptr noundef %0, i64 noundef %1) unnamed_ad
   %50 = getelementptr inbounds nuw i8, ptr %38, i64 48
   store volatile ptr %49, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %38, i64 56
-  store volatile i32 0, ptr %51, align 4
+  store volatile i32 0, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %38, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, i8 0, i64 16, i1 false)
   tail call void @_raw_write_lock_irq(ptr noundef nonnull %30) #15
@@ -1229,7 +1229,7 @@ define dso_local void @dm_rh_recovery_prepare(ptr noundef %0) #2 align 16 {
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i32 8, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 56
-  %22 = load volatile i32, ptr %21, align 4
+  %22 = load volatile i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 0
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 48

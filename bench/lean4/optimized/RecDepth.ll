@@ -630,7 +630,7 @@ _init_l_Lean_initFn____x40_Lean_Util_RecDepth___hyg_5____closed__5.exit: ; preds
   %.val13 = load ptr, ptr %45, align 8, !tbaa !4
   store ptr %.val13, ptr @l_Lean_maxRecDepth, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.val13) #3
-  %46 = load i32, ptr %41, align 4, !tbaa !8
+  %46 = load i32, ptr %41, align 8, !tbaa !8
   %47 = icmp sgt i32 %46, 1
   br i1 %47, label %48, label %50, !prof !11
 

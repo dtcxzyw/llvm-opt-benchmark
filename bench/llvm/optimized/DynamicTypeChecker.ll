@@ -160,7 +160,7 @@ define dso_local void @_ZN5clang4ento26registerDynamicTypeCheckerERNS0_14Checker
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store i64 10, ptr %22, align 8, !tbaa !17
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 114
-  store i8 0, ptr %23, align 1, !tbaa !16
+  store i8 0, ptr %23, align 2, !tbaa !16
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 120
   store ptr %6, ptr %24, align 8, !tbaa !18
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 128

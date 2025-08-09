@@ -1506,7 +1506,7 @@ define internal fastcc noundef zeroext i1 @tcp_ack_update_rtt(ptr noundef %0, i3
   %124 = load i32, ptr %123, align 4
   store i32 %124, ptr %108, align 16
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %126 = load volatile ptr, ptr %125, align 8
+  %126 = load volatile ptr, ptr %125, align 16
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 1148
   %128 = load i32, ptr %127, align 4
   %129 = icmp eq ptr %126, null
@@ -1547,7 +1547,7 @@ define internal fastcc noundef zeroext i1 @tcp_ack_update_rtt(ptr noundef %0, i3
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   store i32 %154, ptr %155, align 16
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %157 = load volatile ptr, ptr %156, align 8
+  %157 = load volatile ptr, ptr %156, align 16
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 1148
   %159 = load i32, ptr %158, align 4
   %160 = icmp eq ptr %157, null
@@ -2763,7 +2763,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @tcp_try_rmem_schedule(ptr n
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr i8, ptr %32, i64 40
   tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %33, ptr elementtype(i64) %33) #20, !srcloc !58
-  %34 = load volatile i32, ptr %4, align 4
+  %34 = load volatile i32, ptr %4, align 8
   %35 = load i32, ptr %6, align 8
   %36 = icmp slt i32 %34, %35
   br i1 %36, label %78, label %37
@@ -2851,7 +2851,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @tcp_try_rmem_schedule(ptr n
 92:                                               ; preds = %81
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %94 = load i32, ptr %93, align 8
-  %95 = load volatile i32, ptr %4, align 4
+  %95 = load volatile i32, ptr %4, align 8
   %96 = add i32 %94, %95
   %97 = sub i32 %87, %96
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 1372
@@ -3256,7 +3256,7 @@ define dso_local void @tcp_data_ready(ptr noundef %0) local_unnamed_addr #1 alig
   %18 = ashr i32 %17, 3
   %19 = sub i32 %17, %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %21 = load volatile i32, ptr %20, align 4
+  %21 = load volatile i32, ptr %20, align 8
   %22 = icmp sgt i32 %21, %19
   br i1 %22, label %39, label %23
 
@@ -3369,7 +3369,7 @@ define dso_local void @tcp_check_space(ptr noundef %0) local_unnamed_addr #1 ali
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %24 = load i32, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %26 = load volatile i32, ptr %25, align 4
+  %26 = load volatile i32, ptr %25, align 8
   %27 = add i32 %24, %26
   %28 = sub i32 %20, %27
   %29 = icmp sgt i32 %28, 4608
@@ -3943,7 +3943,7 @@ tcp_rcv_rtt_measure_ts.exit:                      ; preds = %176, %182, %202, %2
   %279 = ashr i32 %278, 3
   %280 = sub i32 %278, %279
   %281 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %282 = load volatile i32, ptr %281, align 4
+  %282 = load volatile i32, ptr %281, align 8
   %283 = icmp sgt i32 %282, %280
   br i1 %283, label %300, label %284
 
@@ -4253,7 +4253,7 @@ define internal fastcc noundef range(i32 -41, 2) i32 @tcp_ack(ptr noundef %0, pt
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 0, ptr %27, align 4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %29 = load ptr, ptr %28, align 8
+  %29 = load ptr, ptr %28, align 32
   call void @llvm.prefetch.p0(ptr %29, i32 0, i32 3, i32 1)
   %30 = sub i32 %19, %11
   %31 = icmp slt i32 %30, 0
@@ -5698,7 +5698,7 @@ define internal fastcc noundef range(i32 -41, 2) i32 @tcp_ack(ptr noundef %0, pt
 961:                                              ; preds = %950
   %962 = getelementptr inbounds nuw i8, ptr %0, i64 1376
   %963 = load i32, ptr %962, align 32
-  %964 = load ptr, ptr %925, align 8
+  %964 = load ptr, ptr %925, align 16
   %965 = getelementptr inbounds nuw i8, ptr %964, i64 740
   %966 = load volatile i32, ptr %965, align 4
   %967 = icmp ugt i32 %963, %966
@@ -5728,7 +5728,7 @@ define internal fastcc noundef range(i32 -41, 2) i32 @tcp_ack(ptr noundef %0, pt
   %985 = load i32, ptr %984, align 32
   %986 = lshr i32 %985, 1
   %987 = icmp ult i32 %983, %986
-  %988 = load ptr, ptr %925, align 8
+  %988 = load ptr, ptr %925, align 16
   %989 = select i1 %987, i64 1204, i64 1208
   %990 = getelementptr inbounds nuw i8, ptr %988, i64 %989
   %991 = load volatile i32, ptr %990, align 4
@@ -6501,7 +6501,7 @@ define internal fastcc void @__tcp_ack_snd_check(ptr noundef %0, i32 noundef ran
   %125 = tail call i64 @llvm.umin.i64(i64 %122, i64 %124)
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call fastcc void @refcount_inc(ptr noundef nonnull %126)
-  %127 = load ptr, ptr %81, align 8
+  %127 = load ptr, ptr %81, align 16
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 1224
   %129 = load volatile i64, ptr %128, align 8
   tail call void @hrtimer_start_range_ns(ptr noundef nonnull %112, i64 noundef %125, i64 noundef %129, i32 noundef 7) #20
@@ -6560,7 +6560,7 @@ define internal fastcc noundef zeroext i1 @tcp_validate_incoming(ptr noundef %0,
   %36 = load i32, ptr %35, align 64
   %37 = sub i32 %34, %36
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 1712
-  store i32 %37, ptr %38, align 4
+  store i32 %37, ptr %38, align 16
   br label %57
 
 39:                                               ; preds = %24
@@ -6585,7 +6585,7 @@ define internal fastcc noundef zeroext i1 @tcp_validate_incoming(ptr noundef %0,
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 1408
   %51 = load i32, ptr %50, align 64
   %52 = sub i32 %47, %51
-  store i32 %52, ptr %46, align 4
+  store i32 %52, ptr %46, align 16
   br label %57
 
 53:                                               ; preds = %4
@@ -7880,7 +7880,7 @@ tcp_try_coalesce.exit:                            ; preds = %200, %205, %217, %2
   %395 = ashr i32 %394, 3
   %396 = sub i32 %394, %395
   %397 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %398 = load volatile i32, ptr %397, align 4
+  %398 = load volatile i32, ptr %397, align 8
   %399 = icmp sgt i32 %398, %396
   br i1 %399, label %415, label %400
 
@@ -9504,7 +9504,7 @@ define dso_local noundef range(i32 0, 2) i32 @tcp_rcv_state_process(ptr noundef 
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 1408
   %53 = load i32, ptr %52, align 64
   %54 = sub i32 %49, %53
-  store i32 %54, ptr %48, align 4
+  store i32 %54, ptr %48, align 16
   br label %55
 
 55:                                               ; preds = %51, %47, %33
@@ -9687,7 +9687,7 @@ define dso_local noundef range(i32 0, 2) i32 @tcp_rcv_state_process(ptr noundef 
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 1708
   %174 = load i32, ptr %173, align 4
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 1704
-  store i32 %174, ptr %175, align 4
+  store i32 %174, ptr %175, align 8
   %176 = call i64 @ktime_get_seconds() #20
   %177 = trunc i64 %176 to i32
   store i32 %177, ptr %39, align 4
@@ -10652,7 +10652,7 @@ define internal fastcc void @tcp_update_pacing_rate(ptr noundef %0) unnamed_addr
   %10 = lshr i32 %9, 1
   %11 = icmp ult i32 %7, %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 16
   %14 = select i1 %11, i64 1204, i64 1208
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 %14
   %16 = load volatile i32, ptr %15, align 4
@@ -16411,17 +16411,17 @@ define internal fastcc void @tcp_mtup_probe_success(ptr noundef initializes((214
 53:                                               ; preds = %48, %36
   %54 = phi i32 [ %52, %48 ], [ %47, %36 ]
   store i32 %54, ptr %9, align 32
-  %55 = load i32, ptr %27, align 8
+  %55 = load i32, ptr %27, align 32
   %56 = and i32 %55, 2147483647
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 1244
   store i32 %56, ptr %57, align 4
   %58 = and i32 %55, -2147483648
-  store i32 %58, ptr %27, align 8
+  store i32 %58, ptr %27, align 32
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 1156
   %60 = load i32, ptr %59, align 4
   %61 = tail call i32 @tcp_sync_mss(ptr noundef %0, i32 noundef %60) #20
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %63 = load ptr, ptr %62, align 8
+  %63 = load ptr, ptr %62, align 16
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 432
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr i8, ptr %65, i64 896
@@ -17337,7 +17337,7 @@ define internal fastcc void @tcp_grow_window(ptr noundef %0, ptr noundef readonl
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 244
   %10 = load volatile i32, ptr %9, align 4
-  %11 = load volatile i32, ptr %8, align 4
+  %11 = load volatile i32, ptr %8, align 8
   %12 = add i32 %10, %11
   %13 = sub i32 %7, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1438
@@ -17454,7 +17454,7 @@ define internal fastcc void @tcp_grow_window(ptr noundef %0, ptr noundef readonl
 88:                                               ; preds = %79
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %90 = load i32, ptr %89, align 8
-  %91 = load volatile i32, ptr %8, align 4
+  %91 = load volatile i32, ptr %8, align 8
   %92 = add i32 %90, %91
   %93 = sub i32 %85, %92
   %94 = tail call i32 @llvm.umin.i32(i32 %23, i32 %83)

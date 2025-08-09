@@ -6972,7 +6972,7 @@ _ZNK5Yosys7hashlib4poolINS_7SigPool8bitDef_tENS0_8hash_opsIS3_EEE9do_lookupERKS3
   %2620 = load ptr, ptr %2617, align 8, !tbaa !101
   store ptr %2620, ptr %2619, align 8, !tbaa !194
   %2621 = getelementptr inbounds nuw i8, ptr %2617, i64 8
-  %2622 = load i32, ptr %2621, align 4, !tbaa !65
+  %2622 = load i32, ptr %2621, align 8, !tbaa !65
   %2623 = getelementptr inbounds nuw i8, ptr %2619, i64 8
   store i32 %2622, ptr %2623, align 8, !tbaa !196
   %2624 = getelementptr inbounds nuw i8, ptr %2617, i64 16
@@ -9896,7 +9896,7 @@ _ZNK5Yosys7hashlib4poolINS_7SigPool8bitDef_tENS0_8hash_opsIS3_EEE9do_lookupERKS3
   %4009 = load ptr, ptr %4006, align 8, !tbaa !101
   store ptr %4009, ptr %4008, align 8, !tbaa !194
   %4010 = getelementptr inbounds nuw i8, ptr %4006, i64 8
-  %4011 = load i32, ptr %4010, align 4, !tbaa !65
+  %4011 = load i32, ptr %4010, align 8, !tbaa !65
   %4012 = getelementptr inbounds nuw i8, ptr %4008, i64 8
   store i32 %4011, ptr %4012, align 8, !tbaa !196
   %4013 = getelementptr inbounds nuw i8, ptr %4006, i64 16
@@ -13159,7 +13159,7 @@ _ZN5Yosys7hashlib8hash_opsINS_7SigPool8bitDef_tEE4hashERKS3_.exit.i4484: ; preds
   %5360 = load ptr, ptr %5357, align 8, !tbaa !101
   store ptr %5360, ptr %5359, align 8, !tbaa !194
   %5361 = getelementptr inbounds nuw i8, ptr %5357, i64 8
-  %5362 = load i32, ptr %5361, align 4, !tbaa !65
+  %5362 = load i32, ptr %5361, align 8, !tbaa !65
   %5363 = getelementptr inbounds nuw i8, ptr %5359, i64 8
   store i32 %5362, ptr %5363, align 8, !tbaa !196
   %5364 = getelementptr inbounds nuw i8, ptr %5357, i64 16
@@ -16096,7 +16096,7 @@ _ZN5Yosys7hashlib8hash_opsINS_7SigPool8bitDef_tEE4hashERKS3_.exit.i4734: ; preds
   %6755 = load ptr, ptr %6752, align 8, !tbaa !101
   store ptr %6755, ptr %6754, align 8, !tbaa !194
   %6756 = getelementptr inbounds nuw i8, ptr %6752, i64 8
-  %6757 = load i32, ptr %6756, align 4, !tbaa !65
+  %6757 = load i32, ptr %6756, align 8, !tbaa !65
   %6758 = getelementptr inbounds nuw i8, ptr %6754, i64 8
   store i32 %6757, ptr %6758, align 8, !tbaa !196
   %6759 = getelementptr inbounds nuw i8, ptr %6752, i64 16
@@ -25927,7 +25927,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit33:              ; preds = %148, %153, %160
   store i32 %174, ptr %175, align 4, !tbaa !398
   call void @_ZN5Yosys5RTLIL6Module11fixup_portsEv(ptr noundef nonnull align 8 dereferenceable(616) %0)
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %177 = load i32, ptr %176, align 4, !tbaa !200
+  %177 = load i32, ptr %176, align 8, !tbaa !200
   %178 = sext i32 %177 to i64
   %179 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8, !tbaa !249
   %180 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8, !tbaa !252

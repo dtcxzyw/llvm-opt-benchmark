@@ -18393,7 +18393,7 @@ define void @_ZN7rocksdb7blob_db10BlobDBImpl5WriteERKNS_12WriteOptionsEPNS_10Wri
   store i8 1, ptr %29, align 8, !tbaa !689
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 33
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %32 = load atomic i8, ptr %31 monotonic, align 1
+  %32 = load atomic i8, ptr %31 monotonic, align 8
   %33 = icmp ugt i8 %32, 2
   %or.cond.not = and i1 %33, %22
   br i1 %or.cond.not, label %.thread21.i, label %40
@@ -18851,7 +18851,7 @@ define void @_ZN7rocksdb7blob_db10BlobDBImpl8PutUntilERKNS_12WriteOptionsERKNS_5
   store i8 1, ptr %32, align 8, !tbaa !689
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 33
   %34 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %35 = load atomic i8, ptr %34 monotonic, align 1
+  %35 = load atomic i8, ptr %34 monotonic, align 8
   %36 = icmp ugt i8 %35, 2
   %or.cond.not = and i1 %36, %25
   br i1 %or.cond.not, label %.thread21.i, label %43
@@ -20611,7 +20611,7 @@ define { ptr, i64 } @_ZNK7rocksdb7blob_db10BlobDBImpl18GetCompressedSliceERKNS_5
   store i8 1, ptr %35, align 8, !tbaa !689
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 33
   %37 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %38 = load atomic i8, ptr %37 monotonic, align 1
+  %38 = load atomic i8, ptr %37 monotonic, align 8
   %39 = icmp ugt i8 %38, 2
   %or.cond.not = and i1 %39, %28
   br i1 %or.cond.not, label %.thread21.i, label %46
@@ -25053,7 +25053,7 @@ define void @_ZN7rocksdb7blob_db10BlobDBImpl8MultiGetERKNS_11ReadOptionsEmPPNS_1
   store i8 1, ptr %44, align 8, !tbaa !689
   %45 = getelementptr inbounds nuw i8, ptr %11, i64 33
   %46 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %47 = load atomic i8, ptr %46 monotonic, align 1
+  %47 = load atomic i8, ptr %46 monotonic, align 8
   %48 = icmp ugt i8 %47, 2
   %or.cond.not = and i1 %48, %37
   br i1 %or.cond.not, label %.thread21.i, label %55
@@ -32980,7 +32980,7 @@ _ZNSt12_Vector_baseIN7rocksdb13PinnableSliceESaIS1_EEC2EmRKS2_.exit.i: ; preds =
   store ptr %39, ptr %38, align 8, !tbaa !56
   %40 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 56
   store i64 0, ptr %40, align 8, !tbaa !16
-  store i8 0, ptr %39, align 1, !tbaa !17
+  store i8 0, ptr %39, align 8, !tbaa !17
   %41 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 88
   store i8 0, ptr %41, align 8, !tbaa !847
   %42 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 80
@@ -40777,7 +40777,7 @@ define linkonce_odr void @_ZN7rocksdb7blob_db14BlobDBIterator11SeekToFirstEv(ptr
   store i8 1, ptr %24, align 8, !tbaa !689
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 33
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %27 = load atomic i8, ptr %26 monotonic, align 1
+  %27 = load atomic i8, ptr %26 monotonic, align 8
   %28 = icmp ugt i8 %27, 2
   %or.cond.not = and i1 %28, %17
   br i1 %or.cond.not, label %.thread21.i, label %35
@@ -40940,7 +40940,7 @@ define linkonce_odr void @_ZN7rocksdb7blob_db14BlobDBIterator10SeekToLastEv(ptr 
   store i8 1, ptr %24, align 8, !tbaa !689
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 33
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %27 = load atomic i8, ptr %26 monotonic, align 1
+  %27 = load atomic i8, ptr %26 monotonic, align 8
   %28 = icmp ugt i8 %27, 2
   %or.cond.not = and i1 %28, %17
   br i1 %or.cond.not, label %.thread21.i, label %35
@@ -41103,7 +41103,7 @@ define linkonce_odr void @_ZN7rocksdb7blob_db14BlobDBIterator4SeekERKNS_5SliceE(
   store i8 1, ptr %25, align 8, !tbaa !689
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 33
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %28 = load atomic i8, ptr %27 monotonic, align 1
+  %28 = load atomic i8, ptr %27 monotonic, align 8
   %29 = icmp ugt i8 %28, 2
   %or.cond.not = and i1 %29, %18
   br i1 %or.cond.not, label %.thread21.i, label %36
@@ -41266,7 +41266,7 @@ define linkonce_odr void @_ZN7rocksdb7blob_db14BlobDBIterator11SeekForPrevERKNS_
   store i8 1, ptr %25, align 8, !tbaa !689
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 33
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %28 = load atomic i8, ptr %27 monotonic, align 1
+  %28 = load atomic i8, ptr %27 monotonic, align 8
   %29 = icmp ugt i8 %28, 2
   %or.cond.not = and i1 %29, %18
   br i1 %or.cond.not, label %.thread21.i, label %36
@@ -41429,7 +41429,7 @@ define linkonce_odr void @_ZN7rocksdb7blob_db14BlobDBIterator4NextEv(ptr noundef
   store i8 1, ptr %24, align 8, !tbaa !689
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 33
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %27 = load atomic i8, ptr %26 monotonic, align 1
+  %27 = load atomic i8, ptr %26 monotonic, align 8
   %28 = icmp ugt i8 %27, 2
   %or.cond.not = and i1 %28, %17
   br i1 %or.cond.not, label %.thread21.i, label %35
@@ -41592,7 +41592,7 @@ define linkonce_odr void @_ZN7rocksdb7blob_db14BlobDBIterator4PrevEv(ptr noundef
   store i8 1, ptr %24, align 8, !tbaa !689
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 33
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %27 = load atomic i8, ptr %26 monotonic, align 1
+  %27 = load atomic i8, ptr %26 monotonic, align 8
   %28 = icmp ugt i8 %27, 2
   %or.cond.not = and i1 %28, %17
   br i1 %or.cond.not, label %.thread21.i, label %35
@@ -42294,7 +42294,7 @@ define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_trait
   store ptr %19, ptr %.08.i.i.i, align 8, !tbaa !56
   %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 8
   store i64 0, ptr %20, align 8, !tbaa !16
-  store i8 0, ptr %19, align 1, !tbaa !17
+  store i8 0, ptr %19, align 8, !tbaa !17
   %21 = add i64 %.057.i.i.i, -1
   %22 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 32
   %.not.i.i.i = icmp eq i64 %21, 0
@@ -42328,7 +42328,7 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
   store ptr %31, ptr %.08.i.i.i31, align 8, !tbaa !56
   %32 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 8
   store i64 0, ptr %32, align 8, !tbaa !16
-  store i8 0, ptr %31, align 1, !tbaa !17
+  store i8 0, ptr %31, align 8, !tbaa !17
   %33 = add i64 %.057.i.i.i32, -1
   %34 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 32
   %.not.i.i.i33 = icmp eq i64 %33, 0
@@ -42374,7 +42374,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %45, ptr %47, align 8, !tbaa !16, !alias.scope !1157, !noalias !1160
   store ptr %37, ptr %.0911.i.i.i, align 8, !tbaa !11, !alias.scope !1160, !noalias !1157
   store i64 0, ptr %46, align 8, !tbaa !16, !alias.scope !1160, !noalias !1157
-  store i8 0, ptr %37, align 1, !tbaa !17, !alias.scope !1160, !noalias !1157
+  store i8 0, ptr %37, align 8, !tbaa !17, !alias.scope !1160, !noalias !1157
   %48 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i38 = icmp eq ptr %48, %5

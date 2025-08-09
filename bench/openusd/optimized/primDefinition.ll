@@ -3831,8 +3831,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrENS_8SdfLayerEEE
   %70 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 24
   %71 = load i32, ptr %67, align 8
   store i32 0, ptr %67, align 8
-  %72 = load i32, ptr %70, align 4
-  store i32 %71, ptr %70, align 4
+  %72 = load i32, ptr %70, align 8
+  store i32 %71, ptr %70, align 8
   %.not.i.i.i.i = icmp eq i32 %72, 0
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition13_LayerAndPathaSEOS1_.exit.thread, label %76
 
@@ -6224,8 +6224,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer8SetFieldINS_14SdfVariabilityEEEvR
   %171 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i, i64 24
   %172 = load i32, ptr %63, align 8
   store i32 0, ptr %63, align 8
-  %173 = load i32, ptr %171, align 4
-  store i32 %172, ptr %171, align 4
+  %173 = load i32, ptr %171, align 8
+  store i32 %172, ptr %171, align 8
   %.not.i.i.i.i33 = icmp eq i32 %173, 0
   br i1 %.not.i.i.i.i33, label %_ZN32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition13_LayerAndPathaSEOS1_.exit, label %174
 
@@ -10058,7 +10058,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrRese
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load i32, ptr %12, align 8
-  store i32 %13, ptr %11, align 4
+  store i32 %13, ptr %11, align 8
   store i32 0, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -12000,7 +12000,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrRese
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load i32, ptr %11, align 8
-  store i32 %12, ptr %10, align 4
+  store i32 %12, ptr %10, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %12, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NS0_17UsdPrimDefinition13_LayerAndPathEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_11HashFunctorENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJS1_RS5_EEEPNS8_16_Hashtable_allocISaINS8_10_Hash_nodeIS6_Lb1EEEEEEDpOT_.exit, label %13
 
@@ -13663,7 +13663,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i.i.i.i: ; preds = 
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load i32, ptr %19, align 8
-  store i32 %20, ptr %18, align 4
+  store i32 %20, ptr %18, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %20, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NS0_17UsdPrimDefinition13_LayerAndPathEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_11HashFunctorENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRS3_RKS5_EEEPNS8_16_Hashtable_allocISaINS8_10_Hash_nodeIS6_Lb1EEEEEEDpOT_.exit, label %21
 

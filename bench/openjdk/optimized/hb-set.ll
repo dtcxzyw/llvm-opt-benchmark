@@ -101,11 +101,11 @@ _ZL16hb_object_createI8hb_set_tJEEPT_DpT0_.exit:  ; preds = %0
   store atomic i64 0, ptr %6 monotonic, align 8
   store i8 1, ptr %2, align 8
   store i32 0, ptr %3, align 4
-  store atomic i32 0, ptr %4 monotonic, align 4
-  store atomic i32 1, ptr %1 monotonic, align 4
+  store atomic i32 0, ptr %4 monotonic, align 8
+  store atomic i32 1, ptr %1 monotonic, align 8
   store atomic i32 1, ptr %5 monotonic, align 4
   store atomic i64 0, ptr %6 monotonic, align 8
-  %7 = load atomic i32, ptr %1 monotonic, align 4
+  %7 = load atomic i32, ptr %1 monotonic, align 8
   br label %8
 
 8:                                                ; preds = %0, %_ZL16hb_object_createI8hb_set_tJEEPT_DpT0_.exit
@@ -316,11 +316,11 @@ hb_set_create.exit.thread:                        ; preds = %1
   store atomic i64 0, ptr %7 monotonic, align 8
   store i8 1, ptr %3, align 8
   store i32 0, ptr %4, align 4
-  store atomic i32 0, ptr %5 monotonic, align 4
-  store atomic i32 1, ptr %2 monotonic, align 4
+  store atomic i32 0, ptr %5 monotonic, align 8
+  store atomic i32 1, ptr %2 monotonic, align 8
   store atomic i32 1, ptr %6 monotonic, align 4
   store atomic i64 0, ptr %7 monotonic, align 8
-  %8 = load atomic i32, ptr %2 monotonic, align 4
+  %8 = load atomic i32, ptr %2 monotonic, align 8
   br label %10
 
 hb_set_create.exit:                               ; preds = %1

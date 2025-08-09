@@ -374,7 +374,7 @@ _ZNSt10unique_ptrIN11flatbuffers12_GLOBAL__N_116PhpCodeGeneratorESt14default_del
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %4, ptr %3, align 8, !tbaa !4
-  store i8 0, ptr %4, align 1, !tbaa !10
+  store i8 0, ptr %4, align 8, !tbaa !10
   store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN11flatbuffers12_GLOBAL__N_116PhpCodeGeneratorE, i64 16), ptr %1, align 8, !tbaa !11
   store ptr %1, ptr %0, align 8, !tbaa !13
   ret void

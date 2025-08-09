@@ -315,9 +315,9 @@ lean_box_float32.exit:                            ; preds = %lean_dec.exit
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %18, align 8, !tbaa !12
-  store i32 1, ptr %11, align 4, !tbaa !8
+  store i32 1, ptr %11, align 8, !tbaa !8
   store i32 16, ptr %17, align 4
-  store float %16, ptr %18, align 4, !tbaa !4
+  store float %16, ptr %18, align 8, !tbaa !4
   ret ptr %11
 }
 
@@ -363,9 +363,9 @@ lean_box_float32.exit:                            ; preds = %lean_dec.exit
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %18, align 8, !tbaa !12
-  store i32 1, ptr %11, align 4, !tbaa !8
+  store i32 1, ptr %11, align 8, !tbaa !8
   store i32 16, ptr %17, align 4
-  store float %16, ptr %18, align 4, !tbaa !4
+  store float %16, ptr %18, align 8, !tbaa !4
   ret ptr %11
 }
 
@@ -411,9 +411,9 @@ lean_box_float32.exit:                            ; preds = %lean_dec.exit
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %18, align 8, !tbaa !12
-  store i32 1, ptr %11, align 4, !tbaa !8
+  store i32 1, ptr %11, align 8, !tbaa !8
   store i32 16, ptr %17, align 4
-  store float %16, ptr %18, align 4, !tbaa !4
+  store float %16, ptr %18, align 8, !tbaa !4
   ret ptr %11
 }
 
@@ -459,9 +459,9 @@ lean_box_float32.exit:                            ; preds = %lean_dec.exit
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 0, ptr %17, align 8, !tbaa !12
-  store i32 1, ptr %12, align 4, !tbaa !8
+  store i32 1, ptr %12, align 8, !tbaa !8
   store i32 16, ptr %16, align 4
-  store float %15, ptr %17, align 4, !tbaa !4
+  store float %15, ptr %17, align 8, !tbaa !4
   ret ptr %12
 }
 
@@ -507,9 +507,9 @@ lean_box_float32.exit:                            ; preds = %lean_dec.exit
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 0, ptr %17, align 8, !tbaa !12
-  store i32 1, ptr %12, align 4, !tbaa !8
+  store i32 1, ptr %12, align 8, !tbaa !8
   store i32 16, ptr %16, align 4
-  store float %15, ptr %17, align 4, !tbaa !4
+  store float %15, ptr %17, align 8, !tbaa !4
   ret ptr %12
 }
 

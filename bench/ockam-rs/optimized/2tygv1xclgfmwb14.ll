@@ -929,7 +929,7 @@ __rust_try.llvm.13157132225597385975.exit:
   %1 = load ptr, ptr %0, align 8, !alias.scope !125, !noalias !126, !noundef !4
   store i64 0, ptr %1, align 8, !noalias !129
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i8 2, ptr %2, align 1, !noalias !129
+  store i8 2, ptr %2, align 8, !noalias !129
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
@@ -1488,7 +1488,7 @@ define hidden void @_ZN3std9panicking3try7do_call17had3b8b059d46c93dE.llvm.13157
   %3 = load ptr, ptr %2, align 8, !alias.scope !254, !noalias !255, !noundef !4
   store i64 0, ptr %3, align 8, !noalias !258
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i8 2, ptr %4, align 1, !noalias !258
+  store i8 2, ptr %4, align 8, !noalias !258
   ret void
 }
 

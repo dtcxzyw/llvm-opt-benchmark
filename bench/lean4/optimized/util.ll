@@ -3863,7 +3863,7 @@ _ZN4lean4exprC2ERKS0_.exit85:                     ; preds = %._crit_edge, %266, 
   store ptr %291, ptr %290, align 8, !tbaa !99
   %292 = getelementptr inbounds nuw i8, ptr %289, i64 16
   store i64 0, ptr %292, align 8, !tbaa !102
-  store i8 0, ptr %291, align 1, !tbaa !104
+  store i8 0, ptr %291, align 8, !tbaa !104
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %289, align 8, !tbaa !53
   tail call void @__cxa_throw(ptr nonnull %289, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #30
   unreachable

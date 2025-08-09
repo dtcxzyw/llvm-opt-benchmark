@@ -1074,7 +1074,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__16Hd_PrimTypeIndexINS_7HdSprimEE26_RenderDe
   %.06.i.i.i = phi ptr [ %52, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_16Hd_PrimTypeIndexINS3_7HdSprimEE9_PrimInfoEELb1EEEEE18_M_deallocate_nodeEPSB_.exit.i.i.i ], [ %.pre, %._crit_edge ]
   %52 = load ptr, ptr %.06.i.i.i, align 8
   %53 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 8
-  %54 = load i32, ptr %53, align 4
+  %54 = load i32, ptr %53, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %54, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_16Hd_PrimTypeIndexINS3_7HdSprimEE9_PrimInfoEELb1EEEEE18_M_deallocate_nodeEPSB_.exit.i.i.i, label %55
 
@@ -1819,7 +1819,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEmNS1_11HashFunc
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 32
   %125 = load i64, ptr %124, align 8
   %126 = icmp eq i64 %114, %125
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i = load i64, ptr %123, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i = load i64, ptr %123, align 8
   %127 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i
   %128 = select i1 %126, i1 %127, i1 false
   br i1 %128, label %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_16Hd_PrimTypeIndexINS0_7HdSprimEE9_PrimInfoENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S5_EEE4findERSA_.exit, label %.lr.ph.i.i.i.i22
@@ -2172,7 +2172,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12HdPrimGatherC2Ev.exit: ; preds = %.lr.ph.
   %106 = getelementptr inbounds nuw i8, ptr %104, i64 32
   %107 = load i64, ptr %106, align 8
   %108 = icmp eq i64 %97, %107
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i = load i64, ptr %105, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i = load i64, ptr %105, align 8
   %109 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i
   %110 = select i1 %108, i1 %109, i1 false
   br i1 %110, label %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_16Hd_PrimTypeIndexINS0_7HdSprimEE9_PrimInfoENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S5_EEE4findERSA_.exit, label %.lr.ph.i.i.i.i
@@ -2382,7 +2382,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_16
 _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_16Hd_PrimTypeIndexINS0_7HdSprimEE9_PrimInfoEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_4HashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_remove_bucket_beginEmPNSA_10_Hash_nodeIS8_Lb1EEEm.exit.i: ; preds = %176, %172, %171, %170, %159
   %178 = load ptr, ptr %.sroa.06.1.i.i, align 8
   store ptr %178, ptr %.0.i.i.i.i, align 8
-  %179 = load i32, ptr %129, align 4
+  %179 = load i32, ptr %129, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %179, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_16Hd_PrimTypeIndexINS0_7HdSprimEE9_PrimInfoENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S5_EEE5eraseENSt8__detail14_Node_iteratorISB_Lb0ELb1EEE.exit, label %180
 
@@ -2966,7 +2966,7 @@ _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEmNS1_11HashFun
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 32
   %112 = load i64, ptr %111, align 8
   %113 = icmp eq i64 %101, %112
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i = load i64, ptr %110, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i = load i64, ptr %110, align 8
   %114 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i
   %115 = select i1 %113, i1 %114, i1 false
   br i1 %115, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_16Hd_PrimTypeIndexINS0_7HdSprimEE9_PrimInfoENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S5_EEE4findERSA_.exit, label %.lr.ph.i.i.i.i10
@@ -4980,7 +4980,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__16Hd_PrimTypeIndexINS_7HdBprimEE26_RenderDe
   %.06.i.i.i = phi ptr [ %52, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_16Hd_PrimTypeIndexINS3_7HdBprimEE9_PrimInfoEELb1EEEEE18_M_deallocate_nodeEPSB_.exit.i.i.i ], [ %.pre, %._crit_edge ]
   %52 = load ptr, ptr %.06.i.i.i, align 8
   %53 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 8
-  %54 = load i32, ptr %53, align 4
+  %54 = load i32, ptr %53, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %54, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_16Hd_PrimTypeIndexINS3_7HdBprimEE9_PrimInfoEELb1EEEEE18_M_deallocate_nodeEPSB_.exit.i.i.i, label %55
 
@@ -5682,7 +5682,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEmNS1_11HashFunc
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 32
   %125 = load i64, ptr %124, align 8
   %126 = icmp eq i64 %114, %125
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i = load i64, ptr %123, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i = load i64, ptr %123, align 8
   %127 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i
   %128 = select i1 %126, i1 %127, i1 false
   br i1 %128, label %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_16Hd_PrimTypeIndexINS0_7HdBprimEE9_PrimInfoENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S5_EEE4findERSA_.exit, label %.lr.ph.i.i.i.i22
@@ -6029,7 +6029,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12HdPrimGatherC2Ev.exit: ; preds = %.lr.ph.
   %106 = getelementptr inbounds nuw i8, ptr %104, i64 32
   %107 = load i64, ptr %106, align 8
   %108 = icmp eq i64 %97, %107
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i = load i64, ptr %105, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i = load i64, ptr %105, align 8
   %109 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i
   %110 = select i1 %108, i1 %109, i1 false
   br i1 %110, label %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_16Hd_PrimTypeIndexINS0_7HdBprimEE9_PrimInfoENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S5_EEE4findERSA_.exit, label %.lr.ph.i.i.i.i
@@ -6235,7 +6235,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_16
 _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_16Hd_PrimTypeIndexINS0_7HdBprimEE9_PrimInfoEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_4HashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_remove_bucket_beginEmPNSA_10_Hash_nodeIS8_Lb1EEEm.exit.i: ; preds = %176, %172, %171, %170, %159
   %178 = load ptr, ptr %.sroa.06.1.i.i, align 8
   store ptr %178, ptr %.0.i.i.i.i, align 8
-  %179 = load i32, ptr %129, align 4
+  %179 = load i32, ptr %129, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %179, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_16Hd_PrimTypeIndexINS0_7HdBprimEE9_PrimInfoENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S5_EEE5eraseENSt8__detail14_Node_iteratorISB_Lb0ELb1EEE.exit, label %180
 
@@ -6729,7 +6729,7 @@ _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEmNS1_11HashFun
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 32
   %112 = load i64, ptr %111, align 8
   %113 = icmp eq i64 %101, %112
-  %.0.copyload.i2.i.i.i.i18.i.i.i.i = load i64, ptr %110, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i.i.i = load i64, ptr %110, align 8
   %114 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i.i.i
   %115 = select i1 %113, i1 %114, i1 false
   br i1 %115, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_16Hd_PrimTypeIndexINS0_7HdBprimEE9_PrimInfoENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S5_EEE4findERSA_.exit, label %.lr.ph.i.i.i.i10
@@ -10210,7 +10210,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11: ; preds = %_ZN3tb
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNISt5_BindIFMNS5_19_ParallelSyncHelperINS5_7HdSprimEEEFvmmEPSA_St12_PlaceholderILi1EESE_ILi2EEEEEEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEEE, i64 16), ptr %30, align 64
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 64
   %33 = load i64, ptr %23, align 64
-  store i64 %33, ptr %32, align 8
+  store i64 %33, ptr %32, align 64
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 72
   %35 = load i64, ptr %24, align 8
   %36 = sub i64 %33, %35
@@ -10220,7 +10220,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11: ; preds = %_ZN3tb
   store i64 %38, ptr %34, align 8
   %39 = getelementptr inbounds nuw i8, ptr %30, i64 80
   %40 = load i64, ptr %25, align 16
-  store i64 %40, ptr %39, align 8
+  store i64 %40, ptr %39, align 16
   %41 = getelementptr inbounds nuw i8, ptr %30, i64 88
   %42 = load i64, ptr %26, align 8
   store i64 %42, ptr %41, align 8
@@ -10230,7 +10230,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11: ; preds = %_ZN3tb
   store i64 %45, ptr %27, align 8
   store i64 %45, ptr %43, align 8
   %46 = getelementptr inbounds nuw i8, ptr %30, i64 112
-  store i32 2, ptr %46, align 8
+  store i32 2, ptr %46, align 16
   %47 = getelementptr inbounds nuw i8, ptr %30, i64 116
   %48 = load i8, ptr %28, align 4
   store i8 %48, ptr %47, align 4
@@ -10241,12 +10241,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11: ; preds = %_ZN3tb
   %52 = load ptr, ptr %29, align 32
   store ptr %52, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store i32 2, ptr %53, align 4
+  store i32 2, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %55 = load i64, ptr %5, align 8
   store i64 %55, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  store i8 0, ptr %56, align 1
+  store i8 0, ptr %56, align 8
   store ptr %51, ptr %29, align 32
   %57 = getelementptr inbounds nuw i8, ptr %30, i64 96
   store ptr %51, ptr %57, align 32
@@ -10472,7 +10472,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   store i64 %99, ptr %39, align 8
   store i64 %99, ptr %97, align 8
   %100 = getelementptr inbounds nuw i8, ptr %91, i64 112
-  store i32 2, ptr %100, align 8
+  store i32 2, ptr %100, align 16
   %101 = getelementptr inbounds nuw i8, ptr %91, i64 116
   %102 = load i8, ptr %40, align 4
   %103 = getelementptr inbounds nuw i8, ptr %91, i64 120
@@ -10484,12 +10484,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %107 = load ptr, ptr %37, align 32
   store ptr %107, ptr %106, align 8
   %108 = getelementptr inbounds nuw i8, ptr %106, i64 8
-  store i32 2, ptr %108, align 4
+  store i32 2, ptr %108, align 8
   %109 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %110 = load i64, ptr %5, align 8
   store i64 %110, ptr %109, align 8
   %111 = getelementptr inbounds nuw i8, ptr %106, i64 24
-  store i8 0, ptr %111, align 1
+  store i8 0, ptr %111, align 8
   store ptr %106, ptr %37, align 32
   %112 = getelementptr inbounds nuw i8, ptr %91, i64 96
   store ptr %106, ptr %112, align 32
@@ -10612,7 +10612,7 @@ define linkonce_odr void @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7
   %.06.i.i = phi ptr [ %4, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_16Hd_PrimTypeIndexINS3_7HdSprimEE9_PrimInfoEELb1EEEEE18_M_deallocate_nodeEPSB_.exit.i.i ], [ %3, %1 ]
   %4 = load ptr, ptr %.06.i.i, align 8
   %5 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 8
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_16Hd_PrimTypeIndexINS3_7HdSprimEE9_PrimInfoEELb1EEEEE18_M_deallocate_nodeEPSB_.exit.i.i, label %7
 
@@ -10680,7 +10680,7 @@ define linkonce_odr void @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7
   %.06.i = phi ptr [ %4, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_16Hd_PrimTypeIndexINS3_7HdSprimEE9_PrimInfoEELb1EEEEE18_M_deallocate_nodeEPSB_.exit.i ], [ %3, %1 ]
   %4 = load ptr, ptr %.06.i, align 8
   %5 = getelementptr inbounds nuw i8, ptr %.06.i, i64 8
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_16Hd_PrimTypeIndexINS3_7HdSprimEE9_PrimInfoEELb1EEEEE18_M_deallocate_nodeEPSB_.exit.i, label %7
 
@@ -11154,7 +11154,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11: ; preds = %_ZN3tb
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNISt5_BindIFMNS5_19_ParallelSyncHelperINS5_7HdBprimEEEFvmmEPSA_St12_PlaceholderILi1EESE_ILi2EEEEEEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEEE, i64 16), ptr %30, align 64
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 64
   %33 = load i64, ptr %23, align 64
-  store i64 %33, ptr %32, align 8
+  store i64 %33, ptr %32, align 64
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 72
   %35 = load i64, ptr %24, align 8
   %36 = sub i64 %33, %35
@@ -11164,7 +11164,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11: ; preds = %_ZN3tb
   store i64 %38, ptr %34, align 8
   %39 = getelementptr inbounds nuw i8, ptr %30, i64 80
   %40 = load i64, ptr %25, align 16
-  store i64 %40, ptr %39, align 8
+  store i64 %40, ptr %39, align 16
   %41 = getelementptr inbounds nuw i8, ptr %30, i64 88
   %42 = load i64, ptr %26, align 8
   store i64 %42, ptr %41, align 8
@@ -11174,7 +11174,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11: ; preds = %_ZN3tb
   store i64 %45, ptr %27, align 8
   store i64 %45, ptr %43, align 8
   %46 = getelementptr inbounds nuw i8, ptr %30, i64 112
-  store i32 2, ptr %46, align 8
+  store i32 2, ptr %46, align 16
   %47 = getelementptr inbounds nuw i8, ptr %30, i64 116
   %48 = load i8, ptr %28, align 4
   store i8 %48, ptr %47, align 4
@@ -11185,12 +11185,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11: ; preds = %_ZN3tb
   %52 = load ptr, ptr %29, align 32
   store ptr %52, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store i32 2, ptr %53, align 4
+  store i32 2, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %55 = load i64, ptr %5, align 8
   store i64 %55, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  store i8 0, ptr %56, align 1
+  store i8 0, ptr %56, align 8
   store ptr %51, ptr %29, align 32
   %57 = getelementptr inbounds nuw i8, ptr %30, i64 96
   store ptr %51, ptr %57, align 32
@@ -11414,7 +11414,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   store i64 %99, ptr %39, align 8
   store i64 %99, ptr %97, align 8
   %100 = getelementptr inbounds nuw i8, ptr %91, i64 112
-  store i32 2, ptr %100, align 8
+  store i32 2, ptr %100, align 16
   %101 = getelementptr inbounds nuw i8, ptr %91, i64 116
   %102 = load i8, ptr %40, align 4
   %103 = getelementptr inbounds nuw i8, ptr %91, i64 120
@@ -11426,12 +11426,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %107 = load ptr, ptr %37, align 32
   store ptr %107, ptr %106, align 8
   %108 = getelementptr inbounds nuw i8, ptr %106, i64 8
-  store i32 2, ptr %108, align 4
+  store i32 2, ptr %108, align 8
   %109 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %110 = load i64, ptr %5, align 8
   store i64 %110, ptr %109, align 8
   %111 = getelementptr inbounds nuw i8, ptr %106, i64 24
-  store i8 0, ptr %111, align 1
+  store i8 0, ptr %111, align 8
   store ptr %106, ptr %37, align 32
   %112 = getelementptr inbounds nuw i8, ptr %91, i64 96
   store ptr %106, ptr %112, align 32
@@ -11537,7 +11537,7 @@ define linkonce_odr void @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7
   %.06.i.i = phi ptr [ %4, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_16Hd_PrimTypeIndexINS3_7HdBprimEE9_PrimInfoEELb1EEEEE18_M_deallocate_nodeEPSB_.exit.i.i ], [ %3, %1 ]
   %4 = load ptr, ptr %.06.i.i, align 8
   %5 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 8
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_16Hd_PrimTypeIndexINS3_7HdBprimEE9_PrimInfoEELb1EEEEE18_M_deallocate_nodeEPSB_.exit.i.i, label %7
 
@@ -11605,7 +11605,7 @@ define linkonce_odr void @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7
   %.06.i = phi ptr [ %4, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_16Hd_PrimTypeIndexINS3_7HdBprimEE9_PrimInfoEELb1EEEEE18_M_deallocate_nodeEPSB_.exit.i ], [ %3, %1 ]
   %4 = load ptr, ptr %.06.i, align 8
   %5 = getelementptr inbounds nuw i8, ptr %.06.i, i64 8
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_16Hd_PrimTypeIndexINS3_7HdBprimEE9_PrimInfoEELb1EEEEE18_M_deallocate_nodeEPSB_.exit.i, label %7
 
@@ -12066,7 +12066,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_16
   store ptr null, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %25 = load i32, ptr %23, align 4
-  store i32 %25, ptr %24, align 4
+  store i32 %25, ptr %24, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %25, 0
   br i1 %.not.i.i.i.i.i.i.i, label %37, label %26
 
@@ -12119,7 +12119,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_16
   store ptr null, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %55 = load i32, ptr %53, align 4
-  store i32 %55, ptr %54, align 4
+  store i32 %55, ptr %54, align 8
   %.not.i.i.i.i.i.i.i32 = icmp eq i32 %55, 0
   br i1 %.not.i.i.i.i.i.i.i32, label %67, label %56
 
@@ -12721,7 +12721,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrRese
   store ptr null, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %1, align 4
-  store i32 %7, ptr %6, align 4
+  store i32 %7, ptr %6, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_16Hd_PrimTypeIndexINS0_7HdSprimEE9_PrimInfoEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_4HashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRS3_S7_EEEPNSA_16_Hashtable_allocISaINSA_10_Hash_nodeIS8_Lb1EEEEEEDpOT_.exit, label %8
 
@@ -12815,7 +12815,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_16
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %57 = load i64, ptr %56, align 8
   %58 = icmp eq i64 %45, %57
-  %.0.copyload.i2.i.i.i.i18.i.i = load i64, ptr %55, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i = load i64, ptr %55, align 8
   %59 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i
   %60 = select i1 %58, i1 %59, i1 false
   %61 = trunc i64 %.0.copyload.i.i.i.i.i.i.i to i32
@@ -13212,7 +13212,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_16
   %35 = load ptr, ptr %3, align 8
   store ptr %35, ptr %2, align 8
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %37 = load i32, ptr %36, align 4
+  %37 = load i32, ptr %36, align 8
   %.not.i.i.i.i.i.i = icmp eq i32 %37, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_16Hd_PrimTypeIndexINS3_7HdSprimEE9_PrimInfoEELb1EEEEE18_M_deallocate_nodeEPSB_.exit, label %38
 
@@ -14172,7 +14172,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_16
   store ptr null, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %25 = load i32, ptr %23, align 4
-  store i32 %25, ptr %24, align 4
+  store i32 %25, ptr %24, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %25, 0
   br i1 %.not.i.i.i.i.i.i.i, label %37, label %26
 
@@ -14225,7 +14225,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_16
   store ptr null, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %55 = load i32, ptr %53, align 4
-  store i32 %55, ptr %54, align 4
+  store i32 %55, ptr %54, align 8
   %.not.i.i.i.i.i.i.i32 = icmp eq i32 %55, 0
   br i1 %.not.i.i.i.i.i.i.i32, label %67, label %56
 
@@ -14337,7 +14337,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrRese
   store ptr null, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %1, align 4
-  store i32 %7, ptr %6, align 4
+  store i32 %7, ptr %6, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_16Hd_PrimTypeIndexINS0_7HdBprimEE9_PrimInfoEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_4HashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRS3_S7_EEEPNSA_16_Hashtable_allocISaINSA_10_Hash_nodeIS8_Lb1EEEEEEDpOT_.exit, label %8
 
@@ -14431,7 +14431,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_16
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %57 = load i64, ptr %56, align 8
   %58 = icmp eq i64 %45, %57
-  %.0.copyload.i2.i.i.i.i18.i.i = load i64, ptr %55, align 4
+  %.0.copyload.i2.i.i.i.i18.i.i = load i64, ptr %55, align 8
   %59 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i18.i.i
   %60 = select i1 %58, i1 %59, i1 false
   %61 = trunc i64 %.0.copyload.i.i.i.i.i.i.i to i32
@@ -14828,7 +14828,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_16
   %35 = load ptr, ptr %3, align 8
   store ptr %35, ptr %2, align 8
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %37 = load i32, ptr %36, align 4
+  %37 = load i32, ptr %36, align 8
   %.not.i.i.i.i.i.i = icmp eq i32 %37, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_16Hd_PrimTypeIndexINS3_7HdBprimEE9_PrimInfoEELb1EEEEE18_M_deallocate_nodeEPSB_.exit, label %38
 

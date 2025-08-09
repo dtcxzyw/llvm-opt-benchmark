@@ -2183,7 +2183,7 @@ _ZN15MetadataFactory9new_arrayIP5KlassEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThr
   %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv32
   store ptr %37, ptr %gep, align 8
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
-  %38 = load i32, ptr %2, align 4
+  %38 = load i32, ptr %2, align 8
   %39 = sext i32 %38 to i64
   %40 = icmp slt i64 %indvars.iv.next33, %39
   br i1 %40, label %34, label %._crit_edge, !llvm.loop !26
@@ -2516,7 +2516,7 @@ _ZN15MetadataFactory9new_arrayIP5KlassEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThr
   %gep.i = getelementptr ptr, ptr %invariant.gep.i, i64 %indvars.iv32.i
   store ptr %143, ptr %gep.i, align 8
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
-  %144 = load i32, ptr %70, align 4
+  %144 = load i32, ptr %70, align 8
   %145 = sext i32 %144 to i64
   %146 = icmp slt i64 %indvars.iv.next33.i, %145
   br i1 %146, label %140, label %._crit_edge.i, !llvm.loop !26

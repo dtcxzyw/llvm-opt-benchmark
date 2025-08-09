@@ -1951,7 +1951,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !15, !alias.scope !80, !noalias !83
   store ptr %39, ptr %.0911.i.i.i.i, align 8, !tbaa !12, !alias.scope !83, !noalias !80
   store i64 0, ptr %48, align 8, !tbaa !15, !alias.scope !83, !noalias !80
-  store i8 0, ptr %39, align 1, !tbaa !14, !alias.scope !83, !noalias !80
+  store i8 0, ptr %39, align 8, !tbaa !14, !alias.scope !83, !noalias !80
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %50, %1
@@ -1999,7 +1999,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !15, !alias.scope !87, !noalias !90
   store ptr %55, ptr %.0911.i.i.i.i19, align 8, !tbaa !12, !alias.scope !90, !noalias !87
   store i64 0, ptr %64, align 8, !tbaa !15, !alias.scope !90, !noalias !87
-  store i8 0, ptr %55, align 1, !tbaa !14, !alias.scope !90, !noalias !87
+  store i8 0, ptr %55, align 8, !tbaa !14, !alias.scope !90, !noalias !87
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 32
   %.not.i.i.i.i24 = icmp eq ptr %66, %5
@@ -2173,11 +2173,11 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv7optflow9GPCForestIL
   %9 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i.i.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i.i.i.i, i64 32
-  store i32 20, ptr %10, align 4, !tbaa !93
+  store i32 20, ptr %10, align 8, !tbaa !93
   %11 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i.i.i.i, i64 36
   store i32 3, ptr %11, align 4, !tbaa !95
   %12 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i.i.i.i, i64 40
-  store i32 0, ptr %12, align 4, !tbaa !96
+  store i32 0, ptr %12, align 8, !tbaa !96
   %13 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i.i.i.i, i64 44
   store i8 1, ptr %13, align 4, !tbaa !97
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 48

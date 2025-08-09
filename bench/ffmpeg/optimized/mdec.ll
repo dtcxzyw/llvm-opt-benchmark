@@ -108,7 +108,7 @@ define internal range(i32 -2147483648, 268435453) i32 @decode_frame(ptr noundef 
   %.018.i.i = select i1 %or.cond3.i.i, i32 %26, i32 0
   %.017.i.i = select i1 %or.cond.i.i, ptr %24, ptr null
   %28 = lshr exact i32 %.018.i.i, 3
-  store ptr %.017.i.i, ptr %23, align 8, !tbaa !50
+  store ptr %.017.i.i, ptr %23, align 16, !tbaa !50
   %29 = getelementptr i8, ptr %6, i64 196
   store i32 %.018.i.i, ptr %29, align 4, !tbaa !51
   %30 = add nuw nsw i32 %.018.i.i, 8
@@ -119,7 +119,7 @@ define internal range(i32 -2147483648, 268435453) i32 @decode_frame(ptr noundef 
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 184
   store ptr %33, ptr %34, align 8, !tbaa !53
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 192
-  store i32 0, ptr %35, align 8, !tbaa !54
+  store i32 0, ptr %35, align 16, !tbaa !54
   br i1 %or.cond3.i.i, label %36, label %decode_mb.exit.thread
 
 36:                                               ; preds = %18
@@ -151,7 +151,7 @@ define internal range(i32 -2147483648, 268435453) i32 @decode_frame(ptr noundef 
   store i32 %54, ptr %57, align 16, !tbaa !56
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 280
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 288
-  store i32 128, ptr %59, align 8, !tbaa !57
+  store i32 128, ptr %59, align 16, !tbaa !57
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 284
   store i32 128, ptr %60, align 4, !tbaa !57
   store i32 128, ptr %58, align 8, !tbaa !57

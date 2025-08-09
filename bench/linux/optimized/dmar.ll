@@ -4921,7 +4921,7 @@ define internal fastcc void @dmar_free_drhd(ptr noundef %0) unnamed_addr #0 alig
   %22 = phi ptr [ %.pre6, %.critedge.loopexit ], [ %3, %.preheader ]
   tail call void @kfree(ptr noundef %22) #20
   store ptr null, ptr %2, align 8
-  store i32 0, ptr %6, align 4
+  store i32 0, ptr %6, align 8
   br label %23
 
 23:                                               ; preds = %.critedge, %5, %1

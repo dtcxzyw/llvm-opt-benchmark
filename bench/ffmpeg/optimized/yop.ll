@@ -72,7 +72,7 @@ define internal range(i32 -1094995529, 1) i32 @yop_decode_init(ptr noundef %0) #
   %32 = load i8, ptr %31, align 1, !tbaa !36
   %33 = zext i8 %32 to i32
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i32 %33, ptr %34, align 4, !tbaa !38
+  store i32 %33, ptr %34, align 8, !tbaa !38
   %35 = add nuw nsw i32 %29, %25
   %36 = icmp samesign ugt i32 %35, 256
   %37 = add nuw nsw i32 %33, %25

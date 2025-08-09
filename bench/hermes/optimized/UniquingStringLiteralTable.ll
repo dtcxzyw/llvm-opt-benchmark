@@ -1240,7 +1240,7 @@ while.cond.i.i.i.i:                               ; preds = %while.body.i.i.i.i,
   %ref.tmp2.sroa.0.0.copyload.i.i.i.i.i.i = load ptr, ptr %str.i2.i.i.i.i.i.i, align 8
   %ref.tmp2.sroa.2.0.str.i2.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.i.i.i.i, i64 -16
   %ref.tmp2.sroa.2.0.copyload.i.i.i.i.i.i = load i64, ptr %ref.tmp2.sroa.2.0.str.i2.sroa_idx.i.i.i.i.i.i, align 8
-  %1 = load i32, ptr %kind.i1.i.i.i.i.i.i, align 4, !noalias !45
+  %1 = load i32, ptr %kind.i1.i.i.i.i.i.i, align 8, !noalias !45
   %cmp.i.i.i.i.i.i.i.i = icmp ult i32 %__val.sroa.4.0.copyload.i.i.i.i, %1
   br i1 %cmp.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i, label %lor.rhs.i.i.i.i.i.i.i.i
 
@@ -3795,13 +3795,13 @@ if.end:                                           ; preds = %while.body
   %add.ptr.i6.i = getelementptr inbounds i8, ptr %storemerge15, i64 -32
   %ref.tmp.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %str.i.i.i.i.i, align 8
   %ref.tmp.sroa.2.0.copyload.i.i.i.i = load i64, ptr %ref.tmp.sroa.2.0.str.i.sroa_idx.i.i.i.i, align 8
-  %0 = load i32, ptr %kind.i.i.i.i.i, align 4, !noalias !127
+  %0 = load i32, ptr %kind.i.i.i.i.i, align 8, !noalias !127
   %kind.i1.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 24
   %str.i2.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 8
   %ref.tmp2.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %str.i2.i.i.i.i, align 8
   %ref.tmp2.sroa.2.0.str.i2.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 16
   %ref.tmp2.sroa.2.0.copyload.i.i.i.i = load i64, ptr %ref.tmp2.sroa.2.0.str.i2.sroa_idx.i.i.i.i, align 8
-  %1 = load i32, ptr %kind.i1.i.i.i.i, align 4, !noalias !132
+  %1 = load i32, ptr %kind.i1.i.i.i.i, align 8, !noalias !132
   %cmp.i.i.i.i.i.i = icmp ult i32 %0, %1
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i, label %lor.rhs.i.i.i.i.i.i
 
@@ -3837,7 +3837,7 @@ if.then.i.i:                                      ; preds = %_ZN4llvhltENS_9Stri
   %ref.tmp2.sroa.0.0.copyload.i.i8.i.i = load ptr, ptr %str.i2.i.i7.i.i, align 8
   %ref.tmp2.sroa.2.0.str.i2.sroa_idx.i.i9.i.i = getelementptr inbounds i8, ptr %storemerge15, i64 -16
   %ref.tmp2.sroa.2.0.copyload.i.i10.i.i = load i64, ptr %ref.tmp2.sroa.2.0.str.i2.sroa_idx.i.i9.i.i, align 8
-  %2 = load i32, ptr %kind.i1.i.i6.i.i, align 4, !noalias !137
+  %2 = load i32, ptr %kind.i1.i.i6.i.i, align 8, !noalias !137
   %cmp.i.i.i.i11.i.i = icmp ult i32 %1, %2
   br i1 %cmp.i.i.i.i11.i.i, label %if.then12.i.i, label %lor.rhs.i.i.i.i12.i.i
 
@@ -3927,7 +3927,7 @@ if.else33.i.i:                                    ; preds = %_ZN4llvhltENS_9Stri
   %ref.tmp2.sroa.0.0.copyload.i.i70.i.i = load ptr, ptr %str.i2.i.i69.i.i, align 8
   %ref.tmp2.sroa.2.0.str.i2.sroa_idx.i.i71.i.i = getelementptr inbounds i8, ptr %storemerge15, i64 -16
   %ref.tmp2.sroa.2.0.copyload.i.i72.i.i = load i64, ptr %ref.tmp2.sroa.2.0.str.i2.sroa_idx.i.i71.i.i, align 8
-  %3 = load i32, ptr %kind.i1.i.i68.i.i, align 4, !noalias !142
+  %3 = load i32, ptr %kind.i1.i.i68.i.i, align 8, !noalias !142
   %cmp.i.i.i.i73.i.i = icmp ult i32 %0, %3
   br i1 %cmp.i.i.i.i73.i.i, label %if.then39.i.i, label %lor.rhs.i.i.i.i74.i.i
 
@@ -4019,7 +4019,7 @@ while.body.i.i3:                                  ; preds = %while.body.i.i3.pre
   %__last.sroa.0.0.i.i = phi ptr [ %__last.sroa.0.1.i.i, %if.end.i.i ], [ %storemerge15, %while.body.i.i3.preheader ]
   %ref.tmp2.sroa.0.0.copyload.i.i.i12.i = load ptr, ptr %str.i2.i.i.i10.i, align 8
   %ref.tmp2.sroa.2.0.copyload.i.i.i13.i = load i64, ptr %ref.tmp2.sroa.2.0.str.i2.sroa_idx.i.i.i11.i, align 8
-  %4 = load i32, ptr %kind.i1.i.i.i9.i, align 4, !noalias !147
+  %4 = load i32, ptr %kind.i1.i.i.i9.i, align 8, !noalias !147
   br label %while.cond3.i.i
 
 while.cond3.i.i:                                  ; preds = %while.body7.i.i, %while.body.i.i3
@@ -4029,7 +4029,7 @@ while.cond3.i.i:                                  ; preds = %while.body7.i.i, %w
   %ref.tmp.sroa.0.0.copyload.i.i.i16.i = load ptr, ptr %str.i.i.i.i15.i, align 8
   %ref.tmp.sroa.2.0.str.i.sroa_idx.i.i.i17.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i, i64 16
   %ref.tmp.sroa.2.0.copyload.i.i.i18.i = load i64, ptr %ref.tmp.sroa.2.0.str.i.sroa_idx.i.i.i17.i, align 8
-  %5 = load i32, ptr %kind.i.i.i.i14.i, align 4, !noalias !152
+  %5 = load i32, ptr %kind.i.i.i.i14.i, align 8, !noalias !152
   %cmp.i.i.i.i.i19.i = icmp ult i32 %5, %4
   br i1 %cmp.i.i.i.i.i19.i, label %while.body7.i.i, label %lor.rhs.i.i.i.i.i20.i
 
@@ -4074,7 +4074,7 @@ while.cond10.i.i:                                 ; preds = %while.cond10.i.i.ba
   %ref.tmp2.sroa.0.0.copyload.i.i9.i.i = load ptr, ptr %str.i2.i.i8.i.i, align 8
   %ref.tmp2.sroa.2.0.str.i2.sroa_idx.i.i10.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn.i.i, i64 -16
   %ref.tmp2.sroa.2.0.copyload.i.i11.i.i = load i64, ptr %ref.tmp2.sroa.2.0.str.i2.sroa_idx.i.i10.i.i, align 8
-  %6 = load i32, ptr %kind.i1.i.i7.i.i, align 4, !noalias !158
+  %6 = load i32, ptr %kind.i1.i.i7.i.i, align 8, !noalias !158
   %cmp.i.i.i.i12.i.i = icmp ult i32 %4, %6
   br i1 %cmp.i.i.i.i12.i.i, label %while.cond10.i.i.backedge, label %lor.rhs.i.i.i.i13.i.i
 
@@ -4152,13 +4152,13 @@ while.body:                                       ; preds = %entry, %_ZNK9__gnu_
   %ref.tmp.sroa.0.0.copyload.i.i = load ptr, ptr %str.i.i.i, align 8
   %ref.tmp.sroa.2.0.str.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
   %ref.tmp.sroa.2.0.copyload.i.i = load i64, ptr %ref.tmp.sroa.2.0.str.i.sroa_idx.i.i, align 8
-  %0 = load i32, ptr %kind.i.i.i, align 4, !noalias !166
+  %0 = load i32, ptr %kind.i.i.i, align 8, !noalias !166
   %kind.i1.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i22, i64 24
   %str.i2.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i22, i64 8
   %ref.tmp2.sroa.0.0.copyload.i.i = load ptr, ptr %str.i2.i.i, align 8
   %ref.tmp2.sroa.2.0.str.i2.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i22, i64 16
   %ref.tmp2.sroa.2.0.copyload.i.i = load i64, ptr %ref.tmp2.sroa.2.0.str.i2.sroa_idx.i.i, align 8
-  %1 = load i32, ptr %kind.i1.i.i, align 4, !noalias !171
+  %1 = load i32, ptr %kind.i1.i.i, align 8, !noalias !171
   %cmp.i.i.i.i = icmp ult i32 %0, %1
   br i1 %cmp.i.i.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES6_bE5IndexSt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit, label %lor.rhs.i.i.i.i
 
@@ -4246,7 +4246,7 @@ land.rhs.i:                                       ; preds = %if.end33, %while.bo
   %ref.tmp.sroa.0.0.copyload.i.i.i = load ptr, ptr %str.i.i.i.i, align 8
   %ref.tmp.sroa.2.0.str.i.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 16
   %ref.tmp.sroa.2.0.copyload.i.i.i = load i64, ptr %ref.tmp.sroa.2.0.str.i.sroa_idx.i.i.i, align 8
-  %3 = load i32, ptr %kind.i.i.i.i, align 4, !noalias !177
+  %3 = load i32, ptr %kind.i.i.i.i, align 8, !noalias !177
   %cmp.i.i.i.i.i = icmp ult i32 %3, %agg.tmp36.sroa.4.0.copyload
   br i1 %cmp.i.i.i.i.i, label %while.body.i, label %lor.rhs.i.i.i.i.i
 
@@ -4325,10 +4325,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %ref.tmp.sroa.0.0.copyload.i.i = load ptr, ptr %str.i.i.i, align 8
   %ref.tmp.sroa.2.0.str.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %__first.coerce.pn10, i64 48
   %ref.tmp.sroa.2.0.copyload.i.i = load i64, ptr %ref.tmp.sroa.2.0.str.i.sroa_idx.i.i, align 8
-  %0 = load i32, ptr %kind.i.i.i, align 4, !noalias !183
+  %0 = load i32, ptr %kind.i.i.i, align 8, !noalias !183
   %ref.tmp2.sroa.0.0.copyload.i.i = load ptr, ptr %str.i2.i.i, align 8
   %ref.tmp2.sroa.2.0.copyload.i.i = load i64, ptr %ref.tmp2.sroa.2.0.str.i2.sroa_idx.i.i, align 8
-  %1 = load i32, ptr %kind.i1.i.i, align 4, !noalias !188
+  %1 = load i32, ptr %kind.i1.i.i, align 8, !noalias !188
   %cmp.i.i.i.i = icmp ult i32 %0, %1
   br i1 %cmp.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE5IndexSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, label %lor.rhs.i.i.i.i
 
@@ -4382,7 +4382,7 @@ while.cond.i:                                     ; preds = %while.body.i, %if.e
   %ref.tmp2.sroa.0.0.copyload.i.i.i = load ptr, ptr %str.i2.i.i.i, align 8
   %ref.tmp2.sroa.2.0.str.i2.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.i, i64 -16
   %ref.tmp2.sroa.2.0.copyload.i.i.i = load i64, ptr %ref.tmp2.sroa.2.0.str.i2.sroa_idx.i.i.i, align 8
-  %2 = load i32, ptr %kind.i1.i.i.i, align 4, !noalias !193
+  %2 = load i32, ptr %kind.i1.i.i.i, align 8, !noalias !193
   %cmp.i.i.i.i.i = icmp ult i32 %0, %2
   br i1 %cmp.i.i.i.i.i, label %while.body.i, label %lor.rhs.i.i.i.i.i
 

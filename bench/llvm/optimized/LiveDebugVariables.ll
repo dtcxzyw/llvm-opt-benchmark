@@ -7153,7 +7153,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_15MachineFunction19DebugPHIRegallocPosEN
   %.sroa.0.0.copyload.i = load i64, ptr %52, align 8, !tbaa !188
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !612)
-  %53 = load i32, ptr %.sroa.020.024, align 4, !tbaa !192, !noalias !612
+  %53 = load i32, ptr %.sroa.020.024, align 8, !tbaa !192, !noalias !612
   store i32 %53, ptr %5, align 8, !tbaa !615, !alias.scope !612
   store i64 %.sroa.0.0.copyload.i, ptr %37, align 8, !tbaa !188
   store i32 %45, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !192

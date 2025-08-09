@@ -201,7 +201,7 @@ define range(i32 -808, 806) i32 @SUNLinSolSolve_PCG(ptr noundef readonly capture
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %29, align 4, !tbaa !45
   %.not = icmp eq ptr %17, null
-  %31 = load i32, ptr %28, align 4, !tbaa !45
+  %31 = load i32, ptr %28, align 8, !tbaa !45
   %.not162 = icmp eq i32 %31, 0
   br i1 %.not162, label %33, label %32
 

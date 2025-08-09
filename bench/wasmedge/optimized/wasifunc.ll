@@ -6941,7 +6941,7 @@ _ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_
   %119 = getelementptr inbounds nuw i8, ptr %86, i64 16
   store ptr %118, ptr %116, align 8, !alias.scope !71
   store ptr %119, ptr %117, align 8, !alias.scope !71
-  store i32 %2, ptr %118, align 4
+  store i32 %2, ptr %118, align 8
   invoke void @_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE16_M_reinsert_nodeEOSt12_Node_handleIiS8_SaINSA_10_Hash_nodeIS8_Lb0EEEEE(ptr dead_on_unwind nonnull writable sret(%"struct.std::_Node_insert_return") align 8 %5, ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE6insertEOSt12_Node_handleIiSC_SaINSt8__detail10_Hash_nodeISC_Lb0EEEEE.exit unwind label %202
 
@@ -19578,7 +19578,7 @@ _ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4
+  %16 = load i32, ptr %15, align 8
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds ptr, ptr %.0.i, i64 %18

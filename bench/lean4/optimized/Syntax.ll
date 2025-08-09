@@ -1346,7 +1346,7 @@ _init_l_Lake_DSL_fromGit___closed__4.exit:        ; preds = %_init_l_Lake_DSL_fr
   %350 = getelementptr inbounds nuw i8, ptr %347, i64 4
   %351 = getelementptr inbounds nuw i8, ptr %347, i64 16
   store i64 0, ptr %351, align 8, !tbaa !12
-  store i32 1, ptr %347, align 4, !tbaa !4
+  store i32 1, ptr %347, align 8, !tbaa !4
   store i32 100728856, ptr %350, align 4
   %352 = getelementptr inbounds nuw i8, ptr %347, i64 8
   store ptr %346, ptr %352, align 8, !tbaa !10

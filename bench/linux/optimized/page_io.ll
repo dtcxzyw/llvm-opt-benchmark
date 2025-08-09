@@ -571,7 +571,7 @@ define dso_local void @__swap_writepage(ptr noundef %0, ptr noundef readonly cap
   %140 = getelementptr inbounds nuw i8, ptr %104, i64 36
   store i16 %136, ptr %140, align 4
   %141 = getelementptr inbounds nuw i8, ptr %104, i64 40
-  store i64 0, ptr %141, align 2
+  store i64 0, ptr %141, align 8
   %142 = getelementptr inbounds nuw i8, ptr %104, i64 16
   store ptr @sio_write_complete, ptr %142, align 8
   store i64 %59, ptr %137, align 8
@@ -1284,7 +1284,7 @@ define dso_local void @swap_read_folio(ptr noundef %0, i1 noundef zeroext %1, pt
   %152 = getelementptr inbounds nuw i8, ptr %114, i64 36
   store i16 %148, ptr %152, align 4
   %153 = getelementptr inbounds nuw i8, ptr %114, i64 40
-  store i64 0, ptr %153, align 2
+  store i64 0, ptr %153, align 8
   store i64 %78, ptr %149, align 8
   %154 = getelementptr inbounds nuw i8, ptr %114, i64 16
   store ptr @sio_read_complete, ptr %154, align 8

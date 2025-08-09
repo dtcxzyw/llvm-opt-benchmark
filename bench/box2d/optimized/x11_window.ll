@@ -1066,7 +1066,7 @@ createNativeWindow.exit.thread:                   ; preds = %97, %.thread151.i, 
   %278 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !198
   %279 = call i32 %275(ptr noundef %276, i64 noundef %277, i64 noundef %278, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %8) #17
   %280 = load i32, ptr %9, align 4, !tbaa !183
-  store i32 %280, ptr %273, align 4, !tbaa !183
+  store i32 %280, ptr %273, align 8, !tbaa !183
   %281 = load i32, ptr %10, align 4, !tbaa !183
   store i32 %281, ptr %274, align 4, !tbaa !183
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1081,7 +1081,7 @@ createNativeWindow.exit.thread:                   ; preds = %97, %.thread151.i, 
   %287 = call i32 %284(ptr noundef %285, i64 noundef %286, ptr noundef nonnull %7) #17
   %288 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %289 = load i32, ptr %288, align 8, !tbaa !248
-  store i32 %289, ptr %282, align 4, !tbaa !183
+  store i32 %289, ptr %282, align 8, !tbaa !183
   %290 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %291 = load i32, ptr %290, align 4, !tbaa !249
   store i32 %291, ptr %283, align 4, !tbaa !183

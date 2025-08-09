@@ -12149,7 +12149,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfT
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %.07, i64 40
-  %9 = load i32, ptr %8, align 4
+  %9 = load i32, ptr %8, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %9, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i, label %10
 
@@ -12300,7 +12300,7 @@ _ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__47UsdImagingPiPrototyp
 
 _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__47UsdImagingPiPrototypePropagatingSceneIndex_Impl18_InstancerObserverESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__47UsdImagingPiPrototypePropagatingSceneIndex_Impl18_InstancerObserverEEclEPS2_.exit.i.i.i.i.i.i, %.lr.ph
   store ptr null, ptr %8, align 8
-  %10 = load i32, ptr %7, align 4
+  %10 = load i32, ptr %7, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %10, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_St10unique_ptrINS0_47UsdImagingPiPrototypePropagatingSceneIndex_Impl18_InstancerObserverESt14default_deleteIS6_EEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit, label %11
 
@@ -12370,7 +12370,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7Sdf
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 8
   %.not.i.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS1_E.exit, label %9
 
@@ -13083,7 +13083,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__32HdRetainedTyped
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS_7SdfPathEEE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %1, align 4
-  store i32 %5, ptr %4, align 4
+  store i32 %5, ptr %4, align 8
   %.not.i.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS_7SdfPathEEC2ERKS1_.exit, label %6
 
@@ -14237,7 +14237,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_Coun
   %16 = atomicrmw add ptr %.sink.i.i.i.i.i, i64 1 monotonic, align 8, !noalias !101
   %.pre.i.i = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store atomic i32 0, ptr %17 seq_cst, align 4, !noalias !101
+  store atomic i32 0, ptr %17 seq_cst, align 8, !noalias !101
   %18 = atomicrmw add ptr %17, i32 1 monotonic, align 4, !noalias !101
   %.not.i.i.i.i = icmp eq ptr %.pre.i.i, null
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_7VtValue8_CountedINS_7VtArrayINS_7SdfPathEEEEEED2Ev.exit.i.i, label %19
@@ -15002,7 +15002,7 @@ _ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__47UsdImagingPiPrototyp
 
 _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__47UsdImagingPiPrototypePropagatingSceneIndex_Impl18_InstancerObserverESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__47UsdImagingPiPrototypePropagatingSceneIndex_Impl18_InstancerObserverEEclEPS2_.exit.i.i.i.i.i.i, %2
   store ptr null, ptr %6, align 8
-  %8 = load i32, ptr %5, align 4
+  %8 = load i32, ptr %5, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_St10unique_ptrINS0_47UsdImagingPiPrototypePropagatingSceneIndex_Impl18_InstancerObserverESt14default_deleteIS6_EEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit, label %9
 
@@ -15534,7 +15534,7 @@ _ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__47UsdImagingPiPrototyp
 
 _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__47UsdImagingPiPrototypePropagatingSceneIndex_Impl18_InstancerObserverESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__47UsdImagingPiPrototypePropagatingSceneIndex_Impl18_InstancerObserverEEclEPS2_.exit.i.i.i.i.i.i.i, %53
   store ptr null, ptr %28, align 8
-  %55 = load i32, ptr %8, align 4
+  %55 = load i32, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %55, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_St10unique_ptrINS0_47UsdImagingPiPrototypePropagatingSceneIndex_Impl18_InstancerObserverESt14default_deleteIS6_EEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit.i, label %56
 
@@ -15792,7 +15792,7 @@ _ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__47UsdImagingPiPrototyp
 
 _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__47UsdImagingPiPrototypePropagatingSceneIndex_Impl18_InstancerObserverESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__47UsdImagingPiPrototypePropagatingSceneIndex_Impl18_InstancerObserverEEclEPS2_.exit.i.i.i.i.i.i, %4
   store ptr null, ptr %6, align 8
-  %8 = load i32, ptr %5, align 4
+  %8 = load i32, ptr %5, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_St10unique_ptrINS0_47UsdImagingPiPrototypePropagatingSceneIndex_Impl18_InstancerObserverESt14default_deleteIS6_EEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit, label %9
 

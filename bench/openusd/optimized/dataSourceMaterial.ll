@@ -15081,7 +15081,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit: ; preds
   store ptr %696, ptr %770, align 8, !noalias !135
   %771 = getelementptr inbounds nuw i8, ptr %766, i64 40
   %772 = load i32, ptr %697, align 8, !noalias !135
-  store i32 %772, ptr %771, align 4, !noalias !135
+  store i32 %772, ptr %771, align 8, !noalias !135
   %.not.i.i.i.i247 = icmp eq i32 %772, 0
   br i1 %.not.i.i.i.i247, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i, label %773
 
@@ -15537,7 +15537,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_42HdMaterialNodeSchemaTo
   store ptr %969, ptr %975, align 8, !noalias !138
   %976 = getelementptr inbounds nuw i8, ptr %971, i64 40
   %977 = load i32, ptr %970, align 8, !noalias !138
-  store i32 %977, ptr %976, align 4, !noalias !138
+  store i32 %977, ptr %976, align 8, !noalias !138
   %.not.i.i.i.i285 = icmp eq i32 %977, 0
   br i1 %.not.i.i.i.i285, label %989, label %978
 

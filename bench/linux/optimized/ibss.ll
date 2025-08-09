@@ -698,7 +698,7 @@ define dso_local void @ieee80211_ibss_rx_no_sta(ptr noundef %0, ptr noundef read
   %23 = load i32, ptr %21, align 4
   %24 = xor i32 %23, %22
   %25 = getelementptr i8, ptr %1, i64 4
-  %26 = load i16, ptr %25, align 2
+  %26 = load i16, ptr %25, align 4
   %27 = getelementptr i8, ptr %0, i64 1990
   %28 = load i16, ptr %27, align 2
   %29 = xor i16 %28, %26
@@ -935,7 +935,7 @@ define dso_local void @ieee80211_ibss_rx_queued_mgmt(ptr noundef %0, ptr noundef
   %98 = load i32, ptr %96, align 4
   %99 = xor i32 %98, %97
   %100 = getelementptr i8, ptr %11, i64 20
-  %101 = load i16, ptr %100, align 2
+  %101 = load i16, ptr %100, align 4
   %102 = getelementptr i8, ptr %0, i64 1990
   %103 = load i16, ptr %102, align 2
   %104 = xor i16 %103, %101
@@ -1091,7 +1091,7 @@ define dso_local void @ieee80211_ibss_rx_queued_mgmt(ptr noundef %0, ptr noundef
   %209 = load i32, ptr %207, align 4
   %210 = xor i32 %209, %208
   %211 = getelementptr i8, ptr %11, i64 20
-  %212 = load i16, ptr %211, align 2
+  %212 = load i16, ptr %211, align 4
   %213 = getelementptr i8, ptr %0, i64 1990
   %214 = load i16, ptr %213, align 2
   %215 = xor i16 %214, %212
@@ -1356,7 +1356,7 @@ define dso_local void @ieee80211_ibss_rx_queued_mgmt(ptr noundef %0, ptr noundef
   %371 = load i32, ptr %369, align 4
   %372 = xor i32 %371, %370
   %373 = getelementptr i8, ptr %330, i64 -12
-  %374 = load i16, ptr %373, align 2
+  %374 = load i16, ptr %373, align 4
   %375 = getelementptr i8, ptr %0, i64 1990
   %376 = load i16, ptr %375, align 2
   %377 = xor i16 %376, %374
@@ -2963,7 +2963,7 @@ define internal fastcc ptr @ieee80211_ibss_add_sta(ptr noundef %0, ptr noundef r
   %25 = load i32, ptr %23, align 4
   %26 = xor i32 %25, %24
   %27 = getelementptr i8, ptr %1, i64 4
-  %28 = load i16, ptr %27, align 2
+  %28 = load i16, ptr %27, align 4
   %29 = getelementptr i8, ptr %0, i64 1990
   %30 = load i16, ptr %29, align 2
   %31 = xor i16 %30, %28
@@ -3109,7 +3109,7 @@ define internal fastcc void @__ieee80211_sta_join_ibss(ptr noundef %0, ptr nound
   %21 = getelementptr i8, ptr %0, i64 1990
   %22 = load i16, ptr %21, align 2
   %23 = getelementptr i8, ptr %1, i64 4
-  %24 = load i16, ptr %23, align 2
+  %24 = load i16, ptr %23, align 4
   %25 = xor i16 %24, %22
   %26 = zext i16 %25 to i32
   %27 = or i32 %20, %26

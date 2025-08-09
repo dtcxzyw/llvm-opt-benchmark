@@ -144,7 +144,7 @@ define internal range(i32 -1094995529, 1) i32 @vivo_read_header(ptr noundef %0) 
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds [1025 x i8], ptr %20, i64 0, i64 %34
   store i8 0, ptr %35, align 1, !tbaa !11
-  %36 = load i8, ptr %20, align 1, !tbaa !11
+  %36 = load i8, ptr %20, align 4, !tbaa !11
   %.not123178191 = icmp eq i8 %36, 0
   br i1 %.not123178191, label %.outer154, label %.lr.ph180
 

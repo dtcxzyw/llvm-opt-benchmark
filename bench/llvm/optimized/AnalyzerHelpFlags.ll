@@ -6397,7 +6397,7 @@ _ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store ptr %24, ptr %22, align 8, !tbaa !67
   store i64 0, ptr %34, align 8, !tbaa !69
-  store i8 0, ptr %24, align 1, !tbaa !70
+  store i8 0, ptr %24, align 8, !tbaa !70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false)
   store ptr %18, ptr %17, align 8, !tbaa !65
   %35 = icmp eq ptr %32, %15
@@ -6504,7 +6504,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7:
   store i64 %19, ptr %21, align 8, !tbaa !69
   store ptr %11, ptr %8, align 8, !tbaa !67
   store i64 0, ptr %20, align 8, !tbaa !69
-  store i8 0, ptr %11, align 1, !tbaa !70
+  store i8 0, ptr %11, align 8, !tbaa !70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 16, i1 false), !tbaa.struct !911
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !67
@@ -6924,7 +6924,7 @@ _ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   store i64 %127, ptr %129, align 8, !tbaa !69
   store ptr %119, ptr %116, align 8, !tbaa !67
   store i64 0, ptr %128, align 8, !tbaa !69
-  store i8 0, ptr %119, align 1, !tbaa !70
+  store i8 0, ptr %119, align 8, !tbaa !70
   call void @_ZSt11__push_heapIPSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEElS9_N9__gnu_cxx5__ops14_Iter_comp_valINS1_10less_firstEEEEvT_T0_SH_T1_RT2_(ptr noundef %0, i64 noundef %.127, i64 noundef %1, ptr noundef nonnull %6, ptr noundef nonnull align 1 dereferenceable(1) %5)
   %130 = load ptr, ptr %115, align 8, !tbaa !67
   %131 = icmp eq ptr %130, %117
@@ -7533,7 +7533,7 @@ _ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   store i64 %28, ptr %7, align 8, !tbaa !69
   store ptr %19, ptr %17, align 8, !tbaa !67
   store i64 0, ptr %27, align 8, !tbaa !69
-  store i8 0, ptr %19, align 1, !tbaa !70
+  store i8 0, ptr %19, align 8, !tbaa !70
   %29 = ptrtoint ptr %.023 to i64
   %30 = sub i64 %29, %8
   %31 = icmp sgt i64 %30, 0
@@ -7796,7 +7796,7 @@ _ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   store i64 %15, ptr %17, align 8, !tbaa !69
   store ptr %7, ptr %4, align 8, !tbaa !67
   store i64 0, ptr %16, align 8, !tbaa !69
-  store i8 0, ptr %7, align 1, !tbaa !70
+  store i8 0, ptr %7, align 8, !tbaa !70
   %.sroa.22.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %18
 

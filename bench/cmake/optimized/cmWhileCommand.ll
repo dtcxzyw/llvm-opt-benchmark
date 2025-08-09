@@ -2759,13 +2759,13 @@ _ZNSt16allocator_traitsISaI18cmListFileArgumentEE8allocateERS1_m.exit.i.i.i.i: ;
   store ptr %27, ptr %26, align 8, !tbaa !4
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %28, align 8, !tbaa !10
-  store i8 0, ptr %27, align 1, !tbaa !13
+  store i8 0, ptr %27, align 8, !tbaa !13
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %30, ptr %29, align 8, !tbaa !4
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i64 0, ptr %31, align 8, !tbaa !10
-  store i8 0, ptr %30, align 1, !tbaa !13
+  store i8 0, ptr %30, align 8, !tbaa !13
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store i64 0, ptr %32, align 8, !tbaa !14
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 112

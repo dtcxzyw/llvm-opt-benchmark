@@ -1845,7 +1845,7 @@ define linkonce_odr hidden void @_ZN4lean10to_lcnf_fn5visitERKNS_4exprEb(ptr dea
   store ptr %32, ptr %31, align 8, !tbaa !73
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i64 0, ptr %33, align 8, !tbaa !76
-  store i8 0, ptr %32, align 1, !tbaa !78
+  store i8 0, ptr %32, align 8, !tbaa !78
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %30, align 8, !tbaa !79
   tail call void @__cxa_throw(ptr nonnull %30, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #20
   unreachable
@@ -2779,7 +2779,7 @@ _ZN4lean10object_refD2Ev.exit143:                 ; preds = %_ZN4lean10object_re
   store ptr %324, ptr %323, align 8, !tbaa !73
   %325 = getelementptr inbounds nuw i8, ptr %322, i64 16
   store i64 0, ptr %325, align 8, !tbaa !76
-  store i8 0, ptr %324, align 1, !tbaa !78
+  store i8 0, ptr %324, align 8, !tbaa !78
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %322, align 8, !tbaa !79
   call void @__cxa_throw(ptr nonnull %322, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #20
   unreachable

@@ -2879,7 +2879,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL11ParseP
   %25 = getelementptr inbounds nuw i8, ptr @.str.4, i64 %.018.i16.i
   %26 = load i8, ptr %25, align 1, !tbaa !4
   %27 = load ptr, ptr %15, align 8, !tbaa !13
-  store i32 %21, ptr %13, align 4, !tbaa !22
+  store i32 %21, ptr %13, align 8, !tbaa !22
   %28 = sext i32 %20 to i64
   %29 = getelementptr inbounds i8, ptr %27, i64 %28
   store i8 %26, ptr %29, align 1, !tbaa !4
@@ -3612,7 +3612,7 @@ _ZN4absl18debugging_internalL6AppendEPNS0_5StateEPKcm.exit: ; preds = %.loopexit
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 %.018.i16
   %63 = load i8, ptr %62, align 1, !tbaa !4
   %64 = load ptr, ptr %55, align 8, !tbaa !13
-  store i32 %58, ptr %37, align 4, !tbaa !22
+  store i32 %58, ptr %37, align 8, !tbaa !22
   %65 = sext i32 %57 to i64
   %66 = getelementptr inbounds i8, ptr %64, i64 %65
   store i8 %63, ptr %66, align 1, !tbaa !4
@@ -4361,7 +4361,7 @@ _ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit.thread: ; p
   %102 = getelementptr inbounds nuw i8, ptr %83, i64 %.018.i.i
   %103 = load i8, ptr %102, align 1, !tbaa !4
   %104 = load ptr, ptr %95, align 8, !tbaa !13
-  store i32 %98, ptr %93, align 4, !tbaa !22
+  store i32 %98, ptr %93, align 8, !tbaa !22
   %105 = sext i32 %97 to i64
   %106 = getelementptr inbounds i8, ptr %104, i64 %105
   store i8 %103, ptr %106, align 1, !tbaa !4
@@ -10839,7 +10839,7 @@ define internal fastcc void @_ZN4absl18debugging_internalL18MaybeAppendDecimalEP
   %31 = getelementptr inbounds nuw i8, ptr %12, i64 %.018.i
   %32 = load i8, ptr %31, align 1, !tbaa !4
   %33 = load ptr, ptr %24, align 8, !tbaa !13
-  store i32 %27, ptr %22, align 4, !tbaa !22
+  store i32 %27, ptr %22, align 8, !tbaa !22
   %34 = sext i32 %26 to i64
   %35 = getelementptr inbounds i8, ptr %33, i64 %34
   store i8 %32, ptr %35, align 1, !tbaa !4
@@ -11769,7 +11769,7 @@ _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %_ZN4
   %94 = getelementptr inbounds nuw i8, ptr %75, i64 %.018.i.i
   %95 = load i8, ptr %94, align 1, !tbaa !4
   %96 = load ptr, ptr %87, align 8, !tbaa !13
-  store i32 %90, ptr %85, align 4, !tbaa !22
+  store i32 %90, ptr %85, align 8, !tbaa !22
   %97 = sext i32 %89 to i64
   %98 = getelementptr inbounds i8, ptr %96, i64 %97
   store i8 %95, ptr %98, align 1, !tbaa !4
@@ -11867,7 +11867,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit50.thread: ; 
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %136 = load ptr, ptr %135, align 8, !tbaa !13
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %138 = load i32, ptr %137, align 4, !tbaa !22
+  %138 = load i32, ptr %137, align 8, !tbaa !22
   %139 = sext i32 %138 to i64
   %140 = getelementptr inbounds i8, ptr %136, i64 %139
   store i8 0, ptr %140, align 1, !tbaa !4
@@ -11905,7 +11905,7 @@ _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit53: ; preds = %14
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %152 = load ptr, ptr %151, align 8, !tbaa !13
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %154 = load i32, ptr %153, align 4, !tbaa !22
+  %154 = load i32, ptr %153, align 8, !tbaa !22
   %155 = sext i32 %154 to i64
   %156 = getelementptr inbounds i8, ptr %152, i64 %155
   store i8 0, ptr %156, align 1, !tbaa !4
@@ -12132,7 +12132,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL20ParseU
   %54 = sext i32 %53 to i64
   %55 = getelementptr inbounds i8, ptr %51, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %57 = load i32, ptr %56, align 4
+  %57 = load i32, ptr %56, align 8
   br label %.thread69.sink.split
 
 58:                                               ; preds = %70
@@ -12234,7 +12234,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL20ParseU
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %103 = load i32, ptr %102, align 4, !tbaa !45
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %105 = load i32, ptr %104, align 4
+  %105 = load i32, ptr %104, align 8
   %.not.i = icmp sgt i32 %105, -1
   br i1 %.not.i, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit, label %106
 

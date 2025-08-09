@@ -498,11 +498,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher3RunISt5_BindIFPFbP5GraphES
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %135, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskISt5_BindIFPFbP5GraphES8_EEEEEE, i64 16), ptr %132, align 64
   %136 = getelementptr inbounds nuw i8, ptr %132, i64 64
-  store ptr @_ZL17_DelayedGraphTaskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcherEEbP5Graph, ptr %136, align 8
+  store ptr @_ZL17_DelayedGraphTaskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcherEEbP5Graph, ptr %136, align 64
   %137 = getelementptr inbounds nuw i8, ptr %132, i64 72
   store i64 %134, ptr %137, align 8
   %138 = getelementptr inbounds nuw i8, ptr %132, i64 80
-  store ptr %133, ptr %138, align 8
+  store ptr %133, ptr %138, align 16
   %139 = getelementptr inbounds nuw i8, ptr %132, i64 88
   store ptr %127, ptr %139, align 8
   %140 = getelementptr inbounds nuw i8, ptr %132, i64 96
@@ -792,15 +792,15 @@ _ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher3RunISt5_BindIFM5GraphFvP4N
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %29, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskISt5_BindIFM5GraphFvP4NodePS4_EPS7_S9_SA_EEEEEE, i64 16), ptr %27, align 64
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 64
-  store i64 ptrtoint (ptr @_ZN5Graph15CallbackDynamicIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcherEEEvP4NodePT_ to i64), ptr %30, align 8
+  store i64 ptrtoint (ptr @_ZN5Graph15CallbackDynamicIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcherEEEvP4NodePT_ to i64), ptr %30, align 64
   %.repack5.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %27, i64 72
   store i64 0, ptr %.repack5.i.i.i.i.i.i.i.i, align 8
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 80
-  store i64 %18, ptr %31, align 8
+  store i64 %18, ptr %31, align 16
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 88
   store i64 %28, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 96
-  store i64 %19, ptr %33, align 8
+  store i64 %19, ptr %33, align 32
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 104
   store ptr %17, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 112
@@ -1860,15 +1860,15 @@ _ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher3RunIM5GraphFvP4NodePS0_EPS
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %27, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskISt5_BindIFM5GraphFvP4NodePS4_EPS7_S9_SA_EEEEEE, i64 16), ptr %26, align 64
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 64
-  store i64 ptrtoint (ptr @_ZN5Graph15CallbackDynamicIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcherEEEvP4NodePT_ to i64), ptr %28, align 8
+  store i64 ptrtoint (ptr @_ZN5Graph15CallbackDynamicIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcherEEEvP4NodePT_ to i64), ptr %28, align 64
   %.repack5.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %26, i64 72
   store i64 0, ptr %.repack5.i.i.i.i.i.i.i.i, align 8
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 80
-  store i64 %13, ptr %29, align 8
+  store i64 %13, ptr %29, align 16
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 88
   store i64 %25, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 96
-  store i64 %12, ptr %31, align 8
+  store i64 %12, ptr %31, align 32
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 104
   store ptr %14, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 112

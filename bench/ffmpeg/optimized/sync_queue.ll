@@ -258,7 +258,7 @@ define internal fastcc void @finish_stream(ptr noundef captures(none) %0, i32 no
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %15 = load i64, ptr %14, align 8, !tbaa !23
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.val = load i64, ptr %16, align 4
+  %.val = load i64, ptr %16, align 8
   %17 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %3, i64 noundef %15, i64 %.val) #7
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %13, i32 noundef 48, ptr noundef nonnull @.str.8, i32 noundef %1, ptr noundef %17) #7
   br label %18
@@ -352,7 +352,7 @@ define internal fastcc void @finish_stream(ptr noundef captures(none) %0, i32 no
   %68 = load ptr, ptr %50, align 8, !tbaa !13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %69 = load i64, ptr %55, align 8, !tbaa !23
-  %.val60 = load i64, ptr %59, align 4
+  %.val60 = load i64, ptr %59, align 8
   %70 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %4, i64 noundef %69, i64 %.val60) #7
   %71 = trunc nuw i64 %indvars.iv to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %68, i32 noundef 48, ptr noundef nonnull @.str.9, i32 noundef %71, ptr noundef %70) #7
@@ -797,10 +797,10 @@ frame_end.exit.i:                                 ; preds = %56
   %106 = load ptr, ptr %82, align 8, !tbaa !13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %107 = load i64, ptr %91, align 8, !tbaa !23
-  %.val87.i = load i64, ptr %101, align 4
+  %.val87.i = load i64, ptr %101, align 8
   %108 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %5, i64 noundef %107, i64 %.val87.i) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6, i8 0, i64 32, i1 false)
-  %.val.i = load i64, ptr %101, align 4
+  %.val.i = load i64, ptr %101, align 8
   %109 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %6, i64 noundef %spec.select, i64 %.val.i) #7
   %110 = trunc nuw i64 %indvars.iv101.i to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %106, i32 noundef 48, ptr noundef nonnull @.str.24, i32 noundef %110, ptr noundef %108, ptr noundef %109) #7
@@ -1517,7 +1517,7 @@ frame_end.exit97:                                 ; preds = %receive_samples.exi
   %221 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %222 = load i64, ptr %221, align 8, !tbaa !23
   %223 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %.val = load i64, ptr %223, align 4
+  %.val = load i64, ptr %223, align 8
   %224 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %7, i64 noundef %222, i64 %.val) #7
   br label %225
 

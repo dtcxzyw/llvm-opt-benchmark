@@ -7796,7 +7796,7 @@ define linkonce_odr hidden void @_ZThn40_N5boost4asio6detail13epoll_reactor9inte
   store ptr %3, ptr %4, align 4, !tbaa !76
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i32, ptr %5, align 8, !tbaa !194
-  %7 = load i32, ptr %3, align 4, !tbaa !207
+  %7 = load i32, ptr %3, align 8, !tbaa !207
   %8 = call i32 @epoll_ctl(i32 noundef %6, i32 noundef 3, i32 noundef %7, ptr noundef nonnull %2) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
@@ -16236,7 +16236,7 @@ define internal void @_ZN5boost4asio6detail14signal_handlerIZNS_6cobalt6detail12
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull readonly align 8 dereferenceable(24) %35, i64 24, i1 false), !tbaa.struct !163
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %39 = load i32, ptr %36, align 4, !tbaa !56
+  %39 = load i32, ptr %36, align 8, !tbaa !56
   store i32 %39, ptr %38, align 8, !tbaa !555
   store ptr %9, ptr %7, align 8, !tbaa !550
   store ptr null, ptr %12, align 8, !tbaa !553

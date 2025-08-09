@@ -3684,7 +3684,7 @@ define internal fastcc void @_init_drawing(ptr noalias noundef %0, ptr noundef %
   %63 = load ptr, ptr %33, align 32, !tbaa !436
   call void @pango_layout_get_pixel_extents(ptr noundef %63, ptr noundef nonnull %57, ptr noundef null) #28
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 2864
-  %65 = load i32, ptr %64, align 8, !tbaa !441
+  %65 = load i32, ptr %64, align 16, !tbaa !441
   %66 = sitofp i32 %65 to double
   %67 = fmul reassoc nsz arcp contract afn double %66, 5.000000e-01
   %68 = fptrunc reassoc nsz arcp contract afn double %67 to float
@@ -3782,7 +3782,7 @@ define internal fastcc void @_init_drawing(ptr noalias noundef %0, ptr noundef %
   call void @pango_layout_get_pixel_extents(ptr noundef %133, ptr noundef nonnull %57, ptr noundef null) #28
   %134 = load ptr, ptr %27, align 8, !tbaa !435
   %135 = fpext reassoc nsz arcp contract afn float %129 to double
-  %136 = load i32, ptr %64, align 8, !tbaa !441
+  %136 = load i32, ptr %64, align 16, !tbaa !441
   %137 = sitofp i32 %136 to double
   %138 = load i32, ptr %57, align 8, !tbaa !453
   %139 = sitofp i32 %138 to double
@@ -3907,7 +3907,7 @@ define internal fastcc void @_init_drawing(ptr noalias noundef %0, ptr noundef %
   %214 = load ptr, ptr %27, align 8, !tbaa !435
   %215 = load float, ptr %103, align 4, !tbaa !452
   %216 = fpext reassoc nsz arcp contract afn float %215 to double
-  %217 = load i32, ptr %64, align 8, !tbaa !441
+  %217 = load i32, ptr %64, align 16, !tbaa !441
   %218 = sitofp i32 %217 to double
   %219 = load i32, ptr %57, align 8, !tbaa !453
   %220 = sitofp i32 %219 to double

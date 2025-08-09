@@ -617,9 +617,9 @@ define dso_local i32 @xactGetCommittedInvalidationMessages(ptr noundef writeonly
   %11 = load i32, ptr %10, align 4
   %12 = load i32, ptr %9, align 4
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %14 = load i32, ptr %13, align 4
+  %14 = load i32, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %16 = load i32, ptr %15, align 4
+  %16 = load i32, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = load i32, ptr %3, align 8

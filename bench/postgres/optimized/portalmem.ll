@@ -236,7 +236,7 @@ GetPortalByName.exit.thread:                      ; preds = %3, %5, %21, %GetPor
   store ptr %45, ptr %23, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %53 = load ptr, ptr %26, align 8
-  %54 = load i8, ptr %45, align 1
+  %54 = load i8, ptr %45, align 8
   %.not29 = icmp eq i8 %54, 0
   %spec.select = select i1 %.not29, ptr @.str.8, ptr %45
   call void @MemoryContextSetIdentifier(ptr noundef %53, ptr noundef nonnull %spec.select) #8

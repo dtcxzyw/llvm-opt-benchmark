@@ -241,7 +241,7 @@ lean_alloc_ctor.exit107:                          ; preds = %90
   %94 = getelementptr inbounds nuw i8, ptr %91, i64 4
   %95 = getelementptr inbounds nuw i8, ptr %91, i64 16
   store i64 1, ptr %95, align 8, !tbaa !13
-  store i32 1, ptr %91, align 4, !tbaa !5
+  store i32 1, ptr %91, align 8, !tbaa !5
   store i32 65560, ptr %94, align 4
   %96 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store ptr %.1.i130134, ptr %96, align 8, !tbaa !11
@@ -373,7 +373,7 @@ lean_alloc_ctor.exit117:                          ; preds = %139
   %143 = getelementptr inbounds nuw i8, ptr %140, i64 4
   %144 = getelementptr inbounds nuw i8, ptr %140, i64 16
   store i64 0, ptr %144, align 8, !tbaa !13
-  store i32 1, ptr %140, align 4, !tbaa !5
+  store i32 1, ptr %140, align 8, !tbaa !5
   store i32 65560, ptr %143, align 4
   %145 = getelementptr inbounds nuw i8, ptr %140, i64 8
   store ptr %.1.i130134, ptr %145, align 8, !tbaa !11
@@ -650,7 +650,7 @@ lean_alloc_ctor.exit:                             ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 1, ptr %12, align 8, !tbaa !13
-  store i32 1, ptr %8, align 4, !tbaa !5
+  store i32 1, ptr %8, align 8, !tbaa !5
   store i32 65560, ptr %11, align 4
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %13, align 8, !tbaa !11
@@ -697,7 +697,7 @@ l_Std_Sat_AIG_RefVec_fold___rarg.exit:            ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 1, ptr %12, align 8, !tbaa !13
-  store i32 1, ptr %8, align 4, !tbaa !5
+  store i32 1, ptr %8, align 8, !tbaa !5
   store i32 65560, ptr %11, align 4
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %13, align 8, !tbaa !11

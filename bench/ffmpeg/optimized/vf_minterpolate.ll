@@ -2180,7 +2180,7 @@ define internal fastcc void @search_mv(ptr noundef %0, ptr noundef captures(none
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %52 = load i32, ptr %51, align 4, !tbaa !56
   %53 = getelementptr i8, ptr %0, i64 80
-  store i32 %52, ptr %53, align 4, !tbaa !56
+  store i32 %52, ptr %53, align 8, !tbaa !56
   store i32 2, ptr %36, align 4, !tbaa !164
   br label %54
 
@@ -2392,7 +2392,7 @@ mid_pred.exit320:                                 ; preds = %139, %137, %136, %1
   %170 = load i32, ptr %169, align 4, !tbaa !56
   %factor = shl i32 %165, 1
   %171 = sub i32 %factor, %170
-  %172 = load i32, ptr %38, align 4, !tbaa !164
+  %172 = load i32, ptr %38, align 8, !tbaa !164
   %173 = sext i32 %172 to i64
   %174 = getelementptr inbounds [10 x [2 x i32]], ptr %37, i64 0, i64 %173
   store i32 %171, ptr %174, align 4, !tbaa !56
@@ -2401,14 +2401,14 @@ mid_pred.exit320:                                 ; preds = %139, %137, %136, %1
   %177 = load i32, ptr %176, align 4, !tbaa !56
   %factor349 = shl i32 %175, 1
   %178 = sub i32 %factor349, %177
-  %179 = load i32, ptr %38, align 4, !tbaa !164
+  %179 = load i32, ptr %38, align 8, !tbaa !164
   %180 = sext i32 %179 to i64
   %.idx312 = shl nsw i64 %180, 3
   %181 = getelementptr i8, ptr %37, i64 %.idx312
   %182 = getelementptr i8, ptr %181, i64 4
   store i32 %178, ptr %182, align 4, !tbaa !56
   %183 = add nsw i32 %179, 1
-  store i32 %183, ptr %38, align 4, !tbaa !164
+  store i32 %183, ptr %38, align 8, !tbaa !164
   br i1 %40, label %184, label %198
 
 184:                                              ; preds = %mid_pred.exit320
@@ -2452,14 +2452,14 @@ mid_pred.exit320:                                 ; preds = %139, %137, %136, %1
   %211 = getelementptr inbounds [2 x [2 x i32]], ptr %151, i64 %210
   %212 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %211, i64 0, i64 %153, i64 1
   %213 = load i32, ptr %212, align 4, !tbaa !56
-  %214 = load i32, ptr %38, align 4, !tbaa !164
+  %214 = load i32, ptr %38, align 8, !tbaa !164
   %215 = sext i32 %214 to i64
   %.idx314 = shl nsw i64 %215, 3
   %216 = getelementptr i8, ptr %37, i64 %.idx314
   %217 = getelementptr i8, ptr %216, i64 4
   store i32 %213, ptr %217, align 4, !tbaa !56
   %218 = add nsw i32 %214, 1
-  store i32 %218, ptr %38, align 4, !tbaa !164
+  store i32 %218, ptr %38, align 8, !tbaa !164
   br label %219
 
 219:                                              ; preds = %200, %198
@@ -2514,14 +2514,14 @@ mid_pred.exit320:                                 ; preds = %139, %137, %136, %1
   %256 = getelementptr inbounds [2 x [2 x i32]], ptr %151, i64 %255
   %257 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %256, i64 0, i64 %153, i64 1
   %258 = load i32, ptr %257, align 4, !tbaa !56
-  %259 = load i32, ptr %38, align 4, !tbaa !164
+  %259 = load i32, ptr %38, align 8, !tbaa !164
   %260 = sext i32 %259 to i64
   %.idx316 = shl nsw i64 %260, 3
   %261 = getelementptr i8, ptr %37, i64 %.idx316
   %262 = getelementptr i8, ptr %261, i64 4
   store i32 %258, ptr %262, align 4, !tbaa !56
   %263 = add nsw i32 %259, 1
-  store i32 %263, ptr %38, align 4, !tbaa !164
+  store i32 %263, ptr %38, align 8, !tbaa !164
   br label %264
 
 264:                                              ; preds = %244, %238

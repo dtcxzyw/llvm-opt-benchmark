@@ -64,7 +64,7 @@ define hidden void @_ZN4lean28lean_uv_udp_socket_finalizerEPv(ptr noundef %0) #0
   store ptr %7, ptr %6, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %8, align 8, !tbaa !13
-  store i8 0, ptr %7, align 1, !tbaa !16
+  store i8 0, ptr %7, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %5, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #16
   unreachable
@@ -83,7 +83,7 @@ define hidden void @_ZN4lean28lean_uv_udp_socket_finalizerEPv(ptr noundef %0) #0
   store ptr %15, ptr %14, align 8, !tbaa !10
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %16, align 8, !tbaa !13
-  store i8 0, ptr %15, align 1, !tbaa !16
+  store i8 0, ptr %15, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %13, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #16
   unreachable
@@ -1964,7 +1964,7 @@ define internal void @"_ZZ25lean_uv_udp_wait_readableEN3$_18__invokeEP8uv_udp_sl
   store ptr %27, ptr %26, align 8, !tbaa !10
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i64 0, ptr %28, align 8, !tbaa !13
-  store i8 0, ptr %27, align 1, !tbaa !16
+  store i8 0, ptr %27, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %25, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %25, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #16
   unreachable

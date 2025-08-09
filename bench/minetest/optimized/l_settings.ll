@@ -270,7 +270,7 @@ invoke.cont4:                                     ; preds = %_ZNSt7__cxx1112basi
   store ptr %8, ptr %m_end_tag.i, align 8, !tbaa !13
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 120
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !15
-  store i8 0, ptr %8, align 1, !tbaa !17
+  store i8 0, ptr %8, align 8, !tbaa !17
   %m_callback_mutex.i = getelementptr inbounds nuw i8, ptr %call, i64 144
   %m_settingslayer.i = getelementptr inbounds nuw i8, ptr %call, i64 232
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %m_callback_mutex.i, i8 0, i64 88, i1 false)

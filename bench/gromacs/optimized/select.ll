@@ -361,49 +361,49 @@ define void @_ZN3gmx15analysismodules10SelectInfo6createEv(ptr dead_on_unwind no
   store ptr %7, ptr %6, align 8, !tbaa !7
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i64 0, ptr %8, align 8, !tbaa !12
-  store i8 0, ptr %7, align 1, !tbaa !15
+  store i8 0, ptr %7, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store ptr %10, ptr %9, align 8, !tbaa !7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store i64 0, ptr %11, align 8, !tbaa !12
-  store i8 0, ptr %10, align 1, !tbaa !15
+  store i8 0, ptr %10, align 8, !tbaa !15
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store ptr %13, ptr %12, align 8, !tbaa !7
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 112
   store i64 0, ptr %14, align 8, !tbaa !12
-  store i8 0, ptr %13, align 1, !tbaa !15
+  store i8 0, ptr %13, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store ptr %16, ptr %15, align 8, !tbaa !7
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 144
   store i64 0, ptr %17, align 8, !tbaa !12
-  store i8 0, ptr %16, align 1, !tbaa !15
+  store i8 0, ptr %16, align 8, !tbaa !15
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 168
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 184
   store ptr %19, ptr %18, align 8, !tbaa !7
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 176
   store i64 0, ptr %20, align 8, !tbaa !12
-  store i8 0, ptr %19, align 1, !tbaa !15
+  store i8 0, ptr %19, align 8, !tbaa !15
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 200
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 216
   store ptr %22, ptr %21, align 8, !tbaa !7
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 208
   store i64 0, ptr %23, align 8, !tbaa !12
-  store i8 0, ptr %22, align 1, !tbaa !15
+  store i8 0, ptr %22, align 8, !tbaa !15
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 232
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 248
   store ptr %25, ptr %24, align 8, !tbaa !7
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 240
   store i64 0, ptr %26, align 8, !tbaa !12
-  store i8 0, ptr %25, align 1, !tbaa !15
+  store i8 0, ptr %25, align 8, !tbaa !15
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 264
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 280
   store ptr %28, ptr %27, align 8, !tbaa !7
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 272
   store i64 0, ptr %29, align 8, !tbaa !12
-  store i8 0, ptr %28, align 1, !tbaa !15
+  store i8 0, ptr %28, align 8, !tbaa !15
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 296
   store i8 0, ptr %30, align 8, !tbaa !16
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 297
@@ -2966,7 +2966,7 @@ _ZNSt12__shared_ptrIN3gmx22AnalysisDataPlotModuleELN9__gnu_cxx12_Lock_policyE2EE
   store ptr %445, ptr %444, align 8, !tbaa !7
   %446 = getelementptr inbounds nuw i8, ptr %443, i64 16
   store i64 0, ptr %446, align 8, !tbaa !12
-  store i8 0, ptr %445, align 1, !tbaa !15
+  store i8 0, ptr %445, align 8, !tbaa !15
   %447 = getelementptr inbounds nuw i8, ptr %443, i64 40
   %448 = getelementptr inbounds nuw i8, ptr %443, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %447, i8 0, i64 32, i1 false)
@@ -3361,7 +3361,7 @@ _ZSt19__relocate_object_aIN3gmx15analysismodules12_GLOBAL__N_121IndexFileWriterM
   store i64 %590, ptr %592, align 8, !tbaa !12, !alias.scope !189, !noalias !192
   store ptr %582, ptr %.092.i.i.i.i.i.i, align 8, !tbaa !85, !alias.scope !192, !noalias !189
   store i64 0, ptr %591, align 8, !tbaa !12, !alias.scope !192, !noalias !189
-  store i8 0, ptr %582, align 1, !tbaa !15, !alias.scope !192, !noalias !189
+  store i8 0, ptr %582, align 8, !tbaa !15, !alias.scope !192, !noalias !189
   %593 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i, i64 32
   %594 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i, i64 32
   %595 = load i8, ptr %594, align 8, !tbaa !186, !range !181, !alias.scope !192, !noalias !189, !noundef !182

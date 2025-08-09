@@ -1963,7 +1963,7 @@ define dso_local void @intel_power_domains_init_hw(ptr noundef initializes((2752
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8112
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, -1
-  %21 = load i32, ptr %9, align 4
+  %21 = load i32, ptr %9, align 8
   %22 = and i32 %21, 1048576
   %23 = icmp eq i32 %22, 0
   %24 = select i1 %23, i32 16, i32 3
@@ -4261,7 +4261,7 @@ define internal fastcc void @hsw_enable_pc8(ptr noundef %0) unnamed_addr #0 alig
   %431 = select i1 %429, i32 1278276, i32 1335052
   %432 = tail call i32 %430(ptr noundef nonnull %82, i32 %431, i1 noundef zeroext true) #10
   %433 = or i32 %432, 1
-  %434 = load i32, ptr %242, align 4
+  %434 = load i32, ptr %242, align 8
   %435 = and i32 %434, 4194304
   %436 = icmp eq i32 %435, 0
   br i1 %436, label %446, label %437
@@ -4461,7 +4461,7 @@ define internal fastcc void @hsw_disable_pc8(ptr noundef %0) unnamed_addr #0 ali
   %30 = tail call i32 %28(ptr noundef nonnull %8, i32 %29, i1 noundef zeroext true) #10
   %31 = and i32 %30, -258
   %32 = or disjoint i32 %31, 256
-  %33 = load i32, ptr %24, align 4
+  %33 = load i32, ptr %24, align 8
   %34 = and i32 %33, 4194304
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %45, label %36

@@ -527,20 +527,20 @@ define noundef ptr @_ZN3tbb6detail2r115task_dispatcher17get_suspend_pointEv(ptr 
   store i32 %16, ptr %17, align 4, !tbaa !105
   %18 = lshr i32 %14, 1
   %19 = xor i32 %16, %18
-  store i32 %19, ptr %10, align 4, !tbaa !106
+  store i32 %19, ptr %10, align 8, !tbaa !106
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i8 0, ptr %20, align 1, !tbaa !107
+  store i8 0, ptr %20, align 16, !tbaa !107
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 17
   store i8 0, ptr %21, align 1, !tbaa !108
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(988) %22, i8 0, i64 984, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 1008
-  store i32 2, ptr %23, align 8, !tbaa !109
+  store i32 2, ptr %23, align 16, !tbaa !109
   tail call void @_ZN3tbb6detail2r117current_coroutineERNS1_14coroutine_typeE(ptr noundef nonnull align 8 dereferenceable(988) %22)
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 1016
   store ptr null, ptr %24, align 8, !tbaa !110
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 1024
-  store i32 0, ptr %25, align 4, !tbaa !111
+  store i32 0, ptr %25, align 64, !tbaa !111
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 1088
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 1096
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 1104
@@ -552,7 +552,7 @@ define noundef ptr @_ZN3tbb6detail2r115task_dispatcher17get_suspend_pointEv(ptr 
   %30 = load ptr, ptr %9, align 64, !tbaa !91
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 288
   %32 = load ptr, ptr %31, align 32, !tbaa !114
-  store ptr %32, ptr %28, align 8, !tbaa !139
+  store ptr %32, ptr %28, align 16, !tbaa !139
   %33 = load ptr, ptr %0, align 128, !tbaa !41
   invoke void @_ZN3tbb6detail2r123task_group_context_impl7bind_toERNS0_2d118task_group_contextEPNS1_11thread_dataE(ptr noundef nonnull align 8 dereferenceable(128) %32, ptr noundef %33)
           to label %_ZN3tbb6detail2r115task_dispatcher18init_suspend_pointEPNS1_5arenaEm.exit unwind label %34
@@ -657,7 +657,7 @@ _ZN3tbb6detail2r18governor15get_thread_dataEv.exit: ; preds = %2, %5
   store ptr %0, ptr %21, align 8, !tbaa !148
   %22 = add i64 %18, 1
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 144
-  store atomic i64 %22, ptr %23 release, align 8
+  store atomic i64 %22, ptr %23 release, align 16
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %25 = load atomic i64, ptr %24 monotonic, align 8
   %.not.i.i = icmp eq i64 %25, 0
@@ -757,7 +757,7 @@ _ZN3tbb6detail2r18governor15get_thread_dataEv.exit: ; preds = %3, %7
   store i64 1, ptr %31, align 8, !tbaa !113
   %32 = load i64, ptr %18, align 8, !tbaa !151
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  store i64 %32, ptr %33, align 8, !tbaa !22
+  store i64 %32, ptr %33, align 32, !tbaa !22
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 96
   %35 = load i64, ptr %4, align 8, !tbaa !157
   store i64 %35, ptr %34, align 32, !tbaa !157
@@ -771,7 +771,7 @@ _ZN3tbb6detail2r18governor15get_thread_dataEv.exit: ; preds = %3, %7
   %41 = ptrtoint ptr %0 to i64
   %42 = or disjoint i64 %41, 3
   %43 = getelementptr inbounds nuw i8, ptr %30, i64 64
-  store atomic i64 %42, ptr %43 seq_cst, align 8
+  store atomic i64 %42, ptr %43 seq_cst, align 64
   %44 = getelementptr inbounds nuw i8, ptr %30, i64 72
   store atomic i64 0, ptr %44 monotonic, align 8
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -787,7 +787,7 @@ _ZN3tbb6detail2r18governor15get_thread_dataEv.exit: ; preds = %3, %7
   store ptr %30, ptr %52, align 8, !tbaa !148
   %53 = add i64 %49, 1
   %54 = getelementptr inbounds nuw i8, ptr %13, i64 144
-  store atomic i64 %53, ptr %54 release, align 8
+  store atomic i64 %53, ptr %54 release, align 16
   %55 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %56 = load atomic i64, ptr %55 monotonic, align 8
   %.not.i.i = icmp eq i64 %56, 0
@@ -837,7 +837,7 @@ _ZN3tbb6detail2r1L16spawn_and_notifyERNS0_2d14taskEPNS1_10arena_slotEPNS1_5arena
   store ptr %0, ptr %74, align 8, !tbaa !148
   %75 = add i64 %71, 1
   %76 = getelementptr inbounds nuw i8, ptr %13, i64 144
-  store atomic i64 %75, ptr %76 release, align 8
+  store atomic i64 %75, ptr %76 release, align 16
   %77 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %78 = load atomic i64, ptr %77 monotonic, align 8
   %.not.i.i34 = icmp eq i64 %78, 0
@@ -939,7 +939,7 @@ _ZN3tbb6detail2r18governor15get_thread_dataEv.exit: ; preds = %4, %9
   store ptr %0, ptr %31, align 8, !tbaa !148
   %32 = add i64 %28, 1
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 144
-  store atomic i64 %32, ptr %33 release, align 8
+  store atomic i64 %32, ptr %33 release, align 16
   %34 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %35 = load atomic i64, ptr %34 monotonic, align 8
   %.not.i22 = icmp eq i64 %35, 0
@@ -1619,9 +1619,9 @@ define void @_ZN3tbb6detail2r115task_dispatcher18init_suspend_pointEPNS1_5arenaE
   store i32 %11, ptr %12, align 4, !tbaa !105
   %13 = lshr i32 %9, 1
   %14 = xor i32 %11, %13
-  store i32 %14, ptr %5, align 4, !tbaa !106
+  store i32 %14, ptr %5, align 8, !tbaa !106
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i8 0, ptr %15, align 1, !tbaa !107
+  store i8 0, ptr %15, align 16, !tbaa !107
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 17
   store i8 0, ptr %16, align 1, !tbaa !108
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -1629,7 +1629,7 @@ define void @_ZN3tbb6detail2r115task_dispatcher18init_suspend_pointEPNS1_5arenaE
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 1008
   %.not.i.i = icmp eq i64 %2, 0
   %19 = select i1 %.not.i.i, i32 2, i32 1
-  store i32 %19, ptr %18, align 8, !tbaa !109
+  store i32 %19, ptr %18, align 16, !tbaa !109
   br i1 %.not.i.i, label %21, label %20
 
 20:                                               ; preds = %3
@@ -1644,7 +1644,7 @@ define void @_ZN3tbb6detail2r115task_dispatcher18init_suspend_pointEPNS1_5arenaE
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 1016
   store ptr null, ptr %23, align 8, !tbaa !110
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 1024
-  store i32 0, ptr %24, align 4, !tbaa !111
+  store i32 0, ptr %24, align 8, !tbaa !111
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 1088
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 1096
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 1104
@@ -1656,7 +1656,7 @@ define void @_ZN3tbb6detail2r115task_dispatcher18init_suspend_pointEPNS1_5arenaE
   %29 = load ptr, ptr %4, align 64, !tbaa !91
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 288
   %31 = load ptr, ptr %30, align 32, !tbaa !114
-  store ptr %31, ptr %27, align 8, !tbaa !139
+  store ptr %31, ptr %27, align 16, !tbaa !139
   %32 = load ptr, ptr %0, align 128, !tbaa !41
   invoke void @_ZN3tbb6detail2r123task_group_context_impl7bind_toERNS0_2d118task_group_contextEPNS1_11thread_dataE(ptr noundef nonnull align 8 dereferenceable(128) %31, ptr noundef %32)
           to label %_ZN3tbb6detail2r118suspend_point_typeC2EPNS1_5arenaEmRNS1_15task_dispatcherE.exit unwind label %33

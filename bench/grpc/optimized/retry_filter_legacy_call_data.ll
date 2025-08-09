@@ -11330,7 +11330,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit18.i:       ; preds = %125, %119
   %147 = and i16 %146, 4096
   %.not.i.i.i19.i = icmp eq i16 %147, 0
   %148 = getelementptr inbounds nuw i8, ptr %97, i64 14
-  %149 = load i8, ptr %148, align 1
+  %149 = load i8, ptr %148, align 2
   %.sroa.2.1.i21.i = lshr exact i16 %147, 12
   %.sroa.0192.0.extract.trunc = select i1 %.not.i.i.i19.i, i8 0, i8 %149
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -18043,7 +18043,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_
   store i64 %42, ptr %43, align 8, !tbaa !294
   store ptr %33, ptr %30, align 8, !tbaa !291
   store i64 0, ptr %41, align 8, !tbaa !294
-  store i8 0, ptr %33, align 1, !tbaa !238
+  store i8 0, ptr %33, align 8, !tbaa !238
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.010.0.i.i, i64 40
   %45 = add nuw nsw i64 %.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %45, %25
@@ -18364,7 +18364,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_
   store i64 %85, ptr %86, align 8, !tbaa !294
   store ptr %76, ptr %73, align 8, !tbaa !291
   store i64 0, ptr %84, align 8, !tbaa !294
-  store i8 0, ptr %76, align 1, !tbaa !238
+  store i8 0, ptr %76, align 8, !tbaa !238
   %87 = getelementptr inbounds nuw i8, ptr %.sroa.067.2, i64 40
   %88 = add nuw i64 %.06.i, 1
   %exitcond.not.i27 = icmp eq i64 %88, %.sroa.747.08097
@@ -18529,7 +18529,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__c
   store i64 %39, ptr %40, align 8, !tbaa !294
   store ptr %30, ptr %.sroa.010.0.i.i, align 8, !tbaa !291
   store i64 0, ptr %38, align 8, !tbaa !294
-  store i8 0, ptr %30, align 1, !tbaa !238
+  store i8 0, ptr %30, align 8, !tbaa !238
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.010.0.i.i, i64 32
   %42 = add nuw nsw i64 %.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %42, %25
@@ -18841,7 +18841,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__c
   store i64 %79, ptr %80, align 8, !tbaa !294
   store ptr %70, ptr %.sroa.067.2, align 8, !tbaa !291
   store i64 0, ptr %78, align 8, !tbaa !294
-  store i8 0, ptr %70, align 1, !tbaa !238
+  store i8 0, ptr %70, align 8, !tbaa !238
   %81 = getelementptr inbounds nuw i8, ptr %.sroa.067.2, i64 32
   %82 = add nuw i64 %.06.i, 1
   %exitcond.not.i27 = icmp eq i64 %82, %.sroa.747.08097
@@ -20285,7 +20285,7 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
   %storemerge.i.i.i.i.i.i.i.i78 = or i16 %148, 256
   store i16 %storemerge.i.i.i.i.i.i.i.i78, ptr %147, align 2, !tbaa !156
   %149 = getelementptr inbounds nuw i8, ptr %146, i64 18
-  store i16 %.sroa.0.0.copyload.i.i.i, ptr %149, align 1
+  store i16 %.sroa.0.0.copyload.i.i.i, ptr %149, align 2
   %.pre182 = load i16, ptr %70, align 2, !tbaa !156
   br label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_22W3CTraceParentMetadataEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_16GrpcTrailersOnlyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_18IsTransparentRetryEvEENS2_INS_22GrpcStreamNetworkSta80
 
@@ -20323,7 +20323,7 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
   %storemerge.i.i.i.i.i.i.i.i.i87 = or i16 %165, 1024
   store i16 %storemerge.i.i.i.i.i.i.i.i.i87, ptr %164, align 2, !tbaa !156
   %166 = getelementptr inbounds nuw i8, ptr %163, i64 16
-  store i8 %.sroa.0.0.copyload.i.i.i.i86, ptr %166, align 1, !tbaa !238
+  store i8 %.sroa.0.0.copyload.i.i.i.i86, ptr %166, align 2, !tbaa !238
   %.pre184 = load i16, ptr %70, align 2, !tbaa !156
   br label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_22W3CTraceParentMetadataEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_16GrpcTrailersOnlyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_18IsTransparentRetryEvEENS2_INS_22GrpcStreamNetworkSta89
 
@@ -20361,7 +20361,7 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
   %storemerge.i.i.i.i.i.i.i.i95 = or i16 %183, 4096
   store i16 %storemerge.i.i.i.i.i.i.i.i95, ptr %182, align 2, !tbaa !156
   %184 = getelementptr inbounds nuw i8, ptr %181, i64 14
-  store i8 %180, ptr %184, align 1, !tbaa !601
+  store i8 %180, ptr %184, align 2, !tbaa !601
   %.pre186 = load i16, ptr %70, align 2, !tbaa !156
   br label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_22W3CTraceParentMetadataEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_16GrpcTrailersOnlyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_18IsTransparentRetryEvEENS2_INS_22GrpcStreamNetworkSta97
 
@@ -20399,7 +20399,7 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
   %storemerge.i.i.i.i.i.i.i.i.i103 = or i16 %201, 16384
   store i16 %storemerge.i.i.i.i.i.i.i.i.i103, ptr %200, align 2, !tbaa !156
   %202 = getelementptr inbounds nuw i8, ptr %199, i64 12
-  store i8 %198, ptr %202, align 1, !tbaa !605
+  store i8 %198, ptr %202, align 2, !tbaa !605
   %.pr160 = load i16, ptr %70, align 2, !tbaa !156
   br label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_22W3CTraceParentMetadataEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_16GrpcTrailersOnlyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_18IsTransparentRetryEvEENS2_INS_22GrpcStreamNetworkSt105
 
@@ -20451,7 +20451,7 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
   %storemerge.i.i.i.i.i.i.i.i.i114 = or i16 %226, 2
   store i16 %storemerge.i.i.i.i.i.i.i.i.i114, ptr %225, align 2, !tbaa !156
   %227 = getelementptr inbounds nuw i8, ptr %224, i64 10
-  store i8 %223, ptr %227, align 1, !tbaa !609
+  store i8 %223, ptr %227, align 2, !tbaa !609
   %.pre189 = load i16, ptr %212, align 4, !tbaa !156
   br label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_22W3CTraceParentMetadataEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_16GrpcTrailersOnlyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_18IsTransparentRetryEvEENS2_INS_22GrpcStreamNetworkSt116
 
@@ -20489,7 +20489,7 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
   %storemerge.i.i.i.i.i.i.i.i122 = or i16 %244, 8
   store i16 %storemerge.i.i.i.i.i.i.i.i122, ptr %243, align 2, !tbaa !156
   %245 = getelementptr inbounds nuw i8, ptr %242, i64 8
-  store i8 %241, ptr %245, align 1, !tbaa !613
+  store i8 %241, ptr %245, align 2, !tbaa !613
   br label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_22W3CTraceParentMetadataEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_16GrpcTrailersOnlyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_18IsTransparentRetryEvEENS2_INS_22GrpcStreamNetworkSt124
 
 _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_22W3CTraceParentMetadataEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_16GrpcTrailersOnlyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_18IsTransparentRetryEvEENS2_INS_22GrpcStreamNetworkSt124: ; preds = %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_22W3CTraceParentMetadataEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_16GrpcTrailersOnlyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_18IsTransparentRetryEvEENS2_INS_22GrpcStreamNetworkSt120, %239
@@ -20831,7 +20831,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_
   store i64 %51, ptr %53, align 8, !tbaa !294
   store ptr %43, ptr %40, align 8, !tbaa !291
   store i64 0, ptr %52, align 8, !tbaa !294
-  store i8 0, ptr %43, align 1, !tbaa !238
+  store i8 0, ptr %43, align 8, !tbaa !238
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.025.0, i64 40
   %55 = add nuw nsw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %55, %.sink1.i
@@ -21213,7 +21213,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__c
   store i64 %45, ptr %47, align 8, !tbaa !294
   store ptr %37, ptr %.sroa.025.0, align 8, !tbaa !291
   store i64 0, ptr %46, align 8, !tbaa !294
-  store i8 0, ptr %37, align 1, !tbaa !238
+  store i8 0, ptr %37, align 8, !tbaa !238
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.025.0, i64 32
   %49 = add nuw nsw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %49, %.sink1.i

@@ -80276,7 +80276,7 @@ _ZN11polars_plan5plans10conversion13type_coercion20inline_or_prune_cast17h59a458
   %462 = getelementptr inbounds nuw i8, ptr %150, i64 8
   store ptr %461, ptr %462, align 8
   %463 = getelementptr inbounds nuw i8, ptr %191, i64 144
-  %464 = load ptr, ptr %463, align 8, !nonnull !12, !noundef !12
+  %464 = load ptr, ptr %463, align 16, !nonnull !12, !noundef !12
   %465 = getelementptr inbounds nuw i8, ptr %191, i64 152
   %466 = load i64, ptr %465, align 8, !noundef !12
   %.not721 = icmp eq i64 %466, 0

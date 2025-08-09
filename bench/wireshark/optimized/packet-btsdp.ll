@@ -7951,13 +7951,13 @@ define internal fastcc void @reassemble_continuation_state(ptr noundef %0, ptr n
   store i32 %415, ptr %416, align 4
   %417 = load i32, ptr %395, align 4
   %418 = getelementptr i8, ptr %410, i64 24
-  store i32 %417, ptr %418, align 4
+  store i32 %417, ptr %418, align 8
   %419 = load i32, ptr %397, align 4
   %420 = getelementptr i8, ptr %410, i64 28
   store i32 %419, ptr %420, align 4
   %421 = load i32, ptr %400, align 4
   %422 = getelementptr i8, ptr %410, i64 32
-  store i32 %421, ptr %422, align 4
+  store i32 %421, ptr %422, align 8
   %423 = load i32, ptr %403, align 4
   %424 = getelementptr i8, ptr %410, i64 36
   store i32 %423, ptr %424, align 4

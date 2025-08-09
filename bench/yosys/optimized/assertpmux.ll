@@ -16496,8 +16496,8 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolISt5tupleIJPNS0_5RTLIL4CellEiiEENS1_8has
   %41 = load i32, ptr %40, align 4, !tbaa !50
   %42 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 4
   store i32 %41, ptr %42, align 4, !tbaa !50
-  %43 = load i32, ptr %.0910.i.i.i.i.i, align 4, !tbaa !50
-  store i32 %43, ptr %.0811.i.i.i.i.i, align 4, !tbaa !50
+  %43 = load i32, ptr %.0910.i.i.i.i.i, align 8, !tbaa !50
+  store i32 %43, ptr %.0811.i.i.i.i.i, align 8, !tbaa !50
   %44 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 16
   %45 = load i32, ptr %44, align 8, !tbaa !247
   %46 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 16
@@ -16529,8 +16529,8 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolISt5tupleIJPNS0_5RTLIL4CellEiiEENS1_8has
   %59 = load i32, ptr %58, align 4, !tbaa !50
   %60 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i29, i64 4
   store i32 %59, ptr %60, align 4, !tbaa !50
-  %61 = load i32, ptr %.0910.i.i.i.i.i30, align 4, !tbaa !50
-  store i32 %61, ptr %.0811.i.i.i.i.i29, align 4, !tbaa !50
+  %61 = load i32, ptr %.0910.i.i.i.i.i30, align 8, !tbaa !50
+  store i32 %61, ptr %.0811.i.i.i.i.i29, align 8, !tbaa !50
   %62 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i30, i64 16
   %63 = load i32, ptr %62, align 8, !tbaa !247
   %64 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i29, i64 16

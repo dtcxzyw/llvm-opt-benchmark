@@ -5504,7 +5504,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !tbaa !14, !alias.scope !389, !noalias !392
   store ptr %43, ptr %.0911.i.i.i, align 8, !tbaa !11, !alias.scope !392, !noalias !389
   store i64 0, ptr %52, align 8, !tbaa !14, !alias.scope !392, !noalias !389
-  store i8 0, ptr %43, align 1, !tbaa !13, !alias.scope !392, !noalias !389
+  store i8 0, ptr %43, align 8, !tbaa !13, !alias.scope !392, !noalias !389
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %54, %1
@@ -5552,7 +5552,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !tbaa !14, !alias.scope !396, !noalias !399
   store ptr %59, ptr %.0911.i.i.i19, align 8, !tbaa !11, !alias.scope !399, !noalias !396
   store i64 0, ptr %68, align 8, !tbaa !14, !alias.scope !399, !noalias !396
-  store i8 0, ptr %59, align 1, !tbaa !13, !alias.scope !399, !noalias !396
+  store i8 0, ptr %59, align 8, !tbaa !13, !alias.scope !399, !noalias !396
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %70, %6
@@ -5812,7 +5812,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
   store i64 %52, ptr %53, align 8, !tbaa !14
   store ptr %43, ptr %40, align 8, !tbaa !11
   store i64 0, ptr %51, align 8, !tbaa !14
-  store i8 0, ptr %43, align 1, !tbaa !13
+  store i8 0, ptr %43, align 8, !tbaa !13
   %54 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 64
   %55 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 80
   store ptr %55, ptr %54, align 8, !tbaa !32
@@ -206695,9 +206695,9 @@ define internal fastcc noundef zeroext i1 @_ZL19mergeEltWithShuffleRN4llvm7SDVal
   %35 = getelementptr inbounds i8, ptr %34, i64 -24
   %.sroa.011.0.copyload = load i32, ptr %35, align 8
   %.sroa.412.sroa.3.0..sroa.412.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %34, i64 -16
-  %.sroa.412.sroa.3.0.copyload = load ptr, ptr %.sroa.412.sroa.3.0..sroa.412.0..sroa_idx.sroa_idx, align 4
+  %.sroa.412.sroa.3.0.copyload = load ptr, ptr %.sroa.412.sroa.3.0..sroa.412.0..sroa_idx.sroa_idx, align 8
   %.sroa.412.sroa.4.0..sroa.412.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %34, i64 -8
-  %.sroa.412.sroa.4.0.copyload = load i32, ptr %.sroa.412.sroa.4.0..sroa.412.0..sroa_idx.sroa_idx, align 4
+  %.sroa.412.sroa.4.0.copyload = load i32, ptr %.sroa.412.sroa.4.0..sroa.412.0..sroa_idx.sroa_idx, align 8
   %36 = add i32 %31, -1
   store i32 %36, ptr %22, align 8, !tbaa !33, !noalias !2012
   %37 = icmp eq ptr %.sroa.412.sroa.3.0.copyload, %.sroa.014.0.copyload
@@ -220385,7 +220385,7 @@ _ZNKSt4lessIN4llvm7SDValueEEclERKS1_S4_.exit.thread79.i: ; preds = %_ZNKSt4lessI
 .lr.ph.i.i:                                       ; preds = %_ZNKSt4lessIN4llvm7SDValueEEclERKS1_S4_.exit.thread79.i
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i, i64 8
   %25 = load ptr, ptr %.sroa.04.08.i, align 8, !tbaa !94
-  %26 = load i32, ptr %24, align 4
+  %26 = load i32, ptr %24, align 8
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.backedge.i.backedge, %.lr.ph.i.i

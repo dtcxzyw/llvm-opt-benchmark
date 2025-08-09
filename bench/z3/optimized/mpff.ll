@@ -8351,7 +8351,7 @@ define hidden void @_ZNK12mpff_manager11display_rawERSoRK4mpff(ptr noundef nonnu
   %24 = load i32, ptr %23, align 8, !tbaa !87
   %25 = and i32 %24, -75
   %26 = or disjoint i32 %25, 8
-  store i32 %26, ptr %23, align 4, !tbaa !96
+  store i32 %26, ptr %23, align 8, !tbaa !96
   %27 = load i64, ptr %20, align 8
   %28 = getelementptr inbounds i8, ptr %1, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 225
@@ -8415,7 +8415,7 @@ _ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St8_SetfillIS3_E.exit: ; 
   %59 = load i32, ptr %58, align 8, !tbaa !87
   %60 = and i32 %59, -75
   %61 = or disjoint i32 %60, 2
-  store i32 %61, ptr %58, align 4, !tbaa !96
+  store i32 %61, ptr %58, align 8, !tbaa !96
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %63 = load i32, ptr %62, align 4, !tbaa !35
   %64 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %63)

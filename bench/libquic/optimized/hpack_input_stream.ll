@@ -888,7 +888,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit18: ; preds = %_ZN7l
   store ptr %27, ptr %25, align 8, !tbaa !43, !alias.scope !45
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 0, ptr %28, align 8, !tbaa !46, !alias.scope !45
-  store i8 0, ptr %27, align 1, !tbaa !18, !alias.scope !45
+  store i8 0, ptr %27, align 8, !tbaa !18, !alias.scope !45
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %30 = load ptr, ptr %29, align 8, !tbaa !48, !noalias !45
   %.not.i.not.i.i = icmp eq ptr %30, null

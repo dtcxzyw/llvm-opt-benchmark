@@ -1010,7 +1010,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit31:             ; preds = %106, %108, %110, %1
   store ptr %138, ptr %137, align 8, !tbaa !130
   %139 = getelementptr inbounds nuw i8, ptr %129, i64 136
   store i64 0, ptr %139, align 8, !tbaa !81
-  store i8 0, ptr %138, align 1, !tbaa !82
+  store i8 0, ptr %138, align 8, !tbaa !82
   %140 = getelementptr inbounds nuw i8, ptr %129, i64 160
   invoke void @_ZN13IlmThread_3_49SemaphoreC1Ej(ptr noundef nonnull align 8 dereferenceable(40) %140, i32 noundef 1)
           to label %141 unwind label %166
@@ -2918,7 +2918,7 @@ _ZN7Imf_3_412_GLOBAL__N_110LineBuffer4waitEv.exit._crit_edge.i: ; preds = %_ZN7I
   %94 = add i32 %89, -1
   %95 = add i32 %94, %92
   %96 = getelementptr inbounds nuw i8, ptr %85, i64 200
-  %97 = load i32, ptr %96, align 4, !tbaa !107
+  %97 = load i32, ptr %96, align 8, !tbaa !107
   %.sroa.speculated.i = call i32 @llvm.smin.i32(i32 %97, i32 %95)
   %98 = getelementptr inbounds nuw i8, ptr %80, i64 100
   store i32 %.sroa.speculated.i, ptr %98, align 4, !tbaa !185
@@ -3057,7 +3057,7 @@ _ZN7Imf_3_412_GLOBAL__N_110LineBuffer4waitEv.exit._crit_edge.i144: ; preds = %_Z
   %164 = add i32 %159, -1
   %165 = add i32 %164, %162
   %166 = getelementptr inbounds nuw i8, ptr %155, i64 200
-  %167 = load i32, ptr %166, align 4, !tbaa !107
+  %167 = load i32, ptr %166, align 8, !tbaa !107
   %.sroa.speculated.i141 = call i32 @llvm.smin.i32(i32 %167, i32 %165)
   %168 = getelementptr inbounds nuw i8, ptr %150, i64 100
   store i32 %.sroa.speculated.i141, ptr %168, align 4, !tbaa !185
@@ -3308,7 +3308,7 @@ _ZN7Imf_3_412_GLOBAL__N_110LineBuffer4waitEv.exit._crit_edge.i164: ; preds = %_Z
   %279 = add i32 %275, -1
   %280 = add i32 %279, %277
   %281 = getelementptr inbounds nuw i8, ptr %271, i64 200
-  %282 = load i32, ptr %281, align 4, !tbaa !107
+  %282 = load i32, ptr %281, align 8, !tbaa !107
   %.sroa.speculated.i161 = call i32 @llvm.smin.i32(i32 %282, i32 %280)
   %283 = getelementptr inbounds nuw i8, ptr %266, i64 100
   store i32 %.sroa.speculated.i161, ptr %283, align 4, !tbaa !185

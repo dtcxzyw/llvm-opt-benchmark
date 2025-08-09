@@ -165,7 +165,7 @@ define hidden void @_ZN10NativeCall15replace_mt_safeEPhS0_(ptr noundef %0, ptr n
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i8, ptr %9, align 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %10, ptr %11, align 1
+  store i8 %10, ptr %11, align 4
   tail call void @_ZN14AbstractICache15invalidate_wordEPh(ptr noundef nonnull %11) #7
   %12 = load i32, ptr %1, align 4
   store i32 %12, ptr %0, align 4
@@ -1319,7 +1319,7 @@ define hidden void @_ZN17NativeGeneralJump15replace_mt_safeEPhS0_(ptr noundef in
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i8, ptr %3, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %4, ptr %5, align 1
+  store i8 %4, ptr %5, align 4
   tail call void @_ZN14AbstractICache15invalidate_wordEPh(ptr noundef nonnull %5) #7
   %6 = load i32, ptr %1, align 4
   store i32 %6, ptr %0, align 4

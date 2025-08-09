@@ -3843,7 +3843,7 @@ _ZNSt6vectorIN4Luau9TypeErrorESaIS1_EE12emplace_backIJRKNS0_8LocationENS0_23Norm
   store ptr %39, ptr %38, align 8, !tbaa !212
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store i64 0, ptr %40, align 8, !tbaa !181
-  store i8 0, ptr %39, align 1, !tbaa !182
+  store i8 0, ptr %39, align 8, !tbaa !182
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 48
   store i32 34, ptr %41, align 8, !tbaa !175
   %42 = load ptr, ptr %33, align 8, !tbaa !174
@@ -4415,7 +4415,7 @@ _ZNSt6vectorIN4Luau9TypeErrorESaIS1_EE12emplace_backIJRKNS0_8LocationENS0_23Norm
   store ptr %39, ptr %38, align 8, !tbaa !212
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store i64 0, ptr %40, align 8, !tbaa !181
-  store i8 0, ptr %39, align 1, !tbaa !182
+  store i8 0, ptr %39, align 8, !tbaa !182
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 48
   store i32 34, ptr %41, align 8, !tbaa !175
   %42 = load ptr, ptr %33, align 8, !tbaa !174
@@ -6199,7 +6199,7 @@ _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackField
   store ptr %668, ptr %667, align 8, !tbaa !212
   %669 = getelementptr inbounds nuw i8, ptr %664, i64 24
   store i64 0, ptr %669, align 8, !tbaa !181
-  store i8 0, ptr %668, align 1, !tbaa !182
+  store i8 0, ptr %668, align 8, !tbaa !182
   %670 = getelementptr inbounds nuw i8, ptr %664, i64 48
   store i32 34, ptr %670, align 8, !tbaa !175
   %671 = load ptr, ptr %578, align 8, !tbaa !174
@@ -7446,7 +7446,7 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   store i64 %27, ptr %29, align 8, !tbaa !181
   store ptr %18, ptr %1, align 8, !tbaa !177
   store i64 0, ptr %28, align 8, !tbaa !181
-  store i8 0, ptr %18, align 1, !tbaa !182
+  store i8 0, ptr %18, align 8, !tbaa !182
   store i8 1, ptr %12, align 8, !tbaa !239
   br label %_ZNSt22_Optional_payload_baseIN4Luau18FunctionDefinitionEE12_M_constructIJS1_EEEvDpOT_.exit.i.i.i.i.i.i.i
 
@@ -15134,7 +15134,7 @@ _ZNKSt6vectorIN4Luau9TypeErrorESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %4
   store ptr %27, ptr %26, align 8, !tbaa !212
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i64 0, ptr %28, align 8, !tbaa !181
-  store i8 0, ptr %27, align 1, !tbaa !182
+  store i8 0, ptr %27, align 8, !tbaa !182
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 48
   store i32 34, ptr %29, align 8, !tbaa !175
   %30 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKN4Luau9TypeErrorEPS1_ET0_T_S6_S5_(ptr noundef %7, ptr noundef %1, ptr noundef nonnull %24)
@@ -15672,7 +15672,7 @@ _ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9
   store ptr %34, ptr %33, align 8, !tbaa !212
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 0, ptr %35, align 8, !tbaa !181
-  store i8 0, ptr %34, align 1, !tbaa !182
+  store i8 0, ptr %34, align 8, !tbaa !182
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i32 0, ptr %36, align 8, !tbaa !175
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -16071,7 +16071,7 @@ _ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9
   store ptr %28, ptr %27, align 8, !tbaa !212
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 0, ptr %29, align 8, !tbaa !181
-  store i8 0, ptr %28, align 1, !tbaa !182
+  store i8 0, ptr %28, align 8, !tbaa !182
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i32 35, ptr %30, align 8, !tbaa !175
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -17262,7 +17262,7 @@ _ZNKSt6vectorIN4Luau9TypeErrorESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %4
   store ptr %27, ptr %26, align 8, !tbaa !212
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i64 0, ptr %28, align 8, !tbaa !181
-  store i8 0, ptr %27, align 1, !tbaa !182
+  store i8 0, ptr %27, align 8, !tbaa !182
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 48
   store i32 34, ptr %29, align 8, !tbaa !175
   %30 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKN4Luau9TypeErrorEPS1_ET0_T_S6_S5_(ptr noundef %7, ptr noundef %1, ptr noundef nonnull %24)
@@ -17624,7 +17624,7 @@ _ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9
   store ptr %34, ptr %33, align 8, !tbaa !212
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 0, ptr %35, align 8, !tbaa !181
-  store i8 0, ptr %34, align 1, !tbaa !182
+  store i8 0, ptr %34, align 8, !tbaa !182
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i32 0, ptr %36, align 8, !tbaa !175
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -18023,7 +18023,7 @@ _ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9
   store ptr %28, ptr %27, align 8, !tbaa !212
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 0, ptr %29, align 8, !tbaa !181
-  store i8 0, ptr %28, align 1, !tbaa !182
+  store i8 0, ptr %28, align 8, !tbaa !182
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i32 35, ptr %30, align 8, !tbaa !175
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 56

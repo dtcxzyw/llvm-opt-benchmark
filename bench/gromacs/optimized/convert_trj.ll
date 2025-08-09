@@ -79,7 +79,7 @@ define void @_ZN3gmx15analysismodules14ConvertTrjInfo6createEv(ptr dead_on_unwin
   store ptr %6, ptr %5, align 8, !tbaa !7
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 0, ptr %7, align 8, !tbaa !12
-  store i8 0, ptr %6, align 1, !tbaa !15
+  store i8 0, ptr %6, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i32 0, ptr %8, align 8, !tbaa !16
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 68

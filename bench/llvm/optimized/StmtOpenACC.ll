@@ -152,7 +152,7 @@ _ZN5clang30OpenACCAssociatedStmtConstructC2ENS_4Stmt9StmtClassENS_20OpenACCDirec
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i11, i64 12
   store i32 %2, ptr %38, align 4, !tbaa !41
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i11, i64 16
-  store i32 %4, ptr %39, align 4, !tbaa !41
+  store i32 %4, ptr %39, align 8, !tbaa !41
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i11, i64 20
   store i32 %3, ptr %40, align 4, !tbaa !41
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i11, i64 24
@@ -500,7 +500,7 @@ _ZN5clang30OpenACCAssociatedStmtConstructC2ENS_4Stmt9StmtClassENS_20OpenACCDirec
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i11, i64 12
   store i32 %2, ptr %38, align 4, !tbaa !41
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i11, i64 16
-  store i32 %4, ptr %39, align 4, !tbaa !41
+  store i32 %4, ptr %39, align 8, !tbaa !41
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i11, i64 20
   store i32 %3, ptr %40, align 4, !tbaa !41
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i11, i64 24
@@ -659,7 +659,7 @@ _ZN5clang30OpenACCAssociatedStmtConstructC2ENS_4Stmt9StmtClassENS_20OpenACCDirec
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i12, i64 12
   store i32 %1, ptr %36, align 4, !tbaa !41
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i12, i64 16
-  store i32 %3, ptr %37, align 4, !tbaa !41
+  store i32 %3, ptr %37, align 8, !tbaa !41
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i12, i64 20
   store i32 %2, ptr %38, align 4, !tbaa !41
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i12, i64 24
@@ -818,7 +818,7 @@ _ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindEN
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i11, i64 12
   store i32 %1, ptr %35, align 4, !tbaa !41
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i11, i64 16
-  store i32 %3, ptr %36, align 4, !tbaa !41
+  store i32 %3, ptr %36, align 8, !tbaa !41
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i11, i64 20
   store i32 %2, ptr %37, align 4, !tbaa !41
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i11, i64 24
@@ -975,7 +975,7 @@ _ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindEN
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i11, i64 12
   store i32 %1, ptr %35, align 4, !tbaa !41
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i11, i64 16
-  store i32 %3, ptr %36, align 4, !tbaa !41
+  store i32 %3, ptr %36, align 8, !tbaa !41
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i11, i64 20
   store i32 %2, ptr %37, align 4, !tbaa !41
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i11, i64 24
@@ -1132,7 +1132,7 @@ _ZN5clang30OpenACCAssociatedStmtConstructC2ENS_4Stmt9StmtClassENS_20OpenACCDirec
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i12, i64 12
   store i32 %1, ptr %36, align 4, !tbaa !41
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i12, i64 16
-  store i32 %3, ptr %37, align 4, !tbaa !41
+  store i32 %3, ptr %37, align 8, !tbaa !41
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i12, i64 20
   store i32 %2, ptr %38, align 4, !tbaa !41
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i12, i64 24
@@ -1321,7 +1321,7 @@ _ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindEN
   %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i21, i64 12
   store i32 %1, ptr %45, align 4, !tbaa !41
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i21, i64 16
-  store i32 %8, ptr %46, align 4, !tbaa !41
+  store i32 %8, ptr %46, align 8, !tbaa !41
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i21, i64 20
   store i32 %2, ptr %47, align 4, !tbaa !41
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i21, i64 24
@@ -1503,7 +1503,7 @@ _ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindEN
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i11, i64 12
   store i32 %1, ptr %35, align 4, !tbaa !41
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i11, i64 16
-  store i32 %3, ptr %36, align 4, !tbaa !41
+  store i32 %3, ptr %36, align 8, !tbaa !41
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i11, i64 20
   store i32 %2, ptr %37, align 4, !tbaa !41
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i11, i64 24
@@ -1660,7 +1660,7 @@ _ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindEN
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i11, i64 12
   store i32 %1, ptr %35, align 4, !tbaa !41
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i11, i64 16
-  store i32 %3, ptr %36, align 4, !tbaa !41
+  store i32 %3, ptr %36, align 8, !tbaa !41
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i11, i64 20
   store i32 %2, ptr %37, align 4, !tbaa !41
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i11, i64 24
@@ -1817,7 +1817,7 @@ _ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindEN
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i11, i64 12
   store i32 %1, ptr %35, align 4, !tbaa !41
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i11, i64 16
-  store i32 %3, ptr %36, align 4, !tbaa !41
+  store i32 %3, ptr %36, align 8, !tbaa !41
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i11, i64 20
   store i32 %2, ptr %37, align 4, !tbaa !41
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i11, i64 24
@@ -1974,7 +1974,7 @@ _ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindEN
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i11, i64 12
   store i32 %1, ptr %35, align 4, !tbaa !41
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i11, i64 16
-  store i32 %3, ptr %36, align 4, !tbaa !41
+  store i32 %3, ptr %36, align 8, !tbaa !41
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i11, i64 20
   store i32 %2, ptr %37, align 4, !tbaa !41
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i11, i64 24
@@ -2108,7 +2108,7 @@ _ZN5clang22OpenACCAtomicConstructC2ENS_14SourceLocationES1_NS_17OpenACCAtomicKin
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i10, i64 12
   store i32 %1, ptr %33, align 4, !tbaa !41
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i10, i64 16
-  store i32 %4, ptr %34, align 4, !tbaa !41
+  store i32 %4, ptr %34, align 8, !tbaa !41
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i10, i64 20
   store i32 %2, ptr %35, align 4, !tbaa !41
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i10, i64 24

@@ -1099,7 +1099,7 @@ define hidden noundef nonnull ptr @_ZN6google8protobuf15UnknownFieldSet18AddLeng
   store ptr %4, ptr %3, align 8, !tbaa !30
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %5, align 8, !tbaa !22
-  store i8 0, ptr %4, align 1, !tbaa !16
+  store i8 0, ptr %4, align 8, !tbaa !16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !9
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16

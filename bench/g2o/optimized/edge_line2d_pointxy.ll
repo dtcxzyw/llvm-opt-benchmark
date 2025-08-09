@@ -486,7 +486,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi1EdJNS_12VertexLine2DENS
   store ptr %54, ptr %53, align 8, !tbaa !98
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i64 1, ptr %55, align 8, !tbaa !100
-  %56 = load ptr, ptr %47, align 8, !tbaa !113
+  %56 = load ptr, ptr %47, align 16, !tbaa !113
   %57 = load double, ptr %54, align 8, !tbaa !49
   %58 = insertelement <2 x double> poison, double %57, i64 0
   %59 = shufflevector <2 x double> %58, <2 x double> poison, <2 x i32> zeroinitializer
@@ -631,7 +631,7 @@ _ZN3g2o18BaseFixedSizedEdgeILi1EdJNS_12VertexLine2DENS_13VertexPointXYEEE23const
   store ptr %159, ptr %158, align 8, !tbaa !98
   %160 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i64 1, ptr %160, align 8, !tbaa !100
-  %161 = load ptr, ptr %152, align 8, !tbaa !113
+  %161 = load ptr, ptr %152, align 16, !tbaa !113
   %162 = load double, ptr %159, align 8, !tbaa !49
   %163 = insertelement <2 x double> poison, double %162, i64 0
   %164 = shufflevector <2 x double> %163, <2 x double> poison, <2 x i32> zeroinitializer
@@ -705,7 +705,7 @@ _ZN3g2o18BaseFixedSizedEdgeILi1EdJNS_12VertexLine2DENS_13VertexPointXYEEE24const
   store ptr %211, ptr %210, align 8, !tbaa !98
   %212 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i64 1, ptr %212, align 8, !tbaa !100
-  %213 = load ptr, ptr %204, align 8, !tbaa !113
+  %213 = load ptr, ptr %204, align 16, !tbaa !113
   %214 = load double, ptr %211, align 8, !tbaa !49
   %215 = insertelement <2 x double> poison, double %214, i64 0
   %216 = shufflevector <2 x double> %215, <2 x double> poison, <2 x i32> zeroinitializer
@@ -1155,7 +1155,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi1EdJNS_12VertexLine2DENS
   store ptr %33, ptr %32, align 8, !tbaa !98
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i64 1, ptr %34, align 8, !tbaa !100
-  %35 = load ptr, ptr %25, align 8, !tbaa !113
+  %35 = load ptr, ptr %25, align 16, !tbaa !113
   %36 = load double, ptr %33, align 8, !tbaa !49
   %37 = insertelement <2 x double> poison, double %36, i64 0
   %38 = shufflevector <2 x double> %37, <2 x double> poison, <2 x i32> zeroinitializer

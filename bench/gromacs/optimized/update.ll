@@ -1014,7 +1014,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %92, %103, 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   %144 = getelementptr inbounds nuw i8, ptr %113, i64 52
   %145 = getelementptr inbounds nuw i8, ptr %113, i64 40
-  %146 = load float, ptr %145, align 4, !tbaa !170
+  %146 = load float, ptr %145, align 8, !tbaa !170
   call void @llvm.experimental.noalias.scope.decl(metadata !273)
   %147 = getelementptr inbounds nuw i8, ptr %113, i64 456
   %148 = load ptr, ptr %147, align 8, !tbaa !243, !noalias !273

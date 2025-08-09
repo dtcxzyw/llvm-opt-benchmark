@@ -7427,7 +7427,7 @@ _init_l_Lean_Compiler_initFn____x40_Lean_Compiler_InlineAttrs___hyg_267____close
   %.val13 = load ptr, ptr %224, align 8, !tbaa !10
   store ptr %.val13, ptr @l_Lean_Compiler_inlineAttrs, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef %.val13) #7
-  %225 = load i32, ptr %220, align 4, !tbaa !4
+  %225 = load i32, ptr %220, align 8, !tbaa !4
   %226 = icmp sgt i32 %225, 1
   br i1 %226, label %227, label %229, !prof !9
 

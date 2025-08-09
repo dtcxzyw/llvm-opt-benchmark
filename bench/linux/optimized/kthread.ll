@@ -1249,9 +1249,9 @@ define dso_local noundef i32 @kthreadd(ptr noundef readnone captures(none) %0) l
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 2248
   store i64 %7, ptr %13, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !60
-  %14 = load i32, ptr %10, align 4
+  %14 = load i32, ptr %10, align 8
   %15 = add i32 %14, 1
-  store i32 %15, ptr %10, align 4
+  store i32 %15, ptr %10, align 8
   %16 = and i64 %9, 512
   %17 = icmp eq i64 %16, 0
   br i1 %17, label %19, label %18

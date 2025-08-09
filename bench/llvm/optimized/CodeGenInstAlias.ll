@@ -3537,7 +3537,7 @@ _ZSt19__relocate_object_aIN4llvm16CodeGenInstAlias13ResultOperandES2_SaIS2_EEvPT
   store i64 %49, ptr %51, align 8, !tbaa !37, !alias.scope !267, !noalias !270
   store ptr %41, ptr %.0911.i.i.i, align 8, !tbaa !35, !alias.scope !270, !noalias !267
   store i64 0, ptr %50, align 8, !tbaa !37, !alias.scope !270, !noalias !267
-  store i8 0, ptr %41, align 1, !tbaa !29, !alias.scope !270, !noalias !267
+  store i8 0, ptr %41, align 8, !tbaa !29, !alias.scope !270, !noalias !267
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %52, ptr noundef nonnull align 8 dereferenceable(20) %53, i64 20, i1 false), !alias.scope !272
@@ -3588,7 +3588,7 @@ _ZSt19__relocate_object_aIN4llvm16CodeGenInstAlias13ResultOperandES2_SaIS2_EEvPT
   store i64 %67, ptr %69, align 8, !tbaa !37, !alias.scope !274, !noalias !277
   store ptr %59, ptr %.0911.i.i.i19, align 8, !tbaa !35, !alias.scope !277, !noalias !274
   store i64 0, ptr %68, align 8, !tbaa !37, !alias.scope !277, !noalias !274
-  store i8 0, ptr %59, align 1, !tbaa !29, !alias.scope !277, !noalias !274
+  store i8 0, ptr %59, align 8, !tbaa !29, !alias.scope !277, !noalias !274
   %70 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %70, ptr noundef nonnull align 8 dereferenceable(20) %71, i64 20, i1 false), !alias.scope !279
@@ -3741,7 +3741,7 @@ _ZSt19__relocate_object_aIN4llvm16CodeGenInstAlias13ResultOperandES2_SaIS2_EEvPT
   store i64 %52, ptr %54, align 8, !tbaa !37, !alias.scope !280, !noalias !283
   store ptr %44, ptr %.0911.i.i.i, align 8, !tbaa !35, !alias.scope !283, !noalias !280
   store i64 0, ptr %53, align 8, !tbaa !37, !alias.scope !283, !noalias !280
-  store i8 0, ptr %44, align 1, !tbaa !29, !alias.scope !283, !noalias !280
+  store i8 0, ptr %44, align 8, !tbaa !29, !alias.scope !283, !noalias !280
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %56 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %55, ptr noundef nonnull align 8 dereferenceable(20) %56, i64 20, i1 false), !alias.scope !285
@@ -3792,7 +3792,7 @@ _ZSt19__relocate_object_aIN4llvm16CodeGenInstAlias13ResultOperandES2_SaIS2_EEvPT
   store i64 %70, ptr %72, align 8, !tbaa !37, !alias.scope !286, !noalias !289
   store ptr %62, ptr %.0911.i.i.i20, align 8, !tbaa !35, !alias.scope !289, !noalias !286
   store i64 0, ptr %71, align 8, !tbaa !37, !alias.scope !289, !noalias !286
-  store i8 0, ptr %62, align 1, !tbaa !29, !alias.scope !289, !noalias !286
+  store i8 0, ptr %62, align 8, !tbaa !29, !alias.scope !289, !noalias !286
   %73 = getelementptr inbounds nuw i8, ptr %.012.i.i.i19, i64 32
   %74 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i20, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %73, ptr noundef nonnull align 8 dereferenceable(20) %74, i64 20, i1 false), !alias.scope !291
@@ -3941,7 +3941,7 @@ _ZSt19__relocate_object_aIN4llvm16CodeGenInstAlias13ResultOperandES2_SaIS2_EEvPT
   store i64 %53, ptr %55, align 8, !tbaa !37, !alias.scope !292, !noalias !295
   store ptr %45, ptr %.0911.i.i.i, align 8, !tbaa !35, !alias.scope !295, !noalias !292
   store i64 0, ptr %54, align 8, !tbaa !37, !alias.scope !295, !noalias !292
-  store i8 0, ptr %45, align 1, !tbaa !29, !alias.scope !295, !noalias !292
+  store i8 0, ptr %45, align 8, !tbaa !29, !alias.scope !295, !noalias !292
   %56 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %57 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %56, ptr noundef nonnull align 8 dereferenceable(20) %57, i64 20, i1 false), !alias.scope !297
@@ -3992,7 +3992,7 @@ _ZSt19__relocate_object_aIN4llvm16CodeGenInstAlias13ResultOperandES2_SaIS2_EEvPT
   store i64 %71, ptr %73, align 8, !tbaa !37, !alias.scope !298, !noalias !301
   store ptr %63, ptr %.0911.i.i.i19, align 8, !tbaa !35, !alias.scope !301, !noalias !298
   store i64 0, ptr %72, align 8, !tbaa !37, !alias.scope !301, !noalias !298
-  store i8 0, ptr %63, align 1, !tbaa !29, !alias.scope !301, !noalias !298
+  store i8 0, ptr %63, align 8, !tbaa !29, !alias.scope !301, !noalias !298
   %74 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %75 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %74, ptr noundef nonnull align 8 dereferenceable(20) %75, i64 20, i1 false), !alias.scope !303

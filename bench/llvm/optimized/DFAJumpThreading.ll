@@ -10630,7 +10630,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEEN
 1841:                                             ; preds = %1836, %1830
   store ptr %1763, ptr %1831, align 8, !tbaa !635, !noalias !644
   %1842 = getelementptr inbounds nuw i8, ptr %1831, i64 8
-  store i32 0, ptr %1842, align 4, !tbaa !66, !noalias !644
+  store i32 0, ptr %1842, align 8, !tbaa !66, !noalias !644
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.experimental.noalias.scope.decl(metadata !651)
   %1843 = load ptr, ptr %.01414.i.i.i.i, align 8, !tbaa !635, !noalias !651
@@ -13061,7 +13061,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %19, ptr %20, align 8, !tbaa !230
   store ptr %10, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !227
   store i64 0, ptr %18, align 8, !tbaa !230
-  store i8 0, ptr %10, align 1, !tbaa !231
+  store i8 0, ptr %10, align 8, !tbaa !231
   %21 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 48
@@ -13093,7 +13093,7 @@ _ZSt10_ConstructIN4llvm30DiagnosticInfoOptimizationBase8ArgumentEJS2_EEvPT_DpOT0
   store i64 %34, ptr %35, align 8, !tbaa !230
   store ptr %25, ptr %22, align 8, !tbaa !227
   store i64 0, ptr %33, align 8, !tbaa !230
-  store i8 0, ptr %25, align 1, !tbaa !231
+  store i8 0, ptr %25, align 8, !tbaa !231
   %36 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 64
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 16, i1 false), !tbaa.struct !736
@@ -23228,7 +23228,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEEN
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !66
-  store i32 %68, ptr %66, align 4, !tbaa !66
+  store i32 %68, ptr %66, align 8, !tbaa !66
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !649
   br label %70

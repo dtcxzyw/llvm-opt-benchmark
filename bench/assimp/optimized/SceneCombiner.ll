@@ -3996,11 +3996,11 @@ _ZN6Assimp12GetArrayCopyI11aiVectorKeyEEvRPT_j.exit15.i: ; preds = %.loopexit.i1
   %1401 = phi ptr [ %1396, %1398 ], [ %1407, %1400 ]
   store double 0.000000e+00, ptr %1401, align 8
   %1402 = getelementptr inbounds nuw i8, ptr %1401, i64 8
-  store float 1.000000e+00, ptr %1402, align 4
+  store float 1.000000e+00, ptr %1402, align 8
   %1403 = getelementptr inbounds nuw i8, ptr %1401, i64 12
   store float 0.000000e+00, ptr %1403, align 4
   %1404 = getelementptr inbounds nuw i8, ptr %1401, i64 16
-  store float 0.000000e+00, ptr %1404, align 4
+  store float 0.000000e+00, ptr %1404, align 8
   %1405 = getelementptr inbounds nuw i8, ptr %1401, i64 20
   store float 0.000000e+00, ptr %1405, align 4
   %1406 = getelementptr inbounds nuw i8, ptr %1401, i64 24
@@ -9485,11 +9485,11 @@ _ZN6Assimp12GetArrayCopyI11aiVectorKeyEEvRPT_j.exit15: ; preds = %_ZN6Assimp12Ge
   %59 = phi ptr [ %54, %56 ], [ %65, %58 ]
   store double 0.000000e+00, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  store float 1.000000e+00, ptr %60, align 4
+  store float 1.000000e+00, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 12
   store float 0.000000e+00, ptr %61, align 4
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  store float 0.000000e+00, ptr %62, align 4
+  store float 0.000000e+00, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 20
   store float 0.000000e+00, ptr %63, align 4
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 24

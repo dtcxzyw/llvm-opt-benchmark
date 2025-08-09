@@ -851,7 +851,7 @@ gettime.exit:                                     ; preds = %29, %35, %38, %58
   %62 = getelementptr inbounds nuw i8, ptr %.0.i118, i64 1020
   store i32 -1, ptr %62, align 4
   %63 = getelementptr inbounds nuw i8, ptr %.0.i118, i64 1024
-  store i32 -1, ptr %63, align 4
+  store i32 -1, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %.0.i118, i64 776
   store ptr null, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %.0.i118, i64 784

@@ -1980,7 +1980,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 define void @_ZN5faiss10fourcc_invEjPc(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 5)) %1) local_unnamed_addr #16 {
   store i32 %0, ptr %1, align 4, !tbaa !60
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i8 0, ptr %3, align 1, !tbaa !14
+  store i8 0, ptr %3, align 4, !tbaa !14
   ret void
 }
 
@@ -1991,7 +1991,7 @@ define void @_ZN5faiss10fourcc_invB5cxx11Ej(ptr dead_on_unwind noalias writable 
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %1, ptr %4, align 4, !tbaa !60
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i8 0, ptr %5, align 1, !tbaa !14
+  store i8 0, ptr %5, align 4, !tbaa !14
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %6, ptr %0, align 8, !tbaa !4
   %7 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #23
@@ -2043,7 +2043,7 @@ define void @_ZN5faiss20fourcc_inv_printableB5cxx11Ej(ptr dead_on_unwind noalias
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %1, ptr %2, align 4, !tbaa !60
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i8 0, ptr %4, align 1, !tbaa !14
+  store i8 0, ptr %4, align 4, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %5, ptr %0, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8

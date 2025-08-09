@@ -4012,7 +4012,7 @@ define dso_local void @_ZN3igl20Frame_field_deformer17compute_idealWarpERSt6vect
   %63 = getelementptr i8, ptr %61, i64 16
   %64 = load double, ptr %63, align 8, !tbaa !82
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %66 = load <2 x double>, ptr %65, align 1, !tbaa !84
+  %66 = load <2 x double>, ptr %65, align 8, !tbaa !84
   %67 = getelementptr i8, ptr %61, i64 40
   %68 = load double, ptr %67, align 8, !tbaa !82
   %.sroa.0119.8.vec.extract = extractelement <2 x double> %62, i64 1
@@ -18613,7 +18613,7 @@ _ZN5Eigen12SparseMatrixIdLi1EiE7reserveINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvR
   %.sroa.0.030 = phi ptr [ %46, %.lr.ph31 ], [ %72, %56 ]
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.0.030, i64 8
   %58 = load double, ptr %57, align 8, !tbaa !82
-  %59 = load i32, ptr %.sroa.0.030, align 4, !tbaa !88
+  %59 = load i32, ptr %.sroa.0.030, align 8, !tbaa !88
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.0.030, i64 4
   %62 = load i32, ptr %61, align 4, !tbaa !88

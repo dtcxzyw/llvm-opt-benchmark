@@ -822,7 +822,7 @@ define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt31internalSetup
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %31 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %32 = load float, ptr %29, align 4, !tbaa !79
-  %33 = load float, ptr %31, align 4, !tbaa !79
+  %33 = load float, ptr %31, align 8, !tbaa !79
   %34 = fsub float %32, %33
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 52
   %36 = load float, ptr %35, align 4, !tbaa !79
@@ -832,7 +832,7 @@ define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt31internalSetup
   %40 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %41 = load float, ptr %40, align 4, !tbaa !79
   %42 = getelementptr inbounds nuw i8, ptr %20, i64 56
-  %43 = load float, ptr %42, align 4, !tbaa !79
+  %43 = load float, ptr %42, align 8, !tbaa !79
   %44 = fsub float %41, %43
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %34, i64 0
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %39, i64 1
@@ -842,7 +842,7 @@ define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt31internalSetup
   store <2 x float> %.sroa.3.12.vec.insert.i, ptr %.sroa.427.0..sroa_idx, align 8, !tbaa !78
   %45 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %46 = load float, ptr %30, align 4, !tbaa !79
-  %47 = load float, ptr %45, align 4, !tbaa !79
+  %47 = load float, ptr %45, align 8, !tbaa !79
   %48 = fsub float %46, %47
   %49 = getelementptr inbounds nuw i8, ptr %28, i64 36
   %50 = load float, ptr %49, align 4, !tbaa !79
@@ -852,7 +852,7 @@ define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt31internalSetup
   %54 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %55 = load float, ptr %54, align 4, !tbaa !79
   %56 = getelementptr inbounds nuw i8, ptr %22, i64 56
-  %57 = load float, ptr %56, align 4, !tbaa !79
+  %57 = load float, ptr %56, align 8, !tbaa !79
   %58 = fsub float %55, %57
   %.sroa.0.0.vec.insert.i169 = insertelement <2 x float> poison, float %48, i64 0
   %.sroa.0.4.vec.insert.i170 = insertelement <2 x float> %.sroa.0.0.vec.insert.i169, float %53, i64 1

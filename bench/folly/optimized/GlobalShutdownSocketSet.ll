@@ -1735,7 +1735,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   store i32 1, ptr %203, align 4, !tbaa !35, !noalias !156
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly5BatonILb1ESt6atomicEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %200, align 8, !tbaa !27, !noalias !156
   %204 = getelementptr inbounds nuw i8, ptr %200, i64 16
-  store i32 0, ptr %204, align 4, !tbaa !159, !noalias !156
+  store i32 0, ptr %204, align 8, !tbaa !159, !noalias !156
   store ptr %200, ptr %199, align 8, !tbaa !29, !alias.scope !156
   store ptr %204, ptr %23, align 8, !tbaa !160, !alias.scope !156
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
@@ -1751,7 +1751,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   store i32 1, ptr %209, align 4, !tbaa !35, !noalias !161
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6atomicIbESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %206, align 8, !tbaa !27, !noalias !161
   %210 = getelementptr inbounds nuw i8, ptr %206, i64 16
-  store i8 0, ptr %210, align 1, !tbaa !164, !noalias !161
+  store i8 0, ptr %210, align 8, !tbaa !164, !noalias !161
   store ptr %206, ptr %205, align 8, !tbaa !29, !alias.scope !161
   store ptr %210, ptr %24, align 8, !tbaa !165, !alias.scope !161
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
@@ -3744,7 +3744,7 @@ _ZNK5folly11ThreadLocalINS_10TLRefCount13LocalRefCountES1_vEdeEv.exit: ; preds =
   %22 = load atomic i64, ptr %17 monotonic, align 8
   %23 = add nsw i64 %22, -1
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store atomic i8 1, ptr %24 monotonic, align 1
+  store atomic i8 1, ptr %24 monotonic, align 8
   store atomic i64 %23, ptr %17 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !247
   %25 = load ptr, ptr %18, align 8, !tbaa !240
@@ -7891,7 +7891,7 @@ _ZNK5folly11ThreadLocalINS_10TLRefCount13LocalRefCountES1_vEdeEv.exit: ; preds =
   %22 = load atomic i64, ptr %17 monotonic, align 8
   %23 = add nsw i64 %22, 1
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store atomic i8 1, ptr %24 monotonic, align 1
+  store atomic i8 1, ptr %24 monotonic, align 8
   store atomic i64 %23, ptr %17 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !247
   %25 = load ptr, ptr %18, align 8, !tbaa !240

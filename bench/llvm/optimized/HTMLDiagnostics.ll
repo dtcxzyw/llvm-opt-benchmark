@@ -343,7 +343,7 @@ _ZN5clang4ento29PathDiagnosticConsumerOptionsC2EOS1_.exit: ; preds = %43, %_ZNKS
   store i64 %48, ptr %49, align 8, !tbaa !12
   store ptr %41, ptr %0, align 8, !tbaa !9
   store i64 0, ptr %12, align 8, !tbaa !12
-  store i8 0, ptr %41, align 1, !tbaa !14
+  store i8 0, ptr %41, align 8, !tbaa !14
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %50, ptr noundef nonnull align 8 dereferenceable(6) %27, i64 6, i1 false)
   call fastcc void @_ZN12_GLOBAL__N_115HTMLDiagnosticsC2EN5clang4ento29PathDiagnosticConsumerOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_12PreprocessorEb(ptr noundef nonnull align 8 dereferenceable(168) %38, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(3288) %3, i1 noundef zeroext true)
@@ -473,7 +473,7 @@ _ZN5clang4ento29PathDiagnosticConsumerOptionsC2EOS1_.exit: ; preds = %14, %_ZNKS
   store i64 %21, ptr %22, align 8, !tbaa !12
   store ptr %12, ptr %1, align 8, !tbaa !9
   store i64 0, ptr %20, align 8, !tbaa !12
-  store i8 0, ptr %12, align 1, !tbaa !14
+  store i8 0, ptr %12, align 8, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %23, ptr noundef nonnull align 8 dereferenceable(6) %24, i64 6, i1 false)
@@ -639,7 +639,7 @@ _ZN5clang4ento29PathDiagnosticConsumerOptionsC2EOS1_.exit: ; preds = %43, %_ZNKS
   store i64 %48, ptr %49, align 8, !tbaa !12
   store ptr %41, ptr %0, align 8, !tbaa !9
   store i64 0, ptr %12, align 8, !tbaa !12
-  store i8 0, ptr %41, align 1, !tbaa !14
+  store i8 0, ptr %41, align 8, !tbaa !14
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %50, ptr noundef nonnull align 8 dereferenceable(6) %27, i64 6, i1 false)
   call fastcc void @_ZN12_GLOBAL__N_115HTMLDiagnosticsC2EN5clang4ento29PathDiagnosticConsumerOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_12PreprocessorEb(ptr noundef nonnull align 8 dereferenceable(168) %38, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(3288) %3, i1 noundef zeroext false)
@@ -957,7 +957,7 @@ _ZN5clang4ento29PathDiagnosticConsumerOptionsC2EOS1_.exit: ; preds = %93, %_ZNKS
   store i64 %98, ptr %99, align 8, !tbaa !12
   store ptr %91, ptr %0, align 8, !tbaa !9
   store i64 0, ptr %16, align 8, !tbaa !12
-  store i8 0, ptr %91, align 1, !tbaa !14
+  store i8 0, ptr %91, align 8, !tbaa !14
   %100 = getelementptr inbounds nuw i8, ptr %13, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %100, ptr noundef nonnull align 8 dereferenceable(6) %31, i64 6, i1 false)
   call void @_ZN5clang4ento39createTextMinimalPathDiagnosticConsumerENS0_29PathDiagnosticConsumerOptionsERSt6vectorIPNS0_22PathDiagnosticConsumerESaIS4_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12PreprocessorERKNS_8cross_tu27CrossTranslationUnitContextERKNS_21MacroExpansionContextE(ptr noundef nonnull %13, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(3288) %3, ptr noundef nonnull align 1 %4, ptr noundef nonnull align 8 dereferenceable(72) %5) #20
@@ -1217,7 +1217,7 @@ _ZN5clang4ento29PathDiagnosticConsumerOptionsC2EOS1_.exit: ; preds = %93, %_ZNKS
   store i64 %98, ptr %99, align 8, !tbaa !12
   store ptr %91, ptr %0, align 8, !tbaa !9
   store i64 0, ptr %16, align 8, !tbaa !12
-  store i8 0, ptr %91, align 1, !tbaa !14
+  store i8 0, ptr %91, align 8, !tbaa !14
   %100 = getelementptr inbounds nuw i8, ptr %13, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %100, ptr noundef nonnull align 8 dereferenceable(6) %31, i64 6, i1 false)
   call void @_ZN5clang4ento39createTextMinimalPathDiagnosticConsumerENS0_29PathDiagnosticConsumerOptionsERSt6vectorIPNS0_22PathDiagnosticConsumerESaIS4_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12PreprocessorERKNS_8cross_tu27CrossTranslationUnitContextERKNS_21MacroExpansionContextE(ptr noundef nonnull %13, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(3288) %3, ptr noundef nonnull align 1 %4, ptr noundef nonnull align 8 dereferenceable(72) %5) #20

@@ -232,7 +232,7 @@ define noalias noundef nonnull ptr @_ZNK10ColorValue5cloneEv(ptr noundef nonnull
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
-  store i32 %5, ptr %3, align 4
+  store i32 %5, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %6, ptr noundef nonnull align 4 dereferenceable(10) %7, i64 10, i1 false)

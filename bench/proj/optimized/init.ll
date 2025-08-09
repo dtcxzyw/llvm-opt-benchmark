@@ -1076,7 +1076,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   %84 = getelementptr inbounds nuw i8, ptr %75, i64 624
   store double 0.000000e+00, ptr %84, align 8, !tbaa !85
   %85 = getelementptr inbounds nuw i8, ptr %75, i64 636
-  store i32 7695973, ptr %85, align 1
+  store i32 7695973, ptr %85, align 4
   br i1 %33, label %86, label %91
 
 86:                                               ; preds = %79

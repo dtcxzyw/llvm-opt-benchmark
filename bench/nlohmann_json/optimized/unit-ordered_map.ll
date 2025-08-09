@@ -15746,7 +15746,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2EOS7_.exit
   store i64 %72, ptr %73, align 8, !tbaa !12
   store ptr %63, ptr %61, align 8, !tbaa !4
   store i64 0, ptr %71, align 8, !tbaa !12
-  store i8 0, ptr %63, align 1, !tbaa !31
+  store i8 0, ptr %63, align 8, !tbaa !31
   %74 = getelementptr inbounds nuw i8, ptr %.sroa.08.126, i64 64
   %75 = getelementptr inbounds nuw i8, ptr %33, i64 64
   %76 = load ptr, ptr %5, align 8, !tbaa !32
@@ -15963,7 +15963,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2EOS7_.exit
   store i64 %85, ptr %86, align 8, !tbaa !12
   store ptr %76, ptr %74, align 8, !tbaa !4
   store i64 0, ptr %84, align 8, !tbaa !12
-  store i8 0, ptr %76, align 1, !tbaa !31
+  store i8 0, ptr %76, align 8, !tbaa !31
   %87 = getelementptr inbounds nuw i8, ptr %.sroa.017.0, i64 64
   br label %_ZSt4nextIN9__gnu_cxx17__normal_iteratorIPSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESt6vectorISA_SaISA_EEEEET_SG_NSt15iterator_traitsISG_E15difference_typeE.exit, !llvm.loop !90
 
@@ -17954,13 +17954,13 @@ define linkonce_odr dso_local void @_ZNSt6vectorISt4pairIKNSt7__cxx1112basic_str
   store ptr %19, ptr %.013.i.i.i, align 8, !tbaa !30
   %20 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 8
   store i64 0, ptr %20, align 8, !tbaa !12
-  store i8 0, ptr %19, align 1, !tbaa !31
+  store i8 0, ptr %19, align 8, !tbaa !31
   %21 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 48
   store ptr %22, ptr %21, align 8, !tbaa !30
   %23 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 40
   store i64 0, ptr %23, align 8, !tbaa !12
-  store i8 0, ptr %22, align 1, !tbaa !31
+  store i8 0, ptr %22, align 8, !tbaa !31
   %24 = add i64 %.01012.i.i.i, -1
   %25 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 64
   %.not.i.i.i = icmp eq i64 %24, 0
@@ -17994,13 +17994,13 @@ _ZNKSt6vectorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES
   store ptr %34, ptr %.013.i.i.i41, align 8, !tbaa !30
   %35 = getelementptr inbounds nuw i8, ptr %.013.i.i.i41, i64 8
   store i64 0, ptr %35, align 8, !tbaa !12
-  store i8 0, ptr %34, align 1, !tbaa !31
+  store i8 0, ptr %34, align 8, !tbaa !31
   %36 = getelementptr inbounds nuw i8, ptr %.013.i.i.i41, i64 32
   %37 = getelementptr inbounds nuw i8, ptr %.013.i.i.i41, i64 48
   store ptr %37, ptr %36, align 8, !tbaa !30
   %38 = getelementptr inbounds nuw i8, ptr %.013.i.i.i41, i64 40
   store i64 0, ptr %38, align 8, !tbaa !12
-  store i8 0, ptr %37, align 1, !tbaa !31
+  store i8 0, ptr %37, align 8, !tbaa !31
   %39 = add i64 %.01012.i.i.i42, -1
   %40 = getelementptr inbounds nuw i8, ptr %.013.i.i.i41, i64 64
   %.not.i.i.i43 = icmp eq i64 %39, 0

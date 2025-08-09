@@ -3666,9 +3666,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit216: ; preds = %_Z
 1149:                                             ; preds = %.noexc140
   store i32 %1134, ptr %1146, align 8, !tbaa !192, !noalias !189
   %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %1146, i64 8
-  store i64 %.sroa.0.0.i, ptr %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx, align 4, !tbaa !85, !noalias !189
+  store i64 %.sroa.0.0.i, ptr %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx, align 8, !tbaa !85, !noalias !189
   %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %1146, i64 16
-  store ptr %.sroa.4.0.i, ptr %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx.i.sroa_idx, align 4, !tbaa !100, !noalias !189
+  store ptr %.sroa.4.0.i, ptr %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx.i.sroa_idx, align 8, !tbaa !100, !noalias !189
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1146, i64 24
   store i64 %.sroa.02.0.copyload.i.i, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !85, !noalias !189
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1146, i64 32
@@ -3711,9 +3711,9 @@ _ZNKSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE12
   %1165 = getelementptr inbounds nuw i8, ptr %1164, i64 %1155
   store i32 %1134, ptr %1165, align 8, !tbaa !192, !noalias !189
   %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx3.i.sroa_idx = getelementptr inbounds nuw i8, ptr %1165, i64 8
-  store i64 %.sroa.0.0.i, ptr %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx3.i.sroa_idx, align 4, !tbaa !85, !noalias !189
+  store i64 %.sroa.0.0.i, ptr %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx3.i.sroa_idx, align 8, !tbaa !85, !noalias !189
   %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx3.i.sroa_idx = getelementptr inbounds nuw i8, ptr %1165, i64 16
-  store ptr %.sroa.4.0.i, ptr %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx3.i.sroa_idx, align 4, !tbaa !100, !noalias !189
+  store ptr %.sroa.4.0.i, ptr %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx3.i.sroa_idx, align 8, !tbaa !100, !noalias !189
   %.sroa.6.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %1165, i64 24
   store i64 %.sroa.02.0.copyload.i.i, ptr %.sroa.6.0..sroa_idx4.i, align 8, !tbaa !85, !noalias !189
   %.sroa.7.0..sroa_idx6.i = getelementptr inbounds nuw i8, ptr %1165, i64 32
@@ -7622,9 +7622,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit218: ; preds = %_Z
 1127:                                             ; preds = %.noexc141
   store i32 %1107, ptr %1124, align 8, !tbaa !192, !noalias !317
   %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %1124, i64 8
-  store i64 %1121, ptr %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx, align 4, !tbaa !85, !noalias !317
+  store i64 %1121, ptr %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx, align 8, !tbaa !85, !noalias !317
   %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %1124, i64 16
-  store ptr %1122, ptr %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx.i.sroa_idx, align 4, !tbaa !100, !noalias !317
+  store ptr %1122, ptr %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx.i.sroa_idx, align 8, !tbaa !100, !noalias !317
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1124, i64 24
   store i64 %.sroa.02.0.copyload.i.i, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !85, !noalias !317
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1124, i64 32
@@ -7667,9 +7667,9 @@ _ZNKSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE12
   %1143 = getelementptr inbounds nuw i8, ptr %1142, i64 %1133
   store i32 %1107, ptr %1143, align 8, !tbaa !192, !noalias !317
   %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx3.i.sroa_idx = getelementptr inbounds nuw i8, ptr %1143, i64 8
-  store i64 %1121, ptr %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx3.i.sroa_idx, align 4, !tbaa !85, !noalias !317
+  store i64 %1121, ptr %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx3.i.sroa_idx, align 8, !tbaa !85, !noalias !317
   %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx3.i.sroa_idx = getelementptr inbounds nuw i8, ptr %1143, i64 16
-  store ptr %1122, ptr %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx3.i.sroa_idx, align 4, !tbaa !100, !noalias !317
+  store ptr %1122, ptr %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx3.i.sroa_idx, align 8, !tbaa !100, !noalias !317
   %.sroa.6.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %1143, i64 24
   store i64 %.sroa.02.0.copyload.i.i, ptr %.sroa.6.0..sroa_idx4.i, align 8, !tbaa !85, !noalias !317
   %.sroa.7.0..sroa_idx6.i = getelementptr inbounds nuw i8, ptr %1143, i64 32
@@ -9051,9 +9051,9 @@ _ZN6google8protobuf13json_internal16Proto2Descriptor13FieldTypeNameEPKNS0_15Fiel
 24:                                               ; preds = %_ZN6google8protobuf13json_internal16Proto2Descriptor13FieldTypeNameEPKNS0_15FieldDescriptorE.exit
   store i32 11, ptr %21, align 8, !tbaa !192, !noalias !344
   %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i64 %.sroa.0.0.i, ptr %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx, align 4, !tbaa !85, !noalias !344
+  store i64 %.sroa.0.0.i, ptr %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx, align 8, !tbaa !85, !noalias !344
   %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store ptr %.sroa.4.0.i, ptr %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx.i.sroa_idx, align 4, !tbaa !100, !noalias !344
+  store ptr %.sroa.4.0.i, ptr %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx.i.sroa_idx, align 8, !tbaa !100, !noalias !344
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 24
   store i64 8, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !85, !noalias !344
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 32
@@ -9090,9 +9090,9 @@ _ZNKSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE12
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 %30
   store i32 11, ptr %40, align 8, !tbaa !192, !noalias !344
   %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx3.i.sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 8
-  store i64 %.sroa.0.0.i, ptr %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx3.i.sroa_idx, align 4, !tbaa !85, !noalias !344
+  store i64 %.sroa.0.0.i, ptr %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx3.i.sroa_idx, align 8, !tbaa !85, !noalias !344
   %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx3.i.sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 16
-  store ptr %.sroa.4.0.i, ptr %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx3.i.sroa_idx, align 4, !tbaa !100, !noalias !344
+  store ptr %.sroa.4.0.i, ptr %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx3.i.sroa_idx, align 8, !tbaa !100, !noalias !344
   %.sroa.6.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %40, i64 24
   store i64 8, ptr %.sroa.6.0..sroa_idx4.i, align 8, !tbaa !85, !noalias !344
   %.sroa.7.0..sroa_idx6.i = getelementptr inbounds nuw i8, ptr %40, i64 32
@@ -9235,9 +9235,9 @@ _ZN6google8protobuf13json_internal16Proto2Descriptor13FieldTypeNameEPKNS0_15Fiel
 27:                                               ; preds = %_ZN6google8protobuf13json_internal16Proto2Descriptor13FieldTypeNameEPKNS0_15FieldDescriptorE.exit
   store i32 11, ptr %24, align 8, !tbaa !192, !noalias !351
   %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store i64 %.sroa.0.0.i, ptr %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx, align 4, !tbaa !85, !noalias !351
+  store i64 %.sroa.0.0.i, ptr %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx, align 8, !tbaa !85, !noalias !351
   %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store ptr %.sroa.4.0.i, ptr %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx.i.sroa_idx, align 4, !tbaa !100, !noalias !351
+  store ptr %.sroa.4.0.i, ptr %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx.i.sroa_idx, align 8, !tbaa !100, !noalias !351
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i64 6, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !85, !noalias !351
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 32
@@ -9274,9 +9274,9 @@ _ZNKSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE12
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %33
   store i32 11, ptr %43, align 8, !tbaa !192, !noalias !351
   %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx3.i.sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store i64 %.sroa.0.0.i, ptr %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx3.i.sroa_idx, align 4, !tbaa !85, !noalias !351
+  store i64 %.sroa.0.0.i, ptr %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx3.i.sroa_idx, align 8, !tbaa !85, !noalias !351
   %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx3.i.sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 16
-  store ptr %.sroa.4.0.i, ptr %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx3.i.sroa_idx, align 4, !tbaa !100, !noalias !351
+  store ptr %.sroa.4.0.i, ptr %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx3.i.sroa_idx, align 8, !tbaa !100, !noalias !351
   %.sroa.6.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %43, i64 24
   store i64 6, ptr %.sroa.6.0..sroa_idx4.i, align 8, !tbaa !85, !noalias !351
   %.sroa.7.0..sroa_idx6.i = getelementptr inbounds nuw i8, ptr %43, i64 32
@@ -14220,9 +14220,9 @@ _ZNK6google8protobuf7Message3NewEv.exit.i:        ; preds = %83
 99:                                               ; preds = %_ZNK6google8protobuf7Message3NewEv.exit.i
   store i32 11, ptr %96, align 8, !tbaa !192, !noalias !450
   %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %96, i64 8
-  store i64 %94, ptr %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx, align 4, !tbaa !85, !noalias !450
+  store i64 %94, ptr %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx, align 8, !tbaa !85, !noalias !450
   %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %96, i64 16
-  store ptr %92, ptr %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx.i.sroa_idx, align 4, !tbaa !100, !noalias !450
+  store ptr %92, ptr %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx.i.sroa_idx, align 8, !tbaa !100, !noalias !450
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %96, i64 24
   store i64 5, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !85, !noalias !450
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %96, i64 32
@@ -14265,9 +14265,9 @@ _ZNKSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE12
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 %105
   store i32 11, ptr %115, align 8, !tbaa !192, !noalias !450
   %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx3.i.sroa_idx = getelementptr inbounds nuw i8, ptr %115, i64 8
-  store i64 %94, ptr %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx3.i.sroa_idx, align 4, !tbaa !85, !noalias !450
+  store i64 %94, ptr %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx3.i.sroa_idx, align 8, !tbaa !85, !noalias !450
   %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx3.i.sroa_idx = getelementptr inbounds nuw i8, ptr %115, i64 16
-  store ptr %92, ptr %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx3.i.sroa_idx, align 4, !tbaa !100, !noalias !450
+  store ptr %92, ptr %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx3.i.sroa_idx, align 8, !tbaa !100, !noalias !450
   %.sroa.6.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %115, i64 24
   store i64 5, ptr %.sroa.6.0..sroa_idx4.i, align 8, !tbaa !85, !noalias !450
   %.sroa.7.0..sroa_idx6.i = getelementptr inbounds nuw i8, ptr %115, i64 32
@@ -19666,7 +19666,7 @@ _ZN4absl12lts_2024072218container_internal20common_policy_traitsINS1_17FlatHashS
   store i64 %41, ptr %42, align 8, !tbaa !29
   store ptr %32, ptr %29, align 8, !tbaa !24
   store i64 0, ptr %40, align 8, !tbaa !29
-  store i8 0, ptr %32, align 1, !tbaa !63
+  store i8 0, ptr %32, align 8, !tbaa !63
   %.pre.i = load i64, ptr %5, align 8, !tbaa !543
   br label %43
 
@@ -19778,7 +19778,7 @@ _ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolic
   store i64 %106, ptr %107, align 8, !tbaa !29
   store ptr %99, ptr %53, align 8, !tbaa !24
   store i64 0, ptr %55, align 8, !tbaa !29
-  store i8 0, ptr %99, align 1, !tbaa !63
+  store i8 0, ptr %99, align 8, !tbaa !63
   %.pre = load i64, ptr %5, align 8, !tbaa !543
   br label %108
 
@@ -20014,7 +20014,7 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   store i64 %15, ptr %16, align 8, !tbaa !29
   store ptr %6, ptr %2, align 8, !tbaa !24
   store i64 0, ptr %14, align 8, !tbaa !29
-  store i8 0, ptr %6, align 1, !tbaa !63
+  store i8 0, ptr %6, align 8, !tbaa !63
   ret void
 }
 
@@ -25701,9 +25701,9 @@ _ZN6google8protobuf13json_internal10Proto3Type13FieldTypeNameEPKNS1_12ResolverPo
 33:                                               ; preds = %_ZN6google8protobuf13json_internal10Proto3Type13FieldTypeNameEPKNS1_12ResolverPool5FieldE.exit
   store i32 11, ptr %30, align 8, !tbaa !192, !noalias !711
   %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store i64 %27, ptr %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx, align 4, !tbaa !85, !noalias !711
+  store i64 %27, ptr %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx, align 8, !tbaa !85, !noalias !711
   %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 16
-  store ptr %28, ptr %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx.i.sroa_idx, align 4, !tbaa !100, !noalias !711
+  store ptr %28, ptr %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx.i.sroa_idx, align 8, !tbaa !100, !noalias !711
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 24
   store i64 8, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !85, !noalias !711
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 32
@@ -25740,9 +25740,9 @@ _ZNKSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE12
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 %39
   store i32 11, ptr %49, align 8, !tbaa !192, !noalias !711
   %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx3.i.sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store i64 %27, ptr %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx3.i.sroa_idx, align 4, !tbaa !85, !noalias !711
+  store i64 %27, ptr %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx3.i.sroa_idx, align 8, !tbaa !85, !noalias !711
   %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx3.i.sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 16
-  store ptr %28, ptr %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx3.i.sroa_idx, align 4, !tbaa !100, !noalias !711
+  store ptr %28, ptr %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx3.i.sroa_idx, align 8, !tbaa !100, !noalias !711
   %.sroa.6.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %49, i64 24
   store i64 8, ptr %.sroa.6.0..sroa_idx4.i, align 8, !tbaa !85, !noalias !711
   %.sroa.7.0..sroa_idx6.i = getelementptr inbounds nuw i8, ptr %49, i64 32
@@ -25921,9 +25921,9 @@ _ZN6google8protobuf13json_internal10Proto3Type13FieldTypeNameEPKNS1_12ResolverPo
 36:                                               ; preds = %_ZN6google8protobuf13json_internal10Proto3Type13FieldTypeNameEPKNS1_12ResolverPool5FieldE.exit
   store i32 11, ptr %33, align 8, !tbaa !192, !noalias !756
   %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store i64 %30, ptr %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx, align 4, !tbaa !85, !noalias !756
+  store i64 %30, ptr %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx, align 8, !tbaa !85, !noalias !756
   %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store ptr %31, ptr %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx.i.sroa_idx, align 4, !tbaa !100, !noalias !756
+  store ptr %31, ptr %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx.i.sroa_idx, align 8, !tbaa !100, !noalias !756
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %33, i64 24
   store i64 6, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !85, !noalias !756
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %33, i64 32
@@ -25960,9 +25960,9 @@ _ZNKSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE12
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 %42
   store i32 11, ptr %52, align 8, !tbaa !192, !noalias !756
   %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx3.i.sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store i64 %30, ptr %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx3.i.sroa_idx, align 4, !tbaa !85, !noalias !756
+  store i64 %30, ptr %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx3.i.sroa_idx, align 8, !tbaa !85, !noalias !756
   %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx3.i.sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 16
-  store ptr %31, ptr %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx3.i.sroa_idx, align 4, !tbaa !100, !noalias !756
+  store ptr %31, ptr %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx3.i.sroa_idx, align 8, !tbaa !100, !noalias !756
   %.sroa.6.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %52, i64 24
   store i64 6, ptr %.sroa.6.0..sroa_idx4.i, align 8, !tbaa !85, !noalias !756
   %.sroa.7.0..sroa_idx6.i = getelementptr inbounds nuw i8, ptr %52, i64 32
@@ -31428,9 +31428,9 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i: ; preds 
 94:                                               ; preds = %.noexc5
   store i32 11, ptr %91, align 8, !tbaa !192, !noalias !1082
   %.sroa.5.i16.sroa.4.0..sroa.5.0..sroa_idx.i19.sroa_idx = getelementptr inbounds nuw i8, ptr %91, i64 8
-  store i64 %89, ptr %.sroa.5.i16.sroa.4.0..sroa.5.0..sroa_idx.i19.sroa_idx, align 4, !tbaa !85, !noalias !1082
+  store i64 %89, ptr %.sroa.5.i16.sroa.4.0..sroa.5.0..sroa_idx.i19.sroa_idx, align 8, !tbaa !85, !noalias !1082
   %.sroa.5.i16.sroa.5.0..sroa.5.0..sroa_idx.i19.sroa_idx = getelementptr inbounds nuw i8, ptr %91, i64 16
-  store ptr %87, ptr %.sroa.5.i16.sroa.5.0..sroa.5.0..sroa_idx.i19.sroa_idx, align 4, !tbaa !100, !noalias !1082
+  store ptr %87, ptr %.sroa.5.i16.sroa.5.0..sroa.5.0..sroa_idx.i19.sroa_idx, align 8, !tbaa !100, !noalias !1082
   %.sroa.6.0..sroa_idx.i20 = getelementptr inbounds nuw i8, ptr %91, i64 24
   store i64 5, ptr %.sroa.6.0..sroa_idx.i20, align 8, !tbaa !85, !noalias !1082
   %.sroa.7.0..sroa_idx.i21 = getelementptr inbounds nuw i8, ptr %91, i64 32
@@ -31473,9 +31473,9 @@ _ZNKSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE12
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 %100
   store i32 11, ptr %110, align 8, !tbaa !192, !noalias !1082
   %.sroa.5.i16.sroa.4.0..sroa.5.0..sroa_idx3.i26.sroa_idx = getelementptr inbounds nuw i8, ptr %110, i64 8
-  store i64 %89, ptr %.sroa.5.i16.sroa.4.0..sroa.5.0..sroa_idx3.i26.sroa_idx, align 4, !tbaa !85, !noalias !1082
+  store i64 %89, ptr %.sroa.5.i16.sroa.4.0..sroa.5.0..sroa_idx3.i26.sroa_idx, align 8, !tbaa !85, !noalias !1082
   %.sroa.5.i16.sroa.5.0..sroa.5.0..sroa_idx3.i26.sroa_idx = getelementptr inbounds nuw i8, ptr %110, i64 16
-  store ptr %87, ptr %.sroa.5.i16.sroa.5.0..sroa.5.0..sroa_idx3.i26.sroa_idx, align 4, !tbaa !100, !noalias !1082
+  store ptr %87, ptr %.sroa.5.i16.sroa.5.0..sroa.5.0..sroa_idx3.i26.sroa_idx, align 8, !tbaa !100, !noalias !1082
   %.sroa.6.0..sroa_idx4.i27 = getelementptr inbounds nuw i8, ptr %110, i64 24
   store i64 5, ptr %.sroa.6.0..sroa_idx4.i27, align 8, !tbaa !85, !noalias !1082
   %.sroa.7.0..sroa_idx6.i28 = getelementptr inbounds nuw i8, ptr %110, i64 32
@@ -31672,9 +31672,9 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit29.i: ; preds = %.lr.ph
 190:                                              ; preds = %.noexc31.i
   store i32 11, ptr %187, align 8, !tbaa !192, !noalias !1095
   %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %187, i64 8
-  store i64 %185, ptr %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx, align 4, !tbaa !85, !noalias !1095
+  store i64 %185, ptr %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx, align 8, !tbaa !85, !noalias !1095
   %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %187, i64 16
-  store ptr %183, ptr %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx.i.sroa_idx, align 4, !tbaa !100, !noalias !1095
+  store ptr %183, ptr %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx.i.sroa_idx, align 8, !tbaa !100, !noalias !1095
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %187, i64 24
   store i64 5, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !85, !noalias !1095
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %187, i64 32
@@ -31717,9 +31717,9 @@ _ZNKSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE12
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 %196
   store i32 11, ptr %206, align 8, !tbaa !192, !noalias !1095
   %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx3.i.sroa_idx = getelementptr inbounds nuw i8, ptr %206, i64 8
-  store i64 %185, ptr %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx3.i.sroa_idx, align 4, !tbaa !85, !noalias !1095
+  store i64 %185, ptr %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx3.i.sroa_idx, align 8, !tbaa !85, !noalias !1095
   %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx3.i.sroa_idx = getelementptr inbounds nuw i8, ptr %206, i64 16
-  store ptr %183, ptr %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx3.i.sroa_idx, align 4, !tbaa !100, !noalias !1095
+  store ptr %183, ptr %.sroa.5.i.sroa.5.0..sroa.5.0..sroa_idx3.i.sroa_idx, align 8, !tbaa !100, !noalias !1095
   %.sroa.6.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %206, i64 24
   store i64 5, ptr %.sroa.6.0..sroa_idx4.i, align 8, !tbaa !85, !noalias !1095
   %.sroa.7.0..sroa_idx6.i = getelementptr inbounds nuw i8, ptr %206, i64 32

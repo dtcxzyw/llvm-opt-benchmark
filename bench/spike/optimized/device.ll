@@ -235,7 +235,7 @@ define void @_ZN8device_tC2Ev(ptr noundef nonnull align 8 dereferenceable(56) in
   store ptr %13, ptr %.08.i.i.i.i.i, align 8, !tbaa !17
   %14 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 8
   store i64 0, ptr %14, align 8, !tbaa !20
-  store i8 0, ptr %13, align 1, !tbaa !23
+  store i8 0, ptr %13, align 8, !tbaa !23
   %15 = add nsw i64 %.057.i.i.i.i.i, -1
   %16 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq i64 %15, 0

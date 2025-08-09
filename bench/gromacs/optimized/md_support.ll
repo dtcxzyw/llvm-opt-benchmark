@@ -1736,7 +1736,7 @@ _ZL11correctEkinPA3_fRK14SystemMomentum.exit31.i: ; preds = %1019
   %1053 = load float, ptr %1052, align 4, !tbaa !263
   %1054 = fadd float %1051, %1053
   %1055 = getelementptr inbounds nuw i8, ptr %12, i64 320
-  store float %1054, ptr %1055, align 4, !tbaa !263
+  store float %1054, ptr %1055, align 8, !tbaa !263
   br label %1056
 
 1056:                                             ; preds = %1040, %1039

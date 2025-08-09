@@ -722,7 +722,7 @@ define internal fastcc void @dma_resv_iter_walk_unlocked(ptr noundef captures(no
   store ptr %36, ptr %6, align 8
   %37 = trunc i64 %34 to i32
   %38 = and i32 %37, 3
-  store i32 %38, ptr %9, align 4
+  store i32 %38, ptr %9, align 8
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 56
   %40 = load volatile i32, ptr %39, align 4
   %41 = icmp eq i32 %40, 0

@@ -6034,7 +6034,7 @@ _ZN5draco31MeshEdgebreakerTraversalEncoder12EncodeSymbolENS_29EdgebreakerTopolog
   %250 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
   store ptr null, ptr %250, align 8, !tbaa !113
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 8
-  store i32 %.sroa.02.0.i21.us, ptr %251, align 4, !tbaa !315
+  store i32 %.sroa.02.0.i21.us, ptr %251, align 8, !tbaa !315
   %252 = getelementptr inbounds nuw i8, ptr %250, i64 12
   store i32 0, ptr %252, align 4, !tbaa !317
   %253 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS4_10_Hash_nodeIS2_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %60, i64 noundef %233, i64 noundef %231, ptr noundef nonnull %250, i64 noundef 1)
@@ -12244,7 +12244,7 @@ _ZNK5draco26MeshEdgebreakerEncoderImplINS_41MeshEdgebreakerTraversalPredictiveEn
   %226 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
   store ptr null, ptr %226, align 8, !tbaa !113
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  store i32 %.sroa.02.0.i21.us, ptr %227, align 4, !tbaa !315
+  store i32 %.sroa.02.0.i21.us, ptr %227, align 8, !tbaa !315
   %228 = getelementptr inbounds nuw i8, ptr %226, i64 12
   store i32 0, ptr %228, align 4, !tbaa !317
   %229 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS4_10_Hash_nodeIS2_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %59, i64 noundef %209, i64 noundef %207, ptr noundef nonnull %226, i64 noundef 1)
@@ -18846,7 +18846,7 @@ _ZNK5draco26MeshEdgebreakerEncoderImplINS_38MeshEdgebreakerTraversalValenceEncod
   %226 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
   store ptr null, ptr %226, align 8, !tbaa !113
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  store i32 %.sroa.02.0.i21.us, ptr %227, align 4, !tbaa !315
+  store i32 %.sroa.02.0.i21.us, ptr %227, align 8, !tbaa !315
   %228 = getelementptr inbounds nuw i8, ptr %226, i64 12
   store i32 0, ptr %228, align 4, !tbaa !317
   %229 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS4_10_Hash_nodeIS2_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %59, i64 noundef %209, i64 noundef %207, ptr noundef nonnull %226, i64 noundef 1)
@@ -29162,7 +29162,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !113
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !196
+  %16 = load i32, ptr %15, align 8, !tbaa !196
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18

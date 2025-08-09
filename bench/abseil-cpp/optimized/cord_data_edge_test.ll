@@ -746,7 +746,7 @@ _ZN7testing15AssertionResultD2Ev.exit:
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 13
   store i8 0, ptr %7, align 1, !tbaa !33
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 14
-  store i8 0, ptr %8, align 1, !tbaa !33
+  store i8 0, ptr %8, align 2, !tbaa !33
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 15
   store i8 1, ptr %9, align 1, !tbaa !33
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16

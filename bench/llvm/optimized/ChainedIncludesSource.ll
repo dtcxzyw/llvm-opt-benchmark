@@ -626,19 +626,19 @@ _ZN4llvm18IntrusiveRefCntPtrIN5clang13DiagnosticIDsEEC2ERKS3_.exit: ; preds = %1
   store ptr %198, ptr %197, align 8, !tbaa !85
   %199 = getelementptr inbounds nuw i8, ptr %196, i64 56
   store i64 0, ptr %199, align 8, !tbaa !36
-  store i8 0, ptr %198, align 1, !tbaa !37
+  store i8 0, ptr %198, align 8, !tbaa !37
   %200 = getelementptr inbounds nuw i8, ptr %196, i64 80
   %201 = getelementptr inbounds nuw i8, ptr %196, i64 96
   store ptr %201, ptr %200, align 8, !tbaa !85
   %202 = getelementptr inbounds nuw i8, ptr %196, i64 88
   store i64 0, ptr %202, align 8, !tbaa !36
-  store i8 0, ptr %201, align 1, !tbaa !37
+  store i8 0, ptr %201, align 8, !tbaa !37
   %203 = getelementptr inbounds nuw i8, ptr %196, i64 112
   %204 = getelementptr inbounds nuw i8, ptr %196, i64 128
   store ptr %204, ptr %203, align 8, !tbaa !85
   %205 = getelementptr inbounds nuw i8, ptr %196, i64 120
   store i64 0, ptr %205, align 8, !tbaa !36
-  store i8 0, ptr %204, align 1, !tbaa !37
+  store i8 0, ptr %204, align 8, !tbaa !37
   %206 = getelementptr inbounds nuw i8, ptr %196, i64 144
   %207 = getelementptr inbounds nuw i8, ptr %196, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %206, i8 0, i64 120, i1 false)
@@ -1721,7 +1721,7 @@ _ZN4llvm18IntrusiveRefCntPtrIN5clang18ExternalSemaSourceEED2Ev.exit: ; preds = %
   store ptr %.sroa.9.0.lcssa, ptr %651, align 8, !tbaa !796, !noalias !788
   %652 = getelementptr inbounds nuw i8, ptr %647, i64 32
   store ptr %.sroa.15.0.lcssa, ptr %652, align 8, !tbaa !797, !noalias !788
-  store i32 1, ptr %648, align 4, !tbaa !763, !noalias !788
+  store i32 1, ptr %648, align 8, !tbaa !763, !noalias !788
   %653 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #16, !noalias !798
   call void @_ZN5clang27MultiplexExternalSemaSourceC1EPNS_18ExternalSemaSourceES2_(ptr noundef nonnull align 8 dereferenceable(48) %653, ptr noundef nonnull %647, ptr noundef nonnull %644) #17, !noalias !798
   %654 = getelementptr inbounds nuw i8, ptr %653, i64 8
@@ -1729,9 +1729,9 @@ _ZN4llvm18IntrusiveRefCntPtrIN5clang18ExternalSemaSourceEED2Ev.exit: ; preds = %
   %656 = add i32 %655, 1
   store i32 %656, ptr %654, align 4, !tbaa !763, !noalias !798
   store ptr %653, ptr %0, align 8, !tbaa !769
-  %657 = load i32, ptr %648, align 4, !tbaa !763
+  %657 = load i32, ptr %648, align 8, !tbaa !763
   %658 = add i32 %657, -1
-  store i32 %658, ptr %648, align 4, !tbaa !763
+  store i32 %658, ptr %648, align 8, !tbaa !763
   %659 = icmp eq i32 %658, 0
   br i1 %659, label %660, label %_ZN4llvm18IntrusiveRefCntPtrIN12_GLOBAL__N_121ChainedIncludesSourceEED2Ev.exit
 
@@ -2756,7 +2756,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llv
   store ptr %16, ptr %.ptr.i.i.i, align 8, !tbaa !85
   %17 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %17, align 8, !tbaa !36
-  store i8 0, ptr %16, align 1, !tbaa !37
+  store i8 0, ptr %16, align 8, !tbaa !37
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %18 = icmp eq i64 %.add.i.i.i, 416
   br i1 %18, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %15
@@ -4331,7 +4331,7 @@ _ZSt10_ConstructIN5clang17FrontendInputFileEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ;
   store i64 %22, ptr %23, align 8, !tbaa !36
   store ptr %13, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !31
   store i64 0, ptr %21, align 8, !tbaa !36
-  store i8 0, ptr %13, align 1, !tbaa !37
+  store i8 0, ptr %13, align 8, !tbaa !37
   %24 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(45) %24, ptr noundef nonnull align 8 dereferenceable(45) %25, i64 45, i1 false)
@@ -4736,7 +4736,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
   store i64 %22, ptr %23, align 8, !tbaa !36
   store ptr %13, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !31
   store i64 0, ptr %21, align 8, !tbaa !36
-  store i8 0, ptr %13, align 1, !tbaa !37
+  store i8 0, ptr %13, align 8, !tbaa !37
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq ptr %24, %10

@@ -915,14 +915,14 @@ define internal range(i32 -1, 17) i32 @chacha20_poly1305_ctrl(ptr noundef %0, i3
   store i32 %118, ptr %119, align 4, !tbaa !15
   %120 = getelementptr inbounds nuw i8, ptr %6, i64 124
   %121 = load i32, ptr %120, align 4, !tbaa !15
-  %122 = load i32, ptr %95, align 1
+  %122 = load i32, ptr %95, align 4
   %123 = xor i32 %122, %121
   %124 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 %123, ptr %124, align 8, !tbaa !15
   %125 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %126 = load i32, ptr %125, align 8, !tbaa !15
   %127 = getelementptr inbounds nuw i8, ptr %6, i64 152
-  %128 = load i32, ptr %127, align 1
+  %128 = load i32, ptr %127, align 8
   %129 = xor i32 %128, %126
   %130 = getelementptr inbounds nuw i8, ptr %6, i64 44
   store i32 %129, ptr %130, align 4, !tbaa !15

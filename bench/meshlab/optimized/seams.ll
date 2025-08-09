@@ -4153,7 +4153,7 @@ _ZNSt10shared_ptrI9FaceGroupED2Ev.exit40:         ; preds = %_ZNSt16_Sp_counted_
   %248 = getelementptr inbounds nuw i8, ptr %.sroa.023.030.i, i64 56
   store ptr null, ptr %248, align 8
   %249 = getelementptr inbounds nuw i8, ptr %.sroa.023.030.i, i64 64
-  store i32 0, ptr %249, align 4
+  store i32 0, ptr %249, align 8
   %250 = getelementptr inbounds nuw i8, ptr %.sroa.023.030.i, i64 88
   %251 = load ptr, ptr %246, align 8
   %.not.i = icmp eq ptr %250, %251
@@ -4191,7 +4191,7 @@ _ZNSt10shared_ptrI9FaceGroupED2Ev.exit40:         ; preds = %_ZNSt16_Sp_counted_
   %268 = getelementptr inbounds nuw [2 x ptr], ptr %260, i64 0, i64 %indvars.iv.i
   store ptr %267, ptr %268, align 8
   %269 = getelementptr inbounds nuw i8, ptr %265, i64 64
-  %270 = load i32, ptr %269, align 4
+  %270 = load i32, ptr %269, align 8
   %271 = getelementptr inbounds nuw [2 x i32], ptr %261, i64 0, i64 %indvars.iv.i
   store i32 %270, ptr %271, align 4
   store ptr %.sroa.012.033.i, ptr %266, align 8
@@ -5371,7 +5371,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri14UpdateTopologyI8SeamMeshE11
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.019.088, i64 16
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 40
-  %65 = load i32, ptr %63, align 4
+  %65 = load i32, ptr %63, align 8
   %66 = sext i32 %65 to i64
   %67 = getelementptr inbounds [2 x ptr], ptr %64, i64 0, i64 %66
   store ptr %60, ptr %67, align 8
@@ -5379,7 +5379,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri14UpdateTopologyI8SeamMeshE11
   %69 = load i32, ptr %68, align 8
   %70 = load ptr, ptr %61, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 56
-  %72 = load i32, ptr %63, align 4
+  %72 = load i32, ptr %63, align 8
   %73 = sext i32 %72 to i64
   %74 = getelementptr inbounds [2 x i32], ptr %71, i64 0, i64 %73
   store i32 %69, ptr %74, align 4
@@ -5394,7 +5394,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri14UpdateTopologyI8SeamMeshE11
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %.sroa.019.0.lcssa, i64 16
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 40
-  %82 = load i32, ptr %80, align 4
+  %82 = load i32, ptr %80, align 8
   %83 = sext i32 %82 to i64
   %84 = getelementptr inbounds [2 x ptr], ptr %81, i64 0, i64 %83
   store ptr %77, ptr %84, align 8
@@ -5402,7 +5402,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri14UpdateTopologyI8SeamMeshE11
   %86 = load i32, ptr %85, align 8
   %87 = load ptr, ptr %78, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 56
-  %89 = load i32, ptr %80, align 4
+  %89 = load i32, ptr %80, align 8
   %90 = sext i32 %89 to i64
   %91 = getelementptr inbounds [2 x i32], ptr %88, i64 0, i64 %90
   store i32 %86, ptr %91, align 4
@@ -5589,7 +5589,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 32
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 80
-  %47 = load i32, ptr %46, align 4
+  %47 = load i32, ptr %46, align 8
   br label %48
 
 48:                                               ; preds = %_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit, %13, %43
@@ -5736,7 +5736,7 @@ _ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE2FFEC2ERKS4_.exit: ; preds = 
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %61 = load i32, ptr %60, align 4
+  %61 = load i32, ptr %60, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %59, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %61, 1
@@ -7522,7 +7522,7 @@ define linkonce_odr void @_ZNSt6vectorI8SeamEdgeSaIS0_EE17_M_default_appendEm(pt
   %23 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 60
   store i32 -1, ptr %23, align 4
   %24 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 64
-  store i32 -1, ptr %24, align 4
+  store i32 -1, ptr %24, align 8
   %25 = add i64 %.01012.i.i.i, -1
   %26 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 96
   %.not.i.i.i = icmp eq i64 %25, 0
@@ -7564,7 +7564,7 @@ _ZNKSt6vectorI8SeamEdgeSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %27
   %39 = getelementptr inbounds nuw i8, ptr %.013.i.i.i31, i64 60
   store i32 -1, ptr %39, align 4
   %40 = getelementptr inbounds nuw i8, ptr %.013.i.i.i31, i64 64
-  store i32 -1, ptr %40, align 4
+  store i32 -1, ptr %40, align 8
   %41 = add i64 %.01012.i.i.i32, -1
   %42 = getelementptr inbounds nuw i8, ptr %.013.i.i.i31, i64 96
   %.not.i.i.i33 = icmp eq i64 %41, 0

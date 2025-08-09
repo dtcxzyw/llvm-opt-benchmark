@@ -3542,7 +3542,7 @@ define dso_local noundef range(i32 -12, 1) i32 @i915_perf_init(ptr noundef initi
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 9272
   store ptr @oa_formats, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 7184
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 4194304
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %13, label %8
@@ -3629,7 +3629,7 @@ define dso_local noundef range(i32 -12, 1) i32 @i915_perf_init(ptr noundef initi
   store ptr @gen8_is_valid_mux_addr, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 9216
   store ptr @gen8_is_valid_flex_addr, ptr %39, align 8
-  %40 = load i32, ptr %4, align 4
+  %40 = load i32, ptr %4, align 8
   %41 = and i32 %40, 16777216
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %57, label %43
@@ -9078,7 +9078,7 @@ define internal fastcc i32 @oa_configure_all_contexts(ptr %.0.val.0.val, ptr nou
   %14 = phi ptr [ %7, %9 ], [ %106, %.thread9 ]
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr i8, ptr %14, i64 40
-  %17 = load volatile i32, ptr %16, align 4
+  %17 = load volatile i32, ptr %16, align 8
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %.thread, label %.preheader14
 
@@ -9486,7 +9486,7 @@ define internal fastcc i32 @gen8_modify_context(ptr noundef %0, ptr noundef read
   %21 = load ptr, ptr %20, align 8
   %22 = tail call ptr @i915_request_create(ptr noundef %21) #20
   %23 = tail call i32 @__SCT__might_resched() #20
-  %24 = load volatile i32, ptr %6, align 4
+  %24 = load volatile i32, ptr %6, align 8
   %25 = icmp eq i32 %24, 1
   br i1 %25, label %._crit_edge15, label %.lr.ph14, !prof !34
 

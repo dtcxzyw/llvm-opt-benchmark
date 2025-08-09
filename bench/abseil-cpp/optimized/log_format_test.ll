@@ -26362,7 +26362,7 @@ define internal void @_ZN12_GLOBAL__N_128LogFormatTest_NoMessage_Test8TestBodyEv
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load i32, ptr %27, align 8, !tbaa !441, !alias.scope !438
   %29 = or i32 %28, 529
-  store i32 %29, ptr %27, align 4, !tbaa !442, !alias.scope !438
+  store i32 %29, ptr %27, align 8, !tbaa !442, !alias.scope !438
   invoke void @_ZN4absl12log_internal14MatchesOstreamERKNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.testing::Matcher.78") align 8 %10, ptr noundef nonnull align 8 dereferenceable(112) %11)
           to label %30 unwind label %375
 
@@ -32357,7 +32357,7 @@ define internal void @_ZN12_GLOBAL__N_132FloatLogFormatTest_Positive_Test8TestBo
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !698
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !698
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !698
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, double noundef 0x44DFDE9F20000000)
           to label %_ZNSolsEf.exit unwind label %238
 
@@ -33433,7 +33433,7 @@ define internal void @_ZN12_GLOBAL__N_132FloatLogFormatTest_Negative_Test8TestBo
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !747
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !747
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !747
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, double noundef 0xC4DFDE9F20000000)
           to label %_ZNSolsEf.exit unwind label %238
 
@@ -34104,7 +34104,7 @@ define internal void @_ZN12_GLOBAL__N_140FloatLogFormatTest_NegativeExponent_Tes
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !764
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !764
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !764
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, double noundef 0x3B5231BFE0000000)
           to label %_ZNSolsEf.exit unwind label %238
 
@@ -34775,7 +34775,7 @@ define internal void @_ZN12_GLOBAL__N_133DoubleLogFormatTest_Positive_Test8TestB
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !781
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !781
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !781
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, double noundef 6.020000e+23)
           to label %_ZNSolsEd.exit unwind label %238
 
@@ -35448,7 +35448,7 @@ define internal void @_ZN12_GLOBAL__N_133DoubleLogFormatTest_Negative_Test8TestB
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !800
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !800
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !800
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, double noundef -6.020000e+23)
           to label %_ZNSolsEd.exit unwind label %238
 
@@ -36119,7 +36119,7 @@ define internal void @_ZN12_GLOBAL__N_141DoubleLogFormatTest_NegativeExponent_Te
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !817
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !817
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !817
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, double noundef 6.020000e-23)
           to label %_ZNSolsEd.exit unwind label %238
 
@@ -36790,7 +36790,7 @@ define internal void @_ZN12_GLOBAL__N_127BoolLogFormatTest_True_Test8TestBodyEv(
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !834
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !834
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !834
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIbEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext true)
           to label %_ZNSolsEb.exit unwind label %238
 
@@ -37465,7 +37465,7 @@ define internal void @_ZN12_GLOBAL__N_128BoolLogFormatTest_False_Test8TestBodyEv
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !852
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !852
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !852
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIbEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext false)
           to label %_ZNSolsEb.exit unwind label %238
 
@@ -38135,7 +38135,7 @@ define internal void @_ZN12_GLOBAL__N_132LogFormatTest_StringLiteral_Test8TestBo
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i32, ptr %19, align 8, !tbaa !441, !alias.scope !869
   %21 = or i32 %20, 529
-  store i32 %21, ptr %19, align 4, !tbaa !442, !alias.scope !869
+  store i32 %21, ptr %19, align 8, !tbaa !442, !alias.scope !869
   %22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @__const._ZN12_GLOBAL__N_133CharPtrLogFormatTest_NonNull_TestIKhE8TestBodyEv.data, i64 noundef 5)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %235
 
@@ -38807,7 +38807,7 @@ define internal void @_ZN12_GLOBAL__N_128LogFormatTest_CharArray_Test8TestBodyEv
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !886
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !886
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !886
   %23 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #32
   %24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %5, i64 noundef %23)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %239
@@ -39486,7 +39486,7 @@ define internal void @_ZN12_GLOBAL__N_125LogFormatTest_Custom_Test8TestBodyEv(pt
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i32, ptr %19, align 8, !tbaa !441, !alias.scope !903
   %21 = or i32 %20, 529
-  store i32 %21, ptr %19, align 4, !tbaa !442, !alias.scope !903
+  store i32 %21, ptr %19, align 8, !tbaa !442, !alias.scope !903
   %22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str.205, i64 noundef 13)
           to label %_ZN12_GLOBAL__N_1lsERSoRKNS_11CustomClassE.exit unwind label %237
 
@@ -40187,7 +40187,7 @@ define internal void @_ZN12_GLOBAL__N_136LogFormatTest_CustomNonCopyable_Test8Te
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i32, ptr %19, align 8, !tbaa !441, !alias.scope !922
   %21 = or i32 %20, 529
-  store i32 %21, ptr %19, align 4, !tbaa !442, !alias.scope !922
+  store i32 %21, ptr %19, align 8, !tbaa !442, !alias.scope !922
   %22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str.207, i64 noundef 24)
           to label %_ZN12_GLOBAL__N_1lsERSoRKNS_22CustomClassNonCopyableE.exit unwind label %237
 
@@ -44731,7 +44731,7 @@ define internal void @_ZN12_GLOBAL__N_143ManipulatorLogFormatTest_BoolAlphaTrue_
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load i32, ptr %22, align 8, !tbaa !441, !alias.scope !1022
   %24 = or i32 %23, 529
-  store i32 %24, ptr %22, align 4, !tbaa !442, !alias.scope !1022
+  store i32 %24, ptr %22, align 8, !tbaa !442, !alias.scope !1022
   %25 = load i64, ptr %19, align 8
   %26 = getelementptr inbounds i8, ptr %8, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
@@ -44753,7 +44753,7 @@ _ZNSolsEb.exit:                                   ; preds = %17
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = load i32, ptr %37, align 8, !tbaa !441
   %39 = or i32 %38, 1
-  store i32 %39, ptr %37, align 4, !tbaa !442
+  store i32 %39, ptr %37, align 8, !tbaa !442
   %40 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIbEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %30, i1 noundef zeroext true)
           to label %_ZNSolsEb.exit23 unwind label %275
 
@@ -45496,7 +45496,7 @@ define internal void @_ZN12_GLOBAL__N_144ManipulatorLogFormatTest_BoolAlphaFalse
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load i32, ptr %22, align 8, !tbaa !441, !alias.scope !1039
   %24 = or i32 %23, 529
-  store i32 %24, ptr %22, align 4, !tbaa !442, !alias.scope !1039
+  store i32 %24, ptr %22, align 8, !tbaa !442, !alias.scope !1039
   %25 = load i64, ptr %19, align 8
   %26 = getelementptr inbounds i8, ptr %8, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
@@ -45518,7 +45518,7 @@ _ZNSolsEb.exit:                                   ; preds = %17
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = load i32, ptr %37, align 8, !tbaa !441
   %39 = or i32 %38, 1
-  store i32 %39, ptr %37, align 4, !tbaa !442
+  store i32 %39, ptr %37, align 8, !tbaa !442
   %40 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIbEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %30, i1 noundef zeroext false)
           to label %_ZNSolsEb.exit23 unwind label %275
 
@@ -46241,7 +46241,7 @@ define internal void @_ZN12_GLOBAL__N_139ManipulatorLogFormatTest_ShowPoint_Test
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load i32, ptr %22, align 8, !tbaa !441, !alias.scope !1056
   %24 = or i32 %23, 529
-  store i32 %24, ptr %22, align 4, !tbaa !442, !alias.scope !1056
+  store i32 %24, ptr %22, align 8, !tbaa !442, !alias.scope !1056
   %25 = load i64, ptr %19, align 8
   %26 = getelementptr inbounds i8, ptr %8, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
@@ -46263,7 +46263,7 @@ _ZNSolsEd.exit:                                   ; preds = %17
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = load i32, ptr %37, align 8, !tbaa !441
   %39 = or i32 %38, 1024
-  store i32 %39, ptr %37, align 4, !tbaa !442
+  store i32 %39, ptr %37, align 8, !tbaa !442
   %40 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %30, double noundef 7.700000e+01)
           to label %_ZNSolsEd.exit23 unwind label %275
 
@@ -47004,7 +47004,7 @@ define internal void @_ZN12_GLOBAL__N_137ManipulatorLogFormatTest_ShowPos_Test8T
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load i32, ptr %22, align 8, !tbaa !441, !alias.scope !1073
   %24 = or i32 %23, 529
-  store i32 %24, ptr %22, align 4, !tbaa !442, !alias.scope !1073
+  store i32 %24, ptr %22, align 8, !tbaa !442, !alias.scope !1073
   %25 = load i64, ptr %19, align 8
   %26 = getelementptr inbounds i8, ptr %8, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
@@ -47026,7 +47026,7 @@ define internal void @_ZN12_GLOBAL__N_137ManipulatorLogFormatTest_ShowPos_Test8T
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %39 = load i32, ptr %38, align 8, !tbaa !441
   %40 = or i32 %39, 2048
-  store i32 %40, ptr %38, align 4, !tbaa !442
+  store i32 %40, ptr %38, align 8, !tbaa !442
   %41 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %30, i32 noundef 77)
           to label %42 unwind label %278
 
@@ -47767,7 +47767,7 @@ define internal void @_ZN12_GLOBAL__N_144ManipulatorLogFormatTest_UppercaseFloat
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load i32, ptr %22, align 8, !tbaa !441, !alias.scope !1090
   %24 = or i32 %23, 529
-  store i32 %24, ptr %22, align 4, !tbaa !442, !alias.scope !1090
+  store i32 %24, ptr %22, align 8, !tbaa !442, !alias.scope !1090
   %25 = load i64, ptr %19, align 8
   %26 = getelementptr inbounds i8, ptr %8, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
@@ -47789,7 +47789,7 @@ _ZNSolsEd.exit:                                   ; preds = %17
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = load i32, ptr %37, align 8, !tbaa !441
   %39 = or i32 %38, 16384
-  store i32 %39, ptr %37, align 4, !tbaa !442
+  store i32 %39, ptr %37, align 8, !tbaa !442
   %40 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %30, double noundef 7.700000e+07)
           to label %_ZNSolsEd.exit23 unwind label %275
 
@@ -48528,14 +48528,14 @@ define internal void @_ZN12_GLOBAL__N_133ManipulatorLogFormatTest_Hex_Test8TestB
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !1107
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !1107
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !1107
   %23 = load i64, ptr %17, align 8
   %24 = getelementptr inbounds i8, ptr %6, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load i32, ptr %25, align 8, !tbaa !441
   %27 = and i32 %26, -75
   %28 = or disjoint i32 %27, 8
-  store i32 %28, ptr %25, align 4, !tbaa !442
+  store i32 %28, ptr %25, align 8, !tbaa !442
   %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef 119)
           to label %30 unwind label %247
 
@@ -49220,14 +49220,14 @@ define internal void @_ZN12_GLOBAL__N_133ManipulatorLogFormatTest_Oct_Test8TestB
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !1124
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !1124
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !1124
   %23 = load i64, ptr %17, align 8
   %24 = getelementptr inbounds i8, ptr %6, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load i32, ptr %25, align 8, !tbaa !441
   %27 = and i32 %26, -75
   %28 = or disjoint i32 %27, 64
-  store i32 %28, ptr %25, align 4, !tbaa !442
+  store i32 %28, ptr %25, align 8, !tbaa !442
   %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef 63)
           to label %30 unwind label %247
 
@@ -49912,21 +49912,21 @@ define internal void @_ZN12_GLOBAL__N_133ManipulatorLogFormatTest_Dec_Test8TestB
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !1141
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !1141
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !1141
   %23 = load i64, ptr %17, align 8
   %24 = getelementptr inbounds i8, ptr %6, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load i32, ptr %25, align 8, !tbaa !441
   %27 = and i32 %26, -75
   %28 = or disjoint i32 %27, 8
-  store i32 %28, ptr %25, align 4, !tbaa !442
+  store i32 %28, ptr %25, align 8, !tbaa !442
   %29 = load i64, ptr %17, align 8
   %30 = getelementptr inbounds i8, ptr %6, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load i32, ptr %31, align 8, !tbaa !441
   %33 = and i32 %32, -75
   %34 = or disjoint i32 %33, 2
-  store i32 %34, ptr %31, align 4, !tbaa !442
+  store i32 %34, ptr %31, align 8, !tbaa !442
   %35 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef 77)
           to label %36 unwind label %255
 
@@ -50617,14 +50617,14 @@ define internal void @_ZN12_GLOBAL__N_141ManipulatorLogFormatTest_ShowbaseHex_Te
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load i32, ptr %22, align 8, !tbaa !441, !alias.scope !1158
   %24 = or i32 %23, 529
-  store i32 %24, ptr %22, align 4, !tbaa !442, !alias.scope !1158
+  store i32 %24, ptr %22, align 8, !tbaa !442, !alias.scope !1158
   %25 = load i64, ptr %19, align 8
   %26 = getelementptr inbounds i8, ptr %8, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load i32, ptr %27, align 8, !tbaa !441
   %29 = and i32 %28, -75
   %30 = or disjoint i32 %29, 8
-  store i32 %30, ptr %27, align 4, !tbaa !442
+  store i32 %30, ptr %27, align 8, !tbaa !442
   %31 = load i64, ptr %19, align 8
   %32 = getelementptr inbounds i8, ptr %8, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
@@ -50646,7 +50646,7 @@ define internal void @_ZN12_GLOBAL__N_141ManipulatorLogFormatTest_ShowbaseHex_Te
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = load i32, ptr %44, align 8, !tbaa !441
   %46 = or i32 %45, 512
-  store i32 %46, ptr %44, align 4, !tbaa !442
+  store i32 %46, ptr %44, align 8, !tbaa !442
   %47 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %36, i32 noundef 119)
           to label %48 unwind label %286
 
@@ -51391,14 +51391,14 @@ define internal void @_ZN12_GLOBAL__N_141ManipulatorLogFormatTest_ShowbaseOct_Te
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load i32, ptr %22, align 8, !tbaa !441, !alias.scope !1175
   %24 = or i32 %23, 529
-  store i32 %24, ptr %22, align 4, !tbaa !442, !alias.scope !1175
+  store i32 %24, ptr %22, align 8, !tbaa !442, !alias.scope !1175
   %25 = load i64, ptr %19, align 8
   %26 = getelementptr inbounds i8, ptr %8, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load i32, ptr %27, align 8, !tbaa !441
   %29 = and i32 %28, -75
   %30 = or disjoint i32 %29, 64
-  store i32 %30, ptr %27, align 4, !tbaa !442
+  store i32 %30, ptr %27, align 8, !tbaa !442
   %31 = load i64, ptr %19, align 8
   %32 = getelementptr inbounds i8, ptr %8, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
@@ -51420,7 +51420,7 @@ define internal void @_ZN12_GLOBAL__N_141ManipulatorLogFormatTest_ShowbaseOct_Te
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = load i32, ptr %44, align 8, !tbaa !441
   %46 = or i32 %45, 512
-  store i32 %46, ptr %44, align 4, !tbaa !442
+  store i32 %46, ptr %44, align 8, !tbaa !442
   %47 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %36, i32 noundef 63)
           to label %48 unwind label %286
 
@@ -52147,14 +52147,14 @@ define internal void @_ZN12_GLOBAL__N_142ManipulatorLogFormatTest_UppercaseHex_T
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load i32, ptr %22, align 8, !tbaa !441, !alias.scope !1192
   %24 = or i32 %23, 529
-  store i32 %24, ptr %22, align 4, !tbaa !442, !alias.scope !1192
+  store i32 %24, ptr %22, align 8, !tbaa !442, !alias.scope !1192
   %25 = load i64, ptr %19, align 8
   %26 = getelementptr inbounds i8, ptr %8, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load i32, ptr %27, align 8, !tbaa !441
   %29 = and i32 %28, -75
   %30 = or disjoint i32 %29, 8
-  store i32 %30, ptr %27, align 4, !tbaa !442
+  store i32 %30, ptr %27, align 8, !tbaa !442
   %31 = load i64, ptr %19, align 8
   %32 = getelementptr inbounds i8, ptr %8, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
@@ -52176,7 +52176,7 @@ define internal void @_ZN12_GLOBAL__N_142ManipulatorLogFormatTest_UppercaseHex_T
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = load i32, ptr %44, align 8, !tbaa !441
   %46 = or i32 %45, 16384
-  store i32 %46, ptr %44, align 4, !tbaa !442
+  store i32 %46, ptr %44, align 8, !tbaa !442
   %47 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %36, i32 noundef 48879)
           to label %48 unwind label %286
 
@@ -52901,14 +52901,14 @@ define internal void @_ZN12_GLOBAL__N_140ManipulatorLogFormatTest_FixedFloat_Tes
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !1209
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !1209
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !1209
   %23 = load i64, ptr %17, align 8
   %24 = getelementptr inbounds i8, ptr %6, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load i32, ptr %25, align 8, !tbaa !441
   %27 = and i32 %26, -261
   %28 = or disjoint i32 %27, 4
-  store i32 %28, ptr %25, align 4, !tbaa !442
+  store i32 %28, ptr %25, align 8, !tbaa !442
   %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, double noundef 7.700000e+07)
           to label %_ZNSolsEd.exit unwind label %246
 
@@ -53593,14 +53593,14 @@ define internal void @_ZN12_GLOBAL__N_145ManipulatorLogFormatTest_ScientificFloa
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !1226
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !1226
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !1226
   %23 = load i64, ptr %17, align 8
   %24 = getelementptr inbounds i8, ptr %6, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load i32, ptr %25, align 8, !tbaa !441
   %27 = and i32 %26, -261
   %28 = or disjoint i32 %27, 256
-  store i32 %28, ptr %25, align 4, !tbaa !442
+  store i32 %28, ptr %25, align 8, !tbaa !442
   %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, double noundef 7.700000e+07)
           to label %_ZNSolsEd.exit unwind label %246
 
@@ -54289,13 +54289,13 @@ define internal void @_ZN12_GLOBAL__N_153ManipulatorLogFormatTest_FixedAndScient
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load i32, ptr %24, align 8, !tbaa !441, !alias.scope !1243
   %26 = or i32 %25, 529
-  store i32 %26, ptr %24, align 4, !tbaa !442, !alias.scope !1243
+  store i32 %26, ptr %24, align 8, !tbaa !442, !alias.scope !1243
   %27 = load i64, ptr %21, align 8
   %28 = getelementptr inbounds i8, ptr %8, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load i32, ptr %29, align 8, !tbaa !441
   %31 = or i32 %30, 260
-  store i32 %31, ptr %29, align 4, !tbaa !442
+  store i32 %31, ptr %29, align 8, !tbaa !442
   %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %8, double noundef 7.700000e+07)
           to label %_ZNSolsEd.exit unwind label %271
 
@@ -54999,7 +54999,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i32, ptr %12, align 8, !tbaa !441
   %14 = or i32 %13, %.sroa.0.0.copyload
-  store i32 %14, ptr %12, align 4, !tbaa !442
+  store i32 %14, ptr %12, align 8, !tbaa !442
   call void @_ZN4absl12log_internal10LogMessage11OstreamViewD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %3) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %0
@@ -56731,13 +56731,13 @@ define internal void @_ZN12_GLOBAL__N_143ManipulatorLogFormatTest_HexfloatFloat_
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load i32, ptr %23, align 8, !tbaa !441, !alias.scope !1356
   %25 = or i32 %24, 529
-  store i32 %25, ptr %23, align 4, !tbaa !442, !alias.scope !1356
+  store i32 %25, ptr %23, align 8, !tbaa !442, !alias.scope !1356
   %26 = load i64, ptr %20, align 8
   %27 = getelementptr inbounds i8, ptr %8, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load i32, ptr %28, align 8, !tbaa !441
   %30 = or i32 %29, 260
-  store i32 %30, ptr %28, align 4, !tbaa !442
+  store i32 %30, ptr %28, align 8, !tbaa !442
   %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %8, double noundef 7.700000e+07)
           to label %_ZNSolsEd.exit unwind label %270
 
@@ -57486,13 +57486,13 @@ define internal void @_ZN12_GLOBAL__N_147ManipulatorLogFormatTest_DefaultFloatFl
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !1379
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !1379
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !1379
   %23 = load i64, ptr %17, align 8
   %24 = getelementptr inbounds i8, ptr %6, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load i32, ptr %25, align 8, !tbaa !441
   %27 = or i32 %26, 260
-  store i32 %27, ptr %25, align 4, !tbaa !442
+  store i32 %27, ptr %25, align 8, !tbaa !442
   %28 = load i64, ptr %17, align 8
   %29 = getelementptr inbounds i8, ptr %6, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -58185,7 +58185,7 @@ define internal void @_ZN12_GLOBAL__N_134ManipulatorLogFormatTest_Ends_Test8Test
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i32, ptr %19, align 8, !tbaa !441, !alias.scope !1396
   %21 = or i32 %20, 529
-  store i32 %21, ptr %19, align 4, !tbaa !442, !alias.scope !1396
+  store i32 %21, ptr %19, align 8, !tbaa !442, !alias.scope !1396
   %22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %5, i8 noundef signext 0)
           to label %_ZNSolsEPFRSoS_E.exit unwind label %240
 
@@ -59051,7 +59051,7 @@ define internal void @_ZN12_GLOBAL__N_134ManipulatorLogFormatTest_Endl_Test8Test
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i32, ptr %19, align 8, !tbaa !441, !alias.scope !1413
   %21 = or i32 %20, 529
-  store i32 %21, ptr %19, align 4, !tbaa !442, !alias.scope !1413
+  store i32 %21, ptr %19, align 8, !tbaa !442, !alias.scope !1413
   %22 = load i64, ptr %16, align 8
   %23 = getelementptr inbounds i8, ptr %5, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 240
@@ -59776,19 +59776,19 @@ define internal void @_ZN12_GLOBAL__N_141ManipulatorLogFormatTest_SetIosFlags_Te
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load i32, ptr %25, align 8, !tbaa !441, !alias.scope !1442
   %27 = or i32 %26, 529
-  store i32 %27, ptr %25, align 4, !tbaa !442, !alias.scope !1442
+  store i32 %27, ptr %25, align 8, !tbaa !442, !alias.scope !1442
   %28 = load i64, ptr %22, align 8
   %29 = getelementptr inbounds i8, ptr %7, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load i32, ptr %30, align 8, !tbaa !441
   %32 = and i32 %31, -75
-  store i32 %32, ptr %30, align 4, !tbaa !442
+  store i32 %32, ptr %30, align 8, !tbaa !442
   %33 = load i64, ptr %22, align 8
   %34 = getelementptr inbounds i8, ptr %7, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load i32, ptr %35, align 8, !tbaa !441
   %37 = or i32 %36, 8
-  store i32 %37, ptr %35, align 4, !tbaa !442
+  store i32 %37, ptr %35, align 8, !tbaa !442
   %38 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef 119)
           to label %39 unwind label %280
 
@@ -59804,13 +59804,13 @@ define internal void @_ZN12_GLOBAL__N_141ManipulatorLogFormatTest_SetIosFlags_Te
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %47 = load i32, ptr %46, align 8, !tbaa !441
   %48 = and i32 %47, -75
-  store i32 %48, ptr %46, align 4, !tbaa !442
+  store i32 %48, ptr %46, align 8, !tbaa !442
   %49 = load i64, ptr %43, align 8
   %50 = getelementptr inbounds i8, ptr %38, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = load i32, ptr %51, align 8, !tbaa !441
   %53 = or i32 %52, 2
-  store i32 %53, ptr %51, align 4, !tbaa !442
+  store i32 %53, ptr %51, align 8, !tbaa !442
   %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %38, i32 noundef 119)
           to label %55 unwind label %280
 
@@ -60512,7 +60512,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_
   %13 = load i32, ptr %12, align 8, !tbaa !441
   %14 = xor i32 %.sroa.0.0.copyload, -1
   %15 = and i32 %13, %14
-  store i32 %15, ptr %12, align 4, !tbaa !442
+  store i32 %15, ptr %12, align 8, !tbaa !442
   call void @_ZN4absl12log_internal10LogMessage11OstreamViewD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %3) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %0
@@ -60587,14 +60587,14 @@ define internal void @_ZN12_GLOBAL__N_137ManipulatorLogFormatTest_SetBase_Test8T
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load i32, ptr %23, align 8, !tbaa !441, !alias.scope !1459
   %25 = or i32 %24, 529
-  store i32 %25, ptr %23, align 4, !tbaa !442, !alias.scope !1459
+  store i32 %25, ptr %23, align 8, !tbaa !442, !alias.scope !1459
   %26 = load i64, ptr %20, align 8
   %27 = getelementptr inbounds i8, ptr %7, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load i32, ptr %28, align 8, !tbaa !441
   %30 = and i32 %29, -75
   %31 = or disjoint i32 %30, 8
-  store i32 %31, ptr %28, align 4, !tbaa !442
+  store i32 %31, ptr %28, align 8, !tbaa !442
   %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef 119)
           to label %33 unwind label %265
 
@@ -60610,7 +60610,7 @@ define internal void @_ZN12_GLOBAL__N_137ManipulatorLogFormatTest_SetBase_Test8T
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %41 = load i32, ptr %40, align 8, !tbaa !441
   %42 = and i32 %41, -75
-  store i32 %42, ptr %40, align 4, !tbaa !442
+  store i32 %42, ptr %40, align 8, !tbaa !442
   %43 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %32, i32 noundef 119)
           to label %44 unwind label %265
 
@@ -61284,7 +61284,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_
   %19 = load i32, ptr %18, align 8, !tbaa !441
   %20 = and i32 %19, -75
   %21 = or disjoint i32 %20, %16
-  store i32 %21, ptr %18, align 4, !tbaa !442
+  store i32 %21, ptr %18, align 8, !tbaa !442
   call void @_ZN4absl12log_internal10LogMessage11OstreamViewD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %3) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %0
@@ -61357,7 +61357,7 @@ define internal void @_ZN12_GLOBAL__N_142ManipulatorLogFormatTest_SetPrecision_T
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load i32, ptr %21, align 8, !tbaa !441, !alias.scope !1476
   %23 = or i32 %22, 529
-  store i32 %23, ptr %21, align 4, !tbaa !442, !alias.scope !1476
+  store i32 %23, ptr %21, align 8, !tbaa !442, !alias.scope !1476
   %24 = load i64, ptr %18, align 8
   %25 = getelementptr inbounds i8, ptr %6, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -62072,7 +62072,7 @@ define internal void @_ZN12_GLOBAL__N_150ManipulatorLogFormatTest_SetPrecisionOv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load i32, ptr %21, align 8, !tbaa !441, !alias.scope !1494
   %23 = or i32 %22, 529
-  store i32 %23, ptr %21, align 4, !tbaa !442, !alias.scope !1494
+  store i32 %23, ptr %21, align 8, !tbaa !442, !alias.scope !1494
   %24 = load i64, ptr %18, align 8
   %25 = getelementptr inbounds i8, ptr %6, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -62756,7 +62756,7 @@ define internal void @_ZN12_GLOBAL__N_134ManipulatorLogFormatTest_SetW_Test8Test
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load i32, ptr %21, align 8, !tbaa !441, !alias.scope !1511
   %23 = or i32 %22, 529
-  store i32 %23, ptr %21, align 4, !tbaa !442, !alias.scope !1511
+  store i32 %23, ptr %21, align 8, !tbaa !442, !alias.scope !1511
   %24 = load i64, ptr %18, align 8
   %25 = getelementptr inbounds i8, ptr %6, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -63471,14 +63471,14 @@ define internal void @_ZN12_GLOBAL__N_134ManipulatorLogFormatTest_Left_Test8Test
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load i32, ptr %21, align 8, !tbaa !441, !alias.scope !1529
   %23 = or i32 %22, 529
-  store i32 %23, ptr %21, align 4, !tbaa !442, !alias.scope !1529
+  store i32 %23, ptr %21, align 8, !tbaa !442, !alias.scope !1529
   %24 = load i64, ptr %18, align 8
   %25 = getelementptr inbounds i8, ptr %6, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load i32, ptr %26, align 8, !tbaa !441
   %28 = and i32 %27, -177
   %29 = or disjoint i32 %28, 32
-  store i32 %29, ptr %26, align 4, !tbaa !442
+  store i32 %29, ptr %26, align 8, !tbaa !442
   %30 = load i64, ptr %18, align 8
   %31 = getelementptr inbounds i8, ptr %6, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
@@ -64185,14 +64185,14 @@ define internal void @_ZN12_GLOBAL__N_135ManipulatorLogFormatTest_Right_Test8Tes
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load i32, ptr %21, align 8, !tbaa !441, !alias.scope !1546
   %23 = or i32 %22, 529
-  store i32 %23, ptr %21, align 4, !tbaa !442, !alias.scope !1546
+  store i32 %23, ptr %21, align 8, !tbaa !442, !alias.scope !1546
   %24 = load i64, ptr %18, align 8
   %25 = getelementptr inbounds i8, ptr %6, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load i32, ptr %26, align 8, !tbaa !441
   %28 = and i32 %27, -177
   %29 = or disjoint i32 %28, 128
-  store i32 %29, ptr %26, align 4, !tbaa !442
+  store i32 %29, ptr %26, align 8, !tbaa !442
   %30 = load i64, ptr %18, align 8
   %31 = getelementptr inbounds i8, ptr %6, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
@@ -64899,14 +64899,14 @@ define internal void @_ZN12_GLOBAL__N_138ManipulatorLogFormatTest_Internal_Test8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load i32, ptr %21, align 8, !tbaa !441, !alias.scope !1563
   %23 = or i32 %22, 529
-  store i32 %23, ptr %21, align 4, !tbaa !442, !alias.scope !1563
+  store i32 %23, ptr %21, align 8, !tbaa !442, !alias.scope !1563
   %24 = load i64, ptr %18, align 8
   %25 = getelementptr inbounds i8, ptr %6, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load i32, ptr %26, align 8, !tbaa !441
   %28 = and i32 %27, -177
   %29 = or disjoint i32 %28, 16
-  store i32 %29, ptr %26, align 4, !tbaa !442
+  store i32 %29, ptr %26, align 8, !tbaa !442
   %30 = load i64, ptr %18, align 8
   %31 = getelementptr inbounds i8, ptr %6, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
@@ -65614,7 +65614,7 @@ define internal void @_ZN12_GLOBAL__N_137ManipulatorLogFormatTest_SetFill_Test8T
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load i32, ptr %22, align 8, !tbaa !441, !alias.scope !1580
   %24 = or i32 %23, 529
-  store i32 %24, ptr %22, align 4, !tbaa !442, !alias.scope !1580
+  store i32 %24, ptr %22, align 8, !tbaa !442, !alias.scope !1580
   %25 = load i64, ptr %19, align 8
   %26 = getelementptr inbounds i8, ptr %6, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 225
@@ -66430,7 +66430,7 @@ define internal void @_ZN12_GLOBAL__N_140ManipulatorLogFormatTest_FromCustom_Tes
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !1599
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !1599
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !1599
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.269, i64 noundef 17)
           to label %24 unwind label %252
 
@@ -66443,7 +66443,7 @@ define internal void @_ZN12_GLOBAL__N_140ManipulatorLogFormatTest_FromCustom_Tes
   %30 = load i32, ptr %29, align 8, !tbaa !441
   %31 = and i32 %30, -75
   %32 = or disjoint i32 %31, 8
-  store i32 %32, ptr %29, align 4, !tbaa !442
+  store i32 %32, ptr %29, align 8, !tbaa !442
   %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.191, i64 noundef 1)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %252
 
@@ -67090,7 +67090,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl
   %14 = load i32, ptr %13, align 8, !tbaa !441
   %15 = and i32 %14, -75
   %16 = or disjoint i32 %15, 8
-  store i32 %16, ptr %13, align 4, !tbaa !442
+  store i32 %16, ptr %13, align 8, !tbaa !442
   call void @_ZN4absl12log_internal10LogMessage11OstreamViewD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %2) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %0
@@ -67162,7 +67162,7 @@ define internal void @_ZN12_GLOBAL__N_155ManipulatorLogFormatTest_CustomClassStr
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !1616
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !1616
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !1616
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef 77)
           to label %24 unwind label %241
 
@@ -69435,7 +69435,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal15VariadicMatcherINS0_1
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %7, align 8, !alias.scope !1705, !noalias !1704
   store ptr @_ZZN7testing8internal11MatcherBaseIRKcE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherIcEELb1EEEEEPKNS4_6VTableEvE7kVTable, ptr %6, align 8, !tbaa !1714, !alias.scope !1705, !noalias !1704
-  store i8 %.sroa.0.0.copyload.i.i.i.i.i, ptr %7, align 1, !alias.scope !1705, !noalias !1704
+  store i8 %.sroa.0.0.copyload.i.i.i.i.i, ptr %7, align 8, !alias.scope !1705, !noalias !1704
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing7MatcherIRKcEE, i64 16), ptr %5, align 8, !tbaa !4, !alias.scope !1705, !noalias !1704
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal15EachMatcherImplIRKSt17basic_string_viewIcSt11char_traitsIcEEEE, i64 16), ptr %4, align 8, !tbaa !4, !noalias !1704
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -83857,7 +83857,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %35
   store i64 %41, ptr %43, align 8, !tbaa !28
   store ptr %33, ptr %1, align 8, !tbaa !24
   store i64 0, ptr %42, align 8, !tbaa !28
-  store i8 0, ptr %33, align 1, !tbaa !29
+  store i8 0, ptr %33, align 8, !tbaa !29
   ret void
 }
 
@@ -83928,7 +83928,7 @@ define internal void @_ZN12_GLOBAL__N_132CharLogFormatTest_Printable_TestIcE8Tes
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load i32, ptr %21, align 8, !tbaa !441, !alias.scope !2144
   %23 = or i32 %22, 529
-  store i32 %23, ptr %21, align 4, !tbaa !442, !alias.scope !2144
+  store i32 %23, ptr %21, align 8, !tbaa !442, !alias.scope !2144
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 120, ptr %5, align 1, !tbaa !29
   %24 = load i64, ptr %18, align 8
@@ -84617,7 +84617,7 @@ define internal void @_ZN12_GLOBAL__N_132CharLogFormatTest_Printable_TestIaE8Tes
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load i32, ptr %21, align 8, !tbaa !441, !alias.scope !2161
   %23 = or i32 %22, 529
-  store i32 %23, ptr %21, align 4, !tbaa !442, !alias.scope !2161
+  store i32 %23, ptr %21, align 8, !tbaa !442, !alias.scope !2161
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 120, ptr %5, align 1, !tbaa !29
   %24 = load i64, ptr %18, align 8
@@ -85306,7 +85306,7 @@ define internal void @_ZN12_GLOBAL__N_132CharLogFormatTest_Printable_TestIhE8Tes
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load i32, ptr %21, align 8, !tbaa !441, !alias.scope !2178
   %23 = or i32 %22, 529
-  store i32 %23, ptr %21, align 4, !tbaa !442, !alias.scope !2178
+  store i32 %23, ptr %21, align 8, !tbaa !442, !alias.scope !2178
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 120, ptr %5, align 1, !tbaa !29
   %24 = load i64, ptr %18, align 8
@@ -86343,7 +86343,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !28, !alias.scope !2205, !noalias !2208
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !24, !alias.scope !2208, !noalias !2205
   store i64 0, ptr %48, align 8, !tbaa !28, !alias.scope !2208, !noalias !2205
-  store i8 0, ptr %39, align 1, !tbaa !29, !alias.scope !2208, !noalias !2205
+  store i8 0, ptr %39, align 8, !tbaa !29, !alias.scope !2208, !noalias !2205
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -86391,7 +86391,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !28, !alias.scope !2212, !noalias !2215
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !24, !alias.scope !2215, !noalias !2212
   store i64 0, ptr %64, align 8, !tbaa !28, !alias.scope !2215, !noalias !2212
-  store i8 0, ptr %55, align 1, !tbaa !29, !alias.scope !2215, !noalias !2212
+  store i8 0, ptr %55, align 8, !tbaa !29, !alias.scope !2215, !noalias !2212
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5
@@ -86630,7 +86630,7 @@ define internal void @_ZN12_GLOBAL__N_134CharLogFormatTest_Unprintable_TestIcE8T
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load i32, ptr %21, align 8, !tbaa !441, !alias.scope !2223
   %23 = or i32 %22, 529
-  store i32 %23, ptr %21, align 4, !tbaa !442, !alias.scope !2223
+  store i32 %23, ptr %21, align 8, !tbaa !442, !alias.scope !2223
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 -18, ptr %5, align 1, !tbaa !29
   %24 = load i64, ptr %18, align 8
@@ -87317,7 +87317,7 @@ define internal void @_ZN12_GLOBAL__N_134CharLogFormatTest_Unprintable_TestIaE8T
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load i32, ptr %21, align 8, !tbaa !441, !alias.scope !2240
   %23 = or i32 %22, 529
-  store i32 %23, ptr %21, align 4, !tbaa !442, !alias.scope !2240
+  store i32 %23, ptr %21, align 8, !tbaa !442, !alias.scope !2240
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 -18, ptr %5, align 1, !tbaa !29
   %24 = load i64, ptr %18, align 8
@@ -88004,7 +88004,7 @@ define internal void @_ZN12_GLOBAL__N_134CharLogFormatTest_Unprintable_TestIhE8T
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load i32, ptr %21, align 8, !tbaa !441, !alias.scope !2257
   %23 = or i32 %22, 529
-  store i32 %23, ptr %21, align 4, !tbaa !442, !alias.scope !2257
+  store i32 %23, ptr %21, align 8, !tbaa !442, !alias.scope !2257
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 -18, ptr %5, align 1, !tbaa !29
   %24 = load i64, ptr %18, align 8
@@ -88690,7 +88690,7 @@ define internal void @_ZN12_GLOBAL__N_138UnsignedIntLogFormatTest_Positive_TestI
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !2274
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !2274
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !2274
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 224)
           to label %_ZNSolsEt.exit unwind label %238
 
@@ -89363,7 +89363,7 @@ define internal void @_ZN12_GLOBAL__N_138UnsignedIntLogFormatTest_Positive_TestI
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !2293
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !2293
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !2293
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 224)
           to label %_ZNSolsEj.exit unwind label %238
 
@@ -90036,7 +90036,7 @@ define internal void @_ZN12_GLOBAL__N_138UnsignedIntLogFormatTest_Positive_TestI
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !2310
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !2310
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !2310
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 224)
           to label %_ZNSolsEm.exit unwind label %238
 
@@ -90709,7 +90709,7 @@ define internal void @_ZN12_GLOBAL__N_138UnsignedIntLogFormatTest_Positive_TestI
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !2327
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !2327
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !2327
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIyEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 224)
           to label %_ZNSolsEy.exit unwind label %238
 
@@ -91985,7 +91985,7 @@ define internal void @_ZN12_GLOBAL__N_146UnsignedIntLogFormatTest_BitfieldPositi
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !2366
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !2366
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !2366
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 42)
           to label %_ZNSolsEt.exit unwind label %238
 
@@ -92656,7 +92656,7 @@ define internal void @_ZN12_GLOBAL__N_146UnsignedIntLogFormatTest_BitfieldPositi
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !2383
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !2383
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !2383
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 42)
           to label %_ZNSolsEj.exit unwind label %238
 
@@ -93327,7 +93327,7 @@ define internal void @_ZN12_GLOBAL__N_146UnsignedIntLogFormatTest_BitfieldPositi
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !2400
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !2400
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !2400
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 42)
           to label %_ZNSolsEm.exit unwind label %238
 
@@ -93998,7 +93998,7 @@ define internal void @_ZN12_GLOBAL__N_146UnsignedIntLogFormatTest_BitfieldPositi
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !2417
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !2417
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !2417
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIyEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 42)
           to label %_ZNSolsEy.exit unwind label %238
 
@@ -94669,7 +94669,7 @@ define internal void @_ZN12_GLOBAL__N_136SignedIntLogFormatTest_Positive_TestIsE
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !2434
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !2434
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !2434
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEs(ptr noundef nonnull align 8 dereferenceable(8) %6, i16 noundef signext 224)
           to label %24 unwind label %239
 
@@ -95344,7 +95344,7 @@ define internal void @_ZN12_GLOBAL__N_136SignedIntLogFormatTest_Positive_TestIiE
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !2451
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !2451
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !2451
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef 224)
           to label %24 unwind label %239
 
@@ -96015,7 +96015,7 @@ define internal void @_ZN12_GLOBAL__N_136SignedIntLogFormatTest_Positive_TestIlE
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !2468
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !2468
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !2468
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 224)
           to label %_ZNSolsEl.exit unwind label %238
 
@@ -96690,7 +96690,7 @@ define internal void @_ZN12_GLOBAL__N_136SignedIntLogFormatTest_Positive_TestIxE
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !2485
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !2485
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !2485
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIxEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 224)
           to label %_ZNSolsEx.exit unwind label %238
 
@@ -97966,7 +97966,7 @@ define internal void @_ZN12_GLOBAL__N_136SignedIntLogFormatTest_Negative_TestIsE
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !2522
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !2522
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !2522
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEs(ptr noundef nonnull align 8 dereferenceable(8) %6, i16 noundef signext -112)
           to label %24 unwind label %239
 
@@ -98637,7 +98637,7 @@ define internal void @_ZN12_GLOBAL__N_136SignedIntLogFormatTest_Negative_TestIiE
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !2539
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !2539
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !2539
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef -112)
           to label %24 unwind label %239
 
@@ -99308,7 +99308,7 @@ define internal void @_ZN12_GLOBAL__N_136SignedIntLogFormatTest_Negative_TestIlE
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !2556
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !2556
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !2556
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef -112)
           to label %_ZNSolsEl.exit unwind label %238
 
@@ -99979,7 +99979,7 @@ define internal void @_ZN12_GLOBAL__N_136SignedIntLogFormatTest_Negative_TestIxE
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !2573
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !2573
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !2573
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIxEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef -112)
           to label %_ZNSolsEx.exit unwind label %238
 
@@ -100650,7 +100650,7 @@ define internal void @_ZN12_GLOBAL__N_144SignedIntLogFormatTest_BitfieldPositive
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !2590
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !2590
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !2590
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEs(ptr noundef nonnull align 8 dereferenceable(8) %6, i16 noundef signext 21)
           to label %24 unwind label %239
 
@@ -101321,7 +101321,7 @@ define internal void @_ZN12_GLOBAL__N_144SignedIntLogFormatTest_BitfieldPositive
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !2607
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !2607
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !2607
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef 21)
           to label %24 unwind label %239
 
@@ -101992,7 +101992,7 @@ define internal void @_ZN12_GLOBAL__N_144SignedIntLogFormatTest_BitfieldPositive
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !2624
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !2624
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !2624
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 21)
           to label %_ZNSolsEl.exit unwind label %238
 
@@ -102663,7 +102663,7 @@ define internal void @_ZN12_GLOBAL__N_144SignedIntLogFormatTest_BitfieldPositive
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !2641
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !2641
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !2641
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIxEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 21)
           to label %_ZNSolsEx.exit unwind label %238
 
@@ -103334,7 +103334,7 @@ define internal void @_ZN12_GLOBAL__N_144SignedIntLogFormatTest_BitfieldNegative
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !2658
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !2658
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !2658
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEs(ptr noundef nonnull align 8 dereferenceable(8) %6, i16 noundef signext -21)
           to label %24 unwind label %239
 
@@ -104005,7 +104005,7 @@ define internal void @_ZN12_GLOBAL__N_144SignedIntLogFormatTest_BitfieldNegative
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !2675
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !2675
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !2675
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef -21)
           to label %24 unwind label %239
 
@@ -104676,7 +104676,7 @@ define internal void @_ZN12_GLOBAL__N_144SignedIntLogFormatTest_BitfieldNegative
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !2692
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !2692
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !2692
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef -21)
           to label %_ZNSolsEl.exit unwind label %238
 
@@ -105347,7 +105347,7 @@ define internal void @_ZN12_GLOBAL__N_144SignedIntLogFormatTest_BitfieldNegative
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !2709
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !2709
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !2709
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIxEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef -21)
           to label %_ZNSolsEx.exit unwind label %238
 
@@ -106017,7 +106017,7 @@ define internal void @_ZN12_GLOBAL__N_139UnsignedEnumLogFormatTest_Positive_Test
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i32, ptr %19, align 8, !tbaa !441, !alias.scope !2726
   %21 = or i32 %20, 529
-  store i32 %21, ptr %19, align 4, !tbaa !442, !alias.scope !2726
+  store i32 %21, ptr %19, align 8, !tbaa !442, !alias.scope !2726
   %22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 224)
           to label %23 unwind label %238
 
@@ -106711,7 +106711,7 @@ define internal void @_ZN12_GLOBAL__N_139UnsignedEnumLogFormatTest_Positive_Test
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i32, ptr %19, align 8, !tbaa !441, !alias.scope !2743
   %21 = or i32 %20, 529
-  store i32 %21, ptr %19, align 4, !tbaa !442, !alias.scope !2743
+  store i32 %21, ptr %19, align 8, !tbaa !442, !alias.scope !2743
   %22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 224)
           to label %_ZNSolsEj.exit unwind label %237
 
@@ -107406,7 +107406,7 @@ define internal void @_ZN12_GLOBAL__N_147UnsignedEnumLogFormatTest_BitfieldPosit
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i32, ptr %19, align 8, !tbaa !441, !alias.scope !2760
   %21 = or i32 %20, 529
-  store i32 %21, ptr %19, align 4, !tbaa !442, !alias.scope !2760
+  store i32 %21, ptr %19, align 8, !tbaa !442, !alias.scope !2760
   %22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 42)
           to label %23 unwind label %238
 
@@ -108073,7 +108073,7 @@ define internal void @_ZN12_GLOBAL__N_147UnsignedEnumLogFormatTest_BitfieldPosit
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i32, ptr %19, align 8, !tbaa !441, !alias.scope !2777
   %21 = or i32 %20, 529
-  store i32 %21, ptr %19, align 4, !tbaa !442, !alias.scope !2777
+  store i32 %21, ptr %19, align 8, !tbaa !442, !alias.scope !2777
   %22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 42)
           to label %_ZNSolsEj.exit unwind label %237
 
@@ -108740,7 +108740,7 @@ define internal void @_ZN12_GLOBAL__N_137SignedEnumLogFormatTest_Positive_TestIN
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i32, ptr %19, align 8, !tbaa !441, !alias.scope !2794
   %21 = or i32 %20, 529
-  store i32 %21, ptr %19, align 4, !tbaa !442, !alias.scope !2794
+  store i32 %21, ptr %19, align 8, !tbaa !442, !alias.scope !2794
   %22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 224)
           to label %23 unwind label %238
 
@@ -109434,7 +109434,7 @@ define internal void @_ZN12_GLOBAL__N_137SignedEnumLogFormatTest_Positive_TestIN
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i32, ptr %19, align 8, !tbaa !441, !alias.scope !2811
   %21 = or i32 %20, 529
-  store i32 %21, ptr %19, align 4, !tbaa !442, !alias.scope !2811
+  store i32 %21, ptr %19, align 8, !tbaa !442, !alias.scope !2811
   %22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 224)
           to label %23 unwind label %238
 
@@ -110128,7 +110128,7 @@ define internal void @_ZN12_GLOBAL__N_137SignedEnumLogFormatTest_Negative_TestIN
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i32, ptr %19, align 8, !tbaa !441, !alias.scope !2828
   %21 = or i32 %20, 529
-  store i32 %21, ptr %19, align 4, !tbaa !442, !alias.scope !2828
+  store i32 %21, ptr %19, align 8, !tbaa !442, !alias.scope !2828
   %22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef -112)
           to label %23 unwind label %238
 
@@ -110795,7 +110795,7 @@ define internal void @_ZN12_GLOBAL__N_137SignedEnumLogFormatTest_Negative_TestIN
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i32, ptr %19, align 8, !tbaa !441, !alias.scope !2845
   %21 = or i32 %20, 529
-  store i32 %21, ptr %19, align 4, !tbaa !442, !alias.scope !2845
+  store i32 %21, ptr %19, align 8, !tbaa !442, !alias.scope !2845
   %22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef -112)
           to label %23 unwind label %238
 
@@ -111462,7 +111462,7 @@ define internal void @_ZN12_GLOBAL__N_145SignedEnumLogFormatTest_BitfieldPositiv
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i32, ptr %19, align 8, !tbaa !441, !alias.scope !2862
   %21 = or i32 %20, 529
-  store i32 %21, ptr %19, align 4, !tbaa !442, !alias.scope !2862
+  store i32 %21, ptr %19, align 8, !tbaa !442, !alias.scope !2862
   %22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 21)
           to label %23 unwind label %238
 
@@ -112129,7 +112129,7 @@ define internal void @_ZN12_GLOBAL__N_145SignedEnumLogFormatTest_BitfieldPositiv
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i32, ptr %19, align 8, !tbaa !441, !alias.scope !2879
   %21 = or i32 %20, 529
-  store i32 %21, ptr %19, align 4, !tbaa !442, !alias.scope !2879
+  store i32 %21, ptr %19, align 8, !tbaa !442, !alias.scope !2879
   %22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 21)
           to label %23 unwind label %238
 
@@ -112796,7 +112796,7 @@ define internal void @_ZN12_GLOBAL__N_145SignedEnumLogFormatTest_BitfieldNegativ
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i32, ptr %19, align 8, !tbaa !441, !alias.scope !2896
   %21 = or i32 %20, 529
-  store i32 %21, ptr %19, align 4, !tbaa !442, !alias.scope !2896
+  store i32 %21, ptr %19, align 8, !tbaa !442, !alias.scope !2896
   %22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef -21)
           to label %23 unwind label %238
 
@@ -113463,7 +113463,7 @@ define internal void @_ZN12_GLOBAL__N_145SignedEnumLogFormatTest_BitfieldNegativ
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i32, ptr %19, align 8, !tbaa !441, !alias.scope !2913
   %21 = or i32 %20, 529
-  store i32 %21, ptr %19, align 4, !tbaa !442, !alias.scope !2913
+  store i32 %21, ptr %19, align 8, !tbaa !442, !alias.scope !2913
   %22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef -21)
           to label %23 unwind label %238
 
@@ -114131,7 +114131,7 @@ define internal void @_ZN12_GLOBAL__N_136FloatingPointLogFormatTest_Zero_TestIfE
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !2930
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !2930
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !2930
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, double noundef 0.000000e+00)
           to label %_ZNSolsEf.exit unwind label %238
 
@@ -114802,7 +114802,7 @@ define internal void @_ZN12_GLOBAL__N_136FloatingPointLogFormatTest_Zero_TestIdE
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !2947
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !2947
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !2947
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, double noundef 0.000000e+00)
           to label %_ZNSolsEd.exit unwind label %238
 
@@ -115772,7 +115772,7 @@ define internal void @_ZN12_GLOBAL__N_139FloatingPointLogFormatTest_Integer_Test
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !2974
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !2974
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !2974
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, double noundef 1.000000e+00)
           to label %_ZNSolsEf.exit unwind label %238
 
@@ -116443,7 +116443,7 @@ define internal void @_ZN12_GLOBAL__N_139FloatingPointLogFormatTest_Integer_Test
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !2991
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !2991
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !2991
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, double noundef 1.000000e+00)
           to label %_ZNSolsEd.exit unwind label %238
 
@@ -117117,7 +117117,7 @@ define internal void @_ZN12_GLOBAL__N_140FloatingPointLogFormatTest_Infinity_Tes
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load i32, ptr %23, align 8, !tbaa !441, !alias.scope !3008
   %25 = or i32 %24, 529
-  store i32 %25, ptr %23, align 4, !tbaa !442, !alias.scope !3008
+  store i32 %25, ptr %23, align 8, !tbaa !442, !alias.scope !3008
   %26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %8, double noundef 0x7FF0000000000000)
           to label %_ZNSolsEf.exit unwind label %262
 
@@ -118016,7 +118016,7 @@ define internal void @_ZN12_GLOBAL__N_140FloatingPointLogFormatTest_Infinity_Tes
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load i32, ptr %23, align 8, !tbaa !441, !alias.scope !3057
   %25 = or i32 %24, 529
-  store i32 %25, ptr %23, align 4, !tbaa !442, !alias.scope !3057
+  store i32 %25, ptr %23, align 8, !tbaa !442, !alias.scope !3057
   %26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %8, double noundef 0x7FF0000000000000)
           to label %_ZNSolsEd.exit unwind label %262
 
@@ -118753,7 +118753,7 @@ define internal void @_ZN12_GLOBAL__N_148FloatingPointLogFormatTest_NegativeInfi
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load i32, ptr %23, align 8, !tbaa !441, !alias.scope !3080
   %25 = or i32 %24, 529
-  store i32 %25, ptr %23, align 4, !tbaa !442, !alias.scope !3080
+  store i32 %25, ptr %23, align 8, !tbaa !442, !alias.scope !3080
   %26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %8, double noundef 0xFFF0000000000000)
           to label %_ZNSolsEf.exit unwind label %262
 
@@ -119490,7 +119490,7 @@ define internal void @_ZN12_GLOBAL__N_148FloatingPointLogFormatTest_NegativeInfi
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load i32, ptr %23, align 8, !tbaa !441, !alias.scope !3103
   %25 = or i32 %24, 529
-  store i32 %25, ptr %23, align 4, !tbaa !442, !alias.scope !3103
+  store i32 %25, ptr %23, align 8, !tbaa !442, !alias.scope !3103
   %26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %8, double noundef 0xFFF0000000000000)
           to label %_ZNSolsEd.exit unwind label %262
 
@@ -120227,7 +120227,7 @@ define internal void @_ZN12_GLOBAL__N_135FloatingPointLogFormatTest_NaN_TestIfE8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load i32, ptr %23, align 8, !tbaa !441, !alias.scope !3126
   %25 = or i32 %24, 529
-  store i32 %25, ptr %23, align 4, !tbaa !442, !alias.scope !3126
+  store i32 %25, ptr %23, align 8, !tbaa !442, !alias.scope !3126
   %26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %8, double noundef 0x7FF8000000000000)
           to label %_ZNSolsEf.exit unwind label %262
 
@@ -120964,7 +120964,7 @@ define internal void @_ZN12_GLOBAL__N_135FloatingPointLogFormatTest_NaN_TestIdE8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load i32, ptr %23, align 8, !tbaa !441, !alias.scope !3149
   %25 = or i32 %24, 529
-  store i32 %25, ptr %23, align 4, !tbaa !442, !alias.scope !3149
+  store i32 %25, ptr %23, align 8, !tbaa !442, !alias.scope !3149
   %26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %8, double noundef 0x7FF8000000000000)
           to label %_ZNSolsEd.exit unwind label %262
 
@@ -121701,7 +121701,7 @@ define internal void @_ZN12_GLOBAL__N_143FloatingPointLogFormatTest_NegativeNaN_
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load i32, ptr %23, align 8, !tbaa !441, !alias.scope !3172
   %25 = or i32 %24, 529
-  store i32 %25, ptr %23, align 4, !tbaa !442, !alias.scope !3172
+  store i32 %25, ptr %23, align 8, !tbaa !442, !alias.scope !3172
   %26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %8, double noundef 0xFFF8000000000000)
           to label %_ZNSolsEf.exit unwind label %264
 
@@ -122772,7 +122772,7 @@ define internal void @_ZN12_GLOBAL__N_143FloatingPointLogFormatTest_NegativeNaN_
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load i32, ptr %23, align 8, !tbaa !441, !alias.scope !3247
   %25 = or i32 %24, 529
-  store i32 %25, ptr %23, align 4, !tbaa !442, !alias.scope !3247
+  store i32 %25, ptr %23, align 8, !tbaa !442, !alias.scope !3247
   %26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %8, double noundef 0xFFF8000000000000)
           to label %_ZNSolsEd.exit unwind label %264
 
@@ -123513,7 +123513,7 @@ define internal void @_ZN12_GLOBAL__N_130VoidPtrLogFormatTest_Null_TestIPvE8Test
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load i32, ptr %23, align 8, !tbaa !441, !alias.scope !3270
   %25 = or i32 %24, 529
-  store i32 %25, ptr %23, align 4, !tbaa !442, !alias.scope !3270
+  store i32 %25, ptr %23, align 8, !tbaa !442, !alias.scope !3270
   %26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef null)
           to label %_ZNSolsEPKv.exit unwind label %265
 
@@ -124947,7 +124947,7 @@ define internal void @_ZN12_GLOBAL__N_130VoidPtrLogFormatTest_Null_TestIPKvE8Tes
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load i32, ptr %23, align 8, !tbaa !441, !alias.scope !3378
   %25 = or i32 %24, 529
-  store i32 %25, ptr %23, align 4, !tbaa !442, !alias.scope !3378
+  store i32 %25, ptr %23, align 8, !tbaa !442, !alias.scope !3378
   %26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef null)
           to label %_ZNSolsEPKv.exit unwind label %265
 
@@ -125991,7 +125991,7 @@ define internal void @_ZN12_GLOBAL__N_133VoidPtrLogFormatTest_NonNull_TestIPvE8T
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load i32, ptr %23, align 8, !tbaa !441, !alias.scope !3411
   %25 = or i32 %24, 529
-  store i32 %25, ptr %23, align 4, !tbaa !442, !alias.scope !3411
+  store i32 %25, ptr %23, align 8, !tbaa !442, !alias.scope !3411
   %26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull inttoptr (i64 3735928559 to ptr))
           to label %_ZNSolsEPKv.exit unwind label %263
 
@@ -126730,7 +126730,7 @@ define internal void @_ZN12_GLOBAL__N_133VoidPtrLogFormatTest_NonNull_TestIPKvE8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load i32, ptr %23, align 8, !tbaa !441, !alias.scope !3434
   %25 = or i32 %24, 529
-  store i32 %25, ptr %23, align 4, !tbaa !442, !alias.scope !3434
+  store i32 %25, ptr %23, align 8, !tbaa !442, !alias.scope !3434
   %26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull inttoptr (i64 3735928559 to ptr))
           to label %_ZNSolsEPKv.exit unwind label %263
 
@@ -127468,7 +127468,7 @@ define internal void @_ZN12_GLOBAL__N_134VolatilePtrLogFormatTest_Null_TestIPVvE
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !3457
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !3457
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !3457
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIbEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext false)
           to label %_ZNSolsEb.exit unwind label %238
 
@@ -128169,7 +128169,7 @@ define internal void @_ZN12_GLOBAL__N_134VolatilePtrLogFormatTest_Null_TestIPVKv
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !3474
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !3474
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !3474
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIbEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext false)
           to label %_ZNSolsEb.exit unwind label %238
 
@@ -129519,7 +129519,7 @@ _ZN7testing8internal12CodeLocationC2EOS1_.exit:   ; preds = %299, %_ZNKSt7__cxx1
   store i64 %304, ptr %305, align 8, !tbaa !28
   store ptr %297, ptr %0, align 8, !tbaa !24
   store i64 0, ptr %175, align 8, !tbaa !28
-  store i8 0, ptr %297, align 1, !tbaa !29
+  store i8 0, ptr %297, align 8, !tbaa !29
   %306 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %307 = load i32, ptr %190, align 8, !tbaa !35
   store i32 %307, ptr %306, align 8, !tbaa !35
@@ -133447,7 +133447,7 @@ define internal void @_ZN12_GLOBAL__N_134VolatilePtrLogFormatTest_Null_TestIPVcE
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !3566
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !3566
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !3566
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIbEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext false)
           to label %_ZNSolsEb.exit unwind label %238
 
@@ -134148,7 +134148,7 @@ define internal void @_ZN12_GLOBAL__N_134VolatilePtrLogFormatTest_Null_TestIPVKc
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !3583
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !3583
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !3583
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIbEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext false)
           to label %_ZNSolsEb.exit unwind label %238
 
@@ -134849,7 +134849,7 @@ define internal void @_ZN12_GLOBAL__N_134VolatilePtrLogFormatTest_Null_TestIPVaE
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !3600
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !3600
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !3600
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIbEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext false)
           to label %_ZNSolsEb.exit unwind label %238
 
@@ -135550,7 +135550,7 @@ define internal void @_ZN12_GLOBAL__N_134VolatilePtrLogFormatTest_Null_TestIPVKa
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !3617
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !3617
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !3617
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIbEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext false)
           to label %_ZNSolsEb.exit unwind label %238
 
@@ -136251,7 +136251,7 @@ define internal void @_ZN12_GLOBAL__N_134VolatilePtrLogFormatTest_Null_TestIPVhE
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !3634
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !3634
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !3634
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIbEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext false)
           to label %_ZNSolsEb.exit unwind label %238
 
@@ -136952,7 +136952,7 @@ define internal void @_ZN12_GLOBAL__N_134VolatilePtrLogFormatTest_Null_TestIPVKh
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !3651
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !3651
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !3651
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIbEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext false)
           to label %_ZNSolsEb.exit unwind label %238
 
@@ -138858,7 +138858,7 @@ define internal void @_ZN12_GLOBAL__N_137VolatilePtrLogFormatTest_NonNull_TestIP
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !3708
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !3708
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !3708
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIbEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext true)
           to label %_ZNSolsEb.exit unwind label %238
 
@@ -139530,7 +139530,7 @@ define internal void @_ZN12_GLOBAL__N_137VolatilePtrLogFormatTest_NonNull_TestIP
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !3725
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !3725
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !3725
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIbEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext true)
           to label %_ZNSolsEb.exit unwind label %238
 
@@ -140851,7 +140851,7 @@ _ZN7testing8internal12CodeLocationC2EOS1_.exit:   ; preds = %299, %_ZNKSt7__cxx1
   store i64 %304, ptr %305, align 8, !tbaa !28
   store ptr %297, ptr %0, align 8, !tbaa !24
   store i64 0, ptr %175, align 8, !tbaa !28
-  store i8 0, ptr %297, align 1, !tbaa !29
+  store i8 0, ptr %297, align 8, !tbaa !29
   %306 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %307 = load i32, ptr %190, align 8, !tbaa !35
   store i32 %307, ptr %306, align 8, !tbaa !35
@@ -144779,7 +144779,7 @@ define internal void @_ZN12_GLOBAL__N_137VolatilePtrLogFormatTest_NonNull_TestIP
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !3817
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !3817
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !3817
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIbEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext true)
           to label %_ZNSolsEb.exit unwind label %238
 
@@ -145451,7 +145451,7 @@ define internal void @_ZN12_GLOBAL__N_137VolatilePtrLogFormatTest_NonNull_TestIP
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !3834
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !3834
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !3834
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIbEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext true)
           to label %_ZNSolsEb.exit unwind label %238
 
@@ -146123,7 +146123,7 @@ define internal void @_ZN12_GLOBAL__N_137VolatilePtrLogFormatTest_NonNull_TestIP
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !3851
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !3851
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !3851
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIbEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext true)
           to label %_ZNSolsEb.exit unwind label %238
 
@@ -146795,7 +146795,7 @@ define internal void @_ZN12_GLOBAL__N_137VolatilePtrLogFormatTest_NonNull_TestIP
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !3868
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !3868
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !3868
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIbEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext true)
           to label %_ZNSolsEb.exit unwind label %238
 
@@ -147467,7 +147467,7 @@ define internal void @_ZN12_GLOBAL__N_137VolatilePtrLogFormatTest_NonNull_TestIP
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !3885
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !3885
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !3885
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIbEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext true)
           to label %_ZNSolsEb.exit unwind label %238
 
@@ -148139,7 +148139,7 @@ define internal void @_ZN12_GLOBAL__N_137VolatilePtrLogFormatTest_NonNull_TestIP
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !441, !alias.scope !3902
   %22 = or i32 %21, 529
-  store i32 %22, ptr %20, align 4, !tbaa !442, !alias.scope !3902
+  store i32 %22, ptr %20, align 8, !tbaa !442, !alias.scope !3902
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIbEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext true)
           to label %_ZNSolsEb.exit unwind label %238
 
@@ -149460,7 +149460,7 @@ _ZN7testing8internal12CodeLocationC2EOS1_.exit:   ; preds = %299, %_ZNKSt7__cxx1
   store i64 %304, ptr %305, align 8, !tbaa !28
   store ptr %297, ptr %0, align 8, !tbaa !24
   store i64 0, ptr %175, align 8, !tbaa !28
-  store i8 0, ptr %297, align 1, !tbaa !29
+  store i8 0, ptr %297, align 8, !tbaa !29
   %306 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %307 = load i32, ptr %190, align 8, !tbaa !35
   store i32 %307, ptr %306, align 8, !tbaa !35
@@ -157802,7 +157802,7 @@ _ZN7testing8internal12CodeLocationC2EOS1_.exit:   ; preds = %299, %_ZNKSt7__cxx1
   store i64 %304, ptr %305, align 8, !tbaa !28
   store ptr %297, ptr %0, align 8, !tbaa !24
   store i64 0, ptr %175, align 8, !tbaa !28
-  store i8 0, ptr %297, align 1, !tbaa !29
+  store i8 0, ptr %297, align 8, !tbaa !29
   %306 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %307 = load i32, ptr %190, align 8, !tbaa !35
   store i32 %307, ptr %306, align 8, !tbaa !35
@@ -161733,7 +161733,7 @@ define internal void @_ZN12_GLOBAL__N_133CharPtrLogFormatTest_NonNull_TestIcE8Te
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load i32, ptr %21, align 8, !tbaa !441, !alias.scope !4183
   %23 = or i32 %22, 529
-  store i32 %23, ptr %21, align 4, !tbaa !442, !alias.scope !4183
+  store i32 %23, ptr %21, align 8, !tbaa !442, !alias.scope !4183
   %24 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #32
   %25 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %5, i64 noundef %24)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %240
@@ -162411,7 +162411,7 @@ define internal void @_ZN12_GLOBAL__N_133CharPtrLogFormatTest_NonNull_TestIKcE8T
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load i32, ptr %21, align 8, !tbaa !441, !alias.scope !4200
   %23 = or i32 %22, 529
-  store i32 %23, ptr %21, align 4, !tbaa !442, !alias.scope !4200
+  store i32 %23, ptr %21, align 8, !tbaa !442, !alias.scope !4200
   %24 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #32
   %25 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %5, i64 noundef %24)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %240
@@ -163089,7 +163089,7 @@ define internal void @_ZN12_GLOBAL__N_133CharPtrLogFormatTest_NonNull_TestIaE8Te
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load i32, ptr %21, align 8, !tbaa !441, !alias.scope !4217
   %23 = or i32 %22, 529
-  store i32 %23, ptr %21, align 4, !tbaa !442, !alias.scope !4217
+  store i32 %23, ptr %21, align 8, !tbaa !442, !alias.scope !4217
   %24 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #32
   %25 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %5, i64 noundef %24)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKa.exit unwind label %240
@@ -163767,7 +163767,7 @@ define internal void @_ZN12_GLOBAL__N_133CharPtrLogFormatTest_NonNull_TestIKaE8T
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load i32, ptr %21, align 8, !tbaa !441, !alias.scope !4234
   %23 = or i32 %22, 529
-  store i32 %23, ptr %21, align 4, !tbaa !442, !alias.scope !4234
+  store i32 %23, ptr %21, align 8, !tbaa !442, !alias.scope !4234
   %24 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #32
   %25 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %5, i64 noundef %24)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKa.exit unwind label %240
@@ -164445,7 +164445,7 @@ define internal void @_ZN12_GLOBAL__N_133CharPtrLogFormatTest_NonNull_TestIhE8Te
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load i32, ptr %21, align 8, !tbaa !441, !alias.scope !4251
   %23 = or i32 %22, 529
-  store i32 %23, ptr %21, align 4, !tbaa !442, !alias.scope !4251
+  store i32 %23, ptr %21, align 8, !tbaa !442, !alias.scope !4251
   %24 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #32
   %25 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %5, i64 noundef %24)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKh.exit unwind label %240
@@ -165131,7 +165131,7 @@ define internal void @_ZN12_GLOBAL__N_133CharPtrLogFormatTest_NonNull_TestIKhE8T
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load i32, ptr %21, align 8, !tbaa !441, !alias.scope !4268
   %23 = or i32 %22, 529
-  store i32 %23, ptr %21, align 4, !tbaa !442, !alias.scope !4268
+  store i32 %23, ptr %21, align 8, !tbaa !442, !alias.scope !4268
   %24 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #32
   %25 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %5, i64 noundef %24)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKh.exit unwind label %240

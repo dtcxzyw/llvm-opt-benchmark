@@ -3801,7 +3801,7 @@ select.unfold:                                    ; preds = %87
   store i32 %146, ptr %147, align 8, !tbaa !339
   %148 = getelementptr inbounds nuw i8, ptr %138, i64 20
   %149 = getelementptr inbounds nuw i8, ptr %109, i64 168
-  %150 = load i32, ptr %149, align 4, !tbaa !340
+  %150 = load i32, ptr %149, align 8, !tbaa !340
   %151 = icmp sgt i32 %150, 0
   br i1 %151, label %152, label %155
 
@@ -5723,7 +5723,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @read_frames(ptr noundef %0
 130:                                              ; preds = %126
   %131 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 32, ptr noundef nonnull @.str.133, i64 noundef %127) #17
   %.pre.i73 = load i64, ptr %18, align 8, !tbaa !240
-  %.val.pre.i = load i64, ptr %17, align 4
+  %.val.pre.i = load i64, ptr %17, align 8
   br label %av_ts_make_string.exit.i
 
 av_ts_make_string.exit.i:                         ; preds = %130, %129

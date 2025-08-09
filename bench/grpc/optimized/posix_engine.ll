@@ -2874,7 +2874,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit.i:     ; preds = %63, %61
   store ptr null, ptr %55, align 8, !tbaa !108
   %87 = getelementptr inbounds nuw i8, ptr %80, i64 32
   %88 = load i64, ptr %56, align 16, !tbaa !19
-  store i64 %88, ptr %87, align 8, !tbaa !19
+  store i64 %88, ptr %87, align 16, !tbaa !19
   store i64 55, ptr %56, align 16, !tbaa !19
   store ptr %80, ptr %18, align 16, !tbaa !59
   %89 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -3150,7 +3150,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowE
   store ptr null, ptr %174, align 8, !tbaa !108
   %201 = getelementptr inbounds nuw i8, ptr %194, i64 32
   %202 = load i64, ptr %192, align 16, !tbaa !86
-  store i64 %202, ptr %201, align 8, !tbaa !86
+  store i64 %202, ptr %201, align 16, !tbaa !86
   store ptr null, ptr %192, align 16, !tbaa !86
   store ptr %194, ptr %27, align 16, !tbaa !59
   %203 = getelementptr inbounds nuw i8, ptr %27, i64 16
@@ -3428,7 +3428,7 @@ _ZN4absl12lts_202407228AlphaNumC2EPKc.exit:       ; preds = %289, %285
   store ptr null, ptr %273, align 8, !tbaa !108
   %312 = getelementptr inbounds nuw i8, ptr %305, i64 32
   %313 = load i64, ptr %274, align 16, !tbaa !19
-  store i64 %313, ptr %312, align 8, !tbaa !19
+  store i64 %313, ptr %312, align 16, !tbaa !19
   store i64 55, ptr %274, align 16, !tbaa !19
   store ptr %305, ptr %30, align 16, !tbaa !59
   %314 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -8404,7 +8404,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit:       ; preds = %37, %26
   store ptr null, ptr %33, align 8, !tbaa !108
   %47 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %48 = load i64, ptr %34, align 16, !tbaa !19
-  store i64 %48, ptr %47, align 8, !tbaa !19
+  store i64 %48, ptr %47, align 16, !tbaa !19
   store i64 55, ptr %34, align 16, !tbaa !19
   store ptr %40, ptr %11, align 16, !tbaa !59
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -11297,7 +11297,7 @@ define internal void @"_ZN4absl12lts_2024072222internal_any_invocable23RemoteMan
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %11 = load ptr, ptr %10, align 16, !tbaa !72
   tail call void %11(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %9) #40
-  %12 = load i64, ptr %4, align 8, !tbaa !19
+  %12 = load i64, ptr %4, align 16, !tbaa !19
   %13 = icmp eq i64 %12, 1
   br i1 %13, label %_ZN4absl12lts_202407226StatusD2Ev.exit.i.i, label %19
 
@@ -14100,7 +14100,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIiiSaIiENSt8__detail9_Identity
   %44 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #39
   store ptr null, ptr %44, align 8, !tbaa !399
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store i32 %43, ptr %45, align 4, !tbaa !71
+  store i32 %43, ptr %45, align 8, !tbaa !71
   %46 = invoke ptr @_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIiLb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %41, i64 noundef %42, ptr noundef nonnull %44, i64 noundef 1)
           to label %_ZNKSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIiEEPNS1_10_Hash_nodeIiLb0EEEmRKT_m.exit unwind label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit20
 
@@ -14262,7 +14262,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !399
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !71
+  %16 = load i32, ptr %15, align 8, !tbaa !71
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18

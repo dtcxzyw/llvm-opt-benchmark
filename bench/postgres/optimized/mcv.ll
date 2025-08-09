@@ -1661,17 +1661,17 @@ define dso_local noundef ptr @statext_mcv_serialize(ptr noundef readonly capture
   store i32 %207, ptr %205, align 4
   %208 = getelementptr inbounds nuw i8, ptr %205, i64 4
   %209 = load i32, ptr %0, align 8
-  store i32 %209, ptr %208, align 1
+  store i32 %209, ptr %208, align 4
   %210 = getelementptr inbounds nuw i8, ptr %205, i64 8
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %212 = load i32, ptr %211, align 4
-  store i32 %212, ptr %210, align 1
+  store i32 %212, ptr %210, align 4
   %213 = getelementptr inbounds nuw i8, ptr %205, i64 12
   %214 = load i32, ptr %199, align 8
-  store i32 %214, ptr %213, align 1
+  store i32 %214, ptr %213, align 4
   %215 = getelementptr inbounds nuw i8, ptr %205, i64 16
   %216 = load i16, ptr %4, align 4
-  store i16 %216, ptr %215, align 1
+  store i16 %216, ptr %215, align 4
   %217 = getelementptr inbounds nuw i8, ptr %205, i64 18
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %217, ptr nonnull align 8 %218, i64 %10, i1 false)

@@ -2937,7 +2937,7 @@ find_mark.exit.i:                                 ; preds = %.critedge22.i.i
   %982 = and i32 %981, 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %12, ptr noundef nonnull readonly align 4 dereferenceable(32) %979, i64 32, i1 false)
   %983 = getelementptr inbounds nuw i8, ptr %979, i64 32
-  %984 = load i32, ptr %983, align 4, !tbaa !58
+  %984 = load i32, ptr %983, align 8, !tbaa !58
   store i32 %984, ptr %102, align 4, !tbaa !58
   br label %1000
 

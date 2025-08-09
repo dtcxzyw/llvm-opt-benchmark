@@ -3883,7 +3883,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_8ICmpInstEjEE12assignRemoteEOS5_.exit: ; p
   %30 = load ptr, ptr %.0910.i.i.i.i.i, align 8, !tbaa !257
   store ptr %30, ptr %.0811.i.i.i.i.i, align 8, !tbaa !207
   %31 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 8
-  %32 = load i32, ptr %31, align 4, !tbaa !51
+  %32 = load i32, ptr %31, align 8, !tbaa !51
   %33 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 8
   store i32 %32, ptr %33, align 8, !tbaa !210
   %34 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 16
@@ -3926,7 +3926,7 @@ _ZSt4moveIPSt4pairIPN4llvm8ICmpInstEjES5_ET0_T_S7_S6_.exit: ; preds = %.lr.ph.i.
   %47 = load ptr, ptr %.0910.i.i.i.i.i38, align 8, !tbaa !257
   store ptr %47, ptr %.0811.i.i.i.i.i37, align 8, !tbaa !207
   %48 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i38, i64 8
-  %49 = load i32, ptr %48, align 4, !tbaa !51
+  %49 = load i32, ptr %48, align 8, !tbaa !51
   %50 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i37, i64 8
   store i32 %49, ptr %50, align 8, !tbaa !210
   %51 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i38, i64 16

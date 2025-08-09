@@ -77,7 +77,7 @@ define dso_local noundef zeroext i1 @qvirtio_pci_init_virtio_1(ptr noundef captu
   %29 = load ptr, ptr %2, align 8
   %30 = add i8 %20, 8
   %31 = tail call i32 @qpci_config_readl(ptr noundef %29, i8 noundef zeroext %30) #3
-  store i32 %31, ptr %18, align 4
+  store i32 %31, ptr %18, align 8
   %32 = load ptr, ptr %2, align 8
   %33 = add i8 %20, 12
   %34 = tail call i32 @qpci_config_readl(ptr noundef %32, i8 noundef zeroext %33) #3
@@ -195,7 +195,7 @@ define dso_local noundef zeroext i1 @qvirtio_pci_init_virtio_1(ptr noundef captu
   %102 = load ptr, ptr %2, align 8
   %103 = add i8 %93, 8
   %104 = tail call i32 @qpci_config_readl(ptr noundef %102, i8 noundef zeroext %103) #3
-  store i32 %104, ptr %91, align 4
+  store i32 %104, ptr %91, align 8
   %105 = load ptr, ptr %2, align 8
   %106 = add i8 %93, 12
   %107 = tail call i32 @qpci_config_readl(ptr noundef %105, i8 noundef zeroext %106) #3

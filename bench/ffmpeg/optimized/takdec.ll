@@ -3092,10 +3092,10 @@ bits_read_signed_nz_le.exit237:                   ; preds = %204, %207, %bits_pr
   %289 = sext i16 %288 to i32
   %smax310 = tail call i32 @llvm.smax.i32(i32 %270, i32 1)
   %wide.trip.count311 = zext nneg i32 %smax310 to i64
-  %.pre = load i16, ptr %.phi.trans.insert, align 2, !tbaa !78
-  %.pre317 = load i16, ptr %.phi.trans.insert316, align 2, !tbaa !78
-  %.pre319 = load i16, ptr %.phi.trans.insert318, align 2, !tbaa !78
-  %.pre320 = load i16, ptr %247, align 2, !tbaa !78
+  %.pre = load i16, ptr %.phi.trans.insert, align 4, !tbaa !78
+  %.pre317 = load i16, ptr %.phi.trans.insert316, align 8, !tbaa !78
+  %.pre319 = load i16, ptr %.phi.trans.insert318, align 4, !tbaa !78
+  %.pre320 = load i16, ptr %247, align 16, !tbaa !78
   br label %290
 
 290:                                              ; preds = %290, %.lr.ph266.split.us

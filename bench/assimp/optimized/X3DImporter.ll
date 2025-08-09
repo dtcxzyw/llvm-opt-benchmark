@@ -5901,7 +5901,7 @@ define hidden void @_ZN6Assimp11X3DImporter23ParseHelper_Group_BeginEb(ptr nound
   store ptr %9, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %10, align 8
-  store i8 0, ptr %9, align 1
+  store i8 0, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store ptr %11, ptr %12, align 8
@@ -5916,7 +5916,7 @@ define hidden void @_ZN6Assimp11X3DImporter23ParseHelper_Group_BeginEb(ptr nound
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %17, align 4
+  store float 1.000000e+00, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 100
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 116
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %18, i8 0, i64 16, i1 false)
@@ -5924,7 +5924,7 @@ define hidden void @_ZN6Assimp11X3DImporter23ParseHelper_Group_BeginEb(ptr nound
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %21, align 4
+  store float 1.000000e+00, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 140
   store i8 %6, ptr %22, align 4
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 141
@@ -15249,7 +15249,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %32, ptr %34, align 8, !alias.scope !215, !noalias !218
   store ptr %24, ptr %.0911.i.i.i, align 8, !alias.scope !218, !noalias !215
   store i64 0, ptr %33, align 8, !alias.scope !218, !noalias !215
-  store i8 0, ptr %24, align 1, !alias.scope !218, !noalias !215
+  store i8 0, ptr %24, align 8, !alias.scope !218, !noalias !215
   %35 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %36 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %37 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 48
@@ -15283,7 +15283,7 @@ _ZSt19__relocate_object_aIN6Assimp10meta_entryES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.
   store i64 %47, ptr %49, align 8, !alias.scope !215, !noalias !218
   store ptr %39, ptr %36, align 8, !alias.scope !218, !noalias !215
   store i64 0, ptr %48, align 8, !alias.scope !218, !noalias !215
-  store i8 0, ptr %39, align 1, !alias.scope !218, !noalias !215
+  store i8 0, ptr %39, align 8, !alias.scope !218, !noalias !215
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 64
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 64
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -15331,7 +15331,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i3
   store i64 %63, ptr %65, align 8, !alias.scope !222, !noalias !225
   store ptr %55, ptr %.0911.i.i.i29, align 8, !alias.scope !225, !noalias !222
   store i64 0, ptr %64, align 8, !alias.scope !225, !noalias !222
-  store i8 0, ptr %55, align 1, !alias.scope !225, !noalias !222
+  store i8 0, ptr %55, align 8, !alias.scope !225, !noalias !222
   %66 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   %68 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 48
@@ -15365,7 +15365,7 @@ _ZSt19__relocate_object_aIN6Assimp10meta_entryES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.
   store i64 %78, ptr %80, align 8, !alias.scope !222, !noalias !225
   store ptr %70, ptr %67, align 8, !alias.scope !225, !noalias !222
   store i64 0, ptr %79, align 8, !alias.scope !225, !noalias !222
-  store i8 0, ptr %70, align 1, !alias.scope !225, !noalias !222
+  store i8 0, ptr %70, align 8, !alias.scope !225, !noalias !222
   %81 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 64
   %82 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 64
   %.not.i.i.i38 = icmp eq ptr %81, %5

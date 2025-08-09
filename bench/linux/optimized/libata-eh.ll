@@ -1215,7 +1215,7 @@ define dso_local void @ata_scsi_port_error_handler(ptr readnone captures(none) %
   %169 = add i32 %168, 1
   store i32 %169, ptr %167, align 32
   %170 = getelementptr inbounds nuw i8, ptr %165, i64 2048
-  %171 = load i32, ptr %170, align 8
+  %171 = load i32, ptr %170, align 32
   %172 = getelementptr inbounds nuw i8, ptr %165, i64 2056
   br label %173
 
@@ -2582,7 +2582,7 @@ define dso_local void @ata_dev_disable(ptr noundef %0) #0 align 16 {
   %17 = add i32 %16, 1
   store i32 %17, ptr %2, align 32
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 2048
-  %19 = load i32, ptr %18, align 8
+  %19 = load i32, ptr %18, align 64
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2056
   br label %21
 
@@ -2630,7 +2630,7 @@ define dso_local void @ata_eh_detach_dev(ptr noundef %0) local_unnamed_addr #0 a
   %9 = add i32 %8, 1
   store i32 %9, ptr %4, align 32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2048
-  %11 = load i32, ptr %10, align 8
+  %11 = load i32, ptr %10, align 32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2056
   br label %13
 
@@ -3091,15 +3091,15 @@ define dso_local void @ata_eh_autopsy(ptr noundef %0) local_unnamed_addr #0 alig
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 912
   %20 = load i32, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 9168
-  %22 = load i32, ptr %21, align 8
+  %22 = load i32, ptr %21, align 16
   %23 = or i32 %22, %20
-  store i32 %23, ptr %21, align 8
+  store i32 %23, ptr %21, align 16
   %24 = getelementptr i8, ptr %8, i64 920
-  %25 = load i32, ptr %24, align 4
+  %25 = load i32, ptr %24, align 8
   %26 = getelementptr i8, ptr %0, i64 9176
-  %27 = load i32, ptr %26, align 4
+  %27 = load i32, ptr %26, align 8
   %28 = or i32 %27, %25
-  store i32 %28, ptr %26, align 4
+  store i32 %28, ptr %26, align 8
   %29 = load i32, ptr %14, align 4
   %30 = load i32, ptr %11, align 4
   %31 = or i32 %30, %29
@@ -6311,7 +6311,7 @@ select.unfold:                                    ; preds = %93, %.thread, %86
   %609 = getelementptr inbounds nuw i8, ptr %608, i64 16
   %610 = load ptr, ptr %609, align 16
   %611 = call i64 @_raw_spin_lock_irqsave(ptr noundef %610) #18
-  store i32 0, ptr %167, align 8
+  store i32 0, ptr %167, align 16
   br i1 %11, label %613, label %612
 
 612:                                              ; preds = %607
@@ -7147,9 +7147,9 @@ define dso_local i32 @ata_eh_recover(ptr noundef %0, ptr noundef readonly captur
   %130 = getelementptr [2 x i32], ptr %114, i64 0, i64 %129
   %131 = load i32, ptr %130, align 4
   %132 = and i32 %131, -226
-  %133 = load i32, ptr %62, align 8
+  %133 = load i32, ptr %62, align 16
   %134 = or i32 %133, %132
-  store i32 %134, ptr %62, align 8
+  store i32 %134, ptr %62, align 16
   %135 = load i32, ptr %127, align 8
   %136 = zext i32 %135 to i64
   %137 = getelementptr [2 x i32], ptr %114, i64 0, i64 %136
@@ -7184,7 +7184,7 @@ define dso_local i32 @ata_eh_recover(ptr noundef %0, ptr noundef readonly captur
   %153 = add i32 %152, 1
   store i32 %153, ptr %148, align 32
   %154 = getelementptr inbounds nuw i8, ptr %140, i64 2048
-  %155 = load i32, ptr %154, align 8
+  %155 = load i32, ptr %154, align 32
   %156 = getelementptr inbounds nuw i8, ptr %140, i64 2056
   br label %157
 
@@ -8984,7 +8984,7 @@ ata_eh_clear_action.exit:                         ; preds = %.preheader194, %._c
   %1210 = add i32 %1209, 1
   store i32 %1210, ptr %1188, align 32
   %1211 = getelementptr inbounds nuw i8, ptr %1150, i64 2048
-  %1212 = load i32, ptr %1211, align 8
+  %1212 = load i32, ptr %1211, align 64
   %1213 = getelementptr inbounds nuw i8, ptr %1150, i64 2056
   br label %1214
 
@@ -9627,7 +9627,7 @@ define dso_local void @ata_do_eh(ptr noundef %0, ptr noundef readonly captures(a
   %28 = add i32 %27, 1
   store i32 %28, ptr %13, align 32
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 2048
-  %30 = load i32, ptr %29, align 8
+  %30 = load i32, ptr %29, align 64
   %31 = getelementptr inbounds nuw i8, ptr %12, i64 2056
   br label %32
 

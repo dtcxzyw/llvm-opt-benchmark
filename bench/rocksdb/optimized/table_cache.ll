@@ -718,7 +718,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %136, %_ZNKSt14defau
   store ptr %151, ptr %150, align 8, !tbaa !156
   %152 = getelementptr inbounds nuw i8, ptr %150, i64 8
   store i64 0, ptr %152, align 8, !tbaa !16
-  store i8 0, ptr %151, align 1, !tbaa !17
+  store i8 0, ptr %151, align 8, !tbaa !17
   br label %162
 
 153:                                              ; preds = %144
@@ -732,7 +732,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %136, %_ZNKSt14defau
   store ptr %157, ptr %154, align 8, !tbaa !156
   %158 = getelementptr inbounds nuw i8, ptr %154, i64 8
   store i64 0, ptr %158, align 8, !tbaa !16
-  store i8 0, ptr %157, align 1, !tbaa !17
+  store i8 0, ptr %157, align 8, !tbaa !17
   %159 = load ptr, ptr %120, align 8, !tbaa !157
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 32
   store ptr %160, ptr %120, align 8, !tbaa !157
@@ -1204,7 +1204,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   store i64 %390, ptr %391, align 8, !tbaa !16
   store ptr %372, ptr %.0.i, align 8, !tbaa !11
   store i64 0, ptr %367, align 8, !tbaa !16
-  store i8 0, ptr %372, align 1, !tbaa !17
+  store i8 0, ptr %372, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %392 = load i8, ptr %64, align 1, !tbaa !65, !range !194, !noundef !195
@@ -6213,7 +6213,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   store i64 %233, ptr %234, align 8, !tbaa !16
   store ptr %217, ptr %.0, align 8, !tbaa !11
   store i64 0, ptr %209, align 8, !tbaa !16
-  store i8 0, ptr %217, align 1, !tbaa !17
+  store i8 0, ptr %217, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %235 = load i8, ptr %27, align 1, !tbaa !65, !range !194, !noundef !195
@@ -9555,7 +9555,7 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
   store ptr %21, ptr %20, align 8, !tbaa !156
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 0, ptr %22, align 8, !tbaa !16
-  store i8 0, ptr %21, align 1, !tbaa !17
+  store i8 0, ptr %21, align 8, !tbaa !17
   %.not10.i.i.i = icmp eq ptr %5, %1
   br i1 %.not10.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %.lr.ph.i.i.i
 
@@ -9595,7 +9595,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %33, ptr %35, align 8, !tbaa !16, !alias.scope !576, !noalias !579
   store ptr %25, ptr %.0911.i.i.i, align 8, !tbaa !11, !alias.scope !579, !noalias !576
   store i64 0, ptr %34, align 8, !tbaa !16, !alias.scope !579, !noalias !576
-  store i8 0, ptr %25, align 1, !tbaa !17, !alias.scope !579, !noalias !576
+  store i8 0, ptr %25, align 8, !tbaa !17, !alias.scope !579, !noalias !576
   %36 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %37 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %36, %1
@@ -9643,7 +9643,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %49, ptr %51, align 8, !tbaa !16, !alias.scope !583, !noalias !586
   store ptr %41, ptr %.0911.i.i.i18, align 8, !tbaa !11, !alias.scope !586, !noalias !583
   store i64 0, ptr %50, align 8, !tbaa !16, !alias.scope !586, !noalias !583
-  store i8 0, ptr %41, align 1, !tbaa !17, !alias.scope !586, !noalias !583
+  store i8 0, ptr %41, align 8, !tbaa !17, !alias.scope !586, !noalias !583
   %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i18, i64 32
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i17, i64 32
   %.not.i.i.i23 = icmp eq ptr %52, %4

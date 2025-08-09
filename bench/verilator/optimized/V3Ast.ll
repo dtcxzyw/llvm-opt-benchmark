@@ -2264,7 +2264,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i: ; preds = %.noexc31._Z
   %128 = load i32, ptr %127, align 8, !tbaa !75
   %129 = and i32 %128, -75
   %130 = or disjoint i32 %129, 8
-  store i32 %130, ptr %127, align 4, !tbaa !76
+  store i32 %130, ptr %127, align 8, !tbaa !76
   %131 = zext i8 %43 to i64
   %132 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %16, i64 noundef %131)
           to label %_ZNSolsEj.exit unwind label %.loopexit71
@@ -8076,7 +8076,7 @@ define linkonce_odr dso_local void @_ZN7AstNode14cloneClearTreeEv() local_unname
   %12 = load i32, ptr %11, align 8, !tbaa !75
   %13 = and i32 %12, -75
   %14 = or disjoint i32 %13, 2
-  store i32 %14, ptr %11, align 4, !tbaa !76
+  store i32 %14, ptr %11, align 8, !tbaa !76
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i32 noundef 2122)
   %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull @.str.1157, i64 noundef 1)
   %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull @.str.1158, i64 noundef 8)
@@ -12460,7 +12460,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   %72 = load i32, ptr %71, align 8, !tbaa !75
   %73 = and i32 %72, -75
   %74 = or disjoint i32 %73, 2
-  store i32 %74, ptr %71, align 4, !tbaa !76
+  store i32 %74, ptr %71, align 8, !tbaa !76
   %75 = load i64, ptr @_ZN7AstNode13s_editCntLastE, align 8, !tbaa !29
   %76 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %39, i64 noundef %75)
           to label %_ZNSolsEm.exit unwind label %62
@@ -12478,7 +12478,7 @@ _ZNSolsEm.exit:                                   ; preds = %66
   %84 = load i32, ptr %83, align 8, !tbaa !75
   %85 = and i32 %84, -75
   %86 = or disjoint i32 %85, 2
-  store i32 %86, ptr %83, align 4, !tbaa !76
+  store i32 %86, ptr %83, align 8, !tbaa !76
   %87 = load i64, ptr @_ZN7AstNode12s_editCntGblE, align 8, !tbaa !29
   %88 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %39, i64 noundef %87)
           to label %_ZNSolsEm.exit22 unwind label %62
@@ -22608,7 +22608,7 @@ define internal void @_GLOBAL__sub_I_V3Ast.cpp() #26 section ".text.startup" per
   store ptr %6, ptr %5, align 8, !tbaa !22
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %7, align 8, !tbaa !25
-  store i8 0, ptr %6, align 1, !tbaa !16
+  store i8 0, ptr %6, align 8, !tbaa !16
   store ptr %5, ptr @_ZN16VSelfPointerText8s_emptypB5cxx11E, align 8, !tbaa !19
   store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @_ZN16VSelfPointerText8s_emptypB5cxx11E, i64 8), align 8, !tbaa !4
   %8 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt12__shared_ptrIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr nonnull @_ZN16VSelfPointerText8s_emptypB5cxx11E, ptr nonnull @__dso_handle) #31
@@ -22621,11 +22621,11 @@ define internal void @_GLOBAL__sub_I_V3Ast.cpp() #26 section ".text.startup" per
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %13, ptr %12, align 8, !tbaa !22
-  store i32 1936287860, ptr %13, align 1
+  store i32 1936287860, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 4, ptr %14, align 8, !tbaa !25
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 36
-  store i8 0, ptr %15, align 1, !tbaa !16
+  store i8 0, ptr %15, align 4, !tbaa !16
   store ptr %12, ptr @_ZN16VSelfPointerText7s_thispB5cxx11E, align 8, !tbaa !19
   store ptr %9, ptr getelementptr inbounds nuw (i8, ptr @_ZN16VSelfPointerText7s_thispB5cxx11E, i64 8), align 8, !tbaa !4
   %16 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt12__shared_ptrIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr nonnull @_ZN16VSelfPointerText7s_thispB5cxx11E, ptr nonnull @__dso_handle) #31

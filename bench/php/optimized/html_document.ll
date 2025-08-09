@@ -3520,7 +3520,7 @@ define hidden range(i32 -1, 1) i32 @dom_html_document_title_write(ptr noundef %0
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %40, ptr noundef nonnull align 1 dereferenceable(26) @.str.21, i64 26, i1 false)
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 50
-  store i8 0, ptr %41, align 1, !tbaa !4
+  store i8 0, ptr %41, align 2, !tbaa !4
   %42 = load ptr, ptr @zend_empty_string, align 8, !tbaa !161
   %43 = tail call ptr @php_dom_libxml_ns_mapper_get_ns(ptr noundef %35, ptr noundef %42, ptr noundef nonnull %36) #10
   %44 = load i32, ptr %37, align 4, !tbaa !4

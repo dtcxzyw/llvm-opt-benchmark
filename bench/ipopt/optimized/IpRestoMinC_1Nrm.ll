@@ -1239,7 +1239,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Ipopt11OptionsLi
   store ptr %56, ptr %55, align 8, !tbaa !35
   %57 = getelementptr inbounds nuw i8, ptr %25, i64 88
   store i64 0, ptr %57, align 8, !tbaa !43
-  store i8 0, ptr %56, align 1, !tbaa !42
+  store i8 0, ptr %56, align 8, !tbaa !42
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %59 = load i32, ptr %26, align 8, !tbaa !3
   %60 = add nsw i32 %59, 1
@@ -2958,7 +2958,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Ipopt11OptionsLi
   store ptr %351, ptr %350, align 8, !tbaa !35
   %352 = getelementptr inbounds nuw i8, ptr %319, i64 88
   store i64 0, ptr %352, align 8, !tbaa !43
-  store i8 0, ptr %351, align 1, !tbaa !42
+  store i8 0, ptr %351, align 8, !tbaa !42
   %353 = load i32, ptr %321, align 8, !tbaa !3
   %354 = add nsw i32 %353, 1
   store i32 %354, ptr %321, align 8, !tbaa !3
@@ -3150,7 +3150,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Ipopt11OptionsLi
   store ptr %429, ptr %428, align 8, !tbaa !35
   %430 = getelementptr inbounds nuw i8, ptr %397, i64 88
   store i64 0, ptr %430, align 8, !tbaa !43
-  store i8 0, ptr %429, align 1, !tbaa !42
+  store i8 0, ptr %429, align 8, !tbaa !42
   %431 = load i32, ptr %399, align 8, !tbaa !3
   %432 = add nsw i32 %431, 1
   store i32 %432, ptr %399, align 8, !tbaa !3

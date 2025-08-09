@@ -605,13 +605,13 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
   %393 = getelementptr inbounds nuw i8, ptr %387, i64 6
   store i8 %392, ptr %393, align 2
   %394 = load i8, ptr %30, align 1
-  %395 = load i16, ptr %387, align 2
+  %395 = load i16, ptr %387, align 4
   %396 = and i16 %395, 4080
   %397 = zext i8 %394 to i16
   %398 = shl nuw nsw i16 %397, 4
   %399 = call i16 @llvm.bswap.i16(i16 %398)
   %400 = or disjoint i16 %399, %396
-  store i16 %400, ptr %387, align 2
+  store i16 %400, ptr %387, align 4
   %401 = load i8, ptr %34, align 2
   %402 = getelementptr inbounds nuw i8, ptr %387, i64 7
   store i8 %401, ptr %402, align 1
@@ -725,13 +725,13 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
   %482 = icmp eq i8 %481, 0
   %483 = select i1 %482, i8 %478, i8 0
   %484 = or disjoint i8 %483, %spec.select
-  %485 = load i16, ptr %455, align 2
+  %485 = load i16, ptr %455, align 4
   %486 = and i16 %485, 4080
   %487 = zext i8 %484 to i16
   %488 = shl nuw nsw i16 %487, 4
   %489 = call i16 @llvm.bswap.i16(i16 %488)
   %490 = or disjoint i16 %489, %486
-  store i16 %490, ptr %455, align 2
+  store i16 %490, ptr %455, align 4
   %491 = getelementptr inbounds nuw i8, ptr %427, i64 32
   %492 = load ptr, ptr %491, align 8
   %493 = icmp eq ptr %492, null

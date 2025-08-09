@@ -26,7 +26,7 @@ define internal noundef i32 @rc2_init_key(ptr noundef %0, ptr noundef readonly c
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = tail call i32 @EVP_CIPHER_CTX_key_length(ptr noundef %0) #7
   %9 = load i32, ptr %6, align 4, !tbaa !13
-  store i8 0, ptr %7, align 1, !tbaa !16
+  store i8 0, ptr %7, align 4, !tbaa !16
   %spec.store.select.i = tail call i32 @llvm.smin.i32(i32 %8, i32 128)
   %10 = icmp slt i32 %9, 1
   %11 = tail call i32 @llvm.umin.i32(i32 %9, i32 1024)

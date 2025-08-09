@@ -642,7 +642,7 @@ _ZN6duckdb20SerializationOptionsC2EOS0_.exit:     ; preds = %13, %_ZNKSt7__cxx11
   store i64 %19, ptr %21, align 8, !tbaa !9
   store ptr %11, ptr %8, align 8, !tbaa !17
   store i64 0, ptr %20, align 8, !tbaa !9
-  store i8 0, ptr %11, align 1, !tbaa !12
+  store i8 0, ptr %11, align 8, !tbaa !12
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %22, ptr noundef nonnull align 8 dereferenceable(9) %23, i64 9, i1 false)

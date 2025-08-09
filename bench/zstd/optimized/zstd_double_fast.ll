@@ -11,7 +11,7 @@ define void @ZSTD_fillDoubleHashTable(ptr noundef readonly captures(none) %0, pt
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %9 = load i32, ptr %8, align 4, !tbaa !16
+  %9 = load i32, ptr %8, align 8, !tbaa !16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %11 = load ptr, ptr %10, align 8, !tbaa !17
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -321,7 +321,7 @@ define i64 @ZSTD_compressBlock_doubleFast(ptr noundef readonly captures(none) %0
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %16 = load i32, ptr %15, align 4, !tbaa !21
+  %16 = load i32, ptr %15, align 8, !tbaa !21
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %18 = load ptr, ptr %17, align 8, !tbaa !17
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 260
@@ -333,7 +333,7 @@ define i64 @ZSTD_compressBlock_doubleFast(ptr noundef readonly captures(none) %0
   %25 = add i64 %4, %23
   %26 = sub i64 %25, %24
   %27 = trunc i64 %26 to i32
-  %28 = load i32, ptr %12, align 4, !tbaa !32
+  %28 = load i32, ptr %12, align 8, !tbaa !32
   %29 = getelementptr i8, ptr %0, i64 24
   %.val29.i = load i32, ptr %29, align 8, !tbaa !33
   %30 = getelementptr i8, ptr %0, i64 40
@@ -5184,7 +5184,7 @@ define i64 @ZSTD_compressBlock_doubleFast_dictMatchState(ptr noundef readonly ca
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = load ptr, ptr %9, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %12 = load i32, ptr %11, align 4, !tbaa !21
+  %12 = load i32, ptr %11, align 8, !tbaa !21
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %14 = load ptr, ptr %13, align 8, !tbaa !17
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 260
@@ -5196,7 +5196,7 @@ define i64 @ZSTD_compressBlock_doubleFast_dictMatchState(ptr noundef readonly ca
   %21 = add i64 %4, %19
   %22 = sub i64 %21, %20
   %23 = trunc i64 %22 to i32
-  %24 = load i32, ptr %8, align 4, !tbaa !32
+  %24 = load i32, ptr %8, align 8, !tbaa !32
   %25 = getelementptr i8, ptr %0, i64 24
   %.val28.i = load i32, ptr %25, align 8, !tbaa !33
   %26 = getelementptr i8, ptr %0, i64 40
@@ -5234,7 +5234,7 @@ define i64 @ZSTD_compressBlock_doubleFast_dictMatchState(ptr noundef readonly ca
   %.neg448.i.i = trunc i64 %.neg.i.i to i32
   %55 = add i32 %32, %.neg448.i.i
   %56 = getelementptr inbounds nuw i8, ptr %41, i64 264
-  %57 = load i32, ptr %56, align 4, !tbaa !21
+  %57 = load i32, ptr %56, align 8, !tbaa !21
   %58 = getelementptr inbounds nuw i8, ptr %41, i64 260
   %59 = load i32, ptr %58, align 4, !tbaa !20
   %60 = ptrtoint ptr %34 to i64
@@ -9918,7 +9918,7 @@ define internal fastcc i64 @ZSTD_compressBlock_doubleFast_extDict_generic(ptr no
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %11 = load i32, ptr %10, align 4, !tbaa !21
+  %11 = load i32, ptr %10, align 8, !tbaa !21
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %13 = load ptr, ptr %12, align 8, !tbaa !17
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 260
@@ -9932,7 +9932,7 @@ define internal fastcc i64 @ZSTD_compressBlock_doubleFast_extDict_generic(ptr no
   %22 = add i64 %4, %20
   %23 = sub i64 %22, %21
   %24 = trunc i64 %23 to i32
-  %25 = load i32, ptr %7, align 4, !tbaa !32
+  %25 = load i32, ptr %7, align 8, !tbaa !32
   %26 = getelementptr i8, ptr %0, i64 28
   %.val416 = load i32, ptr %26, align 4, !tbaa !73
   %27 = getelementptr i8, ptr %0, i64 40

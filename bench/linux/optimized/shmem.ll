@@ -878,7 +878,7 @@ define internal fastcc void @shmem_undo_range(ptr noundef %0, i64 noundef %1, i6
 
 127:                                              ; preds = %120
   %128 = load i64, ptr %110, align 16
-  %129 = load volatile i64, ptr %107, align 8
+  %129 = load volatile i64, ptr %107, align 16
   %130 = and i64 %129, 64
   %131 = icmp eq i64 %130, 0
   br i1 %131, label %136, label %132
@@ -2132,7 +2132,7 @@ define internal i32 @shmem_writepage(ptr noundef %0, ptr noundef %1) #1 align 16
   %86 = phi ptr [ %84, %83 ], [ %29, %53 ]
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 32
   %88 = load i64, ptr %87, align 16
-  %89 = load volatile i64, ptr %86, align 8
+  %89 = load volatile i64, ptr %86, align 16
   %90 = and i64 %89, 8
   %91 = icmp eq i64 %90, 0
   br i1 %91, label %93, label %92
@@ -7641,7 +7641,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @shmem_fallocate(ptr noun
   %125 = load ptr, ptr %7, align 8
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 32
   %127 = load i64, ptr %126, align 16
-  %128 = load volatile i64, ptr %125, align 8
+  %128 = load volatile i64, ptr %125, align 16
   %129 = and i64 %128, 64
   %130 = icmp eq i64 %129, 0
   br i1 %130, label %135, label %131

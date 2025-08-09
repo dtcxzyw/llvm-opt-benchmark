@@ -5713,7 +5713,7 @@ common.resume:                                    ; preds = %126, %135, %139
 
 141:                                              ; preds = %128
   %142 = load i64, ptr %97, align 8, !noalias !747, !noundef !4
-  store i8 1, ptr %96, align 1, !noalias !747
+  store i8 1, ptr %96, align 8, !noalias !747
   call void @"_ZN4core3ptr308drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$live_kit_client..test..RemoteTrackPublication..set_enabled..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h51b595496432e598E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !733
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !734
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !734

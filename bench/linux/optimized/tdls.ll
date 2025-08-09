@@ -169,7 +169,7 @@ define dso_local noundef range(i32 -95, 1) i32 @ieee80211_tdls_mgmt(ptr noundef 
   %42 = load i32, ptr %2, align 4
   %43 = xor i32 %42, %35
   %44 = getelementptr i8, ptr %2, i64 4
-  %45 = load i16, ptr %44, align 2
+  %45 = load i16, ptr %44, align 4
   %46 = xor i16 %45, %37
   %47 = zext i16 %46 to i32
   %48 = or i32 %43, %47
@@ -629,7 +629,7 @@ define dso_local i32 @ieee80211_tdls_oper(ptr noundef readonly captures(none) %0
   %37 = load i32, ptr %2, align 4
   %38 = xor i32 %37, %30
   %39 = getelementptr i8, ptr %2, i64 4
-  %40 = load i16, ptr %39, align 2
+  %40 = load i16, ptr %39, align 4
   %41 = xor i16 %40, %32
   %42 = zext i16 %41 to i32
   %43 = or i32 %38, %42
@@ -671,7 +671,7 @@ define dso_local i32 @ieee80211_tdls_oper(ptr noundef readonly captures(none) %0
   %62 = getelementptr i8, ptr %1, i64 4586
   %63 = load i16, ptr %62, align 2
   %64 = getelementptr i8, ptr %2, i64 4
-  %65 = load i16, ptr %64, align 2
+  %65 = load i16, ptr %64, align 4
   %66 = xor i16 %65, %63
   %67 = zext i16 %66 to i32
   %68 = or i32 %61, %67
@@ -2097,7 +2097,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   %146 = getelementptr inbounds nuw i8, ptr %138, i64 25
   store i8 14, ptr %146, align 1
   %147 = getelementptr inbounds nuw i8, ptr %138, i64 26
-  store i8 %4, ptr %147, align 1
+  store i8 %4, ptr %147, align 2
   %148 = icmp eq i16 %5, 0
   br i1 %148, label %149, label %173
 

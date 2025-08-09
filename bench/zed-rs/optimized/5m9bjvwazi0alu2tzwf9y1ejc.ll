@@ -19931,8 +19931,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17h41b880a9343a32deE.exit20: ; preds = %"
   store i64 1, ptr %192, align 8, !noalias !3220
   %.sroa.5.0..sroa_idx2.i38 = getelementptr inbounds nuw i8, ptr %189, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx2.i38, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false), !noalias !3215
-  store atomic i8 0, ptr %197 seq_cst, align 1, !noalias !3221
-  %207 = load atomic i8, ptr %193 seq_cst, align 1, !noalias !3220
+  store atomic i8 0, ptr %197 seq_cst, align 8, !noalias !3221
+  %207 = load atomic i8, ptr %193 seq_cst, align 8, !noalias !3220
   %208 = icmp eq i8 %207, 0
   br i1 %208, label %"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17h99eaedffc4aef587E.llvm.14456223534716380117.exit", label %210
 
@@ -20177,8 +20177,8 @@ default.unreachable29:                            ; preds = %2
   store ptr %29, ptr %31, align 8, !noalias !3287
   %45 = getelementptr inbounds nuw i8, ptr %16, i64 48
   store ptr %30, ptr %45, align 8, !noalias !3287
-  store atomic i8 0, ptr %32 seq_cst, align 1, !noalias !3289
-  %46 = load atomic i8, ptr %19 seq_cst, align 1, !noalias !3287
+  store atomic i8 0, ptr %32 seq_cst, align 8, !noalias !3289
+  %46 = load atomic i8, ptr %19 seq_cst, align 8, !noalias !3287
   %47 = icmp eq i8 %46, 0
   br i1 %47, label %61, label %.noexc12
 
@@ -20187,7 +20187,7 @@ default.unreachable29:                            ; preds = %2
           cleanup
   store ptr %29, ptr %31, align 8, !noalias !3287
   store ptr %30, ptr %39, align 8, !noalias !3287
-  store atomic i8 0, ptr %32 seq_cst, align 1, !noalias !3294
+  store atomic i8 0, ptr %32 seq_cst, align 8, !noalias !3294
   br label %.body
 
 .noexc12:                                         ; preds = %42, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h960933bc040c2103E.exit.i.i", %15
@@ -20202,7 +20202,7 @@ default.unreachable29:                            ; preds = %2
   %55 = load i64, ptr %54, align 8, !noalias !3287
   store i64 0, ptr %18, align 8, !noalias !3287
   %trunc.i.i = trunc nuw i64 %53 to i1
-  store atomic i8 0, ptr %50 seq_cst, align 1, !noalias !3287
+  store atomic i8 0, ptr %50 seq_cst, align 8, !noalias !3287
   %..i.i = select i1 %trunc.i.i, i64 %55, i64 undef
   %56 = icmp ne i64 %53, 0
   br label %59
@@ -20450,8 +20450,8 @@ define void @"_ZN88_$LT$file_finder..new_path_prompt..NewPathDelegate$u20$as$u20
   store i64 1, ptr %11, align 8, !noalias !3327
   %.sroa.5.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx2.i, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !3322
-  store atomic i8 0, ptr %16 seq_cst, align 1, !noalias !3328
-  %26 = load atomic i8, ptr %12 seq_cst, align 1, !noalias !3327
+  store atomic i8 0, ptr %16 seq_cst, align 8, !noalias !3328
+  %26 = load atomic i8, ptr %12 seq_cst, align 8, !noalias !3327
   %27 = icmp eq i8 %26, 0
   br i1 %27, label %"_ZN15futures_channel7oneshot15Sender$LT$T$GT$4send17he5855c6dbcb8fad9E.exit", label %29
 

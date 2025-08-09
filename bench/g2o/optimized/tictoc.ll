@@ -1097,7 +1097,7 @@ _ZSt19__relocate_object_aIN3g2o13TicTocElementES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.
   store i64 %56, ptr %58, align 8, !tbaa !34, !alias.scope !72, !noalias !75
   store ptr %48, ptr %45, align 8, !tbaa !31, !alias.scope !75, !noalias !72
   store i64 0, ptr %57, align 8, !tbaa !34, !alias.scope !75, !noalias !72
-  store i8 0, ptr %48, align 1, !tbaa !33, !alias.scope !75, !noalias !72
+  store i8 0, ptr %48, align 8, !tbaa !33, !alias.scope !75, !noalias !72
   %59 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 80
   %60 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 80
   %61 = load i8, ptr %60, align 8, !tbaa !42, !range !25, !alias.scope !75, !noalias !72, !noundef !26
@@ -1152,7 +1152,7 @@ _ZSt19__relocate_object_aIN3g2o13TicTocElementES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.
   store i64 %77, ptr %79, align 8, !tbaa !34, !alias.scope !79, !noalias !82
   store ptr %69, ptr %66, align 8, !tbaa !31, !alias.scope !82, !noalias !79
   store i64 0, ptr %78, align 8, !tbaa !34, !alias.scope !82, !noalias !79
-  store i8 0, ptr %69, align 1, !tbaa !33, !alias.scope !82, !noalias !79
+  store i8 0, ptr %69, align 8, !tbaa !33, !alias.scope !82, !noalias !79
   %80 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 80
   %81 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 80
   %82 = load i8, ptr %81, align 8, !tbaa !42, !range !25, !alias.scope !82, !noalias !79, !noundef !26
@@ -1363,7 +1363,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4.
   store i64 %68, ptr %16, align 8, !tbaa !34
   store ptr %60, ptr %58, align 8, !tbaa !31
   store i64 0, ptr %69, align 8, !tbaa !34
-  store i8 0, ptr %60, align 1, !tbaa !33
+  store i8 0, ptr %60, align 8, !tbaa !33
   %70 = getelementptr inbounds nuw i8, ptr %.sroa.010.1.i.i, i64 80
   %71 = load i8, ptr %70, align 8, !tbaa !42, !range !25, !noundef !26
   store i8 %71, ptr %17, align 8, !tbaa !42
@@ -1591,7 +1591,7 @@ _ZN3g2o13TicTocElementC2EOS0_.exit:               ; preds = %28, %_ZNKSt7__cxx11
   %36 = getelementptr inbounds nuw i8, ptr %23, i64 56
   store ptr %26, ptr %24, align 8, !tbaa !31
   store i64 0, ptr %36, align 8, !tbaa !34
-  store i8 0, ptr %26, align 1, !tbaa !33
+  store i8 0, ptr %26, align 8, !tbaa !33
   %37 = getelementptr inbounds nuw i8, ptr %23, i64 80
   %38 = load i8, ptr %37, align 8, !tbaa !42, !range !25, !noundef !26
   store i8 %38, ptr %17, align 8, !tbaa !42
@@ -1745,7 +1745,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1:
   store i64 %19, ptr %21, align 8, !tbaa !34
   store ptr %11, ptr %8, align 8, !tbaa !31
   store i64 0, ptr %20, align 8, !tbaa !34
-  store i8 0, ptr %11, align 1, !tbaa !33
+  store i8 0, ptr %11, align 8, !tbaa !33
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %24 = load i8, ptr %23, align 8, !tbaa !42, !range !25, !noundef !26
@@ -2202,7 +2202,7 @@ _ZN3g2o13TicTocElementC2EOS0_.exit:               ; preds = %125, %_ZNKSt7__cxx1
   store i64 %131, ptr %133, align 8, !tbaa !34
   store ptr %123, ptr %120, align 8, !tbaa !31
   store i64 0, ptr %132, align 8, !tbaa !34
-  store i8 0, ptr %123, align 1, !tbaa !33
+  store i8 0, ptr %123, align 8, !tbaa !33
   %134 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %135 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %136 = load i8, ptr %135, align 8, !tbaa !42, !range !25, !noundef !26
@@ -2753,7 +2753,7 @@ _ZN3g2o13TicTocElementC2EOS0_.exit:               ; preds = %25, %_ZNKSt7__cxx11
   store i64 %32, ptr %8, align 8, !tbaa !34
   store ptr %23, ptr %21, align 8, !tbaa !31
   store i64 0, ptr %31, align 8, !tbaa !34
-  store i8 0, ptr %23, align 1, !tbaa !33
+  store i8 0, ptr %23, align 8, !tbaa !33
   %33 = getelementptr inbounds nuw i8, ptr %.pn22, i64 168
   %34 = load i8, ptr %33, align 8, !tbaa !42, !range !25, !noundef !26
   store i8 %34, ptr %9, align 8, !tbaa !42
@@ -3025,7 +3025,7 @@ _ZN3g2o13TicTocElementC2EOS0_.exit:               ; preds = %9, %_ZNKSt7__cxx111
   store i64 %15, ptr %17, align 8, !tbaa !34
   store ptr %7, ptr %4, align 8, !tbaa !31
   store i64 0, ptr %16, align 8, !tbaa !34
-  store i8 0, ptr %7, align 1, !tbaa !33
+  store i8 0, ptr %7, align 8, !tbaa !33
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %20 = load i8, ptr %19, align 8, !tbaa !42, !range !25, !noundef !26
@@ -3785,7 +3785,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   store ptr %36, ptr %35, align 8, !tbaa !27
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i64 0, ptr %37, align 8, !tbaa !34
-  store i8 0, ptr %36, align 1, !tbaa !33
+  store i8 0, ptr %36, align 8, !tbaa !33
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store i8 1, ptr %38, align 8, !tbaa !42
   ret void

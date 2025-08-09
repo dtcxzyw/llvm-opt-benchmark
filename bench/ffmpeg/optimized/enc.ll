@@ -1470,7 +1470,7 @@ celt_encode_frame.exit:                           ; preds = %610, %218, %.lr.ph.
   %621 = ashr i32 %620, 3
   %622 = add nsw i32 %621, %.073137
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %623 = load i32, ptr %93, align 4, !tbaa !79
+  %623 = load i32, ptr %93, align 8, !tbaa !79
   %624 = sext i32 %623 to i64
   %625 = icmp slt i64 %indvars.iv.next, %624
   br i1 %625, label %110, label %._crit_edge.loopexit, !llvm.loop !129
@@ -1609,7 +1609,7 @@ opus_gen_toc.exit.i:                              ; preds = %._crit_edge.i.i100,
   %703 = select i1 %702, i32 2, i32 1
   %704 = add nuw nsw i32 %703, %.12734.i
   %indvars.iv.next.i105 = add nuw nsw i64 %indvars.iv.i104, 1
-  %705 = load i32, ptr %93, align 4, !tbaa !79
+  %705 = load i32, ptr %93, align 8, !tbaa !79
   %706 = add nsw i32 %705, -1
   %707 = sext i32 %706 to i64
   %708 = icmp slt i64 %indvars.iv.next.i105, %707
@@ -1656,7 +1656,7 @@ opus_gen_toc.exit.thread.i.opus_packet_assembler.exit_crit_edge: ; preds = %opus
   %726 = ashr i32 %725, 3
   %727 = add nsw i32 %726, %.22836.i
   %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
-  %728 = load i32, ptr %93, align 4, !tbaa !79
+  %728 = load i32, ptr %93, align 8, !tbaa !79
   %729 = sext i32 %728 to i64
   %730 = icmp slt i64 %indvars.iv.next44.i, %729
   br i1 %730, label %713, label %opus_packet_assembler.exit, !llvm.loop !136
@@ -1983,7 +1983,7 @@ define internal fastcc void @celt_enc_quant_pfilter(ptr noundef %0, ptr noundef 
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 16916
   store float %52, ptr %60, align 4, !tbaa !56
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 16920
-  store float %55, ptr %61, align 4, !tbaa !56
+  store float %55, ptr %61, align 8, !tbaa !56
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 16924
   store float %58, ptr %62, align 4, !tbaa !56
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 33808
@@ -1991,7 +1991,7 @@ define internal fastcc void @celt_enc_quant_pfilter(ptr noundef %0, ptr noundef 
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 33812
   store float %52, ptr %64, align 4, !tbaa !56
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 33816
-  store float %55, ptr %65, align 4, !tbaa !56
+  store float %55, ptr %65, align 8, !tbaa !56
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 33820
   store float %58, ptr %66, align 4, !tbaa !56
   br label %.loopexit

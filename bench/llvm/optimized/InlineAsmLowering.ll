@@ -320,7 +320,7 @@ _ZN4llvm14TargetLowering14AsmOperandInfoC2EOS1_.exit.i.i: ; preds = %_ZNKSt7__cx
   store i64 %142, ptr %143, align 8, !tbaa !195
   store ptr %133, ptr %130, align 8, !tbaa !194
   store i64 0, ptr %141, align 8, !tbaa !195
-  store i8 0, ptr %133, align 1, !tbaa !196
+  store i8 0, ptr %133, align 8, !tbaa !196
   %144 = getelementptr inbounds nuw i8, ptr %104, i64 112
   %145 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %144, ptr noundef nonnull align 8 dereferenceable(18) %145, i64 18, i1 false)
@@ -3688,7 +3688,7 @@ _ZN4llvm14TargetLowering14AsmOperandInfoC2EOS1_.exit.i.i.i.i.i.i.i.i: ; preds = 
   store i64 %46, ptr %47, align 8, !tbaa !195
   store ptr %37, ptr %34, align 8, !tbaa !194
   store i64 0, ptr %45, align 8, !tbaa !195
-  store i8 0, ptr %37, align 1, !tbaa !196
+  store i8 0, ptr %37, align 8, !tbaa !196
   %48 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 112
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %48, ptr noundef nonnull align 8 dereferenceable(18) %49, i64 18, i1 false)

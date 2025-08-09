@@ -1690,7 +1690,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %45, ptr %47, align 8, !tbaa !15
   store ptr %36, ptr %.sroa.023.0, align 8, !tbaa !11
   store i64 0, ptr %46, align 8, !tbaa !15
-  store i8 0, ptr %36, align 1, !tbaa !16
+  store i8 0, ptr %36, align 8, !tbaa !16
   %48 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.023.0, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(16) %49, i64 16, i1 false), !tbaa.struct !22

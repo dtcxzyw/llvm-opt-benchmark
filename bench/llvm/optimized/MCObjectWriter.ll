@@ -510,7 +510,7 @@ _ZSt10_ConstructISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEJ
   store i64 %41, ptr %42, align 8, !tbaa !20
   store ptr %32, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !15
   store i64 0, ptr %40, align 8, !tbaa !20
-  store i8 0, ptr %32, align 1, !tbaa !21
+  store i8 0, ptr %32, align 8, !tbaa !21
   %43 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 32
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 32
   %45 = load i64, ptr %44, align 8, !tbaa !58

@@ -1777,7 +1777,7 @@ _ZN4llvm16ImutKeyValueInfoIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SV
   %20 = getelementptr inbounds nuw i8, ptr %.01223.i.i.i.i, i64 64
   %21 = load ptr, ptr %20, align 8
   %.phi.trans.insert24.i.i.i.i = getelementptr inbounds nuw i8, ptr %.01223.i.i.i.i, i64 56
-  %.pre25.i.i.i.i = load i32, ptr %.phi.trans.insert24.i.i.i.i, align 4, !tbaa !789, !noalias !805
+  %.pre25.i.i.i.i = load i32, ptr %.phi.trans.insert24.i.i.i.i, align 8, !tbaa !789, !noalias !805
   br label %31
 
 _ZN4llvm16ImutKeyValueInfoIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValEE7isEqualERKS2_S8_.exit.i.i.i.i: ; preds = %14
@@ -3441,7 +3441,7 @@ _ZN4llvm16ImutKeyValueInfoIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SV
   %18 = getelementptr inbounds nuw i8, ptr %.01223.i.i.i.i.i, i64 64
   %19 = load ptr, ptr %18, align 8
   %.phi.trans.insert24.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.01223.i.i.i.i.i, i64 56
-  %.pre25.i.i.i.i.i = load i32, ptr %.phi.trans.insert24.i.i.i.i.i, align 4, !tbaa !789, !noalias !1004
+  %.pre25.i.i.i.i.i = load i32, ptr %.phi.trans.insert24.i.i.i.i.i, align 8, !tbaa !789, !noalias !1004
   br label %29
 
 _ZN4llvm16ImutKeyValueInfoIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValEE7isEqualERKS2_S8_.exit.i.i.i.i.i: ; preds = %12
@@ -10204,7 +10204,7 @@ _ZN5clang4ento11NodeBuilderC2EPNS0_12ExplodedNodeERNS0_15ExplodedNodeSetERKNS0_1
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !1205
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.sroa.0.0.copyload.i.i = load i32, ptr %38, align 4, !tbaa !790
+  %.sroa.0.0.copyload.i.i = load i32, ptr %38, align 8, !tbaa !790
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %_ZNK5clang4ento10ExprEngine16getCFGElementRefEv.exit, label %39
 
@@ -15542,7 +15542,7 @@ _ZN4llvm16ImutKeyValueInfoIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SV
   %62 = getelementptr inbounds nuw i8, ptr %.01223.i.i.i.i.i.i, i64 64
   %63 = load ptr, ptr %62, align 8
   %.phi.trans.insert24.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.01223.i.i.i.i.i.i, i64 56
-  %.pre25.i.i.i.i.i.i = load i32, ptr %.phi.trans.insert24.i.i.i.i.i.i, align 4, !tbaa !789, !noalias !1306
+  %.pre25.i.i.i.i.i.i = load i32, ptr %.phi.trans.insert24.i.i.i.i.i.i, align 8, !tbaa !789, !noalias !1306
   br label %73
 
 _ZN4llvm16ImutKeyValueInfoIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValEE7isEqualERKS2_S8_.exit.i.i.i.i.i.i: ; preds = %56
@@ -26270,7 +26270,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %21
   store i64 %224, ptr %225, align 8, !tbaa !1122
   store ptr %217, ptr %5, align 8, !tbaa !1121
   store i64 0, ptr %15, align 8, !tbaa !1122
-  store i8 0, ptr %217, align 1, !tbaa !319
+  store i8 0, ptr %217, align 8, !tbaa !319
   br label %226
 
 226:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit27
@@ -33293,8 +33293,8 @@ _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang15LocationC
   %57 = icmp eq ptr %55, %56
   %58 = getelementptr inbounds nuw i8, ptr %47, i64 56
   %59 = getelementptr inbounds nuw i8, ptr %52, i64 56
-  %60 = load i32, ptr %58, align 4
-  %61 = load i32, ptr %59, align 4
+  %60 = load i32, ptr %58, align 8
+  %61 = load i32, ptr %59, align 8
   %62 = icmp eq i32 %60, %61
   %.0.i.i = select i1 %57, i1 %62, i1 false
   br i1 %.0.i.i, label %.preheader, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang15LocationContextEjEEEneERKS7_.exit.thread36
@@ -34146,7 +34146,7 @@ _ZN4llvm16ImutKeyValueInfoIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SV
   %.phi.trans.insert34 = getelementptr inbounds nuw i8, ptr %2, i64 60
   %.pre35 = load i32, ptr %.phi.trans.insert34, align 4, !tbaa !790, !noalias !1927
   %.phi.trans.insert36 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %.pre37 = load i32, ptr %.phi.trans.insert36, align 4, !tbaa !789, !noalias !1927
+  %.pre37 = load i32, ptr %.phi.trans.insert36, align 8, !tbaa !789, !noalias !1927
   br label %36
 
 _ZN4llvm16ImutKeyValueInfoIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValEE7isEqualERKS2_S8_.exit: ; preds = %6
@@ -34810,7 +34810,7 @@ _ZN4llvm16ImutKeyValueInfoIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SV
   %.phi.trans.insert30 = getelementptr inbounds nuw i8, ptr %2, i64 60
   %.pre31 = load i32, ptr %.phi.trans.insert30, align 4, !tbaa !790, !noalias !1941
   %.phi.trans.insert32 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %.pre33 = load i32, ptr %.phi.trans.insert32, align 4, !tbaa !789, !noalias !1941
+  %.pre33 = load i32, ptr %.phi.trans.insert32, align 8, !tbaa !789, !noalias !1941
   br label %40
 
 _ZN4llvm16ImutKeyValueInfoIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValEE7isEqualERKS2_S8_.exit: ; preds = %5

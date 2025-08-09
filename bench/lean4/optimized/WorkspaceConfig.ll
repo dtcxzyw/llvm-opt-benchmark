@@ -123,7 +123,7 @@ lean_alloc_ctor.exit39:                           ; preds = %lean_alloc_ctor.exi
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i64 0, ptr %28, align 8, !tbaa !11
-  store i32 1, ptr %24, align 4, !tbaa !4
+  store i32 1, ptr %24, align 8, !tbaa !4
   store i32 100728856, ptr %27, align 4
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %18, ptr %29, align 8, !tbaa !9
@@ -212,7 +212,7 @@ lean_alloc_ctor.exit45:                           ; preds = %lean_alloc_ctor.exi
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 16
   store i64 0, ptr %62, align 8, !tbaa !11
-  store i32 1, ptr %58, align 4, !tbaa !4
+  store i32 1, ptr %58, align 8, !tbaa !4
   store i32 100728856, ptr %61, align 4
   %63 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store ptr %52, ptr %63, align 8, !tbaa !9
@@ -1145,7 +1145,7 @@ _init_l_Lake_WorkspaceConfig___fields___closed__3.exit: ; preds = %_init_l_Lake_
   %154 = getelementptr inbounds nuw i8, ptr %151, i64 4
   %155 = getelementptr inbounds nuw i8, ptr %151, i64 24
   store i64 1, ptr %155, align 8, !tbaa !11
-  store i32 1, ptr %151, align 4, !tbaa !4
+  store i32 1, ptr %151, align 8, !tbaa !4
   store i32 131104, ptr %154, align 4
   %156 = getelementptr inbounds nuw i8, ptr %151, i64 8
   store ptr %150, ptr %156, align 8, !tbaa !9

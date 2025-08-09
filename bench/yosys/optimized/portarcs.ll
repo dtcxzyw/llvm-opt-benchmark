@@ -8763,7 +8763,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %3606, ptr %3608, align 8, !tbaa !22, !alias.scope !256, !noalias !259
   store ptr %3598, ptr %.0911.i.i.i.i, align 8, !tbaa !17, !alias.scope !259, !noalias !256
   store i64 0, ptr %3607, align 8, !tbaa !22, !alias.scope !259, !noalias !256
-  store i8 0, ptr %3598, align 1, !tbaa !23, !alias.scope !259, !noalias !256
+  store i8 0, ptr %3598, align 8, !tbaa !23, !alias.scope !259, !noalias !256
   %3609 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %3610 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %.not.i.i.i.i1801 = icmp eq ptr %3609, %3555

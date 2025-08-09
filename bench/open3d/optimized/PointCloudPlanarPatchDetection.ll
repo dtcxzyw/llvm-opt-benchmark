@@ -393,7 +393,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit:    ; preds = %86, %_ZNSt12_Vector
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %115, i8 0, i64 40, i1 false), !noalias !21
   %117 = fadd <2 x double> %.val32, %.val34
   %118 = fmul <2 x double> %117, splat (double 5.000000e-01)
-  store <2 x double> %118, ptr %111, align 1, !tbaa !13, !noalias !21
+  store <2 x double> %118, ptr %111, align 8, !tbaa !13, !noalias !21
   %119 = getelementptr inbounds nuw i8, ptr %106, i64 168
   %120 = fadd double %.val33, %.val35
   %121 = fmul double %120, 5.000000e-01
@@ -4080,11 +4080,11 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_S_check_init_lenEm
   %1674 = getelementptr inbounds nuw i8, ptr %1673, i64 48
   %1675 = load ptr, ptr %1674, align 8, !tbaa !10, !noalias !150
   %1676 = getelementptr inbounds nuw i8, ptr %.val24.i, i64 152
-  %1677 = load <2 x double>, ptr %1676, align 1, !tbaa !13, !noalias !150
+  %1677 = load <2 x double>, ptr %1676, align 8, !tbaa !13, !noalias !150
   %1678 = getelementptr inbounds nuw i8, ptr %.val24.i, i64 168
   %1679 = load double, ptr %1678, align 8, !tbaa !14, !noalias !150
   %1680 = getelementptr inbounds nuw i8, ptr %.val24.i, i64 176
-  %1681 = load <2 x double>, ptr %1680, align 1, !tbaa !13, !noalias !150
+  %1681 = load <2 x double>, ptr %1680, align 8, !tbaa !13, !noalias !150
   %1682 = getelementptr inbounds nuw i8, ptr %.val24.i, i64 192
   %1683 = load double, ptr %1682, align 8, !tbaa !14, !noalias !150
   br label %1830
@@ -4825,7 +4825,7 @@ _ZN6open3d8geometry12_GLOBAL__N_113PlaneDetector23GetPlanePerimeterPointsERN5Eig
   %1918 = shufflevector <2 x double> %.sroa.3.8.vec.insert.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %1919 = fmul <2 x double> %1908, %1918
   %1920 = fsub <2 x double> %1909, %1919
-  store <2 x double> %1920, ptr %.val58.i.i, align 1, !tbaa !13, !noalias !150
+  store <2 x double> %1920, ptr %.val58.i.i, align 8, !tbaa !13, !noalias !150
   %1921 = load double, ptr %1633, align 16, !tbaa !14, !noalias !150
   %1922 = fmul double %1917, %1921
   %1923 = fsub double %1915, %1922
@@ -4846,7 +4846,7 @@ _ZN6open3d8geometry12_GLOBAL__N_113PlaneDetector23GetPlanePerimeterPointsERN5Eig
   %1934 = shufflevector <2 x double> %.sroa.3.8.vec.insert.i.i.i.i.i66.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %1935 = fmul <2 x double> %1924, %1934
   %1936 = fsub <2 x double> %1925, %1935
-  store <2 x double> %1936, ptr %.val56.i.i, align 1, !tbaa !13, !noalias !150
+  store <2 x double> %1936, ptr %.val56.i.i, align 8, !tbaa !13, !noalias !150
   %1937 = load double, ptr %1635, align 8, !tbaa !14, !noalias !150
   %1938 = fmul double %1933, %1937
   %1939 = fsub double %1931, %1938
@@ -4950,7 +4950,7 @@ _ZN6open3d8geometry12_GLOBAL__N_113PlaneDetector23GetPlanePerimeterPointsERN5Eig
   store ptr %1998, ptr %1997, align 8, !tbaa !153, !noalias !208
   %1999 = getelementptr inbounds nuw i8, ptr %1976, i64 40
   store i64 0, ptr %1999, align 8, !tbaa !156, !noalias !208
-  store i8 0, ptr %1998, align 1, !tbaa !13, !noalias !208
+  store i8 0, ptr %1998, align 8, !tbaa !13, !noalias !208
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry19OrientedBoundingBoxE, i64 16), ptr %1994, align 8, !tbaa !11, !noalias !208
   %2000 = getelementptr inbounds nuw i8, ptr %1976, i64 64
   %2001 = getelementptr inbounds nuw i8, ptr %1976, i64 88
@@ -4976,21 +4976,21 @@ _ZN6open3d8geometry12_GLOBAL__N_113PlaneDetector23GetPlanePerimeterPointsERN5Eig
   store ptr %1994, ptr %25, align 8, !tbaa !213, !alias.scope !208
   %.val.i.i133 = load ptr, ptr %.val24.i, align 8, !tbaa !123, !noalias !150
   %2010 = load <2 x double>, ptr %.val.i.i133, align 1, !tbaa !13, !noalias !150
-  store <2 x double> %2010, ptr %2000, align 1, !tbaa !13, !noalias !150
+  store <2 x double> %2010, ptr %2000, align 8, !tbaa !13, !noalias !150
   %2011 = getelementptr inbounds nuw i8, ptr %1976, i64 80
   %2012 = getelementptr inbounds nuw i8, ptr %.val.i.i133, i64 16
   %2013 = load double, ptr %2012, align 8, !tbaa !14, !noalias !150
   store double %2013, ptr %2011, align 8, !tbaa !14, !noalias !150
   %2014 = load <2 x double>, ptr %24, align 16, !tbaa !13, !noalias !150
-  store <2 x double> %2014, ptr %2001, align 1, !tbaa !13, !noalias !150
+  store <2 x double> %2014, ptr %2001, align 8, !tbaa !13, !noalias !150
   %2015 = getelementptr inbounds nuw i8, ptr %1976, i64 104
   %2016 = load <2 x double>, ptr %1633, align 16, !tbaa !13, !noalias !150
-  store <2 x double> %2016, ptr %2015, align 1, !tbaa !13, !noalias !150
+  store <2 x double> %2016, ptr %2015, align 8, !tbaa !13, !noalias !150
   %2017 = load <2 x double>, ptr %1643, align 16, !tbaa !13, !noalias !150
-  store <2 x double> %2017, ptr %2003, align 1, !tbaa !13, !noalias !150
+  store <2 x double> %2017, ptr %2003, align 8, !tbaa !13, !noalias !150
   %2018 = getelementptr inbounds nuw i8, ptr %1976, i64 136
   %2019 = load <2 x double>, ptr %1644, align 16, !tbaa !13, !noalias !150
-  store <2 x double> %2019, ptr %2018, align 1, !tbaa !13, !noalias !150
+  store <2 x double> %2019, ptr %2018, align 8, !tbaa !13, !noalias !150
   %2020 = load double, ptr %1645, align 16, !tbaa !14, !noalias !150
   store double %2020, ptr %2005, align 8, !tbaa !14, !noalias !150
   store double %.sroa.speculated80.i.i, ptr %2006, align 8, !noalias !150
@@ -6248,7 +6248,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit89.i.thread.i:       ; preds = %.noexc57
   %276 = tail call noundef double @llvm.fabs.f64(double %275)
   %277 = getelementptr inbounds nuw double, ptr %242, i64 %.039139.i.i
   store double %276, ptr %277, align 8, !tbaa !14
-  %278 = load <2 x double>, ptr %251, align 1, !tbaa !13
+  %278 = load <2 x double>, ptr %251, align 8, !tbaa !13
   %279 = load <2 x double>, ptr %265, align 1, !tbaa !13
   %280 = fmul <2 x double> %278, %279
   %shift274 = shufflevector <2 x double> %280, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -6297,7 +6297,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit89.i.thread.i:       ; preds = %.noexc57
   %306 = load double, ptr %296, align 8, !tbaa !14, !noalias !261
   %.sroa.615.32.vec.insert.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %304, i64 0
   %.sroa.12.64.vec.insert.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %306, i64 0
-  %307 = load <2 x double>, ptr %302, align 1, !tbaa !13, !noalias !264
+  %307 = load <2 x double>, ptr %302, align 8, !tbaa !13, !noalias !264
   %308 = shufflevector <2 x double> %.sroa.615.32.vec.insert.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %309 = fmul <2 x double> %308, %307
   %310 = load <2 x double>, ptr %305, align 1, !tbaa !13, !noalias !264
@@ -8878,7 +8878,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit67:                  ; preds = %118, %_ZNSt6vectorI
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store double %157, ptr %158, align 8, !tbaa !294
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %160 = load <2 x double>, ptr %135, align 1
+  %160 = load <2 x double>, ptr %135, align 8
   %161 = fsub <2 x double> <double 0.000000e+00, double 1.000000e+00>, %160
   %162 = fmul <2 x double> %161, %161
   %shift201 = shufflevector <2 x double> %162, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -8970,7 +8970,7 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit17.
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store double %.sroa.537.0.i, ptr %219, align 8, !tbaa !14
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %221 = load <2 x double>, ptr %135, align 1, !tbaa !13
+  %221 = load <2 x double>, ptr %135, align 8, !tbaa !13
   store <2 x double> %221, ptr %220, align 8, !tbaa !13
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %223 = load double, ptr %140, align 8, !tbaa !14
@@ -11847,8 +11847,8 @@ thread-pre-split.i.i.i.i.i.i.i.i.i:               ; preds = %.noexc.i
   %38 = fadd double %33, %37
   store double %38, ptr %27, align 8, !tbaa !14
   %39 = getelementptr i8, ptr %20, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %40 = load <2 x double>, ptr %21, align 1, !tbaa !13
-  %41 = load <2 x double>, ptr %28, align 1, !tbaa !13
+  %40 = load <2 x double>, ptr %21, align 8, !tbaa !13
+  %41 = load <2 x double>, ptr %28, align 8, !tbaa !13
   %42 = fmul <2 x double> %40, %41
   %shift5 = shufflevector <2 x double> %42, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %43 = fadd <2 x double> %42, %shift5
@@ -11859,8 +11859,8 @@ thread-pre-split.i.i.i.i.i.i.i.i.i:               ; preds = %.noexc.i
   %48 = fadd double %44, %47
   store double %48, ptr %39, align 8, !tbaa !14
   %49 = getelementptr i8, ptr %23, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %50 = load <2 x double>, ptr %24, align 1, !tbaa !13
-  %51 = load <2 x double>, ptr %28, align 1, !tbaa !13
+  %50 = load <2 x double>, ptr %24, align 8, !tbaa !13
+  %51 = load <2 x double>, ptr %28, align 8, !tbaa !13
   %52 = fmul <2 x double> %50, %51
   %shift6 = shufflevector <2 x double> %52, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %53 = fadd <2 x double> %52, %shift6

@@ -8847,7 +8847,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(39) ptr @_ZNSt6vecto
 7:                                                ; preds = %2
   store ptr null, ptr %4, align 8, !tbaa !21
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i8 0, ptr %8, align 4, !tbaa !29
+  store i8 0, ptr %8, align 8, !tbaa !29
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 9
   store i8 1, ptr %9, align 1, !tbaa !20
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 10
@@ -9083,7 +9083,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(39) ptr @_ZNSt6vecto
 7:                                                ; preds = %2
   store ptr null, ptr %4, align 8, !tbaa !21
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i8 0, ptr %8, align 4, !tbaa !29
+  store i8 0, ptr %8, align 8, !tbaa !29
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 9
   store i8 1, ptr %9, align 1, !tbaa !20
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 10

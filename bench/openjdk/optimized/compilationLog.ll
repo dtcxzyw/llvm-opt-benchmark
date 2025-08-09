@@ -91,7 +91,7 @@ define hidden void @_ZN14CompilationLogC2Ev(ptr noundef nonnull align 8 derefere
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %21, ptr %20, align 8
-  store i8 0, ptr %21, align 1
+  store i8 0, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 280
   %23 = icmp eq ptr %22, %17
   br i1 %23, label %_ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit, label %18
@@ -327,7 +327,7 @@ define hidden void @_ZN14CompilationLog4initEv() local_unnamed_addr #0 align 2 {
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %21, ptr %20, align 8
-  store i8 0, ptr %21, align 1
+  store i8 0, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 280
   %23 = icmp eq ptr %22, %17
   br i1 %23, label %_ZN14CompilationLogC2Ev.exit, label %18

@@ -1311,7 +1311,7 @@ define dso_local i32 @rtnl_put_cacheinfo(ptr noundef %0, ptr noundef %1, i32 nou
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %20, ptr %21, align 4
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %23 = load volatile i32, ptr %22, align 4
+  %23 = load volatile i32, ptr %22, align 8
   %24 = icmp ugt i32 %23, -1073741825
   %25 = add i32 %23, 1
   %26 = select i1 %24, i32 0, i32 %25

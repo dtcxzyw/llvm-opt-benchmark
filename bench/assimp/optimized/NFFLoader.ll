@@ -801,7 +801,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75: ; preds = %.lo
   store ptr %163, ptr %162, align 8
   %164 = getelementptr inbounds nuw i8, ptr %149, i64 72
   store i64 0, ptr %164, align 8
-  store i8 0, ptr %163, align 1
+  store i8 0, ptr %163, align 8
   %165 = getelementptr inbounds nuw i8, ptr %149, i64 96
   store i8 0, ptr %165, align 8
   %166 = getelementptr inbounds nuw i8, ptr %149, i64 97
@@ -815,7 +815,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75: ; preds = %.lo
   store ptr %170, ptr %169, align 8
   %171 = getelementptr inbounds nuw i8, ptr %149, i64 120
   store i64 0, ptr %171, align 8
-  store i8 0, ptr %170, align 1
+  store i8 0, ptr %170, align 8
   %172 = getelementptr inbounds nuw i8, ptr %149, i64 144
   store i32 0, ptr %172, align 8
   %173 = load ptr, ptr %86, align 8
@@ -6768,7 +6768,7 @@ _ZNK6Assimp11NFFImporter11ShadingInfoeqERKS1_.exit.thread: ; preds = %1379, %136
   store ptr %1397, ptr %1396, align 8
   %1398 = getelementptr inbounds nuw i8, ptr %1299, i64 72
   store i64 0, ptr %1398, align 8
-  store i8 0, ptr %1397, align 1
+  store i8 0, ptr %1397, align 8
   %1399 = getelementptr inbounds nuw i8, ptr %1299, i64 96
   store i8 0, ptr %1399, align 8
   %1400 = getelementptr inbounds nuw i8, ptr %1299, i64 97
@@ -6782,7 +6782,7 @@ _ZNK6Assimp11NFFImporter11ShadingInfoeqERKS1_.exit.thread: ; preds = %1379, %136
   store ptr %1404, ptr %1403, align 8
   %1405 = getelementptr inbounds nuw i8, ptr %1299, i64 120
   store i64 0, ptr %1405, align 8
-  store i8 0, ptr %1404, align 1
+  store i8 0, ptr %1404, align 8
   %1406 = getelementptr inbounds nuw i8, ptr %1299, i64 144
   store i32 0, ptr %1406, align 8
   %1407 = getelementptr inbounds nuw i8, ptr %1299, i64 152
@@ -6790,23 +6790,23 @@ _ZNK6Assimp11NFFImporter11ShadingInfoeqERKS1_.exit.thread: ; preds = %1379, %136
   %1408 = getelementptr inbounds nuw i8, ptr %1299, i64 156
   store i8 0, ptr %1408, align 4
   %1409 = getelementptr inbounds nuw i8, ptr %1299, i64 160
-  store float 0.000000e+00, ptr %1409, align 4
+  store float 0.000000e+00, ptr %1409, align 8
   %1410 = getelementptr inbounds nuw i8, ptr %1299, i64 164
   store float 0.000000e+00, ptr %1410, align 4
   %1411 = getelementptr inbounds nuw i8, ptr %1299, i64 168
-  store float 0.000000e+00, ptr %1411, align 4
+  store float 0.000000e+00, ptr %1411, align 8
   %1412 = getelementptr inbounds nuw i8, ptr %1299, i64 172
   store float 1.000000e+00, ptr %1412, align 4
   %1413 = getelementptr inbounds nuw i8, ptr %1299, i64 176
-  store float 1.000000e+00, ptr %1413, align 4
+  store float 1.000000e+00, ptr %1413, align 8
   %1414 = getelementptr inbounds nuw i8, ptr %1299, i64 180
   store float 1.000000e+00, ptr %1414, align 4
   %1415 = getelementptr inbounds nuw i8, ptr %1299, i64 184
-  store float 0.000000e+00, ptr %1415, align 4
+  store float 0.000000e+00, ptr %1415, align 8
   %1416 = getelementptr inbounds nuw i8, ptr %1299, i64 188
   store float 1.000000e+00, ptr %1416, align 4
   %1417 = getelementptr inbounds nuw i8, ptr %1299, i64 192
-  store float 0.000000e+00, ptr %1417, align 4
+  store float 0.000000e+00, ptr %1417, align 8
   %1418 = getelementptr inbounds nuw i8, ptr %1299, i64 328
   %1419 = getelementptr inbounds nuw i8, ptr %1299, i64 196
   store i8 0, ptr %1419, align 4
@@ -7970,7 +7970,7 @@ _ZNK6Assimp11NFFImporter11ShadingInfoeqERKS1_.exit1479.thread: ; preds = %1843, 
   store ptr %1871, ptr %1870, align 8
   %1872 = getelementptr inbounds nuw i8, ptr %1777, i64 72
   store i64 0, ptr %1872, align 8
-  store i8 0, ptr %1871, align 1
+  store i8 0, ptr %1871, align 8
   %1873 = getelementptr inbounds nuw i8, ptr %1777, i64 96
   store i8 0, ptr %1873, align 8
   %1874 = getelementptr inbounds nuw i8, ptr %1777, i64 97
@@ -7984,7 +7984,7 @@ _ZNK6Assimp11NFFImporter11ShadingInfoeqERKS1_.exit1479.thread: ; preds = %1843, 
   store ptr %1878, ptr %1877, align 8
   %1879 = getelementptr inbounds nuw i8, ptr %1777, i64 120
   store i64 0, ptr %1879, align 8
-  store i8 0, ptr %1878, align 1
+  store i8 0, ptr %1878, align 8
   %1880 = getelementptr inbounds nuw i8, ptr %1777, i64 144
   store i32 0, ptr %1880, align 8
   %1881 = getelementptr inbounds nuw i8, ptr %1777, i64 152
@@ -7992,23 +7992,23 @@ _ZNK6Assimp11NFFImporter11ShadingInfoeqERKS1_.exit1479.thread: ; preds = %1843, 
   %1882 = getelementptr inbounds nuw i8, ptr %1777, i64 156
   store i8 0, ptr %1882, align 4
   %1883 = getelementptr inbounds nuw i8, ptr %1777, i64 160
-  store float 0.000000e+00, ptr %1883, align 4
+  store float 0.000000e+00, ptr %1883, align 8
   %1884 = getelementptr inbounds nuw i8, ptr %1777, i64 164
   store float 0.000000e+00, ptr %1884, align 4
   %1885 = getelementptr inbounds nuw i8, ptr %1777, i64 168
-  store float 0.000000e+00, ptr %1885, align 4
+  store float 0.000000e+00, ptr %1885, align 8
   %1886 = getelementptr inbounds nuw i8, ptr %1777, i64 172
   store float 1.000000e+00, ptr %1886, align 4
   %1887 = getelementptr inbounds nuw i8, ptr %1777, i64 176
-  store float 1.000000e+00, ptr %1887, align 4
+  store float 1.000000e+00, ptr %1887, align 8
   %1888 = getelementptr inbounds nuw i8, ptr %1777, i64 180
   store float 1.000000e+00, ptr %1888, align 4
   %1889 = getelementptr inbounds nuw i8, ptr %1777, i64 184
-  store float 0.000000e+00, ptr %1889, align 4
+  store float 0.000000e+00, ptr %1889, align 8
   %1890 = getelementptr inbounds nuw i8, ptr %1777, i64 188
   store float 1.000000e+00, ptr %1890, align 4
   %1891 = getelementptr inbounds nuw i8, ptr %1777, i64 192
-  store float 0.000000e+00, ptr %1891, align 4
+  store float 0.000000e+00, ptr %1891, align 8
   %1892 = getelementptr inbounds nuw i8, ptr %1777, i64 328
   %1893 = getelementptr inbounds nuw i8, ptr %1777, i64 196
   store i8 0, ptr %1893, align 4
@@ -8170,7 +8170,7 @@ _ZN6Assimp11NFFImporter11ShadingInfoaSERKS1_.exit1485: ; preds = %.noexc1483
   store ptr %1964, ptr %1963, align 8
   %1965 = getelementptr inbounds nuw i8, ptr %1950, i64 72
   store i64 0, ptr %1965, align 8
-  store i8 0, ptr %1964, align 1
+  store i8 0, ptr %1964, align 8
   %1966 = getelementptr inbounds nuw i8, ptr %1950, i64 96
   store i8 0, ptr %1966, align 8
   %1967 = getelementptr inbounds nuw i8, ptr %1950, i64 97
@@ -8184,7 +8184,7 @@ _ZN6Assimp11NFFImporter11ShadingInfoaSERKS1_.exit1485: ; preds = %.noexc1483
   store ptr %1971, ptr %1970, align 8
   %1972 = getelementptr inbounds nuw i8, ptr %1950, i64 120
   store i64 0, ptr %1972, align 8
-  store i8 0, ptr %1971, align 1
+  store i8 0, ptr %1971, align 8
   %1973 = getelementptr inbounds nuw i8, ptr %1950, i64 144
   store i32 0, ptr %1973, align 8
   %1974 = getelementptr inbounds nuw i8, ptr %1950, i64 152
@@ -8192,23 +8192,23 @@ _ZN6Assimp11NFFImporter11ShadingInfoaSERKS1_.exit1485: ; preds = %.noexc1483
   %1975 = getelementptr inbounds nuw i8, ptr %1950, i64 156
   store i8 0, ptr %1975, align 4
   %1976 = getelementptr inbounds nuw i8, ptr %1950, i64 160
-  store float 0.000000e+00, ptr %1976, align 4
+  store float 0.000000e+00, ptr %1976, align 8
   %1977 = getelementptr inbounds nuw i8, ptr %1950, i64 164
   store float 0.000000e+00, ptr %1977, align 4
   %1978 = getelementptr inbounds nuw i8, ptr %1950, i64 168
-  store float 0.000000e+00, ptr %1978, align 4
+  store float 0.000000e+00, ptr %1978, align 8
   %1979 = getelementptr inbounds nuw i8, ptr %1950, i64 172
   store float 1.000000e+00, ptr %1979, align 4
   %1980 = getelementptr inbounds nuw i8, ptr %1950, i64 176
-  store float 1.000000e+00, ptr %1980, align 4
+  store float 1.000000e+00, ptr %1980, align 8
   %1981 = getelementptr inbounds nuw i8, ptr %1950, i64 180
   store float 1.000000e+00, ptr %1981, align 4
   %1982 = getelementptr inbounds nuw i8, ptr %1950, i64 184
-  store float 0.000000e+00, ptr %1982, align 4
+  store float 0.000000e+00, ptr %1982, align 8
   %1983 = getelementptr inbounds nuw i8, ptr %1950, i64 188
   store float 1.000000e+00, ptr %1983, align 4
   %1984 = getelementptr inbounds nuw i8, ptr %1950, i64 192
-  store float 0.000000e+00, ptr %1984, align 4
+  store float 0.000000e+00, ptr %1984, align 8
   %1985 = getelementptr inbounds nuw i8, ptr %1950, i64 328
   %1986 = getelementptr inbounds nuw i8, ptr %1950, i64 196
   store i8 0, ptr %1986, align 4
@@ -8364,7 +8364,7 @@ _ZN6Assimp11NFFImporter11ShadingInfoaSERKS1_.exit1492: ; preds = %.noexc1490
   store ptr %2053, ptr %2052, align 8
   %2054 = getelementptr inbounds nuw i8, ptr %2039, i64 72
   store i64 0, ptr %2054, align 8
-  store i8 0, ptr %2053, align 1
+  store i8 0, ptr %2053, align 8
   %2055 = getelementptr inbounds nuw i8, ptr %2039, i64 96
   store i8 0, ptr %2055, align 8
   %2056 = getelementptr inbounds nuw i8, ptr %2039, i64 97
@@ -8378,7 +8378,7 @@ _ZN6Assimp11NFFImporter11ShadingInfoaSERKS1_.exit1492: ; preds = %.noexc1490
   store ptr %2060, ptr %2059, align 8
   %2061 = getelementptr inbounds nuw i8, ptr %2039, i64 120
   store i64 0, ptr %2061, align 8
-  store i8 0, ptr %2060, align 1
+  store i8 0, ptr %2060, align 8
   %2062 = getelementptr inbounds nuw i8, ptr %2039, i64 144
   store i32 0, ptr %2062, align 8
   %2063 = getelementptr inbounds nuw i8, ptr %2039, i64 152
@@ -8386,23 +8386,23 @@ _ZN6Assimp11NFFImporter11ShadingInfoaSERKS1_.exit1492: ; preds = %.noexc1490
   %2064 = getelementptr inbounds nuw i8, ptr %2039, i64 156
   store i8 0, ptr %2064, align 4
   %2065 = getelementptr inbounds nuw i8, ptr %2039, i64 160
-  store float 0.000000e+00, ptr %2065, align 4
+  store float 0.000000e+00, ptr %2065, align 8
   %2066 = getelementptr inbounds nuw i8, ptr %2039, i64 164
   store float 0.000000e+00, ptr %2066, align 4
   %2067 = getelementptr inbounds nuw i8, ptr %2039, i64 168
-  store float 0.000000e+00, ptr %2067, align 4
+  store float 0.000000e+00, ptr %2067, align 8
   %2068 = getelementptr inbounds nuw i8, ptr %2039, i64 172
   store float 1.000000e+00, ptr %2068, align 4
   %2069 = getelementptr inbounds nuw i8, ptr %2039, i64 176
-  store float 1.000000e+00, ptr %2069, align 4
+  store float 1.000000e+00, ptr %2069, align 8
   %2070 = getelementptr inbounds nuw i8, ptr %2039, i64 180
   store float 1.000000e+00, ptr %2070, align 4
   %2071 = getelementptr inbounds nuw i8, ptr %2039, i64 184
-  store float 0.000000e+00, ptr %2071, align 4
+  store float 0.000000e+00, ptr %2071, align 8
   %2072 = getelementptr inbounds nuw i8, ptr %2039, i64 188
   store float 1.000000e+00, ptr %2072, align 4
   %2073 = getelementptr inbounds nuw i8, ptr %2039, i64 192
-  store float 0.000000e+00, ptr %2073, align 4
+  store float 0.000000e+00, ptr %2073, align 8
   %2074 = getelementptr inbounds nuw i8, ptr %2039, i64 328
   %2075 = getelementptr inbounds nuw i8, ptr %2039, i64 196
   store i8 0, ptr %2075, align 4
@@ -10636,7 +10636,7 @@ _ZN6Assimp9IsLineEndIcEEbT_.exit1832:             ; preds = %.critedge.i.i1829
   store ptr %2755, ptr %2754, align 8
   %2756 = getelementptr inbounds nuw i8, ptr %2741, i64 72
   store i64 0, ptr %2756, align 8
-  store i8 0, ptr %2755, align 1
+  store i8 0, ptr %2755, align 8
   %2757 = getelementptr inbounds nuw i8, ptr %2741, i64 96
   store i8 0, ptr %2757, align 8
   %2758 = getelementptr inbounds nuw i8, ptr %2741, i64 97
@@ -10650,7 +10650,7 @@ _ZN6Assimp9IsLineEndIcEEbT_.exit1832:             ; preds = %.critedge.i.i1829
   store ptr %2762, ptr %2761, align 8
   %2763 = getelementptr inbounds nuw i8, ptr %2741, i64 120
   store i64 0, ptr %2763, align 8
-  store i8 0, ptr %2762, align 1
+  store i8 0, ptr %2762, align 8
   %2764 = getelementptr inbounds nuw i8, ptr %2741, i64 144
   store i32 0, ptr %2764, align 8
   %2765 = getelementptr inbounds nuw i8, ptr %2741, i64 152
@@ -10658,23 +10658,23 @@ _ZN6Assimp9IsLineEndIcEEbT_.exit1832:             ; preds = %.critedge.i.i1829
   %2766 = getelementptr inbounds nuw i8, ptr %2741, i64 156
   store i8 1, ptr %2766, align 4
   %2767 = getelementptr inbounds nuw i8, ptr %2741, i64 160
-  store float 0.000000e+00, ptr %2767, align 4
+  store float 0.000000e+00, ptr %2767, align 8
   %2768 = getelementptr inbounds nuw i8, ptr %2741, i64 164
   store float 0.000000e+00, ptr %2768, align 4
   %2769 = getelementptr inbounds nuw i8, ptr %2741, i64 168
-  store float 0.000000e+00, ptr %2769, align 4
+  store float 0.000000e+00, ptr %2769, align 8
   %2770 = getelementptr inbounds nuw i8, ptr %2741, i64 172
   store float 1.000000e+00, ptr %2770, align 4
   %2771 = getelementptr inbounds nuw i8, ptr %2741, i64 176
-  store float 1.000000e+00, ptr %2771, align 4
+  store float 1.000000e+00, ptr %2771, align 8
   %2772 = getelementptr inbounds nuw i8, ptr %2741, i64 180
   store float 1.000000e+00, ptr %2772, align 4
   %2773 = getelementptr inbounds nuw i8, ptr %2741, i64 184
-  store float 0.000000e+00, ptr %2773, align 4
+  store float 0.000000e+00, ptr %2773, align 8
   %2774 = getelementptr inbounds nuw i8, ptr %2741, i64 188
   store float 1.000000e+00, ptr %2774, align 4
   %2775 = getelementptr inbounds nuw i8, ptr %2741, i64 192
-  store float 0.000000e+00, ptr %2775, align 4
+  store float 0.000000e+00, ptr %2775, align 8
   %2776 = getelementptr inbounds nuw i8, ptr %2741, i64 328
   %2777 = getelementptr inbounds nuw i8, ptr %2741, i64 196
   store i8 0, ptr %2777, align 4
@@ -11205,7 +11205,7 @@ sub_22848:                                        ; preds = %sub_12847
   store ptr %2963, ptr %2962, align 8
   %2964 = getelementptr inbounds nuw i8, ptr %2949, i64 72
   store i64 0, ptr %2964, align 8
-  store i8 0, ptr %2963, align 1
+  store i8 0, ptr %2963, align 8
   %2965 = getelementptr inbounds nuw i8, ptr %2949, i64 96
   store i8 0, ptr %2965, align 8
   %2966 = getelementptr inbounds nuw i8, ptr %2949, i64 97
@@ -11219,7 +11219,7 @@ sub_22848:                                        ; preds = %sub_12847
   store ptr %2970, ptr %2969, align 8
   %2971 = getelementptr inbounds nuw i8, ptr %2949, i64 120
   store i64 0, ptr %2971, align 8
-  store i8 0, ptr %2970, align 1
+  store i8 0, ptr %2970, align 8
   %2972 = getelementptr inbounds nuw i8, ptr %2949, i64 144
   store i32 0, ptr %2972, align 8
   %2973 = getelementptr inbounds nuw i8, ptr %2949, i64 152
@@ -11227,23 +11227,23 @@ sub_22848:                                        ; preds = %sub_12847
   %2974 = getelementptr inbounds nuw i8, ptr %2949, i64 156
   store i8 1, ptr %2974, align 4
   %2975 = getelementptr inbounds nuw i8, ptr %2949, i64 160
-  store float 0.000000e+00, ptr %2975, align 4
+  store float 0.000000e+00, ptr %2975, align 8
   %2976 = getelementptr inbounds nuw i8, ptr %2949, i64 164
   store float 0.000000e+00, ptr %2976, align 4
   %2977 = getelementptr inbounds nuw i8, ptr %2949, i64 168
-  store float 0.000000e+00, ptr %2977, align 4
+  store float 0.000000e+00, ptr %2977, align 8
   %2978 = getelementptr inbounds nuw i8, ptr %2949, i64 172
   store float 1.000000e+00, ptr %2978, align 4
   %2979 = getelementptr inbounds nuw i8, ptr %2949, i64 176
-  store float 1.000000e+00, ptr %2979, align 4
+  store float 1.000000e+00, ptr %2979, align 8
   %2980 = getelementptr inbounds nuw i8, ptr %2949, i64 180
   store float 1.000000e+00, ptr %2980, align 4
   %2981 = getelementptr inbounds nuw i8, ptr %2949, i64 184
-  store float 0.000000e+00, ptr %2981, align 4
+  store float 0.000000e+00, ptr %2981, align 8
   %2982 = getelementptr inbounds nuw i8, ptr %2949, i64 188
   store float 1.000000e+00, ptr %2982, align 4
   %2983 = getelementptr inbounds nuw i8, ptr %2949, i64 192
-  store float 0.000000e+00, ptr %2983, align 4
+  store float 0.000000e+00, ptr %2983, align 8
   %2984 = getelementptr inbounds nuw i8, ptr %2949, i64 328
   %2985 = getelementptr inbounds nuw i8, ptr %2949, i64 196
   store i8 0, ptr %2985, align 4
@@ -11769,7 +11769,7 @@ sub_22853:                                        ; preds = %sub_12852
   store ptr %3170, ptr %3169, align 8
   %3171 = getelementptr inbounds nuw i8, ptr %3156, i64 72
   store i64 0, ptr %3171, align 8
-  store i8 0, ptr %3170, align 1
+  store i8 0, ptr %3170, align 8
   %3172 = getelementptr inbounds nuw i8, ptr %3156, i64 96
   store i8 0, ptr %3172, align 8
   %3173 = getelementptr inbounds nuw i8, ptr %3156, i64 97
@@ -11783,7 +11783,7 @@ sub_22853:                                        ; preds = %sub_12852
   store ptr %3177, ptr %3176, align 8
   %3178 = getelementptr inbounds nuw i8, ptr %3156, i64 120
   store i64 0, ptr %3178, align 8
-  store i8 0, ptr %3177, align 1
+  store i8 0, ptr %3177, align 8
   %3179 = getelementptr inbounds nuw i8, ptr %3156, i64 144
   store i32 0, ptr %3179, align 8
   %3180 = getelementptr inbounds nuw i8, ptr %3156, i64 152
@@ -11791,23 +11791,23 @@ sub_22853:                                        ; preds = %sub_12852
   %3181 = getelementptr inbounds nuw i8, ptr %3156, i64 156
   store i8 1, ptr %3181, align 4
   %3182 = getelementptr inbounds nuw i8, ptr %3156, i64 160
-  store float 0.000000e+00, ptr %3182, align 4
+  store float 0.000000e+00, ptr %3182, align 8
   %3183 = getelementptr inbounds nuw i8, ptr %3156, i64 164
   store float 0.000000e+00, ptr %3183, align 4
   %3184 = getelementptr inbounds nuw i8, ptr %3156, i64 168
-  store float 0.000000e+00, ptr %3184, align 4
+  store float 0.000000e+00, ptr %3184, align 8
   %3185 = getelementptr inbounds nuw i8, ptr %3156, i64 172
   store float 1.000000e+00, ptr %3185, align 4
   %3186 = getelementptr inbounds nuw i8, ptr %3156, i64 176
-  store float 1.000000e+00, ptr %3186, align 4
+  store float 1.000000e+00, ptr %3186, align 8
   %3187 = getelementptr inbounds nuw i8, ptr %3156, i64 180
   store float 1.000000e+00, ptr %3187, align 4
   %3188 = getelementptr inbounds nuw i8, ptr %3156, i64 184
-  store float 0.000000e+00, ptr %3188, align 4
+  store float 0.000000e+00, ptr %3188, align 8
   %3189 = getelementptr inbounds nuw i8, ptr %3156, i64 188
   store float 1.000000e+00, ptr %3189, align 4
   %3190 = getelementptr inbounds nuw i8, ptr %3156, i64 192
-  store float 0.000000e+00, ptr %3190, align 4
+  store float 0.000000e+00, ptr %3190, align 8
   %3191 = getelementptr inbounds nuw i8, ptr %3156, i64 328
   %3192 = getelementptr inbounds nuw i8, ptr %3156, i64 196
   store i8 0, ptr %3192, align 4
@@ -12332,7 +12332,7 @@ sub_22858:                                        ; preds = %sub_12857
   store ptr %3376, ptr %3375, align 8
   %3377 = getelementptr inbounds nuw i8, ptr %3362, i64 72
   store i64 0, ptr %3377, align 8
-  store i8 0, ptr %3376, align 1
+  store i8 0, ptr %3376, align 8
   %3378 = getelementptr inbounds nuw i8, ptr %3362, i64 96
   store i8 0, ptr %3378, align 8
   %3379 = getelementptr inbounds nuw i8, ptr %3362, i64 97
@@ -12346,7 +12346,7 @@ sub_22858:                                        ; preds = %sub_12857
   store ptr %3383, ptr %3382, align 8
   %3384 = getelementptr inbounds nuw i8, ptr %3362, i64 120
   store i64 0, ptr %3384, align 8
-  store i8 0, ptr %3383, align 1
+  store i8 0, ptr %3383, align 8
   %3385 = getelementptr inbounds nuw i8, ptr %3362, i64 144
   store i32 0, ptr %3385, align 8
   %3386 = getelementptr inbounds nuw i8, ptr %3362, i64 152
@@ -12354,23 +12354,23 @@ sub_22858:                                        ; preds = %sub_12857
   %3387 = getelementptr inbounds nuw i8, ptr %3362, i64 156
   store i8 1, ptr %3387, align 4
   %3388 = getelementptr inbounds nuw i8, ptr %3362, i64 160
-  store float 0.000000e+00, ptr %3388, align 4
+  store float 0.000000e+00, ptr %3388, align 8
   %3389 = getelementptr inbounds nuw i8, ptr %3362, i64 164
   store float 0.000000e+00, ptr %3389, align 4
   %3390 = getelementptr inbounds nuw i8, ptr %3362, i64 168
-  store float 0.000000e+00, ptr %3390, align 4
+  store float 0.000000e+00, ptr %3390, align 8
   %3391 = getelementptr inbounds nuw i8, ptr %3362, i64 172
   store float 1.000000e+00, ptr %3391, align 4
   %3392 = getelementptr inbounds nuw i8, ptr %3362, i64 176
-  store float 1.000000e+00, ptr %3392, align 4
+  store float 1.000000e+00, ptr %3392, align 8
   %3393 = getelementptr inbounds nuw i8, ptr %3362, i64 180
   store float 1.000000e+00, ptr %3393, align 4
   %3394 = getelementptr inbounds nuw i8, ptr %3362, i64 184
-  store float 0.000000e+00, ptr %3394, align 4
+  store float 0.000000e+00, ptr %3394, align 8
   %3395 = getelementptr inbounds nuw i8, ptr %3362, i64 188
   store float 1.000000e+00, ptr %3395, align 4
   %3396 = getelementptr inbounds nuw i8, ptr %3362, i64 192
-  store float 0.000000e+00, ptr %3396, align 4
+  store float 0.000000e+00, ptr %3396, align 8
   %3397 = getelementptr inbounds nuw i8, ptr %3362, i64 328
   %3398 = getelementptr inbounds nuw i8, ptr %3362, i64 196
   store i8 0, ptr %3398, align 4
@@ -14743,7 +14743,7 @@ _ZNSt6vectorIN6Assimp11NFFImporter8MeshInfoESaIS2_EE7reserveEm.exit: ; preds = %
   %4132 = getelementptr inbounds nuw i8, ptr %4129, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %4132, ptr noundef nonnull align 1 dereferenceable(10) @.str.71, i64 10, i1 false)
   %4133 = getelementptr inbounds nuw i8, ptr %4129, i64 14
-  store i8 0, ptr %4133, align 1
+  store i8 0, ptr %4133, align 2
   %4134 = trunc nuw i8 %.2609 to i1
   %4135 = zext nneg i8 %.2609 to i32
   %4136 = add i32 %.0649.lcssa, %4135
@@ -14827,7 +14827,7 @@ _ZNSt6vectorIN6Assimp11NFFImporter8MeshInfoESaIS2_EE7reserveEm.exit: ; preds = %
   %4175 = getelementptr inbounds nuw i8, ptr %4172, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4175, ptr noundef nonnull align 1 dereferenceable(12) @.str.72, i64 12, i1 false)
   %4176 = getelementptr inbounds nuw i8, ptr %4172, i64 16
-  store i8 0, ptr %4176, align 1
+  store i8 0, ptr %4176, align 4
   %4177 = getelementptr inbounds nuw i8, ptr %4172, i64 1096
   store ptr %4129, ptr %4177, align 8
   %4178 = getelementptr inbounds nuw i8, ptr %2, i64 96
@@ -14872,7 +14872,7 @@ _ZNSt6vectorIN6Assimp11NFFImporter8MeshInfoESaIS2_EE7reserveEm.exit: ; preds = %
   %4196 = getelementptr inbounds nuw i8, ptr %4182, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4196, ptr noundef nonnull align 1 dereferenceable(12) @.str.72, i64 12, i1 false)
   %4197 = getelementptr inbounds nuw i8, ptr %4182, i64 16
-  store i8 0, ptr %4197, align 1
+  store i8 0, ptr %4197, align 4
   br label %4198
 
 4198:                                             ; preds = %4195, %4183
@@ -15199,7 +15199,7 @@ _ZNSt6vectorIN6Assimp11NFFImporter8MeshInfoESaIS2_EE7reserveEm.exit: ; preds = %
   %4376 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4363) #31
   %4377 = trunc i64 %4376 to i32
   %spec.store.select.i2412 = call i32 @llvm.smin.i32(i32 %4377, i32 1023)
-  store i32 %spec.store.select.i2412, ptr %4368, align 4
+  store i32 %spec.store.select.i2412, ptr %4368, align 8
   %4378 = getelementptr inbounds nuw i8, ptr %4368, i64 4
   %4379 = sext i32 %spec.store.select.i2412 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %4378, ptr nonnull align 1 %4363, i64 %4379, i1 false)
@@ -16476,7 +16476,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(452) ptr @_ZN
   store ptr %22, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store i64 0, ptr %23, align 8
-  store i8 0, ptr %22, align 1
+  store i8 0, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store i8 0, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 97
@@ -16490,7 +16490,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(452) ptr @_ZN
   store ptr %29, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 120
   store i64 0, ptr %30, align 8
-  store i8 0, ptr %29, align 1
+  store i8 0, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 144
   store i32 0, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 152
@@ -16498,23 +16498,23 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(452) ptr @_ZN
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 156
   store i8 %10, ptr %33, align 4
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 160
-  store float 0.000000e+00, ptr %34, align 4
+  store float 0.000000e+00, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 164
   store float 0.000000e+00, ptr %35, align 4
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 168
-  store float 0.000000e+00, ptr %36, align 4
+  store float 0.000000e+00, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 172
   store float 1.000000e+00, ptr %37, align 4
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 176
-  store float 1.000000e+00, ptr %38, align 4
+  store float 1.000000e+00, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 180
   store float 1.000000e+00, ptr %39, align 4
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 184
-  store float 0.000000e+00, ptr %40, align 4
+  store float 0.000000e+00, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 188
   store float 1.000000e+00, ptr %41, align 4
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 192
-  store float 0.000000e+00, ptr %42, align 4
+  store float 0.000000e+00, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 328
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 196
   store i8 0, ptr %44, align 4
@@ -17535,7 +17535,7 @@ _ZNKSt6vectorIN6Assimp11NFFImporter11ShadingInfoESaIS2_EE12_M_check_lenEmPKc.exi
   store ptr %35, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %23, i64 72
   store i64 0, ptr %36, align 8
-  store i8 0, ptr %35, align 1
+  store i8 0, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %23, i64 96
   store i8 0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %23, i64 97
@@ -17549,7 +17549,7 @@ _ZNKSt6vectorIN6Assimp11NFFImporter11ShadingInfoESaIS2_EE12_M_check_lenEmPKc.exi
   store ptr %42, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %23, i64 120
   store i64 0, ptr %43, align 8
-  store i8 0, ptr %42, align 1
+  store i8 0, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %23, i64 144
   store i32 0, ptr %44, align 8
   %.not14.i.i.i.i.i = icmp eq ptr %5, %1
@@ -19818,7 +19818,7 @@ _ZNKSt6vectorIN6Assimp11NFFImporter8MeshInfoESaIS2_EE12_M_check_lenEmPKc.exit: ;
   store ptr %36, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %22, i64 72
   store i64 0, ptr %37, align 8
-  store i8 0, ptr %36, align 1
+  store i8 0, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 96
   store i8 0, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %22, i64 97
@@ -19832,7 +19832,7 @@ _ZNKSt6vectorIN6Assimp11NFFImporter8MeshInfoESaIS2_EE12_M_check_lenEmPKc.exit: ;
   store ptr %43, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %22, i64 120
   store i64 0, ptr %44, align 8
-  store i8 0, ptr %43, align 1
+  store i8 0, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %22, i64 144
   store i32 0, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %22, i64 152
@@ -19840,23 +19840,23 @@ _ZNKSt6vectorIN6Assimp11NFFImporter8MeshInfoESaIS2_EE12_M_check_lenEmPKc.exit: ;
   %47 = getelementptr inbounds nuw i8, ptr %22, i64 156
   store i8 %24, ptr %47, align 4
   %48 = getelementptr inbounds nuw i8, ptr %22, i64 160
-  store float 0.000000e+00, ptr %48, align 4
+  store float 0.000000e+00, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %22, i64 164
   store float 0.000000e+00, ptr %49, align 4
   %50 = getelementptr inbounds nuw i8, ptr %22, i64 168
-  store float 0.000000e+00, ptr %50, align 4
+  store float 0.000000e+00, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %22, i64 172
   store float 1.000000e+00, ptr %51, align 4
   %52 = getelementptr inbounds nuw i8, ptr %22, i64 176
-  store float 1.000000e+00, ptr %52, align 4
+  store float 1.000000e+00, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %22, i64 180
   store float 1.000000e+00, ptr %53, align 4
   %54 = getelementptr inbounds nuw i8, ptr %22, i64 184
-  store float 0.000000e+00, ptr %54, align 4
+  store float 0.000000e+00, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %22, i64 188
   store float 1.000000e+00, ptr %55, align 4
   %56 = getelementptr inbounds nuw i8, ptr %22, i64 192
-  store float 0.000000e+00, ptr %56, align 4
+  store float 0.000000e+00, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %22, i64 328
   %58 = getelementptr inbounds nuw i8, ptr %22, i64 196
   store i8 0, ptr %58, align 4
@@ -20456,7 +20456,7 @@ _ZNKSt6vectorIN6Assimp11NFFImporter8MeshInfoESaIS2_EE12_M_check_lenEmPKc.exit: ;
   store ptr %34, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 72
   store i64 0, ptr %35, align 8
-  store i8 0, ptr %34, align 1
+  store i8 0, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %21, i64 96
   store i8 0, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %21, i64 97
@@ -20470,7 +20470,7 @@ _ZNKSt6vectorIN6Assimp11NFFImporter8MeshInfoESaIS2_EE12_M_check_lenEmPKc.exit: ;
   store ptr %41, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 120
   store i64 0, ptr %42, align 8
-  store i8 0, ptr %41, align 1
+  store i8 0, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %21, i64 144
   store i32 0, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %21, i64 152
@@ -20478,23 +20478,23 @@ _ZNKSt6vectorIN6Assimp11NFFImporter8MeshInfoESaIS2_EE12_M_check_lenEmPKc.exit: ;
   %45 = getelementptr inbounds nuw i8, ptr %21, i64 156
   store i8 0, ptr %45, align 4
   %46 = getelementptr inbounds nuw i8, ptr %21, i64 160
-  store float 0.000000e+00, ptr %46, align 4
+  store float 0.000000e+00, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %21, i64 164
   store float 0.000000e+00, ptr %47, align 4
   %48 = getelementptr inbounds nuw i8, ptr %21, i64 168
-  store float 0.000000e+00, ptr %48, align 4
+  store float 0.000000e+00, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %21, i64 172
   store float 1.000000e+00, ptr %49, align 4
   %50 = getelementptr inbounds nuw i8, ptr %21, i64 176
-  store float 1.000000e+00, ptr %50, align 4
+  store float 1.000000e+00, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %21, i64 180
   store float 1.000000e+00, ptr %51, align 4
   %52 = getelementptr inbounds nuw i8, ptr %21, i64 184
-  store float 0.000000e+00, ptr %52, align 4
+  store float 0.000000e+00, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %21, i64 188
   store float 1.000000e+00, ptr %53, align 4
   %54 = getelementptr inbounds nuw i8, ptr %21, i64 192
-  store float 0.000000e+00, ptr %54, align 4
+  store float 0.000000e+00, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %21, i64 328
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 196
   store i8 0, ptr %56, align 4

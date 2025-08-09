@@ -9386,7 +9386,7 @@ define dso_local void @blk_mq_release(ptr noundef %0) local_unnamed_addr #0 alig
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %20, ptr %21, align 8
   store volatile ptr %18, ptr %20, align 8
-  store volatile ptr %17, ptr %17, align 8
+  store volatile ptr %17, ptr %17, align 16
   store volatile ptr %17, ptr %19, align 8
   %22 = getelementptr i8, ptr %17, i64 -80
   call void @kobject_put(ptr noundef %22) #22
@@ -13193,7 +13193,7 @@ define internal fastcc ptr @blk_mq_alloc_and_init_hctx(ptr noundef %0, ptr nound
   %37 = getelementptr inbounds nuw i8, ptr %24, i64 72
   store volatile ptr %37, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %24, i64 80
-  store volatile ptr %37, ptr %38, align 8
+  store volatile ptr %37, ptr %38, align 16
   %39 = getelementptr inbounds nuw i8, ptr %24, i64 88
   store ptr @blk_mq_run_work_fn, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %24, i64 96
@@ -13202,7 +13202,7 @@ define internal fastcc ptr @blk_mq_alloc_and_init_hctx(ptr noundef %0, ptr nound
   %41 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store volatile ptr %41, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store volatile ptr %41, ptr %42, align 8
+  store volatile ptr %41, ptr %42, align 16
   %43 = getelementptr inbounds nuw i8, ptr %24, i64 184
   store ptr %1, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -13212,7 +13212,7 @@ define internal fastcc ptr @blk_mq_alloc_and_init_hctx(ptr noundef %0, ptr nound
   %48 = getelementptr inbounds nuw i8, ptr %24, i64 168
   store i64 %47, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %24, i64 464
-  store volatile ptr %49, ptr %49, align 8
+  store volatile ptr %49, ptr %49, align 16
   %50 = getelementptr inbounds nuw i8, ptr %24, i64 472
   store volatile ptr %49, ptr %50, align 8
   %51 = load i32, ptr @nr_cpu_ids, align 4

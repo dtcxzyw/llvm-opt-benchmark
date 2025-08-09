@@ -1607,7 +1607,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = 
   store ptr %145, ptr %144, align 8, !tbaa !6
   %146 = getelementptr inbounds nuw i8, ptr %.sroa.13.05736, i64 16
   store i64 0, ptr %146, align 8, !tbaa !12
-  store i8 0, ptr %145, align 1, !tbaa !15
+  store i8 0, ptr %145, align 8, !tbaa !15
   %.pre.i.i.i = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !32, !range !34
   %147 = trunc nuw i8 %.pre.i.i.i to i1
   %148 = icmp ne i32 %137, 0
@@ -1699,7 +1699,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i: ; preds 
   store ptr %185, ptr %184, align 8, !tbaa !6
   %186 = getelementptr inbounds nuw i8, ptr %176, i64 16
   store i64 0, ptr %186, align 8, !tbaa !12
-  store i8 0, ptr %185, align 1, !tbaa !15
+  store i8 0, ptr %185, align 8, !tbaa !15
   %.pre.i.i.i.i = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !32, !range !34
   %187 = trunc nuw i8 %.pre.i.i.i.i to i1
   %188 = icmp ne i32 %177, 0

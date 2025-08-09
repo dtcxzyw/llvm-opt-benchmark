@@ -40863,7 +40863,7 @@ _ZNK4entt9meta_type4baseEv.exit74:                ; preds = %100
   %137 = load ptr, ptr %109, align 8, !tbaa !38, !noalias !920
   %138 = load ptr, ptr %110, align 8, !tbaa !37, !noalias !920
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !920
-  %139 = load i32, ptr %.sroa.0156.0190, align 4, !tbaa !66, !noalias !920
+  %139 = load i32, ptr %.sroa.0156.0190, align 8, !tbaa !66, !noalias !920
   store i32 %139, ptr %11, align 8, !tbaa !129, !alias.scope !920
   store i32 %134, ptr %111, align 8, !tbaa !32, !alias.scope !920
   store ptr %135, ptr %112, align 8, !tbaa !36, !alias.scope !920
@@ -91130,7 +91130,7 @@ _ZN4entt7type_idIiEERKNS_9type_infoEv.exit:       ; preds = %3, %8, %10
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15, align 8, !tbaa !4, !noalias !1752
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = load i32, ptr %2, align 4, !tbaa !66, !noalias !1752
-  store i32 %19, ptr %18, align 4, !tbaa !66, !noalias !1752
+  store i32 %19, ptr %18, align 8, !tbaa !66, !noalias !1752
   store ptr %18, ptr %13, align 8, !tbaa !36
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %14, align 8, !tbaa !37
@@ -94156,7 +94156,7 @@ _ZN4entt7type_idIiEERKNS_9type_infoEv.exit:       ; preds = %3, %8, %10
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15, align 8, !tbaa !4, !noalias !1825
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = load i32, ptr %2, align 4, !tbaa !66, !noalias !1825
-  store i32 %19, ptr %18, align 4, !tbaa !66, !noalias !1825
+  store i32 %19, ptr %18, align 8, !tbaa !66, !noalias !1825
   store ptr %18, ptr %13, align 8, !tbaa !36
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %14, align 8, !tbaa !37
@@ -104060,7 +104060,7 @@ _ZN4entt7type_idIcEERKNS_9type_infoEv.exit:       ; preds = %3, %8, %10
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIcSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15, align 8, !tbaa !4, !noalias !2016
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = load i8, ptr %2, align 1, !tbaa !65, !noalias !2016
-  store i8 %19, ptr %18, align 1, !tbaa !65, !noalias !2016
+  store i8 %19, ptr %18, align 8, !tbaa !65, !noalias !2016
   store ptr %18, ptr %13, align 8, !tbaa !36
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %14, align 8, !tbaa !37
@@ -124002,7 +124002,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %8, ptr %7, align 8, !tbaa !1828
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %9, align 8, !tbaa !86
-  store i8 0, ptr %8, align 1, !tbaa !65
+  store i8 0, ptr %8, align 8, !tbaa !65
   store ptr %7, ptr %4, align 8, !tbaa !80
   br label %10
 
@@ -128183,7 +128183,7 @@ _ZNK4entt9meta_type4baseEv.exit:                  ; preds = %13, %_ZN4entt8inter
   %57 = load ptr, ptr %42, align 8, !tbaa !38, !noalias !2448
   %58 = load ptr, ptr %43, align 8, !tbaa !37, !noalias !2448
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !2448
-  %59 = load i32, ptr %.sroa.051.072, align 4, !tbaa !66, !noalias !2448
+  %59 = load i32, ptr %.sroa.051.072, align 8, !tbaa !66, !noalias !2448
   store i32 %59, ptr %9, align 8, !tbaa !129, !alias.scope !2448
   store i32 %54, ptr %44, align 8, !tbaa !32, !alias.scope !2448
   store ptr %55, ptr %45, align 8, !tbaa !36, !alias.scope !2448

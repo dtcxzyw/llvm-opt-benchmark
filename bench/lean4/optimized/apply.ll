@@ -57,7 +57,7 @@ define noundef ptr @_ZN4lean5curryEPvjPP11lean_object(ptr noundef readonly captu
   store ptr %7, ptr %6, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %8, align 8, !tbaa !9
-  store i8 0, ptr %7, align 1, !tbaa !12
+  store i8 0, ptr %7, align 8, !tbaa !12
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %5, align 8, !tbaa !13
   tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #10
   unreachable
@@ -845,7 +845,7 @@ define noundef ptr @lean_apply_1(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %316 = getelementptr i8, ptr %0, i64 8
   %.val704 = load ptr, ptr %316, align 8, !tbaa !15
   %317 = tail call noundef ptr %.val704(ptr noundef %1)
-  %318 = load i32, ptr %0, align 4, !tbaa !16
+  %318 = load i32, ptr %0, align 8, !tbaa !16
   %319 = icmp sgt i32 %318, 1
   br i1 %319, label %320, label %322, !prof !19
 
@@ -894,7 +894,7 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %334, %333, %331, %3
   %336 = getelementptr i8, ptr %0, i64 8
   %.val705 = load ptr, ptr %336, align 8, !tbaa !15
   %337 = tail call noundef ptr %.val705(ptr noundef %335, ptr noundef %1)
-  %338 = load i32, ptr %0, align 4, !tbaa !16
+  %338 = load i32, ptr %0, align 8, !tbaa !16
   %339 = icmp sgt i32 %338, 1
   br i1 %339, label %340, label %342, !prof !19
 
@@ -970,7 +970,7 @@ _ZL8lean_incP11lean_object.exit567:               ; preds = %364, %363, %361, %_
   %.val706 = load ptr, ptr %366, align 8, !tbaa !15
   %367 = load ptr, ptr %345, align 8, !tbaa !15
   %368 = tail call noundef ptr %.val706(ptr noundef %367, ptr noundef %365, ptr noundef %1)
-  %369 = load i32, ptr %0, align 4, !tbaa !16
+  %369 = load i32, ptr %0, align 8, !tbaa !16
   %370 = icmp sgt i32 %369, 1
   br i1 %370, label %371, label %373, !prof !19
 
@@ -1073,7 +1073,7 @@ _ZL8lean_incP11lean_object.exit570:               ; preds = %405, %404, %402, %_
   %408 = load ptr, ptr %376, align 8, !tbaa !15
   %409 = load ptr, ptr %386, align 8, !tbaa !15
   %410 = tail call noundef ptr %.val707(ptr noundef %408, ptr noundef %409, ptr noundef %406, ptr noundef %1)
-  %411 = load i32, ptr %0, align 4, !tbaa !16
+  %411 = load i32, ptr %0, align 8, !tbaa !16
   %412 = icmp sgt i32 %411, 1
   br i1 %412, label %413, label %415, !prof !19
 
@@ -1203,7 +1203,7 @@ _ZL8lean_incP11lean_object.exit574:               ; preds = %457, %456, %454, %_
   %461 = load ptr, ptr %428, align 8, !tbaa !15
   %462 = load ptr, ptr %438, align 8, !tbaa !15
   %463 = tail call noundef ptr %.val708(ptr noundef %460, ptr noundef %461, ptr noundef %462, ptr noundef %458, ptr noundef %1)
-  %464 = load i32, ptr %0, align 4, !tbaa !16
+  %464 = load i32, ptr %0, align 8, !tbaa !16
   %465 = icmp sgt i32 %464, 1
   br i1 %465, label %466, label %468, !prof !19
 
@@ -1360,7 +1360,7 @@ _ZL8lean_incP11lean_object.exit579:               ; preds = %520, %519, %517, %_
   %525 = load ptr, ptr %491, align 8, !tbaa !15
   %526 = load ptr, ptr %501, align 8, !tbaa !15
   %527 = tail call noundef ptr %.val709(ptr noundef %523, ptr noundef %524, ptr noundef %525, ptr noundef %526, ptr noundef %521, ptr noundef %1)
-  %528 = load i32, ptr %0, align 4, !tbaa !16
+  %528 = load i32, ptr %0, align 8, !tbaa !16
   %529 = icmp sgt i32 %528, 1
   br i1 %529, label %530, label %532, !prof !19
 
@@ -1544,7 +1544,7 @@ _ZL8lean_incP11lean_object.exit585:               ; preds = %594, %593, %591, %_
   %600 = load ptr, ptr %565, align 8, !tbaa !15
   %601 = load ptr, ptr %575, align 8, !tbaa !15
   %602 = tail call noundef ptr %.val710(ptr noundef %597, ptr noundef %598, ptr noundef %599, ptr noundef %600, ptr noundef %601, ptr noundef %595, ptr noundef %1)
-  %603 = load i32, ptr %0, align 4, !tbaa !16
+  %603 = load i32, ptr %0, align 8, !tbaa !16
   %604 = icmp sgt i32 %603, 1
   br i1 %604, label %605, label %607, !prof !19
 
@@ -1755,7 +1755,7 @@ _ZL8lean_incP11lean_object.exit592:               ; preds = %679, %678, %676, %_
   %686 = load ptr, ptr %650, align 8, !tbaa !15
   %687 = load ptr, ptr %660, align 8, !tbaa !15
   %688 = tail call noundef ptr %.val711(ptr noundef %682, ptr noundef %683, ptr noundef %684, ptr noundef %685, ptr noundef %686, ptr noundef %687, ptr noundef %680, ptr noundef %1)
-  %689 = load i32, ptr %0, align 4, !tbaa !16
+  %689 = load i32, ptr %0, align 8, !tbaa !16
   %690 = icmp sgt i32 %689, 1
   br i1 %690, label %691, label %693, !prof !19
 
@@ -1993,7 +1993,7 @@ _ZL8lean_incP11lean_object.exit600:               ; preds = %775, %774, %772, %_
   %783 = load ptr, ptr %746, align 8, !tbaa !15
   %784 = load ptr, ptr %756, align 8, !tbaa !15
   %785 = tail call noundef ptr %.val712(ptr noundef %778, ptr noundef %779, ptr noundef %780, ptr noundef %781, ptr noundef %782, ptr noundef %783, ptr noundef %784, ptr noundef %776, ptr noundef %1)
-  %786 = load i32, ptr %0, align 4, !tbaa !16
+  %786 = load i32, ptr %0, align 8, !tbaa !16
   %787 = icmp sgt i32 %786, 1
   br i1 %787, label %788, label %790, !prof !19
 
@@ -2258,7 +2258,7 @@ _ZL8lean_incP11lean_object.exit609:               ; preds = %882, %881, %879, %_
   %891 = load ptr, ptr %853, align 8, !tbaa !15
   %892 = load ptr, ptr %863, align 8, !tbaa !15
   %893 = tail call noundef ptr %.val713(ptr noundef %885, ptr noundef %886, ptr noundef %887, ptr noundef %888, ptr noundef %889, ptr noundef %890, ptr noundef %891, ptr noundef %892, ptr noundef %883, ptr noundef %1)
-  %894 = load i32, ptr %0, align 4, !tbaa !16
+  %894 = load i32, ptr %0, align 8, !tbaa !16
   %895 = icmp sgt i32 %894, 1
   br i1 %895, label %896, label %898, !prof !19
 
@@ -2550,7 +2550,7 @@ _ZL8lean_incP11lean_object.exit619:               ; preds = %1000, %999, %997, %
   %1010 = load ptr, ptr %971, align 8, !tbaa !15
   %1011 = load ptr, ptr %981, align 8, !tbaa !15
   %1012 = tail call noundef ptr %.val714(ptr noundef %1003, ptr noundef %1004, ptr noundef %1005, ptr noundef %1006, ptr noundef %1007, ptr noundef %1008, ptr noundef %1009, ptr noundef %1010, ptr noundef %1011, ptr noundef %1001, ptr noundef %1)
-  %1013 = load i32, ptr %0, align 4, !tbaa !16
+  %1013 = load i32, ptr %0, align 8, !tbaa !16
   %1014 = icmp sgt i32 %1013, 1
   br i1 %1014, label %1015, label %1017, !prof !19
 
@@ -2869,7 +2869,7 @@ _ZL8lean_incP11lean_object.exit630:               ; preds = %1129, %1128, %1126,
   %1140 = load ptr, ptr %1100, align 8, !tbaa !15
   %1141 = load ptr, ptr %1110, align 8, !tbaa !15
   %1142 = tail call noundef ptr %.val715(ptr noundef %1132, ptr noundef %1133, ptr noundef %1134, ptr noundef %1135, ptr noundef %1136, ptr noundef %1137, ptr noundef %1138, ptr noundef %1139, ptr noundef %1140, ptr noundef %1141, ptr noundef %1130, ptr noundef %1)
-  %1143 = load i32, ptr %0, align 4, !tbaa !16
+  %1143 = load i32, ptr %0, align 8, !tbaa !16
   %1144 = icmp sgt i32 %1143, 1
   br i1 %1144, label %1145, label %1147, !prof !19
 
@@ -3215,7 +3215,7 @@ _ZL8lean_incP11lean_object.exit642:               ; preds = %1269, %1268, %1266,
   %1281 = load ptr, ptr %1240, align 8, !tbaa !15
   %1282 = load ptr, ptr %1250, align 8, !tbaa !15
   %1283 = tail call noundef ptr %.val716(ptr noundef %1272, ptr noundef %1273, ptr noundef %1274, ptr noundef %1275, ptr noundef %1276, ptr noundef %1277, ptr noundef %1278, ptr noundef %1279, ptr noundef %1280, ptr noundef %1281, ptr noundef %1282, ptr noundef %1270, ptr noundef %1)
-  %1284 = load i32, ptr %0, align 4, !tbaa !16
+  %1284 = load i32, ptr %0, align 8, !tbaa !16
   %1285 = icmp sgt i32 %1284, 1
   br i1 %1285, label %1286, label %1288, !prof !19
 
@@ -3588,7 +3588,7 @@ _ZL8lean_incP11lean_object.exit655:               ; preds = %1420, %1419, %1417,
   %1433 = load ptr, ptr %1391, align 8, !tbaa !15
   %1434 = load ptr, ptr %1401, align 8, !tbaa !15
   %1435 = tail call noundef ptr %.val717(ptr noundef %1423, ptr noundef %1424, ptr noundef %1425, ptr noundef %1426, ptr noundef %1427, ptr noundef %1428, ptr noundef %1429, ptr noundef %1430, ptr noundef %1431, ptr noundef %1432, ptr noundef %1433, ptr noundef %1434, ptr noundef %1421, ptr noundef %1)
-  %1436 = load i32, ptr %0, align 4, !tbaa !16
+  %1436 = load i32, ptr %0, align 8, !tbaa !16
   %1437 = icmp sgt i32 %1436, 1
   br i1 %1437, label %1438, label %1440, !prof !19
 
@@ -3988,7 +3988,7 @@ _ZL8lean_incP11lean_object.exit669:               ; preds = %1582, %1581, %1579,
   %1596 = load ptr, ptr %1553, align 8, !tbaa !15
   %1597 = load ptr, ptr %1563, align 8, !tbaa !15
   %1598 = tail call noundef ptr %.val718(ptr noundef %1585, ptr noundef %1586, ptr noundef %1587, ptr noundef %1588, ptr noundef %1589, ptr noundef %1590, ptr noundef %1591, ptr noundef %1592, ptr noundef %1593, ptr noundef %1594, ptr noundef %1595, ptr noundef %1596, ptr noundef %1597, ptr noundef %1583, ptr noundef %1)
-  %1599 = load i32, ptr %0, align 4, !tbaa !16
+  %1599 = load i32, ptr %0, align 8, !tbaa !16
   %1600 = icmp sgt i32 %1599, 1
   br i1 %1600, label %1601, label %1603, !prof !19
 
@@ -4415,7 +4415,7 @@ _ZL8lean_incP11lean_object.exit684:               ; preds = %1755, %1754, %1752,
   %1770 = load ptr, ptr %1726, align 8, !tbaa !15
   %1771 = load ptr, ptr %1736, align 8, !tbaa !15
   %1772 = tail call noundef ptr %.val719(ptr noundef %1758, ptr noundef %1759, ptr noundef %1760, ptr noundef %1761, ptr noundef %1762, ptr noundef %1763, ptr noundef %1764, ptr noundef %1765, ptr noundef %1766, ptr noundef %1767, ptr noundef %1768, ptr noundef %1769, ptr noundef %1770, ptr noundef %1771, ptr noundef %1756, ptr noundef %1)
-  %1773 = load i32, ptr %0, align 4, !tbaa !16
+  %1773 = load i32, ptr %0, align 8, !tbaa !16
   %1774 = icmp sgt i32 %1773, 1
   br i1 %1774, label %1775, label %1777, !prof !19
 
@@ -4487,7 +4487,7 @@ _ZL8lean_incP11lean_object.exit685:               ; preds = %1794, %1793, %1791,
   %1799 = getelementptr i8, ptr %0, i64 8
   %.val720 = load ptr, ptr %1799, align 8, !tbaa !15
   %1800 = call noundef ptr %.val720(ptr noundef nonnull %1782)
-  %1801 = load i32, ptr %0, align 4, !tbaa !16
+  %1801 = load i32, ptr %0, align 8, !tbaa !16
   %1802 = icmp sgt i32 %1801, 1
   br i1 %1802, label %1803, label %1805, !prof !19
 
@@ -4515,7 +4515,7 @@ _ZL8lean_incP11lean_object.exit685:               ; preds = %1794, %1793, %1791,
   store ptr %1811, ptr %1810, align 8, !tbaa !3
   %1812 = getelementptr inbounds nuw i8, ptr %1809, i64 16
   store i64 0, ptr %1812, align 8, !tbaa !9
-  store i8 0, ptr %1811, align 1, !tbaa !12
+  store i8 0, ptr %1811, align 8, !tbaa !12
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %1809, align 8, !tbaa !13
   tail call void @__cxa_throw(ptr nonnull %1809, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #10
   unreachable
@@ -4962,7 +4962,7 @@ _ZL8lean_decP11lean_object.exit543:               ; preds = %17, %16, %14, %8
   %294 = getelementptr i8, ptr %0, i64 8
   %.val703 = load ptr, ptr %294, align 8, !tbaa !15
   %295 = tail call noundef ptr %.val703(ptr noundef %1, ptr noundef %2)
-  %296 = load i32, ptr %0, align 4, !tbaa !16
+  %296 = load i32, ptr %0, align 8, !tbaa !16
   %297 = icmp sgt i32 %296, 1
   br i1 %297, label %298, label %300, !prof !19
 
@@ -5011,7 +5011,7 @@ _ZL8lean_incP11lean_object.exit685:               ; preds = %312, %311, %309, %3
   %314 = getelementptr i8, ptr %0, i64 8
   %.val702 = load ptr, ptr %314, align 8, !tbaa !15
   %315 = tail call noundef ptr %.val702(ptr noundef %313, ptr noundef %1, ptr noundef %2)
-  %316 = load i32, ptr %0, align 4, !tbaa !16
+  %316 = load i32, ptr %0, align 8, !tbaa !16
   %317 = icmp sgt i32 %316, 1
   br i1 %317, label %318, label %320, !prof !19
 
@@ -5087,7 +5087,7 @@ _ZL8lean_incP11lean_object.exit683:               ; preds = %342, %341, %339, %_
   %.val701 = load ptr, ptr %344, align 8, !tbaa !15
   %345 = load ptr, ptr %323, align 8, !tbaa !15
   %346 = tail call noundef ptr %.val701(ptr noundef %345, ptr noundef %343, ptr noundef %1, ptr noundef %2)
-  %347 = load i32, ptr %0, align 4, !tbaa !16
+  %347 = load i32, ptr %0, align 8, !tbaa !16
   %348 = icmp sgt i32 %347, 1
   br i1 %348, label %349, label %351, !prof !19
 
@@ -5190,7 +5190,7 @@ _ZL8lean_incP11lean_object.exit680:               ; preds = %383, %382, %380, %_
   %386 = load ptr, ptr %354, align 8, !tbaa !15
   %387 = load ptr, ptr %364, align 8, !tbaa !15
   %388 = tail call noundef ptr %.val700(ptr noundef %386, ptr noundef %387, ptr noundef %384, ptr noundef %1, ptr noundef %2)
-  %389 = load i32, ptr %0, align 4, !tbaa !16
+  %389 = load i32, ptr %0, align 8, !tbaa !16
   %390 = icmp sgt i32 %389, 1
   br i1 %390, label %391, label %393, !prof !19
 
@@ -5320,7 +5320,7 @@ _ZL8lean_incP11lean_object.exit676:               ; preds = %435, %434, %432, %_
   %439 = load ptr, ptr %406, align 8, !tbaa !15
   %440 = load ptr, ptr %416, align 8, !tbaa !15
   %441 = tail call noundef ptr %.val699(ptr noundef %438, ptr noundef %439, ptr noundef %440, ptr noundef %436, ptr noundef %1, ptr noundef %2)
-  %442 = load i32, ptr %0, align 4, !tbaa !16
+  %442 = load i32, ptr %0, align 8, !tbaa !16
   %443 = icmp sgt i32 %442, 1
   br i1 %443, label %444, label %446, !prof !19
 
@@ -5477,7 +5477,7 @@ _ZL8lean_incP11lean_object.exit671:               ; preds = %498, %497, %495, %_
   %503 = load ptr, ptr %469, align 8, !tbaa !15
   %504 = load ptr, ptr %479, align 8, !tbaa !15
   %505 = tail call noundef ptr %.val698(ptr noundef %501, ptr noundef %502, ptr noundef %503, ptr noundef %504, ptr noundef %499, ptr noundef %1, ptr noundef %2)
-  %506 = load i32, ptr %0, align 4, !tbaa !16
+  %506 = load i32, ptr %0, align 8, !tbaa !16
   %507 = icmp sgt i32 %506, 1
   br i1 %507, label %508, label %510, !prof !19
 
@@ -5661,7 +5661,7 @@ _ZL8lean_incP11lean_object.exit665:               ; preds = %572, %571, %569, %_
   %578 = load ptr, ptr %543, align 8, !tbaa !15
   %579 = load ptr, ptr %553, align 8, !tbaa !15
   %580 = tail call noundef ptr %.val697(ptr noundef %575, ptr noundef %576, ptr noundef %577, ptr noundef %578, ptr noundef %579, ptr noundef %573, ptr noundef %1, ptr noundef %2)
-  %581 = load i32, ptr %0, align 4, !tbaa !16
+  %581 = load i32, ptr %0, align 8, !tbaa !16
   %582 = icmp sgt i32 %581, 1
   br i1 %582, label %583, label %585, !prof !19
 
@@ -5872,7 +5872,7 @@ _ZL8lean_incP11lean_object.exit658:               ; preds = %657, %656, %654, %_
   %664 = load ptr, ptr %628, align 8, !tbaa !15
   %665 = load ptr, ptr %638, align 8, !tbaa !15
   %666 = tail call noundef ptr %.val696(ptr noundef %660, ptr noundef %661, ptr noundef %662, ptr noundef %663, ptr noundef %664, ptr noundef %665, ptr noundef %658, ptr noundef %1, ptr noundef %2)
-  %667 = load i32, ptr %0, align 4, !tbaa !16
+  %667 = load i32, ptr %0, align 8, !tbaa !16
   %668 = icmp sgt i32 %667, 1
   br i1 %668, label %669, label %671, !prof !19
 
@@ -6110,7 +6110,7 @@ _ZL8lean_incP11lean_object.exit650:               ; preds = %753, %752, %750, %_
   %761 = load ptr, ptr %724, align 8, !tbaa !15
   %762 = load ptr, ptr %734, align 8, !tbaa !15
   %763 = tail call noundef ptr %.val695(ptr noundef %756, ptr noundef %757, ptr noundef %758, ptr noundef %759, ptr noundef %760, ptr noundef %761, ptr noundef %762, ptr noundef %754, ptr noundef %1, ptr noundef %2)
-  %764 = load i32, ptr %0, align 4, !tbaa !16
+  %764 = load i32, ptr %0, align 8, !tbaa !16
   %765 = icmp sgt i32 %764, 1
   br i1 %765, label %766, label %768, !prof !19
 
@@ -6375,7 +6375,7 @@ _ZL8lean_incP11lean_object.exit641:               ; preds = %860, %859, %857, %_
   %869 = load ptr, ptr %831, align 8, !tbaa !15
   %870 = load ptr, ptr %841, align 8, !tbaa !15
   %871 = tail call noundef ptr %.val694(ptr noundef %863, ptr noundef %864, ptr noundef %865, ptr noundef %866, ptr noundef %867, ptr noundef %868, ptr noundef %869, ptr noundef %870, ptr noundef %861, ptr noundef %1, ptr noundef %2)
-  %872 = load i32, ptr %0, align 4, !tbaa !16
+  %872 = load i32, ptr %0, align 8, !tbaa !16
   %873 = icmp sgt i32 %872, 1
   br i1 %873, label %874, label %876, !prof !19
 
@@ -6667,7 +6667,7 @@ _ZL8lean_incP11lean_object.exit631:               ; preds = %978, %977, %975, %_
   %988 = load ptr, ptr %949, align 8, !tbaa !15
   %989 = load ptr, ptr %959, align 8, !tbaa !15
   %990 = tail call noundef ptr %.val693(ptr noundef %981, ptr noundef %982, ptr noundef %983, ptr noundef %984, ptr noundef %985, ptr noundef %986, ptr noundef %987, ptr noundef %988, ptr noundef %989, ptr noundef %979, ptr noundef %1, ptr noundef %2)
-  %991 = load i32, ptr %0, align 4, !tbaa !16
+  %991 = load i32, ptr %0, align 8, !tbaa !16
   %992 = icmp sgt i32 %991, 1
   br i1 %992, label %993, label %995, !prof !19
 
@@ -6986,7 +6986,7 @@ _ZL8lean_incP11lean_object.exit620:               ; preds = %1107, %1106, %1104,
   %1118 = load ptr, ptr %1078, align 8, !tbaa !15
   %1119 = load ptr, ptr %1088, align 8, !tbaa !15
   %1120 = tail call noundef ptr %.val692(ptr noundef %1110, ptr noundef %1111, ptr noundef %1112, ptr noundef %1113, ptr noundef %1114, ptr noundef %1115, ptr noundef %1116, ptr noundef %1117, ptr noundef %1118, ptr noundef %1119, ptr noundef %1108, ptr noundef %1, ptr noundef %2)
-  %1121 = load i32, ptr %0, align 4, !tbaa !16
+  %1121 = load i32, ptr %0, align 8, !tbaa !16
   %1122 = icmp sgt i32 %1121, 1
   br i1 %1122, label %1123, label %1125, !prof !19
 
@@ -7332,7 +7332,7 @@ _ZL8lean_incP11lean_object.exit608:               ; preds = %1247, %1246, %1244,
   %1259 = load ptr, ptr %1218, align 8, !tbaa !15
   %1260 = load ptr, ptr %1228, align 8, !tbaa !15
   %1261 = tail call noundef ptr %.val691(ptr noundef %1250, ptr noundef %1251, ptr noundef %1252, ptr noundef %1253, ptr noundef %1254, ptr noundef %1255, ptr noundef %1256, ptr noundef %1257, ptr noundef %1258, ptr noundef %1259, ptr noundef %1260, ptr noundef %1248, ptr noundef %1, ptr noundef %2)
-  %1262 = load i32, ptr %0, align 4, !tbaa !16
+  %1262 = load i32, ptr %0, align 8, !tbaa !16
   %1263 = icmp sgt i32 %1262, 1
   br i1 %1263, label %1264, label %1266, !prof !19
 
@@ -7705,7 +7705,7 @@ _ZL8lean_incP11lean_object.exit595:               ; preds = %1398, %1397, %1395,
   %1411 = load ptr, ptr %1369, align 8, !tbaa !15
   %1412 = load ptr, ptr %1379, align 8, !tbaa !15
   %1413 = tail call noundef ptr %.val690(ptr noundef %1401, ptr noundef %1402, ptr noundef %1403, ptr noundef %1404, ptr noundef %1405, ptr noundef %1406, ptr noundef %1407, ptr noundef %1408, ptr noundef %1409, ptr noundef %1410, ptr noundef %1411, ptr noundef %1412, ptr noundef %1399, ptr noundef %1, ptr noundef %2)
-  %1414 = load i32, ptr %0, align 4, !tbaa !16
+  %1414 = load i32, ptr %0, align 8, !tbaa !16
   %1415 = icmp sgt i32 %1414, 1
   br i1 %1415, label %1416, label %1418, !prof !19
 
@@ -8105,7 +8105,7 @@ _ZL8lean_incP11lean_object.exit581:               ; preds = %1560, %1559, %1557,
   %1574 = load ptr, ptr %1531, align 8, !tbaa !15
   %1575 = load ptr, ptr %1541, align 8, !tbaa !15
   %1576 = tail call noundef ptr %.val689(ptr noundef %1563, ptr noundef %1564, ptr noundef %1565, ptr noundef %1566, ptr noundef %1567, ptr noundef %1568, ptr noundef %1569, ptr noundef %1570, ptr noundef %1571, ptr noundef %1572, ptr noundef %1573, ptr noundef %1574, ptr noundef %1575, ptr noundef %1561, ptr noundef %1, ptr noundef %2)
-  %1577 = load i32, ptr %0, align 4, !tbaa !16
+  %1577 = load i32, ptr %0, align 8, !tbaa !16
   %1578 = icmp sgt i32 %1577, 1
   br i1 %1578, label %1579, label %1581, !prof !19
 
@@ -8144,7 +8144,7 @@ _ZL8lean_incP11lean_object.exit581:               ; preds = %1560, %1559, %1557,
   %1590 = getelementptr i8, ptr %0, i64 8
   %.val688 = load ptr, ptr %1590, align 8, !tbaa !15
   %1591 = call noundef ptr %.val688(ptr noundef nonnull %1586)
-  %1592 = load i32, ptr %0, align 4, !tbaa !16
+  %1592 = load i32, ptr %0, align 8, !tbaa !16
   %1593 = icmp sgt i32 %1592, 1
   br i1 %1593, label %1607, label %1609, !prof !19
 
@@ -8266,7 +8266,7 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %1630, %1629, %1627,
   %1633 = getelementptr i8, ptr %0, i64 8
   %.val721 = load ptr, ptr %1633, align 8, !tbaa !15
   %1634 = call noundef ptr @_ZN4lean5curryEPvjPP11lean_object(ptr noundef readonly %.val721, i32 noundef range(i32 0, 65536) %29, ptr noundef nonnull %1617)
-  %1635 = load i32, ptr %0, align 4, !tbaa !16
+  %1635 = load i32, ptr %0, align 8, !tbaa !16
   %1636 = icmp sgt i32 %1635, 1
   br i1 %1636, label %1637, label %1639, !prof !19
 
@@ -8347,7 +8347,7 @@ define ptr @lean_apply_n(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_u
   store ptr %7, ptr %6, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %8, align 8, !tbaa !9
-  store i8 0, ptr %7, align 1, !tbaa !12
+  store i8 0, ptr %7, align 8, !tbaa !12
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %5, align 8, !tbaa !13
   tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #10
   unreachable
@@ -9098,7 +9098,7 @@ _ZL8lean_decP11lean_object.exit523:               ; preds = %27, %26, %24, %_ZL8
   %273 = getelementptr i8, ptr %0, i64 8
   %.val669 = load ptr, ptr %273, align 8, !tbaa !15
   %274 = tail call noundef ptr %.val669(ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  %275 = load i32, ptr %0, align 4, !tbaa !16
+  %275 = load i32, ptr %0, align 8, !tbaa !16
   %276 = icmp sgt i32 %275, 1
   br i1 %276, label %277, label %279, !prof !19
 
@@ -9147,7 +9147,7 @@ _ZL8lean_incP11lean_object.exit652:               ; preds = %291, %290, %288, %2
   %293 = getelementptr i8, ptr %0, i64 8
   %.val668 = load ptr, ptr %293, align 8, !tbaa !15
   %294 = tail call noundef ptr %.val668(ptr noundef %292, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  %295 = load i32, ptr %0, align 4, !tbaa !16
+  %295 = load i32, ptr %0, align 8, !tbaa !16
   %296 = icmp sgt i32 %295, 1
   br i1 %296, label %297, label %299, !prof !19
 
@@ -9223,7 +9223,7 @@ _ZL8lean_incP11lean_object.exit650:               ; preds = %321, %320, %318, %_
   %.val667 = load ptr, ptr %323, align 8, !tbaa !15
   %324 = load ptr, ptr %302, align 8, !tbaa !15
   %325 = tail call noundef ptr %.val667(ptr noundef %324, ptr noundef %322, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  %326 = load i32, ptr %0, align 4, !tbaa !16
+  %326 = load i32, ptr %0, align 8, !tbaa !16
   %327 = icmp sgt i32 %326, 1
   br i1 %327, label %328, label %330, !prof !19
 
@@ -9326,7 +9326,7 @@ _ZL8lean_incP11lean_object.exit647:               ; preds = %362, %361, %359, %_
   %365 = load ptr, ptr %333, align 8, !tbaa !15
   %366 = load ptr, ptr %343, align 8, !tbaa !15
   %367 = tail call noundef ptr %.val666(ptr noundef %365, ptr noundef %366, ptr noundef %363, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  %368 = load i32, ptr %0, align 4, !tbaa !16
+  %368 = load i32, ptr %0, align 8, !tbaa !16
   %369 = icmp sgt i32 %368, 1
   br i1 %369, label %370, label %372, !prof !19
 
@@ -9456,7 +9456,7 @@ _ZL8lean_incP11lean_object.exit643:               ; preds = %414, %413, %411, %_
   %418 = load ptr, ptr %385, align 8, !tbaa !15
   %419 = load ptr, ptr %395, align 8, !tbaa !15
   %420 = tail call noundef ptr %.val665(ptr noundef %417, ptr noundef %418, ptr noundef %419, ptr noundef %415, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  %421 = load i32, ptr %0, align 4, !tbaa !16
+  %421 = load i32, ptr %0, align 8, !tbaa !16
   %422 = icmp sgt i32 %421, 1
   br i1 %422, label %423, label %425, !prof !19
 
@@ -9613,7 +9613,7 @@ _ZL8lean_incP11lean_object.exit638:               ; preds = %477, %476, %474, %_
   %482 = load ptr, ptr %448, align 8, !tbaa !15
   %483 = load ptr, ptr %458, align 8, !tbaa !15
   %484 = tail call noundef ptr %.val664(ptr noundef %480, ptr noundef %481, ptr noundef %482, ptr noundef %483, ptr noundef %478, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  %485 = load i32, ptr %0, align 4, !tbaa !16
+  %485 = load i32, ptr %0, align 8, !tbaa !16
   %486 = icmp sgt i32 %485, 1
   br i1 %486, label %487, label %489, !prof !19
 
@@ -9797,7 +9797,7 @@ _ZL8lean_incP11lean_object.exit632:               ; preds = %551, %550, %548, %_
   %557 = load ptr, ptr %522, align 8, !tbaa !15
   %558 = load ptr, ptr %532, align 8, !tbaa !15
   %559 = tail call noundef ptr %.val663(ptr noundef %554, ptr noundef %555, ptr noundef %556, ptr noundef %557, ptr noundef %558, ptr noundef %552, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  %560 = load i32, ptr %0, align 4, !tbaa !16
+  %560 = load i32, ptr %0, align 8, !tbaa !16
   %561 = icmp sgt i32 %560, 1
   br i1 %561, label %562, label %564, !prof !19
 
@@ -10008,7 +10008,7 @@ _ZL8lean_incP11lean_object.exit625:               ; preds = %636, %635, %633, %_
   %643 = load ptr, ptr %607, align 8, !tbaa !15
   %644 = load ptr, ptr %617, align 8, !tbaa !15
   %645 = tail call noundef ptr %.val662(ptr noundef %639, ptr noundef %640, ptr noundef %641, ptr noundef %642, ptr noundef %643, ptr noundef %644, ptr noundef %637, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  %646 = load i32, ptr %0, align 4, !tbaa !16
+  %646 = load i32, ptr %0, align 8, !tbaa !16
   %647 = icmp sgt i32 %646, 1
   br i1 %647, label %648, label %650, !prof !19
 
@@ -10246,7 +10246,7 @@ _ZL8lean_incP11lean_object.exit617:               ; preds = %732, %731, %729, %_
   %740 = load ptr, ptr %703, align 8, !tbaa !15
   %741 = load ptr, ptr %713, align 8, !tbaa !15
   %742 = tail call noundef ptr %.val661(ptr noundef %735, ptr noundef %736, ptr noundef %737, ptr noundef %738, ptr noundef %739, ptr noundef %740, ptr noundef %741, ptr noundef %733, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  %743 = load i32, ptr %0, align 4, !tbaa !16
+  %743 = load i32, ptr %0, align 8, !tbaa !16
   %744 = icmp sgt i32 %743, 1
   br i1 %744, label %745, label %747, !prof !19
 
@@ -10511,7 +10511,7 @@ _ZL8lean_incP11lean_object.exit608:               ; preds = %839, %838, %836, %_
   %848 = load ptr, ptr %810, align 8, !tbaa !15
   %849 = load ptr, ptr %820, align 8, !tbaa !15
   %850 = tail call noundef ptr %.val660(ptr noundef %842, ptr noundef %843, ptr noundef %844, ptr noundef %845, ptr noundef %846, ptr noundef %847, ptr noundef %848, ptr noundef %849, ptr noundef %840, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  %851 = load i32, ptr %0, align 4, !tbaa !16
+  %851 = load i32, ptr %0, align 8, !tbaa !16
   %852 = icmp sgt i32 %851, 1
   br i1 %852, label %853, label %855, !prof !19
 
@@ -10803,7 +10803,7 @@ _ZL8lean_incP11lean_object.exit598:               ; preds = %957, %956, %954, %_
   %967 = load ptr, ptr %928, align 8, !tbaa !15
   %968 = load ptr, ptr %938, align 8, !tbaa !15
   %969 = tail call noundef ptr %.val659(ptr noundef %960, ptr noundef %961, ptr noundef %962, ptr noundef %963, ptr noundef %964, ptr noundef %965, ptr noundef %966, ptr noundef %967, ptr noundef %968, ptr noundef %958, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  %970 = load i32, ptr %0, align 4, !tbaa !16
+  %970 = load i32, ptr %0, align 8, !tbaa !16
   %971 = icmp sgt i32 %970, 1
   br i1 %971, label %972, label %974, !prof !19
 
@@ -11122,7 +11122,7 @@ _ZL8lean_incP11lean_object.exit587:               ; preds = %1086, %1085, %1083,
   %1097 = load ptr, ptr %1057, align 8, !tbaa !15
   %1098 = load ptr, ptr %1067, align 8, !tbaa !15
   %1099 = tail call noundef ptr %.val658(ptr noundef %1089, ptr noundef %1090, ptr noundef %1091, ptr noundef %1092, ptr noundef %1093, ptr noundef %1094, ptr noundef %1095, ptr noundef %1096, ptr noundef %1097, ptr noundef %1098, ptr noundef %1087, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  %1100 = load i32, ptr %0, align 4, !tbaa !16
+  %1100 = load i32, ptr %0, align 8, !tbaa !16
   %1101 = icmp sgt i32 %1100, 1
   br i1 %1101, label %1102, label %1104, !prof !19
 
@@ -11468,7 +11468,7 @@ _ZL8lean_incP11lean_object.exit575:               ; preds = %1226, %1225, %1223,
   %1238 = load ptr, ptr %1197, align 8, !tbaa !15
   %1239 = load ptr, ptr %1207, align 8, !tbaa !15
   %1240 = tail call noundef ptr %.val657(ptr noundef %1229, ptr noundef %1230, ptr noundef %1231, ptr noundef %1232, ptr noundef %1233, ptr noundef %1234, ptr noundef %1235, ptr noundef %1236, ptr noundef %1237, ptr noundef %1238, ptr noundef %1239, ptr noundef %1227, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  %1241 = load i32, ptr %0, align 4, !tbaa !16
+  %1241 = load i32, ptr %0, align 8, !tbaa !16
   %1242 = icmp sgt i32 %1241, 1
   br i1 %1242, label %1243, label %1245, !prof !19
 
@@ -11841,7 +11841,7 @@ _ZL8lean_incP11lean_object.exit562:               ; preds = %1377, %1376, %1374,
   %1390 = load ptr, ptr %1348, align 8, !tbaa !15
   %1391 = load ptr, ptr %1358, align 8, !tbaa !15
   %1392 = tail call noundef ptr %.val656(ptr noundef %1380, ptr noundef %1381, ptr noundef %1382, ptr noundef %1383, ptr noundef %1384, ptr noundef %1385, ptr noundef %1386, ptr noundef %1387, ptr noundef %1388, ptr noundef %1389, ptr noundef %1390, ptr noundef %1391, ptr noundef %1378, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  %1393 = load i32, ptr %0, align 4, !tbaa !16
+  %1393 = load i32, ptr %0, align 8, !tbaa !16
   %1394 = icmp sgt i32 %1393, 1
   br i1 %1394, label %1395, label %1397, !prof !19
 
@@ -11882,7 +11882,7 @@ _ZL8lean_incP11lean_object.exit562:               ; preds = %1377, %1376, %1374,
   %1406 = getelementptr i8, ptr %0, i64 8
   %.val655 = load ptr, ptr %1406, align 8, !tbaa !15
   %1407 = call noundef ptr %.val655(ptr noundef nonnull %1402)
-  %1408 = load i32, ptr %0, align 4, !tbaa !16
+  %1408 = load i32, ptr %0, align 8, !tbaa !16
   %1409 = icmp sgt i32 %1408, 1
   br i1 %1409, label %1423, label %1425, !prof !19
 
@@ -12006,7 +12006,7 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %1447, %1446, %1444,
   %1450 = getelementptr i8, ptr %0, i64 8
   %.val686 = load ptr, ptr %1450, align 8, !tbaa !15
   %1451 = call noundef ptr @_ZN4lean5curryEPvjPP11lean_object(ptr noundef readonly %.val686, i32 noundef range(i32 0, 65536) %39, ptr noundef nonnull %1434)
-  %1452 = load i32, ptr %0, align 4, !tbaa !16
+  %1452 = load i32, ptr %0, align 8, !tbaa !16
   %1453 = icmp sgt i32 %1452, 1
   br i1 %1453, label %1454, label %1456, !prof !19
 
@@ -12466,7 +12466,7 @@ _ZL8lean_decP11lean_object.exit502:               ; preds = %37, %36, %34, %_ZL8
   %254 = getelementptr i8, ptr %0, i64 8
   %.val635 = load ptr, ptr %254, align 8, !tbaa !15
   %255 = tail call noundef ptr %.val635(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  %256 = load i32, ptr %0, align 4, !tbaa !16
+  %256 = load i32, ptr %0, align 8, !tbaa !16
   %257 = icmp sgt i32 %256, 1
   br i1 %257, label %258, label %260, !prof !19
 
@@ -12515,7 +12515,7 @@ _ZL8lean_incP11lean_object.exit619:               ; preds = %272, %271, %269, %2
   %274 = getelementptr i8, ptr %0, i64 8
   %.val634 = load ptr, ptr %274, align 8, !tbaa !15
   %275 = tail call noundef ptr %.val634(ptr noundef %273, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  %276 = load i32, ptr %0, align 4, !tbaa !16
+  %276 = load i32, ptr %0, align 8, !tbaa !16
   %277 = icmp sgt i32 %276, 1
   br i1 %277, label %278, label %280, !prof !19
 
@@ -12591,7 +12591,7 @@ _ZL8lean_incP11lean_object.exit617:               ; preds = %302, %301, %299, %_
   %.val633 = load ptr, ptr %304, align 8, !tbaa !15
   %305 = load ptr, ptr %283, align 8, !tbaa !15
   %306 = tail call noundef ptr %.val633(ptr noundef %305, ptr noundef %303, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  %307 = load i32, ptr %0, align 4, !tbaa !16
+  %307 = load i32, ptr %0, align 8, !tbaa !16
   %308 = icmp sgt i32 %307, 1
   br i1 %308, label %309, label %311, !prof !19
 
@@ -12694,7 +12694,7 @@ _ZL8lean_incP11lean_object.exit614:               ; preds = %343, %342, %340, %_
   %346 = load ptr, ptr %314, align 8, !tbaa !15
   %347 = load ptr, ptr %324, align 8, !tbaa !15
   %348 = tail call noundef ptr %.val632(ptr noundef %346, ptr noundef %347, ptr noundef %344, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  %349 = load i32, ptr %0, align 4, !tbaa !16
+  %349 = load i32, ptr %0, align 8, !tbaa !16
   %350 = icmp sgt i32 %349, 1
   br i1 %350, label %351, label %353, !prof !19
 
@@ -12824,7 +12824,7 @@ _ZL8lean_incP11lean_object.exit610:               ; preds = %395, %394, %392, %_
   %399 = load ptr, ptr %366, align 8, !tbaa !15
   %400 = load ptr, ptr %376, align 8, !tbaa !15
   %401 = tail call noundef ptr %.val631(ptr noundef %398, ptr noundef %399, ptr noundef %400, ptr noundef %396, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  %402 = load i32, ptr %0, align 4, !tbaa !16
+  %402 = load i32, ptr %0, align 8, !tbaa !16
   %403 = icmp sgt i32 %402, 1
   br i1 %403, label %404, label %406, !prof !19
 
@@ -12981,7 +12981,7 @@ _ZL8lean_incP11lean_object.exit605:               ; preds = %458, %457, %455, %_
   %463 = load ptr, ptr %429, align 8, !tbaa !15
   %464 = load ptr, ptr %439, align 8, !tbaa !15
   %465 = tail call noundef ptr %.val630(ptr noundef %461, ptr noundef %462, ptr noundef %463, ptr noundef %464, ptr noundef %459, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  %466 = load i32, ptr %0, align 4, !tbaa !16
+  %466 = load i32, ptr %0, align 8, !tbaa !16
   %467 = icmp sgt i32 %466, 1
   br i1 %467, label %468, label %470, !prof !19
 
@@ -13165,7 +13165,7 @@ _ZL8lean_incP11lean_object.exit599:               ; preds = %532, %531, %529, %_
   %538 = load ptr, ptr %503, align 8, !tbaa !15
   %539 = load ptr, ptr %513, align 8, !tbaa !15
   %540 = tail call noundef ptr %.val629(ptr noundef %535, ptr noundef %536, ptr noundef %537, ptr noundef %538, ptr noundef %539, ptr noundef %533, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  %541 = load i32, ptr %0, align 4, !tbaa !16
+  %541 = load i32, ptr %0, align 8, !tbaa !16
   %542 = icmp sgt i32 %541, 1
   br i1 %542, label %543, label %545, !prof !19
 
@@ -13376,7 +13376,7 @@ _ZL8lean_incP11lean_object.exit592:               ; preds = %617, %616, %614, %_
   %624 = load ptr, ptr %588, align 8, !tbaa !15
   %625 = load ptr, ptr %598, align 8, !tbaa !15
   %626 = tail call noundef ptr %.val628(ptr noundef %620, ptr noundef %621, ptr noundef %622, ptr noundef %623, ptr noundef %624, ptr noundef %625, ptr noundef %618, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  %627 = load i32, ptr %0, align 4, !tbaa !16
+  %627 = load i32, ptr %0, align 8, !tbaa !16
   %628 = icmp sgt i32 %627, 1
   br i1 %628, label %629, label %631, !prof !19
 
@@ -13614,7 +13614,7 @@ _ZL8lean_incP11lean_object.exit584:               ; preds = %713, %712, %710, %_
   %721 = load ptr, ptr %684, align 8, !tbaa !15
   %722 = load ptr, ptr %694, align 8, !tbaa !15
   %723 = tail call noundef ptr %.val627(ptr noundef %716, ptr noundef %717, ptr noundef %718, ptr noundef %719, ptr noundef %720, ptr noundef %721, ptr noundef %722, ptr noundef %714, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  %724 = load i32, ptr %0, align 4, !tbaa !16
+  %724 = load i32, ptr %0, align 8, !tbaa !16
   %725 = icmp sgt i32 %724, 1
   br i1 %725, label %726, label %728, !prof !19
 
@@ -13879,7 +13879,7 @@ _ZL8lean_incP11lean_object.exit575:               ; preds = %820, %819, %817, %_
   %829 = load ptr, ptr %791, align 8, !tbaa !15
   %830 = load ptr, ptr %801, align 8, !tbaa !15
   %831 = tail call noundef ptr %.val626(ptr noundef %823, ptr noundef %824, ptr noundef %825, ptr noundef %826, ptr noundef %827, ptr noundef %828, ptr noundef %829, ptr noundef %830, ptr noundef %821, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  %832 = load i32, ptr %0, align 4, !tbaa !16
+  %832 = load i32, ptr %0, align 8, !tbaa !16
   %833 = icmp sgt i32 %832, 1
   br i1 %833, label %834, label %836, !prof !19
 
@@ -14171,7 +14171,7 @@ _ZL8lean_incP11lean_object.exit565:               ; preds = %938, %937, %935, %_
   %948 = load ptr, ptr %909, align 8, !tbaa !15
   %949 = load ptr, ptr %919, align 8, !tbaa !15
   %950 = tail call noundef ptr %.val625(ptr noundef %941, ptr noundef %942, ptr noundef %943, ptr noundef %944, ptr noundef %945, ptr noundef %946, ptr noundef %947, ptr noundef %948, ptr noundef %949, ptr noundef %939, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  %951 = load i32, ptr %0, align 4, !tbaa !16
+  %951 = load i32, ptr %0, align 8, !tbaa !16
   %952 = icmp sgt i32 %951, 1
   br i1 %952, label %953, label %955, !prof !19
 
@@ -14490,7 +14490,7 @@ _ZL8lean_incP11lean_object.exit554:               ; preds = %1067, %1066, %1064,
   %1078 = load ptr, ptr %1038, align 8, !tbaa !15
   %1079 = load ptr, ptr %1048, align 8, !tbaa !15
   %1080 = tail call noundef ptr %.val624(ptr noundef %1070, ptr noundef %1071, ptr noundef %1072, ptr noundef %1073, ptr noundef %1074, ptr noundef %1075, ptr noundef %1076, ptr noundef %1077, ptr noundef %1078, ptr noundef %1079, ptr noundef %1068, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  %1081 = load i32, ptr %0, align 4, !tbaa !16
+  %1081 = load i32, ptr %0, align 8, !tbaa !16
   %1082 = icmp sgt i32 %1081, 1
   br i1 %1082, label %1083, label %1085, !prof !19
 
@@ -14836,7 +14836,7 @@ _ZL8lean_incP11lean_object.exit542:               ; preds = %1207, %1206, %1204,
   %1219 = load ptr, ptr %1178, align 8, !tbaa !15
   %1220 = load ptr, ptr %1188, align 8, !tbaa !15
   %1221 = tail call noundef ptr %.val623(ptr noundef %1210, ptr noundef %1211, ptr noundef %1212, ptr noundef %1213, ptr noundef %1214, ptr noundef %1215, ptr noundef %1216, ptr noundef %1217, ptr noundef %1218, ptr noundef %1219, ptr noundef %1220, ptr noundef %1208, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  %1222 = load i32, ptr %0, align 4, !tbaa !16
+  %1222 = load i32, ptr %0, align 8, !tbaa !16
   %1223 = icmp sgt i32 %1222, 1
   br i1 %1223, label %1224, label %1226, !prof !19
 
@@ -14879,7 +14879,7 @@ _ZL8lean_incP11lean_object.exit542:               ; preds = %1207, %1206, %1204,
   %1235 = getelementptr i8, ptr %0, i64 8
   %.val622 = load ptr, ptr %1235, align 8, !tbaa !15
   %1236 = call noundef ptr %.val622(ptr noundef nonnull %1231)
-  %1237 = load i32, ptr %0, align 4, !tbaa !16
+  %1237 = load i32, ptr %0, align 8, !tbaa !16
   %1238 = icmp sgt i32 %1237, 1
   br i1 %1238, label %1252, label %1254, !prof !19
 
@@ -15005,7 +15005,7 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %1277, %1276, %1274,
   %1280 = getelementptr i8, ptr %0, i64 8
   %.val651 = load ptr, ptr %1280, align 8, !tbaa !15
   %1281 = call noundef ptr @_ZN4lean5curryEPvjPP11lean_object(ptr noundef readonly %.val651, i32 noundef range(i32 0, 65536) %49, ptr noundef nonnull %1264)
-  %1282 = load i32, ptr %0, align 4, !tbaa !16
+  %1282 = load i32, ptr %0, align 8, !tbaa !16
   %1283 = icmp sgt i32 %1282, 1
   br i1 %1283, label %1284, label %1286, !prof !19
 
@@ -15458,7 +15458,7 @@ _ZL8lean_decP11lean_object.exit480:               ; preds = %47, %46, %44, %_ZL8
   %237 = getelementptr i8, ptr %0, i64 8
   %.val601 = load ptr, ptr %237, align 8, !tbaa !15
   %238 = tail call noundef ptr %.val601(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
-  %239 = load i32, ptr %0, align 4, !tbaa !16
+  %239 = load i32, ptr %0, align 8, !tbaa !16
   %240 = icmp sgt i32 %239, 1
   br i1 %240, label %241, label %243, !prof !19
 
@@ -15507,7 +15507,7 @@ _ZL8lean_incP11lean_object.exit586:               ; preds = %255, %254, %252, %2
   %257 = getelementptr i8, ptr %0, i64 8
   %.val600 = load ptr, ptr %257, align 8, !tbaa !15
   %258 = tail call noundef ptr %.val600(ptr noundef %256, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
-  %259 = load i32, ptr %0, align 4, !tbaa !16
+  %259 = load i32, ptr %0, align 8, !tbaa !16
   %260 = icmp sgt i32 %259, 1
   br i1 %260, label %261, label %263, !prof !19
 
@@ -15583,7 +15583,7 @@ _ZL8lean_incP11lean_object.exit584:               ; preds = %285, %284, %282, %_
   %.val599 = load ptr, ptr %287, align 8, !tbaa !15
   %288 = load ptr, ptr %266, align 8, !tbaa !15
   %289 = tail call noundef ptr %.val599(ptr noundef %288, ptr noundef %286, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
-  %290 = load i32, ptr %0, align 4, !tbaa !16
+  %290 = load i32, ptr %0, align 8, !tbaa !16
   %291 = icmp sgt i32 %290, 1
   br i1 %291, label %292, label %294, !prof !19
 
@@ -15686,7 +15686,7 @@ _ZL8lean_incP11lean_object.exit581:               ; preds = %326, %325, %323, %_
   %329 = load ptr, ptr %297, align 8, !tbaa !15
   %330 = load ptr, ptr %307, align 8, !tbaa !15
   %331 = tail call noundef ptr %.val598(ptr noundef %329, ptr noundef %330, ptr noundef %327, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
-  %332 = load i32, ptr %0, align 4, !tbaa !16
+  %332 = load i32, ptr %0, align 8, !tbaa !16
   %333 = icmp sgt i32 %332, 1
   br i1 %333, label %334, label %336, !prof !19
 
@@ -15816,7 +15816,7 @@ _ZL8lean_incP11lean_object.exit577:               ; preds = %378, %377, %375, %_
   %382 = load ptr, ptr %349, align 8, !tbaa !15
   %383 = load ptr, ptr %359, align 8, !tbaa !15
   %384 = tail call noundef ptr %.val597(ptr noundef %381, ptr noundef %382, ptr noundef %383, ptr noundef %379, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
-  %385 = load i32, ptr %0, align 4, !tbaa !16
+  %385 = load i32, ptr %0, align 8, !tbaa !16
   %386 = icmp sgt i32 %385, 1
   br i1 %386, label %387, label %389, !prof !19
 
@@ -15973,7 +15973,7 @@ _ZL8lean_incP11lean_object.exit572:               ; preds = %441, %440, %438, %_
   %446 = load ptr, ptr %412, align 8, !tbaa !15
   %447 = load ptr, ptr %422, align 8, !tbaa !15
   %448 = tail call noundef ptr %.val596(ptr noundef %444, ptr noundef %445, ptr noundef %446, ptr noundef %447, ptr noundef %442, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
-  %449 = load i32, ptr %0, align 4, !tbaa !16
+  %449 = load i32, ptr %0, align 8, !tbaa !16
   %450 = icmp sgt i32 %449, 1
   br i1 %450, label %451, label %453, !prof !19
 
@@ -16157,7 +16157,7 @@ _ZL8lean_incP11lean_object.exit566:               ; preds = %515, %514, %512, %_
   %521 = load ptr, ptr %486, align 8, !tbaa !15
   %522 = load ptr, ptr %496, align 8, !tbaa !15
   %523 = tail call noundef ptr %.val595(ptr noundef %518, ptr noundef %519, ptr noundef %520, ptr noundef %521, ptr noundef %522, ptr noundef %516, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
-  %524 = load i32, ptr %0, align 4, !tbaa !16
+  %524 = load i32, ptr %0, align 8, !tbaa !16
   %525 = icmp sgt i32 %524, 1
   br i1 %525, label %526, label %528, !prof !19
 
@@ -16368,7 +16368,7 @@ _ZL8lean_incP11lean_object.exit559:               ; preds = %600, %599, %597, %_
   %607 = load ptr, ptr %571, align 8, !tbaa !15
   %608 = load ptr, ptr %581, align 8, !tbaa !15
   %609 = tail call noundef ptr %.val594(ptr noundef %603, ptr noundef %604, ptr noundef %605, ptr noundef %606, ptr noundef %607, ptr noundef %608, ptr noundef %601, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
-  %610 = load i32, ptr %0, align 4, !tbaa !16
+  %610 = load i32, ptr %0, align 8, !tbaa !16
   %611 = icmp sgt i32 %610, 1
   br i1 %611, label %612, label %614, !prof !19
 
@@ -16606,7 +16606,7 @@ _ZL8lean_incP11lean_object.exit551:               ; preds = %696, %695, %693, %_
   %704 = load ptr, ptr %667, align 8, !tbaa !15
   %705 = load ptr, ptr %677, align 8, !tbaa !15
   %706 = tail call noundef ptr %.val593(ptr noundef %699, ptr noundef %700, ptr noundef %701, ptr noundef %702, ptr noundef %703, ptr noundef %704, ptr noundef %705, ptr noundef %697, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
-  %707 = load i32, ptr %0, align 4, !tbaa !16
+  %707 = load i32, ptr %0, align 8, !tbaa !16
   %708 = icmp sgt i32 %707, 1
   br i1 %708, label %709, label %711, !prof !19
 
@@ -16871,7 +16871,7 @@ _ZL8lean_incP11lean_object.exit542:               ; preds = %803, %802, %800, %_
   %812 = load ptr, ptr %774, align 8, !tbaa !15
   %813 = load ptr, ptr %784, align 8, !tbaa !15
   %814 = tail call noundef ptr %.val592(ptr noundef %806, ptr noundef %807, ptr noundef %808, ptr noundef %809, ptr noundef %810, ptr noundef %811, ptr noundef %812, ptr noundef %813, ptr noundef %804, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
-  %815 = load i32, ptr %0, align 4, !tbaa !16
+  %815 = load i32, ptr %0, align 8, !tbaa !16
   %816 = icmp sgt i32 %815, 1
   br i1 %816, label %817, label %819, !prof !19
 
@@ -17163,7 +17163,7 @@ _ZL8lean_incP11lean_object.exit532:               ; preds = %921, %920, %918, %_
   %931 = load ptr, ptr %892, align 8, !tbaa !15
   %932 = load ptr, ptr %902, align 8, !tbaa !15
   %933 = tail call noundef ptr %.val591(ptr noundef %924, ptr noundef %925, ptr noundef %926, ptr noundef %927, ptr noundef %928, ptr noundef %929, ptr noundef %930, ptr noundef %931, ptr noundef %932, ptr noundef %922, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
-  %934 = load i32, ptr %0, align 4, !tbaa !16
+  %934 = load i32, ptr %0, align 8, !tbaa !16
   %935 = icmp sgt i32 %934, 1
   br i1 %935, label %936, label %938, !prof !19
 
@@ -17482,7 +17482,7 @@ _ZL8lean_incP11lean_object.exit521:               ; preds = %1050, %1049, %1047,
   %1061 = load ptr, ptr %1021, align 8, !tbaa !15
   %1062 = load ptr, ptr %1031, align 8, !tbaa !15
   %1063 = tail call noundef ptr %.val590(ptr noundef %1053, ptr noundef %1054, ptr noundef %1055, ptr noundef %1056, ptr noundef %1057, ptr noundef %1058, ptr noundef %1059, ptr noundef %1060, ptr noundef %1061, ptr noundef %1062, ptr noundef %1051, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
-  %1064 = load i32, ptr %0, align 4, !tbaa !16
+  %1064 = load i32, ptr %0, align 8, !tbaa !16
   %1065 = icmp sgt i32 %1064, 1
   br i1 %1065, label %1066, label %1068, !prof !19
 
@@ -17527,7 +17527,7 @@ _ZL8lean_incP11lean_object.exit521:               ; preds = %1050, %1049, %1047,
   %1077 = getelementptr i8, ptr %0, i64 8
   %.val589 = load ptr, ptr %1077, align 8, !tbaa !15
   %1078 = call noundef ptr %.val589(ptr noundef nonnull %1073)
-  %1079 = load i32, ptr %0, align 4, !tbaa !16
+  %1079 = load i32, ptr %0, align 8, !tbaa !16
   %1080 = icmp sgt i32 %1079, 1
   br i1 %1080, label %1094, label %1096, !prof !19
 
@@ -17655,7 +17655,7 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %1120, %1119, %1117,
   %1123 = getelementptr i8, ptr %0, i64 8
   %.val616 = load ptr, ptr %1123, align 8, !tbaa !15
   %1124 = call noundef ptr @_ZN4lean5curryEPvjPP11lean_object(ptr noundef readonly %.val616, i32 noundef range(i32 0, 65536) %59, ptr noundef nonnull %1107)
-  %1125 = load i32, ptr %0, align 4, !tbaa !16
+  %1125 = load i32, ptr %0, align 8, !tbaa !16
   %1126 = icmp sgt i32 %1125, 1
   br i1 %1126, label %1127, label %1129, !prof !19
 
@@ -18103,7 +18103,7 @@ _ZL8lean_decP11lean_object.exit457:               ; preds = %57, %56, %54, %_ZL8
   %222 = getelementptr i8, ptr %0, i64 8
   %.val567 = load ptr, ptr %222, align 8, !tbaa !15
   %223 = tail call noundef ptr %.val567(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
-  %224 = load i32, ptr %0, align 4, !tbaa !16
+  %224 = load i32, ptr %0, align 8, !tbaa !16
   %225 = icmp sgt i32 %224, 1
   br i1 %225, label %226, label %228, !prof !19
 
@@ -18152,7 +18152,7 @@ _ZL8lean_incP11lean_object.exit553:               ; preds = %240, %239, %237, %2
   %242 = getelementptr i8, ptr %0, i64 8
   %.val566 = load ptr, ptr %242, align 8, !tbaa !15
   %243 = tail call noundef ptr %.val566(ptr noundef %241, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
-  %244 = load i32, ptr %0, align 4, !tbaa !16
+  %244 = load i32, ptr %0, align 8, !tbaa !16
   %245 = icmp sgt i32 %244, 1
   br i1 %245, label %246, label %248, !prof !19
 
@@ -18228,7 +18228,7 @@ _ZL8lean_incP11lean_object.exit551:               ; preds = %270, %269, %267, %_
   %.val565 = load ptr, ptr %272, align 8, !tbaa !15
   %273 = load ptr, ptr %251, align 8, !tbaa !15
   %274 = tail call noundef ptr %.val565(ptr noundef %273, ptr noundef %271, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
-  %275 = load i32, ptr %0, align 4, !tbaa !16
+  %275 = load i32, ptr %0, align 8, !tbaa !16
   %276 = icmp sgt i32 %275, 1
   br i1 %276, label %277, label %279, !prof !19
 
@@ -18331,7 +18331,7 @@ _ZL8lean_incP11lean_object.exit548:               ; preds = %311, %310, %308, %_
   %314 = load ptr, ptr %282, align 8, !tbaa !15
   %315 = load ptr, ptr %292, align 8, !tbaa !15
   %316 = tail call noundef ptr %.val564(ptr noundef %314, ptr noundef %315, ptr noundef %312, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
-  %317 = load i32, ptr %0, align 4, !tbaa !16
+  %317 = load i32, ptr %0, align 8, !tbaa !16
   %318 = icmp sgt i32 %317, 1
   br i1 %318, label %319, label %321, !prof !19
 
@@ -18461,7 +18461,7 @@ _ZL8lean_incP11lean_object.exit544:               ; preds = %363, %362, %360, %_
   %367 = load ptr, ptr %334, align 8, !tbaa !15
   %368 = load ptr, ptr %344, align 8, !tbaa !15
   %369 = tail call noundef ptr %.val563(ptr noundef %366, ptr noundef %367, ptr noundef %368, ptr noundef %364, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
-  %370 = load i32, ptr %0, align 4, !tbaa !16
+  %370 = load i32, ptr %0, align 8, !tbaa !16
   %371 = icmp sgt i32 %370, 1
   br i1 %371, label %372, label %374, !prof !19
 
@@ -18618,7 +18618,7 @@ _ZL8lean_incP11lean_object.exit539:               ; preds = %426, %425, %423, %_
   %431 = load ptr, ptr %397, align 8, !tbaa !15
   %432 = load ptr, ptr %407, align 8, !tbaa !15
   %433 = tail call noundef ptr %.val562(ptr noundef %429, ptr noundef %430, ptr noundef %431, ptr noundef %432, ptr noundef %427, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
-  %434 = load i32, ptr %0, align 4, !tbaa !16
+  %434 = load i32, ptr %0, align 8, !tbaa !16
   %435 = icmp sgt i32 %434, 1
   br i1 %435, label %436, label %438, !prof !19
 
@@ -18802,7 +18802,7 @@ _ZL8lean_incP11lean_object.exit533:               ; preds = %500, %499, %497, %_
   %506 = load ptr, ptr %471, align 8, !tbaa !15
   %507 = load ptr, ptr %481, align 8, !tbaa !15
   %508 = tail call noundef ptr %.val561(ptr noundef %503, ptr noundef %504, ptr noundef %505, ptr noundef %506, ptr noundef %507, ptr noundef %501, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
-  %509 = load i32, ptr %0, align 4, !tbaa !16
+  %509 = load i32, ptr %0, align 8, !tbaa !16
   %510 = icmp sgt i32 %509, 1
   br i1 %510, label %511, label %513, !prof !19
 
@@ -19013,7 +19013,7 @@ _ZL8lean_incP11lean_object.exit526:               ; preds = %585, %584, %582, %_
   %592 = load ptr, ptr %556, align 8, !tbaa !15
   %593 = load ptr, ptr %566, align 8, !tbaa !15
   %594 = tail call noundef ptr %.val560(ptr noundef %588, ptr noundef %589, ptr noundef %590, ptr noundef %591, ptr noundef %592, ptr noundef %593, ptr noundef %586, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
-  %595 = load i32, ptr %0, align 4, !tbaa !16
+  %595 = load i32, ptr %0, align 8, !tbaa !16
   %596 = icmp sgt i32 %595, 1
   br i1 %596, label %597, label %599, !prof !19
 
@@ -19251,7 +19251,7 @@ _ZL8lean_incP11lean_object.exit518:               ; preds = %681, %680, %678, %_
   %689 = load ptr, ptr %652, align 8, !tbaa !15
   %690 = load ptr, ptr %662, align 8, !tbaa !15
   %691 = tail call noundef ptr %.val559(ptr noundef %684, ptr noundef %685, ptr noundef %686, ptr noundef %687, ptr noundef %688, ptr noundef %689, ptr noundef %690, ptr noundef %682, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
-  %692 = load i32, ptr %0, align 4, !tbaa !16
+  %692 = load i32, ptr %0, align 8, !tbaa !16
   %693 = icmp sgt i32 %692, 1
   br i1 %693, label %694, label %696, !prof !19
 
@@ -19516,7 +19516,7 @@ _ZL8lean_incP11lean_object.exit509:               ; preds = %788, %787, %785, %_
   %797 = load ptr, ptr %759, align 8, !tbaa !15
   %798 = load ptr, ptr %769, align 8, !tbaa !15
   %799 = tail call noundef ptr %.val558(ptr noundef %791, ptr noundef %792, ptr noundef %793, ptr noundef %794, ptr noundef %795, ptr noundef %796, ptr noundef %797, ptr noundef %798, ptr noundef %789, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
-  %800 = load i32, ptr %0, align 4, !tbaa !16
+  %800 = load i32, ptr %0, align 8, !tbaa !16
   %801 = icmp sgt i32 %800, 1
   br i1 %801, label %802, label %804, !prof !19
 
@@ -19808,7 +19808,7 @@ _ZL8lean_incP11lean_object.exit499:               ; preds = %906, %905, %903, %_
   %916 = load ptr, ptr %877, align 8, !tbaa !15
   %917 = load ptr, ptr %887, align 8, !tbaa !15
   %918 = tail call noundef ptr %.val557(ptr noundef %909, ptr noundef %910, ptr noundef %911, ptr noundef %912, ptr noundef %913, ptr noundef %914, ptr noundef %915, ptr noundef %916, ptr noundef %917, ptr noundef %907, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
-  %919 = load i32, ptr %0, align 4, !tbaa !16
+  %919 = load i32, ptr %0, align 8, !tbaa !16
   %920 = icmp sgt i32 %919, 1
   br i1 %920, label %921, label %923, !prof !19
 
@@ -19855,7 +19855,7 @@ _ZL8lean_incP11lean_object.exit499:               ; preds = %906, %905, %903, %_
   %932 = getelementptr i8, ptr %0, i64 8
   %.val556 = load ptr, ptr %932, align 8, !tbaa !15
   %933 = call noundef ptr %.val556(ptr noundef nonnull %928)
-  %934 = load i32, ptr %0, align 4, !tbaa !16
+  %934 = load i32, ptr %0, align 8, !tbaa !16
   %935 = icmp sgt i32 %934, 1
   br i1 %935, label %949, label %951, !prof !19
 
@@ -19985,7 +19985,7 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %976, %975, %973, %9
   %979 = getelementptr i8, ptr %0, i64 8
   %.val581 = load ptr, ptr %979, align 8, !tbaa !15
   %980 = call noundef ptr @_ZN4lean5curryEPvjPP11lean_object(ptr noundef readonly %.val581, i32 noundef range(i32 0, 65536) %69, ptr noundef nonnull %963)
-  %981 = load i32, ptr %0, align 4, !tbaa !16
+  %981 = load i32, ptr %0, align 8, !tbaa !16
   %982 = icmp sgt i32 %981, 1
   br i1 %982, label %983, label %985, !prof !19
 
@@ -20430,7 +20430,7 @@ _ZL8lean_decP11lean_object.exit433:               ; preds = %67, %66, %64, %_ZL8
   %209 = getelementptr i8, ptr %0, i64 8
   %.val533 = load ptr, ptr %209, align 8, !tbaa !15
   %210 = tail call noundef ptr %.val533(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
-  %211 = load i32, ptr %0, align 4, !tbaa !16
+  %211 = load i32, ptr %0, align 8, !tbaa !16
   %212 = icmp sgt i32 %211, 1
   br i1 %212, label %213, label %215, !prof !19
 
@@ -20479,7 +20479,7 @@ _ZL8lean_incP11lean_object.exit520:               ; preds = %227, %226, %224, %2
   %229 = getelementptr i8, ptr %0, i64 8
   %.val532 = load ptr, ptr %229, align 8, !tbaa !15
   %230 = tail call noundef ptr %.val532(ptr noundef %228, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
-  %231 = load i32, ptr %0, align 4, !tbaa !16
+  %231 = load i32, ptr %0, align 8, !tbaa !16
   %232 = icmp sgt i32 %231, 1
   br i1 %232, label %233, label %235, !prof !19
 
@@ -20555,7 +20555,7 @@ _ZL8lean_incP11lean_object.exit518:               ; preds = %257, %256, %254, %_
   %.val531 = load ptr, ptr %259, align 8, !tbaa !15
   %260 = load ptr, ptr %238, align 8, !tbaa !15
   %261 = tail call noundef ptr %.val531(ptr noundef %260, ptr noundef %258, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
-  %262 = load i32, ptr %0, align 4, !tbaa !16
+  %262 = load i32, ptr %0, align 8, !tbaa !16
   %263 = icmp sgt i32 %262, 1
   br i1 %263, label %264, label %266, !prof !19
 
@@ -20658,7 +20658,7 @@ _ZL8lean_incP11lean_object.exit515:               ; preds = %298, %297, %295, %_
   %301 = load ptr, ptr %269, align 8, !tbaa !15
   %302 = load ptr, ptr %279, align 8, !tbaa !15
   %303 = tail call noundef ptr %.val530(ptr noundef %301, ptr noundef %302, ptr noundef %299, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
-  %304 = load i32, ptr %0, align 4, !tbaa !16
+  %304 = load i32, ptr %0, align 8, !tbaa !16
   %305 = icmp sgt i32 %304, 1
   br i1 %305, label %306, label %308, !prof !19
 
@@ -20788,7 +20788,7 @@ _ZL8lean_incP11lean_object.exit511:               ; preds = %350, %349, %347, %_
   %354 = load ptr, ptr %321, align 8, !tbaa !15
   %355 = load ptr, ptr %331, align 8, !tbaa !15
   %356 = tail call noundef ptr %.val529(ptr noundef %353, ptr noundef %354, ptr noundef %355, ptr noundef %351, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
-  %357 = load i32, ptr %0, align 4, !tbaa !16
+  %357 = load i32, ptr %0, align 8, !tbaa !16
   %358 = icmp sgt i32 %357, 1
   br i1 %358, label %359, label %361, !prof !19
 
@@ -20945,7 +20945,7 @@ _ZL8lean_incP11lean_object.exit506:               ; preds = %413, %412, %410, %_
   %418 = load ptr, ptr %384, align 8, !tbaa !15
   %419 = load ptr, ptr %394, align 8, !tbaa !15
   %420 = tail call noundef ptr %.val528(ptr noundef %416, ptr noundef %417, ptr noundef %418, ptr noundef %419, ptr noundef %414, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
-  %421 = load i32, ptr %0, align 4, !tbaa !16
+  %421 = load i32, ptr %0, align 8, !tbaa !16
   %422 = icmp sgt i32 %421, 1
   br i1 %422, label %423, label %425, !prof !19
 
@@ -21129,7 +21129,7 @@ _ZL8lean_incP11lean_object.exit500:               ; preds = %487, %486, %484, %_
   %493 = load ptr, ptr %458, align 8, !tbaa !15
   %494 = load ptr, ptr %468, align 8, !tbaa !15
   %495 = tail call noundef ptr %.val527(ptr noundef %490, ptr noundef %491, ptr noundef %492, ptr noundef %493, ptr noundef %494, ptr noundef %488, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
-  %496 = load i32, ptr %0, align 4, !tbaa !16
+  %496 = load i32, ptr %0, align 8, !tbaa !16
   %497 = icmp sgt i32 %496, 1
   br i1 %497, label %498, label %500, !prof !19
 
@@ -21340,7 +21340,7 @@ _ZL8lean_incP11lean_object.exit493:               ; preds = %572, %571, %569, %_
   %579 = load ptr, ptr %543, align 8, !tbaa !15
   %580 = load ptr, ptr %553, align 8, !tbaa !15
   %581 = tail call noundef ptr %.val526(ptr noundef %575, ptr noundef %576, ptr noundef %577, ptr noundef %578, ptr noundef %579, ptr noundef %580, ptr noundef %573, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
-  %582 = load i32, ptr %0, align 4, !tbaa !16
+  %582 = load i32, ptr %0, align 8, !tbaa !16
   %583 = icmp sgt i32 %582, 1
   br i1 %583, label %584, label %586, !prof !19
 
@@ -21578,7 +21578,7 @@ _ZL8lean_incP11lean_object.exit485:               ; preds = %668, %667, %665, %_
   %676 = load ptr, ptr %639, align 8, !tbaa !15
   %677 = load ptr, ptr %649, align 8, !tbaa !15
   %678 = tail call noundef ptr %.val525(ptr noundef %671, ptr noundef %672, ptr noundef %673, ptr noundef %674, ptr noundef %675, ptr noundef %676, ptr noundef %677, ptr noundef %669, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
-  %679 = load i32, ptr %0, align 4, !tbaa !16
+  %679 = load i32, ptr %0, align 8, !tbaa !16
   %680 = icmp sgt i32 %679, 1
   br i1 %680, label %681, label %683, !prof !19
 
@@ -21843,7 +21843,7 @@ _ZL8lean_incP11lean_object.exit476:               ; preds = %775, %774, %772, %_
   %784 = load ptr, ptr %746, align 8, !tbaa !15
   %785 = load ptr, ptr %756, align 8, !tbaa !15
   %786 = tail call noundef ptr %.val524(ptr noundef %778, ptr noundef %779, ptr noundef %780, ptr noundef %781, ptr noundef %782, ptr noundef %783, ptr noundef %784, ptr noundef %785, ptr noundef %776, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
-  %787 = load i32, ptr %0, align 4, !tbaa !16
+  %787 = load i32, ptr %0, align 8, !tbaa !16
   %788 = icmp sgt i32 %787, 1
   br i1 %788, label %789, label %791, !prof !19
 
@@ -21892,7 +21892,7 @@ _ZL8lean_incP11lean_object.exit476:               ; preds = %775, %774, %772, %_
   %800 = getelementptr i8, ptr %0, i64 8
   %.val523 = load ptr, ptr %800, align 8, !tbaa !15
   %801 = call noundef ptr %.val523(ptr noundef nonnull %796)
-  %802 = load i32, ptr %0, align 4, !tbaa !16
+  %802 = load i32, ptr %0, align 8, !tbaa !16
   %803 = icmp sgt i32 %802, 1
   br i1 %803, label %817, label %819, !prof !19
 
@@ -22024,7 +22024,7 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %845, %844, %842, %8
   %848 = getelementptr i8, ptr %0, i64 8
   %.val546 = load ptr, ptr %848, align 8, !tbaa !15
   %849 = call noundef ptr @_ZN4lean5curryEPvjPP11lean_object(ptr noundef readonly %.val546, i32 noundef range(i32 0, 65536) %79, ptr noundef nonnull %832)
-  %850 = load i32, ptr %0, align 4, !tbaa !16
+  %850 = load i32, ptr %0, align 8, !tbaa !16
   %851 = icmp sgt i32 %850, 1
   br i1 %851, label %852, label %854, !prof !19
 
@@ -22468,7 +22468,7 @@ _ZL8lean_decP11lean_object.exit408:               ; preds = %77, %76, %74, %_ZL8
   %198 = getelementptr i8, ptr %0, i64 8
   %.val499 = load ptr, ptr %198, align 8, !tbaa !15
   %199 = tail call noundef ptr %.val499(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8)
-  %200 = load i32, ptr %0, align 4, !tbaa !16
+  %200 = load i32, ptr %0, align 8, !tbaa !16
   %201 = icmp sgt i32 %200, 1
   br i1 %201, label %202, label %204, !prof !19
 
@@ -22517,7 +22517,7 @@ _ZL8lean_incP11lean_object.exit487:               ; preds = %216, %215, %213, %2
   %218 = getelementptr i8, ptr %0, i64 8
   %.val498 = load ptr, ptr %218, align 8, !tbaa !15
   %219 = tail call noundef ptr %.val498(ptr noundef %217, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8)
-  %220 = load i32, ptr %0, align 4, !tbaa !16
+  %220 = load i32, ptr %0, align 8, !tbaa !16
   %221 = icmp sgt i32 %220, 1
   br i1 %221, label %222, label %224, !prof !19
 
@@ -22593,7 +22593,7 @@ _ZL8lean_incP11lean_object.exit485:               ; preds = %246, %245, %243, %_
   %.val497 = load ptr, ptr %248, align 8, !tbaa !15
   %249 = load ptr, ptr %227, align 8, !tbaa !15
   %250 = tail call noundef ptr %.val497(ptr noundef %249, ptr noundef %247, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8)
-  %251 = load i32, ptr %0, align 4, !tbaa !16
+  %251 = load i32, ptr %0, align 8, !tbaa !16
   %252 = icmp sgt i32 %251, 1
   br i1 %252, label %253, label %255, !prof !19
 
@@ -22696,7 +22696,7 @@ _ZL8lean_incP11lean_object.exit482:               ; preds = %287, %286, %284, %_
   %290 = load ptr, ptr %258, align 8, !tbaa !15
   %291 = load ptr, ptr %268, align 8, !tbaa !15
   %292 = tail call noundef ptr %.val496(ptr noundef %290, ptr noundef %291, ptr noundef %288, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8)
-  %293 = load i32, ptr %0, align 4, !tbaa !16
+  %293 = load i32, ptr %0, align 8, !tbaa !16
   %294 = icmp sgt i32 %293, 1
   br i1 %294, label %295, label %297, !prof !19
 
@@ -22826,7 +22826,7 @@ _ZL8lean_incP11lean_object.exit478:               ; preds = %339, %338, %336, %_
   %343 = load ptr, ptr %310, align 8, !tbaa !15
   %344 = load ptr, ptr %320, align 8, !tbaa !15
   %345 = tail call noundef ptr %.val495(ptr noundef %342, ptr noundef %343, ptr noundef %344, ptr noundef %340, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8)
-  %346 = load i32, ptr %0, align 4, !tbaa !16
+  %346 = load i32, ptr %0, align 8, !tbaa !16
   %347 = icmp sgt i32 %346, 1
   br i1 %347, label %348, label %350, !prof !19
 
@@ -22983,7 +22983,7 @@ _ZL8lean_incP11lean_object.exit473:               ; preds = %402, %401, %399, %_
   %407 = load ptr, ptr %373, align 8, !tbaa !15
   %408 = load ptr, ptr %383, align 8, !tbaa !15
   %409 = tail call noundef ptr %.val494(ptr noundef %405, ptr noundef %406, ptr noundef %407, ptr noundef %408, ptr noundef %403, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8)
-  %410 = load i32, ptr %0, align 4, !tbaa !16
+  %410 = load i32, ptr %0, align 8, !tbaa !16
   %411 = icmp sgt i32 %410, 1
   br i1 %411, label %412, label %414, !prof !19
 
@@ -23167,7 +23167,7 @@ _ZL8lean_incP11lean_object.exit467:               ; preds = %476, %475, %473, %_
   %482 = load ptr, ptr %447, align 8, !tbaa !15
   %483 = load ptr, ptr %457, align 8, !tbaa !15
   %484 = tail call noundef ptr %.val493(ptr noundef %479, ptr noundef %480, ptr noundef %481, ptr noundef %482, ptr noundef %483, ptr noundef %477, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8)
-  %485 = load i32, ptr %0, align 4, !tbaa !16
+  %485 = load i32, ptr %0, align 8, !tbaa !16
   %486 = icmp sgt i32 %485, 1
   br i1 %486, label %487, label %489, !prof !19
 
@@ -23378,7 +23378,7 @@ _ZL8lean_incP11lean_object.exit460:               ; preds = %561, %560, %558, %_
   %568 = load ptr, ptr %532, align 8, !tbaa !15
   %569 = load ptr, ptr %542, align 8, !tbaa !15
   %570 = tail call noundef ptr %.val492(ptr noundef %564, ptr noundef %565, ptr noundef %566, ptr noundef %567, ptr noundef %568, ptr noundef %569, ptr noundef %562, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8)
-  %571 = load i32, ptr %0, align 4, !tbaa !16
+  %571 = load i32, ptr %0, align 8, !tbaa !16
   %572 = icmp sgt i32 %571, 1
   br i1 %572, label %573, label %575, !prof !19
 
@@ -23616,7 +23616,7 @@ _ZL8lean_incP11lean_object.exit452:               ; preds = %657, %656, %654, %_
   %665 = load ptr, ptr %628, align 8, !tbaa !15
   %666 = load ptr, ptr %638, align 8, !tbaa !15
   %667 = tail call noundef ptr %.val491(ptr noundef %660, ptr noundef %661, ptr noundef %662, ptr noundef %663, ptr noundef %664, ptr noundef %665, ptr noundef %666, ptr noundef %658, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8)
-  %668 = load i32, ptr %0, align 4, !tbaa !16
+  %668 = load i32, ptr %0, align 8, !tbaa !16
   %669 = icmp sgt i32 %668, 1
   br i1 %669, label %670, label %672, !prof !19
 
@@ -23667,7 +23667,7 @@ _ZL8lean_incP11lean_object.exit452:               ; preds = %657, %656, %654, %_
   %681 = getelementptr i8, ptr %0, i64 8
   %.val490 = load ptr, ptr %681, align 8, !tbaa !15
   %682 = call noundef ptr %.val490(ptr noundef nonnull %677)
-  %683 = load i32, ptr %0, align 4, !tbaa !16
+  %683 = load i32, ptr %0, align 8, !tbaa !16
   %684 = icmp sgt i32 %683, 1
   br i1 %684, label %698, label %700, !prof !19
 
@@ -23801,7 +23801,7 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %727, %726, %724, %7
   %730 = getelementptr i8, ptr %0, i64 8
   %.val511 = load ptr, ptr %730, align 8, !tbaa !15
   %731 = call noundef ptr @_ZN4lean5curryEPvjPP11lean_object(ptr noundef readonly %.val511, i32 noundef range(i32 0, 65536) %89, ptr noundef nonnull %714)
-  %732 = load i32, ptr %0, align 4, !tbaa !16
+  %732 = load i32, ptr %0, align 8, !tbaa !16
   %733 = icmp sgt i32 %732, 1
   br i1 %733, label %734, label %736, !prof !19
 
@@ -24246,7 +24246,7 @@ _ZL8lean_decP11lean_object.exit382:               ; preds = %87, %86, %84, %_ZL8
   %189 = getelementptr i8, ptr %0, i64 8
   %.val465 = load ptr, ptr %189, align 8, !tbaa !15
   %190 = tail call noundef ptr %.val465(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
-  %191 = load i32, ptr %0, align 4, !tbaa !16
+  %191 = load i32, ptr %0, align 8, !tbaa !16
   %192 = icmp sgt i32 %191, 1
   br i1 %192, label %193, label %195, !prof !19
 
@@ -24295,7 +24295,7 @@ _ZL8lean_incP11lean_object.exit454:               ; preds = %207, %206, %204, %1
   %209 = getelementptr i8, ptr %0, i64 8
   %.val464 = load ptr, ptr %209, align 8, !tbaa !15
   %210 = tail call noundef ptr %.val464(ptr noundef %208, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
-  %211 = load i32, ptr %0, align 4, !tbaa !16
+  %211 = load i32, ptr %0, align 8, !tbaa !16
   %212 = icmp sgt i32 %211, 1
   br i1 %212, label %213, label %215, !prof !19
 
@@ -24371,7 +24371,7 @@ _ZL8lean_incP11lean_object.exit452:               ; preds = %237, %236, %234, %_
   %.val463 = load ptr, ptr %239, align 8, !tbaa !15
   %240 = load ptr, ptr %218, align 8, !tbaa !15
   %241 = tail call noundef ptr %.val463(ptr noundef %240, ptr noundef %238, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
-  %242 = load i32, ptr %0, align 4, !tbaa !16
+  %242 = load i32, ptr %0, align 8, !tbaa !16
   %243 = icmp sgt i32 %242, 1
   br i1 %243, label %244, label %246, !prof !19
 
@@ -24474,7 +24474,7 @@ _ZL8lean_incP11lean_object.exit449:               ; preds = %278, %277, %275, %_
   %281 = load ptr, ptr %249, align 8, !tbaa !15
   %282 = load ptr, ptr %259, align 8, !tbaa !15
   %283 = tail call noundef ptr %.val462(ptr noundef %281, ptr noundef %282, ptr noundef %279, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
-  %284 = load i32, ptr %0, align 4, !tbaa !16
+  %284 = load i32, ptr %0, align 8, !tbaa !16
   %285 = icmp sgt i32 %284, 1
   br i1 %285, label %286, label %288, !prof !19
 
@@ -24604,7 +24604,7 @@ _ZL8lean_incP11lean_object.exit445:               ; preds = %330, %329, %327, %_
   %334 = load ptr, ptr %301, align 8, !tbaa !15
   %335 = load ptr, ptr %311, align 8, !tbaa !15
   %336 = tail call noundef ptr %.val461(ptr noundef %333, ptr noundef %334, ptr noundef %335, ptr noundef %331, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
-  %337 = load i32, ptr %0, align 4, !tbaa !16
+  %337 = load i32, ptr %0, align 8, !tbaa !16
   %338 = icmp sgt i32 %337, 1
   br i1 %338, label %339, label %341, !prof !19
 
@@ -24761,7 +24761,7 @@ _ZL8lean_incP11lean_object.exit440:               ; preds = %393, %392, %390, %_
   %398 = load ptr, ptr %364, align 8, !tbaa !15
   %399 = load ptr, ptr %374, align 8, !tbaa !15
   %400 = tail call noundef ptr %.val460(ptr noundef %396, ptr noundef %397, ptr noundef %398, ptr noundef %399, ptr noundef %394, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
-  %401 = load i32, ptr %0, align 4, !tbaa !16
+  %401 = load i32, ptr %0, align 8, !tbaa !16
   %402 = icmp sgt i32 %401, 1
   br i1 %402, label %403, label %405, !prof !19
 
@@ -24945,7 +24945,7 @@ _ZL8lean_incP11lean_object.exit434:               ; preds = %467, %466, %464, %_
   %473 = load ptr, ptr %438, align 8, !tbaa !15
   %474 = load ptr, ptr %448, align 8, !tbaa !15
   %475 = tail call noundef ptr %.val459(ptr noundef %470, ptr noundef %471, ptr noundef %472, ptr noundef %473, ptr noundef %474, ptr noundef %468, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
-  %476 = load i32, ptr %0, align 4, !tbaa !16
+  %476 = load i32, ptr %0, align 8, !tbaa !16
   %477 = icmp sgt i32 %476, 1
   br i1 %477, label %478, label %480, !prof !19
 
@@ -25156,7 +25156,7 @@ _ZL8lean_incP11lean_object.exit427:               ; preds = %552, %551, %549, %_
   %559 = load ptr, ptr %523, align 8, !tbaa !15
   %560 = load ptr, ptr %533, align 8, !tbaa !15
   %561 = tail call noundef ptr %.val458(ptr noundef %555, ptr noundef %556, ptr noundef %557, ptr noundef %558, ptr noundef %559, ptr noundef %560, ptr noundef %553, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
-  %562 = load i32, ptr %0, align 4, !tbaa !16
+  %562 = load i32, ptr %0, align 8, !tbaa !16
   %563 = icmp sgt i32 %562, 1
   br i1 %563, label %564, label %566, !prof !19
 
@@ -25209,7 +25209,7 @@ _ZL8lean_incP11lean_object.exit427:               ; preds = %552, %551, %549, %_
   %575 = getelementptr i8, ptr %0, i64 8
   %.val457 = load ptr, ptr %575, align 8, !tbaa !15
   %576 = call noundef ptr %.val457(ptr noundef nonnull %571)
-  %577 = load i32, ptr %0, align 4, !tbaa !16
+  %577 = load i32, ptr %0, align 8, !tbaa !16
   %578 = icmp sgt i32 %577, 1
   br i1 %578, label %592, label %594, !prof !19
 
@@ -25345,7 +25345,7 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %622, %621, %619, %6
   %625 = getelementptr i8, ptr %0, i64 8
   %.val476 = load ptr, ptr %625, align 8, !tbaa !15
   %626 = call noundef ptr @_ZN4lean5curryEPvjPP11lean_object(ptr noundef readonly %.val476, i32 noundef range(i32 0, 65536) %99, ptr noundef nonnull %609)
-  %627 = load i32, ptr %0, align 4, !tbaa !16
+  %627 = load i32, ptr %0, align 8, !tbaa !16
   %628 = icmp sgt i32 %627, 1
   br i1 %628, label %629, label %631, !prof !19
 
@@ -25793,7 +25793,7 @@ _ZL8lean_decP11lean_object.exit355:               ; preds = %97, %96, %94, %_ZL8
   %182 = getelementptr i8, ptr %0, i64 8
   %.val431 = load ptr, ptr %182, align 8, !tbaa !15
   %183 = tail call noundef ptr %.val431(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10)
-  %184 = load i32, ptr %0, align 4, !tbaa !16
+  %184 = load i32, ptr %0, align 8, !tbaa !16
   %185 = icmp sgt i32 %184, 1
   br i1 %185, label %186, label %188, !prof !19
 
@@ -25842,7 +25842,7 @@ _ZL8lean_incP11lean_object.exit421:               ; preds = %200, %199, %197, %1
   %202 = getelementptr i8, ptr %0, i64 8
   %.val430 = load ptr, ptr %202, align 8, !tbaa !15
   %203 = tail call noundef ptr %.val430(ptr noundef %201, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10)
-  %204 = load i32, ptr %0, align 4, !tbaa !16
+  %204 = load i32, ptr %0, align 8, !tbaa !16
   %205 = icmp sgt i32 %204, 1
   br i1 %205, label %206, label %208, !prof !19
 
@@ -25918,7 +25918,7 @@ _ZL8lean_incP11lean_object.exit419:               ; preds = %230, %229, %227, %_
   %.val429 = load ptr, ptr %232, align 8, !tbaa !15
   %233 = load ptr, ptr %211, align 8, !tbaa !15
   %234 = tail call noundef ptr %.val429(ptr noundef %233, ptr noundef %231, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10)
-  %235 = load i32, ptr %0, align 4, !tbaa !16
+  %235 = load i32, ptr %0, align 8, !tbaa !16
   %236 = icmp sgt i32 %235, 1
   br i1 %236, label %237, label %239, !prof !19
 
@@ -26021,7 +26021,7 @@ _ZL8lean_incP11lean_object.exit416:               ; preds = %271, %270, %268, %_
   %274 = load ptr, ptr %242, align 8, !tbaa !15
   %275 = load ptr, ptr %252, align 8, !tbaa !15
   %276 = tail call noundef ptr %.val428(ptr noundef %274, ptr noundef %275, ptr noundef %272, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10)
-  %277 = load i32, ptr %0, align 4, !tbaa !16
+  %277 = load i32, ptr %0, align 8, !tbaa !16
   %278 = icmp sgt i32 %277, 1
   br i1 %278, label %279, label %281, !prof !19
 
@@ -26151,7 +26151,7 @@ _ZL8lean_incP11lean_object.exit412:               ; preds = %323, %322, %320, %_
   %327 = load ptr, ptr %294, align 8, !tbaa !15
   %328 = load ptr, ptr %304, align 8, !tbaa !15
   %329 = tail call noundef ptr %.val427(ptr noundef %326, ptr noundef %327, ptr noundef %328, ptr noundef %324, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10)
-  %330 = load i32, ptr %0, align 4, !tbaa !16
+  %330 = load i32, ptr %0, align 8, !tbaa !16
   %331 = icmp sgt i32 %330, 1
   br i1 %331, label %332, label %334, !prof !19
 
@@ -26308,7 +26308,7 @@ _ZL8lean_incP11lean_object.exit407:               ; preds = %386, %385, %383, %_
   %391 = load ptr, ptr %357, align 8, !tbaa !15
   %392 = load ptr, ptr %367, align 8, !tbaa !15
   %393 = tail call noundef ptr %.val426(ptr noundef %389, ptr noundef %390, ptr noundef %391, ptr noundef %392, ptr noundef %387, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10)
-  %394 = load i32, ptr %0, align 4, !tbaa !16
+  %394 = load i32, ptr %0, align 8, !tbaa !16
   %395 = icmp sgt i32 %394, 1
   br i1 %395, label %396, label %398, !prof !19
 
@@ -26492,7 +26492,7 @@ _ZL8lean_incP11lean_object.exit401:               ; preds = %460, %459, %457, %_
   %466 = load ptr, ptr %431, align 8, !tbaa !15
   %467 = load ptr, ptr %441, align 8, !tbaa !15
   %468 = tail call noundef ptr %.val425(ptr noundef %463, ptr noundef %464, ptr noundef %465, ptr noundef %466, ptr noundef %467, ptr noundef %461, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10)
-  %469 = load i32, ptr %0, align 4, !tbaa !16
+  %469 = load i32, ptr %0, align 8, !tbaa !16
   %470 = icmp sgt i32 %469, 1
   br i1 %470, label %471, label %473, !prof !19
 
@@ -26547,7 +26547,7 @@ _ZL8lean_incP11lean_object.exit401:               ; preds = %460, %459, %457, %_
   %482 = getelementptr i8, ptr %0, i64 8
   %.val424 = load ptr, ptr %482, align 8, !tbaa !15
   %483 = call noundef ptr %.val424(ptr noundef nonnull %478)
-  %484 = load i32, ptr %0, align 4, !tbaa !16
+  %484 = load i32, ptr %0, align 8, !tbaa !16
   %485 = icmp sgt i32 %484, 1
   br i1 %485, label %499, label %501, !prof !19
 
@@ -26685,7 +26685,7 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %530, %529, %527, %5
   %533 = getelementptr i8, ptr %0, i64 8
   %.val441 = load ptr, ptr %533, align 8, !tbaa !15
   %534 = call noundef ptr @_ZN4lean5curryEPvjPP11lean_object(ptr noundef readonly %.val441, i32 noundef range(i32 0, 65536) %109, ptr noundef nonnull %517)
-  %535 = load i32, ptr %0, align 4, !tbaa !16
+  %535 = load i32, ptr %0, align 8, !tbaa !16
   %536 = icmp sgt i32 %535, 1
   br i1 %536, label %537, label %539, !prof !19
 
@@ -27138,7 +27138,7 @@ _ZL8lean_decP11lean_object.exit327:               ; preds = %107, %106, %104, %_
   %177 = getelementptr i8, ptr %0, i64 8
   %.val397 = load ptr, ptr %177, align 8, !tbaa !15
   %178 = tail call noundef ptr %.val397(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11)
-  %179 = load i32, ptr %0, align 4, !tbaa !16
+  %179 = load i32, ptr %0, align 8, !tbaa !16
   %180 = icmp sgt i32 %179, 1
   br i1 %180, label %181, label %183, !prof !19
 
@@ -27187,7 +27187,7 @@ _ZL8lean_incP11lean_object.exit388:               ; preds = %195, %194, %192, %1
   %197 = getelementptr i8, ptr %0, i64 8
   %.val396 = load ptr, ptr %197, align 8, !tbaa !15
   %198 = tail call noundef ptr %.val396(ptr noundef %196, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11)
-  %199 = load i32, ptr %0, align 4, !tbaa !16
+  %199 = load i32, ptr %0, align 8, !tbaa !16
   %200 = icmp sgt i32 %199, 1
   br i1 %200, label %201, label %203, !prof !19
 
@@ -27263,7 +27263,7 @@ _ZL8lean_incP11lean_object.exit386:               ; preds = %225, %224, %222, %_
   %.val395 = load ptr, ptr %227, align 8, !tbaa !15
   %228 = load ptr, ptr %206, align 8, !tbaa !15
   %229 = tail call noundef ptr %.val395(ptr noundef %228, ptr noundef %226, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11)
-  %230 = load i32, ptr %0, align 4, !tbaa !16
+  %230 = load i32, ptr %0, align 8, !tbaa !16
   %231 = icmp sgt i32 %230, 1
   br i1 %231, label %232, label %234, !prof !19
 
@@ -27366,7 +27366,7 @@ _ZL8lean_incP11lean_object.exit383:               ; preds = %266, %265, %263, %_
   %269 = load ptr, ptr %237, align 8, !tbaa !15
   %270 = load ptr, ptr %247, align 8, !tbaa !15
   %271 = tail call noundef ptr %.val394(ptr noundef %269, ptr noundef %270, ptr noundef %267, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11)
-  %272 = load i32, ptr %0, align 4, !tbaa !16
+  %272 = load i32, ptr %0, align 8, !tbaa !16
   %273 = icmp sgt i32 %272, 1
   br i1 %273, label %274, label %276, !prof !19
 
@@ -27496,7 +27496,7 @@ _ZL8lean_incP11lean_object.exit379:               ; preds = %318, %317, %315, %_
   %322 = load ptr, ptr %289, align 8, !tbaa !15
   %323 = load ptr, ptr %299, align 8, !tbaa !15
   %324 = tail call noundef ptr %.val393(ptr noundef %321, ptr noundef %322, ptr noundef %323, ptr noundef %319, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11)
-  %325 = load i32, ptr %0, align 4, !tbaa !16
+  %325 = load i32, ptr %0, align 8, !tbaa !16
   %326 = icmp sgt i32 %325, 1
   br i1 %326, label %327, label %329, !prof !19
 
@@ -27653,7 +27653,7 @@ _ZL8lean_incP11lean_object.exit374:               ; preds = %381, %380, %378, %_
   %386 = load ptr, ptr %352, align 8, !tbaa !15
   %387 = load ptr, ptr %362, align 8, !tbaa !15
   %388 = tail call noundef ptr %.val392(ptr noundef %384, ptr noundef %385, ptr noundef %386, ptr noundef %387, ptr noundef %382, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11)
-  %389 = load i32, ptr %0, align 4, !tbaa !16
+  %389 = load i32, ptr %0, align 8, !tbaa !16
   %390 = icmp sgt i32 %389, 1
   br i1 %390, label %391, label %393, !prof !19
 
@@ -27710,7 +27710,7 @@ _ZL8lean_incP11lean_object.exit374:               ; preds = %381, %380, %378, %_
   %402 = getelementptr i8, ptr %0, i64 8
   %.val391 = load ptr, ptr %402, align 8, !tbaa !15
   %403 = call noundef ptr %.val391(ptr noundef nonnull %398)
-  %404 = load i32, ptr %0, align 4, !tbaa !16
+  %404 = load i32, ptr %0, align 8, !tbaa !16
   %405 = icmp sgt i32 %404, 1
   br i1 %405, label %419, label %421, !prof !19
 
@@ -27850,7 +27850,7 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %451, %450, %448, %4
   %454 = getelementptr i8, ptr %0, i64 8
   %.val406 = load ptr, ptr %454, align 8, !tbaa !15
   %455 = call noundef ptr @_ZN4lean5curryEPvjPP11lean_object(ptr noundef readonly %.val406, i32 noundef range(i32 0, 65536) %119, ptr noundef nonnull %438)
-  %456 = load i32, ptr %0, align 4, !tbaa !16
+  %456 = load i32, ptr %0, align 8, !tbaa !16
   %457 = icmp sgt i32 %456, 1
   br i1 %457, label %458, label %460, !prof !19
 
@@ -28310,7 +28310,7 @@ _ZL8lean_decP11lean_object.exit298:               ; preds = %117, %116, %114, %_
   %174 = getelementptr i8, ptr %0, i64 8
   %.val363 = load ptr, ptr %174, align 8, !tbaa !15
   %175 = tail call noundef ptr %.val363(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12)
-  %176 = load i32, ptr %0, align 4, !tbaa !16
+  %176 = load i32, ptr %0, align 8, !tbaa !16
   %177 = icmp sgt i32 %176, 1
   br i1 %177, label %178, label %180, !prof !19
 
@@ -28359,7 +28359,7 @@ _ZL8lean_incP11lean_object.exit355:               ; preds = %192, %191, %189, %1
   %194 = getelementptr i8, ptr %0, i64 8
   %.val362 = load ptr, ptr %194, align 8, !tbaa !15
   %195 = tail call noundef ptr %.val362(ptr noundef %193, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12)
-  %196 = load i32, ptr %0, align 4, !tbaa !16
+  %196 = load i32, ptr %0, align 8, !tbaa !16
   %197 = icmp sgt i32 %196, 1
   br i1 %197, label %198, label %200, !prof !19
 
@@ -28435,7 +28435,7 @@ _ZL8lean_incP11lean_object.exit353:               ; preds = %222, %221, %219, %_
   %.val361 = load ptr, ptr %224, align 8, !tbaa !15
   %225 = load ptr, ptr %203, align 8, !tbaa !15
   %226 = tail call noundef ptr %.val361(ptr noundef %225, ptr noundef %223, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12)
-  %227 = load i32, ptr %0, align 4, !tbaa !16
+  %227 = load i32, ptr %0, align 8, !tbaa !16
   %228 = icmp sgt i32 %227, 1
   br i1 %228, label %229, label %231, !prof !19
 
@@ -28538,7 +28538,7 @@ _ZL8lean_incP11lean_object.exit350:               ; preds = %263, %262, %260, %_
   %266 = load ptr, ptr %234, align 8, !tbaa !15
   %267 = load ptr, ptr %244, align 8, !tbaa !15
   %268 = tail call noundef ptr %.val360(ptr noundef %266, ptr noundef %267, ptr noundef %264, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12)
-  %269 = load i32, ptr %0, align 4, !tbaa !16
+  %269 = load i32, ptr %0, align 8, !tbaa !16
   %270 = icmp sgt i32 %269, 1
   br i1 %270, label %271, label %273, !prof !19
 
@@ -28668,7 +28668,7 @@ _ZL8lean_incP11lean_object.exit346:               ; preds = %315, %314, %312, %_
   %319 = load ptr, ptr %286, align 8, !tbaa !15
   %320 = load ptr, ptr %296, align 8, !tbaa !15
   %321 = tail call noundef ptr %.val359(ptr noundef %318, ptr noundef %319, ptr noundef %320, ptr noundef %316, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12)
-  %322 = load i32, ptr %0, align 4, !tbaa !16
+  %322 = load i32, ptr %0, align 8, !tbaa !16
   %323 = icmp sgt i32 %322, 1
   br i1 %323, label %324, label %326, !prof !19
 
@@ -28727,7 +28727,7 @@ _ZL8lean_incP11lean_object.exit346:               ; preds = %315, %314, %312, %_
   %335 = getelementptr i8, ptr %0, i64 8
   %.val358 = load ptr, ptr %335, align 8, !tbaa !15
   %336 = call noundef ptr %.val358(ptr noundef nonnull %331)
-  %337 = load i32, ptr %0, align 4, !tbaa !16
+  %337 = load i32, ptr %0, align 8, !tbaa !16
   %338 = icmp sgt i32 %337, 1
   br i1 %338, label %352, label %354, !prof !19
 
@@ -28869,7 +28869,7 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %385, %384, %382, %3
   %388 = getelementptr i8, ptr %0, i64 8
   %.val371 = load ptr, ptr %388, align 8, !tbaa !15
   %389 = call noundef ptr @_ZN4lean5curryEPvjPP11lean_object(ptr noundef readonly %.val371, i32 noundef range(i32 0, 65536) %129, ptr noundef nonnull %372)
-  %390 = load i32, ptr %0, align 4, !tbaa !16
+  %390 = load i32, ptr %0, align 8, !tbaa !16
   %391 = icmp sgt i32 %390, 1
   br i1 %391, label %392, label %394, !prof !19
 
@@ -29338,7 +29338,7 @@ _ZL8lean_decP11lean_object.exit268:               ; preds = %127, %126, %124, %_
   %173 = getelementptr i8, ptr %0, i64 8
   %.val329 = load ptr, ptr %173, align 8, !tbaa !15
   %174 = tail call noundef ptr %.val329(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13)
-  %175 = load i32, ptr %0, align 4, !tbaa !16
+  %175 = load i32, ptr %0, align 8, !tbaa !16
   %176 = icmp sgt i32 %175, 1
   br i1 %176, label %177, label %179, !prof !19
 
@@ -29387,7 +29387,7 @@ _ZL8lean_incP11lean_object.exit322:               ; preds = %191, %190, %188, %1
   %193 = getelementptr i8, ptr %0, i64 8
   %.val328 = load ptr, ptr %193, align 8, !tbaa !15
   %194 = tail call noundef ptr %.val328(ptr noundef %192, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13)
-  %195 = load i32, ptr %0, align 4, !tbaa !16
+  %195 = load i32, ptr %0, align 8, !tbaa !16
   %196 = icmp sgt i32 %195, 1
   br i1 %196, label %197, label %199, !prof !19
 
@@ -29463,7 +29463,7 @@ _ZL8lean_incP11lean_object.exit320:               ; preds = %221, %220, %218, %_
   %.val327 = load ptr, ptr %223, align 8, !tbaa !15
   %224 = load ptr, ptr %202, align 8, !tbaa !15
   %225 = tail call noundef ptr %.val327(ptr noundef %224, ptr noundef %222, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13)
-  %226 = load i32, ptr %0, align 4, !tbaa !16
+  %226 = load i32, ptr %0, align 8, !tbaa !16
   %227 = icmp sgt i32 %226, 1
   br i1 %227, label %228, label %230, !prof !19
 
@@ -29566,7 +29566,7 @@ _ZL8lean_incP11lean_object.exit317:               ; preds = %262, %261, %259, %_
   %265 = load ptr, ptr %233, align 8, !tbaa !15
   %266 = load ptr, ptr %243, align 8, !tbaa !15
   %267 = tail call noundef ptr %.val326(ptr noundef %265, ptr noundef %266, ptr noundef %263, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13)
-  %268 = load i32, ptr %0, align 4, !tbaa !16
+  %268 = load i32, ptr %0, align 8, !tbaa !16
   %269 = icmp sgt i32 %268, 1
   br i1 %269, label %270, label %272, !prof !19
 
@@ -29627,7 +29627,7 @@ _ZL8lean_incP11lean_object.exit317:               ; preds = %262, %261, %259, %_
   %281 = getelementptr i8, ptr %0, i64 8
   %.val325 = load ptr, ptr %281, align 8, !tbaa !15
   %282 = call noundef ptr %.val325(ptr noundef nonnull %277)
-  %283 = load i32, ptr %0, align 4, !tbaa !16
+  %283 = load i32, ptr %0, align 8, !tbaa !16
   %284 = icmp sgt i32 %283, 1
   br i1 %284, label %298, label %300, !prof !19
 
@@ -29771,7 +29771,7 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %332, %331, %329, %3
   %335 = getelementptr i8, ptr %0, i64 8
   %.val336 = load ptr, ptr %335, align 8, !tbaa !15
   %336 = call noundef ptr @_ZN4lean5curryEPvjPP11lean_object(ptr noundef readonly %.val336, i32 noundef range(i32 0, 65536) %139, ptr noundef nonnull %319)
-  %337 = load i32, ptr %0, align 4, !tbaa !16
+  %337 = load i32, ptr %0, align 8, !tbaa !16
   %338 = icmp sgt i32 %337, 1
   br i1 %338, label %339, label %341, !prof !19
 
@@ -30251,7 +30251,7 @@ _ZL8lean_decP11lean_object.exit237:               ; preds = %137, %136, %134, %_
   %174 = getelementptr i8, ptr %0, i64 8
   %.val295 = load ptr, ptr %174, align 8, !tbaa !15
   %175 = tail call noundef ptr %.val295(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
-  %176 = load i32, ptr %0, align 4, !tbaa !16
+  %176 = load i32, ptr %0, align 8, !tbaa !16
   %177 = icmp sgt i32 %176, 1
   br i1 %177, label %178, label %180, !prof !19
 
@@ -30300,7 +30300,7 @@ _ZL8lean_incP11lean_object.exit289:               ; preds = %192, %191, %189, %1
   %194 = getelementptr i8, ptr %0, i64 8
   %.val294 = load ptr, ptr %194, align 8, !tbaa !15
   %195 = tail call noundef ptr %.val294(ptr noundef %193, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
-  %196 = load i32, ptr %0, align 4, !tbaa !16
+  %196 = load i32, ptr %0, align 8, !tbaa !16
   %197 = icmp sgt i32 %196, 1
   br i1 %197, label %198, label %200, !prof !19
 
@@ -30376,7 +30376,7 @@ _ZL8lean_incP11lean_object.exit287:               ; preds = %222, %221, %219, %_
   %.val293 = load ptr, ptr %224, align 8, !tbaa !15
   %225 = load ptr, ptr %203, align 8, !tbaa !15
   %226 = tail call noundef ptr %.val293(ptr noundef %225, ptr noundef %223, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
-  %227 = load i32, ptr %0, align 4, !tbaa !16
+  %227 = load i32, ptr %0, align 8, !tbaa !16
   %228 = icmp sgt i32 %227, 1
   br i1 %228, label %229, label %231, !prof !19
 
@@ -30439,7 +30439,7 @@ _ZL8lean_incP11lean_object.exit287:               ; preds = %222, %221, %219, %_
   %240 = getelementptr i8, ptr %0, i64 8
   %.val292 = load ptr, ptr %240, align 8, !tbaa !15
   %241 = call noundef ptr %.val292(ptr noundef nonnull %236)
-  %242 = load i32, ptr %0, align 4, !tbaa !16
+  %242 = load i32, ptr %0, align 8, !tbaa !16
   %243 = icmp sgt i32 %242, 1
   br i1 %243, label %257, label %259, !prof !19
 
@@ -30585,7 +30585,7 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %292, %291, %289, %2
   %295 = getelementptr i8, ptr %0, i64 8
   %.val301 = load ptr, ptr %295, align 8, !tbaa !15
   %296 = call noundef ptr @_ZN4lean5curryEPvjPP11lean_object(ptr noundef readonly %.val301, i32 noundef range(i32 0, 65536) %149, ptr noundef nonnull %279)
-  %297 = load i32, ptr %0, align 4, !tbaa !16
+  %297 = load i32, ptr %0, align 8, !tbaa !16
   %298 = icmp sgt i32 %297, 1
   br i1 %298, label %299, label %301, !prof !19
 
@@ -31078,7 +31078,7 @@ _ZL8lean_decP11lean_object.exit205:               ; preds = %147, %146, %144, %_
   %177 = getelementptr i8, ptr %0, i64 8
   %.val261 = load ptr, ptr %177, align 8, !tbaa !15
   %178 = tail call noundef ptr %.val261(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15)
-  %179 = load i32, ptr %0, align 4, !tbaa !16
+  %179 = load i32, ptr %0, align 8, !tbaa !16
   %180 = icmp sgt i32 %179, 1
   br i1 %180, label %181, label %183, !prof !19
 
@@ -31127,7 +31127,7 @@ _ZL8lean_incP11lean_object.exit256:               ; preds = %195, %194, %192, %1
   %197 = getelementptr i8, ptr %0, i64 8
   %.val260 = load ptr, ptr %197, align 8, !tbaa !15
   %198 = tail call noundef ptr %.val260(ptr noundef %196, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15)
-  %199 = load i32, ptr %0, align 4, !tbaa !16
+  %199 = load i32, ptr %0, align 8, !tbaa !16
   %200 = icmp sgt i32 %199, 1
   br i1 %200, label %201, label %203, !prof !19
 
@@ -31192,7 +31192,7 @@ _ZL8lean_incP11lean_object.exit256:               ; preds = %195, %194, %192, %1
   %212 = getelementptr i8, ptr %0, i64 8
   %.val259 = load ptr, ptr %212, align 8, !tbaa !15
   %213 = call noundef ptr %.val259(ptr noundef nonnull %208)
-  %214 = load i32, ptr %0, align 4, !tbaa !16
+  %214 = load i32, ptr %0, align 8, !tbaa !16
   %215 = icmp sgt i32 %214, 1
   br i1 %215, label %229, label %231, !prof !19
 
@@ -31340,7 +31340,7 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %265, %264, %262, %2
   %268 = getelementptr i8, ptr %0, i64 8
   %.val266 = load ptr, ptr %268, align 8, !tbaa !15
   %269 = call noundef ptr @_ZN4lean5curryEPvjPP11lean_object(ptr noundef readonly %.val266, i32 noundef range(i32 0, 65536) %159, ptr noundef nonnull %252)
-  %270 = load i32, ptr %0, align 4, !tbaa !16
+  %270 = load i32, ptr %0, align 8, !tbaa !16
   %271 = icmp sgt i32 %270, 1
   br i1 %271, label %272, label %274, !prof !19
 
@@ -31843,7 +31843,7 @@ _ZL8lean_decP11lean_object.exit171:               ; preds = %157, %156, %154, %_
   %181 = getelementptr i8, ptr %0, i64 8
   %.val226 = load ptr, ptr %181, align 8, !tbaa !15
   %182 = tail call noundef ptr %.val226(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16)
-  %183 = load i32, ptr %0, align 4, !tbaa !16
+  %183 = load i32, ptr %0, align 8, !tbaa !16
   %184 = icmp sgt i32 %183, 1
   br i1 %184, label %185, label %187, !prof !19
 
@@ -31910,7 +31910,7 @@ _ZL8lean_decP11lean_object.exit171:               ; preds = %157, %156, %154, %_
   %196 = getelementptr i8, ptr %0, i64 8
   %.val225 = load ptr, ptr %196, align 8, !tbaa !15
   %197 = call noundef ptr %.val225(ptr noundef nonnull %192)
-  %198 = load i32, ptr %0, align 4, !tbaa !16
+  %198 = load i32, ptr %0, align 8, !tbaa !16
   %199 = icmp sgt i32 %198, 1
   br i1 %199, label %213, label %215, !prof !19
 
@@ -32060,7 +32060,7 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %250, %249, %247, %2
   %253 = getelementptr i8, ptr %0, i64 8
   %.val230 = load ptr, ptr %253, align 8, !tbaa !15
   %254 = call noundef ptr @_ZN4lean5curryEPvjPP11lean_object(ptr noundef readonly %.val230, i32 noundef range(i32 0, 65536) %169, ptr noundef nonnull %237)
-  %255 = load i32, ptr %0, align 4, !tbaa !16
+  %255 = load i32, ptr %0, align 8, !tbaa !16
   %256 = icmp sgt i32 %255, 1
   br i1 %256, label %257, label %259, !prof !19
 
@@ -32258,7 +32258,7 @@ _ZL8lean_incP11lean_object.exit84:                ; preds = %39, %38, %36, %29
   %42 = getelementptr i8, ptr %0, i64 8
   %.val87 = load ptr, ptr %42, align 8, !tbaa !15
   %43 = call noundef ptr %.val87(ptr noundef nonnull %27)
-  %44 = load i32, ptr %0, align 4, !tbaa !16
+  %44 = load i32, ptr %0, align 8, !tbaa !16
   %45 = icmp sgt i32 %44, 1
   br i1 %45, label %46, label %48, !prof !19
 
@@ -32353,7 +32353,7 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %74, %73, %71, %64
   %77 = getelementptr i8, ptr %0, i64 8
   %.val86 = load ptr, ptr %77, align 8, !tbaa !15
   %78 = call noundef ptr %.val86(ptr noundef nonnull %61)
-  %79 = load i32, ptr %0, align 4, !tbaa !16
+  %79 = load i32, ptr %0, align 8, !tbaa !16
   %80 = icmp sgt i32 %79, 1
   br i1 %80, label %81, label %83, !prof !19
 

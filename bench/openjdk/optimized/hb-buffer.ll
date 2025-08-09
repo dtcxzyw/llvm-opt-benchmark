@@ -1722,7 +1722,7 @@ define hidden nonnull ptr @hb_buffer_create() local_unnamed_addr #5 {
   store atomic i32 1, ptr %3 monotonic, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store atomic i64 0, ptr %4 monotonic, align 8
-  %5 = load atomic i32, ptr %1 monotonic, align 4
+  %5 = load atomic i32, ptr %1 monotonic, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 184
   store i32 1073741823, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 188
@@ -1772,7 +1772,7 @@ define hidden nonnull ptr @hb_buffer_create_similar(ptr noundef readonly capture
   store atomic i32 1, ptr %4 monotonic, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store atomic i64 0, ptr %5 monotonic, align 8
-  %6 = load atomic i32, ptr %2 monotonic, align 4
+  %6 = load atomic i32, ptr %2 monotonic, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 184
   store i32 1073741823, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 188

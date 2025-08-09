@@ -23545,21 +23545,21 @@ split:                                            ; preds = %153, %._crit_edge53
 
 178:                                              ; preds = %162
   store ptr %173, ptr %15, align 8, !tbaa !755
-  %179 = load i32, ptr %17, align 4, !tbaa !83
+  %179 = load i32, ptr %17, align 8, !tbaa !83
   %180 = zext i32 %179 to i64
   %181 = getelementptr inbounds nuw %struct.MOVTimeToSample, ptr %173, i64 %180
   store i32 %155, ptr %181, align 4, !tbaa !558
-  %182 = load i32, ptr %17, align 4, !tbaa !83
+  %182 = load i32, ptr %17, align 8, !tbaa !83
   %183 = zext i32 %182 to i64
   %184 = getelementptr inbounds nuw %struct.MOVTimeToSample, ptr %173, i64 %183, i32 2
   store i32 %157, ptr %184, align 4, !tbaa !559
-  %185 = load i32, ptr %17, align 4, !tbaa !83
+  %185 = load i32, ptr %17, align 8, !tbaa !83
   %186 = zext i32 %185 to i64
   %187 = getelementptr inbounds nuw %struct.MOVTimeToSample, ptr %173, i64 %186, i32 1
   store i32 %159, ptr %187, align 4, !tbaa !546
-  %188 = load i32, ptr %17, align 4, !tbaa !83
+  %188 = load i32, ptr %17, align 8, !tbaa !83
   %189 = add i32 %188, 1
-  store i32 %189, ptr %17, align 4, !tbaa !83
+  store i32 %189, ptr %17, align 8, !tbaa !83
   %190 = add nsw i64 %120, 1
   br label %191
 
@@ -23917,21 +23917,21 @@ add_index_entry.exit.thread:                      ; preds = %293, %284, %add_ind
 
 add_tts_entry.exit320:                            ; preds = %354
   store ptr %365, ptr %15, align 8, !tbaa !755
-  %366 = load i32, ptr %17, align 4, !tbaa !83
+  %366 = load i32, ptr %17, align 8, !tbaa !83
   %367 = zext i32 %366 to i64
   %368 = getelementptr inbounds nuw %struct.MOVTimeToSample, ptr %365, i64 %367
   store i32 %346, ptr %368, align 4, !tbaa !558
-  %369 = load i32, ptr %17, align 4, !tbaa !83
+  %369 = load i32, ptr %17, align 8, !tbaa !83
   %370 = zext i32 %369 to i64
   %371 = getelementptr inbounds nuw %struct.MOVTimeToSample, ptr %365, i64 %370, i32 2
   store i32 %349, ptr %371, align 4, !tbaa !559
-  %372 = load i32, ptr %17, align 4, !tbaa !83
+  %372 = load i32, ptr %17, align 8, !tbaa !83
   %373 = zext i32 %372 to i64
   %374 = getelementptr inbounds nuw %struct.MOVTimeToSample, ptr %365, i64 %373, i32 1
   store i32 %351, ptr %374, align 4, !tbaa !546
-  %375 = load i32, ptr %17, align 4, !tbaa !83
+  %375 = load i32, ptr %17, align 8, !tbaa !83
   %376 = add i32 %375, 1
-  store i32 %376, ptr %17, align 4, !tbaa !83
+  store i32 %376, ptr %17, align 8, !tbaa !83
   br label %383
 
 377:                                              ; preds = %._crit_edge530, %344

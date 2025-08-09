@@ -579,7 +579,7 @@ define internal fastcc noundef range(i32 -1, 5) i32 @tcpmss_mangle_packet(ptr no
   %164 = load i32, ptr %147, align 4
   tail call void @inet_proto_csum_replace4(ptr noundef nonnull %151, ptr noundef %0, i32 noundef 0, i32 noundef %164, i1 noundef zeroext false) #10
   %165 = getelementptr i8, ptr %134, i64 12
-  %166 = load i16, ptr %165, align 2
+  %166 = load i16, ptr %165, align 4
   %167 = add i16 %166, 16
   %168 = and i16 %167, 240
   %169 = and i16 %166, -241

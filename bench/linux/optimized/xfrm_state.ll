@@ -7977,11 +7977,11 @@ define dso_local noundef range(i32 -12, 1) i32 @xfrm_state_init(ptr noundef %0) 
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 2680
   store i64 68719476704, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 2688
-  store volatile ptr %27, ptr %27, align 8
+  store volatile ptr %27, ptr %27, align 16
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 2696
   store volatile ptr %27, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 2704
-  store ptr @xfrm_hash_resize, ptr %29, align 8
+  store ptr @xfrm_hash_resize, ptr %29, align 16
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 3392
   store i32 0, ptr %30, align 64
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 3396

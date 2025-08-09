@@ -173,7 +173,7 @@ sub_0:
   store ptr %38, ptr %37, align 8, !tbaa !4
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store i64 0, ptr %39, align 8, !tbaa !10
-  store i8 0, ptr %38, align 1, !tbaa !13
+  store i8 0, ptr %38, align 8, !tbaa !13
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 48
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %40)
           to label %_ZNSt10filesystem7__cxx114pathC2Ev.exit unwind label %41
@@ -681,7 +681,7 @@ define internal fastcc void @_ZL18gmx_fio_make_dummyv() unnamed_addr #0 personal
   store ptr %5, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %6, align 8, !tbaa !10
-  store i8 0, ptr %5, align 1, !tbaa !13
+  store i8 0, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %_ZNSt10filesystem7__cxx114pathC2Ev.exit unwind label %8

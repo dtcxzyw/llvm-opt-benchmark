@@ -813,7 +813,7 @@ define hidden void @lj_dispatch_ins(ptr noundef initializes((40, 48)) %0, ptr no
   %28 = inttoptr i64 %27 to ptr
   %29 = ptrtoint ptr %1 to i64
   store i64 %29, ptr %23, align 8, !tbaa !72
-  %30 = load i32, ptr %22, align 4, !tbaa !44
+  %30 = load i32, ptr %22, align 8, !tbaa !44
   %31 = getelementptr inbounds i8, ptr %1, i64 -4
   %32 = load i32, ptr %31, align 4, !tbaa !44
   %33 = and i32 %32, 255
@@ -1441,7 +1441,7 @@ define hidden void @lj_dispatch_stitch(ptr noundef %0, ptr noundef %1) local_unn
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %22 = load i64, ptr %21, align 8, !tbaa !56
   %23 = inttoptr i64 %22 to ptr
-  %24 = load i32, ptr %11, align 4, !tbaa !44
+  %24 = load i32, ptr %11, align 8, !tbaa !44
   %25 = load i32, ptr %1, align 4, !tbaa !44
   %26 = and i32 %25, 255
   %27 = icmp eq i32 %26, 50
@@ -1538,7 +1538,7 @@ define hidden void @lj_dispatch_profile(ptr noundef initializes((40, 48)) %0, pt
   %20 = load i64, ptr %19, align 8, !tbaa !72
   %21 = ptrtoint ptr %1 to i64
   store i64 %21, ptr %19, align 8, !tbaa !72
-  %22 = load i32, ptr %18, align 4, !tbaa !44
+  %22 = load i32, ptr %18, align 8, !tbaa !44
   %23 = getelementptr inbounds i8, ptr %1, i64 -4
   %24 = load i32, ptr %23, align 4, !tbaa !44
   %25 = and i32 %24, 255

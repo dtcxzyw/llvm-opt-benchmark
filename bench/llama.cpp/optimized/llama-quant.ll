@@ -4588,7 +4588,7 @@ thread-pre-split:                                 ; preds = %1494
   %1577 = load ptr, ptr %1567, align 8, !tbaa !199
   %1578 = getelementptr inbounds nuw i8, ptr %1577, i64 %.077112.i
   %1579 = getelementptr inbounds nuw float, ptr %.sroa.0681.14, i64 %.076113.i
-  %.val89.i = load i32, ptr %719, align 4
+  %.val89.i = load i32, ptr %719, align 8
   %1580 = load ptr, ptr %484, align 8, !tbaa !134
   %.not.i.i505 = icmp eq ptr %1571, %1580
   br i1 %.not.i.i505, label %1601, label %1581
@@ -4608,7 +4608,7 @@ thread-pre-split:                                 ; preds = %1494
   %1585 = getelementptr inbounds nuw i8, ptr %1582, i64 24
   store ptr %1578, ptr %1585, align 8, !tbaa !244
   %1586 = getelementptr inbounds nuw i8, ptr %1582, i64 32
-  store i32 %.val89.i, ptr %1586, align 4, !tbaa !246
+  store i32 %.val89.i, ptr %1586, align 8, !tbaa !246
   %1587 = getelementptr inbounds nuw i8, ptr %1582, i64 40
   store i64 %1568, ptr %1587, align 8, !tbaa !248
   store ptr %1582, ptr %12, align 8, !tbaa !250
@@ -4692,7 +4692,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %1601
   %1619 = getelementptr inbounds nuw i8, ptr %1616, i64 24
   store ptr %1578, ptr %1619, align 8, !tbaa !244
   %1620 = getelementptr inbounds nuw i8, ptr %1616, i64 32
-  store i32 %.val89.i, ptr %1620, align 4, !tbaa !246
+  store i32 %.val89.i, ptr %1620, align 8, !tbaa !246
   %1621 = getelementptr inbounds nuw i8, ptr %1616, i64 40
   store i64 %1568, ptr %1621, align 8, !tbaa !248
   store ptr %1616, ptr %11, align 8, !tbaa !250
@@ -6356,10 +6356,10 @@ _ZNSoaSEOSo.exit.i:                               ; preds = %134
   store ptr %141, ptr %140, align 8, !tbaa !297
   %143 = getelementptr inbounds nuw i8, ptr %128, i64 224
   %144 = getelementptr inbounds nuw i8, ptr %132, i64 224
-  %145 = load i8, ptr %143, align 1, !tbaa !13
-  %146 = load i8, ptr %144, align 1, !tbaa !13
-  store i8 %146, ptr %143, align 1, !tbaa !13
-  store i8 %145, ptr %144, align 1, !tbaa !13
+  %145 = load i8, ptr %143, align 8, !tbaa !13
+  %146 = load i8, ptr %144, align 8, !tbaa !13
+  store i8 %146, ptr %143, align 8, !tbaa !13
+  store i8 %145, ptr %144, align 8, !tbaa !13
   %147 = getelementptr inbounds nuw i8, ptr %128, i64 225
   %148 = getelementptr inbounds nuw i8, ptr %132, i64 225
   %149 = load i8, ptr %147, align 1, !tbaa !267, !range !31, !noundef !32

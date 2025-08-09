@@ -3316,7 +3316,7 @@ upb_Arena_Malloc.exit.i.i47.i:                    ; preds = %51, %49
   store i32 1, ptr %33, align 4, !tbaa !134
   %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
   %55 = ptrtoint ptr %.0.i.i.i48.i to i64
-  store i64 %55, ptr %54, align 1
+  store i64 %55, ptr %54, align 4
   br label %56
 
 56:                                               ; preds = %53, %upb_Arena_Malloc.exit.i.i47.i, %grpc_gcp_HandshakerReq_client_start.exit.i.i
@@ -3557,9 +3557,9 @@ upb_Arena_Malloc.exit.i.i70.i:                    ; preds = %157, %155
   %169 = getelementptr inbounds nuw i8, ptr %.0.i.i.i71.i, i64 8
   store i32 1, ptr %169, align 4, !tbaa !134
   %170 = getelementptr inbounds nuw i8, ptr %.0.i.i.i71.i, i64 16
-  store ptr %167, ptr %170, align 1
+  store ptr %167, ptr %170, align 4
   %.sroa.56.0..sroa_idx.i79.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i71.i, i64 24
-  store i64 %168, ptr %.sroa.56.0..sroa_idx.i79.i, align 1
+  store i64 %168, ptr %.sroa.56.0..sroa_idx.i79.i, align 4
   %.038.i = load ptr, ptr %.038107.i, align 8, !tbaa !141
   %.not42.i = icmp eq ptr %.038.i, null
   br i1 %.not42.i, label %._crit_edge.i, label %.lr.ph.i
@@ -3833,7 +3833,7 @@ upb_Arena_Malloc.exit.i.i39.i:                    ; preds = %53, %51
   store i32 2, ptr %35, align 4, !tbaa !134
   %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
   %57 = ptrtoint ptr %.0.i.i.i40.i to i64
-  store i64 %57, ptr %56, align 1
+  store i64 %57, ptr %56, align 4
   br label %58
 
 58:                                               ; preds = %55, %upb_Arena_Malloc.exit.i.i39.i, %grpc_gcp_HandshakerReq_server_start.exit.i.i
@@ -4345,7 +4345,7 @@ upb_Arena_Malloc.exit.i.i13.i:                    ; preds = %63, %61
   store i32 3, ptr %45, align 4, !tbaa !134
   %66 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
   %67 = ptrtoint ptr %.0.i.i.i14.i to i64
-  store i64 %67, ptr %66, align 1
+  store i64 %67, ptr %66, align 4
   br label %grpc_gcp_HandshakerReq_mutable_next.exit.i
 
 grpc_gcp_HandshakerReq_mutable_next.exit.i:       ; preds = %65, %upb_Arena_Malloc.exit.i.i13.i, %grpc_gcp_HandshakerReq_next.exit.i.i

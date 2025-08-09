@@ -1420,7 +1420,7 @@ define internal void @_ZNK12_GLOBAL__N_121GGraphMetaBackendImpl7compileERKN3ade5
   store ptr %19, ptr %18, align 8, !tbaa !56
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 0, ptr %20, align 8, !tbaa !62
-  store i8 0, ptr %19, align 1, !tbaa !44
+  store i8 0, ptr %19, align 8, !tbaa !44
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !77
   %23 = load ptr, ptr %4, align 8, !tbaa !80
@@ -7573,7 +7573,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i: ; pre
   store i64 %19, ptr %21, align 8, !tbaa !62
   store ptr %11, ptr %8, align 8, !tbaa !60
   store i64 0, ptr %20, align 8, !tbaa !62
-  store i8 0, ptr %11, align 1, !tbaa !44
+  store i8 0, ptr %11, align 8, !tbaa !44
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 40
   invoke void @_ZN2cv4gapi8GBackendC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %22)
           to label %29 unwind label %23

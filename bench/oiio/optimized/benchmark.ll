@@ -2055,7 +2055,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i:    ; preds = %._crit_edge.i.i
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJN11OpenImageIO6v3_1_013function_viewIFviEEEiEEEEEE, i64 16), ptr %78, align 8, !tbaa !61
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load i32, ptr %19, align 4, !tbaa !68
-  store i32 %80, ptr %79, align 4, !tbaa !79
+  store i32 %80, ptr %79, align 8, !tbaa !79
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 16
   store ptr %1, ptr %81, align 8, !tbaa !8
   %.sroa.2.0..sroa_idx.i28.i = getelementptr inbounds nuw i8, ptr %78, i64 24

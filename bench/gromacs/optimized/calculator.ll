@@ -8267,7 +8267,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %83 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %83, align 8, !tbaa !33
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  store i32 %.sroa.096.0.extract.trunc, ptr %84, align 4, !tbaa !258
+  store i32 %.sroa.096.0.extract.trunc, ptr %84, align 8, !tbaa !258
   %85 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %.pre-phi168, i64 noundef %24, ptr noundef nonnull %83, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -8330,7 +8330,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %105 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %105, align 8, !tbaa !33
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  store i32 %.sroa.096.0.extract.trunc, ptr %106, align 4, !tbaa !258
+  store i32 %.sroa.096.0.extract.trunc, ptr %106, align 8, !tbaa !258
   %107 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %88, i64 noundef %24, ptr noundef nonnull %105, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit30 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i27
 
@@ -8470,7 +8470,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit18: ; preds = %39, %
   %156 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %156, align 8, !tbaa !33
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
-  store i32 %.sroa.096.4.extract.trunc, ptr %157, align 4, !tbaa !258
+  store i32 %.sroa.096.4.extract.trunc, ptr %157, align 8, !tbaa !258
   %158 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %.pre-phi159171, i64 noundef %26, ptr noundef nonnull %156, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit55 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i52
 
@@ -8527,7 +8527,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %178 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %178, align 8, !tbaa !33
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
-  store i32 %.sroa.096.4.extract.trunc, ptr %179, align 4, !tbaa !258
+  store i32 %.sroa.096.4.extract.trunc, ptr %179, align 8, !tbaa !258
   %180 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %161, i64 noundef %26, ptr noundef nonnull %178, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit66 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i63
 
@@ -8800,7 +8800,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !33
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !161
+  %16 = load i32, ptr %15, align 8, !tbaa !161
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -9044,7 +9044,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %83 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %83, align 8, !tbaa !33
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  store i32 %.sroa.093.0.extract.trunc, ptr %84, align 4, !tbaa !258
+  store i32 %.sroa.093.0.extract.trunc, ptr %84, align 8, !tbaa !258
   %85 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %.pre-phi165, i64 noundef %24, ptr noundef nonnull %83, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -9107,7 +9107,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %105 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %105, align 8, !tbaa !33
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  store i32 %.sroa.093.0.extract.trunc, ptr %106, align 4, !tbaa !258
+  store i32 %.sroa.093.0.extract.trunc, ptr %106, align 8, !tbaa !258
   %107 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %88, i64 noundef %24, ptr noundef nonnull %105, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit27 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i24
 
@@ -9247,7 +9247,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %156 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %156, align 8, !tbaa !33
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
-  store i32 %.sroa.093.4.extract.trunc, ptr %157, align 4, !tbaa !258
+  store i32 %.sroa.093.4.extract.trunc, ptr %157, align 8, !tbaa !258
   %158 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %.pre-phi156168, i64 noundef %26, ptr noundef nonnull %156, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit52 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i49
 
@@ -9304,7 +9304,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %178 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %178, align 8, !tbaa !33
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
-  store i32 %.sroa.093.4.extract.trunc, ptr %179, align 4, !tbaa !258
+  store i32 %.sroa.093.4.extract.trunc, ptr %179, align 8, !tbaa !258
   %180 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %161, i64 noundef %26, ptr noundef nonnull %178, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit63 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i60
 
@@ -9620,7 +9620,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %81 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %81, align 8, !tbaa !33
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  store i32 %.sroa.093.0.extract.trunc, ptr %82, align 4, !tbaa !258
+  store i32 %.sroa.093.0.extract.trunc, ptr %82, align 8, !tbaa !258
   %83 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %.pre-phi165, i64 noundef %24, ptr noundef nonnull %81, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -9683,7 +9683,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %103 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %103, align 8, !tbaa !33
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
-  store i32 %.sroa.093.0.extract.trunc, ptr %104, align 4, !tbaa !258
+  store i32 %.sroa.093.0.extract.trunc, ptr %104, align 8, !tbaa !258
   %105 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %86, i64 noundef %24, ptr noundef nonnull %103, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit27 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i24
 
@@ -9823,7 +9823,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %154 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %154, align 8, !tbaa !33
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
-  store i32 %.sroa.093.4.extract.trunc, ptr %155, align 4, !tbaa !258
+  store i32 %.sroa.093.4.extract.trunc, ptr %155, align 8, !tbaa !258
   %156 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %.pre-phi156168, i64 noundef %26, ptr noundef nonnull %154, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit52 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i49
 
@@ -9880,7 +9880,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %176 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %176, align 8, !tbaa !33
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
-  store i32 %.sroa.093.4.extract.trunc, ptr %177, align 4, !tbaa !258
+  store i32 %.sroa.093.4.extract.trunc, ptr %177, align 8, !tbaa !258
   %178 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %159, i64 noundef %26, ptr noundef nonnull %176, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit63 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i60
 
@@ -10200,7 +10200,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %81 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %81, align 8, !tbaa !33
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  store i32 %.sroa.093.0.extract.trunc, ptr %82, align 4, !tbaa !258
+  store i32 %.sroa.093.0.extract.trunc, ptr %82, align 8, !tbaa !258
   %83 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %.pre-phi163, i64 noundef %24, ptr noundef nonnull %81, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -10263,7 +10263,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %103 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %103, align 8, !tbaa !33
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
-  store i32 %.sroa.093.0.extract.trunc, ptr %104, align 4, !tbaa !258
+  store i32 %.sroa.093.0.extract.trunc, ptr %104, align 8, !tbaa !258
   %105 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %86, i64 noundef %24, ptr noundef nonnull %103, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit27 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i24
 
@@ -10403,7 +10403,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %154 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %154, align 8, !tbaa !33
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
-  store i32 %.sroa.093.4.extract.trunc, ptr %155, align 4, !tbaa !258
+  store i32 %.sroa.093.4.extract.trunc, ptr %155, align 8, !tbaa !258
   %156 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %.pre-phi156166, i64 noundef %26, ptr noundef nonnull %154, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit52 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i49
 
@@ -10460,7 +10460,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %176 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %176, align 8, !tbaa !33
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
-  store i32 %.sroa.093.4.extract.trunc, ptr %177, align 4, !tbaa !258
+  store i32 %.sroa.093.4.extract.trunc, ptr %177, align 8, !tbaa !258
   %178 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %159, i64 noundef %26, ptr noundef nonnull %176, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit63 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i60
 
@@ -10779,7 +10779,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %83 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %83, align 8, !tbaa !33
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  store i32 %.sroa.093.0.extract.trunc, ptr %84, align 4, !tbaa !258
+  store i32 %.sroa.093.0.extract.trunc, ptr %84, align 8, !tbaa !258
   %85 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %.pre-phi163, i64 noundef %24, ptr noundef nonnull %83, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -10842,7 +10842,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %105 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %105, align 8, !tbaa !33
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  store i32 %.sroa.093.0.extract.trunc, ptr %106, align 4, !tbaa !258
+  store i32 %.sroa.093.0.extract.trunc, ptr %106, align 8, !tbaa !258
   %107 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %88, i64 noundef %24, ptr noundef nonnull %105, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit27 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i24
 
@@ -10982,7 +10982,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %156 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %156, align 8, !tbaa !33
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
-  store i32 %.sroa.093.4.extract.trunc, ptr %157, align 4, !tbaa !258
+  store i32 %.sroa.093.4.extract.trunc, ptr %157, align 8, !tbaa !258
   %158 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %.pre-phi156166, i64 noundef %26, ptr noundef nonnull %156, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit52 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i49
 
@@ -11039,7 +11039,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %178 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %178, align 8, !tbaa !33
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
-  store i32 %.sroa.093.4.extract.trunc, ptr %179, align 4, !tbaa !258
+  store i32 %.sroa.093.4.extract.trunc, ptr %179, align 8, !tbaa !258
   %180 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %161, i64 noundef %26, ptr noundef nonnull %178, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit63 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i60
 
@@ -11359,7 +11359,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %83 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %83, align 8, !tbaa !33
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  store i32 %.sroa.093.0.extract.trunc, ptr %84, align 4, !tbaa !258
+  store i32 %.sroa.093.0.extract.trunc, ptr %84, align 8, !tbaa !258
   %85 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %.pre-phi165, i64 noundef %24, ptr noundef nonnull %83, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -11422,7 +11422,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %105 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %105, align 8, !tbaa !33
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  store i32 %.sroa.093.0.extract.trunc, ptr %106, align 4, !tbaa !258
+  store i32 %.sroa.093.0.extract.trunc, ptr %106, align 8, !tbaa !258
   %107 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %88, i64 noundef %24, ptr noundef nonnull %105, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit27 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i24
 
@@ -11562,7 +11562,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %156 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %156, align 8, !tbaa !33
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
-  store i32 %.sroa.093.4.extract.trunc, ptr %157, align 4, !tbaa !258
+  store i32 %.sroa.093.4.extract.trunc, ptr %157, align 8, !tbaa !258
   %158 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %.pre-phi156168, i64 noundef %26, ptr noundef nonnull %156, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit52 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i49
 
@@ -11619,7 +11619,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %178 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %178, align 8, !tbaa !33
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
-  store i32 %.sroa.093.4.extract.trunc, ptr %179, align 4, !tbaa !258
+  store i32 %.sroa.093.4.extract.trunc, ptr %179, align 8, !tbaa !258
   %180 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %161, i64 noundef %26, ptr noundef nonnull %178, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit63 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i60
 
@@ -11934,7 +11934,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %83 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %83, align 8, !tbaa !33
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  store i32 %.sroa.094.0.extract.trunc, ptr %84, align 4, !tbaa !258
+  store i32 %.sroa.094.0.extract.trunc, ptr %84, align 8, !tbaa !258
   %85 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %.pre-phi166, i64 noundef %24, ptr noundef nonnull %83, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -11997,7 +11997,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %105 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %105, align 8, !tbaa !33
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  store i32 %.sroa.094.0.extract.trunc, ptr %106, align 4, !tbaa !258
+  store i32 %.sroa.094.0.extract.trunc, ptr %106, align 8, !tbaa !258
   %107 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %88, i64 noundef %24, ptr noundef nonnull %105, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit27 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i24
 
@@ -12137,7 +12137,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %156 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %156, align 8, !tbaa !33
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
-  store i32 %.sroa.094.4.extract.trunc, ptr %157, align 4, !tbaa !258
+  store i32 %.sroa.094.4.extract.trunc, ptr %157, align 8, !tbaa !258
   %158 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %.pre-phi157169, i64 noundef %26, ptr noundef nonnull %156, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit52 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i49
 
@@ -12194,7 +12194,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %178 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %178, align 8, !tbaa !33
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
-  store i32 %.sroa.094.4.extract.trunc, ptr %179, align 4, !tbaa !258
+  store i32 %.sroa.094.4.extract.trunc, ptr %179, align 8, !tbaa !258
   %180 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %161, i64 noundef %26, ptr noundef nonnull %178, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit63 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i60
 
@@ -12685,7 +12685,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   %199 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %199, align 8, !tbaa !33
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 8
-  store i32 %.sroa.0163.0.extract.trunc, ptr %200, align 4, !tbaa !258
+  store i32 %.sroa.0163.0.extract.trunc, ptr %200, align 8, !tbaa !258
   %201 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %.pre-phi263, i64 noundef %27, ptr noundef nonnull %199, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -12748,7 +12748,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %221 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %221, align 8, !tbaa !33
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 8
-  store i32 %.sroa.0163.0.extract.trunc, ptr %222, align 4, !tbaa !258
+  store i32 %.sroa.0163.0.extract.trunc, ptr %222, align 8, !tbaa !258
   %223 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %204, i64 noundef %27, ptr noundef nonnull %221, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit23 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i20
 
@@ -12900,7 +12900,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %280 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %280, align 8, !tbaa !33
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 8
-  store i32 %.sroa.0163.4.extract.trunc, ptr %281, align 4, !tbaa !258
+  store i32 %.sroa.0163.4.extract.trunc, ptr %281, align 8, !tbaa !258
   %282 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %.pre-phi253266, i64 noundef %29, ptr noundef nonnull %280, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit48 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i45
 
@@ -12957,7 +12957,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %302 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %302, align 8, !tbaa !33
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 8
-  store i32 %.sroa.0163.4.extract.trunc, ptr %303, align 4, !tbaa !258
+  store i32 %.sroa.0163.4.extract.trunc, ptr %303, align 8, !tbaa !258
   %304 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %285, i64 noundef %29, ptr noundef nonnull %302, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit59 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i56
 
@@ -13109,7 +13109,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %361 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %361, align 8, !tbaa !33
   %362 = getelementptr inbounds nuw i8, ptr %361, i64 8
-  store i32 %.sroa.5.8.extract.trunc, ptr %362, align 4, !tbaa !258
+  store i32 %.sroa.5.8.extract.trunc, ptr %362, align 8, !tbaa !258
   %363 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %.pre-phi255269, i64 noundef %31, ptr noundef nonnull %361, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit86 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i83
 
@@ -13166,7 +13166,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %383 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %383, align 8, !tbaa !33
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 8
-  store i32 %.sroa.5.8.extract.trunc, ptr %384, align 4, !tbaa !258
+  store i32 %.sroa.5.8.extract.trunc, ptr %384, align 8, !tbaa !258
   %385 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %366, i64 noundef %31, ptr noundef nonnull %383, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit97 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i94
 
@@ -13604,7 +13604,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   %205 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %205, align 8, !tbaa !33
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 8
-  store i32 %.sroa.0163.0.extract.trunc, ptr %206, align 4, !tbaa !258
+  store i32 %.sroa.0163.0.extract.trunc, ptr %206, align 8, !tbaa !258
   %207 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %.pre-phi263, i64 noundef %27, ptr noundef nonnull %205, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -13667,7 +13667,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %227 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %227, align 8, !tbaa !33
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 8
-  store i32 %.sroa.0163.0.extract.trunc, ptr %228, align 4, !tbaa !258
+  store i32 %.sroa.0163.0.extract.trunc, ptr %228, align 8, !tbaa !258
   %229 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %210, i64 noundef %27, ptr noundef nonnull %227, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit23 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i20
 
@@ -13819,7 +13819,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %286 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %286, align 8, !tbaa !33
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 8
-  store i32 %.sroa.0163.4.extract.trunc, ptr %287, align 4, !tbaa !258
+  store i32 %.sroa.0163.4.extract.trunc, ptr %287, align 8, !tbaa !258
   %288 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %.pre-phi253266, i64 noundef %29, ptr noundef nonnull %286, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit48 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i45
 
@@ -13876,7 +13876,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %308 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %308, align 8, !tbaa !33
   %309 = getelementptr inbounds nuw i8, ptr %308, i64 8
-  store i32 %.sroa.0163.4.extract.trunc, ptr %309, align 4, !tbaa !258
+  store i32 %.sroa.0163.4.extract.trunc, ptr %309, align 8, !tbaa !258
   %310 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %291, i64 noundef %29, ptr noundef nonnull %308, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit59 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i56
 
@@ -14028,7 +14028,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %367 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %367, align 8, !tbaa !33
   %368 = getelementptr inbounds nuw i8, ptr %367, i64 8
-  store i32 %.sroa.5.8.extract.trunc, ptr %368, align 4, !tbaa !258
+  store i32 %.sroa.5.8.extract.trunc, ptr %368, align 8, !tbaa !258
   %369 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %.pre-phi255269, i64 noundef %31, ptr noundef nonnull %367, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit86 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i83
 
@@ -14085,7 +14085,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %389 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %389, align 8, !tbaa !33
   %390 = getelementptr inbounds nuw i8, ptr %389, i64 8
-  store i32 %.sroa.5.8.extract.trunc, ptr %390, align 4, !tbaa !258
+  store i32 %.sroa.5.8.extract.trunc, ptr %390, align 8, !tbaa !258
   %391 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %372, i64 noundef %31, ptr noundef nonnull %389, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit97 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i94
 
@@ -14553,7 +14553,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   %200 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %200, align 8, !tbaa !33
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 8
-  store i32 %.sroa.0168.0.extract.trunc, ptr %201, align 4, !tbaa !258
+  store i32 %.sroa.0168.0.extract.trunc, ptr %201, align 8, !tbaa !258
   %202 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %.pre-phi285, i64 noundef %27, ptr noundef nonnull %200, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -14616,7 +14616,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %222 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %222, align 8, !tbaa !33
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 8
-  store i32 %.sroa.0168.0.extract.trunc, ptr %223, align 4, !tbaa !258
+  store i32 %.sroa.0168.0.extract.trunc, ptr %223, align 8, !tbaa !258
   %224 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %205, i64 noundef %27, ptr noundef nonnull %222, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit23 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i20
 
@@ -14768,7 +14768,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %281 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %281, align 8, !tbaa !33
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 8
-  store i32 %.sroa.0168.4.extract.trunc, ptr %282, align 4, !tbaa !258
+  store i32 %.sroa.0168.4.extract.trunc, ptr %282, align 8, !tbaa !258
   %283 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %.pre-phi275288, i64 noundef %29, ptr noundef nonnull %281, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit48 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i45
 
@@ -14825,7 +14825,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %303 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %303, align 8, !tbaa !33
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 8
-  store i32 %.sroa.0168.4.extract.trunc, ptr %304, align 4, !tbaa !258
+  store i32 %.sroa.0168.4.extract.trunc, ptr %304, align 8, !tbaa !258
   %305 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %286, i64 noundef %29, ptr noundef nonnull %303, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit59 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i56
 
@@ -14977,7 +14977,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %362 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %362, align 8, !tbaa !33
   %363 = getelementptr inbounds nuw i8, ptr %362, i64 8
-  store i32 %.sroa.5169.8.extract.trunc, ptr %363, align 4, !tbaa !258
+  store i32 %.sroa.5169.8.extract.trunc, ptr %363, align 8, !tbaa !258
   %364 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %.pre-phi277291, i64 noundef %31, ptr noundef nonnull %362, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit86 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i83
 
@@ -15034,7 +15034,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %384 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %384, align 8, !tbaa !33
   %385 = getelementptr inbounds nuw i8, ptr %384, i64 8
-  store i32 %.sroa.5169.8.extract.trunc, ptr %385, align 4, !tbaa !258
+  store i32 %.sroa.5169.8.extract.trunc, ptr %385, align 8, !tbaa !258
   %386 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %367, i64 noundef %31, ptr noundef nonnull %384, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit97 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i94
 
@@ -15469,7 +15469,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   %208 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %208, align 8, !tbaa !33
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 8
-  store i32 %.sroa.0163.0.extract.trunc, ptr %209, align 4, !tbaa !258
+  store i32 %.sroa.0163.0.extract.trunc, ptr %209, align 8, !tbaa !258
   %210 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %.pre-phi263, i64 noundef %27, ptr noundef nonnull %208, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -15532,7 +15532,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %230 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %230, align 8, !tbaa !33
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 8
-  store i32 %.sroa.0163.0.extract.trunc, ptr %231, align 4, !tbaa !258
+  store i32 %.sroa.0163.0.extract.trunc, ptr %231, align 8, !tbaa !258
   %232 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %213, i64 noundef %27, ptr noundef nonnull %230, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit23 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i20
 
@@ -15684,7 +15684,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %289 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %289, align 8, !tbaa !33
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 8
-  store i32 %.sroa.0163.4.extract.trunc, ptr %290, align 4, !tbaa !258
+  store i32 %.sroa.0163.4.extract.trunc, ptr %290, align 8, !tbaa !258
   %291 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %.pre-phi253266, i64 noundef %29, ptr noundef nonnull %289, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit48 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i45
 
@@ -15741,7 +15741,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %311 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %311, align 8, !tbaa !33
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 8
-  store i32 %.sroa.0163.4.extract.trunc, ptr %312, align 4, !tbaa !258
+  store i32 %.sroa.0163.4.extract.trunc, ptr %312, align 8, !tbaa !258
   %313 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %294, i64 noundef %29, ptr noundef nonnull %311, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit59 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i56
 
@@ -15893,7 +15893,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %370 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %370, align 8, !tbaa !33
   %371 = getelementptr inbounds nuw i8, ptr %370, i64 8
-  store i32 %.sroa.5.8.extract.trunc, ptr %371, align 4, !tbaa !258
+  store i32 %.sroa.5.8.extract.trunc, ptr %371, align 8, !tbaa !258
   %372 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %.pre-phi255269, i64 noundef %31, ptr noundef nonnull %370, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit86 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i83
 
@@ -15950,7 +15950,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %392 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %392, align 8, !tbaa !33
   %393 = getelementptr inbounds nuw i8, ptr %392, i64 8
-  store i32 %.sroa.5.8.extract.trunc, ptr %393, align 4, !tbaa !258
+  store i32 %.sroa.5.8.extract.trunc, ptr %393, align 8, !tbaa !258
   %394 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %375, i64 noundef %31, ptr noundef nonnull %392, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit97 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i94
 
@@ -16302,7 +16302,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %153 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %153, align 8, !tbaa !33
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
-  store i32 %.sroa.0190.0.extract.trunc, ptr %154, align 4, !tbaa !258
+  store i32 %.sroa.0190.0.extract.trunc, ptr %154, align 8, !tbaa !258
   %155 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %.pre-phi330, i64 noundef %27, ptr noundef nonnull %153, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -16365,7 +16365,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %175 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %175, align 8, !tbaa !33
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
-  store i32 %.sroa.0190.0.extract.trunc, ptr %176, align 4, !tbaa !258
+  store i32 %.sroa.0190.0.extract.trunc, ptr %176, align 8, !tbaa !258
   %177 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %158, i64 noundef %27, ptr noundef nonnull %175, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit49 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i46
 
@@ -16515,7 +16515,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %234 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %234, align 8, !tbaa !33
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 8
-  store i32 %.sroa.0190.4.extract.trunc, ptr %235, align 4, !tbaa !258
+  store i32 %.sroa.0190.4.extract.trunc, ptr %235, align 8, !tbaa !258
   %236 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %.pre-phi314333, i64 noundef %29, ptr noundef nonnull %234, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit76 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i73
 
@@ -16572,7 +16572,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %256 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %256, align 8, !tbaa !33
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 8
-  store i32 %.sroa.0190.4.extract.trunc, ptr %257, align 4, !tbaa !258
+  store i32 %.sroa.0190.4.extract.trunc, ptr %257, align 8, !tbaa !258
   %258 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %239, i64 noundef %29, ptr noundef nonnull %256, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit87 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i84
 
@@ -16722,7 +16722,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %315 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %315, align 8, !tbaa !33
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 8
-  store i32 %.sroa.5191.8.extract.trunc, ptr %316, align 4, !tbaa !258
+  store i32 %.sroa.5191.8.extract.trunc, ptr %316, align 8, !tbaa !258
   %317 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %.pre-phi316336, i64 noundef %31, ptr noundef nonnull %315, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit114 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i111
 
@@ -16779,7 +16779,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %337 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %337, align 8, !tbaa !33
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 8
-  store i32 %.sroa.5191.8.extract.trunc, ptr %338, align 4, !tbaa !258
+  store i32 %.sroa.5191.8.extract.trunc, ptr %338, align 8, !tbaa !258
   %339 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %320, i64 noundef %31, ptr noundef nonnull %337, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit125 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i122
 
@@ -17154,7 +17154,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %171 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %171, align 8, !tbaa !33
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 8
-  store i32 %.sroa.0210.0.extract.trunc, ptr %172, align 4, !tbaa !258
+  store i32 %.sroa.0210.0.extract.trunc, ptr %172, align 8, !tbaa !258
   %173 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %.pre-phi363, i64 noundef %27, ptr noundef nonnull %171, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -17217,7 +17217,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %193 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %193, align 8, !tbaa !33
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 8
-  store i32 %.sroa.0210.0.extract.trunc, ptr %194, align 4, !tbaa !258
+  store i32 %.sroa.0210.0.extract.trunc, ptr %194, align 8, !tbaa !258
   %195 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %176, i64 noundef %27, ptr noundef nonnull %193, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit68 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i65
 
@@ -17367,7 +17367,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %252 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %252, align 8, !tbaa !33
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 8
-  store i32 %.sroa.0210.4.extract.trunc, ptr %253, align 4, !tbaa !258
+  store i32 %.sroa.0210.4.extract.trunc, ptr %253, align 8, !tbaa !258
   %254 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %.pre-phi344366, i64 noundef %29, ptr noundef nonnull %252, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit95 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i92
 
@@ -17424,7 +17424,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %274 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %274, align 8, !tbaa !33
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 8
-  store i32 %.sroa.0210.4.extract.trunc, ptr %275, align 4, !tbaa !258
+  store i32 %.sroa.0210.4.extract.trunc, ptr %275, align 8, !tbaa !258
   %276 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %257, i64 noundef %29, ptr noundef nonnull %274, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit106 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i103
 
@@ -17574,7 +17574,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %333 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %333, align 8, !tbaa !33
   %334 = getelementptr inbounds nuw i8, ptr %333, i64 8
-  store i32 %.sroa.5211.8.extract.trunc, ptr %334, align 4, !tbaa !258
+  store i32 %.sroa.5211.8.extract.trunc, ptr %334, align 8, !tbaa !258
   %335 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %.pre-phi346369, i64 noundef %31, ptr noundef nonnull %333, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit133 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i130
 
@@ -17631,7 +17631,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %355 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %355, align 8, !tbaa !33
   %356 = getelementptr inbounds nuw i8, ptr %355, i64 8
-  store i32 %.sroa.5211.8.extract.trunc, ptr %356, align 4, !tbaa !258
+  store i32 %.sroa.5211.8.extract.trunc, ptr %356, align 8, !tbaa !258
   %357 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %338, i64 noundef %31, ptr noundef nonnull %355, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit144 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i141
 
@@ -17981,7 +17981,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %166 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %166, align 8, !tbaa !33
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
-  store i32 %.sroa.0202.0.extract.trunc, ptr %167, align 4, !tbaa !258
+  store i32 %.sroa.0202.0.extract.trunc, ptr %167, align 8, !tbaa !258
   %168 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %24, i64 noundef %.pre-phi347, i64 noundef %31, ptr noundef nonnull %166, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -18044,7 +18044,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %188 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %188, align 8, !tbaa !33
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 8
-  store i32 %.sroa.0202.0.extract.trunc, ptr %189, align 4, !tbaa !258
+  store i32 %.sroa.0202.0.extract.trunc, ptr %189, align 8, !tbaa !258
   %190 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %24, i64 noundef %171, i64 noundef %31, ptr noundef nonnull %188, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit58 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i55
 
@@ -18194,7 +18194,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %247 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %247, align 8, !tbaa !33
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 8
-  store i32 %.sroa.0202.4.extract.trunc, ptr %248, align 4, !tbaa !258
+  store i32 %.sroa.0202.4.extract.trunc, ptr %248, align 8, !tbaa !258
   %249 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %24, i64 noundef %.pre-phi337350, i64 noundef %33, ptr noundef nonnull %247, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit85 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i82
 
@@ -18251,7 +18251,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %269 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %269, align 8, !tbaa !33
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 8
-  store i32 %.sroa.0202.4.extract.trunc, ptr %270, align 4, !tbaa !258
+  store i32 %.sroa.0202.4.extract.trunc, ptr %270, align 8, !tbaa !258
   %271 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %24, i64 noundef %252, i64 noundef %33, ptr noundef nonnull %269, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit96 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i93
 
@@ -18401,7 +18401,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %328 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %328, align 8, !tbaa !33
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 8
-  store i32 %.sroa.5.8.extract.trunc, ptr %329, align 4, !tbaa !258
+  store i32 %.sroa.5.8.extract.trunc, ptr %329, align 8, !tbaa !258
   %330 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %24, i64 noundef %.pre-phi339353, i64 noundef %35, ptr noundef nonnull %328, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit123 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i120
 
@@ -18458,7 +18458,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %350 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %350, align 8, !tbaa !33
   %351 = getelementptr inbounds nuw i8, ptr %350, i64 8
-  store i32 %.sroa.5.8.extract.trunc, ptr %351, align 4, !tbaa !258
+  store i32 %.sroa.5.8.extract.trunc, ptr %351, align 8, !tbaa !258
   %352 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %24, i64 noundef %333, i64 noundef %35, ptr noundef nonnull %350, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit134 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i131
 
@@ -18946,7 +18946,7 @@ _ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_
   %245 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %245, align 8, !tbaa !33
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 8
-  store i32 %.sroa.0146.sroa.0.0.copyload, ptr %246, align 4, !tbaa !258
+  store i32 %.sroa.0146.sroa.0.0.copyload, ptr %246, align 8, !tbaa !258
   %247 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %.pre-phi355, i64 noundef %29, ptr noundef nonnull %245, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -19009,7 +19009,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %267 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %267, align 8, !tbaa !33
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 8
-  store i32 %.sroa.0146.sroa.0.0.copyload, ptr %268, align 4, !tbaa !258
+  store i32 %.sroa.0146.sroa.0.0.copyload, ptr %268, align 8, !tbaa !258
   %269 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %250, i64 noundef %29, ptr noundef nonnull %267, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit25 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i22
 
@@ -19161,7 +19161,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   %326 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %326, align 8, !tbaa !33
   %327 = getelementptr inbounds nuw i8, ptr %326, i64 8
-  store i32 %.sroa.0146.sroa.2.0.copyload, ptr %327, align 4, !tbaa !258
+  store i32 %.sroa.0146.sroa.2.0.copyload, ptr %327, align 8, !tbaa !258
   %328 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %.pre-phi341358, i64 noundef %31, ptr noundef nonnull %326, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit50 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i47
 
@@ -19218,7 +19218,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %348 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %348, align 8, !tbaa !33
   %349 = getelementptr inbounds nuw i8, ptr %348, i64 8
-  store i32 %.sroa.0146.sroa.2.0.copyload, ptr %349, align 4, !tbaa !258
+  store i32 %.sroa.0146.sroa.2.0.copyload, ptr %349, align 8, !tbaa !258
   %350 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %331, i64 noundef %31, ptr noundef nonnull %348, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit61 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i58
 
@@ -19370,7 +19370,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   %407 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %407, align 8, !tbaa !33
   %408 = getelementptr inbounds nuw i8, ptr %407, i64 8
-  store i32 %.sroa.0146.sroa.3.0.copyload, ptr %408, align 4, !tbaa !258
+  store i32 %.sroa.0146.sroa.3.0.copyload, ptr %408, align 8, !tbaa !258
   %409 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %.pre-phi343361, i64 noundef %33, ptr noundef nonnull %407, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit88 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i85
 
@@ -19427,7 +19427,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %429 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %429, align 8, !tbaa !33
   %430 = getelementptr inbounds nuw i8, ptr %429, i64 8
-  store i32 %.sroa.0146.sroa.3.0.copyload, ptr %430, align 4, !tbaa !258
+  store i32 %.sroa.0146.sroa.3.0.copyload, ptr %430, align 8, !tbaa !258
   %431 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %412, i64 noundef %33, ptr noundef nonnull %429, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit99 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i96
 
@@ -19579,7 +19579,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   %488 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %488, align 8, !tbaa !33
   %489 = getelementptr inbounds nuw i8, ptr %488, i64 8
-  store i32 %.sroa.0146.sroa.4.0.copyload, ptr %489, align 4, !tbaa !258
+  store i32 %.sroa.0146.sroa.4.0.copyload, ptr %489, align 8, !tbaa !258
   %490 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %.pre-phi345364, i64 noundef %35, ptr noundef nonnull %488, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit126 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i123
 
@@ -19636,7 +19636,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %510 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %510, align 8, !tbaa !33
   %511 = getelementptr inbounds nuw i8, ptr %510, i64 8
-  store i32 %.sroa.0146.sroa.4.0.copyload, ptr %511, align 4, !tbaa !258
+  store i32 %.sroa.0146.sroa.4.0.copyload, ptr %511, align 8, !tbaa !258
   %512 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %493, i64 noundef %35, ptr noundef nonnull %510, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit137 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i134
 
@@ -20148,7 +20148,7 @@ _ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_
   %251 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %251, align 8, !tbaa !33
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 8
-  store i32 %.sroa.0146.sroa.0.0.copyload, ptr %252, align 4, !tbaa !258
+  store i32 %.sroa.0146.sroa.0.0.copyload, ptr %252, align 8, !tbaa !258
   %253 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %.pre-phi355, i64 noundef %29, ptr noundef nonnull %251, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -20211,7 +20211,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %273 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %273, align 8, !tbaa !33
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 8
-  store i32 %.sroa.0146.sroa.0.0.copyload, ptr %274, align 4, !tbaa !258
+  store i32 %.sroa.0146.sroa.0.0.copyload, ptr %274, align 8, !tbaa !258
   %275 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %256, i64 noundef %29, ptr noundef nonnull %273, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit25 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i22
 
@@ -20363,7 +20363,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   %332 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %332, align 8, !tbaa !33
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 8
-  store i32 %.sroa.0146.sroa.2.0.copyload, ptr %333, align 4, !tbaa !258
+  store i32 %.sroa.0146.sroa.2.0.copyload, ptr %333, align 8, !tbaa !258
   %334 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %.pre-phi341358, i64 noundef %31, ptr noundef nonnull %332, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit50 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i47
 
@@ -20420,7 +20420,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %354 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %354, align 8, !tbaa !33
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 8
-  store i32 %.sroa.0146.sroa.2.0.copyload, ptr %355, align 4, !tbaa !258
+  store i32 %.sroa.0146.sroa.2.0.copyload, ptr %355, align 8, !tbaa !258
   %356 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %337, i64 noundef %31, ptr noundef nonnull %354, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit61 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i58
 
@@ -20572,7 +20572,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   %413 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %413, align 8, !tbaa !33
   %414 = getelementptr inbounds nuw i8, ptr %413, i64 8
-  store i32 %.sroa.0146.sroa.3.0.copyload, ptr %414, align 4, !tbaa !258
+  store i32 %.sroa.0146.sroa.3.0.copyload, ptr %414, align 8, !tbaa !258
   %415 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %.pre-phi343361, i64 noundef %33, ptr noundef nonnull %413, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit88 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i85
 
@@ -20629,7 +20629,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %435 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %435, align 8, !tbaa !33
   %436 = getelementptr inbounds nuw i8, ptr %435, i64 8
-  store i32 %.sroa.0146.sroa.3.0.copyload, ptr %436, align 4, !tbaa !258
+  store i32 %.sroa.0146.sroa.3.0.copyload, ptr %436, align 8, !tbaa !258
   %437 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %418, i64 noundef %33, ptr noundef nonnull %435, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit99 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i96
 
@@ -20781,7 +20781,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   %494 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %494, align 8, !tbaa !33
   %495 = getelementptr inbounds nuw i8, ptr %494, i64 8
-  store i32 %.sroa.0146.sroa.4.0.copyload, ptr %495, align 4, !tbaa !258
+  store i32 %.sroa.0146.sroa.4.0.copyload, ptr %495, align 8, !tbaa !258
   %496 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %.pre-phi345364, i64 noundef %35, ptr noundef nonnull %494, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit126 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i123
 
@@ -20838,7 +20838,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %516 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %516, align 8, !tbaa !33
   %517 = getelementptr inbounds nuw i8, ptr %516, i64 8
-  store i32 %.sroa.0146.sroa.4.0.copyload, ptr %517, align 4, !tbaa !258
+  store i32 %.sroa.0146.sroa.4.0.copyload, ptr %517, align 8, !tbaa !258
   %518 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %499, i64 noundef %35, ptr noundef nonnull %516, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit137 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i134
 
@@ -21348,7 +21348,7 @@ _ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_
   %253 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %253, align 8, !tbaa !33
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 8
-  store i32 %.sroa.0147.sroa.0.0.copyload, ptr %254, align 4, !tbaa !258
+  store i32 %.sroa.0147.sroa.0.0.copyload, ptr %254, align 8, !tbaa !258
   %255 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %23, i64 noundef %.pre-phi373, i64 noundef %30, ptr noundef nonnull %253, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -21411,7 +21411,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %275 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %275, align 8, !tbaa !33
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 8
-  store i32 %.sroa.0147.sroa.0.0.copyload, ptr %276, align 4, !tbaa !258
+  store i32 %.sroa.0147.sroa.0.0.copyload, ptr %276, align 8, !tbaa !258
   %277 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %23, i64 noundef %258, i64 noundef %30, ptr noundef nonnull %275, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit25 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i22
 
@@ -21563,7 +21563,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   %334 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %334, align 8, !tbaa !33
   %335 = getelementptr inbounds nuw i8, ptr %334, i64 8
-  store i32 %.sroa.0147.sroa.2.0.copyload, ptr %335, align 4, !tbaa !258
+  store i32 %.sroa.0147.sroa.2.0.copyload, ptr %335, align 8, !tbaa !258
   %336 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %23, i64 noundef %.pre-phi359376, i64 noundef %32, ptr noundef nonnull %334, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit50 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i47
 
@@ -21620,7 +21620,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %356 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %356, align 8, !tbaa !33
   %357 = getelementptr inbounds nuw i8, ptr %356, i64 8
-  store i32 %.sroa.0147.sroa.2.0.copyload, ptr %357, align 4, !tbaa !258
+  store i32 %.sroa.0147.sroa.2.0.copyload, ptr %357, align 8, !tbaa !258
   %358 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %23, i64 noundef %339, i64 noundef %32, ptr noundef nonnull %356, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit61 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i58
 
@@ -21772,7 +21772,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   %415 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %415, align 8, !tbaa !33
   %416 = getelementptr inbounds nuw i8, ptr %415, i64 8
-  store i32 %.sroa.0147.sroa.3.0.copyload, ptr %416, align 4, !tbaa !258
+  store i32 %.sroa.0147.sroa.3.0.copyload, ptr %416, align 8, !tbaa !258
   %417 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %23, i64 noundef %.pre-phi361379, i64 noundef %34, ptr noundef nonnull %415, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit88 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i85
 
@@ -21829,7 +21829,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %437 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %437, align 8, !tbaa !33
   %438 = getelementptr inbounds nuw i8, ptr %437, i64 8
-  store i32 %.sroa.0147.sroa.3.0.copyload, ptr %438, align 4, !tbaa !258
+  store i32 %.sroa.0147.sroa.3.0.copyload, ptr %438, align 8, !tbaa !258
   %439 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %23, i64 noundef %420, i64 noundef %34, ptr noundef nonnull %437, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit99 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i96
 
@@ -21981,7 +21981,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   %496 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %496, align 8, !tbaa !33
   %497 = getelementptr inbounds nuw i8, ptr %496, i64 8
-  store i32 %.sroa.0147.sroa.4.0.copyload, ptr %497, align 4, !tbaa !258
+  store i32 %.sroa.0147.sroa.4.0.copyload, ptr %497, align 8, !tbaa !258
   %498 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %23, i64 noundef %.pre-phi363382, i64 noundef %36, ptr noundef nonnull %496, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit126 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i123
 
@@ -22038,7 +22038,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %518 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %518, align 8, !tbaa !33
   %519 = getelementptr inbounds nuw i8, ptr %518, i64 8
-  store i32 %.sroa.0147.sroa.4.0.copyload, ptr %519, align 4, !tbaa !258
+  store i32 %.sroa.0147.sroa.4.0.copyload, ptr %519, align 8, !tbaa !258
   %520 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %23, i64 noundef %501, i64 noundef %36, ptr noundef nonnull %518, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit137 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i134
 
@@ -23033,7 +23033,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %80 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %80, align 8, !tbaa !33
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  store i32 %.sroa.098.0.extract.trunc, ptr %81, align 4, !tbaa !258
+  store i32 %.sroa.098.0.extract.trunc, ptr %81, align 8, !tbaa !258
   %82 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi168, i64 noundef %21, ptr noundef nonnull %80, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -23096,7 +23096,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %102 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %102, align 8, !tbaa !33
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  store i32 %.sroa.098.0.extract.trunc, ptr %103, align 4, !tbaa !258
+  store i32 %.sroa.098.0.extract.trunc, ptr %103, align 8, !tbaa !258
   %104 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %85, i64 noundef %21, ptr noundef nonnull %102, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit24 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i21
 
@@ -23236,7 +23236,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %153 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %153, align 8, !tbaa !33
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
-  store i32 %.sroa.098.4.extract.trunc, ptr %154, align 4, !tbaa !258
+  store i32 %.sroa.098.4.extract.trunc, ptr %154, align 8, !tbaa !258
   %155 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi161171, i64 noundef %23, ptr noundef nonnull %153, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit49 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i46
 
@@ -23293,7 +23293,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %175 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %175, align 8, !tbaa !33
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
-  store i32 %.sroa.098.4.extract.trunc, ptr %176, align 4, !tbaa !258
+  store i32 %.sroa.098.4.extract.trunc, ptr %176, align 8, !tbaa !258
   %177 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %158, i64 noundef %23, ptr noundef nonnull %175, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit60 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i57
 
@@ -23587,7 +23587,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %80 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %80, align 8, !tbaa !33
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  store i32 %.sroa.098.0.extract.trunc, ptr %81, align 4, !tbaa !258
+  store i32 %.sroa.098.0.extract.trunc, ptr %81, align 8, !tbaa !258
   %82 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi168, i64 noundef %21, ptr noundef nonnull %80, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -23650,7 +23650,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %102 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %102, align 8, !tbaa !33
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  store i32 %.sroa.098.0.extract.trunc, ptr %103, align 4, !tbaa !258
+  store i32 %.sroa.098.0.extract.trunc, ptr %103, align 8, !tbaa !258
   %104 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %85, i64 noundef %21, ptr noundef nonnull %102, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit24 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i21
 
@@ -23790,7 +23790,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %153 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %153, align 8, !tbaa !33
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
-  store i32 %.sroa.098.4.extract.trunc, ptr %154, align 4, !tbaa !258
+  store i32 %.sroa.098.4.extract.trunc, ptr %154, align 8, !tbaa !258
   %155 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi161171, i64 noundef %23, ptr noundef nonnull %153, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit49 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i46
 
@@ -23847,7 +23847,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %175 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %175, align 8, !tbaa !33
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
-  store i32 %.sroa.098.4.extract.trunc, ptr %176, align 4, !tbaa !258
+  store i32 %.sroa.098.4.extract.trunc, ptr %176, align 8, !tbaa !258
   %177 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %158, i64 noundef %23, ptr noundef nonnull %175, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit60 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i57
 
@@ -24146,7 +24146,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %78 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %78, align 8, !tbaa !33
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  store i32 %.sroa.098.0.extract.trunc, ptr %79, align 4, !tbaa !258
+  store i32 %.sroa.098.0.extract.trunc, ptr %79, align 8, !tbaa !258
   %80 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi168, i64 noundef %21, ptr noundef nonnull %78, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -24209,7 +24209,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %100 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %100, align 8, !tbaa !33
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  store i32 %.sroa.098.0.extract.trunc, ptr %101, align 4, !tbaa !258
+  store i32 %.sroa.098.0.extract.trunc, ptr %101, align 8, !tbaa !258
   %102 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %83, i64 noundef %21, ptr noundef nonnull %100, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit24 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i21
 
@@ -24349,7 +24349,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %151 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %151, align 8, !tbaa !33
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
-  store i32 %.sroa.098.4.extract.trunc, ptr %152, align 4, !tbaa !258
+  store i32 %.sroa.098.4.extract.trunc, ptr %152, align 8, !tbaa !258
   %153 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi161171, i64 noundef %23, ptr noundef nonnull %151, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit49 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i46
 
@@ -24406,7 +24406,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %173 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %173, align 8, !tbaa !33
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  store i32 %.sroa.098.4.extract.trunc, ptr %174, align 4, !tbaa !258
+  store i32 %.sroa.098.4.extract.trunc, ptr %174, align 8, !tbaa !258
   %175 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %156, i64 noundef %23, ptr noundef nonnull %173, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit60 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i57
 
@@ -24706,7 +24706,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %78 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %78, align 8, !tbaa !33
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  store i32 %.sroa.098.0.extract.trunc, ptr %79, align 4, !tbaa !258
+  store i32 %.sroa.098.0.extract.trunc, ptr %79, align 8, !tbaa !258
   %80 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi168, i64 noundef %21, ptr noundef nonnull %78, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -24769,7 +24769,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %100 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %100, align 8, !tbaa !33
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  store i32 %.sroa.098.0.extract.trunc, ptr %101, align 4, !tbaa !258
+  store i32 %.sroa.098.0.extract.trunc, ptr %101, align 8, !tbaa !258
   %102 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %83, i64 noundef %21, ptr noundef nonnull %100, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit24 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i21
 
@@ -24909,7 +24909,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %151 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %151, align 8, !tbaa !33
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
-  store i32 %.sroa.098.4.extract.trunc, ptr %152, align 4, !tbaa !258
+  store i32 %.sroa.098.4.extract.trunc, ptr %152, align 8, !tbaa !258
   %153 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi161171, i64 noundef %23, ptr noundef nonnull %151, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit49 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i46
 
@@ -24966,7 +24966,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %173 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %173, align 8, !tbaa !33
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  store i32 %.sroa.098.4.extract.trunc, ptr %174, align 4, !tbaa !258
+  store i32 %.sroa.098.4.extract.trunc, ptr %174, align 8, !tbaa !258
   %175 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %156, i64 noundef %23, ptr noundef nonnull %173, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit60 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i57
 
@@ -25265,7 +25265,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %80 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %80, align 8, !tbaa !33
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  store i32 %.sroa.098.0.extract.trunc, ptr %81, align 4, !tbaa !258
+  store i32 %.sroa.098.0.extract.trunc, ptr %81, align 8, !tbaa !258
   %82 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi168, i64 noundef %21, ptr noundef nonnull %80, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -25328,7 +25328,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %102 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %102, align 8, !tbaa !33
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  store i32 %.sroa.098.0.extract.trunc, ptr %103, align 4, !tbaa !258
+  store i32 %.sroa.098.0.extract.trunc, ptr %103, align 8, !tbaa !258
   %104 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %85, i64 noundef %21, ptr noundef nonnull %102, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit24 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i21
 
@@ -25468,7 +25468,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %153 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %153, align 8, !tbaa !33
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
-  store i32 %.sroa.098.4.extract.trunc, ptr %154, align 4, !tbaa !258
+  store i32 %.sroa.098.4.extract.trunc, ptr %154, align 8, !tbaa !258
   %155 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi161171, i64 noundef %23, ptr noundef nonnull %153, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit49 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i46
 
@@ -25525,7 +25525,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %175 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %175, align 8, !tbaa !33
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
-  store i32 %.sroa.098.4.extract.trunc, ptr %176, align 4, !tbaa !258
+  store i32 %.sroa.098.4.extract.trunc, ptr %176, align 8, !tbaa !258
   %177 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %158, i64 noundef %23, ptr noundef nonnull %175, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit60 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i57
 
@@ -25825,7 +25825,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %80 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %80, align 8, !tbaa !33
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  store i32 %.sroa.098.0.extract.trunc, ptr %81, align 4, !tbaa !258
+  store i32 %.sroa.098.0.extract.trunc, ptr %81, align 8, !tbaa !258
   %82 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi168, i64 noundef %21, ptr noundef nonnull %80, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -25888,7 +25888,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %102 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %102, align 8, !tbaa !33
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  store i32 %.sroa.098.0.extract.trunc, ptr %103, align 4, !tbaa !258
+  store i32 %.sroa.098.0.extract.trunc, ptr %103, align 8, !tbaa !258
   %104 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %85, i64 noundef %21, ptr noundef nonnull %102, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit24 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i21
 
@@ -26028,7 +26028,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %153 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %153, align 8, !tbaa !33
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
-  store i32 %.sroa.098.4.extract.trunc, ptr %154, align 4, !tbaa !258
+  store i32 %.sroa.098.4.extract.trunc, ptr %154, align 8, !tbaa !258
   %155 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi161171, i64 noundef %23, ptr noundef nonnull %153, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit49 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i46
 
@@ -26085,7 +26085,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %175 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %175, align 8, !tbaa !33
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
-  store i32 %.sroa.098.4.extract.trunc, ptr %176, align 4, !tbaa !258
+  store i32 %.sroa.098.4.extract.trunc, ptr %176, align 8, !tbaa !258
   %177 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %158, i64 noundef %23, ptr noundef nonnull %175, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit60 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i57
 
@@ -26383,7 +26383,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %80 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %80, align 8, !tbaa !33
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  store i32 %.sroa.099.0.extract.trunc, ptr %81, align 4, !tbaa !258
+  store i32 %.sroa.099.0.extract.trunc, ptr %81, align 8, !tbaa !258
   %82 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi169, i64 noundef %21, ptr noundef nonnull %80, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -26446,7 +26446,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %102 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %102, align 8, !tbaa !33
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  store i32 %.sroa.099.0.extract.trunc, ptr %103, align 4, !tbaa !258
+  store i32 %.sroa.099.0.extract.trunc, ptr %103, align 8, !tbaa !258
   %104 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %85, i64 noundef %21, ptr noundef nonnull %102, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit24 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i21
 
@@ -26586,7 +26586,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %153 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %153, align 8, !tbaa !33
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
-  store i32 %.sroa.099.4.extract.trunc, ptr %154, align 4, !tbaa !258
+  store i32 %.sroa.099.4.extract.trunc, ptr %154, align 8, !tbaa !258
   %155 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi162172, i64 noundef %23, ptr noundef nonnull %153, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit49 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i46
 
@@ -26643,7 +26643,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %175 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %175, align 8, !tbaa !33
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
-  store i32 %.sroa.099.4.extract.trunc, ptr %176, align 4, !tbaa !258
+  store i32 %.sroa.099.4.extract.trunc, ptr %176, align 8, !tbaa !258
   %177 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %158, i64 noundef %23, ptr noundef nonnull %175, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit60 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i57
 
@@ -27079,7 +27079,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   %182 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %182, align 8, !tbaa !33
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  store i32 %.sroa.0194.0.extract.trunc, ptr %183, align 4, !tbaa !258
+  store i32 %.sroa.0194.0.extract.trunc, ptr %183, align 8, !tbaa !258
   %184 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi297, i64 noundef %21, ptr noundef nonnull %182, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -27142,7 +27142,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %204 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %204, align 8, !tbaa !33
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 8
-  store i32 %.sroa.0194.0.extract.trunc, ptr %205, align 4, !tbaa !258
+  store i32 %.sroa.0194.0.extract.trunc, ptr %205, align 8, !tbaa !258
   %206 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %187, i64 noundef %21, ptr noundef nonnull %204, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit29 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i26
 
@@ -27294,7 +27294,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %263 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %263, align 8, !tbaa !33
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 8
-  store i32 %.sroa.0194.4.extract.trunc, ptr %264, align 4, !tbaa !258
+  store i32 %.sroa.0194.4.extract.trunc, ptr %264, align 8, !tbaa !258
   %265 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi285300, i64 noundef %23, ptr noundef nonnull %263, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit56 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i53
 
@@ -27351,7 +27351,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %285 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %285, align 8, !tbaa !33
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 8
-  store i32 %.sroa.0194.4.extract.trunc, ptr %286, align 4, !tbaa !258
+  store i32 %.sroa.0194.4.extract.trunc, ptr %286, align 8, !tbaa !258
   %287 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %268, i64 noundef %23, ptr noundef nonnull %285, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit67 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i64
 
@@ -27503,7 +27503,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %344 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %344, align 8, !tbaa !33
   %345 = getelementptr inbounds nuw i8, ptr %344, i64 8
-  store i32 %.sroa.5195.8.extract.trunc, ptr %345, align 4, !tbaa !258
+  store i32 %.sroa.5195.8.extract.trunc, ptr %345, align 8, !tbaa !258
   %346 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi287303, i64 noundef %25, ptr noundef nonnull %344, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit94 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i91
 
@@ -27560,7 +27560,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %366 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %366, align 8, !tbaa !33
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 8
-  store i32 %.sroa.5195.8.extract.trunc, ptr %367, align 4, !tbaa !258
+  store i32 %.sroa.5195.8.extract.trunc, ptr %367, align 8, !tbaa !258
   %368 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %349, i64 noundef %25, ptr noundef nonnull %366, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit105 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i102
 
@@ -27949,7 +27949,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   %188 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %188, align 8, !tbaa !33
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 8
-  store i32 %.sroa.0194.0.extract.trunc, ptr %189, align 4, !tbaa !258
+  store i32 %.sroa.0194.0.extract.trunc, ptr %189, align 8, !tbaa !258
   %190 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi297, i64 noundef %21, ptr noundef nonnull %188, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -28012,7 +28012,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %210 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %210, align 8, !tbaa !33
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 8
-  store i32 %.sroa.0194.0.extract.trunc, ptr %211, align 4, !tbaa !258
+  store i32 %.sroa.0194.0.extract.trunc, ptr %211, align 8, !tbaa !258
   %212 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %193, i64 noundef %21, ptr noundef nonnull %210, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit29 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i26
 
@@ -28164,7 +28164,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %269 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %269, align 8, !tbaa !33
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 8
-  store i32 %.sroa.0194.4.extract.trunc, ptr %270, align 4, !tbaa !258
+  store i32 %.sroa.0194.4.extract.trunc, ptr %270, align 8, !tbaa !258
   %271 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi285300, i64 noundef %23, ptr noundef nonnull %269, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit56 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i53
 
@@ -28221,7 +28221,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %291 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %291, align 8, !tbaa !33
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 8
-  store i32 %.sroa.0194.4.extract.trunc, ptr %292, align 4, !tbaa !258
+  store i32 %.sroa.0194.4.extract.trunc, ptr %292, align 8, !tbaa !258
   %293 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %274, i64 noundef %23, ptr noundef nonnull %291, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit67 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i64
 
@@ -28373,7 +28373,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %350 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %350, align 8, !tbaa !33
   %351 = getelementptr inbounds nuw i8, ptr %350, i64 8
-  store i32 %.sroa.5195.8.extract.trunc, ptr %351, align 4, !tbaa !258
+  store i32 %.sroa.5195.8.extract.trunc, ptr %351, align 8, !tbaa !258
   %352 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi287303, i64 noundef %25, ptr noundef nonnull %350, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit94 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i91
 
@@ -28430,7 +28430,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %372 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %372, align 8, !tbaa !33
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 8
-  store i32 %.sroa.5195.8.extract.trunc, ptr %373, align 4, !tbaa !258
+  store i32 %.sroa.5195.8.extract.trunc, ptr %373, align 8, !tbaa !258
   %374 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %355, i64 noundef %25, ptr noundef nonnull %372, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit105 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i102
 
@@ -28852,7 +28852,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   %183 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %183, align 8, !tbaa !33
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  store i32 %.sroa.0201.0.extract.trunc, ptr %184, align 4, !tbaa !258
+  store i32 %.sroa.0201.0.extract.trunc, ptr %184, align 8, !tbaa !258
   %185 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi320, i64 noundef %21, ptr noundef nonnull %183, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -28915,7 +28915,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %205 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %205, align 8, !tbaa !33
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 8
-  store i32 %.sroa.0201.0.extract.trunc, ptr %206, align 4, !tbaa !258
+  store i32 %.sroa.0201.0.extract.trunc, ptr %206, align 8, !tbaa !258
   %207 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %188, i64 noundef %21, ptr noundef nonnull %205, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit29 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i26
 
@@ -29067,7 +29067,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %264 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %264, align 8, !tbaa !33
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 8
-  store i32 %.sroa.0201.4.extract.trunc, ptr %265, align 4, !tbaa !258
+  store i32 %.sroa.0201.4.extract.trunc, ptr %265, align 8, !tbaa !258
   %266 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi308323, i64 noundef %23, ptr noundef nonnull %264, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit56 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i53
 
@@ -29124,7 +29124,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %286 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %286, align 8, !tbaa !33
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 8
-  store i32 %.sroa.0201.4.extract.trunc, ptr %287, align 4, !tbaa !258
+  store i32 %.sroa.0201.4.extract.trunc, ptr %287, align 8, !tbaa !258
   %288 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %269, i64 noundef %23, ptr noundef nonnull %286, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit67 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i64
 
@@ -29276,7 +29276,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %345 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %345, align 8, !tbaa !33
   %346 = getelementptr inbounds nuw i8, ptr %345, i64 8
-  store i32 %.sroa.5202.8.extract.trunc, ptr %346, align 4, !tbaa !258
+  store i32 %.sroa.5202.8.extract.trunc, ptr %346, align 8, !tbaa !258
   %347 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi310326, i64 noundef %25, ptr noundef nonnull %345, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit94 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i91
 
@@ -29333,7 +29333,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %367 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %367, align 8, !tbaa !33
   %368 = getelementptr inbounds nuw i8, ptr %367, i64 8
-  store i32 %.sroa.5202.8.extract.trunc, ptr %368, align 4, !tbaa !258
+  store i32 %.sroa.5202.8.extract.trunc, ptr %368, align 8, !tbaa !258
   %369 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %350, i64 noundef %25, ptr noundef nonnull %367, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit105 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i102
 
@@ -29725,7 +29725,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   %191 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %191, align 8, !tbaa !33
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
-  store i32 %.sroa.0194.0.extract.trunc, ptr %192, align 4, !tbaa !258
+  store i32 %.sroa.0194.0.extract.trunc, ptr %192, align 8, !tbaa !258
   %193 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi297, i64 noundef %21, ptr noundef nonnull %191, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -29788,7 +29788,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %213 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %213, align 8, !tbaa !33
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  store i32 %.sroa.0194.0.extract.trunc, ptr %214, align 4, !tbaa !258
+  store i32 %.sroa.0194.0.extract.trunc, ptr %214, align 8, !tbaa !258
   %215 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %196, i64 noundef %21, ptr noundef nonnull %213, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit29 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i26
 
@@ -29940,7 +29940,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %272 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %272, align 8, !tbaa !33
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 8
-  store i32 %.sroa.0194.4.extract.trunc, ptr %273, align 4, !tbaa !258
+  store i32 %.sroa.0194.4.extract.trunc, ptr %273, align 8, !tbaa !258
   %274 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi285300, i64 noundef %23, ptr noundef nonnull %272, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit56 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i53
 
@@ -29997,7 +29997,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %294 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %294, align 8, !tbaa !33
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 8
-  store i32 %.sroa.0194.4.extract.trunc, ptr %295, align 4, !tbaa !258
+  store i32 %.sroa.0194.4.extract.trunc, ptr %295, align 8, !tbaa !258
   %296 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %277, i64 noundef %23, ptr noundef nonnull %294, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit67 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i64
 
@@ -30149,7 +30149,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %353 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %353, align 8, !tbaa !33
   %354 = getelementptr inbounds nuw i8, ptr %353, i64 8
-  store i32 %.sroa.5195.8.extract.trunc, ptr %354, align 4, !tbaa !258
+  store i32 %.sroa.5195.8.extract.trunc, ptr %354, align 8, !tbaa !258
   %355 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi287303, i64 noundef %25, ptr noundef nonnull %353, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit94 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i91
 
@@ -30206,7 +30206,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %375 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %375, align 8, !tbaa !33
   %376 = getelementptr inbounds nuw i8, ptr %375, i64 8
-  store i32 %.sroa.5195.8.extract.trunc, ptr %376, align 4, !tbaa !258
+  store i32 %.sroa.5195.8.extract.trunc, ptr %376, align 8, !tbaa !258
   %377 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %358, i64 noundef %25, ptr noundef nonnull %375, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit105 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i102
 
@@ -30519,7 +30519,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %130 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %130, align 8, !tbaa !33
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  store i32 %.sroa.0221.0.extract.trunc, ptr %131, align 4, !tbaa !258
+  store i32 %.sroa.0221.0.extract.trunc, ptr %131, align 8, !tbaa !258
   %132 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi358, i64 noundef %21, ptr noundef nonnull %130, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -30582,7 +30582,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %152 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %152, align 8, !tbaa !33
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
-  store i32 %.sroa.0221.0.extract.trunc, ptr %153, align 4, !tbaa !258
+  store i32 %.sroa.0221.0.extract.trunc, ptr %153, align 8, !tbaa !258
   %154 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %135, i64 noundef %21, ptr noundef nonnull %152, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit56 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i53
 
@@ -30732,7 +30732,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %211 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %211, align 8, !tbaa !33
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
-  store i32 %.sroa.0221.4.extract.trunc, ptr %212, align 4, !tbaa !258
+  store i32 %.sroa.0221.4.extract.trunc, ptr %212, align 8, !tbaa !258
   %213 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi346361, i64 noundef %23, ptr noundef nonnull %211, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit83 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i80
 
@@ -30789,7 +30789,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %233 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %233, align 8, !tbaa !33
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 8
-  store i32 %.sroa.0221.4.extract.trunc, ptr %234, align 4, !tbaa !258
+  store i32 %.sroa.0221.4.extract.trunc, ptr %234, align 8, !tbaa !258
   %235 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %216, i64 noundef %23, ptr noundef nonnull %233, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit94 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i91
 
@@ -30939,7 +30939,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %292 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %292, align 8, !tbaa !33
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 8
-  store i32 %.sroa.5222.8.extract.trunc, ptr %293, align 4, !tbaa !258
+  store i32 %.sroa.5222.8.extract.trunc, ptr %293, align 8, !tbaa !258
   %294 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi348364, i64 noundef %25, ptr noundef nonnull %292, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit121 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i118
 
@@ -30996,7 +30996,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %314 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %314, align 8, !tbaa !33
   %315 = getelementptr inbounds nuw i8, ptr %314, i64 8
-  store i32 %.sroa.5222.8.extract.trunc, ptr %315, align 4, !tbaa !258
+  store i32 %.sroa.5222.8.extract.trunc, ptr %315, align 8, !tbaa !258
   %316 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %297, i64 noundef %25, ptr noundef nonnull %314, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit132 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i129
 
@@ -31328,7 +31328,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %148 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %148, align 8, !tbaa !33
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
-  store i32 %.sroa.0247.0.extract.trunc, ptr %149, align 4, !tbaa !258
+  store i32 %.sroa.0247.0.extract.trunc, ptr %149, align 8, !tbaa !258
   %150 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi394, i64 noundef %21, ptr noundef nonnull %148, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -31391,7 +31391,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %170 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %170, align 8, !tbaa !33
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
-  store i32 %.sroa.0247.0.extract.trunc, ptr %171, align 4, !tbaa !258
+  store i32 %.sroa.0247.0.extract.trunc, ptr %171, align 8, !tbaa !258
   %172 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %153, i64 noundef %21, ptr noundef nonnull %170, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit75 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i72
 
@@ -31541,7 +31541,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %229 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %229, align 8, !tbaa !33
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 8
-  store i32 %.sroa.0247.4.extract.trunc, ptr %230, align 4, !tbaa !258
+  store i32 %.sroa.0247.4.extract.trunc, ptr %230, align 8, !tbaa !258
   %231 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi382397, i64 noundef %23, ptr noundef nonnull %229, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit102 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i99
 
@@ -31598,7 +31598,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %251 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %251, align 8, !tbaa !33
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 8
-  store i32 %.sroa.0247.4.extract.trunc, ptr %252, align 4, !tbaa !258
+  store i32 %.sroa.0247.4.extract.trunc, ptr %252, align 8, !tbaa !258
   %253 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %234, i64 noundef %23, ptr noundef nonnull %251, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit113 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i110
 
@@ -31748,7 +31748,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %310 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %310, align 8, !tbaa !33
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 8
-  store i32 %.sroa.5248.8.extract.trunc, ptr %311, align 4, !tbaa !258
+  store i32 %.sroa.5248.8.extract.trunc, ptr %311, align 8, !tbaa !258
   %312 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi384400, i64 noundef %25, ptr noundef nonnull %310, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit140 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i137
 
@@ -31805,7 +31805,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %332 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %332, align 8, !tbaa !33
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 8
-  store i32 %.sroa.5248.8.extract.trunc, ptr %333, align 4, !tbaa !258
+  store i32 %.sroa.5248.8.extract.trunc, ptr %333, align 8, !tbaa !258
   %334 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %315, i64 noundef %25, ptr noundef nonnull %332, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit151 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i148
 
@@ -32120,7 +32120,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %139 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %139, align 8, !tbaa !33
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
-  store i32 %.sroa.0230.0.extract.trunc, ptr %140, align 4, !tbaa !258
+  store i32 %.sroa.0230.0.extract.trunc, ptr %140, align 8, !tbaa !258
   %141 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi379, i64 noundef %21, ptr noundef nonnull %139, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -32183,7 +32183,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %161 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %161, align 8, !tbaa !33
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
-  store i32 %.sroa.0230.0.extract.trunc, ptr %162, align 4, !tbaa !258
+  store i32 %.sroa.0230.0.extract.trunc, ptr %162, align 8, !tbaa !258
   %163 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %144, i64 noundef %21, ptr noundef nonnull %161, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit65 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i62
 
@@ -32333,7 +32333,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %220 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %220, align 8, !tbaa !33
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 8
-  store i32 %.sroa.0230.4.extract.trunc, ptr %221, align 4, !tbaa !258
+  store i32 %.sroa.0230.4.extract.trunc, ptr %221, align 8, !tbaa !258
   %222 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi367382, i64 noundef %23, ptr noundef nonnull %220, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit92 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i89
 
@@ -32390,7 +32390,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %242 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %242, align 8, !tbaa !33
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 8
-  store i32 %.sroa.0230.4.extract.trunc, ptr %243, align 4, !tbaa !258
+  store i32 %.sroa.0230.4.extract.trunc, ptr %243, align 8, !tbaa !258
   %244 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %225, i64 noundef %23, ptr noundef nonnull %242, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit103 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i100
 
@@ -32540,7 +32540,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %301 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %301, align 8, !tbaa !33
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 8
-  store i32 %.sroa.5231.8.extract.trunc, ptr %302, align 4, !tbaa !258
+  store i32 %.sroa.5231.8.extract.trunc, ptr %302, align 8, !tbaa !258
   %303 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi369385, i64 noundef %25, ptr noundef nonnull %301, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit130 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i127
 
@@ -32597,7 +32597,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %323 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %323, align 8, !tbaa !33
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 8
-  store i32 %.sroa.5231.8.extract.trunc, ptr %324, align 4, !tbaa !258
+  store i32 %.sroa.5231.8.extract.trunc, ptr %324, align 8, !tbaa !258
   %325 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %306, i64 noundef %25, ptr noundef nonnull %323, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit141 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i138
 
@@ -33024,7 +33024,7 @@ _ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_
   %218 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %218, align 8, !tbaa !33
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 8
-  store i32 %.sroa.0158.sroa.0.0.copyload, ptr %219, align 4, !tbaa !258
+  store i32 %.sroa.0158.sroa.0.0.copyload, ptr %219, align 8, !tbaa !258
   %220 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi404, i64 noundef %21, ptr noundef nonnull %218, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -33087,7 +33087,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %240 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %240, align 8, !tbaa !33
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 8
-  store i32 %.sroa.0158.sroa.0.0.copyload, ptr %241, align 4, !tbaa !258
+  store i32 %.sroa.0158.sroa.0.0.copyload, ptr %241, align 8, !tbaa !258
   %242 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %223, i64 noundef %21, ptr noundef nonnull %240, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit35 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i32
 
@@ -33239,7 +33239,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   %299 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %299, align 8, !tbaa !33
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 8
-  store i32 %.sroa.0158.sroa.2.0.copyload, ptr %300, align 4, !tbaa !258
+  store i32 %.sroa.0158.sroa.2.0.copyload, ptr %300, align 8, !tbaa !258
   %301 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi387407, i64 noundef %23, ptr noundef nonnull %299, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit62 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i59
 
@@ -33296,7 +33296,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %321 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %321, align 8, !tbaa !33
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 8
-  store i32 %.sroa.0158.sroa.2.0.copyload, ptr %322, align 4, !tbaa !258
+  store i32 %.sroa.0158.sroa.2.0.copyload, ptr %322, align 8, !tbaa !258
   %323 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %304, i64 noundef %23, ptr noundef nonnull %321, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit73 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i70
 
@@ -33448,7 +33448,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   %380 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %380, align 8, !tbaa !33
   %381 = getelementptr inbounds nuw i8, ptr %380, i64 8
-  store i32 %.sroa.0158.sroa.3.0.copyload, ptr %381, align 4, !tbaa !258
+  store i32 %.sroa.0158.sroa.3.0.copyload, ptr %381, align 8, !tbaa !258
   %382 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi389410, i64 noundef %25, ptr noundef nonnull %380, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit100 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i97
 
@@ -33505,7 +33505,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %402 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %402, align 8, !tbaa !33
   %403 = getelementptr inbounds nuw i8, ptr %402, i64 8
-  store i32 %.sroa.0158.sroa.3.0.copyload, ptr %403, align 4, !tbaa !258
+  store i32 %.sroa.0158.sroa.3.0.copyload, ptr %403, align 8, !tbaa !258
   %404 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %385, i64 noundef %25, ptr noundef nonnull %402, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit111 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i108
 
@@ -33657,7 +33657,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   %461 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %461, align 8, !tbaa !33
   %462 = getelementptr inbounds nuw i8, ptr %461, i64 8
-  store i32 %.sroa.0158.sroa.4.0.copyload, ptr %462, align 4, !tbaa !258
+  store i32 %.sroa.0158.sroa.4.0.copyload, ptr %462, align 8, !tbaa !258
   %463 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi391413, i64 noundef %27, ptr noundef nonnull %461, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit138 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i135
 
@@ -33714,7 +33714,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %483 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %483, align 8, !tbaa !33
   %484 = getelementptr inbounds nuw i8, ptr %483, i64 8
-  store i32 %.sroa.0158.sroa.4.0.copyload, ptr %484, align 4, !tbaa !258
+  store i32 %.sroa.0158.sroa.4.0.copyload, ptr %484, align 8, !tbaa !258
   %485 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %466, i64 noundef %27, ptr noundef nonnull %483, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit149 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i146
 
@@ -34157,7 +34157,7 @@ _ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_
   %224 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %224, align 8, !tbaa !33
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 8
-  store i32 %.sroa.0158.sroa.0.0.copyload, ptr %225, align 4, !tbaa !258
+  store i32 %.sroa.0158.sroa.0.0.copyload, ptr %225, align 8, !tbaa !258
   %226 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi404, i64 noundef %21, ptr noundef nonnull %224, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -34220,7 +34220,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %246 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %246, align 8, !tbaa !33
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 8
-  store i32 %.sroa.0158.sroa.0.0.copyload, ptr %247, align 4, !tbaa !258
+  store i32 %.sroa.0158.sroa.0.0.copyload, ptr %247, align 8, !tbaa !258
   %248 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %229, i64 noundef %21, ptr noundef nonnull %246, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit35 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i32
 
@@ -34372,7 +34372,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   %305 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %305, align 8, !tbaa !33
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 8
-  store i32 %.sroa.0158.sroa.2.0.copyload, ptr %306, align 4, !tbaa !258
+  store i32 %.sroa.0158.sroa.2.0.copyload, ptr %306, align 8, !tbaa !258
   %307 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi387407, i64 noundef %23, ptr noundef nonnull %305, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit62 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i59
 
@@ -34429,7 +34429,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %327 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %327, align 8, !tbaa !33
   %328 = getelementptr inbounds nuw i8, ptr %327, i64 8
-  store i32 %.sroa.0158.sroa.2.0.copyload, ptr %328, align 4, !tbaa !258
+  store i32 %.sroa.0158.sroa.2.0.copyload, ptr %328, align 8, !tbaa !258
   %329 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %310, i64 noundef %23, ptr noundef nonnull %327, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit73 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i70
 
@@ -34581,7 +34581,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   %386 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %386, align 8, !tbaa !33
   %387 = getelementptr inbounds nuw i8, ptr %386, i64 8
-  store i32 %.sroa.0158.sroa.3.0.copyload, ptr %387, align 4, !tbaa !258
+  store i32 %.sroa.0158.sroa.3.0.copyload, ptr %387, align 8, !tbaa !258
   %388 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi389410, i64 noundef %25, ptr noundef nonnull %386, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit100 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i97
 
@@ -34638,7 +34638,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %408 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %408, align 8, !tbaa !33
   %409 = getelementptr inbounds nuw i8, ptr %408, i64 8
-  store i32 %.sroa.0158.sroa.3.0.copyload, ptr %409, align 4, !tbaa !258
+  store i32 %.sroa.0158.sroa.3.0.copyload, ptr %409, align 8, !tbaa !258
   %410 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %391, i64 noundef %25, ptr noundef nonnull %408, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit111 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i108
 
@@ -34790,7 +34790,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   %467 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %467, align 8, !tbaa !33
   %468 = getelementptr inbounds nuw i8, ptr %467, i64 8
-  store i32 %.sroa.0158.sroa.4.0.copyload, ptr %468, align 4, !tbaa !258
+  store i32 %.sroa.0158.sroa.4.0.copyload, ptr %468, align 8, !tbaa !258
   %469 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi391413, i64 noundef %27, ptr noundef nonnull %467, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit138 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i135
 
@@ -34847,7 +34847,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %489 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %489, align 8, !tbaa !33
   %490 = getelementptr inbounds nuw i8, ptr %489, i64 8
-  store i32 %.sroa.0158.sroa.4.0.copyload, ptr %490, align 4, !tbaa !258
+  store i32 %.sroa.0158.sroa.4.0.copyload, ptr %490, align 8, !tbaa !258
   %491 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %472, i64 noundef %27, ptr noundef nonnull %489, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit149 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i146
 
@@ -35294,7 +35294,7 @@ _ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_
   %226 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %226, align 8, !tbaa !33
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  store i32 %.sroa.0159.sroa.0.0.copyload, ptr %227, align 4, !tbaa !258
+  store i32 %.sroa.0159.sroa.0.0.copyload, ptr %227, align 8, !tbaa !258
   %228 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %15, i64 noundef %.pre-phi422, i64 noundef %22, ptr noundef nonnull %226, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -35357,7 +35357,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %248 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %248, align 8, !tbaa !33
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 8
-  store i32 %.sroa.0159.sroa.0.0.copyload, ptr %249, align 4, !tbaa !258
+  store i32 %.sroa.0159.sroa.0.0.copyload, ptr %249, align 8, !tbaa !258
   %250 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %15, i64 noundef %231, i64 noundef %22, ptr noundef nonnull %248, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit35 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i32
 
@@ -35509,7 +35509,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   %307 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %307, align 8, !tbaa !33
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 8
-  store i32 %.sroa.0159.sroa.2.0.copyload, ptr %308, align 4, !tbaa !258
+  store i32 %.sroa.0159.sroa.2.0.copyload, ptr %308, align 8, !tbaa !258
   %309 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %15, i64 noundef %.pre-phi405425, i64 noundef %24, ptr noundef nonnull %307, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit62 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i59
 
@@ -35566,7 +35566,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %329 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %329, align 8, !tbaa !33
   %330 = getelementptr inbounds nuw i8, ptr %329, i64 8
-  store i32 %.sroa.0159.sroa.2.0.copyload, ptr %330, align 4, !tbaa !258
+  store i32 %.sroa.0159.sroa.2.0.copyload, ptr %330, align 8, !tbaa !258
   %331 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %15, i64 noundef %312, i64 noundef %24, ptr noundef nonnull %329, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit73 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i70
 
@@ -35718,7 +35718,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   %388 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %388, align 8, !tbaa !33
   %389 = getelementptr inbounds nuw i8, ptr %388, i64 8
-  store i32 %.sroa.0159.sroa.3.0.copyload, ptr %389, align 4, !tbaa !258
+  store i32 %.sroa.0159.sroa.3.0.copyload, ptr %389, align 8, !tbaa !258
   %390 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %15, i64 noundef %.pre-phi407428, i64 noundef %26, ptr noundef nonnull %388, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit100 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i97
 
@@ -35775,7 +35775,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %410 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %410, align 8, !tbaa !33
   %411 = getelementptr inbounds nuw i8, ptr %410, i64 8
-  store i32 %.sroa.0159.sroa.3.0.copyload, ptr %411, align 4, !tbaa !258
+  store i32 %.sroa.0159.sroa.3.0.copyload, ptr %411, align 8, !tbaa !258
   %412 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %15, i64 noundef %393, i64 noundef %26, ptr noundef nonnull %410, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit111 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i108
 
@@ -35927,7 +35927,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   %469 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %469, align 8, !tbaa !33
   %470 = getelementptr inbounds nuw i8, ptr %469, i64 8
-  store i32 %.sroa.0159.sroa.4.0.copyload, ptr %470, align 4, !tbaa !258
+  store i32 %.sroa.0159.sroa.4.0.copyload, ptr %470, align 8, !tbaa !258
   %471 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %15, i64 noundef %.pre-phi409431, i64 noundef %28, ptr noundef nonnull %469, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit138 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i135
 
@@ -35984,7 +35984,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %491 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %491, align 8, !tbaa !33
   %492 = getelementptr inbounds nuw i8, ptr %491, i64 8
-  store i32 %.sroa.0159.sroa.4.0.copyload, ptr %492, align 4, !tbaa !258
+  store i32 %.sroa.0159.sroa.4.0.copyload, ptr %492, align 8, !tbaa !258
   %493 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %15, i64 noundef %474, i64 noundef %28, ptr noundef nonnull %491, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit149 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i146
 
@@ -37427,7 +37427,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %79 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %79, align 8, !tbaa !33
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  store i32 %.sroa.093.0.extract.trunc, ptr %80, align 4, !tbaa !258
+  store i32 %.sroa.093.0.extract.trunc, ptr %80, align 8, !tbaa !258
   %81 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %.pre-phi165, i64 noundef %23, ptr noundef nonnull %79, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -37490,7 +37490,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %101 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %101, align 8, !tbaa !33
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  store i32 %.sroa.093.0.extract.trunc, ptr %102, align 4, !tbaa !258
+  store i32 %.sroa.093.0.extract.trunc, ptr %102, align 8, !tbaa !258
   %103 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %84, i64 noundef %23, ptr noundef nonnull %101, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit27 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i24
 
@@ -37630,7 +37630,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %152 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %152, align 8, !tbaa !33
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
-  store i32 %.sroa.093.4.extract.trunc, ptr %153, align 4, !tbaa !258
+  store i32 %.sroa.093.4.extract.trunc, ptr %153, align 8, !tbaa !258
   %154 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %.pre-phi156168, i64 noundef %25, ptr noundef nonnull %152, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit52 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i49
 
@@ -37687,7 +37687,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %174 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %174, align 8, !tbaa !33
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
-  store i32 %.sroa.093.4.extract.trunc, ptr %175, align 4, !tbaa !258
+  store i32 %.sroa.093.4.extract.trunc, ptr %175, align 8, !tbaa !258
   %176 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %157, i64 noundef %25, ptr noundef nonnull %174, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit63 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i60
 
@@ -37970,7 +37970,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %79 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %79, align 8, !tbaa !33
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  store i32 %.sroa.093.0.extract.trunc, ptr %80, align 4, !tbaa !258
+  store i32 %.sroa.093.0.extract.trunc, ptr %80, align 8, !tbaa !258
   %81 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %.pre-phi165, i64 noundef %23, ptr noundef nonnull %79, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -38033,7 +38033,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %101 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %101, align 8, !tbaa !33
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  store i32 %.sroa.093.0.extract.trunc, ptr %102, align 4, !tbaa !258
+  store i32 %.sroa.093.0.extract.trunc, ptr %102, align 8, !tbaa !258
   %103 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %84, i64 noundef %23, ptr noundef nonnull %101, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit27 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i24
 
@@ -38173,7 +38173,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %152 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %152, align 8, !tbaa !33
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
-  store i32 %.sroa.093.4.extract.trunc, ptr %153, align 4, !tbaa !258
+  store i32 %.sroa.093.4.extract.trunc, ptr %153, align 8, !tbaa !258
   %154 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %.pre-phi156168, i64 noundef %25, ptr noundef nonnull %152, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit52 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i49
 
@@ -38230,7 +38230,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %174 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %174, align 8, !tbaa !33
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
-  store i32 %.sroa.093.4.extract.trunc, ptr %175, align 4, !tbaa !258
+  store i32 %.sroa.093.4.extract.trunc, ptr %175, align 8, !tbaa !258
   %176 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %157, i64 noundef %25, ptr noundef nonnull %174, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit63 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i60
 
@@ -38518,7 +38518,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %77 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %77, align 8, !tbaa !33
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  store i32 %.sroa.093.0.extract.trunc, ptr %78, align 4, !tbaa !258
+  store i32 %.sroa.093.0.extract.trunc, ptr %78, align 8, !tbaa !258
   %79 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %.pre-phi165, i64 noundef %23, ptr noundef nonnull %77, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -38581,7 +38581,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %99 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %99, align 8, !tbaa !33
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  store i32 %.sroa.093.0.extract.trunc, ptr %100, align 4, !tbaa !258
+  store i32 %.sroa.093.0.extract.trunc, ptr %100, align 8, !tbaa !258
   %101 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %82, i64 noundef %23, ptr noundef nonnull %99, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit27 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i24
 
@@ -38721,7 +38721,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %150 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %150, align 8, !tbaa !33
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
-  store i32 %.sroa.093.4.extract.trunc, ptr %151, align 4, !tbaa !258
+  store i32 %.sroa.093.4.extract.trunc, ptr %151, align 8, !tbaa !258
   %152 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %.pre-phi156168, i64 noundef %25, ptr noundef nonnull %150, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit52 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i49
 
@@ -38778,7 +38778,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %172 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %172, align 8, !tbaa !33
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
-  store i32 %.sroa.093.4.extract.trunc, ptr %173, align 4, !tbaa !258
+  store i32 %.sroa.093.4.extract.trunc, ptr %173, align 8, !tbaa !258
   %174 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %155, i64 noundef %25, ptr noundef nonnull %172, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit63 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i60
 
@@ -39067,7 +39067,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %77 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %77, align 8, !tbaa !33
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  store i32 %.sroa.093.0.extract.trunc, ptr %78, align 4, !tbaa !258
+  store i32 %.sroa.093.0.extract.trunc, ptr %78, align 8, !tbaa !258
   %79 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %.pre-phi163, i64 noundef %23, ptr noundef nonnull %77, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -39130,7 +39130,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %99 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %99, align 8, !tbaa !33
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  store i32 %.sroa.093.0.extract.trunc, ptr %100, align 4, !tbaa !258
+  store i32 %.sroa.093.0.extract.trunc, ptr %100, align 8, !tbaa !258
   %101 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %82, i64 noundef %23, ptr noundef nonnull %99, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit27 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i24
 
@@ -39270,7 +39270,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %150 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %150, align 8, !tbaa !33
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
-  store i32 %.sroa.093.4.extract.trunc, ptr %151, align 4, !tbaa !258
+  store i32 %.sroa.093.4.extract.trunc, ptr %151, align 8, !tbaa !258
   %152 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %.pre-phi156166, i64 noundef %25, ptr noundef nonnull %150, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit52 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i49
 
@@ -39327,7 +39327,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %172 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %172, align 8, !tbaa !33
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
-  store i32 %.sroa.093.4.extract.trunc, ptr %173, align 4, !tbaa !258
+  store i32 %.sroa.093.4.extract.trunc, ptr %173, align 8, !tbaa !258
   %174 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %155, i64 noundef %25, ptr noundef nonnull %172, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit63 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i60
 
@@ -39615,7 +39615,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %79 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %79, align 8, !tbaa !33
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  store i32 %.sroa.093.0.extract.trunc, ptr %80, align 4, !tbaa !258
+  store i32 %.sroa.093.0.extract.trunc, ptr %80, align 8, !tbaa !258
   %81 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %.pre-phi163, i64 noundef %23, ptr noundef nonnull %79, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -39678,7 +39678,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %101 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %101, align 8, !tbaa !33
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  store i32 %.sroa.093.0.extract.trunc, ptr %102, align 4, !tbaa !258
+  store i32 %.sroa.093.0.extract.trunc, ptr %102, align 8, !tbaa !258
   %103 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %84, i64 noundef %23, ptr noundef nonnull %101, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit27 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i24
 
@@ -39818,7 +39818,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %152 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %152, align 8, !tbaa !33
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
-  store i32 %.sroa.093.4.extract.trunc, ptr %153, align 4, !tbaa !258
+  store i32 %.sroa.093.4.extract.trunc, ptr %153, align 8, !tbaa !258
   %154 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %.pre-phi156166, i64 noundef %25, ptr noundef nonnull %152, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit52 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i49
 
@@ -39875,7 +39875,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %174 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %174, align 8, !tbaa !33
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
-  store i32 %.sroa.093.4.extract.trunc, ptr %175, align 4, !tbaa !258
+  store i32 %.sroa.093.4.extract.trunc, ptr %175, align 8, !tbaa !258
   %176 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %157, i64 noundef %25, ptr noundef nonnull %174, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit63 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i60
 
@@ -40164,7 +40164,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %79 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %79, align 8, !tbaa !33
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  store i32 %.sroa.093.0.extract.trunc, ptr %80, align 4, !tbaa !258
+  store i32 %.sroa.093.0.extract.trunc, ptr %80, align 8, !tbaa !258
   %81 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %.pre-phi165, i64 noundef %23, ptr noundef nonnull %79, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -40227,7 +40227,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %101 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %101, align 8, !tbaa !33
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  store i32 %.sroa.093.0.extract.trunc, ptr %102, align 4, !tbaa !258
+  store i32 %.sroa.093.0.extract.trunc, ptr %102, align 8, !tbaa !258
   %103 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %84, i64 noundef %23, ptr noundef nonnull %101, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit27 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i24
 
@@ -40367,7 +40367,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %152 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %152, align 8, !tbaa !33
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
-  store i32 %.sroa.093.4.extract.trunc, ptr %153, align 4, !tbaa !258
+  store i32 %.sroa.093.4.extract.trunc, ptr %153, align 8, !tbaa !258
   %154 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %.pre-phi156168, i64 noundef %25, ptr noundef nonnull %152, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit52 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i49
 
@@ -40424,7 +40424,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %174 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %174, align 8, !tbaa !33
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
-  store i32 %.sroa.093.4.extract.trunc, ptr %175, align 4, !tbaa !258
+  store i32 %.sroa.093.4.extract.trunc, ptr %175, align 8, !tbaa !258
   %176 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %157, i64 noundef %25, ptr noundef nonnull %174, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit63 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i60
 
@@ -40711,7 +40711,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %79 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %79, align 8, !tbaa !33
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  store i32 %.sroa.094.0.extract.trunc, ptr %80, align 4, !tbaa !258
+  store i32 %.sroa.094.0.extract.trunc, ptr %80, align 8, !tbaa !258
   %81 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %.pre-phi166, i64 noundef %23, ptr noundef nonnull %79, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -40774,7 +40774,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %101 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %101, align 8, !tbaa !33
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  store i32 %.sroa.094.0.extract.trunc, ptr %102, align 4, !tbaa !258
+  store i32 %.sroa.094.0.extract.trunc, ptr %102, align 8, !tbaa !258
   %103 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %84, i64 noundef %23, ptr noundef nonnull %101, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit27 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i24
 
@@ -40914,7 +40914,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %152 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %152, align 8, !tbaa !33
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
-  store i32 %.sroa.094.4.extract.trunc, ptr %153, align 4, !tbaa !258
+  store i32 %.sroa.094.4.extract.trunc, ptr %153, align 8, !tbaa !258
   %154 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %.pre-phi157169, i64 noundef %25, ptr noundef nonnull %152, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit52 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i49
 
@@ -40971,7 +40971,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %174 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %174, align 8, !tbaa !33
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
-  store i32 %.sroa.094.4.extract.trunc, ptr %175, align 4, !tbaa !258
+  store i32 %.sroa.094.4.extract.trunc, ptr %175, align 8, !tbaa !258
   %176 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %157, i64 noundef %25, ptr noundef nonnull %174, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit63 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i60
 
@@ -41396,7 +41396,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   %169 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %169, align 8, !tbaa !33
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  store i32 %.sroa.0163.0.extract.trunc, ptr %170, align 4, !tbaa !258
+  store i32 %.sroa.0163.0.extract.trunc, ptr %170, align 8, !tbaa !258
   %171 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %.pre-phi263, i64 noundef %26, ptr noundef nonnull %169, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -41459,7 +41459,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %191 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %191, align 8, !tbaa !33
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
-  store i32 %.sroa.0163.0.extract.trunc, ptr %192, align 4, !tbaa !258
+  store i32 %.sroa.0163.0.extract.trunc, ptr %192, align 8, !tbaa !258
   %193 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %174, i64 noundef %26, ptr noundef nonnull %191, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit23 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i20
 
@@ -41611,7 +41611,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %250 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %250, align 8, !tbaa !33
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 8
-  store i32 %.sroa.0163.4.extract.trunc, ptr %251, align 4, !tbaa !258
+  store i32 %.sroa.0163.4.extract.trunc, ptr %251, align 8, !tbaa !258
   %252 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %.pre-phi253266, i64 noundef %28, ptr noundef nonnull %250, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit48 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i45
 
@@ -41668,7 +41668,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %272 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %272, align 8, !tbaa !33
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 8
-  store i32 %.sroa.0163.4.extract.trunc, ptr %273, align 4, !tbaa !258
+  store i32 %.sroa.0163.4.extract.trunc, ptr %273, align 8, !tbaa !258
   %274 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %255, i64 noundef %28, ptr noundef nonnull %272, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit59 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i56
 
@@ -41820,7 +41820,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %331 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %331, align 8, !tbaa !33
   %332 = getelementptr inbounds nuw i8, ptr %331, i64 8
-  store i32 %.sroa.5.8.extract.trunc, ptr %332, align 4, !tbaa !258
+  store i32 %.sroa.5.8.extract.trunc, ptr %332, align 8, !tbaa !258
   %333 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %.pre-phi255269, i64 noundef %30, ptr noundef nonnull %331, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit86 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i83
 
@@ -41877,7 +41877,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %353 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %353, align 8, !tbaa !33
   %354 = getelementptr inbounds nuw i8, ptr %353, i64 8
-  store i32 %.sroa.5.8.extract.trunc, ptr %354, align 4, !tbaa !258
+  store i32 %.sroa.5.8.extract.trunc, ptr %354, align 8, !tbaa !258
   %355 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %336, i64 noundef %30, ptr noundef nonnull %353, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit97 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i94
 
@@ -42267,7 +42267,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   %175 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %175, align 8, !tbaa !33
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
-  store i32 %.sroa.0163.0.extract.trunc, ptr %176, align 4, !tbaa !258
+  store i32 %.sroa.0163.0.extract.trunc, ptr %176, align 8, !tbaa !258
   %177 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %.pre-phi263, i64 noundef %26, ptr noundef nonnull %175, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -42330,7 +42330,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %197 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %197, align 8, !tbaa !33
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 8
-  store i32 %.sroa.0163.0.extract.trunc, ptr %198, align 4, !tbaa !258
+  store i32 %.sroa.0163.0.extract.trunc, ptr %198, align 8, !tbaa !258
   %199 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %180, i64 noundef %26, ptr noundef nonnull %197, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit23 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i20
 
@@ -42482,7 +42482,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %256 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %256, align 8, !tbaa !33
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 8
-  store i32 %.sroa.0163.4.extract.trunc, ptr %257, align 4, !tbaa !258
+  store i32 %.sroa.0163.4.extract.trunc, ptr %257, align 8, !tbaa !258
   %258 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %.pre-phi253266, i64 noundef %28, ptr noundef nonnull %256, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit48 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i45
 
@@ -42539,7 +42539,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %278 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %278, align 8, !tbaa !33
   %279 = getelementptr inbounds nuw i8, ptr %278, i64 8
-  store i32 %.sroa.0163.4.extract.trunc, ptr %279, align 4, !tbaa !258
+  store i32 %.sroa.0163.4.extract.trunc, ptr %279, align 8, !tbaa !258
   %280 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %261, i64 noundef %28, ptr noundef nonnull %278, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit59 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i56
 
@@ -42691,7 +42691,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %337 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %337, align 8, !tbaa !33
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 8
-  store i32 %.sroa.5.8.extract.trunc, ptr %338, align 4, !tbaa !258
+  store i32 %.sroa.5.8.extract.trunc, ptr %338, align 8, !tbaa !258
   %339 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %.pre-phi255269, i64 noundef %30, ptr noundef nonnull %337, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit86 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i83
 
@@ -42748,7 +42748,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %359 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %359, align 8, !tbaa !33
   %360 = getelementptr inbounds nuw i8, ptr %359, i64 8
-  store i32 %.sroa.5.8.extract.trunc, ptr %360, align 4, !tbaa !258
+  store i32 %.sroa.5.8.extract.trunc, ptr %360, align 8, !tbaa !258
   %361 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %342, i64 noundef %30, ptr noundef nonnull %359, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit97 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i94
 
@@ -43171,7 +43171,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   %170 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %170, align 8, !tbaa !33
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
-  store i32 %.sroa.0168.0.extract.trunc, ptr %171, align 4, !tbaa !258
+  store i32 %.sroa.0168.0.extract.trunc, ptr %171, align 8, !tbaa !258
   %172 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %.pre-phi285, i64 noundef %26, ptr noundef nonnull %170, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -43234,7 +43234,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %192 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %192, align 8, !tbaa !33
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 8
-  store i32 %.sroa.0168.0.extract.trunc, ptr %193, align 4, !tbaa !258
+  store i32 %.sroa.0168.0.extract.trunc, ptr %193, align 8, !tbaa !258
   %194 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %175, i64 noundef %26, ptr noundef nonnull %192, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit23 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i20
 
@@ -43386,7 +43386,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %251 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %251, align 8, !tbaa !33
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 8
-  store i32 %.sroa.0168.4.extract.trunc, ptr %252, align 4, !tbaa !258
+  store i32 %.sroa.0168.4.extract.trunc, ptr %252, align 8, !tbaa !258
   %253 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %.pre-phi275288, i64 noundef %28, ptr noundef nonnull %251, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit48 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i45
 
@@ -43443,7 +43443,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %273 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %273, align 8, !tbaa !33
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 8
-  store i32 %.sroa.0168.4.extract.trunc, ptr %274, align 4, !tbaa !258
+  store i32 %.sroa.0168.4.extract.trunc, ptr %274, align 8, !tbaa !258
   %275 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %256, i64 noundef %28, ptr noundef nonnull %273, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit59 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i56
 
@@ -43595,7 +43595,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %332 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %332, align 8, !tbaa !33
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 8
-  store i32 %.sroa.5169.8.extract.trunc, ptr %333, align 4, !tbaa !258
+  store i32 %.sroa.5169.8.extract.trunc, ptr %333, align 8, !tbaa !258
   %334 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %.pre-phi277291, i64 noundef %30, ptr noundef nonnull %332, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit86 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i83
 
@@ -43652,7 +43652,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %354 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %354, align 8, !tbaa !33
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 8
-  store i32 %.sroa.5169.8.extract.trunc, ptr %355, align 4, !tbaa !258
+  store i32 %.sroa.5169.8.extract.trunc, ptr %355, align 8, !tbaa !258
   %356 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %337, i64 noundef %30, ptr noundef nonnull %354, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit97 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i94
 
@@ -44045,7 +44045,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   %178 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %178, align 8, !tbaa !33
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
-  store i32 %.sroa.0163.0.extract.trunc, ptr %179, align 4, !tbaa !258
+  store i32 %.sroa.0163.0.extract.trunc, ptr %179, align 8, !tbaa !258
   %180 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %.pre-phi263, i64 noundef %26, ptr noundef nonnull %178, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -44108,7 +44108,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %200 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %200, align 8, !tbaa !33
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 8
-  store i32 %.sroa.0163.0.extract.trunc, ptr %201, align 4, !tbaa !258
+  store i32 %.sroa.0163.0.extract.trunc, ptr %201, align 8, !tbaa !258
   %202 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %183, i64 noundef %26, ptr noundef nonnull %200, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit23 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i20
 
@@ -44260,7 +44260,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %259 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %259, align 8, !tbaa !33
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 8
-  store i32 %.sroa.0163.4.extract.trunc, ptr %260, align 4, !tbaa !258
+  store i32 %.sroa.0163.4.extract.trunc, ptr %260, align 8, !tbaa !258
   %261 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %.pre-phi253266, i64 noundef %28, ptr noundef nonnull %259, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit48 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i45
 
@@ -44317,7 +44317,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %281 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %281, align 8, !tbaa !33
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 8
-  store i32 %.sroa.0163.4.extract.trunc, ptr %282, align 4, !tbaa !258
+  store i32 %.sroa.0163.4.extract.trunc, ptr %282, align 8, !tbaa !258
   %283 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %264, i64 noundef %28, ptr noundef nonnull %281, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit59 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i56
 
@@ -44469,7 +44469,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %340 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %340, align 8, !tbaa !33
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 8
-  store i32 %.sroa.5.8.extract.trunc, ptr %341, align 4, !tbaa !258
+  store i32 %.sroa.5.8.extract.trunc, ptr %341, align 8, !tbaa !258
   %342 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %.pre-phi255269, i64 noundef %30, ptr noundef nonnull %340, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit86 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i83
 
@@ -44526,7 +44526,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %362 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %362, align 8, !tbaa !33
   %363 = getelementptr inbounds nuw i8, ptr %362, i64 8
-  store i32 %.sroa.5.8.extract.trunc, ptr %363, align 4, !tbaa !258
+  store i32 %.sroa.5.8.extract.trunc, ptr %363, align 8, !tbaa !258
   %364 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %345, i64 noundef %30, ptr noundef nonnull %362, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit97 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i94
 
@@ -44836,7 +44836,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %123 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %123, align 8, !tbaa !33
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
-  store i32 %.sroa.0186.0.extract.trunc, ptr %124, align 4, !tbaa !258
+  store i32 %.sroa.0186.0.extract.trunc, ptr %124, align 8, !tbaa !258
   %125 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %.pre-phi311, i64 noundef %26, ptr noundef nonnull %123, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -44899,7 +44899,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %145 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %145, align 8, !tbaa !33
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
-  store i32 %.sroa.0186.0.extract.trunc, ptr %146, align 4, !tbaa !258
+  store i32 %.sroa.0186.0.extract.trunc, ptr %146, align 8, !tbaa !258
   %147 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %128, i64 noundef %26, ptr noundef nonnull %145, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit45 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i42
 
@@ -45049,7 +45049,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %204 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %204, align 8, !tbaa !33
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 8
-  store i32 %.sroa.0186.4.extract.trunc, ptr %205, align 4, !tbaa !258
+  store i32 %.sroa.0186.4.extract.trunc, ptr %205, align 8, !tbaa !258
   %206 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %.pre-phi295314, i64 noundef %28, ptr noundef nonnull %204, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit72 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i69
 
@@ -45106,7 +45106,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %226 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %226, align 8, !tbaa !33
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  store i32 %.sroa.0186.4.extract.trunc, ptr %227, align 4, !tbaa !258
+  store i32 %.sroa.0186.4.extract.trunc, ptr %227, align 8, !tbaa !258
   %228 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %209, i64 noundef %28, ptr noundef nonnull %226, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit83 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i80
 
@@ -45256,7 +45256,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %285 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %285, align 8, !tbaa !33
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 8
-  store i32 %.sroa.5187.8.extract.trunc, ptr %286, align 4, !tbaa !258
+  store i32 %.sroa.5187.8.extract.trunc, ptr %286, align 8, !tbaa !258
   %287 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %.pre-phi297317, i64 noundef %30, ptr noundef nonnull %285, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit110 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i107
 
@@ -45313,7 +45313,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %307 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %307, align 8, !tbaa !33
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 8
-  store i32 %.sroa.5187.8.extract.trunc, ptr %308, align 4, !tbaa !258
+  store i32 %.sroa.5187.8.extract.trunc, ptr %308, align 8, !tbaa !258
   %309 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %290, i64 noundef %30, ptr noundef nonnull %307, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit121 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i118
 
@@ -45646,7 +45646,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %141 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %141, align 8, !tbaa !33
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
-  store i32 %.sroa.0206.0.extract.trunc, ptr %142, align 4, !tbaa !258
+  store i32 %.sroa.0206.0.extract.trunc, ptr %142, align 8, !tbaa !258
   %143 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %.pre-phi344, i64 noundef %26, ptr noundef nonnull %141, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -45709,7 +45709,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %163 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %163, align 8, !tbaa !33
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
-  store i32 %.sroa.0206.0.extract.trunc, ptr %164, align 4, !tbaa !258
+  store i32 %.sroa.0206.0.extract.trunc, ptr %164, align 8, !tbaa !258
   %165 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %146, i64 noundef %26, ptr noundef nonnull %163, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit64 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i61
 
@@ -45859,7 +45859,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %222 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %222, align 8, !tbaa !33
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 8
-  store i32 %.sroa.0206.4.extract.trunc, ptr %223, align 4, !tbaa !258
+  store i32 %.sroa.0206.4.extract.trunc, ptr %223, align 8, !tbaa !258
   %224 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %.pre-phi325347, i64 noundef %28, ptr noundef nonnull %222, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit91 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i88
 
@@ -45916,7 +45916,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %244 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %244, align 8, !tbaa !33
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 8
-  store i32 %.sroa.0206.4.extract.trunc, ptr %245, align 4, !tbaa !258
+  store i32 %.sroa.0206.4.extract.trunc, ptr %245, align 8, !tbaa !258
   %246 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %227, i64 noundef %28, ptr noundef nonnull %244, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit102 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i99
 
@@ -46066,7 +46066,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %303 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %303, align 8, !tbaa !33
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 8
-  store i32 %.sroa.5207.8.extract.trunc, ptr %304, align 4, !tbaa !258
+  store i32 %.sroa.5207.8.extract.trunc, ptr %304, align 8, !tbaa !258
   %305 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %.pre-phi327350, i64 noundef %30, ptr noundef nonnull %303, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit129 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i126
 
@@ -46123,7 +46123,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %325 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %325, align 8, !tbaa !33
   %326 = getelementptr inbounds nuw i8, ptr %325, i64 8
-  store i32 %.sroa.5207.8.extract.trunc, ptr %326, align 4, !tbaa !258
+  store i32 %.sroa.5207.8.extract.trunc, ptr %326, align 8, !tbaa !258
   %327 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %308, i64 noundef %30, ptr noundef nonnull %325, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit140 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i137
 
@@ -46431,7 +46431,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %136 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %136, align 8, !tbaa !33
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
-  store i32 %.sroa.0198.0.extract.trunc, ptr %137, align 4, !tbaa !258
+  store i32 %.sroa.0198.0.extract.trunc, ptr %137, align 8, !tbaa !258
   %138 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %24, i64 noundef %.pre-phi328, i64 noundef %30, ptr noundef nonnull %136, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -46494,7 +46494,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %158 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %158, align 8, !tbaa !33
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 8
-  store i32 %.sroa.0198.0.extract.trunc, ptr %159, align 4, !tbaa !258
+  store i32 %.sroa.0198.0.extract.trunc, ptr %159, align 8, !tbaa !258
   %160 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %24, i64 noundef %141, i64 noundef %30, ptr noundef nonnull %158, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit54 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i51
 
@@ -46644,7 +46644,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %217 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %217, align 8, !tbaa !33
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 8
-  store i32 %.sroa.0198.4.extract.trunc, ptr %218, align 4, !tbaa !258
+  store i32 %.sroa.0198.4.extract.trunc, ptr %218, align 8, !tbaa !258
   %219 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %24, i64 noundef %.pre-phi318331, i64 noundef %32, ptr noundef nonnull %217, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit81 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i78
 
@@ -46701,7 +46701,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %239 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %239, align 8, !tbaa !33
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 8
-  store i32 %.sroa.0198.4.extract.trunc, ptr %240, align 4, !tbaa !258
+  store i32 %.sroa.0198.4.extract.trunc, ptr %240, align 8, !tbaa !258
   %241 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %24, i64 noundef %222, i64 noundef %32, ptr noundef nonnull %239, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit92 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i89
 
@@ -46851,7 +46851,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %298 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %298, align 8, !tbaa !33
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 8
-  store i32 %.sroa.5.8.extract.trunc, ptr %299, align 4, !tbaa !258
+  store i32 %.sroa.5.8.extract.trunc, ptr %299, align 8, !tbaa !258
   %300 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %24, i64 noundef %.pre-phi320334, i64 noundef %34, ptr noundef nonnull %298, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit119 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i116
 
@@ -46908,7 +46908,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %320 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %320, align 8, !tbaa !33
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 8
-  store i32 %.sroa.5.8.extract.trunc, ptr %321, align 4, !tbaa !258
+  store i32 %.sroa.5.8.extract.trunc, ptr %321, align 8, !tbaa !258
   %322 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %24, i64 noundef %303, i64 noundef %34, ptr noundef nonnull %320, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit130 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i127
 
@@ -47340,7 +47340,7 @@ _ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_
   %205 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %205, align 8, !tbaa !33
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 8
-  store i32 %.sroa.0146.sroa.0.0.copyload, ptr %206, align 4, !tbaa !258
+  store i32 %.sroa.0146.sroa.0.0.copyload, ptr %206, align 8, !tbaa !258
   %207 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %.pre-phi355, i64 noundef %28, ptr noundef nonnull %205, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -47403,7 +47403,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %227 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %227, align 8, !tbaa !33
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 8
-  store i32 %.sroa.0146.sroa.0.0.copyload, ptr %228, align 4, !tbaa !258
+  store i32 %.sroa.0146.sroa.0.0.copyload, ptr %228, align 8, !tbaa !258
   %229 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %210, i64 noundef %28, ptr noundef nonnull %227, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit25 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i22
 
@@ -47555,7 +47555,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   %286 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %286, align 8, !tbaa !33
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 8
-  store i32 %.sroa.0146.sroa.2.0.copyload, ptr %287, align 4, !tbaa !258
+  store i32 %.sroa.0146.sroa.2.0.copyload, ptr %287, align 8, !tbaa !258
   %288 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %.pre-phi341358, i64 noundef %30, ptr noundef nonnull %286, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit50 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i47
 
@@ -47612,7 +47612,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %308 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %308, align 8, !tbaa !33
   %309 = getelementptr inbounds nuw i8, ptr %308, i64 8
-  store i32 %.sroa.0146.sroa.2.0.copyload, ptr %309, align 4, !tbaa !258
+  store i32 %.sroa.0146.sroa.2.0.copyload, ptr %309, align 8, !tbaa !258
   %310 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %291, i64 noundef %30, ptr noundef nonnull %308, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit61 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i58
 
@@ -47764,7 +47764,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   %367 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %367, align 8, !tbaa !33
   %368 = getelementptr inbounds nuw i8, ptr %367, i64 8
-  store i32 %.sroa.0146.sroa.3.0.copyload, ptr %368, align 4, !tbaa !258
+  store i32 %.sroa.0146.sroa.3.0.copyload, ptr %368, align 8, !tbaa !258
   %369 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %.pre-phi343361, i64 noundef %32, ptr noundef nonnull %367, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit88 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i85
 
@@ -47821,7 +47821,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %389 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %389, align 8, !tbaa !33
   %390 = getelementptr inbounds nuw i8, ptr %389, i64 8
-  store i32 %.sroa.0146.sroa.3.0.copyload, ptr %390, align 4, !tbaa !258
+  store i32 %.sroa.0146.sroa.3.0.copyload, ptr %390, align 8, !tbaa !258
   %391 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %372, i64 noundef %32, ptr noundef nonnull %389, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit99 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i96
 
@@ -47973,7 +47973,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   %448 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %448, align 8, !tbaa !33
   %449 = getelementptr inbounds nuw i8, ptr %448, i64 8
-  store i32 %.sroa.0146.sroa.4.0.copyload, ptr %449, align 4, !tbaa !258
+  store i32 %.sroa.0146.sroa.4.0.copyload, ptr %449, align 8, !tbaa !258
   %450 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %.pre-phi345364, i64 noundef %34, ptr noundef nonnull %448, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit126 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i123
 
@@ -48030,7 +48030,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %470 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %470, align 8, !tbaa !33
   %471 = getelementptr inbounds nuw i8, ptr %470, i64 8
-  store i32 %.sroa.0146.sroa.4.0.copyload, ptr %471, align 4, !tbaa !258
+  store i32 %.sroa.0146.sroa.4.0.copyload, ptr %471, align 8, !tbaa !258
   %472 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %453, i64 noundef %34, ptr noundef nonnull %470, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit137 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i134
 
@@ -48480,7 +48480,7 @@ _ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_
   %211 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %211, align 8, !tbaa !33
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
-  store i32 %.sroa.0146.sroa.0.0.copyload, ptr %212, align 4, !tbaa !258
+  store i32 %.sroa.0146.sroa.0.0.copyload, ptr %212, align 8, !tbaa !258
   %213 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %.pre-phi355, i64 noundef %28, ptr noundef nonnull %211, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -48543,7 +48543,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %233 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %233, align 8, !tbaa !33
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 8
-  store i32 %.sroa.0146.sroa.0.0.copyload, ptr %234, align 4, !tbaa !258
+  store i32 %.sroa.0146.sroa.0.0.copyload, ptr %234, align 8, !tbaa !258
   %235 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %216, i64 noundef %28, ptr noundef nonnull %233, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit25 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i22
 
@@ -48695,7 +48695,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   %292 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %292, align 8, !tbaa !33
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 8
-  store i32 %.sroa.0146.sroa.2.0.copyload, ptr %293, align 4, !tbaa !258
+  store i32 %.sroa.0146.sroa.2.0.copyload, ptr %293, align 8, !tbaa !258
   %294 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %.pre-phi341358, i64 noundef %30, ptr noundef nonnull %292, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit50 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i47
 
@@ -48752,7 +48752,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %314 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %314, align 8, !tbaa !33
   %315 = getelementptr inbounds nuw i8, ptr %314, i64 8
-  store i32 %.sroa.0146.sroa.2.0.copyload, ptr %315, align 4, !tbaa !258
+  store i32 %.sroa.0146.sroa.2.0.copyload, ptr %315, align 8, !tbaa !258
   %316 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %297, i64 noundef %30, ptr noundef nonnull %314, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit61 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i58
 
@@ -48904,7 +48904,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   %373 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %373, align 8, !tbaa !33
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 8
-  store i32 %.sroa.0146.sroa.3.0.copyload, ptr %374, align 4, !tbaa !258
+  store i32 %.sroa.0146.sroa.3.0.copyload, ptr %374, align 8, !tbaa !258
   %375 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %.pre-phi343361, i64 noundef %32, ptr noundef nonnull %373, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit88 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i85
 
@@ -48961,7 +48961,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %395 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %395, align 8, !tbaa !33
   %396 = getelementptr inbounds nuw i8, ptr %395, i64 8
-  store i32 %.sroa.0146.sroa.3.0.copyload, ptr %396, align 4, !tbaa !258
+  store i32 %.sroa.0146.sroa.3.0.copyload, ptr %396, align 8, !tbaa !258
   %397 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %378, i64 noundef %32, ptr noundef nonnull %395, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit99 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i96
 
@@ -49113,7 +49113,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   %454 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %454, align 8, !tbaa !33
   %455 = getelementptr inbounds nuw i8, ptr %454, i64 8
-  store i32 %.sroa.0146.sroa.4.0.copyload, ptr %455, align 4, !tbaa !258
+  store i32 %.sroa.0146.sroa.4.0.copyload, ptr %455, align 8, !tbaa !258
   %456 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %.pre-phi345364, i64 noundef %34, ptr noundef nonnull %454, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit126 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i123
 
@@ -49170,7 +49170,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %476 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %476, align 8, !tbaa !33
   %477 = getelementptr inbounds nuw i8, ptr %476, i64 8
-  store i32 %.sroa.0146.sroa.4.0.copyload, ptr %477, align 4, !tbaa !258
+  store i32 %.sroa.0146.sroa.4.0.copyload, ptr %477, align 8, !tbaa !258
   %478 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %459, i64 noundef %34, ptr noundef nonnull %476, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit137 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i134
 
@@ -49624,7 +49624,7 @@ _ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_
   %213 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %213, align 8, !tbaa !33
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  store i32 %.sroa.0147.sroa.0.0.copyload, ptr %214, align 4, !tbaa !258
+  store i32 %.sroa.0147.sroa.0.0.copyload, ptr %214, align 8, !tbaa !258
   %215 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %23, i64 noundef %.pre-phi373, i64 noundef %29, ptr noundef nonnull %213, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -49687,7 +49687,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %235 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %235, align 8, !tbaa !33
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 8
-  store i32 %.sroa.0147.sroa.0.0.copyload, ptr %236, align 4, !tbaa !258
+  store i32 %.sroa.0147.sroa.0.0.copyload, ptr %236, align 8, !tbaa !258
   %237 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %23, i64 noundef %218, i64 noundef %29, ptr noundef nonnull %235, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit25 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i22
 
@@ -49839,7 +49839,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   %294 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %294, align 8, !tbaa !33
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 8
-  store i32 %.sroa.0147.sroa.2.0.copyload, ptr %295, align 4, !tbaa !258
+  store i32 %.sroa.0147.sroa.2.0.copyload, ptr %295, align 8, !tbaa !258
   %296 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %23, i64 noundef %.pre-phi359376, i64 noundef %31, ptr noundef nonnull %294, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit50 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i47
 
@@ -49896,7 +49896,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %316 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %316, align 8, !tbaa !33
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 8
-  store i32 %.sroa.0147.sroa.2.0.copyload, ptr %317, align 4, !tbaa !258
+  store i32 %.sroa.0147.sroa.2.0.copyload, ptr %317, align 8, !tbaa !258
   %318 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %23, i64 noundef %299, i64 noundef %31, ptr noundef nonnull %316, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit61 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i58
 
@@ -50048,7 +50048,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   %375 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %375, align 8, !tbaa !33
   %376 = getelementptr inbounds nuw i8, ptr %375, i64 8
-  store i32 %.sroa.0147.sroa.3.0.copyload, ptr %376, align 4, !tbaa !258
+  store i32 %.sroa.0147.sroa.3.0.copyload, ptr %376, align 8, !tbaa !258
   %377 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %23, i64 noundef %.pre-phi361379, i64 noundef %33, ptr noundef nonnull %375, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit88 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i85
 
@@ -50105,7 +50105,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %397 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %397, align 8, !tbaa !33
   %398 = getelementptr inbounds nuw i8, ptr %397, i64 8
-  store i32 %.sroa.0147.sroa.3.0.copyload, ptr %398, align 4, !tbaa !258
+  store i32 %.sroa.0147.sroa.3.0.copyload, ptr %398, align 8, !tbaa !258
   %399 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %23, i64 noundef %380, i64 noundef %33, ptr noundef nonnull %397, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit99 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i96
 
@@ -50257,7 +50257,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   %456 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %456, align 8, !tbaa !33
   %457 = getelementptr inbounds nuw i8, ptr %456, i64 8
-  store i32 %.sroa.0147.sroa.4.0.copyload, ptr %457, align 4, !tbaa !258
+  store i32 %.sroa.0147.sroa.4.0.copyload, ptr %457, align 8, !tbaa !258
   %458 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %23, i64 noundef %.pre-phi363382, i64 noundef %35, ptr noundef nonnull %456, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit126 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i123
 
@@ -50314,7 +50314,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %478 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %478, align 8, !tbaa !33
   %479 = getelementptr inbounds nuw i8, ptr %478, i64 8
-  store i32 %.sroa.0147.sroa.4.0.copyload, ptr %479, align 4, !tbaa !258
+  store i32 %.sroa.0147.sroa.4.0.copyload, ptr %479, align 8, !tbaa !258
   %480 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %23, i64 noundef %461, i64 noundef %35, ptr noundef nonnull %478, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit137 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i134
 
@@ -51307,7 +51307,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %78 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %78, align 8, !tbaa !33
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  store i32 %.sroa.098.0.extract.trunc, ptr %79, align 4, !tbaa !258
+  store i32 %.sroa.098.0.extract.trunc, ptr %79, align 8, !tbaa !258
   %80 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi167, i64 noundef %20, ptr noundef nonnull %78, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -51370,7 +51370,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %100 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %100, align 8, !tbaa !33
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  store i32 %.sroa.098.0.extract.trunc, ptr %101, align 4, !tbaa !258
+  store i32 %.sroa.098.0.extract.trunc, ptr %101, align 8, !tbaa !258
   %102 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %83, i64 noundef %20, ptr noundef nonnull %100, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit24 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i21
 
@@ -51510,7 +51510,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %151 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %151, align 8, !tbaa !33
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
-  store i32 %.sroa.098.4.extract.trunc, ptr %152, align 4, !tbaa !258
+  store i32 %.sroa.098.4.extract.trunc, ptr %152, align 8, !tbaa !258
   %153 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi161170, i64 noundef %22, ptr noundef nonnull %151, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit49 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i46
 
@@ -51567,7 +51567,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %173 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %173, align 8, !tbaa !33
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  store i32 %.sroa.098.4.extract.trunc, ptr %174, align 4, !tbaa !258
+  store i32 %.sroa.098.4.extract.trunc, ptr %174, align 8, !tbaa !258
   %175 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %156, i64 noundef %22, ptr noundef nonnull %173, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit60 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i57
 
@@ -51844,7 +51844,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %78 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %78, align 8, !tbaa !33
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  store i32 %.sroa.098.0.extract.trunc, ptr %79, align 4, !tbaa !258
+  store i32 %.sroa.098.0.extract.trunc, ptr %79, align 8, !tbaa !258
   %80 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi167, i64 noundef %20, ptr noundef nonnull %78, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -51907,7 +51907,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %100 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %100, align 8, !tbaa !33
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  store i32 %.sroa.098.0.extract.trunc, ptr %101, align 4, !tbaa !258
+  store i32 %.sroa.098.0.extract.trunc, ptr %101, align 8, !tbaa !258
   %102 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %83, i64 noundef %20, ptr noundef nonnull %100, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit24 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i21
 
@@ -52047,7 +52047,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %151 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %151, align 8, !tbaa !33
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
-  store i32 %.sroa.098.4.extract.trunc, ptr %152, align 4, !tbaa !258
+  store i32 %.sroa.098.4.extract.trunc, ptr %152, align 8, !tbaa !258
   %153 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi161170, i64 noundef %22, ptr noundef nonnull %151, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit49 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i46
 
@@ -52104,7 +52104,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %173 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %173, align 8, !tbaa !33
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  store i32 %.sroa.098.4.extract.trunc, ptr %174, align 4, !tbaa !258
+  store i32 %.sroa.098.4.extract.trunc, ptr %174, align 8, !tbaa !258
   %175 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %156, i64 noundef %22, ptr noundef nonnull %173, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit60 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i57
 
@@ -52386,7 +52386,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %76 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %76, align 8, !tbaa !33
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  store i32 %.sroa.098.0.extract.trunc, ptr %77, align 4, !tbaa !258
+  store i32 %.sroa.098.0.extract.trunc, ptr %77, align 8, !tbaa !258
   %78 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi167, i64 noundef %20, ptr noundef nonnull %76, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -52449,7 +52449,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %98 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %98, align 8, !tbaa !33
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  store i32 %.sroa.098.0.extract.trunc, ptr %99, align 4, !tbaa !258
+  store i32 %.sroa.098.0.extract.trunc, ptr %99, align 8, !tbaa !258
   %100 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %81, i64 noundef %20, ptr noundef nonnull %98, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit24 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i21
 
@@ -52589,7 +52589,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %149 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %149, align 8, !tbaa !33
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
-  store i32 %.sroa.098.4.extract.trunc, ptr %150, align 4, !tbaa !258
+  store i32 %.sroa.098.4.extract.trunc, ptr %150, align 8, !tbaa !258
   %151 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi161170, i64 noundef %22, ptr noundef nonnull %149, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit49 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i46
 
@@ -52646,7 +52646,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %171 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %171, align 8, !tbaa !33
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 8
-  store i32 %.sroa.098.4.extract.trunc, ptr %172, align 4, !tbaa !258
+  store i32 %.sroa.098.4.extract.trunc, ptr %172, align 8, !tbaa !258
   %173 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %154, i64 noundef %22, ptr noundef nonnull %171, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit60 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i57
 
@@ -52929,7 +52929,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %76 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %76, align 8, !tbaa !33
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  store i32 %.sroa.098.0.extract.trunc, ptr %77, align 4, !tbaa !258
+  store i32 %.sroa.098.0.extract.trunc, ptr %77, align 8, !tbaa !258
   %78 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi167, i64 noundef %20, ptr noundef nonnull %76, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -52992,7 +52992,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %98 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %98, align 8, !tbaa !33
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  store i32 %.sroa.098.0.extract.trunc, ptr %99, align 4, !tbaa !258
+  store i32 %.sroa.098.0.extract.trunc, ptr %99, align 8, !tbaa !258
   %100 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %81, i64 noundef %20, ptr noundef nonnull %98, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit24 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i21
 
@@ -53132,7 +53132,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %149 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %149, align 8, !tbaa !33
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
-  store i32 %.sroa.098.4.extract.trunc, ptr %150, align 4, !tbaa !258
+  store i32 %.sroa.098.4.extract.trunc, ptr %150, align 8, !tbaa !258
   %151 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi161170, i64 noundef %22, ptr noundef nonnull %149, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit49 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i46
 
@@ -53189,7 +53189,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %171 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %171, align 8, !tbaa !33
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 8
-  store i32 %.sroa.098.4.extract.trunc, ptr %172, align 4, !tbaa !258
+  store i32 %.sroa.098.4.extract.trunc, ptr %172, align 8, !tbaa !258
   %173 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %154, i64 noundef %22, ptr noundef nonnull %171, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit60 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i57
 
@@ -53471,7 +53471,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %78 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %78, align 8, !tbaa !33
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  store i32 %.sroa.098.0.extract.trunc, ptr %79, align 4, !tbaa !258
+  store i32 %.sroa.098.0.extract.trunc, ptr %79, align 8, !tbaa !258
   %80 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi167, i64 noundef %20, ptr noundef nonnull %78, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -53534,7 +53534,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %100 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %100, align 8, !tbaa !33
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  store i32 %.sroa.098.0.extract.trunc, ptr %101, align 4, !tbaa !258
+  store i32 %.sroa.098.0.extract.trunc, ptr %101, align 8, !tbaa !258
   %102 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %83, i64 noundef %20, ptr noundef nonnull %100, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit24 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i21
 
@@ -53674,7 +53674,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %151 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %151, align 8, !tbaa !33
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
-  store i32 %.sroa.098.4.extract.trunc, ptr %152, align 4, !tbaa !258
+  store i32 %.sroa.098.4.extract.trunc, ptr %152, align 8, !tbaa !258
   %153 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi161170, i64 noundef %22, ptr noundef nonnull %151, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit49 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i46
 
@@ -53731,7 +53731,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %173 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %173, align 8, !tbaa !33
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  store i32 %.sroa.098.4.extract.trunc, ptr %174, align 4, !tbaa !258
+  store i32 %.sroa.098.4.extract.trunc, ptr %174, align 8, !tbaa !258
   %175 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %156, i64 noundef %22, ptr noundef nonnull %173, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit60 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i57
 
@@ -54014,7 +54014,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %78 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %78, align 8, !tbaa !33
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  store i32 %.sroa.098.0.extract.trunc, ptr %79, align 4, !tbaa !258
+  store i32 %.sroa.098.0.extract.trunc, ptr %79, align 8, !tbaa !258
   %80 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi167, i64 noundef %20, ptr noundef nonnull %78, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -54077,7 +54077,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %100 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %100, align 8, !tbaa !33
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  store i32 %.sroa.098.0.extract.trunc, ptr %101, align 4, !tbaa !258
+  store i32 %.sroa.098.0.extract.trunc, ptr %101, align 8, !tbaa !258
   %102 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %83, i64 noundef %20, ptr noundef nonnull %100, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit24 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i21
 
@@ -54217,7 +54217,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %151 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %151, align 8, !tbaa !33
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
-  store i32 %.sroa.098.4.extract.trunc, ptr %152, align 4, !tbaa !258
+  store i32 %.sroa.098.4.extract.trunc, ptr %152, align 8, !tbaa !258
   %153 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi161170, i64 noundef %22, ptr noundef nonnull %151, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit49 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i46
 
@@ -54274,7 +54274,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %173 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %173, align 8, !tbaa !33
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  store i32 %.sroa.098.4.extract.trunc, ptr %174, align 4, !tbaa !258
+  store i32 %.sroa.098.4.extract.trunc, ptr %174, align 8, !tbaa !258
   %175 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %156, i64 noundef %22, ptr noundef nonnull %173, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit60 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i57
 
@@ -54555,7 +54555,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %78 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %78, align 8, !tbaa !33
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  store i32 %.sroa.099.0.extract.trunc, ptr %79, align 4, !tbaa !258
+  store i32 %.sroa.099.0.extract.trunc, ptr %79, align 8, !tbaa !258
   %80 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi168, i64 noundef %20, ptr noundef nonnull %78, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -54618,7 +54618,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %100 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %100, align 8, !tbaa !33
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  store i32 %.sroa.099.0.extract.trunc, ptr %101, align 4, !tbaa !258
+  store i32 %.sroa.099.0.extract.trunc, ptr %101, align 8, !tbaa !258
   %102 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %83, i64 noundef %20, ptr noundef nonnull %100, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit24 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i21
 
@@ -54758,7 +54758,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %151 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %151, align 8, !tbaa !33
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
-  store i32 %.sroa.099.4.extract.trunc, ptr %152, align 4, !tbaa !258
+  store i32 %.sroa.099.4.extract.trunc, ptr %152, align 8, !tbaa !258
   %153 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi162171, i64 noundef %22, ptr noundef nonnull %151, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit49 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i46
 
@@ -54815,7 +54815,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %173 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %173, align 8, !tbaa !33
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  store i32 %.sroa.099.4.extract.trunc, ptr %174, align 4, !tbaa !258
+  store i32 %.sroa.099.4.extract.trunc, ptr %174, align 8, !tbaa !258
   %175 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %156, i64 noundef %22, ptr noundef nonnull %173, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit60 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i57
 
@@ -55216,7 +55216,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   %166 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %166, align 8, !tbaa !33
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
-  store i32 %.sroa.0194.0.extract.trunc, ptr %167, align 4, !tbaa !258
+  store i32 %.sroa.0194.0.extract.trunc, ptr %167, align 8, !tbaa !258
   %168 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi295, i64 noundef %20, ptr noundef nonnull %166, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -55279,7 +55279,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %188 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %188, align 8, !tbaa !33
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 8
-  store i32 %.sroa.0194.0.extract.trunc, ptr %189, align 4, !tbaa !258
+  store i32 %.sroa.0194.0.extract.trunc, ptr %189, align 8, !tbaa !258
   %190 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %171, i64 noundef %20, ptr noundef nonnull %188, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit29 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i26
 
@@ -55431,7 +55431,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %247 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %247, align 8, !tbaa !33
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 8
-  store i32 %.sroa.0194.4.extract.trunc, ptr %248, align 4, !tbaa !258
+  store i32 %.sroa.0194.4.extract.trunc, ptr %248, align 8, !tbaa !258
   %249 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi285298, i64 noundef %22, ptr noundef nonnull %247, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit56 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i53
 
@@ -55488,7 +55488,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %269 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %269, align 8, !tbaa !33
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 8
-  store i32 %.sroa.0194.4.extract.trunc, ptr %270, align 4, !tbaa !258
+  store i32 %.sroa.0194.4.extract.trunc, ptr %270, align 8, !tbaa !258
   %271 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %252, i64 noundef %22, ptr noundef nonnull %269, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit67 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i64
 
@@ -55640,7 +55640,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %328 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %328, align 8, !tbaa !33
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 8
-  store i32 %.sroa.5195.8.extract.trunc, ptr %329, align 4, !tbaa !258
+  store i32 %.sroa.5195.8.extract.trunc, ptr %329, align 8, !tbaa !258
   %330 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi287301, i64 noundef %24, ptr noundef nonnull %328, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit94 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i91
 
@@ -55697,7 +55697,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %350 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %350, align 8, !tbaa !33
   %351 = getelementptr inbounds nuw i8, ptr %350, i64 8
-  store i32 %.sroa.5195.8.extract.trunc, ptr %351, align 4, !tbaa !258
+  store i32 %.sroa.5195.8.extract.trunc, ptr %351, align 8, !tbaa !258
   %352 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %333, i64 noundef %24, ptr noundef nonnull %350, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit105 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i102
 
@@ -56066,7 +56066,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   %172 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %172, align 8, !tbaa !33
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
-  store i32 %.sroa.0194.0.extract.trunc, ptr %173, align 4, !tbaa !258
+  store i32 %.sroa.0194.0.extract.trunc, ptr %173, align 8, !tbaa !258
   %174 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi295, i64 noundef %20, ptr noundef nonnull %172, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -56129,7 +56129,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %194 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %194, align 8, !tbaa !33
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 8
-  store i32 %.sroa.0194.0.extract.trunc, ptr %195, align 4, !tbaa !258
+  store i32 %.sroa.0194.0.extract.trunc, ptr %195, align 8, !tbaa !258
   %196 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %177, i64 noundef %20, ptr noundef nonnull %194, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit29 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i26
 
@@ -56281,7 +56281,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %253 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %253, align 8, !tbaa !33
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 8
-  store i32 %.sroa.0194.4.extract.trunc, ptr %254, align 4, !tbaa !258
+  store i32 %.sroa.0194.4.extract.trunc, ptr %254, align 8, !tbaa !258
   %255 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi285298, i64 noundef %22, ptr noundef nonnull %253, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit56 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i53
 
@@ -56338,7 +56338,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %275 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %275, align 8, !tbaa !33
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 8
-  store i32 %.sroa.0194.4.extract.trunc, ptr %276, align 4, !tbaa !258
+  store i32 %.sroa.0194.4.extract.trunc, ptr %276, align 8, !tbaa !258
   %277 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %258, i64 noundef %22, ptr noundef nonnull %275, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit67 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i64
 
@@ -56490,7 +56490,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %334 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %334, align 8, !tbaa !33
   %335 = getelementptr inbounds nuw i8, ptr %334, i64 8
-  store i32 %.sroa.5195.8.extract.trunc, ptr %335, align 4, !tbaa !258
+  store i32 %.sroa.5195.8.extract.trunc, ptr %335, align 8, !tbaa !258
   %336 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi287301, i64 noundef %24, ptr noundef nonnull %334, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit94 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i91
 
@@ -56547,7 +56547,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %356 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %356, align 8, !tbaa !33
   %357 = getelementptr inbounds nuw i8, ptr %356, i64 8
-  store i32 %.sroa.5195.8.extract.trunc, ptr %357, align 4, !tbaa !258
+  store i32 %.sroa.5195.8.extract.trunc, ptr %357, align 8, !tbaa !258
   %358 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %339, i64 noundef %24, ptr noundef nonnull %356, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit105 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i102
 
@@ -56949,7 +56949,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   %167 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %167, align 8, !tbaa !33
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
-  store i32 %.sroa.0201.0.extract.trunc, ptr %168, align 4, !tbaa !258
+  store i32 %.sroa.0201.0.extract.trunc, ptr %168, align 8, !tbaa !258
   %169 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi318, i64 noundef %20, ptr noundef nonnull %167, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -57012,7 +57012,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %189 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %189, align 8, !tbaa !33
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
-  store i32 %.sroa.0201.0.extract.trunc, ptr %190, align 4, !tbaa !258
+  store i32 %.sroa.0201.0.extract.trunc, ptr %190, align 8, !tbaa !258
   %191 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %172, i64 noundef %20, ptr noundef nonnull %189, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit29 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i26
 
@@ -57164,7 +57164,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %248 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %248, align 8, !tbaa !33
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 8
-  store i32 %.sroa.0201.4.extract.trunc, ptr %249, align 4, !tbaa !258
+  store i32 %.sroa.0201.4.extract.trunc, ptr %249, align 8, !tbaa !258
   %250 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi308321, i64 noundef %22, ptr noundef nonnull %248, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit56 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i53
 
@@ -57221,7 +57221,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %270 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %270, align 8, !tbaa !33
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 8
-  store i32 %.sroa.0201.4.extract.trunc, ptr %271, align 4, !tbaa !258
+  store i32 %.sroa.0201.4.extract.trunc, ptr %271, align 8, !tbaa !258
   %272 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %253, i64 noundef %22, ptr noundef nonnull %270, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit67 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i64
 
@@ -57373,7 +57373,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %329 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %329, align 8, !tbaa !33
   %330 = getelementptr inbounds nuw i8, ptr %329, i64 8
-  store i32 %.sroa.5202.8.extract.trunc, ptr %330, align 4, !tbaa !258
+  store i32 %.sroa.5202.8.extract.trunc, ptr %330, align 8, !tbaa !258
   %331 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi310324, i64 noundef %24, ptr noundef nonnull %329, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit94 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i91
 
@@ -57430,7 +57430,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %351 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %351, align 8, !tbaa !33
   %352 = getelementptr inbounds nuw i8, ptr %351, i64 8
-  store i32 %.sroa.5202.8.extract.trunc, ptr %352, align 4, !tbaa !258
+  store i32 %.sroa.5202.8.extract.trunc, ptr %352, align 8, !tbaa !258
   %353 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %334, i64 noundef %24, ptr noundef nonnull %351, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit105 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i102
 
@@ -57802,7 +57802,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   %175 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %175, align 8, !tbaa !33
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
-  store i32 %.sroa.0194.0.extract.trunc, ptr %176, align 4, !tbaa !258
+  store i32 %.sroa.0194.0.extract.trunc, ptr %176, align 8, !tbaa !258
   %177 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi295, i64 noundef %20, ptr noundef nonnull %175, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -57865,7 +57865,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %197 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %197, align 8, !tbaa !33
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 8
-  store i32 %.sroa.0194.0.extract.trunc, ptr %198, align 4, !tbaa !258
+  store i32 %.sroa.0194.0.extract.trunc, ptr %198, align 8, !tbaa !258
   %199 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %180, i64 noundef %20, ptr noundef nonnull %197, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit29 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i26
 
@@ -58017,7 +58017,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %256 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %256, align 8, !tbaa !33
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 8
-  store i32 %.sroa.0194.4.extract.trunc, ptr %257, align 4, !tbaa !258
+  store i32 %.sroa.0194.4.extract.trunc, ptr %257, align 8, !tbaa !258
   %258 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi285298, i64 noundef %22, ptr noundef nonnull %256, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit56 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i53
 
@@ -58074,7 +58074,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %278 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %278, align 8, !tbaa !33
   %279 = getelementptr inbounds nuw i8, ptr %278, i64 8
-  store i32 %.sroa.0194.4.extract.trunc, ptr %279, align 4, !tbaa !258
+  store i32 %.sroa.0194.4.extract.trunc, ptr %279, align 8, !tbaa !258
   %280 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %261, i64 noundef %22, ptr noundef nonnull %278, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit67 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i64
 
@@ -58226,7 +58226,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %337 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %337, align 8, !tbaa !33
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 8
-  store i32 %.sroa.5195.8.extract.trunc, ptr %338, align 4, !tbaa !258
+  store i32 %.sroa.5195.8.extract.trunc, ptr %338, align 8, !tbaa !258
   %339 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi287301, i64 noundef %24, ptr noundef nonnull %337, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit94 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i91
 
@@ -58283,7 +58283,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %359 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %359, align 8, !tbaa !33
   %360 = getelementptr inbounds nuw i8, ptr %359, i64 8
-  store i32 %.sroa.5195.8.extract.trunc, ptr %360, align 4, !tbaa !258
+  store i32 %.sroa.5195.8.extract.trunc, ptr %360, align 8, !tbaa !258
   %361 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %342, i64 noundef %24, ptr noundef nonnull %359, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit105 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i102
 
@@ -58576,7 +58576,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %114 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %114, align 8, !tbaa !33
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
-  store i32 %.sroa.0217.0.extract.trunc, ptr %115, align 4, !tbaa !258
+  store i32 %.sroa.0217.0.extract.trunc, ptr %115, align 8, !tbaa !258
   %116 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi337, i64 noundef %20, ptr noundef nonnull %114, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -58639,7 +58639,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %136 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %136, align 8, !tbaa !33
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
-  store i32 %.sroa.0217.0.extract.trunc, ptr %137, align 4, !tbaa !258
+  store i32 %.sroa.0217.0.extract.trunc, ptr %137, align 8, !tbaa !258
   %138 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %119, i64 noundef %20, ptr noundef nonnull %136, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit52 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i49
 
@@ -58789,7 +58789,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %195 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %195, align 8, !tbaa !33
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 8
-  store i32 %.sroa.0217.4.extract.trunc, ptr %196, align 4, !tbaa !258
+  store i32 %.sroa.0217.4.extract.trunc, ptr %196, align 8, !tbaa !258
   %197 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi327340, i64 noundef %22, ptr noundef nonnull %195, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit79 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i76
 
@@ -58846,7 +58846,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %217 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %217, align 8, !tbaa !33
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 8
-  store i32 %.sroa.0217.4.extract.trunc, ptr %218, align 4, !tbaa !258
+  store i32 %.sroa.0217.4.extract.trunc, ptr %218, align 8, !tbaa !258
   %219 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %200, i64 noundef %22, ptr noundef nonnull %217, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit90 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i87
 
@@ -58996,7 +58996,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %276 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %276, align 8, !tbaa !33
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 8
-  store i32 %.sroa.5218.8.extract.trunc, ptr %277, align 4, !tbaa !258
+  store i32 %.sroa.5218.8.extract.trunc, ptr %277, align 8, !tbaa !258
   %278 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi329343, i64 noundef %24, ptr noundef nonnull %276, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit117 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i114
 
@@ -59053,7 +59053,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %298 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %298, align 8, !tbaa !33
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 8
-  store i32 %.sroa.5218.8.extract.trunc, ptr %299, align 4, !tbaa !258
+  store i32 %.sroa.5218.8.extract.trunc, ptr %299, align 8, !tbaa !258
   %300 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %281, i64 noundef %24, ptr noundef nonnull %298, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit128 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i125
 
@@ -59365,7 +59365,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %132 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %132, align 8, !tbaa !33
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
-  store i32 %.sroa.0243.0.extract.trunc, ptr %133, align 4, !tbaa !258
+  store i32 %.sroa.0243.0.extract.trunc, ptr %133, align 8, !tbaa !258
   %134 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi373, i64 noundef %20, ptr noundef nonnull %132, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -59428,7 +59428,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %154 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %154, align 8, !tbaa !33
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
-  store i32 %.sroa.0243.0.extract.trunc, ptr %155, align 4, !tbaa !258
+  store i32 %.sroa.0243.0.extract.trunc, ptr %155, align 8, !tbaa !258
   %156 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %137, i64 noundef %20, ptr noundef nonnull %154, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit71 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i68
 
@@ -59578,7 +59578,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %213 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %213, align 8, !tbaa !33
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  store i32 %.sroa.0243.4.extract.trunc, ptr %214, align 4, !tbaa !258
+  store i32 %.sroa.0243.4.extract.trunc, ptr %214, align 8, !tbaa !258
   %215 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi363376, i64 noundef %22, ptr noundef nonnull %213, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit98 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i95
 
@@ -59635,7 +59635,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %235 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %235, align 8, !tbaa !33
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 8
-  store i32 %.sroa.0243.4.extract.trunc, ptr %236, align 4, !tbaa !258
+  store i32 %.sroa.0243.4.extract.trunc, ptr %236, align 8, !tbaa !258
   %237 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %218, i64 noundef %22, ptr noundef nonnull %235, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit109 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i106
 
@@ -59785,7 +59785,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %294 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %294, align 8, !tbaa !33
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 8
-  store i32 %.sroa.5244.8.extract.trunc, ptr %295, align 4, !tbaa !258
+  store i32 %.sroa.5244.8.extract.trunc, ptr %295, align 8, !tbaa !258
   %296 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi365379, i64 noundef %24, ptr noundef nonnull %294, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit136 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i133
 
@@ -59842,7 +59842,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %316 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %316, align 8, !tbaa !33
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 8
-  store i32 %.sroa.5244.8.extract.trunc, ptr %317, align 4, !tbaa !258
+  store i32 %.sroa.5244.8.extract.trunc, ptr %317, align 8, !tbaa !258
   %318 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %299, i64 noundef %24, ptr noundef nonnull %316, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit147 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i144
 
@@ -60137,7 +60137,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %123 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %123, align 8, !tbaa !33
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
-  store i32 %.sroa.0226.0.extract.trunc, ptr %124, align 4, !tbaa !258
+  store i32 %.sroa.0226.0.extract.trunc, ptr %124, align 8, !tbaa !258
   %125 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi358, i64 noundef %20, ptr noundef nonnull %123, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -60200,7 +60200,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %145 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %145, align 8, !tbaa !33
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
-  store i32 %.sroa.0226.0.extract.trunc, ptr %146, align 4, !tbaa !258
+  store i32 %.sroa.0226.0.extract.trunc, ptr %146, align 8, !tbaa !258
   %147 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %128, i64 noundef %20, ptr noundef nonnull %145, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit61 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i58
 
@@ -60350,7 +60350,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %204 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %204, align 8, !tbaa !33
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 8
-  store i32 %.sroa.0226.4.extract.trunc, ptr %205, align 4, !tbaa !258
+  store i32 %.sroa.0226.4.extract.trunc, ptr %205, align 8, !tbaa !258
   %206 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi348361, i64 noundef %22, ptr noundef nonnull %204, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit88 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i85
 
@@ -60407,7 +60407,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %226 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %226, align 8, !tbaa !33
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  store i32 %.sroa.0226.4.extract.trunc, ptr %227, align 4, !tbaa !258
+  store i32 %.sroa.0226.4.extract.trunc, ptr %227, align 8, !tbaa !258
   %228 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %209, i64 noundef %22, ptr noundef nonnull %226, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit99 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i96
 
@@ -60557,7 +60557,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %285 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %285, align 8, !tbaa !33
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 8
-  store i32 %.sroa.5227.8.extract.trunc, ptr %286, align 4, !tbaa !258
+  store i32 %.sroa.5227.8.extract.trunc, ptr %286, align 8, !tbaa !258
   %287 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi350364, i64 noundef %24, ptr noundef nonnull %285, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit126 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i123
 
@@ -60614,7 +60614,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %307 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %307, align 8, !tbaa !33
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 8
-  store i32 %.sroa.5227.8.extract.trunc, ptr %308, align 4, !tbaa !258
+  store i32 %.sroa.5227.8.extract.trunc, ptr %308, align 8, !tbaa !258
   %309 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %290, i64 noundef %24, ptr noundef nonnull %307, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit137 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i134
 
@@ -61018,7 +61018,7 @@ _ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_
   %199 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %199, align 8, !tbaa !33
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 8
-  store i32 %.sroa.0158.sroa.0.0.copyload, ptr %200, align 4, !tbaa !258
+  store i32 %.sroa.0158.sroa.0.0.copyload, ptr %200, align 8, !tbaa !258
   %201 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi401, i64 noundef %20, ptr noundef nonnull %199, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -61081,7 +61081,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %221 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %221, align 8, !tbaa !33
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 8
-  store i32 %.sroa.0158.sroa.0.0.copyload, ptr %222, align 4, !tbaa !258
+  store i32 %.sroa.0158.sroa.0.0.copyload, ptr %222, align 8, !tbaa !258
   %223 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %204, i64 noundef %20, ptr noundef nonnull %221, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit35 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i32
 
@@ -61233,7 +61233,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   %280 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %280, align 8, !tbaa !33
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 8
-  store i32 %.sroa.0158.sroa.2.0.copyload, ptr %281, align 4, !tbaa !258
+  store i32 %.sroa.0158.sroa.2.0.copyload, ptr %281, align 8, !tbaa !258
   %282 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi387404, i64 noundef %22, ptr noundef nonnull %280, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit62 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i59
 
@@ -61290,7 +61290,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %302 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %302, align 8, !tbaa !33
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 8
-  store i32 %.sroa.0158.sroa.2.0.copyload, ptr %303, align 4, !tbaa !258
+  store i32 %.sroa.0158.sroa.2.0.copyload, ptr %303, align 8, !tbaa !258
   %304 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %285, i64 noundef %22, ptr noundef nonnull %302, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit73 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i70
 
@@ -61442,7 +61442,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   %361 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %361, align 8, !tbaa !33
   %362 = getelementptr inbounds nuw i8, ptr %361, i64 8
-  store i32 %.sroa.0158.sroa.3.0.copyload, ptr %362, align 4, !tbaa !258
+  store i32 %.sroa.0158.sroa.3.0.copyload, ptr %362, align 8, !tbaa !258
   %363 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi389407, i64 noundef %24, ptr noundef nonnull %361, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit100 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i97
 
@@ -61499,7 +61499,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %383 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %383, align 8, !tbaa !33
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 8
-  store i32 %.sroa.0158.sroa.3.0.copyload, ptr %384, align 4, !tbaa !258
+  store i32 %.sroa.0158.sroa.3.0.copyload, ptr %384, align 8, !tbaa !258
   %385 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %366, i64 noundef %24, ptr noundef nonnull %383, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit111 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i108
 
@@ -61651,7 +61651,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   %442 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %442, align 8, !tbaa !33
   %443 = getelementptr inbounds nuw i8, ptr %442, i64 8
-  store i32 %.sroa.0158.sroa.4.0.copyload, ptr %443, align 4, !tbaa !258
+  store i32 %.sroa.0158.sroa.4.0.copyload, ptr %443, align 8, !tbaa !258
   %444 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi391410, i64 noundef %26, ptr noundef nonnull %442, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit138 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i135
 
@@ -61708,7 +61708,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %464 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %464, align 8, !tbaa !33
   %465 = getelementptr inbounds nuw i8, ptr %464, i64 8
-  store i32 %.sroa.0158.sroa.4.0.copyload, ptr %465, align 4, !tbaa !258
+  store i32 %.sroa.0158.sroa.4.0.copyload, ptr %465, align 8, !tbaa !258
   %466 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %447, i64 noundef %26, ptr noundef nonnull %464, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit149 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i146
 
@@ -62128,7 +62128,7 @@ _ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_
   %205 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %205, align 8, !tbaa !33
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 8
-  store i32 %.sroa.0158.sroa.0.0.copyload, ptr %206, align 4, !tbaa !258
+  store i32 %.sroa.0158.sroa.0.0.copyload, ptr %206, align 8, !tbaa !258
   %207 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi401, i64 noundef %20, ptr noundef nonnull %205, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -62191,7 +62191,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %227 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %227, align 8, !tbaa !33
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 8
-  store i32 %.sroa.0158.sroa.0.0.copyload, ptr %228, align 4, !tbaa !258
+  store i32 %.sroa.0158.sroa.0.0.copyload, ptr %228, align 8, !tbaa !258
   %229 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %210, i64 noundef %20, ptr noundef nonnull %227, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit35 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i32
 
@@ -62343,7 +62343,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   %286 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %286, align 8, !tbaa !33
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 8
-  store i32 %.sroa.0158.sroa.2.0.copyload, ptr %287, align 4, !tbaa !258
+  store i32 %.sroa.0158.sroa.2.0.copyload, ptr %287, align 8, !tbaa !258
   %288 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi387404, i64 noundef %22, ptr noundef nonnull %286, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit62 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i59
 
@@ -62400,7 +62400,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %308 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %308, align 8, !tbaa !33
   %309 = getelementptr inbounds nuw i8, ptr %308, i64 8
-  store i32 %.sroa.0158.sroa.2.0.copyload, ptr %309, align 4, !tbaa !258
+  store i32 %.sroa.0158.sroa.2.0.copyload, ptr %309, align 8, !tbaa !258
   %310 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %291, i64 noundef %22, ptr noundef nonnull %308, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit73 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i70
 
@@ -62552,7 +62552,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   %367 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %367, align 8, !tbaa !33
   %368 = getelementptr inbounds nuw i8, ptr %367, i64 8
-  store i32 %.sroa.0158.sroa.3.0.copyload, ptr %368, align 4, !tbaa !258
+  store i32 %.sroa.0158.sroa.3.0.copyload, ptr %368, align 8, !tbaa !258
   %369 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi389407, i64 noundef %24, ptr noundef nonnull %367, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit100 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i97
 
@@ -62609,7 +62609,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %389 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %389, align 8, !tbaa !33
   %390 = getelementptr inbounds nuw i8, ptr %389, i64 8
-  store i32 %.sroa.0158.sroa.3.0.copyload, ptr %390, align 4, !tbaa !258
+  store i32 %.sroa.0158.sroa.3.0.copyload, ptr %390, align 8, !tbaa !258
   %391 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %372, i64 noundef %24, ptr noundef nonnull %389, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit111 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i108
 
@@ -62761,7 +62761,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   %448 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %448, align 8, !tbaa !33
   %449 = getelementptr inbounds nuw i8, ptr %448, i64 8
-  store i32 %.sroa.0158.sroa.4.0.copyload, ptr %449, align 4, !tbaa !258
+  store i32 %.sroa.0158.sroa.4.0.copyload, ptr %449, align 8, !tbaa !258
   %450 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.pre-phi391410, i64 noundef %26, ptr noundef nonnull %448, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit138 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i135
 
@@ -62818,7 +62818,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %470 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %470, align 8, !tbaa !33
   %471 = getelementptr inbounds nuw i8, ptr %470, i64 8
-  store i32 %.sroa.0158.sroa.4.0.copyload, ptr %471, align 4, !tbaa !258
+  store i32 %.sroa.0158.sroa.4.0.copyload, ptr %471, align 8, !tbaa !258
   %472 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %453, i64 noundef %26, ptr noundef nonnull %470, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit149 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i146
 
@@ -63242,7 +63242,7 @@ _ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_
   %207 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %207, align 8, !tbaa !33
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 8
-  store i32 %.sroa.0159.sroa.0.0.copyload, ptr %208, align 4, !tbaa !258
+  store i32 %.sroa.0159.sroa.0.0.copyload, ptr %208, align 8, !tbaa !258
   %209 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %15, i64 noundef %.pre-phi419, i64 noundef %21, ptr noundef nonnull %207, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
@@ -63305,7 +63305,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %229 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %229, align 8, !tbaa !33
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 8
-  store i32 %.sroa.0159.sroa.0.0.copyload, ptr %230, align 4, !tbaa !258
+  store i32 %.sroa.0159.sroa.0.0.copyload, ptr %230, align 8, !tbaa !258
   %231 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %15, i64 noundef %212, i64 noundef %21, ptr noundef nonnull %229, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit35 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i32
 
@@ -63457,7 +63457,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   %288 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %288, align 8, !tbaa !33
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 8
-  store i32 %.sroa.0159.sroa.2.0.copyload, ptr %289, align 4, !tbaa !258
+  store i32 %.sroa.0159.sroa.2.0.copyload, ptr %289, align 8, !tbaa !258
   %290 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %15, i64 noundef %.pre-phi405422, i64 noundef %23, ptr noundef nonnull %288, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit62 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i59
 
@@ -63514,7 +63514,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %310 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %310, align 8, !tbaa !33
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 8
-  store i32 %.sroa.0159.sroa.2.0.copyload, ptr %311, align 4, !tbaa !258
+  store i32 %.sroa.0159.sroa.2.0.copyload, ptr %311, align 8, !tbaa !258
   %312 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %15, i64 noundef %293, i64 noundef %23, ptr noundef nonnull %310, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit73 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i70
 
@@ -63666,7 +63666,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   %369 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %369, align 8, !tbaa !33
   %370 = getelementptr inbounds nuw i8, ptr %369, i64 8
-  store i32 %.sroa.0159.sroa.3.0.copyload, ptr %370, align 4, !tbaa !258
+  store i32 %.sroa.0159.sroa.3.0.copyload, ptr %370, align 8, !tbaa !258
   %371 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %15, i64 noundef %.pre-phi407425, i64 noundef %25, ptr noundef nonnull %369, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit100 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i97
 
@@ -63723,7 +63723,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %391 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %391, align 8, !tbaa !33
   %392 = getelementptr inbounds nuw i8, ptr %391, i64 8
-  store i32 %.sroa.0159.sroa.3.0.copyload, ptr %392, align 4, !tbaa !258
+  store i32 %.sroa.0159.sroa.3.0.copyload, ptr %392, align 8, !tbaa !258
   %393 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %15, i64 noundef %374, i64 noundef %25, ptr noundef nonnull %391, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit111 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i108
 
@@ -63875,7 +63875,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   %450 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %450, align 8, !tbaa !33
   %451 = getelementptr inbounds nuw i8, ptr %450, i64 8
-  store i32 %.sroa.0159.sroa.4.0.copyload, ptr %451, align 4, !tbaa !258
+  store i32 %.sroa.0159.sroa.4.0.copyload, ptr %451, align 8, !tbaa !258
   %452 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %15, i64 noundef %.pre-phi409428, i64 noundef %27, ptr noundef nonnull %450, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit138 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i135
 
@@ -63932,7 +63932,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %472 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %472, align 8, !tbaa !33
   %473 = getelementptr inbounds nuw i8, ptr %472, i64 8
-  store i32 %.sroa.0159.sroa.4.0.copyload, ptr %473, align 4, !tbaa !258
+  store i32 %.sroa.0159.sroa.4.0.copyload, ptr %473, align 8, !tbaa !258
   %474 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %15, i64 noundef %455, i64 noundef %27, ptr noundef nonnull %472, i64 noundef 1)
           to label %_ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit149 unwind label %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i146
 

@@ -7312,7 +7312,7 @@ common.ret222:                                    ; preds = %"_ZN3syn4expr8print
   tail call void @"_ZN62_$LT$syn..expr..Expr$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h8a711bcc6b6c7d17E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %26, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !1328
   %27 = getelementptr inbounds nuw i8, ptr %.tr, i64 48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1333)
-  %28 = load i32, ptr %27, align 4, !alias.scope !1333, !noalias !1336, !noundef !12
+  %28 = load i32, ptr %27, align 8, !alias.scope !1333, !noalias !1336, !noundef !12
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1338
   call void @_ZN11proc_macro25Ident3new17h7da1a03a0b207f4dE(ptr noalias noundef nonnull sret({ { i64, [3 x i64] }, { {} } }) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.12.llvm.15435319159651575738, i64 noundef 2, i32 noundef %28, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0d5d5001281b8245a926393d947a7215.24.llvm.858133952616893155), !noalias !1345
   call void @"_ZN115_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..traits..collect..Extend$LT$proc_macro2..TokenTree$GT$$GT$6extend17hb05fa54c9b9cd6f6E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6), !noalias !1346

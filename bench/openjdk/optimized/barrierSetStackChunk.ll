@@ -250,7 +250,7 @@ define linkonce_odr hidden void @_ZN22CompressOopsOopClosure6do_oopEPP7oopDesc(p
   %14 = lshr i64 %11, %13
   %15 = trunc i64 %14 to i32
   %16 = select i1 %7, i32 0, i32 %15
-  store i32 %16, ptr %1, align 4
+  store i32 %16, ptr %1, align 8
   br label %17
 
 17:                                               ; preds = %2, %5

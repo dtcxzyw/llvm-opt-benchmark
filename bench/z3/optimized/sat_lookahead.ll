@@ -10537,7 +10537,7 @@ define hidden void @_ZN3sat9lookahead10add_clauseERKNS_6clauseE(ptr noundef nonn
   %15 = add nuw nsw i64 %14, 24
   store i64 %15, ptr %12, align 8, !tbaa !110
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 -2, ptr %16, align 4, !tbaa !103
+  store i32 -2, ptr %16, align 8, !tbaa !103
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %_ZN3sat9lookahead4naryC2EjPKNS_7literalE.exit, label %.lr.ph.i
 

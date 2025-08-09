@@ -1186,7 +1186,7 @@ define internal noundef range(i32 -99, 1) i32 @__inet6_check_established(ptr nou
 135:                                              ; preds = %133, %127
   store volatile ptr null, ptr %124, align 8
   %136 = getelementptr inbounds nuw i8, ptr %104, i64 128
-  %137 = load volatile i32, ptr %136, align 4
+  %137 = load volatile i32, ptr %136, align 8
   %138 = icmp eq i32 %137, 1
   br i1 %138, label %139, label %140, !prof !7
 

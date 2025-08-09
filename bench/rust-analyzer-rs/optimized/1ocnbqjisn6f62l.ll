@@ -50968,7 +50968,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %27 = load i64, ptr %26, align 8, !alias.scope !15608, !noalias !15611, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15613)
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.015.045, i64 16
-  %29 = load i32, ptr %28, align 4, !alias.scope !15616, !noalias !15619, !noundef !4
+  %29 = load i32, ptr %28, align 8, !alias.scope !15616, !noalias !15619, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15621)
   %30 = icmp eq i64 %17, 3
   br i1 %30, label %31, label %34
@@ -52639,7 +52639,7 @@ default.unreachable1.i.i.i:                       ; preds = %395
   %463 = load i32, ptr %462, align 4, !alias.scope !15889, !noalias !15890, !noundef !4
   %464 = getelementptr inbounds nuw i8, ptr %.sroa.013.0123, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !15947)
-  %465 = load i32, ptr %464, align 8, !range !14226, !alias.scope !15950, !noalias !15951, !noundef !4
+  %465 = load i32, ptr %464, align 16, !range !14226, !alias.scope !15950, !noalias !15951, !noundef !4
   switch i32 %465, label %default.unreachable [
     i32 0, label %466
     i32 1, label %472
@@ -54355,7 +54355,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.016.0171, i64 4
   %.sroa.15.4.copyload = load i32, ptr %36, align 4, !alias.scope !16163
   %.sroa.22.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.016.0171, i64 8
-  %.sroa.22.4.copyload = load i64, ptr %.sroa.22.4..sroa_idx, align 4, !alias.scope !16163
+  %.sroa.22.4.copyload = load i64, ptr %.sroa.22.4..sroa_idx, align 8, !alias.scope !16163
   %.sroa.22.sroa.0.sroa.0.0.extract.trunc73 = trunc i64 %.sroa.22.4.copyload to i8
   %.sroa.22.sroa.0.sroa.14.0.extract.shift84137 = lshr i64 %.sroa.22.4.copyload, 8
   %.sroa.22.sroa.0.sroa.14.0.extract.trunc85 = trunc i64 %.sroa.22.sroa.0.sroa.14.0.extract.shift84137 to i8
@@ -55602,7 +55602,7 @@ default.unreachable:                              ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !16371
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.017.064, i64 328
   %77 = getelementptr inbounds nuw i8, ptr %.sroa.017.064, i64 320
-  %78 = load ptr, ptr %77, align 8, !alias.scope !16372, !noalias !16375, !nonnull !4, !noundef !4
+  %78 = load ptr, ptr %77, align 16, !alias.scope !16372, !noalias !16375, !nonnull !4, !noundef !4
   %79 = load i64, ptr %76, align 8, !alias.scope !16372, !noalias !16375, !noundef !4
   invoke void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hb33836ee37715610E.llvm.6579604558243679033"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 16 %78, i64 noundef %79)
           to label %.noexc13 unwind label %80
@@ -55694,11 +55694,11 @@ default.unreachable:                              ; preds = %20
   %.sroa.06.sroa.8.sroa.4.0..sroa.06.sroa.8.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 216
   store i64 %.sroa.525.sroa.0.1, ptr %.sroa.06.sroa.8.sroa.4.0..sroa.06.sroa.8.0..sroa_idx.sroa_idx, align 8
   %.sroa.06.sroa.8.sroa.4.sroa.4.0..sroa.06.sroa.8.sroa.4.0..sroa.06.sroa.8.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 224
-  store i64 %.sroa.525.sroa.4.1, ptr %.sroa.06.sroa.8.sroa.4.sroa.4.0..sroa.06.sroa.8.sroa.4.0..sroa.06.sroa.8.0..sroa_idx.sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.525.sroa.4.1, ptr %.sroa.06.sroa.8.sroa.4.sroa.4.0..sroa.06.sroa.8.sroa.4.0..sroa.06.sroa.8.0..sroa_idx.sroa_idx.sroa_idx, align 16
   %.sroa.06.sroa.8.sroa.4.sroa.5.0..sroa.06.sroa.8.sroa.4.0..sroa.06.sroa.8.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 232
   store i64 %.sroa.525.sroa.5.1, ptr %.sroa.06.sroa.8.sroa.4.sroa.5.0..sroa.06.sroa.8.sroa.4.0..sroa.06.sroa.8.0..sroa_idx.sroa_idx.sroa_idx, align 8
   %.sroa.06.sroa.8.sroa.4.sroa.6.0..sroa.06.sroa.8.sroa.4.0..sroa.06.sroa.8.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 240
-  store i64 %.sroa.525.sroa.6.1, ptr %.sroa.06.sroa.8.sroa.4.sroa.6.0..sroa.06.sroa.8.sroa.4.0..sroa.06.sroa.8.0..sroa_idx.sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.525.sroa.6.1, ptr %.sroa.06.sroa.8.sroa.4.sroa.6.0..sroa.06.sroa.8.sroa.4.0..sroa.06.sroa.8.0..sroa_idx.sroa_idx.sroa_idx, align 16
   %.sroa.06.sroa.8.sroa.4.sroa.7.0..sroa.06.sroa.8.sroa.4.0..sroa.06.sroa.8.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 248
   store i8 %.sroa.525.sroa.7.1, ptr %.sroa.06.sroa.8.sroa.4.sroa.7.0..sroa.06.sroa.8.sroa.4.0..sroa.06.sroa.8.0..sroa_idx.sroa_idx.sroa_idx, align 8
   %.sroa.06.sroa.8.sroa.4.sroa.9.0..sroa.06.sroa.8.sroa.4.0..sroa.06.sroa.8.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 256
@@ -72538,10 +72538,10 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8dedup_by17hfa6e78e041f0b50c
   %28 = getelementptr i8, ptr %9, i64 -32
   %.val.i.i.i = load ptr, ptr %27, align 8, !alias.scope !20007, !noalias !20008
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.val3.i.i.i = load i32, ptr %29, align 4, !alias.scope !20007, !noalias !20008, !noundef !4
+  %.val3.i.i.i = load i32, ptr %29, align 8, !alias.scope !20007, !noalias !20008, !noundef !4
   %.val4.i.i.i = load ptr, ptr %28, align 8, !alias.scope !20008, !noalias !20007
   %30 = getelementptr i8, ptr %9, i64 -24
-  %.val5.i.i.i = load i32, ptr %30, align 4, !alias.scope !20008, !noalias !20007, !noundef !4
+  %.val5.i.i.i = load i32, ptr %30, align 8, !alias.scope !20008, !noalias !20007, !noundef !4
   %31 = icmp eq i32 %.val3.i.i.i, %.val5.i.i.i
   %32 = icmp eq ptr %.val.i.i.i, %.val4.i.i.i
   %spec.select.i.i.i.i = select i1 %31, i1 %32, i1 false
@@ -72560,10 +72560,10 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8dedup_by17hfa6e78e041f0b50c
   %36 = getelementptr i8, ptr %9, i64 -32
   %.val6.i.i.i.i.i = load ptr, ptr %35, align 8, !alias.scope !20019, !noalias !20020
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.val7.i.i.i.i.i = load i32, ptr %37, align 4, !alias.scope !20019, !noalias !20020, !noundef !4
+  %.val7.i.i.i.i.i = load i32, ptr %37, align 8, !alias.scope !20019, !noalias !20020, !noundef !4
   %.val8.i.i.i.i.i = load ptr, ptr %36, align 8, !alias.scope !20020, !noalias !20019
   %38 = getelementptr i8, ptr %9, i64 -24
-  %.val9.i.i.i.i.i = load i32, ptr %38, align 4, !alias.scope !20020, !noalias !20019, !noundef !4
+  %.val9.i.i.i.i.i = load i32, ptr %38, align 8, !alias.scope !20020, !noalias !20019, !noundef !4
   %39 = icmp eq i32 %.val7.i.i.i.i.i, %.val9.i.i.i.i.i
   %40 = icmp eq ptr %.val6.i.i.i.i.i, %.val8.i.i.i.i.i
   %spec.select.i10.i.i.i.i.i = select i1 %39, i1 %40, i1 false
@@ -72694,10 +72694,10 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8dedup_by17hfa6e78e041f0b50c
   %88 = getelementptr i8, ptr %69, i64 -32
   %.val.i.i.i35 = load ptr, ptr %87, align 8, !alias.scope !20045, !noalias !20046
   %89 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  %.val3.i.i.i36 = load i32, ptr %89, align 4, !alias.scope !20045, !noalias !20046, !noundef !4
+  %.val3.i.i.i36 = load i32, ptr %89, align 8, !alias.scope !20045, !noalias !20046, !noundef !4
   %.val4.i.i.i37 = load ptr, ptr %88, align 8, !alias.scope !20046, !noalias !20045
   %90 = getelementptr i8, ptr %69, i64 -24
-  %.val5.i.i.i38 = load i32, ptr %90, align 4, !alias.scope !20046, !noalias !20045, !noundef !4
+  %.val5.i.i.i38 = load i32, ptr %90, align 8, !alias.scope !20046, !noalias !20045, !noundef !4
   %91 = icmp eq i32 %.val3.i.i.i36, %.val5.i.i.i38
   %92 = icmp eq ptr %.val.i.i.i35, %.val4.i.i.i37
   %spec.select.i.i.i.i39 = select i1 %91, i1 %92, i1 false
@@ -72716,10 +72716,10 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8dedup_by17hfa6e78e041f0b50c
   %96 = getelementptr i8, ptr %69, i64 -32
   %.val6.i.i.i.i.i28 = load ptr, ptr %95, align 8, !alias.scope !20057, !noalias !20058
   %97 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  %.val7.i.i.i.i.i29 = load i32, ptr %97, align 4, !alias.scope !20057, !noalias !20058, !noundef !4
+  %.val7.i.i.i.i.i29 = load i32, ptr %97, align 8, !alias.scope !20057, !noalias !20058, !noundef !4
   %.val8.i.i.i.i.i30 = load ptr, ptr %96, align 8, !alias.scope !20058, !noalias !20057
   %98 = getelementptr i8, ptr %69, i64 -24
-  %.val9.i.i.i.i.i31 = load i32, ptr %98, align 4, !alias.scope !20058, !noalias !20057, !noundef !4
+  %.val9.i.i.i.i.i31 = load i32, ptr %98, align 8, !alias.scope !20058, !noalias !20057, !noundef !4
   %99 = icmp eq i32 %.val7.i.i.i.i.i29, %.val9.i.i.i.i.i31
   %100 = icmp eq ptr %.val6.i.i.i.i.i28, %.val8.i.i.i.i.i30
   %spec.select.i10.i.i.i.i.i32 = select i1 %99, i1 %100, i1 false

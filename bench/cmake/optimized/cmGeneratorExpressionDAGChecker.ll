@@ -159,7 +159,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %14
   store i64 %20, ptr %22, align 8, !tbaa !13
   store ptr %12, ptr %2, align 8, !tbaa !10
   store i64 0, ptr %21, align 8, !tbaa !13
-  store i8 0, ptr %12, align 1, !tbaa !14
+  store i8 0, ptr %12, align 8, !tbaa !14
   invoke void @_ZN31cmGeneratorExpressionDAGCheckerC2E19cmListFileBacktracePK17cmGeneratorTargetNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK26GeneratorExpressionContentPS_PK16cmLocalGeneratorRKS9_(ptr noundef nonnull align 8 dereferenceable(135) %0, ptr noundef nonnull %8, ptr noundef %1, ptr noundef nonnull %9, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %23 unwind label %53
 
@@ -310,7 +310,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %24
   store i64 %31, ptr %32, align 8, !tbaa !13
   store ptr %22, ptr %3, align 8, !tbaa !10
   store i64 0, ptr %30, align 8, !tbaa !13
-  store i8 0, ptr %22, align 1, !tbaa !14
+  store i8 0, ptr %22, align 8, !tbaa !14
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %34, align 8, !tbaa !49

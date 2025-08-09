@@ -346,27 +346,27 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv12StereoBMImplESaIvE
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12StereoBMImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit: ; preds = %_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv12StereoBMImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERS9_.exit
   store ptr getelementptr inbounds nuw inrange(-16, 296) (i8, ptr @_ZTVN2cv12StereoBMImplE, i64 16), ptr %8, align 8, !tbaa !27
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i32 1, ptr %11, align 4, !tbaa !29
+  store i32 1, ptr %11, align 8, !tbaa !29
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 9, ptr %12, align 4, !tbaa !32
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 31, ptr %13, align 4, !tbaa !33
+  store i32 31, ptr %13, align 8, !tbaa !33
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 36
   store i32 %10, ptr %14, align 4, !tbaa !34
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i32 0, ptr %15, align 4, !tbaa !35
+  store i32 0, ptr %15, align 8, !tbaa !35
   %16 = icmp sgt i32 %9, 0
   %17 = select i1 %16, i32 %9, i32 64
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 44
   store i32 %17, ptr %18, align 4, !tbaa !36
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i32 10, ptr %19, align 4, !tbaa !37
+  store i32 10, ptr %19, align 8, !tbaa !37
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 52
   store i32 15, ptr %20, align 4, !tbaa !38
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, i8 0, i64 40, i1 false)
-  store i32 -1, ptr %22, align 4, !tbaa !39
+  store i32 -1, ptr %22, align 8, !tbaa !39
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 100
   store i32 3, ptr %23, align 4, !tbaa !40
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 104

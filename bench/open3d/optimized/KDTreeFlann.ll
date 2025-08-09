@@ -8712,11 +8712,11 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceINSt13__future_base15_Def
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr null, ptr %15, align 8, !tbaa !239
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store i32 0, ptr %16, align 4, !tbaa !242
+  store i32 0, ptr %16, align 8, !tbaa !242
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 36
-  store i8 0, ptr %17, align 1, !tbaa !244
+  store i8 0, ptr %17, align 4, !tbaa !244
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store i32 0, ptr %18, align 4, !tbaa !246
+  store i32 0, ptr %18, align 8, !tbaa !246
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base15_Deferred_stateINSt6thread8_InvokerISt5tupleIJMN9nanoflann15KDTreeBaseClassINS4_24KDTreeSingleIndexAdaptorINS4_10L2_AdaptorIdNS4_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ENS4_9metric_L2ELb0EEEdlEESE_Lin1ElEESF_SE_Lin1ElEEFPNSH_4NodeERSG_mmRSt6vectorINSH_8IntervalESaISM_EERSt6atomicIjERSt5mutexEPSH_St17reference_wrapperISG_EmmSY_ISO_ESY_ISR_ESY_IST_EEEEESJ_EE, i64 16), ptr %14, align 8, !tbaa !148
   %19 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
           to label %20 unwind label %.body.i
@@ -9264,11 +9264,11 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceINSt13__future_base15_Def
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr null, ptr %15, align 8, !tbaa !239
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store i32 0, ptr %16, align 4, !tbaa !242
+  store i32 0, ptr %16, align 8, !tbaa !242
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 36
-  store i8 0, ptr %17, align 1, !tbaa !244
+  store i8 0, ptr %17, align 4, !tbaa !244
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store i32 0, ptr %18, align 4, !tbaa !246
+  store i32 0, ptr %18, align 8, !tbaa !246
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base15_Deferred_stateINSt6thread8_InvokerISt5tupleIJMN9nanoflann15KDTreeBaseClassINS4_24KDTreeSingleIndexAdaptorINS4_10L2_AdaptorIdNS4_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ENS4_9metric_L2ELb0EEEdlEESE_Lin1ElEESF_SE_Lin1ElEEFPNSH_4NodeERSG_mmRSt6vectorINSH_8IntervalESaISM_EERSt6atomicIjERSt5mutexEPSH_St17reference_wrapperISG_EmmSY_ISO_ESY_ISR_ESY_IST_EEEEESJ_EE, i64 16), ptr %14, align 8, !tbaa !148
   %19 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
           to label %20 unwind label %.body.i
@@ -9347,7 +9347,7 @@ _ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit: ; 
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(28) %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load atomic i32, ptr %8 acquire, align 4
+  %9 = load atomic i32, ptr %8 acquire, align 8
   %10 = and i32 %9, 2147483647
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit.us.i.i

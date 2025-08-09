@@ -2531,7 +2531,7 @@ _.exit.i.i:                                       ; preds = %503, %501
   %529 = getelementptr inbounds nuw i8, ptr %522, i64 104
   %530 = load i32, ptr %529, align 4, !tbaa !92
   %531 = getelementptr inbounds nuw i8, ptr %.147.i.i, i64 104
-  store i32 %530, ptr %531, align 4, !tbaa !92
+  store i32 %530, ptr %531, align 8, !tbaa !92
   %532 = getelementptr inbounds nuw i8, ptr %.147.i.i, i64 108
   %533 = getelementptr inbounds nuw i8, ptr %522, i64 108
   %534 = add nsw i32 %513, 1
@@ -7002,7 +7002,7 @@ create_ce_mode.exit:                              ; preds = %20, %26, %28, %28, 
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %39 = load i32, ptr %38, align 4, !tbaa !92
   %40 = getelementptr inbounds nuw i8, ptr %21, i64 104
-  store i32 %39, ptr %40, align 4, !tbaa !92
+  store i32 %39, ptr %40, align 8, !tbaa !92
   %41 = getelementptr inbounds nuw i8, ptr %21, i64 108
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %43 = load ptr, ptr %42, align 8, !tbaa !160

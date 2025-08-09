@@ -1724,7 +1724,7 @@ _ZN9grpc_core14promise_detail9ImmediateIN4absl12lts_202407226StatusEED2Ev.exit89
   store ptr @_ZN9grpc_core20arena_promise_detail4NullIN4absl12lts_202407228StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEE6vtableE, ptr %13, align 16, !tbaa !95
   %167 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i94, i64 48
   %168 = load i8, ptr %148, align 16, !tbaa !50
-  store i8 %168, ptr %167, align 1, !tbaa !50
+  store i8 %168, ptr %167, align 16, !tbaa !50
   %169 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i94, i64 56
   %170 = load i64, ptr %150, align 8, !tbaa !52
   store i64 %170, ptr %169, align 8, !tbaa !52
@@ -1732,7 +1732,7 @@ _ZN9grpc_core14promise_detail9ImmediateIN4absl12lts_202407226StatusEED2Ev.exit89
   %171 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i94, i64 64
   %172 = load ptr, ptr %151, align 16, !tbaa !54
   store ptr null, ptr %151, align 16, !tbaa !54
-  store ptr %172, ptr %171, align 8, !tbaa !59
+  store ptr %172, ptr %171, align 16, !tbaa !59
   %173 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i94, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %173, ptr noundef nonnull align 8 dereferenceable(32) %149, i64 32, i1 false)
   store ptr %.0.i.i.i.i.i94, ptr %152, align 16, !tbaa !100
@@ -2645,13 +2645,13 @@ _ZN9grpc_core5Arena5AllocEm.exit.i.i.i.i:         ; preds = %._ZN9grpc_core5Aren
   store ptr @_ZN9grpc_core20arena_promise_detail4NullIN4absl12lts_202407226StatusEE6vtableE, ptr %6, align 16, !tbaa !147
   %155 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 32
   %156 = load ptr, ptr %132, align 16, !tbaa !125
-  store ptr %156, ptr %155, align 8, !tbaa !125
+  store ptr %156, ptr %155, align 16, !tbaa !125
   %157 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 40
   %158 = load i8, ptr %134, align 8, !tbaa !50
-  store i8 %158, ptr %157, align 1, !tbaa !50
+  store i8 %158, ptr %157, align 8, !tbaa !50
   %159 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 48
   %160 = load i64, ptr %135, align 16, !tbaa !52
-  store i64 %160, ptr %159, align 8, !tbaa !52
+  store i64 %160, ptr %159, align 16, !tbaa !52
   store ptr null, ptr %135, align 16, !tbaa !52
   %161 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 56
   %162 = load ptr, ptr %136, align 8, !tbaa !54
@@ -3838,15 +3838,15 @@ _ZN9grpc_core5Arena5AllocEm.exit.i:               ; preds = %._ZN9grpc_core5Aren
   %155 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 48
   %156 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %157 = load ptr, ptr %156, align 16, !tbaa !196
-  store ptr %157, ptr %155, align 8, !tbaa !196
+  store ptr %157, ptr %155, align 16, !tbaa !196
   %158 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 56
   %159 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %160 = load i8, ptr %159, align 8, !tbaa !50
-  store i8 %160, ptr %158, align 1, !tbaa !50
+  store i8 %160, ptr %158, align 8, !tbaa !50
   %161 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 64
   %162 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %163 = load i64, ptr %162, align 16, !tbaa !52
-  store i64 %163, ptr %161, align 8, !tbaa !52
+  store i64 %163, ptr %161, align 16, !tbaa !52
   store ptr null, ptr %162, align 16, !tbaa !52
   br label %_ZN9grpc_core14promise_detail11PromiseLikeINS_2IfIbZNS_16ClientAuthFilter4Call23OnClientInitialMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPS3_EUlvE_ZNS4_23OnClientInitialMetadataES9_SA_EUlvE0_EEvEC2EOSE_.exit.i.i16
 
@@ -6081,7 +6081,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i.i.i: ; preds = %146
   %150 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %151 = load ptr, ptr %150, align 8, !tbaa !52, !noalias !300
   %.not.i.i.i.i.i.i = icmp ne ptr %151, null
-  %152 = load i8, ptr %149, align 1, !range !104, !noalias !300
+  %152 = load i8, ptr %149, align 8, !range !104, !noalias !300
   %153 = trunc nuw i8 %152 to i1
   %or.cond.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i, i1 %153, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %154, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i.i.i.i
@@ -6140,7 +6140,7 @@ _ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.ex
   %169 = load ptr, ptr %168, align 8, !tbaa !52, !noalias !343
   store ptr %167, ptr %168, align 8, !tbaa !52, !noalias !343
   %.not.i.i.i.i.i = icmp ne ptr %169, null
-  %170 = load i8, ptr %164, align 1, !range !104, !noalias !343
+  %170 = load i8, ptr %164, align 8, !range !104, !noalias !343
   %171 = trunc nuw i8 %170 to i1
   %or.cond.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %171, i1 false
   br i1 %or.cond.i.i.i.i.i, label %172, label %"_ZN9grpc_core14promise_detail18PromiseFactoryImplINS0_9OnceTokenESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEZNS_22LegacyClientAuthFilter20GetCallCredsMetadataENS_8CallArgsEE3$_1EENSt9enable_ifIXsr14IsVoidCallableINS0_9ResultOfTIFT1_T0_EvE1TEEE5valueENS0_11PromiseLikeIDTclclsr3stdE7declvalISD_EEclsr3stdE7declvalISE_EEEEvEEE4typeET_OSD_OSE_.exit"
@@ -6261,7 +6261,7 @@ _ZN9grpc_core14promise_detail7ContextINS_8ActivityEvE3getEv.exit.i.i.i.i.i.i: ; 
 _ZN9grpc_core37ClientInitialMetadataOutstandingTokenD2Ev.exit.i.i.i: ; preds = %_ZN9grpc_core14promise_detail7ContextINS_8ActivityEvE3getEv.exit.i.i.i.i.i.i, %199, %198
   %215 = load ptr, ptr %168, align 8, !tbaa !52, !noalias !300
   %.not.i1.i.i.i = icmp ne ptr %215, null
-  %216 = load i8, ptr %164, align 1, !range !104, !noalias !300
+  %216 = load i8, ptr %164, align 8, !range !104, !noalias !300
   %217 = trunc nuw i8 %216 to i1
   %or.cond.i.i.i.i70 = select i1 %.not.i1.i.i.i, i1 %217, i1 false
   br i1 %or.cond.i.i.i.i70, label %218, label %"_ZN9grpc_core14promise_detail18OncePromiseFactoryISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEZNS_22LegacyClientAuthFilter20GetCallCredsMetadataENS_8CallArgsEE3$_1ED2Ev.exit"
@@ -6643,7 +6643,7 @@ _ZN9grpc_core14promise_detail11PromiseLikeINS_12ArenaPromiseIN4absl12lts_2024072
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %45 = load ptr, ptr %44, align 8, !tbaa !125, !noalias !368
   %46 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  %47 = load i8, ptr %46, align 1, !tbaa !50, !noalias !368
+  %47 = load i8, ptr %46, align 8, !tbaa !50, !noalias !368
   store i8 %47, ptr %3, align 8, !tbaa !50, !noalias !368
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %14, i64 48
@@ -6777,7 +6777,7 @@ _ZN9grpc_core14promise_detail7ContextINS_8ActivityEvE3getEv.exit.i.i.i.i.i.i: ; 
 _ZN9grpc_core37ClientInitialMetadataOutstandingTokenD2Ev.exit.i.i.i: ; preds = %_ZN9grpc_core14promise_detail7ContextINS_8ActivityEvE3getEv.exit.i.i.i.i.i.i, %81, %79
   %97 = load ptr, ptr %49, align 8, !tbaa !52
   %.not.i1.i.i.i = icmp ne ptr %97, null
-  %98 = load i8, ptr %46, align 1, !range !104
+  %98 = load i8, ptr %46, align 8, !range !104
   %99 = trunc nuw i8 %98 to i1
   %or.cond.i.i.i.i = select i1 %.not.i1.i.i.i, i1 %99, i1 false
   br i1 %or.cond.i.i.i.i, label %100, label %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvZNS_22LegacyClientAuthFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES3_EEE3$_0ED2Ev.exit"
@@ -8164,7 +8164,7 @@ _ZN9grpc_core14promise_detail11PromiseLikeINS_12ArenaPromiseIN4absl12lts_2024072
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %54 = load ptr, ptr %53, align 8, !tbaa !196, !noalias !449
   %55 = getelementptr inbounds nuw i8, ptr %18, i64 56
-  %56 = load i8, ptr %55, align 1, !tbaa !50, !noalias !449
+  %56 = load i8, ptr %55, align 8, !tbaa !50, !noalias !449
   store i8 %56, ptr %3, align 8, !tbaa !50, !noalias !449
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %58 = getelementptr inbounds nuw i8, ptr %18, i64 64
@@ -8266,7 +8266,7 @@ _ZN9grpc_core2IfIbZNS_16ClientAuthFilter20GetCallCredsMetadataESt10unique_ptrI19
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !446
   %99 = load ptr, ptr %58, align 8, !tbaa !52, !noalias !435
   %.not.i.i.i = icmp ne ptr %99, null
-  %100 = load i8, ptr %55, align 1, !range !104, !noalias !435
+  %100 = load i8, ptr %55, align 8, !range !104, !noalias !435
   %101 = trunc nuw i8 %100 to i1
   %or.cond.i.i.i = select i1 %.not.i.i.i, i1 %101, i1 false
   br i1 %or.cond.i.i.i, label %102, label %_ZN9grpc_core14promise_detail18OncePromiseFactoryIvZZNS_16ClientAuthFilter4Call23OnClientInitialMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPS2_ENUlvE0_clEvEUlvE_ED2Ev.exit
@@ -8776,7 +8776,7 @@ _ZN9grpc_core37ClientInitialMetadataOutstandingTokenD2Ev.exit.i.i.i: ; preds = %
   %275 = getelementptr inbounds nuw i8, ptr %18, i64 104
   %276 = load ptr, ptr %275, align 8, !tbaa !52, !noalias !421
   %.not.i1.i.i.i = icmp ne ptr %276, null
-  %277 = load i8, ptr %235, align 1, !range !104, !noalias !421
+  %277 = load i8, ptr %235, align 8, !range !104, !noalias !421
   %278 = trunc nuw i8 %277 to i1
   %or.cond.i.i.i.i = select i1 %.not.i1.i.i.i, i1 %278, i1 false
   br i1 %or.cond.i.i.i.i, label %279, label %_ZN9grpc_core14promise_detail18OncePromiseFactoryISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEZNS_21promise_filter_detail11RunCallImplIMNS_16ClientAuthFilter4CallEFNS_2IfIbZNSA_23OnClientInitialMetadataES6_PS9_EUlvE_ZNSA_23OnClientInitialMetadataES6_SC_EUlvE0_EES6_SC_ES9_vE3RunENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS6_EESJ_EEPNS7_14FilterCallDataIS9_EEEUlS6_E_ED2Ev.exit

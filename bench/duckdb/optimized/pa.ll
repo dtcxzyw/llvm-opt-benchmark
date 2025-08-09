@@ -39,7 +39,7 @@ define noundef zeroext i1 @duckdb_je_pa_shard_init(ptr noundef %0, ptr noundef %
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 17
   store i8 0, ptr %21, align 1, !tbaa !49
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store atomic i8 0, ptr %22 monotonic, align 1
+  store atomic i8 0, ptr %22 monotonic, align 8
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store atomic i64 0, ptr %23 monotonic, align 8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 68256

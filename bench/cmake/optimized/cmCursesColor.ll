@@ -336,7 +336,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIcSt4pairIKcsESaIS2_
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %1, align 4, !tbaa !19
   %7 = trunc i32 %6 to i8
-  store i8 %7, ptr %5, align 2, !tbaa !33
+  store i8 %7, ptr %5, align 8, !tbaa !33
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 10
   %9 = load i16, ptr %2, align 2, !tbaa !21
   store i16 %9, ptr %8, align 2, !tbaa !29
@@ -589,7 +589,7 @@ _ZNSt10_HashtableIcSt4pairIKcsESaIS2_ENSt8__detail10_Select1stESt8equal_toIcESt4
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIcSt4pairIKcsESaIS2_ENSt8__detail10_Select1stESt8equal_toIcESt4hashIcENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !24
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i8, ptr %15, align 1, !tbaa !18
+  %16 = load i8, ptr %15, align 8, !tbaa !18
   %17 = sext i8 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18

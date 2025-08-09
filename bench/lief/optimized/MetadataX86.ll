@@ -912,11 +912,11 @@ _ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit31: ; preds
   %121 = getelementptr inbounds nuw i8, ptr %117, i64 52
   store i32 2, ptr %121, align 4, !tbaa !33, !noalias !26
   %122 = getelementptr inbounds nuw i8, ptr %117, i64 56
-  store i8 0, ptr %122, align 4, !tbaa !36, !noalias !26
+  store i8 0, ptr %122, align 8, !tbaa !36, !noalias !26
   %123 = getelementptr inbounds nuw i8, ptr %117, i64 60
   store i32 2, ptr %123, align 4, !tbaa !33, !noalias !26
   %124 = getelementptr inbounds nuw i8, ptr %117, i64 64
-  store i8 0, ptr %124, align 4, !tbaa !36, !noalias !26
+  store i8 0, ptr %124, align 8, !tbaa !36, !noalias !26
   store ptr %117, ptr %0, align 8, !tbaa !38, !alias.scope !26
   store i32 %31, ptr %120, align 8, !tbaa !39
   %125 = getelementptr inbounds nuw i8, ptr %117, i64 20

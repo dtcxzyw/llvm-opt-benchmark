@@ -70,7 +70,7 @@ define dso_local range(i32 -2147483648, 1) i32 @__drm_mode_object_add(ptr nounde
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %4, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store volatile i32 1, ptr %28, align 4
+  store volatile i32 1, ptr %28, align 8
   br label %29
 
 29:                                               ; preds = %26, %23, %17
@@ -335,7 +335,7 @@ define dso_local void @drm_mode_object_put(ptr noundef %0) #0 align 16 {
 5:                                                ; preds = %1
   %6 = load i32, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load volatile i32, ptr %7, align 4
+  %8 = load volatile i32, ptr %7, align 8
   tail call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.2, i32 noundef %6, i32 noundef %8) #10
   %9 = load ptr, ptr %2, align 8
   %10 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %7, i32 -1, ptr nonnull elementtype(i32) %7) #10, !srcloc !20
@@ -372,7 +372,7 @@ define dso_local void @drm_mode_object_get(ptr noundef %0) #0 align 16 {
 5:                                                ; preds = %1
   %6 = load i32, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load volatile i32, ptr %7, align 4
+  %8 = load volatile i32, ptr %7, align 8
   tail call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.2, i32 noundef %6, i32 noundef %8) #10
   %9 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %7, i32 1, ptr nonnull elementtype(i32) %7) #10, !srcloc !22
   %10 = icmp eq i32 %9, 0
@@ -979,7 +979,7 @@ define dso_local i32 @drm_mode_obj_get_properties_ioctl(ptr noundef %0, ptr noun
 58:                                               ; preds = %53
   %59 = load i32, ptr %39, align 8
   %60 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %61 = load volatile i32, ptr %60, align 4
+  %61 = load volatile i32, ptr %60, align 8
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.2, i32 noundef %59, i32 noundef %61) #10
   %62 = load ptr, ptr %55, align 8
   %63 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %60, i32 -1, ptr nonnull elementtype(i32) %60) #10, !srcloc !20
@@ -1391,7 +1391,7 @@ define dso_local i32 @drm_mode_obj_set_property_ioctl(ptr noundef %0, ptr nounde
 173:                                              ; preds = %.thread
   %174 = load i32, ptr %21, align 8
   %175 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %176 = load volatile i32, ptr %175, align 4
+  %176 = load volatile i32, ptr %175, align 8
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.2, i32 noundef %174, i32 noundef %176) #10
   %177 = load ptr, ptr %170, align 8
   %178 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %175, i32 -1, ptr nonnull elementtype(i32) %175) #10, !srcloc !20

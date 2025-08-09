@@ -1093,11 +1093,11 @@ define internal noundef zeroext i1 @heur_dissect_fp(ptr noundef %0, ptr noundef 
   store i32 31, ptr %82, align 4
   %83 = getelementptr inbounds nuw i8, ptr %.1.i, i64 588
   %84 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1104
-  store i32 1, ptr %84, align 4
+  store i32 1, ptr %84, align 8
   %85 = getelementptr i8, ptr %.1.i, i64 1368
-  store i32 1, ptr %85, align 4
+  store i32 1, ptr %85, align 8
   %86 = getelementptr i8, ptr %.1.i, i64 1112
-  store i32 148, ptr %86, align 4
+  store i32 148, ptr %86, align 8
   store i32 1, ptr %83, align 4
   %87 = getelementptr i8, ptr %.1.i, i64 852
   store i32 1, ptr %87, align 4
@@ -1231,11 +1231,11 @@ define internal noundef zeroext i1 @heur_dissect_fp(ptr noundef %0, ptr noundef 
   %148 = getelementptr inbounds nuw i8, ptr %.1.i48, i64 72
   store i32 1, ptr %148, align 8
   %149 = getelementptr inbounds nuw i8, ptr %.1.i48, i64 1104
-  store i32 1, ptr %149, align 4
+  store i32 1, ptr %149, align 8
   %150 = getelementptr i8, ptr %.1.i48, i64 1368
-  store i32 1, ptr %150, align 4
+  store i32 1, ptr %150, align 8
   %151 = getelementptr i8, ptr %.1.i48, i64 1112
-  store i32 360, ptr %151, align 4
+  store i32 360, ptr %151, align 8
   %152 = tail call ptr @wmem_file_scope()
   %153 = tail call noalias dereferenceable_or_null(8) ptr @wmem_alloc0(ptr noundef %152, i64 noundef 8) #12
   %154 = tail call ptr @wmem_epan_scope()
@@ -1386,11 +1386,11 @@ heur_dissect_fp_fach1.exit:                       ; preds = %102, %132
   %222 = getelementptr inbounds nuw i8, ptr %.1.i54, i64 72
   store i32 1, ptr %222, align 8
   %223 = getelementptr inbounds nuw i8, ptr %.1.i54, i64 1104
-  store i32 1, ptr %223, align 4
+  store i32 1, ptr %223, align 8
   %224 = getelementptr i8, ptr %.1.i54, i64 1368
-  store i32 1, ptr %224, align 4
+  store i32 1, ptr %224, align 8
   %225 = getelementptr i8, ptr %.1.i54, i64 1112
-  store i32 168, ptr %225, align 4
+  store i32 168, ptr %225, align 8
   %226 = getelementptr i8, ptr %.1.i54, i64 1372
   store i32 2, ptr %226, align 4
   %227 = getelementptr i8, ptr %.1.i54, i64 1116
@@ -1535,11 +1535,11 @@ heur_dissect_fp_fach2.exit:                       ; preds = %171, %206
   %299 = getelementptr inbounds nuw i8, ptr %.1.i67, i64 588
   store i32 0, ptr %299, align 4
   %300 = getelementptr inbounds nuw i8, ptr %.1.i67, i64 848
-  store i32 1, ptr %300, align 4
+  store i32 1, ptr %300, align 8
   %301 = getelementptr i8, ptr %.1.i67, i64 852
   store i32 1, ptr %301, align 4
   %302 = getelementptr inbounds nuw i8, ptr %.1.i67, i64 592
-  store i32 168, ptr %302, align 4
+  store i32 168, ptr %302, align 8
   %303 = getelementptr i8, ptr %.1.i67, i64 596
   store i32 360, ptr %303, align 4
   %304 = tail call ptr @wmem_file_scope()
@@ -8891,9 +8891,9 @@ copy_address_wmem.exit:                           ; preds = %generate_ue_id_for_
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 1, ptr %95, align 8
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 1104
-  store i32 1, ptr %96, align 4
+  store i32 1, ptr %96, align 8
   %97 = getelementptr i8, ptr %0, i64 1368
-  store i32 1, ptr %97, align 4
+  store i32 1, ptr %97, align 8
   %98 = tail call ptr @wmem_file_scope()
   %99 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc0(ptr noundef %98, i64 noundef 16) #12
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 64

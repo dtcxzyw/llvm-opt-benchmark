@@ -2771,7 +2771,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4absl12crc_internal12CrcCordState1
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %6, align 8, !tbaa !28
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 0, ptr %7, align 4, !tbaa !150
+  store i32 0, ptr %7, align 8, !tbaa !150
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, i8 0, i64 80, i1 false)
   invoke void @_ZNSt11_Deque_baseIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %8, i64 noundef 0)
@@ -7406,7 +7406,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %35
   store i64 %41, ptr %43, align 8, !tbaa !55
   store ptr %33, ptr %1, align 8, !tbaa !51
   store i64 0, ptr %42, align 8, !tbaa !55
-  store i8 0, ptr %33, align 1, !tbaa !56
+  store i8 0, ptr %33, align 8, !tbaa !56
   ret void
 }
 
@@ -7441,7 +7441,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %7, ptr %6, align 8, !tbaa !94, !noalias !442
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %8, align 8, !tbaa !55, !noalias !442
-  store i8 0, ptr %7, align 1, !tbaa !56, !noalias !442
+  store i8 0, ptr %7, align 8, !tbaa !56, !noalias !442
   store ptr %6, ptr %4, align 8, !tbaa !59
   br label %9
 
@@ -15554,7 +15554,7 @@ _ZN4absl13cord_internal12_GLOBAL__N_116MakeCrcCordStateEj.exit: ; preds = %24, %
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !650
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %43 = load atomic i32, ptr %42 acquire, align 4
+  %43 = load atomic i32, ptr %42 acquire, align 8
   %44 = icmp eq i32 %43, 2
   br i1 %44, label %45, label %47
 
@@ -16009,7 +16009,7 @@ _ZN4absl13cord_internal12_GLOBAL__N_116MakeCrcCordStateEj.exit: ; preds = %24, %
 42:                                               ; preds = %35
   %43 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %44 = load ptr, ptr %43, align 8, !tbaa !650
-  %45 = load atomic i32, ptr %37 acquire, align 4
+  %45 = load atomic i32, ptr %37 acquire, align 8
   %46 = icmp eq i32 %45, 2
   br i1 %46, label %47, label %49
 

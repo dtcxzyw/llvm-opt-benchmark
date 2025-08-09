@@ -592,7 +592,7 @@ define internal noundef i32 @filter_slice_rgb(ptr noundef readonly captures(none
   %85 = trunc nuw i32 %83 to i8
   %.0.i93 = select i1 %.not.i91, i8 %85, i8 %84
   store i8 %.0.i93, ptr %75, align 1, !tbaa !76
-  %86 = load i8, ptr %32, align 1, !tbaa !76
+  %86 = load i8, ptr %32, align 2, !tbaa !76
   %87 = zext i8 %86 to i32
   %88 = shl nuw nsw i32 %87, 16
   %89 = getelementptr inbounds nuw i8, ptr %46, i64 %indvars.iv
@@ -715,7 +715,7 @@ define internal noundef i32 @filter_slice_rgb(ptr noundef readonly captures(none
   %174 = trunc nuw i32 %172 to i8
   %.0.i81 = select i1 %.not.i79, i8 %174, i8 %173
   store i8 %.0.i81, ptr %164, align 1, !tbaa !76
-  %175 = load i8, ptr %128, align 1, !tbaa !76
+  %175 = load i8, ptr %128, align 2, !tbaa !76
   %176 = zext i8 %175 to i32
   %177 = shl nuw nsw i32 %176, 16
   %178 = getelementptr inbounds nuw i8, ptr %140, i64 %indvars.iv145
@@ -829,7 +829,7 @@ define internal noundef i32 @filter_slice_rgb(ptr noundef readonly captures(none
   %252 = trunc nuw i32 %250 to i8
   %.0.i72 = select i1 %.not.i70, i8 %252, i8 %251
   store i8 %.0.i72, ptr %242, align 1, !tbaa !76
-  %253 = load i8, ptr %212, align 1, !tbaa !76
+  %253 = load i8, ptr %212, align 2, !tbaa !76
   %254 = zext i8 %253 to i32
   %255 = shl nuw nsw i32 %254, 16
   %256 = getelementptr inbounds nuw i8, ptr %.0.i39113, i64 %213
@@ -962,7 +962,7 @@ define internal noundef i32 @filter_slice_rgb(ptr noundef readonly captures(none
   %343 = trunc nuw i32 %341 to i8
   %.0.i60 = select i1 %.not.i58, i8 %343, i8 %342
   store i8 %.0.i60, ptr %333, align 1, !tbaa !76
-  %344 = load i8, ptr %305, align 1, !tbaa !76
+  %344 = load i8, ptr %305, align 2, !tbaa !76
   %345 = zext i8 %344 to i32
   %346 = shl nuw nsw i32 %345, 16
   %347 = getelementptr inbounds nuw i8, ptr %.0.i42129, i64 %306
@@ -1069,7 +1069,7 @@ define internal noundef i32 @filter_slice_rgb(ptr noundef readonly captures(none
   %417 = trunc nuw i32 %415 to i8
   %.0.i51 = select i1 %.not.i49, i8 %417, i8 %416
   store i8 %.0.i51, ptr %407, align 1, !tbaa !76
-  %418 = load i8, ptr %379, align 1, !tbaa !76
+  %418 = load i8, ptr %379, align 2, !tbaa !76
   %419 = zext i8 %418 to i32
   %420 = shl nuw nsw i32 %419, 16
   %421 = getelementptr inbounds nuw i8, ptr %.0.i46121, i64 %380

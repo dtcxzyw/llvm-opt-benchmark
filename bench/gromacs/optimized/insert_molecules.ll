@@ -473,25 +473,25 @@ define void @_ZN3gmx19InsertMoleculesInfo6createEv(ptr dead_on_unwind noalias wr
   store ptr %7, ptr %6, align 8, !tbaa !7
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 0, ptr %8, align 8, !tbaa !12
-  store i8 0, ptr %7, align 1, !tbaa !15
+  store i8 0, ptr %7, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store ptr %10, ptr %9, align 8, !tbaa !7
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i64 0, ptr %11, align 8, !tbaa !12
-  store i8 0, ptr %10, align 1, !tbaa !15
+  store i8 0, ptr %10, align 8, !tbaa !15
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store ptr %13, ptr %12, align 8, !tbaa !7
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store i64 0, ptr %14, align 8, !tbaa !12
-  store i8 0, ptr %13, align 1, !tbaa !15
+  store i8 0, ptr %13, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 136
   store ptr %16, ptr %15, align 8, !tbaa !7
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store i64 0, ptr %17, align 8, !tbaa !12
-  store i8 0, ptr %16, align 1, !tbaa !15
+  store i8 0, ptr %16, align 8, !tbaa !15
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 164
   store i8 0, ptr %18, align 4, !tbaa !16
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 168

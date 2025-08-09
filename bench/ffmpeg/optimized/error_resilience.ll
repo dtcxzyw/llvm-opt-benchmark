@@ -62,7 +62,7 @@ define void @ff_er_frame_start(ptr noundef captures(none) %0) local_unnamed_addr
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load i32, ptr %23, align 8, !tbaa !41
   %25 = mul nsw i32 %24, 3
-  store i32 %25, ptr %22, align 4, !tbaa !42
+  store i32 %25, ptr %22, align 8, !tbaa !42
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %26, align 4, !tbaa !43
   br label %27
@@ -1122,7 +1122,7 @@ select.unfold:                                    ; preds = %238
   %426 = load ptr, ptr %420, align 8, !tbaa !70
   %427 = shl nsw i64 %indvars.iv98.i, 4
   %428 = getelementptr inbounds nuw i8, ptr %426, i64 %427
-  %429 = load i32, ptr %425, align 4, !tbaa !46
+  %429 = load i32, ptr %425, align 8, !tbaa !46
   %430 = mul nsw i32 %403, %429
   %431 = sext i32 %430 to i64
   %432 = getelementptr inbounds i8, ptr %428, i64 %431
@@ -3203,7 +3203,7 @@ add_blocklist.exit670.us:                         ; preds = %.add_blocklist.exit
   %483 = getelementptr inbounds nuw i8, ptr %482, i64 64
   %484 = load ptr, ptr %482, align 8, !tbaa !70
   %485 = getelementptr inbounds i8, ptr %484, i64 %599
-  %486 = load i32, ptr %483, align 4, !tbaa !46
+  %486 = load i32, ptr %483, align 8, !tbaa !46
   %487 = mul nsw i32 %600, %486
   %488 = sext i32 %487 to i64
   %489 = getelementptr inbounds i8, ptr %485, i64 %488

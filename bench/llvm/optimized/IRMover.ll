@@ -1678,7 +1678,7 @@ _ZN4llvm8DenseMapIPKNS_8MetadataENS_13TrackingMDRefENS_12DenseMapInfoIS3_vEENS_6
   %209 = getelementptr inbounds nuw i8, ptr %192, i64 8
   %210 = getelementptr inbounds nuw i8, ptr %8, i64 744
   %211 = load i32, ptr %210, align 8, !tbaa !224
-  store i32 %211, ptr %209, align 4, !tbaa !224
+  store i32 %211, ptr %209, align 8, !tbaa !224
   store i32 0, ptr %210, align 8, !tbaa !224
   %212 = getelementptr inbounds nuw i8, ptr %192, i64 12
   %213 = getelementptr inbounds nuw i8, ptr %8, i64 748
@@ -1687,9 +1687,9 @@ _ZN4llvm8DenseMapIPKNS_8MetadataENS_13TrackingMDRefENS_12DenseMapInfoIS3_vEENS_6
   store i32 %215, ptr %212, align 4, !tbaa !224
   store i32 %214, ptr %213, align 4, !tbaa !224
   %216 = getelementptr inbounds nuw i8, ptr %8, i64 752
-  %217 = load i32, ptr %193, align 4, !tbaa !224
+  %217 = load i32, ptr %193, align 8, !tbaa !224
   %218 = load i32, ptr %216, align 8, !tbaa !224
-  store i32 %218, ptr %193, align 4, !tbaa !224
+  store i32 %218, ptr %193, align 8, !tbaa !224
   store i32 %217, ptr %216, align 8, !tbaa !224
   call void @_ZN4llvm11ValueMapperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %123) #20
   %219 = load i8, ptr %122, align 8, !tbaa !221, !range !30, !noundef !31

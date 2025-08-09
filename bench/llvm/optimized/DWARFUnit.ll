@@ -9491,7 +9491,7 @@ _ZN4llvm5ErrorD2Ev.exit39.i.i.i:                  ; preds = %.thread59.i.i.i
   %116 = getelementptr inbounds nuw i8, ptr %113, i64 152
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %116, ptr noundef nonnull readonly align 8 dereferenceable(16) %106, i64 16, i1 false), !noalias !710
   %117 = load ptr, ptr %109, align 8, !tbaa !16, !noalias !710
-  %118 = load i8, ptr %21, align 1, !tbaa !18, !range !129, !noalias !710, !noundef !130
+  %118 = load i8, ptr %21, align 8, !tbaa !18, !range !129, !noalias !710, !noundef !130
   %119 = load i8, ptr %112, align 1, !tbaa !18, !range !129, !noalias !710, !noundef !130
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm9DWARFUnitE, i64 16), ptr %113, align 8, !tbaa !8, !noalias !710
   %120 = getelementptr inbounds nuw i8, ptr %113, i64 8

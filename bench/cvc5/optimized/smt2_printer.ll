@@ -1496,7 +1496,7 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit: ; preds = %_ZNSolsEj.exit, %
   %30 = load ptr, ptr %29, align 8, !tbaa !3
   %31 = getelementptr inbounds i8, ptr %.sroa.11.0, i64 -16
   %32 = load i64, ptr %31, align 8, !tbaa !53
-  %33 = load i32, ptr %28, align 4, !tbaa !54
+  %33 = load i32, ptr %28, align 8, !tbaa !54
   %34 = icmp eq i64 %32, 0
   br i1 %34, label %35, label %113
 

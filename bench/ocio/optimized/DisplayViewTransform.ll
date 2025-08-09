@@ -234,19 +234,19 @@ define void @_ZN19OpenColorIO_v2_5dev20DisplayViewTransformC2Ev(ptr noundef nonn
   store ptr %5, ptr %4, align 8, !tbaa !30
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 0, ptr %6, align 8, !tbaa !31
-  store i8 0, ptr %5, align 1, !tbaa !32
+  store i8 0, ptr %5, align 8, !tbaa !32
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store ptr %8, ptr %7, align 8, !tbaa !30
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i64 0, ptr %9, align 8, !tbaa !31
-  store i8 0, ptr %8, align 1, !tbaa !32
+  store i8 0, ptr %8, align 8, !tbaa !32
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store ptr %11, ptr %10, align 8, !tbaa !30
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i64 0, ptr %12, align 8, !tbaa !31
-  store i8 0, ptr %11, align 1, !tbaa !32
+  store i8 0, ptr %11, align 8, !tbaa !32
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i8 0, ptr %13, align 8, !tbaa !33
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 105

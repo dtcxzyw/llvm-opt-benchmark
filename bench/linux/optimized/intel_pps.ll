@@ -493,7 +493,7 @@ define internal fastcc void @wait_panel_power_cycle(ptr noundef %0) unnamed_addr
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1528
   %18 = getelementptr i8, ptr %3, i64 7184
-  %.val = load i32, ptr %18, align 4
+  %.val = load i32, ptr %18, align 8
   %19 = tail call fastcc ptr @pps_name(i32 %.val, ptr noundef nonnull %17)
   br label %20
 
@@ -912,7 +912,7 @@ define dso_local void @intel_pps_vdd_on(ptr noundef %0) local_unnamed_addr #0 al
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 1528
   %52 = getelementptr i8, ptr %3, i64 7184
-  %.val = load i32, ptr %52, align 4
+  %.val = load i32, ptr %52, align 8
   %53 = tail call fastcc ptr @pps_name(i32 %.val, ptr noundef nonnull %51)
   br label %54
 
@@ -1241,7 +1241,7 @@ define dso_local void @intel_pps_on_unlocked(ptr noundef %0) local_unnamed_addr 
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 1528
   %22 = getelementptr i8, ptr %5, i64 7184
-  %.val10 = load i32, ptr %22, align 4
+  %.val10 = load i32, ptr %22, align 8
   %23 = tail call fastcc ptr @pps_name(i32 %.val10, ptr noundef nonnull %21)
   br label %24
 
@@ -1331,7 +1331,7 @@ define dso_local void @intel_pps_on_unlocked(ptr noundef %0) local_unnamed_addr 
   %76 = getelementptr inbounds nuw i8, ptr %5, i64 7512
   %77 = load ptr, ptr %76, align 8
   %78 = tail call i32 %77(ptr noundef nonnull %73, i32 %65, i1 noundef zeroext false) #7
-  %.pre = load i32, ptr %67, align 4
+  %.pre = load i32, ptr %67, align 8
   %.pre13 = and i32 %.pre, 262144
   %79 = icmp eq i32 %.pre13, 0
   %80 = select i1 %79, i32 3, i32 1
@@ -1444,7 +1444,7 @@ define dso_local void @intel_pps_off_unlocked(ptr noundef %0) local_unnamed_addr
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1528
   %21 = getelementptr i8, ptr %4, i64 7184
-  %.val10 = load i32, ptr %21, align 4
+  %.val10 = load i32, ptr %21, align 8
   %22 = tail call fastcc ptr @pps_name(i32 %.val10, ptr noundef nonnull %20)
   br label %23
 
@@ -2872,7 +2872,7 @@ define internal fastcc void @vlv_initial_power_sequencer_setup(ptr noundef captu
   %84 = getelementptr i8, ptr %0, i64 -336
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr i8, ptr %3, i64 7184
-  %.val = load i32, ptr %86, align 4
+  %.val = load i32, ptr %86, align 8
   %87 = tail call fastcc ptr @pps_name(i32 %.val, ptr noundef nonnull %79)
   br label %88
 
@@ -2940,7 +2940,7 @@ define internal fastcc void @pps_vdd_init(ptr noundef %0) unnamed_addr #0 align 
   %33 = getelementptr i8, ptr %0, i64 -336
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 1528
-  %.val = load i32, ptr %5, align 4
+  %.val = load i32, ptr %5, align 8
   %36 = tail call fastcc ptr @pps_name(i32 %.val, ptr noundef nonnull %35)
   br label %37
 
@@ -4091,7 +4091,7 @@ define internal fastcc void @intel_pps_get_registers(ptr noundef %0, ptr noundef
   %184 = tail call i32 %183(ptr noundef nonnull %152, i32 %182, i1 noundef zeroext true) #7
   %185 = and i32 %184, 4
   %186 = getelementptr inbounds nuw i8, ptr %147, i64 7184
-  %187 = load i32, ptr %186, align 4
+  %187 = load i32, ptr %186, align 8
   %188 = and i32 %187, 16777216
   %189 = icmp eq i32 %188, 0
   %190 = select i1 %189, i32 30, i32 16
@@ -4254,7 +4254,7 @@ define internal fastcc void @intel_pps_get_registers(ptr noundef %0, ptr noundef
   %293 = or disjoint i32 %282, 12
   %294 = add i32 %293, %292
   store i32 %294, ptr %291, align 4
-  %295 = load i32, ptr %5, align 4
+  %295 = load i32, ptr %5, align 8
   %296 = and i32 %295, 335544320
   %297 = icmp eq i32 %296, 0
   br i1 %297, label %298, label %302
@@ -4445,7 +4445,7 @@ define internal fastcc void @wait_panel_status(ptr noundef %0, i32 noundef range
   %101 = load ptr, ptr %100, align 8
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 1528
   %103 = getelementptr i8, ptr %8, i64 7184
-  %.val10 = load i32, ptr %103, align 4
+  %.val10 = load i32, ptr %103, align 8
   %104 = tail call fastcc ptr @pps_name(i32 %.val10, ptr noundef nonnull %102)
   br label %105
 

@@ -709,7 +709,7 @@ advance_progress_meter.exit.i:                    ; preds = %21, %19, %.lr.ph.i
   %94 = getelementptr inbounds nuw i8, ptr %80, i64 104
   %95 = load i32, ptr %94, align 4, !tbaa !66
   %96 = getelementptr inbounds nuw i8, ptr %77, i64 40
-  store i32 %95, ptr %96, align 4, !tbaa !66
+  store i32 %95, ptr %96, align 8, !tbaa !66
   %97 = getelementptr inbounds nuw i8, ptr %77, i64 72
   %.not37.i.i.i = icmp eq i64 %74, 0
   br i1 %.not37.i.i.i, label %send_one_item.exit.i.i, label %98

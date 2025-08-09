@@ -3358,8 +3358,8 @@ _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymEx
   %61 = icmp eq i32 %58, %60
   %62 = getelementptr inbounds nuw i8, ptr %47, i64 56
   %63 = getelementptr inbounds nuw i8, ptr %52, i64 56
-  %64 = load i32, ptr %62, align 4
-  %65 = load i32, ptr %63, align 4
+  %64 = load i32, ptr %62, align 8
+  %65 = load i32, ptr %63, align 8
   %66 = icmp eq i32 %64, %65
   %.0.i.i = select i1 %61, i1 %66, i1 false
   br i1 %.0.i.i, label %.preheader, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEjEEEneERKS8_.exit.thread36

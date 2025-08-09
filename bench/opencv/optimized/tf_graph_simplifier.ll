@@ -30525,7 +30525,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %282, ptr %.sink5.i.i.i.i.i, align 8, !tbaa !113
   %283 = getelementptr inbounds nuw i8, ptr %.sink5.i.i.i.i.i, i64 8
   store i64 0, ptr %283, align 8, !tbaa !121
-  store i8 0, ptr %282, align 1, !tbaa !120
+  store i8 0, ptr %282, align 8, !tbaa !120
   %284 = invoke noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %258, ptr noundef nonnull %.sink5.i.i.i.i.i)
           to label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i unwind label %305
 
@@ -32122,7 +32122,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %48, ptr %.sink5.i.i.i.i.i, align 8, !tbaa !113
   %49 = getelementptr inbounds nuw i8, ptr %.sink5.i.i.i.i.i, i64 8
   store i64 0, ptr %49, align 8, !tbaa !121
-  store i8 0, ptr %48, align 1, !tbaa !120
+  store i8 0, ptr %48, align 8, !tbaa !120
   %50 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull %.sink5.i.i.i.i.i)
   br label %_ZN17opencv_tensorflow7NodeDef9add_inputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -33480,7 +33480,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   store ptr %33, ptr %32, align 8, !tbaa !113
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i64 0, ptr %34, align 8, !tbaa !121
-  store i8 0, ptr %33, align 1, !tbaa !120
+  store i8 0, ptr %33, align 8, !tbaa !120
   ret void
 
 35:                                               ; preds = %25

@@ -1597,7 +1597,7 @@ define i32 @XzUnpacker_Code(ptr noundef %0, ptr noundef %1, ptr noundef captures
   %118 = or disjoint i16 %115, %117
   store i16 %118, ptr %19, align 2, !tbaa !39
   %119 = call i32 @CrcCalc(ptr noundef nonnull %39, i64 noundef 2) #11
-  %120 = load i32, ptr %22, align 1, !tbaa !7
+  %120 = load i32, ptr %22, align 2, !tbaa !7
   %.not.i = icmp eq i32 %119, %120
   br i1 %.not.i, label %121, label %.thread336
 
@@ -1623,7 +1623,7 @@ define i32 @XzUnpacker_Code(ptr noundef %0, ptr noundef %1, ptr noundef captures
   %130 = getelementptr inbounds nuw i8, ptr %.0252, i64 1
   %131 = load i8, ptr %.0252, align 1, !tbaa !7
   store i32 1, ptr %16, align 4, !tbaa !49
-  store i8 %131, ptr %17, align 1, !tbaa !7
+  store i8 %131, ptr %17, align 4, !tbaa !7
   %132 = load i64, ptr %4, align 8, !tbaa !26
   %133 = add i64 %132, 1
   store i64 %133, ptr %4, align 8, !tbaa !26
@@ -1920,7 +1920,7 @@ define i32 @XzUnpacker_Code(ptr noundef %0, ptr noundef %1, ptr noundef captures
   store i64 0, ptr %15, align 8, !tbaa !63
   %279 = load i16, ptr %19, align 8, !tbaa !56
   %280 = load i64, ptr %20, align 8, !tbaa !57
-  %281 = load i32, ptr %21, align 1, !tbaa !7
+  %281 = load i32, ptr %21, align 4, !tbaa !7
   %282 = sext i32 %281 to i64
   %283 = shl nsw i64 %282, 2
   %284 = add nsw i64 %283, 4

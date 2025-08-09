@@ -771,7 +771,7 @@ if.then:                                          ; preds = %_ZN6hermes2vm6Handl
   %7 = load i64, ptr %arrayidx.i.i.i, align 8
   %xor.i.i.i = xor i64 %7, %6
   %8 = inttoptr i64 %xor.i.i.i to ptr
-  %bf.load.i.i.i.i.i.i.i.i.i = load i32, ptr %5, align 4
+  %bf.load.i.i.i.i.i.i.i.i.i = load i32, ptr %5, align 8
   %bf.lshr.i.i.mask.i.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i.i.i.i, -16777216
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i, 1224736768
   %functionHeader_.i = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -3018,7 +3018,7 @@ _ZN6hermes2vm16ArrayStorageBaseINS0_11HermesValueEE6createERNS0_7RuntimeEj.exit.
   %cond.i.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i ], [ %0, %cond.false.i.i.i.i.i.i ]
   store i64 0, ptr %cond.i.i.i.i.i.i, align 8
   %bf.set7.i.i.i.i.i.i.i = or disjoint i32 %div1.i.i.i.i.i, 234881024
-  store i32 %bf.set7.i.i.i.i.i.i.i, ptr %cond.i.i.i.i.i.i, align 4
+  store i32 %bf.set7.i.i.i.i.i.i.i, ptr %cond.i.i.i.i.i.i, align 8
   %2 = ptrtoint ptr %cond.i.i.i.i.i.i to i64
   %3 = or i64 %2, -281474976710656
   br label %if.end
@@ -3530,7 +3530,7 @@ _ZN6hermes2vm7Runtime10makeAFixedINS0_14NativeFunctionELNS0_12HasFinalizerE0ELNS
   store ptr %context, ptr %context_.i.i.i.i.i.i, align 8
   %functionPtr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i, i64 32
   store ptr %functionPtr, ptr %functionPtr_.i.i.i.i.i.i, align 8
-  store i32 1157627944, ptr %cond.i.i.i.i.i, align 4
+  store i32 1157627944, ptr %cond.i.i.i.i.i, align 8
   %3 = getelementptr inbounds nuw i8, ptr %runtime, i64 8
   %runtime.val = load ptr, ptr %3, align 8
   %4 = ptrtoint ptr %cond.i.i.i.i.i to i64
@@ -3722,7 +3722,7 @@ _ZN6hermes2vm7Runtime10makeAFixedINS0_14NativeFunctionELNS0_12HasFinalizerE0ELNS
   store ptr %context, ptr %context_.i.i.i.i.i.i, align 8
   %functionPtr_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i, i64 32
   store ptr %functionPtr, ptr %functionPtr_.i.i.i.i.i.i, align 8
-  store i32 1157627944, ptr %cond.i.i.i.i.i, align 4
+  store i32 1157627944, ptr %cond.i.i.i.i.i, align 8
   %7 = getelementptr inbounds nuw i8, ptr %runtime, i64 8
   %runtime.val = load ptr, ptr %7, align 8
   %8 = ptrtoint ptr %cond.i.i.i.i.i to i64
@@ -4185,7 +4185,7 @@ _ZN6hermes2vm8CallableC2ERNS0_7RuntimeEPNS0_8JSObjectEPNS0_11HiddenClassENS0_6Ha
   %sub.i.i.i.i.i.i.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i6.i.i.i, %3
   %conv.i.i.i.i.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i.i.i.i.i to i32
   %retval.sroa.0.0.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i.i.i.i.i
-  store i32 %retval.sroa.0.0.i.i.i.i.i.i.i.i.i, ptr %domain_.i.i.i, align 4
+  store i32 %retval.sroa.0.0.i.i.i.i.i.i.i.i.i, ptr %domain_.i.i.i, align 8
   %10 = load ptr, ptr %youngGen_.i.i.i.i.i.i.i.i.i, align 8
   %11 = ptrtoint ptr %domain_.i.i.i to i64
   %and.i.i.i.i.i.i8.i.i.i = and i64 %11, -4194304
@@ -4207,12 +4207,12 @@ _ZN6hermes2vm6GCBase13constructCellINS0_22GeneratorInnerFunctionEJRNS0_7RuntimeE
   %savedContext_.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i, i64 44
   store i32 0, ptr %savedContext_.i.i, align 4
   %result_.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i, i64 48
-  store i32 14, ptr %result_.i.i, align 4
+  store i32 14, ptr %result_.i.i, align 8
   %nextIPOffset_.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i, i64 52
   store i32 0, ptr %nextIPOffset_.i.i, align 4
   %isDelegated_.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i, i64 60
   store i8 0, ptr %isDelegated_.i.i, align 4
-  store i32 1241514048, ptr %cond.i.i.i.i.i, align 4
+  store i32 1241514048, ptr %cond.i.i.i.i.i, align 8
   %14 = getelementptr inbounds nuw i8, ptr %runtime, i64 8
   %runtime.val = load ptr, ptr %14, align 8
   %15 = ptrtoint ptr %cond.i.i.i.i.i to i64
@@ -4287,7 +4287,7 @@ _ZN6hermes2vm16ArrayStorageBaseINS0_11HermesValueEE6createERNS0_7RuntimeEj.exit.
   %cond.i.i.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i.i ], [ %23, %cond.false.i.i.i.i.i.i.i ]
   store i64 0, ptr %cond.i.i.i.i.i.i.i, align 8
   %bf.set7.i.i.i.i.i.i.i.i = or disjoint i32 %div1.i.i.i.i.i.i, 234881024
-  store i32 %bf.set7.i.i.i.i.i.i.i.i, ptr %cond.i.i.i.i.i.i.i, align 4
+  store i32 %bf.set7.i.i.i.i.i.i.i.i, ptr %cond.i.i.i.i.i.i.i, align 8
   %25 = ptrtoint ptr %cond.i.i.i.i.i.i.i to i64
   br label %if.end
 
@@ -4515,7 +4515,7 @@ _ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i: ; preds = %cond.fals
   %cond.i.i.i.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i.i.i ], [ %5, %cond.false.i.i.i.i.i.i.i.i ]
   %value_.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i.i.i, i64 8
   store i64 %retval.sroa.0.0.copyload.i, ptr %value_.i.i.i.i.i.i.i.i.i, align 8
-  store i32 402653200, ptr %cond.i.i.i.i.i.i.i.i, align 4
+  store i32 402653200, ptr %cond.i.i.i.i.i.i.i.i, align 8
   %7 = ptrtoint ptr %cond.i.i.i.i.i.i.i.i to i64
   %8 = ptrtoint ptr %runtime to i64
   %sub.i.i.i.i.i13.i = sub i64 %7, %8
@@ -5180,7 +5180,7 @@ _ZN6hermes2vm8CallableC2ERNS0_7RuntimeEPNS0_8JSObjectEPNS0_11HiddenClassENS0_6Ha
   %sub.i.i.i.i.i.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i6.i.i, %3
   %conv.i.i.i.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i.i.i.i to i32
   %retval.sroa.0.0.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i.i.i.i
-  store i32 %retval.sroa.0.0.i.i.i.i.i.i.i.i, ptr %domain_.i.i, align 4
+  store i32 %retval.sroa.0.0.i.i.i.i.i.i.i.i, ptr %domain_.i.i, align 8
   %10 = load ptr, ptr %youngGen_.i.i.i.i.i.i.i.i, align 8
   %11 = ptrtoint ptr %domain_.i.i to i64
   %and.i.i.i.i.i.i8.i.i = and i64 %11, -4194304
@@ -5285,7 +5285,7 @@ _ZN6hermes2vm8CallableC2ERNS0_7RuntimeEPNS0_8JSObjectEPNS0_11HiddenClassENS0_6Ha
   %sub.i.i.i.i.i.i.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i6.i.i.i, %3
   %conv.i.i.i.i.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i.i.i.i.i to i32
   %retval.sroa.0.0.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i.i.i.i.i
-  store i32 %retval.sroa.0.0.i.i.i.i.i.i.i.i.i, ptr %domain_.i.i.i, align 4
+  store i32 %retval.sroa.0.0.i.i.i.i.i.i.i.i.i, ptr %domain_.i.i.i, align 8
   %10 = load ptr, ptr %youngGen_.i.i.i.i.i.i.i.i.i, align 8
   %11 = ptrtoint ptr %domain_.i.i.i to i64
   %and.i.i.i.i.i.i8.i.i.i = and i64 %11, -4194304
@@ -5390,7 +5390,7 @@ _ZN6hermes2vm8CallableC2ERNS0_7RuntimeEPNS0_8JSObjectEPNS0_11HiddenClassENS0_6Ha
   %sub.i.i.i.i.i.i.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i6.i.i.i, %3
   %conv.i.i.i.i.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i.i.i.i.i to i32
   %retval.sroa.0.0.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i.i.i.i.i
-  store i32 %retval.sroa.0.0.i.i.i.i.i.i.i.i.i, ptr %domain_.i.i.i, align 4
+  store i32 %retval.sroa.0.0.i.i.i.i.i.i.i.i.i, ptr %domain_.i.i.i, align 8
   %10 = load ptr, ptr %youngGen_.i.i.i.i.i.i.i.i.i, align 8
   %11 = ptrtoint ptr %domain_.i.i.i to i64
   %and.i.i.i.i.i.i8.i.i.i = and i64 %11, -4194304

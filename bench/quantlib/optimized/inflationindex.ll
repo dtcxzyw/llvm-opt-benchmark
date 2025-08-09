@@ -1248,7 +1248,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %if
   store i64 %8, ptr %_M_string_length.i13.i, align 8, !tbaa !34
   store ptr %5, ptr %familyName, align 8, !tbaa !31
   store i64 0, ptr %_M_string_length.i12.i, align 8, !tbaa !34
-  store i8 0, ptr %5, align 1, !tbaa !33
+  store i8 0, ptr %5, align 8, !tbaa !33
   %region_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %9 = load ptr, ptr %region, align 8, !tbaa !64
   store ptr %9, ptr %region_, align 8, !tbaa !64

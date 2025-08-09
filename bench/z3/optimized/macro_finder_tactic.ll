@@ -1952,7 +1952,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
   %334 = getelementptr inbounds nuw i8, ptr %305, i64 48
   store i64 12, ptr %334, align 8, !tbaa !28
   %335 = getelementptr inbounds nuw i8, ptr %305, i64 68
-  store i8 0, ptr %335, align 1, !tbaa !22
+  store i8 0, ptr %335, align 4, !tbaa !22
   %336 = getelementptr inbounds nuw i8, ptr %305, i64 72
   store ptr null, ptr %336, align 8, !tbaa !164
   %337 = getelementptr inbounds nuw i8, ptr %7, i64 408

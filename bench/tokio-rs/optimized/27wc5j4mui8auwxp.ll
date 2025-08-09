@@ -423,7 +423,7 @@ define internal void @_ZN3std3sys6common12thread_local10fast_local13destroy_valu
   %6 = load ptr, ptr %0, align 8, !noalias !91, !noundef !4
   store ptr null, ptr %0, align 8, !noalias !91
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 2, ptr %7, align 1, !noalias !91
+  store i8 2, ptr %7, align 8, !noalias !91
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !91
   store ptr %6, ptr %4, align 8, !noalias !91
   tail call void @llvm.experimental.noalias.scope.decl(metadata !96)

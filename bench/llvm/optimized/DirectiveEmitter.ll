@@ -15333,7 +15333,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordEZL31generateGetDirectiveAssocia
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %.0.val, ptr %42, align 8, !tbaa !15
   %50 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store i32 %.0.val1, ptr %50, align 4, !tbaa !13
+  store i32 %.0.val1, ptr %50, align 8, !tbaa !13
   %.val5 = load ptr, ptr %1, align 8, !tbaa !168
   %.val6 = load i32, ptr %4, align 8, !tbaa !171
   br label %.loopexit
@@ -15546,7 +15546,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordEZL31generateGetDirectiveAssocia
   %63 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 8
   %64 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 8
   %65 = load i32, ptr %64, align 4, !tbaa !13
-  store i32 %65, ptr %63, align 4, !tbaa !13
+  store i32 %65, ptr %63, align 8, !tbaa !13
   %.val.i19.i.i = load i32, ptr %32, align 8, !tbaa !504
   %66 = add i32 %.val.i19.i.i, 1
   store i32 %66, ptr %32, align 8, !tbaa !504
@@ -15832,7 +15832,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordEiNS_12DenseMapInfoIS4_vEENS_6de
   %61 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %62 = load i64, ptr %3, align 8, !tbaa !76
   %63 = trunc i64 %62 to i32
-  store i32 %63, ptr %61, align 4, !tbaa !253
+  store i32 %63, ptr %61, align 8, !tbaa !253
   %64 = load ptr, ptr %1, align 8, !tbaa !246
   %65 = load i32, ptr %7, align 8, !tbaa !247
   br label %.loopexit
@@ -16046,7 +16046,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordEiNS_12DenseMapInfoIS4_vEENS_6de
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !253
-  store i32 %68, ptr %66, align 4, !tbaa !253
+  store i32 %68, ptr %66, align 8, !tbaa !253
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !243
   br label %70

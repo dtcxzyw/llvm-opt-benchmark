@@ -2637,7 +2637,7 @@ define void @commit_params(ptr noundef %0, ptr noundef readonly captures(none) %
   %117 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %118 = load float, ptr %117, align 4, !tbaa !171
   %119 = getelementptr inbounds nuw i8, ptr %27, i64 80
-  store float %118, ptr %119, align 8, !tbaa !64
+  store float %118, ptr %119, align 16, !tbaa !64
   %120 = getelementptr inbounds nuw i8, ptr %27, i64 84
   store float 0.000000e+00, ptr %120, align 4, !tbaa !64
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 76
@@ -2651,13 +2651,13 @@ define void @commit_params(ptr noundef %0, ptr noundef readonly captures(none) %
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %128 = load float, ptr %127, align 4, !tbaa !28
   %129 = getelementptr inbounds nuw i8, ptr %27, i64 104
-  store float %128, ptr %129, align 4, !tbaa !64
+  store float %128, ptr %129, align 8, !tbaa !64
   %130 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %131 = load float, ptr %130, align 4, !tbaa !29
   %132 = getelementptr inbounds nuw i8, ptr %27, i64 108
   store float %131, ptr %132, align 4, !tbaa !64
   %133 = getelementptr inbounds nuw i8, ptr %27, i64 112
-  store float 0.000000e+00, ptr %133, align 4, !tbaa !64
+  store float 0.000000e+00, ptr %133, align 16, !tbaa !64
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %135 = load float, ptr %134, align 4, !tbaa !172
   %136 = getelementptr inbounds nuw i8, ptr %27, i64 116
@@ -2673,7 +2673,7 @@ define void @commit_params(ptr noundef %0, ptr noundef readonly captures(none) %
   %143 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %144 = load float, ptr %143, align 4, !tbaa !175
   %145 = getelementptr inbounds nuw i8, ptr %27, i64 128
-  store float %144, ptr %145, align 8, !tbaa !64
+  store float %144, ptr %145, align 16, !tbaa !64
   %146 = getelementptr inbounds nuw i8, ptr %27, i64 132
   store float 0.000000e+00, ptr %146, align 4, !tbaa !64
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 92

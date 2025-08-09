@@ -248,9 +248,9 @@ _ZN15ref_vector_coreI3ast19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.e
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load i32, ptr %7, align 4, !tbaa !13
+  %8 = load i32, ptr %7, align 8, !tbaa !13
   %9 = add i32 %8, 1
-  store i32 %9, ptr %7, align 4, !tbaa !13
+  store i32 %9, ptr %7, align 8, !tbaa !13
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !14
   %12 = icmp eq ptr %11, null

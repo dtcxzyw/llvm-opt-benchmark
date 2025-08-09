@@ -179,11 +179,11 @@ _ZN3euf6egraph10push_mergeEPNS_5enodeES2_NS_13justificationE.exit: ; preds = %13
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i32 2, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !23
   %.sroa.6.i.sroa.3.0..sroa.6.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store i32 0, ptr %.sroa.6.i.sroa.3.0..sroa.6.0..sroa_idx.i.sroa_idx, align 4, !tbaa !26
+  store i32 0, ptr %.sroa.6.i.sroa.3.0..sroa.6.0..sroa_idx.i.sroa_idx, align 8, !tbaa !26
   %.sroa.6.i.sroa.5.0..sroa.6.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 32
-  store i32 %9, ptr %.sroa.6.i.sroa.5.0..sroa.6.0..sroa_idx.i.sroa_idx, align 4
+  store i32 %9, ptr %.sroa.6.i.sroa.5.0..sroa.6.0..sroa_idx.i.sroa_idx, align 8
   %.sroa.6.i.sroa.7.0..sroa.6.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 40
-  store ptr null, ptr %.sroa.6.i.sroa.7.0..sroa.6.0..sroa_idx.i.sroa_idx, align 4, !tbaa !19
+  store ptr null, ptr %.sroa.6.i.sroa.7.0..sroa.6.0..sroa_idx.i.sroa_idx, align 8, !tbaa !19
   %24 = load ptr, ptr %10, align 8, !tbaa !20
   %25 = getelementptr inbounds i8, ptr %24, i64 -4
   %26 = load i32, ptr %25, align 4, !tbaa !12

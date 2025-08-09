@@ -401,14 +401,14 @@ zend_parse_arg_str_ex.exit79:                     ; preds = %zend_parse_arg_str_
 
 45:                                               ; preds = %33
   store i16 12586, ptr %42, align 8
-  store i8 0, ptr %43, align 1, !tbaa !4
+  store i8 0, ptr %43, align 2, !tbaa !4
   store ptr %38, ptr %1, align 8, !tbaa !4
   store i32 262, ptr %44, align 8, !tbaa !4
   br label %53
 
 46:                                               ; preds = %33
   store i16 12330, ptr %42, align 8
-  store i8 0, ptr %43, align 1, !tbaa !4
+  store i8 0, ptr %43, align 2, !tbaa !4
   store ptr %38, ptr %1, align 8, !tbaa !4
   store i32 262, ptr %44, align 8, !tbaa !4
   br label %53

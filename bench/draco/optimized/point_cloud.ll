@@ -1494,7 +1494,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   store ptr null, ptr %143, align 8, !tbaa !124
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %145 = trunc nuw i64 %indvars.iv to i32
-  store i32 %145, ptr %144, align 4, !tbaa !12
+  store i32 %145, ptr %144, align 8, !tbaa !12
   %146 = getelementptr inbounds nuw i8, ptr %143, i64 12
   store i32 %.010103, ptr %146, align 4, !tbaa !12
   br i1 %49, label %147, label %.critedge.i.i.i

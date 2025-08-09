@@ -930,7 +930,7 @@ _ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit23: ; preds
   %66 = getelementptr inbounds nuw i8, ptr %62, i64 20
   store i32 %60, ptr %66, align 4, !tbaa !43, !noalias !26
   %67 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  store i32 2, ptr %67, align 4, !tbaa !44, !noalias !26
+  store i32 2, ptr %67, align 8, !tbaa !44, !noalias !26
   %68 = getelementptr inbounds nuw i8, ptr %62, i64 72
   store i8 0, ptr %68, align 8, !tbaa !47, !noalias !26
   store ptr %62, ptr %0, align 8, !tbaa !48, !alias.scope !26

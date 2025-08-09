@@ -616,7 +616,7 @@ _ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__
   store ptr %152, ptr %151, align 8, !tbaa !3
   %153 = getelementptr inbounds nuw i8, ptr %150, i64 24
   store i64 0, ptr %153, align 8, !tbaa !9
-  store i8 0, ptr %152, align 1, !tbaa !12
+  store i8 0, ptr %152, align 8, !tbaa !12
   store i32 %0, ptr %150, align 8, !tbaa !13
   %154 = getelementptr inbounds nuw i8, ptr %150, i64 8
   store ptr null, ptr %154, align 8, !tbaa !18
@@ -897,7 +897,7 @@ define hidden noundef ptr @_ZN10duckdb_re29Prefilter9OrStringsEPSt3setINSt7__cxx
   store ptr %4, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %5, align 8, !tbaa !9
-  store i8 0, ptr %4, align 1, !tbaa !12
+  store i8 0, ptr %4, align 8, !tbaa !12
   store i32 1, ptr %2, align 8, !tbaa !13
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %6, align 8, !tbaa !18
@@ -922,7 +922,7 @@ define hidden noundef ptr @_ZN10duckdb_re29Prefilter9OrStringsEPSt3setINSt7__cxx
   store ptr %13, ptr %12, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 0, ptr %14, align 8, !tbaa !9
-  store i8 0, ptr %13, align 1, !tbaa !12
+  store i8 0, ptr %13, align 8, !tbaa !12
   store i32 2, ptr %11, align 8, !tbaa !13
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr null, ptr %15, align 8, !tbaa !18
@@ -941,7 +941,7 @@ define hidden noundef nonnull ptr @_ZN10duckdb_re29Prefilter10FromStringERKNSt7_
   store ptr %4, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %5, align 8, !tbaa !9
-  store i8 0, ptr %4, align 1, !tbaa !12
+  store i8 0, ptr %4, align 8, !tbaa !12
   store i32 2, ptr %2, align 8, !tbaa !13
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %6, align 8, !tbaa !18
@@ -2427,7 +2427,7 @@ define hidden noundef nonnull ptr @_ZN10duckdb_re29Prefilter4Info5QuestEPS1_(ptr
   store ptr %11, ptr %10, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 0, ptr %12, align 8, !tbaa !9
-  store i8 0, ptr %11, align 1, !tbaa !12
+  store i8 0, ptr %11, align 8, !tbaa !12
   store i32 0, ptr %9, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr null, ptr %13, align 8, !tbaa !18
@@ -2935,7 +2935,7 @@ define hidden noundef nonnull ptr @_ZN10duckdb_re29Prefilter4Info16AnyCharOrAnyB
   store ptr %11, ptr %10, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 0, ptr %12, align 8, !tbaa !9
-  store i8 0, ptr %11, align 1, !tbaa !12
+  store i8 0, ptr %11, align 8, !tbaa !12
   store i32 0, ptr %9, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr null, ptr %13, align 8, !tbaa !18
@@ -2966,7 +2966,7 @@ define hidden noundef nonnull ptr @_ZN10duckdb_re29Prefilter4Info7NoMatchEv() lo
   store ptr %11, ptr %10, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 0, ptr %12, align 8, !tbaa !9
-  store i8 0, ptr %11, align 1, !tbaa !12
+  store i8 0, ptr %11, align 8, !tbaa !12
   store i32 1, ptr %9, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr null, ptr %13, align 8, !tbaa !18
@@ -2997,7 +2997,7 @@ define hidden noundef nonnull ptr @_ZN10duckdb_re29Prefilter4Info8AnyMatchEv() l
   store ptr %11, ptr %10, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 0, ptr %12, align 8, !tbaa !9
-  store i8 0, ptr %11, align 1, !tbaa !12
+  store i8 0, ptr %11, align 8, !tbaa !12
   store i32 0, ptr %9, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr null, ptr %13, align 8, !tbaa !18
@@ -3192,7 +3192,7 @@ define hidden noundef nonnull ptr @_ZN10duckdb_re29Prefilter4Info6CClassEPNS_9Ch
   store ptr %22, ptr %21, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i64 0, ptr %23, align 8, !tbaa !9
-  store i8 0, ptr %22, align 1, !tbaa !12
+  store i8 0, ptr %22, align 8, !tbaa !12
   store i32 0, ptr %20, align 8, !tbaa !13
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr null, ptr %24, align 8, !tbaa !18
@@ -3883,7 +3883,7 @@ define hidden noundef nonnull ptr @_ZN10duckdb_re29Prefilter4Info6Walker10ShortV
   store ptr %14, ptr %13, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i64 0, ptr %15, align 8, !tbaa !9
-  store i8 0, ptr %14, align 1, !tbaa !12
+  store i8 0, ptr %14, align 8, !tbaa !12
   store i32 0, ptr %12, align 8, !tbaa !13
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr null, ptr %16, align 8, !tbaa !18
@@ -4005,7 +4005,7 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   store ptr %46, ptr %45, align 8, !tbaa !3
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 24
   store i64 0, ptr %47, align 8, !tbaa !9
-  store i8 0, ptr %46, align 1, !tbaa !12
+  store i8 0, ptr %46, align 8, !tbaa !12
   store i32 1, ptr %44, align 8, !tbaa !13
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr null, ptr %48, align 8, !tbaa !18
@@ -4242,7 +4242,7 @@ _ZN10duckdb_re29Prefilter4Info4PlusEPS1_.exit:    ; preds = %142
   store ptr %161, ptr %160, align 8, !tbaa !3
   %162 = getelementptr inbounds nuw i8, ptr %159, i64 24
   store i64 0, ptr %162, align 8, !tbaa !9
-  store i8 0, ptr %161, align 1, !tbaa !12
+  store i8 0, ptr %161, align 8, !tbaa !12
   store i32 0, ptr %159, align 8, !tbaa !13
   %163 = getelementptr inbounds nuw i8, ptr %159, i64 8
   store ptr null, ptr %163, align 8, !tbaa !18

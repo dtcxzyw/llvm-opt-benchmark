@@ -4925,7 +4925,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %14
   store i64 %21, ptr %22, align 8, !tbaa !40
   store ptr %12, ptr %1, align 8, !tbaa !39
   store i64 0, ptr %20, align 8, !tbaa !40
-  store i8 0, ptr %12, align 1, !tbaa !181
+  store i8 0, ptr %12, align 8, !tbaa !181
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZN6duckdb11LogicalTypeC1EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %2) #27
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -15925,7 +15925,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %19, ptr %21, align 8, !tbaa !40, !alias.scope !535
   store ptr %10, ptr %1, align 8, !tbaa !39, !noalias !535
   store i64 0, ptr %20, align 8, !tbaa !40, !noalias !535
-  store i8 0, ptr %10, align 1, !tbaa !181, !noalias !535
+  store i8 0, ptr %10, align 8, !tbaa !181, !noalias !535
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %23 = load ptr, ptr %2, align 8, !tbaa !454, !noalias !535
   store ptr %23, ptr %22, align 8, !tbaa !454, !alias.scope !535
@@ -17444,7 +17444,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i: ; preds =
   store i64 %60, ptr %62, align 8, !tbaa !40
   store ptr %52, ptr %49, align 8, !tbaa !39
   store i64 0, ptr %61, align 8, !tbaa !40
-  store i8 0, ptr %52, align 1, !tbaa !181
+  store i8 0, ptr %52, align 8, !tbaa !181
   %63 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %65 = load ptr, ptr %64, align 8, !tbaa !404
@@ -26870,7 +26870,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
   store ptr %10, ptr %9, align 8, !tbaa !295
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %11, align 8, !tbaa !40
-  store i8 0, ptr %10, align 1, !tbaa !181
+  store i8 0, ptr %10, align 8, !tbaa !181
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %8, align 8, !tbaa !179
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i32 3, ptr %12, align 8, !tbaa !864
@@ -26922,7 +26922,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19ThriftFileTransp
   store ptr %33, ptr %32, align 8, !tbaa !295
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i64 0, ptr %34, align 8, !tbaa !40
-  store i8 0, ptr %33, align 1, !tbaa !181
+  store i8 0, ptr %33, align 8, !tbaa !181
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %31, align 8, !tbaa !179
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 40
   store i32 3, ptr %35, align 8, !tbaa !864
@@ -27359,7 +27359,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
   store ptr %17, ptr %16, align 8, !tbaa !295
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 0, ptr %18, align 8, !tbaa !40
-  store i8 0, ptr %17, align 1, !tbaa !181
+  store i8 0, ptr %17, align 8, !tbaa !181
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %15, align 8, !tbaa !179
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 2, ptr %19, align 8, !tbaa !864
@@ -27381,7 +27381,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
   store ptr %28, ptr %27, align 8, !tbaa !295
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i64 0, ptr %29, align 8, !tbaa !40
-  store i8 0, ptr %28, align 1, !tbaa !181
+  store i8 0, ptr %28, align 8, !tbaa !181
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %26, align 8, !tbaa !179
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 40
   store i32 3, ptr %30, align 8, !tbaa !864
@@ -27694,7 +27694,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
   store ptr %20, ptr %19, align 8, !tbaa !295
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i64 0, ptr %21, align 8, !tbaa !40
-  store i8 0, ptr %20, align 1, !tbaa !181
+  store i8 0, ptr %20, align 8, !tbaa !181
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %18, align 8, !tbaa !179
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store i32 2, ptr %22, align 8, !tbaa !864
@@ -27718,7 +27718,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
   store ptr %29, ptr %28, align 8, !tbaa !295
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i64 0, ptr %30, align 8, !tbaa !40
-  store i8 0, ptr %29, align 1, !tbaa !181
+  store i8 0, ptr %29, align 8, !tbaa !181
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %27, align 8, !tbaa !179
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 40
   store i32 3, ptr %31, align 8, !tbaa !864
@@ -27768,7 +27768,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
   store ptr %22, ptr %21, align 8, !tbaa !295
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i64 0, ptr %23, align 8, !tbaa !40
-  store i8 0, ptr %22, align 1, !tbaa !181
+  store i8 0, ptr %22, align 8, !tbaa !181
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %20, align 8, !tbaa !179
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 40
   store i32 2, ptr %24, align 8, !tbaa !864
@@ -27792,7 +27792,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
   store ptr %31, ptr %30, align 8, !tbaa !295
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i64 0, ptr %32, align 8, !tbaa !40
-  store i8 0, ptr %31, align 1, !tbaa !181
+  store i8 0, ptr %31, align 8, !tbaa !181
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %29, align 8, !tbaa !179
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 40
   store i32 3, ptr %33, align 8, !tbaa !864
@@ -27844,7 +27844,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol4skipINS1_17T
   store ptr %31, ptr %30, align 8, !tbaa !295
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i64 0, ptr %32, align 8, !tbaa !40
-  store i8 0, ptr %31, align 1, !tbaa !181
+  store i8 0, ptr %31, align 8, !tbaa !181
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift8protocol18TProtocolExceptionE, i64 16), ptr %29, align 8, !tbaa !179
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 40
   store i32 6, ptr %33, align 8, !tbaa !864
@@ -29824,7 +29824,7 @@ _ZSt19__relocate_object_aIN6duckdb20ExceptionFormatValueES1_SaIS1_EEvPT_PT0_RT1_
   store i64 %49, ptr %51, align 8, !tbaa !40, !alias.scope !891, !noalias !894
   store ptr %41, ptr %38, align 8, !tbaa !39, !alias.scope !894, !noalias !891
   store i64 0, ptr %50, align 8, !tbaa !40, !alias.scope !894, !noalias !891
-  store i8 0, ptr %41, align 1, !tbaa !181, !alias.scope !894, !noalias !891
+  store i8 0, ptr %41, align 8, !tbaa !181, !alias.scope !894, !noalias !891
   %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 56
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 56
   %.not.i.i.i.i = icmp eq ptr %52, %1
@@ -29875,7 +29875,7 @@ _ZSt19__relocate_object_aIN6duckdb20ExceptionFormatValueES1_SaIS1_EEvPT_PT0_RT1_
   store i64 %67, ptr %69, align 8, !tbaa !40, !alias.scope !898, !noalias !901
   store ptr %59, ptr %56, align 8, !tbaa !39, !alias.scope !901, !noalias !898
   store i64 0, ptr %68, align 8, !tbaa !40, !alias.scope !901, !noalias !898
-  store i8 0, ptr %59, align 1, !tbaa !181, !alias.scope !901, !noalias !898
+  store i8 0, ptr %59, align 8, !tbaa !181, !alias.scope !901, !noalias !898
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 56
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 56
   %.not.i.i.i.i24 = icmp eq ptr %70, %5
@@ -31368,7 +31368,7 @@ _ZNSt16allocator_traitsISaIN6duckdb19ParquetColumnSchemaEEE9constructIS1_JS1_EEE
   store i64 %17, ptr %19, align 8, !tbaa !40
   store ptr %9, ptr %6, align 8, !tbaa !39
   store i64 0, ptr %18, align 8, !tbaa !40
-  store i8 0, ptr %9, align 1, !tbaa !181
+  store i8 0, ptr %9, align 8, !tbaa !181
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @_ZN6duckdb11LogicalTypeC1EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %21) #27
@@ -32228,7 +32228,7 @@ _ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcE
   store i64 %49, ptr %51, align 8, !tbaa !40, !alias.scope !918, !noalias !921
   store ptr %41, ptr %.0911.i.i.i.i, align 8, !tbaa !39, !alias.scope !921, !noalias !918
   store i64 0, ptr %50, align 8, !tbaa !40, !alias.scope !921, !noalias !918
-  store i8 0, ptr %41, align 1, !tbaa !181, !alias.scope !921, !noalias !918
+  store i8 0, ptr %41, align 8, !tbaa !181, !alias.scope !921, !noalias !918
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   tail call void @_ZN6duckdb11LogicalTypeC1EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(24) %53) #27
@@ -32295,7 +32295,7 @@ _ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcE
   store i64 %71, ptr %73, align 8, !tbaa !40, !alias.scope !925, !noalias !928
   store ptr %63, ptr %.0911.i.i.i.i19, align 8, !tbaa !39, !alias.scope !928, !noalias !925
   store i64 0, ptr %72, align 8, !tbaa !40, !alias.scope !928, !noalias !925
-  store i8 0, ptr %63, align 1, !tbaa !181, !alias.scope !928, !noalias !925
+  store i8 0, ptr %63, align 8, !tbaa !181, !alias.scope !928, !noalias !925
   %74 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 32
   %75 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 32
   tail call void @_ZN6duckdb11LogicalTypeC1EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %74, ptr noundef nonnull align 8 dereferenceable(24) %75) #27

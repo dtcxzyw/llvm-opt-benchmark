@@ -1427,7 +1427,7 @@ _ZN13V3ThreadScope7enqueueEOSt8functionIFvvEE.exit: ; preds = %23
   %.sroa.0186.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %2, ptr %.sroa.0186.sroa.5.0..sroa_idx, align 8, !tbaa !90
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  store i32 100, ptr %39, align 4, !tbaa !43
+  store i32 100, ptr %39, align 8, !tbaa !43
   store ptr %36, ptr %6, align 8, !tbaa !96
   store ptr @"_ZNSt17_Function_handlerIFvvESt5_BindIFZN12V3ThreadPool8selfTestEvE3$_1iEEE9_M_invokeERKSt9_Any_data", ptr %38, align 8, !tbaa !66
   store ptr @"_ZNSt17_Function_handlerIFvvESt5_BindIFZN12V3ThreadPool8selfTestEvE3$_1iEEE10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %34, align 8, !tbaa !64
@@ -1501,7 +1501,7 @@ _ZN13V3ThreadScope7enqueueEOSt8functionIFvvEE.exit57: ; preds = %50
   %.sroa.0178.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 8
   store ptr %2, ptr %.sroa.0178.sroa.5.0..sroa_idx, align 8, !tbaa !90
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  store i32 100, ptr %65, align 4, !tbaa !43
+  store i32 100, ptr %65, align 8, !tbaa !43
   store ptr %62, ptr %8, align 8, !tbaa !96
   store ptr @"_ZNSt17_Function_handlerIFvvESt5_BindIFZN12V3ThreadPool8selfTestEvE3$_1iEEE9_M_invokeERKSt9_Any_data", ptr %64, align 8, !tbaa !66
   store ptr @"_ZNSt17_Function_handlerIFvvESt5_BindIFZN12V3ThreadPool8selfTestEvE3$_1iEEE10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %60, align 8, !tbaa !64
@@ -1539,7 +1539,7 @@ _ZN13V3ThreadScope7enqueueEOSt8functionIFvvEE.exit61: ; preds = %63
   %.sroa.0174.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %75, i64 8
   store ptr %2, ptr %.sroa.0174.sroa.5.0..sroa_idx, align 8, !tbaa !90
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  store i32 200, ptr %78, align 4, !tbaa !43
+  store i32 200, ptr %78, align 8, !tbaa !43
   store ptr %75, ptr %9, align 8, !tbaa !96
   store ptr @"_ZNSt17_Function_handlerIFvvESt5_BindIFZN12V3ThreadPool8selfTestEvE3$_1iEEE9_M_invokeERKSt9_Any_data", ptr %77, align 8, !tbaa !66
   store ptr @"_ZNSt17_Function_handlerIFvvESt5_BindIFZN12V3ThreadPool8selfTestEvE3$_1iEEE10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %73, align 8, !tbaa !64
@@ -1932,7 +1932,7 @@ _ZNSt14_Function_baseD2Ev.exit90:                 ; preds = %204, %201, %199
   %.sroa.0161.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %212, i64 16
   store ptr %2, ptr %.sroa.0161.sroa.6.0..sroa_idx, align 8, !tbaa !90
   %215 = getelementptr inbounds nuw i8, ptr %212, i64 24
-  store i32 100, ptr %215, align 4, !tbaa !43
+  store i32 100, ptr %215, align 8, !tbaa !43
   store ptr %212, ptr %12, align 8, !tbaa !98
   store ptr @"_ZNSt17_Function_handlerIFvvESt5_BindIFZN12V3ThreadPool8selfTestEvE3$_2iEEE9_M_invokeERKSt9_Any_data", ptr %214, align 8, !tbaa !66
   store ptr @"_ZNSt17_Function_handlerIFvvESt5_BindIFZN12V3ThreadPool8selfTestEvE3$_2iEEE10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %210, align 8, !tbaa !64
@@ -1973,7 +1973,7 @@ _ZN13V3ThreadScope7enqueueEOSt8functionIFvvEE.exit93: ; preds = %213
   %.sroa.0157.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %226, i64 16
   store ptr %2, ptr %.sroa.0157.sroa.6.0..sroa_idx, align 8, !tbaa !90
   %229 = getelementptr inbounds nuw i8, ptr %226, i64 24
-  store i32 100, ptr %229, align 4, !tbaa !43
+  store i32 100, ptr %229, align 8, !tbaa !43
   store ptr %226, ptr %13, align 8, !tbaa !98
   store ptr @"_ZNSt17_Function_handlerIFvvESt5_BindIFZN12V3ThreadPool8selfTestEvE3$_2iEEE9_M_invokeERKSt9_Any_data", ptr %228, align 8, !tbaa !66
   store ptr @"_ZNSt17_Function_handlerIFvvESt5_BindIFZN12V3ThreadPool8selfTestEvE3$_2iEEE10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %224, align 8, !tbaa !64

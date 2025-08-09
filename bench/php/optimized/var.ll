@@ -1457,7 +1457,7 @@ zend_array_release.exit:                          ; preds = %293, %288, %.crited
   %311 = load i64, ptr %310, align 8, !tbaa !67
   %.not = icmp eq ptr %308, null
   %312 = select i1 %.not, ptr @.str.16, ptr %308
-  %313 = load i32, ptr %309, align 4, !tbaa !23
+  %313 = load i32, ptr %309, align 8, !tbaa !23
   %314 = tail call i64 (ptr, ...) @php_printf(ptr noundef nonnull @.str.30, i64 noundef %311, ptr noundef nonnull %312, i32 noundef %313) #14
   br label %329
 
@@ -4812,7 +4812,7 @@ php_var_serialize_string.exit:                    ; preds = %343, %349
   %384 = getelementptr inbounds nuw i8, ptr %380, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(22) %384, ptr noundef nonnull align 1 dereferenceable(22) @.str.77, i64 22, i1 false)
   %385 = getelementptr inbounds nuw i8, ptr %380, i64 46
-  store i8 0, ptr %385, align 1, !tbaa !4
+  store i8 0, ptr %385, align 2, !tbaa !4
   br label %zend_string_copy.exit
 
 386:                                              ; preds = %373
@@ -7604,7 +7604,7 @@ define internal fastcc noundef zeroext i1 @php_var_serialize_class_name(ptr noun
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(22) %14, ptr noundef nonnull align 1 dereferenceable(22) @.str.77, i64 22, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 46
-  store i8 0, ptr %15, align 1, !tbaa !4
+  store i8 0, ptr %15, align 2, !tbaa !4
   br label %zend_string_copy.exit
 
 16:                                               ; preds = %1

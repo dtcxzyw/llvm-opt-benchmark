@@ -1307,7 +1307,7 @@ define hidden noundef nonnull ptr @_ZN6Assimp11LWOImporter19SetupNewTextureLWOBE
   store ptr %7, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %8, align 8
-  store i8 0, ptr %7, align 1
+  store i8 0, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i32 -1, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 52
@@ -1347,7 +1347,7 @@ define hidden noundef nonnull ptr @_ZN6Assimp11LWOImporter19SetupNewTextureLWOBE
   store ptr %27, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 144
   store i64 0, ptr %28, align 8
-  store i8 0, ptr %27, align 1
+  store i8 0, ptr %27, align 8
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(24) %1) #20
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %30 = load i64, ptr %29, align 8

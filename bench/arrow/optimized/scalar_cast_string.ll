@@ -52274,7 +52274,7 @@ _ZNSt10shared_ptrIN5arrow6BufferEEaSEOS2_.exit116: ; preds = %293, %305, %_ZN9__
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 4
   %330 = getelementptr inbounds i8, ptr %218, i64 %indvars.iv
   %331 = load i32, ptr %330, align 1
-  store i32 %331, ptr %329, align 1
+  store i32 %331, ptr %329, align 4
   %332 = getelementptr inbounds nuw i8, ptr %328, i64 12
   %333 = trunc nsw i64 %indvars.iv to i32
   store i32 %333, ptr %332, align 4, !tbaa !51
@@ -161287,7 +161287,7 @@ _ZNSt10shared_ptrIN5arrow6BufferEEaSEOS2_.exit130: ; preds = %301, %313, %_ZN9__
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 4
   %338 = getelementptr inbounds i8, ptr %226, i64 %indvars.iv
   %339 = load i32, ptr %338, align 1
-  store i32 %339, ptr %337, align 1
+  store i32 %339, ptr %337, align 4
   %340 = getelementptr inbounds nuw i8, ptr %336, i64 12
   %341 = trunc nsw i64 %indvars.iv to i32
   store i32 %341, ptr %340, align 4, !tbaa !51

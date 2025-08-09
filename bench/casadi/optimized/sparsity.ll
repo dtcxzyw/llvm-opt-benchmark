@@ -41234,7 +41234,7 @@ define void @_ZNK6casadi8Sparsity7to_fileERKNSt7__cxx1112basic_stringIcSt11char_
   %26 = load i32, ptr %25, align 8, !tbaa !494
   %27 = and i32 %26, -261
   %28 = or disjoint i32 %27, 256
-  store i32 %28, ptr %25, align 4, !tbaa !502
+  store i32 %28, ptr %25, align 8, !tbaa !502
   %29 = load i64, ptr %22, align 8
   %30 = getelementptr inbounds i8, ptr %5, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8

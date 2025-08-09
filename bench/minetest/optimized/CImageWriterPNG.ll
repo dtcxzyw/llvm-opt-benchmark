@@ -258,7 +258,7 @@ if.end18:                                         ; preds = %if.end13
   %Size.i172 = getelementptr inbounds nuw i8, ptr %image, i64 12
   %7 = load i32, ptr %Size.i172, align 4, !tbaa !25
   %Height25 = getelementptr inbounds nuw i8, ptr %image, i64 16
-  %8 = load i32, ptr %Height25, align 4, !tbaa !26
+  %8 = load i32, ptr %Height25, align 8, !tbaa !26
   call void @png_set_IHDR(ptr noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef 8, i32 noundef %4, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
   %Size.i174 = getelementptr inbounds nuw i8, ptr %image, i64 12
   %9 = load i32, ptr %Size.i174, align 4, !tbaa !25

@@ -4169,7 +4169,7 @@ define internal void @_ZN12_GLOBAL__N_115CGObjCCommonMac22GenerateConstantString
   %26 = lshr i32 %25, 22
   %27 = and i32 %26, 7
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %29 = load i32, ptr %28, align 4, !tbaa !976, !noalias !973
+  %29 = load i32, ptr %28, align 8, !tbaa !976, !noalias !973
   %30 = mul i32 %27, %29
   %31 = zext i32 %30 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !973
@@ -18812,7 +18812,7 @@ _ZN4llvm16CachedHashStringC2ERKS0_.exit:          ; preds = %_ZN4llvm12DenseMapB
   %44 = load ptr, ptr %22, align 8, !tbaa !1707
   store ptr %.sroa.0.0, ptr %22, align 8, !tbaa !1707
   %45 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store i32 %37, ptr %45, align 4, !tbaa !976
+  store i32 %37, ptr %45, align 8, !tbaa !976
   store i32 %39, ptr %25, align 4, !tbaa !976
   %magicptr1.i = ptrtoint ptr %44 to i64
   switch i64 %magicptr1.i, label %46 [
@@ -18970,7 +18970,7 @@ _ZN4llvm16CachedHashStringD2Ev.exit14:            ; preds = %_ZN4llvm16CachedHas
   %33 = load ptr, ptr %32, align 8, !tbaa !1707
   store ptr %28, ptr %32, align 8, !tbaa !1707
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store i32 %30, ptr %34, align 4, !tbaa !976
+  store i32 %30, ptr %34, align 8, !tbaa !976
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 12
   store i32 %31, ptr %35, align 4, !tbaa !976
   %magicptr1.i22 = ptrtoint ptr %33 to i64

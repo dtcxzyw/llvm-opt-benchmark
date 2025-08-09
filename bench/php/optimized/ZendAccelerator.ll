@@ -1105,7 +1105,7 @@ define hidden ptr @accel_make_persistent_key(ptr noundef %0) local_unnamed_addr 
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 400), align 8, !tbaa !142
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %7, align 8, !tbaa !60
-  %8 = load i8, ptr %.ptr, align 1, !tbaa !64
+  %8 = load i8, ptr %.ptr, align 8, !tbaa !64
   %9 = icmp eq i8 %8, 47
   br i1 %9, label %316, label %.preheader167
 
@@ -6103,7 +6103,7 @@ zend_accel_init_shm.exit:                         ; preds = %44, %77
   %94 = getelementptr inbounds nuw i8, ptr %91, i64 121
   store i8 0, ptr %94, align 1, !tbaa !165
   %95 = getelementptr inbounds nuw i8, ptr %91, i64 144
-  store i64 -1, ptr %95, align 4
+  store i64 -1, ptr %95, align 8
   br label %.sink.split
 
 96:                                               ; preds = %29

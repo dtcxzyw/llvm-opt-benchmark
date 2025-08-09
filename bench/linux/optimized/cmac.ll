@@ -151,7 +151,7 @@ define internal noundef i32 @crypto_cmac_digest_init(ptr noundef captures(none) 
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = sext i32 %7 to i64
   %10 = getelementptr [0 x i8], ptr %8, i64 0, i64 %9
-  store i32 0, ptr %2, align 4
+  store i32 0, ptr %2, align 8
   tail call void @llvm.memset.p0.i64(ptr align 1 %10, i8 0, i64 %9, i1 false)
   ret i32 0
 }
@@ -169,7 +169,7 @@ define internal noundef i32 @crypto_cmac_digest_update(ptr noundef %0, ptr nound
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %13 = sext i32 %11 to i64
   %14 = getelementptr i8, ptr %12, i64 %13
-  %15 = load i32, ptr %6, align 4
+  %15 = load i32, ptr %6, align 8
   %16 = add i32 %15, %2
   %17 = icmp ugt i32 %16, %11
   %18 = zext i32 %15 to i64
@@ -239,7 +239,7 @@ define internal noundef i32 @crypto_cmac_digest_final(ptr noundef %0, ptr nounde
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %10 = load i32, ptr %9, align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %12 = load i32, ptr %5, align 4
+  %12 = load i32, ptr %5, align 8
   %13 = icmp eq i32 %12, %10
   br i1 %13, label %25, label %14
 

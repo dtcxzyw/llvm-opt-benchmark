@@ -37,7 +37,7 @@ define hidden noalias noundef ptr @convert_libmagic_pattern(ptr noundef readonly
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %13, align 8, !tbaa !10
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store i8 126, ptr %14, align 1, !tbaa !4
+  store i8 126, ptr %14, align 8, !tbaa !4
   br i1 %.not56, label %._crit_edge54, label %.lr.ph53
 
 .lr.ph53:                                         ; preds = %._crit_edge, %24

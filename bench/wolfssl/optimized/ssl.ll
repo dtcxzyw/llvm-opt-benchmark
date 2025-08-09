@@ -2720,7 +2720,7 @@ define void @AddSession(ptr noundef captures(address_is_null) %0) local_unnamed_
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %3 = load ptr, ptr %2, align 16, !tbaa !76
   %4 = getelementptr i8, ptr %0, i64 1024
-  %.val = load i64, ptr %4, align 8
+  %.val = load i64, ptr %4, align 16
   %5 = and i64 %.val, 4
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %6, label %.critedge
@@ -2764,7 +2764,7 @@ define void @AddSession(ptr noundef captures(address_is_null) %0) local_unnamed_
   store i8 %28, ptr %26, align 8
   %29 = load ptr, ptr %2, align 16, !tbaa !76
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 56
-  %.pre = load i64, ptr %4, align 8
+  %.pre = load i64, ptr %4, align 16
   br label %31
 
 31:                                               ; preds = %.thread, %24, %16, %11
@@ -8778,7 +8778,7 @@ define range(i32 -173, 2) i32 @wolfSSL_use_certificate_file(ptr noundef %0, ptr 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %0, align 16, !tbaa !96
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1024
-  %11 = load i64, ptr %10, align 8
+  %11 = load i64, ptr %10, align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -8841,7 +8841,7 @@ define range(i32 -173, 2) i32 @wolfSSL_use_PrivateKey_file(ptr noundef %0, ptr n
 8:                                                ; preds = %3
   %9 = load ptr, ptr %0, align 16, !tbaa !96
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1024
-  %11 = load i64, ptr %10, align 8
+  %11 = load i64, ptr %10, align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -8904,7 +8904,7 @@ define range(i32 -173, 2) i32 @wolfSSL_use_certificate_chain_file(ptr noundef %0
 7:                                                ; preds = %2
   %8 = load ptr, ptr %0, align 16, !tbaa !96
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1024
-  %10 = load i64, ptr %9, align 8
+  %10 = load i64, ptr %9, align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -8967,7 +8967,7 @@ define range(i32 -173, 2) i32 @wolfSSL_use_certificate_chain_file_format(ptr nou
 8:                                                ; preds = %3
   %9 = load ptr, ptr %0, align 16, !tbaa !96
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1024
-  %11 = load i64, ptr %10, align 8
+  %11 = load i64, ptr %10, align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -9280,7 +9280,7 @@ define i32 @wolfSSL_use_certificate_buffer(ptr noundef %0, ptr noundef %1, i64 n
 6:                                                ; preds = %4
   %7 = load ptr, ptr %0, align 16, !tbaa !96
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1024
-  %9 = load i64, ptr %8, align 8
+  %9 = load i64, ptr %8, align 16
   %10 = and i64 %9, 128
   %.not = icmp eq i64 %10, 0
   %11 = zext i1 %.not to i32
@@ -9302,7 +9302,7 @@ define i32 @wolfSSL_use_PrivateKey_buffer(ptr noundef %0, ptr noundef %1, i64 no
 7:                                                ; preds = %4
   %8 = load ptr, ptr %0, align 16, !tbaa !96
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1024
-  %10 = load i64, ptr %9, align 8
+  %10 = load i64, ptr %9, align 16
   %11 = and i64 %10, 128
   %.not = icmp eq i64 %11, 0
   %12 = zext i1 %.not to i32
@@ -9323,7 +9323,7 @@ define i32 @wolfSSL_use_certificate_chain_buffer_format(ptr noundef %0, ptr noun
 6:                                                ; preds = %4
   %7 = load ptr, ptr %0, align 16, !tbaa !96
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1024
-  %9 = load i64, ptr %8, align 8
+  %9 = load i64, ptr %8, align 16
   %10 = and i64 %9, 128
   %.not = icmp eq i64 %10, 0
   %11 = zext i1 %.not to i32
@@ -9343,7 +9343,7 @@ define i32 @wolfSSL_use_certificate_chain_buffer(ptr noundef %0, ptr noundef %1,
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 16, !tbaa !96
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1024
-  %8 = load i64, ptr %7, align 8
+  %8 = load i64, ptr %7, align 16
   %9 = and i64 %8, 128
   %.not.i = icmp eq i64 %9, 0
   %10 = zext i1 %.not.i to i32
@@ -9468,9 +9468,9 @@ define internal fastcc range(i32 -401, 2) i32 @wolfssl_set_tmp_dh(ptr noundef %0
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 520
   store i32 %4, ptr %38, align 8, !tbaa !228
   store i8 1, ptr %24, align 1, !tbaa !224
-  %39 = load i64, ptr %17, align 8
+  %39 = load i64, ptr %17, align 16
   %40 = or i64 %39, 33554432
-  store i64 %40, ptr %17, align 8
+  store i64 %40, ptr %17, align 16
   %41 = tail call i32 @AllocateSuites(ptr noundef nonnull %0) #22
   %.not45 = icmp eq i32 %41, 0
   br i1 %.not45, label %.critedge, label %42

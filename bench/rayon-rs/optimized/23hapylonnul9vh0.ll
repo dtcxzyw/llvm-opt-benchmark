@@ -171,7 +171,7 @@ define internal void @_ZN3std3sys6common12thread_local10fast_local13destroy_valu
   %6 = load ptr, ptr %5, align 8, !noalias !25
   store i64 0, ptr %0, align 8, !noalias !25
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 2, ptr %7, align 1, !noalias !25
+  store i8 2, ptr %7, align 8, !noalias !25
   %8 = icmp eq i64 %4, 0
   br i1 %8, label %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hd719b5a24ec309ecE.exit", label %9
 

@@ -12063,7 +12063,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.
   store i64 %21, ptr %22, align 8, !tbaa !32
   store ptr %12, ptr %9, align 8, !tbaa !35
   store i64 0, ptr %20, align 8, !tbaa !32
-  store i8 0, ptr %12, align 1, !tbaa !34
+  store i8 0, ptr %12, align 8, !tbaa !34
   %23 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 48
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 48
   %25 = load i8, ptr %24, align 8
@@ -12099,7 +12099,7 @@ _ZN5clang9api_notes16CommonEntityInfoC2EOS1_.exit.i.i.i.i.i.i.i.i.i: ; preds = %
   store i64 %39, ptr %40, align 8, !tbaa !32
   store ptr %30, ptr %27, align 8, !tbaa !35
   store i64 0, ptr %38, align 8, !tbaa !32
-  store i8 0, ptr %30, align 1, !tbaa !34
+  store i8 0, ptr %30, align 8, !tbaa !34
   %41 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 88
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 88
   %43 = load i8, ptr %42, align 8
@@ -12135,7 +12135,7 @@ _ZSt10_ConstructISt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalVariableI
   store i64 %57, ptr %58, align 8, !tbaa !32
   store ptr %48, ptr %45, align 8, !tbaa !35
   store i64 0, ptr %56, align 8, !tbaa !32
-  store i8 0, ptr %48, align 1, !tbaa !34
+  store i8 0, ptr %48, align 8, !tbaa !34
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 128
   %60 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 128
   %.not.i.i.i.i.i = icmp eq ptr %59, %7
@@ -16330,7 +16330,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.
   store i64 %21, ptr %22, align 8, !tbaa !32
   store ptr %12, ptr %9, align 8, !tbaa !35
   store i64 0, ptr %20, align 8, !tbaa !32
-  store i8 0, ptr %12, align 1, !tbaa !34
+  store i8 0, ptr %12, align 8, !tbaa !34
   %23 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 48
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 48
   %25 = load i8, ptr %24, align 8
@@ -16366,7 +16366,7 @@ _ZSt10_ConstructISt4pairIN4llvm12VersionTupleEN5clang9api_notes16EnumConstantInf
   store i64 %39, ptr %40, align 8, !tbaa !32
   store ptr %30, ptr %27, align 8, !tbaa !35
   store i64 0, ptr %38, align 8, !tbaa !32
-  store i8 0, ptr %30, align 1, !tbaa !34
+  store i8 0, ptr %30, align 8, !tbaa !34
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 88
   %42 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 88
   %.not.i.i.i.i.i = icmp eq ptr %41, %7
@@ -17716,7 +17716,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.
   store i64 %21, ptr %22, align 8, !tbaa !32
   store ptr %12, ptr %9, align 8, !tbaa !35
   store i64 0, ptr %20, align 8, !tbaa !32
-  store i8 0, ptr %12, align 1, !tbaa !34
+  store i8 0, ptr %12, align 8, !tbaa !34
   %23 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 48
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 48
   %25 = load i8, ptr %24, align 8
@@ -17752,7 +17752,7 @@ _ZN5clang9api_notes16CommonEntityInfoC2EOS1_.exit.i.i.i.i.i.i.i.i.i: ; preds = %
   store i64 %39, ptr %40, align 8, !tbaa !32
   store ptr %30, ptr %27, align 8, !tbaa !35
   store i64 0, ptr %38, align 8, !tbaa !32
-  store i8 0, ptr %30, align 1, !tbaa !34
+  store i8 0, ptr %30, align 8, !tbaa !34
   %41 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 88
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 88
   %43 = load i8, ptr %42, align 8
@@ -17788,7 +17788,7 @@ _ZSt10_ConstructISt4pairIN4llvm12VersionTupleEN5clang9api_notes16ObjCPropertyInf
   store i64 %57, ptr %58, align 8, !tbaa !32
   store ptr %48, ptr %45, align 8, !tbaa !35
   store i64 0, ptr %56, align 8, !tbaa !32
-  store i8 0, ptr %48, align 1, !tbaa !34
+  store i8 0, ptr %48, align 8, !tbaa !34
   %59 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 128
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 128
   %61 = load i8, ptr %60, align 8
@@ -18928,7 +18928,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.
   store i64 %21, ptr %22, align 8, !tbaa !32
   store ptr %12, ptr %9, align 8, !tbaa !35
   store i64 0, ptr %20, align 8, !tbaa !32
-  store i8 0, ptr %12, align 1, !tbaa !34
+  store i8 0, ptr %12, align 8, !tbaa !34
   %23 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 48
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 48
   %25 = load i8, ptr %24, align 8
@@ -18964,7 +18964,7 @@ _ZN5clang9api_notes16CommonEntityInfoC2EOS1_.exit.i.i.i.i.i.i.i.i.i: ; preds = %
   store i64 %39, ptr %40, align 8, !tbaa !32
   store ptr %30, ptr %27, align 8, !tbaa !35
   store i64 0, ptr %38, align 8, !tbaa !32
-  store i8 0, ptr %30, align 1, !tbaa !34
+  store i8 0, ptr %30, align 8, !tbaa !34
   %41 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 88
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 88
   %43 = load i8, ptr %42, align 8
@@ -19000,7 +19000,7 @@ _ZSt10_ConstructISt4pairIN4llvm12VersionTupleEN5clang9api_notes9FieldInfoEEJS6_E
   store i64 %57, ptr %58, align 8, !tbaa !32
   store ptr %48, ptr %45, align 8, !tbaa !35
   store i64 0, ptr %56, align 8, !tbaa !32
-  store i8 0, ptr %48, align 1, !tbaa !34
+  store i8 0, ptr %48, align 8, !tbaa !34
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 128
   %60 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 128
   %.not.i.i.i.i.i = icmp eq ptr %59, %7
@@ -19548,7 +19548,7 @@ define internal fastcc noundef zeroext i1 @_ZL28checkAPINotesReplacementTypeRN5c
   store ptr %38, ptr %.ptr.i.i.i.i, align 8, !tbaa !29
   %39 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
   store i64 0, ptr %39, align 8, !tbaa !32
-  store i8 0, ptr %38, align 1, !tbaa !34
+  store i8 0, ptr %38, align 8, !tbaa !34
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 32
   %40 = icmp eq i64 %.add.i.i.i.i, 416
   br i1 %40, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %37
@@ -19710,7 +19710,7 @@ _ZN5clanglsINS_8QualTypeEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit: ;
   store ptr %117, ptr %.ptr.i.i.i.i26, align 8, !tbaa !29
   %118 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i26, i64 8
   store i64 0, ptr %118, align 8, !tbaa !32
-  store i8 0, ptr %117, align 1, !tbaa !34
+  store i8 0, ptr %117, align 8, !tbaa !34
   %.add.i.i.i.i27 = add nuw nsw i64 %.idx.i.i.i.i25, 32
   %119 = icmp eq i64 %.add.i.i.i.i27, 416
   br i1 %119, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i28, label %116
@@ -21247,7 +21247,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEm
   store ptr %14, ptr %.ptr.i.i.i, align 8, !tbaa !29
   %15 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %15, align 8, !tbaa !32
-  store i8 0, ptr %14, align 1, !tbaa !34
+  store i8 0, ptr %14, align 8, !tbaa !34
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %16 = icmp eq i64 %.add.i.i.i, 416
   br i1 %16, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %13

@@ -2352,7 +2352,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit4: ; preds = %_ZNSol
   %44 = load i32, ptr %43, align 8, !tbaa !159
   %45 = and i32 %44, -261
   %46 = or disjoint i32 %45, 4
-  store i32 %46, ptr %43, align 4, !tbaa !168
+  store i32 %46, ptr %43, align 8, !tbaa !168
   %47 = load i64, ptr %40, align 8
   %48 = getelementptr inbounds i8, ptr %34, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -2373,7 +2373,7 @@ _ZlsRSoRK8mem_stat.exit:                          ; preds = %.noexc
   %57 = load i32, ptr %56, align 8, !tbaa !159
   %58 = and i32 %57, -261
   %59 = or disjoint i32 %58, 4
-  store i32 %59, ptr %56, align 4, !tbaa !168
+  store i32 %59, ptr %56, align 8, !tbaa !168
   %60 = load i64, ptr %53, align 8
   %61 = getelementptr inbounds i8, ptr %50, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
@@ -2464,7 +2464,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit21: ; preds = %_ZNSo
   %103 = load i32, ptr %102, align 8, !tbaa !159
   %104 = and i32 %103, -261
   %105 = or disjoint i32 %104, 4
-  store i32 %105, ptr %102, align 4, !tbaa !168
+  store i32 %105, ptr %102, align 8, !tbaa !168
   %106 = load i64, ptr %99, align 8
   %107 = getelementptr inbounds i8, ptr %93, i64 %106
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
@@ -2485,7 +2485,7 @@ _ZlsRSoRK8mem_stat.exit24:                        ; preds = %.noexc22
   %116 = load i32, ptr %115, align 8, !tbaa !159
   %117 = and i32 %116, -261
   %118 = or disjoint i32 %117, 4
-  store i32 %118, ptr %115, align 4, !tbaa !168
+  store i32 %118, ptr %115, align 8, !tbaa !168
   %119 = load i64, ptr %112, align 8
   %120 = getelementptr inbounds i8, ptr %109, i64 %119
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8

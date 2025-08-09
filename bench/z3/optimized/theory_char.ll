@@ -5476,15 +5476,15 @@ define hidden void @_ZN3smt11theory_char10init_modelERNS_15model_generatorE(ptr 
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 120
   store ptr null, ptr %32, align 8, !tbaa !525
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  store i32 0, ptr %33, align 4, !tbaa !526
+  store i32 0, ptr %33, align 8, !tbaa !526
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 132
   store i8 0, ptr %34, align 4, !tbaa !527
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 136
-  store i32 0, ptr %35, align 4, !tbaa !528
+  store i32 0, ptr %35, align 8, !tbaa !528
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 140
   store i32 0, ptr %36, align 4, !tbaa !529
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 144
-  store i32 -1, ptr %37, align 4, !tbaa !526
+  store i32 -1, ptr %37, align 8, !tbaa !526
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 148
   store i8 0, ptr %38, align 4, !tbaa !527
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 152

@@ -195,7 +195,7 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
   %55 = getelementptr inbounds [50 x i32], ptr %53, i64 0, i64 %54
   store i32 %52, ptr %55, align 4
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 1536
-  store i32 0, ptr %56, align 4
+  store i32 0, ptr %56, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 3100
   br label %58

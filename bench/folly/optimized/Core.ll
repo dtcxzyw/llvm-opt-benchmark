@@ -5455,10 +5455,10 @@ define linkonce_odr noundef i64 @_ZN5folly6detail8function13DispatchSmall4execIZ
   store ptr %15, ptr %12, align 8, !tbaa !152
   store ptr null, ptr %13, align 8, !tbaa !152
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %17 = load i32, ptr %14, align 2
-  %18 = load i32, ptr %16, align 2
-  store i32 %18, ptr %14, align 2
-  store i32 %17, ptr %16, align 2
+  %17 = load i32, ptr %14, align 8
+  %18 = load i32, ptr %16, align 8
+  store i32 %18, ptr %14, align 8
+  store i32 %17, ptr %16, align 8
   %19 = trunc i32 %17 to i16
   br label %20
 
@@ -5760,7 +5760,7 @@ _ZN5folly15observer_detail4Core14CreatorContextC2EOS2_.exit: ; preds = %29, %_ZN
   store i64 %36, ptr %37, align 16, !tbaa !203
   store ptr %27, ptr %24, align 8, !tbaa !202
   store i64 0, ptr %35, align 8, !tbaa !203
-  store i8 0, ptr %27, align 1, !tbaa !35
+  store i8 0, ptr %27, align 8, !tbaa !35
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store i32 0, ptr %38, align 8, !tbaa !204
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 284
@@ -6212,7 +6212,7 @@ _ZN5folly15observer_detail4Core14CreatorContextC2EOS2_.exit: ; preds = %22, %_ZN
   store i64 %28, ptr %30, align 8, !tbaa !203
   store ptr %20, ptr %17, align 8, !tbaa !202
   store i64 0, ptr %29, align 8, !tbaa !203
-  store i8 0, ptr %20, align 1, !tbaa !35
+  store i8 0, ptr %20, align 8, !tbaa !35
   invoke void @_ZN5folly15observer_detail4CoreC1ENS_8FunctionIFSt10shared_ptrIKvEvEEENS1_14CreatorContextE(ptr noundef nonnull align 16 dereferenceable(285) %6, ptr noundef nonnull %4, ptr noundef nonnull %5)
           to label %31 unwind label %41
 

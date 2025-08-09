@@ -29215,7 +29215,7 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17h71f5fa71d632a321E(ptr noali
   tail call void %10(ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i, i64 noundef %.sroa.3.0.i.i.i), !noalias !5626
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.06, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5647)
-  %23 = load i8, ptr %22, align 1, !range !1437, !alias.scope !5650, !noalias !5651, !noundef !14
+  %23 = load i8, ptr %22, align 8, !range !1437, !alias.scope !5650, !noalias !5651, !noundef !14
   %24 = zext nneg i8 %23 to i64
   %25 = load ptr, ptr %11, align 8, !invariant.load !14, !noalias !5653, !nonnull !14
   tail call void %25(ptr noundef nonnull align 1 %6, i64 noundef %24), !noalias !5653
@@ -29663,7 +29663,7 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17he82c48d97a8d2bf9E(ptr noali
   tail call void %10(ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i, i64 noundef %.sroa.3.0.i.i.i), !noalias !5779
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.06, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5800)
-  %23 = load i32, ptr %22, align 4, !range !1428, !alias.scope !5803, !noalias !5804, !noundef !14
+  %23 = load i32, ptr %22, align 8, !range !1428, !alias.scope !5803, !noalias !5804, !noundef !14
   %24 = load ptr, ptr %11, align 8, !invariant.load !14, !noalias !5806, !nonnull !14
   tail call void %24(ptr noundef nonnull align 1 %6, i32 noundef %23), !noalias !5806
   %25 = icmp eq ptr %13, %4
@@ -68851,7 +68851,7 @@ thread-pre-split.i.i.i.i.i.i.i.i.i:               ; preds = %.noexc56.i.i.i.i.i.
   %324 = getelementptr i8, ptr %320, i64 -32
   %.val4.i.i.i.i.i.i.i.i.i.i = load i128, ptr %324, align 16, !noalias !14169
   %325 = getelementptr i8, ptr %320, i64 -16
-  %.val5.i.i.i.i.i.i.i.i.i.i = load i8, ptr %325, align 1, !range !193, !noalias !14169, !noundef !14
+  %.val5.i.i.i.i.i.i.i.i.i.i = load i8, ptr %325, align 16, !range !193, !noalias !14169, !noundef !14
   %326 = invoke fastcc noundef i128 @"_ZN5typst11foundations7context1_90_$LT$impl$u20$comemo..track..Validate$u20$for$u20$typst..foundations..context..Context$GT$16validate_with_id28_$u7b$$u7b$closure$u7d$$u7d$17h51137efa1c76fbdcE"(ptr nonnull readonly align 16 dereferenceable(80) %164, i8 %.val5.i.i.i.i.i.i.i.i.i.i)
           to label %.noexc56.i.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i.i, !noalias !14137
 

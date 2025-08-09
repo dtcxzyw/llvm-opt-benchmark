@@ -897,9 +897,9 @@ define dso_local noundef range(i32 -22, 1) i32 @sbitmap_queue_init_node(ptr noun
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store volatile i32 0, ptr %25, align 4
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store volatile i32 0, ptr %26, align 4
+  store volatile i32 0, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store volatile i32 0, ptr %27, align 4
+  store volatile i32 0, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store volatile i32 0, ptr %28, align 4
   %29 = and i32 %4, 17
@@ -1275,7 +1275,7 @@ define dso_local void @sbitmap_queue_wake_up(ptr noundef %0, i32 noundef %1) #0 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load volatile i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load volatile i32, ptr %5, align 4
+  %6 = load volatile i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %.loopexit, label %8
 
@@ -1580,7 +1580,7 @@ define dso_local void @sbitmap_queue_show(ptr noundef %0, ptr noundef %1) #0 ali
   %32 = load volatile i32, ptr %31, align 4
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.12, i32 noundef %32) #11
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = load volatile i32, ptr %33, align 4
+  %34 = load volatile i32, ptr %33, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.13, i32 noundef %34) #11
   tail call void @seq_puts(ptr noundef %1, ptr noundef nonnull @.str.14) #11
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 40

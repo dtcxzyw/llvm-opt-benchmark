@@ -1596,7 +1596,7 @@ _ZN4absl12lts_2023080216utility_internal15IfConstexprElseILb0EZN6google8protobuf
   %mutex.i.i.i = getelementptr inbounds nuw i8, ptr %call.sink7.i.i, i64 24
   store i64 0, ptr %mutex.i.i.i, align 8
   %state.i.i.i = getelementptr inbounds nuw i8, ptr %call.sink7.i.i, i64 32
-  store i32 0, ptr %state.i.i.i, align 4
+  store i32 0, ptr %state.i.i.i, align 8
   %2 = ptrtoint ptr %call.sink7.i.i to i64
   %add.i = add i64 %2, 1
   %3 = cmpxchg ptr %payload_, i64 %0, i64 %add.i acq_rel acquire, align 8

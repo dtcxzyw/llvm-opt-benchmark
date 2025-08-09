@@ -2353,7 +2353,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %24 = load i32, ptr %23, align 8, !tbaa !4
-  store i32 %24, ptr %22, align 4, !tbaa !4
+  store i32 %24, ptr %22, align 8, !tbaa !4
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 68
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %27 = load i32, ptr %26, align 4, !tbaa !4
@@ -3987,7 +3987,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %39 = load i32, ptr %38, align 8, !tbaa !4
-  store i32 %39, ptr %37, align 4, !tbaa !4
+  store i32 %39, ptr %37, align 8, !tbaa !4
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 100
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %42 = load i32, ptr %41, align 4, !tbaa !4

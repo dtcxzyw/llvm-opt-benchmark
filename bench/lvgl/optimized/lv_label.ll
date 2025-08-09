@@ -355,7 +355,7 @@ get_label_flags.exit.i:                           ; preds = %134, %129, %116
   %151 = getelementptr inbounds nuw i8, ptr %4, i64 100
   store i32 %150, ptr %151, align 4, !tbaa !42
   %152 = getelementptr inbounds nuw i8, ptr %117, i64 112
-  %153 = load i32, ptr %152, align 4, !tbaa !43
+  %153 = load i32, ptr %152, align 8, !tbaa !43
   %154 = getelementptr inbounds nuw i8, ptr %4, i64 104
   store i32 %153, ptr %154, align 8, !tbaa !44
   %155 = and i8 %142, 15

@@ -1204,11 +1204,11 @@ define void @color_picker_apply(ptr noundef %0, ptr noundef readnone captures(ad
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %7 = load ptr, ptr %6, align 8, !tbaa !99
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %9 = load float, ptr %8, align 4, !tbaa !84
+  %9 = load float, ptr %8, align 16, !tbaa !84
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 516
   %11 = load float, ptr %10, align 4, !tbaa !84
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %13 = load float, ptr %12, align 4, !tbaa !84
+  %13 = load float, ptr %12, align 8, !tbaa !84
   %14 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %11, float %13)
   %15 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %9, float %14)
   %16 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %11, float %13)

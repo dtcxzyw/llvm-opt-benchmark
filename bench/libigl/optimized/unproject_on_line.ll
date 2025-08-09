@@ -371,8 +371,8 @@ define weak_odr dso_local void @_ZN3igl17unproject_on_lineIN5Eigen6MatrixIdLin1E
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.sroa.9.32.vec.insert.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %50, i64 0
-  %51 = load <2 x double>, ptr %3, align 1, !tbaa !4
-  %52 = load <2 x double>, ptr %4, align 1, !tbaa !4
+  %51 = load <2 x double>, ptr %3, align 8, !tbaa !4
+  %52 = load <2 x double>, ptr %4, align 8, !tbaa !4
   %53 = shufflevector <2 x double> %.sroa.9.32.vec.insert.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %54 = fmul <2 x double> %53, %52
   %55 = fadd <2 x double> %51, %54
@@ -461,8 +461,8 @@ define weak_odr dso_local void @_ZN3igl17unproject_on_lineIN5Eigen6MatrixIdLi2EL
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.sroa.9.32.vec.insert.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %50, i64 0
-  %51 = load <2 x double>, ptr %3, align 1, !tbaa !4
-  %52 = load <2 x double>, ptr %4, align 1, !tbaa !4
+  %51 = load <2 x double>, ptr %3, align 8, !tbaa !4
+  %52 = load <2 x double>, ptr %4, align 8, !tbaa !4
   %53 = shufflevector <2 x double> %.sroa.9.32.vec.insert.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %54 = fmul <2 x double> %53, %52
   %55 = fadd <2 x double> %51, %54

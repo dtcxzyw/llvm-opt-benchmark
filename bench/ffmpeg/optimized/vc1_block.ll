@@ -219,21 +219,21 @@ init_block_index.exit.i:                          ; preds = %94, %90, %.init_blo
   %113 = load i32, ptr %78, align 4, !tbaa !73
   %114 = add nsw i32 %113, 2
   store i32 %114, ptr %78, align 4, !tbaa !73
-  %115 = load i32, ptr %79, align 4, !tbaa !73
+  %115 = load i32, ptr %79, align 8, !tbaa !73
   %116 = add nsw i32 %115, 2
-  store i32 %116, ptr %79, align 4, !tbaa !73
+  store i32 %116, ptr %79, align 8, !tbaa !73
   %117 = load i32, ptr %80, align 4, !tbaa !73
   %118 = add nsw i32 %117, 2
   store i32 %118, ptr %80, align 4, !tbaa !73
-  %119 = load i32, ptr %81, align 4, !tbaa !73
+  %119 = load i32, ptr %81, align 8, !tbaa !73
   %120 = add nsw i32 %119, 2
-  store i32 %120, ptr %81, align 4, !tbaa !73
+  store i32 %120, ptr %81, align 8, !tbaa !73
   %121 = load i32, ptr %82, align 4, !tbaa !73
   %122 = add nsw i32 %121, 1
   store i32 %122, ptr %82, align 4, !tbaa !73
-  %123 = load i32, ptr %83, align 4, !tbaa !73
+  %123 = load i32, ptr %83, align 8, !tbaa !73
   %124 = add nsw i32 %123, 1
-  store i32 %124, ptr %83, align 4, !tbaa !73
+  store i32 %124, ptr %83, align 8, !tbaa !73
   %125 = getelementptr inbounds nuw i8, ptr %111, i64 16
   store ptr %125, ptr %74, align 8, !tbaa !59
   %126 = lshr i32 2, %112
@@ -543,21 +543,21 @@ init_block_index.exit:                            ; preds = %118, %120, %124
   %148 = load i32, ptr %65, align 4, !tbaa !73
   %149 = add nsw i32 %148, 2
   store i32 %149, ptr %65, align 4, !tbaa !73
-  %150 = load i32, ptr %66, align 4, !tbaa !73
+  %150 = load i32, ptr %66, align 8, !tbaa !73
   %151 = add nsw i32 %150, 2
-  store i32 %151, ptr %66, align 4, !tbaa !73
+  store i32 %151, ptr %66, align 8, !tbaa !73
   %152 = load i32, ptr %67, align 4, !tbaa !73
   %153 = add nsw i32 %152, 2
   store i32 %153, ptr %67, align 4, !tbaa !73
-  %154 = load i32, ptr %68, align 4, !tbaa !73
+  %154 = load i32, ptr %68, align 8, !tbaa !73
   %155 = add nsw i32 %154, 2
-  store i32 %155, ptr %68, align 4, !tbaa !73
+  store i32 %155, ptr %68, align 8, !tbaa !73
   %156 = load i32, ptr %69, align 4, !tbaa !73
   %157 = add nsw i32 %156, 1
   store i32 %157, ptr %69, align 4, !tbaa !73
-  %158 = load i32, ptr %70, align 4, !tbaa !73
+  %158 = load i32, ptr %70, align 8, !tbaa !73
   %159 = add nsw i32 %158, 1
-  store i32 %159, ptr %70, align 4, !tbaa !73
+  store i32 %159, ptr %70, align 8, !tbaa !73
   %160 = load ptr, ptr %59, align 8, !tbaa !59
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 16
   store ptr %161, ptr %59, align 8, !tbaa !59
@@ -2060,21 +2060,21 @@ init_block_index.exit:                            ; preds = %86, %88, %92
   %115 = load i32, ptr %50, align 4, !tbaa !73
   %116 = add nsw i32 %115, 2
   store i32 %116, ptr %50, align 4, !tbaa !73
-  %117 = load i32, ptr %51, align 4, !tbaa !73
+  %117 = load i32, ptr %51, align 8, !tbaa !73
   %118 = add nsw i32 %117, 2
-  store i32 %118, ptr %51, align 4, !tbaa !73
+  store i32 %118, ptr %51, align 8, !tbaa !73
   %119 = load i32, ptr %52, align 4, !tbaa !73
   %120 = add nsw i32 %119, 2
   store i32 %120, ptr %52, align 4, !tbaa !73
-  %121 = load i32, ptr %53, align 4, !tbaa !73
+  %121 = load i32, ptr %53, align 8, !tbaa !73
   %122 = add nsw i32 %121, 2
-  store i32 %122, ptr %53, align 4, !tbaa !73
+  store i32 %122, ptr %53, align 8, !tbaa !73
   %123 = load i32, ptr %54, align 4, !tbaa !73
   %124 = add nsw i32 %123, 1
   store i32 %124, ptr %54, align 4, !tbaa !73
-  %125 = load i32, ptr %55, align 4, !tbaa !73
+  %125 = load i32, ptr %55, align 8, !tbaa !73
   %126 = add nsw i32 %125, 1
-  store i32 %126, ptr %55, align 4, !tbaa !73
+  store i32 %126, ptr %55, align 8, !tbaa !73
   %127 = load ptr, ptr %45, align 8, !tbaa !59
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 16
   store ptr %128, ptr %45, align 8, !tbaa !59
@@ -3085,21 +3085,21 @@ init_block_index.exit:                            ; preds = %128, %130, %134
   %157 = load i32, ptr %52, align 4, !tbaa !73
   %158 = add nsw i32 %157, 2
   store i32 %158, ptr %52, align 4, !tbaa !73
-  %159 = load i32, ptr %53, align 4, !tbaa !73
+  %159 = load i32, ptr %53, align 8, !tbaa !73
   %160 = add nsw i32 %159, 2
-  store i32 %160, ptr %53, align 4, !tbaa !73
+  store i32 %160, ptr %53, align 8, !tbaa !73
   %161 = load i32, ptr %54, align 4, !tbaa !73
   %162 = add nsw i32 %161, 2
   store i32 %162, ptr %54, align 4, !tbaa !73
-  %163 = load i32, ptr %55, align 4, !tbaa !73
+  %163 = load i32, ptr %55, align 8, !tbaa !73
   %164 = add nsw i32 %163, 2
-  store i32 %164, ptr %55, align 4, !tbaa !73
+  store i32 %164, ptr %55, align 8, !tbaa !73
   %165 = load i32, ptr %56, align 4, !tbaa !73
   %166 = add nsw i32 %165, 1
   store i32 %166, ptr %56, align 4, !tbaa !73
-  %167 = load i32, ptr %57, align 4, !tbaa !73
+  %167 = load i32, ptr %57, align 8, !tbaa !73
   %168 = add nsw i32 %167, 1
-  store i32 %168, ptr %57, align 4, !tbaa !73
+  store i32 %168, ptr %57, align 8, !tbaa !73
   %169 = load ptr, ptr %47, align 8, !tbaa !59
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 16
   store ptr %170, ptr %47, align 8, !tbaa !59
@@ -4742,7 +4742,7 @@ switch.lookup:                                    ; preds = %1251
   %1262 = getelementptr inbounds i8, ptr %1260, i64 %1261
   store i8 %switch.masked, ptr %1262, align 1, !tbaa !101
   %1263 = load ptr, ptr %74, align 8, !tbaa !202
-  %1264 = load i32, ptr %53, align 4, !tbaa !73
+  %1264 = load i32, ptr %53, align 8, !tbaa !73
   %1265 = sext i32 %1264 to i64
   %1266 = getelementptr inbounds i8, ptr %1263, i64 %1265
   store i8 %switch.masked, ptr %1266, align 1, !tbaa !101
@@ -4752,7 +4752,7 @@ switch.lookup:                                    ; preds = %1251
   %1270 = getelementptr inbounds i8, ptr %1267, i64 %1269
   store i8 %switch.masked, ptr %1270, align 1, !tbaa !101
   %1271 = load ptr, ptr %74, align 8, !tbaa !202
-  %1272 = load i32, ptr %55, align 4, !tbaa !73
+  %1272 = load i32, ptr %55, align 8, !tbaa !73
   %1273 = sext i32 %1272 to i64
   %1274 = getelementptr inbounds i8, ptr %1271, i64 %1273
   store i8 %switch.masked, ptr %1274, align 1, !tbaa !101
@@ -6668,7 +6668,7 @@ get_vlc2.exit.i138:                               ; preds = %2485, %2461
   %2596 = getelementptr inbounds i8, ptr %2593, i64 %2595
   store i8 0, ptr %2596, align 1, !tbaa !101
   %2597 = load ptr, ptr %74, align 8, !tbaa !202
-  %2598 = load i32, ptr %53, align 4, !tbaa !73
+  %2598 = load i32, ptr %53, align 8, !tbaa !73
   %2599 = sext i32 %2598 to i64
   %2600 = getelementptr inbounds i8, ptr %2597, i64 %2599
   store i8 0, ptr %2600, align 1, !tbaa !101
@@ -6678,7 +6678,7 @@ get_vlc2.exit.i138:                               ; preds = %2485, %2461
   %2604 = getelementptr inbounds i8, ptr %2601, i64 %2603
   store i8 0, ptr %2604, align 1, !tbaa !101
   %2605 = load ptr, ptr %74, align 8, !tbaa !202
-  %2606 = load i32, ptr %55, align 4, !tbaa !73
+  %2606 = load i32, ptr %55, align 8, !tbaa !73
   %2607 = sext i32 %2606 to i64
   %2608 = getelementptr inbounds i8, ptr %2605, i64 %2607
   store i8 0, ptr %2608, align 1, !tbaa !101
@@ -9076,21 +9076,21 @@ init_block_index.exit:                            ; preds = %125, %127, %131
   %154 = load i32, ptr %38, align 4, !tbaa !73
   %155 = add nsw i32 %154, 2
   store i32 %155, ptr %38, align 4, !tbaa !73
-  %156 = load i32, ptr %39, align 4, !tbaa !73
+  %156 = load i32, ptr %39, align 8, !tbaa !73
   %157 = add nsw i32 %156, 2
-  store i32 %157, ptr %39, align 4, !tbaa !73
+  store i32 %157, ptr %39, align 8, !tbaa !73
   %158 = load i32, ptr %40, align 4, !tbaa !73
   %159 = add nsw i32 %158, 2
   store i32 %159, ptr %40, align 4, !tbaa !73
-  %160 = load i32, ptr %41, align 4, !tbaa !73
+  %160 = load i32, ptr %41, align 8, !tbaa !73
   %161 = add nsw i32 %160, 2
-  store i32 %161, ptr %41, align 4, !tbaa !73
+  store i32 %161, ptr %41, align 8, !tbaa !73
   %162 = load i32, ptr %42, align 4, !tbaa !73
   %163 = add nsw i32 %162, 1
   store i32 %163, ptr %42, align 4, !tbaa !73
-  %164 = load i32, ptr %43, align 4, !tbaa !73
+  %164 = load i32, ptr %43, align 8, !tbaa !73
   %165 = add nsw i32 %164, 1
-  store i32 %165, ptr %43, align 4, !tbaa !73
+  store i32 %165, ptr %43, align 8, !tbaa !73
   %166 = load ptr, ptr %33, align 8, !tbaa !59
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 16
   store ptr %167, ptr %33, align 8, !tbaa !59
@@ -11088,7 +11088,7 @@ get_vlc2.exit919.i:                               ; preds = %1431, %1410
 .thread.i:                                        ; preds = %get_vlc2.exit919.i
   store i8 1, ptr %1459, align 1, !tbaa !101
   %1460 = load ptr, ptr %57, align 8, !tbaa !202
-  %1461 = load i32, ptr %39, align 4, !tbaa !73
+  %1461 = load i32, ptr %39, align 8, !tbaa !73
   %1462 = sext i32 %1461 to i64
   %1463 = getelementptr inbounds i8, ptr %1460, i64 %1462
   store i8 1, ptr %1463, align 1, !tbaa !101
@@ -11098,7 +11098,7 @@ get_vlc2.exit919.i:                               ; preds = %1431, %1410
   %1467 = getelementptr inbounds i8, ptr %1464, i64 %1466
   store i8 1, ptr %1467, align 1, !tbaa !101
   %1468 = load ptr, ptr %57, align 8, !tbaa !202
-  %1469 = load i32, ptr %41, align 4, !tbaa !73
+  %1469 = load i32, ptr %41, align 8, !tbaa !73
   %1470 = sext i32 %1469 to i64
   %1471 = getelementptr inbounds i8, ptr %1468, i64 %1470
   store i8 1, ptr %1471, align 1, !tbaa !101
@@ -11107,7 +11107,7 @@ get_vlc2.exit919.i:                               ; preds = %1431, %1410
 1472:                                             ; preds = %get_vlc2.exit919.i
   store i8 0, ptr %1459, align 1, !tbaa !101
   %1473 = load ptr, ptr %57, align 8, !tbaa !202
-  %1474 = load i32, ptr %39, align 4, !tbaa !73
+  %1474 = load i32, ptr %39, align 8, !tbaa !73
   %1475 = sext i32 %1474 to i64
   %1476 = getelementptr inbounds i8, ptr %1473, i64 %1475
   store i8 0, ptr %1476, align 1, !tbaa !101
@@ -11117,7 +11117,7 @@ get_vlc2.exit919.i:                               ; preds = %1431, %1410
   %1480 = getelementptr inbounds i8, ptr %1477, i64 %1479
   store i8 0, ptr %1480, align 1, !tbaa !101
   %1481 = load ptr, ptr %57, align 8, !tbaa !202
-  %1482 = load i32, ptr %41, align 4, !tbaa !73
+  %1482 = load i32, ptr %41, align 8, !tbaa !73
   %1483 = sext i32 %1482 to i64
   %1484 = getelementptr inbounds i8, ptr %1481, i64 %1483
   store i8 0, ptr %1484, align 1, !tbaa !101
@@ -13641,7 +13641,7 @@ get_mvdata_interlaced.exit.i102:                  ; preds = %3209, %3206, %3170,
   %3240 = getelementptr inbounds i8, ptr %3237, i64 %3239
   store i8 1, ptr %3240, align 1, !tbaa !101
   %3241 = load ptr, ptr %57, align 8, !tbaa !202
-  %3242 = load i32, ptr %39, align 4, !tbaa !73
+  %3242 = load i32, ptr %39, align 8, !tbaa !73
   %3243 = sext i32 %3242 to i64
   %3244 = getelementptr inbounds i8, ptr %3241, i64 %3243
   store i8 1, ptr %3244, align 1, !tbaa !101
@@ -13651,7 +13651,7 @@ get_mvdata_interlaced.exit.i102:                  ; preds = %3209, %3206, %3170,
   %3248 = getelementptr inbounds i8, ptr %3245, i64 %3247
   store i8 1, ptr %3248, align 1, !tbaa !101
   %3249 = load ptr, ptr %57, align 8, !tbaa !202
-  %3250 = load i32, ptr %41, align 4, !tbaa !73
+  %3250 = load i32, ptr %41, align 8, !tbaa !73
   %3251 = sext i32 %3250 to i64
   %3252 = getelementptr inbounds i8, ptr %3249, i64 %3251
   store i8 1, ptr %3252, align 1, !tbaa !101
@@ -14103,7 +14103,7 @@ get_vlc2.exit.i89:                                ; preds = %3426, %3402
   %3526 = getelementptr inbounds i8, ptr %3523, i64 %3525
   store i8 0, ptr %3526, align 1, !tbaa !101
   %3527 = load ptr, ptr %57, align 8, !tbaa !202
-  %3528 = load i32, ptr %39, align 4, !tbaa !73
+  %3528 = load i32, ptr %39, align 8, !tbaa !73
   %3529 = sext i32 %3528 to i64
   %3530 = getelementptr inbounds i8, ptr %3527, i64 %3529
   store i8 0, ptr %3530, align 1, !tbaa !101
@@ -14113,7 +14113,7 @@ get_vlc2.exit.i89:                                ; preds = %3426, %3402
   %3534 = getelementptr inbounds i8, ptr %3531, i64 %3533
   store i8 0, ptr %3534, align 1, !tbaa !101
   %3535 = load ptr, ptr %57, align 8, !tbaa !202
-  %3536 = load i32, ptr %41, align 4, !tbaa !73
+  %3536 = load i32, ptr %41, align 8, !tbaa !73
   %3537 = sext i32 %3536 to i64
   %3538 = getelementptr inbounds i8, ptr %3535, i64 %3537
   store i8 0, ptr %3538, align 1, !tbaa !101
@@ -14207,7 +14207,7 @@ get_vlc2.exit.i89:                                ; preds = %3426, %3402
   %3598 = getelementptr inbounds i8, ptr %3595, i64 %3597
   store i8 1, ptr %3598, align 1, !tbaa !101
   %3599 = load ptr, ptr %57, align 8, !tbaa !202
-  %3600 = load i32, ptr %39, align 4, !tbaa !73
+  %3600 = load i32, ptr %39, align 8, !tbaa !73
   %3601 = sext i32 %3600 to i64
   %3602 = getelementptr inbounds i8, ptr %3599, i64 %3601
   store i8 1, ptr %3602, align 1, !tbaa !101
@@ -14217,7 +14217,7 @@ get_vlc2.exit.i89:                                ; preds = %3426, %3402
   %3606 = getelementptr inbounds i8, ptr %3603, i64 %3605
   store i8 1, ptr %3606, align 1, !tbaa !101
   %3607 = load ptr, ptr %57, align 8, !tbaa !202
-  %3608 = load i32, ptr %41, align 4, !tbaa !73
+  %3608 = load i32, ptr %41, align 8, !tbaa !73
   %3609 = sext i32 %3608 to i64
   %3610 = getelementptr inbounds i8, ptr %3607, i64 %3609
   store i8 1, ptr %3610, align 1, !tbaa !101

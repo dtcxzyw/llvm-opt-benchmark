@@ -733,7 +733,7 @@ _ZNSt10unique_ptrIN11flatbuffers12_GLOBAL__N_115TsCodeGeneratorESt14default_dele
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %4, ptr %3, align 8, !tbaa !4
-  store i8 0, ptr %4, align 1, !tbaa !10
+  store i8 0, ptr %4, align 8, !tbaa !10
   store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN11flatbuffers12_GLOBAL__N_115TsCodeGeneratorE, i64 16), ptr %1, align 8, !tbaa !11
   store ptr %1, ptr %0, align 8, !tbaa !13
   ret void
@@ -111216,7 +111216,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !tbaa !19, !alias.scope !2549, !noalias !2552
   store ptr %43, ptr %.0911.i.i.i, align 8, !tbaa !16, !alias.scope !2552, !noalias !2549
   store i64 0, ptr %52, align 8, !tbaa !19, !alias.scope !2552, !noalias !2549
-  store i8 0, ptr %43, align 1, !tbaa !10, !alias.scope !2552, !noalias !2549
+  store i8 0, ptr %43, align 8, !tbaa !10, !alias.scope !2552, !noalias !2549
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %54, %1
@@ -111264,7 +111264,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !tbaa !19, !alias.scope !2556, !noalias !2559
   store ptr %59, ptr %.0911.i.i.i29, align 8, !tbaa !16, !alias.scope !2559, !noalias !2556
   store i64 0, ptr %68, align 8, !tbaa !19, !alias.scope !2559, !noalias !2556
-  store i8 0, ptr %59, align 1, !tbaa !10, !alias.scope !2559, !noalias !2556
+  store i8 0, ptr %59, align 8, !tbaa !10, !alias.scope !2559, !noalias !2556
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %.not.i.i.i34 = icmp eq ptr %70, %6

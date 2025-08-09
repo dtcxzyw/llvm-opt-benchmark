@@ -1021,11 +1021,11 @@ define dso_local noundef range(i32 -6, 1) i32 @dm_create(i32 noundef %0, ptr nou
   %63 = getelementptr inbounds nuw i8, ptr %17, i64 288
   store i32 0, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %17, i64 144
-  store volatile i32 1, ptr %64, align 4
+  store volatile i32 1, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %17, i64 148
   store volatile i32 0, ptr %65, align 4
   %66 = getelementptr inbounds nuw i8, ptr %17, i64 384
-  store volatile i32 0, ptr %66, align 4
+  store volatile i32 0, ptr %66, align 8
   %67 = getelementptr inbounds nuw i8, ptr %17, i64 388
   store volatile i32 0, ptr %67, align 4
   %68 = getelementptr inbounds nuw i8, ptr %17, i64 392

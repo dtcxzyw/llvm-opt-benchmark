@@ -2704,7 +2704,7 @@ define noundef i32 @_ZN10colvarbias17init_dependenciesEv(ptr noundef nonnull ali
   store ptr %21, ptr %20, align 8, !tbaa !114
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 0, ptr %22, align 8, !tbaa !118
-  store i8 0, ptr %21, align 1, !tbaa !117
+  store i8 0, ptr %21, align 8, !tbaa !117
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(100) %23, i8 0, i64 100, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -15246,7 +15246,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN10colvarbias11write_st
   %9 = load i32, ptr %8, align 8, !tbaa !416
   %10 = and i32 %9, -261
   %11 = or disjoint i32 %10, 256
-  store i32 %11, ptr %8, align 4, !tbaa !417
+  store i32 %11, ptr %8, align 8, !tbaa !417
   %12 = load i64, ptr %5, align 8
   %13 = getelementptr inbounds i8, ptr %1, i64 %12
   %14 = load i64, ptr @_ZN12colvarmodule7cv_precE, align 8, !tbaa !115
@@ -20005,7 +20005,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i32
   %87 = load i32, ptr %86, align 8, !tbaa !416
   %88 = and i32 %87, -261
   %89 = or disjoint i32 %88, 256
-  store i32 %89, ptr %86, align 4, !tbaa !417
+  store i32 %89, ptr %86, align 8, !tbaa !417
   %90 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN10colvarbias11write_stateERSo(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull align 8 dereferenceable(8) %63)
           to label %91 unwind label %125
 

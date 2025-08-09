@@ -415,7 +415,7 @@ define dso_local i32 @_ZN5clang16SourceMgrAdapter11mapLocationERKN4llvm9SourceMg
   %41 = load ptr, ptr %40, align 8, !tbaa !74
   %42 = icmp eq ptr %1, %41
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %44 = load i32, ptr %43, align 4
+  %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %10, %44
   %46 = select i1 %42, i1 %45, i1 false
   br i1 %46, label %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_9SourceMgrEjEN5clang6FileIDENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E4findERKS6_.exit, label %.lr.ph.i.i, !prof !76
@@ -439,7 +439,7 @@ define dso_local i32 @_ZN5clang16SourceMgrAdapter11mapLocationERKN4llvm9SourceMg
   %58 = load ptr, ptr %57, align 8, !tbaa !74
   %59 = icmp eq ptr %1, %58
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %61 = load i32, ptr %60, align 4
+  %61 = load i32, ptr %60, align 8
   %62 = icmp eq i32 %10, %61
   %63 = select i1 %59, i1 %62, i1 false
   br i1 %63, label %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_9SourceMgrEjEN5clang6FileIDENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E4findERKS6_.exit, label %.lr.ph.i.i, !prof !78, !llvm.loop !79
@@ -1187,7 +1187,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKN
   %32 = load ptr, ptr %31, align 8, !tbaa !74
   %33 = icmp eq ptr %11, %32
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %35 = load i32, ptr %34, align 4
+  %35 = load i32, ptr %34, align 8
   %36 = icmp eq i32 %18, %35
   %37 = select i1 %33, i1 %36, i1 false
   br i1 %37, label %.loopexit, label %.lr.ph.i, !prof !76
@@ -1224,7 +1224,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKN
   %56 = load ptr, ptr %55, align 8, !tbaa !74
   %57 = icmp eq ptr %11, %56
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %59 = load i32, ptr %58, align 4
+  %59 = load i32, ptr %58, align 8
   %60 = icmp eq i32 %18, %59
   %61 = select i1 %57, i1 %60, i1 false
   br i1 %61, label %.loopexit, label %.lr.ph.i, !prof !78, !llvm.loop !124
@@ -1271,7 +1271,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_9SourceMgrEjEN5clang6FileIDENS_
   %79 = load ptr, ptr %76, align 8, !tbaa !74
   %80 = icmp eq ptr %79, inttoptr (i64 -4096 to ptr)
   %81 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %82 = load i32, ptr %81, align 4
+  %82 = load i32, ptr %81, align 8
   %83 = icmp eq i32 %82, -1
   %84 = select i1 %80, i1 %83, i1 false
   br i1 %84, label %89, label %85
@@ -1292,7 +1292,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_9SourceMgrEjEN5clang6FileIDENS_
   store i32 %92, ptr %81, align 8, !tbaa !129
   %93 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %94 = load i32, ptr %3, align 4, !tbaa !31
-  store i32 %94, ptr %93, align 4, !tbaa !31
+  store i32 %94, ptr %93, align 8, !tbaa !31
   %95 = load ptr, ptr %1, align 8, !tbaa !67
   %96 = load i32, ptr %7, align 8, !tbaa !68
   br label %.loopexit
@@ -1345,7 +1345,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %30 = load ptr, ptr %29, align 8, !tbaa !74
   %31 = icmp eq ptr %9, %30
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %33 = load i32, ptr %32, align 4
+  %33 = load i32, ptr %32, align 8
   %34 = icmp eq i32 %16, %33
   %35 = select i1 %31, i1 %34, i1 false
   br i1 %35, label %._crit_edge, label %.lr.ph, !prof !76
@@ -1382,7 +1382,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %54 = load ptr, ptr %53, align 8, !tbaa !74
   %55 = icmp eq ptr %9, %54
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %57 = load i32, ptr %56, align 4
+  %57 = load i32, ptr %56, align 8
   %58 = icmp eq i32 %16, %57
   %59 = select i1 %55, i1 %58, i1 false
   br i1 %59, label %._crit_edge, label %.lr.ph, !prof !78, !llvm.loop !124
@@ -1492,7 +1492,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_9SourceMgrEjEN5clang6FileIDENS_
   %12 = load ptr, ptr %.027, align 8, !tbaa !74
   %13 = icmp eq ptr %12, inttoptr (i64 -4096 to ptr)
   %14 = getelementptr inbounds nuw i8, ptr %.027, i64 8
-  %15 = load i32, ptr %14, align 4
+  %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, -1
   %17 = select i1 %13, i1 %16, i1 false
   br i1 %17, label %80, label %18
@@ -1529,7 +1529,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_9SourceMgrEjEN5clang6FileIDENS_
   %44 = load ptr, ptr %43, align 8, !tbaa !74
   %45 = icmp eq ptr %12, %44
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %47 = load i32, ptr %46, align 4
+  %47 = load i32, ptr %46, align 8
   %48 = icmp eq i32 %15, %47
   %49 = select i1 %45, i1 %48, i1 false
   br i1 %49, label %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_9SourceMgrEjEN5clang6FileIDENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E15LookupBucketForIS6_EEbRKT_RPSD_.exit, label %.lr.ph.i17, !prof !76
@@ -1566,7 +1566,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_9SourceMgrEjEN5clang6FileIDENS_
   %68 = load ptr, ptr %67, align 8, !tbaa !74
   %69 = icmp eq ptr %12, %68
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %71 = load i32, ptr %70, align 4
+  %71 = load i32, ptr %70, align 8
   %72 = icmp eq i32 %15, %71
   %73 = select i1 %69, i1 %72, i1 false
   br i1 %73, label %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_9SourceMgrEjEN5clang6FileIDENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E15LookupBucketForIS6_EEbRKT_RPSD_.exit, label %.lr.ph.i17, !prof !78, !llvm.loop !124
@@ -1579,7 +1579,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_9SourceMgrEjEN5clang6FileIDENS_
   %75 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 16
   %76 = getelementptr inbounds nuw i8, ptr %.027, i64 16
   %77 = load i32, ptr %76, align 4, !tbaa !31
-  store i32 %77, ptr %75, align 4, !tbaa !31
+  store i32 %77, ptr %75, align 8, !tbaa !31
   %78 = load i32, ptr %4, align 8, !tbaa !126
   %79 = add i32 %78, 1
   store i32 %79, ptr %4, align 8, !tbaa !126
@@ -1619,7 +1619,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llv
   store ptr %16, ptr %.ptr.i.i.i, align 8, !tbaa !95
   %17 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %17, align 8, !tbaa !29
-  store i8 0, ptr %16, align 1, !tbaa !54
+  store i8 0, ptr %16, align 8, !tbaa !54
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %18 = icmp eq i64 %.add.i.i.i, 416
   br i1 %18, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %15
@@ -1896,7 +1896,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic14AddSourceRange
   store ptr %13, ptr %.ptr.i.i.i, align 8, !tbaa !95
   %14 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %14, align 8, !tbaa !29
-  store i8 0, ptr %13, align 1, !tbaa !54
+  store i8 0, ptr %13, align 8, !tbaa !54
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %15 = icmp eq i64 %.add.i.i.i, 416
   br i1 %15, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %12
@@ -2046,7 +2046,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic12AddFixItHintER
   store ptr %19, ptr %.ptr.i.i.i, align 8, !tbaa !95
   %20 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %20, align 8, !tbaa !29
-  store i8 0, ptr %19, align 1, !tbaa !54
+  store i8 0, ptr %19, align 8, !tbaa !54
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %21 = icmp eq i64 %.add.i.i.i, 416
   br i1 %21, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %18
@@ -2280,7 +2280,7 @@ _ZSt10_ConstructIN5clang9FixItHintEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = 
   store i64 %24, ptr %25, align 8, !tbaa !29
   store ptr %15, ptr %12, align 8, !tbaa !28
   store i64 0, ptr %23, align 8, !tbaa !29
-  store i8 0, ptr %15, align 1, !tbaa !54
+  store i8 0, ptr %15, align 8, !tbaa !54
   %26 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 56
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 56
   %28 = load i8, ptr %27, align 8, !tbaa !96, !range !50, !noundef !51

@@ -1060,7 +1060,7 @@ define hidden noundef ptr @_ZN11vframeArray8allocateEP10JavaThreadiP13GrowableAr
   %30 = load ptr, ptr %29, align 8
   tail call void @_ZN18vframeArrayElement7fill_inEP14compiledVFrameb(ptr noundef nonnull align 8 dereferenceable(96) %27, ptr noundef %30, i1 zeroext poison)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %31 = load i32, ptr %2, align 4
+  %31 = load i32, ptr %2, align 8
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next.i, %32
   br i1 %33, label %26, label %._crit_edge.i, !llvm.loop !13
@@ -1111,7 +1111,7 @@ _ZNK11RegisterMap8locationEP9VMRegImplPl.exit.i:  ; preds = %53, %49
   %57 = getelementptr inbounds nuw [609 x i64], ptr %35, i64 0, i64 %indvars.iv27.i
   store i64 %56, ptr %57, align 8
   %58 = trunc i64 %56 to i32
-  store i32 %58, ptr %57, align 4
+  store i32 %58, ptr %57, align 8
   br label %60
 
 .critedge.i:                                      ; preds = %_ZNK11RegisterMap8locationEP9VMRegImplPl.exit.i
@@ -1154,7 +1154,7 @@ define hidden void @_ZN11vframeArray7fill_inEP10JavaThreadiP13GrowableArrayIP14c
   %16 = load ptr, ptr %15, align 8
   tail call void @_ZN18vframeArrayElement7fill_inEP14compiledVFrameb(ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef %16, i1 zeroext poison)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = load i32, ptr %3, align 4
+  %17 = load i32, ptr %3, align 8
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
   br i1 %19, label %12, label %._crit_edge, !llvm.loop !13

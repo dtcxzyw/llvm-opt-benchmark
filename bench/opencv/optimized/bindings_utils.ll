@@ -3497,7 +3497,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   %23 = load i32, ptr %22, align 8, !tbaa !89, !noalias !84
   %24 = and i32 %23, -261
   %25 = or disjoint i32 %24, 4
-  store i32 %25, ptr %22, align 4, !tbaa !90, !noalias !84
+  store i32 %25, ptr %22, align 8, !tbaa !90, !noalias !84
   %26 = load i64, ptr %19, align 8, !noalias !84
   %27 = getelementptr inbounds i8, ptr %3, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -3555,7 +3555,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21.i: ; preds = %_
   %52 = load i32, ptr %51, align 8, !tbaa !89, !noalias !84
   %53 = and i32 %52, -261
   %54 = or disjoint i32 %53, 4
-  store i32 %54, ptr %51, align 4, !tbaa !90, !noalias !84
+  store i32 %54, ptr %51, align 8, !tbaa !90, !noalias !84
   %55 = load i64, ptr %48, align 8, !noalias !84
   %56 = getelementptr inbounds i8, ptr %3, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8

@@ -395,19 +395,19 @@ define void @_ZN3gmx15analysismodules9AngleInfo6createEv(ptr dead_on_unwind noal
   store ptr %12, ptr %11, align 8, !tbaa !7
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 88
   store i64 0, ptr %13, align 8, !tbaa !12
-  store i8 0, ptr %12, align 1, !tbaa !15
+  store i8 0, ptr %12, align 8, !tbaa !15
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 128
   store ptr %15, ptr %14, align 8, !tbaa !7
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 120
   store i64 0, ptr %16, align 8, !tbaa !12
-  store i8 0, ptr %15, align 1, !tbaa !15
+  store i8 0, ptr %15, align 8, !tbaa !15
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 144
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 160
   store ptr %18, ptr %17, align 8, !tbaa !7
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 152
   store i64 0, ptr %19, align 8, !tbaa !12
-  store i8 0, ptr %18, align 1, !tbaa !15
+  store i8 0, ptr %18, align 8, !tbaa !15
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 176
   store i32 0, ptr %20, align 8, !tbaa !16
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 180

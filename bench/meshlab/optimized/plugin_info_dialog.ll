@@ -1421,7 +1421,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i: ; preds = %_ZN9QtPrivate8Re
   %155 = load i32, ptr %154, align 8, !noalias !10
   %156 = sext i32 %155 to i64
   %157 = getelementptr inbounds ptr, ptr %153, i64 %156
-  %158 = load atomic i32, ptr %152 monotonic, align 4, !noalias !13
+  %158 = load atomic i32, ptr %152 monotonic, align 8, !noalias !13
   %159 = icmp ugt i32 %158, 1
   br i1 %159, label %160, label %_ZN5QListIP7QActionE3endEv.exit
 
@@ -6066,7 +6066,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i508: ; preds = %_ZN9QtPrivate
   %1654 = load i32, ptr %1653, align 8, !noalias !74
   %1655 = sext i32 %1654 to i64
   %1656 = getelementptr inbounds ptr, ptr %1652, i64 %1655
-  %1657 = load atomic i32, ptr %1651 monotonic, align 4, !noalias !77
+  %1657 = load atomic i32, ptr %1651 monotonic, align 8, !noalias !77
   %1658 = icmp ugt i32 %1657, 1
   br i1 %1658, label %1659, label %_ZN5QListIP7QActionE3endEv.exit524
 

@@ -18007,7 +18007,7 @@ define linkonce_odr void @_ZN7rocksdb9StopWatchC2EPNS_11SystemClockEPNS_10Statis
   store i8 %9, ptr %28, align 8, !tbaa !1055
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %31 = load atomic i8, ptr %30 monotonic, align 1
+  %31 = load atomic i8, ptr %30 monotonic, align 8
   %32 = icmp ugt i8 %31, 2
   br i1 %32, label %33, label %40
 
@@ -27415,19 +27415,19 @@ define linkonce_odr void @_ZN7rocksdb19SuperVersionContext15NewSuperVersionEv(pt
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 280
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 312
-  store i32 1, ptr %5, align 4, !tbaa !1256
+  store i32 1, ptr %5, align 8, !tbaa !1256
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 316
   store i32 2, ptr %6, align 4, !tbaa !1257
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 320
-  store i32 -1, ptr %7, align 4, !tbaa !1258
+  store i32 -1, ptr %7, align 8, !tbaa !1258
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 324
   store i32 200, ptr %8, align 4, !tbaa !1259
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 328
-  store i32 -1, ptr %9, align 4, !tbaa !1260
+  store i32 -1, ptr %9, align 8, !tbaa !1260
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 332
   store i32 -1, ptr %10, align 4, !tbaa !1261
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 336
-  store i32 1, ptr %11, align 4, !tbaa !1262
+  store i32 1, ptr %11, align 8, !tbaa !1262
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 341
   store i8 0, ptr %12, align 1, !tbaa !1263
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 344
@@ -27483,7 +27483,7 @@ define linkonce_odr void @_ZN7rocksdb19SuperVersionContext15NewSuperVersionEv(pt
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 656
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 672
   store ptr %39, ptr %38, align 8, !tbaa !66
-  store i8 0, ptr %39, align 1, !tbaa !29
+  store i8 0, ptr %39, align 8, !tbaa !29
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 688
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 784

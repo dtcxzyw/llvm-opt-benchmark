@@ -2638,7 +2638,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llv
   store ptr %16, ptr %.ptr.i.i.i, align 8, !tbaa !80
   %17 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %17, align 8, !tbaa !81
-  store i8 0, ptr %16, align 1, !tbaa !82
+  store i8 0, ptr %16, align 8, !tbaa !82
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %18 = icmp eq i64 %.add.i.i.i, 416
   br i1 %18, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %15
@@ -3128,7 +3128,7 @@ define dso_local noundef zeroext i1 @_ZN5clang15BackendConsumer20StackSizeDiagHa
   store ptr %37, ptr %.ptr.i.i.i.i, align 8, !tbaa !80
   %38 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
   store i64 0, ptr %38, align 8, !tbaa !81
-  store i8 0, ptr %37, align 1, !tbaa !82
+  store i8 0, ptr %37, align 8, !tbaa !82
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 32
   %39 = icmp eq i64 %.add.i.i.i.i, 416
   br i1 %39, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %36
@@ -3433,7 +3433,7 @@ define dso_local noundef zeroext i1 @_ZN5clang15BackendConsumer24ResourceLimitDi
   store ptr %37, ptr %.ptr.i.i.i.i, align 8, !tbaa !80
   %38 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
   store i64 0, ptr %38, align 8, !tbaa !81
-  store i8 0, ptr %37, align 1, !tbaa !82
+  store i8 0, ptr %37, align 8, !tbaa !82
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 32
   %39 = icmp eq i64 %.add.i.i.i.i, 416
   br i1 %39, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %36
@@ -3929,7 +3929,7 @@ _ZNK5clang15BackendConsumer25getFunctionSourceLocationERKN4llvm8FunctionE.exit.t
   store ptr %122, ptr %.ptr.i.i.i.i, align 8, !tbaa !80
   %123 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
   store i64 0, ptr %123, align 8, !tbaa !81
-  store i8 0, ptr %122, align 1, !tbaa !82
+  store i8 0, ptr %122, align 8, !tbaa !82
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 32
   %124 = icmp eq i64 %.add.i.i.i.i, 416
   br i1 %124, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %121
@@ -4273,7 +4273,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basi
   store ptr %79, ptr %.ptr.i.i.i.i, align 8, !tbaa !80
   %80 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
   store i64 0, ptr %80, align 8, !tbaa !81
-  store i8 0, ptr %79, align 1, !tbaa !82
+  store i8 0, ptr %79, align 8, !tbaa !82
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 32
   %81 = icmp eq i64 %.add.i.i.i.i, 416
   br i1 %81, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %78
@@ -4717,7 +4717,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basi
   store ptr %119, ptr %.ptr.i.i.i.i, align 8, !tbaa !80
   %120 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
   store i64 0, ptr %120, align 8, !tbaa !81
-  store i8 0, ptr %119, align 1, !tbaa !82
+  store i8 0, ptr %119, align 8, !tbaa !82
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 32
   %121 = icmp eq i64 %.add.i.i.i.i, 416
   br i1 %121, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %118
@@ -5438,7 +5438,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basi
   store ptr %66, ptr %.ptr.i.i.i.i, align 8, !tbaa !80
   %67 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
   store i64 0, ptr %67, align 8, !tbaa !81
-  store i8 0, ptr %66, align 1, !tbaa !82
+  store i8 0, ptr %66, align 8, !tbaa !82
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 32
   %68 = icmp eq i64 %.add.i.i.i.i, 416
   br i1 %68, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %65
@@ -11595,7 +11595,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic14AddSourceRange
   store ptr %13, ptr %.ptr.i.i.i, align 8, !tbaa !80
   %14 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %14, align 8, !tbaa !81
-  store i8 0, ptr %13, align 1, !tbaa !82
+  store i8 0, ptr %13, align 8, !tbaa !82
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %15 = icmp eq i64 %.add.i.i.i, 416
   br i1 %15, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %12

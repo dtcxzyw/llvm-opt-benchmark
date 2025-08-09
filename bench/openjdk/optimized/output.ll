@@ -3769,7 +3769,7 @@ define hidden void @_ZN11PhaseOutput12FillLocArrayEiP17MachSafePointNodeP4NodeP1
   store ptr %66, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %76 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #14
-  store i32 0, ptr %75, align 4
+  store i32 0, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %64, i64 28
   store i32 2, ptr %77, align 4
   %78 = getelementptr inbounds nuw i8, ptr %64, i64 32
@@ -3972,7 +3972,7 @@ _ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE6appendERKS1_.
   store ptr null, ptr %207, align 8
   %208 = getelementptr inbounds nuw i8, ptr %200, i64 24
   %209 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #14
-  store i32 0, ptr %208, align 4
+  store i32 0, ptr %208, align 8
   %210 = getelementptr inbounds nuw i8, ptr %200, i64 28
   store i32 2, ptr %210, align 4
   %211 = getelementptr inbounds nuw i8, ptr %200, i64 32
@@ -3989,7 +3989,7 @@ _ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE6appendERKS1_.
   store ptr %203, ptr %215, align 8
   %216 = getelementptr inbounds nuw i8, ptr %200, i64 80
   %217 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #14
-  store i32 0, ptr %216, align 4
+  store i32 0, ptr %216, align 8
   %218 = getelementptr inbounds nuw i8, ptr %200, i64 84
   store i32 2, ptr %218, align 4
   %219 = getelementptr inbounds nuw i8, ptr %200, i64 88
@@ -4893,7 +4893,7 @@ _ZN13GrowableArrayIP12MonitorValueEC2Ei.exit:     ; preds = %._crit_edge274
   store ptr %170, ptr %178, align 8
   %179 = getelementptr inbounds nuw i8, ptr %168, i64 24
   %180 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #14
-  store i32 0, ptr %179, align 4
+  store i32 0, ptr %179, align 8
   %181 = getelementptr inbounds nuw i8, ptr %168, i64 28
   store i32 2, ptr %181, align 4
   %182 = getelementptr inbounds nuw i8, ptr %168, i64 32
@@ -5126,7 +5126,7 @@ _ZN11PhaseOutput22set_sv_for_object_nodeEP13GrowableArrayIP10ScopeValueEP11Objec
   store ptr null, ptr %305, align 8
   %306 = getelementptr inbounds nuw i8, ptr %298, i64 24
   %307 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #14
-  store i32 0, ptr %306, align 4
+  store i32 0, ptr %306, align 8
   %308 = getelementptr inbounds nuw i8, ptr %298, i64 28
   store i32 2, ptr %308, align 4
   %309 = getelementptr inbounds nuw i8, ptr %298, i64 32
@@ -5143,7 +5143,7 @@ _ZN11PhaseOutput22set_sv_for_object_nodeEP13GrowableArrayIP10ScopeValueEP11Objec
   store ptr %301, ptr %313, align 8
   %314 = getelementptr inbounds nuw i8, ptr %298, i64 80
   %315 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #14
-  store i32 0, ptr %314, align 4
+  store i32 0, ptr %314, align 8
   %316 = getelementptr inbounds nuw i8, ptr %298, i64 84
   store i32 2, ptr %316, align 4
   %317 = getelementptr inbounds nuw i8, ptr %298, i64 88

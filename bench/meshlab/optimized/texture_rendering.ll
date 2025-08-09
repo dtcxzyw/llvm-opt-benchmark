@@ -1139,13 +1139,13 @@ _ZNSt6vectorI11TextureSizeSaIS0_EE9push_backEOS0_.exit.i: ; preds = %_ZNSt6vecto
   store float %271, ptr %267, align 4, !noalias !13
   %273 = load i8, ptr %242, align 1, !noalias !13
   %274 = getelementptr inbounds nuw i8, ptr %.178202.i, i64 17
-  store i8 %273, ptr %272, align 1, !noalias !13
+  store i8 %273, ptr %272, align 4, !noalias !13
   %275 = load i8, ptr %243, align 1, !noalias !13
   %276 = getelementptr inbounds nuw i8, ptr %.178202.i, i64 18
   store i8 %275, ptr %274, align 1, !noalias !13
   %277 = load i8, ptr %244, align 1, !noalias !13
   %278 = getelementptr inbounds nuw i8, ptr %.178202.i, i64 19
-  store i8 %277, ptr %276, align 1, !noalias !13
+  store i8 %277, ptr %276, align 2, !noalias !13
   %279 = load i8, ptr %245, align 1, !noalias !13
   store i8 %279, ptr %278, align 1, !noalias !13
   %280 = getelementptr inbounds nuw i8, ptr %.178202.i, i64 20
@@ -2846,7 +2846,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 32
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 80
-  %47 = load i32, ptr %46, align 4
+  %47 = load i32, ptr %46, align 8
   br label %48
 
 48:                                               ; preds = %_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit, %13, %43
@@ -2989,7 +2989,7 @@ _ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE15TexCoordStorageEC2ERKS4_.ex
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %60 = load i32, ptr %59, align 4
+  %60 = load i32, ptr %59, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %58, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %60, 1

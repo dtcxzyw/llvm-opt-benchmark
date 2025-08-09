@@ -7466,7 +7466,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.016.0, i64 32
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %.sroa.016.0, i64 80
-  %66 = load i32, ptr %65, align 4
+  %66 = load i32, ptr %65, align 8
   br label %67
 
 67:                                               ; preds = %_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit, %13, %62
@@ -7555,7 +7555,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %36 = load i32, ptr %35, align 4
+  %36 = load i32, ptr %35, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #29
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %34, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %36, 1
@@ -8423,7 +8423,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 32
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 80
-  %47 = load i32, ptr %46, align 4
+  %47 = load i32, ptr %46, align 8
   br label %48
 
 48:                                               ; preds = %_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit, %13, %43
@@ -8512,7 +8512,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %36 = load i32, ptr %35, align 4
+  %36 = load i32, ptr %35, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #29
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %34, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %36, 1
@@ -11102,12 +11102,12 @@ _ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exi
   %207 = fmul float %204, 2.500000e-01
   %208 = fmul float %205, 2.500000e-01
   %209 = fmul float %206, 2.500000e-01
-  %210 = load float, ptr %158, align 4
+  %210 = load float, ptr %158, align 8
   %211 = fadd float %210, %207
   %212 = getelementptr inbounds nuw i8, ptr %.sroa.01002.01062, i64 12
   %213 = load float, ptr %212, align 4
   %214 = fadd float %213, %208
-  %215 = load float, ptr %.sroa.2.0..sroa_idx.i, align 4
+  %215 = load float, ptr %.sroa.2.0..sroa_idx.i, align 8
   %216 = fadd float %215, %209
   %.sroa.0.0.vec.insert.i255 = insertelement <2 x float> poison, float %211, i64 0
   %.sroa.0.4.vec.insert.i256 = insertelement <2 x float> %.sroa.0.0.vec.insert.i255, float %214, i64 1
@@ -11290,11 +11290,11 @@ _ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exi
   %288 = fmul float %285, 2.500000e-01
   %289 = fmul float %286, 2.500000e-01
   %290 = fmul float %287, 2.500000e-01
-  %291 = load float, ptr %158, align 4
+  %291 = load float, ptr %158, align 8
   %292 = fadd float %291, %288
   %293 = load float, ptr %212, align 4
   %294 = fadd float %293, %289
-  %295 = load float, ptr %.sroa.2.0..sroa_idx.i, align 4
+  %295 = load float, ptr %.sroa.2.0..sroa_idx.i, align 8
   %296 = fadd float %295, %290
   %.sroa.0.0.vec.insert.i323 = insertelement <2 x float> poison, float %292, i64 0
   %.sroa.0.4.vec.insert.i324 = insertelement <2 x float> %.sroa.0.0.vec.insert.i323, float %294, i64 1
@@ -11542,12 +11542,12 @@ _ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exi
   %396 = fmul float %393, 2.500000e-01
   %397 = fmul float %394, 2.500000e-01
   %398 = fmul float %395, 2.500000e-01
-  %399 = load float, ptr %344, align 4
+  %399 = load float, ptr %344, align 8
   %400 = fadd float %399, %396
   %401 = getelementptr inbounds nuw i8, ptr %.sroa.0926.01059, i64 12
   %402 = load float, ptr %401, align 4
   %403 = fadd float %402, %397
-  %404 = load float, ptr %.sroa.2.0..sroa_idx.i351, align 4
+  %404 = load float, ptr %.sroa.2.0..sroa_idx.i351, align 8
   %405 = fadd float %404, %398
   %.sroa.0.0.vec.insert.i392 = insertelement <2 x float> poison, float %400, i64 0
   %.sroa.0.4.vec.insert.i393 = insertelement <2 x float> %.sroa.0.0.vec.insert.i392, float %403, i64 1
@@ -11734,11 +11734,11 @@ _ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exi
   %480 = fmul float %477, 2.500000e-01
   %481 = fmul float %478, 2.500000e-01
   %482 = fmul float %479, 2.500000e-01
-  %483 = load float, ptr %344, align 4
+  %483 = load float, ptr %344, align 8
   %484 = fadd float %483, %480
   %485 = load float, ptr %401, align 4
   %486 = fadd float %485, %481
-  %487 = load float, ptr %.sroa.2.0..sroa_idx.i351, align 4
+  %487 = load float, ptr %.sroa.2.0..sroa_idx.i351, align 8
   %488 = fadd float %487, %482
   %.sroa.0.0.vec.insert.i462 = insertelement <2 x float> poison, float %484, i64 0
   %.sroa.0.4.vec.insert.i463 = insertelement <2 x float> %.sroa.0.0.vec.insert.i462, float %486, i64 1
@@ -12709,7 +12709,7 @@ _ZN7QStringD2Ev.exit674:                          ; preds = %826, %_ZN9QtPrivate
   %887 = getelementptr inbounds nuw i8, ptr %886, i64 36
   %888 = load float, ptr %887, align 4
   %889 = getelementptr inbounds nuw i8, ptr %886, i64 40
-  %.sroa.015.0.copyload = load i32, ptr %889, align 1
+  %.sroa.015.0.copyload = load i32, ptr %889, align 4
   call void @_ZN3vcg14ColorHistogramIfE3AddEfNS_6Color4IhEEf(ptr noundef nonnull align 8 dereferenceable(104) %745, float noundef %888, i32 %.sroa.015.0.copyload, float noundef %883)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -12756,7 +12756,7 @@ _ZN7QStringD2Ev.exit674:                          ; preds = %826, %_ZN9QtPrivate
   %904 = getelementptr inbounds nuw i8, ptr %.sroa.0768.01052, i64 36
   %905 = load float, ptr %904, align 4
   %906 = getelementptr inbounds nuw i8, ptr %.sroa.0768.01052, i64 40
-  %.sroa.014.0.copyload = load i32, ptr %906, align 1
+  %.sroa.014.0.copyload = load i32, ptr %906, align 4
   call void @_ZN3vcg14ColorHistogramIfE3AddEfNS_6Color4IhEEf(ptr noundef nonnull align 8 dereferenceable(104) %745, float noundef %905, i32 %.sroa.014.0.copyload, float noundef 1.000000e+00)
   %.pre1089 = load ptr, ptr %749, align 8
   br label %907

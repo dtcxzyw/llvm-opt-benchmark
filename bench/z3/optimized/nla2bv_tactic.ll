@@ -1791,7 +1791,7 @@ define linkonce_odr hidden void @_ZN13nla2bv_tactic3impclER4goalR3refI15model_co
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i64 6, ptr %16, align 8, !tbaa !23
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 62
-  store i8 0, ptr %17, align 1, !tbaa !17
+  store i8 0, ptr %17, align 2, !tbaa !17
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 72
   store ptr null, ptr %18, align 8, !tbaa !128
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 632

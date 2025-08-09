@@ -28009,7 +28009,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_Coun
   %16 = atomicrmw add ptr %.sink.i.i.i, i64 1 monotonic, align 8, !noalias !244
   %.pre = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store atomic i32 0, ptr %17 seq_cst, align 4, !noalias !244
+  store atomic i32 0, ptr %17 seq_cst, align 8, !noalias !244
   %18 = atomicrmw add ptr %17, i32 1 monotonic, align 4, !noalias !244
   %.not.i.i = icmp eq ptr %.pre, null
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_7VtValue8_CountedINS_7VtArrayINS_11SdfTimeCodeEEEEEED2Ev.exit, label %19
@@ -35667,7 +35667,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_Coun
   store ptr %19, ptr %10, align 8, !noalias !306
   %.pre = load ptr, ptr %0, align 8
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store atomic i32 0, ptr %29 seq_cst, align 4, !noalias !306
+  store atomic i32 0, ptr %29 seq_cst, align 8, !noalias !306
   %30 = atomicrmw add ptr %29, i32 1 monotonic, align 4, !noalias !306
   %.not.i.i = icmp eq ptr %.pre, null
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_7VtValue8_CountedISt3mapIdS1_St4lessIdESaISt4pairIKdS1_EEEEEED2Ev.exit, label %31

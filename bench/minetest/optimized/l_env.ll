@@ -8213,7 +8213,7 @@ if.then17:                                        ; preds = %if.end14
   store ptr %1, ptr %origin.i, align 8, !tbaa !4
   %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %call20, i64 32
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !14
-  store i8 0, ptr %1, align 1, !tbaa !13
+  store i8 0, ptr %1, align 8, !tbaa !13
   %call21 = tail call noundef ptr @_ZN10ModApiBase9getServerEP9lua_State(ptr noundef %L)
   %m_script.i = getelementptr inbounds nuw i8, ptr %call21, i64 144
   %2 = load ptr, ptr %m_script.i, align 8, !tbaa !114
@@ -9930,7 +9930,7 @@ _ZN16VoxelManipulator6existsERKN3irr4core8vector3dIsEE.exit: ; preds = %land.lhs
   %9 = load i16, ptr %Y.i.i.i.i, align 2, !tbaa !375
   %conv3.i.i.i.i = sext i16 %9 to i32
   %mul.i.i.i.i = mul nsw i32 %sub.i.i.i.i, %conv3.i.i.i.i
-  %10 = load i16, ptr %m_cache_extent.i.i.i.i, align 2, !tbaa !376
+  %10 = load i16, ptr %m_cache_extent.i.i.i.i, align 4, !tbaa !376
   %conv5.i.i.i.i = sext i16 %10 to i32
   %sub11.i.i.i.i = sub nsw i32 %conv10.i.i, %conv13.i.i
   %mul622.i.i.i.i = add i32 %sub11.i.i.i.i, %mul.i.i.i.i
@@ -10049,7 +10049,7 @@ if.end.i:                                         ; preds = %land.lhs.true22.i.i
   %9 = load i16, ptr %Y.i.i.i, align 2, !tbaa !375
   %conv3.i.i.i = sext i16 %9 to i32
   %mul.i.i.i = mul nsw i32 %sub.i.i.i, %conv3.i.i.i
-  %10 = load i16, ptr %m_cache_extent.i.i.i, align 2, !tbaa !376
+  %10 = load i16, ptr %m_cache_extent.i.i.i, align 4, !tbaa !376
   %conv5.i.i.i = sext i16 %10 to i32
   %sub11.i.i.i = sub nsw i32 %conv10.i.i, %conv13.i.i
   %mul622.i.i.i = add i32 %sub11.i.i.i, %mul.i.i.i
@@ -10168,7 +10168,7 @@ if.end.i:                                         ; preds = %land.lhs.true22.i.i
   %9 = load i16, ptr %Y.i.i.i, align 2, !tbaa !375
   %conv3.i.i.i = sext i16 %9 to i32
   %mul.i.i.i = mul nsw i32 %sub.i.i.i, %conv3.i.i.i
-  %10 = load i16, ptr %m_cache_extent.i.i.i, align 2, !tbaa !376
+  %10 = load i16, ptr %m_cache_extent.i.i.i, align 4, !tbaa !376
   %conv5.i.i.i = sext i16 %10 to i32
   %sub11.i.i.i = sub nsw i32 %conv10.i.i, %conv13.i.i
   %mul622.i.i.i = add i32 %sub11.i.i.i, %mul.i.i.i
@@ -10297,7 +10297,7 @@ if.end.i:                                         ; preds = %land.lhs.true22.i.i
   %10 = load i16, ptr %Y.i.i.i, align 2, !tbaa !375
   %conv3.i.i.i = sext i16 %10 to i32
   %mul.i.i.i = mul nsw i32 %sub.i.i.i, %conv3.i.i.i
-  %11 = load i16, ptr %m_cache_extent.i.i.i, align 2, !tbaa !376
+  %11 = load i16, ptr %m_cache_extent.i.i.i, align 4, !tbaa !376
   %conv5.i.i.i = sext i16 %11 to i32
   %sub11.i.i.i = sub nsw i32 %conv10.i.i, %conv13.i.i
   %mul622.i.i.i = add i32 %sub11.i.i.i, %mul.i.i.i
@@ -10383,7 +10383,7 @@ if.end.i54:                                       ; preds = %land.lhs.true22.i.i
   %26 = load i16, ptr %Y.i.i.i58, align 2, !tbaa !375
   %conv3.i.i.i59 = sext i16 %26 to i32
   %mul.i.i.i60 = mul nsw i32 %sub.i.i.i56, %conv3.i.i.i59
-  %27 = load i16, ptr %m_cache_extent.i.i.i57, align 2, !tbaa !376
+  %27 = load i16, ptr %m_cache_extent.i.i.i57, align 4, !tbaa !376
   %conv5.i.i.i61 = sext i16 %27 to i32
   %sub11.i.i.i62 = sub nsw i32 %conv10.i.i35, %conv13.i.i37
   %mul622.i.i.i63 = add i32 %sub11.i.i.i62, %mul.i.i.i60
@@ -10486,7 +10486,7 @@ if.end.i:                                         ; preds = %land.lhs.true22.i.i
   %10 = load i16, ptr %Y.i.i.i, align 2, !tbaa !375
   %conv3.i.i.i = sext i16 %10 to i32
   %mul.i.i.i = mul nsw i32 %sub.i.i.i, %conv3.i.i.i
-  %11 = load i16, ptr %m_cache_extent.i.i.i, align 2, !tbaa !376
+  %11 = load i16, ptr %m_cache_extent.i.i.i, align 4, !tbaa !376
   %conv5.i.i.i = sext i16 %11 to i32
   %sub11.i.i.i = sub nsw i32 %conv10.i.i, %conv13.i.i
   %mul622.i.i.i = add i32 %sub11.i.i.i, %mul.i.i.i
@@ -10572,7 +10572,7 @@ if.end.i54:                                       ; preds = %land.lhs.true22.i.i
   %26 = load i16, ptr %Y.i.i.i58, align 2, !tbaa !375
   %conv3.i.i.i59 = sext i16 %26 to i32
   %mul.i.i.i60 = mul nsw i32 %sub.i.i.i56, %conv3.i.i.i59
-  %27 = load i16, ptr %m_cache_extent.i.i.i57, align 2, !tbaa !376
+  %27 = load i16, ptr %m_cache_extent.i.i.i57, align 4, !tbaa !376
   %conv5.i.i.i61 = sext i16 %27 to i32
   %sub11.i.i.i62 = sub nsw i32 %conv10.i.i35, %conv13.i.i37
   %mul622.i.i.i63 = add i32 %sub11.i.i.i62, %mul.i.i.i60
@@ -10742,7 +10742,7 @@ if.end.i.i.i:                                     ; preds = %land.lhs.true22.i.i
   %20 = load i16, ptr %Y.i.i.i.i.i, align 2, !tbaa !375
   %conv3.i.i.i.i.i = sext i16 %20 to i32
   %mul.i.i.i.i.i = mul nsw i32 %sub.i.i.i.i.i, %conv3.i.i.i.i.i
-  %21 = load i16, ptr %m_cache_extent.i.i.i.i.i, align 2, !tbaa !376
+  %21 = load i16, ptr %m_cache_extent.i.i.i.i.i, align 4, !tbaa !376
   %conv5.i.i.i.i.i = sext i16 %21 to i32
   %sub11.i.i.i.i.i = sub nsw i32 %conv10.i.i.i.i, %conv13.i.i.i.i
   %mul622.i.i.i.i.i = add i32 %sub11.i.i.i.i.i, %mul.i.i.i.i.i
@@ -12157,7 +12157,7 @@ if.end.i.i.i:                                     ; preds = %land.lhs.true22.i.i
   %39 = load i16, ptr %Y.i.i.i.i112.i, align 2, !tbaa !375
   %conv3.i.i.i.i.i = sext i16 %39 to i32
   %mul.i.i.i.i.i = mul nsw i32 %sub.i.i.i.i.i, %conv3.i.i.i.i.i
-  %40 = load i16, ptr %m_cache_extent.i.i.i.i111.i, align 2, !tbaa !376
+  %40 = load i16, ptr %m_cache_extent.i.i.i.i111.i, align 4, !tbaa !376
   %conv5.i.i.i.i.i = sext i16 %40 to i32
   %sub11.i.i.i.i.i = sub nsw i32 %conv10.i.i.i.i, %conv13.i.i.i.i
   %mul622.i.i.i.i.i = add i32 %sub11.i.i.i.i.i, %mul.i.i.i.i.i
@@ -12230,7 +12230,7 @@ if.end.i.i108.i:                                  ; preds = %land.lhs.true22.i.i
   %53 = load i16, ptr %Y.i.i.i.i112.i, align 2, !tbaa !375
   %conv3.i.i.i.i113.i = sext i16 %53 to i32
   %mul.i.i.i.i114.i = mul nsw i32 %sub.i.i.i.i110.i, %conv3.i.i.i.i113.i
-  %54 = load i16, ptr %m_cache_extent.i.i.i.i111.i, align 2, !tbaa !376
+  %54 = load i16, ptr %m_cache_extent.i.i.i.i111.i, align 4, !tbaa !376
   %conv5.i.i.i.i115.i = sext i16 %54 to i32
   %sub11.i.i.i.i116.i = sub nsw i32 %conv10.i.i.i84.i, %conv13.i.i.i86.i
   %mul622.i.i.i.i117.i = add i32 %sub11.i.i.i.i116.i, %mul.i.i.i.i114.i
@@ -14335,7 +14335,7 @@ invoke.cont15:                                    ; preds = %if.end5
   store ptr null, ptr %call5.i.i.i.i64, align 8, !tbaa !131
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i64, i64 8
   %4 = load i64, ptr %add.ptr, align 4
-  store i64 %4, ptr %add.ptr.i.i, align 4
+  store i64 %4, ptr %add.ptr.i.i, align 8
   %_M_before_begin.i65 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i.i64, ptr %_M_before_begin.i65, align 8, !tbaa !437
   %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -14360,7 +14360,7 @@ invoke.cont22:                                    ; preds = %for.body
   store ptr null, ptr %call5.i.i.i.i68, align 8, !tbaa !131
   %add.ptr.i.i67 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i68, i64 8
   %6 = load i64, ptr %add.ptr18, align 4
-  store i64 %6, ptr %add.ptr.i.i67, align 4
+  store i64 %6, ptr %add.ptr.i.i67, align 8
   store ptr %call5.i.i.i.i68, ptr %__prev_n.072, align 8, !tbaa !131
   %sext74 = shl i64 %6, 32
   %conv.i.i.i.i = ashr exact i64 %sext74, 32

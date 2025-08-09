@@ -917,7 +917,7 @@ FilterRow.exit:                                   ; preds = %DoFilter.exit.i, %5
   %168 = load ptr, ptr %38, align 8, !tbaa !75
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.pre.i.i = load i32, ptr %153, align 4, !tbaa !89
-  %.pre8.i.i = load i32, ptr %155, align 4, !tbaa !90
+  %.pre8.i.i = load i32, ptr %155, align 8, !tbaa !90
   br label %169
 
 169:                                              ; preds = %169, %163

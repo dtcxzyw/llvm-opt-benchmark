@@ -18619,7 +18619,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !196
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !196
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !196
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !196
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -18975,7 +18975,7 @@ if.end13:                                         ; preds = %land.lhs.true5, %la
   %pool_.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load ptr, ptr %pool_.i, align 8
   %referenceCount_.i48 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %12 = load atomic i32, ptr %referenceCount_.i48 seq_cst, align 4
+  %12 = load atomic i32, ptr %referenceCount_.i48 seq_cst, align 8
   %cmp.i49 = icmp eq i32 %12, 1
   br i1 %cmp.i49, label %if.end30, label %_ZN8facebook5velox15checkedMultiplyImEET_RKS2_S4_PKc.exit.i
 
@@ -19009,7 +19009,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %_Z
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !200
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !200
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !200
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !200
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -19340,7 +19340,7 @@ if.end.i204:                                      ; preds = %invoke.cont45
   %capacity_.i.i142 = getelementptr inbounds nuw i8, ptr %call46, i64 32
   store i64 %sub61, ptr %capacity_.i.i142, align 8
   %referenceCount_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 40
-  store i32 0, ptr %referenceCount_.i.i, align 4
+  store i32 0, ptr %referenceCount_.i.i, align 8
   %podType_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 44
   store i8 1, ptr %podType_.i.i, align 4
   %padding_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 48
@@ -19741,7 +19741,7 @@ _ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_G
   call void @llvm.lifetime.start.p0(ptr nonnull %rlock.i.i.i)
   store ptr %call2.i.i.i, ptr %newPtr.addr.i.i.i, align 8
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderC1EPKS3_(ptr noundef nonnull align 8 dereferenceable(12) %rlock.i.i.i, ptr noundef null)
-  %16 = load atomic i32, ptr %cond.i acquire, align 4
+  %16 = load atomic i32, ptr %cond.i acquire, align 8
   %17 = load i64, ptr %3, align 8
   %conv.i17.i.i.i = zext i32 %16 to i64
   %cmp.i18.not.i.i.i = icmp ugt i64 %17, %conv.i17.i.i.i
@@ -26045,7 +26045,7 @@ _ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_G
   call void @llvm.lifetime.start.p0(ptr nonnull %rlock.i.i.i)
   store ptr %call2.i.i.i, ptr %newPtr.addr.i.i.i, align 8
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderC1EPKS3_(ptr noundef nonnull align 8 dereferenceable(12) %rlock.i.i.i, ptr noundef null)
-  %16 = load atomic i32, ptr %cond.i acquire, align 4
+  %16 = load atomic i32, ptr %cond.i acquire, align 8
   %17 = load i64, ptr %3, align 8
   %conv.i16.i.i.i = zext i32 %16 to i64
   %cmp.i17.not.i.i.i = icmp ugt i64 %17, %conv.i16.i.i.i
@@ -30656,7 +30656,7 @@ _ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_G
   call void @llvm.lifetime.start.p0(ptr nonnull %rlock.i.i.i)
   store ptr %call2.i.i.i, ptr %newPtr.addr.i.i.i, align 8
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderC1EPKS3_(ptr noundef nonnull align 8 dereferenceable(12) %rlock.i.i.i, ptr noundef null)
-  %16 = load atomic i32, ptr %cond.i acquire, align 4
+  %16 = load atomic i32, ptr %cond.i acquire, align 8
   %17 = load i64, ptr %3, align 8
   %conv.i16.i.i.i = zext i32 %16 to i64
   %cmp.i17.not.i.i.i = icmp ugt i64 %17, %conv.i16.i.i.i
@@ -35220,7 +35220,7 @@ _ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_G
   call void @llvm.lifetime.start.p0(ptr nonnull %rlock.i.i.i)
   store ptr %call2.i.i.i, ptr %newPtr.addr.i.i.i, align 8
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderC1EPKS3_(ptr noundef nonnull align 8 dereferenceable(12) %rlock.i.i.i, ptr noundef null)
-  %16 = load atomic i32, ptr %cond.i acquire, align 4
+  %16 = load atomic i32, ptr %cond.i acquire, align 8
   %17 = load i64, ptr %3, align 8
   %conv.i16.i.i.i = zext i32 %16 to i64
   %cmp.i17.not.i.i.i = icmp ugt i64 %17, %conv.i16.i.i.i
@@ -39735,7 +39735,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i.i: ; preds = %
   %capacity_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 32
   store i64 %sub.i.i, ptr %capacity_.i.i.i.i, align 8, !noalias !344
   %referenceCount_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i.i, align 4, !noalias !344
+  store i32 0, ptr %referenceCount_.i.i.i.i, align 8, !noalias !344
   %podType_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 44
   store i8 1, ptr %podType_.i.i.i.i, align 4, !noalias !344
   %padding_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 48
@@ -40012,7 +40012,7 @@ if.end13:                                         ; preds = %land.lhs.true5, %la
   %pool_.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %pool_.i, align 8
   %referenceCount_.i48 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %11 = load atomic i32, ptr %referenceCount_.i48 seq_cst, align 4
+  %11 = load atomic i32, ptr %referenceCount_.i48 seq_cst, align 8
   %cmp.i49 = icmp eq i32 %11, 1
   br i1 %cmp.i49, label %if.end30, label %if.then16
 
@@ -40046,7 +40046,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !345
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !345
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !345
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !345
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -40357,7 +40357,7 @@ if.end.i180:                                      ; preds = %invoke.cont45
   %capacity_.i.i126 = getelementptr inbounds nuw i8, ptr %call46, i64 32
   store i64 %sub61, ptr %capacity_.i.i126, align 8
   %referenceCount_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 40
-  store i32 0, ptr %referenceCount_.i.i, align 4
+  store i32 0, ptr %referenceCount_.i.i, align 8
   %podType_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 44
   store i8 1, ptr %podType_.i.i, align 4
   %padding_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 48
@@ -40892,7 +40892,7 @@ _ZNK8facebook5velox4exec12VectorReaderINS0_7VarcharEEixEm.exit23: ; preds = %_ZN
   %27 = load ptr, ptr %vector_.i.i, align 8
   %offset_.i.i = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i32, ptr %offset_.i.i, align 8
-  %29 = load i8, ptr %proxy_.i24, align 1
+  %29 = load i8, ptr %proxy_.i24, align 4
   %tobool.i.i = trunc i8 %29 to i1
   call void @_ZN8facebook5velox10FlatVectorIbE3setEib(ptr noundef nonnull align 8 dereferenceable(184) %27, i32 noundef %28, i1 noundef zeroext %tobool.i.i)
   ret void
@@ -42027,7 +42027,7 @@ _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyISt4pairINSt7__cxx1112b
   tail call void @llvm.assume(i1 %cmp.i.i)
   %conv.i.i.i = trunc i64 %newCapacityScale to i16
   %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i2.i.i7.i, i64 12
-  store i16 %conv.i.i.i, ptr %arrayidx.i.i.i.i.i, align 1
+  store i16 %conv.i.i.i, ptr %arrayidx.i.i.i.i.i, align 2
   store ptr %call5.i.i2.i.i7.i, ptr %chunks_, align 8
   %5 = trunc i64 %newChunkCount to i32
   %conv = add i32 %5, -1
@@ -42800,7 +42800,7 @@ _ZNK8facebook5velox4exec12VectorReaderINS0_7VarcharEEixEm.exit47.cont: ; preds =
   %38 = load ptr, ptr %vector_.i.i, align 8
   %offset_.i.i = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i32, ptr %offset_.i.i, align 8
-  %40 = load i8, ptr %proxy_.i48, align 1
+  %40 = load i8, ptr %proxy_.i48, align 4
   %tobool.i.i = trunc i8 %40 to i1
   call void @_ZN8facebook5velox10FlatVectorIbE3setEib(ptr noundef nonnull align 8 dereferenceable(184) %38, i32 noundef %39, i1 noundef zeroext %tobool.i.i)
   ret void
@@ -60575,7 +60575,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !499
   %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !499
+  store i32 0, ptr %referenceCount_.i.i.i, align 8, !noalias !499
   %podType_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !499
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
@@ -63067,7 +63067,7 @@ _ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_G
   call void @llvm.lifetime.start.p0(ptr nonnull %rlock.i.i.i)
   store ptr %call2.i.i.i, ptr %newPtr.addr.i.i.i, align 8
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderC1EPKS3_(ptr noundef nonnull align 8 dereferenceable(12) %rlock.i.i.i, ptr noundef null)
-  %16 = load atomic i32, ptr %cond.i acquire, align 4
+  %16 = load atomic i32, ptr %cond.i acquire, align 8
   %17 = load i64, ptr %3, align 8
   %conv.i16.i.i.i = zext i32 %16 to i64
   %cmp.i17.not.i.i.i = icmp ugt i64 %17, %conv.i16.i.i.i
@@ -68685,7 +68685,7 @@ _ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_G
   call void @llvm.lifetime.start.p0(ptr nonnull %rlock.i.i.i)
   store ptr %call2.i.i.i, ptr %newPtr.addr.i.i.i, align 8
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderC1EPKS3_(ptr noundef nonnull align 8 dereferenceable(12) %rlock.i.i.i, ptr noundef null)
-  %16 = load atomic i32, ptr %cond.i acquire, align 4
+  %16 = load atomic i32, ptr %cond.i acquire, align 8
   %17 = load i64, ptr %3, align 8
   %conv.i16.i.i.i = zext i32 %16 to i64
   %cmp.i17.not.i.i.i = icmp ugt i64 %17, %conv.i16.i.i.i
@@ -73702,7 +73702,7 @@ _ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_G
   call void @llvm.lifetime.start.p0(ptr nonnull %rlock.i.i.i)
   store ptr %call2.i.i.i, ptr %newPtr.addr.i.i.i, align 8
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderC1EPKS3_(ptr noundef nonnull align 8 dereferenceable(12) %rlock.i.i.i, ptr noundef null)
-  %16 = load atomic i32, ptr %cond.i acquire, align 4
+  %16 = load atomic i32, ptr %cond.i acquire, align 8
   %17 = load i64, ptr %3, align 8
   %conv.i16.i.i.i = zext i32 %16 to i64
   %cmp.i17.not.i.i.i = icmp ugt i64 %17, %conv.i16.i.i.i
@@ -78711,7 +78711,7 @@ _ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_G
   call void @llvm.lifetime.start.p0(ptr nonnull %rlock.i.i.i)
   store ptr %call2.i.i.i, ptr %newPtr.addr.i.i.i, align 8
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderC1EPKS3_(ptr noundef nonnull align 8 dereferenceable(12) %rlock.i.i.i, ptr noundef null)
-  %16 = load atomic i32, ptr %cond.i acquire, align 4
+  %16 = load atomic i32, ptr %cond.i acquire, align 8
   %17 = load i64, ptr %3, align 8
   %conv.i16.i.i.i = zext i32 %16 to i64
   %cmp.i17.not.i.i.i = icmp ugt i64 %17, %conv.i16.i.i.i

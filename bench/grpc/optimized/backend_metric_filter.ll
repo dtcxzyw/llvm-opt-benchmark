@@ -1486,7 +1486,7 @@ define void @_ZN9grpc_core27RegisterBackendMetricFilterEPNS_17CoreConfiguration7
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 14, ptr %11, align 8, !tbaa !68
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 30
-  store i8 0, ptr %12, align 1, !tbaa !67
+  store i8 0, ptr %12, align 2, !tbaa !67
   store ptr %8, ptr @_ZZN9grpc_core17UniqueTypeNameForINS_19BackendMetricFilterEEENS_14UniqueTypeNameEvE7factory, align 8, !tbaa !90
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core17UniqueTypeNameForINS_19BackendMetricFilterEEENS_14UniqueTypeNameEvE7factory) #33
   br label %_ZN9grpc_core11ChannelInit7Builder14RegisterFilterINS_19BackendMetricFilterEEERNS0_18FilterRegistrationE23grpc_channel_stack_typeNS_14SourceLocationE.exit
@@ -4258,7 +4258,7 @@ define linkonce_odr void @_ZZN9grpc_core14filters_detail25AddServerTrailingMetad
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !156, !noalias !338
   tail call void @_ZN9grpc_core19BackendMetricFilter4Call24OnServerTrailingMetadataER19grpc_metadata_batch(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(600) %6), !noalias !338
-  %7 = load i8, ptr %3, align 1, !tbaa !155, !noalias !338
+  %7 = load i8, ptr %3, align 8, !tbaa !155, !noalias !338
   store i8 %7, ptr %0, align 8, !tbaa !155, !alias.scope !338
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %5, align 8, !tbaa !156, !noalias !338
@@ -4319,7 +4319,7 @@ define internal void @_GLOBAL__sub_I_backend_metric_filter.cc() #9 section ".tex
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 14, ptr %10, align 8, !tbaa !68, !noalias !341
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 30
-  store i8 0, ptr %11, align 1, !tbaa !67, !noalias !341
+  store i8 0, ptr %11, align 2, !tbaa !67, !noalias !341
   store ptr %7, ptr @_ZZN9grpc_core17UniqueTypeNameForINS_19BackendMetricFilterEEENS_14UniqueTypeNameEvE7factory, align 8, !tbaa !90, !noalias !341
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core17UniqueTypeNameForINS_19BackendMetricFilterEEENS_14UniqueTypeNameEvE7factory) #33, !noalias !341
   br label %__cxx_global_var_init.1.exit

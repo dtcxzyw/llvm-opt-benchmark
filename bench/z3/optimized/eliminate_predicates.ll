@@ -4815,10 +4815,10 @@ _ZNK20eliminate_predicates6clause4sizeEv.exit:    ; preds = %102
   %111 = getelementptr inbounds nuw i8, ptr %104, i64 24
   %112 = getelementptr inbounds nuw i8, ptr %104, i64 40
   %113 = load ptr, ptr %104, align 8, !tbaa !25
-  %114 = load i8, ptr %110, align 1, !tbaa !21, !range !23, !noundef !24
+  %114 = load i8, ptr %110, align 8, !tbaa !21, !range !23, !noundef !24
   %115 = trunc nuw i8 %114 to i1
   %116 = load ptr, ptr %111, align 8, !tbaa !25
-  %117 = load i8, ptr %112, align 1, !tbaa !21, !range !23, !noundef !24
+  %117 = load i8, ptr %112, align 8, !tbaa !21, !range !23, !noundef !24
   %118 = trunc nuw i8 %117 to i1
   %.val10.i = load ptr, ptr %26, align 8, !tbaa !149
   %.val11.i = load ptr, ptr %98, align 8
@@ -4906,10 +4906,10 @@ _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit.i: ; preds 
 
 "_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_1clERNS_6clauseEPS7_bSJ_b.exit": ; preds = %.noexc89, %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit.i, %.noexc87, %123, %109
   %153 = load ptr, ptr %111, align 8, !tbaa !25
-  %154 = load i8, ptr %112, align 1, !tbaa !21, !range !23, !noundef !24
+  %154 = load i8, ptr %112, align 8, !tbaa !21, !range !23, !noundef !24
   %155 = trunc nuw i8 %154 to i1
   %156 = load ptr, ptr %104, align 8, !tbaa !25
-  %157 = load i8, ptr %110, align 1, !tbaa !21, !range !23, !noundef !24
+  %157 = load i8, ptr %110, align 8, !tbaa !21, !range !23, !noundef !24
   %158 = trunc nuw i8 %157 to i1
   %.val10.i90 = load ptr, ptr %26, align 8, !tbaa !149
   %.val11.i91 = load ptr, ptr %98, align 8
@@ -8411,7 +8411,7 @@ _ZNK17arith_recognizers11is_int_realEPK4expr.exit.thread.i.i: ; preds = %_ZNK17a
   %272 = load ptr, ptr %271, align 8, !tbaa !321, !noalias !314
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 8
   %274 = load ptr, ptr %273, align 8, !tbaa !322, !noalias !314
-  %275 = load i32, ptr %272, align 4, !tbaa !291, !noalias !314
+  %275 = load i32, ptr %272, align 8, !tbaa !291, !noalias !314
   %276 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %274, i32 noundef %275, i32 noundef 5, ptr noundef nonnull %.sroa.0.1.i129, ptr noundef %255)
           to label %.noexc18.i unwind label %291, !noalias !310
 
@@ -8509,7 +8509,7 @@ _ZNK17arith_recognizers11is_int_realEPK4expr.exit.thread.i: ; preds = %_ZNK17ari
   %313 = load ptr, ptr %312, align 8, !tbaa !330, !noalias !326
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
   %315 = load ptr, ptr %314, align 8, !tbaa !322, !noalias !326
-  %316 = load i32, ptr %313, align 4, !tbaa !291, !noalias !326
+  %316 = load i32, ptr %313, align 8, !tbaa !291, !noalias !326
   %317 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4expr(ptr noundef nonnull align 8 dereferenceable(976) %315, i32 noundef %316, i32 noundef 3, ptr noundef nonnull %294)
           to label %.noexc63 unwind label %333
 

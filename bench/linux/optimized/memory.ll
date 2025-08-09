@@ -979,7 +979,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__pte_alloc(ptr noundef %0, ptr 
   %31 = load i32, ptr %30, align 16
   %32 = or i32 %31, 512
   store i32 %32, ptr %30, align 16
-  %33 = load volatile i64, ptr %4, align 8
+  %33 = load volatile i64, ptr %4, align 16
   %34 = and i64 %33, 64
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %39, label %36
@@ -6642,7 +6642,7 @@ define dso_local void @unmap_mapping_folio(ptr noundef %0) local_unnamed_addr #2
   store i64 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i64, ptr %6, align 16
-  %8 = load volatile i64, ptr %0, align 8
+  %8 = load volatile i64, ptr %0, align 16
   %9 = and i64 %8, 64
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %15, label %11
@@ -10842,7 +10842,7 @@ define dso_local i32 @handle_mm_fault(ptr noundef %0, i64 noundef %1, i32 nounde
   %729 = load i32, ptr %728, align 16
   %730 = or i32 %729, 512
   store i32 %730, ptr %728, align 16
-  %731 = load volatile i64, ptr %.pr50, align 8
+  %731 = load volatile i64, ptr %.pr50, align 16
   %732 = and i64 %731, 64
   %733 = icmp eq i64 %732, 0
   br i1 %733, label %737, label %734
@@ -11449,7 +11449,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__pud_alloc(ptr noundef %0, ptr 
   %12 = load i32, ptr %11, align 16
   %13 = and i32 %12, -513
   store i32 %13, ptr %11, align 16
-  %14 = load volatile i64, ptr %8, align 8
+  %14 = load volatile i64, ptr %8, align 16
   %15 = and i64 %14, 64
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %21, label %17
@@ -11552,7 +11552,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__pud_alloc(ptr noundef %0, ptr 
   %72 = load i32, ptr %71, align 16
   %73 = or i32 %72, 512
   store i32 %73, ptr %71, align 16
-  %74 = load volatile i64, ptr %66, align 8
+  %74 = load volatile i64, ptr %66, align 16
   %75 = and i64 %74, 64
   %76 = icmp eq i64 %75, 0
   br i1 %76, label %80, label %77
@@ -11612,7 +11612,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__pmd_alloc(ptr noundef %0, ptr 
   %12 = load i32, ptr %11, align 16
   %13 = and i32 %12, -513
   store i32 %13, ptr %11, align 16
-  %14 = load volatile i64, ptr %7, align 8
+  %14 = load volatile i64, ptr %7, align 16
   %15 = and i64 %14, 64
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %21, label %17
@@ -11691,7 +11691,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__pmd_alloc(ptr noundef %0, ptr 
   %65 = load i32, ptr %64, align 16
   %66 = or i32 %65, 512
   store i32 %66, ptr %64, align 16
-  %67 = load volatile i64, ptr %59, align 8
+  %67 = load volatile i64, ptr %59, align 16
   %68 = and i64 %67, 64
   %69 = icmp eq i64 %68, 0
   br i1 %69, label %73, label %70

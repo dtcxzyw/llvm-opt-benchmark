@@ -6301,7 +6301,7 @@ _ZNSt6vectorISt4pairIjjESaIS1_EED2Ev.exit:        ; preds = %_ZN4llvm11raw_ostre
   store ptr @.str.43, ptr %236, align 8, !tbaa !288, !alias.scope !436
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjmEEE, i64 16), ptr %11, align 8, !tbaa !51, !alias.scope !436
   store i64 %768, ptr %237, align 8, !tbaa !293, !alias.scope !436
-  %769 = load i32, ptr %766, align 4, !tbaa !36, !noalias !436
+  %769 = load i32, ptr %766, align 8, !tbaa !36, !noalias !436
   store i32 %769, ptr %238, align 8, !tbaa !439, !alias.scope !436
   %770 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %11) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

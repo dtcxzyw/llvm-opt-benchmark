@@ -13536,7 +13536,7 @@ define hidden void @_ZN2cv22create_V4L_capture_camEi(ptr dead_on_unwind noalias 
   store ptr %14, ptr %13, align 8, !tbaa !35, !noalias !426
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i64 0, ptr %15, align 8, !tbaa !36, !noalias !426
-  store i8 0, ptr %14, align 1, !tbaa !37, !noalias !426
+  store i8 0, ptr %14, align 8, !tbaa !37, !noalias !426
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 72
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #29, !noalias !426
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 168
@@ -13670,7 +13670,7 @@ define hidden void @_ZN2cv23create_V4L_capture_fileERKNSt7__cxx1112basic_stringI
   store ptr %14, ptr %13, align 8, !tbaa !35, !noalias !445
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i64 0, ptr %15, align 8, !tbaa !36, !noalias !445
-  store i8 0, ptr %14, align 1, !tbaa !37, !noalias !445
+  store i8 0, ptr %14, align 8, !tbaa !37, !noalias !445
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 72
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #29, !noalias !445
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 168
@@ -14479,7 +14479,7 @@ _ZNSolsEm.exit123.i:                              ; preds = %_ZStlsISt11char_tra
   %275 = load i32, ptr %274, align 8, !tbaa !464
   %276 = and i32 %275, -75
   %277 = or disjoint i32 %276, 8
-  store i32 %277, ptr %274, align 4, !tbaa !465
+  store i32 %277, ptr %274, align 8, !tbaa !465
   %278 = getelementptr inbounds nuw i8, ptr %255, i64 6
   %279 = load i16, ptr %278, align 2, !tbaa !466
   %280 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEs(ptr noundef nonnull align 8 dereferenceable(8) %267, i16 noundef signext %279)

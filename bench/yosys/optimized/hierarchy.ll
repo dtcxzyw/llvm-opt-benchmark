@@ -1414,7 +1414,7 @@ _ZSt19__relocate_object_aIN12_GLOBAL__N_120generate_port_decl_tES1_SaIS1_EEvPT_P
   store i64 %325, ptr %327, align 8, !tbaa !14, !alias.scope !41, !noalias !44
   store ptr %317, ptr %314, align 8, !tbaa !31, !alias.scope !44, !noalias !41
   store i64 0, ptr %326, align 8, !tbaa !14, !alias.scope !44, !noalias !41
-  store i8 0, ptr %317, align 1, !tbaa !17, !alias.scope !44, !noalias !41
+  store i8 0, ptr %317, align 8, !tbaa !17, !alias.scope !44, !noalias !41
   %328 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i, i64 40
   %329 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i, i64 40
   %330 = load i32, ptr %329, align 8, !tbaa !37, !alias.scope !44, !noalias !41
@@ -1783,7 +1783,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %455, ptr %457, align 8, !tbaa !14, !alias.scope !57, !noalias !60
   store ptr %447, ptr %.0911.i.i.i.i, align 8, !tbaa !31, !alias.scope !60, !noalias !57
   store i64 0, ptr %456, align 8, !tbaa !14, !alias.scope !60, !noalias !57
-  store i8 0, ptr %447, align 1, !tbaa !17, !alias.scope !60, !noalias !57
+  store i8 0, ptr %447, align 8, !tbaa !17, !alias.scope !60, !noalias !57
   %458 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %459 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i3269, i64 32
   %.not.i.i.i.i3271 = icmp eq ptr %458, %404
@@ -8838,7 +8838,7 @@ _ZNKSt4lessISt4pairIPN5Yosys5RTLIL6ModuleEiEEclERKS5_S8_.exit.i: ; preds = %3410
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3415, i64 40
   store i32 %3392, ptr %.sroa.6.0..sroa_idx, align 8
   %3417 = getelementptr inbounds nuw i8, ptr %3415, i64 48
-  store i32 0, ptr %3417, align 4, !tbaa !70
+  store i32 0, ptr %3417, align 8, !tbaa !70
   store ptr %3415, ptr %2609, align 8, !tbaa !278
   %3418 = invoke { ptr, ptr } @_ZNSt8_Rb_treeISt4pairIPN5Yosys5RTLIL6ModuleEiES0_IKS5_NS2_8IdStringEESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_(ptr noundef nonnull align 8 dereferenceable(48) %96, ptr %.08.lcssa.i.i.i11.i, ptr noundef nonnull align 8 dereferenceable(12) %3416)
           to label %3419 unwind label %3440
@@ -42481,7 +42481,7 @@ _ZN5Yosys5RTLILL7id2cstrERKNS0_8IdStringE.exit366: ; preds = %_ZN5Yosys5RTLILL7i
   %3336 = getelementptr inbounds nuw i8, ptr %3335, i64 8
   %3337 = load i32, ptr %3336, align 8, !tbaa !403
   call void @llvm.lifetime.start.p0(ptr nonnull %78)
-  %3338 = load i32, ptr %3335, align 4, !tbaa !70
+  %3338 = load i32, ptr %3335, align 8, !tbaa !70
   %.not.i.i369 = icmp eq i32 %3338, 0
   br i1 %.not.i.i369, label %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit, label %3339
 
@@ -46080,7 +46080,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !tbaa !14, !alias.scope !717, !noalias !720
   store ptr %43, ptr %.0911.i.i.i, align 8, !tbaa !31, !alias.scope !720, !noalias !717
   store i64 0, ptr %52, align 8, !tbaa !14, !alias.scope !720, !noalias !717
-  store i8 0, ptr %43, align 1, !tbaa !17, !alias.scope !720, !noalias !717
+  store i8 0, ptr %43, align 8, !tbaa !17, !alias.scope !720, !noalias !717
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %54, %1
@@ -46128,7 +46128,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !tbaa !14, !alias.scope !723, !noalias !726
   store ptr %59, ptr %.0911.i.i.i29, align 8, !tbaa !31, !alias.scope !726, !noalias !723
   store i64 0, ptr %68, align 8, !tbaa !14, !alias.scope !726, !noalias !723
-  store i8 0, ptr %59, align 1, !tbaa !17, !alias.scope !726, !noalias !723
+  store i8 0, ptr %59, align 8, !tbaa !17, !alias.scope !726, !noalias !723
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %.not.i.i.i34 = icmp eq ptr %70, %6
@@ -50682,7 +50682,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringES2_St9_IdentityI
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !464
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
-  %8 = load i32, ptr %7, align 4, !tbaa !70
+  %8 = load i32, ptr %7, align 8, !tbaa !70
   %9 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !81, !range !38, !noundef !39
   %10 = trunc nuw i8 %9 to i1
   %11 = icmp ne i32 %8, 0
@@ -50735,7 +50735,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_iESt
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !464
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
-  %8 = load i32, ptr %7, align 4, !tbaa !70
+  %8 = load i32, ptr %7, align 8, !tbaa !70
   %9 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !81, !range !38, !noundef !39
   %10 = trunc nuw i8 %9 to i1
   %11 = icmp ne i32 %8, 0
@@ -52285,7 +52285,7 @@ _ZNSt3mapIPN5Yosys5RTLIL4CellESt4pairIiiESt4lessIS3_ESaIS4_IKS3_S5_EEE11lower_bo
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr %.pre, ptr %15, align 8, !tbaa !619
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  store i32 0, ptr %16, align 4, !tbaa !549
+  store i32 0, ptr %16, align 8, !tbaa !549
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 44
   store i32 0, ptr %17, align 4, !tbaa !551
   %18 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIPN5Yosys5RTLIL4CellESt4pairIKS3_S4_IiiEESt10_Select1stIS7_ESt4lessIS3_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i14, ptr noundef nonnull align 8 dereferenceable(8) %15)
@@ -61191,7 +61191,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeISt4pairIPN5Yosys5RTLIL6ModuleEiES0_IKS5
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !464
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 48
-  %8 = load i32, ptr %7, align 4, !tbaa !70
+  %8 = load i32, ptr %7, align 8, !tbaa !70
   %9 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !81, !range !38, !noundef !39
   %10 = trunc nuw i8 %9 to i1
   %11 = icmp ne i32 %8, 0

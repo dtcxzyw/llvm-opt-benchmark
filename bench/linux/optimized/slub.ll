@@ -11357,7 +11357,7 @@ thread-pre-split.i:                               ; preds = %158, %158
   %309 = getelementptr [64 x ptr], ptr %14, i64 0, i64 %308
   %310 = load ptr, ptr %309, align 8
   %311 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %310) #27
-  %312 = load volatile i64, ptr %1, align 8
+  %312 = load volatile i64, ptr %1, align 16
   %313 = lshr i64 %312, 9
   %314 = trunc i64 %313 to i8
   br label %315

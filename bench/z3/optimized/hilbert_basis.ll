@@ -8566,7 +8566,7 @@ _ZNK9table2mapI17default_map_entryI13checked_int64ILb1EEPN13hilbert_basis12value
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13hilbert_basis12value_index27checkerE, i64 16), ptr %112, align 8, !tbaa !54
   %113 = getelementptr inbounds nuw i8, ptr %102, i64 624
   %114 = getelementptr inbounds nuw i8, ptr %102, i64 632
-  store i32 0, ptr %114, align 4, !tbaa !56
+  store i32 0, ptr %114, align 8, !tbaa !56
   %115 = getelementptr inbounds nuw i8, ptr %102, i64 640
   store ptr %103, ptr %113, align 8, !tbaa !63
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 1336

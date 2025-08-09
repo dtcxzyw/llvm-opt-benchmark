@@ -90,7 +90,7 @@ define dso_local noalias noundef ptr @dictCreate(ptr noundef %0) local_unnamed_a
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr null, ptr %13, align 8, !tbaa !11
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 50
-  store i8 -1, ptr %14, align 1, !tbaa !13
+  store i8 -1, ptr %14, align 2, !tbaa !13
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 51
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
@@ -4131,7 +4131,7 @@ define dso_local i64 @dictScanDefrag(ptr noundef captures(none) %0, i64 noundef 
   %19 = load i64, ptr %18, align 8, !tbaa !14
   %.not = icmp eq i64 %19, -1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 50
-  %21 = load i8, ptr %20, align 1, !tbaa !13
+  %21 = load i8, ptr %20, align 2, !tbaa !13
   br i1 %.not, label %22, label %68
 
 22:                                               ; preds = %12

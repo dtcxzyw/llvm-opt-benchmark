@@ -3338,7 +3338,7 @@ _ZN5ZXing5ErrorC2EOS0_.exit:                      ; preds = %21, %_ZNKSt7__cxx11
   store i64 %28, ptr %29, align 8, !tbaa !12
   store ptr %19, ptr %1, align 8, !tbaa !9
   store i64 0, ptr %27, align 8, !tbaa !12
-  store i8 0, ptr %19, align 1, !tbaa !13
+  store i8 0, ptr %19, align 8, !tbaa !13
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %30, ptr noundef nonnull align 8 dereferenceable(11) %31, i64 11, i1 false)

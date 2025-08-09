@@ -8787,7 +8787,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17h0ebd239019339
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !606
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !181, !noundef !3
+  %85 = load i32, ptr %84, align 8, !range !181, !noundef !3
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -8986,7 +8986,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17h0fc2bcfe23d14
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !644
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !181, !noundef !3
+  %85 = load i32, ptr %84, align 8, !range !181, !noundef !3
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -9185,7 +9185,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17h17e0185bdcbbb
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !680
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !181, !noundef !3
+  %85 = load i32, ptr %84, align 8, !range !181, !noundef !3
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -9384,7 +9384,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17h1835d8aca0bde
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !716
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !181, !noundef !3
+  %85 = load i32, ptr %84, align 8, !range !181, !noundef !3
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -9583,7 +9583,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17h2064f540231d6
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !752
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !181, !noundef !3
+  %85 = load i32, ptr %84, align 8, !range !181, !noundef !3
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -9782,7 +9782,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17h23f097ad4d9fb
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !788
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !181, !noundef !3
+  %85 = load i32, ptr %84, align 8, !range !181, !noundef !3
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -9981,7 +9981,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17h27aa5215597a5
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !824
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !181, !noundef !3
+  %85 = load i32, ptr %84, align 8, !range !181, !noundef !3
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -10180,7 +10180,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17h288932d261020
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !860
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !181, !noundef !3
+  %85 = load i32, ptr %84, align 8, !range !181, !noundef !3
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -10379,7 +10379,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17h2c5d7236b51e1
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !896
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !181, !noundef !3
+  %85 = load i32, ptr %84, align 8, !range !181, !noundef !3
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -10578,7 +10578,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17h392e58a3f3c1a
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !932
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !181, !noundef !3
+  %85 = load i32, ptr %84, align 8, !range !181, !noundef !3
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -10777,7 +10777,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17h3f191ae52d11b
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !968
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !181, !noundef !3
+  %85 = load i32, ptr %84, align 8, !range !181, !noundef !3
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -10976,7 +10976,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17h573bfb814858c
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !1004
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !181, !noundef !3
+  %85 = load i32, ptr %84, align 8, !range !181, !noundef !3
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -11175,7 +11175,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17h5fb4a1945b521
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !1040
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !181, !noundef !3
+  %85 = load i32, ptr %84, align 8, !range !181, !noundef !3
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -11374,7 +11374,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17h603c5ffe751e6
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !1076
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !181, !noundef !3
+  %85 = load i32, ptr %84, align 8, !range !181, !noundef !3
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -11573,7 +11573,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17h630408e5833bc
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !1112
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !181, !noundef !3
+  %85 = load i32, ptr %84, align 8, !range !181, !noundef !3
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -11772,7 +11772,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17h657e9980f1163
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !1148
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !181, !noundef !3
+  %85 = load i32, ptr %84, align 8, !range !181, !noundef !3
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -11971,7 +11971,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17h68cfb2258f4d4
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !1184
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !181, !noundef !3
+  %85 = load i32, ptr %84, align 8, !range !181, !noundef !3
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -12170,7 +12170,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17h6956156120bd6
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !1220
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !181, !noundef !3
+  %85 = load i32, ptr %84, align 8, !range !181, !noundef !3
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -12369,7 +12369,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17h72e747a080783
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !1256
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !181, !noundef !3
+  %85 = load i32, ptr %84, align 8, !range !181, !noundef !3
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -12568,7 +12568,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17h7a30dc228db59
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !1292
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !181, !noundef !3
+  %85 = load i32, ptr %84, align 8, !range !181, !noundef !3
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -12767,7 +12767,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17h8840cc5848d65
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !1328
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !181, !noundef !3
+  %85 = load i32, ptr %84, align 8, !range !181, !noundef !3
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -12966,7 +12966,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17h8abe698e7717b
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !1364
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !181, !noundef !3
+  %85 = load i32, ptr %84, align 8, !range !181, !noundef !3
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -13165,7 +13165,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17h920d652684b3e
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !1400
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !181, !noundef !3
+  %85 = load i32, ptr %84, align 8, !range !181, !noundef !3
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -13364,7 +13364,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17hab72e93401cf2
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !1436
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !181, !noundef !3
+  %85 = load i32, ptr %84, align 8, !range !181, !noundef !3
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -13563,7 +13563,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17hafd193a596eeb
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !1472
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !181, !noundef !3
+  %85 = load i32, ptr %84, align 8, !range !181, !noundef !3
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -13762,7 +13762,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17hc176809d30353
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !1508
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !181, !noundef !3
+  %85 = load i32, ptr %84, align 8, !range !181, !noundef !3
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -13961,7 +13961,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17hc22dd96e07309
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !1544
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !181, !noundef !3
+  %85 = load i32, ptr %84, align 8, !range !181, !noundef !3
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -14160,7 +14160,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17hcb60be10a1c0d
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !1580
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !181, !noundef !3
+  %85 = load i32, ptr %84, align 8, !range !181, !noundef !3
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -14359,7 +14359,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17hd6762acdacc03
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !1616
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !181, !noundef !3
+  %85 = load i32, ptr %84, align 8, !range !181, !noundef !3
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -14558,7 +14558,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17he45ab1283e118
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !1652
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !181, !noundef !3
+  %85 = load i32, ptr %84, align 8, !range !181, !noundef !3
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -14757,7 +14757,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17he5fd6f2a68bc0
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !1688
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !181, !noundef !3
+  %85 = load i32, ptr %84, align 8, !range !181, !noundef !3
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -14956,7 +14956,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17he9becdf90d91a
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !1724
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !181, !noundef !3
+  %85 = load i32, ptr %84, align 8, !range !181, !noundef !3
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -15155,7 +15155,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17he9c99d05c07c8
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !1760
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !181, !noundef !3
+  %85 = load i32, ptr %84, align 8, !range !181, !noundef !3
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -15354,7 +15354,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17hef057f130395b
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !1796
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !181, !noundef !3
+  %85 = load i32, ptr %84, align 8, !range !181, !noundef !3
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -15553,7 +15553,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17hf81835ce33434
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !1832
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !181, !noundef !3
+  %85 = load i32, ptr %84, align 8, !range !181, !noundef !3
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -15752,7 +15752,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17hf942a7aebde43
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !1868
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !181, !noundef !3
+  %85 = load i32, ptr %84, align 8, !range !181, !noundef !3
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -15951,7 +15951,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17hfdda3ec2df3b8
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !1904
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !181, !noundef !3
+  %85 = load i32, ptr %84, align 8, !range !181, !noundef !3
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -16150,7 +16150,7 @@ define hidden void @_ZN5salsa8function3lru3Lru16for_each_evicted17hfe49fedfd408b
   store ptr %83, ptr %77, align 8
   store ptr %77, ptr %16, align 8, !alias.scope !1940
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load i32, ptr %84, align 4, !range !181, !noundef !3
+  %85 = load i32, ptr %84, align 8, !range !181, !noundef !3
   %86 = add i32 %85, -1
   %87 = lshr i32 %86, 10
   %88 = zext nneg i32 %87 to i64
@@ -28627,7 +28627,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h02
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val5 = load i32, ptr %37, align 8, !noundef !3
-  %.val6 = load i32, ptr %36, align 4, !range !181, !noundef !3
+  %.val6 = load i32, ptr %36, align 8, !range !181, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val5, ptr %15, align 4
   store i32 %.val6, ptr %3, align 4
@@ -28747,7 +28747,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h03
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val6 = load i32, ptr %37, align 8, !noundef !3
-  %.val7 = load i32, ptr %36, align 4, !range !181, !noundef !3
+  %.val7 = load i32, ptr %36, align 8, !range !181, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val6, ptr %15, align 4
   store i32 %.val7, ptr %3, align 4
@@ -28867,7 +28867,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h08
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val6 = load i32, ptr %37, align 8, !noundef !3
-  %.val7 = load i32, ptr %36, align 4, !range !181, !noundef !3
+  %.val7 = load i32, ptr %36, align 8, !range !181, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val6, ptr %15, align 4
   store i32 %.val7, ptr %3, align 4
@@ -28987,7 +28987,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h0b
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val6 = load i32, ptr %37, align 8, !noundef !3
-  %.val7 = load i32, ptr %36, align 4, !range !181, !noundef !3
+  %.val7 = load i32, ptr %36, align 8, !range !181, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val6, ptr %15, align 4
   store i32 %.val7, ptr %3, align 4
@@ -29107,7 +29107,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h0c
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val6 = load i32, ptr %37, align 8, !noundef !3
-  %.val7 = load i32, ptr %36, align 4, !range !181, !noundef !3
+  %.val7 = load i32, ptr %36, align 8, !range !181, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val6, ptr %15, align 4
   store i32 %.val7, ptr %3, align 4
@@ -29227,7 +29227,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h0e
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val6 = load i32, ptr %37, align 8, !noundef !3
-  %.val7 = load i32, ptr %36, align 4, !range !181, !noundef !3
+  %.val7 = load i32, ptr %36, align 8, !range !181, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val6, ptr %15, align 4
   store i32 %.val7, ptr %3, align 4
@@ -29347,7 +29347,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h14
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val6 = load i32, ptr %37, align 8, !noundef !3
-  %.val7 = load i32, ptr %36, align 4, !range !181, !noundef !3
+  %.val7 = load i32, ptr %36, align 8, !range !181, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val6, ptr %15, align 4
   store i32 %.val7, ptr %3, align 4
@@ -29467,7 +29467,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h16
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val6 = load i32, ptr %37, align 8, !noundef !3
-  %.val7 = load i32, ptr %36, align 4, !range !181, !noundef !3
+  %.val7 = load i32, ptr %36, align 8, !range !181, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val6, ptr %15, align 4
   store i32 %.val7, ptr %3, align 4
@@ -29587,7 +29587,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h1c
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val6 = load i32, ptr %37, align 8, !noundef !3
-  %.val7 = load i32, ptr %36, align 4, !range !181, !noundef !3
+  %.val7 = load i32, ptr %36, align 8, !range !181, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val6, ptr %15, align 4
   store i32 %.val7, ptr %3, align 4
@@ -29707,7 +29707,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h23
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val6 = load i32, ptr %37, align 8, !noundef !3
-  %.val7 = load i32, ptr %36, align 4, !range !181, !noundef !3
+  %.val7 = load i32, ptr %36, align 8, !range !181, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val6, ptr %15, align 4
   store i32 %.val7, ptr %3, align 4
@@ -29827,7 +29827,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h24
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val6 = load i32, ptr %37, align 8, !noundef !3
-  %.val7 = load i32, ptr %36, align 4, !range !181, !noundef !3
+  %.val7 = load i32, ptr %36, align 8, !range !181, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val6, ptr %15, align 4
   store i32 %.val7, ptr %3, align 4
@@ -29947,7 +29947,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h2d
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val6 = load i32, ptr %37, align 8, !noundef !3
-  %.val7 = load i32, ptr %36, align 4, !range !181, !noundef !3
+  %.val7 = load i32, ptr %36, align 8, !range !181, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val6, ptr %15, align 4
   store i32 %.val7, ptr %3, align 4
@@ -30067,7 +30067,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h2f
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val6 = load i32, ptr %37, align 8, !noundef !3
-  %.val7 = load i32, ptr %36, align 4, !range !181, !noundef !3
+  %.val7 = load i32, ptr %36, align 8, !range !181, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val6, ptr %15, align 4
   store i32 %.val7, ptr %3, align 4
@@ -30187,7 +30187,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h30
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val6 = load i32, ptr %37, align 8, !noundef !3
-  %.val7 = load i32, ptr %36, align 4, !range !181, !noundef !3
+  %.val7 = load i32, ptr %36, align 8, !range !181, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val6, ptr %15, align 4
   store i32 %.val7, ptr %3, align 4
@@ -30307,7 +30307,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h34
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val6 = load i32, ptr %37, align 8, !noundef !3
-  %.val7 = load i32, ptr %36, align 4, !range !181, !noundef !3
+  %.val7 = load i32, ptr %36, align 8, !range !181, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val6, ptr %15, align 4
   store i32 %.val7, ptr %3, align 4
@@ -30427,7 +30427,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h48
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val6 = load i32, ptr %37, align 8, !noundef !3
-  %.val7 = load i32, ptr %36, align 4, !range !181, !noundef !3
+  %.val7 = load i32, ptr %36, align 8, !range !181, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val6, ptr %15, align 4
   store i32 %.val7, ptr %3, align 4
@@ -30547,7 +30547,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h4c
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val6 = load i32, ptr %37, align 8, !noundef !3
-  %.val7 = load i32, ptr %36, align 4, !range !181, !noundef !3
+  %.val7 = load i32, ptr %36, align 8, !range !181, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val6, ptr %15, align 4
   store i32 %.val7, ptr %3, align 4
@@ -30667,7 +30667,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h50
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val6 = load i32, ptr %37, align 8, !noundef !3
-  %.val7 = load i32, ptr %36, align 4, !range !181, !noundef !3
+  %.val7 = load i32, ptr %36, align 8, !range !181, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val6, ptr %15, align 4
   store i32 %.val7, ptr %3, align 4
@@ -30787,7 +30787,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h58
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val6 = load i32, ptr %37, align 8, !noundef !3
-  %.val7 = load i32, ptr %36, align 4, !range !181, !noundef !3
+  %.val7 = load i32, ptr %36, align 8, !range !181, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val6, ptr %15, align 4
   store i32 %.val7, ptr %3, align 4
@@ -30907,7 +30907,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h5b
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val6 = load i32, ptr %37, align 8, !noundef !3
-  %.val7 = load i32, ptr %36, align 4, !range !181, !noundef !3
+  %.val7 = load i32, ptr %36, align 8, !range !181, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val6, ptr %15, align 4
   store i32 %.val7, ptr %3, align 4
@@ -31027,7 +31027,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h66
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val6 = load i32, ptr %37, align 8, !noundef !3
-  %.val7 = load i32, ptr %36, align 4, !range !181, !noundef !3
+  %.val7 = load i32, ptr %36, align 8, !range !181, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val6, ptr %15, align 4
   store i32 %.val7, ptr %3, align 4
@@ -31147,7 +31147,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h6e
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val6 = load i32, ptr %37, align 8, !noundef !3
-  %.val7 = load i32, ptr %36, align 4, !range !181, !noundef !3
+  %.val7 = load i32, ptr %36, align 8, !range !181, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val6, ptr %15, align 4
   store i32 %.val7, ptr %3, align 4
@@ -31267,7 +31267,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h72
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val6 = load i32, ptr %37, align 8, !noundef !3
-  %.val7 = load i32, ptr %36, align 4, !range !181, !noundef !3
+  %.val7 = load i32, ptr %36, align 8, !range !181, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val6, ptr %15, align 4
   store i32 %.val7, ptr %3, align 4
@@ -31387,7 +31387,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h74
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val6 = load i32, ptr %37, align 8, !noundef !3
-  %.val7 = load i32, ptr %36, align 4, !range !181, !noundef !3
+  %.val7 = load i32, ptr %36, align 8, !range !181, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val6, ptr %15, align 4
   store i32 %.val7, ptr %3, align 4
@@ -31507,7 +31507,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h7f
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val6 = load i32, ptr %37, align 8, !noundef !3
-  %.val7 = load i32, ptr %36, align 4, !range !181, !noundef !3
+  %.val7 = load i32, ptr %36, align 8, !range !181, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val6, ptr %15, align 4
   store i32 %.val7, ptr %3, align 4
@@ -31627,7 +31627,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h83
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val6 = load i32, ptr %37, align 8, !noundef !3
-  %.val7 = load i32, ptr %36, align 4, !range !181, !noundef !3
+  %.val7 = load i32, ptr %36, align 8, !range !181, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val6, ptr %15, align 4
   store i32 %.val7, ptr %3, align 4
@@ -31747,7 +31747,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h85
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val6 = load i32, ptr %37, align 8, !noundef !3
-  %.val7 = load i32, ptr %36, align 4, !range !181, !noundef !3
+  %.val7 = load i32, ptr %36, align 8, !range !181, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val6, ptr %15, align 4
   store i32 %.val7, ptr %3, align 4
@@ -31867,7 +31867,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h94
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val6 = load i32, ptr %37, align 8, !noundef !3
-  %.val7 = load i32, ptr %36, align 4, !range !181, !noundef !3
+  %.val7 = load i32, ptr %36, align 8, !range !181, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val6, ptr %15, align 4
   store i32 %.val7, ptr %3, align 4
@@ -31987,7 +31987,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17ha6
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val6 = load i32, ptr %37, align 8, !noundef !3
-  %.val7 = load i32, ptr %36, align 4, !range !181, !noundef !3
+  %.val7 = load i32, ptr %36, align 8, !range !181, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val6, ptr %15, align 4
   store i32 %.val7, ptr %3, align 4
@@ -32107,7 +32107,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17ha8
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val6 = load i32, ptr %37, align 8, !noundef !3
-  %.val7 = load i32, ptr %36, align 4, !range !181, !noundef !3
+  %.val7 = load i32, ptr %36, align 8, !range !181, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val6, ptr %15, align 4
   store i32 %.val7, ptr %3, align 4
@@ -32227,7 +32227,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17ha9
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val6 = load i32, ptr %37, align 8, !noundef !3
-  %.val7 = load i32, ptr %36, align 4, !range !181, !noundef !3
+  %.val7 = load i32, ptr %36, align 8, !range !181, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val6, ptr %15, align 4
   store i32 %.val7, ptr %3, align 4
@@ -32347,7 +32347,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17hb0
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val6 = load i32, ptr %37, align 8, !noundef !3
-  %.val7 = load i32, ptr %36, align 4, !range !181, !noundef !3
+  %.val7 = load i32, ptr %36, align 8, !range !181, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val6, ptr %15, align 4
   store i32 %.val7, ptr %3, align 4
@@ -32467,7 +32467,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17hdb
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val6 = load i32, ptr %37, align 8, !noundef !3
-  %.val7 = load i32, ptr %36, align 4, !range !181, !noundef !3
+  %.val7 = load i32, ptr %36, align 8, !range !181, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val6, ptr %15, align 4
   store i32 %.val7, ptr %3, align 4
@@ -32587,7 +32587,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17hdf
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val6 = load i32, ptr %37, align 8, !noundef !3
-  %.val7 = load i32, ptr %36, align 4, !range !181, !noundef !3
+  %.val7 = load i32, ptr %36, align 8, !range !181, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val6, ptr %15, align 4
   store i32 %.val7, ptr %3, align 4
@@ -32707,7 +32707,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17heb
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val6 = load i32, ptr %37, align 8, !noundef !3
-  %.val7 = load i32, ptr %36, align 4, !range !181, !noundef !3
+  %.val7 = load i32, ptr %36, align 8, !range !181, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val6, ptr %15, align 4
   store i32 %.val7, ptr %3, align 4
@@ -32827,7 +32827,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17hf1
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val6 = load i32, ptr %37, align 8, !noundef !3
-  %.val7 = load i32, ptr %36, align 4, !range !181, !noundef !3
+  %.val7 = load i32, ptr %36, align 8, !range !181, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val6, ptr %15, align 4
   store i32 %.val7, ptr %3, align 4
@@ -32947,7 +32947,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17hf8
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val6 = load i32, ptr %37, align 8, !noundef !3
-  %.val7 = load i32, ptr %36, align 4, !range !181, !noundef !3
+  %.val7 = load i32, ptr %36, align 8, !range !181, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val6, ptr %15, align 4
   store i32 %.val7, ptr %3, align 4
@@ -33067,7 +33067,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17hfa
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %37 = getelementptr i8, ptr %34, i64 -16
   %.val6 = load i32, ptr %37, align 8, !noundef !3
-  %.val7 = load i32, ptr %36, align 4, !range !181, !noundef !3
+  %.val7 = load i32, ptr %36, align 8, !range !181, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.val6, ptr %15, align 4
   store i32 %.val7, ptr %3, align 4

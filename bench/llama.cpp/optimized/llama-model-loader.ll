@@ -9431,15 +9431,15 @@ _ZNSt6vectorIP18ggml_backend_eventSaIS1_EE17_M_realloc_insertIJRS1_EEEvN9__gnu_c
   %326 = getelementptr inbounds nuw i8, ptr %322, i64 24
   store ptr null, ptr %326, align 8, !tbaa !278, !noalias !272
   %327 = getelementptr inbounds nuw i8, ptr %322, i64 32
-  store i32 0, ptr %327, align 4, !tbaa !281, !noalias !272
+  store i32 0, ptr %327, align 8, !tbaa !281, !noalias !272
   %328 = getelementptr inbounds nuw i8, ptr %322, i64 36
-  store i8 0, ptr %328, align 1, !tbaa !283, !noalias !272
+  store i8 0, ptr %328, align 4, !tbaa !283, !noalias !272
   %329 = getelementptr inbounds nuw i8, ptr %322, i64 40
-  store i32 0, ptr %329, align 4, !tbaa !285, !noalias !272
+  store i32 0, ptr %329, align 8, !tbaa !285, !noalias !272
   %330 = getelementptr inbounds nuw i8, ptr %322, i64 48
   store i64 0, ptr %330, align 8, !tbaa !287, !noalias !272
   %331 = getelementptr inbounds nuw i8, ptr %322, i64 56
-  store i32 0, ptr %331, align 4, !tbaa !285, !noalias !272
+  store i32 0, ptr %331, align 8, !tbaa !285, !noalias !272
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @"_ZTVNSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJZN18llama_model_loader13load_all_dataEP12ggml_contextRSt13unordered_mapIjP19ggml_backend_bufferSt4hashIjESt8equal_toIjESaISt4pairIKjS9_EEEPSt6vectorISt10unique_ptrI11llama_mlockSt14default_deleteISM_EESaISP_EEPFbfPvEST_E3$_1EEEESE_IP11ggml_tensorbEEE", i64 16), ptr %325, align 8, !tbaa !276, !noalias !272
   %332 = getelementptr inbounds nuw i8, ptr %322, i64 64
   %333 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #36
@@ -9940,15 +9940,15 @@ _ZNSt14__basic_futureISt4pairIP11ggml_tensorbEED2Ev.exit: ; preds = %_ZNSt6vecto
   %511 = getelementptr inbounds nuw i8, ptr %507, i64 24
   store ptr null, ptr %511, align 8, !tbaa !278, !noalias !322
   %512 = getelementptr inbounds nuw i8, ptr %507, i64 32
-  store i32 0, ptr %512, align 4, !tbaa !281, !noalias !322
+  store i32 0, ptr %512, align 8, !tbaa !281, !noalias !322
   %513 = getelementptr inbounds nuw i8, ptr %507, i64 36
-  store i8 0, ptr %513, align 1, !tbaa !283, !noalias !322
+  store i8 0, ptr %513, align 4, !tbaa !283, !noalias !322
   %514 = getelementptr inbounds nuw i8, ptr %507, i64 40
-  store i32 0, ptr %514, align 4, !tbaa !285, !noalias !322
+  store i32 0, ptr %514, align 8, !tbaa !285, !noalias !322
   %515 = getelementptr inbounds nuw i8, ptr %507, i64 48
   store i64 0, ptr %515, align 8, !tbaa !287, !noalias !322
   %516 = getelementptr inbounds nuw i8, ptr %507, i64 56
-  store i32 0, ptr %516, align 4, !tbaa !285, !noalias !322
+  store i32 0, ptr %516, align 8, !tbaa !285, !noalias !322
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @"_ZTVNSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJZN18llama_model_loader13load_all_dataEP12ggml_contextRSt13unordered_mapIjP19ggml_backend_bufferSt4hashIjESt8equal_toIjESaISt4pairIKjS9_EEEPSt6vectorISt10unique_ptrI11llama_mlockSt14default_deleteISM_EESaISP_EEPFbfPvEST_E3$_2EEEESE_IP11ggml_tensorbEEE", i64 16), ptr %510, align 8, !tbaa !276, !noalias !322
   %517 = getelementptr inbounds nuw i8, ptr %507, i64 64
   %518 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #36
@@ -11809,7 +11809,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !11, !alias.scope !347, !noalias !350
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !3, !alias.scope !350, !noalias !347
   store i64 0, ptr %48, align 8, !tbaa !11, !alias.scope !350, !noalias !347
-  store i8 0, ptr %39, align 1, !tbaa !12, !alias.scope !350, !noalias !347
+  store i8 0, ptr %39, align 8, !tbaa !12, !alias.scope !350, !noalias !347
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -11857,7 +11857,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !11, !alias.scope !354, !noalias !357
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !3, !alias.scope !357, !noalias !354
   store i64 0, ptr %64, align 8, !tbaa !11, !alias.scope !357, !noalias !354
-  store i8 0, ptr %55, align 1, !tbaa !12, !alias.scope !357, !noalias !354
+  store i8 0, ptr %55, align 8, !tbaa !12, !alias.scope !357, !noalias !354
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5
@@ -18034,7 +18034,7 @@ _ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit: ; 
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(28) %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load atomic i32, ptr %8 acquire, align 4
+  %9 = load atomic i32, ptr %8 acquire, align 8
   %10 = and i32 %9, 2147483647
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit.us.i.i

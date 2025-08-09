@@ -459,7 +459,7 @@ define void @_ZN16ruff_source_file10SourceFile14to_source_code17hb65ea5a491bf201
   %7 = load i64, ptr %6, align 8, !noundef !3
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %10 = load atomic i32, ptr %9 acquire, align 4, !noalias !37
+  %10 = load atomic i32, ptr %9 acquire, align 8, !noalias !37
   %.not.i.i = icmp eq i32 %10, 3
   br i1 %.not.i.i, label %_ZN16ruff_source_file10SourceFile5index17he63b027d51f156e7E.exit, label %11, !prof !21
 

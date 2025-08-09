@@ -6592,7 +6592,7 @@ _ZN14core_hashtableI17default_map_entryISt4pairIP9func_decljES3_EN9table2mapIS5_
   %32 = load ptr, ptr %31, align 8, !tbaa !346
   store ptr %32, ptr %30, align 8, !tbaa !292
   %33 = getelementptr inbounds nuw i8, ptr %.02839.i, i64 16
-  %34 = load i32, ptr %33, align 4, !tbaa !262
+  %34 = load i32, ptr %33, align 8, !tbaa !262
   %35 = getelementptr inbounds nuw i8, ptr %.034.i, i64 16
   store i32 %34, ptr %35, align 8, !tbaa !397
   %36 = getelementptr inbounds nuw i8, ptr %.02839.i, i64 24
@@ -6621,7 +6621,7 @@ _ZN14core_hashtableI17default_map_entryISt4pairIP9func_decljES3_EN9table2mapIS5_
   %48 = load ptr, ptr %47, align 8, !tbaa !346
   store ptr %48, ptr %46, align 8, !tbaa !292
   %49 = getelementptr inbounds nuw i8, ptr %.02839.i, i64 16
-  %50 = load i32, ptr %49, align 4, !tbaa !262
+  %50 = load i32, ptr %49, align 8, !tbaa !262
   %51 = getelementptr inbounds nuw i8, ptr %.136.i, i64 16
   store i32 %50, ptr %51, align 8, !tbaa !397
   %52 = getelementptr inbounds nuw i8, ptr %.02839.i, i64 24
@@ -7314,7 +7314,7 @@ _ZN14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_h
   %32 = load ptr, ptr %31, align 8, !tbaa !346
   store ptr %32, ptr %30, align 8, !tbaa !292
   %33 = getelementptr inbounds nuw i8, ptr %.02839.i, i64 16
-  %34 = load i32, ptr %33, align 4, !tbaa !262
+  %34 = load i32, ptr %33, align 8, !tbaa !262
   %35 = getelementptr inbounds nuw i8, ptr %.034.i, i64 16
   store i32 %34, ptr %35, align 8, !tbaa !397
   br label %51
@@ -7339,7 +7339,7 @@ _ZN14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_h
   %45 = load ptr, ptr %44, align 8, !tbaa !346
   store ptr %45, ptr %43, align 8, !tbaa !292
   %46 = getelementptr inbounds nuw i8, ptr %.02839.i, i64 16
-  %47 = load i32, ptr %46, align 4, !tbaa !262
+  %47 = load i32, ptr %46, align 8, !tbaa !262
   %48 = getelementptr inbounds nuw i8, ptr %.136.i, i64 16
   store i32 %47, ptr %48, align 8, !tbaa !397
   br label %51

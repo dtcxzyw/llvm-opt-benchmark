@@ -3441,13 +3441,13 @@ _ZNSt11_Tuple_implILm1EJN32pxrInternal_v0_24__pxrReserved__7SdfPathESt12_Placeho
   %426 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store ptr @_ZN32pxrInternal_v0_24__pxrReserved__L12_ReplacePathERKNS_7SdfPathES2_S2_, ptr %424, align 8
   %427 = getelementptr inbounds nuw i8, ptr %424, i64 8
-  store i32 %391, ptr %427, align 4
+  store i32 %391, ptr %427, align 8
   store i32 0, ptr %390, align 8
   %428 = getelementptr inbounds nuw i8, ptr %424, i64 12
   store i32 %405, ptr %428, align 4
   store i32 0, ptr %403, align 4
   %429 = getelementptr inbounds nuw i8, ptr %424, i64 16
-  store i32 %407, ptr %429, align 4
+  store i32 %407, ptr %429, align 8
   store i32 0, ptr %406, align 8
   %430 = getelementptr inbounds nuw i8, ptr %424, i64 20
   store i32 %422, ptr %430, align 4
@@ -8768,8 +8768,8 @@ define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFSt8optionalIN3
   store ptr %10, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %13 = load i32, ptr %12, align 4
-  store i32 %13, ptr %11, align 4
+  %13 = load i32, ptr %12, align 8
+  store i32 %13, ptr %11, align 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %13, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt11_Tuple_implILm1EJN32pxrInternal_v0_24__pxrReserved__7SdfPathESt12_PlaceholderILi1EEEEC2ERKS4_.exit.i.i.i.i.i.i, label %14
 

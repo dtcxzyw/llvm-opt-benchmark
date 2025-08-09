@@ -5011,7 +5011,7 @@ call6.i.i.noexc:                                  ; preds = %call3.i.i.noexc
   %capacity_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i42, i64 32
   store i64 %sub.i.i, ptr %capacity_.i.i.i.i, align 8, !noalias !37
   %referenceCount_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i42, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i.i, align 4, !noalias !37
+  store i32 0, ptr %referenceCount_.i.i.i.i, align 8, !noalias !37
   %podType_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i42, i64 44
   store i8 1, ptr %podType_.i.i.i.i, align 4, !noalias !37
   %padding_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i42, i64 48
@@ -7429,7 +7429,7 @@ call6.i.i.noexc560:                               ; preds = %call3.i.i.noexc558
   %capacity_.i.i.i.i541 = getelementptr inbounds nuw i8, ptr %call6.i.i561, i64 32
   store i64 %sub.i.i536, ptr %capacity_.i.i.i.i541, align 8, !noalias !54
   %referenceCount_.i.i.i.i542 = getelementptr inbounds nuw i8, ptr %call6.i.i561, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i.i542, align 4, !noalias !54
+  store i32 0, ptr %referenceCount_.i.i.i.i542, align 8, !noalias !54
   %podType_.i.i.i.i543 = getelementptr inbounds nuw i8, ptr %call6.i.i561, i64 44
   store i8 1, ptr %podType_.i.i.i.i543, align 4, !noalias !54
   %padding_.i.i.i.i544 = getelementptr inbounds nuw i8, ptr %call6.i.i561, i64 48
@@ -7520,7 +7520,7 @@ call6.i.i.i.noexc:                                ; preds = %call3.i.i.i.noexc
   %capacity_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i.i573, i64 32
   store i64 %sub.i.i.i, ptr %capacity_.i.i.i.i.i, align 8, !noalias !64
   %referenceCount_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i.i573, i64 40
-  store i32 0, ptr %referenceCount_.i.i.i.i.i, align 4, !noalias !64
+  store i32 0, ptr %referenceCount_.i.i.i.i.i, align 8, !noalias !64
   %podType_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i.i573, i64 44
   store i8 1, ptr %podType_.i.i.i.i.i, align 4, !noalias !64
   %padding_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i.i573, i64 48

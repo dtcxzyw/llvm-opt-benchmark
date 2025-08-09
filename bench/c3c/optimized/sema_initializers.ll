@@ -1748,7 +1748,7 @@ type_flatten.exit375.i:                           ; preds = %type_flatten.exit37
   %425 = sdiv exact i64 %424, 56
   %426 = trunc i64 %425 to i32
   %427 = getelementptr inbounds nuw i8, ptr %409, i64 32
-  store i32 %426, ptr %427, align 4
+  store i32 %426, ptr %427, align 8
   %428 = load ptr, ptr %375, align 8
   %.not.i378.i = icmp eq ptr %428, null
   br i1 %.not.i378.i, label %429, label %432
@@ -1845,7 +1845,7 @@ type_flatten.exit375.i:                           ; preds = %type_flatten.exit37
   %481 = sdiv exact i64 %480, 56
   %482 = trunc i64 %481 to i32
   %483 = getelementptr inbounds nuw i8, ptr %465, i64 32
-  store i32 %482, ptr %483, align 4
+  store i32 %482, ptr %483, align 8
   %484 = getelementptr inbounds i8, ptr %.1311500.i, i64 -8
   %.phi.trans.insert.i386.i = getelementptr inbounds i8, ptr %.1311500.i, i64 -4
   %.pre.i387.i = load i32, ptr %.phi.trans.insert.i386.i, align 4

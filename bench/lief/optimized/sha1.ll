@@ -1298,10 +1298,10 @@ mbedtls_sha1_free.exit:                           ; preds = %15, %12
   %23 = shl i32 %19, 3
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %25 = tail call i32 @llvm.bswap.i32(i32 %22)
-  store i32 %25, ptr %24, align 1
+  store i32 %25, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %27 = tail call i32 @llvm.bswap.i32(i32 %23)
-  store i32 %27, ptr %26, align 1
+  store i32 %27, ptr %26, align 4
   %28 = tail call i32 @mbedtls_internal_sha1_process(ptr noundef nonnull %0, ptr noundef nonnull %5)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i32, ptr %29, align 4, !tbaa !7

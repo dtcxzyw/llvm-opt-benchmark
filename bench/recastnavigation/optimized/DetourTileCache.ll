@@ -919,7 +919,7 @@ _ZNK11dtTileCache14getObstacleRefEPK19dtTileCacheObstacle.exit: ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 99
   store i8 1, ptr %16, align 1
   %17 = load float, ptr %1, align 4
-  store float %17, ptr %11, align 4
+  store float %17, ptr %11, align 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %19 = load float, ptr %18, align 4
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 4
@@ -927,7 +927,7 @@ _ZNK11dtTileCache14getObstacleRefEPK19dtTileCacheObstacle.exit: ; preds = %9
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load float, ptr %21, align 4
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store float %22, ptr %23, align 4
+  store float %22, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store float %2, ptr %24, align 4
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -990,7 +990,7 @@ _ZNK11dtTileCache14getObstacleRefEPK19dtTileCacheObstacle.exit: ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 98
   store i8 1, ptr %16, align 2
   %17 = load float, ptr %1, align 4
-  store float %17, ptr %10, align 4
+  store float %17, ptr %10, align 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %19 = load float, ptr %18, align 4
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -998,14 +998,14 @@ _ZNK11dtTileCache14getObstacleRefEPK19dtTileCacheObstacle.exit: ; preds = %8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load float, ptr %21, align 4
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store float %22, ptr %23, align 4
+  store float %22, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %25 = load float, ptr %2, align 4
   store float %25, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %27 = load float, ptr %26, align 4
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store float %27, ptr %28, align 4
+  store float %27, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %30 = load float, ptr %29, align 4
   %31 = getelementptr inbounds nuw i8, ptr %10, i64 20
@@ -1068,7 +1068,7 @@ _ZNK11dtTileCache14getObstacleRefEPK19dtTileCacheObstacle.exit: ; preds = %9
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 98
   store i8 2, ptr %17, align 2
   %18 = load float, ptr %1, align 4
-  store float %18, ptr %11, align 4
+  store float %18, ptr %11, align 8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %20 = load float, ptr %19, align 4
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 4
@@ -1076,14 +1076,14 @@ _ZNK11dtTileCache14getObstacleRefEPK19dtTileCacheObstacle.exit: ; preds = %9
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load float, ptr %22, align 4
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store float %23, ptr %24, align 4
+  store float %23, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %26 = load float, ptr %2, align 4
   store float %26, ptr %25, align 4
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %28 = load float, ptr %27, align 4
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store float %28, ptr %29, align 4
+  store float %28, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %31 = load float, ptr %30, align 4
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 20

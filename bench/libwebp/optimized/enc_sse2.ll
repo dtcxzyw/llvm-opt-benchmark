@@ -1637,9 +1637,9 @@ define internal range(i32 0, 4) i32 @Quantize2Blocks_SSE2(ptr noundef captures(n
   %130 = shufflevector <4 x i32> %129, <4 x i32> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
   %131 = bitcast <4 x i32> %130 to <8 x i16>
   %132 = shufflevector <8 x i16> %131, <8 x i16> poison, <8 x i32> <i32 0, i32 2, i32 3, i32 1, i32 4, i32 5, i32 6, i32 7>
-  store <8 x i16> %127, ptr %83, align 1, !tbaa !14, !noalias !350
+  store <8 x i16> %127, ptr %83, align 2, !tbaa !14, !noalias !350
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store <8 x i16> %132, ptr %133, align 1, !tbaa !14, !noalias !350
+  store <8 x i16> %132, ptr %133, align 2, !tbaa !14, !noalias !350
   %134 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %127, <8 x i16> %132)
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %136 = extractelement <8 x i16> %131, i64 4

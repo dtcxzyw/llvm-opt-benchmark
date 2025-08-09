@@ -1793,15 +1793,15 @@ _ZN11duckdb_zstd28ZSTD_CCtxParams_setParameterEPNS_18ZSTD_CCtx_params_sENS_15ZST
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %.sroa.0.0.copyload, ptr %24, align 4, !tbaa !102
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.sroa.2.0.copyload, ptr %25, align 4, !tbaa !104
+  store i32 %.sroa.2.0.copyload, ptr %25, align 8, !tbaa !104
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %.sroa.3.0.copyload, ptr %26, align 4, !tbaa !103
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %.sroa.4.0.copyload, ptr %27, align 4, !tbaa !105
+  store i32 %.sroa.4.0.copyload, ptr %27, align 8, !tbaa !105
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %.sroa.5.0.copyload, ptr %28, align 4, !tbaa !106
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %.sroa.6.0.copyload, ptr %29, align 4, !tbaa !107
+  store i32 %.sroa.6.0.copyload, ptr %29, align 8, !tbaa !107
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %.sroa.7.0.copyload, ptr %30, align 4, !tbaa !108
   br label %_ZN11duckdb_zstd17ZSTD_checkCParamsENS_26ZSTD_compressionParametersE.exit.thread
@@ -2372,17 +2372,17 @@ _ZN11duckdb_zstdL20ZSTD_overrideCParamsEPNS_26ZSTD_compressionParametersEPKS0_.e
   %.not27.i = icmp eq i32 %21, 0
   %.sroa.7.0 = select i1 %.not27.i, i32 %.sroa.7.0.copyload, i32 %21
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %23 = load i32, ptr %22, align 4, !tbaa !94
+  %23 = load i32, ptr %22, align 8, !tbaa !94
   %.not28.i = icmp eq i32 %23, 0
   %.sroa.6.0 = select i1 %.not28.i, i32 %.sroa.6.0.copyload, i32 %23
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %25 = load i32, ptr %24, align 4, !tbaa !96
+  %25 = load i32, ptr %24, align 8, !tbaa !96
   %.not29.i = icmp eq i32 %25, 0
   %.sroa.8.0 = select i1 %.not29.i, i32 %.sroa.8.0.copyload, i32 %25
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %27 = load i32, ptr %26, align 4, !tbaa !97
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %29 = load i32, ptr %28, align 4, !tbaa !146
+  %29 = load i32, ptr %28, align 8, !tbaa !146
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %31 = load i32, ptr %30, align 4, !tbaa !98
   %.not32.i = icmp eq i32 %31, 0
@@ -4600,7 +4600,7 @@ _ZN11duckdb_zstdL18ZSTD_window_updateEPNS_13ZSTD_window_tEPKvmi.exit88: ; preds 
   %164 = ptrtoint ptr %162 to i64
   %165 = sub i64 %163, %164
   %166 = trunc i64 %165 to i32
-  %167 = load i32, ptr %129, align 4, !tbaa !62
+  %167 = load i32, ptr %129, align 8, !tbaa !62
   %168 = add i32 %167, %121
   %169 = icmp ult i32 %168, %166
   br i1 %169, label %172, label %170
@@ -5637,7 +5637,7 @@ _ZN11duckdb_zstdL21ZSTD_shouldAttachDictEPKNS_12ZSTD_CDict_sEPKNS_18ZSTD_CCtx_pa
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 372
   %.sroa.6.sroa.0.0.copyload.i.i = load i32, ptr %.sroa.6.0..sroa_idx.i.i, align 4, !tbaa !62
   %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 376
-  %57 = load i64, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx.i.i, align 4
+  %57 = load i64, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx.i.i, align 8
   %.not.i13.i = icmp ne i32 %40, 0
   %.off.i.i.i = add i32 %42, -3
   %switch.i.i.i = icmp ult i32 %.off.i.i.i, 3
@@ -5902,7 +5902,7 @@ _ZN11duckdb_zstdL23ZSTD_allocateChainTableENS_13ZSTD_strategyENS_18ZSTD_paramSwi
   %208 = load ptr, ptr %207, align 8, !tbaa !193
   %209 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %210 = load ptr, ptr %209, align 8, !tbaa !297
-  %.val60.i.i = load i32, ptr %41, align 4, !tbaa !98
+  %.val60.i.i = load i32, ptr %41, align 8, !tbaa !98
   %211 = add i32 %.val60.i.i, -3
   %narrow.i.i64.i.i = icmp ult i32 %211, -2
   br i1 %narrow.i.i64.i.i, label %217, label %.preheader.i65.i.i

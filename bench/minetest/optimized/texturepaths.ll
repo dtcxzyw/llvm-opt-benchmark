@@ -2933,7 +2933,7 @@ try.cont:                                         ; preds = %if.end.i.i.i.i.i.i.
   store ptr %14, ptr %second.i.i.i.i, align 8, !tbaa !15
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__node, i64 72
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !21
-  store i8 0, ptr %14, align 1, !tbaa !20
+  store i8 0, ptr %14, align 8, !tbaa !20
   ret void
 
 eh.resume:                                        ; preds = %lpad7

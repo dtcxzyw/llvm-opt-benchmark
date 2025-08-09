@@ -9485,7 +9485,7 @@ define hidden void @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.42.i.i)
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2322)
-  %14 = load i32, ptr %7, align 4, !alias.scope !2309, !noalias !2325, !noundef !4
+  %14 = load i32, ptr %7, align 8, !alias.scope !2309, !noalias !2325, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !2329
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !2329
   %15 = load ptr, ptr %13, align 8, !alias.scope !2330, !noalias !2331, !nonnull !4, !align !63, !noundef !4
@@ -9554,7 +9554,7 @@ define hidden void @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.42.i.i)
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2384)
-  %14 = load i32, ptr %7, align 4, !alias.scope !2371, !noalias !2387, !noundef !4
+  %14 = load i32, ptr %7, align 8, !alias.scope !2371, !noalias !2387, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !2391
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !2391
   %15 = load ptr, ptr %13, align 8, !alias.scope !2392, !noalias !2393, !nonnull !4, !align !63, !noundef !4
@@ -27981,7 +27981,7 @@ define hidden void @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9fold_impl17h76d301
   %29 = getelementptr inbounds i8, ptr %25, i64 -8
   %30 = load i64, ptr %29, align 8, !alias.scope !6592, !noalias !6595, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.42.i.i.i)
-  %31 = load i32, ptr %26, align 4, !alias.scope !6587, !noalias !6601, !noundef !4
+  %31 = load i32, ptr %26, align 8, !alias.scope !6587, !noalias !6601, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !6609
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !6609
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, ptr noundef nonnull align 4 dereferenceable(20) %11, i64 20, i1 false), !noalias !6609
@@ -28743,7 +28743,7 @@ define hidden void @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9fold_impl17hd6c29f
   %29 = getelementptr inbounds i8, ptr %25, i64 -8
   %30 = load i64, ptr %29, align 8, !alias.scope !6756, !noalias !6759, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.42.i.i.i)
-  %31 = load i32, ptr %26, align 4, !alias.scope !6751, !noalias !6765, !noundef !4
+  %31 = load i32, ptr %26, align 8, !alias.scope !6751, !noalias !6765, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !6773
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !6773
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, ptr noundef nonnull align 4 dereferenceable(20) %11, i64 20, i1 false), !noalias !6773

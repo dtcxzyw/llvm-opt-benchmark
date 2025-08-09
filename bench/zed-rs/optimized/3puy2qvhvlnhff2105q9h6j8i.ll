@@ -175958,7 +175958,7 @@ define hidden void @_ZN4gpui8platform5linux7wayland6window21WaylandWindowStatePt
   %.sroa.510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4100
   %.sroa.510.sroa.0.0.copyload133 = load i32, ptr %.sroa.510.0..sroa_idx, align 4
   %.sroa.510.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4104
-  %.sroa.510.sroa.0.0.copyload134 = load i32, ptr %.sroa.510.0..sroa_idx.sroa_idx, align 4
+  %.sroa.510.sroa.0.0.copyload134 = load i32, ptr %.sroa.510.0..sroa_idx.sroa_idx, align 8
   %.sroa.510.sroa.4.0..sroa.510.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4108
   %.sroa.510.sroa.4.0.copyload = load i32, ptr %.sroa.510.sroa.4.0..sroa.510.0..sroa_idx.sroa_idx, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4112
@@ -177157,11 +177157,11 @@ select.unfold:                                    ; preds = %select.unfold.loope
   %120 = getelementptr inbounds i8, ptr %78, i64 -8
   %121 = load i32, ptr %120, align 8, !alias.scope !45680, !noalias !45677, !noundef !4
   %122 = getelementptr inbounds i8, ptr %78, i64 -24
-  %123 = load i32, ptr %122, align 4, !alias.scope !45690, !noalias !45697, !noundef !4
+  %123 = load i32, ptr %122, align 8, !alias.scope !45690, !noalias !45697, !noundef !4
   %124 = getelementptr inbounds i8, ptr %78, i64 -20
   %125 = load i32, ptr %124, align 4, !alias.scope !45699, !noalias !45697, !noundef !4
   %126 = getelementptr inbounds i8, ptr %78, i64 -16
-  %.val.i.i = load i32, ptr %126, align 4, !alias.scope !45702, !noalias !45697, !noundef !4
+  %.val.i.i = load i32, ptr %126, align 8, !alias.scope !45702, !noalias !45697, !noundef !4
   %127 = getelementptr inbounds i8, ptr %78, i64 -12
   %.val1.i.i = load i32, ptr %127, align 4, !alias.scope !45702, !noalias !45697, !noundef !4
   store i64 %.sroa.0.0.i40, ptr %14, align 8, !alias.scope !45677, !noalias !45680
@@ -179293,11 +179293,11 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @_ZN4gpui8platform5
   %.sroa.0.0.i19 = phi i64 [ %.sroa.0.0.copyload.i, %.noexc21 ], [ -9223372036854775808, %88 ]
   %101 = load i32, ptr %65, align 8, !alias.scope !46345, !noalias !46348, !noundef !4
   %102 = getelementptr inbounds i8, ptr %32, i64 -24
-  %103 = load i32, ptr %102, align 4, !alias.scope !46362, !noalias !46369, !noundef !4
+  %103 = load i32, ptr %102, align 8, !alias.scope !46362, !noalias !46369, !noundef !4
   %104 = getelementptr inbounds i8, ptr %32, i64 -20
   %105 = load i32, ptr %104, align 4, !alias.scope !46371, !noalias !46369, !noundef !4
   %106 = getelementptr inbounds i8, ptr %32, i64 -16
-  %.val.i.i = load i32, ptr %106, align 4, !alias.scope !46374, !noalias !46369, !noundef !4
+  %.val.i.i = load i32, ptr %106, align 8, !alias.scope !46374, !noalias !46369, !noundef !4
   %107 = getelementptr inbounds i8, ptr %32, i64 -12
   %.val1.i.i = load i32, ptr %107, align 4, !alias.scope !46374, !noalias !46369, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.067, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
@@ -179461,11 +179461,11 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @_ZN4gpui8platform5
   %151 = getelementptr inbounds i8, ptr %32, i64 -8
   %152 = load i32, ptr %151, align 8, !alias.scope !46446, !noalias !46449, !noundef !4
   %153 = getelementptr inbounds i8, ptr %32, i64 -24
-  %154 = load i32, ptr %153, align 4, !alias.scope !46463, !noalias !46470, !noundef !4
+  %154 = load i32, ptr %153, align 8, !alias.scope !46463, !noalias !46470, !noundef !4
   %155 = getelementptr inbounds i8, ptr %32, i64 -20
   %156 = load i32, ptr %155, align 4, !alias.scope !46472, !noalias !46470, !noundef !4
   %157 = getelementptr inbounds i8, ptr %32, i64 -16
-  %.val.i.i38 = load i32, ptr %157, align 4, !alias.scope !46475, !noalias !46470, !noundef !4
+  %.val.i.i38 = load i32, ptr %157, align 8, !alias.scope !46475, !noalias !46470, !noundef !4
   %158 = getelementptr inbounds i8, ptr %32, i64 -12
   %.val1.i.i39 = load i32, ptr %158, align 4, !alias.scope !46475, !noalias !46470, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0113, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)

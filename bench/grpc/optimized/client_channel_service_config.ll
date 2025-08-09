@@ -1853,7 +1853,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7emplaceIJEE
   store ptr %15, ptr %1, align 8, !tbaa !24
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 0, ptr %16, align 8, !tbaa !30
-  store i8 0, ptr %15, align 1, !tbaa !7
+  store i8 0, ptr %15, align 8, !tbaa !7
   store i8 1, ptr %3, align 8, !tbaa !69
   ret ptr %1
 }
@@ -2448,7 +2448,7 @@ define linkonce_odr noundef ptr @_ZNK9grpc_core11json_detail10AutoLoaderISt10uni
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23, !noalias !91
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %4, align 16, !noalias !91
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN9grpc_core8internal31ClientChannelMethodParsedConfigE, i64 16), ptr %3, align 8, !tbaa !4, !noalias !91
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN9grpc_core8internal31ClientChannelMethodParsedConfigE, i64 16), ptr %3, align 16, !tbaa !4, !noalias !91
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %5, align 8, !tbaa !94, !noalias !91
   %6 = load ptr, ptr %1, align 8, !tbaa !77

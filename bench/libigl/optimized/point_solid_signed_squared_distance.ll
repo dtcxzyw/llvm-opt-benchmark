@@ -625,9 +625,9 @@ define weak_odr dso_local void @_ZN3igl8copyleft4cgal35point_solid_signed_square
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store <2 x double> <double -0.000000e+00, double 0.000000e+00>, ptr %26, align 16, !tbaa !9
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  store ptr null, ptr %27, align 8, !tbaa !10
+  store ptr null, ptr %27, align 16, !tbaa !10
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 40
-  store i32 0, ptr %28, align 4, !tbaa !14
+  store i32 0, ptr %28, align 8, !tbaa !14
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL14Lazy_exact_CstIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEiEE, i64 16), ptr %23, align 16, !tbaa !16
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 44
   store i32 0, ptr %29, align 4, !tbaa !18
@@ -652,7 +652,7 @@ define weak_odr dso_local void @_ZN3igl8copyleft4cgal35point_solid_signed_square
 
 40:                                               ; preds = %33
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL8Lazy_repINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EELi1EEE, i64 16), ptr %23, align 16, !tbaa !16, !noalias !36
-  %41 = load atomic i64, ptr %27 monotonic, align 8, !noalias !36
+  %41 = load atomic i64, ptr %27 monotonic, align 16, !noalias !36
   %.0.i.i.i.i79 = inttoptr i64 %41 to ptr
   %.not.i.i80 = icmp eq i64 %41, 0
   br i1 %.not.i.i80, label %_ZN4CGAL14Lazy_exact_CstIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEiED0Ev.exit, label %42
@@ -1641,9 +1641,9 @@ define linkonce_odr dso_local void @_ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store <2 x double> <double -0.000000e+00, double 0.000000e+00>, ptr %6, align 16, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr null, ptr %7, align 8, !tbaa !10
+  store ptr null, ptr %7, align 16, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i32 0, ptr %8, align 4, !tbaa !14
+  store i32 0, ptr %8, align 8, !tbaa !14
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL14Lazy_exact_CstIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEiEE, i64 16), ptr %4, align 16, !tbaa !16
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 0, ptr %9, align 4, !tbaa !18
@@ -1669,7 +1669,7 @@ define linkonce_odr dso_local void @_ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_
 
 19:                                               ; preds = %11
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL8Lazy_repINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EELi1EEE, i64 16), ptr %4, align 16, !tbaa !16, !noalias !100
-  %20 = load atomic i64, ptr %7 monotonic, align 8, !noalias !100
+  %20 = load atomic i64, ptr %7 monotonic, align 16, !noalias !100
   %.0.i.i.i.i = inttoptr i64 %20 to ptr
   %.not.i.i = icmp eq i64 %20, 0
   br i1 %.not.i.i, label %_ZN4CGAL14Lazy_exact_CstIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEiED0Ev.exit, label %21
@@ -1869,9 +1869,9 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(9) ptr @_Z
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store <2 x double> %13, ptr %15, align 16, !tbaa !9
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr null, ptr %16, align 8, !tbaa !10
+  store ptr null, ptr %16, align 16, !tbaa !10
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store i32 0, ptr %17, align 4, !tbaa !14
+  store i32 0, ptr %17, align 8, !tbaa !14
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL14Lazy_exact_CstIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdEE, i64 16), ptr %9, align 16, !tbaa !16
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store double %1, ptr %18, align 16, !tbaa !109
@@ -1915,13 +1915,13 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(9) ptr @_Z
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store <2 x double> %43, ptr %45, align 16, !tbaa !9
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store ptr null, ptr %46, align 8, !tbaa !10
+  store ptr null, ptr %46, align 16, !tbaa !10
   %47 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store i32 0, ptr %47, align 4, !tbaa !14
+  store i32 0, ptr %47, align 8, !tbaa !14
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL17Lazy_exact_binaryIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_SD_EE, i64 16), ptr %8, align 16, !tbaa !16
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %49 = load ptr, ptr %0, align 8, !tbaa !26
-  store ptr %49, ptr %48, align 8, !tbaa !26
+  store ptr %49, ptr %48, align 16, !tbaa !26
   %50 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !9
   %.not.i.i.i.i.i.i = icmp eq i8 %50, 0
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
@@ -18106,7 +18106,7 @@ define linkonce_odr dso_local noundef ptr @_ZN5Eigen8internal27construct_element
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr null, ptr %11, align 8, !tbaa !10
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store i32 0, ptr %12, align 4, !tbaa !14
+  store i32 0, ptr %12, align 8, !tbaa !14
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL10Lazy_rep_0INS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEEE, i64 16), ptr %9, align 16, !tbaa !16
   store ptr %9, ptr @_ZZN4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE4zeroEvE1z, align 8, !tbaa !26
   %13 = tail call i32 @__cxa_thread_atexit(ptr nonnull @_ZN4CGAL6HandleD2Ev, ptr nonnull @_ZZN4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE4zeroEvE1z, ptr nonnull @__dso_handle) #24

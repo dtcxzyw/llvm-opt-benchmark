@@ -1514,7 +1514,7 @@ define internal void @icl_plane_update_noarm(ptr noundef %0, ptr noundef %1, ptr
   %286 = lshr i16 %285, 8
   %287 = zext nneg i16 %286 to i32
   %288 = getelementptr inbounds nuw i8, ptr %2, i64 424
-  %289 = load i32, ptr %288, align 4
+  %289 = load i32, ptr %288, align 8
   %290 = and i32 %289, 16777215
   %291 = shl nuw i32 %287, 24
   %292 = or disjoint i32 %291, %290
@@ -4680,7 +4680,7 @@ define internal void @skl_plane_update_arm(ptr noundef %0, ptr noundef %1, ptr n
   %136 = lshr i16 %135, 8
   %137 = zext nneg i16 %136 to i32
   %138 = getelementptr inbounds nuw i8, ptr %2, i64 424
-  %139 = load i32, ptr %138, align 4
+  %139 = load i32, ptr %138, align 8
   %140 = and i32 %139, 16777215
   %141 = shl nuw i32 %137, 24
   %142 = or disjoint i32 %141, %140
@@ -5561,7 +5561,7 @@ define internal i32 @skl_plane_check(ptr noundef %0, ptr noundef %1) #2 align 16
   %150 = load i32, ptr %149, align 4
   %151 = ashr i32 %150, 16
   %152 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %153 = load i32, ptr %152, align 4
+  %153 = load i32, ptr %152, align 8
   %154 = ashr i32 %153, 16
   %155 = getelementptr inbounds nuw i8, ptr %148, i64 72
   %156 = load ptr, ptr %155, align 8
@@ -5903,7 +5903,7 @@ define internal i32 @skl_plane_check(ptr noundef %0, ptr noundef %1) #2 align 16
   store i32 %353, ptr %3, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %354 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %355 = load i32, ptr %354, align 4
+  %355 = load i32, ptr %354, align 8
   %356 = ashr i32 %355, 16
   store i32 %356, ptr %4, align 4
   %357 = getelementptr inbounds nuw i8, ptr %1, i64 116
@@ -5911,7 +5911,7 @@ define internal i32 @skl_plane_check(ptr noundef %0, ptr noundef %1) #2 align 16
   %359 = sub i32 %358, %352
   %360 = ashr i32 %359, 16
   %361 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %362 = load i32, ptr %361, align 4
+  %362 = load i32, ptr %361, align 8
   %363 = sub i32 %362, %355
   %364 = ashr i32 %363, 16
   %365 = getelementptr inbounds nuw i8, ptr %347, i64 1360
@@ -6131,16 +6131,16 @@ define internal i32 @skl_plane_check(ptr noundef %0, ptr noundef %1) #2 align 16
   %489 = shl i32 %486, 16
   %490 = load i32, ptr %351, align 4
   %491 = sub i32 %488, %490
-  %492 = load i32, ptr %354, align 4
+  %492 = load i32, ptr %354, align 8
   %493 = sub i32 %489, %492
   store i32 %488, ptr %351, align 4
-  store i32 %489, ptr %354, align 4
+  store i32 %489, ptr %354, align 8
   %494 = load i32, ptr %357, align 4
   %495 = add i32 %491, %494
   store i32 %495, ptr %357, align 4
-  %496 = load i32, ptr %361, align 4
+  %496 = load i32, ptr %361, align 8
   %497 = add i32 %493, %496
-  store i32 %497, ptr %361, align 4
+  store i32 %497, ptr %361, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

@@ -112,7 +112,7 @@ _ZN17cmFindPackageCallC2EOS_.exit:                ; preds = %8, %_ZNKSt7__cxx111
   store i64 %15, ptr %16, align 8, !tbaa !13
   store ptr %6, ptr %2, align 8, !tbaa !10
   store i64 0, ptr %14, align 8, !tbaa !13
-  store i8 0, ptr %6, align 1, !tbaa !14
+  store i8 0, ptr %6, align 8, !tbaa !14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %19 = load i32, ptr %18, align 8, !tbaa !15
@@ -198,7 +198,7 @@ _ZN17cmFindPackageCallC2EOS_.exit:                ; preds = %22, %_ZNKSt7__cxx11
   store i64 %29, ptr %31, align 8, !tbaa !13
   store ptr %20, ptr %2, align 8, !tbaa !10
   store i64 0, ptr %30, align 8, !tbaa !13
-  store i8 0, ptr %20, align 1, !tbaa !14
+  store i8 0, ptr %20, align 8, !tbaa !14
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %34 = load i32, ptr %33, align 8, !tbaa !15

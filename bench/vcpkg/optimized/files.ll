@@ -49583,7 +49583,7 @@ _ZN5vcpkg4PathC2EOS0_.exit.thread:                ; preds = %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(1) %21, i64 %26, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 0, ptr %27, align 8, !tbaa !14
-  store i8 0, ptr %21, align 1, !tbaa !28
+  store i8 0, ptr %21, align 8, !tbaa !28
   store ptr %16, ptr %5, align 8, !tbaa !12
   br label %31
 
@@ -49595,7 +49595,7 @@ _ZN5vcpkg4PathC2EOS0_.exit:                       ; preds = %18
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %21, ptr %19, align 8, !tbaa !27
   store i64 0, ptr %29, align 8, !tbaa !14
-  store i8 0, ptr %21, align 1, !tbaa !28
+  store i8 0, ptr %21, align 8, !tbaa !28
   store ptr %16, ptr %5, align 8, !tbaa !12
   %30 = icmp eq ptr %20, %14
   br i1 %30, label %31, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9
@@ -49743,7 +49743,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1:
   store i64 %17, ptr %19, align 8, !tbaa !14
   store ptr %9, ptr %2, align 8, !tbaa !27
   store i64 0, ptr %18, align 8, !tbaa !14
-  store i8 0, ptr %9, align 1, !tbaa !28
+  store i8 0, ptr %9, align 8, !tbaa !28
   %20 = load ptr, ptr %0, align 8, !tbaa !27
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = icmp eq ptr %20, %21
@@ -50173,7 +50173,7 @@ _ZN5vcpkg4PathC2EOS0_.exit:                       ; preds = %117, %_ZNKSt7__cxx1
   store i64 %123, ptr %125, align 8, !tbaa !14
   store ptr %115, ptr %3, align 8, !tbaa !27
   store i64 0, ptr %124, align 8, !tbaa !14
-  store i8 0, ptr %115, align 1, !tbaa !28
+  store i8 0, ptr %115, align 8, !tbaa !28
   invoke void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg4PathESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_less_valEEvT_T0_SC_T1_RT2_(ptr %0, i64 noundef %.1, i64 noundef %1, ptr noundef nonnull %6, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %126 unwind label %133
 
@@ -50783,7 +50783,7 @@ _ZN5vcpkg4PathC2EOS0_.exit:                       ; preds = %22, %_ZNKSt7__cxx11
   store i64 %29, ptr %6, align 8, !tbaa !14
   store ptr %20, ptr %.sroa.0.023, align 8, !tbaa !27
   store i64 0, ptr %28, align 8, !tbaa !14
-  store i8 0, ptr %20, align 1, !tbaa !28
+  store i8 0, ptr %20, align 8, !tbaa !28
   %30 = ptrtoint ptr %.sroa.0.023 to i64
   %31 = sub i64 %30, %7
   %32 = ashr exact i64 %31, 5
@@ -51039,7 +51039,7 @@ _ZN5vcpkg4PathC2EOS0_.exit:                       ; preds = %7, %_ZNKSt7__cxx111
   store i64 %13, ptr %15, align 8, !tbaa !14
   store ptr %5, ptr %0, align 8, !tbaa !27
   store i64 0, ptr %14, align 8, !tbaa !14
-  store i8 0, ptr %5, align 1, !tbaa !28
+  store i8 0, ptr %5, align 8, !tbaa !28
   %.sroa.0.016 = getelementptr inbounds i8, ptr %0, i64 -32
   %16 = call { ptr, i64 } @_ZNK5vcpkg4PathcvNS_10StringViewEEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
   %17 = extractvalue { ptr, i64 } %16, 0

@@ -8135,7 +8135,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
 26:                                               ; preds = %22
   store i64 -1, ptr %23, align 8, !noalias !1567
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i8 0, ptr %27, align 1, !noalias !1567
+  store i8 0, ptr %27, align 8, !noalias !1567
   %28 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN74_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h85bea2cdafe8d9ebE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
           to label %30 unwind label %31, !noalias !1573
 
@@ -8469,7 +8469,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
 26:                                               ; preds = %22
   store i64 -1, ptr %23, align 8, !noalias !1658
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i8 0, ptr %27, align 1, !noalias !1658
+  store i8 0, ptr %27, align 8, !noalias !1658
   %28 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN74_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h85bea2cdafe8d9ebE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
           to label %30 unwind label %31, !noalias !1664
 
@@ -26569,7 +26569,7 @@ define hidden void @"_ZN4gpui8elements3div13Interactivity13on_mouse_down28_$u7b$
 25:                                               ; preds = %21
   store i64 -1, ptr %22, align 8, !noalias !5598
   %26 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  store i8 0, ptr %26, align 1, !noalias !5598
+  store i8 0, ptr %26, align 8, !noalias !5598
   %27 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN74_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h85bea2cdafe8d9ebE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
           to label %29 unwind label %30
 
@@ -26807,7 +26807,7 @@ define hidden void @"_ZN4gpui8elements3div13Interactivity13on_mouse_down28_$u7b$
 25:                                               ; preds = %21
   store i64 -1, ptr %22, align 8, !noalias !5626
   %26 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  store i8 0, ptr %26, align 1, !noalias !5626
+  store i8 0, ptr %26, align 8, !noalias !5626
   %27 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN74_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h85bea2cdafe8d9ebE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
           to label %29 unwind label %30
 

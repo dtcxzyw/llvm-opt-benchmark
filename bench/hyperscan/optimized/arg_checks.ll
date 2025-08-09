@@ -13326,7 +13326,7 @@ define linkonce_odr hidden void @_ZN7testing15AssertionResult13AppendMessageERKN
   store ptr %9, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 0, ptr %10, align 8
-  store i8 0, ptr %9, align 1
+  store i8 0, ptr %9, align 8
   %11 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
   br i1 %11, label %12, label %22
 
@@ -127795,7 +127795,7 @@ _ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store i64 %50, ptr %52, align 8, !alias.scope !142, !noalias !145
   store ptr %42, ptr %.0911.i.i.i.i, align 8, !alias.scope !145, !noalias !142
   store i64 0, ptr %51, align 8, !alias.scope !145, !noalias !142
-  store i8 0, ptr %42, align 1, !alias.scope !145, !noalias !142
+  store i8 0, ptr %42, align 8, !alias.scope !145, !noalias !142
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %55 = load ptr, ptr %54, align 8, !alias.scope !145, !noalias !142
@@ -127847,7 +127847,7 @@ _ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store i64 %69, ptr %71, align 8, !alias.scope !149, !noalias !152
   store ptr %61, ptr %.0911.i.i.i.i19, align 8, !alias.scope !152, !noalias !149
   store i64 0, ptr %70, align 8, !alias.scope !152, !noalias !149
-  store i8 0, ptr %61, align 1, !alias.scope !152, !noalias !149
+  store i8 0, ptr %61, align 8, !alias.scope !152, !noalias !149
   %72 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 32
   %73 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 32
   %74 = load ptr, ptr %73, align 8, !alias.scope !152, !noalias !149

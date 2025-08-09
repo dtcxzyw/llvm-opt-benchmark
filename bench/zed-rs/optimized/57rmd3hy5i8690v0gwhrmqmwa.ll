@@ -41360,7 +41360,7 @@ _ZN4core5slice4sort8unstable8heapsort8heapsort17h82f759bdb3ba7065E.exit: ; preds
   %200 = getelementptr inbounds nuw i8, ptr %.sroa.0.0119, i64 28
   %201 = load i32, ptr %200, align 4, !alias.scope !9122, !noalias !9106
   %202 = getelementptr inbounds nuw i8, ptr %.sroa.0.0119, i64 32
-  %203 = load i32, ptr %202, align 4, !alias.scope !9122, !noalias !9106
+  %203 = load i32, ptr %202, align 8, !alias.scope !9122, !noalias !9106
   br i1 %195, label %.lr.ph.split.us.i.i, label %.lr.ph.split.i.i
 
 .lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h2436c43dfa8cfeecE.exit38.us.i.i"
@@ -41424,7 +41424,7 @@ _ZN4core5slice4sort8unstable8heapsort8heapsort17h82f759bdb3ba7065E.exit: ; preds
   %230 = getelementptr inbounds nuw i8, ptr %.sroa.0.0119, i64 28
   %231 = load i32, ptr %230, align 4, !alias.scope !9122, !noalias !9106
   %232 = getelementptr inbounds nuw i8, ptr %.sroa.0.0119, i64 32
-  %233 = load i32, ptr %232, align 4, !alias.scope !9122, !noalias !9106
+  %233 = load i32, ptr %232, align 8, !alias.scope !9122, !noalias !9106
   br i1 %225, label %.lr.ph85.split.us.i.i, label %.lr.ph85.split.i.i
 
 .lr.ph85.split.us.i.i:                            ; preds = %.lr.ph85.i.i, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h2436c43dfa8cfeecE.exit.us.i.i"
@@ -41727,7 +41727,7 @@ _ZN4core5slice4sort8unstable9quicksort9partition17h2ae952cf6842b163E.exit: ; pre
   %360 = getelementptr inbounds nuw i8, ptr %.sroa.0.0119, i64 28
   %361 = load i32, ptr %360, align 4, !alias.scope !9219, !noalias !9200
   %362 = getelementptr inbounds nuw i8, ptr %.sroa.0.0119, i64 32
-  %363 = load i32, ptr %362, align 4, !alias.scope !9219, !noalias !9200
+  %363 = load i32, ptr %362, align 8, !alias.scope !9219, !noalias !9200
   br i1 %355, label %.lr.ph.split.us.i.i74, label %.lr.ph.split.i.i69
 
 .lr.ph.split.us.i.i74:                            ; preds = %.lr.ph.i.i68, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h9261179ee00cabf7E.exit38.us.i.i"
@@ -41793,7 +41793,7 @@ _ZN4core5slice4sort8unstable9quicksort9partition17h2ae952cf6842b163E.exit: ; pre
   %391 = getelementptr inbounds nuw i8, ptr %.sroa.0.0119, i64 28
   %392 = load i32, ptr %391, align 4, !alias.scope !9219, !noalias !9200
   %393 = getelementptr inbounds nuw i8, ptr %.sroa.0.0119, i64 32
-  %394 = load i32, ptr %393, align 4, !alias.scope !9219, !noalias !9200
+  %394 = load i32, ptr %393, align 8, !alias.scope !9219, !noalias !9200
   br i1 %386, label %.lr.ph85.split.us.i.i64, label %.lr.ph85.split.i.i50
 
 .lr.ph85.split.us.i.i64:                          ; preds = %.lr.ph85.i.i49, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h9261179ee00cabf7E.exit.us.i.i"
@@ -47868,7 +47868,7 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17h99db720d9c63184fE.exit: ; preds
   %211 = load i64, ptr %.sroa.0.0104, align 8, !range !1057, !alias.scope !11155, !noalias !11150
   %212 = icmp eq i64 %211, -9223372036854775807
   %213 = getelementptr inbounds nuw i8, ptr %.sroa.0.0104, i64 8
-  %214 = load i32, ptr %213, align 4, !alias.scope !11155, !noalias !11150
+  %214 = load i32, ptr %213, align 8, !alias.scope !11155, !noalias !11150
   %215 = getelementptr inbounds nuw i8, ptr %.sroa.0.0104, i64 12
   %216 = load i16, ptr %215, align 4, !alias.scope !11155, !noalias !11150
   %217 = insertvalue { i32, i16 } poison, i32 %214, 0
@@ -48126,7 +48126,7 @@ _ZN4core5slice4sort8unstable9quicksort9partition17ha4d0c07684e83824E.exit: ; pre
   %304 = load i64, ptr %.sroa.0.0104, align 8, !range !1057, !alias.scope !11204, !noalias !11199
   %305 = icmp eq i64 %304, -9223372036854775807
   %306 = getelementptr inbounds nuw i8, ptr %.sroa.0.0104, i64 8
-  %307 = load i32, ptr %306, align 4, !alias.scope !11204, !noalias !11199
+  %307 = load i32, ptr %306, align 8, !alias.scope !11204, !noalias !11199
   %308 = getelementptr inbounds nuw i8, ptr %.sroa.0.0104, i64 12
   %309 = load i16, ptr %308, align 4, !alias.scope !11204, !noalias !11199
   %310 = insertvalue { i32, i16 } poison, i32 %307, 0
@@ -48761,7 +48761,7 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17h7e89873f0f2d0791E.exit: ; preds
   %211 = load i64, ptr %.sroa.0.0104, align 8, !range !351, !alias.scope !11356, !noalias !11351
   %212 = icmp eq i64 %211, -9223372036854775804
   %213 = getelementptr inbounds nuw i8, ptr %.sroa.0.0104, i64 8
-  %214 = load i32, ptr %213, align 4, !alias.scope !11356, !noalias !11351
+  %214 = load i32, ptr %213, align 8, !alias.scope !11356, !noalias !11351
   %215 = getelementptr inbounds nuw i8, ptr %.sroa.0.0104, i64 12
   %216 = load i16, ptr %215, align 4, !alias.scope !11356, !noalias !11351
   %217 = insertvalue { i32, i16 } poison, i32 %214, 0
@@ -49019,7 +49019,7 @@ _ZN4core5slice4sort8unstable9quicksort9partition17hbc309701e12d59c7E.exit: ; pre
   %304 = load i64, ptr %.sroa.0.0104, align 8, !range !351, !alias.scope !11405, !noalias !11400
   %305 = icmp eq i64 %304, -9223372036854775804
   %306 = getelementptr inbounds nuw i8, ptr %.sroa.0.0104, i64 8
-  %307 = load i32, ptr %306, align 4, !alias.scope !11405, !noalias !11400
+  %307 = load i32, ptr %306, align 8, !alias.scope !11405, !noalias !11400
   %308 = getelementptr inbounds nuw i8, ptr %.sroa.0.0104, i64 12
   %309 = load i16, ptr %308, align 4, !alias.scope !11405, !noalias !11400
   %310 = insertvalue { i32, i16 } poison, i32 %307, 0

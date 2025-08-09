@@ -5738,7 +5738,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %19, ptr %20, align 8, !tbaa !144
   store ptr %10, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !141
   store i64 0, ptr %18, align 8, !tbaa !144
-  store i8 0, ptr %10, align 1, !tbaa !145
+  store i8 0, ptr %10, align 8, !tbaa !145
   %21 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 48
@@ -5770,7 +5770,7 @@ _ZSt10_ConstructIN4llvm30DiagnosticInfoOptimizationBase8ArgumentEJS2_EEvPT_DpOT0
   store i64 %34, ptr %35, align 8, !tbaa !144
   store ptr %25, ptr %22, align 8, !tbaa !141
   store i64 0, ptr %33, align 8, !tbaa !144
-  store i8 0, ptr %25, align 1, !tbaa !145
+  store i8 0, ptr %25, align 8, !tbaa !145
   %36 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 64
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 16, i1 false), !tbaa.struct !422
@@ -6057,7 +6057,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10AllocaInstENS_16MachineFrameInfo13SSP
   store ptr %60, ptr %50, align 8, !tbaa !91
   %61 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %62 = load i32, ptr %3, align 4, !tbaa !430
-  store i32 %62, ptr %61, align 4, !tbaa !430
+  store i32 %62, ptr %61, align 8, !tbaa !430
   %63 = load ptr, ptr %1, align 8, !tbaa !359
   %64 = load i32, ptr %7, align 8, !tbaa !360
   br label %.loopexit
@@ -6270,7 +6270,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10AllocaInstENS_16MachineFrameInfo13SSP
   %65 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %66 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %67 = load i32, ptr %66, align 4, !tbaa !430
-  store i32 %67, ptr %65, align 4, !tbaa !430
+  store i32 %67, ptr %65, align 8, !tbaa !430
   %68 = add i32 %40, 1
   store i32 %68, ptr %32, align 8, !tbaa !65
   br label %69

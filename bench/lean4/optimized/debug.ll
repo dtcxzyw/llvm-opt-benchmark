@@ -729,7 +729,7 @@ define void @_ZN4lean15invoke_debuggerEv() local_unnamed_addr #5 personality ptr
   store ptr %16, ptr %15, align 8, !tbaa !33
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 0, ptr %17, align 8, !tbaa !40
-  store i8 0, ptr %16, align 1, !tbaa !39
+  store i8 0, ptr %16, align 8, !tbaa !39
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %14, align 8, !tbaa !18
   tail call void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #31
   unreachable

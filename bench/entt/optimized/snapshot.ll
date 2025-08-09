@@ -45218,15 +45218,15 @@ _ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit.thread: ; preds = %
   %155 = getelementptr inbounds nuw i64, ptr %124, i64 %154
   %156 = load i64, ptr %150, align 8, !tbaa !448
   store i64 %156, ptr %136, align 8, !tbaa !448
-  store i32 %152, ptr %149, align 4, !tbaa !451
+  store i32 %152, ptr %149, align 8, !tbaa !451
   %157 = getelementptr inbounds i8, ptr %142, i64 -12
   %158 = getelementptr inbounds nuw i8, ptr %136, i64 12
   %159 = load i32, ptr %157, align 4, !tbaa !99
   store i32 %159, ptr %158, align 4, !tbaa !442
   %160 = getelementptr inbounds i8, ptr %142, i64 -8
-  %161 = load i32, ptr %160, align 4, !tbaa !99
+  %161 = load i32, ptr %160, align 8, !tbaa !99
   %162 = getelementptr inbounds nuw i8, ptr %136, i64 16
-  store i32 %161, ptr %162, align 4, !tbaa !444
+  store i32 %161, ptr %162, align 8, !tbaa !444
   %163 = load i64, ptr %155, align 8, !tbaa !32
   %.not1011.i.i = icmp eq i64 %163, %147
   br i1 %.not1011.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -51251,15 +51251,15 @@ _ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit.thread.i: ; preds =
   %639 = getelementptr inbounds nuw i64, ptr %608, i64 %638
   %640 = load i64, ptr %634, align 8, !tbaa !448
   store i64 %640, ptr %620, align 8, !tbaa !448
-  store i32 %636, ptr %633, align 4, !tbaa !451
+  store i32 %636, ptr %633, align 8, !tbaa !451
   %641 = getelementptr inbounds i8, ptr %626, i64 -12
   %642 = getelementptr inbounds nuw i8, ptr %620, i64 12
   %643 = load i32, ptr %641, align 4, !tbaa !99
   store i32 %643, ptr %642, align 4, !tbaa !442
   %644 = getelementptr inbounds i8, ptr %626, i64 -8
-  %645 = load i32, ptr %644, align 4, !tbaa !99
+  %645 = load i32, ptr %644, align 8, !tbaa !99
   %646 = getelementptr inbounds nuw i8, ptr %620, i64 16
-  store i32 %645, ptr %646, align 4, !tbaa !444
+  store i32 %645, ptr %646, align 8, !tbaa !444
   %647 = load i64, ptr %639, align 8, !tbaa !32
   %.not1011.i.i.i = icmp eq i64 %647, %631
   br i1 %.not1011.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
@@ -64452,15 +64452,15 @@ _ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit.thread.i: ; preds =
   %436 = getelementptr inbounds nuw i64, ptr %405, i64 %435
   %437 = load i64, ptr %431, align 8, !tbaa !448
   store i64 %437, ptr %417, align 8, !tbaa !448
-  store i32 %433, ptr %430, align 4, !tbaa !451
+  store i32 %433, ptr %430, align 8, !tbaa !451
   %438 = getelementptr inbounds i8, ptr %423, i64 -12
   %439 = getelementptr inbounds nuw i8, ptr %417, i64 12
   %440 = load i32, ptr %438, align 4, !tbaa !99
   store i32 %440, ptr %439, align 4, !tbaa !442
   %441 = getelementptr inbounds i8, ptr %423, i64 -8
-  %442 = load i32, ptr %441, align 4, !tbaa !99
+  %442 = load i32, ptr %441, align 8, !tbaa !99
   %443 = getelementptr inbounds nuw i8, ptr %417, i64 16
-  store i32 %442, ptr %443, align 4, !tbaa !444
+  store i32 %442, ptr %443, align 8, !tbaa !444
   %444 = load i64, ptr %436, align 8, !tbaa !32
   %.not1011.i.i.i = icmp eq i64 %444, %428
   br i1 %.not1011.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
@@ -78020,7 +78020,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %8, ptr %7, align 8, !tbaa !20
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %9, align 8, !tbaa !23
-  store i8 0, ptr %8, align 1, !tbaa !26
+  store i8 0, ptr %8, align 8, !tbaa !26
   store ptr %7, ptr %4, align 8, !tbaa !71
   br label %10
 
@@ -87617,7 +87617,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
   store i64 %10, ptr %6, align 8, !tbaa !448
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load i32, ptr %2, align 4, !tbaa !31
-  store i32 %12, ptr %11, align 4, !tbaa !451
+  store i32 %12, ptr %11, align 8, !tbaa !451
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %14 = load i64, ptr %3, align 4
   store i64 %14, ptr %13, align 4
@@ -87654,7 +87654,7 @@ _ZNKSt6vectorIN4entt8internal14dense_map_nodeIjSt4pairINS0_6entityES4_EEESaIS6_E
   store i64 %32, ptr %31, align 8, !tbaa !448
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %34 = load i32, ptr %2, align 4, !tbaa !31
-  store i32 %34, ptr %33, align 4, !tbaa !451
+  store i32 %34, ptr %33, align 8, !tbaa !451
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 12
   %36 = load i64, ptr %3, align 4
   store i64 %36, ptr %35, align 4
@@ -87797,11 +87797,11 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
   %13 = load i64, ptr %3, align 8, !tbaa !72
   %14 = inttoptr i64 %13 to ptr
   %15 = load i32, ptr %14, align 4, !tbaa !31
-  store i32 %15, ptr %12, align 4, !tbaa !451
+  store i32 %15, ptr %12, align 8, !tbaa !451
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 0, ptr %16, align 4, !tbaa !442
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 0, ptr %17, align 4, !tbaa !444
+  store i32 0, ptr %17, align 8, !tbaa !444
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %18, ptr %6, align 8, !tbaa !437
   br label %46
@@ -87836,11 +87836,11 @@ _ZNKSt6vectorIN4entt8internal14dense_map_nodeIjSt4pairINS0_6entityES4_EEESaIS6_E
   %36 = load i64, ptr %3, align 8, !tbaa !72
   %37 = inttoptr i64 %36 to ptr
   %38 = load i32, ptr %37, align 4, !tbaa !31
-  store i32 %38, ptr %35, align 4, !tbaa !451
+  store i32 %38, ptr %35, align 8, !tbaa !451
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 12
   store i32 0, ptr %39, align 4, !tbaa !442
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store i32 0, ptr %40, align 4, !tbaa !444
+  store i32 0, ptr %40, align 8, !tbaa !444
   %.not10.i.i.i.i = icmp eq ptr %20, %7
   br i1 %.not10.i.i.i.i, label %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt4pairINS0_6entityES4_EEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit35.i, label %.lr.ph.i.i.i.i
 

@@ -512,7 +512,7 @@ entry:
   %0 = load i32, ptr %_M_flags.i.i, align 8, !tbaa !31
   %and.i.i.i.i = and i32 %0, -177
   %or.i.i.i.i = or disjoint i32 %and.i.i.i.i, 32
-  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 4, !tbaa !32
+  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 8, !tbaa !32
   %call1.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str, i64 noundef 9)
   %vtable.i14 = load ptr, ptr %out, align 8, !tbaa !12
   %vbase.offset.ptr.i15 = getelementptr i8, ptr %vtable.i14, i64 -24
@@ -526,7 +526,7 @@ entry:
   %1 = load i32, ptr %_M_flags.i.i188, align 8, !tbaa !31
   %and.i.i.i.i189 = and i32 %1, -177
   %or.i.i.i.i190 = or disjoint i32 %and.i.i.i.i189, 128
-  store i32 %or.i.i.i.i190, ptr %_M_flags.i.i188, align 4, !tbaa !32
+  store i32 %or.i.i.i.i190, ptr %_M_flags.i.i188, align 8, !tbaa !32
   %call1.i25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.1, i64 noundef 3)
   %vtable.i26 = load ptr, ptr %out, align 8, !tbaa !12
   %vbase.offset.ptr.i27 = getelementptr i8, ptr %vtable.i26, i64 -24
@@ -540,7 +540,7 @@ entry:
   %2 = load i32, ptr %_M_flags.i.i191, align 8, !tbaa !31
   %and.i.i.i.i192 = and i32 %2, -177
   %or.i.i.i.i193 = or disjoint i32 %and.i.i.i.i192, 128
-  store i32 %or.i.i.i.i193, ptr %_M_flags.i.i191, align 4, !tbaa !32
+  store i32 %or.i.i.i.i193, ptr %_M_flags.i.i191, align 8, !tbaa !32
   %call1.i37 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.2, i64 noundef 7)
   %vtable.i38 = load ptr, ptr %out, align 8, !tbaa !12
   %vbase.offset.ptr.i39 = getelementptr i8, ptr %vtable.i38, i64 -24
@@ -554,7 +554,7 @@ entry:
   %3 = load i32, ptr %_M_flags.i.i194, align 8, !tbaa !31
   %and.i.i.i.i195 = and i32 %3, -177
   %or.i.i.i.i196 = or disjoint i32 %and.i.i.i.i195, 128
-  store i32 %or.i.i.i.i196, ptr %_M_flags.i.i194, align 4, !tbaa !32
+  store i32 %or.i.i.i.i196, ptr %_M_flags.i.i194, align 8, !tbaa !32
   %call1.i49 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.3, i64 noundef 3)
   %vtable.i50 = load ptr, ptr %out, align 8, !tbaa !12
   %vbase.offset.ptr.i51 = getelementptr i8, ptr %vtable.i50, i64 -24
@@ -568,7 +568,7 @@ entry:
   %4 = load i32, ptr %_M_flags.i.i197, align 8, !tbaa !31
   %and.i.i.i.i198 = and i32 %4, -177
   %or.i.i.i.i199 = or disjoint i32 %and.i.i.i.i198, 128
-  store i32 %or.i.i.i.i199, ptr %_M_flags.i.i197, align 4, !tbaa !32
+  store i32 %or.i.i.i.i199, ptr %_M_flags.i.i197, align 8, !tbaa !32
   %call1.i61 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.4, i64 noundef 5)
   %vtable.i62 = load ptr, ptr %out, align 8, !tbaa !12
   %vbase.offset.ptr.i63 = getelementptr i8, ptr %vtable.i62, i64 -24
@@ -582,7 +582,7 @@ entry:
   %5 = load i32, ptr %_M_flags.i.i200, align 8, !tbaa !31
   %and.i.i.i.i201 = and i32 %5, -177
   %or.i.i.i.i202 = or disjoint i32 %and.i.i.i.i201, 128
-  store i32 %or.i.i.i.i202, ptr %_M_flags.i.i200, align 4, !tbaa !32
+  store i32 %or.i.i.i.i202, ptr %_M_flags.i.i200, align 8, !tbaa !32
   %call1.i73 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.5, i64 noundef 4)
   %vtable.i203 = load ptr, ptr %out, align 8, !tbaa !12
   %vbase.offset.ptr.i204 = getelementptr i8, ptr %vtable.i203, i64 -24
@@ -655,14 +655,14 @@ for.body:                                         ; preds = %_ZSt4endlIcSt11char
   %11 = load i32, ptr %_M_flags.i.i209, align 8, !tbaa !31
   %and.i.i.i.i210 = and i32 %11, -177
   %or.i.i.i.i211 = or disjoint i32 %and.i.i.i.i210, 128
-  store i32 %or.i.i.i.i211, ptr %_M_flags.i.i209, align 4, !tbaa !32
+  store i32 %or.i.i.i.i211, ptr %_M_flags.i.i209, align 8, !tbaa !32
   %vbase.offset.i94 = load i64, ptr %vbase.offset.ptr.i83, align 8
   %add.ptr.i95 = getelementptr inbounds i8, ptr %call55, i64 %vbase.offset.i94
   %_M_flags.i.i212 = getelementptr inbounds nuw i8, ptr %add.ptr.i95, i64 24
   %12 = load i32, ptr %_M_flags.i.i212, align 8, !tbaa !31
   %and.i.i.i.i213 = and i32 %12, -261
   %or.i.i.i.i214 = or disjoint i32 %and.i.i.i.i213, 4
-  store i32 %or.i.i.i.i214, ptr %_M_flags.i.i212, align 4, !tbaa !32
+  store i32 %or.i.i.i.i214, ptr %_M_flags.i.i212, align 8, !tbaa !32
   %vbase.offset.i99 = load i64, ptr %vbase.offset.ptr.i83, align 8
   %add.ptr.i100 = getelementptr inbounds i8, ptr %call55, i64 %vbase.offset.i99
   %_M_precision.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i100, i64 8
@@ -682,14 +682,14 @@ for.body:                                         ; preds = %_ZSt4endlIcSt11char
   %14 = load i32, ptr %_M_flags.i.i215, align 8, !tbaa !31
   %and.i.i.i.i216 = and i32 %14, -177
   %or.i.i.i.i217 = or disjoint i32 %and.i.i.i.i216, 128
-  store i32 %or.i.i.i.i217, ptr %_M_flags.i.i215, align 4, !tbaa !32
+  store i32 %or.i.i.i.i217, ptr %_M_flags.i.i215, align 8, !tbaa !32
   %vbase.offset.i114 = load i64, ptr %vbase.offset.ptr.i103, align 8
   %add.ptr.i115 = getelementptr inbounds i8, ptr %call.i101, i64 %vbase.offset.i114
   %_M_flags.i.i218 = getelementptr inbounds nuw i8, ptr %add.ptr.i115, i64 24
   %15 = load i32, ptr %_M_flags.i.i218, align 8, !tbaa !31
   %and.i.i.i.i219 = and i32 %15, -261
   %or.i.i.i.i220 = or disjoint i32 %and.i.i.i.i219, 4
-  store i32 %or.i.i.i.i220, ptr %_M_flags.i.i218, align 4, !tbaa !32
+  store i32 %or.i.i.i.i220, ptr %_M_flags.i.i218, align 8, !tbaa !32
   %vbase.offset.i119 = load i64, ptr %vbase.offset.ptr.i103, align 8
   %add.ptr.i120 = getelementptr inbounds i8, ptr %call.i101, i64 %vbase.offset.i119
   %_M_precision.i.i121 = getelementptr inbounds nuw i8, ptr %add.ptr.i120, i64 8
@@ -709,14 +709,14 @@ for.body:                                         ; preds = %_ZSt4endlIcSt11char
   %17 = load i32, ptr %_M_flags.i.i221, align 8, !tbaa !31
   %and.i.i.i.i222 = and i32 %17, -177
   %or.i.i.i.i223 = or disjoint i32 %and.i.i.i.i222, 128
-  store i32 %or.i.i.i.i223, ptr %_M_flags.i.i221, align 4, !tbaa !32
+  store i32 %or.i.i.i.i223, ptr %_M_flags.i.i221, align 8, !tbaa !32
   %vbase.offset.i135 = load i64, ptr %vbase.offset.ptr.i124, align 8
   %add.ptr.i136 = getelementptr inbounds i8, ptr %call.i122, i64 %vbase.offset.i135
   %_M_flags.i.i224 = getelementptr inbounds nuw i8, ptr %add.ptr.i136, i64 24
   %18 = load i32, ptr %_M_flags.i.i224, align 8, !tbaa !31
   %and.i.i.i.i225 = and i32 %18, -261
   %or.i.i.i.i226 = or disjoint i32 %and.i.i.i.i225, 4
-  store i32 %or.i.i.i.i226, ptr %_M_flags.i.i224, align 4, !tbaa !32
+  store i32 %or.i.i.i.i226, ptr %_M_flags.i.i224, align 8, !tbaa !32
   %vbase.offset.i140 = load i64, ptr %vbase.offset.ptr.i124, align 8
   %add.ptr.i141 = getelementptr inbounds i8, ptr %call.i122, i64 %vbase.offset.i140
   %_M_precision.i.i142 = getelementptr inbounds nuw i8, ptr %add.ptr.i141, i64 8
@@ -736,14 +736,14 @@ for.body:                                         ; preds = %_ZSt4endlIcSt11char
   %20 = load i32, ptr %_M_flags.i.i227, align 8, !tbaa !31
   %and.i.i.i.i228 = and i32 %20, -177
   %or.i.i.i.i229 = or disjoint i32 %and.i.i.i.i228, 128
-  store i32 %or.i.i.i.i229, ptr %_M_flags.i.i227, align 4, !tbaa !32
+  store i32 %or.i.i.i.i229, ptr %_M_flags.i.i227, align 8, !tbaa !32
   %vbase.offset.i156 = load i64, ptr %vbase.offset.ptr.i145, align 8
   %add.ptr.i157 = getelementptr inbounds i8, ptr %call.i143, i64 %vbase.offset.i156
   %_M_flags.i.i230 = getelementptr inbounds nuw i8, ptr %add.ptr.i157, i64 24
   %21 = load i32, ptr %_M_flags.i.i230, align 8, !tbaa !31
   %and.i.i.i.i231 = and i32 %21, -261
   %or.i.i.i.i232 = or disjoint i32 %and.i.i.i.i231, 4
-  store i32 %or.i.i.i.i232, ptr %_M_flags.i.i230, align 4, !tbaa !32
+  store i32 %or.i.i.i.i232, ptr %_M_flags.i.i230, align 8, !tbaa !32
   %vbase.offset.i161 = load i64, ptr %vbase.offset.ptr.i145, align 8
   %add.ptr.i162 = getelementptr inbounds i8, ptr %call.i143, i64 %vbase.offset.i161
   %_M_precision.i.i163 = getelementptr inbounds nuw i8, ptr %add.ptr.i162, i64 8
@@ -763,14 +763,14 @@ for.body:                                         ; preds = %_ZSt4endlIcSt11char
   %23 = load i32, ptr %_M_flags.i.i233, align 8, !tbaa !31
   %and.i.i.i.i234 = and i32 %23, -177
   %or.i.i.i.i235 = or disjoint i32 %and.i.i.i.i234, 128
-  store i32 %or.i.i.i.i235, ptr %_M_flags.i.i233, align 4, !tbaa !32
+  store i32 %or.i.i.i.i235, ptr %_M_flags.i.i233, align 8, !tbaa !32
   %vbase.offset.i177 = load i64, ptr %vbase.offset.ptr.i166, align 8
   %add.ptr.i178 = getelementptr inbounds i8, ptr %call.i164, i64 %vbase.offset.i177
   %_M_flags.i.i236 = getelementptr inbounds nuw i8, ptr %add.ptr.i178, i64 24
   %24 = load i32, ptr %_M_flags.i.i236, align 8, !tbaa !31
   %and.i.i.i.i237 = and i32 %24, -261
   %or.i.i.i.i238 = or disjoint i32 %and.i.i.i.i237, 4
-  store i32 %or.i.i.i.i238, ptr %_M_flags.i.i236, align 4, !tbaa !32
+  store i32 %or.i.i.i.i238, ptr %_M_flags.i.i236, align 8, !tbaa !32
   %vbase.offset.i182 = load i64, ptr %vbase.offset.ptr.i166, align 8
   %add.ptr.i183 = getelementptr inbounds i8, ptr %call.i164, i64 %vbase.offset.i182
   %_M_precision.i.i184 = getelementptr inbounds nuw i8, ptr %add.ptr.i183, i64 8

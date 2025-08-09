@@ -281,7 +281,7 @@ define hidden void @CRYPTO_gcm128_setiv(ptr noundef initializes((0, 16), (48, 80
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void %6(ptr noundef nonnull %0, ptr noundef nonnull %40) #6
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %42 = load i8, ptr %41, align 1, !tbaa !12
+  %42 = load i8, ptr %41, align 4, !tbaa !12
   %43 = zext i8 %42 to i32
   %44 = shl nuw i32 %43, 24
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 13
@@ -290,7 +290,7 @@ define hidden void @CRYPTO_gcm128_setiv(ptr noundef initializes((0, 16), (48, 80
   %48 = shl nuw nsw i32 %47, 16
   %49 = or disjoint i32 %48, %44
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %51 = load i8, ptr %50, align 1, !tbaa !12
+  %51 = load i8, ptr %50, align 2, !tbaa !12
   %52 = zext i8 %51 to i32
   %53 = shl nuw nsw i32 %52, 8
   %54 = or disjoint i32 %49, %53
@@ -310,7 +310,7 @@ define hidden void @CRYPTO_gcm128_setiv(ptr noundef initializes((0, 16), (48, 80
   %64 = lshr i32 %.071, 24
   %65 = trunc nuw i32 %64 to i8
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 %65, ptr %66, align 1, !tbaa !12
+  store i8 %65, ptr %66, align 4, !tbaa !12
   %67 = lshr i32 %.071, 16
   %68 = trunc i32 %67 to i8
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 13
@@ -318,7 +318,7 @@ define hidden void @CRYPTO_gcm128_setiv(ptr noundef initializes((0, 16), (48, 80
   %70 = lshr i32 %.071, 8
   %71 = trunc i32 %70 to i8
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store i8 %71, ptr %72, align 1, !tbaa !12
+  store i8 %71, ptr %72, align 2, !tbaa !12
   %73 = trunc i32 %.071 to i8
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 15
   store i8 %73, ptr %74, align 1, !tbaa !12
@@ -1188,13 +1188,13 @@ aesni_gcm_enabled.exit.thread:                    ; preds = %50, %53, %aesni_gcm
   %115 = add i32 %.2156, 1
   %116 = lshr i32 %115, 24
   %117 = trunc nuw i32 %116 to i8
-  store i8 %117, ptr %59, align 1, !tbaa !12
+  store i8 %117, ptr %59, align 4, !tbaa !12
   %118 = lshr i32 %115, 16
   %119 = trunc i32 %118 to i8
   store i8 %119, ptr %63, align 1, !tbaa !12
   %120 = lshr i32 %115, 8
   %121 = trunc i32 %120 to i8
-  store i8 %121, ptr %68, align 1, !tbaa !12
+  store i8 %121, ptr %68, align 2, !tbaa !12
   %122 = trunc i32 %115 to i8
   store i8 %122, ptr %73, align 1, !tbaa !12
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1436,13 +1436,13 @@ aesni_gcm_enabled.exit.thread:                    ; preds = %50, %53, %aesni_gcm
   %115 = add i32 %.2160, 1
   %116 = lshr i32 %115, 24
   %117 = trunc nuw i32 %116 to i8
-  store i8 %117, ptr %59, align 1, !tbaa !12
+  store i8 %117, ptr %59, align 4, !tbaa !12
   %118 = lshr i32 %115, 16
   %119 = trunc i32 %118 to i8
   store i8 %119, ptr %63, align 1, !tbaa !12
   %120 = lshr i32 %115, 8
   %121 = trunc i32 %120 to i8
-  store i8 %121, ptr %68, align 1, !tbaa !12
+  store i8 %121, ptr %68, align 2, !tbaa !12
   %122 = trunc i32 %115 to i8
   store i8 %122, ptr %73, align 1, !tbaa !12
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 64

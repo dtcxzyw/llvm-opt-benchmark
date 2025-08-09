@@ -6217,7 +6217,7 @@ _ZNK7rocksdb5Block9IndexTypeEv.exit.thread:       ; preds = %.thread, %_ZNK7rock
   store i32 %spec.select.i.i.i, ptr %85, align 4, !tbaa !209
   %97 = urem i32 %spec.select.i.i.i, %87
   store i32 %97, ptr %86, align 8, !tbaa !126
-  %.promoted.i = load i8, ptr %83, align 1
+  %.promoted.i = load i8, ptr %83, align 8
   %.not8.i = icmp ult i64 %2, 2
   br i1 %.not8.i, label %102, label %.lr.ph.preheader.i
 
@@ -6990,7 +6990,7 @@ _ZN7rocksdb13DataBlockIterC2Ev.exit:              ; preds = %39
   store ptr %51, ptr %50, align 8, !tbaa !58
   %52 = getelementptr inbounds nuw i8, ptr %13, i64 616
   store i64 0, ptr %52, align 8, !tbaa !63
-  store i8 0, ptr %51, align 1, !tbaa !55
+  store i8 0, ptr %51, align 8, !tbaa !55
   %53 = getelementptr inbounds nuw i8, ptr %13, i64 640
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, i8 0, i64 24, i1 false)
   %54 = getelementptr inbounds nuw i8, ptr %13, i64 664
@@ -8117,7 +8117,7 @@ _ZN7rocksdb14IndexBlockIterC2Ev.exit:             ; preds = %44
   store ptr %58, ptr %57, align 8, !tbaa !58
   %59 = getelementptr inbounds nuw i8, ptr %18, i64 656
   store i64 0, ptr %59, align 8, !tbaa !63
-  store i8 0, ptr %58, align 1, !tbaa !55
+  store i8 0, ptr %58, align 8, !tbaa !55
   br label %62
 
 60:                                               ; preds = %17

@@ -58,10 +58,10 @@ define range(i32 -12, 1) i32 @ff_jpeg2000_dwt_init(ptr noundef writeonly capture
   %32 = and i8 %31, 1
   %33 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 0, i64 %indvars.iv60
   store i8 %32, ptr %33, align 1, !tbaa !16
-  %34 = load i32, ptr %indvars.iv60.sroa.phi, align 4, !tbaa !12
+  %34 = load i32, ptr %indvars.iv60.sroa.phi, align 8, !tbaa !12
   %35 = add nsw i32 %34, 1
   %36 = ashr i32 %35, 1
-  store i32 %36, ptr %indvars.iv60.sroa.phi, align 4, !tbaa !12
+  store i32 %36, ptr %indvars.iv60.sroa.phi, align 8, !tbaa !12
   %37 = getelementptr inbounds nuw i8, ptr %indvars.iv60.sroa.phi, i64 4
   %38 = load i32, ptr %37, align 4, !tbaa !12
   %39 = add nsw i32 %38, 1

@@ -35021,7 +35021,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN14colvarb
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i32, ptr %12, align 8, !tbaa !649
   %14 = and i32 %13, -261
-  store i32 %14, ptr %12, align 4, !tbaa !650
+  store i32 %14, ptr %12, align 8, !tbaa !650
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %15, ptr %2, align 8, !tbaa !180
@@ -35268,7 +35268,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71: ; preds = %_ZN
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 24
   %115 = load i32, ptr %114, align 8, !tbaa !649
   %116 = and i32 %115, -261
-  store i32 %116, ptr %114, align 4, !tbaa !650
+  store i32 %116, ptr %114, align 8, !tbaa !650
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %117 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %117, ptr %6, align 8, !tbaa !180

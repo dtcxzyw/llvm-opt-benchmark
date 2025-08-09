@@ -328,7 +328,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq5msg_t9init_dataEPvmPFvS1_S1_ES1_(pt
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store ptr %4, ptr %30, align 8, !tbaa !19
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  store i32 0, ptr %31, align 4, !tbaa !20
+  store i32 0, ptr %31, align 8, !tbaa !20
   br label %32
 
 32:                                               ; preds = %18, %27, %25

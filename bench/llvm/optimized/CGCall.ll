@@ -37030,7 +37030,7 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPSt4pairIPKN5clang12FunctionDecl
 .lr.ph:                                           ; preds = %3
   %9 = load ptr, ptr %2, align 8, !tbaa !2190
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %11 = load i32, ptr %10, align 4
+  %11 = load i32, ptr %10, align 8
   %12 = and i64 %6, -64
   %scevgep = getelementptr i8, ptr %0, i64 %12
   br label %13
@@ -37041,7 +37041,7 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPSt4pairIPKN5clang12FunctionDecl
   %14 = load ptr, ptr %.02946, align 8, !tbaa !2190
   %15 = icmp eq ptr %14, %9
   %16 = getelementptr inbounds nuw i8, ptr %.02946, i64 8
-  %17 = load i32, ptr %16, align 4
+  %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, %11
   %19 = select i1 %15, i1 %18, i1 false
   br i1 %19, label %.loopexit, label %20
@@ -37051,7 +37051,7 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPSt4pairIPKN5clang12FunctionDecl
   %22 = load ptr, ptr %21, align 8, !tbaa !2190
   %23 = icmp eq ptr %22, %9
   %24 = getelementptr inbounds nuw i8, ptr %.02946, i64 24
-  %25 = load i32, ptr %24, align 4
+  %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, %11
   %27 = select i1 %23, i1 %26, i1 false
   br i1 %27, label %.loopexit.loopexit.split.loop.exit, label %28
@@ -37061,7 +37061,7 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPSt4pairIPKN5clang12FunctionDecl
   %30 = load ptr, ptr %29, align 8, !tbaa !2190
   %31 = icmp eq ptr %30, %9
   %32 = getelementptr inbounds nuw i8, ptr %.02946, i64 40
-  %33 = load i32, ptr %32, align 4
+  %33 = load i32, ptr %32, align 8
   %34 = icmp eq i32 %33, %11
   %35 = select i1 %31, i1 %34, i1 false
   br i1 %35, label %.loopexit.loopexit.split.loop.exit60, label %36
@@ -37071,7 +37071,7 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPSt4pairIPKN5clang12FunctionDecl
   %38 = load ptr, ptr %37, align 8, !tbaa !2190
   %39 = icmp eq ptr %38, %9
   %40 = getelementptr inbounds nuw i8, ptr %.02946, i64 56
-  %41 = load i32, ptr %40, align 4
+  %41 = load i32, ptr %40, align 8
   %42 = icmp eq i32 %41, %11
   %43 = select i1 %39, i1 %42, i1 false
   br i1 %43, label %.loopexit.loopexit.split.loop.exit62, label %44
@@ -37100,13 +37100,13 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPSt4pairIPKN5clang12FunctionDecl
 ._crit_edge._crit_edge53:                         ; preds = %._crit_edge
   %.pre54 = load ptr, ptr %2, align 8, !tbaa !2190
   %.phi.trans.insert55 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.pre56 = load i32, ptr %.phi.trans.insert55, align 4
+  %.pre56 = load i32, ptr %.phi.trans.insert55, align 8
   br label %72
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
   %.pre = load ptr, ptr %2, align 8, !tbaa !2190
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.pre52 = load i32, ptr %.phi.trans.insert, align 4
+  %.pre52 = load i32, ptr %.phi.trans.insert, align 8
   br label %61
 
 49:                                               ; preds = %._crit_edge
@@ -37115,8 +37115,8 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPSt4pairIPKN5clang12FunctionDecl
   %52 = icmp eq ptr %50, %51
   %53 = getelementptr inbounds nuw i8, ptr %.029.lcssa, i64 8
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %55 = load i32, ptr %53, align 4
-  %56 = load i32, ptr %54, align 4
+  %55 = load i32, ptr %53, align 8
+  %56 = load i32, ptr %54, align 8
   %57 = icmp eq i32 %55, %56
   %58 = select i1 %52, i1 %57, i1 false
   br i1 %58, label %.loopexit, label %59
@@ -37132,7 +37132,7 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPSt4pairIPKN5clang12FunctionDecl
   %64 = load ptr, ptr %.1, align 8, !tbaa !2190
   %65 = icmp eq ptr %64, %63
   %66 = getelementptr inbounds nuw i8, ptr %.1, i64 8
-  %67 = load i32, ptr %66, align 4
+  %67 = load i32, ptr %66, align 8
   %68 = icmp eq i32 %67, %62
   %69 = select i1 %65, i1 %68, i1 false
   br i1 %69, label %.loopexit, label %70
@@ -37148,7 +37148,7 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPSt4pairIPKN5clang12FunctionDecl
   %75 = load ptr, ptr %.2, align 8, !tbaa !2190
   %76 = icmp eq ptr %75, %74
   %77 = getelementptr inbounds nuw i8, ptr %.2, i64 8
-  %78 = load i32, ptr %77, align 4
+  %78 = load i32, ptr %77, align 8
   %79 = icmp eq i32 %78, %73
   %80 = select i1 %76, i1 %79, i1 false
   br i1 %80, label %.loopexit, label %81
@@ -39162,7 +39162,7 @@ _ZSt10_ConstructIN4llvm17OperandBundleDefTIPNS0_5ValueEEEJS4_EEvPT_DpOT0_.exit.i
   store i64 %19, ptr %20, align 8, !tbaa !1371
   store ptr %10, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !1372
   store i64 0, ptr %18, align 8, !tbaa !1371
-  store i8 0, ptr %10, align 1, !tbaa !37
+  store i8 0, ptr %10, align 8, !tbaa !37
   %21 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 32
   %23 = load ptr, ptr %22, align 8, !tbaa !1915
@@ -39556,7 +39556,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEm
   store ptr %14, ptr %.ptr.i.i.i, align 8, !tbaa !1427
   %15 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %15, align 8, !tbaa !1371
-  store i8 0, ptr %14, align 1, !tbaa !37
+  store i8 0, ptr %14, align 8, !tbaa !37
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %16 = icmp eq i64 %.add.i.i.i, 416
   br i1 %16, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %13

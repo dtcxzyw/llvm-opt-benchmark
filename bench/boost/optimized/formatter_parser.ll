@@ -4825,7 +4825,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   store ptr %33, ptr %32, align 8, !tbaa !40
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i64 0, ptr %34, align 8, !tbaa !42
-  store i8 0, ptr %33, align 1, !tbaa !44
+  store i8 0, ptr %33, align 8, !tbaa !44
   ret void
 
 35:                                               ; preds = %25
@@ -10141,7 +10141,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIwSt11c
   store ptr %35, ptr %34, align 8, !tbaa !66
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i64 0, ptr %36, align 8, !tbaa !68
-  store i32 0, ptr %35, align 4, !tbaa !70
+  store i32 0, ptr %35, align 8, !tbaa !70
   ret void
 
 37:                                               ; preds = %27

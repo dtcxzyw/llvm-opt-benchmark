@@ -405,13 +405,13 @@ define void @_ZN19OpenColorIO_v2_5dev13FileTransformC2Ev(ptr noundef nonnull wri
   store ptr %6, ptr %5, align 8, !tbaa !32
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 0, ptr %7, align 8, !tbaa !33
-  store i8 0, ptr %6, align 1, !tbaa !34
+  store i8 0, ptr %6, align 8, !tbaa !34
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store ptr %9, ptr %8, align 8, !tbaa !32
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i64 0, ptr %10, align 8, !tbaa !33
-  store i8 0, ptr %9, align 1, !tbaa !34
+  store i8 0, ptr %9, align 8, !tbaa !34
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store i32 1, ptr %11, align 8, !tbaa !35
   store ptr %2, ptr %3, align 8, !tbaa !36
@@ -13004,7 +13004,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8, !tbaa !33
   store ptr %13, ptr %10, align 8, !tbaa !45
   store i64 0, ptr %24, align 8, !tbaa !33
-  store i8 0, ptr %13, align 1, !tbaa !34
+  store i8 0, ptr %13, align 8, !tbaa !34
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store ptr null, ptr %26, align 8, !tbaa !121
   store ptr %7, ptr %23, align 8, !tbaa !292
@@ -14099,7 +14099,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !tbaa !33, !alias.scope !302, !noalias !305
   store ptr %43, ptr %.0911.i.i.i.i, align 8, !tbaa !45, !alias.scope !305, !noalias !302
   store i64 0, ptr %52, align 8, !tbaa !33, !alias.scope !305, !noalias !302
-  store i8 0, ptr %43, align 1, !tbaa !34, !alias.scope !305, !noalias !302
+  store i8 0, ptr %43, align 8, !tbaa !34, !alias.scope !305, !noalias !302
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %54, %1
@@ -14147,7 +14147,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !tbaa !33, !alias.scope !309, !noalias !312
   store ptr %59, ptr %.0911.i.i.i.i29, align 8, !tbaa !45, !alias.scope !312, !noalias !309
   store i64 0, ptr %68, align 8, !tbaa !33, !alias.scope !312, !noalias !309
-  store i8 0, ptr %59, align 1, !tbaa !34, !alias.scope !312, !noalias !309
+  store i8 0, ptr %59, align 8, !tbaa !34, !alias.scope !312, !noalias !309
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 32
   %.not.i.i.i.i34 = icmp eq ptr %70, %6

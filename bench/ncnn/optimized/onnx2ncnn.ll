@@ -36311,7 +36311,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %24
   store i64 %17, ptr %28, align 8, !tbaa !77
   store ptr %22, ptr %1, align 8, !tbaa !80
   store i64 0, ptr %16, align 8, !tbaa !77
-  store i8 0, ptr %22, align 1, !tbaa !79
+  store i8 0, ptr %22, align 8, !tbaa !79
   br label %258
 
 29:                                               ; preds = %15
@@ -38779,7 +38779,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %36, ptr %.sink5.i.i.i.i, align 8, !tbaa !75
   %37 = getelementptr inbounds nuw i8, ptr %.sink5.i.i.i.i, i64 8
   store i64 0, ptr %37, align 8, !tbaa !77
-  store i8 0, ptr %36, align 1, !tbaa !79
+  store i8 0, ptr %36, align 8, !tbaa !79
   %38 = load ptr, ptr %4, align 8, !tbaa !69
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -38873,7 +38873,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %36, ptr %.sink5.i.i.i.i, align 8, !tbaa !75
   %37 = getelementptr inbounds nuw i8, ptr %.sink5.i.i.i.i, i64 8
   store i64 0, ptr %37, align 8, !tbaa !77
-  store i8 0, ptr %36, align 1, !tbaa !79
+  store i8 0, ptr %36, align 8, !tbaa !79
   %38 = load ptr, ptr %4, align 8, !tbaa !69
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -39645,7 +39645,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
   store ptr %33, ptr %32, align 8, !tbaa !75
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i64 0, ptr %34, align 8, !tbaa !77
-  store i8 0, ptr %33, align 1, !tbaa !79
+  store i8 0, ptr %33, align 8, !tbaa !79
   ret void
 
 35:                                               ; preds = %25

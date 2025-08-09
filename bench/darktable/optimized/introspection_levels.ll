@@ -687,7 +687,7 @@ define void @commit_params(ptr noundef captures(none) %0, ptr noundef readonly c
   %15 = or disjoint i32 %13, 2
   store i32 %15, ptr %14, align 4, !tbaa !114
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store i32 256, ptr %16, align 8, !tbaa !115
+  store i32 256, ptr %16, align 16, !tbaa !115
   %17 = load i32, ptr %1, align 4, !tbaa !116
   %18 = icmp eq i32 %17, 1
   br i1 %18, label %19, label %42

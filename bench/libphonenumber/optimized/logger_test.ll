@@ -4928,7 +4928,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers10LoggerTest5SetUpEv(p
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %5, ptr %4, align 8, !tbaa !29
-  store i8 0, ptr %5, align 1, !tbaa !32
+  store i8 0, ptr %5, align 8, !tbaa !32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !36
   store ptr %2, ptr %6, align 8, !tbaa !36

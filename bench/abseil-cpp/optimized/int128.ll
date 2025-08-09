@@ -138,7 +138,7 @@ define internal fastcc void @_ZN4absl12_GLOBAL__N_124Uint128ToFormattedStringB5c
   %16 = load i32, ptr %15, align 8, !tbaa !12
   %17 = and i32 %16, -16971
   %18 = or disjoint i32 %17, %14
-  store i32 %18, ptr %15, align 4, !tbaa !22
+  store i32 %18, ptr %15, align 8, !tbaa !22
   %.sroa.22.0.insert.ext.i.i.i = zext i64 %2 to i128
   %.sroa.22.0.insert.shift.i.i.i = shl nuw i128 %.sroa.22.0.insert.ext.i.i.i, 64
   %.sroa.01.0.insert.ext.i.i.i = zext i64 %1 to i128

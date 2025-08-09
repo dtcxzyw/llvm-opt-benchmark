@@ -695,11 +695,11 @@ define internal i32 @svq3_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   store i32 %.018.i.i, ptr %38, align 4, !tbaa !56
   %39 = add nuw nsw i32 %.018.i.i, 8
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 1408
-  store i32 %39, ptr %40, align 8, !tbaa !57
+  store i32 %39, ptr %40, align 16, !tbaa !57
   %41 = zext nneg i32 %37 to i64
   %42 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 1392
-  store ptr %42, ptr %43, align 8, !tbaa !58
+  store ptr %42, ptr %43, align 16, !tbaa !58
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 1400
   store i32 0, ptr %44, align 8, !tbaa !59
   br i1 %or.cond3.i.i, label %45, label %.critedge
@@ -1877,13 +1877,13 @@ get_interleaved_ue_golomb.exit.i:                 ; preds = %.loopexit.i.i, %707
   store i32 %798, ptr %647, align 4, !tbaa !54
   %799 = load i8, ptr %296, align 1, !tbaa !54
   %800 = getelementptr inbounds nuw i8, ptr %647, i64 4
-  store i8 %799, ptr %800, align 1, !tbaa !54
+  store i8 %799, ptr %800, align 4, !tbaa !54
   %801 = load i8, ptr %297, align 1, !tbaa !54
   %802 = getelementptr inbounds nuw i8, ptr %647, i64 5
   store i8 %801, ptr %802, align 1, !tbaa !54
   %803 = load i8, ptr %298, align 1, !tbaa !54
   %804 = getelementptr inbounds nuw i8, ptr %647, i64 6
-  store i8 %803, ptr %804, align 1, !tbaa !54
+  store i8 %803, ptr %804, align 2, !tbaa !54
   br i1 %639, label %805, label %.preheader462.i
 
 805:                                              ; preds = %.loopexit463.i

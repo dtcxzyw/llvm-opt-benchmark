@@ -484,7 +484,7 @@ define dso_local i32 @ip_cmsg_send(ptr noundef %0, ptr noundef readonly captures
   %45 = getelementptr i8, ptr %25, i64 16
   %46 = load i64, ptr %45, align 8
   %47 = getelementptr i8, ptr %25, i64 24
-  %48 = load i32, ptr %47, align 4
+  %48 = load i32, ptr %47, align 8
   %49 = xor i32 %48, -65536
   %50 = zext i32 %49 to i64
   %51 = or i64 %46, %50
@@ -827,7 +827,7 @@ define dso_local void @ip_icmp_error(ptr noundef %0, ptr noundef %1, i32 noundef
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 71
   store i8 0, ptr %23, align 1
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store i32 %4, ptr %24, align 4
+  store i32 %4, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 76
   store i32 0, ptr %25, align 4
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 180
@@ -835,7 +835,7 @@ define dso_local void @ip_icmp_error(ptr noundef %0, ptr noundef %1, i32 noundef
   %28 = add i16 %15, 24
   %gepdiff = sub i16 %28, %27
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i16 %gepdiff, ptr %29, align 4
+  store i16 %gepdiff, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 82
   store i16 %3, ptr %30, align 2
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 200
@@ -935,7 +935,7 @@ define dso_local void @ip_local_error(ptr noundef %0, i32 noundef %1, i32 nounde
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i32 %2, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 64
-  store i32 %1, ptr %27, align 4
+  store i32 %1, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 68
   store i8 1, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 69
@@ -945,7 +945,7 @@ define dso_local void @ip_local_error(ptr noundef %0, i32 noundef %1, i32 nounde
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 71
   store i8 0, ptr %31, align 1
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  store i32 %4, ptr %32, align 4
+  store i32 %4, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 76
   store i32 0, ptr %33, align 4
   %34 = load ptr, ptr %17, align 8
@@ -957,7 +957,7 @@ define dso_local void @ip_local_error(ptr noundef %0, i32 noundef %1, i32 nounde
   %40 = sub i64 %38, %39
   %41 = trunc i64 %40 to i16
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  store i16 %41, ptr %42, align 4
+  store i16 %41, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 82
   store i16 %3, ptr %43, align 2
   %44 = getelementptr inbounds nuw i8, ptr %11, i64 184
@@ -1129,7 +1129,7 @@ define dso_local i32 @ip_recv_error(ptr noundef %0, ptr noundef %1, i32 noundef 
   %81 = zext i16 %80 to i64
   %82 = getelementptr i8, ptr %78, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  %84 = load i16, ptr %83, align 4
+  %84 = load i16, ptr %83, align 8
   %85 = zext i16 %84 to i64
   %86 = getelementptr i8, ptr %82, i64 %85
   %87 = load i32, ptr %86, align 4

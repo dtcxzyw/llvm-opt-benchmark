@@ -795,23 +795,23 @@ define hidden void @av1_setup_past_independence(ptr noundef %0) local_unnamed_ad
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 23589
   store i8 1, ptr %28, align 1
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 23590
-  store i8 1, ptr %29, align 1
+  store i8 1, ptr %29, align 2
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 23591
   store i8 0, ptr %30, align 1
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 23592
-  store i8 0, ptr %31, align 1
+  store i8 0, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 23593
   store i8 0, ptr %32, align 1
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 23595
   store i8 0, ptr %33, align 1
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 23594
-  store i8 -1, ptr %34, align 1
+  store i8 -1, ptr %34, align 2
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 23596
-  store i8 -1, ptr %35, align 1
+  store i8 -1, ptr %35, align 4
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 23597
   store i8 -1, ptr %36, align 1
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 23598
-  store i8 0, ptr %37, align 1
+  store i8 0, ptr %37, align 2
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 23599
   store i8 0, ptr %38, align 1
   tail call void @av1_default_coef_probs(ptr noundef nonnull %0) #9

@@ -16871,7 +16871,7 @@ define internal fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler16declare_an
   %28 = getelementptr inbounds { { i8, [23 x i8] }, i32, i8, [3 x i8] }, ptr %27, i64 %24
   store i8 0, ptr %28, align 8, !noalias !3468
   %.sroa.4.sroa.4.0..sroa.5.0..sroa_idx2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 4
-  store i32 %11, ptr %.sroa.4.sroa.4.0..sroa.5.0..sroa_idx2.i.sroa_idx, align 1
+  store i32 %11, ptr %.sroa.4.sroa.4.0..sroa.5.0..sroa_idx2.i.sroa_idx, align 4
   %.sroa.7.0..sroa_idx8.i = getelementptr inbounds nuw i8, ptr %28, i64 24
   store i64 %.sroa.711.28.insert.insert, ptr %.sroa.7.0..sroa_idx8.i, align 8, !noalias !3468
   %29 = load i64, ptr %20, align 8, !alias.scope !3470, !noalias !3473, !noundef !4

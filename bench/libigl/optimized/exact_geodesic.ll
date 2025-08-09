@@ -460,7 +460,7 @@ define linkonce_odr dso_local void @_ZN3igl8geodesic22GeodesicAlgorithmExact9pro
   %85 = load ptr, ptr %84, align 8, !tbaa !84
   %86 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %87 = load ptr, ptr %86, align 8, !tbaa !94
-  %88 = load i32, ptr %63, align 4, !tbaa !24
+  %88 = load i32, ptr %63, align 8, !tbaa !24
   %89 = getelementptr inbounds nuw i8, ptr %85, i64 48
   br label %90
 
@@ -814,7 +814,7 @@ thread-pre-split.thread.i:                        ; preds = %234
   %269 = getelementptr inbounds nuw i8, ptr %indvars.iv.i102.sroa.phi, i64 60
   store i32 %259, ptr %269, align 4, !tbaa !90
   %270 = getelementptr inbounds nuw i8, ptr %indvars.iv.i102.sroa.phi, i64 56
-  store i32 %.pre108.i, ptr %270, align 4, !tbaa !24
+  store i32 %.pre108.i, ptr %270, align 8, !tbaa !24
   %271 = getelementptr inbounds nuw i8, ptr %indvars.iv.i102.sroa.phi, i64 32
   store double 0.000000e+00, ptr %271, align 8, !tbaa !77
   %indvars.iv.next.i103 = add nuw nsw i64 %indvars.iv.i102, 1
@@ -834,7 +834,7 @@ thread-pre-split.thread.i:                        ; preds = %234
   %278 = getelementptr inbounds nuw i8, ptr %indvars.iv105.i.sroa.phi, i64 60
   store i32 %259, ptr %278, align 4, !tbaa !90
   %279 = getelementptr inbounds nuw i8, ptr %indvars.iv105.i.sroa.phi, i64 56
-  store i32 %.pre108.i, ptr %279, align 4, !tbaa !24
+  store i32 %.pre108.i, ptr %279, align 8, !tbaa !24
   %280 = getelementptr inbounds nuw i8, ptr %indvars.iv105.i.sroa.phi, i64 16
   %281 = load double, ptr %280, align 8, !tbaa !77
   %282 = fsub double %212, %281
@@ -870,7 +870,7 @@ _ZN3igl8geodesic22GeodesicAlgorithmExact30construct_propagated_intervalsEbPNS0_4
   %296 = load double, ptr %68, align 8, !tbaa !77
   %297 = getelementptr inbounds nuw i8, ptr %295, i64 8
   %298 = load ptr, ptr %297, align 8, !tbaa !84
-  %299 = load i32, ptr %63, align 4, !tbaa !24
+  %299 = load i32, ptr %63, align 8, !tbaa !24
   %300 = getelementptr inbounds nuw i8, ptr %298, i64 48
   br label %301
 
@@ -1230,7 +1230,7 @@ thread-pre-split.thread.i151:                     ; preds = %439
   %490 = getelementptr inbounds nuw i8, ptr %indvars.iv.i144.sroa.phi, i64 60
   store i32 %480, ptr %490, align 4, !tbaa !90
   %491 = getelementptr inbounds nuw i8, ptr %indvars.iv.i144.sroa.phi, i64 56
-  store i32 %.pre109.i148, ptr %491, align 4, !tbaa !24
+  store i32 %.pre109.i148, ptr %491, align 8, !tbaa !24
   %492 = getelementptr inbounds nuw i8, ptr %indvars.iv.i144.sroa.phi, i64 32
   store double 0.000000e+00, ptr %492, align 8, !tbaa !77
   %indvars.iv.next.i145 = add nuw nsw i64 %indvars.iv.i144, 1
@@ -1250,7 +1250,7 @@ thread-pre-split.thread.i151:                     ; preds = %439
   %499 = getelementptr inbounds nuw i8, ptr %indvars.iv105.i149.sroa.phi, i64 60
   store i32 %480, ptr %499, align 4, !tbaa !90
   %500 = getelementptr inbounds nuw i8, ptr %indvars.iv105.i149.sroa.phi, i64 56
-  store i32 %.pre109.i148, ptr %500, align 4, !tbaa !24
+  store i32 %.pre109.i148, ptr %500, align 8, !tbaa !24
   %501 = getelementptr inbounds nuw i8, ptr %indvars.iv105.i149.sroa.phi, i64 16
   %502 = load double, ptr %501, align 8, !tbaa !77
   %503 = fsub double %459, %502
@@ -1949,10 +1949,10 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8geodesic22GeodesicAlgo
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 48
   %36 = load i32, ptr %35, align 4, !tbaa !24
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 48
-  %38 = load i32, ptr %37, align 4, !tbaa !24
+  %38 = load i32, ptr %37, align 8, !tbaa !24
   %39 = icmp eq i32 %36, %38
   %40 = getelementptr inbounds nuw i8, ptr %31, i64 48
-  %41 = load i32, ptr %40, align 4, !tbaa !24
+  %41 = load i32, ptr %40, align 8, !tbaa !24
   %42 = zext i32 %41 to i64
   %43 = getelementptr inbounds nuw %"class.igl::geodesic::IntervalList", ptr %23, i64 %42
   br i1 %39, label %44, label %70
@@ -11966,7 +11966,7 @@ _ZN3igl8geodesic12IntervalList17covering_intervalEd.exit: ; preds = %38
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %58 = load ptr, ptr %57, align 8, !tbaa !103
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %60 = load i32, ptr %59, align 4, !tbaa !24
+  %60 = load i32, ptr %59, align 8, !tbaa !24
   %wide.trip.count = zext i32 %54 to i64
   br label %61
 
@@ -12088,7 +12088,7 @@ _ZN3igl8geodesic12SurfacePoint4typeEv.exit:       ; preds = %_ZNSt6vectorIPN3igl
   %23 = load ptr, ptr %22, align 8, !tbaa !92
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !94
-  %26 = load i32, ptr %15, align 4, !tbaa !24
+  %26 = load i32, ptr %15, align 8, !tbaa !24
   br label %27
 
 27:                                               ; preds = %_ZN3igl8geodesic4Edge7belongsEPNS0_6VertexE.exit.thread.i, %17
@@ -12211,7 +12211,7 @@ _ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE9push_backEOS3_.exit: ; preds = %42, %
   %81 = load ptr, ptr %80, align 8, !tbaa !84
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %83 = load ptr, ptr %82, align 8, !tbaa !94
-  %84 = load i32, ptr %72, align 4, !tbaa !24
+  %84 = load i32, ptr %72, align 8, !tbaa !24
   %85 = getelementptr inbounds nuw i8, ptr %81, i64 48
   br label %86
 
@@ -12298,7 +12298,7 @@ _ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.
 125:                                              ; preds = %_ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i46
   tail call void @_ZdlPvm(ptr noundef nonnull %75, i64 noundef %111) #24
   %.pre.pre = load ptr, ptr %71, align 8, !tbaa !81
-  %.pre99.pre = load i32, ptr %72, align 4, !tbaa !24
+  %.pre99.pre = load i32, ptr %72, align 8, !tbaa !24
   br label %_ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i48
 
 _ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i48: ; preds = %125, %_ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i46
@@ -14503,7 +14503,7 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPdmdET_
   %549 = fcmp ogt double %548, 0x401921F8B52D7BFC
   %550 = getelementptr inbounds nuw i8, ptr %543, i64 80
   %551 = zext i1 %549 to i8
-  store i8 %551, ptr %550, align 1, !tbaa !86
+  store i8 %551, ptr %550, align 4, !tbaa !86
   %552 = add i32 %.0164445, 1
   %553 = zext i32 %552 to i64
   %554 = icmp ugt i64 %459, %553

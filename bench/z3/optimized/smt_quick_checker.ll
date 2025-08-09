@@ -1077,19 +1077,19 @@ _ZN3smt13quick_checker9collector9check_argEPNS_5enodeEP9func_declj.exit.thread: 
   store ptr %214, ptr %41, align 8, !tbaa !577
   %216 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %217 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %218 = load i32, ptr %216, align 4, !tbaa !520
-  %219 = load i32, ptr %217, align 4, !tbaa !520
-  store i32 %219, ptr %216, align 4, !tbaa !520
-  store i32 %218, ptr %217, align 4, !tbaa !520
+  %218 = load i32, ptr %216, align 8, !tbaa !520
+  %219 = load i32, ptr %217, align 8, !tbaa !520
+  store i32 %219, ptr %216, align 8, !tbaa !520
+  store i32 %218, ptr %217, align 8, !tbaa !520
   %220 = load i32, ptr %42, align 4, !tbaa !520
   %221 = load i32, ptr %46, align 4, !tbaa !520
   store i32 %221, ptr %42, align 4, !tbaa !520
   store i32 %220, ptr %46, align 4, !tbaa !520
   %222 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %223 = load i32, ptr %222, align 4, !tbaa !520
-  %224 = load i32, ptr %49, align 4, !tbaa !520
-  store i32 %224, ptr %222, align 4, !tbaa !520
-  store i32 %223, ptr %49, align 4, !tbaa !520
+  %223 = load i32, ptr %222, align 8, !tbaa !520
+  %224 = load i32, ptr %49, align 8, !tbaa !520
+  store i32 %224, ptr %222, align 8, !tbaa !520
+  store i32 %223, ptr %49, align 8, !tbaa !520
   br label %.thread
 
 225:                                              ; preds = %29
@@ -7129,7 +7129,7 @@ _ZN14core_hashtableI17default_map_entryISt4pairIP4exprbEbEN9table2mapIS5_9pair_h
   %32 = load ptr, ptr %31, align 8, !tbaa !570
   store ptr %32, ptr %30, align 8, !tbaa !653
   %33 = getelementptr inbounds nuw i8, ptr %.02839.i, i64 16
-  %34 = load i8, ptr %33, align 1, !tbaa !533, !range !546, !noundef !573
+  %34 = load i8, ptr %33, align 8, !tbaa !533, !range !546, !noundef !573
   %35 = getelementptr inbounds nuw i8, ptr %.034.i, i64 16
   store i8 %34, ptr %35, align 8, !tbaa !750
   %36 = getelementptr inbounds nuw i8, ptr %.02839.i, i64 24
@@ -7158,7 +7158,7 @@ _ZN14core_hashtableI17default_map_entryISt4pairIP4exprbEbEN9table2mapIS5_9pair_h
   %48 = load ptr, ptr %47, align 8, !tbaa !570
   store ptr %48, ptr %46, align 8, !tbaa !653
   %49 = getelementptr inbounds nuw i8, ptr %.02839.i, i64 16
-  %50 = load i8, ptr %49, align 1, !tbaa !533, !range !546, !noundef !573
+  %50 = load i8, ptr %49, align 8, !tbaa !533, !range !546, !noundef !573
   %51 = getelementptr inbounds nuw i8, ptr %.136.i, i64 16
   store i8 %50, ptr %51, align 8, !tbaa !750
   %52 = getelementptr inbounds nuw i8, ptr %.02839.i, i64 24

@@ -3745,11 +3745,11 @@ _Z4ReadIjET_PN6Assimp8IOStreamE.exit60:           ; preds = %_Z4ReadIjET_PN6Assi
   %153 = phi ptr [ %150, %149 ], [ %159, %152 ]
   store double 0.000000e+00, ptr %153, align 8
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
-  store float 1.000000e+00, ptr %154, align 4
+  store float 1.000000e+00, ptr %154, align 8
   %155 = getelementptr inbounds nuw i8, ptr %153, i64 12
   store float 0.000000e+00, ptr %155, align 4
   %156 = getelementptr inbounds nuw i8, ptr %153, i64 16
-  store float 0.000000e+00, ptr %156, align 4
+  store float 0.000000e+00, ptr %156, align 8
   %157 = getelementptr inbounds nuw i8, ptr %153, i64 20
   store float 0.000000e+00, ptr %157, align 4
   %158 = getelementptr inbounds nuw i8, ptr %153, i64 24

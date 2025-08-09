@@ -46916,7 +46916,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %2
   store ptr %10, ptr %7, align 8, !tbaa !1084
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %11, align 8, !tbaa !1080
-  store i8 0, ptr %10, align 1, !tbaa !1085
+  store i8 0, ptr %10, align 8, !tbaa !1085
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %12, align 8, !tbaa !2020
   br label %70
@@ -47377,7 +47377,7 @@ define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEm
   store ptr %14, ptr %.ptr.i.i.i, align 8, !tbaa !1084
   %15 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   store i64 0, ptr %15, align 8, !tbaa !1080
-  store i8 0, ptr %14, align 1, !tbaa !1085
+  store i8 0, ptr %14, align 8, !tbaa !1085
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 32
   %16 = icmp eq i64 %.add.i.i.i, 416
   br i1 %16, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i, label %13

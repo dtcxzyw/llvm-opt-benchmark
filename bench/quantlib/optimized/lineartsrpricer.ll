@@ -7132,7 +7132,7 @@ invoke.cont221:                                   ; preds = %invoke.cont217
   %108 = load i32, ptr %_M_flags.i.i, align 8, !tbaa !200
   %and.i.i.i.i = and i32 %108, -261
   %or.i.i.i.i = or disjoint i32 %and.i.i.i.i, 256
-  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 4, !tbaa !206
+  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 8, !tbaa !206
   %109 = load double, ptr %fxMin_, align 8, !tbaa !197
   %call.i198199 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i188189, double noundef %109)
           to label %invoke.cont224 unwind label %lpad208
@@ -8645,7 +8645,7 @@ invoke.cont221:                                   ; preds = %invoke.cont217
   %110 = load i32, ptr %_M_flags.i.i, align 8, !tbaa !200
   %and.i.i.i.i = and i32 %110, -261
   %or.i.i.i.i = or disjoint i32 %and.i.i.i.i, 256
-  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 4, !tbaa !206
+  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 8, !tbaa !206
   %111 = load double, ptr %fxMin_, align 8, !tbaa !197
   %call.i199200 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i189190, double noundef %111)
           to label %invoke.cont224 unwind label %lpad208

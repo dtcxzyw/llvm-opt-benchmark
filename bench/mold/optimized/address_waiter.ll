@@ -405,7 +405,7 @@ _ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit.i: ; pred
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store ptr %60, ptr %61, align 8, !tbaa !13
   %62 = getelementptr inbounds nuw i8, ptr %.01621.i, i64 32
-  store atomic i8 0, ptr %62 monotonic, align 1
+  store atomic i8 0, ptr %62 monotonic, align 8
   %63 = load atomic i64, ptr %3 monotonic, align 8
   %64 = add i64 %63, 1
   store atomic i64 %64, ptr %3 monotonic, align 8
@@ -553,7 +553,7 @@ _ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEEC2ERS3_.exit.i: ; p
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %47, ptr %48, align 8, !tbaa !13
   %49 = getelementptr inbounds nuw i8, ptr %.013.i, i64 32
-  store atomic i8 0, ptr %49 monotonic, align 1
+  store atomic i8 0, ptr %49 monotonic, align 8
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %39, %.thread.i
@@ -719,7 +719,7 @@ _ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit.i: ; pred
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store ptr %57, ptr %58, align 8, !tbaa !13
   %59 = getelementptr inbounds nuw i8, ptr %.01620.i, i64 32
-  store atomic i8 0, ptr %59 monotonic, align 1
+  store atomic i8 0, ptr %59 monotonic, align 8
   %60 = load atomic i64, ptr %2 monotonic, align 8
   %61 = add i64 %60, 1
   store atomic i64 %61, ptr %2 monotonic, align 8

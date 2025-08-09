@@ -2646,7 +2646,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7SDValueEjLj8ENS_12DenseMapInfoIS2_
   store ptr %87, ptr %236, align 8, !tbaa !191, !noalias !255
   store i32 %.0443, ptr %243, align 8, !tbaa !90, !noalias !255
   %251 = getelementptr inbounds nuw i8, ptr %236, i64 16
-  store i32 %185, ptr %251, align 4, !tbaa !90, !noalias !255
+  store i32 %185, ptr %251, align 8, !tbaa !90, !noalias !255
   %.pre = load i32, ptr %31, align 4, !tbaa !90, !noalias !260
   br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7SDValueEjLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E11try_emplaceIJjEEESt4pairINS_16DenseMapIteratorIS2_jS4_S7_Lb0EEEbEOS2_DpOT_.exit236
 
@@ -3107,7 +3107,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7SDValueEjLj8ENS_12DenseMapInfoIS2_
   store ptr %54, ptr %490, align 8, !tbaa !191, !noalias !272
   store i32 %.0443, ptr %497, align 8, !tbaa !90, !noalias !272
   %505 = getelementptr inbounds nuw i8, ptr %490, i64 16
-  store i32 %439, ptr %505, align 4, !tbaa !90, !noalias !272
+  store i32 %439, ptr %505, align 8, !tbaa !90, !noalias !272
   %.pre505 = load i32, ptr %31, align 4, !tbaa !90, !noalias !275
   br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7SDValueEjLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E11try_emplaceIJjEEESt4pairINS_16DenseMapIteratorIS2_jS4_S7_Lb0EEEbEOS2_DpOT_.exit
 
@@ -3526,7 +3526,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7SDValueEjLj8ENS_12DenseMapInfoIS2_
   store ptr %.sroa.0.0, ptr %731, align 8, !tbaa !191, !noalias !284
   store i32 %.sroa.7.0, ptr %738, align 8, !tbaa !90, !noalias !284
   %746 = getelementptr inbounds nuw i8, ptr %731, i64 16
-  store i32 %675, ptr %746, align 4, !tbaa !90, !noalias !284
+  store i32 %675, ptr %746, align 8, !tbaa !90, !noalias !284
   %.pre507 = load i32, ptr %31, align 4, !tbaa !90, !noalias !287
   br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7SDValueEjLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E11try_emplaceIJjEEESt4pairINS_16DenseMapIteratorIS2_jS4_S7_Lb0EEEbEOS2_DpOT_.exit175
 

@@ -1336,7 +1336,7 @@ define dso_local noundef ptr @__switch_to(ptr noundef returned %0, ptr noundef %
   call void asm "movq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 24), i64 %216, ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 24)) #11, !srcloc !78
   %217 = getelementptr i8, ptr %15, i64 1
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %217, i32 64, ptr elementtype(i8) %217) #11, !srcloc !79
-  %218 = load volatile i64, ptr %1, align 8
+  %218 = load volatile i64, ptr %1, align 32
   %219 = load volatile i64, ptr %0, align 8
   callbr void asm sideeffect "1:jmp ${2:l}\0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @switch_to_cond_stibp, i1 true) #11
           to label %221 [label %220], !srcloc !80
@@ -1389,9 +1389,9 @@ define dso_local void @set_personality_64bit() local_unnamed_addr #3 align 16 {
   %9 = getelementptr i8, ptr %8, i64 -48
   store i64 59, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %11 = load i32, ptr %10, align 8
+  %11 = load i32, ptr %10, align 16
   %12 = and i32 %11, -3
-  store i32 %12, ptr %10, align 8
+  store i32 %12, ptr %10, align 16
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 1192
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
@@ -1443,9 +1443,9 @@ define dso_local void @set_personality_ia32(i1 noundef zeroext %0) #3 align 16 {
   %21 = getelementptr i8, ptr %20, i64 -48
   store i64 11, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %23 = load i32, ptr %22, align 8
+  %23 = load i32, ptr %22, align 16
   %24 = or i32 %23, 2
-  store i32 %24, ptr %22, align 8
+  store i32 %24, ptr %22, align 16
   br label %25
 
 25:                                               ; preds = %11, %1

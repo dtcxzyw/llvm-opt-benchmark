@@ -920,7 +920,7 @@ thread-pre-split:                                 ; preds = %._crit_edge137
   %197 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 %11, ptr %197, align 8, !tbaa !32
   %198 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i8 0, ptr %198, align 1, !tbaa !33
+  store i8 0, ptr %198, align 8, !tbaa !33
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %199 = icmp eq ptr %193, null
   br i1 %199, label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit, label %200

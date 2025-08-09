@@ -7277,7 +7277,7 @@ define linkonce_odr hidden void @_ZN5boost10test_tools9tt_detail15equal_coll_imp
   store ptr %23, ptr %22, align 8, !tbaa !23
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 384
   store i64 0, ptr %24, align 8, !tbaa !25
-  store i8 0, ptr %23, align 1, !tbaa !11
+  store i8 0, ptr %23, align 8, !tbaa !11
   invoke void @_ZN5boost10shared_ptrINS_23basic_wrap_stringstreamIcEEE5resetIS2_EEvPT_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %20)
           to label %.noexc20 unwind label %36
 
@@ -7383,7 +7383,7 @@ _ZN5boostlsIcA5_cEERNS_23basic_wrap_stringstreamIT_EES5_RKT0_.exit: ; preds = %3
   store ptr %56, ptr %55, align 8, !tbaa !23
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 384
   store i64 0, ptr %57, align 8, !tbaa !25
-  store i8 0, ptr %56, align 1, !tbaa !11
+  store i8 0, ptr %56, align 8, !tbaa !11
   invoke void @_ZN5boost10shared_ptrINS_23basic_wrap_stringstreamIcEEE5resetIS2_EEvPT_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %53)
           to label %.noexc31 unwind label %65
 
@@ -7447,7 +7447,7 @@ _ZN5boostlsIcmEERNS_23basic_wrap_stringstreamIT_EES4_RKT0_.exit41: ; preds = %_Z
   store ptr %74, ptr %73, align 8, !tbaa !23
   %75 = getelementptr inbounds nuw i8, ptr %71, i64 384
   store i64 0, ptr %75, align 8, !tbaa !25
-  store i8 0, ptr %74, align 1, !tbaa !11
+  store i8 0, ptr %74, align 8, !tbaa !11
   invoke void @_ZN5boost10shared_ptrINS_23basic_wrap_stringstreamIcEEE5resetIS2_EEvPT_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %71)
           to label %.noexc45 unwind label %83
 
@@ -7535,7 +7535,7 @@ define linkonce_odr hidden void @_ZN5boost10test_tools9tt_detail15equal_coll_imp
   store ptr %23, ptr %22, align 8, !tbaa !23
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 384
   store i64 0, ptr %24, align 8, !tbaa !25
-  store i8 0, ptr %23, align 1, !tbaa !11
+  store i8 0, ptr %23, align 8, !tbaa !11
   invoke void @_ZN5boost10shared_ptrINS_23basic_wrap_stringstreamIcEEE5resetIS2_EEvPT_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %20)
           to label %.noexc20 unwind label %36
 
@@ -7641,7 +7641,7 @@ _ZN5boostlsIcA5_cEERNS_23basic_wrap_stringstreamIT_EES5_RKT0_.exit: ; preds = %3
   store ptr %56, ptr %55, align 8, !tbaa !23
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 384
   store i64 0, ptr %57, align 8, !tbaa !25
-  store i8 0, ptr %56, align 1, !tbaa !11
+  store i8 0, ptr %56, align 8, !tbaa !11
   invoke void @_ZN5boost10shared_ptrINS_23basic_wrap_stringstreamIcEEE5resetIS2_EEvPT_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %53)
           to label %.noexc31 unwind label %65
 
@@ -7705,7 +7705,7 @@ _ZN5boostlsIcmEERNS_23basic_wrap_stringstreamIT_EES4_RKT0_.exit41: ; preds = %_Z
   store ptr %74, ptr %73, align 8, !tbaa !23
   %75 = getelementptr inbounds nuw i8, ptr %71, i64 384
   store i64 0, ptr %75, align 8, !tbaa !25
-  store i8 0, ptr %74, align 1, !tbaa !11
+  store i8 0, ptr %74, align 8, !tbaa !11
   invoke void @_ZN5boost10shared_ptrINS_23basic_wrap_stringstreamIcEEE5resetIS2_EEvPT_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %71)
           to label %.noexc45 unwind label %83
 
@@ -7799,7 +7799,7 @@ define linkonce_odr hidden void @_ZN5boost10test_tools9tt_detail15equal_coll_imp
   store ptr %23, ptr %22, align 8, !tbaa !23
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 384
   store i64 0, ptr %24, align 8, !tbaa !25
-  store i8 0, ptr %23, align 1, !tbaa !11
+  store i8 0, ptr %23, align 8, !tbaa !11
   invoke void @_ZN5boost10shared_ptrINS_23basic_wrap_stringstreamIcEEE5resetIS2_EEvPT_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %20)
           to label %.noexc6 unwind label %43
 
@@ -7917,7 +7917,7 @@ _ZN5boostlsIcmEERNS_23basic_wrap_stringstreamIT_EES4_RKT0_.exit: ; preds = %_ZN5
   store ptr %64, ptr %63, align 8, !tbaa !23
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 384
   store i64 0, ptr %65, align 8, !tbaa !25
-  store i8 0, ptr %64, align 1, !tbaa !11
+  store i8 0, ptr %64, align 8, !tbaa !11
   invoke void @_ZN5boost10shared_ptrINS_23basic_wrap_stringstreamIcEEE5resetIS2_EEvPT_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %61)
           to label %.noexc21 unwind label %57
 
@@ -7994,7 +7994,7 @@ _ZN5boostlsIcA5_cEERNS_23basic_wrap_stringstreamIT_EES5_RKT0_.exit29..loopexit_c
   store ptr %86, ptr %85, align 8, !tbaa !23
   %87 = getelementptr inbounds nuw i8, ptr %83, i64 384
   store i64 0, ptr %87, align 8, !tbaa !25
-  store i8 0, ptr %86, align 1, !tbaa !11
+  store i8 0, ptr %86, align 8, !tbaa !11
   invoke void @_ZN5boost10shared_ptrINS_23basic_wrap_stringstreamIcEEE5resetIS2_EEvPT_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %83)
           to label %.noexc35 unwind label %79
 
@@ -8083,7 +8083,7 @@ define linkonce_odr hidden void @_ZN5boost10test_tools9tt_detail15equal_coll_imp
   store ptr %23, ptr %22, align 8, !tbaa !23
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 384
   store i64 0, ptr %24, align 8, !tbaa !25
-  store i8 0, ptr %23, align 1, !tbaa !11
+  store i8 0, ptr %23, align 8, !tbaa !11
   invoke void @_ZN5boost10shared_ptrINS_23basic_wrap_stringstreamIcEEE5resetIS2_EEvPT_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %20)
           to label %.noexc6 unwind label %43
 
@@ -8201,7 +8201,7 @@ _ZN5boostlsIcmEERNS_23basic_wrap_stringstreamIT_EES4_RKT0_.exit: ; preds = %_ZN5
   store ptr %64, ptr %63, align 8, !tbaa !23
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 384
   store i64 0, ptr %65, align 8, !tbaa !25
-  store i8 0, ptr %64, align 1, !tbaa !11
+  store i8 0, ptr %64, align 8, !tbaa !11
   invoke void @_ZN5boost10shared_ptrINS_23basic_wrap_stringstreamIcEEE5resetIS2_EEvPT_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %61)
           to label %.noexc21 unwind label %57
 
@@ -8278,7 +8278,7 @@ _ZN5boostlsIcA5_cEERNS_23basic_wrap_stringstreamIT_EES5_RKT0_.exit29..loopexit_c
   store ptr %86, ptr %85, align 8, !tbaa !23
   %87 = getelementptr inbounds nuw i8, ptr %83, i64 384
   store i64 0, ptr %87, align 8, !tbaa !25
-  store i8 0, ptr %86, align 1, !tbaa !11
+  store i8 0, ptr %86, align 8, !tbaa !11
   invoke void @_ZN5boost10shared_ptrINS_23basic_wrap_stringstreamIcEEE5resetIS2_EEvPT_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %83)
           to label %.noexc35 unwind label %79
 

@@ -1324,14 +1324,14 @@ define dso_local void @_ZN23btReducedDeformableBody12setMassPropsERK20btAlignedO
   %36 = load float, ptr %24, align 4, !tbaa !138
   %37 = tail call float @llvm.fmuladd.f32(float %30, float %36, float %.02832)
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %39 = load float, ptr %38, align 4, !tbaa !138
+  %39 = load float, ptr %38, align 8, !tbaa !138
   %40 = load float, ptr %27, align 4, !tbaa !138
   %41 = fmul float %39, %40
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 20
   %43 = load float, ptr %42, align 4, !tbaa !138
   %44 = fmul float %40, %43
   %45 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  %46 = load float, ptr %45, align 4, !tbaa !138
+  %46 = load float, ptr %45, align 8, !tbaa !138
   %47 = fmul float %40, %46
   %48 = fadd float %.sroa.021.029, %41
   %49 = fadd float %.sroa.6.030, %44
@@ -4635,13 +4635,13 @@ _ZN23btReducedDeformableBody21updateModesByRotationERK11btMatrix3x3.exit: ; pred
   store <2 x float> %.sroa.0.4.vec.insert.i37, ptr %83, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i38, ptr %89, align 8, !tbaa !150
   %107 = getelementptr inbounds nuw i8, ptr %82, i64 32
-  %108 = load float, ptr %107, align 4, !tbaa !138
+  %108 = load float, ptr %107, align 8, !tbaa !138
   %109 = fsub float %108, %.sroa.0109.0.copyload
   %110 = getelementptr inbounds nuw i8, ptr %82, i64 36
   %111 = load float, ptr %110, align 4, !tbaa !138
   %112 = fsub float %111, %.sroa.7113.0.copyload
   %113 = getelementptr inbounds nuw i8, ptr %82, i64 40
-  %114 = load float, ptr %113, align 4, !tbaa !138
+  %114 = load float, ptr %113, align 8, !tbaa !138
   %115 = fsub float %114, %.sroa.11.0.copyload
   %116 = fmul float %.sroa.684.0.copyload, %112
   %117 = call float @llvm.fmuladd.f32(float %.sroa.081.0.copyload, float %109, float %116)
@@ -4664,13 +4664,13 @@ _ZN23btReducedDeformableBody21updateModesByRotationERK11btMatrix3x3.exit: ; pred
   store <2 x float> %.sroa.0.4.vec.insert.i57, ptr %107, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i58, ptr %113, align 8, !tbaa !150
   %131 = getelementptr inbounds nuw i8, ptr %82, i64 96
-  %132 = load float, ptr %131, align 4, !tbaa !138
+  %132 = load float, ptr %131, align 8, !tbaa !138
   %133 = getelementptr inbounds nuw i8, ptr %82, i64 100
   %134 = load float, ptr %133, align 4, !tbaa !138
   %135 = fmul float %.sroa.684.0.copyload, %134
   %136 = call float @llvm.fmuladd.f32(float %.sroa.081.0.copyload, float %132, float %135)
   %137 = getelementptr inbounds nuw i8, ptr %82, i64 104
-  %138 = load float, ptr %137, align 4, !tbaa !138
+  %138 = load float, ptr %137, align 8, !tbaa !138
   %139 = call noundef float @llvm.fmuladd.f32(float %.sroa.9.0.copyload, float %138, float %136)
   %140 = fmul float %.sroa.16.16.copyload, %134
   %141 = call float @llvm.fmuladd.f32(float %.sroa.1289.16.copyload, float %132, float %140)
@@ -4961,13 +4961,13 @@ define dso_local void @_ZN23btReducedDeformableBody5scaleERK9btVector3(ptr nound
   store <2 x float> %.sroa.0.4.vec.insert.i20, ptr %90, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i21, ptr %96, align 8, !tbaa !150
   %108 = getelementptr inbounds nuw i8, ptr %89, i64 32
-  %109 = load float, ptr %108, align 4, !tbaa !138
+  %109 = load float, ptr %108, align 8, !tbaa !138
   %110 = fsub float %109, %.sroa.052.0.copyload
   %111 = getelementptr inbounds nuw i8, ptr %89, i64 36
   %112 = load float, ptr %111, align 4, !tbaa !138
   %113 = fsub float %112, %.sroa.756.0.copyload
   %114 = getelementptr inbounds nuw i8, ptr %89, i64 40
-  %115 = load float, ptr %114, align 4, !tbaa !138
+  %115 = load float, ptr %114, align 8, !tbaa !138
   %116 = fsub float %115, %.sroa.11.0.copyload
   %117 = load float, ptr %1, align 4, !tbaa !138
   %118 = fmul float %110, %117

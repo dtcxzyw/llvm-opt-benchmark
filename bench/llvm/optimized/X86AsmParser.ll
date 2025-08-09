@@ -3652,7 +3652,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit1194.thread3257: ; preds = %.thread3248, %748, 
   store ptr %773, ptr %772, align 8, !tbaa !151, !noalias !144
   %774 = getelementptr inbounds nuw i8, ptr %770, i64 24
   store i64 0, ptr %774, align 8, !tbaa !123, !noalias !144
-  store i8 0, ptr %773, align 1, !tbaa !116, !noalias !144
+  store i8 0, ptr %773, align 8, !tbaa !116, !noalias !144
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %770, align 8, !tbaa !3, !noalias !144
   %775 = getelementptr inbounds nuw i8, ptr %770, i64 48
   store i32 0, ptr %775, align 8, !tbaa !152, !noalias !144
@@ -3752,7 +3752,7 @@ _ZNSt10unique_ptrIN4llvm10X86OperandESt14default_deleteIS1_EED2Ev.exit: ; preds 
   store ptr %824, ptr %823, align 8, !tbaa !151, !noalias !161
   %825 = getelementptr inbounds nuw i8, ptr %821, i64 24
   store i64 0, ptr %825, align 8, !tbaa !123, !noalias !161
-  store i8 0, ptr %824, align 1, !tbaa !116, !noalias !161
+  store i8 0, ptr %824, align 8, !tbaa !116, !noalias !161
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %821, align 8, !tbaa !3, !noalias !161
   %826 = getelementptr inbounds nuw i8, ptr %821, i64 48
   store i32 2, ptr %826, align 8, !tbaa !152, !noalias !161
@@ -4092,7 +4092,7 @@ _ZN4llvm8AsmTokenaSERKS0_.exit56.i:               ; preds = %965, %963
   store ptr %982, ptr %981, align 8, !tbaa !151, !noalias !169
   %983 = getelementptr inbounds nuw i8, ptr %979, i64 24
   store i64 0, ptr %983, align 8, !tbaa !123, !noalias !169
-  store i8 0, ptr %982, align 1, !tbaa !116, !noalias !169
+  store i8 0, ptr %982, align 8, !tbaa !116, !noalias !169
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %979, align 8, !tbaa !3, !noalias !169
   %984 = getelementptr inbounds nuw i8, ptr %979, i64 48
   store i32 2, ptr %984, align 8, !tbaa !152, !noalias !169
@@ -4365,7 +4365,7 @@ _ZN4llvm8AsmTokenaSERKS0_.exit98.i:               ; preds = %1084, %1082
   store ptr %1098, ptr %1097, align 8, !tbaa !151, !noalias !175
   %1099 = getelementptr inbounds nuw i8, ptr %1095, i64 24
   store i64 0, ptr %1099, align 8, !tbaa !123, !noalias !175
-  store i8 0, ptr %1098, align 1, !tbaa !116, !noalias !175
+  store i8 0, ptr %1098, align 8, !tbaa !116, !noalias !175
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %1095, align 8, !tbaa !3, !noalias !175
   %1100 = getelementptr inbounds nuw i8, ptr %1095, i64 48
   store i32 2, ptr %1100, align 8, !tbaa !152, !noalias !175
@@ -4549,7 +4549,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit1233.thread3266: ; preds = %858, %_ZNK4
   store ptr %1191, ptr %1190, align 8, !tbaa !151, !noalias !182
   %1192 = getelementptr inbounds nuw i8, ptr %1188, i64 24
   store i64 0, ptr %1192, align 8, !tbaa !123, !noalias !182
-  store i8 0, ptr %1191, align 1, !tbaa !116, !noalias !182
+  store i8 0, ptr %1191, align 8, !tbaa !116, !noalias !182
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %1188, align 8, !tbaa !3, !noalias !182
   %1193 = getelementptr inbounds nuw i8, ptr %1188, i64 48
   store i32 0, ptr %1193, align 8, !tbaa !152, !noalias !182
@@ -5095,7 +5095,7 @@ _ZN12_GLOBAL__N_112X86AsmParser27ParseIntelMemoryOperandSizeERj.exit.thread.i.i:
   store ptr %1452, ptr %1451, align 8, !tbaa !151, !noalias !189
   %1453 = getelementptr inbounds nuw i8, ptr %1449, i64 24
   store i64 0, ptr %1453, align 8, !tbaa !123, !noalias !189
-  store i8 0, ptr %1452, align 1, !tbaa !116, !noalias !189
+  store i8 0, ptr %1452, align 8, !tbaa !116, !noalias !189
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %1449, align 8, !tbaa !3, !noalias !189
   %1454 = getelementptr inbounds nuw i8, ptr %1449, i64 48
   store i32 1, ptr %1454, align 8, !tbaa !152, !noalias !189
@@ -5491,7 +5491,7 @@ _ZNSt10unique_ptrIN4llvm18MCParsedAsmOperandESt14default_deleteIS1_EED2Ev.exit14
   store ptr %1603, ptr %1602, align 8, !tbaa !151, !noalias !225
   %1604 = getelementptr inbounds nuw i8, ptr %1600, i64 24
   store i64 0, ptr %1604, align 8, !tbaa !123, !noalias !225
-  store i8 0, ptr %1603, align 1, !tbaa !116, !noalias !225
+  store i8 0, ptr %1603, align 8, !tbaa !116, !noalias !225
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %1600, align 8, !tbaa !3, !noalias !225
   %1605 = getelementptr inbounds nuw i8, ptr %1600, i64 48
   store i32 2, ptr %1605, align 8, !tbaa !152, !noalias !225
@@ -5981,7 +5981,7 @@ _ZNK4llvm9StringRef18equals_insensitiveES0_.exit174.thread.i.i: ; preds = %_ZNK4
   store ptr %1790, ptr %1789, align 8, !tbaa !151, !noalias !233
   %1791 = getelementptr inbounds nuw i8, ptr %1787, i64 24
   store i64 0, ptr %1791, align 8, !tbaa !123, !noalias !233
-  store i8 0, ptr %1790, align 1, !tbaa !116, !noalias !233
+  store i8 0, ptr %1790, align 8, !tbaa !116, !noalias !233
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %1787, align 8, !tbaa !3, !noalias !233
   %1792 = getelementptr inbounds nuw i8, ptr %1787, i64 48
   store i32 3, ptr %1792, align 8, !tbaa !152, !noalias !233
@@ -6197,7 +6197,7 @@ _ZN12_GLOBAL__N_112X86AsmParser17parseIntelOperandERN4llvm15SmallVectorImplISt10
   store ptr %1873, ptr %1872, align 8, !tbaa !151, !noalias !239
   %1874 = getelementptr inbounds nuw i8, ptr %1870, i64 24
   store i64 0, ptr %1874, align 8, !tbaa !123, !noalias !239
-  store i8 0, ptr %1873, align 1, !tbaa !116, !noalias !239
+  store i8 0, ptr %1873, align 8, !tbaa !116, !noalias !239
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %1870, align 8, !tbaa !3, !noalias !239
   %1875 = getelementptr inbounds nuw i8, ptr %1870, i64 48
   store i32 2, ptr %1875, align 8, !tbaa !152, !noalias !239
@@ -6352,7 +6352,7 @@ _ZNKSt14default_deleteIN4llvm18MCParsedAsmOperandEEclEPS1_.exit.i.i7.i: ; preds 
   store ptr %1935, ptr %1934, align 8, !tbaa !151, !noalias !245
   %1936 = getelementptr inbounds nuw i8, ptr %1932, i64 24
   store i64 0, ptr %1936, align 8, !tbaa !123, !noalias !245
-  store i8 0, ptr %1935, align 1, !tbaa !116, !noalias !245
+  store i8 0, ptr %1935, align 8, !tbaa !116, !noalias !245
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %1932, align 8, !tbaa !3, !noalias !245
   %1937 = getelementptr inbounds nuw i8, ptr %1932, i64 48
   store i32 1, ptr %1937, align 8, !tbaa !152, !noalias !245
@@ -6446,7 +6446,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i19.i: ; preds 
   store ptr %1976, ptr %1975, align 8, !tbaa !151, !noalias !251
   %1977 = getelementptr inbounds nuw i8, ptr %1973, i64 24
   store i64 0, ptr %1977, align 8, !tbaa !123, !noalias !251
-  store i8 0, ptr %1976, align 1, !tbaa !116, !noalias !251
+  store i8 0, ptr %1976, align 8, !tbaa !116, !noalias !251
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %1973, align 8, !tbaa !3, !noalias !251
   %1978 = getelementptr inbounds nuw i8, ptr %1973, i64 48
   store i32 0, ptr %1978, align 8, !tbaa !152, !noalias !251
@@ -6751,7 +6751,7 @@ _ZN12_GLOBAL__N_112X86AsmParser15getPointerWidthEv.exit.i.i.i: ; preds = %2101, 
   store ptr %2111, ptr %2110, align 8, !tbaa !151, !noalias !257
   %2112 = getelementptr inbounds nuw i8, ptr %2108, i64 24
   store i64 0, ptr %2112, align 8, !tbaa !123, !noalias !257
-  store i8 0, ptr %2111, align 1, !tbaa !116, !noalias !257
+  store i8 0, ptr %2111, align 8, !tbaa !116, !noalias !257
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %2108, align 8, !tbaa !3, !noalias !257
   %2113 = getelementptr inbounds nuw i8, ptr %2108, i64 48
   store i32 3, ptr %2113, align 8, !tbaa !152, !noalias !257
@@ -6878,7 +6878,7 @@ _ZN12_GLOBAL__N_112X86AsmParser15getPointerWidthEv.exit107.i.i.i: ; preds = %216
   store ptr %2172, ptr %2171, align 8, !tbaa !151, !noalias !263
   %2173 = getelementptr inbounds nuw i8, ptr %2169, i64 24
   store i64 0, ptr %2173, align 8, !tbaa !123, !noalias !263
-  store i8 0, ptr %2172, align 1, !tbaa !116, !noalias !263
+  store i8 0, ptr %2172, align 8, !tbaa !116, !noalias !263
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %2169, align 8, !tbaa !3, !noalias !263
   %2174 = getelementptr inbounds nuw i8, ptr %2169, i64 48
   store i32 3, ptr %2174, align 8, !tbaa !152, !noalias !263
@@ -7345,7 +7345,7 @@ _ZL10checkScalejRN4llvm9StringRefE.exit.i.i.i:    ; preds = %_ZNK4llvm15MCRegist
   store ptr %2367, ptr %2366, align 8, !tbaa !151, !noalias !271
   %2368 = getelementptr inbounds nuw i8, ptr %2364, i64 24
   store i64 0, ptr %2368, align 8, !tbaa !123, !noalias !271
-  store i8 0, ptr %2367, align 1, !tbaa !116, !noalias !271
+  store i8 0, ptr %2367, align 8, !tbaa !116, !noalias !271
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %2364, align 8, !tbaa !3, !noalias !271
   %2369 = getelementptr inbounds nuw i8, ptr %2364, i64 48
   store i32 5, ptr %2369, align 8, !tbaa !152, !noalias !271
@@ -7679,7 +7679,7 @@ _ZN12_GLOBAL__N_112X86AsmParser15getPointerWidthEv.exit153.i.i.i: ; preds = %247
   store ptr %2483, ptr %2482, align 8, !tbaa !151, !noalias !276
   %2484 = getelementptr inbounds nuw i8, ptr %2480, i64 24
   store i64 0, ptr %2484, align 8, !tbaa !123, !noalias !276
-  store i8 0, ptr %2483, align 1, !tbaa !116, !noalias !276
+  store i8 0, ptr %2483, align 8, !tbaa !116, !noalias !276
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %2480, align 8, !tbaa !3, !noalias !276
   %2485 = getelementptr inbounds nuw i8, ptr %2480, i64 48
   store i32 3, ptr %2485, align 8, !tbaa !152, !noalias !276
@@ -8125,7 +8125,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %_ZN4llvm12StringSwi
   store ptr %2659, ptr %2658, align 8, !tbaa !151, !noalias !289
   %2660 = getelementptr inbounds nuw i8, ptr %2656, i64 24
   store i64 0, ptr %2660, align 8, !tbaa !123, !noalias !289
-  store i8 0, ptr %2659, align 1, !tbaa !116, !noalias !289
+  store i8 0, ptr %2659, align 8, !tbaa !116, !noalias !289
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %2656, align 8, !tbaa !3, !noalias !289
   %2661 = getelementptr inbounds nuw i8, ptr %2656, i64 48
   store i32 0, ptr %2661, align 8, !tbaa !152, !noalias !289
@@ -8303,7 +8303,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i: ; preds = %2702
   store ptr %2741, ptr %2740, align 8, !tbaa !151, !noalias !297
   %2742 = getelementptr inbounds nuw i8, ptr %2738, i64 24
   store i64 0, ptr %2742, align 8, !tbaa !123, !noalias !297
-  store i8 0, ptr %2741, align 1, !tbaa !116, !noalias !297
+  store i8 0, ptr %2741, align 8, !tbaa !116, !noalias !297
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %2738, align 8, !tbaa !3, !noalias !297
   %2743 = getelementptr inbounds nuw i8, ptr %2738, i64 48
   store i32 0, ptr %2743, align 8, !tbaa !152, !noalias !297
@@ -8348,7 +8348,7 @@ _ZNSt10unique_ptrIN4llvm18MCParsedAsmOperandESt14default_deleteIS1_EED2Ev.exit88
   store ptr %2756, ptr %2755, align 8, !tbaa !151, !noalias !303
   %2757 = getelementptr inbounds nuw i8, ptr %2753, i64 24
   store i64 0, ptr %2757, align 8, !tbaa !123, !noalias !303
-  store i8 0, ptr %2756, align 1, !tbaa !116, !noalias !303
+  store i8 0, ptr %2756, align 8, !tbaa !116, !noalias !303
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %2753, align 8, !tbaa !3, !noalias !303
   %2758 = getelementptr inbounds nuw i8, ptr %2753, i64 48
   store i32 1, ptr %2758, align 8, !tbaa !152, !noalias !303
@@ -8394,7 +8394,7 @@ _ZNSt10unique_ptrIN4llvm18MCParsedAsmOperandESt14default_deleteIS1_EED2Ev.exit91
   store ptr %2773, ptr %2772, align 8, !tbaa !151, !noalias !309
   %2774 = getelementptr inbounds nuw i8, ptr %2770, i64 24
   store i64 0, ptr %2774, align 8, !tbaa !123, !noalias !309
-  store i8 0, ptr %2773, align 1, !tbaa !116, !noalias !309
+  store i8 0, ptr %2773, align 8, !tbaa !116, !noalias !309
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %2770, align 8, !tbaa !3, !noalias !309
   %2775 = getelementptr inbounds nuw i8, ptr %2770, i64 48
   store i32 0, ptr %2775, align 8, !tbaa !152, !noalias !309
@@ -8674,7 +8674,7 @@ _ZN12_GLOBAL__N_112X86AsmParser19HandleAVX512OperandERN4llvm15SmallVectorImplISt
   store ptr %2907, ptr %2906, align 8, !tbaa !151, !noalias !316
   %2908 = getelementptr inbounds nuw i8, ptr %2904, i64 24
   store i64 0, ptr %2908, align 8, !tbaa !123, !noalias !316
-  store i8 0, ptr %2907, align 1, !tbaa !116, !noalias !316
+  store i8 0, ptr %2907, align 8, !tbaa !116, !noalias !316
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %2904, align 8, !tbaa !3, !noalias !316
   %2909 = getelementptr inbounds nuw i8, ptr %2904, i64 48
   store i32 2, ptr %2909, align 8, !tbaa !152, !noalias !316
@@ -9002,7 +9002,7 @@ _ZN4llvmneENS_9StringRefES0_.exit1371.thread:     ; preds = %3031, %_ZN4llvmneEN
   store ptr %3050, ptr %3049, align 8, !tbaa !151, !noalias !322
   %3051 = getelementptr inbounds nuw i8, ptr %3047, i64 24
   store i64 0, ptr %3051, align 8, !tbaa !123, !noalias !322
-  store i8 0, ptr %3050, align 1, !tbaa !116, !noalias !322
+  store i8 0, ptr %3050, align 8, !tbaa !116, !noalias !322
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %3047, align 8, !tbaa !3, !noalias !322
   %3052 = getelementptr inbounds nuw i8, ptr %3047, i64 48
   store i32 0, ptr %3052, align 8, !tbaa !152, !noalias !322
@@ -9053,7 +9053,7 @@ _ZN4llvmneENS_9StringRefES0_.exit1371.thread3318: ; preds = %_ZNSt10unique_ptrIN
   store ptr %3072, ptr %3071, align 8, !tbaa !151, !noalias !328
   %3073 = getelementptr inbounds nuw i8, ptr %3069, i64 24
   store i64 0, ptr %3073, align 8, !tbaa !123, !noalias !328
-  store i8 0, ptr %3072, align 1, !tbaa !116, !noalias !328
+  store i8 0, ptr %3072, align 8, !tbaa !116, !noalias !328
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %3069, align 8, !tbaa !3, !noalias !328
   %3074 = getelementptr inbounds nuw i8, ptr %3069, i64 48
   store i32 1, ptr %3074, align 8, !tbaa !152, !noalias !328
@@ -9171,7 +9171,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit1382.thread:     ; preds = %_ZN4llvmeqENS_9Stri
   store ptr %3109, ptr %3108, align 8, !tbaa !151, !noalias !334
   %3110 = getelementptr inbounds nuw i8, ptr %3106, i64 24
   store i64 0, ptr %3110, align 8, !tbaa !123, !noalias !334
-  store i8 0, ptr %3109, align 1, !tbaa !116, !noalias !334
+  store i8 0, ptr %3109, align 8, !tbaa !116, !noalias !334
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %3106, align 8, !tbaa !3, !noalias !334
   %3111 = getelementptr inbounds nuw i8, ptr %3106, i64 48
   store i32 1, ptr %3111, align 8, !tbaa !152, !noalias !334
@@ -9299,7 +9299,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit1419.thread:     ; preds = %_ZN4llvmeqENS_9Stri
   store ptr %3147, ptr %3146, align 8, !tbaa !151, !noalias !340
   %3148 = getelementptr inbounds nuw i8, ptr %3144, i64 24
   store i64 0, ptr %3148, align 8, !tbaa !123, !noalias !340
-  store i8 0, ptr %3147, align 1, !tbaa !116, !noalias !340
+  store i8 0, ptr %3147, align 8, !tbaa !116, !noalias !340
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %3144, align 8, !tbaa !3, !noalias !340
   %3149 = getelementptr inbounds nuw i8, ptr %3144, i64 48
   store i32 1, ptr %3149, align 8, !tbaa !152, !noalias !340
@@ -9413,7 +9413,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit1459.thread:     ; preds = %_ZN4llvmeqENS_9Stri
   store ptr %3181, ptr %3180, align 8, !tbaa !151, !noalias !346
   %3182 = getelementptr inbounds nuw i8, ptr %3178, i64 24
   store i64 0, ptr %3182, align 8, !tbaa !123, !noalias !346
-  store i8 0, ptr %3181, align 1, !tbaa !116, !noalias !346
+  store i8 0, ptr %3181, align 8, !tbaa !116, !noalias !346
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %3178, align 8, !tbaa !3, !noalias !346
   %3183 = getelementptr inbounds nuw i8, ptr %3178, i64 48
   store i32 1, ptr %3183, align 8, !tbaa !152, !noalias !346
@@ -9542,7 +9542,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit1488.thread:     ; preds = %_ZN4llvmeqENS_9Stri
   store ptr %3214, ptr %3213, align 8, !tbaa !151, !noalias !352
   %3215 = getelementptr inbounds nuw i8, ptr %3211, i64 24
   store i64 0, ptr %3215, align 8, !tbaa !123, !noalias !352
-  store i8 0, ptr %3214, align 1, !tbaa !116, !noalias !352
+  store i8 0, ptr %3214, align 8, !tbaa !116, !noalias !352
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %3211, align 8, !tbaa !3, !noalias !352
   %3216 = getelementptr inbounds nuw i8, ptr %3211, i64 48
   store i32 1, ptr %3216, align 8, !tbaa !152, !noalias !352
@@ -10066,7 +10066,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit1691:            ; preds = %3327
   store ptr %3339, ptr %3338, align 8, !tbaa !151, !noalias !358
   %3340 = getelementptr inbounds nuw i8, ptr %3336, i64 24
   store i64 0, ptr %3340, align 8, !tbaa !123, !noalias !358
-  store i8 0, ptr %3339, align 1, !tbaa !116, !noalias !358
+  store i8 0, ptr %3339, align 8, !tbaa !116, !noalias !358
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %3336, align 8, !tbaa !3, !noalias !358
   %3341 = getelementptr inbounds nuw i8, ptr %3336, i64 48
   store i32 0, ptr %3341, align 8, !tbaa !152, !noalias !358
@@ -10286,7 +10286,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit1718.thread3527: ; preds = %_ZN4llvmeqENS_9Stri
   store ptr %3422, ptr %3421, align 8, !tbaa !151, !noalias !364
   %3423 = getelementptr inbounds nuw i8, ptr %3419, i64 24
   store i64 0, ptr %3423, align 8, !tbaa !123, !noalias !364
-  store i8 0, ptr %3422, align 1, !tbaa !116, !noalias !364
+  store i8 0, ptr %3422, align 8, !tbaa !116, !noalias !364
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %3419, align 8, !tbaa !3, !noalias !364
   %3424 = getelementptr inbounds nuw i8, ptr %3419, i64 48
   store i32 4, ptr %3424, align 8, !tbaa !152, !noalias !364
@@ -11243,7 +11243,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %65, %_ZN4llvm12Stri
   store ptr %72, ptr %71, align 8, !tbaa !151, !noalias !374
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 24
   store i64 0, ptr %73, align 8, !tbaa !123, !noalias !374
-  store i8 0, ptr %72, align 1, !tbaa !116, !noalias !374
+  store i8 0, ptr %72, align 8, !tbaa !116, !noalias !374
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %69, align 8, !tbaa !3, !noalias !374
   %74 = getelementptr inbounds nuw i8, ptr %69, i64 48
   store i32 0, ptr %74, align 8, !tbaa !152, !noalias !374
@@ -17791,7 +17791,7 @@ define linkonce_odr hidden void @_ZN4llvm10X86Operand9CreateImmEPKNS_6MCExprENS_
   store ptr %12, ptr %11, align 8, !tbaa !151, !noalias !504
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 0, ptr %13, align 8, !tbaa !123, !noalias !504
-  store i8 0, ptr %12, align 1, !tbaa !116, !noalias !504
+  store i8 0, ptr %12, align 8, !tbaa !116, !noalias !504
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %9, align 8, !tbaa !3, !noalias !504
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store i32 2, ptr %14, align 8, !tbaa !152, !noalias !504
@@ -18126,7 +18126,7 @@ _ZN12_GLOBAL__N_112X86AsmParser15getPointerWidthEv.exit: ; preds = %3, %23, %28
   store ptr %43, ptr %42, align 8, !tbaa !151, !noalias !514
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 24
   store i64 0, ptr %44, align 8, !tbaa !123, !noalias !514
-  store i8 0, ptr %43, align 1, !tbaa !116, !noalias !514
+  store i8 0, ptr %43, align 8, !tbaa !116, !noalias !514
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %40, align 8, !tbaa !3, !noalias !514
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 48
   store i32 3, ptr %45, align 8, !tbaa !152, !noalias !514
@@ -18531,7 +18531,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_5SMLocENSt7__cxx1112basic_stringIcS
   store i64 %175, ptr %176, align 8, !tbaa !123
   store ptr %166, ptr %163, align 8, !tbaa !122
   store i64 0, ptr %174, align 8, !tbaa !123
-  store i8 0, ptr %166, align 1, !tbaa !116
+  store i8 0, ptr %166, align 8, !tbaa !116
   %177 = load i32, ptr %16, align 8, !tbaa !26
   %178 = add i32 %177, 1
   store i32 %178, ptr %16, align 8, !tbaa !26
@@ -18880,7 +18880,7 @@ _ZN12_GLOBAL__N_112X86AsmParser15getPointerWidthEv.exit: ; preds = %3, %23, %28
   store ptr %43, ptr %42, align 8, !tbaa !151, !noalias !530
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 24
   store i64 0, ptr %44, align 8, !tbaa !123, !noalias !530
-  store i8 0, ptr %43, align 1, !tbaa !116, !noalias !530
+  store i8 0, ptr %43, align 8, !tbaa !116, !noalias !530
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %40, align 8, !tbaa !3, !noalias !530
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 48
   store i32 3, ptr %45, align 8, !tbaa !152, !noalias !530
@@ -20390,7 +20390,7 @@ _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit80.thread: ; preds = %_
   store ptr %92, ptr %91, align 8, !tbaa !151, !noalias !542
   %93 = getelementptr inbounds nuw i8, ptr %89, i64 24
   store i64 0, ptr %93, align 8, !tbaa !123, !noalias !542
-  store i8 0, ptr %92, align 1, !tbaa !116, !noalias !542
+  store i8 0, ptr %92, align 8, !tbaa !116, !noalias !542
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %89, align 8, !tbaa !3, !noalias !542
   %94 = getelementptr inbounds nuw i8, ptr %89, i64 48
   store i32 2, ptr %94, align 8, !tbaa !152, !noalias !542
@@ -20522,7 +20522,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   store ptr %157, ptr %156, align 8, !tbaa !151, !noalias !548
   %158 = getelementptr inbounds nuw i8, ptr %154, i64 24
   store i64 0, ptr %158, align 8, !tbaa !123, !noalias !548
-  store i8 0, ptr %157, align 1, !tbaa !116, !noalias !548
+  store i8 0, ptr %157, align 8, !tbaa !116, !noalias !548
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %154, align 8, !tbaa !3, !noalias !548
   %159 = getelementptr inbounds nuw i8, ptr %154, i64 48
   store i32 0, ptr %159, align 8, !tbaa !152, !noalias !548
@@ -25307,7 +25307,7 @@ _ZN12_GLOBAL__N_112X86AsmParser15getPointerWidthEv.exit: ; preds = %22, %27, %32
   store ptr %42, ptr %41, align 8, !tbaa !151, !noalias !729
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 24
   store i64 0, ptr %43, align 8, !tbaa !123, !noalias !729
-  store i8 0, ptr %42, align 1, !tbaa !116, !noalias !729
+  store i8 0, ptr %42, align 8, !tbaa !116, !noalias !729
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %39, align 8, !tbaa !3, !noalias !729
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 48
   store i32 3, ptr %44, align 8, !tbaa !152, !noalias !729
@@ -25465,7 +25465,7 @@ _ZN12_GLOBAL__N_112X86AsmParser15getPointerWidthEv.exit43: ; preds = %99, %104, 
   store ptr %120, ptr %119, align 8, !tbaa !151, !noalias !735
   %121 = getelementptr inbounds nuw i8, ptr %117, i64 24
   store i64 0, ptr %121, align 8, !tbaa !123, !noalias !735
-  store i8 0, ptr %120, align 1, !tbaa !116, !noalias !735
+  store i8 0, ptr %120, align 8, !tbaa !116, !noalias !735
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %117, align 8, !tbaa !3, !noalias !735
   %122 = getelementptr inbounds nuw i8, ptr %117, i64 48
   store i32 3, ptr %122, align 8, !tbaa !152, !noalias !735
@@ -25604,7 +25604,7 @@ _ZN12_GLOBAL__N_112X86AsmParser15getPointerWidthEv.exit62: ; preds = %168, %173,
   store ptr %187, ptr %186, align 8, !tbaa !151, !noalias !741
   %188 = getelementptr inbounds nuw i8, ptr %184, i64 24
   store i64 0, ptr %188, align 8, !tbaa !123, !noalias !741
-  store i8 0, ptr %187, align 1, !tbaa !116, !noalias !741
+  store i8 0, ptr %187, align 8, !tbaa !116, !noalias !741
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %184, align 8, !tbaa !3, !noalias !741
   %189 = getelementptr inbounds nuw i8, ptr %184, i64 48
   store i32 3, ptr %189, align 8, !tbaa !152, !noalias !741
@@ -25750,7 +25750,7 @@ define linkonce_odr hidden void @_ZN4llvm10X86Operand9CreateMemEjPKNS_6MCExprENS
   store ptr %17, ptr %16, align 8, !tbaa !151, !noalias !747
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i64 0, ptr %18, align 8, !tbaa !123, !noalias !747
-  store i8 0, ptr %17, align 1, !tbaa !116, !noalias !747
+  store i8 0, ptr %17, align 8, !tbaa !116, !noalias !747
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %14, align 8, !tbaa !3, !noalias !747
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 48
   store i32 3, ptr %19, align 8, !tbaa !152, !noalias !747
@@ -27644,7 +27644,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   store ptr %68, ptr %67, align 8, !tbaa !151, !noalias !761
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 24
   store i64 0, ptr %69, align 8, !tbaa !123, !noalias !761
-  store i8 0, ptr %68, align 1, !tbaa !116, !noalias !761
+  store i8 0, ptr %68, align 8, !tbaa !116, !noalias !761
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %65, align 8, !tbaa !3, !noalias !761
   %70 = getelementptr inbounds nuw i8, ptr %65, i64 48
   store i32 0, ptr %70, align 8, !tbaa !152, !noalias !761
@@ -27862,7 +27862,7 @@ _ZSt10_ConstructISt4pairIN4llvm5SMLocENSt7__cxx1112basic_stringIcSt11char_traits
   store i64 %25, ptr %26, align 8, !tbaa !123
   store ptr %16, ptr %13, align 8, !tbaa !122
   store i64 0, ptr %24, align 8, !tbaa !123
-  store i8 0, ptr %16, align 1, !tbaa !116
+  store i8 0, ptr %16, align 8, !tbaa !116
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 40
   %28 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 40
   %.not.i.i.i.i.i.i = icmp eq ptr %27, %10
@@ -29195,7 +29195,7 @@ _ZN12_GLOBAL__N_112X86AsmParser15getPointerWidthEv.exit.i: ; preds = %60, %55, %
   store ptr %69, ptr %68, align 8, !tbaa !151, !noalias !824
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 24
   store i64 0, ptr %70, align 8, !tbaa !123, !noalias !824
-  store i8 0, ptr %69, align 1, !tbaa !116, !noalias !824
+  store i8 0, ptr %69, align 8, !tbaa !116, !noalias !824
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm10X86OperandE, i64 16), ptr %66, align 8, !tbaa !3, !noalias !824
   %71 = getelementptr inbounds nuw i8, ptr %66, i64 48
   store i32 3, ptr %71, align 8, !tbaa !152, !noalias !824

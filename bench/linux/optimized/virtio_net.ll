@@ -5101,7 +5101,7 @@ define internal fastcc zeroext i1 @try_fill_recv(ptr noundef readonly captures(n
   %85 = and i64 %82, 4294967295
   %86 = add i64 %84, %85
   tail call void @sg_init_table(ptr noundef nonnull %12, i32 noundef 1) #26
-  store i64 %86, ptr %13, align 16
+  store i64 %86, ptr %13, align 32
   store i32 %68, ptr %14, align 4
   br label %87
 
@@ -5528,7 +5528,7 @@ define internal fastcc zeroext i1 @try_fill_recv(ptr noundef readonly captures(n
   %365 = and i64 %362, 4294967295
   %366 = add i64 %364, %365
   tail call void @sg_init_table(ptr noundef nonnull %12, i32 noundef 1) #26
-  store i64 %366, ptr %13, align 16
+  store i64 %366, ptr %13, align 32
   store i32 %348, ptr %14, align 4
   br label %367
 
@@ -5761,7 +5761,7 @@ define internal fastcc ptr @virtnet_rq_alloc(ptr noundef %0, i32 noundef %1, i32
   %43 = zext i1 %42 to i16
   %44 = getelementptr inbounds nuw i8, ptr %14, i64 14
   store i16 %43, ptr %44, align 2
-  %45 = load ptr, ptr %4, align 8
+  %45 = load ptr, ptr %4, align 64
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load volatile i64, ptr %46, align 8
   %48 = and i64 %47, 1
@@ -9164,7 +9164,7 @@ define internal void @virtnet_rx_dim_work(ptr noundef readonly captures(none) %0
   %35 = trunc i64 %34 to i32
   %36 = and i32 %33, 65535
   %37 = getelementptr inbounds nuw i8, ptr %21, i64 616
-  %38 = load i32, ptr %37, align 4
+  %38 = load i32, ptr %37, align 8
   %39 = icmp eq i32 %36, %38
   br i1 %39, label %40, label %._crit_edge
 

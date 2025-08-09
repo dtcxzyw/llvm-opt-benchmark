@@ -349,7 +349,7 @@ _ZNK7PackSet8get_packEPK4Node.exit.thread:        ; preds = %_ZNK5VLoop5in_bbEPK
   %92 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %93 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %94 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %86, i32 noundef 8, ptr noundef nonnull %93) #8
-  store i32 %86, ptr %92, align 4
+  store i32 %86, ptr %92, align 8
   %95 = getelementptr inbounds nuw i8, ptr %81, i64 20
   store i32 %86, ptr %95, align 4
   %96 = getelementptr inbounds nuw i8, ptr %81, i64 24
@@ -370,7 +370,7 @@ _ZN20VTransformScalarNodeC2ER10VTransformP4Node.exit: ; preds = %83, %.lr.ph.pre
   store i64 %101, ptr %100, align 8
   %102 = getelementptr inbounds nuw i8, ptr %81, i64 40
   %103 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 4, i32 noundef 8, ptr noundef nonnull %93) #8
-  store i32 0, ptr %102, align 4
+  store i32 0, ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %81, i64 44
   store i32 4, ptr %104, align 4
   %105 = getelementptr inbounds nuw i8, ptr %81, i64 48
@@ -2287,7 +2287,7 @@ _ZNK26SuperWordVTransformBuilder18get_vtnode_or_nullEP4Node.exit.thread: ; preds
   %38 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %40 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %32, i32 noundef 8, ptr noundef nonnull %39) #8
-  store i32 %32, ptr %38, align 4
+  store i32 %32, ptr %38, align 8
   %41 = getelementptr inbounds nuw i8, ptr %27, i64 20
   store i32 %32, ptr %41, align 4
   %42 = getelementptr inbounds nuw i8, ptr %27, i64 24
@@ -2308,7 +2308,7 @@ _ZN25VTransformInputScalarNodeC2ER10VTransformP4Node.exit: ; preds = %29, %.lr.p
   store i64 %47, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %49 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 4, i32 noundef 8, ptr noundef nonnull %39) #8
-  store i32 0, ptr %48, align 4
+  store i32 0, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %27, i64 44
   store i32 4, ptr %50, align 4
   %51 = getelementptr inbounds nuw i8, ptr %27, i64 48
@@ -2558,7 +2558,7 @@ define hidden noundef ptr @_ZN26SuperWordVTransformBuilder40get_or_make_vtnode_v
   %145 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %146 = getelementptr inbounds nuw i8, ptr %137, i64 16
   %147 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 2, i32 noundef 8, ptr noundef nonnull %146) #8
-  store i32 2, ptr %145, align 4
+  store i32 2, ptr %145, align 8
   %148 = getelementptr inbounds nuw i8, ptr %134, i64 20
   store i32 2, ptr %148, align 4
   %149 = getelementptr inbounds nuw i8, ptr %134, i64 24
@@ -2570,7 +2570,7 @@ define hidden noundef ptr @_ZN26SuperWordVTransformBuilder40get_or_make_vtnode_v
   store i64 %152, ptr %151, align 8
   %153 = getelementptr inbounds nuw i8, ptr %134, i64 40
   %154 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 4, i32 noundef 8, ptr noundef nonnull %146) #8
-  store i32 0, ptr %153, align 4
+  store i32 0, ptr %153, align 8
   %155 = getelementptr inbounds nuw i8, ptr %134, i64 44
   store i32 4, ptr %155, align 4
   %156 = getelementptr inbounds nuw i8, ptr %134, i64 48
@@ -2678,7 +2678,7 @@ _ZN14VTransformNode7set_reqEjPS_.exit:            ; preds = %110, %167
   %228 = getelementptr inbounds nuw i8, ptr %213, i64 16
   %229 = getelementptr inbounds nuw i8, ptr %217, i64 16
   %230 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 2, i32 noundef 8, ptr noundef nonnull %229) #8
-  store i32 2, ptr %228, align 4
+  store i32 2, ptr %228, align 8
   %231 = getelementptr inbounds nuw i8, ptr %213, i64 20
   store i32 2, ptr %231, align 4
   %232 = getelementptr inbounds nuw i8, ptr %213, i64 24
@@ -2690,7 +2690,7 @@ _ZN14VTransformNode7set_reqEjPS_.exit:            ; preds = %110, %167
   store i64 %235, ptr %234, align 8
   %236 = getelementptr inbounds nuw i8, ptr %213, i64 40
   %237 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 4, i32 noundef 8, ptr noundef nonnull %229) #8
-  store i32 0, ptr %236, align 4
+  store i32 0, ptr %236, align 8
   %238 = getelementptr inbounds nuw i8, ptr %213, i64 44
   store i32 4, ptr %238, align 4
   %239 = getelementptr inbounds nuw i8, ptr %213, i64 48
@@ -2795,7 +2795,7 @@ _ZN14VTransformNode7set_reqEjPS_.exit77:          ; preds = %186, %252
   %302 = getelementptr inbounds nuw i8, ptr %294, i64 16
   %303 = getelementptr inbounds nuw i8, ptr %296, i64 16
   %304 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 2, i32 noundef 8, ptr noundef nonnull %303) #8
-  store i32 2, ptr %302, align 4
+  store i32 2, ptr %302, align 8
   %305 = getelementptr inbounds nuw i8, ptr %294, i64 20
   store i32 2, ptr %305, align 4
   %306 = getelementptr inbounds nuw i8, ptr %294, i64 24
@@ -2807,7 +2807,7 @@ _ZN14VTransformNode7set_reqEjPS_.exit77:          ; preds = %186, %252
   store i64 %309, ptr %308, align 8
   %310 = getelementptr inbounds nuw i8, ptr %294, i64 40
   %311 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 4, i32 noundef 8, ptr noundef nonnull %303) #8
-  store i32 0, ptr %310, align 4
+  store i32 0, ptr %310, align 8
   %312 = getelementptr inbounds nuw i8, ptr %294, i64 44
   store i32 4, ptr %312, align 4
   %313 = getelementptr inbounds nuw i8, ptr %294, i64 48
@@ -2875,7 +2875,7 @@ _ZN14VTransformNode7set_reqEjPS_.exit81:          ; preds = %290, %322
   %350 = getelementptr inbounds nuw i8, ptr %340, i64 16
   %351 = getelementptr inbounds nuw i8, ptr %342, i64 16
   %352 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 2, i32 noundef 8, ptr noundef nonnull %351) #8
-  store i32 2, ptr %350, align 4
+  store i32 2, ptr %350, align 8
   %353 = getelementptr inbounds nuw i8, ptr %340, i64 20
   store i32 2, ptr %353, align 4
   %354 = getelementptr inbounds nuw i8, ptr %340, i64 24
@@ -2887,7 +2887,7 @@ _ZN14VTransformNode7set_reqEjPS_.exit81:          ; preds = %290, %322
   store i64 %357, ptr %356, align 8
   %358 = getelementptr inbounds nuw i8, ptr %340, i64 40
   %359 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 4, i32 noundef 8, ptr noundef nonnull %351) #8
-  store i32 0, ptr %358, align 4
+  store i32 0, ptr %358, align 8
   %360 = getelementptr inbounds nuw i8, ptr %340, i64 44
   store i32 4, ptr %360, align 4
   %361 = getelementptr inbounds nuw i8, ptr %340, i64 48

@@ -346,7 +346,7 @@ _ZN9grpc_core11ChannelInit7Builder14RegisterFilterINS_12_GLOBAL__N_129ServiceCon
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 12, ptr %28, align 8, !tbaa !15
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 28
-  store i8 0, ptr %29, align 1, !tbaa !20
+  store i8 0, ptr %29, align 4, !tbaa !20
   store ptr %25, ptr @_ZZN9grpc_core17UniqueTypeNameForINS_23ClientMessageSizeFilterEEENS_14UniqueTypeNameEvE7factory, align 8, !tbaa !4
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core17UniqueTypeNameForINS_23ClientMessageSizeFilterEEENS_14UniqueTypeNameEvE7factory) #30
   br label %_ZN9grpc_core11ChannelInit18FilterRegistration6BeforeINS_23ClientMessageSizeFilterEEERS1_v.exit

@@ -3014,7 +3014,7 @@ define dso_local void @__acct_reclaim_writeback(ptr noundef %0, ptr noundef %1, 
   %5 = lshr i64 %4, 58
   %6 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 8
-  %8 = load volatile i64, ptr %1, align 8
+  %8 = load volatile i64, ptr %1, align 16
   %9 = and i64 %8, 64
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %15, label %11
@@ -4639,7 +4639,7 @@ define dso_local noundef zeroext i1 @folio_isolate_lru(ptr noundef %0) local_unn
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 13520
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull %11) #14
-  %12 = load volatile i64, ptr %0, align 8
+  %12 = load volatile i64, ptr %0, align 16
   %13 = and i64 %12, 1048576
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %15, label %.thread
@@ -5957,7 +5957,7 @@ define internal noundef i32 @kswapd(ptr noundef %0) #1 align 16 {
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 13300
   store volatile i32 4, ptr %21, align 4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 13272
-  store volatile i32 0, ptr %22, align 4
+  store volatile i32 0, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -6775,7 +6775,7 @@ zone_reclaimable_pages.exit:                      ; preds = %434, %437, %.thread
   %505 = load i64, ptr %504, align 32
   %506 = add i64 %503, %365
   %507 = getelementptr inbounds nuw i8, ptr %366, i64 1088
-  %508 = load volatile i64, ptr %507, align 8
+  %508 = load volatile i64, ptr %507, align 64
   %509 = load i64, ptr @__cpu_online_mask, align 8
   br label %510
 
@@ -8406,7 +8406,7 @@ define internal fastcc noundef zeroext i1 @allow_direct_reclaim(ptr noundef %0) 
   %18 = load i64, ptr %17, align 32
   %19 = add i64 %16, %7
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 1088
-  %21 = load volatile i64, ptr %20, align 8
+  %21 = load volatile i64, ptr %20, align 64
   %22 = load i64, ptr @__cpu_online_mask, align 8
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 104
   br label %24

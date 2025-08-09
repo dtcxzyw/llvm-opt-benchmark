@@ -221,7 +221,7 @@ _ZN10duckdb_re25MutexC2Ev.exit23:                 ; preds = %_ZN10duckdb_re25Mut
   %34 = load i32, ptr %33, align 8, !tbaa !40
   %. = select i1 %32, i32 %34, i32 0
   %35 = getelementptr inbounds nuw i8, ptr %.pre, i64 64
-  %36 = load i32, ptr %35, align 4, !tbaa !77
+  %36 = load i32, ptr %35, align 8, !tbaa !77
   %37 = getelementptr inbounds nuw i8, ptr %.pre, i64 68
   %38 = load i32, ptr %37, align 4, !tbaa !77
   %39 = getelementptr inbounds nuw i8, ptr %.pre, i64 76
@@ -1976,7 +1976,7 @@ define hidden void @_ZN10duckdb_re23DFA12StateToWorkqEPNS0_5StateEPNS0_5WorkqE(p
   store i32 %24, ptr %6, align 8, !tbaa !89
   %25 = load ptr, ptr %12, align 8, !tbaa !85
   %.not.i.i.i.i = icmp ne ptr %25, null
-  %26 = load i32, ptr %11, align 4
+  %26 = load i32, ptr %11, align 8
   %.not10.i.i.i = icmp ugt i32 %26, %23
   %.not.i.i.i = select i1 %.not.i.i.i.i, i1 %.not10.i.i.i, i1 false
   br i1 %.not.i.i.i, label %27, label %_ZN10duckdb_re23DFA5Workq4markEv.exit
@@ -2071,7 +2071,7 @@ define hidden void @_ZN10duckdb_re23DFA10AddToQueueEPNS0_5WorkqEij(ptr noundef n
   store i32 %37, ptr %24, align 8, !tbaa !89
   %38 = load ptr, ptr %9, align 8, !tbaa !85
   %.not.i.i.i.i = icmp ne ptr %38, null
-  %39 = load i32, ptr %8, align 4
+  %39 = load i32, ptr %8, align 8
   %.not10.i.i.i = icmp ugt i32 %39, %36
   %.not.i.i.i = select i1 %.not.i.i.i.i, i1 %.not10.i.i.i, i1 false
   br i1 %.not.i.i.i, label %40, label %.backedge
@@ -2098,7 +2098,7 @@ define hidden void @_ZN10duckdb_re23DFA10AddToQueueEPNS0_5WorkqEij(ptr noundef n
 50:                                               ; preds = %.backedge65
   %51 = load ptr, ptr %9, align 8, !tbaa !85
   %.not.i.i = icmp ne ptr %51, null
-  %52 = load i32, ptr %8, align 4
+  %52 = load i32, ptr %8, align 8
   %.not6.i = icmp ugt i32 %52, %.040
   %.not.i = select i1 %.not.i.i, i1 %.not6.i, i1 false
   br i1 %.not.i, label %53, label %64
@@ -2434,7 +2434,7 @@ define hidden void @_ZN10duckdb_re23DFA14RunWorkqOnByteEPNS0_5WorkqES2_ijPb(ptr 
   store i32 %45, ptr %10, align 8, !tbaa !89
   %46 = load ptr, ptr %17, align 8, !tbaa !85
   %.not.i.i.i.i = icmp ne ptr %46, null
-  %47 = load i32, ptr %16, align 4
+  %47 = load i32, ptr %16, align 8
   %.not10.i.i.i = icmp ugt i32 %47, %44
   %.not.i.i.i = select i1 %.not.i.i.i.i, i1 %.not10.i.i.i, i1 false
   br i1 %.not.i.i.i, label %48, label %_ZN10duckdb_re23DFA5Workq4markEv.exit
@@ -2920,7 +2920,7 @@ _ZN10duckdb_re23DFA7ByteMapEi.exit:               ; preds = %74, %77
   store i32 %109, ptr %91, align 8, !tbaa !89
   %110 = load ptr, ptr %97, align 8, !tbaa !85
   %.not.i.i.i.i.i = icmp ne ptr %110, null
-  %111 = load i32, ptr %96, align 4
+  %111 = load i32, ptr %96, align 8
   %.not10.i.i.i.i = icmp ugt i32 %111, %108
   %.not.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %.not10.i.i.i.i, i1 false
   br i1 %.not.i.i.i.i, label %112, label %_ZN10duckdb_re23DFA5Workq4markEv.exit.i
@@ -3654,7 +3654,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN10duckdb_re23DFA17InlinedSearc
 37:                                               ; preds = %34
   %38 = load ptr, ptr %31, align 8, !tbaa !85
   %.not.i.i.i = icmp ne ptr %38, null
-  %39 = load i32, ptr %30, align 4
+  %39 = load i32, ptr %30, align 8
   %.not10.i.i = icmp ugt i32 %39, %36
   %.not.i.i = select i1 %.not.i.i.i, i1 %.not10.i.i, i1 false
   br i1 %.not.i.i, label %40, label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit
@@ -4047,7 +4047,7 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit206:      ; preds = %_ZN10duckdb_re23DFA
 204:                                              ; preds = %201
   %205 = load ptr, ptr %198, align 8, !tbaa !85
   %.not.i.i.i207 = icmp ne ptr %205, null
-  %206 = load i32, ptr %197, align 4
+  %206 = load i32, ptr %197, align 8
   %.not10.i.i208 = icmp ugt i32 %206, %203
   %.not.i.i209 = select i1 %.not.i.i.i207, i1 %.not10.i.i208, i1 false
   br i1 %.not.i.i209, label %207, label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit216
@@ -4332,7 +4332,7 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit225:      ; preds = %292, %294
 324:                                              ; preds = %321
   %325 = load ptr, ptr %318, align 8, !tbaa !85
   %.not.i.i.i226 = icmp ne ptr %325, null
-  %326 = load i32, ptr %317, align 4
+  %326 = load i32, ptr %317, align 8
   %.not10.i.i227 = icmp ugt i32 %326, %323
   %.not.i.i228 = select i1 %.not.i.i.i226, i1 %.not10.i.i227, i1 false
   br i1 %.not.i.i228, label %327, label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit235
@@ -4446,7 +4446,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN10duckdb_re23DFA17InlinedSearc
 37:                                               ; preds = %34
   %38 = load ptr, ptr %31, align 8, !tbaa !85
   %.not.i.i.i = icmp ne ptr %38, null
-  %39 = load i32, ptr %30, align 4
+  %39 = load i32, ptr %30, align 8
   %.not10.i.i = icmp ugt i32 %39, %36
   %.not.i.i = select i1 %.not.i.i.i, i1 %.not10.i.i, i1 false
   br i1 %.not.i.i, label %40, label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit
@@ -4839,7 +4839,7 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit221:      ; preds = %_ZN10duckdb_re23DFA
 204:                                              ; preds = %201
   %205 = load ptr, ptr %198, align 8, !tbaa !85
   %.not.i.i.i222 = icmp ne ptr %205, null
-  %206 = load i32, ptr %197, align 4
+  %206 = load i32, ptr %197, align 8
   %.not10.i.i223 = icmp ugt i32 %206, %203
   %.not.i.i224 = select i1 %.not.i.i.i222, i1 %.not10.i.i223, i1 false
   br i1 %.not.i.i224, label %207, label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit231
@@ -5129,7 +5129,7 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit240:      ; preds = %294, %296
 326:                                              ; preds = %323
   %327 = load ptr, ptr %320, align 8, !tbaa !85
   %.not.i.i.i241 = icmp ne ptr %327, null
-  %328 = load i32, ptr %319, align 4
+  %328 = load i32, ptr %319, align 8
   %.not10.i.i242 = icmp ugt i32 %328, %325
   %.not.i.i243 = select i1 %.not.i.i.i241, i1 %.not10.i.i242, i1 false
   br i1 %.not.i.i243, label %329, label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit250
@@ -5270,7 +5270,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN10duckdb_re23DFA17InlinedSearc
 61:                                               ; preds = %58
   %62 = load ptr, ptr %55, align 8, !tbaa !85
   %.not.i.i.i = icmp ne ptr %62, null
-  %63 = load i32, ptr %54, align 4
+  %63 = load i32, ptr %54, align 8
   %.not10.i.i = icmp ugt i32 %63, %60
   %.not.i.i = select i1 %.not.i.i.i, i1 %.not10.i.i, i1 false
   br i1 %.not.i.i, label %64, label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit
@@ -5636,7 +5636,7 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit206:      ; preds = %_ZN10duckdb_re23DFA
 205:                                              ; preds = %202
   %206 = load ptr, ptr %199, align 8, !tbaa !85
   %.not.i.i.i207 = icmp ne ptr %206, null
-  %207 = load i32, ptr %198, align 4
+  %207 = load i32, ptr %198, align 8
   %.not10.i.i208 = icmp ugt i32 %207, %204
   %.not.i.i209 = select i1 %.not.i.i.i207, i1 %.not10.i.i208, i1 false
   br i1 %.not.i.i209, label %208, label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit216
@@ -5908,7 +5908,7 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit225:      ; preds = %293, %295
 323:                                              ; preds = %320
   %324 = load ptr, ptr %317, align 8, !tbaa !85
   %.not.i.i.i226 = icmp ne ptr %324, null
-  %325 = load i32, ptr %316, align 4
+  %325 = load i32, ptr %316, align 8
   %.not10.i.i227 = icmp ugt i32 %325, %322
   %.not.i.i228 = select i1 %.not.i.i.i226, i1 %.not10.i.i227, i1 false
   br i1 %.not.i.i228, label %326, label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit235
@@ -6047,7 +6047,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN10duckdb_re23DFA17InlinedSearc
 61:                                               ; preds = %58
   %62 = load ptr, ptr %55, align 8, !tbaa !85
   %.not.i.i.i = icmp ne ptr %62, null
-  %63 = load i32, ptr %54, align 4
+  %63 = load i32, ptr %54, align 8
   %.not10.i.i = icmp ugt i32 %63, %60
   %.not.i.i = select i1 %.not.i.i.i, i1 %.not10.i.i, i1 false
   br i1 %.not.i.i, label %64, label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit
@@ -6413,7 +6413,7 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit221:      ; preds = %_ZN10duckdb_re23DFA
 205:                                              ; preds = %202
   %206 = load ptr, ptr %199, align 8, !tbaa !85
   %.not.i.i.i222 = icmp ne ptr %206, null
-  %207 = load i32, ptr %198, align 4
+  %207 = load i32, ptr %198, align 8
   %.not10.i.i223 = icmp ugt i32 %207, %204
   %.not.i.i224 = select i1 %.not.i.i.i222, i1 %.not10.i.i223, i1 false
   br i1 %.not.i.i224, label %208, label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit231
@@ -6689,7 +6689,7 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit240:      ; preds = %295, %297
 325:                                              ; preds = %322
   %326 = load ptr, ptr %319, align 8, !tbaa !85
   %.not.i.i.i241 = icmp ne ptr %326, null
-  %327 = load i32, ptr %318, align 4
+  %327 = load i32, ptr %318, align 8
   %.not10.i.i242 = icmp ugt i32 %327, %324
   %.not.i.i243 = select i1 %.not.i.i.i241, i1 %.not10.i.i242, i1 false
   br i1 %.not.i.i243, label %328, label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit250
@@ -6801,7 +6801,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN10duckdb_re23DFA17InlinedSearc
 37:                                               ; preds = %34
   %38 = load ptr, ptr %31, align 8, !tbaa !85
   %.not.i.i.i = icmp ne ptr %38, null
-  %39 = load i32, ptr %30, align 4
+  %39 = load i32, ptr %30, align 8
   %.not10.i.i = icmp ugt i32 %39, %36
   %.not.i.i = select i1 %.not.i.i.i, i1 %.not10.i.i, i1 false
   br i1 %.not.i.i, label %40, label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit
@@ -7234,7 +7234,7 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit210:      ; preds = %_ZN10duckdb_re23DFA
 226:                                              ; preds = %223
   %227 = load ptr, ptr %220, align 8, !tbaa !85
   %.not.i.i.i211 = icmp ne ptr %227, null
-  %228 = load i32, ptr %219, align 4
+  %228 = load i32, ptr %219, align 8
   %.not10.i.i212 = icmp ugt i32 %228, %225
   %.not.i.i213 = select i1 %.not.i.i.i211, i1 %.not10.i.i212, i1 false
   br i1 %.not.i.i213, label %229, label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit220
@@ -7523,7 +7523,7 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit230:      ; preds = %314, %316
 346:                                              ; preds = %343
   %347 = load ptr, ptr %340, align 8, !tbaa !85
   %.not.i.i.i231 = icmp ne ptr %347, null
-  %348 = load i32, ptr %339, align 4
+  %348 = load i32, ptr %339, align 8
   %.not10.i.i232 = icmp ugt i32 %348, %345
   %.not.i.i233 = select i1 %.not.i.i.i231, i1 %.not10.i.i232, i1 false
   br i1 %.not.i.i233, label %349, label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit240
@@ -7637,7 +7637,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN10duckdb_re23DFA17InlinedSearc
 37:                                               ; preds = %34
   %38 = load ptr, ptr %31, align 8, !tbaa !85
   %.not.i.i.i = icmp ne ptr %38, null
-  %39 = load i32, ptr %30, align 4
+  %39 = load i32, ptr %30, align 8
   %.not10.i.i = icmp ugt i32 %39, %36
   %.not.i.i = select i1 %.not.i.i.i, i1 %.not10.i.i, i1 false
   br i1 %.not.i.i, label %40, label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit
@@ -8070,7 +8070,7 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit231:      ; preds = %_ZN10duckdb_re23DFA
 226:                                              ; preds = %223
   %227 = load ptr, ptr %220, align 8, !tbaa !85
   %.not.i.i.i232 = icmp ne ptr %227, null
-  %228 = load i32, ptr %219, align 4
+  %228 = load i32, ptr %219, align 8
   %.not10.i.i233 = icmp ugt i32 %228, %225
   %.not.i.i234 = select i1 %.not.i.i.i232, i1 %.not10.i.i233, i1 false
   br i1 %.not.i.i234, label %229, label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit241
@@ -8364,7 +8364,7 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit251:      ; preds = %316, %318
 348:                                              ; preds = %345
   %349 = load ptr, ptr %342, align 8, !tbaa !85
   %.not.i.i.i252 = icmp ne ptr %349, null
-  %350 = load i32, ptr %341, align 4
+  %350 = load i32, ptr %341, align 8
   %.not10.i.i253 = icmp ugt i32 %350, %347
   %.not.i.i254 = select i1 %.not.i.i.i252, i1 %.not10.i.i253, i1 false
   br i1 %.not.i.i254, label %351, label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit261
@@ -8506,7 +8506,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN10duckdb_re23DFA17InlinedSearc
 62:                                               ; preds = %59
   %63 = load ptr, ptr %56, align 8, !tbaa !85
   %.not.i.i.i = icmp ne ptr %63, null
-  %64 = load i32, ptr %55, align 4
+  %64 = load i32, ptr %55, align 8
   %.not10.i.i = icmp ugt i32 %64, %61
   %.not.i.i = select i1 %.not.i.i.i, i1 %.not10.i.i, i1 false
   br i1 %.not.i.i, label %65, label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit
@@ -8911,7 +8911,7 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit210:      ; preds = %_ZN10duckdb_re23DFA
 227:                                              ; preds = %224
   %228 = load ptr, ptr %221, align 8, !tbaa !85
   %.not.i.i.i211 = icmp ne ptr %228, null
-  %229 = load i32, ptr %220, align 4
+  %229 = load i32, ptr %220, align 8
   %.not10.i.i212 = icmp ugt i32 %229, %226
   %.not.i.i213 = select i1 %.not.i.i.i211, i1 %.not10.i.i212, i1 false
   br i1 %.not.i.i213, label %230, label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit220
@@ -9184,7 +9184,7 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit230:      ; preds = %315, %317
 345:                                              ; preds = %342
   %346 = load ptr, ptr %339, align 8, !tbaa !85
   %.not.i.i.i231 = icmp ne ptr %346, null
-  %347 = load i32, ptr %338, align 4
+  %347 = load i32, ptr %338, align 8
   %.not10.i.i232 = icmp ugt i32 %347, %344
   %.not.i.i233 = select i1 %.not.i.i.i231, i1 %.not10.i.i232, i1 false
   br i1 %.not.i.i233, label %348, label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit240
@@ -9324,7 +9324,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN10duckdb_re23DFA17InlinedSearc
 62:                                               ; preds = %59
   %63 = load ptr, ptr %56, align 8, !tbaa !85
   %.not.i.i.i = icmp ne ptr %63, null
-  %64 = load i32, ptr %55, align 4
+  %64 = load i32, ptr %55, align 8
   %.not10.i.i = icmp ugt i32 %64, %61
   %.not.i.i = select i1 %.not.i.i.i, i1 %.not10.i.i, i1 false
   br i1 %.not.i.i, label %65, label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit
@@ -9729,7 +9729,7 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit231:      ; preds = %_ZN10duckdb_re23DFA
 227:                                              ; preds = %224
   %228 = load ptr, ptr %221, align 8, !tbaa !85
   %.not.i.i.i232 = icmp ne ptr %228, null
-  %229 = load i32, ptr %220, align 4
+  %229 = load i32, ptr %220, align 8
   %.not10.i.i233 = icmp ugt i32 %229, %226
   %.not.i.i234 = select i1 %.not.i.i.i232, i1 %.not10.i.i233, i1 false
   br i1 %.not.i.i234, label %230, label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit241
@@ -10006,7 +10006,7 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit251:      ; preds = %317, %319
 347:                                              ; preds = %344
   %348 = load ptr, ptr %341, align 8, !tbaa !85
   %.not.i.i.i252 = icmp ne ptr %348, null
-  %349 = load i32, ptr %340, align 4
+  %349 = load i32, ptr %340, align 8
   %.not10.i.i253 = icmp ugt i32 %349, %346
   %.not.i.i254 = select i1 %.not.i.i.i252, i1 %.not10.i.i253, i1 false
   br i1 %.not.i.i254, label %350, label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit261

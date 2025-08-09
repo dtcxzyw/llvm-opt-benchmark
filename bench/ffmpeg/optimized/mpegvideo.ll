@@ -483,14 +483,14 @@ define i32 @ff_mpv_init_context_frame(ptr noundef initializes((540, 568), (3388,
   store i32 %46, ptr %47, align 4, !tbaa !73
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 3388
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 3400
-  store i32 %36, ptr %49, align 4, !tbaa !61
+  store i32 %36, ptr %49, align 8, !tbaa !61
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 3396
   store i32 %36, ptr %50, align 4, !tbaa !61
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 3392
-  store i32 %36, ptr %51, align 4, !tbaa !61
+  store i32 %36, ptr %51, align 8, !tbaa !61
   store i32 %36, ptr %48, align 4, !tbaa !61
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 3408
-  store i32 %33, ptr %52, align 4, !tbaa !61
+  store i32 %33, ptr %52, align 8, !tbaa !61
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 3404
   store i32 %33, ptr %53, align 4, !tbaa !61
   %54 = shl nsw i32 %27, 1
@@ -1222,7 +1222,7 @@ define void @ff_init_block_index(ptr noundef captures(none) initializes((3364, 3
   %30 = add i32 %26, -1
   %31 = add i32 %30, %23
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 3368
-  store i32 %31, ptr %32, align 4, !tbaa !61
+  store i32 %31, ptr %32, align 8, !tbaa !61
   %33 = or disjoint i32 %22, 1
   %34 = mul nsw i32 %33, %19
   %35 = add i32 %27, %34
@@ -1230,7 +1230,7 @@ define void @ff_init_block_index(ptr noundef captures(none) initializes((3364, 3
   store i32 %35, ptr %36, align 4, !tbaa !61
   %37 = add i32 %30, %34
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 3376
-  store i32 %37, ptr %38, align 4, !tbaa !61
+  store i32 %37, ptr %38, align 8, !tbaa !61
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 548
   %40 = load i32, ptr %39, align 4, !tbaa !56
   %41 = add nsw i32 %21, 1
@@ -1250,7 +1250,7 @@ define void @ff_init_block_index(ptr noundef captures(none) initializes((3364, 3
   %54 = add i32 %47, %46
   %55 = add i32 %54, %53
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 3384
-  store i32 %55, ptr %56, align 4, !tbaa !61
+  store i32 %55, ptr %56, align 8, !tbaa !61
   %57 = load ptr, ptr %2, align 8, !tbaa !60
   %58 = shl i32 %47, %16
   %59 = sext i32 %58 to i64

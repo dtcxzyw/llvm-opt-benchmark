@@ -80008,9 +80008,9 @@ define hidden void @"_ZN69_$LT$toml..value..SeqDeserializer$u20$as$u20$serde..de
   %.sroa.8.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %21, i64 1
   %.sroa.8.sroa.0.0.copyload = load i8, ptr %.sroa.8.0..sroa_idx6, align 1, !noalias !9109
   %.sroa.8.sroa.6.sroa.6.0..sroa.8.sroa.6.0..sroa.8.0..sroa_idx6.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %.sroa.8.sroa.6.sroa.6.0.copyload = load i32, ptr %.sroa.8.sroa.6.sroa.6.0..sroa.8.sroa.6.0..sroa.8.0..sroa_idx6.sroa_idx.sroa_idx, align 1, !noalias !9109
+  %.sroa.8.sroa.6.sroa.6.0.copyload = load i32, ptr %.sroa.8.sroa.6.sroa.6.0..sroa.8.sroa.6.0..sroa.8.0..sroa_idx6.sroa_idx.sroa_idx, align 4, !noalias !9109
   %.sroa.8.sroa.7.0..sroa.8.0..sroa_idx6.sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %.sroa.8.sroa.7.0.copyload = load i64, ptr %.sroa.8.sroa.7.0..sroa.8.0..sroa_idx6.sroa_idx, align 1, !noalias !9109
+  %.sroa.8.sroa.7.0.copyload = load i64, ptr %.sroa.8.sroa.7.0..sroa.8.0..sroa_idx6.sroa_idx, align 8, !noalias !9109
   %.sroa.8.sroa.8.0..sroa.8.0..sroa_idx6.sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 16
   %.not = icmp eq i8 %.sroa.0.0.copyload5, 7
   br i1 %.not, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbcf31d4396139518E.exit.thread", label %24

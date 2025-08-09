@@ -537,13 +537,13 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_hevc_start_frame(ptr nounde
   %279 = trunc i32 %278 to i8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(448) %16, i8 0, i64 448, i1 false)
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 448
-  store i16 %28, ptr %.sroa.3.0..sroa_idx, align 4, !tbaa !216
+  store i16 %28, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !216
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 450
   store i16 %31, ptr %.sroa.4.0..sroa_idx, align 2, !tbaa !216
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 452
   store i32 %122, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !136
   %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 456
-  store i8 %131, ptr %.sroa.48.0..sroa_idx, align 4, !tbaa !136
+  store i8 %131, ptr %.sroa.48.0..sroa_idx, align 8, !tbaa !136
   %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 457
   store i8 %135, ptr %.sroa.49.0..sroa_idx, align 1, !tbaa !136
   %.sroa.50.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 458
@@ -559,7 +559,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_hevc_start_frame(ptr nounde
   %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 463
   store i8 %152, ptr %.sroa.55.0..sroa_idx, align 1, !tbaa !136
   %.sroa.56.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 464
-  store i8 %156, ptr %.sroa.56.0..sroa_idx, align 4, !tbaa !136
+  store i8 %156, ptr %.sroa.56.0..sroa_idx, align 8, !tbaa !136
   %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 465
   store i8 %160, ptr %.sroa.57.0..sroa_idx, align 1, !tbaa !136
   %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 466
@@ -575,7 +575,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_hevc_start_frame(ptr nounde
   %.sroa.63.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 471
   store i8 %179, ptr %.sroa.63.0..sroa_idx, align 1, !tbaa !136
   %.sroa.64.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 472
-  store i8 %182, ptr %.sroa.64.0..sroa_idx, align 4, !tbaa !136
+  store i8 %182, ptr %.sroa.64.0..sroa_idx, align 8, !tbaa !136
   %.sroa.65.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 473
   store i8 %186, ptr %.sroa.65.0..sroa_idx, align 1, !tbaa !136
   %.sroa.66.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 474
@@ -586,7 +586,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_hevc_start_frame(ptr nounde
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(82) %.sroa.66.0..sroa_idx, i8 0, i64 82, i1 false)
   store i32 %251, ptr %.sroa.70.0..sroa_idx, align 4, !tbaa !136
   %.sroa.101.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 560
-  store i8 %255, ptr %.sroa.101.0..sroa_idx, align 4, !tbaa !136
+  store i8 %255, ptr %.sroa.101.0..sroa_idx, align 8, !tbaa !136
   %.sroa.102.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 561
   store i8 %258, ptr %.sroa.102.0..sroa_idx, align 1, !tbaa !136
   %.sroa.103.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 562
@@ -609,7 +609,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_hevc_start_frame(ptr nounde
   %.val.i = load ptr, ptr %282, align 8, !tbaa !137
   %283 = ptrtoint ptr %.val.i to i64
   %284 = trunc i64 %283 to i32
-  store i32 %284, ptr %16, align 4, !tbaa !217
+  store i32 %284, ptr %16, align 8, !tbaa !217
   %285 = getelementptr inbounds nuw i8, ptr %280, i64 60
   %286 = load i32, ptr %285, align 4, !tbaa !218
   %287 = getelementptr inbounds nuw i8, ptr %16, i64 4
@@ -620,7 +620,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_hevc_start_frame(ptr nounde
   %291 = shl i8 %290, 1
   %292 = and i8 %291, 8
   %spec.store.select = zext nneg i8 %292 to i32
-  store i32 %spec.store.select, ptr %288, align 4
+  store i32 %spec.store.select, ptr %288, align 8
   %293 = load ptr, ptr %280, align 8, !tbaa !136
   %294 = getelementptr inbounds nuw i8, ptr %293, i64 276
   %295 = load i32, ptr %294, align 4, !tbaa !221

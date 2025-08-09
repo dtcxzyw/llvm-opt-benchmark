@@ -1309,7 +1309,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %51 = getelementptr inbounds nuw i8, ptr %23, i64 68
   %52 = load i32, ptr %51, align 4, !alias.scope !197, !noalias !198
   %53 = getelementptr inbounds nuw i8, ptr %23, i64 72
-  %54 = load i32, ptr %53, align 4, !alias.scope !197, !noalias !198
+  %54 = load i32, ptr %53, align 8, !alias.scope !197, !noalias !198
   %.sroa.63.0.i.i.i.i.i = select i1 %50, i32 %54, i32 undef
   %.sroa.52.0.i.i.i.i.i = select i1 %50, i32 %52, i32 undef
   store i32 %.sroa.0.0.i.i.i.i.i, ptr %5, align 8, !alias.scope !192, !noalias !201

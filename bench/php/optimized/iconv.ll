@@ -4315,7 +4315,7 @@ define hidden void @zif_iconv_set_encoding(ptr noundef readonly captures(none) %
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %32, ptr noundef nonnull align 1 dereferenceable(20) @.str.27, i64 20, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 44
-  store i8 0, ptr %33, align 1, !tbaa !4
+  store i8 0, ptr %33, align 4, !tbaa !4
   br label %64
 
 34:                                               ; preds = %._crit_edge, %19

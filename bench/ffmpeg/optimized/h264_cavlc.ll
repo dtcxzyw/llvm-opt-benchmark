@@ -1056,18 +1056,18 @@ pred_pskip_motion.exit.i:                         ; preds = %446, %mid_pred.exit
   %499 = sext i32 %462 to i64
   %500 = getelementptr inbounds i8, ptr %498, i64 %499
   %501 = getelementptr inbounds nuw i8, ptr %1, i64 29084
-  %502 = load i8, ptr %501, align 1, !tbaa !12
+  %502 = load i8, ptr %501, align 4, !tbaa !12
   store i8 %502, ptr %500, align 1, !tbaa !12
   %503 = getelementptr inbounds nuw i8, ptr %1, i64 29086
-  %504 = load i8, ptr %503, align 1, !tbaa !12
+  %504 = load i8, ptr %503, align 2, !tbaa !12
   %505 = getelementptr inbounds nuw i8, ptr %500, i64 1
   store i8 %504, ptr %505, align 1, !tbaa !12
   %506 = getelementptr inbounds nuw i8, ptr %1, i64 29100
-  %507 = load i8, ptr %506, align 1, !tbaa !12
+  %507 = load i8, ptr %506, align 4, !tbaa !12
   %508 = getelementptr inbounds nuw i8, ptr %500, i64 2
   store i8 %507, ptr %508, align 1, !tbaa !12
   %509 = getelementptr inbounds nuw i8, ptr %1, i64 29102
-  %510 = load i8, ptr %509, align 1, !tbaa !12
+  %510 = load i8, ptr %509, align 2, !tbaa !12
   %511 = getelementptr inbounds nuw i8, ptr %500, i64 3
   store i8 %510, ptr %511, align 1, !tbaa !12
   br label %518
@@ -1133,18 +1133,18 @@ pred_pskip_motion.exit.i:                         ; preds = %446, %mid_pred.exit
   %555 = sext i32 %462 to i64
   %556 = getelementptr inbounds i8, ptr %554, i64 %555
   %557 = getelementptr inbounds nuw i8, ptr %1, i64 29124
-  %558 = load i8, ptr %557, align 1, !tbaa !12
+  %558 = load i8, ptr %557, align 4, !tbaa !12
   store i8 %558, ptr %556, align 1, !tbaa !12
   %559 = getelementptr inbounds nuw i8, ptr %1, i64 29126
-  %560 = load i8, ptr %559, align 1, !tbaa !12
+  %560 = load i8, ptr %559, align 2, !tbaa !12
   %561 = getelementptr inbounds nuw i8, ptr %556, i64 1
   store i8 %560, ptr %561, align 1, !tbaa !12
   %562 = getelementptr inbounds nuw i8, ptr %1, i64 29140
-  %563 = load i8, ptr %562, align 1, !tbaa !12
+  %563 = load i8, ptr %562, align 4, !tbaa !12
   %564 = getelementptr inbounds nuw i8, ptr %556, i64 2
   store i8 %563, ptr %564, align 1, !tbaa !12
   %565 = getelementptr inbounds nuw i8, ptr %1, i64 29142
-  %566 = load i8, ptr %565, align 1, !tbaa !12
+  %566 = load i8, ptr %565, align 2, !tbaa !12
   %567 = getelementptr inbounds nuw i8, ptr %556, i64 3
   store i8 %566, ptr %567, align 1, !tbaa !12
   br label %decode_mb_skip.exit
@@ -1553,7 +1553,7 @@ align_get_bits.exit:                              ; preds = %702, %712
   %820 = getelementptr inbounds nuw i8, ptr %1, i64 20911
   %821 = load i8, ptr %820, align 1, !tbaa !12
   %822 = getelementptr inbounds nuw i8, ptr %817, i64 4
-  store i8 %821, ptr %822, align 1, !tbaa !12
+  store i8 %821, ptr %822, align 4, !tbaa !12
   %823 = getelementptr inbounds nuw i8, ptr %1, i64 20903
   %824 = load i8, ptr %823, align 1, !tbaa !12
   %825 = getelementptr inbounds nuw i8, ptr %817, i64 5
@@ -1561,7 +1561,7 @@ align_get_bits.exit:                              ; preds = %702, %712
   %826 = getelementptr inbounds nuw i8, ptr %1, i64 20895
   %827 = load i8, ptr %826, align 1, !tbaa !12
   %828 = getelementptr inbounds nuw i8, ptr %817, i64 6
-  store i8 %827, ptr %828, align 1, !tbaa !12
+  store i8 %827, ptr %828, align 2, !tbaa !12
   %829 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %830 = load ptr, ptr %829, align 8, !tbaa !100
   %831 = getelementptr inbounds nuw i8, ptr %1, i64 20984
@@ -4436,18 +4436,18 @@ get_se_golomb.exit981:                            ; preds = %2507, %2517
   %2604 = sext i32 %2567 to i64
   %2605 = getelementptr inbounds i8, ptr %2603, i64 %2604
   %2606 = getelementptr inbounds nuw i8, ptr %1, i64 29084
-  %2607 = load i8, ptr %2606, align 1, !tbaa !12
+  %2607 = load i8, ptr %2606, align 4, !tbaa !12
   store i8 %2607, ptr %2605, align 1, !tbaa !12
   %2608 = getelementptr inbounds nuw i8, ptr %1, i64 29086
-  %2609 = load i8, ptr %2608, align 1, !tbaa !12
+  %2609 = load i8, ptr %2608, align 2, !tbaa !12
   %2610 = getelementptr inbounds nuw i8, ptr %2605, i64 1
   store i8 %2609, ptr %2610, align 1, !tbaa !12
   %2611 = getelementptr inbounds nuw i8, ptr %1, i64 29100
-  %2612 = load i8, ptr %2611, align 1, !tbaa !12
+  %2612 = load i8, ptr %2611, align 4, !tbaa !12
   %2613 = getelementptr inbounds nuw i8, ptr %2605, i64 2
   store i8 %2612, ptr %2613, align 1, !tbaa !12
   %2614 = getelementptr inbounds nuw i8, ptr %1, i64 29102
-  %2615 = load i8, ptr %2614, align 1, !tbaa !12
+  %2615 = load i8, ptr %2614, align 2, !tbaa !12
   %2616 = getelementptr inbounds nuw i8, ptr %2605, i64 3
   store i8 %2615, ptr %2616, align 1, !tbaa !12
   br label %2623
@@ -4513,18 +4513,18 @@ get_se_golomb.exit981:                            ; preds = %2507, %2517
   %2660 = sext i32 %2567 to i64
   %2661 = getelementptr inbounds i8, ptr %2659, i64 %2660
   %2662 = getelementptr inbounds nuw i8, ptr %1, i64 29124
-  %2663 = load i8, ptr %2662, align 1, !tbaa !12
+  %2663 = load i8, ptr %2662, align 4, !tbaa !12
   store i8 %2663, ptr %2661, align 1, !tbaa !12
   %2664 = getelementptr inbounds nuw i8, ptr %1, i64 29126
-  %2665 = load i8, ptr %2664, align 1, !tbaa !12
+  %2665 = load i8, ptr %2664, align 2, !tbaa !12
   %2666 = getelementptr inbounds nuw i8, ptr %2661, i64 1
   store i8 %2665, ptr %2666, align 1, !tbaa !12
   %2667 = getelementptr inbounds nuw i8, ptr %1, i64 29140
-  %2668 = load i8, ptr %2667, align 1, !tbaa !12
+  %2668 = load i8, ptr %2667, align 4, !tbaa !12
   %2669 = getelementptr inbounds nuw i8, ptr %2661, i64 2
   store i8 %2668, ptr %2669, align 1, !tbaa !12
   %2670 = getelementptr inbounds nuw i8, ptr %1, i64 29142
-  %2671 = load i8, ptr %2670, align 1, !tbaa !12
+  %2671 = load i8, ptr %2670, align 2, !tbaa !12
   %2672 = getelementptr inbounds nuw i8, ptr %2661, i64 3
   store i8 %2671, ptr %2672, align 1, !tbaa !12
   br label %write_back_motion.exit
@@ -5747,7 +5747,7 @@ define internal fastcc void @fill_decode_neighbors(ptr noundef readonly captures
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 20940
   store i32 %.sroa.0.0, ptr %62, align 4, !tbaa !97
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 20944
-  store i32 %.sroa.7.0, ptr %63, align 4, !tbaa !97
+  store i32 %.sroa.7.0, ptr %63, align 16, !tbaa !97
   %64 = sext i32 %.0 to i64
   %65 = getelementptr inbounds i32, ptr %.pre, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !97
@@ -5840,7 +5840,7 @@ define internal fastcc void @fill_decode_caches(ptr noundef readonly captures(no
   %13 = load i32, ptr %12, align 4, !tbaa !97
   store i32 %13, ptr %.sroa.0649, align 4, !tbaa !97
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 20944
-  %15 = load i32, ptr %14, align 4, !tbaa !97
+  %15 = load i32, ptr %14, align 16, !tbaa !97
   store i32 %15, ptr %.sroa.6650, align 4, !tbaa !97
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 20948
   %17 = load i32, ptr %16, align 4, !tbaa !116

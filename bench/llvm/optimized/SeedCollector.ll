@@ -2723,7 +2723,7 @@ _ZN4llvm12DenseMapInfoISt5tupleIJPNS_9sandboxir5ValueEPNS2_4TypeENS2_11Instructi
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !81
   %36 = icmp eq ptr %35, inttoptr (i64 -4096 to ptr)
-  %37 = load i32, ptr %28, align 4
+  %37 = load i32, ptr %28, align 8
   %38 = icmp eq i32 %37, 2147483647
   %39 = select i1 %36, i1 %38, i1 false
   br i1 %39, label %43, label %_ZN4llvm12DenseMapInfoISt5tupleIJPNS_9sandboxir5ValueEPNS2_4TypeENS2_11Instruction6OpcodeEEEvE7isEqualERKS9_SC_.exit.thread.i.i
@@ -2745,10 +2745,10 @@ _ZN4llvm12DenseMapInfoISt5tupleIJPNS_9sandboxir5ValueEPNS2_4TypeENS2_11Instructi
   %48 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %47, ptr %48, align 8, !tbaa !81
   %49 = load i32, ptr %2, align 8, !tbaa !80
-  store i32 %49, ptr %28, align 4, !tbaa !80
+  store i32 %49, ptr %28, align 8, !tbaa !80
   %50 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %51 = load i32, ptr %3, align 4, !tbaa !94
-  store i32 %51, ptr %50, align 4, !tbaa !94
+  store i32 %51, ptr %50, align 8, !tbaa !94
   br label %52
 
 52:                                               ; preds = %43, %9
@@ -2827,7 +2827,7 @@ _ZN4llvm12DenseMapInfoISt5tupleIJPNS_9sandboxir5ValueEPNS2_4TypeENS2_11Instructi
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !81
   %50 = icmp eq ptr %17, %49
-  %51 = load i32, ptr %44, align 4
+  %51 = load i32, ptr %44, align 8
   %52 = icmp eq i32 %23, %51
   %53 = select i1 %50, i1 %52, i1 false
   br i1 %53, label %.loopexit, label %_ZN4llvm12DenseMapInfoISt5tupleIJPNS_9sandboxir5ValueEPNS2_4TypeENS2_11Instruction6OpcodeEEEvE7isEqualERKS9_SC_.exit.thread, !prof !203
@@ -2843,7 +2843,7 @@ _ZN4llvm12DenseMapInfoISt5tupleIJPNS_9sandboxir5ValueEPNS2_4TypeENS2_11Instructi
   %54 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !81
   %56 = icmp eq ptr %55, inttoptr (i64 -4096 to ptr)
-  %57 = load i32, ptr %44, align 4
+  %57 = load i32, ptr %44, align 8
   %58 = icmp eq i32 %57, 2147483647
   %59 = select i1 %56, i1 %58, i1 false
   br i1 %59, label %60, label %.thread, !prof !203
@@ -2857,7 +2857,7 @@ _ZN4llvm12DenseMapInfoISt5tupleIJPNS_9sandboxir5ValueEPNS2_4TypeENS2_11Instructi
   %63 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !81
   %65 = icmp eq ptr %64, inttoptr (i64 -8192 to ptr)
-  %66 = load i32, ptr %44, align 4
+  %66 = load i32, ptr %44, align 8
   %67 = icmp eq i32 %66, -2147483648
   %68 = select i1 %65, i1 %67, i1 false
   br label %.thread
@@ -2976,7 +2976,7 @@ _ZN4llvm12DenseMapInfoISt5tupleIJPNS_9sandboxir5ValueEPNS2_4TypeENS2_11Instructi
   %41 = getelementptr inbounds nuw i8, ptr %.020.i, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !81
   %43 = icmp eq ptr %42, inttoptr (i64 -4096 to ptr)
-  %44 = load i32, ptr %.020.i, align 4
+  %44 = load i32, ptr %.020.i, align 8
   %45 = icmp eq i32 %44, 2147483647
   %46 = select i1 %43, i1 %45, i1 false
   br i1 %46, label %66, label %_ZN4llvm12DenseMapInfoISt5tupleIJPNS_9sandboxir5ValueEPNS2_4TypeENS2_11Instruction6OpcodeEEEvE7isEqualERKS9_SC_.exit13.thread.i
@@ -2985,7 +2985,7 @@ _ZN4llvm12DenseMapInfoISt5tupleIJPNS_9sandboxir5ValueEPNS2_4TypeENS2_11Instructi
   %47 = getelementptr inbounds nuw i8, ptr %.020.i, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !81
   %49 = icmp eq ptr %48, inttoptr (i64 -8192 to ptr)
-  %50 = load i32, ptr %.020.i, align 4
+  %50 = load i32, ptr %.020.i, align 8
   %51 = icmp eq i32 %50, -2147483648
   %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %66, label %_ZN4llvm12DenseMapInfoISt5tupleIJPNS_9sandboxir5ValueEPNS2_4TypeENS2_11Instruction6OpcodeEEEvE7isEqualERKS9_SC_.exit13.thread.i
@@ -3001,12 +3001,12 @@ _ZN4llvm12DenseMapInfoISt5tupleIJPNS_9sandboxir5ValueEPNS2_4TypeENS2_11Instructi
   %58 = load ptr, ptr %57, align 8, !tbaa !81
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store ptr %58, ptr %59, align 8, !tbaa !81
-  %60 = load i32, ptr %.020.i, align 4, !tbaa !80
-  store i32 %60, ptr %54, align 4, !tbaa !80
+  %60 = load i32, ptr %.020.i, align 8, !tbaa !80
+  store i32 %60, ptr %54, align 8, !tbaa !80
   %61 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %62 = getelementptr inbounds nuw i8, ptr %.020.i, i64 24
-  %63 = load i32, ptr %62, align 4, !tbaa !94
-  store i32 %63, ptr %61, align 4, !tbaa !94
+  %63 = load i32, ptr %62, align 8, !tbaa !94
+  store i32 %63, ptr %61, align 8, !tbaa !94
   %64 = load i32, ptr %33, align 8, !tbaa !200
   %65 = add i32 %64, 1
   store i32 %65, ptr %33, align 8, !tbaa !200

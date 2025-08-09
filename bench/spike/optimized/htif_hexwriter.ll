@@ -697,7 +697,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK16htif_hexwriter
   %8 = load i32, ptr %7, align 8, !tbaa !66
   %9 = and i32 %8, -75
   %10 = or disjoint i32 %9, 8
-  store i32 %10, ptr %7, align 4, !tbaa !76
+  store i32 %10, ptr %7, align 8, !tbaa !76
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load i64, ptr %11, align 8, !tbaa !22
   %.not = icmp eq i64 %12, 0
@@ -721,7 +721,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK16htif_hexwriter
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !66
   %22 = or i32 %21, %8
-  store i32 %22, ptr %20, align 4, !tbaa !76
+  store i32 %22, ptr %20, align 8, !tbaa !76
   ret ptr %0
 
 23:                                               ; preds = %.lr.ph31, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit

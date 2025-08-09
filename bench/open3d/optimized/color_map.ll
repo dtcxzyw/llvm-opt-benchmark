@@ -42878,7 +42878,7 @@ _ZN8pybind116detail15argument_loaderIJRNS0_16value_and_holderEidddiiiRKNSt7__cxx
   store ptr %38, ptr %37, align 8, !tbaa !112
   %39 = getelementptr inbounds nuw i8, ptr %30, i64 56
   store i64 0, ptr %39, align 8, !tbaa !116
-  store i8 0, ptr %38, align 1, !tbaa !117
+  store i8 0, ptr %38, align 8, !tbaa !117
   store i32 %20, ptr %30, align 8, !tbaa !1481
   store double %22, ptr %31, align 8, !tbaa !1483
   store double %24, ptr %32, align 8, !tbaa !1484
@@ -42919,7 +42919,7 @@ _ZN8pybind116detail15argument_loaderIJRNS0_16value_and_holderEidddiiiRKNSt7__cxx
   store ptr %57, ptr %56, align 8, !tbaa !112
   %58 = getelementptr inbounds nuw i8, ptr %49, i64 56
   store i64 0, ptr %58, align 8, !tbaa !116
-  store i8 0, ptr %57, align 1, !tbaa !117
+  store i8 0, ptr %57, align 8, !tbaa !117
   store i32 %20, ptr %49, align 8, !tbaa !1481
   store double %22, ptr %50, align 8, !tbaa !1483
   store double %24, ptr %51, align 8, !tbaa !1484
@@ -44317,7 +44317,7 @@ _ZN8pybind116detail15argument_loaderIJRNS0_16value_and_holderEididddiiiRKNSt7__c
   store ptr %44, ptr %43, align 8, !tbaa !112
   %45 = getelementptr inbounds nuw i8, ptr %34, i64 72
   store i64 0, ptr %45, align 8, !tbaa !116
-  store i8 0, ptr %44, align 1, !tbaa !117
+  store i8 0, ptr %44, align 8, !tbaa !117
   store i32 %21, ptr %34, align 8, !tbaa !1533
   store double %22, ptr %35, align 8, !tbaa !1535
   store i32 %24, ptr %36, align 8, !tbaa !1536
@@ -44362,7 +44362,7 @@ _ZN8pybind116detail15argument_loaderIJRNS0_16value_and_holderEididddiiiRKNSt7__c
   store ptr %65, ptr %64, align 8, !tbaa !112
   %66 = getelementptr inbounds nuw i8, ptr %55, i64 72
   store i64 0, ptr %66, align 8, !tbaa !116
-  store i8 0, ptr %65, align 1, !tbaa !117
+  store i8 0, ptr %65, align 8, !tbaa !117
   store i32 %21, ptr %55, align 8, !tbaa !1533
   store double %22, ptr %56, align 8, !tbaa !1535
   store i32 %24, ptr %57, align 8, !tbaa !1536
@@ -50268,7 +50268,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   store ptr null, ptr %22, align 8, !tbaa !443
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %26 = load i32, ptr %24, align 4, !tbaa !347
-  store i32 %26, ptr %25, align 4, !tbaa !347
+  store i32 %26, ptr %25, align 8, !tbaa !347
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %27, align 8, !tbaa !1613
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -50292,7 +50292,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   store ptr null, ptr %33, align 8, !tbaa !443
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %37 = load i32, ptr %35, align 4, !tbaa !347
-  store i32 %37, ptr %36, align 4, !tbaa !347
+  store i32 %37, ptr %36, align 8, !tbaa !347
   store ptr %33, ptr %.02636, align 8, !tbaa !443
   %38 = sext i32 %37 to i64
   %39 = urem i64 %38, %29

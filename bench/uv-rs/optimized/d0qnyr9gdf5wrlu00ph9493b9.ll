@@ -7004,7 +7004,7 @@ _ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hc270ffc71256
   tail call void @llvm.experimental.noalias.scope.decl(metadata !736)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %45 = load i16, ptr %44, align 8, !alias.scope !736, !noalias !739, !noundef !3
-  store i16 %45, ptr %42, align 2, !noalias !741
+  store i16 %45, ptr %42, align 8, !noalias !741
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %47 = add i64 %3, 136
   tail call void @llvm.experimental.noalias.scope.decl(metadata !742)
@@ -7105,7 +7105,7 @@ _ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hc270ffc71256
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 300
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %91 = load i8, ptr %90, align 8, !range !249, !alias.scope !791, !noalias !745, !noundef !3
-  store i8 %91, ptr %89, align 1, !noalias !793
+  store i8 %91, ptr %89, align 4, !noalias !793
   br label %"_ZN72_$LT$uv_client..httpcache..Response$u20$as$u20$rkyv..traits..Archive$GT$7resolve17h3ed5884b7c5534efE.exit"
 
 "_ZN72_$LT$uv_client..httpcache..Response$u20$as$u20$rkyv..traits..Archive$GT$7resolve17h3ed5884b7c5534efE.exit": ; preds = %73, %74
@@ -7344,7 +7344,7 @@ define void @"_ZN72_$LT$uv_client..httpcache..Response$u20$as$u20$rkyv..traits..
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 172
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %52 = load i8, ptr %51, align 8, !range !249, !alias.scope !852, !noalias !806, !noundef !3
-  store i8 %52, ptr %50, align 1, !noalias !854
+  store i8 %52, ptr %50, align 4, !noalias !854
   br label %"_ZN79_$LT$uv_client..httpcache..ResponseHeaders$u20$as$u20$rkyv..traits..Archive$GT$7resolve17h378756cf09f1278dE.exit"
 
 "_ZN79_$LT$uv_client..httpcache..ResponseHeaders$u20$as$u20$rkyv..traits..Archive$GT$7resolve17h378756cf09f1278dE.exit": ; preds = %34, %35
@@ -7467,7 +7467,7 @@ define void @"_ZN79_$LT$uv_client..httpcache..ResponseHeaders$u20$as$u20$rkyv..t
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 164
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %60 = load i8, ptr %59, align 8, !range !249, !alias.scope !890, !noundef !3
-  store i8 %60, ptr %58, align 1, !noalias !890
+  store i8 %60, ptr %58, align 4, !noalias !890
   br label %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17h5028c962ccda3248E.exit"
 
 "_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17h5028c962ccda3248E.exit": ; preds = %42, %43
@@ -7486,7 +7486,7 @@ define void @"_ZN68_$LT$uv_client..httpcache..ETag$u20$as$u20$rkyv..traits..Arch
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i8, ptr %11, align 8, !range !249, !noundef !3
-  store i8 %12, ptr %10, align 1
+  store i8 %12, ptr %10, align 4
   ret void
 }
 

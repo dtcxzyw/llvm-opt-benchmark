@@ -1525,16 +1525,16 @@ define internal fastcc void @ohci_work(ptr noundef %0) unnamed_addr #0 align 16 
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %44 = load ptr, ptr %43, align 8
-  %45 = load i32, ptr %30, align 4
+  %45 = load i32, ptr %30, align 16
   %46 = getelementptr inbounds nuw i8, ptr %30, i64 72
   %47 = getelementptr inbounds nuw i8, ptr %30, i64 80
-  %48 = load ptr, ptr %47, align 8
+  %48 = load ptr, ptr %47, align 16
   %49 = load ptr, ptr %46, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %48, ptr %50, align 8
   store volatile ptr %49, ptr %48, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %46, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %47, align 8
+  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %47, align 16
   %51 = and i32 %45, 65536
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %94, label %53
@@ -2034,7 +2034,7 @@ finish_urb.exit:                                  ; preds = %240, %237, %td_done
   %360 = load i32, ptr %359, align 8
   %361 = or i32 %360, %358
   store i32 %361, ptr %342, align 4
-  %362 = load i32, ptr %346, align 4
+  %362 = load i32, ptr %346, align 8
   %363 = and i32 %362, 50331648
   switch i32 %363, label %372 [
     i32 33554432, label %364
@@ -2379,11 +2379,11 @@ finish_urb.exit15:                                ; preds = %545, %542, %td_done
   %568 = getelementptr inbounds nuw i8, ptr %305, i64 64
   %569 = getelementptr inbounds nuw i8, ptr %305, i64 72
   %570 = load ptr, ptr %569, align 8
-  %571 = load ptr, ptr %568, align 8
+  %571 = load ptr, ptr %568, align 16
   %572 = getelementptr inbounds nuw i8, ptr %571, i64 8
   store ptr %570, ptr %572, align 8
   store volatile ptr %571, ptr %570, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %568, align 8
+  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %568, align 16
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %569, align 8
   br label %582
 
@@ -4287,7 +4287,7 @@ define internal fastcc i64 @show_list(ptr noundef %0, i64 noundef %1, ptr nounde
   %39 = zext i32 %37 to i64
   %40 = getelementptr i8, ptr %10, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %42 = load ptr, ptr %41, align 8
+  %42 = load ptr, ptr %41, align 16
   %43 = icmp eq ptr %42, %41
   br i1 %43, label %.loopexit, label %.preheader
 
@@ -6119,7 +6119,7 @@ define internal i32 @ohci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
   %70 = shl nuw nsw i32 %69, 7
   %71 = or disjoint i32 %70, %63
   %72 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %73 = load i16, ptr %72, align 1
+  %73 = load i16, ptr %72, align 2
   %74 = and i16 %73, 2047
   %75 = zext nneg i16 %74 to i32
   %76 = shl nuw nsw i32 %75, 16
@@ -7362,7 +7362,7 @@ td_fill.exit:                                     ; preds = %119, %141
   store ptr %298, ptr %300, align 8
   store ptr %299, ptr %298, align 8
   %302 = getelementptr inbounds nuw i8, ptr %281, i64 80
-  store ptr %301, ptr %302, align 8
+  store ptr %301, ptr %302, align 16
   store volatile ptr %298, ptr %301, align 8
   %303 = getelementptr inbounds nuw i8, ptr %281, i64 56
   %304 = load i64, ptr %303, align 8
@@ -7443,7 +7443,7 @@ td_fill.exit6:                                    ; preds = %321, %326
   store ptr %351, ptr %353, align 8
   store ptr %352, ptr %351, align 8
   %355 = getelementptr inbounds nuw i8, ptr %333, i64 80
-  store ptr %354, ptr %355, align 8
+  store ptr %354, ptr %355, align 16
   store volatile ptr %351, ptr %354, align 8
   %356 = getelementptr inbounds nuw i8, ptr %333, i64 56
   %357 = load i64, ptr %356, align 8
@@ -7526,7 +7526,7 @@ td_fill.exit6:                                    ; preds = %321, %326
   store ptr %407, ptr %409, align 8
   store ptr %408, ptr %407, align 8
   %411 = getelementptr inbounds nuw i8, ptr %393, i64 80
-  store ptr %410, ptr %411, align 8
+  store ptr %410, ptr %411, align 16
   store volatile ptr %407, ptr %410, align 8
   %412 = getelementptr inbounds nuw i8, ptr %393, i64 56
   %413 = load i64, ptr %412, align 8
@@ -7636,7 +7636,7 @@ td_fill.exit8:                                    ; preds = %460, %465
   %489 = and i16 %488, 4095
   %490 = or disjoint i16 %489, -8192
   %491 = getelementptr inbounds nuw i8, ptr %474, i64 16
-  store i16 %490, ptr %491, align 2
+  store i16 %490, ptr %491, align 16
   %492 = getelementptr inbounds nuw i8, ptr %474, i64 4
   store i32 %487, ptr %492, align 4
   %493 = icmp eq i64 %485, 0
@@ -7657,7 +7657,7 @@ td_fill.exit8:                                    ; preds = %460, %465
   store ptr %502, ptr %504, align 8
   store ptr %503, ptr %502, align 8
   %506 = getelementptr inbounds nuw i8, ptr %474, i64 80
-  store ptr %505, ptr %506, align 8
+  store ptr %505, ptr %506, align 16
   store volatile ptr %502, ptr %505, align 8
   %507 = getelementptr inbounds nuw i8, ptr %474, i64 56
   %508 = load i64, ptr %507, align 8

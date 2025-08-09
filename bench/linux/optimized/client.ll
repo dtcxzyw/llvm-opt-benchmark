@@ -3507,7 +3507,7 @@ define internal noundef i32 @nfs_server_list_show(ptr noundef %0, ptr noundef %1
   %26 = tail call ptr @rpc_peeraddr2str(ptr noundef %25, i32 noundef 3) #13
   %27 = load ptr, ptr %24, align 8
   %28 = tail call ptr @rpc_peeraddr2str(ptr noundef %27, i32 noundef 4) #13
-  %29 = load volatile i32, ptr %20, align 4
+  %29 = load volatile i32, ptr %20, align 8
   %30 = getelementptr i8, ptr %1, i64 -16
   %31 = load ptr, ptr %30, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.17, i32 noundef %23, ptr noundef %26, ptr noundef %28, i32 noundef %29, ptr noundef %31) #13

@@ -4316,7 +4316,7 @@ define dso_local noundef ptr @_ZN5clang24TemplateTemplateParmDecl6CreateERKNS_10
   %16 = and i32 %3, 1048575
   %17 = shl i32 %4, 20
   %18 = or disjoint i32 %17, %16
-  store i32 %18, ptr %15, align 4
+  store i32 %18, ptr %15, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN5clang24TemplateTemplateParmDeclE, i64 16), ptr %10, align 8, !tbaa !125
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 72
   store i64 0, ptr %19, align 8, !tbaa !14
@@ -7648,7 +7648,7 @@ _ZN5clang21TemplateParameterList6CreateERKNS_10ASTContextENS_14SourceLocationES4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, i8 0, i64 16, i1 false)
   store ptr %.0.i.i.i.i.i.i, ptr %86, align 8, !tbaa !34
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 64
-  store i32 0, ptr %87, align 4
+  store i32 0, ptr %87, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN5clang24TemplateTemplateParmDeclE, i64 16), ptr %84, align 8, !tbaa !125
   %88 = getelementptr inbounds nuw i8, ptr %84, i64 72
   store i64 0, ptr %88, align 8, !tbaa !14
@@ -7960,7 +7960,7 @@ _ZN5clang21TemplateParameterList6CreateERKNS_10ASTContextENS_14SourceLocationES4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %262, i8 0, i64 16, i1 false)
   store ptr %.0.i.i.i.i.i16.i, ptr %263, align 8, !tbaa !34
   %264 = getelementptr inbounds nuw i8, ptr %261, i64 64
-  store i32 0, ptr %264, align 4
+  store i32 0, ptr %264, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN5clang24TemplateTemplateParmDeclE, i64 16), ptr %261, align 8, !tbaa !125
   %265 = getelementptr inbounds nuw i8, ptr %261, i64 72
   store i64 0, ptr %265, align 8, !tbaa !14
@@ -8027,7 +8027,7 @@ _ZN5clang21TemplateParameterList6CreateERKNS_10ASTContextENS_14SourceLocationES4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %299, i8 0, i64 16, i1 false)
   store ptr %.0.i.i.i.i27.i.i, ptr %300, align 8, !tbaa !34
   %301 = getelementptr inbounds nuw i8, ptr %298, i64 64
-  store i32 1048576, ptr %301, align 4
+  store i32 1048576, ptr %301, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN5clang24TemplateTemplateParmDeclE, i64 16), ptr %298, align 8, !tbaa !125
   %302 = getelementptr inbounds nuw i8, ptr %298, i64 72
   store i64 0, ptr %302, align 8, !tbaa !14

@@ -95409,7 +95409,7 @@ define void @_ZN11processor_t9take_trapER6trap_tm(ptr noundef nonnull align 8 de
   %20 = load i32, ptr %19, align 8, !tbaa !326
   %21 = and i32 %20, -75
   %22 = or disjoint i32 %21, 2
-  store i32 %22, ptr %19, align 4, !tbaa !327
+  store i32 %22, ptr %19, align 8, !tbaa !327
   %23 = load i64, ptr %16, align 8
   %24 = getelementptr inbounds i8, ptr %12, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 225
@@ -95496,7 +95496,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   %65 = load i32, ptr %64, align 8, !tbaa !326
   %66 = and i32 %65, -75
   %67 = or disjoint i32 %66, 8
-  store i32 %67, ptr %64, align 4, !tbaa !327
+  store i32 %67, ptr %64, align 8, !tbaa !327
   %68 = load i64, ptr %61, align 8
   %69 = getelementptr inbounds i8, ptr %57, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 225
@@ -95644,7 +95644,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %135 = load i32, ptr %134, align 8, !tbaa !326
   %136 = and i32 %135, -75
   %137 = or disjoint i32 %136, 2
-  store i32 %137, ptr %134, align 4, !tbaa !327
+  store i32 %137, ptr %134, align 8, !tbaa !327
   %138 = load i64, ptr %131, align 8
   %139 = getelementptr inbounds i8, ptr %12, i64 %138
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 225
@@ -95711,7 +95711,7 @@ _ZNSolsEj.exit194:                                ; preds = %153
   %170 = load i32, ptr %169, align 8, !tbaa !326
   %171 = and i32 %170, -75
   %172 = or disjoint i32 %171, 8
-  store i32 %172, ptr %169, align 4, !tbaa !327
+  store i32 %172, ptr %169, align 8, !tbaa !327
   %173 = load i64, ptr %166, align 8
   %174 = getelementptr inbounds i8, ptr %162, i64 %173
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 225
@@ -96540,7 +96540,7 @@ define void @_ZN11processor_t19take_trigger_actionEN8triggers8action_tEmmb(ptr n
   %20 = load i32, ptr %19, align 8, !tbaa !326
   %21 = and i32 %20, -75
   %22 = or disjoint i32 %21, 2
-  store i32 %22, ptr %19, align 4, !tbaa !327
+  store i32 %22, ptr %19, align 8, !tbaa !327
   %23 = load i64, ptr %16, align 8
   %24 = getelementptr inbounds i8, ptr %12, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 225
@@ -96876,7 +96876,7 @@ _ZN11processor_t10get_symbolEm.exit:              ; preds = %11
   %28 = load i32, ptr %27, align 8, !tbaa !326
   %29 = and i32 %28, -75
   %30 = or disjoint i32 %29, 2
-  store i32 %30, ptr %27, align 4, !tbaa !327
+  store i32 %30, ptr %27, align 8, !tbaa !327
   %31 = load i64, ptr %24, align 8
   %32 = getelementptr inbounds i8, ptr %20, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 225
@@ -97006,7 +97006,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc104, %_ZN11pr
   %91 = load i32, ptr %90, align 8, !tbaa !326
   %92 = and i32 %91, -75
   %93 = or disjoint i32 %92, 2
-  store i32 %93, ptr %90, align 4, !tbaa !327
+  store i32 %93, ptr %90, align 8, !tbaa !327
   %94 = load i64, ptr %87, align 8
   %95 = getelementptr inbounds i8, ptr %83, i64 %94
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 225
@@ -97138,7 +97138,7 @@ _ZNSolsEPFRSoS_E.exit60:                          ; preds = %.noexc114, %_ZNSols
   %152 = load i32, ptr %151, align 8, !tbaa !326
   %153 = and i32 %152, -75
   %154 = or disjoint i32 %153, 2
-  store i32 %154, ptr %151, align 4, !tbaa !327
+  store i32 %154, ptr %151, align 8, !tbaa !327
   %155 = load i64, ptr %148, align 8
   %156 = getelementptr inbounds i8, ptr %144, i64 %155
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 225
@@ -97202,7 +97202,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i68: ; preds = %.noexc70.
   %187 = load i32, ptr %186, align 8, !tbaa !326
   %188 = and i32 %187, -75
   %189 = or disjoint i32 %188, 8
-  store i32 %189, ptr %186, align 4, !tbaa !327
+  store i32 %189, ptr %186, align 8, !tbaa !327
   %190 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %180, ptr noundef nonnull @.str.21, i64 noundef 4)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit78 unwind label %291
 

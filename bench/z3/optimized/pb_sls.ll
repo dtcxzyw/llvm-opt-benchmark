@@ -9322,9 +9322,9 @@ define linkonce_odr hidden noundef ptr @_ZSt16__do_uninit_copyISt13move_iterator
   %19 = getelementptr inbounds nuw i8, ptr %.08, i64 40
   store ptr null, ptr %19, align 8, !tbaa !22
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.04.07, i64 32
-  %21 = load i32, ptr %20, align 4, !tbaa !61
-  store i32 %21, ptr %15, align 4, !tbaa !61
-  store i32 0, ptr %20, align 4, !tbaa !61
+  %21 = load i32, ptr %20, align 8, !tbaa !61
+  store i32 %21, ptr %15, align 8, !tbaa !61
+  store i32 0, ptr %20, align 8, !tbaa !61
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.04.07, i64 40
   %23 = load ptr, ptr %22, align 8, !tbaa !225
   store ptr %23, ptr %19, align 8, !tbaa !225
@@ -9364,9 +9364,9 @@ define linkonce_odr hidden noundef ptr @_ZSt16__do_uninit_copyISt13move_iterator
   %49 = getelementptr inbounds nuw i8, ptr %.08, i64 64
   store ptr null, ptr %49, align 8, !tbaa !22
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.04.07, i64 56
-  %51 = load i32, ptr %50, align 4, !tbaa !61
-  store i32 %51, ptr %45, align 4, !tbaa !61
-  store i32 0, ptr %50, align 4, !tbaa !61
+  %51 = load i32, ptr %50, align 8, !tbaa !61
+  store i32 %51, ptr %45, align 8, !tbaa !61
+  store i32 0, ptr %50, align 8, !tbaa !61
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.04.07, i64 64
   %53 = load ptr, ptr %52, align 8, !tbaa !225
   store ptr %53, ptr %49, align 8, !tbaa !225

@@ -255,7 +255,7 @@ define internal i32 @xfrm_send_state_notify(ptr noundef %0, ptr noundef readonly
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %71 = load i32, ptr %70, align 4
-  %72 = load i32, ptr %69, align 4
+  %72 = load i32, ptr %69, align 8
   %73 = or i32 %72, %71
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %.thread21, label %75
@@ -1900,7 +1900,7 @@ define internal i32 @xfrm_send_policy_notify(ptr noundef %0, i32 noundef %1, ptr
   %423 = ptrtoint ptr %268 to i64
   %424 = sub i64 %422, %423
   %425 = trunc i64 %424 to i32
-  store i32 %425, ptr %268, align 4
+  store i32 %425, ptr %268, align 8
   br label %426
 
 .thread39:                                        ; preds = %253, %260, %406, %267
@@ -3234,7 +3234,7 @@ define internal void @xfrm_user_net_exit(ptr noundef readonly captures(address) 
   %5 = getelementptr i8, ptr %4, i64 2896
   %6 = load ptr, ptr %5, align 64
   tail call void @netlink_kernel_release(ptr noundef %6) #16
-  %7 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 16
   %8 = icmp eq ptr %7, %0
   br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !31
 
@@ -6022,7 +6022,7 @@ define internal noundef range(i32 -22, 1) i32 @xfrm_new_ae(ptr noundef readonly 
   %75 = load i32, ptr %74, align 4
   %76 = shl i32 %75, 2
   %77 = add i32 %76, 24
-  %78 = load i16, ptr %14, align 2
+  %78 = load i16, ptr %14, align 4
   %79 = add i16 %78, -4
   %80 = zext i16 %79 to i32
   %81 = icmp sgt i32 %77, %80
@@ -6746,7 +6746,7 @@ define internal range(i32 -2147483648, 1) i32 @xfrm_get_spdinfo(ptr noundef read
   %77 = load i8, ptr %64, align 1
   store i8 %77, ptr %65, align 1
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !49
-  %78 = load volatile i32, ptr %59, align 4
+  %78 = load volatile i32, ptr %59, align 8
   %79 = icmp eq i32 %78, %73
   br i1 %79, label %80, label %66, !llvm.loop !50
 
@@ -7406,7 +7406,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @xfrm_alloc_replay_state_es
   %7 = load i32, ptr %6, align 4
   %8 = shl i32 %7, 2
   %9 = add i32 %8, 24
-  %10 = load i16, ptr %2, align 2
+  %10 = load i16, ptr %2, align 4
   %11 = add i16 %10, -4
   %12 = zext i16 %11 to i32
   %13 = icmp sgt i32 %9, %12

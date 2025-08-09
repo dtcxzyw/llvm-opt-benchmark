@@ -2158,7 +2158,7 @@ _ZN7nanogui6Widget11set_tooltipERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS
   store i8 3, ptr %373, align 8
   store i32 0, ptr %371, align 4
   %.sroa_idx8.i = getelementptr inbounds nuw i8, ptr %366, i64 80
-  store i32 0, ptr %.sroa_idx8.i, align 4
+  store i32 0, ptr %.sroa_idx8.i, align 8
   %375 = getelementptr inbounds nuw i8, ptr %362, i64 32
   %376 = load ptr, ptr %375, align 8
   %.not.i.i422 = icmp eq ptr %376, %366
@@ -2406,7 +2406,7 @@ _ZN7nanogui6Widget11set_tooltipERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS
   store i8 3, ptr %455, align 8
   store i32 2, ptr %453, align 4
   %.sroa_idx8.i466 = getelementptr inbounds nuw i8, ptr %445, i64 80
-  store i32 2, ptr %.sroa_idx8.i466, align 4
+  store i32 2, ptr %.sroa_idx8.i466, align 8
   %457 = getelementptr inbounds nuw i8, ptr %441, i64 32
   %458 = load ptr, ptr %457, align 8
   %.not.i.i467 = icmp eq ptr %458, %445
@@ -3283,7 +3283,7 @@ _ZNSt3__18functionIFvRKN7nanogui5ColorEEED2Ev.exit: ; preds = %734, %.sink.split
   store i8 3, ptr %750, align 8
   store i32 2, ptr %748, align 4
   %.sroa_idx8.i577 = getelementptr inbounds nuw i8, ptr %743, i64 80
-  store i32 2, ptr %.sroa_idx8.i577, align 4
+  store i32 2, ptr %.sroa_idx8.i577, align 8
   %752 = getelementptr inbounds nuw i8, ptr %738, i64 32
   %753 = load ptr, ptr %752, align 8
   %.not.i.i578 = icmp eq ptr %753, %743
@@ -3545,7 +3545,7 @@ _ZN7nanogui6Widget11set_tooltipERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS
   store i8 3, ptr %851, align 8
   store i32 2, ptr %849, align 4
   %.sroa_idx8.i613 = getelementptr inbounds nuw i8, ptr %844, i64 80
-  store i32 2, ptr %.sroa_idx8.i613, align 4
+  store i32 2, ptr %.sroa_idx8.i613, align 8
   %853 = getelementptr inbounds nuw i8, ptr %839, i64 32
   %854 = load ptr, ptr %853, align 8
   %.not.i.i614 = icmp eq ptr %854, %844
@@ -3958,7 +3958,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   store i8 3, ptr %992, align 8
   store i32 2, ptr %990, align 4
   %.sroa_idx8.i677 = getelementptr inbounds nuw i8, ptr %985, i64 80
-  store i32 2, ptr %.sroa_idx8.i677, align 4
+  store i32 2, ptr %.sroa_idx8.i677, align 8
   %994 = getelementptr inbounds nuw i8, ptr %981, i64 32
   %995 = load ptr, ptr %994, align 8
   %.not.i.i678 = icmp eq ptr %995, %985
@@ -4312,7 +4312,7 @@ _ZNSt3__18functionIFvbEED2Ev.exit715:             ; preds = %1102, %.sink.split.
   store i8 3, ptr %1117, align 8
   store i32 2, ptr %1115, align 4
   %.sroa_idx8.i717 = getelementptr inbounds nuw i8, ptr %1110, i64 80
-  store i32 2, ptr %.sroa_idx8.i717, align 4
+  store i32 2, ptr %.sroa_idx8.i717, align 8
   %1119 = getelementptr inbounds nuw i8, ptr %1106, i64 32
   %1120 = load ptr, ptr %1119, align 8
   %.not.i.i718 = icmp eq ptr %1120, %1110
@@ -4728,7 +4728,7 @@ _ZN7nanogui7TextBox9set_unitsERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_
   store i8 3, ptr %1270, align 8
   store i32 1, ptr %1268, align 4
   %.sroa_idx8.i787 = getelementptr inbounds nuw i8, ptr %1263, i64 80
-  store i32 1, ptr %.sroa_idx8.i787, align 4
+  store i32 1, ptr %.sroa_idx8.i787, align 8
   %1272 = getelementptr inbounds nuw i8, ptr %1259, i64 32
   %1273 = load ptr, ptr %1272, align 8
   %.not.i.i788 = icmp eq ptr %1273, %1263
@@ -9033,7 +9033,7 @@ _ZN3tev11ImageViewer19visibleFooterHeightEv.exit: ; preds = %_ZN3tev11ImageViewe
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 48
   %73 = load i32, ptr %72, align 4
   %74 = getelementptr inbounds nuw i8, ptr %69, i64 56
-  store i32 %73, ptr %74, align 4
+  store i32 %73, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %76 = load ptr, ptr %75, align 16
   %77 = load ptr, ptr %54, align 8
@@ -16853,9 +16853,9 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %618 = select i1 %.not.i.i.i.i.i150, i64 %617, i64 %615
   %619 = ptrtoint ptr %614 to i64
   %620 = select i1 %.not.i.i.i.i.i150, i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @_ZZN3tev11ImageViewer13draw_contentsEvE20histogramTooltipBase, i64 1) to i64), i64 %619
-  %621 = load i32, ptr %597, align 4, !noalias !191
+  %621 = load i32, ptr %597, align 8, !noalias !191
   %.sroa.0.0.insert.ext.i = zext i32 %621 to i64
-  %622 = load i32, ptr %595, align 4, !noalias !191
+  %622 = load i32, ptr %595, align 8, !noalias !191
   %.sroa.083.0.insert.ext.i = zext i32 %622 to i64
   %623 = load i32, ptr %604, align 4, !noalias !191
   %.sroa.090.0.insert.ext.i = zext i32 %623 to i64

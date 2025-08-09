@@ -499,11 +499,11 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   store i32 %.018.i.i, ptr %190, align 4, !tbaa !64
   %191 = add nuw nsw i32 %.018.i.i, 8
   %192 = getelementptr inbounds nuw i8, ptr %10, i64 128
-  store i32 %191, ptr %192, align 8, !tbaa !65
+  store i32 %191, ptr %192, align 16, !tbaa !65
   %193 = zext nneg i32 %189 to i64
   %194 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 %193
   %195 = getelementptr inbounds nuw i8, ptr %10, i64 112
-  store ptr %194, ptr %195, align 8, !tbaa !66
+  store ptr %194, ptr %195, align 16, !tbaa !66
   %196 = getelementptr inbounds nuw i8, ptr %10, i64 120
   store i32 0, ptr %196, align 8, !tbaa !67
   %197 = add nuw nsw i32 %.090.i, %.093.i
@@ -1270,11 +1270,11 @@ read_huffman_tables.exit:                         ; preds = %104
   store i32 %.018.i75, ptr %140, align 4, !tbaa !64
   %141 = add nuw nsw i32 %.018.i75, 8
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i32 %141, ptr %142, align 8, !tbaa !65
+  store i32 %141, ptr %142, align 16, !tbaa !65
   %143 = zext nneg i32 %139 to i64
   %144 = getelementptr inbounds nuw i8, ptr %.017.i76, i64 %143
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %144, ptr %145, align 8, !tbaa !66
+  store ptr %144, ptr %145, align 16, !tbaa !66
   %146 = getelementptr i8, ptr %0, i64 88
   store i32 0, ptr %146, align 8, !tbaa !67
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 1232

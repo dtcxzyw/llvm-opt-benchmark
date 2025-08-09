@@ -396,7 +396,7 @@ _ZNSt10unique_ptrIN4llvm7remarks21BitstreamRemarkParserESt14default_deleteIS2_EE
   store ptr %34, ptr %33, align 8, !tbaa !31, !noalias !84
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store i64 0, ptr %35, align 8, !tbaa !33, !noalias !84
-  store i8 0, ptr %34, align 1, !tbaa !11, !noalias !84
+  store i8 0, ptr %34, align 8, !tbaa !11, !noalias !84
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm7remarks21BitstreamRemarkParserE, i64 16), ptr %31, align 8, !tbaa !42, !noalias !84
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 48
   tail call void @_ZN4llvm7remarks21BitstreamParserHelperC1ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(368) %36, ptr %2, i64 %3) #16, !noalias !84
@@ -600,7 +600,7 @@ _ZNSt10unique_ptrIN4llvm7remarks21BitstreamRemarkParserESt14default_deleteIS2_EE
   store ptr %62, ptr %61, align 8, !tbaa !31, !noalias !147
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 24
   store i64 0, ptr %63, align 8, !tbaa !33, !noalias !147
-  store i8 0, ptr %62, align 1, !tbaa !11, !noalias !147
+  store i8 0, ptr %62, align 8, !tbaa !11, !noalias !147
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm7remarks21BitstreamRemarkParserE, i64 16), ptr %53, align 8, !tbaa !42, !noalias !147
   %64 = getelementptr inbounds nuw i8, ptr %53, i64 48
   tail call void @_ZN4llvm7remarks21BitstreamParserHelperC1ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(368) %64, ptr %2, i64 %3) #16, !noalias !147
@@ -916,7 +916,7 @@ _ZNSt14_Optional_baseIN4llvm7remarks17ParsedStringTableELb0ELb0EED2Ev.exit:
   store ptr %6, ptr %5, align 8, !tbaa !31, !noalias !174
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %7, align 8, !tbaa !33, !noalias !174
-  store i8 0, ptr %6, align 1, !tbaa !11, !noalias !174
+  store i8 0, ptr %6, align 8, !tbaa !11, !noalias !174
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm7remarks21BitstreamRemarkParserE, i64 16), ptr %3, align 8, !tbaa !42, !noalias !174
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   tail call void @_ZN4llvm7remarks21BitstreamParserHelperC1ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(368) %8, ptr %0, i64 %1) #16, !noalias !174

@@ -15381,11 +15381,11 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceINSt13__future_base15_Def
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr null, ptr %15, align 8, !tbaa !257
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store i32 0, ptr %16, align 4, !tbaa !259
+  store i32 0, ptr %16, align 8, !tbaa !259
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 36
-  store i8 0, ptr %17, align 1, !tbaa !261
+  store i8 0, ptr %17, align 4, !tbaa !261
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store i32 0, ptr %18, align 4, !tbaa !263
+  store i32 0, ptr %18, align 8, !tbaa !263
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base15_Deferred_stateINSt6thread8_InvokerISt5tupleIJMN9nanoflann15KDTreeBaseClassINS4_24KDTreeSingleIndexAdaptorINS4_10L2_AdaptorIfN6open3d4core3nns20NanoFlannIndexHolderILi1EfiE11DataAdaptorEfjEESD_Lin1EiEESE_SD_Lin1EiEEFPNSG_4NodeERSF_mmRSt6vectorINSG_8IntervalESaISL_EERSt6atomicIjERSt5mutexEPSG_St17reference_wrapperISF_EmmSX_ISN_ESX_ISQ_ESX_ISS_EEEEESI_EE, i64 16), ptr %14, align 8, !tbaa !21
   %19 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #38
           to label %20 unwind label %.body.i
@@ -15928,11 +15928,11 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceINSt13__future_base15_Def
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr null, ptr %15, align 8, !tbaa !257
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store i32 0, ptr %16, align 4, !tbaa !259
+  store i32 0, ptr %16, align 8, !tbaa !259
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 36
-  store i8 0, ptr %17, align 1, !tbaa !261
+  store i8 0, ptr %17, align 4, !tbaa !261
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store i32 0, ptr %18, align 4, !tbaa !263
+  store i32 0, ptr %18, align 8, !tbaa !263
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base15_Deferred_stateINSt6thread8_InvokerISt5tupleIJMN9nanoflann15KDTreeBaseClassINS4_24KDTreeSingleIndexAdaptorINS4_10L2_AdaptorIfN6open3d4core3nns20NanoFlannIndexHolderILi1EfiE11DataAdaptorEfjEESD_Lin1EiEESE_SD_Lin1EiEEFPNSG_4NodeERSF_mmRSt6vectorINSG_8IntervalESaISL_EERSt6atomicIjERSt5mutexEPSG_St17reference_wrapperISF_EmmSX_ISN_ESX_ISQ_ESX_ISS_EEEEESI_EE, i64 16), ptr %14, align 8, !tbaa !21
   %19 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #38
           to label %20 unwind label %.body.i
@@ -16011,7 +16011,7 @@ _ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit: ; 
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(28) %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load atomic i32, ptr %8 acquire, align 4
+  %9 = load atomic i32, ptr %8 acquire, align 8
   %10 = and i32 %9, 2147483647
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit.us.i.i
@@ -49957,11 +49957,11 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceINSt13__future_base15_Def
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr null, ptr %15, align 8, !tbaa !257
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store i32 0, ptr %16, align 4, !tbaa !259
+  store i32 0, ptr %16, align 8, !tbaa !259
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 36
-  store i8 0, ptr %17, align 1, !tbaa !261
+  store i8 0, ptr %17, align 4, !tbaa !261
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store i32 0, ptr %18, align 4, !tbaa !263
+  store i32 0, ptr %18, align 8, !tbaa !263
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base15_Deferred_stateINSt6thread8_InvokerISt5tupleIJMN9nanoflann15KDTreeBaseClassINS4_24KDTreeSingleIndexAdaptorINS4_10L2_AdaptorIfN6open3d4core3nns20NanoFlannIndexHolderILi1EflE11DataAdaptorEfjEESD_Lin1ElEESE_SD_Lin1ElEEFPNSG_4NodeERSF_mmRSt6vectorINSG_8IntervalESaISL_EERSt6atomicIjERSt5mutexEPSG_St17reference_wrapperISF_EmmSX_ISN_ESX_ISQ_ESX_ISS_EEEEESI_EE, i64 16), ptr %14, align 8, !tbaa !21
   %19 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #38
           to label %20 unwind label %.body.i
@@ -50504,11 +50504,11 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceINSt13__future_base15_Def
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr null, ptr %15, align 8, !tbaa !257
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store i32 0, ptr %16, align 4, !tbaa !259
+  store i32 0, ptr %16, align 8, !tbaa !259
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 36
-  store i8 0, ptr %17, align 1, !tbaa !261
+  store i8 0, ptr %17, align 4, !tbaa !261
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store i32 0, ptr %18, align 4, !tbaa !263
+  store i32 0, ptr %18, align 8, !tbaa !263
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base15_Deferred_stateINSt6thread8_InvokerISt5tupleIJMN9nanoflann15KDTreeBaseClassINS4_24KDTreeSingleIndexAdaptorINS4_10L2_AdaptorIfN6open3d4core3nns20NanoFlannIndexHolderILi1EflE11DataAdaptorEfjEESD_Lin1ElEESE_SD_Lin1ElEEFPNSG_4NodeERSF_mmRSt6vectorINSG_8IntervalESaISL_EERSt6atomicIjERSt5mutexEPSG_St17reference_wrapperISF_EmmSX_ISN_ESX_ISQ_ESX_ISS_EEEEESI_EE, i64 16), ptr %14, align 8, !tbaa !21
   %19 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #38
           to label %20 unwind label %.body.i
@@ -50587,7 +50587,7 @@ _ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit: ; 
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(28) %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load atomic i32, ptr %8 acquire, align 4
+  %9 = load atomic i32, ptr %8 acquire, align 8
   %10 = and i32 %9, 2147483647
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit.us.i.i
@@ -54640,11 +54640,11 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceINSt13__future_base15_Def
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr null, ptr %15, align 8, !tbaa !257
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store i32 0, ptr %16, align 4, !tbaa !259
+  store i32 0, ptr %16, align 8, !tbaa !259
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 36
-  store i8 0, ptr %17, align 1, !tbaa !261
+  store i8 0, ptr %17, align 4, !tbaa !261
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store i32 0, ptr %18, align 4, !tbaa !263
+  store i32 0, ptr %18, align 8, !tbaa !263
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base15_Deferred_stateINSt6thread8_InvokerISt5tupleIJMN9nanoflann15KDTreeBaseClassINS4_24KDTreeSingleIndexAdaptorINS4_10L2_AdaptorIdN6open3d4core3nns20NanoFlannIndexHolderILi1EdiE11DataAdaptorEdjEESD_Lin1EiEESE_SD_Lin1EiEEFPNSG_4NodeERSF_mmRSt6vectorINSG_8IntervalESaISL_EERSt6atomicIjERSt5mutexEPSG_St17reference_wrapperISF_EmmSX_ISN_ESX_ISQ_ESX_ISS_EEEEESI_EE, i64 16), ptr %14, align 8, !tbaa !21
   %19 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #38
           to label %20 unwind label %.body.i
@@ -55187,11 +55187,11 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceINSt13__future_base15_Def
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr null, ptr %15, align 8, !tbaa !257
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store i32 0, ptr %16, align 4, !tbaa !259
+  store i32 0, ptr %16, align 8, !tbaa !259
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 36
-  store i8 0, ptr %17, align 1, !tbaa !261
+  store i8 0, ptr %17, align 4, !tbaa !261
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store i32 0, ptr %18, align 4, !tbaa !263
+  store i32 0, ptr %18, align 8, !tbaa !263
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base15_Deferred_stateINSt6thread8_InvokerISt5tupleIJMN9nanoflann15KDTreeBaseClassINS4_24KDTreeSingleIndexAdaptorINS4_10L2_AdaptorIdN6open3d4core3nns20NanoFlannIndexHolderILi1EdiE11DataAdaptorEdjEESD_Lin1EiEESE_SD_Lin1EiEEFPNSG_4NodeERSF_mmRSt6vectorINSG_8IntervalESaISL_EERSt6atomicIjERSt5mutexEPSG_St17reference_wrapperISF_EmmSX_ISN_ESX_ISQ_ESX_ISS_EEEEESI_EE, i64 16), ptr %14, align 8, !tbaa !21
   %19 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #38
           to label %20 unwind label %.body.i
@@ -55270,7 +55270,7 @@ _ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit: ; 
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(28) %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load atomic i32, ptr %8 acquire, align 4
+  %9 = load atomic i32, ptr %8 acquire, align 8
   %10 = and i32 %9, 2147483647
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit.us.i.i
@@ -59408,11 +59408,11 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceINSt13__future_base15_Def
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr null, ptr %15, align 8, !tbaa !257
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store i32 0, ptr %16, align 4, !tbaa !259
+  store i32 0, ptr %16, align 8, !tbaa !259
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 36
-  store i8 0, ptr %17, align 1, !tbaa !261
+  store i8 0, ptr %17, align 4, !tbaa !261
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store i32 0, ptr %18, align 4, !tbaa !263
+  store i32 0, ptr %18, align 8, !tbaa !263
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base15_Deferred_stateINSt6thread8_InvokerISt5tupleIJMN9nanoflann15KDTreeBaseClassINS4_24KDTreeSingleIndexAdaptorINS4_10L2_AdaptorIdN6open3d4core3nns20NanoFlannIndexHolderILi1EdlE11DataAdaptorEdjEESD_Lin1ElEESE_SD_Lin1ElEEFPNSG_4NodeERSF_mmRSt6vectorINSG_8IntervalESaISL_EERSt6atomicIjERSt5mutexEPSG_St17reference_wrapperISF_EmmSX_ISN_ESX_ISQ_ESX_ISS_EEEEESI_EE, i64 16), ptr %14, align 8, !tbaa !21
   %19 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #38
           to label %20 unwind label %.body.i
@@ -59955,11 +59955,11 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceINSt13__future_base15_Def
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr null, ptr %15, align 8, !tbaa !257
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store i32 0, ptr %16, align 4, !tbaa !259
+  store i32 0, ptr %16, align 8, !tbaa !259
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 36
-  store i8 0, ptr %17, align 1, !tbaa !261
+  store i8 0, ptr %17, align 4, !tbaa !261
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store i32 0, ptr %18, align 4, !tbaa !263
+  store i32 0, ptr %18, align 8, !tbaa !263
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base15_Deferred_stateINSt6thread8_InvokerISt5tupleIJMN9nanoflann15KDTreeBaseClassINS4_24KDTreeSingleIndexAdaptorINS4_10L2_AdaptorIdN6open3d4core3nns20NanoFlannIndexHolderILi1EdlE11DataAdaptorEdjEESD_Lin1ElEESE_SD_Lin1ElEEFPNSG_4NodeERSF_mmRSt6vectorINSG_8IntervalESaISL_EERSt6atomicIjERSt5mutexEPSG_St17reference_wrapperISF_EmmSX_ISN_ESX_ISQ_ESX_ISS_EEEEESI_EE, i64 16), ptr %14, align 8, !tbaa !21
   %19 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #38
           to label %20 unwind label %.body.i
@@ -60038,7 +60038,7 @@ _ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit: ; 
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(28) %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load atomic i32, ptr %8 acquire, align 4
+  %9 = load atomic i32, ptr %8 acquire, align 8
   %10 = and i32 %9, 2147483647
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit.us.i.i
@@ -60717,23 +60717,23 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 88
   store ptr %44, ptr %87, align 8, !tbaa !420
   %.sroa.575.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 96
-  store ptr %52, ptr %.sroa.575.0..sroa_idx.i, align 8, !tbaa !1272
+  store ptr %52, ptr %.sroa.575.0..sroa_idx.i, align 32, !tbaa !1272
   %.sroa.676.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 104
   store ptr %42, ptr %.sroa.676.0..sroa_idx.i, align 8, !tbaa !1274
   %.sroa.777.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 112
-  store ptr %43, ptr %.sroa.777.0..sroa_idx.i, align 8, !tbaa !540
+  store ptr %43, ptr %.sroa.777.0..sroa_idx.i, align 16, !tbaa !540
   %.sroa.878.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 120
   store ptr %45, ptr %.sroa.878.0..sroa_idx.i, align 8, !tbaa !124
   %.sroa.979.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 128
-  store ptr %41, ptr %.sroa.979.0..sroa_idx.i, align 8, !tbaa !1274
+  store ptr %41, ptr %.sroa.979.0..sroa_idx.i, align 64, !tbaa !1274
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 136
   store ptr %49, ptr %.sroa.10.0..sroa_idx.i, align 8, !tbaa !1276
   %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 144
-  store ptr %46, ptr %.sroa.11.0..sroa_idx.i, align 8, !tbaa !124
+  store ptr %46, ptr %.sroa.11.0..sroa_idx.i, align 16, !tbaa !124
   %.sroa.12.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 152
   store ptr %50, ptr %.sroa.12.0..sroa_idx.i, align 8, !tbaa !1278
   %.sroa.13.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 160
-  store ptr %51, ptr %.sroa.13.0..sroa_idx.i, align 8, !tbaa !1280
+  store ptr %51, ptr %.sroa.13.0..sroa_idx.i, align 32, !tbaa !1280
   %88 = getelementptr inbounds nuw i8, ptr %84, i64 168
   store ptr null, ptr %88, align 8, !tbaa !1282
   %89 = invoke noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
@@ -60896,15 +60896,15 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %151 = getelementptr inbounds nuw i8, ptr %148, i64 88
   store ptr %40, ptr %151, align 8, !tbaa !1307
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %148, i64 96
-  store ptr %49, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !1276
+  store ptr %49, ptr %.sroa.5.0..sroa_idx.i, align 32, !tbaa !1276
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %148, i64 104
   store ptr %53, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !1309
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %148, i64 112
-  store ptr %46, ptr %.sroa.7.0..sroa_idx.i, align 8, !tbaa !124
+  store ptr %46, ptr %.sroa.7.0..sroa_idx.i, align 16, !tbaa !124
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %148, i64 120
   store ptr %50, ptr %.sroa.8.0..sroa_idx.i, align 8, !tbaa !1278
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %148, i64 128
-  store ptr %54, ptr %.sroa.9.0..sroa_idx.i, align 8, !tbaa !1274
+  store ptr %54, ptr %.sroa.9.0..sroa_idx.i, align 64, !tbaa !1274
   %152 = getelementptr inbounds nuw i8, ptr %148, i64 136
   store ptr null, ptr %152, align 8, !tbaa !1311
   %153 = invoke noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
@@ -61243,23 +61243,23 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %255 = getelementptr inbounds nuw i8, ptr %252, i64 88
   store ptr %23, ptr %255, align 8, !tbaa !420
   %.sroa.575.0..sroa_idx.i39 = getelementptr inbounds nuw i8, ptr %252, i64 96
-  store ptr %31, ptr %.sroa.575.0..sroa_idx.i39, align 8, !tbaa !1318
+  store ptr %31, ptr %.sroa.575.0..sroa_idx.i39, align 32, !tbaa !1318
   %.sroa.676.0..sroa_idx.i40 = getelementptr inbounds nuw i8, ptr %252, i64 104
   store ptr %21, ptr %.sroa.676.0..sroa_idx.i40, align 8, !tbaa !1274
   %.sroa.777.0..sroa_idx.i41 = getelementptr inbounds nuw i8, ptr %252, i64 112
-  store ptr %22, ptr %.sroa.777.0..sroa_idx.i41, align 8, !tbaa !540
+  store ptr %22, ptr %.sroa.777.0..sroa_idx.i41, align 16, !tbaa !540
   %.sroa.878.0..sroa_idx.i42 = getelementptr inbounds nuw i8, ptr %252, i64 120
   store ptr %24, ptr %.sroa.878.0..sroa_idx.i42, align 8, !tbaa !124
   %.sroa.979.0..sroa_idx.i43 = getelementptr inbounds nuw i8, ptr %252, i64 128
-  store ptr %20, ptr %.sroa.979.0..sroa_idx.i43, align 8, !tbaa !1274
+  store ptr %20, ptr %.sroa.979.0..sroa_idx.i43, align 64, !tbaa !1274
   %.sroa.10.0..sroa_idx.i44 = getelementptr inbounds nuw i8, ptr %252, i64 136
   store ptr %28, ptr %.sroa.10.0..sroa_idx.i44, align 8, !tbaa !1276
   %.sroa.11.0..sroa_idx.i45 = getelementptr inbounds nuw i8, ptr %252, i64 144
-  store ptr %25, ptr %.sroa.11.0..sroa_idx.i45, align 8, !tbaa !124
+  store ptr %25, ptr %.sroa.11.0..sroa_idx.i45, align 16, !tbaa !124
   %.sroa.12.0..sroa_idx.i46 = getelementptr inbounds nuw i8, ptr %252, i64 152
   store ptr %29, ptr %.sroa.12.0..sroa_idx.i46, align 8, !tbaa !1278
   %.sroa.13.0..sroa_idx.i47 = getelementptr inbounds nuw i8, ptr %252, i64 160
-  store ptr %30, ptr %.sroa.13.0..sroa_idx.i47, align 8, !tbaa !1280
+  store ptr %30, ptr %.sroa.13.0..sroa_idx.i47, align 32, !tbaa !1280
   %256 = getelementptr inbounds nuw i8, ptr %252, i64 168
   store ptr null, ptr %256, align 8, !tbaa !1320
   %257 = invoke noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
@@ -61422,15 +61422,15 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %319 = getelementptr inbounds nuw i8, ptr %316, i64 88
   store ptr %19, ptr %319, align 8, !tbaa !1307
   %.sroa.5.0..sroa_idx.i61 = getelementptr inbounds nuw i8, ptr %316, i64 96
-  store ptr %28, ptr %.sroa.5.0..sroa_idx.i61, align 8, !tbaa !1276
+  store ptr %28, ptr %.sroa.5.0..sroa_idx.i61, align 32, !tbaa !1276
   %.sroa.6.0..sroa_idx.i62 = getelementptr inbounds nuw i8, ptr %316, i64 104
   store ptr %32, ptr %.sroa.6.0..sroa_idx.i62, align 8, !tbaa !1309
   %.sroa.7.0..sroa_idx.i63 = getelementptr inbounds nuw i8, ptr %316, i64 112
-  store ptr %25, ptr %.sroa.7.0..sroa_idx.i63, align 8, !tbaa !124
+  store ptr %25, ptr %.sroa.7.0..sroa_idx.i63, align 16, !tbaa !124
   %.sroa.8.0..sroa_idx.i64 = getelementptr inbounds nuw i8, ptr %316, i64 120
   store ptr %29, ptr %.sroa.8.0..sroa_idx.i64, align 8, !tbaa !1278
   %.sroa.9.0..sroa_idx.i65 = getelementptr inbounds nuw i8, ptr %316, i64 128
-  store ptr %33, ptr %.sroa.9.0..sroa_idx.i65, align 8, !tbaa !1274
+  store ptr %33, ptr %.sroa.9.0..sroa_idx.i65, align 64, !tbaa !1274
   %320 = getelementptr inbounds nuw i8, ptr %316, i64 136
   store ptr null, ptr %320, align 8, !tbaa !1323
   %321 = invoke noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
@@ -62225,14 +62225,14 @@ define linkonce_odr void @_ZN6open3d7utility18InclusivePrefixSumIjlEEvPKT_S4_PT0
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 72
   store ptr %0, ptr %25, align 8, !tbaa !1328
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 80
-  store ptr %2, ptr %26, align 8, !tbaa !1329
+  store ptr %2, ptr %26, align 16, !tbaa !1329
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 120
   store ptr %6, ptr %27, align 8, !tbaa !1332
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 128
   store ptr null, ptr %28, align 64, !tbaa !1334
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 136
   store i64 %.val7.i.i.i, ptr %29, align 8, !tbaa !1296
-  store i64 0, ptr %24, align 8, !tbaa !1326
+  store i64 0, ptr %24, align 64, !tbaa !1326
   %30 = invoke noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef 192)
           to label %.noexc.i.i unwind label %59
 
@@ -62241,15 +62241,15 @@ define linkonce_odr void @_ZN6open3d7utility18InclusivePrefixSumIjlEEvPKT_S4_PT0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %31, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d110start_scanINS1_13blocked_rangeImEEN6open3d7utility12_GLOBAL__N_111ScanSumBodyIjlEENS1_16auto_partitionerEEE, i64 16), ptr %30, align 64, !tbaa !21
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 64
-  store ptr %5, ptr %32, align 8, !tbaa !1338
+  store ptr %5, ptr %32, align 64, !tbaa !1338
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 72
   store i64 %14, ptr %33, align 8, !tbaa !9
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 80
-  store i64 0, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !9
+  store i64 0, ptr %.sroa.6.0..sroa_idx, align 16, !tbaa !9
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 88
   store i64 1, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !9
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 96
-  store ptr %21, ptr %34, align 8, !tbaa !1341
+  store ptr %21, ptr %34, align 32, !tbaa !1341
   %35 = invoke noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
           to label %36 unwind label %59
 
@@ -62318,7 +62318,7 @@ _ZN3tbb6detail2d112wait_context7reserveEj.exit.i.i: ; preds = %54, %49
   %62 = getelementptr inbounds nuw i8, ptr %21, i64 88
   store i64 %14, ptr %62, align 8, !tbaa !9
   %.sroa.6.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %21, i64 96
-  store i64 0, ptr %.sroa.6.0..sroa_idx5, align 8, !tbaa !9
+  store i64 0, ptr %.sroa.6.0..sroa_idx5, align 32, !tbaa !9
   %.sroa.8.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %21, i64 104
   store i64 1, ptr %.sroa.8.0..sroa_idx7, align 8, !tbaa !9
   %63 = getelementptr inbounds nuw i8, ptr %21, i64 112
@@ -62698,7 +62698,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_113_KnnSearchCPUIfiNS7_23NeighborSearchAllocatorIfiEELi0EEEvPNS7_24NanoFlannIndexHolderBaseEPlmPKT_mSI_mibbRT1_EUlRKS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -62708,7 +62708,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %62, ptr noundef nonnull align 8 dereferenceable(80) %49, i64 80, i1 false), !tbaa.struct !1366
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 168
@@ -62717,7 +62717,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %65 = load i64, ptr %13, align 16, !tbaa !1295
   %66 = lshr i64 %65, 1
   store i64 %66, ptr %13, align 16, !tbaa !1295
-  store i64 %66, ptr %64, align 8, !tbaa !1295
+  store i64 %66, ptr %64, align 16, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 184
   store i32 2, ptr %67, align 8, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 188
@@ -62730,12 +62730,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 8, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 8, !tbaa !1282
   store ptr %72, ptr %63, align 8, !tbaa !1282
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -62919,7 +62919,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %161 = load i64, ptr %13, align 16, !tbaa !1295
   %162 = lshr i64 %161, 1
   store i64 %162, ptr %13, align 16, !tbaa !1295
-  store i64 %162, ptr %160, align 8, !tbaa !1295
+  store i64 %162, ptr %160, align 16, !tbaa !1295
   %163 = getelementptr inbounds nuw i8, ptr %154, i64 184
   store i32 2, ptr %163, align 8, !tbaa !1293
   %164 = getelementptr inbounds nuw i8, ptr %154, i64 188
@@ -62933,12 +62933,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %170 = load ptr, ptr %102, align 8, !tbaa !1367
   store ptr %170, ptr %169, align 8, !tbaa !1297
   %171 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  store i32 2, ptr %171, align 4, !tbaa !1301
+  store i32 2, ptr %171, align 8, !tbaa !1301
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %173 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %173, ptr %172, align 8, !tbaa !1296
   %174 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  store i8 0, ptr %174, align 1, !tbaa !1368
+  store i8 0, ptr %174, align 8, !tbaa !1368
   store ptr %169, ptr %102, align 8, !tbaa !1282
   store ptr %169, ptr %159, align 8, !tbaa !1282
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -64160,11 +64160,11 @@ define internal noundef ptr @_ZN3tbb6detail2d110start_scanINS1_13blocked_rangeIm
   %.val.i.i = load ptr, ptr %25, align 8, !tbaa !1328
   %26 = getelementptr inbounds nuw i8, ptr %.val.i, i64 80
   %.val4.i.i = load ptr, ptr %26, align 8, !tbaa !1329
-  store i64 0, ptr %24, align 8, !tbaa !1326
+  store i64 0, ptr %24, align 64, !tbaa !1326
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 72
   store ptr %.val.i.i, ptr %27, align 8, !tbaa !1328
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 80
-  store ptr %.val4.i.i, ptr %28, align 8, !tbaa !1329
+  store ptr %.val4.i.i, ptr %28, align 16, !tbaa !1329
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 120
   %30 = getelementptr inbounds nuw i8, ptr %.val.i, i64 120
   %31 = load ptr, ptr %30, align 8, !tbaa !1428
@@ -64394,7 +64394,7 @@ _ZN3tbb6detail2d116auto_partitioner14partition_type20should_execute_rangeERKNS1_
   %140 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %140, ptr %139, align 32, !tbaa !1296
   %141 = getelementptr inbounds nuw i8, ptr %131, i64 168
-  store i32 0, ptr %141, align 4, !tbaa !259
+  store i32 0, ptr %141, align 8, !tbaa !259
   %.not.i.i31 = icmp eq ptr %128, null
   br i1 %.not.i.i31, label %_ZN3tbb6detail2d122small_object_allocator10new_objectINS1_8sum_nodeINS1_13blocked_rangeImEEN6open3d7utility12_GLOBAL__N_111ScanSumBodyIjlEEEEJRS6_RbPSC_RNS1_12wait_contextERS2_EEEPT_DpOT0_.exit, label %142
 
@@ -64427,7 +64427,7 @@ _ZN3tbb6detail2d122small_object_allocator10new_objectINS1_8sum_nodeINS1_13blocke
   %156 = getelementptr inbounds nuw i8, ptr %148, i64 96
   store ptr %131, ptr %156, align 32, !tbaa !1330
   %157 = getelementptr inbounds nuw i8, ptr %148, i64 104
-  store i32 2, ptr %157, align 4, !tbaa !259
+  store i32 2, ptr %157, align 8, !tbaa !259
   %158 = getelementptr inbounds nuw i8, ptr %148, i64 112
   store ptr %150, ptr %158, align 16, !tbaa !1444
   %159 = getelementptr inbounds nuw i8, ptr %148, i64 120
@@ -64439,7 +64439,7 @@ _ZN3tbb6detail2d122small_object_allocator10new_objectINS1_8sum_nodeINS1_13blocke
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %162, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d110start_scanINS1_13blocked_rangeImEEN6open3d7utility12_GLOBAL__N_111ScanSumBodyIjlEENS1_16auto_partitionerEEE, i64 16), ptr %161, align 64, !tbaa !21
   %163 = getelementptr inbounds nuw i8, ptr %161, i64 64
-  store ptr %160, ptr %163, align 8, !tbaa !1338
+  store ptr %160, ptr %163, align 64, !tbaa !1338
   %164 = getelementptr inbounds nuw i8, ptr %161, i64 72
   %165 = load i64, ptr %40, align 8, !tbaa !1364
   store i64 %165, ptr %164, align 8, !tbaa !1364
@@ -64449,7 +64449,7 @@ _ZN3tbb6detail2d122small_object_allocator10new_objectINS1_8sum_nodeINS1_13blocke
   %169 = lshr i64 %168, 1
   %170 = add i64 %169, %167
   store i64 %170, ptr %40, align 8, !tbaa !1364
-  store i64 %170, ptr %166, align 8, !tbaa !1365
+  store i64 %170, ptr %166, align 16, !tbaa !1365
   %171 = getelementptr inbounds nuw i8, ptr %161, i64 88
   %172 = load i64, ptr %41, align 8, !tbaa !1363
   store i64 %172, ptr %171, align 8, !tbaa !1363
@@ -64630,7 +64630,7 @@ define internal noundef ptr @_ZN3tbb6detail2d18sum_nodeINS1_13blocked_rangeImEEN
   %32 = getelementptr inbounds nuw i8, ptr %.pre, i64 88
   store i64 %14, ptr %32, align 8, !tbaa !9
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.pre, i64 96
-  store i64 %19, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !9
+  store i64 %19, ptr %.sroa.4.0..sroa_idx, align 32, !tbaa !9
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.pre, i64 104
   store i64 %30, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !9
   %33 = getelementptr inbounds nuw i8, ptr %.pre, i64 112
@@ -65058,7 +65058,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_113_KnnSearchCPUIfiNS7_23NeighborSearchAllocatorIfiEELi0EEEvPNS7_24NanoFlannIndexHolderBaseEPlmPKT_mSI_mibbRT1_EUlRKS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -65068,7 +65068,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(48) %49, i64 48, i1 false), !tbaa.struct !1450
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 136
@@ -65077,7 +65077,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %65 = load i64, ptr %13, align 16, !tbaa !1295
   %66 = lshr i64 %65, 1
   store i64 %66, ptr %13, align 16, !tbaa !1295
-  store i64 %66, ptr %64, align 8, !tbaa !1295
+  store i64 %66, ptr %64, align 16, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 152
   store i32 2, ptr %67, align 8, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 156
@@ -65090,12 +65090,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 8, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 8, !tbaa !1311
   store ptr %72, ptr %63, align 8, !tbaa !1311
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -65370,7 +65370,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %221 = load i64, ptr %13, align 16, !tbaa !1295
   %222 = lshr i64 %221, 1
   store i64 %222, ptr %13, align 16, !tbaa !1295
-  store i64 %222, ptr %220, align 8, !tbaa !1295
+  store i64 %222, ptr %220, align 16, !tbaa !1295
   %223 = getelementptr inbounds nuw i8, ptr %214, i64 152
   store i32 2, ptr %223, align 8, !tbaa !1293
   %224 = getelementptr inbounds nuw i8, ptr %214, i64 156
@@ -65384,12 +65384,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %230 = load ptr, ptr %157, align 8, !tbaa !1367
   store ptr %230, ptr %229, align 8, !tbaa !1297
   %231 = getelementptr inbounds nuw i8, ptr %229, i64 8
-  store i32 2, ptr %231, align 4, !tbaa !1301
+  store i32 2, ptr %231, align 8, !tbaa !1301
   %232 = getelementptr inbounds nuw i8, ptr %229, i64 16
   %233 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %233, ptr %232, align 8, !tbaa !1296
   %234 = getelementptr inbounds nuw i8, ptr %229, i64 24
-  store i8 0, ptr %234, align 1, !tbaa !1368
+  store i8 0, ptr %234, align 8, !tbaa !1368
   store ptr %229, ptr %157, align 8, !tbaa !1311
   store ptr %229, ptr %219, align 8, !tbaa !1311
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -65740,7 +65740,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_113_KnnSearchCPUIfiNS7_23NeighborSearchAllocatorIfiEELi1EEEvPNS7_24NanoFlannIndexHolderBaseEPlmPKT_mSI_mibbRT1_EUlRKS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -65750,7 +65750,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %62, ptr noundef nonnull align 8 dereferenceable(80) %49, i64 80, i1 false), !tbaa.struct !1460
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 168
@@ -65759,7 +65759,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %65 = load i64, ptr %13, align 16, !tbaa !1295
   %66 = lshr i64 %65, 1
   store i64 %66, ptr %13, align 16, !tbaa !1295
-  store i64 %66, ptr %64, align 8, !tbaa !1295
+  store i64 %66, ptr %64, align 16, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 184
   store i32 2, ptr %67, align 8, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 188
@@ -65772,12 +65772,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 8, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 8, !tbaa !1320
   store ptr %72, ptr %63, align 8, !tbaa !1320
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -65961,7 +65961,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %161 = load i64, ptr %13, align 16, !tbaa !1295
   %162 = lshr i64 %161, 1
   store i64 %162, ptr %13, align 16, !tbaa !1295
-  store i64 %162, ptr %160, align 8, !tbaa !1295
+  store i64 %162, ptr %160, align 16, !tbaa !1295
   %163 = getelementptr inbounds nuw i8, ptr %154, i64 184
   store i32 2, ptr %163, align 8, !tbaa !1293
   %164 = getelementptr inbounds nuw i8, ptr %154, i64 188
@@ -65975,12 +65975,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %170 = load ptr, ptr %102, align 8, !tbaa !1367
   store ptr %170, ptr %169, align 8, !tbaa !1297
   %171 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  store i32 2, ptr %171, align 4, !tbaa !1301
+  store i32 2, ptr %171, align 8, !tbaa !1301
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %173 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %173, ptr %172, align 8, !tbaa !1296
   %174 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  store i8 0, ptr %174, align 1, !tbaa !1368
+  store i8 0, ptr %174, align 8, !tbaa !1368
   store ptr %169, ptr %102, align 8, !tbaa !1320
   store ptr %169, ptr %159, align 8, !tbaa !1320
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -67094,7 +67094,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_113_KnnSearchCPUIfiNS7_23NeighborSearchAllocatorIfiEELi1EEEvPNS7_24NanoFlannIndexHolderBaseEPlmPKT_mSI_mibbRT1_EUlRKS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -67104,7 +67104,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(48) %49, i64 48, i1 false), !tbaa.struct !1450
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 136
@@ -67113,7 +67113,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %65 = load i64, ptr %13, align 16, !tbaa !1295
   %66 = lshr i64 %65, 1
   store i64 %66, ptr %13, align 16, !tbaa !1295
-  store i64 %66, ptr %64, align 8, !tbaa !1295
+  store i64 %66, ptr %64, align 16, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 152
   store i32 2, ptr %67, align 8, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 156
@@ -67126,12 +67126,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 8, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 8, !tbaa !1323
   store ptr %72, ptr %63, align 8, !tbaa !1323
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -67406,7 +67406,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %221 = load i64, ptr %13, align 16, !tbaa !1295
   %222 = lshr i64 %221, 1
   store i64 %222, ptr %13, align 16, !tbaa !1295
-  store i64 %222, ptr %220, align 8, !tbaa !1295
+  store i64 %222, ptr %220, align 16, !tbaa !1295
   %223 = getelementptr inbounds nuw i8, ptr %214, i64 152
   store i32 2, ptr %223, align 8, !tbaa !1293
   %224 = getelementptr inbounds nuw i8, ptr %214, i64 156
@@ -67420,12 +67420,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %230 = load ptr, ptr %157, align 8, !tbaa !1367
   store ptr %230, ptr %229, align 8, !tbaa !1297
   %231 = getelementptr inbounds nuw i8, ptr %229, i64 8
-  store i32 2, ptr %231, align 4, !tbaa !1301
+  store i32 2, ptr %231, align 8, !tbaa !1301
   %232 = getelementptr inbounds nuw i8, ptr %229, i64 16
   %233 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %233, ptr %232, align 8, !tbaa !1296
   %234 = getelementptr inbounds nuw i8, ptr %229, i64 24
-  store i8 0, ptr %234, align 1, !tbaa !1368
+  store i8 0, ptr %234, align 8, !tbaa !1368
   store ptr %229, ptr %157, align 8, !tbaa !1323
   store ptr %229, ptr %219, align 8, !tbaa !1323
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -68115,23 +68115,23 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 88
   store ptr %44, ptr %87, align 8, !tbaa !420
   %.sroa.575.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 96
-  store ptr %52, ptr %.sroa.575.0..sroa_idx.i, align 8, !tbaa !1495
+  store ptr %52, ptr %.sroa.575.0..sroa_idx.i, align 32, !tbaa !1495
   %.sroa.676.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 104
   store ptr %42, ptr %.sroa.676.0..sroa_idx.i, align 8, !tbaa !1274
   %.sroa.777.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 112
-  store ptr %43, ptr %.sroa.777.0..sroa_idx.i, align 8, !tbaa !540
+  store ptr %43, ptr %.sroa.777.0..sroa_idx.i, align 16, !tbaa !540
   %.sroa.878.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 120
   store ptr %45, ptr %.sroa.878.0..sroa_idx.i, align 8, !tbaa !124
   %.sroa.979.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 128
-  store ptr %41, ptr %.sroa.979.0..sroa_idx.i, align 8, !tbaa !1274
+  store ptr %41, ptr %.sroa.979.0..sroa_idx.i, align 64, !tbaa !1274
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 136
   store ptr %49, ptr %.sroa.10.0..sroa_idx.i, align 8, !tbaa !1497
   %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 144
-  store ptr %46, ptr %.sroa.11.0..sroa_idx.i, align 8, !tbaa !124
+  store ptr %46, ptr %.sroa.11.0..sroa_idx.i, align 16, !tbaa !124
   %.sroa.12.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 152
   store ptr %50, ptr %.sroa.12.0..sroa_idx.i, align 8, !tbaa !1278
   %.sroa.13.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 160
-  store ptr %51, ptr %.sroa.13.0..sroa_idx.i, align 8, !tbaa !1280
+  store ptr %51, ptr %.sroa.13.0..sroa_idx.i, align 32, !tbaa !1280
   %88 = getelementptr inbounds nuw i8, ptr %84, i64 168
   store ptr null, ptr %88, align 8, !tbaa !1499
   %89 = invoke noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
@@ -68294,15 +68294,15 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %151 = getelementptr inbounds nuw i8, ptr %148, i64 88
   store ptr %40, ptr %151, align 8, !tbaa !1307
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %148, i64 96
-  store ptr %49, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !1497
+  store ptr %49, ptr %.sroa.5.0..sroa_idx.i, align 32, !tbaa !1497
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %148, i64 104
   store ptr %53, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !1307
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %148, i64 112
-  store ptr %46, ptr %.sroa.7.0..sroa_idx.i, align 8, !tbaa !124
+  store ptr %46, ptr %.sroa.7.0..sroa_idx.i, align 16, !tbaa !124
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %148, i64 120
   store ptr %50, ptr %.sroa.8.0..sroa_idx.i, align 8, !tbaa !1278
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %148, i64 128
-  store ptr %54, ptr %.sroa.9.0..sroa_idx.i, align 8, !tbaa !1274
+  store ptr %54, ptr %.sroa.9.0..sroa_idx.i, align 64, !tbaa !1274
   %152 = getelementptr inbounds nuw i8, ptr %148, i64 136
   store ptr null, ptr %152, align 8, !tbaa !1502
   %153 = invoke noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
@@ -68641,23 +68641,23 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %255 = getelementptr inbounds nuw i8, ptr %252, i64 88
   store ptr %23, ptr %255, align 8, !tbaa !420
   %.sroa.575.0..sroa_idx.i39 = getelementptr inbounds nuw i8, ptr %252, i64 96
-  store ptr %31, ptr %.sroa.575.0..sroa_idx.i39, align 8, !tbaa !1508
+  store ptr %31, ptr %.sroa.575.0..sroa_idx.i39, align 32, !tbaa !1508
   %.sroa.676.0..sroa_idx.i40 = getelementptr inbounds nuw i8, ptr %252, i64 104
   store ptr %21, ptr %.sroa.676.0..sroa_idx.i40, align 8, !tbaa !1274
   %.sroa.777.0..sroa_idx.i41 = getelementptr inbounds nuw i8, ptr %252, i64 112
-  store ptr %22, ptr %.sroa.777.0..sroa_idx.i41, align 8, !tbaa !540
+  store ptr %22, ptr %.sroa.777.0..sroa_idx.i41, align 16, !tbaa !540
   %.sroa.878.0..sroa_idx.i42 = getelementptr inbounds nuw i8, ptr %252, i64 120
   store ptr %24, ptr %.sroa.878.0..sroa_idx.i42, align 8, !tbaa !124
   %.sroa.979.0..sroa_idx.i43 = getelementptr inbounds nuw i8, ptr %252, i64 128
-  store ptr %20, ptr %.sroa.979.0..sroa_idx.i43, align 8, !tbaa !1274
+  store ptr %20, ptr %.sroa.979.0..sroa_idx.i43, align 64, !tbaa !1274
   %.sroa.10.0..sroa_idx.i44 = getelementptr inbounds nuw i8, ptr %252, i64 136
   store ptr %28, ptr %.sroa.10.0..sroa_idx.i44, align 8, !tbaa !1497
   %.sroa.11.0..sroa_idx.i45 = getelementptr inbounds nuw i8, ptr %252, i64 144
-  store ptr %25, ptr %.sroa.11.0..sroa_idx.i45, align 8, !tbaa !124
+  store ptr %25, ptr %.sroa.11.0..sroa_idx.i45, align 16, !tbaa !124
   %.sroa.12.0..sroa_idx.i46 = getelementptr inbounds nuw i8, ptr %252, i64 152
   store ptr %29, ptr %.sroa.12.0..sroa_idx.i46, align 8, !tbaa !1278
   %.sroa.13.0..sroa_idx.i47 = getelementptr inbounds nuw i8, ptr %252, i64 160
-  store ptr %30, ptr %.sroa.13.0..sroa_idx.i47, align 8, !tbaa !1280
+  store ptr %30, ptr %.sroa.13.0..sroa_idx.i47, align 32, !tbaa !1280
   %256 = getelementptr inbounds nuw i8, ptr %252, i64 168
   store ptr null, ptr %256, align 8, !tbaa !1510
   %257 = invoke noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
@@ -68820,15 +68820,15 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %319 = getelementptr inbounds nuw i8, ptr %316, i64 88
   store ptr %19, ptr %319, align 8, !tbaa !1307
   %.sroa.5.0..sroa_idx.i61 = getelementptr inbounds nuw i8, ptr %316, i64 96
-  store ptr %28, ptr %.sroa.5.0..sroa_idx.i61, align 8, !tbaa !1497
+  store ptr %28, ptr %.sroa.5.0..sroa_idx.i61, align 32, !tbaa !1497
   %.sroa.6.0..sroa_idx.i62 = getelementptr inbounds nuw i8, ptr %316, i64 104
   store ptr %32, ptr %.sroa.6.0..sroa_idx.i62, align 8, !tbaa !1307
   %.sroa.7.0..sroa_idx.i63 = getelementptr inbounds nuw i8, ptr %316, i64 112
-  store ptr %25, ptr %.sroa.7.0..sroa_idx.i63, align 8, !tbaa !124
+  store ptr %25, ptr %.sroa.7.0..sroa_idx.i63, align 16, !tbaa !124
   %.sroa.8.0..sroa_idx.i64 = getelementptr inbounds nuw i8, ptr %316, i64 120
   store ptr %29, ptr %.sroa.8.0..sroa_idx.i64, align 8, !tbaa !1278
   %.sroa.9.0..sroa_idx.i65 = getelementptr inbounds nuw i8, ptr %316, i64 128
-  store ptr %33, ptr %.sroa.9.0..sroa_idx.i65, align 8, !tbaa !1274
+  store ptr %33, ptr %.sroa.9.0..sroa_idx.i65, align 64, !tbaa !1274
   %320 = getelementptr inbounds nuw i8, ptr %316, i64 136
   store ptr null, ptr %320, align 8, !tbaa !1513
   %321 = invoke noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
@@ -69723,7 +69723,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_113_KnnSearchCPUIflNS7_23NeighborSearchAllocatorIflEELi0EEEvPNS7_24NanoFlannIndexHolderBaseEPlmPKT_mSI_mibbRT1_EUlRKS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -69733,7 +69733,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %62, ptr noundef nonnull align 8 dereferenceable(80) %49, i64 80, i1 false), !tbaa.struct !1516
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 168
@@ -69742,7 +69742,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %65 = load i64, ptr %13, align 16, !tbaa !1295
   %66 = lshr i64 %65, 1
   store i64 %66, ptr %13, align 16, !tbaa !1295
-  store i64 %66, ptr %64, align 8, !tbaa !1295
+  store i64 %66, ptr %64, align 16, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 184
   store i32 2, ptr %67, align 8, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 188
@@ -69755,12 +69755,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 8, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 8, !tbaa !1499
   store ptr %72, ptr %63, align 8, !tbaa !1499
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -69944,7 +69944,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %161 = load i64, ptr %13, align 16, !tbaa !1295
   %162 = lshr i64 %161, 1
   store i64 %162, ptr %13, align 16, !tbaa !1295
-  store i64 %162, ptr %160, align 8, !tbaa !1295
+  store i64 %162, ptr %160, align 16, !tbaa !1295
   %163 = getelementptr inbounds nuw i8, ptr %154, i64 184
   store i32 2, ptr %163, align 8, !tbaa !1293
   %164 = getelementptr inbounds nuw i8, ptr %154, i64 188
@@ -69958,12 +69958,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %170 = load ptr, ptr %102, align 8, !tbaa !1367
   store ptr %170, ptr %169, align 8, !tbaa !1297
   %171 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  store i32 2, ptr %171, align 4, !tbaa !1301
+  store i32 2, ptr %171, align 8, !tbaa !1301
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %173 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %173, ptr %172, align 8, !tbaa !1296
   %174 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  store i8 0, ptr %174, align 1, !tbaa !1368
+  store i8 0, ptr %174, align 8, !tbaa !1368
   store ptr %169, ptr %102, align 8, !tbaa !1499
   store ptr %169, ptr %159, align 8, !tbaa !1499
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -71086,7 +71086,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_113_KnnSearchCPUIflNS7_23NeighborSearchAllocatorIflEELi0EEEvPNS7_24NanoFlannIndexHolderBaseEPlmPKT_mSI_mibbRT1_EUlRKS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -71096,7 +71096,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(48) %49, i64 48, i1 false), !tbaa.struct !1562
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 136
@@ -71105,7 +71105,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %65 = load i64, ptr %13, align 16, !tbaa !1295
   %66 = lshr i64 %65, 1
   store i64 %66, ptr %13, align 16, !tbaa !1295
-  store i64 %66, ptr %64, align 8, !tbaa !1295
+  store i64 %66, ptr %64, align 16, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 152
   store i32 2, ptr %67, align 8, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 156
@@ -71118,12 +71118,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 8, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 8, !tbaa !1502
   store ptr %72, ptr %63, align 8, !tbaa !1502
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -71398,7 +71398,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %221 = load i64, ptr %13, align 16, !tbaa !1295
   %222 = lshr i64 %221, 1
   store i64 %222, ptr %13, align 16, !tbaa !1295
-  store i64 %222, ptr %220, align 8, !tbaa !1295
+  store i64 %222, ptr %220, align 16, !tbaa !1295
   %223 = getelementptr inbounds nuw i8, ptr %214, i64 152
   store i32 2, ptr %223, align 8, !tbaa !1293
   %224 = getelementptr inbounds nuw i8, ptr %214, i64 156
@@ -71412,12 +71412,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %230 = load ptr, ptr %157, align 8, !tbaa !1367
   store ptr %230, ptr %229, align 8, !tbaa !1297
   %231 = getelementptr inbounds nuw i8, ptr %229, i64 8
-  store i32 2, ptr %231, align 4, !tbaa !1301
+  store i32 2, ptr %231, align 8, !tbaa !1301
   %232 = getelementptr inbounds nuw i8, ptr %229, i64 16
   %233 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %233, ptr %232, align 8, !tbaa !1296
   %234 = getelementptr inbounds nuw i8, ptr %229, i64 24
-  store i8 0, ptr %234, align 1, !tbaa !1368
+  store i8 0, ptr %234, align 8, !tbaa !1368
   store ptr %229, ptr %157, align 8, !tbaa !1502
   store ptr %229, ptr %219, align 8, !tbaa !1502
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -71768,7 +71768,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_113_KnnSearchCPUIflNS7_23NeighborSearchAllocatorIflEELi1EEEvPNS7_24NanoFlannIndexHolderBaseEPlmPKT_mSI_mibbRT1_EUlRKS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -71778,7 +71778,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %62, ptr noundef nonnull align 8 dereferenceable(80) %49, i64 80, i1 false), !tbaa.struct !1572
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 168
@@ -71787,7 +71787,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %65 = load i64, ptr %13, align 16, !tbaa !1295
   %66 = lshr i64 %65, 1
   store i64 %66, ptr %13, align 16, !tbaa !1295
-  store i64 %66, ptr %64, align 8, !tbaa !1295
+  store i64 %66, ptr %64, align 16, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 184
   store i32 2, ptr %67, align 8, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 188
@@ -71800,12 +71800,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 8, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 8, !tbaa !1510
   store ptr %72, ptr %63, align 8, !tbaa !1510
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -71989,7 +71989,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %161 = load i64, ptr %13, align 16, !tbaa !1295
   %162 = lshr i64 %161, 1
   store i64 %162, ptr %13, align 16, !tbaa !1295
-  store i64 %162, ptr %160, align 8, !tbaa !1295
+  store i64 %162, ptr %160, align 16, !tbaa !1295
   %163 = getelementptr inbounds nuw i8, ptr %154, i64 184
   store i32 2, ptr %163, align 8, !tbaa !1293
   %164 = getelementptr inbounds nuw i8, ptr %154, i64 188
@@ -72003,12 +72003,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %170 = load ptr, ptr %102, align 8, !tbaa !1367
   store ptr %170, ptr %169, align 8, !tbaa !1297
   %171 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  store i32 2, ptr %171, align 4, !tbaa !1301
+  store i32 2, ptr %171, align 8, !tbaa !1301
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %173 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %173, ptr %172, align 8, !tbaa !1296
   %174 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  store i8 0, ptr %174, align 1, !tbaa !1368
+  store i8 0, ptr %174, align 8, !tbaa !1368
   store ptr %169, ptr %102, align 8, !tbaa !1510
   store ptr %169, ptr %159, align 8, !tbaa !1510
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -73128,7 +73128,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_113_KnnSearchCPUIflNS7_23NeighborSearchAllocatorIflEELi1EEEvPNS7_24NanoFlannIndexHolderBaseEPlmPKT_mSI_mibbRT1_EUlRKS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -73138,7 +73138,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(48) %49, i64 48, i1 false), !tbaa.struct !1562
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 136
@@ -73147,7 +73147,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %65 = load i64, ptr %13, align 16, !tbaa !1295
   %66 = lshr i64 %65, 1
   store i64 %66, ptr %13, align 16, !tbaa !1295
-  store i64 %66, ptr %64, align 8, !tbaa !1295
+  store i64 %66, ptr %64, align 16, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 152
   store i32 2, ptr %67, align 8, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 156
@@ -73160,12 +73160,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 8, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 8, !tbaa !1513
   store ptr %72, ptr %63, align 8, !tbaa !1513
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -73440,7 +73440,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %221 = load i64, ptr %13, align 16, !tbaa !1295
   %222 = lshr i64 %221, 1
   store i64 %222, ptr %13, align 16, !tbaa !1295
-  store i64 %222, ptr %220, align 8, !tbaa !1295
+  store i64 %222, ptr %220, align 16, !tbaa !1295
   %223 = getelementptr inbounds nuw i8, ptr %214, i64 152
   store i32 2, ptr %223, align 8, !tbaa !1293
   %224 = getelementptr inbounds nuw i8, ptr %214, i64 156
@@ -73454,12 +73454,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %230 = load ptr, ptr %157, align 8, !tbaa !1367
   store ptr %230, ptr %229, align 8, !tbaa !1297
   %231 = getelementptr inbounds nuw i8, ptr %229, i64 8
-  store i32 2, ptr %231, align 4, !tbaa !1301
+  store i32 2, ptr %231, align 8, !tbaa !1301
   %232 = getelementptr inbounds nuw i8, ptr %229, i64 16
   %233 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %233, ptr %232, align 8, !tbaa !1296
   %234 = getelementptr inbounds nuw i8, ptr %229, i64 24
-  store i8 0, ptr %234, align 1, !tbaa !1368
+  store i8 0, ptr %234, align 8, !tbaa !1368
   store ptr %229, ptr %157, align 8, !tbaa !1513
   store ptr %229, ptr %219, align 8, !tbaa !1513
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -74053,23 +74053,23 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 88
   store ptr %44, ptr %87, align 8, !tbaa !420
   %.sroa.575.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 96
-  store ptr %52, ptr %.sroa.575.0..sroa_idx.i, align 8, !tbaa !1608
+  store ptr %52, ptr %.sroa.575.0..sroa_idx.i, align 32, !tbaa !1608
   %.sroa.676.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 104
   store ptr %42, ptr %.sroa.676.0..sroa_idx.i, align 8, !tbaa !1610
   %.sroa.777.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 112
-  store ptr %43, ptr %.sroa.777.0..sroa_idx.i, align 8, !tbaa !540
+  store ptr %43, ptr %.sroa.777.0..sroa_idx.i, align 16, !tbaa !540
   %.sroa.878.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 120
   store ptr %45, ptr %.sroa.878.0..sroa_idx.i, align 8, !tbaa !124
   %.sroa.979.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 128
-  store ptr %41, ptr %.sroa.979.0..sroa_idx.i, align 8, !tbaa !1610
+  store ptr %41, ptr %.sroa.979.0..sroa_idx.i, align 64, !tbaa !1610
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 136
   store ptr %49, ptr %.sroa.10.0..sroa_idx.i, align 8, !tbaa !1276
   %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 144
-  store ptr %46, ptr %.sroa.11.0..sroa_idx.i, align 8, !tbaa !124
+  store ptr %46, ptr %.sroa.11.0..sroa_idx.i, align 16, !tbaa !124
   %.sroa.12.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 152
   store ptr %50, ptr %.sroa.12.0..sroa_idx.i, align 8, !tbaa !1612
   %.sroa.13.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 160
-  store ptr %51, ptr %.sroa.13.0..sroa_idx.i, align 8, !tbaa !1280
+  store ptr %51, ptr %.sroa.13.0..sroa_idx.i, align 32, !tbaa !1280
   %88 = getelementptr inbounds nuw i8, ptr %84, i64 168
   store ptr null, ptr %88, align 8, !tbaa !1614
   %89 = invoke noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
@@ -74232,15 +74232,15 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %151 = getelementptr inbounds nuw i8, ptr %148, i64 88
   store ptr %40, ptr %151, align 8, !tbaa !1307
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %148, i64 96
-  store ptr %49, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !1276
+  store ptr %49, ptr %.sroa.5.0..sroa_idx.i, align 32, !tbaa !1276
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %148, i64 104
   store ptr %53, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !1309
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %148, i64 112
-  store ptr %46, ptr %.sroa.7.0..sroa_idx.i, align 8, !tbaa !124
+  store ptr %46, ptr %.sroa.7.0..sroa_idx.i, align 16, !tbaa !124
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %148, i64 120
   store ptr %50, ptr %.sroa.8.0..sroa_idx.i, align 8, !tbaa !1612
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %148, i64 128
-  store ptr %54, ptr %.sroa.9.0..sroa_idx.i, align 8, !tbaa !1610
+  store ptr %54, ptr %.sroa.9.0..sroa_idx.i, align 64, !tbaa !1610
   %152 = getelementptr inbounds nuw i8, ptr %148, i64 136
   store ptr null, ptr %152, align 8, !tbaa !1617
   %153 = invoke noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
@@ -74579,23 +74579,23 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %255 = getelementptr inbounds nuw i8, ptr %252, i64 88
   store ptr %23, ptr %255, align 8, !tbaa !420
   %.sroa.575.0..sroa_idx.i39 = getelementptr inbounds nuw i8, ptr %252, i64 96
-  store ptr %31, ptr %.sroa.575.0..sroa_idx.i39, align 8, !tbaa !1623
+  store ptr %31, ptr %.sroa.575.0..sroa_idx.i39, align 32, !tbaa !1623
   %.sroa.676.0..sroa_idx.i40 = getelementptr inbounds nuw i8, ptr %252, i64 104
   store ptr %21, ptr %.sroa.676.0..sroa_idx.i40, align 8, !tbaa !1610
   %.sroa.777.0..sroa_idx.i41 = getelementptr inbounds nuw i8, ptr %252, i64 112
-  store ptr %22, ptr %.sroa.777.0..sroa_idx.i41, align 8, !tbaa !540
+  store ptr %22, ptr %.sroa.777.0..sroa_idx.i41, align 16, !tbaa !540
   %.sroa.878.0..sroa_idx.i42 = getelementptr inbounds nuw i8, ptr %252, i64 120
   store ptr %24, ptr %.sroa.878.0..sroa_idx.i42, align 8, !tbaa !124
   %.sroa.979.0..sroa_idx.i43 = getelementptr inbounds nuw i8, ptr %252, i64 128
-  store ptr %20, ptr %.sroa.979.0..sroa_idx.i43, align 8, !tbaa !1610
+  store ptr %20, ptr %.sroa.979.0..sroa_idx.i43, align 64, !tbaa !1610
   %.sroa.10.0..sroa_idx.i44 = getelementptr inbounds nuw i8, ptr %252, i64 136
   store ptr %28, ptr %.sroa.10.0..sroa_idx.i44, align 8, !tbaa !1276
   %.sroa.11.0..sroa_idx.i45 = getelementptr inbounds nuw i8, ptr %252, i64 144
-  store ptr %25, ptr %.sroa.11.0..sroa_idx.i45, align 8, !tbaa !124
+  store ptr %25, ptr %.sroa.11.0..sroa_idx.i45, align 16, !tbaa !124
   %.sroa.12.0..sroa_idx.i46 = getelementptr inbounds nuw i8, ptr %252, i64 152
   store ptr %29, ptr %.sroa.12.0..sroa_idx.i46, align 8, !tbaa !1612
   %.sroa.13.0..sroa_idx.i47 = getelementptr inbounds nuw i8, ptr %252, i64 160
-  store ptr %30, ptr %.sroa.13.0..sroa_idx.i47, align 8, !tbaa !1280
+  store ptr %30, ptr %.sroa.13.0..sroa_idx.i47, align 32, !tbaa !1280
   %256 = getelementptr inbounds nuw i8, ptr %252, i64 168
   store ptr null, ptr %256, align 8, !tbaa !1625
   %257 = invoke noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
@@ -74758,15 +74758,15 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %319 = getelementptr inbounds nuw i8, ptr %316, i64 88
   store ptr %19, ptr %319, align 8, !tbaa !1307
   %.sroa.5.0..sroa_idx.i61 = getelementptr inbounds nuw i8, ptr %316, i64 96
-  store ptr %28, ptr %.sroa.5.0..sroa_idx.i61, align 8, !tbaa !1276
+  store ptr %28, ptr %.sroa.5.0..sroa_idx.i61, align 32, !tbaa !1276
   %.sroa.6.0..sroa_idx.i62 = getelementptr inbounds nuw i8, ptr %316, i64 104
   store ptr %32, ptr %.sroa.6.0..sroa_idx.i62, align 8, !tbaa !1309
   %.sroa.7.0..sroa_idx.i63 = getelementptr inbounds nuw i8, ptr %316, i64 112
-  store ptr %25, ptr %.sroa.7.0..sroa_idx.i63, align 8, !tbaa !124
+  store ptr %25, ptr %.sroa.7.0..sroa_idx.i63, align 16, !tbaa !124
   %.sroa.8.0..sroa_idx.i64 = getelementptr inbounds nuw i8, ptr %316, i64 120
   store ptr %29, ptr %.sroa.8.0..sroa_idx.i64, align 8, !tbaa !1612
   %.sroa.9.0..sroa_idx.i65 = getelementptr inbounds nuw i8, ptr %316, i64 128
-  store ptr %33, ptr %.sroa.9.0..sroa_idx.i65, align 8, !tbaa !1610
+  store ptr %33, ptr %.sroa.9.0..sroa_idx.i65, align 64, !tbaa !1610
   %320 = getelementptr inbounds nuw i8, ptr %316, i64 136
   store ptr null, ptr %320, align 8, !tbaa !1628
   %321 = invoke noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
@@ -75661,7 +75661,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_113_KnnSearchCPUIdiNS7_23NeighborSearchAllocatorIdiEELi0EEEvPNS7_24NanoFlannIndexHolderBaseEPlmPKT_mSI_mibbRT1_EUlRKS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -75671,7 +75671,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %62, ptr noundef nonnull align 8 dereferenceable(80) %49, i64 80, i1 false), !tbaa.struct !1631
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 168
@@ -75680,7 +75680,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %65 = load i64, ptr %13, align 16, !tbaa !1295
   %66 = lshr i64 %65, 1
   store i64 %66, ptr %13, align 16, !tbaa !1295
-  store i64 %66, ptr %64, align 8, !tbaa !1295
+  store i64 %66, ptr %64, align 16, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 184
   store i32 2, ptr %67, align 8, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 188
@@ -75693,12 +75693,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 8, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 8, !tbaa !1614
   store ptr %72, ptr %63, align 8, !tbaa !1614
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -75882,7 +75882,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %161 = load i64, ptr %13, align 16, !tbaa !1295
   %162 = lshr i64 %161, 1
   store i64 %162, ptr %13, align 16, !tbaa !1295
-  store i64 %162, ptr %160, align 8, !tbaa !1295
+  store i64 %162, ptr %160, align 16, !tbaa !1295
   %163 = getelementptr inbounds nuw i8, ptr %154, i64 184
   store i32 2, ptr %163, align 8, !tbaa !1293
   %164 = getelementptr inbounds nuw i8, ptr %154, i64 188
@@ -75896,12 +75896,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %170 = load ptr, ptr %102, align 8, !tbaa !1367
   store ptr %170, ptr %169, align 8, !tbaa !1297
   %171 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  store i32 2, ptr %171, align 4, !tbaa !1301
+  store i32 2, ptr %171, align 8, !tbaa !1301
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %173 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %173, ptr %172, align 8, !tbaa !1296
   %174 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  store i8 0, ptr %174, align 1, !tbaa !1368
+  store i8 0, ptr %174, align 8, !tbaa !1368
   store ptr %169, ptr %102, align 8, !tbaa !1614
   store ptr %169, ptr %159, align 8, !tbaa !1614
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -77020,7 +77020,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_113_KnnSearchCPUIdiNS7_23NeighborSearchAllocatorIdiEELi0EEEvPNS7_24NanoFlannIndexHolderBaseEPlmPKT_mSI_mibbRT1_EUlRKS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -77030,7 +77030,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(48) %49, i64 48, i1 false), !tbaa.struct !1678
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 136
@@ -77039,7 +77039,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %65 = load i64, ptr %13, align 16, !tbaa !1295
   %66 = lshr i64 %65, 1
   store i64 %66, ptr %13, align 16, !tbaa !1295
-  store i64 %66, ptr %64, align 8, !tbaa !1295
+  store i64 %66, ptr %64, align 16, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 152
   store i32 2, ptr %67, align 8, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 156
@@ -77052,12 +77052,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 8, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 8, !tbaa !1617
   store ptr %72, ptr %63, align 8, !tbaa !1617
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -77332,7 +77332,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %221 = load i64, ptr %13, align 16, !tbaa !1295
   %222 = lshr i64 %221, 1
   store i64 %222, ptr %13, align 16, !tbaa !1295
-  store i64 %222, ptr %220, align 8, !tbaa !1295
+  store i64 %222, ptr %220, align 16, !tbaa !1295
   %223 = getelementptr inbounds nuw i8, ptr %214, i64 152
   store i32 2, ptr %223, align 8, !tbaa !1293
   %224 = getelementptr inbounds nuw i8, ptr %214, i64 156
@@ -77346,12 +77346,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %230 = load ptr, ptr %157, align 8, !tbaa !1367
   store ptr %230, ptr %229, align 8, !tbaa !1297
   %231 = getelementptr inbounds nuw i8, ptr %229, i64 8
-  store i32 2, ptr %231, align 4, !tbaa !1301
+  store i32 2, ptr %231, align 8, !tbaa !1301
   %232 = getelementptr inbounds nuw i8, ptr %229, i64 16
   %233 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %233, ptr %232, align 8, !tbaa !1296
   %234 = getelementptr inbounds nuw i8, ptr %229, i64 24
-  store i8 0, ptr %234, align 1, !tbaa !1368
+  store i8 0, ptr %234, align 8, !tbaa !1368
   store ptr %229, ptr %157, align 8, !tbaa !1617
   store ptr %229, ptr %219, align 8, !tbaa !1617
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -77702,7 +77702,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_113_KnnSearchCPUIdiNS7_23NeighborSearchAllocatorIdiEELi1EEEvPNS7_24NanoFlannIndexHolderBaseEPlmPKT_mSI_mibbRT1_EUlRKS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -77712,7 +77712,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %62, ptr noundef nonnull align 8 dereferenceable(80) %49, i64 80, i1 false), !tbaa.struct !1688
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 168
@@ -77721,7 +77721,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %65 = load i64, ptr %13, align 16, !tbaa !1295
   %66 = lshr i64 %65, 1
   store i64 %66, ptr %13, align 16, !tbaa !1295
-  store i64 %66, ptr %64, align 8, !tbaa !1295
+  store i64 %66, ptr %64, align 16, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 184
   store i32 2, ptr %67, align 8, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 188
@@ -77734,12 +77734,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 8, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 8, !tbaa !1625
   store ptr %72, ptr %63, align 8, !tbaa !1625
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -77923,7 +77923,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %161 = load i64, ptr %13, align 16, !tbaa !1295
   %162 = lshr i64 %161, 1
   store i64 %162, ptr %13, align 16, !tbaa !1295
-  store i64 %162, ptr %160, align 8, !tbaa !1295
+  store i64 %162, ptr %160, align 16, !tbaa !1295
   %163 = getelementptr inbounds nuw i8, ptr %154, i64 184
   store i32 2, ptr %163, align 8, !tbaa !1293
   %164 = getelementptr inbounds nuw i8, ptr %154, i64 188
@@ -77937,12 +77937,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %170 = load ptr, ptr %102, align 8, !tbaa !1367
   store ptr %170, ptr %169, align 8, !tbaa !1297
   %171 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  store i32 2, ptr %171, align 4, !tbaa !1301
+  store i32 2, ptr %171, align 8, !tbaa !1301
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %173 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %173, ptr %172, align 8, !tbaa !1296
   %174 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  store i8 0, ptr %174, align 1, !tbaa !1368
+  store i8 0, ptr %174, align 8, !tbaa !1368
   store ptr %169, ptr %102, align 8, !tbaa !1625
   store ptr %169, ptr %159, align 8, !tbaa !1625
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -79055,7 +79055,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_113_KnnSearchCPUIdiNS7_23NeighborSearchAllocatorIdiEELi1EEEvPNS7_24NanoFlannIndexHolderBaseEPlmPKT_mSI_mibbRT1_EUlRKS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -79065,7 +79065,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(48) %49, i64 48, i1 false), !tbaa.struct !1678
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 136
@@ -79074,7 +79074,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %65 = load i64, ptr %13, align 16, !tbaa !1295
   %66 = lshr i64 %65, 1
   store i64 %66, ptr %13, align 16, !tbaa !1295
-  store i64 %66, ptr %64, align 8, !tbaa !1295
+  store i64 %66, ptr %64, align 16, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 152
   store i32 2, ptr %67, align 8, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 156
@@ -79087,12 +79087,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 8, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 8, !tbaa !1628
   store ptr %72, ptr %63, align 8, !tbaa !1628
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -79367,7 +79367,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %221 = load i64, ptr %13, align 16, !tbaa !1295
   %222 = lshr i64 %221, 1
   store i64 %222, ptr %13, align 16, !tbaa !1295
-  store i64 %222, ptr %220, align 8, !tbaa !1295
+  store i64 %222, ptr %220, align 16, !tbaa !1295
   %223 = getelementptr inbounds nuw i8, ptr %214, i64 152
   store i32 2, ptr %223, align 8, !tbaa !1293
   %224 = getelementptr inbounds nuw i8, ptr %214, i64 156
@@ -79381,12 +79381,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %230 = load ptr, ptr %157, align 8, !tbaa !1367
   store ptr %230, ptr %229, align 8, !tbaa !1297
   %231 = getelementptr inbounds nuw i8, ptr %229, i64 8
-  store i32 2, ptr %231, align 4, !tbaa !1301
+  store i32 2, ptr %231, align 8, !tbaa !1301
   %232 = getelementptr inbounds nuw i8, ptr %229, i64 16
   %233 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %233, ptr %232, align 8, !tbaa !1296
   %234 = getelementptr inbounds nuw i8, ptr %229, i64 24
-  store i8 0, ptr %234, align 1, !tbaa !1368
+  store i8 0, ptr %234, align 8, !tbaa !1368
   store ptr %229, ptr %157, align 8, !tbaa !1628
   store ptr %229, ptr %219, align 8, !tbaa !1628
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -79980,23 +79980,23 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 88
   store ptr %44, ptr %87, align 8, !tbaa !420
   %.sroa.575.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 96
-  store ptr %52, ptr %.sroa.575.0..sroa_idx.i, align 8, !tbaa !1718
+  store ptr %52, ptr %.sroa.575.0..sroa_idx.i, align 32, !tbaa !1718
   %.sroa.676.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 104
   store ptr %42, ptr %.sroa.676.0..sroa_idx.i, align 8, !tbaa !1610
   %.sroa.777.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 112
-  store ptr %43, ptr %.sroa.777.0..sroa_idx.i, align 8, !tbaa !540
+  store ptr %43, ptr %.sroa.777.0..sroa_idx.i, align 16, !tbaa !540
   %.sroa.878.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 120
   store ptr %45, ptr %.sroa.878.0..sroa_idx.i, align 8, !tbaa !124
   %.sroa.979.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 128
-  store ptr %41, ptr %.sroa.979.0..sroa_idx.i, align 8, !tbaa !1610
+  store ptr %41, ptr %.sroa.979.0..sroa_idx.i, align 64, !tbaa !1610
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 136
   store ptr %49, ptr %.sroa.10.0..sroa_idx.i, align 8, !tbaa !1497
   %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 144
-  store ptr %46, ptr %.sroa.11.0..sroa_idx.i, align 8, !tbaa !124
+  store ptr %46, ptr %.sroa.11.0..sroa_idx.i, align 16, !tbaa !124
   %.sroa.12.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 152
   store ptr %50, ptr %.sroa.12.0..sroa_idx.i, align 8, !tbaa !1612
   %.sroa.13.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 160
-  store ptr %51, ptr %.sroa.13.0..sroa_idx.i, align 8, !tbaa !1280
+  store ptr %51, ptr %.sroa.13.0..sroa_idx.i, align 32, !tbaa !1280
   %88 = getelementptr inbounds nuw i8, ptr %84, i64 168
   store ptr null, ptr %88, align 8, !tbaa !1720
   %89 = invoke noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
@@ -80159,15 +80159,15 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %151 = getelementptr inbounds nuw i8, ptr %148, i64 88
   store ptr %40, ptr %151, align 8, !tbaa !1307
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %148, i64 96
-  store ptr %49, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !1497
+  store ptr %49, ptr %.sroa.5.0..sroa_idx.i, align 32, !tbaa !1497
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %148, i64 104
   store ptr %53, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !1307
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %148, i64 112
-  store ptr %46, ptr %.sroa.7.0..sroa_idx.i, align 8, !tbaa !124
+  store ptr %46, ptr %.sroa.7.0..sroa_idx.i, align 16, !tbaa !124
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %148, i64 120
   store ptr %50, ptr %.sroa.8.0..sroa_idx.i, align 8, !tbaa !1612
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %148, i64 128
-  store ptr %54, ptr %.sroa.9.0..sroa_idx.i, align 8, !tbaa !1610
+  store ptr %54, ptr %.sroa.9.0..sroa_idx.i, align 64, !tbaa !1610
   %152 = getelementptr inbounds nuw i8, ptr %148, i64 136
   store ptr null, ptr %152, align 8, !tbaa !1723
   %153 = invoke noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
@@ -80506,23 +80506,23 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %255 = getelementptr inbounds nuw i8, ptr %252, i64 88
   store ptr %23, ptr %255, align 8, !tbaa !420
   %.sroa.575.0..sroa_idx.i39 = getelementptr inbounds nuw i8, ptr %252, i64 96
-  store ptr %31, ptr %.sroa.575.0..sroa_idx.i39, align 8, !tbaa !1728
+  store ptr %31, ptr %.sroa.575.0..sroa_idx.i39, align 32, !tbaa !1728
   %.sroa.676.0..sroa_idx.i40 = getelementptr inbounds nuw i8, ptr %252, i64 104
   store ptr %21, ptr %.sroa.676.0..sroa_idx.i40, align 8, !tbaa !1610
   %.sroa.777.0..sroa_idx.i41 = getelementptr inbounds nuw i8, ptr %252, i64 112
-  store ptr %22, ptr %.sroa.777.0..sroa_idx.i41, align 8, !tbaa !540
+  store ptr %22, ptr %.sroa.777.0..sroa_idx.i41, align 16, !tbaa !540
   %.sroa.878.0..sroa_idx.i42 = getelementptr inbounds nuw i8, ptr %252, i64 120
   store ptr %24, ptr %.sroa.878.0..sroa_idx.i42, align 8, !tbaa !124
   %.sroa.979.0..sroa_idx.i43 = getelementptr inbounds nuw i8, ptr %252, i64 128
-  store ptr %20, ptr %.sroa.979.0..sroa_idx.i43, align 8, !tbaa !1610
+  store ptr %20, ptr %.sroa.979.0..sroa_idx.i43, align 64, !tbaa !1610
   %.sroa.10.0..sroa_idx.i44 = getelementptr inbounds nuw i8, ptr %252, i64 136
   store ptr %28, ptr %.sroa.10.0..sroa_idx.i44, align 8, !tbaa !1497
   %.sroa.11.0..sroa_idx.i45 = getelementptr inbounds nuw i8, ptr %252, i64 144
-  store ptr %25, ptr %.sroa.11.0..sroa_idx.i45, align 8, !tbaa !124
+  store ptr %25, ptr %.sroa.11.0..sroa_idx.i45, align 16, !tbaa !124
   %.sroa.12.0..sroa_idx.i46 = getelementptr inbounds nuw i8, ptr %252, i64 152
   store ptr %29, ptr %.sroa.12.0..sroa_idx.i46, align 8, !tbaa !1612
   %.sroa.13.0..sroa_idx.i47 = getelementptr inbounds nuw i8, ptr %252, i64 160
-  store ptr %30, ptr %.sroa.13.0..sroa_idx.i47, align 8, !tbaa !1280
+  store ptr %30, ptr %.sroa.13.0..sroa_idx.i47, align 32, !tbaa !1280
   %256 = getelementptr inbounds nuw i8, ptr %252, i64 168
   store ptr null, ptr %256, align 8, !tbaa !1730
   %257 = invoke noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
@@ -80685,15 +80685,15 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %319 = getelementptr inbounds nuw i8, ptr %316, i64 88
   store ptr %19, ptr %319, align 8, !tbaa !1307
   %.sroa.5.0..sroa_idx.i61 = getelementptr inbounds nuw i8, ptr %316, i64 96
-  store ptr %28, ptr %.sroa.5.0..sroa_idx.i61, align 8, !tbaa !1497
+  store ptr %28, ptr %.sroa.5.0..sroa_idx.i61, align 32, !tbaa !1497
   %.sroa.6.0..sroa_idx.i62 = getelementptr inbounds nuw i8, ptr %316, i64 104
   store ptr %32, ptr %.sroa.6.0..sroa_idx.i62, align 8, !tbaa !1307
   %.sroa.7.0..sroa_idx.i63 = getelementptr inbounds nuw i8, ptr %316, i64 112
-  store ptr %25, ptr %.sroa.7.0..sroa_idx.i63, align 8, !tbaa !124
+  store ptr %25, ptr %.sroa.7.0..sroa_idx.i63, align 16, !tbaa !124
   %.sroa.8.0..sroa_idx.i64 = getelementptr inbounds nuw i8, ptr %316, i64 120
   store ptr %29, ptr %.sroa.8.0..sroa_idx.i64, align 8, !tbaa !1612
   %.sroa.9.0..sroa_idx.i65 = getelementptr inbounds nuw i8, ptr %316, i64 128
-  store ptr %33, ptr %.sroa.9.0..sroa_idx.i65, align 8, !tbaa !1610
+  store ptr %33, ptr %.sroa.9.0..sroa_idx.i65, align 64, !tbaa !1610
   %320 = getelementptr inbounds nuw i8, ptr %316, i64 136
   store ptr null, ptr %320, align 8, !tbaa !1733
   %321 = invoke noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
@@ -81538,7 +81538,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_113_KnnSearchCPUIdlNS7_23NeighborSearchAllocatorIdlEELi0EEEvPNS7_24NanoFlannIndexHolderBaseEPlmPKT_mSI_mibbRT1_EUlRKS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -81548,7 +81548,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %62, ptr noundef nonnull align 8 dereferenceable(80) %49, i64 80, i1 false), !tbaa.struct !1736
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 168
@@ -81557,7 +81557,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %65 = load i64, ptr %13, align 16, !tbaa !1295
   %66 = lshr i64 %65, 1
   store i64 %66, ptr %13, align 16, !tbaa !1295
-  store i64 %66, ptr %64, align 8, !tbaa !1295
+  store i64 %66, ptr %64, align 16, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 184
   store i32 2, ptr %67, align 8, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 188
@@ -81570,12 +81570,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 8, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 8, !tbaa !1720
   store ptr %72, ptr %63, align 8, !tbaa !1720
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -81759,7 +81759,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %161 = load i64, ptr %13, align 16, !tbaa !1295
   %162 = lshr i64 %161, 1
   store i64 %162, ptr %13, align 16, !tbaa !1295
-  store i64 %162, ptr %160, align 8, !tbaa !1295
+  store i64 %162, ptr %160, align 16, !tbaa !1295
   %163 = getelementptr inbounds nuw i8, ptr %154, i64 184
   store i32 2, ptr %163, align 8, !tbaa !1293
   %164 = getelementptr inbounds nuw i8, ptr %154, i64 188
@@ -81773,12 +81773,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %170 = load ptr, ptr %102, align 8, !tbaa !1367
   store ptr %170, ptr %169, align 8, !tbaa !1297
   %171 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  store i32 2, ptr %171, align 4, !tbaa !1301
+  store i32 2, ptr %171, align 8, !tbaa !1301
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %173 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %173, ptr %172, align 8, !tbaa !1296
   %174 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  store i8 0, ptr %174, align 1, !tbaa !1368
+  store i8 0, ptr %174, align 8, !tbaa !1368
   store ptr %169, ptr %102, align 8, !tbaa !1720
   store ptr %169, ptr %159, align 8, !tbaa !1720
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -82901,7 +82901,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_113_KnnSearchCPUIdlNS7_23NeighborSearchAllocatorIdlEELi0EEEvPNS7_24NanoFlannIndexHolderBaseEPlmPKT_mSI_mibbRT1_EUlRKS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -82911,7 +82911,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(48) %49, i64 48, i1 false), !tbaa.struct !1782
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 136
@@ -82920,7 +82920,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %65 = load i64, ptr %13, align 16, !tbaa !1295
   %66 = lshr i64 %65, 1
   store i64 %66, ptr %13, align 16, !tbaa !1295
-  store i64 %66, ptr %64, align 8, !tbaa !1295
+  store i64 %66, ptr %64, align 16, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 152
   store i32 2, ptr %67, align 8, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 156
@@ -82933,12 +82933,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 8, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 8, !tbaa !1723
   store ptr %72, ptr %63, align 8, !tbaa !1723
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -83213,7 +83213,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %221 = load i64, ptr %13, align 16, !tbaa !1295
   %222 = lshr i64 %221, 1
   store i64 %222, ptr %13, align 16, !tbaa !1295
-  store i64 %222, ptr %220, align 8, !tbaa !1295
+  store i64 %222, ptr %220, align 16, !tbaa !1295
   %223 = getelementptr inbounds nuw i8, ptr %214, i64 152
   store i32 2, ptr %223, align 8, !tbaa !1293
   %224 = getelementptr inbounds nuw i8, ptr %214, i64 156
@@ -83227,12 +83227,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %230 = load ptr, ptr %157, align 8, !tbaa !1367
   store ptr %230, ptr %229, align 8, !tbaa !1297
   %231 = getelementptr inbounds nuw i8, ptr %229, i64 8
-  store i32 2, ptr %231, align 4, !tbaa !1301
+  store i32 2, ptr %231, align 8, !tbaa !1301
   %232 = getelementptr inbounds nuw i8, ptr %229, i64 16
   %233 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %233, ptr %232, align 8, !tbaa !1296
   %234 = getelementptr inbounds nuw i8, ptr %229, i64 24
-  store i8 0, ptr %234, align 1, !tbaa !1368
+  store i8 0, ptr %234, align 8, !tbaa !1368
   store ptr %229, ptr %157, align 8, !tbaa !1723
   store ptr %229, ptr %219, align 8, !tbaa !1723
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -83583,7 +83583,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_113_KnnSearchCPUIdlNS7_23NeighborSearchAllocatorIdlEELi1EEEvPNS7_24NanoFlannIndexHolderBaseEPlmPKT_mSI_mibbRT1_EUlRKS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -83593,7 +83593,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %62, ptr noundef nonnull align 8 dereferenceable(80) %49, i64 80, i1 false), !tbaa.struct !1792
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 168
@@ -83602,7 +83602,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %65 = load i64, ptr %13, align 16, !tbaa !1295
   %66 = lshr i64 %65, 1
   store i64 %66, ptr %13, align 16, !tbaa !1295
-  store i64 %66, ptr %64, align 8, !tbaa !1295
+  store i64 %66, ptr %64, align 16, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 184
   store i32 2, ptr %67, align 8, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 188
@@ -83615,12 +83615,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 8, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 8, !tbaa !1730
   store ptr %72, ptr %63, align 8, !tbaa !1730
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -83804,7 +83804,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %161 = load i64, ptr %13, align 16, !tbaa !1295
   %162 = lshr i64 %161, 1
   store i64 %162, ptr %13, align 16, !tbaa !1295
-  store i64 %162, ptr %160, align 8, !tbaa !1295
+  store i64 %162, ptr %160, align 16, !tbaa !1295
   %163 = getelementptr inbounds nuw i8, ptr %154, i64 184
   store i32 2, ptr %163, align 8, !tbaa !1293
   %164 = getelementptr inbounds nuw i8, ptr %154, i64 188
@@ -83818,12 +83818,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %170 = load ptr, ptr %102, align 8, !tbaa !1367
   store ptr %170, ptr %169, align 8, !tbaa !1297
   %171 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  store i32 2, ptr %171, align 4, !tbaa !1301
+  store i32 2, ptr %171, align 8, !tbaa !1301
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %173 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %173, ptr %172, align 8, !tbaa !1296
   %174 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  store i8 0, ptr %174, align 1, !tbaa !1368
+  store i8 0, ptr %174, align 8, !tbaa !1368
   store ptr %169, ptr %102, align 8, !tbaa !1730
   store ptr %169, ptr %159, align 8, !tbaa !1730
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -84943,7 +84943,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_113_KnnSearchCPUIdlNS7_23NeighborSearchAllocatorIdlEELi1EEEvPNS7_24NanoFlannIndexHolderBaseEPlmPKT_mSI_mibbRT1_EUlRKS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -84953,7 +84953,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(48) %49, i64 48, i1 false), !tbaa.struct !1782
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 136
@@ -84962,7 +84962,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %65 = load i64, ptr %13, align 16, !tbaa !1295
   %66 = lshr i64 %65, 1
   store i64 %66, ptr %13, align 16, !tbaa !1295
-  store i64 %66, ptr %64, align 8, !tbaa !1295
+  store i64 %66, ptr %64, align 16, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 152
   store i32 2, ptr %67, align 8, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 156
@@ -84975,12 +84975,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 8, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 8, !tbaa !1733
   store ptr %72, ptr %63, align 8, !tbaa !1733
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -85255,7 +85255,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %221 = load i64, ptr %13, align 16, !tbaa !1295
   %222 = lshr i64 %221, 1
   store i64 %222, ptr %13, align 16, !tbaa !1295
-  store i64 %222, ptr %220, align 8, !tbaa !1295
+  store i64 %222, ptr %220, align 16, !tbaa !1295
   %223 = getelementptr inbounds nuw i8, ptr %214, i64 152
   store i32 2, ptr %223, align 8, !tbaa !1293
   %224 = getelementptr inbounds nuw i8, ptr %214, i64 156
@@ -85269,12 +85269,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %230 = load ptr, ptr %157, align 8, !tbaa !1367
   store ptr %230, ptr %229, align 8, !tbaa !1297
   %231 = getelementptr inbounds nuw i8, ptr %229, i64 8
-  store i32 2, ptr %231, align 4, !tbaa !1301
+  store i32 2, ptr %231, align 8, !tbaa !1301
   %232 = getelementptr inbounds nuw i8, ptr %229, i64 16
   %233 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %233, ptr %232, align 8, !tbaa !1296
   %234 = getelementptr inbounds nuw i8, ptr %229, i64 24
-  store i8 0, ptr %234, align 1, !tbaa !1368
+  store i8 0, ptr %234, align 8, !tbaa !1368
   store ptr %229, ptr %157, align 8, !tbaa !1733
   store ptr %229, ptr %219, align 8, !tbaa !1733
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -85992,23 +85992,23 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 88
   store ptr %48, ptr %96, align 8, !tbaa !1274
   %.sroa.576.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 96
-  store ptr %58, ptr %.sroa.576.0..sroa_idx.i, align 8, !tbaa !1272
+  store ptr %58, ptr %.sroa.576.0..sroa_idx.i, align 32, !tbaa !1272
   %.sroa.677.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 104
   store ptr %46, ptr %.sroa.677.0..sroa_idx.i, align 8, !tbaa !1274
   %.sroa.778.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 112
-  store ptr %47, ptr %.sroa.778.0..sroa_idx.i, align 8, !tbaa !540
+  store ptr %47, ptr %.sroa.778.0..sroa_idx.i, align 16, !tbaa !540
   %.sroa.879.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 120
   store ptr %57, ptr %.sroa.879.0..sroa_idx.i, align 8, !tbaa !1826
   %.sroa.980.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 128
-  store ptr %49, ptr %.sroa.980.0..sroa_idx.i, align 8, !tbaa !124
+  store ptr %49, ptr %.sroa.980.0..sroa_idx.i, align 64, !tbaa !124
   %.sroa.1081.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 136
   store ptr %45, ptr %.sroa.1081.0..sroa_idx.i, align 8, !tbaa !1274
   %.sroa.1182.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 144
-  store ptr %54, ptr %.sroa.1182.0..sroa_idx.i, align 8, !tbaa !1276
+  store ptr %54, ptr %.sroa.1182.0..sroa_idx.i, align 16, !tbaa !1276
   %.sroa.12.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 152
   store ptr %50, ptr %.sroa.12.0..sroa_idx.i, align 8, !tbaa !124
   %.sroa.13.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 160
-  store ptr %55, ptr %.sroa.13.0..sroa_idx.i, align 8, !tbaa !1278
+  store ptr %55, ptr %.sroa.13.0..sroa_idx.i, align 32, !tbaa !1278
   %.sroa.14.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 168
   store ptr %56, ptr %.sroa.14.0..sroa_idx.i, align 8, !tbaa !1280
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 176
@@ -86173,19 +86173,19 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %160 = getelementptr inbounds nuw i8, ptr %157, i64 88
   store ptr %44, ptr %160, align 8, !tbaa !1307
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %157, i64 96
-  store ptr %54, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !1276
+  store ptr %54, ptr %.sroa.5.0..sroa_idx.i, align 32, !tbaa !1276
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %157, i64 104
   store ptr %59, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !1309
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %157, i64 112
-  store ptr %50, ptr %.sroa.7.0..sroa_idx.i, align 8, !tbaa !124
+  store ptr %50, ptr %.sroa.7.0..sroa_idx.i, align 16, !tbaa !124
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %157, i64 120
   store ptr %55, ptr %.sroa.8.0..sroa_idx.i, align 8, !tbaa !1278
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %157, i64 128
-  store ptr %60, ptr %.sroa.9.0..sroa_idx.i, align 8, !tbaa !1274
+  store ptr %60, ptr %.sroa.9.0..sroa_idx.i, align 64, !tbaa !1274
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %157, i64 136
   store ptr %51, ptr %.sroa.10.0..sroa_idx.i, align 8, !tbaa !124
   %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %157, i64 144
-  store ptr %48, ptr %.sroa.11.0..sroa_idx.i, align 8, !tbaa !1274
+  store ptr %48, ptr %.sroa.11.0..sroa_idx.i, align 16, !tbaa !1274
   %161 = getelementptr inbounds nuw i8, ptr %157, i64 152
   store ptr null, ptr %161, align 8, !tbaa !1831
   %162 = invoke noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
@@ -86535,23 +86535,23 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %267 = getelementptr inbounds nuw i8, ptr %264, i64 88
   store ptr %25, ptr %267, align 8, !tbaa !1274
   %.sroa.576.0..sroa_idx.i43 = getelementptr inbounds nuw i8, ptr %264, i64 96
-  store ptr %35, ptr %.sroa.576.0..sroa_idx.i43, align 8, !tbaa !1318
+  store ptr %35, ptr %.sroa.576.0..sroa_idx.i43, align 32, !tbaa !1318
   %.sroa.677.0..sroa_idx.i44 = getelementptr inbounds nuw i8, ptr %264, i64 104
   store ptr %23, ptr %.sroa.677.0..sroa_idx.i44, align 8, !tbaa !1274
   %.sroa.778.0..sroa_idx.i45 = getelementptr inbounds nuw i8, ptr %264, i64 112
-  store ptr %24, ptr %.sroa.778.0..sroa_idx.i45, align 8, !tbaa !540
+  store ptr %24, ptr %.sroa.778.0..sroa_idx.i45, align 16, !tbaa !540
   %.sroa.879.0..sroa_idx.i46 = getelementptr inbounds nuw i8, ptr %264, i64 120
   store ptr %34, ptr %.sroa.879.0..sroa_idx.i46, align 8, !tbaa !1826
   %.sroa.980.0..sroa_idx.i47 = getelementptr inbounds nuw i8, ptr %264, i64 128
-  store ptr %26, ptr %.sroa.980.0..sroa_idx.i47, align 8, !tbaa !124
+  store ptr %26, ptr %.sroa.980.0..sroa_idx.i47, align 64, !tbaa !124
   %.sroa.1081.0..sroa_idx.i48 = getelementptr inbounds nuw i8, ptr %264, i64 136
   store ptr %22, ptr %.sroa.1081.0..sroa_idx.i48, align 8, !tbaa !1274
   %.sroa.1182.0..sroa_idx.i49 = getelementptr inbounds nuw i8, ptr %264, i64 144
-  store ptr %31, ptr %.sroa.1182.0..sroa_idx.i49, align 8, !tbaa !1276
+  store ptr %31, ptr %.sroa.1182.0..sroa_idx.i49, align 16, !tbaa !1276
   %.sroa.12.0..sroa_idx.i50 = getelementptr inbounds nuw i8, ptr %264, i64 152
   store ptr %27, ptr %.sroa.12.0..sroa_idx.i50, align 8, !tbaa !124
   %.sroa.13.0..sroa_idx.i51 = getelementptr inbounds nuw i8, ptr %264, i64 160
-  store ptr %32, ptr %.sroa.13.0..sroa_idx.i51, align 8, !tbaa !1278
+  store ptr %32, ptr %.sroa.13.0..sroa_idx.i51, align 32, !tbaa !1278
   %.sroa.14.0..sroa_idx.i52 = getelementptr inbounds nuw i8, ptr %264, i64 168
   store ptr %33, ptr %.sroa.14.0..sroa_idx.i52, align 8, !tbaa !1280
   %268 = getelementptr inbounds nuw i8, ptr %264, i64 176
@@ -86716,19 +86716,19 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %331 = getelementptr inbounds nuw i8, ptr %328, i64 88
   store ptr %21, ptr %331, align 8, !tbaa !1307
   %.sroa.5.0..sroa_idx.i66 = getelementptr inbounds nuw i8, ptr %328, i64 96
-  store ptr %31, ptr %.sroa.5.0..sroa_idx.i66, align 8, !tbaa !1276
+  store ptr %31, ptr %.sroa.5.0..sroa_idx.i66, align 32, !tbaa !1276
   %.sroa.6.0..sroa_idx.i67 = getelementptr inbounds nuw i8, ptr %328, i64 104
   store ptr %36, ptr %.sroa.6.0..sroa_idx.i67, align 8, !tbaa !1309
   %.sroa.7.0..sroa_idx.i68 = getelementptr inbounds nuw i8, ptr %328, i64 112
-  store ptr %27, ptr %.sroa.7.0..sroa_idx.i68, align 8, !tbaa !124
+  store ptr %27, ptr %.sroa.7.0..sroa_idx.i68, align 16, !tbaa !124
   %.sroa.8.0..sroa_idx.i69 = getelementptr inbounds nuw i8, ptr %328, i64 120
   store ptr %32, ptr %.sroa.8.0..sroa_idx.i69, align 8, !tbaa !1278
   %.sroa.9.0..sroa_idx.i70 = getelementptr inbounds nuw i8, ptr %328, i64 128
-  store ptr %37, ptr %.sroa.9.0..sroa_idx.i70, align 8, !tbaa !1274
+  store ptr %37, ptr %.sroa.9.0..sroa_idx.i70, align 64, !tbaa !1274
   %.sroa.10.0..sroa_idx.i71 = getelementptr inbounds nuw i8, ptr %328, i64 136
   store ptr %28, ptr %.sroa.10.0..sroa_idx.i71, align 8, !tbaa !124
   %.sroa.11.0..sroa_idx.i72 = getelementptr inbounds nuw i8, ptr %328, i64 144
-  store ptr %25, ptr %.sroa.11.0..sroa_idx.i72, align 8, !tbaa !1274
+  store ptr %25, ptr %.sroa.11.0..sroa_idx.i72, align 16, !tbaa !1274
   %332 = getelementptr inbounds nuw i8, ptr %328, i64 152
   store ptr null, ptr %332, align 8, !tbaa !1837
   %333 = invoke noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
@@ -87059,7 +87059,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_116_RadiusSearchCPUIfiNS7_23NeighborSearchAllocatorIfiEELi0EEEvPNS7_24NanoFlannIndexHolderBaseEPlmPKT_mSI_mSI_bbbbRT1_EUlRKS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -87069,7 +87069,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %62, ptr noundef nonnull align 8 dereferenceable(88) %49, i64 88, i1 false), !tbaa.struct !1840
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 176
@@ -87080,7 +87080,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %66, ptr %13, align 8, !tbaa !1295
   store i64 %66, ptr %64, align 8, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 192
-  store i32 2, ptr %67, align 8, !tbaa !1293
+  store i32 2, ptr %67, align 64, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 196
   %69 = load i8, ptr %48, align 4, !tbaa !1294
   store i8 %69, ptr %68, align 4, !tbaa !1294
@@ -87091,12 +87091,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 16, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 16, !tbaa !1828
   store ptr %72, ptr %63, align 16, !tbaa !1828
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -87282,7 +87282,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   store i64 %162, ptr %13, align 8, !tbaa !1295
   store i64 %162, ptr %160, align 8, !tbaa !1295
   %163 = getelementptr inbounds nuw i8, ptr %154, i64 192
-  store i32 2, ptr %163, align 8, !tbaa !1293
+  store i32 2, ptr %163, align 64, !tbaa !1293
   %164 = getelementptr inbounds nuw i8, ptr %154, i64 196
   %165 = load i8, ptr %94, align 4, !tbaa !1294
   %166 = getelementptr inbounds nuw i8, ptr %154, i64 200
@@ -87294,12 +87294,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %170 = load ptr, ptr %102, align 16, !tbaa !1367
   store ptr %170, ptr %169, align 8, !tbaa !1297
   %171 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  store i32 2, ptr %171, align 4, !tbaa !1301
+  store i32 2, ptr %171, align 8, !tbaa !1301
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %173 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %173, ptr %172, align 8, !tbaa !1296
   %174 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  store i8 0, ptr %174, align 1, !tbaa !1368
+  store i8 0, ptr %174, align 8, !tbaa !1368
   store ptr %169, ptr %102, align 16, !tbaa !1828
   store ptr %169, ptr %159, align 16, !tbaa !1828
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -88932,7 +88932,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_116_RadiusSearchCPUIfiNS7_23NeighborSearchAllocatorIfiEELi0EEEvPNS7_24NanoFlannIndexHolderBaseEPlmPKT_mSI_mSI_bbbbRT1_EUlRKS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -88942,7 +88942,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %62, ptr noundef nonnull align 8 dereferenceable(64) %49, i64 64, i1 false), !tbaa.struct !1882
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 152
@@ -88951,7 +88951,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %65 = load i64, ptr %13, align 32, !tbaa !1295
   %66 = lshr i64 %65, 1
   store i64 %66, ptr %13, align 32, !tbaa !1295
-  store i64 %66, ptr %64, align 8, !tbaa !1295
+  store i64 %66, ptr %64, align 32, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 168
   store i32 2, ptr %67, align 8, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 172
@@ -88964,12 +88964,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 8, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 8, !tbaa !1831
   store ptr %72, ptr %63, align 8, !tbaa !1831
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -89266,7 +89266,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %230 = load i64, ptr %13, align 32, !tbaa !1295
   %231 = lshr i64 %230, 1
   store i64 %231, ptr %13, align 32, !tbaa !1295
-  store i64 %231, ptr %229, align 8, !tbaa !1295
+  store i64 %231, ptr %229, align 32, !tbaa !1295
   %232 = getelementptr inbounds nuw i8, ptr %223, i64 168
   store i32 2, ptr %232, align 8, !tbaa !1293
   %233 = getelementptr inbounds nuw i8, ptr %223, i64 172
@@ -89280,12 +89280,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %239 = load ptr, ptr %164, align 8, !tbaa !1367
   store ptr %239, ptr %238, align 8, !tbaa !1297
   %240 = getelementptr inbounds nuw i8, ptr %238, i64 8
-  store i32 2, ptr %240, align 4, !tbaa !1301
+  store i32 2, ptr %240, align 8, !tbaa !1301
   %241 = getelementptr inbounds nuw i8, ptr %238, i64 16
   %242 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %242, ptr %241, align 8, !tbaa !1296
   %243 = getelementptr inbounds nuw i8, ptr %238, i64 24
-  store i8 0, ptr %243, align 1, !tbaa !1368
+  store i8 0, ptr %243, align 8, !tbaa !1368
   store ptr %238, ptr %164, align 8, !tbaa !1831
   store ptr %238, ptr %228, align 8, !tbaa !1831
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -89654,7 +89654,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_116_RadiusSearchCPUIfiNS7_23NeighborSearchAllocatorIfiEELi1EEEvPNS7_24NanoFlannIndexHolderBaseEPlmPKT_mSI_mSI_bbbbRT1_EUlRKS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -89664,7 +89664,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %62, ptr noundef nonnull align 8 dereferenceable(88) %49, i64 88, i1 false), !tbaa.struct !1896
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 176
@@ -89675,7 +89675,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %66, ptr %13, align 8, !tbaa !1295
   store i64 %66, ptr %64, align 8, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 192
-  store i32 2, ptr %67, align 8, !tbaa !1293
+  store i32 2, ptr %67, align 64, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 196
   %69 = load i8, ptr %48, align 4, !tbaa !1294
   store i8 %69, ptr %68, align 4, !tbaa !1294
@@ -89686,12 +89686,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 16, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 16, !tbaa !1834
   store ptr %72, ptr %63, align 16, !tbaa !1834
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -89877,7 +89877,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   store i64 %162, ptr %13, align 8, !tbaa !1295
   store i64 %162, ptr %160, align 8, !tbaa !1295
   %163 = getelementptr inbounds nuw i8, ptr %154, i64 192
-  store i32 2, ptr %163, align 8, !tbaa !1293
+  store i32 2, ptr %163, align 64, !tbaa !1293
   %164 = getelementptr inbounds nuw i8, ptr %154, i64 196
   %165 = load i8, ptr %94, align 4, !tbaa !1294
   %166 = getelementptr inbounds nuw i8, ptr %154, i64 200
@@ -89889,12 +89889,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %170 = load ptr, ptr %102, align 16, !tbaa !1367
   store ptr %170, ptr %169, align 8, !tbaa !1297
   %171 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  store i32 2, ptr %171, align 4, !tbaa !1301
+  store i32 2, ptr %171, align 8, !tbaa !1301
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %173 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %173, ptr %172, align 8, !tbaa !1296
   %174 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  store i8 0, ptr %174, align 1, !tbaa !1368
+  store i8 0, ptr %174, align 8, !tbaa !1368
   store ptr %169, ptr %102, align 16, !tbaa !1834
   store ptr %169, ptr %159, align 16, !tbaa !1834
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -90946,7 +90946,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_116_RadiusSearchCPUIfiNS7_23NeighborSearchAllocatorIfiEELi1EEEvPNS7_24NanoFlannIndexHolderBaseEPlmPKT_mSI_mSI_bbbbRT1_EUlRKS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -90956,7 +90956,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %62, ptr noundef nonnull align 8 dereferenceable(64) %49, i64 64, i1 false), !tbaa.struct !1882
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 152
@@ -90965,7 +90965,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %65 = load i64, ptr %13, align 32, !tbaa !1295
   %66 = lshr i64 %65, 1
   store i64 %66, ptr %13, align 32, !tbaa !1295
-  store i64 %66, ptr %64, align 8, !tbaa !1295
+  store i64 %66, ptr %64, align 32, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 168
   store i32 2, ptr %67, align 8, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 172
@@ -90978,12 +90978,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 8, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 8, !tbaa !1837
   store ptr %72, ptr %63, align 8, !tbaa !1837
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -91281,7 +91281,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %231 = load i64, ptr %13, align 32, !tbaa !1295
   %232 = lshr i64 %231, 1
   store i64 %232, ptr %13, align 32, !tbaa !1295
-  store i64 %232, ptr %230, align 8, !tbaa !1295
+  store i64 %232, ptr %230, align 32, !tbaa !1295
   %233 = getelementptr inbounds nuw i8, ptr %224, i64 168
   store i32 2, ptr %233, align 8, !tbaa !1293
   %234 = getelementptr inbounds nuw i8, ptr %224, i64 172
@@ -91295,12 +91295,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %240 = load ptr, ptr %165, align 8, !tbaa !1367
   store ptr %240, ptr %239, align 8, !tbaa !1297
   %241 = getelementptr inbounds nuw i8, ptr %239, i64 8
-  store i32 2, ptr %241, align 4, !tbaa !1301
+  store i32 2, ptr %241, align 8, !tbaa !1301
   %242 = getelementptr inbounds nuw i8, ptr %239, i64 16
   %243 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %243, ptr %242, align 8, !tbaa !1296
   %244 = getelementptr inbounds nuw i8, ptr %239, i64 24
-  store i8 0, ptr %244, align 1, !tbaa !1368
+  store i8 0, ptr %244, align 8, !tbaa !1368
   store ptr %239, ptr %165, align 8, !tbaa !1837
   store ptr %239, ptr %229, align 8, !tbaa !1837
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -91742,23 +91742,23 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 88
   store ptr %48, ptr %96, align 8, !tbaa !1274
   %.sroa.576.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 96
-  store ptr %58, ptr %.sroa.576.0..sroa_idx.i, align 8, !tbaa !1495
+  store ptr %58, ptr %.sroa.576.0..sroa_idx.i, align 32, !tbaa !1495
   %.sroa.677.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 104
   store ptr %46, ptr %.sroa.677.0..sroa_idx.i, align 8, !tbaa !1274
   %.sroa.778.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 112
-  store ptr %47, ptr %.sroa.778.0..sroa_idx.i, align 8, !tbaa !540
+  store ptr %47, ptr %.sroa.778.0..sroa_idx.i, align 16, !tbaa !540
   %.sroa.879.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 120
   store ptr %57, ptr %.sroa.879.0..sroa_idx.i, align 8, !tbaa !1826
   %.sroa.980.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 128
-  store ptr %49, ptr %.sroa.980.0..sroa_idx.i, align 8, !tbaa !124
+  store ptr %49, ptr %.sroa.980.0..sroa_idx.i, align 64, !tbaa !124
   %.sroa.1081.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 136
   store ptr %45, ptr %.sroa.1081.0..sroa_idx.i, align 8, !tbaa !1274
   %.sroa.1182.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 144
-  store ptr %54, ptr %.sroa.1182.0..sroa_idx.i, align 8, !tbaa !1497
+  store ptr %54, ptr %.sroa.1182.0..sroa_idx.i, align 16, !tbaa !1497
   %.sroa.12.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 152
   store ptr %50, ptr %.sroa.12.0..sroa_idx.i, align 8, !tbaa !124
   %.sroa.13.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 160
-  store ptr %55, ptr %.sroa.13.0..sroa_idx.i, align 8, !tbaa !1278
+  store ptr %55, ptr %.sroa.13.0..sroa_idx.i, align 32, !tbaa !1278
   %.sroa.14.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 168
   store ptr %56, ptr %.sroa.14.0..sroa_idx.i, align 8, !tbaa !1280
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 176
@@ -91923,19 +91923,19 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %160 = getelementptr inbounds nuw i8, ptr %157, i64 88
   store ptr %44, ptr %160, align 8, !tbaa !1307
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %157, i64 96
-  store ptr %54, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !1497
+  store ptr %54, ptr %.sroa.5.0..sroa_idx.i, align 32, !tbaa !1497
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %157, i64 104
   store ptr %59, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !1307
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %157, i64 112
-  store ptr %50, ptr %.sroa.7.0..sroa_idx.i, align 8, !tbaa !124
+  store ptr %50, ptr %.sroa.7.0..sroa_idx.i, align 16, !tbaa !124
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %157, i64 120
   store ptr %55, ptr %.sroa.8.0..sroa_idx.i, align 8, !tbaa !1278
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %157, i64 128
-  store ptr %60, ptr %.sroa.9.0..sroa_idx.i, align 8, !tbaa !1274
+  store ptr %60, ptr %.sroa.9.0..sroa_idx.i, align 64, !tbaa !1274
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %157, i64 136
   store ptr %51, ptr %.sroa.10.0..sroa_idx.i, align 8, !tbaa !124
   %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %157, i64 144
-  store ptr %48, ptr %.sroa.11.0..sroa_idx.i, align 8, !tbaa !1274
+  store ptr %48, ptr %.sroa.11.0..sroa_idx.i, align 16, !tbaa !1274
   %161 = getelementptr inbounds nuw i8, ptr %157, i64 152
   store ptr null, ptr %161, align 8, !tbaa !1928
   %162 = invoke noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
@@ -92285,23 +92285,23 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %267 = getelementptr inbounds nuw i8, ptr %264, i64 88
   store ptr %25, ptr %267, align 8, !tbaa !1274
   %.sroa.576.0..sroa_idx.i43 = getelementptr inbounds nuw i8, ptr %264, i64 96
-  store ptr %35, ptr %.sroa.576.0..sroa_idx.i43, align 8, !tbaa !1508
+  store ptr %35, ptr %.sroa.576.0..sroa_idx.i43, align 32, !tbaa !1508
   %.sroa.677.0..sroa_idx.i44 = getelementptr inbounds nuw i8, ptr %264, i64 104
   store ptr %23, ptr %.sroa.677.0..sroa_idx.i44, align 8, !tbaa !1274
   %.sroa.778.0..sroa_idx.i45 = getelementptr inbounds nuw i8, ptr %264, i64 112
-  store ptr %24, ptr %.sroa.778.0..sroa_idx.i45, align 8, !tbaa !540
+  store ptr %24, ptr %.sroa.778.0..sroa_idx.i45, align 16, !tbaa !540
   %.sroa.879.0..sroa_idx.i46 = getelementptr inbounds nuw i8, ptr %264, i64 120
   store ptr %34, ptr %.sroa.879.0..sroa_idx.i46, align 8, !tbaa !1826
   %.sroa.980.0..sroa_idx.i47 = getelementptr inbounds nuw i8, ptr %264, i64 128
-  store ptr %26, ptr %.sroa.980.0..sroa_idx.i47, align 8, !tbaa !124
+  store ptr %26, ptr %.sroa.980.0..sroa_idx.i47, align 64, !tbaa !124
   %.sroa.1081.0..sroa_idx.i48 = getelementptr inbounds nuw i8, ptr %264, i64 136
   store ptr %22, ptr %.sroa.1081.0..sroa_idx.i48, align 8, !tbaa !1274
   %.sroa.1182.0..sroa_idx.i49 = getelementptr inbounds nuw i8, ptr %264, i64 144
-  store ptr %31, ptr %.sroa.1182.0..sroa_idx.i49, align 8, !tbaa !1497
+  store ptr %31, ptr %.sroa.1182.0..sroa_idx.i49, align 16, !tbaa !1497
   %.sroa.12.0..sroa_idx.i50 = getelementptr inbounds nuw i8, ptr %264, i64 152
   store ptr %27, ptr %.sroa.12.0..sroa_idx.i50, align 8, !tbaa !124
   %.sroa.13.0..sroa_idx.i51 = getelementptr inbounds nuw i8, ptr %264, i64 160
-  store ptr %32, ptr %.sroa.13.0..sroa_idx.i51, align 8, !tbaa !1278
+  store ptr %32, ptr %.sroa.13.0..sroa_idx.i51, align 32, !tbaa !1278
   %.sroa.14.0..sroa_idx.i52 = getelementptr inbounds nuw i8, ptr %264, i64 168
   store ptr %33, ptr %.sroa.14.0..sroa_idx.i52, align 8, !tbaa !1280
   %268 = getelementptr inbounds nuw i8, ptr %264, i64 176
@@ -92466,19 +92466,19 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %331 = getelementptr inbounds nuw i8, ptr %328, i64 88
   store ptr %21, ptr %331, align 8, !tbaa !1307
   %.sroa.5.0..sroa_idx.i66 = getelementptr inbounds nuw i8, ptr %328, i64 96
-  store ptr %31, ptr %.sroa.5.0..sroa_idx.i66, align 8, !tbaa !1497
+  store ptr %31, ptr %.sroa.5.0..sroa_idx.i66, align 32, !tbaa !1497
   %.sroa.6.0..sroa_idx.i67 = getelementptr inbounds nuw i8, ptr %328, i64 104
   store ptr %36, ptr %.sroa.6.0..sroa_idx.i67, align 8, !tbaa !1307
   %.sroa.7.0..sroa_idx.i68 = getelementptr inbounds nuw i8, ptr %328, i64 112
-  store ptr %27, ptr %.sroa.7.0..sroa_idx.i68, align 8, !tbaa !124
+  store ptr %27, ptr %.sroa.7.0..sroa_idx.i68, align 16, !tbaa !124
   %.sroa.8.0..sroa_idx.i69 = getelementptr inbounds nuw i8, ptr %328, i64 120
   store ptr %32, ptr %.sroa.8.0..sroa_idx.i69, align 8, !tbaa !1278
   %.sroa.9.0..sroa_idx.i70 = getelementptr inbounds nuw i8, ptr %328, i64 128
-  store ptr %37, ptr %.sroa.9.0..sroa_idx.i70, align 8, !tbaa !1274
+  store ptr %37, ptr %.sroa.9.0..sroa_idx.i70, align 64, !tbaa !1274
   %.sroa.10.0..sroa_idx.i71 = getelementptr inbounds nuw i8, ptr %328, i64 136
   store ptr %28, ptr %.sroa.10.0..sroa_idx.i71, align 8, !tbaa !124
   %.sroa.11.0..sroa_idx.i72 = getelementptr inbounds nuw i8, ptr %328, i64 144
-  store ptr %25, ptr %.sroa.11.0..sroa_idx.i72, align 8, !tbaa !1274
+  store ptr %25, ptr %.sroa.11.0..sroa_idx.i72, align 16, !tbaa !1274
   %332 = getelementptr inbounds nuw i8, ptr %328, i64 152
   store ptr null, ptr %332, align 8, !tbaa !1934
   %333 = invoke noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
@@ -92809,7 +92809,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_116_RadiusSearchCPUIflNS7_23NeighborSearchAllocatorIflEELi0EEEvPNS7_24NanoFlannIndexHolderBaseEPlmPKT_mSI_mSI_bbbbRT1_EUlRKS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -92819,7 +92819,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %62, ptr noundef nonnull align 8 dereferenceable(88) %49, i64 88, i1 false), !tbaa.struct !1937
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 176
@@ -92830,7 +92830,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %66, ptr %13, align 8, !tbaa !1295
   store i64 %66, ptr %64, align 8, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 192
-  store i32 2, ptr %67, align 8, !tbaa !1293
+  store i32 2, ptr %67, align 64, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 196
   %69 = load i8, ptr %48, align 4, !tbaa !1294
   store i8 %69, ptr %68, align 4, !tbaa !1294
@@ -92841,12 +92841,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 16, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 16, !tbaa !1925
   store ptr %72, ptr %63, align 16, !tbaa !1925
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -93032,7 +93032,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   store i64 %162, ptr %13, align 8, !tbaa !1295
   store i64 %162, ptr %160, align 8, !tbaa !1295
   %163 = getelementptr inbounds nuw i8, ptr %154, i64 192
-  store i32 2, ptr %163, align 8, !tbaa !1293
+  store i32 2, ptr %163, align 64, !tbaa !1293
   %164 = getelementptr inbounds nuw i8, ptr %154, i64 196
   %165 = load i8, ptr %94, align 4, !tbaa !1294
   %166 = getelementptr inbounds nuw i8, ptr %154, i64 200
@@ -93044,12 +93044,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %170 = load ptr, ptr %102, align 16, !tbaa !1367
   store ptr %170, ptr %169, align 8, !tbaa !1297
   %171 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  store i32 2, ptr %171, align 4, !tbaa !1301
+  store i32 2, ptr %171, align 8, !tbaa !1301
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %173 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %173, ptr %172, align 8, !tbaa !1296
   %174 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  store i8 0, ptr %174, align 1, !tbaa !1368
+  store i8 0, ptr %174, align 8, !tbaa !1368
   store ptr %169, ptr %102, align 16, !tbaa !1925
   store ptr %169, ptr %159, align 16, !tbaa !1925
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -94621,7 +94621,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_116_RadiusSearchCPUIflNS7_23NeighborSearchAllocatorIflEELi0EEEvPNS7_24NanoFlannIndexHolderBaseEPlmPKT_mSI_mSI_bbbbRT1_EUlRKS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -94631,7 +94631,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %62, ptr noundef nonnull align 8 dereferenceable(64) %49, i64 64, i1 false), !tbaa.struct !1979
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 152
@@ -94640,7 +94640,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %65 = load i64, ptr %13, align 32, !tbaa !1295
   %66 = lshr i64 %65, 1
   store i64 %66, ptr %13, align 32, !tbaa !1295
-  store i64 %66, ptr %64, align 8, !tbaa !1295
+  store i64 %66, ptr %64, align 32, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 168
   store i32 2, ptr %67, align 8, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 172
@@ -94653,12 +94653,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 8, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 8, !tbaa !1928
   store ptr %72, ptr %63, align 8, !tbaa !1928
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -94955,7 +94955,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %230 = load i64, ptr %13, align 32, !tbaa !1295
   %231 = lshr i64 %230, 1
   store i64 %231, ptr %13, align 32, !tbaa !1295
-  store i64 %231, ptr %229, align 8, !tbaa !1295
+  store i64 %231, ptr %229, align 32, !tbaa !1295
   %232 = getelementptr inbounds nuw i8, ptr %223, i64 168
   store i32 2, ptr %232, align 8, !tbaa !1293
   %233 = getelementptr inbounds nuw i8, ptr %223, i64 172
@@ -94969,12 +94969,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %239 = load ptr, ptr %164, align 8, !tbaa !1367
   store ptr %239, ptr %238, align 8, !tbaa !1297
   %240 = getelementptr inbounds nuw i8, ptr %238, i64 8
-  store i32 2, ptr %240, align 4, !tbaa !1301
+  store i32 2, ptr %240, align 8, !tbaa !1301
   %241 = getelementptr inbounds nuw i8, ptr %238, i64 16
   %242 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %242, ptr %241, align 8, !tbaa !1296
   %243 = getelementptr inbounds nuw i8, ptr %238, i64 24
-  store i8 0, ptr %243, align 1, !tbaa !1368
+  store i8 0, ptr %243, align 8, !tbaa !1368
   store ptr %238, ptr %164, align 8, !tbaa !1928
   store ptr %238, ptr %228, align 8, !tbaa !1928
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -95343,7 +95343,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_116_RadiusSearchCPUIflNS7_23NeighborSearchAllocatorIflEELi1EEEvPNS7_24NanoFlannIndexHolderBaseEPlmPKT_mSI_mSI_bbbbRT1_EUlRKS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -95353,7 +95353,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %62, ptr noundef nonnull align 8 dereferenceable(88) %49, i64 88, i1 false), !tbaa.struct !1993
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 176
@@ -95364,7 +95364,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %66, ptr %13, align 8, !tbaa !1295
   store i64 %66, ptr %64, align 8, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 192
-  store i32 2, ptr %67, align 8, !tbaa !1293
+  store i32 2, ptr %67, align 64, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 196
   %69 = load i8, ptr %48, align 4, !tbaa !1294
   store i8 %69, ptr %68, align 4, !tbaa !1294
@@ -95375,12 +95375,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 16, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 16, !tbaa !1931
   store ptr %72, ptr %63, align 16, !tbaa !1931
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -95566,7 +95566,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   store i64 %162, ptr %13, align 8, !tbaa !1295
   store i64 %162, ptr %160, align 8, !tbaa !1295
   %163 = getelementptr inbounds nuw i8, ptr %154, i64 192
-  store i32 2, ptr %163, align 8, !tbaa !1293
+  store i32 2, ptr %163, align 64, !tbaa !1293
   %164 = getelementptr inbounds nuw i8, ptr %154, i64 196
   %165 = load i8, ptr %94, align 4, !tbaa !1294
   %166 = getelementptr inbounds nuw i8, ptr %154, i64 200
@@ -95578,12 +95578,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %170 = load ptr, ptr %102, align 16, !tbaa !1367
   store ptr %170, ptr %169, align 8, !tbaa !1297
   %171 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  store i32 2, ptr %171, align 4, !tbaa !1301
+  store i32 2, ptr %171, align 8, !tbaa !1301
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %173 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %173, ptr %172, align 8, !tbaa !1296
   %174 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  store i8 0, ptr %174, align 1, !tbaa !1368
+  store i8 0, ptr %174, align 8, !tbaa !1368
   store ptr %169, ptr %102, align 16, !tbaa !1931
   store ptr %169, ptr %159, align 16, !tbaa !1931
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -96634,7 +96634,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_116_RadiusSearchCPUIflNS7_23NeighborSearchAllocatorIflEELi1EEEvPNS7_24NanoFlannIndexHolderBaseEPlmPKT_mSI_mSI_bbbbRT1_EUlRKS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -96644,7 +96644,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %62, ptr noundef nonnull align 8 dereferenceable(64) %49, i64 64, i1 false), !tbaa.struct !1979
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 152
@@ -96653,7 +96653,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %65 = load i64, ptr %13, align 32, !tbaa !1295
   %66 = lshr i64 %65, 1
   store i64 %66, ptr %13, align 32, !tbaa !1295
-  store i64 %66, ptr %64, align 8, !tbaa !1295
+  store i64 %66, ptr %64, align 32, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 168
   store i32 2, ptr %67, align 8, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 172
@@ -96666,12 +96666,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 8, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 8, !tbaa !1934
   store ptr %72, ptr %63, align 8, !tbaa !1934
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -96969,7 +96969,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %231 = load i64, ptr %13, align 32, !tbaa !1295
   %232 = lshr i64 %231, 1
   store i64 %232, ptr %13, align 32, !tbaa !1295
-  store i64 %232, ptr %230, align 8, !tbaa !1295
+  store i64 %232, ptr %230, align 32, !tbaa !1295
   %233 = getelementptr inbounds nuw i8, ptr %224, i64 168
   store i32 2, ptr %233, align 8, !tbaa !1293
   %234 = getelementptr inbounds nuw i8, ptr %224, i64 172
@@ -96983,12 +96983,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %240 = load ptr, ptr %165, align 8, !tbaa !1367
   store ptr %240, ptr %239, align 8, !tbaa !1297
   %241 = getelementptr inbounds nuw i8, ptr %239, i64 8
-  store i32 2, ptr %241, align 4, !tbaa !1301
+  store i32 2, ptr %241, align 8, !tbaa !1301
   %242 = getelementptr inbounds nuw i8, ptr %239, i64 16
   %243 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %243, ptr %242, align 8, !tbaa !1296
   %244 = getelementptr inbounds nuw i8, ptr %239, i64 24
-  store i8 0, ptr %244, align 1, !tbaa !1368
+  store i8 0, ptr %244, align 8, !tbaa !1368
   store ptr %239, ptr %165, align 8, !tbaa !1934
   store ptr %239, ptr %229, align 8, !tbaa !1934
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -97430,23 +97430,23 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 88
   store ptr %48, ptr %96, align 8, !tbaa !1610
   %.sroa.576.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 96
-  store ptr %58, ptr %.sroa.576.0..sroa_idx.i, align 8, !tbaa !1608
+  store ptr %58, ptr %.sroa.576.0..sroa_idx.i, align 32, !tbaa !1608
   %.sroa.677.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 104
   store ptr %46, ptr %.sroa.677.0..sroa_idx.i, align 8, !tbaa !1610
   %.sroa.778.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 112
-  store ptr %47, ptr %.sroa.778.0..sroa_idx.i, align 8, !tbaa !540
+  store ptr %47, ptr %.sroa.778.0..sroa_idx.i, align 16, !tbaa !540
   %.sroa.879.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 120
   store ptr %57, ptr %.sroa.879.0..sroa_idx.i, align 8, !tbaa !1826
   %.sroa.980.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 128
-  store ptr %49, ptr %.sroa.980.0..sroa_idx.i, align 8, !tbaa !124
+  store ptr %49, ptr %.sroa.980.0..sroa_idx.i, align 64, !tbaa !124
   %.sroa.1081.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 136
   store ptr %45, ptr %.sroa.1081.0..sroa_idx.i, align 8, !tbaa !1610
   %.sroa.1182.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 144
-  store ptr %54, ptr %.sroa.1182.0..sroa_idx.i, align 8, !tbaa !1276
+  store ptr %54, ptr %.sroa.1182.0..sroa_idx.i, align 16, !tbaa !1276
   %.sroa.12.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 152
   store ptr %50, ptr %.sroa.12.0..sroa_idx.i, align 8, !tbaa !124
   %.sroa.13.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 160
-  store ptr %55, ptr %.sroa.13.0..sroa_idx.i, align 8, !tbaa !1612
+  store ptr %55, ptr %.sroa.13.0..sroa_idx.i, align 32, !tbaa !1612
   %.sroa.14.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 168
   store ptr %56, ptr %.sroa.14.0..sroa_idx.i, align 8, !tbaa !1280
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 176
@@ -97611,19 +97611,19 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %160 = getelementptr inbounds nuw i8, ptr %157, i64 88
   store ptr %44, ptr %160, align 8, !tbaa !1307
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %157, i64 96
-  store ptr %54, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !1276
+  store ptr %54, ptr %.sroa.5.0..sroa_idx.i, align 32, !tbaa !1276
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %157, i64 104
   store ptr %59, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !1309
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %157, i64 112
-  store ptr %50, ptr %.sroa.7.0..sroa_idx.i, align 8, !tbaa !124
+  store ptr %50, ptr %.sroa.7.0..sroa_idx.i, align 16, !tbaa !124
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %157, i64 120
   store ptr %55, ptr %.sroa.8.0..sroa_idx.i, align 8, !tbaa !1612
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %157, i64 128
-  store ptr %60, ptr %.sroa.9.0..sroa_idx.i, align 8, !tbaa !1610
+  store ptr %60, ptr %.sroa.9.0..sroa_idx.i, align 64, !tbaa !1610
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %157, i64 136
   store ptr %51, ptr %.sroa.10.0..sroa_idx.i, align 8, !tbaa !124
   %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %157, i64 144
-  store ptr %48, ptr %.sroa.11.0..sroa_idx.i, align 8, !tbaa !1610
+  store ptr %48, ptr %.sroa.11.0..sroa_idx.i, align 16, !tbaa !1610
   %161 = getelementptr inbounds nuw i8, ptr %157, i64 152
   store ptr null, ptr %161, align 8, !tbaa !2025
   %162 = invoke noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
@@ -97973,23 +97973,23 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %267 = getelementptr inbounds nuw i8, ptr %264, i64 88
   store ptr %25, ptr %267, align 8, !tbaa !1610
   %.sroa.576.0..sroa_idx.i43 = getelementptr inbounds nuw i8, ptr %264, i64 96
-  store ptr %35, ptr %.sroa.576.0..sroa_idx.i43, align 8, !tbaa !1623
+  store ptr %35, ptr %.sroa.576.0..sroa_idx.i43, align 32, !tbaa !1623
   %.sroa.677.0..sroa_idx.i44 = getelementptr inbounds nuw i8, ptr %264, i64 104
   store ptr %23, ptr %.sroa.677.0..sroa_idx.i44, align 8, !tbaa !1610
   %.sroa.778.0..sroa_idx.i45 = getelementptr inbounds nuw i8, ptr %264, i64 112
-  store ptr %24, ptr %.sroa.778.0..sroa_idx.i45, align 8, !tbaa !540
+  store ptr %24, ptr %.sroa.778.0..sroa_idx.i45, align 16, !tbaa !540
   %.sroa.879.0..sroa_idx.i46 = getelementptr inbounds nuw i8, ptr %264, i64 120
   store ptr %34, ptr %.sroa.879.0..sroa_idx.i46, align 8, !tbaa !1826
   %.sroa.980.0..sroa_idx.i47 = getelementptr inbounds nuw i8, ptr %264, i64 128
-  store ptr %26, ptr %.sroa.980.0..sroa_idx.i47, align 8, !tbaa !124
+  store ptr %26, ptr %.sroa.980.0..sroa_idx.i47, align 64, !tbaa !124
   %.sroa.1081.0..sroa_idx.i48 = getelementptr inbounds nuw i8, ptr %264, i64 136
   store ptr %22, ptr %.sroa.1081.0..sroa_idx.i48, align 8, !tbaa !1610
   %.sroa.1182.0..sroa_idx.i49 = getelementptr inbounds nuw i8, ptr %264, i64 144
-  store ptr %31, ptr %.sroa.1182.0..sroa_idx.i49, align 8, !tbaa !1276
+  store ptr %31, ptr %.sroa.1182.0..sroa_idx.i49, align 16, !tbaa !1276
   %.sroa.12.0..sroa_idx.i50 = getelementptr inbounds nuw i8, ptr %264, i64 152
   store ptr %27, ptr %.sroa.12.0..sroa_idx.i50, align 8, !tbaa !124
   %.sroa.13.0..sroa_idx.i51 = getelementptr inbounds nuw i8, ptr %264, i64 160
-  store ptr %32, ptr %.sroa.13.0..sroa_idx.i51, align 8, !tbaa !1612
+  store ptr %32, ptr %.sroa.13.0..sroa_idx.i51, align 32, !tbaa !1612
   %.sroa.14.0..sroa_idx.i52 = getelementptr inbounds nuw i8, ptr %264, i64 168
   store ptr %33, ptr %.sroa.14.0..sroa_idx.i52, align 8, !tbaa !1280
   %268 = getelementptr inbounds nuw i8, ptr %264, i64 176
@@ -98154,19 +98154,19 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %331 = getelementptr inbounds nuw i8, ptr %328, i64 88
   store ptr %21, ptr %331, align 8, !tbaa !1307
   %.sroa.5.0..sroa_idx.i66 = getelementptr inbounds nuw i8, ptr %328, i64 96
-  store ptr %31, ptr %.sroa.5.0..sroa_idx.i66, align 8, !tbaa !1276
+  store ptr %31, ptr %.sroa.5.0..sroa_idx.i66, align 32, !tbaa !1276
   %.sroa.6.0..sroa_idx.i67 = getelementptr inbounds nuw i8, ptr %328, i64 104
   store ptr %36, ptr %.sroa.6.0..sroa_idx.i67, align 8, !tbaa !1309
   %.sroa.7.0..sroa_idx.i68 = getelementptr inbounds nuw i8, ptr %328, i64 112
-  store ptr %27, ptr %.sroa.7.0..sroa_idx.i68, align 8, !tbaa !124
+  store ptr %27, ptr %.sroa.7.0..sroa_idx.i68, align 16, !tbaa !124
   %.sroa.8.0..sroa_idx.i69 = getelementptr inbounds nuw i8, ptr %328, i64 120
   store ptr %32, ptr %.sroa.8.0..sroa_idx.i69, align 8, !tbaa !1612
   %.sroa.9.0..sroa_idx.i70 = getelementptr inbounds nuw i8, ptr %328, i64 128
-  store ptr %37, ptr %.sroa.9.0..sroa_idx.i70, align 8, !tbaa !1610
+  store ptr %37, ptr %.sroa.9.0..sroa_idx.i70, align 64, !tbaa !1610
   %.sroa.10.0..sroa_idx.i71 = getelementptr inbounds nuw i8, ptr %328, i64 136
   store ptr %28, ptr %.sroa.10.0..sroa_idx.i71, align 8, !tbaa !124
   %.sroa.11.0..sroa_idx.i72 = getelementptr inbounds nuw i8, ptr %328, i64 144
-  store ptr %25, ptr %.sroa.11.0..sroa_idx.i72, align 8, !tbaa !1610
+  store ptr %25, ptr %.sroa.11.0..sroa_idx.i72, align 16, !tbaa !1610
   %332 = getelementptr inbounds nuw i8, ptr %328, i64 152
   store ptr null, ptr %332, align 8, !tbaa !2031
   %333 = invoke noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
@@ -98497,7 +98497,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_116_RadiusSearchCPUIdiNS7_23NeighborSearchAllocatorIdiEELi0EEEvPNS7_24NanoFlannIndexHolderBaseEPlmPKT_mSI_mSI_bbbbRT1_EUlRKS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -98507,7 +98507,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %62, ptr noundef nonnull align 8 dereferenceable(88) %49, i64 88, i1 false), !tbaa.struct !2034
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 176
@@ -98518,7 +98518,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %66, ptr %13, align 8, !tbaa !1295
   store i64 %66, ptr %64, align 8, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 192
-  store i32 2, ptr %67, align 8, !tbaa !1293
+  store i32 2, ptr %67, align 64, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 196
   %69 = load i8, ptr %48, align 4, !tbaa !1294
   store i8 %69, ptr %68, align 4, !tbaa !1294
@@ -98529,12 +98529,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 16, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 16, !tbaa !2022
   store ptr %72, ptr %63, align 16, !tbaa !2022
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -98720,7 +98720,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   store i64 %162, ptr %13, align 8, !tbaa !1295
   store i64 %162, ptr %160, align 8, !tbaa !1295
   %163 = getelementptr inbounds nuw i8, ptr %154, i64 192
-  store i32 2, ptr %163, align 8, !tbaa !1293
+  store i32 2, ptr %163, align 64, !tbaa !1293
   %164 = getelementptr inbounds nuw i8, ptr %154, i64 196
   %165 = load i8, ptr %94, align 4, !tbaa !1294
   %166 = getelementptr inbounds nuw i8, ptr %154, i64 200
@@ -98732,12 +98732,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %170 = load ptr, ptr %102, align 16, !tbaa !1367
   store ptr %170, ptr %169, align 8, !tbaa !1297
   %171 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  store i32 2, ptr %171, align 4, !tbaa !1301
+  store i32 2, ptr %171, align 8, !tbaa !1301
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %173 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %173, ptr %172, align 8, !tbaa !1296
   %174 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  store i8 0, ptr %174, align 1, !tbaa !1368
+  store i8 0, ptr %174, align 8, !tbaa !1368
   store ptr %169, ptr %102, align 16, !tbaa !2022
   store ptr %169, ptr %159, align 16, !tbaa !2022
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -100311,7 +100311,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_116_RadiusSearchCPUIdiNS7_23NeighborSearchAllocatorIdiEELi0EEEvPNS7_24NanoFlannIndexHolderBaseEPlmPKT_mSI_mSI_bbbbRT1_EUlRKS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -100321,7 +100321,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %62, ptr noundef nonnull align 8 dereferenceable(64) %49, i64 64, i1 false), !tbaa.struct !2076
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 152
@@ -100330,7 +100330,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %65 = load i64, ptr %13, align 32, !tbaa !1295
   %66 = lshr i64 %65, 1
   store i64 %66, ptr %13, align 32, !tbaa !1295
-  store i64 %66, ptr %64, align 8, !tbaa !1295
+  store i64 %66, ptr %64, align 32, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 168
   store i32 2, ptr %67, align 8, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 172
@@ -100343,12 +100343,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 8, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 8, !tbaa !2025
   store ptr %72, ptr %63, align 8, !tbaa !2025
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -100645,7 +100645,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %230 = load i64, ptr %13, align 32, !tbaa !1295
   %231 = lshr i64 %230, 1
   store i64 %231, ptr %13, align 32, !tbaa !1295
-  store i64 %231, ptr %229, align 8, !tbaa !1295
+  store i64 %231, ptr %229, align 32, !tbaa !1295
   %232 = getelementptr inbounds nuw i8, ptr %223, i64 168
   store i32 2, ptr %232, align 8, !tbaa !1293
   %233 = getelementptr inbounds nuw i8, ptr %223, i64 172
@@ -100659,12 +100659,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %239 = load ptr, ptr %164, align 8, !tbaa !1367
   store ptr %239, ptr %238, align 8, !tbaa !1297
   %240 = getelementptr inbounds nuw i8, ptr %238, i64 8
-  store i32 2, ptr %240, align 4, !tbaa !1301
+  store i32 2, ptr %240, align 8, !tbaa !1301
   %241 = getelementptr inbounds nuw i8, ptr %238, i64 16
   %242 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %242, ptr %241, align 8, !tbaa !1296
   %243 = getelementptr inbounds nuw i8, ptr %238, i64 24
-  store i8 0, ptr %243, align 1, !tbaa !1368
+  store i8 0, ptr %243, align 8, !tbaa !1368
   store ptr %238, ptr %164, align 8, !tbaa !2025
   store ptr %238, ptr %228, align 8, !tbaa !2025
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -101033,7 +101033,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_116_RadiusSearchCPUIdiNS7_23NeighborSearchAllocatorIdiEELi1EEEvPNS7_24NanoFlannIndexHolderBaseEPlmPKT_mSI_mSI_bbbbRT1_EUlRKS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -101043,7 +101043,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %62, ptr noundef nonnull align 8 dereferenceable(88) %49, i64 88, i1 false), !tbaa.struct !2090
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 176
@@ -101054,7 +101054,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %66, ptr %13, align 8, !tbaa !1295
   store i64 %66, ptr %64, align 8, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 192
-  store i32 2, ptr %67, align 8, !tbaa !1293
+  store i32 2, ptr %67, align 64, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 196
   %69 = load i8, ptr %48, align 4, !tbaa !1294
   store i8 %69, ptr %68, align 4, !tbaa !1294
@@ -101065,12 +101065,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 16, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 16, !tbaa !2028
   store ptr %72, ptr %63, align 16, !tbaa !2028
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -101256,7 +101256,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   store i64 %162, ptr %13, align 8, !tbaa !1295
   store i64 %162, ptr %160, align 8, !tbaa !1295
   %163 = getelementptr inbounds nuw i8, ptr %154, i64 192
-  store i32 2, ptr %163, align 8, !tbaa !1293
+  store i32 2, ptr %163, align 64, !tbaa !1293
   %164 = getelementptr inbounds nuw i8, ptr %154, i64 196
   %165 = load i8, ptr %94, align 4, !tbaa !1294
   %166 = getelementptr inbounds nuw i8, ptr %154, i64 200
@@ -101268,12 +101268,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %170 = load ptr, ptr %102, align 16, !tbaa !1367
   store ptr %170, ptr %169, align 8, !tbaa !1297
   %171 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  store i32 2, ptr %171, align 4, !tbaa !1301
+  store i32 2, ptr %171, align 8, !tbaa !1301
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %173 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %173, ptr %172, align 8, !tbaa !1296
   %174 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  store i8 0, ptr %174, align 1, !tbaa !1368
+  store i8 0, ptr %174, align 8, !tbaa !1368
   store ptr %169, ptr %102, align 16, !tbaa !2028
   store ptr %169, ptr %159, align 16, !tbaa !2028
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -102326,7 +102326,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_116_RadiusSearchCPUIdiNS7_23NeighborSearchAllocatorIdiEELi1EEEvPNS7_24NanoFlannIndexHolderBaseEPlmPKT_mSI_mSI_bbbbRT1_EUlRKS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -102336,7 +102336,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %62, ptr noundef nonnull align 8 dereferenceable(64) %49, i64 64, i1 false), !tbaa.struct !2076
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 152
@@ -102345,7 +102345,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %65 = load i64, ptr %13, align 32, !tbaa !1295
   %66 = lshr i64 %65, 1
   store i64 %66, ptr %13, align 32, !tbaa !1295
-  store i64 %66, ptr %64, align 8, !tbaa !1295
+  store i64 %66, ptr %64, align 32, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 168
   store i32 2, ptr %67, align 8, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 172
@@ -102358,12 +102358,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 8, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 8, !tbaa !2031
   store ptr %72, ptr %63, align 8, !tbaa !2031
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -102661,7 +102661,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %231 = load i64, ptr %13, align 32, !tbaa !1295
   %232 = lshr i64 %231, 1
   store i64 %232, ptr %13, align 32, !tbaa !1295
-  store i64 %232, ptr %230, align 8, !tbaa !1295
+  store i64 %232, ptr %230, align 32, !tbaa !1295
   %233 = getelementptr inbounds nuw i8, ptr %224, i64 168
   store i32 2, ptr %233, align 8, !tbaa !1293
   %234 = getelementptr inbounds nuw i8, ptr %224, i64 172
@@ -102675,12 +102675,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %240 = load ptr, ptr %165, align 8, !tbaa !1367
   store ptr %240, ptr %239, align 8, !tbaa !1297
   %241 = getelementptr inbounds nuw i8, ptr %239, i64 8
-  store i32 2, ptr %241, align 4, !tbaa !1301
+  store i32 2, ptr %241, align 8, !tbaa !1301
   %242 = getelementptr inbounds nuw i8, ptr %239, i64 16
   %243 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %243, ptr %242, align 8, !tbaa !1296
   %244 = getelementptr inbounds nuw i8, ptr %239, i64 24
-  store i8 0, ptr %244, align 1, !tbaa !1368
+  store i8 0, ptr %244, align 8, !tbaa !1368
   store ptr %239, ptr %165, align 8, !tbaa !2031
   store ptr %239, ptr %229, align 8, !tbaa !2031
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -103122,23 +103122,23 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 88
   store ptr %48, ptr %96, align 8, !tbaa !1610
   %.sroa.576.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 96
-  store ptr %58, ptr %.sroa.576.0..sroa_idx.i, align 8, !tbaa !1718
+  store ptr %58, ptr %.sroa.576.0..sroa_idx.i, align 32, !tbaa !1718
   %.sroa.677.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 104
   store ptr %46, ptr %.sroa.677.0..sroa_idx.i, align 8, !tbaa !1610
   %.sroa.778.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 112
-  store ptr %47, ptr %.sroa.778.0..sroa_idx.i, align 8, !tbaa !540
+  store ptr %47, ptr %.sroa.778.0..sroa_idx.i, align 16, !tbaa !540
   %.sroa.879.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 120
   store ptr %57, ptr %.sroa.879.0..sroa_idx.i, align 8, !tbaa !1826
   %.sroa.980.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 128
-  store ptr %49, ptr %.sroa.980.0..sroa_idx.i, align 8, !tbaa !124
+  store ptr %49, ptr %.sroa.980.0..sroa_idx.i, align 64, !tbaa !124
   %.sroa.1081.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 136
   store ptr %45, ptr %.sroa.1081.0..sroa_idx.i, align 8, !tbaa !1610
   %.sroa.1182.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 144
-  store ptr %54, ptr %.sroa.1182.0..sroa_idx.i, align 8, !tbaa !1497
+  store ptr %54, ptr %.sroa.1182.0..sroa_idx.i, align 16, !tbaa !1497
   %.sroa.12.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 152
   store ptr %50, ptr %.sroa.12.0..sroa_idx.i, align 8, !tbaa !124
   %.sroa.13.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 160
-  store ptr %55, ptr %.sroa.13.0..sroa_idx.i, align 8, !tbaa !1612
+  store ptr %55, ptr %.sroa.13.0..sroa_idx.i, align 32, !tbaa !1612
   %.sroa.14.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %93, i64 168
   store ptr %56, ptr %.sroa.14.0..sroa_idx.i, align 8, !tbaa !1280
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 176
@@ -103303,19 +103303,19 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %160 = getelementptr inbounds nuw i8, ptr %157, i64 88
   store ptr %44, ptr %160, align 8, !tbaa !1307
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %157, i64 96
-  store ptr %54, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !1497
+  store ptr %54, ptr %.sroa.5.0..sroa_idx.i, align 32, !tbaa !1497
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %157, i64 104
   store ptr %59, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !1307
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %157, i64 112
-  store ptr %50, ptr %.sroa.7.0..sroa_idx.i, align 8, !tbaa !124
+  store ptr %50, ptr %.sroa.7.0..sroa_idx.i, align 16, !tbaa !124
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %157, i64 120
   store ptr %55, ptr %.sroa.8.0..sroa_idx.i, align 8, !tbaa !1612
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %157, i64 128
-  store ptr %60, ptr %.sroa.9.0..sroa_idx.i, align 8, !tbaa !1610
+  store ptr %60, ptr %.sroa.9.0..sroa_idx.i, align 64, !tbaa !1610
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %157, i64 136
   store ptr %51, ptr %.sroa.10.0..sroa_idx.i, align 8, !tbaa !124
   %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %157, i64 144
-  store ptr %48, ptr %.sroa.11.0..sroa_idx.i, align 8, !tbaa !1610
+  store ptr %48, ptr %.sroa.11.0..sroa_idx.i, align 16, !tbaa !1610
   %161 = getelementptr inbounds nuw i8, ptr %157, i64 152
   store ptr null, ptr %161, align 8, !tbaa !2122
   %162 = invoke noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
@@ -103665,23 +103665,23 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %267 = getelementptr inbounds nuw i8, ptr %264, i64 88
   store ptr %25, ptr %267, align 8, !tbaa !1610
   %.sroa.576.0..sroa_idx.i43 = getelementptr inbounds nuw i8, ptr %264, i64 96
-  store ptr %35, ptr %.sroa.576.0..sroa_idx.i43, align 8, !tbaa !1728
+  store ptr %35, ptr %.sroa.576.0..sroa_idx.i43, align 32, !tbaa !1728
   %.sroa.677.0..sroa_idx.i44 = getelementptr inbounds nuw i8, ptr %264, i64 104
   store ptr %23, ptr %.sroa.677.0..sroa_idx.i44, align 8, !tbaa !1610
   %.sroa.778.0..sroa_idx.i45 = getelementptr inbounds nuw i8, ptr %264, i64 112
-  store ptr %24, ptr %.sroa.778.0..sroa_idx.i45, align 8, !tbaa !540
+  store ptr %24, ptr %.sroa.778.0..sroa_idx.i45, align 16, !tbaa !540
   %.sroa.879.0..sroa_idx.i46 = getelementptr inbounds nuw i8, ptr %264, i64 120
   store ptr %34, ptr %.sroa.879.0..sroa_idx.i46, align 8, !tbaa !1826
   %.sroa.980.0..sroa_idx.i47 = getelementptr inbounds nuw i8, ptr %264, i64 128
-  store ptr %26, ptr %.sroa.980.0..sroa_idx.i47, align 8, !tbaa !124
+  store ptr %26, ptr %.sroa.980.0..sroa_idx.i47, align 64, !tbaa !124
   %.sroa.1081.0..sroa_idx.i48 = getelementptr inbounds nuw i8, ptr %264, i64 136
   store ptr %22, ptr %.sroa.1081.0..sroa_idx.i48, align 8, !tbaa !1610
   %.sroa.1182.0..sroa_idx.i49 = getelementptr inbounds nuw i8, ptr %264, i64 144
-  store ptr %31, ptr %.sroa.1182.0..sroa_idx.i49, align 8, !tbaa !1497
+  store ptr %31, ptr %.sroa.1182.0..sroa_idx.i49, align 16, !tbaa !1497
   %.sroa.12.0..sroa_idx.i50 = getelementptr inbounds nuw i8, ptr %264, i64 152
   store ptr %27, ptr %.sroa.12.0..sroa_idx.i50, align 8, !tbaa !124
   %.sroa.13.0..sroa_idx.i51 = getelementptr inbounds nuw i8, ptr %264, i64 160
-  store ptr %32, ptr %.sroa.13.0..sroa_idx.i51, align 8, !tbaa !1612
+  store ptr %32, ptr %.sroa.13.0..sroa_idx.i51, align 32, !tbaa !1612
   %.sroa.14.0..sroa_idx.i52 = getelementptr inbounds nuw i8, ptr %264, i64 168
   store ptr %33, ptr %.sroa.14.0..sroa_idx.i52, align 8, !tbaa !1280
   %268 = getelementptr inbounds nuw i8, ptr %264, i64 176
@@ -103846,19 +103846,19 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %331 = getelementptr inbounds nuw i8, ptr %328, i64 88
   store ptr %21, ptr %331, align 8, !tbaa !1307
   %.sroa.5.0..sroa_idx.i66 = getelementptr inbounds nuw i8, ptr %328, i64 96
-  store ptr %31, ptr %.sroa.5.0..sroa_idx.i66, align 8, !tbaa !1497
+  store ptr %31, ptr %.sroa.5.0..sroa_idx.i66, align 32, !tbaa !1497
   %.sroa.6.0..sroa_idx.i67 = getelementptr inbounds nuw i8, ptr %328, i64 104
   store ptr %36, ptr %.sroa.6.0..sroa_idx.i67, align 8, !tbaa !1307
   %.sroa.7.0..sroa_idx.i68 = getelementptr inbounds nuw i8, ptr %328, i64 112
-  store ptr %27, ptr %.sroa.7.0..sroa_idx.i68, align 8, !tbaa !124
+  store ptr %27, ptr %.sroa.7.0..sroa_idx.i68, align 16, !tbaa !124
   %.sroa.8.0..sroa_idx.i69 = getelementptr inbounds nuw i8, ptr %328, i64 120
   store ptr %32, ptr %.sroa.8.0..sroa_idx.i69, align 8, !tbaa !1612
   %.sroa.9.0..sroa_idx.i70 = getelementptr inbounds nuw i8, ptr %328, i64 128
-  store ptr %37, ptr %.sroa.9.0..sroa_idx.i70, align 8, !tbaa !1610
+  store ptr %37, ptr %.sroa.9.0..sroa_idx.i70, align 64, !tbaa !1610
   %.sroa.10.0..sroa_idx.i71 = getelementptr inbounds nuw i8, ptr %328, i64 136
   store ptr %28, ptr %.sroa.10.0..sroa_idx.i71, align 8, !tbaa !124
   %.sroa.11.0..sroa_idx.i72 = getelementptr inbounds nuw i8, ptr %328, i64 144
-  store ptr %25, ptr %.sroa.11.0..sroa_idx.i72, align 8, !tbaa !1610
+  store ptr %25, ptr %.sroa.11.0..sroa_idx.i72, align 16, !tbaa !1610
   %332 = getelementptr inbounds nuw i8, ptr %328, i64 152
   store ptr null, ptr %332, align 8, !tbaa !2128
   %333 = invoke noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
@@ -104189,7 +104189,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_116_RadiusSearchCPUIdlNS7_23NeighborSearchAllocatorIdlEELi0EEEvPNS7_24NanoFlannIndexHolderBaseEPlmPKT_mSI_mSI_bbbbRT1_EUlRKS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -104199,7 +104199,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %62, ptr noundef nonnull align 8 dereferenceable(88) %49, i64 88, i1 false), !tbaa.struct !2131
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 176
@@ -104210,7 +104210,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %66, ptr %13, align 8, !tbaa !1295
   store i64 %66, ptr %64, align 8, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 192
-  store i32 2, ptr %67, align 8, !tbaa !1293
+  store i32 2, ptr %67, align 64, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 196
   %69 = load i8, ptr %48, align 4, !tbaa !1294
   store i8 %69, ptr %68, align 4, !tbaa !1294
@@ -104221,12 +104221,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 16, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 16, !tbaa !2119
   store ptr %72, ptr %63, align 16, !tbaa !2119
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -104412,7 +104412,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   store i64 %162, ptr %13, align 8, !tbaa !1295
   store i64 %162, ptr %160, align 8, !tbaa !1295
   %163 = getelementptr inbounds nuw i8, ptr %154, i64 192
-  store i32 2, ptr %163, align 8, !tbaa !1293
+  store i32 2, ptr %163, align 64, !tbaa !1293
   %164 = getelementptr inbounds nuw i8, ptr %154, i64 196
   %165 = load i8, ptr %94, align 4, !tbaa !1294
   %166 = getelementptr inbounds nuw i8, ptr %154, i64 200
@@ -104424,12 +104424,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %170 = load ptr, ptr %102, align 16, !tbaa !1367
   store ptr %170, ptr %169, align 8, !tbaa !1297
   %171 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  store i32 2, ptr %171, align 4, !tbaa !1301
+  store i32 2, ptr %171, align 8, !tbaa !1301
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %173 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %173, ptr %172, align 8, !tbaa !1296
   %174 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  store i8 0, ptr %174, align 1, !tbaa !1368
+  store i8 0, ptr %174, align 8, !tbaa !1368
   store ptr %169, ptr %102, align 16, !tbaa !2119
   store ptr %169, ptr %159, align 16, !tbaa !2119
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -106002,7 +106002,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_116_RadiusSearchCPUIdlNS7_23NeighborSearchAllocatorIdlEELi0EEEvPNS7_24NanoFlannIndexHolderBaseEPlmPKT_mSI_mSI_bbbbRT1_EUlRKS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -106012,7 +106012,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %62, ptr noundef nonnull align 8 dereferenceable(64) %49, i64 64, i1 false), !tbaa.struct !2173
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 152
@@ -106021,7 +106021,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %65 = load i64, ptr %13, align 32, !tbaa !1295
   %66 = lshr i64 %65, 1
   store i64 %66, ptr %13, align 32, !tbaa !1295
-  store i64 %66, ptr %64, align 8, !tbaa !1295
+  store i64 %66, ptr %64, align 32, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 168
   store i32 2, ptr %67, align 8, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 172
@@ -106034,12 +106034,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 8, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 8, !tbaa !2122
   store ptr %72, ptr %63, align 8, !tbaa !2122
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -106336,7 +106336,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %230 = load i64, ptr %13, align 32, !tbaa !1295
   %231 = lshr i64 %230, 1
   store i64 %231, ptr %13, align 32, !tbaa !1295
-  store i64 %231, ptr %229, align 8, !tbaa !1295
+  store i64 %231, ptr %229, align 32, !tbaa !1295
   %232 = getelementptr inbounds nuw i8, ptr %223, i64 168
   store i32 2, ptr %232, align 8, !tbaa !1293
   %233 = getelementptr inbounds nuw i8, ptr %223, i64 172
@@ -106350,12 +106350,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %239 = load ptr, ptr %164, align 8, !tbaa !1367
   store ptr %239, ptr %238, align 8, !tbaa !1297
   %240 = getelementptr inbounds nuw i8, ptr %238, i64 8
-  store i32 2, ptr %240, align 4, !tbaa !1301
+  store i32 2, ptr %240, align 8, !tbaa !1301
   %241 = getelementptr inbounds nuw i8, ptr %238, i64 16
   %242 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %242, ptr %241, align 8, !tbaa !1296
   %243 = getelementptr inbounds nuw i8, ptr %238, i64 24
-  store i8 0, ptr %243, align 1, !tbaa !1368
+  store i8 0, ptr %243, align 8, !tbaa !1368
   store ptr %238, ptr %164, align 8, !tbaa !2122
   store ptr %238, ptr %228, align 8, !tbaa !2122
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -106724,7 +106724,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_116_RadiusSearchCPUIdlNS7_23NeighborSearchAllocatorIdlEELi1EEEvPNS7_24NanoFlannIndexHolderBaseEPlmPKT_mSI_mSI_bbbbRT1_EUlRKS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -106734,7 +106734,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %62, ptr noundef nonnull align 8 dereferenceable(88) %49, i64 88, i1 false), !tbaa.struct !2187
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 176
@@ -106745,7 +106745,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %66, ptr %13, align 8, !tbaa !1295
   store i64 %66, ptr %64, align 8, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 192
-  store i32 2, ptr %67, align 8, !tbaa !1293
+  store i32 2, ptr %67, align 64, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 196
   %69 = load i8, ptr %48, align 4, !tbaa !1294
   store i8 %69, ptr %68, align 4, !tbaa !1294
@@ -106756,12 +106756,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 16, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 16, !tbaa !2125
   store ptr %72, ptr %63, align 16, !tbaa !2125
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -106947,7 +106947,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   store i64 %162, ptr %13, align 8, !tbaa !1295
   store i64 %162, ptr %160, align 8, !tbaa !1295
   %163 = getelementptr inbounds nuw i8, ptr %154, i64 192
-  store i32 2, ptr %163, align 8, !tbaa !1293
+  store i32 2, ptr %163, align 64, !tbaa !1293
   %164 = getelementptr inbounds nuw i8, ptr %154, i64 196
   %165 = load i8, ptr %94, align 4, !tbaa !1294
   %166 = getelementptr inbounds nuw i8, ptr %154, i64 200
@@ -106959,12 +106959,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %170 = load ptr, ptr %102, align 16, !tbaa !1367
   store ptr %170, ptr %169, align 8, !tbaa !1297
   %171 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  store i32 2, ptr %171, align 4, !tbaa !1301
+  store i32 2, ptr %171, align 8, !tbaa !1301
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %173 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %173, ptr %172, align 8, !tbaa !1296
   %174 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  store i8 0, ptr %174, align 1, !tbaa !1368
+  store i8 0, ptr %174, align 8, !tbaa !1368
   store ptr %169, ptr %102, align 16, !tbaa !2125
   store ptr %169, ptr %159, align 16, !tbaa !2125
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -108016,7 +108016,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_116_RadiusSearchCPUIdlNS7_23NeighborSearchAllocatorIdlEELi1EEEvPNS7_24NanoFlannIndexHolderBaseEPlmPKT_mSI_mSI_bbbbRT1_EUlRKS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -108026,7 +108026,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %62, ptr noundef nonnull align 8 dereferenceable(64) %49, i64 64, i1 false), !tbaa.struct !2173
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 152
@@ -108035,7 +108035,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %65 = load i64, ptr %13, align 32, !tbaa !1295
   %66 = lshr i64 %65, 1
   store i64 %66, ptr %13, align 32, !tbaa !1295
-  store i64 %66, ptr %64, align 8, !tbaa !1295
+  store i64 %66, ptr %64, align 32, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 168
   store i32 2, ptr %67, align 8, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 172
@@ -108048,12 +108048,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 8, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 8, !tbaa !2128
   store ptr %72, ptr %63, align 8, !tbaa !2128
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -108351,7 +108351,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %231 = load i64, ptr %13, align 32, !tbaa !1295
   %232 = lshr i64 %231, 1
   store i64 %232, ptr %13, align 32, !tbaa !1295
-  store i64 %232, ptr %230, align 8, !tbaa !1295
+  store i64 %232, ptr %230, align 32, !tbaa !1295
   %233 = getelementptr inbounds nuw i8, ptr %224, i64 168
   store i32 2, ptr %233, align 8, !tbaa !1293
   %234 = getelementptr inbounds nuw i8, ptr %224, i64 172
@@ -108365,12 +108365,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %240 = load ptr, ptr %165, align 8, !tbaa !1367
   store ptr %240, ptr %239, align 8, !tbaa !1297
   %241 = getelementptr inbounds nuw i8, ptr %239, i64 8
-  store i32 2, ptr %241, align 4, !tbaa !1301
+  store i32 2, ptr %241, align 8, !tbaa !1301
   %242 = getelementptr inbounds nuw i8, ptr %239, i64 16
   %243 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %243, ptr %242, align 8, !tbaa !1296
   %244 = getelementptr inbounds nuw i8, ptr %239, i64 24
-  store i8 0, ptr %244, align 1, !tbaa !1368
+  store i8 0, ptr %244, align 8, !tbaa !1368
   store ptr %239, ptr %165, align 8, !tbaa !2128
   store ptr %239, ptr %229, align 8, !tbaa !2128
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -109896,19 +109896,19 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 88
   store ptr %42, ptr %59, align 8, !tbaa !1272
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 96
-  store ptr %31, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !1274
+  store ptr %31, ptr %.sroa.4.0..sroa_idx.i, align 32, !tbaa !1274
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 104
   store ptr %32, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !540
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 112
-  store ptr %37, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !1235
+  store ptr %37, ptr %.sroa.6.0..sroa_idx.i, align 16, !tbaa !1235
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 120
   store ptr %41, ptr %.sroa.7.0..sroa_idx.i, align 8, !tbaa !1826
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 128
-  store ptr %33, ptr %.sroa.8.0..sroa_idx.i, align 8, !tbaa !420
+  store ptr %33, ptr %.sroa.8.0..sroa_idx.i, align 64, !tbaa !420
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 136
   store ptr %39, ptr %.sroa.9.0..sroa_idx.i, align 8, !tbaa !1309
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 144
-  store ptr %38, ptr %.sroa.10.0..sroa_idx.i, align 8, !tbaa !1309
+  store ptr %38, ptr %.sroa.10.0..sroa_idx.i, align 16, !tbaa !1309
   %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 152
   store ptr %40, ptr %.sroa.11.0..sroa_idx.i, align 8, !tbaa !1274
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 160
@@ -110059,19 +110059,19 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 88
   store ptr %27, ptr %98, align 8, !tbaa !1318
   %.sroa.4.0..sroa_idx.i29 = getelementptr inbounds nuw i8, ptr %95, i64 96
-  store ptr %16, ptr %.sroa.4.0..sroa_idx.i29, align 8, !tbaa !1274
+  store ptr %16, ptr %.sroa.4.0..sroa_idx.i29, align 32, !tbaa !1274
   %.sroa.5.0..sroa_idx.i30 = getelementptr inbounds nuw i8, ptr %95, i64 104
   store ptr %17, ptr %.sroa.5.0..sroa_idx.i30, align 8, !tbaa !540
   %.sroa.6.0..sroa_idx.i31 = getelementptr inbounds nuw i8, ptr %95, i64 112
-  store ptr %22, ptr %.sroa.6.0..sroa_idx.i31, align 8, !tbaa !1235
+  store ptr %22, ptr %.sroa.6.0..sroa_idx.i31, align 16, !tbaa !1235
   %.sroa.7.0..sroa_idx.i32 = getelementptr inbounds nuw i8, ptr %95, i64 120
   store ptr %26, ptr %.sroa.7.0..sroa_idx.i32, align 8, !tbaa !1826
   %.sroa.8.0..sroa_idx.i33 = getelementptr inbounds nuw i8, ptr %95, i64 128
-  store ptr %18, ptr %.sroa.8.0..sroa_idx.i33, align 8, !tbaa !420
+  store ptr %18, ptr %.sroa.8.0..sroa_idx.i33, align 64, !tbaa !420
   %.sroa.9.0..sroa_idx.i34 = getelementptr inbounds nuw i8, ptr %95, i64 136
   store ptr %24, ptr %.sroa.9.0..sroa_idx.i34, align 8, !tbaa !1309
   %.sroa.10.0..sroa_idx.i35 = getelementptr inbounds nuw i8, ptr %95, i64 144
-  store ptr %23, ptr %.sroa.10.0..sroa_idx.i35, align 8, !tbaa !1309
+  store ptr %23, ptr %.sroa.10.0..sroa_idx.i35, align 16, !tbaa !1309
   %.sroa.11.0..sroa_idx.i36 = getelementptr inbounds nuw i8, ptr %95, i64 152
   store ptr %25, ptr %.sroa.11.0..sroa_idx.i36, align 8, !tbaa !1274
   %99 = getelementptr inbounds nuw i8, ptr %95, i64 160
@@ -110401,7 +110401,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_116_HybridSearchCPUIfiNS7_23NeighborSearchAllocatorIfiEELi0EEEvPNS7_24NanoFlannIndexHolderBaseEmPKT_mSH_mSF_ibbRT1_EUlRKS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -110411,7 +110411,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %62, ptr noundef nonnull align 8 dereferenceable(72) %49, i64 72, i1 false), !tbaa.struct !2228
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 160
@@ -110422,7 +110422,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %66, ptr %13, align 8, !tbaa !1295
   store i64 %66, ptr %64, align 8, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 176
-  store i32 2, ptr %67, align 8, !tbaa !1293
+  store i32 2, ptr %67, align 16, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 180
   %69 = load i8, ptr %48, align 4, !tbaa !1294
   store i8 %69, ptr %68, align 4, !tbaa !1294
@@ -110433,12 +110433,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 32, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 32, !tbaa !2222
   store ptr %72, ptr %63, align 32, !tbaa !2222
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -110624,7 +110624,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   store i64 %162, ptr %13, align 8, !tbaa !1295
   store i64 %162, ptr %160, align 8, !tbaa !1295
   %163 = getelementptr inbounds nuw i8, ptr %154, i64 176
-  store i32 2, ptr %163, align 8, !tbaa !1293
+  store i32 2, ptr %163, align 16, !tbaa !1293
   %164 = getelementptr inbounds nuw i8, ptr %154, i64 180
   %165 = load i8, ptr %94, align 4, !tbaa !1294
   %166 = getelementptr inbounds nuw i8, ptr %154, i64 184
@@ -110636,12 +110636,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %170 = load ptr, ptr %102, align 32, !tbaa !1367
   store ptr %170, ptr %169, align 8, !tbaa !1297
   %171 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  store i32 2, ptr %171, align 4, !tbaa !1301
+  store i32 2, ptr %171, align 8, !tbaa !1301
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %173 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %173, ptr %172, align 8, !tbaa !1296
   %174 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  store i8 0, ptr %174, align 1, !tbaa !1368
+  store i8 0, ptr %174, align 8, !tbaa !1368
   store ptr %169, ptr %102, align 32, !tbaa !2222
   store ptr %169, ptr %159, align 32, !tbaa !2222
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -111287,7 +111287,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_116_HybridSearchCPUIfiNS7_23NeighborSearchAllocatorIfiEELi1EEEvPNS7_24NanoFlannIndexHolderBaseEmPKT_mSH_mSF_ibbRT1_EUlRKS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -111297,7 +111297,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %62, ptr noundef nonnull align 8 dereferenceable(72) %49, i64 72, i1 false), !tbaa.struct !2244
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 160
@@ -111308,7 +111308,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %66, ptr %13, align 8, !tbaa !1295
   store i64 %66, ptr %64, align 8, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 176
-  store i32 2, ptr %67, align 8, !tbaa !1293
+  store i32 2, ptr %67, align 16, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 180
   %69 = load i8, ptr %48, align 4, !tbaa !1294
   store i8 %69, ptr %68, align 4, !tbaa !1294
@@ -111319,12 +111319,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 32, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 32, !tbaa !2225
   store ptr %72, ptr %63, align 32, !tbaa !2225
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -111510,7 +111510,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   store i64 %162, ptr %13, align 8, !tbaa !1295
   store i64 %162, ptr %160, align 8, !tbaa !1295
   %163 = getelementptr inbounds nuw i8, ptr %154, i64 176
-  store i32 2, ptr %163, align 8, !tbaa !1293
+  store i32 2, ptr %163, align 16, !tbaa !1293
   %164 = getelementptr inbounds nuw i8, ptr %154, i64 180
   %165 = load i8, ptr %94, align 4, !tbaa !1294
   %166 = getelementptr inbounds nuw i8, ptr %154, i64 184
@@ -111522,12 +111522,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %170 = load ptr, ptr %102, align 32, !tbaa !1367
   store ptr %170, ptr %169, align 8, !tbaa !1297
   %171 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  store i32 2, ptr %171, align 4, !tbaa !1301
+  store i32 2, ptr %171, align 8, !tbaa !1301
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %173 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %173, ptr %172, align 8, !tbaa !1296
   %174 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  store i8 0, ptr %174, align 1, !tbaa !1368
+  store i8 0, ptr %174, align 8, !tbaa !1368
   store ptr %169, ptr %102, align 32, !tbaa !2225
   store ptr %169, ptr %159, align 32, !tbaa !2225
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -112063,19 +112063,19 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 88
   store ptr %42, ptr %59, align 8, !tbaa !1495
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 96
-  store ptr %31, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !1274
+  store ptr %31, ptr %.sroa.4.0..sroa_idx.i, align 32, !tbaa !1274
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 104
   store ptr %32, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !540
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 112
-  store ptr %37, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !1235
+  store ptr %37, ptr %.sroa.6.0..sroa_idx.i, align 16, !tbaa !1235
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 120
   store ptr %41, ptr %.sroa.7.0..sroa_idx.i, align 8, !tbaa !1826
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 128
-  store ptr %33, ptr %.sroa.8.0..sroa_idx.i, align 8, !tbaa !420
+  store ptr %33, ptr %.sroa.8.0..sroa_idx.i, align 64, !tbaa !420
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 136
   store ptr %39, ptr %.sroa.9.0..sroa_idx.i, align 8, !tbaa !1307
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 144
-  store ptr %38, ptr %.sroa.10.0..sroa_idx.i, align 8, !tbaa !1307
+  store ptr %38, ptr %.sroa.10.0..sroa_idx.i, align 16, !tbaa !1307
   %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 152
   store ptr %40, ptr %.sroa.11.0..sroa_idx.i, align 8, !tbaa !1274
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 160
@@ -112226,19 +112226,19 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 88
   store ptr %27, ptr %98, align 8, !tbaa !1508
   %.sroa.4.0..sroa_idx.i29 = getelementptr inbounds nuw i8, ptr %95, i64 96
-  store ptr %16, ptr %.sroa.4.0..sroa_idx.i29, align 8, !tbaa !1274
+  store ptr %16, ptr %.sroa.4.0..sroa_idx.i29, align 32, !tbaa !1274
   %.sroa.5.0..sroa_idx.i30 = getelementptr inbounds nuw i8, ptr %95, i64 104
   store ptr %17, ptr %.sroa.5.0..sroa_idx.i30, align 8, !tbaa !540
   %.sroa.6.0..sroa_idx.i31 = getelementptr inbounds nuw i8, ptr %95, i64 112
-  store ptr %22, ptr %.sroa.6.0..sroa_idx.i31, align 8, !tbaa !1235
+  store ptr %22, ptr %.sroa.6.0..sroa_idx.i31, align 16, !tbaa !1235
   %.sroa.7.0..sroa_idx.i32 = getelementptr inbounds nuw i8, ptr %95, i64 120
   store ptr %26, ptr %.sroa.7.0..sroa_idx.i32, align 8, !tbaa !1826
   %.sroa.8.0..sroa_idx.i33 = getelementptr inbounds nuw i8, ptr %95, i64 128
-  store ptr %18, ptr %.sroa.8.0..sroa_idx.i33, align 8, !tbaa !420
+  store ptr %18, ptr %.sroa.8.0..sroa_idx.i33, align 64, !tbaa !420
   %.sroa.9.0..sroa_idx.i34 = getelementptr inbounds nuw i8, ptr %95, i64 136
   store ptr %24, ptr %.sroa.9.0..sroa_idx.i34, align 8, !tbaa !1307
   %.sroa.10.0..sroa_idx.i35 = getelementptr inbounds nuw i8, ptr %95, i64 144
-  store ptr %23, ptr %.sroa.10.0..sroa_idx.i35, align 8, !tbaa !1307
+  store ptr %23, ptr %.sroa.10.0..sroa_idx.i35, align 16, !tbaa !1307
   %.sroa.11.0..sroa_idx.i36 = getelementptr inbounds nuw i8, ptr %95, i64 152
   store ptr %25, ptr %.sroa.11.0..sroa_idx.i36, align 8, !tbaa !1274
   %99 = getelementptr inbounds nuw i8, ptr %95, i64 160
@@ -112568,7 +112568,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_116_HybridSearchCPUIflNS7_23NeighborSearchAllocatorIflEELi0EEEvPNS7_24NanoFlannIndexHolderBaseEmPKT_mSH_mSF_ibbRT1_EUlRKS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -112578,7 +112578,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %62, ptr noundef nonnull align 8 dereferenceable(72) %49, i64 72, i1 false), !tbaa.struct !2265
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 160
@@ -112589,7 +112589,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %66, ptr %13, align 8, !tbaa !1295
   store i64 %66, ptr %64, align 8, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 176
-  store i32 2, ptr %67, align 8, !tbaa !1293
+  store i32 2, ptr %67, align 16, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 180
   %69 = load i8, ptr %48, align 4, !tbaa !1294
   store i8 %69, ptr %68, align 4, !tbaa !1294
@@ -112600,12 +112600,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 32, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 32, !tbaa !2259
   store ptr %72, ptr %63, align 32, !tbaa !2259
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -112791,7 +112791,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   store i64 %162, ptr %13, align 8, !tbaa !1295
   store i64 %162, ptr %160, align 8, !tbaa !1295
   %163 = getelementptr inbounds nuw i8, ptr %154, i64 176
-  store i32 2, ptr %163, align 8, !tbaa !1293
+  store i32 2, ptr %163, align 16, !tbaa !1293
   %164 = getelementptr inbounds nuw i8, ptr %154, i64 180
   %165 = load i8, ptr %94, align 4, !tbaa !1294
   %166 = getelementptr inbounds nuw i8, ptr %154, i64 184
@@ -112803,12 +112803,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %170 = load ptr, ptr %102, align 32, !tbaa !1367
   store ptr %170, ptr %169, align 8, !tbaa !1297
   %171 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  store i32 2, ptr %171, align 4, !tbaa !1301
+  store i32 2, ptr %171, align 8, !tbaa !1301
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %173 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %173, ptr %172, align 8, !tbaa !1296
   %174 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  store i8 0, ptr %174, align 1, !tbaa !1368
+  store i8 0, ptr %174, align 8, !tbaa !1368
   store ptr %169, ptr %102, align 32, !tbaa !2259
   store ptr %169, ptr %159, align 32, !tbaa !2259
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -113438,7 +113438,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_116_HybridSearchCPUIflNS7_23NeighborSearchAllocatorIflEELi1EEEvPNS7_24NanoFlannIndexHolderBaseEmPKT_mSH_mSF_ibbRT1_EUlRKS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -113448,7 +113448,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %62, ptr noundef nonnull align 8 dereferenceable(72) %49, i64 72, i1 false), !tbaa.struct !2281
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 160
@@ -113459,7 +113459,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %66, ptr %13, align 8, !tbaa !1295
   store i64 %66, ptr %64, align 8, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 176
-  store i32 2, ptr %67, align 8, !tbaa !1293
+  store i32 2, ptr %67, align 16, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 180
   %69 = load i8, ptr %48, align 4, !tbaa !1294
   store i8 %69, ptr %68, align 4, !tbaa !1294
@@ -113470,12 +113470,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 32, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 32, !tbaa !2262
   store ptr %72, ptr %63, align 32, !tbaa !2262
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -113661,7 +113661,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   store i64 %162, ptr %13, align 8, !tbaa !1295
   store i64 %162, ptr %160, align 8, !tbaa !1295
   %163 = getelementptr inbounds nuw i8, ptr %154, i64 176
-  store i32 2, ptr %163, align 8, !tbaa !1293
+  store i32 2, ptr %163, align 16, !tbaa !1293
   %164 = getelementptr inbounds nuw i8, ptr %154, i64 180
   %165 = load i8, ptr %94, align 4, !tbaa !1294
   %166 = getelementptr inbounds nuw i8, ptr %154, i64 184
@@ -113673,12 +113673,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %170 = load ptr, ptr %102, align 32, !tbaa !1367
   store ptr %170, ptr %169, align 8, !tbaa !1297
   %171 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  store i32 2, ptr %171, align 4, !tbaa !1301
+  store i32 2, ptr %171, align 8, !tbaa !1301
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %173 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %173, ptr %172, align 8, !tbaa !1296
   %174 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  store i8 0, ptr %174, align 1, !tbaa !1368
+  store i8 0, ptr %174, align 8, !tbaa !1368
   store ptr %169, ptr %102, align 32, !tbaa !2262
   store ptr %169, ptr %159, align 32, !tbaa !2262
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -114200,19 +114200,19 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 88
   store ptr %42, ptr %59, align 8, !tbaa !1608
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 96
-  store ptr %31, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !1610
+  store ptr %31, ptr %.sroa.4.0..sroa_idx.i, align 32, !tbaa !1610
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 104
   store ptr %32, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !540
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 112
-  store ptr %37, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !1600
+  store ptr %37, ptr %.sroa.6.0..sroa_idx.i, align 16, !tbaa !1600
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 120
   store ptr %41, ptr %.sroa.7.0..sroa_idx.i, align 8, !tbaa !1826
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 128
-  store ptr %33, ptr %.sroa.8.0..sroa_idx.i, align 8, !tbaa !420
+  store ptr %33, ptr %.sroa.8.0..sroa_idx.i, align 64, !tbaa !420
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 136
   store ptr %39, ptr %.sroa.9.0..sroa_idx.i, align 8, !tbaa !1309
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 144
-  store ptr %38, ptr %.sroa.10.0..sroa_idx.i, align 8, !tbaa !1309
+  store ptr %38, ptr %.sroa.10.0..sroa_idx.i, align 16, !tbaa !1309
   %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 152
   store ptr %40, ptr %.sroa.11.0..sroa_idx.i, align 8, !tbaa !1610
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 160
@@ -114363,19 +114363,19 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 88
   store ptr %27, ptr %98, align 8, !tbaa !1623
   %.sroa.4.0..sroa_idx.i29 = getelementptr inbounds nuw i8, ptr %95, i64 96
-  store ptr %16, ptr %.sroa.4.0..sroa_idx.i29, align 8, !tbaa !1610
+  store ptr %16, ptr %.sroa.4.0..sroa_idx.i29, align 32, !tbaa !1610
   %.sroa.5.0..sroa_idx.i30 = getelementptr inbounds nuw i8, ptr %95, i64 104
   store ptr %17, ptr %.sroa.5.0..sroa_idx.i30, align 8, !tbaa !540
   %.sroa.6.0..sroa_idx.i31 = getelementptr inbounds nuw i8, ptr %95, i64 112
-  store ptr %22, ptr %.sroa.6.0..sroa_idx.i31, align 8, !tbaa !1600
+  store ptr %22, ptr %.sroa.6.0..sroa_idx.i31, align 16, !tbaa !1600
   %.sroa.7.0..sroa_idx.i32 = getelementptr inbounds nuw i8, ptr %95, i64 120
   store ptr %26, ptr %.sroa.7.0..sroa_idx.i32, align 8, !tbaa !1826
   %.sroa.8.0..sroa_idx.i33 = getelementptr inbounds nuw i8, ptr %95, i64 128
-  store ptr %18, ptr %.sroa.8.0..sroa_idx.i33, align 8, !tbaa !420
+  store ptr %18, ptr %.sroa.8.0..sroa_idx.i33, align 64, !tbaa !420
   %.sroa.9.0..sroa_idx.i34 = getelementptr inbounds nuw i8, ptr %95, i64 136
   store ptr %24, ptr %.sroa.9.0..sroa_idx.i34, align 8, !tbaa !1309
   %.sroa.10.0..sroa_idx.i35 = getelementptr inbounds nuw i8, ptr %95, i64 144
-  store ptr %23, ptr %.sroa.10.0..sroa_idx.i35, align 8, !tbaa !1309
+  store ptr %23, ptr %.sroa.10.0..sroa_idx.i35, align 16, !tbaa !1309
   %.sroa.11.0..sroa_idx.i36 = getelementptr inbounds nuw i8, ptr %95, i64 152
   store ptr %25, ptr %.sroa.11.0..sroa_idx.i36, align 8, !tbaa !1610
   %99 = getelementptr inbounds nuw i8, ptr %95, i64 160
@@ -114705,7 +114705,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_116_HybridSearchCPUIdiNS7_23NeighborSearchAllocatorIdiEELi0EEEvPNS7_24NanoFlannIndexHolderBaseEmPKT_mSH_mSF_ibbRT1_EUlRKS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -114715,7 +114715,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %62, ptr noundef nonnull align 8 dereferenceable(72) %49, i64 72, i1 false), !tbaa.struct !2302
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 160
@@ -114726,7 +114726,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %66, ptr %13, align 8, !tbaa !1295
   store i64 %66, ptr %64, align 8, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 176
-  store i32 2, ptr %67, align 8, !tbaa !1293
+  store i32 2, ptr %67, align 16, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 180
   %69 = load i8, ptr %48, align 4, !tbaa !1294
   store i8 %69, ptr %68, align 4, !tbaa !1294
@@ -114737,12 +114737,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 32, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 32, !tbaa !2296
   store ptr %72, ptr %63, align 32, !tbaa !2296
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -114928,7 +114928,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   store i64 %162, ptr %13, align 8, !tbaa !1295
   store i64 %162, ptr %160, align 8, !tbaa !1295
   %163 = getelementptr inbounds nuw i8, ptr %154, i64 176
-  store i32 2, ptr %163, align 8, !tbaa !1293
+  store i32 2, ptr %163, align 16, !tbaa !1293
   %164 = getelementptr inbounds nuw i8, ptr %154, i64 180
   %165 = load i8, ptr %94, align 4, !tbaa !1294
   %166 = getelementptr inbounds nuw i8, ptr %154, i64 184
@@ -114940,12 +114940,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %170 = load ptr, ptr %102, align 32, !tbaa !1367
   store ptr %170, ptr %169, align 8, !tbaa !1297
   %171 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  store i32 2, ptr %171, align 4, !tbaa !1301
+  store i32 2, ptr %171, align 8, !tbaa !1301
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %173 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %173, ptr %172, align 8, !tbaa !1296
   %174 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  store i8 0, ptr %174, align 1, !tbaa !1368
+  store i8 0, ptr %174, align 8, !tbaa !1368
   store ptr %169, ptr %102, align 32, !tbaa !2296
   store ptr %169, ptr %159, align 32, !tbaa !2296
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -115589,7 +115589,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_116_HybridSearchCPUIdiNS7_23NeighborSearchAllocatorIdiEELi1EEEvPNS7_24NanoFlannIndexHolderBaseEmPKT_mSH_mSF_ibbRT1_EUlRKS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -115599,7 +115599,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %62, ptr noundef nonnull align 8 dereferenceable(72) %49, i64 72, i1 false), !tbaa.struct !2318
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 160
@@ -115610,7 +115610,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %66, ptr %13, align 8, !tbaa !1295
   store i64 %66, ptr %64, align 8, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 176
-  store i32 2, ptr %67, align 8, !tbaa !1293
+  store i32 2, ptr %67, align 16, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 180
   %69 = load i8, ptr %48, align 4, !tbaa !1294
   store i8 %69, ptr %68, align 4, !tbaa !1294
@@ -115621,12 +115621,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 32, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 32, !tbaa !2299
   store ptr %72, ptr %63, align 32, !tbaa !2299
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -115812,7 +115812,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   store i64 %162, ptr %13, align 8, !tbaa !1295
   store i64 %162, ptr %160, align 8, !tbaa !1295
   %163 = getelementptr inbounds nuw i8, ptr %154, i64 176
-  store i32 2, ptr %163, align 8, !tbaa !1293
+  store i32 2, ptr %163, align 16, !tbaa !1293
   %164 = getelementptr inbounds nuw i8, ptr %154, i64 180
   %165 = load i8, ptr %94, align 4, !tbaa !1294
   %166 = getelementptr inbounds nuw i8, ptr %154, i64 184
@@ -115824,12 +115824,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %170 = load ptr, ptr %102, align 32, !tbaa !1367
   store ptr %170, ptr %169, align 8, !tbaa !1297
   %171 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  store i32 2, ptr %171, align 4, !tbaa !1301
+  store i32 2, ptr %171, align 8, !tbaa !1301
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %173 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %173, ptr %172, align 8, !tbaa !1296
   %174 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  store i8 0, ptr %174, align 1, !tbaa !1368
+  store i8 0, ptr %174, align 8, !tbaa !1368
   store ptr %169, ptr %102, align 32, !tbaa !2299
   store ptr %169, ptr %159, align 32, !tbaa !2299
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -116365,19 +116365,19 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 88
   store ptr %42, ptr %59, align 8, !tbaa !1718
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 96
-  store ptr %31, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !1610
+  store ptr %31, ptr %.sroa.4.0..sroa_idx.i, align 32, !tbaa !1610
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 104
   store ptr %32, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !540
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 112
-  store ptr %37, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !1600
+  store ptr %37, ptr %.sroa.6.0..sroa_idx.i, align 16, !tbaa !1600
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 120
   store ptr %41, ptr %.sroa.7.0..sroa_idx.i, align 8, !tbaa !1826
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 128
-  store ptr %33, ptr %.sroa.8.0..sroa_idx.i, align 8, !tbaa !420
+  store ptr %33, ptr %.sroa.8.0..sroa_idx.i, align 64, !tbaa !420
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 136
   store ptr %39, ptr %.sroa.9.0..sroa_idx.i, align 8, !tbaa !1307
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 144
-  store ptr %38, ptr %.sroa.10.0..sroa_idx.i, align 8, !tbaa !1307
+  store ptr %38, ptr %.sroa.10.0..sroa_idx.i, align 16, !tbaa !1307
   %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 152
   store ptr %40, ptr %.sroa.11.0..sroa_idx.i, align 8, !tbaa !1610
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 160
@@ -116528,19 +116528,19 @@ _ZN3tbb6detail2d116execute_and_waitERNS1_4taskERNS1_18task_group_contextERNS1_12
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 88
   store ptr %27, ptr %98, align 8, !tbaa !1728
   %.sroa.4.0..sroa_idx.i29 = getelementptr inbounds nuw i8, ptr %95, i64 96
-  store ptr %16, ptr %.sroa.4.0..sroa_idx.i29, align 8, !tbaa !1610
+  store ptr %16, ptr %.sroa.4.0..sroa_idx.i29, align 32, !tbaa !1610
   %.sroa.5.0..sroa_idx.i30 = getelementptr inbounds nuw i8, ptr %95, i64 104
   store ptr %17, ptr %.sroa.5.0..sroa_idx.i30, align 8, !tbaa !540
   %.sroa.6.0..sroa_idx.i31 = getelementptr inbounds nuw i8, ptr %95, i64 112
-  store ptr %22, ptr %.sroa.6.0..sroa_idx.i31, align 8, !tbaa !1600
+  store ptr %22, ptr %.sroa.6.0..sroa_idx.i31, align 16, !tbaa !1600
   %.sroa.7.0..sroa_idx.i32 = getelementptr inbounds nuw i8, ptr %95, i64 120
   store ptr %26, ptr %.sroa.7.0..sroa_idx.i32, align 8, !tbaa !1826
   %.sroa.8.0..sroa_idx.i33 = getelementptr inbounds nuw i8, ptr %95, i64 128
-  store ptr %18, ptr %.sroa.8.0..sroa_idx.i33, align 8, !tbaa !420
+  store ptr %18, ptr %.sroa.8.0..sroa_idx.i33, align 64, !tbaa !420
   %.sroa.9.0..sroa_idx.i34 = getelementptr inbounds nuw i8, ptr %95, i64 136
   store ptr %24, ptr %.sroa.9.0..sroa_idx.i34, align 8, !tbaa !1307
   %.sroa.10.0..sroa_idx.i35 = getelementptr inbounds nuw i8, ptr %95, i64 144
-  store ptr %23, ptr %.sroa.10.0..sroa_idx.i35, align 8, !tbaa !1307
+  store ptr %23, ptr %.sroa.10.0..sroa_idx.i35, align 16, !tbaa !1307
   %.sroa.11.0..sroa_idx.i36 = getelementptr inbounds nuw i8, ptr %95, i64 152
   store ptr %25, ptr %.sroa.11.0..sroa_idx.i36, align 8, !tbaa !1610
   %99 = getelementptr inbounds nuw i8, ptr %95, i64 160
@@ -116870,7 +116870,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_116_HybridSearchCPUIdlNS7_23NeighborSearchAllocatorIdlEELi0EEEvPNS7_24NanoFlannIndexHolderBaseEmPKT_mSH_mSF_ibbRT1_EUlRKS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -116880,7 +116880,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %62, ptr noundef nonnull align 8 dereferenceable(72) %49, i64 72, i1 false), !tbaa.struct !2339
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 160
@@ -116891,7 +116891,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %66, ptr %13, align 8, !tbaa !1295
   store i64 %66, ptr %64, align 8, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 176
-  store i32 2, ptr %67, align 8, !tbaa !1293
+  store i32 2, ptr %67, align 16, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 180
   %69 = load i8, ptr %48, align 4, !tbaa !1294
   store i8 %69, ptr %68, align 4, !tbaa !1294
@@ -116902,12 +116902,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 32, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 32, !tbaa !2333
   store ptr %72, ptr %63, align 32, !tbaa !2333
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -117093,7 +117093,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   store i64 %162, ptr %13, align 8, !tbaa !1295
   store i64 %162, ptr %160, align 8, !tbaa !1295
   %163 = getelementptr inbounds nuw i8, ptr %154, i64 176
-  store i32 2, ptr %163, align 8, !tbaa !1293
+  store i32 2, ptr %163, align 16, !tbaa !1293
   %164 = getelementptr inbounds nuw i8, ptr %154, i64 180
   %165 = load i8, ptr %94, align 4, !tbaa !1294
   %166 = getelementptr inbounds nuw i8, ptr %154, i64 184
@@ -117105,12 +117105,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %170 = load ptr, ptr %102, align 32, !tbaa !1367
   store ptr %170, ptr %169, align 8, !tbaa !1297
   %171 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  store i32 2, ptr %171, align 4, !tbaa !1301
+  store i32 2, ptr %171, align 8, !tbaa !1301
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %173 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %173, ptr %172, align 8, !tbaa !1296
   %174 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  store i8 0, ptr %174, align 1, !tbaa !1368
+  store i8 0, ptr %174, align 8, !tbaa !1368
   store ptr %169, ptr %102, align 32, !tbaa !2333
   store ptr %169, ptr %159, align 32, !tbaa !2333
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -117745,7 +117745,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6open3d4core3nns4impl12_GLOBAL__N_116_HybridSearchCPUIdlNS7_23NeighborSearchAllocatorIdlEELi1EEEvPNS7_24NanoFlannIndexHolderBaseEmPKT_mSH_mSF_ibbRT1_EUlRKS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %51, align 64, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64, !tbaa !1364
-  store i64 %54, ptr %53, align 8, !tbaa !1364
+  store i64 %54, ptr %53, align 64, !tbaa !1364
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %56 = load i64, ptr %35, align 8, !tbaa !1365
   %57 = sub i64 %54, %56
@@ -117755,7 +117755,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %59, ptr %55, align 8, !tbaa !1365
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %61 = load i64, ptr %32, align 16, !tbaa !1363
-  store i64 %61, ptr %60, align 8, !tbaa !1363
+  store i64 %61, ptr %60, align 16, !tbaa !1363
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %62, ptr noundef nonnull align 8 dereferenceable(72) %49, i64 72, i1 false), !tbaa.struct !2355
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 160
@@ -117766,7 +117766,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %66, ptr %13, align 8, !tbaa !1295
   store i64 %66, ptr %64, align 8, !tbaa !1295
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 176
-  store i32 2, ptr %67, align 8, !tbaa !1293
+  store i32 2, ptr %67, align 16, !tbaa !1293
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 180
   %69 = load i8, ptr %48, align 4, !tbaa !1294
   store i8 %69, ptr %68, align 4, !tbaa !1294
@@ -117777,12 +117777,12 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %73 = load ptr, ptr %50, align 32, !tbaa !1367
   store ptr %73, ptr %72, align 8, !tbaa !1297
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 2, ptr %74, align 4, !tbaa !1301
+  store i32 2, ptr %74, align 8, !tbaa !1301
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %5, align 8, !tbaa !1296
   store i64 %76, ptr %75, align 8, !tbaa !1296
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i8 0, ptr %77, align 1, !tbaa !1368
+  store i8 0, ptr %77, align 8, !tbaa !1368
   store ptr %72, ptr %50, align 32, !tbaa !2336
   store ptr %72, ptr %63, align 32, !tbaa !2336
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370
@@ -117968,7 +117968,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   store i64 %162, ptr %13, align 8, !tbaa !1295
   store i64 %162, ptr %160, align 8, !tbaa !1295
   %163 = getelementptr inbounds nuw i8, ptr %154, i64 176
-  store i32 2, ptr %163, align 8, !tbaa !1293
+  store i32 2, ptr %163, align 16, !tbaa !1293
   %164 = getelementptr inbounds nuw i8, ptr %154, i64 180
   %165 = load i8, ptr %94, align 4, !tbaa !1294
   %166 = getelementptr inbounds nuw i8, ptr %154, i64 184
@@ -117980,12 +117980,12 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %170 = load ptr, ptr %102, align 32, !tbaa !1367
   store ptr %170, ptr %169, align 8, !tbaa !1297
   %171 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  store i32 2, ptr %171, align 4, !tbaa !1301
+  store i32 2, ptr %171, align 8, !tbaa !1301
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %173 = load i64, ptr %3, align 8, !tbaa !1296
   store i64 %173, ptr %172, align 8, !tbaa !1296
   %174 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  store i8 0, ptr %174, align 1, !tbaa !1368
+  store i8 0, ptr %174, align 8, !tbaa !1368
   store ptr %169, ptr %102, align 32, !tbaa !2336
   store ptr %169, ptr %159, align 32, !tbaa !2336
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !1370

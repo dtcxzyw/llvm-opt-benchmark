@@ -42940,7 +42940,7 @@ _ZN3nix9StorePathC2EOS0_.exit:                    ; preds = %9, %_ZNKSt7__cxx111
   store i64 %16, ptr %17, align 8
   store ptr %7, ptr %4, align 8
   store i64 0, ptr %15, align 8
-  store i8 0, ptr %7, align 1
+  store i8 0, ptr %7, align 8
   %18 = load ptr, ptr %2, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -43179,7 +43179,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i64 %23, ptr %25, align 8
   store ptr %15, ptr %10, align 8
   store i64 0, ptr %24, align 8
-  store i8 0, ptr %15, align 1
+  store i8 0, ptr %15, align 8
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 80
   tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %12) #28
@@ -43214,7 +43214,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i3.i.
   store i64 %38, ptr %41, align 8
   store ptr %29, ptr %12, align 8
   store i64 0, ptr %40, align 8
-  store i8 0, ptr %29, align 1
+  store i8 0, ptr %29, align 8
   store ptr %7, ptr %39, align 8
   %42 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %43 unwind label %64
@@ -46013,7 +46013,7 @@ _ZN3nix9StorePathC2EOS0_.exit.i:                  ; preds = %_ZNKSt7__cxx1112bas
   store i64 %16, ptr %17, align 8
   store ptr %7, ptr %4, align 8
   store i64 0, ptr %15, align 8
-  store i8 0, ptr %7, align 1
+  store i8 0, ptr %7, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -46046,7 +46046,7 @@ _ZNSt4pairIN3nix9StorePathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   store i64 %31, ptr %32, align 8
   store ptr %22, ptr %19, align 8
   store i64 0, ptr %30, align 8
-  store i8 0, ptr %22, align 1
+  store i8 0, ptr %22, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %34 = load ptr, ptr %2, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %34)
@@ -48776,7 +48776,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8
   store ptr %13, ptr %10, align 8
   store i64 0, ptr %24, align 8
-  store i8 0, ptr %13, align 1
+  store i8 0, ptr %13, align 8
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i8 0, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 72
@@ -49584,7 +49584,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
   store i64 %21, ptr %24, align 8
   store ptr %13, ptr %10, align 8
   store i64 0, ptr %23, align 8
-  store i8 0, ptr %13, align 1
+  store i8 0, ptr %13, align 8
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 72
@@ -52007,7 +52007,7 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant
   store i64 %27, ptr %28, align 8
   store ptr %18, ptr %10, align 8
   store i64 0, ptr %26, align 8
-  store i8 0, ptr %18, align 1
+  store i8 0, ptr %18, align 8
   br label %39
 
 29:                                               ; preds = %.noexc
@@ -54022,7 +54022,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %21, ptr %23, align 8
   store ptr %12, ptr %9, align 8
   store i64 0, ptr %22, align 8
-  store i8 0, ptr %12, align 1
+  store i8 0, ptr %12, align 8
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 88

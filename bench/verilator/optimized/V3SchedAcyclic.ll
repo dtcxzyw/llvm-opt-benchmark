@@ -4387,7 +4387,7 @@ define linkonce_odr dso_local void @_ZN15VNUserInUseBase8allocateEiRjRb(i32 noun
   %19 = load i32, ptr %18, align 8, !tbaa !235
   %20 = and i32 %19, -75
   %21 = or disjoint i32 %20, 2
-  store i32 %21, ptr %18, align 4, !tbaa !236
+  store i32 %21, ptr %18, align 8, !tbaa !236
   %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i32 noundef 1776)
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.436, i64 noundef 1)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -4786,7 +4786,7 @@ define linkonce_odr dso_local void @_ZN15VNUserInUseBase8clearcntEiRjRKb(i32 nou
   %19 = load i32, ptr %18, align 8, !tbaa !235
   %20 = and i32 %19, -75
   %21 = or disjoint i32 %20, 2
-  store i32 %21, ptr %18, align 4, !tbaa !236
+  store i32 %21, ptr %18, align 8, !tbaa !236
   %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i32 noundef 1786)
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.436, i64 noundef 1)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -4969,7 +4969,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %_ZN
   %95 = load i32, ptr %94, align 8, !tbaa !235
   %96 = and i32 %95, -75
   %97 = or disjoint i32 %96, 2
-  store i32 %97, ptr %94, align 4, !tbaa !236
+  store i32 %97, ptr %94, align 8, !tbaa !236
   %98 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i32 noundef 1790)
   %99 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %98, ptr noundef nonnull @.str.436, i64 noundef 1)
   %100 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %98, ptr noundef nonnull @.str.444, i64 noundef 19)
@@ -6190,7 +6190,7 @@ define linkonce_odr dso_local void @_ZN15VNUserInUseBase4freeEiRjRb(i32 noundef 
   %19 = load i32, ptr %18, align 8, !tbaa !235
   %20 = and i32 %19, -75
   %21 = or disjoint i32 %20, 2
-  store i32 %21, ptr %18, align 4, !tbaa !236
+  store i32 %21, ptr %18, align 8, !tbaa !236
   %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i32 noundef 1781)
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.436, i64 noundef 1)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -8038,7 +8038,7 @@ select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %57, %58 ], [ %60, %.lr.ph.i.i.i.i.i ]
   %.0.val.i.i.i.i.i = load ptr, ptr %.0.lcssa.i.i.i.i.i, align 8, !tbaa !91
   %61 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
-  %.0.val17.i.i.i.i.i = load i32, ptr %61, align 4, !tbaa !89
+  %.0.val17.i.i.i.i.i = load i32, ptr %61, align 8, !tbaa !89
   store ptr %.0.val.i.i.i.i.i, ptr %.val23, align 8, !tbaa !356
   %62 = getelementptr inbounds nuw i8, ptr %.val23, i64 8
   store i32 %.0.val17.i.i.i.i.i, ptr %62, align 8, !tbaa !358
@@ -8435,7 +8435,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   %221 = load i32, ptr %220, align 8, !tbaa !235
   %222 = and i32 %221, -75
   %223 = or disjoint i32 %222, 2
-  store i32 %223, ptr %220, align 4, !tbaa !236
+  store i32 %223, ptr %220, align 8, !tbaa !236
   %224 = getelementptr inbounds nuw i8, ptr %.val.val, i64 72
   %225 = load ptr, ptr %224, align 8, !tbaa !217
   %.not.i37 = icmp eq ptr %225, null
@@ -9978,7 +9978,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
   %29 = getelementptr inbounds i8, ptr %.0610.i.i.i.i.i, i64 -16
   %.val.i.i.i.i.i = load ptr, ptr %28, align 8, !tbaa !91
   %30 = getelementptr i8, ptr %.079.i.i.i.i.i, i64 -8
-  %.val8.i.i.i.i.i = load i32, ptr %30, align 4, !tbaa !89
+  %.val8.i.i.i.i.i = load i32, ptr %30, align 8, !tbaa !89
   store ptr %.val.i.i.i.i.i, ptr %29, align 8, !tbaa !356
   %31 = getelementptr inbounds i8, ptr %.0610.i.i.i.i.i, i64 -8
   store i32 %.val8.i.i.i.i.i, ptr %31, align 8, !tbaa !358
@@ -10071,7 +10071,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL_
 49:                                               ; preds = %.noexc19
   %.val6.i = load ptr, ptr %.sroa.0.014.i, align 8, !tbaa !91
   %50 = getelementptr i8, ptr %.sroa.09.013.i, i64 -8
-  %.val7.i = load i32, ptr %50, align 4, !tbaa !89
+  %.val7.i = load i32, ptr %50, align 8, !tbaa !89
   store ptr %.val6.i, ptr %.sroa.09.013.i, align 8, !tbaa !356
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.09.013.i, i64 8
   store i32 %.val7.i, ptr %51, align 8, !tbaa !358
@@ -10210,10 +10210,10 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
   store ptr %26, ptr %1, align 8, !tbaa !91
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %30 = load i32, ptr %28, align 4, !tbaa !89
-  %31 = load i32, ptr %29, align 4, !tbaa !89
-  store i32 %31, ptr %28, align 4, !tbaa !89
-  store i32 %30, ptr %29, align 4, !tbaa !89
+  %30 = load i32, ptr %28, align 8, !tbaa !89
+  %31 = load i32, ptr %29, align 8, !tbaa !89
+  store i32 %31, ptr %28, align 8, !tbaa !89
+  store i32 %30, ptr %29, align 8, !tbaa !89
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit111
 
 32:                                               ; preds = %15
@@ -10632,10 +10632,10 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL_
   store ptr %183, ptr %.sroa.0.08.i.i.i, align 8, !tbaa !91
   %185 = getelementptr inbounds nuw i8, ptr %.sroa.05.07.i.i.i, i64 8
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i.i, i64 8
-  %187 = load i32, ptr %185, align 4, !tbaa !89
-  %188 = load i32, ptr %186, align 4, !tbaa !89
-  store i32 %188, ptr %185, align 4, !tbaa !89
-  store i32 %187, ptr %186, align 4, !tbaa !89
+  %187 = load i32, ptr %185, align 8, !tbaa !89
+  %188 = load i32, ptr %186, align 8, !tbaa !89
+  store i32 %188, ptr %185, align 8, !tbaa !89
+  store i32 %187, ptr %186, align 8, !tbaa !89
   %189 = getelementptr inbounds nuw i8, ptr %.sroa.05.07.i.i.i, i64 16
   %190 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i.i, i64 16
   %.not.i.i.i97 = icmp eq ptr %189, %1
@@ -10678,10 +10678,10 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL_
   store ptr %201, ptr %.sroa.037.065.i.i, align 8, !tbaa !91
   %203 = getelementptr inbounds nuw i8, ptr %.sroa.038.164.i.i, i64 8
   %204 = getelementptr inbounds nuw i8, ptr %.sroa.037.065.i.i, i64 8
-  %205 = load i32, ptr %203, align 4, !tbaa !89
-  %206 = load i32, ptr %204, align 4, !tbaa !89
-  store i32 %206, ptr %203, align 4, !tbaa !89
-  store i32 %205, ptr %204, align 4, !tbaa !89
+  %205 = load i32, ptr %203, align 8, !tbaa !89
+  %206 = load i32, ptr %204, align 8, !tbaa !89
+  store i32 %206, ptr %203, align 8, !tbaa !89
+  store i32 %205, ptr %204, align 8, !tbaa !89
   %207 = getelementptr inbounds nuw i8, ptr %.sroa.038.164.i.i, i64 16
   %208 = getelementptr inbounds nuw i8, ptr %.sroa.037.065.i.i, i64 16
   %209 = add nuw nsw i64 %.01966.i.i, 1
@@ -10723,10 +10723,10 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL_
   store ptr %220, ptr %219, align 8, !tbaa !91
   %222 = getelementptr inbounds i8, ptr %.sroa.038.361.i.i, i64 -8
   %223 = getelementptr inbounds i8, ptr %.sroa.0.062.i.i, i64 -8
-  %224 = load i32, ptr %222, align 4, !tbaa !89
-  %225 = load i32, ptr %223, align 4, !tbaa !89
-  store i32 %225, ptr %222, align 4, !tbaa !89
-  store i32 %224, ptr %223, align 4, !tbaa !89
+  %224 = load i32, ptr %222, align 8, !tbaa !89
+  %225 = load i32, ptr %223, align 8, !tbaa !89
+  store i32 %225, ptr %222, align 8, !tbaa !89
+  store i32 %224, ptr %223, align 8, !tbaa !89
   %226 = add nuw nsw i64 %.01863.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %226, %.0.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !421
@@ -11311,7 +11311,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
   %.0911.i.i.i.i.i.i.i = phi ptr [ %170, %.lr.ph.i.i.i.i.i.i.i ], [ %.sroa.028.0.lcssa.i.i, %.critedge.i.i ]
   %.09.val.i.i.i.i.i.i.i = load ptr, ptr %.0911.i.i.i.i.i.i.i, align 8, !tbaa !91
   %168 = getelementptr i8, ptr %.0911.i.i.i.i.i.i.i, i64 8
-  %.09.val10.i.i.i.i.i.i.i = load i32, ptr %168, align 4, !tbaa !89
+  %.09.val10.i.i.i.i.i.i.i = load i32, ptr %168, align 8, !tbaa !89
   store ptr %.09.val.i.i.i.i.i.i.i, ptr %.0812.i.i.i.i.i.i.i, align 8, !tbaa !356
   %169 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i.i.i, i64 8
   store i32 %.09.val10.i.i.i.i.i.i.i, ptr %169, align 8, !tbaa !358
@@ -11336,7 +11336,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121Sche
   %.0911.i.i.i.i.i22.i.i = phi ptr [ %181, %.lr.ph.i.i.i.i.i19.i.i ], [ %.sroa.026.0.lcssa.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i.i ]
   %.09.val.i.i.i.i.i23.i.i = load ptr, ptr %.0911.i.i.i.i.i22.i.i, align 8, !tbaa !91
   %179 = getelementptr i8, ptr %.0911.i.i.i.i.i22.i.i, i64 8
-  %.09.val10.i.i.i.i.i24.i.i = load i32, ptr %179, align 4, !tbaa !89
+  %.09.val10.i.i.i.i.i24.i.i = load i32, ptr %179, align 8, !tbaa !89
   store ptr %.09.val.i.i.i.i.i23.i.i, ptr %.0812.i.i.i.i.i21.i.i, align 8, !tbaa !356
   %180 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i21.i.i, i64 8
   store i32 %.09.val10.i.i.i.i.i24.i.i, ptr %180, align 8, !tbaa !358
@@ -11502,7 +11502,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
   %.0911.i.i.i.i.i.i50.i = phi ptr [ %231, %.lr.ph.i.i.i.i.i.i47.i ], [ %.sroa.028.0.lcssa.i36.i, %.critedge.i34.i ]
   %.09.val.i.i.i.i.i.i51.i = load ptr, ptr %.0911.i.i.i.i.i.i50.i, align 8, !tbaa !91
   %229 = getelementptr i8, ptr %.0911.i.i.i.i.i.i50.i, i64 8
-  %.09.val10.i.i.i.i.i.i52.i = load i32, ptr %229, align 4, !tbaa !89
+  %.09.val10.i.i.i.i.i.i52.i = load i32, ptr %229, align 8, !tbaa !89
   store ptr %.09.val.i.i.i.i.i.i51.i, ptr %.0812.i.i.i.i.i.i49.i, align 8, !tbaa !356
   %230 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i.i49.i, i64 8
   store i32 %.09.val10.i.i.i.i.i.i52.i, ptr %230, align 8, !tbaa !358
@@ -11526,7 +11526,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121Sche
   %.0911.i.i.i.i.i22.i44.i = phi ptr [ %241, %.lr.ph.i.i.i.i.i19.i41.i ], [ %.sroa.026.0.lcssa.i35.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i38.i ]
   %.09.val.i.i.i.i.i23.i45.i = load ptr, ptr %.0911.i.i.i.i.i22.i44.i, align 8, !tbaa !91
   %239 = getelementptr i8, ptr %.0911.i.i.i.i.i22.i44.i, i64 8
-  %.09.val10.i.i.i.i.i24.i46.i = load i32, ptr %239, align 4, !tbaa !89
+  %.09.val10.i.i.i.i.i24.i46.i = load i32, ptr %239, align 8, !tbaa !89
   store ptr %.09.val.i.i.i.i.i23.i45.i, ptr %.0812.i.i.i.i.i21.i43.i, align 8, !tbaa !356
   %240 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i21.i43.i, i64 8
   store i32 %.09.val10.i.i.i.i.i24.i46.i, ptr %240, align 8, !tbaa !358
@@ -11743,7 +11743,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
   %.0911.i.i.i.i.i.i.i78 = phi ptr [ %311, %.lr.ph.i.i.i.i.i.i.i75 ], [ %.0.lcssa.i.i56, %._crit_edge.i.i ]
   %.09.val.i.i.i.i.i.i.i79 = load ptr, ptr %.0911.i.i.i.i.i.i.i78, align 8, !tbaa !91
   %309 = getelementptr i8, ptr %.0911.i.i.i.i.i.i.i78, i64 8
-  %.09.val10.i.i.i.i.i.i.i80 = load i32, ptr %309, align 4, !tbaa !89
+  %.09.val10.i.i.i.i.i.i.i80 = load i32, ptr %309, align 8, !tbaa !89
   store ptr %.09.val.i.i.i.i.i.i.i79, ptr %.0812.i.i.i.i.i.i.i77, align 8, !tbaa !356
   %310 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i.i.i77, i64 8
   store i32 %.09.val10.i.i.i.i.i.i.i80, ptr %310, align 8, !tbaa !358
@@ -11772,7 +11772,7 @@ _ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx
   %.0911.i.i.i.i.i25.i.i = phi ptr [ %326, %.lr.ph.i.i.i.i.i22.i.i ], [ %.016.lcssa.i.i, %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i.i ]
   %.09.val.i.i.i.i.i26.i.i = load ptr, ptr %.0911.i.i.i.i.i25.i.i, align 8, !tbaa !91
   %324 = getelementptr i8, ptr %.0911.i.i.i.i.i25.i.i, i64 8
-  %.09.val10.i.i.i.i.i27.i.i = load i32, ptr %324, align 4, !tbaa !89
+  %.09.val10.i.i.i.i.i27.i.i = load i32, ptr %324, align 8, !tbaa !89
   store ptr %.09.val.i.i.i.i.i26.i.i, ptr %.0812.i.i.i.i.i24.i.i, align 8, !tbaa !356
   %325 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i24.i.i, i64 8
   store i32 %.09.val10.i.i.i.i.i27.i.i, ptr %325, align 8, !tbaa !358
@@ -11944,7 +11944,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
   %.0911.i.i.i.i.i.i51.i = phi ptr [ %382, %.lr.ph.i.i.i.i.i.i48.i ], [ %.0.lcssa.i37.i64, %._crit_edge.i34.i ]
   %.09.val.i.i.i.i.i.i52.i = load ptr, ptr %.0911.i.i.i.i.i.i51.i, align 8, !tbaa !91
   %380 = getelementptr i8, ptr %.0911.i.i.i.i.i.i51.i, i64 8
-  %.09.val10.i.i.i.i.i.i53.i = load i32, ptr %380, align 4, !tbaa !89
+  %.09.val10.i.i.i.i.i.i53.i = load i32, ptr %380, align 8, !tbaa !89
   store ptr %.09.val.i.i.i.i.i.i52.i, ptr %.0812.i.i.i.i.i.i50.i, align 8, !tbaa !356
   %381 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i.i50.i, i64 8
   store i32 %.09.val10.i.i.i.i.i.i53.i, ptr %381, align 8, !tbaa !358
@@ -11975,7 +11975,7 @@ _ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx
   %.0911.i.i.i.i.i25.i44.i = phi ptr [ %396, %.lr.ph.i.i.i.i.i22.i41.i ], [ %.016.lcssa.i36.i, %.lr.ph.i.i.i.i.i22.i41.preheader.i ]
   %.09.val.i.i.i.i.i26.i45.i = load ptr, ptr %.0911.i.i.i.i.i25.i44.i, align 8, !tbaa !91
   %394 = getelementptr i8, ptr %.0911.i.i.i.i.i25.i44.i, i64 8
-  %.09.val10.i.i.i.i.i27.i46.i = load i32, ptr %394, align 4, !tbaa !89
+  %.09.val10.i.i.i.i.i27.i46.i = load i32, ptr %394, align 8, !tbaa !89
   store ptr %.09.val.i.i.i.i.i26.i45.i, ptr %.0812.i.i.i.i.i24.i43.i, align 8, !tbaa !356
   %395 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i24.i43.i, i64 8
   store i32 %.09.val10.i.i.i.i.i27.i46.i, ptr %395, align 8, !tbaa !358
@@ -12134,7 +12134,7 @@ define internal fastcc void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iterat
   %.0911.i.i.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i.i.i ], [ %0, %17 ]
   %.09.val.i.i.i.i.i = load ptr, ptr %.0911.i.i.i.i.i, align 8, !tbaa !91
   %23 = getelementptr i8, ptr %.0911.i.i.i.i.i, i64 8
-  %.09.val10.i.i.i.i.i = load i32, ptr %23, align 4, !tbaa !89
+  %.09.val10.i.i.i.i.i = load i32, ptr %23, align 8, !tbaa !89
   store ptr %.09.val.i.i.i.i.i, ptr %.0812.i.i.i.i.i, align 8, !tbaa !356
   %24 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i, i64 8
   store i32 %.09.val10.i.i.i.i.i, ptr %24, align 8, !tbaa !358
@@ -12246,7 +12246,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
   %.0911.i.i.i.i.i.i = phi ptr [ %60, %.lr.ph.i.i.i.i.i.i ], [ %.031.i, %.critedge.i ]
   %.09.val.i.i.i.i.i.i = load ptr, ptr %.0911.i.i.i.i.i.i, align 8, !tbaa !91
   %58 = getelementptr i8, ptr %.0911.i.i.i.i.i.i, i64 8
-  %.09.val10.i.i.i.i.i.i = load i32, ptr %58, align 4, !tbaa !89
+  %.09.val10.i.i.i.i.i.i = load i32, ptr %58, align 8, !tbaa !89
   store ptr %.09.val.i.i.i.i.i.i, ptr %.0812.i.i.i.i.i.i, align 8, !tbaa !356
   %59 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i.i, i64 8
   store i32 %.09.val10.i.i.i.i.i.i, ptr %59, align 8, !tbaa !358
@@ -12317,7 +12317,7 @@ _ZSt21__move_merge_adaptiveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVe
   %.0911.i.i.i.i.i95 = phi ptr [ %86, %.lr.ph.i.i.i.i.i92 ], [ %1, %78 ]
   %.09.val.i.i.i.i.i96 = load ptr, ptr %.0911.i.i.i.i.i95, align 8, !tbaa !91
   %84 = getelementptr i8, ptr %.0911.i.i.i.i.i95, i64 8
-  %.09.val10.i.i.i.i.i97 = load i32, ptr %84, align 4, !tbaa !89
+  %.09.val10.i.i.i.i.i97 = load i32, ptr %84, align 8, !tbaa !89
   store ptr %.09.val.i.i.i.i.i96, ptr %.0812.i.i.i.i.i94, align 8, !tbaa !356
   %85 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i94, i64 8
   store i32 %.09.val10.i.i.i.i.i97, ptr %85, align 8, !tbaa !358
@@ -12389,7 +12389,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
   %116 = getelementptr inbounds i8, ptr %.0610.i.i.i.i.i.i, i64 -16
   %.val.i.i.i.i.i.i = load ptr, ptr %115, align 8, !tbaa !91
   %117 = getelementptr i8, ptr %.079.i.i.i.i.i.i, i64 -8
-  %.val8.i.i.i.i.i.i = load i32, ptr %117, align 4, !tbaa !89
+  %.val8.i.i.i.i.i.i = load i32, ptr %117, align 8, !tbaa !89
   store ptr %.val.i.i.i.i.i.i, ptr %116, align 8, !tbaa !356
   %118 = getelementptr inbounds i8, ptr %.0610.i.i.i.i.i.i, i64 -8
   store i32 %.val8.i.i.i.i.i.i, ptr %118, align 8, !tbaa !358
@@ -12432,7 +12432,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
 130:                                              ; preds = %.noexc108
   %.val25.i = load ptr, ptr %.sroa.036.044.i, align 8, !tbaa !91
   %131 = getelementptr i8, ptr %.sroa.036.044.i, i64 8
-  %.val26.i = load i32, ptr %131, align 4, !tbaa !89
+  %.val26.i = load i32, ptr %131, align 8, !tbaa !89
   store ptr %.val25.i, ptr %128, align 8, !tbaa !356
   store i32 %.val26.i, ptr %129, align 8, !tbaa !358
   %132 = icmp eq ptr %0, %.sroa.036.044.i
@@ -12455,7 +12455,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
   %141 = getelementptr inbounds i8, ptr %.0610.i.i.i.i.i30.i, i64 -16
   %.val.i.i.i.i.i32.i = load ptr, ptr %140, align 8, !tbaa !91
   %142 = getelementptr i8, ptr %.079.i.i.i.i.i31.i, i64 -8
-  %.val8.i.i.i.i.i33.i = load i32, ptr %142, align 4, !tbaa !89
+  %.val8.i.i.i.i.i33.i = load i32, ptr %142, align 8, !tbaa !89
   store ptr %.val.i.i.i.i.i32.i, ptr %141, align 8, !tbaa !356
   %143 = getelementptr inbounds i8, ptr %.0610.i.i.i.i.i30.i, i64 -8
   store i32 %.val8.i.i.i.i.i33.i, ptr %143, align 8, !tbaa !358
@@ -12470,7 +12470,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
 148:                                              ; preds = %.noexc108
   %.0.val.i = load ptr, ptr %.046.i, align 8, !tbaa !91
   %149 = getelementptr i8, ptr %.046.i, i64 8
-  %.0.val24.i = load i32, ptr %149, align 4, !tbaa !89
+  %.0.val24.i = load i32, ptr %149, align 8, !tbaa !89
   store ptr %.0.val.i, ptr %128, align 8, !tbaa !356
   store i32 %.0.val24.i, ptr %129, align 8, !tbaa !358
   %150 = icmp eq ptr %5, %.046.i
@@ -12937,7 +12937,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL_
   %.0911.i.i.i.i.i.i170 = phi ptr [ %316, %.lr.ph.i.i.i.i.i.i167 ], [ %1, %308 ]
   %.09.val.i.i.i.i.i.i171 = load ptr, ptr %.0911.i.i.i.i.i.i170, align 8, !tbaa !91
   %314 = getelementptr i8, ptr %.0911.i.i.i.i.i.i170, i64 8
-  %.09.val10.i.i.i.i.i.i172 = load i32, ptr %314, align 4, !tbaa !89
+  %.09.val10.i.i.i.i.i.i172 = load i32, ptr %314, align 8, !tbaa !89
   store ptr %.09.val.i.i.i.i.i.i171, ptr %.0812.i.i.i.i.i.i169, align 8, !tbaa !356
   %315 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i.i169, i64 8
   store i32 %.09.val10.i.i.i.i.i.i172, ptr %315, align 8, !tbaa !358
@@ -12963,7 +12963,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121Sche
   %325 = getelementptr inbounds i8, ptr %.0610.i.i.i.i.i.i163, i64 -16
   %.val.i.i.i.i.i.i165 = load ptr, ptr %324, align 8, !tbaa !91
   %326 = getelementptr i8, ptr %.079.i.i.i.i.i.i164, i64 -8
-  %.val8.i.i.i.i.i.i166 = load i32, ptr %326, align 4, !tbaa !89
+  %.val8.i.i.i.i.i.i166 = load i32, ptr %326, align 8, !tbaa !89
   store ptr %.val.i.i.i.i.i.i165, ptr %325, align 8, !tbaa !356
   %327 = getelementptr inbounds i8, ptr %.0610.i.i.i.i.i.i163, i64 -8
   store i32 %.val8.i.i.i.i.i.i166, ptr %327, align 8, !tbaa !358
@@ -12985,7 +12985,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL_
   %.0911.i.i.i.i.i42.i = phi ptr [ %337, %.lr.ph.i.i.i.i.i39.i ], [ %5, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i ]
   %.09.val.i.i.i.i.i43.i = load ptr, ptr %.0911.i.i.i.i.i42.i, align 8, !tbaa !91
   %335 = getelementptr i8, ptr %.0911.i.i.i.i.i42.i, i64 8
-  %.09.val10.i.i.i.i.i44.i = load i32, ptr %335, align 4, !tbaa !89
+  %.09.val10.i.i.i.i.i44.i = load i32, ptr %335, align 8, !tbaa !89
   store ptr %.09.val.i.i.i.i.i43.i, ptr %.0812.i.i.i.i.i41.i, align 8, !tbaa !356
   %336 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i41.i, i64 8
   store i32 %.09.val10.i.i.i.i.i44.i, ptr %336, align 8, !tbaa !358
@@ -13027,7 +13027,7 @@ _ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx
   %.0911.i.i.i.i.i49.i = phi ptr [ %353, %.lr.ph.i.i.i.i.i46.i ], [ %.sroa.0194.0, %345 ]
   %.09.val.i.i.i.i.i50.i = load ptr, ptr %.0911.i.i.i.i.i49.i, align 8, !tbaa !91
   %351 = getelementptr i8, ptr %.0911.i.i.i.i.i49.i, i64 8
-  %.09.val10.i.i.i.i.i51.i = load i32, ptr %351, align 4, !tbaa !89
+  %.09.val10.i.i.i.i.i51.i = load i32, ptr %351, align 8, !tbaa !89
   store ptr %.09.val.i.i.i.i.i50.i, ptr %.0812.i.i.i.i.i48.i, align 8, !tbaa !356
   %352 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i48.i, i64 8
   store i32 %.09.val10.i.i.i.i.i51.i, ptr %352, align 8, !tbaa !358
@@ -13051,7 +13051,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121Sche
   %.0911.i.i.i.i.i57.i = phi ptr [ %363, %.lr.ph.i.i.i.i.i54.i ], [ %1, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit52.i ]
   %.09.val.i.i.i.i.i58.i = load ptr, ptr %.0911.i.i.i.i.i57.i, align 8, !tbaa !91
   %361 = getelementptr i8, ptr %.0911.i.i.i.i.i57.i, i64 8
-  %.09.val10.i.i.i.i.i59.i = load i32, ptr %361, align 4, !tbaa !89
+  %.09.val10.i.i.i.i.i59.i = load i32, ptr %361, align 8, !tbaa !89
   store ptr %.09.val.i.i.i.i.i58.i, ptr %.0812.i.i.i.i.i56.i, align 8, !tbaa !356
   %362 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i56.i, i64 8
   store i32 %.09.val10.i.i.i.i.i59.i, ptr %362, align 8, !tbaa !358
@@ -13077,7 +13077,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121Sche
   %373 = getelementptr inbounds i8, ptr %.0610.i.i.i.i.i63.i, i64 -16
   %.val.i.i.i.i.i65.i = load ptr, ptr %372, align 8, !tbaa !91
   %374 = getelementptr i8, ptr %.079.i.i.i.i.i64.i, i64 -8
-  %.val8.i.i.i.i.i66.i = load i32, ptr %374, align 4, !tbaa !89
+  %.val8.i.i.i.i.i66.i = load i32, ptr %374, align 8, !tbaa !89
   store ptr %.val.i.i.i.i.i65.i, ptr %373, align 8, !tbaa !356
   %375 = getelementptr inbounds i8, ptr %.0610.i.i.i.i.i63.i, i64 -8
   store i32 %.val8.i.i.i.i.i66.i, ptr %375, align 8, !tbaa !358
@@ -13124,10 +13124,10 @@ _ZSt13move_backwardIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN
   store ptr %394, ptr %.sroa.0.08.i.i.i.i, align 8, !tbaa !91
   %396 = getelementptr inbounds nuw i8, ptr %.sroa.05.07.i.i.i.i, i64 8
   %397 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i.i.i, i64 8
-  %398 = load i32, ptr %396, align 4, !tbaa !89
-  %399 = load i32, ptr %397, align 4, !tbaa !89
-  store i32 %399, ptr %396, align 4, !tbaa !89
-  store i32 %398, ptr %397, align 4, !tbaa !89
+  %398 = load i32, ptr %396, align 8, !tbaa !89
+  %399 = load i32, ptr %397, align 8, !tbaa !89
+  store i32 %399, ptr %396, align 8, !tbaa !89
+  store i32 %398, ptr %397, align 8, !tbaa !89
   %400 = getelementptr inbounds nuw i8, ptr %.sroa.05.07.i.i.i.i, i64 16
   %401 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i.i.i, i64 16
   %.not.i.i.i.i174 = icmp eq ptr %400, %1
@@ -13170,10 +13170,10 @@ _ZSt13move_backwardIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN
   store ptr %412, ptr %.sroa.037.065.i.i.i, align 8, !tbaa !91
   %414 = getelementptr inbounds nuw i8, ptr %.sroa.038.164.i.i.i, i64 8
   %415 = getelementptr inbounds nuw i8, ptr %.sroa.037.065.i.i.i, i64 8
-  %416 = load i32, ptr %414, align 4, !tbaa !89
-  %417 = load i32, ptr %415, align 4, !tbaa !89
-  store i32 %417, ptr %414, align 4, !tbaa !89
-  store i32 %416, ptr %415, align 4, !tbaa !89
+  %416 = load i32, ptr %414, align 8, !tbaa !89
+  %417 = load i32, ptr %415, align 8, !tbaa !89
+  store i32 %417, ptr %414, align 8, !tbaa !89
+  store i32 %416, ptr %415, align 8, !tbaa !89
   %418 = getelementptr inbounds nuw i8, ptr %.sroa.038.164.i.i.i, i64 16
   %419 = getelementptr inbounds nuw i8, ptr %.sroa.037.065.i.i.i, i64 16
   %420 = add nuw nsw i64 %.01966.i.i.i, 1
@@ -13215,10 +13215,10 @@ _ZSt13move_backwardIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN
   store ptr %431, ptr %430, align 8, !tbaa !91
   %433 = getelementptr inbounds i8, ptr %.sroa.038.361.i.i.i, i64 -8
   %434 = getelementptr inbounds i8, ptr %.sroa.0.062.i.i.i, i64 -8
-  %435 = load i32, ptr %433, align 4, !tbaa !89
-  %436 = load i32, ptr %434, align 4, !tbaa !89
-  store i32 %436, ptr %433, align 4, !tbaa !89
-  store i32 %435, ptr %434, align 4, !tbaa !89
+  %435 = load i32, ptr %433, align 8, !tbaa !89
+  %436 = load i32, ptr %434, align 8, !tbaa !89
+  store i32 %436, ptr %433, align 8, !tbaa !89
+  store i32 %435, ptr %434, align 8, !tbaa !89
   %437 = add nuw nsw i64 %.01863.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %437, %.0.i.i.i
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !421

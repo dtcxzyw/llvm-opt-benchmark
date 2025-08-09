@@ -532,7 +532,7 @@ define internal fastcc noundef range(i32 -30, 1) i32 @start_this_handle(ptr noun
   %148 = getelementptr inbounds nuw i8, ptr %84, i64 168
   store i64 %147, ptr %148, align 8
   %149 = getelementptr inbounds nuw i8, ptr %84, i64 136
-  store volatile i32 0, ptr %149, align 4
+  store volatile i32 0, ptr %149, align 8
   %150 = getelementptr inbounds nuw i8, ptr %84, i64 140
   %151 = load i32, ptr %46, align 8
   %152 = load ptr, ptr %47, align 8
@@ -574,7 +574,7 @@ define internal fastcc noundef range(i32 -30, 1) i32 @start_this_handle(ptr noun
   %177 = add i32 %176, %175
   %178 = sdiv i32 %177, %174
   %179 = add i32 %178, 1
-  %180 = load volatile i32, ptr %42, align 4
+  %180 = load volatile i32, ptr %42, align 8
   %181 = add i32 %179, %180
   store volatile i32 %181, ptr %150, align 4
   %182 = getelementptr inbounds nuw i8, ptr %84, i64 144
@@ -1843,7 +1843,7 @@ define dso_local void @jbd2_journal_lock_updates(ptr noundef %0) local_unnamed_a
   %6 = add i32 %5, 1
   store i32 %6, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1040
-  %8 = load volatile i32, ptr %7, align 4
+  %8 = load volatile i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %23, label %10
 

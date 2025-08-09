@@ -1653,7 +1653,7 @@ define hidden void @php_filter_validate_url(ptr noundef %0, i64 noundef %1, ptr 
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %53 = load i64, ptr %52, align 8, !tbaa !8
-  %54 = load i8, ptr %51, align 1, !tbaa !4
+  %54 = load i8, ptr %51, align 8, !tbaa !4
   %55 = icmp eq i8 %54, 91
   br i1 %55, label %56, label %php_filter_is_valid_ipv6_hostname.exit.thread
 

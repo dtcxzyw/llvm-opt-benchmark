@@ -71,7 +71,7 @@ define hidden void @_ZN4ncnn9ParamDictC2Ev(ptr noundef nonnull align 8 captures(
   store ptr %8, ptr %7, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 88
   store i64 0, ptr %9, align 8, !tbaa !18
-  store i8 0, ptr %8, align 1, !tbaa !20
+  store i8 0, ptr %8, align 8, !tbaa !20
   %.add.i = add nuw nsw i64 %.idx.i, 112
   %10 = icmp eq i64 %.add.i, 3584
   br i1 %10, label %_ZN4ncnn16ParamDictPrivateC2Ev.exit, label %3
@@ -343,7 +343,7 @@ define hidden void @_ZN4ncnn9ParamDictC2ERKS0_(ptr noundef nonnull align 8 captu
   store ptr %9, ptr %8, align 8, !tbaa !15
   %10 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 88
   store i64 0, ptr %10, align 8, !tbaa !18
-  store i8 0, ptr %9, align 1, !tbaa !20
+  store i8 0, ptr %9, align 8, !tbaa !20
   %.add.i = add nuw nsw i64 %.idx.i, 112
   %11 = icmp eq i64 %.add.i, 3584
   br i1 %11, label %_ZN4ncnn16ParamDictPrivateC2Ev.exit, label %4

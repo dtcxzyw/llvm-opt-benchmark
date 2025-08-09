@@ -106,7 +106,7 @@ define void @_ZN4base19ThreadIdNameManagerC2Ev(ptr noundef nonnull align 8 deref
   store ptr %20, ptr %19, align 8, !tbaa !16
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 0, ptr %21, align 8, !tbaa !19
-  store i8 0, ptr %20, align 1, !tbaa !21
+  store i8 0, ptr %20, align 8, !tbaa !21
   store ptr %19, ptr @_ZN4base12_GLOBAL__N_114g_default_nameB5cxx11E, align 8, !tbaa !22
   invoke void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
           to label %_ZN4base8AutoLockC2ERNS_4LockE.exit unwind label %36
@@ -1487,7 +1487,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8, !tbaa !19
   store ptr %13, ptr %10, align 8, !tbaa !24
   store i64 0, ptr %24, align 8, !tbaa !19
-  store i8 0, ptr %13, align 1, !tbaa !21
+  store i8 0, ptr %13, align 8, !tbaa !21
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store ptr null, ptr %26, align 8, !tbaa !42
   store ptr %7, ptr %23, align 8, !tbaa !71

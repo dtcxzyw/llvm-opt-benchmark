@@ -31169,7 +31169,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %93 = mul i64 %92, 5871781006564002453
   %94 = getelementptr inbounds i8, ptr %89, i64 -16
   %95 = getelementptr inbounds i8, ptr %89, i64 -8
-  %96 = load i16, ptr %95, align 2, !range !6989, !alias.scope !6990, !noalias !6997, !noundef !17
+  %96 = load i16, ptr %95, align 4, !range !6989, !alias.scope !6990, !noalias !6997, !noundef !17
   %97 = zext nneg i16 %96 to i64
   %98 = call i64 @llvm.fshl.i64(i64 %93, i64 %93, i64 5)
   %99 = xor i64 %98, %97
@@ -41075,7 +41075,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %93 = mul i64 %92, 5871781006564002453
   %94 = getelementptr inbounds i8, ptr %89, i64 -16
   %95 = getelementptr inbounds i8, ptr %89, i64 -8
-  %96 = load i16, ptr %95, align 2, !range !6989, !alias.scope !9597, !noalias !9604, !noundef !17
+  %96 = load i16, ptr %95, align 4, !range !6989, !alias.scope !9597, !noalias !9604, !noundef !17
   %97 = zext nneg i16 %96 to i64
   %98 = call i64 @llvm.fshl.i64(i64 %93, i64 %93, i64 5)
   %99 = xor i64 %98, %97
@@ -43509,7 +43509,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %93 = mul i64 %92, 5871781006564002453
   %94 = getelementptr inbounds i8, ptr %89, i64 -16
   %95 = getelementptr inbounds i8, ptr %89, i64 -8
-  %96 = load i16, ptr %95, align 2, !range !6989, !alias.scope !10243, !noalias !10250, !noundef !17
+  %96 = load i16, ptr %95, align 4, !range !6989, !alias.scope !10243, !noalias !10250, !noundef !17
   %97 = zext nneg i16 %96 to i64
   %98 = call i64 @llvm.fshl.i64(i64 %93, i64 %93, i64 5)
   %99 = xor i64 %98, %97
@@ -57841,7 +57841,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %93 = mul i64 %92, 5871781006564002453
   %94 = getelementptr inbounds i8, ptr %89, i64 -16
   %95 = getelementptr inbounds i8, ptr %89, i64 -8
-  %96 = load i16, ptr %95, align 2, !range !6989, !alias.scope !14071, !noalias !14078, !noundef !17
+  %96 = load i16, ptr %95, align 4, !range !6989, !alias.scope !14071, !noalias !14078, !noundef !17
   %97 = zext nneg i16 %96 to i64
   %98 = call i64 @llvm.fshl.i64(i64 %93, i64 %93, i64 5)
   %99 = xor i64 %98, %97
@@ -60948,7 +60948,7 @@ define internal noundef i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_
   %10 = mul i64 %9, 5871781006564002453
   %11 = getelementptr inbounds i8, ptr %6, i64 -16
   %12 = getelementptr inbounds i8, ptr %6, i64 -8
-  %13 = load i16, ptr %12, align 2, !range !6989, !alias.scope !15227, !noalias !15234, !noundef !17
+  %13 = load i16, ptr %12, align 4, !range !6989, !alias.scope !15227, !noalias !15234, !noundef !17
   %14 = zext nneg i16 %13 to i64
   %15 = tail call i64 @llvm.fshl.i64(i64 %10, i64 %10, i64 5)
   %16 = xor i64 %15, %14
@@ -61754,7 +61754,7 @@ define internal noundef i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_
   %10 = mul i64 %9, 5871781006564002453
   %11 = getelementptr inbounds i8, ptr %6, i64 -16
   %12 = getelementptr inbounds i8, ptr %6, i64 -8
-  %13 = load i16, ptr %12, align 2, !range !6989, !alias.scope !15863, !noalias !15870, !noundef !17
+  %13 = load i16, ptr %12, align 4, !range !6989, !alias.scope !15863, !noalias !15870, !noundef !17
   %14 = zext nneg i16 %13 to i64
   %15 = tail call i64 @llvm.fshl.i64(i64 %10, i64 %10, i64 5)
   %16 = xor i64 %15, %14
@@ -61900,7 +61900,7 @@ define internal noundef i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_
   %10 = mul i64 %9, 5871781006564002453
   %11 = getelementptr inbounds i8, ptr %6, i64 -16
   %12 = getelementptr inbounds i8, ptr %6, i64 -8
-  %13 = load i16, ptr %12, align 2, !range !6989, !alias.scope !15977, !noalias !15984, !noundef !17
+  %13 = load i16, ptr %12, align 4, !range !6989, !alias.scope !15977, !noalias !15984, !noundef !17
   %14 = zext nneg i16 %13 to i64
   %15 = tail call i64 @llvm.fshl.i64(i64 %10, i64 %10, i64 5)
   %16 = xor i64 %15, %14
@@ -62142,7 +62142,7 @@ define internal noundef i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_
   %10 = mul i64 %9, 5871781006564002453
   %11 = getelementptr inbounds i8, ptr %6, i64 -16
   %12 = getelementptr inbounds i8, ptr %6, i64 -8
-  %13 = load i16, ptr %12, align 2, !range !6989, !alias.scope !16165, !noalias !16172, !noundef !17
+  %13 = load i16, ptr %12, align 4, !range !6989, !alias.scope !16165, !noalias !16172, !noundef !17
   %14 = zext nneg i16 %13 to i64
   %15 = tail call i64 @llvm.fshl.i64(i64 %10, i64 %10, i64 5)
   %16 = xor i64 %15, %14
@@ -68367,7 +68367,7 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h70b911d5cf2c4da4E.exit.thr
   %154 = mul i64 %153, 5871781006564002453
   %155 = getelementptr inbounds i8, ptr %150, i64 -16
   %156 = getelementptr inbounds i8, ptr %150, i64 -8
-  %157 = load i16, ptr %156, align 2, !range !6989, !alias.scope !17744, !noalias !17751, !noundef !17
+  %157 = load i16, ptr %156, align 4, !range !6989, !alias.scope !17744, !noalias !17751, !noundef !17
   %158 = zext nneg i16 %157 to i64
   %159 = tail call i64 @llvm.fshl.i64(i64 %154, i64 %154, i64 5)
   %160 = xor i64 %159, %158
@@ -69678,7 +69678,7 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h70b911d5cf2c4da4E.exit.thr
   %154 = mul i64 %153, 5871781006564002453
   %155 = getelementptr inbounds i8, ptr %150, i64 -16
   %156 = getelementptr inbounds i8, ptr %150, i64 -8
-  %157 = load i16, ptr %156, align 2, !range !6989, !alias.scope !18057, !noalias !18064, !noundef !17
+  %157 = load i16, ptr %156, align 4, !range !6989, !alias.scope !18057, !noalias !18064, !noundef !17
   %158 = zext nneg i16 %157 to i64
   %159 = tail call i64 @llvm.fshl.i64(i64 %154, i64 %154, i64 5)
   %160 = xor i64 %159, %158
@@ -73803,7 +73803,7 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h70b911d5cf2c4da4E.exit.thr
   %154 = mul i64 %153, 5871781006564002453
   %155 = getelementptr inbounds i8, ptr %150, i64 -16
   %156 = getelementptr inbounds i8, ptr %150, i64 -8
-  %157 = load i16, ptr %156, align 2, !range !6989, !alias.scope !19032, !noalias !19039, !noundef !17
+  %157 = load i16, ptr %156, align 4, !range !6989, !alias.scope !19032, !noalias !19039, !noundef !17
   %158 = zext nneg i16 %157 to i64
   %159 = tail call i64 @llvm.fshl.i64(i64 %154, i64 %154, i64 5)
   %160 = xor i64 %159, %158
@@ -75569,7 +75569,7 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h70b911d5cf2c4da4E.exit.thr
   %154 = mul i64 %153, 5871781006564002453
   %155 = getelementptr inbounds i8, ptr %150, i64 -16
   %156 = getelementptr inbounds i8, ptr %150, i64 -8
-  %157 = load i16, ptr %156, align 2, !range !6989, !alias.scope !19446, !noalias !19453, !noundef !17
+  %157 = load i16, ptr %156, align 4, !range !6989, !alias.scope !19446, !noalias !19453, !noundef !17
   %158 = zext nneg i16 %157 to i64
   %159 = tail call i64 @llvm.fshl.i64(i64 %154, i64 %154, i64 5)
   %160 = xor i64 %159, %158

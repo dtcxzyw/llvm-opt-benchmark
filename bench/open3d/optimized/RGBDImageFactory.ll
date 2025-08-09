@@ -575,7 +575,7 @@ define void @_ZN6open3d8geometry9RGBDImage23CreateFromColorAndDepthERKNS0_5Image
   store ptr %17, ptr %16, align 8, !tbaa !24, !noalias !4
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i64 0, ptr %18, align 8, !tbaa !25, !noalias !4
-  store i8 0, ptr %17, align 1, !tbaa !26, !noalias !4
+  store i8 0, ptr %17, align 8, !tbaa !26, !noalias !4
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6open3d8geometry9RGBDImageE, i64 16), ptr %13, align 8, !tbaa !13, !noalias !4
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 72
@@ -587,7 +587,7 @@ define void @_ZN6open3d8geometry9RGBDImage23CreateFromColorAndDepthERKNS0_5Image
   store ptr %23, ptr %22, align 8, !tbaa !24, !noalias !4
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 88
   store i64 0, ptr %24, align 8, !tbaa !25, !noalias !4
-  store i8 0, ptr %23, align 1, !tbaa !26, !noalias !4
+  store i8 0, ptr %23, align 8, !tbaa !26, !noalias !4
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6open3d8geometry5ImageE, i64 16), ptr %19, align 8, !tbaa !13, !noalias !4
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %25, i8 0, i64 40, i1 false), !noalias !4
@@ -601,7 +601,7 @@ define void @_ZN6open3d8geometry9RGBDImage23CreateFromColorAndDepthERKNS0_5Image
   store ptr %30, ptr %29, align 8, !tbaa !24, !noalias !4
   %31 = getelementptr inbounds nuw i8, ptr %10, i64 176
   store i64 0, ptr %31, align 8, !tbaa !25, !noalias !4
-  store i8 0, ptr %30, align 1, !tbaa !26, !noalias !4
+  store i8 0, ptr %30, align 8, !tbaa !26, !noalias !4
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6open3d8geometry5ImageE, i64 16), ptr %26, align 8, !tbaa !13, !noalias !4
   %32 = getelementptr inbounds nuw i8, ptr %10, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %32, i8 0, i64 40, i1 false), !noalias !4
@@ -30938,7 +30938,7 @@ define void @_ZN6open3d8geometry9RGBDImage19CreateFromSUNFormatERKNS0_5ImageES4_
   store ptr %14, ptr %13, align 8, !tbaa !24, !noalias !636
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i64 0, ptr %15, align 8, !tbaa !25, !noalias !636
-  store i8 0, ptr %14, align 1, !tbaa !26, !noalias !636
+  store i8 0, ptr %14, align 8, !tbaa !26, !noalias !636
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6open3d8geometry9RGBDImageE, i64 16), ptr %10, align 8, !tbaa !13, !noalias !636
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 72
@@ -30950,7 +30950,7 @@ define void @_ZN6open3d8geometry9RGBDImage19CreateFromSUNFormatERKNS0_5ImageES4_
   store ptr %20, ptr %19, align 8, !tbaa !24, !noalias !636
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 88
   store i64 0, ptr %21, align 8, !tbaa !25, !noalias !636
-  store i8 0, ptr %20, align 1, !tbaa !26, !noalias !636
+  store i8 0, ptr %20, align 8, !tbaa !26, !noalias !636
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6open3d8geometry5ImageE, i64 16), ptr %16, align 8, !tbaa !13, !noalias !636
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, i8 0, i64 40, i1 false), !noalias !636
@@ -30964,7 +30964,7 @@ define void @_ZN6open3d8geometry9RGBDImage19CreateFromSUNFormatERKNS0_5ImageES4_
   store ptr %27, ptr %26, align 8, !tbaa !24, !noalias !636
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 176
   store i64 0, ptr %28, align 8, !tbaa !25, !noalias !636
-  store i8 0, ptr %27, align 1, !tbaa !26, !noalias !636
+  store i8 0, ptr %27, align 8, !tbaa !26, !noalias !636
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6open3d8geometry5ImageE, i64 16), ptr %23, align 8, !tbaa !13, !noalias !636
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %29, i8 0, i64 40, i1 false), !noalias !636
@@ -31123,7 +31123,7 @@ define void @_ZN6open3d8geometry9RGBDImage19CreateFromNYUFormatERKNS0_5ImageES4_
   store ptr %14, ptr %13, align 8, !tbaa !24, !noalias !644
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i64 0, ptr %15, align 8, !tbaa !25, !noalias !644
-  store i8 0, ptr %14, align 1, !tbaa !26, !noalias !644
+  store i8 0, ptr %14, align 8, !tbaa !26, !noalias !644
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6open3d8geometry9RGBDImageE, i64 16), ptr %10, align 8, !tbaa !13, !noalias !644
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 72
@@ -31135,7 +31135,7 @@ define void @_ZN6open3d8geometry9RGBDImage19CreateFromNYUFormatERKNS0_5ImageES4_
   store ptr %20, ptr %19, align 8, !tbaa !24, !noalias !644
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 88
   store i64 0, ptr %21, align 8, !tbaa !25, !noalias !644
-  store i8 0, ptr %20, align 1, !tbaa !26, !noalias !644
+  store i8 0, ptr %20, align 8, !tbaa !26, !noalias !644
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6open3d8geometry5ImageE, i64 16), ptr %16, align 8, !tbaa !13, !noalias !644
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, i8 0, i64 40, i1 false), !noalias !644
@@ -31149,7 +31149,7 @@ define void @_ZN6open3d8geometry9RGBDImage19CreateFromNYUFormatERKNS0_5ImageES4_
   store ptr %27, ptr %26, align 8, !tbaa !24, !noalias !644
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 176
   store i64 0, ptr %28, align 8, !tbaa !25, !noalias !644
-  store i8 0, ptr %27, align 1, !tbaa !26, !noalias !644
+  store i8 0, ptr %27, align 8, !tbaa !26, !noalias !644
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6open3d8geometry5ImageE, i64 16), ptr %23, align 8, !tbaa !13, !noalias !644
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %29, i8 0, i64 40, i1 false), !noalias !644

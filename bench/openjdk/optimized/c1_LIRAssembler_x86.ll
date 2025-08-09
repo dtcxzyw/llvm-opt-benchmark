@@ -1033,7 +1033,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %18, %20
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 224
   store i8 0, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 232
-  store i32 -1, ptr %47, align 4
+  store i32 -1, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 240
   store ptr null, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 248
@@ -1140,7 +1140,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %18, %20
   %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 224
   store i8 0, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 232
-  store i32 -1, ptr %46, align 4
+  store i32 -1, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 240
   store ptr null, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 248
@@ -2978,7 +2978,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %57, %59
   %84 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 224
   store i8 0, ptr %84, align 8
   %85 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 232
-  store i32 -1, ptr %85, align 4
+  store i32 -1, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 240
   store ptr null, ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 248
@@ -3701,7 +3701,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %89, %91
   %116 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 224
   store i8 0, ptr %116, align 8
   %117 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 232
-  store i32 -1, ptr %117, align 4
+  store i32 -1, ptr %117, align 8
   %118 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 240
   store ptr null, ptr %118, align 8
   %119 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 248
@@ -11775,7 +11775,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %25, %27
   %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 224
   store i8 0, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 232
-  store i32 -1, ptr %53, align 4
+  store i32 -1, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 240
   store ptr null, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 248

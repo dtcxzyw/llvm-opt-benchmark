@@ -1523,11 +1523,11 @@ define void @_ZN2cv4gapi3wip11async_applyERNS_12GComputationEOSt6vectorINS_7GRun
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr null, ptr %16, align 8, !tbaa !82, !noalias !79
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store i32 0, ptr %17, align 4, !tbaa !85, !noalias !79
+  store i32 0, ptr %17, align 8, !tbaa !85, !noalias !79
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 36
-  store i8 0, ptr %18, align 1, !tbaa !87, !noalias !79
+  store i8 0, ptr %18, align 4, !tbaa !87, !noalias !79
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  store i32 0, ptr %19, align 4, !tbaa !90, !noalias !79
+  store i32 0, ptr %19, align 8, !tbaa !90, !noalias !79
   store ptr %12, ptr %11, align 8, !tbaa !11, !alias.scope !79
   store ptr %15, ptr %8, align 8, !tbaa !92, !alias.scope !79
   %20 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
@@ -2778,11 +2778,11 @@ define void @_ZN2cv4gapi3wip11async_applyERNS_12GComputationEOSt6vectorINS_7GRun
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr null, ptr %17, align 8, !tbaa !82, !noalias !107
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store i32 0, ptr %18, align 4, !tbaa !85, !noalias !107
+  store i32 0, ptr %18, align 8, !tbaa !85, !noalias !107
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 36
-  store i8 0, ptr %19, align 1, !tbaa !87, !noalias !107
+  store i8 0, ptr %19, align 4, !tbaa !87, !noalias !107
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  store i32 0, ptr %20, align 4, !tbaa !90, !noalias !107
+  store i32 0, ptr %20, align 8, !tbaa !90, !noalias !107
   store ptr %13, ptr %12, align 8, !tbaa !11, !alias.scope !107
   store ptr %16, ptr %9, align 8, !tbaa !92, !alias.scope !107
   %21 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
@@ -4112,11 +4112,11 @@ define void @_ZN2cv4gapi3wip5asyncERNS_9GCompiledEOSt6vectorINS_7GRunArgESaIS5_E
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr null, ptr %15, align 8, !tbaa !82, !noalias !116
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store i32 0, ptr %16, align 4, !tbaa !85, !noalias !116
+  store i32 0, ptr %16, align 8, !tbaa !85, !noalias !116
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 36
-  store i8 0, ptr %17, align 1, !tbaa !87, !noalias !116
+  store i8 0, ptr %17, align 4, !tbaa !87, !noalias !116
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store i32 0, ptr %18, align 4, !tbaa !90, !noalias !116
+  store i32 0, ptr %18, align 8, !tbaa !90, !noalias !116
   store ptr %11, ptr %10, align 8, !tbaa !11, !alias.scope !116
   store ptr %14, ptr %7, align 8, !tbaa !92, !alias.scope !116
   %19 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
@@ -4616,11 +4616,11 @@ define void @_ZN2cv4gapi3wip5asyncERNS_9GCompiledEOSt6vectorINS_7GRunArgESaIS5_E
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr null, ptr %16, align 8, !tbaa !82, !noalias !122
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store i32 0, ptr %17, align 4, !tbaa !85, !noalias !122
+  store i32 0, ptr %17, align 8, !tbaa !85, !noalias !122
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 36
-  store i8 0, ptr %18, align 1, !tbaa !87, !noalias !122
+  store i8 0, ptr %18, align 4, !tbaa !87, !noalias !122
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  store i32 0, ptr %19, align 4, !tbaa !90, !noalias !122
+  store i32 0, ptr %19, align 8, !tbaa !90, !noalias !122
   store ptr %12, ptr %11, align 8, !tbaa !11, !alias.scope !122
   store ptr %15, ptr %8, align 8, !tbaa !92, !alias.scope !122
   %20 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26

@@ -5719,7 +5719,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   store ptr null, ptr %22, align 8, !tbaa !239
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %26 = load i32, ptr %24, align 4, !tbaa !104
-  store i32 %26, ptr %25, align 4, !tbaa !104
+  store i32 %26, ptr %25, align 8, !tbaa !104
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %27, align 8, !tbaa !231
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5743,7 +5743,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   store ptr null, ptr %33, align 8, !tbaa !239
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %37 = load i32, ptr %35, align 4, !tbaa !104
-  store i32 %37, ptr %36, align 4, !tbaa !104
+  store i32 %37, ptr %36, align 8, !tbaa !104
   store ptr %33, ptr %.02636, align 8, !tbaa !239
   %38 = sext i32 %37 to i64
   %39 = urem i64 %38, %29

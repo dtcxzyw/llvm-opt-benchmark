@@ -1586,7 +1586,7 @@ malloc_mutex_lock.exit:                           ; preds = %14, %20
   %35 = load i64, ptr %34, align 8, !tbaa !34
   store i64 %35, ptr %7, align 8, !tbaa !10
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  store atomic i8 0, ptr %36 monotonic, align 1
+  store atomic i8 0, ptr %36 monotonic, align 8
   %37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %9) #10
   ret void
 }

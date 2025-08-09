@@ -1795,7 +1795,7 @@ _ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE9co
   store i64 %116, ptr %118, align 8, !tbaa !38
   store ptr %108, ptr %105, align 8, !tbaa !37
   store i64 0, ptr %117, align 8, !tbaa !38
-  store i8 0, ptr %108, align 1, !tbaa !27
+  store i8 0, ptr %108, align 8, !tbaa !27
   %119 = getelementptr inbounds nuw i8, ptr %104, i64 32
   %120 = getelementptr inbounds i8, ptr %104, i64 -8
   %121 = load i64, ptr %120, align 8
@@ -2793,7 +2793,7 @@ _ZSt19__relocate_object_aIN4absl12log_internal12_GLOBAL__N_111VModuleInfoES3_SaI
   store i64 %52, ptr %54, align 8, !tbaa !38, !alias.scope !97, !noalias !100
   store ptr %44, ptr %.092.i.i.i, align 8, !tbaa !37, !alias.scope !100, !noalias !97
   store i64 0, ptr %53, align 8, !tbaa !38, !alias.scope !100, !noalias !97
-  store i8 0, ptr %44, align 1, !tbaa !27, !alias.scope !100, !noalias !97
+  store i8 0, ptr %44, align 8, !tbaa !27, !alias.scope !100, !noalias !97
   %55 = getelementptr inbounds nuw i8, ptr %.03.i.i.i, i64 32
   %56 = getelementptr inbounds nuw i8, ptr %.092.i.i.i, i64 32
   %57 = load i64, ptr %56, align 8, !alias.scope !100, !noalias !97
@@ -2845,7 +2845,7 @@ _ZSt19__relocate_object_aIN4absl12log_internal12_GLOBAL__N_111VModuleInfoES3_SaI
   store i64 %71, ptr %73, align 8, !tbaa !38, !alias.scope !104, !noalias !107
   store ptr %63, ptr %.092.i.i.i40, align 8, !tbaa !37, !alias.scope !107, !noalias !104
   store i64 0, ptr %72, align 8, !tbaa !38, !alias.scope !107, !noalias !104
-  store i8 0, ptr %63, align 1, !tbaa !27, !alias.scope !107, !noalias !104
+  store i8 0, ptr %63, align 8, !tbaa !27, !alias.scope !107, !noalias !104
   %74 = getelementptr inbounds nuw i8, ptr %.03.i.i.i39, i64 32
   %75 = getelementptr inbounds nuw i8, ptr %.092.i.i.i40, i64 32
   %76 = load i64, ptr %75, align 8, !alias.scope !107, !noalias !104

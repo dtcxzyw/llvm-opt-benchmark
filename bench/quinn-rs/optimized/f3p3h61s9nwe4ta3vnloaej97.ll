@@ -6665,7 +6665,7 @@ define void @_ZN11quinn_proto13cid_generator27HashedConnectionIdGenerator3new17h
 "_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17habf6ec1bbf6512bcE.exit.i": ; preds = %22, %20
   store i64 1, ptr %5, align 16, !alias.scope !531
   %23 = zext i32 %15 to i64
-  %24 = load i32, ptr %4, align 4, !alias.scope !518, !noundef !3
+  %24 = load i32, ptr %4, align 16, !alias.scope !518, !noundef !3
   %25 = zext i32 %24 to i64
   %26 = shl nuw i64 %25, 32
   %27 = or disjoint i64 %26, %23
@@ -6690,7 +6690,7 @@ define void @_ZN11quinn_proto13cid_generator27HashedConnectionIdGenerator3new17h
 
 "_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17habf6ec1bbf6512bcE.exit8.i": ; preds = %35, %33
   store i64 2, ptr %5, align 16, !alias.scope !539
-  %36 = load i64, ptr %4, align 4, !alias.scope !540
+  %36 = load i64, ptr %4, align 16, !alias.scope !540
   br label %39
 
 37:                                               ; preds = %35, %33, %22, %20

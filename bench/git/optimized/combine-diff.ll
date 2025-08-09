@@ -955,7 +955,7 @@ st_mult.exit:                                     ; preds = %st_add.exit248.thre
   %317 = getelementptr inbounds nuw i8, ptr %310, i64 8
   %318 = getelementptr inbounds nuw i8, ptr %310, i64 32
   %319 = load i32, ptr %318, align 8, !tbaa !143
-  %320 = load i32, ptr %317, align 4, !tbaa !67
+  %320 = load i32, ptr %317, align 8, !tbaa !67
   %.not.i.i = icmp eq ptr %.05174.pre.i, null
   br i1 %.not.i.i, label %321, label %322
 
@@ -3027,7 +3027,7 @@ st_add.exit.i.us.i:                               ; preds = %.lr.ph.split.i, %._
   %327 = getelementptr inbounds nuw i8, ptr %.01517.us20.i, i64 52
   %328 = load i32, ptr %327, align 4, !tbaa !233
   %329 = getelementptr inbounds nuw i8, ptr %320, i64 32
-  store i32 %328, ptr %329, align 4, !tbaa !233
+  store i32 %328, ptr %329, align 8, !tbaa !233
   %bcmp.i36.i.us.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %326, ptr noundef nonnull dereferenceable(32) @is_null_oid.null_hash, i64 32)
   %.not.i37.i.us.i = icmp eq i32 %bcmp.i36.i.us.i, 0
   %330 = load ptr, ptr %287, align 8, !tbaa !224
@@ -3074,7 +3074,7 @@ st_add.exit.i.i:                                  ; preds = %.lr.ph.split.i, %st
   %356 = getelementptr inbounds nuw i8, ptr %.01517.i, i64 52
   %357 = load i32, ptr %356, align 4, !tbaa !233
   %358 = getelementptr inbounds nuw i8, ptr %349, i64 32
-  store i32 %357, ptr %358, align 4, !tbaa !233
+  store i32 %357, ptr %358, align 8, !tbaa !233
   %bcmp.i36.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %355, ptr noundef nonnull dereferenceable(32) @is_null_oid.null_hash, i64 32)
   %.not.i37.i.i = icmp eq i32 %bcmp.i36.i.i, 0
   %359 = load ptr, ptr %342, align 8, !tbaa !224

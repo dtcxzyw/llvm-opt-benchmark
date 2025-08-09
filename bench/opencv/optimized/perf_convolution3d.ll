@@ -3846,7 +3846,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3dnn14dnn4_v20
   store ptr %36, ptr %.ptr.i.i, align 8, !tbaa !4
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store i64 0, ptr %37, align 8, !tbaa !15
-  store i8 0, ptr %36, align 1, !tbaa !14
+  store i8 0, ptr %36, align 8, !tbaa !14
   store ptr %.ptr.i.i, ptr %35, align 8, !tbaa !176
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i64 1, ptr %38, align 8, !tbaa !178
@@ -3879,7 +3879,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3dnn14dnn4_v20
   store ptr %46, ptr %.ptr.i.i12, align 8, !tbaa !4
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 24
   store i64 0, ptr %47, align 8, !tbaa !15
-  store i8 0, ptr %46, align 1, !tbaa !14
+  store i8 0, ptr %46, align 8, !tbaa !14
   store ptr %.ptr.i.i12, ptr %45, align 8, !tbaa !176
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i64 1, ptr %48, align 8, !tbaa !178
@@ -12762,7 +12762,7 @@ define linkonce_odr hidden void @_ZN7testing15AssertionResult13AppendMessageERKN
   store ptr %9, ptr %8, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 0, ptr %10, align 8, !tbaa !15
-  store i8 0, ptr %9, align 1, !tbaa !14
+  store i8 0, ptr %9, align 8, !tbaa !14
   %11 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
   br i1 %11, label %12, label %22
 
@@ -13404,7 +13404,7 @@ _ZN2cv10AutoBufferIlLm1EE8allocateEm.exit.i:      ; preds = %5
   store ptr %32, ptr %.ptr.i, align 8, !tbaa !4
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store i64 0, ptr %33, align 8, !tbaa !15
-  store i8 0, ptr %32, align 1, !tbaa !14
+  store i8 0, ptr %32, align 8, !tbaa !14
   store ptr %.ptr.i, ptr %29, align 8, !tbaa !176
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -13433,7 +13433,7 @@ _ZN2cv10AutoBufferIlLm1EE8allocateEm.exit.i:      ; preds = %5
   store ptr %47, ptr %46, align 8, !tbaa !4
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i64 0, ptr %48, align 8, !tbaa !15
-  store i8 0, ptr %47, align 1, !tbaa !14
+  store i8 0, ptr %47, align 8, !tbaa !14
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %50 = icmp eq ptr %49, %44
   br i1 %50, label %_ZN2cv10AutoBufferINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm1EE8allocateEm.exit.thread.i, label %45
@@ -13625,7 +13625,7 @@ _ZN2cv10AutoBufferIlLm1EE8allocateEm.exit.i:      ; preds = %6
   store ptr %33, ptr %.ptr.i, align 8, !tbaa !4
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store i64 0, ptr %34, align 8, !tbaa !15
-  store i8 0, ptr %33, align 1, !tbaa !14
+  store i8 0, ptr %33, align 8, !tbaa !14
   store ptr %.ptr.i, ptr %30, align 8, !tbaa !176
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -13654,7 +13654,7 @@ _ZN2cv10AutoBufferIlLm1EE8allocateEm.exit.i:      ; preds = %6
   store ptr %48, ptr %47, align 8, !tbaa !4
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 0, ptr %49, align 8, !tbaa !15
-  store i8 0, ptr %48, align 1, !tbaa !14
+  store i8 0, ptr %48, align 8, !tbaa !14
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %51 = icmp eq ptr %50, %45
   br i1 %51, label %_ZN2cv10AutoBufferINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm1EE8allocateEm.exit.thread.i, label %46
@@ -14359,7 +14359,7 @@ _ZSt19__relocate_object_aIN7testing8internal25ParameterizedTestCaseInfoIN4perf17
   store i64 %49, ptr %51, align 8, !tbaa !15, !alias.scope !392, !noalias !395
   store ptr %41, ptr %.0911.i.i.i.i, align 8, !tbaa !12, !alias.scope !395, !noalias !392
   store i64 0, ptr %50, align 8, !tbaa !15, !alias.scope !395, !noalias !392
-  store i8 0, ptr %41, align 1, !tbaa !14, !alias.scope !395, !noalias !392
+  store i8 0, ptr %41, align 8, !tbaa !14, !alias.scope !395, !noalias !392
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %52, ptr noundef nonnull align 8 dereferenceable(28) %53, i64 28, i1 false), !alias.scope !397
@@ -14410,7 +14410,7 @@ _ZSt19__relocate_object_aIN7testing8internal25ParameterizedTestCaseInfoIN4perf17
   store i64 %67, ptr %69, align 8, !tbaa !15, !alias.scope !399, !noalias !402
   store ptr %59, ptr %.0911.i.i.i.i19, align 8, !tbaa !12, !alias.scope !402, !noalias !399
   store i64 0, ptr %68, align 8, !tbaa !15, !alias.scope !402, !noalias !399
-  store i8 0, ptr %59, align 1, !tbaa !14, !alias.scope !402, !noalias !399
+  store i8 0, ptr %59, align 8, !tbaa !14, !alias.scope !402, !noalias !399
   %70 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %70, ptr noundef nonnull align 8 dereferenceable(28) %71, i64 28, i1 false), !alias.scope !404

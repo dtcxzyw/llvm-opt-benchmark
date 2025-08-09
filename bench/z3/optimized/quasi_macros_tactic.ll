@@ -1957,7 +1957,7 @@ _ZNK15ref_vector_coreIN18dependency_managerIN11ast_manager22expr_dependency_conf
   %333 = getelementptr inbounds nuw i8, ptr %301, i64 48
   store i64 12, ptr %333, align 8, !tbaa !25
   %334 = getelementptr inbounds nuw i8, ptr %301, i64 68
-  store i8 0, ptr %334, align 1, !tbaa !19
+  store i8 0, ptr %334, align 4, !tbaa !19
   %335 = getelementptr inbounds nuw i8, ptr %301, i64 72
   store ptr null, ptr %335, align 8, !tbaa !164
   %336 = getelementptr inbounds nuw i8, ptr %7, i64 408

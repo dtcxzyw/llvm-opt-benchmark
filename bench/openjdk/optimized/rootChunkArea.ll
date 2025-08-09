@@ -80,13 +80,13 @@ define hidden void @_ZN9metaspace13RootChunkAreaD2Ev(ptr noundef nonnull readonl
 _ZN9metaspace15ChunkHeaderPool19return_chunk_headerEPNS_9MetachunkE.exit: ; preds = %4, %10
   store ptr %3, ptr %7, align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %13 = load i32, ptr %12, align 4
+  %13 = load i32, ptr %12, align 8
   %14 = add i32 %13, 1
-  store i32 %14, ptr %12, align 4
+  store i32 %14, ptr %12, align 8
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %16 = load i32, ptr %15, align 4
+  %16 = load i32, ptr %15, align 8
   %17 = add i32 %16, -1
-  store i32 %17, ptr %15, align 4
+  store i32 %17, ptr %15, align 8
   br label %18
 
 18:                                               ; preds = %_ZN9metaspace15ChunkHeaderPool19return_chunk_headerEPNS_9MetachunkE.exit, %1
@@ -666,13 +666,13 @@ _ZN9metaspace19FreeChunkListVector6removeEPNS_9MetachunkE.exit: ; preds = %89, %
 123:                                              ; preds = %121, %115
   store ptr %..045, ptr %118, align 8
   %124 = getelementptr inbounds nuw i8, ptr %116, i64 40
-  %125 = load i32, ptr %124, align 4
+  %125 = load i32, ptr %124, align 8
   %126 = add i32 %125, 1
-  store i32 %126, ptr %124, align 4
+  store i32 %126, ptr %124, align 8
   %127 = getelementptr inbounds nuw i8, ptr %116, i64 24
-  %128 = load i32, ptr %127, align 4
+  %128 = load i32, ptr %127, align 8
   %129 = add i32 %128, -1
-  store i32 %129, ptr %127, align 4
+  store i32 %129, ptr %127, align 8
   %130 = load i8, ptr %99, align 8
   %131 = add i8 %130, -1
   store i8 %131, ptr %99, align 8
@@ -851,13 +851,13 @@ _ZN9metaspace19FreeChunkListVector6removeEPNS_9MetachunkE.exit: ; preds = %90, %
 _ZN9metaspace15ChunkHeaderPool19return_chunk_headerEPNS_9MetachunkE.exit: ; preds = %_ZN9metaspace19FreeChunkListVector6removeEPNS_9MetachunkE.exit, %101
   store ptr %18, ptr %99, align 8
   %103 = getelementptr inbounds nuw i8, ptr %98, i64 40
-  %104 = load i32, ptr %103, align 4
+  %104 = load i32, ptr %103, align 8
   %105 = add i32 %104, 1
-  store i32 %105, ptr %103, align 4
+  store i32 %105, ptr %103, align 8
   %106 = getelementptr inbounds nuw i8, ptr %98, i64 24
-  %107 = load i32, ptr %106, align 4
+  %107 = load i32, ptr %106, align 8
   %108 = add i32 %107, -1
-  store i32 %108, ptr %106, align 4
+  store i32 %108, ptr %106, align 8
   %109 = load i8, ptr %5, align 8
   %110 = add i8 %109, -1
   store i8 %110, ptr %5, align 8
@@ -1056,12 +1056,12 @@ define hidden void @_ZN9metaspace16RootChunkAreaLUTD2Ev(ptr noundef nonnull read
 
 _ZN9metaspace15ChunkHeaderPool19return_chunk_headerEPNS_9MetachunkE.exit.i: ; preds = %19, %15
   store ptr %14, ptr %7, align 8
-  %21 = load i32, ptr %8, align 4
+  %21 = load i32, ptr %8, align 8
   %22 = add i32 %21, 1
-  store i32 %22, ptr %8, align 4
-  %23 = load i32, ptr %9, align 4
+  store i32 %22, ptr %8, align 8
+  %23 = load i32, ptr %9, align 8
   %24 = add i32 %23, -1
-  store i32 %24, ptr %9, align 4
+  store i32 %24, ptr %9, align 8
   %.pre = load i32, ptr %2, align 8
   br label %_ZN9metaspace13RootChunkAreaD2Ev.exit
 

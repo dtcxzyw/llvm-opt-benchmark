@@ -10307,7 +10307,7 @@ define hidden void @_ZN9Assembler6prefixE8Register7AddressNS_6PrefixE(ptr nounde
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 1
   store i8 %59, ptr %61, align 1
   store ptr %62, ptr %60, align 8
-  %.pre = load i32, ptr %2, align 4
+  %.pre = load i32, ptr %2, align 8
   %.pre8 = sext i32 %.pre to i64
   br label %63
 

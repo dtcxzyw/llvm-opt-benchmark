@@ -2590,8 +2590,8 @@ hostrange_prefix_cmp.exit.i.i:                    ; preds = %63
   %74 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %75 = load i64, ptr %60, align 8
   %76 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %77 = load i32, ptr %74, align 4
-  %78 = load i32, ptr %76, align 4
+  %77 = load i32, ptr %74, align 8
+  %78 = load i32, ptr %76, align 8
   %79 = icmp eq i32 %77, %78
   br i1 %79, label %110, label %80
 
@@ -3138,8 +3138,8 @@ hostrange_prefix_cmp.exit.i86.i:                  ; preds = %327
   %340 = getelementptr inbounds nuw i8, ptr %318, i64 24
   %341 = load i64, ptr %323, align 8
   %342 = getelementptr inbounds nuw i8, ptr %320, i64 24
-  %343 = load i32, ptr %340, align 4
-  %344 = load i32, ptr %342, align 4
+  %343 = load i32, ptr %340, align 8
+  %344 = load i32, ptr %342, align 8
   %345 = icmp eq i32 %343, %344
   br i1 %345, label %376, label %346
 
@@ -3585,8 +3585,8 @@ hostrange_prefix_cmp.exit.i:                      ; preds = %50
   %64 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %65 = load i64, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %67 = load i32, ptr %45, align 4
-  %68 = load i32, ptr %66, align 4
+  %67 = load i32, ptr %45, align 8
+  %68 = load i32, ptr %66, align 8
   %69 = icmp eq i32 %67, %68
   br i1 %69, label %100, label %70
 
@@ -3982,8 +3982,8 @@ hostrange_prefix_cmp.exit:                        ; preds = %6
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load i64, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %26 = load i32, ptr %22, align 4
-  %27 = load i32, ptr %25, align 4
+  %26 = load i32, ptr %22, align 8
+  %27 = load i32, ptr %25, align 8
   %28 = icmp eq i32 %26, %27
   br i1 %28, label %59, label %29
 
@@ -4374,8 +4374,8 @@ hostrange_prefix_cmp.exit:                        ; preds = %35
   %48 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %49 = load i64, ptr %31, align 8
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load i32, ptr %48, align 4
-  %52 = load i32, ptr %50, align 4
+  %51 = load i32, ptr %48, align 8
+  %52 = load i32, ptr %50, align 8
   %53 = icmp eq i32 %51, %52
   br i1 %53, label %84, label %54
 
@@ -7384,8 +7384,8 @@ hostrange_prefix_cmp.exit:                        ; preds = %5
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %22 = load i32, ptr %18, align 4
-  %23 = load i32, ptr %21, align 4
+  %22 = load i32, ptr %18, align 8
+  %23 = load i32, ptr %21, align 8
   %24 = icmp eq i32 %22, %23
   br i1 %24, label %55, label %25
 

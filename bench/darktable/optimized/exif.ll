@@ -4003,7 +4003,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i37
 
 577:                                              ; preds = %570
   store i32 4, ptr %560, align 16, !tbaa !120
-  store i32 1, ptr %561, align 4, !tbaa !22
+  store i32 1, ptr %561, align 8, !tbaa !22
   br label %578
 
 578:                                              ; preds = %577, %570

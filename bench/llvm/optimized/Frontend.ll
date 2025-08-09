@@ -1117,7 +1117,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefEN5clang10installapi10HeaderTyp
   %98 = load i32, ptr %97, align 8, !tbaa !316
   %99 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9FileEntryENS2_10installapi10HeaderTypeENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixERKS5_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(8) %4)
   store i32 %98, ptr %99, align 4, !tbaa !319
-  %100 = load i32, ptr %97, align 4, !tbaa !319
+  %100 = load i32, ptr %97, align 8, !tbaa !319
   br label %102
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefEN5clang10installapi10HeaderTypeENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E6doFindIS2_EEPSA_RKT_.exit.thread: ; preds = %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i.us50, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i.us34, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i.us, %41, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefEN5clang10installapi10HeaderTypeENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E6doFindIS2_EEPSA_RKT_.exit
@@ -1248,7 +1248,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9FileEntryENS2_10installapi10Header
   %57 = load ptr, ptr %1, align 8, !tbaa !61
   store ptr %57, ptr %48, align 8, !tbaa !61
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !319
+  store i32 0, ptr %58, align 8, !tbaa !319
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9FileEntryENS2_10installapi10HeaderTypeENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E16InsertIntoBucketIRKS5_JEEEPSC_SI_OT_DpOT0_.exit
@@ -1487,7 +1487,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9FileEntryENS2_10installapi10Header
   %57 = load ptr, ptr %1, align 8, !tbaa !61
   store ptr %57, ptr %48, align 8, !tbaa !61
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %58, align 4, !tbaa !319
+  store i32 0, ptr %58, align 8, !tbaa !319
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9FileEntryENS2_10installapi10HeaderTypeENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E16InsertIntoBucketIS5_JEEEPSC_SG_OT_DpOT0_.exit
@@ -4221,7 +4221,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9FileEntryENS2_10installapi10Header
   %65 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %66 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %67 = load i32, ptr %66, align 4, !tbaa !319
-  store i32 %67, ptr %65, align 4, !tbaa !319
+  store i32 %67, ptr %65, align 8, !tbaa !319
   %68 = add i32 %40, 1
   store i32 %68, ptr %32, align 8, !tbaa !323
   br label %69
@@ -4348,7 +4348,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9FileEntryENS2_10installapi10Header
   store ptr %60, ptr %50, align 8, !tbaa !61
   %61 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %62 = load i32, ptr %3, align 4, !tbaa !319
-  store i32 %62, ptr %61, align 4, !tbaa !319
+  store i32 %62, ptr %61, align 8, !tbaa !319
   %63 = load ptr, ptr %1, align 8, !tbaa !63
   %64 = load i32, ptr %7, align 8, !tbaa !66
   br label %.loopexit

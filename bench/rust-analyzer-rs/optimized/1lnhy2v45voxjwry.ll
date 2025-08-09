@@ -37281,7 +37281,7 @@ switch.lookup:                                    ; preds = %.noexc260
   %196 = getelementptr inbounds nuw i8, ptr %135, i64 24
   %197 = load i64, ptr %196, align 8, !alias.scope !5468, !noalias !5465, !noundef !137
   %198 = getelementptr inbounds nuw i8, ptr %135, i64 34
-  %.val.i = load i8, ptr %198, align 1, !range !5470, !alias.scope !5468, !noalias !5465, !noundef !137
+  %.val.i = load i8, ptr %198, align 2, !range !5470, !alias.scope !5468, !noalias !5465, !noundef !137
   call void @llvm.experimental.noalias.scope.decl(metadata !5471)
   %199 = load ptr, ptr %194, align 8, !alias.scope !5474, !noalias !5465, !nonnull !137, !noundef !137
   %200 = atomicrmw add ptr %199, i64 1 monotonic, align 8, !noalias !5475
@@ -37343,7 +37343,7 @@ switch.lookup:                                    ; preds = %.noexc260
   %214 = getelementptr inbounds nuw i8, ptr %138, i64 24
   %215 = load i64, ptr %214, align 8, !alias.scope !5485, !noalias !5482, !noundef !137
   %216 = getelementptr inbounds nuw i8, ptr %138, i64 34
-  %.val.i265 = load i8, ptr %216, align 1, !range !5470, !alias.scope !5485, !noalias !5482, !noundef !137
+  %.val.i265 = load i8, ptr %216, align 2, !range !5470, !alias.scope !5485, !noalias !5482, !noundef !137
   %217 = load i8, ptr %184, align 8, !range !5464, !alias.scope !5485, !noalias !5482, !noundef !137
   %218 = load i8, ptr %190, align 1, !range !5464, !alias.scope !5485, !noalias !5482, !noundef !137
   call void @llvm.experimental.noalias.scope.decl(metadata !5487)
@@ -76397,7 +76397,7 @@ __rust_try.llvm.3864848197730831337.exit:
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !12845, !noundef !137
   store i64 0, ptr %.val.i, align 8, !noalias !12848
   %1 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
-  store i8 2, ptr %1, align 1, !noalias !12848
+  store i8 2, ptr %1, align 8, !noalias !12848
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
@@ -77114,7 +77114,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h9fe6d110ff24a28fE.llvm.38648
   %.val = load ptr, ptr %2, align 8, !alias.scope !13103, !noundef !137
   store i64 0, ptr %.val, align 8, !noalias !13106
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  store i8 2, ptr %3, align 1, !noalias !13106
+  store i8 2, ptr %3, align 8, !noalias !13106
   ret void
 }
 

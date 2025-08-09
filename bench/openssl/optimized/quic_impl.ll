@@ -7816,8 +7816,8 @@ define internal fastcc ptr @ossl_quic_build_new_token(ptr noundef %0, ptr nounde
   store i64 %2, ptr %27, align 8, !tbaa !240
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 44
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 46
-  store i32 %13, ptr %23, align 4, !tbaa !166
-  store i16 %14, ptr %28, align 2, !tbaa !241
+  store i32 %13, ptr %23, align 8, !tbaa !166
+  store i16 %14, ptr %28, align 4, !tbaa !241
   %30 = call i32 @BIO_ADDR_rawaddress(ptr noundef %0, ptr noundef nonnull %29, ptr noundef null) #12
   %.not44 = icmp eq i32 %30, 0
   br i1 %.not44, label %31, label %36

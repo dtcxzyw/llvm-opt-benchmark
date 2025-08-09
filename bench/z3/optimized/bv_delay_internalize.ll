@@ -2581,7 +2581,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit:
   store i32 %1, ptr %5, align 8, !tbaa !225
   store i8 0, ptr %32, align 8, !tbaa !176
   %39 = load ptr, ptr %33, align 8, !tbaa !227
-  %40 = load i32, ptr %30, align 4, !tbaa !173
+  %40 = load i32, ptr %30, align 8, !tbaa !173
   %41 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %39, i32 noundef %40, i32 noundef 63, i32 noundef 1, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %4, ptr noundef null)
           to label %_ZN7bv_util11mk_bit2boolEP4exprj.exit unwind label %42
 

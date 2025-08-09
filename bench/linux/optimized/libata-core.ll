@@ -6459,7 +6459,7 @@ define dso_local i32 @ata_exec_internal(ptr noundef %0, ptr noundef captures(non
 113:                                              ; preds = %106
   %114 = load ptr, ptr %24, align 16
   %115 = call i64 @_raw_spin_lock_irqsave(ptr noundef %114) #32
-  %116 = load i64, ptr %41, align 8
+  %116 = load i64, ptr %41, align 16
   %117 = and i64 %116, 1
   %118 = icmp eq i64 %117, 0
   br i1 %118, label %134, label %119
@@ -6558,7 +6558,7 @@ define dso_local i32 @ata_exec_internal(ptr noundef %0, ptr noundef captures(non
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %1, ptr noundef align 8 dereferenceable(32) %172, i64 32, i1 false)
   %173 = getelementptr i8, ptr %19, i64 8164
   %174 = load i32, ptr %173, align 4
-  store i64 0, ptr %41, align 8
+  store i64 0, ptr %41, align 16
   %175 = load i32, ptr %35, align 8
   %176 = icmp ult i32 %175, 33
   br i1 %176, label %177, label %178
@@ -10141,7 +10141,7 @@ define internal fastcc void @ata_dev_config_trusted(ptr noundef %0) unnamed_addr
   %2 = load ptr, ptr %0, align 64
   %3 = load ptr, ptr %2, align 64
   %4 = getelementptr i8, ptr %0, i64 1056
-  %5 = load i16, ptr %4, align 2
+  %5 = load i16, ptr %4, align 32
   %6 = icmp eq i16 %5, -1
   br i1 %6, label %.thread, label %7
 
@@ -10332,7 +10332,7 @@ define internal fastcc void @ata_dev_config_cdl(ptr noundef %0) unnamed_addr #1 
   %2 = load ptr, ptr %0, align 64
   %3 = load ptr, ptr %2, align 64
   %4 = getelementptr i8, ptr %0, i64 1056
-  %5 = load i16, ptr %4, align 2
+  %5 = load i16, ptr %4, align 32
   %6 = icmp eq i16 %5, -1
   br i1 %6, label %.thread, label %7
 
@@ -15987,7 +15987,7 @@ define dso_local void @ata_host_init(ptr noundef initializes((0, 4)) %0, ptr nou
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %2, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store volatile i32 1, ptr %8, align 4
+  store volatile i32 1, ptr %8, align 8
   ret void
 }
 
@@ -17466,7 +17466,7 @@ define internal i32 @trace_raw_output_ata_link_reset_begin_template(ptr noundef 
   %17 = zext i32 %16 to i64
   %18 = tail call ptr @trace_print_symbols_seq(ptr noundef nonnull %9, i64 noundef %17, ptr noundef nonnull @trace_raw_output_ata_link_reset_begin_template.symbols) #32
   %19 = getelementptr i8, ptr %5, i64 16
-  %20 = load i32, ptr %19, align 4
+  %20 = load i32, ptr %19, align 8
   %21 = zext i32 %20 to i64
   %22 = tail call ptr @trace_print_symbols_seq(ptr noundef nonnull %9, i64 noundef %21, ptr noundef nonnull @trace_raw_output_ata_link_reset_begin_template.symbols.254) #32
   tail call void (ptr, ptr, ...) @trace_event_printf(ptr noundef %0, ptr noundef nonnull @.str.241, i32 noundef %12, i64 noundef %14, ptr noundef %18, ptr noundef %22) #32

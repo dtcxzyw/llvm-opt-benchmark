@@ -2445,7 +2445,7 @@ _ZN3ue28dfa_infoC2ERNS_21accel_dfa_build_stratE.exit: ; preds = %._crit_edge.us.
   %164 = getelementptr inbounds nuw i8, ptr %134, i64 4176
   store i8 %163, ptr %164, align 16, !noalias !173
   %165 = getelementptr inbounds nuw i8, ptr %134, i64 4160
-  store i32 %149, ptr %165, align 16, !noalias !173
+  store i32 %149, ptr %165, align 64, !noalias !173
   %166 = shl nuw nsw i8 %57, 1
   %167 = getelementptr inbounds nuw i8, ptr %134, i64 4179
   %168 = load i8, ptr %167, align 1, !noalias !173

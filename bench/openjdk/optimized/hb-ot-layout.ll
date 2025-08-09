@@ -44961,7 +44961,7 @@ _ZN11hb_vector_tI8hb_set_tLb0EE5allocEjb.exit.thread: ; preds = %23, %13, %9, %_
   store atomic i64 0, ptr %41 monotonic, align 8
   store i8 1, ptr %36, align 8
   store i32 0, ptr %37, align 4
-  store atomic i32 0, ptr %38 monotonic, align 4
+  store atomic i32 0, ptr %38 monotonic, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %39, i8 0, i64 33, i1 false)
   %42 = load i32, ptr %26, align 4
   %43 = add i32 %42, 1
@@ -45036,7 +45036,7 @@ define linkonce_odr hidden noundef ptr @_ZN11hb_vector_tI8hb_set_tLb0EE14realloc
   store atomic i64 0, ptr %17 monotonic, align 8
   store i8 1, ptr %12, align 8
   store i32 0, ptr %13, align 4
-  store atomic i32 0, ptr %14 monotonic, align 4
+  store atomic i32 0, ptr %14 monotonic, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %15, i8 0, i64 33, i1 false)
   %18 = load ptr, ptr %9, align 8
   %19 = getelementptr inbounds nuw %struct.hb_set_t, ptr %18, i64 %indvars.iv
@@ -45076,9 +45076,9 @@ define linkonce_odr hidden noundef ptr @_ZN11hb_vector_tI8hb_set_tLb0EE14realloc
   store ptr null, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %41 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  %42 = load i32, ptr %41, align 4
-  store i32 %42, ptr %40, align 4
-  store i32 0, ptr %41, align 4
+  %42 = load i32, ptr %41, align 8
+  store i32 %42, ptr %40, align 8
+  store i32 0, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 52
   %44 = getelementptr inbounds nuw i8, ptr %19, i64 52
   %45 = load i32, ptr %44, align 4
@@ -45651,9 +45651,9 @@ _ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit61: ; preds = %_ZN14hb_
   store ptr %219, ptr %217, align 8
   store ptr %218, ptr %38, align 8
   %220 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 48
-  %221 = load i32, ptr %220, align 4
+  %221 = load i32, ptr %220, align 8
   %222 = load i32, ptr %29, align 8
-  store i32 %222, ptr %220, align 4
+  store i32 %222, ptr %220, align 8
   store i32 %221, ptr %29, align 8
   %223 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 52
   %224 = load i32, ptr %223, align 4
@@ -46332,9 +46332,9 @@ define linkonce_odr hidden void @_ZN11hb_vector_tI8hb_set_tLb0EE3popEv(ptr dead_
   store ptr null, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %53 = getelementptr inbounds nuw i8, ptr %25, i64 48
-  %54 = load i32, ptr %53, align 4
+  %54 = load i32, ptr %53, align 8
   store i32 %54, ptr %52, align 8
-  store i32 0, ptr %53, align 4
+  store i32 0, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %56 = getelementptr inbounds nuw i8, ptr %25, i64 52
   %57 = load i32, ptr %56, align 4
@@ -49723,9 +49723,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN12hb_hashmap_tIj8hb_set_tLb0EE
   store ptr %102, ptr %101, align 8
   %104 = getelementptr inbounds nuw i8, ptr %53, i64 56
   %105 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %106 = load i32, ptr %104, align 4
+  %106 = load i32, ptr %104, align 8
   %107 = load i32, ptr %105, align 8
-  store i32 %107, ptr %104, align 4
+  store i32 %107, ptr %104, align 8
   store i32 %106, ptr %105, align 8
   %108 = getelementptr inbounds nuw i8, ptr %53, i64 60
   %109 = getelementptr inbounds nuw i8, ptr %3, i64 52
@@ -49829,14 +49829,14 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN12hb_hashmap_tIj8hb_set_tLb0EE
   %27 = getelementptr inbounds nuw i8, ptr %.03247, i64 28
   %28 = getelementptr inbounds nuw i8, ptr %.03247, i64 32
   %29 = getelementptr inbounds nuw i8, ptr %.03247, i64 40
-  store atomic i32 1, ptr %25 monotonic, align 4
+  store atomic i32 1, ptr %25 monotonic, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.03247, i64 12
   store atomic i32 1, ptr %30 monotonic, align 4
   %31 = getelementptr inbounds nuw i8, ptr %.03247, i64 16
   store atomic i64 0, ptr %31 monotonic, align 8
   store i8 1, ptr %26, align 8
   store i32 0, ptr %27, align 4
-  store atomic i32 0, ptr %28 monotonic, align 4
+  store atomic i32 0, ptr %28 monotonic, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %29, i8 0, i64 33, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %.03247, i64 80
   %.not37 = icmp eq ptr %32, %23
@@ -50076,9 +50076,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN12hb_hashmap_tIj8hb_set_tLb0EE
   store ptr %102, ptr %101, align 8
   %104 = getelementptr inbounds nuw i8, ptr %53, i64 56
   %105 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %106 = load i32, ptr %104, align 4
+  %106 = load i32, ptr %104, align 8
   %107 = load i32, ptr %105, align 8
-  store i32 %107, ptr %104, align 4
+  store i32 %107, ptr %104, align 8
   store i32 %106, ptr %105, align 8
   %108 = getelementptr inbounds nuw i8, ptr %53, i64 60
   %109 = getelementptr inbounds nuw i8, ptr %3, i64 52

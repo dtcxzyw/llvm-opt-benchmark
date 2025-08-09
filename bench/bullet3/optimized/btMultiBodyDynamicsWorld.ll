@@ -6963,9 +6963,9 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld12applyGravityEv(ptr noundef
   %48 = fadd float %41, %47
   store float %48, ptr %46, align 4, !tbaa !197
   %49 = getelementptr inbounds nuw i8, ptr %16, i64 112
-  %50 = load float, ptr %49, align 4, !tbaa !197
+  %50 = load float, ptr %49, align 8, !tbaa !197
   %51 = fadd float %43, %50
-  store float %51, ptr %49, align 4, !tbaa !197
+  store float %51, ptr %49, align 8, !tbaa !197
   %52 = getelementptr inbounds nuw i8, ptr %16, i64 116
   %53 = load float, ptr %52, align 4, !tbaa !197
   %54 = fadd float %45, %53

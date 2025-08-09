@@ -5792,7 +5792,7 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNKSt14defau
   store ptr %315, ptr %314, align 8, !noalias !58
   %316 = getelementptr inbounds nuw i8, ptr %314, i64 8
   store i64 0, ptr %316, align 8, !noalias !58
-  store i8 0, ptr %315, align 1, !noalias !58
+  store i8 0, ptr %315, align 8, !noalias !58
   %317 = getelementptr inbounds nuw i8, ptr %314, i64 32
   %318 = icmp eq ptr %317, %312
   br i1 %318, label %_ZN3mmd11make_uniqueIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %313
@@ -5929,13 +5929,13 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %342, %344, %349, %3
   store ptr %378, ptr %377, align 8, !noalias !62
   %379 = getelementptr inbounds nuw i8, ptr %377, i64 8
   store i64 0, ptr %379, align 8, !noalias !62
-  store i8 0, ptr %378, align 1, !noalias !62
+  store i8 0, ptr %378, align 8, !noalias !62
   %380 = getelementptr inbounds nuw i8, ptr %377, i64 32
   %381 = getelementptr inbounds nuw i8, ptr %377, i64 48
   store ptr %381, ptr %380, align 8, !noalias !62
   %382 = getelementptr inbounds nuw i8, ptr %377, i64 40
   store i64 0, ptr %382, align 8, !noalias !62
-  store i8 0, ptr %381, align 1, !noalias !62
+  store i8 0, ptr %381, align 8, !noalias !62
   %383 = getelementptr inbounds nuw i8, ptr %377, i64 92
   store float 0.000000e+00, ptr %383, align 4, !noalias !62
   %384 = getelementptr inbounds nuw i8, ptr %377, i64 108
@@ -5949,7 +5949,7 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %342, %344, %349, %3
   store ptr %388, ptr %387, align 8, !noalias !62
   %389 = getelementptr inbounds nuw i8, ptr %377, i64 160
   store i64 0, ptr %389, align 8, !noalias !62
-  store i8 0, ptr %388, align 1, !noalias !62
+  store i8 0, ptr %388, align 8, !noalias !62
   %390 = getelementptr inbounds nuw i8, ptr %377, i64 184
   store i32 0, ptr %390, align 8, !noalias !62
   %391 = getelementptr inbounds nuw i8, ptr %377, i64 96
@@ -6110,13 +6110,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit150: ; preds = %_Z
   store ptr %459, ptr %458, align 8, !noalias !66
   %460 = getelementptr inbounds nuw i8, ptr %458, i64 8
   store i64 0, ptr %460, align 8, !noalias !66
-  store i8 0, ptr %459, align 1, !noalias !66
+  store i8 0, ptr %459, align 8, !noalias !66
   %461 = getelementptr inbounds nuw i8, ptr %458, i64 32
   %462 = getelementptr inbounds nuw i8, ptr %458, i64 48
   store ptr %462, ptr %461, align 8, !noalias !66
   %463 = getelementptr inbounds nuw i8, ptr %458, i64 40
   store i64 0, ptr %463, align 8, !noalias !66
-  store i8 0, ptr %462, align 1, !noalias !66
+  store i8 0, ptr %462, align 8, !noalias !66
   %464 = getelementptr inbounds nuw i8, ptr %458, i64 64
   %465 = getelementptr inbounds nuw i8, ptr %458, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(22) %464, i8 0, i64 22, i1 false), !noalias !66
@@ -6246,13 +6246,13 @@ _ZNSt10unique_ptrIA_N3pmx7PmxBoneESt14default_deleteIS2_EED2Ev.exit: ; preds = %
   store ptr %520, ptr %519, align 8, !noalias !70
   %521 = getelementptr inbounds nuw i8, ptr %519, i64 8
   store i64 0, ptr %521, align 8, !noalias !70
-  store i8 0, ptr %520, align 1, !noalias !70
+  store i8 0, ptr %520, align 8, !noalias !70
   %522 = getelementptr inbounds nuw i8, ptr %519, i64 32
   %523 = getelementptr inbounds nuw i8, ptr %519, i64 48
   store ptr %523, ptr %522, align 8, !noalias !70
   %524 = getelementptr inbounds nuw i8, ptr %519, i64 40
   store i64 0, ptr %524, align 8, !noalias !70
-  store i8 0, ptr %523, align 1, !noalias !70
+  store i8 0, ptr %523, align 8, !noalias !70
   %525 = getelementptr inbounds nuw i8, ptr %519, i64 68
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %525, i8 0, i64 60, i1 false), !noalias !70
   %526 = getelementptr inbounds nuw i8, ptr %519, i64 128
@@ -6332,13 +6332,13 @@ _ZNSt10unique_ptrIA_N3pmx8PmxMorphESt14default_deleteIS2_EED2Ev.exit: ; preds = 
   store ptr %562, ptr %561, align 8, !noalias !74
   %563 = getelementptr inbounds nuw i8, ptr %561, i64 8
   store i64 0, ptr %563, align 8, !noalias !74
-  store i8 0, ptr %562, align 1, !noalias !74
+  store i8 0, ptr %562, align 8, !noalias !74
   %564 = getelementptr inbounds nuw i8, ptr %561, i64 32
   %565 = getelementptr inbounds nuw i8, ptr %561, i64 48
   store ptr %565, ptr %564, align 8, !noalias !74
   %566 = getelementptr inbounds nuw i8, ptr %561, i64 40
   store i64 0, ptr %566, align 8, !noalias !74
-  store i8 0, ptr %565, align 1, !noalias !74
+  store i8 0, ptr %565, align 8, !noalias !74
   %567 = getelementptr inbounds nuw i8, ptr %561, i64 64
   store i8 0, ptr %567, align 8, !noalias !74
   %568 = getelementptr inbounds nuw i8, ptr %561, i64 68
@@ -6474,13 +6474,13 @@ _ZNSt10unique_ptrIA_N3pmx8PmxFrameESt14default_deleteIS2_EED2Ev.exit: ; preds = 
   store ptr %628, ptr %627, align 8, !noalias !78
   %629 = getelementptr inbounds nuw i8, ptr %627, i64 8
   store i64 0, ptr %629, align 8, !noalias !78
-  store i8 0, ptr %628, align 1, !noalias !78
+  store i8 0, ptr %628, align 8, !noalias !78
   %630 = getelementptr inbounds nuw i8, ptr %627, i64 32
   %631 = getelementptr inbounds nuw i8, ptr %627, i64 48
   store ptr %631, ptr %630, align 8, !noalias !78
   %632 = getelementptr inbounds nuw i8, ptr %627, i64 40
   store i64 0, ptr %632, align 8, !noalias !78
-  store i8 0, ptr %631, align 1, !noalias !78
+  store i8 0, ptr %631, align 8, !noalias !78
   %633 = getelementptr inbounds nuw i8, ptr %627, i64 64
   store i32 0, ptr %633, align 8, !noalias !78
   %634 = getelementptr inbounds nuw i8, ptr %627, i64 68

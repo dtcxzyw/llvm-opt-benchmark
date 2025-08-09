@@ -2225,7 +2225,7 @@ _ZNSt6vectorISt10shared_ptrIN4cvc58internal9ProofNodeEESaIS4_EE8pop_backEv.exit:
   %130 = getelementptr inbounds nuw i8, ptr %128, i64 16
   %131 = load i64, ptr %130, align 8, !tbaa !95
   %132 = icmp eq i64 %121, %131
-  %133 = load i32, ptr %129, align 4
+  %133 = load i32, ptr %129, align 8
   %134 = icmp eq i32 %113, %133
   %135 = select i1 %132, i1 %134, i1 false
   br i1 %135, label %_ZNSt13unordered_setIN4cvc59ProofRuleESt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit, label %.lr.ph.i.i.i.i20
@@ -4547,7 +4547,7 @@ _ZNSt10_HashtableIN4cvc59ProofRuleES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toI
   store ptr null, ptr %22, align 8, !tbaa !57
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %26 = load i32, ptr %24, align 4, !tbaa !80
-  store i32 %26, ptr %25, align 4, !tbaa !80
+  store i32 %26, ptr %25, align 8, !tbaa !80
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %29 = load i64, ptr %28, align 8, !tbaa !95
@@ -4574,7 +4574,7 @@ _ZNSt10_HashtableIN4cvc59ProofRuleES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toI
   store ptr null, ptr %35, align 8, !tbaa !57
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %39 = load i32, ptr %37, align 4, !tbaa !80
-  store i32 %39, ptr %38, align 4, !tbaa !80
+  store i32 %39, ptr %38, align 8, !tbaa !80
   store ptr %35, ptr %.02636, align 8, !tbaa !57
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %41 = getelementptr inbounds nuw i8, ptr %.02837, i64 16
@@ -7585,7 +7585,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4cvc59ProofRuleES1_Sa
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %27 = load i64, ptr %26, align 8, !tbaa !95
   %28 = icmp eq i64 %14, %27
-  %29 = load i32, ptr %25, align 4
+  %29 = load i32, ptr %25, align 8
   %30 = icmp eq i32 %.pre48, %29
   %31 = select i1 %28, i1 %30, i1 false
   br i1 %31, label %_ZNKSt10_HashtableIN4cvc59ProofRuleES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit, label %.lr.ph.i.i
@@ -7619,7 +7619,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4cvc59ProofRuleES1_Sa
   %44 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   store ptr null, ptr %44, align 8, !tbaa !57
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store i32 %43, ptr %45, align 4, !tbaa !80
+  store i32 %43, ptr %45, align 8, !tbaa !80
   %46 = invoke ptr @_ZNSt10_HashtableIN4cvc59ProofRuleES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS3_10_Hash_nodeIS1_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %17, i64 noundef %14, ptr noundef nonnull %44, i64 noundef 1)
           to label %_ZNKSt10_HashtableIN4cvc59ProofRuleES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit unwind label %_ZNSt10_HashtableIN4cvc59ProofRuleES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit20
 

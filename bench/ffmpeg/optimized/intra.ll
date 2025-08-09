@@ -196,7 +196,7 @@ define noundef i32 @ff_vvc_reconstruct(ptr noundef initializes((4547724, 4547732
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4547724
   store i32 -1, ptr %26, align 4, !tbaa !108
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 4547728
-  store i32 -1, ptr %27, align 8, !tbaa !109
+  store i32 -1, ptr %27, align 16, !tbaa !109
   tail call void @ff_vvc_decode_neighbour(ptr noundef %0, i32 noundef %17, i32 noundef %18, i32 noundef %2, i32 noundef %3, i32 noundef %1) #8
   %.not87 = icmp eq ptr %23, null
   br i1 %.not87, label %._crit_edge, label %.lr.ph
@@ -1131,7 +1131,7 @@ dequant.exit.i.i:                                 ; preds = %._crit_edge.i.i.i, 
   %598 = add nsw i32 %597, %585
   %599 = ashr i32 %598, %588
   %600 = getelementptr inbounds nuw i8, ptr %418, i64 12
-  %601 = load i8, ptr %600, align 1, !tbaa !84
+  %601 = load i8, ptr %600, align 2, !tbaa !84
   %602 = zext nneg i8 %601 to i32
   %603 = shl i32 %572, %602
   %604 = ashr i32 %603, 1
@@ -2068,9 +2068,9 @@ itransform.exit.i:                                ; preds = %.thread.i107.i.i, %
   %1133 = ashr i32 %1110, %1123
   %1134 = getelementptr inbounds nuw i8, ptr %1127, i64 12
   store i32 %1133, ptr %1134, align 4, !tbaa !138
-  %1135 = load i32, ptr %24, align 4, !tbaa !90
+  %1135 = load i32, ptr %24, align 8, !tbaa !90
   %1136 = add nsw i32 %1135, 1
-  store i32 %1136, ptr %24, align 4, !tbaa !90
+  store i32 %1136, ptr %24, align 8, !tbaa !90
   br label %add_reconstructed_area.exit
 
 add_reconstructed_area.exit:                      ; preds = %1108, %1105, %1103

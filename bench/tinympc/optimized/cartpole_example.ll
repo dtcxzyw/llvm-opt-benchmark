@@ -1365,7 +1365,7 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdL
   %78 = fadd <2 x double> %72, %77
   %79 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %80 = load <2 x double>, ptr %79, align 1, !tbaa !14
-  %81 = load <2 x double>, ptr %47, align 8
+  %81 = load <2 x double>, ptr %47, align 16
   %82 = shufflevector <2 x double> %81, <2 x double> poison, <2 x i32> zeroinitializer
   %83 = fmul <2 x double> %80, %82
   %84 = fadd <2 x double> %78, %83

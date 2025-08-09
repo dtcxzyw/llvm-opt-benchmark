@@ -62673,7 +62673,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %.sroa.06.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %605, i64 141
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.06.sroa.23.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.68.sroa.0, i64 3, i1 false)
   %.sroa.06.sroa.23.sroa.4.0..sroa.06.sroa.23.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %605, i64 144
-  store i64 %.sroa.68.sroa.7.1, ptr %.sroa.06.sroa.23.sroa.4.0..sroa.06.sroa.23.0..sroa_idx.sroa_idx, align 1
+  store i64 %.sroa.68.sroa.7.1, ptr %.sroa.06.sroa.23.sroa.4.0..sroa.06.sroa.23.0..sroa_idx.sroa_idx, align 8
   %.sroa.06.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %605, i64 152
   store i64 %.sroa.70.1, ptr %.sroa.06.sroa.24.0..sroa_idx, align 8
   %.sroa.06.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %605, i64 160
@@ -70659,7 +70659,7 @@ default.unreachable:                              ; preds = %18
   %.sroa.06.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 1
   store i8 %.sroa.13.1, ptr %.sroa.06.sroa.4.0..sroa_idx, align 1
   %.sroa.06.sroa.5.sroa.4.0..sroa.06.sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store i64 %.sroa.20.sroa.3.1, ptr %.sroa.06.sroa.5.sroa.4.0..sroa.06.sroa.5.0..sroa_idx.sroa_idx, align 2
+  store i64 %.sroa.20.sroa.3.1, ptr %.sroa.06.sroa.5.sroa.4.0..sroa.06.sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.06.sroa.5.sroa.5.0..sroa.06.sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(168) %.sroa.06.sroa.5.sroa.5.0..sroa.06.sroa.5.0..sroa_idx.sroa_idx, ptr noundef nonnull align 2 dereferenceable(168) %.sroa.20.sroa.6, i64 168, i1 false)
   %53 = icmp eq i64 %16, 0

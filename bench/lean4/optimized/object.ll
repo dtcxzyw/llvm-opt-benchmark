@@ -1405,7 +1405,7 @@ _ZN4leanL18deactivate_promiseEP12lean_promise.exit: ; preds = %228, %230, %231
   store ptr %241, ptr %240, align 8, !tbaa !53
   %242 = getelementptr inbounds nuw i8, ptr %239, i64 16
   store i64 0, ptr %242, align 8, !tbaa !55
-  store i8 0, ptr %241, align 1, !tbaa !57
+  store i8 0, ptr %241, align 8, !tbaa !57
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %239, align 8, !tbaa !9
   tail call void @__cxa_throw(ptr nonnull %239, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #43
   unreachable
@@ -1470,7 +1470,7 @@ lean_mk_ascii_string_unchecked.exit:              ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %9, ptr noundef nonnull readonly align 1 dereferenceable(26) @.str.9, i64 26, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 58
-  store i8 0, ptr %10, align 1, !tbaa !57
+  store i8 0, ptr %10, align 2, !tbaa !57
   tail call void @lean_panic(ptr noundef nonnull %9, i1 noundef zeroext false)
   %11 = ptrtoint ptr %2 to i64
   %12 = and i64 %11, 1
@@ -1576,7 +1576,7 @@ lean_mk_ascii_string_unchecked.exit:              ; preds = %_ZL8lean_decP11lean
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %19, ptr noundef nonnull readonly align 1 dereferenceable(26) @.str.9, i64 26, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 58
-  store i8 0, ptr %20, align 1, !tbaa !57
+  store i8 0, ptr %20, align 2, !tbaa !57
   tail call void @lean_panic(ptr noundef nonnull %19, i1 noundef zeroext false)
   %21 = ptrtoint ptr %12 to i64
   %22 = and i64 %21, 1
@@ -2400,7 +2400,7 @@ _ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit158: ; preds = %250, %_
   store ptr %273, ptr %272, align 8, !tbaa !53
   %274 = getelementptr inbounds nuw i8, ptr %271, i64 16
   store i64 0, ptr %274, align 8, !tbaa !55
-  store i8 0, ptr %273, align 1, !tbaa !57
+  store i8 0, ptr %273, align 8, !tbaa !57
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %271, align 8, !tbaa !9
   invoke void @__cxa_throw(ptr nonnull %271, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #43
           to label %286 unwind label %46
@@ -3268,7 +3268,7 @@ _ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit157: ; preds = %257, %_
   store ptr %280, ptr %279, align 8, !tbaa !53
   %281 = getelementptr inbounds nuw i8, ptr %278, i64 16
   store i64 0, ptr %281, align 8, !tbaa !55
-  store i8 0, ptr %280, align 1, !tbaa !57
+  store i8 0, ptr %280, align 8, !tbaa !57
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %278, align 8, !tbaa !9
   invoke void @__cxa_throw(ptr nonnull %278, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #43
           to label %294 unwind label %53
@@ -4892,7 +4892,7 @@ define hidden noalias noundef nonnull ptr @_ZN4lean16lean_promise_newEv() local_
   store ptr %5, ptr %4, align 8, !tbaa !53
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %6, align 8, !tbaa !55
-  store i8 0, ptr %5, align 1, !tbaa !57
+  store i8 0, ptr %5, align 8, !tbaa !57
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %3, align 8, !tbaa !9
   tail call void @__cxa_throw(ptr nonnull %3, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #43
   unreachable
@@ -11499,9 +11499,9 @@ _ZL16lean_box_float32f.exit:                      ; preds = %_ZL15lean_alloc_cto
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %14, align 8, !tbaa !30
-  store i32 1, ptr %9, align 4, !tbaa !23
+  store i32 1, ptr %9, align 8, !tbaa !23
   store i32 16, ptr %13, align 4
-  store float %12, ptr %14, align 4, !tbaa !161
+  store float %12, ptr %14, align 8, !tbaa !161
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %9, ptr %15, align 8, !tbaa !31
   %16 = tail call float @llvm.fabs.f32(float %0)
@@ -12119,7 +12119,7 @@ define ptr @lean_string_push(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   %.val = load i64, ptr %3, align 8, !tbaa !30
   %4 = getelementptr i8, ptr %0, i64 24
   %.val21 = load i64, ptr %4, align 8, !tbaa !30
-  %.val22 = load i32, ptr %0, align 4, !tbaa !23
+  %.val22 = load i32, ptr %0, align 8, !tbaa !23
   %5 = icmp eq i32 %.val22, 1
   br i1 %5, label %26, label %6
 
@@ -12237,7 +12237,7 @@ define ptr @lean_string_append(ptr noundef %0, ptr noundef readonly captures(non
   %7 = add i64 %.val29, %.val30
   %8 = add i64 %.val, %.val28
   %9 = add i64 %8, -1
-  %.val31 = load i32, ptr %0, align 4, !tbaa !23
+  %.val31 = load i32, ptr %0, align 8, !tbaa !23
   %10 = icmp eq i32 %.val31, 1
   br i1 %10, label %30, label %11
 
@@ -13088,7 +13088,7 @@ lean_mk_ascii_string_unchecked.exit.i:            ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(44) %14, ptr noundef nonnull readonly align 1 dereferenceable(44) @.str.27, i64 44, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 76
-  store i8 0, ptr %15, align 1, !tbaa !57
+  store i8 0, ptr %15, align 4, !tbaa !57
   tail call void @lean_panic(ptr noundef nonnull %14, i1 noundef zeroext false)
   %16 = ptrtoint ptr %7 to i64
   %17 = and i64 %16, 1
@@ -13143,7 +13143,7 @@ lean_mk_ascii_string_unchecked.exit.i11:          ; preds = %29
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(44) %37, ptr noundef nonnull readonly align 1 dereferenceable(44) @.str.27, i64 44, i1 false)
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 76
-  store i8 0, ptr %38, align 1, !tbaa !57
+  store i8 0, ptr %38, align 4, !tbaa !57
   tail call void @lean_panic(ptr noundef nonnull %37, i1 noundef zeroext false)
   %39 = ptrtoint ptr %30 to i64
   %40 = and i64 %39, 1
@@ -13200,7 +13200,7 @@ lean_mk_ascii_string_unchecked.exit.i15:          ; preds = %53
   %61 = getelementptr inbounds nuw i8, ptr %54, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(44) %61, ptr noundef nonnull readonly align 1 dereferenceable(44) @.str.27, i64 44, i1 false)
   %62 = getelementptr inbounds nuw i8, ptr %54, i64 76
-  store i8 0, ptr %62, align 1, !tbaa !57
+  store i8 0, ptr %62, align 4, !tbaa !57
   tail call void @lean_panic(ptr noundef nonnull %61, i1 noundef zeroext false)
   %63 = ptrtoint ptr %54 to i64
   %64 = and i64 %63, 1
@@ -13441,7 +13441,7 @@ lean_mk_string_unchecked.exit:                    ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i64 0, ptr %22, align 8, !tbaa !30
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  store i8 0, ptr %23, align 1, !tbaa !57
+  store i8 0, ptr %23, align 8, !tbaa !57
   br label %69
 
 24:                                               ; preds = %9
@@ -13480,7 +13480,7 @@ lean_mk_string_unchecked.exit33:                  ; preds = %35
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store i64 0, ptr %42, align 8, !tbaa !30
   %43 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  store i8 0, ptr %43, align 1, !tbaa !57
+  store i8 0, ptr %43, align 8, !tbaa !57
   br label %69
 
 _ZN4leanL18is_utf8_first_byteEh.exit.thread:      ; preds = %24

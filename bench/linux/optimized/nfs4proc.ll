@@ -7260,7 +7260,7 @@ define internal i32 @nfs4_proc_readdir(ptr noundef readonly captures(none) %0, p
   %92 = getelementptr i8, ptr %91, i64 -432
   %93 = load i64, ptr %92, align 8
   %94 = call i64 @llvm.bswap.i64(i64 %93)
-  store i64 %94, ptr %90, align 1
+  store i64 %94, ptr %90, align 4
   %95 = getelementptr i8, ptr %79, i64 44
   br label %96
 
@@ -7291,7 +7291,7 @@ define internal i32 @nfs4_proc_readdir(ptr noundef readonly captures(none) %0, p
   %111 = getelementptr i8, ptr %110, i64 -432
   %112 = load i64, ptr %111, align 8
   %113 = call i64 @llvm.bswap.i64(i64 %112)
-  store i64 %113, ptr %106, align 1
+  store i64 %113, ptr %106, align 4
   %114 = getelementptr i8, ptr %97, i64 44
   %115 = ptrtoint ptr %114 to i64
   %116 = sub i64 %115, %78
@@ -11959,7 +11959,7 @@ define internal void @nfs4_lock_prepare(ptr noundef %0, ptr noundef %1) #0 align
   %39 = getelementptr inbounds nuw i8, ptr %12, i64 288
   %40 = load i32, ptr %39, align 4
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store i32 %40, ptr %41, align 4
+  store i32 %40, ptr %41, align 8
   br label %42
 
 42:                                               ; preds = %33, %22
@@ -12698,9 +12698,9 @@ define internal void @nfs4_locku_done(ptr noundef %0, ptr noundef %1) #0 align 1
   %91 = icmp eq i32 %90, 0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull align 4 dereferenceable(16) %87, i64 16, i1 false)
   %92 = getelementptr inbounds nuw i8, ptr %83, i64 288
-  %93 = load i32, ptr %92, align 4
+  %93 = load i32, ptr %92, align 8
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store i32 %93, ptr %94, align 4
+  store i32 %93, ptr %94, align 8
   call void @_raw_spin_unlock(ptr noundef nonnull %86) #22
   br i1 %91, label %131, label %95
 
@@ -15045,7 +15045,7 @@ define internal fastcc ptr @nfs4_do_open(ptr noundef readonly captures(none) %0,
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 48
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds nuw i8, ptr %91, i64 336
-  %99 = load volatile i32, ptr %98, align 4
+  %99 = load volatile i32, ptr %98, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !205
   %100 = and i32 %99, -2
   %101 = getelementptr i8, ptr %97, i64 -200

@@ -2580,7 +2580,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit224: ; preds = %_Z
   %934 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @_ZN4absl12lts_2024072219str_format_internal13FormatArgImpl8DispatchIjEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %934, align 8, !tbaa !200, !noalias !197
   %935 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sroa.0.0.copyload.i.i.i5.i = load i8, ptr %932, align 1, !noalias !197
+  %.sroa.0.0.copyload.i.i.i5.i = load i8, ptr %932, align 4, !noalias !197
   %.sroa.0.0.insert.ext.i.i.i6.i = zext i8 %.sroa.0.0.copyload.i.i.i5.i to i64
   %936 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i6.i to ptr
   store ptr %936, ptr %935, align 8, !tbaa !30, !noalias !197

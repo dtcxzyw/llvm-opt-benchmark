@@ -7999,10 +7999,10 @@ if.then97:                                        ; preds = %delete.end
   %flags.i.i.i = getelementptr inbounds nuw i8, ptr %call.i238, i64 48
   store <4 x float> <float 5.000000e+01, float 5.000000e+01, float 1.000000e+03, float 1.000000e+03>, ptr %np_heat.i.i, align 4, !tbaa !214
   store float 1.000000e+03, ptr %Z.i.i.i.i, align 4, !tbaa !214
-  store i32 5349, ptr %seed.i.i.i, align 4, !tbaa !216
+  store i32 5349, ptr %seed.i.i.i, align 8, !tbaa !216
   store i16 3, ptr %octaves.i.i.i, align 4, !tbaa !218
-  store <2 x float> <float 5.000000e-01, float 2.000000e+00>, ptr %persist.i.i.i, align 4, !tbaa !214
-  store i32 1, ptr %flags.i.i.i, align 4, !tbaa !219
+  store <2 x float> <float 5.000000e-01, float 2.000000e+00>, ptr %persist.i.i.i, align 8, !tbaa !214
+  store i32 1, ptr %flags.i.i.i, align 8, !tbaa !219
   %np_humidity.i.i = getelementptr inbounds nuw i8, ptr %call.i238, i64 52
   %Z.i.i22.i.i = getelementptr inbounds nuw i8, ptr %call.i238, i64 68
   %seed.i23.i.i = getelementptr inbounds nuw i8, ptr %call.i238, i64 72
@@ -8011,10 +8011,10 @@ if.then97:                                        ; preds = %delete.end
   %flags.i27.i.i = getelementptr inbounds nuw i8, ptr %call.i238, i64 88
   store <4 x float> <float 5.000000e+01, float 5.000000e+01, float 1.000000e+03, float 1.000000e+03>, ptr %np_humidity.i.i, align 4, !tbaa !214
   store float 1.000000e+03, ptr %Z.i.i22.i.i, align 4, !tbaa !214
-  store i32 842, ptr %seed.i23.i.i, align 4, !tbaa !216
+  store i32 842, ptr %seed.i23.i.i, align 8, !tbaa !216
   store i16 3, ptr %octaves.i24.i.i, align 4, !tbaa !218
-  store <2 x float> <float 5.000000e-01, float 2.000000e+00>, ptr %persist.i25.i.i, align 4, !tbaa !214
-  store i32 1, ptr %flags.i27.i.i, align 4, !tbaa !219
+  store <2 x float> <float 5.000000e-01, float 2.000000e+00>, ptr %persist.i25.i.i, align 8, !tbaa !214
+  store i32 1, ptr %flags.i27.i.i, align 8, !tbaa !219
   %np_heat_blend.i.i = getelementptr inbounds nuw i8, ptr %call.i238, i64 92
   %Z.i.i33.i.i = getelementptr inbounds nuw i8, ptr %call.i238, i64 108
   %seed.i34.i.i = getelementptr inbounds nuw i8, ptr %call.i238, i64 112
@@ -8023,10 +8023,10 @@ if.then97:                                        ; preds = %delete.end
   %flags.i38.i.i = getelementptr inbounds nuw i8, ptr %call.i238, i64 128
   store <4 x float> <float 0.000000e+00, float 1.500000e+00, float 8.000000e+00, float 8.000000e+00>, ptr %np_heat_blend.i.i, align 4, !tbaa !214
   store float 8.000000e+00, ptr %Z.i.i33.i.i, align 4, !tbaa !214
-  store i32 13, ptr %seed.i34.i.i, align 4, !tbaa !216
+  store i32 13, ptr %seed.i34.i.i, align 8, !tbaa !216
   store i16 2, ptr %octaves.i35.i.i, align 4, !tbaa !218
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %persist.i36.i.i, align 4, !tbaa !214
-  store i32 1, ptr %flags.i38.i.i, align 4, !tbaa !219
+  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %persist.i36.i.i, align 8, !tbaa !214
+  store i32 1, ptr %flags.i38.i.i, align 8, !tbaa !219
   %np_humidity_blend.i.i = getelementptr inbounds nuw i8, ptr %call.i238, i64 132
   %Z.i.i44.i.i = getelementptr inbounds nuw i8, ptr %call.i238, i64 148
   %seed.i45.i.i = getelementptr inbounds nuw i8, ptr %call.i238, i64 152
@@ -8035,10 +8035,10 @@ if.then97:                                        ; preds = %delete.end
   %flags.i49.i.i = getelementptr inbounds nuw i8, ptr %call.i238, i64 168
   store <4 x float> <float 0.000000e+00, float 1.500000e+00, float 8.000000e+00, float 8.000000e+00>, ptr %np_humidity_blend.i.i, align 4, !tbaa !214
   store float 8.000000e+00, ptr %Z.i.i44.i.i, align 4, !tbaa !214
-  store i32 90003, ptr %seed.i45.i.i, align 4, !tbaa !216
+  store i32 90003, ptr %seed.i45.i.i, align 8, !tbaa !216
   store i16 2, ptr %octaves.i46.i.i, align 4, !tbaa !218
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %persist.i47.i.i, align 4, !tbaa !214
-  store i32 1, ptr %flags.i49.i.i, align 4, !tbaa !219
+  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %persist.i47.i.i, align 8, !tbaa !214
+  store i32 1, ptr %flags.i49.i.i, align 8, !tbaa !219
   store ptr %call.i238, ptr %bparams, align 8, !tbaa !73
   %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTV19BiomeParamsOriginal, i64 16), align 8
   invoke void %35(ptr noundef nonnull align 8 dereferenceable(12) %call.i238, ptr noundef nonnull %settings)
@@ -9756,7 +9756,7 @@ invoke.cont10:                                    ; preds = %if.end.i.i.i.i.i.i.
   store ptr %10, ptr %second.i.i.i.i, align 8, !tbaa !4
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i, i64 48
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !14
-  store i8 0, ptr %10, align 1, !tbaa !13
+  store i8 0, ptr %10, align 8, !tbaa !13
   ret ptr %call5.i.i
 
 invoke.cont14:                                    ; preds = %if.then.i.i.i.i.i.i

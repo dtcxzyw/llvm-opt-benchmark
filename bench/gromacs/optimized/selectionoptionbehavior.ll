@@ -182,7 +182,7 @@ define void @_ZN3gmx23SelectionOptionBehaviorC2EPNS_19SelectionCollectionEPNS_17
   store ptr %10, ptr %9, align 8, !tbaa !32
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 0, ptr %11, align 8, !tbaa !33
-  store i8 0, ptr %10, align 1, !tbaa !34
+  store i8 0, ptr %10, align 8, !tbaa !34
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr null, ptr %12, align 8, !tbaa !9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8

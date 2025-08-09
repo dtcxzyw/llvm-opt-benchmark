@@ -364,7 +364,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i: ; preds = %_ZN9QtPrivate8Re
   %45 = load i32, ptr %44, align 8, !noalias !7
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds ptr, ptr %43, i64 %46
-  %48 = load atomic i32, ptr %42 monotonic, align 4, !noalias !10
+  %48 = load atomic i32, ptr %42 monotonic, align 8, !noalias !10
   %49 = icmp ugt i32 %48, 1
   br i1 %49, label %50, label %_ZN5QListIP7QActionE3endEv.exit
 

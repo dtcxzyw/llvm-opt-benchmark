@@ -5776,7 +5776,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.
   store i64 %32, ptr %34, align 8, !tbaa !50, !alias.scope !114, !noalias !117
   store ptr %24, ptr %.0911.i.i.i.i, align 8, !tbaa !45, !alias.scope !117, !noalias !114
   store i64 0, ptr %33, align 8, !tbaa !50, !alias.scope !117, !noalias !114
-  store i8 0, ptr %24, align 1, !tbaa !51, !alias.scope !117, !noalias !114
+  store i8 0, ptr %24, align 8, !tbaa !51, !alias.scope !117, !noalias !114
   %35 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %36 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %37 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 48
@@ -5810,7 +5810,7 @@ _ZSt19__relocate_object_aIN19OpenColorIO_v2_5dev13GPUShaderImpl11PrivateImpl7Tex
   store i64 %47, ptr %49, align 8, !tbaa !50, !alias.scope !114, !noalias !117
   store ptr %39, ptr %36, align 8, !tbaa !45, !alias.scope !117, !noalias !114
   store i64 0, ptr %48, align 8, !tbaa !50, !alias.scope !117, !noalias !114
-  store i8 0, ptr %39, align 1, !tbaa !51, !alias.scope !117, !noalias !114
+  store i8 0, ptr %39, align 8, !tbaa !51, !alias.scope !117, !noalias !114
   %50 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 64
   %51 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull align 8 dereferenceable(24) %51, i64 24, i1 false), !alias.scope !119
@@ -5874,7 +5874,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.
   store i64 %74, ptr %76, align 8, !tbaa !50, !alias.scope !121, !noalias !124
   store ptr %66, ptr %.0911.i.i.i.i29, align 8, !tbaa !45, !alias.scope !124, !noalias !121
   store i64 0, ptr %75, align 8, !tbaa !50, !alias.scope !124, !noalias !121
-  store i8 0, ptr %66, align 1, !tbaa !51, !alias.scope !124, !noalias !121
+  store i8 0, ptr %66, align 8, !tbaa !51, !alias.scope !124, !noalias !121
   %77 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 32
   %78 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 32
   %79 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 48
@@ -5908,7 +5908,7 @@ _ZSt19__relocate_object_aIN19OpenColorIO_v2_5dev13GPUShaderImpl11PrivateImpl7Tex
   store i64 %89, ptr %91, align 8, !tbaa !50, !alias.scope !121, !noalias !124
   store ptr %81, ptr %78, align 8, !tbaa !45, !alias.scope !124, !noalias !121
   store i64 0, ptr %90, align 8, !tbaa !50, !alias.scope !124, !noalias !121
-  store i8 0, ptr %81, align 1, !tbaa !51, !alias.scope !124, !noalias !121
+  store i8 0, ptr %81, align 8, !tbaa !51, !alias.scope !124, !noalias !121
   %92 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 64
   %93 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %92, ptr noundef nonnull align 8 dereferenceable(24) %93, i64 24, i1 false), !alias.scope !126

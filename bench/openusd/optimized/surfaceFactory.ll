@@ -1552,7 +1552,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.
   %322 = load ptr, ptr %4, align 8
   %323 = getelementptr inbounds nuw float, ptr %322, i64 %indvars.iv165.i
   store float %321, ptr %323, align 4
-  %324 = load i16, ptr %266, align 2
+  %324 = load i16, ptr %266, align 8
   %325 = and i16 %324, 256
   %.not.i111.i = icmp eq i16 %325, 0
   br i1 %.not.i111.i, label %332, label %326

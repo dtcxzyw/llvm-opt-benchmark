@@ -2518,7 +2518,7 @@ define internal fastcc i64 @spl_offset_convert_to_long(ptr noundef %0) unnamed_a
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !88
-  %11 = load i8, ptr %8, align 1, !tbaa !8
+  %11 = load i8, ptr %8, align 8, !tbaa !8
   %12 = icmp sgt i8 %11, 57
   br i1 %12, label %.thread, label %13, !prof !48
 

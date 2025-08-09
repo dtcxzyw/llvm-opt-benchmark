@@ -3771,7 +3771,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %35 = load i32, ptr %34, align 4
+  %35 = load i32, ptr %34, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %33, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %35, 1
@@ -4564,7 +4564,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %35 = load i32, ptr %34, align 4
+  %35 = load i32, ptr %34, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %33, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %35, 1
@@ -4949,7 +4949,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %35 = load i32, ptr %34, align 4
+  %35 = load i32, ptr %34, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %33, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %35, 1
@@ -5334,7 +5334,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
-  %35 = load i32, ptr %34, align 4
+  %35 = load i32, ptr %34, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %33, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %35, 1
@@ -14252,7 +14252,7 @@ define linkonce_odr void @_ZN3vcg4face8VFDetachI6CFaceOEEvRT_i(ptr noundef nonnu
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, %0
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %20 = load i32, ptr %19, align 4
+  %20 = load i32, ptr %19, align 8
   br i1 %18, label %21, label %.preheader
 
 21:                                               ; preds = %2
@@ -15725,7 +15725,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS0_IdLi3ELi3ELi0ELi3ELi3EEEEERKNS
   store <2 x double> %67, ptr %10, align 16
   %68 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %69 = getelementptr i8, ptr %66, i64 16
-  %70 = load double, ptr %69, align 8
+  %70 = load double, ptr %69, align 16
   store double %70, ptr %68, align 16
   %71 = extractelement <2 x double> %67, i64 0
   br label %72
@@ -32711,7 +32711,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %79, %76
   %86 = getelementptr inbounds %"struct.Eigen::internal::GemmParallelInfo", ptr %84, i64 %.06.i.i
   store i64 -1, ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  store i32 0, ptr %87, align 4
+  store i32 0, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %88, i8 0, i64 16, i1 false)
   %89 = add nuw i64 %.06.i.i, 1
@@ -40252,41 +40252,41 @@ define linkonce_odr void @_ZN3vcg3tri16QuadricTexHelperI6CMeshOE5AllocEP8CVertex
   %.sroa.39.0..sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 4
   store float %16, ptr %.sroa.39.0..sroa_idx, align 4
   %.sroa.5.sroa.2.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 16
-  store double %28, ptr %.sroa.5.sroa.2.0..sroa.5.0..sroa_idx.sroa_idx, align 4
+  store double %28, ptr %.sroa.5.sroa.2.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.sroa.3.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 24
-  store double %31, ptr %.sroa.5.sroa.3.0..sroa.5.0..sroa_idx.sroa_idx, align 4
+  store double %31, ptr %.sroa.5.sroa.3.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 32
-  store double %34, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 4
+  store double %34, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx, i8 0, i64 16, i1 false)
   %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 56
-  store double %37, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx, align 4
+  store double %37, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.sroa.7.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 64
-  store double %40, ptr %.sroa.5.sroa.7.0..sroa.5.0..sroa_idx.sroa_idx, align 4
+  store double %40, ptr %.sroa.5.sroa.7.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.sroa.8.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.5.sroa.8.0..sroa.5.0..sroa_idx.sroa_idx, i8 0, i64 16, i1 false)
   %.sroa.5.sroa.9.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 88
-  store double %43, ptr %.sroa.5.sroa.9.0..sroa.5.0..sroa_idx.sroa_idx, align 4
+  store double %43, ptr %.sroa.5.sroa.9.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.sroa.10.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.5.sroa.10.0..sroa.5.0..sroa_idx.sroa_idx, i8 0, i64 16, i1 false)
   %.sroa.5.sroa.11.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 112
-  store double 1.000000e+00, ptr %.sroa.5.sroa.11.0..sroa.5.0..sroa_idx.sroa_idx, align 4
+  store double 1.000000e+00, ptr %.sroa.5.sroa.11.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.sroa.12.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 120
-  store double 0.000000e+00, ptr %.sroa.5.sroa.12.0..sroa.5.0..sroa_idx.sroa_idx, align 4
+  store double 0.000000e+00, ptr %.sroa.5.sroa.12.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.sroa.13.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 128
-  store double 1.000000e+00, ptr %.sroa.5.sroa.13.0..sroa.5.0..sroa_idx.sroa_idx, align 4
+  store double 1.000000e+00, ptr %.sroa.5.sroa.13.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.sroa.14.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 136
-  store double %46, ptr %.sroa.5.sroa.14.0..sroa.5.0..sroa_idx.sroa_idx, align 4
+  store double %46, ptr %.sroa.5.sroa.14.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.sroa.15.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 144
-  store double %49, ptr %.sroa.5.sroa.15.0..sroa.5.0..sroa_idx.sroa_idx, align 4
+  store double %49, ptr %.sroa.5.sroa.15.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.sroa.16.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 152
-  store double %52, ptr %.sroa.5.sroa.16.0..sroa.5.0..sroa_idx.sroa_idx, align 4
+  store double %52, ptr %.sroa.5.sroa.16.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.sroa.17.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 160
-  store double %54, ptr %.sroa.5.sroa.17.0..sroa.5.0..sroa_idx.sroa_idx, align 4
+  store double %54, ptr %.sroa.5.sroa.17.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.sroa.18.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 168
-  store double %56, ptr %.sroa.5.sroa.18.0..sroa.5.0..sroa_idx.sroa_idx, align 4
+  store double %56, ptr %.sroa.5.sroa.18.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.sroa.19.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 176
-  store double %64, ptr %.sroa.5.sroa.19.0..sroa.5.0..sroa_idx.sroa_idx, align 4
+  store double %64, ptr %.sroa.5.sroa.19.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %70 = load ptr, ptr %65, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 184
   store ptr %71, ptr %65, align 8
@@ -40320,41 +40320,41 @@ _ZNKSt6vectorISt4pairIN3vcg9TexCoord2IfLi1EEENS1_8Quadric5IdEEESaIS6_EE12_M_chec
   %.sroa.39.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %86, i64 4
   store float %16, ptr %.sroa.39.0..sroa_idx10, align 4
   %.sroa.5.sroa.2.0..sroa.5.0..sroa_idx13.sroa_idx = getelementptr inbounds nuw i8, ptr %86, i64 16
-  store double %28, ptr %.sroa.5.sroa.2.0..sroa.5.0..sroa_idx13.sroa_idx, align 4
+  store double %28, ptr %.sroa.5.sroa.2.0..sroa.5.0..sroa_idx13.sroa_idx, align 8
   %.sroa.5.sroa.3.0..sroa.5.0..sroa_idx13.sroa_idx = getelementptr inbounds nuw i8, ptr %86, i64 24
-  store double %31, ptr %.sroa.5.sroa.3.0..sroa.5.0..sroa_idx13.sroa_idx, align 4
+  store double %31, ptr %.sroa.5.sroa.3.0..sroa.5.0..sroa_idx13.sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx13.sroa_idx = getelementptr inbounds nuw i8, ptr %86, i64 32
-  store double %34, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx13.sroa_idx, align 4
+  store double %34, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx13.sroa_idx, align 8
   %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx13.sroa_idx = getelementptr inbounds nuw i8, ptr %86, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx13.sroa_idx, i8 0, i64 16, i1 false)
   %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx13.sroa_idx = getelementptr inbounds nuw i8, ptr %86, i64 56
-  store double %37, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx13.sroa_idx, align 4
+  store double %37, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx13.sroa_idx, align 8
   %.sroa.5.sroa.7.0..sroa.5.0..sroa_idx13.sroa_idx = getelementptr inbounds nuw i8, ptr %86, i64 64
-  store double %40, ptr %.sroa.5.sroa.7.0..sroa.5.0..sroa_idx13.sroa_idx, align 4
+  store double %40, ptr %.sroa.5.sroa.7.0..sroa.5.0..sroa_idx13.sroa_idx, align 8
   %.sroa.5.sroa.8.0..sroa.5.0..sroa_idx13.sroa_idx = getelementptr inbounds nuw i8, ptr %86, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.5.sroa.8.0..sroa.5.0..sroa_idx13.sroa_idx, i8 0, i64 16, i1 false)
   %.sroa.5.sroa.9.0..sroa.5.0..sroa_idx13.sroa_idx = getelementptr inbounds nuw i8, ptr %86, i64 88
-  store double %43, ptr %.sroa.5.sroa.9.0..sroa.5.0..sroa_idx13.sroa_idx, align 4
+  store double %43, ptr %.sroa.5.sroa.9.0..sroa.5.0..sroa_idx13.sroa_idx, align 8
   %.sroa.5.sroa.10.0..sroa.5.0..sroa_idx13.sroa_idx = getelementptr inbounds nuw i8, ptr %86, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.5.sroa.10.0..sroa.5.0..sroa_idx13.sroa_idx, i8 0, i64 16, i1 false)
   %.sroa.5.sroa.11.0..sroa.5.0..sroa_idx13.sroa_idx = getelementptr inbounds nuw i8, ptr %86, i64 112
-  store double 1.000000e+00, ptr %.sroa.5.sroa.11.0..sroa.5.0..sroa_idx13.sroa_idx, align 4
+  store double 1.000000e+00, ptr %.sroa.5.sroa.11.0..sroa.5.0..sroa_idx13.sroa_idx, align 8
   %.sroa.5.sroa.12.0..sroa.5.0..sroa_idx13.sroa_idx = getelementptr inbounds nuw i8, ptr %86, i64 120
-  store double 0.000000e+00, ptr %.sroa.5.sroa.12.0..sroa.5.0..sroa_idx13.sroa_idx, align 4
+  store double 0.000000e+00, ptr %.sroa.5.sroa.12.0..sroa.5.0..sroa_idx13.sroa_idx, align 8
   %.sroa.5.sroa.13.0..sroa.5.0..sroa_idx13.sroa_idx = getelementptr inbounds nuw i8, ptr %86, i64 128
-  store double 1.000000e+00, ptr %.sroa.5.sroa.13.0..sroa.5.0..sroa_idx13.sroa_idx, align 4
+  store double 1.000000e+00, ptr %.sroa.5.sroa.13.0..sroa.5.0..sroa_idx13.sroa_idx, align 8
   %.sroa.5.sroa.14.0..sroa.5.0..sroa_idx13.sroa_idx = getelementptr inbounds nuw i8, ptr %86, i64 136
-  store double %46, ptr %.sroa.5.sroa.14.0..sroa.5.0..sroa_idx13.sroa_idx, align 4
+  store double %46, ptr %.sroa.5.sroa.14.0..sroa.5.0..sroa_idx13.sroa_idx, align 8
   %.sroa.5.sroa.15.0..sroa.5.0..sroa_idx13.sroa_idx = getelementptr inbounds nuw i8, ptr %86, i64 144
-  store double %49, ptr %.sroa.5.sroa.15.0..sroa.5.0..sroa_idx13.sroa_idx, align 4
+  store double %49, ptr %.sroa.5.sroa.15.0..sroa.5.0..sroa_idx13.sroa_idx, align 8
   %.sroa.5.sroa.16.0..sroa.5.0..sroa_idx13.sroa_idx = getelementptr inbounds nuw i8, ptr %86, i64 152
-  store double %52, ptr %.sroa.5.sroa.16.0..sroa.5.0..sroa_idx13.sroa_idx, align 4
+  store double %52, ptr %.sroa.5.sroa.16.0..sroa.5.0..sroa_idx13.sroa_idx, align 8
   %.sroa.5.sroa.17.0..sroa.5.0..sroa_idx13.sroa_idx = getelementptr inbounds nuw i8, ptr %86, i64 160
-  store double %54, ptr %.sroa.5.sroa.17.0..sroa.5.0..sroa_idx13.sroa_idx, align 4
+  store double %54, ptr %.sroa.5.sroa.17.0..sroa.5.0..sroa_idx13.sroa_idx, align 8
   %.sroa.5.sroa.18.0..sroa.5.0..sroa_idx13.sroa_idx = getelementptr inbounds nuw i8, ptr %86, i64 168
-  store double %56, ptr %.sroa.5.sroa.18.0..sroa.5.0..sroa_idx13.sroa_idx, align 4
+  store double %56, ptr %.sroa.5.sroa.18.0..sroa.5.0..sroa_idx13.sroa_idx, align 8
   %.sroa.5.sroa.19.0..sroa.5.0..sroa_idx13.sroa_idx = getelementptr inbounds nuw i8, ptr %86, i64 176
-  store double %64, ptr %.sroa.5.sroa.19.0..sroa.5.0..sroa_idx13.sroa_idx, align 4
+  store double %64, ptr %.sroa.5.sroa.19.0..sroa.5.0..sroa_idx13.sroa_idx, align 8
   %.not10.i.i.i.i.i.i.i = icmp eq ptr %73, %66
   br i1 %.not10.i.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairIN3vcg9TexCoord2IfLi1EEENS1_8Quadric5IdEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 

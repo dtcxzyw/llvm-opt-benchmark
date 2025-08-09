@@ -763,9 +763,9 @@ entry:
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %4 = load float, ptr %2, align 8
-  %5 = load float, ptr %3, align 4
+  %5 = load float, ptr %3, align 8
   store float %5, ptr %2, align 8
-  store float %4, ptr %3, align 4
+  store float %4, ptr %3, align 8
   ret void
 }
 
@@ -1707,9 +1707,9 @@ entry:
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %4 = load i32, ptr %2, align 8
-  %5 = load i32, ptr %3, align 4
+  %5 = load i32, ptr %3, align 8
   store i32 %5, ptr %2, align 8
-  store i32 %4, ptr %3, align 4
+  store i32 %4, ptr %3, align 8
   ret void
 }
 
@@ -2022,9 +2022,9 @@ entry:
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %4 = load i32, ptr %2, align 8
-  %5 = load i32, ptr %3, align 4
+  %5 = load i32, ptr %3, align 8
   store i32 %5, ptr %2, align 8
-  store i32 %4, ptr %3, align 4
+  store i32 %4, ptr %3, align 8
   ret void
 }
 
@@ -2311,10 +2311,10 @@ entry:
   %3 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %4 = load i8, ptr %2, align 8
   %frombool.i = and i8 %4, 1
-  %5 = load i8, ptr %3, align 1
+  %5 = load i8, ptr %3, align 8
   %frombool2.i = and i8 %5, 1
   store i8 %frombool2.i, ptr %2, align 8
-  store i8 %frombool.i, ptr %3, align 1
+  store i8 %frombool.i, ptr %3, align 8
   ret void
 }
 

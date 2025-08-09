@@ -2060,7 +2060,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayIjLm1EESt4pairIKS1_N5
   store ptr null, ptr %3, align 8, !tbaa !89
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %1, align 4, !tbaa !14
-  store i32 %5, ptr %4, align 4, !tbaa !14
+  store i32 %5, ptr %4, align 8, !tbaa !14
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !21
@@ -2116,7 +2116,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayIjLm1EESt4pairIKS1_N5
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %38 = load i64, ptr %37, align 8, !tbaa !118
   %39 = icmp eq i64 %14, %38
-  %rhsv.i.i.i.i20.i.i = load i32, ptr %36, align 4
+  %rhsv.i.i.i.i20.i.i = load i32, ptr %36, align 8
   %.not.i.i.i.i21.i.i = icmp eq i32 %5, %rhsv.i.i.i.i20.i.i
   %40 = select i1 %39, i1 %.not.i.i.i.i21.i.i, i1 false
   br i1 %40, label %_ZNKSt10_HashtableISt5arrayIjLm1EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeValueIndex_tag_type_EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS4_9HashArrayIS1_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %.lr.ph.i.i
@@ -2625,11 +2625,11 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayIjLm2EESt4pairIKS1_N5
   store ptr null, ptr %3, align 8, !tbaa !89
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i64, ptr %1, align 4, !tbaa !14
-  store i64 %5, ptr %4, align 4, !tbaa !14
+  store i64 %5, ptr %4, align 8, !tbaa !14
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 4, !tbaa !21
-  store i32 %8, ptr %6, align 4, !tbaa !21
+  store i32 %8, ptr %6, align 8, !tbaa !21
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i64, ptr %9, align 8, !tbaa !128
   %.not.not = icmp eq i64 %10, 0
@@ -3320,7 +3320,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayIjLm4EESt4pairIKS1_N5
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i32, ptr %6, align 4, !tbaa !21
-  store i32 %7, ptr %5, align 4, !tbaa !21
+  store i32 %7, ptr %5, align 8, !tbaa !21
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8, !tbaa !142
   %.not.not = icmp eq i64 %9, 0
@@ -4699,7 +4699,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayIhLm1EESt4pairIKS1_N5
   store ptr null, ptr %3, align 8, !tbaa !89
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i8, ptr %1, align 4, !tbaa !14
-  store i8 %5, ptr %4, align 4, !tbaa !14
+  store i8 %5, ptr %4, align 8, !tbaa !14
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !21
@@ -4755,7 +4755,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayIhLm1EESt4pairIKS1_N5
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %38 = load i64, ptr %37, align 8, !tbaa !118
   %39 = icmp eq i64 %14, %38
-  %rhsc.i.i.i.i20.i.i = load i8, ptr %36, align 1
+  %rhsc.i.i.i.i20.i.i = load i8, ptr %36, align 8
   %.not9.i.i.i.i.i.i.i.i21.i.i = icmp eq i8 %5, %rhsc.i.i.i.i20.i.i
   %40 = select i1 %39, i1 %.not9.i.i.i.i.i.i.i.i21.i.i, i1 false
   br i1 %40, label %_ZNKSt10_HashtableISt5arrayIhLm1EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeValueIndex_tag_type_EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS4_9HashArrayIS1_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %.lr.ph.i.i
@@ -5047,7 +5047,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayIhLm2EESt4pairIKS1_N5
   store ptr null, ptr %3, align 8, !tbaa !89
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i16, ptr %1, align 4, !tbaa !14
-  store i16 %5, ptr %4, align 4, !tbaa !14
+  store i16 %5, ptr %4, align 8, !tbaa !14
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !21
@@ -5739,7 +5739,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayIhLm4EESt4pairIKS1_N5
   store ptr null, ptr %3, align 8, !tbaa !89
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %1, align 4, !tbaa !14
-  store i32 %5, ptr %4, align 4, !tbaa !14
+  store i32 %5, ptr %4, align 8, !tbaa !14
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !21
@@ -8158,7 +8158,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayItLm1EESt4pairIKS1_N5
   store ptr null, ptr %3, align 8, !tbaa !89
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i16, ptr %1, align 4, !tbaa !14
-  store i16 %5, ptr %4, align 4, !tbaa !14
+  store i16 %5, ptr %4, align 8, !tbaa !14
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !21
@@ -8214,7 +8214,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayItLm1EESt4pairIKS1_N5
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %38 = load i64, ptr %37, align 8, !tbaa !118
   %39 = icmp eq i64 %14, %38
-  %rhsv.i.i.i.i20.i.i = load i16, ptr %36, align 2
+  %rhsv.i.i.i.i20.i.i = load i16, ptr %36, align 8
   %.not.i.i.i.i21.i.i = icmp eq i16 %5, %rhsv.i.i.i.i20.i.i
   %40 = select i1 %39, i1 %.not.i.i.i.i21.i.i, i1 false
   br i1 %40, label %_ZNKSt10_HashtableISt5arrayItLm1EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeValueIndex_tag_type_EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS4_9HashArrayIS1_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %.lr.ph.i.i
@@ -8506,7 +8506,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayItLm2EESt4pairIKS1_N5
   store ptr null, ptr %3, align 8, !tbaa !89
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %1, align 4, !tbaa !14
-  store i32 %5, ptr %4, align 4, !tbaa !14
+  store i32 %5, ptr %4, align 8, !tbaa !14
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !21
@@ -8855,7 +8855,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayItLm3EESt4pairIKS1_N5
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 4, !tbaa !21
-  store i32 %7, ptr %5, align 4, !tbaa !21
+  store i32 %7, ptr %5, align 8, !tbaa !21
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8, !tbaa !262
   %.not.not = icmp eq i64 %9, 0
@@ -9198,11 +9198,11 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayItLm4EESt4pairIKS1_N5
   store ptr null, ptr %3, align 8, !tbaa !89
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i64, ptr %1, align 4, !tbaa !14
-  store i64 %5, ptr %4, align 4, !tbaa !14
+  store i64 %5, ptr %4, align 8, !tbaa !14
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 4, !tbaa !21
-  store i32 %8, ptr %6, align 4, !tbaa !21
+  store i32 %8, ptr %6, align 8, !tbaa !21
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i64, ptr %9, align 8, !tbaa !268
   %.not.not = icmp eq i64 %10, 0

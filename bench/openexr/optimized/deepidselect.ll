@@ -3619,7 +3619,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
   %358 = load i32, ptr %357, align 8, !tbaa !150
   %359 = and i32 %358, -75
   %360 = or disjoint i32 %359, 8
-  store i32 %360, ptr %357, align 4, !tbaa !151
+  store i32 %360, ptr %357, align 8, !tbaa !151
   %361 = load i64, ptr %255, align 8, !tbaa !145
   %362 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %361)
           to label %363 unwind label %398
@@ -3633,7 +3633,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
   %369 = load i32, ptr %368, align 8, !tbaa !150
   %370 = and i32 %369, -75
   %371 = or disjoint i32 %370, 2
-  store i32 %371, ptr %368, align 4, !tbaa !151
+  store i32 %371, ptr %368, align 8, !tbaa !151
   %372 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %362, ptr noundef nonnull @.str.29, i64 noundef 12)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit173 unwind label %398
 
@@ -3942,7 +3942,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
   %501 = load i32, ptr %500, align 8, !tbaa !150
   %502 = and i32 %501, -75
   %503 = or disjoint i32 %502, 8
-  store i32 %503, ptr %500, align 4, !tbaa !151
+  store i32 %503, ptr %500, align 8, !tbaa !151
   %504 = load i64, ptr %255, align 8, !tbaa !145
   %505 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %504)
           to label %506 unwind label %586
@@ -3956,7 +3956,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
   %512 = load i32, ptr %511, align 8, !tbaa !150
   %513 = and i32 %512, -75
   %514 = or disjoint i32 %513, 2
-  store i32 %514, ptr %511, align 4, !tbaa !151
+  store i32 %514, ptr %511, align 8, !tbaa !151
   %515 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %505, ptr noundef nonnull @.str.29, i64 noundef 12)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit259 unwind label %586
 
@@ -3982,7 +3982,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   %529 = load i32, ptr %528, align 8, !tbaa !150
   %530 = and i32 %529, -75
   %531 = or disjoint i32 %530, 8
-  store i32 %531, ptr %528, align 4, !tbaa !151
+  store i32 %531, ptr %528, align 8, !tbaa !151
   %532 = and i64 %479, 4294967295
   %533 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %521, i64 noundef %532)
           to label %_ZNSolsEj.exit unwind label %586
@@ -4037,7 +4037,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   %559 = load i32, ptr %558, align 8, !tbaa !150
   %560 = and i32 %559, -75
   %561 = or disjoint i32 %560, 8
-  store i32 %561, ptr %558, align 4, !tbaa !151
+  store i32 %561, ptr %558, align 8, !tbaa !151
   %562 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %551, i64 noundef %483)
           to label %_ZNSolsEj.exit281 unwind label %586
 
@@ -4817,7 +4817,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8, !tbaa !23
   store ptr %13, ptr %10, align 8, !tbaa !26
   store i64 0, ptr %24, align 8, !tbaa !23
-  store i8 0, ptr %13, align 1, !tbaa !4
+  store i8 0, ptr %13, align 8, !tbaa !4
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i32 0, ptr %26, align 8, !tbaa !135
   store ptr %7, ptr %23, align 8, !tbaa !172

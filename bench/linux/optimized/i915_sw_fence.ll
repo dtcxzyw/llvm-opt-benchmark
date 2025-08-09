@@ -210,7 +210,7 @@ define dso_local void @__i915_sw_fence_init(ptr noundef %0, ptr noundef %1, ptr 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store volatile i32 1, ptr %6, align 4
+  store volatile i32 1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 0, ptr %7, align 4
   ret void
@@ -681,7 +681,7 @@ define internal void @timer_i915_sw_fence_wake(ptr noundef %0) #0 align 16 {
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %26 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %25, i32 -110, i32 0, ptr nonnull elementtype(i32) %25) #10, !srcloc !20
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %28 = load volatile i32, ptr %27, align 4
+  %28 = load volatile i32, ptr %27, align 8
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %30, label %31, !prof !5
 

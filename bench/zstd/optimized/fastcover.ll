@@ -828,7 +828,7 @@ define i64 @ZDICT_optimizeTrainFromBuffer_fastCover(ptr noundef writeonly captur
   %40 = load i32, ptr %39, align 8, !tbaa !12
   %41 = tail call i32 @llvm.umax.i32(i32 %40, i32 1)
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %43 = load i32, ptr %42, align 4, !tbaa !3
+  %43 = load i32, ptr %42, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %44 = fcmp ogt double %14, 1.000000e+00
   br i1 %44, label %45, label %52

@@ -2950,7 +2950,7 @@ define hidden noundef i64 @_ZN4rand3rng3Rng9gen_range17h374d98d17fbb384cE(ptr no
 "_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17h26646409eb88e84bE.exit.i.i.i.i": ; preds = %35, %33
   store i64 1, ptr %11, align 16, !alias.scope !186, !noalias !170
   %36 = zext i32 %25 to i64
-  %37 = load i32, ptr %10, align 4, !alias.scope !167, !noalias !170, !noundef !3
+  %37 = load i32, ptr %10, align 16, !alias.scope !167, !noalias !170, !noundef !3
   %38 = zext i32 %37 to i64
   %39 = shl nuw i64 %38, 32
   %40 = or disjoint i64 %39, %36
@@ -2982,7 +2982,7 @@ define hidden noundef i64 @_ZN4rand3rng3Rng9gen_range17h374d98d17fbb384cE(ptr no
 
 "_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17h26646409eb88e84bE.exit8.i.i.i.i": ; preds = %51, %49
   store i64 2, ptr %11, align 16, !alias.scope !197, !noalias !170
-  %52 = load i64, ptr %10, align 4, !alias.scope !198, !noalias !170
+  %52 = load i64, ptr %10, align 16, !alias.scope !198, !noalias !170
   br label %_ZN4rand3rng3Rng3gen17h7184f8334fb60d8bE.exit.i
 
 _ZN4rand3rng3Rng3gen17h7184f8334fb60d8bE.exit.i:  ; preds = %"_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17h26646409eb88e84bE.exit8.i.i.i.i", %"_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17h26646409eb88e84bE.exit.i.i.i.i", %20

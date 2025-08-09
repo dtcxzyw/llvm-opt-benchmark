@@ -1891,15 +1891,15 @@ ZSTD_CCtx_setParameter.exit72.i:                  ; preds = %26
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %3, ptr %40, align 4, !tbaa !84
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %7, ptr %41, align 4, !tbaa !86
+  store i32 %7, ptr %41, align 8, !tbaa !86
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %11, ptr %42, align 4, !tbaa !85
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %15, ptr %43, align 4, !tbaa !87
+  store i32 %15, ptr %43, align 8, !tbaa !87
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %19, ptr %44, align 4, !tbaa !88
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %22, ptr %45, align 4, !tbaa !89
+  store i32 %22, ptr %45, align 8, !tbaa !89
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %24, ptr %46, align 4, !tbaa !90
   br label %ZSTD_checkCParams.exit.thread
@@ -2470,17 +2470,17 @@ ZSTD_overrideCParams.exit:                        ; preds = %8, %5
   %.not27.i = icmp eq i32 %21, 0
   %.sroa.7.0 = select i1 %.not27.i, i32 %.sroa.7.0.copyload, i32 %21
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %23 = load i32, ptr %22, align 4, !tbaa !69
+  %23 = load i32, ptr %22, align 8, !tbaa !69
   %.not28.i = icmp eq i32 %23, 0
   %.sroa.6.0 = select i1 %.not28.i, i32 %.sroa.6.0.copyload, i32 %23
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %25 = load i32, ptr %24, align 4, !tbaa !71
+  %25 = load i32, ptr %24, align 8, !tbaa !71
   %.not29.i = icmp eq i32 %25, 0
   %.sroa.8.0 = select i1 %.not29.i, i32 %.sroa.8.0.copyload, i32 %25
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %27 = load i32, ptr %26, align 4, !tbaa !72
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %29 = load i32, ptr %28, align 4, !tbaa !128
+  %29 = load i32, ptr %28, align 8, !tbaa !128
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %31 = load i32, ptr %30, align 4, !tbaa !73
   %.not32.i = icmp eq i32 %31, 0
@@ -4781,7 +4781,7 @@ ZSTD_optimalBlockSize.exit.i:                     ; preds = %181, %174, %172, %1
   %192 = ptrtoint ptr %190 to i64
   %193 = sub i64 %191, %192
   %194 = trunc i64 %193 to i32
-  %195 = load i32, ptr %139, align 4, !tbaa !48
+  %195 = load i32, ptr %139, align 8, !tbaa !48
   %196 = add i32 %195, %121
   %197 = icmp ult i32 %196, %194
   br i1 %197, label %200, label %198
@@ -5826,7 +5826,7 @@ ZSTD_shouldAttachDict.exit.thread17.i:            ; preds = %ZSTD_shouldAttachDi
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 372
   %.sroa.6.sroa.0.0.copyload.i.i = load i32, ptr %.sroa.6.0..sroa_idx.i.i, align 4, !tbaa !48
   %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 376
-  %57 = load i64, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx.i.i, align 4
+  %57 = load i64, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx.i.i, align 8
   %.not.i13.i = icmp ne i32 %40, 0
   %.off.i.i.i = add i32 %42, -3
   %switch.i.i.i = icmp ult i32 %.off.i.i.i, 3
@@ -6091,7 +6091,7 @@ ZSTD_allocateChainTable.exit63.i.i:               ; preds = %ZSTD_copyCDictTable
   %208 = load ptr, ptr %207, align 8, !tbaa !176
   %209 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %210 = load ptr, ptr %209, align 8, !tbaa !280
-  %.val60.i.i = load i32, ptr %41, align 4, !tbaa !73
+  %.val60.i.i = load i32, ptr %41, align 8, !tbaa !73
   %211 = add i32 %.val60.i.i, -3
   %narrow.i.i64.i.i = icmp ult i32 %211, -2
   br i1 %narrow.i.i64.i.i, label %217, label %.preheader.i65.i.i

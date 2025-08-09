@@ -2586,7 +2586,7 @@ define noundef zeroext i1 @_ZN15EditAlignPlugin9startEditER12MeshDocumentP6GLAre
   %48 = load i32, ptr %47, align 8
   %49 = call i32 @_ZN3vcg6Color4IhE7ScatterEiiff(i32 noundef %45, i32 noundef %48, float noundef 0x3FC99999A0000000, float noundef 0x3FE6666660000000)
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.029.035.us, i64 1124
-  store i32 %49, ptr %50, align 1
+  store i32 %49, ptr %50, align 4
   call void @_ZN9MeshModel14updateDataMaskEi(ptr noundef nonnull align 8 dereferenceable(1288) %46, i32 noundef 536870912)
   %51 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #37
   store i8 0, ptr %51, align 8
@@ -2608,7 +2608,7 @@ define noundef zeroext i1 @_ZN15EditAlignPlugin9startEditER12MeshDocumentP6GLAre
   %59 = srem i32 %58, 50
   %60 = call i32 @_ZN3vcg6Color4IhE7ScatterEiiff(i32 noundef 51, i32 noundef %59, float noundef 0x3FC99999A0000000, float noundef 0x3FE6666660000000)
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.029.035, i64 1124
-  store i32 %60, ptr %61, align 1
+  store i32 %60, ptr %61, align 4
   call void @_ZN9MeshModel14updateDataMaskEi(ptr noundef nonnull align 8 dereferenceable(1288) %56, i32 noundef 536870912)
   %62 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #37
   store i8 0, ptr %62, align 8

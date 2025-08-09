@@ -3525,7 +3525,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__17PcpNamespaceEdits14LayerStackS
   %1272 = getelementptr inbounds i8, ptr %1270, i64 -48
   store i32 0, ptr %1272, align 8
   %1273 = getelementptr inbounds i8, ptr %1270, i64 -24
-  %1274 = load i32, ptr %1273, align 4
+  %1274 = load i32, ptr %1273, align 8
   %1275 = load i32, ptr %98, align 4
   %1276 = icmp eq i32 %1274, %1275
   br i1 %1276, label %1307, label %1277
@@ -4017,7 +4017,7 @@ _ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__17PcpLayerStackSiteES1_St9_Ide
   store ptr null, ptr %107, align 8
   %1508 = getelementptr inbounds nuw i8, ptr %1505, i64 40
   %1509 = load i32, ptr %1129, align 8
-  store i32 %1509, ptr %1508, align 4
+  store i32 %1509, ptr %1508, align 8
   store i32 0, ptr %1129, align 8
   %1510 = getelementptr inbounds nuw i8, ptr %1505, i64 44
   %1511 = load i32, ptr %1130, align 4
@@ -4259,7 +4259,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__17PcpNamespaceEdits9CacheSiteESa
   %1605 = getelementptr inbounds i8, ptr %1604, i64 -24
   store i64 %1134, ptr %1605, align 8
   %1606 = getelementptr inbounds i8, ptr %1604, i64 -16
-  %1607 = load i32, ptr %1606, align 4
+  %1607 = load i32, ptr %1606, align 8
   %1608 = load i32, ptr %98, align 4
   %1609 = icmp eq i32 %1607, %1608
   br i1 %1609, label %1640, label %1610
@@ -6532,8 +6532,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__17PcpNamespaceEdits14LayerStackS
   store i32 0, ptr %2473, align 8
   %2474 = getelementptr inbounds nuw i8, ptr %.sroa.01094.01629, i64 40
   %2475 = getelementptr inbounds i8, ptr %2468, i64 -24
-  %2476 = load i32, ptr %2475, align 4
-  %2477 = load i32, ptr %2474, align 4
+  %2476 = load i32, ptr %2475, align 8
+  %2477 = load i32, ptr %2474, align 8
   %2478 = icmp eq i32 %2476, %2477
   br i1 %2478, label %2509, label %2479
 
@@ -9446,7 +9446,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__17PcpNamespaceEdits14LayerStackS
   %429 = getelementptr inbounds i8, ptr %427, i64 -48
   store i32 5, ptr %429, align 8
   %430 = getelementptr inbounds i8, ptr %427, i64 -24
-  %431 = load i32, ptr %430, align 4
+  %431 = load i32, ptr %430, align 8
   %432 = load i32, ptr %.sroa.0161.0233, align 4
   %433 = icmp eq i32 %431, %432
   br i1 %433, label %464, label %434
@@ -11107,7 +11107,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__17PcpNamespaceEdits14LayerStackS
   %712 = getelementptr inbounds i8, ptr %710, i64 -48
   store i32 %.043, ptr %712, align 8
   %713 = getelementptr inbounds i8, ptr %710, i64 -24
-  %714 = load i32, ptr %713, align 4
+  %714 = load i32, ptr %713, align 8
   %715 = load i32, ptr %19, align 4
   %716 = icmp eq i32 %714, %715
   br i1 %716, label %747, label %717
@@ -12007,7 +12007,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7Sdf
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 8
   %.not.i.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS1_E.exit, label %9
 
@@ -12914,7 +12914,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7Sdf
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_10PcpNodeRefEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS5_E.exit, label %9
 
@@ -13334,9 +13334,9 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__17PcpNamespaceEdits14LayerStack
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false), !alias.scope !181, !noalias !178
   %35 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %36 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
-  %37 = load i32, ptr %36, align 4, !alias.scope !181, !noalias !178
-  store i32 %37, ptr %35, align 4, !alias.scope !178, !noalias !181
-  store i32 0, ptr %36, align 4, !alias.scope !181, !noalias !178
+  %37 = load i32, ptr %36, align 8, !alias.scope !181, !noalias !178
+  store i32 %37, ptr %35, align 8, !alias.scope !178, !noalias !181
+  store i32 0, ptr %36, align 8, !alias.scope !181, !noalias !178
   %38 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 36
   %39 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 36
   %40 = load i32, ptr %39, align 4, !alias.scope !181, !noalias !178
@@ -13344,9 +13344,9 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__17PcpNamespaceEdits14LayerStack
   store i32 0, ptr %39, align 4, !alias.scope !181, !noalias !178
   %41 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
   %42 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
-  %43 = load i32, ptr %42, align 4, !alias.scope !181, !noalias !178
-  store i32 %43, ptr %41, align 4, !alias.scope !178, !noalias !181
-  store i32 0, ptr %42, align 4, !alias.scope !181, !noalias !178
+  %43 = load i32, ptr %42, align 8, !alias.scope !181, !noalias !178
+  store i32 %43, ptr %41, align 8, !alias.scope !178, !noalias !181
+  store i32 0, ptr %42, align 8, !alias.scope !181, !noalias !178
   %44 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 44
   %45 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 44
   %46 = load i32, ptr %45, align 4, !alias.scope !181, !noalias !178
@@ -13354,9 +13354,9 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__17PcpNamespaceEdits14LayerStack
   store i32 0, ptr %45, align 4, !alias.scope !181, !noalias !178
   %47 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 48
   %48 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 48
-  %49 = load i32, ptr %48, align 4, !alias.scope !181, !noalias !178
-  store i32 %49, ptr %47, align 4, !alias.scope !178, !noalias !181
-  store i32 0, ptr %48, align 4, !alias.scope !181, !noalias !178
+  %49 = load i32, ptr %48, align 8, !alias.scope !181, !noalias !178
+  store i32 %49, ptr %47, align 8, !alias.scope !178, !noalias !181
+  store i32 0, ptr %48, align 8, !alias.scope !181, !noalias !178
   %50 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 52
   %51 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 52
   %52 = load i32, ptr %51, align 4, !alias.scope !181, !noalias !178
@@ -14350,7 +14350,7 @@ _ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__17PcpLayerStackSiteES1_St9_Ide
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load i32, ptr %24, align 8
-  store i32 %25, ptr %23, align 4
+  store i32 %25, ptr %23, align 8
   store i32 0, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 44
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -14434,9 +14434,9 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__17PcpNamespaceEdits9CacheSiteES
   store i64 %29, ptr %.012.i.i.i, align 8, !alias.scope !193, !noalias !196
   %30 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %32 = load i32, ptr %31, align 4, !alias.scope !196, !noalias !193
-  store i32 %32, ptr %30, align 4, !alias.scope !193, !noalias !196
-  store i32 0, ptr %31, align 4, !alias.scope !196, !noalias !193
+  %32 = load i32, ptr %31, align 8, !alias.scope !196, !noalias !193
+  store i32 %32, ptr %30, align 8, !alias.scope !193, !noalias !196
+  store i32 0, ptr %31, align 8, !alias.scope !196, !noalias !193
   %33 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 12
   %34 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 12
   %35 = load i32, ptr %34, align 4, !alias.scope !196, !noalias !193
@@ -14444,9 +14444,9 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__17PcpNamespaceEdits9CacheSiteES
   store i32 0, ptr %34, align 4, !alias.scope !196, !noalias !193
   %36 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %37 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
-  %38 = load i32, ptr %37, align 4, !alias.scope !196, !noalias !193
-  store i32 %38, ptr %36, align 4, !alias.scope !193, !noalias !196
-  store i32 0, ptr %37, align 4, !alias.scope !196, !noalias !193
+  %38 = load i32, ptr %37, align 8, !alias.scope !196, !noalias !193
+  store i32 %38, ptr %36, align 8, !alias.scope !193, !noalias !196
+  store i32 0, ptr %37, align 8, !alias.scope !196, !noalias !193
   %39 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 20
   %40 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 20
   %41 = load i32, ptr %40, align 4, !alias.scope !196, !noalias !193

@@ -4378,7 +4378,7 @@ _ZN4pbrt5ErrorIJEEEvPKcDpOT_.exit:                ; preds = %_ZNKSt7__cxx1112bas
   %253 = getelementptr inbounds nuw i8, ptr %202, i64 884
   store float 0.000000e+00, ptr %253, align 4
   %.sroa.4.0..sroa_idx24.i.i.i = getelementptr inbounds nuw i8, ptr %202, i64 888
-  store float 0.000000e+00, ptr %.sroa.4.0..sroa_idx24.i.i.i, align 4
+  store float 0.000000e+00, ptr %.sroa.4.0..sroa_idx24.i.i.i, align 8
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %202, i64 892
   store float 0.000000e+00, ptr %.sroa.5.0..sroa_idx.i.i.i, align 4
   %254 = getelementptr inbounds nuw i8, ptr %202, i64 872
@@ -11093,7 +11093,7 @@ define dso_local void @_ZN4pbrt15RealisticCamera21ComputeCardinalPointsENS_3RayE
   %11 = load float, ptr %10, align 4, !tbaa !45
   %12 = fmul float %9, %11
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %14 = load float, ptr %13, align 4, !tbaa !149
+  %14 = load float, ptr %13, align 8, !tbaa !149
   %15 = fadd float %12, %14
   %16 = fneg float %15
   store float %16, ptr %3, align 4, !tbaa !6
@@ -11104,7 +11104,7 @@ define dso_local void @_ZN4pbrt15RealisticCamera21ComputeCardinalPointsENS_3RayE
   %21 = fdiv float %19, %20
   %22 = load float, ptr %10, align 4, !tbaa !45
   %23 = fmul float %21, %22
-  %24 = load float, ptr %13, align 4, !tbaa !149
+  %24 = load float, ptr %13, align 8, !tbaa !149
   %25 = fadd float %23, %24
   %26 = fneg float %25
   store float %26, ptr %2, align 4, !tbaa !6
@@ -20852,7 +20852,7 @@ _ZN4pstd3pmr21polymorphic_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIc
   store i64 %60, ptr %61, align 8, !tbaa !34
   store ptr %51, ptr %48, align 8, !tbaa !37
   store i64 0, ptr %59, align 8, !tbaa !34
-  store i8 0, ptr %51, align 1, !tbaa !25
+  store i8 0, ptr %51, align 8, !tbaa !25
   %62 = add nuw i64 %.017, 1
   %63 = load i64, ptr %39, align 8, !tbaa !236
   %64 = icmp ult i64 %62, %63
@@ -21330,7 +21330,7 @@ _ZN4pstd3pmr21polymorphic_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIc
   store i64 %41, ptr %42, align 8, !tbaa !34
   store ptr %32, ptr %29, align 8, !tbaa !37
   store i64 0, ptr %40, align 8, !tbaa !34
-  store i8 0, ptr %32, align 1, !tbaa !25
+  store i8 0, ptr %32, align 8, !tbaa !25
   %43 = load ptr, ptr %16, align 8, !tbaa !310
   %44 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %43, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8, !tbaa !37

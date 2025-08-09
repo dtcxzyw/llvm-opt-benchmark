@@ -3501,7 +3501,7 @@ if.then10:                                        ; preds = %if.else8
   store ptr %3, ptr %call11, align 8, !tbaa !6
   %_M_string_length.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call11, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !10
-  store i8 0, ptr %3, align 1, !tbaa !13
+  store i8 0, ptr %3, align 8, !tbaa !13
   %MaxSkinWeightsPerVertex.i = getelementptr inbounds nuw i8, ptr %call11, i64 32
   store i32 0, ptr %MaxSkinWeightsPerVertex.i, align 8, !tbaa !206
   %MaxSkinWeightsPerFace.i = getelementptr inbounds nuw i8, ptr %call11, i64 36
@@ -4653,7 +4653,7 @@ if.then64:                                        ; preds = %if.else62
   store ptr %49, ptr %call65, align 8, !tbaa !6
   %_M_string_length.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call65, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !10
-  store i8 0, ptr %49, align 1, !tbaa !13
+  store i8 0, ptr %49, align 8, !tbaa !13
   %MaxSkinWeightsPerVertex.i = getelementptr inbounds nuw i8, ptr %call65, i64 32
   store i32 0, ptr %MaxSkinWeightsPerVertex.i, align 8, !tbaa !206
   %MaxSkinWeightsPerFace.i = getelementptr inbounds nuw i8, ptr %call65, i64 36
@@ -18180,7 +18180,7 @@ for.body.i:                                       ; preds = %if.then, %for.body.
   %arrayctor.end.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.06.i, i64 128
   store <4 x i32> <i32 0, i32 -1, i32 -1, i32 0>, ptr %arrayctor.end.i.i.i, align 8, !tbaa !13
   %SpecularColor.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.06.i, i64 144
-  store i32 -1, ptr %SpecularColor.i.i.i, align 4, !tbaa !55
+  store i32 -1, ptr %SpecularColor.i.i.i, align 8, !tbaa !55
   %Shininess.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.06.i, i64 148
   store <2 x float> zeroinitializer, ptr %Shininess.i.i.i, align 4, !tbaa !57
   %Thickness.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.06.i, i64 156
@@ -18292,7 +18292,7 @@ for.body.i6:                                      ; preds = %_ZNKSt6vectorIN3irr
   %arrayctor.end.i.i.i41 = getelementptr inbounds nuw i8, ptr %__cur.06.i7, i64 128
   store <4 x i32> <i32 0, i32 -1, i32 -1, i32 0>, ptr %arrayctor.end.i.i.i41, align 8, !tbaa !13
   %SpecularColor.i.i.i42 = getelementptr inbounds nuw i8, ptr %__cur.06.i7, i64 144
-  store i32 -1, ptr %SpecularColor.i.i.i42, align 4, !tbaa !55
+  store i32 -1, ptr %SpecularColor.i.i.i42, align 8, !tbaa !55
   %Shininess.i.i.i43 = getelementptr inbounds nuw i8, ptr %__cur.06.i7, i64 148
   store <2 x float> zeroinitializer, ptr %Shininess.i.i.i43, align 4, !tbaa !57
   %Thickness.i.i.i44 = getelementptr inbounds nuw i8, ptr %__cur.06.i7, i64 156

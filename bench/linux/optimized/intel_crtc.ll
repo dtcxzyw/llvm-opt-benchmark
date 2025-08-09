@@ -499,7 +499,7 @@ define dso_local void @intel_crtc_state_reset(ptr noundef initializes((0, 5032))
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1548
   store i32 -1, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1544
-  store i32 -1, ptr %6, align 4
+  store i32 -1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4916
   store i32 -1, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1360

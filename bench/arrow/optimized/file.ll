@@ -729,7 +729,7 @@ _ZN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEEC2
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 56
   store i64 -1, ptr %40, align 8, !tbaa !14
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  store i8 0, ptr %41, align 1, !tbaa !33
+  store i8 0, ptr %41, align 8, !tbaa !33
   %42 = getelementptr inbounds nuw i8, ptr %35, i64 72
   store ptr %2, ptr %42, align 8, !tbaa !34
   %43 = load ptr, ptr %34, align 8, !tbaa !37
@@ -914,7 +914,7 @@ _ZN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEEC2
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store i64 -1, ptr %16, align 8, !tbaa !14
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 64
-  store i8 0, ptr %17, align 1, !tbaa !33
+  store i8 0, ptr %17, align 8, !tbaa !33
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 72
   store ptr %1, ptr %18, align 8, !tbaa !34
   %19 = load ptr, ptr %10, align 8, !tbaa !37
@@ -2621,7 +2621,7 @@ define void @_ZN5arrow2io16FileOutputStreamC2Ev(ptr noundef nonnull align 8 dere
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 56
   store i64 -1, ptr %22, align 8, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 64
-  store i8 0, ptr %23, align 1, !tbaa !33
+  store i8 0, ptr %23, align 8, !tbaa !33
   %24 = load ptr, ptr %16, align 8, !tbaa !197
   store ptr %17, ptr %16, align 8, !tbaa !197
   %.not.i.i = icmp eq ptr %24, null
@@ -2702,7 +2702,7 @@ define void @_ZN5arrow2io16FileOutputStreamC1Ev(ptr noundef nonnull align 8 dere
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i64 -1, ptr %11, align 8, !tbaa !14
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  store i8 0, ptr %12, align 1, !tbaa !33
+  store i8 0, ptr %12, align 8, !tbaa !33
   %13 = load ptr, ptr %5, align 8, !tbaa !197
   store ptr %6, ptr %5, align 8, !tbaa !197
   %.not.i.i = icmp eq ptr %13, null
@@ -4702,7 +4702,7 @@ _ZSt11make_uniqueIN5arrow2io6OSFileEJEENSt8__detail9_MakeUniqIT_E15__single_obje
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store i64 -1, ptr %15, align 8, !tbaa !14, !noalias !275
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  store i8 0, ptr %16, align 1, !tbaa !33, !noalias !275
+  store i8 0, ptr %16, align 8, !tbaa !33, !noalias !275
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !278
   store ptr %10, ptr %17, align 8, !tbaa !278

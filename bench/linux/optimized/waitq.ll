@@ -826,9 +826,9 @@ define internal fastcc void @autofs_notify_daemon(ptr noundef %0, ptr noundef no
   %108 = getelementptr inbounds nuw i8, ptr %83, i64 1888
   %109 = load ptr, ptr %108, align 32
   %110 = call i64 @_raw_spin_lock_irqsave(ptr noundef %109) #12
-  %111 = load i64, ptr %84, align 8
+  %111 = load i64, ptr %84, align 16
   %112 = and i64 %111, -4097
-  store i64 %112, ptr %84, align 8
+  store i64 %112, ptr %84, align 16
   call void @recalc_sigpending() #12
   %113 = load ptr, ptr %108, align 32
   call void @_raw_spin_unlock_irqrestore(ptr noundef %113, i64 noundef %110) #12

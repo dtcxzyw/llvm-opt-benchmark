@@ -254,7 +254,7 @@ define hidden noundef ptr @_ZNK12MethodFamily26generate_conflicts_messageEP13Gro
   %29 = zext i16 %28 to i64
   call void @_ZN12stringStream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(129) %3, ptr noundef nonnull %26, i64 noundef %29) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = load i32, ptr %1, align 4
+  %30 = load i32, ptr %1, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
   br i1 %32, label %7, label %._crit_edge, !llvm.loop !6
@@ -1720,7 +1720,7 @@ _ZN26GrowableArrayWithAllocatorIP6Method13GrowableArrayIS1_EE4pushERKS1_.exit.i:
   store ptr %666, ptr %665, align 8
   %667 = getelementptr inbounds nuw i8, ptr %665, i64 8
   %668 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 16) #12
-  store i32 0, ptr %667, align 4
+  store i32 0, ptr %667, align 8
   %669 = getelementptr inbounds nuw i8, ptr %665, i64 12
   store i32 2, ptr %669, align 4
   %670 = getelementptr inbounds nuw i8, ptr %665, i64 16

@@ -850,7 +850,7 @@ _ZN8aiStringaSERKS_.exit:                         ; preds = %208, %213
   %255 = getelementptr inbounds nuw i8, ptr %249, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %255, ptr noundef nonnull align 1 dereferenceable(10) @.str.7, i64 10, i1 false)
   %256 = getelementptr inbounds nuw i8, ptr %249, i64 14
-  store i8 0, ptr %256, align 1
+  store i8 0, ptr %256, align 2
   store i32 0, ptr %251, align 8
   %257 = invoke noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #28
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152

@@ -1483,7 +1483,7 @@ define dso_local void @scsi_eh_prep_cmnd(ptr noundef captures(none) %0, ptr noun
   %41 = load i32, ptr %35, align 8
   %42 = trunc i32 %41 to i8
   %43 = getelementptr i8, ptr %0, i64 168
-  store i8 %42, ptr %43, align 4
+  store i8 %42, ptr %43, align 8
   br label %55
 
 44:                                               ; preds = %5

@@ -73,7 +73,7 @@ define dso_local void @intel_modeset_setup_hw_state(ptr noundef %0, ptr noundef 
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 7544
   %35 = load ptr, ptr %34, align 8
   tail call void %35(ptr noundef nonnull %29, i32 270464, i32 noundef %33, i1 noundef zeroext true) #6
-  %.pre = load i32, ptr %24, align 4
+  %.pre = load i32, ptr %24, align 8
   br label %36
 
 36:                                               ; preds = %28, %23

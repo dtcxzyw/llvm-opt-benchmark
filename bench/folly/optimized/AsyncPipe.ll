@@ -809,7 +809,7 @@ define linkonce_odr void @_ZThn184_N5folly15AsyncPipeReader9setReadCBEPNS_11Asyn
   store ptr %1, ptr %4, align 8, !tbaa !19
   %.not.i = icmp eq ptr %1, null
   %8 = getelementptr inbounds i8, ptr %0, i64 -160
-  %9 = load i16, ptr %8, align 2, !tbaa !68
+  %9 = load i16, ptr %8, align 8, !tbaa !68
   %10 = and i16 %9, 15
   %.not5.i = icmp eq i16 %10, 0
   br i1 %.not.i, label %14, label %11

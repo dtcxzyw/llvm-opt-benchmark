@@ -10411,7 +10411,7 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIi
   %__bbegin_bkt.043 = phi i64 [ %__bbegin_bkt.1, %if.end22 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN5sound12PlayingSoundEEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %1 = load ptr, ptr %__p.044, align 8, !tbaa !145
   %add.ptr = getelementptr inbounds nuw i8, ptr %__p.044, i64 8
-  %2 = load i32, ptr %add.ptr, align 4, !tbaa !61
+  %2 = load i32, ptr %add.ptr, align 8, !tbaa !61
   %conv.i.i.i = sext i32 %2 to i64
   %rem.i.i = urem i64 %conv.i.i.i, %__bkt_count
   %arrayidx = getelementptr inbounds ptr, ptr %retval.0.i, i64 %rem.i.i
@@ -11864,7 +11864,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %16, ptr %_M_string_length.i31.i.i.i.i.i.i.i, align 8, !tbaa !92, !alias.scope !322, !noalias !325
   store ptr %13, ptr %__first.addr.07.i.i.i, align 8, !tbaa !96, !alias.scope !325, !noalias !322
   store i64 0, ptr %_M_string_length.i30.i.i.i.i.i.i.i, align 8, !tbaa !92, !alias.scope !325, !noalias !322
-  store i8 0, ptr %13, align 1, !tbaa !60, !alias.scope !325, !noalias !322
+  store i8 0, ptr %13, align 8, !tbaa !60, !alias.scope !325, !noalias !322
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 32
   %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
@@ -11912,7 +11912,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %22, ptr %_M_string_length.i31.i.i.i.i.i.i.i59, align 8, !tbaa !92, !alias.scope !328, !noalias !331
   store ptr %19, ptr %__first.addr.07.i.i.i52, align 8, !tbaa !96, !alias.scope !331, !noalias !328
   store i64 0, ptr %_M_string_length.i30.i.i.i.i.i.i.i58, align 8, !tbaa !92, !alias.scope !331, !noalias !328
-  store i8 0, ptr %19, align 1, !tbaa !60, !alias.scope !331, !noalias !328
+  store i8 0, ptr %19, align 8, !tbaa !60, !alias.scope !331, !noalias !328
   %incdec.ptr.i.i.i60 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i52, i64 32
   %incdec.ptr1.i.i.i61 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i51, i64 32
   %cmp.not.i.i.i62 = icmp eq ptr %incdec.ptr.i.i.i60, %0

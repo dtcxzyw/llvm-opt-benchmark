@@ -8639,7 +8639,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %61, ptr %.sink6.i.i.i.i.i, align 8, !tbaa !487
   %62 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i, i64 8
   store i64 0, ptr %62, align 8, !tbaa !439
-  store i8 0, ptr %61, align 1, !tbaa !433
+  store i8 0, ptr %61, align 8, !tbaa !433
   %63 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull %.sink6.i.i.i.i.i)
   br label %_ZN11opencv_onnx9NodeProto9add_inputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -10623,7 +10623,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %67, ptr %.sink6.i.i.i.i.i, align 8, !tbaa !487
   %68 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i, i64 8
   store i64 0, ptr %68, align 8, !tbaa !439
-  store i8 0, ptr %67, align 1, !tbaa !433
+  store i8 0, ptr %67, align 8, !tbaa !433
   %69 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull %.sink6.i.i.i.i.i)
   br label %_ZN11opencv_onnx9NodeProto9add_inputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -10674,7 +10674,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %92, ptr %.sink6.i.i.i.i.i7, align 8, !tbaa !487
   %93 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i7, i64 8
   store i64 0, ptr %93, align 8, !tbaa !439
-  store i8 0, ptr %92, align 1, !tbaa !433
+  store i8 0, ptr %92, align 8, !tbaa !433
   %94 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull %.sink6.i.i.i.i.i7)
   br label %_ZN11opencv_onnx9NodeProto9add_inputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit9
 
@@ -11756,7 +11756,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %71, ptr %.sink6.i.i.i.i.i, align 8, !tbaa !487
   %72 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i, i64 8
   store i64 0, ptr %72, align 8, !tbaa !439
-  store i8 0, ptr %71, align 1, !tbaa !433
+  store i8 0, ptr %71, align 8, !tbaa !433
   %73 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull %.sink6.i.i.i.i.i)
   br label %_ZN11opencv_onnx9NodeProto9add_inputEPKc.exit
 
@@ -15681,7 +15681,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %134, ptr %.sink6.i.i.i.i.i, align 8, !tbaa !487
   %135 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i, i64 8
   store i64 0, ptr %135, align 8, !tbaa !439
-  store i8 0, ptr %134, align 1, !tbaa !433
+  store i8 0, ptr %134, align 8, !tbaa !433
   %136 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %110, ptr noundef nonnull %.sink6.i.i.i.i.i)
   br label %_ZN11opencv_onnx9NodeProto9add_inputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -15732,7 +15732,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %159, ptr %.sink6.i.i.i.i.i20, align 8, !tbaa !487
   %160 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i20, i64 8
   store i64 0, ptr %160, align 8, !tbaa !439
-  store i8 0, ptr %159, align 1, !tbaa !433
+  store i8 0, ptr %159, align 8, !tbaa !433
   %161 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %110, ptr noundef nonnull %.sink6.i.i.i.i.i20)
   br label %_ZN11opencv_onnx9NodeProto9add_inputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit22
 
@@ -38276,7 +38276,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %241, ptr %.sink6.i.i.i.i.i, align 8, !tbaa !487
   %242 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i, i64 8
   store i64 0, ptr %242, align 8, !tbaa !439
-  store i8 0, ptr %241, align 1, !tbaa !433
+  store i8 0, ptr %241, align 8, !tbaa !433
   %243 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %217, ptr noundef nonnull %.sink6.i.i.i.i.i)
   br label %_ZN11opencv_onnx9NodeProto9add_inputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -38327,7 +38327,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %266, ptr %.sink6.i.i.i.i.i46, align 8, !tbaa !487
   %267 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i46, i64 8
   store i64 0, ptr %267, align 8, !tbaa !439
-  store i8 0, ptr %266, align 1, !tbaa !433
+  store i8 0, ptr %266, align 8, !tbaa !433
   %268 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %217, ptr noundef nonnull %.sink6.i.i.i.i.i46)
   br label %_ZN11opencv_onnx9NodeProto9add_inputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit48
 
@@ -41329,7 +41329,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %241, ptr %.sink6.i.i.i.i.i, align 8, !tbaa !487
   %242 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i, i64 8
   store i64 0, ptr %242, align 8, !tbaa !439
-  store i8 0, ptr %241, align 1, !tbaa !433
+  store i8 0, ptr %241, align 8, !tbaa !433
   %243 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %217, ptr noundef nonnull %.sink6.i.i.i.i.i)
   br label %_ZN11opencv_onnx9NodeProto9add_inputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -41380,7 +41380,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %266, ptr %.sink6.i.i.i.i.i46, align 8, !tbaa !487
   %267 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i46, i64 8
   store i64 0, ptr %267, align 8, !tbaa !439
-  store i8 0, ptr %266, align 1, !tbaa !433
+  store i8 0, ptr %266, align 8, !tbaa !433
   %268 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %217, ptr noundef nonnull %.sink6.i.i.i.i.i46)
   br label %_ZN11opencv_onnx9NodeProto9add_inputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit48
 

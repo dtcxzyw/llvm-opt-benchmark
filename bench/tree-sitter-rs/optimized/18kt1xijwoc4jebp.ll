@@ -4039,10 +4039,10 @@ select.unfold593.i:                               ; preds = %1127
 
 1177:                                             ; preds = %1130
   %.val187.i = load i64, ptr %.sroa.0429.0782.i, align 8
-  %.val188.i = load i8, ptr %1092, align 1, !range !130, !noundef !5
+  %.val188.i = load i8, ptr %1092, align 8, !range !130, !noundef !5
   %.0146.val.i = load i64, ptr %.0146783.i, align 8
   %1178 = getelementptr i8, ptr %.0146783.i, i64 8
-  %.0146.val189.i = load i8, ptr %1178, align 1, !range !130, !noundef !5
+  %.0146.val189.i = load i8, ptr %1178, align 8, !range !130, !noundef !5
   %1179 = icmp eq i8 %.val188.i, %.0146.val189.i
   %1180 = icmp ult i64 %.val187.i, %.0146.val.i
   %1181 = icmp samesign ult i8 %.val188.i, %.0146.val189.i

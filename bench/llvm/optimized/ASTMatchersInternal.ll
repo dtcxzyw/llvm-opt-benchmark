@@ -7158,7 +7158,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
   store i64 %20, ptr %22, align 8, !tbaa !150
   store ptr %12, ptr %9, align 8, !tbaa !146
   store i64 0, ptr %21, align 8, !tbaa !150
-  store i8 0, ptr %12, align 1, !tbaa !59
+  store i8 0, ptr %12, align 8, !tbaa !59
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %23, i8 0, i64 40, i1 false)
   %24 = tail call { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5clang12DynTypedNodeEESt10_Select1stISA_ESt4lessIvESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %7)
@@ -7757,7 +7757,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %55, ptr %57, align 8, !tbaa !150, !alias.scope !688, !noalias !691
   store ptr %47, ptr %.0911.i.i.i, align 8, !tbaa !146, !alias.scope !691, !noalias !688
   store i64 0, ptr %56, align 8, !tbaa !150, !alias.scope !691, !noalias !688
-  store i8 0, ptr %47, align 1, !tbaa !59, !alias.scope !691, !noalias !688
+  store i8 0, ptr %47, align 8, !tbaa !59, !alias.scope !691, !noalias !688
   %58 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %59 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %58, %1
@@ -7805,7 +7805,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %71, ptr %73, align 8, !tbaa !150, !alias.scope !695, !noalias !698
   store ptr %63, ptr %.0911.i.i.i19, align 8, !tbaa !146, !alias.scope !698, !noalias !695
   store i64 0, ptr %72, align 8, !tbaa !150, !alias.scope !698, !noalias !695
-  store i8 0, ptr %63, align 1, !tbaa !59, !alias.scope !698, !noalias !695
+  store i8 0, ptr %63, align 8, !tbaa !59, !alias.scope !698, !noalias !695
   %74 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %75 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %74, %6

@@ -1148,7 +1148,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %23
   store i64 %244, ptr %245, align 8, !tbaa !16
   store ptr %235, ptr %29, align 8, !tbaa !11
   store i64 0, ptr %243, align 8, !tbaa !16
-  store i8 0, ptr %235, align 1, !tbaa !17
+  store i8 0, ptr %235, align 8, !tbaa !17
   %246 = getelementptr inbounds nuw i8, ptr %0, i64 1624
   store ptr %30, ptr %246, align 8, !tbaa !212
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 1632
@@ -12123,13 +12123,13 @@ define void @_ZNK7rocksdb8FlushJob15GetFlushJobInfoEv(ptr dead_on_unwind noalias
   store ptr %11, ptr %10, align 8, !tbaa !20
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %12, align 8, !tbaa !16
-  store i8 0, ptr %11, align 1, !tbaa !17
+  store i8 0, ptr %11, align 8, !tbaa !17
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store ptr %14, ptr %13, align 8, !tbaa !20
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store i64 0, ptr %15, align 8, !tbaa !16
-  store i8 0, ptr %14, align 1, !tbaa !17
+  store i8 0, ptr %14, align 8, !tbaa !17
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 264
@@ -12149,73 +12149,73 @@ define void @_ZNK7rocksdb8FlushJob15GetFlushJobInfoEv(ptr dead_on_unwind noalias
   store ptr %25, ptr %24, align 8, !tbaa !20
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 360
   store i64 0, ptr %26, align 8, !tbaa !16
-  store i8 0, ptr %25, align 1, !tbaa !17
+  store i8 0, ptr %25, align 8, !tbaa !17
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 384
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 400
   store ptr %28, ptr %27, align 8, !tbaa !20
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 392
   store i64 0, ptr %29, align 8, !tbaa !16
-  store i8 0, ptr %28, align 1, !tbaa !17
+  store i8 0, ptr %28, align 8, !tbaa !17
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 416
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 432
   store ptr %31, ptr %30, align 8, !tbaa !20
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 424
   store i64 0, ptr %32, align 8, !tbaa !16
-  store i8 0, ptr %31, align 1, !tbaa !17
+  store i8 0, ptr %31, align 8, !tbaa !17
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 448
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 464
   store ptr %34, ptr %33, align 8, !tbaa !20
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 456
   store i64 0, ptr %35, align 8, !tbaa !16
-  store i8 0, ptr %34, align 1, !tbaa !17
+  store i8 0, ptr %34, align 8, !tbaa !17
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 480
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 496
   store ptr %37, ptr %36, align 8, !tbaa !20
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 488
   store i64 0, ptr %38, align 8, !tbaa !16
-  store i8 0, ptr %37, align 1, !tbaa !17
+  store i8 0, ptr %37, align 8, !tbaa !17
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 512
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 528
   store ptr %40, ptr %39, align 8, !tbaa !20
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 520
   store i64 0, ptr %41, align 8, !tbaa !16
-  store i8 0, ptr %40, align 1, !tbaa !17
+  store i8 0, ptr %40, align 8, !tbaa !17
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 544
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 560
   store ptr %43, ptr %42, align 8, !tbaa !20
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 552
   store i64 0, ptr %44, align 8, !tbaa !16
-  store i8 0, ptr %43, align 1, !tbaa !17
+  store i8 0, ptr %43, align 8, !tbaa !17
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 576
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 592
   store ptr %46, ptr %45, align 8, !tbaa !20
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 584
   store i64 0, ptr %47, align 8, !tbaa !16
-  store i8 0, ptr %46, align 1, !tbaa !17
+  store i8 0, ptr %46, align 8, !tbaa !17
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 608
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 624
   store ptr %49, ptr %48, align 8, !tbaa !20
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 616
   store i64 0, ptr %50, align 8, !tbaa !16
-  store i8 0, ptr %49, align 1, !tbaa !17
+  store i8 0, ptr %49, align 8, !tbaa !17
   %51 = getelementptr inbounds nuw i8, ptr %9, i64 640
   %52 = getelementptr inbounds nuw i8, ptr %9, i64 656
   store ptr %52, ptr %51, align 8, !tbaa !20
   %53 = getelementptr inbounds nuw i8, ptr %9, i64 648
   store i64 0, ptr %53, align 8, !tbaa !16
-  store i8 0, ptr %52, align 1, !tbaa !17
+  store i8 0, ptr %52, align 8, !tbaa !17
   %54 = getelementptr inbounds nuw i8, ptr %9, i64 672
   %55 = getelementptr inbounds nuw i8, ptr %9, i64 688
   store ptr %55, ptr %54, align 8, !tbaa !20
   %56 = getelementptr inbounds nuw i8, ptr %9, i64 680
   store i64 0, ptr %56, align 8, !tbaa !16
-  store i8 0, ptr %55, align 1, !tbaa !17
+  store i8 0, ptr %55, align 8, !tbaa !17
   %57 = getelementptr inbounds nuw i8, ptr %9, i64 704
   %58 = getelementptr inbounds nuw i8, ptr %9, i64 720
   store ptr %58, ptr %57, align 8, !tbaa !20
   %59 = getelementptr inbounds nuw i8, ptr %9, i64 712
   store i64 0, ptr %59, align 8, !tbaa !16
-  store i8 0, ptr %58, align 1, !tbaa !17
+  store i8 0, ptr %58, align 8, !tbaa !17
   %60 = getelementptr inbounds nuw i8, ptr %9, i64 736
   %61 = getelementptr inbounds nuw i8, ptr %9, i64 744
   %62 = getelementptr inbounds nuw i8, ptr %9, i64 760
@@ -12242,7 +12242,7 @@ define void @_ZNK7rocksdb8FlushJob15GetFlushJobInfoEv(ptr dead_on_unwind noalias
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %73 = load ptr, ptr %72, align 8, !tbaa !22
   %74 = load i32, ptr %73, align 8, !tbaa !320
-  store i32 %74, ptr %9, align 8, !tbaa !933
+  store i32 %74, ptr %9, align 16, !tbaa !933
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %75)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit unwind label %176
@@ -19309,7 +19309,7 @@ _ZSt19__relocate_object_aIN7rocksdb20BlobFileAdditionInfoES1_SaIS1_EEvPT_PT0_RT1
   store i64 %52, ptr %54, align 8, !tbaa !16, !alias.scope !1150, !noalias !1153
   store ptr %44, ptr %.0911.i.i.i, align 8, !tbaa !11, !alias.scope !1153, !noalias !1150
   store i64 0, ptr %53, align 8, !tbaa !16, !alias.scope !1153, !noalias !1150
-  store i8 0, ptr %44, align 1, !tbaa !17, !alias.scope !1153, !noalias !1150
+  store i8 0, ptr %44, align 8, !tbaa !17, !alias.scope !1153, !noalias !1150
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %56 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %57 = load i64, ptr %56, align 8, !tbaa !947, !alias.scope !1153, !noalias !1150
@@ -19364,7 +19364,7 @@ _ZSt19__relocate_object_aIN7rocksdb20BlobFileAdditionInfoES1_SaIS1_EEvPT_PT0_RT1
   store i64 %73, ptr %75, align 8, !tbaa !16, !alias.scope !1157, !noalias !1160
   store ptr %65, ptr %.0911.i.i.i19, align 8, !tbaa !11, !alias.scope !1160, !noalias !1157
   store i64 0, ptr %74, align 8, !tbaa !16, !alias.scope !1160, !noalias !1157
-  store i8 0, ptr %65, align 1, !tbaa !17, !alias.scope !1160, !noalias !1157
+  store i8 0, ptr %65, align 8, !tbaa !17, !alias.scope !1160, !noalias !1157
   %76 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %77 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %78 = load i64, ptr %77, align 8, !tbaa !947, !alias.scope !1160, !noalias !1157

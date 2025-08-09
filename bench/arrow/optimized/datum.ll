@@ -5037,7 +5037,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %9,
   store i64 %15, ptr %17, align 8, !tbaa !247
   store ptr %7, ptr %1, align 8, !tbaa !252
   store i64 0, ptr %16, align 8, !tbaa !247
-  store i8 0, ptr %7, align 1, !tbaa !39
+  store i8 0, ptr %7, align 8, !tbaa !39
   %18 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow4utf8Ev()
           to label %19 unwind label %61
 
@@ -5211,7 +5211,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %10
   store i64 %16, ptr %18, align 8, !tbaa !247
   store ptr %8, ptr %1, align 8, !tbaa !252
   store i64 0, ptr %17, align 8, !tbaa !247
-  store i8 0, ptr %8, align 1, !tbaa !39
+  store i8 0, ptr %8, align 8, !tbaa !39
   %19 = load ptr, ptr %2, align 8, !tbaa !283
   store ptr %19, ptr %5, align 8, !tbaa !283
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8

@@ -1368,7 +1368,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %178, ptr %.sink6.i.i.i.i.i, align 8, !tbaa !84
   %179 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i.i, i64 8
   store i64 0, ptr %179, align 8, !tbaa !56
-  store i8 0, ptr %178, align 1, !tbaa !62
+  store i8 0, ptr %178, align 8, !tbaa !62
   %180 = call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull %.sink6.i.i.i.i.i)
   %.pre = load ptr, ptr %4, align 8, !tbaa !65
   br label %_ZN17opencv_tensorflow11TensorProto24_internal_add_string_valB5cxx11Ev.exit
@@ -3561,17 +3561,17 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.0.copyload.i.i.i = load i128, ptr %6, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 1 dereferenceable(16) %7, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i, ptr %7, align 1
+  store i128 %.0.copyload.i.i.i, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.0.copyload.i.i.i19 = load i128, ptr %8, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 1 dereferenceable(16) %9, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i19, ptr %9, align 1
+  store i128 %.0.copyload.i.i.i19, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.0.copyload.i.i.i20 = load i128, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 1 dereferenceable(16) %11, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i20, ptr %11, align 1
+  store i128 %.0.copyload.i.i.i20, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -3579,7 +3579,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %17 = load ptr, ptr %16, align 8, !tbaa !107, !noalias !108
   %18 = load i32, ptr %15, align 4, !tbaa !92, !noalias !108
-  %19 = load i32, ptr %14, align 4, !tbaa !92, !noalias !108
+  %19 = load i32, ptr %14, align 8, !tbaa !92, !noalias !108
   %20 = load ptr, ptr %13, align 8, !tbaa !111, !noalias !108
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -3589,7 +3589,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %26 = load i32, ptr %21, align 8, !tbaa !92, !noalias !112
   %27 = load ptr, ptr %12, align 8, !tbaa !111, !noalias !112
   store ptr %27, ptr %13, align 8, !tbaa !111
-  store i32 %26, ptr %14, align 4, !tbaa !92
+  store i32 %26, ptr %14, align 8, !tbaa !92
   store i32 %25, ptr %15, align 4, !tbaa !92
   store ptr %24, ptr %16, align 8, !tbaa !107
   store ptr %20, ptr %12, align 8, !tbaa !111
@@ -3600,27 +3600,27 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %.0.copyload.i.i.i21 = load i128, ptr %28, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 1 dereferenceable(16) %29, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i21, ptr %29, align 1
+  store i128 %.0.copyload.i.i.i21, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %.0.copyload.i.i.i22 = load i128, ptr %30, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 1 dereferenceable(16) %31, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i22, ptr %31, align 1
+  store i128 %.0.copyload.i.i.i22, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %.0.copyload.i.i.i23 = load i128, ptr %32, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 1 dereferenceable(16) %33, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i23, ptr %33, align 1
+  store i128 %.0.copyload.i.i.i23, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %.0.copyload.i.i.i24 = load i128, ptr %34, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 1 dereferenceable(16) %35, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i24, ptr %35, align 1
+  store i128 %.0.copyload.i.i.i24, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %.0.copyload.i.i.i25 = load i128, ptr %36, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 1 dereferenceable(16) %37, i64 16, i1 false)
-  store i128 %.0.copyload.i.i.i25, ptr %37, align 1
+  store i128 %.0.copyload.i.i.i25, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %.sroa.0.0.copyload.i = load ptr, ptr %39, align 8, !tbaa !60
@@ -3631,7 +3631,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %.0.copyload.i.i = load i128, ptr %41, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 1 dereferenceable(16) %42, i64 16, i1 false)
-  store i128 %.0.copyload.i.i, ptr %42, align 1
+  store i128 %.0.copyload.i.i, ptr %42, align 8
   ret void
 }
 
@@ -3657,7 +3657,7 @@ _ZN6google8protobuf5Arena14InternalHelperIN17opencv_tensorflow11TensorProtoEE3Ne
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 216
-  store i32 0, ptr %8, align 4, !tbaa !50
+  store i32 0, ptr %8, align 8, !tbaa !50
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)
@@ -3720,7 +3720,7 @@ _ZN6google8protobuf5Arena14InternalHelperIN17opencv_tensorflow11TensorProtoEE3Ne
   %37 = getelementptr inbounds nuw i8, ptr %11, i64 176
   store ptr %0, ptr %37, align 8, !tbaa !42
   %38 = getelementptr inbounds nuw i8, ptr %11, i64 216
-  store i32 0, ptr %38, align 4, !tbaa !50
+  store i32 0, ptr %38, align 8, !tbaa !50
   %39 = getelementptr inbounds nuw i8, ptr %11, i64 192
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %39, align 8, !tbaa !51
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalIN17opencv_tensorflow11TensorProtoEEEPT_PS1_.exit
@@ -3846,7 +3846,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %12, ptr %11, align 8, !tbaa !84
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %13, align 8, !tbaa !56
-  store i8 0, ptr %12, align 1, !tbaa !62
+  store i8 0, ptr %12, align 8, !tbaa !62
   %14 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv28
   store ptr %11, ptr %14, align 8, !tbaa !60
   %indvars.iv.next29 = add nsw i64 %indvars.iv28, 1
@@ -3865,7 +3865,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %19, ptr %16, align 8, !tbaa !84
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 0, ptr %20, align 8, !tbaa !56
-  store i8 0, ptr %19, align 1, !tbaa !62
+  store i8 0, ptr %19, align 8, !tbaa !62
   %21 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   store ptr %16, ptr %21, align 8, !tbaa !60
   %indvars.iv.next = add nsw i64 %indvars.iv, 1

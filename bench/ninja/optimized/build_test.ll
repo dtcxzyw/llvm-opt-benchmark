@@ -235349,13 +235349,13 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %7, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 1256
   store i64 0, ptr %8, align 8, !tbaa !15
-  store i8 0, ptr %7, align 1, !tbaa !14
+  store i8 0, ptr %7, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 1280
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 1296
   store ptr %10, ptr %9, align 8, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 1288
   store i64 0, ptr %11, align 8, !tbaa !15
-  store i8 0, ptr %10, align 1, !tbaa !14
+  store i8 0, ptr %10, align 8, !tbaa !14
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 1312
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 1328
   store ptr %13, ptr %12, align 8, !tbaa !4
@@ -235363,7 +235363,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 1320
   store i64 10, ptr %14, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 1338
-  store i8 0, ptr %15, align 1, !tbaa !14
+  store i8 0, ptr %15, align 2, !tbaa !14
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 1344
   store i8 0, ptr %16, align 8, !tbaa !1696
   store i8 0, ptr %4, align 8, !tbaa !447
@@ -235374,7 +235374,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %19, ptr %18, align 8, !tbaa !4
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 1376
   store i64 0, ptr %20, align 8, !tbaa !15
-  store i8 0, ptr %19, align 1, !tbaa !14
+  store i8 0, ptr %19, align 8, !tbaa !14
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 1400
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, i8 0, i64 48, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV52BuildWithQueryDepsLogTest_TwoOutputsDepFileMSVC_Test, i64 16), ptr %2, align 8, !tbaa !16
@@ -235511,13 +235511,13 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %7, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 1256
   store i64 0, ptr %8, align 8, !tbaa !15
-  store i8 0, ptr %7, align 1, !tbaa !14
+  store i8 0, ptr %7, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 1280
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 1296
   store ptr %10, ptr %9, align 8, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 1288
   store i64 0, ptr %11, align 8, !tbaa !15
-  store i8 0, ptr %10, align 1, !tbaa !14
+  store i8 0, ptr %10, align 8, !tbaa !14
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 1312
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 1328
   store ptr %13, ptr %12, align 8, !tbaa !4
@@ -235525,7 +235525,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 1320
   store i64 10, ptr %14, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 1338
-  store i8 0, ptr %15, align 1, !tbaa !14
+  store i8 0, ptr %15, align 2, !tbaa !14
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 1344
   store i8 0, ptr %16, align 8, !tbaa !1696
   store i8 0, ptr %4, align 8, !tbaa !447
@@ -235536,7 +235536,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %19, ptr %18, align 8, !tbaa !4
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 1376
   store i64 0, ptr %20, align 8, !tbaa !15
-  store i8 0, ptr %19, align 1, !tbaa !14
+  store i8 0, ptr %19, align 8, !tbaa !14
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 1400
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, i8 0, i64 48, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV58BuildWithQueryDepsLogTest_TwoOutputsDepFileGCCOneLine_Test, i64 16), ptr %2, align 8, !tbaa !16
@@ -235572,13 +235572,13 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %7, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 1256
   store i64 0, ptr %8, align 8, !tbaa !15
-  store i8 0, ptr %7, align 1, !tbaa !14
+  store i8 0, ptr %7, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 1280
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 1296
   store ptr %10, ptr %9, align 8, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 1288
   store i64 0, ptr %11, align 8, !tbaa !15
-  store i8 0, ptr %10, align 1, !tbaa !14
+  store i8 0, ptr %10, align 8, !tbaa !14
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 1312
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 1328
   store ptr %13, ptr %12, align 8, !tbaa !4
@@ -235586,7 +235586,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 1320
   store i64 10, ptr %14, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 1338
-  store i8 0, ptr %15, align 1, !tbaa !14
+  store i8 0, ptr %15, align 2, !tbaa !14
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 1344
   store i8 0, ptr %16, align 8, !tbaa !1696
   store i8 0, ptr %4, align 8, !tbaa !447
@@ -235597,7 +235597,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %19, ptr %18, align 8, !tbaa !4
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 1376
   store i64 0, ptr %20, align 8, !tbaa !15
-  store i8 0, ptr %19, align 1, !tbaa !14
+  store i8 0, ptr %19, align 8, !tbaa !14
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 1400
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, i8 0, i64 48, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV65BuildWithQueryDepsLogTest_TwoOutputsDepFileGCCMultiLineInput_Test, i64 16), ptr %2, align 8, !tbaa !16
@@ -235633,13 +235633,13 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %7, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 1256
   store i64 0, ptr %8, align 8, !tbaa !15
-  store i8 0, ptr %7, align 1, !tbaa !14
+  store i8 0, ptr %7, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 1280
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 1296
   store ptr %10, ptr %9, align 8, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 1288
   store i64 0, ptr %11, align 8, !tbaa !15
-  store i8 0, ptr %10, align 1, !tbaa !14
+  store i8 0, ptr %10, align 8, !tbaa !14
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 1312
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 1328
   store ptr %13, ptr %12, align 8, !tbaa !4
@@ -235647,7 +235647,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 1320
   store i64 10, ptr %14, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 1338
-  store i8 0, ptr %15, align 1, !tbaa !14
+  store i8 0, ptr %15, align 2, !tbaa !14
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 1344
   store i8 0, ptr %16, align 8, !tbaa !1696
   store i8 0, ptr %4, align 8, !tbaa !447
@@ -235658,7 +235658,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %19, ptr %18, align 8, !tbaa !4
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 1376
   store i64 0, ptr %20, align 8, !tbaa !15
-  store i8 0, ptr %19, align 1, !tbaa !14
+  store i8 0, ptr %19, align 8, !tbaa !14
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 1400
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, i8 0, i64 48, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV66BuildWithQueryDepsLogTest_TwoOutputsDepFileGCCMultiLineOutput_Test, i64 16), ptr %2, align 8, !tbaa !16
@@ -235694,13 +235694,13 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %7, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 1256
   store i64 0, ptr %8, align 8, !tbaa !15
-  store i8 0, ptr %7, align 1, !tbaa !14
+  store i8 0, ptr %7, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 1280
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 1296
   store ptr %10, ptr %9, align 8, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 1288
   store i64 0, ptr %11, align 8, !tbaa !15
-  store i8 0, ptr %10, align 1, !tbaa !14
+  store i8 0, ptr %10, align 8, !tbaa !14
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 1312
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 1328
   store ptr %13, ptr %12, align 8, !tbaa !4
@@ -235708,7 +235708,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 1320
   store i64 10, ptr %14, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 1338
-  store i8 0, ptr %15, align 1, !tbaa !14
+  store i8 0, ptr %15, align 2, !tbaa !14
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 1344
   store i8 0, ptr %16, align 8, !tbaa !1696
   store i8 0, ptr %4, align 8, !tbaa !447
@@ -235719,7 +235719,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %19, ptr %18, align 8, !tbaa !4
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 1376
   store i64 0, ptr %20, align 8, !tbaa !15
-  store i8 0, ptr %19, align 1, !tbaa !14
+  store i8 0, ptr %19, align 8, !tbaa !14
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 1400
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, i8 0, i64 48, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV65BuildWithQueryDepsLogTest_TwoOutputsDepFileGCCOnlyMainOutput_Test, i64 16), ptr %2, align 8, !tbaa !16
@@ -235755,13 +235755,13 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %7, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 1256
   store i64 0, ptr %8, align 8, !tbaa !15
-  store i8 0, ptr %7, align 1, !tbaa !14
+  store i8 0, ptr %7, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 1280
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 1296
   store ptr %10, ptr %9, align 8, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 1288
   store i64 0, ptr %11, align 8, !tbaa !15
-  store i8 0, ptr %10, align 1, !tbaa !14
+  store i8 0, ptr %10, align 8, !tbaa !14
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 1312
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 1328
   store ptr %13, ptr %12, align 8, !tbaa !4
@@ -235769,7 +235769,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 1320
   store i64 10, ptr %14, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 1338
-  store i8 0, ptr %15, align 1, !tbaa !14
+  store i8 0, ptr %15, align 2, !tbaa !14
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 1344
   store i8 0, ptr %16, align 8, !tbaa !1696
   store i8 0, ptr %4, align 8, !tbaa !447
@@ -235780,7 +235780,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %19, ptr %18, align 8, !tbaa !4
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 1376
   store i64 0, ptr %20, align 8, !tbaa !15
-  store i8 0, ptr %19, align 1, !tbaa !14
+  store i8 0, ptr %19, align 8, !tbaa !14
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 1400
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, i8 0, i64 48, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV70BuildWithQueryDepsLogTest_TwoOutputsDepFileGCCOnlySecondaryOutput_Test, i64 16), ptr %2, align 8, !tbaa !16
@@ -235813,13 +235813,13 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %6, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 1256
   store i64 0, ptr %7, align 8, !tbaa !15
-  store i8 0, ptr %6, align 1, !tbaa !14
+  store i8 0, ptr %6, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 1280
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 1296
   store ptr %9, ptr %8, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 1288
   store i64 0, ptr %10, align 8, !tbaa !15
-  store i8 0, ptr %9, align 1, !tbaa !14
+  store i8 0, ptr %9, align 8, !tbaa !14
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 1312
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 1328
   store ptr %12, ptr %11, align 8, !tbaa !4
@@ -235837,7 +235837,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 1360
   store i64 10, ptr %18, align 8, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 1378
-  store i8 0, ptr %19, align 1, !tbaa !14
+  store i8 0, ptr %19, align 2, !tbaa !14
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 1384
   store i8 0, ptr %20, align 8, !tbaa !1696
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV41BuildWithDepsLogTest_Straightforward_Test, i64 16), ptr %2, align 8, !tbaa !16
@@ -235876,13 +235876,13 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %6, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 1256
   store i64 0, ptr %7, align 8, !tbaa !15
-  store i8 0, ptr %6, align 1, !tbaa !14
+  store i8 0, ptr %6, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 1280
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 1296
   store ptr %9, ptr %8, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 1288
   store i64 0, ptr %10, align 8, !tbaa !15
-  store i8 0, ptr %9, align 1, !tbaa !14
+  store i8 0, ptr %9, align 8, !tbaa !14
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 1312
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 1328
   store ptr %12, ptr %11, align 8, !tbaa !4
@@ -235900,7 +235900,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 1360
   store i64 10, ptr %18, align 8, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 1378
-  store i8 0, ptr %19, align 1, !tbaa !14
+  store i8 0, ptr %19, align 2, !tbaa !14
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 1384
   store i8 0, ptr %20, align 8, !tbaa !1696
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV38BuildWithDepsLogTest_ObsoleteDeps_Test, i64 16), ptr %2, align 8, !tbaa !16
@@ -235933,13 +235933,13 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %6, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 1256
   store i64 0, ptr %7, align 8, !tbaa !15
-  store i8 0, ptr %6, align 1, !tbaa !14
+  store i8 0, ptr %6, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 1280
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 1296
   store ptr %9, ptr %8, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 1288
   store i64 0, ptr %10, align 8, !tbaa !15
-  store i8 0, ptr %9, align 1, !tbaa !14
+  store i8 0, ptr %9, align 8, !tbaa !14
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 1312
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 1328
   store ptr %12, ptr %11, align 8, !tbaa !4
@@ -235957,7 +235957,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 1360
   store i64 10, ptr %18, align 8, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 1378
-  store i8 0, ptr %19, align 1, !tbaa !14
+  store i8 0, ptr %19, align 2, !tbaa !14
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 1384
   store i8 0, ptr %20, align 8, !tbaa !1696
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV45BuildWithDepsLogTest_DepsIgnoredInDryRun_Test, i64 16), ptr %2, align 8, !tbaa !16
@@ -235990,13 +235990,13 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %6, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 1256
   store i64 0, ptr %7, align 8, !tbaa !15
-  store i8 0, ptr %6, align 1, !tbaa !14
+  store i8 0, ptr %6, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 1280
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 1296
   store ptr %9, ptr %8, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 1288
   store i64 0, ptr %10, align 8, !tbaa !15
-  store i8 0, ptr %9, align 1, !tbaa !14
+  store i8 0, ptr %9, align 8, !tbaa !14
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 1312
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 1328
   store ptr %12, ptr %11, align 8, !tbaa !4
@@ -236014,7 +236014,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 1360
   store i64 10, ptr %18, align 8, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 1378
-  store i8 0, ptr %19, align 1, !tbaa !14
+  store i8 0, ptr %19, align 2, !tbaa !14
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 1384
   store i8 0, ptr %20, align 8, !tbaa !1696
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV53BuildWithDepsLogTest_TestInputMtimeRaceCondition_Test, i64 16), ptr %2, align 8, !tbaa !16
@@ -236047,13 +236047,13 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %6, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 1256
   store i64 0, ptr %7, align 8, !tbaa !15
-  store i8 0, ptr %6, align 1, !tbaa !14
+  store i8 0, ptr %6, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 1280
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 1296
   store ptr %9, ptr %8, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 1288
   store i64 0, ptr %10, align 8, !tbaa !15
-  store i8 0, ptr %9, align 1, !tbaa !14
+  store i8 0, ptr %9, align 8, !tbaa !14
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 1312
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 1328
   store ptr %12, ptr %11, align 8, !tbaa !4
@@ -236071,7 +236071,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 1360
   store i64 10, ptr %18, align 8, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 1378
-  store i8 0, ptr %19, align 1, !tbaa !14
+  store i8 0, ptr %19, align 2, !tbaa !14
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 1384
   store i8 0, ptr %20, align 8, !tbaa !1696
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV64BuildWithDepsLogTest_TestInputMtimeRaceConditionWithDepFile_Test, i64 16), ptr %2, align 8, !tbaa !16
@@ -236129,13 +236129,13 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %6, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 1256
   store i64 0, ptr %7, align 8, !tbaa !15
-  store i8 0, ptr %6, align 1, !tbaa !14
+  store i8 0, ptr %6, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 1280
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 1296
   store ptr %9, ptr %8, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 1288
   store i64 0, ptr %10, align 8, !tbaa !15
-  store i8 0, ptr %9, align 1, !tbaa !14
+  store i8 0, ptr %9, align 8, !tbaa !14
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 1312
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 1328
   store ptr %12, ptr %11, align 8, !tbaa !4
@@ -236153,7 +236153,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 1360
   store i64 10, ptr %18, align 8, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 1378
-  store i8 0, ptr %19, align 1, !tbaa !14
+  store i8 0, ptr %19, align 2, !tbaa !14
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 1384
   store i8 0, ptr %20, align 8, !tbaa !1696
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV56BuildWithDepsLogTest_RestatDepfileDependencyDepsLog_Test, i64 16), ptr %2, align 8, !tbaa !16
@@ -236186,13 +236186,13 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %6, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 1256
   store i64 0, ptr %7, align 8, !tbaa !15
-  store i8 0, ptr %6, align 1, !tbaa !14
+  store i8 0, ptr %6, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 1280
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 1296
   store ptr %9, ptr %8, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 1288
   store i64 0, ptr %10, align 8, !tbaa !15
-  store i8 0, ptr %9, align 1, !tbaa !14
+  store i8 0, ptr %9, align 8, !tbaa !14
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 1312
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 1328
   store ptr %12, ptr %11, align 8, !tbaa !4
@@ -236210,7 +236210,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 1360
   store i64 10, ptr %18, align 8, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 1378
-  store i8 0, ptr %19, align 1, !tbaa !14
+  store i8 0, ptr %19, align 2, !tbaa !14
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 1384
   store i8 0, ptr %20, align 8, !tbaa !1696
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV42BuildWithDepsLogTest_DepFileOKDepsLog_Test, i64 16), ptr %2, align 8, !tbaa !16
@@ -236243,13 +236243,13 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %6, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 1256
   store i64 0, ptr %7, align 8, !tbaa !15
-  store i8 0, ptr %6, align 1, !tbaa !14
+  store i8 0, ptr %6, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 1280
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 1296
   store ptr %9, ptr %8, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 1288
   store i64 0, ptr %10, align 8, !tbaa !15
-  store i8 0, ptr %9, align 1, !tbaa !14
+  store i8 0, ptr %9, align 8, !tbaa !14
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 1312
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 1328
   store ptr %12, ptr %11, align 8, !tbaa !4
@@ -236267,7 +236267,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 1360
   store i64 10, ptr %18, align 8, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 1378
-  store i8 0, ptr %19, align 1, !tbaa !14
+  store i8 0, ptr %19, align 2, !tbaa !14
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 1384
   store i8 0, ptr %20, align 8, !tbaa !1696
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV57BuildWithDepsLogTest_DiscoveredDepDuringBuildChanged_Test, i64 16), ptr %2, align 8, !tbaa !16
@@ -236325,13 +236325,13 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %6, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 1256
   store i64 0, ptr %7, align 8, !tbaa !15
-  store i8 0, ptr %6, align 1, !tbaa !14
+  store i8 0, ptr %6, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 1280
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 1296
   store ptr %9, ptr %8, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 1288
   store i64 0, ptr %10, align 8, !tbaa !15
-  store i8 0, ptr %9, align 1, !tbaa !14
+  store i8 0, ptr %9, align 8, !tbaa !14
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 1312
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 1328
   store ptr %12, ptr %11, align 8, !tbaa !4
@@ -236349,7 +236349,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 1360
   store i64 10, ptr %18, align 8, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 1378
-  store i8 0, ptr %19, align 1, !tbaa !14
+  store i8 0, ptr %19, align 2, !tbaa !14
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 1384
   store i8 0, ptr %20, align 8, !tbaa !1696
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV53BuildWithDepsLogTest_RestatMissingDepfileDepslog_Test, i64 16), ptr %2, align 8, !tbaa !16
@@ -237101,13 +237101,13 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   store ptr %6, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 1256
   store i64 0, ptr %7, align 8, !tbaa !15
-  store i8 0, ptr %6, align 1, !tbaa !14
+  store i8 0, ptr %6, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 1280
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 1296
   store ptr %9, ptr %8, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 1288
   store i64 0, ptr %10, align 8, !tbaa !15
-  store i8 0, ptr %9, align 1, !tbaa !14
+  store i8 0, ptr %9, align 8, !tbaa !14
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 1312
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 1328
   store ptr %12, ptr %11, align 8, !tbaa !4
@@ -237125,7 +237125,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 1360
   store i64 10, ptr %18, align 8, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 1378
-  store i8 0, ptr %19, align 1, !tbaa !14
+  store i8 0, ptr %19, align 2, !tbaa !14
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 1384
   store i8 0, ptr %20, align 8, !tbaa !1696
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV50BuildWithDepsLogTest_ValidationThroughDepfile_Test, i64 16), ptr %2, align 8, !tbaa !16
@@ -239884,7 +239884,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !15, !alias.scope !2573, !noalias !2576
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !12, !alias.scope !2576, !noalias !2573
   store i64 0, ptr %48, align 8, !tbaa !15, !alias.scope !2576, !noalias !2573
-  store i8 0, ptr %39, align 1, !tbaa !14, !alias.scope !2576, !noalias !2573
+  store i8 0, ptr %39, align 8, !tbaa !14, !alias.scope !2576, !noalias !2573
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -239932,7 +239932,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !15, !alias.scope !2580, !noalias !2583
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !12, !alias.scope !2583, !noalias !2580
   store i64 0, ptr %64, align 8, !tbaa !15, !alias.scope !2583, !noalias !2580
-  store i8 0, ptr %55, align 1, !tbaa !14, !alias.scope !2583, !noalias !2580
+  store i8 0, ptr %55, align 8, !tbaa !14, !alias.scope !2583, !noalias !2580
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5
@@ -243591,7 +243591,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr %8, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %9, align 8, !tbaa !15
-  store i8 0, ptr %8, align 1, !tbaa !14
+  store i8 0, ptr %8, align 8, !tbaa !14
   store ptr %7, ptr %4, align 8, !tbaa !57
   br label %10
 
@@ -244829,7 +244829,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 %22, ptr %25, align 8, !tbaa !15
   store ptr %13, ptr %10, align 8, !tbaa !12
   store i64 0, ptr %24, align 8, !tbaa !15
-  store i8 0, ptr %13, align 1, !tbaa !14
+  store i8 0, ptr %13, align 8, !tbaa !14
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %26, i8 0, i64 72, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 72

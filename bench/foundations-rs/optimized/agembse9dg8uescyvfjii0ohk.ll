@@ -8917,7 +8917,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(112) ptr @"_ZN5al
   %53 = getelementptr inbounds nuw i8, ptr %9, i64 97
   %54 = load i8, ptr %53, align 1, !range !559, !alias.scope !1019, !noalias !1022, !noundef !7
   %.sroa.59.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 98
-  %.sroa.59.0.copyload.i.i.i = load i32, ptr %.sroa.59.0..sroa_idx.i.i.i, align 1, !alias.scope !1019, !noalias !1022
+  %.sroa.59.0.copyload.i.i.i = load i32, ptr %.sroa.59.0..sroa_idx.i.i.i, align 2, !alias.scope !1019, !noalias !1022
   %55 = getelementptr inbounds nuw i8, ptr %9, i64 102
   %56 = load i8, ptr %55, align 2, !range !559, !alias.scope !1019, !noalias !1022, !noundef !7
   %57 = trunc nuw i8 %56 to i1

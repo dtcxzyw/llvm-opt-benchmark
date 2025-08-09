@@ -2739,7 +2739,7 @@ _ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE
   %288 = getelementptr inbounds nuw i8, ptr %69, i64 448
   %289 = load float, ptr %288, align 4, !tbaa !4
   %290 = getelementptr inbounds nuw i8, ptr %69, i64 70
-  %291 = load i16, ptr %290, align 1, !tbaa !82
+  %291 = load i16, ptr %290, align 2, !tbaa !82
   %292 = and i16 %291, 7
   %.not.i155 = icmp eq i16 %292, 0
   br i1 %.not.i155, label %293, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit160

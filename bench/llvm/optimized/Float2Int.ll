@@ -1943,7 +1943,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEEN
 564:                                              ; preds = %561, %555
   store ptr %486, ptr %556, align 8, !tbaa !84, !noalias !176
   %565 = getelementptr inbounds nuw i8, ptr %556, i64 8
-  store i32 0, ptr %565, align 4, !tbaa !47, !noalias !176
+  store i32 0, ptr %565, align 8, !tbaa !47, !noalias !176
   %566 = load i32, ptr %80, align 8, !tbaa !26
   store i32 %566, ptr %565, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
@@ -6934,7 +6934,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEEN
   store ptr %60, ptr %50, align 8, !tbaa !84
   %61 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %62 = load i32, ptr %3, align 4, !tbaa !47
-  store i32 %62, ptr %61, align 4, !tbaa !47
+  store i32 %62, ptr %61, align 8, !tbaa !47
   %63 = load ptr, ptr %1, align 8, !tbaa !120
   %64 = load i32, ptr %7, align 8, !tbaa !123
   br label %.loopexit
@@ -7146,7 +7146,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEEN
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !47
-  store i32 %68, ptr %66, align 4, !tbaa !47
+  store i32 %68, ptr %66, align 8, !tbaa !47
   %69 = add i32 %38, 1
   store i32 %69, ptr %32, align 8, !tbaa !180
   br label %70
@@ -8005,7 +8005,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEEN
   store ptr %60, ptr %50, align 8, !tbaa !84
   %61 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %62 = load i32, ptr %3, align 4, !tbaa !47
-  store i32 %62, ptr %61, align 4, !tbaa !47
+  store i32 %62, ptr %61, align 8, !tbaa !47
   %63 = load ptr, ptr %1, align 8, !tbaa !120
   %64 = load i32, ptr %7, align 8, !tbaa !123
   br label %.loopexit

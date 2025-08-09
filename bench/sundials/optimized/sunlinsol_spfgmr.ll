@@ -342,7 +342,7 @@ switch.edge:
   %switch = icmp ult i32 %.off, 3
   %.not = icmp eq ptr %26, null
   %.not290 = icmp eq ptr %28, null
-  %46 = load i32, ptr %37, align 4, !tbaa !57
+  %46 = load i32, ptr %37, align 8, !tbaa !57
   %.not291 = icmp eq i32 %46, 0
   br i1 %.not291, label %48, label %47
 

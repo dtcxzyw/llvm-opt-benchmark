@@ -1619,7 +1619,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112: ; preds = %_Z
 _ZN5Yosys6IdTreeINS_10ModuleItemEE6Cursor6parentEv.exit: ; preds = %244
   %245 = load ptr, ptr %12, align 8, !tbaa !93
   store ptr %245, ptr %2, align 8, !tbaa !93
-  %246 = load i32, ptr %14, align 4, !tbaa !64
+  %246 = load i32, ptr %14, align 8, !tbaa !64
   %247 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !65, !range !67, !noundef !68
   %248 = trunc nuw i8 %247 to i1
   %249 = icmp ne i32 %246, 0
@@ -6544,7 +6544,7 @@ define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4dictINS_10ModuleItemENS_6IdTr
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %20 = load i32, ptr %19, align 8, !tbaa !64
-  store i32 %20, ptr %18, align 4, !tbaa !64
+  store i32 %20, ptr %18, align 8, !tbaa !64
   store i32 0, ptr %19, align 8, !tbaa !64
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i32 -1, ptr %21, align 8, !tbaa !201
@@ -6625,7 +6625,7 @@ _ZNK5Yosys7hashlib4dictINS_10ModuleItemENS_6IdTreeIS2_E6CursorENS0_8hash_opsIS2_
   %64 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %66 = load i32, ptr %65, align 8, !tbaa !64
-  store i32 %66, ptr %64, align 4, !tbaa !64
+  store i32 %66, ptr %64, align 8, !tbaa !64
   store i32 0, ptr %65, align 8, !tbaa !64
   %67 = getelementptr inbounds nuw i8, ptr %57, i64 32
   store i32 %60, ptr %67, align 8, !tbaa !201
@@ -6865,7 +6865,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictINS0_10ModuleItemENS0_6IdTreeIS3_E6CursorENS1_
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %29 = load i32, ptr %28, align 8, !tbaa !64
-  store i32 %29, ptr %27, align 4, !tbaa !64
+  store i32 %29, ptr %27, align 8, !tbaa !64
   store i32 0, ptr %28, align 8, !tbaa !64
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store i32 %23, ptr %30, align 8, !tbaa !201
@@ -6885,7 +6885,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictINS0_10ModuleItemENS0_6IdTreeIS3_E6CursorENS1_
   %34 = load ptr, ptr %33, align 8, !tbaa !93
   store ptr %34, ptr %32, align 8, !tbaa !93
   %35 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 24
-  %36 = load i32, ptr %35, align 4, !tbaa !64
+  %36 = load i32, ptr %35, align 8, !tbaa !64
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %36, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %42, label %37
 
@@ -6924,7 +6924,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_10ModuleItemE
   %52 = load ptr, ptr %51, align 8, !tbaa !93
   store ptr %52, ptr %50, align 8, !tbaa !93
   %53 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i32, i64 24
-  %54 = load i32, ptr %53, align 4, !tbaa !64
+  %54 = load i32, ptr %53, align 8, !tbaa !64
   %.not.i.i.i.i.i.i.i.i.i.i.i33 = icmp eq i32 %54, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i33, label %61, label %55
 
@@ -7048,7 +7048,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictINS0_10ModuleItemENS0_6IdTreeIS3_E6CursorENS1_
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %29 = load i32, ptr %28, align 8, !tbaa !64
-  store i32 %29, ptr %27, align 4, !tbaa !64
+  store i32 %29, ptr %27, align 8, !tbaa !64
   store i32 0, ptr %28, align 8, !tbaa !64
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store i32 %23, ptr %30, align 8, !tbaa !201
@@ -7068,7 +7068,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictINS0_10ModuleItemENS0_6IdTreeIS3_E6CursorENS1_
   %34 = load ptr, ptr %33, align 8, !tbaa !93
   store ptr %34, ptr %32, align 8, !tbaa !93
   %35 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 24
-  %36 = load i32, ptr %35, align 4, !tbaa !64
+  %36 = load i32, ptr %35, align 8, !tbaa !64
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %36, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %42, label %37
 
@@ -7107,7 +7107,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_10ModuleItemE
   %52 = load ptr, ptr %51, align 8, !tbaa !93
   store ptr %52, ptr %50, align 8, !tbaa !93
   %53 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i32, i64 24
-  %54 = load i32, ptr %53, align 4, !tbaa !64
+  %54 = load i32, ptr %53, align 8, !tbaa !64
   %.not.i.i.i.i.i.i.i.i.i.i.i33 = icmp eq i32 %54, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i33, label %61, label %55
 
@@ -10156,7 +10156,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStri
 
 _ZNSt10unique_ptrIN5Yosys6IdTreeINS0_10ModuleItemEEESt14default_deleteIS3_EED2Ev.exit.i.i.i: ; preds = %50, %.lr.ph.i
   store ptr null, ptr %48, align 8, !tbaa !226
-  %51 = load i32, ptr %.0.i.i3.i, align 4, !tbaa !64
+  %51 = load i32, ptr %.0.i.i3.i, align 8, !tbaa !64
   %52 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !65, !range !67, !noundef !68
   %53 = trunc nuw i8 %52 to i1
   %54 = icmp ne i32 %51, 0
@@ -10316,7 +10316,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStri
 
 _ZNSt10unique_ptrIN5Yosys6IdTreeINS0_10ModuleItemEEESt14default_deleteIS3_EED2Ev.exit.i.i.i: ; preds = %50, %.lr.ph.i
   store ptr null, ptr %48, align 8, !tbaa !226
-  %51 = load i32, ptr %.0.i.i3.i, align 4, !tbaa !64
+  %51 = load i32, ptr %.0.i.i3.i, align 8, !tbaa !64
   %52 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !65, !range !67, !noundef !68
   %53 = trunc nuw i8 %52 to i1
   %54 = icmp ne i32 %51, 0
@@ -10396,7 +10396,7 @@ define linkonce_odr void @_ZNKSt14default_deleteIN5Yosys6IdTreeINS0_10ModuleItem
 
 _ZNSt10unique_ptrIN5Yosys6IdTreeINS0_10ModuleItemEEESt14default_deleteIS3_EED2Ev.exit.i.i.i: ; preds = %12, %.lr.ph
   store ptr null, ptr %10, align 8, !tbaa !226
-  %13 = load i32, ptr %.0.i.i.i11, align 4, !tbaa !64
+  %13 = load i32, ptr %.0.i.i.i11, align 8, !tbaa !64
   %14 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !65, !range !67, !noundef !68
   %15 = trunc nuw i8 %14 to i1
   %16 = icmp ne i32 %13, 0
@@ -11267,7 +11267,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !105, !alias.scope !276, !noalias !279
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !112, !alias.scope !279, !noalias !276
   store i64 0, ptr %48, align 8, !tbaa !105, !alias.scope !279, !noalias !276
-  store i8 0, ptr %39, align 1, !tbaa !102, !alias.scope !279, !noalias !276
+  store i8 0, ptr %39, align 8, !tbaa !102, !alias.scope !279, !noalias !276
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -11315,7 +11315,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !105, !alias.scope !283, !noalias !286
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !112, !alias.scope !286, !noalias !283
   store i64 0, ptr %64, align 8, !tbaa !105, !alias.scope !286, !noalias !283
-  store i8 0, ptr %55, align 1, !tbaa !102, !alias.scope !286, !noalias !283
+  store i8 0, ptr %55, align 8, !tbaa !102, !alias.scope !286, !noalias !283
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5

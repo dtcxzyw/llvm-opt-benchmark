@@ -388,8 +388,8 @@ _ZN6hermes2vm7Runtime10makeAFixedINS0_8JSRegExpELNS0_12HasFinalizerE1ELNS0_9Long
   %bf.clear24.i.i.i.i.i.i = and i8 %bf.load.i.i.i.i.i.i, -128
   store i8 %bf.clear24.i.i.i.i.i.i, ptr %syntaxFlags_.i.i.i.i.i.i, align 4
   %groupNameMappings_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 40
-  store i32 0, ptr %groupNameMappings_.i.i.i.i.i.i, align 4
-  store i32 1040187440, ptr %call.i.i.i.i, align 4
+  store i32 0, ptr %groupNameMappings_.i.i.i.i.i.i, align 8
+  store i32 1040187440, ptr %call.i.i.i.i, align 8
   ret ptr %call.i.i.i.i
 }
 

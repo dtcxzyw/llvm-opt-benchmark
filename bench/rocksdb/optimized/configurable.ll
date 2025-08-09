@@ -9105,7 +9105,7 @@ _ZSt19__relocate_object_aIN7rocksdb12Configurable17RegisteredOptionsES2_SaIS2_EE
   store i64 %53, ptr %55, align 8, !tbaa !10, !alias.scope !208, !noalias !211
   store ptr %45, ptr %.0911.i.i.i, align 8, !tbaa !22, !alias.scope !211, !noalias !208
   store i64 0, ptr %54, align 8, !tbaa !10, !alias.scope !211, !noalias !208
-  store i8 0, ptr %45, align 1, !tbaa !13, !alias.scope !211, !noalias !208
+  store i8 0, ptr %45, align 8, !tbaa !13, !alias.scope !211, !noalias !208
   %56 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %57 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 16, i1 false), !alias.scope !213
@@ -9156,7 +9156,7 @@ _ZSt19__relocate_object_aIN7rocksdb12Configurable17RegisteredOptionsES2_SaIS2_EE
   store i64 %71, ptr %73, align 8, !tbaa !10, !alias.scope !215, !noalias !218
   store ptr %63, ptr %.0911.i.i.i29, align 8, !tbaa !22, !alias.scope !218, !noalias !215
   store i64 0, ptr %72, align 8, !tbaa !10, !alias.scope !218, !noalias !215
-  store i8 0, ptr %63, align 1, !tbaa !13, !alias.scope !218, !noalias !215
+  store i8 0, ptr %63, align 8, !tbaa !13, !alias.scope !218, !noalias !215
   %74 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %75 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef nonnull align 8 dereferenceable(16) %75, i64 16, i1 false), !alias.scope !220

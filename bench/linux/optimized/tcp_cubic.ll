@@ -103,9 +103,9 @@ define internal void @cubictcp_init(ptr noundef captures(none) initializes((1264
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1660
   %12 = load i32, ptr %11, align 4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1312
-  store i32 %12, ptr %13, align 4
+  store i32 %12, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1320
-  store i32 -1, ptr %14, align 4
+  store i32 -1, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1306
   store i8 0, ptr %15, align 2
   br label %20
@@ -476,9 +476,9 @@ define internal void @cubictcp_state(ptr noundef captures(none) %0, i8 noundef z
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1660
   %13 = load i32, ptr %12, align 4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1312
-  store i32 %13, ptr %14, align 4
+  store i32 %13, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1320
-  store i32 -1, ptr %15, align 4
+  store i32 -1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1306
   store i8 0, ptr %16, align 2
   br label %17
@@ -559,9 +559,9 @@ define internal void @cubictcp_acked(ptr noundef %0, ptr noundef readonly captur
   store i32 %49, ptr %51, align 4
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 1660
   %53 = load i32, ptr %52, align 4
-  store i32 %53, ptr %40, align 4
+  store i32 %53, ptr %40, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 1320
-  store i32 -1, ptr %54, align 4
+  store i32 -1, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 1306
   store i8 0, ptr %55, align 2
   br label %56

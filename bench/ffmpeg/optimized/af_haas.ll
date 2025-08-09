@@ -148,7 +148,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 160
   %.promoted = load i32, ptr %37, align 8, !tbaa !49
   %49 = load i32, ptr %39, align 4, !tbaa !50
-  %50 = load i32, ptr %41, align 4, !tbaa !50
+  %50 = load i32, ptr %41, align 8, !tbaa !50
   br label %51
 
 51:                                               ; preds = %.lr.ph, %70
@@ -307,7 +307,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %34 = fmul nsz double %31, %33
   %35 = fptoui double %34 to i32
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  store i32 %35, ptr %36, align 4, !tbaa !50
+  store i32 %35, ptr %36, align 8, !tbaa !50
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %38 = load i32, ptr %37, align 8, !tbaa !59
   %.not40 = icmp eq i32 %38, 0

@@ -17488,7 +17488,7 @@ _ZN7rocksdb11InternalKeyC2EOS0_.exit.i.i.i.i.i.i.i: ; preds = %_ZNKSt7__cxx1112b
   store i64 %32, ptr %34, align 8, !tbaa !16, !alias.scope !772, !noalias !775
   store ptr %24, ptr %.0911.i.i.i, align 8, !tbaa !11, !alias.scope !775, !noalias !772
   store i64 0, ptr %33, align 8, !tbaa !16, !alias.scope !775, !noalias !772
-  store i8 0, ptr %24, align 1, !tbaa !17, !alias.scope !775, !noalias !772
+  store i8 0, ptr %24, align 8, !tbaa !17, !alias.scope !775, !noalias !772
   %35 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %36 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %37 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 48
@@ -17522,7 +17522,7 @@ _ZSt19__relocate_object_aIN7rocksdb21ImportColumnFamilyJob26ColumnFamilyIngestFi
   store i64 %47, ptr %49, align 8, !tbaa !16, !alias.scope !772, !noalias !775
   store ptr %39, ptr %36, align 8, !tbaa !11, !alias.scope !775, !noalias !772
   store i64 0, ptr %48, align 8, !tbaa !16, !alias.scope !775, !noalias !772
-  store i8 0, ptr %39, align 1, !tbaa !17, !alias.scope !775, !noalias !772
+  store i8 0, ptr %39, align 8, !tbaa !17, !alias.scope !775, !noalias !772
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 64
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 64
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -17570,7 +17570,7 @@ _ZN7rocksdb11InternalKeyC2EOS0_.exit.i.i.i.i.i.i.i33: ; preds = %_ZNKSt7__cxx111
   store i64 %63, ptr %65, align 8, !tbaa !16, !alias.scope !779, !noalias !782
   store ptr %55, ptr %.0911.i.i.i29, align 8, !tbaa !11, !alias.scope !782, !noalias !779
   store i64 0, ptr %64, align 8, !tbaa !16, !alias.scope !782, !noalias !779
-  store i8 0, ptr %55, align 1, !tbaa !17, !alias.scope !782, !noalias !779
+  store i8 0, ptr %55, align 8, !tbaa !17, !alias.scope !782, !noalias !779
   %66 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   %68 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 48
@@ -17604,7 +17604,7 @@ _ZSt19__relocate_object_aIN7rocksdb21ImportColumnFamilyJob26ColumnFamilyIngestFi
   store i64 %78, ptr %80, align 8, !tbaa !16, !alias.scope !779, !noalias !782
   store ptr %70, ptr %67, align 8, !tbaa !11, !alias.scope !782, !noalias !779
   store i64 0, ptr %79, align 8, !tbaa !16, !alias.scope !782, !noalias !779
-  store i8 0, ptr %70, align 1, !tbaa !17, !alias.scope !782, !noalias !779
+  store i8 0, ptr %70, align 8, !tbaa !17, !alias.scope !782, !noalias !779
   %81 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 64
   %82 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 64
   %.not.i.i.i38 = icmp eq ptr %81, %5
@@ -17886,7 +17886,7 @@ _ZN7rocksdb11InternalKeyC2EOS0_.exit.i.i.i.i:     ; preds = %_ZNKSt7__cxx1112bas
   store i64 %79, ptr %58, align 8, !tbaa !16
   store ptr %70, ptr %68, align 8, !tbaa !11
   store i64 0, ptr %80, align 8, !tbaa !16
-  store i8 0, ptr %70, align 1, !tbaa !17
+  store i8 0, ptr %70, align 8, !tbaa !17
   %81 = getelementptr inbounds nuw i8, ptr %68, i64 32
   store ptr %60, ptr %59, align 8, !tbaa !22
   %82 = load ptr, ptr %81, align 8, !tbaa !11
@@ -17918,7 +17918,7 @@ _ZN7rocksdb21ImportColumnFamilyJob26ColumnFamilyIngestFileInfoC2EOS1_.exit.i.i.i
   store i64 %92, ptr %61, align 8, !tbaa !16
   store ptr %83, ptr %81, align 8, !tbaa !11
   store i64 0, ptr %93, align 8, !tbaa !16
-  store i8 0, ptr %83, align 1, !tbaa !17
+  store i8 0, ptr %83, align 8, !tbaa !17
   store ptr %62, ptr %23, align 8, !tbaa !22
   %94 = icmp eq ptr %78, %57
   br i1 %94, label %95, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i11.i.i.i
@@ -18104,7 +18104,7 @@ _ZN7rocksdb11InternalKeyC2EOS0_.exit.i.i:         ; preds = %_ZNKSt7__cxx1112bas
   store i64 %153, ptr %134, align 8, !tbaa !16
   store ptr %145, ptr %143, align 8, !tbaa !11
   store i64 0, ptr %154, align 8, !tbaa !16
-  store i8 0, ptr %145, align 1, !tbaa !17
+  store i8 0, ptr %145, align 8, !tbaa !17
   %155 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -32
   store ptr %136, ptr %135, align 8, !tbaa !22
   %156 = load ptr, ptr %155, align 8, !tbaa !11
@@ -18135,7 +18135,7 @@ _ZN7rocksdb21ImportColumnFamilyJob26ColumnFamilyIngestFileInfoC2EOS1_.exit.i: ; 
   store i64 %165, ptr %137, align 8, !tbaa !16
   store ptr %157, ptr %155, align 8, !tbaa !11
   store i64 0, ptr %166, align 8, !tbaa !16
-  store i8 0, ptr %157, align 1, !tbaa !17
+  store i8 0, ptr %157, align 8, !tbaa !17
   %167 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN7rocksdb21ImportColumnFamilyJob26ColumnFamilyIngestFileInfoaSEOS1_(ptr noundef nonnull align 8 dereferenceable(64) %143, ptr noundef nonnull align 8 dereferenceable(64) %0) #26
   %168 = ptrtoint ptr %143 to i64
   %169 = sub i64 %168, %24
@@ -18516,7 +18516,7 @@ _ZN7rocksdb11InternalKeyC2EOS0_.exit.i.i17:       ; preds = %_ZNKSt7__cxx1112bas
   store i64 %304, ptr %48, align 8, !tbaa !16
   store ptr %297, ptr %.sroa.016.1.i.i, align 8, !tbaa !11
   store i64 0, ptr %281, align 8, !tbaa !16
-  store i8 0, ptr %297, align 1, !tbaa !17
+  store i8 0, ptr %297, align 8, !tbaa !17
   %305 = getelementptr inbounds nuw i8, ptr %.sroa.016.1.i.i, i64 32
   store ptr %50, ptr %49, align 8, !tbaa !22
   %306 = load ptr, ptr %305, align 8, !tbaa !11
@@ -18547,7 +18547,7 @@ _ZN7rocksdb21ImportColumnFamilyJob26ColumnFamilyIngestFileInfoC2EOS1_.exit.i19: 
   store i64 %315, ptr %51, align 8, !tbaa !16
   store ptr %307, ptr %305, align 8, !tbaa !11
   store i64 0, ptr %316, align 8, !tbaa !16
-  store i8 0, ptr %307, align 1, !tbaa !17
+  store i8 0, ptr %307, align 8, !tbaa !17
   %317 = load ptr, ptr %.sroa.016.1.i.i, align 8, !tbaa !11
   %318 = icmp eq ptr %317, %297
   br i1 %318, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i43, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i.i28
@@ -19032,7 +19032,7 @@ _ZN7rocksdb11InternalKeyC2EOS0_.exit.i:           ; preds = %_ZNKSt7__cxx1112bas
   store i64 %61, ptr %63, align 8, !tbaa !16
   store ptr %53, ptr %3, align 8, !tbaa !11
   store i64 0, ptr %62, align 8, !tbaa !16
-  store i8 0, ptr %53, align 1, !tbaa !17
+  store i8 0, ptr %53, align 8, !tbaa !17
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 48
@@ -19066,7 +19066,7 @@ _ZN7rocksdb21ImportColumnFamilyJob26ColumnFamilyIngestFileInfoC2EOS1_.exit: ; pr
   store i64 %76, ptr %78, align 8, !tbaa !16
   store ptr %68, ptr %65, align 8, !tbaa !11
   store i64 0, ptr %77, align 8, !tbaa !16
-  store i8 0, ptr %68, align 1, !tbaa !17
+  store i8 0, ptr %68, align 8, !tbaa !17
   %79 = icmp sgt i64 %.1, %1
   br i1 %79, label %.lr.ph.i, label %.loopexit
 
@@ -19547,7 +19547,7 @@ _ZN7rocksdb11InternalKeyC2EOS0_.exit.i:           ; preds = %_ZNKSt7__cxx1112bas
   store i64 %38, ptr %13, align 8, !tbaa !16
   store ptr %31, ptr %.sroa.0.023, align 8, !tbaa !11
   store i64 0, ptr %20, align 8, !tbaa !16
-  store i8 0, ptr %31, align 1, !tbaa !17
+  store i8 0, ptr %31, align 8, !tbaa !17
   %39 = getelementptr inbounds nuw i8, ptr %.pn22, i64 96
   store ptr %15, ptr %14, align 8, !tbaa !22
   %40 = load ptr, ptr %39, align 8, !tbaa !11
@@ -19576,7 +19576,7 @@ _ZN7rocksdb21ImportColumnFamilyJob26ColumnFamilyIngestFileInfoC2EOS1_.exit: ; pr
   store i64 %50, ptr %16, align 8, !tbaa !16
   store ptr %41, ptr %39, align 8, !tbaa !11
   store i64 0, ptr %49, align 8, !tbaa !16
-  store i8 0, ptr %41, align 1, !tbaa !17
+  store i8 0, ptr %41, align 8, !tbaa !17
   %51 = ptrtoint ptr %.sroa.0.023 to i64
   %52 = sub i64 %51, %17
   %53 = ashr exact i64 %52, 6
@@ -19863,7 +19863,7 @@ _ZN7rocksdb11InternalKeyC2EOS0_.exit.i:           ; preds = %_ZNKSt7__cxx1112bas
   store i64 %16, ptr %18, align 8, !tbaa !16
   store ptr %8, ptr %0, align 8, !tbaa !11
   store i64 0, ptr %17, align 8, !tbaa !16
-  store i8 0, ptr %8, align 1, !tbaa !17
+  store i8 0, ptr %8, align 8, !tbaa !17
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 48
@@ -19897,7 +19897,7 @@ _ZN7rocksdb21ImportColumnFamilyJob26ColumnFamilyIngestFileInfoC2EOS1_.exit: ; pr
   store i64 %31, ptr %33, align 8, !tbaa !16
   store ptr %23, ptr %20, align 8, !tbaa !11
   store i64 0, ptr %32, align 8, !tbaa !16
-  store i8 0, ptr %23, align 1, !tbaa !17
+  store i8 0, ptr %23, align 8, !tbaa !17
   %34 = getelementptr i8, ptr %1, i64 16
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 8

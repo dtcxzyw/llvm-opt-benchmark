@@ -2641,9 +2641,9 @@ _ZNK8WasmEdge3AST7TagType15getAssocValSizeEv.exit: ; preds = %_ZN8WasmEdge7Runti
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %60, i64 -24
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !37
   %.sroa.4.i.sroa.4.0..sroa.4.0..sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %60, i64 -16
-  %.sroa.4.i.sroa.4.0.copyload = load ptr, ptr %.sroa.4.i.sroa.4.0..sroa.4.0..sroa_idx.i.sroa_idx, align 4, !noalias !37
+  %.sroa.4.i.sroa.4.0.copyload = load ptr, ptr %.sroa.4.i.sroa.4.0..sroa.4.0..sroa_idx.i.sroa_idx, align 8, !noalias !37
   %.sroa.4.i.sroa.5.0..sroa.4.0..sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %60, i64 -8
-  %.sroa.4.i.sroa.5.0.copyload = load i64, ptr %.sroa.4.i.sroa.5.0..sroa.4.0..sroa_idx.i.sroa_idx, align 4, !noalias !37
+  %.sroa.4.i.sroa.5.0.copyload = load i64, ptr %.sroa.4.i.sroa.5.0..sroa.4.0..sroa_idx.i.sroa_idx, align 8, !noalias !37
   store ptr %64, ptr %63, align 8, !noalias !37
   %65 = zext i32 %.sroa.2.0.copyload.i to i64
   %66 = load ptr, ptr %52, align 8, !noalias !37

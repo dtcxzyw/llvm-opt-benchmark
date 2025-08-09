@@ -5579,7 +5579,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi61EEERS2_RAT__Kc.exit: ; pr
   %185 = load i64, ptr %184, align 8, !tbaa !435
   %186 = add i64 %183, %185
   %187 = getelementptr inbounds nuw i8, ptr %1, i64 1960
-  %188 = load i32, ptr %187, align 4, !tbaa !581
+  %188 = load i32, ptr %187, align 8, !tbaa !581
   %189 = zext i32 %188 to i64
   %.not137 = icmp ult i64 %186, %189
   br i1 %.not137, label %197, label %190, !prof !295

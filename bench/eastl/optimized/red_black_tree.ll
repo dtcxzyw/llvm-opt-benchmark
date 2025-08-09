@@ -697,10 +697,10 @@ if.end90:                                         ; preds = %if.then83, %if.else
   store ptr %26, ptr %mpNodeParent92, align 8
   %mColor = getelementptr inbounds nuw i8, ptr %pNodeSuccessor.1, i64 24
   %mColor93 = getelementptr inbounds nuw i8, ptr %pNode, i64 24
-  %27 = load i8, ptr %mColor, align 1
-  %28 = load i8, ptr %mColor93, align 1
-  store i8 %28, ptr %mColor, align 1
-  store i8 %27, ptr %mColor93, align 1
+  %27 = load i8, ptr %mColor, align 8
+  %28 = load i8, ptr %mColor93, align 8
+  store i8 %28, ptr %mColor, align 8
+  store i8 %27, ptr %mColor93, align 8
   br label %if.end94
 
 if.end94:                                         ; preds = %if.end44, %if.else53, %_ZN5eastl17RBTreeGetMaxChildEPKNS_16rbtree_node_baseE.exit, %if.end90

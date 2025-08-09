@@ -32464,7 +32464,7 @@ define internal fastcc void @"_ZN11polars_pipe9executors5sinks8group_by6string17
   %149 = getelementptr inbounds i8, ptr %147, i64 -8
   %150 = getelementptr i8, ptr %147, i64 -16
   %.val.i.i = load i32, ptr %150, align 8, !noalias !2128, !noundef !3
-  %.val11.i.i = load i32, ptr %149, align 4, !noalias !2128, !noundef !3
+  %.val11.i.i = load i32, ptr %149, align 8, !noalias !2128, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !2129
   call void @llvm.lifetime.start.p0(ptr nonnull %33), !noalias !2129
   %151 = zext i32 %.val.i.i to i64

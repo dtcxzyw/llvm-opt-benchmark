@@ -1146,7 +1146,7 @@ _ZN4llvm12DenseMapInfoINS_12DivRemMapKeyEvE7isEqualERKS1_S4_.exit.thread.i.i.i13
   %423 = getelementptr inbounds nuw i8, ptr %406, i64 16
   store ptr %317, ptr %423, align 8, !tbaa !50, !noalias !66
   %424 = getelementptr inbounds nuw i8, ptr %406, i64 24
-  store i32 0, ptr %424, align 4, !tbaa !73, !noalias !66
+  store i32 0, ptr %424, align 8, !tbaa !73, !noalias !66
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !15
   store i8 1, ptr %9, align 8, !tbaa !74, !noalias !15
   store ptr %315, ptr %.sroa.5212.0..sroa_idx213.i.i, align 8, !tbaa !75, !noalias !15
@@ -1443,7 +1443,7 @@ _ZN4llvm12DenseMapInfoINS_12DivRemMapKeyEvE7isEqualERKS1_S4_.exit.thread.i.i.i15
   %566 = getelementptr inbounds nuw i8, ptr %549, i64 16
   store ptr %462, ptr %566, align 8, !tbaa !50, !noalias !82
   %567 = getelementptr inbounds nuw i8, ptr %549, i64 24
-  store i32 0, ptr %567, align 4, !tbaa !73, !noalias !82
+  store i32 0, ptr %567, align 8, !tbaa !73, !noalias !82
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !15
   store i8 0, ptr %8, align 8, !tbaa !74, !noalias !15
   store ptr %460, ptr %.sroa.5203.0..sroa_idx204.i.i, align 8, !tbaa !75, !noalias !15
@@ -3882,7 +3882,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %51, ptr %53, align 8, !tbaa !14, !alias.scope !173, !noalias !176
   store ptr %43, ptr %.0911.i.i.i, align 8, !tbaa !11, !alias.scope !176, !noalias !173
   store i64 0, ptr %52, align 8, !tbaa !14, !alias.scope !176, !noalias !173
-  store i8 0, ptr %43, align 1, !tbaa !13, !alias.scope !176, !noalias !173
+  store i8 0, ptr %43, align 8, !tbaa !13, !alias.scope !176, !noalias !173
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %54, %1
@@ -3930,7 +3930,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %67, ptr %69, align 8, !tbaa !14, !alias.scope !180, !noalias !183
   store ptr %59, ptr %.0911.i.i.i19, align 8, !tbaa !11, !alias.scope !183, !noalias !180
   store i64 0, ptr %68, align 8, !tbaa !14, !alias.scope !183, !noalias !180
-  store i8 0, ptr %59, align 1, !tbaa !13, !alias.scope !183, !noalias !180
+  store i8 0, ptr %59, align 8, !tbaa !13, !alias.scope !183, !noalias !180
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %70, %6
@@ -4190,7 +4190,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
   store i64 %52, ptr %53, align 8, !tbaa !14
   store ptr %43, ptr %40, align 8, !tbaa !11
   store i64 0, ptr %51, align 8, !tbaa !14
-  store i8 0, ptr %43, align 1, !tbaa !13
+  store i8 0, ptr %43, align 8, !tbaa !13
   %54 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 64
   %55 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 80
   store ptr %55, ptr %54, align 8, !tbaa !18
@@ -4877,7 +4877,7 @@ _ZN4llvm12DenseMapInfoINS_12DivRemMapKeyEvE7isEqualERKS1_S4_.exit.thread.i.i: ; 
   store ptr %89, ptr %87, align 8, !tbaa !50
   %90 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %91 = load i32, ptr %3, align 4, !tbaa !73
-  store i32 %91, ptr %90, align 4, !tbaa !73
+  store i32 %91, ptr %90, align 8, !tbaa !73
   %92 = load ptr, ptr %1, align 8, !tbaa !63
   %93 = load i32, ptr %7, align 8, !tbaa !69
   br label %.loopexit
@@ -5208,8 +5208,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_12DivRemMapKeyEjNS_12DenseMapInfoIS2_vEEN
   store ptr %69, ptr %68, align 8, !tbaa !50
   %70 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 24
   %71 = getelementptr inbounds nuw i8, ptr %.025, i64 24
-  %72 = load i32, ptr %71, align 4, !tbaa !73
-  store i32 %72, ptr %70, align 4, !tbaa !73
+  %72 = load i32, ptr %71, align 8, !tbaa !73
+  store i32 %72, ptr %70, align 8, !tbaa !73
   %73 = load i32, ptr %4, align 8, !tbaa !71
   %74 = add i32 %73, 1
   store i32 %74, ptr %4, align 8, !tbaa !71

@@ -1852,7 +1852,7 @@ _ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %32, %38
   %53 = lshr i32 %52, 22
   %54 = and i32 %53, 7
   %55 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %56 = load i32, ptr %55, align 4, !tbaa !151
+  %56 = load i32, ptr %55, align 8, !tbaa !151
   %57 = mul i32 %54, %56
   %58 = zext i32 %57 to i64
   %.not.i.i = icmp eq i64 %.sroa.3.0.i, %58
@@ -2674,7 +2674,7 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_13StringLiteralEEENS1_15
   %214 = getelementptr inbounds nuw i8, ptr %210, i64 24
   store i64 14, ptr %214, align 8, !tbaa !35, !noalias !219
   %215 = getelementptr inbounds nuw i8, ptr %210, i64 46
-  store i8 0, ptr %215, align 1, !tbaa !36, !noalias !219
+  store i8 0, ptr %215, align 2, !tbaa !36, !noalias !219
   %216 = atomicrmw add ptr %211, i32 1 monotonic, align 4, !noalias !222
   call void @llvm.experimental.noalias.scope.decl(metadata !225)
   call void @llvm.experimental.noalias.scope.decl(metadata !228)
@@ -3117,11 +3117,11 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_13CXXRecordDeclEEENS1_15
   %401 = getelementptr inbounds nuw i8, ptr %399, i64 16
   %402 = getelementptr inbounds nuw i8, ptr %399, i64 32
   store ptr %402, ptr %401, align 8, !tbaa !43, !noalias !264
-  store i64 8386658438684300111, ptr %402, align 1, !noalias !264
+  store i64 8386658438684300111, ptr %402, align 8, !noalias !264
   %403 = getelementptr inbounds nuw i8, ptr %399, i64 24
   store i64 8, ptr %403, align 8, !tbaa !35, !noalias !264
   %404 = getelementptr inbounds nuw i8, ptr %399, i64 40
-  store i8 0, ptr %404, align 1, !tbaa !36, !noalias !264
+  store i8 0, ptr %404, align 8, !tbaa !36, !noalias !264
   %405 = atomicrmw add ptr %400, i32 1 monotonic, align 4, !noalias !264
   call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !267
   call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !267

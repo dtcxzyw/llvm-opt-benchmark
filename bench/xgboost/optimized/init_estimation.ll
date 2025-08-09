@@ -1325,7 +1325,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit7: ; preds = %_ZNSol
   store ptr %14, ptr %12, align 8, !tbaa !34, !alias.scope !82
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 0, ptr %15, align 8, !tbaa !37, !alias.scope !82
-  store i8 0, ptr %14, align 1, !tbaa !39, !alias.scope !82
+  store i8 0, ptr %14, align 8, !tbaa !39, !alias.scope !82
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %17 = load ptr, ptr %16, align 8, !tbaa !83, !noalias !82
   %.not.i.not.i.i = icmp eq ptr %17, null
@@ -3569,7 +3569,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit6: ; preds = %11
   store ptr %15, ptr %13, align 8, !tbaa !34, !alias.scope !146
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %16, align 8, !tbaa !37, !alias.scope !146
-  store i8 0, ptr %15, align 1, !tbaa !39, !alias.scope !146
+  store i8 0, ptr %15, align 8, !tbaa !39, !alias.scope !146
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %18 = load ptr, ptr %17, align 8, !tbaa !83, !noalias !146
   %.not.i.not.i.i = icmp eq ptr %18, null

@@ -1554,7 +1554,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i32 1, ptr %72, align 4, !tbaa !53, !noalias !81
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6atomicIiESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %67, align 8, !tbaa !27, !noalias !81
   %73 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  store i32 383, ptr %73, align 4, !tbaa !84, !noalias !81
+  store i32 383, ptr %73, align 8, !tbaa !84, !noalias !81
   store ptr %67, ptr %70, align 8, !tbaa !16, !alias.scope !86
   store ptr %73, ptr %69, align 8, !tbaa !55, !alias.scope !86
   invoke void @_ZN5boost7process2v16detail5posix8executorINS_6fusion10joint_viewINS5_5tupleIJNS3_12exe_cmd_initIcEENS2_12set_on_errorEEEENS5_11filter_viewIKNS7_IJRPcRSt10error_codeEEENS2_14is_initializerIN4mpl_3argILin1EEEEEEEEEE6invokeENSK_5bool_ILb0EEESS_(ptr dead_on_unwind writable sret(%"class.boost::process::v1::child") align 8 %0, ptr noundef nonnull align 8 dereferenceable(152) %9)
@@ -2365,7 +2365,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %47, ptr %49, align 8, !tbaa !33, !alias.scope !90, !noalias !93
   store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !29, !alias.scope !93, !noalias !90
   store i64 0, ptr %48, align 8, !tbaa !33, !alias.scope !93, !noalias !90
-  store i8 0, ptr %39, align 1, !tbaa !44, !alias.scope !93, !noalias !90
+  store i8 0, ptr %39, align 8, !tbaa !44, !alias.scope !93, !noalias !90
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -2413,7 +2413,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %63, ptr %65, align 8, !tbaa !33, !alias.scope !97, !noalias !100
   store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !29, !alias.scope !100, !noalias !97
   store i64 0, ptr %64, align 8, !tbaa !33, !alias.scope !100, !noalias !97
-  store i8 0, ptr %55, align 1, !tbaa !44, !alias.scope !100, !noalias !97
+  store i8 0, ptr %55, align 8, !tbaa !44, !alias.scope !100, !noalias !97
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5
@@ -7561,7 +7561,7 @@ _ZN5boost7process2v16detail5posix8executorINS_6fusion10joint_viewINS5_5tupleIJNS
   store i32 1, ptr %128, align 4, !tbaa !53, !noalias !22
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6atomicIiESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %.sink77, align 8, !tbaa !27, !noalias !22
   %129 = getelementptr inbounds nuw i8, ptr %.sink77, i64 16
-  store i32 383, ptr %129, align 4, !tbaa !84, !noalias !22
+  store i32 383, ptr %129, align 8, !tbaa !84, !noalias !22
   store ptr %.sink77, ptr %125, align 8, !tbaa !16
   store ptr %129, ptr %126, align 8, !tbaa !55
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -7627,7 +7627,7 @@ _ZZN5boost7process2v16detail5posix8executorINS_6fusion10joint_viewINS5_5tupleIJN
   store i32 1, ptr %159, align 4, !tbaa !53, !noalias !457
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6atomicIiESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %157, align 8, !tbaa !27, !noalias !457
   %160 = getelementptr inbounds nuw i8, ptr %157, i64 16
-  store i32 383, ptr %160, align 4, !tbaa !84, !noalias !457
+  store i32 383, ptr %160, align 8, !tbaa !84, !noalias !457
   store ptr %157, ptr %156, align 8, !tbaa !16, !alias.scope !457
   store ptr %160, ptr %155, align 8, !tbaa !55, !alias.scope !457
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -7704,7 +7704,7 @@ _ZN5boost7process2v15childC2Ev.exit61:            ; preds = %185
   store i32 1, ptr %195, align 4, !tbaa !53, !noalias !467
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6atomicIiESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %191, align 8, !tbaa !27, !noalias !467
   %196 = getelementptr inbounds nuw i8, ptr %191, i64 16
-  store i32 383, ptr %196, align 4, !tbaa !84, !noalias !467
+  store i32 383, ptr %196, align 8, !tbaa !84, !noalias !467
   store ptr %191, ptr %192, align 8, !tbaa !16, !alias.scope !467
   store ptr %196, ptr %193, align 8, !tbaa !55, !alias.scope !467
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -12105,7 +12105,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i32 1, ptr %71, align 4, !tbaa !53, !noalias !566
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6atomicIiESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %66, align 8, !tbaa !27, !noalias !566
   %72 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  store i32 383, ptr %72, align 4, !tbaa !84, !noalias !566
+  store i32 383, ptr %72, align 8, !tbaa !84, !noalias !566
   store ptr %66, ptr %69, align 8, !tbaa !16, !alias.scope !569
   store ptr %72, ptr %68, align 8, !tbaa !55, !alias.scope !569
   invoke void @_ZN5boost7process2v16detail5posix8executorINS_6fusion10joint_viewINS5_5tupleIJNS3_12exe_cmd_initIcEENS2_12set_on_errorEEEENS5_11filter_viewIKNS7_IJRA13_KcRSt10error_codeEEENS2_14is_initializerIN4mpl_3argILin1EEEEEEEEEE6invokeENSL_5bool_ILb0EEEST_(ptr dead_on_unwind writable sret(%"class.boost::process::v1::child") align 8 %0, ptr noundef nonnull align 8 dereferenceable(152) %9)
@@ -12740,7 +12740,7 @@ _ZN5boost7process2v16detail5posix8executorINS_6fusion10joint_viewINS5_5tupleIJNS
   store i32 1, ptr %128, align 4, !tbaa !53, !noalias !22
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6atomicIiESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %.sink77, align 8, !tbaa !27, !noalias !22
   %129 = getelementptr inbounds nuw i8, ptr %.sink77, i64 16
-  store i32 383, ptr %129, align 4, !tbaa !84, !noalias !22
+  store i32 383, ptr %129, align 8, !tbaa !84, !noalias !22
   store ptr %.sink77, ptr %125, align 8, !tbaa !16
   store ptr %129, ptr %126, align 8, !tbaa !55
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -12806,7 +12806,7 @@ _ZZN5boost7process2v16detail5posix8executorINS_6fusion10joint_viewINS5_5tupleIJN
   store i32 1, ptr %159, align 4, !tbaa !53, !noalias !605
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6atomicIiESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %157, align 8, !tbaa !27, !noalias !605
   %160 = getelementptr inbounds nuw i8, ptr %157, i64 16
-  store i32 383, ptr %160, align 4, !tbaa !84, !noalias !605
+  store i32 383, ptr %160, align 8, !tbaa !84, !noalias !605
   store ptr %157, ptr %156, align 8, !tbaa !16, !alias.scope !605
   store ptr %160, ptr %155, align 8, !tbaa !55, !alias.scope !605
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -12883,7 +12883,7 @@ _ZN5boost7process2v15childC2Ev.exit61:            ; preds = %185
   store i32 1, ptr %195, align 4, !tbaa !53, !noalias !615
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6atomicIiESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %191, align 8, !tbaa !27, !noalias !615
   %196 = getelementptr inbounds nuw i8, ptr %191, i64 16
-  store i32 383, ptr %196, align 4, !tbaa !84, !noalias !615
+  store i32 383, ptr %196, align 8, !tbaa !84, !noalias !615
   store ptr %191, ptr %192, align 8, !tbaa !16, !alias.scope !615
   store ptr %196, ptr %193, align 8, !tbaa !55, !alias.scope !615
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -13960,7 +13960,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i32 1, ptr %64, align 4, !tbaa !53, !noalias !645
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6atomicIiESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %59, align 8, !tbaa !27, !noalias !645
   %65 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  store i32 383, ptr %65, align 4, !tbaa !84, !noalias !645
+  store i32 383, ptr %65, align 8, !tbaa !84, !noalias !645
   store ptr %59, ptr %62, align 8, !tbaa !16, !alias.scope !648
   store ptr %65, ptr %61, align 8, !tbaa !55, !alias.scope !648
   invoke void @_ZN5boost7process2v16detail5posix8executorINS_6fusion10joint_viewINS5_5tupleIJNS3_12exe_cmd_initIcEEEEENS5_11filter_viewIKNS7_IJRA13_KcEEENS2_14is_initializerIN4mpl_3argILin1EEEEEEEEEE6invokeENSI_5bool_ILb0EEESQ_(ptr dead_on_unwind writable sret(%"class.boost::process::v1::child") align 8 %0, ptr noundef nonnull align 8 dereferenceable(152) %8)
@@ -14547,7 +14547,7 @@ _ZN5boost7process2v15childC2Ev.exit:              ; preds = %_ZN5boost7process2v
   store i32 1, ptr %20, align 4, !tbaa !53, !noalias !649
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6atomicIiESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16, align 8, !tbaa !27, !noalias !649
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i32 383, ptr %21, align 4, !tbaa !84, !noalias !649
+  store i32 383, ptr %21, align 8, !tbaa !84, !noalias !649
   store ptr %16, ptr %17, align 8, !tbaa !16, !alias.scope !649
   store ptr %21, ptr %18, align 8, !tbaa !55, !alias.scope !649
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -14602,7 +14602,7 @@ _ZN5boost7process2v16detail5posix8executorINS_6fusion10joint_viewINS5_5tupleIJNS
   store i32 1, ptr %43, align 4, !tbaa !53, !noalias !652
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6atomicIiESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %38, align 8, !tbaa !27, !noalias !652
   %44 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  store i32 383, ptr %44, align 4, !tbaa !84, !noalias !652
+  store i32 383, ptr %44, align 8, !tbaa !84, !noalias !652
   store ptr %38, ptr %40, align 8, !tbaa !16, !alias.scope !652
   store ptr %44, ptr %41, align 8, !tbaa !55, !alias.scope !652
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -14655,7 +14655,7 @@ _ZN5boost7process2v15childC2Ev.exit34:            ; preds = %58
   store i32 1, ptr %63, align 4, !tbaa !53, !noalias !666
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6atomicIiESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %59, align 8, !tbaa !27, !noalias !666
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  store i32 383, ptr %64, align 4, !tbaa !84, !noalias !666
+  store i32 383, ptr %64, align 8, !tbaa !84, !noalias !666
   store ptr %59, ptr %60, align 8, !tbaa !16, !alias.scope !666
   store ptr %64, ptr %61, align 8, !tbaa !55, !alias.scope !666
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -14710,7 +14710,7 @@ _ZN5boost7process2v15childC2Ev.exit41:            ; preds = %82
   store i32 1, ptr %87, align 4, !tbaa !53, !noalias !670
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6atomicIiESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %83, align 8, !tbaa !27, !noalias !670
   %88 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  store i32 383, ptr %88, align 4, !tbaa !84, !noalias !670
+  store i32 383, ptr %88, align 8, !tbaa !84, !noalias !670
   store ptr %83, ptr %84, align 8, !tbaa !16, !alias.scope !670
   store ptr %88, ptr %85, align 8, !tbaa !55, !alias.scope !670
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -14821,7 +14821,7 @@ _ZZN5boost7process2v16detail5posix8executorINS_6fusion10joint_viewINS5_5tupleIJN
   store i32 1, ptr %141, align 4, !tbaa !53, !noalias !675
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6atomicIiESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %139, align 8, !tbaa !27, !noalias !675
   %142 = getelementptr inbounds nuw i8, ptr %139, i64 16
-  store i32 383, ptr %142, align 4, !tbaa !84, !noalias !675
+  store i32 383, ptr %142, align 8, !tbaa !84, !noalias !675
   store ptr %139, ptr %138, align 8, !tbaa !16, !alias.scope !675
   store ptr %142, ptr %137, align 8, !tbaa !55, !alias.scope !675
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -14892,7 +14892,7 @@ _ZN5boost7process2v15childC2Ev.exit48:            ; preds = %167
   store i32 1, ptr %172, align 4, !tbaa !53, !noalias !678
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6atomicIiESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %168, align 8, !tbaa !27, !noalias !678
   %173 = getelementptr inbounds nuw i8, ptr %168, i64 16
-  store i32 383, ptr %173, align 4, !tbaa !84, !noalias !678
+  store i32 383, ptr %173, align 8, !tbaa !84, !noalias !678
   store ptr %168, ptr %169, align 8, !tbaa !16, !alias.scope !678
   store ptr %173, ptr %170, align 8, !tbaa !55, !alias.scope !678
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 24

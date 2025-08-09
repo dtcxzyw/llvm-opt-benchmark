@@ -7526,7 +7526,7 @@ _ZN4llvm13TinyPtrVectorIPNS_8MetadataEE3endEv.exit: ; preds = %_ZN4llvm13TinyPtr
   %1654 = getelementptr inbounds i8, ptr %.0610.i.i.i.i.i.i.i.i.i.i.i, i64 -16
   %.val.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %1653, align 8, !tbaa !103
   %1655 = getelementptr i8, ptr %.079.i.i.i.i.i.i.i.i.i.i.i, i64 -8
-  %.val8.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %1655, align 4, !tbaa !181
+  %.val8.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %1655, align 8, !tbaa !181
   store i64 %.val.i.i.i.i.i.i.i.i.i.i.i, ptr %1654, align 8, !tbaa !103
   %1656 = getelementptr inbounds i8, ptr %.0610.i.i.i.i.i.i.i.i.i.i.i, i64 -8
   store i32 %.val8.i.i.i.i.i.i.i.i.i.i.i, ptr %1656, align 8, !tbaa !676
@@ -7554,7 +7554,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairISt23_Rb_tree_const_i
   %1662 = getelementptr inbounds nuw i8, ptr %.sroa.011.013.i.i.i.i.i.i.i, i64 8
   store i32 %.val3.i14.i.i.i.i.i.i.i, ptr %1662, align 8, !tbaa !676
   %1663 = getelementptr i8, ptr %.sroa.011.013.i.i.i.i.i.i.i, i64 -24
-  %.val3.i.i.i.i.i.i.i.i = load i32, ptr %1663, align 4, !tbaa !181
+  %.val3.i.i.i.i.i.i.i.i = load i32, ptr %1663, align 8, !tbaa !181
   %1664 = icmp ult i32 %.val2.i.i.i.i.i.i.i, %.val3.i.i.i.i.i.i.i.i
   br i1 %1664, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairISt23_Rb_tree_const_iteratorIN4llvm18EquivalenceClassesINS4_12PointerUnionIJPN12_GLOBAL__N_116GlobalTypeMemberEPNS4_8MetadataEPNS7_17ICallBranchFunnelEEEESt4lessISE_EE7ECValueEEjESt6vectorISK_SaISK_EEEENS0_5__ops14_Val_comp_iterINS4_11less_secondEEEEvT_T0_.exit.i.i.i.i.i.i, !llvm.loop !680
 
@@ -7581,7 +7581,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairISt23_Rb_tree_cons
   %.sroa.4.0..val3.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i.i.i.i.i, i64 8
   %.sroa.4.0.copyload.i.i.i.i.i.i.i = load i32, ptr %.sroa.4.0..val3.sroa_idx.i.i.i.i.i.i.i, align 8
   %1668 = getelementptr i8, ptr %.sroa.0.07.i.i.i.i.i.i, i64 -8
-  %.val3.i12.i.i16.i.i.i.i.i = load i32, ptr %1668, align 4, !tbaa !181
+  %.val3.i12.i.i16.i.i.i.i.i = load i32, ptr %1668, align 8, !tbaa !181
   %1669 = icmp ult i32 %.sroa.4.0.copyload.i.i.i.i.i.i.i, %.val3.i12.i.i16.i.i.i.i.i
   br i1 %1669, label %.lr.ph.i.i20.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairISt23_Rb_tree_const_iteratorIN4llvm18EquivalenceClassesINS4_12PointerUnionIJPN12_GLOBAL__N_116GlobalTypeMemberEPNS4_8MetadataEPNS7_17ICallBranchFunnelEEEESt4lessISE_EE7ECValueEEjESt6vectorISK_SaISK_EEEENS0_5__ops14_Val_comp_iterINS4_11less_secondEEEEvT_T0_.exit.i17.i.i.i.i.i
 
@@ -7594,7 +7594,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairISt23_Rb_tree_cons
   %1670 = getelementptr inbounds nuw i8, ptr %.sroa.011.013.i.i22.i.i.i.i.i, i64 8
   store i32 %.val3.i14.i.i21.i.i.i.i.i, ptr %1670, align 8, !tbaa !676
   %1671 = getelementptr i8, ptr %.sroa.011.013.i.i22.i.i.i.i.i, i64 -24
-  %.val3.i.i.i25.i.i.i.i.i = load i32, ptr %1671, align 4, !tbaa !181
+  %.val3.i.i.i25.i.i.i.i.i = load i32, ptr %1671, align 8, !tbaa !181
   %1672 = icmp ult i32 %.sroa.4.0.copyload.i.i.i.i.i.i.i, %.val3.i.i.i25.i.i.i.i.i
   br i1 %1672, label %.lr.ph.i.i20.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairISt23_Rb_tree_const_iteratorIN4llvm18EquivalenceClassesINS4_12PointerUnionIJPN12_GLOBAL__N_116GlobalTypeMemberEPNS4_8MetadataEPNS7_17ICallBranchFunnelEEEESt4lessISE_EE7ECValueEEjESt6vectorISK_SaISK_EEEENS0_5__ops14_Val_comp_iterINS4_11less_secondEEEEvT_T0_.exit.i17.i.i.i.i.i, !llvm.loop !680
 
@@ -7648,7 +7648,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairISt23_Rb_
   %1686 = getelementptr inbounds i8, ptr %.0610.i.i.i.i.i.i50.i.i.i.i.i, i64 -16
   %.val.i.i.i.i.i.i52.i.i.i.i.i = load i64, ptr %1685, align 8, !tbaa !103
   %1687 = getelementptr i8, ptr %.079.i.i.i.i.i.i51.i.i.i.i.i, i64 -8
-  %.val8.i.i.i.i.i.i53.i.i.i.i.i = load i32, ptr %1687, align 4, !tbaa !181
+  %.val8.i.i.i.i.i.i53.i.i.i.i.i = load i32, ptr %1687, align 8, !tbaa !181
   store i64 %.val.i.i.i.i.i.i52.i.i.i.i.i, ptr %1686, align 8, !tbaa !103
   %1688 = getelementptr inbounds i8, ptr %.0610.i.i.i.i.i.i50.i.i.i.i.i, i64 -8
   store i32 %.val8.i.i.i.i.i.i53.i.i.i.i.i, ptr %1688, align 8, !tbaa !676
@@ -7676,7 +7676,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairISt23_Rb_tree_const_i
   %1694 = getelementptr inbounds nuw i8, ptr %.sroa.011.013.i.i42.i.i.i.i.i, i64 8
   store i32 %.val3.i14.i.i41.i.i.i.i.i, ptr %1694, align 8, !tbaa !676
   %1695 = getelementptr i8, ptr %.sroa.011.013.i.i42.i.i.i.i.i, i64 -24
-  %.val3.i.i.i45.i.i.i.i.i = load i32, ptr %1695, align 4, !tbaa !181
+  %.val3.i.i.i45.i.i.i.i.i = load i32, ptr %1695, align 8, !tbaa !181
   %1696 = icmp ult i32 %.val2.i.i32.i.i.i.i.i, %.val3.i.i.i45.i.i.i.i.i
   br i1 %1696, label %.lr.ph.i.i40.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairISt23_Rb_tree_const_iteratorIN4llvm18EquivalenceClassesINS4_12PointerUnionIJPN12_GLOBAL__N_116GlobalTypeMemberEPNS4_8MetadataEPNS7_17ICallBranchFunnelEEEESt4lessISE_EE7ECValueEEjESt6vectorISK_SaISK_EEEENS0_5__ops14_Val_comp_iterINS4_11less_secondEEEEvT_T0_.exit.i36.i.i.i.i.i, !llvm.loop !680
 
@@ -23697,7 +23697,7 @@ define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_trait
   store ptr %19, ptr %.08.i.i.i, align 8, !tbaa !66
   %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 8
   store i64 0, ptr %20, align 8, !tbaa !68
-  store i8 0, ptr %19, align 1, !tbaa !70
+  store i8 0, ptr %19, align 8, !tbaa !70
   %21 = add i64 %.057.i.i.i, -1
   %22 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 32
   %.not.i.i.i = icmp eq i64 %21, 0
@@ -23731,7 +23731,7 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
   store ptr %31, ptr %.08.i.i.i26, align 8, !tbaa !66
   %32 = getelementptr inbounds nuw i8, ptr %.08.i.i.i26, i64 8
   store i64 0, ptr %32, align 8, !tbaa !68
-  store i8 0, ptr %31, align 1, !tbaa !70
+  store i8 0, ptr %31, align 8, !tbaa !70
   %33 = add i64 %.057.i.i.i27, -1
   %34 = getelementptr inbounds nuw i8, ptr %.08.i.i.i26, i64 32
   %.not.i.i.i28 = icmp eq i64 %33, 0
@@ -23777,7 +23777,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store i64 %45, ptr %47, align 8, !tbaa !68, !alias.scope !1153, !noalias !1156
   store ptr %37, ptr %.0911.i.i.i, align 8, !tbaa !75, !alias.scope !1156, !noalias !1153
   store i64 0, ptr %46, align 8, !tbaa !68, !alias.scope !1156, !noalias !1153
-  store i8 0, ptr %37, align 1, !tbaa !70, !alias.scope !1156, !noalias !1153
+  store i8 0, ptr %37, align 8, !tbaa !70, !alias.scope !1156, !noalias !1153
   %48 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i32 = icmp eq ptr %48, %5
@@ -36516,7 +36516,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   %37 = getelementptr inbounds %"struct.std::pair.716", ptr %0, i64 %.045.i.i.i.i
   %.val36.i.i.i.i = load i64, ptr %36, align 8, !tbaa !103
   %38 = getelementptr i8, ptr %36, i64 8
-  %.val37.i.i.i.i = load i32, ptr %38, align 4, !tbaa !181
+  %.val37.i.i.i.i = load i32, ptr %38, align 8, !tbaa !181
   store i64 %.val36.i.i.i.i, ptr %37, align 8, !tbaa !103
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i32 %.val37.i.i.i.i, ptr %39, align 8, !tbaa !676
@@ -36531,7 +36531,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 
 42:                                               ; preds = %._crit_edge.i.i.i.i
   %.val38.i.i.i.i = load i64, ptr %23, align 8, !tbaa !103
-  %.val39.i.i.i.i = load i32, ptr %25, align 4, !tbaa !181
+  %.val39.i.i.i.i = load i32, ptr %25, align 8, !tbaa !181
   store i64 %.val38.i.i.i.i, ptr %24, align 8, !tbaa !103
   store i32 %.val39.i.i.i.i, ptr %26, align 8, !tbaa !676
   br label %43
@@ -36582,7 +36582,7 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairISt23_Rb_tree_const_ite
   %.sroa.4.0..sroa_idx.i.i11.i = getelementptr inbounds i8, ptr %.sroa.0.02.i.i, i64 -8
   %.sroa.4.0.copyload.i.i12.i = load i32, ptr %.sroa.4.0..sroa_idx.i.i11.i, align 8
   %.val8.i.i13.i = load i64, ptr %0, align 8, !tbaa !103
-  %.val9.i.i.i = load i32, ptr %11, align 4, !tbaa !181
+  %.val9.i.i.i = load i32, ptr %11, align 8, !tbaa !181
   store i64 %.val8.i.i13.i, ptr %57, align 8, !tbaa !103
   store i32 %.val9.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i11.i, align 8, !tbaa !676
   %58 = ptrtoint ptr %57 to i64
@@ -36608,7 +36608,7 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairISt23_Rb_tree_const_ite
   %71 = getelementptr inbounds %"struct.std::pair.716", ptr %0, i64 %.045.i.i.i26.i
   %.val36.i.i.i30.i = load i64, ptr %70, align 8, !tbaa !103
   %72 = getelementptr i8, ptr %70, i64 8
-  %.val37.i.i.i31.i = load i32, ptr %72, align 4, !tbaa !181
+  %.val37.i.i.i31.i = load i32, ptr %72, align 8, !tbaa !181
   store i64 %.val36.i.i.i30.i, ptr %71, align 8, !tbaa !103
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store i32 %.val37.i.i.i31.i, ptr %73, align 8, !tbaa !676
@@ -36634,7 +36634,7 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairISt23_Rb_tree_const_ite
   %84 = getelementptr inbounds %"struct.std::pair.716", ptr %0, i64 %.0.lcssa.i.i.i15.i
   %.val38.i.i.i23.i = load i64, ptr %83, align 8, !tbaa !103
   %85 = getelementptr i8, ptr %83, i64 8
-  %.val39.i.i.i24.i = load i32, ptr %85, align 4, !tbaa !181
+  %.val39.i.i.i24.i = load i32, ptr %85, align 8, !tbaa !181
   store i64 %.val38.i.i.i23.i, ptr %84, align 8, !tbaa !103
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store i32 %.val39.i.i.i24.i, ptr %86, align 8, !tbaa !676
@@ -36702,9 +36702,9 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairISt23_Rb_tree_const_iter
   %109 = load i64, ptr %101, align 8, !tbaa !103
   store i64 %109, ptr %0, align 8, !tbaa !103
   store ptr %.sroa.0.0.copyload.i.i.i.i.i.i, ptr %101, align 8, !tbaa !103
-  %110 = load i32, ptr %11, align 4, !tbaa !181
-  store i32 %.val3.i.i.i, ptr %11, align 4, !tbaa !181
-  store i32 %110, ptr %103, align 4, !tbaa !181
+  %110 = load i32, ptr %11, align 8, !tbaa !181
+  store i32 %.val3.i.i.i, ptr %11, align 8, !tbaa !181
+  store i32 %110, ptr %103, align 8, !tbaa !181
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairISt23_Rb_tree_const_iteratorIN4llvm18EquivalenceClassesINS4_12PointerUnionIJPN12_GLOBAL__N_116GlobalTypeMemberEPNS4_8MetadataEPNS7_17ICallBranchFunnelEEEESt4lessISE_EE7ECValueEEjESt6vectorISK_SaISK_EEEENS0_5__ops15_Iter_comp_iterINS4_11less_secondEEEEvT_SU_SU_SU_T0_.exit.i.preheader
 
 111:                                              ; preds = %106
@@ -36716,18 +36716,18 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairISt23_Rb_tree_const_iter
   %114 = load i64, ptr %102, align 8, !tbaa !103
   store i64 %114, ptr %0, align 8, !tbaa !103
   store ptr %.sroa.0.0.copyload.i.i.i.i30.i.i, ptr %102, align 8, !tbaa !103
-  %115 = load i32, ptr %11, align 4, !tbaa !181
-  store i32 %.val3.i27.i.i, ptr %11, align 4, !tbaa !181
-  store i32 %115, ptr %105, align 4, !tbaa !181
+  %115 = load i32, ptr %11, align 8, !tbaa !181
+  store i32 %.val3.i27.i.i, ptr %11, align 8, !tbaa !181
+  store i32 %115, ptr %105, align 8, !tbaa !181
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairISt23_Rb_tree_const_iteratorIN4llvm18EquivalenceClassesINS4_12PointerUnionIJPN12_GLOBAL__N_116GlobalTypeMemberEPNS4_8MetadataEPNS7_17ICallBranchFunnelEEEESt4lessISE_EE7ECValueEEjESt6vectorISK_SaISK_EEEENS0_5__ops15_Iter_comp_iterINS4_11less_secondEEEEvT_SU_SU_SU_T0_.exit.i.preheader
 
 116:                                              ; preds = %111
   %117 = load i64, ptr %9, align 8, !tbaa !103
   store i64 %117, ptr %0, align 8, !tbaa !103
   store ptr %.sroa.0.0.copyload.i.i.i.i30.i.i, ptr %9, align 8, !tbaa !103
-  %118 = load i32, ptr %11, align 4, !tbaa !181
-  store i32 %.val2.i.i.i, ptr %11, align 4, !tbaa !181
-  store i32 %118, ptr %10, align 4, !tbaa !181
+  %118 = load i32, ptr %11, align 8, !tbaa !181
+  store i32 %.val2.i.i.i, ptr %11, align 8, !tbaa !181
+  store i32 %118, ptr %10, align 8, !tbaa !181
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairISt23_Rb_tree_const_iteratorIN4llvm18EquivalenceClassesINS4_12PointerUnionIJPN12_GLOBAL__N_116GlobalTypeMemberEPNS4_8MetadataEPNS7_17ICallBranchFunnelEEEESt4lessISE_EE7ECValueEEjESt6vectorISK_SaISK_EEEENS0_5__ops15_Iter_comp_iterINS4_11less_secondEEEEvT_SU_SU_SU_T0_.exit.i.preheader
 
 119:                                              ; preds = %.lr.ph44
@@ -36739,9 +36739,9 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairISt23_Rb_tree_const_iter
   %122 = load i64, ptr %9, align 8, !tbaa !103
   store i64 %122, ptr %0, align 8, !tbaa !103
   store ptr %.sroa.0.0.copyload.i.i.i.i34.i.i, ptr %9, align 8, !tbaa !103
-  %123 = load i32, ptr %11, align 4, !tbaa !181
-  store i32 %.val2.i.i.i, ptr %11, align 4, !tbaa !181
-  store i32 %123, ptr %10, align 4, !tbaa !181
+  %123 = load i32, ptr %11, align 8, !tbaa !181
+  store i32 %.val2.i.i.i, ptr %11, align 8, !tbaa !181
+  store i32 %123, ptr %10, align 8, !tbaa !181
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairISt23_Rb_tree_const_iteratorIN4llvm18EquivalenceClassesINS4_12PointerUnionIJPN12_GLOBAL__N_116GlobalTypeMemberEPNS4_8MetadataEPNS7_17ICallBranchFunnelEEEESt4lessISE_EE7ECValueEEjESt6vectorISK_SaISK_EEEENS0_5__ops15_Iter_comp_iterINS4_11less_secondEEEEvT_SU_SU_SU_T0_.exit.i.preheader
 
 124:                                              ; preds = %119
@@ -36753,18 +36753,18 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairISt23_Rb_tree_const_iter
   %127 = load i64, ptr %102, align 8, !tbaa !103
   store i64 %127, ptr %0, align 8, !tbaa !103
   store ptr %.sroa.0.0.copyload.i.i.i.i37.i.i, ptr %102, align 8, !tbaa !103
-  %128 = load i32, ptr %11, align 4, !tbaa !181
-  store i32 %.val3.i27.i.i, ptr %11, align 4, !tbaa !181
-  store i32 %128, ptr %105, align 4, !tbaa !181
+  %128 = load i32, ptr %11, align 8, !tbaa !181
+  store i32 %.val3.i27.i.i, ptr %11, align 8, !tbaa !181
+  store i32 %128, ptr %105, align 8, !tbaa !181
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairISt23_Rb_tree_const_iteratorIN4llvm18EquivalenceClassesINS4_12PointerUnionIJPN12_GLOBAL__N_116GlobalTypeMemberEPNS4_8MetadataEPNS7_17ICallBranchFunnelEEEESt4lessISE_EE7ECValueEEjESt6vectorISK_SaISK_EEEENS0_5__ops15_Iter_comp_iterINS4_11less_secondEEEEvT_SU_SU_SU_T0_.exit.i.preheader
 
 129:                                              ; preds = %124
   %130 = load i64, ptr %101, align 8, !tbaa !103
   store i64 %130, ptr %0, align 8, !tbaa !103
   store ptr %.sroa.0.0.copyload.i.i.i.i37.i.i, ptr %101, align 8, !tbaa !103
-  %131 = load i32, ptr %11, align 4, !tbaa !181
-  store i32 %.val3.i.i.i, ptr %11, align 4, !tbaa !181
-  store i32 %131, ptr %103, align 4, !tbaa !181
+  %131 = load i32, ptr %11, align 8, !tbaa !181
+  store i32 %.val3.i.i.i, ptr %11, align 8, !tbaa !181
+  store i32 %131, ptr %103, align 8, !tbaa !181
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairISt23_Rb_tree_const_iteratorIN4llvm18EquivalenceClassesINS4_12PointerUnionIJPN12_GLOBAL__N_116GlobalTypeMemberEPNS4_8MetadataEPNS7_17ICallBranchFunnelEEEESt4lessISE_EE7ECValueEEjESt6vectorISK_SaISK_EEEENS0_5__ops15_Iter_comp_iterINS4_11less_secondEEEEvT_SU_SU_SU_T0_.exit.i.preheader
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairISt23_Rb_tree_const_iteratorIN4llvm18EquivalenceClassesINS4_12PointerUnionIJPN12_GLOBAL__N_116GlobalTypeMemberEPNS4_8MetadataEPNS7_17ICallBranchFunnelEEEESt4lessISE_EE7ECValueEEjESt6vectorISK_SaISK_EEEENS0_5__ops15_Iter_comp_iterINS4_11less_secondEEEEvT_SU_SU_SU_T0_.exit.i.preheader: ; preds = %129, %126, %121, %116, %113, %108
@@ -36806,7 +36806,7 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairISt23_Rb_tre
   %143 = load i64, ptr %.sroa.0.1.i.i, align 8, !tbaa !103
   store i64 %143, ptr %.sroa.012.1.i.i, align 8, !tbaa !103
   store ptr %.sroa.0.0.copyload.i.i.i.i.i20.i, ptr %.sroa.0.1.i.i, align 8, !tbaa !103
-  store i32 %.val3.i10.i.i, ptr %136, align 4, !tbaa !181
+  store i32 %.val3.i10.i.i, ptr %136, align 8, !tbaa !181
   store i32 %.val2.i.i19.i, ptr %142, align 4, !tbaa !181
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairISt23_Rb_tree_const_iteratorIN4llvm18EquivalenceClassesINS4_12PointerUnionIJPN12_GLOBAL__N_116GlobalTypeMemberEPNS4_8MetadataEPNS7_17ICallBranchFunnelEEEESt4lessISE_EE7ECValueEEjESt6vectorISK_SaISK_EEEENS0_5__ops15_Iter_comp_iterINS4_11less_secondEEEEvT_SU_SU_SU_T0_.exit.i, !llvm.loop !1435
 
@@ -47081,7 +47081,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_17P
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.014, i64 32
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %21 = load i32, ptr %19, align 4, !tbaa !181
+  %21 = load i32, ptr %19, align 8, !tbaa !181
   store ptr %.sroa.01.0.copyload, ptr %3, align 8, !tbaa !44
   store i64 %.sroa.22.0.copyload, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !tbaa !45
   store ptr %.sroa.0.0.copyload, ptr %9, align 8, !tbaa !44
@@ -47286,7 +47286,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_14l
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.014, i64 32
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %21 = load i32, ptr %19, align 4, !tbaa !181
+  %21 = load i32, ptr %19, align 8, !tbaa !181
   store ptr %.sroa.01.0.copyload, ptr %3, align 8, !tbaa !44
   store i64 %.sroa.22.0.copyload, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !tbaa !45
   store ptr %.sroa.0.0.copyload, ptr %9, align 8, !tbaa !44

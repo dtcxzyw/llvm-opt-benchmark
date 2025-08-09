@@ -6858,7 +6858,7 @@ define internal fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii(ptr nound
   store <8 x float> %69, ptr %.3134, align 1, !tbaa !86
   %70 = getelementptr inbounds nuw i8, ptr %.3134, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.1901133, i64 32
-  %72 = load <4 x float>, ptr %71, align 16, !tbaa !86
+  %72 = load <4 x float>, ptr %71, align 32, !tbaa !86
   store <4 x float> %72, ptr %70, align 16, !tbaa !86
   %73 = getelementptr inbounds nuw i8, ptr %.3134, i64 48
   %74 = getelementptr inbounds nuw i8, ptr %.1901133, i64 64
@@ -6926,7 +6926,7 @@ define internal fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii(ptr nound
   store <4 x float> %96, ptr %.9153, align 16, !tbaa !86
   %97 = getelementptr inbounds nuw i8, ptr %.9153, i64 16
   %98 = load <8 x float>, ptr %.2909151, align 32, !tbaa !86
-  store <8 x float> %98, ptr %97, align 1, !tbaa !86
+  store <8 x float> %98, ptr %97, align 16, !tbaa !86
   %99 = getelementptr inbounds nuw i8, ptr %.9153, i64 48
   %100 = getelementptr inbounds nuw i8, ptr %.6906152, i64 64
   %101 = getelementptr inbounds nuw i8, ptr %.2909151, i64 64
@@ -6986,7 +6986,7 @@ define internal fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii(ptr nound
   store <4 x float> %129, ptr %.14167, align 16, !tbaa !86
   %130 = getelementptr inbounds nuw i8, ptr %.14167, i64 16
   %131 = load <8 x float>, ptr %.2928165, align 32, !tbaa !86
-  store <8 x float> %131, ptr %130, align 1, !tbaa !86
+  store <8 x float> %131, ptr %130, align 16, !tbaa !86
   %132 = getelementptr inbounds nuw i8, ptr %.14167, i64 48
   %133 = getelementptr inbounds nuw i8, ptr %.2925166, i64 32
   %134 = getelementptr inbounds nuw i8, ptr %.2928165, i64 32
@@ -19716,7 +19716,7 @@ define internal fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatER
   store <8 x float> %118, ptr %117, align 32, !tbaa !86
   %119 = getelementptr inbounds nuw i8, ptr %65, i64 144
   %120 = shufflevector <16 x float> %104, <16 x float> %107, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 16, i32 17, i32 18, i32 19>
-  store <8 x float> %120, ptr %119, align 1, !tbaa !86
+  store <8 x float> %120, ptr %119, align 16, !tbaa !86
   %121 = getelementptr inbounds nuw i8, ptr %65, i64 176
   %122 = shufflevector <16 x float> %100, <16 x float> %102, <4 x i32> <i32 0, i32 1, i32 16, i32 17>
   store <4 x float> %122, ptr %121, align 16, !tbaa !86
@@ -19728,7 +19728,7 @@ define internal fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatER
   store <8 x float> %126, ptr %125, align 32, !tbaa !86
   %127 = getelementptr inbounds nuw i8, ptr %65, i64 272
   %128 = shufflevector <16 x float> %103, <16 x float> %105, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 20, i32 21, i32 22, i32 23>
-  store <8 x float> %128, ptr %127, align 1, !tbaa !86
+  store <8 x float> %128, ptr %127, align 16, !tbaa !86
   %129 = getelementptr inbounds nuw i8, ptr %65, i64 304
   %130 = shufflevector <16 x float> %99, <16 x float> %101, <4 x i32> <i32 4, i32 5, i32 20, i32 21>
   store <4 x float> %130, ptr %129, align 16, !tbaa !86
@@ -19740,7 +19740,7 @@ define internal fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatER
   store <8 x float> %134, ptr %133, align 32, !tbaa !86
   %135 = getelementptr inbounds nuw i8, ptr %65, i64 400
   %136 = shufflevector <16 x float> %104, <16 x float> %107, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 20, i32 21, i32 22, i32 23>
-  store <8 x float> %136, ptr %135, align 1, !tbaa !86
+  store <8 x float> %136, ptr %135, align 16, !tbaa !86
   %137 = getelementptr inbounds nuw i8, ptr %65, i64 432
   %138 = shufflevector <16 x float> %100, <16 x float> %102, <4 x i32> <i32 4, i32 5, i32 20, i32 21>
   store <4 x float> %138, ptr %137, align 16, !tbaa !86
@@ -19752,7 +19752,7 @@ define internal fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatER
   store <8 x float> %142, ptr %141, align 32, !tbaa !86
   %143 = getelementptr inbounds nuw i8, ptr %65, i64 528
   %144 = shufflevector <16 x float> %103, <16 x float> %105, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 24, i32 25, i32 26, i32 27>
-  store <8 x float> %144, ptr %143, align 1, !tbaa !86
+  store <8 x float> %144, ptr %143, align 16, !tbaa !86
   %145 = getelementptr inbounds nuw i8, ptr %65, i64 560
   %146 = shufflevector <16 x float> %99, <16 x float> %101, <4 x i32> <i32 8, i32 9, i32 24, i32 25>
   store <4 x float> %146, ptr %145, align 16, !tbaa !86
@@ -19764,7 +19764,7 @@ define internal fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatER
   store <8 x float> %150, ptr %149, align 32, !tbaa !86
   %151 = getelementptr inbounds nuw i8, ptr %65, i64 656
   %152 = shufflevector <16 x float> %104, <16 x float> %107, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 24, i32 25, i32 26, i32 27>
-  store <8 x float> %152, ptr %151, align 1, !tbaa !86
+  store <8 x float> %152, ptr %151, align 16, !tbaa !86
   %153 = getelementptr inbounds nuw i8, ptr %65, i64 688
   %154 = shufflevector <16 x float> %100, <16 x float> %102, <4 x i32> <i32 8, i32 9, i32 24, i32 25>
   store <4 x float> %154, ptr %153, align 16, !tbaa !86
@@ -19776,7 +19776,7 @@ define internal fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatER
   store <8 x float> %158, ptr %157, align 32, !tbaa !86
   %159 = getelementptr inbounds nuw i8, ptr %65, i64 784
   %160 = shufflevector <16 x float> %103, <16 x float> %105, <8 x i32> <i32 12, i32 13, i32 14, i32 15, i32 28, i32 29, i32 30, i32 31>
-  store <8 x float> %160, ptr %159, align 1, !tbaa !86
+  store <8 x float> %160, ptr %159, align 16, !tbaa !86
   %161 = getelementptr inbounds nuw i8, ptr %65, i64 816
   %162 = shufflevector <16 x float> %99, <16 x float> %101, <4 x i32> <i32 12, i32 13, i32 28, i32 29>
   store <4 x float> %162, ptr %161, align 16, !tbaa !86
@@ -19788,7 +19788,7 @@ define internal fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatER
   store <8 x float> %166, ptr %165, align 32, !tbaa !86
   %167 = getelementptr inbounds nuw i8, ptr %65, i64 912
   %168 = shufflevector <16 x float> %104, <16 x float> %107, <8 x i32> <i32 12, i32 13, i32 14, i32 15, i32 28, i32 29, i32 30, i32 31>
-  store <8 x float> %168, ptr %167, align 1, !tbaa !86
+  store <8 x float> %168, ptr %167, align 16, !tbaa !86
   %169 = getelementptr inbounds nuw i8, ptr %65, i64 944
   %170 = shufflevector <16 x float> %100, <16 x float> %102, <4 x i32> <i32 12, i32 13, i32 28, i32 29>
   store <4 x float> %170, ptr %169, align 16, !tbaa !86
@@ -20284,97 +20284,97 @@ define internal fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatER
   store <8 x float> %528, ptr %.42114803, align 32, !tbaa !86
   %529 = getelementptr inbounds nuw i8, ptr %.42114803, i64 32
   %530 = shufflevector <16 x float> %516, <16 x float> %518, <4 x i32> <i32 0, i32 1, i32 16, i32 17>
-  store <4 x float> %530, ptr %529, align 16, !tbaa !86
+  store <4 x float> %530, ptr %529, align 32, !tbaa !86
   %531 = getelementptr inbounds nuw i8, ptr %.42114803, i64 64
   %532 = shufflevector <16 x float> %508, <16 x float> %510, <4 x i32> <i32 2, i32 3, i32 18, i32 19>
-  store <4 x float> %532, ptr %531, align 16, !tbaa !86
+  store <4 x float> %532, ptr %531, align 32, !tbaa !86
   %533 = getelementptr inbounds nuw i8, ptr %.42114803, i64 80
   %534 = shufflevector <16 x float> %523, <16 x float> %526, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 16, i32 17, i32 18, i32 19>
-  store <8 x float> %534, ptr %533, align 1, !tbaa !86
+  store <8 x float> %534, ptr %533, align 16, !tbaa !86
   %535 = getelementptr inbounds nuw i8, ptr %.42114803, i64 128
   %536 = shufflevector <16 x float> %521, <16 x float> %524, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 16, i32 17, i32 18, i32 19>
   store <8 x float> %536, ptr %535, align 32, !tbaa !86
   %537 = getelementptr inbounds nuw i8, ptr %.42114803, i64 160
   %538 = shufflevector <16 x float> %517, <16 x float> %519, <4 x i32> <i32 0, i32 1, i32 16, i32 17>
-  store <4 x float> %538, ptr %537, align 16, !tbaa !86
+  store <4 x float> %538, ptr %537, align 32, !tbaa !86
   %539 = getelementptr inbounds nuw i8, ptr %.42114803, i64 192
   %540 = shufflevector <16 x float> %509, <16 x float> %511, <4 x i32> <i32 2, i32 3, i32 18, i32 19>
-  store <4 x float> %540, ptr %539, align 16, !tbaa !86
+  store <4 x float> %540, ptr %539, align 32, !tbaa !86
   %541 = getelementptr inbounds nuw i8, ptr %.42114803, i64 208
   %542 = shufflevector <16 x float> %525, <16 x float> %527, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 16, i32 17, i32 18, i32 19>
-  store <8 x float> %542, ptr %541, align 1, !tbaa !86
+  store <8 x float> %542, ptr %541, align 16, !tbaa !86
   %543 = getelementptr inbounds nuw i8, ptr %.42114803, i64 256
   %544 = shufflevector <16 x float> %520, <16 x float> %522, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 20, i32 21, i32 22, i32 23>
   store <8 x float> %544, ptr %543, align 32, !tbaa !86
   %545 = getelementptr inbounds nuw i8, ptr %.42114803, i64 288
   %546 = shufflevector <16 x float> %516, <16 x float> %518, <4 x i32> <i32 4, i32 5, i32 20, i32 21>
-  store <4 x float> %546, ptr %545, align 16, !tbaa !86
+  store <4 x float> %546, ptr %545, align 32, !tbaa !86
   %547 = getelementptr inbounds nuw i8, ptr %.42114803, i64 320
   %548 = shufflevector <16 x float> %508, <16 x float> %510, <4 x i32> <i32 6, i32 7, i32 22, i32 23>
-  store <4 x float> %548, ptr %547, align 16, !tbaa !86
+  store <4 x float> %548, ptr %547, align 32, !tbaa !86
   %549 = getelementptr inbounds nuw i8, ptr %.42114803, i64 336
   %550 = shufflevector <16 x float> %523, <16 x float> %526, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 20, i32 21, i32 22, i32 23>
-  store <8 x float> %550, ptr %549, align 1, !tbaa !86
+  store <8 x float> %550, ptr %549, align 16, !tbaa !86
   %551 = getelementptr inbounds nuw i8, ptr %.42114803, i64 384
   %552 = shufflevector <16 x float> %521, <16 x float> %524, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 20, i32 21, i32 22, i32 23>
   store <8 x float> %552, ptr %551, align 32, !tbaa !86
   %553 = getelementptr inbounds nuw i8, ptr %.42114803, i64 416
   %554 = shufflevector <16 x float> %517, <16 x float> %519, <4 x i32> <i32 4, i32 5, i32 20, i32 21>
-  store <4 x float> %554, ptr %553, align 16, !tbaa !86
+  store <4 x float> %554, ptr %553, align 32, !tbaa !86
   %555 = getelementptr inbounds nuw i8, ptr %.42114803, i64 448
   %556 = shufflevector <16 x float> %509, <16 x float> %511, <4 x i32> <i32 6, i32 7, i32 22, i32 23>
-  store <4 x float> %556, ptr %555, align 16, !tbaa !86
+  store <4 x float> %556, ptr %555, align 32, !tbaa !86
   %557 = getelementptr inbounds nuw i8, ptr %.42114803, i64 464
   %558 = shufflevector <16 x float> %525, <16 x float> %527, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 20, i32 21, i32 22, i32 23>
-  store <8 x float> %558, ptr %557, align 1, !tbaa !86
+  store <8 x float> %558, ptr %557, align 16, !tbaa !86
   %559 = getelementptr inbounds nuw i8, ptr %.42114803, i64 512
   %560 = shufflevector <16 x float> %520, <16 x float> %522, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 24, i32 25, i32 26, i32 27>
   store <8 x float> %560, ptr %559, align 32, !tbaa !86
   %561 = getelementptr inbounds nuw i8, ptr %.42114803, i64 544
   %562 = shufflevector <16 x float> %516, <16 x float> %518, <4 x i32> <i32 8, i32 9, i32 24, i32 25>
-  store <4 x float> %562, ptr %561, align 16, !tbaa !86
+  store <4 x float> %562, ptr %561, align 32, !tbaa !86
   %563 = getelementptr inbounds nuw i8, ptr %.42114803, i64 576
   %564 = shufflevector <16 x float> %508, <16 x float> %510, <4 x i32> <i32 10, i32 11, i32 26, i32 27>
-  store <4 x float> %564, ptr %563, align 16, !tbaa !86
+  store <4 x float> %564, ptr %563, align 32, !tbaa !86
   %565 = getelementptr inbounds nuw i8, ptr %.42114803, i64 592
   %566 = shufflevector <16 x float> %523, <16 x float> %526, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 24, i32 25, i32 26, i32 27>
-  store <8 x float> %566, ptr %565, align 1, !tbaa !86
+  store <8 x float> %566, ptr %565, align 16, !tbaa !86
   %567 = getelementptr inbounds nuw i8, ptr %.42114803, i64 640
   %568 = shufflevector <16 x float> %521, <16 x float> %524, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 24, i32 25, i32 26, i32 27>
   store <8 x float> %568, ptr %567, align 32, !tbaa !86
   %569 = getelementptr inbounds nuw i8, ptr %.42114803, i64 672
   %570 = shufflevector <16 x float> %517, <16 x float> %519, <4 x i32> <i32 8, i32 9, i32 24, i32 25>
-  store <4 x float> %570, ptr %569, align 16, !tbaa !86
+  store <4 x float> %570, ptr %569, align 32, !tbaa !86
   %571 = getelementptr inbounds nuw i8, ptr %.42114803, i64 704
   %572 = shufflevector <16 x float> %509, <16 x float> %511, <4 x i32> <i32 10, i32 11, i32 26, i32 27>
-  store <4 x float> %572, ptr %571, align 16, !tbaa !86
+  store <4 x float> %572, ptr %571, align 32, !tbaa !86
   %573 = getelementptr inbounds nuw i8, ptr %.42114803, i64 720
   %574 = shufflevector <16 x float> %525, <16 x float> %527, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 24, i32 25, i32 26, i32 27>
-  store <8 x float> %574, ptr %573, align 1, !tbaa !86
+  store <8 x float> %574, ptr %573, align 16, !tbaa !86
   %575 = getelementptr inbounds nuw i8, ptr %.42114803, i64 768
   %576 = shufflevector <16 x float> %520, <16 x float> %522, <8 x i32> <i32 12, i32 13, i32 14, i32 15, i32 28, i32 29, i32 30, i32 31>
   store <8 x float> %576, ptr %575, align 32, !tbaa !86
   %577 = getelementptr inbounds nuw i8, ptr %.42114803, i64 800
   %578 = shufflevector <16 x float> %516, <16 x float> %518, <4 x i32> <i32 12, i32 13, i32 28, i32 29>
-  store <4 x float> %578, ptr %577, align 16, !tbaa !86
+  store <4 x float> %578, ptr %577, align 32, !tbaa !86
   %579 = getelementptr inbounds nuw i8, ptr %.42114803, i64 832
   %580 = shufflevector <16 x float> %508, <16 x float> %510, <4 x i32> <i32 14, i32 15, i32 30, i32 31>
-  store <4 x float> %580, ptr %579, align 16, !tbaa !86
+  store <4 x float> %580, ptr %579, align 32, !tbaa !86
   %581 = getelementptr inbounds nuw i8, ptr %.42114803, i64 848
   %582 = shufflevector <16 x float> %523, <16 x float> %526, <8 x i32> <i32 12, i32 13, i32 14, i32 15, i32 28, i32 29, i32 30, i32 31>
-  store <8 x float> %582, ptr %581, align 1, !tbaa !86
+  store <8 x float> %582, ptr %581, align 16, !tbaa !86
   %583 = getelementptr inbounds nuw i8, ptr %.42114803, i64 896
   %584 = shufflevector <16 x float> %521, <16 x float> %524, <8 x i32> <i32 12, i32 13, i32 14, i32 15, i32 28, i32 29, i32 30, i32 31>
   store <8 x float> %584, ptr %583, align 32, !tbaa !86
   %585 = getelementptr inbounds nuw i8, ptr %.42114803, i64 928
   %586 = shufflevector <16 x float> %517, <16 x float> %519, <4 x i32> <i32 12, i32 13, i32 28, i32 29>
-  store <4 x float> %586, ptr %585, align 16, !tbaa !86
+  store <4 x float> %586, ptr %585, align 32, !tbaa !86
   %587 = getelementptr inbounds nuw i8, ptr %.42114803, i64 960
   %588 = shufflevector <16 x float> %509, <16 x float> %511, <4 x i32> <i32 14, i32 15, i32 30, i32 31>
-  store <4 x float> %588, ptr %587, align 16, !tbaa !86
+  store <4 x float> %588, ptr %587, align 32, !tbaa !86
   %589 = getelementptr inbounds nuw i8, ptr %.42114803, i64 976
   %590 = shufflevector <16 x float> %525, <16 x float> %527, <8 x i32> <i32 12, i32 13, i32 14, i32 15, i32 28, i32 29, i32 30, i32 31>
-  store <8 x float> %590, ptr %589, align 1, !tbaa !86
+  store <8 x float> %590, ptr %589, align 16, !tbaa !86
   %591 = getelementptr inbounds nuw i8, ptr %.8804, i64 768
   %592 = getelementptr inbounds float, ptr %.42114803, i64 %21
   %593 = add nuw nsw i32 %.62123802, 12
@@ -20981,7 +20981,7 @@ define internal fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatER
   %1003 = getelementptr inbounds nuw i8, ptr %944, i64 96
   store <8 x float> %991, ptr %1003, align 32, !tbaa !86
   %1004 = getelementptr inbounds nuw i8, ptr %944, i64 144
-  store <8 x float> %992, ptr %1004, align 1, !tbaa !86
+  store <8 x float> %992, ptr %1004, align 16, !tbaa !86
   %1005 = getelementptr inbounds nuw i8, ptr %944, i64 176
   %1006 = shufflevector <8 x float> %979, <8 x float> %981, <4 x i32> <i32 0, i32 1, i32 8, i32 9>
   store <4 x float> %1006, ptr %1005, align 16, !tbaa !86
@@ -20991,7 +20991,7 @@ define internal fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatER
   %1009 = getelementptr inbounds nuw i8, ptr %944, i64 224
   store <8 x float> %993, ptr %1009, align 32, !tbaa !86
   %1010 = getelementptr inbounds nuw i8, ptr %944, i64 272
-  store <8 x float> %994, ptr %1010, align 1, !tbaa !86
+  store <8 x float> %994, ptr %1010, align 16, !tbaa !86
   %1011 = getelementptr inbounds nuw i8, ptr %944, i64 304
   %1012 = shufflevector <8 x float> %978, <8 x float> %980, <4 x i32> <i32 4, i32 5, i32 12, i32 13>
   store <4 x float> %1012, ptr %1011, align 16, !tbaa !86
@@ -21001,7 +21001,7 @@ define internal fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatER
   %1015 = getelementptr inbounds nuw i8, ptr %944, i64 352
   store <8 x float> %995, ptr %1015, align 32, !tbaa !86
   %1016 = getelementptr inbounds nuw i8, ptr %944, i64 400
-  store <8 x float> %996, ptr %1016, align 1, !tbaa !86
+  store <8 x float> %996, ptr %1016, align 16, !tbaa !86
   %1017 = getelementptr inbounds nuw i8, ptr %944, i64 432
   %1018 = shufflevector <8 x float> %979, <8 x float> %981, <4 x i32> <i32 4, i32 5, i32 12, i32 13>
   store <4 x float> %1018, ptr %1017, align 16, !tbaa !86
@@ -21391,42 +21391,42 @@ define internal fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatER
   store <8 x float> %1295, ptr %.42140859, align 32, !tbaa !86
   %1303 = getelementptr inbounds nuw i8, ptr %.42140859, i64 32
   %1304 = shufflevector <8 x float> %1283, <8 x float> %1285, <4 x i32> <i32 0, i32 1, i32 8, i32 9>
-  store <4 x float> %1304, ptr %1303, align 16, !tbaa !86
+  store <4 x float> %1304, ptr %1303, align 32, !tbaa !86
   %1305 = getelementptr inbounds nuw i8, ptr %.42140859, i64 64
   %1306 = shufflevector <8 x float> %1275, <8 x float> %1277, <4 x i32> <i32 2, i32 3, i32 10, i32 11>
-  store <4 x float> %1306, ptr %1305, align 16, !tbaa !86
+  store <4 x float> %1306, ptr %1305, align 32, !tbaa !86
   %1307 = getelementptr inbounds nuw i8, ptr %.42140859, i64 80
-  store <8 x float> %1296, ptr %1307, align 1, !tbaa !86
+  store <8 x float> %1296, ptr %1307, align 16, !tbaa !86
   %1308 = getelementptr inbounds nuw i8, ptr %.42140859, i64 128
   store <8 x float> %1297, ptr %1308, align 32, !tbaa !86
   %1309 = getelementptr inbounds nuw i8, ptr %.42140859, i64 160
   %1310 = shufflevector <8 x float> %1284, <8 x float> %1286, <4 x i32> <i32 0, i32 1, i32 8, i32 9>
-  store <4 x float> %1310, ptr %1309, align 16, !tbaa !86
+  store <4 x float> %1310, ptr %1309, align 32, !tbaa !86
   %1311 = getelementptr inbounds nuw i8, ptr %.42140859, i64 192
   %1312 = shufflevector <8 x float> %1276, <8 x float> %1278, <4 x i32> <i32 2, i32 3, i32 10, i32 11>
-  store <4 x float> %1312, ptr %1311, align 16, !tbaa !86
+  store <4 x float> %1312, ptr %1311, align 32, !tbaa !86
   %1313 = getelementptr inbounds nuw i8, ptr %.42140859, i64 208
-  store <8 x float> %1298, ptr %1313, align 1, !tbaa !86
+  store <8 x float> %1298, ptr %1313, align 16, !tbaa !86
   %1314 = getelementptr inbounds nuw i8, ptr %.42140859, i64 256
   store <8 x float> %1299, ptr %1314, align 32, !tbaa !86
   %1315 = getelementptr inbounds nuw i8, ptr %.42140859, i64 288
   %1316 = shufflevector <8 x float> %1283, <8 x float> %1285, <4 x i32> <i32 4, i32 5, i32 12, i32 13>
-  store <4 x float> %1316, ptr %1315, align 16, !tbaa !86
+  store <4 x float> %1316, ptr %1315, align 32, !tbaa !86
   %1317 = getelementptr inbounds nuw i8, ptr %.42140859, i64 320
   %1318 = shufflevector <8 x float> %1275, <8 x float> %1277, <4 x i32> <i32 6, i32 7, i32 14, i32 15>
-  store <4 x float> %1318, ptr %1317, align 16, !tbaa !86
+  store <4 x float> %1318, ptr %1317, align 32, !tbaa !86
   %1319 = getelementptr inbounds nuw i8, ptr %.42140859, i64 336
-  store <8 x float> %1300, ptr %1319, align 1, !tbaa !86
+  store <8 x float> %1300, ptr %1319, align 16, !tbaa !86
   %1320 = getelementptr inbounds nuw i8, ptr %.42140859, i64 384
   store <8 x float> %1301, ptr %1320, align 32, !tbaa !86
   %1321 = getelementptr inbounds nuw i8, ptr %.42140859, i64 416
   %1322 = shufflevector <8 x float> %1284, <8 x float> %1286, <4 x i32> <i32 4, i32 5, i32 12, i32 13>
-  store <4 x float> %1322, ptr %1321, align 16, !tbaa !86
+  store <4 x float> %1322, ptr %1321, align 32, !tbaa !86
   %1323 = getelementptr inbounds nuw i8, ptr %.42140859, i64 448
   %1324 = shufflevector <8 x float> %1276, <8 x float> %1278, <4 x i32> <i32 6, i32 7, i32 14, i32 15>
-  store <4 x float> %1324, ptr %1323, align 16, !tbaa !86
+  store <4 x float> %1324, ptr %1323, align 32, !tbaa !86
   %1325 = getelementptr inbounds nuw i8, ptr %.42140859, i64 464
-  store <8 x float> %1302, ptr %1325, align 1, !tbaa !86
+  store <8 x float> %1302, ptr %1325, align 16, !tbaa !86
   %1326 = getelementptr inbounds nuw i8, ptr %.27860, i64 384
   %1327 = getelementptr inbounds float, ptr %.42140859, i64 %43
   %1328 = add nuw nsw i32 %.62149858, 12
@@ -23586,7 +23586,7 @@ define internal fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatER
   %2685 = load <4 x float>, ptr %2684, align 1, !tbaa !86
   store <8 x float> %2683, ptr %.421681032, align 32, !tbaa !86
   %2686 = getelementptr inbounds nuw i8, ptr %.421681032, i64 32
-  store <4 x float> %2685, ptr %2686, align 16, !tbaa !86
+  store <4 x float> %2685, ptr %2686, align 32, !tbaa !86
   %2687 = getelementptr inbounds nuw i8, ptr %.841034, i64 48
   %2688 = getelementptr inbounds float, ptr %.421681032, i64 %2112
   %2689 = add nuw nsw i32 %.621611033, 12

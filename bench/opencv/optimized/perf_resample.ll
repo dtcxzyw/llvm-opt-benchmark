@@ -7764,7 +7764,7 @@ _ZSt19__relocate_object_aIN7testing8internal25ParameterizedTestCaseInfoIN11openc
   store i64 %263, ptr %265, align 8, !tbaa !20, !alias.scope !307, !noalias !310
   store ptr %255, ptr %.092.i.i.i.i.i.i.i.i.i, align 8, !tbaa !17, !alias.scope !310, !noalias !307
   store i64 0, ptr %264, align 8, !tbaa !20, !alias.scope !310, !noalias !307
-  store i8 0, ptr %255, align 1, !tbaa !22, !alias.scope !310, !noalias !307
+  store i8 0, ptr %255, align 8, !tbaa !22, !alias.scope !310, !noalias !307
   %266 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i.i.i.i, i64 32
   %267 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %266, ptr noundef nonnull align 8 dereferenceable(28) %267, i64 28, i1 false), !alias.scope !312

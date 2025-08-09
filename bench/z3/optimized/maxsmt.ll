@@ -5615,7 +5615,7 @@ _ZN3refI5modelEC2EPS0_.exit:                      ; preds = %14, %_ZN3refI6solve
   %31 = getelementptr inbounds nuw i8, ptr %19, i64 48
   store i64 6, ptr %31, align 8, !tbaa !192
   %32 = getelementptr inbounds nuw i8, ptr %19, i64 62
-  store i8 0, ptr %32, align 1, !tbaa !193
+  store i8 0, ptr %32, align 2, !tbaa !193
   %33 = getelementptr inbounds nuw i8, ptr %19, i64 72
   store ptr null, ptr %33, align 8, !tbaa !168
   store ptr %19, ptr %18, align 8, !tbaa !249

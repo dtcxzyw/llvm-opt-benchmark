@@ -19,7 +19,7 @@ define hidden void @storeSomToStream(ptr noundef readonly captures(none) %0, i64
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 352
-  %14 = load i32, ptr %13, align 4
+  %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 424
@@ -617,7 +617,7 @@ define hidden void @loadSomFromStream(ptr noundef readonly captures(none) %0, i6
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 352
-  %14 = load i32, ptr %13, align 4
+  %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 424

@@ -324,7 +324,7 @@ define noundef ptr @Ssc_ManStart(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 36
   store i32 %29, ptr %30, align 4, !tbaa !44
   %31 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  %32 = load i32, ptr %31, align 4, !tbaa !44
+  %32 = load i32, ptr %31, align 8, !tbaa !44
   %33 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %34 = load i32, ptr %33, align 8, !tbaa !45
   %35 = shl i32 %32, %34

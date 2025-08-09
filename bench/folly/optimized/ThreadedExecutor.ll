@@ -10818,11 +10818,11 @@ define void @_ZN5folly16ThreadedExecutor23newDefaultThreadFactoryEv(ptr dead_on_
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %6, ptr %5, align 8, !tbaa !387, !alias.scope !476
-  store i64 7234298745917171796, ptr %6, align 1
+  store i64 7234298745917171796, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 8, ptr %7, align 8, !tbaa !394, !alias.scope !476
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store i8 0, ptr %8, align 1, !tbaa !17
+  store i8 0, ptr %8, align 8, !tbaa !17
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i64 0, ptr %9, align 8, !tbaa !75
   store ptr %4, ptr %0, align 8, !tbaa !64

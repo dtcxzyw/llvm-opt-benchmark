@@ -25630,7 +25630,7 @@ define hidden void @_PyMem_ProcessDelayed(ptr noundef readonly captures(address)
   %16 = load ptr, ptr %15, align 8, !tbaa !499
   %17 = icmp ne ptr %16, %15
   %18 = zext i1 %17 to i32
-  store atomic i32 %18, ptr %7 monotonic, align 4
+  store atomic i32 %18, ptr %7 monotonic, align 8
   %19 = cmpxchg ptr %11, i8 1, i8 0 seq_cst seq_cst, align 1
   %20 = extractvalue { i8, i1 } %19, 1
   br i1 %20, label %process_interp_queue.exit, label %21
@@ -25762,7 +25762,7 @@ define hidden void @_PyMem_ProcessDelayedNoDealloc(ptr noundef readonly captures
   %18 = load ptr, ptr %17, align 8, !tbaa !499
   %19 = icmp ne ptr %18, %17
   %20 = zext i1 %19 to i32
-  store atomic i32 %20, ptr %9 monotonic, align 4
+  store atomic i32 %20, ptr %9 monotonic, align 8
   %21 = cmpxchg ptr %13, i8 1, i8 0 seq_cst seq_cst, align 1
   %22 = extractvalue { i8, i1 } %21, 1
   br i1 %22, label %process_interp_queue.exit, label %23

@@ -360,7 +360,7 @@ define internal fastcc noundef zeroext i1 @color_filters_get(ptr noundef writeon
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 22
   store i16 %17, ptr %40, align 2
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %35, i64 24
-  store i16 %20, ptr %.sroa.4.0..sroa_idx.i, align 2
+  store i16 %20, ptr %.sroa.4.0..sroa_idx.i, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %35, i64 26
   store i16 %22, ptr %.sroa.5.0..sroa_idx.i, align 2
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 28
@@ -1119,7 +1119,7 @@ getc_unlocked.exit100:                            ; preds = %71, %73
   %118 = getelementptr inbounds nuw i8, ptr %113, i64 22
   store i16 %107, ptr %118, align 2
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %113, i64 24
-  store i16 %108, ptr %.sroa.4.0..sroa_idx, align 2
+  store i16 %108, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %113, i64 26
   store i16 %109, ptr %.sroa.5.0..sroa_idx, align 2
   %119 = getelementptr inbounds nuw i8, ptr %113, i64 28
@@ -1410,7 +1410,7 @@ define internal void @write_filter(ptr noundef readonly captures(none) %0, ptr n
   %28 = load i16, ptr %27, align 2
   %29 = zext i16 %28 to i32
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %31 = load i16, ptr %30, align 2
+  %31 = load i16, ptr %30, align 8
   %32 = zext i16 %31 to i32
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %34 = load i16, ptr %33, align 2

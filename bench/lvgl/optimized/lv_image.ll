@@ -110,7 +110,7 @@ lv_image_get_pivot.exit:                          ; preds = %15
   %21 = tail call i32 @lv_pct_to_px(i32 noundef %18, i32 noundef %20) #6
   store i32 %21, ptr %9, align 4, !tbaa !23
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 112
-  %23 = load i32, ptr %22, align 4, !tbaa !24
+  %23 = load i32, ptr %22, align 8, !tbaa !24
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 92
   %25 = load i32, ptr %24, align 4, !tbaa !18
   %26 = tail call i32 @lv_pct_to_px(i32 noundef %23, i32 noundef %25) #6
@@ -518,7 +518,7 @@ lv_image_get_pivot.exit.i:                        ; preds = %240, %240
   %251 = call i32 @lv_pct_to_px(i32 noundef %249, i32 noundef %250) #6
   store i32 %251, ptr %247, align 8, !tbaa !23
   %252 = getelementptr inbounds nuw i8, ptr %154, i64 112
-  %253 = load i32, ptr %252, align 4, !tbaa !24
+  %253 = load i32, ptr %252, align 8, !tbaa !24
   %254 = load i32, ptr %225, align 4, !tbaa !18
   %255 = call i32 @lv_pct_to_px(i32 noundef %253, i32 noundef %254) #6
   %256 = getelementptr inbounds nuw i8, ptr %5, i64 92
@@ -1013,7 +1013,7 @@ lv_image_get_pivot.exit:                          ; preds = %.loopexit
   %32 = tail call i32 @lv_pct_to_px(i32 noundef %29, i32 noundef %31) #6
   store i32 %32, ptr %4, align 4, !tbaa !23
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %34 = load i32, ptr %33, align 4, !tbaa !24
+  %34 = load i32, ptr %33, align 8, !tbaa !24
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %36 = load i32, ptr %35, align 4, !tbaa !18
   %37 = tail call i32 @lv_pct_to_px(i32 noundef %34, i32 noundef %36) #6
@@ -1103,7 +1103,7 @@ define void @lv_image_get_pivot(ptr noundef readonly captures(address_is_null) %
   %8 = tail call i32 @lv_pct_to_px(i32 noundef %5, i32 noundef %7) #6
   store i32 %8, ptr %1, align 4, !tbaa !23
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %10 = load i32, ptr %9, align 4, !tbaa !24
+  %10 = load i32, ptr %9, align 8, !tbaa !24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %12 = load i32, ptr %11, align 4, !tbaa !18
   %13 = tail call i32 @lv_pct_to_px(i32 noundef %10, i32 noundef %12) #6
@@ -1160,7 +1160,7 @@ lv_image_get_pivot.exit43:                        ; preds = %14, %6
   %23 = tail call i32 @lv_pct_to_px(i32 noundef %20, i32 noundef %22) #6
   store i32 %23, ptr %5, align 4, !tbaa !23
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %25 = load i32, ptr %24, align 4, !tbaa !24
+  %25 = load i32, ptr %24, align 8, !tbaa !24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %27 = load i32, ptr %26, align 4, !tbaa !18
   %28 = tail call i32 @lv_pct_to_px(i32 noundef %25, i32 noundef %27) #6
@@ -1204,7 +1204,7 @@ lv_image_get_pivot.exit43:                        ; preds = %14, %6
   %55 = load i32, ptr %21, align 8, !tbaa !17
   %56 = call i32 @lv_pct_to_px(i32 noundef %54, i32 noundef %55) #6
   store i32 %56, ptr %5, align 4, !tbaa !23
-  %57 = load i32, ptr %24, align 4, !tbaa !24
+  %57 = load i32, ptr %24, align 8, !tbaa !24
   %58 = load i32, ptr %26, align 4, !tbaa !18
   %59 = call i32 @lv_pct_to_px(i32 noundef %57, i32 noundef %58) #6
   store i32 %59, ptr %29, align 4, !tbaa !25
@@ -1298,7 +1298,7 @@ lv_image_get_pivot.exit:                          ; preds = %3
   %12 = tail call i32 @lv_pct_to_px(i32 noundef %9, i32 noundef %11) #6
   store i32 %12, ptr %5, align 4, !tbaa !23
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %14 = load i32, ptr %13, align 4, !tbaa !24
+  %14 = load i32, ptr %13, align 8, !tbaa !24
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %16 = load i32, ptr %15, align 4, !tbaa !18
   %17 = tail call i32 @lv_pct_to_px(i32 noundef %14, i32 noundef %16) #6

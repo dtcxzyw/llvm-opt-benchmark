@@ -1029,7 +1029,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %419 = getelementptr inbounds nuw i8, ptr %48, i64 92
   store i32 0, ptr %419, align 4, !tbaa !148
   %420 = getelementptr inbounds nuw i8, ptr %48, i64 96
-  store i32 0, ptr %420, align 4, !tbaa !148
+  store i32 0, ptr %420, align 8, !tbaa !148
   %421 = getelementptr inbounds nuw i8, ptr %48, i64 104
   %422 = load i32, ptr %52, align 4, !tbaa !114
   %423 = sext i32 %422 to i64
@@ -3512,7 +3512,7 @@ _ZL17copy_state_serialPK7t_statePS_.exit:         ; preds = %1141, %1140
   %1195 = call noundef i32 @_Z9tMPI_WaitPP9tmpi_req_P12tmpi_status_(ptr noundef nonnull %11, ptr noundef null)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %1196 = load float, ptr %1190, align 4, !tbaa !133
-  store float %1196, ptr %1159, align 4, !tbaa !133
+  store float %1196, ptr %1159, align 8, !tbaa !133
   call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.1, i32 noundef 555, ptr noundef nonnull %1190)
   %1197 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.1, i32 noundef 536, i64 noundef 1, i64 noundef 4)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -4772,7 +4772,7 @@ _ZL10print_probP8_IO_FILEPKciPf.exit93:           ; preds = %129, %_ZL9print_ind
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %.val = load i32, ptr %135, align 4, !tbaa !148
   %136 = getelementptr i8, ptr %1, i64 96
-  %.val62 = load i32, ptr %136, align 4, !tbaa !148
+  %.val62 = load i32, ptr %136, align 8, !tbaa !148
   %137 = add nsw i32 %.val62, %.val
   %fputc.i94 = call i32 @fputc(i32 10, ptr %0)
   %138 = call i64 @fwrite(ptr nonnull @.str.109, i64 4, i64 1, ptr %0)

@@ -261,7 +261,7 @@ define dso_local void @io_sq_thread_finish(ptr noundef %0) local_unnamed_addr #0
   %31 = getelementptr i8, ptr %29, i64 464
   %32 = load i32, ptr %31, align 16
   %33 = tail call i32 @llvm.umax.i32(i32 %30, i32 %32)
-  %34 = load ptr, ptr %29, align 8
+  %34 = load ptr, ptr %29, align 16
   %35 = icmp eq ptr %34, %26
   br i1 %35, label %.loopexit, label %.preheader, !llvm.loop !29
 
@@ -602,7 +602,7 @@ define dso_local i32 @io_sq_offload_create(ptr noundef %0, ptr noundef readonly 
   %120 = load ptr, ptr %119, align 8
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   store ptr %118, ptr %121, align 8
-  store ptr %120, ptr %118, align 8
+  store ptr %120, ptr %118, align 32
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   store ptr %119, ptr %122, align 8
   store volatile ptr %118, ptr %119, align 8
@@ -615,7 +615,7 @@ define dso_local i32 @io_sq_offload_create(ptr noundef %0, ptr noundef readonly 
   %126 = getelementptr i8, ptr %124, i64 464
   %127 = load i32, ptr %126, align 16
   %128 = tail call i32 @llvm.umax.i32(i32 %125, i32 %127)
-  %129 = load ptr, ptr %124, align 8
+  %129 = load ptr, ptr %124, align 16
   %130 = icmp eq ptr %129, %119
   br i1 %130, label %.loopexit, label %.preheader, !llvm.loop !29
 
@@ -1150,7 +1150,7 @@ define internal noundef i32 @io_sq_thread(ptr noundef %0) #4 align 16 {
   %251 = load ptr, ptr %250, align 16
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 36
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %252, i32 -2, ptr nonnull elementtype(i32) %252) #14, !srcloc !46
-  %253 = load ptr, ptr %249, align 8
+  %253 = load ptr, ptr %249, align 16
   %254 = icmp eq ptr %253, %36
   br i1 %254, label %.loopexit17, label %.preheader16, !llvm.loop !47
 
@@ -1184,7 +1184,7 @@ define internal noundef i32 @io_sq_thread(ptr noundef %0) #4 align 16 {
   %265 = load ptr, ptr %264, align 16
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 36
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %266, i32 1, ptr nonnull elementtype(i32) %266) #14, !srcloc !43
-  %267 = load ptr, ptr %263, align 8
+  %267 = load ptr, ptr %263, align 16
   %268 = icmp eq ptr %267, %36
   br i1 %268, label %.loopexit, label %.preheader, !llvm.loop !49
 

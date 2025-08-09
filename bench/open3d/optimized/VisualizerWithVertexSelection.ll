@@ -2134,7 +2134,7 @@ _ZNSt12__shared_ptrIKN6open3d8geometry8GeometryELN9__gnu_cxx12_Lock_policyE2EED2
   store ptr %169, ptr %168, align 8, !tbaa !117, !noalias !113
   %170 = getelementptr inbounds nuw i8, ptr %162, i64 40
   store i64 0, ptr %170, align 8, !tbaa !118, !noalias !113
-  store i8 0, ptr %169, align 1, !tbaa !18, !noalias !113
+  store i8 0, ptr %169, align 8, !tbaa !18, !noalias !113
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry10PointCloudE, i64 16), ptr %165, align 8, !tbaa !4, !noalias !113
   %171 = getelementptr inbounds nuw i8, ptr %162, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %171, i8 0, i64 96, i1 false), !noalias !113
@@ -2354,7 +2354,7 @@ _ZNSt12__shared_ptrIKN6open3d8geometry8GeometryELN9__gnu_cxx12_Lock_policyE2EED2
   store ptr %269, ptr %268, align 8, !tbaa !117, !noalias !126
   %270 = getelementptr inbounds nuw i8, ptr %262, i64 40
   store i64 0, ptr %270, align 8, !tbaa !118, !noalias !126
-  store i8 0, ptr %269, align 1, !tbaa !18, !noalias !126
+  store i8 0, ptr %269, align 8, !tbaa !18, !noalias !126
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry10PointCloudE, i64 16), ptr %265, align 8, !tbaa !4, !noalias !126
   %271 = getelementptr inbounds nuw i8, ptr %262, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %271, i8 0, i64 96, i1 false), !noalias !126
@@ -4136,7 +4136,7 @@ define void @_ZN6open3d13visualization29VisualizerWithVertexSelection14BuildUtil
   store ptr %16, ptr %15, align 8, !tbaa !117, !noalias !190
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i64 0, ptr %17, align 8, !tbaa !118, !noalias !190
-  store i8 0, ptr %16, align 1, !tbaa !18, !noalias !190
+  store i8 0, ptr %16, align 8, !tbaa !18, !noalias !190
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6open3d13visualization16SelectionPolygonE, i64 16), ptr %12, align 8, !tbaa !4, !noalias !190
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 96
@@ -4150,7 +4150,7 @@ define void @_ZN6open3d13visualization29VisualizerWithVertexSelection14BuildUtil
   store ptr %23, ptr %22, align 8, !tbaa !117, !noalias !190
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 120
   store i64 0, ptr %24, align 8, !tbaa !118, !noalias !190
-  store i8 0, ptr %23, align 1, !tbaa !18, !noalias !190
+  store i8 0, ptr %23, align 8, !tbaa !18, !noalias !190
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6open3d8geometry5ImageE, i64 16), ptr %19, align 8, !tbaa !4, !noalias !190
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %25, i8 0, i64 44, i1 false), !noalias !190
@@ -4631,7 +4631,7 @@ _ZNSt12__shared_ptrIN6open3d13visualization4glsl16GeometryRendererELN9__gnu_cxx1
   store ptr %229, ptr %228, align 8, !tbaa !117, !noalias !209
   %230 = getelementptr inbounds nuw i8, ptr %222, i64 40
   store i64 0, ptr %230, align 8, !tbaa !118, !noalias !209
-  store i8 0, ptr %229, align 1, !tbaa !18, !noalias !209
+  store i8 0, ptr %229, align 8, !tbaa !18, !noalias !209
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d13visualization16PointCloudPickerE, i64 16), ptr %225, align 8, !tbaa !4, !noalias !209
   %231 = getelementptr inbounds nuw i8, ptr %222, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %231, i8 0, i64 40, i1 false), !noalias !209
@@ -5187,7 +5187,7 @@ define noundef zeroext i1 @_ZN6open3d13visualization29VisualizerWithVertexSelect
   store ptr %9, ptr %8, align 8, !tbaa !117
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 0, ptr %10, align 8, !tbaa !118
-  store i8 0, ptr %9, align 1, !tbaa !18
+  store i8 0, ptr %9, align 8, !tbaa !18
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry22AxisAlignedBoundingBoxE, i64 16), ptr %5, align 8, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 112
@@ -5205,7 +5205,7 @@ define noundef zeroext i1 @_ZN6open3d13visualization29VisualizerWithVertexSelect
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 728
   store i32 0, ptr %17, align 8, !tbaa !235
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 736
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6open3d13visualization14ViewParametersE, i64 16), ptr %18, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6open3d13visualization14ViewParametersE, i64 16), ptr %18, align 16, !tbaa !4
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 744
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(137) %19, i8 0, i64 137, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -7033,7 +7033,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__det
   %45 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #34
   store ptr null, ptr %45, align 8, !tbaa !30
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store i32 %43, ptr %46, align 4, !tbaa !328
+  store i32 %43, ptr %46, align 8, !tbaa !328
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %48 = load i32, ptr %44, align 4, !tbaa !19
   store i32 %48, ptr %47, align 4, !tbaa !330
@@ -7217,7 +7217,7 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !30
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !19
+  %16 = load i32, ptr %15, align 8, !tbaa !19
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -45511,7 +45511,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIiiSaIiENSt8__detail9_Identity
   %44 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #34
   store ptr null, ptr %44, align 8, !tbaa !30
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store i32 %43, ptr %45, align 4, !tbaa !19
+  store i32 %43, ptr %45, align 8, !tbaa !19
   %46 = invoke ptr @_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIiLb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %41, i64 noundef %42, ptr noundef nonnull %44, i64 noundef 1)
           to label %_ZNKSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIiEEPNS1_10_Hash_nodeIiLb0EEEmRKT_m.exit unwind label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit20
 
@@ -45671,7 +45671,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !30
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !19
+  %16 = load i32, ptr %15, align 8, !tbaa !19
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
@@ -46633,7 +46633,7 @@ _ZNSt13unordered_mapIiN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESt4hashIiESt8equal_t
   store double %62, ptr %58, align 8, !tbaa !232
   %63 = load ptr, ptr %4, align 8, !tbaa !124
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 48
-  %65 = load <2 x double>, ptr %31, align 1, !tbaa !18
+  %65 = load <2 x double>, ptr %31, align 8, !tbaa !18
   %66 = load <2 x double>, ptr %1, align 8, !tbaa !18
   %67 = fadd <2 x double> %65, %66
   %68 = load double, ptr %59, align 8, !tbaa !232
@@ -47740,7 +47740,7 @@ _ZNSt10_HashtableIiSt4pairIKiN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEESaIS5_ENSt8_
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !30
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !19
+  %16 = load i32, ptr %15, align 8, !tbaa !19
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18

@@ -1195,7 +1195,7 @@ lean_dec.exit29:                                  ; preds = %34, %33, %31, %lean
   %41 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !10
   %43 = getelementptr i8, ptr %17, i64 16
-  %.val34 = load i8, ptr %43, align 1, !tbaa !16
+  %.val34 = load i8, ptr %43, align 8, !tbaa !16
   %44 = ptrtoint ptr %42 to i64
   %45 = and i64 %44, 1
   %.not46 = icmp eq i64 %45, 0
@@ -1254,11 +1254,11 @@ lean_alloc_ctor.exit42:                           ; preds = %lean_dec.exit
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 16
   store i64 0, ptr %63, align 8, !tbaa !14
-  store i32 1, ptr %59, align 4, !tbaa !4
+  store i32 1, ptr %59, align 8, !tbaa !4
   store i32 65560, ptr %62, align 4
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store ptr %42, ptr %64, align 8, !tbaa !10
-  store i8 %.val34, ptr %63, align 1, !tbaa !16
+  store i8 %.val34, ptr %63, align 8, !tbaa !16
   tail call void @lean_inc_heartbeat() #3
   %65 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #3
   %66 = icmp eq ptr %65, null
